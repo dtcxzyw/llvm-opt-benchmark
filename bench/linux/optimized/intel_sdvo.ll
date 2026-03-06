@@ -12,37 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.drm_display_mode = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, %struct.list_head, [32 x i8], i32, i32 }
 %struct.list_head = type { ptr, ptr }
 %struct.i2c_msg = type { i16, i16, i16, ptr }
-%struct.intel_sdvo_ddc = type { %struct.i2c_adapter, ptr, i8 }
-%struct.i2c_adapter = type { ptr, i32, ptr, ptr, ptr, %struct.rt_mutex, %struct.rt_mutex, i32, i32, %struct.device, i64, i32, [48 x i8], %struct.completion, %struct.mutex, %struct.list_head, ptr, ptr, ptr, ptr, ptr }
-%struct.rt_mutex = type { %struct.rt_mutex_base }
-%struct.rt_mutex_base = type { %struct.raw_spinlock, %struct.rb_root_cached, ptr }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.rb_root_cached = type { %struct.rb_root, ptr }
-%struct.rb_root = type { ptr }
-%struct.device = type { %struct.kobject, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.mutex, %struct.dev_links_info, %struct.dev_pm_info, ptr, %struct.dev_msi_info, ptr, ptr, i64, i64, ptr, ptr, %struct.list_head, ptr, %struct.dev_archdata, ptr, ptr, i32, i32, i32, %struct.spinlock, %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8 }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.dev_links_info = type { %struct.list_head, %struct.list_head, %struct.list_head, i32 }
-%struct.dev_pm_info = type { %struct.pm_message, i16, i32, %struct.spinlock, %struct.list_head, %struct.completion, ptr, i8, %struct.hrtimer, i64, %struct.work_struct, %struct.wait_queue_head, ptr, %struct.atomic_t, %struct.atomic_t, i16, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, ptr }
-%struct.pm_message = type { i32 }
-%struct.hrtimer = type { %struct.timerqueue_node, i64, ptr, ptr, i8, i8, i8, i8 }
-%struct.timerqueue_node = type { %struct.rb_node, i64 }
-%struct.rb_node = type { i64, ptr, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.atomic64_t = type { i64 }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.dev_msi_info = type { ptr, ptr }
-%struct.dev_archdata = type {}
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.intel_sdvo_tv_format = type { [6 x i8] }
 %struct.intel_sdvo_set_target_input_args = type { i8 }
 %struct.intel_sdvo_in_out_map = type { i16, i16 }
@@ -53,9 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.intel_sdvo_encode = type { i8, i8 }
 %struct.intel_sdvo_pixel_clock_range = type { i16, i16 }
 %struct.intel_sdvo_preferred_input_timing_args = type <{ i16, i16, i16, i8 }>
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.intel_sdvo_sdtv_resolution_request = type { [3 x i8] }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 %union.anon.87 = type { %struct.intel_sdvo_enhancements_reply }
 %struct.intel_sdvo_enhancements_reply = type { i16 }
 
@@ -610,7 +577,7 @@ define dso_local noundef zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 %1, i32
   br i1 %177, label %198, label %178
 
 178:                                              ; preds = %175
-  %179 = getelementptr %struct.intel_sdvo_ddc, ptr %174, i64 %176
+  %179 = getelementptr [1040 x i8], ptr %174, i64 %176
   %180 = add nuw nsw i64 %176, 1
   %181 = load ptr, ptr %32, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -731,7 +698,7 @@ define dso_local noundef zeroext i1 @intel_sdvo_init(ptr noundef %0, i32 %1, i32
 
 256:                                              ; preds = %263, %.loopexit
   %257 = phi i64 [ 0, %.loopexit ], [ %264, %263 ]
-  %258 = getelementptr %struct.intel_sdvo_ddc, ptr %255, i64 %257
+  %258 = getelementptr [1040 x i8], ptr %255, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 1032
   %260 = load i8, ptr %259, align 8
   %261 = icmp eq i8 %260, 0
@@ -2592,7 +2559,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
 
 32:                                               ; preds = %233, %21
   %33 = phi i64 [ 0, %21 ], [ %234, %233 ]
-  %34 = getelementptr i16, ptr @intel_sdvo_output_setup.probe_order, i64 %33
+  %34 = getelementptr [2 x i8], ptr @intel_sdvo_output_setup.probe_order, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, %19
   %37 = icmp eq i16 %36, 0
@@ -2843,7 +2810,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_output_setup(ptr noundef n
   %160 = getelementptr i8, ptr %135, i64 %158
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr ptr, ptr @tv_format_names, i64 %162
+  %163 = getelementptr [8 x i8], ptr @tv_format_names, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = call i32 @drm_property_add_enum(ptr noundef %159, i64 noundef %158, ptr noundef %164) #15
   %166 = add nuw nsw i64 %158, 1
@@ -3089,7 +3056,7 @@ define internal void @intel_sdvo_encoder_destroy(ptr noundef %0) #0 align 16 {
 
 3:                                                ; preds = %10, %1
   %4 = phi i64 [ 0, %1 ], [ %11, %10 ]
-  %5 = getelementptr %struct.intel_sdvo_ddc, ptr %2, i64 %4
+  %5 = getelementptr [1040 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1032
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 0
@@ -3633,7 +3600,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_read_response(ptr noundef 
 
 60:                                               ; preds = %.loopexit9
   %61 = zext nneg i8 %58 to i64
-  %62 = getelementptr ptr, ptr @cmd_status_names, i64 %61
+  %62 = getelementptr [8 x i8], ptr @cmd_status_names, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 64, ptr noundef nonnull @.str.17, ptr noundef nonnull %63) #15
   br label %67
@@ -3848,13 +3815,13 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 63:                                               ; preds = %53, %.loopexit
   %64 = phi i64 [ %54, %53 ], [ 0, %.loopexit ]
-  %65 = getelementptr %struct.anon.78, ptr @sdvo_cmd_names, i64 %64
+  %65 = getelementptr [9 x i8], ptr @sdvo_cmd_names, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, %1
   br i1 %67, label %68, label %53
 
 68:                                               ; preds = %63
-  %69 = getelementptr %struct.anon.78, ptr @sdvo_cmd_names, i64 %64
+  %69 = getelementptr [9 x i8], ptr @sdvo_cmd_names, i64 %64
   %70 = sext i32 %41 to i64
   %71 = getelementptr i8, ptr %6, i64 %70
   %72 = sub i32 64, %41
@@ -3914,7 +3881,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 102:                                              ; preds = %102, %100
   %103 = phi i64 [ 0, %100 ], [ %120, %102 ]
-  %104 = getelementptr %struct.i2c_msg, ptr %17, i64 %103
+  %104 = getelementptr [16 x i8], ptr %17, i64 %103
   store i16 %.pre23, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 2
   store i16 0, ptr %105, align 2
@@ -3942,7 +3909,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 ._crit_edge:                                      ; preds = %102, %94
   %122 = zext nneg i32 %3 to i64
-  %123 = getelementptr %struct.i2c_msg, ptr %17, i64 %122
+  %123 = getelementptr [16 x i8], ptr %17, i64 %122
   store i16 %.pre23, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
   store i16 0, ptr %124, align 2
@@ -3958,7 +3925,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   store i8 %1, ptr %130, align 1
   store i8 9, ptr %7, align 1
   %131 = zext nneg i32 %3 to i64
-  %132 = getelementptr %struct.i2c_msg, ptr %17, i64 %131
+  %132 = getelementptr [16 x i8], ptr %17, i64 %131
   %133 = getelementptr i8, ptr %132, i64 16
   store i16 %.pre23, ptr %133, align 8
   %134 = getelementptr i8, ptr %132, i64 18
@@ -3968,7 +3935,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
   %136 = getelementptr i8, ptr %132, i64 24
   store ptr %7, ptr %136, align 8
   %137 = zext nneg i32 %3 to i64
-  %138 = getelementptr %struct.i2c_msg, ptr %17, i64 %137
+  %138 = getelementptr [16 x i8], ptr %17, i64 %137
   %139 = getelementptr i8, ptr %138, i64 32
   store i16 %.pre23, ptr %139, align 8
   %140 = getelementptr i8, ptr %138, i64 34
@@ -4563,7 +4530,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @intel_sdvo_connector_init(
   %41 = add i32 %40, -4
   %42 = icmp ult i32 %41, -3
   %43 = sext i32 %40 to i64
-  %44 = getelementptr %struct.intel_sdvo_ddc, ptr %1, i64 %43
+  %44 = getelementptr [1040 x i8], ptr %1, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -640
   %46 = select i1 %42, ptr null, ptr %45
   br label %47
@@ -4833,7 +4800,7 @@ define internal i32 @intel_sdvo_connector_atomic_set_property(ptr noundef %0, pt
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %21, i64 %24
+  %.split = getelementptr [56 x i8], ptr %21, i64 %24
   %25 = getelementptr i8, ptr %.split, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 10
@@ -5454,7 +5421,7 @@ define internal i32 @intel_sdvo_get_modes(ptr noundef %0) #0 align 16 {
 
 38:                                               ; preds = %.preheader
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr %struct.drm_display_mode, ptr @sdvo_tv_modes, i64 %31
+  %40 = getelementptr [120 x i8], ptr @sdvo_tv_modes, i64 %31
   %41 = call ptr @drm_mode_duplicate(ptr noundef %39, ptr noundef %40) #15
   %42 = icmp eq ptr %41, null
   br i1 %42, label %45, label %43
@@ -5663,7 +5630,7 @@ define internal i32 @intel_sdvo_atomic_check(ptr noundef %0, ptr noundef %1) #0 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11
+  %.split = getelementptr [40 x i8], ptr %10, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %.split, i64 16
@@ -5698,7 +5665,7 @@ define internal i32 @intel_sdvo_atomic_check(ptr noundef %0, ptr noundef %1) #0 
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %.split3 = getelementptr %struct.__drm_crtcs_state, ptr %34, i64 %37
+  %.split3 = getelementptr [56 x i8], ptr %34, i64 %37
   %38 = getelementptr i8, ptr %.split3, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 10

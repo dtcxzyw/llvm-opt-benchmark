@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.rpc_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i32, i32, i32, i8 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.packet_reader = type { i32, ptr, i64, ptr, i32, i32, i32, i32, ptr, i32, i8, ptr, ptr, %struct.strbuf }
 %struct.http_get_options = type { i8, ptr, ptr, ptr, ptr, ptr }
 %struct.rpc_in_data = type { ptr, ptr, i32, %struct.check_pktline_state }
@@ -430,7 +429,7 @@ st_mult.exit.i:                                   ; preds = %108
 121:                                              ; preds = %st_mult.exit.i, %108
   %.2.i = phi i32 [ %..i, %st_mult.exit.i ], [ %.028.i, %108 ]
   %.1.i = phi ptr [ %120, %st_mult.exit.i ], [ %.025.i, %108 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %.1.i, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.1.i, i64 %indvars.iv.i
   store ptr %109, ptr %122, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -578,7 +577,7 @@ skip_prefix.exit.i:                               ; preds = %92
 .lr.ph.i.i.i:                                     ; preds = %181, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %181 ]
   %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 24), align 8, !tbaa !42
-  %184 = getelementptr inbounds nuw %struct.string_list_item, ptr %183, i64 %indvars.iv.i.i.i
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %indvars.iv.i.i.i
   %185 = load ptr, ptr %184, align 8, !tbaa !43
   %186 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %17, ptr noundef nonnull @.str.68, ptr noundef %185) #17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -638,7 +637,7 @@ skip_prefix.exit.i:                               ; preds = %92
 
 .lr.ph33.i.i.i:                                   ; preds = %219, %210
   %indvars.iv37.i.i.i = phi i64 [ 0, %210 ], [ %indvars.iv.next38.i.i.i, %219 ]
-  %213 = getelementptr inbounds nuw ptr, ptr %.1.i, i64 %indvars.iv37.i.i.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %.1.i, i64 %indvars.iv37.i.i.i
   %214 = load ptr, ptr %213, align 8, !tbaa !32
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 176
   %216 = load i8, ptr %215, align 8, !tbaa !34
@@ -692,12 +691,12 @@ skip_prefix.exit.i:                               ; preds = %92
 
 .lr.ph.i9.i.i:                                    ; preds = %227, %.lr.ph.i9.i.i
   %indvars.iv.i10.i.i = phi i64 [ %indvars.iv.next.i11.i.i, %.lr.ph.i9.i.i ], [ 0, %227 ]
-  %237 = getelementptr inbounds nuw ptr, ptr %.1.i, i64 %indvars.iv.i10.i.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.1.i, i64 %indvars.iv.i10.i.i
   %238 = load ptr, ptr %237, align 8, !tbaa !32
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = call ptr @oid_to_hex(ptr noundef nonnull %239) #17
   %241 = call ptr @xstrdup(ptr noundef %240) #17
-  %242 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv.i10.i.i
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv.i10.i.i
   store ptr %241, ptr %242, align 8, !tbaa !16
   %indvars.iv.next.i11.i.i = add nuw nsw i64 %indvars.iv.i10.i.i, 1
   %exitcond.not.i12.i.i = icmp eq i64 %indvars.iv.next.i11.i.i, %228
@@ -724,7 +723,7 @@ skip_prefix.exit.i:                               ; preds = %92
 
 .lr.ph26.i.i.i:                                   ; preds = %.lr.ph26.i.i.i, %._crit_edge.i13.i.i
   %indvars.iv31.i.i.i = phi i64 [ 0, %._crit_edge.i13.i.i ], [ %indvars.iv.next32.i.i.i, %.lr.ph26.i.i.i ]
-  %255 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv31.i.i.i
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv31.i.i.i
   %256 = load ptr, ptr %255, align 8, !tbaa !16
   call void @free(ptr noundef %256) #17
   %indvars.iv.next32.i.i.i = add nuw nsw i64 %indvars.iv31.i.i.i, 1
@@ -833,7 +832,7 @@ get_refs.exit:                                    ; preds = %276, %278
 
 292:                                              ; preds = %294, %287
   %.0811.i.i = phi i64 [ 0, %287 ], [ %295, %294 ]
-  %293 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %293 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %291, %293
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %294
 
@@ -1038,7 +1037,7 @@ skip_prefix.exit.i53:                             ; preds = %319
 .lr.ph.i.i.i61:                                   ; preds = %371, %.lr.ph.i.i.i61
   %indvars.iv.i.i.i62 = phi i64 [ %indvars.iv.next.i.i.i63, %.lr.ph.i.i.i61 ], [ 0, %371 ]
   %373 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 64), align 8, !tbaa !70
-  %374 = getelementptr inbounds nuw %struct.string_list_item, ptr %373, i64 %indvars.iv.i.i.i62
+  %374 = getelementptr inbounds nuw [16 x i8], ptr %373, i64 %indvars.iv.i.i.i62
   %375 = load ptr, ptr %374, align 8, !tbaa !43
   %376 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %11, ptr noundef nonnull @.str.115, ptr noundef %375) #17
   %indvars.iv.next.i.i.i63 = add nuw nsw i64 %indvars.iv.i.i.i62, 1
@@ -1066,7 +1065,7 @@ skip_prefix.exit.i53:                             ; preds = %319
   %387 = getelementptr inbounds nuw i8, ptr %.026.i16.i.i, i64 16
   %388 = load ptr, ptr @cas_options, align 8, !tbaa !72
   %389 = load i64, ptr getelementptr inbounds nuw (i8, ptr @cas_options, i64 8), align 8, !tbaa !73
-  %390 = getelementptr inbounds nuw %struct.string_list_item, ptr %388, i64 %389
+  %390 = getelementptr inbounds nuw [16 x i8], ptr %388, i64 %389
   %391 = icmp ult ptr %387, %390
   br i1 %391, label %.lr.ph28.i.i.i, label %.critedge.i.i.i
 
@@ -1093,7 +1092,7 @@ skip_prefix.exit.i53:                             ; preds = %319
 
 .lr.ph32.i.i.i:                                   ; preds = %.lr.ph32.i.i.i, %.lr.ph32.preheader.i.i.i
   %indvars.iv36.i.i.i = phi i64 [ 0, %.lr.ph32.preheader.i.i.i ], [ %indvars.iv.next37.i.i.i, %.lr.ph32.i.i.i ]
-  %401 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv36.i.i.i
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv36.i.i.i
   %402 = load ptr, ptr %401, align 8, !tbaa !16
   call void (ptr, ptr, ...) @packet_buf_write(ptr noundef nonnull %12, ptr noundef nonnull @.str.118, ptr noundef %402) #17
   %indvars.iv.next37.i.i.i = add nuw nsw i64 %indvars.iv36.i.i.i, 1
@@ -1149,7 +1148,7 @@ skip_prefix.exit.i53:                             ; preds = %319
 
 .lr.ph.i8.i.i:                                    ; preds = %420, %.lr.ph.i8.i.i
   %.05.i.i.i = phi i64 [ %427, %.lr.ph.i8.i.i ], [ 0, %420 ]
-  %424 = getelementptr inbounds nuw ptr, ptr %339, i64 %.05.i.i.i
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %.05.i.i.i
   %425 = load ptr, ptr %424, align 8, !tbaa !16
   %426 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %425) #17
   %427 = add nuw i64 %.05.i.i.i, 1
@@ -2649,7 +2648,7 @@ parse_git_refs.exit:                              ; preds = %172, %177
 
 194:                                              ; preds = %186
   %195 = sext i32 %192 to i64
-  %196 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %195
+  %196 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %195
   br label %200
 
 197:                                              ; preds = %186
@@ -2667,7 +2666,7 @@ parse_git_refs.exit:                              ; preds = %172, %177
 
 202:                                              ; preds = %204, %200
   %.0811.i.i = phi i64 [ 0, %200 ], [ %205, %204 ]
-  %203 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %203 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i54.i = icmp eq ptr %.0.i.ph.i, %203
   br i1 %.not.i54.i, label %.split.loop.exit9.i.i, label %204
 

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.google::protobuf::internal::EnumEntry" = type <{ %"class.google::protobuf::StringPiece", i32, [4 x i8] }>
-%"class.google::protobuf::StringPiece" = type { ptr, i64 }
-%"class.google::protobuf::internal::ExplicitlyConstructed" = type { %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>>::AlignedUnion" }
-%"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>>::AlignedUnion" = type { i64, [24 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -23,7 +19,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal15LookUpEnumValueEPKNS1_9EnumEntryEmNS0_11StringPieceEPi(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr readonly captures(address) %2, i64 %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
-  %6 = getelementptr inbounds nuw %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %1
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %1
   %.not20 = icmp eq i64 %1, 0
   br i1 %.not20, label %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit, label %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
 
@@ -31,7 +27,7 @@ _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds 
   %.017.i.i = phi ptr [ %21, %19 ], [ %0, %5 ]
   %.01116.i.i = phi i64 [ %20, %19 ], [ %1, %5 ]
   %7 = lshr i64 %.01116.i.i, 1
-  %8 = getelementptr inbounds nuw %"struct.google::protobuf::internal::EnumEntry", ptr %.017.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %.017.i.i, i64 %7
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !8
@@ -103,7 +99,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN6google8protobuf8internal14LookUpEnumNameEPKNS1_9EnumEntryEPKimi(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %2
   %6 = ptrtoint ptr %1 to i64
   %7 = icmp sgt i64 %2, 0
   br i1 %7, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
@@ -112,14 +108,14 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %.thread
   %.05.i.i = phi ptr [ %20, %.thread ], [ %1, %4 ]
   %.0114.i.i = phi i64 [ %19, %.thread ], [ %2, %4 ]
   %8 = lshr i64 %.0114.i.i, 1
-  %9 = getelementptr inbounds nuw i32, ptr %.05.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.05.i.i, i64 %8
   %.val14.i.i = load i32, ptr %9, align 4, !tbaa !16
   %10 = icmp eq i32 %.val14.i.i, -1
   br i1 %10, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i": ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i
   %11 = sext i32 %.val14.i.i to i64
-  %12 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !12
   %.fr = freeze i32 %14
@@ -145,7 +141,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %.thread
 22:                                               ; preds = %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit"
   %23 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !16
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !12
   %28 = icmp eq i32 %27, %3
@@ -174,11 +170,11 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal21InitializeEnumStringsEP
 
 .lr.ph:                                           ; preds = %4, %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9ConstructIJRKNS0_11StringPieceEEEEvDpOT_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9ConstructIJRKNS0_11StringPieceEEEEvDpOT_.exit ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw %"class.google::protobuf::internal::ExplicitlyConstructed", ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %9
+  %10 = getelementptr inbounds [24 x i8], ptr %0, i64 %9
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %11 = load ptr, ptr %10, align 8, !tbaa !24, !noalias !25

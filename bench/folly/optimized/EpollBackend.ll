@@ -255,7 +255,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ %indvars.iv.ph, %.lr.ph.outer ]
   %.089169 = phi i1 [ %.190, %112 ], [ %.089169.ph, %.lr.ph.outer ]
   %65 = load ptr, ptr %16, align 8, !tbaa !45
-  %66 = getelementptr inbounds nuw %struct.epoll_event, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [12 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load ptr, ptr %67, align 1, !tbaa !55
   %69 = icmp eq ptr %68, %20
@@ -1298,7 +1298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %60
   br i1 %99, label %100, label %_ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw %struct.epoll_event, ptr %90, i64 %87
+  %101 = getelementptr inbounds nuw [12 x i8], ptr %90, i64 %87
   %.not.i.i = icmp eq ptr %89, %101
   br i1 %.not.i.i, label %_ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit, label %102
 
@@ -1522,9 +1522,9 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %
 
 _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw %struct.epoll_event, ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !46
-  %45 = getelementptr inbounds nuw %struct.epoll_event, ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !113
   br label %46
 

@@ -381,7 +381,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
   %63 = call i64 @SDL_SeekIO_REAL(ptr noundef %62, i64 noundef 0, i32 noundef 0) #8
   %64 = load i32, ptr %51, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr ptr, ptr %57, i64 %65
+  %66 = getelementptr [8 x i8], ptr %57, i64 %65
   %67 = getelementptr i8, ptr %66, i64 8
   %68 = load ptr, ptr %31, align 8
   %69 = call i64 @SDL_ReadIO_REAL(ptr noundef %68, ptr noundef %67, i64 noundef %50) #8
@@ -392,7 +392,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
 .lr.ph91:                                         ; preds = %61, %.lr.ph91
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph91 ], [ 0, %61 ]
   %.05889 = phi ptr [ %75, %.lr.ph91 ], [ %67, %61 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   store ptr %.05889, ptr %72, align 8
   %73 = call i64 @SDL_strlen_REAL(ptr noundef %.05889) #8
   %74 = getelementptr i8, ptr %.05889, i64 %73
@@ -406,7 +406,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
 .loopexit:                                        ; preds = %.lr.ph91, %61, %58
   %79 = phi i32 [ %59, %58 ], [ %70, %61 ], [ %76, %.lr.ph91 ]
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %57, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %57, i64 %80
   store ptr null, ptr %81, align 8
   br i1 %.not, label %.cont, label %.else
 
@@ -474,7 +474,7 @@ define internal fastcc ptr @CaseFoldUtf8String(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %EncodeCodepointToUtf8.exit ]
   %.137 = phi i64 [ %.02642, %.lr.ph.preheader ], [ %69, %EncodeCodepointToUtf8.exit ]
   %.12836 = phi ptr [ %.02741, %.lr.ph.preheader ], [ %70, %EncodeCodepointToUtf8.exit ]
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 128
   br i1 %15, label %16, label %19
@@ -897,7 +897,7 @@ define hidden ptr @SDL_GetUserFolder_REAL(i32 noundef %0) local_unnamed_addr #0 
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @CachedUserFolders, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @CachedUserFolders, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -954,7 +954,7 @@ define hidden void @SDL_QuitFilesystem() local_unnamed_addr #0 {
 
 4:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.preheader ]
-  %5 = getelementptr inbounds nuw ptr, ptr @CachedUserFolders, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @CachedUserFolders, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7

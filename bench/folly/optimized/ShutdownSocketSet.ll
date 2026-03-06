@@ -8,11 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.folly::NetworkSocket" = type { i32 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"struct.folly::relaxed_atomic" = type { %"struct.folly::detail::relaxed_atomic_integral_base" }
-%"struct.folly::detail::relaxed_atomic_integral_base" = type { %"struct.folly::detail::relaxed_atomic_base" }
-%"struct.folly::detail::relaxed_atomic_base" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
 %struct.timespec = type { i64, i64 }
 %struct.linger = type { i32, i32 }
 %"struct.google::CheckOpString" = type { ptr }
@@ -140,7 +135,7 @@ define void @_ZN5folly17ShutdownSocketSet3addENS_13NetworkSocketE(ptr noundef no
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
-  %11 = getelementptr inbounds nuw %"struct.folly::relaxed_atomic", ptr %10, i64 %spec.select.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %spec.select.i
   %12 = cmpxchg ptr %11, i8 0, i8 1 monotonic monotonic, align 1
   %13 = extractvalue { i8, i1 } %12, 1
   br i1 %13, label %.critedge, label %14
@@ -234,7 +229,7 @@ define void @_ZN5folly17ShutdownSocketSet6removeENS_13NetworkSocketE(ptr noundef
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
-  %12 = getelementptr inbounds nuw %"struct.folly::relaxed_atomic", ptr %11, i64 %spec.select.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select.i
   %13 = load atomic i8, ptr %12 monotonic, align 1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %15
@@ -334,7 +329,7 @@ define noundef i32 @_ZN5folly17ShutdownSocketSet5closeENS_13NetworkSocketE(ptr n
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
-  %11 = getelementptr inbounds nuw %"struct.folly::relaxed_atomic", ptr %10, i64 %spec.select.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %spec.select.i
   %12 = load atomic i8, ptr %11 monotonic, align 1
   br label %13
 
@@ -444,7 +439,7 @@ define void @_ZN5folly17ShutdownSocketSet8shutdownENS_13NetworkSocketEb(ptr noun
 _ZN5folly6detail19relaxed_atomic_baseIhE23compare_exchange_strongERhh.exit: ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !23
-  %25 = getelementptr inbounds nuw %"struct.folly::relaxed_atomic", ptr %24, i64 %spec.select.i
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %spec.select.i
   %26 = cmpxchg ptr %25, i8 1, i8 2 monotonic monotonic, align 1
   %27 = extractvalue { i8, i1 } %26, 1
   br i1 %27, label %28, label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit
@@ -680,7 +675,7 @@ define void @_ZN5folly17ShutdownSocketSet11shutdownAllEb(ptr noundef nonnull rea
   %6 = phi i64 [ %3, %.lr.ph ], [ %14, %13 ]
   %.06 = phi i64 [ 0, %.lr.ph ], [ %15, %13 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !23
-  %8 = getelementptr inbounds nuw %"struct.folly::relaxed_atomic", ptr %7, i64 %.06
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.06
   %9 = load atomic i8, ptr %8 monotonic, align 1
   %10 = icmp eq i8 %9, 1
   br i1 %10, label %11, label %13

@@ -344,7 +344,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %.084130 = phi i32 [ 0, %.lr.ph131 ], [ %101, %94 ]
   %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.084130) #5
   %97 = load ptr, ptr %93, align 8, !tbaa !60
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %95
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   %99 = load i64, ptr %98, align 8, !tbaa !16
   %100 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %90, ptr noundef nonnull @.str.4, i32 noundef %92, ptr noundef nonnull %9, i64 noundef %99) #5
   %101 = add i32 %.084130, 1
@@ -381,7 +381,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_debug(ptr noundef %0, i64 noundef %1, 
   %.0132 = phi i32 [ 0, %.lr.ph134 ], [ %121, %114 ]
   %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.0132) #5
   %117 = load ptr, ptr %113, align 8, !tbaa !62
-  %118 = getelementptr inbounds nuw i64, ptr %117, i64 %115
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %115
   %119 = load i64, ptr %118, align 8, !tbaa !16
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %110, ptr noundef nonnull @.str.4, i32 noundef %112, ptr noundef nonnull %10, i64 noundef %119) #5
   %121 = add i32 %.0132, 1
@@ -546,7 +546,7 @@ define range(i32 -1, 1) i32 @H5EA__sblock_debug(ptr noundef %0, i64 noundef %1, 
   %.090 = phi i32 [ 0, %.lr.ph ], [ %71, %64 ]
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.34, i32 noundef %.090) #5
   %67 = load ptr, ptr %63, align 8, !tbaa !69
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
   %69 = load i64, ptr %68, align 8, !tbaa !16
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %60, ptr noundef nonnull @.str.4, i32 noundef %62, ptr noundef nonnull %10, i64 noundef %69) #5
   %71 = add i32 %.090, 1

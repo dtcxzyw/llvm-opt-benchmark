@@ -79,7 +79,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
 
 29:                                               ; preds = %26
   %30 = zext i8 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @php_quot_print_decode.hexval_tbl, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @php_quot_print_decode.hexval_tbl, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !14
   %33 = icmp ult i32 %32, 16
   br i1 %33, label %34, label %52
@@ -92,7 +92,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %37 = getelementptr inbounds nuw i8, ptr %.2104, i64 2
   %38 = load i8, ptr %37, align 1, !tbaa !4
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @php_quot_print_decode.hexval_tbl, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @php_quot_print_decode.hexval_tbl, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !14
   %42 = icmp ugt i32 %41, 15
   br i1 %42, label %43, label %44
@@ -145,7 +145,7 @@ define dso_local noundef ptr @php_quot_print_decode(ptr noundef readonly capture
   %57 = getelementptr inbounds nuw i8, ptr %.3139, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !4
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr @php_quot_print_decode.hexval_tbl, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @php_quot_print_decode.hexval_tbl, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = icmp eq i32 %61, 64
   br i1 %62, label %63, label %.preheader
@@ -268,7 +268,7 @@ define dso_local ptr @php_quot_print_encode(ptr noundef readonly captures(none) 
   %29 = tail call ptr @__ctype_b_loc() #10
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %31 = zext i8 %15 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !18
   %34 = and i16 %33, 2
   %35 = icmp ne i16 %34, 0
@@ -550,7 +550,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
   %39 = tail call ptr @__ctype_b_loc() #10
   %40 = load ptr, ptr %39, align 8, !tbaa !15
   %41 = sext i8 %34 to i64
-  %42 = getelementptr inbounds i16, ptr %40, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %40, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !18
   %44 = and i16 %43, 4096
   %.not125 = icmp eq i16 %44, 0
@@ -558,7 +558,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge132
 
 45:                                               ; preds = %38
   %46 = sext i8 %37 to i64
-  %47 = getelementptr inbounds i16, ptr %40, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %40, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !18
   %49 = and i16 %48, 4096
   %.not126 = icmp eq i16 %49, 0

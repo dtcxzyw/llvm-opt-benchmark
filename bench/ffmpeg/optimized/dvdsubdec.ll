@@ -272,7 +272,7 @@ dvdsub_parse_extradata.exit.thread:               ; preds = %13, %1, %dvdsub_par
   %137 = or disjoint i32 %136, %134
   %138 = zext i8 %132 to i32
   %139 = or disjoint i32 %137, %138
-  %140 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv.i
   store i32 %139, ptr %140, align 4, !tbaa !32
   %141 = getelementptr inbounds nuw i8, ptr %.05055.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -330,7 +330,7 @@ parse_ifo_palette.exit:                           ; preds = %62, %145
 
 158:                                              ; preds = %156, %158
   %indvars.iv = phi i64 [ 0, %156 ], [ %indvars.iv.next, %158 ]
-  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %indvars.iv
   %160 = load i32, ptr %159, align 4, !tbaa !32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.12, i32 noundef %160) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -761,17 +761,17 @@ define internal i32 @dvdsub_decode(ptr noundef %0, ptr noundef %1, ptr noundef w
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %231 = load ptr, ptr %65, align 8, !tbaa !49
-  %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv.i.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv.i.i
   %233 = load ptr, ptr %232, align 8, !tbaa !51
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   tail call void @av_freep(ptr noundef nonnull %234) #14
   %235 = load ptr, ptr %65, align 8, !tbaa !49
-  %236 = getelementptr inbounds nuw ptr, ptr %235, i64 %indvars.iv.i.i
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %indvars.iv.i.i
   %237 = load ptr, ptr %236, align 8, !tbaa !51
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 32
   tail call void @av_freep(ptr noundef nonnull %238) #14
   %239 = load ptr, ptr %65, align 8, !tbaa !49
-  %240 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv.i.i
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %indvars.iv.i.i
   tail call void @av_freep(ptr noundef %240) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %241 = load i32, ptr %66, align 4, !tbaa !50
@@ -924,7 +924,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %329 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv.i74
   %330 = load i8, ptr %329, align 1, !tbaa !29
   %331 = zext i8 %330 to i64
-  %332 = getelementptr inbounds nuw i32, ptr %69, i64 %331
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %331
   %333 = load i32, ptr %332, align 4, !tbaa !32
   %334 = and i32 %333, 16777215
   %335 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i74
@@ -932,7 +932,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %337 = zext i8 %336 to i32
   %338 = mul i32 %337, 285212672
   %339 = or disjoint i32 %338, %334
-  %340 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv.i74
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %indvars.iv.i74
   store i32 %339, ptr %340, align 4, !tbaa !32
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, 4
@@ -1009,7 +1009,7 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %379 = or disjoint i32 %374, %378
   %380 = or disjoint i32 %379, %375
   %381 = or disjoint i32 %380, %377
-  %382 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv85.i
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %indvars.iv85.i
   store i32 %381, ptr %382, align 4, !tbaa !32
   %383 = trunc i64 %indvars.iv85.i to i8
   %384 = add nuw nsw i8 %383, 1
@@ -1021,12 +1021,12 @@ reset_rects.exit.i:                               ; preds = %._crit_edge.i.i, %2
   %387 = zext i8 %367 to i64
   %388 = add nuw nsw i64 %387, 4294967295
   %389 = and i64 %388, 4294967295
-  %390 = getelementptr inbounds nuw i32, ptr %270, i64 %389
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %389
   %391 = load i32, ptr %390, align 4, !tbaa !32
   %392 = and i32 %391, 16777215
   %393 = mul i32 %361, 285212672
   %394 = or disjoint i32 %392, %393
-  %395 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv85.i
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %indvars.iv85.i
   store i32 %394, ptr %395, align 4, !tbaa !32
   br label %396
 
@@ -1089,17 +1089,17 @@ yuv_a_to_rgba.exit:                               ; preds = %278, %guess_palette
 .lr.ph.i255.i:                                    ; preds = %.preheader.i253.i, %.lr.ph.i255.i
   %indvars.iv.i256.i = phi i64 [ %indvars.iv.next.i257.i, %.lr.ph.i255.i ], [ 0, %.preheader.i253.i ]
   %412 = load ptr, ptr %65, align 8, !tbaa !49
-  %413 = getelementptr inbounds nuw ptr, ptr %412, i64 %indvars.iv.i256.i
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %indvars.iv.i256.i
   %414 = load ptr, ptr %413, align 8, !tbaa !51
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 24
   tail call void @av_freep(ptr noundef nonnull %415) #14
   %416 = load ptr, ptr %65, align 8, !tbaa !49
-  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv.i256.i
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %indvars.iv.i256.i
   %418 = load ptr, ptr %417, align 8, !tbaa !51
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   tail call void @av_freep(ptr noundef nonnull %419) #14
   %420 = load ptr, ptr %65, align 8, !tbaa !49
-  %421 = getelementptr inbounds nuw ptr, ptr %420, i64 %indvars.iv.i256.i
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %indvars.iv.i256.i
   tail call void @av_freep(ptr noundef %421) #14
   %indvars.iv.next.i257.i = add nuw nsw i64 %indvars.iv.i256.i, 1
   %422 = load i32, ptr %66, align 4, !tbaa !50
@@ -1172,17 +1172,17 @@ decode_dvd_subtitles.exit.thread.thread:          ; preds = %reset_rects.exit.i,
 .lr.ph.i57:                                       ; preds = %.preheader.i56, %.lr.ph.i57
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i59, %.lr.ph.i57 ], [ 0, %.preheader.i56 ]
   %446 = load ptr, ptr %442, align 8, !tbaa !49
-  %447 = getelementptr inbounds nuw ptr, ptr %446, i64 %indvars.iv.i58
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %indvars.iv.i58
   %448 = load ptr, ptr %447, align 8, !tbaa !51
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 24
   tail call void @av_freep(ptr noundef nonnull %449) #14
   %450 = load ptr, ptr %442, align 8, !tbaa !49
-  %451 = getelementptr inbounds nuw ptr, ptr %450, i64 %indvars.iv.i58
+  %451 = getelementptr inbounds nuw [8 x i8], ptr %450, i64 %indvars.iv.i58
   %452 = load ptr, ptr %451, align 8, !tbaa !51
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 32
   tail call void @av_freep(ptr noundef nonnull %453) #14
   %454 = load ptr, ptr %442, align 8, !tbaa !49
-  %455 = getelementptr inbounds nuw ptr, ptr %454, i64 %indvars.iv.i58
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %indvars.iv.i58
   tail call void @av_freep(ptr noundef %455) #14
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %456 = load i32, ptr %444, align 4, !tbaa !50
@@ -1252,7 +1252,7 @@ decode_dvd_subtitles.exit.thread:                 ; preds = %.critedge.i
 479:                                              ; preds = %488, %.lr.ph.i62
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i66, %488 ]
   %.0148.i = phi i32 [ 1, %.lr.ph.i62 ], [ %.1.i65, %488 ]
-  %480 = getelementptr inbounds nuw i32, ptr %477, i64 %indvars.iv.i63
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %477, i64 %indvars.iv.i63
   %481 = load i32, ptr %480, align 4, !tbaa !32
   %482 = icmp ult i32 %481, 16777216
   br i1 %482, label %483, label %485

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.evp_cipher_info_st = type { ptr, [16 x i8] }
 %struct.pem2der_pass_data_st = type { ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.pem_name_map_st = type { ptr, i32, ptr, ptr }
 
 @ossl_pem_to_der_decoder_functions = local_unnamed_addr constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @pem2der_newctx }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @pem2der_freectx }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @pem2der_decode }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str = private unnamed_addr constant [68 x i8] c"../openssl/providers/implementations/encode_decode/decode_pem2der.c\00", align 1
@@ -138,7 +137,7 @@ read_pem.exit:                                    ; preds = %7
 
 39:                                               ; preds = %37, %44
   %.02641 = phi i64 [ 0, %37 ], [ %45, %44 ]
-  %40 = getelementptr inbounds nuw %struct.pem_name_map_st, ptr @pem2der_decode.pem_name_map, i64 %.02641
+  %40 = getelementptr inbounds nuw [32 x i8], ptr @pem2der_decode.pem_name_map, i64 %.02641
   %41 = load ptr, ptr %40, align 16, !tbaa !18
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %41) #6
   %43 = icmp eq i32 %42, 0

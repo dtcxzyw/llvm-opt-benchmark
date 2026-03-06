@@ -23,9 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::_List_base<Assimp::TTUpdateInfo, std::allocator<Assimp::TTUpdateInfo>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::__cxx11::list.3" = type { %"class.std::__cxx11::_List_base.4" }
-%"class.std::__cxx11::_List_base.4" = type { %"struct.std::__cxx11::_List_base<Assimp::STransformVecInfo, std::allocator<Assimp::STransformVecInfo>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<Assimp::STransformVecInfo, std::allocator<Assimp::STransformVecInfo>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 
 $_ZN6Assimp6Logger4infoIJRA29_KcRfRA23_S2_S5_EEEvDpOT_ = comdat any
 
@@ -623,7 +620,7 @@ _ZNSt12_Vector_baseINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmRKS6_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmRKS6_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
-  %24 = getelementptr inbounds nuw %"class.std::__cxx11::list.3", ptr %19, i64 %17
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %17
   %25 = ptrtoint ptr %24 to i64
   br label %_ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmRKS6_.exit
 
@@ -677,7 +674,7 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
   %45 = phi i32 [ %27, %.lr.ph619 ], [ %51, %._crit_edge617 ]
   %indvars.iv695 = phi i64 [ 0, %.lr.ph619 ], [ %indvars.iv.next696, %._crit_edge617 ]
   %46 = load ptr, ptr %28, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv695
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv695
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
@@ -698,7 +695,7 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
 .lr.ph616:                                        ; preds = %44, %257
   %indvars.iv692 = phi i64 [ %indvars.iv.next693, %257 ], [ 0, %44 ]
   %54 = load ptr, ptr %48, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv692
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv692
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(10) @.str.11) #21
@@ -736,7 +733,7 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
   %.sroa.0521.0593 = phi ptr [ %.sroa.0521.1, %117 ], [ null, %59 ]
   %67 = load ptr, ptr %48, align 8
   %68 = zext i32 %.0204594 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1028
   %72 = load i32, ptr %71, align 4
@@ -807,9 +804,9 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %68, %99 ]
   %105 = load ptr, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.next
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.next
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv
   store ptr %107, ptr %108, align 8
   %109 = load i32, ptr %49, align 8
   %110 = zext i32 %109 to i64
@@ -893,7 +890,7 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
 135:                                              ; preds = %.lr.ph601, %135
   %indvars.iv686 = phi i64 [ 0, %.lr.ph601 ], [ %indvars.iv.next687, %135 ]
   %.0208599 = phi i32 [ 0, %.lr.ph601 ], [ %spec.select, %135 ]
-  %136 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv686
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv686
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 232
   %139 = load i32, ptr %138, align 8
@@ -915,7 +912,7 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
 .lr.ph612:                                        ; preds = %.lr.ph612.preheader, %247
   %indvars.iv689 = phi i64 [ %indvars.iv.next690, %247 ], [ 0, %.lr.ph612.preheader ]
   %144 = load ptr, ptr %41, align 8
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv689
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv689
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 232
   %148 = load i32, ptr %147, align 8
@@ -932,12 +929,12 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
 153:                                              ; preds = %150
   %154 = load i32, ptr %39, align 4
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %151, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %155
   %157 = load ptr, ptr %156, align 8
   %.not265 = icmp eq ptr %157, null
   %spec.store.select = select i1 %.not265, i32 0, i32 %154
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 176
-  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %155
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %155
   %160 = load i32, ptr %159, align 4
   %161 = icmp ugt i32 %160, 2
   br i1 %161, label %162, label %167
@@ -956,7 +953,7 @@ _ZNSt6vectorINSt7__cxx114listIN6Assimp17STransformVecInfoESaIS3_EEESaIS5_EEC2EmR
   br label %.body
 
 167:                                              ; preds = %153
-  %168 = getelementptr inbounds nuw %"class.std::__cxx11::list.3", ptr %.sroa.0534.0, i64 %indvars.iv689
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0534.0, i64 %indvars.iv689
   %.sroa.0509.0604 = load ptr, ptr %168, align 8
   %.not556605 = icmp eq ptr %.sroa.0509.0604, %168
   br i1 %.not556605, label %.loopexit574.thread, label %.lr.ph608
@@ -1199,7 +1196,7 @@ _ZN6Assimp17STransformVecInfoD2Ev.exit289:        ; preds = %.lr.ph.i.i.i286, %.
 262:                                              ; preds = %.lr.ph665, %.critedge667
   %indvars.iv709 = phi i64 [ 0, %.lr.ph665 ], [ %indvars.iv.next710, %.critedge667 ]
   %263 = load ptr, ptr %43, align 8
-  %264 = getelementptr inbounds nuw ptr, ptr %263, i64 %indvars.iv709
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %indvars.iv709
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 112
   br label %267
@@ -1207,7 +1204,7 @@ _ZN6Assimp17STransformVecInfoD2Ev.exit289:        ; preds = %.lr.ph.i.i.i286, %.
 267:                                              ; preds = %267, %262
   %indvars.iv.i = phi i64 [ 0, %262 ], [ %indvars.iv.next.i, %267 ]
   %.056.i = phi i32 [ 0, %262 ], [ %spec.select.i, %267 ]
-  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv.i
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv.i
   %269 = load ptr, ptr %268, align 8
   %.not.i = icmp ne ptr %269, null
   %270 = zext i1 %.not.i to i32
@@ -1217,7 +1214,7 @@ _ZN6Assimp17STransformVecInfoD2Ev.exit289:        ; preds = %.lr.ph.i.i.i286, %.
   br i1 %exitcond.not.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit, label %267, !llvm.loop !28
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit:             ; preds = %267
-  %271 = getelementptr inbounds nuw %"class.std::__cxx11::list.3", ptr %.sroa.0534.0, i64 %indvars.iv709
+  %271 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0534.0, i64 %indvars.iv709
   %272 = load i32, ptr %8, align 4
   %273 = add i32 %272, %spec.select.i
   store i32 %273, ptr %8, align 4
@@ -1269,7 +1266,7 @@ _ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit: ; preds = %282
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv.i295 = phi i64 [ %indvars.iv.next.i299, %.critedge ], [ 0, %.critedge.preheader ]
   %.056.i296 = phi i32 [ %spec.select.i298, %.critedge ], [ 0, %.critedge.preheader ]
-  %298 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv.i295
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv.i295
   %299 = load ptr, ptr %298, align 8
   %.not.i297 = icmp ne ptr %299, null
   %300 = zext i1 %.not.i297 to i32
@@ -1458,7 +1455,7 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
 
 360:                                              ; preds = %._crit_edge642, %360
   %indvars.iv698 = phi i64 [ 0, %._crit_edge642 ], [ %indvars.iv.next699, %360 ]
-  %361 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv698
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv698
   %362 = load ptr, ptr %361, align 8
   %.not249 = icmp eq ptr %362, null
   %363 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv698
@@ -1712,7 +1709,7 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
           to label %460 unwind label %.loopexit.split-lp
 
 460:                                              ; preds = %459, %435
-  %461 = getelementptr inbounds nuw ptr, ptr %266, i64 %415
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %415
   %462 = load ptr, ptr %461, align 8
   %.not238 = icmp eq ptr %462, null
   br i1 %.not238, label %475, label %.preheader
@@ -1779,7 +1776,7 @@ _Z13UpdateUVIndexRKNSt7__cxx114listIN6Assimp12TTUpdateInfoESaIS2_EEEj.exit: ; pr
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0470.3658, i64 36
   %490 = load i32, ptr %489, align 4
   %491 = zext i32 %490 to i64
-  %492 = getelementptr inbounds nuw ptr, ptr %13, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %491
   %493 = load ptr, ptr %492, align 8
   %.not239 = icmp eq ptr %487, %493
   br i1 %.not239, label %498, label %494

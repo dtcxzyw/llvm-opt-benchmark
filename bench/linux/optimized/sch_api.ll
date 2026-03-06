@@ -73,17 +73,12 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon.81, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon.81 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.hlist_head = type { ptr }
 %struct.tc_query_caps_base = type { i32, ptr }
 %struct.check_loop_arg = type { %struct.qdisc_walker, ptr, i32 }
 %struct.qdisc_walker = type { i32, i32, i32, ptr }
 %struct.tc_bind_class_args = type { %struct.qdisc_walker, i64, i32, i32 }
 %struct.qdisc_dump_args = type { %struct.qdisc_walker, ptr, ptr }
 %struct.tc_root_qopt_offload = type { i32, i32, i8 }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 %struct.gnet_dump = type { ptr, ptr, ptr, i32, i32, i32, ptr, i32, %struct.tc_stats }
 %struct.tc_stats = type { i64, i32, i32, i32, i32, i32, i32, i32 }
 %struct.tcf_bind_args = type { %struct.tcf_walker, i64, i64, i32 }
@@ -505,7 +500,7 @@ define dso_local void @qdisc_hash_add(ptr noundef %0, i1 noundef zeroext %1) #0 
   %25 = mul i32 %24, 1640531527
   %26 = lshr i32 %25, 28
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr %struct.hlist_head, ptr %22, i64 %27
+  %28 = getelementptr [8 x i8], ptr %22, i64 %27
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %18, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -633,7 +628,7 @@ define dso_local ptr @qdisc_lookup(ptr noundef readonly captures(none) %0, i32 n
   %27 = mul i32 %1, 1640531527
   %28 = lshr i32 %27, 28
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr %struct.hlist_head, ptr %26, i64 %29
+  %30 = getelementptr [8 x i8], ptr %26, i64 %29
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %31, i64 -40
@@ -701,7 +696,7 @@ select.unfold:                                    ; preds = %21
   %73 = mul i32 %1, 1640531527
   %74 = lshr i32 %73, 28
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr %struct.hlist_head, ptr %72, i64 %75
+  %76 = getelementptr [8 x i8], ptr %72, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   %79 = getelementptr i8, ptr %77, i64 -40
@@ -770,7 +765,7 @@ define dso_local ptr @qdisc_lookup_rcu(ptr noundef %0, i32 noundef %1) local_unn
   %27 = mul i32 %1, 1640531527
   %28 = lshr i32 %27, 28
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr %struct.hlist_head, ptr %26, i64 %29
+  %30 = getelementptr [8 x i8], ptr %26, i64 %29
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %31, i64 -40
@@ -838,7 +833,7 @@ select.unfold:                                    ; preds = %21
   %73 = mul i32 %1, 1640531527
   %74 = lshr i32 %73, 28
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr %struct.hlist_head, ptr %72, i64 %75
+  %76 = getelementptr [8 x i8], ptr %72, i64 %75
   %77 = load volatile ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   %79 = getelementptr i8, ptr %77, i64 -40
@@ -1018,10 +1013,10 @@ define internal fastcc noundef zeroext range(i8 1, 3) i8 @__detect_linklayer(ptr
 
 29:                                               ; preds = %25
   %30 = zext nneg i32 %16 to i64
-  %31 = getelementptr i32, ptr %1, i64 %30
+  %31 = getelementptr [4 x i8], ptr %1, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = zext nneg i32 %18 to i64
-  %34 = getelementptr i32, ptr %1, i64 %33
+  %34 = getelementptr [4 x i8], ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %32, %35
   br i1 %36, label %38, label %37
@@ -1153,14 +1148,14 @@ define dso_local void @__qdisc_calculate_pkt_len(ptr noundef captures(none) init
 
 26:                                               ; preds = %19
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr i16, ptr %25, i64 %27
+  %28 = getelementptr [2 x i8], ptr %25, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   br label %45
 
 31:                                               ; preds = %19
   %32 = zext nneg i32 %10 to i64
-  %33 = getelementptr i16, ptr %25, i64 %32
+  %33 = getelementptr [2 x i8], ptr %25, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -2
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
@@ -1168,7 +1163,7 @@ define dso_local void @__qdisc_calculate_pkt_len(ptr noundef captures(none) init
   %38 = mul i32 %37, %36
   %39 = urem i32 %23, %10
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr i16, ptr %25, i64 %40
+  %41 = getelementptr [2 x i8], ptr %25, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   %44 = add i32 %38, %43
@@ -1385,7 +1380,7 @@ define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr noundef capture
 
 44:                                               ; preds = %.loopexit, %42
   %45 = phi i64 [ 0, %42 ], [ %73, %.loopexit ]
-  %46 = getelementptr %struct.hlist_head, ptr %22, i64 %45
+  %46 = getelementptr [8 x i8], ptr %22, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   %49 = getelementptr i8, ptr %47, i64 -8
@@ -1404,7 +1399,7 @@ define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr noundef capture
   %59 = xor i32 %58, %57
   %60 = and i32 %59, %12
   %61 = zext i32 %60 to i64
-  %62 = getelementptr %struct.hlist_head, ptr %15, i64 %61
+  %62 = getelementptr [8 x i8], ptr %15, i64 %61
   %63 = load ptr, ptr %62, align 8
   store volatile ptr %63, ptr %53, align 8
   %64 = icmp eq ptr %63, null
@@ -1518,7 +1513,7 @@ define dso_local void @qdisc_class_hash_insert(ptr noundef captures(none) %0, pt
   %11 = and i32 %10, %6
   %12 = load ptr, ptr %0, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr %struct.hlist_head, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   store volatile ptr %15, ptr %3, align 8
   %16 = icmp eq ptr %15, null
@@ -2940,7 +2935,7 @@ define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1
   %79 = load ptr, ptr %74, align 64
   %80 = load ptr, ptr %79, align 64
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1088
-  %82 = getelementptr %struct.hlist_head, ptr %81, i64 %77
+  %82 = getelementptr [8 x i8], ptr %81, i64 %77
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   %85 = getelementptr i8, ptr %83, i64 -40
@@ -3595,7 +3590,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %96 = mul i32 %86, 1640531527
   %97 = lshr i32 %96, 28
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr %struct.hlist_head, ptr %95, i64 %98
+  %99 = getelementptr [8 x i8], ptr %95, i64 %98
   %100 = load volatile ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   %102 = getelementptr i8, ptr %100, i64 -40
@@ -3697,7 +3692,7 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %153 = load ptr, ptr %71, align 64
   %154 = load ptr, ptr %153, align 64
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 1088
-  %156 = getelementptr %struct.hlist_head, ptr %155, i64 %152
+  %156 = getelementptr [8 x i8], ptr %155, i64 %152
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
   %159 = getelementptr i8, ptr %157, i64 -40
@@ -4691,7 +4686,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
 .split.us:                                        ; preds = %122, %.split.us
   %127 = phi i64 [ %131, %.split.us ], [ 0, %122 ]
   %128 = load ptr, ptr %123, align 8
-  %129 = getelementptr %struct.netdev_queue, ptr %128, i64 %127
+  %129 = getelementptr [320 x i8], ptr %128, i64 %127
   %130 = call ptr @dev_graft_qdisc(ptr noundef %129, ptr noundef %5) #19
   call void @qdisc_put(ptr noundef %130) #19
   %131 = add nuw nsw i64 %127, 1
@@ -4701,7 +4696,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
 .split:                                           ; preds = %122, %150
   %133 = phi i64 [ %151, %150 ], [ 0, %122 ]
   %134 = load ptr, ptr %123, align 8
-  %135 = getelementptr %struct.netdev_queue, ptr %134, i64 %133
+  %135 = getelementptr [320 x i8], ptr %134, i64 %133
   %136 = call ptr @dev_graft_qdisc(ptr noundef %135, ptr noundef %5) #19
   %.not31 = icmp eq i64 %133, 0
   br i1 %.not31, label %150, label %137
@@ -5370,7 +5365,7 @@ define internal fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %1
   %116 = load ptr, ptr %104, align 8
   %117 = ptrtoint ptr %116 to i64
   %118 = and i64 %112, 63
-  %119 = getelementptr i64, ptr @__per_cpu_offset, i64 %118
+  %119 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %118
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, %117
   %122 = inttoptr i64 %121 to ptr

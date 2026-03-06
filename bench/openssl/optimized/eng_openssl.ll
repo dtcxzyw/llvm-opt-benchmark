@@ -176,7 +176,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @openssl_ciphers(ptr rea
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @test_cipher_nids.pos, align 4, !tbaa !10
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr @test_cipher_nids.cipher_nids, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @test_cipher_nids.cipher_nids, i64 %12
   store i32 %9, ptr %13, align 4, !tbaa !10
   br label %14
 
@@ -195,14 +195,14 @@ define internal range(i32 -2147483647, -2147483648) i32 @openssl_ciphers(ptr rea
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr @test_cipher_nids.pos, align 4, !tbaa !10
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds i32, ptr @test_cipher_nids.cipher_nids, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr @test_cipher_nids.cipher_nids, i64 %20
   store i32 %17, ptr %21, align 4, !tbaa !10
   br label %22
 
 22:                                               ; preds = %16, %._crit_edge.i
   %23 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %19, %16 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr @test_cipher_nids.cipher_nids, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr @test_cipher_nids.cipher_nids, i64 %24
   store i32 0, ptr %25, align 4, !tbaa !10
   store i1 true, ptr @test_cipher_nids.init, align 4
   br label %test_cipher_nids.exit
@@ -270,14 +270,14 @@ define internal range(i32 -2147483647, -2147483648) i32 @openssl_digests(ptr rea
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @test_digest_nids.pos, align 4, !tbaa !10
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr @test_digest_nids.digest_nids, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @test_digest_nids.digest_nids, i64 %12
   store i32 %9, ptr %13, align 4, !tbaa !10
   br label %14
 
 14:                                               ; preds = %8, %._crit_edge.i
   %15 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %8 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr @test_digest_nids.digest_nids, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr @test_digest_nids.digest_nids, i64 %16
   store i32 0, ptr %17, align 4, !tbaa !10
   store i1 true, ptr @test_digest_nids.init, align 4
   br label %test_digest_nids.exit

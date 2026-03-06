@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.t_rgb = type { double, double, double }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -97,7 +96,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString5Fonts(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -251,7 +250,7 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
 
 .lr.ph:                                           ; preds = %4, %29
   %.02842 = phi i64 [ %30, %29 ], [ 0, %4 ]
-  %18 = getelementptr inbounds nuw %struct.t_rgb, ptr %9, i64 %.02842
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.02842
   %19 = load double, ptr %18, align 8, !tbaa !36
   %20 = fcmp oeq double %19, %15
   br i1 %20, label %21, label %29
@@ -357,7 +356,7 @@ _ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.
 _ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %65, %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %60, ptr %6, align 8, !tbaa !35
   store ptr %64, ptr %7, align 8, !tbaa !34
-  %66 = getelementptr inbounds nuw %struct.t_rgb, ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %58
   store ptr %66, ptr %43, align 8, !tbaa !43
   br label %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
 
@@ -681,7 +680,7 @@ define void @_Z7ps_fontP8t_psdata5Fontsf(ptr noundef readonly captures(none) %0,
   %.0 = phi i32 [ 0, %5 ], [ %1, %3 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !9
   %10 = sext i32 %.0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.46, ptr noundef %12) #18
   %14 = load ptr, ptr %0, align 8, !tbaa !9

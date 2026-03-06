@@ -197,7 +197,7 @@ define dso_local void @power_supply_init_attrs(ptr noundef writeonly captures(no
 
 3:                                                ; preds = %.loopexit, %1
   %4 = phi i64 [ 0, %1 ], [ %31, %.loopexit ]
-  %5 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %4
+  %5 = getelementptr [88 x i8], ptr @power_supply_attrs, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %13
@@ -235,7 +235,7 @@ define dso_local void @power_supply_init_attrs(ptr noundef writeonly captures(no
   store ptr @power_supply_show_property, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @power_supply_store_property, ptr %29, align 8
-  %30 = getelementptr ptr, ptr @__power_supply_attrs, i64 %4
+  %30 = getelementptr [8 x i8], ptr @__power_supply_attrs, i64 %4
   store ptr %26, ptr %30, align 8
   %31 = add nuw nsw i64 %4, 1
   %32 = icmp eq i64 %31, 76
@@ -311,7 +311,7 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   %35 = getelementptr i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %32 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %39) #9
   %41 = sext i32 %40 to i64
@@ -342,13 +342,13 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   %53 = phi i8 [ 0, %48 ], [ %65, %50 ]
   %54 = phi i64 [ 0, %48 ], [ %68, %50 ]
   %55 = load ptr, ptr %49, align 8
-  %56 = getelementptr i32, ptr %55, i64 %51
+  %56 = getelementptr [4 x i8], ptr %55, i64 %51
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %4, align 8
   %59 = icmp eq i32 %58, %57
   %60 = trunc i64 %54 to i32
   %61 = zext i32 %57 to i64
-  %62 = getelementptr ptr, ptr @POWER_SUPPLY_USB_TYPE_TEXT, i64 %61
+  %62 = getelementptr [8 x i8], ptr @POWER_SUPPLY_USB_TYPE_TEXT, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = select i1 %59, ptr @.str.3, ptr @.str.4
   %65 = select i1 %59, i8 1, i8 %53
@@ -497,7 +497,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
 31:                                               ; preds = %22
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @power_supply_attrs, i64 5704), align 8
   %33 = zext nneg i32 %26 to i64
-  %34 = getelementptr ptr, ptr %32, i64 %33
+  %34 = getelementptr [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef nonnull %20, ptr noundef nonnull @.str.134, ptr noundef %35) #9
   br label %39
@@ -563,17 +563,17 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %67 = phi i32 [ %55, %.thread19 ], [ 0, %.thread ]
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr i32, ptr %69, i64 %66
+  %70 = getelementptr [4 x i8], ptr %69, i64 %66
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %72) #9, !srcloc !14
   %73 = load ptr, ptr %5, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr i32, ptr %75, i64 %66
+  %76 = getelementptr [4 x i8], ptr %75, i64 %66
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
-  %79 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %78
+  %79 = getelementptr [88 x i8], ptr @power_supply_attrs, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %20)
   %82 = trunc i64 %81 to i32
@@ -604,7 +604,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
 93:                                               ; preds = %.thread22, %63
   %94 = phi i64 [ 0, %63 ], [ %121, %.thread22 ]
   %95 = phi i32 [ 0, %63 ], [ %120, %.thread22 ]
-  %96 = getelementptr i32, ptr @power_supply_battery_info_properties, i64 %94
+  %96 = getelementptr [4 x i8], ptr @power_supply_battery_info_properties, i64 %94
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
   %99 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %98) #9, !srcloc !15
@@ -619,7 +619,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   br i1 %104, label %105, label %.thread22
 
 105:                                              ; preds = %102
-  %106 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %98
+  %106 = getelementptr [88 x i8], ptr @power_supply_attrs, i64 %98
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef nonnull %107, ptr noundef nonnull %20)
   %109 = trunc i64 %108 to i32
@@ -699,7 +699,7 @@ define dso_local i64 @power_supply_charge_behaviour_show(ptr noundef %0, i32 nou
   %16 = select i1 %15, i8 1, i8 %10
   %17 = select i1 %15, ptr @.str.3, ptr @.str.4
   %18 = trunc i64 %9 to i32
-  %19 = getelementptr ptr, ptr @POWER_SUPPLY_CHARGE_BEHAVIOUR_TEXT, i64 %8
+  %19 = getelementptr [8 x i8], ptr @POWER_SUPPLY_CHARGE_BEHAVIOUR_TEXT, i64 %8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %3, i32 noundef %18, ptr noundef nonnull %17, ptr noundef %20) #9
   %22 = sext i32 %21 to i64
@@ -764,7 +764,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr %struct.power_supply_attr, ptr @power_supply_attrs, i64 %6
+  %7 = getelementptr [88 x i8], ptr @power_supply_attrs, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
@@ -794,7 +794,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %21 = phi i64 [ %19, %17 ], [ 0, %.preheader.preheader ]
   %22 = phi i32 [ %18, %17 ], [ 0, %.preheader.preheader ]
-  %23 = getelementptr i32, ptr %.pre, i64 %21
+  %23 = getelementptr [4 x i8], ptr %.pre, i64 %21
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %2
   br i1 %25, label %26, label %17

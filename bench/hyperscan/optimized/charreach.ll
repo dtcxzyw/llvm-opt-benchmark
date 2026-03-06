@@ -29,7 +29,7 @@ define hidden void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_
   %9 = and i64 %8, 63
   %10 = shl nuw i64 1, %9
   %11 = lshr i64 %8, 6
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = or i64 %10, %13
   store i64 %14, ptr %12, align 8
@@ -57,7 +57,7 @@ _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %2
 
 .preheader:                                       ; preds = %_ZNK3ue29CharReach4noneEv.exit, %6
   %.0712.i.i = phi i64 [ %7, %6 ], [ 0, %_ZNK3ue29CharReach4noneEv.exit ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %5 = load i64, ptr %4, align 8
   %.not.i.i10 = icmp eq i64 %5, 0
   br i1 %.not.i.i10, label %6, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -96,7 +96,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   br label %25
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %20 = load i64, ptr %19, align 8
   %21 = shl nsw i64 -2, %17
   %22 = and i64 %20, %21
@@ -114,7 +114,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
 
 27:                                               ; preds = %25
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %29 = load i64, ptr %28, align 8
   %.not22.i.i = icmp eq i64 %29, 0
   br i1 %.not22.i.i, label %25, label %30, !llvm.loop !7
@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr nound
 
 .preheader:                                       ; preds = %1, %18
   %.0712.i.i = phi i64 [ %19, %18 ], [ 0, %1 ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %17 = load i64, ptr %16, align 8
   %.not.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i, label %18, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -202,7 +202,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
 
 31:                                               ; preds = %30
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %32 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %33 = load i64, ptr %32, align 8
   %.not22.i.i = icmp eq i64 %33, 0
   br i1 %.not22.i.i, label %30, label %34, !llvm.loop !7
@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach17isBit5InsensitiveEv(ptr no
 
 2:                                                ; preds = %5, %1
   %.0712.i.i = phi i64 [ 0, %1 ], [ %6, %5 ]
-  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %5, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -255,7 +255,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
 
 .lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %10 = and i64 %.0712.i.i, 3
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = xor i64 %8, 32
   %14 = shl nuw i64 1, %13
@@ -278,7 +278,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
   br label %26
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
   %21 = load i64, ptr %20, align 8
   %22 = shl nsw i64 -2, %16
   %23 = and i64 %21, %22
@@ -296,7 +296,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
 
 28:                                               ; preds = %26
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %29 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %30 = load i64, ptr %29, align 8
   %.not22.i.i = icmp eq i64 %30, 0
   br i1 %.not22.i.i, label %26, label %31, !llvm.loop !7
@@ -312,7 +312,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %24, %31
   %34 = or disjoint i64 %33, %.sink34
   %35 = lshr exact i64 %.sink34, 6
   %36 = and i64 %35, 3
-  %37 = getelementptr inbounds nuw i64, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = xor i64 %33, 32
   %40 = shl nuw i64 1, %39
@@ -336,7 +336,7 @@ define hidden void @_ZNK3ue29CharReach9to_stringB5cxx11Ev(ptr dead_on_unwind noa
 
 5:                                                ; preds = %8, %2
   %.0712.i.i = phi i64 [ 0, %2 ], [ %9, %8 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %.0712.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0712.i.i
   %7 = load i64, ptr %6, align 8
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %8, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -416,7 +416,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %43
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %34
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %34
   %38 = load i64, ptr %37, align 8
   %39 = shl nsw i64 -2, %35
   %40 = and i64 %38, %39
@@ -434,7 +434,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 45:                                               ; preds = %43
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %46 = getelementptr inbounds nuw i64, ptr %1, i64 %.0.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0.i.i
   %47 = load i64, ptr %46, align 8
   %.not22.i.i = icmp eq i64 %47, 0
   br i1 %.not22.i.i, label %43, label %48, !llvm.loop !7
@@ -580,7 +580,7 @@ define hidden void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef captures(
 3:                                                ; preds = %1, %24
   %indvars.iv = phi i64 [ 65, %1 ], [ %indvars.iv.next, %24 ]
   %4 = lshr i64 %indvars.iv, 6
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %indvars.iv, 63
   %8 = shl nuw i64 1, %7
@@ -599,7 +599,7 @@ define hidden void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef captures(
 11:                                               ; preds = %3
   %12 = lshr i64 %10, 6
   %13 = and i64 %12, 3
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %10, 63
   %17 = shl nuw i64 1, %16
@@ -612,7 +612,7 @@ define hidden void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef captures(
   %.pre-phi19 = phi i64 [ %.pre18, %._crit_edge ], [ %17, %11 ]
   %20 = or i64 %6, %8
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi21
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi21
   %22 = load i64, ptr %21, align 8
   %23 = or i64 %22, %.pre-phi19
   store i64 %23, ptr %21, align 8
@@ -718,7 +718,7 @@ define hidden void @_ZN3ue214fill_bitvectorERKNS_9CharReachEPh(ptr noundef nonnu
 
 3:                                                ; preds = %6, %2
   %.0712.i.i = phi i64 [ 0, %2 ], [ %7, %6 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %5 = load i64, ptr %4, align 8
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %6, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -761,7 +761,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %3
   br label %27
 
 20:                                               ; preds = %.lr.ph38
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %18
   %22 = load i64, ptr %21, align 8
   %23 = shl nsw i64 -2, %19
   %24 = and i64 %22, %23
@@ -779,7 +779,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %3
 
 29:                                               ; preds = %27
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %31 = load i64, ptr %30, align 8
   %.not22.i.i = icmp eq i64 %31, 0
   br i1 %.not22.i.i, label %27, label %32, !llvm.loop !7
@@ -811,7 +811,7 @@ define hidden void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef
 
 4:                                                ; preds = %7, %3
   %.0712.i.i = phi i64 [ 0, %3 ], [ %8, %7 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %7, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -860,7 +860,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   br label %28
 
 21:                                               ; preds = %.lr.ph58
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %23 = load i64, ptr %22, align 8
   %24 = shl nsw i64 -2, %20
   %25 = and i64 %23, %24
@@ -878,7 +878,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
 
 30:                                               ; preds = %28
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %31 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %32 = load i64, ptr %31, align 8
   %.not22.i.i = icmp eq i64 %32, 0
   br i1 %.not22.i.i, label %28, label %33, !llvm.loop !7

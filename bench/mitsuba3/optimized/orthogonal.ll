@@ -643,7 +643,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit._Z
 
 96:                                               ; preds = %96, %.lr.ph.i69.split.us
   %.029.i.us = phi i64 [ 0, %.lr.ph.i69.split.us ], [ %98, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %87, i64 %.029.i.us
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.029.i.us
   store i32 %95, ptr %97, align 4, !noalias !8
   %98 = add nuw nsw i64 %.029.i.us, 1
   %exitcond104.not = icmp eq i64 %98, %85
@@ -655,7 +655,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit._Z
   %.02627.i = phi i32 [ %109, %.lr.ph.i69.split ], [ %.0.i, %.lr.ph.i69 ]
   %99 = mul i32 %.02627.i, %.pre.i
   %100 = sub i32 %.01828.i, %99
-  %101 = getelementptr inbounds nuw i32, ptr %87, i64 %.029.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.029.i
   store i32 %100, ptr %101, align 4, !noalias !8
   %102 = zext i32 %.02627.i to i64
   %103 = mul nuw i64 %102, %91
@@ -677,7 +677,7 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit._Z
   %.068.i = phi i32 [ %115, %.lr.ph.i71 ], [ 0, %.lr.ph.i71.preheader ]
   %111 = add i64 %.09.i, -1
   %112 = mul i32 %.068.i, %2
-  %113 = getelementptr inbounds i32, ptr %87, i64 %111
+  %113 = getelementptr inbounds [4 x i8], ptr %87, i64 %111
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, %112
   %.not.i72 = icmp eq i64 %111, 0
@@ -1651,7 +1651,7 @@ define weak_odr void @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8Spectru
   %9 = shl nuw nsw i64 %6, 2
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #18
   store ptr %10, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %6
   store ptr %11, ptr %7, align 8
   %12 = getelementptr i8, ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %10, i8 0, i64 %9, i1 false)
@@ -1675,7 +1675,7 @@ define weak_odr void @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8Spectru
   %.02627 = phi i32 [ %2, %.lr.ph ], [ %.019, %35 ]
   %23 = mul i32 %.pre, %.02627
   %24 = sub i32 %.01828, %23
-  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %.029
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.029
   store i32 %24, ptr %25, align 4
   br i1 %17, label %35, label %26
 
@@ -1720,7 +1720,7 @@ define weak_odr noundef i32 @_ZN7mitsuba17OrthogonalSamplerIfN5drjit6MatrixINS_8
   %.068 = phi i32 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %11 = add i64 %.09, -1
   %12 = mul i32 %.068, %2
-  %13 = getelementptr inbounds i32, ptr %6, i64 %11
+  %13 = getelementptr inbounds [4 x i8], ptr %6, i64 %11
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, %12
   %.not = icmp eq i64 %11, 0
@@ -2061,7 +2061,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -2619,7 +2619,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -2712,7 +2712,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8

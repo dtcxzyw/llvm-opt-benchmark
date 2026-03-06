@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.232 = type { i32 }
 %"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.233" }
 %"class.llvm::ArrayRef.233" = type { ptr, i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -468,12 +467,12 @@ _ZN12_GLOBAL__N_119AArch64CondBrTuning13getOperandDefERKN4llvm14MachineOperandE.
   %78 = load ptr, ptr %77, align 8, !tbaa !175
   %79 = call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %46) #12
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %77, align 8, !tbaa !175
   %83 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %84 = load i24, ptr %83, align 8
   %85 = zext i24 %84 to i64
-  %86 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %82, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %85
   %.not3456.i = icmp eq ptr %81, %86
   br i1 %.not3456.i, label %_ZN12_GLOBAL__N_119AArch64CondBrTuning20convertToFlagSettingERN4llvm12MachineInstrEbb.exit, label %.lr.ph58.i
 
@@ -544,7 +543,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit.i34: ; preds = %_ZN4llv
   %116 = load ptr, ptr %115, align 8, !tbaa !179
   %117 = zext i32 %101 to i64
   %118 = sub nsw i64 0, %117
-  %119 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %116, i64 %118
+  %119 = getelementptr inbounds [32 x i8], ptr %116, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %46, i64 44
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 4

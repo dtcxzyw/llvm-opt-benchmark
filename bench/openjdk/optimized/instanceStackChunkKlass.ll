@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.stackChunkHandle = type { %class.Handle }
 %class.Handle = type { ptr }
 %class.StackChunkFrameStream.32 = type { ptr, ptr, ptr, ptr, ptr }
-%class.ImmutableOopMapPair = type { i32, i32 }
 %class.StackChunkOopIterateFilterClosure = type { %class.OopClosure, ptr, %class.MemRegion }
 %class.OopClosure = type { ptr }
 %class.OopMapStream = type <{ %class.CompressedReadStream, i32, i32, i8, i8, %class.OopMapValue, [2 x i8] }>
@@ -766,7 +765,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm286790EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #9
@@ -1077,7 +1076,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1091,7 +1090,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1131,7 +1130,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1157,7 +1156,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55
@@ -1471,7 +1470,7 @@ define linkonce_odr hidden void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkF
   %13 = inttoptr i64 %12 to ptr
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %9, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %9, i64 %15
   store ptr %16, ptr %3, align 8
   %17 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
   %18 = sext i32 %17 to i64
@@ -1479,7 +1478,7 @@ define linkonce_odr hidden void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkF
   %20 = inttoptr i64 %19 to ptr
   %21 = load volatile i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i64, ptr %9, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %9, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1591,7 +1590,7 @@ _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames0E11RegisterMapEEbRK
   %73 = load i32, ptr %72, align 4
   %74 = load ptr, ptr %24, align 8
   %75 = sext i32 %73 to i64
-  %76 = getelementptr inbounds i64, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   store ptr %76, ptr %24, align 8
   store ptr null, ptr %25, align 8
   %77 = load ptr, ptr %3, align 8
@@ -1687,7 +1686,7 @@ _ZN31DoMethodsStackChunkFrameClosure8do_frameIL11ChunkFrames0E16SmallRegisterMap
   %115 = getelementptr inbounds nuw i8, ptr %.pr34, i64 44
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i64, ptr %111, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %111, i64 %117
   store ptr %118, ptr %24, align 8
   store ptr null, ptr %25, align 8
   %.not.i4.i23 = icmp ult ptr %118, %110
@@ -1761,7 +1760,7 @@ define linkonce_odr hidden void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2E
   %11 = inttoptr i64 %10 to ptr
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %7, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %7, i64 %13
   store ptr %14, ptr %0, align 8
   %15 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
   %16 = sext i32 %15 to i64
@@ -1769,7 +1768,7 @@ define linkonce_odr hidden void @_ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2E
   %18 = inttoptr i64 %17 to ptr
   %19 = load volatile i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i64, ptr %7, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %7, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1851,10 +1850,10 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
   %59 = getelementptr inbounds i8, ptr %45, i64 -16
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i64, ptr %61, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread: ; preds = %47, %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE6get_cbEv.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit
@@ -1939,10 +1938,10 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
   %27 = getelementptr inbounds i8, ptr %13, i64 -16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i64, ptr %27, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -56
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i64, ptr %29, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.not6.i = icmp ult ptr %33, %14
   br i1 %.not6.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit.i, label %34
@@ -1955,7 +1954,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i: ; p
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit.i: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i
   %36 = getelementptr inbounds i8, ptr %29, i64 -8
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i64, ptr %29, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %29, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -1972,7 +1971,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread: ; p
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = getelementptr inbounds i8, ptr %14, i64 -16
   %.not = icmp ult ptr %46, %47
   %spec.store.select = select i1 %.not, ptr %46, ptr %14
@@ -2002,10 +2001,10 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10: ; preds 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10
   %60 = getelementptr inbounds i8, ptr %spec.store.select, i64 -16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -16
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i64, ptr %62, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %62, i64 %64
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10.thread: ; preds = %48, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit
@@ -2169,10 +2168,10 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit: ; preds = 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit
   %26 = getelementptr inbounds i8, ptr %12, i64 -16
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -56
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i64, ptr %28, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %28, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.not6.i = icmp ult ptr %32, %13
   br i1 %.not6.i, label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit.i, label %33
@@ -2185,7 +2184,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i: ; p
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit.i: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE12derelativizeEi.exit.thread.i
   %35 = getelementptr inbounds i8, ptr %28, i64 -8
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i64, ptr %28, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %28, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -2202,7 +2201,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread: ; p
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i64, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = getelementptr inbounds i8, ptr %13, i64 -16
   %.not = icmp ult ptr %45, %46
   %spec.store.select = select i1 %.not, ptr %45, ptr %13
@@ -2232,10 +2231,10 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10: ; preds 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit: ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10
   %59 = getelementptr inbounds i8, ptr %spec.store.select, i64 -16
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -16
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i64, ptr %61, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10.thread
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10.thread: ; preds = %47, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit10, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE35unextended_sp_for_interpreter_frameEv.exit
@@ -2492,7 +2491,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i15:    ; preds = %_ZNK21StackChunkFra
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = zext nneg i32 %.0 to i64
-  %88 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = load i32, ptr %85, align 4
@@ -2572,7 +2571,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %_ZNK21StackChunkFra
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = zext nneg i32 %24 to i64
-  %30 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %27, align 4
@@ -2646,7 +2645,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i: ; preds 
 
 24:                                               ; preds = %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i
   %25 = load i64, ptr %14, align 8
-  %26 = getelementptr inbounds i64, ptr %14, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %14, i64 %25
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE2fpEv.exit
 
 _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.thread.i: ; preds = %11, %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE14is_interpretedEv.exit.i
@@ -2792,7 +2791,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i.i: ; preds = %12
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = zext nneg i32 %21 to i64
-  %28 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %25, align 4
@@ -2841,7 +2840,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit: ; preds = %_ZN21St
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   store ptr %54, ptr %51, align 8
   br i1 %2, label %96, label %55
 
@@ -3064,7 +3063,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i12:    ; preds = %_ZNK21StackChunkFra
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = zext nneg i32 %.0 to i64
-  %63 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %60, align 4
@@ -3276,7 +3275,7 @@ define linkonce_odr hidden void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkF
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %11, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %11, i64 %17
   store ptr %18, ptr %5, align 8
   %19 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
   %20 = sext i32 %19 to i64
@@ -3284,7 +3283,7 @@ define linkonce_odr hidden void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkF
   %22 = inttoptr i64 %21 to ptr
   %23 = load volatile i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %11, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %11, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3428,7 +3427,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i7: ; preds = %80, 
   %86 = load i32, ptr %85, align 4
   %87 = load ptr, ptr %26, align 8
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %87, i64 %88
   store ptr %89, ptr %26, align 8
   store ptr null, ptr %27, align 8
   %90 = load ptr, ptr %5, align 8
@@ -3554,7 +3553,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i26: ; preds = %130
   %136 = load i32, ptr %135, align 4
   %137 = load ptr, ptr %26, align 8
   %138 = sext i32 %136 to i64
-  %139 = getelementptr inbounds i64, ptr %137, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %137, i64 %138
   store ptr %139, ptr %26, align 8
   store ptr null, ptr %27, align 8
   %140 = load ptr, ptr %5, align 8
@@ -3878,7 +3877,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %_ZNK21StackChunkFra
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = zext nneg i32 %48 to i64
-  %55 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %52, align 4
@@ -3946,7 +3945,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %76, %_ZN12OopMapStr
 90:                                               ; preds = %80
   %91 = sdiv i32 %87, 64
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i64, ptr %72, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %72, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = srem i32 %87, 64
   %96 = zext nneg i32 %95 to i64
@@ -3957,7 +3956,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %76, %_ZN12OopMapStr
 
 99:                                               ; preds = %90
   %100 = sext i32 %87 to i64
-  %101 = getelementptr inbounds ptr, ptr %2, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %2, i64 %100
   %102 = load ptr, ptr %101, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -3979,7 +3978,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI11RegisterMapEEPvP9VMR
   %113 = load ptr, ptr %73, align 8
   %.not.i.i.i.i.i10 = icmp uge ptr %111, %113
   %114 = load i64, ptr %74, align 8
-  %115 = getelementptr inbounds ptr, ptr %113, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %113, i64 %114
   %116 = icmp ult ptr %111, %115
   %117 = select i1 %.not.i.i.i.i.i10, i1 %116, i1 false
   br i1 %112, label %118, label %124
@@ -4020,7 +4019,7 @@ define linkonce_odr hidden void @_ZN33StackChunkOopIterateFilterClosureI17OopIte
   %.not.i.i = icmp uge ptr %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i.i, i1 %8, i1 false
   br i1 %9, label %10, label %_ZN33StackChunkOopIterateFilterClosureI17OopIterateClosureE11do_oop_workIP7oopDescEEvPT_.exit
@@ -4044,7 +4043,7 @@ define linkonce_odr hidden void @_ZN33StackChunkOopIterateFilterClosureI17OopIte
   %.not.i.i = icmp uge ptr %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i.i, i1 %8, i1 false
   br i1 %9, label %10, label %_ZN33StackChunkOopIterateFilterClosureI17OopIterateClosureE11do_oop_workI9narrowOopEEvPT_.exit
@@ -4158,7 +4157,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %_ZNK21StackChunkFra
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = zext nneg i32 %48 to i64
-  %55 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %52, align 4
@@ -4241,7 +4240,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE10reg_to_locI16SmallRegisterMapEEPv
   %100 = load ptr, ptr %72, align 8
   %.not.i.i.i.i.i10 = icmp uge ptr %98, %100
   %101 = load i64, ptr %73, align 8
-  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %100, i64 %101
   %103 = icmp ult ptr %98, %102
   %104 = select i1 %.not.i.i.i.i.i10, i1 %103, i1 false
   br i1 %99, label %105, label %111
@@ -4306,7 +4305,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = zext nneg i32 %17 to i64
-  %24 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %21, align 4
@@ -4374,7 +4373,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %45, %_ZN12OopMapStr
 59:                                               ; preds = %49
   %60 = sdiv i32 %56, 64
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i64, ptr %41, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %41, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = srem i32 %56, 64
   %65 = zext nneg i32 %64 to i64
@@ -4385,7 +4384,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %45, %_ZN12OopMapStr
 
 68:                                               ; preds = %59
   %69 = sext i32 %56 to i64
-  %70 = getelementptr inbounds ptr, ptr %2, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %2, i64 %69
   %71 = load ptr, ptr %70, align 8
   br label %_ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMRegImplPKT_.exit
 
@@ -4407,7 +4406,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE10reg_to_locI11RegisterMapEEPvP9VMR
   %82 = load ptr, ptr %42, align 8
   %.not.i.i.i.i.i = icmp uge ptr %80, %82
   %83 = load i64, ptr %43, align 8
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   %85 = icmp ult ptr %80, %84
   %86 = select i1 %.not.i.i.i.i.i, i1 %85, i1 false
   br i1 %81, label %87, label %93
@@ -4472,7 +4471,7 @@ _ZNK17NativePostCallNop6decodeERiS0_.exit.i.i.i:  ; preds = %8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = zext nneg i32 %17 to i64
-  %24 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %21, align 4
@@ -4544,7 +4543,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %44, %_ZN12OopMapStr
   %64 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i = icmp uge ptr %62, %64
   %65 = load i64, ptr %42, align 8
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   %67 = icmp ult ptr %62, %66
   %68 = select i1 %.not.i.i.i.i.i, i1 %67, i1 false
   br i1 %63, label %69, label %75
@@ -4646,7 +4645,7 @@ define linkonce_odr hidden void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkF
   %13 = inttoptr i64 %12 to ptr
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %9, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %9, i64 %15
   store ptr %16, ptr %3, align 8
   %17 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk10_sp_offsetE, align 4
   %18 = sext i32 %17 to i64
@@ -4654,7 +4653,7 @@ define linkonce_odr hidden void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkF
   %20 = inttoptr i64 %19 to ptr
   %21 = load volatile i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i64, ptr %9, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %9, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4758,7 +4757,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i7: ; preds = %63, 
   %69 = load i32, ptr %68, align 4
   %70 = load ptr, ptr %24, align 8
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %71
   store ptr %72, ptr %24, align 8
   store ptr null, ptr %25, align 8
   %73 = load ptr, ptr %3, align 8
@@ -4842,7 +4841,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE7is_stubEv.exit.i18: ; preds = %99,
   %105 = load i32, ptr %104, align 4
   %106 = load ptr, ptr %24, align 8
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds i64, ptr %106, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %106, i64 %107
   store ptr %108, ptr %24, align 8
   store ptr null, ptr %25, align 8
   %109 = load ptr, ptr %3, align 8
@@ -5063,7 +5062,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21: ; preds = 
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = zext nneg i32 %101 to i64
-  %108 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = load i32, ptr %105, align 4
@@ -5259,7 +5258,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames1EE6oopmapEv.exit.thread21: ; preds = 
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = zext nneg i32 %101 to i64
-  %108 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = load i32, ptr %105, align 4
@@ -5383,7 +5382,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10: ; preds = 
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = zext nneg i32 %56 to i64
-  %63 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %60, align 4
@@ -5503,7 +5502,7 @@ _ZNK21StackChunkFrameStreamIL11ChunkFrames0EE6oopmapEv.exit.thread10: ; preds = 
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = zext nneg i32 %56 to i64
-  %63 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %60, align 4

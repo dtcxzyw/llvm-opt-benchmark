@@ -1996,7 +1996,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %72 = shl nuw nsw i64 %indvars.iv203, 1
   %73 = icmp samesign ult i64 %72, %68
   %74 = mul nuw nsw i64 %72, %69
-  %75 = getelementptr inbounds nuw i16, ptr %50, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %74
   br label %84
 
 _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit._crit_edge: ; preds = %._crit_edge, %.preheader164.lr.ph, %_ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.preheader
@@ -2099,7 +2099,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %116 = icmp samesign ult i64 %indvars.iv, %66
   tail call void @llvm.assume(i1 %116)
   tail call void @llvm.assume(i1 %73)
-  %117 = getelementptr inbounds nuw i16, ptr %75, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %indvars.iv
   store i16 %113, ptr %117, align 2, !tbaa !168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not52 = icmp eq i64 %indvars.iv.next, %67
@@ -2114,7 +2114,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %119 = or disjoint i64 %118, 1
   %120 = icmp samesign ult i64 %119, %80
   %121 = mul nuw nsw i64 %119, %81
-  %122 = getelementptr inbounds nuw i16, ptr %50, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %121
   br label %123
 
 _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit74._crit_edge: ; preds = %._crit_edge187, %.preheader.lr.ph, %_ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit74.preheader
@@ -2195,7 +2195,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %155 = icmp samesign ult i64 %indvars.iv206, %78
   tail call void @llvm.assume(i1 %155)
   tail call void @llvm.assume(i1 %120)
-  %156 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv206
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %indvars.iv206
   store i16 %152, ptr %156, align 2, !tbaa !168
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %.not51 = icmp eq i64 %indvars.iv.next207, %79
@@ -2757,7 +2757,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit60: ; preds = %_ZNKSt8_Rb_treeIN
   %149 = zext i16 %147 to i32
   %150 = icmp samesign ult i64 %indvars.iv, 4
   call void @llvm.assume(i1 %150)
-  %151 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv
   store i32 %149, ptr %151, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

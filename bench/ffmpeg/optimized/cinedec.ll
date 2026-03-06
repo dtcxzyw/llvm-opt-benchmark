@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/cinedec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [5 x i8] c"cine\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Phantom Cine\00", align 1
 @ff_cine_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 16, i32 0, [4 x i8] zeroinitializer, ptr @cine_read_probe, ptr @cine_read_header, ptr @cine_read_packet, ptr null, ptr @cine_read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -382,7 +380,7 @@ set_metadata_int.exit192:                         ; preds = %set_metadata_int.ex
 
 switch.lookup:                                    ; preds = %105
   %124 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cine_read_header, i64 %124
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cine_read_header, i64 %124
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %125
 
@@ -493,7 +491,7 @@ define internal i32 @cine_read_packet(ptr noundef readonly captures(none) %0, pt
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %16 = load ptr, ptr %15, align 8, !tbaa !66
-  %17 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %10
   %18 = load i64, ptr %17, align 8, !tbaa !67
   %19 = tail call i64 @avio_seek(ptr noundef %9, i64 noundef %18, i32 noundef 0) #7
   %20 = icmp slt i64 %19, 0
@@ -528,7 +526,7 @@ define internal i32 @cine_read_packet(ptr noundef readonly captures(none) %0, pt
 37:                                               ; preds = %34
   %38 = load ptr, ptr %15, align 8, !tbaa !66
   %39 = load i64, ptr %4, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !67
   %42 = zext nneg i32 %30 to i64
   %43 = zext nneg i32 %24 to i64
@@ -555,7 +553,7 @@ define internal i32 @cine_read_packet(ptr noundef readonly captures(none) %0, pt
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %15, align 8, !tbaa !66
-  %56 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %55, i64 %.pre
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %.pre
   %57 = load i64, ptr %56, align 8, !tbaa !67
   %narrow = add nuw i32 %51, %24
   %58 = zext i32 %narrow to i64

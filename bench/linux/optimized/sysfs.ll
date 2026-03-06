@@ -448,7 +448,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %49, 63
-  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
+  %58 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %56
   %61 = inttoptr i64 %60 to ptr
@@ -501,7 +501,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   %96 = load ptr, ptr %95, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %90, 63
-  %99 = getelementptr i64, ptr @__per_cpu_offset, i64 %98
+  %99 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, %97
   %102 = inttoptr i64 %101 to ptr

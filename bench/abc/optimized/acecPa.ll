@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/acecPa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -59,13 +58,13 @@ common.ret23:                                     ; preds = %17, %common.ret
   %18 = load i64, ptr %1, align 4
   %19 = and i64 %18, 536870911
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %1, i64 %20
   %22 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef nonnull %0, ptr noundef nonnull %21)
   %23 = load i64, ptr %1, align 4
   %24 = lshr i64 %23, 32
   %25 = and i64 %24, 536870911
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %1, i64 %26
   %28 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %.val = load i64, ptr %1, align 4
   %29 = and i64 %.val, 536870912
@@ -90,7 +89,7 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
   %6 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !33
   %7 = sext i32 %5 to i64
-  %8 = getelementptr i32, ptr %.val, i64 %7
+  %8 = getelementptr [4 x i8], ptr %.val, i64 %7
   %9 = getelementptr i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !29
   %11 = icmp sgt i32 %10, 0
@@ -103,12 +102,12 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
   %14 = getelementptr i8, ptr %3, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %invariant.gep = getelementptr i32, ptr %.val51, i64 %7
+  %invariant.gep = getelementptr [4 x i8], ptr %.val51, i64 %7
   br label %17
 
 17:                                               ; preds = %12, %40
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %40 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %18 = load i32, ptr %gep, align 4, !tbaa !29
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %40, label %20
@@ -116,17 +115,17 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
 20:                                               ; preds = %17
   %.val54 = load ptr, ptr %13, align 8, !tbaa !28
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val54, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %.val54, i64 %21
   %.val57 = load ptr, ptr %14, align 8, !tbaa !34
   %23 = ashr i32 %18, 5
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %.val57, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %.val57, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = and i32 %18, 31
   %28 = shl nuw i32 1, %27
   %29 = and i32 %26, %28
   %.not50 = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds nuw i32, ptr @__const.Pas_ManVerifyPhaseOne.Truths, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @__const.Pas_ManVerifyPhaseOne.Truths, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !29
   %32 = and i32 %31, 255
   %33 = xor i32 %32, 255
@@ -146,31 +145,31 @@ define void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly captures
   br i1 %exitcond.not, label %41, label %17, !llvm.loop !36
 
 41:                                               ; preds = %40
-  %42 = getelementptr i32, ptr %.val51, i64 %7
+  %42 = getelementptr [4 x i8], ptr %.val51, i64 %7
   %43 = getelementptr i8, ptr %42, i64 12
   %44 = load i32, ptr %43, align 4, !tbaa !29
   %.val55 = load ptr, ptr %13, align 8, !tbaa !28
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val55, i64 %45
+  %46 = getelementptr inbounds [12 x i8], ptr %.val55, i64 %45
   %47 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %46)
   %.val58 = load ptr, ptr %14, align 8, !tbaa !34
   %48 = ashr i32 %44, 5
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %.val58, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %.val58, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = and i32 %44, 31
   %.val53 = load ptr, ptr %6, align 8, !tbaa !33
-  %53 = getelementptr i32, ptr %.val53, i64 %7
+  %53 = getelementptr [4 x i8], ptr %.val53, i64 %7
   %54 = getelementptr i8, ptr %53, i64 16
   %55 = load i32, ptr %54, align 4, !tbaa !29
   %.val56 = load ptr, ptr %13, align 8, !tbaa !28
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val56, i64 %56
+  %57 = getelementptr inbounds [12 x i8], ptr %.val56, i64 %56
   %58 = tail call i32 @Pas_ManVerifyPhaseOne_rec(ptr noundef %0, ptr noundef %57)
   %.val59 = load ptr, ptr %14, align 8, !tbaa !34
   %59 = ashr i32 %55, 5
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %.val59, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.val59, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !29
   %63 = and i32 %55, 31
   %64 = shl nuw i32 1, %63
@@ -223,7 +222,7 @@ define void @Pas_ManVerifyPhase(ptr noundef %0, ptr noundef readonly captures(no
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.val = load ptr, ptr %7, align 8, !tbaa !33
-  %9 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !29
   tail call void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef %1, i32 noundef %10, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -269,7 +268,7 @@ define void @Pas_ManPhase_rec(ptr noundef readonly captures(none) %0, ptr nounde
   %27 = load ptr, ptr %26, align 8, !tbaa !34
   %28 = ashr i32 %23, 5
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %27, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !29
   %32 = or i32 %31, %25
   store i32 %32, ptr %30, align 4, !tbaa !29
@@ -297,7 +296,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %43 = getelementptr i8, ptr %1, i64 8
   %.val55 = load ptr, ptr %43, align 8, !tbaa !33
   %44 = sext i32 %42 to i64
-  %45 = getelementptr i32, ptr %.val55, i64 %44
+  %45 = getelementptr [4 x i8], ptr %.val55, i64 %44
   %46 = getelementptr i8, ptr %45, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !29
   %48 = getelementptr i8, ptr %45, i64 20
@@ -317,7 +316,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %59 = load ptr, ptr %58, align 8, !tbaa !34
   %60 = ashr i32 %39, 5
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %59, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %59, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !29
   %64 = or i32 %63, %57
   store i32 %64, ptr %62, align 4, !tbaa !29
@@ -330,8 +329,8 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.preheader ]
   %.04664 = phi i32 [ %73, %78 ], [ %51, %.preheader ]
   %.val52 = load ptr, ptr %43, align 8, !tbaa !33
-  %66 = getelementptr i32, ptr %.val52, i64 %indvars.iv
-  %67 = getelementptr i32, ptr %66, i64 %44
+  %66 = getelementptr [4 x i8], ptr %.val52, i64 %indvars.iv
+  %67 = getelementptr [4 x i8], ptr %66, i64 %44
   %68 = load i32, ptr %67, align 4, !tbaa !29
   %69 = trunc nuw nsw i64 %indvars.iv to i32
   %70 = lshr i32 %49, %69
@@ -344,7 +343,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
 75:                                               ; preds = %65
   %.val57 = load ptr, ptr %10, align 8, !tbaa !28
   %76 = sext i32 %68 to i64
-  %77 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val57, i64 %76
+  %77 = getelementptr inbounds [12 x i8], ptr %.val57, i64 %76
   tail call void @Pas_ManPhase_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %77, i32 noundef %72, ptr noundef %5, ptr noundef %6)
   br label %78
 
@@ -366,7 +365,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %84 = load ptr, ptr %83, align 8, !tbaa !34
   %85 = ashr i32 %47, 5
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %84, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %84, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !29
   %89 = or i32 %88, %82
   store i32 %89, ptr %87, align 4, !tbaa !29
@@ -380,7 +379,7 @@ Vec_BitWriteEntry.exit:                           ; preds = %22, %20
   %95 = load ptr, ptr %94, align 8, !tbaa !34
   %96 = ashr i32 %47, 5
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %95, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %95, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !29
   %100 = and i32 %99, %93
   store i32 %100, ptr %98, align 4, !tbaa !29
@@ -461,11 +460,11 @@ Vec_BitStart.exit23:                              ; preds = %Vec_BitStart.exit, 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %.val = load ptr, ptr %39, align 8, !tbaa !33
-  %42 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !29
   %.val17 = load ptr, ptr %40, align 8, !tbaa !28
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val17, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %.val17, i64 %44
   tail call void @Pas_ManPhase_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %45, i32 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val18 = load i32, ptr %37, align 4, !tbaa !38
@@ -575,16 +574,16 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val78141 = phi ptr [ %.val79.pre, %.lr.ph ], [ %.val78, %59 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.val80 = load ptr, ptr %38, align 8, !tbaa !33
-  %43 = getelementptr inbounds nuw i32, ptr %.val80, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.val80, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !29
   %45 = mul nsw i32 %44, 6
   %46 = sext i32 %45 to i64
-  %47 = getelementptr i32, ptr %.val78141, i64 %46
+  %47 = getelementptr [4 x i8], ptr %.val78141, i64 %46
   %48 = getelementptr i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 4, !tbaa !29
   %50 = ashr i32 %49, 5
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %19, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %19, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = and i32 %49, 31
   %55 = shl nuw i32 1, %54
@@ -606,15 +605,15 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %61 = or i32 %60, %55
   store i32 %61, ptr %52, align 4, !tbaa !29
   %62 = sext i32 %49 to i64
-  %63 = getelementptr inbounds i32, ptr %.val96, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.val96, i64 %62
   store i32 %44, ptr %63, align 4, !tbaa !29
-  %64 = getelementptr i32, ptr %.val78, i64 %46
+  %64 = getelementptr [4 x i8], ptr %.val78, i64 %46
   %65 = load i32, ptr %64, align 4, !tbaa !29
   %66 = and i32 %65, 31
   %67 = shl nuw i32 1, %66
   %68 = ashr i32 %65, 5
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %20, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %20, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !29
   %72 = or i32 %67, %71
   store i32 %72, ptr %70, align 4, !tbaa !29
@@ -624,7 +623,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %76 = shl nuw i32 1, %75
   %77 = ashr i32 %74, 5
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %20, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %20, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !29
   %81 = or i32 %76, %80
   store i32 %81, ptr %79, align 4, !tbaa !29
@@ -634,7 +633,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %85 = shl nuw i32 1, %84
   %86 = ashr i32 %83, 5
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %20, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %20, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !29
   %90 = or i32 %85, %89
   store i32 %90, ptr %88, align 4, !tbaa !29
@@ -649,7 +648,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.071123 = phi i32 [ %127, %.critedge ], [ 0, %.critedge.preheader ]
   %94 = lshr i32 %.071123, 5
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %19, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !29
   %98 = and i32 %.071123, 31
   %99 = shl nuw i32 1, %98
@@ -658,7 +657,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not, label %.critedge, label %101
 
 101:                                              ; preds = %.lr.ph124
-  %102 = getelementptr inbounds nuw i32, ptr %20, i64 %95
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %95
   %103 = load i32, ptr %102, align 4, !tbaa !29
   %104 = and i32 %103, %99
   %.not73 = icmp eq i32 %104, 0
@@ -713,7 +712,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %124 = add nsw i32 %106, 1
   store i32 %124, ptr %33, align 4, !tbaa !38
   %125 = sext i32 %106 to i64
-  %126 = getelementptr inbounds i32, ptr %.pre.i146, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %.pre.i146, i64 %125
   store i32 %.071123, ptr %126, align 4, !tbaa !29
   %.val95.pre = load i32, ptr %7, align 8, !tbaa !45
   br label %.critedge
@@ -737,7 +736,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %132 = getelementptr inbounds nuw i32, ptr %.pre.i147, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i147, i64 %indvars.iv.i
   %133 = load i32, ptr %132, align 4, !tbaa !29
   %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %133)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -758,7 +757,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 139:                                              ; preds = %139, %.lr.ph.i101
   %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.i101 ], [ %indvars.iv.next.i104, %139 ]
   %.val.i103 = load ptr, ptr %138, align 8, !tbaa !33
-  %140 = getelementptr inbounds nuw i32, ptr %.val.i103, i64 %indvars.iv.i102
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %.val.i103, i64 %indvars.iv.i102
   %141 = load i32, ptr %140, align 4, !tbaa !29
   tail call void @Pas_ManVerifyPhaseOne(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %141, ptr noundef readonly %136)
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
@@ -783,11 +782,11 @@ Pas_ManVerifyPhase.exit:                          ; preds = %139, %135
 149:                                              ; preds = %.lr.ph127, %149
   %indvars.iv133 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next134, %149 ]
   %.val75 = load ptr, ptr %147, align 8, !tbaa !33
-  %150 = getelementptr inbounds nuw i32, ptr %.val75, i64 %indvars.iv133
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %.val75, i64 %indvars.iv133
   %151 = load i32, ptr %150, align 4, !tbaa !29
   %152 = ashr i32 %151, 5
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i32, ptr %.val83, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %.val83, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !29
   %156 = and i32 %151, 31
   %157 = lshr i32 %155, %156
@@ -817,11 +816,11 @@ Pas_ManVerifyPhase.exit:                          ; preds = %139, %135
   %indvars.iv136 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next137, %167 ]
   %.0130 = phi i32 [ 0, %.lr.ph131 ], [ %181, %167 ]
   %.val = load ptr, ptr %165, align 8, !tbaa !33
-  %168 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv136
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv136
   %169 = load i32, ptr %168, align 4, !tbaa !29
   %170 = ashr i32 %169, 5
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i32, ptr %.val82, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %.val82, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !29
   %174 = and i32 %169, 31
   %175 = lshr i32 %173, %174

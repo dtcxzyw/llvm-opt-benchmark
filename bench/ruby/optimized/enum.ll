@@ -266,7 +266,7 @@ rb_array_len.exit.thread:                         ; preds = %51
 
 RARRAY_AREF.exit:                                 ; preds = %.thread, %59
   %.0.i.i = phi ptr [ %60, %59 ], [ %48, %.thread ]
-  %61 = getelementptr i64, ptr %.0.i.i, i64 %.038
+  %61 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.038
   %62 = load i64, ptr %61, align 8, !tbaa !7
   store i64 %62, ptr %7, align 8, !tbaa !7
   %63 = call i64 @nmin_i(i64 poison, i64 noundef %50, i32 noundef 1, ptr noundef nonnull %7, i64 poison)
@@ -332,10 +332,10 @@ rb_array_len.exit50:                              ; preds = %86, %89
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %rb_array_len.exit50
-  %93 = getelementptr i64, ptr %69, i64 %.039
+  %93 = getelementptr [8 x i8], ptr %69, i64 %.039
   %94 = load i64, ptr %93, align 8, !tbaa !7
   %95 = sdiv i64 %.039, 2
-  %96 = getelementptr i64, ptr %69, i64 %95
+  %96 = getelementptr [8 x i8], ptr %69, i64 %95
   store i64 %94, ptr %96, align 8, !tbaa !7
   %97 = add i64 %.039, 2
   br label %83, !llvm.loop !25
@@ -755,10 +755,10 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %30 = add i64 %29, %.0132
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = shl i64 %30, %25
-  %32 = getelementptr i64, ptr %.0.i.i, i64 %31
+  %32 = getelementptr [8 x i8], ptr %.0.i.i, i64 %31
   %33 = call nonnull ptr @__memcpy_chk(ptr noundef nonnull %2, ptr noundef nonnull readonly %32, i64 noundef range(i64 8, 17) %24, i64 noundef 16) #15, !alias.scope !30
   %34 = shl i64 %.0129, %25
-  %35 = getelementptr i64, ptr %.0.i.i, i64 %34
+  %35 = getelementptr [8 x i8], ptr %.0.i.i, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %32, ptr noundef nonnull readonly align 1 dereferenceable(8) %35, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %35, ptr noundef nonnull readonly align 16 dereferenceable(8) %2, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -782,7 +782,7 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %.0126160 = phi i64 [ %.1127, %61 ], [ %.0132, %27 ]
   %39 = load ptr, ptr %26, align 8, !tbaa !19
   %40 = shl i64 %.0124161, %25
-  %41 = getelementptr i64, ptr %.0.i.i, i64 %40
+  %41 = getelementptr [8 x i8], ptr %.0.i.i, i64 %40
   %42 = call i32 %39(ptr noundef %41, ptr noundef nonnull %35, ptr noundef nonnull %0) #15
   %43 = load i8, ptr %20, align 8
   %44 = and i8 %43, 1
@@ -796,7 +796,7 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = call nonnull ptr @__memcpy_chk(ptr noundef nonnull %3, ptr noundef nonnull readonly %41, i64 noundef range(i64 8, 17) %24, i64 noundef 16) #15, !alias.scope !34
   %49 = shl i64 %38, %25
-  %50 = getelementptr i64, ptr %.0.i.i, i64 %49
+  %50 = getelementptr [8 x i8], ptr %.0.i.i, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %41, ptr noundef nonnull readonly align 1 dereferenceable(8) %50, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %50, ptr noundef nonnull readonly align 16 dereferenceable(8) %3, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -811,7 +811,7 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = call nonnull ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef nonnull readonly %41, i64 noundef range(i64 8, 17) %24, i64 noundef 16) #15, !alias.scope !39
   %56 = shl i64 %.0126160, %25
-  %57 = getelementptr i64, ptr %.0.i.i, i64 %56
+  %57 = getelementptr [8 x i8], ptr %.0.i.i, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %41, ptr noundef nonnull readonly align 1 dereferenceable(8) %57, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull readonly align 16 dereferenceable(8) %4, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -836,10 +836,10 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   %.2167 = phi i64 [ %69, %.lr.ph169 ], [ %.0129, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = shl i64 %.0123168, %25
-  %64 = getelementptr i64, ptr %.0.i.i, i64 %63
+  %64 = getelementptr [8 x i8], ptr %.0.i.i, i64 %63
   %65 = call nonnull ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull readonly %64, i64 noundef range(i64 8, 17) %24, i64 noundef 16) #15, !alias.scope !43
   %66 = shl i64 %.2167, %25
-  %67 = getelementptr i64, ptr %.0.i.i, i64 %66
+  %67 = getelementptr [8 x i8], ptr %.0.i.i, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %64, ptr noundef nonnull readonly align 1 dereferenceable(8) %67, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %67, ptr noundef nonnull readonly align 16 dereferenceable(8) %5, i64 noundef range(i64 8, 17) %24, i1 noundef false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -883,7 +883,7 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
 
 RARRAY_AREF.exit:                                 ; preds = %80, %82
   %.0.i.i154 = phi ptr [ %81, %80 ], [ %84, %82 ]
-  %85 = getelementptr i64, ptr %.0.i.i154, i64 %76
+  %85 = getelementptr [8 x i8], ptr %.0.i.i154, i64 %76
   %86 = load i64, ptr %85, align 8, !tbaa !7
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %86, ptr %87, align 8, !tbaa !18
@@ -1256,7 +1256,7 @@ rb_array_len.exit63:                              ; preds = %71, %74
 
 rb_array_len.exit66:                              ; preds = %84, %87
   %.0.i65 = phi i64 [ %86, %84 ], [ %89, %87 ]
-  %90 = getelementptr i64, ptr %80, i64 %.0.i65
+  %90 = getelementptr [8 x i8], ptr %80, i64 %.0.i65
   %.idx = shl i64 %.0.i65, 3
   %91 = ashr exact i64 %.idx, 4
   %92 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -576460752303423488, 576460752303423488) %91, i1 false)
@@ -1365,10 +1365,10 @@ rb_array_len.exit74.thread:                       ; preds = %122
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit74.thread, %130
   %.0.i.i = phi ptr [ %131, %130 ], [ %118, %rb_array_len.exit74.thread ]
   %132 = sdiv i64 %.052, 2
-  %133 = getelementptr i64, ptr %.0.i.i, i64 %.052
+  %133 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.052
   %134 = load i64, ptr %133, align 8, !tbaa !7
   %135 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %59) #15
-  %136 = getelementptr i64, ptr %135, i64 %132
+  %136 = getelementptr [8 x i8], ptr %135, i64 %132
   store i64 %134, ptr %136, align 8, !tbaa !7
   %137 = icmp eq i64 %134, 0
   %138 = and i64 %134, 7
@@ -1815,7 +1815,7 @@ define internal i64 @enum_inject(i32 noundef %0, ptr noundef readonly captures(n
 
 11:                                               ; preds = %.preheader83
   %12 = sext i32 %.185.i88 to i64
-  %13 = getelementptr i64, ptr %1, i64 %12
+  %13 = getelementptr [8 x i8], ptr %1, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !7
   store i64 %14, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !7
   %15 = add nsw i32 %.185.i88, 1
@@ -2077,7 +2077,7 @@ rb_array_len.exit60.thread.i:                     ; preds = %113
 
 RARRAY_AREF.exit63.i:                             ; preds = %121, %rb_array_len.exit60.thread.i
   %.0.i.i62.i = phi ptr [ %122, %121 ], [ %111, %rb_array_len.exit60.thread.i ]
-  %123 = getelementptr i64, ptr %.0.i.i62.i, i64 %.2.i74
+  %123 = getelementptr [8 x i8], ptr %.0.i.i62.i, i64 %.2.i74
   %124 = load i64, ptr %123, align 8, !tbaa !7
   %125 = trunc i64 %124 to i1
   br i1 %125, label %126, label %131
@@ -2176,7 +2176,7 @@ rb_array_len.exit67.thread.i:                     ; preds = %154
 
 RARRAY_AREF.exit70.i:                             ; preds = %162, %.thread.i
   %.0.i.i69.i = phi ptr [ %163, %162 ], [ %152, %.thread.i ]
-  %164 = getelementptr i64, ptr %.0.i.i69.i, i64 %.3.i72
+  %164 = getelementptr [8 x i8], ptr %.0.i.i69.i, i64 %.3.i72
   %165 = load i64, ptr %164, align 8, !tbaa !7
   store i64 %165, ptr %4, align 8, !tbaa !7
   %166 = call i64 @rb_funcallv_public(i64 noundef %.5.i71, i64 noundef %94, i32 noundef 1, ptr noundef nonnull %4) #15
@@ -3101,7 +3101,7 @@ rb_array_len.exit:                                ; preds = %18, %21
 
 RARRAY_AREF.exit:                                 ; preds = %26, %30
   %.0.i.i = phi ptr [ %31, %30 ], [ %24, %26 ]
-  %32 = getelementptr i64, ptr %.0.i.i, i64 %28
+  %32 = getelementptr [8 x i8], ptr %.0.i.i, i64 %28
   %33 = load i64, ptr %32, align 8, !tbaa !7
   %34 = tail call i64 @rb_yield(i64 noundef %33) #15
   %35 = load i64, ptr %15, align 8, !tbaa !20
@@ -3359,7 +3359,7 @@ RARRAY_PTR.exit:                                  ; preds = %9, %11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %15 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !7
   %17 = tail call i64 @rb_check_array_type(i64 noundef %16) #15
   %18 = icmp eq i64 %17, 4
@@ -3389,7 +3389,7 @@ RARRAY_PTR.exit:                                  ; preds = %9, %11
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %29
   %indvars.iv56 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next57, %29 ]
-  %22 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv56
+  %22 = getelementptr [8 x i8], ptr %.0.i.i, i64 %indvars.iv56
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = tail call i32 @rb_respond_to(i64 noundef %23, i64 noundef 3073) #15
   %.not35 = icmp eq i32 %24, 0
@@ -3677,7 +3677,7 @@ rb_array_len.exit:                                ; preds = %28, %31
 
 RARRAY_AREF.exit.us:                              ; preds = %42, %45
   %.0.i.i.us = phi ptr [ %46, %45 ], [ %36, %42 ]
-  %47 = getelementptr i64, ptr %.0.i.i.us, i64 %.02131.us
+  %47 = getelementptr [8 x i8], ptr %.0.i.i.us, i64 %.02131.us
   %48 = load i64, ptr %47, align 8, !tbaa !7
   %49 = inttoptr i64 %48 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !20
@@ -4769,7 +4769,7 @@ rb_uniform_is_less.exit.i:                        ; preds = %18
   %.023.i = phi i64 [ %54, %.lr.ph25.i ], [ %.pre.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !101
-  %53 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.023.i
+  %53 = getelementptr [16 x i8], ptr %0, i64 %.023.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !101
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -4781,7 +4781,7 @@ rb_uniform_is_less.exit.i:                        ; preds = %18
 55:                                               ; preds = %.lr.ph
   %56 = load i64, ptr %0, align 8, !tbaa !53
   %57 = lshr i64 %47, 1
-  %58 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %57
+  %58 = getelementptr [16 x i8], ptr %0, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !53
   %60 = trunc i64 %56 to i1
   br i1 %60, label %61, label %.critedge.i
@@ -5074,7 +5074,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
 define internal fastcc void @rb_uniform_heap_down_2(ptr noundef captures(none) %0, i64 noundef range(i64 0, 9223372036854775807) %1, i64 noundef %2) unnamed_addr #6 {
-  %4 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %1
+  %4 = getelementptr [16 x i8], ptr %0, i64 %1
   %.sroa.0.0.copyload = load i64, ptr %4, align 8, !tbaa !7
   %.sroa.0.0.copyload.fr = freeze i64 %.sroa.0.0.copyload
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5096,10 +5096,10 @@ define internal fastcc void @rb_uniform_heap_down_2(ptr noundef captures(none) %
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %.lr.ph.split.us
-  %12 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %8
+  %12 = getelementptr [16 x i8], ptr %0, i64 %8
   %13 = load i64, ptr %12, align 8, !tbaa !53
   %14 = add nuw i64 %9, 2
-  %15 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %14
+  %15 = getelementptr [16 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !53
   %17 = trunc i64 %13 to i1
   br i1 %17, label %20, label %.critedge.i.us
@@ -5129,7 +5129,7 @@ rb_uniform_is_less.exit.us:                       ; preds = %25, %22, %.critedge
 
 27:                                               ; preds = %rb_uniform_is_less.exit.us, %.lr.ph.split.us
   %.022.us = phi i64 [ %8, %.lr.ph.split.us ], [ %spec.select.us, %rb_uniform_is_less.exit.us ]
-  %28 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.022.us
+  %28 = getelementptr [16 x i8], ptr %0, i64 %.022.us
   %29 = load i64, ptr %28, align 8, !tbaa !53
   %30 = trunc i64 %29 to i1
   br i1 %30, label %33, label %rb_uniform_is_less.exit27.us
@@ -5144,7 +5144,7 @@ rb_uniform_is_less.exit27.us:                     ; preds = %27
   br i1 %34, label %35, label %.critedge.i25._crit_edge
 
 35:                                               ; preds = %33, %rb_uniform_is_less.exit27.us
-  %36 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.029.us
+  %36 = getelementptr [16 x i8], ptr %0, i64 %.029.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !101
   %37 = shl i64 %.022.us, 1
   %38 = or disjoint i64 %37, 1
@@ -5159,10 +5159,10 @@ rb_uniform_is_less.exit27.us:                     ; preds = %27
   br i1 %41, label %42, label %.critedge.i25
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %39
+  %43 = getelementptr [16 x i8], ptr %0, i64 %39
   %44 = load i64, ptr %43, align 8, !tbaa !53
   %45 = add nuw i64 %40, 2
-  %46 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %45
+  %46 = getelementptr [16 x i8], ptr %0, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !53
   %48 = trunc i64 %44 to i1
   br i1 %48, label %49, label %.critedge.i
@@ -5192,14 +5192,14 @@ rb_uniform_is_less.exit:                          ; preds = %51, %53, %.critedge
 
 .critedge.i25:                                    ; preds = %rb_uniform_is_less.exit, %.lr.ph.split
   %.022 = phi i64 [ %39, %.lr.ph.split ], [ %spec.select, %rb_uniform_is_less.exit ]
-  %58 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.022
+  %58 = getelementptr [16 x i8], ptr %0, i64 %.022
   %59 = load i64, ptr %58, align 8, !tbaa !53
   %60 = tail call i32 @rb_float_cmp(i64 noundef %.sroa.0.0.copyload.fr, i64 noundef %59) #15
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %.critedge.i25._crit_edge
 
 62:                                               ; preds = %.critedge.i25
-  %63 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.029
+  %63 = getelementptr [16 x i8], ptr %0, i64 %.029
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !101
   %64 = shl i64 %.022, 1
   %65 = or disjoint i64 %64, 1
@@ -5208,7 +5208,7 @@ rb_uniform_is_less.exit:                          ; preds = %51, %53, %.critedge
 
 .critedge.i25._crit_edge:                         ; preds = %62, %.critedge.i25, %35, %rb_uniform_is_less.exit27.us, %33, %3
   %.0.lcssa = phi i64 [ %1, %3 ], [ %.029.us, %33 ], [ %.029.us, %rb_uniform_is_less.exit27.us ], [ %.022.us, %35 ], [ %.022, %62 ], [ %.029, %.critedge.i25 ]
-  %66 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.0.lcssa
+  %66 = getelementptr [16 x i8], ptr %0, i64 %.0.lcssa
   store i64 %.sroa.0.0.copyload.fr, ptr %66, align 8, !tbaa !7
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !7
@@ -9159,7 +9159,7 @@ rb_array_len.exit25.thread:                       ; preds = %34
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit25.thread, %43
   %.0.i.i = phi ptr [ %44, %43 ], [ %32, %rb_array_len.exit25.thread ]
-  %45 = getelementptr i64, ptr %.0.i.i, i64 %35
+  %45 = getelementptr [8 x i8], ptr %.0.i.i, i64 %35
   %46 = load i64, ptr %45, align 8, !tbaa !7
   %47 = inttoptr i64 %46 to ptr
   %48 = load i64, ptr %47, align 8, !tbaa !20
@@ -9190,7 +9190,7 @@ rb_array_len.exit28.thread:                       ; preds = %RARRAY_AREF.exit
 
 RARRAY_AREF.exit31:                               ; preds = %.thread38, %55
   %.0.i.i30 = phi ptr [ %54, %.thread38 ], [ %57, %55 ]
-  %58 = getelementptr i64, ptr %.0.i.i30, i64 %14
+  %58 = getelementptr [8 x i8], ptr %.0.i.i30, i64 %14
   %59 = load i64, ptr %58, align 8, !tbaa !7
   br label %60
 
@@ -9351,13 +9351,13 @@ rb_array_len.exit21.thread:                       ; preds = %38
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit21
   %47 = load ptr, ptr %36, align 8, !tbaa !22
-  %48 = getelementptr i64, ptr %47, i64 %39
+  %48 = getelementptr [8 x i8], ptr %47, i64 %39
   %49 = load i64, ptr %48, align 8, !tbaa !7
   %50 = icmp eq i64 %49, 4
   br i1 %50, label %54, label %57
 
 RARRAY_AREF.exit.thread:                          ; preds = %rb_array_len.exit21.thread
-  %51 = getelementptr i64, ptr %34, i64 %39
+  %51 = getelementptr [8 x i8], ptr %34, i64 %39
   %52 = load i64, ptr %51, align 8, !tbaa !7
   %53 = icmp eq i64 %52, 4
   br i1 %53, label %54, label %56
@@ -9377,7 +9377,7 @@ RARRAY_AREF.exit.thread:                          ; preds = %rb_array_len.exit21
 
 RARRAY_AREF.exit24:                               ; preds = %56, %57
   %.0.i.i23 = phi ptr [ %35, %56 ], [ %58, %57 ]
-  %59 = getelementptr i64, ptr %.0.i.i23, i64 %39
+  %59 = getelementptr [8 x i8], ptr %.0.i.i23, i64 %39
   %60 = load i64, ptr %59, align 8, !tbaa !7
   store i64 %60, ptr %30, align 8, !tbaa !7
   %61 = load i64, ptr @rb_eStopIteration, align 8, !tbaa !7
@@ -9388,7 +9388,7 @@ RARRAY_AREF.exit24:                               ; preds = %56, %57
 
 65:                                               ; preds = %RARRAY_AREF.exit24
   %66 = call ptr @rb_ary_ptr_use_start(i64 noundef %13) #15
-  %67 = getelementptr i64, ptr %66, i64 %39
+  %67 = getelementptr [8 x i8], ptr %66, i64 %39
   store i64 4, ptr %67, align 8, !tbaa !7
   call void @rb_ary_ptr_use_end(i64 noundef %13) #15
   store i64 4, ptr %7, align 16, !tbaa !7

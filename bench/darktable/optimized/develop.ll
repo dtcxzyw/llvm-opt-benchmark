@@ -308,7 +308,7 @@ dt_dev_clear_chroma_troubles.exit.i.i:            ; preds = %70, %67, %57
 
 73:                                               ; preds = %73, %dt_dev_clear_chroma_troubles.exit.i.i
   %.09.i.i = phi i64 [ 0, %dt_dev_clear_chroma_troubles.exit.i.i ], [ %75, %73 ]
-  %74 = getelementptr inbounds nuw double, ptr %72, i64 %.09.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.09.i.i
   store double 1.000000e+00, ptr %74, align 8, !tbaa !115
   %75 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %75, 4
@@ -323,9 +323,9 @@ dt_dev_reset_chroma.exit.i:                       ; preds = %73
 
 79:                                               ; preds = %79, %dt_dev_reset_chroma.exit.i
   %.08.i = phi i64 [ 0, %dt_dev_reset_chroma.exit.i ], [ %82, %79 ]
-  %80 = getelementptr inbounds nuw double, ptr %77, i64 %.08.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.08.i
   store double 1.000000e+00, ptr %80, align 8, !tbaa !115
-  %81 = getelementptr inbounds nuw double, ptr %78, i64 %.08.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.08.i
   store double 1.000000e+00, ptr %81, align 8, !tbaa !115
   %82 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %82, 4
@@ -438,7 +438,7 @@ dt_dev_clear_chroma_troubles.exit.i:              ; preds = %11, %8, %2
 
 14:                                               ; preds = %14, %dt_dev_clear_chroma_troubles.exit.i
   %.09.i = phi i64 [ 0, %dt_dev_clear_chroma_troubles.exit.i ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.09.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.09.i
   store double 1.000000e+00, ptr %15, align 8, !tbaa !115
   %16 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i = icmp eq i64 %16, 4
@@ -456,9 +456,9 @@ dt_dev_reset_chroma.exit:                         ; preds = %14, %1
 
 21:                                               ; preds = %dt_dev_reset_chroma.exit, %21
   %.08 = phi i64 [ 0, %dt_dev_reset_chroma.exit ], [ %24, %21 ]
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %.08
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.08
   store double 1.000000e+00, ptr %22, align 8, !tbaa !115
-  %23 = getelementptr inbounds nuw double, ptr %19, i64 %.08
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.08
   store double 1.000000e+00, ptr %23, align 8, !tbaa !115
   %24 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %24, 4
@@ -509,7 +509,7 @@ dt_dev_clear_chroma_troubles.exit.i.i:            ; preds = %11, %8, %2
 
 14:                                               ; preds = %14, %dt_dev_clear_chroma_troubles.exit.i.i
   %.09.i.i = phi i64 [ 0, %dt_dev_clear_chroma_troubles.exit.i.i ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.09.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.09.i.i
   store double 1.000000e+00, ptr %15, align 8, !tbaa !115
   %16 = add nuw nsw i64 %.09.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, 4
@@ -524,9 +524,9 @@ dt_dev_reset_chroma.exit.i:                       ; preds = %14
 
 20:                                               ; preds = %20, %dt_dev_reset_chroma.exit.i
   %.08.i = phi i64 [ 0, %dt_dev_reset_chroma.exit.i ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %18, i64 %.08.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.08.i
   store double 1.000000e+00, ptr %21, align 8, !tbaa !115
-  %22 = getelementptr inbounds nuw double, ptr %19, i64 %.08.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.08.i
   store double 1.000000e+00, ptr %22, align 8, !tbaa !115
   %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 4
@@ -1526,7 +1526,7 @@ dt_dev_get_zoom_scale.exit:                       ; preds = %dt_dev_get_processe
 
 335:                                              ; preds = %332
   %336 = zext i32 %3 to i64
-  %337 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3132), i64 %336
+  %337 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3132), i64 %336
   %338 = load i32, ptr %337, align 4, !tbaa !187
   %.not186 = icmp eq i32 %338, 0
   br i1 %.not186, label %343, label %339
@@ -3326,7 +3326,7 @@ dt_dev_get_zoom_scale.exit9:                      ; preds = %87, %89, %91, %93
 define void @dt_dev_load_image(ptr noundef initializes((112, 1972)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 63
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %4
+  %5 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %4
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #25
   tail call fastcc void @_dt_dev_load_raw(ptr noundef %0, i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2704
@@ -3394,7 +3394,7 @@ define void @dt_dev_read_history_ext(ptr noundef %0, i32 noundef %1, i32 noundef
 13:                                               ; preds = %10
   %14 = and i32 %1, 63
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %15
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #25
   %18 = load i32, ptr %0, align 16, !tbaa !50
   %.not.i = icmp eq i32 %18, 0
@@ -6787,7 +6787,7 @@ define void @dt_dev_reload_history_items(ptr noundef initializes((40, 44)) %0) l
   %4 = load i32, ptr %3, align 8, !tbaa !175
   %5 = and i32 %4, 63
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %6
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #25
   %9 = load i32, ptr %3, align 8, !tbaa !175
   tail call void @dt_ioppr_set_default_iop_order(ptr noundef %0, i32 noundef %9) #25
@@ -6877,7 +6877,7 @@ dt_dev_reorder_gui_module_list.exit:              ; preds = %46, %._crit_edge56
   %49 = load i32, ptr %3, align 8, !tbaa !175
   %50 = and i32 %49, 63
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %51
+  %52 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %51
   %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %52) #25
   ret void
 
@@ -7391,7 +7391,7 @@ declare void @dt_dev_pixelpipe_rebuild(ptr noundef) local_unnamed_addr #3
 define void @dt_dev_write_history_ext(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 63
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.dt_pthread_mutex_t, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %4
+  %5 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 232), i64 %4
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #25
   tail call fastcc void @_cleanup_history(i32 noundef %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2024
@@ -10701,7 +10701,7 @@ dt_dev_clear_chroma_troubles.exit:                ; preds = %2, %8, %11
 
 14:                                               ; preds = %dt_dev_clear_chroma_troubles.exit, %14
   %.09 = phi i64 [ 0, %dt_dev_clear_chroma_troubles.exit ], [ %16, %14 ]
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %.09
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.09
   store double 1.000000e+00, ptr %15, align 8, !tbaa !115
   %16 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %16, 4

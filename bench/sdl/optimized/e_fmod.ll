@@ -52,7 +52,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
 
 25:                                               ; preds = %23
   %26 = lshr i64 %3, 63
-  %27 = getelementptr inbounds nuw double, ptr @Zero, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @Zero, i64 %26
   %28 = load double, ptr %27, align 8
   br label %161
 
@@ -223,7 +223,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
 
 109:                                              ; preds = %106
   %110 = lshr i64 %3, 63
-  %111 = getelementptr inbounds nuw double, ptr @Zero, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @Zero, i64 %110
   %112 = load double, ptr %111, align 8
   br label %161
 
@@ -260,7 +260,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
 
 125:                                              ; preds = %._crit_edge
   %126 = lshr i64 %3, 63
-  %127 = getelementptr inbounds nuw double, ptr @Zero, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @Zero, i64 %126
   %128 = load double, ptr %127, align 8
   br label %161
 

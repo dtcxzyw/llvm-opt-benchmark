@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.31" = type { ptr, i64 }
-%"struct.std::pair.38" = type { ptr, i64 }
 %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<false>, std::pair<const cvc5::internal::NodeTemplate<false>, cvc5::internal::NodeTemplateTrie<false>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<false>, cvc5::internal::NodeTemplateTrie<false>>>, std::less<cvc5::internal::NodeTemplate<false>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplateTrie<true>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplateTrie<true>>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Auto_node" = type { ptr, ptr }
 
@@ -1138,7 +1136,7 @@ _ZNKSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb0EEEmESaIS7_EE12_M_c
 _ZNSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb0EEEmESaIS7_EE17_M_realloc_insertIJS6_mEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i27, %.noexc35
   %.0.lcssa.i.i.i.i.i32 = phi ptr [ %89, %.noexc35 ], [ %93, %.lr.ph.i.i.i.i.i27 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.046.1104, i64 noundef %80) #24
-  %94 = getelementptr inbounds nuw %"struct.std::pair.31", ptr %89, i64 %87
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %87
   br label %95
 
 _ZNSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb0EEEmESaIS7_EE12emplace_backIJS6_mEEERS7_DpOT_.exit: ; preds = %66, %60, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backEOS3_.exit
@@ -1410,7 +1408,7 @@ _ZNKSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb1EEEmESaIS7_EE12_M_c
 _ZNSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb1EEEmESaIS7_EE17_M_realloc_insertIJS6_mEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i24, %.noexc32
   %.0.lcssa.i.i.i.i.i29 = phi ptr [ %56, %.noexc32 ], [ %60, %.lr.ph.i.i.i.i.i24 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.043.189, i64 noundef %47) #24
-  %61 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %56, i64 %54
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %54
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorISt4pairIPKN4cvc58internal16NodeTemplateTrieILb1EEEmESaIS7_EE17_M_realloc_insertIJS6_mEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i, %42
@@ -2723,7 +2721,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !57
   store ptr %42, ptr %4, align 8, !tbaa !48
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.3", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !50
   ret void
 
@@ -3004,7 +3002,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !57
   store ptr %42, ptr %4, align 8, !tbaa !48
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.3", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !50
   ret void
 

@@ -982,7 +982,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 16:                                               ; preds = %4, %16
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr i32, ptr @hf_opcode, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr @hf_opcode, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -992,7 +992,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 20:                                               ; preds = %11
   %21 = and i8 %13, 3
   %22 = zext nneg i8 %21 to i64
-  %23 = getelementptr i32, ptr @hf_escopcode, i64 %22
+  %23 = getelementptr [4 x i8], ptr @hf_escopcode, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %narrow = add nuw nsw i8 %21, 1
@@ -1188,7 +1188,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader:                                       ; preds = %31, %.preheader
   %indvars.iv901 = phi i64 [ %indvars.iv.next902, %.preheader ], [ 0, %31 ]
-  %110 = getelementptr i32, ptr @hf_param_timingcontrolflags, i64 %indvars.iv901
+  %110 = getelementptr [4 x i8], ptr @hf_param_timingcontrolflags, i64 %indvars.iv901
   %111 = load i32, ptr %110, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %111, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
@@ -1203,7 +1203,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader753:                                    ; preds = %31, %.preheader753
   %indvars.iv893 = phi i64 [ %indvars.iv.next894, %.preheader753 ], [ 0, %31 ]
-  %117 = getelementptr i32, ptr @hf_param_datarate, i64 %indvars.iv893
+  %117 = getelementptr [4 x i8], ptr @hf_param_datarate, i64 %indvars.iv893
   %118 = load i32, ptr %117, align 4
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %118, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
@@ -1228,7 +1228,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 132:                                              ; preds = %.preheader907, %132
   %indvars.iv861 = phi i64 [ %indvars.iv.next862, %132 ], [ 0, %.preheader907 ]
-  %133 = getelementptr i32, ptr @hf_param_feature_page0_byte0, i64 %indvars.iv861
+  %133 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte0, i64 %indvars.iv861
   %134 = load i32, ptr %133, align 4
   %135 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %134, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next862 = add nuw nsw i64 %indvars.iv861, 1
@@ -1241,7 +1241,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 138:                                              ; preds = %130, %138
   %indvars.iv865 = phi i64 [ 0, %130 ], [ %indvars.iv.next866, %138 ]
-  %139 = getelementptr i32, ptr @hf_param_feature_page0_byte1, i64 %indvars.iv865
+  %139 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte1, i64 %indvars.iv865
   %140 = load i32, ptr %139, align 4
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %140, ptr noundef %0, i32 noundef %131, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next866 = add nuw nsw i64 %indvars.iv865, 1
@@ -1254,7 +1254,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 144:                                              ; preds = %136, %144
   %indvars.iv869 = phi i64 [ 0, %136 ], [ %indvars.iv.next870, %144 ]
-  %145 = getelementptr i32, ptr @hf_param_feature_page0_byte2, i64 %indvars.iv869
+  %145 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte2, i64 %indvars.iv869
   %146 = load i32, ptr %145, align 4
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %146, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next870 = add nuw nsw i64 %indvars.iv869, 1
@@ -1267,7 +1267,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 150:                                              ; preds = %142, %150
   %indvars.iv873 = phi i64 [ 0, %142 ], [ %indvars.iv.next874, %150 ]
-  %151 = getelementptr i32, ptr @hf_param_feature_page0_byte3, i64 %indvars.iv873
+  %151 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte3, i64 %indvars.iv873
   %152 = load i32, ptr %151, align 4
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %152, ptr noundef %0, i32 noundef %143, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
@@ -1280,7 +1280,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 156:                                              ; preds = %148, %156
   %indvars.iv877 = phi i64 [ 0, %148 ], [ %indvars.iv.next878, %156 ]
-  %157 = getelementptr i32, ptr @hf_param_feature_page0_byte4, i64 %indvars.iv877
+  %157 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte4, i64 %indvars.iv877
   %158 = load i32, ptr %157, align 4
   %159 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %158, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
@@ -1293,7 +1293,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 162:                                              ; preds = %154, %162
   %indvars.iv881 = phi i64 [ 0, %154 ], [ %indvars.iv.next882, %162 ]
-  %163 = getelementptr i32, ptr @hf_param_feature_page0_byte5, i64 %indvars.iv881
+  %163 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte5, i64 %indvars.iv881
   %164 = load i32, ptr %163, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %164, ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next882 = add nuw nsw i64 %indvars.iv881, 1
@@ -1306,7 +1306,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 168:                                              ; preds = %160, %168
   %indvars.iv885 = phi i64 [ 0, %160 ], [ %indvars.iv.next886, %168 ]
-  %169 = getelementptr i32, ptr @hf_param_feature_page0_byte6, i64 %indvars.iv885
+  %169 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte6, i64 %indvars.iv885
   %170 = load i32, ptr %169, align 4
   %171 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %170, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
@@ -1319,7 +1319,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 174:                                              ; preds = %166, %174
   %indvars.iv889 = phi i64 [ 0, %166 ], [ %indvars.iv.next890, %174 ]
-  %175 = getelementptr i32, ptr @hf_param_feature_page0_byte7, i64 %indvars.iv889
+  %175 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte7, i64 %indvars.iv889
   %176 = load i32, ptr %175, align 4
   %177 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %176, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
@@ -1359,7 +1359,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 203:                                              ; preds = %185, %203
   %indvars.iv857 = phi i64 [ 0, %185 ], [ %indvars.iv.next858, %203 ]
-  %204 = getelementptr i32, ptr @hf_param_timingcontrolflags, i64 %indvars.iv857
+  %204 = getelementptr [4 x i8], ptr @hf_param_timingcontrolflags, i64 %indvars.iv857
   %205 = load i32, ptr %204, align 4
   %206 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %205, ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next858 = add nuw nsw i64 %indvars.iv857, 1
@@ -1459,7 +1459,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 279:                                              ; preds = %272, %279
   %indvars.iv841 = phi i64 [ 0, %272 ], [ %indvars.iv.next842, %279 ]
   %.2774 = phi i32 [ %278, %272 ], [ %283, %279 ]
-  %280 = getelementptr i32, ptr @hf_param_afh_channelmap, i64 %indvars.iv841
+  %280 = getelementptr [4 x i8], ptr @hf_param_afh_channelmap, i64 %indvars.iv841
   %281 = load i32, ptr %280, align 4
   %282 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %281, ptr noundef %0, i32 noundef %.2774, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
@@ -1510,7 +1510,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %314 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0720)
   %315 = and i8 %314, 3
   %316 = zext nneg i8 %315 to i64
-  %317 = getelementptr i32, ptr @hf_accept_escopcode, i64 %316
+  %317 = getelementptr [4 x i8], ptr @hf_accept_escopcode, i64 %316
   %318 = load i32, ptr %317, align 4
   %319 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %318, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef -2147483648)
   %320 = add nuw nsw i32 %.0720, 2
@@ -1523,7 +1523,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %325 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0720)
   %326 = and i8 %325, 3
   %327 = zext nneg i8 %326 to i64
-  %328 = getelementptr i32, ptr @hf_accept_escopcode, i64 %327
+  %328 = getelementptr [4 x i8], ptr @hf_accept_escopcode, i64 %327
   %329 = load i32, ptr %328, align 4
   %330 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %329, ptr noundef %0, i32 noundef %324, i32 noundef 1, i32 noundef -2147483648)
   %331 = add nuw nsw i32 %.0720, 2
@@ -1552,7 +1552,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader758:                                    ; preds = %335, %.preheader758
   %indvars.iv809 = phi i64 [ %indvars.iv.next810, %.preheader758 ], [ 0, %335 ]
-  %345 = getelementptr i32, ptr @hf_param_feature_page0_byte0, i64 %indvars.iv809
+  %345 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte0, i64 %indvars.iv809
   %346 = load i32, ptr %345, align 4
   %347 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %346, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
@@ -1565,7 +1565,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 350:                                              ; preds = %343, %350
   %indvars.iv813 = phi i64 [ 0, %343 ], [ %indvars.iv.next814, %350 ]
-  %351 = getelementptr i32, ptr @hf_param_feature_page0_byte1, i64 %indvars.iv813
+  %351 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte1, i64 %indvars.iv813
   %352 = load i32, ptr %351, align 4
   %353 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %352, ptr noundef %0, i32 noundef %344, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
@@ -1578,7 +1578,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 356:                                              ; preds = %348, %356
   %indvars.iv817 = phi i64 [ 0, %348 ], [ %indvars.iv.next818, %356 ]
-  %357 = getelementptr i32, ptr @hf_param_feature_page0_byte2, i64 %indvars.iv817
+  %357 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte2, i64 %indvars.iv817
   %358 = load i32, ptr %357, align 4
   %359 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %358, ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
@@ -1591,7 +1591,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 362:                                              ; preds = %354, %362
   %indvars.iv821 = phi i64 [ 0, %354 ], [ %indvars.iv.next822, %362 ]
-  %363 = getelementptr i32, ptr @hf_param_feature_page0_byte3, i64 %indvars.iv821
+  %363 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte3, i64 %indvars.iv821
   %364 = load i32, ptr %363, align 4
   %365 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %364, ptr noundef %0, i32 noundef %355, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next822 = add nuw nsw i64 %indvars.iv821, 1
@@ -1604,7 +1604,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 368:                                              ; preds = %360, %368
   %indvars.iv825 = phi i64 [ 0, %360 ], [ %indvars.iv.next826, %368 ]
-  %369 = getelementptr i32, ptr @hf_param_feature_page0_byte4, i64 %indvars.iv825
+  %369 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte4, i64 %indvars.iv825
   %370 = load i32, ptr %369, align 4
   %371 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %370, ptr noundef %0, i32 noundef %361, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next826 = add nuw nsw i64 %indvars.iv825, 1
@@ -1617,7 +1617,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 374:                                              ; preds = %366, %374
   %indvars.iv829 = phi i64 [ 0, %366 ], [ %indvars.iv.next830, %374 ]
-  %375 = getelementptr i32, ptr @hf_param_feature_page0_byte5, i64 %indvars.iv829
+  %375 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte5, i64 %indvars.iv829
   %376 = load i32, ptr %375, align 4
   %377 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %376, ptr noundef %0, i32 noundef %367, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next830 = add nuw nsw i64 %indvars.iv829, 1
@@ -1630,7 +1630,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 380:                                              ; preds = %372, %380
   %indvars.iv833 = phi i64 [ 0, %372 ], [ %indvars.iv.next834, %380 ]
-  %381 = getelementptr i32, ptr @hf_param_feature_page0_byte6, i64 %indvars.iv833
+  %381 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte6, i64 %indvars.iv833
   %382 = load i32, ptr %381, align 4
   %383 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %382, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next834 = add nuw nsw i64 %indvars.iv833, 1
@@ -1643,7 +1643,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 386:                                              ; preds = %378, %386
   %indvars.iv837 = phi i64 [ 0, %378 ], [ %indvars.iv.next838, %386 ]
-  %387 = getelementptr i32, ptr @hf_param_feature_page0_byte7, i64 %indvars.iv837
+  %387 = getelementptr [4 x i8], ptr @hf_param_feature_page0_byte7, i64 %indvars.iv837
   %388 = load i32, ptr %387, align 4
   %389 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %388, ptr noundef %0, i32 noundef %379, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next838 = add nuw nsw i64 %indvars.iv837, 1
@@ -1656,7 +1656,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader759:                                    ; preds = %335, %.preheader759
   %indvars.iv805 = phi i64 [ %indvars.iv.next806, %.preheader759 ], [ 0, %335 ]
-  %392 = getelementptr i32, ptr @hf_param_feature_page1_byte0, i64 %indvars.iv805
+  %392 = getelementptr [4 x i8], ptr @hf_param_feature_page1_byte0, i64 %indvars.iv805
   %393 = load i32, ptr %392, align 4
   %394 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %393, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next806 = add nuw nsw i64 %indvars.iv805, 1
@@ -1669,7 +1669,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader760:                                    ; preds = %335, %.preheader760
   %indvars.iv797 = phi i64 [ %indvars.iv.next798, %.preheader760 ], [ 0, %335 ]
-  %397 = getelementptr i32, ptr @hf_param_feature_page2_byte0, i64 %indvars.iv797
+  %397 = getelementptr [4 x i8], ptr @hf_param_feature_page2_byte0, i64 %indvars.iv797
   %398 = load i32, ptr %397, align 4
   %399 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %398, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
@@ -1682,7 +1682,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 402:                                              ; preds = %395, %402
   %indvars.iv801 = phi i64 [ 0, %395 ], [ %indvars.iv.next802, %402 ]
-  %403 = getelementptr i32, ptr @hf_param_feature_page2_byte1, i64 %indvars.iv801
+  %403 = getelementptr [4 x i8], ptr @hf_param_feature_page2_byte1, i64 %indvars.iv801
   %404 = load i32, ptr %403, align 4
   %405 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %404, ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
@@ -1782,7 +1782,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 485:                                              ; preds = %443, %485
   %indvars.iv793 = phi i64 [ 0, %443 ], [ %indvars.iv.next794, %485 ]
-  %486 = getelementptr i32, ptr @hf_param_timingcontrolflags, i64 %indvars.iv793
+  %486 = getelementptr [4 x i8], ptr @hf_param_timingcontrolflags, i64 %indvars.iv793
   %487 = load i32, ptr %486, align 4
   %488 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %487, ptr noundef %0, i32 noundef %457, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next794 = add nuw nsw i64 %indvars.iv793, 1
@@ -1814,7 +1814,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader754:                                    ; preds = %31, %511
   %indvars.iv853 = phi i64 [ %indvars.iv.next854, %511 ], [ 0, %31 ]
-  %507 = getelementptr [4 x i32], ptr @hf_param_afh_channelclass, i64 %indvars.iv853
+  %507 = getelementptr [16 x i8], ptr @hf_param_afh_channelclass, i64 %indvars.iv853
   %508 = trunc i64 %indvars.iv853 to i32
   %509 = add i32 %.0720, %508
   br label %512
@@ -1830,7 +1830,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 512:                                              ; preds = %.preheader754, %512
   %indvars.iv849 = phi i64 [ 0, %.preheader754 ], [ %indvars.iv.next850, %512 ]
-  %513 = getelementptr i32, ptr %507, i64 %indvars.iv849
+  %513 = getelementptr [4 x i8], ptr %507, i64 %indvars.iv849
   %514 = load i32, ptr %513, align 4
   %515 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %514, ptr noundef %0, i32 noundef %509, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
@@ -1879,7 +1879,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader756:                                    ; preds = %31, %.preheader756
   %indvars.iv845 = phi i64 [ %indvars.iv.next846, %.preheader756 ], [ 0, %31 ]
-  %546 = getelementptr i32, ptr @hf_param_poweradjresp, i64 %indvars.iv845
+  %546 = getelementptr [4 x i8], ptr @hf_param_poweradjresp, i64 %indvars.iv845
   %547 = load i32, ptr %546, align 4
   %548 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %547, ptr noundef %0, i32 noundef %.0720, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
@@ -1928,7 +1928,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 581:                                              ; preds = %569, %581
   %indvars.iv897 = phi i64 [ 0, %569 ], [ %indvars.iv.next898, %581 ]
-  %582 = getelementptr i32, ptr @hf_param_timingcontrolflags, i64 %indvars.iv897
+  %582 = getelementptr [4 x i8], ptr @hf_param_timingcontrolflags, i64 %indvars.iv897
   %583 = load i32, ptr %582, align 4
   %584 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %583, ptr noundef %0, i32 noundef %572, i32 noundef 1, i32 noundef -2147483648)
   %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 1

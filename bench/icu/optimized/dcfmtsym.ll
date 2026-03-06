@@ -778,7 +778,7 @@ _ZN6icu_7713UnicodeString5setToEi.exit.preheader: ; preds = %.noexc, %_ZN6icu_77
           to label %68 unwind label %79
 
 68:                                               ; preds = %_ZN6icu_7713UnicodeString5setToEi.exit.preheader
-  %69 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %46, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %indvars.iv
   invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %69)
           to label %.noexc131 unwind label %79
 
@@ -1052,7 +1052,7 @@ _ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPK
   %.084175 = phi i32 [ -1, %_ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %.286161, %.thread ]
   %indvars180 = trunc i64 %indvars.iv178 to i32
   %178 = icmp eq i64 %indvars.iv178, 0
-  %179 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %0, i64 %indvars.iv178
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 1096
   %.0.i = select i1 %178, ptr %176, ptr %180
   %181 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %.0.i, i32 noundef 0, i32 noundef 2147483647)
@@ -1150,14 +1150,14 @@ _ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPK
   %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i145, %_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacingaRKNS_13UnicodeStringE.exit.i ], [ 0, %208 ]
   %211 = load ptr, ptr %205, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %212 = getelementptr inbounds nuw ptr, ptr @_ZZN6icu_7712_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 %indvars.iv.i144
+  %212 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6icu_7712_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 %indvars.iv.i144
   %213 = load ptr, ptr %212, align 8, !tbaa !48
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef %213, i32 noundef -1, i32 noundef 0)
           to label %.noexc147 unwind label %.loopexit.split-lp.loopexit
 
 .noexc147:                                        ; preds = %.preheader17.i
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 2376
-  %215 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %214, i64 %indvars.iv.i144
+  %215 = getelementptr inbounds nuw [64 x i8], ptr %214, i64 %indvars.iv.i144
   %216 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %215, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacingaRKNS_13UnicodeStringE.exit.i unwind label %217
 
@@ -1179,14 +1179,14 @@ _ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacin
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacingaRKNS_13UnicodeStringE.exit16.i ], [ 0, %_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacingaRKNS_13UnicodeStringE.exit.i ]
   %219 = load ptr, ptr %205, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %220 = getelementptr inbounds nuw ptr, ptr @_ZZN6icu_7712_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 %indvars.iv21.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6icu_7712_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 %indvars.iv21.i
   %221 = load ptr, ptr %220, align 8, !tbaa !48
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %221, i32 noundef -1, i32 noundef 0)
           to label %.noexc148 unwind label %.loopexit
 
 .noexc148:                                        ; preds = %.preheader.i
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 2184
-  %223 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %222, i64 %indvars.iv21.i
+  %223 = getelementptr inbounds nuw [64 x i8], ptr %222, i64 %indvars.iv21.i
   %224 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %223, ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacingaRKNS_13UnicodeStringE.exit16.i unwind label %225
 
@@ -2338,8 +2338,8 @@ define noundef nonnull align 8 dereferenceable(2579) ptr @_ZN6icu_7720DecimalFor
 
 11:                                               ; preds = %.preheader25, %11
   %indvars.iv = phi i64 [ 0, %.preheader25 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
   %14 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
@@ -2387,11 +2387,11 @@ define noundef nonnull align 8 dereferenceable(2579) ptr @_ZN6icu_7720DecimalFor
 
 41:                                               ; preds = %.preheader, %41
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %41 ]
-  %42 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %7, i64 %indvars.iv29
-  %43 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %8, i64 %indvars.iv29
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %indvars.iv29
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv29
   %44 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %43)
-  %45 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %9, i64 %indvars.iv29
-  %46 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %10, i64 %indvars.iv29
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %indvars.iv29
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %indvars.iv29
   %47 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %46)
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 3
@@ -2450,8 +2450,8 @@ define noundef zeroext i1 @_ZNK6icu_7720DecimalFormatSymbolseqERKS0_(ptr noundef
 
 21:                                               ; preds = %.preheader49, %16
   %indvars.iv = phi i64 [ 0, %.preheader49 ], [ %indvars.iv.next, %16 ]
-  %22 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %14, i64 %indvars.iv
-  %23 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %15, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i16, ptr %24, align 8, !tbaa !17
   %26 = and i16 %25, 1
@@ -2503,8 +2503,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %31
 
 55:                                               ; preds = %.preheader, %54
   %indvars.iv55 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next56, %54 ]
-  %56 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %17, i64 %indvars.iv55
-  %57 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %18, i64 %indvars.iv55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %indvars.iv55
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %indvars.iv55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i16, ptr %58, align 8, !tbaa !17
   %60 = and i16 %59, 1
@@ -2550,8 +2550,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit35:        ; preds = %65
   br i1 %.not65, label %.thread, label %88
 
 88:                                               ; preds = %61, %_ZNK6icu_7713UnicodeStringneERKS0_.exit35
-  %89 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %19, i64 %indvars.iv55
-  %90 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %20, i64 %indvars.iv55
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %indvars.iv55
+  %90 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %indvars.iv55
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i16, ptr %91, align 8, !tbaa !17
   %93 = and i16 %92, 1
@@ -3089,12 +3089,12 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7720DecimalForm
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2184
-  %13 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %12, i64 %10
+  %13 = getelementptr inbounds [64 x i8], ptr %12, i64 %10
   br label %17
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2376
-  %16 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %15, i64 %10
+  %16 = getelementptr inbounds [64 x i8], ptr %15, i64 %10
   br label %17
 
 17:                                               ; preds = %14, %11, %7
@@ -3108,7 +3108,7 @@ define void @_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UC
   %5 = sext i32 %1 to i64
   %. = select i1 %.not, i64 2376, i64 2184
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %7 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   %8 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %3)
   ret void
 }
@@ -3168,7 +3168,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_117DecFmtSymDataSink3putEPKcRNS_13R
   br i1 %.not25.not, label %23, label %48
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L18gNumberElementKeysE, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L18gNumberElementKeysE, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !48
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %25) #21
   %27 = icmp eq i32 %26, 0
@@ -3271,7 +3271,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 .thread23:                                        ; preds = %6, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %11
   %13 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %2)
   br label %.thread25
 
@@ -3282,7 +3282,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %18
   %20 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %2)
   %21 = icmp eq i32 %1, 4
   br i1 %21, label %22, label %39
@@ -3314,7 +3314,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
   %34 = add nsw i32 %.01927, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %34)
-  %35 = getelementptr %"class.icu_77::UnicodeString", ptr %32, i64 %indvars.iv
+  %35 = getelementptr [64 x i8], ptr %32, i64 %indvars.iv
   %36 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull align 8 dereferenceable(64) %5) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3458,12 +3458,12 @@ define internal void @_ZN6icu_7712_GLOBAL__N_119CurrencySpacingSink3putEPKcRNS_1
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 2184
-  %51 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %50, i64 %.021
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %.021
   br label %_ZNK6icu_7720DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 2376
-  %54 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %53, i64 %.021
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %.021
   br label %_ZNK6icu_7720DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit
 
 _ZNK6icu_7720DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit: ; preds = %46, %49, %52
@@ -3505,7 +3505,7 @@ _ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !77
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %43, i64 %..i
-  %69 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %68, i64 %.021
+  %69 = getelementptr inbounds nuw [64 x i8], ptr %68, i64 %.021
   %70 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %_ZN6icu_7720DecimalFormatSymbols28setPatternForCurrencySpacingE16UCurrencySpacingaRKNS_13UnicodeStringE.exit unwind label %71
 

@@ -1532,7 +1532,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %42 = and i64 %41, %32
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !270, !nonnull !5, !noundef !5
   %44 = sub nsw i64 0, %42
-  %45 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %43, i64 %44
+  %45 = getelementptr inbounds [32 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -32
   %.val3.i.i.i = load ptr, ptr %46, align 8, !alias.scope !273, !noalias !280, !nonnull !5, !noundef !5
   %47 = getelementptr i8, ptr %45, i64 -24
@@ -1589,7 +1589,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h07b046999d3ecc56E.exit": ; preds = %.noexc16
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !264, !nonnull !5
-  %64 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %63, i64 %44
+  %64 = getelementptr inbounds [32 x i8], ptr %63, i64 %44
   %65 = getelementptr inbounds i8, ptr %64, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 8

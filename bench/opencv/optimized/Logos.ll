@@ -137,7 +137,7 @@ define hidden void @_ZN5logos5Logos4initERKNS_15LogosParametersE(ptr noundef non
   br i1 %27, label %28, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %15
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %15
   %.not.i.i = icmp eq ptr %17, %29
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %30
 
@@ -316,7 +316,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE5clearEv.exit: ; preds = %4, %10
   %40 = load i32, ptr %39, align 4, !tbaa !7
   %41 = add i32 %32, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !7
   %45 = add i32 %44, %38
   %46 = add i32 %45, %40
@@ -352,13 +352,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %62, %.thread
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !7
   %65 = getelementptr i8, ptr %63, i64 -4
   %66 = load i32, ptr %65, align 4, !tbaa !7
   %67 = add nsw i32 %66, %64
   %68 = add nuw nsw i64 %indvars.iv.i, 1
-  %69 = getelementptr inbounds nuw i32, ptr %37, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !7
   %71 = add nsw i32 %67, %70
   %72 = icmp sgt i32 %71, %.01931.i
@@ -515,7 +515,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE5clearEv.exit30: ; preds = %.preheader, 
   %135 = phi ptr [ %142, %141 ], [ %108, %.preheader ]
   %136 = phi ptr [ %143, %141 ], [ %109, %.preheader ]
   %.02080 = phi i64 [ %144, %141 ], [ 0, %.preheader ]
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %.02080
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %.02080
   %138 = load ptr, ptr %137, align 8, !tbaa !60
   %139 = icmp eq ptr %138, null
   br i1 %139, label %141, label %140
@@ -595,7 +595,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i:
 _ZNSt6vectorIPN5logos9PointPairESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %174, %_ZNSt6vectorIPN5logos9PointPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %169, ptr %6, align 8, !tbaa !28
   store ptr %173, ptr %8, align 8, !tbaa !39
-  %175 = getelementptr inbounds nuw ptr, ptr %169, i64 %167
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %167
   store ptr %175, ptr %26, align 8, !tbaa !74
   br label %_ZNSt6vectorIPN5logos9PointPairESaIS2_EE9push_backERKS2_.exit
 
@@ -614,7 +614,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE9push_backERKS2_.exit: ; preds = %154, %
   %.sink.i31 = select i1 %185, i32 %183, i32 %186
   %187 = zext i32 %.sink.i31 to i64
   %188 = load ptr, ptr %30, align 8, !tbaa !27
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %187
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %187
   %190 = load i32, ptr %189, align 4, !tbaa !7
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %189, align 4, !tbaa !7
@@ -706,7 +706,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i3
 _ZNSt6vectorIPN5logos9PointPairESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i38: ; preds = %231, %_ZNSt6vectorIPN5logos9PointPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i36
   store ptr %226, ptr %3, align 8, !tbaa !28
   store ptr %230, ptr %75, align 8, !tbaa !39
-  %232 = getelementptr inbounds nuw ptr, ptr %226, i64 %224
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %224
   store ptr %232, ptr %81, align 8, !tbaa !74
   br label %_ZNSt6vectorIPN5logos9PointPairESaIS2_EE9push_backERKS2_.exit39
 
@@ -793,7 +793,7 @@ define hidden void @_ZN5logos5Logos9updateBinEf(ptr noundef nonnull readonly ali
   %.sink = select i1 %13, i32 %10, i32 %15
   %16 = zext i32 %.sink to i64
   %17 = load ptr, ptr %14, align 8, !tbaa !27
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !7
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !7
@@ -817,10 +817,10 @@ define hidden noundef float @_ZN5logos5Logos21calcGlobalOrientationEv(ptr nounde
   %12 = add nsw i32 %11, %9
   %13 = add i32 %3, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !7
   %17 = add nsw i32 %12, %16
-  %18 = getelementptr i32, ptr %8, i64 %14
+  %18 = getelementptr [4 x i8], ptr %8, i64 %14
   %19 = getelementptr i8, ptr %18, i64 -4
   %invariant.op = add i32 %16, %9
   br label %28
@@ -850,14 +850,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %43
   br label %43
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !7
-  %35 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %35 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %36 = getelementptr i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !7
   %38 = add nsw i32 %37, %34
   %39 = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !7
   %42 = add nsw i32 %38, %41
   br label %43
@@ -977,9 +977,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !27
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !31
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !78
   br label %40
 

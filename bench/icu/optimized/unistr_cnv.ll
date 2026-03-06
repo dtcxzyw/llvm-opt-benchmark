@@ -366,12 +366,12 @@ define void @_ZN6icu_7713UnicodeString16doCodepageCreateEPKciP10UConverterR10UEr
   %30 = load i32, ptr %19, align 4
   %31 = select i1 %27, i32 %30, i32 %29
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %26, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %26, i64 %32
   store ptr %33, ptr %7, align 8, !tbaa !13
   %34 = load i32, ptr %20, align 8
   %35 = sext i32 %34 to i64
   %36 = select i1 %.not.i, i64 %35, i64 27
-  %37 = getelementptr inbounds i16, ptr %26, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %26, i64 %36
   call void @ucnv_toUnicode_77(ptr noundef %3, ptr noundef nonnull %7, ptr noundef %37, ptr noundef nonnull %6, ptr noundef %12, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %4)
   %38 = load ptr, ptr %7, align 8, !tbaa !13
   %39 = ptrtoint ptr %38 to i64
@@ -556,7 +556,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractEiiPcjPKc(ptr noundef nonn
   %77 = load ptr, ptr %76, align 8
   %78 = select i1 %.not.i, ptr %77, ptr %75
   %79 = sext i32 %.061 to i64
-  %80 = getelementptr inbounds i16, ptr %78, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %78, i64 %79
   tail call void @u_UCharsToChars_77(ptr noundef %80, ptr noundef %3, i32 noundef %.046.)
   %81 = call i32 @u_terminateChars_77(ptr noundef %3, i32 noundef %.046, i32 noundef %spec.select69, ptr noundef nonnull %7)
   br label %88
@@ -622,10 +622,10 @@ define noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UE
   %21 = load ptr, ptr %20, align 8
   %22 = select i1 %.not.i, ptr %21, ptr %19
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %22, i64 %23
   store ptr %24, ptr %9, align 8, !tbaa !13
   %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %24, i64 %25
   switch i32 %4, label %34 [
     i32 0, label %27
     i32 -1, label %28

@@ -244,7 +244,7 @@ declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @ftype_register(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr ptr, ptr @type_list, i64 %3
+  %4 = getelementptr [8 x i8], ptr @type_list, i64 %3
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @ftype_similar_types(i32 noundef %0, i32 nounde
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ftype_similar_types.1, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ftype_similar_types.1, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %same_ftype.exit
 
@@ -277,7 +277,7 @@ same_ftype.exit:                                  ; preds = %2, %switch.lookup
 
 switch.lookup6:                                   ; preds = %same_ftype.exit
   %6 = zext nneg i32 %switch.tableidx4 to i64
-  %switch.gep10 = getelementptr inbounds nuw i32, ptr @switch.table.ftype_similar_types.1, i64 %6
+  %switch.gep10 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ftype_similar_types.1, i64 %6
   %switch.load11 = load i32, ptr %switch.gep10, align 4
   br label %same_ftype.exit3
 
@@ -290,7 +290,7 @@ same_ftype.exit3:                                 ; preds = %same_ftype.exit, %s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @ftype_name(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 48
@@ -298,7 +298,7 @@ define noundef nonnull ptr @ftype_name(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_type_name, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_type_name, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -310,7 +310,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef nonnull ptr @ftype_pretty_name(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 48
@@ -318,7 +318,7 @@ define noundef nonnull ptr @ftype_pretty_name(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -330,7 +330,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @ftype_wire_size(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
@@ -340,7 +340,7 @@ define hidden i32 @ftype_wire_size(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_length(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 8
@@ -351,7 +351,7 @@ define zeroext i1 @ftype_can_length(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_slice(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %6 = load ptr, ptr %5, align 8
@@ -362,7 +362,7 @@ define zeroext i1 @ftype_can_slice(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_eq(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
@@ -373,7 +373,7 @@ define zeroext i1 @ftype_can_eq(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_cmp(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
@@ -384,7 +384,7 @@ define zeroext i1 @ftype_can_cmp(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_bitwise_and(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -395,7 +395,7 @@ define zeroext i1 @ftype_can_bitwise_and(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_unary_minus(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -406,7 +406,7 @@ define zeroext i1 @ftype_can_unary_minus(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_add(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %6 = load ptr, ptr %5, align 8
@@ -417,7 +417,7 @@ define zeroext i1 @ftype_can_add(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_subtract(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -428,7 +428,7 @@ define zeroext i1 @ftype_can_subtract(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_multiply(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
@@ -439,7 +439,7 @@ define zeroext i1 @ftype_can_multiply(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_divide(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
@@ -450,7 +450,7 @@ define zeroext i1 @ftype_can_divide(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_modulo(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %6 = load ptr, ptr %5, align 8
@@ -461,7 +461,7 @@ define zeroext i1 @ftype_can_modulo(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_contains(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
@@ -472,7 +472,7 @@ define zeroext i1 @ftype_can_contains(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_matches(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -483,7 +483,7 @@ define zeroext i1 @ftype_can_matches(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_is_zero(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %6 = load ptr, ptr %5, align 8
@@ -494,7 +494,7 @@ define zeroext i1 @ftype_can_is_zero(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_is_negative(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -505,7 +505,7 @@ define zeroext i1 @ftype_can_is_negative(i32 noundef %0) local_unnamed_addr #4 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_sinteger(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
@@ -516,7 +516,7 @@ define zeroext i1 @ftype_can_val_to_sinteger(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_uinteger(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -527,7 +527,7 @@ define zeroext i1 @ftype_can_val_to_uinteger(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_sinteger64(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
@@ -538,7 +538,7 @@ define zeroext i1 @ftype_can_val_to_sinteger64(i32 noundef %0) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_uinteger64(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -549,7 +549,7 @@ define zeroext i1 @ftype_can_val_to_uinteger64(i32 noundef %0) local_unnamed_add
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define zeroext i1 @ftype_can_val_to_double(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr ptr, ptr @type_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @type_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -561,7 +561,7 @@ define zeroext i1 @ftype_can_val_to_double(i32 noundef %0) local_unnamed_addr #4
 define noundef ptr @fvalue_new(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %3 = zext i32 %0 to i64
-  %4 = getelementptr ptr, ptr @type_list, i64 %3
+  %4 = getelementptr [8 x i8], ptr @type_list, i64 %3
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -607,7 +607,7 @@ define noundef ptr @fvalue_dup(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @fvalue_init(ptr noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr ptr, ptr @type_list, i64 %3
+  %4 = getelementptr [8 x i8], ptr @type_list, i64 %3
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -663,7 +663,7 @@ declare void @g_slice_free1(i64 noundef, ptr noundef) local_unnamed_addr #1
 define noundef ptr @fvalue_from_literal(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %6 = zext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -712,7 +712,7 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 switch.lookup:                                    ; preds = %22
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_pretty_name.exit
 
@@ -749,7 +749,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 define hidden noundef ptr @fvalue_from_string(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %6 = zext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -798,7 +798,7 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_pretty_name.exit
 
@@ -832,7 +832,7 @@ fvalue_free.exit:                                 ; preds = %29, %33
 define hidden noundef ptr @fvalue_from_charconst(i32 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %5 = zext i32 %0 to i64
-  %6 = getelementptr ptr, ptr @type_list, i64 %5
+  %6 = getelementptr [8 x i8], ptr @type_list, i64 %5
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -883,7 +883,7 @@ fvalue_new.exit:                                  ; preds = %3, %10
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @g_ascii_table, align 8
-  %26 = getelementptr i16, ptr %25, i64 %1
+  %26 = getelementptr [2 x i8], ptr %25, i64 %1
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 64
   %.not25 = icmp eq i16 %28, 0
@@ -898,7 +898,7 @@ fvalue_new.exit:                                  ; preds = %3, %10
 
 switch.lookup:                                    ; preds = %29
   %33 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_pretty_name.exit
 
@@ -915,7 +915,7 @@ ftype_pretty_name.exit:                           ; preds = %switch.lookup, %29
 
 switch.lookup36:                                  ; preds = %35
   %39 = zext nneg i32 %37 to i64
-  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %39
+  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %39
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %ftype_pretty_name.exit28
 
@@ -953,7 +953,7 @@ fvalue_free.exit:                                 ; preds = %41, %45
 define hidden noundef ptr @fvalue_from_sinteger64(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %6 = zext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1002,7 +1002,7 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_pretty_name.exit
 
@@ -1036,7 +1036,7 @@ fvalue_free.exit:                                 ; preds = %29, %33
 define hidden noundef ptr @fvalue_from_uinteger64(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %6 = zext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1085,7 +1085,7 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_pretty_name.exit
 
@@ -1119,7 +1119,7 @@ fvalue_free.exit:                                 ; preds = %29, %33
 define hidden noundef ptr @fvalue_from_floating(i32 noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %6 = zext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1168,7 +1168,7 @@ fvalue_new.exit:                                  ; preds = %4, %11
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_from_floating, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_from_floating, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_pretty_name.exit
 
@@ -1210,7 +1210,7 @@ define noundef nonnull ptr @fvalue_type_name(ptr noundef readonly captures(none)
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr ptr, ptr @type_list, i64 %4
+  %5 = getelementptr [8 x i8], ptr @type_list, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 48
@@ -1218,7 +1218,7 @@ define noundef nonnull ptr @fvalue_type_name(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.fvalue_type_name, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.fvalue_type_name, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ftype_name.exit
 
@@ -2061,7 +2061,7 @@ define noundef ptr @fvalue_bitwise_and(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = load i32, ptr %4, align 8
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %9 = zext i32 %7 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2106,7 +2106,7 @@ define noundef ptr @fvalue_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %7 = load i32, ptr %4, align 8
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %9 = zext i32 %7 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2151,7 +2151,7 @@ define noundef ptr @fvalue_subtract(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = load i32, ptr %4, align 8
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %9 = zext i32 %7 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2196,7 +2196,7 @@ define noundef ptr @fvalue_multiply(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = load i32, ptr %4, align 8
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %9 = zext i32 %7 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2241,7 +2241,7 @@ define noundef ptr @fvalue_divide(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = load i32, ptr %4, align 8
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %9 = zext i32 %7 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2286,7 +2286,7 @@ define noundef ptr @fvalue_modulo(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = load i32, ptr %4, align 8
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %9 = zext i32 %7 to i64
-  %10 = getelementptr ptr, ptr @type_list, i64 %9
+  %10 = getelementptr [8 x i8], ptr @type_list, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2329,7 +2329,7 @@ define noundef ptr @fvalue_unary_minus(ptr noundef %0, ptr noundef %1) local_unn
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #10
   %6 = zext i32 %4 to i64
-  %7 = getelementptr ptr, ptr @type_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @type_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8

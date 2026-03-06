@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.pkpy::Dict::Item" = type { ptr, ptr }
-%"struct.pkpy::Dict::ItemNode" = type { i32, i32 }
 %"struct.pkpy::Tuple" = type <{ ptr, [3 x ptr], i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -220,7 +218,7 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %.pre to i64
-  %20 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %18, i64 %19
+  %20 = getelementptr inbounds [16 x i8], ptr %18, i64 %19
   store ptr %1, ptr %20, align 8
   %21 = load i32, ptr %6, align 8
   %22 = icmp eq i32 %21, 1
@@ -238,12 +236,12 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %30, i64 %19
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %19
   store i32 %28, ptr %31, align 4
   %32 = load i32, ptr %5, align 4
   %33 = load ptr, ptr %29, align 8
   %34 = sext i32 %28 to i64
-  %35 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %32, ptr %36, align 4
   store i32 %32, ptr %27, align 4
@@ -254,7 +252,7 @@ define void @_ZN4pkpy4Dict3setEPNS_8PyObjectES2_(ptr noundef nonnull align 8 der
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %40, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %2, ptr %43, align 8
   ret void
@@ -310,7 +308,7 @@ define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable
 .lr.ph:                                           ; preds = %1, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit
   %.011 = phi i32 [ %70, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit ], [ %9, %1 ]
   %34 = sext i32 %.011 to i64
-  %35 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %5, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %5, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -338,7 +336,7 @@ define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable
   store i32 %47, ptr %15, align 8
   %48 = load ptr, ptr %4, align 8
   %49 = sext i32 %.pre to i64
-  %50 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %48, i64 %49
+  %50 = getelementptr inbounds [16 x i8], ptr %48, i64 %49
   store ptr %36, ptr %50, align 8
   %51 = load i32, ptr %15, align 8
   %52 = icmp eq i32 %51, 1
@@ -351,12 +349,12 @@ define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable
 54:                                               ; preds = %45
   %55 = load i32, ptr %20, align 4
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %56, i64 %49
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %49
   store i32 %55, ptr %57, align 4
   %58 = load i32, ptr %3, align 4
   %59 = load ptr, ptr %6, align 8
   %60 = sext i32 %55 to i64
-  %61 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %58, ptr %62, align 4
   br label %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split
@@ -370,12 +368,12 @@ _ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit:         ; preds = %_ZN4pkpy4Dict3setEP
   %63 = phi i32 [ %.pre, %42 ], [ %.pre.sink, %_ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit.sink.split ]
   %64 = load ptr, ptr %4, align 8
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %64, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %38, ptr %67, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %68 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %7, i64 %34
+  %68 = getelementptr inbounds [8 x i8], ptr %7, i64 %34
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %.not = icmp eq i32 %70, -1
@@ -412,7 +410,7 @@ define noundef ptr @_ZNK4pkpy4Dict7try_getEPNS_8PyObjectE(ptr noundef nonnull al
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %9, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %15
@@ -448,7 +446,7 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %4, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %9, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %9, i64 %11
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
@@ -472,12 +470,12 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %25, i64 %11
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %11
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %17, align 8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %25, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %25, i64 %29
   store i32 -1, ptr %30, align 4
   br label %59
 
@@ -487,14 +485,14 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   %34 = icmp eq i32 %33, %10
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %36, i64 %11
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %11
   br i1 %34, label %38, label %43
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %37, align 4
   store i32 %39, ptr %32, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %36, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %36, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 -1, ptr %42, align 4
   br label %59
@@ -504,18 +502,18 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %37, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %36, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %36, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %45, ptr %49, align 4
   %50 = load ptr, ptr %35, align 8
   %51 = load i32, ptr %4, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %50, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %50, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %50, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %50, i64 %57
   store i32 %54, ptr %58, align 4
   br label %59
 
@@ -524,12 +522,12 @@ define noundef zeroext i1 @_ZN4pkpy4Dict5eraseEPNS_8PyObjectE(ptr noundef nonnul
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %4, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %61, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   store i32 -1, ptr %64, align 4
   %65 = load ptr, ptr %60, align 8
   %66 = load i32, ptr %4, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %65, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %65, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 -1, ptr %69, align 4
   br label %70
@@ -562,7 +560,7 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %.06.i = phi i32 [ %.04.i, %.lr.ph.i ], [ %.0.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.i" ]
   %15 = load ptr, ptr %6, align 8
   %16 = sext i32 %.06.i to i64
-  %17 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %15, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -590,7 +588,7 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   store i32 %29, ptr %7, align 8
   %30 = load ptr, ptr %9, align 8
   %31 = sext i32 %.pre.i.i.i to i64
-  %32 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %30, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %30, i64 %31
   store ptr %18, ptr %32, align 8
   %33 = load i32, ptr %7, align 8
   %34 = icmp eq i32 %33, 1
@@ -603,12 +601,12 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
 36:                                               ; preds = %27
   %37 = load i32, ptr %10, align 4
   %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %38, i64 %31
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %31
   store i32 %37, ptr %39, align 4
   %40 = load i32, ptr %4, align 4
   %41 = load ptr, ptr %11, align 8
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %40, ptr %44, align 4
   br label %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i"
@@ -622,13 +620,13 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %45 = phi i32 [ %.pre.i.i.i, %24 ], [ %.pre.i.i.sink.i, %"_ZZN4pkpy4Dict6updateERKS0_ENK3$_0clEPNS_8PyObjectES5_.exit.sink.split.i" ]
   %46 = load ptr, ptr %9, align 8
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %46, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %20, ptr %49, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = load ptr, ptr %13, align 8
-  %51 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %50, i64 %16
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %.0.i = load i32, ptr %52, align 4
   %.not.i = icmp eq i32 %.0.i, -1
@@ -664,14 +662,14 @@ define void @_ZNK4pkpy4Dict4keysEv(ptr dead_on_unwind noalias nonnull writable s
   %.01830 = phi i32 [ %.01827, %.lr.ph ], [ %.018, %14 ]
   %15 = load ptr, ptr %12, align 8
   %16 = sext i32 %.01830 to i64
-  %17 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %15, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store ptr %18, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %21, i64 %16
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.018 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %.018, -1
@@ -1029,15 +1027,15 @@ define void @_ZNK4pkpy4Dict6valuesEv(ptr dead_on_unwind noalias nonnull writable
   %.01830 = phi i32 [ %.01827, %.lr.ph ], [ %.018, %14 ]
   %15 = load ptr, ptr %12, align 8
   %16 = sext i32 %.01830 to i64
-  %17 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %15, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr %13, align 8
-  %23 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %22, i64 %16
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.018 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %.018, -1
@@ -1205,7 +1203,7 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
   %.06.i = phi i32 [ %.04.i, %.lr.ph.i ], [ %.0.i, %"_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i" ]
   %6 = load ptr, ptr %3, align 8
   %7 = sext i32 %.06.i to i64
-  %8 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1262,7 +1260,7 @@ define void @_ZNK4pkpy4Dict8_gc_markEv(ptr noundef nonnull readonly align 8 capt
 
 "_ZZNK4pkpy4Dict8_gc_markEvENK3$_0clEPNS_8PyObjectES3_.exit.i": ; preds = %36, %31, %27, %24
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %37, i64 %7
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %7
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.0.i = load i32, ptr %39, align 4
   %.not.i = icmp eq i32 %.0.i, -1

@@ -129,7 +129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 46:                                               ; preds = %.lr.ph
   %47 = call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
-  %48 = getelementptr inbounds nuw ptr, ptr %39, i64 %.02024
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.02024
   store ptr %47, ptr %48, align 8, !tbaa !21
   call void @_ZN4LIEF5MachO13init_c_binaryEP14Macho_Binary_tPNS0_6BinaryE(ptr noundef %47, ptr noundef nonnull %45) #9
   br label %49

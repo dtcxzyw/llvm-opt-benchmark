@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_id_t = type { i64, i64 }
 %struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i8, i32, ptr, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i8, i8, i8, i32, i32, i32, ptr, i32, ptr, i8, i8, i8, ptr, ptr, ptr, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i8, i8, i8, ptr, i32, i8, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i8, i32, i8, i8, i32, i32, i8, i8, i8, i32, i8, i8, i8 }
 %struct.color_t = type { i16, i16, i16 }
-%struct.postdissector = type { ptr, ptr }
 %struct.frame_data_s = type { i32, ptr, ptr }
 %struct.except_stacknode = type { ptr, i32, %union.anon.4 }
 %union.anon.4 = type { ptr }
@@ -15,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.file_data_s = type { ptr, ptr }
-%struct.range_admin_tag = type { i32, i32 }
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
 %struct.lookup_entry = type { ptr, ptr }
 %struct.dissector_foreach_info = type { ptr, ptr, ptr, ptr, i32 }
@@ -23,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.heur_dtbl_entry = type { ptr, ptr, ptr, ptr, ptr, i8, i8 }
 %struct.heur_dissector_foreach_info = type { ptr, ptr, ptr, ptr }
 %struct.heur_dissector_foreach_table_info = type { ptr, ptr }
-%struct.dissector_info = type { ptr, ptr }
+%struct.postdissector = type { ptr, ptr }
 
 @dissector_tables = internal unnamed_addr global ptr null, align 8
 @all_tables_handles_sorted = internal unnamed_addr global i1 false, align 1
@@ -272,7 +270,7 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
   %16 = phi ptr [ %24, %23 ], [ %12, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr %struct.postdissector, ptr %17, i64 %indvars.iv
+  %18 = getelementptr [16 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not5 = icmp eq ptr %20, null
@@ -1672,7 +1670,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captu
 
 .lr.ph31.split.us:                                ; preds = %.lr.ph31, %dissector_add_uint.exit25.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %dissector_add_uint.exit25.us ], [ 0, %.lr.ph31 ]
-  %11 = getelementptr %struct.range_admin_tag, ptr %8, i64 %indvars.iv41
+  %11 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv41
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -1782,7 +1780,7 @@ find_dissector_table.exit:                        ; preds = %47, %50, %53, %56
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31, %dissector_add_uint.exit25
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %dissector_add_uint.exit25 ], [ 0, %.lr.ph31 ]
-  %61 = getelementptr %struct.range_admin_tag, ptr %8, i64 %indvars.iv38
+  %61 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv38
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
@@ -2054,7 +2052,7 @@ dissector_handle_get_description.exit:            ; preds = %32, %33
 
 switch.lookup:                                    ; preds = %45
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissector_add_range_preference, i64 %55
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissector_add_range_preference, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   %56 = tail call ptr @wmem_epan_scope()
   %57 = tail call i32 @range_convert_str(ptr noundef %56, ptr noundef %17, ptr noundef %2, i32 noundef %switch.load)
@@ -2151,7 +2149,7 @@ define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly ca
 
 6:                                                ; preds = %.lr.ph22, %._crit_edge
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next27, %._crit_edge ]
-  %7 = getelementptr %struct.range_admin_tag, ptr %5, i64 %indvars.iv26
+  %7 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv26
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
@@ -5846,7 +5844,7 @@ define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %29, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %17 = getelementptr %struct.postdissector, ptr %15, i64 %indvars.iv.i.i
+  %17 = getelementptr [16 x i8], ptr %15, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %3
   br i1 %19, label %20, label %29
@@ -6410,7 +6408,7 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %.029 = phi i32 [ %17, %.lr.ph ], [ 0, %0 ]
   %10 = load ptr, ptr %2, align 8
   %11 = zext i32 %.029 to i64
-  %12 = getelementptr %struct.dissector_info, ptr %8, i64 %11
+  %12 = getelementptr [16 x i8], ptr %8, i64 %11
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -6429,7 +6427,7 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
 
 .lr.ph32:                                         ; preds = %._crit_edge, %.lr.ph32
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph32 ], [ 0, %._crit_edge ]
-  %19 = getelementptr %struct.dissector_info, ptr %8, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %8, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -6517,7 +6515,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone captures(addres
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr %struct.postdissector, ptr %6, i64 %indvars.iv
+  %9 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %12, label %7
@@ -6536,7 +6534,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone captures(addres
 
 17:                                               ; preds = %15, %12
   %18 = phi ptr [ %.pre16, %15 ], [ %6, %12 ]
-  %19 = getelementptr %struct.postdissector, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [16 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %1, ptr %20, align 8
   br label %.loopexit
@@ -6564,7 +6562,7 @@ define hidden void @deregister_postdissector(ptr noundef readnone captures(addre
 
 6:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %7 = getelementptr %struct.postdissector, ptr %5, i64 %indvars.iv
+  %7 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %19
@@ -6611,7 +6609,7 @@ define hidden noundef zeroext i1 @have_postdissector() local_unnamed_addr #0 {
   %4 = phi ptr [ %13, %12 ], [ %1, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %0 ]
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr %struct.postdissector, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
@@ -6652,7 +6650,7 @@ define hidden void @call_all_postdissectors(ptr noundef %0, ptr noundef %1, ptr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %call_dissector_only.exit ], [ 0, %3 ]
   %7 = phi ptr [ %13, %call_dissector_only.exit ], [ %4, %3 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct.postdissector, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [16 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %call_dissector_only.exit
@@ -6687,7 +6685,7 @@ define noundef zeroext i1 @postdissectors_want_hfids() local_unnamed_addr #0 {
   %4 = phi ptr [ %20, %19 ], [ %1, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %0 ]
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr %struct.postdissector, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -6744,7 +6742,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
   %6 = phi ptr [ %24, %23 ], [ %2, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr %struct.postdissector, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
@@ -6770,7 +6768,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
 
 ._crit_edge:                                      ; preds = %19
   %.pre13 = load ptr, ptr %.pre17, align 8
-  %.phi.trans.insert = getelementptr %struct.postdissector, ptr %.pre13, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr [16 x i8], ptr %.pre13, i64 %indvars.iv
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre15 = load ptr, ptr %.phi.trans.insert14, align 8
   br label %21

@@ -6,17 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon.3 }
 %union.anon.3 = type { %struct.FLAC__StreamMetadata_CueSheet }
 %struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
-%struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-%struct.Argument = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.Argument_BlockNumber }
-%struct.Argument_BlockNumber = type { i32, ptr }
-%struct.Operation = type { i32, %union.anon }
-%union.anon = type { %struct.Argument_VcField }
-%struct.Argument_VcField = type { ptr, ptr, i32, ptr, i32 }
-%struct.Argument_BlockTypeEntry = type { i32, [4 x i8], i32 }
 
 @.str = private unnamed_addr constant [13 x i8] c"metaflac %s\0A\00", align 1
 @FLAC__VERSION_STRING = external local_unnamed_addr global ptr, align 8
@@ -182,7 +171,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %do_major_operation_on_file.exit.i ]
   %.035.i = phi i32 [ 1, %.lr.ph.i ], [ %.0.i.i, %do_major_operation_on_file.exit.i ]
   %40 = load ptr, ptr %24, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = call ptr @FLAC__metadata_chain_new() #10
   %44 = icmp eq ptr %43, null
@@ -298,7 +287,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 92:                                               ; preds = %89
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr @FLAC__MetadataTypeString, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__MetadataTypeString, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !16
   br label %96
 
@@ -553,7 +542,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 241:                                              ; preds = %264, %.lr.ph444.i.i.i.i
   %indvars.iv476.i.i.i.i = phi i64 [ 0, %.lr.ph444.i.i.i.i ], [ %indvars.iv.next477.i.i.i.i, %264 ]
   %242 = load ptr, ptr %240, align 8, !tbaa !32
-  %243 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %242, i64 %indvars.iv476.i.i.i.i
+  %243 = getelementptr inbounds nuw [24 x i8], ptr %242, i64 %indvars.iv476.i.i.i.i
   %244 = load i64, ptr %243, align 8, !tbaa !39
   %.not354.i.i.i.i = icmp eq i64 %244, %38
   br i1 %.not354.i.i.i.i, label %258, label %245
@@ -564,14 +553,14 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 246:                                              ; preds = %245
   %247 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #10
   %.pre.i.i.i.i = load ptr, ptr %240, align 8, !tbaa !32
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %.pre.i.i.i.i, i64 %indvars.iv476.i.i.i.i
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv476.i.i.i.i
   %.pre493.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !39
   br label %248
 
 248:                                              ; preds = %246, %245
   %249 = phi i64 [ %.pre493.i.i.i.i, %246 ], [ %244, %245 ]
   %250 = phi ptr [ %.pre.i.i.i.i, %246 ], [ %242, %245 ]
-  %251 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %250, i64 %indvars.iv476.i.i.i.i
+  %251 = getelementptr inbounds nuw [24 x i8], ptr %250, i64 %indvars.iv476.i.i.i.i
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 8, !tbaa !42
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
@@ -635,7 +624,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
   %284 = trunc nuw i64 %indvars.iv473.i.i.i.i to i32
   %285 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.39, i32 noundef %284) #10
   %286 = load ptr, ptr %283, align 8, !tbaa !32
-  %287 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %286, i64 %indvars.iv473.i.i.i.i
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %286, i64 %indvars.iv473.i.i.i.i
   %288 = load ptr, ptr @stdout, align 8, !tbaa !37
   call void @write_vc_field(ptr noundef null, ptr noundef %287, i32 noundef range(i32 0, 2) %82, ptr noundef %288) #10
   %indvars.iv.next474.i.i.i.i = add nuw nsw i64 %indvars.iv473.i.i.i.i, 1
@@ -650,7 +639,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
   %293 = trunc nuw i64 %indvars.iv470.i.i.i.i to i32
   %294 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.39, i32 noundef %293) #10
   %295 = load ptr, ptr %283, align 8, !tbaa !32
-  %296 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %295, i64 %indvars.iv470.i.i.i.i
+  %296 = getelementptr inbounds nuw [16 x i8], ptr %295, i64 %indvars.iv470.i.i.i.i
   %297 = load ptr, ptr @stdout, align 8, !tbaa !37
   call void @write_vc_field(ptr noundef null, ptr noundef %296, i32 noundef range(i32 0, 2) %82, ptr noundef %297) #10
   %indvars.iv.next471.i.i.i.i = add nuw nsw i64 %indvars.iv470.i.i.i.i, 1
@@ -708,7 +697,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
   %indvars.iv467.i.i.i.i = phi i64 [ 0, %.lr.ph440.i.i.i.i ], [ %indvars.iv.next468.i.i.i.i, %.loopexit435.i.i.i.i ]
   %332 = phi i32 [ %329, %.lr.ph440.i.i.i.i ], [ %427, %.loopexit435.i.i.i.i ]
   %333 = load ptr, ptr %330, align 8, !tbaa !32
-  %334 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %333, i64 %indvars.iv467.i.i.i.i
+  %334 = getelementptr inbounds nuw [32 x i8], ptr %333, i64 %indvars.iv467.i.i.i.i
   %335 = add i32 %332, -1
   %336 = zext i32 %335 to i64
   %337 = icmp eq i64 %indvars.iv467.i.i.i.i, %336
@@ -817,7 +806,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 .thread429.us.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i, %.thread429.us.i.i.i.i
   %indvars.iv464.i.i.i.i = phi i64 [ %indvars.iv.next465.i.i.i.i, %.thread429.us.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %398 = load ptr, ptr %397, align 8, !tbaa !50
-  %399 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %398, i64 %indvars.iv464.i.i.i.i
+  %399 = getelementptr inbounds nuw [16 x i8], ptr %398, i64 %indvars.iv464.i.i.i.i
   %400 = trunc nuw nsw i64 %indvars.iv464.i.i.i.i to i32
   %401 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.56, i32 noundef %400) #10
   %402 = load i64, ptr %399, align 8, !tbaa !51
@@ -835,7 +824,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 .lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %.lr.ph.split.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.lr.ph.split.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %411 = load ptr, ptr %397, align 8, !tbaa !50
-  %412 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %411, i64 %indvars.iv.i.i.i.i
+  %412 = getelementptr inbounds nuw [16 x i8], ptr %411, i64 %indvars.iv.i.i.i.i
   %413 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull %42) #10
   %414 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %415 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.56, i32 noundef %414) #10
@@ -875,7 +864,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 437:                                              ; preds = %433
   %438 = zext nneg i32 %435 to i64
-  %439 = getelementptr inbounds nuw ptr, ptr @FLAC__StreamMetadata_Picture_TypeString, i64 %438
+  %439 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__StreamMetadata_Picture_TypeString, i64 %438
   %440 = load ptr, ptr %439, align 8, !tbaa !16
   br label %441
 
@@ -1054,7 +1043,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 540:                                              ; preds = %556, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %556 ]
   %.06198.i.i.i = phi i32 [ -1, %.lr.ph.i.i.i ], [ %.162.i.i.i, %556 ]
-  %541 = getelementptr inbounds nuw %struct.Argument, ptr %539, i64 %indvars.iv.i.i.i
+  %541 = getelementptr inbounds nuw [24 x i8], ptr %539, i64 %indvars.iv.i.i.i
   %542 = load i32, ptr %541, align 8, !tbaa !21
   %543 = icmp eq i32 %542, 0
   br i1 %543, label %544, label %556
@@ -1440,7 +1429,7 @@ do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.i9 ], [ %indvars.iv.next.i13, %do_shorthand_operations_on_file.exit.i ]
   %.032.i = phi i32 [ 1, %.lr.ph.i9 ], [ %770, %do_shorthand_operations_on_file.exit.i ]
   %703 = load ptr, ptr %695, align 8, !tbaa !19
-  %704 = getelementptr inbounds nuw ptr, ptr %703, i64 %indvars.iv.i10
+  %704 = getelementptr inbounds nuw [8 x i8], ptr %703, i64 %indvars.iv.i10
   %705 = load ptr, ptr %704, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !59
@@ -1481,7 +1470,7 @@ do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
   %718 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %730, %728 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %728 ]
   %.05362.i.i = phi i32 [ %706, %.lr.ph.i.i ], [ %spec.select.i.i, %728 ]
-  %719 = getelementptr inbounds nuw %struct.Operation, ptr %718, i64 %indvars.iv.i.i
+  %719 = getelementptr inbounds nuw [48 x i8], ptr %718, i64 %indvars.iv.i.i
   %720 = load i32, ptr %719, align 8, !tbaa !21
   %.not58.i.i = icmp eq i32 %720, 31
   br i1 %.not58.i.i, label %728, label %721
@@ -1493,7 +1482,7 @@ do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
   %725 = and i32 %724, 1
   %.pre76.i.i = load ptr, ptr %697, align 8, !tbaa !20
   %.pre77.i.i = load i32, ptr %698, align 8, !tbaa !71
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw %struct.Operation, ptr %.pre76.i.i, i64 %indvars.iv.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [48 x i8], ptr %.pre76.i.i, i64 %indvars.iv.i.i
   %.pre79.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !21
   %726 = icmp eq i32 %.pre79.i.i, 34
   %727 = select i1 %726, i32 0, i32 %.05362.i.i
@@ -1515,7 +1504,7 @@ do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
   %735 = phi i32 [ %746, %745 ], [ %729, %.preheader.i.i ]
   %indvars.iv73.i.i = phi i64 [ %indvars.iv.next74.i.i, %745 ], [ 0, %.preheader.i.i ]
   %736 = load ptr, ptr %697, align 8, !tbaa !20
-  %737 = getelementptr inbounds nuw %struct.Operation, ptr %736, i64 %indvars.iv73.i.i
+  %737 = getelementptr inbounds nuw [48 x i8], ptr %736, i64 %indvars.iv73.i.i
   %738 = load i32, ptr %737, align 8, !tbaa !21
   %739 = icmp eq i32 %738, 31
   br i1 %739, label %740, label %745
@@ -1620,7 +1609,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %896 ], [ 0, %.lr.ph36.i.preheader ]
   %.235.i = phi i32 [ %.3.i, %896 ], [ 1, %.lr.ph36.i.preheader ]
   %781 = load ptr, ptr %697, align 8, !tbaa !20
-  %782 = getelementptr inbounds nuw %struct.Operation, ptr %781, i64 %indvars.iv45.i
+  %782 = getelementptr inbounds nuw [48 x i8], ptr %781, i64 %indvars.iv45.i
   %783 = load i32, ptr %782, align 8, !tbaa !21
   switch i32 %783, label %896 [
     i32 32, label %.sink.split.i
@@ -1656,14 +1645,14 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   %.080158.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.181.i, %788 ]
   %.082157.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.183.i, %788 ]
   %.084156.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.185.i, %788 ]
-  %790 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %790 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %791 = load ptr, ptr %790, align 8, !tbaa !16
   %792 = call i32 @FLAC__metadata_get_streaminfo(ptr noundef %791, ptr noundef nonnull %2) #10
   %.not100.i = icmp eq i32 %792, 0
   br i1 %.not100.i, label %793, label %798
 
 793:                                              ; preds = %789
-  %794 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %794 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %795 = load ptr, ptr @stderr, align 8, !tbaa !37
   %796 = load ptr, ptr %794, align 8, !tbaa !16
   %797 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %795, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef %796) #10
@@ -1683,7 +1672,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %.not102.i, label %809, label %804
 
 804:                                              ; preds = %803
-  %805 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %805 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %806 = load ptr, ptr @stderr, align 8, !tbaa !37
   %807 = load ptr, ptr %805, align 8, !tbaa !16
   %808 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %806, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef %807, i32 noundef %799, i32 noundef %.084156.i) #10
@@ -1695,7 +1684,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %.not103.i, label %816, label %811
 
 811:                                              ; preds = %809
-  %812 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %812 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %813 = load ptr, ptr @stderr, align 8, !tbaa !37
   %814 = load ptr, ptr %812, align 8, !tbaa !16
   %815 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %813, i32 noundef 1, ptr noundef nonnull @.str.83, ptr noundef %814, i32 noundef %810, i32 noundef %.082157.i) #10
@@ -1707,7 +1696,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %.not104.i, label %823, label %818
 
 818:                                              ; preds = %816
-  %819 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %819 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %820 = load ptr, ptr @stderr, align 8, !tbaa !37
   %821 = load ptr, ptr %819, align 8, !tbaa !16
   %822 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %820, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef %821, i32 noundef %817, i32 noundef %.080158.i) #10
@@ -1722,7 +1711,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %.not105.i, label %825, label %830
 
 825:                                              ; preds = %823
-  %826 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %826 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %827 = load ptr, ptr @stderr, align 8, !tbaa !37
   %828 = load ptr, ptr %826, align 8, !tbaa !16
   %829 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %827, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef %828, i32 noundef %.185.i) #10
@@ -1734,7 +1723,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %or.cond.i, label %832, label %837
 
 832:                                              ; preds = %830
-  %833 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %833 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %834 = load ptr, ptr @stderr, align 8, !tbaa !37
   %835 = load ptr, ptr %833, align 8, !tbaa !16
   %836 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %834, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef %835, i32 noundef %.181.i) #10
@@ -1746,7 +1735,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %or.cond3.i, label %839, label %788
 
 839:                                              ; preds = %837
-  %840 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %840 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv.i15
   %841 = load ptr, ptr @stderr, align 8, !tbaa !37
   %842 = load ptr, ptr %840, align 8, !tbaa !16
   %843 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %841, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef %842, i32 noundef %.183.i, i32 noundef 4, i32 noundef 32) #10
@@ -1793,16 +1782,16 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
 
 .lr.ph164.i:                                      ; preds = %856, %857
   %indvars.iv227.i = phi i64 [ %indvars.iv.next228.i, %857 ], [ 0, %856 ]
-  %858 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv227.i
+  %858 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv227.i
   %859 = load ptr, ptr %858, align 8, !tbaa !16
-  %860 = getelementptr inbounds nuw float, ptr %850, i64 %indvars.iv227.i
-  %861 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv227.i
+  %860 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %indvars.iv227.i
+  %861 = getelementptr inbounds nuw [4 x i8], ptr %.187.i, i64 %indvars.iv227.i
   %862 = call ptr @grabbag__replaygain_analyze_file(ptr noundef %859, ptr noundef %860, ptr noundef %861) #10
   %.not99.i = icmp eq ptr %862, null
   br i1 %.not99.i, label %857, label %863
 
 863:                                              ; preds = %.lr.ph164.i
-  %864 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv227.i
+  %864 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv227.i
   %865 = load ptr, ptr @stderr, align 8, !tbaa !37
   %866 = load ptr, ptr %864, align 8, !tbaa !16
   %867 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %865, i32 noundef 1, ptr noundef nonnull @.str.90, ptr noundef %866, ptr noundef nonnull %862) #10
@@ -1816,13 +1805,13 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
 
 .lr.ph169.split.us.i:                             ; preds = %._crit_edge165.i, %877
   %indvars.iv237.i = phi i64 [ %indvars.iv.next238.i, %877 ], [ 0, %._crit_edge165.i ]
-  %868 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv237.i
+  %868 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv237.i
   %869 = load ptr, ptr %868, align 8, !tbaa !16
   %870 = load float, ptr %3, align 4, !tbaa !77
   %871 = load float, ptr %4, align 4, !tbaa !77
-  %872 = getelementptr inbounds nuw float, ptr %850, i64 %indvars.iv237.i
+  %872 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %indvars.iv237.i
   %873 = load float, ptr %872, align 4, !tbaa !77
-  %874 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv237.i
+  %874 = getelementptr inbounds nuw [4 x i8], ptr %.187.i, i64 %indvars.iv237.i
   %875 = load float, ptr %874, align 4, !tbaa !77
   %876 = call ptr @grabbag__replaygain_store_to_file(ptr noundef %869, float noundef %870, float noundef %871, float noundef %873, float noundef %875, i32 noundef %787) #10
   %.not98.us.i = icmp eq ptr %876, null
@@ -1836,16 +1825,16 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
 .lr.ph169.split.i:                                ; preds = %._crit_edge165.i, %.lr.ph169.split.i
   %indvars.iv232.i = phi i64 [ %indvars.iv.next233.i, %.lr.ph169.split.i ], [ 0, %._crit_edge165.i ]
   %878 = load ptr, ptr @stdout, align 8, !tbaa !37
-  %879 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv232.i
+  %879 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv232.i
   %880 = load ptr, ptr %879, align 8, !tbaa !16
   %881 = load float, ptr %3, align 4, !tbaa !77
   %882 = fpext float %881 to double
   %883 = load float, ptr %4, align 4, !tbaa !77
   %884 = fpext float %883 to double
-  %885 = getelementptr inbounds nuw float, ptr %850, i64 %indvars.iv232.i
+  %885 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %indvars.iv232.i
   %886 = load float, ptr %885, align 4, !tbaa !77
   %887 = fpext float %886 to double
-  %888 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv232.i
+  %888 = getelementptr inbounds nuw [4 x i8], ptr %.187.i, i64 %indvars.iv232.i
   %889 = load float, ptr %888, align 4, !tbaa !77
   %890 = fpext float %889 to double
   %891 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %878, i32 noundef 1, ptr noundef nonnull @.str.92, ptr noundef %880, double noundef %882, double noundef %884, double noundef %887, double noundef %890) #10
@@ -1854,7 +1843,7 @@ do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %.
   br i1 %exitcond236.not.i, label %._crit_edge170.i, label %.lr.ph169.split.i, !llvm.loop !79
 
 .split.us.i:                                      ; preds = %.lr.ph169.split.us.i
-  %892 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv237.i
+  %892 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv237.i
   %893 = load ptr, ptr @stderr, align 8, !tbaa !37
   %894 = load ptr, ptr %892, align 8, !tbaa !16
   %895 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %893, i32 noundef 1, ptr noundef nonnull @.str.91, ptr noundef %894, ptr noundef nonnull %876) #10
@@ -1950,7 +1939,7 @@ define internal fastcc range(i32 0, 2) i32 @passes_filter(ptr noundef readonly c
   %.066 = phi i32 [ 0, %.lr.ph67 ], [ %.1, %.loopexit ]
   %.03865 = phi i32 [ 0, %.lr.ph67 ], [ %.3, %.loopexit ]
   %.04064 = phi i32 [ 0, %.lr.ph67 ], [ %.343, %.loopexit ]
-  %13 = getelementptr inbounds nuw %struct.Argument, ptr %7, i64 %indvars.iv88
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv88
   %14 = load i32, ptr %13, align 8, !tbaa !21
   switch i32 %14, label %.loopexit [
     i32 1, label %19
@@ -1988,7 +1977,7 @@ define internal fastcc range(i32 0, 2) i32 @passes_filter(ptr noundef readonly c
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %35
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %35 ], [ 0, %.lr.ph61 ]
   %.13960.us = phi i32 [ %.2.us, %35 ], [ %.03865, %.lr.ph61 ]
-  %25 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %23, i64 %indvars.iv83
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv83
   %26 = load i32, ptr %25, align 4, !tbaa !81
   %27 = icmp eq i32 %26, 2
   br i1 %27, label %28, label %35
@@ -2017,7 +2006,7 @@ define internal fastcc range(i32 0, 2) i32 @passes_filter(ptr noundef readonly c
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %.lr.ph61.split
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph61.split ], [ 0, %.lr.ph61 ]
   %.13960 = phi i32 [ %spec.select71, %.lr.ph61.split ], [ %.03865, %.lr.ph61 ]
-  %36 = getelementptr inbounds nuw %struct.Argument_BlockTypeEntry, ptr %23, i64 %indvars.iv78
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv78
   %37 = load i32, ptr %36, align 4, !tbaa !81
   %38 = icmp eq i32 %37, %.fr
   %spec.select71 = select i1 %38, i32 1, i32 %.13960
@@ -2028,7 +2017,7 @@ define internal fastcc range(i32 0, 2) i32 @passes_filter(ptr noundef readonly c
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.14158 = phi i32 [ %.04064, %.lr.ph ], [ %spec.select, %39 ]
-  %40 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !59
   %42 = icmp eq i32 %41, %2
   %spec.select = select i1 %42, i32 1, i32 %.14158

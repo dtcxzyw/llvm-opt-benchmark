@@ -410,7 +410,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captur
 
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #19
   %16 = trunc i64 %15 to i32
@@ -427,7 +427,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captur
 
 23:                                               ; preds = %19
   %24 = sext i32 %20 to i64
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   br label %27
 
@@ -536,7 +536,7 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv35 = phi i64 [ %14, %.lr.ph31.preheader ], [ %indvars.iv.next36, %.lr.ph31 ]
-  %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv35
+  %15 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv35
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.57, ptr noundef %16)
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
@@ -561,7 +561,7 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %19, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = load ptr, ptr %7, align 8, !tbaa !35
-  %21 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !37
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.57, ptr noundef %22) #19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -673,7 +673,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
 
 11:                                               ; preds = %9
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %.not47 = icmp eq ptr %14, null
   br i1 %.not47, label %.thread, label %15
@@ -723,7 +723,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   %35 = phi ptr [ %27, %.lr.ph67 ], [ %43, %34 ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val53 = load ptr, ptr %36, align 8, !tbaa !28
-  %37 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv70
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val53, i64 %indvars.iv70
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = load ptr, ptr %32, align 8, !tbaa !35
   %40 = trunc nuw nsw i64 %indvars.iv70 to i32
@@ -743,7 +743,7 @@ define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly capt
   %.val5163 = phi i32 [ %.val5161, %.lr.ph ], [ %.val51, %58 ]
   %49 = getelementptr i8, ptr %48, i64 8
   %.val54 = load ptr, ptr %49, align 8, !tbaa !28
-  %50 = getelementptr inbounds nuw ptr, ptr %.val54, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val54, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !50
   %52 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %14) #21
   %.not48 = icmp eq ptr %52, null
@@ -877,7 +877,7 @@ define internal range(i32 0, 2) i32 @CmdCommandUnalias(ptr noundef readonly capt
 
 10:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   store ptr %12, ptr %4, align 8, !tbaa !37
   %13 = load ptr, ptr %9, align 8, !tbaa !23
@@ -1032,7 +1032,7 @@ define internal i32 @CmdCommandSource(ptr noundef %0, i32 noundef %1, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 1, ptr %20, align 4, !tbaa !56
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !37
   br label %24
 
@@ -1441,7 +1441,7 @@ define internal range(i32 0, 2) i32 @CmdCommandUnsetVariable(ptr noundef readonl
 
 10:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %21 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   store ptr %12, ptr %4, align 8, !tbaa !37
   %13 = load ptr, ptr %9, align 8, !tbaa !24
@@ -1801,7 +1801,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 
 9:                                                ; preds = %7
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = add nsw i32 %8, 1
   store i32 %13, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -1814,7 +1814,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 
 16:                                               ; preds = %14
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = add nsw i32 %15, 1
   store i32 %20, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -1827,7 +1827,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 
 23:                                               ; preds = %21
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = add nsw i32 %22, 1
   store i32 %27, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -1840,7 +1840,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 
 30:                                               ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %2, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %2, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !37
   %34 = add nsw i32 %29, 1
   store i32 %34, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -1853,7 +1853,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 
 37:                                               ; preds = %35
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds ptr, ptr %2, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %2, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = add nsw i32 %36, 1
   store i32 %41, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -1911,7 +1911,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.0103205 = phi i64 [ 0, %.lr.ph ], [ %spec.select158, %60 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.val147, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !50
   %sext = shl i64 %.0103205, 32
   %63 = ashr exact i64 %sext, 32
@@ -1956,7 +1956,7 @@ define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly 
   %.val145271 = phi i32 [ %.val145213, %.lr.ph215 ], [ %.val145, %125 ]
   %indvars.iv267 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next268, %125 ]
   %.val148 = load ptr, ptr %75, align 8, !tbaa !28
-  %81 = getelementptr inbounds nuw ptr, ptr %.val148, i64 %indvars.iv267
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.val148, i64 %indvars.iv267
   %82 = load ptr, ptr %81, align 8, !tbaa !50
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %82, i32 46)
   %.not128 = icmp eq ptr %strchr, null
@@ -2097,7 +2097,7 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
 
 133:                                              ; preds = %138, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %138 ]
-  %134 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i, i64 %indvars.iv.i.i
   %135 = load ptr, ptr %134, align 8, !tbaa !50
   %136 = icmp ult ptr %135, inttoptr (i64 3 to ptr)
   br i1 %136, label %138, label %137
@@ -2222,7 +2222,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
@@ -2238,7 +2238,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !37
   %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #19
   %23 = trunc i64 %22 to i32
@@ -2450,7 +2450,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.162, ptr noundef %62) #19
   %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #19
@@ -2693,7 +2693,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.162, ptr noundef %62) #19
   %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #19
@@ -2927,7 +2927,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
   %.083122 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %69 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !37
   %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.162, ptr noundef %61) #19
   %63 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #19
@@ -3083,7 +3083,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly capt
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
@@ -3099,7 +3099,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly capt
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !37
   %22 = add nsw i32 %17, 1
   store i32 %22, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -3121,7 +3121,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly capt
 
 29:                                               ; preds = %25
   %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds ptr, ptr %2, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %2, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !37
   %33 = tail call ptr @Io_FileOpen(ptr noundef %32, ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.48, i32 noundef 0) #19
   %34 = icmp eq ptr %33, null
@@ -3212,7 +3212,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr readnone captures(n
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
@@ -3228,7 +3228,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr readnone captures(n
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !37
   %22 = add nsw i32 %17, 1
   store i32 %22, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -3241,7 +3241,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr readnone captures(n
 
 25:                                               ; preds = %23
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !37
   %29 = add nsw i32 %24, 1
   store i32 %29, ptr @globalUtilOptind, align 4, !tbaa !34
@@ -3409,7 +3409,7 @@ define void @Cmd_End(ptr noundef %0) local_unnamed_addr #0 {
   %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %35 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %35 ]
   %.val14.i.i = load ptr, ptr %29, align 8, !tbaa !28
-  %31 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i, i64 %indvars.iv.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !50
   %33 = icmp ult ptr %32, inttoptr (i64 3 to ptr)
   br i1 %33, label %35, label %34
@@ -3525,7 +3525,7 @@ define noalias noundef ptr @CmdReturnFileNames(ptr noundef %0) local_unnamed_add
   %13 = phi i32 [ 0, %.lr.ph.preheader ], [ %69, %67 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
   %14 = load ptr, ptr %2, align 8, !tbaa !94
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !96
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 19
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 46)
@@ -3635,10 +3635,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %61 = add nsw i32 %13, 1
   store i32 %61, ptr %4, align 4, !tbaa !25
   %62 = sext i32 %13 to i64
-  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %60, i64 %62
   store ptr %36, ptr %63, align 8, !tbaa !50
   %64 = load ptr, ptr %2, align 8, !tbaa !94
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !96
   call void @free(ptr noundef %66) #19
   br label %67

@@ -40,7 +40,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 10:                                               ; preds = %10, %5
   %.018.i = phi i32 [ %2, %5 ], [ %.0.sroa.speculated.i.i.i.i, %10 ]
   %.017.i = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i32, i32 } }, ptr %0, i64 %.017.i
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %.017.i
   %12 = getelementptr i8, ptr %11, i64 24
   %.val.i = load i32, ptr %12, align 8, !range !4, !alias.scope !5, !noundef !10
   %.0.sroa.speculated.i.i.i.i = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %.018.i, i32 range(i32 1, 0) %.val.i)
@@ -82,7 +82,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 17:                                               ; preds = %20, %12
   %.val18.i = phi i64 [ %.sroa.6.0.copyload, %12 ], [ %22, %20 ]
   %.0.i = phi i64 [ 0, %12 ], [ %23, %20 ]
-  %18 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %4, i64 %.0.i
+  %18 = getelementptr inbounds [96 x i8], ptr %4, i64 %.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !12
   %19 = load float, ptr %8, align 4, !noalias !18, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !18
@@ -92,7 +92,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !18
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i32, i32 } }, ptr %.sroa.9.0.copyload, i64 %.val18.i
+  %21 = getelementptr inbounds [32 x i8], ptr %.sroa.9.0.copyload, i64 %.val18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !noalias !23
   %22 = add i64 %.val18.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i), !noalias !12
@@ -1449,7 +1449,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 18:                                               ; preds = %21, %6
   %.val18 = phi i64 [ %.promoted, %6 ], [ %23, %21 ]
   %.0 = phi i64 [ 0, %6 ], [ %24, %21 ]
-  %19 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %0, i64 %.0
+  %19 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !215
   %20 = load float, ptr %.val.i, align 4, !noalias !216, !noundef !10
@@ -1462,7 +1462,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !216
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i32, i32 } }, ptr %14, i64 %.val18
+  %22 = getelementptr inbounds [32 x i8], ptr %14, i64 %.val18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !noalias !226
   %23 = add i64 %.val18, 1
   store i64 %23, ptr %15, align 8, !alias.scope !226, !noalias !227
@@ -1503,7 +1503,7 @@ define hidden noundef i32 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.018 = phi i32 [ %2, %5 ], [ %.0.sroa.speculated.i.i.i, %10 ]
   %.017 = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i32, i32 } }, ptr %0, i64 %.017
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %.017
   %12 = getelementptr i8, ptr %11, i64 24
   %.val = load i32, ptr %12, align 8, !range !4, !alias.scope !230, !noundef !10
   %.0.sroa.speculated.i.i.i = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %.018, i32 range(i32 1, 0) %.val)

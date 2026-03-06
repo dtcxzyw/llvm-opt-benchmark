@@ -543,7 +543,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.us.split.us.split.us:            ; preds = %.preheader.split.us.split.us, %143
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %143 ], [ 0, %.preheader.split.us.split.us ]
-  %140 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv235
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv235
   %141 = load ptr, ptr %140, align 8
   %142 = trunc nuw i64 %indvars.iv235 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %142, ptr noundef %141, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -563,9 +563,9 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.us.split.us.split:               ; preds = %.preheader.split.us.split.us, %150
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %150 ], [ 0, %.preheader.split.us.split.us ]
-  %145 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv229
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv229
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv229
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv229
   %148 = load i32, ptr %147, align 4
   %149 = trunc nuw i64 %indvars.iv229 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %149, ptr noundef %146, i32 noundef 0, ptr noundef null, i32 noundef %148)
@@ -588,9 +588,9 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.us.split.split.us:               ; preds = %.preheader.split.us.split, %157
   %indvars.iv223 = phi i64 [ %indvars.iv.next224, %157 ], [ 0, %.preheader.split.us.split ]
-  %152 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv223
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv223
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv223
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv223
   %155 = load ptr, ptr %154, align 8
   %156 = trunc nuw i64 %indvars.iv223 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %156, ptr noundef %153, i32 noundef 0, ptr noundef %155, i32 noundef 0)
@@ -610,11 +610,11 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.us.split.split:                  ; preds = %.preheader.split.us.split, %166
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %166 ], [ 0, %.preheader.split.us.split ]
-  %159 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv217
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv217
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv217
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv217
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv217
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv217
   %164 = load i32, ptr %163, align 4
   %165 = trunc nuw i64 %indvars.iv217 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %165, ptr noundef %160, i32 noundef 0, ptr noundef %162, i32 noundef %164)
@@ -640,9 +640,9 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.split.us.split.us:               ; preds = %.preheader.split.split.us, %173
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %173 ], [ 0, %.preheader.split.split.us ]
-  %168 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv211
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv211
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv211
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv211
   %171 = load i32, ptr %170, align 4
   %172 = trunc nuw i64 %indvars.iv211 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %172, ptr noundef %169, i32 noundef %171, ptr noundef null, i32 noundef 0)
@@ -662,11 +662,11 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.split.us.split:                  ; preds = %.preheader.split.split.us, %182
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %182 ], [ 0, %.preheader.split.split.us ]
-  %175 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv205
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv205
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv205
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv205
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv205
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv205
   %180 = load i32, ptr %179, align 4
   %181 = trunc nuw i64 %indvars.iv205 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %181, ptr noundef %176, i32 noundef %178, ptr noundef null, i32 noundef %180)
@@ -689,11 +689,11 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.split.split.us:                  ; preds = %.preheader.split.split, %191
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %191 ], [ 0, %.preheader.split.split ]
-  %184 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv199
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv199
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv199
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv199
   %187 = load i32, ptr %186, align 4
-  %188 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv199
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv199
   %189 = load ptr, ptr %188, align 8
   %190 = trunc nuw i64 %indvars.iv199 to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %190, ptr noundef %185, i32 noundef %187, ptr noundef %189, i32 noundef 0)
@@ -736,13 +736,13 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %121, %127, %129
 
 .preheader.split.split.split:                     ; preds = %.preheader.split.split, %224
   %indvars.iv = phi i64 [ %indvars.iv.next, %224 ], [ 0, %.preheader.split.split ]
-  %202 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4
-  %206 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %209 = load i32, ptr %208, align 4
   %210 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN3ue213addExpressionERNS_2NGEjPKcjPK11hs_expr_extj(ptr noundef nonnull align 8 dereferenceable(1104) %23, i32 noundef %210, ptr noundef %203, i32 noundef %205, ptr noundef %207, i32 noundef %209)
@@ -1895,9 +1895,9 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.us.split.us.split.us:            ; preds = %.preheader.split.us.split.us, %165
   %indvars.iv256 = phi i64 [ %indvars.iv.next257, %165 ], [ 0, %.preheader.split.us.split.us ]
-  %160 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv256
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv256
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv256
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv256
   %163 = load i64, ptr %162, align 8
   %164 = trunc nuw i64 %indvars.iv256 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %164, ptr noundef %161, i32 noundef 0, ptr noundef null, i32 noundef 0, i64 noundef %163)
@@ -1917,11 +1917,11 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.us.split.us.split:               ; preds = %.preheader.split.us.split.us, %174
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %174 ], [ 0, %.preheader.split.us.split.us ]
-  %167 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv250
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv250
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv250
   %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv250
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv250
   %172 = load i64, ptr %171, align 8
   %173 = trunc nuw i64 %indvars.iv250 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %173, ptr noundef %168, i32 noundef 0, ptr noundef null, i32 noundef %170, i64 noundef %172)
@@ -1944,11 +1944,11 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.us.split.split.us:               ; preds = %.preheader.split.us.split, %183
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %183 ], [ 0, %.preheader.split.us.split ]
-  %176 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv244
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv244
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv244
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv244
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv244
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv244
   %181 = load i64, ptr %180, align 8
   %182 = trunc nuw i64 %indvars.iv244 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %182, ptr noundef %177, i32 noundef 0, ptr noundef %179, i32 noundef 0, i64 noundef %181)
@@ -1968,13 +1968,13 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.us.split.split:                  ; preds = %.preheader.split.us.split, %194
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %194 ], [ 0, %.preheader.split.us.split ]
-  %185 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv238
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv238
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv238
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv238
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv238
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv238
   %190 = load i32, ptr %189, align 4
-  %191 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv238
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv238
   %192 = load i64, ptr %191, align 8
   %193 = trunc nuw i64 %indvars.iv238 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %193, ptr noundef %186, i32 noundef 0, ptr noundef %188, i32 noundef %190, i64 noundef %192)
@@ -2000,11 +2000,11 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.split.us.split.us:               ; preds = %.preheader.split.split.us, %203
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %203 ], [ 0, %.preheader.split.split.us ]
-  %196 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv232
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv232
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv232
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv232
   %199 = load i32, ptr %198, align 4
-  %200 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv232
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv232
   %201 = load i64, ptr %200, align 8
   %202 = trunc nuw i64 %indvars.iv232 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %202, ptr noundef %197, i32 noundef %199, ptr noundef null, i32 noundef 0, i64 noundef %201)
@@ -2024,13 +2024,13 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.split.us.split:                  ; preds = %.preheader.split.split.us, %214
   %indvars.iv226 = phi i64 [ %indvars.iv.next227, %214 ], [ 0, %.preheader.split.split.us ]
-  %205 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv226
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv226
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv226
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv226
   %208 = load i32, ptr %207, align 4
-  %209 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv226
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv226
   %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv226
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv226
   %212 = load i64, ptr %211, align 8
   %213 = trunc nuw i64 %indvars.iv226 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %213, ptr noundef %206, i32 noundef %208, ptr noundef null, i32 noundef %210, i64 noundef %212)
@@ -2053,13 +2053,13 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.split.split.us:                  ; preds = %.preheader.split.split, %225
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %225 ], [ 0, %.preheader.split.split ]
-  %216 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv220
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv220
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv220
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv220
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv220
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv220
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv220
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv220
   %223 = load i64, ptr %222, align 8
   %224 = trunc nuw i64 %indvars.iv220 to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %224, ptr noundef %217, i32 noundef %219, ptr noundef %221, i32 noundef 0, i64 noundef %223)
@@ -2102,15 +2102,15 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %141, %147, %149
 
 .preheader.split.split.split:                     ; preds = %.preheader.split.split, %260
   %indvars.iv = phi i64 [ %indvars.iv.next, %260 ], [ 0, %.preheader.split.split ]
-  %236 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %245 = load i64, ptr %244, align 8
   %246 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104) %26, i32 noundef %246, ptr noundef %237, i32 noundef %239, ptr noundef %241, i32 noundef %243, i64 noundef %245)

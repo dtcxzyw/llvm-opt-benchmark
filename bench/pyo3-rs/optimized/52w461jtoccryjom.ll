@@ -461,14 +461,14 @@ define i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h0b43f
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h2dbec2482d423895E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [24 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h3d27a7664b4320d2E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds { { i64, [13 x i64] } }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [112 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -811,7 +811,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 .preheader:                                       ; preds = %5, %9
   %.sroa.06.0 = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %8 = getelementptr inbounds { i64, [40 x i64] }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [328 x i8], ptr %0, i64 %.sroa.06.0
   invoke void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h91ec5ee2091162b5E"(ptr align 8 %2, ptr align 8 %8)
           to label %9 unwind label %.loopexit
 
@@ -860,7 +860,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 .preheader:                                       ; preds = %5, %9
   %.sroa.06.0 = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %8 = getelementptr inbounds { i64, [15 x i64] }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [128 x i8], ptr %0, i64 %.sroa.06.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hca986850f2ecab2aE"(ptr align 8 %2, ptr align 8 %8)
           to label %9 unwind label %.loopexit
 
@@ -898,7 +898,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 10:                                               ; preds = %10, %8
   %.sroa.06.0 = phi i64 [ 0, %8 ], [ %12, %10 ]
-  %11 = getelementptr inbounds { { i64, [13 x i64] }, { i64, [2 x i64] }, ptr }, ptr %0, i64 %.sroa.06.0
+  %11 = getelementptr inbounds [144 x i8], ptr %0, i64 %.sroa.06.0
   call void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2ecda79e1745beb1E"(ptr nonnull align 8 %5, ptr align 8 %11)
   %12 = add nuw i64 %.sroa.06.0, 1
   %13 = icmp eq i64 %12, %9
@@ -934,7 +934,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 .preheader:                                       ; preds = %5, %9
   %.sroa.06.0 = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %8 = getelementptr inbounds { { { i64, [6 x i64] }, { [16 x i8], i8, [15 x i8] } }, ptr }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [96 x i8], ptr %0, i64 %.sroa.06.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5a377c0340385091E"(ptr align 8 %2, ptr align 8 %8)
           to label %9 unwind label %.loopexit
 
@@ -970,7 +970,7 @@ define i32 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
 8:                                                ; preds = %8, %6
   %.sroa.07.0 = phi i32 [ %2, %6 ], [ %10, %8 ]
   %.sroa.09.0 = phi i64 [ 0, %6 ], [ %11, %8 ]
-  %9 = getelementptr inbounds { i32, [7 x i32] }, ptr %0, i64 %.sroa.09.0
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.09.0
   %10 = call i32 @"_ZN19pyo3_macros_backend6method6FnSpec13parse_fn_type28_$u7b$$u7b$closure$u7d$$u7d$17h686460aaefc26847E"(ptr nonnull align 1 %4, i32 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1
   %12 = icmp eq i64 %11, %7
@@ -992,7 +992,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 7:                                                ; preds = %7, %5
   %.sroa.06.0 = phi i64 [ 0, %5 ], [ %9, %7 ]
-  %8 = getelementptr inbounds { i64, [40 x i64] }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [328 x i8], ptr %0, i64 %.sroa.06.0
   tail call void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h3e78fc10e6fc7dc7E"(ptr align 8 %2, ptr align 8 %8)
   %9 = add nuw i64 %.sroa.06.0, 1
   %10 = icmp eq i64 %9, %6
@@ -1028,7 +1028,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 .preheader:                                       ; preds = %5, %9
   %.sroa.06.0 = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %8 = getelementptr inbounds { i64, [40 x i64] }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [328 x i8], ptr %0, i64 %.sroa.06.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h17d9858c37259956E"(ptr align 8 %2, ptr align 8 %8)
           to label %9 unwind label %.loopexit
 
@@ -1077,7 +1077,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 .preheader:                                       ; preds = %5, %9
   %.sroa.06.0 = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %8 = getelementptr inbounds { i64, [15 x i64] }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [128 x i8], ptr %0, i64 %.sroa.06.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h282c0c268d5b394eE"(ptr align 8 %2, ptr align 8 %8)
           to label %9 unwind label %.loopexit
 
@@ -1115,7 +1115,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 10:                                               ; preds = %10, %8
   %.sroa.06.0 = phi i64 [ 0, %8 ], [ %12, %10 ]
-  %11 = getelementptr inbounds { { i64, [13 x i64] } }, ptr %0, i64 %.sroa.06.0
+  %11 = getelementptr inbounds [112 x i8], ptr %0, i64 %.sroa.06.0
   call void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha2a6a0207ad394b0E"(ptr nonnull align 8 %5, ptr align 8 %11)
   %12 = add nuw i64 %.sroa.06.0, 1
   %13 = icmp eq i64 %12, %9
@@ -1200,7 +1200,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 .preheader:                                       ; preds = %5, %9
   %.sroa.06.0 = phi i64 [ %10, %9 ], [ 0, %5 ]
-  %8 = getelementptr inbounds { i64, [40 x i64] }, ptr %0, i64 %.sroa.06.0
+  %8 = getelementptr inbounds [328 x i8], ptr %0, i64 %.sroa.06.0
   invoke void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h75a07a114b56d406E"(ptr align 8 %2, ptr align 8 %8)
           to label %9 unwind label %.loopexit
 
@@ -1236,7 +1236,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 8:                                                ; preds = %8, %6
   %.sroa.06.0 = phi i64 [ 0, %6 ], [ %10, %8 ]
-  %9 = getelementptr inbounds { i64, [3 x i64] }, ptr %0, i64 %.sroa.06.0
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.06.0
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6b255619999094f1E"(ptr nonnull align 8 %4, ptr align 8 %9)
   %10 = add nuw i64 %.sroa.06.0, 1
   %11 = icmp eq i64 %10, %7

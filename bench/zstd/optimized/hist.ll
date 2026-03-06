@@ -21,7 +21,7 @@ define void @HIST_add(ptr noundef captures(none) %0, ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %.06, i64 1
   %6 = load i8, ptr %.06, align 1, !tbaa !3
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 4, !tbaa !6
@@ -52,7 +52,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
   %12 = getelementptr inbounds nuw i8, ptr %.02933, i64 1
   %13 = load i8, ptr %.02933, align 1, !tbaa !3
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !6
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !6
@@ -62,7 +62,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
 .preheader:                                       ; preds = %.lr.ph, %.preheader
   %.027 = phi i32 [ %22, %.preheader ], [ %6, %.lr.ph ]
   %19 = zext i32 %.027 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !6
   %.not = icmp eq i32 %21, 0
   %22 = add i32 %.027, -1
@@ -75,7 +75,7 @@ define i32 @HIST_count_simple(ptr noundef captures(none) %0, ptr noundef capture
 24:                                               ; preds = %23, %24
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %24 ]
   %.02634 = phi i32 [ 0, %23 ], [ %spec.select, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !6
   %spec.select = tail call i32 @llvm.umax.i32(i32 %26, i32 %.02634)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -114,7 +114,7 @@ define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(
   %16 = getelementptr inbounds nuw i8, ptr %.02933.i, i64 1
   %17 = load i8, ptr %.02933.i, align 1, !tbaa !3
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !6
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !6
@@ -124,7 +124,7 @@ define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
   %.027.i = phi i32 [ %26, %.preheader.i ], [ %10, %.lr.ph.i ]
   %23 = zext i32 %.027.i to i64
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %.not.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i, -1
@@ -137,7 +137,7 @@ define range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr noundef captures(
 28:                                               ; preds = %28, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %28 ]
   %.02634.i = phi i32 [ 0, %27 ], [ %spec.select.i, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -209,27 +209,27 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %20 = getelementptr inbounds nuw i8, ptr %.pn113, i64 8
   %21 = and i32 %.096114, 255
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4, !tbaa !6
   %26 = lshr i32 %.096114, 8
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 4, !tbaa !6
   %32 = lshr i32 %.096114, 16
   %33 = and i32 %32, 255
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !6
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4, !tbaa !6
   %38 = lshr i32 %.096114, 24
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !6
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !6
@@ -237,27 +237,27 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %43 = getelementptr inbounds nuw i8, ptr %.pn113, i64 12
   %44 = and i32 %.098.val, 255
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !6
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !6
   %49 = lshr i32 %.098.val, 8
   %50 = and i32 %49, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %12, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !6
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4, !tbaa !6
   %55 = lshr i32 %.098.val, 16
   %56 = and i32 %55, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %13, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !6
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !6
   %61 = lshr i32 %.098.val, 24
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %14, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !6
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4, !tbaa !6
@@ -265,54 +265,54 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %66 = getelementptr inbounds nuw i8, ptr %.pn113, i64 16
   %67 = and i32 %.val106, 255
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %5, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !6
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4, !tbaa !6
   %72 = lshr i32 %.val106, 8
   %73 = and i32 %72, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %12, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !6
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4, !tbaa !6
   %78 = lshr i32 %.val106, 16
   %79 = and i32 %78, 255
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %13, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !6
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4, !tbaa !6
   %84 = lshr i32 %.val106, 24
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %14, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !6
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 4, !tbaa !6
   %.val108 = load i32, ptr %66, align 1, !tbaa !6
   %89 = and i32 %.val107, 255
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %5, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !6
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4, !tbaa !6
   %94 = lshr i32 %.val107, 8
   %95 = and i32 %94, 255
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %12, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !6
   %99 = add i32 %98, 1
   store i32 %99, ptr %97, align 4, !tbaa !6
   %100 = lshr i32 %.val107, 16
   %101 = and i32 %100, 255
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %13, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !6
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4, !tbaa !6
   %106 = lshr i32 %.val107, 24
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %14, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !6
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4, !tbaa !6
@@ -325,7 +325,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %112 = getelementptr inbounds nuw i8, ptr %.199116, i64 1
   %113 = load i8, ptr %.199116, align 1, !tbaa !3
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !6
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !6
@@ -338,15 +338,15 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
 .preheader110:                                    ; preds = %.preheader110.preheader, %.preheader110
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader110 ], [ 0, %.preheader110.preheader ]
   %.0100118 = phi i32 [ %spec.select, %.preheader110 ], [ 0, %.preheader110.preheader ]
-  %119 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4, !tbaa !6
-  %121 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %122 = load i32, ptr %121, align 4, !tbaa !6
   %123 = add i32 %122, %120
-  %124 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %125 = load i32, ptr %124, align 4, !tbaa !6
   %126 = add i32 %123, %125
-  %127 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4, !tbaa !6
   %129 = add i32 %126, %128
   store i32 %129, ptr %127, align 4, !tbaa !6
@@ -358,7 +358,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
 .preheader:                                       ; preds = %.preheader110, %.preheader
   %.0 = phi i32 [ %133, %.preheader ], [ 255, %.preheader110 ]
   %130 = zext i32 %.0 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %5, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !6
   %.not103 = icmp eq i32 %132, 0
   %133 = add i32 %.0, -1
@@ -424,7 +424,7 @@ define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none
   %22 = getelementptr inbounds nuw i8, ptr %.02933.i.i, i64 1
   %23 = load i8, ptr %.02933.i.i, align 1, !tbaa !3
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !6
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !6
@@ -434,7 +434,7 @@ define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.027.i.i = phi i32 [ %32, %.preheader.i.i ], [ 255, %.lr.ph.i.i ]
   %29 = zext i32 %.027.i.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !6
   %.not.i.i = icmp eq i32 %31, 0
   %32 = add i32 %.027.i.i, -1
@@ -447,7 +447,7 @@ define range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr noundef captures(none
 34:                                               ; preds = %34, %33
   %indvars.iv.i.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i, %34 ]
   %.02634.i.i = phi i32 [ 0, %33 ], [ %spec.select.i.i, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 4, !tbaa !6
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %36, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -493,7 +493,7 @@ define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none)
   %15 = getelementptr inbounds nuw i8, ptr %.02933.i.i, i64 1
   %16 = load i8, ptr %.02933.i.i, align 1, !tbaa !3
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !6
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !6
@@ -503,7 +503,7 @@ define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none)
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.027.i.i = phi i32 [ %25, %.preheader.i.i ], [ %9, %.lr.ph.i.i ]
   %22 = zext i32 %.027.i.i to i64
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %.not.i.i = icmp eq i32 %24, 0
   %25 = add i32 %.027.i.i, -1
@@ -516,7 +516,7 @@ define range(i64 -48, 4294967296) i64 @HIST_countFast(ptr noundef captures(none)
 27:                                               ; preds = %27, %26
   %indvars.iv.i.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i.i, %27 ]
   %.02634.i.i = phi i32 [ 0, %26 ], [ %spec.select.i.i, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !6
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %29, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -569,7 +569,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
   %16 = getelementptr inbounds nuw i8, ptr %.02933.i.i.i, i64 1
   %17 = load i8, ptr %.02933.i.i.i, align 1, !tbaa !3
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !6
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4, !tbaa !6
@@ -579,7 +579,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.027.i.i.i = phi i32 [ %26, %.preheader.i.i.i ], [ 255, %.lr.ph.i.i.i ]
   %23 = zext i32 %.027.i.i.i to i64
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %.not.i.i.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i.i.i, -1
@@ -592,7 +592,7 @@ define range(i64 -48, 4294967296) i64 @HIST_count(ptr noundef captures(none) %0,
 28:                                               ; preds = %28, %27
   %indvars.iv.i.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.i.i, %28 ]
   %.02634.i.i.i = phi i32 [ 0, %27 ], [ %spec.select.i.i.i, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i.i.i
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1

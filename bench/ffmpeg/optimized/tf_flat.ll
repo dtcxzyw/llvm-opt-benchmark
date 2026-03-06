@@ -66,7 +66,7 @@ define internal void @flat_print_section_header(ptr noundef %0, ptr readnone cap
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !20
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.AVBPrint, ptr %5, i64 %8
+  %9 = getelementptr inbounds [1024 x i8], ptr %5, i64 %8
   %10 = icmp eq ptr %0, null
   %11 = icmp ugt i32 %7, 11
   %or.cond3.i = or i1 %10, %11
@@ -75,7 +75,7 @@ define internal void @flat_print_section_header(ptr noundef %0, ptr readnone cap
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %14 = zext nneg i32 %7 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -100,7 +100,7 @@ tf_get_section.exit:                              ; preds = %12, %.thread.i
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -122,7 +122,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
 28:                                               ; preds = %27
   %29 = load i32, ptr %6, align 4, !tbaa !20
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.AVBPrint, ptr %5, i64 %30
+  %31 = getelementptr [1024 x i8], ptr %5, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -1024
   %33 = load ptr, ptr %32, align 8, !tbaa !22
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.11, ptr noundef %33) #8
@@ -142,7 +142,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %42 = load i32, ptr %6, align 4, !tbaa !20
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !28
@@ -163,15 +163,15 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   br i1 %.not33, label %63, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr [100 x i32], ptr %0, i64 %56
+  %58 = getelementptr [400 x i8], ptr %0, i64 %56
   %59 = getelementptr i8, ptr %58, i64 -296
   %60 = load i32, ptr %.0.i, align 8, !tbaa !29
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %59, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %59, i64 %61
   br label %66
 
 63:                                               ; preds = %53
-  %64 = getelementptr i32, ptr %0, i64 %56
+  %64 = getelementptr [4 x i8], ptr %0, i64 %56
   %65 = getelementptr i8, ptr %64, i64 52
   br label %66
 
@@ -192,7 +192,7 @@ define internal void @flat_print_int(ptr noundef readonly captures(none) %0, ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4, !tbaa !20
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.AVBPrint, ptr %4, i64 %7
+  %8 = getelementptr inbounds [1024 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   tail call void (ptr, ptr, ...) @writer_printf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %9, ptr noundef %1, i64 noundef %2)
   ret void
@@ -206,7 +206,7 @@ define internal void @flat_print_str(ptr noundef readonly captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4, !tbaa !20
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.AVBPrint, ptr %5, i64 %8
+  %9 = getelementptr inbounds [1024 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %11, align 8, !tbaa !31

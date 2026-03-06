@@ -475,7 +475,7 @@ thread-pre-split:                                 ; preds = %135
 
 159:                                              ; preds = %171, %157
   %160 = phi i64 [ 0, %157 ], [ %172, %171 ]
-  %161 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %160
+  %161 = getelementptr [16 x i8], ptr @amd64_aperture_sizes, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %150, %163
@@ -514,7 +514,7 @@ thread-pre-split:                                 ; preds = %135
 
 .preheader:                                       ; preds = %.loopexit20, %184
   %180 = phi i64 [ %185, %184 ], [ 0, %.loopexit20 ]
-  %181 = getelementptr %struct.aper_size_info_32, ptr @uli_sizes, i64 %180
+  %181 = getelementptr [16 x i8], ptr @uli_sizes, i64 %180
   %182 = load i32, ptr %181, align 16
   %183 = icmp eq i32 %182, %174
   br i1 %183, label %187, label %184
@@ -609,7 +609,7 @@ define internal void @agp_amd64_remove(ptr noundef readonly captures(none) %0) #
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %16
+  %17 = getelementptr [16 x i8], ptr @amd64_aperture_sizes, i64 %16
   %18 = load i32, ptr %17, align 16
   %19 = sext i32 %18 to i64
   tail call void @__release_region(ptr noundef nonnull @iomem_resource, i64 noundef %13, i64 noundef %19) #6
@@ -674,7 +674,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 
 22:                                               ; preds = %34, %20
   %23 = phi i64 [ 0, %20 ], [ %35, %34 ]
-  %24 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %23
+  %24 = getelementptr [16 x i8], ptr @amd64_aperture_sizes, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %13, %26
@@ -713,7 +713,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @nforce3_agp_init(ptr nound
 
 .preheader:                                       ; preds = %.loopexit, %48
   %44 = phi i64 [ %49, %48 ], [ 0, %.loopexit ]
-  %45 = getelementptr %struct.aper_size_info_32, ptr @nforce3_sizes, i64 %44
+  %45 = getelementptr [16 x i8], ptr @nforce3_sizes, i64 %44
   %46 = load i32, ptr %45, align 16
   %47 = icmp eq i32 %46, %37
   br i1 %47, label %51, label %48
@@ -820,7 +820,7 @@ define internal i32 @amd64_fetch_size() #3 align 16 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %27 ]
-  %17 = getelementptr %struct.aper_size_info_32, ptr @amd64_aperture_sizes, i64 %indvars.iv
+  %17 = getelementptr [16 x i8], ptr @amd64_aperture_sizes, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %9, %19
@@ -1014,7 +1014,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %30 = load ptr, ptr @agp_bridge, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i32, ptr %32, i64 %28
+  %33 = getelementptr [4 x i8], ptr %32, i64 %28
   %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #6, !srcloc !19
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %47, label %36
@@ -1023,7 +1023,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %37 = load ptr, ptr @agp_bridge, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr i32, ptr %39, i64 %28
+  %40 = getelementptr [4 x i8], ptr %39, i64 %28
   %41 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40) #6, !srcloc !19
   %42 = zext i32 %41 to i64
   %43 = load ptr, ptr @agp_bridge, align 8
@@ -1072,7 +1072,7 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %62, align 8
-  %73 = getelementptr ptr, ptr %72, i64 %64
+  %73 = getelementptr [8 x i8], ptr %72, i64 %64
   %74 = load ptr, ptr %73, align 8
   %75 = load i64, ptr @vmemmap_base, align 8
   %76 = ptrtoint ptr %74 to i64
@@ -1098,12 +1098,12 @@ define internal noundef range(i32 -22, 1) i32 @amd64_insert_memory(ptr noundef c
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = sext i32 %65 to i64
-  %93 = getelementptr i32, ptr %91, i64 %92
+  %93 = getelementptr [4 x i8], ptr %91, i64 %92
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr elementtype(i32) %93) #6, !srcloc !24
   %94 = load ptr, ptr @agp_bridge, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr i32, ptr %96, i64 %92
+  %97 = getelementptr [4 x i8], ptr %96, i64 %92
   %98 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %97) #6, !srcloc !19
   %99 = add i32 %66, 1
   %100 = add i32 %65, 1

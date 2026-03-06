@@ -3,8 +3,6 @@ source_filename = "bench/php/original/der.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.level_info = type { i32, i32, i32, i32 }
-
 @rcsid = internal constant [59 x i8] c"@(#)$File: der.c,v 1.28 2024/11/25 22:31:53 christos Exp $\00", align 16
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"%s: tag %p got=%s exp=%s\0A\00", align 1
@@ -181,7 +179,7 @@ getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
   %65 = load ptr, ptr %64, align 8, !tbaa !23
   %66 = add nuw nsw i64 %57, 4294967295
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw %struct.level_info, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %67
   store i32 %63, ptr %68, align 4, !tbaa !24
   br label %69
 
@@ -311,7 +309,7 @@ getlength.exit.thread69:                          ; preds = %32
 
 55:                                               ; preds = %53
   %56 = zext nneg i32 %.016.i66 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr @der__tag, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @der__tag, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !26
   %59 = call i64 @php_strlcpy(ptr noundef nonnull %3, ptr noundef %58, i64 noundef 128) #7
   br label %der_tag.exit
@@ -444,7 +442,7 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
   %136 = tail call ptr @__ctype_b_loc() #10
   %137 = load ptr, ptr %136, align 8, !tbaa !30
   %138 = zext i8 %75 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !32
   %141 = and i16 %140, 2048
   %.not45 = icmp eq i16 %141, 0
@@ -461,7 +459,7 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
   %147 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   %148 = load i8, ptr %147, align 1, !tbaa !18
   %149 = zext i8 %148 to i64
-  %150 = getelementptr inbounds nuw i16, ptr %137, i64 %149
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !32
   %152 = and i16 %151, 2048
   %.not46 = icmp eq i16 %152, 0

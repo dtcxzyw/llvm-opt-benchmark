@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SCARD_IO_REQUEST = type { i64, i64 }
-%struct.SCARD_READERSTATE = type { ptr, ptr, i64, i64, i64, [33 x i8] }
 
 @.str = private unnamed_addr constant [39 x i8] c"sun/security/smartcardio/PCSCException\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"<init>\00", align 1
@@ -205,7 +204,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %._crit_edge.thread ]
   %.14759 = phi ptr [ %28, %.lr.ph61 ], [ %1, %._crit_edge.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %.14759, ptr %25, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.14759) #8
   %27 = getelementptr i8, ptr %.14759, i64 %26
@@ -252,7 +251,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1336
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next69
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next69
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %49) #7
   %51 = load ptr, ptr %0, align 8
@@ -781,7 +780,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %32 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %indvars.iv
   store ptr null, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -811,7 +810,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 48:                                               ; preds = %42
   %49 = tail call noalias ptr @strdup(ptr noundef nonnull %46) #7
-  %50 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv116
+  %50 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %indvars.iv116
   store ptr %49, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1360
@@ -838,7 +837,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 65:                                               ; preds = %48
   %66 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr null, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv116
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv116
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -918,7 +917,7 @@ throwOutOfMemoryError.exit98.thread144:           ; preds = %.preheader
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %108
   %indvars.iv121 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next122, %108 ]
-  %109 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv121
+  %109 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %indvars.iv121
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load i64, ptr %110, align 8
   %112 = trunc i64 %111 to i32
@@ -957,7 +956,7 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv126 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next127, %.lr.ph112 ]
-  %127 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv126
+  %127 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %indvars.iv126
   %128 = load ptr, ptr %127, align 8
   call void @free(ptr noundef %128) #7
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1

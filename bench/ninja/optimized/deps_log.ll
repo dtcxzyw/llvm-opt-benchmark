@@ -420,14 +420,14 @@ _ZN7DepsLog12OpenForWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 .lr.ph98:                                         ; preds = %.preheader, %125
   %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ 0, %.preheader ]
   %100 = phi ptr [ %127, %125 ], [ %91, %.preheader ]
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8, !tbaa !62
   %.not49 = icmp eq ptr %102, null
   br i1 %.not49, label %125, label %103
 
 103:                                              ; preds = %.lr.ph98
   %104 = load ptr, ptr %84, align 8, !tbaa !28
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8, !tbaa !48
   %107 = invoke noundef zeroext i1 @_ZN7DepsLog18IsDepsEntryLiveForEPK4Node(ptr noundef %106)
           to label %108 unwind label %.loopexit
@@ -447,7 +447,7 @@ _ZN7DepsLog12OpenForWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 109:                                              ; preds = %108
   %110 = load ptr, ptr %84, align 8, !tbaa !28
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8, !tbaa !48
   %113 = load i64, ptr %102, align 8, !tbaa !64
   %114 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -653,7 +653,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10RecordDepsEP4NodeliPKS1_(ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
   %.15281 = phi i1 [ %11, %.lr.ph.preheader ], [ %.253, %22 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load i32, ptr %17, align 8, !tbaa !50
@@ -694,7 +694,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10RecordDepsEP4NodeliPKS1_(ptr n
 
 _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %26
   %36 = zext nneg i32 %24 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !62
   %.not64 = icmp eq ptr %38, null
   br i1 %.not64, label %.thread, label %39
@@ -726,9 +726,9 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %26
 
 47:                                               ; preds = %.lr.ph83, %46
   %indvars.iv90 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next91, %46 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv90
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv90
   %49 = load ptr, ptr %48, align 8, !tbaa !48
-  %50 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv90
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv90
   %51 = load ptr, ptr %50, align 8, !tbaa !48
   %.not67 = icmp eq ptr %49, %51
   br i1 %.not67, label %46, label %.thread
@@ -799,7 +799,7 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %26
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %81
   %indvars.iv95 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next96, %81 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv95
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv95
   %83 = load ptr, ptr %82, align 8, !tbaa !48
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %85 = load i32, ptr %84, align 8, !tbaa !50
@@ -987,7 +987,7 @@ define dso_local noundef ptr @_ZN7DepsLog7GetDepsEP4Node(ptr noundef nonnull rea
 
 16:                                               ; preds = %6
   %17 = zext nneg i32 %4 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !62
   br label %20
 
@@ -1103,7 +1103,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10UpdateDepsEiPNS_4DepsE(ptr nou
   br i1 %20, label %21, label %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %.not.i.i = icmp eq ptr %6, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit, label %23
 
@@ -1114,7 +1114,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10UpdateDepsEiPNS_4DepsE(ptr nou
 _ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit: ; preds = %23, %21, %19, %17, %3
   %24 = phi ptr [ %7, %23 ], [ %7, %21 ], [ %7, %19 ], [ %.pre, %17 ], [ %7, %3 ]
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !62
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %34
@@ -1136,7 +1136,7 @@ _ZN7DepsLog4DepsD2Ev.exit:                        ; preds = %29, %33
 
 34:                                               ; preds = %_ZN7DepsLog4DepsD2Ev.exit, %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit
   %35 = phi ptr [ %.pre9, %_ZN7DepsLog4DepsD2Ev.exit ], [ %24, %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit ]
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %25
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %25
   store ptr %2, ptr %36, align 8, !tbaa !62
   ret i1 %28
 }
@@ -1361,14 +1361,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit177: ; preds = %
 111:                                              ; preds = %114, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.lr.ph ]
   %.4122258 = phi i8 [ %spec.select172, %114 ], [ 0, %.lr.ph ]
-  %112 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4, !tbaa !70
   %.not154 = icmp slt i32 %113, %109
   br i1 %.not154, label %114, label %.thread218
 
 114:                                              ; preds = %111
   %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %104, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !48
   %.not155.not = icmp ne ptr %117, null
   %spec.select172 = select i1 %.not155.not, i8 %.4122258, i8 1
@@ -1439,7 +1439,7 @@ _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %121
   br i1 %145, label %146, label %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit.i
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw ptr, ptr %132, i64 %140
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %140
   %.not.i.i.i = icmp eq ptr %131, %147
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit.i, label %148
 
@@ -1450,7 +1450,7 @@ _ZN7DepsLog4DepsC2Eli.exit:                       ; preds = %121
 _ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit.i: ; preds = %148, %146, %144, %.noexc, %._crit_edge264
   %149 = phi ptr [ %132, %148 ], [ %132, %146 ], [ %132, %144 ], [ %.pre.i, %.noexc ], [ %132, %._crit_edge264 ]
   %150 = sext i32 %98 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !62
   %.not222 = icmp eq ptr %152, null
   br i1 %.not222, label %169, label %153
@@ -1483,12 +1483,12 @@ _ZN7DepsLog4DepsD2Ev.exit.i:                      ; preds = %157, %153
 
 162:                                              ; preds = %.lr.ph263, %162
   %indvars.iv285 = phi i64 [ 0, %.lr.ph263 ], [ %indvars.iv.next286, %162 ]
-  %163 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv285
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv285
   %164 = load i32, ptr %163, align 4, !tbaa !70
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds nuw ptr, ptr %129, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !48
-  %168 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv285
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv285
   store ptr %167, ptr %168, align 8, !tbaa !48
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count
@@ -1496,7 +1496,7 @@ _ZN7DepsLog4DepsD2Ev.exit.i:                      ; preds = %157, %153
 
 169:                                              ; preds = %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit.i, %_ZN7DepsLog4DepsD2Ev.exit.i
   %170 = phi ptr [ %.pre9.i, %_ZN7DepsLog4DepsD2Ev.exit.i ], [ %149, %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE6resizeEm.exit.i ]
-  %171 = getelementptr inbounds nuw ptr, ptr %170, i64 %150
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %150
   store ptr %120, ptr %171, align 8, !tbaa !62
   %172 = zext i1 %.not222 to i32
   %spec.select168 = add nsw i32 %.0126266, %172
@@ -1625,7 +1625,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %231, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %226, ptr %79, align 8, !tbaa !28
   store ptr %230, ptr %80, align 8, !tbaa !69
-  %232 = getelementptr inbounds nuw ptr, ptr %226, i64 %224
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %224
   store ptr %232, ptr %83, align 8, !tbaa !29
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
@@ -1899,7 +1899,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i: ; preds = %_ZN
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !28
   store ptr %28, ptr %3, align 8, !tbaa !69
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !29
   br label %31
 
@@ -1933,7 +1933,7 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.loopexit
   %.01932 = phi i64 [ %22, %.loopexit ], [ 0, %.lr.ph34.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01932
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01932
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1957,7 +1957,7 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !48
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %23, label %17
@@ -1970,7 +1970,7 @@ define dso_local noundef ptr @_ZN7DepsLog23GetFirstReverseDepsNodeEP4Node(ptr no
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !28
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01932
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01932
   %27 = load ptr, ptr %26, align 8, !tbaa !48
   br label %.loopexit28
 
@@ -2191,9 +2191,9 @@ _ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds 
 
 _ZNSt12_Vector_baseIPN7DepsLog4DepsESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIPN7DepsLog4DepsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !47
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !27
   br label %41
 

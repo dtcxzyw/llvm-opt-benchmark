@@ -674,7 +674,7 @@ define hidden void @OGLBlitLoops_Blit(ptr noundef %0, ptr noundef %1, i64 nounde
   %19 = inttoptr i64 %2 to ptr
   %20 = inttoptr i64 %3 to ptr
   %21 = sext i32 %6 to i64
-  %22 = getelementptr inbounds %struct.OGLPixelFormat, ptr @PixelFormats, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr @PixelFormats, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %23 = sub nsw i32 %10, %8
   %24 = sub nsw i32 %11, %9
@@ -1167,9 +1167,9 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 30:                                               ; preds = %90, %.preheader.us.us.us
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %90 ], [ 0, %.preheader.us.us.us ]
-  %31 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv166
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv166
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv166
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv166
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 24
   %.off.us.us.us.us = add nsw i32 %35, -1
@@ -1268,9 +1268,9 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 101:                                              ; preds = %.preheader.us.us, %101
   %indvars.iv156 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next157, %101 ]
-  %102 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv156
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv156
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv156
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv156
   %105 = load i32, ptr %104, align 4
   store i32 %105, ptr %102, align 4
   store i32 %103, ptr %104, align 4
@@ -1326,7 +1326,7 @@ define hidden void @flip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %153
   %indvars.iv176 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next177, %153 ]
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv176
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv176
   %125 = load i32, ptr %124, align 4
   %126 = lshr i32 %125, 24
   %.off133 = add nsw i32 %126, -1
@@ -1388,7 +1388,7 @@ define hidden void @OGLBlitLoops_SurfaceToSwBlit(ptr noundef %0, ptr noundef rea
   %14 = inttoptr i64 %2 to ptr
   %15 = inttoptr i64 %3 to ptr
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds %struct.OGLPixelFormat, ptr @PixelFormats, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr @PixelFormats, i64 %16
   %.sroa.0.0.copyload = load i32, ptr %17, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4

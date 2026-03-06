@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/spi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._SPI_connection = type { i64, ptr, i32, %struct.slist_head, ptr, ptr, ptr, i32, ptr, i8, i8, i64, ptr, i32 }
-%struct.slist_head = type { %struct.slist_node }
-%struct.slist_node = type { ptr }
 %struct.SavedTransactionCharacteristics = type { i32, i8, i8 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
@@ -13,12 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct._SPI_plan = type { i32, i8, i8, ptr, ptr, i32, i32, i32, ptr, ptr, ptr }
 %struct.SPIExecuteOptions = type { ptr, i8, i8, i8, i64, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.QueryCompletion = type { i32, i64 }
-%struct.ParamExternData = type { i64, i8, i16, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @SPI_processed = dso_local local_unnamed_addr global i64 0, align 8
 @SPI_tuptable = dso_local local_unnamed_addr global ptr null, align 8
@@ -202,7 +194,7 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %34 = add i32 %33, 1
   store i32 %34, ptr @_SPI_connected, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct._SPI_connection, ptr %32, i64 %35
+  %36 = getelementptr inbounds [104 x i8], ptr %32, i64 %35
   store ptr %36, ptr @_SPI_current, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, i8 0, i64 20, i1 false)
@@ -312,7 +304,7 @@ define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   %21 = icmp slt i32 %20, 0
   %22 = load ptr, ptr @_SPI_stack, align 8
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw %struct._SPI_connection, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %23
   %storemerge = select i1 %21, ptr null, ptr %24
   store ptr %storemerge, ptr @_SPI_current, align 8
   br label %25
@@ -550,14 +542,14 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
 .lr.ph:                                           ; preds = %1
   %3 = load ptr, ptr @_SPI_stack, align 8
   %4 = zext nneg i32 %_SPI_connected.promoted to i64
-  %5 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [104 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.critedge, label %.lr.ph16
 
 9:                                                ; preds = %.lr.ph16
-  %10 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [104 x i8], ptr %3, i64 %indvars.iv.next
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 73
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -578,7 +570,7 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %indvars.iv.next = add nsw i64 %indvars.iv15, -1
   %21 = trunc nsw i64 %indvars.iv.next to i32
   %22 = icmp eq i64 %indvars.iv15, 0
-  %23 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [104 x i8], ptr %3, i64 %indvars.iv.next
   %storemerge = select i1 %22, ptr null, ptr %23
   %24 = icmp sgt i64 %indvars.iv15, 0
   br i1 %24, label %9, label %.thread
@@ -618,7 +610,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 .lr.ph.preheader:                                 ; preds = %2
   %.pre = load ptr, ptr @_SPI_stack, align 8
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw %struct._SPI_connection, ptr %.pre, i64 %5
+  %6 = getelementptr inbounds nuw [104 x i8], ptr %.pre, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
   %.not63 = icmp eq i32 %8, %1
@@ -626,7 +618,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 
 .lr.ph:                                           ; preds = %25
   %9 = zext nneg i32 %33 to i64
-  %10 = getelementptr inbounds nuw %struct._SPI_connection, ptr %35, i64 %9
+  %10 = getelementptr inbounds nuw [104 x i8], ptr %35, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %1
@@ -678,7 +670,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %34 = icmp slt i32 %33, 0
   %35 = load ptr, ptr @_SPI_stack, align 8
   %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr inbounds nuw %struct._SPI_connection, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [104 x i8], ptr %35, i64 %36
   %storemerge = select i1 %34, ptr null, ptr %37
   store ptr %storemerge, ptr @_SPI_current, align 8
   %38 = icmp sgt i32 %33, -1
@@ -856,7 +848,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph28.i ], [ 0, %.lr.ph.i ]
   %.02226.i = phi ptr [ %35, %.lr.ph28.i ], [ null, %.lr.ph.i ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -1019,7 +1011,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %.0128293420 = phi i32 [ %.2.lcssa, %300 ], [ 0, %.lr.ph295 ]
   %indvars.iv320419 = phi i64 [ %indvars.iv.next321, %300 ], [ 0, %.lr.ph295 ]
   %68 = load ptr, ptr %55, align 8
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv320419
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv320419
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
@@ -1169,7 +1161,7 @@ list_length.exit192.thread:                       ; preds = %116
   %.2282413 = phi i32 [ %.7, %145 ], [ %.0128293420, %.lr.ph ]
   %indvars.iv412 = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph ]
   %149 = load ptr, ptr %141, align 8
-  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv412
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv412
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 18
   %153 = load i8, ptr %152, align 2, !range !4, !noundef !5
@@ -1594,7 +1586,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph28.i ], [ 0, %.lr.ph.i ]
   %.02226.i = phi ptr [ %41, %.lr.ph28.i ], [ null, %.lr.ph.i ]
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -1688,15 +1680,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
 
 .split.us.i:                                      ; preds = %30, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %30 ]
-  %33 = getelementptr inbounds nuw %struct.ParamExternData, ptr %32, i64 %indvars.iv24.i
-  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv24.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv24.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv24.i
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i16 1, ptr %37, align 2
-  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv24.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv24.i
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %39, ptr %40, align 4
@@ -1706,8 +1698,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
 
 .split.i:                                         ; preds = %30, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %30 ]
-  %41 = getelementptr inbounds nuw %struct.ParamExternData, ptr %32, i64 %indvars.iv.i
-  %42 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %41, align 8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
@@ -1718,7 +1710,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   store i8 %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 10
   store i16 1, ptr %49, align 2
-  %50 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 %51, ptr %52, align 4
@@ -1905,15 +1897,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
 
 .split.us.i:                                      ; preds = %33, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %33 ]
-  %36 = getelementptr inbounds nuw %struct.ParamExternData, ptr %35, i64 %indvars.iv24.i
-  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv24.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv24.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv24.i
   %38 = load i64, ptr %37, align 8
   store i64 %38, ptr %36, align 8
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 10
   store i16 1, ptr %40, align 2
-  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv24.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv24.i
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 %42, ptr %43, align 4
@@ -1923,8 +1915,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
 
 .split.i:                                         ; preds = %33, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %33 ]
-  %44 = getelementptr inbounds nuw %struct.ParamExternData, ptr %35, i64 %indvars.iv.i
-  %45 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %44, align 8
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
@@ -1935,7 +1927,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   store i8 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 10
   store i16 1, ptr %52, align 2
-  %53 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %54, ptr %55, align 4
@@ -2028,15 +2020,15 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
 
 .split.us.i:                                      ; preds = %31, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %31 ]
-  %34 = getelementptr inbounds nuw %struct.ParamExternData, ptr %33, i64 %indvars.iv24.i
-  %35 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv24.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv24.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv24.i
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 10
   store i16 1, ptr %38, align 2
-  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv24.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv24.i
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %40, ptr %41, align 4
@@ -2046,8 +2038,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
 
 .split.i:                                         ; preds = %31, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %31 ]
-  %42 = getelementptr inbounds nuw %struct.ParamExternData, ptr %33, i64 %indvars.iv.i
-  %43 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %42, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
@@ -2058,7 +2050,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   store i8 %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 10
   store i16 1, ptr %50, align 2
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %52, ptr %53, align 4
@@ -2095,7 +2087,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph28.i ], [ 0, %.lr.ph.i ]
   %.02226.i = phi ptr [ %70, %.lr.ph28.i ], [ null, %.lr.ph.i ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv.i30
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i30
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -2312,7 +2304,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   %.04147 = phi ptr [ %51, %45 ], [ null, %.lr.ph ]
   %indvars.iv46 = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv46
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv46
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -2438,7 +2430,7 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
 .lr.ph42:                                         ; preds = %.lr.ph, %.lr.ph42
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph42 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   tail call void @CachedPlanSetParentContext(ptr noundef %47, ptr noundef %4) #16
   %48 = load ptr, ptr %42, align 8
@@ -2626,7 +2618,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
 .lr.ph21:                                         ; preds = %.lr.ph, %.lr.ph21
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph21 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   tail call void @SaveCachedPlan(ptr noundef %25) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2729,7 +2721,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
 .lr.ph56.i:                                       ; preds = %.lr.ph.i, %.lr.ph56.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph56.i ], [ 0, %.lr.ph.i ]
   %49 = load ptr, ptr %45, align 8
-  %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr @CopyCachedPlan(ptr noundef %51) #16
   %53 = load ptr, ptr %46, align 8
@@ -2763,7 +2755,7 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address
 .lr.ph61.i:                                       ; preds = %.lr.ph58.i, %.lr.ph61.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.lr.ph61.i ], [ 0, %.lr.ph58.i ]
   %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv63.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv63.i
   %69 = load ptr, ptr %68, align 8
   tail call void @SaveCachedPlan(ptr noundef %69) #16
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
@@ -2809,7 +2801,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly capture
 .lr.ph18:                                         ; preds = %.lr.ph, %.lr.ph18
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   tail call void @DropCachedPlan(ptr noundef %14) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2976,7 +2968,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %33 ], [ 0, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv70
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv70
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %30, 1
   %32 = icmp sgt i32 %30, %23
@@ -2984,10 +2976,10 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   br i1 %or.cond62.us, label %._crit_edge.loopexit, label %33
 
 33:                                               ; preds = %.lr.ph.split.us
-  %34 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv70
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv70
   %35 = load i64, ptr %34, align 8
   %36 = zext nneg i32 %30 to i64
-  %37 = getelementptr i64, ptr %26, i64 %36
+  %37 = getelementptr [8 x i8], ptr %26, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -8
   store i64 %35, ptr %38, align 8
   %39 = load i32, ptr %29, align 4
@@ -3001,7 +2993,7 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
-  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, 1
   %46 = icmp sgt i32 %44, %23
@@ -3009,10 +3001,10 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   br i1 %or.cond62, label %._crit_edge.loopexit83, label %47
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8
   %50 = zext nneg i32 %44 to i64
-  %51 = getelementptr i64, ptr %26, i64 %50
+  %51 = getelementptr [8 x i8], ptr %26, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -8
   store i64 %49, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
@@ -3100,7 +3092,7 @@ define dso_local range(i32 -32768, -2147483648) i32 @SPI_fnumber(ptr noundef %0,
   %7 = shl nsw i64 %6, 4
   %8 = getelementptr i8, ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 24
-  %10 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [100 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = tail call i32 @namestrcmp(ptr noundef nonnull %11, ptr noundef %1) #16
   %13 = icmp eq i32 %12, 0
@@ -3168,7 +3160,7 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %12 = shl nsw i64 %11, 4
   %13 = getelementptr i8, ptr %0, i64 %12
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr %struct.FormData_pg_attribute, ptr %13, i64 %14
+  %15 = getelementptr [100 x i8], ptr %13, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -76
   br label %20
 
@@ -3229,7 +3221,7 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
   %21 = shl nsw i64 %20, 4
   %22 = getelementptr i8, ptr %1, i64 %21
   %23 = zext nneg i32 %2 to i64
-  %24 = getelementptr %struct.FormData_pg_attribute, ptr %22, i64 %23
+  %24 = getelementptr [100 x i8], ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -76
   br label %29
 
@@ -3284,7 +3276,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
@@ -3436,7 +3428,7 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
   %12 = shl nsw i64 %11, 4
   %13 = getelementptr i8, ptr %0, i64 %12
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr %struct.FormData_pg_attribute, ptr %13, i64 %14
+  %15 = getelementptr [100 x i8], ptr %13, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -76
   br label %20
 
@@ -3503,7 +3495,7 @@ define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 
   %12 = shl nsw i64 %11, 4
   %13 = getelementptr i8, ptr %0, i64 %12
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr %struct.FormData_pg_attribute, ptr %13, i64 %14
+  %15 = getelementptr [100 x i8], ptr %13, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i32, ptr %16, align 4
   br label %23
@@ -3698,15 +3690,15 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef readonly captu
 
 .split.us.i:                                      ; preds = %11, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw %struct.ParamExternData, ptr %13, i64 %indvars.iv24.i
-  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv24.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv24.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv24.i
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 1, ptr %18, align 2
-  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv24.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv24.i
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %20, ptr %21, align 4
@@ -3716,8 +3708,8 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef readonly captu
 
 .split.i:                                         ; preds = %11, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %11 ]
-  %22 = getelementptr inbounds nuw %struct.ParamExternData, ptr %13, i64 %indvars.iv.i
-  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i
@@ -3728,7 +3720,7 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef readonly captu
   store i8 %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i16 1, ptr %30, align 2
-  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %32, ptr %33, align 4
@@ -4039,7 +4031,7 @@ list_length.exit87.thread:                        ; preds = %list_length.exit87,
 .lr.ph95:                                         ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
   %141 = load ptr, ptr %134, align 8
-  %142 = getelementptr inbounds nuw %union.ListCell, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
   %144 = call zeroext i1 @CommandIsReadOnly(ptr noundef %143) #16
   br i1 %144, label %137, label %.split
@@ -4166,15 +4158,15 @@ _SPI_begin_call.exit:                             ; preds = %22
 
 .split.us.i:                                      ; preds = %35, %.split.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %35 ]
-  %38 = getelementptr inbounds nuw %struct.ParamExternData, ptr %37, i64 %indvars.iv24.i
-  %39 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv24.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv24.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv24.i
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %38, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 0, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 10
   store i16 1, ptr %42, align 2
-  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv24.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv24.i
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %44, ptr %45, align 4
@@ -4184,8 +4176,8 @@ _SPI_begin_call.exit:                             ; preds = %22
 
 .split.i:                                         ; preds = %35, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %35 ]
-  %46 = getelementptr inbounds nuw %struct.ParamExternData, ptr %37, i64 %indvars.iv.i
-  %47 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %46, align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
@@ -4196,7 +4188,7 @@ _SPI_begin_call.exit:                             ; preds = %22
   store i8 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 10
   store i16 1, ptr %54, align 2
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 %56, ptr %57, align 4
@@ -4465,7 +4457,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -4567,7 +4559,7 @@ define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr noundef readonly capt
 .lr.ph26:                                         ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @CachedPlanIsValid(ptr noundef %14) #16
   br i1 %15, label %8, label %.critedge
@@ -4595,7 +4587,7 @@ define dso_local noundef nonnull ptr @SPI_result_code_string(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SPI_result_code_string, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SPI_result_code_string, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -4838,7 +4830,7 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i64, ptr %19, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   store ptr %34, ptr %38, align 8
   %39 = load i64, ptr %19, align 8
   %40 = add i64 %39, 1

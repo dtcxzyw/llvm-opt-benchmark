@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._ext_value_string = type { i32, ptr, ptr, ptr, ptr }
 
 @proto_register_mndp.hf = internal global [16 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_mndp_tlv_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_tlv_length, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_tlv_data, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_header_unknown, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_header_seqno, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_mac, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_softwareid, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_version, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_identity, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_uptime, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 25, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_platform, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_board, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_unpack, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr @mndp_unpack_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_ipv6address, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_interfacename, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mndp_ipv4address, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_mndp_tlv_type = internal global i32 0, align 4
@@ -215,7 +214,7 @@ define internal fastcc range(i32 4, 0) i32 @dissect_mndp(ptr noundef %0, ptr nou
 
 26:                                               ; preds = %34, %17
   %indvars.iv.i.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i.i, %34 ]
-  %27 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %indvars.iv.i.i.i
+  %27 = getelementptr [40 x i8], ptr @mndp_body_tlv_vals, i64 %indvars.iv.i.i.i
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %19
   br i1 %29, label %30, label %34
@@ -246,7 +245,7 @@ extval_to_str_idx.exit.i:                         ; preds = %match_strextval_idx
 
 40:                                               ; preds = %49, %extval_to_str_idx.exit.i
   %indvars.iv.i.i71.i = phi i64 [ 0, %extval_to_str_idx.exit.i ], [ %indvars.iv.next.i.i72.i, %49 ]
-  %41 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %indvars.iv.i.i71.i
+  %41 = getelementptr [40 x i8], ptr @mndp_body_tlv_vals, i64 %indvars.iv.i.i71.i
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, %19
   br i1 %43, label %44, label %49
@@ -290,7 +289,7 @@ extval_to_str_idx.exit77.i:                       ; preds = %match_strextval_idx
   %cond.i = icmp eq i32 %.1.i, 4
   %spec.select.i = zext i1 %cond.i to i32
   %58 = sext i32 %.1.i to i64
-  %59 = getelementptr %struct._ext_value_string, ptr @mndp_body_tlv_vals, i64 %58
+  %59 = getelementptr [40 x i8], ptr @mndp_body_tlv_vals, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   br label %.sink.split.i

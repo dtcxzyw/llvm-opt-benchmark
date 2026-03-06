@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
-%struct.RelInfoArr = type { ptr, i32 }
-%struct.LogicalSlotInfoArr = type { i32, ptr }
 %struct.UpgradeTaskReport = type { ptr, [1024 x i8] }
 
 @.str = private unnamed_addr constant [17 x i8] c"reindex_hash.sql\00", align 1
@@ -68,7 +65,7 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph63.split.us ], [ 0, %.lr.ph63 ]
   %.03959.us = phi i1 [ %spec.select, %.lr.ph63.split.us ], [ false, %.lr.ph63 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw %struct.DbInfo, ptr %8, i64 %indvars.iv70
+  %9 = getelementptr inbounds nuw [1072 x i8], ptr %8, i64 %indvars.iv70
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @connectToServer(ptr noundef nonnull %0, ptr noundef %11) #7
@@ -91,7 +88,7 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   %.03860 = phi ptr [ %.1.lcssa77.ph, %.sink.split ], [ null, %.lr.ph63 ]
   %.03959 = phi i1 [ %.140.lcssa76.ph, %.sink.split ], [ false, %.lr.ph63 ]
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds nuw %struct.DbInfo, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [1072 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @connectToServer(ptr noundef nonnull %0, ptr noundef %24) #7

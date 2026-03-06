@@ -272,7 +272,7 @@ define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_it
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %29, i64 %23
+  %30 = getelementptr inbounds [24 x i8], ptr %29, i64 %23
   %31 = add nuw i64 %23, 1
   store i64 %31, ptr %22, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -486,7 +486,7 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %59 = load ptr, ptr %58, align 8, !nonnull !3, !noundef !3
-  %60 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %59, i64 %41
+  %60 = getelementptr inbounds [56 x i8], ptr %59, i64 %41
   call void @_ZN5regex5regex6string5Regex11captures_at17h0e1710724883c43eE(ptr nonnull sret({ i64, [8 x i64] }) align 8 %5, ptr nonnull align 8 %60, ptr align 1 %1, i64 %2, i64 0)
   %61 = load i64, ptr %5, align 8, !range !10, !noundef !3
   %62 = icmp eq i64 %61, 2

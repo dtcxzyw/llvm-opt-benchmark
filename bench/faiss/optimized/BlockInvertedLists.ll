@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.faiss::AlignedTable" = type { %"struct.faiss::AlignedTableTightAlloc", i64 }
-%"struct.faiss::AlignedTableTightAlloc" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -89,7 +83,7 @@ define void @_ZN5faiss18BlockInvertedListsD0Ev(ptr noundef nonnull align 8 deref
 define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK5faiss18BlockInvertedLists9list_sizeEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw %"class.std::vector.5", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   %8 = load ptr, ptr %5, align 8, !tbaa !13
@@ -104,7 +98,7 @@ define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK5fa
 define noundef ptr @_ZNK5faiss18BlockInvertedLists9get_codesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !14
-  %5 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   ret ptr %6
 }
@@ -113,7 +107,7 @@ define noundef ptr @_ZNK5faiss18BlockInvertedLists9get_codesEm(ptr noundef nonnu
 define noundef ptr @_ZNK5faiss18BlockInvertedLists7get_idsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw %"class.std::vector.5", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   ret ptr %6
 }
@@ -202,7 +196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
 33:                                               ; preds = %9
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw %"class.std::vector.5", ptr %35, i64 %1
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %1
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !10
   %39 = load ptr, ptr %36, align 8, !tbaa !13
@@ -217,7 +211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
 46:                                               ; preds = %33
   tail call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %36, i64 noundef %2)
   %.pre = load ptr, ptr %34, align 8, !tbaa !4
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %1
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %1
   %.pre62 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
@@ -226,7 +220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   br i1 %48, label %49, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i64, ptr %39, i64 %44
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %44
   %.not.i.i = icmp eq ptr %38, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %51
 
@@ -246,7 +240,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %46, %47, %49, %51
   %59 = udiv i64 %58, %56
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load ptr, ptr %60, align 8, !tbaa !14
-  %62 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %61, i64 %1
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load i64, ptr %63, align 8, !tbaa !39
   %65 = mul i64 %64, %59
@@ -258,7 +252,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %46, %47, %49, %51
 
 69:                                               ; preds = %_ZNSt6vectorIlSaIlEE6resizeEm.exit
   %70 = load ptr, ptr %60, align 8, !tbaa !14
-  %71 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %70, i64 %1
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %1
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load ptr, ptr %72, align 8, !tbaa !40
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -383,7 +377,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %111, %.noexc53, %_Z
 123:                                              ; preds = %118
   %124 = load ptr, ptr %81, align 8, !tbaa !40
   %125 = load ptr, ptr %60, align 8, !tbaa !14
-  %126 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %125, i64 %1
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %1
   %127 = load ptr, ptr %126, align 8, !tbaa !17
   %128 = add i64 %.061, %43
   %129 = load ptr, ptr %124, align 8, !tbaa !45
@@ -477,7 +471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 define void @_ZN5faiss18BlockInvertedLists6resizeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  %6 = getelementptr inbounds nuw %"class.std::vector.5", ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = load ptr, ptr %6, align 8, !tbaa !13
@@ -498,7 +492,7 @@ define void @_ZN5faiss18BlockInvertedLists6resizeEmm(ptr noundef nonnull readonl
   br i1 %18, label %19, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i64, ptr %9, i64 %2
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %2
   %.not.i.i = icmp eq ptr %8, %20
   br i1 %.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %21
 
@@ -509,7 +503,7 @@ define void @_ZN5faiss18BlockInvertedLists6resizeEmm(ptr noundef nonnull readonl
 _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %15, %17, %19, %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %23, i64 %1
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %1
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -526,7 +520,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %15, %17, %19, %21
 
 36:                                               ; preds = %_ZNSt6vectorIlSaIlEE6resizeEm.exit
   %37 = load ptr, ptr %22, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %37, i64 %1
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %1
   %39 = load ptr, ptr %38, align 8, !tbaa !17
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %26
   %41 = sub nuw i64 %34, %26
@@ -921,7 +915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %18
   %.094172 = phi i64 [ 0, %.lr.ph ], [ %352, %351 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %194 = load ptr, ptr %163, align 8, !tbaa !4
-  %195 = getelementptr inbounds nuw %"class.std::vector.5", ptr %194, i64 %.094172
+  %195 = getelementptr inbounds nuw [24 x i8], ptr %194, i64 %.094172
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8, !tbaa !10
   %198 = load ptr, ptr %195, align 8, !tbaa !13
@@ -998,7 +992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %23
 
 235:                                              ; preds = %193
   %236 = load ptr, ptr %163, align 8, !tbaa !4
-  %237 = getelementptr inbounds nuw %"class.std::vector.5", ptr %236, i64 %.094172
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %236, i64 %.094172
   %238 = load ptr, ptr %237, align 8, !tbaa !13
   %239 = load i64, ptr %10, align 8, !tbaa !52
   %240 = load ptr, ptr %2, align 8, !tbaa !45
@@ -1073,7 +1067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %275 = load ptr, ptr %164, align 8, !tbaa !14
-  %276 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %275, i64 %.094172
+  %276 = getelementptr inbounds nuw [24 x i8], ptr %275, i64 %.094172
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %278 = load i64, ptr %277, align 8, !tbaa !49
   store i64 %278, ptr %13, align 8, !tbaa !52
@@ -1150,7 +1144,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit154: ; preds = %30
 
 312:                                              ; preds = %274
   %313 = load ptr, ptr %164, align 8, !tbaa !14
-  %314 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %313, i64 %.094172
+  %314 = getelementptr inbounds nuw [24 x i8], ptr %313, i64 %.094172
   %315 = load ptr, ptr %314, align 8, !tbaa !17
   %316 = load i64, ptr %13, align 8, !tbaa !52
   %317 = load ptr, ptr %2, align 8, !tbaa !45
@@ -1561,7 +1555,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %15
   br i1 %169, label %170, label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw %"class.std::vector.5", ptr %160, i64 %157
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %160, i64 %157
   %.not.i.i = icmp eq ptr %159, %171
   br i1 %.not.i.i, label %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1612,7 +1606,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %166, %168, %170, %_
   br i1 %193, label %194, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 194:                                              ; preds = %192
-  %195 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %184, i64 %181
+  %195 = getelementptr inbounds nuw [24 x i8], ptr %184, i64 %181
   %.not.i.i140 = icmp eq ptr %183, %195
   br i1 %.not.i.i140, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i141
 
@@ -1764,7 +1758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %24
 
 254:                                              ; preds = %231
   %255 = load ptr, ptr %156, align 8, !tbaa !4
-  %256 = getelementptr inbounds nuw %"class.std::vector.5", ptr %255, i64 %.096187
+  %256 = getelementptr inbounds nuw [24 x i8], ptr %255, i64 %.096187
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8, !tbaa !10
   %259 = load ptr, ptr %256, align 8, !tbaa !13
@@ -1779,7 +1773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %24
   %266 = sub nuw nsw i64 %232, %263
   call void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %256, i64 noundef %266)
   %.pre = load ptr, ptr %156, align 8, !tbaa !4
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector.5", ptr %.pre, i64 %.096187
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.096187
   %.pre212 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
   %.pre213 = load i64, ptr %8, align 8, !tbaa !52
   br label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
@@ -1789,7 +1783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit151: ; preds = %24
   br i1 %268, label %269, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 269:                                              ; preds = %267
-  %270 = getelementptr inbounds nuw i64, ptr %259, i64 %232
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %232
   %.not.i.i152 = icmp eq ptr %258, %270
   br i1 %.not.i.i152, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %271
 
@@ -2001,10 +1995,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %36
 
 365:                                              ; preds = %342
   %366 = load ptr, ptr %180, align 8, !tbaa !14
-  %367 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %366, i64 %.096187
+  %367 = getelementptr inbounds nuw [24 x i8], ptr %366, i64 %.096187
   call void @_ZN5faiss12AlignedTableIhLi32EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %367, i64 noundef %343)
   %368 = load ptr, ptr %180, align 8, !tbaa !14
-  %369 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %368, i64 %.096187
+  %369 = getelementptr inbounds nuw [24 x i8], ptr %368, i64 %.096187
   %370 = load ptr, ptr %369, align 8, !tbaa !17
   %371 = load i64, ptr %12, align 8, !tbaa !52
   %372 = load ptr, ptr %1, align 8, !tbaa !45
@@ -2208,7 +2202,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIS_IlS
   br i1 %22, label %23, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %11, i64 %1
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %1
   %.not.i.i7 = icmp eq ptr %12, %24
   br i1 %.not.i.i7, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i8
 
@@ -2418,9 +2412,9 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !4
-  %42 = getelementptr inbounds nuw %"class.std::vector.5", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !54
-  %43 = getelementptr inbounds nuw %"class.std::vector.5", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !60
   br label %44
 
@@ -2611,9 +2605,9 @@ _ZSt8_DestroyIPN5faiss12AlignedTableIhLi32EEES2_EvT_S4_RSaIT0_E.exit49: ; preds 
 
 _ZNSt12_Vector_baseIN5faiss12AlignedTableIhLi32EEESaIS2_EE13_M_deallocateEPS2_m.exit51: ; preds = %_ZSt8_DestroyIPN5faiss12AlignedTableIhLi32EEES2_EvT_S4_RSaIT0_E.exit49, %58
   store ptr %26, ptr %0, align 8, !tbaa !14
-  %62 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %27, i64 %1
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %62, ptr %4, align 8, !tbaa !57
-  %63 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %26, i64 %24
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %63, ptr %11, align 8, !tbaa !61
   br label %64
 
@@ -2766,7 +2760,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIS_IlS
   br i1 %25, label %26, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %14, i64 %1
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %1
   %.not.i.i8 = icmp eq ptr %15, %27
   br i1 %.not.i.i8, label %_ZNSt6vectorIN5faiss12AlignedTableIhLi32EEESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i9
 
@@ -3006,9 +3000,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !13
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !55
   br label %41
 
@@ -3105,7 +3099,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %32, %.noexc35, %_ZN
   %.sroa.9.0 = phi ptr [ %29, %32 ], [ %29, %.noexc35 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.036.0 = phi ptr [ %28, %32 ], [ %28, %.noexc35 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %34 = load ptr, ptr %19, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw %"class.std::vector.5", ptr %34, i64 %.03445
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.03445
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !10
   %38 = load ptr, ptr %35, align 8, !tbaa !13
@@ -3120,9 +3114,9 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %32, %.noexc35, %_ZN
   %.044 = phi i64 [ %.1, %77 ], [ 0, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ]
   %.03243 = phi i64 [ %.133, %77 ], [ %42, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit ]
   %44 = load ptr, ptr %19, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw %"class.std::vector.5", ptr %44, i64 %.03445
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.03445
   %46 = load ptr, ptr %45, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %.044
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.044
   %48 = load i64, ptr %47, align 8, !tbaa !52
   %49 = load ptr, ptr %3, align 8, !tbaa !45
   %50 = load ptr, ptr %49, align 8
@@ -3135,15 +3129,15 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %32, %.noexc35, %_ZN
 53:                                               ; preds = %52
   %54 = add nsw i64 %.03243, -1
   %55 = load ptr, ptr %19, align 8, !tbaa !4
-  %56 = getelementptr inbounds nuw %"class.std::vector.5", ptr %55, i64 %.03445
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %.03445
   %57 = load ptr, ptr %56, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %54
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %54
   %59 = load i64, ptr %58, align 8, !tbaa !52
-  %60 = getelementptr inbounds nuw i64, ptr %57, i64 %.044
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.044
   store i64 %59, ptr %60, align 8, !tbaa !52
   %61 = load ptr, ptr %18, align 8, !tbaa !40
   %62 = load ptr, ptr %20, align 8, !tbaa !14
-  %63 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %62, i64 %.03445
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %.03445
   %64 = load ptr, ptr %63, align 8, !tbaa !17
   %65 = load ptr, ptr %61, align 8, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -3154,7 +3148,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %32, %.noexc35, %_ZN
 68:                                               ; preds = %53
   %69 = load ptr, ptr %18, align 8, !tbaa !40
   %70 = load ptr, ptr %20, align 8, !tbaa !14
-  %71 = getelementptr inbounds nuw %"struct.faiss::AlignedTable", ptr %70, i64 %.03445
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %.03445
   %72 = load ptr, ptr %71, align 8, !tbaa !17
   %73 = load ptr, ptr %69, align 8, !tbaa !45
   %74 = load ptr, ptr %73, align 8
@@ -3181,7 +3175,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %32, %.noexc35, %_ZN
 
 82:                                               ; preds = %._crit_edge
   %83 = load ptr, ptr %19, align 8, !tbaa !4
-  %84 = getelementptr inbounds nuw %"class.std::vector.5", ptr %83, i64 %.03445
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %.03445
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !10
   %87 = load ptr, ptr %84, align 8, !tbaa !13

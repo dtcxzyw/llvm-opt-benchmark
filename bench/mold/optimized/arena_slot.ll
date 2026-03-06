@@ -3,22 +3,11 @@ source_filename = "bench/mold/original/arena_slot.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.tbb::detail::r1::mail_outbox" = type { %"struct.tbb::detail::d0::padded.base", [7 x i8] }
-%"struct.tbb::detail::d0::padded.base" = type { %"struct.tbb::detail::d0::padded_base.base" }
-%"struct.tbb::detail::d0::padded_base.base" = type { %"class.tbb::detail::r1::unpadded_mail_outbox.base", [104 x i8] }
-%"class.tbb::detail::r1::unpadded_mail_outbox.base" = type <{ %"struct.std::atomic.6", %"struct.std::atomic.28", %"struct.std::atomic" }>
-%"struct.std::atomic.6" = type { %"struct.std::__atomic_base.7" }
-%"struct.std::__atomic_base.7" = type { ptr }
-%"struct.std::atomic.28" = type { %"struct.std::__atomic_base.29" }
-%"struct.std::__atomic_base.29" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef ptr @_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl(ptr noundef nonnull readonly align 128 captures(none) dereferenceable(176) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %3, i64 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 32, !tbaa !3
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %39, label %10
@@ -81,7 +70,7 @@ _ZN3tbb6detail2r110task_proxy12extract_taskILl1EEEPNS0_2d14taskEv.exit: ; preds 
 
 36:                                               ; preds = %.critedge30
   %37 = load ptr, ptr %6, align 32, !tbaa !3
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %1
   store ptr null, ptr %38, align 8, !tbaa !14
   br label %39
 
@@ -192,7 +181,7 @@ _ZN3tbb6detail2r110arena_slot17release_task_poolEv.exit: ; preds = %40, %38, %37
   %.130 = phi i64 [ %13, %37 ], [ %.029, %11 ], [ %32, %38 ], [ %32, %40 ]
   %.1 = phi i1 [ true, %37 ], [ false, %11 ], [ false, %38 ], [ false, %40 ]
   %43 = load ptr, ptr %10, align 32, !tbaa !3
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %13
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %13
   %45 = load ptr, ptr %44, align 8, !tbaa !14
   %.not.i42 = icmp eq ptr %45, null
   br i1 %.not.i42, label %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread, label %46
@@ -241,7 +230,7 @@ _ZN3tbb6detail2r110arena_slot17release_task_poolEv.exit: ; preds = %40, %38, %37
 
 68:                                               ; preds = %.critedge30.i
   %69 = load ptr, ptr %10, align 32, !tbaa !3
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %13
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %13
   store ptr null, ptr %70, align 8, !tbaa !14
   br label %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread.thread
 
@@ -319,7 +308,7 @@ _ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i: ; preds = %89, %79
 
 95:                                               ; preds = %75
   %96 = load ptr, ptr %10, align 32, !tbaa !3
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %13
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %13
   store ptr null, ptr %97, align 8, !tbaa !14
   store atomic i64 %.133, ptr %6 release, align 16
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -427,7 +416,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %27 = icmp eq i64 %2, 0
   %28 = and i64 %3, 65535
   %29 = xor i64 %28, -1
-  %30 = getelementptr inbounds %"class.tbb::detail::r1::mail_outbox", ptr %1, i64 %29
+  %30 = getelementptr inbounds [128 x i8], ptr %1, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -435,7 +424,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %32 = phi i64 [ %58, %56 ], [ %24, %.lr.ph ]
   %.03364.us = phi i8 [ %.3.us, %56 ], [ 0, %.lr.ph ]
   %.03463.us = phi i64 [ %.236.us, %56 ], [ %21, %.lr.ph ]
-  %33 = getelementptr ptr, ptr %.0.i.i.i, i64 %32
+  %33 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %.not47.us = icmp eq ptr %35, null
@@ -485,7 +474,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   %61 = phi i64 [ %91, %89 ], [ %24, %.lr.ph ]
   %.03364 = phi i8 [ %.3, %89 ], [ 0, %.lr.ph ]
   %.03463 = phi i64 [ %.236, %89 ], [ %21, %.lr.ph ]
-  %62 = getelementptr ptr, ptr %.0.i.i.i, i64 %61
+  %62 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load ptr, ptr %63, align 8, !tbaa !14
   %.not47 = icmp eq ptr %64, null
@@ -550,7 +539,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   br label %_ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit
 
 .thread51:                                        ; preds = %.thread
-  %96 = getelementptr ptr, ptr %.0.i.i.i, i64 %94
+  %96 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %94
   %97 = getelementptr i8, ptr %96, i64 -8
   store ptr null, ptr %97, align 8, !tbaa !14
   store atomic i64 %.us-phi67, ptr %20 release, align 16

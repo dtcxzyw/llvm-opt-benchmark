@@ -805,7 +805,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %316 = load i64, ptr %315, align 8
-  %317 = getelementptr inbounds { i32, i32 }, ptr %314, i64 %316
+  %317 = getelementptr inbounds [8 x i8], ptr %314, i64 %316
   store ptr %314, ptr %34, align 8
   %318 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %317, ptr %318, align 8

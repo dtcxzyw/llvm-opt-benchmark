@@ -12,12 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr.11" = type { %"struct.std::__uniq_ptr_data.12" }
-%"struct.std::__uniq_ptr_data.12" = type { %"class.std::__uniq_ptr_impl.13" }
-%"class.std::__uniq_ptr_impl.13" = type { %"class.std::tuple.14" }
-%"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
-%"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.18" }
-%"struct.std::_Head_base.18" = type { ptr }
 
 $_ZN4YAML14SettingChangesD2Ev = comdat any
 
@@ -1063,7 +1057,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EES
 _ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i, %80
   store ptr %74, ptr %4, align 8, !tbaa !87
   store ptr %79, ptr %6, align 8, !tbaa !88
-  %81 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %74, i64 %72
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   store ptr %81, ptr %59, align 8, !tbaa !108
   br label %_ZNSt10unique_ptrIN4YAML12EmitterState5GroupESt14default_deleteIS2_EED2Ev.exit
 
@@ -1823,7 +1817,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESa
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %38, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %31, ptr %6, align 8, !tbaa !83
   store ptr %37, ptr %11, align 8, !tbaa !84
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %13, align 8, !tbaa !107
   br label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -1917,7 +1911,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESa
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i27: ; preds = %72, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i24
   store ptr %65, ptr %41, align 8, !tbaa !83
   store ptr %71, ptr %45, align 8, !tbaa !84
-  %73 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %65, i64 %63
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %73, ptr %47, align 8, !tbaa !107
   br label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -2045,7 +2039,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESa
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %38, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %31, ptr %6, align 8, !tbaa !83
   store ptr %37, ptr %11, align 8, !tbaa !84
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %13, align 8, !tbaa !107
   br label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -2139,7 +2133,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESa
 _ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i27: ; preds = %72, %_ZNSt6vectorISt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i24
   store ptr %65, ptr %41, align 8, !tbaa !83
   store ptr %71, ptr %45, align 8, !tbaa !84
-  %73 = getelementptr inbounds nuw %"class.std::unique_ptr.11", ptr %65, i64 %63
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %73, ptr %47, align 8, !tbaa !107
   br label %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit
 

@@ -35,7 +35,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %14 = sext i32 %2 to i64
   %.in.v.v = select i1 %.not, i64 160, i64 128
   %.in.v = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.v
-  %.in = getelementptr inbounds ptr, ptr %.in.v, i64 %14
+  %.in = getelementptr inbounds [8 x i8], ptr %.in.v, i64 %14
   %15 = load ptr, ptr %.in, align 8, !tbaa !30
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %23
@@ -134,7 +134,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv109 = phi i64 [ %56, %.lr.ph92.preheader ], [ %indvars.iv.next110, %.lr.ph92 ]
   %.191 = phi i32 [ %.099, %.lr.ph92.preheader ], [ %58, %.lr.ph92 ]
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, 1
-  %57 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv109
+  %57 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv109
   store i32 %.191, ptr %57, align 4, !tbaa !36
   %58 = add i32 %.191, 1
   %59 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next110
@@ -221,9 +221,9 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %99
 
 99:                                               ; preds = %._crit_edge116, %93
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv112
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv112
   %101 = load i32, ptr %100, align 4, !tbaa !36
-  %102 = getelementptr inbounds nuw i32, ptr %32, i64 %.pre117
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.pre117
   store i32 %101, ptr %102, align 4, !tbaa !36
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv112
   %104 = load i8, ptr %103, align 1, !tbaa !28
@@ -269,17 +269,17 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
 11:                                               ; preds = %3, %20
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %20 ]
   %.086114 = phi i32 [ 0, %3 ], [ %.187, %20 ]
-  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !43
   %.not103 = icmp eq i64 %13, 0
   br i1 %.not103, label %20, label %14
 
 14:                                               ; preds = %11
   %15 = sext i32 %.086114 to i64
-  %16 = getelementptr inbounds i32, ptr %7, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %7, i64 %15
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4, !tbaa !36
-  %18 = getelementptr inbounds i64, ptr %2, i64 %15
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %15
   store i64 %13, ptr %18, align 8, !tbaa !43
   %19 = add nsw i32 %.086114, 1
   br label %20
@@ -296,7 +296,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
   %.084118 = phi i64 [ %.084118.be, %.lr.ph.backedge ], [ 1000000000, %.preheader108 ]
   %.092116 = phi i32 [ %.092116.be, %.lr.ph.backedge ], [ -1, %.preheader108 ]
   %.095115 = phi i32 [ %.095115.be, %.lr.ph.backedge ], [ -1, %.preheader108 ]
-  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv148
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv148
   %22 = load i64, ptr %21, align 8, !tbaa !43
   %.not101 = icmp sgt i64 %22, %.0119
   br i1 %.not101, label %25, label %23
@@ -338,18 +338,18 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
 27:                                               ; preds = %._crit_edge
   %28 = sext i32 %.196 to i64
   %29 = zext nneg i32 %.193 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !43
-  %32 = getelementptr inbounds i64, ptr %2, i64 %28
+  %32 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %33 = load i64, ptr %32, align 8, !tbaa !43
   %34 = add nsw i64 %33, %31
   store i64 %34, ptr %32, align 8, !tbaa !43
   store i64 1000000001, ptr %30, align 8, !tbaa !43
-  %35 = getelementptr inbounds i32, ptr %6, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %6, i64 %28
   %36 = load i32, ptr %35, align 4, !tbaa !36
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4, !tbaa !36
-  %38 = getelementptr inbounds i32, ptr %8, i64 %28
+  %38 = getelementptr inbounds [4 x i8], ptr %8, i64 %28
   %39 = load i32, ptr %38, align 4, !tbaa !36
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.lr.ph123, label %._crit_edge124
@@ -357,24 +357,24 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
 .lr.ph123:                                        ; preds = %27, %.lr.ph123
   %41 = phi i32 [ %47, %.lr.ph123 ], [ %39, %27 ]
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %6, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !36
-  %46 = getelementptr inbounds nuw i32, ptr %8, i64 %42
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %42
   %47 = load i32, ptr %46, align 4, !tbaa !36
   %48 = icmp sgt i32 %47, -1
   br i1 %48, label %.lr.ph123, label %._crit_edge124, !llvm.loop !46
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %27
   %.lcssa121 = phi i64 [ %28, %27 ], [ %42, %.lr.ph123 ]
-  %49 = getelementptr inbounds i32, ptr %8, i64 %.lcssa121
+  %49 = getelementptr inbounds [4 x i8], ptr %8, i64 %.lcssa121
   store i32 %.193, ptr %49, align 4, !tbaa !36
-  %50 = getelementptr inbounds nuw i32, ptr %6, i64 %29
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %29
   %51 = load i32, ptr %50, align 4, !tbaa !36
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4, !tbaa !36
-  %53 = getelementptr inbounds nuw i32, ptr %8, i64 %29
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %29
   %54 = load i32, ptr %53, align 4, !tbaa !36
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %.lr.ph127, label %.lr.ph.backedge
@@ -382,18 +382,18 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
 .lr.ph127:                                        ; preds = %._crit_edge124, %.lr.ph127
   %56 = phi i32 [ %62, %.lr.ph127 ], [ %54, %._crit_edge124 ]
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %6, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !36
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4, !tbaa !36
-  %61 = getelementptr inbounds nuw i32, ptr %8, i64 %57
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %57
   %62 = load i32, ptr %61, align 4, !tbaa !36
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %.lr.ph127, label %.lr.ph.backedge, !llvm.loop !47
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %71
   %indvars.iv153 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next154, %71 ]
-  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv153
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv153
   %65 = load i32, ptr %64, align 4, !tbaa !36
   %66 = icmp sgt i32 %65, 32
   br i1 %66, label %67, label %71
@@ -422,7 +422,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
 .preheader106:                                    ; preds = %.preheader106.preheader, %.preheader106
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.preheader106 ], [ 1, %.preheader106.preheader ]
   %.091130 = phi i32 [ %80, %.preheader106 ], [ 0, %.preheader106.preheader ]
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv159
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv159
   store i32 %.091130, ptr %76, align 4, !tbaa !36
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv159
   %78 = load i8, ptr %77, align 1, !tbaa !28
@@ -504,13 +504,13 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr noundef writeonly captur
 
 111:                                              ; preds = %.lr.ph140, %111
   %indvars.iv174 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next175, %111 ]
-  %112 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv174
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv174
   %113 = load i32, ptr %112, align 4, !tbaa !36
   %114 = trunc i32 %113 to i8
-  %115 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv174
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv174
   %116 = load i32, ptr %115, align 4, !tbaa !36
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i32, ptr %5, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %5, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !36
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds i8, ptr %110, i64 %120
@@ -553,11 +553,11 @@ define void @jinit_huff_encoder(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr null, ptr %13, align 8, !tbaa !62
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr null, ptr %14, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -598,19 +598,19 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv69
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv69
   %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !69
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !71
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds ptr, ptr %16, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %16, i64 %25
   tail call void @jpeg_make_c_derived_tbl(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %22, ptr noundef nonnull %26)
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds ptr, ptr %17, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %17, i64 %27
   tail call void @jpeg_make_c_derived_tbl(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %24, ptr noundef nonnull %28)
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv69
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv69
   store i32 0, ptr %29, align 4, !tbaa !36
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %30 = load i32, ptr %9, align 4, !tbaa !68
@@ -620,7 +620,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.lr.ph ]
-  %33 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !69
@@ -657,7 +657,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 
 52:                                               ; preds = %45, %46
   %53 = sext i32 %36 to i64
-  %54 = getelementptr inbounds ptr, ptr %13, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %13, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !62
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %61
@@ -673,7 +673,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   %62 = phi ptr [ %60, %57 ], [ %55, %52 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %62, i8 0, i64 2056, i1 false)
   %63 = sext i32 %38 to i64
-  %64 = getelementptr inbounds ptr, ptr %15, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %15, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !62
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %71
@@ -688,7 +688,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 71:                                               ; preds = %67, %61
   %72 = phi ptr [ %70, %67 ], [ %65, %61 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %72, i8 0, i64 2056, i1 false)
-  %73 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 0, ptr %73, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %9, align 4, !tbaa !68
@@ -737,7 +737,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 0, ptr %16, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %11, align 4, !tbaa !68
@@ -772,24 +772,24 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
 
 32:                                               ; preds = %.lr.ph35, %htest_one_block.exit
   %indvars.iv39 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next40, %htest_one_block.exit ]
-  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv39
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv39
   %34 = load i32, ptr %33, align 4, !tbaa !36
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %27, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %27, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !30
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv39
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv39
   %39 = load ptr, ptr %38, align 8, !tbaa !79
-  %40 = getelementptr inbounds i32, ptr %28, i64 %35
+  %40 = getelementptr inbounds [4 x i8], ptr %28, i64 %35
   %41 = load i32, ptr %40, align 4, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !69
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %29, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %29, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !62
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !71
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %30, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %30, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !62
   %52 = load i32, ptr %31, align 8, !tbaa !81
   %53 = add nsw i32 %52, 2
@@ -827,7 +827,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
 
 65:                                               ; preds = %61, %._crit_edge.i
   %66 = zext nneg i32 %.040.lcssa.i to i64
-  %67 = getelementptr inbounds nuw i64, ptr %46, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !43
   %69 = add nsw i64 %68, 1
   store i64 %69, ptr %67, align 8, !tbaa !43
@@ -837,10 +837,10 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %65
   %indvars.iv.i = phi i64 [ 1, %65 ], [ %indvars.iv.i.be, %.backedge.i.backedge ]
   %.03657.i = phi i32 [ 0, %65 ], [ %.03657.i.be, %.backedge.i.backedge ]
-  %71 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @jpeg_natural_order, i64 %indvars.iv.i
   %72 = load i32, ptr %71, align 4, !tbaa !36
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i16, ptr %39, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %39, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !82
   %76 = icmp eq i16 %75, 0
   br i1 %76, label %97, label %.preheader.i
@@ -891,7 +891,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %99 = shl i32 %.137.lcssa.i, 4
   %100 = add nsw i32 %99, %91
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i64, ptr %51, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %51, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !43
   %104 = add nsw i64 %103, 1
   store i64 %104, ptr %102, align 8, !tbaa !43
@@ -954,20 +954,20 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 
 14:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !71
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds i32, ptr %2, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %2, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !36
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %34
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds ptr, ptr %10, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %10, i64 %21
   %26 = load ptr, ptr %25, align 8, !tbaa !30
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
@@ -979,7 +979,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 
 30:                                               ; preds = %28, %24
   %31 = phi ptr [ %29, %28 ], [ %26, %24 ]
-  %32 = getelementptr inbounds ptr, ptr %11, i64 %21
+  %32 = getelementptr inbounds [8 x i8], ptr %11, i64 %21
   %33 = load ptr, ptr %32, align 8, !tbaa !62
   tail call void @jpeg_gen_optimal_table(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %33)
   store i32 1, ptr %22, align 4, !tbaa !36
@@ -987,13 +987,13 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 
 34:                                               ; preds = %30, %14
   %35 = sext i32 %20 to i64
-  %36 = getelementptr inbounds i32, ptr %3, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %3, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !36
   %.not29 = icmp eq i32 %37, 0
   br i1 %.not29, label %38, label %48
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds ptr, ptr %12, i64 %35
+  %39 = getelementptr inbounds [8 x i8], ptr %12, i64 %35
   %40 = load ptr, ptr %39, align 8, !tbaa !30
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
@@ -1005,7 +1005,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 
 44:                                               ; preds = %42, %38
   %45 = phi ptr [ %43, %42 ], [ %40, %38 ]
-  %46 = getelementptr inbounds ptr, ptr %13, i64 %35
+  %46 = getelementptr inbounds [8 x i8], ptr %13, i64 %35
   %47 = load ptr, ptr %46, align 8, !tbaa !62
   tail call void @jpeg_gen_optimal_table(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %47)
   store i32 1, ptr %36, align 4, !tbaa !36
@@ -1264,7 +1264,7 @@ dump_buffer.exit18.i:                             ; preds = %102
 
 117:                                              ; preds = %117, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %117 ]
-  %118 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
   store i32 0, ptr %118, align 4, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %119 = icmp samesign ult i64 %indvars.iv.next.i, %116
@@ -1303,24 +1303,24 @@ emit_restart.exit:                                ; preds = %117, %111, %22, %2
 
 135:                                              ; preds = %.lr.ph, %.loopexit70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit70 ]
-  %136 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv
   %137 = load i32, ptr %136, align 4, !tbaa !36
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %125, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %125, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !30
-  %141 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8, !tbaa !79
-  %143 = getelementptr inbounds i32, ptr %126, i64 %138
+  %143 = getelementptr inbounds [4 x i8], ptr %126, i64 %138
   %144 = load i32, ptr %143, align 4, !tbaa !36
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %146 = load i32, ptr %145, align 4, !tbaa !69
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %127, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %127, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !30
   %150 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %151 = load i32, ptr %150, align 8, !tbaa !71
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %128, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %128, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %155 = load i64, ptr %13, align 8, !tbaa !95
@@ -1412,24 +1412,24 @@ encode_one_block_simd.exit:                       ; preds = %169
 
 197:                                              ; preds = %.lr.ph75, %218
   %indvars.iv78 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next79, %218 ]
-  %198 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv78
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv78
   %199 = load i32, ptr %198, align 4, !tbaa !36
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %131, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %131, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !30
-  %203 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv78
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv78
   %204 = load ptr, ptr %203, align 8, !tbaa !79
-  %205 = getelementptr inbounds i32, ptr %132, i64 %200
+  %205 = getelementptr inbounds [4 x i8], ptr %132, i64 %200
   %206 = load i32, ptr %205, align 4, !tbaa !36
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 20
   %208 = load i32, ptr %207, align 4, !tbaa !69
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds ptr, ptr %133, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %133, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !30
   %212 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %213 = load i32, ptr %212, align 8, !tbaa !71
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds ptr, ptr %134, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %134, i64 %214
   %216 = load ptr, ptr %215, align 8, !tbaa !30
   %217 = call fastcc i32 @encode_one_block(ptr noundef %5, ptr noundef %204, i32 noundef %206, ptr noundef %211, ptr noundef %216)
   %.not58 = icmp eq i32 %217, 0
@@ -1692,7 +1692,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %40 = trunc i64 %notmask to i32
   %41 = xor i32 %40, -1
   %42 = and i32 %26, %41
-  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %39
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %39
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %45 = shl i32 %44, %31
   %46 = or i32 %45, %42
@@ -1875,7 +1875,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %146 = trunc i64 %notmask11886 to i32
   %147 = xor i32 %146, -1
   %148 = and i32 %132, %147
-  %149 = getelementptr inbounds nuw i32, ptr %4, i64 %145
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %145
   %150 = load i32, ptr %149, align 4, !tbaa !36
   %151 = shl i32 %150, %137
   %152 = or i32 %151, %148
@@ -2065,7 +2065,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %256 = xor i32 %255, -1
   %257 = and i32 %240, %256
   %258 = zext nneg i32 %253 to i64
-  %259 = getelementptr inbounds nuw i32, ptr %4, i64 %258
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %258
   %260 = load i32, ptr %259, align 4, !tbaa !36
   %261 = shl i32 %260, %245
   %262 = or i32 %261, %257
@@ -2255,7 +2255,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %366 = xor i32 %365, -1
   %367 = and i32 %350, %366
   %368 = zext nneg i32 %363 to i64
-  %369 = getelementptr inbounds nuw i32, ptr %4, i64 %368
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %368
   %370 = load i32, ptr %369, align 4, !tbaa !36
   %371 = shl i32 %370, %355
   %372 = or i32 %371, %367
@@ -2445,7 +2445,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %476 = xor i32 %475, -1
   %477 = and i32 %460, %476
   %478 = zext nneg i32 %473 to i64
-  %479 = getelementptr inbounds nuw i32, ptr %4, i64 %478
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %478
   %480 = load i32, ptr %479, align 4, !tbaa !36
   %481 = shl i32 %480, %465
   %482 = or i32 %481, %477
@@ -2635,7 +2635,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %586 = xor i32 %585, -1
   %587 = and i32 %570, %586
   %588 = zext nneg i32 %583 to i64
-  %589 = getelementptr inbounds nuw i32, ptr %4, i64 %588
+  %589 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %588
   %590 = load i32, ptr %589, align 4, !tbaa !36
   %591 = shl i32 %590, %575
   %592 = or i32 %591, %587
@@ -2825,7 +2825,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %696 = xor i32 %695, -1
   %697 = and i32 %680, %696
   %698 = zext nneg i32 %693 to i64
-  %699 = getelementptr inbounds nuw i32, ptr %4, i64 %698
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %698
   %700 = load i32, ptr %699, align 4, !tbaa !36
   %701 = shl i32 %700, %685
   %702 = or i32 %701, %697
@@ -3015,7 +3015,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %806 = xor i32 %805, -1
   %807 = and i32 %790, %806
   %808 = zext nneg i32 %803 to i64
-  %809 = getelementptr inbounds nuw i32, ptr %4, i64 %808
+  %809 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %808
   %810 = load i32, ptr %809, align 4, !tbaa !36
   %811 = shl i32 %810, %795
   %812 = or i32 %811, %807
@@ -3205,7 +3205,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %916 = xor i32 %915, -1
   %917 = and i32 %900, %916
   %918 = zext nneg i32 %913 to i64
-  %919 = getelementptr inbounds nuw i32, ptr %4, i64 %918
+  %919 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %918
   %920 = load i32, ptr %919, align 4, !tbaa !36
   %921 = shl i32 %920, %905
   %922 = or i32 %921, %917
@@ -3395,7 +3395,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1026 = xor i32 %1025, -1
   %1027 = and i32 %1010, %1026
   %1028 = zext nneg i32 %1023 to i64
-  %1029 = getelementptr inbounds nuw i32, ptr %4, i64 %1028
+  %1029 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1028
   %1030 = load i32, ptr %1029, align 4, !tbaa !36
   %1031 = shl i32 %1030, %1015
   %1032 = or i32 %1031, %1027
@@ -3585,7 +3585,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1136 = xor i32 %1135, -1
   %1137 = and i32 %1120, %1136
   %1138 = zext nneg i32 %1133 to i64
-  %1139 = getelementptr inbounds nuw i32, ptr %4, i64 %1138
+  %1139 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1138
   %1140 = load i32, ptr %1139, align 4, !tbaa !36
   %1141 = shl i32 %1140, %1125
   %1142 = or i32 %1141, %1137
@@ -3775,7 +3775,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1246 = xor i32 %1245, -1
   %1247 = and i32 %1230, %1246
   %1248 = zext nneg i32 %1243 to i64
-  %1249 = getelementptr inbounds nuw i32, ptr %4, i64 %1248
+  %1249 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1248
   %1250 = load i32, ptr %1249, align 4, !tbaa !36
   %1251 = shl i32 %1250, %1235
   %1252 = or i32 %1251, %1247
@@ -3965,7 +3965,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1356 = xor i32 %1355, -1
   %1357 = and i32 %1340, %1356
   %1358 = zext nneg i32 %1353 to i64
-  %1359 = getelementptr inbounds nuw i32, ptr %4, i64 %1358
+  %1359 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1358
   %1360 = load i32, ptr %1359, align 4, !tbaa !36
   %1361 = shl i32 %1360, %1345
   %1362 = or i32 %1361, %1357
@@ -4155,7 +4155,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1466 = xor i32 %1465, -1
   %1467 = and i32 %1450, %1466
   %1468 = zext nneg i32 %1463 to i64
-  %1469 = getelementptr inbounds nuw i32, ptr %4, i64 %1468
+  %1469 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1468
   %1470 = load i32, ptr %1469, align 4, !tbaa !36
   %1471 = shl i32 %1470, %1455
   %1472 = or i32 %1471, %1467
@@ -4345,7 +4345,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1576 = xor i32 %1575, -1
   %1577 = and i32 %1560, %1576
   %1578 = zext nneg i32 %1573 to i64
-  %1579 = getelementptr inbounds nuw i32, ptr %4, i64 %1578
+  %1579 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1578
   %1580 = load i32, ptr %1579, align 4, !tbaa !36
   %1581 = shl i32 %1580, %1565
   %1582 = or i32 %1581, %1577
@@ -4535,7 +4535,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1686 = xor i32 %1685, -1
   %1687 = and i32 %1670, %1686
   %1688 = zext nneg i32 %1683 to i64
-  %1689 = getelementptr inbounds nuw i32, ptr %4, i64 %1688
+  %1689 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1688
   %1690 = load i32, ptr %1689, align 4, !tbaa !36
   %1691 = shl i32 %1690, %1675
   %1692 = or i32 %1691, %1687
@@ -4725,7 +4725,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1796 = xor i32 %1795, -1
   %1797 = and i32 %1780, %1796
   %1798 = zext nneg i32 %1793 to i64
-  %1799 = getelementptr inbounds nuw i32, ptr %4, i64 %1798
+  %1799 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1798
   %1800 = load i32, ptr %1799, align 4, !tbaa !36
   %1801 = shl i32 %1800, %1785
   %1802 = or i32 %1801, %1797
@@ -5068,7 +5068,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1986 = xor i32 %1985, -1
   %1987 = and i32 %1890, %1986
   %1988 = zext nneg i32 %1983 to i64
-  %1989 = getelementptr inbounds nuw i32, ptr %4, i64 %1988
+  %1989 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %1988
   %1990 = load i32, ptr %1989, align 4, !tbaa !36
   %1991 = shl i32 %1990, %1895
   %1992 = or i32 %1991, %1987
@@ -5418,7 +5418,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2177 = xor i32 %2176, -1
   %2178 = and i32 %2080, %2177
   %2179 = zext nneg i32 %2174 to i64
-  %2180 = getelementptr inbounds nuw i32, ptr %4, i64 %2179
+  %2180 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2179
   %2181 = load i32, ptr %2180, align 4, !tbaa !36
   %2182 = shl i32 %2181, %2085
   %2183 = or i32 %2182, %2178
@@ -5768,7 +5768,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2368 = xor i32 %2367, -1
   %2369 = and i32 %2271, %2368
   %2370 = zext nneg i32 %2365 to i64
-  %2371 = getelementptr inbounds nuw i32, ptr %4, i64 %2370
+  %2371 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2370
   %2372 = load i32, ptr %2371, align 4, !tbaa !36
   %2373 = shl i32 %2372, %2276
   %2374 = or i32 %2373, %2369
@@ -6118,7 +6118,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2559 = xor i32 %2558, -1
   %2560 = and i32 %2462, %2559
   %2561 = zext nneg i32 %2556 to i64
-  %2562 = getelementptr inbounds nuw i32, ptr %4, i64 %2561
+  %2562 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2561
   %2563 = load i32, ptr %2562, align 4, !tbaa !36
   %2564 = shl i32 %2563, %2467
   %2565 = or i32 %2564, %2560
@@ -6468,7 +6468,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2750 = xor i32 %2749, -1
   %2751 = and i32 %2653, %2750
   %2752 = zext nneg i32 %2747 to i64
-  %2753 = getelementptr inbounds nuw i32, ptr %4, i64 %2752
+  %2753 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2752
   %2754 = load i32, ptr %2753, align 4, !tbaa !36
   %2755 = shl i32 %2754, %2658
   %2756 = or i32 %2755, %2751
@@ -6818,7 +6818,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2941 = xor i32 %2940, -1
   %2942 = and i32 %2844, %2941
   %2943 = zext nneg i32 %2938 to i64
-  %2944 = getelementptr inbounds nuw i32, ptr %4, i64 %2943
+  %2944 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2943
   %2945 = load i32, ptr %2944, align 4, !tbaa !36
   %2946 = shl i32 %2945, %2849
   %2947 = or i32 %2946, %2942
@@ -7168,7 +7168,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3132 = xor i32 %3131, -1
   %3133 = and i32 %3035, %3132
   %3134 = zext nneg i32 %3129 to i64
-  %3135 = getelementptr inbounds nuw i32, ptr %4, i64 %3134
+  %3135 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %3134
   %3136 = load i32, ptr %3135, align 4, !tbaa !36
   %3137 = shl i32 %3136, %3040
   %3138 = or i32 %3137, %3133
@@ -7518,7 +7518,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3323 = xor i32 %3322, -1
   %3324 = and i32 %3226, %3323
   %3325 = zext nneg i32 %3320 to i64
-  %3326 = getelementptr inbounds nuw i32, ptr %4, i64 %3325
+  %3326 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %3325
   %3327 = load i32, ptr %3326, align 4, !tbaa !36
   %3328 = shl i32 %3327, %3231
   %3329 = or i32 %3328, %3324
@@ -7868,7 +7868,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3514 = xor i32 %3513, -1
   %3515 = and i32 %3417, %3514
   %3516 = zext nneg i32 %3511 to i64
-  %3517 = getelementptr inbounds nuw i32, ptr %4, i64 %3516
+  %3517 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %3516
   %3518 = load i32, ptr %3517, align 4, !tbaa !36
   %3519 = shl i32 %3518, %3422
   %3520 = or i32 %3519, %3515
@@ -8218,7 +8218,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3705 = xor i32 %3704, -1
   %3706 = and i32 %3608, %3705
   %3707 = zext nneg i32 %3702 to i64
-  %3708 = getelementptr inbounds nuw i32, ptr %4, i64 %3707
+  %3708 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %3707
   %3709 = load i32, ptr %3708, align 4, !tbaa !36
   %3710 = shl i32 %3709, %3613
   %3711 = or i32 %3710, %3706
@@ -8568,7 +8568,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3896 = xor i32 %3895, -1
   %3897 = and i32 %3799, %3896
   %3898 = zext nneg i32 %3893 to i64
-  %3899 = getelementptr inbounds nuw i32, ptr %4, i64 %3898
+  %3899 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %3898
   %3900 = load i32, ptr %3899, align 4, !tbaa !36
   %3901 = shl i32 %3900, %3804
   %3902 = or i32 %3901, %3897
@@ -8918,7 +8918,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4087 = xor i32 %4086, -1
   %4088 = and i32 %3990, %4087
   %4089 = zext nneg i32 %4084 to i64
-  %4090 = getelementptr inbounds nuw i32, ptr %4, i64 %4089
+  %4090 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %4089
   %4091 = load i32, ptr %4090, align 4, !tbaa !36
   %4092 = shl i32 %4091, %3995
   %4093 = or i32 %4092, %4088
@@ -9268,7 +9268,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4278 = xor i32 %4277, -1
   %4279 = and i32 %4181, %4278
   %4280 = zext nneg i32 %4275 to i64
-  %4281 = getelementptr inbounds nuw i32, ptr %4, i64 %4280
+  %4281 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %4280
   %4282 = load i32, ptr %4281, align 4, !tbaa !36
   %4283 = shl i32 %4282, %4186
   %4284 = or i32 %4283, %4279
@@ -9618,7 +9618,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4469 = xor i32 %4468, -1
   %4470 = and i32 %4372, %4469
   %4471 = zext nneg i32 %4466 to i64
-  %4472 = getelementptr inbounds nuw i32, ptr %4, i64 %4471
+  %4472 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %4471
   %4473 = load i32, ptr %4472, align 4, !tbaa !36
   %4474 = shl i32 %4473, %4377
   %4475 = or i32 %4474, %4470
@@ -9968,7 +9968,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4660 = xor i32 %4659, -1
   %4661 = and i32 %4563, %4660
   %4662 = zext nneg i32 %4657 to i64
-  %4663 = getelementptr inbounds nuw i32, ptr %4, i64 %4662
+  %4663 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %4662
   %4664 = load i32, ptr %4663, align 4, !tbaa !36
   %4665 = shl i32 %4664, %4568
   %4666 = or i32 %4665, %4661
@@ -10318,7 +10318,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4851 = xor i32 %4850, -1
   %4852 = and i32 %4754, %4851
   %4853 = zext nneg i32 %4848 to i64
-  %4854 = getelementptr inbounds nuw i32, ptr %4, i64 %4853
+  %4854 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %4853
   %4855 = load i32, ptr %4854, align 4, !tbaa !36
   %4856 = shl i32 %4855, %4759
   %4857 = or i32 %4856, %4852
@@ -10676,7 +10676,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5045 = xor i32 %5044, -1
   %5046 = and i32 %4945, %5045
   %5047 = zext nneg i32 %5042 to i64
-  %5048 = getelementptr inbounds nuw i32, ptr %4, i64 %5047
+  %5048 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5047
   %5049 = load i32, ptr %5048, align 4, !tbaa !36
   %5050 = shl i32 %5049, %4950
   %5051 = or i32 %5050, %5046
@@ -11034,7 +11034,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5239 = xor i32 %5238, -1
   %5240 = and i32 %5139, %5239
   %5241 = zext nneg i32 %5236 to i64
-  %5242 = getelementptr inbounds nuw i32, ptr %4, i64 %5241
+  %5242 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5241
   %5243 = load i32, ptr %5242, align 4, !tbaa !36
   %5244 = shl i32 %5243, %5144
   %5245 = or i32 %5244, %5240
@@ -11392,7 +11392,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5433 = xor i32 %5432, -1
   %5434 = and i32 %5333, %5433
   %5435 = zext nneg i32 %5430 to i64
-  %5436 = getelementptr inbounds nuw i32, ptr %4, i64 %5435
+  %5436 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5435
   %5437 = load i32, ptr %5436, align 4, !tbaa !36
   %5438 = shl i32 %5437, %5338
   %5439 = or i32 %5438, %5434
@@ -11750,7 +11750,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5627 = xor i32 %5626, -1
   %5628 = and i32 %5527, %5627
   %5629 = zext nneg i32 %5624 to i64
-  %5630 = getelementptr inbounds nuw i32, ptr %4, i64 %5629
+  %5630 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5629
   %5631 = load i32, ptr %5630, align 4, !tbaa !36
   %5632 = shl i32 %5631, %5532
   %5633 = or i32 %5632, %5628
@@ -12108,7 +12108,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5821 = xor i32 %5820, -1
   %5822 = and i32 %5721, %5821
   %5823 = zext nneg i32 %5818 to i64
-  %5824 = getelementptr inbounds nuw i32, ptr %4, i64 %5823
+  %5824 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5823
   %5825 = load i32, ptr %5824, align 4, !tbaa !36
   %5826 = shl i32 %5825, %5726
   %5827 = or i32 %5826, %5822
@@ -12466,7 +12466,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6015 = xor i32 %6014, -1
   %6016 = and i32 %5915, %6015
   %6017 = zext nneg i32 %6012 to i64
-  %6018 = getelementptr inbounds nuw i32, ptr %4, i64 %6017
+  %6018 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6017
   %6019 = load i32, ptr %6018, align 4, !tbaa !36
   %6020 = shl i32 %6019, %5920
   %6021 = or i32 %6020, %6016
@@ -12824,7 +12824,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6209 = xor i32 %6208, -1
   %6210 = and i32 %6109, %6209
   %6211 = zext nneg i32 %6206 to i64
-  %6212 = getelementptr inbounds nuw i32, ptr %4, i64 %6211
+  %6212 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6211
   %6213 = load i32, ptr %6212, align 4, !tbaa !36
   %6214 = shl i32 %6213, %6114
   %6215 = or i32 %6214, %6210
@@ -13182,7 +13182,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6403 = xor i32 %6402, -1
   %6404 = and i32 %6303, %6403
   %6405 = zext nneg i32 %6400 to i64
-  %6406 = getelementptr inbounds nuw i32, ptr %4, i64 %6405
+  %6406 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6405
   %6407 = load i32, ptr %6406, align 4, !tbaa !36
   %6408 = shl i32 %6407, %6308
   %6409 = or i32 %6408, %6404
@@ -13540,7 +13540,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6597 = xor i32 %6596, -1
   %6598 = and i32 %6497, %6597
   %6599 = zext nneg i32 %6594 to i64
-  %6600 = getelementptr inbounds nuw i32, ptr %4, i64 %6599
+  %6600 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6599
   %6601 = load i32, ptr %6600, align 4, !tbaa !36
   %6602 = shl i32 %6601, %6502
   %6603 = or i32 %6602, %6598
@@ -13898,7 +13898,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6791 = xor i32 %6790, -1
   %6792 = and i32 %6691, %6791
   %6793 = zext nneg i32 %6788 to i64
-  %6794 = getelementptr inbounds nuw i32, ptr %4, i64 %6793
+  %6794 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6793
   %6795 = load i32, ptr %6794, align 4, !tbaa !36
   %6796 = shl i32 %6795, %6696
   %6797 = or i32 %6796, %6792
@@ -14256,7 +14256,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6985 = xor i32 %6984, -1
   %6986 = and i32 %6885, %6985
   %6987 = zext nneg i32 %6982 to i64
-  %6988 = getelementptr inbounds nuw i32, ptr %4, i64 %6987
+  %6988 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6987
   %6989 = load i32, ptr %6988, align 4, !tbaa !36
   %6990 = shl i32 %6989, %6890
   %6991 = or i32 %6990, %6986
@@ -14614,7 +14614,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7179 = xor i32 %7178, -1
   %7180 = and i32 %7079, %7179
   %7181 = zext nneg i32 %7176 to i64
-  %7182 = getelementptr inbounds nuw i32, ptr %4, i64 %7181
+  %7182 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7181
   %7183 = load i32, ptr %7182, align 4, !tbaa !36
   %7184 = shl i32 %7183, %7084
   %7185 = or i32 %7184, %7180
@@ -14972,7 +14972,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7373 = xor i32 %7372, -1
   %7374 = and i32 %7273, %7373
   %7375 = zext nneg i32 %7370 to i64
-  %7376 = getelementptr inbounds nuw i32, ptr %4, i64 %7375
+  %7376 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7375
   %7377 = load i32, ptr %7376, align 4, !tbaa !36
   %7378 = shl i32 %7377, %7278
   %7379 = or i32 %7378, %7374
@@ -15330,7 +15330,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7567 = xor i32 %7566, -1
   %7568 = and i32 %7467, %7567
   %7569 = zext nneg i32 %7564 to i64
-  %7570 = getelementptr inbounds nuw i32, ptr %4, i64 %7569
+  %7570 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7569
   %7571 = load i32, ptr %7570, align 4, !tbaa !36
   %7572 = shl i32 %7571, %7472
   %7573 = or i32 %7572, %7568
@@ -15688,7 +15688,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7761 = xor i32 %7760, -1
   %7762 = and i32 %7661, %7761
   %7763 = zext nneg i32 %7758 to i64
-  %7764 = getelementptr inbounds nuw i32, ptr %4, i64 %7763
+  %7764 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7763
   %7765 = load i32, ptr %7764, align 4, !tbaa !36
   %7766 = shl i32 %7765, %7666
   %7767 = or i32 %7766, %7762
@@ -16046,7 +16046,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7955 = xor i32 %7954, -1
   %7956 = and i32 %7855, %7955
   %7957 = zext nneg i32 %7952 to i64
-  %7958 = getelementptr inbounds nuw i32, ptr %4, i64 %7957
+  %7958 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7957
   %7959 = load i32, ptr %7958, align 4, !tbaa !36
   %7960 = shl i32 %7959, %7860
   %7961 = or i32 %7960, %7956
@@ -16404,7 +16404,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8149 = xor i32 %8148, -1
   %8150 = and i32 %8049, %8149
   %8151 = zext nneg i32 %8146 to i64
-  %8152 = getelementptr inbounds nuw i32, ptr %4, i64 %8151
+  %8152 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %8151
   %8153 = load i32, ptr %8152, align 4, !tbaa !36
   %8154 = shl i32 %8153, %8054
   %8155 = or i32 %8154, %8150
@@ -16762,7 +16762,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8343 = xor i32 %8342, -1
   %8344 = and i32 %8243, %8343
   %8345 = zext nneg i32 %8340 to i64
-  %8346 = getelementptr inbounds nuw i32, ptr %4, i64 %8345
+  %8346 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %8345
   %8347 = load i32, ptr %8346, align 4, !tbaa !36
   %8348 = shl i32 %8347, %8248
   %8349 = or i32 %8348, %8344
@@ -17120,7 +17120,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8537 = xor i32 %8536, -1
   %8538 = and i32 %8437, %8537
   %8539 = zext nneg i32 %8534 to i64
-  %8540 = getelementptr inbounds nuw i32, ptr %4, i64 %8539
+  %8540 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %8539
   %8541 = load i32, ptr %8540, align 4, !tbaa !36
   %8542 = shl i32 %8541, %8442
   %8543 = or i32 %8542, %8538
@@ -17478,7 +17478,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8731 = xor i32 %8730, -1
   %8732 = and i32 %8631, %8731
   %8733 = zext nneg i32 %8728 to i64
-  %8734 = getelementptr inbounds nuw i32, ptr %4, i64 %8733
+  %8734 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %8733
   %8735 = load i32, ptr %8734, align 4, !tbaa !36
   %8736 = shl i32 %8735, %8636
   %8737 = or i32 %8736, %8732
@@ -17836,7 +17836,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8925 = xor i32 %8924, -1
   %8926 = and i32 %8825, %8925
   %8927 = zext nneg i32 %8922 to i64
-  %8928 = getelementptr inbounds nuw i32, ptr %4, i64 %8927
+  %8928 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %8927
   %8929 = load i32, ptr %8928, align 4, !tbaa !36
   %8930 = shl i32 %8929, %8830
   %8931 = or i32 %8930, %8926
@@ -18194,7 +18194,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9119 = xor i32 %9118, -1
   %9120 = and i32 %9019, %9119
   %9121 = zext nneg i32 %9116 to i64
-  %9122 = getelementptr inbounds nuw i32, ptr %4, i64 %9121
+  %9122 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %9121
   %9123 = load i32, ptr %9122, align 4, !tbaa !36
   %9124 = shl i32 %9123, %9024
   %9125 = or i32 %9124, %9120
@@ -18552,7 +18552,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9313 = xor i32 %9312, -1
   %9314 = and i32 %9213, %9313
   %9315 = zext nneg i32 %9310 to i64
-  %9316 = getelementptr inbounds nuw i32, ptr %4, i64 %9315
+  %9316 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %9315
   %9317 = load i32, ptr %9316, align 4, !tbaa !36
   %9318 = shl i32 %9317, %9218
   %9319 = or i32 %9318, %9314
@@ -18910,7 +18910,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9507 = xor i32 %9506, -1
   %9508 = and i32 %9407, %9507
   %9509 = zext nneg i32 %9504 to i64
-  %9510 = getelementptr inbounds nuw i32, ptr %4, i64 %9509
+  %9510 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %9509
   %9511 = load i32, ptr %9510, align 4, !tbaa !36
   %9512 = shl i32 %9511, %9412
   %9513 = or i32 %9512, %9508
@@ -19268,7 +19268,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9701 = xor i32 %9700, -1
   %9702 = and i32 %9601, %9701
   %9703 = zext nneg i32 %9698 to i64
-  %9704 = getelementptr inbounds nuw i32, ptr %4, i64 %9703
+  %9704 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %9703
   %9705 = load i32, ptr %9704, align 4, !tbaa !36
   %9706 = shl i32 %9705, %9606
   %9707 = or i32 %9706, %9702
@@ -19626,7 +19626,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9895 = xor i32 %9894, -1
   %9896 = and i32 %9795, %9895
   %9897 = zext nneg i32 %9892 to i64
-  %9898 = getelementptr inbounds nuw i32, ptr %4, i64 %9897
+  %9898 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %9897
   %9899 = load i32, ptr %9898, align 4, !tbaa !36
   %9900 = shl i32 %9899, %9800
   %9901 = or i32 %9900, %9896
@@ -19984,7 +19984,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10089 = xor i32 %10088, -1
   %10090 = and i32 %9989, %10089
   %10091 = zext nneg i32 %10086 to i64
-  %10092 = getelementptr inbounds nuw i32, ptr %4, i64 %10091
+  %10092 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10091
   %10093 = load i32, ptr %10092, align 4, !tbaa !36
   %10094 = shl i32 %10093, %9994
   %10095 = or i32 %10094, %10090
@@ -20342,7 +20342,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10283 = xor i32 %10282, -1
   %10284 = and i32 %10183, %10283
   %10285 = zext nneg i32 %10280 to i64
-  %10286 = getelementptr inbounds nuw i32, ptr %4, i64 %10285
+  %10286 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10285
   %10287 = load i32, ptr %10286, align 4, !tbaa !36
   %10288 = shl i32 %10287, %10188
   %10289 = or i32 %10288, %10284
@@ -20700,7 +20700,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10477 = xor i32 %10476, -1
   %10478 = and i32 %10377, %10477
   %10479 = zext nneg i32 %10474 to i64
-  %10480 = getelementptr inbounds nuw i32, ptr %4, i64 %10479
+  %10480 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10479
   %10481 = load i32, ptr %10480, align 4, !tbaa !36
   %10482 = shl i32 %10481, %10382
   %10483 = or i32 %10482, %10478
@@ -21058,7 +21058,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10671 = xor i32 %10670, -1
   %10672 = and i32 %10571, %10671
   %10673 = zext nneg i32 %10668 to i64
-  %10674 = getelementptr inbounds nuw i32, ptr %4, i64 %10673
+  %10674 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10673
   %10675 = load i32, ptr %10674, align 4, !tbaa !36
   %10676 = shl i32 %10675, %10576
   %10677 = or i32 %10676, %10672
@@ -21412,7 +21412,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10863 = xor i32 %10862, -1
   %10864 = and i32 %10763, %10863
   %10865 = zext nneg i32 %10860 to i64
-  %10866 = getelementptr inbounds nuw i32, ptr %4, i64 %10865
+  %10866 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10865
   %10867 = load i32, ptr %10866, align 4, !tbaa !36
   %10868 = shl i32 %10867, %10768
   %10869 = or i32 %10868, %10864

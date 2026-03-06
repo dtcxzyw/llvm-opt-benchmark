@@ -255,7 +255,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread
 
 124:                                              ; preds = %111, %.preheader
-  %125 = getelementptr i64, ptr %17, i64 %indvars.iv195
+  %125 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv195
   %126 = getelementptr i8, ptr %125, i64 40
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %126) #6
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
@@ -615,7 +615,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   br label %.thread
 
 340:                                              ; preds = %327, %.preheader176
-  %341 = getelementptr i64, ptr %19, i64 %indvars.iv
+  %341 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %342 = getelementptr i8, ptr %341, i64 -8
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %342) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -819,7 +819,7 @@ define internal noundef i32 @H5O__fsinfo_encode(ptr noundef %0, i1 zeroext %1, i
 
 110:                                              ; preds = %.preheader, %110
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr i64, ptr %109, i64 %indvars.iv
+  %111 = getelementptr [8 x i8], ptr %109, i64 %indvars.iv
   %112 = load i64, ptr %111, align 8, !tbaa !13
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %112) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -939,7 +939,7 @@ define internal noundef i32 @H5O__fsinfo_debug(ptr readnone captures(none) %0, p
 
 switch.lookup:                                    ; preds = %12
   %17 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5O__fsinfo_debug, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.H5O__fsinfo_debug, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %18
 
@@ -973,7 +973,7 @@ switch.lookup:                                    ; preds = %12
 
 40:                                               ; preds = %.preheader, %40
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr i64, ptr %39, i64 %indvars.iv
+  %41 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8, !tbaa !13
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.24, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.30, i64 noundef %42) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1022,7 +1022,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
 
 19:                                               ; preds = %16
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds i32, ptr @H5O_fsinfo_ver_bounds, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr @H5O_fsinfo_ver_bounds, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !36
   %.not.inv = icmp ugt i32 %0, 1
   %.012 = select i1 %.not.inv, i32 %22, i32 1
@@ -1031,7 +1031,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_set_version(i32 noundef %0, i32 noundef 
 
 24:                                               ; preds = %19
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds i32, ptr @H5O_fsinfo_ver_bounds, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr @H5O_fsinfo_ver_bounds, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !36
   %28 = icmp ugt i32 %.012, %27
   br i1 %28, label %29, label %33
@@ -1097,7 +1097,7 @@ define range(i32 -1, 1) i32 @H5O_fsinfo_check_version(i32 noundef %0, ptr nounde
 
 20:                                               ; preds = %18
   %21 = sext i32 %0 to i64
-  %22 = getelementptr inbounds i32, ptr @H5O_fsinfo_ver_bounds, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr @H5O_fsinfo_ver_bounds, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !36
   %24 = load i32, ptr %1, align 8, !tbaa !27
   %25 = icmp ugt i32 %24, %23

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/mss12.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Model = type { [257 x i16], [257 x i16], [257 x i8], i32, i32, i32 }
-
 @.str = private unnamed_addr constant [32 x i8] c"Insufficient extradata size %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"Insufficient extradata size: expected %u got %d\0A\00", align 1
 @.str.2 = private unnamed_addr constant [33 x i8] c"Frame dimensions %dx%d too large\00", align 1
@@ -31,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 514
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i16, ptr %3, i64 %4
+  %5 = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %7 = getelementptr i8, ptr %5, i64 -2
   %8 = load i16, ptr %7, align 2, !tbaa !4
@@ -40,7 +38,7 @@ define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %4, %2 ]
-  %10 = getelementptr i16, ptr %3, i64 %indvars.iv
+  %10 = getelementptr [2 x i8], ptr %3, i64 %indvars.iv
   %11 = getelementptr i8, ptr %10, i64 -2
   %12 = load i16, ptr %11, align 2, !tbaa !4
   %13 = icmp eq i16 %12, %6
@@ -62,7 +60,7 @@ define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1
   store i8 %19, ptr %20, align 1, !tbaa !10
   %sext = shl i64 %indvars.iv, 32
   %.pre = ashr exact i64 %sext, 32
-  %.phi.trans.insert = getelementptr inbounds i16, ptr %3, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds [2 x i8], ptr %3, i64 %.pre
   %.pre37 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !4
   br label %22
 
@@ -70,7 +68,7 @@ define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1
   %23 = phi i16 [ %6, %14 ], [ %.pre37, %16 ], [ %6, %2 ]
   %.pre-phi = phi i64 [ %4, %14 ], [ %.pre, %16 ], [ %4, %2 ]
   %.0 = phi i32 [ %1, %14 ], [ %15, %16 ], [ %1, %2 ]
-  %24 = getelementptr inbounds i16, ptr %3, i64 %.pre-phi
+  %24 = getelementptr inbounds [2 x i8], ptr %3, i64 %.pre-phi
   %25 = add i16 %23, 1
   store i16 %25, ptr %24, align 2, !tbaa !4
   %26 = icmp sgt i32 %.0, 0
@@ -83,7 +81,7 @@ define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv34 = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next35, %.lr.ph ]
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, -1
-  %28 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next35
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next35
   %29 = load i16, ptr %28, align 2, !tbaa !4
   %30 = add i16 %29, 1
   store i16 %30, ptr %28, align 2, !tbaa !4
@@ -107,7 +105,7 @@ define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %37 = load i32, ptr %36, align 4, !tbaa !16
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %3, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %3, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !4
   %41 = sext i16 %40 to i32
   %42 = shl nsw i32 %41, 1
@@ -143,9 +141,9 @@ define void @ff_mss12_model_update(ptr noundef captures(none) %0, i32 noundef %1
   %indvars.iv.i = phi i64 [ %58, %.lr.ph.us.preheader.i ], [ %indvars.iv.i.be, %.lr.ph.us.i.backedge ]
   %.019.us.i = phi i32 [ 0, %.lr.ph.us.preheader.i ], [ %.019.us.i.be, %.lr.ph.us.i.backedge ]
   %59 = trunc i32 %.019.us.i to i16
-  %60 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2, !tbaa !4
-  %61 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   %62 = load i16, ptr %61, align 2, !tbaa !4
   %63 = sext i16 %62 to i32
   %64 = add nsw i32 %63, 1
@@ -197,12 +195,12 @@ define void @ff_mss12_slicecontext_reset(ptr noundef captures(none) %0) local_un
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i
   store i16 1, ptr %8, align 2, !tbaa !4
   %9 = trunc i64 %indvars.iv.i to i32
   %10 = sub i32 %4, %9
   %11 = trunc i32 %10 to i16
-  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i
   store i16 %11, ptr %12, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -247,12 +245,12 @@ model_reset.exit:                                 ; preds = %14, %._crit_edge.th
 
 25:                                               ; preds = %25, %.lr.ph.i8
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.i8 ], [ %indvars.iv.next.i11, %25 ]
-  %26 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i10
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i10
   store i16 1, ptr %26, align 2, !tbaa !4
   %27 = trunc i64 %indvars.iv.i10 to i32
   %28 = sub i32 %22, %27
   %29 = trunc i32 %28 to i16
-  %30 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv.i10
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv.i10
   store i16 %29, ptr %30, align 2, !tbaa !4
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i9
@@ -297,12 +295,12 @@ model_reset.exit19:                               ; preds = %32, %._crit_edge.th
 
 43:                                               ; preds = %43, %.lr.ph.i21
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.i21 ], [ %indvars.iv.next.i24, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv.i23
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv.i23
   store i16 1, ptr %44, align 2, !tbaa !4
   %45 = trunc i64 %indvars.iv.i23 to i32
   %46 = sub i32 %40, %45
   %47 = trunc i32 %46 to i16
-  %48 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv.i23
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv.i23
   store i16 %47, ptr %48, align 2, !tbaa !4
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, %wide.trip.count.i22
@@ -347,12 +345,12 @@ model_reset.exit32:                               ; preds = %50, %._crit_edge.th
 
 61:                                               ; preds = %61, %.lr.ph.i34
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i37, %61 ]
-  %62 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.i36
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv.i36
   store i16 1, ptr %62, align 2, !tbaa !4
   %63 = trunc i64 %indvars.iv.i36 to i32
   %64 = sub i32 %58, %63
   %65 = trunc i32 %64 to i16
-  %66 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i36
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv.i36
   store i16 %65, ptr %66, align 2, !tbaa !4
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i35
@@ -397,12 +395,12 @@ model_reset.exit45:                               ; preds = %68, %._crit_edge.th
 
 79:                                               ; preds = %79, %.lr.ph.i47
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i47 ], [ %indvars.iv.next.i50, %79 ]
-  %80 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv.i49
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv.i49
   store i16 1, ptr %80, align 2, !tbaa !4
   %81 = trunc i64 %indvars.iv.i49 to i32
   %82 = sub i32 %76, %81
   %83 = trunc i32 %82 to i16
-  %84 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv.i49
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %indvars.iv.i49
   store i16 %83, ptr %84, align 2, !tbaa !4
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i48
@@ -490,12 +488,12 @@ define internal fastcc void @pixctx_reset(ptr noundef captures(none) %0) unnamed
 
 19:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv.i
   store i16 1, ptr %20, align 2, !tbaa !4
   %21 = trunc i64 %indvars.iv.i to i32
   %22 = sub i32 %16, %21
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv.i
   store i16 %23, ptr %24, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -540,12 +538,12 @@ model_reset.exit:                                 ; preds = %26, %._crit_edge.th
 
 37:                                               ; preds = %37, %.lr.ph.i20
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i23, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv.i22
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv.i22
   store i16 1, ptr %38, align 2, !tbaa !4
   %39 = trunc i64 %indvars.iv.i22 to i32
   %40 = sub i32 %34, %39
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv.i22
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvars.iv.i22
   store i16 %41, ptr %42, align 2, !tbaa !4
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i21
@@ -577,12 +575,12 @@ model_reset.exit31:                               ; preds = %44, %._crit_edge.th
 
 .preheader:                                       ; preds = %model_reset.exit31, %71
   %indvars.iv54 = phi i64 [ 0, %model_reset.exit31 ], [ %indvars.iv.next55, %71 ]
-  %51 = getelementptr inbounds nuw [4 x %struct.Model], ptr %50, i64 %indvars.iv54
+  %51 = getelementptr inbounds nuw [5200 x i8], ptr %50, i64 %indvars.iv54
   br label %52
 
 52:                                               ; preds = %.preheader, %model_reset.exit44
   %indvars.iv50 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next51, %model_reset.exit44 ]
-  %53 = getelementptr inbounds nuw %struct.Model, ptr %51, i64 %indvars.iv50
+  %53 = getelementptr inbounds nuw [1300 x i8], ptr %51, i64 %indvars.iv50
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1288
   %55 = load i32, ptr %54, align 4, !tbaa !16
   %.not15.i32 = icmp slt i32 %55, 0
@@ -600,12 +598,12 @@ model_reset.exit31:                               ; preds = %44, %._crit_edge.th
 
 58:                                               ; preds = %58, %.lr.ph.i33
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i36, %58 ]
-  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i35
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv.i35
   store i16 1, ptr %59, align 2, !tbaa !4
   %60 = trunc i64 %indvars.iv.i35 to i32
   %61 = sub i32 %55, %60
   %62 = trunc i32 %61 to i16
-  %63 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i35
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i35
   store i16 %62, ptr %63, align 2, !tbaa !4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i34
@@ -1342,7 +1340,7 @@ decode_pixel.exit.us.i.i:                         ; preds = %._crit_edge.us.i.i,
 
 396:                                              ; preds = %392
   %397 = zext nneg i32 %.085.us.i.i to i64
-  %398 = getelementptr inbounds nuw i32, ptr %241, i64 %397
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %397
   %399 = load i32, ptr %398, align 4, !tbaa !73
   %400 = trunc i32 %399 to i8
   %401 = mul nuw nsw i64 %indvars.iv138.i.i, 3
@@ -1522,7 +1520,7 @@ decode_pixel.exit:                                ; preds = %49, %.loopexit, %._
 .lr.ph83:                                         ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %77 = zext nneg i32 %.050.i100 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !73
   %80 = trunc i32 %.050.i100 to i8
   %81 = sext i32 %4 to i64
@@ -1807,7 +1805,7 @@ define range(i32 -1094995529, 1) i32 @ff_mss12_decode_init(ptr noundef %0, i32 n
   %136 = or disjoint i32 %128, %132
   %137 = or disjoint i32 %136, %135
   %138 = or disjoint i32 %137, -16777216
-  %139 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv
   store i32 %138, ptr %139, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -2057,7 +2055,7 @@ decode_pixel.exit.us:                             ; preds = %51, %._crit_edge.us
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %.0.us to i64
-  %79 = getelementptr inbounds nuw i32, ptr %10, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !73
   %81 = trunc i32 %80 to i8
   %82 = mul nuw nsw i64 %indvars.iv86, 3
@@ -2297,9 +2295,9 @@ define internal fastcc i32 @decode_pixel_in_context(ptr noundef %0, ptr noundef 
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !29
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 2620
-  %95 = getelementptr inbounds nuw [4 x %struct.Model], ptr %94, i64 %.043
+  %95 = getelementptr inbounds nuw [5200 x i8], ptr %94, i64 %.043
   %96 = zext nneg i32 %.1 to i64
-  %97 = getelementptr inbounds nuw %struct.Model, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [1300 x i8], ptr %95, i64 %96
   %98 = tail call i32 %93(ptr noundef %0, ptr noundef nonnull %97) #9
   %99 = icmp slt i32 %98, %.145
   br i1 %99, label %100, label %105
@@ -2518,7 +2516,7 @@ define internal fastcc void @pixctx_init(ptr noundef writeonly captures(none) in
 .preheader.lr.ph:                                 ; preds = %._crit_edge, %4
   %indvars.iv36 = phi i64 [ 0, %4 ], [ %indvars.iv.next37, %._crit_edge ]
   %.030 = phi i64 [ 0, %4 ], [ %indvars.iv.next33, %._crit_edge ]
-  %18 = getelementptr inbounds nuw i32, ptr @sec_order_sizes, i64 %indvars.iv36
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @sec_order_sizes, i64 %indvars.iv36
   %19 = load i32, ptr %18, align 4, !tbaa !73
   %.not = icmp eq i64 %indvars.iv36, 0
   %20 = select i1 %.not, i32 -1, i32 15
@@ -2533,12 +2531,12 @@ define internal fastcc void @pixctx_init(ptr noundef writeonly captures(none) in
 .preheader:                                       ; preds = %.preheader.lr.ph, %31
   %indvars.iv32 = phi i64 [ %24, %.preheader.lr.ph ], [ %indvars.iv.next33, %31 ]
   %.02327 = phi i32 [ 0, %.preheader.lr.ph ], [ %32, %31 ]
-  %25 = getelementptr inbounds [4 x %struct.Model], ptr %17, i64 %indvars.iv32
+  %25 = getelementptr inbounds [5200 x i8], ptr %17, i64 %indvars.iv32
   br label %26
 
 26:                                               ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw %struct.Model, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [1300 x i8], ptr %25, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1288
   store i32 %22, ptr %28, align 4, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 1292

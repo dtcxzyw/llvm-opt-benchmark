@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._dfilter_loc = type { i64, i64 }
 %union.YYMINORTYPE = type { ptr }
-%struct.yyStackEntry = type { i8, i8, %union.YYMINORTYPE }
 
 @yyRuleInfoNRhs = internal unnamed_addr constant [68 x i8] c"\FF\00\FF\FF\FD\FD\FD\FE\FD\FF\FF\FF\FF\FF\FF\FF\FF\FB\FD\FF\FE\FC\FE\FF\FF\FF\FF\FF\FF\FE\FE\FD\FD\FD\FD\FD\FD\FD\FF\FF\FF\FF\FF\FF\FF\FF\FD\FD\FF\FD\FD\FD\FC\FF\FE\FE\FF\FD\FF\FD\FD\FC\FF\FD\FC\FD\FF\FD", align 16
 @yy_shift_ofst = internal unnamed_addr constant [61 x i16] [i16 0, i16 28, i16 28, i16 28, i16 28, i16 28, i16 181, i16 181, i16 181, i16 164, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 181, i16 357, i16 357, i16 400, i16 31, i16 42, i16 84, i16 84, i16 84, i16 30, i16 30, i16 41, i16 41, i16 396, i16 402, i16 408, i16 408, i16 408, i16 429, i16 2, i16 256, i16 46, i16 185, i16 185, i16 401, i16 95, i16 19, i16 142, i16 403, i16 17, i16 76, i16 99, i16 99, i16 21, i16 99, i16 96, i16 102, i16 118, i16 139], align 16
@@ -139,7 +138,7 @@ define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) 
 
 19:                                               ; preds = %17
   %20 = zext nneg i8 %.037 to i64
-  %21 = getelementptr i16, ptr @yy_shift_ofst, i64 %20
+  %21 = getelementptr [2 x i8], ptr @yy_shift_ofst, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
   %24 = add nuw nsw i64 %23, %15
@@ -1225,10 +1224,10 @@ new_function.exit:                                ; preds = %541, %546
   %573 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %570
   %574 = load i8, ptr %573, align 1
   %575 = sext i8 %574 to i64
-  %576 = getelementptr %struct.yyStackEntry, ptr %569, i64 %575
+  %576 = getelementptr [16 x i8], ptr %569, i64 %575
   %577 = load i8, ptr %576, align 8
   %578 = zext i8 %577 to i64
-  %579 = getelementptr i16, ptr @yy_reduce_ofst, i64 %578
+  %579 = getelementptr [2 x i8], ptr @yy_reduce_ofst, i64 %578
   %580 = load i16, ptr %579, align 2
   %581 = sext i16 %580 to i64
   %582 = zext i8 %572 to i64

@@ -3,11 +3,6 @@ source_filename = "bench/recastnavigation/original/DetourTileCache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.dtCompressedTile = type { i32, ptr, ptr, i32, ptr, i32, i32, ptr }
-%struct.dtTileCacheObstacle = type { %union.anon, [8 x i32], [8 x i32], i16, i8, i8, i8, i8, ptr }
-%union.anon = type { %struct.dtObstacleOrientedBox }
-%struct.dtObstacleOrientedBox = type { [3 x float], [3 x float], [2 x float] }
-%"struct.dtTileCache::ObstacleRequest" = type { i32, i32 }
 %struct.NavMeshTileBuildContext = type { ptr, ptr, ptr, ptr }
 %struct.dtNavMeshCreateParams = type { ptr, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, [3 x float], [3 x float], float, float, float, float, float, i8 }
 
@@ -87,7 +82,7 @@ define void @_ZN11dtTileCacheD2Ev(ptr noundef nonnull align 8 captures(none) der
   %7 = phi i32 [ %3, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
@@ -102,7 +97,7 @@ define void @_ZN11dtTileCacheD2Ev(ptr noundef nonnull align 8 captures(none) der
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %19, align 8
   %.pre = load i32, ptr %2, align 4
@@ -200,7 +195,7 @@ define noundef ptr @_ZNK11dtTileCache12getTileByRefEj(ptr noundef nonnull readon
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %7 to i64
-  %19 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8
   %.not12 = icmp eq i32 %20, %15
   %. = select i1 %.not12, ptr %19, ptr null
@@ -253,16 +248,16 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %25 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %32, %.lr.ph ]
   %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %26 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %25, i64 %indvars.iv.next
+  %26 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %indvars.iv.next
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store i16 1, ptr %27, align 8
   %28 = load ptr, ptr %21, align 8
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %29, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw [112 x i8], ptr %29, i64 %indvars.iv.next
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   store ptr %28, ptr %31, align 8
   %32 = load ptr, ptr %16, align 8
-  %33 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %32, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw [112 x i8], ptr %32, i64 %indvars.iv.next
   store ptr %33, ptr %21, align 8
   %34 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -332,15 +327,15 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache4initEPK1
   %75 = phi ptr [ %.pre30, %.lr.ph24.preheader ], [ %81, %.lr.ph24 ]
   %indvars.iv27 = phi i64 [ %74, %.lr.ph24.preheader ], [ %indvars.iv.next28, %.lr.ph24 ]
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, -1
-  %76 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %75, i64 %indvars.iv.next28
+  %76 = getelementptr inbounds nuw [56 x i8], ptr %75, i64 %indvars.iv.next28
   store i32 1, ptr %76, align 8
   %77 = load ptr, ptr %71, align 8
   %78 = load ptr, ptr %55, align 8
-  %79 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %78, i64 %indvars.iv.next28
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %indvars.iv.next28
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store ptr %77, ptr %80, align 8
   %81 = load ptr, ptr %55, align 8
-  %82 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %81, i64 %indvars.iv.next28
+  %82 = getelementptr inbounds nuw [56 x i8], ptr %81, i64 %indvars.iv.next28
   store ptr %82, ptr %71, align 8
   %83 = icmp samesign ugt i64 %indvars.iv27, 1
   br i1 %83, label %.lr.ph24, label %._crit_edge25.loopexit, !llvm.loop !7
@@ -409,7 +404,7 @@ define noundef i32 @_ZNK11dtTileCache10getTilesAtEiiPji(ptr noundef nonnull read
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %.019 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %.019, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
@@ -454,7 +449,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit: ; preds = %25
   %39 = or i32 %38, %35
   %40 = add nsw i32 %.01621, 1
   %41 = sext i32 %.01621 to i64
-  %42 = getelementptr inbounds i32, ptr %3, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %3, i64 %41
   store i32 %39, ptr %42, align 4
   br label %43
 
@@ -506,7 +501,7 @@ define noundef ptr @_ZN11dtTileCache9getTileAtEiii(ptr noundef nonnull readonly 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %.017 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %.017, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -588,7 +583,7 @@ define noundef ptr @_ZN11dtTileCache16getObstacleByRefEj(ptr noundef nonnull rea
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [112 x i8], ptr %9, i64 %10
   %12 = lshr i32 %1, 16
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %14 = load i16, ptr %13, align 8
@@ -644,7 +639,7 @@ define noundef range(i32 1073741824, -2147483643) i32 @_ZN11dtTileCache7addTileE
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %.017.i = load ptr, ptr %26, align 8
   %.not18.i = icmp eq ptr %.017.i, null
   br i1 %.not18.i, label %.loopexit, label %.lr.ph.i
@@ -700,11 +695,11 @@ define noundef range(i32 1073741824, -2147483643) i32 @_ZN11dtTileCache7addTileE
   %54 = and i32 %53, %50
   %55 = load ptr, ptr %23, align 8
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %46, align 8
   %59 = load ptr, ptr %23, align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %56
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %56
   store ptr %44, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %1, ptr %61, align 8
@@ -771,7 +766,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %9 to i64
-  %21 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 8
   %.not56 = icmp eq i32 %22, %17
   br i1 %.not56, label %23, label %74
@@ -792,7 +787,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %.067 = load ptr, ptr %39, align 8
   %.not5768 = icmp eq ptr %.067, null
   br i1 %.not5768, label %.loopexit, label %.lr.ph.preheader
@@ -941,7 +936,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %6, align 8
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %"struct.dtTileCache::ObstacleRequest", ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   store i64 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = load ptr, ptr %31, align 8
@@ -1019,7 +1014,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %8
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %5, align 8
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds %"struct.dtTileCache::ObstacleRequest", ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   store i64 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %38 = load ptr, ptr %37, align 8
@@ -1107,7 +1102,7 @@ _ZNK11dtTileCache14getObstacleRefEPK19dtTileCacheObstacle.exit: ; preds = %9
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %6, align 8
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %"struct.dtTileCache::ObstacleRequest", ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store i64 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %47 = load ptr, ptr %46, align 8
@@ -1159,7 +1154,7 @@ define noundef range(i32 1073741824, -2147483631) i32 @_ZN11dtTileCache14removeO
   %9 = add nsw i32 %5, 1
   store i32 %9, ptr %4, align 8
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds %"struct.dtTileCache::ObstacleRequest", ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   store i64 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %1, ptr %12, align 4
@@ -1237,7 +1232,7 @@ define noundef i32 @_ZNK11dtTileCache10queryTilesEPKfS1_PjPii(ptr noundef nonnul
   %55 = and i32 %52, %54
   %56 = load ptr, ptr %45, align 8
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %.019.i = load ptr, ptr %58, align 8
   %.not20.i = icmp eq ptr %.019.i, null
   br i1 %.not20.i, label %._crit_edge, label %.lr.ph.i
@@ -1280,7 +1275,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %69
   %80 = or i32 %79, %77
   %81 = add nsw i32 %.01621.i, 1
   %82 = sext i32 %.01621.i to i64
-  %83 = getelementptr inbounds i32, ptr %7, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %7, i64 %82
   store i32 %80, ptr %83, align 4
   br label %84
 
@@ -1303,14 +1298,14 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %84
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %.242 = phi i32 [ %.145, %.lr.ph.preheader ], [ %.3, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
   %87 = load ptr, ptr %46, align 8
-  %88 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = load i32, ptr %47, align 4
   %notmask.i = shl nsw i32 -1, %90
   %91 = xor i32 %notmask.i, -1
   %92 = and i32 %89, %91
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %87, i64 %93
+  %94 = getelementptr inbounds nuw [56 x i8], ptr %87, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load float, ptr %12, align 4
@@ -1385,7 +1380,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %84
 149:                                              ; preds = %144
   %150 = add nsw i32 %.242, 1
   %151 = sext i32 %.242 to i64
-  %152 = getelementptr inbounds i32, ptr %3, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %3, i64 %151
   store i32 %89, ptr %152, align 4
   br label %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread
 
@@ -1492,7 +1487,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache6updateEfP9dtNavMes
 
 22:                                               ; preds = %.lr.ph114, %.loopexit102
   %indvars.iv134 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next135, %.loopexit102 ]
-  %23 = getelementptr inbounds nuw %"struct.dtTileCache::ObstacleRequest", ptr %14, i64 %indvars.iv134
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv134
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 65535
@@ -1503,7 +1498,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache6updateEfP9dtNavMes
 28:                                               ; preds = %22
   %29 = load ptr, ptr %16, align 8
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [112 x i8], ptr %29, i64 %30
   %32 = lshr i32 %25, 16
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %34 = load i16, ptr %33, align 8
@@ -1633,7 +1628,7 @@ _ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit: ; preds 
   br i1 %101, label %102, label %118
 
 102:                                              ; preds = %.lr.ph112.split
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv131
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv131
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %99, 0
   br i1 %105, label %.lr.ph.preheader.i, label %.loopexit100
@@ -1649,7 +1644,7 @@ _ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit: ; preds 
 
 .lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %106 ]
-  %107 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, %104
   br i1 %109, label %_ZL8containsPKjij.exit, label %106
@@ -1658,7 +1653,7 @@ _ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit: ; preds 
   %110 = add nsw i32 %99, 1
   store i32 %110, ptr %8, align 4
   %111 = sext i32 %99 to i64
-  %112 = getelementptr inbounds i32, ptr %17, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %17, i64 %111
   store i32 %104, ptr %112, align 4
   %.pre144 = load i32, ptr %103, align 4
   br label %_ZL8containsPKjij.exit
@@ -1669,7 +1664,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
   %115 = add i8 %114, 1
   store i8 %115, ptr %94, align 1
   %116 = zext i8 %114 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %96, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %116
   store i32 %113, ptr %117, align 4
   %.pre145 = load i8, ptr %93, align 4
   br label %118
@@ -1710,7 +1705,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
   br i1 %133, label %134, label %150
 
 134:                                              ; preds = %.lr.ph.split
-  %135 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %131, 0
   br i1 %137, label %.lr.ph.preheader.i89, label %.loopexit101
@@ -1726,7 +1721,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
 
 .lr.ph.i91:                                       ; preds = %138, %.lr.ph.preheader.i89
   %indvars.iv.i92 = phi i64 [ 0, %.lr.ph.preheader.i89 ], [ %indvars.iv.next.i93, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i92
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i92
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, %136
   br i1 %141, label %_ZL8containsPKjij.exit95, label %138
@@ -1735,7 +1730,7 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
   %142 = add nsw i32 %131, 1
   store i32 %142, ptr %8, align 4
   %143 = sext i32 %131 to i64
-  %144 = getelementptr inbounds i32, ptr %17, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %17, i64 %143
   store i32 %136, ptr %144, align 4
   %.pre = load i32, ptr %135, align 4
   br label %_ZL8containsPKjij.exit95
@@ -1746,7 +1741,7 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %147 = add i8 %146, 1
   store i8 %147, ptr %124, align 1
   %148 = zext i8 %146 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %128, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %148
   store i32 %145, ptr %149, align 4
   %.pre143 = load i8, ptr %125, align 4
   br label %150
@@ -1802,7 +1797,7 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
 174:                                              ; preds = %.lr.ph122, %.loopexit.thread157
   %indvars.iv140 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next141, %.loopexit.thread157 ]
   %175 = load ptr, ptr %172, align 8
-  %176 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %175, i64 %indvars.iv140
+  %176 = getelementptr inbounds nuw [112 x i8], ptr %175, i64 %indvars.iv140
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 99
   %178 = load i8, ptr %177, align 1
   switch i8 %178, label %.loopexit.thread157 [
@@ -1828,15 +1823,15 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
 
 184:                                              ; preds = %.lr.ph119, %183
   %indvars.iv137 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next138, %183 ]
-  %185 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv137
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv137
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, %159
   br i1 %187, label %.loopexit, label %183
 
 .loopexit:                                        ; preds = %184
-  %188 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv137
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv137
   %189 = zext i8 %181 to i64
-  %190 = getelementptr i32, ptr %182, i64 %189
+  %190 = getelementptr [4 x i8], ptr %182, i64 %189
   %191 = getelementptr i8, ptr %190, i64 -4
   %192 = load i32, ptr %191, align 4
   store i32 %192, ptr %188, align 4
@@ -2053,7 +2048,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache16buildNavMeshTileE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %23 to i64
-  %31 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i32, ptr %32, align 8
   %notmask.i85 = shl nsw i32 -1, %33
@@ -2122,7 +2117,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache16buildNavMeshTileE
 66:                                               ; preds = %.lr.ph, %_ZL8containsPKjij.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8containsPKjij.exit.thread ]
   %67 = load ptr, ptr %62, align 8
-  %68 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [112 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 99
   %70 = load i8, ptr %69, align 1
   switch i8 %70, label %71 [
@@ -2148,7 +2143,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache16buildNavMeshTileE
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, %1
   br i1 %78, label %_ZL8containsPKjij.exit, label %75
@@ -2467,7 +2462,7 @@ define noundef range(i32 1073741824, 0) i32 @_ZN11dtTileCache19buildNavMeshTiles
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %.019.i = load ptr, ptr %15, align 8
   %.not20.i = icmp eq ptr %.019.i, null
   br i1 %.not20.i, label %._crit_edge, label %.lr.ph.i
@@ -2512,7 +2507,7 @@ _ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i: ; preds = %28
   %39 = or i32 %38, %36
   %40 = add nsw i32 %.01621.i, 1
   %41 = sext i32 %.01621.i to i64
-  %42 = getelementptr inbounds i32, ptr %5, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %5, i64 %41
   store i32 %39, ptr %42, align 4
   br label %43
 
@@ -2538,7 +2533,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = tail call noundef i32 @_ZN11dtTileCache16buildNavMeshTileEjP9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(912) %0, i32 noundef %48, ptr noundef %3)
   %50 = icmp slt i32 %49, 0

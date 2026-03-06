@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.HeapElem = type { i64, i32 }
-%struct.Node = type { i16, i16, i32 }
 
 @.str = private unnamed_addr constant [64 x i8] c"Too high symbol frequencies. Tree construction is not possible\0A\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"Error building tree\0A\00", align 1
@@ -43,7 +42,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   store i8 -1, ptr %18, align 1, !tbaa !4
   %19 = trunc i64 %indvars.iv143 to i16
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %20 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv143
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv143
   store i16 %19, ptr %20, align 2, !tbaa !7
   %exitcond149.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count148
   br i1 %exitcond149.not, label %.preheader114, label %.lr.ph.split.us, !llvm.loop !9
@@ -75,7 +74,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %.095117 = phi i32 [ %.1, %45 ], [ 0, %.lr.ph ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 -1, ptr %36, align 1, !tbaa !4
-  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %45, label %40
@@ -84,7 +83,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %41 = trunc i64 %indvars.iv to i16
   %42 = add nsw i32 %.095117, 1
   %43 = sext i32 %.095117 to i64
-  %44 = getelementptr inbounds i16, ptr %12, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %12, i64 %43
   store i16 %41, ptr %44, align 2, !tbaa !7
   br label %45
 
@@ -104,14 +103,14 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
 
 48:                                               ; preds = %.lr.ph119, %48
   %indvars.iv150 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next151, %48 ]
-  %49 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %indvars.iv150
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv150
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = trunc nuw nsw i64 %indvars.iv150 to i32
   store i32 %51, ptr %50, align 8, !tbaa !13
-  %52 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv150
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv150
   %53 = load i16, ptr %52, align 2, !tbaa !7
   %54 = zext i16 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !11
   %57 = shl i64 %56, 14
   %58 = add i64 %57, %47
@@ -137,7 +136,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
   %59 = load i64, ptr %9, align 8, !tbaa !16
   %60 = load i32, ptr %32, align 8, !tbaa !13
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %10, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %10, i64 %61
   store i32 %.096123.us, ptr %62, align 4, !tbaa !18
   store i64 9223372036854775807, ptr %9, align 8, !tbaa !16
   br label %63
@@ -151,11 +150,11 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
 
 67:                                               ; preds = %63
   %68 = zext nneg i32 %64 to i64
-  %69 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !16
   %71 = add nuw nsw i32 %65, 2
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !16
   %75 = icmp ugt i64 %70, %74
   %spec.select.i106.us = select i1 %75, i32 %71, i32 %64
@@ -164,10 +163,10 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
 76:                                               ; preds = %67, %63
   %.023.i105.us = phi i32 [ %64, %63 ], [ %spec.select.i106.us, %67 ]
   %77 = zext nneg i32 %.02429.i104.us to i64
-  %78 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !16
   %80 = zext nneg i32 %.023.i105.us to i64
-  %81 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !16
   %83 = icmp ugt i64 %79, %82
   br i1 %83, label %84, label %heap_sift.exit107.us
@@ -186,7 +185,7 @@ define range(i32 -12, 1) i32 @ff_huff_gen_len_table(ptr noundef captures(none) %
 heap_sift.exit107.us:                             ; preds = %84, %76
   %88 = load i32, ptr %32, align 8, !tbaa !13
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %10, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %10, i64 %89
   store i32 %.096123.us, ptr %90, align 4, !tbaa !18
   store i32 %.096123.us, ptr %32, align 8, !tbaa !13
   %91 = load i64, ptr %9, align 8, !tbaa !16
@@ -203,11 +202,11 @@ heap_sift.exit107.us:                             ; preds = %84, %76
 
 97:                                               ; preds = %93
   %98 = zext nneg i32 %94 to i64
-  %99 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !16
   %101 = add nuw nsw i32 %95, 2
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !16
   %105 = icmp ugt i64 %100, %104
   %spec.select.i111.us = select i1 %105, i32 %101, i32 %94
@@ -216,10 +215,10 @@ heap_sift.exit107.us:                             ; preds = %84, %76
 106:                                              ; preds = %97, %93
   %.023.i110.us = phi i32 [ %94, %93 ], [ %spec.select.i111.us, %97 ]
   %107 = zext nneg i32 %.02429.i109.us to i64
-  %108 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %107
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !16
   %110 = zext nneg i32 %.023.i110.us to i64
-  %111 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %110
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !16
   %113 = icmp ugt i64 %109, %112
   br i1 %113, label %114, label %heap_sift.exit112.loopexit.us
@@ -262,11 +261,11 @@ heap_sift.exit112.loopexit.us:                    ; preds = %114, %106
 
 125:                                              ; preds = %.lr.ph.i
   %126 = zext nneg i32 %122 to i64
-  %127 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !16
   %129 = add nuw nsw i32 %123, 2
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %130
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %130
   %132 = load i64, ptr %131, align 8, !tbaa !16
   %133 = icmp ugt i64 %128, %132
   %spec.select.i = select i1 %133, i32 %129, i32 %122
@@ -275,10 +274,10 @@ heap_sift.exit112.loopexit.us:                    ; preds = %114, %106
 134:                                              ; preds = %125, %.lr.ph.i
   %.023.i = phi i32 [ %122, %.lr.ph.i ], [ %spec.select.i, %125 ]
   %135 = zext nneg i32 %.02429.i to i64
-  %136 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %135
   %137 = load i64, ptr %136, align 8, !tbaa !16
   %138 = zext nneg i32 %.023.i to i64
-  %139 = getelementptr inbounds nuw %struct.HeapElem, ptr %9, i64 %138
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !16
   %141 = icmp ugt i64 %137, %140
   br i1 %141, label %142, label %heap_sift.exit
@@ -303,11 +302,11 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
   %148 = phi i64 [ %.promoted, %.lr.ph124.split ], [ %154, %heap_sift.exit107.thread ]
   %.096123 = phi i32 [ %.095.lcssa, %.lr.ph124.split ], [ %155, %heap_sift.exit107.thread ]
   %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds i32, ptr %10, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %10, i64 %149
   store i32 %.096123, ptr %150, align 4, !tbaa !18
   %151 = load i32, ptr %32, align 8, !tbaa !13
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %10, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %10, i64 %152
   store i32 %.096123, ptr %153, align 4, !tbaa !18
   store i32 %.096123, ptr %32, align 8, !tbaa !13
   %154 = add i64 %148, 9223372036854775807
@@ -328,7 +327,7 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
 
 .lr.ph132:                                        ; preds = %._crit_edge125, %.lr.ph132
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.lr.ph132 ], [ %34, %._crit_edge125 ]
-  %156 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv157
+  %156 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv157
   %157 = load i32, ptr %156, align 4, !tbaa !18
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds i8, ptr %11, i64 %158
@@ -342,13 +341,13 @@ heap_sift.exit107.thread:                         ; preds = %.lr.ph124.split, %h
 
 .lr.ph134:                                        ; preds = %.preheader, %178
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %178 ], [ 0, %.preheader ]
-  %163 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv160
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv160
   %164 = load i32, ptr %163, align 4, !tbaa !18
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i8, ptr %11, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !4
   %168 = add i8 %167, 1
-  %169 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv160
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv160
   %170 = load i16, ptr %169, align 2, !tbaa !7
   %171 = zext i16 %170 to i64
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 %171
@@ -405,7 +404,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0186223 = phi i64 [ 0, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %13 = trunc i64 %indvars.iv to i16
-  %14 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i16 %13, ptr %14, align 4, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 -2, ptr %15, align 2, !tbaa !26
@@ -429,7 +428,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %4, ptr %11, align 16, !tbaa !29
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds %struct.Node, ptr %4, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %4, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !29
@@ -439,7 +438,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %.0182244 = phi i32 [ 1, %._crit_edge.thread ], [ %.1183221, %.thread ]
   %27 = add nsw i32 %.0182244, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [2 x ptr], ptr %11, i64 %28
+  %29 = getelementptr inbounds [16 x i8], ptr %11, i64 %28
   %30 = load ptr, ptr %29, align 16, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !29
@@ -466,7 +465,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %42 = ptrtoint ptr %.0179236 to i64
   %43 = sub i64 %41, %42
   %44 = ashr i64 %43, 4
-  %45 = getelementptr inbounds %struct.Node, ptr %.0179236, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.0179236, i64 %44
   %46 = tail call i32 %5(ptr noundef %.0179236, ptr noundef nonnull %.0176237) #5
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %56
@@ -620,7 +619,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds [2 x ptr], ptr %11, i64 %indvars.iv280
+  %104 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv280
   store ptr %.0179236, ptr %104, align 16, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %.0171.lcssa, ptr %105, align 8, !tbaa !29
@@ -629,7 +628,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 107:                                              ; preds = %98
   %108 = getelementptr inbounds nuw i8, ptr %.0170.lcssa, i64 8
-  %109 = getelementptr inbounds [2 x ptr], ptr %11, i64 %indvars.iv280
+  %109 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv280
   store ptr %108, ptr %109, align 16, !tbaa !29
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %.0176237, ptr %110, align 8, !tbaa !29
@@ -670,7 +669,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %121 = shl nsw i32 %2, 1
   %122 = add nsw i32 %121, -1
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %struct.Node, ptr %4, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %4, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store i32 0, ptr %125, align 4, !tbaa !27
   br i1 %12, label %.lr.ph264, label %._crit_edge265
@@ -684,7 +683,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %indvars.iv305 = phi i64 [ %indvars.iv.next306, %._crit_edge248.us ], [ 0, %.lr.ph264 ]
   %indvars.iv301 = phi i32 [ %indvars.iv.next302, %._crit_edge248.us ], [ 2, %.lr.ph264 ]
   %indvars.iv297 = phi i64 [ %indvars.iv.next298, %._crit_edge248.us ], [ %22, %.lr.ph264 ]
-  %127 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv305
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv305
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4, !tbaa !27
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 12
@@ -698,7 +697,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph247.us:                                     ; preds = %.lr.ph264.split.us, %138
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %138 ], [ %indvars.iv297, %.lr.ph264.split.us ]
-  %135 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv299
+  %135 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv299
   %136 = getelementptr i8, ptr %135, i64 -4
   %137 = load i32, ptr %136, align 4, !tbaa !27
   %or.cond272.not = icmp ult i32 %132, %137
@@ -723,7 +722,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge248.us:                                ; preds = %._crit_edge248.us.loopexit, %.lr.ph264.split.us
   %.pre-phi = phi i64 [ %.pre311, %._crit_edge248.us.loopexit ], [ %133, %.lr.ph264.split.us ]
-  %143 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi
+  %143 = getelementptr inbounds [8 x i8], ptr %4, i64 %.pre-phi
   store i16 -1, ptr %143, align 4, !tbaa !24
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %132, ptr %144, align 4, !tbaa !27
@@ -739,7 +738,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %._crit_edge251.split.us ], [ 0, %.lr.ph264 ]
   %indvars.iv287 = phi i32 [ %indvars.iv.next288, %._crit_edge251.split.us ], [ 2, %.lr.ph264 ]
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %._crit_edge251.split.us ], [ %22, %.lr.ph264 ]
-  %148 = getelementptr inbounds nuw %struct.Node, ptr %4, i64 %indvars.iv291
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv291
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4, !tbaa !27
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 12
@@ -753,7 +752,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph247:                                        ; preds = %.lr.ph264.split, %160
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %160 ], [ %indvars.iv283, %.lr.ph264.split ]
-  %156 = getelementptr %struct.Node, ptr %4, i64 %indvars.iv285
+  %156 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv285
   %157 = getelementptr i8, ptr %156, i64 -4
   %158 = load i32, ptr %157, align 4, !tbaa !27
   %159 = icmp ugt i32 %153, %158
@@ -778,7 +777,7 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge251.split.us:                          ; preds = %._crit_edge251.split.us.loopexit, %.lr.ph264.split
   %.pre-phi313 = phi i64 [ %.pre312, %._crit_edge251.split.us.loopexit ], [ %154, %.lr.ph264.split ]
-  %165 = getelementptr inbounds %struct.Node, ptr %4, i64 %.pre-phi313
+  %165 = getelementptr inbounds [8 x i8], ptr %4, i64 %.pre-phi313
   store i16 -1, ptr %165, align 4, !tbaa !24
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   store i32 %153, ptr %166, align 4, !tbaa !27
@@ -825,7 +824,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @get_tree_codes(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -2147483648, 2147483646) %3, i32 noundef %4, ptr noundef nonnull captures(none) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #3 {
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds %struct.Node, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = load i16, ptr %9, align 4, !tbaa !24
   %.not38 = icmp eq i16 %10, -1
   br i1 %.not38, label %.lr.ph, label %._crit_edge
@@ -846,7 +845,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %19
   tail call fastcc void @get_tree_codes(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %15, i32 noundef %12, ptr noundef %5, i32 noundef %.sink46)
   %.tr34.be.in.in = load i16, ptr %13, align 2, !tbaa !26
   %.tr34.be.in = sext i16 %.tr34.be.in.in to i64
-  %16 = getelementptr %struct.Node, ptr %2, i64 %.tr34.be.in
+  %16 = getelementptr [8 x i8], ptr %2, i64 %.tr34.be.in
   %17 = getelementptr i8, ptr %16, i64 8
   %18 = load i16, ptr %17, align 4, !tbaa !24
   %.not = icmp eq i16 %18, -1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5EA_class_t = type { i32, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5EA_sblk_info_t = type { i64, i64, i64, i64 }
 
 @H5EA_init_g = local_unnamed_addr global i8 0, align 1
 @H5EA_CLS_CHUNK = external constant [1 x %struct.H5EA_class_t], align 16
@@ -602,7 +601,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 440
   %52 = load ptr, ptr %51, align 8, !tbaa !51
   %53 = zext i32 %48 to i64
-  %54 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !52
   %57 = add i64 %56, %50
@@ -621,7 +620,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %68 = add i64 %67, %64
   %69 = getelementptr inbounds nuw i8, ptr %32, i64 256
   %70 = load ptr, ptr %69, align 8, !tbaa !57
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %68
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   %72 = load i64, ptr %71, align 8, !tbaa !11
   %.not311 = icmp eq i64 %72, -1
   br i1 %.not311, label %73, label %85
@@ -645,10 +644,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr %69, align 8, !tbaa !57
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %68
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %68
   store i64 %78, ptr %84, align 8, !tbaa !11
   %.pre = load ptr, ptr %51, align 8, !tbaa !51
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre, i64 %53
+  %.phi.trans.insert = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %53
   %.phi.trans.insert359 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre360 = load i64, ptr %.phi.trans.insert359, align 8, !tbaa !56
   br label %85
@@ -665,14 +664,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %91 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
   %92 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %93 = load ptr, ptr %69, align 8, !tbaa !57
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %68
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %68
   %95 = load i64, ptr %94, align 8, !tbaa !11
   %96 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__lookup_elmt, i32 noundef 420, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.24, i64 noundef %95) #5
   br label %291
 
 97:                                               ; preds = %85
   %98 = load ptr, ptr %51, align 8, !tbaa !51
-  %99 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %98, i64 %53
+  %99 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %53
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !56
   %102 = urem i64 %58, %101
@@ -709,7 +708,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %119 = sub nuw nsw i64 %53, %60
   %120 = getelementptr inbounds nuw i8, ptr %32, i64 264
   %121 = load ptr, ptr %120, align 8, !tbaa !61
-  %122 = getelementptr inbounds nuw i64, ptr %121, i64 %119
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %119
   %123 = load i64, ptr %122, align 8, !tbaa !11
   %.not306 = icmp eq i64 %123, -1
   br i1 %.not306, label %124, label %134
@@ -731,7 +730,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %120, align 8, !tbaa !61
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %119
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %119
   store i64 %127, ptr %133, align 8, !tbaa !11
   br label %134
 
@@ -746,7 +745,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %139 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
   %140 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %141 = load ptr, ptr %120, align 8, !tbaa !61
-  %142 = getelementptr inbounds nuw i64, ptr %141, i64 %119
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %119
   %143 = load i64, ptr %142, align 8, !tbaa !11
   %144 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__lookup_elmt, i32 noundef 472, i64 noundef %139, i64 noundef %140, ptr noundef nonnull @.str.27, i64 noundef %143) #5
   br label %291
@@ -757,7 +756,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %148 = udiv i64 %58, %147
   %149 = getelementptr inbounds nuw i8, ptr %136, i64 256
   %150 = load ptr, ptr %149, align 8, !tbaa !65
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %148
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %148
   %152 = load i64, ptr %151, align 8, !tbaa !11
   %.not308 = icmp eq i64 %152, -1
   br i1 %.not308, label %153, label %.thread326
@@ -768,7 +767,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr %51, align 8, !tbaa !51
-  %157 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %156, i64 %53
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %156, i64 %53
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load i64, ptr %158, align 8, !tbaa !52
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -787,7 +786,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
 
 169:                                              ; preds = %155
   %170 = load ptr, ptr %149, align 8, !tbaa !65
-  %171 = getelementptr inbounds nuw i64, ptr %170, i64 %148
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %148
   store i64 %164, ptr %171, align 8, !tbaa !11
   br i1 %2, label %172, label %.thread326
 
@@ -833,7 +832,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %197 = add i64 %195, %196
   %198 = urem i64 %189, %194
   %199 = load ptr, ptr %149, align 8, !tbaa !65
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %148
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %148
   %201 = load i64, ptr %200, align 8, !tbaa !11
   %202 = getelementptr inbounds nuw i8, ptr %136, i64 272
   %203 = load ptr, ptr %202, align 8, !tbaa !67
@@ -928,7 +927,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
 
 262:                                              ; preds = %.thread326
   %263 = load ptr, ptr %149, align 8, !tbaa !65
-  %264 = getelementptr inbounds nuw i64, ptr %263, i64 %148
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %148
   %265 = load i64, ptr %264, align 8, !tbaa !11
   %266 = call ptr @H5EA__dblock_protect(ptr noundef nonnull %10, ptr noundef nonnull %136, i64 noundef %265, i64 noundef %188, i32 noundef %3) #5
   %267 = icmp eq ptr %266, null
@@ -938,7 +937,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5EA__lookup_elmt(ptr noundef reado
   %269 = load i64, ptr @H5E_EARRAY_g, align 8, !tbaa !11
   %270 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %271 = load ptr, ptr %149, align 8, !tbaa !65
-  %272 = getelementptr inbounds nuw i64, ptr %271, i64 %148
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %148
   %273 = load i64, ptr %272, align 8, !tbaa !11
   %274 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__lookup_elmt, i32 noundef 580, i64 noundef %269, i64 noundef %270, ptr noundef nonnull @.str.24, i64 noundef %273) #5
   br label %291

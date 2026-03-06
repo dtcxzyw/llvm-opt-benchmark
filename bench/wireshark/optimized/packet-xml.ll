@@ -909,7 +909,7 @@ free_elements.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %133
 .lr.ph.i175.i.i:                                  ; preds = %269, %.lr.ph.i175.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i175.i.i ], [ 1, %269 ]
   %278 = load ptr, ptr %191, align 8
-  %279 = getelementptr ptr, ptr %278, i64 %indvars.iv.i.i.i
+  %279 = getelementptr [8 x i8], ptr %278, i64 %indvars.iv.i.i.i
   %280 = load ptr, ptr %279, align 8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %275, ptr noundef nonnull @.str.81, ptr noundef %280)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1078,7 +1078,7 @@ register_dtd.exit.i:                              ; preds = %334, %.loopexit.i.i
 346:                                              ; preds = %354, %345
   %indvars.iv.i = phi i64 [ 0, %345 ], [ %indvars.iv.next.i, %354 ]
   %347 = load ptr, ptr @media_types, align 8
-  %348 = getelementptr ptr, ptr @default_media_types, i64 %indvars.iv.i
+  %348 = getelementptr [8 x i8], ptr @default_media_types, i64 %indvars.iv.i
   %349 = load ptr, ptr %348, align 8
   %350 = call ptr @wmem_map_lookup(ptr noundef %347, ptr noundef %349)
   %.not49.i = icmp eq ptr %350, null
@@ -1930,7 +1930,7 @@ define internal fastcc noundef ptr @make_xml_hier(ptr noundef %0, ptr noundef re
 24:                                               ; preds = %.lr.ph.split, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %24 ]
   %.05869 = phi i1 [ false, %.lr.ph.split ], [ %spec.select, %24 ]
-  %25 = getelementptr ptr, ptr %22, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %26) #12
   %28 = icmp eq i32 %27, 0
@@ -1953,7 +1953,7 @@ define internal fastcc noundef ptr @make_xml_hier(ptr noundef %0, ptr noundef re
 .lr.ph.i:                                         ; preds = %.critedge, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.critedge ]
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %30, ptr noundef nonnull @.str.81, ptr noundef %35)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2147,7 +2147,7 @@ define internal fastcc noalias noundef ptr @duplicate_element(ptr noundef readon
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %24 = phi ptr [ %28, %.lr.ph ], [ %21, %1 ]
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   tail call void @g_ptr_array_add(ptr noundef %18, ptr noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2294,7 +2294,7 @@ define internal void @after_attrib(ptr noundef readonly captures(none) %0, ptr r
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load ptr, ptr %11, align 8
@@ -2433,7 +2433,7 @@ define internal void @after_open_tag(ptr noundef readonly captures(none) %0, ptr
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -2451,7 +2451,7 @@ define internal void @after_closed_tag(ptr noundef %0, ptr readnone captures(non
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -2490,7 +2490,7 @@ define internal void @after_xmlpi(ptr noundef %0, ptr readnone captures(none) %1
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -2531,7 +2531,7 @@ define internal void @after_token(ptr noundef readonly captures(none) %0, ptr re
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %2, align 8
   %12 = icmp eq i32 %11, -1000
@@ -2712,7 +2712,7 @@ define internal void @before_xmpli(ptr noundef %0, ptr readnone captures(none) %
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load ptr, ptr %11, align 8
@@ -2830,7 +2830,7 @@ define internal void @after_untag(ptr noundef %0, ptr readnone captures(none) %1
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, -1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 80
@@ -3258,7 +3258,7 @@ define internal void @before_dtd_doctype(ptr noundef %0, ptr readnone captures(n
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load ptr, ptr %11, align 8
@@ -3381,7 +3381,7 @@ define internal void @pop_stack(ptr noundef %0, ptr readnone captures(none) %1, 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
   %12 = zext i32 %6 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
@@ -3407,7 +3407,7 @@ define internal void @before_tag(ptr noundef %0, ptr readnone captures(none) %1,
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load ptr, ptr %11, align 8
@@ -3587,7 +3587,7 @@ define internal void @after_dtd_close(ptr noundef %0, ptr readnone captures(none
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
@@ -3631,7 +3631,7 @@ define internal void @unrecognized_token(ptr noundef readonly captures(none) %0,
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8

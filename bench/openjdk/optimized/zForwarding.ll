@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTargetHandle = type { i32, ptr }
 %class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
 %class.FormatBufferBase = type { ptr }
-%class.ZForwardingEntry = type { i64 }
 
 $_ZNK5ZPage7log_msgEPKcz = comdat any
 
@@ -600,7 +599,7 @@ define hidden noundef zeroext i1 @_ZN11ZForwarding46relocated_remembered_fields_
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -656,7 +655,7 @@ define hidden void @_ZNK11ZForwarding6verifyEv(ptr noundef nonnull align 8 deref
   %.040 = phi i32 [ 0, %.lr.ph41 ], [ %.1, %131 ]
   %.0739 = phi i64 [ 0, %.lr.ph41 ], [ %.18, %131 ]
   %storemerge38 = phi i64 [ 0, %.lr.ph41 ], [ %.pre-phi, %131 ]
-  %19 = getelementptr inbounds %class.ZForwardingEntry, ptr %13, i64 %storemerge38
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %storemerge38
   %20 = load volatile i64, ptr %19, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %21 = trunc i64 %20 to i1
@@ -720,7 +719,7 @@ _ZNK5ZPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5ZPage22ob
 
 .lr.ph:                                           ; preds = %.preheader, %54
   %storemerge1037 = phi i64 [ %storemerge10, %54 ], [ %storemerge1036, %.preheader ]
-  %42 = getelementptr inbounds %class.ZForwardingEntry, ptr %13, i64 %storemerge1037
+  %42 = getelementptr inbounds [8 x i8], ptr %13, i64 %storemerge1037
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %44 = trunc i64 %43 to i1

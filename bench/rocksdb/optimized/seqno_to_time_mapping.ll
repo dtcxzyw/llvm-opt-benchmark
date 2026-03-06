@@ -8,9 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair" = type { i64, i64 }
 %"struct.std::_Deque_iterator.3" = type { ptr, ptr, ptr, ptr }
-%struct.RemovalCandidate = type { i64, %"struct.std::_Deque_iterator.3" }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -19,6 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.13" }
 %"struct.std::_Head_base.13" = type { ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
+%"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair" = type { i64, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -171,7 +170,7 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm(ptr dead_on_unw
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i, i64 %36
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i, i64 %36
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
 
 47:                                               ; preds = %43
@@ -184,12 +183,12 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping15FindGreaterTimeEm(ptr dead_on_unw
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.17.0.i, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !31, !noalias !32
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 5
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %54, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %54, i64 %57
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i: ; preds = %51, %45
@@ -305,7 +304,7 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm(ptr dead_on_
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i, i64 %36
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i, i64 %36
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
 
 47:                                               ; preds = %43
@@ -318,12 +317,12 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm(ptr dead_on_
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.17.0.i, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !31, !noalias !55
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 5
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %54, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %54, i64 %57
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i: ; preds = %51, %45
@@ -438,7 +437,7 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm(ptr dead_on_un
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i, i64 %36
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i, i64 %36
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
 
 47:                                               ; preds = %43
@@ -451,12 +450,12 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping16FindGreaterSeqnoEm(ptr dead_on_un
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.17.0.i, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !31, !noalias !70
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 5
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %54, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %54, i64 %57
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i: ; preds = %51, %45
@@ -572,7 +571,7 @@ define noundef i64 @_ZNK7rocksdb18SeqnoToTimeMapping26GetProximalTimeBeforeSeqno
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i.i, i64 %35
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i.i, i64 %35
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
 
 46:                                               ; preds = %42
@@ -585,12 +584,12 @@ define noundef i64 @_ZNK7rocksdb18SeqnoToTimeMapping26GetProximalTimeBeforeSeqno
 
 50:                                               ; preds = %48, %46
   %51 = phi i64 [ %47, %46 ], [ %49, %48 ]
-  %52 = getelementptr inbounds ptr, ptr %.sroa.17.0.i.i, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !31, !noalias !79
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 512
   %55 = shl nsw i64 %51, 5
   %56 = sub nsw i64 %40, %55
-  %57 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %53, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %53, i64 %56
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i: ; preds = %50, %44
@@ -716,7 +715,7 @@ define noundef i64 @_ZNK7rocksdb18SeqnoToTimeMapping26GetProximalSeqnoBeforeTime
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i.i, i64 %35
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i.i, i64 %35
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
 
 46:                                               ; preds = %42
@@ -729,12 +728,12 @@ define noundef i64 @_ZNK7rocksdb18SeqnoToTimeMapping26GetProximalSeqnoBeforeTime
 
 50:                                               ; preds = %48, %46
   %51 = phi i64 [ %47, %46 ], [ %49, %48 ]
-  %52 = getelementptr inbounds ptr, ptr %.sroa.17.0.i.i, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !31, !noalias !95
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 512
   %55 = shl nsw i64 %51, 5
   %56 = sub nsw i64 %40, %55
-  %57 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %53, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %53, i64 %56
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i: ; preds = %50, %44
@@ -871,7 +870,7 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping29GetCurrentTieringCutoffSeqnosEmmm
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i.i.i, i64 %43
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i.i.i, i64 %43
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i.i
 
 54:                                               ; preds = %50
@@ -884,12 +883,12 @@ define void @_ZNK7rocksdb18SeqnoToTimeMapping29GetCurrentTieringCutoffSeqnosEmmm
 
 58:                                               ; preds = %56, %54
   %59 = phi i64 [ %55, %54 ], [ %57, %56 ]
-  %60 = getelementptr inbounds ptr, ptr %.sroa.17.0.i.i.i, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i.i.i, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !31, !noalias !108
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 512
   %63 = shl nsw i64 %59, 5
   %64 = sub nsw i64 %48, %63
-  %65 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %61, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %61, i64 %64
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i.i: ; preds = %58, %52
@@ -1023,7 +1022,7 @@ _ZNK7rocksdb18SeqnoToTimeMapping26GetProximalSeqnoBeforeTimeEm.exit: ; preds = %
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i.i.i20, i64 %128
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i.i.i20, i64 %128
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i.i26
 
 139:                                              ; preds = %135
@@ -1036,12 +1035,12 @@ _ZNK7rocksdb18SeqnoToTimeMapping26GetProximalSeqnoBeforeTimeEm.exit: ; preds = %
 
 143:                                              ; preds = %141, %139
   %144 = phi i64 [ %140, %139 ], [ %142, %141 ]
-  %145 = getelementptr inbounds ptr, ptr %.sroa.17.0.i.i.i23, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i.i.i23, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !31, !noalias !122
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 512
   %148 = shl nsw i64 %144, 5
   %149 = sub nsw i64 %133, %148
-  %150 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %146, i64 %149
+  %150 = getelementptr inbounds [16 x i8], ptr %146, i64 %149
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i.i26
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i.i26: ; preds = %143, %137
@@ -1233,11 +1232,11 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4backEv.exit: ;
 
 85:                                               ; preds = %83, %81
   %86 = phi i64 [ %82, %81 ], [ %84, %83 ]
-  %87 = getelementptr inbounds ptr, ptr %71, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %71, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !31, !noalias !134
   %89 = shl nsw i64 %86, 5
   %90 = sub nsw i64 %77, %89
-  %91 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %88, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %88, i64 %90
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit: ; preds = %79, %85
@@ -1270,11 +1269,11 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit: ; pr
 
 105:                                              ; preds = %103, %101
   %106 = phi i64 [ %102, %101 ], [ %104, %103 ]
-  %107 = getelementptr inbounds ptr, ptr %71, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %71, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !31, !noalias !137
   %109 = shl nsw i64 %106, 5
   %110 = sub nsw i64 %95, %109
-  %111 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %108, i64 %110
+  %111 = getelementptr inbounds [16 x i8], ptr %108, i64 %110
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit18
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit18: ; preds = %99, %105
@@ -1577,7 +1576,7 @@ _ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidat
   br label %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE17_M_realloc_insertIJRmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS8_PS8_EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE17_M_realloc_insertIJRmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS8_PS8_EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %117, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.i
-  %118 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %96, i64 %94
+  %118 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %94
   %.pre = load i64, ptr %.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !152
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.pre255 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
@@ -1611,7 +1610,7 @@ _ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidat
   %.06.i.i.i46 = phi i64 [ %.097.i.i.i, %138 ], [ %128, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE12emplace_backIJRmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS8_PS8_EEEERS2_DpOT_.exit.i ]
   %.097.in.i.i.i = add nsw i64 %.06.i.i.i46, -1
   %.097.i.i.i = sdiv i64 %.097.in.i.i.i, 2
-  %130 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %.sroa.0159.4, i64 %.097.i.i.i
+  %130 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0159.4, i64 %.097.i.i.i
   %.val2.i.i.i.i = load i64, ptr %130, align 8, !tbaa !152
   %131 = icmp eq i64 %.val2.i.i.i.i, %123
   br i1 %131, label %132, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i
@@ -1629,14 +1628,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15E
   br i1 %137, label %138, label %.loopexit167
 
 138:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i, %132
-  %139 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %.sroa.0159.4, i64 %.06.i.i.i46
+  %139 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0159.4, i64 %.06.i.i.i46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %139, ptr noundef nonnull align 8 dereferenceable(40) %130, i64 40, i1 false), !tbaa.struct !160
   %140 = icmp sgt i64 %.06.i.i.i46, 2
   br i1 %140, label %.lr.ph.i.i.i45, label %.loopexit167, !llvm.loop !161
 
 .loopexit167:                                     ; preds = %138, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i, %132, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE12emplace_backIJRmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS8_PS8_EEEERS2_DpOT_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %128, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE12emplace_backIJRmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS8_PS8_EEEERS2_DpOT_.exit.i ], [ %.06.i.i.i46, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i ], [ %.097.i.i.i, %138 ], [ %.06.i.i.i46, %132 ]
-  %141 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.4, i64 %.0.lcssa.i.i.i
+  %141 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.4, i64 %.0.lcssa.i.i.i
   store i64 %123, ptr %141, align 8, !tbaa !113
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr %122, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !31
@@ -1721,9 +1720,9 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
   %.040.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.i.i.i.i ], [ 0, %164 ]
   %181 = shl i64 %.040.i.i.i.i, 1
   %182 = add i64 %181, 2
-  %183 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %182
+  %183 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %182
   %184 = or disjoint i64 %181, 1
-  %185 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %184
+  %185 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %184
   %.val2.i.i.i.i.i = load i64, ptr %183, align 8, !tbaa !152
   %.val4.i.i.i.i.i = load i64, ptr %185, align 8, !tbaa !152
   %186 = icmp eq i64 %.val2.i.i.i.i.i, %.val4.i.i.i.i.i
@@ -1746,8 +1745,8 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEESE_EEbT_T0_.exit.i.i.i.i: ; preds = %193, %187
   %.0.i.i.i.i.i.i.i = phi i1 [ %192, %187 ], [ %194, %193 ]
   %spec.select.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i, i64 %184, i64 %182
-  %195 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %spec.select.i.i.i.i
-  %196 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %.040.i.i.i.i
+  %195 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %spec.select.i.i.i.i
+  %196 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %.040.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %196, ptr noundef nonnull align 8 dereferenceable(40) %195, i64 40, i1 false), !tbaa.struct !160
   %197 = icmp slt i64 %spec.select.i.i.i.i, %179
   br i1 %197, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !166
@@ -1767,8 +1766,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIZN7rocksdb18SeqnoToTimeMapping15
 204:                                              ; preds = %200
   %205 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %206 = or disjoint i64 %205, 1
-  %207 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %206
-  %208 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %.0.lcssa.i.i.i.i
+  %207 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %206
+  %208 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %208, ptr noundef nonnull align 8 dereferenceable(40) %207, i64 40, i1 false), !tbaa.struct !160
   br label %209
 
@@ -1781,7 +1780,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIZN7rocksdb18SeqnoToTimeMapping15
   %.06.i.i.i.i.i = phi i64 [ %.097.i.i.i.i.i, %219 ], [ %.1.i.i.i.i, %209 ]
   %.097.in.i.i.i.i.i = add nsw i64 %.06.i.i.i.i.i, -1
   %.097.i.i.i.i.i = sdiv i64 %.097.in.i.i.i.i.i, 2
-  %211 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %.097.i.i.i.i.i
+  %211 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0159.2222, i64 %.097.i.i.i.i.i
   %.val2.i.i.i.i.i.i = load i64, ptr %211, align 8, !tbaa !152
   %212 = icmp eq i64 %.val2.i.i.i.i.i.i, %166
   br i1 %212, label %213, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i
@@ -1799,14 +1798,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15E
   br i1 %218, label %219, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
 219:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i, %213
-  %220 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %.06.i.i.i.i.i
+  %220 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0159.2222, i64 %.06.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %220, ptr noundef nonnull align 8 dereferenceable(40) %211, i64 40, i1 false), !tbaa.struct !160
   %221 = icmp sgt i64 %.06.i.i.i.i.i, 2
   br i1 %221, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS4_EEEEvT_SF_SF_RT0_.exit.i.i, !llvm.loop !161
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS4_EEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %219, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i, %213, %209
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %209 ], [ %.06.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i ], [ %.097.i.i.i.i.i, %219 ], [ %.06.i.i.i.i.i, %213 ]
-  %222 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.2222, i64 %.0.lcssa.i.i.i.i.i
+  %222 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.2222, i64 %.0.lcssa.i.i.i.i.i
   store i64 %166, ptr %222, align 8, !tbaa !113
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr %168, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !tbaa !31
@@ -1846,12 +1845,12 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN7rocksdb18SeqnoToTimeMapping1
 
 239:                                              ; preds = %237, %235
   %240 = phi i64 [ %236, %235 ], [ %238, %237 ]
-  %241 = getelementptr inbounds ptr, ptr %159, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %159, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !31, !noalias !167
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 512
   %244 = shl nsw i64 %240, 5
   %245 = sub nsw i64 %229, %244
-  %246 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %242, i64 %245
+  %246 = getelementptr inbounds [16 x i8], ptr %242, i64 %245
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %233, %239
@@ -1910,11 +1909,11 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
 
 265:                                              ; preds = %263, %261
   %266 = phi i64 [ %262, %261 ], [ %264, %263 ]
-  %267 = getelementptr inbounds ptr, ptr %159, i64 %266
+  %267 = getelementptr inbounds [8 x i8], ptr %159, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !31, !noalias !171
   %269 = shl nsw i64 %266, 5
   %270 = sub nsw i64 %255, %269
-  %271 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %268, i64 %270
+  %271 = getelementptr inbounds [16 x i8], ptr %268, i64 %270
   br label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %259, %265
@@ -2049,7 +2048,7 @@ _ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidat
   %.0.lcssa.i.i.i.i.i.i75 = phi ptr [ %304, %.noexc78 ], [ %324, %.lr.ph.i.i.i.i.i.i70 ]
   %325 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i75, i64 40
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0159.2222, i64 noundef %294) #24
-  %326 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %304, i64 %302
+  %326 = getelementptr inbounds nuw [40 x i8], ptr %304, i64 %302
   %.pre263 = load i64, ptr %.0.lcssa.i.i.i.i.i.i75, align 8, !tbaa !152
   %.phi.trans.insert264 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i75, i64 8
   %.pre265 = load ptr, ptr %.phi.trans.insert264, align 8, !tbaa !11
@@ -2083,7 +2082,7 @@ _ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidat
   %.06.i.i.i61 = phi i64 [ %.097.i.i.i63, %343 ], [ %333, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE12emplace_backIJmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS7_PS7_EEEERS2_DpOT_.exit.i ]
   %.097.in.i.i.i62 = add nsw i64 %.06.i.i.i61, -1
   %.097.i.i.i63 = sdiv i64 %.097.in.i.i.i62, 2
-  %335 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %.sroa.0159.5, i64 %.097.i.i.i63
+  %335 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0159.5, i64 %.097.i.i.i63
   %.val2.i.i.i.i64 = load i64, ptr %335, align 8, !tbaa !152
   %336 = icmp eq i64 %.val2.i.i.i.i64, %331
   br i1 %336, label %337, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i65
@@ -2101,14 +2100,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15E
   br i1 %342, label %343, label %.loopexit
 
 343:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i65, %337
-  %344 = getelementptr inbounds nuw %struct.RemovalCandidate, ptr %.sroa.0159.5, i64 %.06.i.i.i61
+  %344 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.0159.5, i64 %.06.i.i.i61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %344, ptr noundef nonnull align 8 dereferenceable(40) %335, i64 40, i1 false), !tbaa.struct !160
   %345 = icmp sgt i64 %.06.i.i.i61, 2
   br i1 %345, label %.lr.ph.i.i.i60, label %.loopexit, !llvm.loop !161
 
 .loopexit:                                        ; preds = %343, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i65, %337, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE12emplace_backIJmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS7_PS7_EEEERS2_DpOT_.exit.i
   %.0.lcssa.i.i.i55 = phi i64 [ %333, %_ZNSt6vectorIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateSaIS2_EE12emplace_backIJmRSt15_Deque_iteratorINS1_13SeqnoTimePairERS7_PS7_EEEERS2_DpOT_.exit.i ], [ %.06.i.i.i61, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterIZN7rocksdb18SeqnoToTimeMapping15EnforceCapacityEbE16RemovalCandidateEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i65 ], [ %.097.i.i.i63, %343 ], [ %.06.i.i.i61, %337 ]
-  %346 = getelementptr inbounds %struct.RemovalCandidate, ptr %.sroa.0159.5, i64 %.0.lcssa.i.i.i55
+  %346 = getelementptr inbounds [40 x i8], ptr %.sroa.0159.5, i64 %.0.lcssa.i.i.i55
   store i64 %331, ptr %346, align 8, !tbaa !113
   %.sroa.3.0..sroa_idx.i.i56 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store ptr %330, ptr %.sroa.3.0..sroa_idx.i.i56, align 8, !tbaa !31
@@ -2553,11 +2552,11 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
 
 116:                                              ; preds = %114, %112
   %117 = phi i64 [ %113, %112 ], [ %115, %114 ]
-  %118 = getelementptr inbounds ptr, ptr %.sroa.16.0.lcssa, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %.sroa.16.0.lcssa, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !31, !noalias !221
   %120 = shl nsw i64 %117, 5
   %121 = sub nsw i64 %106, %120
-  %122 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %119, i64 %121
+  %122 = getelementptr inbounds [16 x i8], ptr %119, i64 %121
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %110, %116
@@ -3256,7 +3255,7 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePa
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %48, i64 %34
+  %54 = getelementptr inbounds [16 x i8], ptr %48, i64 %34
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE27_M_reserve_elements_at_backEm.exit.i
 
 55:                                               ; preds = %51
@@ -3269,12 +3268,12 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePa
 
 59:                                               ; preds = %57, %55
   %60 = phi i64 [ %56, %55 ], [ %58, %57 ]
-  %61 = getelementptr inbounds ptr, ptr %45, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %45, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !31, !noalias !280
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 512
   %64 = shl nsw i64 %60, 5
   %65 = sub nsw i64 %49, %64
-  %66 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %62, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %62, i64 %65
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE27_M_reserve_elements_at_backEm.exit.i
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE27_M_reserve_elements_at_backEm.exit.i: ; preds = %59, %53
@@ -3332,7 +3331,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMappin
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %26, i64 %1
+  %86 = getelementptr inbounds [16 x i8], ptr %26, i64 %1
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 87:                                               ; preds = %83
@@ -3345,12 +3344,12 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMappin
 
 91:                                               ; preds = %89, %87
   %92 = phi i64 [ %88, %87 ], [ %90, %89 ]
-  %93 = getelementptr inbounds ptr, ptr %8, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %8, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !31, !noalias !284
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 512
   %96 = shl nsw i64 %92, 5
   %97 = sub nsw i64 %81, %96
-  %98 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %94, i64 %97
+  %98 = getelementptr inbounds [16 x i8], ptr %94, i64 %97
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %85, %91
@@ -3517,7 +3516,7 @@ define void @_ZN7rocksdb18SeqnoToTimeMapping18CopyFromSeqnoRangeERKS0_mm(ptr nou
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i.i, i64 %44
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i.i, i64 %44
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
 
 55:                                               ; preds = %51
@@ -3530,12 +3529,12 @@ define void @_ZN7rocksdb18SeqnoToTimeMapping18CopyFromSeqnoRangeERKS0_mm(ptr nou
 
 59:                                               ; preds = %57, %55
   %60 = phi i64 [ %56, %55 ], [ %58, %57 ]
-  %61 = getelementptr inbounds ptr, ptr %.sroa.17.0.i.i, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i.i, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !31, !noalias !298
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 512
   %64 = shl nsw i64 %60, 5
   %65 = sub nsw i64 %49, %64
-  %66 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %62, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %62, i64 %65
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i: ; preds = %59, %53
@@ -3600,7 +3599,7 @@ _ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm.exit: ; preds = %78
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.02.0.i.i15, i64 %81
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.0.i.i15, i64 %81
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i21
 
 92:                                               ; preds = %88
@@ -3613,12 +3612,12 @@ _ZNK7rocksdb18SeqnoToTimeMapping18FindGreaterEqSeqnoEm.exit: ; preds = %78
 
 96:                                               ; preds = %94, %92
   %97 = phi i64 [ %93, %92 ], [ %95, %94 ]
-  %98 = getelementptr inbounds ptr, ptr %.sroa.17.0.i.i18, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %.sroa.17.0.i.i18, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !31, !noalias !303
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 512
   %101 = shl nsw i64 %97, 5
   %102 = sub nsw i64 %86, %101
-  %103 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %99, i64 %102
+  %103 = getelementptr inbounds [16 x i8], ptr %99, i64 %102
   br label %_ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i21
 
 _ZSt7advanceISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERKS3_PS4_ElEvRT_T0_.exit.i.i.i21: ; preds = %96, %90
@@ -4314,9 +4313,9 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePa
   %19 = load ptr, ptr %0, align 8, !tbaa !330
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -4335,12 +4334,12 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePa
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit
 
@@ -4368,9 +4367,9 @@ _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_all
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26, label %53
@@ -4398,7 +4397,7 @@ _ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit: ;
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !20
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !21
   %64 = load ptr, ptr %63, align 8, !tbaa !31
@@ -4649,7 +4648,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: 
   br i1 %140, label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread, label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread127
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread: ; preds = %139
-  %141 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %132, i64 %75
+  %141 = getelementptr inbounds [16 x i8], ptr %132, i64 %75
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread127: ; preds = %139
@@ -4659,7 +4658,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %144 = load ptr, ptr %143, align 8, !tbaa !31, !noalias !360
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 512
   %146 = and i64 %137, 31
-  %147 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %146
   br label %.lr.ph.i.i
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %129
@@ -4669,7 +4668,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %150 = load ptr, ptr %149, align 8, !tbaa !31, !noalias !360
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 512
   %152 = and i64 %137, 31
-  %153 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %152
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_beginESt15_Deque_iteratorIS2_RS2_PS2_E.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread127, %.lr.ph.i.i
@@ -4754,7 +4753,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_erase_at_b
   br i1 %180, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread, label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread: ; preds = %179
-  %181 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %175, i64 %76
+  %181 = getelementptr inbounds [16 x i8], ptr %175, i64 %76
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread129: ; preds = %172
@@ -4764,7 +4763,7 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %184 = load ptr, ptr %183, align 8, !tbaa !31, !noalias !378
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 512
   %186 = and i64 %177, 31
-  %187 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %186
   br label %.lr.ph.i.i6
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %179
@@ -4774,7 +4773,7 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   %190 = load ptr, ptr %189, align 8, !tbaa !31, !noalias !378
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 512
   %192 = and i64 %177, 31
-  %193 = getelementptr inbounds nuw %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 %192
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_endESt15_Deque_iteratorIS2_RS2_PS2_E.exit
 
 .lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.thread129, %.lr.ph.i.i6
@@ -4825,7 +4824,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_e
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %210
-  %213 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %200, i64 %95
+  %213 = getelementptr inbounds [16 x i8], ptr %200, i64 %95
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit9
 
 214:                                              ; preds = %210
@@ -4838,7 +4837,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_e
 
 218:                                              ; preds = %216, %214
   %219 = phi i64 [ %215, %214 ], [ %217, %216 ]
-  %220 = getelementptr inbounds ptr, ptr %197, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %197, i64 %219
   store ptr %220, ptr %203, align 8, !tbaa !21, !alias.scope !384
   %221 = load ptr, ptr %220, align 8, !tbaa !31, !noalias !384
   store ptr %221, ptr %201, align 8, !tbaa !19, !alias.scope !384
@@ -4846,7 +4845,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_erase_at_e
   store ptr %222, ptr %202, align 8, !tbaa !20, !alias.scope !384
   %223 = shl nsw i64 %219, 5
   %224 = sub nsw i64 %208, %223
-  %225 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %221, i64 %224
+  %225 = getelementptr inbounds [16 x i8], ptr %221, i64 %224
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit9
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit9: ; preds = %212, %218
@@ -4924,7 +4923,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToT
   %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 4
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.0938.i, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !387
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
@@ -4935,7 +4934,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToT
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [16 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -4948,12 +4947,12 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb18SeqnoToT
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !31, !noalias !387
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 5
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %54, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i: ; preds = %51, %45
@@ -5034,7 +5033,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
   %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 4
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.0938.i15, i64 %91
+  %92 = getelementptr inbounds [16 x i8], ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !391
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
@@ -5045,7 +5044,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.076.0, i64 %88
+  %98 = getelementptr inbounds [16 x i8], ptr %.sroa.076.0, i64 %88
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i24
 
 99:                                               ; preds = %95
@@ -5058,12 +5057,12 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !31, !noalias !391
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 5
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %106, i64 %109
+  %110 = getelementptr inbounds [16 x i8], ptr %106, i64 %109
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i24: ; preds = %103, %97
@@ -5124,7 +5123,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
   %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 4
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.0938.i38, i64 %134
+  %135 = getelementptr inbounds [16 x i8], ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !394
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
@@ -5135,7 +5134,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.082.0, i64 %131
+  %141 = getelementptr inbounds [16 x i8], ptr %.sroa.082.0, i64 %131
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i47
 
 142:                                              ; preds = %138
@@ -5148,12 +5147,12 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIE
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
-  %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !31, !noalias !394
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 5
   %152 = sub nsw i64 %136, %151
-  %153 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %149, i64 %152
+  %153 = getelementptr inbounds [16 x i8], ptr %149, i64 %152
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i47: ; preds = %146, %140
@@ -5231,7 +5230,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
   %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 4
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.0938.i61, i64 %186
+  %187 = getelementptr inbounds [16 x i8], ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !398
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
@@ -5242,7 +5241,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -5255,12 +5254,12 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairE
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !31, !noalias !398
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 5
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %201, i64 %204
+  %205 = getelementptr inbounds [16 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmIEl.exit.i70: ; preds = %198, %192
@@ -5348,7 +5347,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [16 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -5361,12 +5360,12 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !31, !noalias !401
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 5
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %47, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i: ; preds = %44, %38
@@ -5442,7 +5441,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [16 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -5455,12 +5454,12 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !31, !noalias !405
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 5
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %92, i64 %95
+  %96 = getelementptr inbounds [16 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i19: ; preds = %89, %83
@@ -5515,7 +5514,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [16 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -5528,12 +5527,12 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !31, !noalias !408
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 5
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %127, i64 %130
+  %131 = getelementptr inbounds [16 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i36: ; preds = %124, %118
@@ -5604,7 +5603,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -5617,12 +5616,12 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES3_ET1_T0
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !31, !noalias !412
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 5
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %170, i64 %173
+  %174 = getelementptr inbounds [16 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EpLEl.exit.i53: ; preds = %167, %161
@@ -5860,7 +5859,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortISt15_Deque_iteratorIN7roc
 
 57:                                               ; preds = %55, %53
   %58 = phi i64 [ %54, %53 ], [ %56, %55 ]
-  %59 = getelementptr inbounds ptr, ptr %10, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %10, i64 %58
   store ptr %59, ptr %43, align 8, !tbaa !21, !alias.scope !417
   %60 = load ptr, ptr %59, align 8, !tbaa !31, !noalias !417
   store ptr %60, ptr %41, align 8, !tbaa !19, !alias.scope !417
@@ -5868,7 +5867,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortISt15_Deque_iteratorIN7roc
   store ptr %61, ptr %42, align 8, !tbaa !20, !alias.scope !417
   %62 = shl nsw i64 %58, 5
   %63 = sub nsw i64 %47, %62
-  %64 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %60, i64 %63
+  %64 = getelementptr inbounds [16 x i8], ptr %60, i64 %63
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %51, %57
@@ -5905,12 +5904,12 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 83:                                               ; preds = %81, %79
   %84 = phi i64 [ %80, %79 ], [ %82, %81 ]
-  %85 = getelementptr inbounds ptr, ptr %68, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %68, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !31, !noalias !420
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 512
   %88 = shl nsw i64 %84, 5
   %89 = sub nsw i64 %73, %88
-  %90 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %86, i64 %89
+  %90 = getelementptr inbounds [16 x i8], ptr %86, i64 %89
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit2
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit2: ; preds = %77, %83
@@ -6219,7 +6218,7 @@ define linkonce_odr void @_ZSt27__unguarded_partition_pivotISt15_Deque_iteratorI
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %30, i64 %36
+  %47 = getelementptr inbounds [16 x i8], ptr %30, i64 %36
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 48:                                               ; preds = %44
@@ -6232,12 +6231,12 @@ define linkonce_odr void @_ZSt27__unguarded_partition_pivotISt15_Deque_iteratorI
 
 52:                                               ; preds = %50, %48
   %53 = phi i64 [ %49, %48 ], [ %51, %50 ]
-  %54 = getelementptr inbounds ptr, ptr %12, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %12, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !31, !noalias !426
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 512
   %57 = shl nsw i64 %53, 5
   %58 = sub nsw i64 %42, %57
-  %59 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %55, i64 %58
+  %59 = getelementptr inbounds [16 x i8], ptr %55, i64 %58
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %46, %52
@@ -6281,7 +6280,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 76:                                               ; preds = %74, %72
   %77 = phi i64 [ %73, %72 ], [ %75, %74 ]
-  %78 = getelementptr inbounds ptr, ptr %12, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %12, i64 %77
   store ptr %78, ptr %65, align 8, !tbaa !21, !alias.scope !429
   %79 = load ptr, ptr %78, align 8, !tbaa !31, !noalias !429
   store ptr %79, ptr %63, align 8, !tbaa !19, !alias.scope !429
@@ -6289,7 +6288,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   store ptr %80, ptr %64, align 8, !tbaa !20, !alias.scope !429
   %81 = shl nsw i64 %77, 5
   %82 = sub nsw i64 %66, %81
-  %83 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %79, i64 %82
+  %83 = getelementptr inbounds [16 x i8], ptr %79, i64 %82
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit2
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit2: ; preds = %70, %76
@@ -6333,7 +6332,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 102:                                              ; preds = %100, %98
   %103 = phi i64 [ %99, %98 ], [ %101, %100 ]
-  %104 = getelementptr inbounds ptr, ptr %10, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %10, i64 %103
   store ptr %104, ptr %91, align 8, !tbaa !21, !alias.scope !432
   %105 = load ptr, ptr %104, align 8, !tbaa !31, !noalias !432
   store ptr %105, ptr %87, align 8, !tbaa !19, !alias.scope !432
@@ -6341,7 +6340,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   store ptr %106, ptr %88, align 8, !tbaa !20, !alias.scope !432
   %107 = shl nsw i64 %103, 5
   %108 = sub nsw i64 %92, %107
-  %109 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %105, i64 %108
+  %109 = getelementptr inbounds [16 x i8], ptr %105, i64 %108
   br label %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %96, %102
@@ -6378,12 +6377,12 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 128:                                              ; preds = %126, %124
   %129 = phi i64 [ %125, %124 ], [ %127, %126 ]
-  %130 = getelementptr inbounds ptr, ptr %113, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %113, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !31, !noalias !435
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 512
   %133 = shl nsw i64 %129, 5
   %134 = sub nsw i64 %118, %133
-  %135 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %131, i64 %134
+  %135 = getelementptr inbounds [16 x i8], ptr %131, i64 %134
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit4
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit4: ; preds = %122, %128
@@ -6588,7 +6587,7 @@ define linkonce_odr void @_ZSt13__heap_selectISt15_Deque_iteratorIN7rocksdb18Seq
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %6, i64 %.08.i
+  %52 = getelementptr inbounds [16 x i8], ptr %6, i64 %.08.i
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.i
 
 53:                                               ; preds = %49
@@ -6601,11 +6600,11 @@ define linkonce_odr void @_ZSt13__heap_selectISt15_Deque_iteratorIN7rocksdb18Seq
 
 57:                                               ; preds = %55, %53
   %58 = phi i64 [ %54, %53 ], [ %56, %55 ]
-  %59 = getelementptr inbounds ptr, ptr %12, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %12, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !31, !noalias !444
   %61 = shl nsw i64 %58, 5
   %62 = sub nsw i64 %47, %61
-  %63 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %60, i64 %62
+  %63 = getelementptr inbounds [16 x i8], ptr %60, i64 %62
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.i
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit.i: ; preds = %57, %51
@@ -6770,7 +6769,7 @@ define linkonce_odr void @_ZSt13__adjust_heapISt15_Deque_iteratorIN7rocksdb18Seq
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %15
+  %28 = getelementptr inbounds [16 x i8], ptr %16, i64 %15
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 29:                                               ; preds = %25
@@ -6783,11 +6782,11 @@ define linkonce_odr void @_ZSt13__adjust_heapISt15_Deque_iteratorIN7rocksdb18Seq
 
 33:                                               ; preds = %31, %29
   %34 = phi i64 [ %30, %29 ], [ %32, %31 ]
-  %35 = getelementptr inbounds ptr, ptr %18, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %18, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !31, !noalias !449
   %37 = shl nsw i64 %34, 5
   %38 = sub nsw i64 %23, %37
-  %39 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %36, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %36, i64 %38
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %27, %33
@@ -6802,7 +6801,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %40
+  %46 = getelementptr inbounds [16 x i8], ptr %16, i64 %40
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit25
 
 47:                                               ; preds = %43
@@ -6815,11 +6814,11 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %18, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %18, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !31, !noalias !452
   %55 = shl nsw i64 %52, 5
   %56 = sub nsw i64 %41, %55
-  %57 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %54, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %54, i64 %56
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit25
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit25: ; preds = %45, %51
@@ -6856,7 +6855,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %68
+  %73 = getelementptr inbounds [16 x i8], ptr %16, i64 %68
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit27
 
 74:                                               ; preds = %70
@@ -6869,11 +6868,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 78:                                               ; preds = %76, %74
   %79 = phi i64 [ %75, %74 ], [ %77, %76 ]
-  %80 = getelementptr inbounds ptr, ptr %18, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %18, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !31, !noalias !455
   %82 = shl nsw i64 %79, 5
   %83 = sub nsw i64 %.pre-phi, %82
-  %84 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %81, i64 %83
+  %84 = getelementptr inbounds [16 x i8], ptr %81, i64 %83
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit27
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit27: ; preds = %72, %78
@@ -6887,7 +6886,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %16, i64 %.056
+  %90 = getelementptr inbounds [16 x i8], ptr %16, i64 %.056
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29
 
 91:                                               ; preds = %87
@@ -6900,11 +6899,11 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 95:                                               ; preds = %93, %91
   %96 = phi i64 [ %92, %91 ], [ %94, %93 ]
-  %97 = getelementptr inbounds ptr, ptr %18, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %18, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !31, !noalias !458
   %99 = shl nsw i64 %96, 5
   %100 = sub nsw i64 %85, %99
-  %101 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %98, i64 %100
+  %101 = getelementptr inbounds [16 x i8], ptr %98, i64 %100
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit29: ; preds = %89, %95
@@ -6946,7 +6945,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %112, i64 %111
+  %126 = getelementptr inbounds [16 x i8], ptr %112, i64 %111
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit31
 
 127:                                              ; preds = %123
@@ -6959,11 +6958,11 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 131:                                              ; preds = %129, %127
   %132 = phi i64 [ %128, %127 ], [ %130, %129 ]
-  %133 = getelementptr inbounds ptr, ptr %116, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %116, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !31, !noalias !462
   %135 = shl nsw i64 %132, 5
   %136 = sub nsw i64 %121, %135
-  %137 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %134, i64 %136
+  %137 = getelementptr inbounds [16 x i8], ptr %134, i64 %136
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit31
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit31: ; preds = %125, %131
@@ -6977,7 +6976,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %112, i64 %.0.lcssa
+  %143 = getelementptr inbounds [16 x i8], ptr %112, i64 %.0.lcssa
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit33
 
 144:                                              ; preds = %140
@@ -6990,11 +6989,11 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 148:                                              ; preds = %146, %144
   %149 = phi i64 [ %145, %144 ], [ %147, %146 ]
-  %150 = getelementptr inbounds ptr, ptr %116, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %116, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !31, !noalias !465
   %152 = shl nsw i64 %149, 5
   %153 = sub nsw i64 %138, %152
-  %154 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %151, i64 %153
+  %154 = getelementptr inbounds [16 x i8], ptr %151, i64 %153
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit33
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit33: ; preds = %142, %148
@@ -7054,7 +7053,7 @@ define linkonce_odr void @_ZSt11__push_heapISt15_Deque_iteratorIN7rocksdb18Seqno
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %11, i64 %.032
+  %23 = getelementptr inbounds [16 x i8], ptr %11, i64 %.032
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 24:                                               ; preds = %20
@@ -7067,11 +7066,11 @@ define linkonce_odr void @_ZSt11__push_heapISt15_Deque_iteratorIN7rocksdb18Seqno
 
 28:                                               ; preds = %26, %24
   %29 = phi i64 [ %25, %24 ], [ %27, %26 ]
-  %30 = getelementptr inbounds ptr, ptr %13, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %13, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !31, !noalias !468
   %32 = shl nsw i64 %29, 5
   %33 = sub nsw i64 %18, %32
-  %34 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %31, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %31, i64 %33
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %22, %28
@@ -7098,7 +7097,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorIN7rocksdb18SeqnoToTim
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %11, i64 %.032
+  %45 = getelementptr inbounds [16 x i8], ptr %11, i64 %.032
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit11
 
 46:                                               ; preds = %42
@@ -7111,11 +7110,11 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclISt15_Deque_iteratorIN7rocksdb18SeqnoToTim
 
 50:                                               ; preds = %48, %46
   %51 = phi i64 [ %47, %46 ], [ %49, %48 ]
-  %52 = getelementptr inbounds ptr, ptr %13, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %13, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !31, !noalias !471
   %54 = shl nsw i64 %51, 5
   %55 = sub nsw i64 %18, %54
-  %56 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %53, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %53, i64 %55
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit11
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit11: ; preds = %44, %50
@@ -7129,7 +7128,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %11, i64 %.0931
+  %62 = getelementptr inbounds [16 x i8], ptr %11, i64 %.0931
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit13
 
 63:                                               ; preds = %59
@@ -7142,11 +7141,11 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 67:                                               ; preds = %65, %63
   %68 = phi i64 [ %64, %63 ], [ %66, %65 ]
-  %69 = getelementptr inbounds ptr, ptr %13, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %13, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !31, !noalias !474
   %71 = shl nsw i64 %68, 5
   %72 = sub nsw i64 %57, %71
-  %73 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %70, i64 %72
+  %73 = getelementptr inbounds [16 x i8], ptr %70, i64 %72
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit13
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit13: ; preds = %61, %67
@@ -7175,7 +7174,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %75, i64 %.09.lcssa
+  %89 = getelementptr inbounds [16 x i8], ptr %75, i64 %.09.lcssa
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit15
 
 90:                                               ; preds = %86
@@ -7188,11 +7187,11 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
 
 94:                                               ; preds = %92, %90
   %95 = phi i64 [ %91, %90 ], [ %93, %92 ]
-  %96 = getelementptr inbounds ptr, ptr %79, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %79, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !31, !noalias !478
   %98 = shl nsw i64 %95, 5
   %99 = sub nsw i64 %84, %98
-  %100 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %97, i64 %99
+  %100 = getelementptr inbounds [16 x i8], ptr %97, i64 %99
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit15
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit15: ; preds = %88, %94
@@ -7398,12 +7397,12 @@ define linkonce_odr void @_ZSt16__insertion_sortISt15_Deque_iteratorIN7rocksdb18
 
 32:                                               ; preds = %30, %28
   %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
-  %34 = getelementptr inbounds ptr, ptr %17, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %17, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !31, !noalias !481
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 512
   %37 = shl nsw i64 %33, 5
   %38 = sub nsw i64 %22, %37
-  %39 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %35, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %35, i64 %38
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit: ; preds = %26, %32
@@ -7481,12 +7480,12 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
 
 77:                                               ; preds = %75, %73
   %78 = phi i64 [ %74, %73 ], [ %76, %75 ]
-  %79 = getelementptr inbounds ptr, ptr %.sroa.27.049, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %.sroa.27.049, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !31, !noalias !484
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 512
   %82 = shl nsw i64 %78, 5
   %83 = sub nsw i64 %67, %82
-  %84 = getelementptr inbounds %"struct.rocksdb::SeqnoToTimeMapping::SeqnoTimePair", ptr %80, i64 %83
+  %84 = getelementptr inbounds [16 x i8], ptr %80, i64 %83
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit2
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit2: ; preds = %71, %77
@@ -7741,7 +7740,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE22_M_reserve_ma
           to label %_ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_allocate_nodeEv.exit unwind label %49
 
 _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_allocate_nodeEv.exit: ; preds = %45
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %.01423
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.01423
   store ptr %46, ptr %47, align 8, !tbaa !31
   %48 = add nuw nsw i64 %.01423, 1
   %exitcond = icmp eq i64 %.01423, %35
@@ -7762,7 +7761,7 @@ _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_all
 .lr.ph26:                                         ; preds = %49, %.lr.ph26
   %.024 = phi i64 [ %57, %.lr.ph26 ], [ 1, %49 ]
   %54 = load ptr, ptr %5, align 8, !tbaa !331
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.024
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.024
   %56 = load ptr, ptr %55, align 8, !tbaa !31
   tail call void @_ZdlPvm(ptr noundef %56, i64 noundef 512) #24
   %57 = add nuw nsw i64 %.024, 1
@@ -7982,7 +7981,7 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
 109:                                              ; preds = %104
   %110 = sub i64 %97, %106
   %111 = lshr i64 %110, 1
-  %112 = getelementptr inbounds nuw ptr, ptr %98, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %111
   %113 = icmp ult ptr %112, %73
   %114 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %114, %73
@@ -8001,12 +8000,12 @@ _ZNSt20back_insert_iteratorISt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePai
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_reallocate_mapEmb.exit, label %120
 
 120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw ptr, ptr %112, i64 %105
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %105
   %122 = ptrtoint ptr %114 to i64
   %123 = sub i64 %122, %75
   %124 = ashr exact i64 %123, 3
   %125 = sub nsw i64 0, %124
-  %126 = getelementptr inbounds ptr, ptr %121, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %121, i64 %125
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %126, ptr align 8 %73, i64 %123, i1 false)
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_reallocate_mapEmb.exit
 
@@ -8034,7 +8033,7 @@ _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE15_M_all
   %134 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %133) #26
   %135 = sub nsw i64 %129, %106
   %136 = lshr i64 %135, 1
-  %137 = getelementptr inbounds nuw ptr, ptr %134, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %.not.i.i.i.i.i25.i = icmp eq ptr %138, %73
   br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairES4_ET0_T_S6_S5_.exit26.i, label %139
@@ -8059,7 +8058,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE17_M_reallocate
   store ptr %143, ptr %40, align 8, !tbaa !19
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 512
   store ptr %144, ptr %38, align 8, !tbaa !20
-  %145 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %105
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %105
   %146 = getelementptr inbounds i8, ptr %145, i64 -8
   store ptr %146, ptr %35, align 8, !tbaa !21
   %147 = load ptr, ptr %146, align 8, !tbaa !31

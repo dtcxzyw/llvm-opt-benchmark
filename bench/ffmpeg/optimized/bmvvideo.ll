@@ -159,7 +159,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %67 = or disjoint i32 %59, %63
   %68 = or disjoint i32 %67, %66
   %69 = or disjoint i32 %68, -16777216
-  %70 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 %69, ptr %70, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

@@ -291,9 +291,9 @@ define internal void @_ZNK4ncnn18Dequantize_x86_fma7forwardERKNS_3MatERS1_RKNS_6
   %29 = load i32, ptr %5, align 4, !tbaa !20
   %30 = mul nsw i32 %29, %27
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = load ptr, ptr %6, align 8, !tbaa !16
-  %34 = getelementptr inbounds float, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   %35 = load i32, ptr %7, align 4, !tbaa !20
   %36 = sub nsw i32 %35, %27
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %26, i32 %36)

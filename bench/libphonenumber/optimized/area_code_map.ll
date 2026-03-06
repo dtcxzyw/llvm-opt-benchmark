@@ -299,7 +299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   br label %166
 
 90:                                               ; preds = %65
-  %91 = getelementptr inbounds nuw i32, ptr %54, i64 %66
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %66
   %92 = load i32, ptr %91, align 4, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %93 = load i64, ptr %5, align 8, !tbaa !40

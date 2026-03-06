@@ -150,7 +150,7 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
   %9 = lshr i32 %8, 25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr %struct.hlist_head, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   %15 = getelementptr i8, ptr %13, i64 -8
@@ -303,7 +303,7 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
   %114 = mul i32 %5, 1640531527
   %115 = lshr i32 %114, 25
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr %struct.hlist_head, ptr %10, i64 %116
+  %117 = getelementptr [8 x i8], ptr %10, i64 %116
   %118 = load volatile ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   %120 = getelementptr i8, ptr %118, i64 -8
@@ -1396,7 +1396,7 @@ define dso_local range(i32 -34, 1) i32 @ip_tunnel_encap_add_ops(ptr noundef %0, 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr @iptun_encaps, i64 %5
+  %6 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %5
   %7 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, ptr %0, ptr null, ptr elementtype(i64) %6) #16, !srcloc !25
   %8 = icmp ne ptr %7, null
   %9 = sext i1 %8 to i32
@@ -1414,7 +1414,7 @@ define dso_local range(i32 -34, 1) i32 @ip_tunnel_encap_del_ops(ptr noundef %0, 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr @iptun_encaps, i64 %5
+  %6 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %5
   %7 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, ptr null, ptr %0, ptr elementtype(i64) %6) #16, !srcloc !26
   %8 = icmp ne ptr %7, %0
   %9 = sext i1 %8 to i32
@@ -1445,7 +1445,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ip_tunnel_encap_setup(ptr nounde
   tail call void @__rcu_read_lock() #16
   %9 = load i16, ptr %1, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr ptr, ptr @iptun_encaps, i64 %10
+  %11 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %10
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread5, label %14, !prof !12
@@ -1655,7 +1655,7 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   tail call void @__rcu_read_lock() #16
   %97 = load i16, ptr %91, align 2
   %98 = zext i16 %97 to i64
-  %99 = getelementptr ptr, ptr @iptun_encaps, i64 %98
+  %99 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %98
   %100 = load volatile ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %108, label %102, !prof !12
@@ -1690,7 +1690,7 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   tail call void @__rcu_read_lock() #16
   %118 = load i16, ptr %112, align 2
   %119 = zext i16 %118 to i64
-  %120 = getelementptr ptr, ptr @iptun_encaps, i64 %119
+  %120 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %119
   %121 = load volatile ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.critedge21.critedge, label %123, !prof !12
@@ -2852,7 +2852,7 @@ define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @__rcu_read_lock() #16
   %255 = load i16, ptr %249, align 2
   %256 = zext i16 %255 to i64
-  %257 = getelementptr ptr, ptr @iptun_encaps, i64 %256
+  %257 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %256
   %258 = load volatile ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
   br i1 %259, label %.critedge36.critedge, label %260, !prof !12
@@ -3114,7 +3114,7 @@ define dso_local void @ip_tunnel_xmit(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @__rcu_read_lock() #16
   %414 = load i16, ptr %249, align 2
   %415 = zext i16 %414 to i64
-  %416 = getelementptr ptr, ptr @iptun_encaps, i64 %415
+  %416 = getelementptr [8 x i8], ptr @iptun_encaps, i64 %415
   %417 = load volatile ptr, ptr %416, align 8
   %418 = icmp eq ptr %417, null
   br i1 %418, label %425, label %419, !prof !12
@@ -3260,7 +3260,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %10 = load volatile ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @__rcu_read_unlock() #16
   switch i32 %2, label %.thread23 [
@@ -3300,7 +3300,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %38 = lshr i32 %37, 25
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr %struct.hlist_head, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   %44 = getelementptr i8, ptr %42, i64 -8
@@ -3489,7 +3489,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %169 = lshr i32 %168, 25
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %171 = zext nneg i32 %169 to i64
-  %172 = getelementptr %struct.hlist_head, ptr %170, i64 %171
+  %172 = getelementptr [8 x i8], ptr %170, i64 %171
   %173 = load volatile ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, null
   %175 = getelementptr i8, ptr %173, i64 -8
@@ -3657,7 +3657,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %289 = mul i32 %288, 1640531527
   %290 = lshr i32 %289, 25
   %291 = zext nneg i32 %290 to i64
-  %292 = getelementptr %struct.hlist_head, ptr %170, i64 %291
+  %292 = getelementptr [8 x i8], ptr %170, i64 %291
   %293 = getelementptr i8, ptr %254, i64 2492
   %294 = load i8, ptr %293, align 4, !range !33, !noundef !34
   %295 = icmp eq i8 %294, 0
@@ -3772,7 +3772,7 @@ define dso_local i32 @ip_tunnel_ctl(ptr noundef %0, ptr noundef %1, i32 noundef 
   %365 = lshr i32 %364, 25
   %366 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %367 = zext nneg i32 %365 to i64
-  %368 = getelementptr %struct.hlist_head, ptr %366, i64 %367
+  %368 = getelementptr [8 x i8], ptr %366, i64 %367
   %369 = load volatile ptr, ptr %368, align 8
   %370 = icmp eq ptr %369, null
   %371 = getelementptr i8, ptr %369, i64 -8
@@ -3981,7 +3981,7 @@ define internal fastcc void @ip_tunnel_update(ptr noundef %0, ptr noundef %1, pt
   %55 = lshr i32 %54, 25
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr %struct.hlist_head, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load i8, ptr %7, align 4, !range !33, !noundef !34
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %63, label %61
@@ -4165,7 +4165,7 @@ define dso_local void @ip_tunnel_dellink(ptr noundef %0, ptr noundef %1) #2 alig
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @__rcu_read_unlock() #16
   %12 = load ptr, ptr %11, align 8
@@ -4237,7 +4237,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %1 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4262,7 +4262,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
 21:                                               ; preds = %17, %4
   tail call void @__rcu_read_lock() #16
   %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 2536), align 8
-  %23 = getelementptr ptr, ptr %22, i64 %8
+  %23 = getelementptr [8 x i8], ptr %22, i64 %8
   %24 = load ptr, ptr %23, align 8
   tail call void @__rcu_read_unlock() #16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1048
@@ -4315,7 +4315,7 @@ define dso_local i32 @ip_tunnel_init_net(ptr noundef %0, i32 noundef %1, ptr nou
   %57 = mul i32 %56, 1640531527
   %58 = lshr i32 %57, 25
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr %struct.hlist_head, ptr %12, i64 %59
+  %60 = getelementptr [8 x i8], ptr %12, i64 %59
   %61 = getelementptr i8, ptr %43, i64 2492
   %62 = load i8, ptr %61, align 4, !range !33, !noundef !34
   %63 = icmp eq i8 %62, 0
@@ -4625,7 +4625,7 @@ define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly captures(addre
   call void @__rcu_read_lock() #16
   %13 = getelementptr i8, ptr %11, i64 2488
   %14 = load volatile ptr, ptr %13, align 8
-  %15 = getelementptr ptr, ptr %14, i64 %9
+  %15 = getelementptr [8 x i8], ptr %14, i64 %9
   %16 = load ptr, ptr %15, align 8
   call void @__rcu_read_unlock() #16
   %17 = getelementptr i8, ptr %11, i64 96
@@ -4656,7 +4656,7 @@ define dso_local void @ip_tunnel_delete_nets(ptr noundef readonly captures(addre
 
 30:                                               ; preds = %.loopexit, %.loopexit9
   %31 = phi i64 [ 0, %.loopexit9 ], [ %52, %.loopexit ]
-  %32 = getelementptr %struct.hlist_head, ptr %20, i64 %31
+  %32 = getelementptr [8 x i8], ptr %20, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   %35 = getelementptr i8, ptr %33, i64 -8
@@ -4718,7 +4718,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr noundef readonly cap
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2536
   %12 = load volatile ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   tail call void @__rcu_read_unlock() #16
   %16 = getelementptr i8, ptr %0, i64 2492
@@ -4757,7 +4757,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr noundef readonly cap
   %44 = lshr i32 %43, 25
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr %struct.hlist_head, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = load volatile ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   %50 = getelementptr i8, ptr %48, i64 -8
@@ -4954,7 +4954,7 @@ define dso_local i32 @ip_tunnel_newlink(ptr noundef %0, ptr noundef readonly cap
   %180 = lshr i32 %179, 25
   %181 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %182 = zext nneg i32 %180 to i64
-  %183 = getelementptr %struct.hlist_head, ptr %181, i64 %182
+  %183 = getelementptr [8 x i8], ptr %181, i64 %182
   %184 = load i8, ptr %16, align 4, !range !33, !noundef !34
   %185 = icmp eq i8 %184, 0
   br i1 %185, label %188, label %186
@@ -5007,7 +5007,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 2536
   %11 = load volatile ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @__rcu_read_unlock() #16
   %15 = load ptr, ptr %14, align 8
@@ -5039,7 +5039,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_tunnel_changelink(ptr noundef
   %38 = lshr i32 %37, 25
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr %struct.hlist_head, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   %44 = getelementptr i8, ptr %42, i64 -8
@@ -5308,7 +5308,7 @@ define dso_local void @ip_tunnel_uninit(ptr noundef %0) #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #16
   %11 = getelementptr i8, ptr %0, i64 2492

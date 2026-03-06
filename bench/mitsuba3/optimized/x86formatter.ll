@@ -101,7 +101,7 @@ $_ZN6asmjit9_abi_1_106String9appendIntEljmNS0_17StringFormatFlagsE = comdat any
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef i32 @llvm.umin.i32(i32 %1, i32 132)
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i16, ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE13sFeatureIndex, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE13sFeatureIndex, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = zext i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE14sFeatureString, i64 %7
@@ -146,7 +146,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 456
   %27 = zext i32 %13 to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !31
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !33
@@ -201,7 +201,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 
 63:                                               ; preds = %59
   %64 = zext nneg i8 %4 to i64
-  %65 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::TypeEntry", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !35
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %73, label %68
@@ -226,7 +226,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 
 77:                                               ; preds = %74
   %78 = zext nneg i8 %4 to i64
-  %79 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::NameEntry", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 128), i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 128), i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 3
   %81 = load i8, ptr %80, align 1, !tbaa !37
   %82 = zext i8 %81 to i32
@@ -262,7 +262,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   br label %113
 
 103:                                              ; preds = %93
-  %104 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::RegFormatInfo::TypeEntry", ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 %78
+  %104 = getelementptr inbounds nuw i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 %78
   %105 = load i8, ptr %104, align 1, !tbaa !35
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %111, label %107
@@ -890,7 +890,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
 148:                                              ; preds = %298, %141
   %149 = phi i64 [ 0, %141 ], [ %300, %298 ]
   %150 = phi i32 [ 0, %141 ], [ %299, %298 ]
-  %151 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %5, i64 %149
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %149
   %152 = load i32, ptr %151, align 4, !tbaa !34
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %.loopexit, label %154
@@ -1156,7 +1156,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %246 = phi i64 [ %257, %.preheader ], [ 0, %162 ]
   %247 = phi i32 [ %256, %.preheader ], [ 0, %162 ]
   %248 = phi i32 [ %255, %.preheader ], [ 16, %162 ]
-  %249 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %5, i64 %246
+  %249 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %246
   %250 = load i32, ptr %249, align 4, !tbaa !34
   %251 = and i32 %250, 7
   %252 = icmp eq i32 %251, 1
@@ -1391,7 +1391,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
 7:                                                ; preds = %42, %4
   %8 = phi i64 [ 0, %4 ], [ %44, %42 ]
   %9 = phi i32 [ 0, %4 ], [ %43, %42 ]
-  %10 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::ImmBits", ptr %2, i64 %8
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %11 = load i8, ptr %10, align 1, !tbaa !58
   %12 = zext i8 %11 to i32
   %13 = and i32 %1, %12

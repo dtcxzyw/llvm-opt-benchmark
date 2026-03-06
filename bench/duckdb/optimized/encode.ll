@@ -14,11 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.duckdb_brotli::BrotliTrieNode" = type { i8, i8, i8, i32, i32 }
 %"struct.duckdb_brotli::MetaBlockSplit" = type { %"struct.duckdb_brotli::BlockSplit", %"struct.duckdb_brotli::BlockSplit", %"struct.duckdb_brotli::BlockSplit", ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64 }
 %"struct.duckdb_brotli::BlockSplit" = type { i64, i64, ptr, ptr, i64, i64 }
-%"struct.duckdb_brotli::SlotH40" = type { i16, i16 }
-%"struct.duckdb_brotli::SlotH41" = type { i16, i16 }
-%"struct.duckdb_brotli::BankH42" = type { [512 x %"struct.duckdb_brotli::SlotH42"] }
-%"struct.duckdb_brotli::SlotH42" = type { i16, i16 }
-%"struct.duckdb_brotli::Command" = type { i32, i32, i32, i16, i16 }
 
 @_ZN13duckdb_brotli26kStaticDictionaryHashWordsE = external constant [32768 x i16], align 16
 @_ZN13duckdb_brotli28kStaticDictionaryHashLengthsE = external constant [32768 x i8], align 16
@@ -2615,14 +2610,14 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
 
 301:                                              ; preds = %_ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i, %308
   %.0.i454 = phi i64 [ 0, %_ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i ], [ %309, %308 ]
-  %302 = getelementptr inbounds nuw i64, ptr %11, i64 %.0.i454
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0.i454
   %303 = load i64, ptr %302, align 8, !tbaa !71
   %304 = icmp eq i64 %303, 0
   br i1 %304, label %308, label %305
 
 305:                                              ; preds = %301
   %306 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef nonnull %29, i64 noundef %303)
-  %307 = getelementptr inbounds nuw ptr, ptr %175, i64 %.0.i454
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.0.i454
   store ptr %306, ptr %307, align 8, !tbaa !65
   br label %308
 
@@ -2869,7 +2864,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %.val.i = load i64, ptr %406, align 1, !alias.scope !228
   %407 = mul i64 %.val.i, 8922571613522624512
   %408 = lshr i64 %407, 48
-  %409 = getelementptr inbounds nuw i32, ptr %.val327, i64 %408
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %.val327, i64 %408
   store i32 0, ptr %409, align 4, !tbaa !61, !noalias !228
   %410 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %410, %178
@@ -2897,11 +2892,11 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %.val.i369 = load i64, ptr %415, align 1, !alias.scope !232
   %416 = mul i64 %.val.i369, 8922571613522624512
   %417 = lshr i64 %416, 48
-  %418 = getelementptr inbounds nuw i32, ptr %.val334, i64 %417
+  %418 = getelementptr inbounds nuw [4 x i8], ptr %.val334, i64 %417
   store i32 0, ptr %418, align 4, !tbaa !61, !noalias !232
   %419 = add nuw nsw i64 %417, 8
   %420 = and i64 %419, 65535
-  %421 = getelementptr inbounds nuw i32, ptr %.val334, i64 %420
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %.val334, i64 %420
   store i32 0, ptr %421, align 4, !tbaa !61, !noalias !232
   %422 = add nuw nsw i64 %.0142.i, 1
   %exitcond.not.i371 = icmp eq i64 %422, %178
@@ -2972,7 +2967,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
 
 447:                                              ; preds = %447, %444
   %indvars.iv.i = phi i64 [ 0, %444 ], [ %indvars.iv.next.i, %447 ]
-  %448 = getelementptr inbounds nuw i32, ptr %.val349, i64 %indvars.iv.i
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %.val349, i64 %indvars.iv.i
   store i32 %.val350, ptr %448, align 4, !tbaa !61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i372 = icmp eq i64 %indvars.iv.next.i, 131072
@@ -3019,7 +3014,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %461 = trunc nuw i64 %456 to i32
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %463 = load ptr, ptr %462, align 8, !tbaa !156, !alias.scope !237, !noalias !240
-  %464 = getelementptr inbounds nuw i32, ptr %463, i64 %460
+  %464 = getelementptr inbounds nuw [4 x i8], ptr %463, i64 %460
   store i32 %461, ptr %464, align 4, !tbaa !61, !noalias !237
   %465 = add nsw i64 %177, -2
   %466 = and i64 %465, %176
@@ -3028,7 +3023,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %468 = mul i64 %.val325, 8922571613522624512
   %469 = lshr i64 %468, 48
   %470 = trunc nuw i64 %465 to i32
-  %471 = getelementptr inbounds nuw i32, ptr %463, i64 %469
+  %471 = getelementptr inbounds nuw [4 x i8], ptr %463, i64 %469
   store i32 %470, ptr %471, align 4, !tbaa !61, !noalias !242
   %472 = add nsw i64 %177, -1
   %473 = and i64 %472, %176
@@ -3037,7 +3032,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %475 = mul i64 %.val326, 8922571613522624512
   %476 = lshr i64 %475, 48
   %477 = trunc nuw i64 %472 to i32
-  %478 = getelementptr inbounds nuw i32, ptr %463, i64 %476
+  %478 = getelementptr inbounds nuw [4 x i8], ptr %463, i64 %476
   store i32 %477, ptr %478, align 4, !tbaa !61, !noalias !245
   br label %_ZN13duckdb_brotliL27InitOrStitchToPreviousBlockEPNS_13MemoryManagerEPNS_6HasherEPKhmP19BrotliEncoderParamsmmi.exit
 
@@ -3061,7 +3056,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %491 = load ptr, ptr %490, align 8, !tbaa !162, !alias.scope !248, !noalias !251
   %492 = add nuw nsw i64 %487, %489
   %493 = and i64 %492, 65535
-  %494 = getelementptr inbounds nuw i32, ptr %491, i64 %493
+  %494 = getelementptr inbounds nuw [4 x i8], ptr %491, i64 %493
   store i32 %488, ptr %494, align 4, !tbaa !61, !noalias !248
   %495 = add nsw i64 %177, -2
   %496 = and i64 %495, %176
@@ -3073,7 +3068,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %501 = and i64 %495, 8
   %502 = add nuw nsw i64 %499, %501
   %503 = and i64 %502, 65535
-  %504 = getelementptr inbounds nuw i32, ptr %491, i64 %503
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %491, i64 %503
   store i32 %500, ptr %504, align 4, !tbaa !61, !noalias !253
   %505 = add nsw i64 %177, -1
   %506 = and i64 %505, %176
@@ -3085,7 +3080,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %511 = and i64 %505, 8
   %512 = add nuw nsw i64 %509, %511
   %513 = and i64 %512, 65535
-  %514 = getelementptr inbounds nuw i32, ptr %491, i64 %513
+  %514 = getelementptr inbounds nuw [4 x i8], ptr %491, i64 %513
   store i32 %510, ptr %514, align 4, !tbaa !61, !noalias !256
   br label %_ZN13duckdb_brotliL27InitOrStitchToPreviousBlockEPNS_13MemoryManagerEPNS_6HasherEPKhmP19BrotliEncoderParamsmmi.exit
 
@@ -3109,7 +3104,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %527 = load ptr, ptr %526, align 8, !tbaa !168, !alias.scope !259, !noalias !262
   %528 = add nuw nsw i64 %523, %525
   %529 = and i64 %528, 131071
-  %530 = getelementptr inbounds nuw i32, ptr %527, i64 %529
+  %530 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %529
   store i32 %524, ptr %530, align 4, !tbaa !61, !noalias !259
   %531 = add nsw i64 %177, -2
   %532 = and i64 %531, %176
@@ -3121,7 +3116,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %537 = and i64 %531, 24
   %538 = add nuw nsw i64 %535, %537
   %539 = and i64 %538, 131071
-  %540 = getelementptr inbounds nuw i32, ptr %527, i64 %539
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %539
   store i32 %536, ptr %540, align 4, !tbaa !61, !noalias !264
   %541 = add nsw i64 %177, -1
   %542 = and i64 %541, %176
@@ -3133,7 +3128,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %547 = and i64 %541, 24
   %548 = add nuw nsw i64 %545, %547
   %549 = and i64 %548, 131071
-  %550 = getelementptr inbounds nuw i32, ptr %527, i64 %549
+  %550 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %549
   store i32 %546, ptr %550, align 4, !tbaa !61, !noalias !267
   br label %_ZN13duckdb_brotliL27InitOrStitchToPreviousBlockEPNS_13MemoryManagerEPNS_6HasherEPKhmP19BrotliEncoderParamsmmi.exit
 
@@ -3156,7 +3151,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %562 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %563 = load ptr, ptr %562, align 8, !tbaa !277, !alias.scope !270, !noalias !275
   %564 = zext i32 %561 to i64
-  %565 = getelementptr inbounds nuw i16, ptr %563, i64 %564
+  %565 = getelementptr inbounds nuw [2 x i8], ptr %563, i64 %564
   %566 = load i16, ptr %565, align 2, !tbaa !82, !noalias !270
   %567 = zext i16 %566 to i32
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 1732
@@ -3170,8 +3165,8 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %576 = trunc nuw i64 %555 to i32
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %578 = load ptr, ptr %577, align 8, !tbaa !280, !alias.scope !270, !noalias !275
-  %579 = getelementptr inbounds nuw i32, ptr %578, i64 %571
-  %580 = getelementptr inbounds nuw i32, ptr %579, i64 %575
+  %579 = getelementptr inbounds nuw [4 x i8], ptr %578, i64 %571
+  %580 = getelementptr inbounds nuw [4 x i8], ptr %579, i64 %575
   store i32 %576, ptr %580, align 4, !tbaa !61, !noalias !270
   %581 = add i16 %566, 1
   store i16 %581, ptr %565, align 2, !tbaa !82, !noalias !270
@@ -3184,7 +3179,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %586 = mul i32 %.val340, 506832829
   %587 = lshr i32 %586, %585
   %588 = zext i32 %587 to i64
-  %589 = getelementptr inbounds nuw i16, ptr %563, i64 %588
+  %589 = getelementptr inbounds nuw [2 x i8], ptr %563, i64 %588
   %590 = load i16, ptr %589, align 2, !tbaa !82, !noalias !281
   %591 = zext i16 %590 to i32
   %592 = load i32, ptr %568, align 4, !tbaa !278, !alias.scope !281, !noalias !284
@@ -3194,8 +3189,8 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %596 = shl i32 %587, %595
   %597 = zext i32 %596 to i64
   %598 = trunc nuw i64 %582 to i32
-  %599 = getelementptr inbounds nuw i32, ptr %578, i64 %594
-  %600 = getelementptr inbounds nuw i32, ptr %599, i64 %597
+  %599 = getelementptr inbounds nuw [4 x i8], ptr %578, i64 %594
+  %600 = getelementptr inbounds nuw [4 x i8], ptr %599, i64 %597
   store i32 %598, ptr %600, align 4, !tbaa !61, !noalias !281
   %601 = add i16 %590, 1
   store i16 %601, ptr %589, align 2, !tbaa !82, !noalias !281
@@ -3208,7 +3203,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %606 = mul i32 %.val341, 506832829
   %607 = lshr i32 %606, %605
   %608 = zext i32 %607 to i64
-  %609 = getelementptr inbounds nuw i16, ptr %563, i64 %608
+  %609 = getelementptr inbounds nuw [2 x i8], ptr %563, i64 %608
   %610 = load i16, ptr %609, align 2, !tbaa !82, !noalias !286
   %611 = zext i16 %610 to i32
   %612 = load i32, ptr %568, align 4, !tbaa !278, !alias.scope !286, !noalias !289
@@ -3218,8 +3213,8 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %616 = shl i32 %607, %615
   %617 = zext i32 %616 to i64
   %618 = trunc nuw i64 %602 to i32
-  %619 = getelementptr inbounds nuw i32, ptr %578, i64 %614
-  %620 = getelementptr inbounds nuw i32, ptr %619, i64 %617
+  %619 = getelementptr inbounds nuw [4 x i8], ptr %578, i64 %614
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %619, i64 %617
   store i32 %618, ptr %620, align 4, !tbaa !61, !noalias !286
   %621 = add i16 %610, 1
   store i16 %621, ptr %609, align 2, !tbaa !82, !noalias !286
@@ -3246,7 +3241,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %.0.copyload.i.i.i272 = load i64, ptr %632, align 1, !alias.scope !299, !noalias !291
   %635 = mul i64 %.0.copyload.i.i.i272, %634
   %636 = lshr i64 %635, 49
-  %637 = getelementptr inbounds nuw i16, ptr %628, i64 %636
+  %637 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %636
   %638 = load i16, ptr %637, align 2, !tbaa !82, !noalias !302
   %639 = zext i16 %638 to i32
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 1736
@@ -3260,8 +3255,8 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %648 = add i16 %638, 1
   store i16 %648, ptr %637, align 2, !tbaa !82, !noalias !302
   %649 = trunc nuw i64 %626 to i32
-  %650 = getelementptr i32, ptr %630, i64 %647
-  %651 = getelementptr i32, ptr %650, i64 %643
+  %650 = getelementptr [4 x i8], ptr %630, i64 %647
+  %651 = getelementptr [4 x i8], ptr %650, i64 %643
   store i32 %649, ptr %651, align 4, !tbaa !61, !noalias !302
   %652 = add nsw i64 %177, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
@@ -3271,7 +3266,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %.0.copyload.i.i.i271 = load i64, ptr %654, align 1, !alias.scope !310, !noalias !305
   %655 = mul i64 %.0.copyload.i.i.i271, %634
   %656 = lshr i64 %655, 49
-  %657 = getelementptr inbounds nuw i16, ptr %628, i64 %656
+  %657 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %656
   %658 = load i16, ptr %657, align 2, !tbaa !82, !noalias !313
   %659 = zext i16 %658 to i32
   %660 = load i32, ptr %640, align 8, !tbaa !303, !alias.scope !305, !noalias !308
@@ -3283,8 +3278,8 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %666 = add i16 %658, 1
   store i16 %666, ptr %657, align 2, !tbaa !82, !noalias !313
   %667 = trunc nuw i64 %652 to i32
-  %668 = getelementptr i32, ptr %630, i64 %665
-  %669 = getelementptr i32, ptr %668, i64 %662
+  %668 = getelementptr [4 x i8], ptr %630, i64 %665
+  %669 = getelementptr [4 x i8], ptr %668, i64 %662
   store i32 %667, ptr %669, align 4, !tbaa !61, !noalias !313
   %670 = add nsw i64 %177, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
@@ -3294,7 +3289,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %.0.copyload.i.i.i270 = load i64, ptr %672, align 1, !alias.scope !319, !noalias !314
   %673 = mul i64 %.0.copyload.i.i.i270, %634
   %674 = lshr i64 %673, 49
-  %675 = getelementptr inbounds nuw i16, ptr %628, i64 %674
+  %675 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %674
   %676 = load i16, ptr %675, align 2, !tbaa !82, !noalias !322
   %677 = zext i16 %676 to i32
   %678 = load i32, ptr %640, align 8, !tbaa !303, !alias.scope !314, !noalias !317
@@ -3306,8 +3301,8 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %684 = add i16 %676, 1
   store i16 %684, ptr %675, align 2, !tbaa !82, !noalias !322
   %685 = trunc nuw i64 %670 to i32
-  %686 = getelementptr i32, ptr %630, i64 %683
-  %687 = getelementptr i32, ptr %686, i64 %680
+  %686 = getelementptr [4 x i8], ptr %630, i64 %683
+  %687 = getelementptr [4 x i8], ptr %686, i64 %680
   store i32 %685, ptr %687, align 4, !tbaa !61, !noalias !322
   br label %_ZN13duckdb_brotliL27InitOrStitchToPreviousBlockEPNS_13MemoryManagerEPNS_6HasherEPKhmP19BrotliEncoderParamsmmi.exit
 
@@ -3338,7 +3333,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %706 = add i16 %705, 1
   store i16 %706, ptr %692, align 8, !tbaa !82, !alias.scope !323, !noalias !326
   %707 = zext i16 %705 to i64
-  %708 = getelementptr inbounds nuw i32, ptr %695, i64 %704
+  %708 = getelementptr inbounds nuw [4 x i8], ptr %695, i64 %704
   %709 = load i32, ptr %708, align 4, !tbaa !61, !noalias !331
   %710 = zext i32 %709 to i64
   %711 = sub nsw i64 %693, %710
@@ -3348,9 +3343,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %712, ptr %714, align 1, !tbaa !72, !noalias !331
   %spec.store.select.i277 = tail call i64 @llvm.umin.i64(i64 %711, i64 65535)
   %715 = trunc nuw i64 %spec.store.select.i277 to i16
-  %716 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %699, i64 %707
+  %716 = getelementptr inbounds nuw [4 x i8], ptr %699, i64 %707
   store i16 %715, ptr %716, align 2, !tbaa !332, !noalias !331
-  %717 = getelementptr inbounds nuw i16, ptr %696, i64 %704
+  %717 = getelementptr inbounds nuw [2 x i8], ptr %696, i64 %704
   %718 = load i16, ptr %717, align 2, !tbaa !82, !noalias !331
   %719 = getelementptr inbounds nuw i8, ptr %716, i64 2
   store i16 %718, ptr %719, align 2, !tbaa !334, !noalias !331
@@ -3374,7 +3369,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %732 = add i16 %731, 1
   store i16 %732, ptr %692, align 8, !tbaa !82, !alias.scope !335, !noalias !338
   %733 = zext i16 %731 to i64
-  %734 = getelementptr inbounds nuw i32, ptr %722, i64 %730
+  %734 = getelementptr inbounds nuw [4 x i8], ptr %722, i64 %730
   %735 = load i32, ptr %734, align 4, !tbaa !61, !noalias !343
   %736 = zext i32 %735 to i64
   %737 = sub nsw i64 %721, %736
@@ -3384,9 +3379,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %738, ptr %740, align 1, !tbaa !72, !noalias !343
   %spec.store.select.i275 = tail call i64 @llvm.umin.i64(i64 %737, i64 65535)
   %741 = trunc nuw i64 %spec.store.select.i275 to i16
-  %742 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %725, i64 %733
+  %742 = getelementptr inbounds nuw [4 x i8], ptr %725, i64 %733
   store i16 %741, ptr %742, align 2, !tbaa !332, !noalias !343
-  %743 = getelementptr inbounds nuw i16, ptr %723, i64 %730
+  %743 = getelementptr inbounds nuw [2 x i8], ptr %723, i64 %730
   %744 = load i16, ptr %743, align 2, !tbaa !82, !noalias !343
   %745 = getelementptr inbounds nuw i8, ptr %742, i64 2
   store i16 %744, ptr %745, align 2, !tbaa !334, !noalias !343
@@ -3410,7 +3405,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %758 = add i16 %757, 1
   store i16 %758, ptr %692, align 8, !tbaa !82, !alias.scope !344, !noalias !347
   %759 = zext i16 %757 to i64
-  %760 = getelementptr inbounds nuw i32, ptr %748, i64 %756
+  %760 = getelementptr inbounds nuw [4 x i8], ptr %748, i64 %756
   %761 = load i32, ptr %760, align 4, !tbaa !61, !noalias !352
   %762 = zext i32 %761 to i64
   %763 = sub nsw i64 %747, %762
@@ -3420,9 +3415,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %764, ptr %766, align 1, !tbaa !72, !noalias !352
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %763, i64 65535)
   %767 = trunc nuw i64 %spec.store.select.i to i16
-  %768 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %751, i64 %759
+  %768 = getelementptr inbounds nuw [4 x i8], ptr %751, i64 %759
   store i16 %767, ptr %768, align 2, !tbaa !332, !noalias !352
-  %769 = getelementptr inbounds nuw i16, ptr %749, i64 %756
+  %769 = getelementptr inbounds nuw [2 x i8], ptr %749, i64 %756
   %770 = load i16, ptr %769, align 2, !tbaa !82, !noalias !352
   %771 = getelementptr inbounds nuw i8, ptr %768, i64 2
   store i16 %770, ptr %771, align 2, !tbaa !334, !noalias !352
@@ -3458,7 +3453,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %791 = add i16 %790, 1
   store i16 %791, ptr %777, align 8, !tbaa !82, !alias.scope !353, !noalias !356
   %792 = zext i16 %790 to i64
-  %793 = getelementptr inbounds nuw i32, ptr %780, i64 %789
+  %793 = getelementptr inbounds nuw [4 x i8], ptr %780, i64 %789
   %794 = load i32, ptr %793, align 4, !tbaa !61, !noalias !361
   %795 = zext i32 %794 to i64
   %796 = sub nsw i64 %778, %795
@@ -3468,9 +3463,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %797, ptr %799, align 1, !tbaa !72, !noalias !361
   %spec.store.select.i283 = tail call i64 @llvm.umin.i64(i64 %796, i64 65535)
   %800 = trunc nuw i64 %spec.store.select.i283 to i16
-  %801 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %784, i64 %792
+  %801 = getelementptr inbounds nuw [4 x i8], ptr %784, i64 %792
   store i16 %800, ptr %801, align 2, !tbaa !362, !noalias !361
-  %802 = getelementptr inbounds nuw i16, ptr %781, i64 %789
+  %802 = getelementptr inbounds nuw [2 x i8], ptr %781, i64 %789
   %803 = load i16, ptr %802, align 2, !tbaa !82, !noalias !361
   %804 = getelementptr inbounds nuw i8, ptr %801, i64 2
   store i16 %803, ptr %804, align 2, !tbaa !364, !noalias !361
@@ -3494,7 +3489,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %817 = add i16 %816, 1
   store i16 %817, ptr %777, align 8, !tbaa !82, !alias.scope !365, !noalias !368
   %818 = zext i16 %816 to i64
-  %819 = getelementptr inbounds nuw i32, ptr %807, i64 %815
+  %819 = getelementptr inbounds nuw [4 x i8], ptr %807, i64 %815
   %820 = load i32, ptr %819, align 4, !tbaa !61, !noalias !373
   %821 = zext i32 %820 to i64
   %822 = sub nsw i64 %806, %821
@@ -3504,9 +3499,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %823, ptr %825, align 1, !tbaa !72, !noalias !373
   %spec.store.select.i281 = tail call i64 @llvm.umin.i64(i64 %822, i64 65535)
   %826 = trunc nuw i64 %spec.store.select.i281 to i16
-  %827 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %810, i64 %818
+  %827 = getelementptr inbounds nuw [4 x i8], ptr %810, i64 %818
   store i16 %826, ptr %827, align 2, !tbaa !362, !noalias !373
-  %828 = getelementptr inbounds nuw i16, ptr %808, i64 %815
+  %828 = getelementptr inbounds nuw [2 x i8], ptr %808, i64 %815
   %829 = load i16, ptr %828, align 2, !tbaa !82, !noalias !373
   %830 = getelementptr inbounds nuw i8, ptr %827, i64 2
   store i16 %829, ptr %830, align 2, !tbaa !364, !noalias !373
@@ -3530,7 +3525,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %843 = add i16 %842, 1
   store i16 %843, ptr %777, align 8, !tbaa !82, !alias.scope !374, !noalias !377
   %844 = zext i16 %842 to i64
-  %845 = getelementptr inbounds nuw i32, ptr %833, i64 %841
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %833, i64 %841
   %846 = load i32, ptr %845, align 4, !tbaa !61, !noalias !382
   %847 = zext i32 %846 to i64
   %848 = sub nsw i64 %832, %847
@@ -3540,9 +3535,9 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %849, ptr %851, align 1, !tbaa !72, !noalias !382
   %spec.store.select.i279 = tail call i64 @llvm.umin.i64(i64 %848, i64 65535)
   %852 = trunc nuw i64 %spec.store.select.i279 to i16
-  %853 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %836, i64 %844
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %836, i64 %844
   store i16 %852, ptr %853, align 2, !tbaa !362, !noalias !382
-  %854 = getelementptr inbounds nuw i16, ptr %834, i64 %841
+  %854 = getelementptr inbounds nuw [2 x i8], ptr %834, i64 %841
   %855 = load i16, ptr %854, align 2, !tbaa !82, !noalias !382
   %856 = getelementptr inbounds nuw i8, ptr %853, i64 2
   store i16 %855, ptr %856, align 2, !tbaa !364, !noalias !382
@@ -3575,13 +3570,13 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %873 = lshr i32 %872, 17
   %874 = zext nneg i32 %873 to i64
   %875 = and i64 %874, 511
-  %876 = getelementptr inbounds nuw i16, ptr %862, i64 %875
+  %876 = getelementptr inbounds nuw [2 x i8], ptr %862, i64 %875
   %877 = load i16, ptr %876, align 2, !tbaa !82, !alias.scope !383, !noalias !386
   %878 = add i16 %877, 1
   store i16 %878, ptr %876, align 2, !tbaa !82, !alias.scope !383, !noalias !386
   %879 = and i16 %877, 511
   %880 = zext nneg i16 %879 to i64
-  %881 = getelementptr inbounds nuw i32, ptr %865, i64 %874
+  %881 = getelementptr inbounds nuw [4 x i8], ptr %865, i64 %874
   %882 = load i32, ptr %881, align 4, !tbaa !61, !noalias !391
   %883 = zext i32 %882 to i64
   %884 = sub nsw i64 %863, %883
@@ -3591,10 +3586,10 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %885, ptr %887, align 1, !tbaa !72, !noalias !391
   %spec.store.select.i289 = tail call i64 @llvm.umin.i64(i64 %884, i64 65535)
   %888 = trunc nuw i64 %spec.store.select.i289 to i16
-  %889 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %869, i64 %875
-  %890 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %889, i64 %880
+  %889 = getelementptr inbounds nuw [2048 x i8], ptr %869, i64 %875
+  %890 = getelementptr inbounds nuw [4 x i8], ptr %889, i64 %880
   store i16 %888, ptr %890, align 2, !tbaa !392, !noalias !391
-  %891 = getelementptr inbounds nuw i16, ptr %866, i64 %874
+  %891 = getelementptr inbounds nuw [2 x i8], ptr %866, i64 %874
   %892 = load i16, ptr %891, align 2, !tbaa !82, !noalias !391
   %893 = getelementptr inbounds nuw i8, ptr %890, i64 2
   store i16 %892, ptr %893, align 2, !tbaa !394, !noalias !391
@@ -3615,13 +3610,13 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %903 = lshr i32 %902, 17
   %904 = zext nneg i32 %903 to i64
   %905 = and i64 %904, 511
-  %906 = getelementptr inbounds nuw i16, ptr %862, i64 %905
+  %906 = getelementptr inbounds nuw [2 x i8], ptr %862, i64 %905
   %907 = load i16, ptr %906, align 2, !tbaa !82, !alias.scope !395, !noalias !398
   %908 = add i16 %907, 1
   store i16 %908, ptr %906, align 2, !tbaa !82, !alias.scope !395, !noalias !398
   %909 = and i16 %907, 511
   %910 = zext nneg i16 %909 to i64
-  %911 = getelementptr inbounds nuw i32, ptr %896, i64 %904
+  %911 = getelementptr inbounds nuw [4 x i8], ptr %896, i64 %904
   %912 = load i32, ptr %911, align 4, !tbaa !61, !noalias !403
   %913 = zext i32 %912 to i64
   %914 = sub nsw i64 %895, %913
@@ -3631,10 +3626,10 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %915, ptr %917, align 1, !tbaa !72, !noalias !403
   %spec.store.select.i287 = tail call i64 @llvm.umin.i64(i64 %914, i64 65535)
   %918 = trunc nuw i64 %spec.store.select.i287 to i16
-  %919 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %899, i64 %905
-  %920 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %919, i64 %910
+  %919 = getelementptr inbounds nuw [2048 x i8], ptr %899, i64 %905
+  %920 = getelementptr inbounds nuw [4 x i8], ptr %919, i64 %910
   store i16 %918, ptr %920, align 2, !tbaa !392, !noalias !403
-  %921 = getelementptr inbounds nuw i16, ptr %897, i64 %904
+  %921 = getelementptr inbounds nuw [2 x i8], ptr %897, i64 %904
   %922 = load i16, ptr %921, align 2, !tbaa !82, !noalias !403
   %923 = getelementptr inbounds nuw i8, ptr %920, i64 2
   store i16 %922, ptr %923, align 2, !tbaa !394, !noalias !403
@@ -3655,13 +3650,13 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %933 = lshr i32 %932, 17
   %934 = zext nneg i32 %933 to i64
   %935 = and i64 %934, 511
-  %936 = getelementptr inbounds nuw i16, ptr %862, i64 %935
+  %936 = getelementptr inbounds nuw [2 x i8], ptr %862, i64 %935
   %937 = load i16, ptr %936, align 2, !tbaa !82, !alias.scope !404, !noalias !407
   %938 = add i16 %937, 1
   store i16 %938, ptr %936, align 2, !tbaa !82, !alias.scope !404, !noalias !407
   %939 = and i16 %937, 511
   %940 = zext nneg i16 %939 to i64
-  %941 = getelementptr inbounds nuw i32, ptr %926, i64 %934
+  %941 = getelementptr inbounds nuw [4 x i8], ptr %926, i64 %934
   %942 = load i32, ptr %941, align 4, !tbaa !61, !noalias !412
   %943 = zext i32 %942 to i64
   %944 = sub nsw i64 %925, %943
@@ -3671,10 +3666,10 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   store i8 %945, ptr %947, align 1, !tbaa !72, !noalias !412
   %spec.store.select.i285 = tail call i64 @llvm.umin.i64(i64 %944, i64 65535)
   %948 = trunc nuw i64 %spec.store.select.i285 to i16
-  %949 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %929, i64 %935
-  %950 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %949, i64 %940
+  %949 = getelementptr inbounds nuw [2048 x i8], ptr %929, i64 %935
+  %950 = getelementptr inbounds nuw [4 x i8], ptr %949, i64 %940
   store i16 %948, ptr %950, align 2, !tbaa !392, !noalias !412
-  %951 = getelementptr inbounds nuw i16, ptr %927, i64 %934
+  %951 = getelementptr inbounds nuw [2 x i8], ptr %927, i64 %934
   %952 = load i16, ptr %951, align 2, !tbaa !82, !noalias !412
   %953 = getelementptr inbounds nuw i8, ptr %950, i64 2
   store i16 %952, ptr %953, align 2, !tbaa !394, !noalias !412
@@ -3703,7 +3698,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %967 = load ptr, ptr %966, align 8, !tbaa !192, !alias.scope !413, !noalias !416
   %968 = add nuw nsw i64 %963, %965
   %969 = and i64 %968, 1048575
-  %970 = getelementptr inbounds nuw i32, ptr %967, i64 %969
+  %970 = getelementptr inbounds nuw [4 x i8], ptr %967, i64 %969
   store i32 %964, ptr %970, align 4, !tbaa !61, !noalias !413
   %971 = add nsw i64 %177, -2
   %972 = and i64 %971, %176
@@ -3715,7 +3710,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %977 = and i64 %971, 24
   %978 = add nuw nsw i64 %975, %977
   %979 = and i64 %978, 1048575
-  %980 = getelementptr inbounds nuw i32, ptr %967, i64 %979
+  %980 = getelementptr inbounds nuw [4 x i8], ptr %967, i64 %979
   store i32 %976, ptr %980, align 4, !tbaa !61, !noalias !418
   %981 = add nsw i64 %177, -1
   %982 = and i64 %981, %176
@@ -3727,7 +3722,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %987 = and i64 %981, 24
   %988 = add nuw nsw i64 %985, %987
   %989 = and i64 %988, 1048575
-  %990 = getelementptr inbounds nuw i32, ptr %967, i64 %989
+  %990 = getelementptr inbounds nuw [4 x i8], ptr %967, i64 %989
   store i32 %986, ptr %990, align 4, !tbaa !61, !noalias !421
   br label %_ZN13duckdb_brotliL27InitOrStitchToPreviousBlockEPNS_13MemoryManagerEPNS_6HasherEPKhmP19BrotliEncoderParamsmmi.exit
 
@@ -3751,7 +3746,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %1003 = load ptr, ptr %1002, align 8, !tbaa !162, !alias.scope !424, !noalias !427
   %1004 = add nuw nsw i64 %999, %1001
   %1005 = and i64 %1004, 65535
-  %1006 = getelementptr inbounds nuw i32, ptr %1003, i64 %1005
+  %1006 = getelementptr inbounds nuw [4 x i8], ptr %1003, i64 %1005
   store i32 %1000, ptr %1006, align 4, !tbaa !61, !noalias !424
   %1007 = add nsw i64 %177, -2
   %1008 = and i64 %1007, %176
@@ -3763,7 +3758,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %1013 = and i64 %1007, 8
   %1014 = add nuw nsw i64 %1011, %1013
   %1015 = and i64 %1014, 65535
-  %1016 = getelementptr inbounds nuw i32, ptr %1003, i64 %1015
+  %1016 = getelementptr inbounds nuw [4 x i8], ptr %1003, i64 %1015
   store i32 %1012, ptr %1016, align 4, !tbaa !61, !noalias !429
   %1017 = add nsw i64 %177, -1
   %1018 = and i64 %1017, %176
@@ -3775,7 +3770,7 @@ _ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncode
   %1023 = and i64 %1017, 8
   %1024 = add nuw nsw i64 %1021, %1023
   %1025 = and i64 %1024, 65535
-  %1026 = getelementptr inbounds nuw i32, ptr %1003, i64 %1025
+  %1026 = getelementptr inbounds nuw [4 x i8], ptr %1003, i64 %1025
   store i32 %1022, ptr %1026, align 4, !tbaa !61, !noalias !432
   br label %_ZN13duckdb_brotliL24StitchToPreviousBlockH35EPNS_3H35EmmPKhm.exit
 
@@ -3850,7 +3845,7 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit: ; pred
   %1063 = load ptr, ptr %1062, align 8, !tbaa !192, !alias.scope !447, !noalias !450
   %1064 = add nuw nsw i64 %1059, %1061
   %1065 = and i64 %1064, 1048575
-  %1066 = getelementptr inbounds nuw i32, ptr %1063, i64 %1065
+  %1066 = getelementptr inbounds nuw [4 x i8], ptr %1063, i64 %1065
   store i32 %1060, ptr %1066, align 4, !tbaa !61, !noalias !447
   %1067 = add nsw i64 %177, -2
   %1068 = and i64 %1067, %176
@@ -3862,7 +3857,7 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit: ; pred
   %1073 = and i64 %1067, 24
   %1074 = add nuw nsw i64 %1071, %1073
   %1075 = and i64 %1074, 1048575
-  %1076 = getelementptr inbounds nuw i32, ptr %1063, i64 %1075
+  %1076 = getelementptr inbounds nuw [4 x i8], ptr %1063, i64 %1075
   store i32 %1072, ptr %1076, align 4, !tbaa !61, !noalias !452
   %1077 = add nsw i64 %177, -1
   %1078 = and i64 %1077, %176
@@ -3874,7 +3869,7 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit: ; pred
   %1083 = and i64 %1077, 24
   %1084 = add nuw nsw i64 %1081, %1083
   %1085 = and i64 %1084, 1048575
-  %1086 = getelementptr inbounds nuw i32, ptr %1063, i64 %1085
+  %1086 = getelementptr inbounds nuw [4 x i8], ptr %1063, i64 %1085
   store i32 %1082, ptr %1086, align 4, !tbaa !61, !noalias !455
   br label %_ZN13duckdb_brotliL24StitchToPreviousBlockH55EPNS_3H55EmmPKhm.exit
 
@@ -3950,7 +3945,7 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit375: ; p
   %.0.copyload.i.i.i269 = load i64, ptr %1121, align 1, !alias.scope !471, !noalias !466
   %1124 = mul i64 %.0.copyload.i.i.i269, %1123
   %1125 = lshr i64 %1124, 49
-  %1126 = getelementptr inbounds nuw i16, ptr %1117, i64 %1125
+  %1126 = getelementptr inbounds nuw [2 x i8], ptr %1117, i64 %1125
   %1127 = load i16, ptr %1126, align 2, !tbaa !82, !noalias !474
   %1128 = zext i16 %1127 to i32
   %1129 = getelementptr inbounds nuw i8, ptr %0, i64 1736
@@ -3964,8 +3959,8 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit375: ; p
   %1137 = add i16 %1127, 1
   store i16 %1137, ptr %1126, align 2, !tbaa !82, !noalias !474
   %1138 = trunc nuw i64 %1115 to i32
-  %1139 = getelementptr i32, ptr %1119, i64 %1136
-  %1140 = getelementptr i32, ptr %1139, i64 %1132
+  %1139 = getelementptr [4 x i8], ptr %1119, i64 %1136
+  %1140 = getelementptr [4 x i8], ptr %1139, i64 %1132
   store i32 %1138, ptr %1140, align 4, !tbaa !61, !noalias !474
   %1141 = add nsw i64 %177, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
@@ -3975,7 +3970,7 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit375: ; p
   %.0.copyload.i.i.i268 = load i64, ptr %1143, align 1, !alias.scope !480, !noalias !475
   %1144 = mul i64 %.0.copyload.i.i.i268, %1123
   %1145 = lshr i64 %1144, 49
-  %1146 = getelementptr inbounds nuw i16, ptr %1117, i64 %1145
+  %1146 = getelementptr inbounds nuw [2 x i8], ptr %1117, i64 %1145
   %1147 = load i16, ptr %1146, align 2, !tbaa !82, !noalias !483
   %1148 = zext i16 %1147 to i32
   %1149 = load i32, ptr %1129, align 8, !tbaa !303, !alias.scope !475, !noalias !478
@@ -3987,8 +3982,8 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit375: ; p
   %1155 = add i16 %1147, 1
   store i16 %1155, ptr %1146, align 2, !tbaa !82, !noalias !483
   %1156 = trunc nuw i64 %1141 to i32
-  %1157 = getelementptr i32, ptr %1119, i64 %1154
-  %1158 = getelementptr i32, ptr %1157, i64 %1151
+  %1157 = getelementptr [4 x i8], ptr %1119, i64 %1154
+  %1158 = getelementptr [4 x i8], ptr %1157, i64 %1151
   store i32 %1156, ptr %1158, align 4, !tbaa !61, !noalias !483
   %1159 = add nsw i64 %177, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !484)
@@ -3998,7 +3993,7 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit375: ; p
   %.0.copyload.i.i.i = load i64, ptr %1161, align 1, !alias.scope !489, !noalias !484
   %1162 = mul i64 %.0.copyload.i.i.i, %1123
   %1163 = lshr i64 %1162, 49
-  %1164 = getelementptr inbounds nuw i16, ptr %1117, i64 %1163
+  %1164 = getelementptr inbounds nuw [2 x i8], ptr %1117, i64 %1163
   %1165 = load i16, ptr %1164, align 2, !tbaa !82, !noalias !492
   %1166 = zext i16 %1165 to i32
   %1167 = load i32, ptr %1129, align 8, !tbaa !303, !alias.scope !484, !noalias !487
@@ -4010,8 +4005,8 @@ _ZN13duckdb_brotliL20PrepareHROLLING_FASTEPNS_13HROLLING_FASTEimPKh.exit375: ; p
   %1173 = add i16 %1165, 1
   store i16 %1173, ptr %1164, align 2, !tbaa !82, !noalias !492
   %1174 = trunc nuw i64 %1159 to i32
-  %1175 = getelementptr i32, ptr %1119, i64 %1172
-  %1176 = getelementptr i32, ptr %1175, i64 %1169
+  %1175 = getelementptr [4 x i8], ptr %1119, i64 %1172
+  %1176 = getelementptr [4 x i8], ptr %1175, i64 %1169
   store i32 %1174, ptr %1176, align 4, !tbaa !61, !noalias !492
   br label %_ZN13duckdb_brotliL24StitchToPreviousBlockH65EPNS_3H65EmmPKhm.exit
 
@@ -4085,7 +4080,7 @@ _ZN13duckdb_brotliL15PrepareHROLLINGEPNS_8HROLLINGEimPKh.exit: ; preds = %_ZN13d
   %1214 = mul i32 %.val351, 506832829
   %1215 = lshr i32 %1214, 15
   %1216 = zext nneg i32 %1215 to i64
-  %1217 = getelementptr inbounds nuw i32, ptr %1204, i64 %1216
+  %1217 = getelementptr inbounds nuw [4 x i8], ptr %1204, i64 %1216
   %1218 = load i32, ptr %1217, align 4, !tbaa !61, !noalias !508
   %1219 = and i64 %1202, %.0.i267482
   %1220 = shl i64 %1219, 1
@@ -4114,7 +4109,7 @@ _ZN13duckdb_brotliL15PrepareHROLLINGEPNS_8HROLLINGEimPKh.exit: ; preds = %_ZN13d
   %.0102.i.lcssa = phi i64 [ %1221, %1208 ], [ %.0102.i472, %.lr.ph476 ], [ %.3105.i, %1281 ]
   %.098.i.lcssa = phi i64 [ %1220, %1208 ], [ %.098.i473, %.lr.ph476 ], [ %.3101.i, %1281 ]
   %1227 = load i32, ptr %1207, align 8, !tbaa !226, !alias.scope !508, !noalias !511
-  %1228 = getelementptr inbounds nuw i32, ptr %1206, i64 %.098.i.lcssa
+  %1228 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %.098.i.lcssa
   store i32 %1227, ptr %1228, align 4, !tbaa !61
   br label %_ZN13duckdb_brotliL22StoreAndFindMatchesH10EPNS_3H10EPKhmmmmPmPNS_13BackwardMatchE.exit
 
@@ -4199,7 +4194,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %1237, %.c
   %.idx = shl nuw nsw i64 %1262, 3
   %1263 = getelementptr inbounds nuw i8, ptr %1206, i64 %.idx
   %1264 = load i32, ptr %1263, align 4, !tbaa !61
-  %1265 = getelementptr inbounds nuw i32, ptr %1206, i64 %.098.i473
+  %1265 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %.098.i473
   store i32 %1264, ptr %1265, align 4, !tbaa !61
   %1266 = getelementptr inbounds nuw i8, ptr %1263, i64 4
   %1267 = load i32, ptr %1266, align 4, !tbaa !61
@@ -4216,13 +4211,13 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %1237, %.c
   br i1 %1273, label %1276, label %1279
 
 1276:                                             ; preds = %1268
-  %1277 = getelementptr inbounds nuw i32, ptr %1206, i64 %.098.i473
+  %1277 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %.098.i473
   store i32 %.093.i.in474, ptr %1277, align 4, !tbaa !61
   %1278 = or disjoint i64 %1275, 1
   br label %1281
 
 1279:                                             ; preds = %1268
-  %1280 = getelementptr inbounds nuw i32, ptr %1206, i64 %.0102.i472
+  %1280 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %.0102.i472
   store i32 %.093.i.in474, ptr %1280, align 4, !tbaa !61
   br label %1281
 
@@ -4232,7 +4227,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %1237, %.c
   %.3105.i = phi i64 [ %.0102.i472, %1276 ], [ %1275, %1279 ]
   %.3101.i = phi i64 [ %1278, %1276 ], [ %.098.i473, %1279 ]
   %.pn.i = phi i64 [ %1278, %1276 ], [ %1275, %1279 ]
-  %.3.in.in.i = getelementptr inbounds nuw i32, ptr %1206, i64 %.pn.i
+  %.3.in.in.i = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %.pn.i
   %.3.in.i = load i32, ptr %.3.in.in.i, align 4, !tbaa !61
   %1282 = add nsw i64 %.0106.i471, -1
   %.093.i = zext i32 %.3.in.i to i64
@@ -4242,7 +4237,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %1237, %.c
 _ZN13duckdb_brotliL22StoreAndFindMatchesH10EPNS_3H10EPKhmmmmPmPNS_13BackwardMatchE.exit: ; preds = %._crit_edge, %1261
   %.0102.i.lcssa.sink = phi i64 [ %.0102.i.lcssa, %._crit_edge ], [ %.0102.i472, %1261 ]
   %.sink = phi i32 [ %1227, %._crit_edge ], [ %1267, %1261 ]
-  %1284 = getelementptr inbounds nuw i32, ptr %1206, i64 %.0102.i.lcssa.sink
+  %1284 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %.0102.i.lcssa.sink
   store i32 %.sink, ptr %1284, align 4, !tbaa !61
   %1285 = add nuw nsw i64 %.0.i267482, 1
   %1286 = icmp ult i64 %1285, %1201
@@ -4311,7 +4306,7 @@ _ZL17ChooseContextModePK19BrotliEncoderParamsPKhmmm.exit: ; preds = %1299, %1304
   %1322 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %1323 = load ptr, ptr %1322, align 8, !tbaa !63
   %1324 = load i64, ptr %148, align 8, !tbaa !138
-  %1325 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %1323, i64 %1324
+  %1325 = getelementptr inbounds nuw [16 x i8], ptr %1323, i64 %1324
   %1326 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   switch i32 %1315, label %1329 [
     i32 10, label %1327
@@ -4403,7 +4398,7 @@ _ZL17ChooseContextModePK19BrotliEncoderParamsPKhmmm.exit: ; preds = %1299, %1304
   %1374 = load i64, ptr %148, align 8, !tbaa !138
   %1375 = add i64 %1374, 1
   store i64 %1375, ptr %148, align 8, !tbaa !138
-  %1376 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %1373, i64 %1374
+  %1376 = getelementptr inbounds nuw [16 x i8], ptr %1373, i64 %1374
   %1377 = trunc i64 %1370 to i32
   store i32 %1377, ptr %1376, align 4, !tbaa !519
   %1378 = getelementptr inbounds nuw i8, ptr %1376, i64 4
@@ -4608,7 +4603,7 @@ _ZL12WrapPositionm.exit.i387:                     ; preds = %1465, %_ZL16GetBrot
   %1499 = getelementptr inbounds nuw i8, ptr %33, i64 %1498
   %1500 = load i8, ptr %1499, align 1, !tbaa !72
   %1501 = zext i8 %1500 to i64
-  %1502 = getelementptr inbounds nuw i32, ptr %6, i64 %1501
+  %1502 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %1501
   %1503 = load i32, ptr %1502, align 4, !tbaa !61
   %1504 = add i32 %1503, 1
   store i32 %1504, ptr %1502, align 4, !tbaa !61
@@ -4631,7 +4626,7 @@ _ZL12WrapPositionm.exit.i387:                     ; preds = %1465, %_ZL16GetBrot
   br i1 %1511, label %1512, label %1515
 
 1512:                                             ; preds = %.preheader.i.i
-  %1513 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %1508
+  %1513 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %1508
   %1514 = load double, ptr %1513, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit24.i.i
 
@@ -4652,7 +4647,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit24.i.i:        ; preds = %1515, %1512
   br i1 %1523, label %1524, label %1527
 
 1524:                                             ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit24.i.i
-  %1525 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %1520
+  %1525 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %1520
   %1526 = load double, ptr %1525, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i.i
 
@@ -4679,7 +4674,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i.i:          ; preds = %1527, %1524
   br i1 %1537, label %1538, label %1541
 
 1538:                                             ; preds = %1535
-  %1539 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %1521
+  %1539 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %1521
   %1540 = load double, ptr %1539, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit26.i.i
 
@@ -5181,7 +5176,7 @@ define noundef range(i32 0, 2) i32 @_Z37BrotliEncoderAttachPreparedDictionaryPN1
 
 66:                                               ; preds = %.lr.ph, %62
   %.051 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %.051
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.051
   %68 = load ptr, ptr %67, align 8, !tbaa !563
   %69 = tail call noundef i32 @_ZN13duckdb_brotli24AttachPreparedDictionaryEPNS_18CompoundDictionaryEPKNS_18PreparedDictionaryE(ptr noundef nonnull %60, ptr noundef %68)
   %.not49 = icmp eq i32 %69, 0
@@ -5626,7 +5621,7 @@ define noundef i64 @_ZN13duckdb_brotli38BrotliEncoderGetPreparedDictionarySizeEP
 52:                                               ; preds = %.lr.ph, %56
   %.06282 = phi i64 [ 0, %.lr.ph ], [ %58, %56 ]
   %.06481 = phi i64 [ 1320, %.lr.ph ], [ %57, %56 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %.06282
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.06282
   %54 = load ptr, ptr %53, align 8, !tbaa !563
   %55 = tail call noundef i64 @_ZN13duckdb_brotli38BrotliEncoderGetPreparedDictionarySizeEPKNS_37BrotliEncoderPreparedDictionaryStructE(ptr noundef %54)
   %.not78.not = icmp eq i64 %55, 0
@@ -5667,7 +5662,7 @@ define noundef i64 @_ZN13duckdb_brotli38BrotliEncoderGetPreparedDictionarySizeEP
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %94
   %.16384 = phi i64 [ %98, %94 ], [ 0, %.lr.ph86.preheader ]
   %.36783 = phi i64 [ %spec.select79, %94 ], [ %.266101, %.lr.ph86.preheader ]
-  %68 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliEncoderDictionary", ptr %.060103, i64 %.16384
+  %68 = getelementptr inbounds nuw [168 x i8], ptr %.060103, i64 %.16384
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load i64, ptr %69, align 8, !tbaa !577
   %71 = mul i64 %70, 12
@@ -5788,7 +5783,7 @@ define internal fastcc void @_ZL17ExtendLastCommandPN13duckdb_brotli24BrotliEnco
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %7 = load i64, ptr %6, align 8, !tbaa !138
-  %8 = getelementptr %"struct.duckdb_brotli::Command", ptr %5, i64 %7
+  %8 = getelementptr [16 x i8], ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %11 = load ptr, ptr %10, align 8, !tbaa !135
@@ -5913,7 +5908,7 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
 96:                                               ; preds = %96, %92
   %.086 = phi i64 [ 0, %92 ], [ %97, %96 ]
   %97 = add i64 %.086, 1
-  %98 = getelementptr inbounds nuw i64, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !71
   %.not98 = icmp ult i64 %94, %99
   br i1 %.not98, label %100, label %96, !llvm.loop !590
@@ -5925,10 +5920,10 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
   br i1 %.not99117, label %.critedge, label %.lr.ph122.preheader
 
 .lr.ph122.preheader:                              ; preds = %100
-  %103 = getelementptr inbounds nuw i64, ptr %95, i64 %.086
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.086
   %104 = load i64, ptr %103, align 8, !tbaa !71
   %105 = sub i64 %99, %104
-  %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %.086
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.086
   %107 = load ptr, ptr %106, align 8, !tbaa !73
   %108 = sub i64 %94, %104
   %.pre126 = load i32, ptr %2, align 4, !tbaa !61
@@ -5970,12 +5965,12 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
   br i1 %.not100, label %.critedge, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw ptr, ptr %101, i64 %127
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %127
   %131 = load ptr, ptr %130, align 8, !tbaa !73
-  %132 = getelementptr i64, ptr %95, i64 %.187118
+  %132 = getelementptr [8 x i8], ptr %95, i64 %.187118
   %133 = getelementptr i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !71
-  %135 = getelementptr inbounds nuw i64, ptr %95, i64 %127
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %127
   %136 = load i64, ptr %135, align 8, !tbaa !71
   %137 = sub i64 %134, %136
   br label %138
@@ -6235,7 +6230,7 @@ define internal fastcc void @_ZN13duckdb_brotliL9PrepareH4EPNS_2H4EimPKh(ptr wri
   %11 = add nuw nsw i32 %10, %8
   %12 = and i32 %11, 131071
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %.8.val, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.8.val, i64 %13
   store i32 0, ptr %14, align 4, !tbaa !61
   %15 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %15, 4
@@ -6281,7 +6276,7 @@ define internal fastcc void @_ZN13duckdb_brotliL9PrepareH5EPNS_2H5EimPKh(ptr noa
   %12 = mul i32 %.val, 506832829
   %13 = lshr i32 %12, %9
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %14
   store i16 0, ptr %15, align 2, !tbaa !82
   %16 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %16, %2
@@ -6322,7 +6317,7 @@ define internal fastcc void @_ZN13duckdb_brotliL9PrepareH6EPNS_2H6EimPKh(ptr noa
   %.0.copyload.i.i = load i64, ptr %11, align 1, !alias.scope !607
   %12 = mul i64 %.0.copyload.i.i, %9
   %13 = lshr i64 %12, 49
-  %14 = getelementptr inbounds nuw i16, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %13
   store i16 0, ptr %14, align 2, !tbaa !82
   %15 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6358,9 +6353,9 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH40EPNS_3H40EimPKh(ptr 
   %10 = mul i32 %.0.copyload.i.i, 506832829
   %11 = lshr i32 %10, 17
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   store i32 -858993460, ptr %13, align 4, !tbaa !61
-  %14 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   store i16 -13108, ptr %14, align 2, !tbaa !82
   %15 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6399,9 +6394,9 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH41EPNS_3H41EimPKh(ptr 
   %10 = mul i32 %.0.copyload.i.i, 506832829
   %11 = lshr i32 %10, 17
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   store i32 -858993460, ptr %13, align 4, !tbaa !61
-  %14 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   store i16 -13108, ptr %14, align 2, !tbaa !82
   %15 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6440,9 +6435,9 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH42EPNS_3H42EimPKh(ptr 
   %10 = mul i32 %.0.copyload.i.i, 506832829
   %11 = lshr i32 %10, 17
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   store i32 -858993460, ptr %13, align 4, !tbaa !61
-  %14 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   store i16 -13108, ptr %14, align 2, !tbaa !82
   %15 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6486,7 +6481,7 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH54EPNS_3H54EimPKh(ptr 
   %11 = add nuw nsw i32 %10, %8
   %12 = and i32 %11, 1048575
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %.8.val, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.8.val, i64 %13
   store i32 0, ptr %14, align 4, !tbaa !61
   %15 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %15, 4
@@ -6575,11 +6570,11 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH35EPNS_3H35EimPKh(ptr 
   %.val.i = load i64, ptr %31, align 1, !alias.scope !633
   %32 = mul i64 %.val.i, 8922571613522624512
   %33 = lshr i64 %32, 48
-  %34 = getelementptr inbounds nuw i32, ptr %.val, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %33
   store i32 0, ptr %34, align 4, !tbaa !61, !noalias !633
   %35 = add nuw nsw i64 %33, 8
   %36 = and i64 %35, 65535
-  %37 = getelementptr inbounds nuw i32, ptr %.val, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !61, !noalias !633
   %38 = add nuw nsw i64 %.0142.i, 1
   %exitcond.not.i = icmp eq i64 %38, %2
@@ -6701,7 +6696,7 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH55EPNS_3H55EimPKh(ptr 
   %37 = add nuw nsw i32 %36, %34
   %38 = and i32 %37, 1048575
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %.val, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %39
   store i32 0, ptr %40, align 4, !tbaa !61, !noalias !647
   %41 = add nuw nsw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %41, 4
@@ -6855,7 +6850,7 @@ define internal fastcc void @_ZN13duckdb_brotliL10PrepareH65EPNS_3H65EimPKh(ptr 
   %.0.copyload.i.i.i = load i64, ptr %54, align 1, !alias.scope !668, !noalias !655
   %55 = mul i64 %.0.copyload.i.i.i, %52
   %56 = lshr i64 %55, 49
-  %57 = getelementptr inbounds nuw i16, ptr %49, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %56
   store i16 0, ptr %57, align 2, !tbaa !82, !noalias !671
   %58 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %58, %2
@@ -6963,12 +6958,12 @@ define internal fastcc void @_ZL32DecideOverLiteralContextModelingPKhmmmimPmPPKj
   %34 = load i8, ptr %33, align 1, !tbaa !72
   %35 = or i8 %34, %31
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @_ZZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPjE28kStaticContextMapComplexUTF8, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPjE28kStaticContextMapComplexUTF8, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !61
   %39 = lshr i8 %28, 3
   %40 = zext nneg i8 %39 to i32
   %41 = zext nneg i8 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %8, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !61
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !61
@@ -6976,7 +6971,7 @@ define internal fastcc void @_ZL32DecideOverLiteralContextModelingPKhmmmimPmPPKj
   %46 = and i32 %45, 8160
   %47 = or disjoint i32 %46, %40
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !61
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4, !tbaa !61
@@ -7005,7 +7000,7 @@ define internal fastcc void @_ZL32DecideOverLiteralContextModelingPKhmmmimPmPPKj
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %.preheader.i
-  %61 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %56
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %56
   %62 = load double, ptr %61, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit64.i
 
@@ -7026,7 +7021,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit64.i:          ; preds = %63, %60
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit64.i
-  %73 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %68
   %74 = load double, ptr %73, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
@@ -7051,7 +7046,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %75, %72
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %69
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %69
   %86 = load double, ptr %85, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit66.i
 
@@ -7089,7 +7084,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit62.i: ; preds = %_ZN13duckdb_brot
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %94
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %94
   %100 = load double, ptr %99, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit70.i
 
@@ -7110,7 +7105,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit70.i:          ; preds = %101, %98
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit70.i
-  %111 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %106
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %106
   %112 = load double, ptr %111, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit68.i
 
@@ -7135,7 +7130,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit68.i:          ; preds = %113, %110
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %107
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %107
   %124 = load double, ptr %123, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit72.i
 
@@ -7187,7 +7182,7 @@ _ZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPj.exit: ; preds = %135
   %141 = load i8, ptr %140, align 1, !tbaa !72
   %142 = lshr i8 %141, 6
   %143 = zext nneg i8 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr @_ZZL32DecideOverLiteralContextModelingPKhmmmimPmPPKjPjE3lut, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL32DecideOverLiteralContextModelingPKhmmmimPmPPKjPjE3lut, i64 %143
   %.038.in.pre = load i32, ptr %144, align 4, !tbaa !61
   br label %.lr.ph
 
@@ -7200,11 +7195,11 @@ _ZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPj.exit: ; preds = %135
   %147 = load i8, ptr %146, align 1, !tbaa !72
   %148 = lshr i8 %147, 6
   %149 = zext nneg i8 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr @_ZZL32DecideOverLiteralContextModelingPKhmmmimPmPPKjPjE3lut, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL32DecideOverLiteralContextModelingPKhmmmimPmPPKjPjE3lut, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !61
   %152 = add nsw i32 %151, %.038
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i32, ptr %8, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %8, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !61
   %156 = add i32 %155, 1
   store i32 %156, ptr %154, align 4, !tbaa !61
@@ -7227,19 +7222,19 @@ _ZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPj.exit: ; preds = %135
 
 158:                                              ; preds = %158, %._crit_edge76
   %.088.i = phi i64 [ 0, %._crit_edge76 ], [ %169, %158 ]
-  %159 = getelementptr inbounds nuw i32, ptr %8, i64 %.088.i
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.088.i
   %160 = load i32, ptr %159, align 4, !tbaa !61
   %.lhs.trunc.i = trunc nuw nsw i64 %.088.i to i8
   %161 = urem i8 %.lhs.trunc.i, 3
   %.zext.i = zext nneg i8 %161 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %10, i64 %.zext.i
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.zext.i
   %163 = load i32, ptr %162, align 4, !tbaa !61
   %164 = add i32 %163, %160
   store i32 %164, ptr %162, align 4, !tbaa !61
   %.urem.i = add nsw i64 %.088.i, -6
   %.cmp.i = icmp samesign ult i64 %.088.i, 6
   %165 = select i1 %.cmp.i, i64 %.088.i, i64 %.urem.i
-  %166 = getelementptr inbounds nuw i32, ptr %11, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !61
   %168 = add i32 %167, %160
   store i32 %168, ptr %166, align 4, !tbaa !61
@@ -7260,7 +7255,7 @@ _ZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPj.exit: ; preds = %135
   br i1 %175, label %176, label %179
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %172
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %172
   %178 = load double, ptr %177, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i52
 
@@ -7288,7 +7283,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i52:          ; preds = %179, %176
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %.preheader.i44
-  %190 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %185
+  %190 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %185
   %191 = load double, ptr %190, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit51.i
 
@@ -7313,7 +7308,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit51.i:          ; preds = %192, %189
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %186
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %186
   %202 = load double, ptr %201, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit49.i
 
@@ -7339,7 +7334,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit46.i: ; preds = %_ZN13duckdb_brot
   br i1 %211, label %212, label %215
 
 212:                                              ; preds = %206
-  %213 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %208
+  %213 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %208
   %214 = load double, ptr %213, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit53.i
 
@@ -7367,7 +7362,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit53.i:          ; preds = %215, %212
   br i1 %225, label %226, label %229
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %222
+  %227 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %222
   %228 = load double, ptr %227, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit57.i
 
@@ -7391,7 +7386,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit57.i:          ; preds = %229, %226
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %223
+  %238 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %223
   %239 = load double, ptr %238, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit55.i
 
@@ -7418,7 +7413,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit40.i: ; preds = %_ZN13duckdb_brot
   br i1 %248, label %249, label %252
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %245
+  %250 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %245
   %251 = load double, ptr %250, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit59.i
 
@@ -7446,7 +7441,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit59.i:          ; preds = %252, %249
   br i1 %261, label %262, label %265
 
 262:                                              ; preds = %256
-  %263 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %258
+  %263 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %258
   %264 = load double, ptr %263, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit63.i
 
@@ -7471,7 +7466,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit63.i:          ; preds = %265, %262
   br i1 %273, label %274, label %277
 
 274:                                              ; preds = %271
-  %275 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %259
+  %275 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %259
   %276 = load double, ptr %275, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit61.i
 
@@ -7504,7 +7499,7 @@ _ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit34.i: ; preds = %_ZN13duckdb_brot
   br i1 %287, label %288, label %291
 
 288:                                              ; preds = %282
-  %289 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %284
+  %289 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %284
   %290 = load double, ptr %289, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65.i
 
@@ -7533,7 +7528,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65.i:          ; preds = %291, %288
   br i1 %301, label %302, label %305
 
 302:                                              ; preds = %295
-  %303 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %298
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %298
   %304 = load double, ptr %303, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit69.i
 
@@ -7557,7 +7552,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit69.i:          ; preds = %305, %302
   br i1 %312, label %313, label %316
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %299
+  %314 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 %299
   %315 = load double, ptr %314, align 8, !tbaa !538
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit67.i
 

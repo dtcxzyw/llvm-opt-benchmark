@@ -643,9 +643,9 @@ define internal fastcc void @wc_Chacha_wordtobyte(ptr noundef nonnull captures(n
 
 132:                                              ; preds = %.preheader, %132
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %132 ]
-  %133 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %134 = load i32, ptr %133, align 4, !tbaa !8
-  %135 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %136 = load i32, ptr %135, align 4, !tbaa !8
   %137 = add i32 %136, %134
   store i32 %137, ptr %133, align 4, !tbaa !8

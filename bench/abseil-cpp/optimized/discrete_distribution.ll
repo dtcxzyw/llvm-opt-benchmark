@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<double, unsigned long>, std::allocator<std::pair<double, unsigned long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<double, unsigned long>, std::allocator<std::pair<double, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<double, unsigned long>, std::allocator<std::pair<double, unsigned long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<double, unsigned long>, std::allocator<std::pair<double, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { double, i64 }
 
 @.str = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -74,7 +73,7 @@ _ZNSt12_Vector_baseISt4pairIdmESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %0, align 8, !tbaa !13
   store ptr %24, ptr %25, align 8, !tbaa !16
-  %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %18
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %18
   store ptr %26, ptr %22, align 8, !tbaa !17
   br label %_ZNSt6vectorISt4pairIdmESaIS1_EE7reserveEm.exit
 
@@ -179,7 +178,7 @@ _ZNSt6vectorISt4pairIdmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairIdmESaIS1_EE17_M_realloc_insertIJRKdiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt4pairIdmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %54, ptr %0, align 8, !tbaa !13
   store ptr %59, ptr %28, align 8, !tbaa !16
-  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %54, i64 %52
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %52
   store ptr %61, ptr %22, align 8, !tbaa !17
   br label %_ZNSt6vectorISt4pairIdmESaIS1_EE12emplace_backIJRKdiEEERS1_DpOT_.exit
 
@@ -243,7 +242,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %81, %.no
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %83, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
-  %84 = getelementptr inbounds nuw i64, ptr %78, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 .loopexit149:                                     ; preds = %_ZNKSt6vectorISt4pairIdmESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -322,7 +321,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i48: ; preds = %103, %
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i50
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i50: ; preds = %105, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i48
-  %106 = getelementptr inbounds nuw i64, ptr %100, i64 %98
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %98
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 .loopexit154:                                     ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i45
@@ -373,10 +372,10 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %86, %_ZNSt6vectorIm
   %111 = getelementptr inbounds i8, ptr %.sroa.12131.2263, i64 -8
   %112 = load i64, ptr %111, align 8, !tbaa !27
   %113 = load ptr, ptr %0, align 8, !tbaa !13
-  %114 = getelementptr inbounds nuw %"struct.std::pair", ptr %113, i64 %110
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %110
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 %112, ptr %115, align 8, !tbaa !21
-  %116 = getelementptr inbounds nuw %"struct.std::pair", ptr %113, i64 %112
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %112
   %117 = load double, ptr %116, align 8, !tbaa !18
   %118 = load double, ptr %114, align 8, !tbaa !18
   %119 = fsub double 1.000000e+00, %118
@@ -440,7 +439,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %138, %.noe
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %140, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-  %141 = getelementptr inbounds nuw i64, ptr %135, i64 %133
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %133
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i60
@@ -501,7 +500,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i63: ; preds = %158, %.n
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i65
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i65: ; preds = %160, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i63
-  %161 = getelementptr inbounds nuw i64, ptr %155, i64 %153
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %153
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i65, %143, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %123
@@ -527,7 +526,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
 .critedge:                                        ; preds = %.lr.ph274, %.critedge
   %.sroa.088.0273 = phi ptr [ %.sroa.0125.3.lcssa, %.lr.ph274 ], [ %168, %.critedge ]
   %165 = load i64, ptr %.sroa.088.0273, align 8, !tbaa !27
-  %166 = getelementptr inbounds nuw %"struct.std::pair", ptr %108, i64 %165
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %165
   store double 1.000000e+00, ptr %166, align 8, !tbaa !18
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i64 %165, ptr %167, align 8, !tbaa !21
@@ -563,7 +562,7 @@ _ZNSt6vectorImSaImEED2Ev.exit71:                  ; preds = %_ZNSt6vectorISt4pai
 177:                                              ; preds = %.lr.ph277, %177
   %.sroa.079.0276 = phi ptr [ %.sroa.0111.3.lcssa, %.lr.ph277 ], [ %181, %177 ]
   %178 = load i64, ptr %.sroa.079.0276, align 8, !tbaa !27
-  %179 = getelementptr inbounds nuw %"struct.std::pair", ptr %164, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %178
   store double 1.000000e+00, ptr %179, align 8, !tbaa !18
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i64 %178, ptr %180, align 8, !tbaa !21

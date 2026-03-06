@@ -16,11 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.t_filenm = type { i32, ptr, ptr, i64, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -88,7 +83,7 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %15, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 1, %15 ]
-  %23 = getelementptr inbounds nuw i32, ptr @_ZL15canViewFileType, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @_ZL15canViewFileType, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = icmp eq i32 %16, %24
   br i1 %25, label %_ZL8can_viewi.exit, label %26
@@ -326,13 +321,13 @@ define void @_Z8view_allPK16gmx_output_env_tiP8t_filenm(ptr noundef %0, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL8can_viewi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL8can_viewi.exit.thread ]
-  %5 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8, !tbaa !25
   br label %7
 
 7:                                                ; preds = %11, %.lr.ph
   %indvars.iv.i = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL15canViewFileType, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL15canViewFileType, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %_ZL8can_viewi.exit, label %11

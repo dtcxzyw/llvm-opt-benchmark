@@ -26,9 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.16" = type { ptr, %"class.std::__shared_count" }
 %"class.cv::FileNode" = type { ptr, i64, i64 }
 %"class.std::allocator" = type { i8 }
-%"struct.cv::stereo::MatchQuasiDense" = type { %"class.cv::Point_.19", %"class.cv::Point_.19", float }
-%"class.cv::Point_.19" = type { i32, i32 }
-%"class.cv::Point_" = type { float, float }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
@@ -41,6 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 %"class.cv::TermCriteria" = type { i32, i32, double }
+%"class.cv::Point_.19" = type { i32, i32 }
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
@@ -49,6 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<cv::stereo::MatchQuasiDense, std::allocator<cv::stereo::MatchQuasiDense>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::stereo::MatchQuasiDense, std::allocator<cv::stereo::MatchQuasiDense>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::stereo::MatchQuasiDense, std::allocator<cv::stereo::MatchQuasiDense>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::stereo::MatchQuasiDense, std::allocator<cv::stereo::MatchQuasiDense>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.cv::stereo::MatchQuasiDense" = type { %"class.cv::Point_.19", %"class.cv::Point_.19", float }
 
 $__clang_call_terminate = comdat any
 
@@ -3125,7 +3124,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE13_M_deallocateEPS2_m.e
   store ptr %29, ptr %1, align 8, !tbaa !72
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store ptr %33, ptr %4, align 8, !tbaa !75
-  %34 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %29, i64 %15
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %29, i64 %15
   store ptr %34, ptr %19, align 8, !tbaa !76
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit
 
@@ -3148,7 +3147,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %18
   %41 = phi ptr [ %36, %.lr.ph ], [ %88, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %42 = phi i64 [ 0, %.lr.ph ], [ %86, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %85, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
-  %43 = getelementptr inbounds nuw %"class.cv::Point_", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !84
   %45 = insertelement <4 x float> poison, float %44, i64 0
   %46 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %45)
@@ -3161,7 +3160,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %18
   %.sroa.0.0.insert.ext.i = zext i32 %46 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %51 = load ptr, ptr %38, align 8, !tbaa !42
-  %52 = getelementptr inbounds nuw %"class.cv::Point_", ptr %51, i64 %42
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %42
   %53 = load float, ptr %52, align 4, !tbaa !84
   %54 = insertelement <4 x float> poison, float %53, i64 0
   %55 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %54)
@@ -3242,7 +3241,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %82, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %77, ptr %1, align 8, !tbaa !72
   store ptr %81, ptr %4, align 8, !tbaa !75
-  %83 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %77, i64 %75
+  %83 = getelementptr inbounds nuw [20 x i8], ptr %77, i64 %75
   store ptr %83, ptr %19, align 8, !tbaa !76
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
 
@@ -3323,7 +3322,7 @@ _ZNSt12_Vector_baseIN2cv6stereo15MatchQuasiDenseESaIS2_EE13_M_deallocateEPS2_m.e
   store ptr %24, ptr %1, align 8, !tbaa !72
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store ptr %28, ptr %4, align 8, !tbaa !75
-  %29 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %24, i64 %10
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %24, i64 %10
   store ptr %29, ptr %14, align 8, !tbaa !76
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit
 
@@ -3379,7 +3378,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE7reserveEm.exit: ; preds = %13
   %52 = load i64, ptr %51, align 8, !tbaa !30
   %53 = mul i64 %52, %indvars.iv40
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
-  %55 = getelementptr inbounds nuw %"class.cv::Point_.19", ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load i64, ptr %55, align 4
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit, label %58
@@ -3454,7 +3453,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %81, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %76, ptr %1, align 8, !tbaa !72
   store ptr %80, ptr %4, align 8, !tbaa !75
-  %82 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [20 x i8], ptr %76, i64 %74
   store ptr %82, ptr %14, align 8, !tbaa !76
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
 
@@ -3579,7 +3578,7 @@ define linkonce_odr hidden <2 x float> @_ZN2cv6stereo20QuasiDenseStereoImpl8getM
   %10 = mul i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %"class.cv::Point_.19", ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !122
   %15 = sitofp i32 %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -3915,7 +3914,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %81, label %82, label %105
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds nuw %"class.cv::Point_", ptr %76, i64 %.054
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.054
   %84 = getelementptr inbounds i8, ptr %77, i64 -8
   %85 = load i64, ptr %83, align 4
   %86 = load i64, ptr %84, align 4
@@ -3936,7 +3935,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %96 = getelementptr inbounds i8, ptr %95, i64 -1
   store ptr %96, ptr %69, align 8, !tbaa !135
   %97 = load ptr, ptr %4, align 8, !tbaa !42
-  %98 = getelementptr inbounds nuw %"class.cv::Point_", ptr %97, i64 %.054
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.054
   %99 = load ptr, ptr %22, align 8, !tbaa !136
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   %101 = load i64, ptr %98, align 4
@@ -4156,7 +4155,7 @@ _ZN2cv4Mat_INS_6Point_IiEEEaSEOS3_.exit:          ; preds = %_ZN2cv4Mat_INS_6Poi
   %91 = fcmp ogt float %90, %74
   %.sroa.speculated.i = select i1 %91, float %90, float %74
   %92 = fptosi float %.sroa.speculated.i to i32
-  %93 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i
   store i32 %92, ptr %93, align 4, !tbaa !70
   %94 = load i32, ptr %15, align 8, !tbaa !106
   %95 = add nsw i32 %94, -1
@@ -4256,7 +4255,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit: ;
   %160 = fcmp ogt float %159, %143
   %.sroa.speculated.i82 = select i1 %160, float %159, float %143
   %161 = fptosi float %.sroa.speculated.i82 to i32
-  %162 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i80
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i80
   store i32 %161, ptr %162, align 4, !tbaa !70
   %163 = load i32, ptr %15, align 8, !tbaa !106
   %164 = add nsw i32 %163, -1
@@ -4383,17 +4382,17 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
   %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %216 ]
   %224 = shl i64 %.038.i.i.i.i, 1
   %225 = add i64 %224, 2
-  %226 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %225
+  %226 = getelementptr inbounds [20 x i8], ptr %211, i64 %225
   %227 = or disjoint i64 %224, 1
-  %228 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %227
+  %228 = getelementptr inbounds [20 x i8], ptr %211, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %230 = load float, ptr %229, align 4, !tbaa !141
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %232 = load float, ptr %231, align 4, !tbaa !141
   %233 = fcmp olt float %230, %232
   %spec.select.i.i.i.i = select i1 %233, i64 %227, i64 %225
-  %234 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %spec.select.i.i.i.i
-  %235 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %.038.i.i.i.i
+  %234 = getelementptr inbounds [20 x i8], ptr %211, i64 %spec.select.i.i.i.i
+  %235 = getelementptr inbounds [20 x i8], ptr %211, i64 %.038.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %235, ptr noundef nonnull align 4 dereferenceable(20) %234, i64 20, i1 false), !tbaa.struct !77
   %236 = icmp slt i64 %spec.select.i.i.i.i, %222
   br i1 %236, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !143
@@ -4413,8 +4412,8 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
 .thread.i.i.i:                                    ; preds = %239
   %243 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %244 = or disjoint i64 %243, 1
-  %245 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %244
-  %246 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %.0.lcssa.i.i.i.i
+  %245 = getelementptr inbounds nuw [20 x i8], ptr %211, i64 %244
+  %246 = getelementptr inbounds [20 x i8], ptr %211, i64 %.0.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %246, ptr noundef nonnull align 4 dereferenceable(20) %245, i64 20, i1 false), !tbaa.struct !77
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -4430,21 +4429,21 @@ _ZN2cv6stereo20QuasiDenseStereoImpl22buildTextureDescriptorERNS_3MatES3_.exit.th
   %.018.i.i.i.i.i = phi i64 [ %.0919.i.i1011.i.i.i, %252 ], [ %.018.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i.i = add nsw i64 %.018.i.i.i.i.i, -1
   %.0919.i.i1011.i.i.i = lshr i64 %.0919.in.i.i.i.i.i, 1
-  %248 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %.0919.i.i1011.i.i.i
+  %248 = getelementptr inbounds nuw [20 x i8], ptr %211, i64 %.0919.i.i1011.i.i.i
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %250 = load float, ptr %249, align 4, !tbaa !141
   %251 = fcmp olt float %250, %.sroa.49.0.copyload.i.i.i
   br i1 %251, label %252, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
 252:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %253 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %.018.i.i.i.i.i
+  %253 = getelementptr inbounds [20 x i8], ptr %211, i64 %.018.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %253, ptr noundef nonnull align 4 dereferenceable(20) %248, i64 20, i1 false), !tbaa.struct !77
   %.not12.i.i.i = icmp eq i64 %.0919.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !144
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i: ; preds = %252, %.lr.ph.i.i.i.i.i, %247
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %247 ], [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %252 ]
-  %254 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %211, i64 %.0.lcssa.i.i.i.i.i
+  %254 = getelementptr inbounds [20 x i8], ptr %211, i64 %.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %254, i64 16
   store float %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 4, !tbaa !71
@@ -4556,7 +4555,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %300 = load i64, ptr %299, align 8, !tbaa !30
   %301 = mul i64 %300, %289
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 %301
-  %303 = getelementptr inbounds %"class.cv::Point_.19", ptr %302, i64 %297
+  %303 = getelementptr inbounds [8 x i8], ptr %302, i64 %297
   %.val60 = load i32, ptr %303, align 4, !tbaa !122
   %304 = getelementptr i8, ptr %303, i64 4
   %.val61 = load i32, ptr %304, align 4
@@ -4571,7 +4570,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %310 = load i64, ptr %309, align 8, !tbaa !30
   %311 = mul i64 %310, %289
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %311
-  %313 = getelementptr inbounds i32, ptr %312, i64 %297
+  %313 = getelementptr inbounds [4 x i8], ptr %312, i64 %297
   %314 = load i32, ptr %313, align 4, !tbaa !70
   %315 = sitofp i32 %314 to float
   %316 = load float, ptr %198, align 4, !tbaa !54
@@ -4632,7 +4631,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %333 = load i64, ptr %332, align 8, !tbaa !30
   %334 = mul i64 %333, %326
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 %334
-  %336 = getelementptr inbounds %"class.cv::Point_.19", ptr %335, i64 %330
+  %336 = getelementptr inbounds [8 x i8], ptr %335, i64 %330
   %.val = load i32, ptr %336, align 4, !tbaa !122
   %337 = getelementptr i8, ptr %336, i64 4
   %.val57 = load i32, ptr %337, align 4
@@ -4647,7 +4646,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %343 = load i64, ptr %342, align 8, !tbaa !30
   %344 = mul i64 %343, %326
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 %344
-  %346 = getelementptr inbounds i32, ptr %345, i64 %330
+  %346 = getelementptr inbounds [4 x i8], ptr %345, i64 %330
   %347 = load i32, ptr %346, align 4, !tbaa !70
   %348 = sitofp i32 %347 to float
   %349 = load float, ptr %198, align 4, !tbaa !54
@@ -4735,7 +4734,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %376, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
-  %377 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %372, i64 %370
+  %377 = getelementptr inbounds nuw [20 x i8], ptr %372, i64 %370
   %.sroa.410.0..sroa.0.0..sroa_idx.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
   %.sroa.410.0.copyload.i.i.pre = load float, ptr %.sroa.410.0..sroa.0.0..sroa_idx.i.i.phi.trans.insert, align 4, !tbaa !71
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i
@@ -4760,21 +4759,21 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %.018.i.i.i = phi i64 [ %.0919.i1112.i.i, %388 ], [ %382, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i ]
   %.0919.in.i.i.i = add nsw i64 %.018.i.i.i, -1
   %.0919.i1112.i.i = lshr i64 %.0919.in.i.i.i, 1
-  %384 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.8, i64 %.0919.i1112.i.i
+  %384 = getelementptr inbounds nuw [20 x i8], ptr %.sroa.0165.8, i64 %.0919.i1112.i.i
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load float, ptr %385, align 4, !tbaa !141
   %387 = fcmp olt float %386, %.sroa.410.0.copyload.i.i
   br i1 %387, label %388, label %.loopexit
 
 388:                                              ; preds = %.lr.ph.i.i.i
-  %389 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.8, i64 %.018.i.i.i
+  %389 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.8, i64 %.018.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %389, ptr noundef nonnull align 4 dereferenceable(20) %384, i64 20, i1 false), !tbaa.struct !77
   %.not.i3.i = icmp eq i64 %.0919.i1112.i.i, 0
   br i1 %.not.i3.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !144
 
 .loopexit:                                        ; preds = %388, %.lr.ph.i.i.i, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i
   %.0.lcssa.i.i.i = phi i64 [ %382, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i ], [ %.018.i.i.i, %.lr.ph.i.i.i ], [ 0, %388 ]
-  %390 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.8, i64 %.0.lcssa.i.i.i
+  %390 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.8, i64 %.0.lcssa.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %390, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i.i, i64 16, i1 false), !tbaa.struct !77
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %390, i64 16
   store float %.sroa.410.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !71
@@ -4849,17 +4848,17 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %.038.i.i.i.i109 = phi i64 [ %spec.select.i.i.i.i110, %.lr.ph.i.i.i.i108 ], [ 0, %403 ]
   %411 = shl i64 %.038.i.i.i.i109, 1
   %412 = add i64 %411, 2
-  %413 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %412
+  %413 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %412
   %414 = or disjoint i64 %411, 1
-  %415 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %414
+  %415 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %414
   %416 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %417 = load float, ptr %416, align 4, !tbaa !141
   %418 = getelementptr inbounds nuw i8, ptr %415, i64 16
   %419 = load float, ptr %418, align 4, !tbaa !141
   %420 = fcmp olt float %417, %419
   %spec.select.i.i.i.i110 = select i1 %420, i64 %414, i64 %412
-  %421 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %spec.select.i.i.i.i110
-  %422 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %.038.i.i.i.i109
+  %421 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %spec.select.i.i.i.i110
+  %422 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %.038.i.i.i.i109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %422, ptr noundef nonnull align 4 dereferenceable(20) %421, i64 20, i1 false), !tbaa.struct !77
   %423 = icmp slt i64 %spec.select.i.i.i.i110, %409
   br i1 %423, label %.lr.ph.i.i.i.i108, label %._crit_edge.i.i.i.i93, !llvm.loop !143
@@ -4879,8 +4878,8 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
 .thread.i.i.i107:                                 ; preds = %426
   %430 = shl nuw nsw i64 %.0.lcssa.i.i.i.i94, 1
   %431 = or disjoint i64 %430, 1
-  %432 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %431
-  %433 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %.0.lcssa.i.i.i.i94
+  %432 = getelementptr inbounds nuw [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %431
+  %433 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %.0.lcssa.i.i.i.i94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %433, ptr noundef nonnull align 4 dereferenceable(20) %432, i64 20, i1 false), !tbaa.struct !77
   br label %.lr.ph.i.i.i.i.i98.preheader
 
@@ -4896,21 +4895,21 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit.i: ; pre
   %.018.i.i.i.i.i99 = phi i64 [ %.0919.i.i1011.i.i.i101, %439 ], [ %.018.i.i.i.i.i99.ph, %.lr.ph.i.i.i.i.i98.preheader ]
   %.0919.in.i.i.i.i.i100 = add nsw i64 %.018.i.i.i.i.i99, -1
   %.0919.i.i1011.i.i.i101 = lshr i64 %.0919.in.i.i.i.i.i100, 1
-  %435 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %.0919.i.i1011.i.i.i101
+  %435 = getelementptr inbounds nuw [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %.0919.i.i1011.i.i.i101
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 16
   %437 = load float, ptr %436, align 4, !tbaa !141
   %438 = fcmp olt float %437, %.sroa.49.0.copyload.i.i.i92
   br i1 %438, label %439, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i102
 
 439:                                              ; preds = %.lr.ph.i.i.i.i.i98
-  %440 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %.018.i.i.i.i.i99
+  %440 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %.018.i.i.i.i.i99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %440, ptr noundef nonnull align 4 dereferenceable(20) %435, i64 20, i1 false), !tbaa.struct !77
   %.not12.i.i.i106 = icmp eq i64 %.0919.i.i1011.i.i.i101, 0
   br i1 %.not12.i.i.i106, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i102, label %.lr.ph.i.i.i.i.i98, !llvm.loop !144
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i102: ; preds = %439, %.lr.ph.i.i.i.i.i98, %434
   %.0.lcssa.i.i.i.i.i103 = phi i64 [ 0, %434 ], [ %.018.i.i.i.i.i99, %.lr.ph.i.i.i.i.i98 ], [ 0, %439 ]
-  %441 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %.sroa.0165.3.lcssa, i64 %.0.lcssa.i.i.i.i.i103
+  %441 = getelementptr inbounds [20 x i8], ptr %.sroa.0165.3.lcssa, i64 %.0.lcssa.i.i.i.i.i103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %441, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i90, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i104 = getelementptr inbounds nuw i8, ptr %441, i64 16
   store float %.sroa.49.0.copyload.i.i.i92, ptr %.sroa.4.0..sroa_idx.i.i.i.i104, align 4, !tbaa !71
@@ -4928,7 +4927,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   %450 = mul i64 %448, %449
   %451 = getelementptr inbounds nuw i8, ptr %446, i64 %450
   %452 = sext i32 %445 to i64
-  %453 = getelementptr inbounds %"class.cv::Point_.19", ptr %451, i64 %452
+  %453 = getelementptr inbounds [8 x i8], ptr %451, i64 %452
   %.val68 = load i32, ptr %453, align 4, !tbaa !122
   %454 = getelementptr i8, ptr %453, i64 4
   %.val69 = load i32, ptr %454, align 4
@@ -4953,7 +4952,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   %465 = mul i64 %463, %464
   %466 = getelementptr inbounds nuw i8, ptr %461, i64 %465
   %467 = sext i32 %460 to i64
-  %468 = getelementptr inbounds %"class.cv::Point_.19", ptr %466, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr %466, i64 %467
   %.val64 = load i32, ptr %468, align 4, !tbaa !122
   %469 = getelementptr i8, ptr %468, i64 4
   %.val65 = load i32, ptr %469, align 4
@@ -4974,7 +4973,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt
   %480 = mul i64 %478, %479
   %481 = getelementptr inbounds nuw i8, ptr %476, i64 %480
   %482 = sext i32 %475 to i64
-  %483 = getelementptr inbounds %"class.cv::Point_.19", ptr %481, i64 %482
+  %483 = getelementptr inbounds [8 x i8], ptr %481, i64 %482
   %484 = load i64, ptr %13, align 8
   store i64 %484, ptr %483, align 4
   %485 = load i32, ptr %14, align 8, !tbaa !92
@@ -5083,7 +5082,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl18extractSpa
   %.028 = phi i32 [ 0, %.lr.ph ], [ %95, %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !84
   %29 = insertelement <4 x float> poison, float %28, i64 0
   %30 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %29)
@@ -5097,7 +5096,7 @@ define linkonce_odr hidden void @_ZN2cv6stereo20QuasiDenseStereoImpl18extractSpa
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %7, align 8
   %35 = load ptr, ptr %3, align 8, !tbaa !42
-  %36 = getelementptr inbounds nuw %"class.cv::Point_", ptr %35, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %26
   %37 = load float, ptr %36, align 4, !tbaa !84
   %38 = insertelement <4 x float> poison, float %37, i64 0
   %39 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %38)
@@ -5175,7 +5174,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %79 = mul i64 %77, %78
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 %79
   %81 = sext i32 %74 to i64
-  %82 = getelementptr inbounds %"class.cv::Point_.19", ptr %80, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %80, i64 %81
   %83 = load i64, ptr %11, align 8
   store i64 %83, ptr %82, align 4
   %84 = load i32, ptr %.sroa.425.0..sroa_idx, align 4, !tbaa !157
@@ -5187,7 +5186,7 @@ _ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit
   %90 = mul i64 %88, %89
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 %90
   %92 = sext i32 %85 to i64
-  %93 = getelementptr inbounds %"class.cv::Point_.19", ptr %91, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %91, i64 %92
   %94 = load i64, ptr %7, align 8
   store i64 %94, ptr %93, align 4
   br label %_ZN2cv6stereo20QuasiDenseStereoImpl11CheckBorderENS0_15MatchQuasiDenseEiiii.exit.thread
@@ -5492,7 +5491,7 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %23, ptr %0, align 8, !tbaa !72
   store ptr %27, ptr %3, align 8, !tbaa !75
-  %29 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8, !tbaa !76
   br label %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
 
@@ -5516,21 +5515,21 @@ _ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit: ; preds
   %.018.i.i = phi i64 [ %.0919.i1112.i, %43 ], [ %37, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i1112.i = lshr i64 %.0919.in.i.i, 1
-  %39 = getelementptr inbounds nuw %"struct.cv::stereo::MatchQuasiDense", ptr %31, i64 %.0919.i1112.i
+  %39 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %.0919.i1112.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load float, ptr %40, align 4, !tbaa !141
   %42 = fcmp olt float %41, %.sroa.410.0.copyload.i
   br i1 %42, label %43, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit
 
 43:                                               ; preds = %.lr.ph.i.i
-  %44 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %31, i64 %.018.i.i
+  %44 = getelementptr inbounds [20 x i8], ptr %31, i64 %.018.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false), !tbaa.struct !77
   %.not.i3 = icmp eq i64 %.0919.i1112.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit, label %.lr.ph.i.i, !llvm.loop !144
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6stereo15MatchQuasiDenseESt6vectorIS4_SaIS4_EEEESt4lessIS4_EEvT_SC_T0_.exit: ; preds = %.lr.ph.i.i, %43, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit
   %.0.lcssa.i.i = phi i64 [ %37, %_ZNSt6vectorIN2cv6stereo15MatchQuasiDenseESaIS2_EE9push_backERKS2_.exit ], [ 0, %43 ], [ %.018.i.i, %.lr.ph.i.i ]
-  %45 = getelementptr inbounds %"struct.cv::stereo::MatchQuasiDense", ptr %31, i64 %.0.lcssa.i.i
+  %45 = getelementptr inbounds [20 x i8], ptr %31, i64 %.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.i, i64 16, i1 false), !tbaa.struct !77
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 16
   store float %.sroa.410.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !71

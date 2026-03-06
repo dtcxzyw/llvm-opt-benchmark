@@ -194,7 +194,7 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
 
 .preheader:                                       ; preds = %10, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %10 ]
-  %28 = getelementptr inbounds nuw %struct.AttachOperationFunctionInfo, ptr @_ZL5funcs, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @_ZL5funcs, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 16
   %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %29) #9
   %31 = icmp eq i32 %30, 0

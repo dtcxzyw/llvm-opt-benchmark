@@ -361,7 +361,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %40, ptr %26, align 8
   store ptr %45, ptr %18, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   store ptr %46, ptr %20, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 
@@ -558,7 +558,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %40, ptr %26, align 8
   store ptr %45, ptr %18, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   store ptr %46, ptr %20, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 
@@ -674,7 +674,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %40, ptr %26, align 8
   store ptr %45, ptr %18, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   store ptr %46, ptr %20, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 
@@ -905,7 +905,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %40, ptr %26, align 8
   store ptr %45, ptr %18, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   store ptr %46, ptr %20, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 
@@ -1085,7 +1085,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %40, ptr %26, align 8
   store ptr %45, ptr %18, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   store ptr %46, ptr %20, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 
@@ -1279,7 +1279,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %43, ptr %29, align 8
   store ptr %48, ptr %21, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %40
   store ptr %49, ptr %23, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 
@@ -1397,7 +1397,7 @@ _ZNSt6vectorIP11TIntermNodeN7glslang14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
   store ptr %40, ptr %26, align 8
   store ptr %45, ptr %18, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %37
   store ptr %46, ptr %20, align 8
   br label %_ZN7glslang16TIntermTraverser14incrementDepthEP11TIntermNode.exit
 

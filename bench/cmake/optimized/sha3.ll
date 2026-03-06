@@ -481,7 +481,7 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nounde
   %307 = xor i64 %213, -1
   %308 = and i64 %219, %307
   %309 = xor i64 %308, %232
-  %310 = getelementptr inbounds nuw i64, ptr @keccak_round_constants, i64 %indvars.iv.i
+  %310 = getelementptr inbounds nuw [8 x i8], ptr @keccak_round_constants, i64 %indvars.iv.i
   %311 = load i64, ptr %310, align 8, !tbaa !12
   %312 = xor i64 %311, %237
   %313 = xor i64 %312, %187

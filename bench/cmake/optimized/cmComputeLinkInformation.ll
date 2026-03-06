@@ -130,7 +130,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, cmComputeLinkInformation::FeatureDescriptor>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, cmComputeLinkInformation::FeatureDescriptor>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%"struct.cmComputeLinkInformation::Item" = type { %class.BT, i32, ptr, ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -18880,7 +18879,7 @@ _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %164, %_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %159, ptr %31, align 8, !tbaa !488
   store ptr %163, ptr %32, align 8, !tbaa !951
-  %165 = getelementptr inbounds nuw ptr, ptr %159, i64 %157
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %157
   store ptr %165, ptr %33, align 8, !tbaa !489
   br label %_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit
 
@@ -26560,7 +26559,7 @@ _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %66, %_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %61, ptr %3, align 8, !tbaa !488
   store ptr %65, ptr %5, align 8, !tbaa !951
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %67, ptr %48, align 8, !tbaa !489
   br label %_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -32822,7 +32821,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
   %4 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !332, !noalias !1217
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %11
@@ -32837,7 +32836,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %5
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8, !tbaa !332, !noalias !1217
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %7 to i64
@@ -36580,7 +36579,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !482
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !483
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !486
   ret void
 
@@ -36913,7 +36912,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !482
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !483
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !486
   ret void
 }
@@ -38923,7 +38922,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, %87
   store ptr %22, ptr %0, align 8, !tbaa !622
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !618
-  %91 = getelementptr inbounds nuw %class.BT, ptr %22, i64 %16
+  %91 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %91, ptr %86, align 8, !tbaa !620
   ret void
 }
@@ -39163,7 +39162,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit36, %68
   store ptr %22, ptr %0, align 8, !tbaa !622
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !618
-  %72 = getelementptr inbounds nuw %class.BT, ptr %22, i64 %16
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %72, ptr %67, align 8, !tbaa !620
   ret void
 
@@ -39555,7 +39554,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %106
   store ptr %24, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !606
-  %110 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %24, i64 %18
+  %110 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %18
   store ptr %110, ptr %105, align 8, !tbaa !615
   ret void
 }
@@ -40253,7 +40252,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit36, %98
   store ptr %23, ptr %0, align 8, !tbaa !622
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !618
-  %102 = getelementptr inbounds nuw %class.BT, ptr %23, i64 %17
+  %102 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %102, ptr %97, align 8, !tbaa !620
   ret void
 
@@ -40904,7 +40903,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %113
   store ptr %27, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i39, ptr %9, align 8, !tbaa !606
-  %117 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %27, i64 %21
+  %117 = getelementptr inbounds nuw [80 x i8], ptr %27, i64 %21
   store ptr %117, ptr %112, align 8, !tbaa !615
   ret void
 }
@@ -41083,7 +41082,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, %74
   store ptr %24, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !606
-  %78 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %24, i64 %18
+  %78 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %18
   store ptr %78, ptr %73, align 8, !tbaa !615
   ret void
 
@@ -41425,7 +41424,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, %74
   store ptr %24, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !606
-  %78 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %24, i64 %18
+  %78 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %18
   store ptr %78, ptr %73, align 8, !tbaa !615
   ret void
 
@@ -41759,7 +41758,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %76
   store ptr %26, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i39, ptr %8, align 8, !tbaa !606
-  %80 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %26, i64 %20
+  %80 = getelementptr inbounds nuw [80 x i8], ptr %26, i64 %20
   store ptr %80, ptr %75, align 8, !tbaa !615
   ret void
 
@@ -42109,7 +42108,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %73
   store ptr %23, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !606
-  %77 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !615
   ret void
 
@@ -42458,7 +42457,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %76
   store ptr %26, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i39, ptr %8, align 8, !tbaa !606
-  %80 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %26, i64 %20
+  %80 = getelementptr inbounds nuw [80 x i8], ptr %26, i64 %20
   store ptr %80, ptr %75, align 8, !tbaa !615
   ret void
 
@@ -42795,7 +42794,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %76
   store ptr %26, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i39, ptr %8, align 8, !tbaa !606
-  %80 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %26, i64 %20
+  %80 = getelementptr inbounds nuw [80 x i8], ptr %26, i64 %20
   store ptr %80, ptr %75, align 8, !tbaa !615
   ret void
 
@@ -43132,7 +43131,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %73
   store ptr %23, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !606
-  %77 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !615
   ret void
 
@@ -43588,7 +43587,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %73
   store ptr %23, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !606
-  %77 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !615
   ret void
 
@@ -43929,7 +43928,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %76
   store ptr %26, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i39, ptr %8, align 8, !tbaa !606
-  %80 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %26, i64 %20
+  %80 = getelementptr inbounds nuw [80 x i8], ptr %26, i64 %20
   store ptr %80, ptr %75, align 8, !tbaa !615
   ret void
 
@@ -44281,7 +44280,7 @@ _ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 _ZNSt12_Vector_baseIN24cmComputeLinkInformation4ItemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN24cmComputeLinkInformation4ItemESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %76
   store ptr %26, ptr %0, align 8, !tbaa !605
   store ptr %.0.lcssa.i.i.i39, ptr %8, align 8, !tbaa !606
-  %80 = getelementptr inbounds nuw %"struct.cmComputeLinkInformation::Item", ptr %26, i64 %20
+  %80 = getelementptr inbounds nuw [80 x i8], ptr %26, i64 %20
   store ptr %80, ptr %75, align 8, !tbaa !615
   ret void
 

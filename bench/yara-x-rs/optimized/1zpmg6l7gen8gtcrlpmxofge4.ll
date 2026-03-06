@@ -604,7 +604,7 @@ define { ptr, ptr } @_ZN13yara_x_parser3ast3AST7imports17he1f3e07881e389b3E(ptr 
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -616,7 +616,7 @@ define { ptr, ptr } @_ZN13yara_x_parser3ast3AST5rules17h1817c026e53296e4E(ptr no
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -635,7 +635,7 @@ define noundef zeroext i1 @"_ZN60_$LT$yara_x_parser..ast..AST$u20$as$u20$core..f
   %11 = load ptr, ptr %10, align 8, !alias.scope !76, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !76, !noundef !4
-  %14 = getelementptr inbounds nuw { i64, [14 x i64] }, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [120 x i8], ptr %11, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %11, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1289,10 +1289,10 @@ define { ptr, i64 } @_ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9e
 switch.lookup:
   %1 = load i8, ptr %0, align 8, !range !129, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E.12, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN13yara_x_parser3ast15PatternModifier7as_text17hc423faa9ec082025E.12, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -1625,7 +1625,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN13yara_x_parser3ast8N
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr { i32, [3 x i32] }, ptr %7, i64 %3
+  %8 = getelementptr [16 x i8], ptr %7, i64 %3
   %9 = getelementptr i8, ptr %8, i64 -16
   ret ptr %9
 }
@@ -1810,7 +1810,7 @@ define { i32, i32 } @"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yar
   ret { i32, i32 } %.merged
 
 26:                                               ; preds = %22
-  %27 = getelementptr { i32, [5 x i32] }, ptr %6, i64 %3
+  %27 = getelementptr [24 x i8], ptr %6, i64 %3
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i32, ptr %28, align 8, !range !173, !alias.scope !177, !noundef !4
   switch i32 %29, label %38 [
@@ -1884,7 +1884,7 @@ define { i32, i32 } @"_ZN78_$LT$yara_x_parser..ast..MetaValue$u20$as$u20$yara_x_
   br i1 %4, label %switch.lookup, label %5
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$yara_x_parser..ast..MetaValue$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h3d8e7e311c00cf2eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$yara_x_parser..ast..MetaValue$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h3d8e7e311c00cf2eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %5
 
@@ -1980,7 +1980,7 @@ define { i32, i32 } @"_ZN76_$LT$yara_x_parser..ast..OfItems$u20$as$u20$yara_x_pa
   br i1 %23, label %"_ZN79_$LT$yara_x_parser..ast..PatternSet$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hadad8125b73a8bbaE.exit", label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr { { ptr, i64 }, { { i32, i32 } }, i8, [7 x i8] }, ptr %19, i64 %13
+  %25 = getelementptr [32 x i8], ptr %19, i64 %13
   %26 = getelementptr i8, ptr %25, i64 -12
   %.val1.i11.i = load i32, ptr %26, align 4, !alias.scope !198, !noalias !181, !noundef !4
   br label %"_ZN79_$LT$yara_x_parser..ast..PatternSet$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hadad8125b73a8bbaE.exit"
@@ -2122,7 +2122,7 @@ default.unreachable15:                            ; preds = %1
   %12 = load ptr, ptr %11, align 8, !alias.scope !212, !nonnull !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.not8.i.i = icmp eq i64 %7, 1
-  %14 = getelementptr { i8, [63 x i8] }, ptr %12, i64 %7
+  %14 = getelementptr [64 x i8], ptr %12, i64 %7
   %15 = getelementptr i8, ptr %14, i64 -56
   %.sroa.0.0.val1.i5.pn.in.i.i = select i1 %.not8.i.i, ptr %13, ptr %15
   %.pn8.in.i = select i1 %9, ptr %10, ptr %.sroa.0.0.val1.i5.pn.in.i.i
@@ -2186,7 +2186,7 @@ default.unreachable15:                            ; preds = %1
   br i1 %41, label %"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17he244673be063919cE.exit", label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr { i32, [5 x i32] }, ptr %27, i64 %24
+  %43 = getelementptr [24 x i8], ptr %27, i64 %24
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i32, ptr %44, align 8, !range !173, !alias.scope !225, !noalias !221, !noundef !4
   switch i32 %45, label %54 [
@@ -2218,7 +2218,7 @@ default.unreachable15:                            ; preds = %1
   %57 = load ptr, ptr %56, align 8, !alias.scope !228, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.not8.i.i2 = icmp eq i64 %18, 1
-  %59 = getelementptr { i8, [63 x i8] }, ptr %57, i64 %18
+  %59 = getelementptr [64 x i8], ptr %57, i64 %18
   %60 = getelementptr i8, ptr %59, i64 -56
   %.sroa.0.0.val1.i5.pn.in.i.i3 = select i1 %.not8.i.i2, ptr %58, ptr %60
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split.i"
@@ -2239,7 +2239,7 @@ default.unreachable15:                            ; preds = %1
   %68 = load ptr, ptr %67, align 8, !alias.scope !231, !nonnull !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.not8.i.i5 = icmp eq i64 %63, 1
-  %70 = getelementptr { i8, [63 x i8] }, ptr %68, i64 %63
+  %70 = getelementptr [64 x i8], ptr %68, i64 %63
   %71 = getelementptr i8, ptr %70, i64 -56
   %.sroa.0.0.val1.i5.pn.in.i.i6 = select i1 %.not8.i.i5, ptr %69, ptr %71
   %.pn8.in.i7 = select i1 %65, ptr %66, ptr %.sroa.0.0.val1.i5.pn.in.i.i6
@@ -2268,7 +2268,7 @@ define { i32, i32 } @"_ZN80_$LT$yara_x_parser..ast..TextPattern$u20$as$u20$yara_
   %8 = load ptr, ptr %7, align 8, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.not8.i = icmp eq i64 %3, 1
-  %10 = getelementptr { i8, [63 x i8] }, ptr %8, i64 %3
+  %10 = getelementptr [64 x i8], ptr %8, i64 %3
   %11 = getelementptr i8, ptr %10, i64 -56
   %.sroa.0.0.val1.i5.pn.in.i = select i1 %.not8.i, ptr %9, ptr %11
   %.pn8.in = select i1 %5, ptr %6, ptr %.sroa.0.0.val1.i5.pn.in.i
@@ -2335,7 +2335,7 @@ define { i32, i32 } @"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x
   br i1 %26, label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit", label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr { i32, [5 x i32] }, ptr %12, i64 %9
+  %28 = getelementptr [24 x i8], ptr %12, i64 %9
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i32, ptr %29, align 8, !range !173, !alias.scope !240, !noalias !234, !noundef !4
   switch i32 %30, label %39 [
@@ -2367,7 +2367,7 @@ define { i32, i32 } @"_ZN79_$LT$yara_x_parser..ast..HexPattern$u20$as$u20$yara_x
   %42 = load ptr, ptr %41, align 8, !alias.scope !243, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.not8.i = icmp eq i64 %3, 1
-  %44 = getelementptr { i8, [63 x i8] }, ptr %42, i64 %3
+  %44 = getelementptr [64 x i8], ptr %42, i64 %3
   %45 = getelementptr i8, ptr %44, i64 -56
   %.sroa.0.0.val1.i5.pn.in.i = select i1 %.not8.i, ptr %43, ptr %45
   br label %"_ZN82_$LT$yara_x_parser..ast..HexSubPattern$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h387edf66dbe232ffE.exit.sink.split"
@@ -2396,7 +2396,7 @@ define { i32, i32 } @"_ZN82_$LT$yara_x_parser..ast..RegexpPattern$u20$as$u20$yar
   %8 = load ptr, ptr %7, align 8, !nonnull !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.not8.i = icmp eq i64 %3, 1
-  %10 = getelementptr { i8, [63 x i8] }, ptr %8, i64 %3
+  %10 = getelementptr [64 x i8], ptr %8, i64 %3
   %11 = getelementptr i8, ptr %10, i64 -56
   %.sroa.0.0.val1.i5.pn.in.i = select i1 %.not8.i, ptr %9, ptr %11
   %.pn8.in = select i1 %5, ptr %6, ptr %.sroa.0.0.val1.i5.pn.in.i
@@ -2458,7 +2458,7 @@ define { i32, i32 } @"_ZN79_$LT$yara_x_parser..ast..PatternSet$u20$as$u20$yara_x
   br i1 %16, label %9, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr { { ptr, i64 }, { { i32, i32 } }, i8, [7 x i8] }, ptr %12, i64 %5
+  %18 = getelementptr [32 x i8], ptr %12, i64 %5
   %19 = getelementptr i8, ptr %18, i64 -12
   %.val1.i11 = load i32, ptr %19, align 4, !alias.scope !254, !noundef !4
   br label %9
@@ -2495,7 +2495,7 @@ define { i32, i32 } @"_ZN85_$LT$yara_x_parser..ast..PatternModifiers$u20$as$u20$
   %9 = icmp ult i64 %3, 144115188075855872
   tail call void @llvm.assume(i1 %9)
   %.not8 = icmp eq i64 %3, 1
-  %10 = getelementptr { i8, [63 x i8] }, ptr %7, i64 %3
+  %10 = getelementptr [64 x i8], ptr %7, i64 %3
   %11 = getelementptr i8, ptr %10, i64 -56
   %.sroa.0.0.val1.i5.pn.in = select i1 %.not8, ptr %8, ptr %11
   %12 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.val.i, 0
@@ -2608,7 +2608,7 @@ _ZN13yara_x_parser3ast8NAryExpr4last17h100bd6865e917855E.exit: ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !264, !nonnull !4, !noundef !4
   %7 = tail call { i32, i32 } @"_ZN73_$LT$yara_x_parser..ast..Expr$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hc943cd00c02d8da6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6)
-  %8 = getelementptr { i32, [3 x i32] }, ptr %6, i64 %3
+  %8 = getelementptr [16 x i8], ptr %6, i64 %3
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = tail call { i32, i32 } @"_ZN73_$LT$yara_x_parser..ast..Expr$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hc943cd00c02d8da6E"(ptr noalias noundef readonly align 8 dereferenceable(16) %9)
   %11 = extractvalue { i32, i32 } %10, 1
@@ -2911,7 +2911,7 @@ _ZN13yara_x_parser3ast8NAryExpr5first17h8eb5baeac8005668E.exit: ; preds = %101
 
 _ZN13yara_x_parser3ast8NAryExpr4last17h100bd6865e917855E.exit: ; preds = %_ZN13yara_x_parser3ast8NAryExpr5first17h8eb5baeac8005668E.exit
   %111 = load ptr, ptr %106, align 8, !alias.scope !343, !nonnull !4, !noundef !4
-  %112 = getelementptr { i32, [3 x i32] }, ptr %111, i64 %109
+  %112 = getelementptr [16 x i8], ptr %111, i64 %109
   %113 = getelementptr i8, ptr %112, i64 -16
   %114 = tail call { i32, i32 } @"_ZN73_$LT$yara_x_parser..ast..Expr$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17hc943cd00c02d8da6E"(ptr noalias noundef readonly align 8 dereferenceable(16) %113), !noalias !340
   %115 = extractvalue { i32, i32 } %114, 1

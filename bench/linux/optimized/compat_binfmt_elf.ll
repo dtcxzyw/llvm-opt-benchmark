@@ -28,8 +28,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.compat_siginfo = type { i32, i32, i32, %union.anon.29 }
 %union.anon.29 = type { [29 x i32] }
 %struct.elf32_phdr = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.user_regset = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32 }
-%struct.core_vma_metadata = type { i64, i64, i64, i64, i64, ptr }
 %struct.elf32_note = type { i32, i32, i32 }
 
 @compat_elf_format = internal global %struct.linux_binfmt { %struct.list_head zeroinitializer, ptr null, ptr @load_elf_binary, ptr null, ptr @elf_core_dump, i64 4096 }, align 8
@@ -1033,7 +1031,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %34 = phi i32 [ 0, %27 ], [ %44, %42 ]
   %35 = load ptr, ptr %28, align 8
   %36 = sext i32 %34 to i64
-  %.split = getelementptr %struct.user_regset, ptr %35, i64 %36
+  %.split = getelementptr [56 x i8], ptr %35, i64 %36
   %37 = getelementptr i8, ptr %.split, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
@@ -1322,7 +1320,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %228 = phi i64 [ %224, %223 ], [ 1, %220 ]
   %229 = phi i32 [ %.ph, %223 ], [ 1, %220 ]
   %230 = load ptr, ptr %28, align 8
-  %231 = getelementptr %struct.user_regset, ptr %230, i64 %228
+  %231 = getelementptr [56 x i8], ptr %230, i64 %228
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 48
   %233 = load i32, ptr %232, align 8
   %234 = icmp eq i32 %233, 2
@@ -1384,7 +1382,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 269:                                              ; preds = %259, %258
   %270 = phi ptr [ @.str.6, %259 ], [ @.str.8, %258 ]
   %271 = zext i32 %229 to i64
-  %272 = getelementptr %struct.memelfnote, ptr %197, i64 %271
+  %272 = getelementptr [24 x i8], ptr %197, i64 %271
   %273 = load ptr, ptr %3, align 8
   store ptr %270, ptr %272, align 8
   %274 = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -1588,7 +1586,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %405 = phi i32 [ 0, %380 ], [ %406, %404 ]
   %406 = add i32 %405, 2
   %407 = sext i32 %405 to i64
-  %408 = getelementptr i32, ptr %403, i64 %407
+  %408 = getelementptr [4 x i8], ptr %403, i64 %407
   %409 = load i32, ptr %408, align 4
   %410 = icmp eq i32 %409, 0
   br i1 %410, label %411, label %404, !llvm.loop !35
@@ -1670,7 +1668,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %459 = phi i32 [ %448, %447 ], [ %.ph42, %450 ]
   %460 = phi i32 [ 0, %447 ], [ %.ph41, %450 ]
   %461 = load ptr, ptr %430, align 8
-  %462 = getelementptr %struct.core_vma_metadata, ptr %461, i64 %456
+  %462 = getelementptr [48 x i8], ptr %461, i64 %456
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 40
   %464 = load ptr, ptr %463, align 8
   %465 = icmp eq ptr %464, null
@@ -1864,7 +1862,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
   %588 = phi i64 [ 0, %572 ], [ %583, %582 ]
   %589 = phi i64 [ %545, %572 ], [ %603, %582 ]
   %590 = load ptr, ptr %573, align 8
-  %591 = getelementptr %struct.core_vma_metadata, ptr %590, i64 %588
+  %591 = getelementptr [48 x i8], ptr %590, i64 %588
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %581, i8 0, i64 24, i1 false), !annotation !21
   store i32 1, ptr %6, align 4
@@ -1971,7 +1969,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 .preheader54:                                     ; preds = %648, %660
   %651 = phi i32 [ %661, %660 ], [ %649, %648 ]
   %652 = phi i64 [ %662, %660 ], [ 1, %648 ]
-  %653 = getelementptr %struct.memelfnote, ptr %629, i64 %652
+  %653 = getelementptr [24 x i8], ptr %629, i64 %652
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 16
   %655 = load ptr, ptr %654, align 8
   %656 = icmp eq ptr %655, null
@@ -2018,7 +2016,7 @@ define internal noundef range(i32 0, 2) i32 @elf_core_dump(ptr noundef %0) #2 al
 676:                                              ; preds = %671, %669
   %677 = phi i64 [ 0, %669 ], [ %672, %671 ]
   %678 = load ptr, ptr %670, align 8
-  %679 = getelementptr %struct.core_vma_metadata, ptr %678, i64 %677
+  %679 = getelementptr [48 x i8], ptr %678, i64 %677
   %680 = load i64, ptr %679, align 8
   %681 = getelementptr inbounds nuw i8, ptr %679, i64 24
   %682 = load i64, ptr %681, align 8
@@ -2192,7 +2190,7 @@ define internal fastcc range(i64 0, 4294971391) i64 @maximum_alignment(ptr nound
 5:                                                ; preds = %.thread, %3
   %6 = phi i64 [ 0, %3 ], [ %21, %.thread ]
   %7 = phi i64 [ 0, %3 ], [ %20, %.thread ]
-  %8 = getelementptr %struct.elf32_phdr, ptr %0, i64 %6
+  %8 = getelementptr [32 x i8], ptr %0, i64 %6
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %.thread
@@ -2242,7 +2240,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @total_mapping_size(ptr noun
   %7 = phi i32 [ -1, %3 ], [ %25, %22 ]
   %8 = phi i32 [ 0, %3 ], [ %24, %22 ]
   %9 = phi i8 [ 0, %3 ], [ %23, %22 ]
-  %10 = getelementptr %struct.elf32_phdr, ptr %0, i64 %6
+  %10 = getelementptr [32 x i8], ptr %0, i64 %6
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %22
@@ -2531,7 +2529,7 @@ define internal fastcc i64 @load_elf_interp(ptr noundef readonly captures(none) 
 
 32:                                               ; preds = %.outer, %37
   %33 = phi i64 [ %38, %37 ], [ %.ph15, %.outer ]
-  %34 = getelementptr %struct.elf32_phdr, ptr %3, i64 %33
+  %34 = getelementptr [32 x i8], ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %.thread13, label %37
@@ -2994,12 +2992,12 @@ define internal fastcc range(i32 -22, 1) i32 @create_elf_tables(ptr noundef capt
   %169 = shl i64 %168, 30
   %170 = ashr i64 %169, 32
   %171 = sub nsw i64 0, %170
-  %172 = getelementptr i32, ptr %26, i64 %171
+  %172 = getelementptr [4 x i8], ptr %26, i64 %171
   %173 = add i32 %14, 3
   %174 = add i32 %173, %16
   %175 = sext i32 %174 to i64
   %176 = sub nsw i64 0, %175
-  %177 = getelementptr i32, ptr %172, i64 %176
+  %177 = getelementptr [4 x i8], ptr %172, i64 %176
   %178 = ptrtoint ptr %177 to i64
   %179 = and i64 %178, -16
   store i64 %179, ptr %11, align 8

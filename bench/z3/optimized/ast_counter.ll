@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %struct._key_data = type { i32, i32 }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -129,7 +127,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN7counter5count
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
@@ -174,7 +172,7 @@ define hidden noundef i32 @_ZNK7counter18get_positive_countEv(ptr noundef nonnul
 
 _ZNK7counter5beginEv.exit:                        ; preds = %.lr.ph.i.i.i.i.i, %10, %1
   %.sroa.0.1.i.i.i = phi ptr [ %2, %1 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %6, %10 ]
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %5
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %5
   %.not10 = icmp eq ptr %.sroa.0.1.i.i.i, %12
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -239,7 +237,7 @@ define hidden void @_ZNK7counter16collect_positiveER8uint_set(ptr noundef nonnul
 
 _ZNK7counter5beginEv.exit:                        ; preds = %.lr.ph.i.i.i.i.i, %13, %2
   %.sroa.0.1.i.i.i = phi ptr [ %5, %2 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %9, %13 ]
-  %15 = getelementptr inbounds nuw %class.default_map_entry, ptr %5, i64 %8
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %.not12 = icmp eq ptr %.sroa.0.1.i.i.i, %15
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -409,7 +407,7 @@ thread-pre-split.i.i.backedge:                    ; preds = %71, %31
 .lr.ph.preheader.i.i:                             ; preds = %76
   %78 = zext nneg i32 %.ph34 to i64
   %79 = zext nneg i32 %.0.i16.i.i.ph to i64
-  %80 = getelementptr i32, ptr %27, i64 %79
+  %80 = getelementptr [4 x i8], ptr %27, i64 %79
   %81 = sub nsw i64 %78, %79
   %82 = shl nsw i64 %81, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %80, i8 0, i64 %82, i1 false), !tbaa !8
@@ -420,7 +418,7 @@ _ZN8uint_set6insertEj.exit:                       ; preds = %_ZNK6vectorIjLb0EjE
   %84 = and i32 %21, 31
   %85 = shl nuw i32 1, %84
   %86 = zext nneg i32 %22 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !8
   %89 = or i32 %88, %85
   store i32 %89, ptr %87, align 4, !tbaa !8
@@ -474,7 +472,7 @@ define hidden noundef zeroext i1 @_ZNK7counter16get_max_positiveERj(ptr noundef 
 
 _ZNK7counter5beginEv.exit:                        ; preds = %.lr.ph.i.i.i.i.i, %11, %2
   %.sroa.0.1.i.i.i = phi ptr [ %3, %2 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %7, %11 ]
-  %13 = getelementptr inbounds nuw %class.default_map_entry, ptr %3, i64 %6
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %.not14 = icmp eq ptr %.sroa.0.1.i.i.i, %13
   br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
 
@@ -561,7 +559,7 @@ define hidden noundef i32 @_ZNK7counter16get_max_positiveEv(ptr noundef nonnull 
 
 _ZNK7counter5beginEv.exit.i:                      ; preds = %10, %.lr.ph.i.i.i.i.i.i, %1
   %.sroa.0.1.i.i.i.i = phi ptr [ %2, %1 ], [ %6, %10 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %5
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %5
   %.not14.i = icmp eq ptr %.sroa.0.1.i.i.i.i, %12
   br i1 %.not14.i, label %_ZNK7counter16get_max_positiveERj.exit.thread, label %.lr.ph.i
 
@@ -654,7 +652,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK7counter21get_max_count
 
 _ZNK7counter5beginEv.exit:                        ; preds = %.lr.ph.i.i.i.i.i, %10, %1
   %.sroa.0.1.i.i.i = phi ptr [ %2, %1 ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %6, %10 ]
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %5
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %5
   %.not12 = icmp eq ptr %.sroa.0.1.i.i.i, %12
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -714,7 +712,7 @@ define hidden void @_ZN11var_counter10count_varsEPK3appi(ptr noundef nonnull ali
 
 13:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %.critedge ]
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv53
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv53
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   tail call void @_ZN14expr_free_varsclEP4expr(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %15)
   %16 = load ptr, ptr %8, align 8, !tbaa !44
@@ -736,7 +734,7 @@ _ZNK14expr_free_vars4sizeEv.exit:                 ; preds = %13, %118
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !48
 
 23:                                               ; preds = %_ZNK14expr_free_vars4sizeEv.exit
-  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !49
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %118, label %26
@@ -784,7 +782,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %46 = zext i32 %44 to i64
   %.idx.i.i = shl nuw nsw i64 %46, 4
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i
-  %48 = getelementptr inbounds nuw %class.default_map_entry, ptr %39, i64 %37
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %37
   %.not38.i.i = icmp eq i32 %44, 0
   br i1 %.not38.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE10move_tableEPS1_jS9_j.exit.i, label %.lr.ph41.i.i
 
@@ -880,7 +878,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %80 = zext i32 %79 to i64
   %.idx.i = shl nuw nsw i64 %80, 4
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i
-  %82 = getelementptr inbounds nuw %class.default_map_entry, ptr %76, i64 %.pre-phi60
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.pre-phi60
   %.not64.i = icmp eq i32 %79, %77
   br i1 %.not64.i, label %.preheader.i, label %.lr.ph.i
 
@@ -1030,7 +1028,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
 19:                                               ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
   %20 = add i32 %17, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   store i32 %20, ptr %16, align 4, !tbaa !8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -1089,8 +1087,8 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
 
 41:                                               ; preds = %41, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i.i.i.i
-  %43 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !75
   store ptr %44, ptr %42, align 8, !tbaa !75
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -1107,7 +1105,7 @@ _ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i:   ; preds = %.noexc42, %._crit_e
   %46 = phi i32 [ %31, %._crit_edge.i.i.i ], [ %.pre2.i.i.i, %_ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i ]
   %47 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %37, %_ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i ]
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   store ptr %23, ptr %49, align 8, !tbaa !75
   %50 = add i32 %46, 1
   store i32 %50, ptr %12, align 8, !tbaa !70
@@ -1158,7 +1156,7 @@ _ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i:   ; preds = %.noexc42, %._crit_e
   %67 = phi ptr [ %.pre.i, %.noexc43 ], [ %56, %58 ]
   %68 = getelementptr inbounds i8, ptr %67, i64 -4
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %69
   store ptr %23, ptr %70, align 8, !tbaa !78
   %71 = add i32 %66, 1
   store i32 %71, ptr %68, align 4, !tbaa !8
@@ -1182,7 +1180,7 @@ _ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i:   ; preds = %.noexc42, %._crit_e
 78:                                               ; preds = %.lr.ph, %132
   %79 = phi ptr [ %.pre, %.lr.ph ], [ %133, %132 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %132 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !42
   %82 = icmp eq ptr %79, null
   br i1 %82, label %89, label %83
@@ -1318,7 +1316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %134 = phi i32 [ %.pre2.i46, %.noexc47 ], [ %85, %83 ]
   %135 = getelementptr inbounds i8, ptr %133, i64 -4
   %136 = zext i32 %134 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %133, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %136
   store ptr %81, ptr %137, align 8, !tbaa !42
   %138 = add i32 %134, 1
   store i32 %138, ptr %135, align 4, !tbaa !8
@@ -1460,7 +1458,7 @@ _ZN7counterC2Ev.exit.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.
 194:                                              ; preds = %189, %._crit_edge
   %.pre-phi = phi i32 [ %.pre106, %._crit_edge ], [ %192, %189 ]
   %.0.i.i49 = phi i64 [ 4294967295, %._crit_edge ], [ %193, %189 ]
-  %195 = getelementptr inbounds nuw ptr, ptr %187, i64 %.0.i.i49
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %.0.i.i49
   %196 = load ptr, ptr %195, align 8, !tbaa !78
   %197 = getelementptr inbounds i8, ptr %187, i64 -4
   store i32 %.pre-phi, ptr %197, align 4, !tbaa !8
@@ -1475,7 +1473,7 @@ _ZN7counterC2Ev.exit.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.
   %.pre2.i52 = load i32, ptr %.phi.trans.insert.i51, align 4, !tbaa !8
   %200 = getelementptr inbounds i8, ptr %.pre.i50, i64 -4
   %201 = zext i32 %.pre2.i52 to i64
-  %202 = getelementptr inbounds nuw ptr, ptr %.pre.i50, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i50, i64 %201
   store ptr %199, ptr %202, align 8, !tbaa !42
   %203 = add i32 %.pre2.i52, 1
   store i32 %203, ptr %200, align 4, !tbaa !8
@@ -1770,7 +1768,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %7, %13
   %15 = phi ptr [ %.pre.i, %13 ], [ %5, %7 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 -4
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   store ptr %1, ptr %18, align 8, !tbaa !42
   %19 = add i32 %14, 1
   store i32 %19, ptr %16, align 4, !tbaa !8
@@ -1808,7 +1806,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %7, %13
   %15 = phi ptr [ %.pre.i, %13 ], [ %5, %7 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 -4
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   store ptr %1, ptr %18, align 8, !tbaa !42
   %19 = add i32 %14, 1
   store i32 %19, ptr %16, align 4, !tbaa !8
@@ -2053,7 +2051,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableI17default_map
   %.idx = shl nuw nsw i64 %21, 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = zext i32 %16 to i64
-  %24 = getelementptr inbounds nuw %class.default_map_entry, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %23
   %.not64 = icmp eq i32 %19, %16
   br i1 %.not64, label %.preheader, label %.lr.ph
 
@@ -2211,7 +2209,7 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   %14 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE10move_tableEPS1_jS9_j.exit, label %.lr.ph41.i
 

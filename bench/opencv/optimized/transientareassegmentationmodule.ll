@@ -2916,7 +2916,7 @@ define hidden void @_ZN2cv11bioinspired36TransientAreasSegmentationModuleImpl4_r
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !37
-  %12 = getelementptr inbounds nuw float, ptr %11, i64 %9
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = load ptr, ptr %13, align 8, !tbaa !149
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3361,7 +3361,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %90, %93
   %104 = zext i32 %97 to i64
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !37
-  %107 = getelementptr inbounds nuw float, ptr %106, i64 %104
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %104
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 %.sroa.0.0.insert.insert.i, i32 noundef 5, ptr noundef nonnull %107, i64 noundef 0)
           to label %109 unwind label %.thread
 
@@ -3382,7 +3382,7 @@ _ZNK2cv11_InputArray6getMatEi.exit102:            ; preds = %90, %93
   %.sroa.0.0.insert.insert.i106 = or disjoint i64 %.sroa.2.0.insert.shift.i104, %.sroa.0.0.insert.ext.i105
   %115 = zext i32 %79 to i64
   %116 = load ptr, ptr %105, align 8, !tbaa !37
-  %117 = getelementptr inbounds nuw float, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %115
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %110, i64 %.sroa.0.0.insert.insert.i106, i32 noundef 5, ptr noundef nonnull %117, i64 noundef 0)
           to label %118 unwind label %156
 
@@ -3561,7 +3561,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit:   ; preds = %133
   %180 = zext i32 %97 to i64
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %182 = load ptr, ptr %181, align 8, !tbaa !37
-  %183 = getelementptr inbounds nuw float, ptr %182, i64 %180
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %180
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %18, i64 %.sroa.0.0.insert.insert.i118, i32 noundef 5, ptr noundef nonnull %183, i64 noundef 0)
           to label %185 unwind label %.thread149
 
@@ -3582,7 +3582,7 @@ _ZN2cv4Mat_INS_3VecIfLi4EEEEC2ERKNS_3MatE.exit:   ; preds = %133
   %.sroa.0.0.insert.insert.i122 = or disjoint i64 %.sroa.2.0.insert.shift.i120, %.sroa.0.0.insert.ext.i121
   %191 = zext i32 %79 to i64
   %192 = load ptr, ptr %181, align 8, !tbaa !37
-  %193 = getelementptr inbounds nuw float, ptr %192, i64 %191
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %191
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %186, i64 %.sroa.0.0.insert.insert.i122, i32 noundef 5, ptr noundef nonnull %193, i64 noundef 0)
           to label %194 unwind label %215
 

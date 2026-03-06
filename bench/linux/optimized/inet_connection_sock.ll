@@ -32,14 +32,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inet_csk_upd
 %struct.anon.34 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.static_call_key = type { ptr, %union.anon.49 }
 %union.anon.49 = type { i64 }
-%struct.inet_bind_hashbucket = type { %struct.spinlock, %struct.hlist_head }
-%struct.spinlock = type { %union.anon.9 }
-%union.anon.9 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.10 }
-%union.anon.10 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.hlist_head = type { ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
 
@@ -647,7 +639,7 @@ define dso_local noundef range(i32 -98, 1) i32 @inet_csk_get_port(ptr noundef %0
   %103 = add i32 %100, -1
   %104 = and i32 %102, %103
   %105 = zext i32 %104 to i64
-  %106 = getelementptr %struct.inet_bind_hashbucket, ptr %99, i64 %105
+  %106 = getelementptr [16 x i8], ptr %99, i64 %105
   tail call void @_raw_spin_lock_bh(ptr noundef %106) #12
   %107 = load i16, ptr %25, align 8
   %108 = icmp eq i16 %107, 10
@@ -753,7 +745,7 @@ define dso_local noundef range(i32 -98, 1) i32 @inet_csk_get_port(ptr noundef %0
   %163 = add i32 %160, -1
   %164 = and i32 %162, %163
   %165 = zext i32 %164 to i64
-  %166 = getelementptr %struct.inet_bind_hashbucket, ptr %158, i64 %165
+  %166 = getelementptr [16 x i8], ptr %158, i64 %165
   tail call void @_raw_spin_lock_bh(ptr noundef %166) #12
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
@@ -1312,7 +1304,7 @@ define internal fastcc ptr @inet_bhashfn_portaddr(ptr noundef readonly captures(
   %162 = add i32 %161, -1
   %163 = and i32 %162, %157
   %164 = zext i32 %163 to i64
-  %165 = getelementptr %struct.inet_bind_hashbucket, ptr %159, i64 %164
+  %165 = getelementptr [16 x i8], ptr %159, i64 %164
   ret ptr %165
 }
 
@@ -2090,7 +2082,7 @@ define dso_local noundef zeroext i1 @inet_csk_reqsk_queue_drop(ptr noundef %0, p
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, %12
   %18 = zext i32 %17 to i64
-  %19 = getelementptr %struct.spinlock, ptr %14, i64 %18
+  %19 = getelementptr [4 x i8], ptr %14, i64 %18
   tail call void @_raw_spin_lock(ptr noundef %19) #12
   %20 = load ptr, ptr %3, align 8
   %21 = icmp ne ptr %20, null

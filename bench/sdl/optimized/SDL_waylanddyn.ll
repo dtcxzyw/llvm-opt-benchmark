@@ -304,7 +304,7 @@ define hidden void @SDL_WAYLAND_UnloadSymbols() local_unnamed_addr #0 {
 
 7:                                                ; preds = %6, %11
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw %struct.waylanddynlib, ptr @waylandlibs, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @waylandlibs, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -335,7 +335,7 @@ define hidden noundef zeroext i1 @SDL_WAYLAND_LoadSymbols() local_unnamed_addr #
 
 .preheader:                                       ; preds = %0, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %0 ]
-  %4 = getelementptr inbounds nuw %struct.waylanddynlib, ptr @waylandlibs, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @waylandlibs, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null

@@ -88,7 +88,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %.2 = phi ptr [ %0, %26 ], [ %35, %29 ]
   %30 = load i8, ptr %.2, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 8192
   %.not123 = icmp eq i16 %34, 0
@@ -142,7 +142,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %.4 = phi ptr [ %65, %68 ], [ %.4.ph, %.outer286 ]
   %48 = load i8, ptr %.4, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %28, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 4096
   %.not129 = icmp eq i16 %52, 0
@@ -173,7 +173,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 68:                                               ; preds = %64
   %69 = zext i8 %66 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %28, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 4096
   %.not132 = icmp eq i16 %72, 0
@@ -298,7 +298,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 126:                                              ; preds = %122
   %127 = zext i8 %124 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %28, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = and i16 %129, 2048
   %.not124 = icmp eq i16 %130, 0
@@ -315,7 +315,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %.13 = phi ptr [ %137, %.preheader ], [ %.6, %.loopexit ]
   %132 = load i8, ptr %.13, align 1
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw i16, ptr %28, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %133
   %135 = load i16, ptr %134, align 2
   %136 = and i16 %135, 8192
   %.not130 = icmp eq i16 %136, 0
@@ -449,7 +449,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %.2 = phi ptr [ %0, %29 ], [ %38, %32 ]
   %33 = load i8, ptr %.2, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 8192
   %.not119 = icmp eq i16 %37, 0
@@ -503,7 +503,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %.4 = phi ptr [ %68, %71 ], [ %.4.ph, %.outer282 ]
   %51 = load i8, ptr %.4, align 1
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %31, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 4096
   %.not123 = icmp eq i16 %55, 0
@@ -534,7 +534,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 71:                                               ; preds = %67
   %72 = zext i8 %69 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %31, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 4096
   %.not126 = icmp eq i16 %75, 0
@@ -659,7 +659,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 130:                                              ; preds = %126
   %131 = zext i8 %128 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %31, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %131
   %133 = load i16, ptr %132, align 2
   %134 = and i16 %133, 2048
   %.not120 = icmp eq i16 %134, 0
@@ -676,7 +676,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %.13 = phi ptr [ %141, %.preheader ], [ %.6, %.loopexit ]
   %136 = load i8, ptr %.13, align 1
   %137 = zext i8 %136 to i64
-  %138 = getelementptr inbounds nuw i16, ptr %31, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = and i16 %139, 8192
   %.not124 = icmp eq i16 %140, 0
@@ -802,7 +802,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %.2 = phi ptr [ %0, %30 ], [ %39, %33 ]
   %34 = load i8, ptr %.2, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 8192
   %.not117 = icmp eq i16 %38, 0
@@ -856,7 +856,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %.4 = phi ptr [ %69, %72 ], [ %.4.ph, %.outer280 ]
   %52 = load i8, ptr %.4, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %32, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 4096
   %.not121 = icmp eq i16 %56, 0
@@ -887,7 +887,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 72:                                               ; preds = %68
   %73 = zext i8 %70 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %32, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 4096
   %.not124 = icmp eq i16 %76, 0
@@ -1012,7 +1012,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 131:                                              ; preds = %127
   %132 = zext i8 %129 to i64
-  %133 = getelementptr inbounds nuw i16, ptr %32, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %132
   %134 = load i16, ptr %133, align 2
   %135 = and i16 %134, 2048
   %.not118 = icmp eq i16 %135, 0
@@ -1029,7 +1029,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %.13 = phi ptr [ %142, %.preheader ], [ %.6, %.loopexit ]
   %137 = load i8, ptr %.13, align 1
   %138 = zext i8 %137 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %32, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = and i16 %140, 8192
   %.not122 = icmp eq i16 %141, 0
@@ -1145,7 +1145,7 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly captur
   %30 = phi i8 [ %25, %.lr.ph ], [ %38, %36 ]
   %31 = phi ptr [ %10, %.lr.ph ], [ %37, %36 ]
   %32 = zext i8 %30 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 8192
   %.not38 = icmp eq i16 %35, 0
@@ -1262,7 +1262,7 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly captur
   %30 = phi i8 [ %25, %.lr.ph ], [ %38, %36 ]
   %31 = phi ptr [ %10, %.lr.ph ], [ %37, %36 ]
   %32 = zext i8 %30 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 8192
   %.not27 = icmp eq i16 %35, 0
@@ -1320,7 +1320,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nounde
   %15 = add nuw nsw i32 %14, 1233
   %16 = lshr i32 %15, 12
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @decimalLength32.PowersOfTen, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp uge i32 %.01115.i, %19
   %21 = zext i1 %20 to i32
@@ -1435,7 +1435,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr noundef write
   %14 = add nuw nsw i32 %13, 1233
   %15 = lshr i32 %14, 12
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @decimalLength32.PowersOfTen, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp uge i32 %.01115, %18
   %20 = zext i1 %19 to i32
@@ -1552,7 +1552,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr noundef wr
   %9 = add nuw nsw i32 %8, 1233
   %10 = lshr i32 %9, 12
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @decimalLength32.PowersOfTen, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp uge i32 %0, %13
   %15 = zext i1 %14 to i32
@@ -1665,7 +1665,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr noundef w
   %10 = add nuw nsw i32 %9, 1233
   %11 = lshr i32 %10, 12
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i64, ptr @decimalLength64.PowersOfTen, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @decimalLength64.PowersOfTen, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp uge i64 %0, %14
   %16 = zext i1 %15 to i32
@@ -1866,7 +1866,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef captures(ret: address, prov
   %19 = add nuw nsw i32 %18, 1233
   %20 = lshr i32 %19, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @decimalLength32.PowersOfTen, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp uge i32 %1, %23
   %25 = zext i1 %24 to i32
@@ -2006,7 +2006,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly captures(ret: address, pr
   %9 = add nuw nsw i32 %8, 1233
   %10 = lshr i32 %9, 12
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @decimalLength32.PowersOfTen, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @decimalLength32.PowersOfTen, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp uge i32 %1, %13
   %15 = zext i1 %14 to i32

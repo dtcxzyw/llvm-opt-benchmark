@@ -644,7 +644,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %85, align 8, !noalias !104, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %98, i64 %84
+  %99 = getelementptr inbounds [64 x i8], ptr %98, i64 %84
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h5b9c5f2d1f72fe73E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %99)
           to label %101 unwind label %.thread.loopexit.i.i, !noalias !104
 
@@ -696,7 +696,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   %117 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %108, %103 ]
   %118 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %119 = load ptr, ptr %118, align 8, !alias.scope !109, !noalias !112, !nonnull !5, !noundef !5
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %117
+  %120 = getelementptr inbounds [8 x i8], ptr %119, i64 %117
   store ptr %70, ptr %120, align 8, !noalias !112
   %121 = load i64, ptr %107, align 8, !alias.scope !109, !noalias !114, !noundef !5
   %122 = add i64 %121, 1
@@ -1422,7 +1422,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 71:                                               ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !alias.scope !213, !noalias !214
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !190
-  %72 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %72 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %75 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -1989,7 +1989,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 268:                                              ; preds = %._crit_edge.i.i, %258
   %269 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %259, %258 ]
   %270 = load ptr, ptr %45, align 8, !alias.scope !289, !noalias !292, !nonnull !5, !noundef !5
-  %271 = getelementptr inbounds { i32, [13 x i32] }, ptr %270, i64 %269
+  %271 = getelementptr inbounds [56 x i8], ptr %270, i64 %269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %271, ptr noundef nonnull align 8 dereferenceable(56) %29, i64 56, i1 false), !noalias !203
   %272 = add i64 %269, 1
   store i64 %272, ptr %46, align 8, !alias.scope !289, !noalias !292
@@ -2181,7 +2181,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 330:                                              ; preds = %._crit_edge.i225.i, %320
   %331 = phi i64 [ %.pre.i226.i, %._crit_edge.i225.i ], [ %321, %320 ]
   %332 = load ptr, ptr %45, align 8, !alias.scope !337, !noalias !340, !nonnull !5, !noundef !5
-  %333 = getelementptr inbounds { i32, [13 x i32] }, ptr %332, i64 %331
+  %333 = getelementptr inbounds [56 x i8], ptr %332, i64 %331
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %333, ptr noundef nonnull align 8 dereferenceable(56) %27, i64 56, i1 false), !noalias !203
   %334 = add i64 %331, 1
   store i64 %334, ptr %46, align 8, !alias.scope !337, !noalias !340
@@ -2225,7 +2225,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 339:                                              ; preds = %._crit_edge.i230.i, %350
   %340 = phi i64 [ %.pre.i231.i, %._crit_edge.i230.i ], [ %352, %350 ]
   %341 = load ptr, ptr %45, align 8, !alias.scope !344, !noalias !347, !nonnull !5, !noundef !5
-  %342 = getelementptr inbounds { i32, [13 x i32] }, ptr %341, i64 %340
+  %342 = getelementptr inbounds [56 x i8], ptr %341, i64 %340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %342, ptr noundef nonnull align 8 dereferenceable(56) %25, i64 56, i1 false), !noalias !203
   %343 = add i64 %340, 1
   store i64 %343, ptr %46, align 8, !alias.scope !344, !noalias !347

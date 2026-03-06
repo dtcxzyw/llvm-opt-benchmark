@@ -232,7 +232,7 @@ check_retval.exit163:                             ; preds = %81
 
 97:                                               ; preds = %86, %97
   %indvars.iv = phi i64 [ 0, %86 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %99 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %99, ptr %98, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -245,7 +245,7 @@ check_retval.exit163:                             ; preds = %81
 
 102:                                              ; preds = %100, %102
   %indvars.iv284 = phi i64 [ 0, %100 ], [ %indvars.iv.next285, %102 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv284
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv284
   %104 = load ptr, ptr %103, align 8, !tbaa !28
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %104) #10
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
@@ -693,7 +693,7 @@ define internal fastcc i32 @runCVode(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %21
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.runCVode, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.runCVode, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.load)
   br label %28

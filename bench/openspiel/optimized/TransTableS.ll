@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.TransTableS::ttAggrType" = type { [4 x i32], [4 x i32] }
-%"struct.TransTableS::posSearchTypeSmall" = type { ptr, i64, ptr, ptr }
-%"struct.TransTableS::winCardType" = type { i32, i32, ptr, ptr, ptr, ptr }
-%struct.nodeCardsType = type { i8, i8, i8, i8, [4 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -111,10 +107,10 @@ define void @_ZN11TransTableSC2Ev(ptr noundef nonnull writeonly align 8 captures
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = xor i32 %spec.select.i, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, -1
-  %13 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %indvars.iv.i
   store i32 %12, ptr %13, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8192
@@ -141,10 +137,10 @@ define void @_ZN11TransTableS12SetConstantsEv(ptr noundef nonnull readnone align
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = xor i32 %spec.select, %5
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, -1
-  %11 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8192
@@ -239,12 +235,12 @@ define void @_ZN11TransTableS15ReturnAllMemoryEv(ptr noundef nonnull align 8 cap
 
 .preheader:                                       ; preds = %15, %26
   %indvars.iv26 = phi i64 [ 1, %15 ], [ %indvars.iv.next27, %26 ]
-  %18 = getelementptr inbounds nuw [4 x ptr], ptr %17, i64 %indvars.iv26
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv26
   br label %19
 
 19:                                               ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %24 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %.not22 = icmp eq ptr %22, null
@@ -323,11 +319,11 @@ define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferen
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 0, ptr %6, align 4
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 0, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -347,29 +343,29 @@ define void @_ZN11TransTableS4InitEPA15_Ki(ptr noundef nonnull align 8 dereferen
   %14 = trunc nuw nsw i64 %indvars.iv43 to i32
   %15 = xor i32 %.131, %14
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %13, i64 %16
-  %18 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %13, i64 %indvars.iv43
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %16
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %18, ptr noundef nonnull align 4 dereferenceable(32) %17, i64 32, i1 false)
   %19 = zext i32 %.1 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   br label %20
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv39 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next40, %20 ]
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %21, i64 %indvars.iv43
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv39
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv43
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv39
   %24 = load i32, ptr %23, align 4
   %25 = ashr i32 %24, 2
-  %gep = getelementptr inbounds nuw [15 x i32], ptr %invariant.gep, i64 %indvars.iv39
+  %gep = getelementptr inbounds nuw [60 x i8], ptr %invariant.gep, i64 %indvars.iv39
   %26 = load i32, ptr %gep, align 4
   %27 = shl i32 %26, 24
   %28 = or i32 %27, %25
   store i32 %28, ptr %23, align 4
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %29, i64 %indvars.iv43
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv43
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv39
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv39
   %33 = load i32, ptr %32, align 4
   %34 = ashr i32 %33, 2
   %35 = or i32 %34, 50331648
@@ -511,7 +507,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader70:                                     ; preds = %.preheader71, %33
   %indvars.iv93 = phi i64 [ 1, %.preheader71 ], [ %indvars.iv.next94, %33 ]
-  %26 = getelementptr inbounds nuw [4 x ptr], ptr %24, i64 %indvars.iv93
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv93
   br label %28
 
 .preheader69:                                     ; preds = %33
@@ -526,7 +522,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 28:                                               ; preds = %.preheader70, %27
   %indvars.iv = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next, %27 ]
   %29 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 8) #29
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store ptr %29, ptr %30, align 8
   %31 = icmp eq ptr %29, null
   br i1 %31, label %32, label %27
@@ -547,7 +543,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 .lr.ph:                                           ; preds = %.preheader69, %38
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %38 ], [ 0, %.preheader69 ]
   %34 = load ptr, ptr %17, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv97
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv97
   %36 = load ptr, ptr %35, align 8
   %.not63 = icmp eq ptr %36, null
   br i1 %.not63, label %38, label %37
@@ -559,7 +555,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 38:                                               ; preds = %37, %.lr.ph
   %39 = phi ptr [ %.pre, %37 ], [ %34, %.lr.ph ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv97
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv97
   store ptr null, ptr %40, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %41 = load i32, ptr %13, align 8
@@ -574,7 +570,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 .lr.ph78:                                         ; preds = %.preheader68, %48
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %48 ], [ 0, %.preheader68 ]
   %44 = load ptr, ptr %22, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv100
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv100
   %46 = load ptr, ptr %45, align 8
   %.not62 = icmp eq ptr %46, null
   br i1 %.not62, label %48, label %47
@@ -586,7 +582,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 48:                                               ; preds = %47, %.lr.ph78
   %49 = phi ptr [ %.pre128, %47 ], [ %44, %.lr.ph78 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv100
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv100
   store ptr null, ptr %50, align 8
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %51 = load i32, ptr %13, align 8
@@ -598,7 +594,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
   %53 = phi i32 [ %70, %.split.us ], [ %51, %.preheader67 ]
   %54 = phi i32 [ %71, %.split.us ], [ %51, %.preheader67 ]
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.split.us ], [ 1, %.preheader67 ]
-  %55 = getelementptr inbounds nuw [4 x ptr], ptr %24, i64 %indvars.iv110
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv110
   %56 = icmp slt i32 %54, 0
   br i1 %56, label %.split.us, label %.preheader65
 
@@ -609,13 +605,13 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
   br i1 %.not6079, label %._crit_edge, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader65
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv106
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv106
   br label %59
 
 59:                                               ; preds = %.lr.ph81, %64
   %indvars.iv103 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next104, %64 ]
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv103
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv103
   %62 = load ptr, ptr %61, align 8
   %.not61 = icmp eq ptr %62, null
   br i1 %.not61, label %64, label %63
@@ -627,7 +623,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 64:                                               ; preds = %63, %59
   %65 = phi ptr [ %.pre129, %63 ], [ %60, %59 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv103
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv103
   store ptr null, ptr %66, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %67 = load i32, ptr %13, align 8
@@ -676,7 +672,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader:                                       ; preds = %78, %95
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %95 ], [ 1, %78 ]
-  %85 = getelementptr inbounds nuw [4 x ptr], ptr %24, i64 %indvars.iv118
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv118
   br label %87
 
 86:                                               ; preds = %87
@@ -687,7 +683,7 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 87:                                               ; preds = %.preheader, %86
   %indvars.iv114 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next115, %86 ]
   %88 = tail call noalias dereferenceable_or_null(6432) ptr @calloc(i64 noundef 201, i64 noundef 32) #29
-  %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv114
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv114
   %90 = load ptr, ptr %89, align 8
   store ptr %88, ptr %90, align 8
   %91 = load ptr, ptr %89, align 8
@@ -745,22 +741,22 @@ define void @_ZN11TransTableS6MakeTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader.i:                                     ; preds = %129, %101
   %indvars.iv16.i = phi i64 [ 1, %101 ], [ %indvars.iv.next17.i, %129 ]
-  %118 = getelementptr inbounds nuw [4 x ptr], ptr %24, i64 %indvars.iv16.i
-  %119 = getelementptr inbounds nuw [4 x ptr], ptr %115, i64 %indvars.iv16.i
-  %120 = getelementptr inbounds nuw [4 x i32], ptr %116, i64 %indvars.iv16.i
-  %121 = getelementptr inbounds nuw [4 x i32], ptr %117, i64 %indvars.iv16.i
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv16.i
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %indvars.iv16.i
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %indvars.iv16.i
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %indvars.iv16.i
   br label %122
 
 122:                                              ; preds = %122, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %122 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv.i
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.i
   store ptr %125, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i
   store i32 0, ptr %127, align 4
-  %128 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i
   store i32 0, ptr %128, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -823,22 +819,22 @@ define void @_ZN11TransTableS6InitTTEv(ptr noundef nonnull align 8 captures(none
 
 .preheader:                                       ; preds = %1, %32
   %indvars.iv16 = phi i64 [ 1, %1 ], [ %indvars.iv.next17, %32 ]
-  %21 = getelementptr inbounds nuw [4 x ptr], ptr %17, i64 %indvars.iv16
-  %22 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 %indvars.iv16
-  %23 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 %indvars.iv16
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 %indvars.iv16
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv16
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv16
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv16
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv16
   br label %25
 
 25:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 0, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -877,7 +873,7 @@ define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) 
 8:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not36 = icmp eq ptr %11, null
   br i1 %.not36, label %13, label %12
@@ -889,7 +885,7 @@ define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) 
 
 13:                                               ; preds = %12, %8
   %14 = phi ptr [ %.pre, %12 ], [ %9, %8 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr null, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %2, align 4
@@ -905,7 +901,7 @@ define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) 
 20:                                               ; preds = %.lr.ph44, %25
   %indvars.iv51 = phi i64 [ 1, %.lr.ph44 ], [ %indvars.iv.next52, %25 ]
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv51
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv51
   %23 = load ptr, ptr %22, align 8
   %.not35 = icmp eq ptr %23, null
   br i1 %.not35, label %25, label %24
@@ -917,7 +913,7 @@ define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) 
 
 25:                                               ; preds = %24, %20
   %26 = phi ptr [ %.pre64, %24 ], [ %21, %20 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv51
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv51
   store ptr null, ptr %27, align 8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %28 = load i32, ptr %5, align 8
@@ -927,25 +923,25 @@ define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) 
 
 .preheader37:                                     ; preds = %.preheader38, %45
   %indvars.iv60 = phi i64 [ 1, %.preheader38 ], [ %indvars.iv.next61, %45 ]
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 %indvars.iv60
-  %31 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 %indvars.iv60
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv60
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %indvars.iv60
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader37, %._crit_edge
   %indvars.iv57 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next58, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv57
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv57
   %33 = load i32, ptr %32, align 4
   %.not3345 = icmp slt i32 %33, 1
   br i1 %.not3345, label %._crit_edge, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %.preheader
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv57
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv57
   br label %35
 
 35:                                               ; preds = %.lr.ph47, %40
   %indvars.iv54 = phi i64 [ 1, %.lr.ph47 ], [ %indvars.iv.next55, %40 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv54
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv54
   %38 = load ptr, ptr %37, align 8
   %.not34 = icmp eq ptr %38, null
   br i1 %.not34, label %40, label %39
@@ -957,7 +953,7 @@ define void @_ZN11TransTableS4WipeEv(ptr noundef nonnull align 8 captures(none) 
 
 40:                                               ; preds = %39, %35
   %41 = phi ptr [ %.pre65, %39 ], [ %36, %35 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv54
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv54
   store ptr null, ptr %42, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %43 = load i32, ptr %32, align 4
@@ -1018,22 +1014,22 @@ define void @_ZN11TransTableS11ResetMemoryE13TTresetReason(ptr noundef nonnull a
 
 .preheader.i:                                     ; preds = %33, %2
   %indvars.iv16.i = phi i64 [ 1, %2 ], [ %indvars.iv.next17.i, %33 ]
-  %22 = getelementptr inbounds nuw [4 x ptr], ptr %18, i64 %indvars.iv16.i
-  %23 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 %indvars.iv16.i
-  %24 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 %indvars.iv16.i
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 %indvars.iv16.i
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv16.i
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %indvars.iv16.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv16.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv16.i
   br label %26
 
 26:                                               ; preds = %26, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.i
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   store i32 0, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -1050,16 +1046,16 @@ _ZN11TransTableS6InitTTEv.exit.preheader:         ; preds = %33
 
 .preheader:                                       ; preds = %_ZN11TransTableS6InitTTEv.exit.preheader, %_ZN11TransTableS6InitTTEv.exit
   %indvars.iv22 = phi i64 [ 1, %_ZN11TransTableS6InitTTEv.exit.preheader ], [ %indvars.iv.next23, %_ZN11TransTableS6InitTTEv.exit ]
-  %35 = getelementptr inbounds nuw [4 x ptr], ptr %19, i64 %indvars.iv22
-  %36 = getelementptr inbounds nuw [4 x ptr], ptr %34, i64 %indvars.iv22
-  %37 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 %indvars.iv22
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %indvars.iv22
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %indvars.iv22
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv22
   br label %38
 
 38:                                               ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %40, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %42, align 8
@@ -1071,7 +1067,7 @@ _ZN11TransTableS6InitTTEv.exit.preheader:         ; preds = %33
   %46 = load ptr, ptr %39, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   store i32 1, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1119,12 +1115,12 @@ define noundef ptr @_ZN11TransTableS6LookupEiiPKtPKiiRb(ptr noundef nonnull alig
   %25 = or i64 %21, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   store i64 %25, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %30 = getelementptr inbounds [4 x ptr], ptr %29, i64 %27
+  %30 = getelementptr inbounds [32 x i8], ptr %29, i64 %27
   %31 = sext i32 %2 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
@@ -1164,13 +1160,13 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
 
 51:                                               ; preds = %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit, %51
   %indvars.iv = phi i64 [ 0, %_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %50, i64 %54
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %54
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %57, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1187,7 +1183,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   %62 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = sext i32 %.039.i to i64
-  %65 = getelementptr inbounds i32, ptr %8, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %8, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %63
   %68 = load i32, ptr %.02238.i, align 8
@@ -1262,16 +1258,16 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds [4 x ptr], ptr %9, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %9, i64 %10
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1808
-  %16 = getelementptr inbounds [4 x i32], ptr %15, i64 %10
-  %17 = getelementptr inbounds i32, ptr %16, i64 %12
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %10
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.TransTableS::posSearchTypeSmall", ptr %14, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %14, i64 %19
   br label %21
 
 21:                                               ; preds = %8, %7
@@ -1300,9 +1296,9 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %34 = sext i32 %4 to i64
-  %35 = getelementptr inbounds [4 x i32], ptr %33, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %33, i64 %34
   %36 = sext i32 %5 to i64
-  %37 = getelementptr inbounds i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 200
   br i1 %39, label %40, label %42
@@ -1323,8 +1319,8 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  %51 = getelementptr inbounds [4 x i32], ptr %50, i64 %34
-  %52 = getelementptr inbounds i32, ptr %51, i64 %36
+  %51 = getelementptr inbounds [16 x i8], ptr %50, i64 %34
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %36
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %55 = load i32, ptr %54, align 8
@@ -1341,16 +1337,16 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
   store i32 %59, ptr %52, align 4
   %60 = tail call noalias dereferenceable_or_null(6432) ptr @malloc(i64 noundef 6432) #31
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %62 = getelementptr inbounds [4 x ptr], ptr %61, i64 %34
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %36
+  %62 = getelementptr inbounds [32 x i8], ptr %61, i64 %34
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %36
   %64 = load ptr, ptr %63, align 8
   %65 = sext i32 %59 to i64
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   store ptr %60, ptr %66, align 8
   %67 = load ptr, ptr %63, align 8
   %68 = load i32, ptr %52, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %75
@@ -1368,11 +1364,11 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
   %78 = load ptr, ptr %63, align 8
   %79 = load i32, ptr %52, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  %84 = getelementptr inbounds [4 x ptr], ptr %83, i64 %34
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %36
+  %84 = getelementptr inbounds [32 x i8], ptr %83, i64 %34
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %36
   store ptr %82, ptr %85, align 8
   br label %_ZN11TransTableS9AddLenSetEii.exit
 
@@ -1393,9 +1389,9 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %93 = sext i32 %4 to i64
-  %94 = getelementptr inbounds [4 x i32], ptr %92, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %92, i64 %93
   %95 = sext i32 %5 to i64
-  %96 = getelementptr inbounds i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = icmp slt i32 %97, 200
   br i1 %98, label %99, label %101
@@ -1416,8 +1412,8 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
 
 108:                                              ; preds = %101
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  %110 = getelementptr inbounds [4 x i32], ptr %109, i64 %93
-  %111 = getelementptr inbounds i32, ptr %110, i64 %95
+  %110 = getelementptr inbounds [16 x i8], ptr %109, i64 %93
+  %111 = getelementptr inbounds [4 x i8], ptr %110, i64 %95
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %114 = load i32, ptr %113, align 8
@@ -1434,16 +1430,16 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
   store i32 %118, ptr %111, align 4
   %119 = tail call noalias dereferenceable_or_null(6432) ptr @malloc(i64 noundef 6432) #31
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %121 = getelementptr inbounds [4 x ptr], ptr %120, i64 %93
-  %122 = getelementptr inbounds ptr, ptr %121, i64 %95
+  %121 = getelementptr inbounds [32 x i8], ptr %120, i64 %93
+  %122 = getelementptr inbounds [8 x i8], ptr %121, i64 %95
   %123 = load ptr, ptr %122, align 8
   %124 = sext i32 %118 to i64
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %123, i64 %124
   store ptr %119, ptr %125, align 8
   %126 = load ptr, ptr %122, align 8
   %127 = load i32, ptr %111, align 4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %126, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %126, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %134
@@ -1461,11 +1457,11 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
   %137 = load ptr, ptr %122, align 8
   %138 = load i32, ptr %111, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr %137, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  %143 = getelementptr inbounds [4 x ptr], ptr %142, i64 %93
-  %144 = getelementptr inbounds ptr, ptr %143, i64 %95
+  %143 = getelementptr inbounds [32 x i8], ptr %142, i64 %93
+  %144 = getelementptr inbounds [8 x i8], ptr %143, i64 %95
   store ptr %141, ptr %144, align 8
   br label %_ZN11TransTableS9AddLenSetEii.exit53
 
@@ -1506,7 +1502,7 @@ define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %.02238, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %.039 to i64
-  %9 = getelementptr inbounds i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, %7
   %12 = load i32, ptr %.02238, align 8
@@ -1578,7 +1574,7 @@ define noundef ptr @_ZN11TransTableS7FindSOPEPKiiPNS_11winCardTypeERb(ptr nounde
 define void @_ZN11TransTableS3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull align 8 dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #8 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8
   tail call void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr noundef %4, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(8) %5, i64 noundef %11, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -1609,7 +1605,7 @@ define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef n
 
 15:                                               ; preds = %8, %36
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %36 ]
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %36, label %19
@@ -1617,18 +1613,18 @@ define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef n
 19:                                               ; preds = %15
   %20 = sub i16 0, %17
   %21 = and i16 %17, %20
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2
   %24 = sub i16 0, %21
   %25 = and i16 %23, %24
   %26 = zext i16 %25 to i64
-  %27 = getelementptr inbounds nuw %"struct.TransTableS::ttAggrType", ptr %14, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i32, ptr @_ZL12TTlowestRank, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12TTlowestRank, i64 %26
   %34 = load i32, ptr %33, align 4
   %35 = trunc i32 %34 to i8
   br label %36
@@ -1637,9 +1633,9 @@ define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef n
   %.sink57 = phi i32 [ %30, %19 ], [ 0, %15 ]
   %.sink56 = phi i32 [ %32, %19 ], [ 0, %15 ]
   %.sink = phi i8 [ %35, %19 ], [ 15, %15 ]
-  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %.sink57, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %.sink56, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   store i8 %.sink, ptr %39, align 1
@@ -1650,9 +1646,9 @@ define void @_ZN11TransTableS8BuildSOPEPKtS1_RK13nodeCardsTypexiib(ptr noundef n
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %42 = sext i32 %5 to i64
-  %43 = getelementptr inbounds [4 x ptr], ptr %41, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %41, i64 %42
   %44 = sext i32 %6 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb(ptr noundef nonnull align 8 dereferenceable(2396) %0, ptr noundef %46, i64 noundef %4, i1 noundef zeroext true, i32 noundef %5, i32 noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %12)
   %48 = load i8, ptr %3, align 1
@@ -1727,7 +1723,7 @@ define void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenc
   store i32 %8, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %10, i64 %11
+  %12 = getelementptr inbounds [40 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store ptr %12, ptr %13, align 8
   br label %71
@@ -1771,7 +1767,7 @@ define void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenc
   store i8 1, ptr %2, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %39, i64 %40
+  %41 = getelementptr inbounds [40 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store ptr %41, ptr %42, align 8
   br label %71
@@ -1784,12 +1780,12 @@ define void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenc
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   store ptr %45, ptr %49, align 8
   %50 = load ptr, ptr %46, align 8
   %51 = load i32, ptr %30, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %64
@@ -1803,7 +1799,7 @@ define void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenc
   store i32 %59, ptr %15, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %60, i64 %61
+  %62 = getelementptr inbounds [40 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   store ptr %62, ptr %63, align 8
   br label %71
@@ -1872,12 +1868,12 @@ define void @_ZN11TransTableS10AddNodeSetEv(ptr noundef nonnull align 8 captures
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %28
   store ptr %25, ptr %29, align 8
   %30 = load ptr, ptr %26, align 8
   %31 = load i32, ptr %17, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
@@ -1910,9 +1906,9 @@ define void @_ZN11TransTableS10AddNodeSetEv(ptr noundef nonnull align 8 captures
 define void @_ZN11TransTableS9AddLenSetEii(ptr noundef nonnull align 8 captures(none) dereferenceable(2396) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [4 x i32], ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 200
   br i1 %10, label %11, label %13
@@ -1933,8 +1929,8 @@ define void @_ZN11TransTableS9AddLenSetEii(ptr noundef nonnull align 8 captures(
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  %22 = getelementptr inbounds [4 x i32], ptr %21, i64 %5
-  %23 = getelementptr inbounds i32, ptr %22, i64 %7
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %5
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %7
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %26 = load i32, ptr %25, align 8
@@ -1951,16 +1947,16 @@ define void @_ZN11TransTableS9AddLenSetEii(ptr noundef nonnull align 8 captures(
   store i32 %30, ptr %23, align 4
   %31 = tail call noalias dereferenceable_or_null(6432) ptr @malloc(i64 noundef 6432) #31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %33 = getelementptr inbounds [4 x ptr], ptr %32, i64 %5
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %7
+  %33 = getelementptr inbounds [32 x i8], ptr %32, i64 %5
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %7
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %30 to i64
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   store ptr %31, ptr %37, align 8
   %38 = load ptr, ptr %34, align 8
   %39 = load i32, ptr %23, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -1978,11 +1974,11 @@ define void @_ZN11TransTableS9AddLenSetEii(ptr noundef nonnull align 8 captures(
   %49 = load ptr, ptr %34, align 8
   %50 = load i32, ptr %23, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  %55 = getelementptr inbounds [4 x ptr], ptr %54, i64 %5
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %7
+  %55 = getelementptr inbounds [32 x i8], ptr %54, i64 %5
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %7
   store ptr %53, ptr %56, align 8
   br label %57
 
@@ -2002,7 +1998,7 @@ define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmal
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1804
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %14, i64 %17
+  %18 = getelementptr inbounds [40 x i8], ptr %14, i64 %17
   tail call void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
@@ -2022,19 +2018,19 @@ define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmal
   %25 = load ptr, ptr %13, align 8
   %26 = load i32, ptr %15, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %25, i64 %27
+  %28 = getelementptr inbounds [40 x i8], ptr %25, i64 %27
   tail call void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %29 = getelementptr inbounds nuw i8, ptr %.099122, i64 24
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %.099122, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv136
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv136
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv136
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %28, align 8
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -2050,7 +2046,7 @@ define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmal
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.nodeCardsType, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %47 = load i32, ptr %46, align 8
   %.not.i = icmp slt i32 %43, %47
@@ -2089,12 +2085,12 @@ define noundef ptr @_ZN11TransTableS9BuildPathEPKiS1_iiccPNS_18posSearchTypeSmal
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %66 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   store ptr %67, ptr %71, align 8
   %72 = load ptr, ptr %68, align 8
   %73 = load i32, ptr %59, align 8
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %72, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %80
@@ -2127,9 +2123,9 @@ _ZN11TransTableS10AddNodeSetEv.exit:              ; preds = %63, %78, %80, %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %118 ], [ 0, %9 ]
   %.1100 = phi ptr [ %120, %118 ], [ %10, %9 ]
   %.097 = phi ptr [ %.2101, %118 ], [ null, %9 ]
-  %86 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   br label %89
 
 89:                                               ; preds = %97, %.preheader
@@ -2195,13 +2191,13 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   br label %.preheader, !llvm.loop !39
 
 121:                                              ; preds = %97
-  %122 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 1344
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 1804
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %124, i64 %127
+  %128 = getelementptr inbounds [40 x i8], ptr %124, i64 %127
   tail call void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %.097, ptr %129, align 8
@@ -2243,7 +2239,7 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   %144 = load ptr, ptr %123, align 8
   %145 = load i32, ptr %125, align 4
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %"struct.TransTableS::winCardType", ptr %144, i64 %146
+  %147 = getelementptr inbounds [40 x i8], ptr %144, i64 %146
   tail call void @_ZN11TransTableS9AddWinSetEv(ptr noundef nonnull align 8 dereferenceable(2396) %0)
   %148 = getelementptr inbounds nuw i8, ptr %.3120, i64 24
   store ptr %147, ptr %148, align 8
@@ -2251,11 +2247,11 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   store ptr %.3120, ptr %149, align 8
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr null, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next133
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next133
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i32 %152, ptr %153, align 4
-  %154 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next133
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next133
   %155 = load i32, ptr %154, align 4
   store i32 %155, ptr %147, align 8
   %156 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -2272,7 +2268,7 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %161 = load i32, ptr %160, align 8
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds %struct.nodeCardsType, ptr %159, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %159, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %165 = load i32, ptr %164, align 8
   %.not.i108 = icmp slt i32 %161, %165
@@ -2311,12 +2307,12 @@ _ZN11TransTableS9UpdateSOPEiiccP13nodeCardsType.exit: ; preds = %110, %114
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %187 = load ptr, ptr %186, align 8
   %188 = sext i32 %184 to i64
-  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %187, i64 %188
   store ptr %185, ptr %189, align 8
   %190 = load ptr, ptr %186, align 8
   %191 = load i32, ptr %177, align 8
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %190, i64 %192
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %198
@@ -2432,7 +2428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %22)
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 14)
-  %25 = getelementptr i64, ptr %0, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEx(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %26)
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.8)
@@ -2520,11 +2516,11 @@ define void @_ZNK11TransTableS15PrintResetStatsERSt14basic_ofstreamIcSt11char_tr
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 18)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %22)
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 6)
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @_ZSt5rightRSt8ios_base)
-  %26 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef %27)
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.8)
@@ -2712,9 +2708,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %38, ptr %11, align 8
   br label %39
 

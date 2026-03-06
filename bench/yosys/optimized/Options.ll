@@ -42,7 +42,7 @@ define void @_ZN7Minisat12parseOptionsERiPPcb(ptr noundef nonnull align 4 captur
 .lr.ph:                                           ; preds = %3, %.critedge31
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.critedge31 ], [ 1, %3 ]
   %.02895 = phi i32 [ %.1, %.critedge31 ], [ 1, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv112
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv112
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   br label %.lr.ph.i
 
@@ -176,7 +176,7 @@ _ZN7Minisat6Option13getOptionListEv.exit:         ; preds = %_ZN7MinisatL5matchI
 
 _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
   %59 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !22
   %62 = load ptr, ptr %6, align 8, !tbaa !10
   %63 = load ptr, ptr %61, align 8, !tbaa !24
@@ -207,7 +207,7 @@ _ZN7Minisat6Option13getOptionListEv.exit63:       ; preds = %52, %55, %57
 _ZN7MinisatL5matchIPcEEbRT_PKc.exit:              ; preds = %67, %.critedge
   %74 = add nsw i32 %.02895, 1
   %75 = sext i32 %.02895 to i64
-  %76 = getelementptr inbounds ptr, ptr %1, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %1, i64 %75
   store ptr %.pre, ptr %76, align 8, !tbaa !10
   br label %.critedge31
 
@@ -324,7 +324,7 @@ _ZN7Minisat6Option13getOptionListEv.exit23:       ; preds = %18, %21, %23
 
 _ZN7Minisat6Option13getOptionListEv.exit25:       ; preds = %38, %41, %43
   %45 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !30
@@ -354,7 +354,7 @@ _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option1
 
 59:                                               ; preds = %_ZN7Minisat6Option13getOptionListEv.exit27
   %60 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8, !tbaa !32
@@ -384,7 +384,7 @@ _ZN7Minisat6Option13getOptionListEv.exit27:       ; preds = %_ZN7Minisat6Option1
 
 _ZN7Minisat6Option13getOptionListEv.exit29:       ; preds = %67, %70, %72
   %74 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !22
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -407,7 +407,7 @@ _ZN7Minisat6Option13getOptionListEv.exit29:       ; preds = %67, %70, %72
 
 _ZN7Minisat6Option13getOptionListEv.exit31:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit29, %82, %84
   %86 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !22
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !30
@@ -428,7 +428,7 @@ _ZN7Minisat6Option13getOptionListEv.exit31:       ; preds = %_ZN7Minisat6Option1
 
 _ZN7Minisat6Option13getOptionListEv.exit33:       ; preds = %_ZN7Minisat6Option13getOptionListEv.exit31, %93, %95
   %97 = load ptr, ptr @_ZZN7Minisat6Option13getOptionListEvE7options, align 8, !tbaa !21
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %101 = load ptr, ptr %100, align 8, !tbaa !32
@@ -513,10 +513,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 .lr.ph.i:                                         ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i, %.lr.ph.preheader.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next33.i, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i ]
   %.02127.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %27, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv32.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.tr.lcssa, i64 %indvars.iv32.i
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = sext i32 %.02127.i to i64
-  %10 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.tr.lcssa, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !30
@@ -552,10 +552,10 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
 
 ._crit_edge.i:                                    ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %.tr.lcssa, i64 %indvars.iv35.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.tr.lcssa, i64 %indvars.iv35.i
   %29 = load ptr, ptr %28, align 8, !tbaa !22
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.tr.lcssa, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !22
   store ptr %32, ptr %28, align 8, !tbaa !22
   store ptr %29, ptr %31, align 8, !tbaa !22
@@ -568,7 +568,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   %.tr48 = phi ptr [ %56, %tailrecurse ], [ %0, %2 ]
   %33 = lshr i32 %.tr3849, 1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %.tr48, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.tr48, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !30
@@ -585,7 +585,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
 .critedge:                                        ; preds = %.critedge.backedge, %40
   %indvars.iv = phi i64 [ %41, %40 ], [ %indvars.iv.next, %.critedge.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next
+  %42 = getelementptr inbounds [8 x i8], ptr %.tr48, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !30
@@ -609,14 +609,14 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN7Minisat6O
   br label %.critedge, !llvm.loop !37
 
 _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader: ; preds = %50, %48
-  %56 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next
+  %56 = getelementptr inbounds [8 x i8], ptr %.tr48, i64 %indvars.iv.next
   %57 = sext i32 %.0 to i64
   br label %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit
 
 _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit:      ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader
   %indvars.iv60 = phi i64 [ %57, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.preheader ], [ %indvars.iv.next61, %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit.backedge ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
-  %58 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
+  %58 = getelementptr inbounds [8 x i8], ptr %.tr48, i64 %indvars.iv.next61
   %59 = load ptr, ptr %58, align 8, !tbaa !22
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !30
@@ -645,7 +645,7 @@ _ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread: ; preds = %64, %66
 
 72:                                               ; preds = %_ZN7Minisat6Option8OptionLtclEPKS0_S3_.exit37.thread
   %73 = trunc nsw i64 %indvars.iv.next61 to i32
-  %74 = getelementptr inbounds ptr, ptr %.tr48, i64 %indvars.iv.next61
+  %74 = getelementptr inbounds [8 x i8], ptr %.tr48, i64 %indvars.iv.next61
   store ptr %59, ptr %56, align 8, !tbaa !22
   store ptr %43, ptr %74, align 8, !tbaa !22
   br label %40, !llvm.loop !39

@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/giaAigerExt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Rpr_t_ = type { i32 }
-%struct.Mio_Cell2_t_ = type { ptr, ptr, i32, float, i64, i64, i32, [6 x i32], ptr }
-
 ; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Gia_AigerReadEquivClasses(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
@@ -44,7 +41,7 @@ Gia_AigerReadInt.exit:                            ; preds = %4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 268435455
   store i32 %20, ptr %18, align 4
@@ -110,7 +107,7 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %21, %._crit_edge.lo
   %45 = ashr i32 %38, 2
   %46 = add nsw i32 %45, %.036
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %15, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %15, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = shl i32 %38, 27
   %51 = and i32 %50, 268435456
@@ -151,7 +148,7 @@ define noalias ptr @Gia_WriteEquivClassesInt(ptr noundef readonly captures(none)
 9:                                                ; preds = %.lr.ph, %Gia_ObjIsHead.exit.thread
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsHead.exit.thread ]
   %.055114 = phi i32 [ 0, %.lr.ph ], [ %.156, %Gia_ObjIsHead.exit.thread ]
-  %10 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val72, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.val72, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435455
   %13 = icmp eq i32 %12, 0
@@ -162,7 +159,7 @@ define noalias ptr @Gia_WriteEquivClassesInt(ptr noundef readonly captures(none)
 
 Gia_ObjIsHead.exit:                               ; preds = %9
   %.val3.i = load ptr, ptr %8, align 8, !tbaa !36
-  %17 = getelementptr inbounds nuw i32, ptr %.val3.i, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val3.i, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !37
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %Gia_ObjIsHead.exit.thread, label %.preheader108
@@ -176,7 +173,7 @@ Gia_ObjIsHead.exit:                               ; preds = %9
   %.063111 = phi i32 [ %20, %.preheader108 ], [ %25, %21 ]
   %22 = add nsw i32 %.257112, 1
   %23 = zext nneg i32 %.063111 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %.val3.i, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val3.i, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %21, label %Gia_ObjIsHead.exit.thread, !llvm.loop !38
@@ -210,7 +207,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %21, %9, %Gia_ObjIsH
   %indvars.iv139 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next140, %56 ]
   %.0118 = phi i32 [ 5, %._crit_edge ], [ %.1, %56 ]
   %.058117 = phi i32 [ 0, %._crit_edge ], [ %.159, %56 ]
-  %36 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val73, i64 %indvars.iv139
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.val73, i64 %indvars.iv139
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 268435455
   %.not = icmp eq i32 %38, 0
@@ -272,7 +269,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %39, %._crit_edge.lo
   %indvars.iv144 = phi i64 [ 1, %.lr.ph133 ], [ %indvars.iv.next145, %Gia_ObjIsHead.exit81.thread ]
   %.2132 = phi i32 [ %.1, %.lr.ph133 ], [ %.4, %Gia_ObjIsHead.exit81.thread ]
   %.061131 = phi i32 [ 0, %.lr.ph133 ], [ %.162, %Gia_ObjIsHead.exit81.thread ]
-  %59 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val.i79, i64 %indvars.iv144
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val.i79, i64 %indvars.iv144
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 268435455
   %62 = icmp eq i32 %61, 268435455
@@ -280,7 +277,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %39, %._crit_edge.lo
 
 Gia_ObjIsHead.exit81:                             ; preds = %58
   %.val3.i80 = load ptr, ptr %34, align 8, !tbaa !36
-  %63 = getelementptr inbounds nuw i32, ptr %.val3.i80, i64 %indvars.iv144
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.val3.i80, i64 %indvars.iv144
   %64 = load i32, ptr %63, align 4, !tbaa !37
   %65 = icmp slt i32 %64, 1
   br i1 %65, label %Gia_ObjIsHead.exit81.thread, label %66
@@ -329,7 +326,7 @@ Gia_ObjIsHead.exit81:                             ; preds = %58
   %.260125 = phi i32 [ %.265127, %Gia_AigerWriteUnsignedBuffer.exit103 ], [ %67, %.lr.ph128.preheader ]
   %80 = sub nsw i32 %.265127, %.260125
   %81 = zext nneg i32 %.265127 to i64
-  %82 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val.i79, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.val.i79, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = shl i32 %80, 2
   %85 = lshr i32 %83, 27
@@ -366,7 +363,7 @@ Gia_AigerWriteUnsignedBuffer.exit103:             ; preds = %.lr.ph128, %._crit_
   %96 = getelementptr inbounds i8, ptr %30, i64 %95
   store i8 %94, ptr %96, align 1, !tbaa !8
   %.3 = add nsw i32 %.010.lcssa.i101, 1
-  %.265.in = getelementptr inbounds nuw i32, ptr %.val3.i80, i64 %81
+  %.265.in = getelementptr inbounds nuw [4 x i8], ptr %.val3.i80, i64 %81
   %.265 = load i32, ptr %.265.in, align 4, !tbaa !37
   %97 = icmp sgt i32 %.265, 0
   br i1 %97, label %.lr.ph128, label %Gia_ObjIsHead.exit81.thread, !llvm.loop !42
@@ -486,7 +483,7 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %.lr.ph53, %._crit_e
   %33 = shl i32 %.lcssa.i, %.06.lcssa.i
   %34 = or i32 %33, %.0.lcssa.i
   %35 = sext i32 %.052 to i64
-  %36 = getelementptr inbounds i32, ptr %17, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %17, i64 %35
   store i32 %34, ptr %36, align 4, !tbaa !37
   %.02736 = add i32 %.052, 1
   %.not37 = icmp slt i32 %34, 0
@@ -542,7 +539,7 @@ Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edg
   %57 = sub nsw i32 0, %56
   %.0.p.i = select i1 %.not.i29, i32 %57, i32 %56
   %.0.i = add i32 %.0.p.i, %.139
-  %58 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %58 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   store i32 %.0.i, ptr %58, align 4, !tbaa !37
   %59 = add nuw i32 %.02838, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -558,7 +555,7 @@ Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edg
   %.1.lcssa = phi i32 [ %.02651, %Gia_AigerReadUnsigned.exit ], [ %.0.i, %._crit_edge.loopexit ]
   %.027.lcssa = phi i32 [ %.02736, %Gia_AigerReadUnsigned.exit ], [ %60, %._crit_edge.loopexit ]
   %61 = sext i32 %.1.lcssa to i64
-  %62 = getelementptr inbounds i32, ptr %17, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %17, i64 %61
   store i32 %.052, ptr %62, align 4, !tbaa !37
   %63 = icmp ult ptr %.promoted46, %12
   br i1 %63, label %.lr.ph53, label %._crit_edge54, !llvm.loop !50
@@ -589,14 +586,14 @@ define noalias ptr @Gia_AigerWriteMappingInt(ptr noundef readonly captures(none)
 8:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.03982 = phi i32 [ 0, %.lr.ph ], [ %.140, %17 ]
-  %9 = getelementptr inbounds nuw i32, ptr %.val49.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val49.val, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !37
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %8
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr %.val49.val, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %.val49.val, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !37
   %15 = add i32 %.03982, 2
   %16 = add i32 %15, %14
@@ -629,14 +626,14 @@ define noalias ptr @Gia_AigerWriteMappingInt(ptr noundef readonly captures(none)
   %indvars.iv109 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next110, %94 ]
   %.093 = phi i32 [ 4, %._crit_edge ], [ %.2, %94 ]
   %.04391 = phi i32 [ 0, %._crit_edge ], [ %.245, %94 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.val50.val, i64 %indvars.iv109
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.val50.val, i64 %indvars.iv109
   %27 = load i32, ptr %26, align 4, !tbaa !37
   %.not76 = icmp eq i32 %27, 0
   br i1 %.not76, label %94, label %28
 
 28:                                               ; preds = %25
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds i32, ptr %.val50.val, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %.val50.val, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !37
   %.not11.i = icmp ult i32 %31, 128
   br i1 %.not11.i, label %Gia_AigerWriteUnsignedBuffer.exit, label %.lr.ph.preheader.i
@@ -681,7 +678,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
   %indvars.iv104 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next105, %Gia_AigerWriteDiffValue.exit ]
   %.187 = phi i32 [ %.184, %.lr.ph88 ], [ %.1, %Gia_AigerWriteDiffValue.exit ]
   %.14486 = phi i32 [ %.04391, %.lr.ph88 ], [ %45, %Gia_AigerWriteDiffValue.exit ]
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv104
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv104
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = icmp slt i32 %.14486, %45
   br i1 %46, label %47, label %57
@@ -990,10 +987,10 @@ Gia_AigerReadInt.exit48:                          ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %.promoted68, i64 8
   store ptr %43, ptr %0, align 8, !tbaa !3
   %44 = sext i32 %33 to i64
-  %45 = getelementptr inbounds i32, ptr %24, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %24, i64 %44
   store i32 %.063, ptr %45, align 4, !tbaa !37
   %46 = sext i32 %.063 to i64
-  %47 = getelementptr inbounds i32, ptr %24, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %24, i64 %46
   store i32 %41, ptr %47, align 4, !tbaa !37
   %.158 = add i32 %.063, 1
   %48 = icmp sgt i32 %41, 0
@@ -1023,7 +1020,7 @@ Gia_AigerReadInt.exit48:                          ; preds = %36
   br i1 %exitcond.not.i52, label %Gia_AigerReadInt.exit53, label %51, !llvm.loop !9
 
 Gia_AigerReadInt.exit53:                          ; preds = %51
-  %58 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %58 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %56, ptr %58, align 4, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store ptr %59, ptr %0, align 8, !tbaa !3
@@ -1043,7 +1040,7 @@ Gia_AigerReadInt.exit53:                          ; preds = %51
   %.1.lcssa = phi i32 [ %.158, %Gia_AigerReadInt.exit48 ], [ %62, %._crit_edge.loopexit ]
   %63 = add nsw i32 %.1.in.lcssa, 2
   %64 = sext i32 %.1.lcssa to i64
-  %65 = getelementptr inbounds i32, ptr %24, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %24, i64 %64
   store i32 %33, ptr %65, align 4, !tbaa !37
   %66 = add nuw nsw i32 %.03362, 1
   %exitcond80.not = icmp eq i32 %66, %26
@@ -1080,7 +1077,7 @@ define noalias noundef ptr @Gia_AigerWriteMappingDoc(ptr noundef readonly captur
   %.04280 = phi i32 [ 2, %.lr.ph ], [ %.143, %17 ]
   %.04479 = phi i32 [ 0, %.lr.ph ], [ %.145, %17 ]
   %.04678 = phi i32 [ 0, %.lr.ph ], [ %.147, %17 ]
-  %7 = getelementptr inbounds nuw i32, ptr %.val54.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %.val54.val, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !37
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %17, label %9
@@ -1088,7 +1085,7 @@ define noalias noundef ptr @Gia_AigerWriteMappingDoc(ptr noundef readonly captur
 9:                                                ; preds = %6
   %10 = add nsw i32 %.04678, 1
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds i32, ptr %.val54.val, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %.val54.val, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !37
   %14 = add i32 %.04280, 2
   %15 = add i32 %14, %13
@@ -1157,7 +1154,7 @@ Gia_AigerWriteInt.exit63.preheader:               ; preds = %28
 36:                                               ; preds = %.lr.ph91, %.critedge
   %indvars.iv100 = phi i64 [ 1, %.lr.ph91 ], [ %indvars.iv.next101, %.critedge ]
   %.090 = phi i32 [ 2, %.lr.ph91 ], [ %.2, %.critedge ]
-  %37 = getelementptr inbounds nuw i32, ptr %.val53.val.pre, i64 %indvars.iv100
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.val53.val.pre, i64 %indvars.iv100
   %38 = load i32, ptr %37, align 4, !tbaa !37
   %.not76 = icmp eq i32 %38, 0
   br i1 %.not76, label %.critedge, label %39
@@ -1187,7 +1184,7 @@ Gia_AigerWriteInt.exit67:                         ; preds = %44
   %52 = getelementptr inbounds i8, ptr %20, i64 %51
   %53 = load i32, ptr %37, align 4, !tbaa !37
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %.val53.val.pre, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !37
   br label %57
 
@@ -1205,26 +1202,26 @@ Gia_AigerWriteInt.exit67:                         ; preds = %44
 
 Gia_AigerWriteInt.exit71.preheader:               ; preds = %57
   %63 = add i32 %.090, 2
-  %64 = getelementptr inbounds nuw i32, ptr %.val53.val.pre, i64 %indvars.iv100
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.val53.val.pre, i64 %indvars.iv100
   %65 = load i32, ptr %64, align 4, !tbaa !37
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.val53.val.pre, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !37
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %.lr.ph87.preheader, label %.critedge
 
 .lr.ph87.preheader:                               ; preds = %Gia_AigerWriteInt.exit71.preheader
   %70 = sext i32 %63 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %.val53.val.pre, i64 %indvars.iv100
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.val53.val.pre, i64 %indvars.iv100
   br label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %Gia_AigerWriteInt.exit75
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next96, %Gia_AigerWriteInt.exit75 ]
   %indvars.iv93 = phi i64 [ %70, %.lr.ph87.preheader ], [ %indvars.iv.next94, %Gia_AigerWriteInt.exit75 ]
   %72 = phi i64 [ %66, %.lr.ph87.preheader ], [ %86, %Gia_AigerWriteInt.exit75 ]
-  %73 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %.val53.val.pre, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv95
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv95
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = shl nsw i64 %indvars.iv93, 2
   %78 = getelementptr inbounds i8, ptr %20, i64 %77
@@ -1247,7 +1244,7 @@ Gia_AigerWriteInt.exit75:                         ; preds = %79
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %85 = load i32, ptr %71, align 4, !tbaa !37
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %.val53.val.pre, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %.val53.val.pre, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !37
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next96, %89
@@ -1280,7 +1277,7 @@ define range(i32 -2147483640, -2147483648) i32 @Gia_AigerWriteCellMappingInstanc
   %6 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %6, align 8, !tbaa !52
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds i32, ptr %.val.val, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %.val.val, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !37
   %.not = icmp eq i32 %9, -1
   %10 = sext i32 %2 to i64
@@ -1289,11 +1286,11 @@ define range(i32 -2147483640, -2147483648) i32 @Gia_AigerWriteCellMappingInstanc
 
 12:                                               ; preds = %4
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds i32, ptr %.val.val, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %.val.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %14, align 4, !tbaa !37
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !37
   br label %20
 
@@ -1330,10 +1327,10 @@ Gia_AigerWriteInt.exit40:                         ; preds = %27
   %.val3557 = load ptr, ptr %5, align 8, !tbaa !63
   %34 = getelementptr i8, ptr %.val3557, i64 8
   %.val35.val58 = load ptr, ptr %34, align 8, !tbaa !52
-  %35 = getelementptr inbounds i32, ptr %.val35.val58, i64 %7
+  %35 = getelementptr inbounds [4 x i8], ptr %.val35.val58, i64 %7
   %36 = load i32, ptr %35, align 4, !tbaa !37
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %.val35.val58, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %.val35.val58, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.preheader, label %.critedge
@@ -1347,7 +1344,7 @@ Gia_AigerWriteInt.exit40:                         ; preds = %27
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %Gia_AigerWriteInt.exit44 ]
   %42 = phi ptr [ %38, %.lr.ph.preheader ], [ %57, %Gia_AigerWriteInt.exit44 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv61
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv61
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   br label %47
@@ -1370,10 +1367,10 @@ Gia_AigerWriteInt.exit44:                         ; preds = %47
   %.val35 = load ptr, ptr %5, align 8, !tbaa !63
   %53 = getelementptr i8, ptr %.val35, i64 8
   %.val35.val = load ptr, ptr %53, align 8, !tbaa !52
-  %54 = getelementptr inbounds i32, ptr %.val35.val, i64 %7
+  %54 = getelementptr inbounds [4 x i8], ptr %.val35.val, i64 %7
   %55 = load i32, ptr %54, align 4, !tbaa !37
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %.val35.val, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %.val35.val, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !37
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next62, %59
@@ -1468,7 +1465,7 @@ define noalias noundef ptr @Gia_AigerWriteCellMappingDoc(ptr noundef readonly ca
 .lr.ph141:                                        ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %1 ]
   %.0100138 = phi i32 [ %.1101.lcssa, %._crit_edge ], [ 8, %1 ]
-  %12 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = call ptr @Mio_GateReadName(ptr noundef %14) #18
@@ -1508,7 +1505,7 @@ define noalias noundef ptr @Gia_AigerWriteCellMappingDoc(ptr noundef readonly ca
   %indvars.iv176 = phi i64 [ 2, %.lr.ph147 ], [ %indvars.iv.next177, %48 ]
   %.094145 = phi i32 [ 0, %.lr.ph147 ], [ %.195, %48 ]
   %.2102144 = phi i32 [ %.0100.lcssa, %.lr.ph147 ], [ %.3103, %48 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.val118.val, i64 %indvars.iv176
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.val118.val, i64 %indvars.iv176
   %36 = load i32, ptr %35, align 4, !tbaa !37
   %.not131 = icmp eq i32 %36, 0
   br i1 %.not131, label %48, label %37
@@ -1524,7 +1521,7 @@ define noalias noundef ptr @Gia_AigerWriteCellMappingDoc(ptr noundef readonly ca
 
 41:                                               ; preds = %37
   %42 = sext i32 %36 to i64
-  %43 = getelementptr inbounds i32, ptr %.val118.val, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %.val118.val, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !37
   %45 = shl nsw i32 %44, 2
   %46 = add i32 %.2102144, 8
@@ -1598,7 +1595,7 @@ Gia_AigerWriteInt.exit124.preheader:              ; preds = %58
 .lr.ph166:                                        ; preds = %Gia_AigerWriteInt.exit124.preheader, %Gia_AigerWriteInt.exit124
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %Gia_AigerWriteInt.exit124 ], [ 0, %Gia_AigerWriteInt.exit124.preheader ]
   %.097164 = phi i32 [ %.198.lcssa, %Gia_AigerWriteInt.exit124 ], [ 8, %Gia_AigerWriteInt.exit124.preheader ]
-  %68 = getelementptr inbounds nuw %struct.Mio_Cell2_t_, ptr %3, i64 %indvars.iv179
+  %68 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 %indvars.iv179
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %70 = load ptr, ptr %69, align 8, !tbaa !65
   %71 = sext i32 %.097164 to i64
@@ -1684,7 +1681,7 @@ Gia_AigerWriteInt.exit124:                        ; preds = %.lr.ph161, %Gia_Aig
   %.299168 = phi i32 [ %.097.lcssa, %.lr.ph170 ], [ %.3, %126 ]
   %.val119.val = load ptr, ptr %67, align 8, !tbaa !52
   %116 = sext i32 %.190169 to i64
-  %117 = getelementptr inbounds i32, ptr %.val119.val, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %.val119.val, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !37
   switch i32 %118, label %119 [
     i32 0, label %126
@@ -1854,7 +1851,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %41 = add nsw i32 %23, 1
   store i32 %41, ptr %6, align 4, !tbaa !56
   %42 = sext i32 %23 to i64
-  %43 = getelementptr inbounds i32, ptr %.pre.i8, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %.pre.i8, i64 %42
   store i32 %21, ptr %43, align 4, !tbaa !37
   %44 = add nuw nsw i32 %.07, 1
   %45 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1885,7 +1882,7 @@ define noalias noundef ptr @Gia_WritePacking(ptr noundef readonly captures(none)
 
 8:                                                ; preds = %.lr.ph, %Gia_AigerWriteInt.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_AigerWriteInt.exit ]
-  %9 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !37
   %11 = shl nsw i64 %indvars.iv, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %11

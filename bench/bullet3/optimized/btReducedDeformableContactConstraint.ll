@@ -846,9 +846,9 @@ _ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_
 
 242:                                              ; preds = %242, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %242 ]
-  %243 = getelementptr inbounds nuw float, ptr %231, i64 %indvars.iv.i
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv.i
   %244 = load float, ptr %243, align 4, !tbaa !35
-  %245 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv.i
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv.i
   %246 = load float, ptr %245, align 4, !tbaa !35
   %247 = call float @llvm.fmuladd.f32(float %244, float %234, float %246)
   store float %247, ptr %245, align 4, !tbaa !35
@@ -880,9 +880,9 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %242, %229
 
 259:                                              ; preds = %259, %.lr.ph.i56
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i60, %259 ]
-  %260 = getelementptr inbounds nuw float, ptr %254, i64 %indvars.iv.i59
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %indvars.iv.i59
   %261 = load float, ptr %260, align 4, !tbaa !35
-  %262 = getelementptr inbounds nuw float, ptr %256, i64 %indvars.iv.i59
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %indvars.iv.i59
   %263 = load float, ptr %262, align 4, !tbaa !35
   %264 = call float @llvm.fmuladd.f32(float %261, float %.0110, float %263)
   store float %264, ptr %262, align 4, !tbaa !35
@@ -897,9 +897,9 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %242, %229
 
 267:                                              ; preds = %267, %.lr.ph.i63
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i63 ], [ %indvars.iv.next.i67, %267 ]
-  %268 = getelementptr inbounds nuw float, ptr %266, i64 %indvars.iv.i66
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %indvars.iv.i66
   %269 = load float, ptr %268, align 4, !tbaa !35
-  %270 = getelementptr inbounds nuw float, ptr %256, i64 %indvars.iv.i66
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %indvars.iv.i66
   %271 = load float, ptr %270, align 4, !tbaa !35
   %272 = call float @llvm.fmuladd.f32(float %269, float %.0111, float %271)
   store float %272, ptr %270, align 4, !tbaa !35
@@ -1639,9 +1639,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08688 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %86, %.lr.ph ]
-  %82 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %83 = load float, ptr %82, align 4, !tbaa !35
-  %84 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %85 = load float, ptr %84, align 4, !tbaa !35
   %86 = tail call float @llvm.fmuladd.f32(float %83, float %85, float %.08688)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1675,9 +1675,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv105 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next106, %.lr.ph93 ]
   %.190 = phi float [ 0.000000e+00, %.lr.ph93.preheader ], [ %106, %.lr.ph93 ]
-  %102 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv105
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv105
   %103 = load float, ptr %102, align 4, !tbaa !35
-  %104 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv105
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv105
   %105 = load float, ptr %104, align 4, !tbaa !35
   %106 = tail call float @llvm.fmuladd.f32(float %103, float %105, float %.190)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -1706,9 +1706,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv111 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next112, %.lr.ph99 ]
   %.296 = phi float [ 0.000000e+00, %.lr.ph99.preheader ], [ %124, %.lr.ph99 ]
-  %120 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv111
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv111
   %121 = load float, ptr %120, align 4, !tbaa !35
-  %122 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv111
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv111
   %123 = load float, ptr %122, align 4, !tbaa !35
   %124 = tail call float @llvm.fmuladd.f32(float %121, float %123, float %.296)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1

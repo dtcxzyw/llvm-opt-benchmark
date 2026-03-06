@@ -354,7 +354,7 @@ ehcleanup65:                                      ; preds = %if.then.i.i51, %ehc
 
 switch.lookup:                                    ; preds = %do.end
   %38 = zext nneg i32 %name to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8QuantLib11LatticeRule7getRuleENS0_4typeERSt6vectorIdSaIdEEi, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8QuantLib11LatticeRule7getRuleENS0_4typeERSt6vectorIdSaIdEEi, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = load ptr, ptr %Z, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28800) %39, ptr noundef nonnull align 16 dereferenceable(28800) %switch.load, i64 28800, i1 false)
@@ -608,9 +608,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !8
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !3
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !22
   br label %if.end44
 

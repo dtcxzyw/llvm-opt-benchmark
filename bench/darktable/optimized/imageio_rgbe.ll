@@ -85,7 +85,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   %39 = tail call ptr @__ctype_b_loc() #15
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = sext i8 %36 to i64
-  %42 = getelementptr inbounds i16, ptr %40, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %40, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !19
   %44 = and i16 %43, 8192
   %.not = icmp eq i16 %44, 0
@@ -231,7 +231,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   %.05282 = phi ptr [ %61, %95 ], [ %101, %96 ]
   %98 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %.05282, ptr noundef nonnull %9) #16
   %99 = fptrunc reassoc nsz arcp contract afn double %98 to float
-  %100 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %99, ptr %100, align 4, !tbaa !23
   %101 = load ptr, ptr %9, align 8, !tbaa !21
   %102 = icmp eq ptr %.05282, %101
@@ -790,9 +790,9 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
 
 45:                                               ; preds = %45, %._crit_edge
   %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %46, align 4, !tbaa !23
-  %47 = getelementptr inbounds nuw [4 x float], ptr %6, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store float 0.000000e+00, ptr %48, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -897,11 +897,11 @@ _xy2matrix.exit:                                  ; preds = %45
 
 117:                                              ; preds = %.lr.ph, %117
   %.05278 = phi i64 [ 0, %.lr.ph ], [ %123, %117 ]
-  %118 = getelementptr float, ptr %113, i64 %.05278
+  %118 = getelementptr [4 x i8], ptr %113, i64 %.05278
   %119 = load float, ptr %118, align 4, !tbaa !23
   %120 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %119, float 1.000000e+04)
   %121 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %120, float 0.000000e+00)
-  %122 = getelementptr inbounds nuw float, ptr %5, i64 %.05278
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.05278
   store float %121, ptr %122, align 4, !tbaa !23
   %123 = add nuw nsw i64 %.05278, 1
   %exitcond.not = icmp eq i64 %123, 3
@@ -909,8 +909,8 @@ _xy2matrix.exit:                                  ; preds = %45
 
 .preheader:                                       ; preds = %_xy2matrix.exit, %135
   %indvars.iv86 = phi i64 [ 0, %_xy2matrix.exit ], [ %indvars.iv.next87, %135 ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv86
-  %124 = getelementptr inbounds nuw [3 x float], ptr %7, i64 %indvars.iv86
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv86
+  %124 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %indvars.iv86
   br label %136
 
 125:                                              ; preds = %135
@@ -938,9 +938,9 @@ _xy2matrix.exit:                                  ; preds = %45
 
 136:                                              ; preds = %.preheader, %136
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %136 ]
-  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %137 = load float, ptr %gep, align 4, !tbaa !23
-  %138 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv
   store float %137, ptr %138, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next, 3

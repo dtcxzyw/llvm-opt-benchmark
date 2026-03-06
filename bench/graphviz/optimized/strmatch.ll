@@ -145,13 +145,13 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
 
 52:                                               ; preds = %.lr.ph83, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %60 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !13
   %.not48 = icmp eq ptr %54, null
   br i1 %.not48, label %60, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %58, %51
@@ -282,9 +282,9 @@ gobble.exit:                                      ; preds = %47, %5
 
 39:                                               ; preds = %35
   %40 = sext i32 %.1 to i64
-  %41 = getelementptr inbounds ptr, ptr %7, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %7, i64 %40
   store ptr null, ptr %41, align 8, !tbaa !13
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %40
+  %42 = getelementptr inbounds [8 x i8], ptr %0, i64 %40
   store ptr null, ptr %42, align 8, !tbaa !13
   br label %.split.split.split.i.backedge
 
@@ -424,9 +424,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @onematch(ptr noundef nonnull
 
 30:                                               ; preds = %27, %26
   %31 = sext i32 %24 to i64
-  %32 = getelementptr inbounds ptr, ptr %7, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %7, i64 %31
   store ptr null, ptr %32, align 8, !tbaa !13
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %31
   store ptr null, ptr %33, align 8, !tbaa !13
   br label %34
 
@@ -562,9 +562,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @onematch(ptr noundef nonnull
 
 74:                                               ; preds = %70
   %75 = sext i32 %72 to i64
-  %76 = getelementptr inbounds ptr, ptr %7, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %7, i64 %75
   store ptr null, ptr %76, align 8, !tbaa !13
-  %77 = getelementptr inbounds ptr, ptr %0, i64 %75
+  %77 = getelementptr inbounds [8 x i8], ptr %0, i64 %75
   store ptr null, ptr %77, align 8, !tbaa !13
   br label %.split.split.us.i.backedge
 
@@ -663,8 +663,8 @@ gobble.exit:                                      ; preds = %38, %66
   %108 = icmp ne i8 %15, 33
   %109 = zext i1 %108 to i32
   %110 = sext i32 %24 to i64
-  %111 = getelementptr inbounds ptr, ptr %0, i64 %110
-  %112 = getelementptr inbounds ptr, ptr %7, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %0, i64 %110
+  %112 = getelementptr inbounds [8 x i8], ptr %7, i64 %110
   br label %113
 
 113:                                              ; preds = %139, %106
@@ -820,7 +820,7 @@ gobble.exit:                                      ; preds = %38, %66
 
 170:                                              ; preds = %168
   %171 = zext nneg i32 %169 to i64
-  %172 = getelementptr inbounds nuw ptr, ptr %0, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !13
   %.not378 = icmp eq ptr %173, null
   br i1 %.not378, label %177, label %174
@@ -1156,10 +1156,10 @@ gv_isxdigit.exit.thread:                          ; preds = %switch.early.test, 
   %299 = tail call ptr @__ctype_tolower_loc() #8
   %300 = load ptr, ptr %299, align 8, !tbaa !28
   %301 = sext i8 %238 to i64
-  %302 = getelementptr inbounds i32, ptr %300, i64 %301
+  %302 = getelementptr inbounds [4 x i8], ptr %300, i64 %301
   %303 = load i32, ptr %302, align 4, !tbaa !16
   %304 = sext i8 %293 to i64
-  %305 = getelementptr inbounds i32, ptr %300, i64 %304
+  %305 = getelementptr inbounds [4 x i8], ptr %300, i64 %304
   %306 = load i32, ptr %305, align 4, !tbaa !16
   %307 = icmp eq i32 %303, %306
   br i1 %307, label %gv_isspace.exit.thread448.backedge, label %308
@@ -1271,13 +1271,13 @@ gv_isspace.exit:                                  ; preds = %280, %319
 
 351:                                              ; preds = %349
   %352 = zext nneg i32 %350 to i64
-  %353 = getelementptr inbounds nuw ptr, ptr %0, i64 %352
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %352
   %354 = load ptr, ptr %353, align 8, !tbaa !13
   %.not355 = icmp eq ptr %354, null
   br i1 %.not355, label %365, label %.preheader475
 
 .preheader475:                                    ; preds = %351
-  %355 = getelementptr inbounds nuw ptr, ptr %7, i64 %352
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %352
   %356 = load ptr, ptr %355, align 8, !tbaa !13
   br label %357
 

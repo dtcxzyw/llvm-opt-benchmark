@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.whitespace_rule = type { ptr, i32, i8 }
 
 @whitespace_rule_cfg = dso_local local_unnamed_addr global i32 1224, align 4
 @.str = private unnamed_addr constant [6 x i8] c", \09\0A\0D\00", align 1
@@ -63,7 +62,7 @@ define dso_local range(i32 0, -256) i32 @parse_whitespace_rule(ptr noundef %0) l
 
 .preheader:                                       ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw %struct.whitespace_rule, ptr @whitespace_rule_names, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @whitespace_rule_names, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 16, !tbaa !9
   %13 = tail call i32 @strncmp(ptr noundef %12, ptr noundef nonnull %.1, i64 noundef %.037) #12
   %.not42 = icmp eq i32 %13, 0
@@ -193,7 +192,7 @@ define dso_local i32 @whitespace_rule(ptr noundef %0, ptr noundef %1) local_unna
   ]
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %struct.whitespace_rule, ptr @whitespace_rule_names, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @whitespace_rule_names, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !14
   %23 = or i32 %22, %.01319

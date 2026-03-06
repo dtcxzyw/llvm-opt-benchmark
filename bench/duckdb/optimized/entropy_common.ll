@@ -229,7 +229,7 @@ define noundef i64 @_ZN11duckdb_zstd19FSE_readNCount_bmi2EPsPjS1_PKvmi(ptr nound
   %90 = trunc i32 %87 to i16
   %91 = add nuw i32 %.1141.i.i, 1
   %92 = zext i32 %.1141.i.i to i64
-  %93 = getelementptr inbounds nuw i16, ptr %0, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %92
   store i16 %90, ptr %93, align 2, !tbaa !10
   %94 = icmp ne i32 %87, 0
   %95 = icmp slt i32 %.2163.i.i, %.0158.i.i
@@ -496,7 +496,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24FSE_readNCount_body_bmi2E
   %86 = trunc i32 %83 to i16
   %87 = add nuw i32 %.1141.i, 1
   %88 = zext i32 %.1141.i to i64
-  %89 = getelementptr inbounds nuw i16, ptr %0, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %88
   store i16 %86, ptr %89, align 2, !tbaa !10
   %90 = icmp ne i32 %83, 0
   %91 = icmp slt i32 %.2163.i, %.0158.i
@@ -686,7 +686,7 @@ define noundef range(i64 -119, -9223372036854775808) i64 @_ZN11duckdb_zstd18HUF_
 
 44:                                               ; preds = %.lr.ph13.i
   %45 = zext nneg i8 %42 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !3
@@ -727,7 +727,7 @@ define noundef range(i64 -119, -9223372036854775808) i64 @_ZN11duckdb_zstd18HUF_
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i25.i
   store i8 %69, ptr %70, align 1, !tbaa !12
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = add i32 %73, 1
   store i32 %74, ptr %72, align 4, !tbaa !3
@@ -832,7 +832,7 @@ define internal fastcc noundef range(i64 -119, -9223372036854775808) i64 @_ZN11d
 
 41:                                               ; preds = %.lr.ph13
   %42 = zext nneg i8 %39 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !3
@@ -873,7 +873,7 @@ define internal fastcc noundef range(i64 -119, -9223372036854775808) i64 @_ZN11d
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.074.i25
   store i8 %66, ptr %67, align 1, !tbaa !12
   %68 = zext nneg i32 %65 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4, !tbaa !3

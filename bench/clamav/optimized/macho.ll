@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.macho_section64 = type { [16 x i8], [16 x i8], i64, i64, i32, i32, i32, i32, i32, i32, i32 }
 %struct.macho_thread_state_ppc = type { i32, i32, [32 x i32], i32, i32, i32, i32, i32, i32 }
 %struct.macho_thread_state_ppc64 = type { i64, i64, [32 x i64], i32, i64, i64, i64, i32 }
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.macho_fat_header = type { i32, i32 }
 %struct.macho_fat_arch = type { i32, i32, i32, i32, i32 }
 
@@ -598,7 +597,7 @@ fmap_readn.exit268.thread:                        ; preds = %180, %179, %fmap_re
   %197 = select i1 %.not221333, i64 %195, i64 %196
   %198 = trunc i64 %197 to i32
   %199 = zext i32 %.2212453 to i64
-  %200 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %199
+  %200 = getelementptr inbounds nuw [36 x i8], ptr %176, i64 %199
   store i32 %198, ptr %200, align 4, !tbaa !43
   %201 = load i64, ptr %82, align 8
   %202 = call i64 @llvm.bswap.i64(i64 %201)
@@ -658,7 +657,7 @@ fmap_readn.exit273.thread:                        ; preds = %215, %214, %fmap_re
   %230 = call i32 @llvm.bswap.i32(i32 %229)
   %231 = select i1 %.not221333, i32 %229, i32 %230
   %232 = zext i32 %.2212453 to i64
-  %233 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %232
+  %233 = getelementptr inbounds nuw [36 x i8], ptr %176, i64 %232
   store i32 %231, ptr %233, align 4, !tbaa !43
   %234 = load i32, ptr %78, align 4
   %235 = call i32 @llvm.bswap.i32(i32 %234)
@@ -707,7 +706,7 @@ fmap_readn.exit273.thread:                        ; preds = %215, %214, %fmap_re
   %260 = phi i64 [ %232, %256 ], [ %199, %193 ]
   %.sink544 = phi ptr [ %7, %256 ], [ %8, %193 ]
   %.5 = phi i64 [ %257, %256 ], [ %194, %193 ]
-  %261 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %260
+  %261 = getelementptr inbounds nuw [36 x i8], ptr %176, i64 %260
   %262 = add i32 %.sink556, -1
   %263 = and i32 %262, %.sink555
   %264 = sub i32 %.sink556, %263
@@ -723,7 +722,7 @@ fmap_readn.exit273.thread:                        ; preds = %215, %214, %fmap_re
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %.2212453) #8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %9) #8
   %270 = zext i32 %.2212453 to i64
-  %271 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %270
+  %271 = getelementptr inbounds nuw [36 x i8], ptr %176, i64 %270
   %272 = load i32, ptr %271, align 4, !tbaa !43
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35, i32 noundef %272) #8
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 4
@@ -965,7 +964,7 @@ default.unreachable:                              ; preds = %286
 
 .lr.ph.i:                                         ; preds = %365, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %365 ]
-  %358 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.1199, i64 %indvars.iv.i
+  %358 = getelementptr inbounds nuw [36 x i8], ptr %.1199, i64 %indvars.iv.i
   %359 = load i32, ptr %358, align 4, !tbaa !43
   %.not.i289 = icmp ugt i32 %359, %.1201
   br i1 %.not.i289, label %365, label %360

@@ -314,7 +314,7 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly captures(address_i
 
 select.unfold.preheader:                          ; preds = %3, %select.unfold
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !61
   %.not39 = icmp eq ptr %6, null
   br i1 %.not39, label %.critedge45, label %select.unfold
@@ -389,7 +389,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
 
 31:                                               ; preds = %21, %30, %27, %.lr.ph55
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next58
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next58
   %33 = load ptr, ptr %32, align 8, !tbaa !61
   %.not41 = icmp eq ptr %33, null
   br i1 %.not41, label %.loopexit, label %.lr.ph55, !llvm.loop !63

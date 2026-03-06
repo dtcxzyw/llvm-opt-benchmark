@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/toast_helper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.ToastAttrInfo = type { ptr, i32, i8, i8 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((40, 41)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
@@ -35,18 +30,18 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %16 = shl nsw i64 %15, 4
   %17 = getelementptr i8, ptr %4, i64 %16
   %18 = getelementptr i8, ptr %17, i64 24
-  %19 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [100 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i8 0, ptr %22, align 4
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 85
   %26 = load i8, ptr %25, align 1
   %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 13
   store i8 %26, ptr %29, align 1
   %30 = load ptr, ptr %9, align 8
@@ -54,11 +49,11 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   br i1 %.not, label %81, label %31
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8
   %34 = inttoptr i64 %33 to ptr
   %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 72
@@ -109,7 +104,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 
 67:                                               ; preds = %66, %62, %59, %54
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i8, ptr %70, align 4
   %72 = or i8 %71, 1
@@ -121,7 +116,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 
 75:                                               ; preds = %66
   %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %79 = load i8, ptr %78, align 4
   %80 = or i8 %79, 16
@@ -130,7 +125,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 
 81:                                               ; preds = %13
   %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load i64, ptr %83, align 8
   %85 = inttoptr i64 %84 to ptr
   br label %86
@@ -145,7 +140,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 
 91:                                               ; preds = %86
   %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %95 = load i8, ptr %94, align 4
   %96 = or i8 %95, 16
@@ -169,7 +164,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 12
   %111 = load i8, ptr %110, align 4
   %112 = or i8 %111, 16
@@ -183,7 +178,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %117, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %indvars.iv
   store ptr %.0, ptr %118, align 8
   %119 = load i8, ptr %104, align 4
   %120 = icmp eq i8 %119, 112
@@ -201,10 +196,10 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %.2 = phi ptr [ %122, %121 ], [ %124, %123 ]
   %126 = ptrtoint ptr %.2 to i64
   %127 = load ptr, ptr %10, align 8
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv
   store i64 %126, ptr %128, align 8
   %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %129, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 12
   %132 = load i8, ptr %131, align 4
   %133 = or i8 %132, 2
@@ -246,14 +241,14 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 151:                                              ; preds = %146, %148, %137
   %152 = phi i32 [ %143, %137 ], [ %147, %146 ], [ %150, %148 ]
   %153 = load ptr, ptr %8, align 8
-  %154 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i32 %152, ptr %155, align 8
   br label %162
 
 156:                                              ; preds = %99
   %157 = load ptr, ptr %8, align 8
-  %158 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %indvars.iv
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %160 = load i8, ptr %159, align 4
   %161 = or i8 %160, 16
@@ -300,8 +295,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %37 ], [ 0, %.lr.ph.split.us ]
   %.043.us.us = phi i32 [ %.1.us.us, %37 ], [ -1, %.lr.ph.split.us ]
   %.03041.us.us = phi i32 [ %.131.us.us, %37 ], [ 24, %.lr.ph.split.us ]
-  %16 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv68
-  %17 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv68
+  %16 = getelementptr inbounds nuw [100 x i8], ptr %12, i64 %indvars.iv68
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv68
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i32
@@ -311,7 +306,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
 
 22:                                               ; preds = %.lr.ph.split.us.split.us
   %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv68
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv68
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = load i8, ptr %26, align 1
@@ -344,8 +339,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %61 ], [ 0, %.lr.ph.split.us ]
   %.043.us = phi i32 [ %.1.us, %61 ], [ -1, %.lr.ph.split.us ]
   %.03041.us = phi i32 [ %.131.us, %61 ], [ 24, %.lr.ph.split.us ]
-  %38 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv73
-  %39 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv73
+  %38 = getelementptr inbounds nuw [100 x i8], ptr %12, i64 %indvars.iv73
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv73
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i8, ptr %40, align 4
   %42 = zext i8 %41 to i32
@@ -355,7 +350,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
 
 44:                                               ; preds = %.lr.ph.split.us.split
   %45 = load ptr, ptr %15, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv73
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv73
   %47 = load i64, ptr %46, align 8
   %48 = inttoptr i64 %47 to ptr
   %49 = load i8, ptr %48, align 1
@@ -394,8 +389,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph.split ]
   %.043.us44 = phi i32 [ %.1.us52, %82 ], [ -1, %.lr.ph.split ]
   %.03041.us46 = phi i32 [ %.131.us51, %82 ], [ 24, %.lr.ph.split ]
-  %62 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv
-  %63 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [100 x i8], ptr %12, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = zext i8 %65 to i32
@@ -405,7 +400,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
 
 68:                                               ; preds = %.lr.ph.split.split.us
   %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8
   %72 = inttoptr i64 %71 to ptr
   %73 = load i8, ptr %72, align 1
@@ -440,8 +435,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %105 ], [ 0, %.lr.ph.split ]
   %.043 = phi i32 [ %.1, %105 ], [ -1, %.lr.ph.split ]
   %.03041 = phi i32 [ %.131, %105 ], [ 24, %.lr.ph.split ]
-  %83 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %12, i64 %indvars.iv63
-  %84 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %14, i64 %indvars.iv63
+  %83 = getelementptr inbounds nuw [100 x i8], ptr %12, i64 %indvars.iv63
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv63
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %86 = load i8, ptr %85, align 4
   %87 = zext i8 %86 to i32
@@ -451,7 +446,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
 
 89:                                               ; preds = %.lr.ph.split.split
   %90 = load ptr, ptr %15, align 8
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv63
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv63
   %92 = load i64, ptr %91, align 8
   %93 = inttoptr i64 %92 to ptr
   %94 = load i8, ptr %93, align 1
@@ -495,10 +490,10 @@ define dso_local void @toast_tuple_try_compression(ptr noundef captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %struct.ToastAttrInfo, ptr %8, i64 %5
+  %9 = getelementptr inbounds [16 x i8], ptr %8, i64 %5
   %10 = load i64, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 13
   %12 = load i8, ptr %11, align 1
@@ -554,11 +549,11 @@ define dso_local void @toast_tuple_externalize(ptr noundef captures(none) %0, i3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i64, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.ToastAttrInfo, ptr %10, i64 %6
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = or i8 %13, 16
@@ -614,7 +609,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 12:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 2
@@ -623,7 +618,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8
   %22 = inttoptr i64 %21 to ptr
   tail call void @pfree(ptr noundef %22) #5
@@ -653,7 +648,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 27:                                               ; preds = %.lr.ph28, %38
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %38 ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %28, i64 %indvars.iv31
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 1
@@ -663,7 +658,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 33:                                               ; preds = %27
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %26, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv31
   %37 = load i64, ptr %36, align 8
   tail call void @toast_delete_datum(ptr noundef %34, i64 noundef %37, i1 noundef zeroext false) #5
   br label %38
@@ -693,14 +688,14 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %9 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i16, ptr %10, align 4
   %12 = icmp eq i16 %11, -1
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !range !4, !noundef !5

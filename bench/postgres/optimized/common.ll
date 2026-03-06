@@ -1753,7 +1753,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %52 = load ptr, ptr %51, align 8
   %53 = load i8, ptr %50, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 1024
   %.not203.i = icmp eq i16 %57, 0
@@ -1770,7 +1770,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %64 = getelementptr inbounds i8, ptr %50, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 1024
   %.not.i = icmp eq i16 %69, 0
@@ -1826,7 +1826,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %92 = load ptr, ptr %51, align 8
   %93 = load i8, ptr %91, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = and i16 %96, 1024
   %.not153232.i = icmp eq i16 %97, 0
@@ -1843,7 +1843,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %104 = getelementptr inbounds i8, ptr %91, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %102, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %102, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = and i16 %108, 1024
   %.not153.i = icmp eq i16 %109, 0
@@ -1878,7 +1878,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %123 = load ptr, ptr %51, align 8
   %124 = load i8, ptr %122, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw i16, ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = and i16 %127, 1024
   %.not149238.i = icmp eq i16 %128, 0
@@ -1895,7 +1895,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %135 = getelementptr inbounds i8, ptr %122, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i64
-  %138 = getelementptr inbounds nuw i16, ptr %133, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %133, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = and i16 %139, 1024
   %.not149.i = icmp eq i16 %140, 0
@@ -1928,7 +1928,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %152 = load ptr, ptr %51, align 8
   %153 = load i8, ptr %151, align 1
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds nuw i16, ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %152, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 1024
   %.not150245.i = icmp eq i16 %157, 0
@@ -1945,7 +1945,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %164 = getelementptr inbounds i8, ptr %151, i64 %163
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %162, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %162, i64 %166
   %168 = load i16, ptr %167, align 2
   %169 = and i16 %168, 1024
   %.not150.i = icmp eq i16 %169, 0
@@ -1968,7 +1968,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %177 = load ptr, ptr %51, align 8
   %178 = load i8, ptr %176, align 1
   %179 = zext i8 %178 to i64
-  %180 = getelementptr inbounds nuw i16, ptr %177, i64 %179
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %177, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = and i16 %181, 1024
   %.not151250.i = icmp eq i16 %182, 0
@@ -1985,7 +1985,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %189 = getelementptr inbounds i8, ptr %176, i64 %188
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw i16, ptr %187, i64 %191
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %187, i64 %191
   %193 = load i16, ptr %192, align 2
   %194 = and i16 %193, 1024
   %.not151.i = icmp eq i16 %194, 0
@@ -2010,7 +2010,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %204 = load ptr, ptr %51, align 8
   %205 = load i8, ptr %203, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw i16, ptr %204, i64 %206
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %204, i64 %206
   %208 = load i16, ptr %207, align 2
   %209 = and i16 %208, 1024
   %.not148256.i = icmp eq i16 %209, 0
@@ -2027,7 +2027,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %216 = getelementptr inbounds i8, ptr %203, i64 %215
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i64
-  %219 = getelementptr inbounds nuw i16, ptr %214, i64 %218
+  %219 = getelementptr inbounds nuw [2 x i8], ptr %214, i64 %218
   %220 = load i16, ptr %219, align 2
   %221 = and i16 %220, 1024
   %.not148.i = icmp eq i16 %221, 0
@@ -2057,7 +2057,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %233 = load ptr, ptr %51, align 8
   %234 = load i8, ptr %232, align 1
   %235 = zext i8 %234 to i64
-  %236 = getelementptr inbounds nuw i16, ptr %233, i64 %235
+  %236 = getelementptr inbounds nuw [2 x i8], ptr %233, i64 %235
   %237 = load i16, ptr %236, align 2
   %238 = and i16 %237, 1024
   %.not145213.i = icmp eq i16 %238, 0
@@ -2074,7 +2074,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %245 = getelementptr inbounds i8, ptr %232, i64 %244
   %246 = load i8, ptr %245, align 1
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw i16, ptr %243, i64 %247
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %247
   %249 = load i16, ptr %248, align 2
   %250 = and i16 %249, 1024
   %.not145.i = icmp eq i16 %250, 0
@@ -2118,7 +2118,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %268 = load ptr, ptr %51, align 8
   %269 = load i8, ptr %267, align 1
   %270 = zext i8 %269 to i64
-  %271 = getelementptr inbounds nuw i16, ptr %268, i64 %270
+  %271 = getelementptr inbounds nuw [2 x i8], ptr %268, i64 %270
   %272 = load i16, ptr %271, align 2
   %273 = and i16 %272, 1024
   %.not146220.i = icmp eq i16 %273, 0
@@ -2135,7 +2135,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %280 = getelementptr inbounds i8, ptr %267, i64 %279
   %281 = load i8, ptr %280, align 1
   %282 = zext i8 %281 to i64
-  %283 = getelementptr inbounds nuw i16, ptr %278, i64 %282
+  %283 = getelementptr inbounds nuw [2 x i8], ptr %278, i64 %282
   %284 = load i16, ptr %283, align 2
   %285 = and i16 %284, 1024
   %.not146.i = icmp eq i16 %285, 0
@@ -2164,7 +2164,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %294 = load ptr, ptr %51, align 8
   %295 = load i8, ptr %293, align 1
   %296 = zext i8 %295 to i64
-  %297 = getelementptr inbounds nuw i16, ptr %294, i64 %296
+  %297 = getelementptr inbounds nuw [2 x i8], ptr %294, i64 %296
   %298 = load i16, ptr %297, align 2
   %299 = and i16 %298, 1024
   %.not147226.i = icmp eq i16 %299, 0
@@ -2181,7 +2181,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %306 = getelementptr inbounds i8, ptr %293, i64 %305
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i64
-  %309 = getelementptr inbounds nuw i16, ptr %304, i64 %308
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %304, i64 %308
   %310 = load i16, ptr %309, align 2
   %311 = and i16 %310, 1024
   %.not147.i = icmp eq i16 %311, 0
@@ -2206,7 +2206,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %321 = load ptr, ptr %51, align 8
   %322 = load i8, ptr %320, align 1
   %323 = zext i8 %322 to i64
-  %324 = getelementptr inbounds nuw i16, ptr %321, i64 %323
+  %324 = getelementptr inbounds nuw [2 x i8], ptr %321, i64 %323
   %325 = load i16, ptr %324, align 2
   %326 = and i16 %325, 1024
   %.not144207.i = icmp eq i16 %326, 0
@@ -2223,7 +2223,7 @@ define dso_local zeroext i1 @SendQuery(ptr noundef %0) local_unnamed_addr #0 {
   %333 = getelementptr inbounds i8, ptr %320, i64 %332
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i64
-  %336 = getelementptr inbounds nuw i16, ptr %331, i64 %335
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %331, i64 %335
   %337 = load i16, ptr %336, align 2
   %338 = and i16 %337, 1024
   %.not144.i = icmp eq i16 %338, 0
@@ -2243,7 +2243,7 @@ command_no_begin.exit:                            ; preds = %.thread161.thread.i
   %344 = load ptr, ptr %51, align 8
   %345 = load i8, ptr %343, align 1
   %346 = zext i8 %345 to i64
-  %347 = getelementptr inbounds nuw i16, ptr %344, i64 %346
+  %347 = getelementptr inbounds nuw [2 x i8], ptr %344, i64 %346
   %348 = load i16, ptr %347, align 2
   %349 = and i16 %348, 1024
   %.not152.i = icmp eq i16 %349, 0
@@ -2799,7 +2799,7 @@ ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %5
 
 577:                                              ; preds = %576, %577
   %indvars.iv = phi i64 [ 0, %576 ], [ %indvars.iv.next, %577 ]
-  %578 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 %indvars.iv
+  %578 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @pset, i64 280), i64 %indvars.iv
   %579 = load ptr, ptr %578, align 8
   call void @pg_free(ptr noundef %579) #17
   store ptr null, ptr %578, align 8
@@ -2859,7 +2859,7 @@ define dso_local void @clean_extended_state() local_unnamed_addr #5 {
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 256), align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3625,7 +3625,7 @@ define internal fastcc noundef ptr @skip_white_space(ptr noundef %0) unnamed_add
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %.02748, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8192
   %.not32 = icmp eq i16 %11, 0

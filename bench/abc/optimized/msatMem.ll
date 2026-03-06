@@ -80,7 +80,7 @@ define void @Msat_MmFixedStop(ptr noundef captures(address_is_null) %0, i32 noun
   %26 = phi i32 [ %34, %33 ], [ %23, %21 ]
   %27 = phi ptr [ %35, %33 ], [ %.pre, %21 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %21 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %33, label %30
@@ -88,7 +88,7 @@ define void @Msat_MmFixedStop(ptr noundef captures(address_is_null) %0, i32 noun
 30:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %29) #15
   %31 = load ptr, ptr %25, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store ptr null, ptr %32, align 8, !tbaa !19
   %.pre30 = load i32, ptr %22, align 8, !tbaa !12
   br label %33
@@ -202,7 +202,7 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr noundef captures(none) %0) local_
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %8, align 8, !tbaa !12
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
   %47 = load i32, ptr %4, align 4, !tbaa !22
   %48 = add nsw i32 %47, %28
@@ -260,7 +260,7 @@ define void @Msat_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_ad
   %6 = phi i32 [ %14, %13 ], [ %3, %1 ]
   %7 = phi ptr [ %15, %13 ], [ %.pre, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
@@ -268,7 +268,7 @@ define void @Msat_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_ad
 10:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %9) #15
   %11 = load ptr, ptr %5, align 8, !tbaa !13
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !19
   %.pre39 = load i32, ptr %2, align 8, !tbaa !12
   br label %13
@@ -377,7 +377,7 @@ define void @Msat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nound
   %22 = phi i32 [ %30, %29 ], [ %19, %17 ]
   %23 = phi ptr [ %31, %29 ], [ %.pre, %17 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %17 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %29, label %26
@@ -385,7 +385,7 @@ define void @Msat_MmFlexStop(ptr noundef captures(address_is_null) %0, i32 nound
 26:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %25) #15
   %27 = load ptr, ptr %21, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr null, ptr %28, align 8, !tbaa !19
   %.pre27 = load i32, ptr %18, align 8, !tbaa !31
   br label %29
@@ -490,7 +490,7 @@ define ptr @Msat_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1)
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %13, align 8, !tbaa !31
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %39, ptr %50, align 8, !tbaa !19
   %.pre = load ptr, ptr %3, align 8, !tbaa !36
   %.pre35 = sext i32 %1 to i64
@@ -557,7 +557,7 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
   store i32 0, ptr %18, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
   store i32 0, ptr %19, align 4, !tbaa !15
-  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %calloc.i, ptr %20, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -590,7 +590,7 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
 
 29:                                               ; preds = %._crit_edge, %29
   %indvars.iv44 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next45, %29 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv44
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv44
   store ptr %21, ptr %30, align 8, !tbaa !42
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 5
@@ -605,7 +605,7 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
   br i1 %.not36.not, label %.lr.ph, label %._crit_edge39
 
 .lr.ph:                                           ; preds = %.lr.ph41
-  %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv52
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv52
   %35 = load ptr, ptr %34, align 8, !tbaa !42
   %36 = or disjoint i32 %32, 1
   %37 = sext i32 %36 to i64
@@ -614,7 +614,7 @@ Msat_MmFixedStart.exit:                           ; preds = %Msat_MmFixedStart.e
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv48 = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next49, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv48
+  %40 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv48
   store ptr %35, ptr %40, align 8, !tbaa !42
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next49 to i32
@@ -643,7 +643,7 @@ define void @Msat_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) loca
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !41
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   tail call void @Msat_MmFixedStop(ptr noundef %9, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -698,7 +698,7 @@ define noundef ptr @Msat_MmStepEntryFetch(ptr noundef readonly captures(none) %0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = tail call ptr @Msat_MmFixedEntryFetch(ptr noundef %16)
   br label %18
@@ -731,7 +731,7 @@ define void @Msat_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !17
@@ -762,7 +762,7 @@ define i32 @Msat_MmStepReadMemUsage(ptr noundef readonly captures(none) %0) loca
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !15

@@ -588,7 +588,7 @@ define void @_Z28gatherIntFromMultiSimulationPK14gmx_multisim_ti(ptr dead_on_unw
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !52
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %.pre, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %9
   store i32 %2, ptr %10, align 4, !tbaa !11
   %11 = load i32, ptr %1, align 8, !tbaa !49
   %12 = load ptr, ptr @TMPI_INT, align 8, !tbaa !55
@@ -723,9 +723,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !57
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !61
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !60
   br label %41
 
@@ -778,7 +778,7 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !52
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %20, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %20, i64 %23
   store i32 %2, ptr %24, align 4, !tbaa !11
   %25 = load i32, ptr %1, align 8, !tbaa !49
   %26 = load ptr, ptr @TMPI_INT, align 8, !tbaa !55
@@ -799,7 +799,7 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
   br i1 %.03546, label %32, label %.thread
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr i32, ptr %20, i64 %indvars.iv
+  %33 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv
   %34 = getelementptr i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4, !tbaa !11
   %36 = load i32, ptr %33, align 4, !tbaa !11
@@ -839,7 +839,7 @@ define void @_Z15check_multi_intP8_IO_FILEPK14gmx_multisim_tiPKcb(ptr noundef ca
 
 .lr.ph49:                                         ; preds = %40, %.lr.ph49
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph49 ], [ 0, %40 ]
-  %44 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv50
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv50
   %45 = load i32, ptr %44, align 4, !tbaa !11
   %46 = trunc nuw nsw i64 %indvars.iv50 to i32
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %46, i32 noundef %45) #22
@@ -1049,7 +1049,7 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !52
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %21, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %21, i64 %24
   store i64 %2, ptr %25, align 8, !tbaa !30
   %26 = load i32, ptr %1, align 8, !tbaa !49
   %27 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !55
@@ -1070,7 +1070,7 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
   br i1 %.03546, label %33, label %.thread
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr i64, ptr %21, i64 %indvars.iv
+  %34 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load i64, ptr %35, align 8, !tbaa !30
   %37 = load i64, ptr %34, align 8, !tbaa !30
@@ -1112,7 +1112,7 @@ define void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef 
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph49 ], [ 0, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 255, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #22
-  %46 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv50
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv50
   %47 = load i64, ptr %46, align 8, !tbaa !30
   %48 = trunc nuw nsw i64 %indvars.iv50 to i32
   %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %48, i64 noundef %47) #22
@@ -1395,7 +1395,7 @@ define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gm
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !52
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   store i64 %1, ptr %11, align 8, !tbaa !30
   %12 = load i32, ptr %0, align 8, !tbaa !49
   %13 = load ptr, ptr @TMPI_INT64_T, align 8, !tbaa !55
@@ -1412,7 +1412,7 @@ define internal fastcc noundef zeroext i1 @_ZL26multisim_int_all_are_equalPK14gm
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !30
   %.not12 = icmp eq i64 %20, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

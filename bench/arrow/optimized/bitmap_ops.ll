@@ -88,7 +88,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 29:                                               ; preds = %._crit_edge
-  %30 = getelementptr inbounds nuw i64, ptr %17, i64 %12
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %12
   %31 = and i64 %12, 288230376151711740
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -112,10 +112,10 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
 
 36:                                               ; preds = %.preheader46, %36
   %.03749 = phi i64 [ 0, %.preheader46 ], [ %43, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %.04150, i64 %.03749
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.04150, i64 %.03749
   %38 = load i64, ptr %37, align 8, !tbaa !9
   %39 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
-  %40 = getelementptr inbounds nuw i64, ptr %4, i64 %.03749
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03749
   %41 = load i64, ptr %40, align 8, !tbaa !9
   %42 = add i64 %41, %39
   store i64 %42, ptr %40, align 8, !tbaa !9
@@ -130,7 +130,7 @@ define noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef %0, i64 n
 45:                                               ; preds = %.preheader45, %45
   %.03654 = phi i64 [ 0, %.preheader45 ], [ %49, %45 ]
   %.353 = phi i64 [ %.039.lcssa, %.preheader45 ], [ %48, %45 ]
-  %46 = getelementptr inbounds nuw i64, ptr %4, i64 %.03654
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03654
   %47 = load i64, ptr %46, align 8, !tbaa !9
   %48 = add nsw i64 %47, %.353
   %49 = add nuw nsw i64 %.03654, 1

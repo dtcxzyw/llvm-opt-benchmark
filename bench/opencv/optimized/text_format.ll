@@ -34,14 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.153" = type { %"struct.std::_Head_base.154" }
 %"struct.std::_Head_base.154" = type { ptr }
 %"class.std::tuple.155" = type { i8 }
-%"struct.google::protobuf::TextFormat::ParseLocationRange" = type { %"struct.google::protobuf::TextFormat::ParseLocation", %"struct.google::protobuf::TextFormat::ParseLocation" }
-%"struct.google::protobuf::TextFormat::ParseLocation" = type { i32, i32 }
-%"class.std::unique_ptr.29" = type { %"struct.std::__uniq_ptr_data.30" }
-%"struct.std::__uniq_ptr_data.30" = type { %"class.std::__uniq_ptr_impl.31" }
-%"class.std::__uniq_ptr_impl.31" = type { %"class.std::tuple.32" }
-%"class.std::tuple.32" = type { %"struct.std::_Tuple_impl.33" }
-%"struct.std::_Tuple_impl.33" = type { %"struct.std::_Head_base.36" }
-%"struct.std::_Head_base.36" = type { ptr }
 %"class.google::protobuf::internal::LogMessage" = type { i32, ptr, i32, %"class.std::__cxx11::basic_string" }
 %"class.google::protobuf::internal::LogFinisher" = type { i8 }
 %"class.google::protobuf::TextFormat::Parser::ParserImpl" = type <{ ptr, ptr, ptr, %"class.google::protobuf::TextFormat::Parser::ParserImpl::ParserErrorCollector", %"class.google::protobuf::io::Tokenizer", ptr, i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i32, i8, [3 x i8] }>
@@ -71,8 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.google::protobuf::io::CodedInputStream" = type { ptr, ptr, ptr, i32, i32, i32, i8, i8, i32, i32, i32, i32, i32, ptr, ptr }
-%"class.google::protobuf::UnknownField" = type { i32, i32, %union.anon.120 }
-%union.anon.120 = type { i64 }
 %"class.google::protobuf::DynamicMessageFactory" = type { %"class.google::protobuf::MessageFactory", ptr, i8, %"class.std::unordered_map", %"class.google::protobuf::internal::WrappedMutex" }
 %"class.google::protobuf::MessageFactory" = type { ptr }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
@@ -1203,7 +1193,7 @@ _ZNSt6vectorIN6google8protobuf10TextFormat18ParseLocationRangeESaIS3_EE11_S_relo
 _ZNSt6vectorIN6google8protobuf10TextFormat18ParseLocationRangeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIN6google8protobuf10TextFormat18ParseLocationRangeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %41, ptr %20, align 8, !tbaa !81
   store ptr %45, ptr %21, align 8, !tbaa !79
-  %47 = getelementptr inbounds nuw %"struct.google::protobuf::TextFormat::ParseLocationRange", ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %39
   store ptr %47, ptr %23, align 8, !tbaa !80
   br label %_ZNSt6vectorIN6google8protobuf10TextFormat18ParseLocationRangeESaIS3_EE9push_backERKS3_.exit
 
@@ -1344,7 +1334,7 @@ _ZNSt6vectorISt10unique_ptrIN6google8protobuf10TextFormat13ParseInfoTreeESt14def
 _ZNSt6vectorISt10unique_ptrIN6google8protobuf10TextFormat13ParseInfoTreeESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJPS4_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %54, %_ZNSt6vectorISt10unique_ptrIN6google8protobuf10TextFormat13ParseInfoTreeESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
   store ptr %48, ptr %19, align 8, !tbaa !101
   store ptr %53, ptr %29, align 8, !tbaa !97
-  %55 = getelementptr inbounds nuw %"class.std::unique_ptr.29", ptr %48, i64 %46
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   store ptr %55, ptr %31, align 8, !tbaa !98
   br label %_ZNSt6vectorISt10unique_ptrIN6google8protobuf10TextFormat13ParseInfoTreeESt14default_deleteIS4_EESaIS7_EE12emplace_backIJPS4_EEEvDpOT_.exit
 
@@ -1537,7 +1527,7 @@ _ZN6google8protobuf10FindOrNullISt3mapIPKNS0_15FieldDescriptorESt6vectorINS0_10T
   br i1 %.not, label %24, label %_ZN6google8protobuf10FindOrNullISt3mapIPKNS0_15FieldDescriptorESt6vectorINS0_10TextFormat18ParseLocationRangeESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEEEEPKNT_10value_type11second_typeERKSI_RKNSJ_10first_typeE.exit.thread
 
 24:                                               ; preds = %_ZN6google8protobuf10FindOrNullISt3mapIPKNS0_15FieldDescriptorESt6vectorINS0_10TextFormat18ParseLocationRangeESaIS8_EESt4lessIS5_ESaISt4pairIKS5_SA_EEEEEPKNT_10value_type11second_typeERKSI_RKNSJ_10first_typeE.exit
-  %25 = getelementptr inbounds nuw %"struct.google::protobuf::TextFormat::ParseLocationRange", ptr %19, i64 %16
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %16
   %.sroa.0.0.copyload = load i64, ptr %25, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
@@ -1602,7 +1592,7 @@ _ZNKSt3mapIPKN6google8protobuf15FieldDescriptorESt6vectorISt10unique_ptrINS1_10T
   br i1 %.not, label %25, label %.critedge
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.29", ptr %20, i64 %16
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   %27 = load ptr, ptr %26, align 8, !tbaa !99
   br label %.critedge
 
@@ -2767,7 +2757,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %3, %_ZN6google
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i8, ptr %18, align 2, !tbaa !198
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !199
   %23 = icmp eq i32 %22, 10
   %24 = load ptr, ptr %2, align 8, !tbaa !24
@@ -6094,7 +6084,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDe
   %250 = sub i64 %249, %123
   %251 = ashr exact i64 %250, 3
   %252 = sub nsw i64 0, %251
-  %253 = getelementptr inbounds ptr, ptr %248, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr %248, i64 %252
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %253, ptr noundef nonnull align 8 dereferenceable(1) %118, i64 %250, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_.exit.i.i
 
@@ -6338,7 +6328,7 @@ define hidden void @_ZNK6google8protobuf10TextFormat7Printer18PrintUnknownFields
 62:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195 ]
   %63 = phi ptr [ %22, %.lr.ph ], [ %405, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195 ]
-  %64 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %65 = load i32, ptr %64, align 8, !tbaa !268
@@ -7919,7 +7909,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %40 = load i8, ptr %39, align 2, !tbaa !198
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !199
   %.not = icmp eq i32 %43, 9
   br i1 %.not, label %57, label %44
@@ -7972,7 +7962,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre = load i8, ptr %39, align 2, !tbaa !198
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert129 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
+  %.phi.trans.insert129 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %.phi.trans.insert
   %.pre130 = load i32, ptr %.phi.trans.insert129, align 4, !tbaa !199
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit91
 
@@ -8181,7 +8171,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 118:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i99, %111
   %119 = load i8, ptr %86, align 2, !tbaa !198
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !199
   %123 = icmp eq i32 %122, 10
   br i1 %123, label %124, label %180
@@ -8228,7 +8218,7 @@ _ZNKSt3mapIPKN6google8protobuf15FieldDescriptorESt10unique_ptrIKNS1_10TextFormat
   br i1 %95, label %139, label %142
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds nuw ptr, ptr %.pre132.pre, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.pre132.pre, i64 %indvars.iv
   %141 = load ptr, ptr %140, align 8, !tbaa !301
   br label %146
 
@@ -8587,7 +8577,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8pr
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %47 = load i8, ptr %46, align 2, !tbaa !198
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !199
   switch i32 %50, label %329 [
     i32 1, label %51
@@ -9314,7 +9304,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal21MapFieldPrinterH
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE9push_backEOS4_.exit ]
   %21 = load ptr, ptr %14, align 8, !tbaa !323
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !196
   %.not.i.i = icmp eq ptr %20, %19
   br i1 %.not.i.i, label %27, label %25
@@ -9371,7 +9361,7 @@ _ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE17_M_realloc_insertIJS4_EEEvN9_
   %.pre65 = phi i32 [ %.pre65.pre, %45 ], [ %.pre6566, %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i ]
   store ptr %40, ptr %3, align 8, !tbaa !298
   store ptr %44, ptr %15, align 8, !tbaa !321
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %46, ptr %16, align 8, !tbaa !322
   br label %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE9push_backEOS4_.exit
 
@@ -9583,7 +9573,7 @@ _ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.ex
 _ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %142, %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %137, ptr %3, align 8, !tbaa !298
   store ptr %141, ptr %67, align 8, !tbaa !321
-  %143 = getelementptr inbounds nuw ptr, ptr %137, i64 %135
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %135
   store ptr %143, ptr %68, align 8, !tbaa !322
   br label %_ZNSt6vectorIPKN6google8protobuf7MessageESaIS4_EE9push_backERKS4_.exit
 
@@ -9794,7 +9784,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %3, %_ZN6google
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %28 = load i8, ptr %27, align 2, !tbaa !198
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !199
   switch i32 %31, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit [
     i32 5, label %32
@@ -10006,7 +9996,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %3, %_ZN6google
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %26 = load i8, ptr %25, align 2, !tbaa !198
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !199
   switch i32 %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit [
     i32 5, label %30
@@ -10202,7 +10192,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %1, %_ZN6google8pro
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %17 = load i8, ptr %16, align 2, !tbaa !198
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !199
   ret i32 %20
 }
@@ -10254,7 +10244,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10338,7 +10328,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf6MapKey13GetInt64Val
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10423,7 +10413,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf6MapKey13GetInt32Val
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10508,7 +10498,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf6MapKey14GetUInt64Va
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10593,7 +10583,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf6MapKey14GetUInt32Va
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10678,7 +10668,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf6MapKey12GetB
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10764,7 +10754,7 @@ define linkonce_odr hidden noundef double @_ZNK6google8protobuf16MapValueConstRe
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10850,7 +10840,7 @@ define linkonce_odr hidden noundef float @_ZNK6google8protobuf16MapValueConstRef
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -10936,7 +10926,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf16MapValueConstRef12
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11020,7 +11010,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11105,7 +11095,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11188,7 +11178,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf16MapValueConstRef13
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11272,7 +11262,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf16MapValueConstRef13
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11356,7 +11346,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf16MapValueConstRef14
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11440,7 +11430,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf16MapValueConstRef14
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11524,7 +11514,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf16MapValueCon
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !333
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -14656,7 +14646,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 694:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8.us.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %695 = getelementptr inbounds nuw ptr, ptr %685, i64 %indvars.iv.next23.i
+  %695 = getelementptr inbounds nuw [8 x i8], ptr %685, i64 %indvars.iv.next23.i
   %696 = load ptr, ptr %695, align 8, !tbaa !193
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 8
   %698 = load i64, ptr %697, align 8, !tbaa !9
@@ -14670,7 +14660,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.split.i:                                   ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8.i, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8.i ]
-  %700 = getelementptr inbounds nuw ptr, ptr %685, i64 %indvars.iv.i
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %685, i64 %indvars.iv.i
   %701 = load ptr, ptr %700, align 8, !tbaa !193
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 8
   %703 = load i64, ptr %702, align 8, !tbaa !9
@@ -15732,7 +15722,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
   %1040 = getelementptr inbounds nuw i8, ptr %.0152953, i64 2
   %1041 = load i8, ptr %1040, align 2, !tbaa !198
   %1042 = zext i8 %1041 to i64
-  %1043 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %1042
+  %1043 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %1042
   %1044 = load i32, ptr %1043, align 4, !tbaa !199
   %1045 = icmp eq i32 %1044, 10
   br i1 %1045, label %._crit_edge.i.i772, label %._crit_edge.i.i804
@@ -16163,7 +16153,7 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 1181:                                             ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i835, %1174
   %1182 = load i8, ptr %1040, align 2, !tbaa !198
   %1183 = zext i8 %1182 to i64
-  %1184 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %1183
+  %1184 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %1183
   %1185 = load i32, ptr %1184, align 4, !tbaa !199
   %1186 = icmp eq i32 %1185, 10
   br i1 %1186, label %1187, label %1204
@@ -18814,7 +18804,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %4, %_ZN6google
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %53 = load i8, ptr %52, align 2, !tbaa !198
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !199
   switch i32 %56, label %491 [
     i32 1, label %57
@@ -24752,7 +24742,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_SI_T1_T2_(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -24775,7 +24765,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 27:                                               ; preds = %10
   %28 = add nsw i64 %.027, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge26, i64 -8
   %32 = load ptr, ptr %9, align 8, !tbaa !64
   %33 = load ptr, ptr %30, align 8, !tbaa !64
@@ -25185,9 +25175,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.040 = phi i64 [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36 ], [ %1, %4 ]
   %8 = shl i64 %.040, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !64
   %14 = load ptr, ptr %12, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -25244,7 +25234,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndex
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread36: ; preds = %21, %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread
   %42 = phi ptr [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %13, %22 ], [ %13, %21 ]
   %43 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit ], [ %9, %22 ], [ %9, %21 ]
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.040
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %.040
   store ptr %42, ptr %44, align 8, !tbaa !64
   %45 = icmp slt i64 %43, %6
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !438
@@ -25264,9 +25254,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndex
 52:                                               ; preds = %48
   %53 = shl nsw i64 %.0.lcssa, 1
   %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !64
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %57 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %56, ptr %57, align 8, !tbaa !64
   br label %58
 
@@ -25286,7 +25276,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndex
   %.012.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0913.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i ]
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %.0913.i
+  %65 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0913.i
   %66 = load ptr, ptr %65, align 8, !tbaa !64
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = load i8, ptr %67, align 1
@@ -25331,14 +25321,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexS
   br i1 %89, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_SI_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i, %78, %73
-  %90 = getelementptr inbounds ptr, ptr %0, i64 %.012.i
+  %90 = getelementptr inbounds [8 x i8], ptr %0, i64 %.012.i
   store ptr %66, ptr %90, align 8, !tbaa !64
   %91 = icmp sgt i64 %.0913.i, %1
   br i1 %91, label %64, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !439
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_T0_SI_T1_RT2_.exit: ; preds = %72, %73, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i, %58
   %.0.lcssa.i = phi i64 [ %.1, %58 ], [ %.012.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.i ], [ %.0913.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESB_EEbT_RT0_.exit.thread.i ], [ %.012.i, %73 ], [ %.012.i, %72 ]
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %92 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %92, align 8, !tbaa !64
   ret void
 }
@@ -25381,7 +25371,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   %19 = sub i64 %18, %7
   %20 = ashr exact i64 %19, 3
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %21
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   store ptr %16, ptr %0, align 8, !tbaa !301
   br label %30
@@ -25425,7 +25415,7 @@ common.ret24:                                     ; preds = %31, %_ZSt16__insert
 
 31:                                               ; preds = %3
   %32 = lshr i64 %9, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_(ptr %0, ptr %33, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_(ptr %33, ptr %1, ptr %2)
   %34 = ptrtoint ptr %33 to i64
@@ -25443,7 +25433,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__nor
   %9 = ashr exact i64 %8, 3
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -25534,7 +25524,7 @@ define linkonce_odr hidden void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__nor
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit: ; preds = %22
   %24 = sdiv i64 %3, 2
-  %25 = getelementptr inbounds ptr, ptr %0, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %5, ptr %8, align 8
   %26 = ptrtoint ptr %2 to i64
@@ -25548,7 +25538,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vect
   %.013.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %29, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
   %31 = lshr i64 %.013.i, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !301
   %34 = load ptr, ptr %25, align 8, !tbaa !301
   %35 = call noundef zeroext i1 @_ZN6google8protobuf25MapEntryMessageComparatorclEPKNS0_7MessageES4_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %33, ptr noundef %34)
@@ -25574,7 +25564,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit55: ; preds = %22
   %42 = sdiv i64 %4, 2
-  %43 = getelementptr inbounds ptr, ptr %1, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %1, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8
   %44 = ptrtoint ptr %1 to i64
@@ -25588,7 +25578,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vect
   %.013.i58 = phi i64 [ %.1.i63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i57 ], [ %47, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit55 ]
   %.sroa.011.012.i59 = phi ptr [ %.sroa.011.1.i62, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i57 ], [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit55 ]
   %49 = lshr i64 %.013.i58, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i59, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i59, i64 %49
   %51 = load ptr, ptr %43, align 8, !tbaa !301
   %52 = load ptr, ptr %50, align 8, !tbaa !301
   %53 = call noundef zeroext i1 @_ZN6google8protobuf25MapEntryMessageComparatorclEPKNS0_7MessageES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %51, ptr noundef %52)
@@ -25701,7 +25691,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %3, %_ZN6google
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %29 = load i8, ptr %28, align 2, !tbaa !198
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !199
   switch i32 %32, label %88 [
     i32 7, label %33
@@ -25945,7 +25935,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
   br i1 %36, label %.lr.ph100.preheader, label %._crit_edge101
 
 .lr.ph100.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.085
+  %37 = getelementptr inbounds [8 x i8], ptr %.sroa.042.0, i64 %.085
   br label %.lr.ph100
 
 ._crit_edge101:                                   ; preds = %.lr.ph100, %35
@@ -25988,7 +25978,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
   %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %49, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %.sroa.042.0, i64 %53, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit
 
@@ -25997,9 +25987,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.0
+  %58 = getelementptr inbounds [8 x i8], ptr %.sroa.042.0, i64 %.0
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.085, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -26122,7 +26112,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
 33:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit80.thread
   %34 = ashr exact i64 %31, 3
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %5, i64 %31, i1 false)
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_SB_NS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_SH_T1_T2_.exit
 
@@ -26164,7 +26154,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %44, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %44, i64 %55
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %56, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_SB_NS0_5__ops15_Iter_comp_iterINS3_25MapEntryMessageComparatorEEEEvT_SG_T0_SH_T1_T2_.exit
 
@@ -26187,7 +26177,7 @@ _ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit: ; preds = %62
   %63 = sdiv i64 %3, 2
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %0, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %13, ptr %10, align 8
   %65 = ptrtoint ptr %2 to i64
@@ -26201,7 +26191,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vect
   %.013.i = phi i64 [ %.1.i82, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %68, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
   %.sroa.011.012.i = phi ptr [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit ]
   %70 = lshr i64 %.013.i, 1
-  %71 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !301
   %73 = load ptr, ptr %64, align 8, !tbaa !301
   %74 = call noundef zeroext i1 @_ZN6google8protobuf25MapEntryMessageComparatorclEPKNS0_7MessageES4_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %72, ptr noundef %73)
@@ -26227,7 +26217,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit86: ; preds = %62
   %81 = sdiv i64 %4, 2
-  %82 = getelementptr inbounds ptr, ptr %1, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %1, i64 %81
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %13, ptr %9, align 8
   %83 = ptrtoint ptr %1 to i64
@@ -26241,7 +26231,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vect
   %.013.i89 = phi i64 [ %.1.i94, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i88 ], [ %86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit86 ]
   %.sroa.011.012.i90 = phi ptr [ %.sroa.011.1.i93, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i88 ], [ %0, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit86 ]
   %88 = lshr i64 %.013.i89, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %.sroa.011.012.i90, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.012.i90, i64 %88
   %90 = load ptr, ptr %82, align 8, !tbaa !301
   %91 = load ptr, ptr %89, align 8, !tbaa !301
   %92 = call noundef zeroext i1 @_ZN6google8protobuf25MapEntryMessageComparatorclEPKNS0_7MessageES4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %90, ptr noundef %91)
@@ -26300,7 +26290,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
   %110 = sub i64 %105, %109
   %111 = ashr exact i64 %110, 3
   %112 = sub nsw i64 0, %111
-  %113 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %112
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %113, ptr align 8 %.sroa.0100.0, i64 %110, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
 
@@ -26350,13 +26340,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorI
 126:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
   %127 = ashr exact i64 %121, 3
   %128 = sub nsw i64 0, %127
-  %129 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %128
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %129, ptr align 8 %5, i64 %121, i1 false)
   br label %_ZSt13move_backwardIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i
 
 _ZSt13move_backwardIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i: ; preds = %126, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %128, %126 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i ]
-  %130 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %130 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lET_SC_SC_SC_T1_SD_T0_SD_.exit
 
 131:                                              ; preds = %116
@@ -26425,7 +26415,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   %25 = sub i64 %24, %17
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds ptr, ptr %23, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %23, i64 %27
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.026.031, i64 %25, i1 false)
   store ptr %22, ptr %.sroa.026.031, align 8, !tbaa !301
   br label %36
@@ -26494,7 +26484,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
   %47 = sub i64 %46, %.lcssa
   %48 = ashr exact i64 %47, 3
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds ptr, ptr %45, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %45, i64 %49
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.026.0.lcssa, i64 %47, i1 false)
   store ptr %44, ptr %.sroa.026.0.lcssa, align 8, !tbaa !301
   br label %58

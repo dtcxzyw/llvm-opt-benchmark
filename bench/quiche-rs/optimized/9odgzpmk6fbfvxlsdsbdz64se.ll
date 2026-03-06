@@ -724,12 +724,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %1
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   %.not4 = icmp samesign eq i64 %2, %1
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %2
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %2
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1125,7 +1125,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h34054609e34d10d
   br i1 %34, label %.loopexit101, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.e4433a5ff53cad8b3f265405bc7a918a.207, i64 %33
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @anon.e4433a5ff53cad8b3f265405bc7a918a.207, i64 %33
   %37 = load ptr, ptr %36, align 8, !noalias !23, !nonnull !3, !align !22, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !23, !noundef !3
@@ -1184,7 +1184,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h34054609e34d10d
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !22, !noundef !3
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.013.031.i, i64 24
   %65 = load i64, ptr %64, align 8, !noundef !3
-  %66 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %65
   br label %67
 
 67:                                               ; preds = %77, %._crit_edge.i

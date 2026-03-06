@@ -222,7 +222,7 @@ handle_luainit.exit:                              ; preds = %14
 44:                                               ; preds = %41
   %45 = add nsw i32 %.038.i, 1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %4, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %4, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %.not32.i = icmp eq ptr %48, null
   br i1 %.not32.i, label %collectargs.exit.thread71, label %collectargs.exit
@@ -252,7 +252,7 @@ handle_luainit.exit:                              ; preds = %14
 59:                                               ; preds = %55
   %60 = add nsw i32 %.038.i, 1
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %4, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %4, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %64 = icmp eq ptr %63, null
   br i1 %64, label %collectargs.exit.thread, label %.thread156
@@ -264,7 +264,7 @@ handle_luainit.exit:                              ; preds = %14
   %.1.i = phi i32 [ %.038.i, %55 ], [ %60, %59 ], [ %.038.i, %52 ], [ %.038.i, %49 ]
   %65 = add nsw i32 %.1.i, 1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %4, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %4, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !4
   %.not.i = icmp eq ptr %68, null
   br i1 %.not.i, label %collectargs.exit.thread71, label %.lr.ph.i, !llvm.loop !20
@@ -315,7 +315,7 @@ collectargs.exit.thread71:                        ; preds = %.thread156, %44, %c
 .lr.ph.i42:                                       ; preds = %73, %dolibrary.exit.i
   %.02634.i = phi i32 [ %112, %dolibrary.exit.i ], [ 1, %73 ]
   %76 = sext i32 %.02634.i to i64
-  %77 = getelementptr inbounds ptr, ptr %4, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %4, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !4
   %79 = icmp eq ptr %78, null
   br i1 %79, label %dolibrary.exit.i, label %80
@@ -337,7 +337,7 @@ collectargs.exit.thread71:                        ; preds = %.thread156, %44, %c
 87:                                               ; preds = %83
   %88 = add nsw i32 %.02634.i, 1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %4, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %4, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !4
   br label %92
 
@@ -357,7 +357,7 @@ collectargs.exit.thread71:                        ; preds = %.thread156, %44, %c
 98:                                               ; preds = %94
   %99 = add nsw i32 %.02634.i, 1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %4, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %4, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !4
   br label %103
 
@@ -401,7 +401,7 @@ runargs.exit.thread:                              ; preds = %92, %105, %108
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %.loopexit ]
-  %114 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   %115 = load ptr, ptr %114, align 8, !tbaa !4
   %.not.i.i45 = icmp eq ptr %115, null
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
@@ -423,7 +423,7 @@ runargs.exit.thread:                              ; preds = %92, %105, %108
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv34.i.i = phi i64 [ %121, %.lr.ph.preheader.i.i ], [ %indvars.iv.next35.i.i, %.lr.ph.i.i ]
-  %122 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv34.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv34.i.i
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %123) #9
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
@@ -441,7 +441,7 @@ runargs.exit.thread:                              ; preds = %92, %105, %108
 
 .lr.ph30.i.i:                                     ; preds = %.lr.ph30.i.i, %.lr.ph30.preheader.i.i
   %indvars.iv39.i.i = phi i64 [ 0, %.lr.ph30.preheader.i.i ], [ %indvars.iv.next40.i.i, %.lr.ph30.i.i ]
-  %124 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv39.i.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv39.i.i
   %125 = load ptr, ptr %124, align 8, !tbaa !4
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %125) #9
   %126 = trunc i64 %indvars.iv39.i.i to i32
@@ -454,7 +454,7 @@ runargs.exit.thread:                              ; preds = %92, %105, %108
 getargs.exit.i:                                   ; preds = %.lr.ph30.i.i, %._crit_edge.i.i
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.13) #9
   %128 = zext nneg i32 %.026.i7991107 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %4, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !4
   %131 = load i8, ptr %130, align 1
   %.not29.i46 = icmp eq i8 %131, 45

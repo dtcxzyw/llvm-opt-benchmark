@@ -35,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__basic_file" = type <{ ptr, i8, [7 x i8] }>
 %struct.__mbstate_t = type { i32, %union.anon.20 }
 %union.anon.20 = type { i32 }
-%"struct.arrow_vendored::date::detail::transition" = type { %"class.std::chrono::time_point", ptr }
 %"class.std::vector.74" = type { %"struct.std::_Vector_base.75" }
 %"struct.std::_Vector_base.75" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
@@ -62,6 +61,19 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow_vendored::date::month" = type { i8 }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
+%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
+%struct.timespec = type { i64, i64 }
+%"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.arrow_vendored::date::leap_second" = type { %"class.std::chrono::time_point" }
+%"class.std::queue" = type { %"class.std::deque" }
+%"class.std::deque" = type { %"class.std::_Deque_base" }
+%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" }
+%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" }
+%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
+%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
+%"struct.arrow_vendored::date::detail::undocumented" = type { i8 }
+%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.arrow_vendored::date::time_zone" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.8", %"class.std::vector.13", %"class.std::unique_ptr" }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<arrow_vendored::date::detail::transition, std::allocator<arrow_vendored::date::detail::transition>>::_Vector_impl" }
@@ -77,19 +89,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.19" }
 %"struct.std::_Head_base.19" = type { ptr }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.arrow_vendored::date::leap_second" = type { %"class.std::chrono::time_point" }
-%"class.std::queue" = type { %"class.std::deque" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.arrow_vendored::date::detail::undocumented" = type { i8 }
-%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.arrow_vendored::date::detail::save_ostream" = type { %"class.arrow_vendored::date::detail::save_istream" }
 %"class.arrow_vendored::date::detail::save_istream" = type { ptr, i8, i32, i64, i64, ptr, %"class.std::locale" }
 %"struct.arrow_vendored::date::detail::ttinfo" = type { i32, i8, i8, [2 x i8] }
@@ -1100,7 +1099,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail10tran
   %.04.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ], [ %176, %_ZN14arrow_vendored4date13get_tzdb_listEv.exit ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ], [ %170, %_ZN14arrow_vendored4date13get_tzdb_listEv.exit ]
   %178 = lshr i64 %.04.i.i, 1
-  %179 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %.sroa.02.03.i.i, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.03.i.i, i64 %178
   %.val2.i.i.i = load i64, ptr %179, align 8, !tbaa !38
   %180 = icmp slt i64 %.sroa.0.0.copyload.i, %.val2.i.i.i
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
@@ -1455,7 +1454,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date6detail10transitionESaIS3_EE11_M_alloc
   %14 = zext i32 %3 to i64
   %15 = shl nuw nsw i64 %14, 4
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #34, !noalias !87
-  %17 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %14
   %18 = icmp sgt i32 %3, 0
   br i1 %18, label %.lr.ph.i, label %_ZN14arrow_vendored4dateL16load_transitionsIiEESt6vectorINS0_6detail10transitionESaIS4_EERSii.exit
 
@@ -1532,7 +1531,7 @@ _ZNKSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE12_M_check_lenEm
 .loopexit169:                                     ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc13.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %40, %.noexc13.i ], [ %44, %.lr.ph.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %31) #31, !noalias !87
-  %45 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %40, i64 %38
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %38
   %.sroa.0.0.copyload.i.i.i.pre = load i64, ptr %.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !38, !noalias !87
   %46 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.pre, -1096193779200
   %.sroa.8.0 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
@@ -2124,8 +2123,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN14arr
   %282 = getelementptr inbounds nuw i8, ptr %262, i64 %281
   %283 = load i8, ptr %282, align 1, !tbaa !29
   %284 = zext i8 %283 to i64
-  %285 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::expanded_ttinfo", ptr %261, i64 %284
-  %286 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %253, i64 %280
+  %285 = getelementptr inbounds nuw [48 x i8], ptr %261, i64 %284
+  %286 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %280
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store ptr %285, ptr %287, align 8, !tbaa !77
   %288 = add i32 %.138103, 1
@@ -2203,7 +2202,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date6detail10transitionESaIS3_EE11_M_alloc
   %14 = zext i32 %3 to i64
   %15 = shl nuw nsw i64 %14, 4
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #34, !noalias !115
-  %17 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %14
   %18 = icmp sgt i32 %3, 0
   br i1 %18, label %.lr.ph.i, label %_ZN14arrow_vendored4dateL16load_transitionsIlEESt6vectorINS0_6detail10transitionESaIS4_EERSii.exit
 
@@ -2278,7 +2277,7 @@ _ZNKSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE12_M_check_lenEm
 _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE17_M_realloc_insertIJNSt6chrono10time_pointINS7_3_V212system_clockENS7_8durationIlSt5ratioILl1ELl1EEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc13.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %40, %.noexc13.i ], [ %44, %.lr.ph.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %31) #31, !noalias !115
-  %45 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %40, i64 %38
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %38
   %.sroa.0.0.copyload.i.i.i.pre = load i64, ptr %.0.lcssa.i.i.i.i.i.i, align 8, !tbaa !38, !noalias !115
   br label %46
 
@@ -2874,8 +2873,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN14arr
   %283 = getelementptr inbounds nuw i8, ptr %263, i64 %282
   %284 = load i8, ptr %283, align 1, !tbaa !29
   %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::expanded_ttinfo", ptr %262, i64 %285
-  %287 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %254, i64 %281
+  %286 = getelementptr inbounds nuw [48 x i8], ptr %262, i64 %285
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %254, i64 %281
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store ptr %286, ptr %288, align 8, !tbaa !77
   %289 = add i32 %.138103, 1
@@ -3129,7 +3128,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10tra
   %.04.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ], [ %22, %_ZNK14arrow_vendored4date9time_zone4initEv.exit ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ], [ %16, %_ZNK14arrow_vendored4date9time_zone4initEv.exit ]
   %27 = lshr i64 %.04.i.i, 1
-  %28 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %.sroa.02.03.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.03.i.i, i64 %27
   %.val2.i.i.i = load i64, ptr %28, align 8, !tbaa !38
   %29 = icmp slt i64 %2, %.val2.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -3312,7 +3311,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10tra
   %.04.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ], [ %41, %_ZNK14arrow_vendored4date9time_zone4initEv.exit ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date6detail10transitionESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i.i ], [ %35, %_ZNK14arrow_vendored4date9time_zone4initEv.exit ]
   %46 = lshr i64 %.04.i.i, 1
-  %47 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %.sroa.02.03.i.i, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.02.03.i.i, i64 %46
   %.val2.i.i.i = load i64, ptr %47, align 8, !tbaa !38
   %48 = getelementptr i8, ptr %47, i64 8
   %.val3.i.i.i = load ptr, ptr %48, align 8, !tbaa !77
@@ -4901,7 +4900,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneES
   %.04.i.i = phi i64 [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i" ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i.i ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS3_9time_zoneESt6vectorISD_SaISD_EEEEKS8_EEbT_RT0_.exit.i.i" ], [ %48, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i.i ]
   %56 = lshr i64 %.04.i.i, 1
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::time_zone", ptr %.sroa.02.03.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.02.03.i.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val2.i.i.i = load i64, ptr %58, align 8, !tbaa !37
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.val2.i.i.i)
@@ -8975,7 +8974,7 @@ _ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %761, %_ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
   store ptr %754, ptr %67, align 8, !tbaa !23, !alias.scope !237
   store ptr %760, ptr %461, align 8, !tbaa !101, !alias.scope !237
-  %762 = getelementptr inbounds nuw %"class.arrow_vendored::date::leap_second", ptr %754, i64 %752
+  %762 = getelementptr inbounds nuw [8 x i8], ptr %754, i64 %752
   store ptr %762, ptr %462, align 8, !tbaa !24, !alias.scope !237
   br label %_ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE9push_backEOS2_.exit.i
 
@@ -9748,7 +9747,7 @@ _ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i203.i: ; preds = %1044, %_ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i200.i
   store ptr %1037, ptr %67, align 8, !tbaa !23, !alias.scope !237
   store ptr %1043, ptr %943, align 8, !tbaa !101, !alias.scope !237
-  %1045 = getelementptr inbounds nuw %"class.arrow_vendored::date::leap_second", ptr %1037, i64 %1035
+  %1045 = getelementptr inbounds nuw [8 x i8], ptr %1037, i64 %1035
   store ptr %1045, ptr %944, align 8, !tbaa !24, !alias.scope !237
   br label %_ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE9push_backEOS2_.exit206.i
 
@@ -11331,7 +11330,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %9, ptr %0, align 8, !tbaa !315
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -11425,7 +11424,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %50, ptr %51, align 8, !tbaa !224
   store ptr %41, ptr %39, align 8, !tbaa !217
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !210
   ret void
 
@@ -11624,9 +11623,9 @@ define linkonce_odr void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traits
   %19 = load ptr, ptr %0, align 8, !tbaa !315
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -11645,12 +11644,12 @@ define linkonce_odr void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit
 
@@ -11678,9 +11677,9 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #34
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26, label %53
@@ -11708,7 +11707,7 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !224
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !221
   %64 = load ptr, ptr %63, align 8, !tbaa !222
@@ -11931,7 +11930,7 @@ _ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, %97
   store ptr %21, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !26
-  %101 = getelementptr inbounds nuw %"class.arrow_vendored::date::time_zone", ptr %21, i64 %17
+  %101 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %17
   store ptr %101, ptr %96, align 8, !tbaa !27
   ret void
 
@@ -12256,7 +12255,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date9time
 
 20:                                               ; preds = %12
   %21 = udiv i64 %13, 176
-  %22 = getelementptr inbounds nuw %"class.arrow_vendored::date::time_zone", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %storemerge14, i64 -88
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN14arrow_vendored4date9time_zoneESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
   br label %24
@@ -12380,7 +12379,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN14a
 32:                                               ; preds = %_ZN14arrow_vendored4date9time_zoneD2Ev.exit30, %11
   %.08 = phi i64 [ %13, %11 ], [ %92, %_ZN14arrow_vendored4date9time_zoneD2Ev.exit30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %33 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %.08
+  %33 = getelementptr inbounds [88 x i8], ptr %0, i64 %.08
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = icmp eq ptr %34, %35
@@ -12944,9 +12943,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN1
   %.037 = phi i64 [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN14arrow_vendored4date9time_zoneESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit ], [ %1, %4 ]
   %9 = shl i64 %.037, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %10
+  %11 = getelementptr inbounds [88 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -12973,8 +12972,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN14arrow_vendore
   %.0.i.i.i.i = phi i32 [ %21, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %23 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %23, i64 %12, i64 %10
-  %24 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %spec.select
-  %25 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %.037
+  %24 = getelementptr inbounds [88 x i8], ptr %0, i64 %spec.select
+  %25 = getelementptr inbounds [88 x i8], ptr %0, i64 %.037
   %26 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN14arrow_vendored4date9time_zoneaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %25, ptr noundef nonnull align 8 dereferenceable(88) %24) #33
   %27 = icmp slt i64 %spec.select, %7
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !339
@@ -12994,8 +12993,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN14arrow_vendore
 34:                                               ; preds = %30
   %35 = shl nsw i64 %.0.lcssa, 1
   %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %.0.lcssa
+  %37 = getelementptr inbounds [88 x i8], ptr %0, i64 %36
+  %38 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0.lcssa
   %39 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN14arrow_vendored4date9time_zoneaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(88) %37) #33
   br label %40
 
@@ -13071,7 +13070,7 @@ _ZN14arrow_vendored4date9time_zoneC2EOS1_.exit:   ; preds = %45, %_ZNKSt7__cxx11
   %.018.i = phi i64 [ %.0919.i, %86 ], [ %.1, %_ZN14arrow_vendored4date9time_zoneC2EOS1_.exit ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %76 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %.0919.i
+  %76 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0919.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !37
   %79 = load i64, ptr %53, align 8, !tbaa !37
@@ -13099,14 +13098,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN14arrow_vendored
   br i1 %85, label %86, label %.loopexit
 
 86:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN14arrow_vendored4date9time_zoneESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i
-  %87 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %.018.i
+  %87 = getelementptr inbounds [88 x i8], ptr %0, i64 %.018.i
   %88 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN14arrow_vendored4date9time_zoneaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %87, ptr noundef nonnull align 8 dereferenceable(88) %76) #33
   %89 = icmp sgt i64 %.0919.i, %1
   br i1 %89, label %.lr.ph.i, label %.loopexit, !llvm.loop !340
 
 .loopexit:                                        ; preds = %86, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN14arrow_vendored4date9time_zoneESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i, %_ZN14arrow_vendored4date9time_zoneC2EOS1_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN14arrow_vendored4date9time_zoneC2EOS1_.exit ], [ %.018.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN14arrow_vendored4date9time_zoneESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i ], [ %.0919.i, %86 ]
-  %90 = getelementptr inbounds %"class.arrow_vendored::date::time_zone", ptr %0, i64 %.0.lcssa.i
+  %90 = getelementptr inbounds [88 x i8], ptr %0, i64 %.0.lcssa.i
   %91 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN14arrow_vendored4date9time_zoneaSEOS1_(ptr noundef nonnull align 8 dereferenceable(88) %90, ptr noundef nonnull align 8 dereferenceable(88) %5) #33
   %92 = load ptr, ptr %72, align 8, !tbaa !42
   %.not.i.i = icmp eq ptr %92, null
@@ -14150,7 +14149,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date11leap_secondESaIS2_EE11_M_allocateEm.
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %0, align 8, !tbaa !23
   store ptr %14, ptr %12, align 8, !tbaa !101
-  %15 = getelementptr inbounds nuw %"class.arrow_vendored::date::leap_second", ptr %14, i64 %8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %8
   store ptr %15, ptr %11, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %17
@@ -14327,7 +14326,7 @@ _ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt12_Vector_baseIN14arrow_vendored4date11leap_secondESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN14arrow_vendored4date11leap_secondESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %31
   store ptr %21, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !101
-  %35 = getelementptr inbounds nuw %"class.arrow_vendored::date::leap_second", ptr %21, i64 %17
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   store ptr %35, ptr %30, align 8, !tbaa !24
   ret void
 
@@ -14386,7 +14385,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date11leap_secondESaIS2_EE11_M_allocateEm.
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %0, align 8, !tbaa !23
   store ptr %14, ptr %12, align 8, !tbaa !101
-  %15 = getelementptr inbounds nuw %"class.arrow_vendored::date::leap_second", ptr %14, i64 %8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %8
   store ptr %15, ptr %11, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %17
@@ -15388,7 +15387,7 @@ _ZNSolsEj.exit31:                                 ; preds = %72
   %94 = zext nneg i8 %83 to i64
   %95 = add nuw nsw i64 %94, 4294967295
   %96 = and i64 %95, 4294967295
-  %97 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !29
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -15998,7 +15997,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date6detail6ttinfoESaIS3_EE11_M_allocateEm
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %0, align 8, !tbaa !105
   store ptr %8, ptr %9, align 8, !tbaa !102
-  %10 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::ttinfo", ptr %8, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   store ptr %10, ptr %5, align 8, !tbaa !112
   %11 = icmp sgt i32 %2, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -16080,7 +16079,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail6ttinfoESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN14arrow_vendored4date6detail6ttinfoESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIN14arrow_vendored4date6detail6ttinfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %36, ptr %0, align 8, !tbaa !105
   store ptr %41, ptr %12, align 8, !tbaa !102
-  %43 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::ttinfo", ptr %36, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %43, ptr %5, align 8, !tbaa !112
   br label %_ZNSt6vectorIN14arrow_vendored4date6detail6ttinfoESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit
 
@@ -16225,7 +16224,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date6detail15expanded_ttinfoESaIS3_EE13_M_
   store ptr %19, ptr %0, align 8, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %47, ptr %14, align 8, !tbaa !51
-  %48 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::expanded_ttinfo", ptr %19, i64 %1
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %1
   store ptr %48, ptr %6, align 8, !tbaa !53
   br label %49
 
@@ -16429,7 +16428,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail15expanded_ttinfoESaIS3_EE11_S_relocat
 _ZNSt12_Vector_baseIN14arrow_vendored4date6detail15expanded_ttinfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN14arrow_vendored4date6detail15expanded_ttinfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26, %85
   store ptr %20, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !51
-  %89 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::expanded_ttinfo", ptr %20, i64 %16
+  %89 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %16
   store ptr %89, ptr %84, align 8, !tbaa !53
   ret void
 }
@@ -16476,7 +16475,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN14arrow_vendored4date6detail10transitionE
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 4
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"struct.arrow_vendored::date::detail::transition", ptr %20, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %20, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
   br label %29
 
@@ -16556,7 +16555,7 @@ _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE17_M_realloc_insertIJRKNSt6chrono10time_pointINS7_3_V212system_clockENS7_8durationIlSt5ratioILl1ELl1EEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i, %50
   store ptr %42, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i31.i, ptr %8, align 8, !tbaa !85
-  %54 = getelementptr inbounds nuw %"struct.arrow_vendored::date::detail::transition", ptr %42, i64 %40
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %54, ptr %10, align 8, !tbaa !47
   br label %55
 

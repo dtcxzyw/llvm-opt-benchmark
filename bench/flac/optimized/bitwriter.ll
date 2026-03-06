@@ -152,7 +152,7 @@ bitwriter_grow_.exit.i:                           ; preds = %33, %13, %7
   %41 = tail call i64 @llvm.bswap.i64(i64 %40)
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = zext i32 %34 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   store i64 %41, ptr %44, align 8, !tbaa !16
   %45 = lshr i32 %35, 3
   br label %46
@@ -244,7 +244,7 @@ bitwriter_grow_.exit:                             ; preds = %34, %14, %8
   %42 = tail call i64 @llvm.bswap.i64(i64 %41)
   %43 = load ptr, ptr %0, align 8, !tbaa !3
   %44 = zext i32 %35 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   store i64 %42, ptr %45, align 8, !tbaa !16
   %46 = lshr i32 %36, 3
   br label %47
@@ -344,7 +344,7 @@ bitwriter_grow_.exit.i:                           ; preds = %33, %13, %7
   %41 = tail call i64 @llvm.bswap.i64(i64 %40)
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = zext i32 %34 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   store i64 %41, ptr %44, align 8, !tbaa !16
   %45 = lshr i32 %35, 3
   br label %46
@@ -468,7 +468,7 @@ bitwriter_grow_.exit:                             ; preds = %34, %10, %4
   %50 = add i32 %49, 1
   store i32 %50, ptr %7, align 4, !tbaa !13
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %51
   store i64 %47, ptr %52, align 8, !tbaa !16
   store i32 0, ptr %35, align 8, !tbaa !12
   br label %53
@@ -488,7 +488,7 @@ bitwriter_grow_.exit:                             ; preds = %34, %10, %4
   %.139 = phi i32 [ %.030, %.lr.ph ], [ %61, %56 ]
   %58 = add i32 %57, 1
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %59
   store i64 0, ptr %60, align 8, !tbaa !16
   %61 = add i32 %.139, -64
   %62 = icmp ugt i32 %61, 63
@@ -619,7 +619,7 @@ bitwriter_grow_.exit.i:                           ; preds = %42, %19, %13
   %68 = add i32 %67, 1
   store i32 %68, ptr %16, align 4, !tbaa !13
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %43, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %69
   store i64 %66, ptr %70, align 8, !tbaa !16
   %71 = zext i32 %1 to i64
   store i64 %71, ptr %58, align 8, !tbaa !15
@@ -632,7 +632,7 @@ bitwriter_grow_.exit.i:                           ; preds = %42, %19, %13
   %76 = add i32 %75, 1
   store i32 %76, ptr %16, align 4, !tbaa !13
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %43, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %77
   store i64 %74, ptr %78, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -741,7 +741,7 @@ bitwriter_grow_.exit:                             ; preds = %40, %17, %11
   %66 = add i32 %65, 1
   store i32 %66, ptr %14, align 4, !tbaa !13
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %41, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %67
   store i64 %64, ptr %68, align 8, !tbaa !16
   %69 = zext i32 %1 to i64
   store i64 %69, ptr %56, align 8, !tbaa !15
@@ -754,7 +754,7 @@ bitwriter_grow_.exit:                             ; preds = %40, %17, %11
   %74 = add i32 %73, 1
   store i32 %74, ptr %14, align 4, !tbaa !13
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw i64, ptr %41, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %75
   store i64 %72, ptr %76, align 8, !tbaa !16
   br label %bitwriter_grow_.exit.thread
 
@@ -868,7 +868,7 @@ bitwriter_grow_.exit.i:                           ; preds = %44, %21, %15
   %70 = add i32 %69, 1
   store i32 %70, ptr %18, align 4, !tbaa !13
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %45, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %71
   store i64 %68, ptr %72, align 8, !tbaa !16
   %73 = zext i32 %.0 to i64
   store i64 %73, ptr %60, align 8, !tbaa !15
@@ -881,7 +881,7 @@ bitwriter_grow_.exit.i:                           ; preds = %44, %21, %15
   %78 = add i32 %77, 1
   store i32 %78, ptr %18, align 4, !tbaa !13
   %79 = zext i32 %77 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %45, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %79
   store i64 %76, ptr %80, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -995,7 +995,7 @@ bitwriter_grow_.exit.i:                           ; preds = %44, %22, %16
   %69 = add i32 %68, 1
   store i32 %69, ptr %19, align 4, !tbaa !13
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %45, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %70
   store i64 %67, ptr %71, align 8, !tbaa !16
   %72 = and i64 %1, 4294967295
   store i64 %72, ptr %59, align 8, !tbaa !15
@@ -1008,7 +1008,7 @@ bitwriter_grow_.exit.i:                           ; preds = %44, %22, %16
   %77 = add i32 %76, 1
   store i32 %77, ptr %19, align 4, !tbaa !13
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %45, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %78
   store i64 %75, ptr %79, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -1128,7 +1128,7 @@ bitwriter_grow_.exit.i:                           ; preds = %36, %14, %8
   %62 = add i32 %61, 1
   store i32 %62, ptr %11, align 4, !tbaa !13
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %38, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %63
   store i64 %60, ptr %64, align 8, !tbaa !16
   %65 = zext nneg i32 %3 to i64
   store i64 %65, ptr %52, align 8, !tbaa !15
@@ -1141,7 +1141,7 @@ bitwriter_grow_.exit.i:                           ; preds = %36, %14, %8
   %70 = add i32 %69, 1
   store i32 %70, ptr %11, align 4, !tbaa !13
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %38, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %71
   store i64 %68, ptr %72, align 8, !tbaa !16
   br label %73
 
@@ -1226,7 +1226,7 @@ bitwriter_grow_.exit.i13:                         ; preds = %99, %79, %73
   %124 = add i32 %123, 1
   store i32 %124, ptr %11, align 4, !tbaa !13
   %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw i64, ptr %102, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %125
   store i64 %122, ptr %126, align 8, !tbaa !16
   %127 = zext nneg i32 %76 to i64
   store i64 %127, ptr %114, align 8, !tbaa !15
@@ -1239,7 +1239,7 @@ bitwriter_grow_.exit.i13:                         ; preds = %99, %79, %73
   %132 = add i32 %131, 1
   store i32 %132, ptr %11, align 4, !tbaa !13
   %133 = zext i32 %131 to i64
-  %134 = getelementptr inbounds nuw i64, ptr %102, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %133
   store i64 %130, ptr %134, align 8, !tbaa !16
   br label %135
 
@@ -1324,7 +1324,7 @@ bitwriter_grow_.exit.i20:                         ; preds = %161, %141, %135
   %186 = add i32 %185, 1
   store i32 %186, ptr %11, align 4, !tbaa !13
   %187 = zext i32 %185 to i64
-  %188 = getelementptr inbounds nuw i64, ptr %164, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %187
   store i64 %184, ptr %188, align 8, !tbaa !16
   %189 = zext nneg i32 %138 to i64
   store i64 %189, ptr %176, align 8, !tbaa !15
@@ -1337,7 +1337,7 @@ bitwriter_grow_.exit.i20:                         ; preds = %161, %141, %135
   %194 = add i32 %193, 1
   store i32 %194, ptr %11, align 4, !tbaa !13
   %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds nuw i64, ptr %164, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %195
   store i64 %192, ptr %196, align 8, !tbaa !16
   br label %197
 
@@ -1420,7 +1420,7 @@ bitwriter_grow_.exit.i27:                         ; preds = %222, %202, %197
   %246 = add i32 %245, 1
   store i32 %246, ptr %11, align 4, !tbaa !13
   %247 = zext i32 %245 to i64
-  %248 = getelementptr inbounds nuw i64, ptr %224, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %247
   store i64 %244, ptr %248, align 8, !tbaa !16
   %249 = zext nneg i32 %199 to i64
   store i64 %249, ptr %236, align 8, !tbaa !15
@@ -1433,7 +1433,7 @@ bitwriter_grow_.exit.i27:                         ; preds = %222, %202, %197
   %254 = add i32 %253, 1
   store i32 %254, ptr %11, align 4, !tbaa !13
   %255 = zext i32 %253 to i64
-  %256 = getelementptr inbounds nuw i64, ptr %224, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %255
   store i64 %252, ptr %256, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit31
 
@@ -1591,7 +1591,7 @@ bitwriter_grow_.exit.i:                           ; preds = %70, %53, %50
   %93 = add i32 %92, 1
   store i32 %93, ptr %6, align 4, !tbaa !13
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw i64, ptr %73, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %94
   store i64 %91, ptr %95, align 8, !tbaa !16
   %96 = zext i8 %47 to i64
   store i64 %96, ptr %42, align 8, !tbaa !15
@@ -1604,7 +1604,7 @@ bitwriter_grow_.exit.i:                           ; preds = %70, %53, %50
   %101 = add i32 %100, 1
   store i32 %101, ptr %6, align 4, !tbaa !13
   %102 = zext i32 %100 to i64
-  %103 = getelementptr inbounds nuw i64, ptr %73, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %102
   store i64 %99, ptr %103, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -1716,7 +1716,7 @@ bitwriter_grow_.exit.i:                           ; preds = %39, %16, %10
   %64 = add i32 %63, 1
   store i32 %64, ptr %13, align 4, !tbaa !13
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %40, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %65
   store i64 %62, ptr %66, align 8, !tbaa !16
   store i64 1, ptr %54, align 8, !tbaa !15
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
@@ -1726,7 +1726,7 @@ bitwriter_grow_.exit.i:                           ; preds = %39, %16, %10
   %69 = add i32 %68, 1
   store i32 %69, ptr %13, align 4, !tbaa !13
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %40, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %70
   store i64 72057594037927936, ptr %71, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -1804,7 +1804,7 @@ bitwriter_grow_.exit.i9:                          ; preds = %102, %78, %72
   %119 = add i32 %118, 1
   store i32 %119, ptr %75, align 4, !tbaa !13
   %120 = zext i32 %118 to i64
-  %121 = getelementptr inbounds nuw i64, ptr %117, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %120
   store i64 %116, ptr %121, align 8, !tbaa !16
   store i32 0, ptr %104, align 8, !tbaa !12
   br label %122
@@ -1824,7 +1824,7 @@ bitwriter_grow_.exit.i9:                          ; preds = %102, %78, %72
   %.139.i = phi i32 [ %.030.i, %.lr.ph.i ], [ %130, %125 ]
   %127 = add i32 %126, 1
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw i64, ptr %124, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %128
   store i64 0, ptr %129, align 8, !tbaa !16
   %130 = add i32 %.139.i, -64
   %131 = icmp ugt i32 %130, 63
@@ -1927,7 +1927,7 @@ bitwriter_grow_.exit.i15:                         ; preds = %162, %142, %139
   %185 = add i32 %184, 1
   store i32 %185, ptr %75, align 4, !tbaa !13
   %186 = zext i32 %184 to i64
-  %187 = getelementptr inbounds nuw i64, ptr %164, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %186
   store i64 %183, ptr %187, align 8, !tbaa !16
   store i64 1, ptr %175, align 8, !tbaa !15
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
@@ -1937,7 +1937,7 @@ bitwriter_grow_.exit.i15:                         ; preds = %162, %142, %139
   %190 = add i32 %189, 1
   store i32 %190, ptr %75, align 4, !tbaa !13
   %191 = zext i32 %189 to i64
-  %192 = getelementptr inbounds nuw i64, ptr %164, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %191
   store i64 72057594037927936, ptr %192, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -2098,7 +2098,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %96 = add i32 %95, 1
   store i32 %96, ptr %34, align 4, !tbaa !13
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw i64, ptr %94, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %97
   store i64 %93, ptr %98, align 8, !tbaa !16
   br label %.sink.split272
 
@@ -2178,7 +2178,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %145 = add i32 %144, 1
   store i32 %145, ptr %34, align 4, !tbaa !13
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %143, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %146
   store i64 %142, ptr %147, align 8, !tbaa !16
   br label %148
 
@@ -2211,7 +2211,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %159 = add i32 %158, 1
   store i32 %159, ptr %34, align 4, !tbaa !13
   %160 = zext i32 %158 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %157, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %160
   store i64 %156, ptr %161, align 8, !tbaa !16
   br label %162
 
@@ -2248,7 +2248,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %178 = add i32 %177, 1
   store i32 %178, ptr %34, align 4, !tbaa !13
   %179 = zext i32 %177 to i64
-  %180 = getelementptr inbounds nuw i64, ptr %176, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %179
   store i64 %175, ptr %180, align 8, !tbaa !16
   br label %181
 
@@ -2283,7 +2283,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %197 = add i32 %196, 1
   store i32 %197, ptr %34, align 4, !tbaa !13
   %198 = zext i32 %196 to i64
-  %199 = getelementptr inbounds nuw i64, ptr %195, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %198
   store i64 %194, ptr %199, align 8, !tbaa !16
   br label %200
 
@@ -2325,7 +2325,7 @@ bitwriter_grow_.exit:                             ; preds = %62, %39, %29
   %220 = add i32 %219, 1
   store i32 %220, ptr %34, align 4, !tbaa !13
   %221 = zext i32 %219 to i64
-  %222 = getelementptr inbounds nuw i64, ptr %218, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %221
   store i64 %217, ptr %222, align 8, !tbaa !16
   br label %.sink.split272
 
@@ -2491,7 +2491,7 @@ bitwriter_grow_.exit.i:                           ; preds = %38, %16, %10
   %63 = add i32 %62, 1
   store i32 %63, ptr %13, align 4, !tbaa !13
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %39, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %64
   store i64 %61, ptr %65, align 8, !tbaa !16
   %66 = zext nneg i32 %1 to i64
   store i64 %66, ptr %53, align 8, !tbaa !15
@@ -2504,7 +2504,7 @@ bitwriter_grow_.exit.i:                           ; preds = %38, %16, %10
   %71 = add i32 %70, 1
   store i32 %71, ptr %13, align 4, !tbaa !13
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i64, ptr %39, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %72
   store i64 %69, ptr %73, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -2605,7 +2605,7 @@ bitwriter_grow_.exit.i73:                         ; preds = %111, %89, %83
   %136 = add i32 %135, 1
   store i32 %136, ptr %86, align 4, !tbaa !13
   %137 = zext i32 %135 to i64
-  %138 = getelementptr inbounds nuw i64, ptr %112, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %137
   store i64 %134, ptr %138, align 8, !tbaa !16
   %139 = zext nneg i32 %78 to i64
   store i64 %139, ptr %126, align 8, !tbaa !15
@@ -2618,7 +2618,7 @@ bitwriter_grow_.exit.i73:                         ; preds = %111, %89, %83
   %144 = add i32 %143, 1
   store i32 %144, ptr %86, align 4, !tbaa !13
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw i64, ptr %112, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %145
   store i64 %142, ptr %146, align 8, !tbaa !16
   br label %.thread
 
@@ -2711,7 +2711,7 @@ bitwriter_grow_.exit.i80:                         ; preds = %175, %153, %.thread
   %200 = add i32 %199, 1
   store i32 %200, ptr %86, align 4, !tbaa !13
   %201 = zext i32 %199 to i64
-  %202 = getelementptr inbounds nuw i64, ptr %176, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %201
   store i64 %198, ptr %202, align 8, !tbaa !16
   %203 = zext nneg i32 %149 to i64
   store i64 %203, ptr %190, align 8, !tbaa !15
@@ -2724,7 +2724,7 @@ bitwriter_grow_.exit.i80:                         ; preds = %175, %153, %.thread
   %208 = add i32 %207, 1
   store i32 %208, ptr %86, align 4, !tbaa !13
   %209 = zext i32 %207 to i64
-  %210 = getelementptr inbounds nuw i64, ptr %176, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %209
   store i64 %206, ptr %210, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit84
 
@@ -2831,7 +2831,7 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   %274 = add i32 %273, 1
   store i32 %274, ptr %224, align 4, !tbaa !13
   %275 = zext i32 %273 to i64
-  %276 = getelementptr inbounds nuw i64, ptr %250, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %275
   store i64 %272, ptr %276, align 8, !tbaa !16
   %277 = zext nneg i32 %216 to i64
   store i64 %277, ptr %264, align 8, !tbaa !15
@@ -2844,7 +2844,7 @@ bitwriter_grow_.exit.i87:                         ; preds = %249, %227, %221
   %282 = add i32 %281, 1
   store i32 %282, ptr %224, align 4, !tbaa !13
   %283 = zext i32 %281 to i64
-  %284 = getelementptr inbounds nuw i64, ptr %250, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %283
   store i64 %280, ptr %284, align 8, !tbaa !16
   br label %.thread242
 
@@ -2938,7 +2938,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   %338 = add i32 %337, 1
   store i32 %338, ptr %224, align 4, !tbaa !13
   %339 = zext i32 %337 to i64
-  %340 = getelementptr inbounds nuw i64, ptr %314, i64 %339
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %339
   store i64 %336, ptr %340, align 8, !tbaa !16
   %341 = zext nneg i32 %287 to i64
   store i64 %341, ptr %328, align 8, !tbaa !15
@@ -2951,7 +2951,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %313, %291, %.thread
   %346 = add i32 %345, 1
   store i32 %346, ptr %224, align 4, !tbaa !13
   %347 = zext i32 %345 to i64
-  %348 = getelementptr inbounds nuw i64, ptr %314, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %347
   store i64 %344, ptr %348, align 8, !tbaa !16
   br label %.thread248
 
@@ -3050,7 +3050,7 @@ bitwriter_grow_.exit.i101:                        ; preds = %380, %358, %352
   %405 = add i32 %404, 1
   store i32 %405, ptr %224, align 4, !tbaa !13
   %406 = zext i32 %404 to i64
-  %407 = getelementptr inbounds nuw i64, ptr %381, i64 %406
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %406
   store i64 %403, ptr %407, align 8, !tbaa !16
   %408 = zext nneg i32 %354 to i64
   store i64 %408, ptr %395, align 8, !tbaa !15
@@ -3063,7 +3063,7 @@ bitwriter_grow_.exit.i101:                        ; preds = %380, %358, %352
   %413 = add i32 %412, 1
   store i32 %413, ptr %224, align 4, !tbaa !13
   %414 = zext i32 %412 to i64
-  %415 = getelementptr inbounds nuw i64, ptr %381, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %414
   store i64 %411, ptr %415, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105
 
@@ -3170,7 +3170,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %480 = add i32 %479, 1
   store i32 %480, ptr %430, align 4, !tbaa !13
   %481 = zext i32 %479 to i64
-  %482 = getelementptr inbounds nuw i64, ptr %456, i64 %481
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %481
   store i64 %478, ptr %482, align 8, !tbaa !16
   %483 = zext nneg i32 %422 to i64
   store i64 %483, ptr %470, align 8, !tbaa !15
@@ -3183,7 +3183,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %455, %433, %427
   %488 = add i32 %487, 1
   store i32 %488, ptr %430, align 4, !tbaa !13
   %489 = zext i32 %487 to i64
-  %490 = getelementptr inbounds nuw i64, ptr %456, i64 %489
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %489
   store i64 %486, ptr %490, align 8, !tbaa !16
   br label %.thread253
 
@@ -3277,7 +3277,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   %544 = add i32 %543, 1
   store i32 %544, ptr %430, align 4, !tbaa !13
   %545 = zext i32 %543 to i64
-  %546 = getelementptr inbounds nuw i64, ptr %520, i64 %545
+  %546 = getelementptr inbounds nuw [8 x i8], ptr %520, i64 %545
   store i64 %542, ptr %546, align 8, !tbaa !16
   %547 = zext nneg i32 %493 to i64
   store i64 %547, ptr %534, align 8, !tbaa !15
@@ -3290,7 +3290,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %519, %497, %.thread
   %552 = add i32 %551, 1
   store i32 %552, ptr %430, align 4, !tbaa !13
   %553 = zext i32 %551 to i64
-  %554 = getelementptr inbounds nuw i64, ptr %520, i64 %553
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %520, i64 %553
   store i64 %550, ptr %554, align 8, !tbaa !16
   br label %.thread259
 
@@ -3390,7 +3390,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
   %611 = add i32 %610, 1
   store i32 %611, ptr %430, align 4, !tbaa !13
   %612 = zext i32 %610 to i64
-  %613 = getelementptr inbounds nuw i64, ptr %587, i64 %612
+  %613 = getelementptr inbounds nuw [8 x i8], ptr %587, i64 %612
   store i64 %609, ptr %613, align 8, !tbaa !16
   %614 = zext nneg i32 %560 to i64
   store i64 %614, ptr %601, align 8, !tbaa !15
@@ -3403,7 +3403,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %586, %564, %558
   %619 = add i32 %618, 1
   store i32 %619, ptr %430, align 4, !tbaa !13
   %620 = zext i32 %618 to i64
-  %621 = getelementptr inbounds nuw i64, ptr %587, i64 %620
+  %621 = getelementptr inbounds nuw [8 x i8], ptr %587, i64 %620
   store i64 %617, ptr %621, align 8, !tbaa !16
   br label %.thread164.thread
 
@@ -3502,7 +3502,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %652, %630, %624
   %677 = add i32 %676, 1
   store i32 %677, ptr %430, align 4, !tbaa !13
   %678 = zext i32 %676 to i64
-  %679 = getelementptr inbounds nuw i64, ptr %653, i64 %678
+  %679 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %678
   store i64 %675, ptr %679, align 8, !tbaa !16
   %680 = zext nneg i32 %626 to i64
   store i64 %680, ptr %667, align 8, !tbaa !15
@@ -3515,7 +3515,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %652, %630, %624
   %685 = add i32 %684, 1
   store i32 %685, ptr %430, align 4, !tbaa !13
   %686 = zext i32 %684 to i64
-  %687 = getelementptr inbounds nuw i64, ptr %653, i64 %686
+  %687 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %686
   store i64 %683, ptr %687, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit133
 
@@ -3689,7 +3689,7 @@ bitwriter_grow_.exit.i:                           ; preds = %39, %17, %11
   %63 = add i32 %62, 1
   store i32 %63, ptr %14, align 4, !tbaa !13
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %40, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %64
   store i64 %61, ptr %65, align 8, !tbaa !16
   store i64 %1, ptr %53, align 8, !tbaa !15
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
@@ -3700,7 +3700,7 @@ bitwriter_grow_.exit.i:                           ; preds = %39, %17, %11
   %69 = add i32 %68, 1
   store i32 %69, ptr %14, align 4, !tbaa !13
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %40, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %70
   store i64 %67, ptr %71, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit
 
@@ -3802,7 +3802,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %110, %88, %82
   %135 = add i32 %134, 1
   store i32 %135, ptr %85, align 4, !tbaa !13
   %136 = zext i32 %134 to i64
-  %137 = getelementptr inbounds nuw i64, ptr %111, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %136
   store i64 %133, ptr %137, align 8, !tbaa !16
   %138 = zext nneg i32 %77 to i64
   store i64 %138, ptr %125, align 8, !tbaa !15
@@ -3815,7 +3815,7 @@ bitwriter_grow_.exit.i94:                         ; preds = %110, %88, %82
   %143 = add i32 %142, 1
   store i32 %143, ptr %85, align 4, !tbaa !13
   %144 = zext i32 %142 to i64
-  %145 = getelementptr inbounds nuw i64, ptr %111, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %144
   store i64 %141, ptr %145, align 8, !tbaa !16
   br label %.thread
 
@@ -3909,7 +3909,7 @@ bitwriter_grow_.exit.i101:                        ; preds = %174, %152, %.thread
   %199 = add i32 %198, 1
   store i32 %199, ptr %85, align 4, !tbaa !13
   %200 = zext i32 %198 to i64
-  %201 = getelementptr inbounds nuw i64, ptr %175, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %200
   store i64 %197, ptr %201, align 8, !tbaa !16
   %202 = zext nneg i32 %148 to i64
   store i64 %202, ptr %189, align 8, !tbaa !15
@@ -3922,7 +3922,7 @@ bitwriter_grow_.exit.i101:                        ; preds = %174, %152, %.thread
   %207 = add i32 %206, 1
   store i32 %207, ptr %85, align 4, !tbaa !13
   %208 = zext i32 %206 to i64
-  %209 = getelementptr inbounds nuw i64, ptr %175, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %208
   store i64 %205, ptr %209, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit105
 
@@ -4030,7 +4030,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   %274 = add i32 %273, 1
   store i32 %274, ptr %224, align 4, !tbaa !13
   %275 = zext i32 %273 to i64
-  %276 = getelementptr inbounds nuw i64, ptr %250, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %275
   store i64 %272, ptr %276, align 8, !tbaa !16
   %277 = zext nneg i32 %216 to i64
   store i64 %277, ptr %264, align 8, !tbaa !15
@@ -4043,7 +4043,7 @@ bitwriter_grow_.exit.i108:                        ; preds = %249, %227, %221
   %282 = add i32 %281, 1
   store i32 %282, ptr %224, align 4, !tbaa !13
   %283 = zext i32 %281 to i64
-  %284 = getelementptr inbounds nuw i64, ptr %250, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %283
   store i64 %280, ptr %284, align 8, !tbaa !16
   br label %.thread259
 
@@ -4138,7 +4138,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   %339 = add i32 %338, 1
   store i32 %339, ptr %224, align 4, !tbaa !13
   %340 = zext i32 %338 to i64
-  %341 = getelementptr inbounds nuw i64, ptr %315, i64 %340
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %340
   store i64 %337, ptr %341, align 8, !tbaa !16
   %342 = zext nneg i32 %288 to i64
   store i64 %342, ptr %329, align 8, !tbaa !15
@@ -4151,7 +4151,7 @@ bitwriter_grow_.exit.i115:                        ; preds = %314, %292, %.thread
   %347 = add i32 %346, 1
   store i32 %347, ptr %224, align 4, !tbaa !13
   %348 = zext i32 %346 to i64
-  %349 = getelementptr inbounds nuw i64, ptr %315, i64 %348
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %348
   store i64 %345, ptr %349, align 8, !tbaa !16
   br label %.thread266
 
@@ -4250,7 +4250,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %381, %359, %353
   %406 = add i32 %405, 1
   store i32 %406, ptr %224, align 4, !tbaa !13
   %407 = zext i32 %405 to i64
-  %408 = getelementptr inbounds nuw i64, ptr %382, i64 %407
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %407
   store i64 %404, ptr %408, align 8, !tbaa !16
   %409 = zext nneg i32 %355 to i64
   store i64 %409, ptr %396, align 8, !tbaa !15
@@ -4263,7 +4263,7 @@ bitwriter_grow_.exit.i122:                        ; preds = %381, %359, %353
   %414 = add i32 %413, 1
   store i32 %414, ptr %224, align 4, !tbaa !13
   %415 = zext i32 %413 to i64
-  %416 = getelementptr inbounds nuw i64, ptr %382, i64 %415
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %415
   store i64 %412, ptr %416, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit126
 
@@ -4371,7 +4371,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %482 = add i32 %481, 1
   store i32 %482, ptr %432, align 4, !tbaa !13
   %483 = zext i32 %481 to i64
-  %484 = getelementptr inbounds nuw i64, ptr %458, i64 %483
+  %484 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %483
   store i64 %480, ptr %484, align 8, !tbaa !16
   %485 = zext nneg i32 %424 to i64
   store i64 %485, ptr %472, align 8, !tbaa !15
@@ -4384,7 +4384,7 @@ bitwriter_grow_.exit.i129:                        ; preds = %457, %435, %429
   %490 = add i32 %489, 1
   store i32 %490, ptr %432, align 4, !tbaa !13
   %491 = zext i32 %489 to i64
-  %492 = getelementptr inbounds nuw i64, ptr %458, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %491
   store i64 %488, ptr %492, align 8, !tbaa !16
   br label %.thread276
 
@@ -4479,7 +4479,7 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   %547 = add i32 %546, 1
   store i32 %547, ptr %432, align 4, !tbaa !13
   %548 = zext i32 %546 to i64
-  %549 = getelementptr inbounds nuw i64, ptr %523, i64 %548
+  %549 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %548
   store i64 %545, ptr %549, align 8, !tbaa !16
   %550 = zext nneg i32 %496 to i64
   store i64 %550, ptr %537, align 8, !tbaa !15
@@ -4492,7 +4492,7 @@ bitwriter_grow_.exit.i136:                        ; preds = %522, %500, %.thread
   %555 = add i32 %554, 1
   store i32 %555, ptr %432, align 4, !tbaa !13
   %556 = zext i32 %554 to i64
-  %557 = getelementptr inbounds nuw i64, ptr %523, i64 %556
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %556
   store i64 %553, ptr %557, align 8, !tbaa !16
   br label %.thread283
 
@@ -4594,7 +4594,7 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   %617 = add i32 %616, 1
   store i32 %617, ptr %567, align 4, !tbaa !13
   %618 = zext i32 %616 to i64
-  %619 = getelementptr inbounds nuw i64, ptr %593, i64 %618
+  %619 = getelementptr inbounds nuw [8 x i8], ptr %593, i64 %618
   store i64 %615, ptr %619, align 8, !tbaa !16
   %620 = zext nneg i32 %564 to i64
   store i64 %620, ptr %607, align 8, !tbaa !15
@@ -4607,7 +4607,7 @@ bitwriter_grow_.exit.i143:                        ; preds = %592, %570, %561
   %625 = add i32 %624, 1
   store i32 %625, ptr %567, align 4, !tbaa !13
   %626 = zext i32 %624 to i64
-  %627 = getelementptr inbounds nuw i64, ptr %593, i64 %626
+  %627 = getelementptr inbounds nuw [8 x i8], ptr %593, i64 %626
   store i64 %623, ptr %627, align 8, !tbaa !16
   br label %.thread294
 
@@ -4706,7 +4706,7 @@ bitwriter_grow_.exit.i150:                        ; preds = %659, %637, %631
   %684 = add i32 %683, 1
   store i32 %684, ptr %567, align 4, !tbaa !13
   %685 = zext i32 %683 to i64
-  %686 = getelementptr inbounds nuw i64, ptr %660, i64 %685
+  %686 = getelementptr inbounds nuw [8 x i8], ptr %660, i64 %685
   store i64 %682, ptr %686, align 8, !tbaa !16
   %687 = zext nneg i32 %633 to i64
   store i64 %687, ptr %674, align 8, !tbaa !15
@@ -4719,7 +4719,7 @@ bitwriter_grow_.exit.i150:                        ; preds = %659, %637, %631
   %692 = add i32 %691, 1
   store i32 %692, ptr %567, align 4, !tbaa !13
   %693 = zext i32 %691 to i64
-  %694 = getelementptr inbounds nuw i64, ptr %660, i64 %693
+  %694 = getelementptr inbounds nuw [8 x i8], ptr %660, i64 %693
   store i64 %690, ptr %694, align 8, !tbaa !16
   br label %FLAC__bitwriter_write_raw_uint32_nocheck.exit154
 
@@ -4911,7 +4911,7 @@ bitwriter_grow_.exit.i.thread:                    ; preds = %5, %12, %bitwriter_
   %46 = add i32 %45, 1
   store i32 %46, ptr %9, align 4, !tbaa !13
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   store i64 %43, ptr %48, align 8, !tbaa !16
   store i32 0, ptr %2, align 8, !tbaa !12
   %49 = icmp ugt i32 %42, 63
@@ -4922,7 +4922,7 @@ bitwriter_grow_.exit.i.thread:                    ; preds = %5, %12, %bitwriter_
   %.139.i = phi i32 [ %54, %.lr.ph.i ], [ %42, %41 ]
   %51 = add i32 %50, 1
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %44, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %52
   store i64 0, ptr %53, align 8, !tbaa !16
   %54 = add i32 %.139.i, -64
   %55 = icmp ugt i32 %54, 63

@@ -273,9 +273,9 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %35 = add nuw nsw i64 %32, 127
   %.01061 = lshr i64 %35, 7
   %.0931 = select i1 %.not1800, i64 128, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.41788, i64 %.0931
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %.0931
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %.0931
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.41788, i64 %.0931
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0931
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0931
   %trunc = trunc nuw i64 %.0931 to i8
   switch i8 %trunc, label %default.unreachable [
     i8 -128, label %39
@@ -2960,7 +2960,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %1313 = getelementptr inbounds i8, ptr %.126799, i64 -8
   %1314 = load i64, ptr %1313, align 8, !tbaa !19
   %1315 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1261317, i64 %1314)
-  %1316 = getelementptr inbounds nuw <2 x i64>, ptr @_ZN7rocksdb6crc32cL15clmul_constantsE, i64 %.1271058
+  %1316 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7rocksdb6crc32cL15clmul_constantsE, i64 %.1271058
   %1317 = getelementptr inbounds i8, ptr %1316, i64 -16
   %1318 = load <2 x i64>, ptr %1317, align 16, !tbaa !13
   %1319 = insertelement <2 x i64> poison, i64 %1312, i64 0
@@ -3289,7 +3289,7 @@ define noundef i32 @_ZN7rocksdb6crc32c13Crc32cCombineEjjm(i32 noundef %0, i32 no
   %.0133.i = phi i64 [ %26, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %11, %10 ]
   %.0142.i = phi ptr [ %27, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ @_ZN7rocksdb6crc32cL13crc32c_powersE, %10 ]
   %12 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0133.i, i1 true)
-  %13 = getelementptr inbounds nuw i32, ptr %.0142.i, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.0142.i, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !15
   br label %tailrecurse.i.i.i
 

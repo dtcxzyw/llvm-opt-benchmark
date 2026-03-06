@@ -115,7 +115,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandYosys(ptr noundef %0, i32 nounde
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !7
   %12 = add nsw i32 %7, 1
   store i32 %12, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -128,7 +128,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandYosys(ptr noundef %0, i32 nounde
 
 15:                                               ; preds = %13
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !7
   %19 = add nsw i32 %14, 1
   store i32 %19, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -186,7 +186,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandYosys(ptr noundef %0, i32 nounde
 
 38:                                               ; preds = %34
   %39 = sext i32 %35 to i64
-  %40 = getelementptr inbounds ptr, ptr %2, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %2, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !7
   %42 = tail call noalias ptr @fopen(ptr noundef %41, ptr noundef nonnull @.str.10)
   %43 = icmp eq ptr %42, null
@@ -398,7 +398,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGraft(ptr noundef readonly captu
 
 20:                                               ; preds = %14
   %21 = sext i32 %15 to i64
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   tail call void @Wln_LibGraftOne(ptr noundef nonnull %.val, ptr noundef %22, i32 noundef %16, i32 noundef %.019.ph, i32 noundef %.0) #10
   br label %26
 
@@ -458,7 +458,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandHierarchy(ptr noundef readonly c
 
 17:                                               ; preds = %12
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %18
   tail call void @Wln_LibMarkHierarchy(ptr noundef nonnull %.val, ptr noundef %19, i32 noundef %14, i32 noundef %.0) #10
   br label %22
 
@@ -523,7 +523,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCollapse(ptr noundef %0, i32 nou
 
 10:                                               ; preds = %7
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !7
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr @globalUtilOptind, align 4, !tbaa !3

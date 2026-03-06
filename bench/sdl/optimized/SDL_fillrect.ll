@@ -198,7 +198,7 @@ switch.edge:                                      ; preds = %25
 
 75:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %76 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %1, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %77 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %76, ptr noundef nonnull %70, ptr noundef nonnull %5) #5
   br i1 %77, label %78, label %97
 
@@ -445,7 +445,7 @@ define internal void @SDL_FillSurfaceRect2(ptr noundef %0, i32 noundef %1, i32 n
 
 21:                                               ; preds = %16
   %22 = sext i32 %.117.us to i64
-  %23 = getelementptr i16, ptr %.1.us, i64 %22
+  %23 = getelementptr [2 x i8], ptr %.1.us, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -2
   store i16 %8, ptr %24, align 2
   br label %25
@@ -465,7 +465,7 @@ define internal void @SDL_FillSurfaceRect2(ptr noundef %0, i32 noundef %1, i32 n
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %30 = phi i32 [ %34, %.lr.ph.split.split ], [ %6, %.lr.ph.split ]
   %.01925 = phi ptr [ %33, %.lr.ph.split.split ], [ %0, %.lr.ph.split ]
-  %31 = getelementptr i16, ptr %.01925, i64 %29
+  %31 = getelementptr [2 x i8], ptr %.01925, i64 %29
   %32 = getelementptr i8, ptr %31, i64 -2
   store i16 %8, ptr %32, align 2
   %33 = getelementptr inbounds i8, ptr %.01925, i64 %10

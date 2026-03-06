@@ -9,13 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 %struct.list_head = type { ptr, ptr }
 %struct.radix_tree_iter = type { i64, i64, i64, ptr }
-%struct.page = type { i64, %union.anon.53, %union.anon.61, %struct.atomic_t, [8 x i8] }
-%union.anon.53 = type { %struct.anon.54 }
-%struct.anon.54 = type { %union.anon.55, ptr, %union.anon.57, i64 }
-%union.anon.55 = type { %struct.list_head }
-%union.anon.57 = type { i64 }
-%union.anon.61 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @.str = private unnamed_addr constant [42 x i8] c"drivers/gpu/drm/i915/gem/i915_gem_pages.c\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"Attempting to obtain a purgeable object\0A\00", align 1
@@ -665,13 +658,13 @@ define dso_local ptr @__i915_gem_object_unset_pages(ptr noundef %0) local_unname
 98:                                               ; preds = %109, %91
   %99 = phi i1 [ true, %91 ], [ false, %109 ]
   %100 = phi i64 [ 0, %91 ], [ 1, %109 ]
-  %101 = getelementptr ptr, ptr %96, i64 %100
+  %101 = getelementptr [8 x i8], ptr %96, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %109, label %104
 
 104:                                              ; preds = %98
-  %105 = getelementptr i32, ptr %97, i64 %100
+  %105 = getelementptr [4 x i8], ptr %97, i64 %100
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %109, label %108
@@ -952,7 +945,7 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   %135 = lshr i32 %129, 12
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr i8, ptr %133, i64 %132
-  %138 = getelementptr %struct.page, ptr %137, i64 %136
+  %138 = getelementptr [64 x i8], ptr %137, i64 %136
   %139 = icmp eq ptr %138, null
   %140 = select i1 %134, i1 true, i1 %139
   br i1 %140, label %.thread33, label %.preheader.preheader
@@ -972,7 +965,7 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   %149 = phi i64 [ %182, %180 ], [ %144, %.preheader.preheader ]
   %150 = phi ptr [ %181, %180 ], [ %125, %.preheader.preheader ]
   %151 = add i64 %146, 1
-  %152 = getelementptr ptr, ptr %122, i64 %146
+  %152 = getelementptr [8 x i8], ptr %122, i64 %146
   store ptr %145, ptr %152, align 8
   %153 = add i32 %148, 4096
   %154 = icmp ult i32 %153, %147
@@ -1021,8 +1014,8 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   %185 = icmp eq i64 %182, 0
   %186 = lshr i32 %183, 12
   %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr %struct.page, ptr %133, i64 %182
-  %189 = getelementptr %struct.page, ptr %188, i64 %187
+  %188 = getelementptr [64 x i8], ptr %133, i64 %182
+  %189 = getelementptr [64 x i8], ptr %188, i64 %187
   %190 = icmp eq ptr %189, null
   %191 = select i1 %185, i1 true, i1 %190
   br i1 %191, label %.thread33, label %.preheader, !llvm.loop !43
@@ -1106,7 +1099,7 @@ define dso_local ptr @i915_gem_object_pin_map(ptr noundef %0, i32 noundef %1) lo
   %236 = add i64 %231, %235
   %237 = lshr i64 %236, 12
   %238 = add i64 %234, 1
-  %239 = getelementptr i64, ptr %217, i64 %234
+  %239 = getelementptr [8 x i8], ptr %217, i64 %234
   store i64 %237, ptr %239, align 8
   %240 = add i32 %233, 4096
   %241 = icmp ult i32 %240, %.ph
@@ -1571,7 +1564,7 @@ define dso_local ptr @__i915_gem_object_get_page(ptr noundef %0, i64 noundef %1)
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %3, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.page, ptr %8, i64 %10
+  %11 = getelementptr [64 x i8], ptr %8, i64 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %11
 }
@@ -1588,7 +1581,7 @@ define dso_local ptr @__i915_gem_object_get_dirty_page(ptr noundef %0, i64 nound
   %8 = inttoptr i64 %7 to ptr
   %9 = load i32, ptr %3, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.page, ptr %8, i64 %10
+  %11 = getelementptr [64 x i8], ptr %8, i64 %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %13 = load i8, ptr %12, align 8

@@ -33,7 +33,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_set_min_max_version(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.version_test, ptr @version_testdata, i64 %2
+  %3 = getelementptr inbounds [28 x i8], ptr @version_testdata, i64 %2
   %.sroa.0.0.copyload = load i32, ptr %3, align 4, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4

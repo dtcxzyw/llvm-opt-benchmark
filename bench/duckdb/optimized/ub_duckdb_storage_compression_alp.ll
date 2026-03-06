@@ -529,7 +529,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 .noexc:                                           ; preds = %40
   store ptr %42, ptr %5, align 8, !tbaa !121
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %.sroa.0.0.insert.ext.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %.sroa.0.0.insert.ext.i
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !124
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %42, i8 0, i64 %41, i1 false), !tbaa !125
@@ -543,7 +543,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 .noexc78:                                         ; preds = %.noexc
   store ptr %48, ptr %6, align 8, !tbaa !127
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %.sroa.0.0.insert.ext.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.sroa.0.0.insert.ext.i
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !130
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %48, i8 0, i64 %47, i1 false), !tbaa !131
@@ -567,7 +567,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 .noexc84:                                         ; preds = %54
   store ptr %56, ptr %7, align 8, !tbaa !127
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %53
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %57, ptr %58, align 8, !tbaa !130
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %56, i8 0, i64 %55, i1 false), !tbaa !131
@@ -622,14 +622,14 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   br i1 %.not.i86, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, label %75
 
 75:                                               ; preds = %.lr.ph119
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %.064118
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.064118
   %77 = load i32, ptr %76, align 4, !tbaa !137
   %78 = zext i32 %77 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %.lr.ph119, %75
   %79 = phi i64 [ %78, %75 ], [ %.064118, %.lr.ph119 ]
-  %80 = getelementptr inbounds nuw float, ptr %27, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !131
   %82 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN6duckdb6vectorIfLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %.064118)
           to label %83 unwind label %85
@@ -653,14 +653,14 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %.lr.ph119, %75
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %94
   %.010.i.i = phi i64 [ %95, %94 ], [ 0, %._crit_edge ]
-  %88 = getelementptr inbounds nuw i16, ptr %.pre130, i64 %.010.i.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.pre130, i64 %.010.i.i
   %89 = load i16, ptr %88, align 2, !tbaa !125
   %90 = zext i16 %89 to i64
   %.not.i.i = icmp eq i64 %.010.i.i, %90
   br i1 %.not.i.i, label %94, label %91
 
 91:                                               ; preds = %.lr.ph.i.i
-  %92 = getelementptr inbounds nuw float, ptr %.pre, i64 %.010.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.010.i.i
   %93 = load float, ptr %92, align 4, !tbaa !131
   br label %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
 
@@ -675,10 +675,10 @@ _ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
   %.07.i.i = phi i64 [ %100, %.lr.ph.i8.i ], [ 0, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i ]
-  %96 = getelementptr inbounds nuw i16, ptr %.pre130, i64 %.07.i.i
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.pre130, i64 %.07.i.i
   %97 = load i16, ptr %96, align 2, !tbaa !125
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw float, ptr %.pre, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %98
   store float %.08.i.i, ptr %99, align 4, !tbaa !131
   %100 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i9.i = icmp eq i64 %100, %123
@@ -693,14 +693,14 @@ _ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
   br i1 %.not.i87, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit88, label %103
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %.055117
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %.055117
   %105 = load i32, ptr %104, align 4, !tbaa !137
   %106 = zext i32 %105 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit88:  ; preds = %.lr.ph, %103
   %107 = phi i64 [ %106, %103 ], [ %.055117, %.lr.ph ]
-  %108 = getelementptr inbounds nuw float, ptr %27, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %107
   %109 = load float, ptr %108, align 4, !tbaa !131
   %110 = load ptr, ptr %61, align 8, !tbaa !134
   %.not.i89 = icmp eq ptr %110, null
@@ -708,7 +708,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit88:  ; preds = %.lr.ph, %103
 
 _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
   %111 = lshr i64 %107, 6
-  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !77
   %114 = and i64 %107, 63
   %115 = xor i64 %113, -1
@@ -1337,7 +1337,7 @@ define linkonce_odr void @_ZN6duckdb7AlpScanIfEEvRNS_13ColumnSegmentERNS_15Colum
   %16 = and i64 %14, 1023
   %17 = sub nuw nsw i64 1024, %16
   %18 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %17)
-  %19 = getelementptr inbounds nuw float, ptr %8, i64 %.017.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.017.i
   %20 = icmp eq i64 %16, 0
   %21 = load i64, ptr %10, align 8
   %22 = icmp ult i64 %14, %21
@@ -1358,7 +1358,7 @@ define linkonce_odr void @_ZN6duckdb7AlpScanIfEEvRNS_13ColumnSegmentERNS_15Colum
 
 27:                                               ; preds = %26, %13
   %28 = load i64, ptr %12, align 8, !tbaa !205
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %28
   %30 = shl nuw nsw i64 %18, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull align 4 %29, i64 %30, i1 false)
   %31 = load i64, ptr %12, align 8, !tbaa !205
@@ -1385,7 +1385,7 @@ define linkonce_odr void @_ZN6duckdb14AlpScanPartialIfEEvRNS_13ColumnSegmentERNS
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !194
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 noundef zeroext 0)
-  %10 = getelementptr inbounds nuw float, ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %4
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1404,7 +1404,7 @@ define linkonce_odr void @_ZN6duckdb14AlpScanPartialIfEEvRNS_13ColumnSegmentERNS
   %18 = and i64 %16, 1023
   %19 = sub nuw nsw i64 1024, %18
   %20 = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %19)
-  %21 = getelementptr inbounds nuw float, ptr %10, i64 %.017
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.017
   %22 = icmp eq i64 %18, 0
   %23 = load i64, ptr %12, align 8
   %24 = icmp ult i64 %16, %23
@@ -1425,7 +1425,7 @@ define linkonce_odr void @_ZN6duckdb14AlpScanPartialIfEEvRNS_13ColumnSegmentERNS
 
 29:                                               ; preds = %28, %15
   %30 = load i64, ptr %14, align 8, !tbaa !205
-  %31 = getelementptr inbounds nuw float, ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %30
   %32 = shl nuw nsw i64 %20, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 4 %31, i64 %32, i1 false)
   %33 = load i64, ptr %14, align 8, !tbaa !205
@@ -1513,7 +1513,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIfEEvRNS_13ColumnSegmentERNS_16
 32:                                               ; preds = %31, %22
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %4
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %4
   store i32 0, ptr %35, align 4, !tbaa !137
   %36 = load i64, ptr %7, align 8, !tbaa !201
   %37 = and i64 %36, 1023
@@ -1543,7 +1543,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIfEEvRNS_13ColumnSegmentERNS_16
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %51 = load i64, ptr %49, align 8, !tbaa !205
-  %52 = getelementptr inbounds nuw float, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %35, align 1
   %54 = load i64, ptr %49, align 8, !tbaa !205
@@ -1765,7 +1765,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 .noexc:                                           ; preds = %40
   store ptr %42, ptr %5, align 8, !tbaa !121
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %.sroa.0.0.insert.ext.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %.sroa.0.0.insert.ext.i
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !124
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %42, i8 0, i64 %41, i1 false), !tbaa !125
@@ -1779,7 +1779,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 .noexc78:                                         ; preds = %.noexc
   store ptr %48, ptr %6, align 8, !tbaa !224
-  %49 = getelementptr inbounds nuw double, ptr %48, i64 %.sroa.0.0.insert.ext.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.sroa.0.0.insert.ext.i
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !227
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %47, i1 false), !tbaa !228
@@ -1803,7 +1803,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 .noexc84:                                         ; preds = %54
   store ptr %56, ptr %7, align 8, !tbaa !224
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %53
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %53
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %57, ptr %58, align 8, !tbaa !227
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %56, i8 0, i64 %55, i1 false), !tbaa !228
@@ -1858,14 +1858,14 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
   br i1 %.not.i86, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, label %75
 
 75:                                               ; preds = %.lr.ph119
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %.064118
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.064118
   %77 = load i32, ptr %76, align 4, !tbaa !137
   %78 = zext i32 %77 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %.lr.ph119, %75
   %79 = phi i64 [ %78, %75 ], [ %.064118, %.lr.ph119 ]
-  %80 = getelementptr inbounds nuw double, ptr %27, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %79
   %81 = load double, ptr %80, align 8, !tbaa !228
   %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorIdLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %.064118)
           to label %83 unwind label %85
@@ -1889,14 +1889,14 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %.lr.ph119, %75
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %94
   %.010.i.i = phi i64 [ %95, %94 ], [ 0, %._crit_edge ]
-  %88 = getelementptr inbounds nuw i16, ptr %.pre130, i64 %.010.i.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.pre130, i64 %.010.i.i
   %89 = load i16, ptr %88, align 2, !tbaa !125
   %90 = zext i16 %89 to i64
   %.not.i.i = icmp eq i64 %.010.i.i, %90
   br i1 %.not.i.i, label %94, label %91
 
 91:                                               ; preds = %.lr.ph.i.i
-  %92 = getelementptr inbounds nuw double, ptr %.pre, i64 %.010.i.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.010.i.i
   %93 = load double, ptr %92, align 8, !tbaa !228
   br label %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
 
@@ -1911,10 +1911,10 @@ _ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
   %.07.i.i = phi i64 [ %100, %.lr.ph.i8.i ], [ 0, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i ]
-  %96 = getelementptr inbounds nuw i16, ptr %.pre130, i64 %.07.i.i
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.pre130, i64 %.07.i.i
   %97 = load i16, ptr %96, align 2, !tbaa !125
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw double, ptr %.pre, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %98
   store double %.08.i.i, ptr %99, align 8, !tbaa !228
   %100 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i9.i = icmp eq i64 %100, %123
@@ -1929,14 +1929,14 @@ _ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
   br i1 %.not.i87, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit88, label %103
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %.055117
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %.055117
   %105 = load i32, ptr %104, align 4, !tbaa !137
   %106 = zext i32 %105 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit88:  ; preds = %.lr.ph, %103
   %107 = phi i64 [ %106, %103 ], [ %.055117, %.lr.ph ]
-  %108 = getelementptr inbounds nuw double, ptr %27, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !228
   %110 = load ptr, ptr %61, align 8, !tbaa !134
   %.not.i89 = icmp eq ptr %110, null
@@ -1944,7 +1944,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit88:  ; preds = %.lr.ph, %103
 
 _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit88
   %111 = lshr i64 %107, 6
-  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !77
   %114 = and i64 %107, 63
   %115 = xor i64 %113, -1
@@ -2573,7 +2573,7 @@ define linkonce_odr void @_ZN6duckdb7AlpScanIdEEvRNS_13ColumnSegmentERNS_15Colum
   %16 = and i64 %14, 1023
   %17 = sub nuw nsw i64 1024, %16
   %18 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %17)
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %.017.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.017.i
   %20 = icmp eq i64 %16, 0
   %21 = load i64, ptr %10, align 8
   %22 = icmp ult i64 %14, %21
@@ -2594,7 +2594,7 @@ define linkonce_odr void @_ZN6duckdb7AlpScanIdEEvRNS_13ColumnSegmentERNS_15Colum
 
 27:                                               ; preds = %26, %13
   %28 = load i64, ptr %12, align 8, !tbaa !257
-  %29 = getelementptr inbounds nuw double, ptr %11, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %28
   %30 = shl nuw nsw i64 %18, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull align 8 %29, i64 %30, i1 false)
   %31 = load i64, ptr %12, align 8, !tbaa !257
@@ -2621,7 +2621,7 @@ define linkonce_odr void @_ZN6duckdb14AlpScanPartialIdEEvRNS_13ColumnSegmentERNS
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !194
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 noundef zeroext 0)
-  %10 = getelementptr inbounds nuw double, ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %4
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2640,7 +2640,7 @@ define linkonce_odr void @_ZN6duckdb14AlpScanPartialIdEEvRNS_13ColumnSegmentERNS
   %18 = and i64 %16, 1023
   %19 = sub nuw nsw i64 1024, %18
   %20 = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 %19)
-  %21 = getelementptr inbounds nuw double, ptr %10, i64 %.017
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.017
   %22 = icmp eq i64 %18, 0
   %23 = load i64, ptr %12, align 8
   %24 = icmp ult i64 %16, %23
@@ -2661,7 +2661,7 @@ define linkonce_odr void @_ZN6duckdb14AlpScanPartialIdEEvRNS_13ColumnSegmentERNS
 
 29:                                               ; preds = %28, %15
   %30 = load i64, ptr %14, align 8, !tbaa !257
-  %31 = getelementptr inbounds nuw double, ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %30
   %32 = shl nuw nsw i64 %20, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 8 %31, i64 %32, i1 false)
   %33 = load i64, ptr %14, align 8, !tbaa !257
@@ -2749,7 +2749,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIdEEvRNS_13ColumnSegmentERNS_16
 32:                                               ; preds = %31, %22
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !194
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %4
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %4
   store i64 0, ptr %35, align 8, !tbaa !77
   %36 = load i64, ptr %7, align 8, !tbaa !254
   %37 = and i64 %36, 1023
@@ -2779,7 +2779,7 @@ define linkonce_odr void @_ZN6duckdb11AlpFetchRowIdEEvRNS_13ColumnSegmentERNS_16
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %51 = load i64, ptr %49, align 8, !tbaa !257
-  %52 = getelementptr inbounds nuw double, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %52, align 8
   store i64 %53, ptr %35, align 1
   %54 = load i64, ptr %49, align 8, !tbaa !257
@@ -3343,7 +3343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorIfLb1EE3getILb1EEERfm.exit:      ; preds = %2
-  %25 = getelementptr inbounds nuw float, ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -3416,7 +3416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorItLb1EE3getILb1EEERtm.exit:      ; preds = %2
-  %25 = getelementptr inbounds nuw i16, ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -4097,7 +4097,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !276
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !279
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !281
   ret void
 }
@@ -4584,7 +4584,7 @@ _ZNSt12_Vector_baseIN6duckdb6vectorIfLb1EEESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !268
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !144
-  %50 = getelementptr inbounds nuw %"class.duckdb::vector.81", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !145
   ret void
 }
@@ -4706,8 +4706,8 @@ _ZN6duckdb3alp19AlpCompressionStateIfLb1EE17ResetCombinationsEv.exit: ; preds = 
 
 .preheader:                                       ; preds = %29, %45
   %indvars.iv = phi i64 [ 10, %29 ], [ %indvars.iv.next, %45 ]
-  %38 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %indvars.iv
   %40 = trunc nuw nsw i64 %indvars.iv to i16
   br label %46
 
@@ -4738,9 +4738,9 @@ _ZN6duckdb3alp19AlpCompressionStateIfLb1EE17ResetCombinationsEv.exit: ; preds = 
 
 .lr.ph.i:                                         ; preds = %46
   %53 = load float, ptr %38, align 4, !tbaa !131
-  %54 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %indvars.iv120
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %indvars.iv120
   %55 = load float, ptr %54, align 4, !tbaa !131
-  %56 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
   br label %58
 
 ._crit_edge.i:                                    ; preds = %89
@@ -4931,7 +4931,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.021.i.ptr.i, i64 24, i1 false), !tbaa.struct !326
   %138 = getelementptr inbounds nuw i8, ptr %.pn20.i.i, i64 48
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.021.i.idx.i, -24
-  %139 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %138, i64 %.neg.i.i.i.i.i.i.i
+  %139 = getelementptr inbounds [24 x i8], ptr %138, i64 %.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %139, ptr noundef nonnull align 8 dereferenceable(1) %.pre124, i64 %.sroa.0.021.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.pre124, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -5009,7 +5009,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
   %151 = ptrtoint ptr %.sroa.0.021.i22.i to i64
   %152 = sub i64 %151, %130
   %.neg.i.i.i.i.i.i33.i = sdiv exact i64 %152, -24
-  %153 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %150, i64 %.neg.i.i.i.i.i.i33.i
+  %153 = getelementptr inbounds [24 x i8], ptr %150, i64 %.neg.i.i.i.i.i.i33.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %153, ptr noundef nonnull align 8 dereferenceable(1) %.pre124, i64 %152, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.pre124, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5140,7 +5140,7 @@ _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE17_M_realloc_insertIJRKNS1_18AlpEncodingIndicesERKmiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %199, %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i
   store ptr %191, ptr %10, align 8, !tbaa !267
   store ptr %198, ptr %27, align 8, !tbaa !309
-  %200 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %191, i64 %189
+  %200 = getelementptr inbounds nuw [24 x i8], ptr %191, i64 %189
   store ptr %200, ptr %28, align 8, !tbaa !330
   br label %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE12emplace_backIJRKNS1_18AlpEncodingIndicesERKmiEEEvDpOT_.exit
 
@@ -5289,7 +5289,7 @@ _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %240, %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %235, ptr %11, align 8, !tbaa !267
   store ptr %239, ptr %13, align 8, !tbaa !309
-  %241 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %235, i64 %233
+  %241 = getelementptr inbounds nuw [24 x i8], ptr %235, i64 %233
   store ptr %241, ptr %166, align 8, !tbaa !330
   br label %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE9push_backERKS2_.exit
 
@@ -5472,7 +5472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_3alp14AlpCombinationELb1EE3getILb1EEERS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -5506,7 +5506,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
   %21 = load i64, ptr %20, align 8, !tbaa !316
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !310
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !346
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %.loopexit, label %26
@@ -5625,7 +5625,7 @@ _ZNSt10_HashtableIN6duckdb3alp18AlpEncodingIndicesESt4pairIKS2_mESaIS5_ENSt8__de
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !347
   %33 = load ptr, ptr %0, align 8, !tbaa !310
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !346
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5651,7 +5651,7 @@ _ZNSt10_HashtableIN6duckdb3alp18AlpEncodingIndicesESt4pairIKS2_mESaIS5_ENSt8__de
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !347
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !346
   br label %49
 
@@ -5719,7 +5719,7 @@ _ZNSt10_HashtableIN6duckdb3alp18AlpEncodingIndicesESt4pairIKS2_mESaIS5_ENSt8__de
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !347
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !346
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -5734,7 +5734,7 @@ _ZNSt10_HashtableIN6duckdb3alp18AlpEncodingIndicesESt4pairIKS2_mESaIS5_ENSt8__de
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !346
   br label %28
 
@@ -5809,13 +5809,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %30 = and i64 %25, 1
   %31 = icmp eq i64 %30, 0
   %32 = or disjoint i64 %26, 1
-  %33 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %27
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %32
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %27
   br label %35
 
 35:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i, %24
   %.08.i.i = phi i64 [ %27, %24 ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i ]
-  %36 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.08.i.i
+  %36 = getelementptr inbounds [24 x i8], ptr %0, i64 %.08.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   %37 = icmp slt i64 %.08.i.i, %29
@@ -5825,13 +5825,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.036.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.08.i.i, %35 ]
   %38 = shl i64 %.036.i.i.i, 1
   %39 = add i64 %38, 2
-  %40 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %39
+  %40 = getelementptr inbounds [24 x i8], ptr %0, i64 %39
   %41 = or disjoint i64 %38, 1
-  %42 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %41
+  %42 = getelementptr inbounds [24 x i8], ptr %0, i64 %41
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %42)
   %spec.select.i.i.i = select i1 %43, i64 %41, i64 %39
-  %44 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %spec.select.i.i.i
-  %45 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.036.i.i.i
+  %44 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select.i.i.i
+  %45 = getelementptr inbounds [24 x i8], ptr %0, i64 %.036.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !tbaa.struct !326
   %46 = icmp slt i64 %spec.select.i.i.i, %29
   br i1 %46, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !356
@@ -5857,19 +5857,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %53 ], [ %.1.i.i.i, %49 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %51 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.0919.i.i.i.i
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0919.i.i.i.i
   %52 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br i1 %52, label %53, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i
 
 53:                                               ; preds = %.lr.ph.i.i.i.i15
-  %54 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.018.i.i.i.i
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.018.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !tbaa.struct !326
   %55 = icmp sgt i64 %.0919.i.i.i.i, %.08.i.i
   br i1 %55, label %.lr.ph.i.i.i.i15, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i, !llvm.loop !357
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_T0_SI_T1_T2_.exit.i.i: ; preds = %53, %.lr.ph.i.i.i.i15, %49
   %.0.lcssa.i.i.i.i14 = phi i64 [ %.1.i.i.i, %49 ], [ %.0919.i.i.i.i, %53 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i15 ]
-  %56 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.0.lcssa.i.i.i.i14
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5895,13 +5895,13 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %65 = shl i64 %.036.i.i.i.i, 1
   %66 = add i64 %65, 2
-  %67 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %66
+  %67 = getelementptr inbounds [24 x i8], ptr %0, i64 %66
   %68 = or disjoint i64 %65, 1
-  %69 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %0, i64 %68
   %70 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %69)
   %spec.select.i.i.i.i = select i1 %70, i64 %68, i64 %66
-  %71 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %spec.select.i.i.i.i
-  %72 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.036.i.i.i.i
+  %71 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %72 = getelementptr inbounds [24 x i8], ptr %0, i64 %.036.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false), !tbaa.struct !326
   %73 = icmp slt i64 %spec.select.i.i.i.i, %63
   br i1 %73, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !356
@@ -5921,8 +5921,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
 .thread.i.i.i:                                    ; preds = %76
   %80 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %81
-  %83 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %81
+  %83 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -5942,19 +5942,19 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
   %.018.i.i.i.i.i = phi i64 [ %.0919.i.i67.i.i.i, %87 ], [ %.018.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i.i = add nsw i64 %.018.i.i.i.i.i, -1
   %.0919.i.i67.i.i.i = lshr i64 %.0919.in.i.i.i.i.i, 1
-  %85 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.0919.i.i67.i.i.i
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.0919.i.i67.i.i.i
   %86 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %14)
   br i1 %86, label %87, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i.i
 
 87:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %88 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.018.i.i.i.i.i
+  %88 = getelementptr inbounds [24 x i8], ptr %0, i64 %.018.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false), !tbaa.struct !326
   %.not8.i.i.i = icmp eq i64 %.0919.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !357
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS4_SD_EEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %87, %.lr.ph.i.i.i.i.i, %84
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %84 ], [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %87 ]
-  %89 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %89 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5964,7 +5964,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombinationESt
 91:                                               ; preds = %21
   %92 = add nsw i64 %.024, -1
   %93 = udiv i64 %22, 48
-  %94 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %0, i64 %93
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %93
   %95 = getelementptr inbounds i8, ptr %storemerge23, i64 -24
   %96 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %94)
   br i1 %96, label %97, label %104
@@ -6123,16 +6123,16 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIfLb1EE8CompressEPKfmPKt
   %.sroa.033.0.copyload = phi i16 [ %.sroa.033.0.copyload.pre, %.lr.ph ], [ %.sroa.0.0.copyload, %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit ]
   %.093 = phi i16 [ 0, %.lr.ph ], [ %63, %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit ]
   %.07892 = phi i64 [ 0, %.lr.ph ], [ %64, %_ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit ]
-  %24 = getelementptr inbounds nuw float, ptr %0, i64 %.07892
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.07892
   %25 = load float, ptr %24, align 4, !tbaa !131
   %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.033.0.copyload, 8
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %26 = and i16 %.sroa.033.0.copyload, 255
   %27 = zext nneg i16 %26 to i64
-  %28 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !131
   %30 = fmul float %25, %29
-  %31 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %32 = load float, ptr %31, align 4, !tbaa !131
   %33 = fmul float %30, %32
   %34 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %33)
@@ -6167,21 +6167,21 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %.sroa.2.0.extract.shift.i87 = lshr i16 %.sroa.0.0.copyload, 8
   %.sroa.2.0.extract.trunc.i88 = zext nneg i16 %.sroa.2.0.extract.shift.i87 to i64
   %47 = sitofp i64 %.0.i.i to float
-  %48 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i88
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i88
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = sitofp i64 %49 to float
   %51 = fmul nnan float %47, %50
   %52 = and i16 %.sroa.0.0.copyload, 255
   %53 = zext nneg i16 %52 to i64
-  %54 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !131
   %56 = fmul float %55, %51
-  %57 = getelementptr inbounds nuw i64, ptr %20, i64 %.07892
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.07892
   store i64 %.0.i.i, ptr %57, align 8, !tbaa !77
   %58 = fcmp une float %56, %25
   %59 = trunc i64 %.07892 to i16
   %60 = zext i16 %.093 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %21, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %60
   store i16 %59, ptr %61, align 2, !tbaa !125
   %62 = zext i1 %58 to i16
   %63 = add i16 %.093, %62
@@ -6191,7 +6191,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 65:                                               ; preds = %.lr.ph95, %73
   %.08094 = phi i64 [ 0, %.lr.ph95 ], [ %74, %73 ]
-  %66 = getelementptr inbounds nuw i16, ptr %22, i64 %.08094
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %.08094
   %67 = load i16, ptr %66, align 2, !tbaa !125
   %68 = zext i16 %67 to i64
   %.not = icmp eq i64 %.08094, %68
@@ -6199,7 +6199,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %.08094
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.08094
   %72 = load i64, ptr %71, align 8, !tbaa !77
   br label %.loopexit
 
@@ -6234,14 +6234,14 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 81:                                               ; preds = %.lr.ph97, %81
   %.08496 = phi i64 [ 0, %.lr.ph97 ], [ %89, %81 ]
-  %82 = getelementptr inbounds nuw i16, ptr %76, i64 %.08496
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %.08496
   %83 = load i16, ptr %82, align 2, !tbaa !125
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr %0, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !131
-  %87 = getelementptr inbounds nuw i64, ptr %77, i64 %84
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %84
   store i64 %.079, ptr %87, align 8, !tbaa !77
-  %88 = getelementptr inbounds nuw float, ptr %78, i64 %.08496
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.08496
   store float %86, ptr %88, align 4, !tbaa !131
   %89 = add nuw nsw i64 %.08496, 1
   %exitcond117.not = icmp eq i64 %89, %75
@@ -6256,10 +6256,10 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 91:                                               ; preds = %.lr.ph100, %91
   %.08598 = phi i64 [ 0, %.lr.ph100 ], [ %96, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %2, i64 %.08598
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.08598
   %93 = load i16, ptr %92, align 2, !tbaa !125
   %94 = zext i16 %93 to i64
-  %95 = getelementptr inbounds nuw i64, ptr %80, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %94
   store i64 %.079131, ptr %95, align 8, !tbaa !77
   %96 = add nuw i64 %.08598, 1
   %exitcond118.not = icmp eq i64 %96, %3
@@ -6312,7 +6312,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %.081103 = phi i64 [ 0, %.lr.ph104 ], [ %122, %117 ]
   %.082102 = phi i64 [ -9223372036854775808, %.lr.ph104 ], [ %120, %117 ]
   %.083101 = phi i64 [ 9223372036854775807, %.lr.ph104 ], [ %121, %117 ]
-  %118 = getelementptr inbounds nuw i64, ptr %90, i64 %.081103
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.081103
   %119 = load i64, ptr %118, align 8, !tbaa !77
   %120 = tail call noundef i64 @llvm.smax.i64(i64 %.082102, i64 %119)
   %121 = tail call noundef i64 @llvm.smin.i64(i64 %.083101, i64 %119)
@@ -6360,7 +6360,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIfLb1EE25FindBestFactorA
   %20 = phi ptr [ null, %.lr.ph ], [ %46, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %.02254 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %21 = phi ptr [ null, %.lr.ph ], [ %45, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %22 = getelementptr inbounds nuw float, ptr %0, i64 %.02254
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02254
   %.not.i = icmp eq ptr %20, %19
   br i1 %.not.i, label %25, label %23
 
@@ -6419,7 +6419,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %41, %.noex
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
-  %43 = getelementptr inbounds nuw float, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, %23
@@ -6537,12 +6537,12 @@ define linkonce_odr noundef i64 @_ZN6duckdb3alp14AlpCompressionIfLb1EE25DryCompr
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %6 = and i16 %1, 255
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !131
-  %10 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %11 = load float, ptr %10, align 4, !tbaa !131
-  %12 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
-  %13 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %7
   br label %28
 
 ._crit_edge.loopexit:                             ; preds = %58
@@ -7467,34 +7467,34 @@ define linkonce_odr void @_ZN6duckdb19AlpCompressionStateIfE6AppendERNS_19Unifie
   %16 = load ptr, ptr %1, align 8, !tbaa !135
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   %.not.i38 = icmp eq ptr %17, null
-  %18 = getelementptr float, ptr %10, i64 %12
+  %18 = getelementptr [4 x i8], ptr %10, i64 %12
   %.promoted = load i64, ptr %9, align 8, !tbaa !421
   br i1 %.not.i38, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader: ; preds = %.lr.ph
-  %invariant.gep = getelementptr i32, ptr %17, i64 %.03448
+  %invariant.gep = getelementptr [4 x i8], ptr %17, i64 %.03448
   br label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us
   %19 = phi i64 [ %33, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us ], [ %.promoted, %.lr.ph ]
   %.03644.us = phi i64 [ %35, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us ], [ 0, %.lr.ph ]
   %20 = add i64 %.03644.us, %.03448
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %20
   %22 = load float, ptr %21, align 4, !tbaa !131
   %23 = lshr i64 %20, 6
-  %24 = getelementptr inbounds nuw i64, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !77
   %26 = and i64 %20, 63
   %27 = add i64 %.03644.us, %12
   %28 = trunc i64 %27 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   store i16 %28, ptr %29, align 2, !tbaa !125
   %30 = xor i64 %25, -1
   %31 = lshr i64 %30, %26
   %32 = and i64 %31, 1
   %33 = add i64 %32, %19
   store i64 %33, ptr %9, align 8, !tbaa !421
-  %34 = getelementptr float, ptr %18, i64 %.03644.us
+  %34 = getelementptr [4 x i8], ptr %18, i64 %.03644.us
   store float %22, ptr %34, align 4, !tbaa !131
   %35 = add nuw i64 %.03644.us, 1
   %exitcond60.not = icmp eq i64 %35, %14
@@ -7507,22 +7507,22 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, 
   %36 = load ptr, ptr %1, align 8, !tbaa !135
   %37 = load ptr, ptr %36, align 8, !tbaa !136
   %.not.i37 = icmp eq ptr %37, null
-  %38 = getelementptr float, ptr %10, i64 %12
+  %38 = getelementptr [4 x i8], ptr %10, i64 %12
   br i1 %.not.i37, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader: ; preds = %.lr.ph46
-  %invariant.gep73 = getelementptr i32, ptr %37, i64 %.03448
+  %invariant.gep73 = getelementptr [4 x i8], ptr %37, i64 %.03448
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader: ; preds = %.lr.ph46
-  %invariant.gep75 = getelementptr float, ptr %5, i64 %.03448
+  %invariant.gep75 = getelementptr [4 x i8], ptr %5, i64 %.03448
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.us: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us
   %.03545.us = phi i64 [ %41, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader ]
-  %gep76 = getelementptr float, ptr %invariant.gep75, i64 %.03545.us
+  %gep76 = getelementptr [4 x i8], ptr %invariant.gep75, i64 %.03545.us
   %39 = load float, ptr %gep76, align 4, !tbaa !131
-  %40 = getelementptr float, ptr %38, i64 %.03545.us
+  %40 = getelementptr [4 x i8], ptr %38, i64 %.03545.us
   store float %39, ptr %40, align 4, !tbaa !131
   %41 = add nuw i64 %.03545.us, 1
   %exitcond64.not = icmp eq i64 %41, %14
@@ -7530,12 +7530,12 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us: ; preds = %_ZNK6duckdb15Select
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %.03545 = phi i64 [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader ]
-  %gep74 = getelementptr i32, ptr %invariant.gep73, i64 %.03545
+  %gep74 = getelementptr [4 x i8], ptr %invariant.gep73, i64 %.03545
   %42 = load i32, ptr %gep74, align 4, !tbaa !137
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw float, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !131
-  %46 = getelementptr float, ptr %38, i64 %.03545
+  %46 = getelementptr [4 x i8], ptr %38, i64 %.03545
   store float %45, ptr %46, align 4, !tbaa !131
   %47 = add nuw i64 %.03545, 1
   %exitcond62.not = icmp eq i64 %47, %14
@@ -7544,25 +7544,25 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15Select
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %48 = phi i64 [ %63, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.promoted, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader ]
   %.03644 = phi i64 [ %65, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %.03644
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.03644
   %49 = load i32, ptr %gep, align 4, !tbaa !137
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw float, ptr %5, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !131
   %53 = lshr i64 %50, 6
-  %54 = getelementptr inbounds nuw i64, ptr %15, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !77
   %56 = and i64 %50, 63
   %57 = add i64 %.03644, %12
   %58 = trunc i64 %57 to i16
-  %59 = getelementptr inbounds nuw i16, ptr %8, i64 %48
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %48
   store i16 %58, ptr %59, align 2, !tbaa !125
   %60 = xor i64 %55, -1
   %61 = lshr i64 %60, %56
   %62 = and i64 %61, 1
   %63 = add i64 %62, %48
   store i64 %63, ptr %9, align 8, !tbaa !421
-  %64 = getelementptr float, ptr %18, i64 %.03644
+  %64 = getelementptr [4 x i8], ptr %18, i64 %.03644
   store float %52, ptr %64, align 4, !tbaa !131
   %65 = add nuw i64 %.03644, 1
   %exitcond.not = icmp eq i64 %65, %14
@@ -7611,14 +7611,14 @@ define linkonce_odr void @_ZN6duckdb19AlpCompressionStateIfE14CompressVectorEv(p
 
 .lr.ph.i.i:                                       ; preds = %5, %16
   %.010.i.i = phi i64 [ %17, %16 ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw i16, ptr %7, i64 %.010.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.010.i.i
   %11 = load i16, ptr %10, align 2, !tbaa !125
   %12 = zext i16 %11 to i64
   %.not.i.i = icmp eq i64 %.010.i.i, %12
   br i1 %.not.i.i, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw float, ptr %6, i64 %.010.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.010.i.i
   %15 = load float, ptr %14, align 4, !tbaa !131
   br label %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
 
@@ -7633,10 +7633,10 @@ _ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i
   %.07.i.i = phi i64 [ %22, %.lr.ph.i8.i ], [ 0, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIfEET_PKS3_PKtm.exit.i ]
-  %18 = getelementptr inbounds nuw i16, ptr %7, i64 %.07.i.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.07.i.i
   %19 = load i16, ptr %18, align 2, !tbaa !125
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw float, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %20
   store float %.08.i.i, ptr %21, align 4, !tbaa !131
   %22 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i9.i = icmp eq i64 %22, %4
@@ -7700,7 +7700,7 @@ _ZN6duckdb3alp8AlpUtils27FindAndReplaceNullsInVectorIfEEvPT_PKtmm.exit: ; preds 
 61:                                               ; preds = %.lr.ph, %61
   %.07 = phi i64 [ 0, %.lr.ph ], [ %71, %61 ]
   %62 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
-  %63 = getelementptr inbounds nuw float, ptr %24, i64 %.07
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.07
   %64 = load float, ptr %63, align 4, !tbaa !131
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 144
@@ -7774,16 +7774,16 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIfLb0EE8CompressEPKfmPKt
   %.sroa.041.0.copyload = phi i16 [ %.sroa.041.0.copyload.pre, %.lr.ph ], [ %.sroa.0.0.copyload, %_ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit ]
   %.0106 = phi i16 [ 0, %.lr.ph ], [ %64, %_ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit ]
   %.089105 = phi i64 [ 0, %.lr.ph ], [ %65, %_ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.exit ]
-  %25 = getelementptr inbounds nuw float, ptr %0, i64 %.089105
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.089105
   %26 = load float, ptr %25, align 4, !tbaa !131
   %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.041.0.copyload, 8
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %27 = and i16 %.sroa.041.0.copyload, 255
   %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %28
   %30 = load float, ptr %29, align 4, !tbaa !131
   %31 = fmul float %26, %30
-  %32 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %33 = load float, ptr %32, align 4, !tbaa !131
   %34 = fmul float %31, %33
   %35 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %34)
@@ -7818,21 +7818,21 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %.sroa.2.0.extract.shift.i100 = lshr i16 %.sroa.0.0.copyload, 8
   %.sroa.2.0.extract.trunc.i101 = zext nneg i16 %.sroa.2.0.extract.shift.i100 to i64
   %48 = sitofp i64 %.0.i.i to float
-  %49 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i101
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i101
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = sitofp i64 %50 to float
   %52 = fmul nnan float %48, %51
   %53 = and i16 %.sroa.0.0.copyload, 255
   %54 = zext nneg i16 %53 to i64
-  %55 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !131
   %57 = fmul float %56, %52
-  %58 = getelementptr inbounds nuw i64, ptr %21, i64 %.089105
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.089105
   store i64 %.0.i.i, ptr %58, align 8, !tbaa !77
   %59 = fcmp une float %57, %26
   %60 = trunc i64 %.089105 to i16
   %61 = zext i16 %.0106 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %22, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %61
   store i16 %60, ptr %62, align 2, !tbaa !125
   %63 = zext i1 %59 to i16
   %64 = add i16 %.0106, %63
@@ -7842,7 +7842,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 66:                                               ; preds = %.lr.ph108, %74
   %.092107 = phi i64 [ 0, %.lr.ph108 ], [ %75, %74 ]
-  %67 = getelementptr inbounds nuw i16, ptr %23, i64 %.092107
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.092107
   %68 = load i16, ptr %67, align 2, !tbaa !125
   %69 = zext i16 %68 to i64
   %.not = icmp eq i64 %.092107, %69
@@ -7850,7 +7850,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %.092107
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.092107
   %73 = load i64, ptr %72, align 8, !tbaa !77
   br label %.loopexit
 
@@ -7885,14 +7885,14 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 82:                                               ; preds = %.lr.ph110, %82
   %.096109 = phi i64 [ 0, %.lr.ph110 ], [ %90, %82 ]
-  %83 = getelementptr inbounds nuw i16, ptr %77, i64 %.096109
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %.096109
   %84 = load i16, ptr %83, align 2, !tbaa !125
   %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw float, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !131
-  %88 = getelementptr inbounds nuw i64, ptr %78, i64 %85
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %85
   store i64 %.091, ptr %88, align 8, !tbaa !77
-  %89 = getelementptr inbounds nuw float, ptr %79, i64 %.096109
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.096109
   store float %87, ptr %89, align 4, !tbaa !131
   %90 = add nuw nsw i64 %.096109, 1
   %exitcond135.not = icmp eq i64 %90, %76
@@ -7907,10 +7907,10 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 
 92:                                               ; preds = %.lr.ph113, %92
   %.097111 = phi i64 [ 0, %.lr.ph113 ], [ %97, %92 ]
-  %93 = getelementptr inbounds nuw i16, ptr %2, i64 %.097111
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.097111
   %94 = load i16, ptr %93, align 2, !tbaa !125
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %81, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %95
   store i64 %.091152, ptr %96, align 8, !tbaa !77
   %97 = add nuw i64 %.097111, 1
   %exitcond136.not = icmp eq i64 %97, %3
@@ -7925,7 +7925,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %.093116 = phi i64 [ 0, %.lr.ph117 ], [ %105, %100 ]
   %.094115 = phi i64 [ -9223372036854775808, %.lr.ph117 ], [ %103, %100 ]
   %.095114 = phi i64 [ 9223372036854775807, %.lr.ph117 ], [ %104, %100 ]
-  %101 = getelementptr inbounds nuw i64, ptr %91, i64 %.093116
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.093116
   %102 = load i64, ptr %101, align 8, !tbaa !77
   %103 = tail call noundef i64 @llvm.smax.i64(i64 %.094115, i64 %102)
   %104 = tail call noundef i64 @llvm.smin.i64(i64 %.095114, i64 %102)
@@ -7966,7 +7966,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
   %.090121 = phi i64 [ %122, %.lr.ph123 ], [ 0, %.lr.ph123.preheader ]
-  %119 = getelementptr inbounds nuw i64, ptr %99, i64 %.090121
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.090121
   %120 = load i64, ptr %119, align 8, !tbaa !77
   %121 = sub i64 %120, %104
   store i64 %121, ptr %119, align 8, !tbaa !77
@@ -7995,7 +7995,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %130 = mul i64 %.021.i, %118
   %131 = lshr exact i64 %130, 3
   %132 = getelementptr inbounds nuw i8, ptr %124, i64 %131
-  %133 = getelementptr inbounds nuw i64, ptr %99, i64 %.021.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.021.i
   tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %133, ptr noundef nonnull %132, i32 noundef %127)
   %134 = add nuw i64 %.021.i, 32
   %135 = icmp ult i64 %134, %126
@@ -8003,7 +8003,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 136:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %137 = getelementptr inbounds nuw i64, ptr %99, i64 %128
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %128
   %138 = shl nuw nsw i64 %125, 3
   %139 = sub nuw nsw i64 256, %138
   %140 = getelementptr i8, ptr %6, i64 %138
@@ -8254,7 +8254,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIfLb0EE25FindBestFactorA
   %20 = phi ptr [ null, %.lr.ph ], [ %46, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %.02254 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %21 = phi ptr [ null, %.lr.ph ], [ %45, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %22 = getelementptr inbounds nuw float, ptr %0, i64 %.02254
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02254
   %.not.i = icmp eq ptr %20, %19
   br i1 %.not.i, label %25, label %23
 
@@ -8313,7 +8313,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %41, %.noex
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
-  %43 = getelementptr inbounds nuw float, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, %23
@@ -8431,12 +8431,12 @@ define linkonce_odr noundef i64 @_ZN6duckdb3alp14AlpCompressionIfLb0EE25DryCompr
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %6 = and i16 %1, 255
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE7EXP_ARRE, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !131
-  %10 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %11 = load float, ptr %10, align 4, !tbaa !131
-  %12 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
-  %13 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %7
   br label %28
 
 ._crit_edge.loopexit:                             ; preds = %58
@@ -9299,17 +9299,17 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
 
 .lr.ph33.i.i:                                     ; preds = %.lr.ph.i.i
   %.sroa.2.0.extract.trunc.i.i.i = zext i8 %56 to i64
-  %72 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i.i.i
   %73 = load i64, ptr %72, align 8, !tbaa !77
   %74 = sitofp i64 %73 to float
   %75 = zext i8 %57 to i64
-  %76 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !131
   br label %83
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.02731.i.i = phi i64 [ %81, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %78 = getelementptr inbounds nuw i64, ptr %3, i64 %.02731.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.02731.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !77
   %80 = add i64 %79, %60
   store i64 %80, ptr %78, align 8, !tbaa !77
@@ -9324,12 +9324,12 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
 
 83:                                               ; preds = %83, %.lr.ph33.i.i
   %.02832.i.i = phi i64 [ 0, %.lr.ph33.i.i ], [ %90, %83 ]
-  %84 = getelementptr inbounds nuw i64, ptr %3, i64 %.02832.i.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.02832.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !77
   %86 = sitofp i64 %85 to float
   %87 = fmul nnan float %74, %86
   %88 = fmul float %77, %87
-  %89 = getelementptr inbounds nuw float, ptr %1, i64 %.02832.i.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.02832.i.i
   store float %88, ptr %89, align 4, !tbaa !131
   %90 = add nuw i64 %.02832.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %90, %13
@@ -9337,12 +9337,12 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.034.i.i = phi i64 [ %97, %.lr.ph35.i.i ], [ 0, %.preheader.i.i ]
-  %91 = getelementptr inbounds nuw float, ptr %58, i64 %.034.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.034.i.i
   %92 = load float, ptr %91, align 4, !tbaa !131
-  %93 = getelementptr inbounds nuw i16, ptr %59, i64 %.034.i.i
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %.034.i.i
   %94 = load i16, ptr %93, align 2, !tbaa !125
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw float, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %95
   store float %92, ptr %96, align 4, !tbaa !131
   %97 = add nuw nsw i64 %.034.i.i, 1
   %exitcond40.not.i.i = icmp eq i64 %97, %82
@@ -10202,7 +10202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorIdLb1EE3getILb1EEERdm.exit:      ; preds = %2
-  %25 = getelementptr inbounds nuw double, ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -10310,7 +10310,7 @@ _ZNSt12_Vector_baseIN6duckdb6vectorIdLb1EEESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !459
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !235
-  %50 = getelementptr inbounds nuw %"class.duckdb::vector.289", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !236
   ret void
 }
@@ -10395,8 +10395,8 @@ _ZN6duckdb3alp19AlpCompressionStateIdLb1EE17ResetCombinationsEv.exit: ; preds = 
 
 .preheader:                                       ; preds = %29, %45
   %indvars.iv = phi i64 [ 18, %29 ], [ %indvars.iv.next, %45 ]
-  %38 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %indvars.iv
   %40 = trunc nuw nsw i64 %indvars.iv to i16
   br label %46
 
@@ -10427,9 +10427,9 @@ _ZN6duckdb3alp19AlpCompressionStateIdLb1EE17ResetCombinationsEv.exit: ; preds = 
 
 .lr.ph.i:                                         ; preds = %46
   %53 = load double, ptr %38, align 8, !tbaa !228
-  %54 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %indvars.iv120
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %indvars.iv120
   %55 = load double, ptr %54, align 8, !tbaa !228
-  %56 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %indvars.iv120
   br label %58
 
 ._crit_edge.i:                                    ; preds = %88
@@ -10617,7 +10617,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.021.i.ptr.i, i64 24, i1 false), !tbaa.struct !326
   %137 = getelementptr inbounds nuw i8, ptr %.pn20.i.i, i64 48
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.021.i.idx.i, -24
-  %138 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %137, i64 %.neg.i.i.i.i.i.i.i
+  %138 = getelementptr inbounds [24 x i8], ptr %137, i64 %.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %138, ptr noundef nonnull align 8 dereferenceable(1) %.pre124, i64 %.sroa.0.021.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.pre124, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10695,7 +10695,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6duckdb3alp14AlpCombination
   %150 = ptrtoint ptr %.sroa.0.021.i22.i to i64
   %151 = sub i64 %150, %129
   %.neg.i.i.i.i.i.i33.i = sdiv exact i64 %151, -24
-  %152 = getelementptr inbounds %"struct.duckdb::alp::AlpCombination", ptr %149, i64 %.neg.i.i.i.i.i.i33.i
+  %152 = getelementptr inbounds [24 x i8], ptr %149, i64 %.neg.i.i.i.i.i.i33.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %152, ptr noundef nonnull align 8 dereferenceable(1) %.pre124, i64 %151, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.pre124, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !326
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10826,7 +10826,7 @@ _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE17_M_realloc_insertIJRKNS1_18AlpEncodingIndicesERKmiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %198, %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i
   store ptr %190, ptr %10, align 8, !tbaa !267
   store ptr %197, ptr %27, align 8, !tbaa !309
-  %199 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %190, i64 %188
+  %199 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %188
   store ptr %199, ptr %28, align 8, !tbaa !330
   br label %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE12emplace_backIJRKNS1_18AlpEncodingIndicesERKmiEEEvDpOT_.exit
 
@@ -10965,7 +10965,7 @@ _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %239, %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %234, ptr %11, align 8, !tbaa !267
   store ptr %238, ptr %13, align 8, !tbaa !309
-  %240 = getelementptr inbounds nuw %"struct.duckdb::alp::AlpCombination", ptr %234, i64 %232
+  %240 = getelementptr inbounds nuw [24 x i8], ptr %234, i64 %232
   store ptr %240, ptr %165, align 8, !tbaa !330
   br label %_ZNSt6vectorIN6duckdb3alp14AlpCombinationESaIS2_EE9push_backERKS2_.exit
 
@@ -11134,16 +11134,16 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIdLb1EE8CompressEPKdmPKt
   %.sroa.033.0.copyload = phi i16 [ %.sroa.033.0.copyload.pre, %.lr.ph ], [ %.sroa.0.0.copyload, %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit ]
   %.093 = phi i16 [ 0, %.lr.ph ], [ %62, %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit ]
   %.07892 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit ]
-  %24 = getelementptr inbounds nuw double, ptr %0, i64 %.07892
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.07892
   %25 = load double, ptr %24, align 8, !tbaa !228
   %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.033.0.copyload, 8
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %26 = and i16 %.sroa.033.0.copyload, 255
   %27 = zext nneg i16 %26 to i64
-  %28 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !228
   %30 = fmul double %25, %29
-  %31 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %32 = load double, ptr %31, align 8, !tbaa !228
   %33 = fmul double %30, %32
   %34 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %33)
@@ -11175,21 +11175,21 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %.sroa.2.0.extract.shift.i87 = lshr i16 %.sroa.0.0.copyload, 8
   %.sroa.2.0.extract.trunc.i88 = zext nneg i16 %.sroa.2.0.extract.shift.i87 to i64
   %46 = sitofp i64 %.0.i.i to double
-  %47 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i88
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i88
   %48 = load i64, ptr %47, align 8, !tbaa !77
   %49 = sitofp i64 %48 to double
   %50 = fmul nnan double %46, %49
   %51 = and i16 %.sroa.0.0.copyload, 255
   %52 = zext nneg i16 %51 to i64
-  %53 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !228
   %55 = fmul double %54, %50
-  %56 = getelementptr inbounds nuw i64, ptr %20, i64 %.07892
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.07892
   store i64 %.0.i.i, ptr %56, align 8, !tbaa !77
   %57 = fcmp une double %55, %25
   %58 = trunc i64 %.07892 to i16
   %59 = zext i16 %.093 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %59
   store i16 %58, ptr %60, align 2, !tbaa !125
   %61 = zext i1 %57 to i16
   %62 = add i16 %.093, %61
@@ -11199,7 +11199,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 64:                                               ; preds = %.lr.ph95, %72
   %.08094 = phi i64 [ 0, %.lr.ph95 ], [ %73, %72 ]
-  %65 = getelementptr inbounds nuw i16, ptr %22, i64 %.08094
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %.08094
   %66 = load i16, ptr %65, align 2, !tbaa !125
   %67 = zext i16 %66 to i64
   %.not = icmp eq i64 %.08094, %67
@@ -11207,7 +11207,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %.08094
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.08094
   %71 = load i64, ptr %70, align 8, !tbaa !77
   br label %.loopexit
 
@@ -11242,14 +11242,14 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 80:                                               ; preds = %.lr.ph97, %80
   %.08496 = phi i64 [ 0, %.lr.ph97 ], [ %88, %80 ]
-  %81 = getelementptr inbounds nuw i16, ptr %75, i64 %.08496
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %.08496
   %82 = load i16, ptr %81, align 2, !tbaa !125
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw double, ptr %0, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !228
-  %86 = getelementptr inbounds nuw i64, ptr %76, i64 %83
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %83
   store i64 %.079, ptr %86, align 8, !tbaa !77
-  %87 = getelementptr inbounds nuw double, ptr %77, i64 %.08496
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.08496
   store double %85, ptr %87, align 8, !tbaa !228
   %88 = add nuw nsw i64 %.08496, 1
   %exitcond117.not = icmp eq i64 %88, %74
@@ -11264,10 +11264,10 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 90:                                               ; preds = %.lr.ph100, %90
   %.08598 = phi i64 [ 0, %.lr.ph100 ], [ %95, %90 ]
-  %91 = getelementptr inbounds nuw i16, ptr %2, i64 %.08598
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.08598
   %92 = load i16, ptr %91, align 2, !tbaa !125
   %93 = zext i16 %92 to i64
-  %94 = getelementptr inbounds nuw i64, ptr %79, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %93
   store i64 %.079131, ptr %94, align 8, !tbaa !77
   %95 = add nuw i64 %.08598, 1
   %exitcond118.not = icmp eq i64 %95, %3
@@ -11320,7 +11320,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %.081103 = phi i64 [ 0, %.lr.ph104 ], [ %121, %116 ]
   %.082102 = phi i64 [ -9223372036854775808, %.lr.ph104 ], [ %119, %116 ]
   %.083101 = phi i64 [ 9223372036854775807, %.lr.ph104 ], [ %120, %116 ]
-  %117 = getelementptr inbounds nuw i64, ptr %89, i64 %.081103
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.081103
   %118 = load i64, ptr %117, align 8, !tbaa !77
   %119 = tail call noundef i64 @llvm.smax.i64(i64 %.082102, i64 %118)
   %120 = tail call noundef i64 @llvm.smin.i64(i64 %.083101, i64 %118)
@@ -11368,7 +11368,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIdLb1EE25FindBestFactorA
   %20 = phi ptr [ null, %.lr.ph ], [ %46, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   %.02254 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   %21 = phi ptr [ null, %.lr.ph ], [ %45, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
-  %22 = getelementptr inbounds nuw double, ptr %0, i64 %.02254
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02254
   %.not.i = icmp eq ptr %20, %19
   br i1 %.not.i, label %25, label %23
 
@@ -11427,7 +11427,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %41, %.noex
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
-  %43 = getelementptr inbounds nuw double, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %23
@@ -11545,12 +11545,12 @@ define linkonce_odr noundef i64 @_ZN6duckdb3alp14AlpCompressionIdLb1EE25DryCompr
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %6 = and i16 %1, 255
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !228
-  %10 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %11 = load double, ptr %10, align 8, !tbaa !228
-  %12 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
-  %13 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %7
   br label %28
 
 ._crit_edge.loopexit:                             ; preds = %57
@@ -11923,34 +11923,34 @@ define linkonce_odr void @_ZN6duckdb19AlpCompressionStateIdE6AppendERNS_19Unifie
   %16 = load ptr, ptr %1, align 8, !tbaa !135
   %17 = load ptr, ptr %16, align 8, !tbaa !136
   %.not.i38 = icmp eq ptr %17, null
-  %18 = getelementptr double, ptr %10, i64 %12
+  %18 = getelementptr [8 x i8], ptr %10, i64 %12
   %.promoted = load i64, ptr %9, align 8, !tbaa !496
   br i1 %.not.i38, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader: ; preds = %.lr.ph
-  %invariant.gep = getelementptr i32, ptr %17, i64 %.03448
+  %invariant.gep = getelementptr [4 x i8], ptr %17, i64 %.03448
   br label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us
   %19 = phi i64 [ %33, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us ], [ %.promoted, %.lr.ph ]
   %.03644.us = phi i64 [ %35, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us ], [ 0, %.lr.ph ]
   %20 = add i64 %.03644.us, %.03448
-  %21 = getelementptr inbounds nuw double, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !228
   %23 = lshr i64 %20, 6
-  %24 = getelementptr inbounds nuw i64, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !77
   %26 = and i64 %20, 63
   %27 = add i64 %.03644.us, %12
   %28 = trunc i64 %27 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %8, i64 %19
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %19
   store i16 %28, ptr %29, align 2, !tbaa !125
   %30 = xor i64 %25, -1
   %31 = lshr i64 %30, %26
   %32 = and i64 %31, 1
   %33 = add i64 %32, %19
   store i64 %33, ptr %9, align 8, !tbaa !496
-  %34 = getelementptr double, ptr %18, i64 %.03644.us
+  %34 = getelementptr [8 x i8], ptr %18, i64 %.03644.us
   store double %22, ptr %34, align 8, !tbaa !228
   %35 = add nuw i64 %.03644.us, 1
   %exitcond60.not = icmp eq i64 %35, %14
@@ -11963,22 +11963,22 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.us: ; preds = %.lr.ph, 
   %36 = load ptr, ptr %1, align 8, !tbaa !135
   %37 = load ptr, ptr %36, align 8, !tbaa !136
   %.not.i37 = icmp eq ptr %37, null
-  %38 = getelementptr double, ptr %10, i64 %12
+  %38 = getelementptr [8 x i8], ptr %10, i64 %12
   br i1 %.not.i37, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader: ; preds = %.lr.ph46
-  %invariant.gep73 = getelementptr i32, ptr %37, i64 %.03448
+  %invariant.gep73 = getelementptr [4 x i8], ptr %37, i64 %.03448
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader: ; preds = %.lr.ph46
-  %invariant.gep75 = getelementptr double, ptr %5, i64 %.03448
+  %invariant.gep75 = getelementptr [8 x i8], ptr %5, i64 %.03448
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit.us: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us
   %.03545.us = phi i64 [ %41, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us.preheader ]
-  %gep76 = getelementptr double, ptr %invariant.gep75, i64 %.03545.us
+  %gep76 = getelementptr [8 x i8], ptr %invariant.gep75, i64 %.03545.us
   %39 = load double, ptr %gep76, align 8, !tbaa !228
-  %40 = getelementptr double, ptr %38, i64 %.03545.us
+  %40 = getelementptr [8 x i8], ptr %38, i64 %.03545.us
   store double %39, ptr %40, align 8, !tbaa !228
   %41 = add nuw i64 %.03545.us, 1
   %exitcond64.not = icmp eq i64 %41, %14
@@ -11986,12 +11986,12 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us: ; preds = %_ZNK6duckdb15Select
 
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader, %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %.03545 = phi i64 [ %47, %_ZNK6duckdb15SelectionVector9get_indexEm.exit ], [ 0, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.preheader ]
-  %gep74 = getelementptr i32, ptr %invariant.gep73, i64 %.03545
+  %gep74 = getelementptr [4 x i8], ptr %invariant.gep73, i64 %.03545
   %42 = load i32, ptr %gep74, align 4, !tbaa !137
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw double, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !228
-  %46 = getelementptr double, ptr %38, i64 %.03545
+  %46 = getelementptr [8 x i8], ptr %38, i64 %.03545
   store double %45, ptr %46, align 8, !tbaa !228
   %47 = add nuw i64 %.03545, 1
   %exitcond62.not = icmp eq i64 %47, %14
@@ -12000,25 +12000,25 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %_ZNK6duckdb15Select
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
   %48 = phi i64 [ %63, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ %.promoted, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader ]
   %.03644 = phi i64 [ %65, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ], [ 0, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.preheader ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %.03644
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.03644
   %49 = load i32, ptr %gep, align 4, !tbaa !137
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw double, ptr %5, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %50
   %52 = load double, ptr %51, align 8, !tbaa !228
   %53 = lshr i64 %50, 6
-  %54 = getelementptr inbounds nuw i64, ptr %15, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !77
   %56 = and i64 %50, 63
   %57 = add i64 %.03644, %12
   %58 = trunc i64 %57 to i16
-  %59 = getelementptr inbounds nuw i16, ptr %8, i64 %48
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %48
   store i16 %58, ptr %59, align 2, !tbaa !125
   %60 = xor i64 %55, -1
   %61 = lshr i64 %60, %56
   %62 = and i64 %61, 1
   %63 = add i64 %62, %48
   store i64 %63, ptr %9, align 8, !tbaa !496
-  %64 = getelementptr double, ptr %18, i64 %.03644
+  %64 = getelementptr [8 x i8], ptr %18, i64 %.03644
   store double %52, ptr %64, align 8, !tbaa !228
   %65 = add nuw i64 %.03644, 1
   %exitcond.not = icmp eq i64 %65, %14
@@ -12067,14 +12067,14 @@ define linkonce_odr void @_ZN6duckdb19AlpCompressionStateIdE14CompressVectorEv(p
 
 .lr.ph.i.i:                                       ; preds = %5, %16
   %.010.i.i = phi i64 [ %17, %16 ], [ 0, %5 ]
-  %10 = getelementptr inbounds nuw i16, ptr %7, i64 %.010.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.010.i.i
   %11 = load i16, ptr %10, align 2, !tbaa !125
   %12 = zext i16 %11 to i64
   %.not.i.i = icmp eq i64 %.010.i.i, %12
   br i1 %.not.i.i, label %16, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw double, ptr %6, i64 %.010.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.010.i.i
   %15 = load double, ptr %14, align 8, !tbaa !228
   br label %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
 
@@ -12089,10 +12089,10 @@ _ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i
   %.07.i.i = phi i64 [ %22, %.lr.ph.i8.i ], [ 0, %_ZN6duckdb3alp8AlpUtils33FindFirstValueNotInPositionsArrayIdEET_PKS3_PKtm.exit.i ]
-  %18 = getelementptr inbounds nuw i16, ptr %7, i64 %.07.i.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.07.i.i
   %19 = load i16, ptr %18, align 2, !tbaa !125
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw double, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   store double %.08.i.i, ptr %21, align 8, !tbaa !228
   %22 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i9.i = icmp eq i64 %22, %4
@@ -12156,7 +12156,7 @@ _ZN6duckdb3alp8AlpUtils27FindAndReplaceNullsInVectorIdEEvPT_PKtmm.exit: ; preds 
 61:                                               ; preds = %.lr.ph, %61
   %.07 = phi i64 [ 0, %.lr.ph ], [ %71, %61 ]
   %62 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_13ColumnSegmentESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
-  %63 = getelementptr inbounds nuw double, ptr %24, i64 %.07
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.07
   %64 = load double, ptr %63, align 8, !tbaa !228
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 144
@@ -12230,16 +12230,16 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIdLb0EE8CompressEPKdmPKt
   %.sroa.041.0.copyload = phi i16 [ %.sroa.041.0.copyload.pre, %.lr.ph ], [ %.sroa.0.0.copyload, %_ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit ]
   %.0106 = phi i16 [ 0, %.lr.ph ], [ %63, %_ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit ]
   %.089105 = phi i64 [ 0, %.lr.ph ], [ %64, %_ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.exit ]
-  %25 = getelementptr inbounds nuw double, ptr %0, i64 %.089105
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.089105
   %26 = load double, ptr %25, align 8, !tbaa !228
   %.sroa.2.0.extract.shift.i = lshr i16 %.sroa.041.0.copyload, 8
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %27 = and i16 %.sroa.041.0.copyload, 255
   %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !228
   %31 = fmul double %26, %30
-  %32 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %33 = load double, ptr %32, align 8, !tbaa !228
   %34 = fmul double %31, %33
   %35 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %34)
@@ -12271,21 +12271,21 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %.sroa.2.0.extract.shift.i100 = lshr i16 %.sroa.0.0.copyload, 8
   %.sroa.2.0.extract.trunc.i101 = zext nneg i16 %.sroa.2.0.extract.shift.i100 to i64
   %47 = sitofp i64 %.0.i.i to double
-  %48 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i101
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i101
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = sitofp i64 %49 to double
   %51 = fmul nnan double %47, %50
   %52 = and i16 %.sroa.0.0.copyload, 255
   %53 = zext nneg i16 %52 to i64
-  %54 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %53
   %55 = load double, ptr %54, align 8, !tbaa !228
   %56 = fmul double %55, %51
-  %57 = getelementptr inbounds nuw i64, ptr %21, i64 %.089105
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.089105
   store i64 %.0.i.i, ptr %57, align 8, !tbaa !77
   %58 = fcmp une double %56, %26
   %59 = trunc i64 %.089105 to i16
   %60 = zext i16 %.0106 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %22, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %60
   store i16 %59, ptr %61, align 2, !tbaa !125
   %62 = zext i1 %58 to i16
   %63 = add i16 %.0106, %62
@@ -12295,7 +12295,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 65:                                               ; preds = %.lr.ph108, %73
   %.092107 = phi i64 [ 0, %.lr.ph108 ], [ %74, %73 ]
-  %66 = getelementptr inbounds nuw i16, ptr %23, i64 %.092107
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.092107
   %67 = load i16, ptr %66, align 2, !tbaa !125
   %68 = zext i16 %67 to i64
   %.not = icmp eq i64 %.092107, %68
@@ -12303,7 +12303,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %.092107
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.092107
   %72 = load i64, ptr %71, align 8, !tbaa !77
   br label %.loopexit
 
@@ -12338,14 +12338,14 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 81:                                               ; preds = %.lr.ph110, %81
   %.096109 = phi i64 [ 0, %.lr.ph110 ], [ %89, %81 ]
-  %82 = getelementptr inbounds nuw i16, ptr %76, i64 %.096109
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %.096109
   %83 = load i16, ptr %82, align 2, !tbaa !125
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw double, ptr %0, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %84
   %86 = load double, ptr %85, align 8, !tbaa !228
-  %87 = getelementptr inbounds nuw i64, ptr %77, i64 %84
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %84
   store i64 %.091, ptr %87, align 8, !tbaa !77
-  %88 = getelementptr inbounds nuw double, ptr %78, i64 %.096109
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.096109
   store double %86, ptr %88, align 8, !tbaa !228
   %89 = add nuw nsw i64 %.096109, 1
   %exitcond135.not = icmp eq i64 %89, %75
@@ -12360,10 +12360,10 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 
 91:                                               ; preds = %.lr.ph113, %91
   %.097111 = phi i64 [ 0, %.lr.ph113 ], [ %96, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %2, i64 %.097111
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.097111
   %93 = load i16, ptr %92, align 2, !tbaa !125
   %94 = zext i16 %93 to i64
-  %95 = getelementptr inbounds nuw i64, ptr %80, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %94
   store i64 %.091152, ptr %95, align 8, !tbaa !77
   %96 = add nuw i64 %.097111, 1
   %exitcond136.not = icmp eq i64 %96, %3
@@ -12378,7 +12378,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %.093116 = phi i64 [ 0, %.lr.ph117 ], [ %104, %99 ]
   %.094115 = phi i64 [ -9223372036854775808, %.lr.ph117 ], [ %102, %99 ]
   %.095114 = phi i64 [ 9223372036854775807, %.lr.ph117 ], [ %103, %99 ]
-  %100 = getelementptr inbounds nuw i64, ptr %90, i64 %.093116
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.093116
   %101 = load i64, ptr %100, align 8, !tbaa !77
   %102 = tail call noundef i64 @llvm.smax.i64(i64 %.094115, i64 %101)
   %103 = tail call noundef i64 @llvm.smin.i64(i64 %.095114, i64 %101)
@@ -12419,7 +12419,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
   %.090121 = phi i64 [ %121, %.lr.ph123 ], [ 0, %.lr.ph123.preheader ]
-  %118 = getelementptr inbounds nuw i64, ptr %98, i64 %.090121
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.090121
   %119 = load i64, ptr %118, align 8, !tbaa !77
   %120 = sub i64 %119, %103
   store i64 %120, ptr %118, align 8, !tbaa !77
@@ -12448,7 +12448,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
   %129 = mul i64 %.021.i, %117
   %130 = lshr exact i64 %129, 3
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 %130
-  %132 = getelementptr inbounds nuw i64, ptr %98, i64 %.021.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.021.i
   tail call void @_ZN18duckdb_fastpforlib8fastpackEPKmPjj(ptr noundef nonnull %132, ptr noundef nonnull %131, i32 noundef %126)
   %133 = add nuw i64 %.021.i, 32
   %134 = icmp ult i64 %133, %125
@@ -12456,7 +12456,7 @@ _ZN6duckdb20BitpackingPrimitives15GetRequiredSizeEmh.exit: ; preds = %_ZN6duckdb
 
 135:                                              ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %136 = getelementptr inbounds nuw i64, ptr %98, i64 %127
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %127
   %137 = shl nuw nsw i64 %124, 3
   %138 = sub nuw nsw i64 256, %137
   %139 = getelementptr i8, ptr %6, i64 %137
@@ -12707,7 +12707,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIdLb0EE25FindBestFactorA
   %20 = phi ptr [ null, %.lr.ph ], [ %46, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   %.02254 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
   %21 = phi ptr [ null, %.lr.ph ], [ %45, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ]
-  %22 = getelementptr inbounds nuw double, ptr %0, i64 %.02254
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02254
   %.not.i = icmp eq ptr %20, %19
   br i1 %.not.i, label %25, label %23
 
@@ -12766,7 +12766,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %41, %.noex
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
-  %43 = getelementptr inbounds nuw double, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %23
@@ -12884,12 +12884,12 @@ define linkonce_odr noundef i64 @_ZN6duckdb3alp14AlpCompressionIdLb0EE25DryCompr
   %.sroa.2.0.extract.trunc.i = zext nneg i16 %.sroa.2.0.extract.shift.i to i64
   %6 = and i16 %1, 255
   %7 = zext nneg i16 %6 to i64
-  %8 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE7EXP_ARRE, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !228
-  %10 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %.sroa.2.0.extract.trunc.i
   %11 = load double, ptr %10, align 8, !tbaa !228
-  %12 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
-  %13 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %7
   br label %28
 
 ._crit_edge.loopexit:                             ; preds = %57
@@ -13192,17 +13192,17 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
 
 .lr.ph33.i.i:                                     ; preds = %.lr.ph.i.i
   %.sroa.2.0.extract.trunc.i.i.i = zext i8 %56 to i64
-  %72 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i.i.i
   %73 = load i64, ptr %72, align 8, !tbaa !77
   %74 = sitofp i64 %73 to double
   %75 = zext i8 %57 to i64
-  %76 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !228
   br label %83
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.02731.i.i = phi i64 [ %81, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %78 = getelementptr inbounds nuw i64, ptr %3, i64 %.02731.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.02731.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !77
   %80 = add i64 %79, %60
   store i64 %80, ptr %78, align 8, !tbaa !77
@@ -13217,12 +13217,12 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
 
 83:                                               ; preds = %83, %.lr.ph33.i.i
   %.02832.i.i = phi i64 [ 0, %.lr.ph33.i.i ], [ %90, %83 ]
-  %84 = getelementptr inbounds nuw i64, ptr %3, i64 %.02832.i.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.02832.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !77
   %86 = sitofp i64 %85 to double
   %87 = fmul nnan double %74, %86
   %88 = fmul double %77, %87
-  %89 = getelementptr inbounds nuw double, ptr %1, i64 %.02832.i.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02832.i.i
   store double %88, ptr %89, align 8, !tbaa !228
   %90 = add nuw i64 %.02832.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %90, %13
@@ -13230,12 +13230,12 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.034.i.i = phi i64 [ %97, %.lr.ph35.i.i ], [ 0, %.preheader.i.i ]
-  %91 = getelementptr inbounds nuw double, ptr %58, i64 %.034.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.034.i.i
   %92 = load double, ptr %91, align 8, !tbaa !228
-  %93 = getelementptr inbounds nuw i16, ptr %59, i64 %.034.i.i
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %.034.i.i
   %94 = load i16, ptr %93, align 2, !tbaa !125
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds nuw double, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %95
   store double %92, ptr %96, align 8, !tbaa !228
   %97 = add nuw nsw i64 %.034.i.i, 1
   %exitcond40.not.i.i = icmp eq i64 %97, %82

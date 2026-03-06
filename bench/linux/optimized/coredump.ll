@@ -105,7 +105,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.path = type { ptr, ptr }
 %struct.vma_iterator = type { %struct.ma_state }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
-%struct.core_vma_metadata = type { i64, i64, i64, i64, i64, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.bio_vec = type { ptr, i32, i32 }
 %struct.iov_iter = type { i8, i8, i8, i8, i64, %union.anon.50, %union.anon.53 }
@@ -502,7 +501,7 @@ define dso_local void @do_coredump(ptr noundef %0) local_unnamed_addr #0 align 1
   %199 = sext i32 %198 to i64
   %200 = add i32 %161, 1
   %201 = sext i32 %161 to i64
-  %202 = getelementptr i64, ptr %151, i64 %201
+  %202 = getelementptr [8 x i8], ptr %151, i64 %201
   store i64 %199, ptr %202, align 8
   %.pr.pre = load i8, ptr %192, align 1
   br label %thread-pre-split
@@ -725,10 +724,10 @@ thread-pre-split:                                 ; preds = %.preheader64.split.
 
 322:                                              ; preds = %322, %318
   %323 = phi i64 [ 0, %318 ], [ %328, %322 ]
-  %324 = getelementptr i64, ptr %151, i64 %323
+  %324 = getelementptr [8 x i8], ptr %151, i64 %323
   %325 = load i64, ptr %324, align 8
   %326 = getelementptr i8, ptr %320, i64 %325
-  %327 = getelementptr ptr, ptr %314, i64 %323
+  %327 = getelementptr [8 x i8], ptr %314, i64 %323
   store ptr %326, ptr %327, align 8
   %328 = add nuw nsw i64 %323, 1
   %329 = icmp eq i64 %328, %319
@@ -736,7 +735,7 @@ thread-pre-split:                                 ; preds = %.preheader64.split.
 
 .loopexit63:                                      ; preds = %322, %316
   %330 = phi i64 [ 0, %316 ], [ %319, %322 ]
-  %331 = getelementptr ptr, ptr %314, i64 %330
+  %331 = getelementptr [8 x i8], ptr %314, i64 %330
   store ptr null, ptr %331, align 8
   %332 = load ptr, ptr %314, align 8
   %333 = call ptr @call_usermodehelper_setup(ptr noundef %332, ptr noundef nonnull %314, ptr noundef null, i32 noundef 3264, ptr noundef nonnull @umh_pipe_setup, ptr noundef null, ptr noundef nonnull %4) #20
@@ -1275,7 +1274,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr noundef capture
 51:                                               ; preds = %45
   %52 = load ptr, ptr %35, align 8
   %53 = sext i32 %46 to i64
-  %54 = getelementptr %struct.core_vma_metadata, ptr %52, i64 %53
+  %54 = getelementptr [48 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %49, align 8
   store i64 %55, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -1468,7 +1467,7 @@ define internal fastcc noundef zeroext i1 @dump_vma_snapshot(ptr noundef capture
   %176 = phi i32 [ %193, %192 ], [ %174, %170 ]
   %177 = phi i64 [ %197, %192 ], [ 0, %170 ]
   %178 = load ptr, ptr %35, align 8
-  %179 = getelementptr %struct.core_vma_metadata, ptr %178, i64 %177
+  %179 = getelementptr [48 x i8], ptr %178, i64 %177
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load i64, ptr %180, align 8
   %182 = icmp eq i64 %181, 1
@@ -1701,7 +1700,7 @@ define internal fastcc void @free_vma_snapshot(ptr noundef captures(none) %0) un
   %9 = phi i32 [ %17, %16 ], [ %7, %5 ]
   %10 = phi i64 [ %18, %16 ], [ 0, %5 ]
   %11 = load ptr, ptr %2, align 8
-  %.split = getelementptr %struct.core_vma_metadata, ptr %11, i64 %10
+  %.split = getelementptr [48 x i8], ptr %11, i64 %10
   %12 = getelementptr i8, ptr %.split, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null

@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point_" = type { float, float }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
@@ -173,7 +172,7 @@ define hidden void @_ZN2cv13wechat_qrcode5Align8warpBackERKSt6vectorINS_6Point_I
   %15 = phi ptr [ null, %.lr.ph ], [ %61, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit ]
   %16 = load i8, ptr %7, align 8, !tbaa !3, !range !37, !noundef !38
   %17 = trunc nuw i8 %16 to i1
-  %18 = getelementptr inbounds nuw %"class.cv::Point_", ptr %14, i64 %.029
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.029
   br i1 %17, label %19, label %25
 
 19:                                               ; preds = %12
@@ -271,7 +270,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %58, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %57, ptr %10, align 8, !tbaa !33
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %52, i64 %50
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %59, ptr %11, align 8, !tbaa !43
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
 

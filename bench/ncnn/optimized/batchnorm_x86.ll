@@ -512,10 +512,10 @@ define internal void @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %32 = mul i64 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 %32
   %34 = load ptr, ptr %22, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !28
   %37 = load ptr, ptr %23, align 8, !tbaa !16
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !28
   %40 = load i32, ptr %5, align 4, !tbaa !21
   %41 = icmp eq i32 %40, 4
@@ -523,9 +523,9 @@ define internal void @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERKNS_6O
 
 42:                                               ; preds = %26
   %43 = shl nsw i64 %indvars.iv, 2
-  %44 = getelementptr inbounds float, ptr %34, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %34, i64 %43
   %45 = load <4 x float>, ptr %44, align 1, !tbaa !25
-  %46 = getelementptr inbounds float, ptr %37, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %37, i64 %43
   %47 = load <4 x float>, ptr %46, align 1, !tbaa !25
   br label %53
 
@@ -670,10 +670,10 @@ define internal void @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %30 = mul i64 %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   %32 = load ptr, ptr %22, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !28
   %35 = load ptr, ptr %23, align 8, !tbaa !16
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !28
   %38 = load i32, ptr %5, align 4, !tbaa !21
   %39 = icmp eq i32 %38, 4
@@ -681,9 +681,9 @@ define internal void @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERKNS_6O
 
 40:                                               ; preds = %.noexc
   %41 = shl nsw i64 %indvars.iv, 2
-  %42 = getelementptr inbounds float, ptr %32, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %32, i64 %41
   %43 = load <4 x float>, ptr %42, align 1, !tbaa !25
-  %44 = getelementptr inbounds float, ptr %35, i64 %41
+  %44 = getelementptr inbounds [4 x i8], ptr %35, i64 %41
   %45 = load <4 x float>, ptr %44, align 1, !tbaa !25
   br label %51
 

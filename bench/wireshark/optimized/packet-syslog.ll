@@ -252,7 +252,7 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %18 = load ptr, ptr @g_ascii_table, align 8
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2147)
   %20 = zext i8 %19 to i64
-  %21 = getelementptr i16, ptr %18, i64 %20
+  %21 = getelementptr [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %.not196 = icmp eq i16 %23, 0
@@ -262,7 +262,7 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %25 = add nuw nsw i32 %.0117149185, 1
   %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
   %27 = zext i8 %26 to i64
-  %28 = getelementptr i16, ptr %18, i64 %27
+  %28 = getelementptr [2 x i8], ptr %18, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8
   %31 = icmp ne i16 %30, 0
@@ -607,7 +607,7 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
   %.02446.i = phi i32 [ %207, %.lr.ph.i ], [ %223, %222 ]
   %212 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02446.i)
   %213 = zext i8 %212 to i64
-  %214 = getelementptr i16, ptr %210, i64 %213
+  %214 = getelementptr [2 x i8], ptr %210, i64 %213
   %215 = load i16, ptr %214, align 2
   %216 = and i16 %215, 1
   %.not.i131 = icmp eq i16 %216, 0
@@ -749,7 +749,7 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
 11:                                               ; preds = %6
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %7)
   %13 = zext i8 %12 to i64
-  %14 = getelementptr i16, ptr %5, i64 %13
+  %14 = getelementptr [2 x i8], ptr %5, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not = icmp eq i16 %16, 0

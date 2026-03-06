@@ -92,7 +92,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_servername(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @sni_test_fns, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @sni_test_fns, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = tail call i32 %4() #5
   ret i32 %5

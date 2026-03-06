@@ -1261,7 +1261,7 @@ common.resume:                                    ; preds = %.body, %97, %26
 .noexc35:                                         ; preds = %45
   %48 = extractvalue { i64, ptr } %47, 0
   %49 = extractvalue { i64, ptr } %47, 1
-  %50 = getelementptr inbounds { i32, float, float }, ptr %40, i64 %46
+  %50 = getelementptr inbounds [12 x i8], ptr %40, i64 %46
   %51 = icmp eq i64 %48, 0
   br i1 %51, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4076ec50eabf8685E.exit", label %.lr.ph.i
 
@@ -1281,7 +1281,7 @@ common.resume:                                    ; preds = %.body, %97, %26
   %59 = load float, ptr %58, align 4, !alias.scope !264, !noalias !267, !noundef !12
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.013.029.i, i64 8
   %61 = load float, ptr %60, align 4, !alias.scope !264, !noalias !267, !noundef !12
-  %62 = getelementptr inbounds nuw { [3 x i32] }, ptr %49, i64 %.sroa.7.028.i
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 %.sroa.7.028.i
   store i32 %57, ptr %62, align 4, !noalias !270
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 4
   store float %59, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 4, !noalias !270
@@ -1369,7 +1369,7 @@ common.resume:                                    ; preds = %.body, %97, %26
 88:                                               ; preds = %._crit_edge.i, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4076ec50eabf8685E.exit"
   %89 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %80, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4076ec50eabf8685E.exit" ]
   %90 = load ptr, ptr %.sroa.47.0..sroa_idx, align 8, !alias.scope !286, !noalias !289, !nonnull !12, !noundef !12
-  %91 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %90, i64 %89
+  %91 = getelementptr inbounds [24 x i8], ptr %90, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %92 = load i64, ptr %.sroa.58.0..sroa_idx, align 8, !alias.scope !286, !noalias !289, !noundef !12
   %93 = add i64 %92, 1
@@ -1507,7 +1507,7 @@ define void @"_ZN132_$LT$sparse..index..inverted_index..inverted_index_ram..Inve
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !311, !noalias !314, !nonnull !12
-  %11 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !12, !noundef !12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1611,7 +1611,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN6sparse5index14invert
   %7 = icmp ugt i64 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !12
-  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %6
   %.0 = select i1 %7, ptr %10, ptr null
   ret ptr %.0
 }
@@ -1635,7 +1635,7 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
   %.sroa.440.0.copyload = load ptr, ptr %.sroa.440.0..sroa_idx, align 8, !nonnull !12, !noundef !12
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.541.0.copyload = load i64, ptr %.sroa.541.0..sroa_idx, align 8
-  %10 = getelementptr inbounds float, ptr %.sroa.440.0.copyload, i64 %.sroa.541.0.copyload
+  %10 = getelementptr inbounds [4 x i8], ptr %.sroa.440.0.copyload, i64 %.sroa.541.0.copyload
   %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.638.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -1754,7 +1754,7 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %12, align 8, !nonnull !12, !noundef !12
-  %45 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %44, i64 %32
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !335
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4a4075c8585a03fE.llvm.4482545766329047864"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %45)
           to label %.noexc31 unwind label %.thread
@@ -1813,7 +1813,7 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
 
 64:                                               ; preds = %29
   %65 = load ptr, ptr %12, align 8, !nonnull !12
-  %66 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %65, i64 %32
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %32
   store i32 %1, ptr %6, align 4, !alias.scope !347
   store float %31, ptr %16, align 4, !alias.scope !347
   store float 0xFFF0000000000000, ptr %17, align 4, !alias.scope !347

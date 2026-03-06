@@ -359,13 +359,13 @@ _dead_image_f.exit:                               ; preds = %_mipmap_cache_get_f
 
 56:                                               ; preds = %46, %56
   %indvars.iv = phi i64 [ 8, %46 ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw [2 x i32], ptr @__const.dt_mipmap_cache_init.mipsizes, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @__const.dt_mipmap_cache_init.mipsizes, i64 %indvars.iv
   %58 = load i32, ptr %57, align 8, !tbaa !77
-  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !77
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !77
-  %62 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store i32 %61, ptr %62, align 4, !tbaa !77
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not74 = icmp eq i64 %indvars.iv, 0
@@ -437,16 +437,16 @@ _nearest_power_of_two.exit:                       ; preds = %76
 
 99:                                               ; preds = %.preheader, %99
   %indvars.iv69 = phi i64 [ 8, %.preheader ], [ %indvars.iv.next70, %99 ]
-  %100 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv69
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv69
   %101 = load i32, ptr %100, align 4, !tbaa !77
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv69
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv69
   %104 = load i32, ptr %103, align 4, !tbaa !77
   %105 = zext i32 %104 to i64
   %106 = shl nuw nsw i64 %102, 2
   %107 = mul i64 %106, %105
   %108 = add i64 %107, 64
-  %109 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv69
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv69
   store i64 %108, ptr %109, align 8, !tbaa !85
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
   %.not75 = icmp eq i64 %indvars.iv69, 0
@@ -508,7 +508,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = zext nneg i32 %10 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !85
   %spec.select = tail call i64 @llvm.umax.i64(i64 %35, i64 3364)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -539,11 +539,11 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
 
 46:                                               ; preds = %44
   %47 = zext nneg i32 %10 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !77
   store i32 %49, ptr %42, align 64, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %47
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %47
   %52 = load i32, ptr %51, align 4, !tbaa !77
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %52, ptr %53, align 4, !tbaa !15
@@ -632,7 +632,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
 94:                                               ; preds = %92
   %95 = load i32, ptr %6, align 8, !tbaa !87
   %96 = zext nneg i32 %10 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !77
   %99 = icmp ugt i32 %95, %98
   br i1 %99, label %114, label %100
@@ -641,7 +641,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !120
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %96
   %105 = load i32, ptr %104, align 4, !tbaa !77
   %106 = icmp ugt i32 %102, %105
   br i1 %106, label %114, label %107
@@ -728,7 +728,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
 139:                                              ; preds = %.thread115
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %141 = zext nneg i32 %10 to i64
-  %142 = getelementptr inbounds nuw i64, ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %141
   %143 = load i64, ptr %142, align 8, !tbaa !85
   br label %144
 
@@ -1796,7 +1796,7 @@ define internal fastcc void @_init_f(ptr noundef writeonly captures(none) %0, pt
 
 switch.lookup:                                    ; preds = %52
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._init_f, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._init_f, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %61
 
@@ -2394,13 +2394,13 @@ define range(i32 0, 12) i32 @dt_mipmap_cache_get_matching_size(ptr noundef reado
 5:                                                ; preds = %.backedge, %3
   %.011 = phi i32 [ 0, %3 ], [ %.011.be, %.backedge ]
   %6 = zext nneg i32 %.011 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !77
   %.not = icmp ult i32 %8, %1
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %6
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %6
   %11 = load i32, ptr %10, align 4, !tbaa !77
   %.not10 = icmp ult i32 %11, %2
   %12 = icmp samesign ult i32 %.011, 8

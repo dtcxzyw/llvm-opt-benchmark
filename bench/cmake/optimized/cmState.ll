@@ -1760,7 +1760,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN7cmState17G
 
 switch.lookup:                                    ; preds = %89
   %109 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7cmState17GetTargetTypeNameB5cxx11EN12cmStateEnums10TargetTypeE, i64 %109
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7cmState17GetTargetTypeNameB5cxx11EN12cmStateEnums10TargetTypeE, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %110
 
@@ -1868,7 +1868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3, %_
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN7cmState22CacheEntryTypeToStringB5cxx11EN12cmStateEnums14CacheEntryTypeE(i32 noundef %0) local_unnamed_addr #7 align 2 {
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %0, i32 6)
   %2 = zext nneg i32 %spec.store.select to i64
-  %3 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZL17cmCacheEntryTypesB5cxx11, i64 %2
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @_ZL17cmCacheEntryTypesB5cxx11, i64 %2
   ret ptr %3
 }
 
@@ -3475,7 +3475,7 @@ _ZSt8_DestroyIP13cmDefinitionsS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %394
           to label %.noexc215 unwind label %637
 
 .noexc215:                                        ; preds = %.noexc.i214
-  %409 = getelementptr %class.cmDefinitions, ptr %406, i64 %401
+  %409 = getelementptr [56 x i8], ptr %406, i64 %401
   %410 = getelementptr i8, ptr %409, i64 -56
   store ptr %408, ptr %20, align 8, !tbaa !125
   %411 = load i64, ptr %10, align 8, !tbaa !153
@@ -3520,7 +3520,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
           to label %.noexc224 unwind label %645
 
 .noexc224:                                        ; preds = %.noexc.i223
-  %430 = getelementptr %class.cmDefinitions, ptr %427, i64 %426
+  %430 = getelementptr [56 x i8], ptr %427, i64 %426
   %431 = getelementptr i8, ptr %430, i64 -56
   store ptr %429, ptr %21, align 8, !tbaa !125
   %432 = load i64, ptr %9, align 8, !tbaa !153
@@ -4727,7 +4727,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char
   %.013.i.i = phi i64 [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEKS9_EEbT_RT0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %4, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEKS9_EEbT_RT0_.exit.i.i ]
   %15 = lshr i64 %.013.i.i, 1
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.011.012.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i.i, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !34
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %18)
@@ -4972,7 +4972,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11cha
   %.013.i.i = phi i64 [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESA_EEbT_RT0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %4, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESA_EEbT_RT0_.exit.i.i ]
   %15 = lshr i64 %.013.i.i, 1
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.011.012.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.011.012.i.i, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !34
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %18)
@@ -6941,7 +6941,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !140
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !141
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !144
   br label %43
 
@@ -8478,7 +8478,7 @@ define dso_local void @_ZN7cmState18CreateBaseSnapshotEv(ptr dead_on_unwind noal
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   %10 = load ptr, ptr %8, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %9
+  %11 = getelementptr [208 x i8], ptr %10, i64 %9
   %12 = getelementptr i8, ptr %11, i64 -208
   %13 = getelementptr i8, ptr %11, i64 -192
   store ptr %6, ptr %13, align 8, !tbaa !186
@@ -8536,7 +8536,7 @@ _ZN12cmLinkedTreeIN13cmStateDetail29BuildsystemDirectoryStateTypeEE4PushENS2_8it
   %33 = extractvalue { ptr, i64 } %30, 0
   %34 = extractvalue { ptr, i64 } %30, 1
   %35 = load ptr, ptr %8, align 8, !tbaa !136
-  %36 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %35, i64 %9
+  %36 = getelementptr [208 x i8], ptr %35, i64 %9
   %37 = getelementptr i8, ptr %36, i64 -104
   store ptr %33, ptr %37, align 8, !tbaa !304
   %.sroa.421.0..sroa_idx = getelementptr i8, ptr %36, i64 -96
@@ -8584,7 +8584,7 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %53 = extractvalue { ptr, i64 } %41, 0
   %54 = extractvalue { ptr, i64 } %41, 1
   %55 = load ptr, ptr %8, align 8, !tbaa !136
-  %56 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %55, i64 %9
+  %56 = getelementptr [208 x i8], ptr %55, i64 %9
   %57 = getelementptr i8, ptr %56, i64 -120
   store ptr %53, ptr %57, align 8, !tbaa !305
   %.sroa.417.0..sroa_idx = getelementptr i8, ptr %56, i64 -112
@@ -8596,7 +8596,7 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %61 = getelementptr i8, ptr %56, i64 -96
   %62 = load i64, ptr %61, align 8, !tbaa !307
   %63 = load ptr, ptr %60, align 8, !tbaa !145
-  %64 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %63, i64 %62
+  %64 = getelementptr [360 x i8], ptr %63, i64 %62
   %65 = getelementptr i8, ptr %64, i64 -360
   store ptr %8, ptr %65, align 8, !tbaa !186
   %.sroa.23.0..sroa_idx = getelementptr i8, ptr %64, i64 -352
@@ -8619,7 +8619,7 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %72 = extractvalue { ptr, i64 } %71, 0
   %73 = extractvalue { ptr, i64 } %71, 1
   %74 = load ptr, ptr %8, align 8, !tbaa !136
-  %75 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %74, i64 %9
+  %75 = getelementptr [208 x i8], ptr %74, i64 %9
   %76 = getelementptr i8, ptr %75, i64 -88
   store ptr %72, ptr %76, align 8, !tbaa !195
   %.sroa.47.0..sroa_idx = getelementptr i8, ptr %75, i64 -80
@@ -8653,15 +8653,15 @@ define dso_local void @_ZN7cmState34CreateBuildsystemDirectorySnapshotERK15cmSta
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = load ptr, ptr %10, align 8, !tbaa !136
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %11
+  %13 = getelementptr [208 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !308
   %15 = load ptr, ptr %10, align 8, !tbaa !136
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %11
+  %16 = getelementptr [208 x i8], ptr %15, i64 %11
   %17 = getelementptr i8, ptr %16, i64 -208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !308
   %18 = load ptr, ptr %10, align 8, !tbaa !136
-  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %11
+  %19 = getelementptr [208 x i8], ptr %18, i64 %11
   %20 = getelementptr i8, ptr %19, i64 -128
   store i32 1, ptr %20, align 8, !tbaa !294
   %21 = getelementptr i8, ptr %19, i64 -124
@@ -8670,7 +8670,7 @@ define dso_local void @_ZN7cmState34CreateBuildsystemDirectorySnapshotERK15cmSta
   %23 = load ptr, ptr %8, align 8, !tbaa !309
   %24 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %25 = load ptr, ptr %23, align 8, !tbaa !136
-  %26 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %25, i64 %24
+  %26 = getelementptr [208 x i8], ptr %25, i64 %24
   %27 = getelementptr i8, ptr %26, i64 -104
   %.sroa.015.0.copyload = load ptr, ptr %27, align 8, !tbaa !304
   %.sroa.216.0..sroa_idx = getelementptr i8, ptr %26, i64 -96
@@ -8719,7 +8719,7 @@ _ZN12cmLinkedTreeIN13cmStateDetail29BuildsystemDirectoryStateTypeEE4PushENS2_8it
   %44 = extractvalue { ptr, i64 } %41, 0
   %45 = extractvalue { ptr, i64 } %41, 1
   %46 = load ptr, ptr %10, align 8, !tbaa !136
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %11
+  %47 = getelementptr [208 x i8], ptr %46, i64 %11
   %48 = getelementptr i8, ptr %47, i64 -104
   store ptr %44, ptr %48, align 8, !tbaa !304
   %.sroa.418.0..sroa_idx = getelementptr i8, ptr %47, i64 -96
@@ -8728,7 +8728,7 @@ _ZN12cmLinkedTreeIN13cmStateDetail29BuildsystemDirectoryStateTypeEE4PushENS2_8it
   %50 = load ptr, ptr %8, align 8, !tbaa !309
   %51 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %52 = load ptr, ptr %50, align 8, !tbaa !136
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %51
+  %53 = getelementptr [208 x i8], ptr %52, i64 %51
   %54 = getelementptr i8, ptr %53, i64 -120
   %.sroa.011.0.copyload = load ptr, ptr %54, align 8, !tbaa !305
   %.sroa.212.0..sroa_idx = getelementptr i8, ptr %53, i64 -112
@@ -8775,7 +8775,7 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %69 = extractvalue { ptr, i64 } %57, 0
   %70 = extractvalue { ptr, i64 } %57, 1
   %71 = load ptr, ptr %10, align 8, !tbaa !136
-  %72 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %71, i64 %11
+  %72 = getelementptr [208 x i8], ptr %71, i64 %11
   %73 = getelementptr i8, ptr %72, i64 -120
   store ptr %69, ptr %73, align 8, !tbaa !305
   %.sroa.414.0..sroa_idx = getelementptr i8, ptr %72, i64 -112
@@ -8785,7 +8785,7 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %76 = getelementptr i8, ptr %72, i64 -96
   %77 = load i64, ptr %76, align 8, !tbaa !307
   %78 = load ptr, ptr %75, align 8, !tbaa !145
-  %79 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %78, i64 %77
+  %79 = getelementptr [360 x i8], ptr %78, i64 %77
   %80 = getelementptr i8, ptr %79, i64 -360
   store ptr %10, ptr %80, align 8, !tbaa !186
   %.sroa.18.0..sroa_idx = getelementptr i8, ptr %79, i64 -352
@@ -8793,38 +8793,38 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %81 = load ptr, ptr %8, align 8, !tbaa !309
   %82 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %83 = load ptr, ptr %81, align 8, !tbaa !136
-  %84 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %83, i64 %82
+  %84 = getelementptr [208 x i8], ptr %83, i64 %82
   %85 = getelementptr i8, ptr %84, i64 -176
   %86 = getelementptr i8, ptr %72, i64 -176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !311
   %87 = load ptr, ptr %8, align 8, !tbaa !309
   %88 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %89 = load ptr, ptr %87, align 8, !tbaa !136
-  %90 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %89, i64 %88
+  %90 = getelementptr [208 x i8], ptr %89, i64 %88
   %91 = getelementptr i8, ptr %90, i64 -176
   %92 = load ptr, ptr %10, align 8, !tbaa !136
-  %93 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %92, i64 %11
+  %93 = getelementptr [208 x i8], ptr %92, i64 %11
   %94 = getelementptr i8, ptr %93, i64 -160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !311
   %95 = load ptr, ptr %8, align 8, !tbaa !309
   %96 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %97 = load ptr, ptr %95, align 8, !tbaa !136
-  %98 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %97, i64 %96
+  %98 = getelementptr [208 x i8], ptr %97, i64 %96
   %99 = getelementptr i8, ptr %98, i64 -176
   %100 = load ptr, ptr %10, align 8, !tbaa !136
-  %101 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %100, i64 %11
+  %101 = getelementptr [208 x i8], ptr %100, i64 %11
   %102 = getelementptr i8, ptr %101, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !311
   %103 = load ptr, ptr %8, align 8, !tbaa !309
   %104 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %105 = load ptr, ptr %103, align 8, !tbaa !136
-  %106 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %105, i64 %104
+  %106 = getelementptr [208 x i8], ptr %105, i64 %104
   %107 = getelementptr i8, ptr %106, i64 -88
   %.sroa.04.0.copyload = load ptr, ptr %107, align 8, !tbaa !195
   %.sroa.6.0..sroa_idx = getelementptr i8, ptr %106, i64 -80
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !153
   %108 = load ptr, ptr %10, align 8, !tbaa !136
-  %109 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %108, i64 %11
+  %109 = getelementptr [208 x i8], ptr %108, i64 %11
   %110 = getelementptr i8, ptr %109, i64 -56
   store ptr %.sroa.04.0.copyload, ptr %110, align 8, !tbaa !195
   %.sroa.6.0..sroa_idx7 = getelementptr i8, ptr %109, i64 -48
@@ -8838,7 +8838,7 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %114 = extractvalue { ptr, i64 } %113, 0
   %115 = extractvalue { ptr, i64 } %113, 1
   %116 = load ptr, ptr %10, align 8, !tbaa !136
-  %117 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %116, i64 %11
+  %117 = getelementptr [208 x i8], ptr %116, i64 %11
   %118 = getelementptr i8, ptr %117, i64 -88
   store ptr %114, ptr %118, align 8, !tbaa !195
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %117, i64 -80
@@ -8847,13 +8847,13 @@ _ZN12cmLinkedTreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4PushENS6
   %119 = load ptr, ptr %8, align 8, !tbaa !309
   %120 = load i64, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !310
   %121 = load ptr, ptr %119, align 8, !tbaa !136
-  %122 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %121, i64 %120
+  %122 = getelementptr [208 x i8], ptr %121, i64 %120
   %123 = getelementptr i8, ptr %122, i64 -104
   %124 = load ptr, ptr %123, align 8, !tbaa !306
   %125 = getelementptr i8, ptr %122, i64 -96
   %126 = load i64, ptr %125, align 8, !tbaa !307
   %127 = load ptr, ptr %124, align 8, !tbaa !145
-  %128 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %127, i64 %126
+  %128 = getelementptr [360 x i8], ptr %127, i64 %126
   %129 = getelementptr i8, ptr %128, i64 -24
   %130 = getelementptr i8, ptr %128, i64 -16
   %131 = load ptr, ptr %130, align 8, !tbaa !191
@@ -8919,7 +8919,7 @@ _ZNSt6vectorI15cmStateSnapshotSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ;
 _ZNSt6vectorI15cmStateSnapshotSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %155, %_ZNSt6vectorI15cmStateSnapshotSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %150, ptr %129, align 8, !tbaa !188
   store ptr %154, ptr %130, align 8, !tbaa !191
-  %156 = getelementptr inbounds nuw %class.cmStateSnapshot, ptr %150, i64 %148
+  %156 = getelementptr inbounds nuw [24 x i8], ptr %150, i64 %148
   store ptr %156, ptr %132, align 8, !tbaa !312
   br label %_ZNSt6vectorI15cmStateSnapshotSaIS0_EE9push_backERKS0_.exit
 
@@ -8947,7 +8947,7 @@ define dso_local void @_ZN7cmState23CreateDeferCallSnapshotERK15cmStateSnapshotR
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !153
   %10 = load ptr, ptr %.sroa.04.0.copyload, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.25.0.copyload
+  %11 = getelementptr [208 x i8], ptr %10, i64 %.sroa.25.0.copyload
   %12 = getelementptr i8, ptr %11, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
@@ -8956,7 +8956,7 @@ define dso_local void @_ZN7cmState23CreateDeferCallSnapshotERK15cmStateSnapshotR
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = load ptr, ptr %14, align 8, !tbaa !136
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
+  %17 = getelementptr [208 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -128
   store i32 2, ptr %18, align 8, !tbaa !294
   %19 = getelementptr i8, ptr %17, i64 -124
@@ -8965,7 +8965,7 @@ define dso_local void @_ZN7cmState23CreateDeferCallSnapshotERK15cmStateSnapshotR
   %21 = load ptr, ptr %9, align 8, !tbaa !309
   %22 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %23 = load ptr, ptr %21, align 8, !tbaa !136
-  %24 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %23, i64 %22
+  %24 = getelementptr [208 x i8], ptr %23, i64 %22
   %25 = getelementptr i8, ptr %24, i64 -120
   %.sroa.01.0.copyload = load ptr, ptr %25, align 8, !tbaa !305
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %24, i64 -112
@@ -9016,7 +9016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %43 = load ptr, ptr %14, align 8, !tbaa !136
-  %44 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %43, i64 %15
+  %44 = getelementptr [208 x i8], ptr %43, i64 %15
   %45 = extractvalue { ptr, i64 } %41, 1
   %46 = extractvalue { ptr, i64 } %41, 0
   %47 = getelementptr i8, ptr %44, i64 -120
@@ -9036,13 +9036,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %52 = phi ptr [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %43, %42 ]
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %15
+  %53 = getelementptr [208 x i8], ptr %52, i64 %15
   %54 = getelementptr i8, ptr %53, i64 -104
   %55 = load ptr, ptr %54, align 8, !tbaa !306
   %56 = getelementptr i8, ptr %53, i64 -96
   %57 = load i64, ptr %56, align 8, !tbaa !307
   %58 = load ptr, ptr %55, align 8, !tbaa !145
-  %59 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %58, i64 %57
+  %59 = getelementptr [360 x i8], ptr %58, i64 %57
   %60 = getelementptr i8, ptr %59, i64 -360
   store ptr %14, ptr %60, align 8, !tbaa !186
   %.sroa.11.0..sroa_idx = getelementptr i8, ptr %59, i64 -352
@@ -9050,7 +9050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %61 = load ptr, ptr %9, align 8, !tbaa !309
   %62 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %63 = load ptr, ptr %61, align 8, !tbaa !136
-  %64 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %63, i64 %62
+  %64 = getelementptr [208 x i8], ptr %63, i64 %62
   %65 = getelementptr i8, ptr %64, i64 -176
   %66 = getelementptr i8, ptr %53, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !311
@@ -9085,7 +9085,7 @@ define dso_local void @_ZN7cmState26CreateFunctionCallSnapshotERK15cmStateSnapsh
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.213.0.copyload = load i64, ptr %.sroa.213.0..sroa_idx, align 8, !tbaa !153
   %10 = load ptr, ptr %.sroa.012.0.copyload, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.213.0.copyload
+  %11 = getelementptr [208 x i8], ptr %10, i64 %.sroa.213.0.copyload
   %12 = getelementptr i8, ptr %11, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
@@ -9094,11 +9094,11 @@ define dso_local void @_ZN7cmState26CreateFunctionCallSnapshotERK15cmStateSnapsh
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = load ptr, ptr %14, align 8, !tbaa !136
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
+  %17 = getelementptr [208 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !308
   %19 = load ptr, ptr %14, align 8, !tbaa !136
-  %20 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %19, i64 %15
+  %20 = getelementptr [208 x i8], ptr %19, i64 %15
   %21 = getelementptr i8, ptr %20, i64 -128
   store i32 3, ptr %21, align 8, !tbaa !294
   %22 = getelementptr i8, ptr %20, i64 -124
@@ -9107,7 +9107,7 @@ define dso_local void @_ZN7cmState26CreateFunctionCallSnapshotERK15cmStateSnapsh
   %24 = load ptr, ptr %9, align 8, !tbaa !309
   %25 = load i64, ptr %.sroa.213.0..sroa_idx, align 8, !tbaa !310
   %26 = load ptr, ptr %24, align 8, !tbaa !136
-  %27 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %26, i64 %25
+  %27 = getelementptr [208 x i8], ptr %26, i64 %25
   %28 = getelementptr i8, ptr %27, i64 -120
   %.sroa.08.0.copyload = load ptr, ptr %28, align 8, !tbaa !305
   %.sroa.29.0..sroa_idx = getelementptr i8, ptr %27, i64 -112
@@ -9158,7 +9158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %46 = load ptr, ptr %14, align 8, !tbaa !136
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %15
+  %47 = getelementptr [208 x i8], ptr %46, i64 %15
   %48 = extractvalue { ptr, i64 } %44, 1
   %49 = extractvalue { ptr, i64 } %44, 0
   %50 = getelementptr i8, ptr %47, i64 -120
@@ -9178,13 +9178,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %55 = phi ptr [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %46, %45 ]
-  %56 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %55, i64 %15
+  %56 = getelementptr [208 x i8], ptr %55, i64 %15
   %57 = getelementptr i8, ptr %56, i64 -104
   %58 = load ptr, ptr %57, align 8, !tbaa !306
   %59 = getelementptr i8, ptr %56, i64 -96
   %60 = load i64, ptr %59, align 8, !tbaa !307
   %61 = load ptr, ptr %58, align 8, !tbaa !145
-  %62 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %61, i64 %60
+  %62 = getelementptr [360 x i8], ptr %61, i64 %60
   %63 = getelementptr i8, ptr %62, i64 -360
   store ptr %14, ptr %63, align 8, !tbaa !186
   %.sroa.14.0..sroa_idx = getelementptr i8, ptr %62, i64 -352
@@ -9192,20 +9192,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45, %
   %64 = load ptr, ptr %9, align 8, !tbaa !309
   %65 = load i64, ptr %.sroa.213.0..sroa_idx, align 8, !tbaa !310
   %66 = load ptr, ptr %64, align 8, !tbaa !136
-  %67 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %66, i64 %65
+  %67 = getelementptr [208 x i8], ptr %66, i64 %65
   %68 = getelementptr i8, ptr %67, i64 -176
   %69 = getelementptr i8, ptr %56, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !311
   %70 = load ptr, ptr %9, align 8, !tbaa !309
   %71 = load i64, ptr %.sroa.213.0..sroa_idx, align 8, !tbaa !310
   %72 = load ptr, ptr %70, align 8, !tbaa !136
-  %73 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %72, i64 %71
+  %73 = getelementptr [208 x i8], ptr %72, i64 %71
   %74 = getelementptr i8, ptr %73, i64 -88
   %.sroa.04.0.copyload = load ptr, ptr %74, align 8, !tbaa !195
   %.sroa.5.0..sroa_idx = getelementptr i8, ptr %73, i64 -80
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !153
   %75 = load ptr, ptr %14, align 8, !tbaa !136
-  %76 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %75, i64 %15
+  %76 = getelementptr [208 x i8], ptr %75, i64 %15
   %77 = getelementptr i8, ptr %76, i64 -56
   store ptr %.sroa.04.0.copyload, ptr %77, align 8, !tbaa !195
   %.sroa.5.0..sroa_idx6 = getelementptr i8, ptr %76, i64 -48
@@ -9215,7 +9215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45, %
   %80 = extractvalue { ptr, i64 } %79, 0
   %81 = extractvalue { ptr, i64 } %79, 1
   %82 = load ptr, ptr %14, align 8, !tbaa !136
-  %83 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %82, i64 %15
+  %83 = getelementptr [208 x i8], ptr %82, i64 %15
   %84 = getelementptr i8, ptr %83, i64 -88
   store ptr %80, ptr %84, align 8, !tbaa !195
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %83, i64 -80
@@ -9251,7 +9251,7 @@ define dso_local void @_ZN7cmState23CreateMacroCallSnapshotERK15cmStateSnapshotR
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !153
   %10 = load ptr, ptr %.sroa.04.0.copyload, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.25.0.copyload
+  %11 = getelementptr [208 x i8], ptr %10, i64 %.sroa.25.0.copyload
   %12 = getelementptr i8, ptr %11, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
@@ -9260,7 +9260,7 @@ define dso_local void @_ZN7cmState23CreateMacroCallSnapshotERK15cmStateSnapshotR
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = load ptr, ptr %14, align 8, !tbaa !136
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
+  %17 = getelementptr [208 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -128
   store i32 4, ptr %18, align 8, !tbaa !294
   %19 = getelementptr i8, ptr %17, i64 -124
@@ -9269,7 +9269,7 @@ define dso_local void @_ZN7cmState23CreateMacroCallSnapshotERK15cmStateSnapshotR
   %21 = load ptr, ptr %9, align 8, !tbaa !309
   %22 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %23 = load ptr, ptr %21, align 8, !tbaa !136
-  %24 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %23, i64 %22
+  %24 = getelementptr [208 x i8], ptr %23, i64 %22
   %25 = getelementptr i8, ptr %24, i64 -120
   %.sroa.01.0.copyload = load ptr, ptr %25, align 8, !tbaa !305
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %24, i64 -112
@@ -9320,7 +9320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %43 = load ptr, ptr %14, align 8, !tbaa !136
-  %44 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %43, i64 %15
+  %44 = getelementptr [208 x i8], ptr %43, i64 %15
   %45 = extractvalue { ptr, i64 } %41, 1
   %46 = extractvalue { ptr, i64 } %41, 0
   %47 = getelementptr i8, ptr %44, i64 -120
@@ -9340,13 +9340,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %52 = phi ptr [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %43, %42 ]
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %15
+  %53 = getelementptr [208 x i8], ptr %52, i64 %15
   %54 = getelementptr i8, ptr %53, i64 -104
   %55 = load ptr, ptr %54, align 8, !tbaa !306
   %56 = getelementptr i8, ptr %53, i64 -96
   %57 = load i64, ptr %56, align 8, !tbaa !307
   %58 = load ptr, ptr %55, align 8, !tbaa !145
-  %59 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %58, i64 %57
+  %59 = getelementptr [360 x i8], ptr %58, i64 %57
   %60 = getelementptr i8, ptr %59, i64 -360
   store ptr %14, ptr %60, align 8, !tbaa !186
   %.sroa.11.0..sroa_idx = getelementptr i8, ptr %59, i64 -352
@@ -9354,7 +9354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %61 = load ptr, ptr %9, align 8, !tbaa !309
   %62 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %63 = load ptr, ptr %61, align 8, !tbaa !136
-  %64 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %63, i64 %62
+  %64 = getelementptr [208 x i8], ptr %63, i64 %62
   %65 = getelementptr i8, ptr %64, i64 -176
   %66 = getelementptr i8, ptr %53, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !311
@@ -9389,7 +9389,7 @@ define dso_local void @_ZN7cmState25CreateIncludeFileSnapshotERK15cmStateSnapsho
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !153
   %10 = load ptr, ptr %.sroa.04.0.copyload, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.25.0.copyload
+  %11 = getelementptr [208 x i8], ptr %10, i64 %.sroa.25.0.copyload
   %12 = getelementptr i8, ptr %11, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
@@ -9398,7 +9398,7 @@ define dso_local void @_ZN7cmState25CreateIncludeFileSnapshotERK15cmStateSnapsho
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = load ptr, ptr %14, align 8, !tbaa !136
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
+  %17 = getelementptr [208 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -128
   store i32 5, ptr %18, align 8, !tbaa !294
   %19 = getelementptr i8, ptr %17, i64 -124
@@ -9407,7 +9407,7 @@ define dso_local void @_ZN7cmState25CreateIncludeFileSnapshotERK15cmStateSnapsho
   %21 = load ptr, ptr %9, align 8, !tbaa !309
   %22 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %23 = load ptr, ptr %21, align 8, !tbaa !136
-  %24 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %23, i64 %22
+  %24 = getelementptr [208 x i8], ptr %23, i64 %22
   %25 = getelementptr i8, ptr %24, i64 -120
   %.sroa.01.0.copyload = load ptr, ptr %25, align 8, !tbaa !305
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %24, i64 -112
@@ -9458,7 +9458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %43 = load ptr, ptr %14, align 8, !tbaa !136
-  %44 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %43, i64 %15
+  %44 = getelementptr [208 x i8], ptr %43, i64 %15
   %45 = extractvalue { ptr, i64 } %41, 1
   %46 = extractvalue { ptr, i64 } %41, 0
   %47 = getelementptr i8, ptr %44, i64 -120
@@ -9478,13 +9478,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %52 = phi ptr [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %43, %42 ]
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %15
+  %53 = getelementptr [208 x i8], ptr %52, i64 %15
   %54 = getelementptr i8, ptr %53, i64 -104
   %55 = load ptr, ptr %54, align 8, !tbaa !306
   %56 = getelementptr i8, ptr %53, i64 -96
   %57 = load i64, ptr %56, align 8, !tbaa !307
   %58 = load ptr, ptr %55, align 8, !tbaa !145
-  %59 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %58, i64 %57
+  %59 = getelementptr [360 x i8], ptr %58, i64 %57
   %60 = getelementptr i8, ptr %59, i64 -360
   store ptr %14, ptr %60, align 8, !tbaa !186
   %.sroa.11.0..sroa_idx = getelementptr i8, ptr %59, i64 -352
@@ -9492,7 +9492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %61 = load ptr, ptr %9, align 8, !tbaa !309
   %62 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %63 = load ptr, ptr %61, align 8, !tbaa !136
-  %64 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %63, i64 %62
+  %64 = getelementptr [208 x i8], ptr %63, i64 %62
   %65 = getelementptr i8, ptr %64, i64 -176
   %66 = getelementptr i8, ptr %53, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !311
@@ -9525,7 +9525,7 @@ define dso_local void @_ZN7cmState27CreateVariableScopeSnapshotERK15cmStateSnaps
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !153
   %7 = load ptr, ptr %.sroa.08.0.copyload, align 8, !tbaa !136
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %.sroa.29.0.copyload
+  %8 = getelementptr [208 x i8], ptr %7, i64 %.sroa.29.0.copyload
   %9 = getelementptr i8, ptr %8, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %9, i64 208, i1 false)
@@ -9534,11 +9534,11 @@ define dso_local void @_ZN7cmState27CreateVariableScopeSnapshotERK15cmStateSnaps
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = load ptr, ptr %11, align 8, !tbaa !136
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !308
   %16 = load ptr, ptr %11, align 8, !tbaa !136
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %12
+  %17 = getelementptr [208 x i8], ptr %16, i64 %12
   %18 = getelementptr i8, ptr %17, i64 -128
   store i32 8, ptr %18, align 8, !tbaa !294
   %19 = getelementptr i8, ptr %17, i64 -124
@@ -9548,7 +9548,7 @@ define dso_local void @_ZN7cmState27CreateVariableScopeSnapshotERK15cmStateSnaps
   %22 = getelementptr i8, ptr %17, i64 -96
   %23 = load i64, ptr %22, align 8, !tbaa !307
   %24 = load ptr, ptr %21, align 8, !tbaa !145
-  %25 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %24, i64 %23
+  %25 = getelementptr [360 x i8], ptr %24, i64 %23
   %26 = getelementptr i8, ptr %25, i64 -360
   store ptr %11, ptr %26, align 8, !tbaa !186
   %.sroa.12.0..sroa_idx = getelementptr i8, ptr %25, i64 -352
@@ -9556,20 +9556,20 @@ define dso_local void @_ZN7cmState27CreateVariableScopeSnapshotERK15cmStateSnaps
   %27 = load ptr, ptr %6, align 8, !tbaa !309
   %28 = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !310
   %29 = load ptr, ptr %27, align 8, !tbaa !136
-  %30 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %28
+  %30 = getelementptr [208 x i8], ptr %29, i64 %28
   %31 = getelementptr i8, ptr %30, i64 -176
   %32 = getelementptr i8, ptr %17, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !311
   %33 = load ptr, ptr %6, align 8, !tbaa !309
   %34 = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !310
   %35 = load ptr, ptr %33, align 8, !tbaa !136
-  %36 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %35, i64 %34
+  %36 = getelementptr [208 x i8], ptr %35, i64 %34
   %37 = getelementptr i8, ptr %36, i64 -88
   %.sroa.04.0.copyload = load ptr, ptr %37, align 8, !tbaa !195
   %.sroa.5.0..sroa_idx = getelementptr i8, ptr %36, i64 -80
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !153
   %38 = load ptr, ptr %11, align 8, !tbaa !136
-  %39 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %38, i64 %12
+  %39 = getelementptr [208 x i8], ptr %38, i64 %12
   %40 = getelementptr i8, ptr %39, i64 -56
   store ptr %.sroa.04.0.copyload, ptr %40, align 8, !tbaa !195
   %.sroa.5.0..sroa_idx6 = getelementptr i8, ptr %39, i64 -48
@@ -9579,7 +9579,7 @@ define dso_local void @_ZN7cmState27CreateVariableScopeSnapshotERK15cmStateSnaps
   %43 = extractvalue { ptr, i64 } %42, 0
   %44 = extractvalue { ptr, i64 } %42, 1
   %45 = load ptr, ptr %11, align 8, !tbaa !136
-  %46 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %45, i64 %12
+  %46 = getelementptr [208 x i8], ptr %45, i64 %12
   %47 = getelementptr i8, ptr %46, i64 -88
   store ptr %43, ptr %47, align 8, !tbaa !195
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %46, i64 -80
@@ -9599,7 +9599,7 @@ define dso_local void @_ZN7cmState28CreateInlineListFileSnapshotERK15cmStateSnap
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !153
   %10 = load ptr, ptr %.sroa.04.0.copyload, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.25.0.copyload
+  %11 = getelementptr [208 x i8], ptr %10, i64 %.sroa.25.0.copyload
   %12 = getelementptr i8, ptr %11, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
@@ -9608,7 +9608,7 @@ define dso_local void @_ZN7cmState28CreateInlineListFileSnapshotERK15cmStateSnap
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = load ptr, ptr %14, align 8, !tbaa !136
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %15
+  %17 = getelementptr [208 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -128
   store i32 6, ptr %18, align 8, !tbaa !294
   %19 = getelementptr i8, ptr %17, i64 -124
@@ -9617,7 +9617,7 @@ define dso_local void @_ZN7cmState28CreateInlineListFileSnapshotERK15cmStateSnap
   %21 = load ptr, ptr %9, align 8, !tbaa !309
   %22 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %23 = load ptr, ptr %21, align 8, !tbaa !136
-  %24 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %23, i64 %22
+  %24 = getelementptr [208 x i8], ptr %23, i64 %22
   %25 = getelementptr i8, ptr %24, i64 -120
   %.sroa.01.0.copyload = load ptr, ptr %25, align 8, !tbaa !305
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %24, i64 -112
@@ -9668,7 +9668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
   %43 = load ptr, ptr %14, align 8, !tbaa !136
-  %44 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %43, i64 %15
+  %44 = getelementptr [208 x i8], ptr %43, i64 %15
   %45 = extractvalue { ptr, i64 } %41, 1
   %46 = extractvalue { ptr, i64 } %41, 0
   %47 = getelementptr i8, ptr %44, i64 -120
@@ -9688,13 +9688,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %52 = phi ptr [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %43, %42 ]
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %15
+  %53 = getelementptr [208 x i8], ptr %52, i64 %15
   %54 = getelementptr i8, ptr %53, i64 -104
   %55 = load ptr, ptr %54, align 8, !tbaa !306
   %56 = getelementptr i8, ptr %53, i64 -96
   %57 = load i64, ptr %56, align 8, !tbaa !307
   %58 = load ptr, ptr %55, align 8, !tbaa !145
-  %59 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %58, i64 %57
+  %59 = getelementptr [360 x i8], ptr %58, i64 %57
   %60 = getelementptr i8, ptr %59, i64 -360
   store ptr %14, ptr %60, align 8, !tbaa !186
   %.sroa.11.0..sroa_idx = getelementptr i8, ptr %59, i64 -352
@@ -9702,7 +9702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %61 = load ptr, ptr %9, align 8, !tbaa !309
   %62 = load i64, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !310
   %63 = load ptr, ptr %61, align 8, !tbaa !136
-  %64 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %63, i64 %62
+  %64 = getelementptr [208 x i8], ptr %63, i64 %62
   %65 = getelementptr i8, ptr %64, i64 -176
   %66 = getelementptr i8, ptr %53, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !311
@@ -9735,7 +9735,7 @@ define dso_local void @_ZN7cmState25CreatePolicyScopeSnapshotERK15cmStateSnapsho
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !153
   %7 = load ptr, ptr %.sroa.01.0.copyload, align 8, !tbaa !136
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %.sroa.22.0.copyload
+  %8 = getelementptr [208 x i8], ptr %7, i64 %.sroa.22.0.copyload
   %9 = getelementptr i8, ptr %8, i64 -208
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %9, i64 208, i1 false)
@@ -9744,7 +9744,7 @@ define dso_local void @_ZN7cmState25CreatePolicyScopeSnapshotERK15cmStateSnapsho
   %11 = extractvalue { ptr, i64 } %10, 0
   %12 = extractvalue { ptr, i64 } %10, 1
   %13 = load ptr, ptr %11, align 8, !tbaa !136
-  %14 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %13, i64 %12
+  %14 = getelementptr [208 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -128
   store i32 7, ptr %15, align 8, !tbaa !294
   %16 = getelementptr i8, ptr %14, i64 -124
@@ -9754,7 +9754,7 @@ define dso_local void @_ZN7cmState25CreatePolicyScopeSnapshotERK15cmStateSnapsho
   %19 = getelementptr i8, ptr %14, i64 -96
   %20 = load i64, ptr %19, align 8, !tbaa !307
   %21 = load ptr, ptr %18, align 8, !tbaa !145
-  %22 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %21, i64 %20
+  %22 = getelementptr [360 x i8], ptr %21, i64 %20
   %23 = getelementptr i8, ptr %22, i64 -360
   store ptr %11, ptr %23, align 8, !tbaa !186
   %.sroa.9.0..sroa_idx = getelementptr i8, ptr %22, i64 -352
@@ -9762,7 +9762,7 @@ define dso_local void @_ZN7cmState25CreatePolicyScopeSnapshotERK15cmStateSnapsho
   %24 = load ptr, ptr %6, align 8, !tbaa !309
   %25 = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !310
   %26 = load ptr, ptr %24, align 8, !tbaa !136
-  %27 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %26, i64 %25
+  %27 = getelementptr [208 x i8], ptr %26, i64 %25
   %28 = getelementptr i8, ptr %27, i64 -176
   %29 = getelementptr i8, ptr %14, i64 -144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !311
@@ -9778,17 +9778,17 @@ define dso_local void @_ZN7cmState3PopERK15cmStateSnapshot(ptr dead_on_unwind no
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !153
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.054.0.copyload, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !131
-  %7 = getelementptr i64, ptr %6, i64 %.sroa.11.0.copyload
+  %7 = getelementptr [8 x i8], ptr %6, i64 %.sroa.11.0.copyload
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !153
   %10 = load ptr, ptr %.sroa.054.0.copyload, align 8, !tbaa !136
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %9
+  %11 = getelementptr [208 x i8], ptr %10, i64 %9
   %12 = getelementptr i8, ptr %11, i64 -104
   %13 = load ptr, ptr %12, align 8, !tbaa !306
   %14 = getelementptr i8, ptr %11, i64 -96
   %15 = load i64, ptr %14, align 8, !tbaa !307
   %16 = load ptr, ptr %13, align 8, !tbaa !145
-  %17 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %16, i64 %15
+  %17 = getelementptr [360 x i8], ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 -360
   %19 = getelementptr i8, ptr %17, i64 -280
   %20 = getelementptr i8, ptr %17, i64 -272
@@ -9843,7 +9843,7 @@ define dso_local void @_ZN7cmState3PopERK15cmStateSnapshot(ptr dead_on_unwind no
   store ptr %.sroa.054.0.copyload, ptr %18, align 8, !tbaa !186
   %.sroa.19.0..sroa_idx38 = getelementptr i8, ptr %17, i64 -352
   store i64 %9, ptr %.sroa.19.0..sroa_idx38, align 8, !tbaa !153
-  %64 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.11.0.copyload
+  %64 = getelementptr [208 x i8], ptr %10, i64 %.sroa.11.0.copyload
   %65 = getelementptr i8, ptr %64, i64 -124
   %66 = load i8, ptr %65, align 4, !tbaa !303, !range !126, !noundef !127
   %67 = trunc nuw i8 %66 to i1
@@ -9926,8 +9926,8 @@ _ZNSt6vectorI13cmDefinitionsSaIS0_EE8pop_backEv.exit.i: ; preds = %104, %_ZNSt10
 
 _ZN12cmLinkedTreeI13cmDefinitionsE3PopENS1_8iteratorE.exit: ; preds = %_ZNSt6vectorI13cmDefinitionsSaIS0_EE8pop_backEv.exit.i, %81, %78
   %110 = phi ptr [ %.pre, %_ZNSt6vectorI13cmDefinitionsSaIS0_EE8pop_backEv.exit.i ], [ %10, %81 ], [ %10, %78 ]
-  %111 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %110, i64 %.sroa.11.0.copyload
-  %112 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %110, i64 %9
+  %111 = getelementptr [208 x i8], ptr %110, i64 %.sroa.11.0.copyload
+  %112 = getelementptr [208 x i8], ptr %110, i64 %9
   %.sroa.29.0..sroa_idx = getelementptr i8, ptr %112, i64 -112
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !153
   %113 = getelementptr i8, ptr %111, i64 -112
@@ -13422,7 +13422,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !140
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !141
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !144
   ret void
 
@@ -13895,7 +13895,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %5, align 8, !tbaa !131
   store ptr %29, ptr %6, align 8, !tbaa !166
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !132
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -13974,7 +13974,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_
 
 _ZNKSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE.exit.i.i.i.i.i.i.i: ; preds = %28
   %34 = urem i64 %30, %11
-  %35 = getelementptr inbounds nuw ptr, ptr %27, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %34
   store ptr %12, ptr %35, align 8, !tbaa !446
   br label %_ZNSt16allocator_traitsISaI13cmDefinitionsEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
 
@@ -14081,7 +14081,7 @@ _ZNKSt6vectorI13cmDefinitionsSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 _ZNKSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE.exit.i.i.i.i.i.i.i: ; preds = %41
   %47 = urem i64 %43, %25
-  %48 = getelementptr inbounds nuw ptr, ptr %40, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %47
   store ptr %26, ptr %48, align 8, !tbaa !446
   br label %_ZNSt16allocator_traitsISaI13cmDefinitionsEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.exit
 
@@ -14151,7 +14151,7 @@ _ZNSt16allocator_traitsISaI13cmDefinitionsEE9constructIS0_JS0_EEEvRS1_PT_DpOT0_.
 
 _ZNKSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %69
   %75 = urem i64 %71, %53
-  %76 = getelementptr inbounds nuw ptr, ptr %68, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %75
   store ptr %54, ptr %76, align 8, !tbaa !446, !noalias !452
   br label %_ZSt19__relocate_object_aI13cmDefinitionsS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -14229,7 +14229,7 @@ _ZNSt6vectorI13cmDefinitionsSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds =
 
 _ZNKSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE.exit.i.i.i.i.i.i.i.i.i.i.i24: ; preds = %100
   %106 = urem i64 %102, %84
-  %107 = getelementptr inbounds nuw ptr, ptr %99, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %106
   store ptr %85, ptr %107, align 8, !tbaa !446, !noalias !459
   br label %_ZSt19__relocate_object_aI13cmDefinitionsS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i25
 
@@ -14261,7 +14261,7 @@ _ZNSt6vectorI13cmDefinitionsSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28: ; preds
 _ZNSt12_Vector_baseI13cmDefinitionsSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI13cmDefinitionsSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit28, %112
   store ptr %20, ptr %0, align 8, !tbaa !133
   store ptr %.0.lcssa.i.i.i27, ptr %4, align 8, !tbaa !134
-  %116 = getelementptr inbounds nuw %class.cmDefinitions, ptr %20, i64 %16
+  %116 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %116, ptr %111, align 8, !tbaa !135
   ret void
 }
@@ -14834,7 +14834,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %35
   %41 = load ptr, ptr %40, align 8, !tbaa !446
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %.critedge28, label %42
@@ -15021,7 +15021,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %2, ptr %32, align 8, !tbaa !471
   %33 = load ptr, ptr %0, align 8, !tbaa !16
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !446
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -15047,7 +15047,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %46 = load i64, ptr %45, align 8, !tbaa !471
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !446
   br label %49
 
@@ -15257,7 +15257,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !471
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !446
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -15272,7 +15272,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !446
   br label %28
 
@@ -15489,7 +15489,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !446
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -15645,7 +15645,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !471
   %33 = load ptr, ptr %0, align 8, !tbaa !25
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !446
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -15671,7 +15671,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !471
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !446
   br label %49
 
@@ -15842,7 +15842,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !471
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !446
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -15857,7 +15857,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !446
   br label %28
 
@@ -16804,7 +16804,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !27
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !25
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !446
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS5_m.exit, label %34
@@ -16904,7 +16904,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %12 = load i64, ptr %11, align 8, !tbaa !23
   %13 = urem i64 %7, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !16
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !446
   %.not.i.i = icmp eq ptr %16, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !125
@@ -17055,7 +17055,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !23
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !16
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !446
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -17312,7 +17312,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !23
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !16
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !446
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFbRKSt6vectorI18cmListFileArgumentSaISA_EER17cmExecutionStatusEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -17432,7 +17432,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 
 21:                                               ; preds = %13
   %22 = lshr i64 %14, 1
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge14, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_SF_SF_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   br label %25
@@ -17543,7 +17543,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08
   store ptr %14, ptr %4, align 8, !tbaa !31
   %20 = load ptr, ptr %19, align 8, !tbaa !125
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -17851,9 +17851,9 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.047 = phi i64 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -17880,8 +17880,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   %.0.i.i.i = phi i32 [ %22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ %.0.i6.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i ]
   %24 = icmp slt i32 %.0.i.i.i, 0
   %spec.select = select i1 %24, i64 %13, i64 %11
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %spec.select
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.047
+  %25 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds [32 x i8], ptr %0, i64 %.047
   %27 = load ptr, ptr %26, align 8, !tbaa !125
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
@@ -17983,8 +17983,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %33
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [32 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %70 = load ptr, ptr %69, align 8, !tbaa !125
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = icmp eq ptr %70, %71
@@ -18154,7 +18154,7 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !34
   %12 = load i64, ptr %7, align 8, !tbaa !34
@@ -18182,7 +18182,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basi
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.027
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.027
   %21 = load ptr, ptr %20, align 8, !tbaa !125
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22
@@ -18264,7 +18264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %27
 
 .critedge:                                        ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %.027, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ]
-  %46 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %46 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %47 = load ptr, ptr %46, align 8, !tbaa !125
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %47, %48
@@ -19251,7 +19251,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %42 = load i64, ptr %41, align 8, !tbaa !23
   %43 = urem i64 %37, %42
   %44 = load ptr, ptr %0, align 8, !tbaa !16
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !446
   %.not.i25 = icmp eq ptr %46, null
   br i1 %.not.i25, label %.critedge, label %47
@@ -19338,7 +19338,7 @@ _ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIK
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFbRKSt6vectorI18cmListFileArgumentSaISA_EER17cmExecutionStatusEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSL_15_Hash_node_baseEPNSL_10_Hash_nodeISJ_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !16
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !446
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8, !tbaa !150
@@ -19358,7 +19358,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   br i1 %.not9.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFbRKSt6vectorI18cmListFileArgumentSaISA_EER17cmExecutionStatusEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSL_10_Hash_nodeISJ_Lb1EEEm.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %16
   store ptr %7, ptr %18, align 8, !tbaa !446
   br label %._crit_edge.i
 
@@ -19388,7 +19388,7 @@ define linkonce_odr dso_local ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIc
   br i1 %.not17, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFbRKSt6vectorI18cmListFileArgumentSaISA_EER17cmExecutionStatusEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSL_10_Hash_nodeISJ_Lb1EEEm.exit, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %29
   store ptr %2, ptr %31, align 8, !tbaa !446
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFbRKSt6vectorI18cmListFileArgumentSaISA_EER17cmExecutionStatusEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSL_10_Hash_nodeISJ_Lb1EEEm.exit
 
@@ -19706,7 +19706,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %5, align 8, !tbaa !131
   store ptr %29, ptr %6, align 8, !tbaa !166
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !132
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -19775,7 +19775,7 @@ _ZNSt6vectorIN13cmStateDetail16SnapshotDataTypeESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt6vectorIN13cmStateDetail16SnapshotDataTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %57, %_ZNSt6vectorIN13cmStateDetail16SnapshotDataTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %52, ptr %0, align 8, !tbaa !136
   store ptr %56, ptr %32, align 8, !tbaa !168
-  %58 = getelementptr inbounds nuw %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [208 x i8], ptr %52, i64 %50
   store ptr %58, ptr %34, align 8, !tbaa !137
   br label %_ZNSt6vectorIN13cmStateDetail16SnapshotDataTypeESaIS1_EE9push_backEOS1_.exit
 
@@ -19851,7 +19851,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %5, align 8, !tbaa !131
   store ptr %29, ptr %6, align 8, !tbaa !166
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !132
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -19961,7 +19961,7 @@ _ZNSt6vectorIN13cmStateDetail29BuildsystemDirectoryStateTypeESaIS1_EE11_S_reloca
 _ZNSt12_Vector_baseIN13cmStateDetail29BuildsystemDirectoryStateTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN13cmStateDetail29BuildsystemDirectoryStateTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %28
   store ptr %20, ptr %0, align 8, !tbaa !145
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !146
-  %32 = getelementptr inbounds nuw %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [360 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !148
   ret void
 }
@@ -20197,7 +20197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit17: ; preds = %
   %134 = getelementptr inbounds nuw i8, ptr %119, i64 72
   %135 = load i64, ptr %134, align 8, !tbaa !471
   %136 = urem i64 %135, %116
-  %137 = getelementptr inbounds nuw ptr, ptr %132, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %136
   store ptr %117, ptr %137, align 8, !tbaa !446
   br label %_ZN13cmPropertyMapC2EOS_.exit
 
@@ -20284,7 +20284,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %5, align 8, !tbaa !131
   store ptr %29, ptr %6, align 8, !tbaa !166
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !132
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -20524,7 +20524,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !140
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !141
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !144
   ret void
 }

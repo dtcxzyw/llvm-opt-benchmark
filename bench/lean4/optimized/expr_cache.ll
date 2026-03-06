@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 module asm ".globl _ZSt21ios_base_library_initv"
 
-%"struct.lean::expr_cache::entry" = type { %"class.lean::optional", %"class.lean::expr" }
-%"class.lean::optional" = type { i8, %union.anon }
-%union.anon = type { %"class.lean::expr" }
 %"class.lean::expr" = type { %"class.lean::object_ref" }
 %"class.lean::object_ref" = type { ptr }
 
@@ -34,7 +31,7 @@ define hidden noundef ptr @_ZN4lean10expr_cache4findERKNS_4exprE(ptr noundef non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext i32 %13 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !23
-  %17 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %15
   %18 = load i8, ptr %17, align 8, !tbaa !24, !range !27, !noundef !28
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %27
@@ -46,7 +43,7 @@ define hidden noundef ptr @_ZN4lean10expr_cache4findERKNS_4exprE(ptr noundef non
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %14, align 8, !tbaa !23
-  %25 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %24, i64 %15
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br label %27
 
@@ -74,13 +71,13 @@ define hidden void @_ZN4lean10expr_cache6insertERKNS_4exprES3_(ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = zext i32 %14 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !23
-  %18 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %16
   %19 = load i8, ptr %18, align 8, !tbaa !24, !range !27, !noundef !28
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread, label %22
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread:   ; preds = %3
-  %21 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %17, i64 %16
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %16
   br label %53
 
 22:                                               ; preds = %3
@@ -96,7 +93,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread17: ; preds = %22
   store i32 %14, ptr %25, align 4, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store ptr %28, ptr %24, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %17, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %16
   br label %_ZN4lean10object_refD2Ev.exit.i
 
 30:                                               ; preds = %22
@@ -139,22 +136,22 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %46, %_ZNKS
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread18: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %43, ptr %23, align 8, !tbaa !32
   store ptr %47, ptr %24, align 8, !tbaa !29
-  %48 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store ptr %48, ptr %26, align 8, !tbaa !30
-  %49 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %17, i64 %16
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %16
   br label %_ZN4lean10object_refD2Ev.exit.i
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %34) #14
   %.pre.pre = load ptr, ptr %15, align 8, !tbaa !23
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %.pre.pre, i64 %16
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre, i64 %16
   %.pre8.pre = load i8, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !24, !range !27
   %50 = trunc nuw i8 %.pre8.pre to i1
   store ptr %43, ptr %23, align 8, !tbaa !32
   store ptr %47, ptr %24, align 8, !tbaa !29
-  %51 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store ptr %51, ptr %26, align 8, !tbaa !30
-  %52 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %.pre.pre, i64 %16
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre, i64 %16
   br i1 %50, label %53, label %_ZN4lean10object_refD2Ev.exit.i
 
 53:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -220,7 +217,7 @@ _ZN4lean10object_refD2Ev.exit.i:                  ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZN4lean8optionalINS_4exprEEaSERKS1_.exit:        ; preds = %_ZN4lean10object_refD2Ev.exit.i, %76, %78, %79
   %80 = load ptr, ptr %15, align 8, !tbaa !23
-  %81 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %80, i64 %16
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %16
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %2, align 8, !tbaa !3
   %84 = ptrtoint ptr %83 to i64
@@ -308,7 +305,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %._crit_edge, %_
   %10 = load i32, ptr %.sroa.011.015, align 4, !tbaa !31
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %7, align 8, !tbaa !23
-  %13 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %11
   %14 = load i8, ptr %13, align 8, !tbaa !24, !range !27, !noundef !28
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %_ZN4lean8optionalINS_4exprEED2Ev.exit
@@ -350,7 +347,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit:            ; preds = %27, %26, %24, %16, 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN4lean4exprC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %31 = load ptr, ptr %7, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %31, i64 %11
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = ptrtoint ptr %34 to i64

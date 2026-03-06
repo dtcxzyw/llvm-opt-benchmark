@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.pthread_attr_t = type { i64, [48 x i8] }
-%struct.opj_tls_key_val_t = type { i32, ptr, ptr }
-%struct.opj_worker_thread_t = type { ptr, ptr, i32, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @opj_has_thread_support() local_unnamed_addr #0 {
@@ -223,7 +221,7 @@ define hidden ptr @opj_tls_get(ptr noundef readonly captures(none) %0, i32 nound
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %7
@@ -261,7 +259,7 @@ define hidden range(i32 0, 2) i32 @opj_tls_set(ptr noundef captures(none) %0, i3
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %.pre, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8, !tbaa !17
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %9
@@ -281,7 +279,7 @@ define hidden range(i32 0, 2) i32 @opj_tls_set(ptr noundef captures(none) %0, i3
 
 20:                                               ; preds = %17, %14
   %21 = phi ptr [ %.pre45, %17 ], [ %.pre, %14 ]
-  %22 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %2, ptr %23, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -300,7 +298,7 @@ define hidden range(i32 0, 2) i32 @opj_tls_set(ptr noundef captures(none) %0, i3
   store ptr %28, ptr %0, align 8, !tbaa !14
   %30 = load i32, ptr %5, align 8, !tbaa !11
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.opj_tls_key_val_t, ptr %28, i64 %31
+  %32 = getelementptr inbounds [24 x i8], ptr %28, i64 %31
   store i32 %1, ptr %32, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8, !tbaa !19
@@ -399,7 +397,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 32:                                               ; preds = %83, %30
   %33 = phi ptr [ %28, %30 ], [ %84, %83 ]
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %83 ]
-  %34 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %indvars.iv.i
   store ptr %3, ptr %34, align 8, !tbaa !34
   %35 = call ptr @opj_calloc(i64 noundef 1, i64 noundef 40) #8
   %.not.i51.i = icmp eq ptr %35, null
@@ -416,14 +414,14 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 
 .loopexit67.i:                                    ; preds = %32, %38
   %39 = load ptr, ptr %3, align 8, !tbaa !32
-  %40 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %indvars.iv.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr null, ptr %41, align 8, !tbaa !38
   br label %.loopexit.sink.split.i
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %3, align 8, !tbaa !32
-  %44 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %indvars.iv.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %35, ptr %45, align 8, !tbaa !38
   %46 = call ptr @opj_malloc(i64 noundef 48) #8
@@ -441,7 +439,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 
 .loopexit68.i:                                    ; preds = %42, %49
   %50 = load ptr, ptr %3, align 8, !tbaa !32
-  %51 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %50, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %50, i64 %indvars.iv.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr null, ptr %52, align 8, !tbaa !39
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -456,7 +454,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %3, align 8, !tbaa !32
-  %59 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %58, i64 %indvars.iv.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr %46, ptr %60, align 8, !tbaa !39
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -484,7 +482,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 .loopexit69.i:                                    ; preds = %57, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %70 = load ptr, ptr %3, align 8, !tbaa !32
-  %71 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %70, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [40 x i8], ptr %70, i64 %indvars.iv.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr null, ptr %72, align 8, !tbaa !41
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -500,7 +498,7 @@ opj_cond_create.exit.thread.i:                    ; preds = %23, %18
 
 opj_mutex_destroy.exit61.i:                       ; preds = %75, %.loopexit69.i
   %77 = phi ptr [ %70, %.loopexit69.i ], [ %.pre.i, %75 ]
-  %78 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %77, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %indvars.iv.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !39
   %.not.i62.i = icmp eq ptr %80, null
@@ -514,7 +512,7 @@ opj_mutex_destroy.exit61.i:                       ; preds = %75, %.loopexit69.i
 83:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %84 = load ptr, ptr %3, align 8, !tbaa !32
-  %85 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %84, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %indvars.iv.i
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %62, ptr %86, align 8, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -618,22 +616,22 @@ opj_thread_pool_wait_completion.exit:             ; preds = %6, %._crit_edge.i
 .lr.ph:                                           ; preds = %opj_thread_pool_wait_completion.exit, %opj_mutex_destroy.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %opj_mutex_destroy.exit ], [ 0, %opj_thread_pool_wait_completion.exit ]
   %31 = load ptr, ptr %0, align 8, !tbaa !32
-  %32 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !38
   %35 = call i32 @pthread_mutex_lock(ptr noundef %34) #8
   %36 = load ptr, ptr %0, align 8, !tbaa !32
-  %37 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !39
   %40 = call i32 @pthread_cond_signal(ptr noundef %39) #8
   %41 = load ptr, ptr %0, align 8, !tbaa !32
-  %42 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !38
   %45 = call i32 @pthread_mutex_unlock(ptr noundef %44) #8
   %46 = load ptr, ptr %0, align 8, !tbaa !32
-  %47 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -643,7 +641,7 @@ opj_thread_pool_wait_completion.exit:             ; preds = %6, %._crit_edge.i
   call void @opj_free(ptr noundef %49) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = load ptr, ptr %0, align 8, !tbaa !32
-  %54 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8, !tbaa !39
   %.not.i = icmp eq ptr %56, null
@@ -657,7 +655,7 @@ opj_thread_pool_wait_completion.exit:             ; preds = %6, %._crit_edge.i
 
 opj_cond_destroy.exit:                            ; preds = %.lr.ph, %57
   %59 = phi ptr [ %53, %.lr.ph ], [ %.pre48, %57 ]
-  %60 = getelementptr inbounds nuw %struct.opj_worker_thread_t, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !38
   %.not.i34 = icmp eq ptr %62, null
@@ -729,7 +727,7 @@ opj_mutex_destroy.exit38:                         ; preds = %opj_cond_destroy.ex
   %86 = phi i32 [ %95, %94 ], [ %84, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %.preheader.i ]
   %87 = load ptr, ptr %82, align 8, !tbaa !14
-  %88 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %87, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %indvars.iv.i
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !21
   %.not13.i = icmp eq ptr %90, null
@@ -1048,7 +1046,7 @@ opj_thread_pool_get_next_job.exit.thread:         ; preds = %opj_thread_pool_get
   %71 = phi i32 [ %80, %79 ], [ %69, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %.preheader.i ]
   %72 = load ptr, ptr %3, align 8, !tbaa !14
-  %73 = getelementptr inbounds nuw %struct.opj_tls_key_val_t, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %indvars.iv.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !21
   %.not13.i = icmp eq ptr %75, null

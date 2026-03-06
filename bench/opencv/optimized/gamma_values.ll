@@ -371,7 +371,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %53
           to label %.noexc103 unwind label %127
 
 .noexc103:                                        ; preds = %59
-  %62 = getelementptr inbounds nuw double, ptr %61, i64 %56
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %56
   store double 0.000000e+00, ptr %61, align 8, !tbaa !44
   %63 = getelementptr i8, ptr %61, i64 8
   %64 = add nsw i64 %56, -1
@@ -396,7 +396,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc103
           to label %.noexc115 unwind label %129
 
 .noexc115:                                        ; preds = %67
-  %72 = getelementptr inbounds nuw double, ptr %71, i64 %56
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %56
   store double 0.000000e+00, ptr %71, align 8, !tbaa !44
   %73 = getelementptr i8, ptr %71, i64 8
   %74 = add nsw i64 %56, -1
@@ -425,7 +425,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121: ; preds = %_ZNSt6vecto
           to label %.noexc128 unwind label %131
 
 .noexc128:                                        ; preds = %77
-  %82 = getelementptr inbounds nuw double, ptr %81, i64 %56
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %56
   store double 0.000000e+00, ptr %81, align 8, !tbaa !44
   %83 = getelementptr i8, ptr %81, i64 8
   %84 = add nsw i64 %56, -1
@@ -465,15 +465,15 @@ _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %.noexc128, %_ZSt6fi
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %..loopexit_crit_edge.us ], [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit133 ]
   %.065305.us = phi i64 [ %indvars.iv.next, %..loopexit_crit_edge.us ], [ 0, %_ZNSt6vectorIdSaIdEED2Ev.exit133 ]
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
-  %103 = getelementptr inbounds nuw double, ptr %.sroa.0220.0, i64 %indvars.iv.next309
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0220.0, i64 %indvars.iv.next309
   %104 = load double, ptr %103, align 8, !tbaa !44
   %105 = fsub double %104, %102
   %106 = fdiv double %105, %98
-  %107 = getelementptr inbounds nuw double, ptr %.sroa.0212.0, i64 %indvars.iv.next309
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0212.0, i64 %indvars.iv.next309
   %108 = load double, ptr %107, align 8, !tbaa !44
   %109 = fsub double %108, %101
   %110 = fdiv double %109, %98
-  %111 = getelementptr inbounds nuw double, ptr %.sroa.0206.0, i64 %indvars.iv.next309
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0206.0, i64 %indvars.iv.next309
   %112 = load double, ptr %111, align 8, !tbaa !44
   %113 = fsub double %112, %100
   %114 = fdiv double %113, %98
@@ -486,14 +486,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %.noexc128, %_ZSt6fi
   %.068302.us = phi i32 [ 0, %.lr.ph.us ], [ %124, %116 ]
   %117 = uitofp nneg i32 %.068302.us to double
   %118 = tail call double @llvm.fmuladd.f64(double %117, double %106, double %102)
-  %119 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   store double %118, ptr %119, align 8, !tbaa !44
   %120 = tail call double @llvm.fmuladd.f64(double %117, double %110, double %101)
-  %121 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   store double %120, ptr %121, align 8, !tbaa !44
   %122 = tail call double @llvm.fmuladd.f64(double %117, double %114, double %100)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %123 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   store double %122, ptr %123, align 8, !tbaa !44
   %124 = add nuw nsw i32 %.068302.us, 1
   %exitcond.not = icmp eq i32 %124, %97
@@ -529,10 +529,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %.noexc128, %_ZSt6fi
 
 133:                                              ; preds = %.split.us
   %134 = sext i32 %.us-phi to i64
-  %135 = getelementptr inbounds double, ptr %89, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %89, i64 %134
   %136 = add nsw i32 %.us-phi, -1
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds nuw double, ptr %89, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %137
   %139 = load double, ptr %138, align 8, !tbaa !44
   %.not6.i.i.i.i = icmp eq ptr %135, %90
   br i1 %.not6.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -545,8 +545,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %.noexc128, %_ZSt6fi
   br i1 %.not.i.i.i.i134, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !51
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %133
-  %141 = getelementptr inbounds double, ptr %88, i64 %134
-  %142 = getelementptr inbounds nuw double, ptr %88, i64 %137
+  %141 = getelementptr inbounds [8 x i8], ptr %88, i64 %134
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %137
   %143 = load double, ptr %142, align 8, !tbaa !44
   %.not6.i.i.i.i135 = icmp eq ptr %141, %87
   br i1 %.not6.i.i.i.i135, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139, label %.lr.ph.i.i.i.i136
@@ -559,8 +559,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
   br i1 %.not.i.i.i.i138, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139, label %.lr.ph.i.i.i.i136, !llvm.loop !51
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit139: ; preds = %.lr.ph.i.i.i.i136, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit
-  %145 = getelementptr inbounds double, ptr %91, i64 %134
-  %146 = getelementptr inbounds nuw double, ptr %91, i64 %137
+  %145 = getelementptr inbounds [8 x i8], ptr %91, i64 %134
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %137
   %147 = load double, ptr %146, align 8, !tbaa !44
   %.not6.i.i.i.i140 = icmp eq ptr %145, %92
   br i1 %.not6.i.i.i.i140, label %_ZNSt6vectorIdSaIdEED2Ev.exit150, label %.lr.ph.i.i.i.i141

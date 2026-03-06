@@ -1088,7 +1088,7 @@ define internal range(i32 0, 16) i32 @dissect_iso14443_cmd_type_wupb(ptr noundef
 71:                                               ; preds = %64
   %72 = zext nneg i8 %66 to i64
   %73 = load i32, ptr @hf_iso14443_max_frame_size, align 4
-  %74 = getelementptr i16, ptr @code_to_len, i64 %72
+  %74 = getelementptr [2 x i8], ptr @code_to_len, i64 %72
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
   %77 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %73, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef %76)
@@ -1351,7 +1351,7 @@ define internal range(i32 0, 258) i32 @dissect_iso14443_cmd_type_ats(ptr noundef
 21:                                               ; preds = %10
   %22 = zext nneg i8 %16 to i64
   %23 = load i32, ptr @hf_iso14443_fsd, align 4
-  %24 = getelementptr i16, ptr @code_to_len, i64 %22
+  %24 = getelementptr [2 x i8], ptr @code_to_len, i64 %22
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %26)
@@ -1426,7 +1426,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %21, %10
 75:                                               ; preds = %59
   %76 = zext nneg i8 %71 to i64
   %77 = load i32, ptr @hf_iso14443_fsc, align 4
-  %78 = getelementptr i16, ptr @code_to_len, i64 %76
+  %78 = getelementptr [2 x i8], ptr @code_to_len, i64 %76
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
   %81 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %80)
@@ -1599,7 +1599,7 @@ define internal i32 @dissect_iso14443_cmd_type_attrib(ptr noundef %0, ptr nounde
 44:                                               ; preds = %10
   %45 = zext nneg i8 %39 to i64
   %46 = load i32, ptr @hf_iso14443_max_frame_size, align 4
-  %47 = getelementptr i16, ptr @code_to_len, i64 %45
+  %47 = getelementptr [2 x i8], ptr @code_to_len, i64 %45
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %46, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %49)

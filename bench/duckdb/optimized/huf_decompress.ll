@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.duckdb_zstd::algo_time_t" = type { i32, i32 }
-%"struct.duckdb_zstd::HUF_DEltX1" = type { i8, i8 }
-%"struct.duckdb_zstd::sortedSymbol_t" = type { i8 }
-%"struct.duckdb_zstd::HUF_DEltX2" = type { i16, i8, i8 }
 %"struct.duckdb_zstd::BIT_DStream_t" = type { i64, i32, ptr, ptr, ptr }
 %"struct.duckdb_zstd::HUF_DecompressFastArgs" = type { [4 x ptr], [4 x ptr], [4 x i64], ptr, ptr, ptr, [4 x ptr] }
 
@@ -93,9 +90,9 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX1_wkspEPjPKvmPvmi(ptr nound
 .lr.ph39.i:                                       ; preds = %.lr.ph39.i, %.lr.ph39.preheader.i
   %indvars.iv46.i = phi i64 [ %28, %.lr.ph39.preheader.i ], [ %indvars.iv.next47.i, %.lr.ph39.i ]
   %44 = sub nuw nsw i64 %indvars.iv46.i, %29
-  %45 = getelementptr inbounds nuw i32, ptr %3, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !3
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv46.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv46.i
   store i32 %46, ptr %47, align 4, !tbaa !3
   %indvars.iv.next47.i = add nsw i64 %indvars.iv46.i, -1
   %indvars.i = trunc i64 %indvars.iv.next47.i to i32
@@ -138,10 +135,10 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.0149184 = phi i32 [ 0, %.lr.ph ], [ %60, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = add i32 %59, %.0149184
-  %61 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store i32 %.0149184, ptr %61, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -174,7 +171,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %70 = load i8, ptr %69, align 1, !tbaa !7
   %71 = zext i8 %70 to i64
   %72 = trunc i64 %68 to i8
-  %73 = getelementptr inbounds nuw i32, ptr %55, i64 %71
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %71
   %74 = load i32, ptr %73, align 4, !tbaa !3
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4, !tbaa !3
@@ -196,7 +193,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %82 = load i8, ptr %81, align 1, !tbaa !7
   %83 = zext i8 %82 to i64
   %84 = trunc i64 %indvars.iv230 to i8
-  %85 = getelementptr inbounds nuw i32, ptr %65, i64 %83
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %83
   %86 = load i32, ptr %85, align 4, !tbaa !3
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 4, !tbaa !3
@@ -218,7 +215,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %indvars.iv283 = phi i64 [ 1, %.lr.ph216 ], [ %indvars.iv.next284, %.loopexit ]
   %.0161212 = phi i32 [ %91, %.lr.ph216 ], [ %160, %.loopexit ]
   %.0162210 = phi i32 [ 0, %.lr.ph216 ], [ %162, %.loopexit ]
-  %95 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv283
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv283
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %97 = trunc nuw i64 %indvars.iv283 to i32
   %98 = shl nuw i32 1, %97
@@ -292,7 +289,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %indvars.iv262 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next263, %.lr.ph201 ]
   %gep306 = getelementptr i8, ptr %invariant.gep305, i64 %indvars.iv262
   %120 = load i8, ptr %gep306, align 1, !tbaa !7
-  %121 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX1", ptr %9, i64 %indvars.iv264
+  %121 = getelementptr inbounds [2 x i8], ptr %9, i64 %indvars.iv264
   store i8 %102, ptr %121, align 1, !tbaa !7
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 1
   store i8 %120, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !7
@@ -306,7 +303,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %indvars.iv253 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next254, %.lr.ph198 ]
   %gep304 = getelementptr i8, ptr %invariant.gep303, i64 %indvars.iv253
   %122 = load i8, ptr %gep304, align 1, !tbaa !7
-  %123 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX1", ptr %9, i64 %indvars.iv255
+  %123 = getelementptr inbounds [2 x i8], ptr %9, i64 %indvars.iv255
   store i8 %102, ptr %123, align 1, !tbaa !7
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 1
   store i8 %122, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !7
@@ -328,7 +325,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %128 = shl nuw nsw i64 %127, 8
   %129 = or disjoint i64 %128, %111
   %130 = mul nuw i64 %129, 281479271743489
-  %131 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX1", ptr %9, i64 %indvars.iv246
+  %131 = getelementptr inbounds [2 x i8], ptr %9, i64 %indvars.iv246
   store i64 %130, ptr %131, align 1, !tbaa !17
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, 4
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
@@ -344,7 +341,7 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   %135 = shl nuw nsw i64 %134, 8
   %136 = or disjoint i64 %135, %107
   %137 = mul nuw i64 %136, 281479271743489
-  %138 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX1", ptr %9, i64 %indvars.iv237
+  %138 = getelementptr inbounds [2 x i8], ptr %9, i64 %indvars.iv237
   store i64 %137, ptr %138, align 1, !tbaa !17
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i64 %137, ptr %139, align 1, !tbaa !17
@@ -380,12 +377,12 @@ _ZN11duckdb_zstdL16HUF_rescaleStatsEPhPjjjj.exit: ; preds = %16
   br i1 %143, label %.lr.ph204, label %._crit_edge205
 
 .lr.ph204:                                        ; preds = %147
-  %153 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX1", ptr %9, i64 %indvars.iv276
+  %153 = getelementptr inbounds [2 x i8], ptr %9, i64 %indvars.iv276
   br label %154
 
 154:                                              ; preds = %.lr.ph204, %154
   %indvars.iv271 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next272, %154 ]
-  %155 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %153, i64 %indvars.iv271
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %indvars.iv271
   store i64 %152, ptr %155, align 1, !tbaa !17
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i64 %152, ptr %156, align 1, !tbaa !17
@@ -468,7 +465,7 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %indvars.iv154 = phi i32 [ %indvars.iv.next155, %27 ], [ %26, %25 ]
   %.089 = phi i32 [ %32, %27 ], [ %23, %25 ]
   %28 = zext i32 %.089 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = icmp eq i32 %30, 0
   %32 = add i32 %.089, -1
@@ -493,10 +490,10 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.094113 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %.lr.ph ]
-  %37 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !3
   %39 = add i32 %38, %.094113
-  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %.094113, ptr %40, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -506,7 +503,7 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %.094.lcssa = phi i32 [ 0, %.preheader ], [ %39, %.lr.ph ]
   store i32 %.094.lcssa, ptr %14, align 4, !tbaa !3
   %41 = zext i32 %35 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %41
   store i32 %.094.lcssa, ptr %42, align 4, !tbaa !3
   %43 = load i32, ptr %8, align 4, !tbaa !3
   %.not = icmp eq i32 %43, 0
@@ -522,13 +519,13 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv156
   %47 = load i8, ptr %46, align 1, !tbaa !7
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %14, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !3
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4, !tbaa !3
   %52 = trunc i64 %indvars.iv156 to i8
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.duckdb_zstd::sortedSymbol_t", ptr %44, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 %53
   store i8 %52, ptr %54, align 1, !tbaa !26
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
@@ -547,13 +544,13 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
   %indvars.iv161 = phi i64 [ 1, %.lr.ph123.preheader ], [ %indvars.iv.next162, %.lr.ph123 ]
   %.091120 = phi i32 [ 0, %.lr.ph123.preheader ], [ %62, %.lr.ph123 ]
-  %57 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv161
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv161
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = trunc nuw i64 %indvars.iv161 to i32
   %60 = add i32 %56, %59
   %61 = shl i32 %58, %60
   %62 = add i32 %61, %.091120
-  %63 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv161
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv161
   store i32 %.091120, ptr %63, align 4, !tbaa !3
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count165
@@ -574,16 +571,16 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 
 .lr.ph127.us:                                     ; preds = %.lr.ph127.us.preheader, %._crit_edge128.us
   %indvars.iv175 = phi i64 [ %67, %.lr.ph127.us.preheader ], [ %indvars.iv.next176, %._crit_edge128.us ]
-  %69 = getelementptr inbounds nuw [13 x i32], ptr %3, i64 %indvars.iv175
+  %69 = getelementptr inbounds nuw [52 x i8], ptr %3, i64 %indvars.iv175
   %70 = trunc nuw i64 %indvars.iv175 to i32
   br label %71
 
 71:                                               ; preds = %.lr.ph127.us, %71
   %indvars.iv167 = phi i64 [ 1, %.lr.ph127.us ], [ %indvars.iv.next168, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv167
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv167
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = lshr i32 %73, %70
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv167
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv167
   store i32 %74, ptr %75, align 4, !tbaa !3
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count171
@@ -603,16 +600,16 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 
 .lr.ph71.i:                                       ; preds = %._crit_edge132, %.loopexit.i
   %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %.loopexit.i ], [ 1, %._crit_edge132 ]
-  %78 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv82.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv82.i
   %79 = load i32, ptr %78, align 4, !tbaa !3
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
-  %80 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next83.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next83.i
   %81 = load i32, ptr %80, align 4, !tbaa !3
   %82 = trunc nuw nsw i64 %indvars.iv82.i to i32
   %83 = sub i32 %26, %82
   %84 = sub i32 %spec.store.select, %83
   %.not56.i = icmp ult i32 %84, %64
-  %85 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv82.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv82.i
   %86 = load i32, ptr %85, align 4, !tbaa !3
   br i1 %.not56.i, label %211, label %87
 
@@ -626,12 +623,12 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %90 = add i32 %83, %77
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %90, i32 1)
   %91 = zext i32 %83 to i64
-  %92 = getelementptr inbounds nuw [13 x i32], ptr %3, i64 %91
+  %92 = getelementptr inbounds nuw [52 x i8], ptr %3, i64 %91
   %93 = icmp sgt i32 %90, 1
   %94 = shl i32 %83, 16
   %95 = add i32 %94, 16777216
   %96 = zext nneg i32 %spec.store.select.i to i64
-  %97 = getelementptr inbounds nuw i32, ptr %92, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %96
   %.not61.i = icmp sgt i32 %90, %.089
   %98 = add i32 %83, %26
   %99 = sext i32 %79 to i64
@@ -641,8 +638,8 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %.loopexit.i.us.us.i ], [ %99, %.lr.ph.i ]
   %.05367.us.us.i = phi i32 [ %119, %.loopexit.i.us.us.i ], [ %86, %.lr.ph.i ]
   %100 = sext i32 %.05367.us.us.i to i64
-  %101 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX2", ptr %10, i64 %100
-  %102 = getelementptr inbounds %"struct.duckdb_zstd::sortedSymbol_t", ptr %76, i64 %indvars.iv79.i
+  %101 = getelementptr inbounds [4 x i8], ptr %10, i64 %100
+  %102 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv79.i
   %103 = load i8, ptr %102, align 1, !tbaa !26
   %104 = zext i8 %103 to i32
   %105 = or disjoint i32 %95, %104
@@ -674,7 +671,7 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 
 .lr.ph.i.us.us.i:                                 ; preds = %.lr.ph.i.us.us.i, %.lr.ph.preheader.i.us.us.i
   %indvars.iv.i.us.us.i = phi i64 [ 0, %.lr.ph.preheader.i.us.us.i ], [ %indvars.iv.next.i.us.us.i, %.lr.ph.i.us.us.i ]
-  %114 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %101, i64 %indvars.iv.i.us.us.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv.i.us.us.i
   store i64 %107, ptr %114, align 2
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 %107, ptr %115, align 2
@@ -697,8 +694,8 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN11duckdb_zstdL22HUF_fillDTableX2Level2EPNS_10HUF_DEltX2EjjPKjiiPKNS_14sortedSymbol_tES3_jt.exit.loopexit.i ], [ %99, %.lr.ph.i ]
   %.05367.i = phi i32 [ %209, %_ZN11duckdb_zstdL22HUF_fillDTableX2Level2EPNS_10HUF_DEltX2EjjPKjiiPKNS_14sortedSymbol_tES3_jt.exit.loopexit.i ], [ %86, %.lr.ph.i ]
   %121 = sext i32 %.05367.i to i64
-  %122 = getelementptr inbounds %"struct.duckdb_zstd::HUF_DEltX2", ptr %10, i64 %121
-  %123 = getelementptr inbounds %"struct.duckdb_zstd::sortedSymbol_t", ptr %76, i64 %indvars.iv.i
+  %122 = getelementptr inbounds [4 x i8], ptr %10, i64 %121
+  %123 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv.i
   %124 = load i8, ptr %123, align 1, !tbaa !26
   %125 = zext i8 %124 to i32
   br i1 %93, label %126, label %.loopexit.i.i
@@ -733,7 +730,7 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %136 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %122, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i.i
   store i64 %129, ptr %136, align 2
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %129, ptr %137, align 2
@@ -751,21 +748,21 @@ define noundef i64 @_ZN11duckdb_zstd21HUF_readDTableX2_wkspEPjPKvmPvmi(ptr nound
 
 141:                                              ; preds = %_ZN11duckdb_zstdL25HUF_fillDTableX2ForWeightEPNS_10HUF_DEltX2EPKNS_14sortedSymbol_tES4_jjti.exit.i, %.loopexit.i.i
   %indvars.iv55.i.i = phi i64 [ %96, %.loopexit.i.i ], [ %indvars.iv.next56.i.i, %_ZN11duckdb_zstdL25HUF_fillDTableX2ForWeightEPNS_10HUF_DEltX2EPKNS_14sortedSymbol_tES4_jjti.exit.i ]
-  %142 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv55.i.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv55.i.i
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %indvars.iv.next56.i.i = add nuw nsw i64 %indvars.iv55.i.i, 1
-  %144 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next56.i.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next56.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !3
   %146 = trunc nsw i64 %indvars.iv55.i.i to i32
   %147 = sub i32 %98, %146
-  %148 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv55.i.i
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv55.i.i
   %149 = load i32, ptr %148, align 4, !tbaa !3
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %122, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %150
   %152 = sext i32 %143 to i64
-  %153 = getelementptr inbounds %"struct.duckdb_zstd::sortedSymbol_t", ptr %76, i64 %152
+  %153 = getelementptr inbounds i8, ptr %76, i64 %152
   %154 = sext i32 %145 to i64
-  %155 = getelementptr inbounds %"struct.duckdb_zstd::sortedSymbol_t", ptr %76, i64 %154
+  %155 = getelementptr inbounds i8, ptr %76, i64 %154
   %156 = sub i32 %spec.store.select, %147
   %157 = and i32 %156, 31
   %158 = shl nuw i32 1, %157
@@ -928,11 +925,11 @@ _ZN11duckdb_zstdL22HUF_fillDTableX2Level2EPNS_10HUF_DEltX2EjjPKjiiPKNS_14sortedS
 
 211:                                              ; preds = %.lr.ph71.i
   %212 = zext i32 %86 to i64
-  %213 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %10, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %212
   %214 = sext i32 %79 to i64
-  %215 = getelementptr inbounds %"struct.duckdb_zstd::sortedSymbol_t", ptr %76, i64 %214
+  %215 = getelementptr inbounds i8, ptr %76, i64 %214
   %216 = sext i32 %81 to i64
-  %217 = getelementptr inbounds %"struct.duckdb_zstd::sortedSymbol_t", ptr %76, i64 %216
+  %217 = getelementptr inbounds i8, ptr %76, i64 %216
   %218 = and i32 %84, 31
   %219 = shl nuw i32 1, %218
   %.not82116.i = icmp eq i32 %79, %81
@@ -1328,7 +1325,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104
   %115 = zext nneg i32 %114 to i64
   %116 = shl i64 %.sroa.0.5.i, %115
   %117 = lshr i64 %116, %93
-  %118 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %117
   %119 = load i16, ptr %118, align 2
   store i16 %119, ptr %.0.i238.i, align 1
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 2
@@ -1343,7 +1340,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104
   %129 = zext nneg i32 %128 to i64
   %130 = shl i64 %.sroa.0.5.i, %129
   %131 = lshr i64 %130, %93
-  %132 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %131
   %133 = load i16, ptr %132, align 2
   store i16 %133, ptr %127, align 1
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 2
@@ -1358,7 +1355,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104
   %143 = zext nneg i32 %142 to i64
   %144 = shl i64 %.sroa.0.5.i, %143
   %145 = lshr i64 %144, %93
-  %146 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %145
   %147 = load i16, ptr %146, align 2
   store i16 %147, ptr %141, align 1
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 2
@@ -1373,7 +1370,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104
   %157 = zext nneg i32 %156 to i64
   %158 = shl i64 %.sroa.0.5.i, %157
   %159 = lshr i64 %158, %93
-  %160 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %159
   %161 = load i16, ptr %160, align 2
   store i16 %161, ptr %155, align 1
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 2
@@ -1388,7 +1385,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %104
   %171 = zext nneg i32 %170 to i64
   %172 = shl i64 %.sroa.0.5.i, %171
   %173 = lshr i64 %172, %93
-  %174 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %173
   %175 = load i16, ptr %174, align 2
   store i16 %175, ptr %169, align 1
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 2
@@ -1447,7 +1444,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15.i: ; preds = %1
   %203 = zext nneg i32 %202 to i64
   %204 = shl i64 %.sroa.0.6.i, %203
   %205 = lshr i64 %204, %93
-  %206 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %205
   %207 = load i16, ptr %206, align 2
   store i16 %207, ptr %.1.i5221.i, align 1
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 2
@@ -1462,7 +1459,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15.i: ; preds = %1
   %217 = zext nneg i32 %216 to i64
   %218 = shl i64 %.sroa.0.6.i, %217
   %219 = lshr i64 %218, %93
-  %220 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %219
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %219
   %221 = load i16, ptr %220, align 2
   store i16 %221, ptr %215, align 1
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 2
@@ -1477,7 +1474,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15.i: ; preds = %1
   %231 = zext nneg i32 %230 to i64
   %232 = shl i64 %.sroa.0.6.i, %231
   %233 = lshr i64 %232, %93
-  %234 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %233
   %235 = load i16, ptr %234, align 2
   store i16 %235, ptr %229, align 1
   %236 = getelementptr inbounds nuw i8, ptr %234, i64 2
@@ -1492,7 +1489,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15.i: ; preds = %1
   %245 = zext nneg i32 %244 to i64
   %246 = shl i64 %.sroa.0.6.i, %245
   %247 = lshr i64 %246, %93
-  %248 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %94, i64 %247
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %247
   %249 = load i16, ptr %248, align 2
   store i16 %249, ptr %243, align 1
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 2
@@ -1623,7 +1620,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22.i: ; preds = %2
   %308 = zext nneg i32 %307 to i64
   %309 = shl i64 %.sroa.0.7.i, %308
   %310 = lshr i64 %309, %286
-  %311 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %277, i64 %310
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %310
   %312 = load i16, ptr %311, align 2
   store i16 %312, ptr %.6.i.i40, align 1
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 2
@@ -1644,7 +1641,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22.i: ; preds = %2
   %323 = zext nneg i32 %322 to i64
   %324 = shl i64 %.sroa.0.7328.i, %323
   %325 = lshr i64 %324, %286
-  %326 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %277, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %325
   %327 = load i16, ptr %326, align 2
   store i16 %327, ptr %.7.i246.i, align 1
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 2
@@ -1674,7 +1671,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22.i: ; preds = %2
   %342 = and i32 %341, 63
   %343 = zext nneg i32 %342 to i64
   %344 = lshr i64 %340, %343
-  %345 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %277, i64 %344
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %344
   %346 = load i8, ptr %345, align 2
   store i8 %346, ptr %.5.i.i, align 1
   %347 = getelementptr inbounds nuw i8, ptr %345, i64 3
@@ -1730,7 +1727,7 @@ define noundef range(i32 0, 2) i32 @_ZN11duckdb_zstd17HUF_selectDecoderEmm(i64 n
   %8 = phi i64 [ %6, %3 ], [ 15, %2 ]
   %9 = lshr i64 %0, 8
   %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds nuw [2 x %"struct.duckdb_zstd::algo_time_t"], ptr @_ZN11duckdb_zstdL8algoTimeE, i64 %8
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @_ZN11duckdb_zstdL8algoTimeE, i64 %8
   %12 = load i32, ptr %11, align 16, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !54
@@ -1789,7 +1786,7 @@ _ZN11duckdb_zstd17HUF_selectDecoderEmm.exit:      ; preds = %19, %20
   %24 = phi i64 [ %23, %20 ], [ 15, %19 ]
   %25 = lshr i64 %2, 8
   %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds nuw [2 x %"struct.duckdb_zstd::algo_time_t"], ptr @_ZN11duckdb_zstdL8algoTimeE, i64 %24
+  %27 = getelementptr inbounds nuw [16 x i8], ptr @_ZN11duckdb_zstdL8algoTimeE, i64 %24
   %28 = load i32, ptr %27, align 16, !tbaa !52
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !54
@@ -2065,7 +2062,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %102 = zext nneg i32 %101 to i64
   %103 = shl i64 %.sroa.0.3.i, %102
   %104 = lshr i64 %103, %83
-  %105 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %107 = load i8, ptr %106, align 1, !tbaa !55
   %108 = load i8, ptr %105, align 1, !tbaa !57
@@ -2077,7 +2074,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %113 = zext nneg i32 %112 to i64
   %114 = shl i64 %.sroa.0.3.i, %113
   %115 = lshr i64 %114, %83
-  %116 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 1
   %118 = load i8, ptr %117, align 1, !tbaa !55
   %119 = load i8, ptr %116, align 1, !tbaa !57
@@ -2089,7 +2086,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %.sroa.0.3.i, %124
   %126 = lshr i64 %125, %83
-  %127 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %129 = load i8, ptr %128, align 1, !tbaa !55
   %130 = load i8, ptr %127, align 1, !tbaa !57
@@ -2101,7 +2098,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %135 = zext nneg i32 %134 to i64
   %136 = shl i64 %.sroa.0.3.i, %135
   %137 = lshr i64 %136, %83
-  %138 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 1
   %140 = load i8, ptr %139, align 1, !tbaa !55
   %141 = load i8, ptr %138, align 1, !tbaa !57
@@ -2168,7 +2165,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %1
   %169 = zext nneg i32 %168 to i64
   %170 = shl i64 %.sroa.0.1.i, %169
   %171 = lshr i64 %170, %166
-  %172 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %171
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %174 = load i8, ptr %173, align 1, !tbaa !55
   %175 = load i8, ptr %172, align 1, !tbaa !57
@@ -2637,7 +2634,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %254 = zext nneg i32 %253 to i64
   %255 = shl i64 %.sroa.0366.10653.i, %254
   %256 = lshr i64 %255, %245
-  %257 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %256
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %256
   %258 = load i16, ptr %257, align 2
   store i16 %258, ptr %.1162.i658.i, align 1
   %259 = getelementptr inbounds nuw i8, ptr %257, i64 2
@@ -2652,7 +2649,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %268 = zext nneg i32 %267 to i64
   %269 = shl i64 %.sroa.0366.10653.i, %268
   %270 = lshr i64 %269, %245
-  %271 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %270
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %270
   %272 = load i16, ptr %271, align 2
   store i16 %272, ptr %266, align 1
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 2
@@ -2667,7 +2664,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %282 = zext nneg i32 %281 to i64
   %283 = shl i64 %.sroa.0366.10653.i, %282
   %284 = lshr i64 %283, %245
-  %285 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %284
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %284
   %286 = load i16, ptr %285, align 2
   store i16 %286, ptr %280, align 1
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 2
@@ -2682,7 +2679,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %296 = zext nneg i32 %295 to i64
   %297 = shl i64 %.sroa.0366.10653.i, %296
   %298 = lshr i64 %297, %245
-  %299 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %298
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %298
   %300 = load i16, ptr %299, align 2
   store i16 %300, ptr %294, align 1
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 2
@@ -2697,7 +2694,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %310 = zext nneg i32 %309 to i64
   %311 = shl i64 %.sroa.0213.10647.i, %310
   %312 = lshr i64 %311, %245
-  %313 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %312
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %312
   %314 = load i16, ptr %313, align 2
   store i16 %314, ptr %.1166.i657.i, align 1
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 2
@@ -2712,7 +2709,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %324 = zext nneg i32 %323 to i64
   %325 = shl i64 %.sroa.0213.10647.i, %324
   %326 = lshr i64 %325, %245
-  %327 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %326
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %326
   %328 = load i16, ptr %327, align 2
   store i16 %328, ptr %322, align 1
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 2
@@ -2727,7 +2724,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %338 = zext nneg i32 %337 to i64
   %339 = shl i64 %.sroa.0213.10647.i, %338
   %340 = lshr i64 %339, %245
-  %341 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %340
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %340
   %342 = load i16, ptr %341, align 2
   store i16 %342, ptr %336, align 1
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 2
@@ -2742,7 +2739,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %352 = zext nneg i32 %351 to i64
   %353 = shl i64 %.sroa.0213.10647.i, %352
   %354 = lshr i64 %353, %245
-  %355 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %354
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %354
   %356 = load i16, ptr %355, align 2
   store i16 %356, ptr %350, align 1
   %357 = getelementptr inbounds nuw i8, ptr %355, i64 2
@@ -2790,7 +2787,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %380 = zext nneg i32 %379 to i64
   %381 = shl i64 %.sroa.0.10651.i, %380
   %382 = lshr i64 %381, %245
-  %383 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %382
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %382
   %384 = load i16, ptr %383, align 2
   store i16 %384, ptr %.1170.i656.i, align 1
   %385 = getelementptr inbounds nuw i8, ptr %383, i64 2
@@ -2805,7 +2802,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %394 = zext nneg i32 %393 to i64
   %395 = shl i64 %.sroa.0.10651.i, %394
   %396 = lshr i64 %395, %245
-  %397 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %396
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %396
   %398 = load i16, ptr %397, align 2
   store i16 %398, ptr %392, align 1
   %399 = getelementptr inbounds nuw i8, ptr %397, i64 2
@@ -2820,7 +2817,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %408 = zext nneg i32 %407 to i64
   %409 = shl i64 %.sroa.0.10651.i, %408
   %410 = lshr i64 %409, %245
-  %411 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %410
+  %411 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %410
   %412 = load i16, ptr %411, align 2
   store i16 %412, ptr %406, align 1
   %413 = getelementptr inbounds nuw i8, ptr %411, i64 2
@@ -2835,7 +2832,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %422 = zext nneg i32 %421 to i64
   %423 = shl i64 %.sroa.0.10651.i, %422
   %424 = lshr i64 %423, %245
-  %425 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %424
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %424
   %426 = load i16, ptr %425, align 2
   store i16 %426, ptr %420, align 1
   %427 = getelementptr inbounds nuw i8, ptr %425, i64 2
@@ -2850,7 +2847,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %436 = zext nneg i32 %435 to i64
   %437 = shl i64 %.val.i.i.i27644645.i, %436
   %438 = lshr i64 %437, %245
-  %439 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %438
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %438
   %440 = load i16, ptr %439, align 2
   store i16 %440, ptr %.1174.i655.i, align 1
   %441 = getelementptr inbounds nuw i8, ptr %439, i64 2
@@ -2865,7 +2862,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %450 = zext nneg i32 %449 to i64
   %451 = shl i64 %.val.i.i.i27644645.i, %450
   %452 = lshr i64 %451, %245
-  %453 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %452
+  %453 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %452
   %454 = load i16, ptr %453, align 2
   store i16 %454, ptr %448, align 1
   %455 = getelementptr inbounds nuw i8, ptr %453, i64 2
@@ -2880,7 +2877,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %464 = zext nneg i32 %463 to i64
   %465 = shl i64 %.val.i.i.i27644645.i, %464
   %466 = lshr i64 %465, %245
-  %467 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %466
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %466
   %468 = load i16, ptr %467, align 2
   store i16 %468, ptr %462, align 1
   %469 = getelementptr inbounds nuw i8, ptr %467, i64 2
@@ -2895,7 +2892,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23.i: ; preds 
   %478 = zext nneg i32 %477 to i64
   %479 = shl i64 %.val.i.i.i27644645.i, %478
   %480 = lshr i64 %479, %245
-  %481 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %480
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %480
   %482 = load i16, ptr %481, align 2
   store i16 %482, ptr %476, align 1
   %483 = getelementptr inbounds nuw i8, ptr %481, i64 2
@@ -3047,7 +3044,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %5
   %548 = zext nneg i32 %547 to i64
   %549 = shl i64 %.sroa.0366.9.i, %548
   %550 = lshr i64 %549, %526
-  %551 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %550
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %550
   %552 = load i16, ptr %551, align 2
   store i16 %552, ptr %.0.i225.i695.i, align 1
   %553 = getelementptr inbounds nuw i8, ptr %551, i64 2
@@ -3062,7 +3059,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %5
   %562 = zext nneg i32 %561 to i64
   %563 = shl i64 %.sroa.0366.9.i, %562
   %564 = lshr i64 %563, %526
-  %565 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %564
+  %565 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %564
   %566 = load i16, ptr %565, align 2
   store i16 %566, ptr %560, align 1
   %567 = getelementptr inbounds nuw i8, ptr %565, i64 2
@@ -3077,7 +3074,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %5
   %576 = zext nneg i32 %575 to i64
   %577 = shl i64 %.sroa.0366.9.i, %576
   %578 = lshr i64 %577, %526
-  %579 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %578
+  %579 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %578
   %580 = load i16, ptr %579, align 2
   store i16 %580, ptr %574, align 1
   %581 = getelementptr inbounds nuw i8, ptr %579, i64 2
@@ -3092,7 +3089,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %5
   %590 = zext nneg i32 %589 to i64
   %591 = shl i64 %.sroa.0366.9.i, %590
   %592 = lshr i64 %591, %526
-  %593 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %592
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %592
   %594 = load i16, ptr %593, align 2
   store i16 %594, ptr %588, align 1
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 2
@@ -3107,7 +3104,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %5
   %604 = zext nneg i32 %603 to i64
   %605 = shl i64 %.sroa.0366.9.i, %604
   %606 = lshr i64 %605, %526
-  %607 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %606
+  %607 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %606
   %608 = load i16, ptr %607, align 2
   store i16 %608, ptr %602, align 1
   %609 = getelementptr inbounds nuw i8, ptr %607, i64 2
@@ -3169,7 +3166,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i: ; preds =
   %639 = zext nneg i32 %638 to i64
   %640 = shl i64 %.sroa.0366.7.i, %639
   %641 = lshr i64 %640, %521
-  %642 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %641
+  %642 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %641
   %643 = load i16, ptr %642, align 2
   store i16 %643, ptr %.1.i224.i677.i, align 1
   %644 = getelementptr inbounds nuw i8, ptr %642, i64 2
@@ -3184,7 +3181,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i: ; preds =
   %653 = zext nneg i32 %652 to i64
   %654 = shl i64 %.sroa.0366.7.i, %653
   %655 = lshr i64 %654, %521
-  %656 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %655
+  %656 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %655
   %657 = load i16, ptr %656, align 2
   store i16 %657, ptr %651, align 1
   %658 = getelementptr inbounds nuw i8, ptr %656, i64 2
@@ -3199,7 +3196,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i: ; preds =
   %667 = zext nneg i32 %666 to i64
   %668 = shl i64 %.sroa.0366.7.i, %667
   %669 = lshr i64 %668, %521
-  %670 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %669
+  %670 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %669
   %671 = load i16, ptr %670, align 2
   store i16 %671, ptr %665, align 1
   %672 = getelementptr inbounds nuw i8, ptr %670, i64 2
@@ -3214,7 +3211,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i.i: ; preds =
   %681 = zext nneg i32 %680 to i64
   %682 = shl i64 %.sroa.0366.7.i, %681
   %683 = lshr i64 %682, %521
-  %684 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %683
+  %684 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %683
   %685 = load i16, ptr %684, align 2
   store i16 %685, ptr %679, align 1
   %686 = getelementptr inbounds nuw i8, ptr %684, i64 2
@@ -3343,7 +3340,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i.i: ; preds =
   %750 = zext nneg i32 %749 to i64
   %751 = shl i64 %.sroa.0366.5.i, %750
   %752 = lshr i64 %751, %728
-  %753 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %752
+  %753 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %752
   %754 = load i16, ptr %753, align 2
   store i16 %754, ptr %.6.i221.i.i70, align 1
   %755 = getelementptr inbounds nuw i8, ptr %753, i64 2
@@ -3364,7 +3361,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i.i: ; preds =
   %765 = zext nneg i32 %764 to i64
   %766 = shl i64 %.sroa.0366.5932.i, %765
   %767 = lshr i64 %766, %728
-  %768 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %767
+  %768 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %767
   %769 = load i16, ptr %768, align 2
   store i16 %769, ptr %.7.i222.i712.i, align 1
   %770 = getelementptr inbounds nuw i8, ptr %768, i64 2
@@ -3394,7 +3391,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i.i: ; preds =
   %784 = and i32 %783, 63
   %785 = zext nneg i32 %784 to i64
   %786 = lshr i64 %782, %785
-  %787 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %786
+  %787 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %786
   %788 = load i8, ptr %787, align 2
   store i8 %788, ptr %.5.i219.i.i, align 1
   %789 = getelementptr inbounds nuw i8, ptr %787, i64 3
@@ -3504,7 +3501,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds =
   %842 = zext nneg i32 %841 to i64
   %843 = shl i64 %.sroa.0213.9.i, %842
   %844 = lshr i64 %843, %820
-  %845 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %844
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %844
   %846 = load i16, ptr %845, align 2
   store i16 %846, ptr %.0.i216.i737.i, align 1
   %847 = getelementptr inbounds nuw i8, ptr %845, i64 2
@@ -3519,7 +3516,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds =
   %856 = zext nneg i32 %855 to i64
   %857 = shl i64 %.sroa.0213.9.i, %856
   %858 = lshr i64 %857, %820
-  %859 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %858
+  %859 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %858
   %860 = load i16, ptr %859, align 2
   store i16 %860, ptr %854, align 1
   %861 = getelementptr inbounds nuw i8, ptr %859, i64 2
@@ -3534,7 +3531,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds =
   %870 = zext nneg i32 %869 to i64
   %871 = shl i64 %.sroa.0213.9.i, %870
   %872 = lshr i64 %871, %820
-  %873 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %872
+  %873 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %872
   %874 = load i16, ptr %873, align 2
   store i16 %874, ptr %868, align 1
   %875 = getelementptr inbounds nuw i8, ptr %873, i64 2
@@ -3549,7 +3546,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds =
   %884 = zext nneg i32 %883 to i64
   %885 = shl i64 %.sroa.0213.9.i, %884
   %886 = lshr i64 %885, %820
-  %887 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %886
+  %887 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %886
   %888 = load i16, ptr %887, align 2
   store i16 %888, ptr %882, align 1
   %889 = getelementptr inbounds nuw i8, ptr %887, i64 2
@@ -3564,7 +3561,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i.i: ; preds =
   %898 = zext nneg i32 %897 to i64
   %899 = shl i64 %.sroa.0213.9.i, %898
   %900 = lshr i64 %899, %820
-  %901 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %900
+  %901 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %900
   %902 = load i16, ptr %901, align 2
   store i16 %902, ptr %896, align 1
   %903 = getelementptr inbounds nuw i8, ptr %901, i64 2
@@ -3626,7 +3623,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i: ; preds =
   %933 = zext nneg i32 %932 to i64
   %934 = shl i64 %.sroa.0213.7.i, %933
   %935 = lshr i64 %934, %815
-  %936 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %935
+  %936 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %935
   %937 = load i16, ptr %936, align 2
   store i16 %937, ptr %.1.i215.i719.i, align 1
   %938 = getelementptr inbounds nuw i8, ptr %936, i64 2
@@ -3641,7 +3638,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i: ; preds =
   %947 = zext nneg i32 %946 to i64
   %948 = shl i64 %.sroa.0213.7.i, %947
   %949 = lshr i64 %948, %815
-  %950 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %949
+  %950 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %949
   %951 = load i16, ptr %950, align 2
   store i16 %951, ptr %945, align 1
   %952 = getelementptr inbounds nuw i8, ptr %950, i64 2
@@ -3656,7 +3653,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i: ; preds =
   %961 = zext nneg i32 %960 to i64
   %962 = shl i64 %.sroa.0213.7.i, %961
   %963 = lshr i64 %962, %815
-  %964 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %963
+  %964 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %963
   %965 = load i16, ptr %964, align 2
   store i16 %965, ptr %959, align 1
   %966 = getelementptr inbounds nuw i8, ptr %964, i64 2
@@ -3671,7 +3668,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i.i: ; preds =
   %975 = zext nneg i32 %974 to i64
   %976 = shl i64 %.sroa.0213.7.i, %975
   %977 = lshr i64 %976, %815
-  %978 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %977
+  %978 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %977
   %979 = load i16, ptr %978, align 2
   store i16 %979, ptr %973, align 1
   %980 = getelementptr inbounds nuw i8, ptr %978, i64 2
@@ -3800,7 +3797,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i.i: ; preds =
   %1044 = zext nneg i32 %1043 to i64
   %1045 = shl i64 %.sroa.0213.5.i, %1044
   %1046 = lshr i64 %1045, %1022
-  %1047 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1046
+  %1047 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1046
   %1048 = load i16, ptr %1047, align 2
   store i16 %1048, ptr %.6.i212.i.i86, align 1
   %1049 = getelementptr inbounds nuw i8, ptr %1047, i64 2
@@ -3821,7 +3818,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i.i: ; preds =
   %1059 = zext nneg i32 %1058 to i64
   %1060 = shl i64 %.sroa.0213.5937.i, %1059
   %1061 = lshr i64 %1060, %1022
-  %1062 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1061
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1061
   %1063 = load i16, ptr %1062, align 2
   store i16 %1063, ptr %.7.i213.i754.i, align 1
   %1064 = getelementptr inbounds nuw i8, ptr %1062, i64 2
@@ -3851,7 +3848,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i.i: ; preds =
   %1078 = and i32 %1077, 63
   %1079 = zext nneg i32 %1078 to i64
   %1080 = lshr i64 %1076, %1079
-  %1081 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1080
+  %1081 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1080
   %1082 = load i8, ptr %1081, align 2
   store i8 %1082, ptr %.5.i210.i.i, align 1
   %1083 = getelementptr inbounds nuw i8, ptr %1081, i64 3
@@ -3961,7 +3958,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds =
   %1136 = zext nneg i32 %1135 to i64
   %1137 = shl i64 %.sroa.0.9.i, %1136
   %1138 = lshr i64 %1137, %1114
-  %1139 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1138
+  %1139 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1138
   %1140 = load i16, ptr %1139, align 2
   store i16 %1140, ptr %.0.i207.i779.i, align 1
   %1141 = getelementptr inbounds nuw i8, ptr %1139, i64 2
@@ -3976,7 +3973,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds =
   %1150 = zext nneg i32 %1149 to i64
   %1151 = shl i64 %.sroa.0.9.i, %1150
   %1152 = lshr i64 %1151, %1114
-  %1153 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1152
+  %1153 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1152
   %1154 = load i16, ptr %1153, align 2
   store i16 %1154, ptr %1148, align 1
   %1155 = getelementptr inbounds nuw i8, ptr %1153, i64 2
@@ -3991,7 +3988,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds =
   %1164 = zext nneg i32 %1163 to i64
   %1165 = shl i64 %.sroa.0.9.i, %1164
   %1166 = lshr i64 %1165, %1114
-  %1167 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1166
+  %1167 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1166
   %1168 = load i16, ptr %1167, align 2
   store i16 %1168, ptr %1162, align 1
   %1169 = getelementptr inbounds nuw i8, ptr %1167, i64 2
@@ -4006,7 +4003,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds =
   %1178 = zext nneg i32 %1177 to i64
   %1179 = shl i64 %.sroa.0.9.i, %1178
   %1180 = lshr i64 %1179, %1114
-  %1181 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1180
+  %1181 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1180
   %1182 = load i16, ptr %1181, align 2
   store i16 %1182, ptr %1176, align 1
   %1183 = getelementptr inbounds nuw i8, ptr %1181, i64 2
@@ -4021,7 +4018,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i.i: ; preds =
   %1192 = zext nneg i32 %1191 to i64
   %1193 = shl i64 %.sroa.0.9.i, %1192
   %1194 = lshr i64 %1193, %1114
-  %1195 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1194
+  %1195 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1194
   %1196 = load i16, ptr %1195, align 2
   store i16 %1196, ptr %1190, align 1
   %1197 = getelementptr inbounds nuw i8, ptr %1195, i64 2
@@ -4083,7 +4080,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i: ; preds =
   %1227 = zext nneg i32 %1226 to i64
   %1228 = shl i64 %.sroa.0.7.i, %1227
   %1229 = lshr i64 %1228, %1109
-  %1230 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1229
+  %1230 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1229
   %1231 = load i16, ptr %1230, align 2
   store i16 %1231, ptr %.1.i206.i761.i, align 1
   %1232 = getelementptr inbounds nuw i8, ptr %1230, i64 2
@@ -4098,7 +4095,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i: ; preds =
   %1241 = zext nneg i32 %1240 to i64
   %1242 = shl i64 %.sroa.0.7.i, %1241
   %1243 = lshr i64 %1242, %1109
-  %1244 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1243
+  %1244 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1243
   %1245 = load i16, ptr %1244, align 2
   store i16 %1245, ptr %1239, align 1
   %1246 = getelementptr inbounds nuw i8, ptr %1244, i64 2
@@ -4113,7 +4110,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i: ; preds =
   %1255 = zext nneg i32 %1254 to i64
   %1256 = shl i64 %.sroa.0.7.i, %1255
   %1257 = lshr i64 %1256, %1109
-  %1258 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1257
+  %1258 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1257
   %1259 = load i16, ptr %1258, align 2
   store i16 %1259, ptr %1253, align 1
   %1260 = getelementptr inbounds nuw i8, ptr %1258, i64 2
@@ -4128,7 +4125,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i.i: ; preds =
   %1269 = zext nneg i32 %1268 to i64
   %1270 = shl i64 %.sroa.0.7.i, %1269
   %1271 = lshr i64 %1270, %1109
-  %1272 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1271
+  %1272 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1271
   %1273 = load i16, ptr %1272, align 2
   store i16 %1273, ptr %1267, align 1
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 2
@@ -4257,7 +4254,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i.i: ; preds =
   %1338 = zext nneg i32 %1337 to i64
   %1339 = shl i64 %.sroa.0.5.i, %1338
   %1340 = lshr i64 %1339, %1316
-  %1341 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1340
+  %1341 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1340
   %1342 = load i16, ptr %1341, align 2
   store i16 %1342, ptr %.6.i203.i.i104, align 1
   %1343 = getelementptr inbounds nuw i8, ptr %1341, i64 2
@@ -4278,7 +4275,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i.i: ; preds =
   %1353 = zext nneg i32 %1352 to i64
   %1354 = shl i64 %.sroa.0.5944.i, %1353
   %1355 = lshr i64 %1354, %1316
-  %1356 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1355
+  %1356 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1355
   %1357 = load i16, ptr %1356, align 2
   store i16 %1357, ptr %.7.i204.i796.i, align 1
   %1358 = getelementptr inbounds nuw i8, ptr %1356, i64 2
@@ -4308,7 +4305,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i.i: ; preds =
   %1372 = and i32 %1371, 63
   %1373 = zext nneg i32 %1372 to i64
   %1374 = lshr i64 %1370, %1373
-  %1375 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1374
+  %1375 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1374
   %1376 = load i8, ptr %1375, align 2
   store i8 %1376, ptr %.5.i201.i.i, align 1
   %1377 = getelementptr inbounds nuw i8, ptr %1375, i64 3
@@ -4439,7 +4436,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i: ; preds =
   %1449 = zext nneg i32 %1448 to i64
   %1450 = shl i64 %storemerge582.i, %1449
   %1451 = lshr i64 %1450, %1413
-  %1452 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1451
+  %1452 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1451
   %1453 = load i16, ptr %1452, align 2
   store i16 %1453, ptr %.0.i.i803.i, align 1
   %1454 = getelementptr inbounds nuw i8, ptr %1452, i64 2
@@ -4456,7 +4453,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i: ; preds =
   %1464 = zext nneg i32 %1463 to i64
   %1465 = shl i64 %1462, %1464
   %1466 = lshr i64 %1465, %1413
-  %1467 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1466
+  %1467 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1466
   %1468 = load i16, ptr %1467, align 2
   store i16 %1468, ptr %1461, align 1
   %1469 = getelementptr inbounds nuw i8, ptr %1467, i64 2
@@ -4474,7 +4471,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i: ; preds =
   %1480 = zext nneg i32 %1479 to i64
   %1481 = shl i64 %1478, %1480
   %1482 = lshr i64 %1481, %1413
-  %1483 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1482
+  %1483 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1482
   %1484 = load i16, ptr %1483, align 2
   store i16 %1484, ptr %1477, align 1
   %1485 = getelementptr inbounds nuw i8, ptr %1483, i64 2
@@ -4492,7 +4489,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i: ; preds =
   %1496 = zext nneg i32 %1495 to i64
   %1497 = shl i64 %1494, %1496
   %1498 = lshr i64 %1497, %1413
-  %1499 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1498
+  %1499 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1498
   %1500 = load i16, ptr %1499, align 2
   store i16 %1500, ptr %1493, align 1
   %1501 = getelementptr inbounds nuw i8, ptr %1499, i64 2
@@ -4510,7 +4507,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i.i: ; preds =
   %1512 = zext nneg i32 %1511 to i64
   %1513 = shl i64 %1510, %1512
   %1514 = lshr i64 %1513, %1413
-  %1515 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1514
+  %1515 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1514
   %1516 = load i16, ptr %1515, align 2
   store i16 %1516, ptr %1509, align 1
   %1517 = getelementptr inbounds nuw i8, ptr %1515, i64 2
@@ -4590,7 +4587,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i: ; preds =
   %1562 = zext nneg i32 %1561 to i64
   %1563 = shl i64 %storemerge.i, %1562
   %1564 = lshr i64 %1563, %1406
-  %1565 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1564
+  %1565 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1564
   %1566 = load i16, ptr %1565, align 2
   store i16 %1566, ptr %.1.i.i800.i, align 1
   %1567 = getelementptr inbounds nuw i8, ptr %1565, i64 2
@@ -4607,7 +4604,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i: ; preds =
   %1577 = zext nneg i32 %1576 to i64
   %1578 = shl i64 %1575, %1577
   %1579 = lshr i64 %1578, %1406
-  %1580 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1579
+  %1580 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1579
   %1581 = load i16, ptr %1580, align 2
   store i16 %1581, ptr %1574, align 1
   %1582 = getelementptr inbounds nuw i8, ptr %1580, i64 2
@@ -4625,7 +4622,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i: ; preds =
   %1593 = zext nneg i32 %1592 to i64
   %1594 = shl i64 %1591, %1593
   %1595 = lshr i64 %1594, %1406
-  %1596 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1595
+  %1596 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1595
   %1597 = load i16, ptr %1596, align 2
   store i16 %1597, ptr %1590, align 1
   %1598 = getelementptr inbounds nuw i8, ptr %1596, i64 2
@@ -4643,7 +4640,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i.i: ; preds =
   %1609 = zext nneg i32 %1608 to i64
   %1610 = shl i64 %1607, %1609
   %1611 = lshr i64 %1610, %1406
-  %1612 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1611
+  %1612 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1611
   %1613 = load i16, ptr %1612, align 2
   store i16 %1613, ptr %1606, align 1
   %1614 = getelementptr inbounds nuw i8, ptr %1612, i64 2
@@ -4806,7 +4803,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit326.i.i: ; preds =
   %1704 = zext nneg i32 %1703 to i64
   %1705 = shl i64 %.val.i61.sink.i, %1704
   %1706 = lshr i64 %1705, %1670
-  %1707 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1706
+  %1707 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1706
   %1708 = load i16, ptr %1707, align 2
   store i16 %1708, ptr %.6.i.i.i119, align 1
   %1709 = getelementptr inbounds nuw i8, ptr %1707, i64 2
@@ -4830,7 +4827,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit326.i.i: ; preds =
   %1722 = zext nneg i32 %1721 to i64
   %1723 = shl i64 %1720, %1722
   %1724 = lshr i64 %1723, %1670
-  %1725 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1724
+  %1725 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1724
   %1726 = load i16, ptr %1725, align 2
   store i16 %1726, ptr %.7.i.i808.i, align 1
   %1727 = getelementptr inbounds nuw i8, ptr %1725, i64 2
@@ -4862,7 +4859,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit326.i.i: ; preds =
   %1745 = and i32 %1744, 63
   %1746 = zext nneg i32 %1745 to i64
   %1747 = lshr i64 %1743, %1746
-  %1748 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %17, i64 %1747
+  %1748 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1747
   %1749 = load i8, ptr %1748, align 2
   store i8 %1749, ptr %.5.i.i.i, align 1
   %1750 = getelementptr inbounds nuw i8, ptr %1748, i64 3
@@ -5357,7 +5354,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %253 = zext nneg i32 %252 to i64
   %254 = shl i64 %.sroa.0210.5370.i, %253
   %255 = lshr i64 %254, %244
-  %256 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %255
+  %256 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %258 = load i8, ptr %257, align 1, !tbaa !55
   %259 = load i8, ptr %256, align 1, !tbaa !57
@@ -5369,7 +5366,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %264 = zext nneg i32 %263 to i64
   %265 = shl i64 %.sroa.0127.5364.i, %264
   %266 = lshr i64 %265, %244
-  %267 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %266
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %266
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 1
   %269 = load i8, ptr %268, align 1, !tbaa !55
   %270 = load i8, ptr %267, align 1, !tbaa !57
@@ -5381,7 +5378,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %275 = zext nneg i32 %274 to i64
   %276 = shl i64 %.sroa.0.5368.i, %275
   %277 = lshr i64 %276, %244
-  %278 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %277
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 1
   %280 = load i8, ptr %279, align 1, !tbaa !55
   %281 = load i8, ptr %278, align 1, !tbaa !57
@@ -5393,7 +5390,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %286 = zext nneg i32 %285 to i64
   %287 = shl i64 %.val.i.i.i27361362.i, %286
   %288 = lshr i64 %287, %244
-  %289 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %288
+  %289 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %288
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 1
   %291 = load i8, ptr %290, align 1, !tbaa !55
   %292 = load i8, ptr %289, align 1, !tbaa !57
@@ -5405,7 +5402,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %297 = zext nneg i32 %296 to i64
   %298 = shl i64 %.sroa.0210.5370.i, %297
   %299 = lshr i64 %298, %244
-  %300 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %299
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 1
   %302 = load i8, ptr %301, align 1, !tbaa !55
   %303 = load i8, ptr %300, align 1, !tbaa !57
@@ -5416,7 +5413,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %307 = zext nneg i32 %306 to i64
   %308 = shl i64 %.sroa.0127.5364.i, %307
   %309 = lshr i64 %308, %244
-  %310 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %309
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 1
   %312 = load i8, ptr %311, align 1, !tbaa !55
   %313 = load i8, ptr %310, align 1, !tbaa !57
@@ -5428,7 +5425,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %318 = zext nneg i32 %317 to i64
   %319 = shl i64 %.sroa.0.5368.i, %318
   %320 = lshr i64 %319, %244
-  %321 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %320
+  %321 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 1
   %323 = load i8, ptr %322, align 1, !tbaa !55
   %324 = load i8, ptr %321, align 1, !tbaa !57
@@ -5440,7 +5437,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %329 = zext nneg i32 %328 to i64
   %330 = shl i64 %.val.i.i.i27361362.i, %329
   %331 = lshr i64 %330, %244
-  %332 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %331
+  %332 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %331
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 1
   %334 = load i8, ptr %333, align 1, !tbaa !55
   %335 = load i8, ptr %332, align 1, !tbaa !57
@@ -5453,7 +5450,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %341 = zext nneg i32 %340 to i64
   %342 = shl i64 %.sroa.0210.5370.i, %341
   %343 = lshr i64 %342, %244
-  %344 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %343
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %343
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 1
   %346 = load i8, ptr %345, align 1, !tbaa !55
   %347 = load i8, ptr %344, align 1, !tbaa !57
@@ -5465,7 +5462,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %352 = zext nneg i32 %351 to i64
   %353 = shl i64 %.sroa.0127.5364.i, %352
   %354 = lshr i64 %353, %244
-  %355 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %354
+  %355 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %354
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 1
   %357 = load i8, ptr %356, align 1, !tbaa !55
   %358 = load i8, ptr %355, align 1, !tbaa !57
@@ -5477,7 +5474,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %363 = zext nneg i32 %362 to i64
   %364 = shl i64 %.sroa.0.5368.i, %363
   %365 = lshr i64 %364, %244
-  %366 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %365
+  %366 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 1
   %368 = load i8, ptr %367, align 1, !tbaa !55
   %369 = load i8, ptr %366, align 1, !tbaa !57
@@ -5489,7 +5486,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %374 = zext nneg i32 %373 to i64
   %375 = shl i64 %.val.i.i.i27361362.i, %374
   %376 = lshr i64 %375, %244
-  %377 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %376
+  %377 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %376
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 1
   %379 = load i8, ptr %378, align 1, !tbaa !55
   %380 = load i8, ptr %377, align 1, !tbaa !57
@@ -5501,7 +5498,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %385 = zext nneg i32 %384 to i64
   %386 = shl i64 %.sroa.0210.5370.i, %385
   %387 = lshr i64 %386, %244
-  %388 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %387
+  %388 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %387
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 1
   %390 = load i8, ptr %389, align 1, !tbaa !55
   %391 = load i8, ptr %388, align 1, !tbaa !57
@@ -5513,7 +5510,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %396 = zext nneg i32 %395 to i64
   %397 = shl i64 %.sroa.0127.5364.i, %396
   %398 = lshr i64 %397, %244
-  %399 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %398
+  %399 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %398
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 1
   %401 = load i8, ptr %400, align 1, !tbaa !55
   %402 = load i8, ptr %399, align 1, !tbaa !57
@@ -5525,7 +5522,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %407 = zext nneg i32 %406 to i64
   %408 = shl i64 %.sroa.0.5368.i, %407
   %409 = lshr i64 %408, %244
-  %410 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %409
+  %410 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %409
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 1
   %412 = load i8, ptr %411, align 1, !tbaa !55
   %413 = load i8, ptr %410, align 1, !tbaa !57
@@ -5537,7 +5534,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL38HUF_decom
   %418 = zext nneg i32 %417 to i64
   %419 = shl i64 %.val.i.i.i27361362.i, %418
   %420 = lshr i64 %419, %244
-  %421 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %420
+  %421 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %420
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 1
   %423 = load i8, ptr %422, align 1, !tbaa !55
   %424 = load i8, ptr %421, align 1, !tbaa !57
@@ -5705,7 +5702,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i: ; pre
   %493 = zext nneg i32 %492 to i64
   %494 = shl i64 %.sroa.0210.4.i, %493
   %495 = lshr i64 %494, %471
-  %496 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %495
+  %496 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %495
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 1
   %498 = load i8, ptr %497, align 1, !tbaa !55
   %499 = load i8, ptr %496, align 1, !tbaa !57
@@ -5717,7 +5714,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i: ; pre
   %504 = zext nneg i32 %503 to i64
   %505 = shl i64 %.sroa.0210.4.i, %504
   %506 = lshr i64 %505, %471
-  %507 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %506
+  %507 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %506
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 1
   %509 = load i8, ptr %508, align 1, !tbaa !55
   %510 = load i8, ptr %507, align 1, !tbaa !57
@@ -5729,7 +5726,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i: ; pre
   %515 = zext nneg i32 %514 to i64
   %516 = shl i64 %.sroa.0210.4.i, %515
   %517 = lshr i64 %516, %471
-  %518 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %517
+  %518 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %517
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 1
   %520 = load i8, ptr %519, align 1, !tbaa !55
   %521 = load i8, ptr %518, align 1, !tbaa !57
@@ -5741,7 +5738,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i.i: ; pre
   %526 = zext nneg i32 %525 to i64
   %527 = shl i64 %.sroa.0210.4.i, %526
   %528 = lshr i64 %527, %471
-  %529 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %528
+  %529 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %528
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 1
   %531 = load i8, ptr %530, align 1, !tbaa !55
   %532 = load i8, ptr %529, align 1, !tbaa !57
@@ -5812,7 +5809,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i221.i.i: ; preds
   %568 = zext nneg i32 %567 to i64
   %569 = shl i64 %.sroa.0210.2.i, %568
   %570 = lshr i64 %569, %565
-  %571 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %570
+  %571 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %570
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 1
   %573 = load i8, ptr %572, align 1, !tbaa !55
   %574 = load i8, ptr %571, align 1, !tbaa !57
@@ -5891,7 +5888,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i: ; pre
   %610 = zext nneg i32 %609 to i64
   %611 = shl i64 %.sroa.0127.4.i, %610
   %612 = lshr i64 %611, %588
-  %613 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %612
+  %613 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %612
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 1
   %615 = load i8, ptr %614, align 1, !tbaa !55
   %616 = load i8, ptr %613, align 1, !tbaa !57
@@ -5903,7 +5900,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i: ; pre
   %621 = zext nneg i32 %620 to i64
   %622 = shl i64 %.sroa.0127.4.i, %621
   %623 = lshr i64 %622, %588
-  %624 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %623
+  %624 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %623
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 1
   %626 = load i8, ptr %625, align 1, !tbaa !55
   %627 = load i8, ptr %624, align 1, !tbaa !57
@@ -5915,7 +5912,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i: ; pre
   %632 = zext nneg i32 %631 to i64
   %633 = shl i64 %.sroa.0127.4.i, %632
   %634 = lshr i64 %633, %588
-  %635 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %634
+  %635 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %634
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 1
   %637 = load i8, ptr %636, align 1, !tbaa !55
   %638 = load i8, ptr %635, align 1, !tbaa !57
@@ -5927,7 +5924,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i.i: ; pre
   %643 = zext nneg i32 %642 to i64
   %644 = shl i64 %.sroa.0127.4.i, %643
   %645 = lshr i64 %644, %588
-  %646 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %645
+  %646 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %645
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 1
   %648 = load i8, ptr %647, align 1, !tbaa !55
   %649 = load i8, ptr %646, align 1, !tbaa !57
@@ -5998,7 +5995,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i203.i.i: ; preds
   %685 = zext nneg i32 %684 to i64
   %686 = shl i64 %.sroa.0127.2.i, %685
   %687 = lshr i64 %686, %682
-  %688 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %687
+  %688 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %687
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 1
   %690 = load i8, ptr %689, align 1, !tbaa !55
   %691 = load i8, ptr %688, align 1, !tbaa !57
@@ -6077,7 +6074,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i: ; pre
   %727 = zext nneg i32 %726 to i64
   %728 = shl i64 %.sroa.0.4.i, %727
   %729 = lshr i64 %728, %705
-  %730 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %729
+  %730 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %729
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 1
   %732 = load i8, ptr %731, align 1, !tbaa !55
   %733 = load i8, ptr %730, align 1, !tbaa !57
@@ -6089,7 +6086,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i: ; pre
   %738 = zext nneg i32 %737 to i64
   %739 = shl i64 %.sroa.0.4.i, %738
   %740 = lshr i64 %739, %705
-  %741 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %740
+  %741 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %740
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 1
   %743 = load i8, ptr %742, align 1, !tbaa !55
   %744 = load i8, ptr %741, align 1, !tbaa !57
@@ -6101,7 +6098,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i: ; pre
   %749 = zext nneg i32 %748 to i64
   %750 = shl i64 %.sroa.0.4.i, %749
   %751 = lshr i64 %750, %705
-  %752 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %751
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %751
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 1
   %754 = load i8, ptr %753, align 1, !tbaa !55
   %755 = load i8, ptr %752, align 1, !tbaa !57
@@ -6113,7 +6110,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i.i: ; pre
   %760 = zext nneg i32 %759 to i64
   %761 = shl i64 %.sroa.0.4.i, %760
   %762 = lshr i64 %761, %705
-  %763 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %762
+  %763 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %762
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 1
   %765 = load i8, ptr %764, align 1, !tbaa !55
   %766 = load i8, ptr %763, align 1, !tbaa !57
@@ -6184,7 +6181,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i185.i.i: ; preds
   %802 = zext nneg i32 %801 to i64
   %803 = shl i64 %.sroa.0.2.i, %802
   %804 = lshr i64 %803, %799
-  %805 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %804
+  %805 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %804
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 1
   %807 = load i8, ptr %806, align 1, !tbaa !55
   %808 = load i8, ptr %805, align 1, !tbaa !57
@@ -6282,7 +6279,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i: ; preds 
   %861 = zext nneg i32 %860 to i64
   %862 = shl i64 %storemerge.i, %861
   %863 = lshr i64 %862, %825
-  %864 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %863
+  %864 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %863
   %865 = getelementptr inbounds nuw i8, ptr %864, i64 1
   %866 = load i8, ptr %865, align 1, !tbaa !55
   %867 = load i8, ptr %864, align 1, !tbaa !57
@@ -6295,7 +6292,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i: ; preds 
   %873 = zext nneg i32 %872 to i64
   %874 = shl i64 %871, %873
   %875 = lshr i64 %874, %825
-  %876 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %875
+  %876 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %875
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 1
   %878 = load i8, ptr %877, align 1, !tbaa !55
   %879 = load i8, ptr %876, align 1, !tbaa !57
@@ -6310,7 +6307,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i: ; preds 
   %886 = zext nneg i32 %885 to i64
   %887 = shl i64 %883, %886
   %888 = lshr i64 %887, %825
-  %889 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %888
+  %889 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %888
   %890 = getelementptr inbounds nuw i8, ptr %889, i64 1
   %891 = load i8, ptr %890, align 1, !tbaa !55
   %892 = load i8, ptr %889, align 1, !tbaa !57
@@ -6325,7 +6322,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i.i: ; preds 
   %899 = zext nneg i32 %898 to i64
   %900 = shl i64 %896, %899
   %901 = lshr i64 %900, %825
-  %902 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %901
+  %902 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %901
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 1
   %904 = load i8, ptr %903, align 1, !tbaa !55
   %905 = load i8, ptr %902, align 1, !tbaa !57
@@ -6414,7 +6411,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i.i: ; preds = 
   %953 = zext nneg i32 %952 to i64
   %954 = shl i64 %950, %953
   %955 = lshr i64 %954, %948
-  %956 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %17, i64 %955
+  %956 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %955
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 1
   %958 = load i8, ptr %957, align 1, !tbaa !55
   %959 = load i8, ptr %956, align 1, !tbaa !57
@@ -6497,7 +6494,7 @@ _ZN11duckdb_zstd17HUF_selectDecoderEmm.exit:      ; preds = %12, %13
   %17 = phi i64 [ %16, %13 ], [ 15, %12 ]
   %18 = lshr i64 %2, 8
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds nuw [2 x %"struct.duckdb_zstd::algo_time_t"], ptr @_ZN11duckdb_zstdL8algoTimeE, i64 %17
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @_ZN11duckdb_zstdL8algoTimeE, i64 %17
   %21 = load i32, ptr %20, align 16, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !54
@@ -6755,7 +6752,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, 
   %118 = zext nneg i32 %117 to i64
   %119 = shl i64 %.sroa.0.5, %118
   %120 = lshr i64 %119, %88
-  %121 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %99, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %120
   %122 = load i16, ptr %121, align 2
   store i16 %122, ptr %.0.i238, align 1
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 2
@@ -6770,7 +6767,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, 
   %132 = zext nneg i32 %131 to i64
   %133 = shl i64 %.sroa.0.5, %132
   %134 = lshr i64 %133, %88
-  %135 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %98, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %134
   %136 = load i16, ptr %135, align 2
   store i16 %136, ptr %130, align 1
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 2
@@ -6785,7 +6782,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, 
   %146 = zext nneg i32 %145 to i64
   %147 = shl i64 %.sroa.0.5, %146
   %148 = lshr i64 %147, %88
-  %149 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %97, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %148
   %150 = load i16, ptr %149, align 2
   store i16 %150, ptr %144, align 1
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 2
@@ -6800,7 +6797,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, 
   %160 = zext nneg i32 %159 to i64
   %161 = shl i64 %.sroa.0.5, %160
   %162 = lshr i64 %161, %88
-  %163 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %96, i64 %162
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %162
   %164 = load i16, ptr %163, align 2
   store i16 %164, ptr %158, align 1
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 2
@@ -6815,7 +6812,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %101, 
   %174 = zext nneg i32 %173 to i64
   %175 = shl i64 %.sroa.0.5, %174
   %176 = lshr i64 %175, %88
-  %177 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %95, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %176
   %178 = load i16, ptr %177, align 2
   store i16 %178, ptr %172, align 1
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 2
@@ -6874,7 +6871,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15: ; preds = %189
   %206 = zext nneg i32 %205 to i64
   %207 = shl i64 %.sroa.0.6, %206
   %208 = lshr i64 %207, %88
-  %209 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %93, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %208
   %210 = load i16, ptr %209, align 2
   store i16 %210, ptr %.1.i5221, align 1
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 2
@@ -6889,7 +6886,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15: ; preds = %189
   %220 = zext nneg i32 %219 to i64
   %221 = shl i64 %.sroa.0.6, %220
   %222 = lshr i64 %221, %88
-  %223 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %92, i64 %222
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %222
   %224 = load i16, ptr %223, align 2
   store i16 %224, ptr %218, align 1
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 2
@@ -6904,7 +6901,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15: ; preds = %189
   %234 = zext nneg i32 %233 to i64
   %235 = shl i64 %.sroa.0.6, %234
   %236 = lshr i64 %235, %88
-  %237 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %91, i64 %236
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %236
   %238 = load i16, ptr %237, align 2
   store i16 %238, ptr %232, align 1
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 2
@@ -6919,7 +6916,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit15: ; preds = %189
   %248 = zext nneg i32 %247 to i64
   %249 = shl i64 %.sroa.0.6, %248
   %250 = lshr i64 %249, %88
-  %251 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %90, i64 %250
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %250
   %252 = load i16, ptr %251, align 2
   store i16 %252, ptr %246, align 1
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 2
@@ -7050,7 +7047,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22: ; preds = %291
   %311 = zext nneg i32 %310 to i64
   %312 = shl i64 %.sroa.0.7, %311
   %313 = lshr i64 %312, %289
-  %314 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %280, i64 %313
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %313
   %315 = load i16, ptr %314, align 2
   store i16 %315, ptr %.6.i369, align 1
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 2
@@ -7071,7 +7068,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22: ; preds = %291
   %326 = zext nneg i32 %325 to i64
   %327 = shl i64 %.sroa.0.7328, %326
   %328 = lshr i64 %327, %289
-  %329 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %280, i64 %328
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %328
   %330 = load i16, ptr %329, align 2
   store i16 %330, ptr %.7.i246, align 1
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 2
@@ -7101,7 +7098,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit22: ; preds = %291
   %345 = and i32 %344, 63
   %346 = zext nneg i32 %345 to i64
   %347 = lshr i64 %343, %346
-  %348 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %280, i64 %347
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %347
   %349 = load i8, ptr %348, align 2
   store i8 %349, ptr %.5.i, align 1
   %350 = getelementptr inbounds nuw i8, ptr %348, i64 3
@@ -7466,7 +7463,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %8
   %97 = zext nneg i32 %96 to i64
   %98 = shl i64 %.sroa.0.3, %97
   %99 = lshr i64 %98, %78
-  %100 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   %102 = load i8, ptr %101, align 1, !tbaa !55
   %103 = load i8, ptr %100, align 1, !tbaa !57
@@ -7478,7 +7475,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %8
   %108 = zext nneg i32 %107 to i64
   %109 = shl i64 %.sroa.0.3, %108
   %110 = lshr i64 %109, %78
-  %111 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %113 = load i8, ptr %112, align 1, !tbaa !55
   %114 = load i8, ptr %111, align 1, !tbaa !57
@@ -7490,7 +7487,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %8
   %119 = zext nneg i32 %118 to i64
   %120 = shl i64 %.sroa.0.3, %119
   %121 = lshr i64 %120, %78
-  %122 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %124 = load i8, ptr %123, align 1, !tbaa !55
   %125 = load i8, ptr %122, align 1, !tbaa !57
@@ -7502,7 +7499,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %8
   %130 = zext nneg i32 %129 to i64
   %131 = shl i64 %.sroa.0.3, %130
   %132 = lshr i64 %131, %78
-  %133 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %135 = load i8, ptr %134, align 1, !tbaa !55
   %136 = load i8, ptr %133, align 1, !tbaa !57
@@ -7569,7 +7566,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %84,
   %164 = zext nneg i32 %163 to i64
   %165 = shl i64 %.sroa.0.1, %164
   %166 = lshr i64 %165, %161
-  %167 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   %169 = load i8, ptr %168, align 1, !tbaa !55
   %170 = load i8, ptr %167, align 1, !tbaa !57
@@ -7675,9 +7672,9 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
 30:                                               ; preds = %26, %30
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %30 ]
   %.0191220 = phi i64 [ %29, %26 ], [ %39, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !75
-  %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !75
   %35 = ptrtoint ptr %32 to i64
   %36 = ptrtoint ptr %34 to i64
@@ -7701,7 +7698,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
 
 .preheader206:                                    ; preds = %40, %44
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %44 ], [ 1, %40 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv275
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv275
   %46 = load ptr, ptr %45, align 8, !tbaa !75
   %47 = getelementptr i8, ptr %45, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !75
@@ -7722,7 +7719,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %.sroa.42.2 = phi i64 [ %214, %.preheader ], [ %.sroa.42.0, %44 ]
   %.sroa.61.2 = phi i64 [ %229, %.preheader ], [ %.sroa.61.0, %44 ]
   %58 = lshr i64 %.sroa.0130.2, 53
-  %59 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %58
   %.sroa.089.0.copyload = load i16, ptr %59, align 2, !tbaa !60
   %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 2
   %.sroa.490.0.copyload = load i8, ptr %.sroa.490.0..sroa_idx, align 2, !tbaa !7
@@ -7735,7 +7732,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %63 = zext i8 %.sroa.591.0.copyload to i64
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 %63
   %65 = lshr i64 %.sroa.23.2, 53
-  %66 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %65
   %.sroa.085.0.copyload = load i16, ptr %66, align 2, !tbaa !60
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 2
   %.sroa.486.0.copyload = load i8, ptr %.sroa.486.0..sroa_idx, align 2, !tbaa !7
@@ -7748,7 +7745,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %70 = zext i8 %.sroa.587.0.copyload to i64
   %71 = getelementptr inbounds nuw i8, ptr %56, i64 %70
   %72 = lshr i64 %.sroa.42.2, 53
-  %73 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %72
   %.sroa.081.0.copyload = load i16, ptr %73, align 2, !tbaa !60
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 2
   %.sroa.482.0.copyload = load i8, ptr %.sroa.482.0..sroa_idx, align 2, !tbaa !7
@@ -7761,7 +7758,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %77 = zext i8 %.sroa.583.0.copyload to i64
   %78 = getelementptr inbounds nuw i8, ptr %55, i64 %77
   %79 = lshr i64 %62, 53
-  %80 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %79
   %.sroa.077.0.copyload = load i16, ptr %80, align 2, !tbaa !60
   %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 2
   %.sroa.478.0.copyload = load i8, ptr %.sroa.478.0..sroa_idx, align 2, !tbaa !7
@@ -7774,7 +7771,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %84 = zext i8 %.sroa.579.0.copyload to i64
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 %84
   %86 = lshr i64 %69, 53
-  %87 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %86
   %.sroa.073.0.copyload = load i16, ptr %87, align 2, !tbaa !60
   %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %87, i64 2
   %.sroa.474.0.copyload = load i8, ptr %.sroa.474.0..sroa_idx, align 2, !tbaa !7
@@ -7787,7 +7784,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %91 = zext i8 %.sroa.575.0.copyload to i64
   %92 = getelementptr inbounds nuw i8, ptr %71, i64 %91
   %93 = lshr i64 %76, 53
-  %94 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %93
   %.sroa.069.0.copyload = load i16, ptr %94, align 2, !tbaa !60
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 2
   %.sroa.470.0.copyload = load i8, ptr %.sroa.470.0..sroa_idx, align 2, !tbaa !7
@@ -7800,7 +7797,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %98 = zext i8 %.sroa.571.0.copyload to i64
   %99 = getelementptr inbounds nuw i8, ptr %78, i64 %98
   %100 = lshr i64 %83, 53
-  %101 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %100
   %.sroa.065.0.copyload = load i16, ptr %101, align 2, !tbaa !60
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %101, i64 2
   %.sroa.466.0.copyload = load i8, ptr %.sroa.466.0..sroa_idx, align 2, !tbaa !7
@@ -7813,7 +7810,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %105 = zext i8 %.sroa.567.0.copyload to i64
   %106 = getelementptr inbounds nuw i8, ptr %85, i64 %105
   %107 = lshr i64 %90, 53
-  %108 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %107
   %.sroa.061.0.copyload = load i16, ptr %108, align 2, !tbaa !60
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %108, i64 2
   %.sroa.462.0.copyload = load i8, ptr %.sroa.462.0..sroa_idx, align 2, !tbaa !7
@@ -7826,7 +7823,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %112 = zext i8 %.sroa.563.0.copyload to i64
   %113 = getelementptr inbounds nuw i8, ptr %92, i64 %112
   %114 = lshr i64 %97, 53
-  %115 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %114
   %.sroa.057.0.copyload = load i16, ptr %115, align 2, !tbaa !60
   %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 2
   %.sroa.458.0.copyload = load i8, ptr %.sroa.458.0..sroa_idx, align 2, !tbaa !7
@@ -7839,7 +7836,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %119 = zext i8 %.sroa.559.0.copyload to i64
   %120 = getelementptr inbounds nuw i8, ptr %99, i64 %119
   %121 = lshr i64 %104, 53
-  %122 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %121
   %.sroa.053.0.copyload = load i16, ptr %122, align 2, !tbaa !60
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 2
   %.sroa.454.0.copyload = load i8, ptr %.sroa.454.0..sroa_idx, align 2, !tbaa !7
@@ -7852,7 +7849,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %126 = zext i8 %.sroa.555.0.copyload to i64
   %127 = getelementptr inbounds nuw i8, ptr %106, i64 %126
   %128 = lshr i64 %111, 53
-  %129 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %128
   %.sroa.049.0.copyload = load i16, ptr %129, align 2, !tbaa !60
   %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 2
   %.sroa.450.0.copyload = load i8, ptr %.sroa.450.0..sroa_idx, align 2, !tbaa !7
@@ -7865,7 +7862,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %133 = zext i8 %.sroa.551.0.copyload to i64
   %134 = getelementptr inbounds nuw i8, ptr %113, i64 %133
   %135 = lshr i64 %118, 53
-  %136 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %135
   %.sroa.045.0.copyload = load i16, ptr %136, align 2, !tbaa !60
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 2
   %.sroa.446.0.copyload = load i8, ptr %.sroa.446.0..sroa_idx, align 2, !tbaa !7
@@ -7878,7 +7875,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %140 = zext i8 %.sroa.547.0.copyload to i64
   %141 = getelementptr inbounds nuw i8, ptr %120, i64 %140
   %142 = lshr i64 %125, 53
-  %143 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %142
   %.sroa.041.0.copyload = load i16, ptr %143, align 2, !tbaa !60
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 2
   %.sroa.442.0.copyload = load i8, ptr %.sroa.442.0..sroa_idx, align 2, !tbaa !7
@@ -7891,7 +7888,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %147 = zext i8 %.sroa.543.0.copyload to i64
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 %147
   %149 = lshr i64 %132, 53
-  %150 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %149
   %.sroa.037.0.copyload = load i16, ptr %150, align 2, !tbaa !60
   %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 2
   %.sroa.438.0.copyload = load i8, ptr %.sroa.438.0..sroa_idx, align 2, !tbaa !7
@@ -7904,7 +7901,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %154 = zext i8 %.sroa.539.0.copyload to i64
   %155 = getelementptr inbounds nuw i8, ptr %134, i64 %154
   %156 = lshr i64 %139, 53
-  %157 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %156
   %.sroa.033.0.copyload = load i16, ptr %157, align 2, !tbaa !60
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 2
   %.sroa.434.0.copyload = load i8, ptr %.sroa.434.0..sroa_idx, align 2, !tbaa !7
@@ -7917,7 +7914,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %161 = zext i8 %.sroa.535.0.copyload to i64
   %162 = getelementptr inbounds nuw i8, ptr %141, i64 %161
   %163 = lshr i64 %.sroa.61.2, 53
-  %164 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %163
   %.sroa.029.0.copyload = load i16, ptr %164, align 2, !tbaa !60
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 2
   %.sroa.430.0.copyload = load i8, ptr %.sroa.430.0..sroa_idx, align 2, !tbaa !7
@@ -7930,7 +7927,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %168 = zext i8 %.sroa.531.0.copyload to i64
   %169 = getelementptr inbounds nuw i8, ptr %54, i64 %168
   %170 = lshr i64 %167, 53
-  %171 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %170
   %.sroa.025.0.copyload = load i16, ptr %171, align 2, !tbaa !60
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %171, i64 2
   %.sroa.426.0.copyload = load i8, ptr %.sroa.426.0..sroa_idx, align 2, !tbaa !7
@@ -7951,7 +7948,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %183 = or i64 %182, 1
   %184 = shl i64 %183, %178
   %185 = lshr i64 %174, 53
-  %186 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %185
   %.sroa.017.0.copyload = load i16, ptr %186, align 2, !tbaa !60
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 2
   %.sroa.418.0.copyload = load i8, ptr %.sroa.418.0..sroa_idx, align 2, !tbaa !7
@@ -7972,7 +7969,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %198 = or i64 %197, 1
   %199 = shl i64 %198, %193
   %200 = lshr i64 %189, 53
-  %201 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %200
   %.sroa.09.0.copyload = load i16, ptr %201, align 2, !tbaa !60
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 2
   %.sroa.410.0.copyload = load i8, ptr %.sroa.410.0..sroa_idx, align 2, !tbaa !7
@@ -7993,7 +7990,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %213 = or i64 %212, 1
   %214 = shl i64 %213, %208
   %215 = lshr i64 %204, 53
-  %216 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %6, i64 %215
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %215
   %.sroa.0.0.copyload = load i16, ptr %216, align 2, !tbaa !60
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 2
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 2, !tbaa !7
@@ -8443,7 +8440,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %249 = zext nneg i32 %248 to i64
   %250 = shl i64 %.sroa.0366.10653, %249
   %251 = lshr i64 %250, %240
-  %252 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %251
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %251
   %253 = load i16, ptr %252, align 2
   store i16 %253, ptr %.1162.i658, align 1
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 2
@@ -8458,7 +8455,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %263 = zext nneg i32 %262 to i64
   %264 = shl i64 %.sroa.0366.10653, %263
   %265 = lshr i64 %264, %240
-  %266 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %265
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %265
   %267 = load i16, ptr %266, align 2
   store i16 %267, ptr %261, align 1
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 2
@@ -8473,7 +8470,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %277 = zext nneg i32 %276 to i64
   %278 = shl i64 %.sroa.0366.10653, %277
   %279 = lshr i64 %278, %240
-  %280 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %279
   %281 = load i16, ptr %280, align 2
   store i16 %281, ptr %275, align 1
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 2
@@ -8488,7 +8485,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %291 = zext nneg i32 %290 to i64
   %292 = shl i64 %.sroa.0366.10653, %291
   %293 = lshr i64 %292, %240
-  %294 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %293
   %295 = load i16, ptr %294, align 2
   store i16 %295, ptr %289, align 1
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 2
@@ -8503,7 +8500,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %305 = zext nneg i32 %304 to i64
   %306 = shl i64 %.sroa.0213.10647, %305
   %307 = lshr i64 %306, %240
-  %308 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %307
   %309 = load i16, ptr %308, align 2
   store i16 %309, ptr %.1166.i657, align 1
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 2
@@ -8518,7 +8515,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %319 = zext nneg i32 %318 to i64
   %320 = shl i64 %.sroa.0213.10647, %319
   %321 = lshr i64 %320, %240
-  %322 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %321
   %323 = load i16, ptr %322, align 2
   store i16 %323, ptr %317, align 1
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 2
@@ -8533,7 +8530,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %333 = zext nneg i32 %332 to i64
   %334 = shl i64 %.sroa.0213.10647, %333
   %335 = lshr i64 %334, %240
-  %336 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %335
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %335
   %337 = load i16, ptr %336, align 2
   store i16 %337, ptr %331, align 1
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 2
@@ -8548,7 +8545,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %347 = zext nneg i32 %346 to i64
   %348 = shl i64 %.sroa.0213.10647, %347
   %349 = lshr i64 %348, %240
-  %350 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %349
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %349
   %351 = load i16, ptr %350, align 2
   store i16 %351, ptr %345, align 1
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 2
@@ -8596,7 +8593,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %375 = zext nneg i32 %374 to i64
   %376 = shl i64 %.sroa.0.10651, %375
   %377 = lshr i64 %376, %240
-  %378 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %377
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %377
   %379 = load i16, ptr %378, align 2
   store i16 %379, ptr %.1170.i656, align 1
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 2
@@ -8611,7 +8608,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %389 = zext nneg i32 %388 to i64
   %390 = shl i64 %.sroa.0.10651, %389
   %391 = lshr i64 %390, %240
-  %392 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %391
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %391
   %393 = load i16, ptr %392, align 2
   store i16 %393, ptr %387, align 1
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 2
@@ -8626,7 +8623,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %403 = zext nneg i32 %402 to i64
   %404 = shl i64 %.sroa.0.10651, %403
   %405 = lshr i64 %404, %240
-  %406 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %405
   %407 = load i16, ptr %406, align 2
   store i16 %407, ptr %401, align 1
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 2
@@ -8641,7 +8638,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %417 = zext nneg i32 %416 to i64
   %418 = shl i64 %.sroa.0.10651, %417
   %419 = lshr i64 %418, %240
-  %420 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %419
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %419
   %421 = load i16, ptr %420, align 2
   store i16 %421, ptr %415, align 1
   %422 = getelementptr inbounds nuw i8, ptr %420, i64 2
@@ -8656,7 +8653,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %431 = zext nneg i32 %430 to i64
   %432 = shl i64 %.val.i.i.i27644645, %431
   %433 = lshr i64 %432, %240
-  %434 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %433
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %433
   %435 = load i16, ptr %434, align 2
   store i16 %435, ptr %.1174.i655, align 1
   %436 = getelementptr inbounds nuw i8, ptr %434, i64 2
@@ -8671,7 +8668,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %445 = zext nneg i32 %444 to i64
   %446 = shl i64 %.val.i.i.i27644645, %445
   %447 = lshr i64 %446, %240
-  %448 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %447
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %447
   %449 = load i16, ptr %448, align 2
   store i16 %449, ptr %443, align 1
   %450 = getelementptr inbounds nuw i8, ptr %448, i64 2
@@ -8686,7 +8683,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %459 = zext nneg i32 %458 to i64
   %460 = shl i64 %.val.i.i.i27644645, %459
   %461 = lshr i64 %460, %240
-  %462 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %461
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %461
   %463 = load i16, ptr %462, align 2
   store i16 %463, ptr %457, align 1
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 2
@@ -8701,7 +8698,7 @@ _ZN11duckdb_zstdL21BIT_reloadDStreamFastEPNS_13BIT_DStream_tE.exit23: ; preds = 
   %473 = zext nneg i32 %472 to i64
   %474 = shl i64 %.val.i.i.i27644645, %473
   %475 = lshr i64 %474, %240
-  %476 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %475
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %475
   %477 = load i16, ptr %476, align 2
   store i16 %477, ptr %471, align 1
   %478 = getelementptr inbounds nuw i8, ptr %476, i64 2
@@ -8853,7 +8850,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %528
   %543 = zext nneg i32 %542 to i64
   %544 = shl i64 %.sroa.0366.9, %543
   %545 = lshr i64 %544, %521
-  %546 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %545
+  %546 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %545
   %547 = load i16, ptr %546, align 2
   store i16 %547, ptr %.0.i225.i695, align 1
   %548 = getelementptr inbounds nuw i8, ptr %546, i64 2
@@ -8868,7 +8865,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %528
   %557 = zext nneg i32 %556 to i64
   %558 = shl i64 %.sroa.0366.9, %557
   %559 = lshr i64 %558, %521
-  %560 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %559
+  %560 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %559
   %561 = load i16, ptr %560, align 2
   store i16 %561, ptr %555, align 1
   %562 = getelementptr inbounds nuw i8, ptr %560, i64 2
@@ -8883,7 +8880,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %528
   %571 = zext nneg i32 %570 to i64
   %572 = shl i64 %.sroa.0366.9, %571
   %573 = lshr i64 %572, %521
-  %574 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %573
+  %574 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %573
   %575 = load i16, ptr %574, align 2
   store i16 %575, ptr %569, align 1
   %576 = getelementptr inbounds nuw i8, ptr %574, i64 2
@@ -8898,7 +8895,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %528
   %585 = zext nneg i32 %584 to i64
   %586 = shl i64 %.sroa.0366.9, %585
   %587 = lshr i64 %586, %521
-  %588 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %587
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %587
   %589 = load i16, ptr %588, align 2
   store i16 %589, ptr %583, align 1
   %590 = getelementptr inbounds nuw i8, ptr %588, i64 2
@@ -8913,7 +8910,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %528
   %599 = zext nneg i32 %598 to i64
   %600 = shl i64 %.sroa.0366.9, %599
   %601 = lshr i64 %600, %521
-  %602 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %601
+  %602 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %601
   %603 = load i16, ptr %602, align 2
   store i16 %603, ptr %597, align 1
   %604 = getelementptr inbounds nuw i8, ptr %602, i64 2
@@ -8975,7 +8972,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i: ; preds = %
   %634 = zext nneg i32 %633 to i64
   %635 = shl i64 %.sroa.0366.7, %634
   %636 = lshr i64 %635, %516
-  %637 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %636
+  %637 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %636
   %638 = load i16, ptr %637, align 2
   store i16 %638, ptr %.1.i224.i677, align 1
   %639 = getelementptr inbounds nuw i8, ptr %637, i64 2
@@ -8990,7 +8987,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i: ; preds = %
   %648 = zext nneg i32 %647 to i64
   %649 = shl i64 %.sroa.0366.7, %648
   %650 = lshr i64 %649, %516
-  %651 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %650
+  %651 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %650
   %652 = load i16, ptr %651, align 2
   store i16 %652, ptr %646, align 1
   %653 = getelementptr inbounds nuw i8, ptr %651, i64 2
@@ -9005,7 +9002,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i: ; preds = %
   %662 = zext nneg i32 %661 to i64
   %663 = shl i64 %.sroa.0366.7, %662
   %664 = lshr i64 %663, %516
-  %665 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %664
+  %665 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %664
   %666 = load i16, ptr %665, align 2
   store i16 %666, ptr %660, align 1
   %667 = getelementptr inbounds nuw i8, ptr %665, i64 2
@@ -9020,7 +9017,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit235.i: ; preds = %
   %676 = zext nneg i32 %675 to i64
   %677 = shl i64 %.sroa.0366.7, %676
   %678 = lshr i64 %677, %516
-  %679 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %678
+  %679 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %678
   %680 = load i16, ptr %679, align 2
   store i16 %680, ptr %674, align 1
   %681 = getelementptr inbounds nuw i8, ptr %679, i64 2
@@ -9149,7 +9146,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i: ; preds = %
   %745 = zext nneg i32 %744 to i64
   %746 = shl i64 %.sroa.0366.5, %745
   %747 = lshr i64 %746, %723
-  %748 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %747
+  %748 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %747
   %749 = load i16, ptr %748, align 2
   store i16 %749, ptr %.6.i221.i1035, align 1
   %750 = getelementptr inbounds nuw i8, ptr %748, i64 2
@@ -9170,7 +9167,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i: ; preds = %
   %760 = zext nneg i32 %759 to i64
   %761 = shl i64 %.sroa.0366.5932, %760
   %762 = lshr i64 %761, %723
-  %763 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %762
+  %763 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %762
   %764 = load i16, ptr %763, align 2
   store i16 %764, ptr %.7.i222.i712, align 1
   %765 = getelementptr inbounds nuw i8, ptr %763, i64 2
@@ -9200,7 +9197,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit242.i: ; preds = %
   %779 = and i32 %778, 63
   %780 = zext nneg i32 %779 to i64
   %781 = lshr i64 %777, %780
-  %782 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %781
+  %782 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %781
   %783 = load i8, ptr %782, align 2
   store i8 %783, ptr %.5.i219.i, align 1
   %784 = getelementptr inbounds nuw i8, ptr %782, i64 3
@@ -9310,7 +9307,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %
   %837 = zext nneg i32 %836 to i64
   %838 = shl i64 %.sroa.0213.9, %837
   %839 = lshr i64 %838, %815
-  %840 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %839
+  %840 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %839
   %841 = load i16, ptr %840, align 2
   store i16 %841, ptr %.0.i216.i737, align 1
   %842 = getelementptr inbounds nuw i8, ptr %840, i64 2
@@ -9325,7 +9322,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %
   %851 = zext nneg i32 %850 to i64
   %852 = shl i64 %.sroa.0213.9, %851
   %853 = lshr i64 %852, %815
-  %854 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %853
+  %854 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %853
   %855 = load i16, ptr %854, align 2
   store i16 %855, ptr %849, align 1
   %856 = getelementptr inbounds nuw i8, ptr %854, i64 2
@@ -9340,7 +9337,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %
   %865 = zext nneg i32 %864 to i64
   %866 = shl i64 %.sroa.0213.9, %865
   %867 = lshr i64 %866, %815
-  %868 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %867
+  %868 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %867
   %869 = load i16, ptr %868, align 2
   store i16 %869, ptr %863, align 1
   %870 = getelementptr inbounds nuw i8, ptr %868, i64 2
@@ -9355,7 +9352,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %
   %879 = zext nneg i32 %878 to i64
   %880 = shl i64 %.sroa.0213.9, %879
   %881 = lshr i64 %880, %815
-  %882 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %881
+  %882 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %881
   %883 = load i16, ptr %882, align 2
   store i16 %883, ptr %877, align 1
   %884 = getelementptr inbounds nuw i8, ptr %882, i64 2
@@ -9370,7 +9367,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit256.i: ; preds = %
   %893 = zext nneg i32 %892 to i64
   %894 = shl i64 %.sroa.0213.9, %893
   %895 = lshr i64 %894, %815
-  %896 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %895
+  %896 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %895
   %897 = load i16, ptr %896, align 2
   store i16 %897, ptr %891, align 1
   %898 = getelementptr inbounds nuw i8, ptr %896, i64 2
@@ -9432,7 +9429,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i: ; preds = %
   %928 = zext nneg i32 %927 to i64
   %929 = shl i64 %.sroa.0213.7, %928
   %930 = lshr i64 %929, %810
-  %931 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %930
+  %931 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %930
   %932 = load i16, ptr %931, align 2
   store i16 %932, ptr %.1.i215.i719, align 1
   %933 = getelementptr inbounds nuw i8, ptr %931, i64 2
@@ -9447,7 +9444,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i: ; preds = %
   %942 = zext nneg i32 %941 to i64
   %943 = shl i64 %.sroa.0213.7, %942
   %944 = lshr i64 %943, %810
-  %945 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %944
+  %945 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %944
   %946 = load i16, ptr %945, align 2
   store i16 %946, ptr %940, align 1
   %947 = getelementptr inbounds nuw i8, ptr %945, i64 2
@@ -9462,7 +9459,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i: ; preds = %
   %956 = zext nneg i32 %955 to i64
   %957 = shl i64 %.sroa.0213.7, %956
   %958 = lshr i64 %957, %810
-  %959 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %958
+  %959 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %958
   %960 = load i16, ptr %959, align 2
   store i16 %960, ptr %954, align 1
   %961 = getelementptr inbounds nuw i8, ptr %959, i64 2
@@ -9477,7 +9474,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit263.i: ; preds = %
   %970 = zext nneg i32 %969 to i64
   %971 = shl i64 %.sroa.0213.7, %970
   %972 = lshr i64 %971, %810
-  %973 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %972
+  %973 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %972
   %974 = load i16, ptr %973, align 2
   store i16 %974, ptr %968, align 1
   %975 = getelementptr inbounds nuw i8, ptr %973, i64 2
@@ -9606,7 +9603,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i: ; preds = %
   %1039 = zext nneg i32 %1038 to i64
   %1040 = shl i64 %.sroa.0213.5, %1039
   %1041 = lshr i64 %1040, %1017
-  %1042 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1041
+  %1042 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1041
   %1043 = load i16, ptr %1042, align 2
   store i16 %1043, ptr %.6.i212.i1052, align 1
   %1044 = getelementptr inbounds nuw i8, ptr %1042, i64 2
@@ -9627,7 +9624,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i: ; preds = %
   %1054 = zext nneg i32 %1053 to i64
   %1055 = shl i64 %.sroa.0213.5937, %1054
   %1056 = lshr i64 %1055, %1017
-  %1057 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1056
+  %1057 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1056
   %1058 = load i16, ptr %1057, align 2
   store i16 %1058, ptr %.7.i213.i754, align 1
   %1059 = getelementptr inbounds nuw i8, ptr %1057, i64 2
@@ -9657,7 +9654,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit270.i: ; preds = %
   %1073 = and i32 %1072, 63
   %1074 = zext nneg i32 %1073 to i64
   %1075 = lshr i64 %1071, %1074
-  %1076 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1075
+  %1076 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1075
   %1077 = load i8, ptr %1076, align 2
   store i8 %1077, ptr %.5.i210.i, align 1
   %1078 = getelementptr inbounds nuw i8, ptr %1076, i64 3
@@ -9767,7 +9764,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %
   %1131 = zext nneg i32 %1130 to i64
   %1132 = shl i64 %.sroa.0.9, %1131
   %1133 = lshr i64 %1132, %1109
-  %1134 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1133
+  %1134 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1133
   %1135 = load i16, ptr %1134, align 2
   store i16 %1135, ptr %.0.i207.i779, align 1
   %1136 = getelementptr inbounds nuw i8, ptr %1134, i64 2
@@ -9782,7 +9779,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %
   %1145 = zext nneg i32 %1144 to i64
   %1146 = shl i64 %.sroa.0.9, %1145
   %1147 = lshr i64 %1146, %1109
-  %1148 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1147
+  %1148 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1147
   %1149 = load i16, ptr %1148, align 2
   store i16 %1149, ptr %1143, align 1
   %1150 = getelementptr inbounds nuw i8, ptr %1148, i64 2
@@ -9797,7 +9794,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %
   %1159 = zext nneg i32 %1158 to i64
   %1160 = shl i64 %.sroa.0.9, %1159
   %1161 = lshr i64 %1160, %1109
-  %1162 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1161
+  %1162 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1161
   %1163 = load i16, ptr %1162, align 2
   store i16 %1163, ptr %1157, align 1
   %1164 = getelementptr inbounds nuw i8, ptr %1162, i64 2
@@ -9812,7 +9809,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %
   %1173 = zext nneg i32 %1172 to i64
   %1174 = shl i64 %.sroa.0.9, %1173
   %1175 = lshr i64 %1174, %1109
-  %1176 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1175
+  %1176 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1175
   %1177 = load i16, ptr %1176, align 2
   store i16 %1177, ptr %1171, align 1
   %1178 = getelementptr inbounds nuw i8, ptr %1176, i64 2
@@ -9827,7 +9824,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit284.i: ; preds = %
   %1187 = zext nneg i32 %1186 to i64
   %1188 = shl i64 %.sroa.0.9, %1187
   %1189 = lshr i64 %1188, %1109
-  %1190 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1189
+  %1190 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1189
   %1191 = load i16, ptr %1190, align 2
   store i16 %1191, ptr %1185, align 1
   %1192 = getelementptr inbounds nuw i8, ptr %1190, i64 2
@@ -9889,7 +9886,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i: ; preds = %
   %1222 = zext nneg i32 %1221 to i64
   %1223 = shl i64 %.sroa.0.7, %1222
   %1224 = lshr i64 %1223, %1104
-  %1225 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1224
+  %1225 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1224
   %1226 = load i16, ptr %1225, align 2
   store i16 %1226, ptr %.1.i206.i761, align 1
   %1227 = getelementptr inbounds nuw i8, ptr %1225, i64 2
@@ -9904,7 +9901,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i: ; preds = %
   %1236 = zext nneg i32 %1235 to i64
   %1237 = shl i64 %.sroa.0.7, %1236
   %1238 = lshr i64 %1237, %1104
-  %1239 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1238
+  %1239 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1238
   %1240 = load i16, ptr %1239, align 2
   store i16 %1240, ptr %1234, align 1
   %1241 = getelementptr inbounds nuw i8, ptr %1239, i64 2
@@ -9919,7 +9916,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i: ; preds = %
   %1250 = zext nneg i32 %1249 to i64
   %1251 = shl i64 %.sroa.0.7, %1250
   %1252 = lshr i64 %1251, %1104
-  %1253 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1252
+  %1253 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1252
   %1254 = load i16, ptr %1253, align 2
   store i16 %1254, ptr %1248, align 1
   %1255 = getelementptr inbounds nuw i8, ptr %1253, i64 2
@@ -9934,7 +9931,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit291.i: ; preds = %
   %1264 = zext nneg i32 %1263 to i64
   %1265 = shl i64 %.sroa.0.7, %1264
   %1266 = lshr i64 %1265, %1104
-  %1267 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1266
+  %1267 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1266
   %1268 = load i16, ptr %1267, align 2
   store i16 %1268, ptr %1262, align 1
   %1269 = getelementptr inbounds nuw i8, ptr %1267, i64 2
@@ -10063,7 +10060,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i: ; preds = %
   %1333 = zext nneg i32 %1332 to i64
   %1334 = shl i64 %.sroa.0.5, %1333
   %1335 = lshr i64 %1334, %1311
-  %1336 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1335
+  %1336 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1335
   %1337 = load i16, ptr %1336, align 2
   store i16 %1337, ptr %.6.i203.i1070, align 1
   %1338 = getelementptr inbounds nuw i8, ptr %1336, i64 2
@@ -10084,7 +10081,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i: ; preds = %
   %1348 = zext nneg i32 %1347 to i64
   %1349 = shl i64 %.sroa.0.5944, %1348
   %1350 = lshr i64 %1349, %1311
-  %1351 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1350
+  %1351 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1350
   %1352 = load i16, ptr %1351, align 2
   store i16 %1352, ptr %.7.i204.i796, align 1
   %1353 = getelementptr inbounds nuw i8, ptr %1351, i64 2
@@ -10114,7 +10111,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit298.i: ; preds = %
   %1367 = and i32 %1366, 63
   %1368 = zext nneg i32 %1367 to i64
   %1369 = lshr i64 %1365, %1368
-  %1370 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1369
+  %1370 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1369
   %1371 = load i8, ptr %1370, align 2
   store i8 %1371, ptr %.5.i201.i, align 1
   %1372 = getelementptr inbounds nuw i8, ptr %1370, i64 3
@@ -10245,7 +10242,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i: ; preds = %
   %1444 = zext nneg i32 %1443 to i64
   %1445 = shl i64 %storemerge582, %1444
   %1446 = lshr i64 %1445, %1408
-  %1447 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1446
+  %1447 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1446
   %1448 = load i16, ptr %1447, align 2
   store i16 %1448, ptr %.0.i.i803, align 1
   %1449 = getelementptr inbounds nuw i8, ptr %1447, i64 2
@@ -10262,7 +10259,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i: ; preds = %
   %1459 = zext nneg i32 %1458 to i64
   %1460 = shl i64 %1457, %1459
   %1461 = lshr i64 %1460, %1408
-  %1462 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1461
+  %1462 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1461
   %1463 = load i16, ptr %1462, align 2
   store i16 %1463, ptr %1456, align 1
   %1464 = getelementptr inbounds nuw i8, ptr %1462, i64 2
@@ -10280,7 +10277,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i: ; preds = %
   %1475 = zext nneg i32 %1474 to i64
   %1476 = shl i64 %1473, %1475
   %1477 = lshr i64 %1476, %1408
-  %1478 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1477
+  %1478 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1477
   %1479 = load i16, ptr %1478, align 2
   store i16 %1479, ptr %1472, align 1
   %1480 = getelementptr inbounds nuw i8, ptr %1478, i64 2
@@ -10298,7 +10295,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i: ; preds = %
   %1491 = zext nneg i32 %1490 to i64
   %1492 = shl i64 %1489, %1491
   %1493 = lshr i64 %1492, %1408
-  %1494 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1493
+  %1494 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1493
   %1495 = load i16, ptr %1494, align 2
   store i16 %1495, ptr %1488, align 1
   %1496 = getelementptr inbounds nuw i8, ptr %1494, i64 2
@@ -10316,7 +10313,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit312.i: ; preds = %
   %1507 = zext nneg i32 %1506 to i64
   %1508 = shl i64 %1505, %1507
   %1509 = lshr i64 %1508, %1408
-  %1510 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1509
+  %1510 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1509
   %1511 = load i16, ptr %1510, align 2
   store i16 %1511, ptr %1504, align 1
   %1512 = getelementptr inbounds nuw i8, ptr %1510, i64 2
@@ -10396,7 +10393,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i: ; preds = %
   %1557 = zext nneg i32 %1556 to i64
   %1558 = shl i64 %storemerge, %1557
   %1559 = lshr i64 %1558, %1401
-  %1560 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1559
+  %1560 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1559
   %1561 = load i16, ptr %1560, align 2
   store i16 %1561, ptr %.1.i.i800, align 1
   %1562 = getelementptr inbounds nuw i8, ptr %1560, i64 2
@@ -10413,7 +10410,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i: ; preds = %
   %1572 = zext nneg i32 %1571 to i64
   %1573 = shl i64 %1570, %1572
   %1574 = lshr i64 %1573, %1401
-  %1575 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1574
+  %1575 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1574
   %1576 = load i16, ptr %1575, align 2
   store i16 %1576, ptr %1569, align 1
   %1577 = getelementptr inbounds nuw i8, ptr %1575, i64 2
@@ -10431,7 +10428,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i: ; preds = %
   %1588 = zext nneg i32 %1587 to i64
   %1589 = shl i64 %1586, %1588
   %1590 = lshr i64 %1589, %1401
-  %1591 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1590
+  %1591 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1590
   %1592 = load i16, ptr %1591, align 2
   store i16 %1592, ptr %1585, align 1
   %1593 = getelementptr inbounds nuw i8, ptr %1591, i64 2
@@ -10449,7 +10446,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit319.i: ; preds = %
   %1604 = zext nneg i32 %1603 to i64
   %1605 = shl i64 %1602, %1604
   %1606 = lshr i64 %1605, %1401
-  %1607 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1606
+  %1607 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1606
   %1608 = load i16, ptr %1607, align 2
   store i16 %1608, ptr %1601, align 1
   %1609 = getelementptr inbounds nuw i8, ptr %1607, i64 2
@@ -10613,7 +10610,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit326.i: ; preds = %
   %1700 = zext nneg i32 %1699 to i64
   %1701 = shl i64 %1698, %1700
   %1702 = lshr i64 %1701, %1665
-  %1703 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1702
+  %1703 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1702
   %1704 = load i16, ptr %1703, align 2
   store i16 %1704, ptr %.6.i.i1085, align 1
   %1705 = getelementptr inbounds nuw i8, ptr %1703, i64 2
@@ -10637,7 +10634,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit326.i: ; preds = %
   %1718 = zext nneg i32 %1717 to i64
   %1719 = shl i64 %1716, %1718
   %1720 = lshr i64 %1719, %1665
-  %1721 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1720
+  %1721 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1720
   %1722 = load i16, ptr %1721, align 2
   store i16 %1722, ptr %.7.i.i808, align 1
   %1723 = getelementptr inbounds nuw i8, ptr %1721, i64 2
@@ -10669,7 +10666,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit326.i: ; preds = %
   %1741 = and i32 %1740, 63
   %1742 = zext nneg i32 %1741 to i64
   %1743 = lshr i64 %1739, %1742
-  %1744 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %12, i64 %1743
+  %1744 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1743
   %1745 = load i8, ptr %1744, align 2
   store i8 %1745, ptr %.5.i.i, align 1
   %1746 = getelementptr inbounds nuw i8, ptr %1744, i64 3
@@ -10767,15 +10764,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X2_usingDT
   %.not53 = icmp ugt i64 %13, %22
   %23 = getelementptr inbounds nuw i8, ptr %.045176, i64 %13
   %.146 = select i1 %.not53, ptr %8, ptr %23
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !75
   %26 = icmp ugt ptr %25, %.146
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !75
-  %30 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !75
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %33 = icmp ult ptr %29, %32
@@ -10783,7 +10780,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X2_usingDT
 
 34:                                               ; preds = %27
   %.val.i.i = load i64, ptr %29, align 1, !tbaa !17
-  %35 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %36, i1 true)
   %38 = trunc nuw nsw i64 %37 to i32
@@ -10848,7 +10845,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %
   %68 = zext nneg i32 %67 to i64
   %69 = shl i64 %.sroa.0.6, %68
   %70 = lshr i64 %69, 53
-  %71 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %70
   %72 = load i16, ptr %71, align 2
   store i16 %72, ptr %.0.i157, align 1
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 2
@@ -10863,7 +10860,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %
   %82 = zext nneg i32 %81 to i64
   %83 = shl i64 %.sroa.0.6, %82
   %84 = lshr i64 %83, 53
-  %85 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %84
   %86 = load i16, ptr %85, align 2
   store i16 %86, ptr %80, align 1
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 2
@@ -10878,7 +10875,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %
   %96 = zext nneg i32 %95 to i64
   %97 = shl i64 %.sroa.0.6, %96
   %98 = lshr i64 %97, 53
-  %99 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %98
   %100 = load i16, ptr %99, align 2
   store i16 %100, ptr %94, align 1
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
@@ -10893,7 +10890,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %
   %110 = zext nneg i32 %109 to i64
   %111 = shl i64 %.sroa.0.6, %110
   %112 = lshr i64 %111, 53
-  %113 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %112
   %114 = load i16, ptr %113, align 2
   store i16 %114, ptr %108, align 1
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 2
@@ -10908,7 +10905,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit: ; preds = %48, %
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %.sroa.0.6, %124
   %126 = lshr i64 %125, 53
-  %127 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %126
   %128 = load i16, ptr %127, align 2
   store i16 %128, ptr %122, align 1
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 2
@@ -11028,7 +11025,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit66: ; preds = %167
   %187 = zext nneg i32 %186 to i64
   %188 = shl i64 %.sroa.0.7, %187
   %189 = lshr i64 %188, 53
-  %190 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %189
   %191 = load i16, ptr %190, align 2
   store i16 %191, ptr %.6.i5, align 1
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 2
@@ -11049,7 +11046,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit66: ; preds = %167
   %202 = zext nneg i32 %201 to i64
   %203 = shl i64 %.sroa.0.7192, %202
   %204 = lshr i64 %203, 53
-  %205 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %204
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %204
   %206 = load i16, ptr %205, align 2
   store i16 %206, ptr %.7.i172, align 1
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 2
@@ -11075,7 +11072,7 @@ _ZN11duckdb_zstdL22HUF_decodeLastSymbolX2EPvPNS_13BIT_DStream_tEPKNS_10HUF_DEltX
   %217 = zext nneg i32 %216 to i64
   %218 = shl i64 %.sroa.0.3, %217
   %219 = lshr i64 %218, 53
-  %220 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX2", ptr %7, i64 %219
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %219
   %221 = load i8, ptr %220, align 2
   store i8 %221, ptr %.5.i, align 1
   %222 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
@@ -11337,7 +11334,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
 
 40:                                               ; preds = %.preheader225, %39
   %indvars.iv = phi i64 [ 1, %.preheader225 ], [ %indvars.iv.next, %39 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !75
   %43 = getelementptr i8, ptr %41, i64 -8
   %44 = load ptr, ptr %43, align 8, !tbaa !75
@@ -11354,7 +11351,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %.sroa.42.2 = phi i64 [ %251, %.preheader ], [ %.sroa.42.0258, %39 ]
   %.sroa.61.2 = phi i64 [ %261, %.preheader ], [ %.sroa.61.0259, %39 ]
   %46 = lshr i64 %.sroa.0142.2, 53
-  %47 = getelementptr inbounds nuw i16, ptr %4, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !60
   %49 = and i16 %48, 63
   %50 = zext nneg i16 %49 to i64
@@ -11363,7 +11360,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %53 = trunc nuw i16 %52 to i8
   store i8 %53, ptr %.sroa.0.2, align 1, !tbaa !7
   %54 = lshr i64 %.sroa.23.2, 53
-  %55 = getelementptr inbounds nuw i16, ptr %4, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !60
   %57 = and i16 %56, 63
   %58 = zext nneg i16 %57 to i64
@@ -11372,7 +11369,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %61 = trunc nuw i16 %60 to i8
   store i8 %61, ptr %.sroa.11.2, align 1, !tbaa !7
   %62 = lshr i64 %.sroa.42.2, 53
-  %63 = getelementptr inbounds nuw i16, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !60
   %65 = and i16 %64, 63
   %66 = zext nneg i16 %65 to i64
@@ -11381,7 +11378,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %69 = trunc nuw i16 %68 to i8
   store i8 %69, ptr %.sroa.18.2, align 1, !tbaa !7
   %70 = lshr i64 %.sroa.61.2, 53
-  %71 = getelementptr inbounds nuw i16, ptr %4, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !60
   %73 = and i16 %72, 63
   %74 = zext nneg i16 %73 to i64
@@ -11390,7 +11387,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %77 = trunc nuw i16 %76 to i8
   store i8 %77, ptr %.sroa.25.2, align 1, !tbaa !7
   %78 = lshr i64 %51, 53
-  %79 = getelementptr inbounds nuw i16, ptr %4, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !60
   %81 = and i16 %80, 63
   %82 = zext nneg i16 %81 to i64
@@ -11400,7 +11397,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 1
   store i8 %85, ptr %86, align 1, !tbaa !7
   %87 = lshr i64 %59, 53
-  %88 = getelementptr inbounds nuw i16, ptr %4, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !60
   %90 = and i16 %89, 63
   %91 = zext nneg i16 %90 to i64
@@ -11410,7 +11407,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.11.2, i64 1
   store i8 %94, ptr %95, align 1, !tbaa !7
   %96 = lshr i64 %67, 53
-  %97 = getelementptr inbounds nuw i16, ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !60
   %99 = and i16 %98, 63
   %100 = zext nneg i16 %99 to i64
@@ -11420,7 +11417,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.18.2, i64 1
   store i8 %103, ptr %104, align 1, !tbaa !7
   %105 = lshr i64 %75, 53
-  %106 = getelementptr inbounds nuw i16, ptr %4, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !60
   %108 = and i16 %107, 63
   %109 = zext nneg i16 %108 to i64
@@ -11430,7 +11427,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.25.2, i64 1
   store i8 %112, ptr %113, align 1, !tbaa !7
   %114 = lshr i64 %83, 53
-  %115 = getelementptr inbounds nuw i16, ptr %4, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !60
   %117 = and i16 %116, 63
   %118 = zext nneg i16 %117 to i64
@@ -11440,7 +11437,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 2
   store i8 %121, ptr %122, align 1, !tbaa !7
   %123 = lshr i64 %92, 53
-  %124 = getelementptr inbounds nuw i16, ptr %4, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !60
   %126 = and i16 %125, 63
   %127 = zext nneg i16 %126 to i64
@@ -11450,7 +11447,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.11.2, i64 2
   store i8 %130, ptr %131, align 1, !tbaa !7
   %132 = lshr i64 %101, 53
-  %133 = getelementptr inbounds nuw i16, ptr %4, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %132
   %134 = load i16, ptr %133, align 2, !tbaa !60
   %135 = and i16 %134, 63
   %136 = zext nneg i16 %135 to i64
@@ -11460,7 +11457,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.18.2, i64 2
   store i8 %139, ptr %140, align 1, !tbaa !7
   %141 = lshr i64 %110, 53
-  %142 = getelementptr inbounds nuw i16, ptr %4, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !60
   %144 = and i16 %143, 63
   %145 = zext nneg i16 %144 to i64
@@ -11470,7 +11467,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.25.2, i64 2
   store i8 %148, ptr %149, align 1, !tbaa !7
   %150 = lshr i64 %119, 53
-  %151 = getelementptr inbounds nuw i16, ptr %4, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !60
   %153 = and i16 %152, 63
   %154 = zext nneg i16 %153 to i64
@@ -11480,7 +11477,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 3
   store i8 %157, ptr %158, align 1, !tbaa !7
   %159 = lshr i64 %128, 53
-  %160 = getelementptr inbounds nuw i16, ptr %4, i64 %159
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %159
   %161 = load i16, ptr %160, align 2, !tbaa !60
   %162 = and i16 %161, 63
   %163 = zext nneg i16 %162 to i64
@@ -11490,7 +11487,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.11.2, i64 3
   store i8 %166, ptr %167, align 1, !tbaa !7
   %168 = lshr i64 %137, 53
-  %169 = getelementptr inbounds nuw i16, ptr %4, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !60
   %171 = and i16 %170, 63
   %172 = zext nneg i16 %171 to i64
@@ -11500,7 +11497,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.18.2, i64 3
   store i8 %175, ptr %176, align 1, !tbaa !7
   %177 = lshr i64 %146, 53
-  %178 = getelementptr inbounds nuw i16, ptr %4, i64 %177
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %177
   %179 = load i16, ptr %178, align 2, !tbaa !60
   %180 = and i16 %179, 63
   %181 = zext nneg i16 %180 to i64
@@ -11510,7 +11507,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.25.2, i64 3
   store i8 %184, ptr %185, align 1, !tbaa !7
   %186 = lshr i64 %155, 53
-  %187 = getelementptr inbounds nuw i16, ptr %4, i64 %186
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !60
   %189 = and i16 %188, 63
   %190 = zext nneg i16 %189 to i64
@@ -11520,7 +11517,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 4
   store i8 %193, ptr %194, align 1, !tbaa !7
   %195 = lshr i64 %164, 53
-  %196 = getelementptr inbounds nuw i16, ptr %4, i64 %195
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %195
   %197 = load i16, ptr %196, align 2, !tbaa !60
   %198 = and i16 %197, 63
   %199 = zext nneg i16 %198 to i64
@@ -11530,7 +11527,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.11.2, i64 4
   store i8 %202, ptr %203, align 1, !tbaa !7
   %204 = lshr i64 %173, 53
-  %205 = getelementptr inbounds nuw i16, ptr %4, i64 %204
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %204
   %206 = load i16, ptr %205, align 2, !tbaa !60
   %207 = and i16 %206, 63
   %208 = zext nneg i16 %207 to i64
@@ -11540,7 +11537,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.18.2, i64 4
   store i8 %211, ptr %212, align 1, !tbaa !7
   %213 = lshr i64 %182, 53
-  %214 = getelementptr inbounds nuw i16, ptr %4, i64 %213
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %213
   %215 = load i16, ptr %214, align 2, !tbaa !60
   %216 = and i16 %215, 63
   %217 = zext nneg i16 %216 to i64
@@ -12031,7 +12028,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %248 = zext nneg i32 %247 to i64
   %249 = shl i64 %.sroa.0210.5370, %248
   %250 = lshr i64 %249, %239
-  %251 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %250
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 1
   %253 = load i8, ptr %252, align 1, !tbaa !55
   %254 = load i8, ptr %251, align 1, !tbaa !57
@@ -12043,7 +12040,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %259 = zext nneg i32 %258 to i64
   %260 = shl i64 %.sroa.0127.5364, %259
   %261 = lshr i64 %260, %239
-  %262 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %261
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 1
   %264 = load i8, ptr %263, align 1, !tbaa !55
   %265 = load i8, ptr %262, align 1, !tbaa !57
@@ -12055,7 +12052,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %270 = zext nneg i32 %269 to i64
   %271 = shl i64 %.sroa.0.5368, %270
   %272 = lshr i64 %271, %239
-  %273 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %272
+  %273 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 1
   %275 = load i8, ptr %274, align 1, !tbaa !55
   %276 = load i8, ptr %273, align 1, !tbaa !57
@@ -12067,7 +12064,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %281 = zext nneg i32 %280 to i64
   %282 = shl i64 %.val.i.i.i27361362, %281
   %283 = lshr i64 %282, %239
-  %284 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %283
+  %284 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 1
   %286 = load i8, ptr %285, align 1, !tbaa !55
   %287 = load i8, ptr %284, align 1, !tbaa !57
@@ -12079,7 +12076,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %292 = zext nneg i32 %291 to i64
   %293 = shl i64 %.sroa.0210.5370, %292
   %294 = lshr i64 %293, %239
-  %295 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %294
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 1
   %297 = load i8, ptr %296, align 1, !tbaa !55
   %298 = load i8, ptr %295, align 1, !tbaa !57
@@ -12090,7 +12087,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %302 = zext nneg i32 %301 to i64
   %303 = shl i64 %.sroa.0127.5364, %302
   %304 = lshr i64 %303, %239
-  %305 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %304
+  %305 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %304
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 1
   %307 = load i8, ptr %306, align 1, !tbaa !55
   %308 = load i8, ptr %305, align 1, !tbaa !57
@@ -12102,7 +12099,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %313 = zext nneg i32 %312 to i64
   %314 = shl i64 %.sroa.0.5368, %313
   %315 = lshr i64 %314, %239
-  %316 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %315
+  %316 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 1
   %318 = load i8, ptr %317, align 1, !tbaa !55
   %319 = load i8, ptr %316, align 1, !tbaa !57
@@ -12114,7 +12111,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %324 = zext nneg i32 %323 to i64
   %325 = shl i64 %.val.i.i.i27361362, %324
   %326 = lshr i64 %325, %239
-  %327 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %326
+  %327 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %326
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 1
   %329 = load i8, ptr %328, align 1, !tbaa !55
   %330 = load i8, ptr %327, align 1, !tbaa !57
@@ -12127,7 +12124,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %336 = zext nneg i32 %335 to i64
   %337 = shl i64 %.sroa.0210.5370, %336
   %338 = lshr i64 %337, %239
-  %339 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %338
+  %339 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 1
   %341 = load i8, ptr %340, align 1, !tbaa !55
   %342 = load i8, ptr %339, align 1, !tbaa !57
@@ -12139,7 +12136,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %347 = zext nneg i32 %346 to i64
   %348 = shl i64 %.sroa.0127.5364, %347
   %349 = lshr i64 %348, %239
-  %350 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %349
+  %350 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 1
   %352 = load i8, ptr %351, align 1, !tbaa !55
   %353 = load i8, ptr %350, align 1, !tbaa !57
@@ -12151,7 +12148,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %358 = zext nneg i32 %357 to i64
   %359 = shl i64 %.sroa.0.5368, %358
   %360 = lshr i64 %359, %239
-  %361 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %360
+  %361 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %360
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 1
   %363 = load i8, ptr %362, align 1, !tbaa !55
   %364 = load i8, ptr %361, align 1, !tbaa !57
@@ -12163,7 +12160,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %369 = zext nneg i32 %368 to i64
   %370 = shl i64 %.val.i.i.i27361362, %369
   %371 = lshr i64 %370, %239
-  %372 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %371
+  %372 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %371
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 1
   %374 = load i8, ptr %373, align 1, !tbaa !55
   %375 = load i8, ptr %372, align 1, !tbaa !57
@@ -12175,7 +12172,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %380 = zext nneg i32 %379 to i64
   %381 = shl i64 %.sroa.0210.5370, %380
   %382 = lshr i64 %381, %239
-  %383 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %382
+  %383 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 1
   %385 = load i8, ptr %384, align 1, !tbaa !55
   %386 = load i8, ptr %383, align 1, !tbaa !57
@@ -12187,7 +12184,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %391 = zext nneg i32 %390 to i64
   %392 = shl i64 %.sroa.0127.5364, %391
   %393 = lshr i64 %392, %239
-  %394 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %393
+  %394 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 1
   %396 = load i8, ptr %395, align 1, !tbaa !55
   %397 = load i8, ptr %394, align 1, !tbaa !57
@@ -12199,7 +12196,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %402 = zext nneg i32 %401 to i64
   %403 = shl i64 %.sroa.0.5368, %402
   %404 = lshr i64 %403, %239
-  %405 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %404
+  %405 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %404
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 1
   %407 = load i8, ptr %406, align 1, !tbaa !55
   %408 = load i8, ptr %405, align 1, !tbaa !57
@@ -12211,7 +12208,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL43HUF_decom
   %413 = zext nneg i32 %412 to i64
   %414 = shl i64 %.val.i.i.i27361362, %413
   %415 = lshr i64 %414, %239
-  %416 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %415
+  %416 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %415
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !55
   %419 = load i8, ptr %416, align 1, !tbaa !57
@@ -12379,7 +12376,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i: ; preds
   %488 = zext nneg i32 %487 to i64
   %489 = shl i64 %.sroa.0210.4, %488
   %490 = lshr i64 %489, %466
-  %491 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %490
+  %491 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %490
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 1
   %493 = load i8, ptr %492, align 1, !tbaa !55
   %494 = load i8, ptr %491, align 1, !tbaa !57
@@ -12391,7 +12388,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i: ; preds
   %499 = zext nneg i32 %498 to i64
   %500 = shl i64 %.sroa.0210.4, %499
   %501 = lshr i64 %500, %466
-  %502 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %501
+  %502 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %501
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 1
   %504 = load i8, ptr %503, align 1, !tbaa !55
   %505 = load i8, ptr %502, align 1, !tbaa !57
@@ -12403,7 +12400,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i: ; preds
   %510 = zext nneg i32 %509 to i64
   %511 = shl i64 %.sroa.0210.4, %510
   %512 = lshr i64 %511, %466
-  %513 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %512
+  %513 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %512
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 1
   %515 = load i8, ptr %514, align 1, !tbaa !55
   %516 = load i8, ptr %513, align 1, !tbaa !57
@@ -12415,7 +12412,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i231.i: ; preds
   %521 = zext nneg i32 %520 to i64
   %522 = shl i64 %.sroa.0210.4, %521
   %523 = lshr i64 %522, %466
-  %524 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %523
+  %524 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %523
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 1
   %526 = load i8, ptr %525, align 1, !tbaa !55
   %527 = load i8, ptr %524, align 1, !tbaa !57
@@ -12486,7 +12483,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i221.i: ; preds =
   %563 = zext nneg i32 %562 to i64
   %564 = shl i64 %.sroa.0210.2, %563
   %565 = lshr i64 %564, %560
-  %566 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %565
+  %566 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %565
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 1
   %568 = load i8, ptr %567, align 1, !tbaa !55
   %569 = load i8, ptr %566, align 1, !tbaa !57
@@ -12565,7 +12562,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i: ; preds
   %605 = zext nneg i32 %604 to i64
   %606 = shl i64 %.sroa.0127.4, %605
   %607 = lshr i64 %606, %583
-  %608 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %607
+  %608 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %607
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 1
   %610 = load i8, ptr %609, align 1, !tbaa !55
   %611 = load i8, ptr %608, align 1, !tbaa !57
@@ -12577,7 +12574,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i: ; preds
   %616 = zext nneg i32 %615 to i64
   %617 = shl i64 %.sroa.0127.4, %616
   %618 = lshr i64 %617, %583
-  %619 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %618
+  %619 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %618
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 1
   %621 = load i8, ptr %620, align 1, !tbaa !55
   %622 = load i8, ptr %619, align 1, !tbaa !57
@@ -12589,7 +12586,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i: ; preds
   %627 = zext nneg i32 %626 to i64
   %628 = shl i64 %.sroa.0127.4, %627
   %629 = lshr i64 %628, %583
-  %630 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %629
+  %630 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %629
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 1
   %632 = load i8, ptr %631, align 1, !tbaa !55
   %633 = load i8, ptr %630, align 1, !tbaa !57
@@ -12601,7 +12598,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i213.i: ; preds
   %638 = zext nneg i32 %637 to i64
   %639 = shl i64 %.sroa.0127.4, %638
   %640 = lshr i64 %639, %583
-  %641 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %640
+  %641 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %640
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 1
   %643 = load i8, ptr %642, align 1, !tbaa !55
   %644 = load i8, ptr %641, align 1, !tbaa !57
@@ -12672,7 +12669,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i203.i: ; preds =
   %680 = zext nneg i32 %679 to i64
   %681 = shl i64 %.sroa.0127.2, %680
   %682 = lshr i64 %681, %677
-  %683 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %682
+  %683 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %682
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 1
   %685 = load i8, ptr %684, align 1, !tbaa !55
   %686 = load i8, ptr %683, align 1, !tbaa !57
@@ -12751,7 +12748,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i: ; preds
   %722 = zext nneg i32 %721 to i64
   %723 = shl i64 %.sroa.0.4, %722
   %724 = lshr i64 %723, %700
-  %725 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %724
+  %725 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %724
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 1
   %727 = load i8, ptr %726, align 1, !tbaa !55
   %728 = load i8, ptr %725, align 1, !tbaa !57
@@ -12763,7 +12760,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i: ; preds
   %733 = zext nneg i32 %732 to i64
   %734 = shl i64 %.sroa.0.4, %733
   %735 = lshr i64 %734, %700
-  %736 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %735
+  %736 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %735
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 1
   %738 = load i8, ptr %737, align 1, !tbaa !55
   %739 = load i8, ptr %736, align 1, !tbaa !57
@@ -12775,7 +12772,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i: ; preds
   %744 = zext nneg i32 %743 to i64
   %745 = shl i64 %.sroa.0.4, %744
   %746 = lshr i64 %745, %700
-  %747 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %746
+  %747 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %746
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 1
   %749 = load i8, ptr %748, align 1, !tbaa !55
   %750 = load i8, ptr %747, align 1, !tbaa !57
@@ -12787,7 +12784,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i195.i: ; preds
   %755 = zext nneg i32 %754 to i64
   %756 = shl i64 %.sroa.0.4, %755
   %757 = lshr i64 %756, %700
-  %758 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %757
+  %758 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %757
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 1
   %760 = load i8, ptr %759, align 1, !tbaa !55
   %761 = load i8, ptr %758, align 1, !tbaa !57
@@ -12858,7 +12855,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i185.i: ; preds =
   %797 = zext nneg i32 %796 to i64
   %798 = shl i64 %.sroa.0.2, %797
   %799 = lshr i64 %798, %794
-  %800 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %799
+  %800 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %799
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 1
   %802 = load i8, ptr %801, align 1, !tbaa !55
   %803 = load i8, ptr %800, align 1, !tbaa !57
@@ -12956,7 +12953,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %856 = zext nneg i32 %855 to i64
   %857 = shl i64 %storemerge, %856
   %858 = lshr i64 %857, %820
-  %859 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %858
+  %859 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %858
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 1
   %861 = load i8, ptr %860, align 1, !tbaa !55
   %862 = load i8, ptr %859, align 1, !tbaa !57
@@ -12969,7 +12966,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %868 = zext nneg i32 %867 to i64
   %869 = shl i64 %866, %868
   %870 = lshr i64 %869, %820
-  %871 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %870
+  %871 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %870
   %872 = getelementptr inbounds nuw i8, ptr %871, i64 1
   %873 = load i8, ptr %872, align 1, !tbaa !55
   %874 = load i8, ptr %871, align 1, !tbaa !57
@@ -12984,7 +12981,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %881 = zext nneg i32 %880 to i64
   %882 = shl i64 %878, %881
   %883 = lshr i64 %882, %820
-  %884 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %883
+  %884 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %883
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 1
   %886 = load i8, ptr %885, align 1, !tbaa !55
   %887 = load i8, ptr %884, align 1, !tbaa !57
@@ -12999,7 +12996,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i.i: ; preds = 
   %894 = zext nneg i32 %893 to i64
   %895 = shl i64 %891, %894
   %896 = lshr i64 %895, %820
-  %897 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %896
+  %897 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %896
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 1
   %899 = load i8, ptr %898, align 1, !tbaa !55
   %900 = load i8, ptr %897, align 1, !tbaa !57
@@ -13089,7 +13086,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i.i: ; preds = %8
   %949 = zext nneg i32 %948 to i64
   %950 = shl i64 %946, %949
   %951 = lshr i64 %950, %944
-  %952 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %12, i64 %951
+  %952 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %951
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 1
   %954 = load i8, ptr %953, align 1, !tbaa !55
   %955 = load i8, ptr %952, align 1, !tbaa !57
@@ -13175,15 +13172,15 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X1_usingDT
   %.not53 = icmp ugt i64 %13, %22
   %23 = getelementptr inbounds nuw i8, ptr %.045129, i64 %13
   %.146 = select i1 %.not53, ptr %8, ptr %23
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !75
   %26 = icmp ugt ptr %25, %.146
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !75
-  %30 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !75
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %33 = icmp ult ptr %29, %32
@@ -13191,7 +13188,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X1_usingDT
 
 34:                                               ; preds = %27
   %.val.i.i = load i64, ptr %29, align 1, !tbaa !17
-  %35 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !17
   %37 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %36, i1 true)
   %38 = trunc nuw nsw i64 %37 to i32
@@ -13256,7 +13253,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %5
   %68 = zext nneg i32 %67 to i64
   %69 = shl i64 %.sroa.0.5, %68
   %70 = lshr i64 %69, 53
-  %71 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !55
   %74 = load i8, ptr %71, align 1, !tbaa !57
@@ -13268,7 +13265,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %5
   %79 = zext nneg i32 %78 to i64
   %80 = shl i64 %.sroa.0.5, %79
   %81 = lshr i64 %80, 53
-  %82 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
   %84 = load i8, ptr %83, align 1, !tbaa !55
   %85 = load i8, ptr %82, align 1, !tbaa !57
@@ -13280,7 +13277,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %5
   %90 = zext nneg i32 %89 to i64
   %91 = shl i64 %.sroa.0.5, %90
   %92 = lshr i64 %91, 53
-  %93 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %95 = load i8, ptr %94, align 1, !tbaa !55
   %96 = load i8, ptr %93, align 1, !tbaa !57
@@ -13292,7 +13289,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit43.i: ; preds = %5
   %101 = zext nneg i32 %100 to i64
   %102 = shl i64 %.sroa.0.5, %101
   %103 = lshr i64 %102, 53
-  %104 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   %106 = load i8, ptr %105, align 1, !tbaa !55
   %107 = load i8, ptr %104, align 1, !tbaa !57
@@ -13352,7 +13349,7 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit.i: ; preds = %_ZN
   %137 = zext nneg i32 %136 to i64
   %138 = shl i64 %.sroa.0.3, %137
   %139 = lshr i64 %138, 53
-  %140 = getelementptr inbounds nuw %"struct.duckdb_zstd::HUF_DEltX1", ptr %7, i64 %139
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
   %142 = load i8, ptr %141, align 1, !tbaa !55
   %143 = load i8, ptr %140, align 1, !tbaa !57

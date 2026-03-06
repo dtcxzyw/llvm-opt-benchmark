@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.forward = type { %struct.slurm_node_alias_addrs_t, i16, i16, ptr, i32, i16, i16 }
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.job_step_info_t = type { i32, i32, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, i32, i64, i16, i32, %struct.slurm_step_id_msg, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.job_notify_msg = type { ptr, %struct.slurm_step_id_msg }
 
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
@@ -252,7 +251,7 @@ _signal_batch_script_step.exit:                   ; preds = %17, %34, %._crit_ed
 
 55:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %56 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %51, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [264 x i8], ptr %51, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 168
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, %0
@@ -425,7 +424,7 @@ _terminate_batch_script_step.exit:                ; preds = %16, %32, %34
 
 50:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %51 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %46, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [264 x i8], ptr %46, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 168
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, %0

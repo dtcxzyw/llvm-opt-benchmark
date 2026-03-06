@@ -36,12 +36,12 @@ define void @ERR_new() local_unnamed_addr #0 {
 err_get_slot.exit:                                ; preds = %3, %11
   %14 = sext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4, !tbaa !9
   %18 = and i32 %17, 1
   %.not.i.i = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %14
   br i1 %.not.i.i, label %24, label %21
 
 21:                                               ; preds = %err_get_slot.exit
@@ -56,7 +56,7 @@ err_get_slot.exit:                                ; preds = %3, %11
 24:                                               ; preds = %err_get_slot.exit
   store ptr null, ptr %20, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %14
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %14
   store i64 0, ptr %26, align 8, !tbaa !14
   br label %.sink.split.i.i
 
@@ -67,23 +67,23 @@ err_get_slot.exit:                                ; preds = %3, %11
 
 err_clear.exit:                                   ; preds = %21, %.sink.split.i.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %14
   store i32 0, ptr %28, align 4, !tbaa !9
-  %29 = getelementptr inbounds nuw i32, ptr %1, i64 %14
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %14
   store i32 0, ptr %29, align 4, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %14
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %14
   store i64 0, ptr %31, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %14
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %14
   store i32 -1, ptr %33, align 4, !tbaa !9
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %14
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %14
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str.1, i32 noundef 91) #7
   store ptr null, ptr %35, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 768
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %14
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %14
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str.1, i32 noundef 93) #7
   store ptr null, ptr %38, align 8, !tbaa !10
@@ -106,7 +106,7 @@ define void @ERR_set_debug(ptr noundef readonly captures(address_is_null) %0, i3
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 576
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.1, i32 noundef 57) #7
   %13 = icmp eq ptr %0, null
@@ -135,10 +135,10 @@ define void @ERR_set_debug(ptr noundef readonly captures(address_is_null) %0, i3
 
 24:                                               ; preds = %22, %18, %17
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 704
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %9
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %9
   store i32 %1, ptr %26, align 4, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 768
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %9
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %9
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str.1, i32 noundef 66) #7
   %30 = icmp eq ptr %2, null
@@ -198,14 +198,14 @@ define void @ERR_vset_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %10
   %17 = load i64, ptr %16, align 8, !tbaa !14
   store ptr null, ptr %13, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %10
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %10
   store i32 0, ptr %19, align 4, !tbaa !9
   %20 = icmp ult i64 %17, 1024
   br i1 %20, label %21, label %23
@@ -252,11 +252,11 @@ define void @ERR_vset_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %spec.select58 = select i1 %.not56, i32 0, i32 3
   %36 = load i32, ptr %8, align 8, !tbaa !3
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %18, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !9
   %40 = and i32 %39, 1
   %.not.i = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds nuw ptr, ptr %12, i64 %37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %37
   br i1 %.not.i, label %45, label %42
 
 42:                                               ; preds = %35
@@ -270,7 +270,7 @@ define void @ERR_vset_error(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr 
 
 45:                                               ; preds = %35
   store ptr null, ptr %41, align 8, !tbaa !10
-  %46 = getelementptr inbounds nuw i64, ptr %15, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %37
   store i64 0, ptr %46, align 8, !tbaa !14
   br label %.sink.split.i
 
@@ -301,36 +301,36 @@ err_clear_data.exit:                              ; preds = %42, %.sink.split.i
   %.in.i = phi i32 [ %49, %48 ], [ %54, %50 ]
   %56 = zext i32 %.in.i to i64
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %.pre-phi
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.pre-phi
   store i64 %56, ptr %58, align 8, !tbaa !14
-  %59 = getelementptr inbounds nuw i32, ptr %18, i64 %.pre-phi
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.pre-phi
   %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = and i32 %60, 1
   %.not.i59 = icmp eq i32 %61, 0
   br i1 %.not.i59, label %err_set_data.exit, label %62
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw ptr, ptr %12, i64 %.pre-phi
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.pre-phi
   %64 = load ptr, ptr %63, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %64, ptr noundef nonnull @.str.1, i32 noundef 78) #7
   br label %err_set_data.exit
 
 err_set_data.exit:                                ; preds = %55, %62
-  %65 = getelementptr inbounds nuw ptr, ptr %12, i64 %.pre-phi
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.pre-phi
   store ptr %.2, ptr %65, align 8, !tbaa !10
-  %66 = getelementptr inbounds nuw i64, ptr %15, i64 %.pre-phi
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.pre-phi
   store i64 %.246, ptr %66, align 8, !tbaa !14
   store i32 %spec.select58, ptr %59, align 4, !tbaa !9
   br label %90
 
 .critedge:                                        ; preds = %7
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %10
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %10
   %69 = load i32, ptr %68, align 4, !tbaa !9
   %70 = and i32 %69, 1
   %.not.i60 = icmp eq i32 %70, 0
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %10
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %10
   br i1 %.not.i60, label %76, label %73
 
 73:                                               ; preds = %.critedge
@@ -345,7 +345,7 @@ err_set_data.exit:                                ; preds = %55, %62
 76:                                               ; preds = %.critedge
   store ptr null, ptr %72, align 8, !tbaa !10
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %10
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %10
   store i64 0, ptr %78, align 8, !tbaa !14
   br label %.sink.split.i62
 
@@ -376,7 +376,7 @@ err_set_error.exit66:                             ; preds = %80, %82
   %.in.i65 = phi i32 [ %81, %80 ], [ %86, %82 ]
   %87 = zext i32 %.in.i65 to i64
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %89 = getelementptr inbounds nuw i64, ptr %88, i64 %.pre-phi72
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.pre-phi72
   store i64 %87, ptr %89, align 8, !tbaa !14
   br label %90
 

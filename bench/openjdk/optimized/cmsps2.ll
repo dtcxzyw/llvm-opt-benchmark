@@ -295,12 +295,12 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 
 .preheader.i.i:                                   ; preds = %95, %88
   %indvars.iv25.i.i = phi i64 [ 0, %88 ], [ %indvars.iv.next26.i.i, %95 ]
-  %90 = getelementptr inbounds nuw %struct.cmsVEC3, ptr %31, i64 %indvars.iv25.i.i
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv25.i.i
   br label %91
 
 91:                                               ; preds = %91, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %91 ]
-  %92 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv.i.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i.i
   %93 = load double, ptr %92, align 8
   %94 = fmul double %93, 0x3FFFFFE000000000
   store double %94, ptr %92, align 8
@@ -322,7 +322,7 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 
 .lr.ph.i.i.i.i:                                   ; preds = %122, %96
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %122 ], [ 0, %96 ]
-  %101 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.i.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i.i.i
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %EmitNGamma.exit.i.i.i, label %104
@@ -334,7 +334,7 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 105:                                              ; preds = %104
   %106 = add nuw nsw i64 %indvars.iv.i.i.i, 4294967295
   %107 = and i64 %106, 4294967295
-  %108 = getelementptr inbounds nuw ptr, ptr %97, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load i32, ptr %110, align 8
@@ -374,7 +374,7 @@ EmitNGamma.exit.i.i.i:                            ; preds = %122, %.lr.ph.i.i.i.
 
 125:                                              ; preds = %125, %EmitNGamma.exit.i.i.i
   %indvars.iv24.i.i.i = phi i64 [ 0, %EmitNGamma.exit.i.i.i ], [ %indvars.iv.next25.i.i.i, %125 ]
-  %126 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv24.i.i.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv24.i.i.i
   %127 = load double, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %129 = load double, ptr %128, align 8
@@ -500,7 +500,7 @@ WriteInputMatrixShaper.exit.i:                    ; preds = %80
 _cmsQuickSaturateWord.exit.i.i.i:                 ; preds = %187, %185, %179
   %.0.i.i.i.i = phi i16 [ %192, %187 ], [ 0, %179 ], [ -1, %185 ]
   %193 = load ptr, ptr %178, align 8
-  %194 = getelementptr inbounds nuw i16, ptr %193, i64 %indvars.iv.i.i45.i
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %193, i64 %indvars.iv.i.i45.i
   store i16 %.0.i.i.i.i, ptr %194, align 2
   %indvars.iv.next.i.i46.i = add nuw nsw i64 %indvars.iv.i.i45.i, 1
   %exitcond.not.i.i47.i = icmp eq i64 %indvars.iv.next.i.i46.i, 256
@@ -583,7 +583,7 @@ EmitCIEBasedDEF.exit.thread.i.i:                  ; preds = %204
 
 .lr.ph.i.i.i36.i:                                 ; preds = %241, %.lr.ph.i.preheader.i.i.i
   %indvars.iv.i29.i.i = phi i64 [ 0, %.lr.ph.i.preheader.i.i.i ], [ %indvars.iv.next.i30.i.i, %241 ]
-  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv.i29.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv.i29.i.i
   %223 = load ptr, ptr %222, align 8
   %224 = icmp eq ptr %223, null
   br i1 %224, label %EmitNGamma.exit.i.i41.i, label %225
@@ -678,7 +678,7 @@ EmitNGamma.exit.i.i41.i:                          ; preds = %241, %.lr.ph.i.i.i3
 
 switch.lookup:                                    ; preds = %251
   %281 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cmsGetPostScriptColorResource.6, i64 %281
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 %281
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %EmitCIEBasedDEF.exit.i.i
 
@@ -903,7 +903,7 @@ BuildColorantList.exit.us.i.i:                    ; preds = %.lr.ph.split.us.i.i
 
 356:                                              ; preds = %365, %.lr.ph.i.i.i
   %indvars.iv.i.i.i15 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i16, %365 ]
-  %357 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv.i.i.i15
+  %357 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv.i.i.i15
   %358 = load i16, ptr %357, align 2
   %359 = uitofp i16 %358 to double
   %360 = fdiv double %359, 6.553500e+04
@@ -1108,7 +1108,7 @@ EmitPQRStage.exit.i.i:                            ; preds = %435, %433, %420
 
 switch.lookup51:                                  ; preds = %._crit_edge.i21.i
   %463 = zext nneg i32 %3 to i64
-  %switch.gep52 = getelementptr inbounds nuw ptr, ptr @switch.table.cmsGetPostScriptColorResource.6, i64 %463
+  %switch.gep52 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 %463
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   br label %EmitIntent.exit.i.i
 
@@ -1346,7 +1346,7 @@ define internal fastcc void @Emit1Gamma(ptr noundef %0, ptr noundef %1) unnamed_
 
 29:                                               ; preds = %27, %23
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %33) #9
@@ -1466,7 +1466,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %24 ]
   %29 = phi ptr [ %34, %.lr.ph ], [ %26, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.64, i32 noundef %32) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1539,9 +1539,9 @@ define internal range(i32 0, 2) i32 @OutputValueSampler(ptr noundef readonly cap
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %28, ptr %29, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1632,7 +1632,7 @@ define internal range(i32 0, 2) i32 @OutputValueSampler(ptr noundef readonly cap
 
 82:                                               ; preds = %.lr.ph56, %WriteByte.exit
   %indvars.iv60 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next61, %WriteByte.exit ]
-  %83 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv60
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv60
   %84 = load i16, ptr %83, align 2
   %85 = uitofp i16 %84 to double
   %86 = fdiv double %85, 2.570000e+02

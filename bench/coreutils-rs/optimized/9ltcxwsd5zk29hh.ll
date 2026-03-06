@@ -641,10 +641,10 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9crossterm7command18write_command_ansi17h0afe50089e379d58E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9crossterm7command18write_command_ansi17h0afe50089e379d58E, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9crossterm7command18write_command_ansi17h0afe50089e379d58E.2, i64 %5
+  %switch.gep7 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9crossterm7command18write_command_ansi17h0afe50089e379d58E.2, i64 %5
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %6 = invoke noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %switch.load8, i64 noundef %switch.load)
           to label %.noexc unwind label %8

@@ -29,14 +29,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct.zend_error_handling = type { i32, ptr }
 %struct._zend_internal_function = type { i8, [3 x i8], i32, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, [6 x ptr] }
-%struct._zend_internal_arg_info = type { ptr, %struct.zend_type, ptr }
-%struct.zend_type = type { ptr, i32 }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.11, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.12, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.13, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.14 }
 %union.anon.11 = type { ptr }
 %union.anon.12 = type { ptr }
 %union.anon.13 = type { ptr }
 %union.anon.14 = type { %struct.anon.15 }
 %struct.anon.15 = type { ptr, i32, i32 }
+%struct.zend_type = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [21 x i8] c"SQLSTATE[%s] [%d] %s\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"errorInfo\00", align 1
@@ -311,7 +310,7 @@ define dso_local zeroext i1 @php_pdo_stmt_valid_db_obj_handle(ptr noundef readon
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !52
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !53
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -4322,7 +4321,7 @@ define hidden noundef zeroext i1 @pdo_hash_methods(ptr noundef readonly captures
   %22 = phi ptr [ %18, %17 ], [ %20, %19 ]
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   store ptr %22, ptr %25, align 8, !tbaa !147
   %26 = load i32, ptr %14, align 8
   %27 = trunc i32 %26 to i1
@@ -4451,7 +4450,7 @@ zend_string_alloc.exit:                           ; preds = %53, %55
 94:                                               ; preds = %92, %82
   %95 = phi i32 [ %93, %92 ], [ %spec.select, %82 ]
   %96 = zext i32 %85 to i64
-  %97 = getelementptr inbounds nuw %struct._zend_internal_arg_info, ptr %81, i64 %96
+  %97 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i32, ptr %98, align 8, !tbaa !174
   %100 = and i32 %99, 134217728
@@ -8403,7 +8402,7 @@ zend_object_release.exit:                         ; preds = %12, %13, %18
 72:                                               ; preds = %70, %82
   %73 = phi i1 [ true, %70 ], [ false, %82 ]
   %indvars.iv = phi i64 [ 0, %70 ], [ 1, %82 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !147
   %.not59 = icmp eq ptr %75, null
   br i1 %.not59, label %82, label %76

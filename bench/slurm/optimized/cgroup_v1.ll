@@ -178,9 +178,9 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
   store i8 0, ptr %3, align 16
   %4 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %indvars.iv
   store i8 0, ptr %4, align 16
-  %5 = getelementptr inbounds nuw i16, ptr @g_step_active_cnt, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @g_step_active_cnt, i64 %indvars.iv
   store i16 0, ptr %5, align 2
-  %6 = getelementptr inbounds nuw ptr, ptr @g_task_list, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @g_task_list, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -247,7 +247,7 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @g_task_list, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @g_task_list, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -258,9 +258,9 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
 
 8:                                                ; preds = %7, %4
   store ptr null, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %indvars.iv
   tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %9) #11
-  %10 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %indvars.iv
   tail call void @common_cgroup_destroy(ptr noundef nonnull %10) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -291,14 +291,14 @@ define dso_local noalias noundef ptr @cgroup_p_get_scope_path() local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %_cgroup_init.exit.thread
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %2
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %2
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @xcgroup_ns_create(ptr noundef nonnull %3, ptr noundef nonnull @.str.82, ptr noundef %8) #11
   %.not.i = icmp eq i32 %9, 0
@@ -310,7 +310,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local
   br label %_cgroup_init.exit.thread
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %2
+  %14 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %2
   %15 = tail call i32 @common_cgroup_create(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull @.str.82, i32 noundef 0, i32 noundef 0) #11
   %.not14.i = icmp eq i32 %15, 0
   br i1 %.not14.i, label %19, label %16
@@ -405,7 +405,7 @@ define dso_local i32 @cgroup_p_system_create(i32 noundef %0) local_unnamed_addr 
 
 24:                                               ; preds = %1, %1, %1
   %25 = zext nneg i32 %0 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %27) #11
   br label %32
@@ -550,7 +550,7 @@ define dso_local i32 @cgroup_p_system_addto(i32 noundef %0, ptr noundef %1, i32 
 
 10:                                               ; preds = %3, %3, %3
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %13) #11
   br label %15
@@ -565,7 +565,7 @@ declare i32 @common_cgroup_add_pids(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %2
+  %3 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %6 = load ptr, ptr %5, align 8
@@ -582,7 +582,7 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) local_unnamed_addr
   ]
 
 8:                                                ; preds = %7, %7, %7
-  %9 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %2
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %10) #11
   br label %.thread
@@ -603,7 +603,7 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) local_unnamed_addr
   br label %.thread
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %2
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %2
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef nonnull %4, i32 noundef %17, ptr noundef %22) #11
   %24 = tail call i32 @common_cgroup_delete(ptr noundef nonnull %4) #11
@@ -631,7 +631,7 @@ define dso_local i32 @cgroup_p_system_destroy(i32 noundef %0) local_unnamed_addr
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call void @common_cgroup_destroy(ptr noundef nonnull %34) #11
   tail call void @common_cgroup_destroy(ptr noundef nonnull %3) #11
-  %35 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %2
+  %35 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %2
   tail call void @common_cgroup_ns_destroy(ptr noundef nonnull %35) #11
   br label %.thread
 
@@ -652,7 +652,7 @@ declare i32 @common_cgroup_delete(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %3
+  %4 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %3
   %5 = tail call i32 @common_cgroup_lock(ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -662,7 +662,7 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   br label %60
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i16, ptr @g_step_active_cnt, i64 %3
+  %9 = getelementptr inbounds nuw [2 x i8], ptr @g_step_active_cnt, i64 %3
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, 1
   store i16 %11, ptr %9, align 2
@@ -675,7 +675,7 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   ]
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %3
+  %13 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %3
   %14 = getelementptr inbounds nuw [4096 x i8], ptr @g_job_cgpath, i64 %3
   %15 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %3
   %16 = getelementptr inbounds nuw [4096 x i8], ptr @g_user_cgpath, i64 %3
@@ -689,7 +689,7 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   br i1 %.not61, label %54, label %56
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %3
+  %21 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %3
   %22 = getelementptr inbounds nuw [4096 x i8], ptr @g_job_cgpath, i64 %3
   %23 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %3
   %24 = getelementptr inbounds nuw [4096 x i8], ptr @g_user_cgpath, i64 %3
@@ -721,7 +721,7 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   br label %.sink.split
 
 38:                                               ; preds = %8
-  %39 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %3
+  %39 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %3
   %40 = getelementptr inbounds nuw [4096 x i8], ptr @g_job_cgpath, i64 %3
   %41 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %3
   %42 = getelementptr inbounds nuw [4096 x i8], ptr @g_user_cgpath, i64 %3
@@ -730,7 +730,7 @@ define dso_local i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1) local
   br i1 %.not57, label %54, label %56
 
 44:                                               ; preds = %8
-  %45 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %3
+  %45 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %3
   %46 = getelementptr inbounds nuw [4096 x i8], ptr @g_job_cgpath, i64 %3
   %47 = getelementptr inbounds nuw [4096 x i8], ptr @g_step_cgpath, i64 %3
   %48 = getelementptr inbounds nuw [4096 x i8], ptr @g_user_cgpath, i64 %3
@@ -774,7 +774,7 @@ declare i32 @xcgroup_create_hierarchy(ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw i16, ptr @g_step_active_cnt, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @g_step_active_cnt, i64 %3
   %5 = load i16, ptr %4, align 2
   switch i16 %5, label %8 [
     i16 0, label %6
@@ -799,7 +799,7 @@ define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef ze
   br i1 %14, label %15, label %56
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %3
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %3
   %17 = load ptr, ptr %16, align 8
   %18 = load i16, ptr %4, align 2
   %19 = zext i16 %18 to i32
@@ -807,13 +807,13 @@ define internal fastcc i32 @_step_destroy_internal(i32 noundef %0, i1 noundef ze
   br label %56
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw ptr, ptr @g_task_list, i64 %3
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @g_task_list, i64 %3
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @list_for_each(ptr noundef %22, ptr noundef nonnull @_rmdir_task, ptr noundef null) #11
   %24 = load ptr, ptr %21, align 8
   %25 = tail call i32 @list_flush(ptr noundef %24) #11
-  %26 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %3
-  %27 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %3
+  %26 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %3
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %3
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 160
@@ -917,13 +917,13 @@ define dso_local i32 @cgroup_p_step_addto(i32 noundef %0, ptr noundef %1, i32 no
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %4
+  %16 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = tail call i32 @common_cgroup_add_pids(ptr noundef nonnull %17, ptr noundef nonnull %1, i32 noundef 1) #11
   br label %29
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds nuw ptr, ptr @g_cg_name, i64 %4
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @g_cg_name, i64 %4
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %21) #11
   br label %29
@@ -933,7 +933,7 @@ define dso_local i32 @cgroup_p_step_addto(i32 noundef %0, ptr noundef %1, i32 no
   br label %29
 
 25:                                               ; preds = %8, %8, %8, %9, %11
-  %26 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 %4
+  %26 = getelementptr inbounds nuw [360 x i8], ptr @int_cg, i64 %4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   %28 = tail call i32 @common_cgroup_add_pids(ptr noundef nonnull %27, ptr noundef %1, i32 noundef %2) #11
   br label %29
@@ -1035,7 +1035,7 @@ define dso_local ptr @cgroup_p_constrain_get(i32 noundef %0, i32 noundef %1) loc
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 360), i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 360), i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = tail call i32 @common_cgroup_get_param(ptr noundef nonnull %6, ptr noundef nonnull @.str.25, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
@@ -1116,7 +1116,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
 
 7:                                                ; preds = %6, %6, %6, %6
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 360), i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 360), i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %9, ptr noundef nonnull @.str.25, ptr noundef %11) #11
@@ -1158,7 +1158,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %or.cond11102 = phi i1 [ %25, %24 ], [ %25, %24 ], [ true, %22 ], [ true, %19 ]
   %.2101 = phi i32 [ 0, %24 ], [ 0, %24 ], [ %23, %22 ], [ 0, %19 ]
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %29 = load i64, ptr %28, align 8
   %30 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %27, ptr noundef nonnull @.str.28, i64 noundef %29) #11
@@ -1167,7 +1167,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   br i1 %or.cond11102, label %31, label %.thread
 
 31:                                               ; preds = %.thread98
-  %32 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %26
+  %32 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 720), i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %34 = load i64, ptr %33, align 8
   %35 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %32, ptr noundef nonnull @.str.29, i64 noundef %34) #11
@@ -1197,7 +1197,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %46 = load i8, ptr %45, align 8, !range !12, !noundef !13
   %47 = trunc nuw i8 %46 to i1
   %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw %struct.xcgroup_t, ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 1080), i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 1080), i64 %48
   br i1 %47, label %50, label %52
 
 50:                                               ; preds = %44
@@ -1689,7 +1689,7 @@ define internal noalias noundef ptr @_oom_event_monitor(ptr noundef %0) #0 {
 
 .outer.i:                                         ; preds = %.outer.split.i
   %40 = sub i64 %.012.ph.i45, %33
-  %41 = getelementptr inbounds i64, ptr %.011.ph.i46, i64 %33
+  %41 = getelementptr inbounds [8 x i8], ptr %.011.ph.i46, i64 %33
   %cond.i = icmp eq i64 %40, 0
   br i1 %cond.i, label %_read_fd.exit, label %.outer.split.i.preheader, !llvm.loop !16
 
@@ -1786,7 +1786,7 @@ _read_fd.exit:                                    ; preds = %.outer.i
 
 .outer.i27:                                       ; preds = %.outer.split.i31
   %77 = sub i64 %.012.ph.i2847, %70
-  %78 = getelementptr inbounds i64, ptr %.011.ph.i2948, i64 %70
+  %78 = getelementptr inbounds [8 x i8], ptr %.011.ph.i2948, i64 %70
   %cond.i30 = icmp eq i64 %77, 0
   br i1 %cond.i30, label %_read_fd.exit33, label %.outer.split.i31.preheader, !llvm.loop !16
 
@@ -2438,7 +2438,7 @@ define dso_local i32 @cgroup_p_task_addto(i32 noundef %0, ptr noundef %1, i32 no
   br label %_handle_task_cgroup.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds nuw ptr, ptr @g_task_list, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @g_task_list, i64 %24
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @list_find_first(ptr noundef %31, ptr noundef nonnull @_find_task_cg_info, ptr noundef nonnull %6) #11
   store ptr %32, ptr %7, align 8
@@ -2455,7 +2455,7 @@ define dso_local i32 @cgroup_p_task_addto(i32 noundef %0, ptr noundef %1, i32 no
 
 37:                                               ; preds = %33, %29
   %38 = phi ptr [ %34, %33 ], [ %32, %29 ]
-  %39 = getelementptr inbounds nuw %struct.xcgroup_ns_t, ptr @g_cg_ns, i64 %24
+  %39 = getelementptr inbounds nuw [32 x i8], ptr @g_cg_ns, i64 %24
   %40 = load ptr, ptr %8, align 8
   %41 = call i32 @common_cgroup_create(ptr noundef nonnull %39, ptr noundef nonnull %38, ptr noundef %40, i32 noundef %.val, i32 noundef %.val7) #11
   %.not16.i = icmp eq i32 %41, 0

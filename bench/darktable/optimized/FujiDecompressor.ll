@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array.80" = type { [4 x i8] }
 %"struct.rawspeed::FujiDecompressor::FujiHeader" = type { i16, i8, i8, i8, i16, i16, i16, i16, i8, i16, %"class.rawspeed::iPoint2D" }
 %"class.rawspeed::iPoint2D" = type { i32, i32 }
-%"class.rawspeed::Array1DRef.60" = type <{ ptr, i32, [4 x i8] }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.std::array.128" = type { [2 x %struct.ColorPos.129] }
 %struct.ColorPos.129 = type { i32, i32 }
@@ -689,7 +688,7 @@ _ZNSt12_Vector_baseIN8rawspeed10Array1DRefIKhEESaIS3_EE13_M_deallocateEPS3_m.exi
   store ptr %219, ptr %19, align 8, !tbaa !134
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 %217
   store ptr %223, ptr %214, align 8, !tbaa !135
-  %224 = getelementptr inbounds nuw %"class.rawspeed::Array1DRef.60", ptr %219, i64 %152
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %219, i64 %152
   store ptr %224, ptr %206, align 8, !tbaa !133
   br label %_ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE7reserveEm.exit
 
@@ -815,7 +814,7 @@ _ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %273, %_ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %268, ptr %19, align 8, !tbaa !134
   store ptr %272, ptr %229, align 8, !tbaa !135
-  %274 = getelementptr inbounds nuw %"class.rawspeed::Array1DRef.60", ptr %268, i64 %266
+  %274 = getelementptr inbounds nuw [16 x i8], ptr %268, i64 %266
   store ptr %274, ptr %206, align 8, !tbaa !133
   br label %_ZNSt6vectorIN8rawspeed10Array1DRefIKhEESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -1388,7 +1387,7 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %105, %._crit_edge.i
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16FujiDecompressor10FujiHeaderERKNS0_22fuji_compressed_paramsE.exit.i.i: ; preds = %_ZN8rawspeed8RawImageD2Ev.exit
   store ptr %140, ptr %135, align 8, !tbaa !197
-  %141 = getelementptr inbounds nuw i16, ptr %140, i64 %138
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %138
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 2080
   store ptr %141, ptr %142, align 8, !tbaa !199
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %140, i8 0, i64 %139, i1 false), !tbaa !90
@@ -1461,7 +1460,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
   %173 = icmp samesign ult i64 %indvars.iv.i.i9, %172
   call void @llvm.assume(i1 %173)
   %174 = load ptr, ptr %43, align 8, !tbaa !207
-  %175 = getelementptr inbounds nuw %"class.rawspeed::Array1DRef.60", ptr %174, i64 %indvars.iv.i.i9
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %indvars.iv.i.i9
   %.sroa.03.0.copyload.i.i = load ptr, ptr %175, align 8, !tbaa !146
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %175, i64 8
   %.sroa.24.0.copyload.i.i = load i32, ptr %.sroa.24.0..sroa_idx.i.i, align 8, !tbaa !93
@@ -1490,7 +1489,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
   store i8 15, ptr %157, align 1, !tbaa !92
   %.sroa.0.0.copyload.i.i56.i.i.i = load ptr, ptr %145, align 8, !tbaa !191, !noalias !208
   %181 = zext nneg i32 %196 to i64
-  %invariant.gep.i.i.i = getelementptr i16, ptr %.sroa.0.0.copyload.i.i56.i.i.i, i64 %181
+  %invariant.gep.i.i.i = getelementptr [2 x i8], ptr %.sroa.0.0.copyload.i.i56.i.i.i, i64 %181
   br label %209
 
 182:                                              ; preds = %182, %168
@@ -1510,7 +1509,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
   %191 = mul nuw nsw i32 %183, %187
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %145, align 8, !tbaa !191, !noalias !211
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %192
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %192
   %194 = zext nneg i32 %185 to i64
   %195 = shl nuw nsw i64 %194, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %193, i8 0, i64 %195, i1 false)
@@ -1550,14 +1549,14 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
   call void @llvm.assume(i1 %213)
   %214 = mul nuw nsw i32 %212, %199
   %215 = zext nneg i32 %214 to i64
-  %gep.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i, i64 %215
+  %gep.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i.i, i64 %215
   %216 = getelementptr i8, ptr %gep.i.i.i, i64 -4
   %217 = load i16, ptr %216, align 2, !tbaa !90
   %218 = icmp samesign ugt i32 %198, %211
   call void @llvm.assume(i1 %218)
   %219 = mul nuw nsw i32 %199, %211
   %220 = zext nneg i32 %219 to i64
-  %gep111.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i, i64 %220
+  %gep111.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i.i, i64 %220
   %221 = getelementptr i8, ptr %gep111.i.i.i, i64 -2
   store i16 %217, ptr %221, align 2, !tbaa !90
   %.031.add.i.i.i = add nuw nsw i64 %.031.idx112.i.i.i, 1
@@ -1566,8 +1565,8 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
 
 .preheader.i.i.i:                                 ; preds = %224, %205
   %indvars.iv116.i.i.i = phi i64 [ 0, %205 ], [ %indvars.iv.next117.i.i.i, %224 ]
-  %222 = getelementptr inbounds nuw %"struct.std::array.101", ptr %158, i64 %indvars.iv116.i.i.i
-  %223 = getelementptr inbounds nuw %"struct.std::array.101", ptr %159, i64 %indvars.iv116.i.i.i
+  %222 = getelementptr inbounds nuw [328 x i8], ptr %158, i64 %indvars.iv116.i.i.i
+  %223 = getelementptr inbounds nuw [328 x i8], ptr %159, i64 %indvars.iv116.i.i.i
   br label %225
 
 224:                                              ; preds = %225
@@ -1577,11 +1576,11 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
 
 225:                                              ; preds = %225, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %225 ]
-  %226 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %222, i64 %indvars.iv.i.i.i
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv.i.i.i
   store i32 %208, ptr %226, align 8, !tbaa !225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   store i32 1, ptr %227, align 4, !tbaa !227
-  %228 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %223, i64 %indvars.iv.i.i.i
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %indvars.iv.i.i.i
   store i32 %208, ptr %228, align 8, !tbaa !225
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
   store i32 1, ptr %229, align 4, !tbaa !227
@@ -1680,19 +1679,19 @@ switch.lookup:                                    ; preds = %_ZSt4fillIPiiEvT_S1
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 1
   %273 = load i8, ptr %272, align 1, !tbaa !111
   %274 = zext nneg i8 %271 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %274
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %274
   %switch.load = load i32, ptr %switch.gep, align 4
   %275 = zext nneg i8 %271 to i64
-  %276 = getelementptr inbounds nuw i32, ptr %9, i64 %275
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %275
   %277 = load i32, ptr %276, align 4, !tbaa !93
   %278 = add nsw i32 %277, %switch.load
   %279 = add nsw i32 %277, 1
   store i32 %279, ptr %276, align 4, !tbaa !93
   %280 = zext nneg i8 %273 to i64
-  %switch.gep300 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %280
+  %switch.gep300 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %280
   %switch.load301 = load i32, ptr %switch.gep300, align 4
   %281 = zext nneg i8 %273 to i64
-  %282 = getelementptr inbounds nuw i32, ptr %9, i64 %281
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %281
   %283 = load i32, ptr %282, align 4, !tbaa !93
   %284 = add nsw i32 %283, %switch.load301
   %285 = add nsw i32 %283, 1
@@ -1701,11 +1700,11 @@ switch.lookup:                                    ; preds = %_ZSt4fillIPiiEvT_S1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false), !tbaa !93
   %286 = urem i32 %.0.i105.i.i.i.i, 3
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw %"struct.std::array.101", ptr %158, i64 %287
+  %288 = getelementptr inbounds nuw [328 x i8], ptr %158, i64 %287
   %289 = add nsw i32 %.0.i105.i.i.i.i, -1
   %or.cond4.i.i.i.i.i.i = icmp ult i32 %289, 2
   %290 = icmp eq i32 %.0.i105.i.i.i.i, 5
-  %291 = getelementptr inbounds nuw %"struct.std::array.101", ptr %159, i64 %287
+  %291 = getelementptr inbounds nuw [328 x i8], ptr %159, i64 %287
   %292 = load i32, ptr %150, align 4
   %293 = load i32, ptr %151, align 8
   %294 = load i32, ptr %149, align 8
@@ -1788,22 +1787,22 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_ev
   call void @llvm.assume(i1 %328)
   %329 = mul nuw nsw i32 %323, %306
   %330 = zext nneg i32 %329 to i64
-  %331 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %330
+  %331 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %330
   %332 = zext nneg i32 %325 to i64
-  %333 = getelementptr inbounds nuw i16, ptr %331, i64 %332
+  %333 = getelementptr inbounds nuw [2 x i8], ptr %331, i64 %332
   %334 = load i16, ptr %333, align 2, !tbaa !90
   %335 = zext i16 %334 to i32
   %336 = icmp samesign ule i32 %324, %304
   call void @llvm.assume(i1 %336)
   %337 = zext nneg i32 %324 to i64
-  %338 = getelementptr inbounds nuw i16, ptr %331, i64 %337
+  %338 = getelementptr inbounds nuw [2 x i8], ptr %331, i64 %337
   %339 = load i16, ptr %338, align 2, !tbaa !90
   %340 = zext i16 %339 to i32
   %341 = add nuw nsw i32 %324, 2
   %342 = icmp samesign ult i32 %341, %304
   call void @llvm.assume(i1 %342)
   %343 = zext nneg i32 %341 to i64
-  %344 = getelementptr inbounds nuw i16, ptr %331, i64 %343
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %331, i64 %343
   %345 = load i16, ptr %344, align 2, !tbaa !90
   %346 = zext i16 %345 to i32
   %347 = add nsw i32 %322, -2
@@ -1811,8 +1810,8 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_ev
   call void @llvm.assume(i1 %348)
   %349 = mul nuw nsw i32 %347, %306
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %350
-  %352 = getelementptr inbounds nuw i16, ptr %351, i64 %332
+  %351 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %350
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %351, i64 %332
   %353 = load i16, ptr %352, align 2, !tbaa !90
   %354 = zext i16 %353 to i32
   %355 = sub nsw i32 %340, %335
@@ -1867,22 +1866,22 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_ev
   call void @llvm.assume(i1 %377)
   %378 = mul nuw nsw i32 %372, %306
   %379 = zext nneg i32 %378 to i64
-  %380 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %379
+  %380 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %379
   %381 = zext nneg i32 %374 to i64
-  %382 = getelementptr inbounds nuw i16, ptr %380, i64 %381
+  %382 = getelementptr inbounds nuw [2 x i8], ptr %380, i64 %381
   %383 = load i16, ptr %382, align 2, !tbaa !90
   %384 = zext i16 %383 to i32
   %385 = icmp samesign ule i32 %373, %304
   call void @llvm.assume(i1 %385)
   %386 = zext nneg i32 %373 to i64
-  %387 = getelementptr inbounds nuw i16, ptr %380, i64 %386
+  %387 = getelementptr inbounds nuw [2 x i8], ptr %380, i64 %386
   %388 = load i16, ptr %387, align 2, !tbaa !90
   %389 = zext i16 %388 to i32
   %390 = add nuw nsw i32 %373, 2
   %391 = icmp samesign ult i32 %390, %304
   call void @llvm.assume(i1 %391)
   %392 = zext nneg i32 %390 to i64
-  %393 = getelementptr inbounds nuw i16, ptr %380, i64 %392
+  %393 = getelementptr inbounds nuw [2 x i8], ptr %380, i64 %392
   %394 = load i16, ptr %393, align 2, !tbaa !90
   %395 = zext i16 %394 to i32
   %396 = add nsw i32 %371, -2
@@ -1890,8 +1889,8 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block36fuji_decode_interpolation_ev
   call void @llvm.assume(i1 %397)
   %398 = mul nuw nsw i32 %396, %306
   %399 = zext nneg i32 %398 to i64
-  %400 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %399
-  %401 = getelementptr inbounds nuw i16, ptr %400, i64 %381
+  %400 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %399
+  %401 = getelementptr inbounds nuw [2 x i8], ptr %400, i64 %381
   %402 = load i16, ptr %401, align 2, !tbaa !90
   %403 = zext i16 %402 to i32
   %404 = sub nsw i32 %389, %384
@@ -2017,7 +2016,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 477:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i.i
   %478 = zext nneg i32 %430 to i64
-  %479 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %288, i64 %478
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %478
   %480 = load i32, ptr %479, align 8, !tbaa !225
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 4
   %482 = load i32, ptr %481, align 4, !tbaa !227
@@ -2130,7 +2129,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i.i.i.i.i = xor i32 %534, %sext.i.i.i.i.i.i
   %536 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i.i.i.i, i1 true)
   %537 = zext nneg i32 %430 to i64
-  %538 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %288, i64 %537
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %537
   %539 = load i32, ptr %538, align 8, !tbaa !225
   %540 = add nsw i32 %539, %536
   store i32 %540, ptr %538, align 8, !tbaa !225
@@ -2201,8 +2200,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   call void @llvm.assume(i1 %568)
   %569 = mul nuw nsw i32 %.pre-phi.i.i.i.i.i, %306
   %570 = zext nneg i32 %569 to i64
-  %571 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %570
-  %572 = getelementptr inbounds nuw i16, ptr %571, i64 %.pre-phi171.i.i.i.i.i
+  %571 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i85.i.i.i.i.i.i, i64 %570
+  %572 = getelementptr inbounds nuw [2 x i8], ptr %571, i64 %.pre-phi171.i.i.i.i.i
   store i16 %566, ptr %572, align 2, !tbaa !90
   %573 = add nuw nsw i32 %317, 1
   store i32 %573, ptr %indvars.iv.i.sroa.phi.i.i.i.i, align 4, !tbaa !93
@@ -2240,9 +2239,9 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_od
   call void @llvm.assume(i1 %583)
   %584 = mul nuw nsw i32 %579, %294
   %585 = zext nneg i32 %584 to i64
-  %586 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i39.i.i.i.i.i, i64 %585
+  %586 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i39.i.i.i.i.i, i64 %585
   %587 = zext nneg i32 %581 to i64
-  %588 = getelementptr inbounds nuw i16, ptr %586, i64 %587
+  %588 = getelementptr inbounds nuw [2 x i8], ptr %586, i64 %587
   %589 = load i16, ptr %588, align 2, !tbaa !90
   %590 = zext i16 %589 to i32
   %591 = add nsw i32 %579, -1
@@ -2253,21 +2252,21 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_od
   call void @llvm.assume(i1 %594)
   %595 = mul nuw nsw i32 %591, %294
   %596 = zext nneg i32 %595 to i64
-  %597 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i39.i.i.i.i.i, i64 %596
+  %597 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i39.i.i.i.i.i, i64 %596
   %598 = zext nneg i32 %592 to i64
-  %599 = getelementptr inbounds nuw i16, ptr %597, i64 %598
+  %599 = getelementptr inbounds nuw [2 x i8], ptr %597, i64 %598
   %600 = load i16, ptr %599, align 2, !tbaa !90
   %601 = zext i16 %600 to i32
-  %602 = getelementptr inbounds nuw i16, ptr %597, i64 %587
+  %602 = getelementptr inbounds nuw [2 x i8], ptr %597, i64 %587
   %603 = load i16, ptr %602, align 2, !tbaa !90
   %604 = zext i16 %603 to i32
   %605 = add nuw nsw i32 %580, 3
   %606 = icmp samesign ult i32 %605, %292
   call void @llvm.assume(i1 %606)
   %607 = zext nneg i32 %605 to i64
-  %608 = getelementptr inbounds nuw i16, ptr %597, i64 %607
+  %608 = getelementptr inbounds nuw [2 x i8], ptr %597, i64 %607
   %609 = load i16, ptr %608, align 2, !tbaa !90
-  %610 = getelementptr inbounds nuw i16, ptr %586, i64 %607
+  %610 = getelementptr inbounds nuw [2 x i8], ptr %586, i64 %607
   %611 = load i16, ptr %610, align 2, !tbaa !90
   %612 = zext i16 %611 to i32
   %613 = add nuw nsw i32 %612, %590
@@ -2387,7 +2386,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 684:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i.i.i
   %685 = zext nneg i32 %635 to i64
-  %686 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %291, i64 %685
+  %686 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %685
   %687 = load i32, ptr %686, align 8, !tbaa !225
   %688 = getelementptr inbounds nuw i8, ptr %686, i64 4
   %689 = load i32, ptr %688, align 4, !tbaa !227
@@ -2504,7 +2503,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i.i.i.i = xor i32 %743, %sext.i.i.i.i.i
   %745 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i.i.i, i1 true)
   %746 = zext nneg i32 %635 to i64
-  %747 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %291, i64 %746
+  %747 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %746
   %748 = load i32, ptr %747, align 8, !tbaa !225
   %749 = add nsw i32 %748, %745
   store i32 %749, ptr %747, align 8, !tbaa !225
@@ -2562,7 +2561,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i.i.i.i: ; preds = %.thread.i.i.i.i.i, %770
   %.034.i.i.i.i.i.i = phi i16 [ %773, %.thread.i.i.i.i.i ], [ 0, %770 ]
-  %774 = getelementptr inbounds nuw i16, ptr %586, i64 %598
+  %774 = getelementptr inbounds nuw [2 x i8], ptr %586, i64 %598
   store i16 %.034.i.i.i.i.i.i, ptr %774, align 2, !tbaa !90
   %775 = add nuw nsw i32 %578, 1
   store i32 %775, ptr %577, align 4, !tbaa !93
@@ -2614,18 +2613,18 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i:           ; preds = %_ZNK8rawspeed12_GLO
   %791 = icmp samesign ult i64 %790, %787
   call void @llvm.assume(i1 %791)
   %792 = mul nuw nsw i64 %790, %786
-  %793 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %792
+  %793 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %792
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 2
   %795 = load i16, ptr %794, align 2, !tbaa !90
   %796 = icmp samesign ult i64 %indvars.iv.i.i12.i.i.i.i, %787
   call void @llvm.assume(i1 %796)
   %797 = mul nuw nsw i64 %indvars.iv.i.i12.i.i.i.i, %786
-  %798 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %797
+  %798 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %797
   store i16 %795, ptr %798, align 2, !tbaa !90
-  %799 = getelementptr i16, ptr %793, i64 %785
+  %799 = getelementptr [2 x i8], ptr %793, i64 %785
   %800 = getelementptr i8, ptr %799, i64 -4
   %801 = load i16, ptr %800, align 2, !tbaa !90
-  %802 = getelementptr i16, ptr %798, i64 %785
+  %802 = getelementptr [2 x i8], ptr %798, i64 %785
   %803 = getelementptr i8, ptr %802, i64 -2
   store i16 %801, ptr %803, align 2, !tbaa !90
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i12.i.i.i.i, 1
@@ -2638,18 +2637,18 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i:           ; preds = %_ZNK8rawspeed12_GLO
   %805 = icmp samesign ult i64 %804, %787
   call void @llvm.assume(i1 %805)
   %806 = mul nuw nsw i64 %804, %786
-  %807 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %806
+  %807 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %806
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 2
   %809 = load i16, ptr %808, align 2, !tbaa !90
   %810 = icmp samesign ult i64 %indvars.iv.i.i14.i.i.i.i, %787
   call void @llvm.assume(i1 %810)
   %811 = mul nuw nsw i64 %indvars.iv.i.i14.i.i.i.i, %786
-  %812 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %811
+  %812 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %811
   store i16 %809, ptr %812, align 2, !tbaa !90
-  %813 = getelementptr i16, ptr %807, i64 %785
+  %813 = getelementptr [2 x i8], ptr %807, i64 %785
   %814 = getelementptr i8, ptr %813, i64 -4
   %815 = load i16, ptr %814, align 2, !tbaa !90
-  %816 = getelementptr i16, ptr %812, i64 %785
+  %816 = getelementptr [2 x i8], ptr %812, i64 %785
   %817 = getelementptr i8, ptr %816, i64 -2
   store i16 %815, ptr %817, align 2, !tbaa !90
   %indvars.iv.next.i.i15.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i14.i.i.i.i, 1
@@ -2662,18 +2661,18 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i.i.i.i:           ; preds = %_ZNK8rawspeed12_GLO
   %819 = icmp samesign ult i64 %818, %787
   call void @llvm.assume(i1 %819)
   %820 = mul nuw nsw i64 %818, %786
-  %821 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %820
+  %821 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %820
   %822 = getelementptr inbounds nuw i8, ptr %821, i64 2
   %823 = load i16, ptr %822, align 2, !tbaa !90
   %824 = icmp samesign ult i64 %indvars.iv.i.i18.i.i.i.i, %787
   call void @llvm.assume(i1 %824)
   %825 = mul nuw nsw i64 %indvars.iv.i.i18.i.i.i.i, %786
-  %826 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %825
+  %826 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i.i.i.i, i64 %825
   store i16 %823, ptr %826, align 2, !tbaa !90
-  %827 = getelementptr i16, ptr %821, i64 %785
+  %827 = getelementptr [2 x i8], ptr %821, i64 %785
   %828 = getelementptr i8, ptr %827, i64 -4
   %829 = load i16, ptr %828, align 2, !tbaa !90
-  %830 = getelementptr i16, ptr %826, i64 %785
+  %830 = getelementptr [2 x i8], ptr %826, i64 %785
   %831 = getelementptr i8, ptr %830, i64 -2
   store i16 %829, ptr %831, align 2, !tbaa !90
   %indvars.iv.next.i.i19.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i18.i.i.i.i, 1
@@ -2716,19 +2715,19 @@ switch.lookup294:                                 ; preds = %_ZSt4fillIPiiEvT_S1
   %846 = getelementptr inbounds nuw i8, ptr %844, i64 1
   %847 = load i8, ptr %846, align 1, !tbaa !111
   %848 = zext nneg i8 %845 to i64
-  %switch.gep295 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %848
+  %switch.gep295 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %848
   %switch.load296 = load i32, ptr %switch.gep295, align 4
   %849 = zext nneg i8 %845 to i64
-  %850 = getelementptr inbounds nuw i32, ptr %6, i64 %849
+  %850 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %849
   %851 = load i32, ptr %850, align 4, !tbaa !93
   %852 = add nsw i32 %851, %switch.load296
   %853 = add nsw i32 %851, 1
   store i32 %853, ptr %850, align 4, !tbaa !93
   %854 = zext nneg i8 %847 to i64
-  %switch.gep303 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %854
+  %switch.gep303 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.30, i64 %854
   %switch.load304 = load i32, ptr %switch.gep303, align 4
   %855 = zext nneg i8 %847 to i64
-  %856 = getelementptr inbounds nuw i32, ptr %6, i64 %855
+  %856 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %855
   %857 = load i32, ptr %856, align 4, !tbaa !93
   %858 = add nsw i32 %857, %switch.load304
   %859 = add nsw i32 %857, 1
@@ -2737,8 +2736,8 @@ switch.lookup294:                                 ; preds = %_ZSt4fillIPiiEvT_S1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !93
   %860 = urem i32 %.0.i127.i.i.i.i, 3
   %861 = zext nneg i32 %860 to i64
-  %862 = getelementptr inbounds nuw %"struct.std::array.101", ptr %158, i64 %861
-  %863 = getelementptr inbounds nuw %"struct.std::array.101", ptr %159, i64 %861
+  %862 = getelementptr inbounds nuw [328 x i8], ptr %158, i64 %861
+  %863 = getelementptr inbounds nuw [328 x i8], ptr %159, i64 %861
   %.promoted.i56.i.i.i = load i32, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %.promoted108.i.i.i.i = load i32, ptr %.sroa.843.0..sroa_idx.i.i, align 8
   %864 = load i32, ptr %150, align 4
@@ -2788,22 +2787,22 @@ switch.lookup294:                                 ; preds = %_ZSt4fillIPiiEvT_S1
   call void @llvm.assume(i1 %883)
   %884 = mul nuw nsw i32 %878, %866
   %885 = zext nneg i32 %884 to i64
-  %886 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %885
+  %886 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %885
   %887 = zext nneg i32 %880 to i64
-  %888 = getelementptr inbounds nuw i16, ptr %886, i64 %887
+  %888 = getelementptr inbounds nuw [2 x i8], ptr %886, i64 %887
   %889 = load i16, ptr %888, align 2, !tbaa !90
   %890 = zext i16 %889 to i32
   %891 = icmp samesign ule i32 %879, %864
   call void @llvm.assume(i1 %891)
   %892 = zext nneg i32 %879 to i64
-  %893 = getelementptr inbounds nuw i16, ptr %886, i64 %892
+  %893 = getelementptr inbounds nuw [2 x i8], ptr %886, i64 %892
   %894 = load i16, ptr %893, align 2, !tbaa !90
   %895 = zext i16 %894 to i32
   %896 = add nuw nsw i32 %879, 2
   %897 = icmp samesign ult i32 %896, %864
   call void @llvm.assume(i1 %897)
   %898 = zext nneg i32 %896 to i64
-  %899 = getelementptr inbounds nuw i16, ptr %886, i64 %898
+  %899 = getelementptr inbounds nuw [2 x i8], ptr %886, i64 %898
   %900 = load i16, ptr %899, align 2, !tbaa !90
   %901 = zext i16 %900 to i32
   %902 = add nsw i32 %877, -2
@@ -2811,8 +2810,8 @@ switch.lookup294:                                 ; preds = %_ZSt4fillIPiiEvT_S1
   call void @llvm.assume(i1 %903)
   %904 = mul nuw nsw i32 %902, %866
   %905 = zext nneg i32 %904 to i64
-  %906 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %905
-  %907 = getelementptr inbounds nuw i16, ptr %906, i64 %887
+  %906 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %905
+  %907 = getelementptr inbounds nuw [2 x i8], ptr %906, i64 %887
   %908 = load i16, ptr %907, align 2, !tbaa !90
   %909 = zext i16 %908 to i32
   %910 = sub nsw i32 %895, %890
@@ -2938,7 +2937,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 981:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i.i118.i.i.i
   %982 = zext nneg i32 %936 to i64
-  %983 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %862, i64 %982
+  %983 = getelementptr inbounds nuw [8 x i8], ptr %862, i64 %982
   %984 = load i32, ptr %983, align 8, !tbaa !225
   %985 = getelementptr inbounds nuw i8, ptr %983, i64 4
   %986 = load i32, ptr %985, align 4, !tbaa !227
@@ -3052,7 +3051,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i.i125.i.i.i = xor i32 %1035, %sext.i.i.i124.i.i.i
   %1037 = call i32 @llvm.abs.i32(i32 %.1.i.i.i.i125.i.i.i, i1 true)
   %1038 = zext nneg i32 %936 to i64
-  %1039 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %862, i64 %1038
+  %1039 = getelementptr inbounds nuw [8 x i8], ptr %862, i64 %1038
   %1040 = load i32, ptr %1039, align 8, !tbaa !225
   %1041 = add nsw i32 %1040, %1037
   store i32 %1041, ptr %1039, align 8, !tbaa !225
@@ -3114,8 +3113,8 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   call void @llvm.assume(i1 %1066)
   %1067 = mul nuw nsw i32 %877, %866
   %1068 = zext nneg i32 %1067 to i64
-  %1069 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %1068
-  %1070 = getelementptr inbounds nuw i16, ptr %1069, i64 %887
+  %1069 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %1068
+  %1070 = getelementptr inbounds nuw [2 x i8], ptr %1069, i64 %887
   store i16 %.034.i.i.i.i.i.i.i, ptr %1070, align 2, !tbaa !90
   %1071 = add nuw nsw i32 %876, 1
   store i32 %1071, ptr %indvars.iv.i.sroa.phi.i108.i.i.i, align 4, !tbaa !93
@@ -3154,9 +3153,9 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_od
   call void @llvm.assume(i1 %1081)
   %1082 = mul nuw nsw i32 %1077, %866
   %1083 = zext nneg i32 %1082 to i64
-  %1084 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %1083
+  %1084 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %1083
   %1085 = zext nneg i32 %1079 to i64
-  %1086 = getelementptr inbounds nuw i16, ptr %1084, i64 %1085
+  %1086 = getelementptr inbounds nuw [2 x i8], ptr %1084, i64 %1085
   %1087 = load i16, ptr %1086, align 2, !tbaa !90
   %1088 = zext i16 %1087 to i32
   %1089 = add nsw i32 %1077, -1
@@ -3167,21 +3166,21 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block35fuji_decode_interpolation_od
   call void @llvm.assume(i1 %1092)
   %1093 = mul nuw nsw i32 %1089, %866
   %1094 = zext nneg i32 %1093 to i64
-  %1095 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %1094
+  %1095 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %1094
   %1096 = zext nneg i32 %1090 to i64
-  %1097 = getelementptr inbounds nuw i16, ptr %1095, i64 %1096
+  %1097 = getelementptr inbounds nuw [2 x i8], ptr %1095, i64 %1096
   %1098 = load i16, ptr %1097, align 2, !tbaa !90
   %1099 = zext i16 %1098 to i32
-  %1100 = getelementptr inbounds nuw i16, ptr %1095, i64 %1085
+  %1100 = getelementptr inbounds nuw [2 x i8], ptr %1095, i64 %1085
   %1101 = load i16, ptr %1100, align 2, !tbaa !90
   %1102 = zext i16 %1101 to i32
   %1103 = add nuw nsw i32 %1078, 3
   %1104 = icmp samesign ult i32 %1103, %864
   call void @llvm.assume(i1 %1104)
   %1105 = zext nneg i32 %1103 to i64
-  %1106 = getelementptr inbounds nuw i16, ptr %1095, i64 %1105
+  %1106 = getelementptr inbounds nuw [2 x i8], ptr %1095, i64 %1105
   %1107 = load i16, ptr %1106, align 2, !tbaa !90
-  %1108 = getelementptr inbounds nuw i16, ptr %1084, i64 %1105
+  %1108 = getelementptr inbounds nuw [2 x i8], ptr %1084, i64 %1105
   %1109 = load i16, ptr %1108, align 2, !tbaa !90
   %1110 = zext i16 %1109 to i32
   %1111 = add nuw nsw i32 %1110, %1088
@@ -3303,7 +3302,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStream
 
 1182:                                             ; preds = %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block13fuji_zerobitsERNS_14BitStreamerMSBE.exit.i.i83.i.i.i
   %1183 = zext nneg i32 %1133 to i64
-  %1184 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %863, i64 %1183
+  %1184 = getelementptr inbounds nuw [8 x i8], ptr %863, i64 %1183
   %1185 = load i32, ptr %1184, align 8, !tbaa !225
   %1186 = getelementptr inbounds nuw i8, ptr %1184, i64 4
   %1187 = load i32, ptr %1186, align 4, !tbaa !227
@@ -3435,7 +3434,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %.1.i.i.i91.i.i.i = xor i32 %1240, %sext.i.i90.i.i.i
   %1242 = call i32 @llvm.abs.i32(i32 %.1.i.i.i91.i.i.i, i1 true)
   %1243 = zext nneg i32 %1133 to i64
-  %1244 = getelementptr inbounds nuw %"struct.rawspeed::(anonymous namespace)::int_pair", ptr %863, i64 %1243
+  %1244 = getelementptr inbounds nuw [8 x i8], ptr %863, i64 %1243
   %1245 = load i32, ptr %1244, align 8, !tbaa !225
   %1246 = add nsw i32 %1245, %1242
   store i32 %1246, ptr %1244, align 8, !tbaa !225
@@ -3493,7 +3492,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
 
 _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block18fuji_decode_sampleEiiRSt5arrayINS0_8int_pairELm41EE.exit.i.i96.i.i.i: ; preds = %.thread.i.i94.i.i.i, %1267
   %.034.i.i.i97.i.i.i = phi i16 [ %1270, %.thread.i.i94.i.i.i ], [ 0, %1267 ]
-  %1271 = getelementptr inbounds nuw i16, ptr %1084, i64 %1096
+  %1271 = getelementptr inbounds nuw [2 x i8], ptr %1084, i64 %1096
   store i16 %.034.i.i.i97.i.i.i, ptr %1271, align 2, !tbaa !90
   %1272 = add nuw nsw i32 %1076, 1
   store i32 %1272, ptr %1075, align 4, !tbaa !93
@@ -3547,18 +3546,18 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i66.i.i.i:         ; preds = %_ZNK8rawspeed12_GLO
   %1288 = icmp samesign ult i64 %1287, %1284
   call void @llvm.assume(i1 %1288)
   %1289 = mul nuw nsw i64 %1287, %1283
-  %1290 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1289
+  %1290 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1289
   %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 2
   %1292 = load i16, ptr %1291, align 2, !tbaa !90
   %1293 = icmp samesign ult i64 %indvars.iv.i.i12.i71.i.i.i, %1284
   call void @llvm.assume(i1 %1293)
   %1294 = mul nuw nsw i64 %indvars.iv.i.i12.i71.i.i.i, %1283
-  %1295 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1294
+  %1295 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1294
   store i16 %1292, ptr %1295, align 2, !tbaa !90
-  %1296 = getelementptr i16, ptr %1290, i64 %1282
+  %1296 = getelementptr [2 x i8], ptr %1290, i64 %1282
   %1297 = getelementptr i8, ptr %1296, i64 -4
   %1298 = load i16, ptr %1297, align 2, !tbaa !90
-  %1299 = getelementptr i16, ptr %1295, i64 %1282
+  %1299 = getelementptr [2 x i8], ptr %1295, i64 %1282
   %1300 = getelementptr i8, ptr %1299, i64 -2
   store i16 %1298, ptr %1300, align 2, !tbaa !90
   %indvars.iv.next.i.i.i72.i.i.i = add nuw nsw i64 %indvars.iv.i.i12.i71.i.i.i, 1
@@ -3571,18 +3570,18 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i66.i.i.i:         ; preds = %_ZNK8rawspeed12_GLO
   %1302 = icmp samesign ult i64 %1301, %1284
   call void @llvm.assume(i1 %1302)
   %1303 = mul nuw nsw i64 %1301, %1283
-  %1304 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1303
+  %1304 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1303
   %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 2
   %1306 = load i16, ptr %1305, align 2, !tbaa !90
   %1307 = icmp samesign ult i64 %indvars.iv.i.i14.i68.i.i.i, %1284
   call void @llvm.assume(i1 %1307)
   %1308 = mul nuw nsw i64 %indvars.iv.i.i14.i68.i.i.i, %1283
-  %1309 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1308
+  %1309 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1308
   store i16 %1306, ptr %1309, align 2, !tbaa !90
-  %1310 = getelementptr i16, ptr %1304, i64 %1282
+  %1310 = getelementptr [2 x i8], ptr %1304, i64 %1282
   %1311 = getelementptr i8, ptr %1310, i64 -4
   %1312 = load i16, ptr %1311, align 2, !tbaa !90
-  %1313 = getelementptr i16, ptr %1309, i64 %1282
+  %1313 = getelementptr [2 x i8], ptr %1309, i64 %1282
   %1314 = getelementptr i8, ptr %1313, i64 -2
   store i16 %1312, ptr %1314, align 2, !tbaa !90
   %indvars.iv.next.i.i15.i69.i.i.i = add nuw nsw i64 %indvars.iv.i.i14.i68.i.i.i, 1
@@ -3595,18 +3594,18 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i66.i.i.i:         ; preds = %_ZNK8rawspeed12_GLO
   %1316 = icmp samesign ult i64 %1315, %1284
   call void @llvm.assume(i1 %1316)
   %1317 = mul nuw nsw i64 %1315, %1283
-  %1318 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1317
+  %1318 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1317
   %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 2
   %1320 = load i16, ptr %1319, align 2, !tbaa !90
   %1321 = icmp samesign ult i64 %indvars.iv.i.i18.i62.i.i.i, %1284
   call void @llvm.assume(i1 %1321)
   %1322 = mul nuw nsw i64 %indvars.iv.i.i18.i62.i.i.i, %1283
-  %1323 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1322
+  %1323 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i.i17.i59.i.i.i, i64 %1322
   store i16 %1320, ptr %1323, align 2, !tbaa !90
-  %1324 = getelementptr i16, ptr %1318, i64 %1282
+  %1324 = getelementptr [2 x i8], ptr %1318, i64 %1282
   %1325 = getelementptr i8, ptr %1324, i64 -4
   %1326 = load i16, ptr %1325, align 2, !tbaa !90
-  %1327 = getelementptr i16, ptr %1323, i64 %1282
+  %1327 = getelementptr [2 x i8], ptr %1323, i64 %1282
   %1328 = getelementptr i8, ptr %1327, i64 -2
   store i16 %1326, ptr %1328, align 2, !tbaa !90
   %indvars.iv.next.i.i19.i63.i.i.i = add nuw nsw i64 %indvars.iv.i.i18.i62.i.i.i, 1
@@ -3738,7 +3737,7 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
   %1388 = add nuw nsw i64 %indvars.iv59.i.i.i.i.i, %1365
   %1389 = icmp samesign ult i64 %1388, %1363
   %1390 = mul nuw nsw i64 %1388, %1364
-  %1391 = getelementptr inbounds nuw i16, ptr %.sroa.046.0.copyload.i.i.i.i.i, i64 %1390
+  %1391 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.046.0.copyload.i.i.i.i.i, i64 %1390
   %1392 = add i32 %1378, 7
   br label %1395
 
@@ -3793,15 +3792,15 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
   call void @llvm.assume(i1 %1413)
   %1414 = mul nuw nsw i32 %.0.i.i.i.i.i13, %1384
   %1415 = zext nneg i32 %1414 to i64
-  %1416 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i33.i.i.i.i.i, i64 %1415
+  %1416 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i33.i.i.i.i.i, i64 %1415
   %1417 = zext nneg i32 %1411 to i64
-  %1418 = getelementptr inbounds nuw i16, ptr %1416, i64 %1417
+  %1418 = getelementptr inbounds nuw [2 x i8], ptr %1416, i64 %1417
   %1419 = load i16, ptr %1418, align 2, !tbaa !90
   call void @llvm.assume(i1 %1389)
   %1420 = add nuw nsw i64 %indvars.iv.i.i.i.i.i, %1375
   %1421 = icmp samesign ule i64 %1420, %1362
   call void @llvm.assume(i1 %1421)
-  %1422 = getelementptr inbounds nuw i16, ptr %1391, i64 %1420
+  %1422 = getelementptr inbounds nuw [2 x i8], ptr %1391, i64 %1420
   store i16 %1419, ptr %1422, align 2, !tbaa !90
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %.not25.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 6
@@ -3904,11 +3903,11 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i150.i.i.i: ;
   %1468 = zext i32 %1462 to i64
   %1469 = icmp samesign ult i64 %indvars.iv.next64.i.i.i.i.i, %1468
   %.sroa.0.0.copyload.i.i34.i.i.i.i.i = load ptr, ptr %145, align 8
-  %invariant.gep.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i34.i.i.i.i.i, i64 %indvars.iv.next64.i.i.i.i.i
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i34.i.i.i.i.i, i64 %indvars.iv.next64.i.i.i.i.i
   %1470 = or disjoint i64 %indvars.iv57.i.i.i.i.i, %1453
   %1471 = icmp samesign ult i64 %1470, %1443
   %1472 = mul nuw nsw i64 %1470, %1442
-  %1473 = getelementptr inbounds nuw i16, ptr %.sroa.045.0.copyload.i.i.i.i.i, i64 %1472
+  %1473 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.045.0.copyload.i.i.i.i.i, i64 %1472
   %1474 = trunc nuw nsw i64 %1461 to i32
   br label %1477
 
@@ -3950,13 +3949,13 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i150.i.i.i: ;
   call void @llvm.assume(i1 %1484)
   %1485 = mul nuw nsw i32 %.0.i.i156.i.i.i, %1464
   %1486 = zext nneg i32 %1485 to i64
-  %gep.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i.i.i.i, i64 %1486
+  %gep.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i.i.i.i, i64 %1486
   %1487 = load i16, ptr %gep.i.i.i.i.i, align 2, !tbaa !90
   call void @llvm.assume(i1 %1471)
   %1488 = add nuw nsw i64 %indvars.iv.i.i155.i.i.i, %1457
   %1489 = icmp samesign ule i64 %1488, %1441
   call void @llvm.assume(i1 %1489)
-  %1490 = getelementptr inbounds nuw i16, ptr %1473, i64 %1488
+  %1490 = getelementptr inbounds nuw [2 x i8], ptr %1473, i64 %1488
   store i16 %1487, ptr %1490, align 2, !tbaa !90
   br i1 %.not26.i.i.i.i.i, label %1476, label %1477, !llvm.loop !258
 
@@ -3991,7 +3990,7 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9Fu
   call void @llvm.assume(i1 %1499)
   %.sroa.0.0.copyload.i.i162.i.i.i = load ptr, ptr %145, align 8, !tbaa !191, !noalias !260
   %1500 = zext nneg i32 %.sroa.548.0.copyload.i.i.i to i64
-  %invariant.gep.i25.i.i = getelementptr i16, ptr %.sroa.0.0.copyload.i.i162.i.i.i, i64 %1500
+  %invariant.gep.i25.i.i = getelementptr [2 x i8], ptr %.sroa.0.0.copyload.i.i162.i.i.i, i64 %1500
   br label %1518
 
 .preheader66.i.i.i:                               ; preds = %1492, %.preheader66.i.i.i
@@ -4016,14 +4015,14 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9Fu
   %1509 = mul nuw nsw i32 %1503, %.sroa.08.0.copyload.i.i.i
   %.sroa.0.0.copyload.i.i.i22.i.i = load ptr, ptr %145, align 8, !tbaa !191, !noalias !263
   %1510 = zext nneg i32 %1509 to i64
-  %1511 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i22.i.i, i64 %1510
+  %1511 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i22.i.i, i64 %1510
   %1512 = add nsw i32 %.sroa.08.0.copyload.i.i.i, -2
   %1513 = add i32 %1512, %.sroa.5.0.copyload.i.i.i
   %1514 = icmp samesign ult i32 %1513, %1502
   call void @llvm.assume(i1 %1514)
   %1515 = mul nuw nsw i32 %1503, %1513
   %1516 = zext nneg i32 %1515 to i64
-  %1517 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload.i.i.i22.i.i, i64 %1516
+  %1517 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload.i.i.i22.i.i, i64 %1516
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %1511, ptr noundef nonnull align 2 dereferenceable(1) %1517, i64 %246, i1 false)
   %.028.add.i.i.i = add nuw nsw i64 %.028.idx89.i.i.i, 8
   %.not.i23.i.i = icmp eq i64 %.028.add.i.i.i, 24
@@ -4041,14 +4040,14 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9Fu
   call void @llvm.assume(i1 %1522)
   %1523 = mul nuw nsw i32 %1521, %.sroa.447.0.copyload.i.i.i
   %1524 = zext nneg i32 %1523 to i64
-  %gep.i26.i.i = getelementptr i16, ptr %invariant.gep.i25.i.i, i64 %1524
+  %gep.i26.i.i = getelementptr [2 x i8], ptr %invariant.gep.i25.i.i, i64 %1524
   %1525 = getelementptr i8, ptr %gep.i26.i.i, i64 -4
   %1526 = load i16, ptr %1525, align 2, !tbaa !90
   %1527 = icmp samesign ult i32 %1519, %.sroa.649.0.copyload.i.i.i
   call void @llvm.assume(i1 %1527)
   %1528 = mul nuw nsw i32 %1519, %.sroa.447.0.copyload.i.i.i
   %1529 = zext nneg i32 %1528 to i64
-  %gep91.i.i.i = getelementptr i16, ptr %invariant.gep.i25.i.i, i64 %1529
+  %gep91.i.i.i = getelementptr [2 x i8], ptr %invariant.gep.i25.i.i, i64 %1529
   %1530 = getelementptr i8, ptr %gep91.i.i.i, i64 -2
   store i16 %1526, ptr %1530, align 2, !tbaa !90
   %.029.add.i.i.i = add nuw nsw i64 %.029.idx92.i.i.i, 8

@@ -634,7 +634,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 124:                                              ; preds = %122
   %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %125
+  %126 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4, !tbaa !94
   %129 = icmp sgt i32 %128, 1
@@ -675,7 +675,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 146:                                              ; preds = %144
   %147 = zext nneg i32 %145 to i64
-  %148 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %147
+  %148 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load i32, ptr %149, align 4, !tbaa !94
   %151 = icmp sgt i32 %150, 1
@@ -716,7 +716,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 168:                                              ; preds = %166
   %169 = zext nneg i32 %167 to i64
-  %170 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %169
+  %170 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %172 = load i32, ptr %171, align 4, !tbaa !94
   %173 = icmp sgt i32 %172, 1
@@ -757,7 +757,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 190:                                              ; preds = %188
   %191 = zext nneg i32 %189 to i64
-  %192 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %191
+  %192 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4, !tbaa !94
   %195 = icmp sgt i32 %194, 1
@@ -798,7 +798,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 212:                                              ; preds = %210
   %213 = zext nneg i32 %211 to i64
-  %214 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %213
+  %214 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4, !tbaa !94
   %217 = icmp sgt i32 %216, 1
@@ -839,7 +839,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 234:                                              ; preds = %232
   %235 = zext nneg i32 %233 to i64
-  %236 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %235
+  %236 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %238 = load i32, ptr %237, align 4, !tbaa !94
   %239 = icmp sgt i32 %238, 1
@@ -880,7 +880,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 256:                                              ; preds = %254
   %257 = zext nneg i32 %255 to i64
-  %258 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %257
+  %258 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %260 = load i32, ptr %259, align 4, !tbaa !94
   %261 = icmp sgt i32 %260, 1
@@ -930,7 +930,7 @@ pmix_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %pmix_
 
 281:                                              ; preds = %279
   %282 = zext nneg i32 %280 to i64
-  %283 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %282
+  %283 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 4
   %285 = load i32, ptr %284, align 4, !tbaa !94
   %286 = icmp sgt i32 %285, 1

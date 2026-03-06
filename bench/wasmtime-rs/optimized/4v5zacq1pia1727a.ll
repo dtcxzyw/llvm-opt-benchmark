@@ -66,7 +66,7 @@ define noundef i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 "_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h64f3a1ab3e9925a4E.exit": ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3
+  %11 = getelementptr inbounds [216 x i8], ptr %10, i64 %3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i64, ptr %12, align 8, !noundef !3
   ret i64 %13
@@ -82,7 +82,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h119e
 
 8:                                                ; preds = %5
   %9 = sub nuw i64 %2, %3
-  %10 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %1, i64 %3
+  %10 = getelementptr inbounds [24 x i8], ptr %1, i64 %3
   store ptr %1, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8
@@ -119,7 +119,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checke
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %1, i64 %3
+  %6 = getelementptr inbounds [24 x i8], ptr %1, i64 %3
   %7 = sub nuw i64 %2, %3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
@@ -150,8 +150,8 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h0c67385dc6cd5
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %0, i64 %2
-  %12 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %0, i64 %3
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %2
+  %12 = getelementptr inbounds [24 x i8], ptr %0, i64 %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
@@ -165,9 +165,9 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h0c67385dc6cd5
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h96e6c142da565427E"(ptr align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = lshr i64 %1, 1
-  %4 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [24 x i8], ptr %0, i64 %1
   %5 = sub nsw i64 0, %3
-  %6 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %4, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h0762fb51480e7975E"(ptr align 8 %0, i64 %3, ptr align 8 %6, i64 %3, i64 %3)
   ret void
 }
@@ -225,7 +225,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
-  %19 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -271,7 +271,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   unreachable
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %25
+  %34 = getelementptr inbounds [24 x i8], ptr %17, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = icmp eq i64 %.pr, 0
@@ -329,7 +329,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
-  %19 = getelementptr inbounds { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -375,7 +375,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   unreachable
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %25
+  %34 = getelementptr inbounds [24 x i8], ptr %17, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = icmp eq i64 %.pr, 0
@@ -407,7 +407,7 @@ define hidden noundef i64 @"_ZN14cranelift_isle9serialize16respect_priority28_$u
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3
+  %11 = getelementptr inbounds [216 x i8], ptr %10, i64 %3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i64, ptr %12, align 8, !noundef !3
   ret i64 %13
@@ -452,7 +452,7 @@ define hidden { i64, i64 } @"_ZN14cranelift_isle9serialize13Decomposition4sort28
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %10, i64 %3
+  %11 = getelementptr inbounds [216 x i8], ptr %10, i64 %3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = insertvalue { i64, i64 } poison, i64 %13, 0
@@ -476,7 +476,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %11, i64 %2
+  %12 = getelementptr inbounds [216 x i8], ptr %11, i64 %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !9, !noundef !3
   %15 = load i16, ptr %14, align 2, !noundef !3
@@ -513,7 +513,7 @@ define hidden void @"_ZN14cranelift_isle9serialize13Decomposition17make_control_
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %13, i64 %5
+  %14 = getelementptr inbounds [216 x i8], ptr %13, i64 %5
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !align !9, !noundef !3
   %17 = load i16, ptr %16, align 2, !noundef !3
@@ -650,7 +650,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %16, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %25 = getelementptr inbounds i64, ptr %18, i64 %20
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   store ptr %18, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %25, ptr %26, align 8
@@ -686,7 +686,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
 
 "_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit.i.i.i": ; preds = %32
   %37 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
-  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %37, i64 %.val12.i.i.i
+  %38 = getelementptr inbounds [216 x i8], ptr %37, i64 %.val12.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E"(ptr nonnull align 8 %39, i16 %5)
   %41 = extractvalue { i16, i16 } %40, 0
@@ -716,7 +716,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
 
 "_ZN14cranelift_isle9serialize13Decomposition17best_control_flow28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbb84233a5e0282fbE.exit16.i.i.i": ; preds = %45
   %49 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %49, i64 %.val15.i.i.i
+  %50 = getelementptr inbounds [216 x i8], ptr %49, i64 %.val15.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %52 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E"(ptr nonnull align 8 %51, i16 %5)
   %53 = extractvalue { i16, i16 } %52, 0
@@ -767,7 +767,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
   %7 = alloca i16, align 2
   %8 = alloca { i8, [31 x i8] }, align 16
   %9 = alloca { ptr, ptr, {} }, align 8
-  %10 = getelementptr inbounds i64, ptr %0, i64 %1
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -805,7 +805,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %24, i64 %.val12
+  %25 = getelementptr inbounds [216 x i8], ptr %24, i64 %.val12
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %26 = load i16, ptr %3, align 2, !range !11, !noundef !3
   %27 = load i16, ptr %15, align 2, !noundef !3
@@ -875,7 +875,7 @@ default.unreachable:                              ; preds = %42
 
 42:                                               ; preds = %.lr.ph
   %43 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %43, i64 %.val15
+  %44 = getelementptr inbounds [216 x i8], ptr %43, i64 %.val15
   %45 = load i16, ptr %3, align 2, !range !11, !noundef !3
   %46 = load i16, ptr %15, align 2, !noundef !3
   switch i16 %45, label %default.unreachable [
@@ -928,7 +928,7 @@ default.unreachable:                              ; preds = %42
 ; Function Attrs: nonlazybind uwtable
 define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc981b5f4E(ptr align 8 %0, i64 %1, ptr readonly align 8 captures(none) %2, ptr readonly align 8 captures(none) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr, {} }, align 8
-  %6 = getelementptr inbounds i64, ptr %0, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -966,7 +966,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
 
 "_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit": ; preds = %13
   %18 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %18, i64 %.val12
+  %19 = getelementptr inbounds [216 x i8], ptr %18, i64 %.val12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 200
   %21 = load i64, ptr %20, align 8, !noundef !3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
@@ -1001,7 +1001,7 @@ define hidden i64 @_ZN14cranelift_isle9serialize18partition_in_place17hf07aa0dfc
 
 "_ZN14cranelift_isle9serialize16respect_priority28_$u7b$$u7b$closure$u7d$$u7d$17h102909d29f230ca6E.exit16": ; preds = %25
   %29 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %29, i64 %.val15
+  %30 = getelementptr inbounds [216 x i8], ptr %29, i64 %.val15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 200
   %32 = load i64, ptr %31, align 8, !noundef !3
   %33 = load i64, ptr %3, align 8, !noundef !3
@@ -1100,7 +1100,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %19, i64 %.val
+  %20 = getelementptr inbounds [216 x i8], ptr %19, i64 %.val
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !9, !noundef !3
   %23 = load i16, ptr %22, align 2, !noundef !3
@@ -1131,7 +1131,7 @@ define zeroext i1 @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$clos
 33:                                               ; preds = %"_ZN14cranelift_isle9serialize13Decomposition17make_control_flow28_$u7b$$u7b$closure$u7d$$u7d$17h8b2ead75a35e22f0E.exit.i"
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %35, i64 %.val2
+  %36 = getelementptr inbounds [216 x i8], ptr %35, i64 %.val2
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !align !9, !noundef !3
   %39 = load i16, ptr %38, align 2, !noundef !3

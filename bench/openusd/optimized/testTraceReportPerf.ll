@@ -779,7 +779,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .preheader.us:                                    ; preds = %66, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEED2Ev.exit87.us
   %.0175.us = phi i64 [ %291, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEED2Ev.exit87.us ], [ 0, %66 ]
-  %68 = getelementptr inbounds i32, ptr %18, i64 %.0175.us
+  %68 = getelementptr inbounds [4 x i8], ptr %18, i64 %.0175.us
   %69 = load i32, ptr %68, align 4
   fence syncscope("singlethread") seq_cst
   %70 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13

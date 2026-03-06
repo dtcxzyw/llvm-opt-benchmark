@@ -399,7 +399,7 @@ define hidden range(i32 0, 45) i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %
 
 switch.lookup:                                    ; preds = %44
   %47 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.wimax_compact_dlmap_ie_decoder.7, i64 %47
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wimax_compact_dlmap_ie_decoder.7, i64 %47
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = sub nuw nsw i32 4, %45
   br label %.sink.split.i660
@@ -604,7 +604,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit:         ; preds = %44, %.sink.split.i6
 
 switch.lookup844:                                 ; preds = %150
   %153 = zext nneg i32 %switch.tableidx843 to i64
-  %switch.gep845 = getelementptr inbounds nuw ptr, ptr @switch.table.wimax_compact_dlmap_ie_decoder.7, i64 %153
+  %switch.gep845 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wimax_compact_dlmap_ie_decoder.7, i64 %153
   %switch.load846 = load ptr, ptr %switch.gep845, align 8
   %switch.offset848 = sub nuw nsw i32 4, %151
   br label %.sink.split.i673
@@ -921,7 +921,7 @@ wimax_compact_dlmap_rcid_ie_decoder.exit671:      ; preds = %150, %.sink.split.i
 
 switch.lookup850:                                 ; preds = %310
   %313 = zext nneg i32 %switch.tableidx849 to i64
-  %switch.gep851 = getelementptr inbounds nuw ptr, ptr @switch.table.wimax_compact_dlmap_ie_decoder.7, i64 %313
+  %switch.gep851 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.wimax_compact_dlmap_ie_decoder.7, i64 %313
   %switch.load852 = load ptr, ptr %switch.gep851, align 8
   %switch.offset854 = sub nuw nsw i32 4, %311
   br label %.sink.split.i687

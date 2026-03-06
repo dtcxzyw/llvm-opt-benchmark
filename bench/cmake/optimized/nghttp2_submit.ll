@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.nghttp2_priority_spec = type { i32, i32, i8 }
-%struct.nghttp2_origin_entry = type { ptr, i64 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nghttp2_submit_trailer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -667,7 +666,7 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
 .preheader:                                       ; preds = %8, %.preheader
   %.066 = phi i64 [ %13, %.preheader ], [ 0, %8 ]
   %.05565 = phi i64 [ %12, %.preheader ], [ 0, %8 ]
-  %9 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.066
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.066
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !54
   %12 = add i64 %11, %.05565
@@ -696,9 +695,9 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
 26:                                               ; preds = %23, %26
   %.168 = phi i64 [ 0, %23 ], [ %35, %26 ]
   %.05867 = phi ptr [ %25, %23 ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %21, i64 %.168
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.168
   store ptr %.05867, ptr %27, align 8, !tbaa !58
-  %28 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.168
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.168
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8

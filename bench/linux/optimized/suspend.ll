@@ -176,7 +176,7 @@ define internal noundef i32 @mem_sleep_default_setup(ptr noundef readonly captur
 
 2:                                                ; preds = %10, %1
   %3 = phi i64 [ 1, %1 ], [ %11, %10 ]
-  %4 = getelementptr ptr, ptr @mem_sleep_labels, i64 %3
+  %4 = getelementptr [8 x i8], ptr @mem_sleep_labels, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef %0, ptr noundef %5) #13
   %7 = icmp eq i32 %6, 0
@@ -1108,7 +1108,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @mem_sleep_labels, i64 %5
+  %6 = getelementptr [8 x i8], ptr @mem_sleep_labels, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %7) #14
   %9 = load ptr, ptr @enter_state.___tp_str, align 8
@@ -1437,7 +1437,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   store i32 %183, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 8), align 8
   %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 136), align 8
   %185 = sext i32 %184 to i64
-  %186 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 168), i64 %185
+  %186 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 168), i64 %185
   store i32 1, ptr %186, align 4
   %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 136), align 8
   %188 = add i32 %187, 1
@@ -1560,7 +1560,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   store i32 %245, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 4), align 4
   %246 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 124), align 4
   %247 = sext i32 %246 to i64
-  %248 = getelementptr i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 128), i64 %247
+  %248 = getelementptr [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 128), i64 %247
   store i32 %243, ptr %248, align 4
   %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @suspend_stats, i64 124), align 4
   %250 = add i32 %249, 1

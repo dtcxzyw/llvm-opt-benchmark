@@ -1178,7 +1178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %38
 408:                                              ; preds = %487, %.lr.ph.i158
   %.012.i = phi i64 [ 0, %.lr.ph.i158 ], [ %488, %487 ]
   %409 = load ptr, ptr %0, align 8, !tbaa !64
-  %410 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %409, i64 %.012.i
+  %410 = getelementptr inbounds nuw [16 x i8], ptr %409, i64 %.012.i
   %411 = load ptr, ptr %410, align 8, !tbaa !8
   %412 = load ptr, ptr %411, align 8, !tbaa !17
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 152
@@ -1202,7 +1202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %38
 
 425:                                              ; preds = %416
   %426 = load ptr, ptr %0, align 8, !tbaa !64
-  %427 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %426, i64 %.012.i
+  %427 = getelementptr inbounds nuw [16 x i8], ptr %426, i64 %.012.i
   %428 = load ptr, ptr %32, align 8, !tbaa !8
   store ptr %428, ptr %427, align 8, !tbaa !8
   %429 = getelementptr inbounds nuw i8, ptr %427, i64 8
@@ -1553,7 +1553,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit
 _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i, %.lr.ph.i171
   %591 = phi ptr [ %564, %.lr.ph.i171 ], [ %.pre.i174, %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %592 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %591, i64 %indvars.iv.i
+  %592 = getelementptr inbounds nuw [16 x i8], ptr %591, i64 %indvars.iv.i
   %593 = load ptr, ptr %592, align 8, !tbaa !8
   store ptr %593, ptr %31, align 8, !tbaa !65
   %594 = getelementptr inbounds nuw i8, ptr %592, i64 8
@@ -1596,14 +1596,14 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i176: ; pre
 
 610:                                              ; preds = %609
   %611 = load ptr, ptr %0, align 8, !tbaa !3
-  %612 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %611, i64 %indvars.iv.i
+  %612 = getelementptr inbounds nuw [16 x i8], ptr %611, i64 %indvars.iv.i
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 16
   %614 = invoke ptr @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5eraseEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %612, ptr nonnull %613)
           to label %615 unwind label %624
 
 615:                                              ; preds = %610
   %616 = load ptr, ptr %0, align 8, !tbaa !3
-  %617 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %616, i64 %indvars.iv.i
+  %617 = getelementptr inbounds nuw [16 x i8], ptr %616, i64 %indvars.iv.i
   %618 = load ptr, ptr %30, align 8, !tbaa !3
   %619 = load ptr, ptr %492, align 8, !tbaa !3
   invoke void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec6insertEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %617, ptr %618, ptr %619)
@@ -1725,7 +1725,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110ReplaceOpsERNS_10OpRcPtrVecE.exit: ; pre
   %.02949.i = phi i64 [ 0, %.lr.ph.i183 ], [ %829, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i195 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %666 = load ptr, ptr %0, align 8, !tbaa !64
-  %667 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %666, i64 %.02949.i
+  %667 = getelementptr inbounds nuw [16 x i8], ptr %666, i64 %.02949.i
   %668 = load ptr, ptr %667, align 8, !tbaa !8
   store ptr %668, ptr %27, align 8, !tbaa !65
   %669 = getelementptr inbounds nuw i8, ptr %667, i64 8
@@ -1878,7 +1878,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
 
 736:                                              ; preds = %731
   %737 = load ptr, ptr %0, align 8, !tbaa !64
-  %738 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %737, i64 %.02949.i
+  %738 = getelementptr inbounds nuw [16 x i8], ptr %737, i64 %.02949.i
   %739 = load ptr, ptr %29, align 8, !tbaa !8
   store ptr %739, ptr %738, align 8, !tbaa !8
   %740 = getelementptr inbounds nuw i8, ptr %738, i64 8
@@ -2129,7 +2129,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_1
   %.028184.i = phi i32 [ %.2.i223, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit141.i ], [ 0, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118ReplaceIdentityOpsERNS_10OpRcPtrVecENS_17OptimizationFlagsE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %840 = sext i32 %.028184.i to i64
-  %841 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %839, i64 %840
+  %841 = getelementptr inbounds nuw [16 x i8], ptr %839, i64 %840
   %842 = load ptr, ptr %841, align 8, !tbaa !8
   store ptr %842, ptr %15, align 8, !tbaa !65
   %843 = getelementptr inbounds nuw i8, ptr %841, i64 8
@@ -2160,7 +2160,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i215: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %854 = add nsw i32 %.028184.i, 1
   %855 = sext i32 %854 to i64
-  %856 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %853, i64 %855
+  %856 = getelementptr inbounds nuw [16 x i8], ptr %853, i64 %855
   %857 = load ptr, ptr %856, align 8, !tbaa !8
   store ptr %857, ptr %16, align 8, !tbaa !65
   %858 = getelementptr inbounds nuw i8, ptr %856, i64 8
@@ -3205,7 +3205,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
 
 1288:                                             ; preds = %1283
   %1289 = load ptr, ptr %0, align 8, !tbaa !3
-  %1290 = getelementptr inbounds %"class.std::shared_ptr", ptr %1289, i64 %840
+  %1290 = getelementptr inbounds [16 x i8], ptr %1289, i64 %840
   br i1 %1287, label %1291, label %1300
 
 1291:                                             ; preds = %1288
@@ -3313,7 +3313,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i1
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEaSERKS2_.exit127.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i125.i, %1300
   %1335 = phi ptr [ %.pre894, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i125.i ], [ %1289, %1300 ]
-  %1336 = getelementptr inbounds %"class.std::shared_ptr", ptr %1335, i64 %840
+  %1336 = getelementptr inbounds [16 x i8], ptr %1335, i64 %840
   %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 16
   %1338 = invoke ptr @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5eraseEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nonnull %1337)
           to label %1341 unwind label %1339
@@ -3529,7 +3529,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116RemoveInverseOpsERNS_10OpRcPtrVecENS_17O
 1430:                                             ; preds = %1420
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1431 = sext i32 %.025.i to i64
-  %1432 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1422, i64 %1431
+  %1432 = getelementptr inbounds nuw [16 x i8], ptr %1422, i64 %1431
   %1433 = load ptr, ptr %1432, align 8, !tbaa !8
   store ptr %1433, ptr %12, align 8, !tbaa !65
   %1434 = getelementptr inbounds nuw i8, ptr %1432, i64 8
@@ -3560,7 +3560,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev2OpEEC2IS1_vEERKS_IT_E.exit.i243: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1445 = add nsw i32 %.025.i, 1
   %1446 = sext i32 %1445 to i64
-  %1447 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1444, i64 %1446
+  %1447 = getelementptr inbounds nuw [16 x i8], ptr %1444, i64 %1446
   %1448 = load ptr, ptr %1447, align 8, !tbaa !8
   store ptr %1448, ptr %13, align 8, !tbaa !65
   %1449 = getelementptr inbounds nuw i8, ptr %1447, i64 8
@@ -3796,14 +3796,14 @@ _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit.i262: ; preds = %_ZSt8_Destroy
 
 1544:                                             ; preds = %1543
   %1545 = load ptr, ptr %0, align 8, !tbaa !3
-  %1546 = getelementptr inbounds %"class.std::shared_ptr", ptr %1545, i64 %1431
+  %1546 = getelementptr inbounds [16 x i8], ptr %1545, i64 %1431
   %1547 = getelementptr inbounds nuw i8, ptr %1546, i64 32
   %1548 = invoke ptr @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5eraseEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %1546, ptr nonnull %1547)
           to label %1549 unwind label %1561
 
 1549:                                             ; preds = %1544
   %1550 = load ptr, ptr %0, align 8, !tbaa !3
-  %1551 = getelementptr inbounds %"class.std::shared_ptr", ptr %1550, i64 %1431
+  %1551 = getelementptr inbounds [16 x i8], ptr %1550, i64 %1431
   %1552 = load ptr, ptr %11, align 8, !tbaa !3
   %1553 = load ptr, ptr %529, align 8, !tbaa !3
   invoke void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec6insertEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %1551, ptr %1552, ptr %1553)
@@ -3984,7 +3984,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110CombineOpsERNS_10OpRcPtrVecENS_17Optimiz
   %.02582.i = phi i64 [ 0, %.lr.ph.i266 ], [ %1929, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i274 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1624 = load ptr, ptr %0, align 8, !tbaa !64
-  %1625 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1624, i64 %.02582.i
+  %1625 = getelementptr inbounds nuw [16 x i8], ptr %1624, i64 %.02582.i
   %1626 = load ptr, ptr %1625, align 8, !tbaa !8
   store ptr %1626, ptr %3, align 8, !tbaa !65
   %1627 = getelementptr inbounds nuw i8, ptr %1625, i64 8
@@ -4113,7 +4113,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut1DOpDataEKNS0_6OpDataEESt
 1675:                                             ; preds = %1674
   %1676 = load ptr, ptr %7, align 8, !tbaa !64
   %1677 = load ptr, ptr %0, align 8, !tbaa !64
-  %1678 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1677, i64 %.02582.i
+  %1678 = getelementptr inbounds nuw [16 x i8], ptr %1677, i64 %.02582.i
   %1679 = load ptr, ptr %1676, align 8, !tbaa !8
   store ptr %1679, ptr %1678, align 8, !tbaa !8
   %1680 = getelementptr inbounds nuw i8, ptr %1678, i64 8
@@ -4399,7 +4399,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev11Lut3DOpDataEKNS0_6OpDataEESt
 1790:                                             ; preds = %1789
   %1791 = load ptr, ptr %10, align 8, !tbaa !64
   %1792 = load ptr, ptr %0, align 8, !tbaa !64
-  %1793 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1792, i64 %.02582.i
+  %1793 = getelementptr inbounds nuw [16 x i8], ptr %1792, i64 %.02582.i
   %1794 = load ptr, ptr %1791, align 8, !tbaa !8
   store ptr %1794, ptr %1793, align 8, !tbaa !8
   %1795 = getelementptr inbounds nuw i8, ptr %1793, i64 8
@@ -5501,7 +5501,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
 122:                                              ; preds = %121
   %123 = load ptr, ptr %0, align 8, !tbaa !3
   %124 = sext i32 %.1.i to i64
-  %125 = getelementptr inbounds %"class.std::shared_ptr", ptr %123, i64 %124
+  %125 = getelementptr inbounds [16 x i8], ptr %123, i64 %124
   %126 = tail call ptr @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5eraseEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %123, ptr nonnull %125)
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtrVecE.exit
 
@@ -5533,7 +5533,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126RemoveLeadingClampIdentityERNS_10OpRcPtr
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %143 = zext nneg i32 %.015.i to i64
   %144 = load ptr, ptr %0, align 8, !tbaa !64
-  %145 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %145, align 8, !tbaa !8
   store ptr %146, ptr %15, align 8, !tbaa !65
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -5741,7 +5741,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
 235:                                              ; preds = %234
   %236 = load ptr, ptr %0, align 8, !tbaa !3
   %237 = sext i32 %.116.i to i64
-  %238 = getelementptr %"class.std::shared_ptr", ptr %236, i64 %237
+  %238 = getelementptr [16 x i8], ptr %236, i64 %237
   %239 = getelementptr i8, ptr %238, i64 16
   %240 = load ptr, ptr %20, align 8, !tbaa !3
   %241 = tail call ptr @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5eraseEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %239, ptr %240)
@@ -6179,7 +6179,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2E
   %.029130.i.i = phi i32 [ 0, %.lr.ph132.i.i ], [ %spec.select.i.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %429 = load ptr, ptr %0, align 8, !tbaa !64
-  %430 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %429, i64 %indvars.iv.i.i
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %429, i64 %indvars.iv.i.i
   %431 = load ptr, ptr %430, align 8, !tbaa !8
   store ptr %431, ptr %7, align 8, !tbaa !8
   %432 = getelementptr inbounds nuw i8, ptr %430, i64 8
@@ -6604,7 +6604,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %601 = load ptr, ptr %0, align 8, !tbaa !64
-  %602 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %601, i64 %indvars.iv.i
+  %602 = getelementptr inbounds nuw [16 x i8], ptr %601, i64 %indvars.iv.i
   %603 = load ptr, ptr %602, align 8, !tbaa !8
   %604 = load ptr, ptr %603, align 8, !tbaa !17
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 16
@@ -6693,7 +6693,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
 
 637:                                              ; preds = %636
   %638 = load ptr, ptr %0, align 8, !tbaa !3
-  %639 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %638, i64 %wide.trip.count.i.i
+  %639 = getelementptr inbounds nuw [16 x i8], ptr %638, i64 %wide.trip.count.i.i
   %640 = invoke ptr @_ZN19OpenColorIO_v2_5dev10OpRcPtrVec5eraseEN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_2OpEESt6vectorIS5_SaIS5_EEEESB_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr %638, ptr %639)
           to label %641 unwind label %677
 

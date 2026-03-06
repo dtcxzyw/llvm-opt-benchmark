@@ -103,7 +103,7 @@ define internal i32 @screenpresso_decode_frame(ptr noundef %0, ptr noundef %1, p
 
 switch.lookup:                                    ; preds = %14
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.screenpresso_decode_frame, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.screenpresso_decode_frame, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %31, align 8, !tbaa !39

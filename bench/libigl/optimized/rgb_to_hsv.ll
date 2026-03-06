@@ -267,9 +267,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 
 21:                                               ; preds = %.lr.ph, %_ZN3igl10rgb_to_hsvIddEEvPKT_PT0_.exit
   %.021 = phi i64 [ 0, %.lr.ph ], [ %83, %_ZN3igl10rgb_to_hsvIddEEvPKT_PT0_.exit ]
-  %22 = getelementptr double, ptr %17, i64 %.021
+  %22 = getelementptr [8 x i8], ptr %17, i64 %.021
   %23 = load double, ptr %22, align 8, !tbaa !8
-  %24 = getelementptr double, ptr %22, i64 %15
+  %24 = getelementptr [8 x i8], ptr %22, i64 %15
   %25 = load double, ptr %24, align 8, !tbaa !8
   %26 = getelementptr i8, ptr %22, i64 %.idx
   %27 = load double, ptr %26, align 8, !tbaa !8
@@ -345,9 +345,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 _ZN3igl10rgb_to_hsvIddEEvPKT_PT0_.exit:           ; preds = %34, %21, %66, %70, %74, %77
   %.sroa.0.0 = phi double [ %79, %77 ], [ 0.000000e+00, %21 ], [ %71, %70 ], [ %68, %66 ], [ %76, %74 ], [ 0.000000e+00, %34 ]
   %.sroa.10.0 = phi double [ %50, %77 ], [ 0.000000e+00, %21 ], [ %50, %70 ], [ %50, %66 ], [ %50, %74 ], [ %50, %34 ]
-  %80 = getelementptr double, ptr %18, i64 %.021
+  %80 = getelementptr [8 x i8], ptr %18, i64 %.021
   store double %.sroa.0.0, ptr %80, align 8, !tbaa !8
-  %81 = getelementptr double, ptr %80, i64 %20
+  %81 = getelementptr [8 x i8], ptr %80, i64 %20
   store double %.sroa.10.0, ptr %81, align 8, !tbaa !8
   %82 = getelementptr i8, ptr %80, i64 %.idx20
   store double %32, ptr %82, align 8, !tbaa !8
@@ -402,9 +402,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 
 21:                                               ; preds = %.lr.ph, %_ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit
   %.021 = phi i64 [ 0, %.lr.ph ], [ %89, %_ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit ]
-  %22 = getelementptr float, ptr %17, i64 %.021
+  %22 = getelementptr [4 x i8], ptr %17, i64 %.021
   %23 = load float, ptr %22, align 4, !tbaa !4
-  %24 = getelementptr float, ptr %22, i64 %15
+  %24 = getelementptr [4 x i8], ptr %22, i64 %15
   %25 = load float, ptr %24, align 4, !tbaa !4
   %26 = getelementptr i8, ptr %22, i64 %.idx
   %27 = load float, ptr %26, align 4, !tbaa !4
@@ -486,9 +486,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 _ZN3igl10rgb_to_hsvIffEEvPKT_PT0_.exit:           ; preds = %34, %72, %76, %81, %21, %66
   %.sroa.0.0 = phi float [ %70, %66 ], [ 0.000000e+00, %34 ], [ %80, %76 ], [ %85, %81 ], [ %73, %72 ], [ 0.000000e+00, %21 ]
   %.sroa.6.1 = phi float [ %50, %66 ], [ %50, %34 ], [ %50, %76 ], [ %50, %81 ], [ %50, %72 ], [ 0.000000e+00, %21 ]
-  %86 = getelementptr float, ptr %18, i64 %.021
+  %86 = getelementptr [4 x i8], ptr %18, i64 %.021
   store float %.sroa.0.0, ptr %86, align 4, !tbaa !4
-  %87 = getelementptr float, ptr %86, i64 %20
+  %87 = getelementptr [4 x i8], ptr %86, i64 %20
   store float %.sroa.6.1, ptr %87, align 4, !tbaa !4
   %88 = getelementptr i8, ptr %86, i64 %.idx20
   store float %32, ptr %88, align 4, !tbaa !4

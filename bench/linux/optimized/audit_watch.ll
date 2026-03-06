@@ -515,7 +515,7 @@ audit_put_watch.exit:                             ; preds = %103, %105, %116
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %152 = load i64, ptr %151, align 8
   %153 = and i64 %152, 31
-  %154 = getelementptr %struct.list_head, ptr @audit_inode_hash, i64 %153
+  %154 = getelementptr [16 x i8], ptr @audit_inode_hash, i64 %153
   store ptr %154, ptr %1, align 8
   br label %155
 
@@ -1207,7 +1207,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
 68:                                               ; preds = %62
   %69 = and i64 %3, 31
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %71 = getelementptr %struct.list_head, ptr @audit_inode_hash, i64 %69
+  %71 = getelementptr [16 x i8], ptr @audit_inode_hash, i64 %69
   br label %72
 
 72:                                               ; preds = %141, %68

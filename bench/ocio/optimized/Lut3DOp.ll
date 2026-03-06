@@ -207,7 +207,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut3DEPfiiNS_10Lut
   %26 = uitofp nneg i32 %25 to float
   %27 = fmul float %15, %26
   %28 = mul nuw nsw i64 %indvars.iv72, %23
-  %29 = getelementptr inbounds nuw float, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %28
   store float %27, ptr %29, align 4, !tbaa !3
   %30 = sdiv i32 %24, %1
   %31 = srem i32 %30, %1
@@ -234,7 +234,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut3DEPfiiNS_10Lut
   %44 = sitofp i32 %43 to float
   %45 = fmul float %15, %44
   %46 = mul nuw nsw i64 %indvars.iv, %19
-  %47 = getelementptr inbounds nuw float, ptr %0, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %46
   store float %45, ptr %47, align 4, !tbaa !3
   %48 = srem i32 %41, %1
   %49 = sitofp i32 %48 to float

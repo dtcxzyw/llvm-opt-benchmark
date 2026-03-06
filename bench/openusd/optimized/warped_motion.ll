@@ -50,7 +50,7 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
   %26 = trunc nuw nsw i32 %14 to i16
   %27 = add nuw nsw i16 %26, 14
   %28 = sext i32 %.0.i to i64
-  %29 = getelementptr inbounds i16, ptr @div_lut, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @div_lut, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 4
@@ -375,7 +375,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %127 = add nsw i32 %.0190221.us, 512
   %128 = ashr i32 %127, 10
   %129 = sext i32 %128 to i64
-  %130 = getelementptr [8 x i16], ptr @av1_warped_filter, i64 %129
+  %130 = getelementptr [16 x i8], ptr @av1_warped_filter, i64 %129
   %131 = getelementptr i8, ptr %130, i64 1024
   %132 = add nsw i64 %indvars.iv248, %108
   br label %138
@@ -383,7 +383,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
 133:                                              ; preds = %138
   %134 = add nsw i32 %153, %64
   %135 = ashr i32 %134, %26
-  %136 = getelementptr i32, ptr %124, i64 %indvars.iv248
+  %136 = getelementptr [4 x i8], ptr %124, i64 %indvars.iv248
   store i32 %135, ptr %136, align 4
   %137 = add nsw i32 %.0190221.us, %52
   %indvars.iv.next249 = add nsw i64 %indvars.iv248, 1
@@ -400,10 +400,10 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %143 = select i1 %140, i32 0, i32 %142
   %144 = add nsw i32 %143, %118
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i16, ptr %1, i64 %145
+  %146 = getelementptr inbounds [2 x i8], ptr %1, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = zext i16 %147 to i32
-  %149 = getelementptr inbounds nuw i16, ptr %131, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %131, i64 %indvars.iv
   %150 = load i16, ptr %149, align 2
   %151 = sext i16 %150 to i32
   %152 = mul nsw i32 %151, %148
@@ -449,7 +449,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %170 = add nsw i32 %.0188227.us.us, 512
   %171 = ashr i32 %170, 10
   %172 = sext i32 %171 to i64
-  %173 = getelementptr [8 x i16], ptr @av1_warped_filter, i64 %172
+  %173 = getelementptr [16 x i8], ptr @av1_warped_filter, i64 %172
   %174 = getelementptr i8, ptr %173, i64 1024
   %175 = trunc nsw i64 %indvars.iv260 to i32
   %176 = add i32 %175, 36
@@ -467,7 +467,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
   %183 = add i32 %159, %175
   %184 = add nsw i32 %182, %183
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i16, ptr %180, i64 %185
+  %186 = getelementptr inbounds [2 x i8], ptr %180, i64 %185
   %187 = add nsw i32 %254, %69
   %188 = ashr i32 %187, %36
   %189 = load i32, ptr %14, align 8
@@ -477,7 +477,7 @@ define hidden void @av1_highbd_warp_affine_c(ptr noundef readonly captures(none)
 190:                                              ; preds = %179
   %191 = add nsw i32 %183, %163
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds i16, ptr %5, i64 %192
+  %193 = getelementptr inbounds [2 x i8], ptr %5, i64 %192
   %194 = load i16, ptr %186, align 2
   %195 = zext i16 %194 to i32
   %196 = load i32, ptr %70, align 4
@@ -542,7 +542,7 @@ clip_pixel_highbd.exit.us.us:                     ; preds = %221, %219, %217
 225:                                              ; preds = %177
   %226 = add i32 %164, %175
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds i16, ptr %5, i64 %227
+  %228 = getelementptr inbounds [2 x i8], ptr %5, i64 %227
   %229 = add nsw i32 %254, %69
   %230 = ashr i32 %229, %36
   %231 = add i32 %76, %230
@@ -584,9 +584,9 @@ clip_pixel_highbd.exit209.us.us:                  ; preds = %237, %235, %233
   %245 = shl i32 %244, 3
   %246 = add i32 %176, %245
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i32, ptr %20, i64 %247
+  %248 = getelementptr inbounds [4 x i8], ptr %20, i64 %247
   %249 = load i32, ptr %248, align 4
-  %250 = getelementptr inbounds nuw i16, ptr %174, i64 %indvars.iv256
+  %250 = getelementptr inbounds nuw [2 x i8], ptr %174, i64 %indvars.iv256
   %251 = load i16, ptr %250, align 2
   %252 = sext i16 %251 to i32
   %253 = mul nsw i32 %249, %252
@@ -665,17 +665,17 @@ define hidden i64 @av1_calc_highbd_frame_error(ptr noundef readonly captures(non
   %.01720.us = phi i64 [ 0, %.preheader.us.preheader ], [ %37, %._crit_edge.us ]
   %15 = mul nsw i64 %indvars.iv26, %13
   %16 = mul nsw i64 %indvars.iv26, %14
-  %invariant.gep = getelementptr i16, ptr %2, i64 %15
-  %invariant.gep32 = getelementptr i16, ptr %0, i64 %16
+  %invariant.gep = getelementptr [2 x i8], ptr %2, i64 %15
+  %invariant.gep32 = getelementptr [2 x i8], ptr %0, i64 %16
   br label %17
 
 17:                                               ; preds = %.preheader.us, %17
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %17 ]
   %.118.us = phi i64 [ %.01720.us, %.preheader.us ], [ %37, %17 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %18 = load i16, ptr %gep, align 2
   %19 = zext i16 %18 to i32
-  %gep33 = getelementptr i16, ptr %invariant.gep32, i64 %indvars.iv
+  %gep33 = getelementptr [2 x i8], ptr %invariant.gep32, i64 %indvars.iv
   %20 = load i16, ptr %gep33, align 2
   %21 = zext i16 %20 to i32
   %22 = sub nsw i32 %19, %21
@@ -683,7 +683,7 @@ define hidden i64 @av1_calc_highbd_frame_error(ptr noundef readonly captures(non
   %24 = lshr i32 %23, %10
   %25 = and i32 %23, %12
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @error_measure_lut, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @error_measure_lut, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1020
   %29 = load i32, ptr %28, align 4
   %30 = sub nsw i32 %11, %25
@@ -848,7 +848,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %117 = add nsw i32 %.0177199.us, 512
   %118 = ashr i32 %117, 10
   %119 = sext i32 %118 to i64
-  %120 = getelementptr [8 x i16], ptr @av1_warped_filter, i64 %119
+  %120 = getelementptr [16 x i8], ptr @av1_warped_filter, i64 %119
   %121 = getelementptr i8, ptr %120, i64 1024
   %122 = add nsw i64 %indvars.iv226, %98
   br label %128
@@ -856,7 +856,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
 123:                                              ; preds = %128
   %124 = add nsw i32 %143, %56
   %125 = ashr i32 %124, %21
-  %126 = getelementptr i32, ptr %114, i64 %indvars.iv226
+  %126 = getelementptr [4 x i8], ptr %114, i64 %indvars.iv226
   store i32 %125, ptr %126, align 4
   %127 = add nsw i32 %.0177199.us, %45
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, 1
@@ -876,7 +876,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %136 = getelementptr inbounds i8, ptr %1, i64 %135
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i32
-  %139 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %121, i64 %indvars.iv
   %140 = load i16, ptr %139, align 2
   %141 = sext i16 %140 to i32
   %142 = mul nsw i32 %141, %138
@@ -922,7 +922,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %160 = add nsw i32 %.0175205.us.us, 512
   %161 = ashr i32 %160, 10
   %162 = sext i32 %161 to i64
-  %163 = getelementptr [8 x i16], ptr @av1_warped_filter, i64 %162
+  %163 = getelementptr [16 x i8], ptr @av1_warped_filter, i64 %162
   %164 = getelementptr i8, ptr %163, i64 1024
   %165 = trunc nsw i64 %indvars.iv238 to i32
   %166 = add i32 %165, 36
@@ -940,7 +940,7 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %173 = add i32 %149, %165
   %174 = add nsw i32 %172, %173
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i16, ptr %170, i64 %175
+  %176 = getelementptr inbounds [2 x i8], ptr %170, i64 %175
   %177 = add nsw i32 %236, %61
   %178 = ashr i32 %177, %31
   %179 = load i32, ptr %13, align 8
@@ -1021,9 +1021,9 @@ define hidden void @av1_warp_affine_c(ptr noundef readonly captures(none) %0, pt
   %227 = shl i32 %226, 3
   %228 = add i32 %166, %227
   %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i32, ptr %19, i64 %229
+  %230 = getelementptr inbounds [4 x i8], ptr %19, i64 %229
   %231 = load i32, ptr %230, align 4
-  %232 = getelementptr inbounds nuw i16, ptr %164, i64 %indvars.iv234
+  %232 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %indvars.iv234
   %233 = load i16, ptr %232, align 2
   %234 = sext i16 %233 to i32
   %235 = mul nsw i32 %231, %234
@@ -1111,7 +1111,7 @@ define hidden i64 @av1_calc_frame_error_c(ptr noundef readonly captures(none) %0
   %16 = load i8, ptr %gep32, align 1
   %17 = zext i8 %16 to i64
   %18 = sub nsw i64 %15, %17
-  %19 = getelementptr i32, ptr @error_measure_lut, i64 %18
+  %19 = getelementptr [4 x i8], ptr @error_measure_lut, i64 %18
   %20 = getelementptr i8, ptr %19, i64 1020
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
@@ -1164,17 +1164,17 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %.01720.us.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %45, %._crit_edge.us.i ]
   %23 = mul nsw i64 %indvars.iv26.i, %21
   %24 = mul nsw i64 %indvars.iv26.i, %22
-  %invariant.gep.i = getelementptr i16, ptr %15, i64 %23
-  %invariant.gep32.i = getelementptr i16, ptr %12, i64 %24
+  %invariant.gep.i = getelementptr [2 x i8], ptr %15, i64 %23
+  %invariant.gep32.i = getelementptr [2 x i8], ptr %12, i64 %24
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %25 ]
   %.118.us.i = phi i64 [ %.01720.us.i, %.preheader.us.i ], [ %45, %25 ]
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %26 = load i16, ptr %gep.i, align 2
   %27 = zext i16 %26 to i32
-  %gep33.i = getelementptr i16, ptr %invariant.gep32.i, i64 %indvars.iv.i
+  %gep33.i = getelementptr [2 x i8], ptr %invariant.gep32.i, i64 %indvars.iv.i
   %28 = load i16, ptr %gep33.i, align 2
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %27, %29
@@ -1182,7 +1182,7 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %32 = lshr i32 %31, %18
   %33 = and i32 %31, %20
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @error_measure_lut, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @error_measure_lut, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1020
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %19, %33
@@ -1234,7 +1234,7 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %56 = load i8, ptr %gep32.i, align 1
   %57 = zext i8 %56 to i64
   %58 = sub nsw i64 %55, %57
-  %59 = getelementptr i32, ptr @error_measure_lut, i64 %58
+  %59 = getelementptr [4 x i8], ptr @error_measure_lut, i64 %58
   %60 = getelementptr i8, ptr %59, i64 1020
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
@@ -1291,9 +1291,9 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %30 = tail call i32 @llvm.smin.i32(i32 %6, i32 %29)
   %31 = tail call i32 @llvm.smin.i32(i32 %30, i32 32)
   %32 = mul nsw i64 %indvars.iv63.i, %24
-  %invariant.gep.us.i = getelementptr i16, ptr %14, i64 %32
+  %invariant.gep.us.i = getelementptr [2 x i8], ptr %14, i64 %32
   %33 = mul nsw i64 %indvars.iv63.i, %23
-  %invariant.gep48.us.i = getelementptr i16, ptr %17, i64 %33
+  %invariant.gep48.us.i = getelementptr [2 x i8], ptr %17, i64 %33
   %34 = icmp sgt i32 %29, 0
   %wide.trip.count29.i.us.i = zext nneg i32 %31 to i64
   br i1 %34, label %.lr.ph.split.us.us.preheader.i, label %._crit_edge.us.i
@@ -1321,8 +1321,8 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
 
 .preheader.lr.ph.i.us.us.i:                       ; preds = %.lr.ph.split.us.us.i
   %40 = sub nsw i64 %25, %indvars.iv.i
-  %gep.us.us.i = getelementptr i16, ptr %invariant.gep.us.i, i64 %indvars.iv.i
-  %gep49.us.us.i = getelementptr i16, ptr %invariant.gep48.us.i, i64 %indvars.iv.i
+  %gep.us.us.i = getelementptr [2 x i8], ptr %invariant.gep.us.i, i64 %indvars.iv.i
+  %gep49.us.us.i = getelementptr [2 x i8], ptr %invariant.gep48.us.i, i64 %indvars.iv.i
   %41 = icmp sgt i64 %40, 0
   br i1 %41, label %.preheader.us.preheader.i.us.us.i, label %av1_calc_highbd_frame_error.exit.us.us.i
 
@@ -1338,17 +1338,17 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %.01720.us.i.us.us.i = phi i64 [ 0, %.preheader.us.preheader.i.us.us.i ], [ %67, %._crit_edge.us.i.us.us.i ]
   %45 = mul nsw i64 %indvars.iv26.i.us.us.i, %23
   %46 = mul nsw i64 %indvars.iv26.i.us.us.i, %24
-  %invariant.gep.i.us.us.i = getelementptr i16, ptr %gep49.us.us.i, i64 %45
-  %invariant.gep32.i.us.us.i = getelementptr i16, ptr %gep.us.us.i, i64 %46
+  %invariant.gep.i.us.us.i = getelementptr [2 x i8], ptr %gep49.us.us.i, i64 %45
+  %invariant.gep32.i.us.us.i = getelementptr [2 x i8], ptr %gep.us.us.i, i64 %46
   br label %47
 
 47:                                               ; preds = %47, %.preheader.us.i.us.us.i
   %indvars.iv.i.us.us.i = phi i64 [ 0, %.preheader.us.i.us.us.i ], [ %indvars.iv.next.i.us.us.i, %47 ]
   %.118.us.i.us.us.i = phi i64 [ %.01720.us.i.us.us.i, %.preheader.us.i.us.us.i ], [ %67, %47 ]
-  %gep.i.us.us.i = getelementptr i16, ptr %invariant.gep.i.us.us.i, i64 %indvars.iv.i.us.us.i
+  %gep.i.us.us.i = getelementptr [2 x i8], ptr %invariant.gep.i.us.us.i, i64 %indvars.iv.i.us.us.i
   %48 = load i16, ptr %gep.i.us.us.i, align 2
   %49 = zext i16 %48 to i32
-  %gep33.i.us.us.i = getelementptr i16, ptr %invariant.gep32.i.us.us.i, i64 %indvars.iv.i.us.us.i
+  %gep33.i.us.us.i = getelementptr [2 x i8], ptr %invariant.gep32.i.us.us.i, i64 %indvars.iv.i.us.us.i
   %50 = load i16, ptr %gep33.i.us.us.i, align 2
   %51 = zext i16 %50 to i32
   %52 = sub nsw i32 %49, %51
@@ -1356,7 +1356,7 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %54 = lshr i32 %53, %20
   %55 = and i32 %53, %22
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds nuw i32, ptr @error_measure_lut, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr @error_measure_lut, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1020
   %59 = load i32, ptr %58, align 4
   %60 = sub nsw i32 %21, %55
@@ -1466,7 +1466,7 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
   %101 = load i8, ptr %gep32.i.us.i, align 1
   %102 = zext i8 %101 to i64
   %103 = sub nsw i64 %100, %102
-  %104 = getelementptr i32, ptr @error_measure_lut, i64 %103
+  %104 = getelementptr [4 x i8], ptr @error_measure_lut, i64 %103
   %105 = getelementptr i8, ptr %104, i64 1020
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
@@ -1611,17 +1611,17 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nound
   %.sroa.064.0158.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.064.1.i, %92 ]
   %.sroa.5.0157.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.5.1.i, %92 ]
   %27 = shl nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sub i32 %29, %24
   %31 = or disjoint i64 %27, 1
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = sub i32 %33, %25
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %27
   %36 = load i32, ptr %35, align 4
   %37 = sub nsw i32 %36, %22
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %31
   %39 = load i32, ptr %38, align 4
   %40 = sub nsw i32 %39, %21
   %reass.sub = sub i32 %37, %30
@@ -1771,7 +1771,7 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nound
 resolve_divisor_64.exit.i:                        ; preds = %131, %121
   %135 = phi i16 [ %123, %121 ], [ %117, %131 ]
   %.0.i.i = phi i64 [ %130, %121 ], [ %134, %131 ]
-  %136 = getelementptr inbounds i16, ptr @div_lut, i64 %.0.i.i
+  %136 = getelementptr inbounds [2 x i8], ptr @div_lut, i64 %.0.i.i
   %137 = load i16, ptr %136, align 2
   %138 = icmp slt i64 %104, 0
   %139 = sub i16 0, %137

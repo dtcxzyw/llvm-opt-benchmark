@@ -1345,7 +1345,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal5proof5PExprES4_SaIS3_E
 _ZNSt12_Vector_baseIN4cvc58internal5proof5PExprESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal5proof5PExprES4_SaIS3_EET0_T_S7_S6_RT1_.exit30, %66
   store ptr %22, ptr %0, align 8, !tbaa !27
   store ptr %64, ptr %4, align 8, !tbaa !22
-  %70 = getelementptr inbounds nuw %"class.cvc5::internal::proof::PExpr", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !25
   ret void
 
@@ -1786,7 +1786,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal5proof5PExprES4_SaIS3_E
 _ZNSt12_Vector_baseIN4cvc58internal5proof5PExprESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal5proof5PExprES4_SaIS3_EET0_T_S7_S6_RT1_.exit30, %66
   store ptr %22, ptr %0, align 8, !tbaa !27
   store ptr %64, ptr %4, align 8, !tbaa !22
-  %70 = getelementptr inbounds nuw %"class.cvc5::internal::proof::PExpr", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !25
   ret void
 

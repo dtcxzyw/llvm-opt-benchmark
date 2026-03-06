@@ -37,15 +37,15 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %42 = load i32, ptr %10, align 4, !tbaa !3
   %narrow = xor i32 %42, -1
   %43 = sext i32 %narrow to i64
-  %44 = getelementptr inbounds double, ptr %9, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %9, i64 %43
   %45 = load i32, ptr %14, align 4, !tbaa !3
   %narrow447 = xor i32 %45, -1
   %46 = sext i32 %narrow447 to i64
-  %47 = getelementptr inbounds double, ptr %13, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %13, i64 %46
   %48 = load i32, ptr %21, align 4, !tbaa !3
   %narrow448 = xor i32 %48, -1
   %49 = sext i32 %narrow448 to i64
-  %50 = getelementptr inbounds double, ptr %20, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %20, i64 %49
   %51 = getelementptr inbounds i8, ptr %29, i64 -8
   store double 0.000000e+00, ptr %37, align 8, !tbaa !7
   %52 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str) #4
@@ -483,7 +483,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %253 = sub nsw i32 %252, %232
   store i32 %253, ptr %35, align 4, !tbaa !3
   %254 = sext i32 %232 to i64
-  %255 = getelementptr double, ptr %51, i64 %254
+  %255 = getelementptr [8 x i8], ptr %51, i64 %254
   %256 = getelementptr i8, ptr %255, i64 8
   %257 = call i32 @dgeqrf_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef %256, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
   %258 = load i32, ptr %8, align 4, !tbaa !3
@@ -499,7 +499,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store i32 %265, ptr %35, align 4, !tbaa !3
   %266 = shl i32 %42, 1
   %267 = sext i32 %266 to i64
-  %268 = getelementptr double, ptr %44, i64 %267
+  %268 = getelementptr [8 x i8], ptr %44, i64 %267
   %269 = getelementptr i8, ptr %268, i64 8
   %270 = call i32 @dlacpy_(ptr noundef nonnull @.str.12, ptr noundef nonnull %40, ptr noundef nonnull %35, ptr noundef %269, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull %14) #4
   %271 = load i32, ptr %7, align 4, !tbaa !3
@@ -514,7 +514,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %277 = add nsw i32 %276, -2
   store i32 %277, ptr %36, align 4, !tbaa !3
   %278 = sext i32 %45 to i64
-  %279 = getelementptr double, ptr %47, i64 %278
+  %279 = getelementptr [8 x i8], ptr %47, i64 %278
   %280 = getelementptr i8, ptr %279, i64 24
   %281 = call i32 @dlaset_(ptr noundef nonnull @.str.9, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %37, ptr noundef %280, ptr noundef nonnull %14) #4
   br label %282
@@ -528,7 +528,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %287 = sub nsw i32 %285, %286
   store i32 %287, ptr %36, align 4, !tbaa !3
   %288 = sext i32 %286 to i64
-  %289 = getelementptr double, ptr %51, i64 %288
+  %289 = getelementptr [8 x i8], ptr %51, i64 %288
   %290 = getelementptr i8, ptr %289, i64 8
   %291 = call i32 @dgedmd_(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %40, ptr noundef nonnull %35, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef nonnull %21, ptr noundef %22, ptr noundef %23, ptr noundef nonnull %24, ptr noundef %25, ptr noundef nonnull %26, ptr noundef %27, ptr noundef nonnull %28, ptr noundef %290, ptr noundef nonnull %36, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %38) #4
   %292 = load i32, ptr %38, align 4, !tbaa !3
@@ -552,7 +552,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %301 = add i32 %48, 1
   %302 = add i32 %301, %297
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds double, ptr %50, i64 %303
+  %304 = getelementptr inbounds [8 x i8], ptr %50, i64 %303
   %305 = call i32 @dlaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %35, ptr noundef %17, ptr noundef nonnull %37, ptr noundef nonnull %37, ptr noundef %304, ptr noundef nonnull %21) #4
   %.pre471 = load i32, ptr %40, align 4, !tbaa !3
   br label %306
@@ -579,7 +579,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %318 = add i32 %48, 1
   %319 = add i32 %318, %314
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds double, ptr %50, i64 %320
+  %321 = getelementptr inbounds [8 x i8], ptr %50, i64 %320
   %322 = call i32 @dlaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %35, ptr noundef %17, ptr noundef nonnull %37, ptr noundef nonnull %37, ptr noundef %321, ptr noundef nonnull %21) #4
   %.pre470 = load i32, ptr %8, align 4, !tbaa !3
   br label %323
@@ -597,7 +597,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %327 = sub i32 %.neg465, %.sink485
   store i32 %327, ptr %35, align 4, !tbaa !3
   %328 = sext i32 %.sink485 to i64
-  %329 = getelementptr inbounds double, ptr %51, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %51, i64 %328
   %330 = call i32 @dormqr_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %17, ptr noundef nonnull %40, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %329, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
   br label %331
 
@@ -622,7 +622,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %341 = sub i32 %.neg469, %340
   store i32 %341, ptr %35, align 4, !tbaa !3
   %342 = sext i32 %340 to i64
-  %343 = getelementptr inbounds double, ptr %51, i64 %342
+  %343 = getelementptr inbounds [8 x i8], ptr %51, i64 %342
   %344 = call i32 @dorgqr_(ptr noundef nonnull %7, ptr noundef nonnull %40, ptr noundef nonnull %40, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef nonnull %343, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
   br label %345
 

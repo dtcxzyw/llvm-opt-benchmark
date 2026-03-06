@@ -155,7 +155,7 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZN
   unreachable
 
 60:                                               ; preds = %48
-  %61 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %62 = load ptr, ptr %61, align 8, !tbaa !72
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 512
   %64 = load i64, ptr %63, align 8, !tbaa !77
@@ -254,7 +254,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %9
   %.lcssa6.i.i = phi i64 [ %93, %92 ], [ %102, %tailrecurse.i.i ]
   %.lcssa.i.i = phi ptr [ %54, %92 ], [ %107, %tailrecurse.i.i ]
   store i64 %.lcssa6.i.i, ptr %41, align 8, !tbaa !83
-  %113 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa6.i.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa.i.i, i64 %.lcssa6.i.i
   %114 = load ptr, ptr %113, align 8, !tbaa !72
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %116 = load i32, ptr %115, align 8
@@ -452,7 +452,7 @@ _ZNK8facebook4yoga18LayoutableChildrenINS0_4NodeEE5beginEv.exit: ; preds = %._ZN
   unreachable
 
 51:                                               ; preds = %39
-  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %41
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %41
   %53 = load ptr, ptr %52, align 8, !tbaa !72
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load i32, ptr %54, align 8
@@ -511,7 +511,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit.i.i:      ; preds = %tailrecurse.i.i, %.
   %.lcssa6.i.i = phi i64 [ %61, %.critedge ], [ %70, %tailrecurse.i.i ]
   %.lcssa.i.i = phi ptr [ %45, %.critedge ], [ %75, %tailrecurse.i.i ]
   store i64 %.lcssa6.i.i, ptr %33, align 8, !tbaa !83
-  %81 = getelementptr inbounds nuw ptr, ptr %.lcssa.i.i, i64 %.lcssa6.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa.i.i, i64 %.lcssa6.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !72
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load i32, ptr %83, align 8
@@ -600,7 +600,7 @@ define linkonce_odr hidden void @_ZN8facebook4yoga18LayoutableChildrenINS0_4Node
   unreachable
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %1
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted9 = load ptr, ptr %15, align 8
   br label %_ZNK8facebook4yoga4Node8getChildEm.exit7
@@ -716,7 +716,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %tailrecurse, %1
   %.lcssa6 = phi i64 [ %4, %1 ], [ %24, %tailrecurse ]
   %.lcssa = phi ptr [ %9, %1 ], [ %29, %tailrecurse ]
   store i64 %.lcssa6, ptr %2, align 8, !tbaa !83
-  %34 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.lcssa6
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa, i64 %.lcssa6
   %35 = load ptr, ptr %34, align 8, !tbaa !72
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load i32, ptr %36, align 8

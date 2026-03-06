@@ -39,7 +39,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %24 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %24, -1
   %25 = sext i32 %narrow to i64
-  %26 = getelementptr inbounds double, ptr %5, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %5, i64 %25
   %27 = getelementptr inbounds i8, ptr %7, i64 -8
   %28 = getelementptr inbounds i8, ptr %8, i64 -8
   %29 = getelementptr inbounds i8, ptr %11, i64 -8
@@ -185,15 +185,15 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %92 = sext i32 %24 to i64
   %93 = add nuw i32 %51, 1
   %wide.trip.count398 = zext i32 %93 to i64
-  %invariant.gep446 = getelementptr double, ptr %26, i64 %.0267
+  %invariant.gep446 = getelementptr [8 x i8], ptr %26, i64 %.0267
   br label %.lr.ph345
 
 .lr.ph345:                                        ; preds = %.lr.ph345.preheader, %.lr.ph345
   %indvars.iv395 = phi i64 [ 1, %.lr.ph345.preheader ], [ %indvars.iv.next396, %.lr.ph345 ]
   %94 = mul nsw i64 %indvars.iv395, %92
-  %gep447 = getelementptr double, ptr %invariant.gep446, i64 %94
+  %gep447 = getelementptr [8 x i8], ptr %invariant.gep446, i64 %94
   %95 = load double, ptr %gep447, align 8, !tbaa !7
-  %96 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv395
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv395
   store double %95, ptr %96, align 8, !tbaa !7
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count398
@@ -219,15 +219,15 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %100 = sext i32 %24 to i64
   %101 = add nuw i32 %51, 1
   %wide.trip.count = zext i32 %101 to i64
-  %invariant.gep = getelementptr double, ptr %26, i64 %.0267
+  %invariant.gep = getelementptr [8 x i8], ptr %26, i64 %.0267
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %102 = mul nsw i64 %indvars.iv, %100
-  %gep = getelementptr double, ptr %invariant.gep, i64 %102
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %102
   %103 = load double, ptr %gep, align 8, !tbaa !7
-  %104 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store double %103, ptr %104, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -243,16 +243,16 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 .lr.ph337.preheader:                              ; preds = %105
   %106 = sext i32 %24 to i64
   %wide.trip.count388 = zext nneg i32 %51 to i64
-  %invariant.gep442 = getelementptr double, ptr %26, i64 %.0270
+  %invariant.gep442 = getelementptr [8 x i8], ptr %26, i64 %.0270
   br label %.lr.ph337
 
 .lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
   %indvars.iv385 = phi i64 [ 1, %.lr.ph337.preheader ], [ %indvars.iv.next386, %.lr.ph337 ]
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %107 = mul nsw i64 %indvars.iv.next386, %106
-  %gep443 = getelementptr double, ptr %invariant.gep442, i64 %107
+  %gep443 = getelementptr [8 x i8], ptr %invariant.gep442, i64 %107
   %108 = load double, ptr %gep443, align 8, !tbaa !7
-  %109 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv385
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv385
   store double %108, ptr %109, align 8, !tbaa !7
   %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
   br i1 %exitcond389.not, label %.loopexit330, label %.lr.ph337, !llvm.loop !12
@@ -263,15 +263,15 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 .lr.ph341.preheader:                              ; preds = %110
   %111 = sext i32 %24 to i64
   %wide.trip.count393 = zext nneg i32 %51 to i64
-  %invariant.gep444 = getelementptr double, ptr %26, i64 %.0270
+  %invariant.gep444 = getelementptr [8 x i8], ptr %26, i64 %.0270
   br label %.lr.ph341
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %.lr.ph341
   %indvars.iv390 = phi i64 [ 1, %.lr.ph341.preheader ], [ %indvars.iv.next391, %.lr.ph341 ]
   %112 = mul nsw i64 %indvars.iv390, %111
-  %gep445 = getelementptr double, ptr %invariant.gep444, i64 %112
+  %gep445 = getelementptr [8 x i8], ptr %invariant.gep444, i64 %112
   %113 = load double, ptr %gep445, align 8, !tbaa !7
-  %114 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv390
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv390
   store double %113, ptr %114, align 8, !tbaa !7
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
@@ -308,9 +308,9 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %132 = fptosi double %131 to i32
   %133 = add nuw nsw i32 %54, 1
   store i32 %133, ptr %15, align 4, !tbaa !3
-  %134 = getelementptr inbounds nuw double, ptr %29, i64 %.0267
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0267
   call void @dlacpy_(ptr noundef nonnull @.str.6, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %134, ptr noundef nonnull %21) #5
-  %135 = getelementptr inbounds nuw double, ptr %29, i64 %.0276
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0276
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull @c_b26, ptr noundef nonnull @c_b26, ptr noundef nonnull %135, ptr noundef nonnull %21) #5
   store i32 %132, ptr %15, align 4, !tbaa !3
   %.not300364 = icmp slt i32 %132, 1
@@ -319,9 +319,9 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 .lr.ph367:                                        ; preds = %130
   %136 = sext i32 %77 to i64
-  %137 = getelementptr double, ptr %9, i64 %136
+  %137 = getelementptr [8 x i8], ptr %9, i64 %136
   %138 = sext i32 %80 to i64
-  %139 = getelementptr double, ptr %29, i64 %138
+  %139 = getelementptr [8 x i8], ptr %29, i64 %138
   %140 = getelementptr i8, ptr %139, i64 8
   br label %141
 
@@ -468,16 +468,16 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %202 = sext i32 %201 to i64
   %203 = add nuw i32 %200, 1
   %wide.trip.count408 = zext i32 %203 to i64
-  %invariant.gep448 = getelementptr double, ptr %29, i64 %.0269
+  %invariant.gep448 = getelementptr [8 x i8], ptr %29, i64 %.0269
   br label %204
 
 204:                                              ; preds = %.lr.ph372, %204
   %indvars.iv405 = phi i64 [ 1, %.lr.ph372 ], [ %indvars.iv.next406, %204 ]
   %205 = add nsw i64 %indvars.iv405, -1
   %206 = mul nsw i64 %205, %202
-  %gep449 = getelementptr double, ptr %invariant.gep448, i64 %206
+  %gep449 = getelementptr [8 x i8], ptr %invariant.gep448, i64 %206
   %207 = load double, ptr %gep449, align 8, !tbaa !7
-  %208 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv405
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv405
   store double %207, ptr %208, align 8, !tbaa !7
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count408
@@ -494,15 +494,15 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %210 = load i32, ptr %21, align 4, !tbaa !3
   %211 = sext i32 %210 to i64
   %wide.trip.count413 = zext nneg i32 %200 to i64
-  %invariant.gep450 = getelementptr double, ptr %29, i64 %.0265
+  %invariant.gep450 = getelementptr [8 x i8], ptr %29, i64 %.0265
   br label %212
 
 212:                                              ; preds = %.lr.ph377, %212
   %indvars.iv410 = phi i64 [ 1, %.lr.ph377 ], [ %indvars.iv.next411, %212 ]
   %213 = mul nsw i64 %indvars.iv410, %211
-  %gep451 = getelementptr double, ptr %invariant.gep450, i64 %213
+  %gep451 = getelementptr [8 x i8], ptr %invariant.gep450, i64 %213
   %214 = load double, ptr %gep451, align 8, !tbaa !7
-  %215 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv410
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv410
   store double %214, ptr %215, align 8, !tbaa !7
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond414.not = icmp eq i64 %indvars.iv.next411, %wide.trip.count413
@@ -515,16 +515,16 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %217 = load i32, ptr %21, align 4, !tbaa !3
   %218 = sext i32 %217 to i64
   %wide.trip.count418 = zext nneg i32 %200 to i64
-  %invariant.gep452 = getelementptr double, ptr %29, i64 %.0265
+  %invariant.gep452 = getelementptr [8 x i8], ptr %29, i64 %.0265
   br label %219
 
 219:                                              ; preds = %.lr.ph381, %219
   %indvars.iv415 = phi i64 [ 1, %.lr.ph381 ], [ %indvars.iv.next416, %219 ]
   %220 = add nsw i64 %indvars.iv415, -1
   %221 = mul nsw i64 %220, %218
-  %gep453 = getelementptr double, ptr %invariant.gep452, i64 %221
+  %gep453 = getelementptr [8 x i8], ptr %invariant.gep452, i64 %221
   %222 = load double, ptr %gep453, align 8, !tbaa !7
-  %223 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv415
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv415
   store double %222, ptr %223, align 8, !tbaa !7
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
   %exitcond419.not = icmp eq i64 %indvars.iv.next416, %wide.trip.count418

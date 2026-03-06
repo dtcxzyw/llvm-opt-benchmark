@@ -36,19 +36,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_inet_pernet_
 %struct.anon.56 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.static_call_key = type { ptr, %union.anon.67 }
 %union.anon.67 = type { i64 }
-%struct.inet_bind_hashbucket = type { %struct.spinlock, %struct.hlist_head }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.2 }
-%union.anon.2 = type { %struct.atomic_t }
-%struct.hlist_head = type { ptr }
 %struct.bpf_sk_lookup_kern = type { i16, i16, i16, i16, %struct.anon.57, %struct.anon.58, ptr, i32, i8 }
 %struct.anon.57 = type { i32, i32 }
 %struct.anon.58 = type { ptr, ptr }
-%struct.inet_listen_hashbucket = type { %struct.spinlock, %struct.hlist_nulls_head }
-%struct.hlist_nulls_head = type { ptr }
-%struct.inet_ehash_bucket = type { %struct.hlist_nulls_head }
 
 @inet_ehashfn.inet_ehash_secret = internal global i32 0, section ".data..read_mostly", align 4
 @inet_ehashfn.___done = internal global i8 0, section ".data.once", align 1
@@ -433,7 +423,7 @@ define dso_local void @inet_put_port(ptr noundef captures(none) %0) #0 align 16 
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %18 = load ptr, ptr %17, align 32
   %19 = sext i32 %16 to i64
-  %20 = getelementptr %struct.inet_bind_hashbucket, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = icmp eq i16 %22, 10
@@ -478,7 +468,7 @@ define dso_local void @inet_put_port(ptr noundef captures(none) %0) #0 align 16 
   %56 = load ptr, ptr %55, align 16
   %57 = and i32 %54, %15
   %58 = zext i32 %57 to i64
-  %59 = getelementptr %struct.inet_bind_hashbucket, ptr %56, i64 %58
+  %59 = getelementptr [16 x i8], ptr %56, i64 %58
   tail call void @_raw_spin_lock(ptr noundef %20) #16
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %61 = load ptr, ptr %60, align 8
@@ -597,7 +587,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__inet_inherit_port(ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %18 = load ptr, ptr %17, align 32
   %19 = sext i32 %16 to i64
-  %20 = getelementptr %struct.inet_bind_hashbucket, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = icmp eq i16 %22, 10
@@ -642,7 +632,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__inet_inherit_port(ptr noundef 
   %56 = load ptr, ptr %55, align 16
   %57 = and i32 %54, %15
   %58 = zext i32 %57 to i64
-  %59 = getelementptr %struct.inet_bind_hashbucket, ptr %56, i64 %58
+  %59 = getelementptr [16 x i8], ptr %56, i64 %58
   tail call void @_raw_spin_lock(ptr noundef %20) #16
   tail call void @_raw_spin_lock(ptr noundef %59) #16
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1040
@@ -1345,7 +1335,7 @@ define dso_local ptr @__inet_lookup_listener(ptr noundef %0, ptr noundef readonl
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %44, %48
   %50 = zext i32 %49 to i64
-  %51 = getelementptr %struct.inet_listen_hashbucket, ptr %46, i64 %50
+  %51 = getelementptr [16 x i8], ptr %46, i64 %50
   %52 = tail call fastcc ptr @inet_lhash2_lookup(ptr noundef %0, ptr noundef %51, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9)
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %84
@@ -1378,7 +1368,7 @@ define dso_local ptr @__inet_lookup_listener(ptr noundef %0, ptr noundef readonl
   %79 = load i32, ptr %47, align 4
   %80 = and i32 %77, %79
   %81 = zext i32 %80 to i64
-  %82 = getelementptr %struct.inet_listen_hashbucket, ptr %78, i64 %81
+  %82 = getelementptr [16 x i8], ptr %78, i64 %81
   %83 = tail call fastcc ptr @inet_lhash2_lookup(ptr noundef %0, ptr noundef %82, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, i32 noundef 0, i16 noundef zeroext %7, i32 noundef %8, i32 noundef %9)
   br label %84
 
@@ -1607,7 +1597,7 @@ define dso_local ptr @__inet_lookup_established(ptr noundef readonly captures(ad
   %20 = and i32 %19, %17
   %21 = load ptr, ptr %1, align 64
   %22 = zext i32 %20 to i64
-  %23 = getelementptr %struct.inet_ehash_bucket, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   br label %24
 
 24:                                               ; preds = %.backedge, %8
@@ -1814,14 +1804,14 @@ define dso_local noundef zeroext i1 @inet_ehash_insert(ptr noundef %0, ptr nound
   %47 = load i32, ptr %46, align 16
   %48 = and i32 %47, %43
   %49 = zext i32 %48 to i64
-  %50 = getelementptr %struct.inet_ehash_bucket, ptr %45, i64 %49
+  %50 = getelementptr [8 x i8], ptr %45, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, %43
   %56 = zext i32 %55 to i64
-  %57 = getelementptr %struct.spinlock, ptr %52, i64 %56
+  %57 = getelementptr [4 x i8], ptr %52, i64 %56
   tail call void @_raw_spin_lock(ptr noundef %57) #16
   %58 = icmp eq ptr %1, null
   br i1 %58, label %85, label %59
@@ -2051,7 +2041,7 @@ define dso_local noundef zeroext i1 @inet_ehash_nolisten(ptr noundef %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr i32, ptr %12, i64 %15
+  %16 = getelementptr [4 x i8], ptr %12, i64 %15
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, ptr elementtype(i32) %16) #16, !srcloc !48
   br label %23
 
@@ -2105,7 +2095,7 @@ define dso_local i32 @__inet_hash(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 208
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr i32, ptr %19, i64 %22
+  %23 = getelementptr [4 x i8], ptr %19, i64 %22
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, ptr elementtype(i32) %23) #16, !srcloc !48
   br label %30
 
@@ -2196,7 +2186,7 @@ define dso_local i32 @__inet_hash(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, %80
   %86 = zext i32 %85 to i64
-  %87 = getelementptr %struct.inet_listen_hashbucket, ptr %82, i64 %86
+  %87 = getelementptr [16 x i8], ptr %82, i64 %86
   tail call void @_raw_spin_lock(ptr noundef %87) #16
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %89 = load i8, ptr %88, align 1
@@ -2372,7 +2362,7 @@ define dso_local i32 @__inet_hash(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 208
   %195 = load i32, ptr %194, align 8
   %196 = zext i32 %195 to i64
-  %197 = getelementptr i32, ptr %193, i64 %196
+  %197 = getelementptr [4 x i8], ptr %193, i64 %196
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %197, ptr elementtype(i32) %197) #16, !srcloc !48
   br label %198
 
@@ -2476,7 +2466,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, %56
   %62 = zext i32 %61 to i64
-  %63 = getelementptr %struct.inet_listen_hashbucket, ptr %58, i64 %62
+  %63 = getelementptr [16 x i8], ptr %58, i64 %62
   tail call void @_raw_spin_lock(ptr noundef %63) #16
   %64 = load ptr, ptr %6, align 8
   %65 = icmp eq ptr %64, null
@@ -2527,7 +2517,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 208
   %90 = load i32, ptr %89, align 8
   %91 = zext i32 %90 to i64
-  %92 = getelementptr i32, ptr %88, i64 %91
+  %92 = getelementptr [4 x i8], ptr %88, i64 %91
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %92, ptr elementtype(i32) %92) #16, !srcloc !58
   tail call void @_raw_spin_unlock(ptr noundef %63) #16
   br label %125
@@ -2541,7 +2531,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, %95
   %101 = zext i32 %100 to i64
-  %102 = getelementptr %struct.spinlock, ptr %97, i64 %101
+  %102 = getelementptr [4 x i8], ptr %97, i64 %101
   tail call void @_raw_spin_lock_bh(ptr noundef %102) #16
   %103 = load ptr, ptr %6, align 8
   %104 = icmp eq ptr %103, null
@@ -2576,7 +2566,7 @@ define dso_local void @inet_unhash(ptr noundef %0) #0 align 16 {
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 208
   %122 = load i32, ptr %121, align 8
   %123 = zext i32 %122 to i64
-  %124 = getelementptr i32, ptr %120, i64 %123
+  %124 = getelementptr [4 x i8], ptr %120, i64 %123
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %124, ptr elementtype(i32) %124) #16, !srcloc !58
   tail call void @_raw_spin_unlock_bh(ptr noundef %102) #16
   br label %125
@@ -2696,7 +2686,7 @@ define dso_local ptr @inet_bhash2_addr_any_hashbucket(ptr noundef readonly captu
   %43 = add i32 %42, -1
   %44 = and i32 %43, %38
   %45 = zext i32 %44 to i64
-  %46 = getelementptr %struct.inet_bind_hashbucket, ptr %40, i64 %45
+  %46 = getelementptr [16 x i8], ptr %40, i64 %45
   ret ptr %46
 }
 
@@ -2959,7 +2949,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %80 = load ptr, ptr %79, align 32
   %81 = sext i32 %78 to i64
-  %82 = getelementptr %struct.inet_bind_hashbucket, ptr %80, i64 %81
+  %82 = getelementptr [16 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load i16, ptr %83, align 8
   %85 = icmp eq i16 %84, 10
@@ -3004,7 +2994,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
   %118 = load ptr, ptr %117, align 16
   %119 = and i32 %116, %77
   %120 = zext i32 %119 to i64
-  %121 = getelementptr %struct.inet_bind_hashbucket, ptr %118, i64 %120
+  %121 = getelementptr [16 x i8], ptr %118, i64 %120
   tail call void @_raw_spin_lock_bh(ptr noundef %82) #16
   tail call void @_raw_spin_lock(ptr noundef %121) #16
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3168,7 +3158,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__inet_bhash2_update_saddr
   %216 = add i32 %215, -1
   %217 = and i32 %216, %213
   %218 = zext i32 %217 to i64
-  %219 = getelementptr %struct.inet_bind_hashbucket, ptr %214, i64 %218
+  %219 = getelementptr [16 x i8], ptr %214, i64 %218
   tail call void @_raw_spin_lock(ptr noundef %219) #16
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
@@ -3420,7 +3410,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
 33:                                               ; preds = %31, %29, %18
   %34 = and i64 %2, 65535
   %35 = load ptr, ptr @table_perturb, align 8
-  %36 = getelementptr i32, ptr %35, i64 %34
+  %36 = getelementptr [4 x i8], ptr %35, i64 %34
   %37 = load volatile i32, ptr %36, align 4
   %38 = lshr i64 %2, 32
   %39 = trunc nuw i64 %38 to i32
@@ -3476,7 +3466,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %74 = add i32 %71, -1
   %75 = and i32 %73, %74
   %76 = zext i32 %75 to i64
-  %77 = getelementptr %struct.inet_bind_hashbucket, ptr %70, i64 %76
+  %77 = getelementptr [16 x i8], ptr %70, i64 %76
   call void @_raw_spin_lock_bh(ptr noundef %77) #16
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
@@ -3658,7 +3648,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %189 = add i32 %188, -1
   %190 = and i32 %189, %185
   %191 = zext i32 %190 to i64
-  %192 = getelementptr %struct.inet_bind_hashbucket, ptr %187, i64 %191
+  %192 = getelementptr [16 x i8], ptr %187, i64 %191
   call void @_raw_spin_lock(ptr noundef %192) #16
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
@@ -3821,7 +3811,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %292 = shl nuw nsw i32 %289, %291
   %293 = call i32 @llvm.smax.i32(i32 %55, i32 %292)
   %294 = load ptr, ptr @table_perturb, align 8
-  %295 = getelementptr i32, ptr %294, i64 %34
+  %295 = getelementptr [4 x i8], ptr %294, i64 %34
   %296 = load volatile i32, ptr %295, align 4
   %297 = add i32 %296, %20
   %298 = add i32 %297, %293
@@ -3870,7 +3860,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %324 = getelementptr inbounds nuw i8, ptr %320, i64 208
   %325 = load i32, ptr %324, align 8
   %326 = zext i32 %325 to i64
-  %327 = getelementptr i32, ptr %323, i64 %326
+  %327 = getelementptr [4 x i8], ptr %323, i64 %326
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %327, ptr elementtype(i32) %327) #16, !srcloc !48
   br label %334
 
@@ -3926,7 +3916,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %354 = load i32, ptr %353, align 4
   %355 = and i32 %354, %350
   %356 = zext i32 %355 to i64
-  %357 = getelementptr %struct.spinlock, ptr %352, i64 %356
+  %357 = getelementptr [4 x i8], ptr %352, i64 %356
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr i8, ptr %13, i64 392
@@ -3935,7 +3925,7 @@ define dso_local i32 @__inet_hash_connect(ptr noundef %0, ptr noundef %1, i64 no
   %.val27 = load i32, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %.val26, i64 4
   %363 = zext i32 %.val27 to i64
-  %364 = getelementptr i32, ptr %362, i64 %363
+  %364 = getelementptr [4 x i8], ptr %362, i64 %363
   call void asm sideeffect "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %364, i32 -1, ptr elementtype(i32) %364) #16, !srcloc !67
   call void @_raw_spin_lock(ptr noundef %357) #16
   %365 = load ptr, ptr %345, align 8
@@ -4089,14 +4079,14 @@ define internal noundef range(i32 -99, 1) i32 @__inet_check_established(ptr noun
   %24 = load i32, ptr %23, align 16
   %25 = and i32 %24, %21
   %26 = zext i32 %25 to i64
-  %27 = getelementptr %struct.inet_ehash_bucket, ptr %22, i64 %26
+  %27 = getelementptr [8 x i8], ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, %21
   %33 = zext i32 %32 to i64
-  %34 = getelementptr %struct.spinlock, ptr %29, i64 %33
+  %34 = getelementptr [4 x i8], ptr %29, i64 %33
   tail call void @_raw_spin_lock(ptr noundef %34) #16
   %35 = load ptr, ptr %27, align 8
   %36 = ptrtoint ptr %35 to i64
@@ -4266,7 +4256,7 @@ define internal noundef range(i32 -99, 1) i32 @__inet_check_established(ptr noun
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 208
   %133 = load i32, ptr %132, align 8
   %134 = zext i32 %133 to i64
-  %135 = getelementptr i32, ptr %131, i64 %134
+  %135 = getelementptr [4 x i8], ptr %131, i64 %134
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %135, ptr elementtype(i32) %135) #16, !srcloc !48
   %136 = icmp eq ptr %3, null
   br i1 %136, label %138, label %137
@@ -4303,13 +4293,13 @@ define dso_local void @inet_hashinfo2_init(ptr noundef %0, ptr noundef %1, i64 n
   %11 = phi i32 [ 0, %6 ], [ %20, %10 ]
   %12 = load ptr, ptr %9, align 64
   %13 = sext i32 %11 to i64
-  %14 = getelementptr %struct.inet_listen_hashbucket, ptr %12, i64 %13
+  %14 = getelementptr [16 x i8], ptr %12, i64 %13
   store i32 0, ptr %14, align 8
   %15 = shl nsw i64 %13, 1
   %16 = add nsw i64 %15, 1073741825
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %9, align 64
-  %.split = getelementptr %struct.inet_listen_hashbucket, ptr %18, i64 %13
+  %.split = getelementptr [16 x i8], ptr %18, i64 %13
   %19 = getelementptr i8, ptr %.split, i64 8
   store ptr %17, ptr %19, align 8
   %20 = add i32 %11, 1
@@ -4344,13 +4334,13 @@ define dso_local noundef range(i32 -12, 1) i32 @inet_hashinfo2_init_mod(ptr noun
   %9 = phi i32 [ 0, %6 ], [ %18, %8 ]
   %10 = load ptr, ptr %4, align 64
   %11 = sext i32 %9 to i64
-  %12 = getelementptr %struct.inet_listen_hashbucket, ptr %10, i64 %11
+  %12 = getelementptr [16 x i8], ptr %10, i64 %11
   store i32 0, ptr %12, align 8
   %13 = shl nsw i64 %11, 1
   %14 = add nsw i64 %13, 1073741825
   %15 = inttoptr i64 %14 to ptr
   %16 = load ptr, ptr %4, align 64
-  %.split = getelementptr %struct.inet_listen_hashbucket, ptr %16, i64 %11
+  %.split = getelementptr [16 x i8], ptr %16, i64 %11
   %17 = getelementptr i8, ptr %.split, i64 8
   store ptr %15, ptr %17, align 8
   %18 = add i32 %9, 1
@@ -4394,7 +4384,7 @@ define dso_local noundef range(i32 -12, 1) i32 @inet_ehash_locks_alloc(ptr nound
 .preheader:                                       ; preds = %21, %.preheader
   %23 = phi i64 [ %26, %.preheader ], [ 0, %21 ]
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr %struct.spinlock, ptr %24, i64 %23
+  %25 = getelementptr [4 x i8], ptr %24, i64 %23
   store i32 0, ptr %25, align 4
   %26 = add nuw nsw i64 %23, 1
   %27 = icmp eq i64 %26, %16
@@ -4458,7 +4448,7 @@ define dso_local noundef ptr @inet_pernet_hashinfo_alloc(ptr noundef %0, i32 nou
 .preheader1:                                      ; preds = %29, %.preheader1
   %31 = phi i64 [ %34, %.preheader1 ], [ 0, %29 ]
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr %struct.spinlock, ptr %32, i64 %31
+  %33 = getelementptr [4 x i8], ptr %32, i64 %31
   store i32 0, ptr %33, align 4
   %34 = add nuw nsw i64 %31, 1
   %35 = icmp eq i64 %34, %24
@@ -4478,7 +4468,7 @@ define dso_local noundef ptr @inet_pernet_hashinfo_alloc(ptr noundef %0, i32 nou
   %42 = or disjoint i64 %41, 1
   %43 = inttoptr i64 %42 to ptr
   %44 = load ptr, ptr %3, align 64
-  %45 = getelementptr %struct.inet_ehash_bucket, ptr %44, i64 %40
+  %45 = getelementptr [8 x i8], ptr %44, i64 %40
   store ptr %43, ptr %45, align 8
   %46 = add nuw i32 %39, 1
   %47 = icmp eq i32 %46, %1

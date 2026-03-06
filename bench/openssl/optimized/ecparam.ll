@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.EC_builtin_curve = type { i32, ptr }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -652,7 +651,7 @@ define internal fastcc range(i32 0, 2) i32 @list_builtin_curves(ptr noundef nonn
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01819 = phi i64 [ %15, %.lr.ph ], [ 0, %.preheader ]
-  %6 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %4, i64 %.01819
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.01819
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = load i32, ptr %6, align 8, !tbaa !23

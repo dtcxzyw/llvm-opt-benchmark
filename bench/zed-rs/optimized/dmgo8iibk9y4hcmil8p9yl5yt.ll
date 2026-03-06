@@ -600,7 +600,7 @@ define hidden noundef zeroext i1 @_ZN4gpui3app10AppContext10has_global17ha44f955
   %17 = add i64 %.sroa.01.0.i.i.i, %16
   %18 = and i64 %17, %8
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %9, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %9, i64 %19
   %21 = getelementptr inbounds i8, ptr %20, i64 -32
   %.val3.i.i.i = load i64, ptr %21, align 8, !alias.scope !117, !noalias !126, !noundef !4
   %22 = getelementptr i8, ptr %20, i64 -24
@@ -847,7 +847,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4gpui3app10AppC
   %19 = add i64 %.sroa.01.0.i.i.i, %18
   %20 = and i64 %19, %10
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %11, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %11, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
   %.val3.i.i.i = load i64, ptr %23, align 8, !alias.scope !191, !noalias !200, !noundef !4
   %24 = getelementptr i8, ptr %22, i64 -24
@@ -1048,7 +1048,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ma
   %23 = add i64 %.sroa.01.0.i.i, %22
   %24 = and i64 %23, %13
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %14, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %14, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val3.i.i = load i64, ptr %27, align 8, !alias.scope !249, !noalias !258, !noundef !4
   %28 = getelementptr i8, ptr %26, i64 -24
@@ -1120,7 +1120,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h86dc
   %19 = add i64 %.sroa.01.0.i, %18
   %20 = and i64 %19, %7
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %8, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
   %.val3.i = load i64, ptr %23, align 8, !alias.scope !272, !noalias !281, !noundef !4
   %24 = getelementptr i8, ptr %22, i64 -24
@@ -1182,10 +1182,10 @@ _ZN5audio6assets13SoundRegistry6global17h1894ba1ab8449af2E.exit: ; preds = %12
   store ptr %14, ptr %7, align 8
   %18 = load i8, ptr %0, align 1, !range !292, !alias.scope !293, !noundef !4
   %19 = zext nneg i8 %18 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806", i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806", i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = zext nneg i8 %18 to i64
-  %switch.gep32 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806.5", i64 %20
+  %switch.gep32 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN5audio5Audio10play_sound28_$u7b$$u7b$closure$u7d$$u7d$17h2abbe7b054e0dea1E.llvm.1926931935225978806.5", i64 %20
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   invoke void @_ZN5audio6assets13SoundRegistry3get17hbb6b61378f730f06E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 %switch.load33, i64 noundef %switch.load)

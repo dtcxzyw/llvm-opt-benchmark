@@ -36,7 +36,7 @@ define internal range(i64 -15, -16) i64 @ia64_code(ptr readnone captures(none) %
   %9 = load i8, ptr %8, align 1, !tbaa !6
   %10 = and i8 %9, 31
   %11 = zext nneg i8 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @ia64_code.BRANCH_TABLE, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @ia64_code.BRANCH_TABLE, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !9
   %14 = trunc i64 %.05872 to i32
   %15 = add i32 %1, %14

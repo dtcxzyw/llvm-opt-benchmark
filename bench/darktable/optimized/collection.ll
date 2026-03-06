@@ -950,7 +950,7 @@ and_operator.exit59:                              ; preds = %and_operator.exit57
 ._crit_edge:                                      ; preds = %105, %.thread70, %44
   %48 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.27) #19
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %38, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %38, i64 %49
   store i32 1, ptr %50, align 4, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i32, ptr %51, align 8, !tbaa !20
@@ -1091,7 +1091,7 @@ _dt_collection_set_selq_pre_sort.exit:            ; preds = %._crit_edge, %93, %
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 200, ptr noundef nonnull @.str.26, i32 noundef %.066) #19
   %107 = call i32 @dt_conf_get_int(ptr noundef nonnull %12) #19
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i32, ptr %38, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %38, i64 %108
   store i32 1, ptr %109, align 4, !tbaa !81
   %110 = add nuw nsw i32 %.066, 1
   %exitcond.not = icmp eq i32 %110, %47
@@ -1357,7 +1357,7 @@ define noalias ptr @dt_collection_get_extended_where(ptr noundef readonly captur
 .lr.ph55.split.us:                                ; preds = %.lr.ph55.split.us.preheader, %27
   %indvars.iv71 = phi i64 [ 0, %.lr.ph55.split.us.preheader ], [ %indvars.iv.next72, %27 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !6
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv71
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv71
   %26 = load ptr, ptr %25, align 8, !tbaa !69
   %.not46.us = icmp eq ptr %26, null
   br i1 %.not46.us, label %.critedge, label %27
@@ -1371,7 +1371,7 @@ define noalias ptr @dt_collection_get_extended_where(ptr noundef readonly captur
 .lr.ph55.split:                                   ; preds = %.lr.ph55.split.preheader, %37
   %indvars.iv66 = phi i64 [ 0, %.lr.ph55.split.preheader ], [ %indvars.iv.next67, %37 ]
   %28 = load ptr, ptr %20, align 8, !tbaa !6
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv66
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv66
   %30 = load ptr, ptr %29, align 8, !tbaa !69
   %.not46 = icmp eq ptr %30, null
   br i1 %.not46, label %.critedge, label %31
@@ -1441,7 +1441,7 @@ define noalias ptr @dt_collection_get_extended_where(ptr noundef readonly captur
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
   %53 = load ptr, ptr %51, align 8, !tbaa !6
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !69
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %.critedge3.loopexit, label %60
@@ -1497,8 +1497,8 @@ define noalias ptr @dt_collection_get_extended_where(ptr noundef readonly captur
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %82
   %indvars.iv61 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next62, %82 ]
   %76 = load ptr, ptr %56, align 8, !tbaa !6
-  %77 = getelementptr ptr, ptr %76, i64 %indvars.iv61
-  %78 = getelementptr ptr, ptr %77, i64 %75
+  %77 = getelementptr [8 x i8], ptr %76, i64 %indvars.iv61
+  %78 = getelementptr [8 x i8], ptr %77, i64 %75
   %79 = load ptr, ptr %78, align 8, !tbaa !69
   %.not43 = icmp eq ptr %79, null
   br i1 %.not43, label %.critedge5, label %82
@@ -1957,7 +1957,7 @@ define void @dt_collection_update_query(ptr noundef captures(address) %0, i32 no
   %91 = sext i32 %90 to i64
   %92 = call noalias ptr @g_malloc_n(i64 noundef %91, i64 noundef 8) #22
   %93 = sext i32 %89 to i64
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %92, i64 %93
   store ptr null, ptr %94, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !81
@@ -1971,7 +1971,7 @@ define void @dt_collection_update_query(ptr noundef captures(address) %0, i32 no
 
 .lr.ph.preheader:                                 ; preds = %95
   %wide.trip.count165 = zext nneg i32 %88 to i64
-  %invariant.gep = getelementptr inbounds nuw ptr, ptr %92, i64 %wide.trip.count
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %wide.trip.count
   br label %.lr.ph
 
 97:                                               ; preds = %83, %113
@@ -2013,7 +2013,7 @@ define void @dt_collection_update_query(ptr noundef captures(address) %0, i32 no
 
 113:                                              ; preds = %109, %110, %106, %97
   %.0134 = phi ptr [ %112, %110 ], [ %102, %109 ], [ %102, %106 ], [ %102, %97 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   call fastcc void @_get_query_part(i32 noundef %100, ptr noundef %.0134, i32 noundef %104, i32 noundef 0, ptr noundef %8, ptr noundef %114)
   call void @g_free(ptr noundef %.0134) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2060,7 +2060,7 @@ dt_collection_get_query_no_group.exit:            ; preds = %._crit_edge
   %134 = call i32 @dt_conf_get_int(ptr noundef nonnull %7) #19
   %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 200, ptr noundef nonnull @.str.139, i32 noundef %128) #19
   %136 = call i32 @dt_conf_get_int(ptr noundef nonnull %7) #19
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv162
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv162
   call fastcc void @_get_query_part(i32 noundef %130, ptr noundef %132, i32 noundef %134, i32 noundef %136, ptr noundef %8, ptr noundef nonnull %gep)
   call void @g_free(ptr noundef %132) #19
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
@@ -2303,7 +2303,7 @@ define ptr @dt_collection_name_untranslated(i32 noundef %0) local_unnamed_addr #
 
 switch.lookup:                                    ; preds = %1
   %12 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_collection_name_untranslated, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_collection_name_untranslated, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -4274,7 +4274,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph597.i:                                      ; preds = %227, %241
   %indvars.iv647.i = phi i64 [ %indvars.iv.next648.i, %241 ], [ 0, %227 ]
-  %231 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv647.i
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv647.i
   %232 = load ptr, ptr %231, align 8, !tbaa !69
   %233 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
   %234 = call i32 @g_strcmp0(ptr noundef %232, ptr noundef %233) #19
@@ -4387,7 +4387,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph593.i:                                      ; preds = %274, %288
   %indvars.iv644.i = phi i64 [ %indvars.iv.next645.i, %288 ], [ 0, %274 ]
-  %278 = getelementptr inbounds nuw ptr, ptr %276, i64 %indvars.iv644.i
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %indvars.iv644.i
   %279 = load ptr, ptr %278, align 8, !tbaa !69
   %280 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
   %281 = call i32 @g_strcmp0(ptr noundef %279, ptr noundef %280) #19
@@ -4431,7 +4431,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph589.i:                                      ; preds = %292, %306
   %indvars.iv641.i = phi i64 [ %indvars.iv.next642.i, %306 ], [ 0, %292 ]
-  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv641.i
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv641.i
   %297 = load ptr, ptr %296, align 8, !tbaa !69
   %298 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
   %299 = call i32 @g_strcmp0(ptr noundef %297, ptr noundef %298) #19
@@ -4475,7 +4475,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph585.i:                                      ; preds = %310, %324
   %indvars.iv638.i = phi i64 [ %indvars.iv.next639.i, %324 ], [ 0, %310 ]
-  %314 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv638.i
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv638.i
   %315 = load ptr, ptr %314, align 8, !tbaa !69
   %316 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
   %317 = call i32 @g_strcmp0(ptr noundef %315, ptr noundef %316) #19
@@ -4519,7 +4519,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph581.i:                                      ; preds = %328, %342
   %indvars.iv635.i = phi i64 [ %indvars.iv.next636.i, %342 ], [ 0, %328 ]
-  %332 = getelementptr inbounds nuw ptr, ptr %330, i64 %indvars.iv635.i
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %indvars.iv635.i
   %333 = load ptr, ptr %332, align 8, !tbaa !69
   %334 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
   %335 = call i32 @g_strcmp0(ptr noundef %333, ptr noundef %334) #19
@@ -4563,7 +4563,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph577.i:                                      ; preds = %346, %360
   %indvars.iv632.i = phi i64 [ %indvars.iv.next633.i, %360 ], [ 0, %346 ]
-  %350 = getelementptr inbounds nuw ptr, ptr %348, i64 %indvars.iv632.i
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %indvars.iv632.i
   %351 = load ptr, ptr %350, align 8, !tbaa !69
   %352 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.134, i32 noundef 5) #19
   %353 = call i32 @g_strcmp0(ptr noundef %351, ptr noundef %352) #19
@@ -4607,7 +4607,7 @@ sub_1515.i:                                       ; preds = %sub_0514.i
 
 .lr.ph573.i:                                      ; preds = %364, %.lr.ph573.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph573.i ], [ 0, %364 ]
-  %368 = getelementptr inbounds nuw ptr, ptr %366, i64 %indvars.iv.i
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %indvars.iv.i
   %369 = load ptr, ptr %368, align 8, !tbaa !69
   %370 = call fastcc ptr @_add_wildcards(ptr noundef %369)
   %.not428.i = icmp eq i64 %indvars.iv.i, 0
@@ -5580,7 +5580,7 @@ get_query_string.exit:                            ; preds = %720, %722
 
 733:                                              ; preds = %730
   %734 = sext i32 %2 to i64
-  %735 = getelementptr inbounds ptr, ptr @__const._get_query_part.conj, i64 %734
+  %735 = getelementptr inbounds [8 x i8], ptr @__const._get_query_part.conj, i64 %734
   %736 = load ptr, ptr %735, align 8, !tbaa !69
   %737 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, ptr noundef %736, ptr noundef %724) #19
   br label %738

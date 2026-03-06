@@ -865,7 +865,7 @@ rb_array_len.exit.thread:                         ; preds = %Check_Type.exit
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %20
   %.0.i26 = phi ptr [ %21, %20 ], [ %11, %rb_array_len.exit.thread ]
-  %22 = getelementptr inbounds nuw i64, ptr %.0.i26, i64 %.0
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i26, i64 %.0
   %23 = load i64, ptr %22, align 8, !tbaa !6
   %24 = load i64, ptr @cX509Attr, align 8, !tbaa !6
   %25 = tail call i64 @rb_obj_is_kind_of(i64 noundef %23, i64 noundef %24) #5
@@ -885,7 +885,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
 
 rb_array_const_ptr.exit29:                        ; preds = %27, %30
   %.0.i28 = phi ptr [ %31, %30 ], [ %11, %27 ]
-  %32 = getelementptr inbounds nuw i64, ptr %.0.i28, i64 %.0
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.0.i28, i64 %.0
   %33 = load i64, ptr %32, align 8, !tbaa !6
   %34 = tail call i64 @rb_obj_class(i64 noundef %33) #5
   %35 = load i64, ptr @cX509Attr, align 8, !tbaa !6
@@ -950,7 +950,7 @@ rb_array_len.exit32.thread:                       ; preds = %.preheader
 
 rb_array_const_ptr.exit35:                        ; preds = %rb_array_len.exit32.thread, %56
   %.0.i34 = phi ptr [ %57, %56 ], [ %11, %rb_array_len.exit32.thread ]
-  %58 = getelementptr inbounds nuw i64, ptr %.0.i34, i64 %.2
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.0.i34, i64 %.2
   %59 = load i64, ptr %58, align 8, !tbaa !6
   %60 = tail call ptr @GetX509AttrPtr(i64 noundef %59) #5
   %61 = tail call i32 @X509_REQ_add1_attr(ptr noundef nonnull %39, ptr noundef %60) #5

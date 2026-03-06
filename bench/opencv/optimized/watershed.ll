@@ -35,8 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec.15" = type { %"class.cv::Matx.16" }
 %"class.cv::Matx.16" = type { [3 x i8] }
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
-%"class.cv::Vec.8" = type { %"class.cv::Matx.9" }
-%"class.cv::Matx.9" = type { [4 x i32] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -786,7 +784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit242: ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %254 = zext nneg i32 %.0102325 to i64
   %255 = load ptr, ptr %27, align 8, !tbaa !39
-  %256 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %255, i64 %254
+  %256 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %254
   %257 = load i32, ptr %256, align 4, !tbaa !33
   %258 = icmp sgt i32 %257, -1
   %indvars.iv.next = add nuw i32 %indvars.iv, 1
@@ -937,7 +935,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi3EEES3_SaIS2_EET0_T_S6_S5_
   br label %.noexc243
 
 .noexc243:                                        ; preds = %318, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i
-  %319 = getelementptr inbounds nuw %"class.cv::Vec.15", ptr %310, i64 %308
+  %319 = getelementptr inbounds nuw [3 x i8], ptr %310, i64 %308
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader.i.i, %.noexc243
@@ -1048,7 +1046,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   %355 = load i64, ptr %354, align 8, !tbaa !10
   %356 = mul i64 %355, %indvars.iv360
   %357 = getelementptr inbounds nuw i8, ptr %353, i64 %356
-  %358 = getelementptr inbounds nuw i32, ptr %357, i64 %indvars.iv357
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %357, i64 %indvars.iv357
   %359 = load i32, ptr %358, align 4, !tbaa !33
   %360 = icmp eq i32 %359, -1
   br i1 %360, label %361, label %374
@@ -1059,7 +1057,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   %364 = load i64, ptr %363, align 8, !tbaa !10
   %365 = mul i64 %364, %indvars.iv360
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 %365
-  %367 = getelementptr inbounds nuw %"class.cv::Vec.15", ptr %366, i64 %indvars.iv357
+  %367 = getelementptr inbounds nuw [3 x i8], ptr %366, i64 %indvars.iv357
   store i8 -1, ptr %367, align 1
   %.sroa.5276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %367, i64 1
   store i8 -1, ptr %.sroa.5276.0..sroa_idx, align 1
@@ -1096,7 +1094,7 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
   %380 = load i64, ptr %379, align 8, !tbaa !10
   %381 = mul i64 %380, %indvars.iv360
   %382 = getelementptr inbounds nuw i8, ptr %378, i64 %381
-  %383 = getelementptr inbounds nuw %"class.cv::Vec.15", ptr %382, i64 %indvars.iv357
+  %383 = getelementptr inbounds nuw [3 x i8], ptr %382, i64 %indvars.iv357
   store i8 0, ptr %383, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 1
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 1
@@ -1106,14 +1104,14 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
 
 384:                                              ; preds = %374
   %385 = zext nneg i32 %359 to i64
-  %386 = getelementptr %"class.cv::Vec.15", ptr %.sroa.0278.1, i64 %385
+  %386 = getelementptr [3 x i8], ptr %.sroa.0278.1, i64 %385
   %387 = getelementptr i8, ptr %386, i64 -3
   %388 = load ptr, ptr %172, align 8, !tbaa !54
   %389 = load ptr, ptr %173, align 8, !tbaa !55
   %390 = load i64, ptr %389, align 8, !tbaa !10
   %391 = mul i64 %390, %indvars.iv360
   %392 = getelementptr inbounds nuw i8, ptr %388, i64 %391
-  %393 = getelementptr inbounds nuw %"class.cv::Vec.15", ptr %392, i64 %indvars.iv357
+  %393 = getelementptr inbounds nuw [3 x i8], ptr %392, i64 %indvars.iv357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %393, ptr noundef nonnull align 1 dereferenceable(3) %387, i64 3, i1 false)
   br label %394
 

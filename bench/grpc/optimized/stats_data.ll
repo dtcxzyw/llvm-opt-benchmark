@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.grpc_core::Histogram_100000_20" = type { [20 x i64] }
 %"class.grpc_core::Histogram_65536_26" = type { [26 x i64] }
 %"class.grpc_core::Histogram_100_20" = type { [20 x i64] }
@@ -209,9 +207,9 @@ define void @_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogra
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -230,12 +228,12 @@ define void @_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_(ptr dead_on_unwind n
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -251,9 +249,9 @@ define void @_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -272,12 +270,12 @@ define void @_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_(ptr dead_on_unwind no
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
@@ -293,9 +291,9 @@ define void @_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_1
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -314,12 +312,12 @@ define void @_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_(ptr dead_on_unwind noal
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -335,9 +333,9 @@ define void @_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histog
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -356,12 +354,12 @@ define void @_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_(ptr dead_on_unwind
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -377,9 +375,9 @@ define void @_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -398,12 +396,12 @@ define void @_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_(ptr dead_on_unwind noali
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -419,9 +417,9 @@ define void @_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -440,12 +438,12 @@ define void @_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_(ptr dead_on_unwind no
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -461,9 +459,9 @@ define void @_ZNK9grpc_core29HistogramCollector_1800000_407CollectEPNS_20Histogr
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
   store i64 %9, ptr %7, align 8, !tbaa !3
@@ -482,12 +480,12 @@ define void @_ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_(ptr dead_on_unwind 
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = sub i64 %7, %9
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
@@ -516,7 +514,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core19Histogram_100000_209Bucket
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -550,7 +548,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_65536_269BucketF
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -584,7 +582,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core16Histogram_100_209BucketFor
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -623,7 +621,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core21Histogram_16777216_209Buck
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -657,7 +655,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core15Histogram_80_109BucketForE
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -696,7 +694,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_10000_209BucketF
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_113kStatsTable10E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_113kStatsTable10E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -735,7 +733,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core20Histogram_1800000_409Bucke
   %12 = load i8, ptr %11, align 1, !tbaa !22
   %13 = zext i8 %12 to i32
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @_ZN9grpc_core12_GLOBAL__N_113kStatsTable12E, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_113kStatsTable12E, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !23
   %17 = icmp slt i32 %0, %16
   %.neg = sext i1 %17 to i32
@@ -769,16 +767,16 @@ define void @_ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE(ptr dead_on_u
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %2 to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.1, i64 %7
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.1, i64 %7
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   %8 = zext nneg i32 %2 to i64
-  %switch.gep7 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.2, i64 %8
+  %switch.gep7 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.2, i64 %8
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   %9 = zext nneg i32 %2 to i64
-  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.3, i64 %9
+  %switch.gep9 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.3, i64 %9
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   store ptr %switch.load, ptr %0, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1047,9 +1045,9 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
 
 197:                                              ; preds = %197, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %197 ]
-  %198 = getelementptr inbounds nuw %"struct.std::atomic", ptr %195, i64 %indvars.iv.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i
   %199 = load atomic i64, ptr %198 monotonic, align 8
-  %200 = getelementptr inbounds nuw i64, ptr %196, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv.i
   %201 = load i64, ptr %200, align 8, !tbaa !3
   %202 = add i64 %201, %199
   store i64 %202, ptr %200, align 8, !tbaa !3
@@ -1064,9 +1062,9 @@ _ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.ex
 
 205:                                              ; preds = %205, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit
   %indvars.iv.i84 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit ], [ %indvars.iv.next.i85, %205 ]
-  %206 = getelementptr inbounds nuw %"struct.std::atomic", ptr %203, i64 %indvars.iv.i84
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv.i84
   %207 = load atomic i64, ptr %206 monotonic, align 8
-  %208 = getelementptr inbounds nuw i64, ptr %204, i64 %indvars.iv.i84
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i84
   %209 = load i64, ptr %208, align 8, !tbaa !3
   %210 = add i64 %209, %207
   store i64 %210, ptr %208, align 8, !tbaa !3
@@ -1081,9 +1079,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 213:                                              ; preds = %213, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit
   %indvars.iv.i87 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit ], [ %indvars.iv.next.i88, %213 ]
-  %214 = getelementptr inbounds nuw %"struct.std::atomic", ptr %211, i64 %indvars.iv.i87
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i87
   %215 = load atomic i64, ptr %214 monotonic, align 8
-  %216 = getelementptr inbounds nuw i64, ptr %212, i64 %indvars.iv.i87
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv.i87
   %217 = load i64, ptr %216, align 8, !tbaa !3
   %218 = add i64 %217, %215
   store i64 %218, ptr %216, align 8, !tbaa !3
@@ -1098,9 +1096,9 @@ _ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit: ; 
 
 221:                                              ; preds = %221, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit
   %indvars.iv.i90 = phi i64 [ 0, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit ], [ %indvars.iv.next.i91, %221 ]
-  %222 = getelementptr inbounds nuw %"struct.std::atomic", ptr %219, i64 %indvars.iv.i90
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv.i90
   %223 = load atomic i64, ptr %222 monotonic, align 8
-  %224 = getelementptr inbounds nuw i64, ptr %220, i64 %indvars.iv.i90
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv.i90
   %225 = load i64, ptr %224, align 8, !tbaa !3
   %226 = add i64 %225, %223
   store i64 %226, ptr %224, align 8, !tbaa !3
@@ -1115,9 +1113,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 229:                                              ; preds = %229, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit93
   %indvars.iv.i94 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit93 ], [ %indvars.iv.next.i95, %229 ]
-  %230 = getelementptr inbounds nuw %"struct.std::atomic", ptr %227, i64 %indvars.iv.i94
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv.i94
   %231 = load atomic i64, ptr %230 monotonic, align 8
-  %232 = getelementptr inbounds nuw i64, ptr %228, i64 %indvars.iv.i94
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv.i94
   %233 = load i64, ptr %232, align 8, !tbaa !3
   %234 = add i64 %233, %231
   store i64 %234, ptr %232, align 8, !tbaa !3
@@ -1132,9 +1130,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 237:                                              ; preds = %237, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit97
   %indvars.iv.i98 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit97 ], [ %indvars.iv.next.i99, %237 ]
-  %238 = getelementptr inbounds nuw %"struct.std::atomic", ptr %235, i64 %indvars.iv.i98
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %indvars.iv.i98
   %239 = load atomic i64, ptr %238 monotonic, align 8
-  %240 = getelementptr inbounds nuw i64, ptr %236, i64 %indvars.iv.i98
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv.i98
   %241 = load i64, ptr %240, align 8, !tbaa !3
   %242 = add i64 %241, %239
   store i64 %242, ptr %240, align 8, !tbaa !3
@@ -1149,9 +1147,9 @@ _ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit101:
 
 245:                                              ; preds = %245, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit101
   %indvars.iv.i102 = phi i64 [ 0, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit101 ], [ %indvars.iv.next.i103, %245 ]
-  %246 = getelementptr inbounds nuw %"struct.std::atomic", ptr %243, i64 %indvars.iv.i102
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %indvars.iv.i102
   %247 = load atomic i64, ptr %246 monotonic, align 8
-  %248 = getelementptr inbounds nuw i64, ptr %244, i64 %indvars.iv.i102
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv.i102
   %249 = load i64, ptr %248, align 8, !tbaa !3
   %250 = add i64 %249, %247
   store i64 %250, ptr %248, align 8, !tbaa !3
@@ -1166,9 +1164,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 253:                                              ; preds = %253, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit105
   %indvars.iv.i106 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit105 ], [ %indvars.iv.next.i107, %253 ]
-  %254 = getelementptr inbounds nuw %"struct.std::atomic", ptr %251, i64 %indvars.iv.i106
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv.i106
   %255 = load atomic i64, ptr %254 monotonic, align 8
-  %256 = getelementptr inbounds nuw i64, ptr %252, i64 %indvars.iv.i106
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %indvars.iv.i106
   %257 = load i64, ptr %256, align 8, !tbaa !3
   %258 = add i64 %257, %255
   store i64 %258, ptr %256, align 8, !tbaa !3
@@ -1183,9 +1181,9 @@ _ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.ex
 
 261:                                              ; preds = %261, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit109
   %indvars.iv.i110 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit109 ], [ %indvars.iv.next.i111, %261 ]
-  %262 = getelementptr inbounds nuw %"struct.std::atomic", ptr %259, i64 %indvars.iv.i110
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %indvars.iv.i110
   %263 = load atomic i64, ptr %262 monotonic, align 8
-  %264 = getelementptr inbounds nuw i64, ptr %260, i64 %indvars.iv.i110
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv.i110
   %265 = load i64, ptr %264, align 8, !tbaa !3
   %266 = add i64 %265, %263
   store i64 %266, ptr %264, align 8, !tbaa !3
@@ -1200,9 +1198,9 @@ _ZNK9grpc_core29HistogramCollector_1800000_407CollectEPNS_20Histogram_1800000_40
 
 269:                                              ; preds = %269, %_ZNK9grpc_core29HistogramCollector_1800000_407CollectEPNS_20Histogram_1800000_40E.exit
   %indvars.iv.i113 = phi i64 [ 0, %_ZNK9grpc_core29HistogramCollector_1800000_407CollectEPNS_20Histogram_1800000_40E.exit ], [ %indvars.iv.next.i114, %269 ]
-  %270 = getelementptr inbounds nuw %"struct.std::atomic", ptr %267, i64 %indvars.iv.i113
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %indvars.iv.i113
   %271 = load atomic i64, ptr %270 monotonic, align 8
-  %272 = getelementptr inbounds nuw i64, ptr %268, i64 %indvars.iv.i113
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv.i113
   %273 = load i64, ptr %272, align 8, !tbaa !3
   %274 = add i64 %273, %271
   store i64 %274, ptr %272, align 8, !tbaa !3
@@ -1217,9 +1215,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 277:                                              ; preds = %277, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit116
   %indvars.iv.i117 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit116 ], [ %indvars.iv.next.i118, %277 ]
-  %278 = getelementptr inbounds nuw %"struct.std::atomic", ptr %275, i64 %indvars.iv.i117
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %indvars.iv.i117
   %279 = load atomic i64, ptr %278 monotonic, align 8
-  %280 = getelementptr inbounds nuw i64, ptr %276, i64 %indvars.iv.i117
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %indvars.iv.i117
   %281 = load i64, ptr %280, align 8, !tbaa !3
   %282 = add i64 %281, %279
   store i64 %282, ptr %280, align 8, !tbaa !3
@@ -1234,9 +1232,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 285:                                              ; preds = %285, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit120
   %indvars.iv.i121 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit120 ], [ %indvars.iv.next.i122, %285 ]
-  %286 = getelementptr inbounds nuw %"struct.std::atomic", ptr %283, i64 %indvars.iv.i121
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %indvars.iv.i121
   %287 = load atomic i64, ptr %286 monotonic, align 8
-  %288 = getelementptr inbounds nuw i64, ptr %284, i64 %indvars.iv.i121
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %indvars.iv.i121
   %289 = load i64, ptr %288, align 8, !tbaa !3
   %290 = add i64 %289, %287
   store i64 %290, ptr %288, align 8, !tbaa !3
@@ -1251,9 +1249,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 293:                                              ; preds = %293, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit124
   %indvars.iv.i125 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit124 ], [ %indvars.iv.next.i126, %293 ]
-  %294 = getelementptr inbounds nuw %"struct.std::atomic", ptr %291, i64 %indvars.iv.i125
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %indvars.iv.i125
   %295 = load atomic i64, ptr %294 monotonic, align 8
-  %296 = getelementptr inbounds nuw i64, ptr %292, i64 %indvars.iv.i125
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %indvars.iv.i125
   %297 = load i64, ptr %296, align 8, !tbaa !3
   %298 = add i64 %297, %295
   store i64 %298, ptr %296, align 8, !tbaa !3
@@ -1269,9 +1267,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 302:                                              ; preds = %302, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit128
   %indvars.iv.i129 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit128 ], [ %indvars.iv.next.i130, %302 ]
-  %303 = getelementptr inbounds nuw %"struct.std::atomic", ptr %299, i64 %indvars.iv.i129
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %indvars.iv.i129
   %304 = load atomic i64, ptr %303 monotonic, align 8
-  %305 = getelementptr inbounds nuw i64, ptr %301, i64 %indvars.iv.i129
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %indvars.iv.i129
   %306 = load i64, ptr %305, align 8, !tbaa !3
   %307 = add i64 %306, %304
   store i64 %307, ptr %305, align 8, !tbaa !3
@@ -1286,9 +1284,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 310:                                              ; preds = %310, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit132
   %indvars.iv.i133 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit132 ], [ %indvars.iv.next.i134, %310 ]
-  %311 = getelementptr inbounds nuw %"struct.std::atomic", ptr %308, i64 %indvars.iv.i133
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %indvars.iv.i133
   %312 = load atomic i64, ptr %311 monotonic, align 8
-  %313 = getelementptr inbounds nuw i64, ptr %309, i64 %indvars.iv.i133
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %indvars.iv.i133
   %314 = load i64, ptr %313, align 8, !tbaa !3
   %315 = add i64 %314, %312
   store i64 %315, ptr %313, align 8, !tbaa !3
@@ -1303,9 +1301,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 318:                                              ; preds = %318, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit136
   %indvars.iv.i137 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit136 ], [ %indvars.iv.next.i138, %318 ]
-  %319 = getelementptr inbounds nuw %"struct.std::atomic", ptr %316, i64 %indvars.iv.i137
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv.i137
   %320 = load atomic i64, ptr %319 monotonic, align 8
-  %321 = getelementptr inbounds nuw i64, ptr %317, i64 %indvars.iv.i137
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %indvars.iv.i137
   %322 = load i64, ptr %321, align 8, !tbaa !3
   %323 = add i64 %322, %320
   store i64 %323, ptr %321, align 8, !tbaa !3
@@ -1320,9 +1318,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 326:                                              ; preds = %326, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit140
   %indvars.iv.i141 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit140 ], [ %indvars.iv.next.i142, %326 ]
-  %327 = getelementptr inbounds nuw %"struct.std::atomic", ptr %324, i64 %indvars.iv.i141
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %324, i64 %indvars.iv.i141
   %328 = load atomic i64, ptr %327 monotonic, align 8
-  %329 = getelementptr inbounds nuw i64, ptr %325, i64 %indvars.iv.i141
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %indvars.iv.i141
   %330 = load i64, ptr %329, align 8, !tbaa !3
   %331 = add i64 %330, %328
   store i64 %331, ptr %329, align 8, !tbaa !3
@@ -1337,9 +1335,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 334:                                              ; preds = %334, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit144
   %indvars.iv.i145 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit144 ], [ %indvars.iv.next.i146, %334 ]
-  %335 = getelementptr inbounds nuw %"struct.std::atomic", ptr %332, i64 %indvars.iv.i145
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %indvars.iv.i145
   %336 = load atomic i64, ptr %335 monotonic, align 8
-  %337 = getelementptr inbounds nuw i64, ptr %333, i64 %indvars.iv.i145
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv.i145
   %338 = load i64, ptr %337, align 8, !tbaa !3
   %339 = add i64 %338, %336
   store i64 %339, ptr %337, align 8, !tbaa !3
@@ -1354,9 +1352,9 @@ _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.
 
 342:                                              ; preds = %342, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit
   %indvars.iv.i148 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit ], [ %indvars.iv.next.i149, %342 ]
-  %343 = getelementptr inbounds nuw %"struct.std::atomic", ptr %340, i64 %indvars.iv.i148
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %indvars.iv.i148
   %344 = load atomic i64, ptr %343 monotonic, align 8
-  %345 = getelementptr inbounds nuw i64, ptr %341, i64 %indvars.iv.i148
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %indvars.iv.i148
   %346 = load i64, ptr %345, align 8, !tbaa !3
   %347 = add i64 %346, %344
   store i64 %347, ptr %345, align 8, !tbaa !3
@@ -1371,9 +1369,9 @@ _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.
 
 350:                                              ; preds = %350, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit151
   %indvars.iv.i152 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit151 ], [ %indvars.iv.next.i153, %350 ]
-  %351 = getelementptr inbounds nuw %"struct.std::atomic", ptr %348, i64 %indvars.iv.i152
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %indvars.iv.i152
   %352 = load atomic i64, ptr %351 monotonic, align 8
-  %353 = getelementptr inbounds nuw i64, ptr %349, i64 %indvars.iv.i152
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %indvars.iv.i152
   %354 = load i64, ptr %353, align 8, !tbaa !3
   %355 = add i64 %354, %352
   store i64 %355, ptr %353, align 8, !tbaa !3
@@ -1388,9 +1386,9 @@ _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.ex
 
 358:                                              ; preds = %358, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit
   %indvars.iv.i155 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit ], [ %indvars.iv.next.i156, %358 ]
-  %359 = getelementptr inbounds nuw %"struct.std::atomic", ptr %356, i64 %indvars.iv.i155
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %indvars.iv.i155
   %360 = load atomic i64, ptr %359 monotonic, align 8
-  %361 = getelementptr inbounds nuw i64, ptr %357, i64 %indvars.iv.i155
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %indvars.iv.i155
   %362 = load i64, ptr %361, align 8, !tbaa !3
   %363 = add i64 %362, %360
   store i64 %363, ptr %361, align 8, !tbaa !3
@@ -1405,9 +1403,9 @@ _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.ex
 
 366:                                              ; preds = %366, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit158
   %indvars.iv.i159 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit158 ], [ %indvars.iv.next.i160, %366 ]
-  %367 = getelementptr inbounds nuw %"struct.std::atomic", ptr %364, i64 %indvars.iv.i159
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %indvars.iv.i159
   %368 = load atomic i64, ptr %367 monotonic, align 8
-  %369 = getelementptr inbounds nuw i64, ptr %365, i64 %indvars.iv.i159
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv.i159
   %370 = load i64, ptr %369, align 8, !tbaa !3
   %371 = add i64 %370, %368
   store i64 %371, ptr %369, align 8, !tbaa !3
@@ -1422,9 +1420,9 @@ _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.
 
 374:                                              ; preds = %374, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit162
   %indvars.iv.i163 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit162 ], [ %indvars.iv.next.i164, %374 ]
-  %375 = getelementptr inbounds nuw %"struct.std::atomic", ptr %372, i64 %indvars.iv.i163
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %indvars.iv.i163
   %376 = load atomic i64, ptr %375 monotonic, align 8
-  %377 = getelementptr inbounds nuw i64, ptr %373, i64 %indvars.iv.i163
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %indvars.iv.i163
   %378 = load i64, ptr %377, align 8, !tbaa !3
   %379 = add i64 %378, %376
   store i64 %379, ptr %377, align 8, !tbaa !3
@@ -1439,9 +1437,9 @@ _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.
 
 382:                                              ; preds = %382, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit166
   %indvars.iv.i167 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit166 ], [ %indvars.iv.next.i168, %382 ]
-  %383 = getelementptr inbounds nuw %"struct.std::atomic", ptr %380, i64 %indvars.iv.i167
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %380, i64 %indvars.iv.i167
   %384 = load atomic i64, ptr %383 monotonic, align 8
-  %385 = getelementptr inbounds nuw i64, ptr %381, i64 %indvars.iv.i167
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %indvars.iv.i167
   %386 = load i64, ptr %385, align 8, !tbaa !3
   %387 = add i64 %386, %384
   store i64 %387, ptr %385, align 8, !tbaa !3
@@ -1456,9 +1454,9 @@ _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.
 
 390:                                              ; preds = %390, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit170
   %indvars.iv.i171 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit170 ], [ %indvars.iv.next.i172, %390 ]
-  %391 = getelementptr inbounds nuw %"struct.std::atomic", ptr %388, i64 %indvars.iv.i171
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %indvars.iv.i171
   %392 = load atomic i64, ptr %391 monotonic, align 8
-  %393 = getelementptr inbounds nuw i64, ptr %389, i64 %indvars.iv.i171
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %indvars.iv.i171
   %394 = load i64, ptr %393, align 8, !tbaa !3
   %395 = add i64 %394, %392
   store i64 %395, ptr %393, align 8, !tbaa !3
@@ -1473,9 +1471,9 @@ _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.ex
 
 398:                                              ; preds = %398, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit174
   %indvars.iv.i175 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit174 ], [ %indvars.iv.next.i176, %398 ]
-  %399 = getelementptr inbounds nuw %"struct.std::atomic", ptr %396, i64 %indvars.iv.i175
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %indvars.iv.i175
   %400 = load atomic i64, ptr %399 monotonic, align 8
-  %401 = getelementptr inbounds nuw i64, ptr %397, i64 %indvars.iv.i175
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %indvars.iv.i175
   %402 = load i64, ptr %401, align 8, !tbaa !3
   %403 = add i64 %402, %400
   store i64 %403, ptr %401, align 8, !tbaa !3
@@ -1490,9 +1488,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit: 
 
 406:                                              ; preds = %406, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit
   %indvars.iv.i178 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit ], [ %indvars.iv.next.i179, %406 ]
-  %407 = getelementptr inbounds nuw %"struct.std::atomic", ptr %404, i64 %indvars.iv.i178
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 %indvars.iv.i178
   %408 = load atomic i64, ptr %407 monotonic, align 8
-  %409 = getelementptr inbounds nuw i64, ptr %405, i64 %indvars.iv.i178
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 %indvars.iv.i178
   %410 = load i64, ptr %409, align 8, !tbaa !3
   %411 = add i64 %410, %408
   store i64 %411, ptr %409, align 8, !tbaa !3
@@ -1507,9 +1505,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit18
 
 414:                                              ; preds = %414, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit181
   %indvars.iv.i182 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit181 ], [ %indvars.iv.next.i183, %414 ]
-  %415 = getelementptr inbounds nuw %"struct.std::atomic", ptr %412, i64 %indvars.iv.i182
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %indvars.iv.i182
   %416 = load atomic i64, ptr %415 monotonic, align 8
-  %417 = getelementptr inbounds nuw i64, ptr %413, i64 %indvars.iv.i182
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %indvars.iv.i182
   %418 = load i64, ptr %417, align 8, !tbaa !3
   %419 = add i64 %418, %416
   store i64 %419, ptr %417, align 8, !tbaa !3
@@ -1524,9 +1522,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit18
 
 422:                                              ; preds = %422, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit185
   %indvars.iv.i186 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit185 ], [ %indvars.iv.next.i187, %422 ]
-  %423 = getelementptr inbounds nuw %"struct.std::atomic", ptr %420, i64 %indvars.iv.i186
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %indvars.iv.i186
   %424 = load atomic i64, ptr %423 monotonic, align 8
-  %425 = getelementptr inbounds nuw i64, ptr %421, i64 %indvars.iv.i186
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %indvars.iv.i186
   %426 = load i64, ptr %425, align 8, !tbaa !3
   %427 = add i64 %426, %424
   store i64 %427, ptr %425, align 8, !tbaa !3
@@ -1541,9 +1539,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit18
 
 430:                                              ; preds = %430, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit189
   %indvars.iv.i190 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit189 ], [ %indvars.iv.next.i191, %430 ]
-  %431 = getelementptr inbounds nuw %"struct.std::atomic", ptr %428, i64 %indvars.iv.i190
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %428, i64 %indvars.iv.i190
   %432 = load atomic i64, ptr %431 monotonic, align 8
-  %433 = getelementptr inbounds nuw i64, ptr %429, i64 %indvars.iv.i190
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %indvars.iv.i190
   %434 = load i64, ptr %433, align 8, !tbaa !3
   %435 = add i64 %434, %432
   store i64 %435, ptr %433, align 8, !tbaa !3
@@ -1558,9 +1556,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit19
 
 438:                                              ; preds = %438, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit193
   %indvars.iv.i194 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit193 ], [ %indvars.iv.next.i195, %438 ]
-  %439 = getelementptr inbounds nuw %"struct.std::atomic", ptr %436, i64 %indvars.iv.i194
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %indvars.iv.i194
   %440 = load atomic i64, ptr %439 monotonic, align 8
-  %441 = getelementptr inbounds nuw i64, ptr %437, i64 %indvars.iv.i194
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %indvars.iv.i194
   %442 = load i64, ptr %441, align 8, !tbaa !3
   %443 = add i64 %442, %440
   store i64 %443, ptr %441, align 8, !tbaa !3
@@ -1575,9 +1573,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit19
 
 446:                                              ; preds = %446, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit197
   %indvars.iv.i198 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit197 ], [ %indvars.iv.next.i199, %446 ]
-  %447 = getelementptr inbounds nuw %"struct.std::atomic", ptr %444, i64 %indvars.iv.i198
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %indvars.iv.i198
   %448 = load atomic i64, ptr %447 monotonic, align 8
-  %449 = getelementptr inbounds nuw i64, ptr %445, i64 %indvars.iv.i198
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %445, i64 %indvars.iv.i198
   %450 = load i64, ptr %449, align 8, !tbaa !3
   %451 = add i64 %450, %448
   store i64 %451, ptr %449, align 8, !tbaa !3
@@ -1592,9 +1590,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit20
 
 454:                                              ; preds = %454, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit201
   %indvars.iv.i202 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit201 ], [ %indvars.iv.next.i203, %454 ]
-  %455 = getelementptr inbounds nuw %"struct.std::atomic", ptr %452, i64 %indvars.iv.i202
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %indvars.iv.i202
   %456 = load atomic i64, ptr %455 monotonic, align 8
-  %457 = getelementptr inbounds nuw i64, ptr %453, i64 %indvars.iv.i202
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %indvars.iv.i202
   %458 = load i64, ptr %457, align 8, !tbaa !3
   %459 = add i64 %458, %456
   store i64 %459, ptr %457, align 8, !tbaa !3
@@ -1609,9 +1607,9 @@ _ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit20
 
 462:                                              ; preds = %462, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit205
   %indvars.iv.i206 = phi i64 [ 0, %_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_100_20E.exit205 ], [ %indvars.iv.next.i207, %462 ]
-  %463 = getelementptr inbounds nuw %"struct.std::atomic", ptr %460, i64 %indvars.iv.i206
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %indvars.iv.i206
   %464 = load atomic i64, ptr %463 monotonic, align 8
-  %465 = getelementptr inbounds nuw i64, ptr %461, i64 %indvars.iv.i206
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %461, i64 %indvars.iv.i206
   %466 = load i64, ptr %465, align 8, !tbaa !3
   %467 = add i64 %466, %464
   store i64 %467, ptr %465, align 8, !tbaa !3
@@ -1626,9 +1624,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 470:                                              ; preds = %470, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit209
   %indvars.iv.i210 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit209 ], [ %indvars.iv.next.i211, %470 ]
-  %471 = getelementptr inbounds nuw %"struct.std::atomic", ptr %468, i64 %indvars.iv.i210
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %indvars.iv.i210
   %472 = load atomic i64, ptr %471 monotonic, align 8
-  %473 = getelementptr inbounds nuw i64, ptr %469, i64 %indvars.iv.i210
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %indvars.iv.i210
   %474 = load i64, ptr %473, align 8, !tbaa !3
   %475 = add i64 %474, %472
   store i64 %475, ptr %473, align 8, !tbaa !3
@@ -1643,9 +1641,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 478:                                              ; preds = %478, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit213
   %indvars.iv.i214 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit213 ], [ %indvars.iv.next.i215, %478 ]
-  %479 = getelementptr inbounds nuw %"struct.std::atomic", ptr %476, i64 %indvars.iv.i214
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %indvars.iv.i214
   %480 = load atomic i64, ptr %479 monotonic, align 8
-  %481 = getelementptr inbounds nuw i64, ptr %477, i64 %indvars.iv.i214
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %indvars.iv.i214
   %482 = load i64, ptr %481, align 8, !tbaa !3
   %483 = add i64 %482, %480
   store i64 %483, ptr %481, align 8, !tbaa !3
@@ -1660,9 +1658,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 486:                                              ; preds = %486, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit217
   %indvars.iv.i218 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit217 ], [ %indvars.iv.next.i219, %486 ]
-  %487 = getelementptr inbounds nuw %"struct.std::atomic", ptr %484, i64 %indvars.iv.i218
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %484, i64 %indvars.iv.i218
   %488 = load atomic i64, ptr %487 monotonic, align 8
-  %489 = getelementptr inbounds nuw i64, ptr %485, i64 %indvars.iv.i218
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %485, i64 %indvars.iv.i218
   %490 = load i64, ptr %489, align 8, !tbaa !3
   %491 = add i64 %490, %488
   store i64 %491, ptr %489, align 8, !tbaa !3
@@ -1677,9 +1675,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 494:                                              ; preds = %494, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit221
   %indvars.iv.i222 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit221 ], [ %indvars.iv.next.i223, %494 ]
-  %495 = getelementptr inbounds nuw %"struct.std::atomic", ptr %492, i64 %indvars.iv.i222
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %indvars.iv.i222
   %496 = load atomic i64, ptr %495 monotonic, align 8
-  %497 = getelementptr inbounds nuw i64, ptr %493, i64 %indvars.iv.i222
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %493, i64 %indvars.iv.i222
   %498 = load i64, ptr %497, align 8, !tbaa !3
   %499 = add i64 %498, %496
   store i64 %499, ptr %497, align 8, !tbaa !3
@@ -1694,9 +1692,9 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 
 502:                                              ; preds = %502, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit225
   %indvars.iv.i226 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit225 ], [ %indvars.iv.next.i227, %502 ]
-  %503 = getelementptr inbounds nuw %"struct.std::atomic", ptr %500, i64 %indvars.iv.i226
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %indvars.iv.i226
   %504 = load atomic i64, ptr %503 monotonic, align 8
-  %505 = getelementptr inbounds nuw i64, ptr %501, i64 %indvars.iv.i226
+  %505 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %indvars.iv.i226
   %506 = load i64, ptr %505, align 8, !tbaa !3
   %507 = add i64 %506, %504
   store i64 %507, ptr %505, align 8, !tbaa !3
@@ -2034,12 +2032,12 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
 
 267:                                              ; preds = %267, %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %indvars.iv.next.i, %267 ]
-  %268 = getelementptr inbounds nuw i64, ptr %265, i64 %indvars.iv.i
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv.i
   %269 = load i64, ptr %268, align 8, !tbaa !3, !noalias !52
-  %270 = getelementptr inbounds nuw i64, ptr %266, i64 %indvars.iv.i
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv.i
   %271 = load i64, ptr %270, align 8, !tbaa !3, !noalias !52
   %272 = sub i64 %269, %271
-  %273 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   store i64 %272, ptr %273, align 8, !tbaa !3, !alias.scope !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
@@ -2058,12 +2056,12 @@ _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit: ; preds = %267
 
 277:                                              ; preds = %277, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit
   %indvars.iv.i78 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit ], [ %indvars.iv.next.i79, %277 ]
-  %278 = getelementptr inbounds nuw i64, ptr %275, i64 %indvars.iv.i78
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %indvars.iv.i78
   %279 = load i64, ptr %278, align 8, !tbaa !3, !noalias !56
-  %280 = getelementptr inbounds nuw i64, ptr %276, i64 %indvars.iv.i78
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %indvars.iv.i78
   %281 = load i64, ptr %280, align 8, !tbaa !3, !noalias !56
   %282 = sub i64 %279, %281
-  %283 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i78
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i78
   store i64 %282, ptr %283, align 8, !tbaa !3, !alias.scope !56
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 20
@@ -2082,12 +2080,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit: ; preds = %277
 
 287:                                              ; preds = %287, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit
   %indvars.iv.i81 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit ], [ %indvars.iv.next.i82, %287 ]
-  %288 = getelementptr inbounds nuw i64, ptr %285, i64 %indvars.iv.i81
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv.i81
   %289 = load i64, ptr %288, align 8, !tbaa !3, !noalias !60
-  %290 = getelementptr inbounds nuw i64, ptr %286, i64 %indvars.iv.i81
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %indvars.iv.i81
   %291 = load i64, ptr %290, align 8, !tbaa !3, !noalias !60
   %292 = sub i64 %289, %291
-  %293 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i81
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i81
   store i64 %292, ptr %293, align 8, !tbaa !3, !alias.scope !60
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
   %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, 10
@@ -2106,12 +2104,12 @@ _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit:  ; preds = %287
 
 297:                                              ; preds = %297, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit
   %indvars.iv.i84 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit ], [ %indvars.iv.next.i85, %297 ]
-  %298 = getelementptr inbounds nuw i64, ptr %295, i64 %indvars.iv.i84
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %indvars.iv.i84
   %299 = load i64, ptr %298, align 8, !tbaa !3, !noalias !64
-  %300 = getelementptr inbounds nuw i64, ptr %296, i64 %indvars.iv.i84
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %indvars.iv.i84
   %301 = load i64, ptr %300, align 8, !tbaa !3, !noalias !64
   %302 = sub i64 %299, %301
-  %303 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i84
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i84
   store i64 %302, ptr %303, align 8, !tbaa !3, !alias.scope !64
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, 20
@@ -2130,12 +2128,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit87: ; preds = %297
 
 307:                                              ; preds = %307, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit87
   %indvars.iv.i88 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit87 ], [ %indvars.iv.next.i89, %307 ]
-  %308 = getelementptr inbounds nuw i64, ptr %305, i64 %indvars.iv.i88
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %indvars.iv.i88
   %309 = load i64, ptr %308, align 8, !tbaa !3, !noalias !67
-  %310 = getelementptr inbounds nuw i64, ptr %306, i64 %indvars.iv.i88
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %indvars.iv.i88
   %311 = load i64, ptr %310, align 8, !tbaa !3, !noalias !67
   %312 = sub i64 %309, %311
-  %313 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i88
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i88
   store i64 %312, ptr %313, align 8, !tbaa !3, !alias.scope !67
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, 20
@@ -2154,12 +2152,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit91: ; preds = %307
 
 317:                                              ; preds = %317, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit91
   %indvars.iv.i92 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit91 ], [ %indvars.iv.next.i93, %317 ]
-  %318 = getelementptr inbounds nuw i64, ptr %315, i64 %indvars.iv.i92
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %indvars.iv.i92
   %319 = load i64, ptr %318, align 8, !tbaa !3, !noalias !70
-  %320 = getelementptr inbounds nuw i64, ptr %316, i64 %indvars.iv.i92
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv.i92
   %321 = load i64, ptr %320, align 8, !tbaa !3, !noalias !70
   %322 = sub i64 %319, %321
-  %323 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i92
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i92
   store i64 %322, ptr %323, align 8, !tbaa !3, !alias.scope !70
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i92, 1
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 10
@@ -2178,12 +2176,12 @@ _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit95: ; preds = %317
 
 327:                                              ; preds = %327, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit95
   %indvars.iv.i96 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit95 ], [ %indvars.iv.next.i97, %327 ]
-  %328 = getelementptr inbounds nuw i64, ptr %325, i64 %indvars.iv.i96
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %indvars.iv.i96
   %329 = load i64, ptr %328, align 8, !tbaa !3, !noalias !73
-  %330 = getelementptr inbounds nuw i64, ptr %326, i64 %indvars.iv.i96
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %indvars.iv.i96
   %331 = load i64, ptr %330, align 8, !tbaa !3, !noalias !73
   %332 = sub i64 %329, %331
-  %333 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i96
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i96
   store i64 %332, ptr %333, align 8, !tbaa !3, !alias.scope !73
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i98 = icmp eq i64 %indvars.iv.next.i97, 20
@@ -2202,12 +2200,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit99: ; preds = %327
 
 337:                                              ; preds = %337, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit99
   %indvars.iv.i100 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit99 ], [ %indvars.iv.next.i101, %337 ]
-  %338 = getelementptr inbounds nuw i64, ptr %335, i64 %indvars.iv.i100
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %indvars.iv.i100
   %339 = load i64, ptr %338, align 8, !tbaa !3, !noalias !76
-  %340 = getelementptr inbounds nuw i64, ptr %336, i64 %indvars.iv.i100
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %indvars.iv.i100
   %341 = load i64, ptr %340, align 8, !tbaa !3, !noalias !76
   %342 = sub i64 %339, %341
-  %343 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i100
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i100
   store i64 %342, ptr %343, align 8, !tbaa !3, !alias.scope !76
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, 26
@@ -2226,12 +2224,12 @@ _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit103: ; preds = %337
 
 347:                                              ; preds = %347, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit103
   %indvars.iv.i104 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit103 ], [ %indvars.iv.next.i105, %347 ]
-  %348 = getelementptr inbounds nuw i64, ptr %345, i64 %indvars.iv.i104
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %indvars.iv.i104
   %349 = load i64, ptr %348, align 8, !tbaa !3, !noalias !79
-  %350 = getelementptr inbounds nuw i64, ptr %346, i64 %indvars.iv.i104
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %indvars.iv.i104
   %351 = load i64, ptr %350, align 8, !tbaa !3, !noalias !79
   %352 = sub i64 %349, %351
-  %353 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i104
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i104
   store i64 %352, ptr %353, align 8, !tbaa !3, !alias.scope !79
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
   %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, 40
@@ -2250,12 +2248,12 @@ _ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_.exit: ; preds = %347
 
 357:                                              ; preds = %357, %_ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_.exit
   %indvars.iv.i107 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_.exit ], [ %indvars.iv.next.i108, %357 ]
-  %358 = getelementptr inbounds nuw i64, ptr %355, i64 %indvars.iv.i107
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %indvars.iv.i107
   %359 = load i64, ptr %358, align 8, !tbaa !3, !noalias !83
-  %360 = getelementptr inbounds nuw i64, ptr %356, i64 %indvars.iv.i107
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %indvars.iv.i107
   %361 = load i64, ptr %360, align 8, !tbaa !3, !noalias !83
   %362 = sub i64 %359, %361
-  %363 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i107
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i107
   store i64 %362, ptr %363, align 8, !tbaa !3, !alias.scope !83
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i109 = icmp eq i64 %indvars.iv.next.i108, 20
@@ -2274,12 +2272,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit110: ; preds = %357
 
 367:                                              ; preds = %367, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit110
   %indvars.iv.i111 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit110 ], [ %indvars.iv.next.i112, %367 ]
-  %368 = getelementptr inbounds nuw i64, ptr %365, i64 %indvars.iv.i111
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv.i111
   %369 = load i64, ptr %368, align 8, !tbaa !3, !noalias !86
-  %370 = getelementptr inbounds nuw i64, ptr %366, i64 %indvars.iv.i111
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %indvars.iv.i111
   %371 = load i64, ptr %370, align 8, !tbaa !3, !noalias !86
   %372 = sub i64 %369, %371
-  %373 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i111
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i111
   store i64 %372, ptr %373, align 8, !tbaa !3, !alias.scope !86
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
   %exitcond.not.i113 = icmp eq i64 %indvars.iv.next.i112, 20
@@ -2299,12 +2297,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit114: ; preds = %367
 
 378:                                              ; preds = %378, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit114
   %indvars.iv.i115 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit114 ], [ %indvars.iv.next.i116, %378 ]
-  %379 = getelementptr inbounds nuw i64, ptr %376, i64 %indvars.iv.i115
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %indvars.iv.i115
   %380 = load i64, ptr %379, align 8, !tbaa !3, !noalias !89
-  %381 = getelementptr inbounds nuw i64, ptr %377, i64 %indvars.iv.i115
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %indvars.iv.i115
   %382 = load i64, ptr %381, align 8, !tbaa !3, !noalias !89
   %383 = sub i64 %380, %382
-  %384 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i115
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i115
   store i64 %383, ptr %384, align 8, !tbaa !3, !alias.scope !89
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 20
@@ -2323,12 +2321,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit118: ; preds = %378
 
 388:                                              ; preds = %388, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit118
   %indvars.iv.i119 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit118 ], [ %indvars.iv.next.i120, %388 ]
-  %389 = getelementptr inbounds nuw i64, ptr %386, i64 %indvars.iv.i119
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %indvars.iv.i119
   %390 = load i64, ptr %389, align 8, !tbaa !3, !noalias !92
-  %391 = getelementptr inbounds nuw i64, ptr %387, i64 %indvars.iv.i119
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %387, i64 %indvars.iv.i119
   %392 = load i64, ptr %391, align 8, !tbaa !3, !noalias !92
   %393 = sub i64 %390, %392
-  %394 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i119
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i119
   store i64 %393, ptr %394, align 8, !tbaa !3, !alias.scope !92
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 20
@@ -2347,12 +2345,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit122: ; preds = %388
 
 398:                                              ; preds = %398, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit122
   %indvars.iv.i123 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit122 ], [ %indvars.iv.next.i124, %398 ]
-  %399 = getelementptr inbounds nuw i64, ptr %396, i64 %indvars.iv.i123
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %indvars.iv.i123
   %400 = load i64, ptr %399, align 8, !tbaa !3, !noalias !95
-  %401 = getelementptr inbounds nuw i64, ptr %397, i64 %indvars.iv.i123
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %indvars.iv.i123
   %402 = load i64, ptr %401, align 8, !tbaa !3, !noalias !95
   %403 = sub i64 %400, %402
-  %404 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i123
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i123
   store i64 %403, ptr %404, align 8, !tbaa !3, !alias.scope !95
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, 20
@@ -2371,12 +2369,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit126: ; preds = %398
 
 408:                                              ; preds = %408, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit126
   %indvars.iv.i127 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit126 ], [ %indvars.iv.next.i128, %408 ]
-  %409 = getelementptr inbounds nuw i64, ptr %406, i64 %indvars.iv.i127
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 %indvars.iv.i127
   %410 = load i64, ptr %409, align 8, !tbaa !3, !noalias !98
-  %411 = getelementptr inbounds nuw i64, ptr %407, i64 %indvars.iv.i127
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %407, i64 %indvars.iv.i127
   %412 = load i64, ptr %411, align 8, !tbaa !3, !noalias !98
   %413 = sub i64 %410, %412
-  %414 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.i127
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i127
   store i64 %413, ptr %414, align 8, !tbaa !3, !alias.scope !98
   %indvars.iv.next.i128 = add nuw nsw i64 %indvars.iv.i127, 1
   %exitcond.not.i129 = icmp eq i64 %indvars.iv.next.i128, 20
@@ -2395,12 +2393,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit130: ; preds = %408
 
 418:                                              ; preds = %418, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit130
   %indvars.iv.i131 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit130 ], [ %indvars.iv.next.i132, %418 ]
-  %419 = getelementptr inbounds nuw i64, ptr %416, i64 %indvars.iv.i131
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %indvars.iv.i131
   %420 = load i64, ptr %419, align 8, !tbaa !3, !noalias !101
-  %421 = getelementptr inbounds nuw i64, ptr %417, i64 %indvars.iv.i131
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %417, i64 %indvars.iv.i131
   %422 = load i64, ptr %421, align 8, !tbaa !3, !noalias !101
   %423 = sub i64 %420, %422
-  %424 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i131
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i131
   store i64 %423, ptr %424, align 8, !tbaa !3, !alias.scope !101
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, 20
@@ -2419,12 +2417,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit134: ; preds = %418
 
 428:                                              ; preds = %428, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit134
   %indvars.iv.i135 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit134 ], [ %indvars.iv.next.i136, %428 ]
-  %429 = getelementptr inbounds nuw i64, ptr %426, i64 %indvars.iv.i135
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %indvars.iv.i135
   %430 = load i64, ptr %429, align 8, !tbaa !3, !noalias !104
-  %431 = getelementptr inbounds nuw i64, ptr %427, i64 %indvars.iv.i135
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %indvars.iv.i135
   %432 = load i64, ptr %431, align 8, !tbaa !3, !noalias !104
   %433 = sub i64 %430, %432
-  %434 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i135
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i135
   store i64 %433, ptr %434, align 8, !tbaa !3, !alias.scope !104
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, 20
@@ -2443,12 +2441,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit138: ; preds = %428
 
 438:                                              ; preds = %438, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit138
   %indvars.iv.i139 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit138 ], [ %indvars.iv.next.i140, %438 ]
-  %439 = getelementptr inbounds nuw i64, ptr %436, i64 %indvars.iv.i139
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %indvars.iv.i139
   %440 = load i64, ptr %439, align 8, !tbaa !3, !noalias !107
-  %441 = getelementptr inbounds nuw i64, ptr %437, i64 %indvars.iv.i139
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %indvars.iv.i139
   %442 = load i64, ptr %441, align 8, !tbaa !3, !noalias !107
   %443 = sub i64 %440, %442
-  %444 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i139
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i139
   store i64 %443, ptr %444, align 8, !tbaa !3, !alias.scope !107
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, 20
@@ -2467,12 +2465,12 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit: ; preds = %438
 
 448:                                              ; preds = %448, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit
   %indvars.iv.i142 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit ], [ %indvars.iv.next.i143, %448 ]
-  %449 = getelementptr inbounds nuw i64, ptr %446, i64 %indvars.iv.i142
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %indvars.iv.i142
   %450 = load i64, ptr %449, align 8, !tbaa !3, !noalias !110
-  %451 = getelementptr inbounds nuw i64, ptr %447, i64 %indvars.iv.i142
+  %451 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %indvars.iv.i142
   %452 = load i64, ptr %451, align 8, !tbaa !3, !noalias !110
   %453 = sub i64 %450, %452
-  %454 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i142
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i142
   store i64 %453, ptr %454, align 8, !tbaa !3, !alias.scope !110
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, 20
@@ -2491,12 +2489,12 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit145: ; preds = %448
 
 458:                                              ; preds = %458, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit145
   %indvars.iv.i146 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit145 ], [ %indvars.iv.next.i147, %458 ]
-  %459 = getelementptr inbounds nuw i64, ptr %456, i64 %indvars.iv.i146
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %indvars.iv.i146
   %460 = load i64, ptr %459, align 8, !tbaa !3, !noalias !113
-  %461 = getelementptr inbounds nuw i64, ptr %457, i64 %indvars.iv.i146
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %indvars.iv.i146
   %462 = load i64, ptr %461, align 8, !tbaa !3, !noalias !113
   %463 = sub i64 %460, %462
-  %464 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i146
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i146
   store i64 %463, ptr %464, align 8, !tbaa !3, !alias.scope !113
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond.not.i148 = icmp eq i64 %indvars.iv.next.i147, 20
@@ -2515,12 +2513,12 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit: ; preds = %458
 
 468:                                              ; preds = %468, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit
   %indvars.iv.i149 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit ], [ %indvars.iv.next.i150, %468 ]
-  %469 = getelementptr inbounds nuw i64, ptr %466, i64 %indvars.iv.i149
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %466, i64 %indvars.iv.i149
   %470 = load i64, ptr %469, align 8, !tbaa !3, !noalias !116
-  %471 = getelementptr inbounds nuw i64, ptr %467, i64 %indvars.iv.i149
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %indvars.iv.i149
   %472 = load i64, ptr %471, align 8, !tbaa !3, !noalias !116
   %473 = sub i64 %470, %472
-  %474 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i149
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i149
   store i64 %473, ptr %474, align 8, !tbaa !3, !alias.scope !116
   %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i149, 1
   %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, 20
@@ -2539,12 +2537,12 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit152: ; preds = %468
 
 478:                                              ; preds = %478, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit152
   %indvars.iv.i153 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit152 ], [ %indvars.iv.next.i154, %478 ]
-  %479 = getelementptr inbounds nuw i64, ptr %476, i64 %indvars.iv.i153
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %indvars.iv.i153
   %480 = load i64, ptr %479, align 8, !tbaa !3, !noalias !119
-  %481 = getelementptr inbounds nuw i64, ptr %477, i64 %indvars.iv.i153
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %indvars.iv.i153
   %482 = load i64, ptr %481, align 8, !tbaa !3, !noalias !119
   %483 = sub i64 %480, %482
-  %484 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i153
+  %484 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i153
   store i64 %483, ptr %484, align 8, !tbaa !3, !alias.scope !119
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, 20
@@ -2563,12 +2561,12 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit156: ; preds = %478
 
 488:                                              ; preds = %488, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit156
   %indvars.iv.i157 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit156 ], [ %indvars.iv.next.i158, %488 ]
-  %489 = getelementptr inbounds nuw i64, ptr %486, i64 %indvars.iv.i157
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %indvars.iv.i157
   %490 = load i64, ptr %489, align 8, !tbaa !3, !noalias !122
-  %491 = getelementptr inbounds nuw i64, ptr %487, i64 %indvars.iv.i157
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %487, i64 %indvars.iv.i157
   %492 = load i64, ptr %491, align 8, !tbaa !3, !noalias !122
   %493 = sub i64 %490, %492
-  %494 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv.i157
+  %494 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i157
   store i64 %493, ptr %494, align 8, !tbaa !3, !alias.scope !122
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, 20
@@ -2587,12 +2585,12 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit160: ; preds = %488
 
 498:                                              ; preds = %498, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit160
   %indvars.iv.i161 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit160 ], [ %indvars.iv.next.i162, %498 ]
-  %499 = getelementptr inbounds nuw i64, ptr %496, i64 %indvars.iv.i161
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %496, i64 %indvars.iv.i161
   %500 = load i64, ptr %499, align 8, !tbaa !3, !noalias !125
-  %501 = getelementptr inbounds nuw i64, ptr %497, i64 %indvars.iv.i161
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %indvars.iv.i161
   %502 = load i64, ptr %501, align 8, !tbaa !3, !noalias !125
   %503 = sub i64 %500, %502
-  %504 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv.i161
+  %504 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i161
   store i64 %503, ptr %504, align 8, !tbaa !3, !alias.scope !125
   %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i161, 1
   %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, 20
@@ -2611,12 +2609,12 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit164: ; preds = %498
 
 508:                                              ; preds = %508, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit164
   %indvars.iv.i165 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit164 ], [ %indvars.iv.next.i166, %508 ]
-  %509 = getelementptr inbounds nuw i64, ptr %506, i64 %indvars.iv.i165
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %506, i64 %indvars.iv.i165
   %510 = load i64, ptr %509, align 8, !tbaa !3, !noalias !128
-  %511 = getelementptr inbounds nuw i64, ptr %507, i64 %indvars.iv.i165
+  %511 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %indvars.iv.i165
   %512 = load i64, ptr %511, align 8, !tbaa !3, !noalias !128
   %513 = sub i64 %510, %512
-  %514 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i165
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i165
   store i64 %513, ptr %514, align 8, !tbaa !3, !alias.scope !128
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, 20
@@ -2635,12 +2633,12 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit168: ; preds = %508
 
 518:                                              ; preds = %518, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit168
   %indvars.iv.i169 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit168 ], [ %indvars.iv.next.i170, %518 ]
-  %519 = getelementptr inbounds nuw i64, ptr %516, i64 %indvars.iv.i169
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %516, i64 %indvars.iv.i169
   %520 = load i64, ptr %519, align 8, !tbaa !3, !noalias !131
-  %521 = getelementptr inbounds nuw i64, ptr %517, i64 %indvars.iv.i169
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %indvars.iv.i169
   %522 = load i64, ptr %521, align 8, !tbaa !3, !noalias !131
   %523 = sub i64 %520, %522
-  %524 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv.i169
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i169
   store i64 %523, ptr %524, align 8, !tbaa !3, !alias.scope !131
   %indvars.iv.next.i170 = add nuw nsw i64 %indvars.iv.i169, 1
   %exitcond.not.i171 = icmp eq i64 %indvars.iv.next.i170, 20
@@ -2659,12 +2657,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit: ; preds = %518
 
 528:                                              ; preds = %528, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit
   %indvars.iv.i172 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit ], [ %indvars.iv.next.i173, %528 ]
-  %529 = getelementptr inbounds nuw i64, ptr %526, i64 %indvars.iv.i172
+  %529 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %indvars.iv.i172
   %530 = load i64, ptr %529, align 8, !tbaa !3, !noalias !134
-  %531 = getelementptr inbounds nuw i64, ptr %527, i64 %indvars.iv.i172
+  %531 = getelementptr inbounds nuw [8 x i8], ptr %527, i64 %indvars.iv.i172
   %532 = load i64, ptr %531, align 8, !tbaa !3, !noalias !134
   %533 = sub i64 %530, %532
-  %534 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i172
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i172
   store i64 %533, ptr %534, align 8, !tbaa !3, !alias.scope !134
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i172, 1
   %exitcond.not.i174 = icmp eq i64 %indvars.iv.next.i173, 20
@@ -2683,12 +2681,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit175: ; preds = %528
 
 538:                                              ; preds = %538, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit175
   %indvars.iv.i176 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit175 ], [ %indvars.iv.next.i177, %538 ]
-  %539 = getelementptr inbounds nuw i64, ptr %536, i64 %indvars.iv.i176
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %536, i64 %indvars.iv.i176
   %540 = load i64, ptr %539, align 8, !tbaa !3, !noalias !137
-  %541 = getelementptr inbounds nuw i64, ptr %537, i64 %indvars.iv.i176
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %537, i64 %indvars.iv.i176
   %542 = load i64, ptr %541, align 8, !tbaa !3, !noalias !137
   %543 = sub i64 %540, %542
-  %544 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i176
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i176
   store i64 %543, ptr %544, align 8, !tbaa !3, !alias.scope !137
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, 20
@@ -2707,12 +2705,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit179: ; preds = %538
 
 548:                                              ; preds = %548, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit179
   %indvars.iv.i180 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit179 ], [ %indvars.iv.next.i181, %548 ]
-  %549 = getelementptr inbounds nuw i64, ptr %546, i64 %indvars.iv.i180
+  %549 = getelementptr inbounds nuw [8 x i8], ptr %546, i64 %indvars.iv.i180
   %550 = load i64, ptr %549, align 8, !tbaa !3, !noalias !140
-  %551 = getelementptr inbounds nuw i64, ptr %547, i64 %indvars.iv.i180
+  %551 = getelementptr inbounds nuw [8 x i8], ptr %547, i64 %indvars.iv.i180
   %552 = load i64, ptr %551, align 8, !tbaa !3, !noalias !140
   %553 = sub i64 %550, %552
-  %554 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv.i180
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i180
   store i64 %553, ptr %554, align 8, !tbaa !3, !alias.scope !140
   %indvars.iv.next.i181 = add nuw nsw i64 %indvars.iv.i180, 1
   %exitcond.not.i182 = icmp eq i64 %indvars.iv.next.i181, 20
@@ -2731,12 +2729,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit183: ; preds = %548
 
 558:                                              ; preds = %558, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit183
   %indvars.iv.i184 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit183 ], [ %indvars.iv.next.i185, %558 ]
-  %559 = getelementptr inbounds nuw i64, ptr %556, i64 %indvars.iv.i184
+  %559 = getelementptr inbounds nuw [8 x i8], ptr %556, i64 %indvars.iv.i184
   %560 = load i64, ptr %559, align 8, !tbaa !3, !noalias !143
-  %561 = getelementptr inbounds nuw i64, ptr %557, i64 %indvars.iv.i184
+  %561 = getelementptr inbounds nuw [8 x i8], ptr %557, i64 %indvars.iv.i184
   %562 = load i64, ptr %561, align 8, !tbaa !3, !noalias !143
   %563 = sub i64 %560, %562
-  %564 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i184
+  %564 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i184
   store i64 %563, ptr %564, align 8, !tbaa !3, !alias.scope !143
   %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i184, 1
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, 20
@@ -2755,12 +2753,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit187: ; preds = %558
 
 568:                                              ; preds = %568, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit187
   %indvars.iv.i188 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit187 ], [ %indvars.iv.next.i189, %568 ]
-  %569 = getelementptr inbounds nuw i64, ptr %566, i64 %indvars.iv.i188
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %566, i64 %indvars.iv.i188
   %570 = load i64, ptr %569, align 8, !tbaa !3, !noalias !146
-  %571 = getelementptr inbounds nuw i64, ptr %567, i64 %indvars.iv.i188
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 %indvars.iv.i188
   %572 = load i64, ptr %571, align 8, !tbaa !3, !noalias !146
   %573 = sub i64 %570, %572
-  %574 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv.i188
+  %574 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i188
   store i64 %573, ptr %574, align 8, !tbaa !3, !alias.scope !146
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i188, 1
   %exitcond.not.i190 = icmp eq i64 %indvars.iv.next.i189, 20
@@ -2779,12 +2777,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit191: ; preds = %568
 
 578:                                              ; preds = %578, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit191
   %indvars.iv.i192 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit191 ], [ %indvars.iv.next.i193, %578 ]
-  %579 = getelementptr inbounds nuw i64, ptr %576, i64 %indvars.iv.i192
+  %579 = getelementptr inbounds nuw [8 x i8], ptr %576, i64 %indvars.iv.i192
   %580 = load i64, ptr %579, align 8, !tbaa !3, !noalias !149
-  %581 = getelementptr inbounds nuw i64, ptr %577, i64 %indvars.iv.i192
+  %581 = getelementptr inbounds nuw [8 x i8], ptr %577, i64 %indvars.iv.i192
   %582 = load i64, ptr %581, align 8, !tbaa !3, !noalias !149
   %583 = sub i64 %580, %582
-  %584 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i192
+  %584 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i192
   store i64 %583, ptr %584, align 8, !tbaa !3, !alias.scope !149
   %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i192, 1
   %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, 20
@@ -2803,12 +2801,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit195: ; preds = %578
 
 588:                                              ; preds = %588, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit195
   %indvars.iv.i196 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit195 ], [ %indvars.iv.next.i197, %588 ]
-  %589 = getelementptr inbounds nuw i64, ptr %586, i64 %indvars.iv.i196
+  %589 = getelementptr inbounds nuw [8 x i8], ptr %586, i64 %indvars.iv.i196
   %590 = load i64, ptr %589, align 8, !tbaa !3, !noalias !152
-  %591 = getelementptr inbounds nuw i64, ptr %587, i64 %indvars.iv.i196
+  %591 = getelementptr inbounds nuw [8 x i8], ptr %587, i64 %indvars.iv.i196
   %592 = load i64, ptr %591, align 8, !tbaa !3, !noalias !152
   %593 = sub i64 %590, %592
-  %594 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv.i196
+  %594 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i196
   store i64 %593, ptr %594, align 8, !tbaa !3, !alias.scope !152
   %indvars.iv.next.i197 = add nuw nsw i64 %indvars.iv.i196, 1
   %exitcond.not.i198 = icmp eq i64 %indvars.iv.next.i197, 20
@@ -2827,12 +2825,12 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit199: ; preds = %588
 
 598:                                              ; preds = %598, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit199
   %indvars.iv.i200 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit199 ], [ %indvars.iv.next.i201, %598 ]
-  %599 = getelementptr inbounds nuw i64, ptr %596, i64 %indvars.iv.i200
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %596, i64 %indvars.iv.i200
   %600 = load i64, ptr %599, align 8, !tbaa !3, !noalias !155
-  %601 = getelementptr inbounds nuw i64, ptr %597, i64 %indvars.iv.i200
+  %601 = getelementptr inbounds nuw [8 x i8], ptr %597, i64 %indvars.iv.i200
   %602 = load i64, ptr %601, align 8, !tbaa !3, !noalias !155
   %603 = sub i64 %600, %602
-  %604 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i200
+  %604 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i200
   store i64 %603, ptr %604, align 8, !tbaa !3, !alias.scope !155
   %indvars.iv.next.i201 = add nuw nsw i64 %indvars.iv.i200, 1
   %exitcond.not.i202 = icmp eq i64 %indvars.iv.next.i201, 20
@@ -2851,12 +2849,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit203: ; preds = %598
 
 608:                                              ; preds = %608, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit203
   %indvars.iv.i204 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit203 ], [ %indvars.iv.next.i205, %608 ]
-  %609 = getelementptr inbounds nuw i64, ptr %606, i64 %indvars.iv.i204
+  %609 = getelementptr inbounds nuw [8 x i8], ptr %606, i64 %indvars.iv.i204
   %610 = load i64, ptr %609, align 8, !tbaa !3, !noalias !158
-  %611 = getelementptr inbounds nuw i64, ptr %607, i64 %indvars.iv.i204
+  %611 = getelementptr inbounds nuw [8 x i8], ptr %607, i64 %indvars.iv.i204
   %612 = load i64, ptr %611, align 8, !tbaa !3, !noalias !158
   %613 = sub i64 %610, %612
-  %614 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv.i204
+  %614 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i204
   store i64 %613, ptr %614, align 8, !tbaa !3, !alias.scope !158
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i204, 1
   %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, 20
@@ -2875,12 +2873,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit207: ; preds = %608
 
 618:                                              ; preds = %618, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit207
   %indvars.iv.i208 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit207 ], [ %indvars.iv.next.i209, %618 ]
-  %619 = getelementptr inbounds nuw i64, ptr %616, i64 %indvars.iv.i208
+  %619 = getelementptr inbounds nuw [8 x i8], ptr %616, i64 %indvars.iv.i208
   %620 = load i64, ptr %619, align 8, !tbaa !3, !noalias !161
-  %621 = getelementptr inbounds nuw i64, ptr %617, i64 %indvars.iv.i208
+  %621 = getelementptr inbounds nuw [8 x i8], ptr %617, i64 %indvars.iv.i208
   %622 = load i64, ptr %621, align 8, !tbaa !3, !noalias !161
   %623 = sub i64 %620, %622
-  %624 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv.i208
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i208
   store i64 %623, ptr %624, align 8, !tbaa !3, !alias.scope !161
   %indvars.iv.next.i209 = add nuw nsw i64 %indvars.iv.i208, 1
   %exitcond.not.i210 = icmp eq i64 %indvars.iv.next.i209, 20
@@ -2899,12 +2897,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit211: ; preds = %618
 
 628:                                              ; preds = %628, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit211
   %indvars.iv.i212 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit211 ], [ %indvars.iv.next.i213, %628 ]
-  %629 = getelementptr inbounds nuw i64, ptr %626, i64 %indvars.iv.i212
+  %629 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 %indvars.iv.i212
   %630 = load i64, ptr %629, align 8, !tbaa !3, !noalias !164
-  %631 = getelementptr inbounds nuw i64, ptr %627, i64 %indvars.iv.i212
+  %631 = getelementptr inbounds nuw [8 x i8], ptr %627, i64 %indvars.iv.i212
   %632 = load i64, ptr %631, align 8, !tbaa !3, !noalias !164
   %633 = sub i64 %630, %632
-  %634 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i212
+  %634 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i212
   store i64 %633, ptr %634, align 8, !tbaa !3, !alias.scope !164
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i212, 1
   %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, 20
@@ -2923,12 +2921,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit215: ; preds = %628
 
 638:                                              ; preds = %638, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit215
   %indvars.iv.i216 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit215 ], [ %indvars.iv.next.i217, %638 ]
-  %639 = getelementptr inbounds nuw i64, ptr %636, i64 %indvars.iv.i216
+  %639 = getelementptr inbounds nuw [8 x i8], ptr %636, i64 %indvars.iv.i216
   %640 = load i64, ptr %639, align 8, !tbaa !3, !noalias !167
-  %641 = getelementptr inbounds nuw i64, ptr %637, i64 %indvars.iv.i216
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %637, i64 %indvars.iv.i216
   %642 = load i64, ptr %641, align 8, !tbaa !3, !noalias !167
   %643 = sub i64 %640, %642
-  %644 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i216
+  %644 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i216
   store i64 %643, ptr %644, align 8, !tbaa !3, !alias.scope !167
   %indvars.iv.next.i217 = add nuw nsw i64 %indvars.iv.i216, 1
   %exitcond.not.i218 = icmp eq i64 %indvars.iv.next.i217, 20
@@ -2947,12 +2945,12 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit219: ; preds = %638
 
 648:                                              ; preds = %648, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit219
   %indvars.iv.i220 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit219 ], [ %indvars.iv.next.i221, %648 ]
-  %649 = getelementptr inbounds nuw i64, ptr %646, i64 %indvars.iv.i220
+  %649 = getelementptr inbounds nuw [8 x i8], ptr %646, i64 %indvars.iv.i220
   %650 = load i64, ptr %649, align 8, !tbaa !3, !noalias !170
-  %651 = getelementptr inbounds nuw i64, ptr %647, i64 %indvars.iv.i220
+  %651 = getelementptr inbounds nuw [8 x i8], ptr %647, i64 %indvars.iv.i220
   %652 = load i64, ptr %651, align 8, !tbaa !3, !noalias !170
   %653 = sub i64 %650, %652
-  %654 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i220
+  %654 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i220
   store i64 %653, ptr %654, align 8, !tbaa !3, !alias.scope !170
   %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i220, 1
   %exitcond.not.i222 = icmp eq i64 %indvars.iv.next.i221, 20

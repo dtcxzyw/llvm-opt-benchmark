@@ -4603,7 +4603,7 @@ _ZN5folly8fbvectorI5iovecSaIS1_EE10M_allocateEm.exit: ; preds = %_ZN5folly14good
 
 _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorI5iovecSaIS3_EE7reserveEmEUlvE_Lb1EED2Ev.exit.thread: ; preds = %_ZN5folly8fbvectorI5iovecSaIS1_EE10M_allocateEm.exit, %36
   %43 = phi i64 [ 0, %_ZN5folly8fbvectorI5iovecSaIS1_EE10M_allocateEm.exit ], [ %42, %36 ]
-  %44 = getelementptr inbounds nuw %struct.iovec, ptr %33, i64 %31
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %31
   store ptr %44, ptr %4, align 8, !tbaa !191
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !187
@@ -4752,7 +4752,7 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %23, %_ZN5folly10can
 43:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %44 = load ptr, ptr %0, align 8, !tbaa !195
   %45 = lshr i64 %.0.i, 4
-  %46 = getelementptr inbounds nuw %struct.iovec, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   store ptr %46, ptr %16, align 8, !tbaa !191
   br label %47
 
@@ -4922,7 +4922,7 @@ _ZN5folly14goodMallocSizeEm.exit25:               ; preds = %59, %_ZN5folly10can
 83:                                               ; preds = %_ZN5folly14goodMallocSizeEm.exit25
   %84 = load ptr, ptr %0, align 8, !tbaa !195
   %85 = lshr i64 %82, 4
-  %86 = getelementptr inbounds nuw %struct.iovec, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %85
   store ptr %86, ptr %6, align 8, !tbaa !191
   %87 = load ptr, ptr %60, align 8, !tbaa !187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !192
@@ -4952,7 +4952,7 @@ _ZN5folly8fbvectorI5iovecSaIS1_EE10M_allocateEm.exit: ; preds = %.critedge
 
 _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorI5iovecSaIS3_EE16emplace_back_auxIJS3_EEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread: ; preds = %_ZN5folly8fbvectorI5iovecSaIS1_EE10M_allocateEm.exit
   %98 = ashr i64 %97, 4
-  %99 = getelementptr inbounds nuw %struct.iovec, ptr %92, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !192
   br label %104
 
@@ -4970,7 +4970,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorI5iovecSaIS3_EE16emplace_back_auxI
   %105 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   store ptr %92, ptr %0, align 8, !tbaa !195
   store ptr %105, ptr %94, align 8, !tbaa !187
-  %106 = getelementptr inbounds nuw %struct.iovec, ptr %92, i64 %90
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %90
   store ptr %106, ptr %6, align 8, !tbaa !191
   br label %107
 
@@ -4990,7 +4990,7 @@ define void @_ZN5folly5IOBuf7wrapIovEPK5iovecm(ptr dead_on_unwind noalias writab
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.us
   %.01238.us = phi i64 [ %20, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.us ], [ 0, %.lr.ph ]
   %.sroa.026.037.us = phi ptr [ %.sroa.026.1.us, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.us ], [ null, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.01238.us
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.01238.us
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !186
   %.not.us = icmp eq i64 %6, 0
@@ -5040,7 +5040,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.us: ; preds = 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   %.01238 = phi i64 [ %37, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ 0, %.lr.ph ]
   %.sroa.026.037 = phi ptr [ %.sroa.026.1, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ null, %.lr.ph ]
-  %21 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.01238
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.01238
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !186
   %.not = icmp eq i64 %23, 0
@@ -5132,7 +5132,7 @@ define void @_ZN5folly5IOBuf16takeOwnershipIovEPK5iovecmPFvPvS4_ES4_b(ptr dead_o
 .lr.ph:                                           ; preds = %6, %21
   %.01540 = phi i64 [ %22, %21 ], [ 0, %6 ]
   %.sroa.0.039 = phi ptr [ %.sroa.0.1, %21 ], [ null, %6 ]
-  %8 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.01540
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.01540
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !186
   %.not = icmp eq i64 %10, 0
@@ -5221,7 +5221,7 @@ define { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull reado
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !69
-  %11 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.016
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.016
   store ptr %10, ptr %11, align 8, !tbaa !184
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %7, ptr %12, align 8, !tbaa !186

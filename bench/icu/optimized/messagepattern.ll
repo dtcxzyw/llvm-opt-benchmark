@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/messagepattern.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_77::MessagePattern::Part" = type { i32, i32, i16, i16, i32 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -873,7 +872,7 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   store i32 %38, ptr %14, align 8, !tbaa !32
   %39 = sext i32 %36 to i64
   %40 = load ptr, ptr %37, align 8, !tbaa !23
-  %41 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %40, i64 %39
+  %41 = getelementptr inbounds [16 x i8], ptr %40, i64 %39
   store i32 0, ptr %41, align 4, !tbaa !44
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %1, ptr %42, align 4, !tbaa !48
@@ -926,7 +925,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %68
   %72 = load ptr, ptr %54, align 8
   %73 = select i1 %.not.i.i.i115, ptr %72, ptr %53
   %74 = sext i32 %.0102227 to i64
-  %75 = getelementptr inbounds i16, ptr %73, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %73, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !30
   %77 = icmp eq i16 %76, 39
   br i1 %77, label %78, label %329
@@ -991,7 +990,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %104, ptr %14, align 8, !tbaa !32
   %105 = sext i32 %102 to i64
   %106 = load ptr, ptr %103, align 8, !tbaa !23
-  %107 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %106, i64 %105
+  %107 = getelementptr inbounds [16 x i8], ptr %106, i64 %105
   store i32 3, ptr %107, align 4, !tbaa !44
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %67, ptr %108, align 4, !tbaa !48
@@ -1013,7 +1012,7 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit127:      ; preds = %112
   %114 = sext i32 %69 to i64
-  %115 = getelementptr inbounds i16, ptr %73, i64 %114
+  %115 = getelementptr inbounds [2 x i8], ptr %73, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !30
   %117 = icmp eq i16 %116, 39
   br i1 %117, label %118, label %_ZNK6icu_7713UnicodeString6charAtEi.exit127.thread
@@ -1075,7 +1074,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %143, ptr %14, align 8, !tbaa !32
   %144 = sext i32 %141 to i64
   %145 = load ptr, ptr %142, align 8, !tbaa !23
-  %146 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %145, i64 %144
+  %146 = getelementptr inbounds [16 x i8], ptr %145, i64 %144
   store i32 2, ptr %146, align 4, !tbaa !44
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %69, ptr %147, align 4, !tbaa !48
@@ -1164,7 +1163,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %180, ptr %14, align 8, !tbaa !32
   %181 = sext i32 %178 to i64
   %182 = load ptr, ptr %179, align 8, !tbaa !23
-  %183 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %182, i64 %181
+  %183 = getelementptr inbounds [16 x i8], ptr %182, i64 %181
   store i32 2, ptr %183, align 4, !tbaa !44
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i32 %.0102227, ptr %184, align 4, !tbaa !48
@@ -1229,7 +1228,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit149:      ; preds = %202
   %212 = load ptr, ptr %54, align 8
   %213 = select i1 %.not.i.i.i148, ptr %212, ptr %53
   %214 = zext nneg i32 %203 to i64
-  %215 = getelementptr inbounds nuw i16, ptr %213, i64 %214
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %213, i64 %214
   %216 = load i16, ptr %215, align 2, !tbaa !30
   %217 = icmp eq i16 %216, 39
   br i1 %217, label %218, label %_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread
@@ -1298,7 +1297,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %245, ptr %14, align 8, !tbaa !32
   %246 = sext i32 %243 to i64
   %247 = load ptr, ptr %244, align 8, !tbaa !23
-  %248 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %247, i64 %246
+  %248 = getelementptr inbounds [16 x i8], ptr %247, i64 %246
   store i32 2, ptr %248, align 4, !tbaa !44
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
   store i32 %203, ptr %249, align 4, !tbaa !48
@@ -1371,7 +1370,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %279, ptr %14, align 8, !tbaa !32
   %280 = sext i32 %277 to i64
   %281 = load ptr, ptr %278, align 8, !tbaa !23
-  %282 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %281, i64 %280
+  %282 = getelementptr inbounds [16 x i8], ptr %281, i64 %280
   store i32 2, ptr %282, align 4, !tbaa !44
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 %200, ptr %283, align 4, !tbaa !48
@@ -1450,7 +1449,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %320, ptr %14, align 8, !tbaa !32
   %321 = sext i32 %318 to i64
   %322 = load ptr, ptr %319, align 8, !tbaa !23
-  %323 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %322, i64 %321
+  %323 = getelementptr inbounds [16 x i8], ptr %322, i64 %321
   store i32 3, ptr %323, align 4, !tbaa !44
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 4
   store i32 %293, ptr %324, align 4, !tbaa !48
@@ -1532,7 +1531,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %355, ptr %14, align 8, !tbaa !32
   %356 = sext i32 %353 to i64
   %357 = load ptr, ptr %354, align 8, !tbaa !23
-  %358 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %357, i64 %356
+  %358 = getelementptr inbounds [16 x i8], ptr %357, i64 %356
   store i32 4, ptr %358, align 4, !tbaa !44
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 4
   store i32 %.0102227, ptr %359, align 4, !tbaa !48
@@ -1567,7 +1566,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %373 = load ptr, ptr %16, align 8, !tbaa !22
   %374 = sext i32 %15 to i64
   %375 = load ptr, ptr %373, align 8, !tbaa !23
-  %376 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %375, i64 %374
+  %376 = getelementptr inbounds [16 x i8], ptr %375, i64 %374
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 12
   store i32 %372, ptr %377, align 4, !tbaa !51
   %378 = getelementptr inbounds nuw i8, ptr %373, i64 8
@@ -1623,7 +1622,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %399 = add nsw i32 %398, 1
   store i32 %399, ptr %14, align 8, !tbaa !32
   %400 = sext i32 %398 to i64
-  %401 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %397, i64 %400
+  %401 = getelementptr inbounds [16 x i8], ptr %397, i64 %400
   store i32 1, ptr %401, align 4, !tbaa !44
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 4
   store i32 %.0102227, ptr %402, align 4, !tbaa !48
@@ -1677,7 +1676,7 @@ _ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.ex
   %417 = phi ptr [ %.pre235, %._crit_edge ], [ %412, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit ]
   %418 = load i32, ptr %14, align 8, !tbaa !32
   %419 = sext i32 %15 to i64
-  %420 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %416, i64 %419
+  %420 = getelementptr inbounds [16 x i8], ptr %416, i64 %419
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 12
   store i32 %418, ptr %421, align 4, !tbaa !51
   %422 = getelementptr inbounds nuw i8, ptr %417, i64 8
@@ -1733,7 +1732,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %443 = add nsw i32 %442, 1
   store i32 %443, ptr %14, align 8, !tbaa !32
   %444 = sext i32 %442 to i64
-  %445 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %441, i64 %444
+  %445 = getelementptr inbounds [16 x i8], ptr %441, i64 %444
   store i32 1, ptr %445, align 4, !tbaa !44
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 4
   store i32 %.0102227, ptr %446, align 4, !tbaa !48
@@ -1874,7 +1873,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit: ; preds = %8, %14, %16
   %23 = load i32, ptr %22, align 4
   %24 = select i1 %19, i32 %23, i32 %21
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds i16, ptr %.0.i.i, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %25
   %27 = sub nsw i32 %24, %1
   %28 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %26, i32 noundef %27)
   %29 = ptrtoint ptr %28 to i64
@@ -1917,7 +1916,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %42
   %54 = select i1 %.not.i.i.i, ptr %53, ptr %51
   %sext = shl i64 %31, 31
   %55 = ashr i64 %sext, 32
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %54, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !30
   %58 = icmp eq i16 %57, 125
   br i1 %58, label %59, label %.critedge.preheader
@@ -1974,7 +1973,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %71, %_ZNK6icu_7713U
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %84) #18, !srcloc !55
   %85 = sext i32 %.1.i to i64
-  %86 = getelementptr inbounds i16, ptr %84, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %84, i64 %85
   store i16 0, ptr %86, align 2, !tbaa !30
   br label %.thread.sink.split
 
@@ -2002,7 +2001,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i: ; preds = %_ZNK6icu_7713Unicod
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %.thread39.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ %95, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i ], [ %indvars.iv.next.i, %.thread39.i ]
-  %97 = getelementptr inbounds i16, ptr %94, i64 %indvars.iv.i
+  %97 = getelementptr inbounds [2 x i8], ptr %94, i64 %indvars.iv.i
   %98 = load i16, ptr %97, align 2, !tbaa !30
   %99 = icmp ult i16 %98, 48
   br i1 %99, label %switch.early.test.i, label %100
@@ -2080,7 +2079,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit77: ; preds = %112
   %122 = load i32, ptr %22, align 4
   %123 = select i1 %119, i32 %122, i32 %121
   %124 = sext i32 %.031.lcssa.i to i64
-  %125 = getelementptr inbounds i16, ptr %.0.i.i75, i64 %124
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i.i75, i64 %124
   %126 = sub nsw i32 %123, %.031.lcssa.i
   %127 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %125, i32 noundef %126)
   %128 = ptrtoint ptr %127 to i64
@@ -2112,7 +2111,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit80:       ; preds = %141
   %145 = select i1 %.not.i.i.i79, ptr %144, ptr %45
   %sext94 = shl i64 %130, 31
   %146 = ashr i64 %sext94, 32
-  %147 = getelementptr inbounds i16, ptr %145, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr %145, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !30
   switch i16 %148, label %_ZNK6icu_7713UnicodeString6charAtEi.exit80.thread [
     i16 8804, label %149
@@ -2185,7 +2184,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %176, ptr %48, align 8, !tbaa !32
   %177 = sext i32 %174 to i64
   %178 = load ptr, ptr %175, align 8, !tbaa !23
-  %179 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %178, i64 %177
+  %179 = getelementptr inbounds [16 x i8], ptr %178, i64 %177
   store i32 11, ptr %179, align 4, !tbaa !44
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   store i32 %132, ptr %180, align 4, !tbaa !48
@@ -2224,7 +2223,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit85:       ; preds = %196
   %199 = load ptr, ptr %46, align 8
   %200 = select i1 %.not.i.i.i84, ptr %199, ptr %45
   %201 = sext i32 %185 to i64
-  %202 = getelementptr inbounds i16, ptr %200, i64 %201
+  %202 = getelementptr inbounds [2 x i8], ptr %200, i64 %201
   %203 = load i16, ptr %202, align 2, !tbaa !30
   %204 = icmp eq i16 %203, 125
   br i1 %204, label %205, label %_ZNK6icu_7713UnicodeString6charAtEi.exit85.thread
@@ -2369,7 +2368,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit: ; preds = %_ZN6icu_7714Messag
   %26 = load i32, ptr %10, align 4
   %27 = select i1 %23, i32 %26, i32 %25
   %28 = sext i32 %.0102 to i64
-  %29 = getelementptr inbounds i16, ptr %.0.i.i, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %28
   %30 = sub nsw i32 %27, %.0102
   %31 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %29, i32 noundef %30)
   %32 = ptrtoint ptr %31 to i64
@@ -2397,7 +2396,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %44
   %48 = select i1 %.not.i.i.i, ptr %47, ptr %11
   %sext = shl i64 %34, 31
   %49 = ashr i64 %sext, 32
-  %50 = getelementptr inbounds i16, ptr %48, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !30
   %52 = icmp eq i16 %51, 125
   br i1 %52, label %53, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -2478,7 +2477,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %78, %_ZNK6icu_7713U
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %89) #18, !srcloc !55
   %90 = sext i32 %.1.i to i64
-  %91 = getelementptr inbounds i16, ptr %89, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %89, i64 %90
   store i16 0, ptr %91, align 2, !tbaa !30
   br label %.thread201.sink.split
 
@@ -2508,7 +2507,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit142:      ; preds = %95
   %97 = select i1 %.not.i.i.i141, ptr %.pre, ptr %11
   %sext214 = shl i64 %34, 31
   %98 = ashr i64 %sext214, 32
-  %99 = getelementptr inbounds i16, ptr %97, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %97, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = icmp eq i16 %100, 61
   br i1 %101, label %102, label %_ZNK6icu_7713UnicodeString6charAtEi.exit142.thread
@@ -2527,7 +2526,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i: ; preds = %102
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %.thread39.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ %106, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i ], [ %indvars.iv.next.i, %.thread39.i ]
-  %108 = getelementptr inbounds i16, ptr %97, i64 %indvars.iv.i
+  %108 = getelementptr inbounds [2 x i8], ptr %97, i64 %indvars.iv.i
   %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = icmp ult i16 %109, 48
   br i1 %110, label %switch.early.test.i, label %111
@@ -2645,7 +2644,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %151, ptr %17, align 8, !tbaa !32
   %152 = sext i32 %149 to i64
   %153 = load ptr, ptr %150, align 8, !tbaa !23
-  %154 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %153, i64 %152
+  %154 = getelementptr inbounds [16 x i8], ptr %153, i64 %152
   store i32 11, ptr %154, align 4, !tbaa !44
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store i32 %36, ptr %155, align 4, !tbaa !48
@@ -2671,7 +2670,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit142.thread: ; preds = %_ZNK6icu_7713Unic
   %.0.i.i146 = select i1 %.not.i.i145, ptr %spec.select283, ptr null
   %sext215 = shl i64 %34, 31
   %163 = ashr i64 %sext215, 32
-  %164 = getelementptr inbounds i16, ptr %.0.i.i146, i64 %163
+  %164 = getelementptr inbounds [2 x i8], ptr %.0.i.i146, i64 %163
   %165 = sub nsw i32 %42, %36
   %166 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef %164, i32 noundef %165)
   %167 = ptrtoint ptr %166 to i64
@@ -2730,7 +2729,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit151: ; preds = %188
   %198 = load i32, ptr %10, align 4
   %199 = select i1 %195, i32 %198, i32 %197
   %200 = sext i32 %190 to i64
-  %201 = getelementptr inbounds i16, ptr %.0.i.i149, i64 %200
+  %201 = getelementptr inbounds [2 x i8], ptr %.0.i.i149, i64 %200
   %202 = sub nsw i32 %199, %190
   %203 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %201, i32 noundef %202)
   %204 = ptrtoint ptr %203 to i64
@@ -2761,7 +2760,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i154: ; preds = %_ZN6icu_7714Mess
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.i156:    ; preds = %.thread39.i158, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i154
   %indvars.iv.i157 = phi i64 [ %220, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i154 ], [ %indvars.iv.next.i159, %.thread39.i158 ]
-  %222 = getelementptr inbounds i16, ptr %219, i64 %indvars.iv.i157
+  %222 = getelementptr inbounds [2 x i8], ptr %219, i64 %indvars.iv.i157
   %223 = load i16, ptr %222, align 2, !tbaa !30
   %224 = icmp ult i16 %223, 48
   br i1 %224, label %switch.early.test.i163, label %225
@@ -2893,7 +2892,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %269, ptr %17, align 8, !tbaa !32
   %270 = sext i32 %267 to i64
   %271 = load ptr, ptr %268, align 8, !tbaa !23
-  %272 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %271, i64 %270
+  %272 = getelementptr inbounds [16 x i8], ptr %271, i64 %270
   store i32 11, ptr %272, align 4, !tbaa !44
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 4
   store i32 %36, ptr %273, align 4, !tbaa !48
@@ -2934,7 +2933,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit178: ; preds = %281
   %291 = load i32, ptr %10, align 4
   %292 = select i1 %288, i32 %291, i32 %290
   %293 = sext i32 %.3105 to i64
-  %294 = getelementptr inbounds i16, ptr %.0.i.i176, i64 %293
+  %294 = getelementptr inbounds [2 x i8], ptr %.0.i.i176, i64 %293
   %295 = sub nsw i32 %292, %.3105
   %296 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %294, i32 noundef %295)
   %297 = ptrtoint ptr %296 to i64
@@ -2958,7 +2957,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit181:      ; preds = %_ZN6icu_7714Message
   %311 = select i1 %.not.i.i.i180, ptr %310, ptr %11
   %sext216 = shl i64 %299, 31
   %312 = ashr i64 %sext216, 32
-  %313 = getelementptr inbounds i16, ptr %311, i64 %312
+  %313 = getelementptr inbounds [2 x i8], ptr %311, i64 %312
   %314 = load i16, ptr %313, align 2, !tbaa !30
   %.not134 = icmp eq i16 %314, 123
   br i1 %.not134, label %315, label %_ZNK6icu_7713UnicodeString6charAtEi.exit181.thread
@@ -3128,8 +3127,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %19
 
 .lr.ph.split.i:                                   ; preds = %_ZNK6icu_7714MessagePattern4PartneERKS1_.exit.thread11.i, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %_ZNK6icu_7714MessagePattern4PartneERKS1_.exit.thread11.i ]
-  %57 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %54, i64 %indvars.iv.i
-  %58 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv.i
   %59 = load i32, ptr %57, align 4, !tbaa !44
   %60 = load i32, ptr %58, align 4, !tbaa !44
   %61 = icmp eq i32 %59, %60
@@ -3205,7 +3204,7 @@ define noundef i32 @_ZNK6icu_7714MessagePattern8hashCodeEv(ptr noundef nonnull a
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.056 = phi i32 [ %11, %.lr.ph ], [ %30, %15 ]
-  %16 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !44
   %18 = mul nsw i32 %17, 37
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -3313,7 +3312,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %19
   br i1 %exitcond.not, label %_ZN6icu_7714MessagePattern14parseArgNumberERKNS_13UnicodeStringEii.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38.i
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit38.i:     ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv.i
   %41 = load i16, ptr %40, align 2, !tbaa !30
   %42 = add i16 %41, -48
   %or.cond5.i = icmp ult i16 %42, 10
@@ -3368,7 +3367,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %4
   %18 = load ptr, ptr %17, align 8
   %19 = select i1 %.not.i.i.i, ptr %18, ptr %16
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !30
   %23 = zext i16 %22 to i32
   %24 = icmp eq i16 %22, 48
@@ -3407,7 +3406,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %4
   br i1 %36, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38, label %.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit38:       ; preds = %34
-  %37 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv
+  %37 = getelementptr inbounds [2 x i8], ptr %19, i64 %indvars.iv
   %38 = load i16, ptr %37, align 2, !tbaa !30
   %39 = add i16 %38, -48
   %or.cond5 = icmp ult i16 %39, 10
@@ -3461,7 +3460,7 @@ define void @_ZNK6icu_7714MessagePattern23autoQuoteApostropheDeepEv(ptr dead_on_
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %14 = load ptr, ptr %11, align 8, !tbaa !26
-  %15 = getelementptr inbounds nuw %"class.icu_77::MessagePattern::Part", ptr %14, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.next
   %16 = load i32, ptr %15, align 4, !tbaa !44
   %17 = icmp eq i32 %16, 3
   br i1 %17, label %18, label %26
@@ -3514,7 +3513,7 @@ define noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %12 = load i16, ptr %11, align 2, !tbaa !50
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds double, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load double, ptr %14, align 8, !tbaa !62
   br label %16
 
@@ -3528,7 +3527,7 @@ define noundef double @_ZNK6icu_7714MessagePattern15getPluralOffsetEi(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !44
   %8 = and i32 %7, -2
   %.not = icmp eq i32 %8, 12
@@ -3550,7 +3549,7 @@ define noundef double @_ZNK6icu_7714MessagePattern15getPluralOffsetEi(ptr nounde
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %19 = load i16, ptr %18, align 2, !tbaa !50
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds double, ptr %17, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !62
   br label %_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE.exit
 
@@ -3671,7 +3670,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %35, ptr %9, align 8, !tbaa !32
   %36 = sext i32 %33 to i64
   %37 = load ptr, ptr %34, align 8, !tbaa !23
-  %38 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %37, i64 %36
+  %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %36
   store i32 %1, ptr %38, align 4, !tbaa !44
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %2, ptr %39, align 4, !tbaa !48
@@ -3756,7 +3755,7 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   store i32 %36, ptr %7, align 8, !tbaa !32
   %37 = sext i32 %34 to i64
   %38 = load ptr, ptr %35, align 8, !tbaa !23
-  %39 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %38, i64 %37
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %37
   store i32 5, ptr %39, align 4, !tbaa !44
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %1, ptr %40, align 4, !tbaa !48
@@ -3800,7 +3799,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit: ; preds = %45, %52, %54
   %61 = load i32, ptr %60, align 4
   %62 = select i1 %57, i32 %61, i32 %59
   %63 = sext i32 %46 to i64
-  %64 = getelementptr inbounds i16, ptr %.0.i.i, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %63
   %65 = sub nsw i32 %62, %46
   %66 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %64, i32 noundef %65)
   %67 = ptrtoint ptr %66 to i64
@@ -3870,7 +3869,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %92, %_ZNK6icu_7713U
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %105) #18, !srcloc !55
   %106 = sext i32 %.1.i to i64
-  %107 = getelementptr inbounds i16, ptr %105, i64 %106
+  %107 = getelementptr inbounds [2 x i8], ptr %105, i64 %106
   store i16 0, ptr %107, align 2, !tbaa !30
   br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit
 
@@ -3911,7 +3910,7 @@ _ZN6icu_7714MessagePattern14skipIdentifierEi.exit: ; preds = %110, %114, %116
   %.0.i.i151 = phi ptr [ %118, %116 ], [ %115, %114 ], [ null, %110 ]
   %sext = shl i64 %69, 31
   %119 = ashr i64 %sext, 32
-  %120 = getelementptr inbounds i16, ptr %.0.i.i151, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %.0.i.i151, i64 %119
   %121 = sub nsw i32 %78, %71
   %122 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef %120, i32 noundef %121)
   %123 = ptrtoint ptr %122 to i64
@@ -3940,7 +3939,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i.i:     ; preds = %128
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %140 = load ptr, ptr %139, align 8
   %141 = select i1 %.not.i.i.i.i.i, ptr %140, ptr %138
-  %142 = getelementptr inbounds i16, ptr %141, i64 %119
+  %142 = getelementptr inbounds [2 x i8], ptr %141, i64 %119
   %143 = load i16, ptr %142, align 2, !tbaa !30
   %144 = zext i16 %143 to i32
   %145 = icmp eq i16 %143, 48
@@ -3979,7 +3978,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i.i:     ; preds = %128
   br i1 %157, label %_ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i:   ; preds = %155
-  %158 = getelementptr inbounds i16, ptr %141, i64 %indvars.iv.i.i
+  %158 = getelementptr inbounds [2 x i8], ptr %141, i64 %indvars.iv.i.i
   %159 = load i16, ptr %158, align 2, !tbaa !30
   %160 = add i16 %159, -48
   %or.cond5.i.i = icmp ult i16 %160, 10
@@ -4077,7 +4076,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %199, ptr %7, align 8, !tbaa !32
   %200 = sext i32 %197 to i64
   %201 = load ptr, ptr %198, align 8, !tbaa !23
-  %202 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %201, i64 %200
+  %202 = getelementptr inbounds [16 x i8], ptr %201, i64 %200
   store i32 7, ptr %202, align 4, !tbaa !44
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   store i32 %71, ptr %203, align 4, !tbaa !48
@@ -4150,7 +4149,7 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit167: ; preds = %_ZN6icu_7714Mes
   %227 = select i1 %223, i32 %226, i32 %225
   %sext224 = shl i64 %125, 31
   %228 = ashr i64 %sext224, 32
-  %229 = getelementptr inbounds i16, ptr %.0.i.i165, i64 %228
+  %229 = getelementptr inbounds [2 x i8], ptr %.0.i.i165, i64 %228
   %230 = sub nsw i32 %227, %127
   %231 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %229, i32 noundef %230)
   %232 = ptrtoint ptr %231 to i64
@@ -4219,7 +4218,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i170:       ; preds = %256, %_ZNK6icu_7713
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i172: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i170
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %269) #18, !srcloc !55
   %270 = sext i32 %.1.i171 to i64
-  %271 = getelementptr inbounds i16, ptr %269, i64 %270
+  %271 = getelementptr inbounds [2 x i8], ptr %269, i64 %270
   store i16 0, ptr %271, align 2, !tbaa !30
   br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit174
 
@@ -4246,7 +4245,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %274
   %280 = select i1 %.not.i.i.i176, ptr %279, ptr %277
   %sext225 = shl i64 %234, 31
   %281 = ashr i64 %sext225, 32
-  %282 = getelementptr inbounds i16, ptr %280, i64 %281
+  %282 = getelementptr inbounds [2 x i8], ptr %280, i64 %281
   %283 = load i16, ptr %282, align 2, !tbaa !30
   switch i16 %283, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread [
     i16 125, label %.thread261
@@ -4283,7 +4282,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit179.lr.ph: ; preds = %284
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit179:      ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit179.lr.ph, %304
   %indvars.iv = phi i64 [ %298, %_ZNK6icu_7713UnicodeString6charAtEi.exit179.lr.ph ], [ %indvars.iv.next, %304 ]
-  %300 = getelementptr inbounds i16, ptr %297, i64 %indvars.iv
+  %300 = getelementptr inbounds [2 x i8], ptr %297, i64 %indvars.iv
   %301 = load i16, ptr %300, align 2, !tbaa !30
   %302 = and i16 %301, -33
   %303 = add i16 %302, -91
@@ -4332,7 +4331,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182:      ; preds = %319
   %323 = load ptr, ptr %278, align 8
   %324 = select i1 %.not.i.i.i181, ptr %323, ptr %277
   %325 = sext i32 %310 to i64
-  %326 = getelementptr inbounds i16, ptr %324, i64 %325
+  %326 = getelementptr inbounds [2 x i8], ptr %324, i64 %325
   %327 = load i16, ptr %326, align 2, !tbaa !30
   switch i16 %327, label %_ZNK6icu_7713UnicodeString6charAtEi.exit182.thread [
     i16 125, label %328
@@ -4376,7 +4375,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %339 = load ptr, ptr %9, align 8, !tbaa !22
   %340 = sext i32 %8 to i64
   %341 = load ptr, ptr %339, align 8, !tbaa !23
-  %342 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %341, i64 %340
+  %342 = getelementptr inbounds [16 x i8], ptr %341, i64 %340
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 10
   store i16 %338, ptr %343, align 2, !tbaa !50
   br i1 %.not143, label %.thread257, label %360
@@ -4390,7 +4389,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %346 = load ptr, ptr %9, align 8, !tbaa !22
   %347 = sext i32 %8 to i64
   %348 = load ptr, ptr %346, align 8, !tbaa !23
-  %349 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %348, i64 %347
+  %349 = getelementptr inbounds [16 x i8], ptr %348, i64 %347
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 10
   store i16 1, ptr %350, align 2, !tbaa !50
   br label %.thread257
@@ -4403,7 +4402,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %355 = load ptr, ptr %9, align 8, !tbaa !22
   %356 = sext i32 %8 to i64
   %357 = load ptr, ptr %355, align 8, !tbaa !23
-  %358 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %357, i64 %356
+  %358 = getelementptr inbounds [16 x i8], ptr %357, i64 %356
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 10
   store i16 %354, ptr %359, align 2, !tbaa !50
   br i1 %.not140, label %.thread257, label %360
@@ -4422,7 +4421,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %363 = load ptr, ptr %9, align 8, !tbaa !22
   %364 = sext i32 %8 to i64
   %365 = load ptr, ptr %363, align 8, !tbaa !23
-  %366 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %365, i64 %364
+  %366 = getelementptr inbounds [16 x i8], ptr %365, i64 %364
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 10
   store i16 2, ptr %367, align 2, !tbaa !50
   %368 = icmp eq i16 %327, 125
@@ -4432,7 +4431,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit182.thread: ; preds = %_ZNK6icu_7713Unic
   %369 = load ptr, ptr %9, align 8, !tbaa !22
   %370 = sext i32 %8 to i64
   %371 = load ptr, ptr %369, align 8, !tbaa !23
-  %372 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %371, i64 %370
+  %372 = getelementptr inbounds [16 x i8], ptr %371, i64 %370
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 10
   store i16 3, ptr %373, align 2, !tbaa !50
   %374 = icmp eq i16 %327, 125
@@ -4479,7 +4478,7 @@ define void @_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartType
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !23
-  %14 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %13, i64 %12
+  %14 = getelementptr inbounds [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %9, ptr %15, align 4, !tbaa !51
   %16 = load i32, ptr %6, align 4, !tbaa !20
@@ -4540,7 +4539,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %8, align 8, !tbaa !32
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %38, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %38, i64 %41
   store i32 %2, ptr %42, align 4, !tbaa !44
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %3, ptr %43, align 4, !tbaa !48
@@ -4611,7 +4610,7 @@ define void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr nound
   %23 = load ptr, ptr %22, align 8
   %24 = select i1 %.not.i.i.i, ptr %23, ptr %21
   %25 = zext nneg i32 %9 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !30
   %28 = and i16 %27, -1024
   %29 = icmp eq i16 %28, -9216
@@ -4629,7 +4628,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %19, %8, %5
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %33) #18, !srcloc !55
   %34 = sext i32 %.029 to i64
-  %35 = getelementptr inbounds i16, ptr %33, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %33, i64 %34
   store i16 0, ptr %35, align 2, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i16, ptr %36, align 8, !tbaa !19
@@ -4656,7 +4655,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %_ZNK6icu_7
   %53 = load ptr, ptr %52, align 8
   %54 = select i1 %.not.i.i.i37, ptr %53, ptr %51
   %55 = sext i32 %47 to i64
-  %56 = getelementptr inbounds i16, ptr %54, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %54, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !30
   %58 = and i16 %57, -1024
   %59 = icmp eq i16 %58, -10240
@@ -4678,7 +4677,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38:            ; preds = %49, %46, %_ZNK6icu_
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %63) #18, !srcloc !55
   %64 = sext i32 %.1 to i64
-  %65 = getelementptr inbounds i16, ptr %63, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %63, i64 %64
   store i16 0, ptr %65, align 2, !tbaa !30
   br label %66
 
@@ -4727,7 +4726,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %8, %10
   %17 = load i32, ptr %16, align 4
   %18 = select i1 %13, i32 %17, i32 %15
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds i16, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %19
   %21 = sub nsw i32 %18, %1
   %22 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %20, i32 noundef %21)
   %23 = ptrtoint ptr %22 to i64
@@ -4769,7 +4768,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %2, %8, %10
   %17 = load i32, ptr %16, align 4
   %18 = select i1 %13, i32 %17, i32 %15
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds i16, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %19
   %21 = sub nsw i32 %18, %1
   %22 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef %20, i32 noundef %21)
   %23 = ptrtoint ptr %22 to i64
@@ -4810,7 +4809,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %.not.i.i.i, ptr %15, ptr %13
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !30
   %20 = and i16 %19, -33
   %or.cond = icmp eq i16 %20, 67
@@ -4823,7 +4822,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit28:       ; preds = %21
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i16, ptr %16, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %16, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !30
   %27 = and i16 %26, -33
   %or.cond5 = icmp eq i16 %27, 72
@@ -4836,7 +4835,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit28:       ; preds = %21
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit31:       ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %16, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %16, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !30
   %34 = and i16 %33, -33
   %or.cond8 = icmp eq i16 %34, 79
@@ -4849,7 +4848,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit31:       ; preds = %28
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit34:       ; preds = %35
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds i16, ptr %16, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %16, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !30
   %41 = and i16 %40, -33
   %or.cond11 = icmp eq i16 %41, 73
@@ -4862,7 +4861,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit34:       ; preds = %35
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %42
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds i16, ptr %16, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %16, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !30
   %48 = and i16 %47, -33
   %or.cond14 = icmp eq i16 %48, 67
@@ -4875,7 +4874,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %42
 
 52:                                               ; preds = %49
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds i16, ptr %16, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %16, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !30
   %56 = and i16 %55, -33
   %57 = icmp eq i16 %56, 69
@@ -4908,7 +4907,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %.not.i.i.i, ptr %15, ptr %13
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !30
   %20 = and i16 %19, -33
   %or.cond = icmp eq i16 %20, 80
@@ -4921,7 +4920,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit28:       ; preds = %21
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i16, ptr %16, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %16, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !30
   %27 = and i16 %26, -33
   %or.cond5 = icmp eq i16 %27, 76
@@ -4934,7 +4933,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit28:       ; preds = %21
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit31:       ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %16, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %16, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !30
   %34 = and i16 %33, -33
   %or.cond8 = icmp eq i16 %34, 85
@@ -4947,7 +4946,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit31:       ; preds = %28
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit34:       ; preds = %35
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds i16, ptr %16, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %16, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !30
   %41 = and i16 %40, -33
   %or.cond11 = icmp eq i16 %41, 82
@@ -4960,7 +4959,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit34:       ; preds = %35
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %42
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds i16, ptr %16, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %16, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !30
   %48 = and i16 %47, -33
   %or.cond14 = icmp eq i16 %48, 65
@@ -4973,7 +4972,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %42
 
 52:                                               ; preds = %49
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds i16, ptr %16, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %16, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !30
   %56 = and i16 %55, -33
   %57 = icmp eq i16 %56, 76
@@ -5006,7 +5005,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %.not.i.i.i, ptr %15, ptr %13
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !30
   %20 = and i16 %19, -33
   %or.cond = icmp eq i16 %20, 83
@@ -5019,7 +5018,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit28:       ; preds = %21
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i16, ptr %16, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %16, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !30
   %27 = and i16 %26, -33
   %or.cond5 = icmp eq i16 %27, 69
@@ -5032,7 +5031,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit28:       ; preds = %21
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit31:       ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %16, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %16, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !30
   %34 = and i16 %33, -33
   %or.cond8 = icmp eq i16 %34, 76
@@ -5045,7 +5044,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit31:       ; preds = %28
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit34:       ; preds = %35
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds i16, ptr %16, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %16, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !30
   %41 = and i16 %40, -33
   %or.cond11 = icmp eq i16 %41, 69
@@ -5058,7 +5057,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit34:       ; preds = %35
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %42
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds i16, ptr %16, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %16, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !30
   %48 = and i16 %47, -33
   %or.cond14 = icmp eq i16 %48, 67
@@ -5071,7 +5070,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit37:       ; preds = %42
 
 52:                                               ; preds = %49
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds i16, ptr %16, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %16, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !30
   %56 = and i16 %55, -33
   %57 = icmp eq i16 %56, 84
@@ -5104,7 +5103,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
   %15 = load ptr, ptr %14, align 8
   %16 = select i1 %.not.i.i.i, ptr %15, ptr %13
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !30
   %20 = and i16 %19, -33
   %or.cond = icmp eq i16 %20, 79
@@ -5117,7 +5116,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit33:       ; preds = %21
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i16, ptr %16, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %16, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !30
   %27 = and i16 %26, -33
   %or.cond5 = icmp eq i16 %27, 82
@@ -5130,7 +5129,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit33:       ; preds = %21
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit36:       ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %16, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %16, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !30
   %34 = and i16 %33, -33
   %or.cond8 = icmp eq i16 %34, 68
@@ -5143,7 +5142,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit36:       ; preds = %28
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit39:       ; preds = %35
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds i16, ptr %16, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %16, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !30
   %41 = and i16 %40, -33
   %or.cond11 = icmp eq i16 %41, 73
@@ -5156,7 +5155,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit39:       ; preds = %35
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit42:       ; preds = %42
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds i16, ptr %16, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %16, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !30
   %48 = and i16 %47, -33
   %or.cond14 = icmp eq i16 %48, 78
@@ -5169,7 +5168,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit42:       ; preds = %42
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit45:       ; preds = %49
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds i16, ptr %16, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %16, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !30
   %55 = and i16 %54, -33
   %or.cond17 = icmp eq i16 %55, 65
@@ -5182,7 +5181,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit45:       ; preds = %49
 
 59:                                               ; preds = %56
   %60 = sext i32 %57 to i64
-  %61 = getelementptr inbounds i16, ptr %16, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %16, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !30
   %63 = and i16 %62, -33
   %64 = icmp eq i16 %63, 76
@@ -5236,7 +5235,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %19
   %28 = load ptr, ptr %18, align 8
   %29 = select i1 %.not.i.i.i, ptr %28, ptr %17
   %30 = sext i32 %.03254 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !30
   switch i16 %32, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit [
     i16 39, label %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit
@@ -5349,7 +5348,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %80, ptr %54, align 8, !tbaa !32
   %81 = sext i32 %78 to i64
   %82 = load ptr, ptr %79, align 8, !tbaa !23
-  %83 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %82, i64 %81
+  %83 = getelementptr inbounds [16 x i8], ptr %82, i64 %81
   store i32 10, ptr %83, align 4, !tbaa !44
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 %1, ptr %84, align 4, !tbaa !48
@@ -5426,7 +5425,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit38.i:          ; preds = %107, %_ZNK6icu_7713
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %120) #18, !srcloc !55
   %121 = sext i32 %.1.i to i64
-  %122 = getelementptr inbounds i16, ptr %120, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %120, i64 %121
   store i16 0, ptr %122, align 2, !tbaa !30
   br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit
 
@@ -5477,7 +5476,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %2
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, %.thread39
   %indvars.iv = phi i64 [ %18, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %indvars.iv.next, %.thread39 ]
-  %20 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds [2 x i8], ptr %17, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !30
   %22 = icmp ult i16 %21, 48
   br i1 %22, label %switch.early.test, label %23
@@ -5551,7 +5550,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %11
   %26 = load ptr, ptr %25, align 8
   %27 = select i1 %.not.i.i.i, ptr %26, ptr %24
   %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !30
   switch i16 %30, label %_ZNK6icu_7713UnicodeString6charAtEi.exit76 [
     i16 45, label %31
@@ -5579,7 +5578,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit76.sink.split: ; preds = %37, %33
   %.055.ph = phi i32 [ 32768, %33 ], [ 32767, %37 ]
   %.056.ph = add nsw i32 %1, 2
   %39 = sext i32 %13 to i64
-  %40 = getelementptr inbounds i16, ptr %27, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %27, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !30
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit76
 
@@ -5697,7 +5696,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %95, ptr %72, align 8, !tbaa !32
   %96 = sext i32 %93 to i64
   %97 = load ptr, ptr %94, align 8, !tbaa !23
-  %98 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %97, i64 %96
+  %98 = getelementptr inbounds [16 x i8], ptr %97, i64 %96
   store i32 12, ptr %98, align 4, !tbaa !44
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %1, ptr %99, align 4, !tbaa !48
@@ -5718,7 +5717,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit83:       ; preds = %105
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %108 = getelementptr inbounds i16, ptr %49, i64 %indvars.iv
+  %108 = getelementptr inbounds [2 x i8], ptr %49, i64 %indvars.iv
   %109 = load i16, ptr %108, align 2, !tbaa !30
   %110 = add i16 %109, -48
   %111 = icmp ult i16 %110, 10
@@ -5888,7 +5887,7 @@ _ZN6icu_7718MessagePatternListIdLi8EE24ensureCapacityForOneMoreEiR10UErrorCode.e
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %9, align 8, !tbaa !40
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds double, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   store double %1, ptr %49, align 8, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8, !tbaa !22
@@ -5952,7 +5951,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 %78, ptr %52, align 8, !tbaa !32
   %79 = sext i32 %76 to i64
   %80 = load ptr, ptr %77, align 8, !tbaa !23
-  %81 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %80, i64 %79
+  %81 = getelementptr inbounds [16 x i8], ptr %80, i64 %79
   store i32 13, ptr %81, align 4, !tbaa !44
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %2, ptr %82, align 4, !tbaa !48
@@ -6056,7 +6055,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6071,7 +6070,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl3
   %.039 = phi i32 [ %14, %3 ], [ %.140, %46 ]
   %17 = add nsw i32 %.041, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %16, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !44
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !48
@@ -6095,12 +6094,12 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711MessageImpl3
   %32 = sub nsw i32 %22, %.039
   %33 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.039, i32 noundef %32)
   %34 = load ptr, ptr %5, align 8, !tbaa !26
-  %35 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %34, i64 %18
+  %35 = getelementptr inbounds [16 x i8], ptr %34, i64 %18
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %37 = load i32, ptr %36, align 4, !tbaa !51
   %..i = tail call noundef i32 @llvm.smax.i32(i32 %37, i32 %17)
   %38 = sext i32 %..i to i64
-  %39 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %34, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8

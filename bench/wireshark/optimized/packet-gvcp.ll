@@ -1713,7 +1713,7 @@ define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1,
 
 17:                                               ; preds = %16, %14
   %indvars.iv.i.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i.i, %16 ]
-  %18 = getelementptr i32, ptr %15, i64 %indvars.iv.i.i
+  %18 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i.i
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, -1
   %or.cond.i.i = icmp ult i32 %20, %10
@@ -1856,7 +1856,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %54, %.lr.ph.split.u
 
 75:                                               ; preds = %74, %72
   %indvars.iv.i = phi i64 [ 0, %72 ], [ %indvars.iv.next.i, %74 ]
-  %76 = getelementptr i32, ptr %45, i64 %indvars.iv.i
+  %76 = getelementptr [4 x i8], ptr %45, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, -1
   %or.cond.i = icmp ult i32 %78, %73
@@ -1873,7 +1873,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %54, %.lr.ph.split.u
 
 switch.lookup:                                    ; preds = %80
   %84 = zext nneg i32 %82 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_readmem_ack, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   %85 = load i32, ptr %switch.load, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %85, ptr noundef %1, i32 noundef %.03953, i32 noundef 4, i32 noundef 0)
@@ -1932,7 +1932,7 @@ define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1
 
 20:                                               ; preds = %19, %17
   %indvars.iv.i.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i.i, %19 ]
-  %21 = getelementptr i32, ptr %18, i64 %indvars.iv.i.i
+  %21 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv.i.i
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, -1
   %or.cond.i.i = icmp ult i32 %23, %12
@@ -2028,7 +2028,7 @@ get_register_name_from_address.exit:              ; preds = %11, %is_extended_bo
 
 .preheader:                                       ; preds = %44, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %44 ]
-  %54 = getelementptr i32, ptr %43, i64 %indvars.iv.i
+  %54 = getelementptr [4 x i8], ptr %43, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, -1
   %or.cond.i = icmp ult i32 %56, %45
@@ -2051,7 +2051,7 @@ get_register_name_from_address.exit:              ; preds = %11, %is_extended_bo
 
 switch.lookup:                                    ; preds = %58
   %67 = zext nneg i32 %65 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %67
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_readmem_ack, i64 %67
   %switch.load = load ptr, ptr %switch.gep, align 8
   %68 = load i32, ptr %switch.load, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %68, ptr noundef %1, i32 noundef %63, i32 noundef 4, i32 noundef 0)
@@ -2112,7 +2112,7 @@ define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1,
 
 18:                                               ; preds = %17, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %17 ]
-  %19 = getelementptr i32, ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, -1
   %or.cond.i = icmp ult i32 %21, %5
@@ -2129,7 +2129,7 @@ define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_readmem_ack, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   %28 = load i32, ptr %switch.load, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %28, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0)
@@ -2173,7 +2173,7 @@ define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %14, %12
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %14 ]
-  %16 = getelementptr i32, ptr %13, i64 %indvars.iv.i.i
+  %16 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv.i.i
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -1
   %or.cond.i.i = icmp ult i32 %18, %8
@@ -2313,7 +2313,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %46, %43, 
 
 73:                                               ; preds = %72, %70
   %indvars.iv.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i, %72 ]
-  %74 = getelementptr i32, ptr %71, i64 %indvars.iv.i
+  %74 = getelementptr [4 x i8], ptr %71, i64 %indvars.iv.i
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, -1
   %or.cond.i = icmp ult i32 %76, %52
@@ -2330,7 +2330,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread, %46, %43, 
 
 switch.lookup:                                    ; preds = %78
   %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %82
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_readmem_ack, i64 %82
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
@@ -2685,7 +2685,7 @@ define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %25, %23
   %indvars.iv.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i, %25 ]
-  %27 = getelementptr i32, ptr %24, i64 %indvars.iv.i.i
+  %27 = getelementptr [4 x i8], ptr %24, i64 %indvars.iv.i.i
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, -1
   %or.cond.i.i = icmp ult i32 %29, %19
@@ -2787,7 +2787,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %.lr.ph, %dissect_ex
 
 .preheader131:                                    ; preds = %56, %62
   %indvars.iv.i.i91 = phi i64 [ %indvars.iv.next.i.i95, %62 ], [ 0, %56 ]
-  %63 = getelementptr i32, ptr %50, i64 %indvars.iv.i.i91
+  %63 = getelementptr [4 x i8], ptr %50, i64 %indvars.iv.i.i91
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, -1
   %or.cond.i.i92 = icmp ult i32 %65, %59
@@ -2821,7 +2821,7 @@ get_register_name_from_address.exit100:           ; preds = %56, %is_extended_bo
 74:                                               ; preds = %70
   %75 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.078129)
   %76 = zext nneg i32 %.0127 to i64
-  %77 = getelementptr i32, ptr %50, i64 %76
+  %77 = getelementptr [4 x i8], ptr %50, i64 %76
   store i32 %75, ptr %77, align 4
   br label %.loopexit
 
@@ -2840,7 +2840,7 @@ get_register_name_from_address.exit100:           ; preds = %56, %is_extended_bo
 
 .preheader:                                       ; preds = %.loopexit, %80
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %80 ], [ 0, %.loopexit ]
-  %81 = getelementptr i32, ptr %50, i64 %indvars.iv.i
+  %81 = getelementptr [4 x i8], ptr %50, i64 %indvars.iv.i
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, -1
   %or.cond.i = icmp ult i32 %83, %59
@@ -2859,7 +2859,7 @@ get_register_name_from_address.exit100:           ; preds = %56, %is_extended_bo
 
 switch.lookup:                                    ; preds = %85
   %91 = zext nneg i32 %89 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %91
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_readmem_ack, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %92 = load i32, ptr %switch.load, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %.079, i32 noundef %92, ptr noundef %1, i32 noundef %.078129, i32 noundef 4, i32 noundef 0)
@@ -2972,7 +2972,7 @@ define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %13, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %13 ]
-  %15 = getelementptr i32, ptr %12, i64 %indvars.iv.i.i
+  %15 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -1
   %or.cond.i.i = icmp ult i32 %17, %7
@@ -3062,7 +3062,7 @@ get_register_name_from_address.exit:              ; preds = %6, %is_extended_boo
 
 49:                                               ; preds = %48, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr i32, ptr %47, i64 %indvars.iv.i
+  %50 = getelementptr [4 x i8], ptr %47, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, -1
   %or.cond.i = icmp ult i32 %52, %7
@@ -3079,7 +3079,7 @@ get_register_name_from_address.exit:              ; preds = %6, %is_extended_boo
 
 switch.lookup:                                    ; preds = %54
   %58 = zext nneg i32 %56 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_readmem_ack, i64 %58
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_readmem_ack, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_register_data.exit.sink.split
 
@@ -3131,7 +3131,7 @@ define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1
 
 22:                                               ; preds = %21, %19
   %indvars.iv.i.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i.i, %21 ]
-  %23 = getelementptr i32, ptr %20, i64 %indvars.iv.i.i
+  %23 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv.i.i
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, -1
   %or.cond.i.i = icmp ult i32 %25, %15

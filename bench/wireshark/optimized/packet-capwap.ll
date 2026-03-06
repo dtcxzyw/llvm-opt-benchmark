@@ -3207,7 +3207,7 @@ dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.
 
 switch.lookup:                                    ; preds = %.lr.ph1005
   %412 = zext nneg i16 %391 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_capwap_message_element_type, i64 %412
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_capwap_message_element_type, i64 %412
   %switch.load = load ptr, ptr %switch.gep, align 8
   %413 = load i32, ptr %switch.load, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %401, i32 noundef %413, ptr noundef %0, i32 noundef %409, i32 noundef %395, i32 noundef 0)

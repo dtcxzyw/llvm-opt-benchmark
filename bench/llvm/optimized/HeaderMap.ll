@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<long>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<long>::_Storage" = type { i64 }
-%"struct.clang::HMapBucket" = type { i32, i32, i32 }
 %"class.std::optional.64" = type { %"struct.std::_Optional_base.65" }
 %"struct.std::_Optional_base.65" = type { %"struct.std::_Optional_payload.67" }
 %"struct.std::_Optional_payload.67" = type { %"struct.std::_Optional_payload_base.base.69", [7 x i8] }
@@ -292,7 +291,7 @@ define dso_local { i64, i32 } @_ZNK5clang13HeaderMapImpl9getBucketEj(ptr noundef
   %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.clang::HMapBucket", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !63
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !45, !range !61, !noundef !62
@@ -532,7 +531,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %86, %88
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !38
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %95 = getelementptr inbounds nuw %"struct.clang::HMapBucket", ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [12 x i8], ptr %94, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !63
   %97 = load i8, ptr %7, align 8, !tbaa !45, !range !61, !noundef !62
   %98 = trunc nuw i8 %97 to i1
@@ -890,7 +889,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl14lookupFilenameEN4llvm9
   %.058.i = phi ptr [ %26, %.lr.ph.i ], [ %1, %4 ]
   %17 = load i8, ptr %.058.i, align 1, !tbaa !68
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !93
   %21 = trunc i16 %20 to i8
   %22 = and i8 %21, 32
@@ -908,7 +907,7 @@ _ZL11HashHMapKeyN4llvm9StringRefE.exit:           ; preds = %.lr.ph.i, %4
   %28 = and i32 %.0.lcssa.i, %27
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"struct.clang::HMapBucket", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !63
   %33 = tail call i32 @llvm.bswap.i32(i32 %32)
   %spec.select.i.i68 = select i1 %14, i32 %33, i32 %32
@@ -1125,7 +1124,7 @@ _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit41: ; preds = %_ZN4llvm15Sm
   %146 = load ptr, ptr %145, align 8, !tbaa !38
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = zext i32 %144 to i64
-  %149 = getelementptr inbounds nuw %"struct.clang::HMapBucket", ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [12 x i8], ptr %147, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !63
   %151 = trunc nuw i8 %141 to i1
   %152 = call i32 @llvm.bswap.i32(i32 %150)
@@ -1167,7 +1166,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %5, align 8
-  %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %16
+  %.sroa.0.0.i.i.i = getelementptr inbounds [8 x i8], ptr %18, i64 %16
   %19 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !114
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.06.0.copyload.i = load ptr, ptr %20, align 8, !tbaa !69
@@ -1209,7 +1208,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13HeaderMapImpl21reverseLookupFilenameE
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = getelementptr inbounds nuw %"struct.clang::HMapBucket", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !63
   %43 = load i8, ptr %27, align 8, !tbaa !45, !range !61, !noundef !62
   %44 = trunc nuw i8 %43 to i1
@@ -1461,7 +1460,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_9StringRefENS_15Ma
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #16
   %6 = load ptr, ptr %0, align 8, !tbaa !127
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !114
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1515,7 +1514,7 @@ _ZN4llvm14StringMapEntryINS_9StringRefEE6createINS_15MallocAllocatorEJEEEPS2_S1_
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #16
   %27 = load ptr, ptr %0, align 8, !tbaa !127
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryINS_9StringRefEE6createINS_15MallocAllocatorEJEEEPS2_S1_RT_DpOT0_.exit

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.RTMPPacket = type { i32, i32, i32, i32, i32, ptr, i32, i32, i32 }
 %struct.GetByteContext = type { ptr, ptr, ptr }
 %struct.AVLFG = type { [64 x i32], i32 }
-%struct.TrackedMethod = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"rtmp\00", align 1
 @ff_rtmp_protocol = local_unnamed_addr constant %struct.URLProtocol { ptr @.str, ptr null, ptr @rtmp_open, ptr null, ptr null, ptr @rtmp_read, ptr @rtmp_write, ptr null, ptr @rtmp_close, ptr @rtmp_pause, ptr @rtmp_seek, ptr null, ptr null, ptr null, ptr null, ptr @rtmp_class, i32 1024, i32 2, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -734,17 +733,17 @@ rtmp_calc_swfhash.exit:                           ; preds = %214, %rtmp_uncompre
   %252 = add i32 %251, 40
   %253 = and i32 %252, 63
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw i32, ptr %22, i64 %254
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !25
   %257 = add i32 %251, 9
   %258 = and i32 %257, 63
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw i32, ptr %22, i64 %259
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !25
   %262 = add i32 %261, %256
   %263 = and i32 %251, 63
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr %22, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %264
   store i32 %262, ptr %265, align 4, !tbaa !25
   %266 = add i32 %251, 1
   %267 = lshr i32 %262, 24
@@ -944,17 +943,17 @@ rtmp_calc_swf_verification.exit.i:                ; preds = %330
   %348 = add i32 %347, 40
   %349 = and i32 %348, 63
   %350 = zext nneg i32 %349 to i64
-  %351 = getelementptr inbounds nuw i32, ptr %22, i64 %350
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %350
   %352 = load i32, ptr %351, align 4, !tbaa !25
   %353 = add i32 %347, 9
   %354 = and i32 %353, 63
   %355 = zext nneg i32 %354 to i64
-  %356 = getelementptr inbounds nuw i32, ptr %22, i64 %355
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %355
   %357 = load i32, ptr %356, align 4, !tbaa !25
   %358 = add i32 %357, %352
   %359 = and i32 %347, 63
   %360 = zext nneg i32 %359 to i64
-  %361 = getelementptr inbounds nuw i32, ptr %22, i64 %360
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %360
   store i32 %358, ptr %361, align 4, !tbaa !25
   %362 = add i32 %347, 1
   %363 = lshr i32 %358, 24
@@ -2108,7 +2107,7 @@ read_connect.exit:                                ; preds = %799
 .lr.ph.i293:                                      ; preds = %.critedge, %.lr.ph.i293
   %indvars.iv.i294 = phi i64 [ %indvars.iv.next.i295, %.lr.ph.i293 ], [ 0, %.critedge ]
   %831 = load ptr, ptr %184, align 8, !tbaa !82
-  %832 = getelementptr inbounds nuw %struct.TrackedMethod, ptr %831, i64 %indvars.iv.i294
+  %832 = getelementptr inbounds nuw [16 x i8], ptr %831, i64 %indvars.iv.i294
   call void @av_freep(ptr noundef %832) #11
   %indvars.iv.next.i295 = add nuw nsw i64 %indvars.iv.i294, 1
   %833 = load i32, ptr %183, align 8, !tbaa !81
@@ -2419,7 +2418,7 @@ define internal i32 @rtmp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %23, align 8, !tbaa !79
   %96 = zext nneg i32 %spec.select to i64
-  %97 = getelementptr inbounds nuw %struct.RTMPPacket, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [48 x i8], ptr %95, i64 %96
   store i32 0, ptr %97, align 8, !tbaa !94
   br label %98
 
@@ -2760,19 +2759,19 @@ gen_delete_stream.exit:                           ; preds = %47, %50
 .preheader:                                       ; preds = %67, %._crit_edge
   %70 = phi i1 [ true, %67 ], [ false, %._crit_edge ]
   %indvars.iv32 = phi i64 [ 0, %67 ], [ 1, %._crit_edge ]
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv32
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv32
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %74 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv32
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv32
   br label %75
 
 75:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %76 = load ptr, ptr %74, align 8, !tbaa !79
-  %77 = getelementptr inbounds nuw %struct.RTMPPacket, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [48 x i8], ptr %76, i64 %indvars.iv
   call void @ff_rtmp_packet_destroy(ptr noundef %77) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %71, align 4, !tbaa !25
@@ -2781,7 +2780,7 @@ gen_delete_stream.exit:                           ; preds = %47, %50
   br i1 %80, label %75, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %75, %.preheader
-  %81 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv32
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv32
   call void @av_freep(ptr noundef nonnull %81) #11
   br i1 %70, label %.preheader, label %82, !llvm.loop !105
 
@@ -2798,7 +2797,7 @@ gen_delete_stream.exit:                           ; preds = %47, %50
 87:                                               ; preds = %87, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %87 ]
   %88 = load ptr, ptr %86, align 8, !tbaa !82
-  %89 = getelementptr inbounds nuw %struct.TrackedMethod, ptr %88, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv.i
   call void @av_freep(ptr noundef %89) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %90 = load i32, ptr %83, align 8, !tbaa !81
@@ -3728,7 +3727,7 @@ bytestream2_init.exit:                            ; preds = %12
   %46 = load ptr, ptr %45, align 8, !tbaa !82
   %47 = load i32, ptr %31, align 8, !tbaa !81
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.TrackedMethod, ptr %46, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %46, i64 %48
   store ptr %44, ptr %49, align 8, !tbaa !113
   %.not20.i = icmp eq ptr %44, null
   br i1 %.not20.i, label %.thread, label %50
@@ -4129,7 +4128,7 @@ bytestream2_init.exit.i.i.i:                      ; preds = %128
 
 148:                                              ; preds = %166, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %166 ]
-  %149 = getelementptr inbounds nuw %struct.TrackedMethod, ptr %146, i64 %indvars.iv.i.i.i
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %indvars.iv.i.i.i
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load i32, ptr %150, align 8, !tbaa !115
   %152 = sitofp i32 %151 to double
@@ -4140,7 +4139,7 @@ bytestream2_init.exit.i.i.i:                      ; preds = %128
   %155 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %156 = load ptr, ptr %149, align 8, !tbaa !113
   %157 = and i64 %indvars.iv.i.i.i, 4294967295
-  %158 = getelementptr %struct.TrackedMethod, ptr %146, i64 %157
+  %158 = getelementptr [16 x i8], ptr %146, i64 %157
   %159 = getelementptr i8, ptr %158, i64 16
   %160 = xor i32 %155, -1
   %161 = add nsw i32 %143, %160
@@ -4290,7 +4289,7 @@ bytestream2_init.exit.i.i57.i:                    ; preds = %197
 
 215:                                              ; preds = %221, %.lr.ph.i.i59.i
   %indvars.iv.i.i61.i = phi i64 [ 0, %.lr.ph.i.i59.i ], [ %indvars.iv.next.i.i64.i, %221 ]
-  %216 = getelementptr inbounds nuw %struct.TrackedMethod, ptr %213, i64 %indvars.iv.i.i61.i
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %213, i64 %indvars.iv.i.i61.i
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load i32, ptr %217, align 8, !tbaa !115
   %219 = sitofp i32 %218 to double
@@ -4316,7 +4315,7 @@ handle_invoke.exit.thread5:                       ; preds = %bytestream2_init.ex
   %223 = trunc nuw nsw i64 %indvars.iv.i.i61.i to i32
   %224 = load ptr, ptr %216, align 8, !tbaa !113
   %225 = and i64 %indvars.iv.i.i61.i, 4294967295
-  %226 = getelementptr %struct.TrackedMethod, ptr %213, i64 %225
+  %226 = getelementptr [16 x i8], ptr %213, i64 %225
   %227 = getelementptr i8, ptr %226, i64 16
   %228 = xor i32 %223, -1
   %229 = add nsw i32 %210, %228

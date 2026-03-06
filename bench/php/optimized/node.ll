@@ -5685,7 +5685,7 @@ zend_hash_str_find_deref.exit:                    ; preds = %109, %83, %62, %78,
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = add nsw i32 %.0131180, 1
   %156 = sext i32 %.0131180 to i64
-  %157 = getelementptr inbounds ptr, ptr %130, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %130, i64 %156
   store ptr %154, ptr %157, align 8, !tbaa !92
   br label %158
 
@@ -5703,7 +5703,7 @@ zend_hash_str_find_deref.exit:                    ; preds = %109, %83, %62, %78,
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %124
   %.0131.lcssa = phi i64 [ 0, %124 ], [ %162, %._crit_edge.loopexit ]
-  %163 = getelementptr inbounds ptr, ptr %130, i64 %.0131.lcssa
+  %163 = getelementptr inbounds [8 x i8], ptr %130, i64 %.0131.lcssa
   store ptr null, ptr %163, align 8, !tbaa !92
   br label %165
 

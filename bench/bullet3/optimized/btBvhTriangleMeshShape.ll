@@ -924,13 +924,13 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   br label %43
 
 36:                                               ; preds = %.split.us
-  %37 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv46
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv46
   %38 = load i16, ptr %37, align 2, !tbaa !62
   %39 = zext i16 %38 to i32
   br label %43
 
 40:                                               ; preds = %.split.us
-  %41 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv46
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv46
   %42 = load i32, ptr %41, align 4, !tbaa !58
   br label %43
 
@@ -950,7 +950,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   %55 = load float, ptr %54, align 4, !tbaa !27
   %56 = load float, ptr %31, align 4, !tbaa !27
   %57 = fmul float %55, %56
-  %58 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv46
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv46
   store float %49, ptr %58, align 16
   %.sroa.437.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float %53, ptr %.sroa.437.0..sroa_idx.us, align 4
@@ -995,12 +995,12 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   ]
 
 68:                                               ; preds = %.split
-  %69 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !58
   br label %79
 
 71:                                               ; preds = %.split
-  %72 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2, !tbaa !62
   %74 = zext i16 %73 to i32
   br label %79
@@ -1030,7 +1030,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape14performRaycastEP18btTriangle
   %94 = fptrunc double %93 to float
   %95 = load float, ptr %31, align 4, !tbaa !27
   %96 = fmul float %95, %94
-  %97 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   store float %86, ptr %97, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 4
   store float %91, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1110,13 +1110,13 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   br label %43
 
 36:                                               ; preds = %.split.us
-  %37 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv46
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv46
   %38 = load i16, ptr %37, align 2, !tbaa !62
   %39 = zext i16 %38 to i32
   br label %43
 
 40:                                               ; preds = %.split.us
-  %41 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv46
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv46
   %42 = load i32, ptr %41, align 4, !tbaa !58
   br label %43
 
@@ -1136,7 +1136,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   %55 = load float, ptr %54, align 4, !tbaa !27
   %56 = load float, ptr %31, align 4, !tbaa !27
   %57 = fmul float %55, %56
-  %58 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv46
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv46
   store float %49, ptr %58, align 16
   %.sroa.437.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float %53, ptr %.sroa.437.0..sroa_idx.us, align 4
@@ -1181,12 +1181,12 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   ]
 
 68:                                               ; preds = %.split
-  %69 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !58
   br label %79
 
 71:                                               ; preds = %.split
-  %72 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2, !tbaa !62
   %74 = zext i16 %73 to i32
   br label %79
@@ -1216,7 +1216,7 @@ define internal void @_ZZN22btBvhTriangleMeshShape17performConvexcastEP18btTrian
   %94 = fptrunc double %93 to float
   %95 = load float, ptr %31, align 4, !tbaa !27
   %96 = fmul float %95, %94
-  %97 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   store float %86, ptr %97, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 4
   store float %91, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1288,12 +1288,12 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   ]
 
 35:                                               ; preds = %.split.us
-  %36 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv58
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv58
   %37 = load i32, ptr %36, align 4, !tbaa !58
   br label %46
 
 38:                                               ; preds = %.split.us
-  %39 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv58
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv58
   %40 = load i16, ptr %39, align 2, !tbaa !62
   %41 = zext i16 %40 to i32
   br label %46
@@ -1320,7 +1320,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %59 = load float, ptr %58, align 4, !tbaa !27
   %60 = load float, ptr %33, align 4, !tbaa !27
   %61 = fmul float %59, %60
-  %62 = getelementptr inbounds nuw %class.btVector3, ptr %34, i64 %indvars.iv58
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv58
   store float %53, ptr %62, align 8
   %.sroa.436.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %62, i64 4
   store float %57, ptr %.sroa.436.0..sroa_idx.us, align 4
@@ -1340,7 +1340,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.split.split.us ], [ 2, %.split ]
-  %63 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv52
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv52
   %64 = load i16, ptr %63, align 2, !tbaa !62
   %65 = zext i16 %64 to i32
   %66 = mul nsw i32 %31, %65
@@ -1360,7 +1360,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %80 = fptrunc double %79 to float
   %81 = load float, ptr %33, align 4, !tbaa !27
   %82 = fmul float %81, %80
-  %83 = getelementptr inbounds nuw %class.btVector3, ptr %34, i64 %indvars.iv52
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv52
   store float %72, ptr %83, align 8
   %.sroa.4.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %83, i64 4
   store float %77, ptr %.sroa.4.0..sroa_idx.us, align 4
@@ -1374,7 +1374,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
 
 .split.split.us43:                                ; preds = %.split, %.split.split.us43
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split.split.us43 ], [ 2, %.split ]
-  %84 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4, !tbaa !58
   %86 = mul nsw i32 %31, %85
   %87 = sext i32 %86 to i64
@@ -1393,7 +1393,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %100 = fptrunc double %99 to float
   %101 = load float, ptr %33, align 4, !tbaa !27
   %102 = fmul float %101, %100
-  %103 = getelementptr inbounds nuw %class.btVector3, ptr %34, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv
   store float %92, ptr %103, align 8
   %.sroa.4.0..sroa_idx.us45 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store float %97, ptr %.sroa.4.0..sroa_idx.us45, align 4
@@ -1449,7 +1449,7 @@ define internal void @_ZZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTr
   %130 = fptrunc double %129 to float
   %131 = load float, ptr %33, align 4, !tbaa !27
   %132 = fmul float %131, %130
-  %133 = getelementptr inbounds nuw %class.btVector3, ptr %34, i64 %indvars.iv55
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv55
   store float %122, ptr %133, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 4
   store float %127, ptr %.sroa.4.0..sroa_idx, align 4

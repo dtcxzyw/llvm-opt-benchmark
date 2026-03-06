@@ -78,7 +78,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIfEEvNS_12ColorMapTypeET_RS2_S3_
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = fcmp olt float %1, 1.000000e+00
   %.sroa.speculated63.i50 = select i1 %13, float %1, float 1.000000e+00
@@ -90,11 +90,11 @@ switch.lookup:                                    ; preds = %5
   %18 = tail call noundef float @llvm.ceil.f32(float %15)
   %19 = fptoui float %18 to i32
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw [3 x double], ptr %switch.load, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !4
   %23 = fptrunc double %22 to float
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds nuw [3 x double], ptr %switch.load, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !4
   %27 = fptrunc double %26 to float
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -190,10 +190,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %18 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %29, %.lr.ph.i.i.i.i ], [ %21, %18 ]
   %26 = phi <4 x i32> [ %33, %.lr.ph.i.i.i.i ], [ %20, %18 ]
-  %27 = getelementptr inbounds nuw i32, ptr %8, i64 %.05775.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.05775.i.i.i.i
   %28 = load <4 x i32>, ptr %27, align 16, !tbaa !18
   %29 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %28, <4 x i32> %.sroa.064.173.i.i.i.i)
-  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %.057.in74.i.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.057.in74.i.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load <4 x i32>, ptr %31, align 16, !tbaa !18
   %33 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %32, <4 x i32> %26)
@@ -202,7 +202,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !19
 
 35:                                               ; preds = %._crit_edge.i.i.i.i
-  %36 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %12
   %37 = load <4 x i32>, ptr %36, align 16, !tbaa !18
   %38 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %37, <4 x i32> %23)
   %39 = bitcast <4 x i32> %38 to <2 x i64>
@@ -224,8 +224,8 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 
 42:                                               ; preds = %42, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %48, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr %6, i64 %.011.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.01012.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.01012.i.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !8
   %46 = load i32, ptr %43, align 4, !tbaa !8
   %47 = tail call noundef i32 @llvm.smin.i32(i32 %45, i32 %46)
@@ -243,7 +243,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 .lr.ph80.i.i.i.i:                                 ; preds = %49, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %55, %.lr.ph80.i.i.i.i ], [ %14, %49 ]
   %.177.i.i.i.i = phi i32 [ %54, %.lr.ph80.i.i.i.i ], [ %50, %49 ]
-  %52 = getelementptr inbounds i32, ptr %8, i64 %.05578.i.i.i.i
+  %52 = getelementptr inbounds [4 x i8], ptr %8, i64 %.05578.i.i.i.i
   %53 = load i32, ptr %52, align 4, !tbaa !8
   %54 = tail call noundef i32 @llvm.smin.i32(i32 %53, i32 %.177.i.i.i.i)
   %55 = add nsw i64 %.05578.i.i.i.i, 1
@@ -258,7 +258,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 .lr.ph85.i.i.i.i:                                 ; preds = %56, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %62, %.lr.ph85.i.i.i.i ], [ 1, %56 ]
   %.382.i.i.i.i = phi i32 [ %61, %.lr.ph85.i.i.i.i ], [ %57, %56 ]
-  %59 = getelementptr inbounds nuw i32, ptr %8, i64 %.083.i.i.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.083.i.i.i.i
   %60 = load i32, ptr %59, align 4, !tbaa !8
   %61 = tail call noundef i32 @llvm.smin.i32(i32 %60, i32 %.382.i.i.i.i)
   %62 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -291,10 +291,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   %.057.in74.i.i.i.i26 = phi i64 [ %.05775.i.i.i.i25, %.lr.ph.i.i.i.i24 ], [ 0, %65 ]
   %.sroa.064.173.i.i.i.i27 = phi <4 x i32> [ %76, %.lr.ph.i.i.i.i24 ], [ %68, %65 ]
   %73 = phi <4 x i32> [ %80, %.lr.ph.i.i.i.i24 ], [ %67, %65 ]
-  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %.05775.i.i.i.i25
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.05775.i.i.i.i25
   %75 = load <4 x i32>, ptr %74, align 16, !tbaa !18
   %76 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i27, <4 x i32> %75)
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %.057.in74.i.i.i.i26
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.057.in74.i.i.i.i26
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load <4 x i32>, ptr %78, align 16, !tbaa !18
   %80 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %73, <4 x i32> %79)
@@ -303,7 +303,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
   br i1 %81, label %.lr.ph.i.i.i.i24, label %._crit_edge.i.i.i.i21, !llvm.loop !25
 
 82:                                               ; preds = %._crit_edge.i.i.i.i21
-  %83 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %12
   %84 = load <4 x i32>, ptr %83, align 16, !tbaa !18
   %85 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %70, <4 x i32> %84)
   %86 = bitcast <4 x i32> %85 to <2 x i64>
@@ -325,8 +325,8 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 
 89:                                               ; preds = %89, %.preheader.i.i.i.i.i.i.i11
   %.011.i.i.i.i.i.i.i14 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i11 ], [ %95, %89 ]
-  %90 = getelementptr inbounds nuw i32, ptr %5, i64 %.011.i.i.i.i.i.i.i14
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.01012.i.i.i.i.i.i.i13
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i14
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.01012.i.i.i.i.i.i.i13
   %92 = load i32, ptr %90, align 4, !tbaa !8
   %93 = load i32, ptr %91, align 4, !tbaa !8
   %94 = tail call noundef i32 @llvm.smax.i32(i32 %92, i32 %93)
@@ -344,7 +344,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 .lr.ph80.i.i.i.i17:                               ; preds = %96, %.lr.ph80.i.i.i.i17
   %.05578.i.i.i.i18 = phi i64 [ %102, %.lr.ph80.i.i.i.i17 ], [ %14, %96 ]
   %.177.i.i.i.i19 = phi i32 [ %101, %.lr.ph80.i.i.i.i17 ], [ %97, %96 ]
-  %99 = getelementptr inbounds i32, ptr %8, i64 %.05578.i.i.i.i18
+  %99 = getelementptr inbounds [4 x i8], ptr %8, i64 %.05578.i.i.i.i18
   %100 = load i32, ptr %99, align 4, !tbaa !8
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i19, i32 %100)
   %102 = add nsw i64 %.05578.i.i.i.i18, 1
@@ -359,7 +359,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIiLin1ELi1ELi0ELi
 .lr.ph85.i.i.i.i29:                               ; preds = %.thread33.thread, %.lr.ph85.i.i.i.i29
   %.083.i.i.i.i30 = phi i64 [ %107, %.lr.ph85.i.i.i.i29 ], [ 1, %.thread33.thread ]
   %.382.i.i.i.i31 = phi i32 [ %106, %.lr.ph85.i.i.i.i29 ], [ %57, %.thread33.thread ]
-  %104 = getelementptr inbounds nuw i32, ptr %8, i64 %.083.i.i.i.i30
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.083.i.i.i.i30
   %105 = load i32, ptr %104, align 4, !tbaa !8
   %106 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i31, i32 %105)
   %107 = add nuw nsw i64 %.083.i.i.i.i30, 1
@@ -404,15 +404,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 124:                                              ; preds = %124, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %124 ]
   %125 = load ptr, ptr %1, align 8, !tbaa !17
-  %126 = getelementptr i32, ptr %125, i64 %indvars.iv.i
+  %126 = getelementptr [4 x i8], ptr %125, i64 %indvars.iv.i
   %127 = load i32, ptr %126, align 4, !tbaa !8
   %128 = sitofp i32 %127 to double
   %129 = fsub double %128, %111
   %130 = fdiv double %129, %120
   %131 = load ptr, ptr %3, align 8, !tbaa !30
-  %132 = getelementptr double, ptr %131, i64 %indvars.iv.i
+  %132 = getelementptr [8 x i8], ptr %131, i64 %indvars.iv.i
   %133 = load i64, ptr %123, align 8, !tbaa !33
-  %134 = getelementptr double, ptr %132, i64 %133
+  %134 = getelementptr [8 x i8], ptr %132, i64 %133
   %.idx.i = shl i64 %133, 4
   %135 = getelementptr i8, ptr %132, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %130, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(8) %135)
@@ -458,15 +458,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !17
-  %20 = getelementptr i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %22 = sitofp i32 %21 to double
   %23 = fsub double %22, %2
   %24 = fdiv double %23, %14
   %25 = load ptr, ptr %4, align 8, !tbaa !30
-  %26 = getelementptr double, ptr %25, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load i64, ptr %17, align 8, !tbaa !33
-  %28 = getelementptr double, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %.idx = shl i64 %27, 4
   %29 = getelementptr i8, ptr %26, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
@@ -509,15 +509,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !38
-  %20 = getelementptr float, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !10
   %22 = fpext float %21 to double
   %23 = fsub double %22, %2
   %24 = fdiv double %23, %14
   %25 = load ptr, ptr %4, align 8, !tbaa !30
-  %26 = getelementptr double, ptr %25, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load i64, ptr %17, align 8, !tbaa !33
-  %28 = getelementptr double, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %.idx = shl i64 %27, 4
   %29 = getelementptr i8, ptr %26, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %24, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %29)
@@ -549,7 +549,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = fcmp olt double %1, 1.000000e+00
   %.sroa.speculated63.i50 = select i1 %13, double %1, double 1.000000e+00
@@ -561,10 +561,10 @@ switch.lookup:                                    ; preds = %5
   %18 = tail call double @llvm.ceil.f64(double %15)
   %19 = fptoui double %18 to i32
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw [3 x double], ptr %switch.load, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !4
   %23 = zext i32 %19 to i64
-  %24 = getelementptr inbounds nuw [3 x double], ptr %switch.load, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %switch.load, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load double, ptr %26, align 8, !tbaa !4
@@ -638,14 +638,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !42
-  %20 = getelementptr double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !4
   %22 = fsub double %21, %2
   %23 = fdiv double %22, %14
   %24 = load ptr, ptr %4, align 8, !tbaa !30
-  %25 = getelementptr double, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i64, ptr %17, align 8, !tbaa !33
-  %27 = getelementptr double, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %.idx = shl i64 %26, 4
   %28 = getelementptr i8, ptr %25, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
@@ -699,10 +699,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   %.054.in76.i.i.i.i = phi i64 [ %.05477.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %16 ]
   %.17075.i.i.i.i = phi <2 x double> [ %24, %.lr.ph.i.i.i.i ], [ %14, %16 ]
   %.07274.i.i.i.i = phi <2 x double> [ %28, %.lr.ph.i.i.i.i ], [ %18, %16 ]
-  %22 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i
   %23 = load <2 x double>, ptr %22, align 16, !tbaa !18
   %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %23) #14, !srcloc !44
-  %25 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load <2 x double>, ptr %26, align 16, !tbaa !18
   %28 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %27) #14, !srcloc !44
@@ -711,7 +711,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !45
 
 30:                                               ; preds = %._crit_edge.i.i.i.i
-  %31 = getelementptr inbounds nuw double, ptr %6, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %10
   %32 = load <2 x double>, ptr %31, align 16, !tbaa !18
   %33 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %20, <2 x double> %32) #14, !srcloc !44
   br label %34
@@ -728,7 +728,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
 .lr.ph82.i.i.i.i:                                 ; preds = %34, %.lr.ph82.i.i.i.i
   %.05280.i.i.i.i = phi i64 [ %42, %.lr.ph82.i.i.i.i ], [ %12, %34 ]
   %.179.i.i.i.i = phi double [ %41, %.lr.ph82.i.i.i.i ], [ %36, %34 ]
-  %38 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = fcmp olt double %39, %.179.i.i.i.i
   %41 = select i1 %40, double %39, double %.179.i.i.i.i
@@ -760,10 +760,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   %.054.in76.i.i.i.i23 = phi i64 [ %.05477.i.i.i.i22, %.lr.ph.i.i.i.i21 ], [ 0, %45 ]
   %.17075.i.i.i.i24 = phi <2 x double> [ %53, %.lr.ph.i.i.i.i21 ], [ %43, %45 ]
   %.07274.i.i.i.i25 = phi <2 x double> [ %57, %.lr.ph.i.i.i.i21 ], [ %47, %45 ]
-  %51 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i22
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i22
   %52 = load <2 x double>, ptr %51, align 16, !tbaa !18
   %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i24, <2 x double> %52) #14, !srcloc !47
-  %54 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i23
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i23
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load <2 x double>, ptr %55, align 16, !tbaa !18
   %57 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i25, <2 x double> %56) #14, !srcloc !47
@@ -772,7 +772,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
   br i1 %58, label %.lr.ph.i.i.i.i21, label %._crit_edge.i.i.i.i18, !llvm.loop !48
 
 59:                                               ; preds = %._crit_edge.i.i.i.i18
-  %60 = getelementptr inbounds nuw double, ptr %6, i64 %10
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %10
   %61 = load <2 x double>, ptr %60, align 16, !tbaa !18
   %62 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %61) #14, !srcloc !47
   br label %63
@@ -789,7 +789,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIdLin1ELi1ELi0ELin
 .lr.ph82.i.i.i.i14:                               ; preds = %63, %.lr.ph82.i.i.i.i14
   %.05280.i.i.i.i15 = phi i64 [ %71, %.lr.ph82.i.i.i.i14 ], [ %12, %63 ]
   %.179.i.i.i.i16 = phi double [ %70, %.lr.ph82.i.i.i.i14 ], [ %65, %63 ]
-  %67 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i15
+  %67 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i15
   %68 = load double, ptr %67, align 8, !tbaa !4
   %69 = fcmp olt double %.179.i.i.i.i16, %68
   %70 = select i1 %69, double %68, double %.179.i.i.i.i16
@@ -835,14 +835,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 90:                                               ; preds = %90, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %90 ]
   %91 = load ptr, ptr %1, align 8, !tbaa !42
-  %92 = getelementptr double, ptr %91, i64 %indvars.iv.i
+  %92 = getelementptr [8 x i8], ptr %91, i64 %indvars.iv.i
   %93 = load double, ptr %92, align 8, !tbaa !4
   %94 = fsub double %93, %80
   %95 = fdiv double %94, %86
   %96 = load ptr, ptr %3, align 8, !tbaa !30
-  %97 = getelementptr double, ptr %96, i64 %indvars.iv.i
+  %97 = getelementptr [8 x i8], ptr %96, i64 %indvars.iv.i
   %98 = load i64, ptr %89, align 8, !tbaa !33
-  %99 = getelementptr double, ptr %97, i64 %98
+  %99 = getelementptr [8 x i8], ptr %97, i64 %98
   %.idx.i = shl i64 %98, 4
   %100 = getelementptr i8, ptr %97, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %95, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull align 8 dereferenceable(8) %100)
@@ -910,14 +910,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !30
-  %20 = getelementptr double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !4
   %22 = fsub double %21, %2
   %23 = fdiv double %22, %14
   %24 = load ptr, ptr %4, align 8, !tbaa !30
-  %25 = getelementptr double, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i64, ptr %17, align 8, !tbaa !33
-  %27 = getelementptr double, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %.idx = shl i64 %26, 4
   %28 = getelementptr i8, ptr %25, i64 %.idx
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %23, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
@@ -974,10 +974,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.054.in76.i.i.i.i = phi i64 [ %.05477.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %19 ]
   %.17075.i.i.i.i = phi <2 x double> [ %27, %.lr.ph.i.i.i.i ], [ %17, %19 ]
   %.07274.i.i.i.i = phi <2 x double> [ %31, %.lr.ph.i.i.i.i ], [ %21, %19 ]
-  %25 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i
   %26 = load <2 x double>, ptr %25, align 16, !tbaa !18
   %27 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %26) #14, !srcloc !44
-  %28 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load <2 x double>, ptr %29, align 16, !tbaa !18
   %31 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %30) #14, !srcloc !44
@@ -986,7 +986,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !53
 
 33:                                               ; preds = %._crit_edge.i.i.i.i
-  %34 = getelementptr inbounds nuw double, ptr %6, i64 %13
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !18
   %36 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23, <2 x double> %35) #14, !srcloc !44
   br label %37
@@ -1003,7 +1003,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 .lr.ph82.i.i.i.i:                                 ; preds = %37, %.lr.ph82.i.i.i.i
   %.05280.i.i.i.i = phi i64 [ %45, %.lr.ph82.i.i.i.i ], [ %15, %37 ]
   %.179.i.i.i.i = phi double [ %44, %.lr.ph82.i.i.i.i ], [ %39, %37 ]
-  %41 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i
+  %41 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fcmp olt double %42, %.179.i.i.i.i
   %44 = select i1 %43, double %42, double %.179.i.i.i.i
@@ -1035,10 +1035,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.054.in76.i.i.i.i23 = phi i64 [ %.05477.i.i.i.i22, %.lr.ph.i.i.i.i21 ], [ 0, %48 ]
   %.17075.i.i.i.i24 = phi <2 x double> [ %56, %.lr.ph.i.i.i.i21 ], [ %46, %48 ]
   %.07274.i.i.i.i25 = phi <2 x double> [ %60, %.lr.ph.i.i.i.i21 ], [ %50, %48 ]
-  %54 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i22
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i22
   %55 = load <2 x double>, ptr %54, align 16, !tbaa !18
   %56 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i24, <2 x double> %55) #14, !srcloc !47
-  %57 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i23
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i23
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load <2 x double>, ptr %58, align 16, !tbaa !18
   %60 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i25, <2 x double> %59) #14, !srcloc !47
@@ -1047,7 +1047,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   br i1 %61, label %.lr.ph.i.i.i.i21, label %._crit_edge.i.i.i.i18, !llvm.loop !55
 
 62:                                               ; preds = %._crit_edge.i.i.i.i18
-  %63 = getelementptr inbounds nuw double, ptr %6, i64 %13
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %64 = load <2 x double>, ptr %63, align 16, !tbaa !18
   %65 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %52, <2 x double> %64) #14, !srcloc !47
   br label %66
@@ -1064,7 +1064,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 .lr.ph82.i.i.i.i14:                               ; preds = %66, %.lr.ph82.i.i.i.i14
   %.05280.i.i.i.i15 = phi i64 [ %74, %.lr.ph82.i.i.i.i14 ], [ %15, %66 ]
   %.179.i.i.i.i16 = phi double [ %73, %.lr.ph82.i.i.i.i14 ], [ %68, %66 ]
-  %70 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i15
+  %70 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i15
   %71 = load double, ptr %70, align 8, !tbaa !4
   %72 = fcmp olt double %.179.i.i.i.i16, %71
   %73 = select i1 %72, double %71, double %.179.i.i.i.i16
@@ -1107,14 +1107,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 91:                                               ; preds = %91, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %91 ]
   %92 = load ptr, ptr %1, align 8, !tbaa !30
-  %93 = getelementptr double, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr [8 x i8], ptr %92, i64 %indvars.iv.i
   %94 = load double, ptr %93, align 8, !tbaa !4
   %95 = fsub double %94, %78
   %96 = fdiv double %95, %87
   %97 = load ptr, ptr %3, align 8, !tbaa !30
-  %98 = getelementptr double, ptr %97, i64 %indvars.iv.i
+  %98 = getelementptr [8 x i8], ptr %97, i64 %indvars.iv.i
   %99 = load i64, ptr %90, align 8, !tbaa !33
-  %100 = getelementptr double, ptr %98, i64 %99
+  %100 = getelementptr [8 x i8], ptr %98, i64 %99
   %.idx.i = shl i64 %99, 4
   %101 = getelementptr i8, ptr %98, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %96, ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull align 8 dereferenceable(8) %101)
@@ -1171,10 +1171,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   %.054.in76.i.i.i.i = phi i64 [ %.05477.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %16 ]
   %.17075.i.i.i.i = phi <2 x double> [ %24, %.lr.ph.i.i.i.i ], [ %14, %16 ]
   %.07274.i.i.i.i = phi <2 x double> [ %28, %.lr.ph.i.i.i.i ], [ %18, %16 ]
-  %22 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i
   %23 = load <2 x double>, ptr %22, align 16, !tbaa !18
   %24 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %23) #14, !srcloc !44
-  %25 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load <2 x double>, ptr %26, align 16, !tbaa !18
   %28 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %27) #14, !srcloc !44
@@ -1183,7 +1183,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !57
 
 30:                                               ; preds = %._crit_edge.i.i.i.i
-  %31 = getelementptr inbounds nuw double, ptr %6, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %10
   %32 = load <2 x double>, ptr %31, align 16, !tbaa !18
   %33 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %20, <2 x double> %32) #14, !srcloc !44
   br label %34
@@ -1200,7 +1200,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
 .lr.ph82.i.i.i.i:                                 ; preds = %34, %.lr.ph82.i.i.i.i
   %.05280.i.i.i.i = phi i64 [ %42, %.lr.ph82.i.i.i.i ], [ %12, %34 ]
   %.179.i.i.i.i = phi double [ %41, %.lr.ph82.i.i.i.i ], [ %36, %34 ]
-  %38 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = fcmp olt double %39, %.179.i.i.i.i
   %41 = select i1 %40, double %39, double %.179.i.i.i.i
@@ -1232,10 +1232,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   %.054.in76.i.i.i.i23 = phi i64 [ %.05477.i.i.i.i22, %.lr.ph.i.i.i.i21 ], [ 0, %45 ]
   %.17075.i.i.i.i24 = phi <2 x double> [ %53, %.lr.ph.i.i.i.i21 ], [ %43, %45 ]
   %.07274.i.i.i.i25 = phi <2 x double> [ %57, %.lr.ph.i.i.i.i21 ], [ %47, %45 ]
-  %51 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i22
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i22
   %52 = load <2 x double>, ptr %51, align 16, !tbaa !18
   %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i24, <2 x double> %52) #14, !srcloc !47
-  %54 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i23
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i23
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load <2 x double>, ptr %55, align 16, !tbaa !18
   %57 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i25, <2 x double> %56) #14, !srcloc !47
@@ -1244,7 +1244,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
   br i1 %58, label %.lr.ph.i.i.i.i21, label %._crit_edge.i.i.i.i18, !llvm.loop !59
 
 59:                                               ; preds = %._crit_edge.i.i.i.i18
-  %60 = getelementptr inbounds nuw double, ptr %6, i64 %10
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %10
   %61 = load <2 x double>, ptr %60, align 16, !tbaa !18
   %62 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %61) #14, !srcloc !47
   br label %63
@@ -1261,7 +1261,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELi1ELi0ELi
 .lr.ph82.i.i.i.i14:                               ; preds = %63, %.lr.ph82.i.i.i.i14
   %.05280.i.i.i.i15 = phi i64 [ %71, %.lr.ph82.i.i.i.i14 ], [ %12, %63 ]
   %.179.i.i.i.i16 = phi double [ %70, %.lr.ph82.i.i.i.i14 ], [ %65, %63 ]
-  %67 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i15
+  %67 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i15
   %68 = load double, ptr %67, align 8, !tbaa !4
   %69 = fcmp olt double %.179.i.i.i.i16, %68
   %70 = select i1 %69, double %68, double %.179.i.i.i.i16
@@ -1307,14 +1307,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 90:                                               ; preds = %90, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %90 ]
   %91 = load ptr, ptr %1, align 8, !tbaa !42
-  %92 = getelementptr double, ptr %91, i64 %indvars.iv.i
+  %92 = getelementptr [8 x i8], ptr %91, i64 %indvars.iv.i
   %93 = load double, ptr %92, align 8, !tbaa !4
   %94 = fsub double %93, %80
   %95 = fdiv double %94, %86
   %96 = load ptr, ptr %3, align 8, !tbaa !30
-  %97 = getelementptr double, ptr %96, i64 %indvars.iv.i
+  %97 = getelementptr [8 x i8], ptr %96, i64 %indvars.iv.i
   %98 = load i64, ptr %89, align 8, !tbaa !33
-  %99 = getelementptr double, ptr %97, i64 %98
+  %99 = getelementptr [8 x i8], ptr %97, i64 %98
   %.idx.i = shl i64 %98, 4
   %100 = getelementptr i8, ptr %97, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %95, ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull align 8 dereferenceable(8) %100)
@@ -1375,10 +1375,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %18 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %29, %.lr.ph.i.i.i.i ], [ %21, %18 ]
   %26 = phi <4 x i32> [ %33, %.lr.ph.i.i.i.i ], [ %20, %18 ]
-  %27 = getelementptr inbounds nuw i32, ptr %8, i64 %.05775.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.05775.i.i.i.i
   %28 = load <4 x i32>, ptr %27, align 16, !tbaa !18
   %29 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %28, <4 x i32> %.sroa.064.173.i.i.i.i)
-  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %.057.in74.i.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.057.in74.i.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load <4 x i32>, ptr %31, align 16, !tbaa !18
   %33 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %32, <4 x i32> %26)
@@ -1387,7 +1387,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !61
 
 35:                                               ; preds = %._crit_edge.i.i.i.i
-  %36 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %12
   %37 = load <4 x i32>, ptr %36, align 16, !tbaa !18
   %38 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %37, <4 x i32> %23)
   %39 = bitcast <4 x i32> %38 to <2 x i64>
@@ -1409,8 +1409,8 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 
 42:                                               ; preds = %42, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %48, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr %6, i64 %.011.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.01012.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.01012.i.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !8
   %46 = load i32, ptr %43, align 4, !tbaa !8
   %47 = tail call noundef i32 @llvm.smin.i32(i32 %45, i32 %46)
@@ -1428,7 +1428,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 .lr.ph80.i.i.i.i:                                 ; preds = %49, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %55, %.lr.ph80.i.i.i.i ], [ %14, %49 ]
   %.177.i.i.i.i = phi i32 [ %54, %.lr.ph80.i.i.i.i ], [ %50, %49 ]
-  %52 = getelementptr inbounds i32, ptr %8, i64 %.05578.i.i.i.i
+  %52 = getelementptr inbounds [4 x i8], ptr %8, i64 %.05578.i.i.i.i
   %53 = load i32, ptr %52, align 4, !tbaa !8
   %54 = tail call noundef i32 @llvm.smin.i32(i32 %53, i32 %.177.i.i.i.i)
   %55 = add nsw i64 %.05578.i.i.i.i, 1
@@ -1443,7 +1443,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 .lr.ph85.i.i.i.i:                                 ; preds = %56, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %62, %.lr.ph85.i.i.i.i ], [ 1, %56 ]
   %.382.i.i.i.i = phi i32 [ %61, %.lr.ph85.i.i.i.i ], [ %57, %56 ]
-  %59 = getelementptr inbounds nuw i32, ptr %8, i64 %.083.i.i.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.083.i.i.i.i
   %60 = load i32, ptr %59, align 4, !tbaa !8
   %61 = tail call noundef i32 @llvm.smin.i32(i32 %60, i32 %.382.i.i.i.i)
   %62 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -1476,10 +1476,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   %.057.in74.i.i.i.i26 = phi i64 [ %.05775.i.i.i.i25, %.lr.ph.i.i.i.i24 ], [ 0, %65 ]
   %.sroa.064.173.i.i.i.i27 = phi <4 x i32> [ %76, %.lr.ph.i.i.i.i24 ], [ %68, %65 ]
   %73 = phi <4 x i32> [ %80, %.lr.ph.i.i.i.i24 ], [ %67, %65 ]
-  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %.05775.i.i.i.i25
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.05775.i.i.i.i25
   %75 = load <4 x i32>, ptr %74, align 16, !tbaa !18
   %76 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i27, <4 x i32> %75)
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %.057.in74.i.i.i.i26
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.057.in74.i.i.i.i26
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load <4 x i32>, ptr %78, align 16, !tbaa !18
   %80 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %73, <4 x i32> %79)
@@ -1488,7 +1488,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
   br i1 %81, label %.lr.ph.i.i.i.i24, label %._crit_edge.i.i.i.i21, !llvm.loop !64
 
 82:                                               ; preds = %._crit_edge.i.i.i.i21
-  %83 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %12
   %84 = load <4 x i32>, ptr %83, align 16, !tbaa !18
   %85 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %70, <4 x i32> %84)
   %86 = bitcast <4 x i32> %85 to <2 x i64>
@@ -1510,8 +1510,8 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 
 89:                                               ; preds = %89, %.preheader.i.i.i.i.i.i.i11
   %.011.i.i.i.i.i.i.i14 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i11 ], [ %95, %89 ]
-  %90 = getelementptr inbounds nuw i32, ptr %5, i64 %.011.i.i.i.i.i.i.i14
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.01012.i.i.i.i.i.i.i13
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i14
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.01012.i.i.i.i.i.i.i13
   %92 = load i32, ptr %90, align 4, !tbaa !8
   %93 = load i32, ptr %91, align 4, !tbaa !8
   %94 = tail call noundef i32 @llvm.smax.i32(i32 %92, i32 %93)
@@ -1529,7 +1529,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 .lr.ph80.i.i.i.i17:                               ; preds = %96, %.lr.ph80.i.i.i.i17
   %.05578.i.i.i.i18 = phi i64 [ %102, %.lr.ph80.i.i.i.i17 ], [ %14, %96 ]
   %.177.i.i.i.i19 = phi i32 [ %101, %.lr.ph80.i.i.i.i17 ], [ %97, %96 ]
-  %99 = getelementptr inbounds i32, ptr %8, i64 %.05578.i.i.i.i18
+  %99 = getelementptr inbounds [4 x i8], ptr %8, i64 %.05578.i.i.i.i18
   %100 = load i32, ptr %99, align 4, !tbaa !8
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i19, i32 %100)
   %102 = add nsw i64 %.05578.i.i.i.i18, 1
@@ -1544,7 +1544,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen5ArrayIiLin1ELi1ELi0ELin
 .lr.ph85.i.i.i.i29:                               ; preds = %.thread33.thread, %.lr.ph85.i.i.i.i29
   %.083.i.i.i.i30 = phi i64 [ %107, %.lr.ph85.i.i.i.i29 ], [ 1, %.thread33.thread ]
   %.382.i.i.i.i31 = phi i32 [ %106, %.lr.ph85.i.i.i.i29 ], [ %57, %.thread33.thread ]
-  %104 = getelementptr inbounds nuw i32, ptr %8, i64 %.083.i.i.i.i30
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.083.i.i.i.i30
   %105 = load i32, ptr %104, align 4, !tbaa !8
   %106 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i31, i32 %105)
   %107 = add nuw nsw i64 %.083.i.i.i.i30, 1
@@ -1589,15 +1589,15 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 124:                                              ; preds = %124, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %124 ]
   %125 = load ptr, ptr %1, align 8, !tbaa !17
-  %126 = getelementptr i32, ptr %125, i64 %indvars.iv.i
+  %126 = getelementptr [4 x i8], ptr %125, i64 %indvars.iv.i
   %127 = load i32, ptr %126, align 4, !tbaa !8
   %128 = sitofp i32 %127 to double
   %129 = fsub double %128, %111
   %130 = fdiv double %129, %120
   %131 = load ptr, ptr %3, align 8, !tbaa !30
-  %132 = getelementptr double, ptr %131, i64 %indvars.iv.i
+  %132 = getelementptr [8 x i8], ptr %131, i64 %indvars.iv.i
   %133 = load i64, ptr %123, align 8, !tbaa !33
-  %134 = getelementptr double, ptr %132, i64 %133
+  %134 = getelementptr [8 x i8], ptr %132, i64 %133
   %.idx.i = shl i64 %133, 4
   %135 = getelementptr i8, ptr %132, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %130, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull align 8 dereferenceable(8) %135)
@@ -1657,10 +1657,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.054.in76.i.i.i.i = phi i64 [ %.05477.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %19 ]
   %.17075.i.i.i.i = phi <2 x double> [ %27, %.lr.ph.i.i.i.i ], [ %17, %19 ]
   %.07274.i.i.i.i = phi <2 x double> [ %31, %.lr.ph.i.i.i.i ], [ %21, %19 ]
-  %25 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i
   %26 = load <2 x double>, ptr %25, align 16, !tbaa !18
   %27 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i, <2 x double> %26) #14, !srcloc !44
-  %28 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load <2 x double>, ptr %29, align 16, !tbaa !18
   %31 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i, <2 x double> %30) #14, !srcloc !44
@@ -1669,7 +1669,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !53
 
 33:                                               ; preds = %._crit_edge.i.i.i.i
-  %34 = getelementptr inbounds nuw double, ptr %6, i64 %13
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !18
   %36 = tail call noundef <2 x double> asm "minpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23, <2 x double> %35) #14, !srcloc !44
   br label %37
@@ -1686,7 +1686,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 .lr.ph82.i.i.i.i:                                 ; preds = %37, %.lr.ph82.i.i.i.i
   %.05280.i.i.i.i = phi i64 [ %45, %.lr.ph82.i.i.i.i ], [ %15, %37 ]
   %.179.i.i.i.i = phi double [ %44, %.lr.ph82.i.i.i.i ], [ %39, %37 ]
-  %41 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i
+  %41 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fcmp olt double %42, %.179.i.i.i.i
   %44 = select i1 %43, double %42, double %.179.i.i.i.i
@@ -1718,10 +1718,10 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %.054.in76.i.i.i.i23 = phi i64 [ %.05477.i.i.i.i22, %.lr.ph.i.i.i.i21 ], [ 0, %48 ]
   %.17075.i.i.i.i24 = phi <2 x double> [ %56, %.lr.ph.i.i.i.i21 ], [ %46, %48 ]
   %.07274.i.i.i.i25 = phi <2 x double> [ %60, %.lr.ph.i.i.i.i21 ], [ %50, %48 ]
-  %54 = getelementptr inbounds nuw double, ptr %6, i64 %.05477.i.i.i.i22
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05477.i.i.i.i22
   %55 = load <2 x double>, ptr %54, align 16, !tbaa !18
   %56 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17075.i.i.i.i24, <2 x double> %55) #14, !srcloc !47
-  %57 = getelementptr inbounds nuw double, ptr %6, i64 %.054.in76.i.i.i.i23
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.054.in76.i.i.i.i23
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load <2 x double>, ptr %58, align 16, !tbaa !18
   %60 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.07274.i.i.i.i25, <2 x double> %59) #14, !srcloc !47
@@ -1730,7 +1730,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
   br i1 %61, label %.lr.ph.i.i.i.i21, label %._crit_edge.i.i.i.i18, !llvm.loop !55
 
 62:                                               ; preds = %._crit_edge.i.i.i.i18
-  %63 = getelementptr inbounds nuw double, ptr %6, i64 %13
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %64 = load <2 x double>, ptr %63, align 16, !tbaa !18
   %65 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %52, <2 x double> %64) #14, !srcloc !47
   br label %66
@@ -1747,7 +1747,7 @@ define weak_odr dso_local void @_ZN3igl8colormapIN5Eigen6MatrixIdLin1ELin1ELi0EL
 .lr.ph82.i.i.i.i14:                               ; preds = %66, %.lr.ph82.i.i.i.i14
   %.05280.i.i.i.i15 = phi i64 [ %74, %.lr.ph82.i.i.i.i14 ], [ %15, %66 ]
   %.179.i.i.i.i16 = phi double [ %73, %.lr.ph82.i.i.i.i14 ], [ %68, %66 ]
-  %70 = getelementptr inbounds double, ptr %6, i64 %.05280.i.i.i.i15
+  %70 = getelementptr inbounds [8 x i8], ptr %6, i64 %.05280.i.i.i.i15
   %71 = load double, ptr %70, align 8, !tbaa !4
   %72 = fcmp olt double %.179.i.i.i.i16, %71
   %73 = select i1 %72, double %71, double %.179.i.i.i.i16
@@ -1779,14 +1779,14 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8minCoeffEv.exit: ; 
 87:                                               ; preds = %87, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %87 ]
   %88 = load ptr, ptr %1, align 8, !tbaa !30
-  %89 = getelementptr double, ptr %88, i64 %indvars.iv.i
+  %89 = getelementptr [8 x i8], ptr %88, i64 %indvars.iv.i
   %90 = load double, ptr %89, align 8, !tbaa !4
   %91 = fsub double %90, %78
   %92 = fdiv double %91, %83
   %93 = load ptr, ptr %3, align 8, !tbaa !68
-  %94 = getelementptr double, ptr %93, i64 %indvars.iv.i
+  %94 = getelementptr [8 x i8], ptr %93, i64 %indvars.iv.i
   %95 = load i64, ptr %86, align 8, !tbaa !70
-  %96 = getelementptr double, ptr %94, i64 %95
+  %96 = getelementptr [8 x i8], ptr %94, i64 %95
   %.idx.i = shl i64 %95, 4
   %97 = getelementptr i8, ptr %94, i64 %.idx.i
   tail call void @_ZN3igl8colormapIdEEvNS_12ColorMapTypeET_RS2_S3_S3_(i32 noundef %0, double noundef %92, ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull align 8 dereferenceable(8) %97)

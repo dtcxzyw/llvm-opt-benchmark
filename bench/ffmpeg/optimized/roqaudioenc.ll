@@ -119,7 +119,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %35 = load i32, ptr %34, align 8, !tbaa !37
   %36 = mul nsw i32 %35, %13
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %33, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %33, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %40 = load i32, ptr %39, align 8, !tbaa !29
   %41 = mul nsw i32 %40, %13
@@ -242,7 +242,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %106 = and i32 %.06494, 1
   %107 = zext nneg i32 %106 to i64
   %108 = select i1 %75, i64 %107, i64 0
-  %109 = getelementptr inbounds nuw i16, ptr %76, i64 %108
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %.193, i64 2
   %111 = load i16, ptr %.193, align 2, !tbaa !33
   %112 = sext i16 %111 to i32

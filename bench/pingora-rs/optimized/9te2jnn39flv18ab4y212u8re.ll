@@ -486,7 +486,7 @@ define internal fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..Command
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %.val12, i64 %7
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %.val12, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = add nuw i64 %7, 1
@@ -1168,7 +1168,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hfda1bd094
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %88, align 8, !alias.scope !105, !noalias !102, !nonnull !3, !align !106, !noundef !3
-  %97 = getelementptr inbounds nuw { i16, i16 }, ptr %96, i64 %.sroa.016.0.i.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %.sroa.016.0.i.i
   %98 = load i16, ptr %97, align 2, !noalias !104, !noundef !3
   %.not.i.i = icmp eq i16 %98, -1
   br i1 %.not.i.i, label %110, label %99
@@ -1255,7 +1255,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hfda1bd094
 
 131:                                              ; preds = %121, %114
   %132 = load ptr, ptr %90, align 8, !alias.scope !117, !noalias !120, !nonnull !3, !noundef !3
-  %133 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %132, i64 %111
+  %133 = getelementptr inbounds nuw [96 x i8], ptr %132, i64 %111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %133, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 96, i1 false), !noalias !123
   %134 = add nuw nsw i64 %111, 1
   store i64 %134, ptr %91, align 8, !alias.scope !117, !noalias !120
@@ -1269,7 +1269,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hfda1bd094
 137:                                              ; preds = %131
   %138 = load ptr, ptr %88, align 8, !alias.scope !105, !noalias !102, !nonnull !3, !align !106, !noundef !3
   %139 = trunc nuw nsw i64 %111 to i16
-  %140 = getelementptr inbounds nuw { i16, i16 }, ptr %138, i64 %.sroa.016.0.i.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %.sroa.016.0.i.i
   store i16 %139, ptr %140, align 2, !noalias !104
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 2
   store i16 %81, ptr %141, align 2, !noalias !104
@@ -1298,7 +1298,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hfda1bd094
 
 150:                                              ; preds = %147
   %151 = load ptr, ptr %90, align 8, !alias.scope !105, !noalias !102, !nonnull !3, !noundef !3
-  %152 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %151, i64 %100
+  %152 = getelementptr inbounds nuw [96 x i8], ptr %151, i64 %100
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 56
   %154 = load ptr, ptr %153, align 8, !noalias !104, !noundef !3
   %155 = icmp ne ptr %154, null
@@ -1347,7 +1347,7 @@ split.i.i:                                        ; preds = %162, %"_ZN71_$LT$ht
 
 171:                                              ; preds = %split.i.i
   %172 = load ptr, ptr %90, align 8, !alias.scope !105, !noalias !102, !nonnull !3, !noundef !3
-  %173 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %172, i64 %100
+  %173 = getelementptr inbounds nuw [96 x i8], ptr %172, i64 %100
   %174 = getelementptr inbounds nuw i8, ptr %., i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
@@ -1395,7 +1395,7 @@ split.i.i:                                        ; preds = %162, %"_ZN71_$LT$ht
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h61a331661e201b5cE.exit.i.i.i": ; preds = %189, %177
   %194 = getelementptr inbounds nuw i8, ptr %., i64 56
   %195 = load ptr, ptr %194, align 8, !alias.scope !136, !noalias !139, !nonnull !3, !noundef !3
-  %196 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %195, i64 %181
+  %196 = getelementptr inbounds nuw [64 x i8], ptr %195, i64 %181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %196, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false), !noalias !143
   %197 = add nuw nsw i64 %181, 1
   store i64 %197, ptr %180, align 8, !alias.scope !136, !noalias !139
@@ -1441,7 +1441,7 @@ split.i.i:                                        ; preds = %162, %"_ZN71_$LT$ht
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h61a331661e201b5cE.exit14.i.i.i": ; preds = %208, %198
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %214 = load ptr, ptr %213, align 8, !alias.scope !144, !noalias !147, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %214, i64 %200
+  %215 = getelementptr inbounds nuw [64 x i8], ptr %214, i64 %200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %215, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !143
   %216 = add nuw nsw i64 %200, 1
   store i64 %216, ptr %199, align 8, !alias.scope !144, !noalias !147
@@ -1455,7 +1455,7 @@ split.i.i:                                        ; preds = %162, %"_ZN71_$LT$ht
 
 217:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h61a331661e201b5cE.exit.i.i.i"
   %218 = load ptr, ptr %194, align 8, !alias.scope !133, !noalias !134, !nonnull !3, !noundef !3
-  %219 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %218, i64 %179
+  %219 = getelementptr inbounds nuw [64 x i8], ptr %218, i64 %179
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store i64 1, ptr %220, align 8, !noalias !143
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 24
@@ -3065,10 +3065,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !18, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h919a7644596aacfdE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h919a7644596aacfdE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h919a7644596aacfdE.76", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h919a7644596aacfdE.76", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3412,7 +3412,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %21, align 8, !nonnull !3, !align !106, !noundef !3
-  %31 = getelementptr inbounds nuw { i16, i16 }, ptr %30, i64 %.sroa.016.0
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.sroa.016.0
   %32 = load i16, ptr %31, align 2, !noundef !3
   %.not = icmp eq i16 %32, -1
   br i1 %.not, label %44, label %33
@@ -3496,7 +3496,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 
 65:                                               ; preds = %55, %48
   %66 = load ptr, ptr %23, align 8, !alias.scope !364, !noalias !367, !nonnull !3, !noundef !3
-  %67 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %66, i64 %45
+  %67 = getelementptr inbounds nuw [104 x i8], ptr %66, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %67, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false), !noalias !369
   %68 = add nuw nsw i64 %45, 1
   store i64 %68, ptr %24, align 8, !alias.scope !364, !noalias !367
@@ -3510,7 +3510,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 71:                                               ; preds = %65
   %72 = load ptr, ptr %21, align 8, !nonnull !3, !align !106, !noundef !3
   %73 = trunc nuw nsw i64 %45 to i16
-  %74 = getelementptr inbounds nuw { i16, i16 }, ptr %72, i64 %.sroa.016.0
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %.sroa.016.0
   store i16 %73, ptr %74, align 2
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   store i16 %14, ptr %75, align 2
@@ -3536,7 +3536,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
-  %86 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %85, i64 %34
+  %86 = getelementptr inbounds nuw [104 x i8], ptr %85, i64 %34
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 64
   %88 = load ptr, ptr %87, align 8, !noundef !3
   %89 = icmp ne ptr %88, null
@@ -3585,7 +3585,7 @@ split:                                            ; preds = %96, %"_ZN71_$LT$htt
 
 105:                                              ; preds = %split
   %106 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %106, i64 %34
+  %107 = getelementptr inbounds nuw [104 x i8], ptr %106, i64 %34
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
@@ -3633,7 +3633,7 @@ split:                                            ; preds = %96, %"_ZN71_$LT$htt
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h06d5dc97f0cf0308E.exit.i": ; preds = %123, %111
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %129 = load ptr, ptr %128, align 8, !alias.scope !380, !noalias !383, !nonnull !3, !noundef !3
-  %130 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %129, i64 %115
+  %130 = getelementptr inbounds nuw [72 x i8], ptr %129, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %130, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !378
   %131 = add nuw nsw i64 %115, 1
   store i64 %131, ptr %114, align 8, !alias.scope !380, !noalias !383
@@ -3679,7 +3679,7 @@ split:                                            ; preds = %96, %"_ZN71_$LT$htt
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h06d5dc97f0cf0308E.exit14.i": ; preds = %142, %132
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %148 = load ptr, ptr %147, align 8, !alias.scope !387, !noalias !390, !nonnull !3, !noundef !3
-  %149 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %148, i64 %134
+  %149 = getelementptr inbounds nuw [72 x i8], ptr %148, i64 %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %149, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !378
   %150 = add nuw nsw i64 %134, 1
   store i64 %150, ptr %133, align 8, !alias.scope !387, !noalias !390
@@ -3693,7 +3693,7 @@ split:                                            ; preds = %96, %"_ZN71_$LT$htt
 
 151:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h06d5dc97f0cf0308E.exit.i"
   %152 = load ptr, ptr %128, align 8, !alias.scope !374, !noalias !378, !nonnull !3, !noundef !3
-  %153 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %152, i64 %113
+  %153 = getelementptr inbounds nuw [72 x i8], ptr %152, i64 %113
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i64 1, ptr %154, align 8, !noalias !378
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 24
@@ -3821,7 +3821,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %21, align 8, !nonnull !3, !align !106, !noundef !3
-  %31 = getelementptr inbounds nuw { i16, i16 }, ptr %30, i64 %.sroa.019.0
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.sroa.019.0
   %32 = load i16, ptr %31, align 2, !noundef !3
   %.not = icmp eq i16 %32, -1
   br i1 %.not, label %45, label %34
@@ -3908,7 +3908,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 
 66:                                               ; preds = %56, %49
   %67 = load ptr, ptr %24, align 8, !alias.scope !400, !noalias !403, !nonnull !3, !noundef !3
-  %68 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %67, i64 %46
+  %68 = getelementptr inbounds nuw [96 x i8], ptr %67, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %68, ptr noundef nonnull align 8 dereferenceable(96) %5, i64 96, i1 false), !noalias !405
   %69 = add nuw nsw i64 %46, 1
   store i64 %69, ptr %23, align 8, !alias.scope !400, !noalias !403
@@ -3922,7 +3922,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 72:                                               ; preds = %66
   %73 = load ptr, ptr %21, align 8, !nonnull !3, !align !106, !noundef !3
   %74 = trunc nuw nsw i64 %46 to i16
-  %75 = getelementptr inbounds nuw { i16, i16 }, ptr %73, i64 %.sroa.019.0
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.sroa.019.0
   store i16 %74, ptr %75, align 2
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i16 %14, ptr %76, align 2
@@ -3948,7 +3948,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
-  %87 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %86, i64 %35
+  %87 = getelementptr inbounds nuw [96 x i8], ptr %86, i64 %35
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = load ptr, ptr %88, align 8, !noundef !3
   %90 = icmp ne ptr %89, null
@@ -3995,7 +3995,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
 
 105:                                              ; preds = %split
   %106 = load ptr, ptr %24, align 8, !alias.scope !407, !noalias !410, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %106, i64 %35
+  %107 = getelementptr inbounds nuw [96 x i8], ptr %106, i64 %35
   %108 = load i64, ptr %107, align 8, !range !27, !noalias !413, !noundef !3
   %109 = trunc nuw i64 %108 to i1
   br i1 %109, label %112, label %115
@@ -4038,7 +4038,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
 
 122:                                              ; preds = %115
   %123 = load ptr, ptr %24, align 8, !alias.scope !407, !noalias !410, !nonnull !3, !noundef !3
-  %124 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %123, i64 %35
+  %124 = getelementptr inbounds nuw [96 x i8], ptr %123, i64 %35
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %.sroa.0.0.copyload = load ptr, ptr %125, align 8, !noalias !415
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 32
@@ -4167,7 +4167,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %22, align 8, !nonnull !3, !align !106, !noundef !3
-  %32 = getelementptr inbounds nuw { i16, i16 }, ptr %31, i64 %.sroa.020.0
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.sroa.020.0
   %33 = load i16, ptr %32, align 2, !noundef !3
   %.not = icmp eq i16 %33, -1
   br i1 %.not, label %46, label %35
@@ -4256,7 +4256,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 
 69:                                               ; preds = %57, %50
   %70 = load ptr, ptr %25, align 8, !alias.scope !422, !noalias !425, !nonnull !3, !noundef !3
-  %71 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %70, i64 %47
+  %71 = getelementptr inbounds nuw [104 x i8], ptr %70, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %71, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false), !noalias !427
   %72 = add nuw nsw i64 %47, 1
   store i64 %72, ptr %24, align 8, !alias.scope !422, !noalias !425
@@ -4270,7 +4270,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 75:                                               ; preds = %69
   %76 = load ptr, ptr %22, align 8, !nonnull !3, !align !106, !noundef !3
   %77 = trunc nuw nsw i64 %47 to i16
-  %78 = getelementptr inbounds nuw { i16, i16 }, ptr %76, i64 %.sroa.020.0
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.sroa.020.0
   store i16 %77, ptr %78, align 2
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 2
   store i16 %14, ptr %79, align 2
@@ -4296,7 +4296,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
-  %90 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %89, i64 %36
+  %90 = getelementptr inbounds nuw [104 x i8], ptr %89, i64 %36
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %92 = load ptr, ptr %91, align 8, !noundef !3
   %93 = icmp ne ptr %92, null
@@ -4343,7 +4343,7 @@ split:                                            ; preds = %100, %"_ZN71_$LT$ht
 
 108:                                              ; preds = %split
   %109 = load ptr, ptr %25, align 8, !alias.scope !429, !noalias !432, !nonnull !3, !noundef !3
-  %110 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %109, i64 %36
+  %110 = getelementptr inbounds nuw [104 x i8], ptr %109, i64 %36
   %111 = load i64, ptr %110, align 8, !range !27, !noalias !435, !noundef !3
   %112 = trunc nuw i64 %111 to i1
   br i1 %112, label %115, label %118
@@ -4386,7 +4386,7 @@ split:                                            ; preds = %100, %"_ZN71_$LT$ht
 
 125:                                              ; preds = %118
   %126 = load ptr, ptr %25, align 8, !alias.scope !429, !noalias !432, !nonnull !3, !noundef !3
-  %127 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %126, i64 %36
+  %127 = getelementptr inbounds nuw [104 x i8], ptr %126, i64 %36
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %128, i64 32, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 56
@@ -4537,7 +4537,7 @@ define internal fastcc i64 @"_ZN4http6header3map18HeaderMap$LT$T$GT$20try_insert
 29:                                               ; preds = %19, %12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !alias.scope !446, !noalias !449, !nonnull !3, !noundef !3
-  %32 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %31, i64 %9
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %31, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %32, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false), !noalias !451
   %33 = add nuw nsw i64 %9, 1
   store i64 %33, ptr %8, align 8, !alias.scope !446, !noalias !449
@@ -4562,7 +4562,7 @@ define internal fastcc i64 @"_ZN4http6header3map18HeaderMap$LT$T$GT$20try_insert
   br i1 %40, label %41, label %39
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw { i16, i16 }, ptr %35, i64 %.sroa.0.0
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %.sroa.0.0
   %43 = load i16, ptr %42, align 2, !noundef !3
   %44 = icmp eq i16 %43, -1
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 2
@@ -4663,7 +4663,7 @@ define internal fastcc i64 @"_ZN4http6header3map18HeaderMap$LT$T$GT$20try_insert
 29:                                               ; preds = %19, %12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !alias.scope !460, !noalias !463, !nonnull !3, !noundef !3
-  %32 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } } }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %31, i64 %9
+  %32 = getelementptr inbounds nuw [96 x i8], ptr %31, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 8 dereferenceable(96) %7, i64 96, i1 false), !noalias !465
   %33 = add nuw nsw i64 %9, 1
   store i64 %33, ptr %8, align 8, !alias.scope !460, !noalias !463
@@ -4688,7 +4688,7 @@ define internal fastcc i64 @"_ZN4http6header3map18HeaderMap$LT$T$GT$20try_insert
   br i1 %40, label %41, label %39
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw { i16, i16 }, ptr %35, i64 %.sroa.0.0
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %.sroa.0.0
   %43 = load i16, ptr %42, align 2, !noundef !3
   %44 = icmp eq i16 %43, -1
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 2
@@ -6234,7 +6234,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hff
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !3, !align !260, !noundef !3
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %12
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %12
   %25 = load i32, ptr %24, align 4, !noundef !3
   %26 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %12
@@ -6285,7 +6285,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hff
   %.val = load ptr, ptr %51, align 8, !nonnull !3, !align !5, !noundef !3
   %52 = getelementptr inbounds nuw i8, ptr %.val, i64 %42
   %53 = load i8, ptr %52, align 1, !noundef !3
-  %54 = getelementptr inbounds nuw i16, ptr %.val8, i64 %42
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.val8, i64 %42
   %55 = load i16, ptr %54, align 2, !noundef !3
   %56 = zext i16 %55 to i64
   tail call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %53, i64 noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 1 %3, i64 noundef %4)
@@ -9106,7 +9106,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   unreachable
 
 51:                                               ; preds = %.lr.ph51
-  %52 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %.sroa.02.150
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %.sroa.02.150
   %53 = load i32, ptr %52, align 4, !noundef !3
   %54 = and i32 %53, 511
   %55 = lshr i32 %53, 9
@@ -9117,7 +9117,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %14, i64 %56
   %60 = load i8, ptr %59, align 1, !noundef !3
-  %61 = getelementptr inbounds nuw i16, ptr %13, i64 %56
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %56
   %62 = load i16, ptr %61, align 2, !noundef !3
   %63 = zext i16 %62 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %60, i64 noundef %63, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
@@ -9148,7 +9148,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   br i1 %exitcond.not, label %.invoke, label %75
 
 75:                                               ; preds = %.lr.ph
-  %76 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %.sroa.02.049
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %.sroa.02.049
   %77 = load i32, ptr %76, align 4, !noundef !3
   %78 = and i32 %77, 511
   %79 = zext nneg i32 %78 to i64
@@ -9156,7 +9156,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream16EncodeContextMap
   br i1 %80, label %81, label %.invoke
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i32, ptr %12, i64 %79
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %79
   %83 = load i32, ptr %82, align 4, !noundef !3
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
@@ -9956,7 +9956,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17h6330ef1f8fe5b3b8E.exit1
   ret void
 
 303:                                              ; preds = %262
-  %304 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %12, i64 %.sroa.025.1354
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.sroa.025.1354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %304, i64 16, i1 false)
   %305 = load i16, ptr %240, align 4, !noundef !3
   %306 = zext i16 %305 to i64
@@ -10028,7 +10028,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17h6330ef1f8fe5b3b8E.exit1
 
 336:                                              ; preds = %333
   %337 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !670, !noalias !673, !nonnull !3, !align !260, !noundef !3
-  %338 = getelementptr inbounds nuw i32, ptr %337, i64 %330
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %330
   %339 = load i32, ptr %338, align 4, !noalias !676, !noundef !3
   %340 = load ptr, ptr %42, align 8, !alias.scope !670, !noalias !673, !nonnull !3, !align !5, !noundef !3
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 %330
@@ -10066,7 +10066,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17h6330ef1f8fe5b3b8E.exit1
   %.val.i = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !670, !noalias !673, !nonnull !3, !align !5, !noundef !3
   %356 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %351
   %357 = load i8, ptr %356, align 1, !noundef !3
-  %358 = getelementptr inbounds nuw i16, ptr %.val8.i, i64 %351
+  %358 = getelementptr inbounds nuw [2 x i8], ptr %.val8.i, i64 %351
   %359 = load i16, ptr %358, align 2, !noundef !3
   %360 = zext i16 %359 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %357, i64 noundef %360, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -10201,7 +10201,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hffb28c92c5609419E.exit: ; preds
 
 423:                                              ; preds = %420
   %424 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !677, !noalias !682, !nonnull !3, !align !260, !noundef !3
-  %425 = getelementptr inbounds nuw i32, ptr %424, i64 %417
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %417
   %426 = load i32, ptr %425, align 4, !noalias !685, !noundef !3
   %427 = load ptr, ptr %42, align 8, !alias.scope !677, !noalias !682, !nonnull !3, !align !5, !noundef !3
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 %417
@@ -10228,7 +10228,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hffb28c92c5609419E.exit: ; preds
   br i1 %438, label %439, label %.invoke
 
 439:                                              ; preds = %433
-  %440 = getelementptr inbounds nuw i32, ptr %.val61, i64 %437
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %.val61, i64 %437
   %441 = load i32, ptr %440, align 4, !alias.scope !680, !noalias !686, !noundef !3
   %442 = zext i32 %441 to i64
   %443 = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !677, !noalias !682, !noundef !3
@@ -10248,7 +10248,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hffb28c92c5609419E.exit: ; preds
   %.val.i145 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !677, !noalias !682, !nonnull !3, !align !5, !noundef !3
   %450 = getelementptr inbounds nuw i8, ptr %.val.i145, i64 %445
   %451 = load i8, ptr %450, align 1, !noalias !680, !noundef !3
-  %452 = getelementptr inbounds nuw i16, ptr %.val10.i, i64 %445
+  %452 = getelementptr inbounds nuw [2 x i8], ptr %.val10.i, i64 %445
   %453 = load i16, ptr %452, align 2, !noalias !680, !noundef !3
   %454 = zext i16 %453 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %451, i64 noundef %454, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -11087,7 +11087,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17h6330ef1f8fe5b3b8E.exit1
   ret void
 
 303:                                              ; preds = %262
-  %304 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %12, i64 %.sroa.025.1354
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.sroa.025.1354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %304, i64 16, i1 false)
   %305 = load i16, ptr %240, align 4, !noundef !3
   %306 = zext i16 %305 to i64
@@ -11159,7 +11159,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17h6330ef1f8fe5b3b8E.exit1
 
 336:                                              ; preds = %333
   %337 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !726, !noalias !729, !nonnull !3, !align !260, !noundef !3
-  %338 = getelementptr inbounds nuw i32, ptr %337, i64 %330
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %330
   %339 = load i32, ptr %338, align 4, !noalias !732, !noundef !3
   %340 = load ptr, ptr %42, align 8, !alias.scope !726, !noalias !729, !nonnull !3, !align !5, !noundef !3
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 %330
@@ -11197,7 +11197,7 @@ _ZN6brotli3enc17brotli_bit_stream19CleanupBlockEncoder17h6330ef1f8fe5b3b8E.exit1
   %.val.i = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !726, !noalias !729, !nonnull !3, !align !5, !noundef !3
   %356 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %351
   %357 = load i8, ptr %356, align 1, !noundef !3
-  %358 = getelementptr inbounds nuw i16, ptr %.val8.i, i64 %351
+  %358 = getelementptr inbounds nuw [2 x i8], ptr %.val8.i, i64 %351
   %359 = load i16, ptr %358, align 2, !noundef !3
   %360 = zext i16 %359 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %357, i64 noundef %360, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -11332,7 +11332,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hffb28c92c5609419E.exit: ; preds
 
 423:                                              ; preds = %420
   %424 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !733, !noalias !738, !nonnull !3, !align !260, !noundef !3
-  %425 = getelementptr inbounds nuw i32, ptr %424, i64 %417
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %417
   %426 = load i32, ptr %425, align 4, !noalias !741, !noundef !3
   %427 = load ptr, ptr %42, align 8, !alias.scope !733, !noalias !738, !nonnull !3, !align !5, !noundef !3
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 %417
@@ -11359,7 +11359,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hffb28c92c5609419E.exit: ; preds
   br i1 %438, label %439, label %.invoke
 
 439:                                              ; preds = %433
-  %440 = getelementptr inbounds nuw i32, ptr %.val61, i64 %437
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %.val61, i64 %437
   %441 = load i32, ptr %440, align 4, !alias.scope !736, !noalias !742, !noundef !3
   %442 = zext i32 %441 to i64
   %443 = load i64, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !733, !noalias !738, !noundef !3
@@ -11379,7 +11379,7 @@ _ZN6brotli3enc17brotli_bit_stream11StoreSymbol17hffb28c92c5609419E.exit: ; preds
   %.val.i145 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !733, !noalias !738, !nonnull !3, !align !5, !noundef !3
   %450 = getelementptr inbounds nuw i8, ptr %.val.i145, i64 %445
   %451 = load i8, ptr %450, align 1, !noalias !736, !noundef !3
-  %452 = getelementptr inbounds nuw i16, ptr %.val10.i, i64 %445
+  %452 = getelementptr inbounds nuw [2 x i8], ptr %.val10.i, i64 %445
   %453 = load i16, ptr %452, align 2, !noalias !736, !noundef !3
   %454 = zext i16 %453 to i64
   invoke void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %451, i64 noundef %454, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull align 1 %18, i64 noundef %19)
@@ -11933,7 +11933,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not115, label %152, label %153, !prof !6
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %142
   %148 = load i32, ptr %147, align 4, !noundef !3
   %149 = sext i32 %148 to i64
   %150 = add i64 %139, %149
@@ -12011,7 +12011,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %173, label %174, label %.split.us
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i32, ptr %91, i64 %170
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %170
   %176 = load i32, ptr %175, align 4, !noundef !3
   %177 = getelementptr inbounds nuw i8, ptr %92, i64 %170
   %178 = load i8, ptr %177, align 1, !noundef !3
@@ -12139,7 +12139,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   %229 = xor i64 %notmask, -1
   %230 = and i64 %223, %229
   %231 = mul i64 %230, %145
-  %232 = getelementptr inbounds nuw i32, ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %145
+  %232 = getelementptr inbounds nuw [4 x i8], ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %145
   %233 = load i32, ptr %232, align 4, !noundef !3
   %234 = zext i32 %233 to i64
   %235 = add i64 %231, %234
@@ -12273,7 +12273,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 275:                                              ; preds = %272
-  %276 = getelementptr inbounds nuw i32, ptr %104, i64 %270
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %270
   %277 = load i32, ptr %276, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %278 = getelementptr inbounds nuw i8, ptr %105, i64 %270
@@ -12333,7 +12333,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 301:                                              ; preds = %298
-  %302 = getelementptr inbounds nuw i32, ptr %112, i64 %296
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %296
   %303 = load i32, ptr %302, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %304 = getelementptr inbounds nuw i8, ptr %113, i64 %296
@@ -12375,7 +12375,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 319:                                              ; preds = %311
-  %320 = getelementptr inbounds nuw i32, ptr %91, i64 %308
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %308
   %321 = load i32, ptr %320, align 4, !noundef !3
   %322 = getelementptr inbounds nuw i8, ptr %92, i64 %308
   %323 = load i8, ptr %322, align 1, !noundef !3
@@ -12718,7 +12718,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   br i1 %.not115, label %212, label %213, !prof !6
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds nuw i32, ptr %45, i64 %202
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %202
   %208 = load i32, ptr %207, align 4, !noundef !3
   %209 = sext i32 %208 to i64
   %210 = add i64 %199, %209
@@ -12933,7 +12933,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h32ca9d6c08d19f0dE.ex
   %274 = xor i64 %notmask, -1
   %275 = and i64 %268, %274
   %276 = mul i64 %275, %205
-  %277 = getelementptr inbounds nuw i32, ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %205
+  %277 = getelementptr inbounds nuw [4 x i8], ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %205
   %278 = load i32, ptr %277, align 4, !noundef !3
   %279 = zext i32 %278 to i64
   %280 = add i64 %276, %279
@@ -13095,7 +13095,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h32ca9d6c08d19f0dE.ex
   unreachable
 
 327:                                              ; preds = %324
-  %328 = getelementptr inbounds nuw i32, ptr %164, i64 %322
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %322
   %329 = load i32, ptr %328, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %330 = getelementptr inbounds nuw i8, ptr %165, i64 %322
@@ -13155,7 +13155,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h32ca9d6c08d19f0dE.ex
   unreachable
 
 353:                                              ; preds = %350
-  %354 = getelementptr inbounds nuw i32, ptr %172, i64 %348
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %348
   %355 = load i32, ptr %354, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %356 = getelementptr inbounds nuw i8, ptr %173, i64 %348
@@ -13246,7 +13246,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h32ca9d6c08d19f0dE.ex
   br i1 %384, label %385, label %388
 
 385:                                              ; preds = %383
-  %386 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %.val12.i141, i64 %365
+  %386 = getelementptr inbounds nuw [40 x i8], ptr %.val12.i141, i64 %365
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %386, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false), !noalias !786
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !780
   %387 = add nuw i64 %365, 1
@@ -13351,7 +13351,7 @@ common.resume:                                    ; preds = %529, %488, %457, %4
   br i1 %415, label %416, label %419
 
 416:                                              ; preds = %414
-  %417 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %.val12.i, i64 %396
+  %417 = getelementptr inbounds nuw [40 x i8], ptr %.val12.i, i64 %396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %417, ptr noundef nonnull align 8 dereferenceable(40) %23, i64 40, i1 false), !noalias !797
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !792
   %418 = add nuw i64 %396, 1
@@ -13483,7 +13483,7 @@ common.resume:                                    ; preds = %529, %488, %457, %4
   br i1 %451, label %452, label %455
 
 452:                                              ; preds = %450
-  %453 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %.val12.i155, i64 %432
+  %453 = getelementptr inbounds nuw [40 x i8], ptr %.val12.i155, i64 %432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %453, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !noalias !820
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !814
   %454 = add nuw i64 %432, 1
@@ -13584,7 +13584,7 @@ common.resume:                                    ; preds = %529, %488, %457, %4
   br i1 %482, label %483, label %486
 
 483:                                              ; preds = %481
-  %484 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %.val12.i148, i64 %463
+  %484 = getelementptr inbounds nuw [40 x i8], ptr %.val12.i148, i64 %463
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %484, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !noalias !831
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !826
   %485 = add nuw i64 %463, 1
@@ -13633,7 +13633,7 @@ common.resume:                                    ; preds = %529, %488, %457, %4
   unreachable
 
 499:                                              ; preds = %491
-  %500 = getelementptr inbounds nuw i32, ptr %136, i64 %359
+  %500 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %359
   %501 = load i32, ptr %500, align 4, !noundef !3
   %502 = getelementptr inbounds nuw i8, ptr %137, i64 %359
   %503 = load i8, ptr %502, align 1, !noundef !3
@@ -13700,7 +13700,7 @@ common.resume:                                    ; preds = %529, %488, %457, %4
   br i1 %523, label %524, label %527
 
 524:                                              ; preds = %522
-  %525 = getelementptr inbounds nuw { i8, [39 x i8] }, ptr %.val12.i162, i64 %504
+  %525 = getelementptr inbounds nuw [40 x i8], ptr %.val12.i162, i64 %504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %525, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !noalias !835
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !840
   %526 = add nuw i64 %504, 1
@@ -13970,7 +13970,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not115, label %152, label %153, !prof !6
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %142
   %148 = load i32, ptr %147, align 4, !noundef !3
   %149 = sext i32 %148 to i64
   %150 = add i64 %139, %149
@@ -14048,7 +14048,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %173, label %174, label %.split.us
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i32, ptr %91, i64 %170
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %170
   %176 = load i32, ptr %175, align 4, !noundef !3
   %177 = getelementptr inbounds nuw i8, ptr %92, i64 %170
   %178 = load i8, ptr %177, align 1, !noundef !3
@@ -14176,7 +14176,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   %229 = xor i64 %notmask, -1
   %230 = and i64 %223, %229
   %231 = mul i64 %230, %145
-  %232 = getelementptr inbounds nuw i32, ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %145
+  %232 = getelementptr inbounds nuw [4 x i8], ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %145
   %233 = load i32, ptr %232, align 4, !noundef !3
   %234 = zext i32 %233 to i64
   %235 = add i64 %231, %234
@@ -14310,7 +14310,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 275:                                              ; preds = %272
-  %276 = getelementptr inbounds nuw i32, ptr %104, i64 %270
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %270
   %277 = load i32, ptr %276, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %278 = getelementptr inbounds nuw i8, ptr %105, i64 %270
@@ -14370,7 +14370,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 301:                                              ; preds = %298
-  %302 = getelementptr inbounds nuw i32, ptr %112, i64 %296
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %296
   %303 = load i32, ptr %302, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %304 = getelementptr inbounds nuw i8, ptr %113, i64 %296
@@ -14412,7 +14412,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 319:                                              ; preds = %311
-  %320 = getelementptr inbounds nuw i32, ptr %91, i64 %308
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %308
   %321 = load i32, ptr %320, align 4, !noundef !3
   %322 = getelementptr inbounds nuw i8, ptr %92, i64 %308
   %323 = load i8, ptr %322, align 1, !noundef !3
@@ -14658,7 +14658,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not115, label %152, label %153, !prof !6
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds nuw i32, ptr %14, i64 %142
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %142
   %148 = load i32, ptr %147, align 4, !noundef !3
   %149 = sext i32 %148 to i64
   %150 = add i64 %139, %149
@@ -14736,7 +14736,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %173, label %174, label %.split.us
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i32, ptr %91, i64 %170
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %170
   %176 = load i32, ptr %175, align 4, !noundef !3
   %177 = getelementptr inbounds nuw i8, ptr %92, i64 %170
   %178 = load i8, ptr %177, align 1, !noundef !3
@@ -14864,7 +14864,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   %229 = xor i64 %notmask, -1
   %230 = and i64 %223, %229
   %231 = mul i64 %230, %145
-  %232 = getelementptr inbounds nuw i32, ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %145
+  %232 = getelementptr inbounds nuw [4 x i8], ptr @anon.cc180569dbfb30d6841720704a8a24b8.140, i64 %145
   %233 = load i32, ptr %232, align 4, !noundef !3
   %234 = zext i32 %233 to i64
   %235 = add i64 %231, %234
@@ -14998,7 +14998,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 275:                                              ; preds = %272
-  %276 = getelementptr inbounds nuw i32, ptr %104, i64 %270
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %270
   %277 = load i32, ptr %276, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %278 = getelementptr inbounds nuw i8, ptr %105, i64 %270
@@ -15058,7 +15058,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 301:                                              ; preds = %298
-  %302 = getelementptr inbounds nuw i32, ptr %112, i64 %296
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %296
   %303 = load i32, ptr %302, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %304 = getelementptr inbounds nuw i8, ptr %113, i64 %296
@@ -15100,7 +15100,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   unreachable
 
 319:                                              ; preds = %311
-  %320 = getelementptr inbounds nuw i32, ptr %91, i64 %308
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %308
   %321 = load i32, ptr %320, align 4, !noundef !3
   %322 = getelementptr inbounds nuw i8, ptr %92, i64 %308
   %323 = load i8, ptr %322, align 1, !noundef !3
@@ -15138,7 +15138,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream22StoreSymbolWithC
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !nonnull !3, !align !260, !noundef !3
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %16
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %16
   %29 = load i32, ptr %28, align 4, !noundef !3
   %30 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %16
@@ -15169,7 +15169,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream22StoreSymbolWithC
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %44
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %44
   %48 = load i32, ptr %47, align 4, !noundef !3
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15202,7 +15202,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream22StoreSymbolWithC
   %.val = load ptr, ptr %63, align 8, !nonnull !3, !align !5, !noundef !3
   %64 = getelementptr inbounds nuw i8, ptr %.val, i64 %53
   %65 = load i8, ptr %64, align 1, !noundef !3
-  %66 = getelementptr inbounds nuw i16, ptr %.val10, i64 %53
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.val10, i64 %53
   %67 = load i16, ptr %66, align 2, !noundef !3
   %68 = zext i16 %67 to i64
   tail call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %65, i64 noundef %68, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %6, i64 noundef %7)
@@ -15406,7 +15406,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   br label %78
 
 80:                                               ; preds = %.lr.ph47
-  %81 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.sroa.09.044
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.sroa.09.044
   %82 = load i32, ptr %81, align 4, !noundef !3
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %84 = load i32, ptr %83, align 4, !noundef !3
@@ -15443,7 +15443,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %93
   %98 = load i8, ptr %97, align 1, !noundef !3
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %30, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %99
   %101 = load i32, ptr %100, align 4, !noundef !3
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
@@ -15646,7 +15646,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   br label %78
 
 80:                                               ; preds = %.lr.ph47
-  %81 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %9, i64 %.sroa.09.044
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.sroa.09.044
   %82 = load i32, ptr %81, align 4, !noundef !3
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %84 = load i32, ptr %83, align 4, !noundef !3
@@ -15683,7 +15683,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream24BrotliStoreMetaBlockFast1
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %93
   %98 = load i8, ptr %97, align 1, !noundef !3
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %30, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %99
   %101 = load i32, ptr %100, align 4, !noundef !3
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
@@ -15798,7 +15798,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   br i1 %exitcond.not, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %2, i64 %.sroa.08.033
+  %52 = getelementptr inbounds nuw [1040 x i8], ptr %2, i64 %.sroa.08.033
   %.val = load ptr, ptr %46, align 8, !nonnull !3, !align !5, !noundef !3
   %.val24 = load i64, ptr %47, align 8, !noundef !3
   %53 = icmp ugt i64 %50, %.val24
@@ -15822,7 +15822,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   %59 = getelementptr inbounds nuw i8, ptr %.val, i64 %50
   %60 = sub nuw i64 %.val24, %50
   %61 = sub nuw i64 %.val26, %50
-  %62 = getelementptr inbounds nuw i16, ptr %.val25, i64 %50
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.val25, i64 %50
   tail call void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h944c099b27d10807E(ptr noalias noundef nonnull readonly align 4 %52, i64 noundef 256, i64 noundef %49, i64 noundef 256, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %59, i64 noundef %60, ptr noalias noundef nonnull align 2 %62, i64 noundef %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
   %63 = add nuw i64 %.sroa.08.033, 1
   %exitcond43.not = icmp eq i64 %63, %4
@@ -15946,7 +15946,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   br i1 %exitcond.not, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %2, i64 %.sroa.08.033
+  %52 = getelementptr inbounds nuw [2832 x i8], ptr %2, i64 %.sroa.08.033
   %.val = load ptr, ptr %46, align 8, !nonnull !3, !align !5, !noundef !3
   %.val24 = load i64, ptr %47, align 8, !noundef !3
   %53 = icmp ugt i64 %50, %.val24
@@ -15970,7 +15970,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   %59 = getelementptr inbounds nuw i8, ptr %.val, i64 %50
   %60 = sub nuw i64 %.val24, %50
   %61 = sub nuw i64 %.val26, %50
-  %62 = getelementptr inbounds nuw i16, ptr %.val25, i64 %50
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.val25, i64 %50
   tail call void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h944c099b27d10807E(ptr noalias noundef nonnull readonly align 4 %52, i64 noundef 704, i64 noundef %49, i64 noundef 704, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, ptr noalias noundef nonnull align 1 %59, i64 noundef %60, ptr noalias noundef nonnull align 2 %62, i64 noundef %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 1 %8, i64 noundef %9)
   %63 = add nuw i64 %.sroa.08.033, 1
   %exitcond43.not = icmp eq i64 %63, %4
@@ -16094,7 +16094,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   br i1 %exitcond.not, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2, i64 %.sroa.08.033
+  %53 = getelementptr inbounds nuw [2192 x i8], ptr %2, i64 %.sroa.08.033
   %.val = load ptr, ptr %47, align 8, !nonnull !3, !align !5, !noundef !3
   %.val24 = load i64, ptr %48, align 8, !noundef !3
   %54 = icmp ugt i64 %51, %.val24
@@ -16118,7 +16118,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream25BuildAndStoreEnt
   %60 = getelementptr inbounds nuw i8, ptr %.val, i64 %51
   %61 = sub nuw i64 %.val24, %51
   %62 = sub nuw i64 %.val26, %51
-  %63 = getelementptr inbounds nuw i16, ptr %.val25, i64 %51
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.val25, i64 %51
   tail call void @_ZN6brotli3enc17brotli_bit_stream24BuildAndStoreHuffmanTree17h944c099b27d10807E(ptr noalias noundef nonnull readonly align 4 %53, i64 noundef 544, i64 noundef %50, i64 noundef %5, ptr noalias noundef nonnull align 4 %6, i64 noundef %7, ptr noalias noundef nonnull align 1 %60, i64 noundef %61, ptr noalias noundef nonnull align 2 %63, i64 noundef %62, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 1 %9, i64 noundef %10)
   %64 = add nuw i64 %.sroa.08.033, 1
   %exitcond43.not = icmp eq i64 %64, %4
@@ -16932,7 +16932,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 
 41:                                               ; preds = %35
   %.val194 = load ptr, ptr %14, align 8, !nonnull !3, !align !260, !noundef !3
-  %42 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val194, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val194, i64 %36
   store i64 -1, ptr %42, align 4
   %.val193 = load i64, ptr %29, align 8, !noundef !3
   %43 = zext i32 %.sroa.050.0.lcssa to i64
@@ -16941,7 +16941,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 
 45:                                               ; preds = %41
   %.val192 = load ptr, ptr %14, align 8, !nonnull !3, !align !260, !noundef !3
-  %46 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val192, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val192, i64 %43
   %.sroa.033.0364 = add i32 %.sroa.050.0.lcssa, -1
   %47 = icmp sgt i32 %.sroa.033.0364, 0
   store i64 -1, ptr %46, align 4
@@ -17060,10 +17060,10 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 .thread:                                          ; preds = %._crit_edge376.thread, %78
   %.pre-phi587593 = phi i64 [ %.pre, %78 ], [ %.sroa.083.0372, %._crit_edge376.thread ]
   %.sroa.091.0.lcssa589592 = phi i64 [ %.sroa.091.0.lcssa.ph, %78 ], [ 1, %._crit_edge376.thread ]
-  %82 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants14kZeroRepsDepth17h4e752192f989bd9cE, i64 %.sroa.091.0.lcssa589592
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants14kZeroRepsDepth17h4e752192f989bd9cE, i64 %.sroa.091.0.lcssa589592
   %83 = load i32, ptr %82, align 4, !noundef !3
   %84 = trunc i32 %83 to i8
-  %85 = getelementptr inbounds nuw i64, ptr @_ZN6brotli3enc9constants13kZeroRepsBits17h539e9e4ac94bec44E, i64 %.sroa.091.0.lcssa589592
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6brotli3enc9constants13kZeroRepsBits17h539e9e4ac94bec44E, i64 %.sroa.091.0.lcssa589592
   %86 = load i64, ptr %85, align 8, !noundef !3
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %84, i64 noundef %86, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   br label %.loopexit211
@@ -17092,13 +17092,13 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   %94 = zext i8 %68 to i64
   %95 = icmp ult i8 %68, 18
   %96 = getelementptr inbounds nuw i8, ptr @_ZN6brotli3enc9constants16kCodeLengthDepth17h2a179351f5b0c777E, i64 %94
-  %97 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants15kCodeLengthBits17hb0b2805ce6cfc0f0E, i64 %94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants15kCodeLengthBits17hb0b2805ce6cfc0f0E, i64 %94
   br i1 %95, label %.lr.ph381.split, label %121
 
 98:                                               ; preds = %88
   %99 = getelementptr inbounds nuw i8, ptr @_ZN6brotli3enc9constants16kCodeLengthDepth17h2a179351f5b0c777E, i64 %89
   %100 = load i8, ptr %99, align 1, !noundef !3
-  %101 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants15kCodeLengthBits17hb0b2805ce6cfc0f0E, i64 %89
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants15kCodeLengthBits17hb0b2805ce6cfc0f0E, i64 %89
   %102 = load i32, ptr %101, align 4, !noundef !3
   %103 = zext i32 %102 to i64
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %100, i64 noundef %103, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
@@ -17119,10 +17119,10 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   unreachable
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i32, ptr @_ZN6brotli3enc9constants17kNonZeroRepsDepth17h0a155172b8abfc03E, i64 %107
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc9constants17kNonZeroRepsDepth17h0a155172b8abfc03E, i64 %107
   %112 = load i32, ptr %111, align 4, !noundef !3
   %113 = trunc i32 %112 to i8
-  %114 = getelementptr inbounds nuw i64, ptr @_ZN6brotli3enc9constants16kNonZeroRepsBits17haeb0ba2e1ba53ee3E, i64 %107
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6brotli3enc9constants16kNonZeroRepsBits17haeb0ba2e1ba53ee3E, i64 %107
   %115 = load i64, ptr %114, align 8, !noundef !3
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17hecd5a695b66fcc7bE(i8 noundef %113, i64 noundef %115, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   br label %.loopexit211
@@ -17164,7 +17164,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   br i1 %129, label %.lr.ph387, label %.loopexit
 
 .lr.ph387:                                        ; preds = %127
-  %130 = getelementptr inbounds nuw i64, ptr %15, i64 %.sroa.067.0388
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sroa.067.0388
   br label %145
 
 131:                                              ; preds = %122
@@ -17201,7 +17201,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 
 145:                                              ; preds = %.lr.ph387, %160
   %.sroa.063.0385 = phi i64 [ %128, %.lr.ph387 ], [ %161, %160 ]
-  %146 = getelementptr inbounds nuw i64, ptr %15, i64 %.sroa.063.0385
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sroa.063.0385
   %147 = load i64, ptr %146, align 8, !noundef !3
   %148 = icmp ult i64 %147, %6
   br i1 %148, label %149, label %152
@@ -17253,9 +17253,9 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   br i1 %167, label %168, label %.invoke
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %163
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %163
   %170 = load i32, ptr %169, align 4, !noundef !3
-  %171 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %166
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %166
   %172 = load i32, ptr %171, align 4, !noundef !3
   %.not177 = icmp ugt i32 %170, %172
   %.sroa.046.0 = select i1 %.not177, i32 %.sroa.027.0366, i32 %.sroa.021.0367
@@ -17274,9 +17274,9 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   br i1 %179, label %180, label %.invoke
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %175
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %175
   %182 = load i32, ptr %181, align 4, !noundef !3
-  %183 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %178
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %178
   %184 = load i32, ptr %183, align 4, !noundef !3
   %.not178 = icmp ugt i32 %182, %184
   %.sroa.048.0 = select i1 %.not178, i32 %.sroa.027.1, i32 %.sroa.021.1
@@ -17290,7 +17290,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   br i1 %188, label %189, label %.invoke
 
 189:                                              ; preds = %180
-  %190 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %187
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %187
   %191 = load i32, ptr %190, align 4, !noundef !3
   %192 = sext i32 %.sroa.048.0 to i64
   %193 = icmp ugt i64 %.val209, %192
@@ -17303,10 +17303,10 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   br i1 %197, label %198, label %.invoke
 
 198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %192
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %192
   %200 = load i32, ptr %199, align 4, !noundef !3
   %201 = add i32 %200, %191
-  %202 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val208, i64 %196
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %.val208, i64 %196
   store i32 %201, ptr %202, align 4
   %.val187 = load i64, ptr %29, align 8, !noundef !3
   %203 = icmp ugt i64 %.val187, %196
@@ -17314,7 +17314,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 
 204:                                              ; preds = %198
   %.val186 = load ptr, ptr %14, align 8, !nonnull !3, !align !260, !noundef !3
-  %205 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val186, i64 %196
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %.val186, i64 %196
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %207 = trunc i32 %.sroa.046.0 to i16
   store i16 %207, ptr %206, align 4
@@ -17324,7 +17324,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 
 209:                                              ; preds = %204
   %.val184 = load ptr, ptr %14, align 8, !nonnull !3, !align !260, !noundef !3
-  %210 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val184, i64 %196
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %.val184, i64 %196
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 6
   %212 = trunc i32 %.sroa.048.0 to i16
   store i16 %212, ptr %211, align 2
@@ -17335,14 +17335,14 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 
 215:                                              ; preds = %209
   %.val182 = load ptr, ptr %14, align 8, !nonnull !3, !align !260, !noundef !3
-  %216 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val182, i64 %213
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %.val182, i64 %213
   %217 = add i32 %.sroa.050.1365, 1
   %exitcond531.not = icmp eq i32 %.sroa.050.1365, %49
   store i64 -1, ptr %216, align 4
   br i1 %exitcond531.not, label %._crit_edge371, label %.lr.ph370
 
 218:                                              ; preds = %.lr.ph361
-  %219 = getelementptr inbounds nuw i32, ptr %1, i64 %31
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %31
   %220 = load i32, ptr %219, align 4, !noundef !3
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %224
@@ -17361,7 +17361,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
 227:                                              ; preds = %224
   %.sroa.060.0. = tail call i32 @llvm.umax.i32(i32 %220, i32 %.sroa.060.0)
   %.val = load ptr, ptr %14, align 8, !nonnull !3, !align !260, !noundef !3
-  %228 = getelementptr inbounds nuw { i32, i16, i16 }, ptr %.val, i64 %225
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %225
   %229 = trunc i64 %31 to i16
   store i32 %.sroa.060.0., ptr %228, align 4
   %.sroa.4103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 4
@@ -17391,7 +17391,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   unreachable
 
 238:                                              ; preds = %234
-  %239 = getelementptr inbounds nuw i16, ptr %7, i64 %22
+  %239 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %22
   store i16 0, ptr %239, align 2
   br label %.loopexit212
 
@@ -17400,7 +17400,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   unreachable
 
 241:                                              ; preds = %.lr.ph
-  %242 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.04.0351
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.04.0351
   %243 = load i32, ptr %242, align 4, !noundef !3
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %248, label %246
@@ -17421,7 +17421,7 @@ define hidden void @_ZN6brotli3enc17brotli_bit_stream34BrotliBuildAndStoreHuffma
   br i1 %250, label %._crit_edge, label %.lr.ph
 
 251:                                              ; preds = %246
-  %252 = getelementptr inbounds nuw i64, ptr %15, i64 %.sroa.072.0350
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sroa.072.0350
   store i64 %.sroa.04.0351, ptr %252, align 8
   br label %253
 

@@ -16,8 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"struct.Assimp::LWO::Face" = type <{ %struct.aiFace, i32, i32, i32, [4 x i8] }>
-%struct.aiFace = type { i32, ptr }
 %"struct.Assimp::LWO::Surface" = type { %"class.std::__cxx11::basic_string", %struct.aiColor3D, i8, float, float, float, float, float, float, float, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::list.61", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", %"class.std::__cxx11::list", float, float, i8, float }
 %struct.aiColor3D = type { float, float, float }
 %"class.std::__cxx11::list.61" = type { %"class.std::__cxx11::_List_base.62" }
@@ -380,7 +378,7 @@ define hidden void @_ZN6Assimp11LWOImporter16LoadLWOBPolygonsEj(ptr noundef nonn
   br i1 %36, label %37, label %_ZNSt6vectorIN6Assimp3LWO4FaceESaIS2_EE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw %"struct.Assimp::LWO::Face", ptr %27, i64 %24
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %24
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp3LWO4FaceESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1124,7 +1122,7 @@ define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWOBERjS1_RPtPKtj
   store i32 %40, ptr %2, align 4
   %41 = load ptr, ptr %3, align 8
   %42 = zext i16 %.0.copyload2 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store ptr %44, ptr %3, align 8
   %.0.copyload = load i16, ptr %43, align 2
@@ -1187,7 +1185,7 @@ define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17_
 17:                                               ; preds = %11
   %18 = load ptr, ptr %2, align 8
   %19 = zext i16 %.0.copyload13 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   %.not47 = icmp ult ptr %20, %3
   br i1 %.not47, label %21, label %.critedge
 
@@ -1203,7 +1201,7 @@ define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %21, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %21 ]
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   store ptr %29, ptr %2, align 8
@@ -2664,9 +2662,9 @@ _ZSt8_DestroyIPN6Assimp3LWO4FaceES2_EvT_S4_RSaIT0_E.exit54: ; preds = %_ZSt8_Des
 
 _ZNSt12_Vector_baseIN6Assimp3LWO4FaceESaIS2_EE13_M_deallocateEPS2_m.exit56: ; preds = %_ZSt8_DestroyIPN6Assimp3LWO4FaceES2_EvT_S4_RSaIT0_E.exit54, %54
   store ptr %29, ptr %0, align 8
-  %58 = getelementptr inbounds nuw %"struct.Assimp::LWO::Face", ptr %30, i64 %1
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %58, ptr %4, align 8
-  %59 = getelementptr inbounds nuw %"struct.Assimp::LWO::Face", ptr %29, i64 %27
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %59, ptr %11, align 8
   br label %60
 
@@ -3056,7 +3054,7 @@ _ZSt8_DestroyIPN6Assimp3LWO7SurfaceES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i
 _ZNSt12_Vector_baseIN6Assimp3LWO7SurfaceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp3LWO7SurfaceES2_EvT_S4_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"struct.Assimp::LWO::Surface", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [328 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 

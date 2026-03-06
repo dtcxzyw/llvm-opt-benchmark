@@ -56,7 +56,7 @@ define i32 @openblas_setaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2)
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw i64, ptr @blas_threads, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @blas_threads, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !7
   br label %17
 
@@ -105,7 +105,7 @@ define i32 @openblas_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2)
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw i64, ptr @blas_threads, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @blas_threads, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !7
   br label %17
 
@@ -146,7 +146,7 @@ define noundef i32 @blas_thread_init() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %3, %14
   %8 = phi i32 [ %15, %14 ], [ %5, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr @blas_thread_buffer, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @blas_thread_buffer, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
@@ -166,7 +166,7 @@ define noundef i32 @blas_thread_init() local_unnamed_addr #0 {
 
 .lr.ph12.i:                                       ; preds = %.lr.ph12.i.preheader, %21
   %indvars.iv14.i = phi i64 [ %indvars.iv.next15.i, %21 ], [ %indvars.iv14.i.ph, %.lr.ph12.i.preheader ]
-  %18 = getelementptr inbounds nuw ptr, ptr @blas_thread_buffer, i64 %indvars.iv14.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @blas_thread_buffer, i64 %indvars.iv14.i
   %19 = load ptr, ptr %18, align 8, !tbaa !9
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %21, label %20
@@ -209,7 +209,7 @@ adjust_thread_buffers.exit:                       ; preds = %21, %.preheader.i
 
 33:                                               ; preds = %.lr.ph, %66
   %.01823 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi, %66 ]
-  %34 = getelementptr inbounds nuw %struct.thread_status_t, ptr @thread_status, i64 %.01823
+  %34 = getelementptr inbounds nuw [128 x i8], ptr @thread_status, i64 %.01823
   store atomic volatile i64 0, ptr %34 monotonic, align 128
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store volatile i64 4, ptr %35, align 8, !tbaa !14
@@ -217,7 +217,7 @@ adjust_thread_buffers.exit:                       ; preds = %21, %.preheader.i
   %37 = call i32 @pthread_mutex_init(ptr noundef nonnull %36, ptr noundef null) #10
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %39 = call i32 @pthread_cond_init(ptr noundef nonnull %38, ptr noundef null) #10
-  %40 = getelementptr inbounds nuw i64, ptr @blas_threads, i64 %.01823
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @blas_threads, i64 %.01823
   %41 = inttoptr i64 %.01823 to ptr
   %42 = call i32 @pthread_create(ptr noundef nonnull %40, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %41) #10
   %.not21 = icmp eq i32 %42, 0
@@ -301,7 +301,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @blas_thread_server(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %2
+  %3 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -451,7 +451,7 @@ blas_lock.exit._crit_edge.thread:                 ; preds = %blas_lock.exit.preh
   %.03039 = phi i64 [ %.1.lcssa, %blas_lock.exit ], [ 0, %blas_lock.exit.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.02940, i64 8
   store i64 %.041, ptr %11, align 8, !tbaa !34
-  %12 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %.03039
+  %12 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %.03039
   %13 = load atomic volatile i64, ptr %12 monotonic, align 128
   %.not3436 = icmp eq i64 %13, 0
   br i1 %.not3436, label %blas_lock.exit, label %.lr.ph
@@ -467,7 +467,7 @@ blas_lock.exit._crit_edge.thread:                 ; preds = %blas_lock.exit.preh
   %18 = add nsw i64 %.137, 1
   %.not35 = icmp slt i64 %18, %16
   %spec.store.select = select i1 %.not35, i64 %18, i64 0
-  %19 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %spec.store.select
+  %19 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %spec.store.select
   %20 = load atomic volatile i64, ptr %19 monotonic, align 128
   %.not34 = icmp eq i64 %20, 0
   br i1 %.not34, label %blas_lock.exit, label %17, !llvm.loop !36
@@ -477,7 +477,7 @@ blas_lock.exit:                                   ; preds = %17, %.lr.ph42
   %21 = getelementptr inbounds nuw i8, ptr %.02940, i64 16
   store i64 %.1.lcssa, ptr %21, align 8, !tbaa !37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
-  %22 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %.1.lcssa
+  %22 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %.1.lcssa
   %23 = ptrtoint ptr %.02940 to i64
   store atomic volatile i64 %23, ptr %22 monotonic, align 128
   %24 = getelementptr inbounds nuw i8, ptr %.02940, i64 64
@@ -495,7 +495,7 @@ blas_lock.exit._crit_edge:                        ; preds = %blas_lock.exit
   %.03144 = phi ptr [ %48, %46 ], [ %1, %blas_lock.exit._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %.03144, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !37
-  %29 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %28
+  %29 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %28
   %30 = load atomic volatile i64, ptr %29 monotonic, align 128
   %31 = icmp ugt i64 %30, 1
   br i1 %31, label %32, label %46
@@ -548,7 +548,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly ca
   %.0811 = phi ptr [ %14, %._crit_edge ], [ %1, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !37
-  %8 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %7
+  %8 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %7
   %9 = load atomic volatile i64, ptr %8 monotonic, align 128
   %.not10 = icmp eq i64 %9, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -556,7 +556,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly ca
 .lr.ph:                                           ; preds = %.lr.ph14, %.lr.ph
   tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !42
   %10 = load i64, ptr %6, align 8, !tbaa !37
-  %11 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %10
   %12 = load atomic volatile i64, ptr %11 monotonic, align 128
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
@@ -598,7 +598,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef %1) local_unnamed_addr
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %10 ]
-  %12 = getelementptr inbounds nuw %struct.blas_queue, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [168 x i8], ptr %1, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %indvars.iv, ptr %13, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -693,7 +693,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef %1) local_unnamed_addr
   %.012.i = add nsw i64 %.012.i.in, -1
   %58 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !37
-  %60 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %59
+  %60 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %59
   %61 = load atomic volatile i64, ptr %60 monotonic, align 128
   %.not10.i = icmp eq i64 %61, 0
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
@@ -701,7 +701,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef %1) local_unnamed_addr
 .lr.ph.i:                                         ; preds = %.lr.ph14.i, %.lr.ph.i
   tail call void asm sideeffect "nop;nop;nop;nop;nop;nop;nop;nop;\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !42
   %62 = load i64, ptr %58, align 8, !tbaa !37
-  %63 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %62
+  %63 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %62
   %64 = load atomic volatile i64, ptr %63 monotonic, align 128
   %.not.i = icmp eq i64 %64, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
@@ -727,9 +727,9 @@ exec_blas_async_wait.exit:                        ; preds = %._crit_edge.i
 define internal void @exec_threads(i32 noundef %0, ptr noundef captures(none) %1, i32 %2) #0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !47
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.thread_status_t, ptr @thread_status, i64 %5
+  %6 = getelementptr inbounds [128 x i8], ptr @thread_status, i64 %5
   store atomic volatile i64 1, ptr %6 monotonic, align 128
-  %7 = getelementptr inbounds ptr, ptr @blas_thread_buffer, i64 %5
+  %7 = getelementptr inbounds [8 x i8], ptr @blas_thread_buffer, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !53
@@ -964,7 +964,7 @@ define void @goto_set_num_threads(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01517 = phi i64 [ %29, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw %struct.thread_status_t, ptr @thread_status, i64 %.01517
+  %20 = getelementptr inbounds nuw [128 x i8], ptr @thread_status, i64 %.01517
   store atomic volatile i64 0, ptr %20 monotonic, align 128
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile i64 4, ptr %21, align 8, !tbaa !14
@@ -972,7 +972,7 @@ define void @goto_set_num_threads(i32 noundef %0) local_unnamed_addr #0 {
   %23 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %22, ptr noundef null) #10
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %25 = tail call i32 @pthread_cond_init(ptr noundef nonnull %24, ptr noundef null) #10
-  %26 = getelementptr inbounds nuw i64, ptr @blas_threads, i64 %.01517
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @blas_threads, i64 %.01517
   %27 = inttoptr i64 %.01517 to ptr
   %28 = tail call i32 @pthread_create(ptr noundef nonnull %26, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %27) #10
   %29 = add nuw nsw i64 %.01517, 1
@@ -1028,7 +1028,7 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.02224 = phi ptr [ %2, %.lr.ph ], [ %27, %18 ]
-  %19 = getelementptr inbounds nuw %struct.blas_queue, ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [168 x i8], ptr %5, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 160
   store i32 16384, ptr %20, align 8, !tbaa !48
   store ptr %1, ptr %19, align 8, !tbaa !47
@@ -1041,7 +1041,7 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store ptr %.02224, ptr %24, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw %struct.blas_queue, ptr %5, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [168 x i8], ptr %5, i64 %indvars.iv.next
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %25, ptr %26, align 8, !tbaa !39
   %27 = getelementptr inbounds i8, ptr %.02224, i64 %17
@@ -1050,7 +1050,7 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge:                                      ; preds = %18
   %28 = zext nneg i32 %0 to i64
-  %29 = getelementptr %struct.blas_queue, ptr %5, i64 %28
+  %29 = getelementptr [168 x i8], ptr %5, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -104
   store ptr null, ptr %30, align 8, !tbaa !39
   %31 = call i32 @exec_blas(i64 noundef %28, ptr noundef nonnull %5)
@@ -1070,7 +1070,7 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %6
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @blas_thread_buffer, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @blas_thread_buffer, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %.not21 = icmp eq ptr %4, null
   br i1 %.not21, label %6, label %5
@@ -1101,7 +1101,7 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader23, %.lr.ph
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph ], [ 0, %.preheader23 ]
-  %12 = getelementptr inbounds nuw %struct.thread_status_t, ptr @thread_status, i64 %indvars.iv31
+  %12 = getelementptr inbounds nuw [128 x i8], ptr @thread_status, i64 %indvars.iv31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #10
   store atomic volatile i64 -1, ptr %12 monotonic, align 128
@@ -1123,7 +1123,7 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 .lr.ph27:                                         ; preds = %.preheader22, %.lr.ph27
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.lr.ph27 ], [ 0, %.preheader22 ]
-  %24 = getelementptr inbounds nuw i64, ptr @blas_threads, i64 %indvars.iv34
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @blas_threads, i64 %indvars.iv34
   %25 = load i64, ptr %24, align 8, !tbaa !7
   %26 = tail call i32 @pthread_join(i64 noundef %25, ptr noundef null) #10
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
@@ -1135,7 +1135,7 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 .lr.ph29:                                         ; preds = %.preheader, %.lr.ph29
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.lr.ph29 ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw %struct.thread_status_t, ptr @thread_status, i64 %indvars.iv37
+  %31 = getelementptr inbounds nuw [128 x i8], ptr @thread_status, i64 %indvars.iv37
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %32) #10
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 56

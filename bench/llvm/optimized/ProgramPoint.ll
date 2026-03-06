@@ -850,7 +850,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit193._ZNK5clang18CXXCtorInitializer12getAnyMember
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 64
   %358 = load i32, ptr %357, align 8, !tbaa !461
   %359 = zext i32 %358 to i64
-  %360 = getelementptr ptr, ptr %356, i64 %359
+  %360 = getelementptr [8 x i8], ptr %356, i64 %359
   %361 = getelementptr i8, ptr %360, i64 -8
   %362 = load ptr, ptr %361, align 8, !tbaa !462
   br label %_ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit

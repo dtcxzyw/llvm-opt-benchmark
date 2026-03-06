@@ -45,8 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.120" = type { %"struct.std::_Tuple_impl.121" }
 %"struct.std::_Tuple_impl.121" = type { %"struct.std::_Head_base.124" }
 %"struct.std::_Head_base.124" = type { ptr }
-%"class.gmx::(anonymous namespace)::ElectricFieldDimension" = type { float, float, float, float }
-%"class.gmx::BasicVector" = type { [3 x float] }
 %"class.std::function.29" = type { %"class.std::_Function_base", ptr }
 %class.anon = type { %"class.std::function" }
 %"class.gmx::KeyValueTreeValue" = type { %"class.gmx::Any" }
@@ -79,8 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.50" = type { %"struct.std::_Head_base.53" }
 %"struct.std::_Head_base.53" = type { ptr }
 %"struct.std::pair.64" = type { %"class.std::__cxx11::basic_string", %"class.gmx::KeyValueTreeValue" }
-%"class.gmx::KeyValueTreeProperty" = type { %"struct.std::_Rb_tree_const_iterator" }
-%"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.gmx::FloatOption" = type <{ %"class.gmx::OptionTemplate", i8, [7 x i8] }>
 %"class.gmx::OptionTemplate" = type { %"class.gmx::AbstractOption", ptr, ptr, ptr, ptr, ptr }
@@ -1656,7 +1652,7 @@ _ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread: ; preds = %3
 
 24:                                               ; preds = %_ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread, %.loopexit
   %indvars.iv30 = phi i64 [ 0, %_ZNK3gmx12_GLOBAL__N_113ElectricField8isActiveEv.exit.thread ], [ %indvars.iv.next31, %.loopexit ]
-  %25 = getelementptr inbounds nuw %"class.gmx::(anonymous namespace)::ElectricFieldDimension", ptr %4, i64 %indvars.iv30
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv30
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load float, ptr %26, align 4, !tbaa !97
   %28 = fcmp ogt float %27, 0.000000e+00
@@ -1708,15 +1704,15 @@ _ZNK3gmx12_GLOBAL__N_113ElectricField5fieldEif.exit: ; preds = %30, %51
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv30
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv30
   %wide.trip.count = zext nneg i32 %61 to i64
   br label %63
 
 63:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %64 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %65 = load float, ptr %64, align 4, !tbaa !102
-  %gep = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [12 x i8], ptr %invariant.gep, i64 %indvars.iv
   %66 = load float, ptr %gep, align 4, !tbaa !102
   %67 = tail call float @llvm.fmuladd.f32(float %65, float %59, float %66)
   store float %67, ptr %gep, align 4, !tbaa !102
@@ -3430,7 +3426,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE13_M_deallocateEPS1_m.ex
   store ptr %52, ptr %33, align 8, !tbaa !184
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   store ptr %57, ptr %34, align 8, !tbaa !181
-  %58 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %52, i64 %41
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %41
   store ptr %58, ptr %45, align 8, !tbaa !185
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE7reserveEm.exit
 
@@ -3583,7 +3579,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %116, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !184
   store ptr %115, ptr %89, align 8, !tbaa !181
-  %117 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !185
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -5061,7 +5057,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !257
   store ptr %32, ptr %8, align 8, !tbaa !253
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !256
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 

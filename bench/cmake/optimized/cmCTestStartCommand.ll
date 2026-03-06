@@ -265,14 +265,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %83
   %.0172663 = phi i1 [ false, %.lr.ph ], [ %.1173, %217 ]
   %.sroa.0635.0662 = phi ptr [ null, %.lr.ph ], [ %.sroa.0635.1, %217 ]
   %.sroa.0627.0661 = phi ptr [ null, %.lr.ph ], [ %.sroa.0627.1, %217 ]
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %90, i64 %.0165666
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %.0165666
   %92 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull @.str.2) #16
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %1, align 8, !tbaa !18
-  %96 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %95, i64 %.0165666
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %.0165666
   %97 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull @.str.3) #16
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %177
@@ -289,14 +289,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %83
   br i1 %.not252, label %107, label %116
 
 107:                                              ; preds = %99
-  %108 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %100
   %109 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull @.str.4) #16
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %116, label %111
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %1, align 8, !tbaa !18
-  %113 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %112, i64 %100
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %100
   %114 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull @.str.5) #16
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %172
@@ -305,7 +305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10)
   %117 = load ptr, ptr %1, align 8, !tbaa !18
-  %118 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %117, i64 %.0165666
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %.0165666
   %119 = load ptr, ptr %118, align 8, !tbaa !14
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %121 = load i64, ptr %120, align 8, !tbaa !17
@@ -439,21 +439,21 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 172:                                              ; preds = %111
   %173 = load ptr, ptr %70, align 8, !tbaa !35
   %174 = load ptr, ptr %1, align 8, !tbaa !18
-  %175 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %174, i64 %100
+  %175 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %100
   %176 = load ptr, ptr %175, align 8, !tbaa !14
   tail call void @_ZN7cmCTest16SetSpecificGroupEPKc(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef %176)
   br label %217
 
 177:                                              ; preds = %94
   %178 = load ptr, ptr %1, align 8, !tbaa !18
-  %179 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %178, i64 %.0165666
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %178, i64 %.0165666
   %180 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull @.str.4) #16
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %217, label %182
 
 182:                                              ; preds = %177
   %183 = load ptr, ptr %1, align 8, !tbaa !18
-  %184 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %183, i64 %.0165666
+  %184 = getelementptr inbounds nuw [32 x i8], ptr %183, i64 %.0165666
   %185 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull @.str.5) #16
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %217, label %187
@@ -464,7 +464,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 188:                                              ; preds = %187
   %189 = load ptr, ptr %1, align 8, !tbaa !18
-  %190 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %189, i64 %.0165666
+  %190 = getelementptr inbounds nuw [32 x i8], ptr %189, i64 %.0165666
   %191 = load ptr, ptr %190, align 8, !tbaa !14
   br label %217
 
@@ -474,7 +474,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 193:                                              ; preds = %192
   %194 = load ptr, ptr %1, align 8, !tbaa !18
-  %195 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %194, i64 %.0165666
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %194, i64 %.0165666
   br label %217
 
 196:                                              ; preds = %192
@@ -483,7 +483,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 197:                                              ; preds = %196
   %198 = load ptr, ptr %1, align 8, !tbaa !18
-  %199 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %198, i64 %.0165666
+  %199 = getelementptr inbounds nuw [32 x i8], ptr %198, i64 %.0165666
   br label %217
 
 200:                                              ; preds = %196

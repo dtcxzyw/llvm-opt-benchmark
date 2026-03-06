@@ -20,13 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.0" = type { i8 }
 %"class.absl::debian2::AlphaNum" = type { %"class.absl::debian2::string_view", [32 x i8] }
 %"class.absl::debian2::string_view" = type { ptr, i64 }
-%"struct.open_spiel::go::GoBoard::Vertex" = type { i16, i16, i8 }
-%"struct.open_spiel::go::GoBoard::Chain" = type { i32, i16, i16, i16 }
-%"class.open_spiel::chess_common::ZobristTable.13" = type { %"class.std::vector.14" }
-%"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
-%"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -42,7 +35,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array.31" = type { [441 x i8] }
 %"class.open_spiel::go::GoBoard" = type <{ %"struct.std::array.3", [2 x i8], %"struct.std::array.4", [4 x i8], i64, %"struct.std::array.5", i32, i32, i16, [6 x i8] }>
 %"struct.std::array.3" = type { [441 x %"struct.open_spiel::go::GoBoard::Vertex"] }
+%"struct.open_spiel::go::GoBoard::Vertex" = type { i16, i16, i8 }
 %"struct.std::array.4" = type { [441 x %"struct.open_spiel::go::GoBoard::Chain"] }
+%"struct.open_spiel::go::GoBoard::Chain" = type { i32, i16, i16, i16 }
 %"struct.std::array.5" = type { [4 x i16] }
 %"class.absl::debian2::strings_internal::Splitter" = type <{ %"class.absl::debian2::string_view", %"class.absl::debian2::ByChar", [7 x i8] }>
 %"class.absl::debian2::ByChar" = type { i8 }
@@ -205,7 +200,7 @@ define noundef zeroext i16 @_ZNK10open_spiel2go11Neighbours4deEv(ptr noundef non
   %3 = load i16, ptr %2, align 2
   %4 = load i16, ptr %0, align 2
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = trunc i32 %7 to i16
   %9 = add i16 %3, %8
@@ -1368,14 +1363,14 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 3, ptr %6, align 2
   %7 = trunc i64 %indvars.iv to i16
   store i16 %7, ptr %5, align 2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %7, ptr %8, align 2
-  %9 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i16 0, ptr %10, align 2
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1401,10 +1396,10 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
   %.sroa.029.035 = phi ptr [ %25, %.lr.ph ], [ %17, %13 ]
   %20 = load i16, ptr %.sroa.029.035, align 2
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i8 2, ptr %23, align 2
-  %24 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %3, i64 %21
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %24, i8 0, i64 10, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.035, i64 2
   %.not = icmp eq ptr %25, %19
@@ -1431,7 +1426,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
   %33 = load i16, ptr %.sroa.025.037, align 2
   %34 = add i16 %33, 21
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i8, ptr %37, align 2
   %39 = icmp eq i8 %38, 2
@@ -1439,10 +1434,10 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 
 40:                                               ; preds = %.lr.ph39
   %41 = zext i16 %33 to i64
-  %42 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %3, i64 %44
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i16, ptr %46, align 4
   %48 = add i16 %47, 1
@@ -1461,7 +1456,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 "_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i": ; preds = %40, %.lr.ph39
   %56 = add i16 %33, 1
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i8, ptr %59, align 2
   %61 = icmp eq i8 %60, 2
@@ -1469,10 +1464,10 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 
 62:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i"
   %63 = zext i16 %33 to i64
-  %64 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %3, i64 %66
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i16, ptr %68, align 4
   %70 = add i16 %69, 1
@@ -1491,7 +1486,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 "_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i": ; preds = %62, %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit.i"
   %78 = add i16 %33, -1
   %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i8, ptr %81, align 2
   %83 = icmp eq i8 %82, 2
@@ -1499,10 +1494,10 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 
 84:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i"
   %85 = zext i16 %33 to i64
-  %86 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %3, i64 %88
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i16, ptr %90, align 4
   %92 = add i16 %91, 1
@@ -1521,7 +1516,7 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 "_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit15.i": ; preds = %84, %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit14.i"
   %100 = add i16 %33, -21
   %101 = zext i16 %100 to i64
-  %102 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %101
+  %102 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i8, ptr %103, align 2
   %105 = icmp eq i8 %104, 2
@@ -1529,10 +1524,10 @@ define void @_ZN10open_spiel2go7GoBoard5ClearEv(ptr noundef nonnull align 8 capt
 
 106:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard5ClearEvENK3$_0clEt.exit15.i"
   %107 = zext i16 %33 to i64
-  %108 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %107
+  %108 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i64
-  %111 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %3, i64 %110
+  %111 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load i16, ptr %112, align 4
   %114 = add i16 %113, 1
@@ -1599,7 +1594,7 @@ define noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(pt
 
 21:                                               ; preds = %3
   %22 = zext i16 %1 to i64
-  %23 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i8, ptr %24, align 2
   %.not = icmp eq i8 %25, 2
@@ -1671,7 +1666,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
 "_ZZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorEENK3$_0clEt.exit.i": ; preds = %21
   %44 = add i16 %1, 21
   %45 = zext i16 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i8, ptr %47, align 2
   %49 = icmp ne i8 %48, %2
@@ -1679,7 +1674,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %or.cond.i.i.not = and i1 %50, %49
   %51 = add i16 %1, 1
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i8, ptr %54, align 2
   %56 = icmp ne i8 %55, %2
@@ -1687,7 +1682,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %or.cond.i7.i.not = and i1 %57, %56
   %58 = add i16 %1, -1
   %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i8, ptr %61, align 2
   %63 = icmp ne i8 %62, %2
@@ -1695,7 +1690,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %or.cond.i9.i.not = and i1 %64, %63
   %65 = add i16 %1, -21
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i8, ptr %68, align 2
   %70 = icmp ne i8 %69, %2
@@ -1709,7 +1704,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %75 = load i16, ptr %46, align 2
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i16, ptr %78, align 4
   %80 = add i16 %79, -1
@@ -1725,7 +1720,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   store i32 %87, ptr %77, align 4
   %88 = load i16, ptr %53, align 2
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %74, i64 %89
+  %90 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i16, ptr %91, align 4
   %93 = add i16 %92, -1
@@ -1739,7 +1734,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   store i32 %98, ptr %90, align 4
   %99 = load i16, ptr %60, align 2
   %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %74, i64 %100
+  %101 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i16, ptr %102, align 4
   %104 = add i16 %103, -1
@@ -1753,7 +1748,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   store i32 %109, ptr %101, align 4
   %110 = load i16, ptr %67, align 2
   %111 = zext i16 %110 to i64
-  %112 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %74, i64 %111
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i16, ptr %113, align 4
   %115 = add i16 %114, -1
@@ -1775,10 +1770,10 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %21
   store i16 %.sink, ptr %125, align 8
   %126 = load i16, ptr %4, align 2
   %127 = zext i16 %126 to i64
-  %128 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %127
+  %128 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i64
-  %131 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %74, i64 %130
+  %131 = getelementptr inbounds nuw [12 x i8], ptr %74, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i16, ptr %132, align 4
   store i16 %133, ptr %14, align 2
@@ -1905,7 +1900,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #11 align 2 {
   %4 = add i16 %1, 21
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, %2
@@ -1914,7 +1909,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 10:                                               ; preds = %3
   %11 = load i16, ptr %6, align 2
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2654
   %15 = load i16, ptr %14, align 2
   %.not = icmp eq i16 %15, 0
@@ -1927,7 +1922,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %.0 = phi i32 [ 0, %3 ], [ %16, %10 ]
   %17 = add i16 %1, 1
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i8, ptr %20, align 2
   %22 = icmp eq i8 %21, %2
@@ -1936,7 +1931,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 23:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i"
   %24 = load i16, ptr %19, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2654
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
@@ -1950,7 +1945,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %.1 = phi i32 [ %.0, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %spec.select75, %23 ]
   %31 = add i16 %1, -1
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %35, %2
@@ -1959,7 +1954,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 37:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i"
   %38 = load i16, ptr %33, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2654
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
@@ -1973,7 +1968,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %.2 = phi i32 [ %.1, %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %spec.select77, %37 ]
   %45 = add i16 %1, -21
   %46 = zext i16 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %46
+  %47 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, %2
@@ -1982,7 +1977,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 51:                                               ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_0clEt.exit8.i"
   %52 = load i16, ptr %47, align 2
   %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %0, i64 %53
+  %54 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2654
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
@@ -2009,12 +2004,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %65 = zext i16 %.36265 to i64
-  %66 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %65
+  %66 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %64, i64 %68
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %64, i64 %68
   %70 = zext i16 %62 to i64
-  %71 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %64, i64 %70
+  %71 = getelementptr inbounds nuw [12 x i8], ptr %64, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 6
   %73 = load i16, ptr %72, align 2
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 6
@@ -2042,7 +2037,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 90:                                               ; preds = %90, %63
   %.0.i.i = phi i16 [ %4, %63 ], [ %94, %90 ]
   %91 = zext i16 %.0.i.i to i64
-  %92 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %91
   store i16 %.36265, ptr %92, align 2
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 2
   %94 = load i16, ptr %93, align 2
@@ -2072,12 +2067,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %106 = zext i16 %.36265 to i64
-  %107 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %106
+  %107 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %105, i64 %109
+  %110 = getelementptr inbounds nuw [12 x i8], ptr %105, i64 %109
   %111 = zext i16 %103 to i64
-  %112 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %105, i64 %111
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %105, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 6
   %114 = load i16, ptr %113, align 2
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 6
@@ -2105,7 +2100,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 131:                                              ; preds = %131, %104
   %.0.i8.i = phi i16 [ %17, %104 ], [ %135, %131 ]
   %132 = zext i16 %.0.i8.i to i64
-  %133 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %132
+  %133 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %132
   store i16 %.36265, ptr %133, align 2
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 2
   %135 = load i16, ptr %134, align 2
@@ -2134,12 +2129,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 145:                                              ; preds = %143
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %147 = zext i16 %.36265 to i64
-  %148 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %147
+  %148 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i64
-  %151 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %146, i64 %150
+  %151 = getelementptr inbounds nuw [12 x i8], ptr %146, i64 %150
   %152 = zext i16 %144 to i64
-  %153 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %146, i64 %152
+  %153 = getelementptr inbounds nuw [12 x i8], ptr %146, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 6
   %155 = load i16, ptr %154, align 2
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 6
@@ -2167,7 +2162,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 172:                                              ; preds = %172, %145
   %.0.i12.i = phi i16 [ %31, %145 ], [ %176, %172 ]
   %173 = zext i16 %.0.i12.i to i64
-  %174 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %173
+  %174 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %173
   store i16 %.36265, ptr %174, align 2
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 2
   %176 = load i16, ptr %175, align 2
@@ -2196,12 +2191,12 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 186:                                              ; preds = %184
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %188 = zext i16 %.36265 to i64
-  %189 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %188
+  %189 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %188
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i64
-  %192 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %187, i64 %191
+  %192 = getelementptr inbounds nuw [12 x i8], ptr %187, i64 %191
   %193 = zext i16 %185 to i64
-  %194 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %187, i64 %193
+  %194 = getelementptr inbounds nuw [12 x i8], ptr %187, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 6
   %196 = load i16, ptr %195, align 2
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 6
@@ -2229,7 +2224,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 213:                                              ; preds = %213, %186
   %.0.i16.i = phi i16 [ %45, %186 ], [ %217, %213 ]
   %214 = zext i16 %.0.i16.i to i64
-  %215 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %214
+  %215 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %214
   store i16 %.36265, ptr %215, align 2
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 2
   %217 = load i16, ptr %216, align 2
@@ -2247,11 +2242,11 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 
 "_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard16JoinChainsAroundEtNS0_7GoColorEE3$_1EEvtRKT_.exit": ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_1clEt.exit14.i", %184, %218
   %223 = zext i16 %.36265 to i64
-  %224 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %223
+  %224 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 2
   %226 = load i16, ptr %225, align 2
   %227 = zext i16 %1 to i64
-  %228 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %227
+  %228 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 2
   store i16 %226, ptr %229, align 2
   store i16 %1, ptr %225, align 2
@@ -2259,7 +2254,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %231 = load i16, ptr %224, align 2
   %232 = zext i16 %231 to i64
-  %233 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %230, i64 %232
+  %233 = getelementptr inbounds nuw [12 x i8], ptr %230, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 6
   %235 = load i16, ptr %234, align 2
   %236 = add i16 %235, 1
@@ -2292,7 +2287,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 252:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit.i"
   %253 = load i16, ptr %224, align 2
   %254 = zext i16 %253 to i64
-  %255 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %230, i64 %254
+  %255 = getelementptr inbounds nuw [12 x i8], ptr %230, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = load i16, ptr %256, align 4
   %258 = add i16 %257, 1
@@ -2316,7 +2311,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 268:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit14.i"
   %269 = load i16, ptr %224, align 2
   %270 = zext i16 %269 to i64
-  %271 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %230, i64 %270
+  %271 = getelementptr inbounds nuw [12 x i8], ptr %230, i64 %270
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load i16, ptr %272, align 4
   %274 = add i16 %273, 1
@@ -2340,7 +2335,7 @@ define void @_ZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorE(ptr nou
 284:                                              ; preds = %"_ZZN10open_spiel2go7GoBoard16JoinChainsAroundEtNS0_7GoColorEENK3$_2clEt.exit15.i"
   %285 = load i16, ptr %224, align 2
   %286 = zext i16 %285 to i64
-  %287 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %230, i64 %286
+  %287 = getelementptr inbounds nuw [12 x i8], ptr %230, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = load i16, ptr %288, align 4
   %290 = add i16 %289, 1
@@ -2387,23 +2382,23 @@ define void @_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE(ptr noundef nonn
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %12
+  %16 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 2
   br label %19
 
 19:                                               ; preds = %11, %15
   %20 = phi i8 [ %18, %15 ], [ %2, %11 ]
-  %21 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.13", ptr %13, i64 %12
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %12
   %22 = zext i8 %20 to i64
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 7944
   %27 = load i64, ptr %26, align 8
   %28 = xor i64 %27, %25
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %12
+  %29 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %12
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i8 %2, ptr %30, align 2
   ret void
@@ -2420,10 +2415,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   %3 = add i16 %1, 21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %5 = zext i16 %3 to i64
-  %6 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i16, ptr %10, align 4
   %12 = add i16 %11, -1
@@ -2439,10 +2434,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   store i32 %19, ptr %9, align 4
   %20 = add i16 %1, 1
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i16, ptr %26, align 4
   %28 = add i16 %27, -1
@@ -2456,10 +2451,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   store i32 %33, ptr %25, align 4
   %34 = add i16 %1, -1
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i16, ptr %40, align 4
   %42 = add i16 %41, -1
@@ -2473,10 +2468,10 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
   store i32 %47, ptr %39, align 4
   %48 = add i16 %1, -21
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %4, i64 %52
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i16, ptr %54, align 4
   %56 = add i16 %55, -1
@@ -2495,7 +2490,7 @@ define void @_ZN10open_spiel2go7GoBoard35RemoveLibertyFromNeighbouringChainsEt(p
 define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorE(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = add i16 %1, 21
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i8, ptr %7, align 2
   %9 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
@@ -2506,7 +2501,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %13 = load i16, ptr %6, align 2
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0
@@ -2526,7 +2521,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %.0 = phi i32 [ %23, %19 ], [ 0, %11 ], [ 0, %3 ]
   %24 = add i16 %1, 1
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i8, ptr %27, align 2
   %29 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
@@ -2537,7 +2532,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %33 = load i16, ptr %26, align 2
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i16, ptr %36, align 4
   %38 = icmp eq i16 %37, 0
@@ -2547,11 +2542,11 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %41 = add nuw nsw i32 %.125, 1
   %42 = zext nneg i32 %.125 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %42
   store i16 %33, ptr %43, align 2
   %44 = load i16, ptr %26, align 2
   %45 = zext i16 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %32, i64 %45
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 6
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
@@ -2564,7 +2559,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %.1 = phi i32 [ %50, %39 ], [ %.0, %31 ], [ %.0, %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit.i" ]
   %51 = add i16 %1, -1
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i8, ptr %54, align 2
   %56 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
@@ -2575,7 +2570,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %60 = load i16, ptr %53, align 2
   %61 = zext i16 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i16, ptr %63, align 4
   %65 = icmp eq i16 %64, 0
@@ -2585,11 +2580,11 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %68 = add nuw nsw i32 %.226, 1
   %69 = zext nneg i32 %.226 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %69
   store i16 %60, ptr %70, align 2
   %71 = load i16, ptr %53, align 2
   %72 = zext i16 %71 to i64
-  %73 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %59, i64 %72
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
@@ -2602,7 +2597,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %.2 = phi i32 [ %77, %66 ], [ %.1, %58 ], [ %.1, %"_ZZN10open_spiel2go7GoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit7.i" ]
   %78 = add i16 %1, -21
   %79 = zext i16 %78 to i64
-  %80 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i8, ptr %81, align 2
   %83 = tail call noundef zeroext i8 @_ZN10open_spiel2go8OppColorENS0_7GoColorE(i8 noundef zeroext %2)
@@ -2613,7 +2608,7 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %87 = load i16, ptr %80, align 2
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i16, ptr %90, align 4
   %92 = icmp eq i16 %91, 0
@@ -2623,11 +2618,11 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel2go7GoBoard17CaptureDead
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 7952
   %94 = add nuw nsw i32 %.327, 1
   %95 = zext nneg i32 %.327 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %95
   store i16 %87, ptr %96, align 2
   %97 = load i16, ptr %80, align 2
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %86, i64 %98
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %86, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
@@ -2728,11 +2723,11 @@ define noundef zeroext range(i16 21, 0) i16 @_ZNK10open_spiel2go7GoBoard13Single
   %11 = alloca %"class.absl::debian2::AlphaNum", align 8
   %12 = alloca %"class.absl::debian2::AlphaNum", align 8
   %13 = zext i16 %1 to i64
-  %14 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %17 = zext i16 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %17
   %19 = tail call noundef zeroext i16 @_ZNK10open_spiel2go7GoBoard5Chain14single_libertyEv(ptr noundef nonnull align 4 dereferenceable(12) %18)
   switch i16 %19, label %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i [
     i16 442, label %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread
@@ -2773,7 +2768,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %_ZN10open_s
 
 30:                                               ; preds = %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
   %31 = zext i16 %19 to i64
-  %32 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, 2
@@ -2807,12 +2802,12 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %_ZN10open_s
 
 45:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ %44, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %46 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel2go12_GLOBAL__N_14Dir8E, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = trunc i32 %47 to i16
   %49 = add i16 %43, %48
   %50 = zext i16 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %50
+  %51 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = icmp eq i16 %52, %15
   br i1 %53, label %54, label %55
@@ -3086,7 +3081,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm441EJLm
 5:                                                ; preds = %5, %2
   %store_forwarded = phi i64 [ %1, %2 ], [ %10, %5 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %11, %5 ]
-  %6 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i
   %7 = lshr i64 %store_forwarded, 62
   %8 = xor i64 %7, %store_forwarded
   %9 = mul i64 %8, 6364136223846793005
@@ -3204,18 +3199,18 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = zext i16 %1 to i64
-  %4 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %3
   store i16 %1, ptr %4, align 2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %1, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2648
-  %7 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %6, i64 %3
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 10, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 1, ptr %8, align 2
   %9 = add i16 %1, 21
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i8, ptr %12, align 2
   %14 = icmp eq i8 %13, 2
@@ -3237,7 +3232,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull alig
   %22 = phi i16 [ 1, %15 ], [ 0, %2 ]
   %23 = add i16 %1, 1
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i8, ptr %26, align 2
   %28 = icmp eq i8 %27, 2
@@ -3262,7 +3257,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull alig
   %39 = phi i16 [ %31, %29 ], [ %22, %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit.i" ]
   %40 = add i16 %1, -1
   %41 = zext i16 %40 to i64
-  %42 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i8, ptr %43, align 2
   %45 = icmp eq i8 %44, 2
@@ -3287,7 +3282,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull alig
   %56 = phi i16 [ %48, %46 ], [ %39, %"_ZZN10open_spiel2go7GoBoard12InitNewChainEtENK3$_0clEt.exit14.i" ]
   %57 = add i16 %1, -21
   %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i8, ptr %60, align 2
   %62 = icmp eq i8 %61, 2
@@ -3313,7 +3308,7 @@ define void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr noundef nonnull align 8 captures(none) dereferenceable(7970) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i16 %1 to i64
-  %4 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %3
   %5 = load i16, ptr %4, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7944
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2648
@@ -3322,7 +3317,7 @@ define void @_ZN10open_spiel2go7GoBoard11RemoveChainEt(ptr noundef nonnull align
 8:                                                ; preds = %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard11RemoveChainEtE3$_0EEvtRKT_.exit", %2
   %.0 = phi i16 [ %1, %2 ], [ %12, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNS0_7GoBoard11RemoveChainEtE3$_0EEvtRKT_.exit" ]
   %9 = zext i16 %.0 to i64
-  %10 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = load atomic i8, ptr @_ZGVZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values acquire, align 8
@@ -3353,10 +3348,10 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
   %22 = load ptr, ptr @_ZZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorEE14zobrist_values, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %24 = load i8, ptr %23, align 2
-  %25 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.13", ptr %22, i64 %9
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %9
   %26 = zext i8 %24 to i64
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8
   %30 = load i64, ptr %6, align 8
   %31 = xor i64 %30, %29
@@ -3365,7 +3360,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
   tail call void @_ZN10open_spiel2go7GoBoard12InitNewChainEt(ptr noundef nonnull align 8 dereferenceable(7970) %0, i16 noundef zeroext %.0)
   %32 = add i16 %.0, 21
   %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %33
   %35 = load i16, ptr %34, align 2
   %.not.i.i = icmp eq i16 %35, %5
   br i1 %.not.i.i, label %36, label %40
@@ -3378,7 +3373,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 
 40:                                               ; preds = %36, %_ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit
   %41 = zext i16 %35 to i64
-  %42 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %7, i64 %41
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i16, ptr %43, align 4
   %45 = add i16 %44, 1
@@ -3397,7 +3392,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 "_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit.i": ; preds = %40, %36
   %53 = add i16 %.0, 1
   %54 = zext i16 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %54
   %56 = load i16, ptr %55, align 2
   %.not.i7.i = icmp eq i16 %56, %5
   br i1 %.not.i7.i, label %57, label %61
@@ -3410,7 +3405,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 
 61:                                               ; preds = %57, %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit.i"
   %62 = zext i16 %56 to i64
-  %63 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %7, i64 %62
+  %63 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i16, ptr %64, align 4
   %66 = add i16 %65, 1
@@ -3429,7 +3424,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 "_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit8.i": ; preds = %61, %57
   %74 = add i16 %.0, -1
   %75 = zext i16 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %75
+  %76 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %75
   %77 = load i16, ptr %76, align 2
   %.not.i9.i = icmp eq i16 %77, %5
   br i1 %.not.i9.i, label %78, label %82
@@ -3442,7 +3437,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 
 82:                                               ; preds = %78, %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit8.i"
   %83 = zext i16 %77 to i64
-  %84 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %7, i64 %83
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i16, ptr %85, align 4
   %87 = add i16 %86, 1
@@ -3461,7 +3456,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 "_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit10.i": ; preds = %82, %78
   %95 = add i16 %.0, -21
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %96
   %98 = load i16, ptr %97, align 2
   %.not.i11.i = icmp eq i16 %98, %5
   br i1 %.not.i11.i, label %99, label %103
@@ -3474,7 +3469,7 @@ _ZN10open_spiel2go7GoBoard8SetStoneEtNS0_7GoColorE.exit: ; preds = %8, %15, %18
 
 103:                                              ; preds = %99, %"_ZZN10open_spiel2go7GoBoard11RemoveChainEtENK3$_0clEt.exit10.i"
   %104 = zext i16 %98 to i64
-  %105 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %7, i64 %104
+  %105 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i16, ptr %106, align 4
   %108 = add i16 %107, 1
@@ -3527,7 +3522,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 
 13:                                               ; preds = %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
   %14 = zext i16 %1 to i64
-  %15 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i8, ptr %16, align 2
   %18 = icmp ne i8 %17, 2
@@ -3541,7 +3536,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %24 = load i16, ptr %15, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i16, ptr %27, align 4
   %.not = icmp eq i16 %28, 0
@@ -3550,7 +3545,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 29:                                               ; preds = %22
   %30 = add i16 %1, 21
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 2
   %35 = icmp eq i8 %34, %2
@@ -3559,7 +3554,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 36:                                               ; preds = %29
   %37 = load i16, ptr %32, align 2
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %23, i64 %38
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i32
@@ -3576,7 +3571,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %50 = phi i1 [ false, %29 ], [ %49, %36 ]
   %51 = add i16 %1, 1
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i8, ptr %54, align 2
   %56 = icmp eq i8 %55, %2
@@ -3585,7 +3580,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 57:                                               ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i"
   %58 = load i16, ptr %53, align 2
   %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %23, i64 %59
+  %60 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i16, ptr %61, align 4
   %63 = zext i16 %62 to i32
@@ -3603,7 +3598,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %72 = phi i1 [ %50, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %71, %57 ]
   %73 = add i16 %1, -1
   %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i8, ptr %76, align 2
   %78 = icmp eq i8 %77, %2
@@ -3612,7 +3607,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 79:                                               ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i"
   %80 = load i16, ptr %75, align 2
   %81 = zext i16 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %23, i64 %81
+  %82 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i16, ptr %83, align 4
   %85 = zext i16 %84 to i32
@@ -3630,7 +3625,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   %94 = phi i1 [ %72, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %93, %79 ]
   %95 = add i16 %1, -21
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i8, ptr %98, align 2
   %100 = icmp eq i8 %99, %2
@@ -3639,7 +3634,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 101:                                              ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit8.i"
   %102 = load i16, ptr %97, align 2
   %103 = zext i16 %102 to i64
-  %104 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %23, i64 %103
+  %104 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i16, ptr %105, align 4
   %107 = zext i16 %106 to i32
@@ -3681,7 +3676,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %3 = add i16 %0, 21
   %4 = load ptr, ptr %1, align 8
   %5 = zext i16 %3 to i64
-  %6 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i8, ptr %7, align 2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3694,7 +3689,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 2648
   %15 = load i16, ptr %6, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
@@ -3719,7 +3714,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %35 = add i16 %0, 1
   %36 = load ptr, ptr %1, align 8
   %37 = zext i16 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [6 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i8, ptr %39, align 2
   %41 = load i8, ptr %9, align 8
@@ -3731,7 +3726,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 2648
   %46 = load i16, ptr %38, align 2
   %47 = zext i16 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i32
@@ -3755,7 +3750,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %65 = add i16 %0, -1
   %66 = load ptr, ptr %1, align 8
   %67 = zext i16 %65 to i64
-  %68 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [6 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i8, ptr %69, align 2
   %71 = load i8, ptr %9, align 8
@@ -3767,7 +3762,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 2648
   %76 = load i16, ptr %68, align 2
   %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %75, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i16, ptr %79, align 4
   %81 = zext i16 %80 to i32
@@ -3791,7 +3786,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %95 = add i16 %0, -21
   %96 = load ptr, ptr %1, align 8
   %97 = zext i16 %95 to i64
-  %98 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [6 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i8, ptr %99, align 2
   %101 = load i8, ptr %9, align 8
@@ -3803,7 +3798,7 @@ define internal fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 2648
   %106 = load i16, ptr %98, align 2
   %107 = zext i16 %106 to i64
-  %108 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Chain", ptr %105, i64 %107
+  %108 = getelementptr inbounds nuw [12 x i8], ptr %105, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i16, ptr %109, align 4
   %111 = zext i16 %110 to i32
@@ -4061,7 +4056,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN10open_spiel2golsERSoR
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %switch.lookup ]
   %28 = add nuw nsw i64 %26, %indvars.iv
   %29 = and i64 %28, 65535
-  %30 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [6 x i8], ptr %1, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i8, ptr %31, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4189,7 +4184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.sroa.030.046 = phi ptr [ %122, %121 ], [ %70, %69 ]
   %73 = load i16, ptr %.sroa.030.046, align 2
   %74 = zext i16 %73 to i64
-  %75 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %1, i64 %74
+  %75 = getelementptr inbounds nuw [6 x i8], ptr %1, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i8, ptr %76, align 2
   %78 = icmp eq i8 %77, 2
@@ -4376,10 +4371,10 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %18 = add i16 %11, 21
   %19 = load ptr, ptr %0, align 8
   %20 = zext i16 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [6 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [6 x i8], ptr %19, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i8, ptr %25, align 2
   %27 = load i8, ptr %8, align 4
@@ -4396,7 +4391,7 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %34 = add nsw i32 %12, 1
   store i32 %34, ptr %2, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %9, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %9, i64 %35
   store i16 %22, ptr %36, align 2
   store i8 1, ptr %30, align 1
   %.pre.i = load ptr, ptr %0, align 8
@@ -4408,10 +4403,10 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %38 = phi ptr [ %19, %17 ], [ %19, %29 ], [ %.pre.i, %33 ]
   %39 = add i16 %11, 1
   %40 = zext i16 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [6 x i8], ptr %38, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
-  %44 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %38, i64 %43
+  %44 = getelementptr inbounds nuw [6 x i8], ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i8, ptr %45, align 2
   %47 = icmp eq i8 %46, %37
@@ -4428,7 +4423,7 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %2, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i16, ptr %9, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %9, i64 %55
   store i16 %42, ptr %56, align 2
   store i8 1, ptr %49, align 1
   %.pre2.i = load ptr, ptr %0, align 8
@@ -4440,10 +4435,10 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %58 = phi ptr [ %38, %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit.i" ], [ %38, %48 ], [ %.pre2.i, %52 ]
   %59 = add i16 %11, -1
   %60 = zext i16 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [6 x i8], ptr %58, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [6 x i8], ptr %58, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i8, ptr %65, align 2
   %67 = icmp eq i8 %66, %57
@@ -4460,7 +4455,7 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr %2, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i16, ptr %9, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %9, i64 %75
   store i16 %62, ptr %76, align 2
   store i8 1, ptr %69, align 1
   %.pre4.i = load ptr, ptr %0, align 8
@@ -4472,10 +4467,10 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %78 = phi ptr [ %58, %"_ZZN10open_spiel2go7GoBoard9GroupIter4stepEvENK3$_0clEt.exit10.i" ], [ %58, %68 ], [ %.pre4.i, %72 ]
   %79 = add i16 %11, -21
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [6 x i8], ptr %78, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %78, i64 %83
+  %84 = getelementptr inbounds nuw [6 x i8], ptr %78, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i8, ptr %85, align 2
   %87 = icmp eq i8 %86, %77
@@ -4492,7 +4487,7 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %2, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i16, ptr %9, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %9, i64 %95
   store i16 %82, ptr %96, align 2
   store i8 1, ptr %89, align 1
   %.pre2 = load ptr, ptr %0, align 8
@@ -4506,7 +4501,7 @@ define void @_ZN10open_spiel2go7GoBoard9GroupIter4stepEv(ptr noundef nonnull ali
   store i8 1, ptr %100, align 1
   %101 = load i16, ptr %7, align 2
   %102 = zext i16 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %97, i64 %102
+  %103 = getelementptr inbounds nuw [6 x i8], ptr %97, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
   %105 = load i16, ptr %104, align 2
   store i16 %105, ptr %7, align 2
@@ -4587,7 +4582,7 @@ define noundef float @_ZN10open_spiel2go16TrompTaylorScoreERKNS0_7GoBoardEfi(ptr
   %.sroa.030.036 = phi ptr [ %14, %.lr.ph ], [ %57, %56 ]
   %22 = load i16, ptr %.sroa.030.036, align 2
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [6 x i8], ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i8, ptr %25, align 2
   switch i8 %26, label %56 [
@@ -5139,7 +5134,7 @@ _ZNSt6vectorItSaItEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %0, align 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %4
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %4
   store ptr %9, ptr %5, align 8
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.preheader.lr.ph, label %._crit_edge17
@@ -5215,7 +5210,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us: ; preds = %35, %
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.us: ; preds = %37, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i.us
   store ptr %32, ptr %0, align 8
   store ptr %36, ptr %11, align 8
-  %38 = getelementptr inbounds nuw i16, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %30
   store ptr %38, ptr %5, align 8
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit.us
 
@@ -5333,7 +5328,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 14:                                               ; preds = %14, %8
   %store_forwarded = phi i64 [ %9, %8 ], [ %19, %14 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %8 ], [ %20, %14 ]
-  %15 = getelementptr i64, ptr %3, i64 %.011.i.i.i.i.i
+  %15 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i.i.i
   %16 = lshr i64 %store_forwarded, 62
   %17 = xor i64 %16, %store_forwarded
   %18 = mul i64 %17, 6364136223846793005
@@ -5446,7 +5441,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_ch
 28:                                               ; preds = %28, %.noexc
   %store_forwarded = phi i64 [ %23, %.noexc ], [ %33, %28 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %34, %28 ]
-  %29 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i.i
+  %29 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %30 = lshr i64 %store_forwarded, 62
   %31 = xor i64 %30, %store_forwarded
   %32 = mul i64 %31, 6364136223846793005
@@ -5557,7 +5552,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_rel
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %68
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.13", ptr %21, i64 %17
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %72, ptr %67, align 8
   ret void
 
@@ -5612,10 +5607,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -5639,10 +5634,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -5680,7 +5675,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 29
   %56 = and i64 %55, 22906492245
@@ -5702,7 +5697,7 @@ define internal fastcc void @"_ZZN10open_spiel2go19NumSurroundedPointsERKNS0_7Go
   %4 = alloca %class.anon.33, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = zext i16 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i8, ptr %8, align 2
   switch i8 %9, label %40 [

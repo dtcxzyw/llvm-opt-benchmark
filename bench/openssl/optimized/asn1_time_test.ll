@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.TESTDATA_asn1_to_utc = type { ptr, i64 }
-%struct.compare_testdata = type { %struct.asn1_string_st, %struct.asn1_string_st, i32 }
-%struct.testdata = type { ptr, i32, i32, i32, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [15 x i8] c"test_table_pos\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"../openssl/test/asn1_time_test.c\00", align 1
@@ -228,7 +226,7 @@ define internal range(i32 0, 2) i32 @test_table_neg_64bit(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_table_compare(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.compare_testdata, ptr @tbl_compare_testdata, i64 %2
+  %3 = getelementptr inbounds [56 x i8], ptr @tbl_compare_testdata, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = tail call i32 @ASN1_TIME_compare(ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -334,7 +332,7 @@ define internal range(i32 0, 2) i32 @test_time_dup() #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @convert_asn1_to_time_t(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.TESTDATA_asn1_to_utc, ptr @asn1_to_utc, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @asn1_to_utc, i64 %2
   %4 = load ptr, ptr %3, align 16, !tbaa !14
   %5 = tail call i64 @test_asn1_string_to_time_t(ptr noundef %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -366,7 +364,7 @@ define internal fastcc range(i32 0, 2) i32 @test_table(ptr noundef readonly capt
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.testdata, ptr %0, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %0, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load ptr, ptr %7, align 8, !tbaa !17

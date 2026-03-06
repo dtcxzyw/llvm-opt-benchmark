@@ -533,14 +533,14 @@ define internal void @_ZNK4ncnn5PReLU15forward_inplaceERNS_3MatERKNS_6OptionE.om
 
 22:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %23 = getelementptr inbounds float, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !46
   %25 = fcmp fast olt float %24, 0.000000e+00
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %19, align 8, !tbaa !16
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !46
   %30 = fmul fast float %29, %24
   store float %30, ptr %23, align 4, !tbaa !46
@@ -616,7 +616,7 @@ define internal void @_ZNK4ncnn5PReLU15forward_inplaceERNS_3MatERKNS_6OptionE.om
 
 21:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %22 = getelementptr inbounds float, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !46
   %24 = fcmp fast olt float %23, 0.000000e+00
   br i1 %24, label %25, label %28
@@ -701,13 +701,13 @@ define internal void @_ZNK4ncnn5PReLU15forward_inplaceERNS_3MatERKNS_6OptionE.om
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge.us.us ], [ %32, %.lr.ph29.split.us ]
   %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv46
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass.us.us
-  %35 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv46
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv46
   %36 = load float, ptr %35, align 4, !tbaa !46
   br label %37
 
 37:                                               ; preds = %43, %.lr.ph.us.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %43 ], [ 0, %.lr.ph.us.us ]
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv41
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv41
   %39 = load float, ptr %38, align 4, !tbaa !46
   %40 = fcmp fast olt float %39, 0.000000e+00
   br i1 %40, label %41, label %43
@@ -737,7 +737,7 @@ define internal void @_ZNK4ncnn5PReLU15forward_inplaceERNS_3MatERKNS_6OptionE.om
 
 46:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %47 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %48 = load float, ptr %47, align 4, !tbaa !46
   %49 = fcmp fast olt float %48, 0.000000e+00
   br i1 %49, label %50, label %52
@@ -825,13 +825,13 @@ define internal void @_ZNK4ncnn5PReLU15forward_inplaceERNS_3MatERKNS_6OptionE.om
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us.us ], [ %31, %.noexc26.lr.ph.split.us ]
   %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv52
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass.us.us
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv52
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv52
   %35 = load float, ptr %34, align 4, !tbaa !46
   br label %36
 
 36:                                               ; preds = %42, %.noexc26.us.us
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %42 ], [ 0, %.noexc26.us.us ]
-  %37 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv47
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv47
   %38 = load float, ptr %37, align 4, !tbaa !46
   %39 = fcmp fast olt float %38, 0.000000e+00
   br i1 %39, label %40, label %42
@@ -861,7 +861,7 @@ define internal void @_ZNK4ncnn5PReLU15forward_inplaceERNS_3MatERKNS_6OptionE.om
 
 45:                                               ; preds = %.noexc26.us, %51
   %indvars.iv = phi i64 [ 0, %.noexc26.us ], [ %indvars.iv.next, %51 ]
-  %46 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !46
   %48 = fcmp fast olt float %47, 0.000000e+00
   br i1 %48, label %49, label %51

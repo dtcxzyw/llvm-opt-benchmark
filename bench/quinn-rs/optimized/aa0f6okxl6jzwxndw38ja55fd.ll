@@ -555,7 +555,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9fastbloom24BloomFilter$LT$_$C$S$
 
 36:                                               ; preds = %27, %36
   %37 = phi i64 [ 0, %27 ], [ %39, %36 ]
-  %38 = getelementptr inbounds nuw i64, ptr %2, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %37
   store i64 %33, ptr %38, align 8
   %39 = add nuw nsw i64 %37, 1
   %exitcond327.not = icmp eq i64 %39, 4
@@ -595,7 +595,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9fastbloom24BloomFilter$LT$_$C$S$
   %55 = icmp samesign ugt i64 %54, %31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8, !nonnull !3
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %53
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %53
   %59 = trunc nuw i8 %.sroa.0.0.lcssa to i1
   br label %60
 
@@ -1144,14 +1144,14 @@ _ZN9fastbloom11sparse_hash10SparseHash11sparse_hash17hfe63c6af6a41e9b7E.exit: ; 
   br i1 %exitcond328.not, label %.loopexit.loopexit, label %60
 
 356:                                              ; preds = %15
-  %357 = getelementptr inbounds nuw i64, ptr %14, i64 %20
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %20
   %358 = add i64 %.sroa.0.01622, %6
   %359 = tail call i64 @llvm.fshl.i64(i64 %358, i64 %358, i64 5)
   %360 = lshr i64 %359, 6
   %361 = and i64 %360, 7
   %362 = and i64 %359, 63
   %363 = shl nuw i64 1, %362
-  %364 = getelementptr inbounds nuw i64, ptr %357, i64 %361
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %361
   %365 = load i64, ptr %364, align 8, !noundef !3
   %366 = and i64 %365, %363
   %367 = icmp ne i64 %366, 0
@@ -2387,7 +2387,7 @@ define hidden void @_ZN11quinn_proto10connection9cid_state8CidState3new17h5a1693
   %36 = select i1 %.not.i.i, i64 0, i64 %35
   %.sroa.01.0.i.i = sub nuw i64 %34, %36
   %37 = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !alias.scope !115, !nonnull !3, !noundef !3
-  %38 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %37, i64 %.sroa.01.0.i.i
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.sroa.01.0.i.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8, !noalias !111, !noundef !3
   %41 = icmp eq i64 %27, %40
@@ -2481,7 +2481,7 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection9cid_state8CidState12nex
   %.sroa.01.0.i = sub nuw i64 %20, %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !121, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %24, i64 %.sroa.01.0.i
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.sroa.01.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8, !noalias !124
@@ -2783,7 +2783,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection9cid_state8CidStat
   %29 = add i64 %.sroa.01.0.i.i.i.i.i.i, %28
   %30 = and i64 %29, %16
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds i64, ptr %17, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %17, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %34 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hab6f9520542b7fa1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %33), !noalias !147
   br i1 %34, label %44, label %38, !prof !21
@@ -2885,7 +2885,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h56047aa6007abcc1E.exit: ; pred
   %74 = add i64 %.sroa.01.0.i.i.i.i.i.i11, %73
   %75 = and i64 %74, %61
   %76 = sub nsw i64 0, %75
-  %77 = getelementptr inbounds i64, ptr %62, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %62, i64 %76
   %78 = getelementptr inbounds i8, ptr %77, i64 -8
   %79 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hab6f9520542b7fa1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %78), !noalias !167
   br i1 %79, label %89, label %83, !prof !21
@@ -2993,7 +2993,7 @@ define hidden void @_ZN11quinn_proto10connection9cid_state8CidState8new_cids17he
   %.sroa.01.0.i.i = sub nuw i64 %37, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !176, !nonnull !3, !noundef !3
-  %42 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %41, i64 %.sroa.01.0.i.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.sroa.01.0.i.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !noalias !173, !noundef !3
   %45 = icmp eq i64 %28, %44
@@ -5542,7 +5542,7 @@ _ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2
 _ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i: ; preds = %48, %44
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !alias.scope !313, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %31
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %31
   store i16 %.sroa.6.0.copyload.i.i, ptr %12, align 2
   %13 = add nuw nsw i64 %31, 1
   store i64 %13, ptr %30, align 8, !alias.scope !313
@@ -5705,7 +5705,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i: ; pr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h139ef9fa383b8128E.exit.i.i": ; preds = %38, %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8, !alias.scope !345, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %21
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %21
   store i16 %.sroa.6.0.copyload.i.i, ptr %41, align 2
   %42 = add nuw nsw i64 %21, 1
   store i64 %42, ptr %20, align 8, !alias.scope !345
@@ -6975,7 +6975,7 @@ common.resume:                                    ; preds = %.body, %128, %124, 
   %71 = add i64 %.sroa.01.0.i.i.i.i, %70
   %72 = and i64 %71, %63
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i32, [1 x i32] }, ptr %64, i64 %73
+  %74 = getelementptr inbounds [24 x i8], ptr %64, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -24
   %76 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h0a7a0bc2df6762ccE"(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %75)
           to label %.noexc135 unwind label %.loopexit

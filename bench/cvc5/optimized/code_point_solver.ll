@@ -1463,8 +1463,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit161: ; preds = %.critedge, %377, %
   %459 = icmp eq i32 %458, 2
   %460 = zext i1 %459 to i64
   %461 = getelementptr inbounds nuw i8, ptr %451, i64 24
-  %462 = getelementptr inbounds nuw ptr, ptr %461, i64 %.034445
-  %463 = getelementptr inbounds nuw ptr, ptr %462, i64 %460
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %461, i64 %.034445
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %462, i64 %460
   %464 = load ptr, ptr %463, align 8, !tbaa !19, !noalias !61
   store ptr %464, ptr %33, align 8, !tbaa !21, !alias.scope !61
   %465 = load i64, ptr %464, align 8, !noalias !61
@@ -1881,7 +1881,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit235: ; preds = %617, %621, %627
   %639 = icmp eq i32 %638, 2
   %640 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %641 = zext i1 %639 to i64
-  %642 = getelementptr inbounds nuw ptr, ptr %640, i64 %641
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %640, i64 %641
   %643 = load ptr, ptr %642, align 8, !tbaa !19, !noalias !77
   store ptr %643, ptr %40, align 8, !tbaa !21, !alias.scope !77
   %644 = load i64, ptr %643, align 8, !noalias !77
@@ -1927,7 +1927,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit239: ; preds = %655, %649, %657
   %667 = icmp eq i32 %666, 2
   %668 = getelementptr inbounds nuw i8, ptr %659, i64 24
   %669 = zext i1 %667 to i64
-  %670 = getelementptr inbounds nuw ptr, ptr %668, i64 %669
+  %670 = getelementptr inbounds nuw [8 x i8], ptr %668, i64 %669
   %671 = load ptr, ptr %670, align 8, !tbaa !19, !noalias !80
   store ptr %671, ptr %41, align 8, !tbaa !21, !alias.scope !80
   %672 = load i64, ptr %671, align 8, !noalias !80
@@ -2987,7 +2987,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb1EE6negateEv
   %11 = icmp eq i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = zext i1 %11 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   store ptr %15, ptr %0, align 8, !tbaa !21
   %16 = load i64, ptr %15, align 8

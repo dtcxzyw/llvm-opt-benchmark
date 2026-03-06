@@ -26,8 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.Imf_3_4::DeepSlice" = type { %"struct.Imf_3_4::Slice.base", i32 }
-%"struct.Imf_3_4::Slice.base" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8 }>
 %struct.exr_chunk_info_t = type { i32, i32, i32, i32, i32, i8, i8, i8, i8, i64, i64, i64, i64, i64 }
 %"class.IlmThread_3_4::ProcessGroup" = type { %"class.IlmThread_3_4::Semaphore", %"class.std::vector.14", %"struct.std::atomic", %"struct.std::atomic.19" }
 %"class.IlmThread_3_4::Semaphore" = type { ptr, %union.sem_t }
@@ -50,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<Imf_3_4::DeepSlice, std::allocator<Imf_3_4::DeepSlice>>::_Vector_impl" = type { %"struct.std::_Vector_base<Imf_3_4::DeepSlice, std::allocator<Imf_3_4::DeepSlice>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Imf_3_4::DeepSlice, std::allocator<Imf_3_4::DeepSlice>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<Imf_3_4::Name, std::pair<const Imf_3_4::Name, Imf_3_4::DeepSlice>, std::_Select1st<std::pair<const Imf_3_4::Name, Imf_3_4::DeepSlice>>, std::less<Imf_3_4::Name>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
-%"class.Imath_3_2::half" = type { i16 }
 %"class.Imath_3_2::Vec2" = type { float, float }
 
 $_ZNSt12__shared_ptrIN7Imf_3_421DeepScanLineInputFile4DataELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -961,7 +958,7 @@ _ZNSt6vectorIN7Imf_3_49DeepSliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
 _ZNSt6vectorIN7Imf_3_49DeepSliceESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %52, %_ZNSt6vectorIN7Imf_3_49DeepSliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %47, ptr %2, align 8, !tbaa !84
   store ptr %51, ptr %7, align 8, !tbaa !85
-  %53 = getelementptr inbounds nuw %"struct.Imf_3_4::DeepSlice", ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %47, i64 %45
   store ptr %53, ptr %21, align 8, !tbaa !87
   br label %_ZNSt6vectorIN7Imf_3_49DeepSliceESaIS1_EE9push_backERKS1_.exit
 
@@ -1315,12 +1312,12 @@ _ZNKSt6vectorIN7Imf_3_412_GLOBAL__N_115ScanLineProcessESaIS2_EE12_M_check_lenEmP
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i.i33.i.i.i
   store ptr %83, ptr %78, align 8, !tbaa !114
-  %87 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %83, i64 %79
+  %87 = getelementptr inbounds nuw [584 x i8], ptr %83, i64 %79
   store ptr %87, ptr %80, align 8, !tbaa !116
   store ptr %87, ptr %81, align 8, !tbaa !117
   %88 = add nsw i32 %76, -1
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %83, i64 %89
+  %90 = getelementptr inbounds nuw [584 x i8], ptr %83, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 576
   br label %94
 
@@ -1346,8 +1343,8 @@ common.resume:                                    ; preds = %373, %92
 
 96:                                               ; preds = %94
   %97 = add nuw nsw i64 %indvars.iv.i, 1
-  %98 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %83, i64 %97
-  %99 = getelementptr inbounds nuw %"struct.Imf_3_4::(anonymous namespace)::ScanLineProcess", ptr %83, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [584 x i8], ptr %83, i64 %97
+  %99 = getelementptr inbounds nuw [584 x i8], ptr %83, i64 %indvars.iv.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 576
   store ptr %98, ptr %100, align 8, !tbaa !118
   %exitcond.not.i = icmp eq i64 %97, %79
@@ -1779,7 +1776,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcessD2Ev.exit: ; preds = %210, %213
 256:                                              ; preds = %287, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %287 ]
   %257 = load ptr, ptr %201, align 8, !tbaa !165
-  %258 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %257, i64 %indvars.iv.i.i
+  %258 = getelementptr inbounds nuw [48 x i8], ptr %257, i64 %indvars.iv.i.i
   %259 = load ptr, ptr %258, align 8, !tbaa !166
   %260 = invoke noundef ptr @_ZNK7Imf_3_415DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %259)
           to label %.noexc68 unwind label %.loopexit97
@@ -1867,7 +1864,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %310 = load i32, ptr %204, align 8, !tbaa !182
   %311 = sext i32 %310 to i64
   %312 = mul nsw i64 %indvars.iv38.i.i, %311
-  %313 = getelementptr inbounds i32, ptr %309, i64 %312
+  %313 = getelementptr inbounds [4 x i8], ptr %309, i64 %312
   %314 = load ptr, ptr %304, align 8, !tbaa !86
   %315 = load i32, ptr %202, align 4, !tbaa !176
   %316 = sext i32 %315 to i64
@@ -1899,7 +1896,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %indvars.iv35.i.i = phi i64 [ %326, %.preheader.preheader.i.i ], [ %indvars.iv.next36.i.i, %.loopexit.i.i ]
   %329 = sext i32 %328 to i64
   %330 = mul nsw i64 %indvars.iv35.i.i, %329
-  %331 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %330
+  %331 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %330
   %332 = icmp sgt i32 %328, 0
   br i1 %332, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
 
@@ -1916,7 +1913,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
 .lr.ph.i14.i:                                     ; preds = %.lr.ph.i14.i, %.lr.ph.preheader.i.i
   %indvars.iv.i15.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i16.i, %.lr.ph.i14.i ]
   %.02427.i.i = phi ptr [ %339, %.lr.ph.preheader.i.i ], [ %342, %.lr.ph.i14.i ]
-  %340 = getelementptr inbounds nuw i32, ptr %331, i64 %indvars.iv.i15.i
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %indvars.iv.i15.i
   %341 = load i32, ptr %340, align 4, !tbaa !14
   store i32 %341, ptr %.02427.i.i, align 4, !tbaa !14
   %342 = getelementptr inbounds i8, ptr %.02427.i.i, i64 %299
@@ -2526,7 +2523,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %43
 126:                                              ; preds = %157, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %157 ]
   %127 = load ptr, ptr %123, align 8, !tbaa !165
-  %128 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %127, i64 %indvars.iv.i.i
+  %128 = getelementptr inbounds nuw [48 x i8], ptr %127, i64 %indvars.iv.i.i
   %129 = load ptr, ptr %128, align 8, !tbaa !166
   %130 = invoke noundef ptr @_ZNK7Imf_3_415DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull align 8 dereferenceable(104) %80, ptr noundef %129)
           to label %.noexc42 unwind label %.loopexit
@@ -2663,7 +2660,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %201 = load i32, ptr %193, align 8, !tbaa !182
   %202 = sext i32 %201 to i64
   %203 = mul nsw i64 %indvars.iv38.i.i, %202
-  %204 = getelementptr inbounds i32, ptr %200, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %200, i64 %203
   %205 = load ptr, ptr %194, align 8, !tbaa !86
   %206 = load i32, ptr %195, align 4, !tbaa !176
   %207 = sext i32 %206 to i64
@@ -2695,7 +2692,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %indvars.iv35.i.i = phi i64 [ %217, %.preheader.preheader.i.i ], [ %indvars.iv.next36.i.i, %.loopexit.i.i ]
   %220 = sext i32 %219 to i64
   %221 = mul nsw i64 %indvars.iv35.i.i, %220
-  %222 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %221
+  %222 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %221
   %223 = icmp sgt i32 %219, 0
   br i1 %223, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
 
@@ -2712,7 +2709,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
 .lr.ph.i25.i:                                     ; preds = %.lr.ph.i25.i, %.lr.ph.preheader.i.i
   %indvars.iv.i26.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i27.i, %.lr.ph.i25.i ]
   %.02427.i.i = phi ptr [ %230, %.lr.ph.preheader.i.i ], [ %233, %.lr.ph.i25.i ]
-  %231 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv.i26.i
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %indvars.iv.i26.i
   %232 = load i32, ptr %231, align 4, !tbaa !14
   store i32 %232, ptr %.02427.i.i, align 4, !tbaa !14
   %233 = getelementptr inbounds i8, ptr %.02427.i.i, i64 %187
@@ -3294,7 +3291,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess10run_dec
 66:                                               ; preds = %97, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %97 ]
   %67 = load ptr, ptr %63, align 8, !tbaa !165
-  %68 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %67, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %67, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !166
   %70 = tail call noundef ptr @_ZNK7Imf_3_415DeepFrameBuffer9findSliceEPKc(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef %69)
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -3430,7 +3427,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %141 = load i32, ptr %133, align 8, !tbaa !182
   %142 = sext i32 %141 to i64
   %143 = mul nsw i64 %indvars.iv38.i, %142
-  %144 = getelementptr inbounds i32, ptr %140, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %140, i64 %143
   %145 = load ptr, ptr %134, align 8, !tbaa !86
   %146 = load i32, ptr %135, align 4, !tbaa !176
   %147 = sext i32 %146 to i64
@@ -3462,7 +3459,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
   %indvars.iv35.i = phi i64 [ %157, %.preheader.preheader.i ], [ %indvars.iv.next36.i, %.loopexit.i ]
   %160 = sext i32 %159 to i64
   %161 = mul nsw i64 %indvars.iv35.i, %160
-  %162 = getelementptr inbounds i32, ptr %.pre.i, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %.pre.i, i64 %161
   %163 = icmp sgt i32 %159, 0
   br i1 %163, label %.lr.ph.preheader.i, label %.loopexit.i
 
@@ -3479,7 +3476,7 @@ _ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess15update_pointersEPKNS_15DeepFrameBuff
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i
   %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i30, %.lr.ph.i28 ]
   %.02427.i = phi ptr [ %170, %.lr.ph.preheader.i ], [ %173, %.lr.ph.i28 ]
-  %171 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i29
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %indvars.iv.i29
   %172 = load i32, ptr %171, align 4, !tbaa !14
   store i32 %172, ptr %.02427.i, align 4, !tbaa !14
   %173 = getelementptr inbounds i8, ptr %.02427.i, i64 %127
@@ -4357,7 +4354,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess8run_fill
   %49 = load i32, ptr %10, align 8, !tbaa !182
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %48, %50
-  %52 = getelementptr inbounds i32, ptr %9, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %9, i64 %51
   %53 = icmp sgt i32 %49, 0
   br i1 %53, label %.lr.ph15.preheader, label %._crit_edge
 
@@ -4374,7 +4371,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess8run_fill
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.loopexit
   %indvars.iv40 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next41, %.loopexit ]
   %.06514 = phi ptr [ %.05917, %.lr.ph15.preheader ], [ %.1, %.loopexit ]
-  %56 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv40
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv40
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = load ptr, ptr %.06514, align 8, !tbaa !229
   %59 = icmp eq i32 %57, 0
@@ -4402,7 +4399,7 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_115ScanLineProcess8run_fill
 
 .lr.ph12:                                         ; preds = %.lr.ph12.preheader, %.lr.ph12
   %indvars.iv35 = phi i64 [ 0, %.lr.ph12.preheader ], [ %indvars.iv.next36, %.lr.ph12 ]
-  %67 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv35
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv35
   store i32 %65, ptr %67, align 4, !tbaa !14
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -4498,7 +4495,7 @@ _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %80, %83, %93, %95, 
 
 .lr.ph10:                                         ; preds = %.lr.ph10.preheader, %.lr.ph10
   %indvars.iv30 = phi i64 [ 0, %.lr.ph10.preheader ], [ %indvars.iv.next31, %.lr.ph10 ]
-  %124 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %58, i64 %indvars.iv30
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv30
   store i16 %.0.i.i, ptr %124, align 2, !tbaa !232
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
@@ -4516,7 +4513,7 @@ _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %80, %83, %93, %95, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %129 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   store float %127, ptr %129, align 4, !tbaa !234
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

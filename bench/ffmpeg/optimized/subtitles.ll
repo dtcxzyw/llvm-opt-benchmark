@@ -418,7 +418,7 @@ define ptr @ff_subtitles_queue_insert(ptr noundef %0, ptr noundef readonly captu
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = zext nneg i32 %.pre to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -493,7 +493,7 @@ define ptr @ff_subtitles_queue_insert(ptr noundef %0, ptr noundef readonly captu
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %24, align 8, !tbaa !23
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %32, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %32, i64 %51
   store ptr %34, ptr %52, align 8, !tbaa !28
   br label %.critedge
 
@@ -564,7 +564,7 @@ define void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef captures(no
 
 17:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load i64, ptr %20, align 8, !tbaa !42
@@ -616,9 +616,9 @@ define void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef captures(no
   %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   %42 = add i32 %41, %40
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %38, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %38, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !28
-  %46 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !43
@@ -653,7 +653,7 @@ define void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef captures(no
   br i1 %.not35.i, label %71, label %74
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   tail call void @av_packet_free(ptr noundef nonnull %72) #11
   %73 = add nsw i32 %.03338.i, 1
   %.pre.i = load i32, ptr %3, align 8, !tbaa !23
@@ -665,10 +665,10 @@ define void @ff_subtitles_queue_finalize(ptr noundef %0, ptr noundef captures(no
   br i1 %.not36.i, label %.thread, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %77 = sub i32 %41, %.03338.i
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %38, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %38, i64 %78
   store ptr %47, ptr %79, align 8, !tbaa !28
   store ptr null, ptr %76, align 8, !tbaa !28
   br label %80
@@ -777,7 +777,7 @@ define range(i32 -2147483648, 1) i32 @ff_subtitles_queue_read_packet(ptr noundef
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !tbaa !27
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = tail call i32 @av_packet_ref(ptr noundef %1, ptr noundef %12) #11
   %14 = icmp slt i32 %13, 0
@@ -847,12 +847,12 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 27:                                               ; preds = %.lr.ph.i
   %28 = load ptr, ptr %0, align 8, !tbaa !27
   %29 = zext nneg i32 %.02637.i to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !43
   %34 = zext nneg i32 %.02338.i to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %28, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !43
@@ -865,7 +865,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   %42 = lshr i32 %41, 1
   %43 = load ptr, ptr %0, align 8, !tbaa !27
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !28
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !43
@@ -887,7 +887,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br i1 %51, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !43
@@ -895,7 +895,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   br i1 %57, label %.lr.ph118, label %.critedge.thread
 
 58:                                               ; preds = %.lr.ph118
-  %59 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv.next149
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv.next149
   %60 = load ptr, ptr %59, align 8, !tbaa !28
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !43
@@ -912,7 +912,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 .lr.ph.split:                                     ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ %52, %.lr.ph ]
   %.079112 = phi i32 [ %spec.select, %71 ], [ %.0.i, %.lr.ph ]
-  %66 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !43
@@ -950,7 +950,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 .lr.ph122.split.us:                               ; preds = %.critedge.thread, %.lr.ph122
   %.079.lcssa171173 = phi i32 [ %.079.lcssa, %.lr.ph122 ], [ %.0.i, %.critedge.thread ]
   %82 = zext nneg i32 %.079.lcssa171173 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !28
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !43
@@ -959,7 +959,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 
 88:                                               ; preds = %.lr.ph129
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, -1
-  %89 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv.next152
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv.next152
   %90 = load ptr, ptr %89, align 8, !tbaa !28
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !43
@@ -975,7 +975,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
   %.178121 = phi i32 [ %105, %101 ], [ %.079.lcssa, %.lr.ph122 ]
   %.281120 = phi i32 [ %spec.select140, %101 ], [ %.079.lcssa, %.lr.ph122 ]
   %95 = zext nneg i32 %.178121 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !28
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !43
@@ -998,7 +998,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 .critedge2:                                       ; preds = %.lr.ph122.split, %101, %.critedge2.loopexit, %.critedge.thread, %.lr.ph122.split.us, %.critedge
   %.281.lcssa = phi i32 [ %.079.lcssa, %.critedge ], [ %.0.i, %.critedge.thread ], [ %.079.lcssa171173, %.lr.ph122.split.us ], [ %107, %.critedge2.loopexit ], [ %spec.select140, %101 ], [ %.281120, %.lr.ph122.split ]
   %108 = zext nneg i32 %.281.lcssa to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !28
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !43
@@ -1032,7 +1032,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 .lr.ph134.split.us:                               ; preds = %.lr.ph134, %135
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %135 ], [ %123, %.lr.ph134 ]
   %.4132.us = phi i32 [ %.6.us, %135 ], [ %.281.lcssa176178, %.lr.ph134 ]
-  %124 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv157
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv157
   %125 = load ptr, ptr %124, align 8, !tbaa !28
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 64
   %127 = load i64, ptr %126, align 8, !tbaa !42
@@ -1058,7 +1058,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 .lr.ph134.split:                                  ; preds = %.lr.ph134, %151
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %151 ], [ %123, %.lr.ph134 ]
   %.4132 = phi i32 [ %.6, %151 ], [ %.281.lcssa176178, %.lr.ph134 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv154
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv154
   %138 = load ptr, ptr %137, align 8, !tbaa !28
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i64, ptr %139, align 8, !tbaa !43
@@ -1097,7 +1097,7 @@ define range(i32 -38, 1) i32 @ff_subtitles_queue_seek(ptr noundef captures(none)
 .preheader:                                       ; preds = %.thread, %165
   %.8 = phi i32 [ %166, %165 ], [ %.4.lcssa, %.thread ]
   %155 = zext nneg i32 %.8 to i64
-  %156 = getelementptr ptr, ptr %.pre.pre, i64 %155
+  %156 = getelementptr [8 x i8], ptr %.pre.pre, i64 %155
   %157 = getelementptr i8, ptr %156, i64 -8
   %158 = load ptr, ptr %157, align 8, !tbaa !28
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -1134,7 +1134,7 @@ define void @ff_subtitles_queue_clean(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !27
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   tail call void @av_packet_free(ptr noundef %6) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i32, ptr %2, align 8, !tbaa !23
@@ -1168,7 +1168,7 @@ define range(i32 -2147483648, 1) i32 @ff_subtitles_read_packet(ptr noundef reado
 10:                                               ; preds = %2
   %11 = load ptr, ptr %4, align 8, !tbaa !27
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = tail call i32 @av_packet_ref(ptr noundef %1, ptr noundef %14) #11
   %16 = icmp slt i32 %15, 0
@@ -1209,7 +1209,7 @@ define noundef i32 @ff_subtitles_read_close(ptr noundef readonly captures(none) 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %7 = load ptr, ptr %3, align 8, !tbaa !27
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   tail call void @av_packet_free(ptr noundef %8) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %4, align 8, !tbaa !23

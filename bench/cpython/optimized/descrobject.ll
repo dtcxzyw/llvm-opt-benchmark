@@ -2379,7 +2379,7 @@ define internal ptr @method_vectorcall_VARARGS_KEYWORDS(ptr noundef %0, ptr noun
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = getelementptr ptr, ptr %1, i64 %7
+  %19 = getelementptr [8 x i8], ptr %1, i64 %7
   %20 = tail call ptr @_PyStack_AsDict(ptr noundef %19, ptr noundef nonnull %3) #9
   %21 = icmp eq ptr %20, null
   br i1 %21, label %method_enter_call.exit.thread, label %22

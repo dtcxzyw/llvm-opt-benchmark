@@ -35,7 +35,7 @@ define hidden void @aom_convolve8_horiz_c(ptr noundef readonly captures(none) %0
   %23 = getelementptr inbounds i8, ptr %.030.us.i, i64 %22
   %24 = and i32 %.02526.us.i, 15
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [8 x i16], ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %20
@@ -44,7 +44,7 @@ define hidden void @aom_convolve8_horiz_c(ptr noundef readonly captures(none) %0
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i.us.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
-  %31 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv.i.us.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv.i.us.i
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i32
   %34 = mul nsw i32 %33, %30
@@ -111,7 +111,7 @@ define hidden void @aom_convolve8_vert_c(ptr noundef readonly captures(none) %0,
   %24 = getelementptr inbounds i8, ptr %.032.us.i, i64 %23
   %25 = and i32 %.02728.us.i, 15
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw [8 x i16], ptr %13, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %26
   br label %28
 
 28:                                               ; preds = %28, %20
@@ -121,7 +121,7 @@ define hidden void @aom_convolve8_vert_c(ptr noundef readonly captures(none) %0,
   %30 = getelementptr inbounds i8, ptr %24, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv.i.us.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv.i.us.i
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
   %36 = mul nsw i32 %35, %32
@@ -189,7 +189,7 @@ define hidden void @aom_convolve8_c(ptr noundef readonly captures(none) %0, i64 
   %25 = getelementptr inbounds i8, ptr %.030.us.i, i64 %24
   %26 = and i32 %.02526.us.i, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %27
   br label %29
 
 29:                                               ; preds = %29, %22
@@ -198,7 +198,7 @@ define hidden void @aom_convolve8_c(ptr noundef readonly captures(none) %0, i64 
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i.us.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv.i.us.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv.i.us.i
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
   %36 = mul nsw i32 %35, %32
@@ -251,7 +251,7 @@ convolve_horiz.exit:                              ; preds = %._crit_edge.us.i, %
   %53 = getelementptr inbounds i8, ptr %.032.us.i, i64 %52
   %54 = and i32 %.02728.us.i, 15
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %55
   br label %57
 
 57:                                               ; preds = %57, %49
@@ -261,7 +261,7 @@ convolve_horiz.exit:                              ; preds = %._crit_edge.us.i, %
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i.us.i22
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv.i.us.i22
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   %65 = mul nsw i32 %64, %61
@@ -330,7 +330,7 @@ define hidden void @aom_scaled_2d_c(ptr noundef readonly captures(none) %0, i64 
   %25 = getelementptr inbounds i8, ptr %.030.us.i.i, i64 %24
   %26 = and i32 %.02526.us.i.i, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %27
   br label %29
 
 29:                                               ; preds = %29, %22
@@ -339,7 +339,7 @@ define hidden void @aom_scaled_2d_c(ptr noundef readonly captures(none) %0, i64 
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i.us.i.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv.i.us.i.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv.i.us.i.i
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
   %36 = mul nsw i32 %35, %32
@@ -392,7 +392,7 @@ convolve_horiz.exit.i:                            ; preds = %._crit_edge.us.i.i,
   %53 = getelementptr inbounds i8, ptr %.032.us.i.i, i64 %52
   %54 = and i32 %.02728.us.i.i, 15
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [8 x i16], ptr %4, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %55
   br label %57
 
 57:                                               ; preds = %57, %49
@@ -402,7 +402,7 @@ convolve_horiz.exit.i:                            ; preds = %._crit_edge.us.i.i,
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i.us.i22.i
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv.i.us.i22.i
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i32
   %65 = mul nsw i32 %64, %61
@@ -502,19 +502,19 @@ define hidden void @aom_highbd_convolve8_horiz_c(ptr noundef %0, i64 noundef %1,
   %.02829.us.us.us.i = phi i32 [ %48, %highbd_horz_scalar_product.exit.us.us.us.i ], [ %17, %.preheader.us.us.i ]
   %28 = ashr i32 %.02829.us.us.us.i, 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i16, ptr %.047.us.us.i, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %.047.us.us.i, i64 %29
   %31 = and i32 %.02829.us.us.us.i, 15
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %32
   br label %34
 
 34:                                               ; preds = %34, %27
   %indvars.iv.i.us.us.us.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.us.us.us.i, %34 ]
   %.078.i.us.us.us.i = phi i32 [ 0, %27 ], [ %42, %34 ]
-  %35 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv.i.us.us.us.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv.i.us.us.us.i
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv.i.us.us.us.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv.i.us.us.us.i
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i32
   %41 = mul nsw i32 %40, %37
@@ -529,7 +529,7 @@ highbd_horz_scalar_product.exit.us.us.us.i:       ; preds = %34
   %45 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %44, i32 0)
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 4095)
   %.0.i.us.us.us.i = trunc nuw nsw i32 %46 to i16
-  %47 = getelementptr inbounds nuw i16, ptr %.02544.us.us.i, i64 %indvars.iv77.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.02544.us.us.i, i64 %indvars.iv77.i
   store i16 %.0.i.us.us.us.i, ptr %47, align 2
   %48 = add nsw i32 %.02829.us.us.us.i, %5
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
@@ -537,8 +537,8 @@ highbd_horz_scalar_product.exit.us.us.us.i:       ; preds = %34
   br i1 %exitcond81.not.i, label %._crit_edge.split.us.us.us.i, label %27, !llvm.loop !13
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %highbd_horz_scalar_product.exit.us.us.us.i
-  %49 = getelementptr inbounds i16, ptr %.047.us.us.i, i64 %1
-  %50 = getelementptr inbounds i16, ptr %.02544.us.us.i, i64 %3
+  %49 = getelementptr inbounds [2 x i8], ptr %.047.us.us.i, i64 %1
+  %50 = getelementptr inbounds [2 x i8], ptr %.02544.us.us.i, i64 %3
   %51 = add nuw nsw i32 %.02643.us.us.i, 1
   %exitcond82.not.i = icmp eq i32 %51, %9
   br i1 %exitcond82.not.i, label %highbd_convolve_horiz.exit, label %.preheader.us.us.i, !llvm.loop !14
@@ -554,19 +554,19 @@ highbd_horz_scalar_product.exit.us.us.us.i:       ; preds = %34
   %.02829.us33.us.us.i = phi i32 [ %73, %highbd_horz_scalar_product.exit.us38.us.us.i ], [ %17, %.preheader.us.us64.i ]
   %53 = ashr i32 %.02829.us33.us.us.i, 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i16, ptr %.047.us.us65.i, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %.047.us.us65.i, i64 %54
   %56 = and i32 %.02829.us33.us.us.i, 15
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %57
   br label %59
 
 59:                                               ; preds = %59, %52
   %indvars.iv.i.us34.us.us.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us36.us.us.i, %59 ]
   %.078.i.us35.us.us.i = phi i32 [ 0, %52 ], [ %67, %59 ]
-  %60 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i.us34.us.us.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv.i.us34.us.us.i
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
-  %63 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv.i.us34.us.us.i
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv.i.us34.us.us.i
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i32
   %66 = mul nsw i32 %65, %62
@@ -581,7 +581,7 @@ highbd_horz_scalar_product.exit.us38.us.us.i:     ; preds = %59
   %70 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %69, i32 0)
   %71 = tail call i32 @llvm.umin.i32(i32 %70, i32 1023)
   %.0.i.us42.us.us.i = trunc nuw nsw i32 %71 to i16
-  %72 = getelementptr inbounds nuw i16, ptr %.02544.us.us66.i, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.02544.us.us66.i, i64 %indvars.iv.i
   store i16 %.0.i.us42.us.us.i, ptr %72, align 2
   %73 = add nsw i32 %.02829.us33.us.us.i, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -589,8 +589,8 @@ highbd_horz_scalar_product.exit.us38.us.us.i:     ; preds = %59
   br i1 %exitcond.not.i, label %._crit_edge.split.split.us.us.us.i, label %52, !llvm.loop !13
 
 ._crit_edge.split.split.us.us.us.i:               ; preds = %highbd_horz_scalar_product.exit.us38.us.us.i
-  %74 = getelementptr inbounds i16, ptr %.047.us.us65.i, i64 %1
-  %75 = getelementptr inbounds i16, ptr %.02544.us.us66.i, i64 %3
+  %74 = getelementptr inbounds [2 x i8], ptr %.047.us.us65.i, i64 %1
+  %75 = getelementptr inbounds [2 x i8], ptr %.02544.us.us66.i, i64 %3
   %76 = add nuw nsw i32 %.02643.us.us67.i, 1
   %exitcond76.not.i = icmp eq i32 %76, %9
   br i1 %exitcond76.not.i, label %highbd_convolve_horiz.exit, label %.preheader.us.us64.i, !llvm.loop !14
@@ -606,19 +606,19 @@ highbd_horz_scalar_product.exit.us38.us.us.i:     ; preds = %59
   %.02829.us52.i = phi i32 [ %17, %.preheader.us.i ], [ %98, %highbd_horz_scalar_product.exit.us57.i ]
   %78 = ashr i32 %.02829.us52.i, 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i16, ptr %.047.us.i, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %.047.us.i, i64 %79
   %81 = and i32 %.02829.us52.i, 15
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %82
   br label %84
 
 84:                                               ; preds = %84, %77
   %indvars.iv.i.us53.i = phi i64 [ 0, %77 ], [ %indvars.iv.next.i.us55.i, %84 ]
   %.078.i.us54.i = phi i32 [ 0, %77 ], [ %92, %84 ]
-  %85 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv.i.us53.i
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %indvars.iv.i.us53.i
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
-  %88 = getelementptr inbounds nuw i16, ptr %83, i64 %indvars.iv.i.us53.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %83, i64 %indvars.iv.i.us53.i
   %89 = load i16, ptr %88, align 2
   %90 = sext i16 %89 to i32
   %91 = mul nsw i32 %90, %87
@@ -633,7 +633,7 @@ highbd_horz_scalar_product.exit.us57.i:           ; preds = %84
   %95 = tail call i32 @llvm.smax.i32(i32 range(i32 -16777216, 16777216) %94, i32 0)
   %96 = tail call i32 @llvm.umin.i32(i32 %95, i32 255)
   %.0.i.us59.i = trunc nuw nsw i32 %96 to i16
-  %97 = getelementptr inbounds nuw i16, ptr %.02544.us.i, i64 %indvars.iv83.i
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.02544.us.i, i64 %indvars.iv83.i
   store i16 %.0.i.us59.i, ptr %97, align 2
   %98 = add nsw i32 %.02829.us52.i, %5
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
@@ -641,8 +641,8 @@ highbd_horz_scalar_product.exit.us57.i:           ; preds = %84
   br i1 %exitcond87.not.i, label %._crit_edge.split.split.us60.i, label %77, !llvm.loop !13
 
 ._crit_edge.split.split.us60.i:                   ; preds = %highbd_horz_scalar_product.exit.us57.i
-  %99 = getelementptr inbounds i16, ptr %.047.us.i, i64 %1
-  %100 = getelementptr inbounds i16, ptr %.02544.us.i, i64 %3
+  %99 = getelementptr inbounds [2 x i8], ptr %.047.us.i, i64 %1
+  %100 = getelementptr inbounds [2 x i8], ptr %.02544.us.i, i64 %3
   %101 = add nuw nsw i32 %.02643.us.i, 1
   %exitcond88.not.i = icmp eq i32 %101, %9
   br i1 %exitcond88.not.i, label %highbd_convolve_horiz.exit, label %.preheader.us.i, !llvm.loop !14
@@ -688,20 +688,20 @@ define hidden void @aom_highbd_convolve8_vert_c(ptr noundef %0, i64 noundef %1, 
   %28 = ashr i32 %.03031.us.i, 4
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %1, %29
-  %31 = getelementptr inbounds i16, ptr %.035.us.i, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %.035.us.i, i64 %30
   %32 = and i32 %.03031.us.i, 15
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [8 x i16], ptr %14, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %33
   br label %35
 
 35:                                               ; preds = %35, %27
   %indvars.iv.i.us.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.us.i, %35 ]
   %.089.i.us.i = phi i32 [ 0, %27 ], [ %44, %35 ]
   %36 = mul nsw i64 %indvars.iv.i.us.i, %1
-  %37 = getelementptr inbounds i16, ptr %31, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %31, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv.i.us.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv.i.us.i
   %41 = load i16, ptr %40, align 2
   %42 = sext i16 %41 to i32
   %43 = mul nsw i32 %42, %39
@@ -735,7 +735,7 @@ clip_pixel_highbd.exit.us.i:                      ; preds = %52, %50, %48
   %.0.in.i.us.i = phi i32 [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
   %.0.i.us.i = trunc nuw nsw i32 %.0.in.i.us.i to i16
   %54 = mul nsw i64 %indvars.iv.i, %3
-  %55 = getelementptr inbounds i16, ptr %.02734.us.i, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %.02734.us.i, i64 %54
   store i16 %.0.i.us.i, ptr %55, align 2
   %56 = add nsw i32 %.03031.us.i, %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -768,8 +768,8 @@ define hidden void @aom_highbd_convolve_copy_c(ptr noundef readonly captures(non
   %.0912 = phi ptr [ %0, %.lr.ph ], [ %11, %10 ]
   %.01011 = phi ptr [ %2, %.lr.ph ], [ %12, %10 ]
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %.01011, ptr align 2 %.0912, i64 %9, i1 false)
-  %11 = getelementptr inbounds i16, ptr %.0912, i64 %1
-  %12 = getelementptr inbounds i16, ptr %.01011, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %.0912, i64 %1
+  %12 = getelementptr inbounds [2 x i8], ptr %.01011, i64 %3
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, %5
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !18

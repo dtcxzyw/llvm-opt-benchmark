@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PGEventRegister = type { ptr }
-%struct.PGEvent = type { ptr, ptr, ptr, ptr, i8 }
 %struct.PGEventResultCreate = type { ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
@@ -42,7 +41,7 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
 
 17:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %18 = getelementptr inbounds nuw %struct.PGEvent, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %1
   br i1 %20, label %.critedge, label %16
@@ -93,19 +92,19 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   %37 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %.049, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds %struct.PGEvent, ptr %37, i64 %39
+  %40 = getelementptr inbounds [40 x i8], ptr %37, i64 %39
   store ptr %1, ptr %40, align 8
   %41 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
   %42 = load ptr, ptr %38, align 8
   %43 = load i32, ptr %11, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.PGEvent, ptr %42, i64 %44
+  %45 = getelementptr inbounds [40 x i8], ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %41, ptr %46, align 8
   %47 = load ptr, ptr %38, align 8
   %48 = load i32, ptr %11, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.PGEvent, ptr %47, i64 %49
+  %50 = getelementptr inbounds [40 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not62 = icmp eq ptr %52, null
@@ -117,13 +116,13 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   %55 = load ptr, ptr %38, align 8
   %56 = load i32, ptr %11, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.PGEvent, ptr %55, i64 %57
+  %58 = getelementptr inbounds [40 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr null, ptr %59, align 8
   %60 = load ptr, ptr %38, align 8
   %61 = load i32, ptr %11, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.PGEvent, ptr %60, i64 %62
+  %63 = getelementptr inbounds [40 x i8], ptr %60, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i8 0, ptr %64, align 8
   %65 = load i32, ptr %11, align 8
@@ -140,7 +139,7 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   store i32 %70, ptr %11, align 8
   %71 = load ptr, ptr %38, align 8
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds %struct.PGEvent, ptr %71, i64 %72
+  %73 = getelementptr inbounds [40 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   call void @free(ptr noundef %75) #10
@@ -190,7 +189,7 @@ define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly captures(addr
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw %struct.PGEvent, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %11
@@ -231,7 +230,7 @@ define ptr @PQinstanceData(ptr noundef readonly captures(address_is_null) %0, pt
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw %struct.PGEvent, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %10
@@ -272,7 +271,7 @@ define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly capture
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw %struct.PGEvent, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %11
@@ -313,7 +312,7 @@ define ptr @PQresultInstanceData(ptr noundef readonly captures(address_is_null) 
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw %struct.PGEvent, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %10
@@ -350,7 +349,7 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.01519 = phi i32 [ 1, %.lr.ph ], [ %.2, %26 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %struct.PGEvent, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i8, ptr %13, align 8, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
@@ -369,7 +368,7 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds nuw %struct.PGEvent, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i8 1, ptr %24, align 8
   br label %25

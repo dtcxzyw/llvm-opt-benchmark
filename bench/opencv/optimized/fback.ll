@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -378,7 +377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %63,
   %128 = load i64, ptr %127, align 8, !tbaa !37
   %129 = mul i64 %128, %indvars.iv37.i
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 %129
-  %131 = getelementptr inbounds nuw %"class.cv::Point_", ptr %130, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %93, align 8
   store i32 50397184, ptr %3, align 8, !tbaa !19

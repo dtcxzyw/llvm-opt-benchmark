@@ -256,7 +256,7 @@ define internal void @worker_func(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 31:                                               ; preds = %27
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds i32, ptr %30, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
   store i32 %28, ptr %33, align 4, !tbaa !49
   br label %34
 

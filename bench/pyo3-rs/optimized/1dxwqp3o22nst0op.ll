@@ -199,7 +199,7 @@ switch.lookup:
   %3 = icmp eq i64 %2, 40
   %4 = add i64 %1, -39
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg2ty17h9d80a9b856a822e6E, i64 %5
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg2ty17h9d80a9b856a822e6E, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0 = load ptr, ptr %6, align 8
@@ -531,9 +531,9 @@ define hidden void @_ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa36
   br i1 %47, label %switch.lookup, label %48
 
 switch.lookup:                                    ; preds = %.noexc36
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E.2, i64 %switch.tableidx
+  %switch.gep42 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg5parse17h59ad331598aa3675E.2, i64 %switch.tableidx
   %switch.load43 = load ptr, ptr %switch.gep42, align 8
   br label %48
 
@@ -3724,12 +3724,12 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 335:                                              ; preds = %323, %319, %317, %191
   store ptr %193, ptr %63, align 8, !noalias !6
-  %336 = getelementptr { i32, [7 x i32] }, ptr %193, i64 %195
+  %336 = getelementptr [32 x i8], ptr %193, i64 %195
   %337 = getelementptr i8, ptr %336, i64 -32
   store ptr %337, ptr %62, align 8, !noalias !6
   %338 = add i64 %195, -2
   %339 = getelementptr inbounds nuw i8, ptr %193, i64 32
-  %340 = getelementptr inbounds { i32, [7 x i32] }, ptr %339, i64 %338
+  %340 = getelementptr inbounds [32 x i8], ptr %339, i64 %338
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %193, i64 4
   %341 = load i32, ptr %.sroa.0.0.i.i, align 4, !noalias !6
   %342 = invoke i32 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6ec7d87d0dac54a1E"(ptr nonnull %339, ptr nonnull %340, i32 %341)
@@ -4162,7 +4162,7 @@ switch.lookup:                                    ; preds = %427
   %433 = extractvalue { ptr, ptr } %429, 0
   %434 = extractvalue { ptr, ptr } %429, 1
   %435 = zext nneg i32 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0166.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 %435
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 %435
   %switch.load = load i64, ptr %switch.gep, align 8
   store ptr %433, ptr %88, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -4535,7 +4535,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_function
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds { i64, [40 x i64] }, ptr %79, i64 %81
+  %82 = getelementptr inbounds [328 x i8], ptr %79, i64 %81
   store ptr %79, ptr %75, align 8
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %82, ptr %83, align 8
@@ -6108,7 +6108,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_function
   %525 = load ptr, ptr %524, align 8
   %526 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %527 = load i64, ptr %526, align 8
-  %528 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %525, i64 %527
+  %528 = getelementptr inbounds [32 x i8], ptr %525, i64 %527
   store ptr %525, ptr %20, align 8
   %529 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %528, ptr %529, align 8

@@ -523,7 +523,7 @@ define internal i32 @dissect_srt_udp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %51
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_srt_udp, i64 %54
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_srt_udp, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %55
 
@@ -633,10 +633,10 @@ dissect_srt_hs_ext_field.exit.i:                  ; preds = %80, %78, %69
 
 .preheader.i.i:                                   ; preds = %.preheader36.i.i, %.preheader.i.i
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %.preheader.i.i ], [ 0, %.preheader36.i.i ]
-  %115 = getelementptr i32, ptr %106, i64 %indvars.iv40.i.i
+  %115 = getelementptr [4 x i8], ptr %106, i64 %indvars.iv40.i.i
   %116 = load i32, ptr %115, align 4
   %117 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %116) #4, !srcloc !10
-  %118 = getelementptr i32, ptr %8, i64 %indvars.iv40.i.i
+  %118 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv40.i.i
   store i32 %117, ptr %118, align 4
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 4

@@ -979,7 +979,7 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit: ; preds = %142
 
 189:                                              ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit173
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit173 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8
   %.not = icmp eq ptr %191, null
   br i1 %.not, label %195, label %192
@@ -2603,7 +2603,7 @@ _ZNSt12_Vector_baseI7QStringSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i22, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %class.QString, ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8
   ret void
 }

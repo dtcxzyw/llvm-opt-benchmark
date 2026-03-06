@@ -7,13 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.ozz::span.10" = type { ptr, i64 }
 %"struct.ozz::span.9" = type { ptr, i64 }
 %"struct.ozz::span.11" = type { ptr, i64 }
-%"struct.ozz::animation::internal::Float3Key" = type { [3 x i16] }
-%"struct.ozz::animation::internal::InterpSoaFloat3" = type { [2 x <4 x float>], [2 x %"struct.ozz::math::SoaFloat3"] }
-%"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::animation::internal::QuaternionKey" = type { [3 x i16] }
-%"struct.ozz::animation::internal::InterpSoaQuaternion" = type { [2 x <4 x float>], [2 x %"struct.ozz::math::SoaQuaternion"] }
-%"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
 %"struct.ozz::span.3" = type { ptr, i64 }
 
 $__clang_call_terminate = comdat any
@@ -216,39 +209,39 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i115
   %91 = load i32, ptr %90, align 4, !tbaa !71
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %44, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !72
   %95 = zext i16 %94 to i32
   %96 = sub i32 %91, %95
   %97 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !71
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %44, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !72
   %102 = zext i16 %101 to i32
   %103 = sub i32 %98, %102
   %104 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %105 = load i32, ptr %104, align 4, !tbaa !71
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %44, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !72
   %109 = zext i16 %108 to i32
   %110 = sub i32 %105, %109
   %111 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %112 = load i32, ptr %111, align 4, !tbaa !71
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %44, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !72
   %116 = zext i16 %115 to i32
   %117 = sub i32 %112, %116
   %118 = zext i32 %96 to i64
-  %119 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %118
+  %119 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %118
   %120 = zext i32 %103 to i64
-  %121 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %120
+  %121 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %120
   %122 = zext i32 %110 to i64
-  %123 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %122
+  %123 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %122
   %124 = zext i32 %117 to i64
-  %125 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %124
+  %125 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %124
   br i1 %.not.i.i107, label %139, label %126
 
 126:                                              ; preds = %88
@@ -267,16 +260,16 @@ _ZN3ozz9animation11SamplingJob7Context4StepERKNS0_9AnimationEf.exit: ; preds = %
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i116
 
 139:                                              ; preds = %88
-  %140 = getelementptr inbounds nuw i16, ptr %38, i64 %118
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %118
   %141 = load i16, ptr %140, align 2, !tbaa !72
   %142 = zext i16 %141 to i64
-  %143 = getelementptr inbounds nuw i16, ptr %38, i64 %120
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %120
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i64
-  %146 = getelementptr inbounds nuw i16, ptr %38, i64 %122
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %122
   %147 = load i16, ptr %146, align 2, !tbaa !72
   %148 = zext i16 %147 to i64
-  %149 = getelementptr inbounds nuw i16, ptr %38, i64 %124
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %124
   %150 = load i16, ptr %149, align 2, !tbaa !72
   %151 = zext i16 %150 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i116
@@ -286,23 +279,23 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %.pn.i.i118 = phi i64 [ %142, %139 ], [ %129, %126 ]
   %.pn21.i.i119 = phi i64 [ %145, %139 ], [ %132, %126 ]
   %.pn22.i.i120 = phi i64 [ %148, %139 ], [ %135, %126 ]
-  %.sink17.in.i.i121 = getelementptr inbounds nuw float, ptr %70, i64 %.pn22.i.i120
+  %.sink17.in.i.i121 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.pn22.i.i120
   %.sink17.i.i122 = load float, ptr %.sink17.in.i.i121, align 4, !tbaa !74
-  %.sink18.in.i.i123 = getelementptr inbounds nuw float, ptr %70, i64 %.pn21.i.i119
+  %.sink18.in.i.i123 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.pn21.i.i119
   %.sink18.i.i124 = load float, ptr %.sink18.in.i.i123, align 4, !tbaa !74
-  %.sink19.in.i.i125 = getelementptr inbounds nuw float, ptr %70, i64 %.pn.i.i118
+  %.sink19.in.i.i125 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.pn.i.i118
   %.sink19.i.i126 = load float, ptr %.sink19.in.i.i125, align 4, !tbaa !74
-  %152 = getelementptr inbounds nuw float, ptr %70, i64 %.sink20.i.i117
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.sink20.i.i117
   %153 = load float, ptr %152, align 4, !tbaa !74
   %154 = insertelement <4 x float> poison, float %.sink19.i.i126, i64 0
   %155 = insertelement <4 x float> %154, float %.sink18.i.i124, i64 1
   %156 = insertelement <4 x float> %155, float %.sink17.i.i122, i64 2
   %157 = insertelement <4 x float> %156, float %153, i64 3
   %158 = load ptr, ptr %75, align 8, !tbaa !75
-  %159 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %158, i64 %.06225.i113
+  %159 = getelementptr inbounds nuw [128 x i8], ptr %158, i64 %.06225.i113
   store <4 x float> %157, ptr %159, align 16, !tbaa !68
   %160 = load ptr, ptr %75, align 8, !tbaa !75
-  %161 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %160, i64 %.06225.i113
+  %161 = getelementptr inbounds nuw [128 x i8], ptr %160, i64 %.06225.i113
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %163 = load i16, ptr %119, align 2, !tbaa !72
   %164 = zext i16 %163 to i32
@@ -388,16 +381,16 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   store <4 x i32> %240, ptr %241, align 16, !tbaa !68
   %242 = load i32, ptr %90, align 4, !tbaa !71
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %243
+  %244 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %243
   %245 = load i32, ptr %97, align 4, !tbaa !71
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %246
+  %247 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %246
   %248 = load i32, ptr %104, align 4, !tbaa !71
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %249
+  %250 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %249
   %251 = load i32, ptr %111, align 4, !tbaa !71
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %72, i64 %252
+  %253 = getelementptr inbounds nuw [6 x i8], ptr %72, i64 %252
   br i1 %.not.i.i107, label %267, label %254
 
 254:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i116
@@ -416,16 +409,16 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i127
 
 267:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i116
-  %268 = getelementptr inbounds nuw i16, ptr %38, i64 %243
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %243
   %269 = load i16, ptr %268, align 2, !tbaa !72
   %270 = zext i16 %269 to i64
-  %271 = getelementptr inbounds nuw i16, ptr %38, i64 %246
+  %271 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %246
   %272 = load i16, ptr %271, align 2, !tbaa !72
   %273 = zext i16 %272 to i64
-  %274 = getelementptr inbounds nuw i16, ptr %38, i64 %249
+  %274 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %249
   %275 = load i16, ptr %274, align 2, !tbaa !72
   %276 = zext i16 %275 to i64
-  %277 = getelementptr inbounds nuw i16, ptr %38, i64 %252
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %252
   %278 = load i16, ptr %277, align 2, !tbaa !72
   %279 = zext i16 %278 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i127
@@ -435,24 +428,24 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %.pn.i78.i129 = phi i64 [ %270, %267 ], [ %257, %254 ]
   %.pn21.i79.i130 = phi i64 [ %273, %267 ], [ %260, %254 ]
   %.pn22.i80.i131 = phi i64 [ %276, %267 ], [ %263, %254 ]
-  %.sink17.in.i81.i132 = getelementptr inbounds nuw float, ptr %70, i64 %.pn22.i80.i131
+  %.sink17.in.i81.i132 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.pn22.i80.i131
   %.sink17.i82.i133 = load float, ptr %.sink17.in.i81.i132, align 4, !tbaa !74
-  %.sink18.in.i83.i134 = getelementptr inbounds nuw float, ptr %70, i64 %.pn21.i79.i130
+  %.sink18.in.i83.i134 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.pn21.i79.i130
   %.sink18.i84.i135 = load float, ptr %.sink18.in.i83.i134, align 4, !tbaa !74
-  %.sink19.in.i85.i136 = getelementptr inbounds nuw float, ptr %70, i64 %.pn.i78.i129
+  %.sink19.in.i85.i136 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.pn.i78.i129
   %.sink19.i86.i137 = load float, ptr %.sink19.in.i85.i136, align 4, !tbaa !74
-  %280 = getelementptr inbounds nuw float, ptr %70, i64 %.sink20.i77.i128
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.sink20.i77.i128
   %281 = load float, ptr %280, align 4, !tbaa !74
   %282 = insertelement <4 x float> poison, float %.sink19.i86.i137, i64 0
   %283 = insertelement <4 x float> %282, float %.sink18.i84.i135, i64 1
   %284 = insertelement <4 x float> %283, float %.sink17.i82.i133, i64 2
   %285 = insertelement <4 x float> %284, float %281, i64 3
   %286 = load ptr, ptr %75, align 8, !tbaa !75
-  %287 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %286, i64 %.06225.i113
+  %287 = getelementptr inbounds nuw [128 x i8], ptr %286, i64 %.06225.i113
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
   store <4 x float> %285, ptr %288, align 16, !tbaa !68
   %289 = load ptr, ptr %75, align 8, !tbaa !75
-  %290 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %289, i64 %.06225.i113
+  %290 = getelementptr inbounds nuw [128 x i8], ptr %289, i64 %.06225.i113
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 80
   %292 = load i16, ptr %244, align 2, !tbaa !72
   %293 = zext i16 %292 to i32
@@ -645,39 +638,39 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 %.idx.i
   %427 = load i32, ptr %426, align 4, !tbaa !71
   %428 = zext i32 %427 to i64
-  %429 = getelementptr inbounds nuw i16, ptr %384, i64 %428
+  %429 = getelementptr inbounds nuw [2 x i8], ptr %384, i64 %428
   %430 = load i16, ptr %429, align 2, !tbaa !72
   %431 = zext i16 %430 to i32
   %432 = sub i32 %427, %431
   %433 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %434 = load i32, ptr %433, align 4, !tbaa !71
   %435 = zext i32 %434 to i64
-  %436 = getelementptr inbounds nuw i16, ptr %384, i64 %435
+  %436 = getelementptr inbounds nuw [2 x i8], ptr %384, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !72
   %438 = zext i16 %437 to i32
   %439 = sub i32 %434, %438
   %440 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %441 = load i32, ptr %440, align 4, !tbaa !71
   %442 = zext i32 %441 to i64
-  %443 = getelementptr inbounds nuw i16, ptr %384, i64 %442
+  %443 = getelementptr inbounds nuw [2 x i8], ptr %384, i64 %442
   %444 = load i16, ptr %443, align 2, !tbaa !72
   %445 = zext i16 %444 to i32
   %446 = sub i32 %441, %445
   %447 = getelementptr inbounds nuw i8, ptr %426, i64 12
   %448 = load i32, ptr %447, align 4, !tbaa !71
   %449 = zext i32 %448 to i64
-  %450 = getelementptr inbounds nuw i16, ptr %384, i64 %449
+  %450 = getelementptr inbounds nuw [2 x i8], ptr %384, i64 %449
   %451 = load i16, ptr %450, align 2, !tbaa !72
   %452 = zext i16 %451 to i32
   %453 = sub i32 %448, %452
   %454 = zext i32 %432 to i64
-  %455 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %454
+  %455 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %454
   %456 = zext i32 %439 to i64
-  %457 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %456
+  %457 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %456
   %458 = zext i32 %446 to i64
-  %459 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %458
+  %459 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %458
   %460 = zext i32 %453 to i64
-  %461 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %460
+  %461 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %460
   br i1 %.not.i.i, label %475, label %462
 
 462:                                              ; preds = %424
@@ -696,16 +689,16 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i
 
 475:                                              ; preds = %424
-  %476 = getelementptr inbounds nuw i16, ptr %378, i64 %454
+  %476 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %454
   %477 = load i16, ptr %476, align 2, !tbaa !72
   %478 = zext i16 %477 to i64
-  %479 = getelementptr inbounds nuw i16, ptr %378, i64 %456
+  %479 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %456
   %480 = load i16, ptr %479, align 2, !tbaa !72
   %481 = zext i16 %480 to i64
-  %482 = getelementptr inbounds nuw i16, ptr %378, i64 %458
+  %482 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %458
   %483 = load i16, ptr %482, align 2, !tbaa !72
   %484 = zext i16 %483 to i64
-  %485 = getelementptr inbounds nuw i16, ptr %378, i64 %460
+  %485 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %460
   %486 = load i16, ptr %485, align 2, !tbaa !72
   %487 = zext i16 %486 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i
@@ -715,37 +708,37 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %.pn.i.i = phi i64 [ %478, %475 ], [ %465, %462 ]
   %.pn21.i.i = phi i64 [ %481, %475 ], [ %468, %462 ]
   %.pn22.i.i = phi i64 [ %484, %475 ], [ %471, %462 ]
-  %.sink17.in.i.i = getelementptr inbounds nuw float, ptr %408, i64 %.pn22.i.i
+  %.sink17.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.pn22.i.i
   %.sink17.i.i = load float, ptr %.sink17.in.i.i, align 4, !tbaa !74
-  %.sink18.in.i.i = getelementptr inbounds nuw float, ptr %408, i64 %.pn21.i.i
+  %.sink18.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.pn21.i.i
   %.sink18.i.i = load float, ptr %.sink18.in.i.i, align 4, !tbaa !74
-  %.sink19.in.i.i = getelementptr inbounds nuw float, ptr %408, i64 %.pn.i.i
+  %.sink19.in.i.i = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.pn.i.i
   %.sink19.i.i = load float, ptr %.sink19.in.i.i, align 4, !tbaa !74
-  %488 = getelementptr inbounds nuw float, ptr %408, i64 %.sink20.i.i
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.sink20.i.i
   %489 = load float, ptr %488, align 4, !tbaa !74
   %490 = insertelement <4 x float> poison, float %.sink19.i.i, i64 0
   %491 = insertelement <4 x float> %490, float %.sink18.i.i, i64 1
   %492 = insertelement <4 x float> %491, float %.sink17.i.i, i64 2
   %493 = insertelement <4 x float> %492, float %489, i64 3
   %494 = load ptr, ptr %413, align 8, !tbaa !86
-  %495 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %494, i64 %.06225.i
+  %495 = getelementptr inbounds nuw [160 x i8], ptr %494, i64 %.06225.i
   store <4 x float> %493, ptr %495, align 16, !tbaa !68
   %496 = load ptr, ptr %413, align 8, !tbaa !86
-  %497 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %496, i64 %.06225.i
+  %497 = getelementptr inbounds nuw [160 x i8], ptr %496, i64 %.06225.i
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 32
   tail call fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaternionERKNS0_8internal13QuaternionKeyES5_S5_S5_PNS_4math13SoaQuaternionE(ptr noundef nonnull align 2 dereferenceable(6) %455, ptr noundef nonnull align 2 dereferenceable(6) %457, ptr noundef nonnull align 2 dereferenceable(6) %459, ptr noundef nonnull align 2 dereferenceable(6) %461, ptr noundef nonnull %498)
   %499 = load i32, ptr %426, align 4, !tbaa !71
   %500 = zext i32 %499 to i64
-  %501 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %500
+  %501 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %500
   %502 = load i32, ptr %433, align 4, !tbaa !71
   %503 = zext i32 %502 to i64
-  %504 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %503
+  %504 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %503
   %505 = load i32, ptr %440, align 4, !tbaa !71
   %506 = zext i32 %505 to i64
-  %507 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %506
+  %507 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %506
   %508 = load i32, ptr %447, align 4, !tbaa !71
   %509 = zext i32 %508 to i64
-  %510 = getelementptr inbounds nuw %"struct.ozz::animation::internal::QuaternionKey", ptr %410, i64 %509
+  %510 = getelementptr inbounds nuw [6 x i8], ptr %410, i64 %509
   br i1 %.not.i.i, label %524, label %511
 
 511:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i
@@ -764,16 +757,16 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i
 
 524:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i
-  %525 = getelementptr inbounds nuw i16, ptr %378, i64 %500
+  %525 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %500
   %526 = load i16, ptr %525, align 2, !tbaa !72
   %527 = zext i16 %526 to i64
-  %528 = getelementptr inbounds nuw i16, ptr %378, i64 %503
+  %528 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %503
   %529 = load i16, ptr %528, align 2, !tbaa !72
   %530 = zext i16 %529 to i64
-  %531 = getelementptr inbounds nuw i16, ptr %378, i64 %506
+  %531 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %506
   %532 = load i16, ptr %531, align 2, !tbaa !72
   %533 = zext i16 %532 to i64
-  %534 = getelementptr inbounds nuw i16, ptr %378, i64 %509
+  %534 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %509
   %535 = load i16, ptr %534, align 2, !tbaa !72
   %536 = zext i16 %535 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i
@@ -783,24 +776,24 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %.pn.i78.i = phi i64 [ %527, %524 ], [ %514, %511 ]
   %.pn21.i79.i = phi i64 [ %530, %524 ], [ %517, %511 ]
   %.pn22.i80.i = phi i64 [ %533, %524 ], [ %520, %511 ]
-  %.sink17.in.i81.i = getelementptr inbounds nuw float, ptr %408, i64 %.pn22.i80.i
+  %.sink17.in.i81.i = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.pn22.i80.i
   %.sink17.i82.i = load float, ptr %.sink17.in.i81.i, align 4, !tbaa !74
-  %.sink18.in.i83.i = getelementptr inbounds nuw float, ptr %408, i64 %.pn21.i79.i
+  %.sink18.in.i83.i = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.pn21.i79.i
   %.sink18.i84.i = load float, ptr %.sink18.in.i83.i, align 4, !tbaa !74
-  %.sink19.in.i85.i = getelementptr inbounds nuw float, ptr %408, i64 %.pn.i78.i
+  %.sink19.in.i85.i = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.pn.i78.i
   %.sink19.i86.i = load float, ptr %.sink19.in.i85.i, align 4, !tbaa !74
-  %537 = getelementptr inbounds nuw float, ptr %408, i64 %.sink20.i77.i
+  %537 = getelementptr inbounds nuw [4 x i8], ptr %408, i64 %.sink20.i77.i
   %538 = load float, ptr %537, align 4, !tbaa !74
   %539 = insertelement <4 x float> poison, float %.sink19.i86.i, i64 0
   %540 = insertelement <4 x float> %539, float %.sink18.i84.i, i64 1
   %541 = insertelement <4 x float> %540, float %.sink17.i82.i, i64 2
   %542 = insertelement <4 x float> %541, float %538, i64 3
   %543 = load ptr, ptr %413, align 8, !tbaa !86
-  %544 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %543, i64 %.06225.i
+  %544 = getelementptr inbounds nuw [160 x i8], ptr %543, i64 %.06225.i
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 16
   store <4 x float> %542, ptr %545, align 16, !tbaa !68
   %546 = load ptr, ptr %413, align 8, !tbaa !86
-  %547 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %546, i64 %.06225.i
+  %547 = getelementptr inbounds nuw [160 x i8], ptr %546, i64 %.06225.i
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 96
   tail call fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaternionERKNS0_8internal13QuaternionKeyES5_S5_S5_PNS_4math13SoaQuaternionE(ptr noundef nonnull align 2 dereferenceable(6) %501, ptr noundef nonnull align 2 dereferenceable(6) %504, ptr noundef nonnull align 2 dereferenceable(6) %507, ptr noundef nonnull align 2 dereferenceable(6) %510, ptr noundef nonnull %548)
   br label %549
@@ -912,39 +905,39 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 %.idx.i151
   %605 = load i32, ptr %604, align 4, !tbaa !71
   %606 = zext i32 %605 to i64
-  %607 = getelementptr inbounds nuw i16, ptr %562, i64 %606
+  %607 = getelementptr inbounds nuw [2 x i8], ptr %562, i64 %606
   %608 = load i16, ptr %607, align 2, !tbaa !72
   %609 = zext i16 %608 to i32
   %610 = sub i32 %605, %609
   %611 = getelementptr inbounds nuw i8, ptr %604, i64 4
   %612 = load i32, ptr %611, align 4, !tbaa !71
   %613 = zext i32 %612 to i64
-  %614 = getelementptr inbounds nuw i16, ptr %562, i64 %613
+  %614 = getelementptr inbounds nuw [2 x i8], ptr %562, i64 %613
   %615 = load i16, ptr %614, align 2, !tbaa !72
   %616 = zext i16 %615 to i32
   %617 = sub i32 %612, %616
   %618 = getelementptr inbounds nuw i8, ptr %604, i64 8
   %619 = load i32, ptr %618, align 4, !tbaa !71
   %620 = zext i32 %619 to i64
-  %621 = getelementptr inbounds nuw i16, ptr %562, i64 %620
+  %621 = getelementptr inbounds nuw [2 x i8], ptr %562, i64 %620
   %622 = load i16, ptr %621, align 2, !tbaa !72
   %623 = zext i16 %622 to i32
   %624 = sub i32 %619, %623
   %625 = getelementptr inbounds nuw i8, ptr %604, i64 12
   %626 = load i32, ptr %625, align 4, !tbaa !71
   %627 = zext i32 %626 to i64
-  %628 = getelementptr inbounds nuw i16, ptr %562, i64 %627
+  %628 = getelementptr inbounds nuw [2 x i8], ptr %562, i64 %627
   %629 = load i16, ptr %628, align 2, !tbaa !72
   %630 = zext i16 %629 to i32
   %631 = sub i32 %626, %630
   %632 = zext i32 %610 to i64
-  %633 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %632
+  %633 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %632
   %634 = zext i32 %617 to i64
-  %635 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %634
+  %635 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %634
   %636 = zext i32 %624 to i64
-  %637 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %636
+  %637 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %636
   %638 = zext i32 %631 to i64
-  %639 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %638
+  %639 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %638
   br i1 %.not.i.i143, label %653, label %640
 
 640:                                              ; preds = %602
@@ -963,16 +956,16 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i153
 
 653:                                              ; preds = %602
-  %654 = getelementptr inbounds nuw i16, ptr %556, i64 %632
+  %654 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %632
   %655 = load i16, ptr %654, align 2, !tbaa !72
   %656 = zext i16 %655 to i64
-  %657 = getelementptr inbounds nuw i16, ptr %556, i64 %634
+  %657 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %634
   %658 = load i16, ptr %657, align 2, !tbaa !72
   %659 = zext i16 %658 to i64
-  %660 = getelementptr inbounds nuw i16, ptr %556, i64 %636
+  %660 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %636
   %661 = load i16, ptr %660, align 2, !tbaa !72
   %662 = zext i16 %661 to i64
-  %663 = getelementptr inbounds nuw i16, ptr %556, i64 %638
+  %663 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %638
   %664 = load i16, ptr %663, align 2, !tbaa !72
   %665 = zext i16 %664 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i153
@@ -982,23 +975,23 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %.pn.i.i155 = phi i64 [ %656, %653 ], [ %643, %640 ]
   %.pn21.i.i156 = phi i64 [ %659, %653 ], [ %646, %640 ]
   %.pn22.i.i157 = phi i64 [ %662, %653 ], [ %649, %640 ]
-  %.sink17.in.i.i158 = getelementptr inbounds nuw float, ptr %586, i64 %.pn22.i.i157
+  %.sink17.in.i.i158 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.pn22.i.i157
   %.sink17.i.i159 = load float, ptr %.sink17.in.i.i158, align 4, !tbaa !74
-  %.sink18.in.i.i160 = getelementptr inbounds nuw float, ptr %586, i64 %.pn21.i.i156
+  %.sink18.in.i.i160 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.pn21.i.i156
   %.sink18.i.i161 = load float, ptr %.sink18.in.i.i160, align 4, !tbaa !74
-  %.sink19.in.i.i162 = getelementptr inbounds nuw float, ptr %586, i64 %.pn.i.i155
+  %.sink19.in.i.i162 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.pn.i.i155
   %.sink19.i.i163 = load float, ptr %.sink19.in.i.i162, align 4, !tbaa !74
-  %666 = getelementptr inbounds nuw float, ptr %586, i64 %.sink20.i.i154
+  %666 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.sink20.i.i154
   %667 = load float, ptr %666, align 4, !tbaa !74
   %668 = insertelement <4 x float> poison, float %.sink19.i.i163, i64 0
   %669 = insertelement <4 x float> %668, float %.sink18.i.i161, i64 1
   %670 = insertelement <4 x float> %669, float %.sink17.i.i159, i64 2
   %671 = insertelement <4 x float> %670, float %667, i64 3
   %672 = load ptr, ptr %591, align 8, !tbaa !75
-  %673 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %672, i64 %.06225.i149
+  %673 = getelementptr inbounds nuw [128 x i8], ptr %672, i64 %.06225.i149
   store <4 x float> %671, ptr %673, align 16, !tbaa !68
   %674 = load ptr, ptr %591, align 8, !tbaa !75
-  %675 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %674, i64 %.06225.i149
+  %675 = getelementptr inbounds nuw [128 x i8], ptr %674, i64 %.06225.i149
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %677 = load i16, ptr %633, align 2, !tbaa !72
   %678 = zext i16 %677 to i32
@@ -1084,16 +1077,16 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   store <4 x i32> %754, ptr %755, align 16, !tbaa !68
   %756 = load i32, ptr %604, align 4, !tbaa !71
   %757 = zext i32 %756 to i64
-  %758 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %757
+  %758 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %757
   %759 = load i32, ptr %611, align 4, !tbaa !71
   %760 = zext i32 %759 to i64
-  %761 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %760
+  %761 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %760
   %762 = load i32, ptr %618, align 4, !tbaa !71
   %763 = zext i32 %762 to i64
-  %764 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %763
+  %764 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %763
   %765 = load i32, ptr %625, align 4, !tbaa !71
   %766 = zext i32 %765 to i64
-  %767 = getelementptr inbounds nuw %"struct.ozz::animation::internal::Float3Key", ptr %588, i64 %766
+  %767 = getelementptr inbounds nuw [6 x i8], ptr %588, i64 %766
   br i1 %.not.i.i143, label %781, label %768
 
 768:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i153
@@ -1112,16 +1105,16 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i165
 
 781:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i153
-  %782 = getelementptr inbounds nuw i16, ptr %556, i64 %757
+  %782 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %757
   %783 = load i16, ptr %782, align 2, !tbaa !72
   %784 = zext i16 %783 to i64
-  %785 = getelementptr inbounds nuw i16, ptr %556, i64 %760
+  %785 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %760
   %786 = load i16, ptr %785, align 2, !tbaa !72
   %787 = zext i16 %786 to i64
-  %788 = getelementptr inbounds nuw i16, ptr %556, i64 %763
+  %788 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %763
   %789 = load i16, ptr %788, align 2, !tbaa !72
   %790 = zext i16 %789 to i64
-  %791 = getelementptr inbounds nuw i16, ptr %556, i64 %766
+  %791 = getelementptr inbounds nuw [2 x i8], ptr %556, i64 %766
   %792 = load i16, ptr %791, align 2, !tbaa !72
   %793 = zext i16 %792 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i165
@@ -1131,24 +1124,24 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   %.pn.i78.i167 = phi i64 [ %784, %781 ], [ %771, %768 ]
   %.pn21.i79.i168 = phi i64 [ %787, %781 ], [ %774, %768 ]
   %.pn22.i80.i169 = phi i64 [ %790, %781 ], [ %777, %768 ]
-  %.sink17.in.i81.i170 = getelementptr inbounds nuw float, ptr %586, i64 %.pn22.i80.i169
+  %.sink17.in.i81.i170 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.pn22.i80.i169
   %.sink17.i82.i171 = load float, ptr %.sink17.in.i81.i170, align 4, !tbaa !74
-  %.sink18.in.i83.i172 = getelementptr inbounds nuw float, ptr %586, i64 %.pn21.i79.i168
+  %.sink18.in.i83.i172 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.pn21.i79.i168
   %.sink18.i84.i173 = load float, ptr %.sink18.in.i83.i172, align 4, !tbaa !74
-  %.sink19.in.i85.i174 = getelementptr inbounds nuw float, ptr %586, i64 %.pn.i78.i167
+  %.sink19.in.i85.i174 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.pn.i78.i167
   %.sink19.i86.i175 = load float, ptr %.sink19.in.i85.i174, align 4, !tbaa !74
-  %794 = getelementptr inbounds nuw float, ptr %586, i64 %.sink20.i77.i166
+  %794 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %.sink20.i77.i166
   %795 = load float, ptr %794, align 4, !tbaa !74
   %796 = insertelement <4 x float> poison, float %.sink19.i86.i175, i64 0
   %797 = insertelement <4 x float> %796, float %.sink18.i84.i173, i64 1
   %798 = insertelement <4 x float> %797, float %.sink17.i82.i171, i64 2
   %799 = insertelement <4 x float> %798, float %795, i64 3
   %800 = load ptr, ptr %591, align 8, !tbaa !75
-  %801 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %800, i64 %.06225.i149
+  %801 = getelementptr inbounds nuw [128 x i8], ptr %800, i64 %.06225.i149
   %802 = getelementptr inbounds nuw i8, ptr %801, i64 16
   store <4 x float> %799, ptr %802, align 16, !tbaa !68
   %803 = load ptr, ptr %591, align 8, !tbaa !75
-  %804 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %803, i64 %.06225.i149
+  %804 = getelementptr inbounds nuw [128 x i8], ptr %803, i64 %.06225.i149
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 80
   %806 = load i16, ptr %758, align 2, !tbaa !72
   %807 = zext i16 %806 to i32
@@ -1262,7 +1255,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
 
 .lr.ph.i69:                                       ; preds = %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit179, %.lr.ph.i69
   %.011.i = phi i64 [ %1006, %.lr.ph.i69 ], [ 0, %_ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15InterpSoaFloat3EPFvRKS4_S7_S7_S7_PNS_4math9SoaFloat3EEEEvmRKNS_4spanIKfEERKNS0_9Animation14TKeyframesCtrlILb1EEERKNSD_IKT_EERKNS0_11SamplingJob7Context5CacheERKNSD_IT0_EERKT1_.exit179 ]
-  %900 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %893, i64 %.011.i
+  %900 = getelementptr inbounds nuw [128 x i8], ptr %893, i64 %.011.i
   %901 = load <4 x float>, ptr %900, align 16, !tbaa !68
   %902 = fsub <4 x float> %899, %901
   %903 = getelementptr inbounds nuw i8, ptr %900, i64 16
@@ -1270,7 +1263,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %905 = fsub <4 x float> %904, %901
   %906 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %905)
   %907 = fmul <4 x float> %902, %906
-  %908 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaQuaternion", ptr %895, i64 %.011.i
+  %908 = getelementptr inbounds nuw [160 x i8], ptr %895, i64 %.011.i
   %909 = load <4 x float>, ptr %908, align 16, !tbaa !68
   %910 = fsub <4 x float> %899, %909
   %911 = getelementptr inbounds nuw i8, ptr %908, i64 16
@@ -1278,7 +1271,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %913 = fsub <4 x float> %912, %909
   %914 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ps(<4 x float> %913)
   %915 = fmul <4 x float> %910, %914
-  %916 = getelementptr inbounds nuw %"struct.ozz::animation::internal::InterpSoaFloat3", ptr %897, i64 %.011.i
+  %916 = getelementptr inbounds nuw [128 x i8], ptr %897, i64 %.011.i
   %917 = load <4 x float>, ptr %916, align 16, !tbaa !68
   %918 = fsub <4 x float> %899, %917
   %919 = getelementptr inbounds nuw i8, ptr %916, i64 16
@@ -1305,7 +1298,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %940 = fsub <4 x float> %937, %939
   %941 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %940, <4 x float> %907, <4 x float> %939)
   %942 = load ptr, ptr %889, align 8, !tbaa !98
-  %943 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %942, i64 %.011.i
+  %943 = getelementptr inbounds nuw [160 x i8], ptr %942, i64 %.011.i
   store <4 x float> %929, ptr %943, align 16, !tbaa !68
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %943, i64 16
   store <4 x float> %935, ptr %.sroa.49.0..sroa_idx.i, align 16, !tbaa !68
@@ -1350,7 +1343,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %980 = fmul <4 x float> %961, %977
   %981 = fmul <4 x float> %967, %977
   %982 = load ptr, ptr %889, align 8, !tbaa !98
-  %983 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %982, i64 %.011.i
+  %983 = getelementptr inbounds nuw [160 x i8], ptr %982, i64 %.011.i
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 48
   store <4 x float> %978, ptr %984, align 16, !tbaa !68
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %983, i64 64
@@ -1378,7 +1371,7 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal9Float3KeyENS3_15Interp
   %1001 = fsub <4 x float> %998, %1000
   %1002 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %1001, <4 x float> %923, <4 x float> %1000)
   %1003 = load ptr, ptr %889, align 8, !tbaa !98
-  %1004 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %1003, i64 %.011.i
+  %1004 = getelementptr inbounds nuw [160 x i8], ptr %1003, i64 %.011.i
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 112
   store <4 x float> %990, ptr %1005, align 16, !tbaa !68
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1004, i64 128
@@ -1493,7 +1486,7 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %44 = shl nuw i32 %37, 1
   %45 = zext i32 %44 to i64
   %46 = load ptr, ptr %24, align 8, !tbaa !109
-  %47 = getelementptr i32, ptr %46, i64 %45
+  %47 = getelementptr [4 x i8], ptr %46, i64 %45
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 4, !tbaa !71
   %50 = zext i32 %49 to i64
@@ -1510,7 +1503,7 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %58 = call { ptr, i64 } @_ZN3ozz15DecodeGV4StreamERKNS_4spanIKhEERKNS0_IjEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = load ptr, ptr %24, align 8, !tbaa !109
-  %60 = getelementptr i32, ptr %59, i64 %45
+  %60 = getelementptr [4 x i8], ptr %59, i64 %45
   %61 = getelementptr i8, ptr %60, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !71
   %63 = add i32 %62, 1
@@ -1530,7 +1523,7 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_111UpdateCacheEffmRKN
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %64 ]
   %68 = trunc nuw i64 %indvars.iv.i to i32
   %69 = add i32 %8, %68
-  %70 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i
   store i32 %69, ptr %70, align 4, !tbaa !71
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %66
@@ -1582,7 +1575,7 @@ _ZN3ozz9animation12_GLOBAL__N_112OutdateCacheERKNS_4spanIhEEm.exit: ; preds = %.
   %indvars.iv = phi i64 [ %87, %.lr.ph ], [ %indvars.iv.next, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit ]
   %.06511 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %_ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit ]
   %89 = load ptr, ptr %9, align 8, !tbaa !114
-  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %indvars.iv
   %91 = load i16, ptr %90, align 2, !tbaa !72
   %92 = zext i16 %91 to i32
   %93 = trunc nuw i64 %indvars.iv to i32
@@ -1598,14 +1591,14 @@ _ZN3ozz9animation12_GLOBAL__N_112OutdateCacheERKNS_4spanIhEEm.exit: ; preds = %.
   br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit
 
 100:                                              ; preds = %88
-  %101 = getelementptr inbounds nuw i16, ptr %.val69, i64 %95
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.val69, i64 %95
   %102 = load i16, ptr %101, align 2, !tbaa !72
   %103 = zext i16 %102 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit
 
 _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit: ; preds = %96, %100
   %.pn.i = phi i64 [ %99, %96 ], [ %103, %100 ]
-  %.0.in.i = getelementptr inbounds nuw float, ptr %.0.val, i64 %.pn.i
+  %.0.in.i = getelementptr inbounds nuw [4 x i8], ptr %.0.val, i64 %.pn.i
   %.0.i = load float, ptr %.0.in.i, align 4, !tbaa !74
   %104 = fcmp ugt float %.0.i, %0
   br i1 %104, label %.critedge, label %105
@@ -1621,7 +1614,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit: ; pre
 
 .lr.ph.i84:                                       ; preds = %111, %.lr.ph.preheader.i
   %indvars.iv.i85 = phi i64 [ %107, %.lr.ph.preheader.i ], [ %indvars.iv.next.i86, %111 ]
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv.i85
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv.i85
   %109 = load i32, ptr %108, align 4, !tbaa !71
   %110 = icmp eq i32 %109, %94
   br i1 %110, label %.loopexit.loopexit6.i, label %111
@@ -1638,7 +1631,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit: ; pre
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
   %.0.i83 = phi i32 [ %116, %.critedge.i ], [ 0, %.critedge.i.preheader ]
   %112 = zext i32 %.0.i83 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %106, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !71
   %115 = icmp eq i32 %114, %94
   %116 = add i32 %.0.i83, 1
@@ -1664,7 +1657,7 @@ _ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit: 
   %127 = or i8 %125, %126
   store i8 %127, ptr %124, align 1, !tbaa !68
   %128 = load ptr, ptr %4, align 8, !tbaa !57
-  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %.pre-phi20
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %.pre-phi20
   store i32 %93, ptr %129, align 4, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1684,7 +1677,7 @@ _ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit: 
   %.3 = phi i32 [ %.2.lcssa, %.critedge ], [ %133, %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit ]
   %133 = add i32 %.3, -1
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i16, ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !72
   %137 = zext i16 %136 to i32
   %138 = sub i32 %133, %137
@@ -1699,14 +1692,14 @@ _ZN3ozz9animation12_GLOBAL__N_112TrackForwardENS_4spanIKjEERKNS2_IKtEEjjj.exit: 
   br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92
 
 144:                                              ; preds = %131
-  %145 = getelementptr inbounds nuw i16, ptr %.val73, i64 %139
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %.val73, i64 %139
   %146 = load i16, ptr %145, align 2, !tbaa !72
   %147 = zext i16 %146 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92
 
 _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; preds = %140, %144
   %.pn.i89 = phi i64 [ %143, %140 ], [ %147, %144 ]
-  %.0.in.i90 = getelementptr inbounds nuw float, ptr %.0.val, i64 %.pn.i89
+  %.0.in.i90 = getelementptr inbounds nuw [4 x i8], ptr %.0.val, i64 %.pn.i89
   %.0.i91 = load float, ptr %.0.in.i90, align 4, !tbaa !74
   %148 = fcmp ogt float %.0.i91, %0
   br i1 %148, label %149, label %185
@@ -1714,7 +1707,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
 149:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92
   %150 = load ptr, ptr %4, align 8, !tbaa !57
   %151 = zext i32 %.166 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !71
   %154 = icmp eq i32 %153, %133
   br i1 %154, label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit, label %.lr.ph.i95
@@ -1726,7 +1719,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
 
 156:                                              ; preds = %.lr.ph.i95
   %157 = add nsw i64 %indvars.iv.i96, -1
-  %158 = getelementptr inbounds nuw i32, ptr %150, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !71
   %160 = icmp eq i32 %159, %133
   br i1 %160, label %.thread.loopexit21.i, label %.lr.ph.i95, !llvm.loop !118
@@ -1735,7 +1728,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
   %.0.in.i98 = phi i32 [ %.0.i99, %.preheader.i ], [ %8, %.lr.ph.i95 ]
   %.0.i99 = add i32 %.0.in.i98, -1
   %161 = zext i32 %.0.i99 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %150, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !71
   %164 = icmp eq i32 %163, %133
   br i1 %164, label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit, label %.preheader.i, !llvm.loop !119
@@ -1760,11 +1753,11 @@ _ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit: ; preds = 
   %175 = or i8 %173, %174
   store i8 %175, ptr %172, align 1, !tbaa !68
   %176 = load ptr, ptr %4, align 8, !tbaa !57
-  %177 = getelementptr inbounds nuw i32, ptr %176, i64 %.pre-phi
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %.pre-phi
   %178 = load i32, ptr %177, align 4, !tbaa !71
   %179 = zext i32 %178 to i64
   %180 = load ptr, ptr %9, align 8, !tbaa !114
-  %181 = getelementptr inbounds nuw i16, ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %180, i64 %179
   %182 = load i16, ptr %181, align 2, !tbaa !72
   %183 = zext i16 %182 to i32
   %184 = sub i32 %178, %183
@@ -1907,73 +1900,73 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaterni
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 1
   %112 = load i8, ptr %111, align 1, !tbaa !68
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %6, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !71
   %.sroa.7.16.vec.insert = insertelement <4 x i32> poison, i32 %115, i64 0
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %117 = load i8, ptr %116, align 1, !tbaa !68
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %31, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !71
   %.sroa.7.20.vec.insert = insertelement <4 x i32> %.sroa.7.16.vec.insert, i32 %120, i64 1
   %121 = getelementptr inbounds nuw i8, ptr %108, i64 1
   %122 = load i8, ptr %121, align 1, !tbaa !68
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %55, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !71
   %.sroa.7.24.vec.insert = insertelement <4 x i32> %.sroa.7.20.vec.insert, i32 %125, i64 2
   %126 = getelementptr inbounds nuw i8, ptr %110, i64 1
   %127 = load i8, ptr %126, align 1, !tbaa !68
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %79, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !71
   %.sroa.7.28.vec.insert = insertelement <4 x i32> %.sroa.7.24.vec.insert, i32 %130, i64 3
   %131 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %132 = load i8, ptr %131, align 2, !tbaa !68
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %6, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !71
   %.sroa.12.32.vec.insert = insertelement <4 x i32> poison, i32 %135, i64 0
   %136 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %137 = load i8, ptr %136, align 2, !tbaa !68
   %138 = zext i8 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr %31, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !71
   %.sroa.12.36.vec.insert = insertelement <4 x i32> %.sroa.12.32.vec.insert, i32 %140, i64 1
   %141 = getelementptr inbounds nuw i8, ptr %108, i64 2
   %142 = load i8, ptr %141, align 2, !tbaa !68
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %55, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !71
   %.sroa.12.40.vec.insert = insertelement <4 x i32> %.sroa.12.36.vec.insert, i32 %145, i64 2
   %146 = getelementptr inbounds nuw i8, ptr %110, i64 2
   %147 = load i8, ptr %146, align 2, !tbaa !68
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %79, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !71
   %.sroa.12.44.vec.insert = insertelement <4 x i32> %.sroa.12.40.vec.insert, i32 %150, i64 3
   %151 = getelementptr inbounds nuw i8, ptr %104, i64 3
   %152 = load i8, ptr %151, align 1, !tbaa !68
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %6, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !71
   %.sroa.17.48.vec.insert = insertelement <4 x i32> poison, i32 %155, i64 0
   %156 = getelementptr inbounds nuw i8, ptr %106, i64 3
   %157 = load i8, ptr %156, align 1, !tbaa !68
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %31, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !71
   %.sroa.17.52.vec.insert = insertelement <4 x i32> %.sroa.17.48.vec.insert, i32 %160, i64 1
   %161 = getelementptr inbounds nuw i8, ptr %108, i64 3
   %162 = load i8, ptr %161, align 1, !tbaa !68
   %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds nuw i32, ptr %55, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !71
   %.sroa.17.56.vec.insert = insertelement <4 x i32> %.sroa.17.52.vec.insert, i32 %165, i64 2
   %166 = getelementptr inbounds nuw i8, ptr %110, i64 3
   %167 = load i8, ptr %166, align 1, !tbaa !68
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %79, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !71
   %.sroa.17.60.vec.insert = insertelement <4 x i32> %.sroa.17.56.vec.insert, i32 %170, i64 3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1992,19 +1985,19 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaterni
   %180 = sitofp <4 x i32> %.sroa.17.60.vec.insert to <4 x float>
   %181 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %180, <4 x float> splat (float 0x3F06A0CBA0000000), <4 x float> splat (float 0xBFE6A09E60000000))
   store <4 x float> %181, ptr %179, align 16, !tbaa !68
-  %182 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %103
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %103
   %183 = load <4 x i32>, ptr %182, align 16, !tbaa !68
   %184 = and <4 x i32> %183, <i32 0, i32 -1, i32 -1, i32 -1>
   store <4 x i32> %184, ptr %182, align 16, !tbaa !68
-  %185 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %105
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %105
   %186 = load <4 x i32>, ptr %185, align 16, !tbaa !68
   %187 = and <4 x i32> %186, <i32 -1, i32 0, i32 -1, i32 -1>
   store <4 x i32> %187, ptr %185, align 16, !tbaa !68
-  %188 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %107
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %107
   %189 = load <4 x i32>, ptr %188, align 16, !tbaa !68
   %190 = and <4 x i32> %189, <i32 -1, i32 -1, i32 0, i32 -1>
   store <4 x i32> %190, ptr %188, align 16, !tbaa !68
-  %191 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %109
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %109
   %192 = load <4 x i32>, ptr %191, align 16, !tbaa !68
   %193 = and <4 x i32> %192, <i32 -1, i32 -1, i32 -1, i32 0>
   store <4 x i32> %193, ptr %191, align 16, !tbaa !68

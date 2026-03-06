@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/eventFilter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Filter_ = type { i8, %union.anon }
-%union.anon = type { %struct.LocationFilter }
 %struct.LocationFilter = type { ptr, ptr, i64 }
 
 @gdata = external local_unnamed_addr global ptr, align 8
@@ -1102,7 +1100,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setConditionalFilter(ptr nounde
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.Filter_, ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 2, ptr %9, align 8
   store i32 %2, ptr %10, align 8
@@ -1118,7 +1116,7 @@ define hidden range(i32 0, 513) i32 @eventFilter_setCountFilter(ptr noundef capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Filter_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %9
@@ -1144,7 +1142,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setThreadOnlyFilter(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Filter_, ptr %6, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %5, align 8
   %.not = icmp slt i32 %1, %10
@@ -1174,7 +1172,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setLocationOnlyFilter(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.Filter_, ptr %8, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %7, align 8
   %.not = icmp slt i32 %1, %12
@@ -1211,7 +1209,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setFieldOnlyFilter(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.Filter_, ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %6, align 8
   %.not = icmp slt i32 %1, %11
@@ -1242,7 +1240,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassOnlyFilter(ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Filter_, ptr %6, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %5, align 8
   %.not = icmp slt i32 %1, %10
@@ -1273,7 +1271,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setExceptionOnlyFilter(ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.Filter_, ptr %8, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %7, align 8
   %.not = icmp slt i32 %1, %12
@@ -1313,7 +1311,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setInstanceOnlyFilter(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Filter_, ptr %6, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %5, align 8
   %.not = icmp slt i32 %1, %10
@@ -1342,7 +1340,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassMatchFilter(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Filter_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %9
@@ -1370,7 +1368,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setClassExcludeFilter(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Filter_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %9
@@ -1399,7 +1397,7 @@ define hidden i32 @eventFilter_setStepFilter(ptr noundef %0, i32 noundef %1, ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.Filter_, ptr %8, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %7, align 8
   %.not = icmp slt i32 %1, %12
@@ -1444,7 +1442,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setSourceNameMatchFilter(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Filter_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %9
@@ -1471,7 +1469,7 @@ define hidden range(i32 0, 203) i32 @eventFilter_setPlatformThreadsOnlyFilter(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.Filter_, ptr %4, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %3, align 8
   %.not = icmp slt i32 %1, %7
   br i1 %.not, label %8, label %12

@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
 %struct.zend_type = type { ptr, i32 }
-%struct.pdo_data_src_parser = type { ptr, ptr, i32 }
 
 @le_ppdo = internal unnamed_addr global i32 0, align 4
 @pdo_dbh_ce = dso_local local_unnamed_addr global ptr null, align 8
@@ -500,7 +499,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
 
 39:                                               ; preds = %.lr.ph198, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next, %78 ]
-  %40 = getelementptr inbounds nuw %struct.pdo_data_src_parser, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !52
   %42 = tail call i32 @strncmp(ptr noundef %37, ptr noundef %41, i64 noundef %38) #16
   %43 = icmp eq i32 %42, 0
@@ -605,7 +604,7 @@ define dso_local i32 @php_pdo_parse_data_source(ptr noundef %0, i64 noundef %1, 
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 %.3207
   %84 = load i8, ptr %83, align 1, !tbaa !11
   %85 = sext i8 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %81, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %81, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !58
   %88 = and i16 %87, 8192
   %.not174 = icmp eq i16 %88, 0

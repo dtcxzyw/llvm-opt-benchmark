@@ -61,7 +61,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr noundef re
 
 15:                                               ; preds = %13
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = load i8, ptr %18, align 1, !tbaa !10
   %.not26 = icmp eq i8 %19, 45
@@ -133,7 +133,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr noundef re
 
 57:                                               ; preds = %51
   %58 = sext i32 %52 to i64
-  %59 = getelementptr inbounds ptr, ptr %1, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %1, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   store ptr %60, ptr @globalUtilOptarg, align 8, !tbaa !3
   %61 = add nsw i32 %52, 1

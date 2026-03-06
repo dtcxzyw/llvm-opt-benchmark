@@ -1070,7 +1070,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %378, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %380, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %381 = getelementptr inbounds nuw i32, ptr %375, i64 %373
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %375, i64 %373
   br label %.critedge.i
 
 382:                                              ; preds = %322, %305, %287, %269, %252, %235, %217, %200, %183, %166

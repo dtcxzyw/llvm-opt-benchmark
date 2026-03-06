@@ -6466,7 +6466,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %28, align 8
-  %66 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %65, i64 %60
+  %66 = getelementptr inbounds [24 x i8], ptr %65, i64 %60
   store ptr %65, ptr %10, align 8
   %.sroa.259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %66, ptr %.sroa.259.0..sroa_idx, align 8
@@ -7013,7 +7013,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %29, align 8
-  %67 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %66, i64 %61
+  %67 = getelementptr inbounds [24 x i8], ptr %66, i64 %61
   store ptr %66, ptr %10, align 8
   %.sroa.259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %67, ptr %.sroa.259.0..sroa_idx, align 8

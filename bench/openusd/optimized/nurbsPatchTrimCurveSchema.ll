@@ -2187,7 +2187,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsP
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit65: ; preds = %201, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i61, %191
   %204 = phi ptr [ %193, %191 ], [ %203, %201 ], [ %195, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i61 ]
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %206 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %8, i64 %.1
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.1
   %.not.i66 = icmp eq ptr %205, %206
   br i1 %.not.i66, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit71, label %207
 
@@ -2233,7 +2233,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i70: ; preds =
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit71: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit65, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i70
   %229 = add nuw nsw i64 %.1, 1
-  %230 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %9, i64 %.1
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.1
   %231 = load ptr, ptr %3, align 8
   store ptr %231, ptr %230, align 16
   %232 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2386,7 +2386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsP
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit91: ; preds = %291, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i87, %281
   %294 = phi ptr [ %283, %281 ], [ %293, %291 ], [ %285, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i87 ]
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 32
-  %296 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %8, i64 %.2
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.2
   %.not.i92 = icmp eq ptr %295, %296
   br i1 %.not.i92, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit97, label %297
 
@@ -2432,7 +2432,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i96: ; preds =
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit97: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit91, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i96
   %319 = add nuw nsw i64 %.2, 1
-  %320 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %9, i64 %.2
+  %320 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.2
   %321 = load ptr, ptr %4, align 8
   store ptr %321, ptr %320, align 16
   %322 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2585,7 +2585,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsP
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit116: ; preds = %381, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i112, %371
   %384 = phi ptr [ %373, %371 ], [ %383, %381 ], [ %375, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i112 ]
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 40
-  %386 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %8, i64 %.3
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.3
   %.not.i117 = icmp eq ptr %385, %386
   br i1 %.not.i117, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit122, label %387
 
@@ -2631,7 +2631,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i121: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit122: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit116, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i121
   %409 = add nuw nsw i64 %.3, 1
-  %410 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %9, i64 %.3
+  %410 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.3
   %411 = load ptr, ptr %5, align 8
   store ptr %411, ptr %410, align 16
   %412 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2784,7 +2784,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsP
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit141: ; preds = %471, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i137, %461
   %474 = phi ptr [ %463, %461 ], [ %473, %471 ], [ %465, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeEE3NewEv.exit.i.i.i137 ]
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 48
-  %476 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %8, i64 %.4
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.4
   %.not.i142 = icmp eq ptr %475, %476
   br i1 %.not.i142, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit147, label %477
 
@@ -2830,7 +2830,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i146: ; preds 
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit147: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_49HdNurbsPatchTrimCurveSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit141, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i146
   %499 = add nuw nsw i64 %.4, 1
-  %500 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %9, i64 %.4
+  %500 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.4
   %501 = load ptr, ptr %6, align 8
   store ptr %501, ptr %500, align 16
   %502 = getelementptr inbounds nuw i8, ptr %6, i64 8

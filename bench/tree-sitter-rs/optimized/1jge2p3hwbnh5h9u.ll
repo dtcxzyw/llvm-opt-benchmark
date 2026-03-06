@@ -84,10 +84,10 @@ define noalias noundef nonnull ptr @ts_highlighter_new(ptr noundef nonnull %0, p
   %7 = alloca { { i64, ptr }, i64 }, align 8
   %8 = zext i32 %2 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc08b02f76e76f1a9E.llvm.23857589297000235"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %8
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hfa4a54da79a2a693E.llvm.23857589297000235"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %1, ptr noundef nonnull %10)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h756c5bf90c3fd930E.exit" unwind label %11
@@ -1223,7 +1223,7 @@ _ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit: ; preds = %_ZN
   %94 = add i64 %.sroa.01.0.i.i.i.i.i, %91
   %95 = and i64 %94, %.val4.i.i
   %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { ptr, [3 x i64] }, { { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr, { ptr, [12 x i64] }, i64, i64 } } }, ptr %.val.i.i, i64 %96
+  %97 = getelementptr inbounds [408 x i8], ptr %.val.i.i, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -392
   %.val6.i.i.i.i.i = load i64, ptr %98, align 8, !alias.scope !276, !noalias !281, !noundef !4
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %45, %.val6.i.i.i.i.i
@@ -1277,7 +1277,7 @@ switch.lookup:                                    ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !296
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !296
   %115 = zext nneg i8 %114 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ts_highlighter_highlight, i64 %115
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ts_highlighter_highlight, i64 %115
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !296
   br label %120

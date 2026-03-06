@@ -1478,7 +1478,7 @@ define internal fastcc range(i32 0, 2) i32 @ecx_to_text(ptr noundef %0, ptr noun
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ecx_to_text, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ecx_to_text, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 

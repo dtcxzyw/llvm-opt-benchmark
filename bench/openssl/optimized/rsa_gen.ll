@@ -521,7 +521,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %43 = icmp samesign ult i64 %indvars.iv, %42
   %44 = zext i1 %43 to i32
   %45 = add nuw nsw i32 %40, %44
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %45, ptr %46, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -672,7 +672,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %.0251 = load ptr, ptr %.0251.in, align 8, !tbaa !43
   tail call void @BN_set_flags(ptr noundef %.0251, i32 noundef 4) #4
   %107 = sext i32 %.2241355 to i64
-  %108 = getelementptr inbounds i32, ptr %6, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %6, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !35
   %110 = icmp sgt i32 %.2241355, 0
   %111 = add nsw i32 %109, %.0243354

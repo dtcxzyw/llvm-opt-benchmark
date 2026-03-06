@@ -2981,7 +2981,7 @@ s7comm_get_szl_id_index_description_text.exit219.thread: ; preds = %.s7comm_get_
   %110 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 24)
   %111 = icmp ult i32 %110, 8
   %112 = zext nneg i32 %110 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.s7comm_decode_ud_cpu_szl_subfunc, i64 %112
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.s7comm_decode_ud_cpu_szl_subfunc, i64 %112
   br label %113
 
 113:                                              ; preds = %.lr.ph, %.thread

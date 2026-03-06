@@ -86,7 +86,7 @@ _ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; 
 _ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %30, ptr %0, align 8, !tbaa !10
   store ptr %36, ptr %3, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %30, i64 %28
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %38, ptr %12, align 8, !tbaa !11
   br label %_ZNSt6vectorIN4Luau5EqSat2IdESaIS2_EE9push_backERKS2_.exit
 
@@ -149,7 +149,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %62, %_ZN
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %59, ptr %39, align 8, !tbaa !25
   store ptr %63, ptr %40, align 8, !tbaa !21
-  %65 = getelementptr inbounds nuw i32, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %57
   store ptr %65, ptr %42, align 8, !tbaa !24
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -168,7 +168,7 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnul
   %4 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !10
-  %7 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   %.sroa.0.0.copyload2.i = load i32, ptr %7, align 4, !tbaa !12
   %8 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload2.i)
   br i1 %8, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit
@@ -177,13 +177,13 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnul
   %9 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %0, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %10
   %13 = load i32, ptr %12, align 4, !tbaa !12
   store i32 %13, ptr %3, align 4
   %14 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %15 = zext i32 %14 to i64
   %16 = load ptr, ptr %0, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 4, !tbaa !12
   %18 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload.i)
   br i1 %18, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit, !llvm.loop !26
@@ -201,7 +201,7 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE(ptr nound
   %4 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %5 = zext i32 %4 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !10
-  %7 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   %.sroa.0.0.copyload2 = load i32, ptr %7, align 4, !tbaa !12
   %8 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload2)
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -210,13 +210,13 @@ define dso_local i32 @_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE(ptr nound
   %9 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %0, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %10
   %13 = load i32, ptr %12, align 4, !tbaa !12
   store i32 %13, ptr %3, align 4
   %14 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %15 = zext i32 %14 to i64
   %16 = load ptr, ptr %0, align 8, !tbaa !10
-  %17 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %.sroa.0.0.copyload = load i32, ptr %17, align 4, !tbaa !12
   %18 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload)
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !26
@@ -236,7 +236,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull
   %5 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %0, align 8, !tbaa !10
-  %8 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %.sroa.0.0.copyload2.i = load i32, ptr %8, align 4, !tbaa !12
   %9 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload2.i)
   br i1 %9, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit
@@ -245,13 +245,13 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind4findENS0_2IdE(ptr noundef nonnull
   %10 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %0, align 8, !tbaa !10
-  %13 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %11
   %14 = load i32, ptr %13, align 4, !tbaa !12
   store i32 %14, ptr %3, align 4
   %15 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
   %16 = zext i32 %15 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !10
-  %18 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4, !tbaa !12
   %19 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.0.0.copyload.i)
   br i1 %19, label %.lr.ph.i, label %_ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit, !llvm.loop !26
@@ -262,7 +262,7 @@ _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %20 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %0, align 8, !tbaa !10
-  %23 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %21
   %.sroa.02.0.copyload5 = load i32, ptr %23, align 4, !tbaa !12
   %24 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 %.sroa.02.0.copyload5)
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -271,18 +271,18 @@ _ZNK4Luau5EqSat9UnionFind12canonicalizeENS0_2IdE.exit: ; preds = %.lr.ph.i, %2
   %25 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %26 = zext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %26
   %.sroa.0.0.copyload = load i32, ptr %28, align 4, !tbaa !12
   %29 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %30 = zext i32 %29 to i64
   %31 = load ptr, ptr %0, align 8, !tbaa !10
-  %32 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %30
   store i32 %.sroa.01.0.copyload.i, ptr %32, align 4, !tbaa !12
   store i32 %.sroa.0.0.copyload, ptr %4, align 4, !tbaa !12
   %33 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %34 = zext i32 %33 to i64
   %35 = load ptr, ptr %0, align 8, !tbaa !10
-  %36 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %34
   %.sroa.02.0.copyload = load i32, ptr %36, align 4, !tbaa !12
   %37 = call noundef zeroext i1 @_ZNK4Luau5EqSat2IdneES1_(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 %.sroa.02.0.copyload)
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !27
@@ -312,12 +312,12 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   %11 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %12 = zext i32 %11 to i64
   %13 = load ptr, ptr %10, align 8, !tbaa !25
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
   %17 = zext i32 %16 to i64
   %18 = load ptr, ptr %10, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %17
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = icmp sgt i32 %15, %20
   br i1 %21, label %22, label %24
@@ -333,18 +333,18 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   %25 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
   %26 = zext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw %"struct.Luau::EqSat::Id", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %26
   %29 = load i32, ptr %4, align 4, !tbaa !12
   store i32 %29, ptr %28, align 4, !tbaa !12
   %30 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %31 = zext i32 %30 to i64
   %32 = load ptr, ptr %10, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %35 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
   %36 = zext i32 %35 to i64
   %37 = load ptr, ptr %10, align 8, !tbaa !25
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %36
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = icmp eq i32 %34, %39
   br i1 %40, label %41, label %48
@@ -353,7 +353,7 @@ define dso_local i32 @_ZN4Luau5EqSat9UnionFind5mergeENS0_2IdES2_(ptr noundef non
   %42 = call noundef i32 @_ZNK4Luau5EqSat2IdcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   %43 = zext i32 %42 to i64
   %44 = load ptr, ptr %10, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %43
   %46 = load i32, ptr %45, align 4, !tbaa !12
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !12

@@ -51,14 +51,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_gem_evic
 %struct.atomic_t = type { i32 }
 %union.anon.37 = type { i64 }
 %struct.folio_batch = type { i8, i8, [15 x ptr] }
-%struct.page = type { i64, %union.anon.23, %union.anon.31, %struct.atomic_t, [8 x i8] }
-%union.anon.23 = type { %struct.anon.24 }
-%struct.anon.24 = type { %union.anon.25, ptr, %union.anon.27, i64 }
-%union.anon.25 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.27 = type { i64 }
-%union.anon.31 = type { %struct.atomic_t }
 %struct.drm_gem_lru = type { ptr, i64, %struct.list_head }
+%struct.list_head = type { ptr, ptr }
 
 @drm_gem_init.__key = internal global %struct.lock_class_key zeroinitializer, align 1
 @.str = private unnamed_addr constant [23 x i8] c"&dev->object_name_lock\00", align 1
@@ -908,8 +902,8 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
 
 54:                                               ; preds = %49, %44
   %55 = phi i64 [ %53, %49 ], [ 0, %44 ]
-  %56 = getelementptr %struct.page, ptr %26, i64 %55
-  %57 = getelementptr ptr, ptr %19, i64 %45
+  %56 = getelementptr [64 x i8], ptr %26, i64 %55
+  %57 = getelementptr [8 x i8], ptr %19, i64 %45
   store ptr %56, ptr %57, align 8
   %58 = add i64 %45, 1
   %59 = icmp eq i64 %58, %43
@@ -952,7 +946,7 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
 
 77:                                               ; preds = %122, %75
   %78 = phi i64 [ 0, %75 ], [ %124, %122 ]
-  %79 = getelementptr ptr, ptr %19, i64 %78
+  %79 = getelementptr [8 x i8], ptr %19, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load volatile i64, ptr %81, align 8
@@ -999,7 +993,7 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
   %108 = add i8 %107, 1
   store i8 %108, ptr %2, align 8
   %109 = zext i8 %107 to i64
-  %110 = getelementptr ptr, ptr %76, i64 %109
+  %110 = getelementptr [8 x i8], ptr %76, i64 %109
   store ptr %106, ptr %110, align 8
   %111 = icmp eq i8 %108, 15
   br i1 %111, label %112, label %114
@@ -1101,7 +1095,7 @@ define dso_local void @drm_gem_put_pages(ptr noundef readonly captures(none) %0,
 26:                                               ; preds = %82, %24
   %27 = phi i32 [ 0, %24 ], [ %84, %82 ]
   %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %1, i64 %28
+  %29 = getelementptr [8 x i8], ptr %1, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %82, label %32
@@ -1166,7 +1160,7 @@ define dso_local void @drm_gem_put_pages(ptr noundef readonly captures(none) %0,
   %65 = add i8 %64, 1
   store i8 %65, ptr %5, align 8
   %66 = zext i8 %64 to i64
-  %67 = getelementptr ptr, ptr %25, i64 %66
+  %67 = getelementptr [8 x i8], ptr %25, i64 %66
   store ptr %58, ptr %67, align 8
   %68 = icmp eq i8 %65, 15
   br i1 %68, label %69, label %71
@@ -1274,7 +1268,7 @@ define dso_local noundef range(i32 -14, 1) i32 @drm_gem_objects_lookup(ptr nound
 
 28:                                               ; preds = %44, %24
   %29 = phi i64 [ 0, %24 ], [ %46, %44 ]
-  %30 = getelementptr i32, ptr %15, i64 %29
+  %30 = getelementptr [4 x i8], ptr %15, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = tail call ptr @idr_find(ptr noundef nonnull %26, i64 noundef %32) #11
@@ -1298,7 +1292,7 @@ define dso_local noundef range(i32 -14, 1) i32 @drm_gem_objects_lookup(ptr nound
   br label %44
 
 44:                                               ; preds = %42, %38
-  %45 = getelementptr ptr, ptr %11, i64 %29
+  %45 = getelementptr [8 x i8], ptr %11, i64 %29
   store ptr %33, ptr %45, align 8
   %46 = add nuw nsw i64 %29, 1
   %47 = icmp eq i64 %46, %27
@@ -2416,7 +2410,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr noundef readonly captures(no
 
 18:                                               ; preds = %.split
   %19 = sext i32 %16 to i64
-  %20 = getelementptr ptr, ptr %0, i64 %19
+  %20 = getelementptr [8 x i8], ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 248
   %23 = load ptr, ptr %22, align 8
@@ -2434,7 +2428,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr noundef readonly captures(no
   br i1 %29, label %59, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr ptr, ptr %0, i64 %28
+  %31 = getelementptr [8 x i8], ptr %0, i64 %28
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 248
   %34 = load ptr, ptr %33, align 8
@@ -2453,7 +2447,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr noundef readonly captures(no
 
 41:                                               ; preds = %41, %39
   %42 = phi i64 [ 0, %39 ], [ %47, %41 ]
-  %43 = getelementptr ptr, ptr %0, i64 %42
+  %43 = getelementptr [8 x i8], ptr %0, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 248
   %46 = load ptr, ptr %45, align 8
@@ -2469,7 +2463,7 @@ define dso_local i32 @drm_gem_lock_reservations(ptr noundef readonly captures(no
 
 51:                                               ; preds = %.loopexit
   %52 = sext i32 %16 to i64
-  %53 = getelementptr ptr, ptr %0, i64 %52
+  %53 = getelementptr [8 x i8], ptr %0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 248
   %56 = load ptr, ptr %55, align 8
@@ -2501,7 +2495,7 @@ define dso_local void @drm_gem_unlock_reservations(ptr noundef readonly captures
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ 0, %5 ], [ %13, %7 ]
-  %9 = getelementptr ptr, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8

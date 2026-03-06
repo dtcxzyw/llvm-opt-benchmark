@@ -310,7 +310,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind16Node
   %14 = add nuw nsw i32 %12, 1
   %15 = select i1 %13, i32 0, i32 %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %20, label %150
@@ -4368,7 +4368,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind16Node
   %14 = add nuw nsw i32 %12, 1
   %15 = select i1 %13, i32 0, i32 %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %20, label %402
@@ -7388,7 +7388,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal
 define hidden noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = add i32 %0, 1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4cvc58internal4kind10metaKindOfENS1_6Kind_tEE9metaKinds, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !3
   ret i32 %5
 }
@@ -8571,7 +8571,7 @@ __gmpz_getlimbn.exit.lr.ph.i.i:                   ; preds = %2
 __gmpz_getlimbn.exit.i.i:                         ; preds = %__gmpz_getlimbn.exit.i.i, %__gmpz_getlimbn.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %__gmpz_getlimbn.exit.i.i ]
   %.011.i.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i.i ], [ %11, %__gmpz_getlimbn.exit.i.i ]
-  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %9 = load i64, ptr %8, align 8, !tbaa !55
   %10 = shl i64 %.011.i.i, 1
   %11 = xor i64 %9, %10
@@ -8596,7 +8596,7 @@ __gmpz_getlimbn.exit.lr.ph.i3.i:                  ; preds = %_ZN4cvc58internal9g
 __gmpz_getlimbn.exit.i5.i:                        ; preds = %__gmpz_getlimbn.exit.i5.i, %__gmpz_getlimbn.exit.lr.ph.i3.i
   %indvars.iv.i6.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i ], [ %indvars.iv.next.i8.i, %__gmpz_getlimbn.exit.i5.i ]
   %.011.i7.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i3.i ], [ %20, %__gmpz_getlimbn.exit.i5.i ]
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i6.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i6.i
   %18 = load i64, ptr %17, align 8, !tbaa !55
   %19 = shl i64 %.011.i7.i, 1
   %20 = xor i64 %18, %19
@@ -10317,7 +10317,7 @@ _ZN4cvc58internal16FiniteFieldValueD2Ev.exit:     ; preds = %_ZN4cvc58internal7I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN4cvc58internal4kind8metakind18getMinArityForKindENS1_6Kind_tE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind8metakind18getMinArityForKindENS1_6Kind_tEE3lbs, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4cvc58internal4kind8metakind18getMinArityForKindENS1_6Kind_tEE3lbs, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !67
   ret i32 %4
 }
@@ -10325,7 +10325,7 @@ define hidden noundef i32 @_ZN4cvc58internal4kind8metakind18getMinArityForKindEN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @_ZN4cvc58internal4kind8metakind18getMaxArityForKindENS1_6Kind_tE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @_ZZN4cvc58internal4kind8metakind18getMaxArityForKindENS1_6Kind_tEE3ubs, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4cvc58internal4kind8metakind18getMaxArityForKindENS1_6Kind_tEE3ubs, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !67
   ret i32 %4
 }

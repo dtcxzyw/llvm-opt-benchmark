@@ -2044,19 +2044,19 @@ define internal fastcc void @dissect_mpls_echo_tlv_fec(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %384
   %397 = zext nneg i32 %395 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mpls_echo_tlv_fec, i64 %397
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mpls_echo_tlv_fec, i64 %397
   %switch.load = load ptr, ptr %switch.gep, align 8
   %398 = zext nneg i32 %395 to i64
-  %switch.gep609 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_mpls_echo_tlv_fec.1, i64 %398
+  %switch.gep609 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_mpls_echo_tlv_fec.1, i64 %398
   %switch.load610 = load i32, ptr %switch.gep609, align 4
   %399 = zext nneg i32 %395 to i64
-  %switch.gep611 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_mpls_echo_tlv_fec.2, i64 %399
+  %switch.gep611 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_mpls_echo_tlv_fec.2, i64 %399
   %switch.load612 = load i32, ptr %switch.gep611, align 4
   %400 = zext nneg i32 %395 to i64
-  %switch.gep613 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mpls_echo_tlv_fec.3, i64 %400
+  %switch.gep613 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mpls_echo_tlv_fec.3, i64 %400
   %switch.load614 = load ptr, ptr %switch.gep613, align 8
   %401 = zext nneg i32 %395 to i64
-  %switch.gep615 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_mpls_echo_tlv_fec.4, i64 %401
+  %switch.gep615 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_mpls_echo_tlv_fec.4, i64 %401
   %switch.load616 = load i32, ptr %switch.gep615, align 4
   %402 = load i32, ptr %switch.load, align 4
   %403 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %402, ptr noundef %0, i32 noundef %394, i32 noundef %switch.load610, i32 noundef 0)

@@ -1997,7 +1997,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 41:                                               ; preds = %._crit_edge.i, %28
   %42 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %29, %28 ]
   %43 = load ptr, ptr %6, align 8, !alias.scope !417, !noalias !420, !nonnull !77, !noundef !77
-  %44 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %43, i64 %42
+  %44 = getelementptr inbounds [72 x i8], ptr %43, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %44, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   %45 = add i64 %42, 1
   store i64 %45, ptr %11, align 8, !alias.scope !417, !noalias !420
@@ -3234,7 +3234,7 @@ common.resume:                                    ; preds = %31, %.body
   %58 = select i1 %.not.i, i64 0, i64 %54
   %.0.i = sub nuw i64 %57, %58
   %59 = load ptr, ptr %8, align 8, !alias.scope !958, !noalias !961, !nonnull !77, !noundef !77
-  %60 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %59, i64 %.0.i
+  %60 = getelementptr inbounds [32 x i8], ptr %59, i64 %.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %61 = load i64, ptr %13, align 8, !alias.scope !958, !noalias !961, !noundef !77
   %62 = add i64 %61, 1
@@ -4630,7 +4630,7 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h3b0a
   %3 = load ptr, ptr %1, align 8, !alias.scope !1280, !nonnull !77, !noundef !77
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1280, !noundef !77
-  %6 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [72 x i8], ptr %3, i64 %5
   %7 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %0, i64 noundef 1, i64 %5)
   %.fca.0.extract1 = extractvalue { i64, ptr } %7, 0
   %.fca.1.extract3 = extractvalue { i64, ptr } %7, 1
@@ -4847,7 +4847,7 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   %3 = load ptr, ptr %0, align 8, !alias.scope !1371, !noalias !1374, !nonnull !77, !noundef !77
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1371, !noalias !1374, !noundef !77
-  %6 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [72 x i8], ptr %3, i64 %5
   %7 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %1, i64 noundef 1, i64 %5), !noalias !1368
   %.fca.0.extract1.i = extractvalue { i64, ptr } %7, 0
   %.fca.1.extract3.i = extractvalue { i64, ptr } %7, 1
@@ -9111,7 +9111,7 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   %6 = load ptr, ptr %3, align 8, !alias.scope !2636, !noalias !2639, !nonnull !77, !noundef !77
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !2636, !noalias !2639, !noundef !77
-  %9 = getelementptr inbounds { [6 x i64], ptr, [2 x i64] }, ptr %6, i64 %8
+  %9 = getelementptr inbounds [72 x i8], ptr %6, i64 %8
   %10 = tail call fastcc { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h2467b5eb59a4fcc1E"(ptr noalias noundef align 8 dereferenceable(8) %5, i64 noundef 1, i64 %8), !noalias !2642
   %.fca.0.extract1.i.i = extractvalue { i64, ptr } %10, 0
   %.fca.1.extract3.i.i = extractvalue { i64, ptr } %10, 1

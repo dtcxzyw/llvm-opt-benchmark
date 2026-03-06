@@ -332,7 +332,7 @@ define internal void @_ZNK4ncnn12PSROIPooling7forwardERKSt6vectorINS_3MatESaIS2_
   %103 = sitofp i32 %100 to float
   %104 = fdiv fast float %.049.lcssa.us.us.us, %103
   %105 = select fast i1 %97, float 0.000000e+00, float %104
-  %106 = getelementptr inbounds nuw float, ptr %.050121.us.us.us, i64 %indvars.iv144
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %.050121.us.us.us, i64 %indvars.iv144
   store float %105, ptr %106, align 4, !tbaa !42
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count
   br i1 %exitcond147.not, label %._crit_edge.us127.us.us, label %.noexc55.us.us.us, !llvm.loop !51
@@ -354,13 +354,13 @@ define internal void @_ZNK4ncnn12PSROIPooling7forwardERKSt6vectorINS_3MatESaIS2_
   %indvars.iv140 = phi i64 [ %smin139, %.preheader.us.us.us.us.preheader ], [ %indvars.iv.next141, %._crit_edge.us.us.us.us ]
   %.049115.us.us.us.us = phi float [ 0.000000e+00, %.preheader.us.us.us.us.preheader ], [ %118, %._crit_edge.us.us.us.us ]
   %115 = mul nsw i64 %indvars.iv140, %50
-  %invariant.gep = getelementptr float, ptr %60, i64 %115
+  %invariant.gep = getelementptr [4 x i8], ptr %60, i64 %115
   br label %116
 
 116:                                              ; preds = %116, %.preheader.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %116 ], [ %smin, %.preheader.us.us.us.us ]
   %.1113.us.us.us.us = phi float [ %118, %116 ], [ %.049115.us.us.us.us, %.preheader.us.us.us.us ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %117 = load float, ptr %gep, align 4, !tbaa !42
   %118 = fadd fast float %117, %.1113.us.us.us.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -375,7 +375,7 @@ define internal void @_ZNK4ncnn12PSROIPooling7forwardERKSt6vectorINS_3MatESaIS2_
   br i1 %exitcond143.not, label %._crit_edge117.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !54
 
 ._crit_edge.us127.us.us:                          ; preds = %._crit_edge117.us.us.us
-  %119 = getelementptr inbounds nuw float, ptr %.050121.us.us.us, i64 %38
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.050121.us.us.us, i64 %38
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
   br i1 %exitcond152.not, label %._crit_edge122.split.us.us.us, label %.preheader112.us.us.us, !llvm.loop !55
 

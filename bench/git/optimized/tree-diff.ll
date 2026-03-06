@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.combine_diff_parent = type { i8, i32, %struct.object_id, ptr }
 
 @max_allowed_tree_depth = external local_unnamed_addr global i32, align 4
 @.str = private unnamed_addr constant [36 x i8] c"exceeded maximum allowed tree depth\00", align 1
@@ -81,11 +80,11 @@ define internal fastcc void @ll_diff_tree_paths(ptr noundef nonnull captures(non
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %26, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168261, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %.0122168261, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = call ptr @fill_tree_descriptor(ptr noundef %28, ptr noundef %29, ptr noundef %31) #11
-  %33 = getelementptr inbounds nuw ptr, ptr %.0121263, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.0121263, i64 %indvars.iv
   store ptr %32, ptr %33, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -170,7 +169,7 @@ skip_uninteresting.exit:                          ; preds = %.lr.ph.i, %72, %65,
 
 .lr.ph195:                                        ; preds = %skip_uninteresting.exit, %skip_uninteresting.exit147
   %indvars.iv223 = phi i64 [ %indvars.iv.next224, %skip_uninteresting.exit147 ], [ 0, %skip_uninteresting.exit ]
-  %74 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv223
+  %74 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv223
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load i32, ptr %75, align 8, !tbaa !35
   %.not10.i144 = icmp eq i32 %76, 0
@@ -225,7 +224,7 @@ skip_uninteresting.exit147:                       ; preds = %78, %84, %.lr.ph195
 
 .lr.ph197:                                        ; preds = %.preheader189, %88
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %88 ], [ 0, %.preheader189 ]
-  %89 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv228
+  %89 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv228
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 72
   %91 = load i32, ptr %90, align 8, !tbaa !35
   %.not135 = icmp eq i32 %91, 0
@@ -248,9 +247,9 @@ skip_uninteresting.exit147:                       ; preds = %78, %84, %.lr.ph195
 .lr.ph201:                                        ; preds = %.thread170, %130
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %130 ], [ 1, %.thread170 ]
   %.0117200 = phi i32 [ %.1118, %130 ], [ 0, %.thread170 ]
-  %95 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv233
+  %95 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv233
   %96 = sext i32 %.0117200 to i64
-  %97 = getelementptr inbounds %struct.tree_desc, ptr %.0122168262, i64 %96
+  %97 = getelementptr inbounds [80 x i8], ptr %.0122168262, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 72
   %99 = load i32, ptr %98, align 8, !tbaa !35
   %.not.i148 = icmp eq i32 %99, 0
@@ -319,7 +318,7 @@ tree_entry_pathcmp.exit.thread:                   ; preds = %103, %tree_entry_pa
 
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %.lr.ph203
   %indvars.iv238 = phi i64 [ 0, %.lr.ph203.preheader ], [ %indvars.iv.next239, %.lr.ph203 ]
-  %131 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv238
+  %131 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv238
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 68
   %133 = load i32, ptr %132, align 4, !tbaa !60
   %134 = or i32 %133, -2147483648
@@ -331,7 +330,7 @@ tree_entry_pathcmp.exit.thread:                   ; preds = %103, %tree_entry_pa
 ._crit_edge204:                                   ; preds = %.lr.ph203, %.thread170, %.preheader188
   %.0117.lcssa267 = phi i32 [ 0, %.thread170 ], [ %.1118, %.preheader188 ], [ %.1118, %.lr.ph203 ]
   %135 = sext i32 %.0117.lcssa267 to i64
-  %136 = getelementptr inbounds %struct.tree_desc, ptr %.0122168262, i64 %135
+  %136 = getelementptr inbounds [80 x i8], ptr %.0122168262, i64 %135
   %137 = load i32, ptr %50, align 8, !tbaa !35
   %.not.i149 = icmp eq i32 %137, 0
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 72
@@ -379,7 +378,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %140, %143
 
 158:                                              ; preds = %.lr.ph208, %164
   %indvars.iv248 = phi i64 [ 0, %.lr.ph208 ], [ %indvars.iv.next249, %164 ]
-  %159 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv248
+  %159 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv248
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 68
   %161 = load i32, ptr %160, align 4, !tbaa !60
   %.not140 = icmp sgt i32 %161, -1
@@ -408,7 +407,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %140, %143
 
 .lr.ph.i157:                                      ; preds = %.loopexit183, %169
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %169 ], [ 0, %.loopexit183 ]
-  %165 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv.i
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 68
   %167 = load i32, ptr %166, align 4, !tbaa !60
   %.not.i158 = icmp sgt i32 %167, -1
@@ -445,7 +444,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %140, %143
 
 .lr.ph206:                                        ; preds = %172, %174
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %174 ], [ 0, %172 ]
-  %175 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv243
+  %175 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv243
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 68
   %177 = load i32, ptr %176, align 4, !tbaa !60
   %.not138 = icmp sgt i32 %177, -1
@@ -460,7 +459,7 @@ tree_entry_pathcmp.exit155:                       ; preds = %140, %143
 
 .lr.ph.i161:                                      ; preds = %.loopexit187, %182
   %indvars.iv.i162 = phi i64 [ %indvars.iv.next.i164, %182 ], [ 0, %.loopexit187 ]
-  %178 = getelementptr inbounds nuw %struct.tree_desc, ptr %.0122168262, i64 %indvars.iv.i162
+  %178 = getelementptr inbounds nuw [80 x i8], ptr %.0122168262, i64 %indvars.iv.i162
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 68
   %180 = load i32, ptr %179, align 4, !tbaa !60
   %.not.i163 = icmp sgt i32 %180, -1
@@ -495,7 +494,7 @@ update_tp_entries.exit:                           ; preds = %182, %169, %.loopex
 .lr.ph215:                                        ; preds = %.lr.ph215.preheader, %.lr.ph215
   %indvars.iv253 = phi i64 [ %184, %.lr.ph215.preheader ], [ %indvars.iv.next254, %.lr.ph215 ]
   %indvars.iv.next254 = add nsw i64 %indvars.iv253, -1
-  %185 = getelementptr inbounds nuw ptr, ptr %.0121264, i64 %indvars.iv.next254
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.0121264, i64 %indvars.iv.next254
   %186 = load ptr, ptr %185, align 8, !tbaa !29
   call void @free(ptr noundef %186) #11
   %187 = icmp samesign ugt i64 %indvars.iv253, 1
@@ -657,7 +656,7 @@ ll_diff_tree_oid.exit.i:                          ; preds = %.lr.ph.i.i, %36
 
 61:                                               ; preds = %74, %.lr.ph.i13
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i, %74 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8, !tbaa !78
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 18
   %65 = load i8, ptr %64, align 2, !tbaa !99
@@ -683,7 +682,7 @@ ll_diff_tree_oid.exit.i:                          ; preds = %.lr.ph.i.i, %36
   br i1 %exitcond.not.i, label %.lr.ph52.preheader.i, label %61, !llvm.loop !102
 
 .loopexit.i:                                      ; preds = %66
-  %75 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %26, ptr %75, align 8, !tbaa !78
   %76 = load ptr, ptr %63, align 8, !tbaa !80
@@ -707,7 +706,7 @@ ll_diff_tree_oid.exit.i:                          ; preds = %.lr.ph.i.i, %36
 .lr.ph52.i:                                       ; preds = %.lr.ph52.i, %.lr.ph52.preheader.i
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph52.preheader.i ], [ %indvars.iv.next58.i, %.lr.ph52.i ]
   %81 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !75
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv57.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv57.i
   %83 = load ptr, ptr %82, align 8, !tbaa !78
   call void @diff_free_filepair(ptr noundef %83) #11
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
@@ -765,7 +764,7 @@ define internal fastcc void @emit_path(ptr noundef nonnull captures(none) %0, pt
 
 16:                                               ; preds = %8
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds %struct.tree_desc, ptr %5, i64 %17
+  %18 = getelementptr inbounds [80 x i8], ptr %5, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %20 = load i32, ptr %19, align 4, !tbaa !60
   br label %21
@@ -846,7 +845,7 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.thread.us ], [ 0, %.lr.ph ]
-  %51 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv132
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv132
   store i8 %50, ptr %51, align 8, !tbaa !111
   %52 = tail call ptr @null_oid() #11
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -863,11 +862,11 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.lr.ph ]
-  %58 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 68
   %60 = load i32, ptr %59, align 4, !tbaa !60
   %.not106 = icmp sgt i32 %60, -1
-  %61 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv
   br i1 %.not106, label %62, label %.thread
 
 62:                                               ; preds = %.lr.ph.split
@@ -883,9 +882,9 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 65:                                               ; preds = %.thread, %62
   %.083 = phi ptr [ %63, %62 ], [ %64, %.thread ]
   %.082 = phi i32 [ %60, %62 ], [ 0, %.thread ]
-  %66 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv
-  %67 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv
-  %68 = getelementptr inbounds nuw %struct.combine_diff_parent, ptr %49, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %.082, ptr %69, align 4, !tbaa !113
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -952,14 +951,14 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 
 .lr.ph126.split:                                  ; preds = %.lr.ph126, %.lr.ph126.split
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph126.split ], [ 0, %.lr.ph126 ]
-  %93 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv137
+  %93 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %indvars.iv137
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 68
   %95 = load i32, ptr %94, align 4, !tbaa !60
   %.fr = freeze i32 %95
   %.not104 = icmp sgt i32 %.fr, -1
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %spec.select = select i1 %.not104, ptr %96, ptr null
-  %97 = getelementptr inbounds nuw ptr, ptr %.081158, i64 %indvars.iv137
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.081158, i64 %indvars.iv137
   store ptr %spec.select, ptr %97, align 8, !tbaa !27
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %91

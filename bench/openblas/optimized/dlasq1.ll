@@ -73,13 +73,13 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %30 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %42, %.lr.ph ]
-  %31 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %32 = load double, ptr %31, align 8, !tbaa !7
   %33 = fcmp oge double %32, 0.000000e+00
   %34 = fneg double %32
   %35 = select i1 %33, double %32, double %34
   store double %35, ptr %31, align 8, !tbaa !7
-  %36 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %37 = load double, ptr %36, align 8, !tbaa !7
   %38 = fcmp oge double %37, 0.000000e+00
   %39 = fneg double %37
@@ -92,7 +92,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store double %42, ptr %11, align 8
-  %43 = getelementptr inbounds nuw double, ptr %14, i64 %wide.trip.count
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %wide.trip.count
   %44 = load double, ptr %43, align 8, !tbaa !7
   %45 = fcmp oge double %44, 0.000000e+00
   %46 = fneg double %44
@@ -113,7 +113,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph124:                                        ; preds = %.lr.ph124.preheader, %.lr.ph124
   %indvars.iv145 = phi i64 [ 1, %.lr.ph124.preheader ], [ %indvars.iv.next146, %.lr.ph124 ]
   %51 = phi double [ %42, %.lr.ph124.preheader ], [ %55, %.lr.ph124 ]
-  %52 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv145
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv145
   %53 = load double, ptr %52, align 8, !tbaa !7
   %54 = fcmp oge double %51, %53
   %55 = select i1 %54, double %51, double %53
@@ -153,7 +153,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph130:                                        ; preds = %.lr.ph130.preheader, %.lr.ph130
   %indvars.iv150 = phi i64 [ 1, %.lr.ph130.preheader ], [ %indvars.iv.next151, %.lr.ph130 ]
-  %69 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv150
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv150
   %70 = load double, ptr %69, align 8, !tbaa !7
   %71 = fmul double %70, %70
   store double %71, ptr %69, align 8, !tbaa !7
@@ -163,7 +163,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %._crit_edge125
   %72 = sext i32 %67 to i64
-  %73 = getelementptr inbounds double, ptr %12, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %12, i64 %72
   store double 0.000000e+00, ptr %73, align 8, !tbaa !7
   call void @dlasq2_(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %74 = load i32, ptr %4, align 4, !tbaa !3
@@ -185,10 +185,10 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv160 = phi i64 [ 1, %.lr.ph140.preheader ], [ %indvars.iv.next161, %.lr.ph140 ]
-  %78 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv160
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv160
   %79 = load double, ptr %78, align 8, !tbaa !7
   %80 = call double @sqrt(double noundef %79) #4, !tbaa !3
-  %81 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv160
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv160
   store double %80, ptr %81, align 8, !tbaa !7
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
@@ -217,13 +217,13 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %87 = getelementptr i8, ptr %86, i64 -8
   %88 = load double, ptr %87, align 8, !tbaa !7
   %89 = call double @sqrt(double noundef %88) #4, !tbaa !3
-  %90 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv155
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv155
   store double %89, ptr %90, align 8, !tbaa !7
   %.idx = shl nuw i64 %indvars.iv155, 4
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %92 = load double, ptr %91, align 8, !tbaa !7
   %93 = call double @sqrt(double noundef %92) #4, !tbaa !3
-  %94 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv155
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv155
   store double %93, ptr %94, align 8, !tbaa !7
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158

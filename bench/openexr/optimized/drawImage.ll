@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
-%union.imath_half_uif = type { i32 }
-%struct.GZ = type { %"class.Imath_3_2::half", float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -224,7 +220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEE
   %40 = fpext float %38 to double
   %41 = fmul double %40, -5.656800e-01
   %42 = mul nsw i64 %.8.val, %indvars.iv23
-  %43 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.16.val, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %.16.val, i64 %42
   %44 = load ptr, ptr @imath_half_to_float_table, align 8
   br label %45
 
@@ -287,10 +283,10 @@ _ZN12_GLOBAL__N_12pwEfi.exit:                     ; preds = %65
   %75 = fmul float %5, %74
   %76 = fmul float %6, %74
   %77 = fmul float %7, %74
-  %78 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %43, i64 %indvars.iv
+  %78 = getelementptr inbounds [8 x i8], ptr %43, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2, !tbaa !15
   %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw %union.imath_half_uif, ptr %44, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !17
   %83 = fsub float 1.000000e+00, %.076
   %84 = fmul float %8, %75
@@ -378,7 +374,7 @@ _ZN9Imath_3_24halfaSEf.exit:                      ; preds = %96, %99, %109, %111
   %139 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %140 = load i16, ptr %139, align 2, !tbaa !15
   %141 = zext i16 %140 to i64
-  %142 = getelementptr inbounds nuw %union.imath_half_uif, ptr %44, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %141
   %143 = load float, ptr %142, align 4, !tbaa !17
   %144 = fmul float %8, %76
   %145 = fmul float %.076, %144
@@ -465,7 +461,7 @@ _ZN9Imath_3_24halfaSEf.exit87:                    ; preds = %156, %159, %169, %1
   %199 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %200 = load i16, ptr %199, align 2, !tbaa !15
   %201 = zext i16 %200 to i64
-  %202 = getelementptr inbounds nuw %union.imath_half_uif, ptr %44, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %201
   %203 = load float, ptr %202, align 4, !tbaa !17
   %204 = fmul float %8, %77
   %205 = fmul float %.076, %204
@@ -552,7 +548,7 @@ _ZN9Imath_3_24halfaSEf.exit91:                    ; preds = %216, %219, %229, %2
   %259 = getelementptr inbounds nuw i8, ptr %78, i64 6
   %260 = load i16, ptr %259, align 2, !tbaa !15
   %261 = zext i16 %260 to i64
-  %262 = getelementptr inbounds nuw %union.imath_half_uif, ptr %44, i64 %261
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %261
   %263 = load float, ptr %262, align 4, !tbaa !17
   %264 = fsub float 1.000000e+00, %263
   %265 = fneg float %264
@@ -670,16 +666,16 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
 .preheader46.us:                                  ; preds = %.preheader46.us.preheader, %._crit_edge.us
   %indvars.iv52 = phi i64 [ 0, %.preheader46.us.preheader ], [ %indvars.iv.next53, %._crit_edge.us ]
   %15 = mul nsw i64 %10, %indvars.iv52
-  %16 = getelementptr inbounds %"class.Imath_3_2::half", ptr %8, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %8, i64 %15
   %17 = mul nsw i64 %14, %indvars.iv52
-  %18 = getelementptr inbounds float, ptr %12, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %12, i64 %17
   br label %19
 
 19:                                               ; preds = %.preheader46.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader46.us ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   store i16 0, ptr %20, align 2, !tbaa !4
-  %21 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store float 0x47EFFFFFE0000000, ptr %21, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -799,9 +795,9 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
   %102 = sitofp i32 %101 to float
   %103 = fsub float %102, %67
   %104 = fdiv float %103, %75
-  %invariant.gep.i = getelementptr float, ptr %.val45, i64 %indvars.iv29.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %.val45, i64 %indvars.iv29.i
   %105 = fpext float %104 to double
-  %invariant.gep22.i = getelementptr %"class.Imath_3_2::half", ptr %.val43, i64 %indvars.iv29.i
+  %invariant.gep22.i = getelementptr [2 x i8], ptr %.val43, i64 %indvars.iv29.i
   br label %106
 
 ._crit_edge.i:                                    ; preds = %194
@@ -828,7 +824,7 @@ define dso_local void @_Z10drawImage2RN7Imf_3_47Array2DIN9Imath_3_24halfEEERNS0_
   %117 = tail call noundef float @sqrtf(float noundef %116) #13, !tbaa !10
   %118 = tail call float @llvm.fmuladd.f32(float %96, float %117, float %71)
   %119 = mul nsw i64 %indvars.iv.i, %.val44
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %119
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %119
   %120 = load float, ptr %gep.i, align 4, !tbaa !20
   %121 = fcmp ult float %118, %120
   br i1 %121, label %122, label %194
@@ -865,7 +861,7 @@ _ZN12_GLOBAL__N_12pwEfi.exit.i:                   ; preds = %133
   %139 = fadd float %.054.i, %138
   %140 = fmul float %139, %79
   %141 = mul nsw i64 %indvars.iv.i, %.val
-  %gep23.i = getelementptr %"class.Imath_3_2::half", ptr %invariant.gep22.i, i64 %141
+  %gep23.i = getelementptr [2 x i8], ptr %invariant.gep22.i, i64 %141
   %142 = bitcast float %140 to i32
   %143 = tail call float @llvm.fabs.f32(float %140)
   %144 = bitcast float %143 to i32
@@ -1020,7 +1016,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_14mndlIN7Imf_3_44RgbaEEEvRNS1_7Arra
   %indvars.iv29 = phi i64 [ %38, %.preheader1.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us23 ]
   %39 = sub nsw i64 %indvars.iv29, %38
   %40 = mul nsw i64 %.8.val, %39
-  %41 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.16.val, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.16.val, i64 %40
   %42 = trunc nsw i64 %indvars.iv29 to i32
   %43 = sitofp i32 %42 to double
   br label %44
@@ -1028,7 +1024,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_14mndlIN7Imf_3_44RgbaEEEvRNS1_7Arra
 44:                                               ; preds = %.preheader1.us, %_ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us
   %indvars.iv = phi i64 [ %37, %.preheader1.us ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us ]
   %45 = sub nsw i64 %indvars.iv, %37
-  %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %41, i64 %45
   store i16 0, ptr %46, align 2, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   store i16 0, ptr %47, align 2, !tbaa !4
@@ -1046,7 +1042,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_14mndlIN7Imf_3_44RgbaEEEvRNS1_7Arra
   %52 = phi i64 [ 0, %44 ], [ %51, %._crit_edge10.us.loopexit ], [ 0, %.preheader.lr.ph.us ]
   %53 = phi i64 [ 0, %44 ], [ %50, %._crit_edge10.us.loopexit ], [ 0, %.preheader.lr.ph.us ]
   %54 = phi i64 [ 0, %44 ], [ %49, %._crit_edge10.us.loopexit ], [ 0, %.preheader.lr.ph.us ]
-  %55 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !17
   %57 = fmul float %31, %56
   %58 = bitcast float %57 to i32
@@ -1128,7 +1124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_14mndlIN7Imf_3_44RgbaEEEvRNS1_7Arra
 _ZN9Imath_3_24halfmLEf.exit.i.us:                 ; preds = %102, %99, %97, %88, %82, %79, %65
   %.0.i.i.i.i.us = phi i16 [ %63, %65 ], [ %109, %102 ], [ %98, %97 ], [ %96, %88 ], [ %100, %99 ], [ %83, %82 ], [ %77, %79 ]
   store i16 %.0.i.i.i.i.us, ptr %46, align 2, !tbaa !4
-  %110 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %53
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %53
   %111 = load float, ptr %110, align 4, !tbaa !17
   %112 = fmul float %31, %111
   %113 = bitcast float %112 to i32
@@ -1210,7 +1206,7 @@ _ZN9Imath_3_24halfmLEf.exit.i.us:                 ; preds = %102, %99, %97, %88,
 _ZN9Imath_3_24halfmLEf.exit11.i.us:               ; preds = %157, %154, %152, %143, %137, %134, %120
   %.0.i.i.i10.i.us = phi i16 [ %118, %120 ], [ %164, %157 ], [ %153, %152 ], [ %151, %143 ], [ %155, %154 ], [ %138, %137 ], [ %132, %134 ]
   store i16 %.0.i.i.i10.i.us, ptr %47, align 2, !tbaa !4
-  %165 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %52
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %52
   %166 = load float, ptr %165, align 4, !tbaa !17
   %167 = fmul float %31, %166
   %168 = bitcast float %167 to i32
@@ -1295,7 +1291,7 @@ _ZN9Imath_3_24halfmLEf.exit15.i.us:               ; preds = %212, %209, %207, %1
   %220 = getelementptr inbounds nuw i8, ptr %46, i64 6
   %221 = load i16, ptr %220, align 2, !tbaa !15
   %222 = zext i16 %221 to i64
-  %223 = getelementptr inbounds nuw %union.imath_half_uif, ptr %36, i64 %222
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %222
   %224 = load float, ptr %223, align 4, !tbaa !17
   %225 = fmul float %31, %224
   %226 = bitcast float %225 to i32
@@ -1486,7 +1482,7 @@ _ZN9Imath_3_24halfaSEf.exit.i.us.us:              ; preds = %326, %324, %317, %3
   %341 = select i1 %339, float %338, float %340
   %342 = tail call float @llvm.fmuladd.f32(float %341, float 4.000000e+00, float 0x3FB99999A0000000)
   %343 = zext i16 %.0.i.i.i11.i6.us.us to i64
-  %344 = getelementptr inbounds nuw %union.imath_half_uif, ptr %281, i64 %343
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %343
   %345 = load float, ptr %344, align 4, !tbaa !17
   %346 = fadd float %342, %345
   %347 = bitcast float %346 to i32
@@ -1578,7 +1574,7 @@ _ZN9Imath_3_24halfpLEf.exit.i.us.us:              ; preds = %391, %388, %386, %3
   %406 = select i1 %404, float %403, float %405
   %407 = tail call float @llvm.fmuladd.f32(float %406, float 4.000000e+00, float 0x3FB99999A0000000)
   %408 = zext i16 %287 to i64
-  %409 = getelementptr inbounds nuw %union.imath_half_uif, ptr %281, i64 %408
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %408
   %410 = load float, ptr %409, align 4, !tbaa !17
   %411 = fadd float %407, %410
   %412 = bitcast float %411 to i32
@@ -1670,7 +1666,7 @@ _ZN9Imath_3_24halfpLEf.exit15.i.us.us:            ; preds = %456, %453, %451, %4
   %471 = select i1 %469, float %468, float %470
   %472 = tail call float @llvm.fmuladd.f32(float %471, float 4.000000e+00, float 0x3FB99999A0000000)
   %473 = zext i16 %286 to i64
-  %474 = getelementptr inbounds nuw %union.imath_half_uif, ptr %281, i64 %473
+  %474 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %473
   %475 = load float, ptr %474, align 4, !tbaa !17
   %476 = fadd float %472, %475
   %477 = bitcast float %476 to i32
@@ -1846,14 +1842,14 @@ define dso_local void @_Z10drawImage6RN7Imf_3_47Array2DI2GZEEii(ptr noundef nonn
 .preheader1.us.i:                                 ; preds = %._crit_edge.us.i, %.preheader1.us.preheader.i
   %indvars.iv19.i = phi i64 [ 0, %.preheader1.us.preheader.i ], [ %indvars.iv.next20.i, %._crit_edge.us.i ]
   %17 = mul nsw i64 %indvars.iv19.i, %.val
-  %18 = getelementptr inbounds %struct.GZ, ptr %.val4, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val4, i64 %17
   %19 = trunc nuw nsw i64 %indvars.iv19.i to i32
   %20 = uitofp nneg i32 %19 to double
   br label %21
 
 21:                                               ; preds = %_ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i, %.preheader1.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader1.us.i ], [ %indvars.iv.next.i, %_ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i ]
-  %22 = getelementptr inbounds nuw %struct.GZ, ptr %18, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   store i16 0, ptr %22, align 2, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 0.000000e+00, ptr %23, align 4, !tbaa !32
@@ -1863,7 +1859,7 @@ define dso_local void @_Z10drawImage6RN7Imf_3_47Array2DI2GZEEii(ptr noundef nonn
 
 26:                                               ; preds = %84
   %27 = zext i16 %158 to i64
-  %28 = getelementptr inbounds nuw %union.imath_half_uif, ptr %16, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !17
   %30 = fmul float %29, 0x3FBC71C740000000
   %31 = bitcast float %30 to i32
@@ -1977,7 +1973,7 @@ _ZN12_GLOBAL__N_15scaleEfR2GZ.exit.us.i:          ; preds = %75, %72, %70, %61, 
   %100 = select i1 %98, float %97, float %99
   %101 = fmul nnan float %100, 4.000000e+00
   %102 = zext i16 %.0.i.i.i.i7556.us.i to i64
-  %103 = getelementptr inbounds nuw %union.imath_half_uif, ptr %16, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %102
   %104 = load float, ptr %103, align 4, !tbaa !17
   %105 = fadd float %101, %104
   %106 = bitcast float %105 to i32
@@ -2124,7 +2120,7 @@ define dso_local void @_Z10drawImage7RN7Imf_3_45ArrayINS_4RgbaEEEiii(ptr noundef
   %15 = tail call noundef float @atan2f(float noundef %14, float noundef %7) #13, !tbaa !10
   %16 = tail call float @llvm.fmuladd.f32(float %14, float %14, float %8)
   %sqrt = tail call float @llvm.sqrt.f32(float %16)
-  %17 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %18 = fmul nnan float %sqrt, 0x3FB99999A0000000
   %19 = tail call noundef float @sinf(float noundef %18) #13, !tbaa !10
   %20 = fmul float %19, 0x3FD3333340000000

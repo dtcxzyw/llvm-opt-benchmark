@@ -157,7 +157,7 @@ _ZN26GrowableArrayWithAllocatorIP26jvmtiExtensionFunctionInfo13GrowableArrayIS1_
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   store ptr @_ZZN15JvmtiExtensions19register_extensionsEvE9ext_func0, ptr %35, align 8
   %36 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %37 = load i32, ptr %36, align 8
@@ -187,7 +187,7 @@ _ZN26GrowableArrayWithAllocatorIP26jvmtiExtensionFunctionInfo13GrowableArrayIS1_
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %49 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   store ptr @_ZZN15JvmtiExtensions19register_extensionsEvE9ext_func1, ptr %54, align 8
   %55 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %56 = load i32, ptr %55, align 8
@@ -217,7 +217,7 @@ _ZN26GrowableArrayWithAllocatorIP26jvmtiExtensionFunctionInfo13GrowableArrayIS1_
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = sext i32 %68 to i64
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %71, i64 %72
   store ptr @_ZZN15JvmtiExtensions19register_extensionsEvE9ext_func2, ptr %73, align 8
   %74 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %75 = load i32, ptr %74, align 8
@@ -247,7 +247,7 @@ _ZN26GrowableArrayWithAllocatorIP23jvmtiExtensionEventInfo13GrowableArrayIS1_EE6
   %89 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = sext i32 %87 to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %90, i64 %91
   store ptr @_ZZN15JvmtiExtensions19register_extensionsEvE22class_unload_ext_event, ptr %92, align 8
   %93 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %94 = load i32, ptr %93, align 8
@@ -277,7 +277,7 @@ _ZN26GrowableArrayWithAllocatorIP23jvmtiExtensionEventInfo13GrowableArrayIS1_EE6
   %108 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds ptr, ptr %109, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %109, i64 %110
   store ptr @_ZZN15JvmtiExtensions19register_extensionsEvE30virtual_thread_mount_ext_event, ptr %111, align 8
   %112 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %113 = load i32, ptr %112, align 8
@@ -307,7 +307,7 @@ _ZN26GrowableArrayWithAllocatorIP23jvmtiExtensionEventInfo13GrowableArrayIS1_EE6
   %127 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = sext i32 %125 to i64
-  %130 = getelementptr inbounds ptr, ptr %128, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %128, i64 %129
   store ptr @_ZZN15JvmtiExtensions19register_extensionsEvE32virtual_thread_unmount_ext_event, ptr %130, align 8
   ret void
 }
@@ -774,23 +774,23 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %18 = phi ptr [ %153, %152 ], [ %15, %.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv99
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv99
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %24, i64 %indvars.iv99
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv99
   store ptr %23, ptr %25, align 8
   %26 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv99
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv99
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #14
   %34 = add i64 %33, 1
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %35, i64 %indvars.iv99
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %indvars.iv99
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %34, ptr noundef nonnull %37) #12
   %.not82 = icmp eq i32 %38, 0
@@ -798,21 +798,21 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
 
 39:                                               ; preds = %.lr.ph94
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %40, i64 %indvars.iv99
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %indvars.iv99
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %32) #12
   %45 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv99
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv99
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #14
   %53 = add i64 %52, 1
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %54, i64 %indvars.iv99
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %54, i64 %indvars.iv99
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %53, ptr noundef nonnull %56) #12
   %.not83 = icmp eq i32 %57, 0
@@ -820,19 +820,19 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
 
 58:                                               ; preds = %39
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %59, i64 %indvars.iv99
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %59, i64 %indvars.iv99
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %51) #12
   %64 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv99
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv99
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %71, i64 %indvars.iv99
+  %72 = getelementptr inbounds nuw [56 x i8], ptr %71, i64 %indvars.iv99
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i32 %70, ptr %73, align 8
   %74 = icmp eq i32 %70, 0
@@ -840,7 +840,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
 
 75:                                               ; preds = %58
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %76, i64 %indvars.iv99
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %76, i64 %indvars.iv99
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr null, ptr %78, align 8
   br label %.loopexit
@@ -849,7 +849,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %80 = sext i32 %70 to i64
   %81 = mul nsw i64 %80, 24
   %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %82, i64 %indvars.iv99
+  %83 = getelementptr inbounds nuw [56 x i8], ptr %82, i64 %indvars.iv99
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %81, ptr noundef nonnull %84) #12
   %.not84 = icmp eq i32 %85, 0
@@ -859,12 +859,12 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %87 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv99
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv99
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %94, i64 %indvars.iv99
+  %95 = getelementptr inbounds nuw [56 x i8], ptr %94, i64 %indvars.iv99
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = icmp sgt i32 %70, 0
@@ -876,11 +876,11 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %105 ]
-  %99 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %93, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #14
   %102 = add i64 %101, 1
-  %103 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %97, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %104 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %102, ptr noundef %103) #12
   %.not85 = icmp eq i32 %104, 0
   br i1 %.not85, label %105, label %.loopexit87
@@ -909,12 +909,12 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %118 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv99
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv99
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %124 = load i32, ptr %123, align 8
   %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %125, i64 %indvars.iv99
+  %126 = getelementptr inbounds nuw [56 x i8], ptr %125, i64 %indvars.iv99
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i32 %124, ptr %127, align 8
   %128 = icmp eq i32 %124, 0
@@ -922,7 +922,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
 
 129:                                              ; preds = %.loopexit
   %130 = load ptr, ptr %5, align 8
-  %131 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %130, i64 %indvars.iv99
+  %131 = getelementptr inbounds nuw [56 x i8], ptr %130, i64 %indvars.iv99
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 48
   store ptr null, ptr %132, align 8
   br label %152
@@ -931,7 +931,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
   %134 = sext i32 %124 to i64
   %135 = shl nsw i64 %134, 2
   %136 = load ptr, ptr %5, align 8
-  %137 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %136, i64 %indvars.iv99
+  %137 = getelementptr inbounds nuw [56 x i8], ptr %136, i64 %indvars.iv99
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %135, ptr noundef nonnull %138) #12
   %.not86 = icmp eq i32 %139, 0
@@ -939,13 +939,13 @@ define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26j
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds nuw %struct.jvmtiExtensionFunctionInfo, ptr %141, i64 %indvars.iv99
+  %142 = getelementptr inbounds nuw [56 x i8], ptr %141, i64 %indvars.iv99
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv99
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv99
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 48
   %151 = load ptr, ptr %150, align 8
@@ -1027,23 +1027,23 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
   %18 = phi ptr [ %118, %.loopexit ], [ %15, %.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv84
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv84
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %24, i64 %indvars.iv84
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %indvars.iv84
   store i32 %23, ptr %25, align 8
   %26 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv84
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv84
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #14
   %34 = add i64 %33, 1
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %35, i64 %indvars.iv84
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %indvars.iv84
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %34, ptr noundef nonnull %37) #12
   %.not68 = icmp eq i32 %38, 0
@@ -1051,21 +1051,21 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
 
 39:                                               ; preds = %.lr.ph79
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %40, i64 %indvars.iv84
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %indvars.iv84
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %32) #12
   %45 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv84
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv84
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #14
   %53 = add i64 %52, 1
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %54, i64 %indvars.iv84
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %indvars.iv84
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %53, ptr noundef nonnull %56) #12
   %.not69 = icmp eq i32 %57, 0
@@ -1073,19 +1073,19 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
 
 58:                                               ; preds = %39
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %59, i64 %indvars.iv84
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %indvars.iv84
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %51) #12
   %64 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv84
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv84
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %71, i64 %indvars.iv84
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %indvars.iv84
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i32 %70, ptr %73, align 8
   %74 = icmp eq i32 %70, 0
@@ -1093,7 +1093,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
 
 75:                                               ; preds = %58
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %76, i64 %indvars.iv84
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %indvars.iv84
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr null, ptr %78, align 8
   br label %.loopexit
@@ -1102,7 +1102,7 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
   %80 = sext i32 %70 to i64
   %81 = mul nsw i64 %80, 24
   %82 = load ptr, ptr %5, align 8
-  %83 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %82, i64 %indvars.iv84
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %82, i64 %indvars.iv84
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %81, ptr noundef nonnull %84) #12
   %.not70 = icmp eq i32 %85, 0
@@ -1112,12 +1112,12 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
   %87 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv84
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv84
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds nuw %struct.jvmtiExtensionEventInfo, ptr %94, i64 %indvars.iv84
+  %95 = getelementptr inbounds nuw [40 x i8], ptr %94, i64 %indvars.iv84
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = icmp sgt i32 %70, 0
@@ -1129,11 +1129,11 @@ define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %105 ]
-  %99 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %93, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #14
   %102 = add i64 %101, 1
-  %103 = getelementptr inbounds nuw %struct.jvmtiParamInfo, ptr %97, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %104 = call noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17) %4, i64 noundef %102, ptr noundef %103) #12
   %.not71 = icmp eq i32 %104, 0
   br i1 %.not71, label %105, label %.loopexit72
@@ -1209,7 +1209,7 @@ define hidden noundef range(i32 0, 104) i32 @_ZN15JvmtiExtensions18set_event_cal
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %1
@@ -1511,9 +1511,9 @@ _ZN13GrowableArrayIP26jvmtiExtensionFunctionInfoE8allocateEv.exit: ; preds = %7,
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1530,7 +1530,7 @@ _ZN13GrowableArrayIP26jvmtiExtensionFunctionInfoE8allocateEv.exit: ; preds = %7,
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -1615,9 +1615,9 @@ _ZN13GrowableArrayIP23jvmtiExtensionEventInfoE8allocateEv.exit: ; preds = %7, %1
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1634,7 +1634,7 @@ _ZN13GrowableArrayIP23jvmtiExtensionEventInfoE8allocateEv.exit: ; preds = %7, %1
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -324,7 +324,7 @@ define noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(do
   %.sroa.2.0.i.i.i = phi i64 [ %9, %.preheader41 ], [ 1, %1 ]
   %.sroa.07.0.i.i.i = phi double [ %8, %.preheader41 ], [ 0x3EFA109C2231ECD3, %1 ]
   %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader41 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load double, ptr %3, align 8, !noalias !38, !noundef !4
   %4 = uitofp nneg i64 %.sroa.2.0.i.i.i to double
   %5 = fadd double %0, %4
@@ -351,7 +351,7 @@ define noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(do
   %.sroa.2.0.i.i.i25 = phi i64 [ %25, %.preheader ], [ 1, %1 ]
   %.sroa.07.0.i.i.i26 = phi double [ %24, %.preheader ], [ 0x3EFA109C2231ECD3, %1 ]
   %.sroa.09.0.i.i.i27 = phi i64 [ %26, %.preheader ], [ 0, %1 ]
-  %20 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i27
+  %20 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i27
   %.val.i.i.i28 = load double, ptr %20, align 8, !noalias !45, !noundef !4
   %21 = uitofp nneg i64 %.sroa.2.0.i.i.i25 to double
   %22 = fsub double %21, %0
@@ -392,7 +392,7 @@ define noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(doubl
   %.sroa.2.0.i.i.i = phi i64 [ %9, %.preheader42 ], [ 1, %1 ]
   %.sroa.07.0.i.i.i = phi double [ %8, %.preheader42 ], [ 0x3EFA109C2231ECD3, %1 ]
   %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader42 ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load double, ptr %3, align 8, !noalias !52, !noundef !4
   %4 = uitofp nneg i64 %.sroa.2.0.i.i.i to double
   %5 = fadd double %0, %4
@@ -417,7 +417,7 @@ define noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(doubl
   %.sroa.2.0.i.i.i27 = phi i64 [ %23, %.preheader ], [ 1, %1 ]
   %.sroa.07.0.i.i.i28 = phi double [ %22, %.preheader ], [ 0x3EFA109C2231ECD3, %1 ]
   %.sroa.09.0.i.i.i29 = phi i64 [ %24, %.preheader ], [ 0, %1 ]
-  %18 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29
+  %18 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29
   %.val.i.i.i30 = load double, ptr %18, align 8, !noalias !59, !noundef !4
   %19 = uitofp nneg i64 %.sroa.2.0.i.i.i27 to double
   %20 = fsub double %19, %0
@@ -466,7 +466,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_ui17hf42ba329a4b24b6dE(do
   %.sroa.2.0.i.i.i.i.i = phi i64 [ %17, %.preheader42.i.i ], [ 1, %9 ]
   %.sroa.07.0.i.i.i.i.i = phi double [ %16, %.preheader42.i.i ], [ 0x3EFA109C2231ECD3, %9 ]
   %.sroa.09.0.i.i.i.i.i = phi i64 [ %18, %.preheader42.i.i ], [ 0, %9 ]
-  %11 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i.i
   %.val.i.i.i.i.i = load double, ptr %11, align 8, !noalias !69, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i.i to double
   %13 = fadd double %0, %12
@@ -491,7 +491,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_ui17hf42ba329a4b24b6dE(do
   %.sroa.2.0.i.i.i27.i.i = phi i64 [ %31, %.preheader.i.i ], [ 1, %9 ]
   %.sroa.07.0.i.i.i28.i.i = phi double [ %30, %.preheader.i.i ], [ 0x3EFA109C2231ECD3, %9 ]
   %.sroa.09.0.i.i.i29.i.i = phi i64 [ %32, %.preheader.i.i ], [ 0, %9 ]
-  %26 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i.i
   %.val.i.i.i30.i.i = load double, ptr %26, align 8, !noalias !76, !noundef !4
   %27 = uitofp nneg i64 %.sroa.2.0.i.i.i27.i.i to double
   %28 = fsub double %27, %0
@@ -553,7 +553,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_ui17h8b4593dbcffafd5dE(ptr
   %.sroa.2.0.i.i.i.i = phi i64 [ %17, %.preheader42.i ], [ 1, %7 ]
   %.sroa.07.0.i.i.i.i = phi double [ %16, %.preheader42.i ], [ 0x3EFA109C2231ECD3, %7 ]
   %.sroa.09.0.i.i.i.i = phi i64 [ %18, %.preheader42.i ], [ 0, %7 ]
-  %11 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %11, align 8, !noalias !89, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
   %13 = fadd double %1, %12
@@ -578,7 +578,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_ui17h8b4593dbcffafd5dE(ptr
   %.sroa.2.0.i.i.i27.i = phi i64 [ %31, %.preheader.i ], [ 1, %7 ]
   %.sroa.07.0.i.i.i28.i = phi double [ %30, %.preheader.i ], [ 0x3EFA109C2231ECD3, %7 ]
   %.sroa.09.0.i.i.i29.i = phi i64 [ %32, %.preheader.i ], [ 0, %7 ]
-  %26 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i
   %.val.i.i.i30.i = load double, ptr %26, align 8, !noalias !96, !noundef !4
   %27 = uitofp nneg i64 %.sroa.2.0.i.i.i27.i to double
   %28 = fsub double %27, %1
@@ -639,7 +639,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_li17hf72f675100a6cdb5E(do
   %.sroa.2.0.i.i.i.i.i = phi i64 [ %17, %.preheader42.i.i ], [ 1, %9 ]
   %.sroa.07.0.i.i.i.i.i = phi double [ %16, %.preheader42.i.i ], [ 0x3EFA109C2231ECD3, %9 ]
   %.sroa.09.0.i.i.i.i.i = phi i64 [ %18, %.preheader42.i.i ], [ 0, %9 ]
-  %11 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i.i
   %.val.i.i.i.i.i = load double, ptr %11, align 8, !noalias !106, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i.i to double
   %13 = fadd double %0, %12
@@ -664,7 +664,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_li17hf72f675100a6cdb5E(do
   %.sroa.2.0.i.i.i27.i.i = phi i64 [ %31, %.preheader.i.i ], [ 1, %9 ]
   %.sroa.07.0.i.i.i28.i.i = phi double [ %30, %.preheader.i.i ], [ 0x3EFA109C2231ECD3, %9 ]
   %.sroa.09.0.i.i.i29.i.i = phi i64 [ %32, %.preheader.i.i ], [ 0, %9 ]
-  %26 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i.i
   %.val.i.i.i30.i.i = load double, ptr %26, align 8, !noalias !113, !noundef !4
   %27 = uitofp nneg i64 %.sroa.2.0.i.i.i27.i.i to double
   %28 = fsub double %27, %0
@@ -726,7 +726,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_li17h016f072646675049E(ptr
   %.sroa.2.0.i.i.i.i = phi i64 [ %17, %.preheader42.i ], [ 1, %7 ]
   %.sroa.07.0.i.i.i.i = phi double [ %16, %.preheader42.i ], [ 0x3EFA109C2231ECD3, %7 ]
   %.sroa.09.0.i.i.i.i = phi i64 [ %18, %.preheader42.i ], [ 0, %7 ]
-  %11 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %11, align 8, !noalias !126, !noundef !4
   %12 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
   %13 = fadd double %1, %12
@@ -751,7 +751,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_li17h016f072646675049E(ptr
   %.sroa.2.0.i.i.i27.i = phi i64 [ %31, %.preheader.i ], [ 1, %7 ]
   %.sroa.07.0.i.i.i28.i = phi double [ %30, %.preheader.i ], [ 0x3EFA109C2231ECD3, %7 ]
   %.sroa.09.0.i.i.i29.i = phi i64 [ %32, %.preheader.i ], [ 0, %7 ]
-  %26 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i29.i
   %.val.i.i.i30.i = load double, ptr %26, align 8, !noalias !133, !noundef !4
   %27 = uitofp nneg i64 %.sroa.2.0.i.i.i27.i to double
   %28 = fsub double %27, %1
@@ -902,7 +902,7 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
   %.sroa.2.0.i.i.i.i = phi i64 [ %34, %.preheader41.i ], [ 1, %23 ]
   %.sroa.07.0.i.i.i.i = phi double [ %33, %.preheader41.i ], [ 0x3EFA109C2231ECD3, %23 ]
   %.sroa.09.0.i.i.i.i = phi i64 [ %35, %.preheader41.i ], [ 0, %23 ]
-  %28 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %28, align 8, !noalias !152, !noundef !4
   %29 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
   %30 = fadd double %1, %29
@@ -929,7 +929,7 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
   %.sroa.2.0.i.i.i25.i = phi i64 [ %50, %.preheader.i ], [ 1, %23 ]
   %.sroa.07.0.i.i.i26.i = phi double [ %49, %.preheader.i ], [ 0x3EFA109C2231ECD3, %23 ]
   %.sroa.09.0.i.i.i27.i = phi i64 [ %51, %.preheader.i ], [ 0, %23 ]
-  %45 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i27.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i27.i
   %.val.i.i.i28.i = load double, ptr %45, align 8, !noalias !159, !noundef !4
   %46 = uitofp nneg i64 %.sroa.2.0.i.i.i25.i to double
   %47 = fsub double %46, %1
@@ -1149,7 +1149,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
   %.sroa.2.0.i.i.i.i = phi i64 [ %29, %.preheader41.i ], [ 1, %18 ]
   %.sroa.07.0.i.i.i.i = phi double [ %28, %.preheader41.i ], [ 0x3EFA109C2231ECD3, %18 ]
   %.sroa.09.0.i.i.i.i = phi i64 [ %30, %.preheader41.i ], [ 0, %18 ]
-  %23 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i.i
   %.val.i.i.i.i = load double, ptr %23, align 8, !noalias !172, !noundef !4
   %24 = uitofp nneg i64 %.sroa.2.0.i.i.i.i to double
   %25 = fadd double %1, %24
@@ -1176,7 +1176,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
   %.sroa.2.0.i.i.i25.i = phi i64 [ %45, %.preheader.i ], [ 1, %18 ]
   %.sroa.07.0.i.i.i26.i = phi double [ %44, %.preheader.i ], [ 0x3EFA109C2231ECD3, %18 ]
   %.sroa.09.0.i.i.i27.i = phi i64 [ %46, %.preheader.i ], [ 0, %18 ]
-  %40 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i27.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.c1bf2e375591bb6a447bdf89942637bc.6, i64 8), i64 %.sroa.09.0.i.i.i27.i
   %.val.i.i.i28.i = load double, ptr %40, align 8, !noalias !179, !noundef !4
   %41 = uitofp nneg i64 %.sroa.2.0.i.i.i25.i to double
   %42 = fsub double %41, %1

@@ -47,38 +47,18 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData" = type <{ i32, [4 x i8], double, %"class.gmx::analysismodules::(anonymous namespace)::MsdData", float, [4 x i8] }>
-%"class.gmx::analysismodules::(anonymous namespace)::MsdData" = type { %"class.std::vector.41" }
-%"class.std::vector.41" = type { %"struct.std::_Vector_base.42" }
-%"struct.std::_Vector_base.42" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::analysismodules::(anonymous namespace)::MsdGroupData" = type { ptr, %"class.std::vector.46", %"class.gmx::analysismodules::(anonymous namespace)::MsdData", %"class.gmx::analysismodules::(anonymous namespace)::MsdCoordinateManager", %"class.std::vector.62", float, double }
-%"class.std::vector.46" = type { %"struct.std::_Vector_base.47" }
-%"struct.std::_Vector_base.47" = type { %"struct.std::_Vector_base<std::pair<int, std::vector<gmx::BasicVector<double>>>, std::allocator<std::pair<int, std::vector<gmx::BasicVector<double>>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<int, std::vector<gmx::BasicVector<double>>>, std::allocator<std::pair<int, std::vector<gmx::BasicVector<double>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<int, std::vector<gmx::BasicVector<double>>>, std::allocator<std::pair<int, std::vector<gmx::BasicVector<double>>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<int, std::vector<gmx::BasicVector<double>>>, std::allocator<std::pair<int, std::vector<gmx::BasicVector<double>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::analysismodules::(anonymous namespace)::MsdCoordinateManager" = type <{ %"class.std::vector.51", %"class.std::vector.51", %"class.gmx::ArrayRef.56", %"class.gmx::ArrayRef.59", i8, [7 x i8] }>
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ArrayRef.56" = type { %"struct.gmx::ArrayRefIter.57", %"struct.gmx::ArrayRefIter.57" }
-%"struct.gmx::ArrayRefIter.57" = type { ptr }
-%"class.gmx::ArrayRef.59" = type { %"struct.gmx::ArrayRefIter.60", %"struct.gmx::ArrayRefIter.60" }
-%"struct.gmx::ArrayRefIter.60" = type { ptr }
-%"class.std::vector.62" = type { %"struct.std::_Vector_base.63" }
-%"struct.std::_Vector_base.63" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::BasicVector" = type { [3 x double] }
 %"struct.std::pair" = type { i32, %"class.std::vector.51" }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
+%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl" }
+%"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<gmx::BasicVector<double>, std::allocator<gmx::BasicVector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.62" = type { %"struct.std::_Vector_base.63" }
+%"struct.std::_Vector_base.63" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
+%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr.204" = type { %"class.std::__shared_ptr.205" }
 %"class.std::__shared_ptr.205" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.215" = type { %"class.std::__shared_ptr.216" }
@@ -1086,7 +1066,7 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIdEEEES5_EEC2IRKPS6_vEEOT_.exi
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.oneDimensionalMsdFunctions, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.oneDimensionalMsdFunctions, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !167
   store ptr %14, ptr %5, align 8, !tbaa !167
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
@@ -1134,7 +1114,7 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIdEEEES5_EEC2IRKPS6_vEEOT_.exi
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.twoDimensionalMsdFunctions, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.twoDimensionalMsdFunctions, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !167
   store ptr %33, ptr %4, align 8, !tbaa !167
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i25)
@@ -1195,7 +1175,7 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIdEEEES5_EEaSIRKPS6_EENSt9enab
   %60 = load i32, ptr %59, align 8, !tbaa !190
   %61 = sext i32 %60 to i64
   %.not.i.i30 = icmp eq ptr %58, null
-  %62 = getelementptr inbounds nuw i32, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %61
   %spec.select.i.i = select i1 %.not.i.i30, ptr null, ptr %62
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1219,7 +1199,7 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIdEEEES5_EEaSIRKPS6_EENSt9enab
   br i1 %75, label %76, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds nuw i32, ptr %66, i64 %61
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %61
   %.not.i.i31 = icmp eq ptr %65, %77
   br i1 %.not.i.i31, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %78
 
@@ -1347,9 +1327,9 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE11_S_rel
 
 _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE13_M_deallocateEPS3_m.exit40.i.i: ; preds = %135, %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i
   store ptr %118, ptr %93, align 8, !tbaa !19
-  %139 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %119, i64 %102
+  %139 = getelementptr inbounds nuw [48 x i8], ptr %119, i64 %102
   store ptr %139, ptr %95, align 8, !tbaa !22
-  %140 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %118, i64 %116
+  %140 = getelementptr inbounds nuw [48 x i8], ptr %118, i64 %116
   store ptr %140, ptr %103, align 8, !tbaa !35
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE6resizeEm.exit
 
@@ -1358,7 +1338,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE1
   br i1 %142, label %143, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE6resizeEm.exit
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %.val.i, i64 %94
+  %144 = getelementptr inbounds nuw [48 x i8], ptr %.val.i, i64 %94
   %.not.i9.i = icmp eq ptr %.val4.i, %144
   br i1 %.not.i9.i, label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i10.i
 
@@ -1432,19 +1412,19 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MoleculeDataESaIS3_EE6resizeE
 
 169:                                              ; preds = %.lr.ph, %169
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %171 = load i32, ptr %170, align 4, !tbaa !160
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %.val, i64 %172
+  %173 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %172
   %174 = load i32, ptr %173, align 8, !tbaa !208
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %173, align 8, !tbaa !208
-  %176 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   %177 = load float, ptr %176, align 4, !tbaa !209
   %178 = fpext float %177 to double
   %179 = load i32, ptr %170, align 4, !tbaa !160
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %.val, i64 %180
+  %181 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load double, ptr %182, align 8, !tbaa !210
   %184 = fadd double %183, %178
@@ -1795,7 +1775,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE1
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE17_M_realloc_insertIJRKNS0_9SelectionERS_INS2_12MoleculeDataESaISA_EERS_IiSaIiEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %324, %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i
   store ptr %217, ptr %189, align 8, !tbaa !36
   store ptr %323, ptr %194, align 8, !tbaa !39
-  %341 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MsdGroupData", ptr %217, i64 %213
+  %341 = getelementptr inbounds nuw [184 x i8], ptr %217, i64 %213
   store ptr %341, ptr %195, align 8, !tbaa !41
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataESaIS3_EE12emplace_backIJRKNS0_9SelectionERS_INS2_12MoleculeDataESaISA_EERS_IiSaIiEEEEERS3_DpOT_.exit
 
@@ -2259,7 +2239,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i: ; preds = %155, %_Z
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %157, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i
   store ptr %152, ptr %131, align 8, !tbaa !27
   store ptr %156, ptr %133, align 8, !tbaa !256
-  %158 = getelementptr inbounds nuw double, ptr %152, i64 %150
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %150
   store ptr %158, ptr %135, align 8, !tbaa !30
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
@@ -2331,7 +2311,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i119: ; preds = %189, 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i121: ; preds = %191, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i119
   store ptr %186, ptr %166, align 8, !tbaa !27
   store ptr %190, ptr %167, align 8, !tbaa !256
-  %192 = getelementptr inbounds nuw double, ptr %186, i64 %184
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %184
   store ptr %192, ptr %169, align 8, !tbaa !30
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit122
 
@@ -2485,10 +2465,10 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIdEESt6vectorIS4_SaI
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %269 ]
   %270 = load i64, ptr %253, align 8
   %271 = inttoptr i64 %270 to ptr
-  %272 = getelementptr inbounds nuw i32, ptr %271, i64 %indvars.iv.i
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %indvars.iv.i
   %273 = load i32, ptr %272, align 4, !tbaa !160
   %274 = load ptr, ptr %254, align 8, !tbaa !259
-  %275 = getelementptr inbounds nuw [3 x float], ptr %274, i64 %indvars.iv.i
+  %275 = getelementptr inbounds nuw [12 x i8], ptr %274, i64 %indvars.iv.i
   %276 = load float, ptr %275, align 4, !tbaa !209
   %277 = fpext float %276 to double
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 4
@@ -2497,7 +2477,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIdEESt6vectorIS4_SaI
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %282 = load float, ptr %281, align 4, !tbaa !209
   %283 = fpext float %282 to double
-  %284 = getelementptr inbounds nuw float, ptr %249, i64 %indvars.iv.i
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %indvars.iv.i
   %285 = load float, ptr %284, align 4, !tbaa !209
   %286 = fpext float %285 to double
   %287 = fmul double %277, %286
@@ -2505,7 +2485,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIdEESt6vectorIS4_SaI
   %289 = fmul double %283, %286
   %290 = sext i32 %273 to i64
   %291 = load ptr, ptr %217, align 8, !tbaa !238
-  %292 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %291, i64 %290
+  %292 = getelementptr inbounds nuw [24 x i8], ptr %291, i64 %290
   %293 = load double, ptr %292, align 8, !tbaa !86, !noalias !273
   %294 = fadd double %293, %287
   %295 = getelementptr inbounds nuw i8, ptr %292, i64 8
@@ -2627,7 +2607,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_120MsdCoordinateManager16buildCoordinatesER
 357:                                              ; preds = %.lr.ph279, %.loopexit
   %358 = phi ptr [ %345, %.lr.ph279 ], [ %581, %.loopexit ]
   %.078278 = phi i64 [ %341, %.lr.ph279 ], [ %579, %.loopexit ]
-  %359 = getelementptr inbounds nuw %"struct.std::pair", ptr %358, i64 %.078278
+  %359 = getelementptr inbounds nuw [32 x i8], ptr %358, i64 %.078278
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load double, ptr %200, align 8, !tbaa !250
   %362 = load double, ptr %201, align 8, !tbaa !253
@@ -2747,9 +2727,9 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; preds = %415, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %403, ptr %351, align 8, !tbaa !23
-  %419 = getelementptr inbounds nuw %"class.std::vector.7", ptr %404, i64 %388
+  %419 = getelementptr inbounds nuw [24 x i8], ptr %404, i64 %388
   store ptr %419, ptr %352, align 8, !tbaa !26
-  %420 = getelementptr inbounds nuw %"class.std::vector.7", ptr %403, i64 %401
+  %420 = getelementptr inbounds nuw [24 x i8], ptr %403, i64 %401
   store ptr %420, ptr %353, align 8, !tbaa !33
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit
 
@@ -2758,7 +2738,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; p
   br i1 %422, label %423, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit
 
 423:                                              ; preds = %421
-  %424 = getelementptr inbounds nuw %"class.std::vector.7", ptr %379, i64 %385
+  %424 = getelementptr inbounds nuw [24 x i8], ptr %379, i64 %385
   %.not.i.i.i125 = icmp eq ptr %378, %424
   br i1 %.not.i.i.i125, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit, label %.lr.ph.i.i.i.i.i.i
 
@@ -2788,7 +2768,7 @@ _ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_
 
 _ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i, %_ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit.i, %374, %421, %423, %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i
   %433 = load ptr, ptr %351, align 8, !tbaa !23
-  %434 = getelementptr inbounds nuw %"class.std::vector.7", ptr %433, i64 %377
+  %434 = getelementptr inbounds nuw [24 x i8], ptr %433, i64 %377
   %435 = load ptr, ptr %360, align 8, !tbaa !238
   %436 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %437 = load ptr, ptr %436, align 8, !tbaa !239
@@ -2872,7 +2852,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i131: ; preds = %468, 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %470, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i131
   store ptr %465, ptr %434, align 8, !tbaa !27
   store ptr %469, ptr %446, align 8, !tbaa !256
-  %471 = getelementptr inbounds nuw double, ptr %465, i64 %463
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %463
   store ptr %471, ptr %448, align 8, !tbaa !30
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit
 
@@ -2890,7 +2870,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit:
 474:                                              ; preds = %.lr.ph, %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit158
   %.val103277 = phi ptr [ %.val103274, %.lr.ph ], [ %.val103, %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit158 ]
   %.071276 = phi i64 [ 0, %.lr.ph ], [ %573, %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit158 ]
-  %475 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %.val103277, i64 %.071276
+  %475 = getelementptr inbounds nuw [48 x i8], ptr %.val103277, i64 %.071276
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 16
   %477 = getelementptr inbounds nuw i8, ptr %475, i64 24
   %478 = load ptr, ptr %477, align 8, !tbaa !26
@@ -2981,9 +2961,9 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i183: ; preds =
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i185: ; preds = %514, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i183
   store ptr %502, ptr %476, align 8, !tbaa !23
-  %518 = getelementptr inbounds nuw %"class.std::vector.7", ptr %503, i64 %487
+  %518 = getelementptr inbounds nuw [24 x i8], ptr %503, i64 %487
   store ptr %518, ptr %477, align 8, !tbaa !26
-  %519 = getelementptr inbounds nuw %"class.std::vector.7", ptr %502, i64 %500
+  %519 = getelementptr inbounds nuw [24 x i8], ptr %502, i64 %500
   store ptr %519, ptr %488, align 8, !tbaa !33
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit141
 
@@ -2992,7 +2972,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i185: 
   br i1 %521, label %522, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit141
 
 522:                                              ; preds = %520
-  %523 = getelementptr inbounds nuw %"class.std::vector.7", ptr %479, i64 %472
+  %523 = getelementptr inbounds nuw [24 x i8], ptr %479, i64 %472
   %.not.i.i.i134 = icmp eq ptr %478, %523
   br i1 %.not.i.i.i134, label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit141, label %.lr.ph.i.i.i.i.i.i135
 
@@ -3022,12 +3002,12 @@ _ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i140: ; preds = %_ZS
 
 _ZN3gmx15analysismodules12_GLOBAL__N_17MsdDataixEm.exit141: ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37.i185, %_ZSt27__uninitialized_default_n_aIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RSaIT1_E.exit.i174, %474, %520, %522, %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i.i.i140
   %532 = load ptr, ptr %476, align 8, !tbaa !23
-  %533 = getelementptr inbounds nuw %"class.std::vector.7", ptr %532, i64 %377
-  %534 = getelementptr inbounds %"class.gmx::BasicVector", ptr %327, i64 %.071276
+  %533 = getelementptr inbounds nuw [24 x i8], ptr %532, i64 %377
+  %534 = getelementptr inbounds [24 x i8], ptr %327, i64 %.071276
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 24
   %spec.select.i = select i1 %.not.i142, ptr null, ptr %535
   %536 = load ptr, ptr %360, align 8, !tbaa !238
-  %537 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %536, i64 %.071276
+  %537 = getelementptr inbounds nuw [24 x i8], ptr %536, i64 %.071276
   %.not.i145 = icmp eq ptr %536, null
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 24
   %spec.select.i146 = select i1 %.not.i145, ptr null, ptr %538
@@ -3111,7 +3091,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i155: ; preds = %569, 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i157: ; preds = %571, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i155
   store ptr %566, ptr %533, align 8, !tbaa !27
   store ptr %570, ptr %547, align 8, !tbaa !256
-  %572 = getelementptr inbounds nuw double, ptr %566, i64 %564
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %566, i64 %564
   store ptr %572, ptr %549, align 8, !tbaa !30
   br label %_ZN3gmx15analysismodules12_GLOBAL__N_17MsdData14MsdColumnProxy9push_backEd.exit158
 
@@ -3414,14 +3394,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %66, %76
   store float 0.000000e+00, ptr %7, align 4, !tbaa !209
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 4, !tbaa !209
-  %83 = getelementptr inbounds nuw double, ptr %.pre56.pre, i64 %.pre54.pre
-  %84 = getelementptr inbounds nuw float, ptr %.pre58.pre, i64 %.pre54.pre
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.pre56.pre, i64 %.pre54.pre
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %.pre58.pre, i64 %.pre54.pre
   call void @_Z18lsq_y_ax_b_xdoubleiPdPfS0_S0_S0_S0_(i32 noundef %60, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %85 = sext i32 %82 to i64
   %86 = load ptr, ptr %13, align 8, !tbaa !27
-  %87 = getelementptr inbounds nuw double, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %68, align 8, !tbaa !194
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %85
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %85
   call void @_Z18lsq_y_ax_b_xdoubleiPdPfS0_S0_S0_S0_(i32 noundef %60, ptr noundef nonnull %87, ptr noundef nonnull %89, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %90 = load float, ptr %7, align 4, !tbaa !209
   %91 = load float, ptr %8, align 4, !tbaa !209
@@ -3441,8 +3421,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %66, %76
   %97 = phi ptr [ %.pre57, %80 ], [ %.pre58.pre, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
   %98 = phi ptr [ %.pre55, %80 ], [ %.pre56.pre, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
   %99 = phi i64 [ %.pre, %80 ], [ %.pre54.pre, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
-  %100 = getelementptr inbounds nuw double, ptr %98, i64 %99
-  %101 = getelementptr inbounds nuw float, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %99
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.045.048, i64 168
   call void @_Z18lsq_y_ax_b_xdoubleiPdPfS0_S0_S0_S0_(i32 noundef %54, ptr noundef nonnull %100, ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %103 = load double, ptr %61, align 8, !tbaa !170
@@ -3473,9 +3453,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %66, %76
   call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %114)
   %115 = load i64, ptr %37, align 8, !tbaa !306
   %116 = load ptr, ptr %13, align 8, !tbaa !27
-  %117 = getelementptr inbounds nuw double, ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %115
   %118 = load ptr, ptr %9, align 8, !tbaa !194
-  %119 = getelementptr inbounds nuw float, ptr %118, i64 %115
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %115
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.043.050, i64 40
   invoke void @_Z18lsq_y_ax_b_xdoubleiPdPfS0_S0_S0_S0_(i32 noundef %54, ptr noundef nonnull %117, ptr noundef nonnull %119, ptr noundef nonnull %120, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %121 unwind label %135
@@ -3929,7 +3909,7 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
   %160 = phi ptr [ %186, %183 ], [ %157, %153 ]
   %.032115 = phi i64 [ %184, %183 ], [ 0, %153 ]
   %161 = trunc i64 %.032115 to i32
-  %162 = getelementptr inbounds nuw double, ptr %160, i64 %.032115
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %.032115
   %163 = load double, ptr %162, align 8, !tbaa !86
   %164 = fptrunc double %163 to float
   invoke void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %161, float noundef %164, float noundef 0.000000e+00)
@@ -3958,10 +3938,10 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
 
 168:                                              ; preds = %.lr.ph113
   %.val69 = load ptr, ptr %39, align 8, !tbaa !36
-  %169 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MsdGroupData", ptr %.val69, i64 %.031112
+  %169 = getelementptr inbounds nuw [184 x i8], ptr %.val69, i64 %.031112
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 144
   %171 = load ptr, ptr %170, align 8, !tbaa !194
-  %172 = getelementptr inbounds nuw float, ptr %171, i64 %.032115
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %.032115
   %173 = load float, ptr %172, align 4, !tbaa !209
   invoke void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0, float noundef %173, i1 noundef zeroext true)
           to label %174 unwind label %181
@@ -4220,7 +4200,7 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
 
 277:                                              ; preds = %.lr.ph123
   %.val72 = load ptr, ptr %261, align 8, !tbaa !19
-  %278 = getelementptr inbounds nuw %"struct.gmx::analysismodules::(anonymous namespace)::MoleculeData", ptr %.val72, i64 %.0121
+  %278 = getelementptr inbounds nuw [48 x i8], ptr %.val72, i64 %.0121
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 40
   %280 = load float, ptr %279, align 8, !tbaa !201
   invoke void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef 0, float noundef %280, i1 noundef zeroext true)
@@ -4581,8 +4561,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.010 = phi i64 [ %30, %.lr.ph ], [ 0, %4 ]
   %.059 = phi double [ %29, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.010
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.010
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.010
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.010
   %13 = load double, ptr %11, align 8, !tbaa !86
   %14 = load double, ptr %12, align 8, !tbaa !86
   %15 = fsub double %13, %14
@@ -5174,7 +5154,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %48, 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i: ; preds = %50, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %45, ptr %19, align 8, !tbaa !15, !noalias !336
   store ptr %49, ptr %24, align 8, !tbaa !191, !noalias !336
-  %51 = getelementptr inbounds nuw i32, ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %43
   store ptr %51, ptr %25, align 8, !tbaa !18, !noalias !336
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i
 
@@ -5439,7 +5419,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %3, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %26, ptr %4, align 8, !tbaa !191
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   store ptr %27, ptr %15, align 8, !tbaa !18
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -5496,7 +5476,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_117SingleDimDiffTypeESaIS
   store ptr %46, ptr %29, align 8, !tbaa !347
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %34
   store ptr %50, ptr %31, align 8, !tbaa !349
-  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %36
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %36
   store ptr %51, ptr %40, align 8, !tbaa !350
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_117SingleDimDiffTypeESaIS3_EE7reserveEm.exit
 
@@ -5566,7 +5546,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !15
   store ptr %29, ptr %4, align 8, !tbaa !191
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %11, align 8, !tbaa !18
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -5649,7 +5629,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_117SingleDimDiffTypeESaIS3_EE11_
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_117SingleDimDiffTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_117SingleDimDiffTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   store ptr %62, ptr %39, align 8, !tbaa !347
   store ptr %66, ptr %42, align 8, !tbaa !349
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %60
   store ptr %68, ptr %44, align 8, !tbaa !350
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_117SingleDimDiffTypeESaIS3_EE9push_backEOS3_.exit
 
@@ -5789,7 +5769,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %48, 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i: ; preds = %50, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %45, ptr %19, align 8, !tbaa !15, !noalias !353
   store ptr %49, ptr %24, align 8, !tbaa !191, !noalias !353
-  %51 = getelementptr inbounds nuw i32, ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %43
   store ptr %51, ptr %25, align 8, !tbaa !18, !noalias !353
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i
 
@@ -6049,7 +6029,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %3, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %26, ptr %4, align 8, !tbaa !191
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   store ptr %27, ptr %15, align 8, !tbaa !18
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -6106,7 +6086,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_114TwoDimDiffTypeESaIS3_E
   store ptr %46, ptr %29, align 8, !tbaa !359
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %34
   store ptr %50, ptr %31, align 8, !tbaa !361
-  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %36
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %36
   store ptr %51, ptr %40, align 8, !tbaa !362
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_114TwoDimDiffTypeESaIS3_EE7reserveEm.exit
 
@@ -6176,7 +6156,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !15
   store ptr %29, ptr %4, align 8, !tbaa !191
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %11, align 8, !tbaa !18
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -6259,7 +6239,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_114TwoDimDiffTypeESaIS3_EE11_S_r
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_114TwoDimDiffTypeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_114TwoDimDiffTypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   store ptr %62, ptr %39, align 8, !tbaa !359
   store ptr %66, ptr %42, align 8, !tbaa !361
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %60
   store ptr %68, ptr %44, align 8, !tbaa !362
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_114TwoDimDiffTypeESaIS3_EE9push_backEOS3_.exit
 
@@ -6640,8 +6620,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.011 = phi i64 [ %16, %.lr.ph ], [ 0, %4 ]
   %.0510 = phi double [ %15, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.011
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.011
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.011
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.011
   %.val = load double, ptr %11, align 8, !tbaa !86
   %.val6 = load double, ptr %12, align 8, !tbaa !86
   %13 = fsub double %.val, %.val6
@@ -6670,8 +6650,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.011 = phi i64 [ %18, %.lr.ph ], [ 0, %4 ]
   %.0510 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.011
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.011
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.011
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.011
   %13 = getelementptr i8, ptr %11, i64 8
   %.val = load double, ptr %13, align 8, !tbaa !86
   %14 = getelementptr i8, ptr %12, i64 8
@@ -6702,8 +6682,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.011 = phi i64 [ %18, %.lr.ph ], [ 0, %4 ]
   %.0510 = phi double [ %17, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.011
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.011
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.011
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.011
   %13 = getelementptr i8, ptr %11, i64 16
   %.val = load double, ptr %13, align 8, !tbaa !86
   %14 = getelementptr i8, ptr %12, i64 16
@@ -6734,8 +6714,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.013 = phi i64 [ %22, %.lr.ph ], [ 0, %4 ]
   %.0512 = phi double [ %21, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.013
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.013
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.013
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.013
   %13 = getelementptr i8, ptr %11, i64 8
   %.val = load double, ptr %13, align 8, !tbaa !86
   %14 = getelementptr i8, ptr %11, i64 16
@@ -6772,8 +6752,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.013 = phi i64 [ %20, %.lr.ph ], [ 0, %4 ]
   %.0512 = phi double [ %19, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.013
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.013
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.013
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.013
   %.val = load double, ptr %11, align 8, !tbaa !86
   %13 = getelementptr i8, ptr %11, i64 16
   %.val6 = load double, ptr %13, align 8, !tbaa !86
@@ -6808,8 +6788,8 @@ define internal noundef double @_ZN3gmx15analysismodules12_GLOBAL__N_123calcAver
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.013 = phi i64 [ %20, %.lr.ph ], [ 0, %4 ]
   %.0512 = phi double [ %19, %.lr.ph ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds %"class.gmx::BasicVector", ptr %0, i64 %.013
-  %12 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.013
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.013
+  %12 = getelementptr inbounds [24 x i8], ptr %2, i64 %.013
   %.val = load double, ptr %11, align 8, !tbaa !86
   %13 = getelementptr i8, ptr %11, i64 8
   %.val6 = load double, ptr %13, align 8, !tbaa !86
@@ -6917,9 +6897,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !15
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !191
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !18
   br label %41
 
@@ -6974,7 +6954,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
 
 _ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i10.thread.i.i.i: ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr null, i64 %18
+  %21 = getelementptr inbounds nuw [24 x i8], ptr null, i64 %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %21, ptr %22, align 8, !tbaa !240
   store ptr null, ptr %20, align 8, !tbaa !239
@@ -6990,7 +6970,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIdEEEE8allocateERS3_m.exit.i.i.i.i.
 .noexc8.i.i:                                      ; preds = %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIdEEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
   store ptr %25, ptr %7, align 8, !tbaa !238
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %27 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %25, i64 %18
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %27, ptr %28, align 8, !tbaa !240
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %25, i64 %24
@@ -7029,7 +7009,7 @@ _ZNSt15__new_allocatorIN3gmx15analysismodules12_GLOBAL__N_112MsdGroupDataEE9cons
   %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %5
   store ptr %36, ptr %35, align 8, !tbaa !238
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %43 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %36, i64 %18
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %18
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %43, ptr %44, align 8, !tbaa !240
   %scevgep.i.i.i.i.i14.i.i.i = getelementptr i8, ptr %36, i64 %.pre-phi.i13.i.i.i
@@ -7237,7 +7217,7 @@ _ZNSt6vectorISt4pairIiS_IN3gmx11BasicVectorIdEESaIS3_EEESaIS6_EE11_S_relocateEPS
 _ZNSt12_Vector_baseISt4pairIiSt6vectorIN3gmx11BasicVectorIdEESaIS4_EEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairIiS_IN3gmx11BasicVectorIdEESaIS3_EEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %58
   store ptr %20, ptr %0, align 8, !tbaa !235
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !236
-  %62 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !237
   ret void
 }
@@ -7270,7 +7250,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %11
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
   store ptr %15, ptr %0, align 8, !tbaa !194
   store ptr %15, ptr %13, align 8, !tbaa !242
-  %16 = getelementptr inbounds nuw float, ptr %15, i64 %9
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %9
   store ptr %16, ptr %12, align 8, !tbaa !243
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
 
@@ -7361,7 +7341,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %50, %.no
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %47, ptr %0, align 8, !tbaa !194
   store ptr %51, ptr %19, align 8, !tbaa !242
-  %53 = getelementptr inbounds nuw float, ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %45
   store ptr %53, ptr %12, align 8, !tbaa !243
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -7447,7 +7427,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i20: ; preds = %78, %.
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i22: ; preds = %80, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i20
   store ptr %75, ptr %0, align 8, !tbaa !194
   store ptr %79, ptr %19, align 8, !tbaa !242
-  %81 = getelementptr inbounds nuw float, ptr %75, i64 %73
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %73
   store ptr %81, ptr %12, align 8, !tbaa !243
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 

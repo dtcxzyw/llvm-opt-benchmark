@@ -66,14 +66,14 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %.0411449 = phi i32 [ %25, %.lr.ph.preheader ], [ %37, %35 ]
-  %27 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %.lr.ph
   %31 = sext i32 %.0411449 to i64
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !7
   %34 = fcmp oeq double %33, 0.000000e+00
   br i1 %34, label %.loopexit, label %35
@@ -95,14 +95,14 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .lr.ph453:                                        ; preds = %.lr.ph453.preheader, %48
   %indvars.iv480 = phi i64 [ 1, %.lr.ph453.preheader ], [ %indvars.iv.next481, %48 ]
   %.1412452 = phi i32 [ 1, %.lr.ph453.preheader ], [ %52, %48 ]
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv480
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv480
   %41 = load i32, ptr %40, align 4, !tbaa !3
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %.lr.ph453
   %44 = sext i32 %.1412452 to i64
-  %45 = getelementptr inbounds double, ptr %9, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %9, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !7
   %47 = fcmp oeq double %46, 0.000000e+00
   br i1 %47, label %.loopexit, label %48
@@ -133,14 +133,14 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.0417458 = phi i32 [ %158, %157 ], [ 1, %.preheader ]
   %56 = add nsw i32 %.0413459, %.0417458
   %57 = zext nneg i32 %.0417458 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %8, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = icmp slt i32 %59, 1
   br i1 %60, label %75, label %61
 
 61:                                               ; preds = %.lr.ph460
   %62 = sext i32 %56 to i64
-  %63 = getelementptr double, ptr %9, i64 %62
+  %63 = getelementptr [8 x i8], ptr %9, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load double, ptr %64, align 8, !tbaa !7
   %66 = fdiv double 1.000000e+00, %65
@@ -152,7 +152,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %69 = add nsw i32 %.0417458, -1
   store i32 %69, ptr %7, align 4, !tbaa !3
   %70 = sext i32 %.0413459 to i64
-  %71 = getelementptr inbounds double, ptr %9, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %9, i64 %70
   call void @dcopy_(ptr noundef nonnull %7, ptr noundef nonnull %71, ptr noundef nonnull @c__1, ptr noundef %4, ptr noundef nonnull @c__1) #5
   store i32 %69, ptr %7, align 4, !tbaa !3
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b11, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef nonnull %71, ptr noundef nonnull @c__1) #5
@@ -166,14 +166,14 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 75:                                               ; preds = %.lr.ph460
   %76 = add nsw i32 %56, %.0417458
   %77 = sext i32 %76 to i64
-  %78 = getelementptr double, ptr %9, i64 %77
+  %78 = getelementptr [8 x i8], ptr %9, i64 %77
   %79 = getelementptr i8, ptr %78, i64 -8
   %80 = load double, ptr %79, align 8, !tbaa !7
   %81 = fcmp oge double %80, 0.000000e+00
   %82 = fneg double %80
   %83 = select i1 %81, double %80, double %82
   %84 = sext i32 %56 to i64
-  %85 = getelementptr double, ptr %9, i64 %84
+  %85 = getelementptr [8 x i8], ptr %9, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -8
   %87 = load double, ptr %86, align 8, !tbaa !7
   %88 = fdiv double %87, %83
@@ -195,7 +195,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %99 = add nsw i32 %.0417458, -1
   store i32 %99, ptr %7, align 4, !tbaa !3
   %100 = sext i32 %.0413459 to i64
-  %101 = getelementptr inbounds double, ptr %9, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %9, i64 %100
   call void @dcopy_(ptr noundef nonnull %7, ptr noundef nonnull %101, ptr noundef nonnull @c__1, ptr noundef %4, ptr noundef nonnull @c__1) #5
   store i32 %99, ptr %7, align 4, !tbaa !3
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b11, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef nonnull %101, ptr noundef nonnull @c__1) #5
@@ -239,9 +239,9 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %119 = sdiv i32 %118, 2
   store i32 %117, ptr %7, align 4, !tbaa !3
   %120 = sext i32 %.0413459 to i64
-  %121 = getelementptr inbounds double, ptr %9, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %9, i64 %120
   %122 = sext i32 %119 to i64
-  %123 = getelementptr double, ptr %9, i64 %122
+  %123 = getelementptr [8 x i8], ptr %9, i64 %122
   %124 = getelementptr i8, ptr %123, i64 8
   call void @dswap_(ptr noundef nonnull %7, ptr noundef nonnull %121, ptr noundef nonnull @c__1, ptr noundef nonnull %124, ptr noundef nonnull @c__1) #5
   %125 = add i32 %119, %115
@@ -265,10 +265,10 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %131 = add i32 %.0409456, %130
   %132 = add i32 %.0413459, %130
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds double, ptr %9, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %9, i64 %133
   %135 = load double, ptr %134, align 8, !tbaa !7
   %136 = sext i32 %131 to i64
-  %137 = getelementptr inbounds double, ptr %9, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %9, i64 %136
   %138 = load double, ptr %137, align 8, !tbaa !7
   store double %138, ptr %134, align 8, !tbaa !7
   store double %135, ptr %137, align 8, !tbaa !7
@@ -278,11 +278,11 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 ._crit_edge:                                      ; preds = %.lr.ph457, %116
   %139 = sext i32 %56 to i64
-  %140 = getelementptr double, ptr %9, i64 %139
+  %140 = getelementptr [8 x i8], ptr %9, i64 %139
   %141 = getelementptr i8, ptr %140, i64 -8
   %142 = load double, ptr %141, align 8, !tbaa !7
   %143 = sext i32 %125 to i64
-  %144 = getelementptr inbounds double, ptr %9, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %9, i64 %143
   %145 = load double, ptr %144, align 8, !tbaa !7
   store double %145, ptr %141, align 8, !tbaa !7
   store double %142, ptr %144, align 8, !tbaa !7
@@ -291,12 +291,12 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 146:                                              ; preds = %._crit_edge
   %147 = add nsw i32 %56, %.0417458
   %148 = sext i32 %147 to i64
-  %149 = getelementptr double, ptr %9, i64 %148
+  %149 = getelementptr [8 x i8], ptr %9, i64 %148
   %150 = getelementptr i8, ptr %149, i64 -8
   %151 = load double, ptr %150, align 8, !tbaa !7
   %152 = add nsw i32 %115, %56
   %153 = sext i32 %152 to i64
-  %154 = getelementptr double, ptr %9, i64 %153
+  %154 = getelementptr [8 x i8], ptr %9, i64 %153
   %155 = getelementptr i8, ptr %154, i64 -8
   %156 = load double, ptr %155, align 8, !tbaa !7
   store double %156, ptr %150, align 8, !tbaa !7
@@ -324,14 +324,14 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.neg433 = add i32 %.1414470, -2
   %167 = add i32 %.neg433, %.neg
   %168 = zext nneg i32 %.1418468 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %8, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !3
   %171 = icmp slt i32 %170, 1
   br i1 %171, label %193, label %172
 
 172:                                              ; preds = %.lr.ph474
   %173 = sext i32 %.1414470 to i64
-  %174 = getelementptr inbounds double, ptr %9, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %9, i64 %173
   %175 = load double, ptr %174, align 8, !tbaa !7
   %176 = fdiv double 1.000000e+00, %175
   store double %176, ptr %174, align 8, !tbaa !7
@@ -349,7 +349,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %183 = sub i32 %.1414470, %.1418468
   %184 = add i32 %183, %181
   %185 = sext i32 %184 to i64
-  %186 = getelementptr double, ptr %9, i64 %185
+  %186 = getelementptr [8 x i8], ptr %9, i64 %185
   %187 = getelementptr i8, ptr %186, i64 8
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b11, ptr noundef %187, ptr noundef %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef %180, ptr noundef nonnull @c__1) #5
   %188 = load i32, ptr %1, align 4, !tbaa !3
@@ -363,7 +363,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 193:                                              ; preds = %.lr.ph474
   %194 = sext i32 %167 to i64
-  %195 = getelementptr double, ptr %9, i64 %194
+  %195 = getelementptr [8 x i8], ptr %9, i64 %194
   %196 = getelementptr i8, ptr %195, i64 8
   %197 = load double, ptr %196, align 8, !tbaa !7
   %198 = fcmp oge double %197, 0.000000e+00
@@ -372,7 +372,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %201 = load double, ptr %195, align 8, !tbaa !7
   %202 = fdiv double %201, %200
   %203 = sext i32 %.1414470 to i64
-  %204 = getelementptr inbounds double, ptr %9, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %9, i64 %203
   %205 = load double, ptr %204, align 8, !tbaa !7
   %206 = fdiv double %205, %200
   %207 = call double @llvm.fmuladd.f64(double %202, double %206, double -1.000000e+00)
@@ -398,7 +398,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %219 = add i32 %.1414470, 1
   %220 = add i32 %219, %218
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds double, ptr %9, i64 %221
+  %222 = getelementptr inbounds [8 x i8], ptr %9, i64 %221
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b11, ptr noundef nonnull %222, ptr noundef %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef %216, ptr noundef nonnull @c__1) #5
   %223 = load i32, ptr %1, align 4, !tbaa !3
   %224 = sub nsw i32 %223, %.1418468
@@ -412,7 +412,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store i32 %229, ptr %7, align 4, !tbaa !3
   %230 = add i32 %.neg, %.1414470
   %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds double, ptr %9, i64 %231
+  %232 = getelementptr inbounds [8 x i8], ptr %9, i64 %231
   %233 = call double @ddot_(ptr noundef nonnull %7, ptr noundef %216, ptr noundef nonnull @c__1, ptr noundef nonnull %232, ptr noundef nonnull @c__1) #5
   %234 = load double, ptr %196, align 8, !tbaa !7
   %235 = fsub double %234, %233
@@ -426,7 +426,7 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store i32 %239, ptr %7, align 4, !tbaa !3
   %240 = add i32 %219, %239
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds double, ptr %9, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %9, i64 %241
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @c_b11, ptr noundef nonnull %242, ptr noundef %4, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b13, ptr noundef nonnull %232, ptr noundef nonnull @c__1) #5
   %243 = load i32, ptr %1, align 4, !tbaa !3
   %244 = sub nsw i32 %243, %.1418468
@@ -470,10 +470,10 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %263 = sub i32 %.1414470, %.1418468
   %264 = add i32 %263, %253
   %265 = sext i32 %264 to i64
-  %266 = getelementptr double, ptr %9, i64 %265
+  %266 = getelementptr [8 x i8], ptr %9, i64 %265
   %267 = getelementptr i8, ptr %266, i64 8
   %268 = sext i32 %260 to i64
-  %269 = getelementptr double, ptr %9, i64 %268
+  %269 = getelementptr [8 x i8], ptr %9, i64 %268
   %270 = getelementptr i8, ptr %269, i64 16
   call void @dswap_(ptr noundef nonnull %7, ptr noundef %267, ptr noundef nonnull @c__1, ptr noundef %270, ptr noundef nonnull @c__1) #5
   br label %271
@@ -502,10 +502,10 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %281 = trunc nsw i64 %indvars.iv.next487 to i32
   %282 = add i32 %273, %281
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds double, ptr %9, i64 %283
+  %284 = getelementptr inbounds [8 x i8], ptr %9, i64 %283
   %285 = load double, ptr %284, align 8, !tbaa !7
   %286 = sext i32 %280 to i64
-  %287 = getelementptr inbounds double, ptr %9, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %9, i64 %286
   %288 = load double, ptr %287, align 8, !tbaa !7
   store double %288, ptr %284, align 8, !tbaa !7
   store double %285, ptr %287, align 8, !tbaa !7
@@ -514,10 +514,10 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 ._crit_edge466:                                   ; preds = %277, %271
   %289 = sext i32 %.1414470 to i64
-  %290 = getelementptr inbounds double, ptr %9, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %9, i64 %289
   %291 = load double, ptr %290, align 8, !tbaa !7
   %292 = sext i32 %260 to i64
-  %293 = getelementptr double, ptr %9, i64 %292
+  %293 = getelementptr [8 x i8], ptr %9, i64 %292
   %294 = getelementptr i8, ptr %293, i64 8
   %295 = load double, ptr %294, align 8, !tbaa !7
   store double %295, ptr %290, align 8, !tbaa !7
@@ -529,12 +529,12 @@ define void @dsptri_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %298 = sub nsw i32 %.1414470, %297
   %299 = add nsw i32 %298, %.1418468
   %300 = sext i32 %299 to i64
-  %301 = getelementptr double, ptr %9, i64 %300
+  %301 = getelementptr [8 x i8], ptr %9, i64 %300
   %302 = getelementptr i8, ptr %301, i64 -8
   %303 = load double, ptr %302, align 8, !tbaa !7
   %304 = add nsw i32 %298, %253
   %305 = sext i32 %304 to i64
-  %306 = getelementptr double, ptr %9, i64 %305
+  %306 = getelementptr [8 x i8], ptr %9, i64 %305
   %307 = getelementptr i8, ptr %306, i64 -8
   %308 = load double, ptr %307, align 8, !tbaa !7
   store double %308, ptr %302, align 8, !tbaa !7

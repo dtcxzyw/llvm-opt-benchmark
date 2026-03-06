@@ -24,7 +24,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoN9Imath_3_24halfE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, i16 %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !3
   %4 = zext i16 %1 to i64
-  %5 = getelementptr inbounds nuw %union.imath_half_uif, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %4
   %6 = load float, ptr %5, align 4, !tbaa !8
   %7 = fpext float %6 to double
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %7)

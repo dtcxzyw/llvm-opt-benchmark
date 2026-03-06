@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::ArrayRef.55" = type { %"struct.gmx::ArrayRefIter.56", %"struct.gmx::ArrayRefIter.56" }
 %"struct.gmx::ArrayRefIter.56" = type { ptr }
-%"class.gmx::PointState" = type { double, double, double, double, double, double, double, i64, double, double, double, double }
 %"class.std::unique_ptr.65" = type { %"struct.std::__uniq_ptr_data.66" }
 %"struct.std::__uniq_ptr_data.66" = type { %"class.std::__uniq_ptr_impl.67" }
 %"class.std::__uniq_ptr_impl.67" = type { %"class.std::tuple.68" }
@@ -33,16 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.69" = type { %"struct.std::_Head_base.72" }
 %"struct.std::_Head_base.72" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"struct.gmx::GridPoint" = type { [4 x double], [4 x i32], %"class.std::vector.27" }
-%"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
-%"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::CorrelationTensor" = type { %"class.std::vector.143" }
-%"class.std::vector.143" = type { %"struct.std::_Vector_base.144" }
-%"struct.std::_Vector_base.144" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockData, std::allocator<gmx::CorrelationBlockData>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockData, std::allocator<gmx::CorrelationBlockData>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockData, std::allocator<gmx::CorrelationBlockData>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockData, std::allocator<gmx::CorrelationBlockData>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.gmx::CorrelationGridHistory" = type { i32, i32, i32, %"class.std::vector.105" }
 %"class.std::vector.105" = type { %"struct.std::_Vector_base.106" }
 %"struct.std::_Vector_base.106" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" }
@@ -50,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRef.136" = type { %"struct.gmx::ArrayRefIter.137", %"struct.gmx::ArrayRefIter.137" }
 %"struct.gmx::ArrayRefIter.137" = type { ptr }
-%"class.gmx::GridAxis" = type <{ double, double, double, double, i32, i32, i8, [7 x i8] }>
 
 $_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
@@ -557,7 +545,7 @@ _ZNK3gmx10BiasParams17isSampleCoordStepEl.exit.thread: ; preds = %_ZNK3gmx8BiasG
   %189 = load i32, ptr %188, align 4, !tbaa !107
   %190 = sext i32 %189 to i64
   %191 = load ptr, ptr %187, align 8, !tbaa !108
-  %192 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %191, i64 %190
+  %192 = getelementptr inbounds nuw [96 x i8], ptr %191, i64 %190
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load double, ptr %193, align 8, !tbaa !109
   %195 = fcmp ogt double %194, 0.000000e+00
@@ -1179,7 +1167,7 @@ define void @_ZN3gmx4Bias26updateForceCorrelationGridENS_8ArrayRefIKdEES3_d(ptr 
   %15 = load i32, ptr %14, align 8, !tbaa !144
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %12, align 8, !tbaa !145
-  %18 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %21 = load ptr, ptr %20, align 8, !tbaa !102
@@ -1208,9 +1196,9 @@ define void @_ZN3gmx4Bias26updateForceCorrelationGridENS_8ArrayRefIKdEES3_d(ptr 
 38:                                               ; preds = %.lr.ph, %38
   %39 = phi ptr [ %30, %.lr.ph ], [ %61, %38 ]
   %.019 = phi i64 [ 0, %.lr.ph ], [ %59, %38 ]
-  %40 = getelementptr inbounds double, ptr %1, i64 %.019
+  %40 = getelementptr inbounds [8 x i8], ptr %1, i64 %.019
   %41 = load double, ptr %40, align 8, !tbaa !99
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %.019
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.019
   %43 = load i32, ptr %42, align 4, !tbaa !87
   %44 = load ptr, ptr %0, align 8, !tbaa !95
   %45 = load ptr, ptr %31, align 8, !tbaa !96
@@ -1227,7 +1215,7 @@ define void @_ZN3gmx4Bias26updateForceCorrelationGridENS_8ArrayRefIKdEES3_d(ptr 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = sext i32 %43 to i64
   %54 = load ptr, ptr %52, align 8, !tbaa !148
-  %55 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %53
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !151
   %58 = icmp eq i32 %57, 1
@@ -1862,7 +1850,7 @@ _ZNSt12_Vector_baseIN3gmx9DimParamsESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; p
 51:                                               ; preds = %43
   %52 = sext i32 %1 to i64
   %53 = load ptr, ptr %8, align 8, !tbaa !147
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %52
   %55 = load i32, ptr %54, align 4, !tbaa !87
   br label %56
 
@@ -1933,7 +1921,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %77
 
 .noexc40:                                         ; preds = %92
   store ptr %94, ptr %82, align 8, !tbaa !102
-  %95 = getelementptr inbounds nuw double, ptr %94, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %89
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store ptr %95, ptr %96, align 8, !tbaa !194
   store double 0.000000e+00, ptr %94, align 8, !tbaa !99
@@ -1970,7 +1958,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i46: ; preds = %_ZNSt6vectorIdS
 
 .noexc48:                                         ; preds = %106
   store ptr %108, ptr %105, align 8, !tbaa !102
-  %109 = getelementptr inbounds nuw double, ptr %108, i64 %89
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %89
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %109, ptr %110, align 8, !tbaa !194
   store double 0.000000e+00, ptr %108, align 8, !tbaa !99
@@ -2022,7 +2010,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %130, ptr %78, align 8, !tbaa !147
   store ptr %130, ptr %131, align 8, !tbaa !146
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %124
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %124
   store ptr %132, ptr %128, align 8, !tbaa !196
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -2784,7 +2772,7 @@ define void @_ZNK3gmx4Bias24printInitializationToLogEP8_IO_FILE(ptr noundef nonn
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %7 ]
   %27 = phi ptr [ %32, %.lr.ph ], [ %18, %7 ]
-  %28 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 8, !tbaa !255
   %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i32 noundef %30) #21

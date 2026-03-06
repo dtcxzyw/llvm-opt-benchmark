@@ -133,14 +133,14 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   br i1 %63, label %68, label %73
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i64, ptr @gemm_small_kernel_b0, i64 %66
+  %69 = getelementptr inbounds [8 x i8], ptr @gemm_small_kernel_b0, i64 %66
   %70 = load i64, ptr %69, align 8, !tbaa !23
   %71 = inttoptr i64 %70 to ptr
   %72 = call i32 %71(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink154, i64 noundef %30, double noundef %67, ptr noundef %.sink152, i64 noundef %32, ptr noundef %12, i64 noundef %34) #3
   br label %113
 
 73:                                               ; preds = %61
-  %74 = getelementptr inbounds i64, ptr @gemm_small_kernel, i64 %66
+  %74 = getelementptr inbounds [8 x i8], ptr @gemm_small_kernel, i64 %66
   %75 = load i64, ptr %74, align 8, !tbaa !23
   %76 = inttoptr i64 %75 to ptr
   %77 = call i32 %76(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink154, i64 noundef %30, double noundef %67, ptr noundef %.sink152, i64 noundef %32, double noundef %62, ptr noundef %12, i64 noundef %34) #3
@@ -196,7 +196,7 @@ get_gemm_optimal_nthreads.exit:                   ; preds = %78
 108:                                              ; preds = %104, %101
   %.sink162 = phi i32 [ %107, %104 ], [ %103, %101 ]
   %109 = sext i32 %.sink162 to i64
-  %110 = getelementptr inbounds ptr, ptr @gemm, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr @gemm, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !26
   %112 = call i32 %111(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %79, ptr noundef %82, i64 noundef 0) #3
   call void @blas_memory_free(ptr noundef %79) #3

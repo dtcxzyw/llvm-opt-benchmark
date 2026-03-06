@@ -154,7 +154,7 @@ define dso_local void @_Z15RunBrowsePythonP5StatePKcS2_iPPc(ptr noundef readnone
   %49 = phi ptr [ %.pre21, %.lr.ph ], [ %76, %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit ]
   %50 = phi ptr [ %.pre, %.lr.ph ], [ %77, %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit ]
-  %51 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %.not.i = icmp eq ptr %50, %49
   br i1 %.not.i, label %55, label %52
 
@@ -216,7 +216,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %72, 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %68, ptr %9, align 8, !tbaa !16
   store ptr %73, ptr %36, align 8, !tbaa !11
-  %75 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %75, ptr %37, align 8, !tbaa !15
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
@@ -404,7 +404,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %27, 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !16
   store ptr %28, ptr %3, align 8, !tbaa !11
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !15
   br label %_ZNSt6vectorIPKcSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
@@ -475,7 +475,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i: ; preds = %_ZNKSt
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !16
   store ptr %28, ptr %3, align 8, !tbaa !11
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !15
   br label %31
 

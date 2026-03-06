@@ -172,7 +172,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17h13f4ef691
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = add i64 %30, -1
   %32 = and i64 %31, %16
-  %33 = getelementptr inbounds { i64, [16 x i64] }, ptr %28, i64 %32
+  %33 = getelementptr inbounds [136 x i8], ptr %28, i64 %32
   %34 = load volatile { [17 x i64] }, ptr %33, align 8
   %.fca.0.0.extract = extractvalue { [17 x i64] } %34, 0, 0
   %.fca.0.1.extract = extractvalue { [17 x i64] } %34, 0, 1
@@ -272,7 +272,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17h13f4ef691
   %53 = load i64, ptr %52, align 8, !noundef !5
   %54 = add i64 %53, -1
   %55 = and i64 %54, %20
-  %56 = getelementptr inbounds { i64, [16 x i64] }, ptr %51, i64 %55
+  %56 = getelementptr inbounds [136 x i8], ptr %51, i64 %55
   %57 = load volatile { [17 x i64] }, ptr %56, align 8
   %.fca.0.0.extract17 = extractvalue { [17 x i64] } %57, 0, 0
   %.fca.0.1.extract18 = extractvalue { [17 x i64] } %57, 0, 1
@@ -392,7 +392,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$4push17h79d9c3db
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   %17 = add i64 %.sroa.5.0, -1
   %18 = and i64 %17, %5
-  %19 = getelementptr inbounds { i64, [16 x i64] }, ptr %.sroa.0.0, i64 %18
+  %19 = getelementptr inbounds [136 x i8], ptr %.sroa.0.0, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull align 8 %.sroa.03, i64 136, i1 true)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03)
   fence release
@@ -469,9 +469,9 @@ define internal fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize
 26:                                               ; preds = %.lr.ph, %26
   %.018 = phi i64 [ %11, %.lr.ph ], [ %31, %26 ]
   %27 = and i64 %.018, %18
-  %28 = getelementptr inbounds { i64, [16 x i64] }, ptr %13, i64 %27
+  %28 = getelementptr inbounds [136 x i8], ptr %13, i64 %27
   %29 = and i64 %.018, %19
-  %30 = getelementptr inbounds { i64, [16 x i64] }, ptr %17, i64 %29
+  %30 = getelementptr inbounds [136 x i8], ptr %17, i64 %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(136) %28, i64 136, i1 false)
   %31 = add i64 %.018, 1
   %.not = icmp eq i64 %31, %9
@@ -891,7 +891,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %70 = load i64, ptr %69, align 8, !noundef !5
   %71 = add i64 %70, -1
   %72 = and i64 %71, %14
-  %73 = getelementptr inbounds { i64, [16 x i64] }, ptr %68, i64 %72
+  %73 = getelementptr inbounds [136 x i8], ptr %68, i64 %72
   %74 = load volatile { [17 x i64] }, ptr %73, align 8
   %.fca.0.0.extract = extractvalue { [17 x i64] } %74, 0, 0
   %.fca.0.1.extract = extractvalue { [17 x i64] } %74, 0, 1
@@ -946,7 +946,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %89 = load i64, ptr %69, align 8, !noundef !5
   %90 = add i64 %89, -1
   %91 = and i64 %90, %87
-  %92 = getelementptr inbounds { i64, [16 x i64] }, ptr %88, i64 %91
+  %92 = getelementptr inbounds [136 x i8], ptr %88, i64 %91
   %93 = load volatile { [17 x i64] }, ptr %92, align 8
   %.fca.0.0.extract86 = extractvalue { [17 x i64] } %93, 0, 0
   store i64 %.fca.0.0.extract86, ptr %.sroa.0103, align 8
@@ -984,7 +984,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   store i64 %.fca.0.16.extract102, ptr %.sroa.17116, align 8
   %94 = add i64 %.sroa.082.0427, %64
   %95 = and i64 %94, %81
-  %96 = getelementptr inbounds { i64, [16 x i64] }, ptr %59, i64 %95
+  %96 = getelementptr inbounds [136 x i8], ptr %59, i64 %95
   %.sroa.0103.0..sroa.0103.0..sroa.0103.0..sroa.0103.0..sroa.0103.0.copyload = load volatile i64, ptr %.sroa.0103, align 8
   store volatile i64 %.sroa.0103.0..sroa.0103.0..sroa.0103.0..sroa.0103.0..sroa.0103.0.copyload, ptr %96, align 8
   %.sroa.2104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -1062,7 +1062,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %109 = load i64, ptr %69, align 8, !noundef !5
   %110 = add i64 %109, -1
   %111 = and i64 %110, %107
-  %112 = getelementptr inbounds { i64, [16 x i64] }, ptr %108, i64 %111
+  %112 = getelementptr inbounds [136 x i8], ptr %108, i64 %111
   %113 = load volatile { [17 x i64] }, ptr %112, align 8
   %.fca.0.0.extract124 = extractvalue { [17 x i64] } %113, 0, 0
   store i64 %.fca.0.0.extract124, ptr %.sroa.0141, align 8
@@ -1101,7 +1101,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %114 = xor i64 %.sroa.0119.0428, -1
   %115 = add i64 %83, %114
   %116 = and i64 %115, %84
-  %117 = getelementptr inbounds { i64, [16 x i64] }, ptr %59, i64 %116
+  %117 = getelementptr inbounds [136 x i8], ptr %59, i64 %116
   %.sroa.0141.0..sroa.0141.0..sroa.0141.0..sroa.0141.0..sroa.0141.0.copyload = load volatile i64, ptr %.sroa.0141, align 8
   store volatile i64 %.sroa.0141.0..sroa.0141.0..sroa.0141.0..sroa.0141.0..sroa.0141.0.copyload, ptr %117, align 8
   %.sroa.2142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -1226,7 +1226,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %133 = load i64, ptr %69, align 8, !noundef !5
   %134 = add i64 %133, -1
   %135 = and i64 %134, %.0377431
-  %136 = getelementptr inbounds { i64, [16 x i64] }, ptr %132, i64 %135
+  %136 = getelementptr inbounds [136 x i8], ptr %132, i64 %135
   %137 = load volatile { [17 x i64] }, ptr %136, align 8
   %.fca.0.0.extract197 = extractvalue { [17 x i64] } %137, 0, 0
   %.fca.0.1.extract198 = extractvalue { [17 x i64] } %137, 0, 1
@@ -1291,7 +1291,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   store i64 %.sroa.21.1433, ptr %.sroa.18195, align 8
   store i64 %.sroa.22.1432, ptr %.sroa.19196, align 8
   %144 = and i64 %.1449, %122
-  %145 = getelementptr inbounds { i64, [16 x i64] }, ptr %59, i64 %144
+  %145 = getelementptr inbounds [136 x i8], ptr %59, i64 %144
   %.sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0.copyload = load volatile i64, ptr %.sroa.0180, align 8
   store volatile i64 %.sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0..sroa.0180.0.copyload, ptr %145, align 8
   %.sroa.4181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -1380,7 +1380,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %.neg387 = xor i64 %.sroa.0242.0529, -1
   %154 = add i64 %.1.lcssa, %.neg387
   %155 = and i64 %153, %150
-  %156 = getelementptr inbounds { i64, [16 x i64] }, ptr %59, i64 %155
+  %156 = getelementptr inbounds [136 x i8], ptr %59, i64 %155
   %157 = load volatile { [17 x i64] }, ptr %156, align 8
   %.fca.0.0.extract281 = extractvalue { [17 x i64] } %157, 0, 0
   store i64 %.fca.0.0.extract281, ptr %.sroa.0298, align 8
@@ -1417,7 +1417,7 @@ _ZN15crossbeam_epoch7default11with_handle17hee095b77085103f9E.exit: ; preds = %"
   %.fca.0.16.extract297 = extractvalue { [17 x i64] } %157, 0, 16
   store i64 %.fca.0.16.extract297, ptr %.sroa.17314, align 8
   %158 = and i64 %154, %150
-  %159 = getelementptr inbounds { i64, [16 x i64] }, ptr %59, i64 %158
+  %159 = getelementptr inbounds [136 x i8], ptr %59, i64 %158
   %160 = load volatile { [17 x i64] }, ptr %159, align 8
   %.fca.0.0.extract247 = extractvalue { [17 x i64] } %160, 0, 0
   store i64 %.fca.0.0.extract247, ptr %.sroa.0264, align 8
@@ -2302,7 +2302,7 @@ define hidden void @_ZN3std6thread6scoped5scope17hb9fb8a4c153254bbE(ptr noalias 
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !102
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !102
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.sroa.4.0.copyload) ]
-  %26 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { ptr, { { { ptr, i64 } } }, i8, {}, [7 x i8] } }, ptr %.sroa.04.sroa.4.0.copyload, i64 %.sroa.04.sroa.5.0.copyload
+  %26 = getelementptr inbounds [56 x i8], ptr %.sroa.04.sroa.4.0.copyload, i64 %.sroa.04.sroa.5.0.copyload
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.sroa.6.0.copyload) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.sroa.7.0.copyload) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.sroa.8.0.copyload) ]
@@ -3023,10 +3023,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !226, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !227, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee2fe46fed6b15cE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee2fe46fed6b15cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee2fe46fed6b15cE.31", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ee2fe46fed6b15cE.31", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

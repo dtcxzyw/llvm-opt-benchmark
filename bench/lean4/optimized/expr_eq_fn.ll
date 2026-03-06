@@ -738,7 +738,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4lean10expr_eq_fnILb0EE11check
   %47 = load i64, ptr %46, align 8, !tbaa !22
   %48 = urem i64 %45, %47
   %49 = load ptr, ptr %20, align 8, !tbaa !21
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !56
   %.not.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %52
@@ -994,7 +994,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIP11lean_object
 
 34:                                               ; preds = %.thread
   %35 = load ptr, ptr %0, align 8, !tbaa !21
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -1112,7 +1112,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !57
   %33 = load ptr, ptr %0, align 8, !tbaa !21
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !56
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -1138,7 +1138,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !57
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !56
   br label %49
 
@@ -1212,7 +1212,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !57
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1227,7 +1227,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !56
   br label %28
 
@@ -1765,7 +1765,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4lean10expr_eq_fnILb1EE11check
   %47 = load i64, ptr %46, align 8, !tbaa !30
   %48 = urem i64 %45, %47
   %49 = load ptr, ptr %20, align 8, !tbaa !29
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !56
   %.not.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %52
@@ -1943,7 +1943,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIP11lean_object
 
 34:                                               ; preds = %.thread
   %35 = load ptr, ptr %0, align 8, !tbaa !29
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -2061,7 +2061,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !57
   %33 = load ptr, ptr %0, align 8, !tbaa !29
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !56
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2087,7 +2087,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !57
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !56
   br label %49
 
@@ -2149,7 +2149,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !57
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2164,7 +2164,7 @@ _ZNSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !56
   br label %28
 

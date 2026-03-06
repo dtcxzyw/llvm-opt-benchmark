@@ -334,7 +334,7 @@ define noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_u
 39:                                               ; preds = %_ZNSolsEPFRSoS_E.exit138.thread.i, %.lr.ph.i
   %40 = phi ptr [ %30, %.lr.ph.i ], [ %342, %_ZNSolsEPFRSoS_E.exit138.thread.i ]
   %41 = phi i64 [ 0, %.lr.ph.i ], [ %340, %_ZNSolsEPFRSoS_E.exit138.thread.i ]
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %41
   %43 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.31) #22
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %48, label %45
@@ -553,7 +553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95,
 120:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i, %.lr.ph330.i
   %121 = phi ptr [ %112, %.lr.ph330.i ], [ %149, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i ]
   %122 = phi i64 [ %110, %.lr.ph330.i ], [ %147, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i ]
-  %123 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   %124 = load ptr, ptr %118, align 8, !tbaa !52
   %125 = load ptr, ptr %119, align 8, !tbaa !55
   %.not.i.i = icmp eq ptr %124, %125
@@ -1109,7 +1109,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %334 = load i32, ptr %8, align 4, !tbaa !51
   %335 = zext i32 %334 to i64
   %336 = load ptr, ptr %6, align 8, !tbaa !53
-  %337 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %336, i64 %335
+  %337 = getelementptr inbounds nuw [32 x i8], ptr %336, i64 %335
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %337)
           to label %_ZNSolsEPFRSoS_E.exit138.thread.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -2750,7 +2750,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !53
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !52
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !55
   ret void
 

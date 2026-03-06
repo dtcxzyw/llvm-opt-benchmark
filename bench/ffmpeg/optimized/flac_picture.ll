@@ -287,7 +287,7 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   %148 = load i32, ptr %147, align 4, !tbaa !39
   %149 = add i32 %148, -1
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %146, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !40
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !42
@@ -299,7 +299,7 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
   store i32 %67, ptr %157, align 4, !tbaa !52
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 80
   %159 = zext nneg i32 %.091 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr @ff_id3v2_picture_types, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @ff_id3v2_picture_types, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !4
   %162 = call i32 @av_dict_set(ptr noundef nonnull %158, ptr noundef nonnull @.str.6, ptr noundef %161, i32 noundef 0) #7
   br i1 %.not107, label %166, label %163

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.todo_list = type { %struct.strbuf, ptr, i32, i32, i32, i32, i32 }
-%struct.todo_item = type { i32, ptr, i32, i32, i64, i64 }
 
 @.str = private unnamed_addr constant [1258 x i8] c"\0ACommands:\0Ap, pick <commit> = use commit\0Ar, reword <commit> = use commit, but edit the commit message\0Ae, edit <commit> = use commit, but stop for amending\0As, squash <commit> = use commit, but meld into previous commit\0Af, fixup [-C | -c] <commit> = like \22squash\22 but keep only the previous\0A                   commit's log message, unless -C is used, in which case\0A                   keep only this commit's message; -c is same as -C but\0A                   opens the editor\0Ax, exec <command> = run command (the rest of the line) using shell\0Ab, break = stop here (continue rebase later with 'git rebase --continue')\0Ad, drop <commit> = remove commit\0Al, label <label> = label current HEAD with a name\0At, reset <label> = reset HEAD to a label\0Am, merge [-C <commit> | -c <commit>] <label> [# <oneline>]\0A        create a merge commit using the original merge commit's\0A        message (or the oneline, if no original merge commit was\0A        specified); use -c <commit> to reword the commit message\0Au, update-ref <ref> = track a placeholder for the <ref> to be updated\0A                      to this position in the new commits. The <ref> is\0A                      updated at the end of the rebase\0A\0AThese lines can be re-ordered; they are executed from top to bottom.\0A\00", align 1
 @comment_line_str = external local_unnamed_addr global ptr, align 8
@@ -436,7 +435,7 @@ define dso_local range(i32 0, 2) i32 @todo_list_check(ptr noundef %0, ptr nounde
   %.sroa.2977.189 = phi ptr [ null, %.lr.ph ], [ %.sroa.2977.2, %37 ]
   %.sroa.16.188 = phi i32 [ 0, %.lr.ph ], [ %.sroa.16.2, %37 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !26
-  %13 = getelementptr inbounds nuw %struct.todo_item, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %.not29 = icmp eq ptr %15, null
@@ -469,7 +468,7 @@ define dso_local range(i32 0, 2) i32 @todo_list_check(ptr noundef %0, ptr nounde
   %.sroa.16.5 = phi i32 [ %.sroa.16.188, %16 ], [ %20, %._crit_edge3.i.i.loopexit ]
   %.sroa.2977.5 = phi ptr [ %.sroa.2977.189, %16 ], [ %23, %._crit_edge3.i.i.loopexit ]
   %29 = zext nneg i32 %18 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.5, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.2977.5, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !16
   %.not34.i.i = icmp eq ptr %31, null
   br i1 %.not34.i.i, label %32, label %commit_seen_at.exit
@@ -515,7 +514,7 @@ commit_seen_at.exit:                              ; preds = %._crit_edge3.i.i, %
   %.sroa.16.393 = phi i32 [ %.sroa.16.1.lcssa, %.lr.ph97 ], [ %.sroa.16.4, %100 ]
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, -1
   %47 = load ptr, ptr %44, align 8, !tbaa !26
-  %48 = getelementptr inbounds nuw %struct.todo_item, ptr %47, i64 %indvars.iv.next112
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %indvars.iv.next112
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %.not27 = icmp eq ptr %50, null
@@ -548,7 +547,7 @@ commit_seen_at.exit:                              ; preds = %._crit_edge3.i.i, %
   %.sroa.16.6 = phi i32 [ %.sroa.16.393, %51 ], [ %55, %._crit_edge3.i.i40.loopexit ]
   %.sroa.2977.6 = phi ptr [ %.sroa.2977.394, %51 ], [ %58, %._crit_edge3.i.i40.loopexit ]
   %64 = zext nneg i32 %53 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.6, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.2977.6, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !16
   %.not34.i.i41 = icmp eq ptr %66, null
   br i1 %.not34.i.i41, label %67, label %commit_seen_at.exit42
@@ -600,7 +599,7 @@ commit_seen_at.exit42:                            ; preds = %._crit_edge3.i.i40,
   %.sroa.16.7 = phi i32 [ %.sroa.16.6, %73 ], [ %83, %._crit_edge3.i.i51.loopexit ]
   %.sroa.2977.7 = phi ptr [ %.sroa.2977.6, %73 ], [ %86, %._crit_edge3.i.i51.loopexit ]
   %92 = zext nneg i32 %81 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.7, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.2977.7, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !16
   %.not34.i.i52 = icmp eq ptr %94, null
   br i1 %.not34.i.i52, label %95, label %commit_seen_at.exit53
@@ -688,7 +687,7 @@ _.exit59:                                         ; preds = %_.exit56, %121
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %125 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.3.lcssa132, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.2977.3.lcssa132, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8, !tbaa !16
   call void @free(ptr noundef %126) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

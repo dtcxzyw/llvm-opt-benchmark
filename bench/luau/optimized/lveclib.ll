@@ -502,7 +502,7 @@ define internal noundef i32 @_ZL12vector_indexP9lua_State(ptr noundef %0) #0 {
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw float, ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %14
   %16 = load float, ptr %15, align 4, !tbaa !14
   %17 = fpext float %16 to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %17)

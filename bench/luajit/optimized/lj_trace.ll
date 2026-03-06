@@ -3,12 +3,6 @@ source_filename = "bench/luajit/original/lj_trace.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
-%struct.SnapShot = type { i32, i16, i16, i8, i8, i8, i8 }
-%struct.HotPenalty = type { %struct.MRef, i16, i16 }
-%struct.MRef = type { i64 }
-%union.TValue = type { i64 }
 %struct.ExitDataCP = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"flush\00", align 1
@@ -83,7 +77,7 @@ define hidden ptr @lj_trace_alloc(ptr noundef %0, ptr noundef readonly captures(
   %27 = load i32, ptr %5, align 8, !tbaa !32
   %28 = zext i32 %27 to i64
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %union.IRIns, ptr %23, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %23, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %30, ptr %31, align 8, !tbaa !38
   %32 = load i32, ptr %3, align 4, !tbaa !31
@@ -99,7 +93,7 @@ define hidden ptr @lj_trace_alloc(ptr noundef %0, ptr noundef readonly captures(
   store i32 %37, ptr %38, align 4, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !38
-  %41 = getelementptr inbounds nuw %union.IRIns, ptr %40, i64 %28
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 8 %41, i64 %9, i1 false)
   ret ptr %22
 }
@@ -131,7 +125,7 @@ define hidden void @lj_trace_free(ptr noundef captures(none) %0, ptr noundef %1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = zext i16 %4 to i64
-  %15 = getelementptr inbounds nuw %struct.GCRef, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   store i64 0, ptr %15, align 8, !tbaa !41
   br label %16
 
@@ -198,7 +192,7 @@ define hidden void @lj_trace_reenableproto(ptr noundef captures(none) %0) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %16 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !56
   %trunc = trunc i32 %17 to i8
   switch i8 %trunc, label %20 [
@@ -236,7 +230,7 @@ define hidden void @lj_trace_flush(ptr noundef readonly captures(none) %0, i32 n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.GCRef, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !41
   %13 = inttoptr i64 %12 to ptr
   %.not9 = icmp eq i64 %12, 0
@@ -286,7 +280,7 @@ define internal fastcc void @trace_flushroot(ptr noundef readonly captures(none)
   %16 = load i32, ptr %6, align 8, !tbaa !62
   %17 = lshr i32 %16, 16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i32, ptr %11, i64 %18
+  %19 = getelementptr [4 x i8], ptr %11, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -131072
   store i8 77, ptr %20, align 1, !tbaa !4
   br label %trace_unpatch.exit
@@ -298,7 +292,7 @@ define internal fastcc void @trace_flushroot(ptr noundef readonly captures(none)
 22:                                               ; preds = %13
   %23 = lshr i32 %14, 16
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr i32, ptr %11, i64 %24
+  %25 = getelementptr [4 x i8], ptr %11, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -131064
   %27 = load i32, ptr %26, align 4, !tbaa !56
   %28 = and i32 %27, 255
@@ -335,7 +329,7 @@ trace_unpatch.exit:                               ; preds = %2, %13, %15, %21, %
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %43 = load ptr, ptr %42, align 8, !tbaa !40
   %44 = zext i16 %33 to i64
-  %45 = getelementptr inbounds nuw %struct.GCRef, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !41
   %.not21 = icmp eq i64 %46, 0
   br i1 %.not21, label %.loopexit, label %.preheader
@@ -366,7 +360,7 @@ trace_unpatch.exit:                               ; preds = %2, %13, %15, %21, %
 .lr.ph36:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %54 = phi i16 [ %59, %.lr.ph ], [ %48, %.lr.ph.preheader ]
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.GCRef, ptr %43, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !41
   %.0 = inttoptr i64 %57 to ptr
   %58 = getelementptr inbounds nuw i8, ptr %.0, i64 110
@@ -394,7 +388,7 @@ define hidden void @lj_trace_flushproto(ptr noundef readonly captures(none) %0, 
   %8 = phi i16 [ %4, %.lr.ph ], [ %14, %7 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !67
   %10 = zext i16 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.GCRef, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !41
   %13 = inttoptr i64 %12 to ptr
   tail call fastcc void @trace_flushroot(ptr noundef nonnull %5, ptr noundef %13)
@@ -435,7 +429,7 @@ define hidden range(i32 0, 2) i32 @lj_trace_flushall(ptr noundef %0) local_unnam
   %17 = phi ptr [ %.pre, %.lr.ph ], [ %33, %31 ]
   %.02835.in = phi i64 [ %13, %.lr.ph ], [ %.02835, %31 ]
   %.02835 = add nsw i64 %.02835.in, -1
-  %18 = getelementptr inbounds nuw %struct.GCRef, ptr %17, i64 %.02835
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.02835
   %19 = load i64, ptr %18, align 8, !tbaa !41
   %20 = inttoptr i64 %19 to ptr
   %.not33 = icmp eq i64 %19, 0
@@ -458,7 +452,7 @@ define hidden range(i32 0, 2) i32 @lj_trace_flushall(ptr noundef %0) local_unnam
   store i16 0, ptr %28, align 2, !tbaa !72
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store i16 0, ptr %29, align 8, !tbaa !37
-  %30 = getelementptr inbounds nuw %struct.GCRef, ptr %27, i64 %.02835
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.02835
   store i64 0, ptr %30, align 8, !tbaa !41
   br label %31
 
@@ -583,7 +577,7 @@ define hidden void @lj_trace_freestate(ptr noundef %0) local_unnamed_addr #2 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %30 = load i32, ptr %29, align 4, !tbaa !81
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %union.IRIns, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %34 = load i32, ptr %33, align 8, !tbaa !82
   %35 = sub i32 %34, %30
@@ -883,7 +877,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %117 = load ptr, ptr %36, align 8, !tbaa !104
   %118 = load i16, ptr %37, align 2, !tbaa !105
   %119 = zext i16 %118 to i64
-  %120 = getelementptr %struct.SnapShot, ptr %117, i64 %119
+  %120 = getelementptr [12 x i8], ptr %117, i64 %119
   %121 = getelementptr i8, ptr %120, i64 -1
   store i8 -1, ptr %121, align 1, !tbaa !106
   br label %122
@@ -921,7 +915,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
 131:                                              ; preds = %123
   %132 = lshr i32 %126, 16
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr i32, ptr %125, i64 %133
+  %134 = getelementptr [4 x i8], ptr %125, i64 %133
   %135 = getelementptr i8, ptr %134, i64 -131072
   store i8 78, ptr %135, align 1, !tbaa !4
   br label %136
@@ -958,7 +952,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %154 = load ptr, ptr %13, align 8, !tbaa !40
   %155 = load i32, ptr %16, align 8, !tbaa !94
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %struct.GCRef, ptr %154, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !41
   %159 = inttoptr i64 %158 to ptr
   %160 = load i32, ptr %18, align 4, !tbaa !95
@@ -968,14 +962,14 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %163 = load ptr, ptr %13, align 8, !tbaa !40
   %164 = load i32, ptr %16, align 8, !tbaa !94
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw %struct.GCRef, ptr %163, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %165
   %167 = load i64, ptr %166, align 8, !tbaa !41
   %168 = inttoptr i64 %167 to ptr
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
   %170 = load ptr, ptr %169, align 8, !tbaa !115
   %171 = load i32, ptr %18, align 4, !tbaa !95
   %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw %struct.SnapShot, ptr %170, i64 %172
+  %173 = getelementptr inbounds nuw [12 x i8], ptr %170, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 11
   store i8 -1, ptr %174, align 1, !tbaa !106
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 115
@@ -993,7 +987,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %183 = load i16, ptr %182, align 4, !tbaa !118
   %184 = zext i16 %183 to i64
-  %185 = getelementptr inbounds nuw %struct.GCRef, ptr %163, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !41
   %187 = inttoptr i64 %186 to ptr
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 100
@@ -1011,7 +1005,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %195 = load ptr, ptr %13, align 8, !tbaa !40
   %196 = load i32, ptr %18, align 4, !tbaa !95
   %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds nuw %struct.GCRef, ptr %195, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %197
   %199 = load i64, ptr %198, align 8, !tbaa !41
   %200 = inttoptr i64 %199 to ptr
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 106
@@ -1047,7 +1041,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %221 = load i32, ptr %207, align 8, !tbaa !123
   %222 = zext i32 %221 to i64
   %223 = sub nsw i64 0, %222
-  %224 = getelementptr inbounds %union.IRIns, ptr %212, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %212, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %130, i64 32
   store ptr %224, ptr %225, align 8, !tbaa !38
   %226 = getelementptr inbounds nuw i8, ptr %212, i64 %211
@@ -1077,7 +1071,7 @@ trace_pendpatch.exit84:                           ; preds = %92, %94
   %244 = getelementptr inbounds nuw i8, ptr %130, i64 104
   %245 = load i16, ptr %244, align 8, !tbaa !37
   %246 = zext i16 %245 to i64
-  %247 = getelementptr inbounds nuw %struct.GCRef, ptr %243, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %246
   store i64 %215, ptr %247, align 8, !tbaa !41
   %248 = zext i16 %245 to i32
   tail call void @lj_gc_barriertrace(ptr noundef nonnull %11, i32 noundef %248) #14
@@ -1171,7 +1165,7 @@ trace_pendpatch.exit86:                           ; preds = %276, %278
 290:                                              ; preds = %289, %285
   %291 = load ptr, ptr %13, align 8, !tbaa !40
   %292 = zext i16 %284 to i64
-  %293 = getelementptr inbounds nuw %struct.GCRef, ptr %291, i64 %292
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %292
   store i64 0, ptr %293, align 8, !tbaa !41
   br label %lj_trace_free.exit.i
 
@@ -1251,7 +1245,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %343 = ptrtoint ptr %342 to i64
   %344 = lshr i64 %343, 2
   %345 = and i64 %344, 63
-  %346 = getelementptr inbounds nuw i16, ptr %24, i64 %345
+  %346 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %345
   store i16 1, ptr %346, align 2, !tbaa !103
   br label %406
 
@@ -1262,7 +1256,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
 
 350:                                              ; preds = %381, %347
   %indvars.iv.i = phi i64 [ 0, %347 ], [ %indvars.iv.next.i, %381 ]
-  %351 = getelementptr inbounds nuw %struct.HotPenalty, ptr %21, i64 %indvars.iv.i
+  %351 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %352 = load i64, ptr %351, align 8, !tbaa !130
   %353 = icmp eq i64 %338, %352
   br i1 %353, label %354, label %381
@@ -1295,7 +1289,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %370 = load i32, ptr %369, align 4, !tbaa !56
   %371 = lshr i32 %370, 16
   %372 = zext nneg i32 %371 to i64
-  %373 = getelementptr i32, ptr %369, i64 %372
+  %373 = getelementptr [4 x i8], ptr %369, i64 %372
   %374 = getelementptr i8, ptr %373, i64 -131072
   store i8 88, ptr %374, align 1, !tbaa !4
   br label %penalty_pc.exit
@@ -1321,14 +1315,14 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %385 = and i32 %384, 63
   store i32 %385, ptr %22, align 8, !tbaa !134
   %386 = zext i32 %383 to i64
-  %387 = getelementptr inbounds nuw %struct.HotPenalty, ptr %21, i64 %386
+  %387 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %386
   store i64 %338, ptr %387, align 8, !tbaa !130
   br label %388
 
 388:                                              ; preds = %382, %._crit_edge.i90
   %.pre-phi.i = phi i64 [ %.pre.i91, %._crit_edge.i90 ], [ %386, %382 ]
   %.0.i89 = phi i16 [ %363, %._crit_edge.i90 ], [ 72, %382 ]
-  %389 = getelementptr inbounds nuw %struct.HotPenalty, ptr %21, i64 %.pre-phi.i
+  %389 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.pre-phi.i
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i16 %.0.i89, ptr %390, align 8, !tbaa !132
   %391 = trunc i32 %.089100.i to i16
@@ -1338,7 +1332,7 @@ lj_trace_free.exit.i:                             ; preds = %290, %282
   %394 = ptrtoint ptr %393 to i64
   %395 = lshr i64 %394, 2
   %396 = and i64 %395, 63
-  %397 = getelementptr inbounds nuw i16, ptr %24, i64 %396
+  %397 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %396
   store i16 %.0.i89, ptr %397, align 2, !tbaa !103
   br label %penalty_pc.exit
 
@@ -1350,7 +1344,7 @@ penalty_pc.exit:                                  ; preds = %368, %375, %388
   %399 = trunc i32 %335 to i16
   %400 = load ptr, ptr %13, align 8, !tbaa !40
   %401 = zext i32 %335 to i64
-  %402 = getelementptr inbounds nuw %struct.GCRef, ptr %400, i64 %401
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %401
   %403 = load i64, ptr %402, align 8, !tbaa !41
   %404 = inttoptr i64 %403 to ptr
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 106
@@ -1450,7 +1444,7 @@ penalty_pc.exit:                                  ; preds = %368, %375, %388
   %464 = add nuw nsw i32 %463, 2
   %465 = zext nneg i32 %464 to i64
   %466 = sub nsw i64 0, %465
-  %467 = getelementptr inbounds %union.TValue, ptr %.087106.i, i64 %466
+  %467 = getelementptr inbounds [8 x i8], ptr %.087106.i, i64 %466
   br label %472
 
 468:                                              ; preds = %.lr.ph.i
@@ -1487,7 +1481,7 @@ penalty_pc.exit:                                  ; preds = %368, %375, %388
   %487 = add nuw nsw i32 %486, 2
   %488 = zext nneg i32 %487 to i64
   %489 = sub nsw i64 0, %488
-  %490 = getelementptr inbounds %union.TValue, ptr %.087106.i, i64 %489
+  %490 = getelementptr inbounds [8 x i8], ptr %.087106.i, i64 %489
   br label %495
 
 491:                                              ; preds = %480
@@ -1541,7 +1535,7 @@ penalty_pc.exit:                                  ; preds = %368, %375, %388
 521:                                              ; preds = %.loopexit.i, %421, %409
   %522 = load ptr, ptr %13, align 8, !tbaa !40
   %523 = zext i16 %407 to i64
-  %524 = getelementptr inbounds nuw %struct.GCRef, ptr %522, i64 %523
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %522, i64 %523
   store i64 0, ptr %524, align 8, !tbaa !41
   %525 = load i32, ptr %12, align 8, !tbaa !39
   %526 = icmp ugt i32 %525, %408
@@ -1613,7 +1607,7 @@ define hidden void @lj_trace_hot(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %9 = ptrtoint ptr %1 to i64
   %10 = lshr i64 %9, 2
   %11 = and i64 %10, 63
-  %12 = getelementptr inbounds nuw i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %11
   store i16 %7, ptr %12, align 2, !tbaa !103
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %14 = load i32, ptr %13, align 4, !tbaa !87
@@ -1852,7 +1846,7 @@ lj_state_checkstack.exit:                         ; preds = %39, %47
 
 62:                                               ; preds = %62, %lj_state_checkstack.exit
   %indvars.iv.i = phi i64 [ 0, %lj_state_checkstack.exit ], [ %indvars.iv.next.i, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %64 = load i64, ptr %63, align 8, !tbaa !145
   %65 = sitofp i64 %64 to double
   %66 = load ptr, ptr %42, align 8, !tbaa !28
@@ -1870,7 +1864,7 @@ lj_state_checkstack.exit:                         ; preds = %39, %47
 .preheader.i:                                     ; preds = %75, %.preheader.preheader.i
   %68 = phi ptr [ %.pre.i, %.preheader.preheader.i ], [ %77, %75 ]
   %indvars.iv18.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next19.i, %75 ]
-  %69 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv18.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv18.i
   %70 = load double, ptr %69, align 8, !tbaa !147
   store double %70, ptr %68, align 8, !tbaa !4
   %71 = load ptr, ptr %42, align 8, !tbaa !28
@@ -2016,7 +2010,7 @@ trace_exit_regs.exit:                             ; preds = %75
   %154 = load ptr, ptr %16, align 8, !tbaa !40
   %155 = lshr i32 %107, 16
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw %struct.GCRef, ptr %154, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !41
   %159 = inttoptr i64 %158 to ptr
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 80
@@ -2097,7 +2091,7 @@ define internal fastcc void @trace_hotside(ptr noundef %0, ptr noundef %1) unnam
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   %6 = load i32, ptr %5, align 8, !tbaa !94
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.GCRef, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !41
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -2105,7 +2099,7 @@ define internal fastcc void @trace_hotside(ptr noundef %0, ptr noundef %1) unnam
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 3020
   %14 = load i32, ptr %13, align 4, !tbaa !95
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.SnapShot, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds i8, ptr %0, i64 -591
   %18 = load i8, ptr %17, align 1, !tbaa !71
   %19 = and i8 %18, 96
@@ -2189,7 +2183,7 @@ define hidden i64 @lj_trace_unwind(ptr noundef %0, i64 noundef %1, ptr noundef w
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %7 = load ptr, ptr %6, align 8, !tbaa !40
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw %struct.GCRef, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !41
   %11 = inttoptr i64 %10 to ptr
   %.not = icmp eq i64 %10, 0
@@ -2225,7 +2219,7 @@ define hidden i64 @lj_trace_unwind(ptr noundef %0, i64 noundef %1, ptr noundef w
   %30 = add i32 %.027, %.028
   %31 = lshr i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.SnapShot, ptr %24, i64 %32
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   %35 = load i16, ptr %34, align 2, !tbaa !157
   %36 = zext i16 %35 to i64
@@ -2242,7 +2236,7 @@ define hidden i64 @lj_trace_unwind(ptr noundef %0, i64 noundef %1, ptr noundef w
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %43 = lshr i32 %41, 5
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !159
   %47 = shl i32 %41, 2
   %48 = and i32 %47, 124
@@ -2344,7 +2338,7 @@ define internal fastcc void @trace_start(ptr noundef %0) unnamed_addr #2 {
 
 49:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %48, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %50 = getelementptr inbounds nuw %struct.GCRef, ptr %47, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8, !tbaa !41
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %trace_findfree.exit.thread78, label %55
@@ -2417,7 +2411,7 @@ trace_findfree.exit.thread:                       ; preds = %._crit_edge.i, %tra
   %.026.i80 = phi i32 [ %53, %trace_findfree.exit.thread78 ], [ %76, %trace_findfree.exit._crit_edge ]
   %85 = ptrtoint ptr %0 to i64
   %86 = zext i32 %.026.i80 to i64
-  %87 = getelementptr inbounds nuw %struct.GCRef, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %86
   store i64 %85, ptr %87, align 8, !tbaa !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   %88 = trunc i32 %.026.i80 to i16

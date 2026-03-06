@@ -2579,10 +2579,10 @@ _ZNSt7__cxx119to_stringEi.exit374:                ; preds = %892, %900
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx119to_stringEi.exit374
   %911 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii, i64 %911
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii, i64 %911
   %switch.load = load ptr, ptr %switch.gep, align 8
   %912 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep827 = getelementptr inbounds nuw i64, ptr @switch.table._ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.1, i64 %912
+  %switch.gep827 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14cmArchiveWriteC2ERSoNS_8CompressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.1, i64 %912
   %switch.load828 = load i64, ptr %switch.gep827, align 8
   %913 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %57, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef %switch.load828)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %909

@@ -743,8 +743,8 @@ define hidden void @proto_register_gbcs_gbz() local_unnamed_addr #0 {
 7:                                                ; preds = %0, %7
   %indvars.iv9 = phi i64 [ 0, %0 ], [ %indvars.iv.next10, %7 ]
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr i32, ptr @ett_gbcs_gbz_components, i64 %indvars.iv9
-  %9 = getelementptr ptr, ptr @proto_register_gbcs_gbz.ett, i64 %indvars.iv
+  %8 = getelementptr [4 x i8], ptr @ett_gbcs_gbz_components, i64 %indvars.iv9
+  %9 = getelementptr [8 x i8], ptr @proto_register_gbcs_gbz.ett, i64 %indvars.iv
   store ptr %8, ptr %9, align 8
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1332,7 +1332,7 @@ define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noun
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %4, i32 30)
   %11 = load i32, ptr %3, align 4
   %12 = zext nneg i32 %spec.store.select to i64
-  %13 = getelementptr i32, ptr @ett_gbcs_gbz_components, i64 %12
+  %13 = getelementptr [4 x i8], ptr @ett_gbcs_gbz_components, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef %14, ptr noundef nonnull %6, ptr noundef nonnull @.str.562)
   %16 = load i32, ptr @hf_gbcs_gbz_extended_header_control, align 4

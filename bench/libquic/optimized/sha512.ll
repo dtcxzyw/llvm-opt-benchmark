@@ -469,7 +469,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
 .preheader:                                       ; preds = %67, %.preheader
   %.090101 = phi ptr [ %94, %.preheader ], [ %0, %67 ]
   %.192100 = phi i64 [ %95, %.preheader ], [ 0, %67 ]
-  %70 = getelementptr inbounds nuw i64, ptr %1, i64 %.192100
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.192100
   %71 = load i64, ptr %70, align 8, !tbaa !6
   %72 = lshr i64 %71, 56
   %73 = trunc nuw i64 %72 to i8
@@ -509,7 +509,7 @@ define hidden range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(a
 .preheader96:                                     ; preds = %67, %.preheader96
   %.199 = phi ptr [ %120, %.preheader96 ], [ %0, %67 ]
   %.298 = phi i64 [ %121, %.preheader96 ], [ 0, %67 ]
-  %96 = getelementptr inbounds nuw i64, ptr %1, i64 %.298
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.298
   %97 = load i64, ptr %96, align 8, !tbaa !6
   %98 = lshr i64 %97, 56
   %99 = trunc nuw i64 %98 to i8

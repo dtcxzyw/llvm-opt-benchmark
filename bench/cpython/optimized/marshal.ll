@@ -3537,7 +3537,7 @@ _PyUnicode_DATA.exit485:                          ; preds = %286, %288
 
 377:                                              ; preds = %.lr.ph531, %377
   %.0529 = phi i64 [ 0, %.lr.ph531 ], [ %380, %377 ]
-  %378 = getelementptr ptr, ptr %376, i64 %.0529
+  %378 = getelementptr [8 x i8], ptr %376, i64 %.0529
   %379 = load ptr, ptr %378, align 8, !tbaa !29
   tail call fastcc void @w_object(ptr noundef %379, ptr noundef %2)
   %380 = add nuw nsw i64 %.0529, 1
@@ -3600,7 +3600,7 @@ _PyUnicode_DATA.exit485:                          ; preds = %286, %288
 404:                                              ; preds = %.lr.ph528, %404
   %.1526 = phi i64 [ 0, %.lr.ph528 ], [ %408, %404 ]
   %405 = load ptr, ptr %403, align 8, !tbaa !60
-  %406 = getelementptr ptr, ptr %405, i64 %.1526
+  %406 = getelementptr [8 x i8], ptr %405, i64 %.1526
   %407 = load ptr, ptr %406, align 8, !tbaa !29
   tail call fastcc void @w_object(ptr noundef %407, ptr noundef %2)
   %408 = add nuw nsw i64 %.1526, 1
@@ -3818,7 +3818,7 @@ Py_DECREF.exit414:                                ; preds = %Py_DECREF.exit416, 
 Py_DECREF.exit418:                                ; preds = %Py_DECREF.exit414
   %488 = add i64 %.0318519, 1
   %.val454 = load ptr, ptr %454, align 8, !tbaa !60
-  %489 = getelementptr ptr, ptr %.val454, i64 %.0318519
+  %489 = getelementptr [8 x i8], ptr %.val454, i64 %.0318519
   store ptr %473, ptr %489, align 8, !tbaa !29
   %490 = call i32 @_PySet_NextEntryRef(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %13) #12
   %.not364 = icmp eq i32 %490, 0
@@ -3900,7 +3900,7 @@ Py_DECREF.exit408:                                ; preds = %._crit_edge, %510, 
 514:                                              ; preds = %.lr.ph521, %514
   %.0321520 = phi i64 [ 0, %.lr.ph521 ], [ %520, %514 ]
   %515 = load ptr, ptr %502, align 8, !tbaa !60
-  %516 = getelementptr ptr, ptr %515, i64 %.0321520
+  %516 = getelementptr [8 x i8], ptr %515, i64 %.0321520
   %517 = load ptr, ptr %516, align 8, !tbaa !29
   %518 = getelementptr i8, ptr %517, i64 32
   %519 = load ptr, ptr %518, align 8, !tbaa !29
@@ -4380,7 +4380,7 @@ w_reserve.exit.thread:                            ; preds = %9, %33, %28, %45, %
   br i1 %83, label %91, label %184
 
 91:                                               ; preds = %76
-  %92 = getelementptr i32, ptr %84, i64 %89
+  %92 = getelementptr [4 x i8], ptr %84, i64 %89
   %93 = load i32, ptr %92, align 4, !tbaa !53
   br label %94
 
@@ -4413,7 +4413,7 @@ w_reserve.exit.thread:                            ; preds = %9, %33, %28, %45, %
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph40.i, %._crit_edge.us.i
   %.03038.us.i = phi i64 [ %179, %._crit_edge.us.i ], [ 0, %.lr.ph40.i ]
-  %106 = getelementptr i32, ptr %84, i64 %.03038.us.i
+  %106 = getelementptr [4 x i8], ptr %84, i64 %.03038.us.i
   %107 = load i32, ptr %106, align 4, !tbaa !53
   br label %108
 
@@ -4603,7 +4603,7 @@ w_short.exit.us.i:                                ; preds = %176, %170, %165, %w
   br i1 %.not35.i, label %_r_digits32.exit, label %181, !llvm.loop !109
 
 184:                                              ; preds = %76
-  %185 = getelementptr i16, ptr %84, i64 %89
+  %185 = getelementptr [2 x i8], ptr %84, i64 %89
   %186 = load i16, ptr %185, align 2, !tbaa !110
   br label %187
 
@@ -4636,7 +4636,7 @@ w_short.exit.us.i:                                ; preds = %176, %170, %165, %w
 
 .lr.ph.us.i42:                                    ; preds = %.lr.ph40.i40, %._crit_edge.us.i53
   %.03038.us.i43 = phi i64 [ %272, %._crit_edge.us.i53 ], [ 0, %.lr.ph40.i40 ]
-  %199 = getelementptr i16, ptr %84, i64 %.03038.us.i43
+  %199 = getelementptr [2 x i8], ptr %84, i64 %.03038.us.i43
   %200 = load i16, ptr %199, align 2, !tbaa !110
   br label %201
 
@@ -6039,7 +6039,7 @@ r_long.exit478.thread:                            ; preds = %192, %r_long.exit47
 262:                                              ; preds = %.lr.ph504
   %263 = load ptr, ptr %2, align 8, !tbaa !29
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
-  %265 = getelementptr ptr, ptr %264, i64 %.0308503
+  %265 = getelementptr [8 x i8], ptr %264, i64 %.0308503
   store ptr %249, ptr %265, align 8, !tbaa !29
   %266 = add nuw nsw i64 %.0308503, 1
   %exitcond512.not = icmp eq i64 %266, %.1310
@@ -6121,7 +6121,7 @@ Py_DECREF.exit452:                                ; preds = %262, %.preheader, %
   %295 = load ptr, ptr %2, align 8, !tbaa !29
   %296 = getelementptr i8, ptr %295, i64 24
   %.val466 = load ptr, ptr %296, align 8, !tbaa !60
-  %297 = getelementptr ptr, ptr %.val466, i64 %.1501
+  %297 = getelementptr [8 x i8], ptr %.val466, i64 %.1501
   store ptr %281, ptr %297, align 8, !tbaa !29
   %298 = add nuw nsw i64 %.1501, 1
   %exitcond511.not = icmp eq i64 %298, %269
@@ -6701,7 +6701,7 @@ Py_DECREF.exit438:                                ; preds = %Py_DECREF.exit, %.p
 541:                                              ; preds = %533
   %542 = getelementptr inbounds nuw i8, ptr %535, i64 24
   %543 = load ptr, ptr %542, align 8, !tbaa !60
-  %544 = getelementptr ptr, ptr %543, i64 %531
+  %544 = getelementptr [8 x i8], ptr %543, i64 %531
   %545 = load ptr, ptr %544, align 8, !tbaa !29
   store ptr %545, ptr %2, align 8, !tbaa !29
   %546 = icmp eq ptr %545, @_Py_NoneStruct
@@ -6973,7 +6973,7 @@ r_short.exit.us.i:                                ; preds = %43
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %43, !llvm.loop !147
 
 ._crit_edge.us.i:                                 ; preds = %47
-  %54 = getelementptr i32, ptr %41, i64 %.05187.us.i
+  %54 = getelementptr [4 x i8], ptr %41, i64 %.05187.us.i
   store i32 %52, ptr %54, align 4, !tbaa !53
   %55 = add nuw nsw i64 %.05187.us.i, 1
   %exitcond96.not.i = icmp eq i64 %55, %.sext
@@ -7018,7 +7018,7 @@ r_short.exit56.i:                                 ; preds = %59
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %.344.lcssa.i = phi i32 [ 0, %.critedge.preheader.i ], [ %70, %.critedge.i ]
-  %72 = getelementptr i32, ptr %41, i64 %.sext
+  %72 = getelementptr [4 x i8], ptr %41, i64 %.sext
   store i32 %.344.lcssa.i, ptr %72, align 4, !tbaa !53
   br label %_w_digits32.exit
 
@@ -7058,7 +7058,7 @@ r_short.exit.us.i56:                              ; preds = %75
   br i1 %exitcond.not.i57, label %._crit_edge.us.i58, label %75, !llvm.loop !150
 
 ._crit_edge.us.i58:                               ; preds = %79
-  %87 = getelementptr i16, ptr %41, i64 %.05187.us.i52
+  %87 = getelementptr [2 x i8], ptr %41, i64 %.05187.us.i52
   store i16 %85, ptr %87, align 2, !tbaa !110
   %88 = add nuw nsw i64 %.05187.us.i52, 1
   %exitcond96.not.i59 = icmp eq i64 %88, %.sext
@@ -7104,7 +7104,7 @@ r_short.exit56.i43:                               ; preds = %92
 
 .critedge._crit_edge.i36:                         ; preds = %.critedge.i45, %.critedge.preheader.i35
   %.344.lcssa.i37 = phi i16 [ 0, %.critedge.preheader.i35 ], [ %104, %.critedge.i45 ]
-  %106 = getelementptr i16, ptr %41, i64 %.sext
+  %106 = getelementptr [2 x i8], ptr %41, i64 %.sext
   store i16 %.344.lcssa.i37, ptr %106, align 2, !tbaa !110
   br label %_w_digits32.exit
 
@@ -7320,7 +7320,7 @@ define internal fastcc noundef ptr @r_ref_insert(ptr noundef returned %0, i64 no
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !60
-  %12 = getelementptr ptr, ptr %11, i64 %1
+  %12 = getelementptr [8 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %0, align 8, !tbaa !25
   %15 = icmp slt i32 %14, 0
@@ -7334,7 +7334,7 @@ define internal fastcc noundef ptr @r_ref_insert(ptr noundef returned %0, i64 no
 
 _Py_NewRef.exit:                                  ; preds = %7, %16
   %.val = phi ptr [ %11, %7 ], [ %.val.pre, %16 ]
-  %18 = getelementptr ptr, ptr %.val, i64 %1
+  %18 = getelementptr [8 x i8], ptr %.val, i64 %1
   store ptr %0, ptr %18, align 8, !tbaa !29
   %19 = load i32, ptr %13, align 8, !tbaa !25
   %.not.i = icmp sgt i32 %19, -1

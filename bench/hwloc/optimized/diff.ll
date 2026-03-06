@@ -3,16 +3,6 @@ source_filename = "bench/hwloc/original/diff.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hwloc_info_s = type { ptr, ptr }
-%struct.hwloc_internal_memattr_s = type { ptr, i64, i32, i32, ptr }
-%struct.hwloc_internal_memattr_target_s = type { ptr, i32, i32, i64, i64, i32, ptr }
-%struct.hwloc_internal_memattr_initiator_s = type { %struct.hwloc_internal_location_s, i64 }
-%struct.hwloc_internal_location_s = type { i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64, i32 }
-%struct.hwloc_internal_cpukind_s = type { ptr, i32, i32, i64, %struct.hwloc_infos_s }
-%struct.hwloc_infos_s = type { ptr, i32, i32 }
-
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @hwloc_topology_diff_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not9 = icmp eq ptr %0, null
@@ -167,9 +157,9 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %50 = phi i32 [ %68, %67 ], [ %46, %.preheader303 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.preheader303 ]
   %51 = load ptr, ptr %44, align 8, !tbaa !41
-  %52 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %47, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %52, align 8, !tbaa !42
   %56 = load ptr, ptr %54, align 8, !tbaa !42
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %56) #17
@@ -288,11 +278,11 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 
 113:                                              ; preds = %.lr.ph314, %112
   %indvars.iv352 = phi i64 [ 0, %.lr.ph314 ], [ %indvars.iv.next353, %112 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv352
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv352
   %115 = load ptr, ptr %114, align 8, !tbaa !58
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 52
   %117 = load i32, ptr %116, align 4, !tbaa !60
-  %118 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv352
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv352
   %119 = load ptr, ptr %118, align 8, !tbaa !58
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 52
   %121 = load i32, ptr %120, align 4, !tbaa !60
@@ -333,8 +323,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 135:                                              ; preds = %.lr.ph327, %.loopexit
   %.2181326 = phi i32 [ 0, %.lr.ph327 ], [ %232, %.loopexit ]
   %136 = zext i32 %.2181326 to i64
-  %137 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_s, ptr %132, i64 %136
-  %138 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_s, ptr %134, i64 %136
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %136
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %136
   %139 = load ptr, ptr %137, align 8, !tbaa !66
   %140 = load ptr, ptr %138, align 8, !tbaa !66
   %141 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(1) %140) #17
@@ -376,8 +366,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 .lr.ph325.split.us:                               ; preds = %.lr.ph325, %.thread274.us
   %.0193324.us = phi i32 [ %178, %.thread274.us ], [ 0, %.lr.ph325 ]
   %159 = zext i32 %.0193324.us to i64
-  %160 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_target_s, ptr %155, i64 %159
-  %161 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_target_s, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [48 x i8], ptr %155, i64 %159
+  %161 = getelementptr inbounds nuw [48 x i8], ptr %157, i64 %159
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %163 = load i32, ptr %162, align 8, !tbaa !72
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -411,8 +401,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 .lr.ph325.split:                                  ; preds = %.lr.ph325, %.thread274.loopexit
   %.0193324 = phi i32 [ %231, %.thread274.loopexit ], [ 0, %.lr.ph325 ]
   %179 = zext i32 %.0193324 to i64
-  %180 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_target_s, ptr %155, i64 %179
-  %181 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_target_s, ptr %157, i64 %179
+  %180 = getelementptr inbounds nuw [48 x i8], ptr %155, i64 %179
+  %181 = getelementptr inbounds nuw [48 x i8], ptr %157, i64 %179
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %183 = load i32, ptr %182, align 8, !tbaa !72
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -446,8 +436,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 
 199:                                              ; preds = %.lr.ph323, %230
   %indvars.iv355 = phi i64 [ 0, %.lr.ph323 ], [ %indvars.iv.next356, %230 ]
-  %200 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %196, i64 %indvars.iv355
-  %201 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %198, i64 %indvars.iv355
+  %200 = getelementptr inbounds nuw [40 x i8], ptr %196, i64 %indvars.iv355
+  %201 = getelementptr inbounds nuw [40 x i8], ptr %198, i64 %indvars.iv355
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %203 = load i64, ptr %202, align 8, !tbaa !80
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 32
@@ -533,8 +523,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 241:                                              ; preds = %.lr.ph331, %.thread290
   %.3182330 = phi i32 [ 0, %.lr.ph331 ], [ %285, %.thread290 ]
   %242 = zext i32 %.3182330 to i64
-  %243 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %238, i64 %242
-  %244 = getelementptr inbounds nuw %struct.hwloc_internal_cpukind_s, ptr %240, i64 %242
+  %243 = getelementptr inbounds nuw [40 x i8], ptr %238, i64 %242
+  %244 = getelementptr inbounds nuw [40 x i8], ptr %240, i64 %242
   %245 = load ptr, ptr %243, align 8, !tbaa !88
   %246 = load ptr, ptr %244, align 8, !tbaa !88
   %247 = call i32 @hwloc_bitmap_isequal(ptr noundef %245, ptr noundef %246) #17
@@ -592,8 +582,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 
 273:                                              ; preds = %.lr.ph329, %272
   %indvars.iv363 = phi i64 [ 0, %.lr.ph329 ], [ %indvars.iv.next364, %272 ]
-  %274 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %270, i64 %indvars.iv363
-  %275 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %271, i64 %indvars.iv363
+  %274 = getelementptr inbounds nuw [16 x i8], ptr %270, i64 %indvars.iv363
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %271, i64 %indvars.iv363
   %276 = load ptr, ptr %274, align 8, !tbaa !42
   %277 = load ptr, ptr %275, align 8, !tbaa !42
   %278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %276, ptr noundef nonnull dereferenceable(1) %277) #17
@@ -894,9 +884,9 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, pt
   %119 = phi i32 [ %137, %136 ], [ %115, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %136 ], [ 0, %.preheader ]
   %120 = load ptr, ptr %113, align 8, !tbaa !108
-  %121 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %indvars.iv
   %122 = load ptr, ptr %116, align 8, !tbaa !108
-  %123 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %indvars.iv
   %124 = load ptr, ptr %121, align 8, !tbaa !42
   %125 = load ptr, ptr %123, align 8, !tbaa !42
   %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %125) #17
@@ -1398,7 +1388,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_apply_diff_one(ptr noundef %0
 
 64:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %65 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !42
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %56) #17
   %.not87 = icmp eq i32 %67, 0

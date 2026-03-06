@@ -381,7 +381,7 @@ exeNameMatch.exit464.thread:                      ; preds = %75, %exeNameMatch.e
   %.03321203 = phi i32 [ %.1333573, %.thread553 ], [ %.1.i450, %exeNameMatch.exit464.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %79 = sext i32 %.02361219 to i64
-  %80 = getelementptr inbounds ptr, ptr %1, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !14
   store ptr %81, ptr %7, align 8, !tbaa !14
   %.not386 = icmp eq ptr %81, null
@@ -654,7 +654,7 @@ exeNameMatch.exit464.thread:                      ; preds = %75, %exeNameMatch.e
 
 191:                                              ; preds = %184
   %192 = sext i32 %185 to i64
-  %193 = getelementptr inbounds ptr, ptr %1, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %1, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !14
   store ptr %194, ptr %8, align 8, !tbaa !14
   %195 = load i8, ptr %194, align 1, !tbaa !4
@@ -1114,7 +1114,7 @@ readU32FromChar.exit497:                          ; preds = %.critedge.i485, %34
 
 360:                                              ; preds = %356
   %361 = sext i32 %357 to i64
-  %362 = getelementptr inbounds ptr, ptr %1, i64 %361
+  %362 = getelementptr inbounds [8 x i8], ptr %1, i64 %361
   %363 = load ptr, ptr %362, align 8, !tbaa !14
   br label %364
 
@@ -1433,7 +1433,7 @@ readU32FromChar.exit527:                          ; preds = %.critedge.i515, %47
 484:                                              ; preds = %483
   %485 = add i32 %.02951208, 1
   %486 = zext i32 %.02951208 to i64
-  %487 = getelementptr inbounds nuw ptr, ptr %50, i64 %486
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %486
   store ptr %81, ptr %487, align 8, !tbaa !14
   br label %.thread553
 
@@ -1620,7 +1620,7 @@ readU32FromChar.exit527:                          ; preds = %.critedge.i515, %47
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i529 ], [ %indvars.iv.next.i, %576 ]
   %.04569.i = phi i64 [ 8192, %.lr.ph.i529 ], [ %.5.i, %576 ]
   %.05068.i = phi i32 [ 0, %.lr.ph.i529 ], [ %.252.i, %576 ]
-  %548 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i
+  %548 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i
   %549 = load ptr, ptr %548, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %550 = call i32 @stat(ptr noundef readonly %549, ptr noundef nonnull %3) #22
@@ -1706,7 +1706,7 @@ UTIL_realloc.exit.i:                              ; preds = %561
   %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %.preheader718 ], [ 0, %579 ]
   %584 = phi i64 [ %589, %.preheader718 ], [ 0, %579 ]
   %585 = getelementptr inbounds nuw i8, ptr %577, i64 %584
-  %586 = getelementptr inbounds nuw ptr, ptr %583, i64 %indvars.iv78.i
+  %586 = getelementptr inbounds nuw [8 x i8], ptr %583, i64 %indvars.iv78.i
   store ptr %585, ptr %586, align 8, !tbaa !14
   %587 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %585) #25
   %588 = add i64 %584, 1
@@ -1748,7 +1748,7 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
 
 597:                                              ; preds = %UTIL_createFileList.exit.split
   %598 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %599 = getelementptr inbounds nuw ptr, ptr %583, i64 %indvars.iv
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %583, i64 %indvars.iv
   %600 = load ptr, ptr %599, align 8, !tbaa !14
   %601 = trunc nuw i64 %indvars.iv to i32
   %602 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %598, ptr noundef nonnull @.str.57, i32 noundef %601, ptr noundef %600) #23
@@ -1983,7 +1983,7 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
 695:                                              ; preds = %693
   %696 = add i32 %.2297, 1
   %697 = zext i32 %.2297 to i64
-  %698 = getelementptr inbounds nuw ptr, ptr %.1301, i64 %697
+  %698 = getelementptr inbounds nuw [8 x i8], ptr %.1301, i64 %697
   store ptr %spec.store.select5, ptr %698, align 8, !tbaa !14
   br label %.thread658
 

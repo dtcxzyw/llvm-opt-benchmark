@@ -52,9 +52,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %40 = load i32, ptr %6, align 4, !tbaa !3
   %41 = sext i32 %40 to i64
   %42 = sub nsw i64 %indvars.iv351, %41
-  %43 = getelementptr inbounds double, ptr %18, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %18, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !7
-  %45 = getelementptr inbounds double, ptr %17, i64 %42
+  %45 = getelementptr inbounds [8 x i8], ptr %17, i64 %42
   %46 = load double, ptr %45, align 8, !tbaa !7
   %47 = fsub double %44, %46
   %48 = fadd double %44, %46
@@ -102,7 +102,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 71:                                               ; preds = %.lr.ph312
   %72 = sext i32 %39 to i64
-  %73 = getelementptr i32, ptr %15, i64 %72
+  %73 = getelementptr [4 x i8], ptr %15, i64 %72
   %74 = getelementptr i8, ptr %73, i64 -4
   store i32 -1, ptr %74, align 4, !tbaa !3
   %75 = icmp eq i32 %.0224310, %38
@@ -117,7 +117,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 79:                                               ; preds = %71
   %80 = shl i32 %.0244306, 1
   %81 = sext i32 %80 to i64
-  %82 = getelementptr i32, ptr %15, i64 %81
+  %82 = getelementptr [4 x i8], ptr %15, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -4
   store i32 %78, ptr %83, align 4, !tbaa !3
   br label %134
@@ -134,10 +134,10 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %.1276 = phi i32 [ %.0, %.lr.ph ], [ %.2, %86 ]
   %.0231275 = phi double [ %84, %.lr.ph ], [ %94, %86 ]
-  %87 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %88 = load double, ptr %87, align 8, !tbaa !7
   %89 = fsub double %88, %.1255
-  %90 = getelementptr double, ptr %19, i64 %indvars.iv
+  %90 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %91 = getelementptr i8, ptr %90, i64 -8
   %92 = load double, ptr %91, align 8, !tbaa !7
   %93 = fdiv double %92, %.0231275
@@ -194,10 +194,10 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv346 = phi i64 [ 2, %.lr.ph292 ], [ %indvars.iv.next347, %112 ]
   %.4290 = phi i32 [ %.3, %.lr.ph292 ], [ %.5, %112 ]
   %.1232289 = phi double [ %110, %.lr.ph292 ], [ %120, %112 ]
-  %113 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv346
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv346
   %114 = load double, ptr %113, align 8, !tbaa !7
   %115 = fsub double %114, %.1235
-  %116 = getelementptr double, ptr %19, i64 %indvars.iv346
+  %116 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv346
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load double, ptr %117, align 8, !tbaa !7
   %119 = fdiv double %118, %.1232289
@@ -230,7 +230,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %128 = add nsw i32 %.0248305, 1
   %129 = add nuw nsw i64 %indvars.iv351, 1
   %130 = sext i32 %39 to i64
-  %131 = getelementptr i32, ptr %15, i64 %130
+  %131 = getelementptr [4 x i8], ptr %15, i64 %130
   %132 = getelementptr i8, ptr %131, i64 -4
   %133 = trunc i64 %129 to i32
   store i32 %133, ptr %132, align 4, !tbaa !3
@@ -246,7 +246,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.1245 = phi i32 [ %.0244306, %71 ], [ %.0244306, %79 ], [ %38, %.split.us ]
   %.0234 = phi double [ %48, %71 ], [ %48, %79 ], [ %.us-phi296, %.split.us ]
   %.2226 = phi i32 [ %.1225, %71 ], [ %.1225, %79 ], [ %.0224310, %.split.us ]
-  %135 = getelementptr double, ptr %16, i64 %.pre-phi
+  %135 = getelementptr [8 x i8], ptr %16, i64 %.pre-phi
   %136 = getelementptr i8, ptr %135, i64 -8
   store double %.0254, ptr %136, align 8, !tbaa !7
   store double %.0234, ptr %135, align 8, !tbaa !7
@@ -269,7 +269,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph330.split.us:                               ; preds = %.lr.ph330
   %140 = shl i32 %138, 1
   %141 = sext i32 %140 to i64
-  %142 = getelementptr i32, ptr %15, i64 %141
+  %142 = getelementptr [4 x i8], ptr %15, i64 %141
   %143 = getelementptr i8, ptr %142, i64 -4
   br label %144
 
@@ -279,7 +279,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.1241326.us = phi i32 [ %.3227, %.lr.ph330.split.us ], [ %149, %153 ]
   %145 = shl i32 %.1241326.us, 1
   %146 = sext i32 %145 to i64
-  %147 = getelementptr i32, ptr %15, i64 %146
+  %147 = getelementptr [4 x i8], ptr %15, i64 %146
   %148 = getelementptr i8, ptr %147, i64 -4
   %149 = load i32, ptr %148, align 4, !tbaa !3
   store i32 0, ptr %148, align 4, !tbaa !3
@@ -309,12 +309,12 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %155 = shl i32 %.1241326, 1
   %156 = add nsw i32 %155, -1
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds i32, ptr %15, i64 %157
+  %158 = getelementptr inbounds [4 x i8], ptr %15, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !3
-  %160 = getelementptr inbounds double, ptr %16, i64 %157
+  %160 = getelementptr inbounds [8 x i8], ptr %16, i64 %157
   %161 = load double, ptr %160, align 8, !tbaa !7
   %162 = sext i32 %155 to i64
-  %163 = getelementptr inbounds double, ptr %16, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %16, i64 %162
   %164 = load double, ptr %163, align 8, !tbaa !7
   %165 = fadd double %161, %164
   %166 = fmul double %165, 5.000000e-01
@@ -345,7 +345,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 183:                                              ; preds = %182
   %184 = shl i32 %.2246325, 1
   %185 = sext i32 %184 to i64
-  %186 = getelementptr i32, ptr %15, i64 %185
+  %186 = getelementptr [4 x i8], ptr %15, i64 %185
   %187 = getelementptr i8, ptr %186, i64 -4
   store i32 %159, ptr %187, align 4, !tbaa !3
   br label %206
@@ -368,10 +368,10 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv355 = phi i64 [ 2, %.lr.ph320.preheader ], [ %indvars.iv.next356, %.lr.ph320 ]
   %.7318 = phi i32 [ %.6, %.lr.ph320.preheader ], [ %.8, %.lr.ph320 ]
   %.2233317 = phi double [ %190, %.lr.ph320.preheader ], [ %201, %.lr.ph320 ]
-  %194 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv355
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv355
   %195 = load double, ptr %194, align 8, !tbaa !7
   %196 = fsub double %195, %166
-  %197 = getelementptr double, ptr %19, i64 %indvars.iv355
+  %197 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv355
   %198 = getelementptr i8, ptr %197, i64 -8
   %199 = load double, ptr %198, align 8, !tbaa !7
   %200 = fdiv double %199, %.2233317
@@ -427,7 +427,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %214 = shl i32 %213, 1
   %215 = add nsw i32 %214, -1
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds i32, ptr %15, i64 %216
+  %217 = getelementptr inbounds [4 x i8], ptr %15, i64 %216
   %218 = load i32, ptr %217, align 4, !tbaa !3
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %220, label %235
@@ -436,18 +436,18 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %221 = load i32, ptr %6, align 4, !tbaa !3
   %222 = sext i32 %221 to i64
   %223 = sub nsw i64 %indvars.iv362, %222
-  %224 = getelementptr inbounds double, ptr %16, i64 %216
+  %224 = getelementptr inbounds [8 x i8], ptr %16, i64 %216
   %225 = load double, ptr %224, align 8, !tbaa !7
   %226 = sext i32 %214 to i64
-  %227 = getelementptr inbounds double, ptr %16, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %16, i64 %226
   %228 = load double, ptr %227, align 8, !tbaa !7
   %229 = fadd double %225, %228
   %230 = fmul double %229, 5.000000e-01
-  %231 = getelementptr inbounds double, ptr %18, i64 %223
+  %231 = getelementptr inbounds [8 x i8], ptr %18, i64 %223
   store double %230, ptr %231, align 8, !tbaa !7
   %232 = load double, ptr %227, align 8, !tbaa !7
   %233 = fsub double %232, %230
-  %234 = getelementptr inbounds double, ptr %17, i64 %223
+  %234 = getelementptr inbounds [8 x i8], ptr %17, i64 %223
   store double %233, ptr %234, align 8, !tbaa !7
   br label %235
 

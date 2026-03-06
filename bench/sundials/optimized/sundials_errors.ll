@@ -92,7 +92,7 @@ define noundef nonnull ptr @SUNGetErrMsg(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SUNGlobalFallbackErrHandler, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -117,7 +117,7 @@ define void @SUNLogErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 switch.lookup:                                    ; preds = %13
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SUNGlobalFallbackErrHandler, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SUNGetErrMsg.exit
 
@@ -187,7 +187,7 @@ define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %18
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SUNGlobalFallbackErrHandler, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SUNGetErrMsg.exit
 

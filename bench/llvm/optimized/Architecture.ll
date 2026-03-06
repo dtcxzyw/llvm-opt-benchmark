@@ -239,10 +239,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5MachO19getArchitectureNameENS0_12Archite
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -261,7 +261,7 @@ define dso_local range(i64 0, 68719476749) i64 @_ZN4llvm5MachO26getCPUTypeFromAr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -297,10 +297,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5MachO
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2, i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %_ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE.exit
 

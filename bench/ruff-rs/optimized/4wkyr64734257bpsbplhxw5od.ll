@@ -649,7 +649,7 @@ define hidden noundef ptr @_ZN3std2io17default_write_fmt17hd78e0069253bff77E(ptr
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io22default_write_vectored17h9e5faff0979552e1E(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %8, %3
@@ -678,7 +678,7 @@ define hidden { i64, ptr } @_ZN3std2io22default_write_vectored17h9e5faff0979552e
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io22default_write_vectored17hedc5d87c2d4b271bE(ptr noalias noundef align 8 dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %8, %3
@@ -708,7 +708,7 @@ define hidden { i64, ptr } @_ZN3std2io22default_write_vectored17hedc5d87c2d4b271
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io5Write14write_vectored17ha54ac3f8b861545bE(ptr noalias noundef align 8 dereferenceable(120) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %4 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %8, %3
@@ -787,7 +787,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h6eafac28ced952
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71b0d6fc32fe42ddE.exit.thread.i", label %.lr.ph.i
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3bdbf28376822a1E.exit.i"
-  %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
@@ -798,7 +798,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h6eafac28ced952
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %25 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.0.02342, i64 %.sroa.8.041
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02342, i64 %.sroa.8.041
   br label %26
 
 26:                                               ; preds = %29, %24
@@ -905,7 +905,7 @@ default.unreachable:                              ; preds = %39
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3bdbf28376822a1E.exit.i12": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h71b0d6fc32fe42ddE.exit.thread.i9"
   %62 = sub nuw i64 %.sroa.8.041, %.sroa.0.0.lcssa.i11
-  %63 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.0.02342, i64 %.sroa.0.0.lcssa.i11
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02342, i64 %.sroa.0.0.lcssa.i11
   %64 = icmp eq i64 %.sroa.8.041, %.sroa.0.0.lcssa.i11
   br i1 %64, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3bdbf28376822a1E.exit.thread.i13", label %72
 

@@ -999,22 +999,22 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17ParvoRetinaFilter31Parall
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !115
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds float, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !114
-  %12 = getelementptr inbounds float, ptr %11, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !113
-  %15 = getelementptr inbounds float, ptr %14, i64 %8
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !112
-  %18 = getelementptr inbounds float, ptr %17, i64 %8
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !111
-  %21 = getelementptr inbounds float, ptr %20, i64 %8
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !108
-  %24 = getelementptr inbounds float, ptr %23, i64 %8
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %8
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2

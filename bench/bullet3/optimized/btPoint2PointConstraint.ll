@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.btVector3 = type { [4 x float] }
-%class.btJacobianEntry = type { %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float }
 
 $_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif = comdat any
 
@@ -201,9 +200,9 @@ define dso_local void @_ZN23btPoint2PointConstraint13buildJacobianEv(ptr noundef
 
 48:                                               ; preds = %1, %48
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float 1.000000e+00, ptr %49, align 4, !tbaa !26
-  %50 = getelementptr inbounds nuw %class.btJacobianEntry, ptr %4, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [84 x i8], ptr %4, i64 %indvars.iv
   %51 = load float, ptr %7, align 4, !tbaa !26, !noalias !30
   %52 = load float, ptr %8, align 4, !tbaa !26, !noalias !30
   %53 = load float, ptr %9, align 4, !tbaa !26, !noalias !30
@@ -408,12 +407,12 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !62
   %11 = sext i32 %10 to i64
-  %12 = getelementptr float, ptr %8, i64 %11
+  %12 = getelementptr [4 x i8], ptr %8, i64 %11
   %13 = getelementptr i8, ptr %12, i64 4
   store float 1.000000e+00, ptr %13, align 4, !tbaa !26
   %14 = shl nsw i32 %10, 1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr float, ptr %8, i64 %15
+  %16 = getelementptr [4 x i8], ptr %8, i64 %15
   %17 = getelementptr i8, ptr %16, i64 8
   store float 1.000000e+00, ptr %17, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -457,8 +456,8 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !63
-  %53 = getelementptr inbounds float, ptr %52, i64 %11
-  %54 = getelementptr inbounds float, ptr %52, i64 %15
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %11
+  %54 = getelementptr inbounds [4 x i8], ptr %52, i64 %15
   %55 = fneg float %31
   %56 = fneg float %40
   %57 = fneg float %49
@@ -486,10 +485,10 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !64
   store float -1.000000e+00, ptr %68, align 4, !tbaa !26
-  %69 = getelementptr float, ptr %68, i64 %11
+  %69 = getelementptr [4 x i8], ptr %68, i64 %11
   %70 = getelementptr i8, ptr %69, i64 4
   store float -1.000000e+00, ptr %70, align 4, !tbaa !26
-  %71 = getelementptr float, ptr %68, i64 %15
+  %71 = getelementptr [4 x i8], ptr %68, i64 %15
   %72 = getelementptr i8, ptr %71, i64 8
   store float -1.000000e+00, ptr %72, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -533,8 +532,8 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
   store <2 x float> %.sroa.3.12.vec.insert.i67, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !65
-  %108 = getelementptr inbounds float, ptr %107, i64 %11
-  %109 = getelementptr inbounds float, ptr %107, i64 %15
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %11
+  %109 = getelementptr inbounds [4 x i8], ptr %107, i64 %15
   %110 = fneg float %104
   store float 0.000000e+00, ptr %107, align 4, !tbaa !26
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
@@ -577,20 +576,20 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
 
 134:                                              ; preds = %4, %134
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %134 ]
-  %135 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %136 = load float, ptr %135, align 4, !tbaa !26
-  %137 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv
   %138 = load float, ptr %137, align 4, !tbaa !26
   %139 = fadd float %136, %138
-  %140 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %141 = load float, ptr %140, align 4, !tbaa !26
   %142 = fsub float %139, %141
-  %143 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv
   %144 = load float, ptr %143, align 4, !tbaa !26
   %145 = fsub float %142, %144
   %146 = fmul float %129, %145
   %147 = mul nsw i64 %indvars.iv, %11
-  %148 = getelementptr inbounds float, ptr %133, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %133, i64 %147
   store float %146, ptr %148, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -611,7 +610,7 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
 154:                                              ; preds = %.preheader, %154
   %indvars.iv83 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next84, %154 ]
   %155 = mul nsw i64 %indvars.iv83, %11
-  %156 = getelementptr inbounds float, ptr %153, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %153, i64 %155
   store float %.pre, ptr %156, align 4, !tbaa !26
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 3
@@ -635,10 +634,10 @@ define dso_local void @_ZN23btPoint2PointConstraint18getInfo2NonVirtualEPN17btTy
 165:                                              ; preds = %.split
   %166 = load ptr, ptr %160, align 8, !tbaa !73
   %167 = mul nsw i64 %indvars.iv87, %11
-  %168 = getelementptr inbounds float, ptr %166, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %166, i64 %167
   store float %159, ptr %168, align 4, !tbaa !26
   %169 = load ptr, ptr %161, align 8, !tbaa !74
-  %170 = getelementptr inbounds float, ptr %169, i64 %167
+  %170 = getelementptr inbounds [4 x i8], ptr %169, i64 %167
   store float %158, ptr %170, align 4, !tbaa !26
   br label %171
 
@@ -772,9 +771,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK23btPoint2PointConstraint9seriali
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4, !tbaa !26
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %9, ptr %10, align 4, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -787,9 +786,9 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector39serializeER18btVector3FloatData.exit
   %indvars.iv.i6 = phi i64 [ 0, %_ZNK9btVector39serializeER18btVector3FloatData.exit ], [ %indvars.iv.next.i7, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i6
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i6
   %15 = load float, ptr %14, align 4, !tbaa !26
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i6
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i6
   store float %15, ptr %16, align 4, !tbaa !26
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 4

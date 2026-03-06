@@ -37,7 +37,7 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !13
   %8 = sext i16 %7 to i32
@@ -145,7 +145,7 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
 
 .preheader56:                                     ; preds = %4, %.preheader56
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.preheader56 ], [ 0, %4 ]
-  %94 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv65
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv65
   tail call fastcc void @wmv2_idct_col(ptr noundef %94)
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next66, 8
@@ -394,7 +394,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !13
   %8 = sext i16 %7 to i32
@@ -502,7 +502,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
 
 .preheader48:                                     ; preds = %4, %.preheader48
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.preheader48 ], [ 0, %4 ]
-  %94 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv57
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv57
   tail call fastcc void @wmv2_idct_col(ptr noundef %94)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next58, 8

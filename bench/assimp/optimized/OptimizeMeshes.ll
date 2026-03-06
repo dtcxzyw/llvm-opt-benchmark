@@ -3,7 +3,6 @@ source_filename = "bench/assimp/original/OptimizeMeshes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Assimp::OptimizeMeshesProcess::MeshInfo" = type { i32, i32, i32 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -222,7 +221,7 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %37,
   store ptr %34, ptr %11, align 8
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %32
   store ptr %38, ptr %12, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %24
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %24
   store ptr %39, ptr %25, align 8
   %.pre = load i32, ptr %4, align 8
   %.pre45 = zext i32 %.pre to i64
@@ -265,7 +264,7 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i29: ; preds = %5
   store ptr %52, ptr %18, align 8
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %50
   store ptr %56, ptr %19, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %52, i64 %.pre-phi
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.pre-phi
   store ptr %57, ptr %41, align 8
   %.pre41 = load i32, ptr %4, align 8
   %.pre46 = zext i32 %.pre41 to i64
@@ -294,7 +293,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit30:   ; preds = %_ZNSt6vectorIP6aiMe
   br i1 %70, label %71, label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %61, i64 %.pre-phi47
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %61, i64 %.pre-phi47
   %.not.i.i31 = icmp eq ptr %60, %72
   br i1 %.not.i.i31, label %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit, label %73
 
@@ -337,15 +336,15 @@ _ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit: ; 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ]
   %.02236 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit ]
   %88 = load ptr, ptr %82, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = tail call noundef i32 @_ZN6Assimp20GetMeshVFormatUniqueEPK6aiMesh(ptr noundef %90)
   %92 = load ptr, ptr %58, align 8
-  %93 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [12 x i8], ptr %92, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 %91, ptr %94, align 4
   %95 = load ptr, ptr %58, align 8
-  %96 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4
   %98 = icmp ugt i32 %97, 1
   br i1 %98, label %99, label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
@@ -362,7 +361,7 @@ _ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE6resizeEm.exit: ; 
   %105 = load ptr, ptr %10, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   %109 = load ptr, ptr %19, align 8
   %110 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %109, %110
@@ -421,7 +420,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %134, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %128, ptr %18, align 8
   store ptr %133, ptr %19, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %128, i64 %126
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %126
   store ptr %135, ptr %41, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
 
@@ -538,11 +537,11 @@ define hidden void @_ZN6Assimp21OptimizeMeshesProcess19FindInstancedMeshesEP6aiN
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -558,7 +557,7 @@ define hidden void @_ZN6Assimp21OptimizeMeshesProcess19FindInstancedMeshesEP6aiN
 22:                                               ; preds = %.lr.ph13, %22
   %indvars.iv16 = phi i64 [ 0, %.lr.ph13 ], [ %indvars.iv.next17, %22 ]
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv16
   %25 = load ptr, ptr %24, align 8
   tail call void @_ZN6Assimp21OptimizeMeshesProcess19FindInstancedMeshesEP6aiNode(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %25)
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
@@ -607,11 +606,11 @@ define hidden void @_ZN6Assimp21OptimizeMeshesProcess11ProcessNodeEP6aiNode(ptr 
   %22 = phi i32 [ %5, %.lr.ph83 ], [ %260, %259 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next.pre-phi, %259 ]
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %26
   %29 = load i32, ptr %28, align 4
   %30 = icmp ugt i32 %29, 1
   br i1 %30, label %31, label %34
@@ -660,7 +659,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit:      ; preds = %34, %37
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %24, align 4
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   br i1 %47, label %223, label %167
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread
@@ -671,11 +670,11 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit:      ; preds = %34, %37
   %.04276 = phi i32 [ %.143, %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread ], [ 0, %.lr.ph.preheader ]
   %55 = load ptr, ptr %6, align 8
   %56 = zext i32 %.03979 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
   %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj.exit.thread
@@ -683,7 +682,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit:      ; preds = %34, %37
 64:                                               ; preds = %.lr.ph
   %65 = load i32, ptr %24, align 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %60, i64 %66
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -695,9 +694,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE6resizeEm.exit:      ; preds = %34, %37
   %73 = load ptr, ptr %10, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %66
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %66
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %59
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %59
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %11, align 4
   %.not18.i = icmp eq i32 %80, -1
@@ -821,7 +820,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %143, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %137, ptr %8, align 8
   store ptr %142, ptr %9, align 8
-  %144 = getelementptr inbounds nuw ptr, ptr %137, i64 %135
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %135
   store ptr %144, ptr %14, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
 
@@ -829,7 +828,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %121, %_ZNSt6vecto
   %145 = load ptr, ptr %10, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %59
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %59
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4
@@ -841,9 +840,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %121, %_ZNSt6vecto
   %157 = load i32, ptr %4, align 8
   %158 = add i32 %157, -1
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr %156, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %159
   %161 = load i32, ptr %160, align 4
-  %162 = getelementptr inbounds nuw i32, ptr %156, i64 %56
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %56
   store i32 %161, ptr %162, align 4
   %163 = load i32, ptr %4, align 8
   %164 = add i32 %163, -1
@@ -914,7 +913,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i50: ; preds 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i52: ; preds = %191, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i50
   store ptr %185, ptr %8, align 8
   store ptr %190, ptr %9, align 8
-  %192 = getelementptr inbounds nuw ptr, ptr %185, i64 %183
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %183
   store ptr %192, ptr %14, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit53
 
@@ -981,7 +980,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i58: ; preds 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i60: ; preds = %220, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i58
   store ptr %214, ptr %15, align 8
   store ptr %219, ptr %16, align 8
-  %221 = getelementptr inbounds nuw ptr, ptr %214, i64 %212
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %212
   store ptr %221, ptr %17, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit61
 
@@ -1049,7 +1048,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i66: ; preds 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i68: ; preds = %249, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i66
   store ptr %243, ptr %15, align 8
   store ptr %248, ptr %16, align 8
-  %250 = getelementptr inbounds nuw ptr, ptr %243, i64 %241
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %241
   store ptr %250, ptr %17, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit69
 
@@ -1079,7 +1078,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit69: ; preds = %_ZNSt6vectorIP6
 263:                                              ; preds = %.lr.ph85, %263
   %indvars.iv90 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next91, %263 ]
   %264 = load ptr, ptr %20, align 8
-  %265 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv90
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv90
   %266 = load ptr, ptr %265, align 8
   call void @_ZN6Assimp21OptimizeMeshesProcess11ProcessNodeEP6aiNode(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %266)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -1251,11 +1250,11 @@ define hidden noundef zeroext i1 @_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %11, %15
@@ -1266,9 +1265,9 @@ define hidden noundef zeroext i1 @_ZN6Assimp21OptimizeMeshesProcess7CanJoinEjjjj
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %12
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %12
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %26 = load i32, ptr %25, align 4
@@ -1778,9 +1777,9 @@ _ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_S_relocateEPS2_
 
 _ZNSt12_Vector_baseIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN6Assimp21OptimizeMeshesProcess8MeshInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %29, ptr %0, align 8
-  %39 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %30, i64 %1
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw %"struct.Assimp::OptimizeMeshesProcess::MeshInfo", ptr %29, i64 %27
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %40, ptr %11, align 8
   br label %41
 

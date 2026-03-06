@@ -252,7 +252,7 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17h29ae7a7b7549c908E(i64 no
 
 9:                                                ; preds = %3
   %10 = sub nsw i64 0, %0
-  %11 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %1, i64 %10
+  %11 = getelementptr inbounds [240 x i8], ptr %1, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %4, ptr noundef nonnull align 8 dereferenceable(240) %11, i64 240, i1 false)
   br label %.outer
 
@@ -263,7 +263,7 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17h29ae7a7b7549c908E(i64 no
 
 12:                                               ; preds = %.outer, %20
   %.040 = phi i64 [ %21, %20 ], [ %.040.ph, %.outer ]
-  %13 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %11, i64 %.040
+  %13 = getelementptr inbounds [240 x i8], ptr %11, i64 %.040
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, ptr noundef nonnull align 8 dereferenceable(240) %4, i64 240, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
@@ -273,8 +273,8 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17h29ae7a7b7549c908E(i64 no
 
 14:                                               ; preds = %14, %12
   %.05.i.i.i = phi i64 [ 0, %12 ], [ %19, %14 ]
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %.05.i.i.i
-  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %.05.i.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.05.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05.i.i.i
   %17 = load i64, ptr %15, align 8, !alias.scope !97, !noalias !102
   %18 = load i64, ptr %16, align 8, !alias.scope !104, !noalias !105
   store i64 %18, ptr %15, align 8, !alias.scope !97, !noalias !102
@@ -309,14 +309,14 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit:    ; preds = %14
 
 .lr.ph:                                           ; preds = %25, %43
   %.sroa.033.053 = phi i64 [ %44, %43 ], [ 1, %25 ]
-  %28 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %11, i64 %.sroa.033.053
+  %28 = getelementptr inbounds [240 x i8], ptr %11, i64 %.sroa.033.053
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %4, ptr noundef nonnull align 8 dereferenceable(240) %28, i64 240, i1 false)
   %29 = add i64 %.sroa.033.053, %2
   br label %30
 
 30:                                               ; preds = %.backedge, %.lr.ph
   %.2 = phi i64 [ %29, %.lr.ph ], [ %.2.be, %.backedge ]
-  %31 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %11, i64 %.2
+  %31 = getelementptr inbounds [240 x i8], ptr %11, i64 %.2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %5, ptr noundef nonnull align 8 dereferenceable(240) %4, i64 240, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
@@ -326,8 +326,8 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit:    ; preds = %14
 
 32:                                               ; preds = %32, %30
   %.05.i.i.i48 = phi i64 [ 0, %30 ], [ %37, %32 ]
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %.05.i.i.i48
-  %34 = getelementptr inbounds nuw i64, ptr %5, i64 %.05.i.i.i48
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.05.i.i.i48
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05.i.i.i48
   %35 = load i64, ptr %33, align 8, !alias.scope !109, !noalias !114
   %36 = load i64, ptr %34, align 8, !alias.scope !116, !noalias !117
   store i64 %36, ptr %33, align 8, !alias.scope !109, !noalias !114

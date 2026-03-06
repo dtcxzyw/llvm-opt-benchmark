@@ -1248,7 +1248,7 @@ _preset_retrieve_old_search_pref.exit:            ; preds = %2
 
 switch.lookup:                                    ; preds = %11
   %14 = zext nneg i32 %.06181 to i64
-  %15 = getelementptr ptr, ptr @switch.table._preset_retrieve_old_layout, i64 %14
+  %15 = getelementptr [8 x i8], ptr @switch.table._preset_retrieve_old_layout, i64 %14
   %switch.gep = getelementptr i8, ptr %15, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
@@ -1979,7 +1979,7 @@ define internal fastcc void @_preset_from_string(ptr noundef readonly captures(n
   br i1 %.not94.us, label %53, label %47
 
 47:                                               ; preds = %.lr.ph.split.us
-  %48 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv110
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv110
   %49 = load ptr, ptr %48, align 8, !tbaa !17
   %50 = tail call noalias ptr @g_strdup(ptr noundef %49) #16
   store ptr %50, ptr %46, align 8, !tbaa !70
@@ -2007,7 +2007,7 @@ define internal fastcc void @_preset_from_string(ptr noundef readonly captures(n
   br i1 %.not94, label %64, label %58
 
 58:                                               ; preds = %.lr.ph.split
-  %59 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !17
   %61 = tail call noalias ptr @g_strdup(ptr noundef %60) #16
   store ptr %61, ptr %57, align 8, !tbaa !70
@@ -2048,7 +2048,7 @@ define internal fastcc void @_preset_from_string(ptr noundef readonly captures(n
 .lr.ph105:                                        ; preds = %68, %99
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %99 ], [ 2, %68 ]
   %.079102 = phi ptr [ %.180, %99 ], [ null, %68 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv116
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv116
   %76 = load ptr, ptr %75, align 8, !tbaa !17
   %.not92 = icmp eq ptr %76, null
   br i1 %.not92, label %99, label %77
@@ -2089,7 +2089,7 @@ define internal fastcc void @_preset_from_string(ptr noundef readonly captures(n
 92:                                               ; preds = %.lr.ph100, %92
   %93 = phi ptr [ %.pre, %.lr.ph100 ], [ %97, %92 ]
   %indvars.iv113 = phi i64 [ 3, %.lr.ph100 ], [ %indvars.iv.next114, %92 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv113
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv113
   %95 = load ptr, ptr %94, align 8, !tbaa !17
   %96 = tail call noalias ptr @g_strdup(ptr noundef %95) #16
   %97 = tail call ptr @g_list_append(ptr noundef %93, ptr noundef %96) #16

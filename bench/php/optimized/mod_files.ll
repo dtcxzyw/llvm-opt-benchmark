@@ -61,7 +61,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr noundef captures(none) %0,
   br i1 %or.cond5, label %.preheader, label %17
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %.035
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.035
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %14, ptr %19, align 8, !tbaa !7
   %20 = tail call ptr @__errno_location() #17

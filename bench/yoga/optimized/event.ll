@@ -28,7 +28,7 @@ define hidden noundef nonnull ptr @_ZN8facebook4yoga24LayoutPassReasonToStringEN
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8facebook4yoga24LayoutPassReasonToStringENS0_16LayoutPassReasonE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8facebook4yoga24LayoutPassReasonToStringENS0_16LayoutPassReasonE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

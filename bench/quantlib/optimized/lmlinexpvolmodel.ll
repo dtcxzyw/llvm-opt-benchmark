@@ -1898,7 +1898,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK8QuantLib9Param
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %i.036 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end ]
-  %add.ptr.i34 = getelementptr inbounds nuw double, ptr %21, i64 %i.036
+  %add.ptr.i34 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %i.036
   %22 = load double, ptr %add.ptr.i34, align 8, !tbaa !40
   %cmp14 = fcmp ogt double %22, %t
   br i1 %cmp14, label %if.then, label %if.end
@@ -1909,7 +1909,7 @@ if.then:                                          ; preds = %for.body
   %mul = fmul double %sub, %fneg
   %call16 = tail call double @exp(double noundef %mul) #18, !tbaa !53
   %24 = tail call double @llvm.fmuladd.f64(double %23, double %call16, double %call2.i21)
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %i.036
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %i.036
   store double %24, ptr %arrayidx.i, align 8, !tbaa !40
   br label %if.end
 
@@ -2005,7 +2005,7 @@ _ZNK8QuantLib9ParameterclEd.exit30:               ; preds = %_ZNK8QuantLib9Param
   %call2.i27 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(16) %params_.i24, double noundef 0.000000e+00)
   %fixingTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %17 = load ptr, ptr %fixingTimes_, align 8, !tbaa !8
-  %add.ptr.i31 = getelementptr inbounds nuw double, ptr %17, i64 %i
+  %add.ptr.i31 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %i
   %18 = load double, ptr %add.ptr.i31, align 8, !tbaa !40
   %cmp = fcmp ogt double %18, %t
   br i1 %cmp, label %cond.true, label %cond.end
@@ -2101,9 +2101,9 @@ _ZNK8QuantLib9ParameterclEd.exit94:               ; preds = %_ZNK8QuantLib9Param
   %call2.i91 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(16) %params_.i88, double noundef 0.000000e+00)
   %fixingTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %17 = load ptr, ptr %fixingTimes_, align 8, !tbaa !8
-  %add.ptr.i95 = getelementptr inbounds nuw double, ptr %17, i64 %i
+  %add.ptr.i95 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %i
   %18 = load double, ptr %add.ptr.i95, align 8, !tbaa !40
-  %add.ptr.i96 = getelementptr inbounds nuw double, ptr %17, i64 %j
+  %add.ptr.i96 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %j
   %19 = load double, ptr %add.ptr.i96, align 8, !tbaa !40
   %mul = fmul double %u, %call2.i73
   %call15 = tail call double @exp(double noundef %mul) #18, !tbaa !53

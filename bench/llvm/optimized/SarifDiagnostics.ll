@@ -818,7 +818,7 @@ _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EE11_S_relocateEPS3_S6_
 _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %74, %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %69, ptr %1, align 8, !tbaa !284
   store ptr %73, ptr %50, align 8, !tbaa !278
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %52, align 8, !tbaa !281
   br label %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EE9push_backEOS3_.exit
 
@@ -1239,7 +1239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
 .lr.ph.i:                                         ; preds = %209, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %209 ]
   %203 = load ptr, ptr %28, align 8, !tbaa !330
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv.i
   %205 = load ptr, ptr %204, align 8, !tbaa !331
   %magicptr.i = ptrtoint ptr %205 to i64
   switch i64 %magicptr.i, label %206 [
@@ -1298,7 +1298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 
 229:                                              ; preds = %216
   %230 = load ptr, ptr %28, align 8, !noalias !341
-  %.sroa.0.0.i.i.i.i = getelementptr inbounds ptr, ptr %230, i64 %228
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds [8 x i8], ptr %230, i64 %228
   %231 = load ptr, ptr %.sroa.0.0.i.i.i.i, align 8, !tbaa !331
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load i32, ptr %232, align 8, !tbaa !344
@@ -1708,7 +1708,7 @@ _ZN5clang10ThreadFlowD2Ev.exit26.i.i:             ; preds = %_ZN5clang10ThreadFl
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang10ThreadFlowELb0EE28reserveForParamAndGetAddressERKS2_m.exit.i, label %357, !prof !439
 
 357:                                              ; preds = %_ZN5clang10ThreadFlowD2Ev.exit26.i.i
-  %358 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %.pre3.i, i64 %354
+  %358 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i, i64 %354
   %359 = icmp uge ptr %11, %.pre3.i
   %360 = icmp ult ptr %11, %358
   %spec.select.i.i.i.i.i = and i1 %359, %360
@@ -1732,7 +1732,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang10ThreadFlowELb0EE28reserveForParamAndG
   %.016.i.i.i = phi ptr [ %11, %_ZN5clang10ThreadFlowD2Ev.exit26.i.i ], [ %365, %361 ], [ %11, %.critedge.i.i.i ]
   %367 = load i32, ptr %89, align 8, !tbaa !275
   %368 = zext i32 %367 to i64
-  %369 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %366, i64 %368
+  %369 = getelementptr inbounds nuw [48 x i8], ptr %366, i64 %368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %369, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 16, i1 false)
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %371 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
@@ -1839,7 +1839,7 @@ _ZN4llvm15SmallVectorImplIN5clang15CharSourceRangeEE7reserveEm.exit.i.i.thread.i
 _ZN5clang11SarifResult12setLocationsEN4llvm8ArrayRefINS_15CharSourceRangeEEE.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang15CharSourceRangeEE7reserveEm.exit.i.i.thread.i.i, %_ZL17createThreadFlowsPKN5clang4ento14PathDiagnosticERKNS_11LangOptionsE.exit.i
   %.pre8.i.i5.i.i = phi i64 [ %400, %_ZN4llvm15SmallVectorImplIN5clang15CharSourceRangeEE7reserveEm.exit.i.i.thread.i.i ], [ 0, %_ZL17createThreadFlowsPKN5clang4ento14PathDiagnosticERKNS_11LangOptionsE.exit.i ]
   %401 = load ptr, ptr %126, align 8, !tbaa !274, !noalias !463
-  %402 = getelementptr inbounds nuw %"class.clang::CharSourceRange", ptr %401, i64 %.pre8.i.i5.i.i
+  %402 = getelementptr inbounds nuw [12 x i8], ptr %401, i64 %.pre8.i.i5.i.i
   store i64 %.sroa.012.0.copyload.pn.i.i, ptr %402, align 1, !noalias !466
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %402, i64 8
   store i8 0, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 1, !noalias !466
@@ -1850,7 +1850,7 @@ _ZN5clang11SarifResult12setLocationsEN4llvm8ArrayRefINS_15CharSourceRangeEEE.exi
   %404 = load ptr, ptr %15, align 8, !tbaa !274, !noalias !341
   %405 = load i32, ptr %89, align 8, !tbaa !275, !noalias !341
   %406 = zext i32 %405 to i64
-  %407 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %404, i64 %406
+  %407 = getelementptr inbounds nuw [48 x i8], ptr %404, i64 %406
   call void @_ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE6assignIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef %404, ptr noundef %407), !noalias !467
   call void @_ZN5clang11SarifResultC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(592) %29, ptr noundef nonnull align 8 dereferenceable(592) %16)
   %408 = load ptr, ptr %130, align 8, !tbaa !274, !noalias !341
@@ -2417,7 +2417,7 @@ define linkonce_odr hidden void @_ZN5clang19SarifDocumentWriterD2Ev(ptr noundef 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !330
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !331
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [
@@ -2743,7 +2743,7 @@ define internal fastcc void @_ZL17createRuleMappingRKSt6vectorIPKN5clang4ento14P
 .lr.ph.i:                                         ; preds = %62, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %62 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !330
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8, !tbaa !331
   %magicptr.i = ptrtoint ptr %58 to i64
   switch i64 %magicptr.i, label %59 [
@@ -6195,7 +6195,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #19
   %6 = load ptr, ptr %0, align 8, !tbaa !330
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !331
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -6247,7 +6247,7 @@ _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9S
   %25 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #19
   %26 = load ptr, ptr %0, align 8, !tbaa !330
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -6472,7 +6472,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #19
   %6 = load ptr, ptr %0, align 8, !tbaa !330
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !331
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -6526,7 +6526,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #19
   %27 = load ptr, ptr %0, align 8, !tbaa !330
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -7236,7 +7236,7 @@ _ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit: ; preds = %12, %_ZSt4copy
   %.pre-phi = phi i64 [ %.pre38, %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit ], [ %11, %12 ]
   %21 = phi ptr [ %.pre, %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit ], [ %13, %12 ]
   %.0 = phi ptr [ %18, %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit.loopexit ], [ %13, %12 ]
-  %22 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %21, i64 %.pre-phi
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %22
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -7327,14 +7327,14 @@ _ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit36: ; preds = %.lr.ph.i.i.i
   %53 = load ptr, ptr %1, align 8, !tbaa !274
   %54 = load i32, ptr %6, align 8, !tbaa !275
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %55
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %55
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN5clang10ThreadFlowEPS1_ET0_T_S6_S5_.exit36
   %57 = load ptr, ptr %0, align 8, !tbaa !274
-  %58 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %57, i64 %.022
-  %59 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %53, i64 %.022
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %.022
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN5clang10ThreadFlowEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
@@ -7459,7 +7459,7 @@ _ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE7reserveEm.exit.i: ; preds = %25,
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplIN5clang10ThreadFlowEE7reserveEm.exit.i
   %27 = load ptr, ptr %0, align 8, !tbaa !274
-  %28 = getelementptr inbounds nuw %"class.clang::ThreadFlow", ptr %27, i64 %.pre-phi.i
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt10_ConstructIN5clang10ThreadFlowEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i

@@ -43,7 +43,7 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
   %15 = phi float [ -1.000000e+03, %.lr.ph ], [ %46, %45 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %16 = phi i32 [ 0, %.lr.ph ], [ %47, %45 ]
-  %17 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !13
   %19 = load float, ptr %1, align 4, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -78,7 +78,7 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
 
 40:                                               ; preds = %37
   %41 = sext i32 %16 to i64
-  %42 = getelementptr inbounds i32, ptr %6, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %6, i64 %41
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %43, ptr %42, align 4, !tbaa !14
   %44 = add nsw i32 %16, 1
@@ -99,11 +99,11 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
 
 48:                                               ; preds = %.lr.ph22, %48
   %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv24
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv24
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %class.btVector3, ptr %3, i64 %51
-  %53 = getelementptr inbounds nuw %class.btVector3, ptr %13, i64 %indvars.iv24
+  %52 = getelementptr inbounds [16 x i8], ptr %3, i64 %51
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !17
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
@@ -429,7 +429,7 @@ define linkonce_odr dso_local noundef i32 @_Z22bt_plane_clip_triangleRK9btVector
   %42 = fsub float %37, %21
   %43 = fdiv float %41, %42
   %44 = zext nneg i32 %.0 to i64
-  %45 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %44
   %46 = fsub float 1.000000e+00, %43
   %47 = load float, ptr %1, align 4, !tbaa !13
   %48 = fmul float %46, %47
@@ -458,7 +458,7 @@ define linkonce_odr dso_local noundef i32 @_Z22bt_plane_clip_triangleRK9btVector
 
 61:                                               ; preds = %60
   %62 = zext nneg i32 %.1 to i64
-  %63 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %62
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %63, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !17
   %64 = add nuw nsw i32 %.1, 1
   br label %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit
@@ -488,7 +488,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit: ; preds = %60, %61
   %82 = fsub float %77, %37
   %83 = fdiv float %81, %82
   %84 = zext nneg i32 %.2 to i64
-  %85 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %84
   %86 = fsub float 1.000000e+00, %83
   %87 = load float, ptr %2, align 4, !tbaa !13
   %88 = fmul float %86, %87
@@ -517,7 +517,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit: ; preds = %60, %61
 
 101:                                              ; preds = %100
   %102 = zext nneg i32 %.3 to i64
-  %103 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %103, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !17
   %104 = add nuw nsw i32 %.3, 1
   br label %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32
@@ -533,7 +533,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32: ; preds = %100, 
   %108 = fsub float %21, %77
   %109 = fdiv float %107, %108
   %110 = zext nneg i32 %.4 to i64
-  %111 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %110
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %110
   %112 = fsub float 1.000000e+00, %109
   %113 = load float, ptr %3, align 4, !tbaa !13
   %114 = fmul float %112, %113
@@ -565,7 +565,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32: ; preds = %100, 
 
 130:                                              ; preds = %129
   %131 = zext nneg i32 %.5 to i64
-  %132 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %131
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %132, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !17
   %133 = add nuw nsw i32 %.5, 1
   br label %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit38
@@ -618,13 +618,13 @@ define linkonce_odr dso_local noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4
 
 26:                                               ; preds = %._crit_edge
   %27 = sext i32 %2 to i64
-  %28 = getelementptr %class.btVector3, ptr %1, i64 %27
+  %28 = getelementptr [16 x i8], ptr %1, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -16
   %30 = fneg float %.0.lcssa
   %31 = fsub float %20, %.0.lcssa
   %32 = fdiv float %30, %31
   %33 = sext i32 %.1.lcssa to i64
-  %34 = getelementptr inbounds %class.btVector3, ptr %3, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %3, i64 %33
   %35 = fsub float 1.000000e+00, %32
   %36 = load float, ptr %29, align 4, !tbaa !13
   %37 = fmul float %35, %36
@@ -658,7 +658,7 @@ define linkonce_odr dso_local noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4
 
 55:                                               ; preds = %54
   %56 = sext i32 %.2 to i64
-  %57 = getelementptr inbounds %class.btVector3, ptr %3, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %3, i64 %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !17
   %58 = add nsw i32 %.2, 1
   br label %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit
@@ -671,7 +671,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit: ; preds = %54, %55
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32 ]
   %.045 = phi float [ %20, %.lr.ph.preheader ], [ %72, %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32 ]
   %.143 = phi i32 [ %.042, %.lr.ph.preheader ], [ %.5, %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32 ]
-  %59 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !13
   %61 = load float, ptr %0, align 4, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -696,7 +696,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit: ; preds = %54, %55
   %78 = fsub float %72, %.045
   %79 = fdiv float %77, %78
   %80 = sext i32 %.143 to i64
-  %81 = getelementptr inbounds %class.btVector3, ptr %3, i64 %80
+  %81 = getelementptr inbounds [16 x i8], ptr %3, i64 %80
   %82 = fsub float 1.000000e+00, %79
   %83 = load float, ptr %76, align 4, !tbaa !13
   %84 = fmul float %82, %83
@@ -727,7 +727,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit: ; preds = %54, %55
 
 99:                                               ; preds = %98
   %100 = sext i32 %.4 to i64
-  %101 = getelementptr inbounds %class.btVector3, ptr %3, i64 %100
+  %101 = getelementptr inbounds [16 x i8], ptr %3, i64 %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %101, ptr noundef nonnull align 4 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !17
   %102 = add nsw i32 %.4, 1
   br label %_Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32
@@ -802,7 +802,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
   %.sink.i47 = phi i32 [ %.pr, %.sink.split.i ], [ %.sink.i47.ph, %.outer84 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.sink.split.i ], [ %indvars.iv.i.ph, %.outer84 ]
   %32 = phi i32 [ %55, %.sink.split.i ], [ %.sink.i47.ph, %.outer84 ]
-  %33 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %34 = load float, ptr %33, align 16, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load float, ptr %35, align 4, !tbaa !13
@@ -827,7 +827,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
 
 50:                                               ; preds = %47
   %51 = sext i32 %32 to i64
-  %52 = getelementptr inbounds i32, ptr %5, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %5, i64 %51
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %53, ptr %52, align 4, !tbaa !14
   %54 = add nsw i32 %32, 1
@@ -849,11 +849,11 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
 
 57:                                               ; preds = %57, %.lr.ph22.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next25.i, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv24.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv24.i
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %class.btVector3, ptr %6, i64 %60
-  %62 = getelementptr inbounds nuw %class.btVector3, ptr %30, i64 %indvars.iv24.i
+  %61 = getelementptr inbounds [16 x i8], ptr %6, i64 %60
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv24.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull readonly align 16 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !17
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -923,7 +923,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
   %.sink.i2052 = phi i32 [ %.pr42, %.sink.split.i19 ], [ %.sink.i2052.ph, %.outer ]
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i22, %.sink.split.i19 ], [ %indvars.iv.i18.ph, %.outer ]
   %87 = phi i32 [ %110, %.sink.split.i19 ], [ %.sink.i2052.ph, %.outer ]
-  %88 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv.i18
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i18
   %89 = load float, ptr %88, align 16, !tbaa !13
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %91 = load float, ptr %90, align 4, !tbaa !13
@@ -948,7 +948,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 
 105:                                              ; preds = %102
   %106 = sext i32 %87 to i64
-  %107 = getelementptr inbounds i32, ptr %4, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %4, i64 %106
   %108 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   store i32 %108, ptr %107, align 4, !tbaa !14
   %109 = add nsw i32 %87, 1
@@ -970,11 +970,11 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 
 112:                                              ; preds = %112, %.lr.ph22.i25
   %indvars.iv24.i27 = phi i64 [ 0, %.lr.ph22.i25 ], [ %indvars.iv.next25.i28, %112 ]
-  %113 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv24.i27
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv24.i27
   %114 = load i32, ptr %113, align 4, !tbaa !14
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %class.btVector3, ptr %6, i64 %115
-  %117 = getelementptr inbounds nuw %class.btVector3, ptr %85, i64 %indvars.iv24.i27
+  %116 = getelementptr inbounds [16 x i8], ptr %6, i64 %115
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %indvars.iv24.i27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %117, ptr noundef nonnull readonly align 16 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !17
   %indvars.iv.next25.i28 = add nuw nsw i64 %indvars.iv24.i27, 1
   %exitcond28.not.i29 = icmp eq i64 %indvars.iv.next25.i28, %wide.trip.count27.i26

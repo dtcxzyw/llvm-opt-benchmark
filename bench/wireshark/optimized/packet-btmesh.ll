@@ -20,11 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.bt_property_raw_value_entry_t = type { ptr, ptr, ptr }
 %struct.btmesh_property_t = type { i16, i16 }
 %struct.btmesh_column_property_t = type { i16, i16, i16 }
-%struct.uat_btmesh_record_t = type { ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, i8, ptr, ptr, i32, i8, i8, i32 }
 %struct._upper_transport_fragment_key = type { i16, i32, i32, i32 }
-%struct.uat_btmesh_label_uuid_record_t = type { ptr, ptr, i32, i16, i8 }
-%struct.uat_btmesh_dev_key_record_t = type { ptr, ptr, i32, ptr, i32, ptr, i8 }
-%struct.bt_gatt_characteristic_t = type { i16, i16, ptr, i8 }
 
 @num_btmesh_uat = internal global i32 0, align 4
 @uat_btmesh_records = internal global ptr null, align 8
@@ -3416,7 +3412,7 @@ define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nound
 25:                                               ; preds = %.lr.ph, %131
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
   %26 = load ptr, ptr @uat_btmesh_records, align 8
-  %27 = getelementptr %struct.uat_btmesh_record_t, ptr %26, i64 %indvars.iv
+  %27 = getelementptr [104 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 93
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 4
@@ -3743,10 +3739,10 @@ define internal void @format_publish_period(ptr noundef %0, i32 noundef %1) #3 {
   %4 = and i32 %3, 3
   %5 = and i32 %1, 63
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr i32, ptr @period_interval_multiplier, i64 %6
+  %7 = getelementptr [4 x i8], ptr @period_interval_multiplier, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = mul i32 %8, %5
-  %10 = getelementptr ptr, ptr @period_interval_unit, i64 %6
+  %10 = getelementptr [8 x i8], ptr @period_interval_unit, i64 %6
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1795, i32 noundef %9, ptr noundef %11)
   ret void
@@ -4089,7 +4085,7 @@ define internal void @format_tai_to_utc_date(ptr noundef %0, i64 noundef %1) #0 
 
 12:                                               ; preds = %7, %15
   %.01315 = phi i64 [ 0, %7 ], [ %16, %15 ]
-  %13 = getelementptr i64, ptr %3, i64 %.01315
+  %13 = getelementptr [8 x i8], ptr %3, i64 %.01315
   %14 = load i64, ptr %13, align 8
   %.not = icmp ult i64 %1, %14
   br i1 %.not, label %17, label %15
@@ -4515,7 +4511,7 @@ define internal void @format_admin_user_access(ptr noundef %0, i32 noundef %1) #
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.format_admin_user_access, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.format_admin_user_access, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -4533,7 +4529,7 @@ define internal void @format_user_access(ptr noundef %0, i32 noundef %1) #3 {
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.format_user_access, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.format_user_access, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -6954,7 +6950,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %33 = phi i32 [ %51, %.loopexit104.us.i ], [ %29, %.lr.ph108.i ]
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.loopexit104.us.i ], [ 0, %.lr.ph108.i ]
   %34 = load ptr, ptr @uat_btmesh_records, align 8
-  %35 = getelementptr %struct.uat_btmesh_record_t, ptr %34, i64 %indvars.iv130.i
+  %35 = getelementptr [104 x i8], ptr %34, i64 %indvars.iv130.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 93
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 4
@@ -6992,7 +6988,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %55 = phi i32 [ %49, %.lr.ph.us.i ], [ %72, %71 ]
   %56 = phi ptr [ %.pre145.i, %.lr.ph.us.i ], [ %73, %71 ]
   %indvars.iv127.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next128.i, %71 ]
-  %57 = getelementptr %struct.uat_btmesh_label_uuid_record_t, ptr %56, i64 %indvars.iv127.i
+  %57 = getelementptr [24 x i8], ptr %56, i64 %indvars.iv127.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 22
   %59 = load i8, ptr %58, align 2
   %60 = icmp eq i8 %59, 1
@@ -7035,7 +7031,7 @@ check_address_type.exit.i:                        ; preds = %25, %23
   %77 = phi i32 [ %29, %.lr.ph108.split.preheader.i ], [ %98, %97 ]
   %78 = phi ptr [ %.pre142.i, %.lr.ph108.split.preheader.i ], [ %99, %97 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph108.split.preheader.i ], [ %indvars.iv.next.i, %97 ]
-  %79 = getelementptr %struct.uat_btmesh_record_t, ptr %78, i64 %indvars.iv.i
+  %79 = getelementptr [104 x i8], ptr %78, i64 %indvars.iv.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 93
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 4
@@ -7097,7 +7093,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit104.u
   %111 = phi i32 [ %122, %.loopexit.us.i ], [ %105, %.lr.ph111.i ]
   %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %.loopexit.us.i ], [ 0, %.lr.ph111.i ]
   %112 = load ptr, ptr @uat_btmesh_dev_key_records, align 8
-  %113 = getelementptr %struct.uat_btmesh_dev_key_record_t, ptr %112, i64 %indvars.iv139.i
+  %113 = getelementptr [56 x i8], ptr %112, i64 %indvars.iv139.i
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, 2
@@ -7128,7 +7124,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit104.u
   %126 = phi i32 [ %120, %.lr.ph.us112.i ], [ %143, %142 ]
   %127 = phi ptr [ %.pre150.i, %.lr.ph.us112.i ], [ %144, %142 ]
   %indvars.iv136.i = phi i64 [ 0, %.lr.ph.us112.i ], [ %indvars.iv.next137.i, %142 ]
-  %128 = getelementptr %struct.uat_btmesh_label_uuid_record_t, ptr %127, i64 %indvars.iv136.i
+  %128 = getelementptr [24 x i8], ptr %127, i64 %indvars.iv136.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 22
   %130 = load i8, ptr %129, align 2
   %131 = icmp eq i8 %130, 1
@@ -7170,7 +7166,7 @@ thread-pre-split.i:                               ; preds = %97, %.loopexit104.u
 .lr.ph111.split.i:                                ; preds = %.lr.ph111.i, %167
   %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %167 ], [ 0, %.lr.ph111.i ]
   %148 = load ptr, ptr @uat_btmesh_dev_key_records, align 8
-  %149 = getelementptr %struct.uat_btmesh_dev_key_record_t, ptr %148, i64 %indvars.iv133.i
+  %149 = getelementptr [56 x i8], ptr %148, i64 %indvars.iv133.i
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 48
   %151 = load i8, ptr %150, align 8
   %152 = icmp eq i8 %151, 2
@@ -7357,7 +7353,7 @@ define internal fastcc zeroext i1 @try_access_decrypt(ptr noundef nonnull %0, i3
   %65 = load ptr, ptr %8, align 8
   %66 = load ptr, ptr @uat_btmesh_label_uuid_records, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr %struct.uat_btmesh_label_uuid_record_t, ptr %66, i64 %67
+  %68 = getelementptr [24 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = call i32 @gcry_cipher_authenticate(ptr noundef %65, ptr noundef %70, i64 noundef 16)
@@ -11974,13 +11970,13 @@ define internal fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 
 
 12:                                               ; preds = %11, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %10 ]
-  %13 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %13 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 4
   %15 = icmp eq i16 %14, %4
   br i1 %15, label %find_characteristic_id.exit.i, label %11
 
 find_characteristic_id.exit.i:                    ; preds = %12
-  %16 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %16 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i64 %indvars.iv.i, 179
@@ -11988,7 +11984,7 @@ find_characteristic_id.exit.i:                    ; preds = %12
 
 .preheader.i:                                     ; preds = %find_characteristic_id.exit.i, %23
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %23 ], [ 0, %find_characteristic_id.exit.i ]
-  %20 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv18.i
+  %20 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv18.i
   %21 = load i16, ptr %20, align 8
   %22 = icmp eq i16 %21, %18
   br i1 %22, label %find_btmesh_property_characteristic_idx.exit, label %23
@@ -12008,7 +12004,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.preheader.i
 25:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
   %sext = shl i64 %indvars.iv18.i, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %26
+  %27 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
@@ -12043,13 +12039,13 @@ define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr nou
 
 .preheader:                                       ; preds = %6, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %6 ]
-  %9 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %9 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %10, %3
   br i1 %11, label %find_characteristic_id.exit.i, label %8
 
 find_characteristic_id.exit.i:                    ; preds = %.preheader
-  %12 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %12 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = icmp eq i64 %indvars.iv.i, 179
@@ -12057,7 +12053,7 @@ find_characteristic_id.exit.i:                    ; preds = %.preheader
 
 .preheader.i:                                     ; preds = %find_characteristic_id.exit.i, %19
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %19 ], [ 0, %find_characteristic_id.exit.i ]
-  %16 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv21.i
+  %16 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv21.i
   %17 = load i16, ptr %16, align 8
   %18 = icmp eq i16 %17, %14
   br i1 %18, label %find_btmesh_property_length.exit, label %19
@@ -12069,7 +12065,7 @@ find_characteristic_id.exit.i:                    ; preds = %.preheader
 
 find_btmesh_property_length.exit:                 ; preds = %.preheader.i
   %20 = and i64 %indvars.iv21.i, 4294967295
-  %21 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %20
+  %21 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
@@ -12083,13 +12079,13 @@ find_btmesh_property_length.exit:                 ; preds = %.preheader.i
 
 .preheader108:                                    ; preds = %6, %26
   %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i90, %26 ], [ 0, %6 ]
-  %27 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i89
+  %27 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i89
   %28 = load i16, ptr %27, align 4
   %29 = icmp eq i16 %28, %3
   br i1 %29, label %find_characteristic_id.exit.i93, label %26
 
 find_characteristic_id.exit.i93:                  ; preds = %.preheader108
-  %30 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i89
+  %30 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i89
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i64 %indvars.iv.i89, 179
@@ -12097,7 +12093,7 @@ find_characteristic_id.exit.i93:                  ; preds = %.preheader108
 
 .preheader.i94:                                   ; preds = %find_characteristic_id.exit.i93, %37
   %indvars.iv21.i95 = phi i64 [ %indvars.iv.next22.i96, %37 ], [ 0, %find_characteristic_id.exit.i93 ]
-  %34 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv21.i95
+  %34 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv21.i95
   %35 = load i16, ptr %34, align 8
   %36 = icmp eq i16 %35, %32
   br i1 %36, label %find_btmesh_property_length.exit99, label %37
@@ -12109,7 +12105,7 @@ find_characteristic_id.exit.i93:                  ; preds = %.preheader108
 
 find_btmesh_property_length.exit99:               ; preds = %.preheader.i94
   %38 = and i64 %indvars.iv21.i95, 4294967295
-  %39 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %38
+  %39 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
@@ -12207,13 +12203,13 @@ define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 0, %4 ]
-  %7 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %7 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 4
   %9 = icmp eq i16 %8, %3
   br i1 %9, label %find_characteristic_id.exit.i, label %5
 
 find_characteristic_id.exit.i:                    ; preds = %6
-  %10 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %10 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i64 %indvars.iv.i, 179
@@ -12221,7 +12217,7 @@ find_characteristic_id.exit.i:                    ; preds = %6
 
 .preheader.i:                                     ; preds = %find_characteristic_id.exit.i, %17
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %17 ], [ 0, %find_characteristic_id.exit.i ]
-  %14 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv18.i
+  %14 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv18.i
   %15 = load i16, ptr %14, align 8
   %16 = icmp eq i16 %15, %12
   br i1 %16, label %find_characteristic_id.exit.thread.loopexit.split.loop.exit.i, label %17
@@ -12248,7 +12244,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %5, %17, %find_chara
 
 23:                                               ; preds = %find_btmesh_property_characteristic_idx.exit
   %24 = sext i32 %.0.i to i64
-  %25 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %24
+  %25 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 0
@@ -12275,7 +12271,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %5, %17, %find_chara
 
 41:                                               ; preds = %45, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %39 ]
-  %42 = getelementptr %struct.btmesh_column_property_t, ptr @btmesh_column_properties, i64 %indvars.iv
+  %42 = getelementptr [6 x i8], ptr @btmesh_column_properties, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, %40
   br i1 %44, label %find_column_properties_idx.exit, label %45
@@ -12287,14 +12283,14 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %5, %17, %find_chara
 
 find_column_properties_idx.exit:                  ; preds = %41
   %46 = and i64 %indvars.iv, 4294967295
-  %47 = getelementptr %struct.btmesh_column_property_t, ptr @btmesh_column_properties, i64 %46
+  %47 = getelementptr [6 x i8], ptr @btmesh_column_properties, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = load i16, ptr %48, align 2
   br label %50
 
 50:                                               ; preds = %54, %find_column_properties_idx.exit
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %54 ], [ 0, %find_column_properties_idx.exit ]
-  %51 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv25
+  %51 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv25
   %52 = load i16, ptr %51, align 8
   %53 = icmp eq i16 %52, %49
   br i1 %53, label %find_characteristic_idx.exit, label %54
@@ -12307,7 +12303,7 @@ find_column_properties_idx.exit:                  ; preds = %41
 find_characteristic_idx.exit:                     ; preds = %50
   %55 = trunc nuw nsw i64 %indvars.iv25 to i32
   %56 = and i64 %indvars.iv25, 4294967295
-  %57 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %56
+  %57 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
@@ -12372,13 +12368,13 @@ define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr
 
 7:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %5 ]
-  %8 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %8 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 4
   %10 = icmp eq i16 %9, %3
   br i1 %10, label %find_characteristic_id.exit.i, label %6
 
 find_characteristic_id.exit.i:                    ; preds = %7
-  %11 = getelementptr %struct.btmesh_property_t, ptr @btmesh_properties, i64 %indvars.iv.i
+  %11 = getelementptr [4 x i8], ptr @btmesh_properties, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = icmp eq i64 %indvars.iv.i, 179
@@ -12386,7 +12382,7 @@ find_characteristic_id.exit.i:                    ; preds = %7
 
 .preheader.i:                                     ; preds = %find_characteristic_id.exit.i, %18
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %18 ], [ 0, %find_characteristic_id.exit.i ]
-  %15 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv18.i
+  %15 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv18.i
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, %13
   br i1 %17, label %find_btmesh_property_characteristic_idx.exit, label %18
@@ -12404,7 +12400,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.preheader.i
   %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %1, i32 noundef %2)
   %sext = shl i64 %indvars.iv18.i, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %21
+  %22 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 0
@@ -12424,7 +12420,7 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.preheader.i
 
 34:                                               ; preds = %38, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %32 ]
-  %35 = getelementptr %struct.btmesh_column_property_t, ptr @btmesh_column_properties, i64 %indvars.iv
+  %35 = getelementptr [6 x i8], ptr @btmesh_column_properties, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, %33
   br i1 %37, label %find_column_properties_idx.exit, label %38
@@ -12436,14 +12432,14 @@ find_btmesh_property_characteristic_idx.exit:     ; preds = %.preheader.i
 
 find_column_properties_idx.exit:                  ; preds = %34
   %39 = and i64 %indvars.iv, 4294967295
-  %40 = getelementptr %struct.btmesh_column_property_t, ptr @btmesh_column_properties, i64 %39
+  %40 = getelementptr [6 x i8], ptr @btmesh_column_properties, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = load i16, ptr %41, align 2
   br label %43
 
 43:                                               ; preds = %47, %find_column_properties_idx.exit
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %47 ], [ 0, %find_column_properties_idx.exit ]
-  %44 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv131
+  %44 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv131
   %45 = load i16, ptr %44, align 8
   %46 = icmp eq i16 %45, %42
   br i1 %46, label %find_characteristic_idx.exit, label %47
@@ -12456,7 +12452,7 @@ find_column_properties_idx.exit:                  ; preds = %34
 find_characteristic_idx.exit:                     ; preds = %43
   %48 = trunc nuw nsw i64 %indvars.iv131 to i32
   %49 = and i64 %indvars.iv131, 4294967295
-  %50 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %49
+  %50 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
@@ -12493,7 +12489,7 @@ find_characteristic_idx.exit:                     ; preds = %43
 
 73:                                               ; preds = %77, %61
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %77 ], [ 0, %61 ]
-  %74 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv134
+  %74 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv134
   %75 = load i16, ptr %74, align 8
   %76 = icmp eq i16 %75, %72
   br i1 %76, label %find_characteristic_idx.exit100, label %77
@@ -12506,7 +12502,7 @@ find_characteristic_idx.exit:                     ; preds = %43
 find_characteristic_idx.exit100:                  ; preds = %73
   %78 = trunc nuw nsw i64 %indvars.iv134 to i32
   %79 = and i64 %indvars.iv134, 4294967295
-  %80 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %79
+  %80 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
@@ -12568,7 +12564,7 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0,
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %7
+  %8 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
@@ -12605,7 +12601,7 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0,
 
 29:                                               ; preds = %33, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %27 ]
-  %30 = getelementptr %struct.btmesh_column_property_t, ptr @btmesh_column_properties, i64 %indvars.iv
+  %30 = getelementptr [6 x i8], ptr @btmesh_column_properties, i64 %indvars.iv
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, %28
   br i1 %32, label %find_column_properties_idx.exit, label %33
@@ -12617,14 +12613,14 @@ define internal fastcc void @dissect_btmesh_property_idx(ptr noundef nonnull %0,
 
 find_column_properties_idx.exit:                  ; preds = %29
   %34 = and i64 %indvars.iv, 4294967295
-  %35 = getelementptr %struct.btmesh_column_property_t, ptr @btmesh_column_properties, i64 %34
+  %35 = getelementptr [6 x i8], ptr @btmesh_column_properties, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = load i16, ptr %36, align 2
   br label %38
 
 38:                                               ; preds = %42, %find_column_properties_idx.exit
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %42 ], [ 0, %find_column_properties_idx.exit ]
-  %39 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv99
+  %39 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv99
   %40 = load i16, ptr %39, align 8
   %41 = icmp eq i16 %40, %37
   br i1 %41, label %find_characteristic_idx.exit, label %42
@@ -12636,7 +12632,7 @@ find_column_properties_idx.exit:                  ; preds = %29
 
 find_characteristic_idx.exit:                     ; preds = %38
   %43 = and i64 %indvars.iv99, 4294967295
-  %44 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %43
+  %44 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %46 = icmp eq i64 %indvars.iv99, 89
   br i1 %46, label %.critedge, label %47
@@ -12660,7 +12656,7 @@ find_characteristic_idx.exit:                     ; preds = %38
 
 57:                                               ; preds = %61, %54
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %61 ], [ 0, %54 ]
-  %58 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %indvars.iv102
+  %58 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %indvars.iv102
   %59 = load i16, ptr %58, align 8
   %60 = icmp eq i16 %59, %56
   br i1 %60, label %find_characteristic_idx.exit74, label %61
@@ -12672,7 +12668,7 @@ find_characteristic_idx.exit:                     ; preds = %38
 
 find_characteristic_idx.exit74:                   ; preds = %57
   %62 = and i64 %indvars.iv102, 4294967295
-  %63 = getelementptr %struct.bt_gatt_characteristic_t, ptr @bt_gatt_characteristics, i64 %62
+  %63 = getelementptr [24 x i8], ptr @bt_gatt_characteristics, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = icmp eq i64 %indvars.iv102, 89
   br i1 %65, label %.critedge, label %66

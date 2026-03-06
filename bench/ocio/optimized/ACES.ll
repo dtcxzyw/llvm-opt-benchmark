@@ -839,7 +839,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 47:                                               ; preds = %1, %54
   %.097 = phi i64 [ 0, %1 ], [ %55, %54 ]
   %48 = load ptr, ptr %2, align 8, !tbaa !30
-  %49 = getelementptr inbounds nuw float, ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT22Generate_tonecurve_opsERNS_10OpRcPtrVecE.slopes, i64 %.097
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT22Generate_tonecurve_opsERNS_10OpRcPtrVecE.slopes, i64 %.097
   %50 = load float, ptr %49, align 4, !tbaa !35
   %51 = load ptr, ptr %48, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -1319,7 +1319,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 243:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit60, %250
   %.02198 = phi i64 [ 0, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit60 ], [ %251, %250 ]
   %244 = load ptr, ptr %10, align 8, !tbaa !30
-  %245 = getelementptr inbounds nuw float, ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT22Generate_tonecurve_opsERNS_10OpRcPtrVecE.slopes.3, i64 %.02198
+  %245 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT22Generate_tonecurve_opsERNS_10OpRcPtrVecE.slopes.3, i64 %.02198
   %246 = load float, ptr %245, align 4, !tbaa !35
   %247 = load ptr, ptr %244, align 8, !tbaa !13
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 48
@@ -2036,7 +2036,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 68:                                               ; preds = %38, %75
   %.0221 = phi i64 [ 0, %38 ], [ %76, %75 ]
   %69 = load ptr, ptr %3, align 8, !tbaa !30
-  %70 = getelementptr inbounds nuw float, ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes, i64 %.0221
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes, i64 %.0221
   %71 = load float, ptr %70, align 4, !tbaa !35
   %72 = load ptr, ptr %69, align 8, !tbaa !13
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
@@ -2491,7 +2491,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 251:                                              ; preds = %221, %258
   %.064220 = phi i64 [ 0, %221 ], [ %259, %258 ]
   %252 = load ptr, ptr %11, align 8, !tbaa !30
-  %253 = getelementptr inbounds nuw float, ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes.4, i64 %.064220
+  %253 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes.4, i64 %.064220
   %254 = load float, ptr %253, align 4, !tbaa !35
   %255 = load ptr, ptr %252, align 8, !tbaa !13
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 48
@@ -2946,7 +2946,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 434:                                              ; preds = %404, %441
   %.065219 = phi i64 [ 0, %404 ], [ %442, %441 ]
   %435 = load ptr, ptr %19, align 8, !tbaa !30
-  %436 = getelementptr inbounds nuw float, ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes.5, i64 %.065219
+  %436 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes.5, i64 %.065219
   %437 = load float, ptr %436, align 4, !tbaa !35
   %438 = load ptr, ptr %435, align 8, !tbaa !13
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 48
@@ -3401,7 +3401,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_
 617:                                              ; preds = %587, %624
   %.066218 = phi i64 [ 0, %587 ], [ %625, %624 ]
   %618 = load ptr, ptr %27, align 8, !tbaa !30
-  %619 = getelementptr inbounds nuw float, ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes.6, i64 %.066218
+  %619 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ACES_OUTPUT26Generate_hdr_tonecurve_opsERNS_10OpRcPtrVecEd.slopes.6, i64 %.066218
   %620 = load float, ptr %619, align 4, !tbaa !35
   %621 = load ptr, ptr %618, align 8, !tbaa !13
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 48

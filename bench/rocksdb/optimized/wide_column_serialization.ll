@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::WideColumn" = type { %"class.rocksdb::Slice", %"class.rocksdb::Slice" }
 %"class.rocksdb::autovector" = type { i64, [64 x i8], ptr, %"class.std::vector.5" }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
@@ -126,7 +125,7 @@ _ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.
   %53 = phi ptr [ %49, %.lr.ph ], [ %111, %107 ]
   %.03148 = phi ptr [ null, %.lr.ph ], [ %54, %107 ]
   %.03447 = phi i64 [ 0, %.lr.ph ], [ %109, %107 ]
-  %54 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %53, i64 %.03447
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.03447
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !15
   %57 = icmp ugt i64 %56, 4294967295
@@ -484,7 +483,7 @@ _ZNSt12_Vector_baseIN7rocksdb10WideColumnESaIS1_EE13_M_deallocateEPS1_m.exit.i: 
   store ptr %76, ptr %2, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 %74
   store ptr %80, ptr %71, align 8, !tbaa !4
-  %81 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %76, i64 %62
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %62
   store ptr %81, ptr %63, align 8, !tbaa !34
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE7reserveEm.exit
 
@@ -512,7 +511,7 @@ _ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit.thread: ; preds = %_ZNSt12_Vector
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %90, ptr %85, align 8, !tbaa !49
   store ptr %90, ptr %91, align 8, !tbaa !50
-  %93 = getelementptr inbounds nuw i32, ptr %90, i64 %88
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %88
   store ptr %93, ptr %92, align 8, !tbaa !51
   br label %.lr.ph
 
@@ -730,7 +729,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i
 _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE17_M_realloc_insertIJRNS0_5SliceES5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %166, %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %160, ptr %2, align 8, !tbaa !10
   store ptr %165, ptr %94, align 8, !tbaa !4
-  %167 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %160, i64 %158
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %160, i64 %158
   store ptr %167, ptr %63, align 8, !tbaa !34
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRNS0_5SliceES5_EEERS1_DpOT_.exit
 
@@ -816,7 +815,7 @@ _ZN7rocksdb11GetVarint32EPNS_5SliceEPj.exit79:    ; preds = %.noexc78
   %188 = load ptr, ptr %83, align 8, !tbaa !48
   %189 = add nuw nsw i64 %185, 1
   store i64 %189, ptr %13, align 8, !tbaa !41
-  %190 = getelementptr inbounds nuw i32, ptr %188, i64 %185
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %185
   %191 = load i32, ptr %18, align 4, !tbaa !26
   store i32 %191, ptr %190, align 4, !tbaa !26
   br label %219
@@ -885,7 +884,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %215, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %217, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %211, ptr %85, align 8, !tbaa !49
   store ptr %216, ptr %95, align 8, !tbaa !50
-  %218 = getelementptr inbounds nuw i32, ptr %211, i64 %209
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %209
   store ptr %218, ptr %96, align 8, !tbaa !51
   br label %219
 
@@ -923,9 +922,9 @@ _ZN7rocksdb10autovectorIjLm16EE12emplace_backIJRjEEEvDpOT_.exit: ; preds = %_ZN7
   %.031121 = phi i64 [ 0, %.lr.ph123 ], [ %233, %239 ]
   %225 = icmp samesign ult i64 %indvars.iv, 16
   %226 = load ptr, ptr %83, align 8
-  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %indvars.iv
   %228 = load ptr, ptr %85, align 8
-  %229 = getelementptr i32, ptr %228, i64 %indvars.iv
+  %229 = getelementptr [4 x i8], ptr %228, i64 %indvars.iv
   %230 = getelementptr i8, ptr %229, i64 -64
   %.0.i86 = select i1 %225, ptr %227, ptr %230
   %231 = load i32, ptr %.0.i86, align 4, !tbaa !26
@@ -955,7 +954,7 @@ _ZN7rocksdb10autovectorIjLm16EE12emplace_backIJRjEEEvDpOT_.exit: ; preds = %_ZN7
 
 239:                                              ; preds = %224
   %240 = getelementptr inbounds nuw i8, ptr %.sroa.097.0.copyload, i64 %.031121
-  %241 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %223, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw [32 x i8], ptr %223, i64 %indvars.iv
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
   store ptr %240, ptr %242, align 8, !tbaa !29
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 24

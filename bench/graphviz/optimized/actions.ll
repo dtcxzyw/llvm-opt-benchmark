@@ -3579,7 +3579,7 @@ define i32 @fwriteFile(ptr noundef readonly captures(none) %0, ptr noundef %1, i
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %2
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %2
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
@@ -3612,7 +3612,7 @@ define ptr @freadFile(ptr noundef readonly captures(none) %0, i64 noundef %1) lo
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %8
@@ -3637,7 +3637,7 @@ define range(i32 11, 10) i32 @openFile(ptr noundef captures(none) %0, ptr nounde
 
 5:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 3, %3 ], [ %indvars.iv.next, %8 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
@@ -3652,7 +3652,7 @@ define range(i32 11, 10) i32 @openFile(ptr noundef captures(none) %0, ptr nounde
   br label %13
 
 .thread:                                          ; preds = %5
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef %2)
   store ptr %12, ptr %10, align 8, !tbaa !24
@@ -3684,7 +3684,7 @@ define noundef i32 @closeFile(ptr noundef captures(none) %0, i64 noundef %1) loc
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %11
@@ -3715,7 +3715,7 @@ define ptr @readLine(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9

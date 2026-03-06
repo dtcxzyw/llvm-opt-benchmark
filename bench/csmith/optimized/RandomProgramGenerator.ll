@@ -558,7 +558,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 128:                                              ; preds = %.lr.ph, %1861
   %.06061218 = phi i32 [ 1, %.lr.ph ], [ %1862, %1861 ]
   %129 = sext i32 %.06061218 to i64
-  %130 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %1, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !13
   %132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(7) @.str.2) #15
   %133 = icmp eq i32 %132, 0
@@ -734,7 +734,7 @@ sub_1890:                                         ; preds = %.tail883.thread, %.
 
 _Z9arg_checkii.exit:                              ; preds = %206
   %212 = sext i32 %207 to i64
-  %213 = getelementptr inbounds ptr, ptr %1, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %1, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !13
   %215 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %214, ptr noundef nonnull @_ZL6g_Seed)
   br i1 %215, label %1861, label %216
@@ -764,7 +764,7 @@ _Z9arg_checkii.exit:                              ; preds = %206
 
 _Z9arg_checkii.exit638:                           ; preds = %219
   %225 = sext i32 %220 to i64
-  %226 = getelementptr inbounds ptr, ptr %1, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %1, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !13
   %228 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %227, ptr noundef nonnull %3)
   br i1 %228, label %230, label %229
@@ -801,7 +801,7 @@ _Z9arg_checkii.exit638:                           ; preds = %219
 
 _Z9arg_checkii.exit640:                           ; preds = %237
   %243 = sext i32 %238 to i64
-  %244 = getelementptr inbounds ptr, ptr %1, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %1, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !13
   %246 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %245, ptr noundef nonnull %4)
   br i1 %246, label %248, label %247
@@ -838,7 +838,7 @@ _Z9arg_checkii.exit640:                           ; preds = %237
 
 _Z9arg_checkii.exit642:                           ; preds = %255
   %261 = sext i32 %256 to i64
-  %262 = getelementptr inbounds ptr, ptr %1, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %1, i64 %261
   %263 = load ptr, ptr %262, align 8, !tbaa !13
   %264 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %263, ptr noundef nonnull %5)
   br i1 %264, label %266, label %265
@@ -911,7 +911,7 @@ _Z9arg_checkii.exit642:                           ; preds = %255
 
 _Z9arg_checkii.exit644:                           ; preds = %293
   %299 = sext i32 %294 to i64
-  %300 = getelementptr inbounds ptr, ptr %1, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %1, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !13
   %302 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %301, ptr noundef nonnull %6)
   br i1 %302, label %304, label %303
@@ -938,7 +938,7 @@ _Z9arg_checkii.exit644:                           ; preds = %293
   %312 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %312)
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds ptr, ptr %1, i64 %313
+  %314 = getelementptr inbounds [8 x i8], ptr %1, i64 %313
   %315 = load ptr, ptr %314, align 8, !tbaa !13
   %316 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %315, ptr noundef nonnull %7)
   br i1 %316, label %318, label %317
@@ -970,7 +970,7 @@ _Z9arg_checkii.exit644:                           ; preds = %293
 
 327:                                              ; preds = %325
   %328 = sext i32 %326 to i64
-  %329 = getelementptr inbounds ptr, ptr %1, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %1, i64 %328
   %330 = load ptr, ptr %329, align 8, !tbaa !13
   %331 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %330, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %332 unwind label %.loopexit953
@@ -1172,7 +1172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit656: ; preds = %_Z
 
 412:                                              ; preds = %410
   %413 = sext i32 %411 to i64
-  %414 = getelementptr inbounds ptr, ptr %1, i64 %413
+  %414 = getelementptr inbounds [8 x i8], ptr %1, i64 %413
   %415 = load ptr, ptr %414, align 8, !tbaa !13
   %416 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %415, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %417 unwind label %.loopexit948
@@ -1421,7 +1421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %_Z
   %525 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %525)
   %526 = sext i32 %525 to i64
-  %527 = getelementptr inbounds ptr, ptr %1, i64 %526
+  %527 = getelementptr inbounds [8 x i8], ptr %1, i64 %526
   %528 = load ptr, ptr %527, align 8, !tbaa !13
   %529 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %528, ptr noundef nonnull %14)
   br i1 %529, label %531, label %530
@@ -1447,7 +1447,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %_Z
   %539 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %539)
   %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds ptr, ptr %1, i64 %540
+  %541 = getelementptr inbounds [8 x i8], ptr %1, i64 %540
   %542 = load ptr, ptr %541, align 8, !tbaa !13
   %543 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %542, ptr noundef nonnull %15)
   br i1 %543, label %545, label %544
@@ -1473,7 +1473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %_Z
   %553 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %553)
   %554 = sext i32 %553 to i64
-  %555 = getelementptr inbounds ptr, ptr %1, i64 %554
+  %555 = getelementptr inbounds [8 x i8], ptr %1, i64 %554
   %556 = load ptr, ptr %555, align 8, !tbaa !13
   %557 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %556, ptr noundef nonnull %16)
   br i1 %557, label %559, label %558
@@ -1505,7 +1505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %_Z
 
 568:                                              ; preds = %566
   %569 = sext i32 %567 to i64
-  %570 = getelementptr inbounds ptr, ptr %1, i64 %569
+  %570 = getelementptr inbounds [8 x i8], ptr %1, i64 %569
   %571 = load ptr, ptr %570, align 8, !tbaa !13
   %572 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %571, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %573 unwind label %575
@@ -1612,7 +1612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit688: ; preds = %_Z
 
 607:                                              ; preds = %605
   %608 = sext i32 %606 to i64
-  %609 = getelementptr inbounds ptr, ptr %1, i64 %608
+  %609 = getelementptr inbounds [8 x i8], ptr %1, i64 %608
   %610 = load ptr, ptr %609, align 8, !tbaa !13
   %611 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %610, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %612 unwind label %614
@@ -1713,7 +1713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit703: ; preds = %_Z
   %645 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %645)
   %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds ptr, ptr %1, i64 %646
+  %647 = getelementptr inbounds [8 x i8], ptr %1, i64 %646
   %648 = load ptr, ptr %647, align 8, !tbaa !13
   %649 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %648, ptr noundef nonnull %23)
   br i1 %649, label %651, label %650
@@ -1739,7 +1739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit703: ; preds = %_Z
   %659 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %659)
   %660 = sext i32 %659 to i64
-  %661 = getelementptr inbounds ptr, ptr %1, i64 %660
+  %661 = getelementptr inbounds [8 x i8], ptr %1, i64 %660
   %662 = load ptr, ptr %661, align 8, !tbaa !13
   %663 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %662, ptr noundef nonnull %24)
   br i1 %663, label %665, label %664
@@ -1786,7 +1786,7 @@ sub_1895:                                         ; preds = %sub_0894
 
 679:                                              ; preds = %677
   %680 = sext i32 %678 to i64
-  %681 = getelementptr inbounds ptr, ptr %1, i64 %680
+  %681 = getelementptr inbounds [8 x i8], ptr %1, i64 %680
   %682 = load ptr, ptr %681, align 8, !tbaa !13
   %683 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %682, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %684 unwind label %686
@@ -1893,7 +1893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit718: ; preds = %_Z
 
 717:                                              ; preds = %715
   %718 = sext i32 %716 to i64
-  %719 = getelementptr inbounds ptr, ptr %1, i64 %718
+  %719 = getelementptr inbounds [8 x i8], ptr %1, i64 %718
   %720 = load ptr, ptr %719, align 8, !tbaa !13
   %721 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %720, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %722 unwind label %.loopexit943
@@ -2013,7 +2013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit735: ; preds = %_Z
 
 756:                                              ; preds = %754
   %757 = sext i32 %755 to i64
-  %758 = getelementptr inbounds ptr, ptr %1, i64 %757
+  %758 = getelementptr inbounds [8 x i8], ptr %1, i64 %757
   %759 = load ptr, ptr %758, align 8, !tbaa !13
   %760 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %759, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %761 unwind label %.loopexit938
@@ -2133,7 +2133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752: ; preds = %_Z
 
 795:                                              ; preds = %793
   %796 = sext i32 %794 to i64
-  %797 = getelementptr inbounds ptr, ptr %1, i64 %796
+  %797 = getelementptr inbounds [8 x i8], ptr %1, i64 %796
   %798 = load ptr, ptr %797, align 8, !tbaa !13
   %799 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %798, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %800 unwind label %.loopexit933
@@ -2550,7 +2550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit769: ; preds = %_Z
   %1004 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1004)
   %1005 = sext i32 %1004 to i64
-  %1006 = getelementptr inbounds ptr, ptr %1, i64 %1005
+  %1006 = getelementptr inbounds [8 x i8], ptr %1, i64 %1005
   %1007 = load ptr, ptr %1006, align 8, !tbaa !13
   %1008 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1007, ptr noundef nonnull %37)
   br i1 %1008, label %1010, label %1009
@@ -2576,7 +2576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit769: ; preds = %_Z
   %1018 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1018)
   %1019 = sext i32 %1018 to i64
-  %1020 = getelementptr inbounds ptr, ptr %1, i64 %1019
+  %1020 = getelementptr inbounds [8 x i8], ptr %1, i64 %1019
   %1021 = load ptr, ptr %1020, align 8, !tbaa !13
   %1022 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1021, ptr noundef nonnull %38)
   br i1 %1022, label %1024, label %1023
@@ -2971,7 +2971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit769: ; preds = %_Z
   %1237 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1237)
   %1238 = sext i32 %1237 to i64
-  %1239 = getelementptr inbounds ptr, ptr %1, i64 %1238
+  %1239 = getelementptr inbounds [8 x i8], ptr %1, i64 %1238
   %1240 = load ptr, ptr %1239, align 8, !tbaa !13
   %1241 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1240, ptr noundef nonnull %39)
   br i1 %1241, label %1243, label %1242
@@ -3003,7 +3003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit769: ; preds = %_Z
 
 1252:                                             ; preds = %1250
   %1253 = sext i32 %1251 to i64
-  %1254 = getelementptr inbounds ptr, ptr %1, i64 %1253
+  %1254 = getelementptr inbounds [8 x i8], ptr %1, i64 %1253
   %1255 = load ptr, ptr %1254, align 8, !tbaa !13
   %1256 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1255, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %1257 unwind label %.loopexit928
@@ -3112,7 +3112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit783: ; preds = %_Z
 
 1287:                                             ; preds = %1285
   %1288 = sext i32 %1286 to i64
-  %1289 = getelementptr inbounds ptr, ptr %1, i64 %1288
+  %1289 = getelementptr inbounds [8 x i8], ptr %1, i64 %1288
   %1290 = load ptr, ptr %1289, align 8, !tbaa !13
   %1291 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1290, ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %1292 unwind label %.loopexit923
@@ -3232,7 +3232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit800: ; preds = %_Z
 
 1326:                                             ; preds = %1324
   %1327 = sext i32 %1325 to i64
-  %1328 = getelementptr inbounds ptr, ptr %1, i64 %1327
+  %1328 = getelementptr inbounds [8 x i8], ptr %1, i64 %1327
   %1329 = load ptr, ptr %1328, align 8, !tbaa !13
   %1330 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1329, ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %1331 unwind label %.loopexit918
@@ -3352,7 +3352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit817: ; preds = %_Z
 
 1365:                                             ; preds = %1363
   %1366 = sext i32 %1364 to i64
-  %1367 = getelementptr inbounds ptr, ptr %1, i64 %1366
+  %1367 = getelementptr inbounds [8 x i8], ptr %1, i64 %1366
   %1368 = load ptr, ptr %1367, align 8, !tbaa !13
   %1369 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1368, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %1370 unwind label %.loopexit913
@@ -3472,7 +3472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit834: ; preds = %_Z
 
 1404:                                             ; preds = %1402
   %1405 = sext i32 %1403 to i64
-  %1406 = getelementptr inbounds ptr, ptr %1, i64 %1405
+  %1406 = getelementptr inbounds [8 x i8], ptr %1, i64 %1405
   %1407 = load ptr, ptr %1406, align 8, !tbaa !13
   %1408 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1407, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %1409 unwind label %.loopexit908
@@ -3646,7 +3646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit851: ; preds = %_Z
 
 1473:                                             ; preds = %1471
   %1474 = sext i32 %1472 to i64
-  %1475 = getelementptr inbounds ptr, ptr %1, i64 %1474
+  %1475 = getelementptr inbounds [8 x i8], ptr %1, i64 %1474
   %1476 = load ptr, ptr %1475, align 8, !tbaa !13
   %1477 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1476, ptr noundef nonnull align 8 dereferenceable(32) %54)
           to label %1478 unwind label %.loopexit903
@@ -3794,7 +3794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865: ; preds = %_Z
   %1532 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1532)
   %1533 = sext i32 %1532 to i64
-  %1534 = getelementptr inbounds ptr, ptr %1, i64 %1533
+  %1534 = getelementptr inbounds [8 x i8], ptr %1, i64 %1533
   %1535 = load ptr, ptr %1534, align 8, !tbaa !13
   %1536 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1535, ptr noundef nonnull %56)
   br i1 %1536, label %1538, label %1537
@@ -3820,7 +3820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865: ; preds = %_Z
   %1546 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1546)
   %1547 = sext i32 %1546 to i64
-  %1548 = getelementptr inbounds ptr, ptr %1, i64 %1547
+  %1548 = getelementptr inbounds [8 x i8], ptr %1, i64 %1547
   %1549 = load ptr, ptr %1548, align 8, !tbaa !13
   %1550 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1549, ptr noundef nonnull %57)
   br i1 %1550, label %1552, label %1551
@@ -3846,7 +3846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865: ; preds = %_Z
   %1560 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1560)
   %1561 = sext i32 %1560 to i64
-  %1562 = getelementptr inbounds ptr, ptr %1, i64 %1561
+  %1562 = getelementptr inbounds [8 x i8], ptr %1, i64 %1561
   %1563 = load ptr, ptr %1562, align 8, !tbaa !13
   %1564 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1563, ptr noundef nonnull %58)
   br i1 %1564, label %1566, label %1565
@@ -3878,7 +3878,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit865: ; preds = %_Z
 
 1575:                                             ; preds = %1573
   %1576 = sext i32 %1574 to i64
-  %1577 = getelementptr inbounds ptr, ptr %1, i64 %1576
+  %1577 = getelementptr inbounds [8 x i8], ptr %1, i64 %1576
   %1578 = load ptr, ptr %1577, align 8, !tbaa !13
   %1579 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1578, ptr noundef nonnull align 8 dereferenceable(32) %59)
           to label %1580 unwind label %.loopexit898
@@ -3959,7 +3959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit873: ; preds = %15
 
 1600:                                             ; preds = %1598
   %1601 = sext i32 %1599 to i64
-  %1602 = getelementptr inbounds ptr, ptr %1, i64 %1601
+  %1602 = getelementptr inbounds [8 x i8], ptr %1, i64 %1601
   %1603 = load ptr, ptr %1602, align 8, !tbaa !13
   %1604 = invoke noundef zeroext i1 @_Z16parse_string_argPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %1603, ptr noundef nonnull align 8 dereferenceable(32) %60)
           to label %1605 unwind label %.loopexit
@@ -4034,7 +4034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1624 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1624)
   %1625 = sext i32 %1624 to i64
-  %1626 = getelementptr inbounds ptr, ptr %1, i64 %1625
+  %1626 = getelementptr inbounds [8 x i8], ptr %1, i64 %1625
   %1627 = load ptr, ptr %1626, align 8, !tbaa !13
   %1628 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1627, ptr noundef nonnull %61)
   br i1 %1628, label %1630, label %1629
@@ -4060,7 +4060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1638 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1638)
   %1639 = sext i32 %1638 to i64
-  %1640 = getelementptr inbounds ptr, ptr %1, i64 %1639
+  %1640 = getelementptr inbounds [8 x i8], ptr %1, i64 %1639
   %1641 = load ptr, ptr %1640, align 8, !tbaa !13
   %1642 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1641, ptr noundef nonnull %62)
   br i1 %1642, label %1644, label %1643
@@ -4086,7 +4086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1652 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1652)
   %1653 = sext i32 %1652 to i64
-  %1654 = getelementptr inbounds ptr, ptr %1, i64 %1653
+  %1654 = getelementptr inbounds [8 x i8], ptr %1, i64 %1653
   %1655 = load ptr, ptr %1654, align 8, !tbaa !13
   %1656 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1655, ptr noundef nonnull %63)
   br i1 %1656, label %1658, label %1657
@@ -4112,7 +4112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1666 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1666)
   %1667 = sext i32 %1666 to i64
-  %1668 = getelementptr inbounds ptr, ptr %1, i64 %1667
+  %1668 = getelementptr inbounds [8 x i8], ptr %1, i64 %1667
   %1669 = load ptr, ptr %1668, align 8, !tbaa !13
   %1670 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1669, ptr noundef nonnull %64)
   br i1 %1670, label %1672, label %1671
@@ -4138,7 +4138,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1680 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1680)
   %1681 = sext i32 %1680 to i64
-  %1682 = getelementptr inbounds ptr, ptr %1, i64 %1681
+  %1682 = getelementptr inbounds [8 x i8], ptr %1, i64 %1681
   %1683 = load ptr, ptr %1682, align 8, !tbaa !13
   %1684 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1683, ptr noundef nonnull %65)
   br i1 %1684, label %1686, label %1685
@@ -4398,7 +4398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1824 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1824)
   %1825 = sext i32 %1824 to i64
-  %1826 = getelementptr inbounds ptr, ptr %1, i64 %1825
+  %1826 = getelementptr inbounds [8 x i8], ptr %1, i64 %1825
   %1827 = load ptr, ptr %1826, align 8, !tbaa !13
   %1828 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1827, ptr noundef nonnull %66)
   br i1 %1828, label %1830, label %1829
@@ -4424,7 +4424,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   %1837 = add nsw i32 %.06061218, 1
   call void @_Z9arg_checkii(i32 noundef %0, i32 noundef %1837)
   %1838 = sext i32 %1837 to i64
-  %1839 = getelementptr inbounds ptr, ptr %1, i64 %1838
+  %1839 = getelementptr inbounds [8 x i8], ptr %1, i64 %1838
   %1840 = load ptr, ptr %1839, align 8, !tbaa !13
   %1841 = call fastcc noundef zeroext i1 @_ZL13parse_int_argPcPm(ptr noundef %1840, ptr noundef nonnull %67)
   br i1 %1841, label %1843, label %1842
@@ -4452,7 +4452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit881: ; preds = %16
   br label %1861
 
 1853:                                             ; preds = %1846
-  %1854 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %1854 = getelementptr inbounds [8 x i8], ptr %1, i64 %129
   %1855 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.200)
   %1856 = load ptr, ptr %1854, align 8, !tbaa !13
   %1857 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1855, ptr noundef %1856)

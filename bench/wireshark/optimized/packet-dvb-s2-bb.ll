@@ -1026,7 +1026,7 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %.075 = phi i32 [ 0, %30 ], [ %21, %20 ], [ %21, %25 ], [ %21, %27 ], [ %21, %29 ], [ %21, %28 ]
   %.074 = phi i32 [ %31, %30 ], [ %22, %20 ], [ 3, %25 ], [ 4, %27 ], [ %., %29 ], [ 2, %28 ]
   %33 = sext i32 %.074 to i64
-  %34 = getelementptr i32, ptr @dvb_s2_modeadapt_sizes, i64 %33
+  %34 = getelementptr [4 x i8], ptr @dvb_s2_modeadapt_sizes, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -1084,7 +1084,7 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %.183, i32 noundef 1, i32 noundef 0)
   %71 = load i32, ptr @hf_dvb_s2_modeadapt_acm_modcod_s2x, align 4
   %72 = zext nneg i32 %64 to i64
-  %73 = getelementptr %struct._value_string, ptr @modeadapt_modcods, i64 %72
+  %73 = getelementptr [16 x i8], ptr @modeadapt_modcods, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %68, i32 noundef %71, ptr noundef %0, i32 noundef %.183, i32 noundef 1, i32 noundef %58, ptr noundef nonnull @.str.654, ptr noundef %75, i32 noundef %64)

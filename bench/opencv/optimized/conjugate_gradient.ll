@@ -177,9 +177,9 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %3, %16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %24 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !13
-  %26 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store double %25, ptr %26, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -187,10 +187,10 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %3, %16
 
 27:                                               ; preds = %.lr.ph43, %43
   %indvars.iv45 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next46, %43 ]
-  %28 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv45
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv45
   %29 = load double, ptr %28, align 8, !tbaa !13
   %30 = fadd double %8, %29
-  %31 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv45
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv45
   store double %30, ptr %31, align 8, !tbaa !13
   %32 = load ptr, ptr %0, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -211,7 +211,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %3, %16
 43:                                               ; preds = %36
   %44 = fsub double %35, %42
   %45 = fdiv double %44, %23
-  %46 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv45
   store double %45, ptr %46, align 8, !tbaa !13
   %47 = load double, ptr %28, align 8, !tbaa !13
   store double %47, ptr %31, align 8, !tbaa !13

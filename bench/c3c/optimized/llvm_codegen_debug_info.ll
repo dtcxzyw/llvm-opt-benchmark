@@ -89,7 +89,7 @@ define dso_local void @llvm_debug_scope_push(ptr noundef captures(none) %0, ptr 
   %32 = load i32, ptr %.1.i, align 4
   %33 = add i32 %32, -1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   store ptr %1, ptr %35, align 8
   ret void
 }
@@ -121,7 +121,7 @@ define dso_local ptr @llvm_debug_current_scope(ptr noundef readonly captures(non
 8:                                                ; preds = %4
   %9 = add i32 %6, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %10
   br label %13
 
 .critedge:                                        ; preds = %1, %4
@@ -285,7 +285,7 @@ define dso_local void @llvm_emit_debug_local_var(ptr noundef captures(none) %0, 
 26:                                               ; preds = %22
   %27 = add i32 %24, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %28
   br label %llvm_debug_current_scope.exit.i
 
 .critedge.i.i:                                    ; preds = %22, %19
@@ -329,7 +329,7 @@ llvm_emit_debug_location.exit:                    ; preds = %llvm_debug_current_
 51:                                               ; preds = %47
   %52 = add i32 %49, -1
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %46, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %53
   br label %llvm_debug_current_scope.exit
 
 .critedge.i:                                      ; preds = %47, %llvm_emit_debug_location.exit
@@ -410,7 +410,7 @@ define dso_local void @llvm_emit_debug_location(ptr noundef captures(none) %0, i
 21:                                               ; preds = %17
   %22 = add i32 %19, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %16, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %23
   br label %llvm_debug_current_scope.exit
 
 .critedge.i:                                      ; preds = %17, %14
@@ -520,7 +520,7 @@ define dso_local void @llvm_debug_push_lexical_scope(ptr noundef %0, i64 %1) loc
 9:                                                ; preds = %5
   %10 = add i32 %7, -1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   br label %14
 
 .critedge:                                        ; preds = %2, %5
@@ -606,7 +606,7 @@ llvm_debug_scope_push.exit:                       ; preds = %35, %39
   %56 = load i32, ptr %.1.i.i, align 4
   %57 = add i32 %56, -1
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   store ptr %28, ptr %59, align 8
   ret void
 }
@@ -1037,7 +1037,7 @@ define internal fastcc ptr @llvm_debug_vector_type(ptr noundef readonly captures
   %43 = load i32, ptr %.1.i, align 4
   %44 = add i32 %43, -1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %36, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %45
   store ptr %42, ptr %46, align 8
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -1178,7 +1178,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr noundef readonly ca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %77 ]
   %.06069 = phi ptr [ null, %.lr.ph.preheader ], [ %80, %77 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
   %48 = load i32, ptr %47, align 8
@@ -1236,7 +1236,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr noundef readonly ca
   store i32 %79, ptr %.1.i, align 4
   %80 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %81 = zext i32 %78 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   store ptr %53, ptr %82, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1295,7 +1295,7 @@ define internal fastcc ptr @llvm_debug_func_type(ptr noundef readonly captures(n
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %13, ptr noundef %14)
@@ -1406,7 +1406,7 @@ expand_.exit:                                     ; preds = %38, %42
 
 68:                                               ; preds = %expand_.exit, %63
   %.080 = phi i64 [ %67, %63 ], [ 4294967295, %expand_.exit ]
-  %69 = getelementptr inbounds nuw ptr, ptr %62, i64 %.080
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.080
   store ptr %61, ptr %69, align 8
   br label %146
 
@@ -1481,7 +1481,7 @@ expand_.exit117._crit_edge:                       ; preds = %expand_.exit117
 107:                                              ; preds = %expand_.exit117._crit_edge, %102
   %108 = phi i32 [ %104, %102 ], [ %.pre, %expand_.exit117._crit_edge ]
   %.081 = phi i64 [ %106, %102 ], [ 4294967295, %expand_.exit117._crit_edge ]
-  %109 = getelementptr inbounds nuw ptr, ptr %101, i64 %.081
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.081
   store ptr %100, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %101, i64 -8
   %.phi.trans.insert.i119 = getelementptr inbounds i8, ptr %101, i64 -4
@@ -1542,7 +1542,7 @@ expand_.exit117._crit_edge:                       ; preds = %expand_.exit117
 
 144:                                              ; preds = %134, %139
   %.082 = phi i64 [ %143, %139 ], [ 4294967295, %134 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %138, i64 %.082
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %.082
   store ptr %137, ptr %145, align 8
   br label %146
 
@@ -1601,7 +1601,7 @@ expand_.exit131:                                  ; preds = %153, %158
   %174 = getelementptr inbounds nuw i8, ptr %.1.i129, i64 8
   store ptr %174, ptr @llvm_debug_func_type.buffer, align 8
   %175 = load ptr, ptr %4, align 8
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv147
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv147
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %152, align 8
   %179 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull %0, ptr noundef %177, ptr noundef %178)
@@ -1618,7 +1618,7 @@ expand_.exit131:                                  ; preds = %153, %158
 
 186:                                              ; preds = %expand_.exit131, %181
   %.085 = phi i64 [ %185, %181 ], [ 4294967295, %expand_.exit131 ]
-  %187 = getelementptr inbounds nuw ptr, ptr %180, i64 %.085
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %.085
   store ptr %179, ptr %187, align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
@@ -1682,7 +1682,7 @@ expand_.exit138:                                  ; preds = %191, %195
 
 221:                                              ; preds = %expand_.exit138, %216
   %.086 = phi i64 [ %220, %216 ], [ 4294967295, %expand_.exit138 ]
-  %222 = getelementptr inbounds nuw ptr, ptr %215, i64 %.086
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %.086
   store ptr %214, ptr %222, align 8
   br label %223
 
@@ -1753,7 +1753,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
   %.07999 = phi ptr [ null, %.lr.ph.preheader ], [ %84, %81 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
@@ -1825,7 +1825,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr noundef readonly capt
   store i32 %83, ptr %.1.i, align 4
   %84 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %85 = zext i32 %82 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   store ptr %57, ptr %86, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2091,7 +2091,7 @@ define internal fastcc ptr @llvm_debug_array_type(ptr noundef readonly captures(
   %41 = load i32, ptr %.1.i, align 4
   %42 = add i32 %41, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %34, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %43
   store ptr %40, ptr %44, align 8
   %45 = load ptr, ptr %5, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56

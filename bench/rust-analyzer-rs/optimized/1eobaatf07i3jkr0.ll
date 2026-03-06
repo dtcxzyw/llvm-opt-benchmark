@@ -15012,7 +15012,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %82
-  %89 = getelementptr inbounds ptr, ptr %84, i64 %75
+  %89 = getelementptr inbounds [8 x i8], ptr %84, i64 %75
   %90 = load ptr, ptr %89, align 8, !nonnull !4, !noundef !4
   store ptr %90, ptr %10, align 8, !noalias !2006
   store ptr %85, ptr %89, align 8
@@ -15203,7 +15203,7 @@ common.resume:                                    ; preds = %147, %151, %99, %94
   %156 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %143, %142 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %158 = load ptr, ptr %157, align 16, !alias.scope !2023, !nonnull !4, !noundef !4
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %156
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %156
   store ptr %79, ptr %159, align 8
   %160 = load i64, ptr %71, align 8, !alias.scope !2023, !noundef !4
   %161 = add i64 %160, 1
@@ -15504,7 +15504,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %82
-  %89 = getelementptr inbounds ptr, ptr %84, i64 %75
+  %89 = getelementptr inbounds [8 x i8], ptr %84, i64 %75
   %90 = load ptr, ptr %89, align 8, !nonnull !4, !noundef !4
   store ptr %90, ptr %10, align 8, !noalias !2049
   store ptr %85, ptr %89, align 8
@@ -15695,7 +15695,7 @@ common.resume:                                    ; preds = %147, %151, %99, %94
   %156 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %143, %142 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %158 = load ptr, ptr %157, align 16, !alias.scope !2065, !nonnull !4, !noundef !4
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %156
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %156
   store ptr %79, ptr %159, align 8
   %160 = load i64, ptr %71, align 8, !alias.scope !2065, !noundef !4
   %161 = add i64 %160, 1
@@ -15996,7 +15996,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 _ZN12tracing_core8metadata11LevelFilter7current17hfcb861495eba2193E.exit.i: ; preds = %82
-  %89 = getelementptr inbounds ptr, ptr %84, i64 %75
+  %89 = getelementptr inbounds [8 x i8], ptr %84, i64 %75
   %90 = load ptr, ptr %89, align 8, !nonnull !4, !noundef !4
   store ptr %90, ptr %10, align 8, !noalias !2091
   store ptr %85, ptr %89, align 8
@@ -16187,7 +16187,7 @@ common.resume:                                    ; preds = %147, %151, %99, %94
   %156 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %143, %142 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %158 = load ptr, ptr %157, align 16, !alias.scope !2107, !nonnull !4, !noundef !4
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %156
+  %159 = getelementptr inbounds [8 x i8], ptr %158, i64 %156
   store ptr %79, ptr %159, align 8
   %160 = load i64, ptr %71, align 8, !alias.scope !2107, !noundef !4
   %161 = add i64 %160, 1
@@ -16376,8 +16376,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2cd2e208d5b27fb5E.exit": ; preds = %35
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %30
-  %40 = getelementptr inbounds ptr, ptr %32, i64 %29
+  %39 = getelementptr inbounds [8 x i8], ptr %32, i64 %30
+  %40 = getelementptr inbounds [8 x i8], ptr %32, i64 %29
   %.0.copyload.i = load ptr, ptr %39, align 8, !alias.scope !2127, !noalias !2130
   %41 = load i64, ptr %40, align 8, !alias.scope !2127, !noalias !2130
   store i64 %41, ptr %39, align 8, !alias.scope !2127, !noalias !2130
@@ -16425,7 +16425,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 58:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 16, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %17
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %17
   store ptr %61, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbd7061a2e0ab08fE", ptr %62, align 8
@@ -16473,7 +16473,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 72:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2cd2e208d5b27fb5E.exit"
   %73 = load ptr, ptr %31, align 16, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %42
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %42
   %75 = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %76, i64 noundef %42)
@@ -16553,8 +16553,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h684a4522d6f185e8E.exit": ; preds = %35
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %30
-  %40 = getelementptr inbounds ptr, ptr %32, i64 %29
+  %39 = getelementptr inbounds [8 x i8], ptr %32, i64 %30
+  %40 = getelementptr inbounds [8 x i8], ptr %32, i64 %29
   %.0.copyload.i = load ptr, ptr %39, align 8, !alias.scope !2141, !noalias !2144
   %41 = load i64, ptr %40, align 8, !alias.scope !2141, !noalias !2144
   store i64 %41, ptr %39, align 8, !alias.scope !2141, !noalias !2144
@@ -16602,7 +16602,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 58:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 16, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %17
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %17
   store ptr %61, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f6e1ca0d256056fE", ptr %62, align 8
@@ -16650,7 +16650,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 72:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h684a4522d6f185e8E.exit"
   %73 = load ptr, ptr %31, align 16, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %42
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %42
   %75 = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %76, i64 noundef %42)
@@ -16730,8 +16730,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h25b8e4e789d6fc1fE.exit": ; preds = %35
-  %39 = getelementptr inbounds ptr, ptr %32, i64 %30
-  %40 = getelementptr inbounds ptr, ptr %32, i64 %29
+  %39 = getelementptr inbounds [8 x i8], ptr %32, i64 %30
+  %40 = getelementptr inbounds [8 x i8], ptr %32, i64 %29
   %.0.copyload.i = load ptr, ptr %39, align 8, !alias.scope !2155, !noalias !2158
   %41 = load i64, ptr %40, align 8, !alias.scope !2155, !noalias !2158
   store i64 %41, ptr %39, align 8, !alias.scope !2155, !noalias !2158
@@ -16779,7 +16779,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 58:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 16, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %17
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %17
   store ptr %61, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd026f33c3eaea3c8E", ptr %62, align 8
@@ -16827,7 +16827,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 72:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h25b8e4e789d6fc1fE.exit"
   %73 = load ptr, ptr %31, align 16, !nonnull !4, !noundef !4
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %42
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %42
   %75 = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %76, i64 noundef %42)
@@ -16912,8 +16912,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2cd2e208d5b27fb5E.exit": ; preds = %39
-  %43 = getelementptr inbounds ptr, ptr %36, i64 %34
-  %44 = getelementptr inbounds ptr, ptr %36, i64 %33
+  %43 = getelementptr inbounds [8 x i8], ptr %36, i64 %34
+  %44 = getelementptr inbounds [8 x i8], ptr %36, i64 %33
   %.0.copyload.i = load ptr, ptr %43, align 8, !alias.scope !2169, !noalias !2172
   %45 = load i64, ptr %44, align 8, !alias.scope !2169, !noalias !2172
   store i64 %45, ptr %43, align 8, !alias.scope !2169, !noalias !2172
@@ -16961,7 +16961,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 62:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %64 = load ptr, ptr %63, align 16, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %21
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %21
   store ptr %65, ptr %10, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbd7061a2e0ab08fE", ptr %66, align 8
@@ -17009,7 +17009,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 76:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h2cd2e208d5b27fb5E.exit"
   %77 = load ptr, ptr %35, align 16, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %46
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %46
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %80, i64 noundef %46)
@@ -17186,8 +17186,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h25b8e4e789d6fc1fE.exit": ; preds = %39
-  %43 = getelementptr inbounds ptr, ptr %36, i64 %34
-  %44 = getelementptr inbounds ptr, ptr %36, i64 %33
+  %43 = getelementptr inbounds [8 x i8], ptr %36, i64 %34
+  %44 = getelementptr inbounds [8 x i8], ptr %36, i64 %33
   %.0.copyload.i = load ptr, ptr %43, align 8, !alias.scope !2189, !noalias !2192
   %45 = load i64, ptr %44, align 8, !alias.scope !2189, !noalias !2192
   store i64 %45, ptr %43, align 8, !alias.scope !2189, !noalias !2192
@@ -17235,7 +17235,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 62:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %64 = load ptr, ptr %63, align 16, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %21
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %21
   store ptr %65, ptr %10, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hd026f33c3eaea3c8E", ptr %66, align 8
@@ -17283,7 +17283,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 76:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h25b8e4e789d6fc1fE.exit"
   %77 = load ptr, ptr %35, align 16, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %46
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %46
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %80, i64 noundef %46)
@@ -17460,8 +17460,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h684a4522d6f185e8E.exit": ; preds = %39
-  %43 = getelementptr inbounds ptr, ptr %36, i64 %34
-  %44 = getelementptr inbounds ptr, ptr %36, i64 %33
+  %43 = getelementptr inbounds [8 x i8], ptr %36, i64 %34
+  %44 = getelementptr inbounds [8 x i8], ptr %36, i64 %33
   %.0.copyload.i = load ptr, ptr %43, align 8, !alias.scope !2209, !noalias !2212
   %45 = load i64, ptr %44, align 8, !alias.scope !2209, !noalias !2212
   store i64 %45, ptr %43, align 8, !alias.scope !2209, !noalias !2212
@@ -17509,7 +17509,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 62:                                               ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit"
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %64 = load ptr, ptr %63, align 16, !nonnull !4, !noundef !4
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %21
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %21
   store ptr %65, ptr %10, align 8
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN64_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f6e1ca0d256056fE", ptr %66, align 8
@@ -17557,7 +17557,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 76:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h684a4522d6f185e8E.exit"
   %77 = load ptr, ptr %35, align 16, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %46
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %46
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %80, i64 noundef %46)

@@ -5,10 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.cli_asn1 = type { i8, i32, ptr, ptr }
 %struct.crtmgr = type { ptr, i32 }
-%struct.cli_mapped_region = type { i32, i32 }
 %struct.cli_crt_t = type { ptr, [64 x i8], [64 x i8], [64 x i8], [20 x i8], [20 x i8], [20 x i8], i32, [64 x i8], ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct._oid_alternative = type { ptr, i32, [2 x i32] }
 
 @.str = private unnamed_addr constant [11 x i8] c"+\06\01\04\01\827\0C\01\01\00", align 1
 @.str.1 = private unnamed_addr constant [65 x i8] c"asn1_load_mscat: found extra data in szOID_CATALOG_LIST content\0A\00", align 1
@@ -2374,7 +2372,7 @@ asn1_expect_objtype.exit:                         ; preds = %23
 
 48:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %49 = getelementptr inbounds nuw %struct.cli_mapped_region, ptr %4, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !76
   %52 = icmp eq i32 %51, 0
@@ -4884,7 +4882,7 @@ asn1_expect_objtype.exit30:                       ; preds = %22
 
 .preheader:                                       ; preds = %.preheader.preheader, %48
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %48 ]
-  %43 = getelementptr inbounds nuw %struct._oid_alternative, ptr %3, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !89
   %.not22 = icmp eq i32 %26, %45

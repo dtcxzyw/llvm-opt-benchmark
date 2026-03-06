@@ -5,11 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVProfile = type { i32, ptr }
 %union.anon = type { ptr }
-%struct.RowContext = type { [12 x [64 x i16]], [64 x i32], [64 x i32], %struct.GetBitContext, [3 x i32], i32, i32, i32, [8 x i8] }
-%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.VLCElem = type { %union.anon.1 }
-%union.anon.1 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [6 x i8] c"dnxhd\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"VC3/DNxHD\00", align 1
@@ -128,7 +123,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw %struct.RowContext, ptr %15, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2112 x i8], ptr %15, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 2100
   store i32 -1, ptr %33, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -248,7 +243,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 85:                                               ; preds = %.lr.ph129, %85
   %indvars.iv142 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next143, %85 ]
   %.090127 = phi i32 [ 0, %.lr.ph129 ], [ %89, %85 ]
-  %86 = getelementptr inbounds nuw %struct.RowContext, ptr %84, i64 %indvars.iv142
+  %86 = getelementptr inbounds nuw [2112 x i8], ptr %84, i64 %indvars.iv142
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2096
   %88 = load i32, ptr %87, align 16, !tbaa !70
   %89 = add nsw i32 %88, %.090127
@@ -283,7 +278,7 @@ define internal i32 @dnxhd_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %98
   %indvars.iv147 = phi i64 [ 1, %.lr.ph134.preheader ], [ %indvars.iv.next148, %98 ]
-  %99 = getelementptr inbounds nuw %struct.RowContext, ptr %94, i64 %indvars.iv147
+  %99 = getelementptr inbounds nuw [2112 x i8], ptr %94, i64 %indvars.iv147
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 2100
   %101 = load i32, ptr %100, align 4, !tbaa !47
   %.not111 = icmp eq i32 %101, %96
@@ -641,7 +636,7 @@ switch.lookup:                                    ; preds = %158, %154, %dnxhd_i
   %163 = and i8 %162, 3
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %165 = zext nneg i8 %163 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dnxhd_decode_header, i64 %165
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dnxhd_decode_header, i64 %165
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %164, align 4, !tbaa !91
   %166 = load i8, ptr %160, align 1, !tbaa !76
@@ -919,7 +914,7 @@ switch.lookup:                                    ; preds = %158, %154, %dnxhd_i
   %311 = getelementptr inbounds i8, ptr %302, i64 %310
   %312 = load i32, ptr %311, align 1, !tbaa !76
   %313 = tail call i32 @llvm.bswap.i32(i32 %312)
-  %314 = getelementptr inbounds nuw i32, ptr %303, i64 %indvars.iv
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %indvars.iv
   store i32 %313, ptr %314, align 4, !tbaa !75
   %315 = load i32, ptr %296, align 4, !tbaa !56
   %316 = sub nsw i32 %3, %315
@@ -950,12 +945,12 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds %struct.RowContext, ptr %12, i64 %13
+  %14 = getelementptr inbounds [2112 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2416
   %16 = load i32, ptr %15, align 8, !tbaa !74
   %17 = add nsw i32 %16, 2
@@ -1145,13 +1140,13 @@ define internal range(i32 -1094995529, 1) i32 @dnxhd_decode_row(ptr noundef read
   %134 = load i8, ptr %133, align 1, !tbaa !76
   %135 = zext i8 %134 to i32
   %136 = mul nuw nsw i32 %.0184.i, %135
-  %137 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store i32 %136, ptr %137, align 4, !tbaa !75
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 %indvars.iv.i
   %139 = load i8, ptr %138, align 1, !tbaa !76
   %140 = zext i8 %139 to i32
   %141 = mul nuw nsw i32 %.0184.i, %140
-  %142 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   store i32 %141, ptr %142, align 4, !tbaa !75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -1378,7 +1373,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -1445,7 +1440,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %52 = load ptr, ptr %51, align 8, !tbaa !117
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !76
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
@@ -1463,7 +1458,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
 ._crit_edge:                                      ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds [4 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %77
 
@@ -1478,7 +1473,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %71 = select i1 %isnotneg.i, i32 %70, i32 %69
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %73 = sext i32 %.0181.i to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !75
   %76 = add nsw i32 %75, %71
   store i32 %76, ptr %74, align 4, !tbaa !75
@@ -1500,7 +1495,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %89 = load ptr, ptr %88, align 8, !tbaa !119
   %90 = zext nneg i32 %87 to i64
-  %91 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !76
   %93 = sext i16 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 2
@@ -1522,7 +1517,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %108 = lshr i32 %106, %107
   %109 = add i32 %108, %93
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !76
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 2
@@ -1582,7 +1577,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %145 = lshr i32 %144, 23
   %146 = load ptr, ptr %120, align 8, !tbaa !120
   %147 = zext nneg i32 %145 to i64
-  %148 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !76
   %150 = sext i16 %149 to i32
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 2
@@ -1604,7 +1599,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %165 = lshr i32 %163, %164
   %166 = add i32 %165, %150
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !76
   %170 = sext i16 %169 to i32
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 2
@@ -1636,7 +1631,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %183 = sext i32 %178 to i64
   %184 = getelementptr inbounds i8, ptr %121, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !76
-  %186 = getelementptr inbounds i32, ptr %.0190.i, i64 %183
+  %186 = getelementptr inbounds [4 x i8], ptr %.0190.i, i64 %183
   %187 = load i32, ptr %186, align 4, !tbaa !75
   %188 = mul nsw i32 %187, %.0178.i
   %189 = ashr i32 %187, 1
@@ -1651,7 +1646,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %196 = sub nsw i32 %195, %131
   %197 = trunc i32 %196 to i16
   %198 = zext i8 %185 to i64
-  %199 = getelementptr inbounds nuw i16, ptr %9, i64 %198
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %198
   store i16 %197, ptr %199, align 2, !tbaa !118
   %200 = lshr i32 %.5.i, 3
   %201 = zext nneg i32 %200 to i64
@@ -1662,7 +1657,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %206 = shl i32 %204, %205
   %207 = lshr i32 %206, 23
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %208
   %210 = load i16, ptr %209, align 2, !tbaa !76
   %211 = sext i16 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 2
@@ -1684,7 +1679,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10_444(ptr noun
   %226 = lshr i32 %224, %225
   %227 = add i32 %226, %211
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %228
   %230 = load i16, ptr %229, align 2, !tbaa !76
   %231 = sext i16 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 2
@@ -1716,7 +1711,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -1783,7 +1778,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %52 = load ptr, ptr %51, align 8, !tbaa !117
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !76
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
@@ -1801,7 +1796,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
 ._crit_edge:                                      ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds [4 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %78
 
@@ -1817,7 +1812,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %72 = shl nsw i32 %71, 2
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %74 = sext i32 %.0181.i to i64
-  %75 = getelementptr inbounds i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !75
   %77 = add nsw i32 %76, %72
   store i32 %77, ptr %75, align 4, !tbaa !75
@@ -1839,7 +1834,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %90 = load ptr, ptr %89, align 8, !tbaa !119
   %91 = zext nneg i32 %88 to i64
-  %92 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !76
   %94 = sext i16 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 2
@@ -1861,7 +1856,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %109 = lshr i32 %107, %108
   %110 = add i32 %109, %94
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !76
   %114 = sext i16 %113 to i32
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 2
@@ -1921,7 +1916,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %146 = lshr i32 %145, 23
   %147 = load ptr, ptr %121, align 8, !tbaa !120
   %148 = zext nneg i32 %146 to i64
-  %149 = getelementptr inbounds nuw %struct.VLCElem, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !76
   %151 = sext i16 %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 2
@@ -1943,7 +1938,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %166 = lshr i32 %164, %165
   %167 = add i32 %166, %151
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %struct.VLCElem, ptr %147, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !76
   %171 = sext i16 %170 to i32
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 2
@@ -1975,7 +1970,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %184 = sext i32 %179 to i64
   %185 = getelementptr inbounds i8, ptr %122, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !76
-  %187 = getelementptr inbounds i32, ptr %.0190.i, i64 %184
+  %187 = getelementptr inbounds [4 x i8], ptr %.0190.i, i64 %184
   %188 = load i32, ptr %187, align 4, !tbaa !75
   %189 = mul nsw i32 %188, %.0178.i
   %190 = ashr i32 %188, 1
@@ -1990,7 +1985,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %197 = sub nsw i32 %196, %132
   %198 = trunc i32 %197 to i16
   %199 = zext i8 %186 to i64
-  %200 = getelementptr inbounds nuw i16, ptr %9, i64 %199
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %199
   store i16 %198, ptr %200, align 2, !tbaa !118
   %201 = lshr i32 %.5.i, 3
   %202 = zext nneg i32 %201 to i64
@@ -2001,7 +1996,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %207 = shl i32 %205, %206
   %208 = lshr i32 %207, 23
   %209 = zext nneg i32 %208 to i64
-  %210 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %209
   %211 = load i16, ptr %210, align 2, !tbaa !76
   %212 = sext i16 %211 to i32
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 2
@@ -2023,7 +2018,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12_444(ptr noun
   %227 = lshr i32 %225, %226
   %228 = add i32 %227, %212
   %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw %struct.VLCElem, ptr %90, i64 %229
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %229
   %231 = load i16, ptr %230, align 2, !tbaa !76
   %232 = sext i16 %231 to i32
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 2
@@ -2055,7 +2050,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2102,7 +2097,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %39 = load ptr, ptr %38, align 8, !tbaa !117
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw %struct.VLCElem, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !76
   %43 = sext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -2120,7 +2115,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
 ._crit_edge:                                      ; preds = %50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds [4 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %65
 
@@ -2136,7 +2131,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %59 = shl nsw i32 %58, 2
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %61 = sext i32 %.0181.i to i64
-  %62 = getelementptr inbounds i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !75
   %64 = add nsw i32 %63, %59
   store i32 %64, ptr %62, align 4, !tbaa !75
@@ -2158,7 +2153,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %77 = load ptr, ptr %76, align 8, !tbaa !119
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !76
   %81 = sext i16 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 2
@@ -2180,7 +2175,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %96 = lshr i32 %94, %95
   %97 = add i32 %96, %81
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !76
   %101 = sext i16 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 2
@@ -2240,7 +2235,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %133 = lshr i32 %132, 23
   %134 = load ptr, ptr %108, align 8, !tbaa !120
   %135 = zext nneg i32 %133 to i64
-  %136 = getelementptr inbounds nuw %struct.VLCElem, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !76
   %138 = sext i16 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 2
@@ -2262,7 +2257,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %153 = lshr i32 %151, %152
   %154 = add i32 %153, %138
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw %struct.VLCElem, ptr %134, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !76
   %158 = sext i16 %157 to i32
   %159 = getelementptr inbounds nuw i8, ptr %156, i64 2
@@ -2294,7 +2289,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %171 = sext i32 %166 to i64
   %172 = getelementptr inbounds i8, ptr %109, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !76
-  %174 = getelementptr inbounds i32, ptr %28, i64 %171
+  %174 = getelementptr inbounds [4 x i8], ptr %28, i64 %171
   %175 = load i32, ptr %174, align 4, !tbaa !75
   %176 = mul nsw i32 %175, %.0178.i
   %177 = ashr i32 %175, 1
@@ -2305,7 +2300,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %182 = sub nsw i32 %181, %119
   %183 = trunc i32 %182 to i16
   %184 = zext i8 %173 to i64
-  %185 = getelementptr inbounds nuw i16, ptr %9, i64 %184
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %184
   store i16 %183, ptr %185, align 2, !tbaa !118
   %186 = lshr i32 %.5.i, 3
   %187 = zext nneg i32 %186 to i64
@@ -2316,7 +2311,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %192 = shl i32 %190, %191
   %193 = lshr i32 %192, 23
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !76
   %197 = sext i16 %196 to i32
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 2
@@ -2338,7 +2333,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_12(ptr noundef 
   %212 = lshr i32 %210, %211
   %213 = add i32 %212, %197
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw %struct.VLCElem, ptr %77, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %214
   %216 = load i16, ptr %215, align 2, !tbaa !76
   %217 = sext i16 %216 to i32
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 2
@@ -2370,7 +2365,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2417,7 +2412,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %39 = load ptr, ptr %38, align 8, !tbaa !117
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw %struct.VLCElem, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !76
   %43 = sext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -2435,7 +2430,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
 ._crit_edge:                                      ; preds = %50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds [4 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %64
 
@@ -2450,7 +2445,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %58 = select i1 %isnotneg.i, i32 %57, i32 %56
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %60 = sext i32 %.0181.i to i64
-  %61 = getelementptr inbounds i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !75
   %63 = add nsw i32 %62, %58
   store i32 %63, ptr %61, align 4, !tbaa !75
@@ -2472,7 +2467,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %76 = load ptr, ptr %75, align 8, !tbaa !119
   %77 = zext nneg i32 %74 to i64
-  %78 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !76
   %80 = sext i16 %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 2
@@ -2494,7 +2489,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %95 = lshr i32 %93, %94
   %96 = add i32 %95, %80
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !76
   %100 = sext i16 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 2
@@ -2554,7 +2549,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %132 = lshr i32 %131, 23
   %133 = load ptr, ptr %107, align 8, !tbaa !120
   %134 = zext nneg i32 %132 to i64
-  %135 = getelementptr inbounds nuw %struct.VLCElem, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !76
   %137 = sext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 2
@@ -2576,7 +2571,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %152 = lshr i32 %150, %151
   %153 = add i32 %152, %137
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %struct.VLCElem, ptr %133, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %154
   %156 = load i16, ptr %155, align 2, !tbaa !76
   %157 = sext i16 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 2
@@ -2608,7 +2603,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %170 = sext i32 %165 to i64
   %171 = getelementptr inbounds i8, ptr %108, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !76
-  %173 = getelementptr inbounds i32, ptr %28, i64 %170
+  %173 = getelementptr inbounds [4 x i8], ptr %28, i64 %170
   %174 = load i32, ptr %173, align 4, !tbaa !75
   %175 = mul nsw i32 %174, %.0178.i
   %176 = ashr i32 %174, 1
@@ -2619,7 +2614,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %181 = sub nsw i32 %180, %118
   %182 = trunc i32 %181 to i16
   %183 = zext i8 %172 to i64
-  %184 = getelementptr inbounds nuw i16, ptr %9, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %183
   store i16 %182, ptr %184, align 2, !tbaa !118
   %185 = lshr i32 %.5.i, 3
   %186 = zext nneg i32 %185 to i64
@@ -2630,7 +2625,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %191 = shl i32 %189, %190
   %192 = lshr i32 %191, 23
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %193
   %195 = load i16, ptr %194, align 2, !tbaa !76
   %196 = sext i16 %195 to i32
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 2
@@ -2652,7 +2647,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_10(ptr noundef 
   %211 = lshr i32 %209, %210
   %212 = add i32 %211, %196
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw %struct.VLCElem, ptr %76, i64 %213
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %213
   %215 = load i16, ptr %214, align 2, !tbaa !76
   %216 = sext i16 %215 to i32
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 2
@@ -2684,7 +2679,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !112
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds [64 x i16], ptr %1, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %1, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 2048
@@ -2751,7 +2746,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %52 = load ptr, ptr %51, align 8, !tbaa !117
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !76
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
@@ -2769,7 +2764,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
 ._crit_edge:                                      ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.phi.trans.insert11 = sext i32 %.0181.i to i64
-  %.phi.trans.insert12 = getelementptr inbounds i32, ptr %.phi.trans.insert, i64 %.phi.trans.insert11
+  %.phi.trans.insert12 = getelementptr inbounds [4 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert11
   %.pre = load i32, ptr %.phi.trans.insert12, align 4, !tbaa !75
   br label %77
 
@@ -2784,7 +2779,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %71 = select i1 %isnotneg.i, i32 %70, i32 %69
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %73 = sext i32 %.0181.i to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !75
   %76 = add nsw i32 %75, %71
   store i32 %76, ptr %74, align 4, !tbaa !75
@@ -2806,7 +2801,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2160
   %89 = load ptr, ptr %88, align 8, !tbaa !119
   %90 = zext nneg i32 %87 to i64
-  %91 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !76
   %93 = sext i16 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 2
@@ -2828,7 +2823,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %108 = lshr i32 %106, %107
   %109 = add i32 %108, %93
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !76
   %113 = sext i16 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 2
@@ -2888,7 +2883,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %145 = lshr i32 %144, 23
   %146 = load ptr, ptr %120, align 8, !tbaa !120
   %147 = zext nneg i32 %145 to i64
-  %148 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !76
   %150 = sext i16 %149 to i32
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 2
@@ -2910,7 +2905,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %165 = lshr i32 %163, %164
   %166 = add i32 %165, %150
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw %struct.VLCElem, ptr %146, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !76
   %170 = sext i16 %169 to i32
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 2
@@ -2942,7 +2937,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %183 = sext i32 %178 to i64
   %184 = getelementptr inbounds i8, ptr %121, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !76
-  %186 = getelementptr inbounds i32, ptr %.0190.i, i64 %183
+  %186 = getelementptr inbounds [4 x i8], ptr %.0190.i, i64 %183
   %187 = load i32, ptr %186, align 4, !tbaa !75
   %188 = mul nsw i32 %187, %.0178.i
   %189 = ashr i32 %187, 1
@@ -2957,7 +2952,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %196 = sub nsw i32 %195, %131
   %197 = trunc i32 %196 to i16
   %198 = zext i8 %185 to i64
-  %199 = getelementptr inbounds nuw i16, ptr %9, i64 %198
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %198
   store i16 %197, ptr %199, align 2, !tbaa !118
   %200 = lshr i32 %.5.i, 3
   %201 = zext nneg i32 %200 to i64
@@ -2968,7 +2963,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %206 = shl i32 %204, %205
   %207 = lshr i32 %206, 23
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %208
   %210 = load i16, ptr %209, align 2, !tbaa !76
   %211 = sext i16 %210 to i32
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 2
@@ -2990,7 +2985,7 @@ define internal range(i32 -32768, 1) i32 @dnxhd_decode_dct_block_8(ptr noundef r
   %226 = lshr i32 %224, %225
   %227 = add i32 %226, %211
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw %struct.VLCElem, ptr %89, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %228
   %230 = load i16, ptr %229, align 2, !tbaa !76
   %231 = sext i16 %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 2

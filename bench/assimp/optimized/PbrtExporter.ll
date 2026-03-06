@@ -35,8 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.21 = type { i32 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMetadataEntry = type { i32, ptr }
 %"class.std::map" = type { %"class.std::_Rb_tree.9" }
 %"class.std::_Rb_tree.9" = type { %"struct.std::_Rb_tree<int, std::pair<const int, int>, std::_Select1st<std::pair<const int, int>>, std::less<int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<int, std::pair<const int, int>, std::_Select1st<std::pair<const int, int>>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -45,8 +43,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %class.aiVector3t = type { float, float, float }
+%struct.aiString = type { i32, [1024 x i8] }
 %class.aiColor4t = type { float, float, float, float }
-%struct.aiFace = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_ = comdat any
@@ -1190,7 +1188,7 @@ _ZL31create_embedded_textures_folderPK7aiScenePN6Assimp8IOSystemE.exit: ; preds 
   %119 = phi ptr [ %99, %.lr.ph ], [ %193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 72
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv
   %123 = load ptr, ptr %122, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
@@ -2519,13 +2517,13 @@ define hidden void @_ZN6Assimp12PbrtExporter13WriteMetaDataEv(ptr noundef nonnul
   %indvars.iv = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next, %266 ]
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.11, i64 noundef 4)
   %26 = load ptr, ptr %16, align 8
-  %27 = getelementptr inbounds nuw %struct.aiString, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [1028 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #28
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %28, i64 noundef %29)
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.12, i64 noundef 2)
   %32 = load ptr, ptr %17, align 8
-  %33 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %264 [
     i32 0, label %35
@@ -2540,7 +2538,7 @@ define hidden void @_ZN6Assimp12PbrtExporter13WriteMetaDataEv(ptr noundef nonnul
 35:                                               ; preds = %24
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.13, i64 noundef 1)
   %37 = load ptr, ptr %17, align 8
-  %38 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load i8, ptr %40, align 1, !range !30, !noundef !31
@@ -2558,7 +2556,7 @@ define hidden void @_ZN6Assimp12PbrtExporter13WriteMetaDataEv(ptr noundef nonnul
 47:                                               ; preds = %24
   %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.13, i64 noundef 1)
   %49 = load ptr, ptr %17, align 8
-  %50 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 4
@@ -2604,7 +2602,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %64, 
 74:                                               ; preds = %24
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.13, i64 noundef 1)
   %76 = load ptr, ptr %17, align 8
-  %77 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = load i64, ptr %79, align 8
@@ -2650,7 +2648,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit69: ; preds = %91
 101:                                              ; preds = %24
   %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.13, i64 noundef 1)
   %103 = load ptr, ptr %17, align 8
-  %104 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %indvars.iv
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load float, ptr %106, align 4
@@ -2697,7 +2695,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit74: ; preds = %11
 129:                                              ; preds = %24
   %130 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.13, i64 noundef 1)
   %131 = load ptr, ptr %17, align 8
-  %132 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %indvars.iv
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = load double, ptr %134, align 8
@@ -3217,7 +3215,7 @@ define hidden void @_ZN6Assimp12PbrtExporter20WriteWorldDefinitionEv(ptr noundef
   %22 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i.i.i
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %3, align 4
   %26 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -3238,7 +3236,7 @@ define hidden void @_ZN6Assimp12PbrtExporter20WriteWorldDefinitionEv(ptr noundef
   %indvars.iv16.i.i.i.i = phi i64 [ 0, %.lr.ph13.i.i.i.i ], [ %indvars.iv.next17.i.i.i.i, %.noexc66 ]
   %33 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv16.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv16.i.i.i.i
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %36, ptr %2, align 8
@@ -3531,7 +3529,7 @@ define hidden void @_ZN6Assimp12PbrtExporter11WriteCameraEi(ptr noundef nonnull 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq i32 %1, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4437,7 +4435,7 @@ define hidden void @_ZN6Assimp12PbrtExporter11WriteLightsEv(ptr noundef nonnull 
   %29 = phi ptr [ %10, %.lr.ph ], [ %318, %316 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv260
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv260
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.118, i64 noundef 8)
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -4777,7 +4775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %73
 
 299:                                              ; preds = %225, %299
   %indvars.iv = phi i64 [ 0, %225 ], [ %indvars.iv.next, %299 ]
-  %300 = getelementptr inbounds nuw %class.aiVector3t, ptr %4, i64 %indvars.iv
+  %300 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv
   %301 = load float, ptr %300, align 4
   %302 = fpext float %301 to double
   %303 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %302)
@@ -4913,7 +4911,7 @@ define hidden void @_ZN6Assimp12PbrtExporter13WriteTexturesEv(ptr noundef nonnul
   %73 = phi ptr [ %31, %.lr.ph576 ], [ %79, %78 ]
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8
   br label %84
 
@@ -6793,7 +6791,7 @@ define hidden void @_ZN6Assimp12PbrtExporter23WriteInstanceDefinitionEi(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.152, i64 noundef 13)
@@ -7113,10 +7111,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %201 = load ptr, ptr %200, align 8
   %202 = load ptr, ptr %189, align 8
-  %203 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw ptr, ptr %201, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %205
   %207 = load ptr, ptr %206, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %204, ptr %6, align 4
@@ -7144,7 +7142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %191
 220:                                              ; preds = %._crit_edge.i.i
   %221 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull @.str.153, i64 noundef 5)
   %222 = load ptr, ptr %189, align 8
-  %223 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %indvars.iv
   %224 = load i32, ptr %223, align 4
   %225 = add i32 %224, 1
   %226 = zext i32 %225 to i64
@@ -7158,7 +7156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %191
   %232 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull %230, i64 noundef %231)
   %233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef nonnull @.str.154, i64 noundef 1)
   %234 = load ptr, ptr %189, align 8
-  %235 = getelementptr inbounds nuw i32, ptr %234, i64 %indvars.iv
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %indvars.iv
   %236 = load i32, ptr %235, align 4
   %237 = add i32 %236, 1
   %238 = zext i32 %237 to i64
@@ -7189,7 +7187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %191
 249:                                              ; preds = %.lr.ph73, %249
   %indvars.iv78 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next79, %249 ]
   %250 = load ptr, ptr %248, align 8
-  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %indvars.iv78
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %indvars.iv78
   %252 = load ptr, ptr %251, align 8
   call void @_ZN6Assimp12PbrtExporter21WriteGeometricObjectsEP6aiNode12aiMatrix4x4tIfERSt3mapIiiSt4lessIiESaISt4pairIKiiEEE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef %252, ptr noundef nonnull byval(%class.aiMatrix4x4t) align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -7473,7 +7471,7 @@ define hidden void @_ZN6Assimp12PbrtExporter13WriteMaterialEi(ptr noundef nonnul
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %1 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK10aiMaterial7GetNameEv(ptr dead_on_unwind nonnull writable sret(%struct.aiString) align 4 %6, ptr noundef nonnull align 8 dereferenceable(16) %32)
@@ -8725,7 +8723,7 @@ define hidden void @_ZN6Assimp12PbrtExporter9WriteMeshEP6aiMesh(ptr noundef nonn
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.137, i64 noundef 19)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9830,7 +9828,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit244._crit_edge: ; pr
   %.090354 = phi i32 [ 0, %.lr.ph ], [ %477, %_ZN6aiFaceD2Ev.exit ]
   %449 = load ptr, ptr %446, align 8
   %450 = zext i32 %.090354 to i64
-  %451 = getelementptr inbounds nuw %struct.aiFace, ptr %449, i64 %450
+  %451 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %450
   %452 = load i32, ptr %451, align 8
   %.not.i.i = icmp eq i32 %452, 0
   br i1 %.not.i.i, label %_ZN6aiFaceC2ERKS_.exit.thread, label %453
@@ -9886,7 +9884,7 @@ _ZN6aiFaceC2ERKS_.exit.thread:                    ; preds = %_ZN6aiFaceC2ERKS_.e
 
 .preheader:                                       ; preds = %_ZN6aiFaceC2ERKS_.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit250 ], [ 0, %_ZN6aiFaceC2ERKS_.exit ]
-  %468 = getelementptr inbounds nuw i32, ptr %456, i64 %indvars.iv
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %456, i64 %indvars.iv
   %469 = load i32, ptr %468, align 4
   %470 = zext i32 %469 to i64
   %471 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %470)
@@ -9949,7 +9947,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit255._crit_edge: ; pr
 487:                                              ; preds = %.lr.ph356, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270
   %indvars.iv370 = phi i64 [ 0, %.lr.ph356 ], [ %indvars.iv.next371, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit270 ]
   %488 = load ptr, ptr %485, align 8
-  %489 = getelementptr inbounds nuw %class.aiVector3t, ptr %488, i64 %indvars.iv370
+  %489 = getelementptr inbounds nuw [12 x i8], ptr %488, i64 %indvars.iv370
   %.sroa.028.0.copyload = load float, ptr %489, align 4
   %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %489, i64 4
   %.sroa.529.0.copyload = load float, ptr %.sroa.529.0..sroa_idx, align 4
@@ -10024,7 +10022,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit272._crit_edge: ; pr
 .lr.ph358:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit272.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit288
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit288 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit272.preheader ]
   %514 = load ptr, ptr %508, align 8
-  %515 = getelementptr inbounds nuw %class.aiVector3t, ptr %514, i64 %indvars.iv373
+  %515 = getelementptr inbounds nuw [12 x i8], ptr %514, i64 %indvars.iv373
   %.sroa.021.0.copyload = load float, ptr %515, align 4
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %515, i64 4
   %.sroa.522.0.copyload = load float, ptr %.sroa.522.0..sroa_idx, align 4
@@ -10099,7 +10097,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit290._crit_edge: ; pr
 .lr.ph360:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit290.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306
   %indvars.iv376 = phi i64 [ %indvars.iv.next377, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit306 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit290.preheader ]
   %540 = load ptr, ptr %534, align 8
-  %541 = getelementptr inbounds nuw %class.aiVector3t, ptr %540, i64 %indvars.iv376
+  %541 = getelementptr inbounds nuw [12 x i8], ptr %540, i64 %indvars.iv376
   %.sroa.0.0.copyload = load float, ptr %541, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %541, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
@@ -10163,14 +10161,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit292: ; preds = %_ZSt
 
 562:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit292, %561
   %indvars.iv379 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit292 ], [ %indvars.iv.next380, %561 ]
-  %563 = getelementptr inbounds nuw i32, ptr %560, i64 %indvars.iv379
+  %563 = getelementptr inbounds nuw [4 x i8], ptr %560, i64 %indvars.iv379
   %564 = load i32, ptr %563, align 4
   %565 = icmp eq i32 %564, 2
   br i1 %565, label %566, label %561
 
 566:                                              ; preds = %562
   %567 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %568 = getelementptr inbounds nuw ptr, ptr %567, i64 %indvars.iv379
+  %568 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 %indvars.iv379
   %569 = load ptr, ptr %568, align 8
   %570 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.150, i64 noundef 17)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit308.preheader unwind label %573
@@ -10191,7 +10189,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit308._crit_edge: ; pr
 
 .lr.ph363:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit308.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit320
   %indvars.iv383 = phi i64 [ %indvars.iv.next384, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit320 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit308.preheader ]
-  %575 = getelementptr inbounds nuw %class.aiVector3t, ptr %569, i64 %indvars.iv383
+  %575 = getelementptr inbounds nuw [12 x i8], ptr %569, i64 %indvars.iv383
   %576 = load float, ptr %575, align 4
   %577 = fpext float %576 to double
   %578 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %577)
@@ -11202,7 +11200,7 @@ define internal void @"_ZNSt17_Function_handlerIFvP6aiNodeEZN6Assimp12PbrtExport
   %13 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %4, align 4
   %17 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -11220,7 +11218,7 @@ define internal void @"_ZNSt17_Function_handlerIFvP6aiNodeEZN6Assimp12PbrtExport
   %indvars.iv16.i.i.i = phi i64 [ 0, %.lr.ph13.i.i.i ], [ %indvars.iv.next17.i.i.i, %_ZNKSt8functionIFvP6aiNodeEEclES1_.exit.i.i.i ]
   %24 = load ptr, ptr %10, align 8
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv16.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv16.i.i.i
   %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %27, ptr %3, align 8

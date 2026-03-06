@@ -24,10 +24,10 @@ define noundef ptr @Tru_ManLookup(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %11 = load i64, ptr %10, align 8, !tbaa !14
   %12 = and i64 %indvars.iv.i, 7
-  %13 = getelementptr inbounds nuw i32, ptr @Tru_ManLookup.s_Primes, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @Tru_ManLookup.s_Primes, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !16
   %15 = trunc i64 %11 to i32
   %16 = mul i32 %14, %15
@@ -40,7 +40,7 @@ Tru_ManHash.exit:                                 ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ %17, %.lr.ph.i ]
   %18 = urem i32 %.0.lcssa.i, %8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %Tru_ManEqual.exit.thread, label %Tru_ManReadOne.exit
@@ -53,7 +53,7 @@ Tru_ManReadOne.exit:                              ; preds = %Tru_ManHash.exit
   %.val.i.i = load i32, ptr %23, align 8, !tbaa !23
   %26 = ashr i32 %21, %.val.i.i
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %.not35 = icmp eq ptr %29, null
   br i1 %.not35, label %Tru_ManEqual.exit.thread, label %.lr.ph
@@ -68,7 +68,7 @@ Tru_ManReadOne.exit:                              ; preds = %Tru_ManHash.exit
   %.val4.i.i = load i32, ptr %31, align 4, !tbaa !25
   %32 = and i32 %.val4.i.i, %21
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i64, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   br label %.lr.ph.preheader.i19.us
 
 .lr.ph.preheader.i19.us:                          ; preds = %.lr.ph.preheader.i19.us.preheader, %Tru_ManReadOne.exit29.us
@@ -79,9 +79,9 @@ Tru_ManReadOne.exit:                              ; preds = %Tru_ManHash.exit
 
 .lr.ph.i21.us:                                    ; preds = %53, %.lr.ph.preheader.i19.us
   %indvars.iv.i22.us = phi i64 [ 0, %.lr.ph.preheader.i19.us ], [ %indvars.iv.next.i24.us, %53 ]
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i22.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i22.us
   %37 = load i64, ptr %36, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i22.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i22.us
   %39 = load i64, ptr %38, align 8, !tbaa !14
   %.not.i23.us = icmp eq i64 %37, %39
   br i1 %.not.i23.us, label %53, label %Tru_ManEqual.exit.us
@@ -99,13 +99,13 @@ Tru_ManReadOne.exit29.us:                         ; preds = %Tru_ManEqual.exit.u
   %.val.i.i27.us = load i32, ptr %42, align 8, !tbaa !23
   %45 = ashr i32 %41, %.val.i.i27.us
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %44, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !24
   %49 = getelementptr i8, ptr %42, i64 4
   %.val4.i.i28.us = load i32, ptr %49, align 4, !tbaa !25
   %50 = and i32 %.val4.i.i28.us, %41
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i64, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %.not.us = icmp eq ptr %48, null
   br i1 %.not.us, label %Tru_ManEqual.exit.thread, label %.lr.ph.preheader.i19.us, !llvm.loop !26
 
@@ -142,7 +142,7 @@ define void @Tru_ManResize(ptr noundef captures(none) %0) local_unnamed_addr #1 
 
 13:                                               ; preds = %.lr.ph51, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next, %._crit_edge ]
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !16
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %._crit_edge, label %Tru_ManReadOne.exit
@@ -154,7 +154,7 @@ Tru_ManReadOne.exit:                              ; preds = %13
   %.val.i.i = load i32, ptr %16, align 8, !tbaa !23
   %19 = ashr i32 %15, %.val.i.i
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -167,7 +167,7 @@ Tru_ManReadOne.exit:                              ; preds = %13
   %.val4.i.i37 = load i32, ptr %23, align 4, !tbaa !25
   %24 = and i32 %.val4.i.i37, %.02746.sink
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i64, ptr %.sink, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.sink, i64 %25
   %.02746.in = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.02746 = load i32, ptr %.02746.in, align 4, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -185,10 +185,10 @@ Tru_ManReadOne.exit:                              ; preds = %13
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %39, %.lr.ph.i.i ]
-  %32 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %33 = load i64, ptr %32, align 8, !tbaa !14
   %34 = and i64 %indvars.iv.i.i, 7
-  %35 = getelementptr inbounds nuw i32, ptr @Tru_ManLookup.s_Primes, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @Tru_ManLookup.s_Primes, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %37 = trunc i64 %33 to i32
   %38 = mul i32 %36, %37
@@ -201,7 +201,7 @@ Tru_ManHash.exit.i:                               ; preds = %.lr.ph.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ %39, %.lr.ph.i.i ]
   %40 = urem i32 %.0.lcssa.i.i, %30
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %9, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %.not.i.i = icmp eq i32 %43, 0
   br i1 %.not.i.i, label %Tru_ManLookup.exit, label %Tru_ManReadOne.exit.i
@@ -213,7 +213,7 @@ Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
   %.val.i.i.i = load i32, ptr %44, align 8, !tbaa !23
   %47 = ashr i32 %43, %.val.i.i.i
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !24
   %.not35.i = icmp eq ptr %50, null
   br i1 %.not35.i, label %Tru_ManLookup.exit, label %.lr.ph.i
@@ -227,7 +227,7 @@ Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
 .lr.ph.preheader.i19.us.i.preheader:              ; preds = %.lr.ph.i
   %52 = and i32 %.val4.i.i.i, %43
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i64, ptr %50, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %50, i64 %53
   br label %.lr.ph.preheader.i19.us.i
 
 .lr.ph.preheader.i19.us.i:                        ; preds = %.lr.ph.preheader.i19.us.i.preheader, %Tru_ManReadOne.exit29.us.i
@@ -238,9 +238,9 @@ Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
 
 .lr.ph.i21.us.i:                                  ; preds = %69, %.lr.ph.preheader.i19.us.i
   %indvars.iv.i22.us.i = phi i64 [ 0, %.lr.ph.preheader.i19.us.i ], [ %indvars.iv.next.i24.us.i, %69 ]
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv.i22.us.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i22.us.i
   %57 = load i64, ptr %56, align 8, !tbaa !14
-  %58 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i22.us.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i22.us.i
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %.not.i23.us.i = icmp eq i64 %57, %59
   br i1 %.not.i23.us.i, label %69, label %Tru_ManEqual.exit.us.i
@@ -254,11 +254,11 @@ Tru_ManEqual.exit.us.i:                           ; preds = %.lr.ph.i21.us.i
 Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.us.i
   %62 = ashr i32 %61, %.val.i.i.i
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = and i32 %61, %.val4.i.i.i
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %65, i64 %67
   %.not.us.i = icmp eq ptr %65, null
   br i1 %.not.us.i, label %Tru_ManLookup.exit, label %.lr.ph.preheader.i19.us.i, !llvm.loop !26
 
@@ -281,7 +281,7 @@ Tru_ManReadOne.exit38:                            ; preds = %Tru_ManLookup.exit
   %.val.i.i36 = load i32, ptr %71, align 8, !tbaa !23
   %74 = ashr i32 %.02746, %.val.i.i36
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %73, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %.not34 = icmp eq ptr %77, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !31
@@ -327,7 +327,7 @@ define i32 @Tru_ManInsert(ptr noundef captures(none) %0, ptr noundef captures(no
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %6, label %.lr.ph.i36
@@ -339,7 +339,7 @@ define i32 @Tru_ManInsert(ptr noundef captures(none) %0, ptr noundef captures(no
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i, %9
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i39, %9 ], [ 0, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i37
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i37
   %11 = load i64, ptr %10, align 8, !tbaa !14
   %.not.i38 = icmp eq i64 %11, -1
   br i1 %.not.i38, label %9, label %Tru_ManEqual1.exit
@@ -388,7 +388,7 @@ Tru_ManNot.exit.thread:                           ; preds = %27
 
 .lr.ph.i43:                                       ; preds = %.lr.ph.i43, %.lr.ph.preheader.i41
   %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.preheader.i41 ], [ %indvars.iv.next.i45, %.lr.ph.i43 ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i44
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i44
   %33 = load i64, ptr %32, align 8, !tbaa !14
   %34 = xor i64 %33, -1
   store i64 %34, ptr %32, align 8, !tbaa !14
@@ -418,10 +418,10 @@ Tru_ManNot.exit:                                  ; preds = %23
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %51, %.lr.ph.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = and i64 %indvars.iv.i.i, 7
-  %47 = getelementptr inbounds nuw i32, ptr @Tru_ManLookup.s_Primes, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @Tru_ManLookup.s_Primes, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !16
   %49 = trunc i64 %45 to i32
   %50 = mul i32 %48, %49
@@ -437,7 +437,7 @@ Tru_ManHash.exit.i:                               ; preds = %.lr.ph.i.i, %Tru_Ma
   %.0.lcssa.i.i = phi i32 [ 0, %Tru_ManNot.exit ], [ 0, %Tru_ManNot.exit.thread ], [ %51, %.lr.ph.i.i ]
   %55 = urem i32 %.0.lcssa.i.i, %53
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !16
   %.not.i.i = icmp eq i32 %58, 0
   %.pre = load ptr, ptr %15, align 8, !tbaa !19
@@ -449,7 +449,7 @@ Tru_ManHash.exit.i:                               ; preds = %.lr.ph.i.i, %Tru_Ma
 Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
   %59 = ashr i32 %58, %.pre87
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %.pre86, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.pre86, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   %.not35.i = icmp eq ptr %62, null
   br i1 %.not35.i, label %Tru_ManLookup.exit, label %.lr.ph.i47
@@ -463,7 +463,7 @@ Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
 .lr.ph.preheader.i19.us.i.preheader:              ; preds = %.lr.ph.i47
   %64 = and i32 %.val4.i.i.i, %58
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i64, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   br label %.lr.ph.preheader.i19.us.i
 
 .lr.ph.preheader.i19.us.i:                        ; preds = %.lr.ph.preheader.i19.us.i.preheader, %Tru_ManReadOne.exit29.us.i
@@ -474,9 +474,9 @@ Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
 
 .lr.ph.i21.us.i:                                  ; preds = %81, %.lr.ph.preheader.i19.us.i
   %indvars.iv.i22.us.i = phi i64 [ 0, %.lr.ph.preheader.i19.us.i ], [ %indvars.iv.next.i24.us.i, %81 ]
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv.i22.us.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i22.us.i
   %69 = load i64, ptr %68, align 8, !tbaa !14
-  %70 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i22.us.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i22.us.i
   %71 = load i64, ptr %70, align 8, !tbaa !14
   %.not.i23.us.i = icmp eq i64 %69, %71
   br i1 %.not.i23.us.i, label %81, label %Tru_ManEqual.exit.us.i
@@ -490,11 +490,11 @@ Tru_ManEqual.exit.us.i:                           ; preds = %.lr.ph.i21.us.i
 Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.us.i
   %74 = ashr i32 %73, %.pre87
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %.pre86, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.pre86, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %78 = and i32 %73, %.val4.i.i.i
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i64, ptr %77, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %77, i64 %79
   %.not.us.i = icmp eq ptr %77, null
   br i1 %.not.us.i, label %Tru_ManLookup.exit, label %.lr.ph.preheader.i19.us.i, !llvm.loop !26
 
@@ -517,7 +517,7 @@ Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.u
   %90 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   %91 = load i32, ptr %90, align 4, !tbaa !39
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %.pre86, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %.pre86, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !24
   %.val.i = load i64, ptr %94, align 8, !tbaa !14
   %95 = trunc i64 %.val.i to i32
@@ -542,7 +542,7 @@ Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.u
   store ptr %107, ptr %89, align 8, !tbaa !20
   %108 = load i32, ptr %100, align 4, !tbaa !40
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %107, i64 %109
   %111 = shl nsw i64 %109, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %110, i8 0, i64 %111, i1 false)
   %112 = shl nsw i32 %108, 1
@@ -556,7 +556,7 @@ Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.u
   %114 = phi i32 [ %.pre.i, %103 ], [ %99, %98 ]
   %115 = phi ptr [ %107, %103 ], [ %.pre86, %98 ]
   %116 = sext i32 %114 to i64
-  %117 = getelementptr inbounds ptr, ptr %115, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !24
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %124
@@ -599,13 +599,13 @@ Vec_SetAppend.exit:                               ; preds = %Tru_ManLookup.exit.
   %.val.i.i = load i32, ptr %138, align 8, !tbaa !23
   %141 = ashr i32 %136, %.val.i.i
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds ptr, ptr %140, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %140, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !24
   %145 = getelementptr i8, ptr %138, i64 4
   %.val4.i.i = load i32, ptr %145, align 4, !tbaa !25
   %146 = and i32 %.val4.i.i, %136
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i64, ptr %144, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %144, i64 %147
   br label %Tru_ManReadOne.exit
 
 Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit, %137
@@ -621,9 +621,9 @@ Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit,
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52, %.lr.ph.preheader.i50
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.preheader.i50 ], [ %indvars.iv.next.i54, %.lr.ph.i52 ]
-  %153 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i53
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i53
   %154 = load i64, ptr %153, align 8, !tbaa !14
-  %155 = getelementptr inbounds nuw i64, ptr %150, i64 %indvars.iv.i53
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv.i53
   store i64 %154, ptr %155, align 8, !tbaa !14
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i51
@@ -648,7 +648,7 @@ Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i56
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.preheader.i56 ], [ %indvars.iv.next.i60, %.lr.ph.i58 ]
-  %159 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i59
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i59
   %160 = load i64, ptr %159, align 8, !tbaa !14
   %161 = xor i64 %160, -1
   store i64 %161, ptr %159, align 8, !tbaa !14
@@ -751,7 +751,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv46
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv46
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = load ptr, ptr %32, align 8, !tbaa !43
   %wide.trip.count44 = zext nneg i32 %35 to i64
@@ -759,7 +759,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
 
 45:                                               ; preds = %45, %.lr.ph.split.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %45 ], [ 0, %.lr.ph.split.us ]
-  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv41
   store i64 %43, ptr %46, align 8, !tbaa !14
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
@@ -770,7 +770,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   %48 = and i32 %40, %47
   %.not = icmp ne i32 %48, 0
-  %49 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %. = sext i1 %.not to i64
   store i64 %., ptr %49, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -780,7 +780,7 @@ define noalias noundef ptr @Tru_ManAlloc(i32 noundef %0) local_unnamed_addr #1 {
 ._crit_edge:                                      ; preds = %.lr.ph.split, %45, %.preheader.._crit_edge_crit_edge
   %50 = phi ptr [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %44, %45 ], [ %41, %.lr.ph.split ]
   %51 = tail call i32 @Tru_ManInsert(ptr noundef nonnull %8, ptr noundef %50)
-  %52 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv46
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv46
   store i32 %51, ptr %52, align 4, !tbaa !16
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
@@ -838,7 +838,7 @@ define void @Tru_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %15 = phi i32 [ %23, %22 ], [ %12, %10 ]
   %16 = phi ptr [ %24, %22 ], [ %.pre.i.i, %10 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %22 ], [ 0, %10 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not15.i.i = icmp eq ptr %18, null
   br i1 %.not15.i.i, label %22, label %19
@@ -846,7 +846,7 @@ define void @Tru_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #6 {
 19:                                               ; preds = %.lr.ph.i.i
   tail call void @free(ptr noundef nonnull %18) #12
   %20 = load ptr, ptr %14, align 8, !tbaa !20
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i
   store ptr null, ptr %21, align 8, !tbaa !24
   %.pre18.i.i = load i32, ptr %11, align 4, !tbaa !40
   br label %22
@@ -905,7 +905,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define nonnull ptr @Tru_ManVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %Tru_ManReadOne.exit, label %7
@@ -918,13 +918,13 @@ define nonnull ptr @Tru_ManVar(ptr noundef readonly captures(none) %0, i32 nound
   %.val.i.i = load i32, ptr %9, align 8, !tbaa !23
   %12 = ashr i32 %6, %.val.i.i
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = getelementptr i8, ptr %9, i64 4
   %.val4.i.i = load i32, ptr %16, align 4, !tbaa !25
   %17 = and i32 %.val4.i.i, %6
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   br label %Tru_ManReadOne.exit
 
 Tru_ManReadOne.exit:                              ; preds = %2, %7
@@ -951,13 +951,13 @@ Tru_ManReadOne.exit:                              ; preds = %2
   %.val.i.i = load i32, ptr %8, align 8, !tbaa !23
   %11 = ashr i32 %1, %.val.i.i
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = getelementptr i8, ptr %8, i64 4
   %.val4.i.i = load i32, ptr %15, align 4, !tbaa !25
   %16 = and i32 %.val4.i.i, %1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %20
 

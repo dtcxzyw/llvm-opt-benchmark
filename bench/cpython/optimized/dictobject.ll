@@ -917,8 +917,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PySequenceMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PyMappingMethods = type { ptr, ptr, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct.PyDictKeyEntry = type { i64, ptr, ptr }
-%struct.PyDictUnicodeEntry = type { ptr, ptr }
 %struct.dictiterobject = type { %struct._object, ptr, i64, i64, ptr, i64 }
 
 @.str = private unnamed_addr constant [18 x i8] c"free PyDictObject\00", align 1
@@ -1260,7 +1258,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.lr.ph, %68
 
 dictkeys_get_index.exit.us150:                    ; preds = %.lr.ph.split, %75
   %.0148.us149 = phi i64 [ %76, %75 ], [ 0, %.lr.ph.split ]
-  %71 = getelementptr i16, ptr %63, i64 %.0148.us149
+  %71 = getelementptr [2 x i8], ptr %63, i64 %.0148.us149
   %72 = load i16, ptr %71, align 2, !tbaa !49
   %73 = sext i16 %72 to i64
   %74 = icmp slt i16 %72, -2
@@ -1282,7 +1280,7 @@ dictkeys_get_index.exit.us155.preheader:          ; preds = %.lr.ph.split.split
 
 dictkeys_get_index.exit.us155:                    ; preds = %dictkeys_get_index.exit.us155.preheader, %80
   %.0148.us154 = phi i64 [ %81, %80 ], [ 0, %dictkeys_get_index.exit.us155.preheader ]
-  %77 = getelementptr i64, ptr %63, i64 %.0148.us154
+  %77 = getelementptr [8 x i8], ptr %63, i64 %.0148.us154
   %78 = load i64, ptr %77, align 8, !tbaa !42
   %79 = icmp slt i64 %78, -2
   %.not132.us157 = icmp sgt i64 %78, %16
@@ -1312,7 +1310,7 @@ dictkeys_get_index.exit.us155:                    ; preds = %dictkeys_get_index.
 
 dictkeys_get_index.exit:                          ; preds = %.lr.ph.split.split, %82
   %.0148 = phi i64 [ %83, %82 ], [ 0, %.lr.ph.split.split ]
-  %92 = getelementptr i32, ptr %63, i64 %.0148
+  %92 = getelementptr [4 x i8], ptr %63, i64 %.0148
   %93 = load i32, ptr %92, align 4, !tbaa !50
   %94 = sext i32 %93 to i64
   %95 = icmp slt i32 %93, -2
@@ -1329,7 +1327,7 @@ dictkeys_get_index.exit:                          ; preds = %.lr.ph.split.split,
 
 .lr.ph164:                                        ; preds = %96, %113
   %.0104162 = phi i64 [ %114, %113 ], [ 0, %96 ]
-  %97 = getelementptr %struct.PyDictKeyEntry, ptr %90, i64 %.0104162
+  %97 = getelementptr [24 x i8], ptr %90, i64 %.0104162
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !51
   %.not128 = icmp eq ptr %99, null
@@ -1380,7 +1378,7 @@ dictkeys_get_index.exit:                          ; preds = %.lr.ph.split.split,
 
 .lr.ph161:                                        ; preds = %115, %.thread
   %.0105159 = phi i64 [ %134, %.thread ], [ 0, %115 ]
-  %116 = getelementptr %struct.PyDictUnicodeEntry, ptr %90, i64 %.0105159
+  %116 = getelementptr [16 x i8], ptr %90, i64 %.0105159
   %117 = load ptr, ptr %116, align 8, !tbaa !59
   %.not123 = icmp eq ptr %117, null
   br i1 %.not123, label %129, label %118
@@ -1451,7 +1449,7 @@ dictkeys_get_index.exit:                          ; preds = %.lr.ph.split.split,
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %139 = load i8, ptr %11, align 8, !tbaa !63
   %140 = zext i8 %139 to i64
-  %141 = getelementptr ptr, ptr %138, i64 %140
+  %141 = getelementptr [8 x i8], ptr %138, i64 %140
   br label %143
 
 142:                                              ; preds = %135
@@ -1475,7 +1473,7 @@ dictkeys_get_index.exit:                          ; preds = %.lr.ph.split.split,
 
 151:                                              ; preds = %143
   %152 = zext i8 %145 to i64
-  %153 = getelementptr ptr, ptr %138, i64 %152
+  %153 = getelementptr [8 x i8], ptr %138, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !64
   %.not127 = icmp eq ptr %154, null
   br i1 %.not127, label %155, label %156
@@ -1717,7 +1715,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @unicodekeys_look
   br i1 %15, label %26, label %30
 
 26:                                               ; preds = %25
-  %27 = getelementptr i16, ptr %4, i64 %.049.i
+  %27 = getelementptr [2 x i8], ptr %4, i64 %.049.i
   %28 = load i16, ptr %27, align 2, !tbaa !49
   %29 = sext i16 %28 to i64
   br label %dictkeys_get_index.exit
@@ -1726,12 +1724,12 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @unicodekeys_look
   br i1 %16, label %31, label %34
 
 31:                                               ; preds = %30
-  %32 = getelementptr i64, ptr %4, i64 %.049.i
+  %32 = getelementptr [8 x i8], ptr %4, i64 %.049.i
   %33 = load i64, ptr %32, align 8, !tbaa !42
   br label %dictkeys_get_index.exit
 
 34:                                               ; preds = %30
-  %35 = getelementptr i32, ptr %4, i64 %.049.i
+  %35 = getelementptr [4 x i8], ptr %4, i64 %.049.i
   %36 = load i32, ptr %35, align 4, !tbaa !50
   %37 = sext i32 %36 to i64
   br label %dictkeys_get_index.exit
@@ -1742,7 +1740,7 @@ dictkeys_get_index.exit:                          ; preds = %21, %26, %31, %34
   br i1 %38, label %39, label %66
 
 39:                                               ; preds = %dictkeys_get_index.exit
-  %40 = getelementptr %struct.PyDictUnicodeEntry, ptr %9, i64 %.0.i2
+  %40 = getelementptr [16 x i8], ptr %9, i64 %.0.i2
   %41 = load ptr, ptr %40, align 8, !tbaa !59
   %42 = icmp eq ptr %41, %1
   br i1 %42, label %do_lookup.exit, label %43
@@ -1833,7 +1831,7 @@ compare_unicode_unicode.exit:                     ; preds = %unicode_eq.exit.i, 
   br i1 %15, label %78, label %82
 
 78:                                               ; preds = %77
-  %79 = getelementptr i16, ptr %4, i64 %72
+  %79 = getelementptr [2 x i8], ptr %4, i64 %72
   %80 = load i16, ptr %79, align 2, !tbaa !49
   %81 = sext i16 %80 to i64
   br label %dictkeys_get_index.exit6
@@ -1842,12 +1840,12 @@ compare_unicode_unicode.exit:                     ; preds = %unicode_eq.exit.i, 
   br i1 %16, label %83, label %86
 
 83:                                               ; preds = %82
-  %84 = getelementptr i64, ptr %4, i64 %72
+  %84 = getelementptr [8 x i8], ptr %4, i64 %72
   %85 = load i64, ptr %84, align 8, !tbaa !42
   br label %dictkeys_get_index.exit6
 
 86:                                               ; preds = %82
-  %87 = getelementptr i32, ptr %4, i64 %72
+  %87 = getelementptr [4 x i8], ptr %4, i64 %72
   %88 = load i32, ptr %87, align 4, !tbaa !50
   %89 = sext i32 %88 to i64
   br label %dictkeys_get_index.exit6
@@ -1858,7 +1856,7 @@ dictkeys_get_index.exit6:                         ; preds = %73, %78, %83, %86
   br i1 %90, label %91, label %118
 
 91:                                               ; preds = %dictkeys_get_index.exit6
-  %92 = getelementptr %struct.PyDictUnicodeEntry, ptr %9, i64 %.0.i5
+  %92 = getelementptr [16 x i8], ptr %9, i64 %.0.i5
   %93 = load ptr, ptr %92, align 8, !tbaa !59
   %94 = icmp eq ptr %93, %1
   br i1 %94, label %do_lookup.exit, label %95
@@ -2116,7 +2114,7 @@ define hidden range(i64 -3, -9223372036854775808) i64 @_Py_dict_lookup(ptr nound
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %28
-  %31 = getelementptr i16, ptr %12, i64 %.049.i.i
+  %31 = getelementptr [2 x i8], ptr %12, i64 %.049.i.i
   %32 = load i16, ptr %31, align 2, !tbaa !49
   %33 = sext i16 %32 to i64
   br label %dictkeys_get_index.exit.i
@@ -2126,12 +2124,12 @@ define hidden range(i64 -3, -9223372036854775808) i64 @_Py_dict_lookup(ptr nound
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
-  %37 = getelementptr i64, ptr %12, i64 %.049.i.i
+  %37 = getelementptr [8 x i8], ptr %12, i64 %.049.i.i
   %38 = load i64, ptr %37, align 8, !tbaa !42
   br label %dictkeys_get_index.exit.i
 
 39:                                               ; preds = %34
-  %40 = getelementptr i32, ptr %12, i64 %.049.i.i
+  %40 = getelementptr [4 x i8], ptr %12, i64 %.049.i.i
   %41 = load i32, ptr %40, align 4, !tbaa !50
   %42 = sext i32 %41 to i64
   br label %dictkeys_get_index.exit.i
@@ -2142,7 +2140,7 @@ dictkeys_get_index.exit.i:                        ; preds = %39, %36, %30, %24
   br i1 %43, label %44, label %68
 
 44:                                               ; preds = %dictkeys_get_index.exit.i
-  %45 = getelementptr %struct.PyDictUnicodeEntry, ptr %17, i64 %.0.i3.i
+  %45 = getelementptr [16 x i8], ptr %17, i64 %.0.i3.i
   %46 = load ptr, ptr %45, align 8, !tbaa !59
   %47 = getelementptr i8, ptr %46, i64 24
   %.val.i.i = load i64, ptr %47, align 8, !tbaa !55
@@ -2222,7 +2220,7 @@ Py_DECREF.exit.i.i:                               ; preds = %59, %56, %Py_INCREF
   br i1 %81, label %82, label %86
 
 82:                                               ; preds = %80
-  %83 = getelementptr i16, ptr %12, i64 %74
+  %83 = getelementptr [2 x i8], ptr %12, i64 %74
   %84 = load i16, ptr %83, align 2, !tbaa !49
   %85 = sext i16 %84 to i64
   br label %dictkeys_get_index.exit6.i
@@ -2232,12 +2230,12 @@ Py_DECREF.exit.i.i:                               ; preds = %59, %56, %Py_INCREF
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86
-  %89 = getelementptr i64, ptr %12, i64 %74
+  %89 = getelementptr [8 x i8], ptr %12, i64 %74
   %90 = load i64, ptr %89, align 8, !tbaa !42
   br label %dictkeys_get_index.exit6.i
 
 91:                                               ; preds = %86
-  %92 = getelementptr i32, ptr %12, i64 %74
+  %92 = getelementptr [4 x i8], ptr %12, i64 %74
   %93 = load i32, ptr %92, align 4, !tbaa !50
   %94 = sext i32 %93 to i64
   br label %dictkeys_get_index.exit6.i
@@ -2248,7 +2246,7 @@ dictkeys_get_index.exit6.i:                       ; preds = %91, %88, %82, %76
   br i1 %95, label %96, label %120
 
 96:                                               ; preds = %dictkeys_get_index.exit6.i
-  %97 = getelementptr %struct.PyDictUnicodeEntry, ptr %17, i64 %.0.i5.i
+  %97 = getelementptr [16 x i8], ptr %17, i64 %.0.i5.i
   %98 = load ptr, ptr %97, align 8, !tbaa !59
   %99 = getelementptr i8, ptr %98, i64 24
   %.val.i7.i = load i64, ptr %99, align 8, !tbaa !55
@@ -2329,7 +2327,7 @@ unicodekeys_lookup_generic.exit.thread.thread61:  ; preds = %67, %119, %unicodek
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load ptr, ptr %130, align 8, !tbaa !40
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = getelementptr ptr, ptr %132, i64 %.063
+  %133 = getelementptr [8 x i8], ptr %132, i64 %.063
   %134 = load ptr, ptr %133, align 8, !tbaa !64
   br label %unicodekeys_lookup_generic.exit.thread.thread
 
@@ -2339,7 +2337,7 @@ unicodekeys_lookup_generic.exit.thread.thread61:  ; preds = %67, %119, %unicodek
   %138 = zext nneg i8 %137 to i64
   %139 = shl nuw i64 1, %138
   %140 = getelementptr i8, ptr %7, i64 %139
-  %141 = getelementptr %struct.PyDictUnicodeEntry, ptr %140, i64 %.063
+  %141 = getelementptr [16 x i8], ptr %140, i64 %.063
   %142 = getelementptr i8, ptr %141, i64 40
   %143 = load ptr, ptr %142, align 8, !tbaa !61
   br label %unicodekeys_lookup_generic.exit.thread.thread
@@ -2377,7 +2375,7 @@ unicodekeys_lookup_generic.exit.thread.thread61:  ; preds = %67, %119, %unicodek
   br i1 %162, label %163, label %167
 
 163:                                              ; preds = %161
-  %164 = getelementptr i16, ptr %145, i64 %.049.i.i38
+  %164 = getelementptr [2 x i8], ptr %145, i64 %.049.i.i38
   %165 = load i16, ptr %164, align 2, !tbaa !49
   %166 = sext i16 %165 to i64
   br label %dictkeys_get_index.exit.i39
@@ -2387,12 +2385,12 @@ unicodekeys_lookup_generic.exit.thread.thread61:  ; preds = %67, %119, %unicodek
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %167
-  %170 = getelementptr i64, ptr %145, i64 %.049.i.i38
+  %170 = getelementptr [8 x i8], ptr %145, i64 %.049.i.i38
   %171 = load i64, ptr %170, align 8, !tbaa !42
   br label %dictkeys_get_index.exit.i39
 
 172:                                              ; preds = %167
-  %173 = getelementptr i32, ptr %145, i64 %.049.i.i38
+  %173 = getelementptr [4 x i8], ptr %145, i64 %.049.i.i38
   %174 = load i32, ptr %173, align 4, !tbaa !50
   %175 = sext i32 %174 to i64
   br label %dictkeys_get_index.exit.i39
@@ -2403,7 +2401,7 @@ dictkeys_get_index.exit.i39:                      ; preds = %172, %169, %163, %1
   br i1 %176, label %177, label %204
 
 177:                                              ; preds = %dictkeys_get_index.exit.i39
-  %178 = getelementptr %struct.PyDictKeyEntry, ptr %150, i64 %.0.i3.i40
+  %178 = getelementptr [24 x i8], ptr %150, i64 %.0.i3.i40
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !51
   %181 = icmp eq ptr %180, %1
@@ -2487,7 +2485,7 @@ Py_DECREF.exit.i.i49:                             ; preds = %195, %192, %Py_INCR
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %216
-  %219 = getelementptr i16, ptr %145, i64 %210
+  %219 = getelementptr [2 x i8], ptr %145, i64 %210
   %220 = load i16, ptr %219, align 2, !tbaa !49
   %221 = sext i16 %220 to i64
   br label %dictkeys_get_index.exit6.i41
@@ -2497,12 +2495,12 @@ Py_DECREF.exit.i.i49:                             ; preds = %195, %192, %Py_INCR
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %222
-  %225 = getelementptr i64, ptr %145, i64 %210
+  %225 = getelementptr [8 x i8], ptr %145, i64 %210
   %226 = load i64, ptr %225, align 8, !tbaa !42
   br label %dictkeys_get_index.exit6.i41
 
 227:                                              ; preds = %222
-  %228 = getelementptr i32, ptr %145, i64 %210
+  %228 = getelementptr [4 x i8], ptr %145, i64 %210
   %229 = load i32, ptr %228, align 4, !tbaa !50
   %230 = sext i32 %229 to i64
   br label %dictkeys_get_index.exit6.i41
@@ -2513,7 +2511,7 @@ dictkeys_get_index.exit6.i41:                     ; preds = %227, %224, %218, %2
   br i1 %231, label %232, label %259
 
 232:                                              ; preds = %dictkeys_get_index.exit6.i41
-  %233 = getelementptr %struct.PyDictKeyEntry, ptr %150, i64 %.0.i5.i42
+  %233 = getelementptr [24 x i8], ptr %150, i64 %.0.i5.i42
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !51
   %236 = icmp eq ptr %235, %1
@@ -2591,7 +2589,7 @@ Py_DECREF.exit.i10.i:                             ; preds = %250, %247, %Py_INCR
   %268 = zext nneg i8 %267 to i64
   %269 = shl nuw i64 1, %268
   %270 = getelementptr i8, ptr %145, i64 %269
-  %271 = getelementptr %struct.PyDictKeyEntry, ptr %270, i64 %.2.i.i44.ph.ph
+  %271 = getelementptr [24 x i8], ptr %270, i64 %.2.i.i44.ph.ph
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %273 = load ptr, ptr %272, align 8, !tbaa !54
   br label %unicodekeys_lookup_generic.exit.thread.thread
@@ -2702,7 +2700,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_HasOnlyStringKeys(ptr noundef readonl
   %20 = zext nneg i8 %19 to i64
   %21 = shl nuw i64 1, %20
   %22 = getelementptr i8, ptr %10, i64 %21
-  %23 = getelementptr %struct.PyDictKeyEntry, ptr %22, i64 %.05.us
+  %23 = getelementptr [24 x i8], ptr %22, i64 %.05.us
   br label %.lr.ph118.i.i.us
 
 .lr.ph118.i.i.us:                                 ; preds = %33, %.lr.ph118.preheader.i.i.us
@@ -2744,7 +2742,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_HasOnlyStringKeys(ptr noundef readonl
 38:                                               ; preds = %37
   %39 = load i8, ptr %14, align 8, !tbaa !63
   %40 = zext i8 %39 to i64
-  %41 = getelementptr ptr, ptr %15, i64 %40
+  %41 = getelementptr [8 x i8], ptr %15, i64 %40
   %42 = getelementptr i8, ptr %41, i64 %.05
   %43 = load i8, ptr %42, align 1, !tbaa !41
   %44 = zext i8 %43 to i64
@@ -2752,7 +2750,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_HasOnlyStringKeys(ptr noundef readonl
   %46 = zext nneg i8 %45 to i64
   %47 = shl nuw i64 1, %46
   %48 = getelementptr i8, ptr %10, i64 %47
-  %49 = getelementptr %struct.PyDictUnicodeEntry, ptr %48, i64 %44
+  %49 = getelementptr [16 x i8], ptr %48, i64 %44
   %.081.i.i = load ptr, ptr %49, align 8, !tbaa !64
   %50 = add nuw i64 %.05, 1
   %51 = getelementptr i8, ptr %.081.i.i, i64 8
@@ -2799,11 +2797,11 @@ define dso_local range(i32 0, 2) i32 @PyDict_Next(ptr noundef readonly captures(
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load i8, ptr %11, align 8, !tbaa !63
   %20 = zext i8 %19 to i64
-  %21 = getelementptr ptr, ptr %18, i64 %20
+  %21 = getelementptr [8 x i8], ptr %18, i64 %20
   %22 = getelementptr i8, ptr %21, i64 %9
   %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i64
-  %25 = getelementptr ptr, ptr %18, i64 %24
+  %25 = getelementptr [8 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -2812,7 +2810,7 @@ define dso_local range(i32 0, 2) i32 @PyDict_Next(ptr noundef readonly captures(
   %31 = zext nneg i8 %30 to i64
   %32 = shl nuw i64 1, %31
   %33 = getelementptr i8, ptr %28, i64 %32
-  %34 = getelementptr %struct.PyDictUnicodeEntry, ptr %33, i64 %24
+  %34 = getelementptr [16 x i8], ptr %33, i64 %24
   %.076.pre.i = load ptr, ptr %25, align 8, !tbaa !64
   br label %.loopexit
 
@@ -2839,7 +2837,7 @@ define dso_local range(i32 0, 2) i32 @PyDict_Next(ptr noundef readonly captures(
   br i1 %.not93.i, label %.lr.ph118.preheader.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %41
-  %50 = getelementptr %struct.PyDictUnicodeEntry, ptr %49, i64 %9
+  %50 = getelementptr [16 x i8], ptr %49, i64 %9
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.preheader.i
@@ -2857,7 +2855,7 @@ define dso_local range(i32 0, 2) i32 @PyDict_Next(ptr noundef readonly captures(
   br i1 %exitcond.not.i, label %_PyDict_Next.exit, label %.lr.ph.i, !llvm.loop !144
 
 .lr.ph118.preheader.i:                            ; preds = %41
-  %57 = getelementptr %struct.PyDictKeyEntry, ptr %49, i64 %9
+  %57 = getelementptr [24 x i8], ptr %49, i64 %9
   br label %.lr.ph118.i
 
 .lr.ph118.i:                                      ; preds = %61, %.lr.ph118.preheader.i
@@ -3090,7 +3088,7 @@ define dso_local ptr @_PyDict_FromItems(ptr noundef readonly captures(none) %0, 
   %8 = getelementptr i8, ptr %7, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !25
   %.not = icmp eq ptr %.val, @PyUnicode_Type
-  %9 = getelementptr ptr, ptr %.03445, i64 %1
+  %9 = getelementptr [8 x i8], ptr %.03445, i64 %1
   %10 = add nuw nsw i64 %.03944, 1
   %exitcond.not = icmp ne i64 %10, %4
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
@@ -3152,8 +3150,8 @@ setitem_lock_held.exit:                           ; preds = %_Py_NewRef.exit.i, 
   br label %Py_DECREF.exit.thread
 
 31:                                               ; preds = %setitem_lock_held.exit
-  %32 = getelementptr ptr, ptr %.13549, i64 %1
-  %33 = getelementptr ptr, ptr %.03250, i64 %3
+  %32 = getelementptr [8 x i8], ptr %.13549, i64 %1
+  %33 = getelementptr [8 x i8], ptr %.03250, i64 %3
   %34 = add nuw nsw i64 %.03151, 1
   %exitcond54.not = icmp eq i64 %34, %4
   br i1 %exitcond54.not, label %Py_DECREF.exit.thread, label %.lr.ph52, !llvm.loop !146
@@ -4232,7 +4230,7 @@ _PyDict_NotifyEvent.exit.thread:                  ; preds = %34
   br i1 %.not.i.i, label %64, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr ptr, ptr %54, i64 %indvars.iv.i.i
+  %58 = getelementptr [8 x i8], ptr %54, i64 %indvars.iv.i.i
   %59 = load ptr, ptr %58, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %59, null
   br i1 %.not15.i.i, label %64, label %60
@@ -4269,7 +4267,7 @@ _PyDict_NotifyEvent.exit:                         ; preds = %64
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
-  %74 = getelementptr i16, ptr %42, i64 %66
+  %74 = getelementptr [2 x i8], ptr %42, i64 %66
   store i16 0, ptr %74, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
@@ -4278,12 +4276,12 @@ _PyDict_NotifyEvent.exit:                         ; preds = %64
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
-  %78 = getelementptr i64, ptr %42, i64 %66
+  %78 = getelementptr [8 x i8], ptr %42, i64 %66
   store i64 0, ptr %78, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
 79:                                               ; preds = %75
-  %80 = getelementptr i32, ptr %42, i64 %66
+  %80 = getelementptr [4 x i8], ptr %42, i64 %66
   store i32 0, ptr %80, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
@@ -4464,7 +4462,7 @@ Py_DECREF.exit61.thread2:                         ; preds = %41, %24
   br i1 %.not.i.i, label %83, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr ptr, ptr %73, i64 %indvars.iv.i.i
+  %77 = getelementptr [8 x i8], ptr %73, i64 %indvars.iv.i.i
   %78 = load ptr, ptr %77, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %78, null
   br i1 %.not15.i.i, label %83, label %79
@@ -4497,13 +4495,13 @@ _PyDict_NotifyEvent.exit:                         ; preds = %83, %63
   br i1 %.not55, label %96, label %93
 
 93:                                               ; preds = %_PyDict_NotifyEvent.exit
-  %94 = getelementptr %struct.PyDictUnicodeEntry, ptr %92, i64 %53
+  %94 = getelementptr [16 x i8], ptr %92, i64 %53
   %95 = getelementptr i8, ptr %94, i64 40
   store ptr %3, ptr %95, align 8, !tbaa !61
   br label %99
 
 96:                                               ; preds = %_PyDict_NotifyEvent.exit
-  %97 = getelementptr %struct.PyDictKeyEntry, ptr %92, i64 %53
+  %97 = getelementptr [24 x i8], ptr %92, i64 %53
   %98 = getelementptr i8, ptr %97, i64 48
   store ptr %3, ptr %98, align 8, !tbaa !54
   br label %99
@@ -4739,7 +4737,7 @@ define internal fastcc range(i32 -1, 1) i32 @delitem_knownhash_lock_held(ptr nou
   br i1 %.not.i.i, label %37, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr ptr, ptr %27, i64 %indvars.iv.i.i
+  %31 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %32, null
   br i1 %.not15.i.i, label %37, label %33
@@ -4822,7 +4820,7 @@ define dso_local range(i32 -1, 2) i32 @_PyDict_DelItemIf(ptr noundef %0, ptr nou
   br i1 %.not.i.i.i, label %40, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr ptr, ptr %30, i64 %indvars.iv.i.i.i
+  %34 = getelementptr [8 x i8], ptr %30, i64 %indvars.iv.i.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !67
   %.not15.i.i.i = icmp eq ptr %35, null
   br i1 %.not15.i.i.i, label %40, label %36
@@ -4894,7 +4892,7 @@ define dso_local void @PyDict_Clear(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i.i, label %31, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr ptr, ptr %21, i64 %indvars.iv.i.i.i
+  %25 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !67
   %.not15.i.i.i = icmp eq ptr %26, null
   br i1 %.not15.i.i.i, label %31, label %27
@@ -4937,7 +4935,7 @@ _PyDict_NotifyEvent.exit.i:                       ; preds = %31, %11
 
 41:                                               ; preds = %Py_DECREF.exit.i, %.lr.ph.i
   %.036.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %Py_DECREF.exit.i ]
-  %42 = getelementptr ptr, ptr %40, i64 %.036.i
+  %42 = getelementptr [8 x i8], ptr %40, i64 %.036.i
   %43 = load ptr, ptr %42, align 8, !tbaa !64
   %.not33.i = icmp eq ptr %43, null
   br i1 %.not33.i, label %Py_DECREF.exit.i, label %44
@@ -5016,11 +5014,11 @@ define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(no
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load i8, ptr %12, align 8, !tbaa !63
   %21 = zext i8 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 %10
   %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i64
-  %26 = getelementptr ptr, ptr %19, i64 %25
+  %26 = getelementptr [8 x i8], ptr %19, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -5029,7 +5027,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(no
   %32 = zext nneg i8 %31 to i64
   %33 = shl nuw i64 1, %32
   %34 = getelementptr i8, ptr %29, i64 %33
-  %35 = getelementptr %struct.PyDictUnicodeEntry, ptr %34, i64 %25
+  %35 = getelementptr [16 x i8], ptr %34, i64 %25
   %36 = load ptr, ptr %35, align 8, !tbaa !59
   %37 = getelementptr i8, ptr %36, i64 24
   %.076.pre = load ptr, ptr %26, align 8, !tbaa !64
@@ -5058,7 +5056,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(no
   br i1 %.not93, label %.lr.ph118.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %44
-  %53 = getelementptr %struct.PyDictUnicodeEntry, ptr %52, i64 %10
+  %53 = getelementptr [16 x i8], ptr %52, i64 %10
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
@@ -5081,7 +5079,7 @@ define hidden range(i32 0, 2) i32 @_PyDict_Next(ptr noundef readonly captures(no
   br label %73
 
 .lr.ph118.preheader:                              ; preds = %44
-  %63 = getelementptr %struct.PyDictKeyEntry, ptr %52, i64 %10
+  %63 = getelementptr [24 x i8], ptr %52, i64 %10
   br label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %67
@@ -5208,7 +5206,7 @@ define hidden range(i32 -1, 2) i32 @_PyDict_Pop_KnownHash(ptr noundef %0, ptr no
   br i1 %.not.i.i, label %42, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr ptr, ptr %32, i64 %indvars.iv.i.i
+  %36 = getelementptr [8 x i8], ptr %32, i64 %indvars.iv.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %37, null
   br i1 %.not15.i.i, label %42, label %38
@@ -5288,7 +5286,7 @@ define internal fastcc void @_PyDict_NotifyEvent(i32 noundef range(i32 0, 6) %0,
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 79672
   %15 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._PyDict_SendEvent, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._PyDict_SendEvent, i64 %15
   br label %16
 
 16:                                               ; preds = %24, %9
@@ -5299,7 +5297,7 @@ define internal fastcc void @_PyDict_NotifyEvent(i32 noundef range(i32 0, 6) %0,
   br i1 %.not.i, label %24, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %19 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !67
   %.not15.i = icmp eq ptr %20, null
   br i1 %.not15.i, label %24, label %21
@@ -5340,11 +5338,11 @@ define internal fastcc void @delitem_common(ptr noundef captures(none) %0, i64 n
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = getelementptr ptr, ptr %14, i64 %2
+  %15 = getelementptr [8 x i8], ptr %14, i64 %2
   store ptr null, ptr %15, align 8, !tbaa !64
   %16 = load i8, ptr %12, align 8, !tbaa !63
   %17 = zext i8 %16 to i64
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !153
   br label %21
@@ -5402,7 +5400,7 @@ delete_index_from_values.exit:                    ; preds = %.lr.ph.i, %27
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %47 = getelementptr i16, ptr %46, i64 %7
+  %47 = getelementptr [2 x i8], ptr %46, i64 %7
   store i16 -2, ptr %47, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
@@ -5412,12 +5410,12 @@ delete_index_from_values.exit:                    ; preds = %.lr.ph.i, %27
   br i1 %49, label %51, label %53
 
 51:                                               ; preds = %48
-  %52 = getelementptr i64, ptr %50, i64 %7
+  %52 = getelementptr [8 x i8], ptr %50, i64 %7
   store i64 -2, ptr %52, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
 53:                                               ; preds = %48
-  %54 = getelementptr i32, ptr %50, i64 %7
+  %54 = getelementptr [4 x i8], ptr %50, i64 %7
   store i32 -2, ptr %54, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
@@ -5435,13 +5433,13 @@ dictkeys_set_index.exit:                          ; preds = %40, %45, %51, %53
   br i1 %.not27, label %67, label %64
 
 64:                                               ; preds = %dictkeys_set_index.exit
-  %65 = getelementptr %struct.PyDictUnicodeEntry, ptr %63, i64 %2
+  %65 = getelementptr [16 x i8], ptr %63, i64 %2
   %66 = load ptr, ptr %65, align 8, !tbaa !59
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   br label %71
 
 67:                                               ; preds = %dictkeys_set_index.exit
-  %68 = getelementptr %struct.PyDictKeyEntry, ptr %63, i64 %2
+  %68 = getelementptr [24 x i8], ptr %63, i64 %2
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
@@ -5850,7 +5848,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %64 = load i8, ptr %57, align 8, !tbaa !63
   %65 = zext i8 %64 to i64
-  %66 = getelementptr ptr, ptr %63, i64 %65
+  %66 = getelementptr [8 x i8], ptr %63, i64 %65
   %67 = getelementptr i8, ptr %66, i64 %.05.i
   %68 = load i8, ptr %67, align 1, !tbaa !41
   %69 = zext i8 %68 to i64
@@ -5861,7 +5859,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   %74 = zext nneg i8 %73 to i64
   %75 = shl nuw i64 1, %74
   %76 = getelementptr i8, ptr %71, i64 %75
-  %77 = getelementptr %struct.PyDictUnicodeEntry, ptr %76, i64 %69
+  %77 = getelementptr [16 x i8], ptr %76, i64 %69
   %78 = load ptr, ptr %77, align 8, !tbaa !59
   %79 = getelementptr i8, ptr %78, i64 24
   br label %114
@@ -5888,7 +5886,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br i1 %.not93.i.i, label %.lr.ph118.preheader.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %85
-  %94 = getelementptr %struct.PyDictUnicodeEntry, ptr %93, i64 %.05.i
+  %94 = getelementptr [16 x i8], ptr %93, i64 %.05.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %98, %.lr.ph.preheader.i.i
@@ -5911,7 +5909,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br label %114
 
 .lr.ph118.preheader.i.i:                          ; preds = %85
-  %104 = getelementptr %struct.PyDictKeyEntry, ptr %93, i64 %.05.i
+  %104 = getelementptr [24 x i8], ptr %93, i64 %.05.i
   br label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %108, %.lr.ph118.preheader.i.i
@@ -6309,7 +6307,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load i8, ptr %30, align 8, !tbaa !63
   %38 = zext i8 %37 to i64
-  %39 = getelementptr ptr, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = getelementptr i8, ptr %39, i64 %.02343.i
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i64
@@ -6320,7 +6318,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   %47 = zext nneg i8 %46 to i64
   %48 = shl nuw i64 1, %47
   %49 = getelementptr i8, ptr %44, i64 %48
-  %50 = getelementptr %struct.PyDictUnicodeEntry, ptr %49, i64 %42
+  %50 = getelementptr [16 x i8], ptr %49, i64 %42
   br label %.loopexit.i
 
 51:                                               ; preds = %29
@@ -6345,7 +6343,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   br i1 %.not93.i.i, label %.lr.ph118.preheader.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %56
-  %65 = getelementptr %struct.PyDictUnicodeEntry, ptr %64, i64 %.02343.i
+  %65 = getelementptr [16 x i8], ptr %64, i64 %.02343.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %69, %.lr.ph.preheader.i.i
@@ -6363,7 +6361,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   br i1 %exitcond.not.i.i, label %keys_lock_held.exit, label %.lr.ph.i.i, !llvm.loop !144
 
 .lr.ph118.preheader.i.i:                          ; preds = %56
-  %72 = getelementptr %struct.PyDictKeyEntry, ptr %64, i64 %.02343.i
+  %72 = getelementptr [24 x i8], ptr %64, i64 %.02343.i
   br label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %76, %.lr.ph118.preheader.i.i
@@ -6402,7 +6400,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
 _Py_NewRef.exit.i:                                ; preds = %84, %.loopexit.i
   %.val.i.i = phi ptr [ %.val.i57.i, %.loopexit.i ], [ %.val.i.pre.i, %84 ]
   %.val20.i = load ptr, ptr %19, align 8, !tbaa !163
-  %86 = getelementptr ptr, ptr %.val20.i, i64 %.044.i
+  %86 = getelementptr [8 x i8], ptr %.val20.i, i64 %.044.i
   store ptr %.081.i.i, ptr %86, align 8, !tbaa !64
   %87 = add i64 %.044.i, 1
   %88 = getelementptr i8, ptr %.val.i.i, i64 168
@@ -6504,11 +6502,11 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load i8, ptr %30, align 8, !tbaa !63
   %38 = zext i8 %37 to i64
-  %39 = getelementptr ptr, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = getelementptr i8, ptr %39, i64 %.02346.i
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i64
-  %43 = getelementptr ptr, ptr %36, i64 %42
+  %43 = getelementptr [8 x i8], ptr %36, i64 %42
   %.076.pre.i.i = load ptr, ptr %43, align 8, !tbaa !64
   br label %.loopexit.i
 
@@ -6534,7 +6532,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   br i1 %.not93.i.i, label %.lr.ph118.preheader.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %49
-  %58 = getelementptr %struct.PyDictUnicodeEntry, ptr %57, i64 %.02346.i
+  %58 = getelementptr [16 x i8], ptr %57, i64 %.02346.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %62, %.lr.ph.preheader.i.i
@@ -6552,7 +6550,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
   br i1 %exitcond.not.i.i, label %values_lock_held.exit, label %.lr.ph.i.i, !llvm.loop !144
 
 .lr.ph118.preheader.i.i:                          ; preds = %49
-  %65 = getelementptr %struct.PyDictKeyEntry, ptr %57, i64 %.02346.i
+  %65 = getelementptr [24 x i8], ptr %57, i64 %.02346.i
   br label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %69, %.lr.ph118.preheader.i.i
@@ -6586,7 +6584,7 @@ Py_DECREF.exit.i:                                 ; preds = %25, %22, %20
 _Py_NewRef.exit.i:                                ; preds = %75, %.loopexit.i
   %.val.i.i = phi ptr [ %.val.i63.i, %.loopexit.i ], [ %.val.i.pre.i, %75 ]
   %.val20.i = load ptr, ptr %19, align 8, !tbaa !163
-  %77 = getelementptr ptr, ptr %.val20.i, i64 %.047.i
+  %77 = getelementptr [8 x i8], ptr %.val20.i, i64 %.047.i
   store ptr %.076.i.i, ptr %77, align 8, !tbaa !64
   %78 = add i64 %.047.i, 1
   %79 = getelementptr i8, ptr %.val.i.i, i64 168
@@ -6658,7 +6656,7 @@ define dso_local ptr @PyDict_Items(ptr noundef readonly captures(address_is_null
 
 25:                                               ; preds = %16
   %.val36.i = load ptr, ptr %15, align 8, !tbaa !163
-  %26 = getelementptr ptr, ptr %.val36.i, i64 %.02568.i
+  %26 = getelementptr [8 x i8], ptr %.val36.i, i64 %.02568.i
   store ptr %17, ptr %26, align 8, !tbaa !64
   %27 = add nuw nsw i64 %.02568.i, 1
   %exitcond.not.i = icmp eq i64 %27, %13
@@ -6724,11 +6722,11 @@ Py_DECREF.exit.i:                                 ; preds = %39, %36, %34
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %51 = load i8, ptr %44, align 8, !tbaa !63
   %52 = zext i8 %51 to i64
-  %53 = getelementptr ptr, ptr %50, i64 %52
+  %53 = getelementptr [8 x i8], ptr %50, i64 %52
   %54 = getelementptr i8, ptr %53, i64 %.04372.i
   %55 = load i8, ptr %54, align 1, !tbaa !41
   %56 = zext i8 %55 to i64
-  %57 = getelementptr ptr, ptr %50, i64 %56
+  %57 = getelementptr [8 x i8], ptr %50, i64 %56
   %58 = load ptr, ptr %32, align 8, !tbaa !36
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 9
@@ -6736,7 +6734,7 @@ Py_DECREF.exit.i:                                 ; preds = %39, %36, %34
   %62 = zext nneg i8 %61 to i64
   %63 = shl nuw i64 1, %62
   %64 = getelementptr i8, ptr %59, i64 %63
-  %65 = getelementptr %struct.PyDictUnicodeEntry, ptr %64, i64 %56
+  %65 = getelementptr [16 x i8], ptr %64, i64 %56
   %.076.pre.i.i = load ptr, ptr %57, align 8, !tbaa !64
   br label %.loopexit.i
 
@@ -6762,7 +6760,7 @@ Py_DECREF.exit.i:                                 ; preds = %39, %36, %34
   br i1 %.not93.i.i, label %.lr.ph118.preheader.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %71
-  %80 = getelementptr %struct.PyDictUnicodeEntry, ptr %79, i64 %.04372.i
+  %80 = getelementptr [16 x i8], ptr %79, i64 %.04372.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %84, %.lr.ph.preheader.i.i
@@ -6780,7 +6778,7 @@ Py_DECREF.exit.i:                                 ; preds = %39, %36, %34
   br i1 %exitcond.not.i.i, label %items_lock_held.exit, label %.lr.ph.i.i, !llvm.loop !144
 
 .lr.ph118.preheader.i.i:                          ; preds = %71
-  %87 = getelementptr %struct.PyDictKeyEntry, ptr %79, i64 %.04372.i
+  %87 = getelementptr [24 x i8], ptr %79, i64 %.04372.i
   br label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %91, %.lr.ph118.preheader.i.i
@@ -6808,7 +6806,7 @@ Py_DECREF.exit.i:                                 ; preds = %39, %36, %34
   %.081.i.i = load ptr, ptr %.081.i.in.i, align 8, !tbaa !64
   %96 = add nsw i64 %.063.i.i, 1
   %97 = load ptr, ptr %33, align 8, !tbaa !163
-  %98 = getelementptr ptr, ptr %97, i64 %.02473.i
+  %98 = getelementptr [8 x i8], ptr %97, i64 %.02473.i
   %99 = load ptr, ptr %98, align 8, !tbaa !64
   %100 = load i32, ptr %.081.i.i, align 8, !tbaa !41
   %101 = icmp slt i32 %100, 0
@@ -7352,18 +7350,18 @@ Py_DECREF.exit74.i:                               ; preds = %219, %94
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %112 = load i8, ptr %105, align 8, !tbaa !63
   %113 = zext i8 %112 to i64
-  %114 = getelementptr ptr, ptr %111, i64 %113
+  %114 = getelementptr [8 x i8], ptr %111, i64 %113
   %115 = getelementptr i8, ptr %114, i64 %.021.i
   %116 = load i8, ptr %115, align 1, !tbaa !41
   %117 = zext i8 %116 to i64
-  %118 = getelementptr ptr, ptr %111, i64 %117
+  %118 = getelementptr [8 x i8], ptr %111, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %120 = getelementptr inbounds nuw i8, ptr %101, i64 9
   %121 = load i8, ptr %120, align 1, !tbaa !41
   %122 = zext nneg i8 %121 to i64
   %123 = shl nuw i64 1, %122
   %124 = getelementptr i8, ptr %119, i64 %123
-  %125 = getelementptr %struct.PyDictUnicodeEntry, ptr %124, i64 %117
+  %125 = getelementptr [16 x i8], ptr %124, i64 %117
   %126 = load ptr, ptr %125, align 8, !tbaa !59
   %127 = getelementptr i8, ptr %126, i64 24
   %.076.pre.i.i = load ptr, ptr %118, align 8, !tbaa !64
@@ -7388,7 +7386,7 @@ Py_DECREF.exit74.i:                               ; preds = %219, %94
   br i1 %.not93.i.i, label %.lr.ph118.preheader.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %130
-  %139 = getelementptr %struct.PyDictUnicodeEntry, ptr %138, i64 %.021.i
+  %139 = getelementptr [16 x i8], ptr %138, i64 %.021.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %143, %.lr.ph.preheader.i.i
@@ -7411,7 +7409,7 @@ Py_DECREF.exit74.i:                               ; preds = %219, %94
   br label %159
 
 .lr.ph118.preheader.i.i:                          ; preds = %130
-  %149 = getelementptr %struct.PyDictKeyEntry, ptr %138, i64 %.021.i
+  %149 = getelementptr [24 x i8], ptr %138, i64 %.021.i
   br label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %153, %.lr.ph118.preheader.i.i
@@ -8081,9 +8079,9 @@ _PyFreeList_Pop.exit.i.i:                         ; preds = %5
   %64 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %65 = load i8, ptr %48, align 8, !tbaa !63
   %66 = zext i8 %65 to i64
-  %67 = getelementptr ptr, ptr %64, i64 %66
+  %67 = getelementptr [8 x i8], ptr %64, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %69 = getelementptr ptr, ptr %68, i64 %51
+  %69 = getelementptr [8 x i8], ptr %68, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr readonly align 1 %67, i64 %66, i1 false)
   %70 = load i8, ptr %48, align 8, !tbaa !63
   %.not.i48 = icmp eq i8 %70, 0
@@ -8095,9 +8093,9 @@ _PyFreeList_Pop.exit.i.i:                         ; preds = %5
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %71 = getelementptr ptr, ptr %64, i64 %indvars.iv.i
+  %71 = getelementptr [8 x i8], ptr %64, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8, !tbaa !64
-  %73 = getelementptr ptr, ptr %68, i64 %indvars.iv.i
+  %73 = getelementptr [8 x i8], ptr %68, i64 %indvars.iv.i
   store ptr %72, ptr %73, align 8, !tbaa !64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -8175,7 +8173,7 @@ dictkeys_incref.exit:                             ; preds = %._crit_edge, %88
 .lr.ph:                                           ; preds = %.preheader, %Py_XINCREF.exit
   %113 = phi i8 [ %121, %Py_XINCREF.exit ], [ %77, %.preheader ]
   %.04056 = phi i64 [ %122, %Py_XINCREF.exit ], [ 0, %.preheader ]
-  %114 = getelementptr ptr, ptr %68, i64 %.04056
+  %114 = getelementptr [8 x i8], ptr %68, i64 %.04056
   %115 = load ptr, ptr %114, align 8, !tbaa !64
   %.not.i49 = icmp eq ptr %115, null
   br i1 %.not.i49, label %Py_XINCREF.exit, label %116
@@ -8508,7 +8506,7 @@ _Py_NewRef.exit110:                               ; preds = %42, %39, %38
 68:                                               ; preds = %65
   %69 = load ptr, ptr %63, align 8, !tbaa !40
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = getelementptr ptr, ptr %70, i64 %67
+  %71 = getelementptr [8 x i8], ptr %70, i64 %67
   %72 = load ptr, ptr %71, align 8, !tbaa !64
   %73 = icmp ne ptr %72, null
   %74 = zext i1 %73 to i32
@@ -9007,7 +9005,7 @@ _PyObject_ResurrectStart.exit:                    ; preds = %1, %3
   br i1 %.not.i.i44, label %23, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr ptr, ptr %13, i64 %indvars.iv.i.i
+  %17 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %18, null
   br i1 %.not15.i.i, label %23, label %19
@@ -9091,7 +9089,7 @@ _PyObject_ResurrectEnd.exit:                      ; preds = %_PyDict_NotifyEvent
 
 53:                                               ; preds = %.lr.ph, %Py_XDECREF.exit
   %.051 = phi i64 [ 0, %.lr.ph ], [ %62, %Py_XDECREF.exit ]
-  %54 = getelementptr ptr, ptr %52, i64 %.051
+  %54 = getelementptr [8 x i8], ptr %52, i64 %.051
   %55 = load ptr, ptr %54, align 8, !tbaa !64
   %.not.i46 = icmp eq ptr %55, null
   br i1 %.not.i46, label %Py_XDECREF.exit, label %56
@@ -9253,11 +9251,11 @@ define internal ptr @dict_repr(ptr noundef %0) #0 {
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %33 = load i8, ptr %26, align 8, !tbaa !63
   %34 = zext i8 %33 to i64
-  %35 = getelementptr ptr, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = getelementptr i8, ptr %35, i64 %.05785.i
   %37 = load i8, ptr %36, align 1, !tbaa !41
   %38 = zext i8 %37 to i64
-  %39 = getelementptr ptr, ptr %32, i64 %38
+  %39 = getelementptr [8 x i8], ptr %32, i64 %38
   %40 = load ptr, ptr %24, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 9
@@ -9265,7 +9263,7 @@ define internal ptr @dict_repr(ptr noundef %0) #0 {
   %44 = zext nneg i8 %43 to i64
   %45 = shl nuw i64 1, %44
   %46 = getelementptr i8, ptr %41, i64 %45
-  %47 = getelementptr %struct.PyDictUnicodeEntry, ptr %46, i64 %38
+  %47 = getelementptr [16 x i8], ptr %46, i64 %38
   %.076.pre.i.i = load ptr, ptr %39, align 8, !tbaa !64
   br label %.loopexit71.i
 
@@ -9291,7 +9289,7 @@ define internal ptr @dict_repr(ptr noundef %0) #0 {
   br i1 %.not93.i.i, label %.lr.ph118.preheader.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %53
-  %62 = getelementptr %struct.PyDictUnicodeEntry, ptr %61, i64 %.05785.i
+  %62 = getelementptr [16 x i8], ptr %61, i64 %.05785.i
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %66, %.lr.ph.preheader.i.i
@@ -9309,7 +9307,7 @@ define internal ptr @dict_repr(ptr noundef %0) #0 {
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !144
 
 .lr.ph118.preheader.i.i:                          ; preds = %53
-  %69 = getelementptr %struct.PyDictKeyEntry, ptr %61, i64 %.05785.i
+  %69 = getelementptr [24 x i8], ptr %61, i64 %.05785.i
   br label %.lr.ph118.i.i
 
 .lr.ph118.i.i:                                    ; preds = %73, %.lr.ph118.preheader.i.i
@@ -9516,7 +9514,7 @@ define internal i32 @dict_traverse(ptr noundef readonly captures(none) %0, ptr n
   %.06299 = phi i64 [ %24, %23 ], [ 0, %13 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !40
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = getelementptr ptr, ptr %18, i64 %.06299
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.06299
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %.not90 = icmp eq ptr %20, null
   br i1 %.not90, label %23, label %21
@@ -9542,7 +9540,7 @@ define internal i32 @dict_traverse(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph104:                                        ; preds = %25, %36
   %.163103 = phi i64 [ %37, %36 ], [ 0, %25 ]
-  %31 = getelementptr %struct.PyDictUnicodeEntry, ptr %30, i64 %.163103
+  %31 = getelementptr [16 x i8], ptr %30, i64 %.163103
   %32 = getelementptr i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !61
   %.not86 = icmp eq ptr %33, null
@@ -9570,7 +9568,7 @@ define internal i32 @dict_traverse(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph110:                                        ; preds = %38, %55
   %.264109 = phi i64 [ %56, %55 ], [ 0, %38 ]
-  %45 = getelementptr %struct.PyDictKeyEntry, ptr %44, i64 %.264109
+  %45 = getelementptr [24 x i8], ptr %44, i64 %.264109
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !54
   %.not80 = icmp eq ptr %47, null
@@ -9669,7 +9667,7 @@ define internal noundef ptr @dict_richcompare(ptr noundef readonly captures(none
   br i1 %.not55.i.i, label %45, label %36
 
 36:                                               ; preds = %26
-  %37 = getelementptr %struct.PyDictUnicodeEntry, ptr %35, i64 %.03791.i.i
+  %37 = getelementptr [16 x i8], ptr %35, i64 %.03791.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !59
   %.not57.i.i = icmp eq ptr %38, null
   br i1 %.not57.i.i, label %.thread.i.i, label %39
@@ -9679,13 +9677,13 @@ define internal noundef ptr @dict_richcompare(ptr noundef readonly captures(none
   %41 = load ptr, ptr %25, align 8, !tbaa !40
   %.not56.i.i = icmp eq ptr %41, null
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = getelementptr ptr, ptr %42, i64 %.03791.i.i
+  %43 = getelementptr [8 x i8], ptr %42, i64 %.03791.i.i
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.247.in.i.i = select i1 %.not56.i.i, ptr %44, ptr %43
   br label %50
 
 45:                                               ; preds = %26
-  %46 = getelementptr %struct.PyDictKeyEntry, ptr %35, i64 %.03791.i.i
+  %46 = getelementptr [24 x i8], ptr %35, i64 %.03791.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !51
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -10142,9 +10140,9 @@ dict_update_arg.exit.thread:                      ; preds = %53, %dict_update_ar
 
 74:                                               ; preds = %.lr.ph, %72
   %.043 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
-  %75 = getelementptr ptr, ptr %70, i64 %.043
+  %75 = getelementptr [8 x i8], ptr %70, i64 %.043
   %76 = load ptr, ptr %75, align 8, !tbaa !64
-  %77 = getelementptr ptr, ptr %.026, i64 %.043
+  %77 = getelementptr [8 x i8], ptr %.026, i64 %.043
   %78 = load ptr, ptr %77, align 8, !tbaa !64
   %.val.i36 = load ptr, ptr %71, align 8, !tbaa !25
   %79 = getelementptr i8, ptr %.val.i36, i64 168
@@ -10679,7 +10677,7 @@ define internal ptr @dictiter_iternextkey(ptr noundef captures(none) %0) #0 {
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i8, ptr %18, align 8, !tbaa !63
   %23 = zext i8 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 %14
   %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -10689,7 +10687,7 @@ define internal ptr @dictiter_iternextkey(ptr noundef captures(none) %0) #0 {
   %31 = shl nuw i64 1, %30
   %32 = getelementptr i8, ptr %27, i64 %31
   %33 = zext i8 %26 to i64
-  %34 = getelementptr %struct.PyDictUnicodeEntry, ptr %32, i64 %33
+  %34 = getelementptr [16 x i8], ptr %32, i64 %33
   br label %.critedge.thread73.i
 
 35:                                               ; preds = %12
@@ -10711,7 +10709,7 @@ define internal ptr @dictiter_iternextkey(ptr noundef captures(none) %0) #0 {
   %45 = zext nneg i8 %44 to i64
   %46 = shl nuw i64 1, %45
   %47 = getelementptr i8, ptr %42, i64 %46
-  %48 = getelementptr %struct.PyDictUnicodeEntry, ptr %47, i64 %14
+  %48 = getelementptr [16 x i8], ptr %47, i64 %14
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.preheader.i
@@ -10738,7 +10736,7 @@ define internal ptr @dictiter_iternextkey(ptr noundef captures(none) %0) #0 {
   %59 = zext nneg i8 %58 to i64
   %60 = shl nuw i64 1, %59
   %61 = getelementptr i8, ptr %56, i64 %60
-  %62 = getelementptr %struct.PyDictKeyEntry, ptr %61, i64 %14
+  %62 = getelementptr [24 x i8], ptr %61, i64 %14
   br label %.lr.ph86.i
 
 .lr.ph86.i:                                       ; preds = %66, %.lr.ph86.preheader.i
@@ -10845,11 +10843,11 @@ define internal ptr @dictiter_iternextvalue(ptr noundef captures(none) %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i8, ptr %16, align 8, !tbaa !63
   %21 = zext i8 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 %14
   %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i64
-  %26 = getelementptr ptr, ptr %19, i64 %25
+  %26 = getelementptr [8 x i8], ptr %19, i64 %25
   %.049.pre.i = load ptr, ptr %26, align 8, !tbaa !64
   br label %.critedge.thread72.i
 
@@ -10874,7 +10872,7 @@ define internal ptr @dictiter_iternextvalue(ptr noundef captures(none) %0) #0 {
   %39 = zext nneg i8 %38 to i64
   %40 = shl nuw i64 1, %39
   %41 = getelementptr i8, ptr %36, i64 %40
-  %42 = getelementptr %struct.PyDictUnicodeEntry, ptr %41, i64 %14
+  %42 = getelementptr [16 x i8], ptr %41, i64 %14
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.preheader.i
@@ -10901,7 +10899,7 @@ define internal ptr @dictiter_iternextvalue(ptr noundef captures(none) %0) #0 {
   %53 = zext nneg i8 %52 to i64
   %54 = shl nuw i64 1, %53
   %55 = getelementptr i8, ptr %50, i64 %54
-  %56 = getelementptr %struct.PyDictKeyEntry, ptr %55, i64 %14
+  %56 = getelementptr [24 x i8], ptr %55, i64 %14
   br label %.lr.ph85.i
 
 .lr.ph85.i:                                       ; preds = %60, %.lr.ph85.preheader.i
@@ -11003,7 +11001,7 @@ define internal ptr @dictiter_iternextitem(ptr noundef captures(none) %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i8, ptr %16, align 8, !tbaa !63
   %21 = zext i8 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 %14
   %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -11015,8 +11013,8 @@ define internal ptr @dictiter_iternextitem(ptr noundef captures(none) %0) #0 {
   %31 = shl nuw i64 1, %30
   %32 = getelementptr i8, ptr %27, i64 %31
   %33 = zext i8 %24 to i64
-  %34 = getelementptr %struct.PyDictUnicodeEntry, ptr %32, i64 %33
-  %35 = getelementptr ptr, ptr %19, i64 %33
+  %34 = getelementptr [16 x i8], ptr %32, i64 %33
+  %35 = getelementptr [8 x i8], ptr %19, i64 %33
   %.067.pre.i = load ptr, ptr %35, align 8, !tbaa !64
   br label %.critedge.thread91.i
 
@@ -11041,7 +11039,7 @@ define internal ptr @dictiter_iternextitem(ptr noundef captures(none) %0) #0 {
   %48 = zext nneg i8 %47 to i64
   %49 = shl nuw i64 1, %48
   %50 = getelementptr i8, ptr %45, i64 %49
-  %51 = getelementptr %struct.PyDictUnicodeEntry, ptr %50, i64 %14
+  %51 = getelementptr [16 x i8], ptr %50, i64 %14
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.preheader.i
@@ -11068,7 +11066,7 @@ define internal ptr @dictiter_iternextitem(ptr noundef captures(none) %0) #0 {
   %62 = zext nneg i8 %61 to i64
   %63 = shl nuw i64 1, %62
   %64 = getelementptr i8, ptr %59, i64 %63
-  %65 = getelementptr %struct.PyDictKeyEntry, ptr %64, i64 %14
+  %65 = getelementptr [24 x i8], ptr %64, i64 %14
   br label %.lr.ph105.i
 
 .lr.ph105.i:                                      ; preds = %69, %.lr.ph105.preheader.i
@@ -11279,7 +11277,7 @@ define internal ptr @dictreviter_iternext(ptr noundef captures(none) %0) #0 {
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i8, ptr %20, align 8, !tbaa !63
   %24 = zext i8 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = getelementptr i8, ptr %25, i64 %14
   %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -11289,8 +11287,8 @@ define internal ptr @dictreviter_iternext(ptr noundef captures(none) %0) #0 {
   %32 = shl nuw i64 1, %31
   %33 = getelementptr i8, ptr %28, i64 %32
   %34 = zext i8 %27 to i64
-  %35 = getelementptr %struct.PyDictUnicodeEntry, ptr %33, i64 %34
-  %36 = getelementptr ptr, ptr %22, i64 %34
+  %35 = getelementptr [16 x i8], ptr %33, i64 %34
+  %36 = getelementptr [8 x i8], ptr %22, i64 %34
   %37 = load ptr, ptr %36, align 8, !tbaa !64
   br label %.thread.i
 
@@ -11307,7 +11305,7 @@ define internal ptr @dictreviter_iternext(ptr noundef captures(none) %0) #0 {
   br i1 %.not82.i, label %59, label %47
 
 47:                                               ; preds = %38
-  %48 = getelementptr %struct.PyDictUnicodeEntry, ptr %46, i64 %14
+  %48 = getelementptr [16 x i8], ptr %46, i64 %14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !61
   %51 = icmp eq ptr %50, null
@@ -11328,7 +11326,7 @@ define internal ptr @dictreviter_iternext(ptr noundef captures(none) %0) #0 {
   br i1 %58, label %.lr.ph.i, label %.thread.i, !llvm.loop !200
 
 59:                                               ; preds = %38
-  %60 = getelementptr %struct.PyDictKeyEntry, ptr %46, i64 %14
+  %60 = getelementptr [24 x i8], ptr %46, i64 %14
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !54
   %63 = icmp eq ptr %62, null
@@ -12564,7 +12562,7 @@ define hidden ptr @_PyDict_NewKeysForClass(ptr noundef readonly captures(none) %
 27:                                               ; preds = %.lr.ph, %.critedge
   %.val3139 = phi i64 [ %.val3136, %.lr.ph ], [ %.val31, %.critedge ]
   %.037 = phi i64 [ 0, %.lr.ph ], [ %36, %.critedge ]
-  %28 = getelementptr ptr, ptr %26, i64 %.037
+  %28 = getelementptr [8 x i8], ptr %26, i64 %.037
   %29 = load ptr, ptr %28, align 8, !tbaa !64
   %30 = getelementptr i8, ptr %29, i64 8
   %.val29 = load ptr, ptr %30, align 8, !tbaa !25
@@ -12732,12 +12730,12 @@ define internal fastcc i64 @insert_split_key(ptr noundef captures(none) %0, ptr 
   br i1 %21, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = getelementptr i64, ptr %22, i64 %16
+  %24 = getelementptr [8 x i8], ptr %22, i64 %16
   %25 = load i64, ptr %24, align 8, !tbaa !42
   br label %dictkeys_get_index.exit.i
 
 26:                                               ; preds = %20
-  %27 = getelementptr i32, ptr %22, i64 %16
+  %27 = getelementptr [4 x i8], ptr %22, i64 %16
   %28 = load i32, ptr %27, align 4, !tbaa !50
   %29 = sext i32 %28 to i64
   br label %dictkeys_get_index.exit.i
@@ -12749,7 +12747,7 @@ dictkeys_get_index.exit.i:                        ; preds = %26, %23
 
 dictkeys_get_index.exit.i.thread:                 ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = getelementptr i16, ptr %31, i64 %16
+  %32 = getelementptr [2 x i8], ptr %31, i64 %16
   %33 = load i16, ptr %32, align 2, !tbaa !49
   %34 = icmp slt i16 %33, 0
   br i1 %34, label %.sink.split, label %.lr.ph.i.thread
@@ -12791,7 +12789,7 @@ dictkeys_get_index.exit16.us21.i:                 ; preds = %.lr.ph.i.thread, %d
   %52 = add nuw nsw i64 %50, 1
   %53 = add nuw i64 %52, %51
   %54 = and i64 %53, %15
-  %55 = getelementptr i16, ptr %35, i64 %54
+  %55 = getelementptr [2 x i8], ptr %35, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !49
   %57 = icmp slt i16 %56, 0
   br i1 %57, label %.sink.split, label %dictkeys_get_index.exit16.us21.i, !llvm.loop !216
@@ -12804,7 +12802,7 @@ dictkeys_get_index.exit16.us27.i:                 ; preds = %.lr.ph.i, %dictkeys
   %60 = add nuw nsw i64 %58, 1
   %61 = add i64 %60, %59
   %62 = and i64 %61, %15
-  %63 = getelementptr i64, ptr %40, i64 %62
+  %63 = getelementptr [8 x i8], ptr %40, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !42
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %.thread, label %dictkeys_get_index.exit16.us27.i, !llvm.loop !216
@@ -12817,7 +12815,7 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
   %68 = add nuw nsw i64 %66, 1
   %69 = add nuw i64 %68, %67
   %70 = and i64 %69, %15
-  %71 = getelementptr i32, ptr %40, i64 %70
+  %71 = getelementptr [4 x i8], ptr %40, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !50
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %.thread, label %dictkeys_get_index.exit16.i, !llvm.loop !216
@@ -12837,7 +12835,7 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
   %79 = load i64, ptr %78, align 8, !tbaa !42
   %80 = trunc i64 %79 to i16
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %82 = getelementptr i16, ptr %81, i64 %.014.lcssa.i.ph24.ph
+  %82 = getelementptr [2 x i8], ptr %81, i64 %.014.lcssa.i.ph24.ph
   store i16 %80, ptr %82, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
@@ -12850,14 +12848,14 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
 
 86:                                               ; preds = %.thread
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %88 = getelementptr i64, ptr %87, i64 %.014.lcssa.i.ph21
+  %88 = getelementptr [8 x i8], ptr %87, i64 %.014.lcssa.i.ph21
   store i64 %84, ptr %88, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
 89:                                               ; preds = %.thread
   %90 = trunc i64 %84 to i32
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %92 = getelementptr i32, ptr %91, i64 %.014.lcssa.i.ph21
+  %92 = getelementptr [4 x i8], ptr %91, i64 %.014.lcssa.i.ph21
   store i32 %90, ptr %92, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
@@ -12870,7 +12868,7 @@ dictkeys_set_index.exit:                          ; preds = %.loopexit, %.sink.s
   %98 = zext nneg i8 %97 to i64
   %99 = shl nuw i64 1, %98
   %100 = getelementptr i8, ptr %95, i64 %99
-  %101 = getelementptr %struct.PyDictUnicodeEntry, ptr %100, i64 %93
+  %101 = getelementptr [16 x i8], ptr %100, i64 %93
   %102 = load i32, ptr %1, align 8, !tbaa !41
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %_Py_NewRef.exit, label %104
@@ -13131,7 +13129,7 @@ new_dict.exit:                                    ; preds = %24, %25
 52:                                               ; preds = %.lr.ph, %52
   %.02 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %52 ]
   %.0131 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
-  %53 = getelementptr ptr, ptr %10, i64 %.0131
+  %53 = getelementptr [8 x i8], ptr %10, i64 %.0131
   %54 = load ptr, ptr %53, align 8, !tbaa !64
   %.not = icmp ne ptr %54, null
   %55 = zext i1 %.not to i64
@@ -13684,7 +13682,7 @@ setitem_lock_held.exit.i72:                       ; preds = %66, %_Py_NewRef.exi
 
 69:                                               ; preds = %16
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = getelementptr ptr, ptr %70, i64 %17
+  %71 = getelementptr [8 x i8], ptr %70, i64 %17
   %72 = load ptr, ptr %71, align 8, !tbaa !64
   %73 = icmp eq ptr %72, null
   %74 = icmp eq ptr %3, null
@@ -13720,7 +13718,7 @@ setitem_lock_held.exit.i72:                       ; preds = %66, %_Py_NewRef.exi
   %92 = load ptr, ptr %91, align 8, !tbaa !9
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 79672
   %94 = zext nneg i32 %83 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.store_instance_attr_lock_held, i64 %94
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.store_instance_attr_lock_held, i64 %94
   br label %95
 
 95:                                               ; preds = %103, %88
@@ -13731,7 +13729,7 @@ setitem_lock_held.exit.i72:                       ; preds = %66, %_Py_NewRef.exi
   br i1 %.not.i.i82, label %103, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr ptr, ptr %93, i64 %indvars.iv.i.i
+  %98 = getelementptr [8 x i8], ptr %93, i64 %indvars.iv.i.i
   %99 = load ptr, ptr %98, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %99, null
   br i1 %.not15.i.i, label %103, label %100
@@ -13778,7 +13776,7 @@ _Py_XNewRef.exit.thread:                          ; preds = %_PyDict_NotifyEvent
   %112 = load i8, ptr %111, align 1, !tbaa !153
   %113 = load i8, ptr %1, align 8, !tbaa !63
   %114 = zext i8 %113 to i64
-  %115 = getelementptr ptr, ptr %70, i64 %114
+  %115 = getelementptr [8 x i8], ptr %70, i64 %114
   %116 = trunc i64 %17 to i8
   %117 = zext i8 %112 to i64
   %118 = getelementptr i8, ptr %115, i64 %117
@@ -13797,7 +13795,7 @@ _Py_XNewRef.exit.thread:                          ; preds = %_PyDict_NotifyEvent
 .thread87:                                        ; preds = %_Py_XNewRef.exit.thread
   %124 = load i8, ptr %1, align 8, !tbaa !63
   %125 = zext i8 %124 to i64
-  %126 = getelementptr ptr, ptr %70, i64 %125
+  %126 = getelementptr [8 x i8], ptr %70, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %128 = load i8, ptr %127, align 1, !tbaa !153
   br label %129
@@ -13900,7 +13898,7 @@ _PyDictKeys_StringLookupSplit.exit:               ; preds = %10, %15
 21:                                               ; preds = %_PyDictKeys_StringLookupSplit.exit.thread, %_PyDictKeys_StringLookupSplit.exit
   %.07.i14 = phi i64 [ -3, %_PyDictKeys_StringLookupSplit.exit.thread ], [ %19, %_PyDictKeys_StringLookupSplit.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %23 = getelementptr ptr, ptr %22, i64 %.07.i14
+  %23 = getelementptr [8 x i8], ptr %22, i64 %.07.i14
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_Py_XNewRef.exit, label %25
@@ -13965,7 +13963,7 @@ define hidden range(i32 0, 2) i32 @_PyObject_IsInstanceDictEmpty(ptr noundef %0)
 
 .lr.ph:                                           ; preds = %16, %22
   %.02139 = phi i64 [ %23, %22 ], [ 0, %16 ]
-  %24 = getelementptr ptr, ptr %19, i64 %.02139
+  %24 = getelementptr [8 x i8], ptr %19, i64 %.02139
   %25 = load ptr, ptr %24, align 8, !tbaa !64
   %.not29 = icmp eq ptr %25, null
   br i1 %.not29, label %22, label %.loopexit
@@ -14043,7 +14041,7 @@ define dso_local i32 @PyObject_VisitManagedDict(ptr noundef readonly captures(no
 19:                                               ; preds = %.lr.ph, %25
   %20 = phi i8 [ %17, %.lr.ph ], [ %26, %25 ]
   %.03345 = phi i64 [ 0, %.lr.ph ], [ %27, %25 ]
-  %21 = getelementptr ptr, ptr %18, i64 %.03345
+  %21 = getelementptr [8 x i8], ptr %18, i64 %.03345
   %22 = load ptr, ptr %21, align 8, !tbaa !64
   %.not38 = icmp eq ptr %22, null
   br i1 %.not38, label %25, label %23
@@ -14141,7 +14139,7 @@ Py_XINCREF.exit.i:                                ; preds = %19, %16, %12
 
 26:                                               ; preds = %Py_DECREF.exit.i, %.lr.ph.i
   %.017.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %Py_DECREF.exit.i ]
-  %27 = getelementptr ptr, ptr %25, i64 %.017.i
+  %27 = getelementptr [8 x i8], ptr %25, i64 %.017.i
   %28 = load ptr, ptr %27, align 8, !tbaa !64
   %.not15.i = icmp eq ptr %28, null
   br i1 %.not15.i, label %Py_DECREF.exit.i, label %29
@@ -14202,9 +14200,9 @@ Py_DECREF.exit.i:                                 ; preds = %34, %31, %29, %26
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %61 = load i8, ptr %41, align 8, !tbaa !63
   %62 = zext i8 %61 to i64
-  %63 = getelementptr ptr, ptr %60, i64 %62
+  %63 = getelementptr [8 x i8], ptr %60, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %65 = getelementptr ptr, ptr %64, i64 %47
+  %65 = getelementptr [8 x i8], ptr %64, i64 %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr readonly align 1 %63, i64 %62, i1 false)
   %66 = load i8, ptr %41, align 8, !tbaa !63
   %.not.i.i22 = icmp eq i8 %66, 0
@@ -14216,9 +14214,9 @@ Py_DECREF.exit.i:                                 ; preds = %34, %31, %29, %26
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %67 = getelementptr ptr, ptr %60, i64 %indvars.iv.i.i
+  %67 = getelementptr [8 x i8], ptr %60, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !64
-  %69 = getelementptr ptr, ptr %64, i64 %indvars.iv.i.i
+  %69 = getelementptr [8 x i8], ptr %64, i64 %indvars.iv.i.i
   store ptr %68, ptr %69, align 8, !tbaa !64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -14374,7 +14372,7 @@ define dso_local void @PyObject_ClearManagedDict(ptr noundef captures(address) %
 
 20:                                               ; preds = %Py_DECREF.exit.i, %.lr.ph.i
   %.017.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %Py_DECREF.exit.i ]
-  %21 = getelementptr ptr, ptr %19, i64 %.017.i
+  %21 = getelementptr [8 x i8], ptr %19, i64 %.017.i
   %22 = load ptr, ptr %21, align 8, !tbaa !64
   %.not15.i = icmp eq ptr %22, null
   br i1 %.not15.i, label %Py_DECREF.exit.i, label %23
@@ -14438,7 +14436,7 @@ define internal fastcc void @dictkeys_decref(ptr noundef %0) unnamed_addr #9 {
 
 .lr.ph:                                           ; preds = %19, %Py_XDECREF.exit26
   %.02 = phi i64 [ %36, %Py_XDECREF.exit26 ], [ 0, %19 ]
-  %20 = getelementptr %struct.PyDictUnicodeEntry, ptr %15, i64 %.02
+  %20 = getelementptr [16 x i8], ptr %15, i64 %.02
   %21 = load ptr, ptr %20, align 8, !tbaa !59
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %22
@@ -14489,7 +14487,7 @@ Py_XDECREF.exit26:                                ; preds = %Py_XDECREF.exit, %3
 
 .lr.ph4:                                          ; preds = %37, %Py_XDECREF.exit32
   %.0223 = phi i64 [ %55, %Py_XDECREF.exit32 ], [ 0, %37 ]
-  %38 = getelementptr %struct.PyDictKeyEntry, ptr %15, i64 %.0223
+  %38 = getelementptr [24 x i8], ptr %15, i64 %.0223
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !51
   %.not.i27 = icmp eq ptr %40, null
@@ -14614,9 +14612,9 @@ define hidden range(i32 -1, 1) i32 @_PyDict_DetachFromObject(ptr noundef capture
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i8, ptr %4, align 8, !tbaa !63
   %26 = zext i8 %25 to i64
-  %27 = getelementptr ptr, ptr %24, i64 %26
+  %27 = getelementptr [8 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %29 = getelementptr ptr, ptr %28, i64 %11
+  %29 = getelementptr [8 x i8], ptr %28, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr readonly align 1 %27, i64 %26, i1 false)
   %30 = load i8, ptr %4, align 8, !tbaa !63
   %.not.i = icmp eq i8 %30, 0
@@ -14628,9 +14626,9 @@ define hidden range(i32 -1, 1) i32 @_PyDict_DetachFromObject(ptr noundef capture
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %31 = getelementptr ptr, ptr %24, i64 %indvars.iv.i
+  %31 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !64
-  %33 = getelementptr ptr, ptr %28, i64 %indvars.iv.i
+  %33 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv.i
   store ptr %32, ptr %33, align 8, !tbaa !64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -14934,7 +14932,7 @@ define dso_local range(i32 -1, 1) i32 @PyDict_Watch(i32 noundef %0, ptr noundef 
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 79672
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %validate_watcher_id.exit, label %20
@@ -14984,7 +14982,7 @@ define dso_local range(i32 -1, 1) i32 @PyDict_Unwatch(i32 noundef %0, ptr nounde
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 79672
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %validate_watcher_id.exit, label %20
@@ -15020,13 +15018,13 @@ define dso_local range(i32 -1, 8) i32 @PyDict_AddWatcher(ptr noundef %0) local_u
 
 7:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 2, %1 ], [ %indvars.iv.next, %13 ]
-  %8 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !67
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %0, ptr %11, align 8, !tbaa !67
   br label %15
@@ -15058,7 +15056,7 @@ define dso_local range(i32 -1, 1) i32 @PyDict_ClearWatcher(i32 noundef %0) local
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 79672
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %validate_watcher_id.exit, label %13
@@ -15086,7 +15084,7 @@ define dso_local void @_PyDict_SendEvent(i32 noundef %0, i32 noundef %1, ptr nou
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79672
   %11 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._PyDict_SendEvent, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._PyDict_SendEvent, i64 %11
   br label %13
 
 12:                                               ; preds = %21
@@ -15100,7 +15098,7 @@ define dso_local void @_PyDict_SendEvent(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %16 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %21, label %18
@@ -15151,7 +15149,7 @@ define internal fastcc void @insert_split_value(ptr noundef %0, ptr noundef %1, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = getelementptr ptr, ptr %7, i64 %3
+  %8 = getelementptr [8 x i8], ptr %7, i64 %3
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = icmp eq ptr %9, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15180,7 +15178,7 @@ define internal fastcc void @insert_split_value(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.i, label %31, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr ptr, ptr %21, i64 %indvars.iv.i.i
+  %25 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %26, null
   br i1 %.not15.i.i, label %31, label %27
@@ -15213,13 +15211,13 @@ _PyDict_NotifyEvent.exit:                         ; preds = %31, %15
 _Py_NewRef.exit:                                  ; preds = %_PyDict_NotifyEvent.exit, %35
   %37 = load ptr, ptr %5, align 8, !tbaa !40
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = getelementptr ptr, ptr %38, i64 %3
+  %39 = getelementptr [8 x i8], ptr %38, i64 %3
   store ptr %2, ptr %39, align 8, !tbaa !64
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !153
   %42 = load i8, ptr %37, align 8, !tbaa !63
   %43 = zext i8 %42 to i64
-  %44 = getelementptr ptr, ptr %38, i64 %43
+  %44 = getelementptr [8 x i8], ptr %38, i64 %43
   %45 = trunc i64 %3 to i8
   %46 = zext i8 %41 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
@@ -15251,7 +15249,7 @@ _Py_NewRef.exit:                                  ; preds = %_PyDict_NotifyEvent
   br i1 %.not.i.i25, label %68, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr ptr, ptr %58, i64 %indvars.iv.i.i23
+  %62 = getelementptr [8 x i8], ptr %58, i64 %indvars.iv.i.i23
   %63 = load ptr, ptr %62, align 8, !tbaa !67
   %.not15.i.i26 = icmp eq ptr %63, null
   br i1 %.not15.i.i26, label %68, label %64
@@ -15284,7 +15282,7 @@ _PyDict_NotifyEvent.exit29:                       ; preds = %68, %52
 _Py_NewRef.exit30:                                ; preds = %_PyDict_NotifyEvent.exit29, %72
   %74 = load ptr, ptr %5, align 8, !tbaa !40
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = getelementptr ptr, ptr %75, i64 %3
+  %76 = getelementptr [8 x i8], ptr %75, i64 %3
   store ptr %2, ptr %76, align 8, !tbaa !64
   %77 = load i32, ptr %9, align 8, !tbaa !41
   %.not.i = icmp sgt i32 %77, -1
@@ -15351,7 +15349,7 @@ define internal fastcc range(i32 -1, 1) i32 @insert_combined_dict(ptr noundef %0
   br i1 %.not.i.i, label %42, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr ptr, ptr %32, i64 %indvars.iv.i.i
+  %36 = getelementptr [8 x i8], ptr %32, i64 %indvars.iv.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !67
   %.not15.i.i = icmp eq ptr %37, null
   br i1 %.not15.i.i, label %42, label %38
@@ -15394,12 +15392,12 @@ _PyDict_NotifyEvent.exit:                         ; preds = %42, %22
   br i1 %55, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = getelementptr i64, ptr %56, i64 %50
+  %58 = getelementptr [8 x i8], ptr %56, i64 %50
   %59 = load i64, ptr %58, align 8, !tbaa !42
   br label %dictkeys_get_index.exit.i
 
 60:                                               ; preds = %54
-  %61 = getelementptr i32, ptr %56, i64 %50
+  %61 = getelementptr [4 x i8], ptr %56, i64 %50
   %62 = load i32, ptr %61, align 4, !tbaa !50
   %63 = sext i32 %62 to i64
   br label %dictkeys_get_index.exit.i
@@ -15411,7 +15409,7 @@ dictkeys_get_index.exit.i:                        ; preds = %60, %57
 
 dictkeys_get_index.exit.i.thread:                 ; preds = %52
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %66 = getelementptr i16, ptr %65, i64 %50
+  %66 = getelementptr [2 x i8], ptr %65, i64 %50
   %67 = load i16, ptr %66, align 2, !tbaa !49
   %68 = icmp slt i16 %67, 0
   br i1 %68, label %.sink.split, label %.lr.ph.i.thread
@@ -15453,7 +15451,7 @@ dictkeys_get_index.exit16.us21.i:                 ; preds = %.lr.ph.i.thread, %d
   %86 = add nuw nsw i64 %84, 1
   %87 = add nuw i64 %86, %85
   %88 = and i64 %87, %49
-  %89 = getelementptr i16, ptr %69, i64 %88
+  %89 = getelementptr [2 x i8], ptr %69, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !49
   %91 = icmp slt i16 %90, 0
   br i1 %91, label %.sink.split, label %dictkeys_get_index.exit16.us21.i, !llvm.loop !216
@@ -15466,7 +15464,7 @@ dictkeys_get_index.exit16.us27.i:                 ; preds = %.lr.ph.i, %dictkeys
   %94 = add nuw nsw i64 %92, 1
   %95 = add i64 %94, %93
   %96 = and i64 %95, %49
-  %97 = getelementptr i64, ptr %74, i64 %96
+  %97 = getelementptr [8 x i8], ptr %74, i64 %96
   %98 = load i64, ptr %97, align 8, !tbaa !42
   %99 = icmp slt i64 %98, 0
   br i1 %99, label %.thread, label %dictkeys_get_index.exit16.us27.i, !llvm.loop !216
@@ -15479,7 +15477,7 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
   %102 = add nuw nsw i64 %100, 1
   %103 = add nuw i64 %102, %101
   %104 = and i64 %103, %49
-  %105 = getelementptr i32, ptr %74, i64 %104
+  %105 = getelementptr [4 x i8], ptr %74, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !50
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %.thread, label %dictkeys_get_index.exit16.i, !llvm.loop !216
@@ -15500,7 +15498,7 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
   %113 = load i64, ptr %112, align 8, !tbaa !42
   %114 = trunc i64 %113 to i16
   %115 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %116 = getelementptr i16, ptr %115, i64 %.014.lcssa.i.ph7.ph
+  %116 = getelementptr [2 x i8], ptr %115, i64 %.014.lcssa.i.ph7.ph
   store i16 %114, ptr %116, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
@@ -15513,14 +15511,14 @@ dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys
 
 119:                                              ; preds = %.thread
   %120 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %121 = getelementptr i64, ptr %120, i64 %.014.lcssa.i.ph4
+  %121 = getelementptr [8 x i8], ptr %120, i64 %.014.lcssa.i.ph4
   store i64 %117, ptr %121, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
 122:                                              ; preds = %.thread
   %123 = trunc i64 %117 to i32
   %124 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %125 = getelementptr i32, ptr %124, i64 %.014.lcssa.i.ph4
+  %125 = getelementptr [4 x i8], ptr %124, i64 %.014.lcssa.i.ph4
   store i32 %123, ptr %125, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
@@ -15540,14 +15538,14 @@ dictkeys_set_index.exit:                          ; preds = %.loopexit, %.sink.s
   br i1 %.not, label %140, label %137
 
 137:                                              ; preds = %dictkeys_set_index.exit
-  %138 = getelementptr %struct.PyDictUnicodeEntry, ptr %134, i64 %136
+  %138 = getelementptr [16 x i8], ptr %134, i64 %136
   store ptr %2, ptr %138, align 8, !tbaa !59
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %3, ptr %139, align 8, !tbaa !61
   br label %144
 
 140:                                              ; preds = %dictkeys_set_index.exit
-  %141 = getelementptr %struct.PyDictKeyEntry, ptr %134, i64 %136
+  %141 = getelementptr [24 x i8], ptr %134, i64 %136
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr %2, ptr %142, align 8, !tbaa !51
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
@@ -15637,11 +15635,11 @@ define internal fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef captures(non
   %41 = getelementptr inbounds nuw i8, ptr %.val151, i64 8
   %42 = load i8, ptr %.val151, align 8, !tbaa !63
   %43 = zext i8 %42 to i64
-  %44 = getelementptr ptr, ptr %41, i64 %43
+  %44 = getelementptr [8 x i8], ptr %41, i64 %43
   %45 = getelementptr i8, ptr %44, i64 %.01396
   %46 = load i8, ptr %45, align 1, !tbaa !41
   %47 = zext i8 %46 to i64
-  %48 = getelementptr %struct.PyDictUnicodeEntry, ptr %27, i64 %47
+  %48 = getelementptr [16 x i8], ptr %27, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !59
   %50 = load i32, ptr %49, align 8, !tbaa !41
   %51 = icmp slt i32 %50, 0
@@ -15655,13 +15653,13 @@ define internal fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef captures(non
 
 _Py_NewRef.exit:                                  ; preds = %40, %52
   %54 = phi ptr [ %49, %40 ], [ %.pre, %52 ]
-  %55 = getelementptr %struct.PyDictKeyEntry, ptr %36, i64 %.01396
+  %55 = getelementptr [24 x i8], ptr %36, i64 %.01396
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %49, ptr %56, align 8, !tbaa !51
   %57 = getelementptr i8, ptr %54, i64 24
   %.val149 = load i64, ptr %57, align 8, !tbaa !55
   store i64 %.val149, ptr %55, align 8, !tbaa !53
-  %58 = getelementptr ptr, ptr %39, i64 %47
+  %58 = getelementptr [8 x i8], ptr %39, i64 %47
   %59 = load ptr, ptr %58, align 8, !tbaa !64
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %59, ptr %60, align 8, !tbaa !54
@@ -15686,11 +15684,11 @@ _Py_NewRef.exit:                                  ; preds = %40, %52
   %65 = getelementptr inbounds nuw i8, ptr %.val150, i64 8
   %66 = load i8, ptr %.val150, align 8, !tbaa !63
   %67 = zext i8 %66 to i64
-  %68 = getelementptr ptr, ptr %65, i64 %67
+  %68 = getelementptr [8 x i8], ptr %65, i64 %67
   %69 = getelementptr i8, ptr %68, i64 %.01405
   %70 = load i8, ptr %69, align 1, !tbaa !41
   %71 = zext i8 %70 to i64
-  %72 = getelementptr %struct.PyDictUnicodeEntry, ptr %27, i64 %71
+  %72 = getelementptr [16 x i8], ptr %27, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !59
   %74 = load i32, ptr %73, align 8, !tbaa !41
   %75 = icmp slt i32 %74, 0
@@ -15702,9 +15700,9 @@ _Py_NewRef.exit:                                  ; preds = %40, %52
   br label %_Py_NewRef.exit152
 
 _Py_NewRef.exit152:                               ; preds = %64, %76
-  %78 = getelementptr %struct.PyDictUnicodeEntry, ptr %36, i64 %.01405
+  %78 = getelementptr [16 x i8], ptr %36, i64 %.01405
   store ptr %73, ptr %78, align 8, !tbaa !59
-  %79 = getelementptr ptr, ptr %63, i64 %71
+  %79 = getelementptr [8 x i8], ptr %63, i64 %71
   %80 = load ptr, ptr %79, align 8, !tbaa !64
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %80, ptr %81, align 8, !tbaa !61
@@ -15785,7 +15783,7 @@ _Py_NewRef.exit152:                               ; preds = %64, %76
   br i1 %118, label %115, label %120, !llvm.loop !228
 
 120:                                              ; preds = %115
-  %121 = getelementptr %struct.PyDictKeyEntry, ptr %107, i64 %.013616
+  %121 = getelementptr [24 x i8], ptr %107, i64 %.013616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %.1138, i64 24, i1 false), !tbaa.struct !229
   %122 = add nuw nsw i64 %.013616, 1
   %exitcond20.not = icmp eq i64 %122, %20
@@ -15834,7 +15832,7 @@ _Py_NewRef.exit152:                               ; preds = %64, %76
   br i1 %140, label %137, label %142, !llvm.loop !231
 
 142:                                              ; preds = %137
-  %143 = getelementptr %struct.PyDictUnicodeEntry, ptr %107, i64 %.013214
+  %143 = getelementptr [16 x i8], ptr %107, i64 %.013214
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %.1134, i64 16, i1 false), !tbaa.struct !232
   %144 = add nuw nsw i64 %.013214, 1
   %exitcond19.not = icmp eq i64 %144, %20
@@ -15867,7 +15865,7 @@ _Py_NewRef.exit152:                               ; preds = %64, %76
 
 152:                                              ; preds = %147
   %153 = load ptr, ptr %.1, align 8, !tbaa !59
-  %154 = getelementptr %struct.PyDictKeyEntry, ptr %107, i64 %.011
+  %154 = getelementptr [24 x i8], ptr %107, i64 %.011
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %153, ptr %155, align 8, !tbaa !51
   %156 = getelementptr i8, ptr %153, i64 24
@@ -15996,7 +15994,7 @@ dictkeys_get_index.exit.thread.us:                ; preds = %.split.us, %dictkey
   br i1 %24, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %25 = getelementptr i16, ptr %8, i64 %.017.us2753
+  %25 = getelementptr [2 x i8], ptr %8, i64 %.017.us2753
   %26 = load i16, ptr %25, align 2, !tbaa !49
   %.not20.us54 = icmp eq i16 %26, -1
   br i1 %.not20.us54, label %.split29.us, label %dictkeys_get_index.exit.us
@@ -16009,7 +16007,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %d
   %29 = add nuw nsw i64 %27, 1
   %30 = add i64 %29, %28
   %.017.us27 = and i64 %30, %7
-  %31 = getelementptr i16, ptr %8, i64 %.017.us27
+  %31 = getelementptr [2 x i8], ptr %8, i64 %.017.us27
   %32 = load i16, ptr %31, align 2, !tbaa !49
   %.not20.us = icmp eq i16 %32, -1
   br i1 %.not20.us, label %.split29.us, label %dictkeys_get_index.exit.us, !llvm.loop !236
@@ -16018,7 +16016,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %d
   br i1 %13, label %.split.split.split.us, label %.split.split.split
 
 .split.split.split.us:                            ; preds = %.split.split
-  %33 = getelementptr i64, ptr %8, i64 %.017.us2753
+  %33 = getelementptr [8 x i8], ptr %8, i64 %.017.us2753
   %34 = load i64, ptr %33, align 8, !tbaa !42
   %.not20.us3647 = icmp eq i64 %34, -1
   br i1 %.not20.us3647, label %.loopexit, label %dictkeys_get_index.exit.us34
@@ -16031,13 +16029,13 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   %37 = add nuw nsw i64 %35, 1
   %38 = add i64 %37, %36
   %.017.us33 = and i64 %38, %7
-  %39 = getelementptr i64, ptr %8, i64 %.017.us33
+  %39 = getelementptr [8 x i8], ptr %8, i64 %.017.us33
   %40 = load i64, ptr %39, align 8, !tbaa !42
   %.not20.us36 = icmp eq i64 %40, -1
   br i1 %.not20.us36, label %.loopexit, label %dictkeys_get_index.exit.us34, !llvm.loop !236
 
 .split.split.split:                               ; preds = %.split.split
-  %41 = getelementptr i32, ptr %8, i64 %.017.us2753
+  %41 = getelementptr [4 x i8], ptr %8, i64 %.017.us2753
   %42 = load i32, ptr %41, align 4, !tbaa !50
   %.not2042 = icmp eq i32 %42, -1
   br i1 %.not2042, label %.loopexit78, label %dictkeys_get_index.exit
@@ -16045,20 +16043,20 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
 .split29.us:                                      ; preds = %dictkeys_get_index.exit.us, %.split.split.us
   %.us-phi = phi i64 [ %.017.us2753, %.split.split.us ], [ %.017.us27, %dictkeys_get_index.exit.us ]
   %43 = trunc i64 %.01967 to i16
-  %44 = getelementptr i16, ptr %8, i64 %.us-phi
+  %44 = getelementptr [2 x i8], ptr %8, i64 %.us-phi
   store i16 %43, ptr %44, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
 .loopexit:                                        ; preds = %dictkeys_get_index.exit.us34, %.split.split.split.us
   %.us-phi.ph.ph = phi i64 [ %.017.us2753, %.split.split.split.us ], [ %.017.us33, %dictkeys_get_index.exit.us34 ]
-  %45 = getelementptr i64, ptr %8, i64 %.us-phi.ph.ph
+  %45 = getelementptr [8 x i8], ptr %8, i64 %.us-phi.ph.ph
   store i64 %.01967, ptr %45, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
 .loopexit78:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
   %.us-phi.ph = phi i64 [ %.017.us2753, %.split.split.split ], [ %.017, %dictkeys_get_index.exit ]
   %46 = trunc i64 %.01967 to i32
-  %47 = getelementptr i32, ptr %8, i64 %.us-phi.ph
+  %47 = getelementptr [4 x i8], ptr %8, i64 %.us-phi.ph
   store i32 %46, ptr %47, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
@@ -16076,7 +16074,7 @@ dictkeys_get_index.exit:                          ; preds = %.split.split.split,
   %52 = add nuw nsw i64 %50, 1
   %53 = add i64 %52, %51
   %.017 = and i64 %53, %7
-  %54 = getelementptr i32, ptr %8, i64 %.017
+  %54 = getelementptr [4 x i8], ptr %8, i64 %.017
   %55 = load i32, ptr %54, align 4, !tbaa !50
   %.not20 = icmp eq i32 %55, -1
   br i1 %.not20, label %.loopexit78, label %dictkeys_get_index.exit, !llvm.loop !236
@@ -16143,7 +16141,7 @@ dictkeys_get_index.exit.thread.us:                ; preds = %.split.us, %dictkey
   br i1 %25, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %26 = getelementptr i16, ptr %8, i64 %.017.us2753
+  %26 = getelementptr [2 x i8], ptr %8, i64 %.017.us2753
   %27 = load i16, ptr %26, align 2, !tbaa !49
   %.not20.us54 = icmp eq i16 %27, -1
   br i1 %.not20.us54, label %.split29.us, label %dictkeys_get_index.exit.us
@@ -16156,7 +16154,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %d
   %30 = add nuw nsw i64 %28, 1
   %31 = add i64 %30, %29
   %.017.us27 = and i64 %31, %7
-  %32 = getelementptr i16, ptr %8, i64 %.017.us27
+  %32 = getelementptr [2 x i8], ptr %8, i64 %.017.us27
   %33 = load i16, ptr %32, align 2, !tbaa !49
   %.not20.us = icmp eq i16 %33, -1
   br i1 %.not20.us, label %.split29.us, label %dictkeys_get_index.exit.us, !llvm.loop !238
@@ -16165,7 +16163,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %d
   br i1 %14, label %.split.split.split.us, label %.split.split.split
 
 .split.split.split.us:                            ; preds = %.split.split
-  %34 = getelementptr i64, ptr %8, i64 %.017.us2753
+  %34 = getelementptr [8 x i8], ptr %8, i64 %.017.us2753
   %35 = load i64, ptr %34, align 8, !tbaa !42
   %.not20.us3647 = icmp eq i64 %35, -1
   br i1 %.not20.us3647, label %.loopexit, label %dictkeys_get_index.exit.us34
@@ -16178,13 +16176,13 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   %38 = add nuw nsw i64 %36, 1
   %39 = add i64 %38, %37
   %.017.us33 = and i64 %39, %7
-  %40 = getelementptr i64, ptr %8, i64 %.017.us33
+  %40 = getelementptr [8 x i8], ptr %8, i64 %.017.us33
   %41 = load i64, ptr %40, align 8, !tbaa !42
   %.not20.us36 = icmp eq i64 %41, -1
   br i1 %.not20.us36, label %.loopexit, label %dictkeys_get_index.exit.us34, !llvm.loop !238
 
 .split.split.split:                               ; preds = %.split.split
-  %42 = getelementptr i32, ptr %8, i64 %.017.us2753
+  %42 = getelementptr [4 x i8], ptr %8, i64 %.017.us2753
   %43 = load i32, ptr %42, align 4, !tbaa !50
   %.not2042 = icmp eq i32 %43, -1
   br i1 %.not2042, label %.loopexit78, label %dictkeys_get_index.exit
@@ -16192,20 +16190,20 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
 .split29.us:                                      ; preds = %dictkeys_get_index.exit.us, %.split.split.us
   %.us-phi = phi i64 [ %.017.us2753, %.split.split.us ], [ %.017.us27, %dictkeys_get_index.exit.us ]
   %44 = trunc i64 %.01967 to i16
-  %45 = getelementptr i16, ptr %8, i64 %.us-phi
+  %45 = getelementptr [2 x i8], ptr %8, i64 %.us-phi
   store i16 %44, ptr %45, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
 .loopexit:                                        ; preds = %dictkeys_get_index.exit.us34, %.split.split.split.us
   %.us-phi.ph.ph = phi i64 [ %.017.us2753, %.split.split.split.us ], [ %.017.us33, %dictkeys_get_index.exit.us34 ]
-  %46 = getelementptr i64, ptr %8, i64 %.us-phi.ph.ph
+  %46 = getelementptr [8 x i8], ptr %8, i64 %.us-phi.ph.ph
   store i64 %.01967, ptr %46, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
 .loopexit78:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
   %.us-phi.ph = phi i64 [ %.017.us2753, %.split.split.split ], [ %.017, %dictkeys_get_index.exit ]
   %47 = trunc i64 %.01967 to i32
-  %48 = getelementptr i32, ptr %8, i64 %.us-phi.ph
+  %48 = getelementptr [4 x i8], ptr %8, i64 %.us-phi.ph
   store i32 %47, ptr %48, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
@@ -16223,7 +16221,7 @@ dictkeys_get_index.exit:                          ; preds = %.split.split.split,
   %53 = add nuw nsw i64 %51, 1
   %54 = add i64 %53, %52
   %.017 = and i64 %54, %7
-  %55 = getelementptr i32, ptr %8, i64 %.017
+  %55 = getelementptr [4 x i8], ptr %8, i64 %.017
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %.not20 = icmp eq i32 %56, -1
   br i1 %.not20, label %.loopexit78, label %dictkeys_get_index.exit, !llvm.loop !238
@@ -16276,7 +16274,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.lr.ph61
   br i1 %25, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split
-  %26 = getelementptr i16, ptr %10, i64 %.016.us3052
+  %26 = getelementptr [2 x i8], ptr %10, i64 %.016.us3052
   %27 = load i16, ptr %26, align 2, !tbaa !49
   %28 = sext i16 %27 to i64
   %29 = icmp eq i64 %2, %28
@@ -16295,7 +16293,7 @@ dictkeys_get_index.exit.us31:                     ; preds = %.lr.ph55
   %34 = add nuw nsw i64 %32, 1
   %35 = add nuw i64 %34, %33
   %.016.us30 = and i64 %35, %7
-  %36 = getelementptr i16, ptr %10, i64 %.016.us30
+  %36 = getelementptr [2 x i8], ptr %10, i64 %.016.us30
   %37 = load i16, ptr %36, align 2, !tbaa !49
   %38 = sext i16 %37 to i64
   %39 = icmp eq i64 %2, %38
@@ -16305,7 +16303,7 @@ dictkeys_get_index.exit.us31:                     ; preds = %.lr.ph55
   br i1 %9, label %.split.split.split.us, label %.split.split.split
 
 .split.split.split.us:                            ; preds = %.split.split
-  %40 = getelementptr i64, ptr %10, i64 %.016.us3052
+  %40 = getelementptr [8 x i8], ptr %10, i64 %.016.us3052
   %41 = load i64, ptr %40, align 8, !tbaa !42
   %42 = icmp eq i64 %41, %2
   br i1 %42, label %.split27.us, label %.lr.ph49
@@ -16323,13 +16321,13 @@ dictkeys_get_index.exit.us38:                     ; preds = %.lr.ph49
   %47 = add nuw nsw i64 %45, 1
   %48 = add i64 %47, %46
   %.016.us37 = and i64 %48, %7
-  %49 = getelementptr i64, ptr %10, i64 %.016.us37
+  %49 = getelementptr [8 x i8], ptr %10, i64 %.016.us37
   %50 = load i64, ptr %49, align 8, !tbaa !42
   %51 = icmp eq i64 %50, %2
   br i1 %51, label %.split27.us, label %.lr.ph49
 
 .split.split.split:                               ; preds = %.split.split
-  %52 = getelementptr i32, ptr %10, i64 %.016.us3052
+  %52 = getelementptr [4 x i8], ptr %10, i64 %.016.us3052
   %53 = load i32, ptr %52, align 4, !tbaa !50
   %54 = sext i32 %53 to i64
   %55 = icmp eq i64 %2, %54
@@ -16348,7 +16346,7 @@ dictkeys_get_index.exit:                          ; preds = %.lr.ph
   %60 = add nuw nsw i64 %58, 1
   %61 = add nuw i64 %60, %59
   %.016 = and i64 %61, %7
-  %62 = getelementptr i32, ptr %10, i64 %.016
+  %62 = getelementptr [4 x i8], ptr %10, i64 %.016
   %63 = load i32, ptr %62, align 4, !tbaa !50
   %64 = sext i32 %63 to i64
   %65 = icmp eq i64 %2, %64
@@ -16461,8 +16459,8 @@ Py_INCREF.exit34:                                 ; preds = %41, %44
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %49, %Py_INCREF.exit34, %.lr.ph
-  %51 = getelementptr ptr, ptr %.12935, i64 %.030
-  %52 = getelementptr ptr, ptr %.136, i64 %.030
+  %51 = getelementptr [8 x i8], ptr %.12935, i64 %.030
+  %52 = getelementptr [8 x i8], ptr %.136, i64 %.030
   %53 = add nuw nsw i64 %.02637, 1
   %exitcond.not = icmp eq i64 %53, %30
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !240
@@ -17253,7 +17251,7 @@ Py_DECREF.exit72.i:                               ; preds = %14, %11, %9
   br i1 %47, label %48, label %.critedge.i
 
 48:                                               ; preds = %.preheader2
-  %49 = getelementptr %struct.PyDictUnicodeEntry, ptr %43, i64 %.065.i
+  %49 = getelementptr [16 x i8], ptr %43, i64 %.065.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !61
   %52 = icmp eq ptr %51, null
@@ -17261,7 +17259,7 @@ Py_DECREF.exit72.i:                               ; preds = %14, %11, %9
 
 .critedge.i:                                      ; preds = %48, %.preheader2
   %.065.lcssa.i = phi i64 [ %smin83.i, %.preheader2 ], [ %.065.i, %48 ]
-  %53 = getelementptr %struct.PyDictUnicodeEntry, ptr %43, i64 %.065.lcssa.i
+  %53 = getelementptr [16 x i8], ptr %43, i64 %.065.lcssa.i
   %54 = load ptr, ptr %53, align 8, !tbaa !59
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i64, ptr %55, align 8, !tbaa !138
@@ -17286,7 +17284,7 @@ Py_DECREF.exit72.i:                               ; preds = %14, %11, %9
   br i1 %.not.i.i.i, label %74, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr ptr, ptr %64, i64 %indvars.iv.i.i.i
+  %68 = getelementptr [8 x i8], ptr %64, i64 %indvars.iv.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !67
   %.not15.i.i.i = icmp eq ptr %69, null
   br i1 %.not15.i.i.i, label %74, label %70
@@ -17321,7 +17319,7 @@ _PyDict_NotifyEvent.exit.i:                       ; preds = %74, %.critedge.i
   br i1 %79, label %80, label %.critedge2.i
 
 80:                                               ; preds = %.preheader
-  %81 = getelementptr %struct.PyDictKeyEntry, ptr %43, i64 %.2.i
+  %81 = getelementptr [24 x i8], ptr %43, i64 %.2.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !54
   %84 = icmp eq ptr %83, null
@@ -17329,7 +17327,7 @@ _PyDict_NotifyEvent.exit.i:                       ; preds = %74, %.critedge.i
 
 .critedge2.i:                                     ; preds = %80, %.preheader
   %.2.lcssa.i = phi i64 [ %smin83.i, %.preheader ], [ %.2.i, %80 ]
-  %85 = getelementptr %struct.PyDictKeyEntry, ptr %43, i64 %.2.lcssa.i
+  %85 = getelementptr [24 x i8], ptr %43, i64 %.2.lcssa.i
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !51
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -17355,7 +17353,7 @@ _PyDict_NotifyEvent.exit.i:                       ; preds = %74, %.critedge.i
   br i1 %.not.i.i78.i, label %107, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr ptr, ptr %97, i64 %indvars.iv.i.i76.i
+  %101 = getelementptr [8 x i8], ptr %97, i64 %indvars.iv.i.i76.i
   %102 = load ptr, ptr %101, align 8, !tbaa !67
   %.not15.i.i79.i = icmp eq ptr %102, null
   br i1 %.not15.i.i79.i, label %107, label %103
@@ -17409,7 +17407,7 @@ _PyDict_NotifyEvent.exit82.i:                     ; preds = %107, %.critedge2.i
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %125 = getelementptr i16, ptr %124, i64 %114
+  %125 = getelementptr [2 x i8], ptr %124, i64 %114
   store i16 -2, ptr %125, align 2, !tbaa !49
   br label %dictkeys_set_index.exit.i
 
@@ -17419,12 +17417,12 @@ _PyDict_NotifyEvent.exit82.i:                     ; preds = %107, %.critedge2.i
   br i1 %127, label %129, label %131
 
 129:                                              ; preds = %126
-  %130 = getelementptr i64, ptr %128, i64 %114
+  %130 = getelementptr [8 x i8], ptr %128, i64 %114
   store i64 -2, ptr %130, align 8, !tbaa !42
   br label %dictkeys_set_index.exit.i
 
 131:                                              ; preds = %126
-  %132 = getelementptr i32, ptr %128, i64 %114
+  %132 = getelementptr [4 x i8], ptr %128, i64 %114
   store i32 -2, ptr %132, align 4, !tbaa !50
   br label %dictkeys_set_index.exit.i
 
@@ -17936,11 +17934,11 @@ PyObject_TypeCheck.exit24.thread:                 ; preds = %PyObject_TypeCheck.
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load i8, ptr %30, align 8, !tbaa !63
   %38 = zext i8 %37 to i64
-  %39 = getelementptr ptr, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = getelementptr i8, ptr %39, i64 %.0100.i15.i
   %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i64
-  %43 = getelementptr ptr, ptr %36, i64 %42
+  %43 = getelementptr [8 x i8], ptr %36, i64 %42
   %44 = load ptr, ptr %20, align 8, !tbaa !36
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 9
@@ -17948,7 +17946,7 @@ PyObject_TypeCheck.exit24.thread:                 ; preds = %PyObject_TypeCheck.
   %48 = zext nneg i8 %47 to i64
   %49 = shl nuw i64 1, %48
   %50 = getelementptr i8, ptr %45, i64 %49
-  %51 = getelementptr %struct.PyDictUnicodeEntry, ptr %50, i64 %42
+  %51 = getelementptr [16 x i8], ptr %50, i64 %42
   %52 = load ptr, ptr %51, align 8, !tbaa !59
   %53 = getelementptr i8, ptr %52, i64 24
   %.076.pre.i.i.i = load ptr, ptr %43, align 8, !tbaa !64
@@ -17976,7 +17974,7 @@ PyObject_TypeCheck.exit24.thread:                 ; preds = %PyObject_TypeCheck.
   br i1 %.not93.i.i.i, label %.lr.ph118.preheader.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %59
-  %68 = getelementptr %struct.PyDictUnicodeEntry, ptr %67, i64 %.0100.i15.i
+  %68 = getelementptr [16 x i8], ptr %67, i64 %.0100.i15.i
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %72, %.lr.ph.preheader.i.i.i
@@ -17999,7 +17997,7 @@ PyObject_TypeCheck.exit24.thread:                 ; preds = %PyObject_TypeCheck.
   br label %88
 
 .lr.ph118.preheader.i.i.i:                        ; preds = %59
-  %78 = getelementptr %struct.PyDictKeyEntry, ptr %67, i64 %.0100.i15.i
+  %78 = getelementptr [24 x i8], ptr %67, i64 %.0100.i15.i
   br label %.lr.ph118.i.i.i
 
 .lr.ph118.i.i.i:                                  ; preds = %82, %.lr.ph118.preheader.i.i.i

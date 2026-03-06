@@ -3969,7 +3969,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   store i8 %20, ptr %27, align 1, !noalias !698
   %28 = load ptr, ptr %5, align 8, !alias.scope !705, !noalias !698, !nonnull !4, !noundef !4
   %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4011,7 +4011,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN9hashbrown11
   store i8 %13, ptr %20, align 1, !noalias !706
   %21 = load ptr, ptr %4, align 8, !alias.scope !713, !noalias !706, !nonnull !4, !noundef !4
   %22 = sub nsw i64 0, %8
-  %23 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %21, i64 %22
+  %23 = getelementptr inbounds [48 x i8], ptr %21, i64 %22
   %24 = and i8 %11, 1
   %25 = zext nneg i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4076,7 +4076,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   store i8 %20, ptr %27, align 1, !noalias !714
   %28 = load ptr, ptr %5, align 8, !alias.scope !721, !noalias !714, !nonnull !4, !noundef !4
   %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4141,7 +4141,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   store i8 %20, ptr %27, align 1, !noalias !722
   %28 = load ptr, ptr %5, align 8, !alias.scope !729, !noalias !722, !nonnull !4, !noundef !4
   %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4206,7 +4206,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   store i8 %20, ptr %27, align 1, !noalias !730
   %28 = load ptr, ptr %5, align 8, !alias.scope !737, !noalias !730, !nonnull !4, !noundef !4
   %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i128, { { i64, ptr, {} }, i64 }, [1 x i64] }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16

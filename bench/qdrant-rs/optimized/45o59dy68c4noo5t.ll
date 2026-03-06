@@ -185,7 +185,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %83 = shl nuw nsw i64 %.sroa.023.084.i.i, 4
   %84 = or disjoint i64 %83, %.06388.i.i
   %85 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %84)
-  %86 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.023.084.i.i
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.023.084.i.i
   store i16 %85, ptr %86, align 2
   %87 = icmp ugt i64 %82, 3
   br i1 %87, label %.preheader83.i.i, label %81
@@ -202,7 +202,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   %.sroa.028.086.i.i = phi i64 [ %93, %97 ], [ 0, %81 ]
   %.285.i.i = phi i8 [ %.3.i.i, %97 ], [ 0, %81 ]
   %93 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %.sroa.028.086.i.i, i64 1)
-  %94 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.086.i.i
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.028.086.i.i
   %95 = load i16, ptr %94, align 2, !noundef !3
   %96 = icmp eq i16 %95, 0
   br i1 %96, label %97, label %99

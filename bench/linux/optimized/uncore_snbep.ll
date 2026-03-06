@@ -32,10 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uncore_event_desc = type { %struct.device_attribute, ptr }
 %struct.pci_device_id = type { i32, i32, i32, i32, i32, i32, i64, i32 }
 %struct.cpumask = type { [1 x i64] }
-%struct.pci_extra_dev = type { [4 x ptr] }
-%struct.intel_uncore_topology = type { i32, %union.anon.23 }
-%union.anon.23 = type { ptr }
-%struct.dev_ext_attribute = type { %struct.device_attribute, ptr }
 
 @boot_cpu_data = external dso_local local_unnamed_addr global %struct.cpuinfo_x86, align 8
 @snbep_msr_uncores = internal global [4 x ptr] [ptr @snbep_uncore_ubox, ptr @snbep_uncore_cbox, ptr @snbep_uncore_pcu, ptr null], align 16
@@ -846,7 +842,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
   %53 = phi i32 [ %49, %46 ], [ -1, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %55 = zext i8 %13 to i64
-  %56 = getelementptr i32, ptr %54, i64 %55
+  %56 = getelementptr [4 x i8], ptr %54, i64 %55
   store i32 %53, ptr %56, align 4
   call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #20
   br label %71
@@ -868,7 +864,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
   %65 = call i32 @uncore_device_to_die(ptr noundef nonnull %9) #20
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %67 = zext i8 %13 to i64
-  %68 = getelementptr i32, ptr %66, i64 %67
+  %68 = getelementptr [4 x i8], ptr %66, i64 %67
   store i32 %65, ptr %68, align 4
   call void @_raw_spin_unlock(ptr noundef nonnull @pci2phy_map_lock) #20
   %69 = icmp eq i32 %65, -1
@@ -902,7 +898,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
 78:                                               ; preds = %.preheader.us, %85
   %79 = phi i64 [ %87, %85 ], [ 255, %.preheader.us ]
   %80 = phi i32 [ %86, %85 ], [ -1, %.preheader.us ]
-  %81 = getelementptr i32, ptr %77, i64 %79
+  %81 = getelementptr [4 x i8], ptr %77, i64 %79
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %85
@@ -930,7 +926,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snbep_pci2phy_map_init(i32
 93:                                               ; preds = %.preheader20, %100
   %94 = phi i64 [ %102, %100 ], [ 0, %.preheader20 ]
   %95 = phi i32 [ %101, %100 ], [ -1, %.preheader20 ]
-  %96 = getelementptr i32, ptr %92, i64 %94
+  %96 = getelementptr [4 x i8], ptr %92, i64 %94
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, -1
   br i1 %98, label %99, label %100
@@ -1398,7 +1394,7 @@ define dso_local void @spr_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 45:                                               ; preds = %45, %41
   %46 = phi i64 [ 0, %41 ], [ %51, %45 ]
   %47 = phi i32 [ 0, %41 ], [ %50, %45 ]
-  %48 = getelementptr i32, ptr %43, i64 %46
+  %48 = getelementptr [4 x i8], ptr %43, i64 %46
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 @llvm.umax.i32(i32 %49, i32 %47)
   %51 = add nuw nsw i64 %46, 1
@@ -1441,7 +1437,7 @@ define internal fastcc noundef ptr @uncore_get_uncores(i32 noundef range(i32 0, 
 
 17:                                               ; preds = %.preheader
   %18 = sext i32 %15 to i64
-  %19 = getelementptr ptr, ptr %4, i64 %18
+  %19 = getelementptr [8 x i8], ptr %4, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %119, label %22
@@ -1632,7 +1628,7 @@ define internal fastcc noundef ptr @uncore_get_uncores(i32 noundef range(i32 0, 
 123:                                              ; preds = %123, %10
   %124 = phi i64 [ 0, %10 ], [ %128, %123 ]
   %125 = phi ptr [ %9, %10 ], [ %129, %123 ]
-  %126 = getelementptr ptr, ptr %2, i64 %124
+  %126 = getelementptr [8 x i8], ptr %2, i64 %124
   %127 = load ptr, ptr %126, align 8
   store ptr %127, ptr %125, align 8
   %128 = add nuw nsw i64 %124, 1
@@ -1707,7 +1703,7 @@ define internal fastcc void @spr_update_device_location(i32 noundef range(i32 8,
   %38 = or i32 %37, %16
   %39 = zext i32 %38 to i64
   %40 = zext nneg i32 %22 to i64
-  %41 = getelementptr i64, ptr %10, i64 %40
+  %41 = getelementptr [8 x i8], ptr %10, i64 %40
   store i64 %39, ptr %41, align 8
   br label %42
 
@@ -1750,7 +1746,7 @@ define internal fastcc void @spr_update_device_location(i32 noundef range(i32 8,
   %67 = or i32 %66, %16
   %68 = zext i32 %67 to i64
   %69 = zext nneg i32 %51 to i64
-  %70 = getelementptr i64, ptr %10, i64 %69
+  %70 = getelementptr [8 x i8], ptr %10, i64 %69
   store i64 %68, ptr %70, align 8
   br label %71
 
@@ -1815,7 +1811,7 @@ define dso_local void @spr_uncore_mmio_init() local_unnamed_addr #1 align 16 {
 26:                                               ; preds = %26, %22
   %27 = phi i64 [ 0, %22 ], [ %32, %26 ]
   %28 = phi i32 [ 0, %22 ], [ %31, %26 ]
-  %29 = getelementptr i32, ptr %24, i64 %27
+  %29 = getelementptr [4 x i8], ptr %24, i64 %27
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @llvm.umax.i32(i32 %30, i32 %28)
   %32 = add nuw nsw i64 %27, 1
@@ -1873,7 +1869,7 @@ define dso_local void @gnr_uncore_cpu_init() local_unnamed_addr #1 align 16 {
 21:                                               ; preds = %21, %17
   %22 = phi i64 [ 0, %17 ], [ %27, %21 ]
   %23 = phi i32 [ 0, %17 ], [ %26, %21 ]
-  %24 = getelementptr i32, ptr %19, i64 %22
+  %24 = getelementptr [4 x i8], ptr %19, i64 %22
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @llvm.umax.i32(i32 %25, i32 %23)
   %27 = add nuw nsw i64 %22, 1
@@ -1926,7 +1922,7 @@ define internal void @snbep_uncore_msr_init_box(ptr noundef readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -1979,7 +1975,7 @@ define internal void @snbep_uncore_msr_disable_box(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -2049,7 +2045,7 @@ define internal void @snbep_uncore_msr_enable_box(ptr noundef readonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -2919,9 +2915,9 @@ define internal void @snbep_qpi_enable_event(ptr noundef readonly captures(none)
   %15 = load i32, ptr %0, align 8
   %16 = load ptr, ptr @uncore_extra_pci_dev, align 8
   %17 = sext i32 %15 to i64
-  %18 = getelementptr %struct.pci_extra_dev, ptr %16, i64 %17
+  %18 = getelementptr [32 x i8], ptr %16, i64 %17
   %19 = sext i32 %14 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %46, label %23
@@ -3133,7 +3129,7 @@ define internal void @ivbep_uncore_msr_init_box(ptr noundef readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -3385,7 +3381,7 @@ define internal void @ivbep_uncore_irp_disable_event(ptr noundef readonly captur
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr @ivbep_uncore_irp_ctls, i64 %8
+  %9 = getelementptr [4 x i8], ptr @ivbep_uncore_irp_ctls, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = load i64, ptr %5, align 8
   %12 = trunc i64 %11 to i32
@@ -3401,7 +3397,7 @@ define internal void @ivbep_uncore_irp_enable_event(ptr noundef readonly capture
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr @ivbep_uncore_irp_ctls, i64 %8
+  %9 = getelementptr [4 x i8], ptr @ivbep_uncore_irp_ctls, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = load i64, ptr %5, align 8
   %12 = trunc i64 %11 to i32
@@ -3420,12 +3416,12 @@ define internal i64 @ivbep_uncore_irp_read_counter(ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr @ivbep_uncore_irp_ctrs, i64 %8
+  %9 = getelementptr [4 x i8], ptr @ivbep_uncore_irp_ctrs, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = call i32 @pci_read_config_dword(ptr noundef %5, i32 noundef %10, ptr noundef nonnull %3) #20
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr @ivbep_uncore_irp_ctrs, i64 %13
+  %14 = getelementptr [4 x i8], ptr @ivbep_uncore_irp_ctrs, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3833,7 +3829,7 @@ define internal void @hswep_uncore_sbox_msr_init_box(ptr noundef readonly captur
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr %11, i64 %16
+  %17 = getelementptr [8 x i8], ptr %11, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   br label %26
@@ -3928,12 +3924,12 @@ define internal i64 @hswep_uncore_irp_read_counter(ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr @hswep_uncore_irp_ctrs, i64 %8
+  %9 = getelementptr [4 x i8], ptr @hswep_uncore_irp_ctrs, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = call i32 @pci_read_config_dword(ptr noundef %5, i32 noundef %10, ptr noundef nonnull %3) #20
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr @hswep_uncore_irp_ctrs, i64 %13
+  %14 = getelementptr [4 x i8], ptr @hswep_uncore_irp_ctrs, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4188,7 +4184,7 @@ define internal zeroext i16 @skx_iio_mapping_visible(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %2 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %18 = load i32, ptr %17, align 8
@@ -4202,7 +4198,7 @@ define internal zeroext i16 @skx_iio_mapping_visible(ptr noundef readonly captur
 
 23:                                               ; preds = %20, %11
   %24 = phi i64 [ %21, %20 ], [ 0, %11 ]
-  %25 = getelementptr %struct.intel_uncore_topology, ptr %16, i64 %24
+  %25 = getelementptr [16 x i8], ptr %16, i64 %24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %18
   br i1 %27, label %28, label %20
@@ -4269,7 +4265,7 @@ define internal fastcc i32 @skx_pmu_get_topology(ptr noundef %0, ptr noundef rea
 
 24:                                               ; preds = %20
   %25 = and i64 %21, 63
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_info to i64)
   %29 = inttoptr i64 %28 to ptr
@@ -4322,9 +4318,9 @@ define internal noundef i32 @skx_iio_topology_cb(ptr noundef readonly captures(n
 11:                                               ; preds = %11, %8
   %12 = phi i64 [ 0, %8 ], [ %27, %11 ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr ptr, ptr %13, i64 %10
+  %14 = getelementptr [8 x i8], ptr %13, i64 %10
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr %struct.intel_uncore_topology, ptr %15, i64 %12
+  %16 = getelementptr [16 x i8], ptr %15, i64 %12
   %17 = trunc i64 %12 to i32
   store i32 %17, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4389,7 +4385,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %3 to i64
-  %22 = getelementptr i64, ptr @topology_size, i64 %21
+  %22 = getelementptr [8 x i8], ptr @topology_size, i64 %21
   %.pre = load i32, ptr %6, align 4
   br label %23
 
@@ -4400,7 +4396,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   br i1 %26, label %.thread16, label %28, !prof !10
 
 .thread16:                                        ; preds = %23
-  %27 = getelementptr ptr, ptr %15, i64 %25
+  %27 = getelementptr [8 x i8], ptr %15, i64 %25
   store ptr null, ptr %27, align 8
   br label %.loopexit30
 
@@ -4408,7 +4404,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %29 = zext nneg i32 %24 to i64
   %30 = shl nuw nsw i64 %29, 4
   %31 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %30, i32 noundef 3520) #22
-  %32 = getelementptr ptr, ptr %15, i64 %25
+  %32 = getelementptr [8 x i8], ptr %15, i64 %25
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %.loopexit30, label %34
@@ -4447,11 +4443,11 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 54:                                               ; preds = %51, %44
   %55 = phi ptr [ %.pre63, %51 ], [ %45, %44 ]
   %56 = phi ptr [ %53, %51 ], [ null, %44 ]
-  %.split = getelementptr %struct.intel_uncore_topology, ptr %55, i64 %46
+  %.split = getelementptr [16 x i8], ptr %55, i64 %46
   %57 = getelementptr i8, ptr %.split, i64 8
   store ptr %56, ptr %57, align 8
   %58 = load ptr, ptr %32, align 8
-  %.split13 = getelementptr %struct.intel_uncore_topology, ptr %58, i64 %46
+  %.split13 = getelementptr [16 x i8], ptr %58, i64 %46
   %59 = getelementptr i8, ptr %.split13, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
@@ -4490,13 +4486,13 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   br i1 %79, label %80, label %.loopexit21
 
 80:                                               ; preds = %76
-  %81 = getelementptr ptr, ptr %15, i64 %77
+  %81 = getelementptr [8 x i8], ptr %15, i64 %77
   br label %82
 
 82:                                               ; preds = %82, %80
   %83 = phi i64 [ 0, %80 ], [ %87, %82 ]
   %84 = load ptr, ptr %81, align 8
-  %.split15 = getelementptr %struct.intel_uncore_topology, ptr %84, i64 %83
+  %.split15 = getelementptr [16 x i8], ptr %84, i64 %83
   %85 = getelementptr i8, ptr %.split15, i64 8
   %86 = load ptr, ptr %85, align 8
   tail call void @kfree(ptr noundef %86) #20
@@ -4507,7 +4503,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   br i1 %90, label %82, label %.loopexit21, !llvm.loop !51
 
 .loopexit21:                                      ; preds = %82, %76
-  %91 = getelementptr ptr, ptr %15, i64 %77
+  %91 = getelementptr [8 x i8], ptr %15, i64 %77
   %92 = load ptr, ptr %91, align 8
   tail call void @kfree(ptr noundef %92) #20
   %93 = add nsw i64 %77, -1
@@ -4553,7 +4549,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %116 = phi i64 [ %128, %121 ], [ 0, %113 ]
   %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.227, i64 noundef %116) #20
   %118 = call noalias ptr @kstrdup(ptr noundef nonnull %5, i32 noundef 3264) #20
-  %119 = getelementptr %struct.dev_ext_attribute, ptr %111, i64 %116
+  %119 = getelementptr [40 x i8], ptr %111, i64 %116
   store ptr %118, ptr %119, align 8
   %120 = icmp eq ptr %118, null
   br i1 %120, label %.preheader27, label %121
@@ -4568,7 +4564,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %125 = inttoptr i64 %116 to ptr
   %126 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr %125, ptr %126, align 8
-  %127 = getelementptr ptr, ptr %102, i64 %116
+  %127 = getelementptr [8 x i8], ptr %102, i64 %116
   store ptr %119, ptr %127, align 8
   %128 = add nuw nsw i64 %116, 1
   %129 = load i32, ptr @__uncore_max_dies, align 4
@@ -4583,7 +4579,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 
 .preheader27:                                     ; preds = %.preheader28, %.preheader27
   %133 = phi i64 [ %136, %.preheader27 ], [ %116, %.preheader28 ]
-  %134 = getelementptr %struct.dev_ext_attribute, ptr %111, i64 %133
+  %134 = getelementptr [40 x i8], ptr %111, i64 %133
   %135 = load ptr, ptr %134, align 8
   call void @kfree(ptr noundef %135) #20
   %136 = add nsw i64 %133, -1
@@ -4617,9 +4613,9 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 .preheader23:                                     ; preds = %.preheader25, %.preheader23
   %147 = phi i64 [ %153, %.preheader23 ], [ 0, %.preheader25 ]
   %148 = load ptr, ptr %67, align 8
-  %149 = getelementptr ptr, ptr %148, i64 %144
+  %149 = getelementptr [8 x i8], ptr %148, i64 %144
   %150 = load ptr, ptr %149, align 8
-  %.split14 = getelementptr %struct.intel_uncore_topology, ptr %150, i64 %147
+  %.split14 = getelementptr [16 x i8], ptr %150, i64 %147
   %151 = getelementptr i8, ptr %.split14, i64 8
   %152 = load ptr, ptr %151, align 8
   call void @kfree(ptr noundef %152) #20
@@ -4631,7 +4627,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 
 .loopexit24:                                      ; preds = %.preheader23, %.preheader25
   %157 = load ptr, ptr %67, align 8
-  %158 = getelementptr ptr, ptr %157, i64 %144
+  %158 = getelementptr [8 x i8], ptr %157, i64 %144
   %159 = load ptr, ptr %158, align 8
   call void @kfree(ptr noundef %159) #20
   %160 = add nuw nsw i64 %144, 1
@@ -4663,7 +4659,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %171 = icmp eq ptr %169, %1
   %172 = add i32 %170, 1
   %173 = sext i32 %172 to i64
-  %174 = getelementptr ptr, ptr %166, i64 %173
+  %174 = getelementptr [8 x i8], ptr %166, i64 %173
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, null
   br i1 %171, label %177, label %191
@@ -4676,11 +4672,11 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
   %179 = phi i32 [ %183, %.preheader ], [ %172, %177 ]
   %180 = phi i32 [ %179, %.preheader ], [ %170, %177 ]
   %181 = sext i32 %180 to i64
-  %182 = getelementptr ptr, ptr %166, i64 %181
+  %182 = getelementptr [8 x i8], ptr %166, i64 %181
   store ptr %178, ptr %182, align 8
   %183 = add i32 %179, 1
   %184 = sext i32 %183 to i64
-  %185 = getelementptr ptr, ptr %166, i64 %184
+  %185 = getelementptr [8 x i8], ptr %166, i64 %184
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
   br i1 %187, label %.loopexit, label %.preheader, !llvm.loop !57
@@ -4688,7 +4684,7 @@ define internal fastcc void @pmu_set_mapping(ptr noundef %0, ptr noundef writeon
 .loopexit:                                        ; preds = %.preheader, %177
   %188 = phi i32 [ %170, %177 ], [ %179, %.preheader ]
   %189 = sext i32 %188 to i64
-  %190 = getelementptr ptr, ptr %166, i64 %189
+  %190 = getelementptr [8 x i8], ptr %166, i64 %189
   store ptr null, ptr %190, align 8
   br label %.loopexit20
 
@@ -4733,7 +4729,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @skx_iio_mapping_
 
 27:                                               ; preds = %24, %11
   %28 = phi i64 [ %25, %24 ], [ 0, %11 ]
-  %29 = getelementptr %struct.intel_uncore_topology, ptr %20, i64 %28
+  %29 = getelementptr [16 x i8], ptr %20, i64 %28
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, %22
   br i1 %31, label %32, label %24
@@ -4832,9 +4828,9 @@ define internal fastcc void @pmu_cleanup_mapping(ptr noundef captures(none) %0, 
 .preheader:                                       ; preds = %25, %.preheader
   %29 = phi i64 [ %35, %.preheader ], [ 0, %25 ]
   %30 = load ptr, ptr %17, align 8
-  %31 = getelementptr ptr, ptr %30, i64 %26
+  %31 = getelementptr [8 x i8], ptr %30, i64 %26
   %32 = load ptr, ptr %31, align 8
-  %.split = getelementptr %struct.intel_uncore_topology, ptr %32, i64 %29
+  %.split = getelementptr [16 x i8], ptr %32, i64 %29
   %33 = getelementptr i8, ptr %.split, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @kfree(ptr noundef %34) #20
@@ -4846,7 +4842,7 @@ define internal fastcc void @pmu_cleanup_mapping(ptr noundef captures(none) %0, 
 
 .loopexit:                                        ; preds = %.preheader, %25
   %39 = load ptr, ptr %17, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %26
+  %40 = getelementptr [8 x i8], ptr %39, i64 %26
   %41 = load ptr, ptr %40, align 8
   tail call void @kfree(ptr noundef %41) #20
   %42 = add nuw nsw i64 %26, 1
@@ -4944,12 +4940,12 @@ define internal zeroext i16 @skx_upi_mapping_visible(ptr noundef readonly captur
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %.split = getelementptr %struct.intel_uncore_topology, ptr %12, i64 %15
+  %.split = getelementptr [16 x i8], ptr %12, i64 %15
   %16 = getelementptr i8, ptr %.split, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -4984,7 +4980,7 @@ define internal range(i32 -2147483648, 1) i32 @skx_upi_topology_cb(ptr noundef r
 13:                                               ; preds = %28, %10
   %14 = phi i64 [ 0, %10 ], [ %29, %28 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr ptr, ptr %15, i64 %12
+  %16 = getelementptr [8 x i8], ptr %15, i64 %12
   %17 = load ptr, ptr %16, align 8
   %18 = trunc i64 %14 to i32
   %19 = shl i32 %18, 3
@@ -4995,7 +4991,7 @@ define internal range(i32 -2147483648, 1) i32 @skx_upi_topology_cb(ptr noundef r
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr %struct.intel_uncore_topology, ptr %17, i64 %14
+  %25 = getelementptr [16 x i8], ptr %17, i64 %14
   %26 = tail call fastcc i32 @upi_fill_topology(ptr noundef nonnull %22, ptr noundef %25, i32 noundef %18), !range !5
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.loopexit
@@ -5135,12 +5131,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @skx_upi_mapping_show(ptr
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 232
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr ptr, ptr %12, i64 %8
+  %13 = getelementptr [8 x i8], ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.intel_uncore_topology, ptr %14, i64 %17
+  %.split = getelementptr [16 x i8], ptr %14, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -5280,7 +5276,7 @@ define internal zeroext i16 @snr_iio_mapping_visible(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %2 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %18 = load i32, ptr %17, align 8
@@ -5294,7 +5290,7 @@ define internal zeroext i16 @snr_iio_mapping_visible(ptr noundef readonly captur
 
 23:                                               ; preds = %20, %11
   %24 = phi i64 [ %21, %20 ], [ 0, %11 ]
-  %25 = getelementptr %struct.intel_uncore_topology, ptr %16, i64 %24
+  %25 = getelementptr [16 x i8], ptr %16, i64 %24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %18
   br i1 %27, label %28, label %20
@@ -5400,27 +5396,27 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sad_cfg_iio_topology(ptr n
   %41 = load i32, ptr %40, align 8
   %42 = load ptr, ptr %8, align 8
   %43 = zext nneg i32 %25 to i64
-  %44 = getelementptr ptr, ptr %42, i64 %43
+  %44 = getelementptr [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %36 to i64
-  %.split = getelementptr %struct.intel_uncore_topology, ptr %45, i64 %46
+  %.split = getelementptr [16 x i8], ptr %45, i64 %46
   %47 = getelementptr i8, ptr %.split, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %41, ptr %49, align 4
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr ptr, ptr %50, i64 %43
+  %51 = getelementptr [8 x i8], ptr %50, i64 %43
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr %struct.intel_uncore_topology, ptr %52, i64 %46
+  %53 = getelementptr [16 x i8], ptr %52, i64 %46
   store i32 %37, ptr %53, align 8
   %54 = load ptr, ptr %23, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 216
   %56 = load i8, ptr %55, align 8
   %57 = zext i8 %56 to i32
   %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %43
+  %59 = getelementptr [8 x i8], ptr %58, i64 %43
   %60 = load ptr, ptr %59, align 8
-  %.split6 = getelementptr %struct.intel_uncore_topology, ptr %60, i64 %46
+  %.split6 = getelementptr [16 x i8], ptr %60, i64 %46
   %61 = getelementptr i8, ptr %.split6, i64 8
   %62 = load ptr, ptr %61, align 8
   store i32 %57, ptr %62, align 4
@@ -5751,7 +5747,7 @@ define internal noundef i32 @icx_cha_hw_config(ptr noundef readonly captures(non
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i64, ptr @icx_cha_msr_offsets, i64 %13
+  %14 = getelementptr [8 x i8], ptr @icx_cha_msr_offsets, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = add i32 %16, 2917
@@ -5794,7 +5790,7 @@ define internal void @icx_iio_set_mapping(ptr noundef %0) #1 align 16 {
   %11 = icmp eq ptr %9, @icx_iio_mapping_group
   %12 = add i32 %10, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr ptr, ptr %6, i64 %13
+  %14 = getelementptr [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %11, label %17, label %31
@@ -5807,11 +5803,11 @@ define internal void @icx_iio_set_mapping(ptr noundef %0) #1 align 16 {
   %19 = phi i32 [ %23, %.preheader ], [ %12, %17 ]
   %20 = phi i32 [ %19, %.preheader ], [ %10, %17 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %6, i64 %21
+  %22 = getelementptr [8 x i8], ptr %6, i64 %21
   store ptr %18, ptr %22, align 8
   %23 = add i32 %19, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %6, i64 %24
+  %25 = getelementptr [8 x i8], ptr %6, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !57
@@ -5819,7 +5815,7 @@ define internal void @icx_iio_set_mapping(ptr noundef %0) #1 align 16 {
 .loopexit:                                        ; preds = %.preheader, %17
   %28 = phi i32 [ %10, %17 ], [ %19, %.preheader ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr ptr, ptr %6, i64 %29
+  %30 = getelementptr [8 x i8], ptr %6, i64 %29
   store ptr null, ptr %30, align 8
   br label %.loopexit3
 
@@ -5855,7 +5851,7 @@ define internal zeroext i16 @icx_iio_mapping_visible(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %2 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 336
   %18 = load i32, ptr %17, align 8
@@ -5869,7 +5865,7 @@ define internal zeroext i16 @icx_iio_mapping_visible(ptr noundef readonly captur
 
 23:                                               ; preds = %20, %11
   %24 = phi i64 [ %21, %20 ], [ 0, %11 ]
-  %25 = getelementptr %struct.intel_uncore_topology, ptr %16, i64 %24
+  %25 = getelementptr [16 x i8], ptr %16, i64 %24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %18
   br i1 %27, label %28, label %20
@@ -6039,7 +6035,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @discover_upi_topology(ptr 
 60:                                               ; preds = %83, %57
   %61 = phi i64 [ 0, %57 ], [ %84, %83 ]
   %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr ptr, ptr %62, i64 %58
+  %63 = getelementptr [8 x i8], ptr %62, i64 %58
   %64 = load ptr, ptr %63, align 8
   %65 = trunc i64 %61 to i32
   %66 = add i32 %2, %65
@@ -6058,7 +6054,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @discover_upi_topology(ptr 
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %60
-  %80 = getelementptr %struct.intel_uncore_topology, ptr %64, i64 %61
+  %80 = getelementptr [16 x i8], ptr %64, i64 %61
   %81 = call fastcc i32 @upi_fill_topology(ptr noundef nonnull %77, ptr noundef %80, i32 noundef %65), !range !5
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.thread9
@@ -6242,7 +6238,7 @@ define internal noundef i32 @spr_cha_hw_config(ptr noundef readonly captures(non
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 336
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr i32, ptr %14, i64 %17
+  %18 = getelementptr [4 x i8], ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = shl i32 %19, 4
   %21 = add i32 %20, 8206

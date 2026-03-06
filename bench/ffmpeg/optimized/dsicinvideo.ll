@@ -103,7 +103,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %35, %37
   %39 = or disjoint i32 %38, -16777216
-  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %39, ptr %40, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -123,7 +123,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %50 = or disjoint i32 %49, -16777216
   %51 = load i8, ptr %.2264287, align 1, !tbaa !39
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %26, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %52
   store i32 %50, ptr %53, align 4, !tbaa !40
   %54 = getelementptr inbounds nuw i8, ptr %.2264287, i64 4
   %55 = add nuw nsw i32 %.1103288, 1
@@ -1105,7 +1105,7 @@ define internal noundef i32 @cinvideo_decode_end(ptr noundef readonly captures(n
 
 6:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   tail call void @av_freep(ptr noundef nonnull %7) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 -12, 1) i32 @allocate_buffers(ptr noundef captu
   %6 = load i32, ptr %2, align 8, !tbaa !35
   %7 = zext i32 %6 to i64
   %8 = tail call noalias ptr @av_mallocz(i64 noundef %7) #7
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !44
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %4

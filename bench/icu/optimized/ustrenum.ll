@@ -331,7 +331,7 @@ define noundef ptr @_ZN6icu_7717StringEnumeration5snextER10UErrorCode(ptr nounde
 21:                                               ; preds = %17
   call void @u_charsToUChars_77(ptr noundef nonnull %7, ptr noundef nonnull %20, i32 noundef %.017.i)
   %22 = sext i32 %.017.i to i64
-  %23 = getelementptr inbounds i16, ptr %20, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %20, i64 %22
   store i16 0, ptr %23, align 2, !tbaa !20
   call void @_ZN6icu_7713UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %18, i32 noundef %.017.i)
   br label %_ZN6icu_7717StringEnumeration8setCharsEPKciR10UErrorCode.exit
@@ -374,7 +374,7 @@ define noundef ptr @_ZN6icu_7717StringEnumeration8setCharsEPKciR10UErrorCode(ptr
 17:                                               ; preds = %13
   tail call void @u_charsToUChars_77(ptr noundef nonnull %1, ptr noundef nonnull %16, i32 noundef %.017)
   %18 = sext i32 %.017 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   store i16 0, ptr %19, align 2, !tbaa !20
   tail call void @_ZN6icu_7713UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %14, i32 noundef %.017)
   br label %20
@@ -847,7 +847,7 @@ define internal noundef ptr @_ZL17ucharstrenum_nextP12UEnumerationPiP10UErrorCod
   %11 = add nsw i32 %5, 1
   store i32 %11, ptr %4, align 8, !tbaa !31
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %18, label %15
@@ -885,7 +885,7 @@ define internal noundef ptr @_ZL18ucharstrenum_unextP12UEnumerationPiP10UErrorCo
   %11 = add nsw i32 %5, 1
   store i32 %11, ptr %4, align 8, !tbaa !31
   %12 = sext i32 %5 to i64
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %17, label %15

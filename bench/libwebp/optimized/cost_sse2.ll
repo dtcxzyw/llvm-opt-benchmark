@@ -49,14 +49,14 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds [3 x [11 x i8]], ptr %8, i64 %9
+  %10 = getelementptr inbounds [33 x i8], ptr %8, i64 %9
   %11 = sext i32 %0 to i64
   %12 = getelementptr inbounds [11 x i8], ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !18
-  %16 = getelementptr inbounds [3 x ptr], ptr %15, i64 %9
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %11
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %9
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %11
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = icmp eq i32 %0, 0
   br i1 %19, label %20, label %22
@@ -64,7 +64,7 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
 20:                                               ; preds = %2
   %.pn.in.i = xor i8 %13, -1
   %.pn.i = zext i8 %.pn.in.i to i64
-  %.in.in.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i
+  %.in.in.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i
   %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !20
   %21 = zext i16 %.in.i to i32
   br label %22
@@ -78,7 +78,7 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
 
 27:                                               ; preds = %22
   %.pn.i64 = zext i8 %13 to i64
-  %.in.in.i65 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i64
+  %.in.in.i65 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i64
   %.in.i66 = load i16, ptr %.in.in.i65, align 2, !tbaa !20
   %28 = zext i16 %.in.i66 to i32
   br label %90
@@ -114,22 +114,22 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %43 = load i8, ptr %42, align 1, !tbaa !7
   %44 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !7
-  %46 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
+  %46 = getelementptr inbounds [2 x i8], ptr %5, i64 %indvars.iv
   %47 = load i16, ptr %46, align 2, !tbaa !20
   %48 = zext i16 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr @VP8LevelFixedCosts, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !20
   %51 = zext i16 %50 to i32
   %52 = zext i8 %45 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %.06172, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.06172, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !20
   %55 = zext i16 %54 to i32
   %56 = add nuw nsw i32 %.06271, %51
   %57 = add nuw nsw i32 %56, %55
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %58 = getelementptr inbounds [3 x ptr], ptr %15, i64 %indvars.iv.next
+  %58 = getelementptr inbounds [24 x i8], ptr %15, i64 %indvars.iv.next
   %59 = zext i8 %43 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !19
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -141,14 +141,14 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %.060.lcssa = phi i32 [ %6, %29 ], [ %25, %.lr.ph ]
   %62 = getelementptr inbounds i8, ptr %3, i64 %.pre-phi
   %63 = load i8, ptr %62, align 1, !tbaa !7
-  %64 = getelementptr inbounds i16, ptr %5, i64 %.pre-phi
+  %64 = getelementptr inbounds [2 x i8], ptr %5, i64 %.pre-phi
   %65 = load i16, ptr %64, align 2, !tbaa !20
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @VP8LevelFixedCosts, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !20
   %69 = zext i16 %68 to i32
   %70 = zext i8 %63 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %.061.lcssa, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.061.lcssa, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !20
   %73 = zext i16 %72 to i32
   %74 = add nuw nsw i32 %.062.lcssa, %69
@@ -163,12 +163,12 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %81 = getelementptr inbounds i8, ptr %4, i64 %.pre-phi
   %82 = load i8, ptr %81, align 1, !tbaa !7
   %83 = zext i8 %80 to i64
-  %84 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %8, i64 %83
+  %84 = getelementptr inbounds nuw [33 x i8], ptr %8, i64 %83
   %85 = zext i8 %82 to i64
   %86 = getelementptr inbounds nuw [11 x i8], ptr %84, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !7
   %.pn.i68 = zext i8 %87 to i64
-  %.in.in.i69 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i68
+  %.in.in.i69 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i68
   %.in.i70 = load i16, ptr %.in.in.i69, align 2, !tbaa !20
   %88 = zext i16 %.in.i70 to i32
   %89 = add nuw nsw i32 %75, %88

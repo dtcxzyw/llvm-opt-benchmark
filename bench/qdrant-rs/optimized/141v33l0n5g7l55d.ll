@@ -337,7 +337,7 @@ define hidden noundef range(i32 0, 1114113) i32 @"_ZN99_$LT$core..array..iter..I
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = icmp ult i64 %4, 11
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %4
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %4
   %10 = load i32, ptr %9, align 4, !range !46, !noundef !7
   br label %.thread
 

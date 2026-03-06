@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/hash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { [11 x i8], i32 }
-
 @.str = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
 @hashdesc = internal constant [15 x { [11 x i8], i8, i32 }] [{ [11 x i8], i8, i32 } { [11 x i8] c"MD5\00\00\00\00\00\00\00\00", i8 0, i32 16 }, { [11 x i8], i8, i32 } { [11 x i8] c"murmur3\00\00\00\00", i8 0, i32 16 }, { [11 x i8], i8, i32 } { [11 x i8] c"RIPEMD128\00\00", i8 0, i32 16 }, { [11 x i8], i8, i32 } { [11 x i8] c"RIPEMD160\00\00", i8 0, i32 20 }, { [11 x i8], i8, i32 } { [11 x i8] c"RIPEMD256\00\00", i8 0, i32 32 }, { [11 x i8], i8, i32 } { [11 x i8] c"RIPEMD320\00\00", i8 0, i32 40 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA160\00\00\00\00\00", i8 0, i32 20 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA224\00\00\00\00\00", i8 0, i32 28 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA256\00\00\00\00\00", i8 0, i32 32 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA512/224\00", i8 0, i32 28 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA512/256\00", i8 0, i32 32 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA384\00\00\00\00\00", i8 0, i32 48 }, { [11 x i8], i8, i32 } { [11 x i8] c"SHA512\00\00\00\00\00", i8 0, i32 64 }, { [11 x i8], i8, i32 } { [11 x i8] c"CRC32\00\00\00\00\00\00", i8 0, i32 4 }, { [11 x i8], i8, i32 } { [11 x i8] c"adler32\00\00\00\00", i8 0, i32 4 }], align 16
 
@@ -12,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_hash_names(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 14
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %2
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %2
   %.0 = select i1 %or.cond, ptr null, ptr %3
   ret ptr %.0
 }
@@ -22,7 +20,7 @@ define nonnull ptr @av_hash_get_name(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %4
   ret ptr %5
 }
 
@@ -31,7 +29,7 @@ define i32 @av_hash_get_size(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !11
   ret i32 %7
@@ -44,7 +42,7 @@ define range(i32 -22, 1) i32 @av_hash_alloc(ptr noundef writeonly captures(none)
 
 3:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %indvars.iv
   %5 = tail call i32 @av_strcasecmp(ptr noundef %1, ptr noundef nonnull %4) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %8, label %7
@@ -420,7 +418,7 @@ define void @av_hash_final_bin(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
@@ -456,7 +454,7 @@ define void @av_hash_final_hex(ptr noundef readonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)
@@ -502,7 +500,7 @@ define void @av_hash_final_b64(ptr noundef readonly captures(none) %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.anon, ptr @hashdesc, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @hashdesc, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !11
   call void @av_hash_final(ptr noundef %0, ptr noundef nonnull %4)

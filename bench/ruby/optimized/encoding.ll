@@ -304,7 +304,7 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   %46 = lshr i64 %45, 1
   %47 = add i64 %46, %.02231.i
   %spec.select.i = and i64 %47, -2
-  %48 = getelementptr i32, ptr @unicode_alpha_codepoints, i64 %spec.select.i
+  %48 = getelementptr [4 x i8], ptr @unicode_alpha_codepoints, i64 %spec.select.i
   %49 = load i32, ptr %48, align 8, !tbaa !13
   %.not29.i = icmp ult i32 %28, %49
   br i1 %.not29.i, label %53, label %50
@@ -412,7 +412,7 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %35, %11, %pm_utf_8_
   %46 = lshr i64 %45, 1
   %47 = add i64 %46, %.02231.i
   %spec.select.i = and i64 %47, -2
-  %48 = getelementptr i32, ptr @unicode_alnum_codepoints, i64 %spec.select.i
+  %48 = getelementptr [4 x i8], ptr @unicode_alnum_codepoints, i64 %spec.select.i
   %49 = load i32, ptr %48, align 8, !tbaa !13
   %.not29.i = icmp ult i32 %28, %49
   br i1 %.not29.i, label %53, label %50
@@ -508,7 +508,7 @@ pm_utf_8_codepoint.exit.thread:                   ; preds = %31, %7, %pm_utf_8_c
   %37 = lshr i64 %36, 1
   %38 = add i64 %37, %.02231.i
   %spec.select.i = and i64 %38, -2
-  %39 = getelementptr i32, ptr @unicode_isupper_codepoints, i64 %spec.select.i
+  %39 = getelementptr [4 x i8], ptr @unicode_isupper_codepoints, i64 %spec.select.i
   %40 = load i32, ptr %39, align 8, !tbaa !13
   %.not29.i = icmp ult i32 %24, %40
   br i1 %.not29.i, label %44, label %41
@@ -1025,7 +1025,7 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
   %23 = lshr i64 %22, 1
   %24 = add i64 %23, %.02231.i
   %spec.select.i = and i64 %24, -2
-  %25 = getelementptr i32, ptr @unicode_alpha_codepoints, i64 %spec.select.i
+  %25 = getelementptr [4 x i8], ptr @unicode_alpha_codepoints, i64 %spec.select.i
   %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not29.i = icmp ult i32 %13, %26
   br i1 %.not29.i, label %30, label %27
@@ -1096,7 +1096,7 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
   %23 = lshr i64 %22, 1
   %24 = add i64 %23, %.02231.i
   %spec.select.i = and i64 %24, -2
-  %25 = getelementptr i32, ptr @unicode_alnum_codepoints, i64 %spec.select.i
+  %25 = getelementptr [4 x i8], ptr @unicode_alnum_codepoints, i64 %spec.select.i
   %26 = load i32, ptr %25, align 8, !tbaa !13
   %.not29.i = icmp ult i32 %13, %26
   br i1 %.not29.i, label %30, label %27
@@ -1164,7 +1164,7 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
   %22 = lshr i64 %21, 1
   %23 = add i64 %22, %.02231.i
   %spec.select.i = and i64 %23, -2
-  %24 = getelementptr i32, ptr @unicode_isupper_codepoints, i64 %spec.select.i
+  %24 = getelementptr [4 x i8], ptr @unicode_isupper_codepoints, i64 %spec.select.i
   %25 = load i32, ptr %24, align 8, !tbaa !13
   %.not29.i = icmp ult i32 %13, %25
   br i1 %.not29.i, label %29, label %26

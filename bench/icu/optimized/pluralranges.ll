@@ -820,7 +820,7 @@ define void @_ZN6icu_7720StandardPluralRanges14addPluralRangeENS_14StandardPlura
   %6 = load i32, ptr %5, align 8, !tbaa !20
   %7 = sext i32 %6 to i64
   %8 = load ptr, ptr %0, align 8, !tbaa !15
-  %9 = getelementptr inbounds %"struct.icu_77::StandardPluralRanges::StandardPluralRangeTriple", ptr %8, i64 %7
+  %9 = getelementptr inbounds [12 x i8], ptr %8, i64 %7
   store i32 %1, ptr %9, align 4, !tbaa !34
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !34
@@ -893,7 +893,7 @@ define noundef i32 @_ZNK6icu_7720StandardPluralRanges7resolveENS_14StandardPlura
 
 8:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %9 = getelementptr inbounds nuw %"struct.icu_77::StandardPluralRanges::StandardPluralRangeTriple", ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [12 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !36
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %16
@@ -1202,7 +1202,7 @@ _ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit54
   %104 = load i32, ptr %103, align 8, !tbaa !20
   %105 = sext i32 %104 to i64
   %106 = load ptr, ptr %102, align 8, !tbaa !15
-  %107 = getelementptr inbounds %"struct.icu_77::StandardPluralRanges::StandardPluralRangeTriple", ptr %106, i64 %105
+  %107 = getelementptr inbounds [12 x i8], ptr %106, i64 %105
   store i32 %64, ptr %107, align 4, !tbaa !34
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %80, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !34

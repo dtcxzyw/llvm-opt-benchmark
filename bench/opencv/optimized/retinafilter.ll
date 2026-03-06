@@ -1039,7 +1039,7 @@ _ZN2cv11bioinspired17BasicRetinaFilter34normalizeGrayOutputCentredSigmoideEv.exi
 .lr.ph.i.i34:                                     ; preds = %.lr.ph.i.i34.preheader, %.lr.ph.i.i34
   %.02734.i.i = phi i64 [ %60, %.lr.ph.i.i34 ], [ 0, %.lr.ph.i.i34.preheader ]
   %.02933.i.i = phi float [ %59, %.lr.ph.i.i34 ], [ 0.000000e+00, %.lr.ph.i.i34.preheader ]
-  %57 = getelementptr inbounds nuw float, ptr %54, i64 %.02734.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %.02734.i.i
   %58 = load float, ptr %57, align 4, !tbaa !61
   %59 = fadd float %.02933.i.i, %58
   %60 = add nuw i64 %.02734.i.i, 1

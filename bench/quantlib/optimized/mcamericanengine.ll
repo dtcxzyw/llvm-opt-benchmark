@@ -19,10 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<std::function<double (double)>, std::allocator<std::function<double (double)>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::function<double (double)>, std::allocator<std::function<double (double)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<double (double)>, std::allocator<std::function<double (double)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::function<double (double)>, std::allocator<std::function<double (double)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 
 $__clang_call_terminate = comdat any
 
@@ -502,7 +498,7 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt8fun
 "_ZNSt6vectorISt8functionIFddEESaIS2_EE17_M_realloc_insertIJZN8QuantLib18AmericanPathPricerC1EN5boost10shared_ptrINS6_6PayoffEEEmNS6_14LsmBasisSystem14PolynomialTypeEE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i": ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt8functionIFddEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i
   store ptr %call5.i.i.i.i.i34, ptr %v_, align 8, !tbaa !35
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !28
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i.i.i34, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i.i34, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !29
   br label %invoke.cont39
 
@@ -751,7 +747,7 @@ define noundef double @_ZNK8QuantLib18AmericanPathPricer5stateERKNS_4PathEm(ptr 
 entry:
   %values_.i = getelementptr inbounds nuw i8, ptr %path, i64 72
   %0 = load ptr, ptr %values_.i, align 8, !tbaa !30
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %0, i64 %t
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %t
   %1 = load double, ptr %arrayidx.i.i, align 8, !tbaa !55
   %scalingValue_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load double, ptr %scalingValue_, align 8, !tbaa !18

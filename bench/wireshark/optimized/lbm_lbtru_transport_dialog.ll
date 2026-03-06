@@ -7288,7 +7288,7 @@ _ZN4QMapIjP16LBMLBTRUSQNEntryE3endEv.exit82:      ; preds = %137, %138, %145
 188:                                              ; preds = %.lr.ph, %243
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %243 ]
   %189 = load ptr, ptr %185, align 8
-  %190 = getelementptr i32, ptr %189, i64 %indvars.iv
+  %190 = getelementptr [4 x i8], ptr %189, i64 %indvars.iv
   %191 = load ptr, ptr %184, align 8
   %.not.i.i83 = icmp eq ptr %191, null
   br i1 %.not.i.i83, label %193, label %192
@@ -7397,7 +7397,7 @@ _ZN4QMapIjP19LBMLBTRUNCFSQNEntryE3endEv.exit:     ; preds = %216, %217, %224
 229:                                              ; preds = %_ZN4QMapIjP19LBMLBTRUNCFSQNEntryE3endEv.exit
   %230 = call noalias noundef dereferenceable_or_null(112) ptr @_Znwm(i64 noundef 112) #22
   %231 = load ptr, ptr %185, align 8
-  %232 = getelementptr i32, ptr %231, i64 %indvars.iv
+  %232 = getelementptr [4 x i8], ptr %231, i64 %indvars.iv
   %233 = load i32, ptr %232, align 4
   invoke void @_ZN19LBMLBTRUNCFSQNEntryC1Ej(ptr noundef align 8 dereferenceable_or_null(112) %230, i32 noundef %233)
           to label %234 unwind label %238
@@ -7405,7 +7405,7 @@ _ZN4QMapIjP19LBMLBTRUNCFSQNEntryE3endEv.exit:     ; preds = %216, %217, %224
 234:                                              ; preds = %229
   store ptr %230, ptr %5, align 8
   %235 = load ptr, ptr %185, align 8
-  %236 = getelementptr i32, ptr %235, i64 %indvars.iv
+  %236 = getelementptr [4 x i8], ptr %235, i64 %indvars.iv
   %237 = call ptr @_ZN4QMapIjP19LBMLBTRUNCFSQNEntryE6insertERKjRKS1_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %184, ptr noundef align 4 dereferenceable(4) %236, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre156 = load ptr, ptr %5, align 8
   br label %243
@@ -16879,7 +16879,7 @@ define void @_ZN30LBMLBTRUReceiverTransportEntry13processPacketEPK12_packet_info
 51:                                               ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr i32, ptr %52, i64 %indvars.iv
+  %53 = getelementptr [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %48, align 8
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %56, label %55
@@ -16988,7 +16988,7 @@ _ZN4QMapIjP16LBMLBTRUSQNEntryE3endEv.exit:        ; preds = %79, %80, %87
 92:                                               ; preds = %_ZN4QMapIjP16LBMLBTRUSQNEntryE3endEv.exit
   %93 = call noalias noundef dereferenceable_or_null(112) ptr @_Znwm(i64 noundef 112) #22
   %94 = load ptr, ptr %49, align 8
-  %95 = getelementptr i32, ptr %94, i64 %indvars.iv
+  %95 = getelementptr [4 x i8], ptr %94, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
   invoke void @_ZN16LBMLBTRUSQNEntryC1Ej(ptr noundef align 8 dereferenceable_or_null(112) %93, i32 noundef %96)
           to label %97 unwind label %101
@@ -16996,7 +16996,7 @@ _ZN4QMapIjP16LBMLBTRUSQNEntryE3endEv.exit:        ; preds = %79, %80, %87
 97:                                               ; preds = %92
   store ptr %93, ptr %4, align 8
   %98 = load ptr, ptr %49, align 8
-  %99 = getelementptr i32, ptr %98, i64 %indvars.iv
+  %99 = getelementptr [4 x i8], ptr %98, i64 %indvars.iv
   %100 = call ptr @_ZN4QMapIjP16LBMLBTRUSQNEntryE6insertERKjRKS1_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %48, ptr noundef align 4 dereferenceable(4) %99, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre90 = load ptr, ptr %4, align 8
   br label %106
@@ -32713,7 +32713,7 @@ define void @_ZN23LBMLBTRUTransportDialog27sourcesDetailCurrentChangedEi(ptr nou
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN23LBMLBTRUTransportDialog27sourcesDetailCurrentChangedEi, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN23LBMLBTRUTransportDialog27sourcesDetailCurrentChangedEi, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -33280,7 +33280,7 @@ define void @_ZN23LBMLBTRUTransportDialog29receiversDetailCurrentChangedEi(ptr n
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN23LBMLBTRUTransportDialog29receiversDetailCurrentChangedEi, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN23LBMLBTRUTransportDialog29receiversDetailCurrentChangedEi, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8

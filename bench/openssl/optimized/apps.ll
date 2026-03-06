@@ -300,7 +300,7 @@ app_malloc.exit:                                  ; preds = %6
   %19 = phi i8 [ %16, %.lr.ph ], [ %26, %24 ]
   %.14568 = phi ptr [ %.04475, %.lr.ph ], [ %25, %24 ]
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !16
   %23 = and i16 %22, 8192
   %.not54 = icmp eq i16 %23, 0
@@ -352,7 +352,7 @@ app_malloc.exit:                                  ; preds = %6
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %3, align 4, !tbaa !4
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %.246, ptr %45, align 8, !tbaa !20
   switch i8 %37, label %.preheader [
     i8 39, label %.preheader64.preheader
@@ -384,7 +384,7 @@ app_malloc.exit:                                  ; preds = %6
   %51 = phi i8 [ %46, %.lr.ph72 ], [ %58, %57 ]
   %.571 = phi ptr [ %.246, %.lr.ph72 ], [ %56, %57 ]
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %47, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !16
   %55 = and i16 %54, 8192
   %.not58 = icmp eq i16 %55, 0
@@ -409,7 +409,7 @@ app_malloc.exit:                                  ; preds = %6
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = load i32, ptr %3, align 4, !tbaa !4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %60, i64 %62
   store ptr null, ptr %63, align 8, !tbaa !20
   br label %.critedge63
 
@@ -2557,7 +2557,7 @@ define dso_local ptr @next_item(ptr noundef captures(ret: address, provenance) %
   %5 = phi i8 [ %2, %.lr.ph ], [ %12, %10 ]
   %.020 = phi ptr [ %0, %.lr.ph ], [ %11, %10 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !16
   %9 = and i16 %8, 8192
   %.not11 = icmp ne i16 %9, 0
@@ -2585,7 +2585,7 @@ define dso_local ptr @next_item(ptr noundef captures(ret: address, provenance) %
   %.2 = getelementptr inbounds nuw i8, ptr %.0.pn, i64 1
   %15 = load i8, ptr %.2, align 1, !tbaa !13
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !16
   %19 = and i16 %18, 8192
   %.not14 = icmp eq i16 %19, 0
@@ -2778,7 +2778,7 @@ define dso_local ptr @load_certs_multifile(ptr noundef %0, ptr noundef %1, ptr n
   %14 = phi i8 [ %11, %.lr.ph.i ], [ %21, %19 ]
   %.020.i = phi ptr [ %.01426, %.lr.ph.i ], [ %20, %19 ]
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !16
   %18 = and i16 %17, 8192
   %.not11.i = icmp ne i16 %18, 0
@@ -2806,7 +2806,7 @@ define dso_local ptr @load_certs_multifile(ptr noundef %0, ptr noundef %1, ptr n
   %.2.i = getelementptr inbounds nuw i8, ptr %.0.pn.i, i64 1
   %24 = load i8, ptr %.2.i, align 1, !tbaa !13
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !16
   %28 = and i16 %27, 8192
   %.not14.i = icmp eq i16 %28, 0
@@ -2884,7 +2884,7 @@ define dso_local ptr @load_certstore(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = phi i8 [ %8, %.lr.ph.i ], [ %18, %16 ]
   %.020.i = phi ptr [ %.013, %.lr.ph.i ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !16
   %15 = and i16 %14, 8192
   %.not11.i = icmp ne i16 %15, 0
@@ -2912,7 +2912,7 @@ define dso_local ptr @load_certstore(ptr noundef %0, ptr noundef %1, ptr noundef
   %.2.i = getelementptr inbounds nuw i8, ptr %.0.pn.i, i64 1
   %21 = load i8, ptr %.2.i, align 1, !tbaa !13
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !16
   %25 = and i16 %24, 8192
   %.not14.i = icmp eq i16 %25, 0
@@ -5873,7 +5873,7 @@ app_malloc.exit:                                  ; preds = %8
 .lr.ph:                                           ; preds = %.preheader27.preheader, %.lr.ph
   %.030 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader27.preheader ]
   %.02129 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader27.preheader ]
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %.02129
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.02129
   %17 = load i32, ptr %16, align 4, !tbaa !30
   %18 = add nsw i32 %17, 1
   %spec.select = call i32 @llvm.smax.i32(i32 %.030, i32 %18)
@@ -5882,7 +5882,7 @@ app_malloc.exit:                                  ; preds = %8
   %21 = shl nuw i64 1, %20
   %22 = sdiv i32 %17, 64
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i64, ptr %2, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %2, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !24
   %26 = or i64 %21, %25
   store i64 %26, ptr %24, align 8, !tbaa !24
@@ -6178,7 +6178,7 @@ define dso_local void @make_uppercase(ptr noundef captures(none) %0) local_unnam
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %3, align 8, !tbaa !112
   %8 = zext i8 %5 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !30
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %6, align 1, !tbaa !13
@@ -6233,7 +6233,7 @@ define dso_local ptr @app_params_new_from_opts(ptr noundef %0, ptr noundef %1) l
 20:                                               ; preds = %17
   store i8 0, ptr %18, align 1, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %22 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %.02634
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %.02634
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #29
   %24 = call i32 @OSSL_PARAM_allocate_from_text(ptr noundef nonnull %22, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %3) #27
   %.not = icmp eq i32 %24, 0
@@ -6246,7 +6246,7 @@ define dso_local ptr @app_params_new_from_opts(ptr noundef %0, ptr noundef %1) l
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %25, %.preheader
-  %27 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %6
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !48
@@ -6268,12 +6268,12 @@ define dso_local ptr @app_params_new_from_opts(ptr noundef %0, ptr noundef %1) l
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %34 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !118
   call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str.1, i32 noundef 3484) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %37 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %11, i64 %indvars.iv.next.i
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %indvars.iv.next.i
   %38 = load ptr, ptr %37, align 8, !tbaa !116
   %.not7.i = icmp eq ptr %38, null
   br i1 %.not7.i, label %app_params_free.exit, label %.lr.ph.i, !llvm.loop !119
@@ -6304,12 +6304,12 @@ define dso_local void @app_params_free(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %3 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !118
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 3484) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8, !tbaa !116
   %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !119

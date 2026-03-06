@@ -1288,7 +1288,7 @@ define internal fastcc void @parser_reset(ptr noundef captures(none) initializes
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %37 = load ptr, ptr %33, align 8, !tbaa !20
-  %38 = getelementptr inbounds nuw %struct.jv, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -2607,7 +2607,7 @@ push.exit:                                        ; preds = %._crit_edge.i, %21
   %31 = add nsw i32 %29, 1
   store i32 %31, ptr %4, align 8, !tbaa !32
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds %struct.jv, ptr %30, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %30, i64 %32
   store i64 %15, ptr %33, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %16, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !15
@@ -2662,7 +2662,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %62 = add nsw i32 %60, 1
   store i32 %62, ptr %35, align 8, !tbaa !32
   %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds %struct.jv, ptr %61, i64 %63
+  %64 = getelementptr inbounds [16 x i8], ptr %61, i64 %63
   store i64 %46, ptr %64, align 8
   %.sroa.2.0..sroa_idx.i114 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %47, ptr %.sroa.2.0..sroa_idx.i114, align 8, !tbaa !15
@@ -2687,7 +2687,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %77 = load ptr, ptr %76, align 8, !tbaa !20
   %78 = sext i32 %73 to i64
-  %79 = getelementptr %struct.jv, ptr %77, i64 %78
+  %79 = getelementptr [16 x i8], ptr %77, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -16
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr i8, ptr %79, i64 -8
@@ -2733,7 +2733,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !20
   %108 = sext i32 %103 to i64
-  %109 = getelementptr %struct.jv, ptr %107, i64 %108
+  %109 = getelementptr [16 x i8], ptr %107, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -16
   %111 = load i64, ptr %110, align 8
   %112 = getelementptr i8, ptr %109, i64 -8
@@ -2743,7 +2743,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %116 = load ptr, ptr %106, align 8, !tbaa !20
   %117 = load i32, ptr %102, align 8, !tbaa !32
   %118 = sext i32 %117 to i64
-  %119 = getelementptr %struct.jv, ptr %116, i64 %118
+  %119 = getelementptr [16 x i8], ptr %116, i64 %118
   %120 = getelementptr i8, ptr %119, i64 -16
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr i8, ptr %119, i64 -8
@@ -2774,7 +2774,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %137 = load ptr, ptr %106, align 8, !tbaa !20
   %138 = load i32, ptr %102, align 8, !tbaa !32
   %139 = sext i32 %138 to i64
-  %140 = getelementptr %struct.jv, ptr %137, i64 %139
+  %140 = getelementptr [16 x i8], ptr %137, i64 %139
   %141 = getelementptr i8, ptr %140, i64 -32
   %142 = getelementptr i8, ptr %140, i64 -16
   %143 = load i64, ptr %141, align 8
@@ -2810,7 +2810,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %165 = load ptr, ptr %164, align 8, !tbaa !20
   %166 = sext i32 %161 to i64
-  %167 = getelementptr %struct.jv, ptr %165, i64 %166
+  %167 = getelementptr [16 x i8], ptr %165, i64 %166
   %168 = getelementptr i8, ptr %167, i64 -16
   %169 = load i64, ptr %168, align 8
   %170 = getelementptr i8, ptr %167, i64 -8
@@ -2829,7 +2829,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %179 = load ptr, ptr %164, align 8, !tbaa !20
   %180 = load i32, ptr %160, align 8, !tbaa !32
   %181 = sext i32 %180 to i64
-  %182 = getelementptr %struct.jv, ptr %179, i64 %181
+  %182 = getelementptr [16 x i8], ptr %179, i64 %181
   %183 = getelementptr i8, ptr %182, i64 -16
   %184 = load i64, ptr %183, align 8
   %185 = getelementptr i8, ptr %182, i64 -8
@@ -2873,7 +2873,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %206 = add nsw i32 %205, -1
   store i32 %206, ptr %160, align 8, !tbaa !32
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds %struct.jv, ptr %204, i64 %207
+  %208 = getelementptr inbounds [16 x i8], ptr %204, i64 %207
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false), !tbaa.struct !34
   br label %276
 
@@ -2894,7 +2894,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %220 = load ptr, ptr %219, align 8, !tbaa !20
   %221 = load i32, ptr %210, align 8, !tbaa !32
   %222 = sext i32 %221 to i64
-  %223 = getelementptr %struct.jv, ptr %220, i64 %222
+  %223 = getelementptr [16 x i8], ptr %220, i64 %222
   %224 = getelementptr i8, ptr %223, i64 -16
   %225 = load i64, ptr %224, align 8
   %226 = getelementptr i8, ptr %223, i64 -8
@@ -2910,7 +2910,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %231 = load ptr, ptr %219, align 8, !tbaa !20
   %232 = load i32, ptr %210, align 8, !tbaa !32
   %233 = sext i32 %232 to i64
-  %234 = getelementptr %struct.jv, ptr %231, i64 %233
+  %234 = getelementptr [16 x i8], ptr %231, i64 %233
   %235 = getelementptr i8, ptr %234, i64 -32
   %236 = getelementptr i8, ptr %234, i64 -16
   %237 = load i64, ptr %235, align 8
@@ -2944,7 +2944,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %255 = load ptr, ptr %219, align 8, !tbaa !20
   %256 = load i32, ptr %210, align 8, !tbaa !32
   %257 = sext i32 %256 to i64
-  %258 = getelementptr %struct.jv, ptr %255, i64 %257
+  %258 = getelementptr [16 x i8], ptr %255, i64 %257
   %259 = getelementptr i8, ptr %258, i64 -16
   %260 = load i64, ptr %259, align 8
   %261 = getelementptr i8, ptr %258, i64 -8
@@ -2971,7 +2971,7 @@ push.exit116:                                     ; preds = %._crit_edge.i111, %
   %273 = add nsw i32 %272, -1
   store i32 %273, ptr %210, align 8, !tbaa !32
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds %struct.jv, ptr %271, i64 %274
+  %275 = getelementptr inbounds [16 x i8], ptr %271, i64 %274
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !34
   br label %276
 
@@ -3029,7 +3029,7 @@ define internal fastcc void @push(ptr noundef captures(none) %0, i64 %1, ptr %2)
   %20 = add nsw i32 %18, 1
   store i32 %20, ptr %4, align 8, !tbaa !32
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.jv, ptr %19, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %19, i64 %21
   store i64 %1, ptr %22, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !15

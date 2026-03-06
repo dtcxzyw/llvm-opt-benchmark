@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/giaAgi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -124,7 +123,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr noundef readonly captures(none) %
   %20 = phi ptr [ null, %.lr.ph ], [ %.pre.i.i3138, %128 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %128 ]
   %.val22 = load ptr, ptr %13, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val22, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %.val22, i64 %indvars.iv
   %.val23 = load i64, ptr %21, align 4
   %22 = and i64 %.val23, 2147483648
   %.not.i = icmp eq i64 %22, 0
@@ -135,7 +134,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr noundef readonly captures(none) %
 
 25:                                               ; preds = %19
   %26 = sub nsw i64 0, %23
-  %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %21, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !38
   %30 = trunc i64 %.val23 to i32
@@ -145,7 +144,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr noundef readonly captures(none) %
   %34 = lshr i64 %.val23, 32
   %35 = and i64 %34, 536870911
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %21, i64 %36
+  %37 = getelementptr inbounds [12 x i8], ptr %21, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4, !tbaa !38
   %40 = lshr i64 %.val23, 61
@@ -160,7 +159,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr noundef readonly captures(none) %
   %48 = sext i32 %33 to i64
   %49 = or i64 %47, %48
   %50 = sext i32 %44 to i64
-  %51 = getelementptr inbounds i64, ptr %7, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %7, i64 %50
   store i64 %49, ptr %51, align 8, !tbaa !15
   %52 = load i32, ptr %18, align 8, !tbaa !40
   %53 = add nsw i32 %52, 1
@@ -174,7 +173,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr noundef readonly captures(none) %
 
 55:                                               ; preds = %54
   %56 = sub nsw i64 0, %23
-  %57 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %21, i64 %56
+  %57 = getelementptr inbounds [12 x i8], ptr %21, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !38
   %60 = trunc i64 %.val23 to i32
@@ -187,7 +186,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr noundef readonly captures(none) %
   %66 = sext i32 %63 to i64
   %67 = or i64 %66, -12884901888
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds i64, ptr %7, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %7, i64 %68
   store i64 %67, ptr %69, align 8, !tbaa !15
   %70 = load i32, ptr %17, align 4, !tbaa !41
   %71 = load i32, ptr %16, align 8, !tbaa !42
@@ -248,7 +247,7 @@ Agi_ManAppendCo.exit:                             ; preds = %.Vec_IntGrow.exit10
   %94 = add nsw i32 %70, 1
   store i32 %94, ptr %17, align 4, !tbaa !41
   %95 = sext i32 %70 to i64
-  %96 = getelementptr inbounds i32, ptr %93, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %93, i64 %95
   store i32 %64, ptr %96, align 4, !tbaa !44
   br label %.sink.split
 
@@ -265,7 +264,7 @@ Agi_ManAppendCo.exit:                             ; preds = %.Vec_IntGrow.exit10
   %102 = zext i32 %.val.i to i64
   %103 = or disjoint i64 %102, -4294967296
   %104 = sext i32 %100 to i64
-  %105 = getelementptr inbounds i64, ptr %7, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %7, i64 %104
   store i64 %103, ptr %105, align 8, !tbaa !15
   %106 = load i32, ptr %14, align 8, !tbaa !42
   %107 = icmp eq i32 %.val.i, %106
@@ -314,7 +313,7 @@ Agi_ManAppendCi.exit:                             ; preds = %Agi_ManAppendCi.exi
   %123 = add nsw i32 %.val.i, 1
   store i32 %123, ptr %15, align 4, !tbaa !41
   %124 = sext i32 %.val.i to i64
-  %125 = getelementptr inbounds i32, ptr %.pre.i.i3139, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %.pre.i.i3139, i64 %124
   store i32 %100, ptr %125, align 4, !tbaa !44
   br label %.sink.split
 
@@ -344,7 +343,7 @@ define i32 @Agi_ManSuppSize_rec(ptr noundef readonly captures(none) %0, i32 noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %3, align 8, !tbaa !14
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !44
   %9 = load i32, ptr %4, align 8, !tbaa !47
   %10 = icmp eq i32 %8, %9
@@ -362,7 +361,7 @@ define i32 @Agi_ManSuppSize_rec(ptr noundef readonly captures(none) %0, i32 noun
   %15 = phi i64 [ %6, %.lr.ph ], [ %sum.shift.i, %tailrecurse ]
   %accumulator.tr18 = phi i32 [ 0, %.lr.ph ], [ %24, %tailrecurse ]
   store i32 %13, ptr %14, align 4, !tbaa !44
-  %16 = getelementptr inbounds i64, ptr %.val, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = icmp ult i64 %17, -8589934592
   br i1 %18, label %tailrecurse, label %._crit_edge.loopexit
@@ -372,12 +371,12 @@ tailrecurse:                                      ; preds = %12
   %20 = lshr i32 %19, 1
   %21 = tail call i32 @Agi_ManSuppSize_rec(ptr noundef nonnull %0, i32 noundef %20)
   %.val16 = load ptr, ptr %11, align 8, !tbaa !13
-  %22 = getelementptr inbounds i64, ptr %.val16, i64 %15
+  %22 = getelementptr inbounds [8 x i8], ptr %.val16, i64 %15
   %23 = load i64, ptr %22, align 8, !tbaa !15
   %sum.shift.i = lshr i64 %23, 33
   %24 = add nsw i32 %21, %accumulator.tr18
   %25 = load ptr, ptr %3, align 8, !tbaa !14
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %sum.shift.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %sum.shift.i
   %27 = load i32, ptr %26, align 4, !tbaa !44
   %28 = load i32, ptr %4, align 8, !tbaa !47
   %29 = icmp eq i32 %27, %28
@@ -440,7 +439,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %.1, %26 ]
   %.val12 = load ptr, ptr %12, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw i64, ptr %.val12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = icmp ugt i64 %16, -17179869191
   br i1 %17, label %26, label %18

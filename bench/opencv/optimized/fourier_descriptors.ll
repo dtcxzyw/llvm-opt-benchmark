@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.std::complex" = type { { double, double } }
 %"class.cv::MatCommaInitializer_" = type { %"class.cv::MatIterator_" }
 %"class.cv::MatIterator_" = type { %"class.cv::MatConstIterator_" }
 %"class.cv::MatConstIterator_" = type { %"class.cv::MatConstIterator" }
@@ -265,7 +264,7 @@ define void @_ZN2cv8ximgproc14ContourFitting13frequencyInitEv(ptr noundef nonnul
   br i1 %17, label %18, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw double, ptr %8, i64 %5
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %20
 
@@ -308,7 +307,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit..preheader_crit_edge: ; preds = %_ZNSt6vector
   %32 = fpext nnan ninf float %31 to double
   %33 = fmul nnan double %32, 0x401921FB54442D18
   %34 = fdiv double %33, %22
-  %35 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store double %34, ptr %35, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -325,7 +324,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit..preheader_crit_edge: ; preds = %_ZNSt6vector
   %40 = fpext nnan ninf float %39 to double
   %41 = fmul nnan double %40, 0x401921FB54442D18
   %42 = fdiv double %41, %26
-  %43 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv23
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv23
   store double %42, ptr %43, align 8, !tbaa !28
   %indvars.iv.next24 = add nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %5
@@ -389,20 +388,20 @@ define void @_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_(ptr noundef nonnull r
   %.0141147 = phi double [ 0.000000e+00, %.lr.ph ], [ %60, %28 ]
   %.0142146 = phi double [ 0.000000e+00, %.lr.ph ], [ %55, %28 ]
   %.0143145 = phi double [ 0.000000e+00, %.lr.ph ], [ %48, %28 ]
-  %29 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %30 = load double, ptr %29, align 8, !tbaa !28
-  %31 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %32 = load double, ptr %31, align 8, !tbaa !28
-  %33 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %34 = load double, ptr %33, align 8, !tbaa !28
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %1, double %32)
   %36 = tail call double @sin(double noundef %35) #24, !tbaa !33
   %37 = sub nsw i64 %18, %indvars.iv
-  %38 = getelementptr inbounds nuw double, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !28
-  %40 = getelementptr inbounds nuw double, ptr %15, i64 %37
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %37
   %41 = load double, ptr %40, align 8, !tbaa !28
-  %42 = getelementptr inbounds nuw double, ptr %17, i64 %37
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %37
   %43 = load double, ptr %42, align 8, !tbaa !28
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %1, double %41)
   %45 = tail call double @sin(double noundef %44) #24, !tbaa !33
@@ -499,9 +498,9 @@ define noundef double @_ZN2cv8ximgproc14ContourFitting8distanceESt7complexIdEd(p
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit54 ]
   %.01088 = phi double [ 0.000000e+00, %.lr.ph ], [ %113, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit54 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !35
-  %17 = getelementptr inbounds nuw %"class.std::complex", ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %8, align 8, !tbaa !35
-  %19 = getelementptr inbounds nuw %"class.std::complex", ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load double, ptr %19, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !36
@@ -528,7 +527,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit:             ; preds = %15, %27, %29
   %33 = phi double [ %24, %15 ], [ %24, %27 ], [ %31, %29 ]
   %34 = phi double [ %25, %15 ], [ %25, %27 ], [ %32, %29 ]
   %35 = load ptr, ptr %10, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load double, ptr %36, align 8, !tbaa !28
   %38 = fmul double %9, %37
   %39 = fmul double %3, %37
@@ -570,9 +569,9 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit27:           ; preds = %_ZStmlIdESt7complex
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 4
   %67 = sub nsw i64 %66, %indvars.iv
-  %68 = getelementptr inbounds nuw %"class.std::complex", ptr %62, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %67
   %69 = load ptr, ptr %8, align 8, !tbaa !35
-  %70 = getelementptr inbounds nuw %"class.std::complex", ptr %69, i64 %67
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %67
   %.sroa.0.0.copyload.i33 = load double, ptr %70, align 8
   %.sroa.4.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.sroa.4.0.copyload.i35 = load double, ptr %.sroa.4.0..sroa_idx.i34, align 8, !tbaa !36
@@ -607,7 +606,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit38:           ; preds = %_ZStmlIdESt7complex
   %84 = phi double [ %75, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit27 ], [ %75, %78 ], [ %82, %80 ]
   %85 = phi double [ %76, %_ZStmlIdESt7complexIT_ERKS2_S4_.exit27 ], [ %76, %78 ], [ %83, %80 ]
   %86 = load ptr, ptr %10, align 8, !tbaa !27
-  %87 = getelementptr inbounds nuw double, ptr %86, i64 %.pre-phi103
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.pre-phi103
   %88 = load double, ptr %87, align 8, !tbaa !28
   %89 = fmul double %9, %88
   %90 = fmul double %3, %88
@@ -1292,7 +1291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %17
   br i1 %216, label %217, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds nuw double, ptr %207, i64 %204
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %204
   %.not.i.i = icmp eq ptr %206, %218
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %219
 
@@ -1328,7 +1327,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIdSaId
   br i1 %232, label %233, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit194
 
 233:                                              ; preds = %231
-  %234 = getelementptr inbounds nuw double, ptr %223, i64 %.pre-phi
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %.pre-phi
   %.not.i.i192 = icmp eq ptr %222, %234
   br i1 %.not.i.i192, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit194, label %235
 
@@ -1373,7 +1372,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit194:            ; preds = %._ZNSt6vectorIdSaId
   br i1 %256, label %257, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 257:                                              ; preds = %255
-  %258 = getelementptr inbounds nuw double, ptr %247, i64 %244
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %244
   %.not.i.i.i = icmp eq ptr %246, %258
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %259
 
@@ -1416,7 +1415,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit..preheader_crit_edge.i: ; preds = %_ZNSt6vect
   %271 = fpext nnan ninf float %270 to double
   %272 = fmul nnan double %271, 0x401921FB54442D18
   %273 = fdiv double %272, %261
-  %274 = getelementptr inbounds nuw double, ptr %262, i64 %indvars.iv.i
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %indvars.iv.i
   store double %273, ptr %274, align 8, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1430,7 +1429,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit..preheader_crit_edge.i: ; preds = %_ZNSt6vect
   %279 = fpext nnan ninf float %278 to double
   %280 = fmul nnan double %279, 0x401921FB54442D18
   %281 = fdiv double %280, %265
-  %282 = getelementptr inbounds nuw double, ptr %266, i64 %indvars.iv23.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv23.i
   store double %281, ptr %282, align 8, !tbaa !28
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %244
@@ -1464,7 +1463,7 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %275, %.prehead
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %299 = load double, ptr %298, align 8, !tbaa !28
   %300 = load ptr, ptr %236, align 8, !tbaa !35
-  %301 = getelementptr inbounds nuw %"class.std::complex", ptr %300, i64 %.0118274
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %300, i64 %.0118274
   store double %297, ptr %301, align 8
   %.sroa.4252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %301, i64 8
   store double %299, ptr %.sroa.4252.0..sroa_idx, align 8, !tbaa !36
@@ -1477,18 +1476,18 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %275, %.prehead
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %309 = load double, ptr %308, align 8, !tbaa !28
   %310 = load ptr, ptr %238, align 8, !tbaa !35
-  %311 = getelementptr inbounds nuw %"class.std::complex", ptr %310, i64 %.0118274
+  %311 = getelementptr inbounds nuw [16 x i8], ptr %310, i64 %.0118274
   store double %307, ptr %311, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %311, i64 8
   store double %309, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !36
   %312 = load ptr, ptr %238, align 8, !tbaa !35
-  %313 = getelementptr inbounds nuw %"class.std::complex", ptr %312, i64 %.0118274
+  %313 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %.0118274
   %314 = load double, ptr %313, align 8, !tbaa !28
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %316 = load double, ptr %315, align 8, !tbaa !28
   %317 = fneg double %316
   %318 = load ptr, ptr %236, align 8, !tbaa !35
-  %319 = getelementptr inbounds nuw %"class.std::complex", ptr %318, i64 %.0118274
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %318, i64 %.0118274
   %320 = load double, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %322 = load double, ptr %321, align 8
@@ -1516,11 +1515,11 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %275, %.prehead
   %338 = phi double [ %328, %290 ], [ %328, %330 ], [ %335, %332 ]
   %339 = call noundef double @cabs(double noundef %337, double noundef %338) #24, !tbaa !33
   %340 = load ptr, ptr %202, align 8, !tbaa !27
-  %341 = getelementptr inbounds nuw double, ptr %340, i64 %.0118274
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %.0118274
   store double %339, ptr %341, align 8, !tbaa !28
   %342 = call noundef double @carg(double noundef %337, double noundef %338) #24, !tbaa !33
   %343 = load ptr, ptr %220, align 8, !tbaa !27
-  %344 = getelementptr inbounds nuw double, ptr %343, i64 %.0118274
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %.0118274
   store double %342, ptr %344, align 8, !tbaa !28
   %345 = add nuw nsw i64 %.0118274, 1
   %exitcond.not = icmp eq i64 %345, %284
@@ -1599,20 +1598,20 @@ _ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us: ; preds = %363
   %.0141147.i = phi double [ %411, %.lr.ph.i201 ], [ 0.000000e+00, %.split ]
   %.0142146.i = phi double [ %406, %.lr.ph.i201 ], [ 0.000000e+00, %.split ]
   %.0143145.i = phi double [ %399, %.lr.ph.i201 ], [ 0.000000e+00, %.split ]
-  %380 = getelementptr inbounds nuw double, ptr %364, i64 %indvars.iv.i202
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %indvars.iv.i202
   %381 = load double, ptr %380, align 8, !tbaa !28
-  %382 = getelementptr inbounds nuw double, ptr %370, i64 %indvars.iv.i202
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv.i202
   %383 = load double, ptr %382, align 8, !tbaa !28
-  %384 = getelementptr inbounds nuw double, ptr %371, i64 %indvars.iv.i202
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv.i202
   %385 = load double, ptr %384, align 8, !tbaa !28
   %386 = call double @llvm.fmuladd.f64(double %385, double %377, double %383)
   %387 = call double @sin(double noundef %386) #24, !tbaa !33
   %388 = sub nsw i64 %372, %indvars.iv.i202
-  %389 = getelementptr inbounds nuw double, ptr %364, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %388
   %390 = load double, ptr %389, align 8, !tbaa !28
-  %391 = getelementptr inbounds nuw double, ptr %370, i64 %388
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %388
   %392 = load double, ptr %391, align 8, !tbaa !28
-  %393 = getelementptr inbounds nuw double, ptr %371, i64 %388
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %388
   %394 = load double, ptr %393, align 8, !tbaa !28
   %395 = call double @llvm.fmuladd.f64(double %394, double %377, double %392)
   %396 = call double @sin(double noundef %395) #24, !tbaa !33
@@ -1727,11 +1726,11 @@ _ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit: ; preds = %.split, %._crit_e
   %.1119288 = phi i64 [ 1, %.lr.ph289 ], [ %478, %466 ]
   %.0121287 = phi double [ 0.000000e+00, %.lr.ph289 ], [ %475, %466 ]
   %.0126286 = phi double [ 0.000000e+00, %.lr.ph289 ], [ %477, %466 ]
-  %467 = getelementptr inbounds nuw double, ptr %463, i64 %.1119288
+  %467 = getelementptr inbounds nuw [8 x i8], ptr %463, i64 %.1119288
   %468 = load double, ptr %467, align 8, !tbaa !28
-  %469 = getelementptr inbounds nuw double, ptr %464, i64 %.1119288
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %464, i64 %.1119288
   %470 = load double, ptr %469, align 8, !tbaa !28
-  %471 = getelementptr inbounds nuw double, ptr %465, i64 %.1119288
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %.1119288
   %472 = load double, ptr %471, align 8, !tbaa !28
   %473 = call double @llvm.fmuladd.f64(double %472, double %462, double %470)
   %474 = call double @sin(double noundef %473) #24, !tbaa !33
@@ -1759,20 +1758,20 @@ _ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit: ; preds = %.split, %._crit_e
   %.1122293 = phi double [ %497, %516 ], [ 0.000000e+00, %.lr.ph296.preheader ]
   %.1127292 = phi double [ %520, %516 ], [ 0.000000e+00, %.lr.ph296.preheader ]
   %485 = load ptr, ptr %202, align 8, !tbaa !27
-  %486 = getelementptr inbounds nuw double, ptr %485, i64 %.2120294
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %485, i64 %.2120294
   %487 = load double, ptr %486, align 8, !tbaa !28
   %488 = load ptr, ptr %220, align 8, !tbaa !27
-  %489 = getelementptr inbounds nuw double, ptr %488, i64 %.2120294
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %.2120294
   %490 = load double, ptr %489, align 8, !tbaa !28
   %491 = load ptr, ptr %243, align 8, !tbaa !27
-  %492 = getelementptr inbounds nuw double, ptr %491, i64 %.2120294
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %.2120294
   %493 = load double, ptr %492, align 8, !tbaa !28
   %494 = call double @llvm.fmuladd.f64(double %493, double %462, double %490)
   %495 = fsub double %494, %483
   %496 = call double @cos(double noundef %495) #24, !tbaa !33
   %497 = call double @llvm.fmuladd.f64(double %487, double %496, double %.1122293)
   %498 = load ptr, ptr %236, align 8, !tbaa !35
-  %499 = getelementptr inbounds nuw %"class.std::complex", ptr %498, i64 %.2120294
+  %499 = getelementptr inbounds nuw [16 x i8], ptr %498, i64 %.2120294
   %500 = load double, ptr %499, align 8, !tbaa !28
   %501 = getelementptr inbounds nuw i8, ptr %499, i64 8
   %502 = load double, ptr %501, align 8, !tbaa !28
@@ -3647,9 +3646,9 @@ _ZNSt6vectorISt7complexIdESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds =
 
 _ZNSt12_Vector_baseISt7complexIdESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds = %33, %_ZNSt6vectorISt7complexIdESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !35
-  %34 = getelementptr inbounds nuw %"class.std::complex", ptr %29, i64 %12
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %12
   store ptr %34, ptr %3, align 8, !tbaa !38
-  %35 = getelementptr inbounds nuw %"class.std::complex", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %35, ptr %13, align 8, !tbaa !140
   br label %_ZNSt6vectorISt7complexIdESaIS1_EE17_M_default_appendEm.exit
 
@@ -3658,7 +3657,7 @@ _ZNSt12_Vector_baseISt7complexIdESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds
   br i1 %37, label %38, label %_ZNSt6vectorISt7complexIdESaIS1_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %"class.std::complex", ptr %5, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorISt7complexIdESaIS1_EE17_M_default_appendEm.exit, label %40
 
@@ -4664,9 +4663,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !27
-  %38 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !182
   br label %40
 
@@ -4713,7 +4712,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !63
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !64
   br label %16

@@ -6300,7 +6300,7 @@ define hidden void @"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sroa.0.0.copyload.i = load ptr, ptr %42, align 8, !noalias !1025, !nonnull !19, !noundef !19
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !1025
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 96
-  %123 = getelementptr inbounds { [3 x i64] }, ptr %122, i64 %.sroa.43.0.copyload.i
+  %123 = getelementptr inbounds [24 x i8], ptr %122, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %123, i64 24, i1 false), !noalias !1033
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !1032
   %.pr = load i64, ptr %24, align 8, !alias.scope !1034

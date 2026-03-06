@@ -719,7 +719,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_check_blockref(ptr noundef
 
 23:                                               ; preds = %16, %5
   %24 = zext i32 %4 to i64
-  %25 = getelementptr i32, ptr %3, i64 %24
+  %25 = getelementptr [4 x i8], ptr %3, i64 %24
   %26 = icmp ugt ptr %25, %3
   br i1 %26, label %.preheader7, label %.loopexit
 

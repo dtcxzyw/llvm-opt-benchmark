@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator.0" = type { i8 }
 %"class.std::shared_ptr.22" = type { %"class.std::__shared_ptr.23" }
 %"class.std::__shared_ptr.23" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.25" = type { %"class.std::__shared_ptr.26" }
-%"class.std::__shared_ptr.26" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -2500,7 +2498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %60,
   unreachable
 
 _ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE2atEm.exit: ; preds = %72
-  %80 = getelementptr inbounds nuw %"class.std::shared_ptr.25", ptr %73, i64 %.0842
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %.0842
   %81 = load ptr, ptr %80, align 8, !tbaa !86
   store ptr %81, ptr %5, align 8, !tbaa !89
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -13628,7 +13626,7 @@ _ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE2
 _ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE2atEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEEaSERKS2_.exit
   %21 = phi ptr [ %13, %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph ], [ %133, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEEaSERKS2_.exit ]
   %.02440 = phi i64 [ 0, %_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE2atEm.exit.lr.ph ], [ %131, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEEaSERKS2_.exit ]
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.25", ptr %21, i64 %.02440
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.02440
   %23 = load ptr, ptr %14, align 8, !tbaa !48
   %24 = load ptr, ptr %15, align 8, !tbaa !301
   %.not.i = icmp eq ptr %23, %24
@@ -16947,7 +16945,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exi
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, %58
   store ptr %20, ptr %0, align 8, !tbaa !335
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !331
-  %62 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !334
   ret void
 
@@ -18285,7 +18283,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE11
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev16CDLTransformImplEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !48
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.25", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !301
   ret void
 }

@@ -1296,7 +1296,7 @@ define internal fastcc range(i32 0, 2) i32 @perf_ibs_handle_irq(ptr noundef %0, 
   br i1 %265, label %316, label %300
 
 300:                                              ; preds = %298
-  %301 = getelementptr i64, ptr @g_zen4_data_src, i64 %299
+  %301 = getelementptr [8 x i8], ptr @g_zen4_data_src, i64 %299
   %302 = load i64, ptr %301, align 8
   %303 = shl nuw nsw i64 1, %299
   %304 = and i64 %303, 4294966801
@@ -1327,7 +1327,7 @@ define internal fastcc range(i32 0, 2) i32 @perf_ibs_handle_irq(ptr noundef %0, 
   br i1 %319, label %.thread13, label %327
 
 .thread13:                                        ; preds = %316
-  %320 = getelementptr i64, ptr @g_data_src, i64 %299
+  %320 = getelementptr [8 x i8], ptr @g_data_src, i64 %299
   %321 = load i64, ptr %320, align 8
   %322 = and i64 %259, 16
   %323 = icmp ne i64 %322, 0

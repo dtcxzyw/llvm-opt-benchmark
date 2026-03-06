@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PQExpBufferData = type { ptr, i64, i64 }
 %struct.SimplePtrList = type { ptr, ptr }
 %struct._connParams = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.PatternInfo = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
 
 @main.long_options = internal global [35 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 1, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer, ptr null, i32 112, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 85, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 0, [4 x i8] zeroinitializer, ptr null, i32 119, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 0, [4 x i8] zeroinitializer, ptr null, i32 87, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 1, [4 x i8] zeroinitializer, ptr null, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 0, [4 x i8] zeroinitializer, ptr null, i32 97, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.7, i32 1, [4 x i8] zeroinitializer, ptr null, i32 100, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.8, i32 1, [4 x i8] zeroinitializer, ptr null, i32 68, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.9, i32 0, [4 x i8] zeroinitializer, ptr null, i32 101, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.10, i32 1, [4 x i8] zeroinitializer, ptr null, i32 105, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.11, i32 1, [4 x i8] zeroinitializer, ptr null, i32 73, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.12, i32 1, [4 x i8] zeroinitializer, ptr null, i32 106, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.13, i32 0, [4 x i8] zeroinitializer, ptr null, i32 80, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.14, i32 1, [4 x i8] zeroinitializer, ptr null, i32 114, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.15, i32 1, [4 x i8] zeroinitializer, ptr null, i32 82, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.16, i32 1, [4 x i8] zeroinitializer, ptr null, i32 115, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.17, i32 1, [4 x i8] zeroinitializer, ptr null, i32 83, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.18, i32 1, [4 x i8] zeroinitializer, ptr null, i32 116, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.19, i32 1, [4 x i8] zeroinitializer, ptr null, i32 84, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.20, i32 0, [4 x i8] zeroinitializer, ptr null, i32 118, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.21, i32 0, [4 x i8] zeroinitializer, ptr null, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.22, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.23, i32 0, [4 x i8] zeroinitializer, ptr null, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.24, i32 0, [4 x i8] zeroinitializer, ptr null, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.25, i32 1, [4 x i8] zeroinitializer, ptr null, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.26, i32 1, [4 x i8] zeroinitializer, ptr null, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.27, i32 1, [4 x i8] zeroinitializer, ptr null, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.28, i32 0, [4 x i8] zeroinitializer, ptr null, i32 9, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.29, i32 0, [4 x i8] zeroinitializer, ptr null, i32 10, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.30, i32 0, [4 x i8] zeroinitializer, ptr null, i32 11, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.31, i32 0, [4 x i8] zeroinitializer, ptr null, i32 12, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.32, i32 2, [4 x i8] zeroinitializer, ptr null, i32 13, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.33, i32 0, [4 x i8] zeroinitializer, ptr null, i32 14, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str = private unnamed_addr constant [5 x i8] c"host\00", align 1
@@ -626,7 +625,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 135:                                              ; preds = %132
   %136 = sext i32 %133 to i64
-  %137 = getelementptr inbounds ptr, ptr %1, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %1, i64 %136
   %138 = load ptr, ptr %137, align 8
   %139 = add nsw i32 %133, 1
   store i32 %139, ptr @optind, align 4
@@ -640,7 +639,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 143:                                              ; preds = %140
   %144 = sext i32 %141 to i64
-  %145 = getelementptr inbounds ptr, ptr %1, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %1, i64 %144
   %146 = load ptr, ptr %145, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %146) #11
   %147 = load ptr, ptr @progname, align 8
@@ -1203,7 +1202,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 381:                                              ; preds = %377
   %382 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
-  %383 = getelementptr inbounds nuw %struct.PatternInfo, ptr %382, i64 %378
+  %383 = getelementptr inbounds nuw [40 x i8], ptr %382, i64 %378
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 34
   store i8 1, ptr %384, align 2
   br label %419
@@ -1295,7 +1294,7 @@ compile_relation_list_one_db.exit:                ; preds = %419, %337
   %.0174328 = phi i1 [ %.1175, %464 ], [ false, %.preheader264 ]
   %.0188327 = phi i32 [ %465, %464 ], [ 0, %.preheader264 ]
   %424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
-  %425 = getelementptr inbounds %struct.PatternInfo, ptr %424, i64 %423
+  %425 = getelementptr inbounds [40 x i8], ptr %424, i64 %423
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 34
   %427 = load i8, ptr %426, align 2, !range !6, !noundef !7
   %428 = trunc nuw i8 %427 to i1
@@ -1779,7 +1778,7 @@ define internal fastcc void @append_database_pattern(ptr noundef captures(none) 
   %11 = tail call ptr @pg_realloc(ptr noundef %9, i64 noundef %10) #11
   store ptr %11, ptr %0, align 8
   %12 = load i64, ptr %6, align 8
-  %13 = getelementptr %struct.PatternInfo, ptr %11, i64 %12
+  %13 = getelementptr [40 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #11
@@ -1829,7 +1828,7 @@ define internal fastcc void @append_schema_pattern(ptr noundef captures(none) %0
   %12 = tail call ptr @pg_realloc(ptr noundef %10, i64 noundef %11) #11
   store ptr %12, ptr %0, align 8
   %13 = load i64, ptr %7, align 8
-  %14 = getelementptr %struct.PatternInfo, ptr %12, i64 %13
+  %14 = getelementptr [40 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #11
@@ -1936,7 +1935,7 @@ define internal fastcc void @compile_database_list(ptr noundef %0, ptr noundef n
   %.026.us.i = phi i32 [ %28, %25 ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.02025.us.i = phi i8 [ %.1.us.i, %25 ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.02124.us.i = phi ptr [ %.122.us.i, %25 ], [ @.str.81, %.lr.ph.split.us.i.preheader ]
-  %17 = getelementptr inbounds %struct.PatternInfo, ptr %14, i64 %16
+  %17 = getelementptr inbounds [40 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.us.i = icmp eq ptr %19, null
@@ -2000,7 +1999,7 @@ append_db_pattern_cte.exit.thread:                ; preds = %._crit_edge.i, %app
   %.026.i = phi i32 [ %58, %55 ], [ 0, %.lr.ph.split.i.preheader ]
   %.02025.i = phi i8 [ %.1.i, %55 ], [ 0, %.lr.ph.split.i.preheader ]
   %.02124.i = phi ptr [ %.122.i, %55 ], [ @.str.81, %.lr.ph.split.i.preheader ]
-  %39 = getelementptr inbounds %struct.PatternInfo, ptr %36, i64 %38
+  %39 = getelementptr inbounds [40 x i8], ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
@@ -2132,7 +2131,7 @@ append_db_pattern_cte.exit59:                     ; preds = %._crit_edge.i57, %.
   %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 4), align 4, !range !6, !noundef !7
   %94 = trunc nuw i8 %93 to i1
   %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 24), align 8
-  %96 = getelementptr inbounds nuw %struct.PatternInfo, ptr %95, i64 %89
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %95, i64 %89
   %97 = load ptr, ptr %96, align 8
   br i1 %94, label %98, label %.thread
 
@@ -2797,7 +2796,7 @@ define internal fastcc void @append_relation_pattern_helper(ptr noundef captures
   %15 = tail call ptr @pg_realloc(ptr noundef %13, i64 noundef %14) #11
   store ptr %15, ptr %0, align 8
   %16 = load i64, ptr %10, align 8
-  %17 = getelementptr %struct.PatternInfo, ptr %15, i64 %16
+  %17 = getelementptr [40 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #11
@@ -2890,7 +2889,7 @@ define internal fastcc void @append_rel_pattern_raw_cte(ptr noundef nonnull %0, 
   %.03542 = phi i1 [ true, %28 ], [ false, %3 ]
   %.03641 = phi ptr [ @.str.168, %28 ], [ @.str.81, %3 ]
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds %struct.PatternInfo, ptr %7, i64 %6
+  %8 = getelementptr inbounds [40 x i8], ptr %7, i64 %6
   br i1 %.03542, label %10, label %9
 
 9:                                                ; preds = %.lr.ph

@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { i32 }
 %struct._VAIQMatrixBufferH264 = type { [6 x [16 x i8]], [2 x [64 x i8]], [4 x i32] }
 %struct._VASliceParameterBufferH264 = type { i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, [32 x %struct._VAPictureH264], [32 x %struct._VAPictureH264], i8, i8, i8, [32 x i16], [32 x i16], i8, [32 x [2 x i16]], [32 x [2 x i16]], i8, [32 x i16], [32 x i16], i8, [32 x [2 x i16]], [32 x [2 x i16]], [4 x i32] }
-%struct.H264Ref = type { [3 x ptr], [3 x i32], i32, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"h264_vaapi\00", align 1
 @ff_h264_vaapi_hwaccel = local_unnamed_addr constant { %struct.AVHWAccel, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { %struct.AVHWAccel { ptr @.str, i32 0, i32 27, i32 44, i32 0 }, ptr null, ptr @vaapi_h264_start_frame, ptr null, ptr @vaapi_h264_decode_slice, ptr @vaapi_h264_end_frame, i32 40, i32 72, i32 1, [4 x i8] zeroinitializer, ptr @ff_vaapi_decode_init, ptr @ff_vaapi_decode_uninit, ptr @ff_vaapi_common_frame_params, ptr null, ptr null, ptr null }, align 8
@@ -284,7 +283,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
 
 193:                                              ; preds = %193, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %193 ]
-  %194 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %187, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [36 x i8], ptr %187, i64 %indvars.iv.i
   store i32 -1, ptr %194, align 4, !tbaa !119
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i32 1, ptr %195, align 4, !tbaa !123
@@ -303,7 +302,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
 199:                                              ; preds = %.critedge.i, %.lr.ph.i
   %200 = phi i32 [ %190, %.lr.ph.i ], [ %209, %.critedge.i ]
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next42.i, %.critedge.i ]
-  %201 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv41.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv41.i
   %202 = load ptr, ptr %201, align 8, !tbaa !134
   %.not30.i = icmp eq ptr %202, null
   br i1 %.not30.i, label %.critedge.i, label %203
@@ -332,7 +331,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
 
 212:                                              ; preds = %.critedge33.i, %.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %.critedge33.i ]
-  %213 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv44.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv44.i
   %214 = load ptr, ptr %213, align 8, !tbaa !134
   %.not.i111 = icmp eq ptr %214, null
   br i1 %.not.i111, label %.critedge33.i, label %215
@@ -556,7 +555,7 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
 .lr.ph.i:                                         ; preds = %128, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %128 ]
   %.017.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %128 ]
-  %97 = getelementptr inbounds nuw %struct.H264Ref, ptr %91, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [56 x i8], ptr %91, i64 %indvars.iv.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 36
   %99 = load i32, ptr %98, align 4, !tbaa !158
   %.not.i = icmp eq i32 %99, 0
@@ -565,7 +564,7 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
 100:                                              ; preds = %.lr.ph.i
   %101 = add i32 %.017.i, 1
   %102 = zext i32 %.017.i to i64
-  %103 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %90, i64 %102
+  %103 = getelementptr inbounds nuw [36 x i8], ptr %90, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !160
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 700
@@ -620,7 +619,7 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
   %indvars.iv22.i = phi i64 [ %96, %.lr.ph19.preheader.i ], [ %indvars.iv.next23.i, %.lr.ph19.i ]
-  %129 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %90, i64 %indvars.iv22.i
+  %129 = getelementptr inbounds nuw [36 x i8], ptr %90, i64 %indvars.iv22.i
   store i32 -1, ptr %129, align 4, !tbaa !119
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i32 1, ptr %130, align 4, !tbaa !123
@@ -662,7 +661,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
 .lr.ph.i56:                                       ; preds = %174, %.lr.ph.preheader.i54
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i74, %174 ]
   %.017.i58 = phi i32 [ 0, %.lr.ph.preheader.i54 ], [ %.1.i73, %174 ]
-  %143 = getelementptr inbounds nuw %struct.H264Ref, ptr %135, i64 %indvars.iv.i57
+  %143 = getelementptr inbounds nuw [56 x i8], ptr %135, i64 %indvars.iv.i57
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 36
   %145 = load i32, ptr %144, align 4, !tbaa !158
   %.not.i59 = icmp eq i32 %145, 0
@@ -671,7 +670,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
 146:                                              ; preds = %.lr.ph.i56
   %147 = add i32 %.017.i58, 1
   %148 = zext i32 %.017.i58 to i64
-  %149 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %134, i64 %148
+  %149 = getelementptr inbounds nuw [36 x i8], ptr %134, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %151 = load ptr, ptr %150, align 8, !tbaa !160
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 700
@@ -726,7 +725,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
 
 .lr.ph19.i79:                                     ; preds = %.lr.ph19.i79, %.lr.ph19.preheader.i77
   %indvars.iv22.i80 = phi i64 [ %142, %.lr.ph19.preheader.i77 ], [ %indvars.iv.next23.i81, %.lr.ph19.i79 ]
-  %175 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %134, i64 %indvars.iv22.i80
+  %175 = getelementptr inbounds nuw [36 x i8], ptr %134, i64 %indvars.iv22.i80
   store i32 -1, ptr %175, align 4, !tbaa !119
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i32 1, ptr %176, align 4, !tbaa !123
@@ -846,7 +845,7 @@ define internal fastcc range(i32 -1, 1) i32 @dpb_add(ptr noundef nonnull capture
 20:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.02747 = phi i32 [ 0, %.lr.ph ], [ %.1, %43 ]
-  %21 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [36 x i8], ptr %12, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !123
   %24 = load i32, ptr %21, align 4, !tbaa !119
@@ -910,7 +909,7 @@ define internal fastcc range(i32 -1, 1) i32 @dpb_add(ptr noundef nonnull capture
   %47 = add nsw i32 %3, 1
   store i32 %47, ptr %0, align 8, !tbaa !124
   %48 = sext i32 %3 to i64
-  %49 = getelementptr inbounds %struct._VAPictureH264, ptr %46, i64 %48
+  %49 = getelementptr inbounds [36 x i8], ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 700
   %51 = load i32, ptr %50, align 4, !tbaa !118
   %52 = and i32 %51, 3
@@ -961,17 +960,17 @@ declare i32 @ff_h264_get_slice_type(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @fill_vaapi_plain_pred_weight_table(ptr readonly captures(none) %.730728.val, i32 noundef range(i32 0, 2) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #5 {
   %8 = getelementptr inbounds nuw i8, ptr %.730728.val, i64 112
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !104
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %1, align 1, !tbaa !117
   %13 = getelementptr inbounds nuw i8, ptr %.730728.val, i64 120
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %9
   %15 = load i32, ptr %14, align 4, !tbaa !104
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %4, align 1, !tbaa !117
   %17 = getelementptr inbounds nuw i8, ptr %.730728.val, i64 22648
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %9
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %9
   %19 = load i32, ptr %18, align 4, !tbaa !104
   %.not9 = icmp eq i32 %19, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -980,12 +979,12 @@ define internal fastcc void @fill_vaapi_plain_pred_weight_table(ptr readonly cap
   %20 = load i32, ptr %10, align 4, !tbaa !104
   %.not = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %.730728.val, i64 128
-  %invariant.gep = getelementptr inbounds nuw [2 x i32], ptr %21, i64 %9
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %9
   %22 = getelementptr inbounds nuw i8, ptr %.730728.val, i64 104
   %23 = load i32, ptr %14, align 4, !tbaa !104
   %.not53 = icmp eq i32 %23, 0
   %24 = getelementptr inbounds nuw i8, ptr %.730728.val, i64 896
-  %invariant.gep5 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %24, i64 %9
+  %invariant.gep5 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %9
   br i1 %.not53, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1008,12 +1007,12 @@ define internal fastcc void @fill_vaapi_plain_pred_weight_table(ptr readonly cap
 
 .split.us.us.us:                                  ; preds = %.split.us.us.us, %.lr.ph.split.us.split.us
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.split.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %32 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv36
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv36
   store i16 %31, ptr %32, align 2, !tbaa !116
-  %33 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv36
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv36
   store i16 0, ptr %33, align 2, !tbaa !116
-  %34 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 %indvars.iv36
-  %35 = getelementptr inbounds nuw [2 x i16], ptr %6, i64 %indvars.iv36
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv36
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv36
   store i16 %28, ptr %34, align 2, !tbaa !116
   store i16 0, ptr %35, align 2, !tbaa !116
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 2
@@ -1026,18 +1025,18 @@ define internal fastcc void @fill_vaapi_plain_pred_weight_table(ptr readonly cap
 
 .split.us.us:                                     ; preds = %.split.us.us.preheader, %.split.us.us
   %indvars.iv28 = phi i64 [ 0, %.split.us.us.preheader ], [ %indvars.iv.next29, %.split.us.us ]
-  %gep.us = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv28
+  %gep.us = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv28
   %38 = load i32, ptr %gep.us, align 8, !tbaa !104
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv28
   store i16 %39, ptr %40, align 2, !tbaa !116
   %41 = getelementptr inbounds nuw i8, ptr %gep.us, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !104
   %43 = trunc i32 %42 to i16
-  %44 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv28
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv28
   store i16 %43, ptr %44, align 2, !tbaa !116
-  %45 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 %indvars.iv28
-  %46 = getelementptr inbounds nuw [2 x i16], ptr %6, i64 %indvars.iv28
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv28
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv28
   store i16 %28, ptr %45, align 2, !tbaa !116
   store i16 0, ptr %46, align 2, !tbaa !116
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 2
@@ -1064,13 +1063,13 @@ define internal fastcc void @fill_vaapi_plain_pred_weight_table(ptr readonly cap
 
 .split.us:                                        ; preds = %.split.us, %.lr.ph.split.split.us
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %52 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv20
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv20
   store i16 %51, ptr %52, align 2, !tbaa !116
-  %53 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv20
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv20
   store i16 0, ptr %53, align 2, !tbaa !116
-  %gep6.us8 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep5, i64 %indvars.iv20
-  %54 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 %indvars.iv20
-  %55 = getelementptr inbounds nuw [2 x i16], ptr %6, i64 %indvars.iv20
+  %gep6.us8 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep5, i64 %indvars.iv20
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv20
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv20
   %56 = load i32, ptr %gep6.us8, align 8, !tbaa !104
   %57 = trunc i32 %56 to i16
   store i16 %57, ptr %54, align 2, !tbaa !116
@@ -1094,19 +1093,19 @@ define internal fastcc void @fill_vaapi_plain_pred_weight_table(ptr readonly cap
 
 .split:                                           ; preds = %.split.preheader, %.split
   %indvars.iv14 = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next15, %.split ]
-  %gep = getelementptr inbounds nuw [2 x [2 x i32]], ptr %invariant.gep, i64 %indvars.iv14
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv14
   %69 = load i32, ptr %gep, align 8, !tbaa !104
   %70 = trunc i32 %69 to i16
-  %71 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv14
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv14
   store i16 %70, ptr %71, align 2, !tbaa !116
   %72 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !104
   %74 = trunc i32 %73 to i16
-  %75 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv14
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv14
   store i16 %74, ptr %75, align 2, !tbaa !116
-  %gep6 = getelementptr inbounds nuw [2 x [2 x [2 x i32]]], ptr %invariant.gep5, i64 %indvars.iv14
-  %76 = getelementptr inbounds nuw [2 x i16], ptr %5, i64 %indvars.iv14
-  %77 = getelementptr inbounds nuw [2 x i16], ptr %6, i64 %indvars.iv14
+  %gep6 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep5, i64 %indvars.iv14
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv14
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv14
   %78 = load i32, ptr %gep6, align 8, !tbaa !104
   %79 = trunc i32 %78 to i16
   store i16 %79, ptr %76, align 2, !tbaa !116

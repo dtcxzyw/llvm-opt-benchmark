@@ -93,7 +93,7 @@ _ZN18XArrayIteratorImplIP5XPageLb1EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
   %20 = sext i32 %9 to i64
   store ptr %19, ptr %14, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %22, ptr %21, align 8
   %23 = icmp eq i32 %11, 0
   br i1 %23, label %_ZN25XRelocationSetInstallTaskC2EP20XForwardingAllocatorPK22XRelocationSetSelector.exit, label %24
@@ -109,7 +109,7 @@ _ZN25XRelocationSetInstallTaskC2EP20XForwardingAllocatorPK22XRelocationSetSelect
   %29 = sext i32 %11 to i64
   store ptr %27, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %31, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store volatile i64 %29, ptr %32, align 8
@@ -360,7 +360,7 @@ _ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit: ; preds = %_ZN14XAtt
   store i8 0, ptr %47, align 1
   %48 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %6) #8, !srcloc !6
   %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %48
   store ptr %33, ptr %50, align 8
   br label %8, !llvm.loop !11
 
@@ -442,7 +442,7 @@ _ZN11XForwarding5allocEP20XForwardingAllocatorP5XPage.exit13: ; preds = %_ZN14XA
   store i8 0, ptr %86, align 1
   %87 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %14) #8, !srcloc !6
   %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %87
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %87
   store ptr %72, ptr %89, align 8
   br label %_ZN18XArrayIteratorImplIP5XPageLb1EE4nextEPS1_.exit, !llvm.loop !12
 

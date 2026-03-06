@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [17 x i8] c"SetOp hash table\00", align 1
@@ -117,11 +116,11 @@ define dso_local noundef ptr @ExecInitSetOp(ptr noundef %0, ptr noundef %1, i32 
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %62 = load ptr, ptr %55, align 8
-  %63 = getelementptr inbounds nuw %struct.SortSupportData, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %64, ptr %63, align 8
   %65 = load ptr, ptr %57, align 8
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %67, ptr %68, align 8
@@ -131,14 +130,14 @@ define dso_local noundef ptr @ExecInitSetOp(ptr noundef %0, ptr noundef %1, i32 
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 13
   store i8 %71, ptr %72, align 1
   %73 = load ptr, ptr %59, align 8
-  %74 = getelementptr inbounds nuw i16, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %indvars.iv
   %75 = load i16, ptr %74, align 2
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 14
   store i16 %75, ptr %76, align 2
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i8 0, ptr %77, align 8
   %78 = load ptr, ptr %60, align 8
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %80, ptr noundef nonnull %63) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -975,16 +974,16 @@ slot_getallattrs.exit29:                          ; preds = %slot_getallattrs.ex
   %29 = phi i32 [ %21, %.lr.ph ], [ %70, %ApplySortComparator.exit.thread33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ApplySortComparator.exit.thread33 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds nuw %struct.SortSupportData, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 14
   %33 = load i16, ptr %32, align 2
   %34 = load ptr, ptr %24, align 8
   %35 = sext i16 %33 to i64
   %36 = add nsw i64 %35, -1
-  %37 = getelementptr inbounds i64, ptr %34, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %34, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr %25, align 8
-  %40 = getelementptr inbounds i64, ptr %39, i64 %36
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %36
   %41 = load i64, ptr %40, align 8
   %42 = load ptr, ptr %26, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %36

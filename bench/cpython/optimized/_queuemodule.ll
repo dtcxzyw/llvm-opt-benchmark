@@ -254,7 +254,7 @@ define internal void @simplequeue_dealloc(ptr noundef %0) #0 {
 .lr.ph.i.i:                                       ; preds = %1, %Py_DECREF.exit.i.i
   %.018.i.i = phi i64 [ %22, %Py_DECREF.exit.i.i ], [ %7, %1 ]
   %.01617.i.i = phi i64 [ %21, %Py_DECREF.exit.i.i ], [ %11, %1 ]
-  %13 = getelementptr ptr, ptr %5, i64 %.01617.i.i
+  %13 = getelementptr [8 x i8], ptr %5, i64 %.01617.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = load i32, ptr %14, align 8, !tbaa !16
   %.not.i.i.i = icmp sgt i32 %15, -1
@@ -331,7 +331,7 @@ define internal i32 @simplequeue_traverse(ptr noundef readonly captures(none) %0
   %12 = add i64 %11, %.02437
   %13 = load i64, ptr %8, align 8, !tbaa !24
   %14 = srem i64 %12, %13
-  %15 = getelementptr ptr, ptr %10, i64 %14
+  %15 = getelementptr [8 x i8], ptr %10, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %19, label %17
@@ -383,7 +383,7 @@ define internal noundef i32 @simplequeue_clear(ptr noundef captures(none) initia
 .lr.ph.i:                                         ; preds = %1, %Py_DECREF.exit.i
   %.018.i = phi i64 [ %21, %Py_DECREF.exit.i ], [ %6, %1 ]
   %.01617.i = phi i64 [ %20, %Py_DECREF.exit.i ], [ %10, %1 ]
-  %12 = getelementptr ptr, ptr %4, i64 %.01617.i
+  %12 = getelementptr [8 x i8], ptr %4, i64 %.01617.i
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load i32, ptr %13, align 8, !tbaa !16
   %.not.i.i = icmp sgt i32 %14, -1
@@ -837,7 +837,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !19
-  %50 = getelementptr ptr, ptr %49, i64 %44
+  %50 = getelementptr [8 x i8], ptr %49, i64 %44
   %51 = shl i64 %..i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %50, i64 %51, i1 false)
   %.pre.i.i = load i64, ptr %21, align 8, !tbaa !23
@@ -850,7 +850,7 @@ define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr noundef %0, ptr noun
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %52
-  %57 = getelementptr ptr, ptr %40, i64 %..i.i
+  %57 = getelementptr [8 x i8], ptr %40, i64 %..i.i
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !19
   %60 = shl i64 %54, 3
@@ -875,7 +875,7 @@ RingBuf_Get.exit:                                 ; preds = %._crit_edge, %35, %
   %68 = load ptr, ptr %67, align 8, !tbaa !19
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8, !tbaa !25
-  %71 = getelementptr ptr, ptr %68, i64 %70
+  %71 = getelementptr [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !17
   store ptr null, ptr %71, align 8, !tbaa !17
   %73 = add i64 %70, 1
@@ -1049,7 +1049,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %8
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !19
-  %38 = getelementptr ptr, ptr %37, i64 %32
+  %38 = getelementptr [8 x i8], ptr %37, i64 %32
   %39 = shl i64 %..i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %38, i64 %39, i1 false)
   %.pre.i.i = load i64, ptr %16, align 8, !tbaa !23
@@ -1062,7 +1062,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %8
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
-  %45 = getelementptr ptr, ptr %26, i64 %..i.i
+  %45 = getelementptr [8 x i8], ptr %26, i64 %..i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = shl i64 %42, 3
@@ -1090,7 +1090,7 @@ RingBuf_Put.exit:                                 ; preds = %.thread, %21, %49
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8, !tbaa !19
   %58 = load i64, ptr %15, align 8, !tbaa !47
-  %59 = getelementptr ptr, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   store ptr %1, ptr %59, align 8, !tbaa !17
   %60 = add i64 %58, 1
   %61 = srem i64 %60, %55

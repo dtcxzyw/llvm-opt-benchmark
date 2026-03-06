@@ -4,12 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.VP8LBitReader = type { i64, ptr, i64, i64, i32, i32 }
-%struct.HTreeGroup = type { [5 x ptr], i32, i32, i32, i32, [64 x %struct.HuffmanCode32] }
-%struct.HuffmanCode32 = type { i32, i32 }
-%struct.HuffmanCode = type { i8, i16 }
 %struct.HuffmanTables = type { %struct.HuffmanTablesSegment, ptr }
 %struct.HuffmanTablesSegment = type { ptr, ptr, ptr, i32 }
-%struct.VP8LTransform = type { i32, i32, i32, i32, ptr }
 
 @kAlphabetSize = internal unnamed_addr constant [5 x i16] [i16 280, i16 256, i16 256, i16 256, i16 40], align 2
 @kTableSize = internal unnamed_addr constant [12 x i16] [i16 2954, i16 2956, i16 2958, i16 2962, i16 2970, i16 2986, i16 3018, i16 3082, i16 3212, i16 3468, i16 3980, i16 5004], align 16
@@ -127,7 +123,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %8 = icmp sgt i32 %0, 0
   %9 = shl nuw i32 1, %0
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds i16, ptr @kTableSize, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr @kTableSize, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !8
   %13 = zext i16 %12 to i32
   %14 = icmp eq ptr %3, null
@@ -183,7 +179,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   br i1 %14, label %.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv207
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv207
   %37 = load i32, ptr %36, align 4, !tbaa !6
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %.preheader, label %.thread
@@ -193,7 +189,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
 
 .preheader.split.us:                              ; preds = %.preheader, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader ]
-  %39 = getelementptr inbounds nuw i16, ptr @kAlphabetSize, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr @kAlphabetSize, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2, !tbaa !8
   %41 = zext i16 %40 to i32
   %42 = tail call fastcc i32 @ReadHuffmanCode(i32 noundef %41, ptr noundef %4, ptr noundef %20, ptr noundef null)
@@ -212,7 +208,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
 
 .preheader.split:                                 ; preds = %.preheader, %44
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %44 ], [ 0, %.preheader ]
-  %45 = getelementptr inbounds nuw i16, ptr @kAlphabetSize, i64 %indvars.iv195
+  %45 = getelementptr inbounds nuw [2 x i8], ptr @kAlphabetSize, i64 %indvars.iv195
   %46 = load i16, ptr %45, align 2, !tbaa !8
   %47 = zext i16 %46 to i32
   %48 = icmp eq i64 %indvars.iv195, 0
@@ -226,7 +222,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %50 = phi i32 [ %34, %33 ], [ %37, %35 ]
   %51 = load ptr, ptr %6, align 8, !tbaa !10
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds %struct.HTreeGroup, ptr %51, i64 %52
+  %53 = getelementptr inbounds [568 x i8], ptr %51, i64 %52
   %54 = tail call fastcc i32 @ReadHuffmanCode(i32 noundef %spec.select149236, ptr noundef %4, ptr noundef %20, ptr noundef %5)
   %55 = load ptr, ptr %28, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -270,7 +266,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !30
   %72 = sext i32 %59 to i64
-  %73 = getelementptr inbounds %struct.HuffmanCode, ptr %71, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %71, i64 %72
   store ptr %73, ptr %70, align 8, !tbaa !30
   %.not142 = icmp eq i64 %indvars.iv203238, 4
   br i1 %.not142, label %88, label %74
@@ -287,7 +283,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv199 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next200, %.lr.ph ]
   %.0113180 = phi i32 [ %75, %.lr.ph.preheader ], [ %spec.select150, %.lr.ph ]
-  %77 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv199
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv199
   %78 = load i32, ptr %77, align 4, !tbaa !6
   %spec.select150 = tail call i32 @llvm.smax.i32(i32 %78, i32 %.0113180)
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
@@ -298,14 +294,14 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %.0113.lcssa = phi i32 [ %75, %74 ], [ %spec.select150, %.lr.ph ]
   %79 = add nsw i32 %.0113.lcssa, %.0116184239
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203238, 1
-  %80 = getelementptr inbounds nuw i16, ptr @kAlphabetSize, i64 %indvars.iv.next204
+  %80 = getelementptr inbounds nuw [2 x i8], ptr @kAlphabetSize, i64 %indvars.iv.next204
   %81 = load i16, ptr %80, align 2, !tbaa !8
   %82 = zext i16 %81 to i32
   %83 = tail call fastcc i32 @ReadHuffmanCode(i32 noundef %82, ptr noundef %4, ptr noundef %20, ptr noundef %5)
   %84 = load ptr, ptr %28, align 8, !tbaa !29
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !30
-  %87 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.next204
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.next204
   store ptr %86, ptr %87, align 8, !tbaa !31
   %.not143 = icmp eq i32 %83, 0
   br i1 %.not143, label %.loopexit, label %.lr.ph243
@@ -377,8 +373,8 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
 
 132:                                              ; preds = %171, %126
   %indvars.iv.i = phi i64 [ 0, %126 ], [ %indvars.iv.next.i, %171 ]
-  %133 = getelementptr inbounds nuw %struct.HuffmanCode32, ptr %127, i64 %indvars.iv.i
-  %134 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %128, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i8, ptr %134, align 2, !tbaa !3
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %134, i64 2
   %.sroa.52.0.copyload.i = load i16, ptr %.sroa.52.0..sroa_idx.i, align 2, !tbaa !8
@@ -404,7 +400,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %145 = lshr i32 %144, %.sroa.0.0.insert.ext.i
   %146 = load ptr, ptr %129, align 8, !tbaa !31
   %147 = zext nneg i32 %145 to i64
-  %148 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %147
   %149 = load i32, ptr %148, align 2
   %.sroa.33.0.extract.shift.i28.i = and i32 %149, -65536
   %150 = and i32 %149, 255
@@ -415,7 +411,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %153 = lshr i32 %145, %150
   %154 = load ptr, ptr %130, align 8, !tbaa !31
   %155 = zext nneg i32 %153 to i64
-  %156 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %155
   %157 = load i32, ptr %156, align 2
   %.sroa.33.0.extract.shift.i29.i = lshr i32 %157, 16
   %158 = and i32 %157, 255
@@ -426,7 +422,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %161 = lshr i32 %153, %158
   %162 = load ptr, ptr %131, align 8, !tbaa !31
   %163 = zext nneg i32 %161 to i64
-  %164 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %163
   %165 = load i32, ptr %164, align 2
   %166 = and i32 %165, 255
   %167 = add nuw nsw i32 %166, %159
@@ -490,7 +486,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   %15 = select i1 %14, i32 1, i32 8
   %16 = tail call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef %15) #8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %2, i64 %17
   store i32 1, ptr %18, align 4, !tbaa !6
   %19 = icmp eq i32 %12, 1
   br i1 %19, label %20, label %98
@@ -498,7 +494,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
 20:                                               ; preds = %11
   %21 = tail call i32 @VP8LReadBits(ptr noundef nonnull %7, i32 noundef 8) #8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %2, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %2, i64 %22
   store i32 1, ptr %23, align 4, !tbaa !6
   br label %98
 
@@ -520,7 +516,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   %29 = getelementptr inbounds nuw i8, ptr @kCodeLengthCodeOrder, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %31
   store i32 %28, ptr %32, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -588,7 +584,7 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
   %59 = zext nneg i32 %58 to i64
   %60 = lshr i64 %.val.i, %59
   %61 = and i64 %60, 127
-  %62 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %61
   %63 = load i8, ptr %62, align 2, !tbaa !32
   %64 = zext i8 %63 to i32
   %65 = add nsw i32 %.val66.i, %64
@@ -602,7 +598,7 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
 70:                                               ; preds = %VP8LFillBitWindow.exit.i
   %71 = add nsw i32 %.04883.i, 1
   %72 = sext i32 %.04883.i to i64
-  %73 = getelementptr inbounds i32, ptr %2, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %2, i64 %72
   store i32 %68, ptr %73, align 4, !tbaa !6
   %.not63.i = icmp eq i16 %67, 0
   %spec.select.i = select i1 %.not63.i, i32 %.05181.i, i32 %68
@@ -638,7 +634,7 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
   %.04680.i = phi i32 [ %84, %.lr.ph.preheader.i ], [ %91, %.lr.ph.i ]
   %91 = add nsw i32 %.04680.i, -1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %92 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %88, ptr %92, align 4, !tbaa !6
   %93 = icmp samesign ugt i32 %.04680.i, 1
   br i1 %93, label %.lr.ph.i, label %select.unfold.loopexit.i, !llvm.loop !50
@@ -769,7 +765,7 @@ define internal fastcc void @VP8LClear(ptr noundef nonnull %0) unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %15 = getelementptr inbounds nuw %struct.VP8LTransform, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 296
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   tail call void @WebPSafeFree(ptr noundef %17) #8
@@ -865,7 +861,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaHeader(ptr noundef %0, ptr nou
 
 39:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %40 = getelementptr inbounds nuw %struct.HTreeGroup, ptr %37, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [568 x i8], ptr %37, i64 %indvars.iv.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = load i8, ptr %42, align 2, !tbaa !32
@@ -940,8 +936,8 @@ Is8bOptimizable.exit.thread:                      ; preds = %44, %48, %39, %29, 
   ]
 
 83:                                               ; preds = %Is8bOptimizable.exit.thread
-  %84 = getelementptr inbounds nuw i32, ptr %77, i64 %70
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %72
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %70
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %72
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %85, ptr %86, align 8, !tbaa !79
   br label %AllocateInternalBuffers8b.exit
@@ -995,7 +991,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
 15:                                               ; preds = %13
   %16 = load i32, ptr %11, align 8, !tbaa !56
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.VP8LTransform, ptr %10, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %10, i64 %17
   %19 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 2) #8
   %20 = load i32, ptr %12, align 8, !tbaa !60
   %21 = shl nuw i32 1, %19
@@ -1185,7 +1181,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 111:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %.268.i131 = phi i32 [ 1, %.lr.ph ], [ %spec.select.i, %111 ]
-  %112 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4, !tbaa !6
   %114 = lshr i32 %113, 8
   %115 = and i32 %114, 65535
@@ -1234,10 +1230,10 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 130:                                              ; preds = %.lr.ph136, %139
   %indvars.iv141 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next142, %139 ]
   %.2.i133 = phi i32 [ 0, %.lr.ph136 ], [ %.3.i, %139 ]
-  %131 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv141
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv141
   %132 = load i32, ptr %131, align 4, !tbaa !6
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %122, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !6
   %136 = icmp eq i32 %135, -1
   br i1 %136, label %137, label %139
@@ -1490,7 +1486,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
   %39 = ashr i32 %20, %30
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %36, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %36, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !6
   %44 = sext i32 %43 to i64
   br label %45
@@ -1505,7 +1501,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
 .lr.ph234.i:                                      ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %49 = load ptr, ptr %48, align 8, !tbaa !54
-  %50 = getelementptr inbounds %struct.HTreeGroup, ptr %49, i64 %.0.i.i.i
+  %50 = getelementptr inbounds [568 x i8], ptr %49, i64 %.0.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1538,7 +1534,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
   %70 = ashr i32 %.0111230.i, %63
   %71 = add nsw i32 %69, %70
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %67, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %67, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !6
   %75 = sext i32 %74 to i64
   br label %GetHtreeGroupForPos.exit153.i
@@ -1546,7 +1542,7 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
 GetHtreeGroupForPos.exit153.i:                    ; preds = %65, %62
   %.0.i.i152.i = phi i64 [ %75, %65 ], [ 0, %62 ]
   %76 = load ptr, ptr %48, align 8, !tbaa !54
-  %77 = getelementptr inbounds %struct.HTreeGroup, ptr %76, i64 %.0.i.i152.i
+  %77 = getelementptr inbounds [568 x i8], ptr %76, i64 %.0.i.i152.i
   br label %78
 
 78:                                               ; preds = %GetHtreeGroupForPos.exit153.i, %59
@@ -1568,7 +1564,7 @@ VP8LFillBitWindow.exit.i:                         ; preds = %81, %78
   %84 = zext nneg i32 %83 to i64
   %85 = lshr i64 %.val18.i.i, %84
   %86 = and i64 %85, 255
-  %87 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %82, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %86
   %88 = load i8, ptr %87, align 2, !tbaa !32
   %89 = icmp ugt i8 %88, 8
   br i1 %89, label %90, label %ReadSymbol.exit.i
@@ -1584,12 +1580,12 @@ VP8LFillBitWindow.exit.i:                         ; preds = %81, %78
   %98 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %99 = load i16, ptr %98, align 2, !tbaa !38
   %100 = zext i16 %99 to i64
-  %101 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %87, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %100
   %notmask.i.i = shl nsw i32 -1, %92
   %102 = xor i32 %notmask.i.i, -1
   %103 = and i32 %102, %97
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %101, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %104
   %.pre.i.i = load i8, ptr %105, align 2, !tbaa !32
   br label %ReadSymbol.exit.i
 
@@ -1668,7 +1664,7 @@ ReadSymbol.exit.i:                                ; preds = %90, %VP8LFillBitWin
   %.01617.i.i.i = phi ptr [ %139, %.lr.ph.i.i.i ], [ %154, %149 ]
   %150 = load i32, ptr %128, align 4, !tbaa !93
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw ptr, ptr @WebPUnfilters, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr @WebPUnfilters, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !31
   tail call void %153(ptr noundef %.019.i.i.i, ptr noundef %.01617.i.i.i, ptr noundef %.01617.i.i.i, i32 noundef %134) #8
   %154 = getelementptr inbounds i8, ptr %.01617.i.i.i, i64 %148
@@ -1717,7 +1713,7 @@ GetCopyLength.exit.i:                             ; preds = %161, %158
   %172 = zext nneg i32 %171 to i64
   %173 = lshr i64 %.val18.i155.i, %172
   %174 = and i64 %173, 255
-  %175 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %170, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %174
   %176 = load i8, ptr %175, align 2, !tbaa !32
   %177 = icmp ugt i8 %176, 8
   br i1 %177, label %178, label %ReadSymbol.exit160.i
@@ -1733,12 +1729,12 @@ GetCopyLength.exit.i:                             ; preds = %161, %158
   %186 = getelementptr inbounds nuw i8, ptr %175, i64 2
   %187 = load i16, ptr %186, align 2, !tbaa !38
   %188 = zext i16 %187 to i64
-  %189 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %175, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %188
   %notmask.i158.i = shl nsw i32 -1, %180
   %190 = xor i32 %notmask.i158.i, -1
   %191 = and i32 %190, %185
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %189, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %192
   %.pre.i159.i = load i8, ptr %193, align 2, !tbaa !32
   br label %ReadSymbol.exit160.i
 
@@ -1875,7 +1871,7 @@ PlaneCodeToDistance.exit.i:                       ; preds = %215, %213
 
 .lr.ph31.i.i.i:                                   ; preds = %.lr.ph31.i.i.i, %.lr.ph31.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph31.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph31.i.i.i ]
-  %253 = getelementptr inbounds nuw i32, ptr %.020.lcssa.i.i.i, i64 %indvars.iv.i.i.i
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %.020.lcssa.i.i.i, i64 %indvars.iv.i.i.i
   store i32 %.018.lcssa.i.i.i, ptr %253, align 4, !tbaa !6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i167.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1987,7 +1983,7 @@ CopyBlock8b.exit.i:                               ; preds = %.lr.ph35.i.i.i, %.l
   %.01617.i.i175.i = phi ptr [ %288, %.lr.ph.i.i172.i ], [ %303, %298 ]
   %299 = load i32, ptr %277, align 4, !tbaa !93
   %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds nuw ptr, ptr @WebPUnfilters, i64 %300
+  %301 = getelementptr inbounds nuw [8 x i8], ptr @WebPUnfilters, i64 %300
   %302 = load ptr, ptr %301, align 8, !tbaa !31
   tail call void %302(ptr noundef %.019.i.i173.i, ptr noundef %.01617.i.i175.i, ptr noundef %.01617.i.i175.i, i32 noundef %283) #8
   %303 = getelementptr inbounds i8, ptr %.01617.i.i175.i, i64 %297
@@ -2030,7 +2026,7 @@ ExtractPalettedAlphaRows.exit178.i:               ; preds = %._crit_edge.i.i177.
   %316 = ashr i32 %.3114.lcssa.i, %309
   %317 = add nsw i32 %315, %316
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds i32, ptr %313, i64 %318
+  %319 = getelementptr inbounds [4 x i8], ptr %313, i64 %318
   %320 = load i32, ptr %319, align 4, !tbaa !6
   %321 = sext i32 %320 to i64
   br label %GetHtreeGroupForPos.exit180.i
@@ -2038,7 +2034,7 @@ ExtractPalettedAlphaRows.exit178.i:               ; preds = %._crit_edge.i.i177.
 GetHtreeGroupForPos.exit180.i:                    ; preds = %311, %308
   %.0.i.i179.i = phi i64 [ %321, %311 ], [ 0, %308 ]
   %322 = load ptr, ptr %48, align 8, !tbaa !54
-  %323 = getelementptr inbounds %struct.HTreeGroup, ptr %322, i64 %.0.i.i179.i
+  %323 = getelementptr inbounds [568 x i8], ptr %322, i64 %.0.i.i179.i
   br label %.thread.i
 
 .thread.i:                                        ; preds = %GetHtreeGroupForPos.exit180.i, %._crit_edge.i, %ExtractPalettedAlphaRows.exit.i, %120, %114
@@ -2124,7 +2120,7 @@ GetHtreeGroupForPos.exit180.i:                    ; preds = %311, %308
   %.01617.i.i189.i = phi ptr [ %355, %.lr.ph.i.i186.i ], [ %371, %366 ]
   %367 = load i32, ptr %343, align 4, !tbaa !93
   %368 = zext i32 %367 to i64
-  %369 = getelementptr inbounds nuw ptr, ptr @WebPUnfilters, i64 %368
+  %369 = getelementptr inbounds nuw [8 x i8], ptr @WebPUnfilters, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !31
   tail call void %370(ptr noundef %.019.i.i187.i, ptr noundef %.01617.i.i189.i, ptr noundef %.01617.i.i189.i, i32 noundef %350) #8
   %371 = getelementptr inbounds i8, ptr %.01617.i.i189.i, i64 %365
@@ -2219,13 +2215,13 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = sext i32 %8 to i64
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %1, i64 %13
   %15 = mul nsw i32 %3, %2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %1, i64 %16
   %18 = mul nsw i32 %4, %2
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %1, i64 %19
   %21 = load i32, ptr %12, align 8, !tbaa !75
   %22 = add nsw i32 %21, 280
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2255,7 +2251,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr 
   %42 = ashr i32 %10, %33
   %43 = add nsw i32 %41, %42
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %39, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %39, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !6
   %47 = sext i32 %46 to i64
   br label %.lr.ph376
@@ -2264,7 +2260,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr 
   %.0.i.i = phi i64 [ %47, %35 ], [ 0, %31 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %49 = load ptr, ptr %48, align 8, !tbaa !54
-  %50 = getelementptr inbounds %struct.HTreeGroup, ptr %49, i64 %.0.i.i
+  %50 = getelementptr inbounds [568 x i8], ptr %49, i64 %.0.i.i
   %51 = ptrtoint ptr %1 to i64
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2331,7 +2327,7 @@ SaveState.exit:                                   ; preds = %66, %73
   %86 = ashr i32 %.0172372, %79
   %87 = add nsw i32 %85, %86
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %83, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %83, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !6
   %91 = sext i32 %90 to i64
   br label %GetHtreeGroupForPos.exit246
@@ -2339,7 +2335,7 @@ SaveState.exit:                                   ; preds = %66, %73
 GetHtreeGroupForPos.exit246:                      ; preds = %78, %81
   %.0.i.i245 = phi i64 [ %91, %81 ], [ 0, %78 ]
   %92 = load ptr, ptr %58, align 8, !tbaa !54
-  %93 = getelementptr inbounds %struct.HTreeGroup, ptr %92, i64 %.0.i.i245
+  %93 = getelementptr inbounds [568 x i8], ptr %92, i64 %.0.i.i245
   br label %94
 
 94:                                               ; preds = %GetHtreeGroupForPos.exit246, %75
@@ -2377,7 +2373,7 @@ VP8LFillBitWindow.exit:                           ; preds = %100, %103
   %109 = lshr i64 %.val.i, %108
   %110 = and i64 %109, 63
   %111 = getelementptr inbounds nuw i8, ptr %.1191, i64 56
-  %112 = getelementptr inbounds nuw %struct.HuffmanCode32, ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %110
   %.sroa.0.0.copyload.i = load i32, ptr %112, align 8, !tbaa !6
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %112, i64 4
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !6
@@ -2424,7 +2420,7 @@ VP8LIsEndOfStream.exit.thread:                    ; preds = %119, %VP8LIsEndOfSt
   %129 = zext nneg i32 %128 to i64
   %130 = lshr i64 %.val18.i, %129
   %131 = and i64 %130, 255
-  %132 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %127, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %131
   %133 = load i8, ptr %132, align 2, !tbaa !32
   %134 = icmp ugt i8 %133, 8
   br i1 %134, label %135, label %151
@@ -2440,12 +2436,12 @@ VP8LIsEndOfStream.exit.thread:                    ; preds = %119, %VP8LIsEndOfSt
   %143 = getelementptr inbounds nuw i8, ptr %132, i64 2
   %144 = load i16, ptr %143, align 2, !tbaa !38
   %145 = zext i16 %144 to i64
-  %146 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %132, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %145
   %notmask.i = shl nsw i32 -1, %137
   %147 = xor i32 %notmask.i, -1
   %148 = and i32 %142, %147
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %146, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %149
   %.pre.i = load i8, ptr %150, align 2, !tbaa !32
   br label %151
 
@@ -2501,7 +2497,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread439, %VP8LIs
   %178 = zext nneg i32 %177 to i64
   %179 = lshr i64 %.val18.i250443, %178
   %180 = and i64 %179, 255
-  %181 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %176, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %180
   %182 = load i8, ptr %181, align 2, !tbaa !32
   %183 = icmp ugt i8 %182, 8
   br i1 %183, label %184, label %ReadSymbol.exit255
@@ -2517,12 +2513,12 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread439, %VP8LIs
   %192 = getelementptr inbounds nuw i8, ptr %181, i64 2
   %193 = load i16, ptr %192, align 2, !tbaa !38
   %194 = zext i16 %193 to i64
-  %195 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %181, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %194
   %notmask.i253 = shl nsw i32 -1, %186
   %196 = xor i32 %notmask.i253, -1
   %197 = and i32 %191, %196
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %195, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %198
   %.pre.i254 = load i8, ptr %199, align 2, !tbaa !32
   br label %ReadSymbol.exit255
 
@@ -2554,7 +2550,7 @@ VP8LFillBitWindow.exit256:                        ; preds = %ReadSymbol.exit255,
   %212 = zext nneg i32 %211 to i64
   %213 = lshr i64 %.val18.i257, %212
   %214 = and i64 %213, 255
-  %215 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %210, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %214
   %216 = load i8, ptr %215, align 2, !tbaa !32
   %217 = icmp ugt i8 %216, 8
   br i1 %217, label %218, label %ReadSymbol.exit262
@@ -2570,12 +2566,12 @@ VP8LFillBitWindow.exit256:                        ; preds = %ReadSymbol.exit255,
   %226 = getelementptr inbounds nuw i8, ptr %215, i64 2
   %227 = load i16, ptr %226, align 2, !tbaa !38
   %228 = zext i16 %227 to i64
-  %229 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %215, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %228
   %notmask.i260 = shl nsw i32 -1, %220
   %230 = xor i32 %notmask.i260, -1
   %231 = and i32 %225, %230
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %229, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %232
   %.pre.i261 = load i8, ptr %233, align 2, !tbaa !32
   br label %ReadSymbol.exit262
 
@@ -2594,7 +2590,7 @@ ReadSymbol.exit262:                               ; preds = %VP8LFillBitWindow.e
   %244 = zext nneg i32 %243 to i64
   %245 = lshr i64 %.val18.i257, %244
   %246 = and i64 %245, 255
-  %247 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %242, i64 %246
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %246
   %248 = load i8, ptr %247, align 2, !tbaa !32
   %249 = icmp ugt i8 %248, 8
   br i1 %249, label %250, label %ReadSymbol.exit268
@@ -2610,12 +2606,12 @@ ReadSymbol.exit262:                               ; preds = %VP8LFillBitWindow.e
   %258 = getelementptr inbounds nuw i8, ptr %247, i64 2
   %259 = load i16, ptr %258, align 2, !tbaa !38
   %260 = zext i16 %259 to i64
-  %261 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %247, i64 %260
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %260
   %notmask.i266 = shl nsw i32 -1, %252
   %262 = xor i32 %notmask.i266, -1
   %263 = and i32 %262, %257
   %264 = zext nneg i32 %263 to i64
-  %265 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %261, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %264
   %.pre.i267 = load i8, ptr %265, align 2, !tbaa !32
   br label %ReadSymbol.exit268
 
@@ -2693,7 +2689,7 @@ VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   %298 = mul i32 %297, 506832829
   %299 = lshr i32 %298, %.val239
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds i32, ptr %.val, i64 %300
+  %301 = getelementptr inbounds [4 x i8], ptr %.val, i64 %300
   store i32 %297, ptr %301, align 4, !tbaa !6
   %302 = icmp ult ptr %.3185365, %.0177371
   br i1 %302, label %295, label %.thread304, !llvm.loop !114
@@ -2729,7 +2725,7 @@ GetCopyLength.exit:                               ; preds = %305, %308
   %319 = zext nneg i32 %318 to i64
   %320 = lshr i64 %.val18.i272, %319
   %321 = and i64 %320, 255
-  %322 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %317, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %321
   %323 = load i8, ptr %322, align 2, !tbaa !32
   %324 = icmp ugt i8 %323, 8
   br i1 %324, label %325, label %ReadSymbol.exit277
@@ -2745,12 +2741,12 @@ GetCopyLength.exit:                               ; preds = %305, %308
   %333 = getelementptr inbounds nuw i8, ptr %322, i64 2
   %334 = load i16, ptr %333, align 2, !tbaa !38
   %335 = zext i16 %334 to i64
-  %336 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %322, i64 %335
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %335
   %notmask.i275 = shl nsw i32 -1, %327
   %337 = xor i32 %notmask.i275, -1
   %338 = and i32 %332, %337
   %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %336, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %336, i64 %339
   %.pre.i276 = load i8, ptr %340, align 2, !tbaa !32
   br label %ReadSymbol.exit277
 
@@ -2843,7 +2839,7 @@ VP8LIsEndOfStream.exit282.thread:                 ; preds = %374, %VP8LIsEndOfSt
 
 390:                                              ; preds = %385
   tail call fastcc void @CopyBlock32b(ptr noundef %.0177371, i32 noundef %.0.i280, i32 noundef %.0.i.i271)
-  %391 = getelementptr inbounds i32, ptr %.0177371, i64 %388
+  %391 = getelementptr inbounds [4 x i8], ptr %.0177371, i64 %388
   %392 = add nsw i32 %.0.i.i271, %.0172372
   %.not216353 = icmp slt i32 %392, %2
   br i1 %.not216353, label %._crit_edge358, label %.lr.ph357
@@ -2898,7 +2894,7 @@ VP8LIsEndOfStream.exit282.thread:                 ; preds = %374, %VP8LIsEndOfSt
   %410 = ashr i32 %.4176.lcssa, %403
   %411 = add nsw i32 %409, %410
   %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds i32, ptr %407, i64 %412
+  %413 = getelementptr inbounds [4 x i8], ptr %407, i64 %412
   %414 = load i32, ptr %413, align 4, !tbaa !6
   %415 = sext i32 %414 to i64
   br label %GetHtreeGroupForPos.exit284
@@ -2906,7 +2902,7 @@ VP8LIsEndOfStream.exit282.thread:                 ; preds = %374, %VP8LIsEndOfSt
 GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
   %.0.i.i283 = phi i64 [ %415, %405 ], [ 0, %402 ]
   %416 = load ptr, ptr %58, align 8, !tbaa !54
-  %417 = getelementptr inbounds %struct.HTreeGroup, ptr %416, i64 %.0.i.i283
+  %417 = getelementptr inbounds [568 x i8], ptr %416, i64 %.0.i.i283
   br label %418
 
 418:                                              ; preds = %GetHtreeGroupForPos.exit284, %._crit_edge358
@@ -2927,7 +2923,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
   %423 = mul i32 %422, 506832829
   %424 = lshr i32 %423, %.val241
   %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds i32, ptr %.val240, i64 %425
+  %426 = getelementptr inbounds [4 x i8], ptr %.val240, i64 %425
   store i32 %422, ptr %426, align 4, !tbaa !6
   %427 = icmp ult ptr %421, %391
   br i1 %427, label %420, label %.thread304, !llvm.loop !116
@@ -2949,7 +2945,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
   %433 = mul i32 %432, 506832829
   %434 = lshr i32 %433, %.val243
   %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds i32, ptr %.val244.pre, i64 %435
+  %436 = getelementptr inbounds [4 x i8], ptr %.val244.pre, i64 %435
   store i32 %432, ptr %436, align 4, !tbaa !6
   %437 = icmp ult ptr %431, %.0177371
   br i1 %437, label %.lr.ph, label %._crit_edge, !llvm.loop !117
@@ -2957,7 +2953,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader349
   %.8.lcssa = phi ptr [ %.0182370, %.preheader349 ], [ %431, %.lr.ph ]
   %438 = zext nneg i32 %.0196444 to i64
-  %439 = getelementptr i32, ptr %.val244.pre, i64 %438
+  %439 = getelementptr [4 x i8], ptr %.val244.pre, i64 %438
   %440 = getelementptr i8, ptr %439, i64 -1120
   %441 = load i32, ptr %440, align 4, !tbaa !6
   br label %.sink.split
@@ -3078,7 +3074,7 @@ define internal void @ExtractAlphaRows(ptr noundef %0, i32 noundef %1) #1 {
   %10 = load i32, ptr %6, align 4, !tbaa !67
   %11 = mul nsw i32 %10, %4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %9, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -3116,7 +3112,7 @@ define internal void @ExtractAlphaRows(ptr noundef %0, i32 noundef %1) #1 {
   %indvars.iv.i = phi i64 [ %36, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %.02022.i = phi ptr [ %.04145, %.lr.ph.i ], [ %31, %37 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %38 = getelementptr inbounds nuw %struct.VP8LTransform, ptr %17, i64 %indvars.iv.next.i
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv.next.i
   tail call void @VP8LInverseTransform(ptr noundef nonnull %38, i32 noundef %.047, i32 noundef %34, ptr noundef %.02022.i, ptr noundef %31) #8
   %39 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %39, label %37, label %ApplyInverseTransforms.exit, !llvm.loop !118
@@ -3151,7 +3147,7 @@ ApplyInverseTransforms.exit:                      ; preds = %37, %._crit_edge.i,
   %.01617.i = phi ptr [ %30, %.lr.ph.i44 ], [ %54, %49 ]
   %50 = load i32, ptr %44, align 4, !tbaa !93
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr @WebPUnfilters, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @WebPUnfilters, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !31
   tail call void %53(ptr noundef %.019.i, ptr noundef %.01617.i, ptr noundef %.01617.i, i32 noundef %26) #8
   %54 = getelementptr inbounds i8, ptr %.01617.i, i64 %48
@@ -3168,7 +3164,7 @@ AlphaApplyFilter.exit:                            ; preds = %ApplyInverseTransfo
   %57 = load i32, ptr %6, align 4, !tbaa !67
   %58 = mul nsw i32 %57, %20
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %.04145, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %.04145, i64 %59
   %61 = icmp sgt i32 %56, 0
   br i1 %61, label %18, label %._crit_edge, !llvm.loop !119
 
@@ -3322,8 +3318,8 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeImage(ptr noundef %0) local_unnamed
   ]
 
 39:                                               ; preds = %18
-  %40 = getelementptr inbounds nuw i32, ptr %33, i64 %26
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %26
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %28
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %41, ptr %42, align 8, !tbaa !79
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -3493,7 +3489,7 @@ define internal void @ProcessRows(ptr noundef %0, i32 noundef %1) #1 {
   %11 = load i32, ptr %10, align 4, !tbaa !67
   %12 = mul nsw i32 %11, %4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %9, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !70
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3515,7 +3511,7 @@ define internal void @ProcessRows(ptr noundef %0, i32 noundef %1) #1 {
   %indvars.iv.i = phi i64 [ %26, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %.02022.i = phi ptr [ %14, %.lr.ph.i ], [ %18, %27 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %28 = getelementptr inbounds nuw %struct.VP8LTransform, ptr %25, i64 %indvars.iv.next.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv.next.i
   tail call void @VP8LInverseTransform(ptr noundef nonnull %28, i32 noundef %4, i32 noundef %1, ptr noundef %.02022.i, ptr noundef %18) #8
   %29 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %29, label %27, label %ApplyInverseTransforms.exit, !llvm.loop !118
@@ -3895,7 +3891,7 @@ declare void @VP8LColorIndexInverseTransformAlpha(ptr noundef, i32 noundef, i32 
 define internal fastcc void @CopyBlock32b(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 {
   %4 = sext i32 %1 to i64
   %5 = sub nsw i64 0, %4
-  %6 = getelementptr inbounds i32, ptr %0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %0, i64 %5
   %7 = icmp slt i32 %1, 3
   %8 = icmp sgt i32 %2, 3
   %or.cond = and i1 %7, %8
@@ -3947,7 +3943,7 @@ define internal fastcc void @CopyBlock32b(ptr noundef %0, i32 noundef %1, i32 no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i64, ptr %.018.i, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.018.i, i64 %indvars.iv.i
   store i64 %.016.i, ptr %30, align 8, !tbaa !107
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3961,9 +3957,9 @@ define internal fastcc void @CopyBlock32b(ptr noundef %0, i32 noundef %1, i32 no
 32:                                               ; preds = %._crit_edge.i
   %33 = and i32 %.017.i, -2
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %.019.i, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.019.i, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !6
-  %37 = getelementptr inbounds nuw i32, ptr %.018.i, i64 %34
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.018.i, i64 %34
   store i32 %36, ptr %37, align 4, !tbaa !6
   br label %CopySmallPattern32b.exit
 
@@ -3987,9 +3983,9 @@ define internal fastcc void @CopyBlock32b(ptr noundef %0, i32 noundef %1, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %43 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !6
-  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

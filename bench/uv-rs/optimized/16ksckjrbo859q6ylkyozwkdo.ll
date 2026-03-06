@@ -3302,7 +3302,7 @@ common.resume:                                    ; preds = %.body24, %130, %.bo
   store i8 %72, ptr %79, align 1, !noalias !466
   %80 = load ptr, ptr %60, align 8, !alias.scope !473, !noalias !466, !nonnull !4, !noundef !4
   %81 = sub nsw i64 0, %62
-  %82 = getelementptr inbounds { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, ptr }, ptr %80, i64 %81
+  %82 = getelementptr inbounds [32 x i8], ptr %80, i64 %81
   %83 = and i8 %70, 1
   %84 = zext nneg i8 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %60, i64 16

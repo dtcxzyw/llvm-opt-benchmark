@@ -1160,7 +1160,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107: ; preds = %_ZNS
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit109: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit107
   %350 = sext i32 %170 to i64
-  %351 = getelementptr inbounds ptr, ptr @__const.main.b, i64 %350
+  %351 = getelementptr inbounds [8 x i8], ptr @__const.main.b, i64 %350
   %352 = load ptr, ptr %351, align 8, !tbaa !29
   %353 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %352) #13
   %354 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %347, ptr noundef nonnull %352, i64 noundef %353)

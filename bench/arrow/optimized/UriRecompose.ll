@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 35:                                               ; preds = %32
   %36 = add nsw i32 %29, 1
   %37 = ashr i64 %sext, 32
-  %38 = getelementptr inbounds i32, ptr %0, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %0, i64 %37
   store i32 58, ptr %38, align 4
   br label %41
 
@@ -1169,7 +1169,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 .thread589:                                       ; preds = %53
   %61 = sext i32 %.0379 to i64
-  %62 = getelementptr inbounds i32, ptr %0, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %0, i64 %61
   store i64 201863462959, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !49
@@ -1190,7 +1190,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 74:                                               ; preds = %65
   %75 = sext i32 %54 to i64
-  %76 = getelementptr inbounds i32, ptr %0, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %0, i64 %75
   %sext509 = shl i64 %70, 30
   %77 = ashr exact i64 %sext509, 30
   %78 = and i64 %77, -4
@@ -1210,7 +1210,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 81:                                               ; preds = %74
   %82 = add nsw i32 %73, 1
   %83 = sext i32 %73 to i64
-  %84 = getelementptr inbounds i32, ptr %0, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %0, i64 %83
   store i32 64, ptr %84, align 4
   br label %97
 
@@ -1330,10 +1330,10 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 148:                                              ; preds = %138, %145, %126
   %149 = zext nneg i32 %122 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %6, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %149
   store i32 0, ptr %150, align 4, !tbaa !3
   %151 = sext i32 %.9388698839 to i64
-  %152 = getelementptr inbounds i32, ptr %0, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %0, i64 %151
   %153 = shl nuw nsw i64 %149, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %152, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %153, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1365,7 +1365,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 .preheader690.split:                              ; preds = %155
   %158 = add nsw i32 %121, 1
   %159 = sext i32 %121 to i64
-  %160 = getelementptr inbounds i32, ptr %0, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %0, i64 %159
   store i32 46, ptr %160, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv838, 1
   %161 = load ptr, ptr %98, align 8, !tbaa !51
@@ -1404,7 +1404,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 .split.preheader:                                 ; preds = %173
   %176 = add nsw i32 %.6385, 1
   %177 = sext i32 %.6385 to i64
-  %178 = getelementptr inbounds i32, ptr %0, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %0, i64 %177
   store i32 91, ptr %178, align 4
   br label %.split
 
@@ -1452,7 +1452,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %195 = and i32 %192, 15
   %196 = tail call i32 @uriHexToLetterExW(i32 noundef %195, i32 noundef 0) #5
   %197 = sext i32 %.16395700 to i64
-  %198 = getelementptr inbounds i32, ptr %0, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr %0, i64 %197
   store i32 %194, ptr %198, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 %196, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1468,7 +1468,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 201:                                              ; preds = %.thread605
   %202 = add nsw i32 %.16395700, 3
   %203 = sext i32 %186 to i64
-  %204 = getelementptr inbounds i32, ptr %0, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %0, i64 %203
   store i32 58, ptr %204, align 4
   br label %207
 
@@ -1494,7 +1494,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 208:                                              ; preds = %.split702
   %209 = add nsw i32 %.17396.ph, 1
   %210 = sext i32 %.17396.ph to i64
-  %211 = getelementptr inbounds i32, ptr %0, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %0, i64 %210
   store i32 93, ptr %211, align 4
   br label %.thread599
 
@@ -1535,7 +1535,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 229:                                              ; preds = %227
   %230 = sext i32 %.6385 to i64
-  %231 = getelementptr inbounds i32, ptr %0, i64 %230
+  %231 = getelementptr inbounds [4 x i8], ptr %0, i64 %230
   store i32 91, ptr %231, align 4
   %232 = add nsw i32 %228, %226
   %.not521.not = icmp slt i32 %232, %2
@@ -1552,7 +1552,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 235:                                              ; preds = %229
   %236 = sext i32 %228 to i64
-  %237 = getelementptr inbounds i32, ptr %0, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr %0, i64 %236
   %238 = load ptr, ptr %217, align 8, !tbaa !55
   %sext523 = shl i64 %224, 30
   %239 = ashr exact i64 %sext523, 30
@@ -1573,7 +1573,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 243:                                              ; preds = %235
   %244 = add nsw i32 %232, 1
   %245 = sext i32 %232 to i64
-  %246 = getelementptr inbounds i32, ptr %0, i64 %245
+  %246 = getelementptr inbounds [4 x i8], ptr %0, i64 %245
   store i32 93, ptr %246, align 4
   br label %.thread599
 
@@ -1616,7 +1616,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 266:                                              ; preds = %264
   %267 = sext i32 %.6385 to i64
-  %268 = getelementptr inbounds i32, ptr %0, i64 %267
+  %268 = getelementptr inbounds [4 x i8], ptr %0, i64 %267
   %sext518 = shl i64 %261, 30
   %269 = ashr exact i64 %sext518, 30
   %270 = and i64 %269, -4
@@ -1662,7 +1662,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 288:                                              ; preds = %286
   %289 = sext i32 %.13392 to i64
-  %290 = getelementptr inbounds i32, ptr %0, i64 %289
+  %290 = getelementptr inbounds [4 x i8], ptr %0, i64 %289
   store i32 58, ptr %290, align 4
   %291 = add nsw i32 %287, %285
   %.not542.not = icmp slt i32 %291, %2
@@ -1679,7 +1679,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 294:                                              ; preds = %288
   %295 = sext i32 %287 to i64
-  %296 = getelementptr inbounds i32, ptr %0, i64 %295
+  %296 = getelementptr inbounds [4 x i8], ptr %0, i64 %295
   %297 = load ptr, ptr %276, align 8, !tbaa !59
   %sext544 = shl i64 %283, 30
   %298 = ashr exact i64 %sext544, 30
@@ -1755,7 +1755,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 .thread781:                                       ; preds = %315
   %325 = add nsw i32 %.4383, 1
   %326 = sext i32 %.4383 to i64
-  %327 = getelementptr inbounds i32, ptr %0, i64 %326
+  %327 = getelementptr inbounds [4 x i8], ptr %0, i64 %326
   store i32 47, ptr %327, align 4
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %329 = load ptr, ptr %328, align 8, !tbaa !62
@@ -1823,7 +1823,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 .thread629:                                       ; preds = %.preheader.split
   %356 = sext i32 %.29 to i64
-  %357 = getelementptr inbounds i32, ptr %0, i64 %356
+  %357 = getelementptr inbounds [4 x i8], ptr %0, i64 %356
   %sext553 = shl i64 %350, 30
   %358 = ashr exact i64 %sext553, 30
   %359 = and i64 %358, -4
@@ -1840,7 +1840,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 362:                                              ; preds = %.thread633
   %363 = add nsw i32 %353, 1
   %364 = sext i32 %353 to i64
-  %365 = getelementptr inbounds i32, ptr %0, i64 %364
+  %365 = getelementptr inbounds [4 x i8], ptr %0, i64 %364
   store i32 47, ptr %365, align 4
   %.pr = load ptr, ptr %360, align 8, !tbaa !66
   %.not557 = icmp eq ptr %.pr, null
@@ -1901,7 +1901,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 380:                                              ; preds = %.thread666
   %381 = add nsw i32 %.28665668, 1
   %382 = sext i32 %.28665668 to i64
-  %383 = getelementptr inbounds i32, ptr %0, i64 %382
+  %383 = getelementptr inbounds [4 x i8], ptr %0, i64 %382
   store i32 63, ptr %383, align 4
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %385 = load ptr, ptr %384, align 8, !tbaa !69
@@ -1917,7 +1917,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 393:                                              ; preds = %380
   %394 = sext i32 %381 to i64
-  %395 = getelementptr inbounds i32, ptr %0, i64 %394
+  %395 = getelementptr inbounds [4 x i8], ptr %0, i64 %394
   %sext563 = shl i64 %389, 30
   %396 = ashr exact i64 %sext563, 30
   %397 = and i64 %396, -4
@@ -1996,7 +1996,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 424:                                              ; preds = %.thread808
   %425 = add nsw i32 %.33807810, 1
   %426 = sext i32 %.33807810 to i64
-  %427 = getelementptr inbounds i32, ptr %0, i64 %426
+  %427 = getelementptr inbounds [4 x i8], ptr %0, i64 %426
   store i32 35, ptr %427, align 4
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %429 = load ptr, ptr %428, align 8, !tbaa !71
@@ -2012,7 +2012,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 
 .thread660.thread676:                             ; preds = %424
   %437 = sext i32 %425 to i64
-  %438 = getelementptr inbounds i32, ptr %0, i64 %437
+  %438 = getelementptr inbounds [4 x i8], ptr %0, i64 %437
   %sext569 = shl i64 %433, 30
   %439 = ashr exact i64 %sext569, 30
   %440 = and i64 %439, -4
@@ -2049,7 +2049,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
 .thread660.thread817:                             ; preds = %.thread653.thread803, %.thread660.thread676, %.thread660
   %.37678 = phi i32 [ %436, %.thread660.thread676 ], [ %.33, %.thread660 ], [ %325, %.thread653.thread803 ]
   %454 = sext i32 %.37678 to i64
-  %455 = getelementptr inbounds i32, ptr %0, i64 %454
+  %455 = getelementptr inbounds [4 x i8], ptr %0, i64 %454
   store i32 0, ptr %455, align 4, !tbaa !3
   %.not570 = icmp eq ptr %3, null
   br i1 %.not570, label %.critedge, label %456

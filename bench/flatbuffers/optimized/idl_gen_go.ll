@@ -6986,7 +6986,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !194
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !88
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !89
   ret void
 
@@ -9606,7 +9606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !389)
   %83 = load i32, ptr %82, align 8, !tbaa !392, !noalias !389
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !393, !noalias !389
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %87, ptr %10, align 8, !tbaa !4, !alias.scope !389
@@ -12120,8 +12120,8 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIPKN11flatbuffers10Def
 
 .lr.ph.i.i:                                       ; preds = %15, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21.i.i
   %.01628.i.i = phi i64 [ %43, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21.i.i ], [ 0, %15 ]
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.01628.i.i
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %.01628.i.i
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.01628.i.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.01628.i.i
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -12229,8 +12229,8 @@ _ZNK11flatbuffers2go11GoGenerator16NamespacePtrLessclEPKNS_10DefinitionES5_.exit
 
 .lr.ph.i.i7:                                      ; preds = %54, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21.i.i24
   %.01628.i.i8 = phi i64 [ %92, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21.i.i24 ], [ 0, %54 ]
-  %76 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %64, i64 %.01628.i.i8
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %.01628.i.i8
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %.01628.i.i8
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %.01628.i.i8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load i64, ptr %78, align 8, !tbaa !19
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -12330,8 +12330,8 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIPKN11flatbuffers10DefinitionES
 
 .lr.ph.i.i:                                       ; preds = %8, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21.i.i
   %.01628.i.i = phi i64 [ %46, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread21.i.i ], [ 0, %8 ]
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %.01628.i.i
-  %30 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %.01628.i.i
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %.01628.i.i
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %.01628.i.i
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -15653,7 +15653,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator10NativeType
 19:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
   %20 = zext nneg i32 %12 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !393, !noalias !591
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !4, !alias.scope !591
@@ -27881,7 +27881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1062: ; preds = %_
   %1745 = getelementptr inbounds nuw i8, ptr %400, i64 224
   call void @llvm.experimental.noalias.scope.decl(metadata !996)
   %1746 = zext nneg i32 %1739 to i64
-  %1747 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %1746
+  %1747 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %1746
   %1748 = load ptr, ptr %1747, align 8, !tbaa !393, !noalias !996
   store ptr %312, ptr %76, align 8, !tbaa !4, !alias.scope !996
   %1749 = icmp eq ptr %1748, null
@@ -42648,7 +42648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   %27 = load i32, ptr %2, align 8, !tbaa !392, !noalias !1428
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !393, !noalias !1428
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %31, ptr %8, align 8, !tbaa !4, !alias.scope !1428
@@ -51934,7 +51934,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator9GenGetterB5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1689)
   %34 = zext i32 %9 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !393, !noalias !1689
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %37, ptr %8, align 8, !tbaa !4, !alias.scope !1689
@@ -52708,7 +52708,7 @@ _ZN11flatbuffers2go11GoGenerator15GetEnumTypeNameB5cxx11ERKNS_7EnumDefE.exit: ; 
 30:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1723)
   %31 = zext nneg i32 %27 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !393, !noalias !1723
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %0, align 8, !tbaa !4, !alias.scope !1723
@@ -53575,7 +53575,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator25MutateScal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1748)
   %22 = load i32, ptr %21, align 8, !tbaa !392, !noalias !1748
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !393, !noalias !1748
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %26, ptr %8, align 8, !tbaa !4, !alias.scope !1748
@@ -54558,7 +54558,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator24MutateScal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   %25 = load i32, ptr %24, align 8, !tbaa !392, !noalias !1778
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !393, !noalias !1778
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %29, ptr %10, align 8, !tbaa !4, !alias.scope !1778
@@ -55816,7 +55816,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator32MutateElem
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1817)
   %36 = zext i32 %24 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !393, !noalias !1817
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %39, ptr %9, align 8, !tbaa !4, !alias.scope !1817
@@ -58932,7 +58932,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers2go11GoGenerator9GenMethodB5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1911)
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers2go11GoGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !393, !noalias !1911
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %6, align 8, !tbaa !4, !alias.scope !1911

@@ -61,7 +61,7 @@ define signext range(i8 0, 2) i8 @utext_moveIndex32_77(ptr noundef %0, i32 nound
   %19 = phi i32 [ %.pre41, %._crit_edge ], [ %10, %9 ]
   %20 = load ptr, ptr %8, align 8, !tbaa !17
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !18
   %24 = and i16 %23, -2048
   %25 = icmp eq i16 %24, -10240
@@ -85,7 +85,7 @@ define signext range(i8 0, 2) i8 @utext_moveIndex32_77(ptr noundef %0, i32 nound
   %.pre.i = load i32, ptr %6, align 8, !tbaa !3
   %.pre42 = load ptr, ptr %8, align 8, !tbaa !17
   %.pre43 = sext i32 %.pre.i to i64
-  %.phi.trans.insert = getelementptr inbounds i16, ptr %.pre42, i64 %.pre43
+  %.phi.trans.insert = getelementptr inbounds [2 x i8], ptr %.pre42, i64 %.pre43
   %.pre44 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !18
   br label %35
 
@@ -122,7 +122,7 @@ define signext range(i8 0, 2) i8 @utext_moveIndex32_77(ptr noundef %0, i32 nound
   %51 = phi i32 [ %.pre28.i, %._crit_edge26.i ], [ %39, %41 ]
   %52 = phi ptr [ %.pre27.i, %._crit_edge26.i ], [ %37, %41 ]
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds i16, ptr %52, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !18
   %56 = and i16 %55, -1024
   %.not25.i = icmp eq i16 %56, -9216
@@ -173,7 +173,7 @@ thread-pre-split:                                 ; preds = %69
   %76 = phi i32 [ %.pr, %thread-pre-split ], [ %67, %66 ]
   %77 = load ptr, ptr %65, align 8, !tbaa !17
   %78 = sext i32 %76 to i64
-  %79 = getelementptr i16, ptr %77, i64 %78
+  %79 = getelementptr [2 x i8], ptr %77, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -2
   %81 = load i16, ptr %80, align 2, !tbaa !18
   %82 = and i16 %81, -2048
@@ -204,7 +204,7 @@ thread-pre-split.i:                               ; preds = %86
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %64, align 8, !tbaa !3
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !18
   %100 = and i16 %99, -1024
   %.not.i30 = icmp eq i16 %100, -9216
@@ -233,7 +233,7 @@ thread-pre-split.i:                               ; preds = %86
   %.pre-phi.i = phi i64 [ %.pre24.i, %._crit_edge.i32 ], [ %97, %101 ]
   %111 = phi i32 [ %.pre23.i, %._crit_edge.i32 ], [ %96, %101 ]
   %112 = phi ptr [ %.pre.i33, %._crit_edge.i32 ], [ %94, %101 ]
-  %113 = getelementptr i16, ptr %112, i64 %.pre-phi.i
+  %113 = getelementptr [2 x i8], ptr %112, i64 %.pre-phi.i
   %114 = getelementptr i8, ptr %113, i64 -2
   %115 = load i16, ptr %114, align 2, !tbaa !18
   %116 = and i16 %115, -1024
@@ -287,7 +287,7 @@ define range(i32 -1, 10559488) i32 @utext_next32_77(ptr noundef %0) local_unname
   %19 = add nsw i32 %16, 1
   store i32 %19, ptr %2, align 8, !tbaa !3
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !18
   %23 = zext i16 %22 to i32
   %24 = and i32 %23, 64512
@@ -319,7 +319,7 @@ define range(i32 -1, 10559488) i32 @utext_next32_77(ptr noundef %0) local_unname
   %37 = phi i32 [ %.pre28, %._crit_edge26 ], [ %19, %25 ]
   %38 = phi ptr [ %.pre27, %._crit_edge26 ], [ %18, %25 ]
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !18
   %42 = zext i16 %41 to i32
   %43 = and i32 %42, 64512
@@ -368,7 +368,7 @@ thread-pre-split:                                 ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !18
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 64512
@@ -400,7 +400,7 @@ thread-pre-split:                                 ; preds = %5
   %.pre-phi = phi i64 [ %.pre24, %._crit_edge ], [ %19, %24 ]
   %36 = phi i32 [ %.pre23, %._crit_edge ], [ %16, %24 ]
   %37 = phi ptr [ %.pre, %._crit_edge ], [ %18, %24 ]
-  %38 = getelementptr i16, ptr %37, i64 %.pre-phi
+  %38 = getelementptr [2 x i8], ptr %37, i64 %.pre-phi
   %39 = getelementptr i8, ptr %38, i64 -2
   %40 = load i16, ptr %39, align 2, !tbaa !18
   %41 = zext i16 %40 to i32
@@ -528,7 +528,7 @@ define void @utext_setNativeIndex_77(ptr noundef %0, i64 noundef %1) local_unnam
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = sext i32 %30 to i64
-  %39 = getelementptr inbounds i16, ptr %37, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %37, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !18
   %41 = and i16 %40, -1024
   %42 = icmp eq i16 %41, -9216
@@ -555,7 +555,7 @@ define void @utext_setNativeIndex_77(ptr noundef %0, i64 noundef %1) local_unnam
 55:                                               ; preds = %52
   %56 = load ptr, ptr %36, align 8, !tbaa !17
   %57 = zext nneg i32 %53 to i64
-  %58 = getelementptr i16, ptr %56, i64 %57
+  %58 = getelementptr [2 x i8], ptr %56, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -2
   %60 = load i16, ptr %59, align 2, !tbaa !18
   %61 = and i16 %60, -1024
@@ -583,7 +583,7 @@ define i64 @utext_getPreviousNativeIndex_77(ptr noundef %0) local_unnamed_addr #
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !18
   %12 = and i16 %11, -1024
   %.not = icmp eq i16 %12, -9216
@@ -642,7 +642,7 @@ thread-pre-split.i:                               ; preds = %.thread38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !17
   %42 = sext i32 %.pre-phi to i64
-  %43 = getelementptr inbounds i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %41, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !18
   %45 = and i16 %44, -1024
   %.not.i = icmp eq i16 %45, -9216
@@ -673,7 +673,7 @@ thread-pre-split.i:                               ; preds = %.thread38
   %.pre-phi.i = phi i64 [ %.pre24.i, %._crit_edge.i ], [ %42, %46 ]
   %58 = phi i32 [ %.pre40, %._crit_edge.i ], [ %.pre-phi, %46 ]
   %59 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %41, %46 ]
-  %60 = getelementptr i16, ptr %59, i64 %.pre-phi.i
+  %60 = getelementptr [2 x i8], ptr %59, i64 %.pre-phi.i
   %61 = getelementptr i8, ptr %60, i64 -2
   %62 = load i16, ptr %61, align 2, !tbaa !18
   %63 = and i16 %62, -1024
@@ -738,7 +738,7 @@ utext_previous32_77.exit:                         ; preds = %.thread38, %38, %48
   %98 = add nsw i32 %95, 1
   store i32 %98, ptr %2, align 8, !tbaa !3
   %99 = sext i32 %95 to i64
-  %100 = getelementptr inbounds i16, ptr %97, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %97, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !18
   %102 = and i16 %101, -1024
   %.not23.i = icmp eq i16 %102, -10240
@@ -769,7 +769,7 @@ utext_previous32_77.exit:                         ; preds = %.thread38, %38, %48
   %115 = phi i32 [ %.pre28.i, %._crit_edge26.i ], [ %98, %103 ]
   %116 = phi ptr [ %.pre27.i, %._crit_edge26.i ], [ %97, %103 ]
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds i16, ptr %116, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %116, i64 %117
   %119 = load i16, ptr %118, align 2, !tbaa !18
   %120 = and i16 %119, -1024
   %.not25.i = icmp eq i16 %120, -9216
@@ -814,7 +814,7 @@ define range(i32 -1, 10559488) i32 @utext_current32_77(ptr noundef %0) local_unn
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !18
   %23 = zext i16 %22 to i32
   %24 = and i32 %23, 64512
@@ -829,7 +829,7 @@ define range(i32 -1, 10559488) i32 @utext_current32_77(ptr noundef %0) local_unn
 
 29:                                               ; preds = %25
   %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds i16, ptr %19, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %19, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !18
   %33 = zext i16 %32 to i32
   br label %56
@@ -849,7 +849,7 @@ define range(i32 -1, 10559488) i32 @utext_current32_77(ptr noundef %0) local_unn
   %43 = load ptr, ptr %18, align 8, !tbaa !17
   %44 = load i32, ptr %2, align 8, !tbaa !3
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i16, ptr %43, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %43, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !18
   %48 = zext i16 %47 to i32
   br label %49
@@ -964,7 +964,7 @@ define range(i32 -1, 10559488) i32 @utext_char32At_77(ptr noundef %0, i64 nounde
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %52 = sext i32 %44 to i64
-  %53 = getelementptr inbounds i16, ptr %51, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !18
   %55 = and i16 %54, -1024
   %56 = icmp eq i16 %55, -9216
@@ -992,7 +992,7 @@ define range(i32 -1, 10559488) i32 @utext_char32At_77(ptr noundef %0, i64 nounde
 69:                                               ; preds = %66
   %70 = load ptr, ptr %50, align 8, !tbaa !17
   %71 = zext nneg i32 %67 to i64
-  %72 = getelementptr i16, ptr %70, i64 %71
+  %72 = getelementptr [2 x i8], ptr %70, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -2
   %74 = load i16, ptr %73, align 2, !tbaa !18
   %75 = and i16 %74, -1024
@@ -1019,7 +1019,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %43, %49, %66, %69, 
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !17
   %87 = sext i32 %79 to i64
-  %88 = getelementptr inbounds i16, ptr %86, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %86, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !18
   %90 = zext i16 %89 to i32
   %91 = and i32 %90, 64512
@@ -1033,7 +1033,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %43, %49, %66, %69, 
 
 95:                                               ; preds = %92
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds i16, ptr %86, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %86, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !18
   %99 = zext i16 %98 to i32
   br label %122
@@ -1053,7 +1053,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %43, %49, %66, %69, 
   %109 = load ptr, ptr %85, align 8, !tbaa !17
   %110 = load i32, ptr %45, align 8, !tbaa !3
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i16, ptr %109, i64 %111
+  %112 = getelementptr inbounds [2 x i8], ptr %109, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !18
   %114 = zext i16 %113 to i32
   br label %115
@@ -1140,7 +1140,7 @@ define range(i32 -1, 10559488) i32 @utext_next32From_77(ptr noundef %0, i64 noun
   %33 = add nsw i32 %29, 1
   store i32 %33, ptr %32, align 8, !tbaa !3
   %34 = sext i32 %29 to i64
-  %35 = getelementptr inbounds i16, ptr %31, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !18
   %37 = zext i16 %36 to i32
   %38 = and i32 %37, 63488
@@ -1198,7 +1198,7 @@ define range(i32 -1, 10559488) i32 @utext_next32From_77(ptr noundef %0, i64 noun
 69:                                               ; preds = %64
   %70 = load ptr, ptr %30, align 8, !tbaa !17
   %71 = sext i32 %65 to i64
-  %72 = getelementptr inbounds i16, ptr %70, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %70, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !18
   %74 = and i16 %73, -1024
   %75 = icmp eq i16 %74, -9216
@@ -1226,7 +1226,7 @@ define range(i32 -1, 10559488) i32 @utext_next32From_77(ptr noundef %0, i64 noun
 88:                                               ; preds = %85
   %89 = load ptr, ptr %30, align 8, !tbaa !17
   %90 = zext nneg i32 %86 to i64
-  %91 = getelementptr i16, ptr %89, i64 %90
+  %91 = getelementptr [2 x i8], ptr %89, i64 %90
   %92 = getelementptr i8, ptr %91, i64 -2
   %93 = load i16, ptr %92, align 2, !tbaa !18
   %94 = and i16 %93, -1024
@@ -1265,7 +1265,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %64, %69, %85, %88, 
   %112 = add nsw i32 %110, 1
   store i32 %112, ptr %32, align 8, !tbaa !3
   %113 = sext i32 %110 to i64
-  %114 = getelementptr inbounds i16, ptr %111, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %111, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !18
   %116 = zext i16 %115 to i32
   %117 = and i32 %116, 64512
@@ -1297,7 +1297,7 @@ utext_setNativeIndex_77.exit:                     ; preds = %64, %69, %85, %88, 
   %130 = phi i32 [ %.pre28.i, %._crit_edge26.i ], [ %112, %118 ]
   %131 = phi ptr [ %.pre27.i, %._crit_edge26.i ], [ %111, %118 ]
   %132 = sext i32 %130 to i64
-  %133 = getelementptr inbounds i16, ptr %131, i64 %132
+  %133 = getelementptr inbounds [2 x i8], ptr %131, i64 %132
   %134 = load i16, ptr %133, align 2, !tbaa !18
   %135 = zext i16 %134 to i32
   %136 = and i32 %135, 64512
@@ -1380,7 +1380,7 @@ define range(i32 -1, 10559488) i32 @utext_previous32From_77(ptr noundef %0, i64 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !17
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %41, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !18
   %45 = zext i16 %44 to i32
   %46 = and i32 %45, 63488
@@ -1438,7 +1438,7 @@ define range(i32 -1, 10559488) i32 @utext_previous32From_77(ptr noundef %0, i64 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %40, align 8, !tbaa !17
   %79 = sext i32 %73 to i64
-  %80 = getelementptr inbounds i16, ptr %78, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %78, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !18
   %82 = and i16 %81, -1024
   %83 = icmp eq i16 %82, -9216
@@ -1466,7 +1466,7 @@ define range(i32 -1, 10559488) i32 @utext_previous32From_77(ptr noundef %0, i64 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %40, align 8, !tbaa !17
   %98 = zext nneg i32 %94 to i64
-  %99 = getelementptr i16, ptr %97, i64 %98
+  %99 = getelementptr [2 x i8], ptr %97, i64 %98
   %100 = getelementptr i8, ptr %99, i64 -2
   %101 = load i16, ptr %100, align 2, !tbaa !18
   %102 = and i16 %101, -1024
@@ -1503,7 +1503,7 @@ utext_setNativeIndex_77.exit.thread46:            ; preds = %96, %thread-pre-spl
   store i32 %116, ptr %37, align 8, !tbaa !3
   %117 = load ptr, ptr %40, align 8, !tbaa !17
   %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds i16, ptr %117, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %117, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !18
   %121 = zext i16 %120 to i32
   %122 = and i32 %121, 64512
@@ -1534,7 +1534,7 @@ utext_setNativeIndex_77.exit.thread46:            ; preds = %96, %thread-pre-spl
   %.pre-phi.i = phi i64 [ %.pre24.i, %._crit_edge.i ], [ %118, %123 ]
   %134 = phi i32 [ %.pre23.i, %._crit_edge.i ], [ %116, %123 ]
   %135 = phi ptr [ %.pre.i37, %._crit_edge.i ], [ %117, %123 ]
-  %136 = getelementptr i16, ptr %135, i64 %.pre-phi.i
+  %136 = getelementptr [2 x i8], ptr %135, i64 %.pre-phi.i
   %137 = getelementptr i8, ptr %136, i64 -2
   %138 = load i16, ptr %137, align 2, !tbaa !18
   %139 = zext i16 %138 to i32
@@ -2698,7 +2698,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %146 = load i32, ptr %145, align 4, !tbaa !65
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i16, ptr %144, i64 %147
+  %148 = getelementptr inbounds [2 x i8], ptr %144, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %148, ptr %149, align 8, !tbaa !17
   %150 = getelementptr inbounds nuw i8, ptr %140, i64 12
@@ -2741,7 +2741,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %179 = load i32, ptr %178, align 4, !tbaa !65
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i16, ptr %177, i64 %180
+  %181 = getelementptr inbounds [2 x i8], ptr %177, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %181, ptr %182, align 8, !tbaa !17
   %183 = getelementptr inbounds nuw i8, ptr %173, i64 12
@@ -2840,7 +2840,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 231:                                              ; preds = %227
   %232 = zext nneg i8 %230 to i16
   %233 = sext i32 %.0413 to i64
-  %234 = getelementptr inbounds i16, ptr %222, i64 %233
+  %234 = getelementptr inbounds [2 x i8], ptr %222, i64 %233
   store i16 %232, ptr %234, align 2, !tbaa !18
   %235 = sub nsw i32 %.0407, %.2392
   %236 = trunc i32 %235 to i8
@@ -2991,7 +2991,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %321 = trunc nuw i32 %.5473478 to i16
   %322 = add nsw i32 %.0413, 1
   %323 = sext i32 %.0413 to i64
-  %324 = getelementptr inbounds i16, ptr %222, i64 %323
+  %324 = getelementptr inbounds [2 x i8], ptr %222, i64 %323
   store i16 %321, ptr %324, align 2, !tbaa !18
   %325 = icmp eq i32 %.5473478, 0
   br label %.preheader
@@ -3001,7 +3001,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %328 = trunc nuw nsw i32 %327 to i16
   %329 = add nuw nsw i16 %328, -10304
   %330 = sext i32 %.0413 to i64
-  %331 = getelementptr inbounds i16, ptr %222, i64 %330
+  %331 = getelementptr inbounds [2 x i8], ptr %222, i64 %330
   store i16 %329, ptr %331, align 2, !tbaa !18
   %332 = trunc i32 %.5 to i16
   %333 = and i16 %332, 1023
@@ -3176,7 +3176,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
 411:                                              ; preds = %404
   %412 = zext nneg i8 %409 to i16
   %413 = zext nneg i32 %406 to i64
-  %414 = getelementptr inbounds nuw i16, ptr %392, i64 %413
+  %414 = getelementptr inbounds nuw [2 x i8], ptr %392, i64 %413
   store i16 %412, ptr %414, align 2, !tbaa !18
   %415 = trunc i32 %406 to i8
   %416 = sub nsw i32 %405, %395
@@ -3201,7 +3201,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %429 = and i16 %427, 1023
   %430 = or disjoint i16 %429, -9216
   %431 = zext nneg i32 %406 to i64
-  %432 = getelementptr inbounds nuw i16, ptr %392, i64 %431
+  %432 = getelementptr inbounds nuw [2 x i8], ptr %392, i64 %431
   store i16 %430, ptr %432, align 2, !tbaa !18
   %433 = load i32, ptr %4, align 4, !tbaa !38
   %434 = sub nsw i32 %433, %395
@@ -3218,7 +3218,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %.sink565 = phi i32 [ %440, %428 ], [ %406, %423 ]
   %.sink = phi i16 [ %439, %428 ], [ %427, %423 ]
   %442 = zext nneg i32 %.sink565 to i64
-  %443 = getelementptr inbounds nuw i16, ptr %392, i64 %442
+  %443 = getelementptr inbounds nuw [2 x i8], ptr %392, i64 %442
   store i16 %.sink, ptr %443, align 2, !tbaa !18
   %444 = load i32, ptr %4, align 4, !tbaa !38
   %445 = sub nsw i32 %444, %395
@@ -3267,7 +3267,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL14utf8TextAccessP5UTextla(
   %462 = getelementptr inbounds nuw i8, ptr %389, i64 20
   store i32 %395, ptr %462, align 4, !tbaa !64
   %463 = sext i32 %.0386.lcssa to i64
-  %464 = getelementptr inbounds i16, ptr %392, i64 %463
+  %464 = getelementptr inbounds [2 x i8], ptr %392, i64 %463
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %464, ptr %465, align 8, !tbaa !17
   %466 = sub nsw i32 34, %.0386.lcssa
@@ -3417,7 +3417,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %12
   %61 = getelementptr inbounds i8, ptr %29, i64 %60
   %62 = sub nsw i32 %.048, %.050
   %63 = zext nneg i32 %4 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %3, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %63
   %65 = select i1 %13, ptr null, ptr %64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !38
@@ -4096,7 +4096,7 @@ _ZL8pinIndexRll.exit:
   %109 = phi i32 [ %95, %94 ], [ %95, %98 ], [ %106, %102 ]
   %110 = phi ptr [ %60, %94 ], [ %60, %98 ], [ %103, %102 ]
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds i16, ptr %110, i64 %111
+  %112 = getelementptr inbounds [2 x i8], ptr %110, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !18
   %114 = and i16 %113, -1024
   %115 = icmp eq i16 %114, -9216
@@ -4106,7 +4106,7 @@ _ZL8pinIndexRll.exit:
 
 117:                                              ; preds = %107
   %118 = zext nneg i32 %109 to i64
-  %119 = getelementptr i16, ptr %110, i64 %118
+  %119 = getelementptr [2 x i8], ptr %110, i64 %118
   %120 = getelementptr i8, ptr %119, i64 -2
   %121 = load i16, ptr %120, align 2, !tbaa !18
   %122 = and i16 %121, -1024
@@ -5095,16 +5095,16 @@ define internal noundef ptr @_ZL14ucstrTextCloneP5UTextPKS_aP10UErrorCode(ptr no
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.026 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds nuw i16, ptr %16, i64 %.026
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %.026
   %25 = load i16, ptr %24, align 2, !tbaa !18
-  %26 = getelementptr inbounds nuw i16, ptr %19, i64 %.026
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %.026
   store i16 %25, ptr %26, align 2, !tbaa !18
   %27 = add nuw nsw i64 %.026, 1
   %exitcond.not = icmp eq i64 %27, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %28 = getelementptr inbounds i16, ptr %19, i64 %21
+  %28 = getelementptr inbounds [2 x i8], ptr %19, i64 %21
   store i16 0, ptr %28, align 2, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %19, ptr %29, align 8, !tbaa !31
@@ -5130,7 +5130,7 @@ define internal noundef i64 @_ZL15ucstrTextLengthP5UText(ptr noundef captures(no
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load i64, ptr %8, align 8, !tbaa !13
-  %9 = getelementptr inbounds i16, ptr %7, i64 %.promoted
+  %9 = getelementptr inbounds [2 x i8], ptr %7, i64 %.promoted
   %10 = load i16, ptr %9, align 2, !tbaa !18
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %17, label %.lr.ph
@@ -5138,7 +5138,7 @@ define internal noundef i64 @_ZL15ucstrTextLengthP5UText(ptr noundef captures(no
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %12 = phi i64 [ %13, %.lr.ph ], [ %.promoted, %5 ]
   %13 = add nsw i64 %12, 1
-  %14 = getelementptr inbounds i16, ptr %7, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %7, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !18
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !81
@@ -5180,7 +5180,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i16, ptr %5, i64 %1
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %1
   %13 = load i16, ptr %12, align 2, !tbaa !18
   %14 = and i16 %13, -1024
   %15 = icmp eq i16 %14, -9216
@@ -5220,7 +5220,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
-  %34 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
+  %34 = getelementptr inbounds [2 x i8], ptr %5, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2, !tbaa !18
   %36 = icmp eq i16 %35, 0
   br i1 %36, label %37, label %57
@@ -5236,7 +5236,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
   br i1 %.not, label %41, label %53
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i16, ptr %5, i64 %1
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %1
   %43 = load i16, ptr %42, align 2, !tbaa !18
   %44 = and i16 %43, -1024
   %45 = icmp eq i16 %44, -9216
@@ -5269,7 +5269,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
 
 ._crit_edge:                                      ; preds = %57, %27
   %.082.lcssa = phi i32 [ %31, %27 ], [ %.083, %57 ]
-  %58 = getelementptr inbounds nuw i16, ptr %5, i64 %1
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %1
   %59 = load i16, ptr %58, align 2, !tbaa !18
   %60 = and i16 %59, -1024
   %61 = icmp eq i16 %60, -9216
@@ -5307,7 +5307,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla
 
 77:                                               ; preds = %69
   %78 = sext i32 %.082.lcssa to i64
-  %79 = getelementptr i16, ptr %5, i64 %78
+  %79 = getelementptr [2 x i8], ptr %5, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -2
   %81 = load i16, ptr %80, align 2, !tbaa !18
   %82 = and i16 %81, -1024
@@ -5411,7 +5411,7 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %46
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %46 ], [ 0, %.lr.ph ]
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %46 ], [ %36, %.lr.ph ]
-  %39 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv129
+  %39 = getelementptr inbounds [2 x i8], ptr %19, i64 %indvars.iv129
   %40 = load i16, ptr %39, align 2, !tbaa !18
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %.split.us, label %42
@@ -5421,7 +5421,7 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv131
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv131
   store i16 %40, ptr %45, align 2, !tbaa !18
   br label %46
 
@@ -5438,9 +5438,9 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
   br i1 %exitcond.not, label %.loopexit, label %47
 
 47:                                               ; preds = %.lr.ph.split.split.us
-  %48 = getelementptr inbounds i16, ptr %19, i64 %indvars.iv
+  %48 = getelementptr inbounds [2 x i8], ptr %19, i64 %indvars.iv
   %49 = load i16, ptr %48, align 2, !tbaa !18
-  %50 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv122
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv122
   store i16 %49, ptr %50, align 2, !tbaa !18
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -5476,7 +5476,7 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
 
 59:                                               ; preds = %.loopexit
   %60 = zext nneg i32 %.1 to i64
-  %61 = getelementptr i16, ptr %19, i64 %60
+  %61 = getelementptr [2 x i8], ptr %19, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -2
   %63 = load i16, ptr %62, align 2, !tbaa !18
   %64 = and i16 %63, -1024
@@ -5498,7 +5498,7 @@ _ZL8pinIndexRll.exit87:                           ; preds = %16
 72:                                               ; preds = %70
   %73 = add nsw i32 %.174, 1
   %74 = sext i32 %.174 to i64
-  %75 = getelementptr inbounds i16, ptr %3, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %3, i64 %74
   store i16 %67, ptr %75, align 2, !tbaa !18
   br label %76
 
@@ -5698,7 +5698,7 @@ utext_getNativeIndex_77.exit:                     ; preds = %52, %57
 86:                                               ; preds = %82
   %87 = load ptr, ptr %42, align 8, !tbaa !17
   %88 = sext i32 %83 to i64
-  %89 = getelementptr inbounds i16, ptr %87, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %87, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !18
   %91 = and i16 %90, -1024
   %92 = icmp eq i16 %91, -9216
@@ -5725,7 +5725,7 @@ utext_getNativeIndex_77.exit:                     ; preds = %52, %57
 104:                                              ; preds = %101
   %105 = load ptr, ptr %42, align 8, !tbaa !17
   %106 = zext nneg i32 %102 to i64
-  %107 = getelementptr i16, ptr %105, i64 %106
+  %107 = getelementptr [2 x i8], ptr %105, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -2
   %109 = load i16, ptr %108, align 2, !tbaa !18
   %110 = and i16 %109, -1024
@@ -5855,7 +5855,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL18charIterTextAccessP5UTex
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef zeroext i16 %59(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %61 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.1, i64 %indvars.iv
   store i16 %60, ptr %61, align 2, !tbaa !18
   %62 = add nsw i64 %indvars.iv, %31
   %63 = load i64, ptr %55, align 8, !tbaa !54
@@ -5991,7 +5991,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %11
   %43 = trunc nuw i32 %37 to i16
   %44 = add nsw i32 %.04564, 1
   %45 = sext i32 %.04564 to i64
-  %46 = getelementptr inbounds i16, ptr %3, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %3, i64 %45
   store i16 %43, ptr %46, align 2, !tbaa !18
   br label %58
 
@@ -6000,7 +6000,7 @@ _ZL8pinIndexRll.exit:                             ; preds = %11
   %49 = trunc i32 %48 to i16
   %50 = add i16 %49, -10304
   %51 = sext i32 %.04564 to i64
-  %52 = getelementptr inbounds i16, ptr %3, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %3, i64 %51
   store i16 %50, ptr %52, align 2, !tbaa !18
   %53 = trunc i32 %37 to i16
   %54 = and i16 %53, 1023

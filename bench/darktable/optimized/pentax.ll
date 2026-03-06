@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.libraw_static_table_t = type <{ ptr, i32, [4 x i8] }>
-%struct.libraw_afinfo_item_t = type { i32, i16, i32, i32, ptr }
 
 @__const._ZN6LibRaw9PentaxISOEt.code = private unnamed_addr constant [71 x i32] [i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 50, i32 100, i32 200, i32 400, i32 800, i32 1600, i32 3200, i32 258, i32 259, i32 260, i32 261, i32 262, i32 263, i32 264, i32 265, i32 266, i32 267, i32 268, i32 269, i32 270, i32 271, i32 272, i32 273, i32 274, i32 275, i32 276, i32 277, i32 278], align 16
 @__const._ZN6LibRaw9PentaxISOEt.value = private unnamed_addr constant [71 x double] [double 5.000000e+01, double 6.400000e+01, double 8.000000e+01, double 1.000000e+02, double 1.250000e+02, double 1.600000e+02, double 2.000000e+02, double 2.500000e+02, double 3.200000e+02, double 4.000000e+02, double 5.000000e+02, double 6.400000e+02, double 8.000000e+02, double 1.000000e+03, double 1.250000e+03, double 1.600000e+03, double 2.000000e+03, double 2.500000e+03, double 3.200000e+03, double 4.000000e+03, double 5.000000e+03, double 6.400000e+03, double 8.000000e+03, double 1.000000e+04, double 1.280000e+04, double 1.600000e+04, double 2.000000e+04, double 2.560000e+04, double 3.200000e+04, double 4.000000e+04, double 5.120000e+04, double 6.400000e+04, double 8.000000e+04, double 1.024000e+05, double 1.280000e+05, double 1.600000e+05, double 2.048000e+05, double 2.580000e+05, double 3.250000e+05, double 4.096000e+05, double 5.160000e+05, double 6.500000e+05, double 8.192000e+05, double 5.000000e+01, double 1.000000e+02, double 2.000000e+02, double 4.000000e+02, double 8.000000e+02, double 1.600000e+03, double 3.200000e+03, double 5.000000e+01, double 7.000000e+01, double 1.000000e+02, double 1.400000e+02, double 2.000000e+02, double 2.800000e+02, double 4.000000e+02, double 5.600000e+02, double 8.000000e+02, double 1.100000e+03, double 1.600000e+03, double 2.200000e+03, double 3.200000e+03, double 4.500000e+03, double 6.400000e+03, double 9.000000e+03, double 1.280000e+04, double 1.800000e+04, double 2.560000e+04, double 3.600000e+04, double 5.120000e+04], align 16
@@ -146,13 +145,13 @@ define void @_ZN6LibRaw9PentaxISOEt(ptr noundef nonnull writeonly align 8 captur
 
 4:                                                ; preds = %2, %12
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
-  %5 = getelementptr inbounds nuw i32, ptr @__const._ZN6LibRaw9PentaxISOEt.code, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN6LibRaw9PentaxISOEt.code, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !76
   %7 = icmp eq i32 %6, %3
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw double, ptr @__const._ZN6LibRaw9PentaxISOEt.value, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN6LibRaw9PentaxISOEt.value, i64 %indvars.iv
   %10 = load double, ptr %9, align 8, !tbaa !77
   %11 = fptrunc reassoc nsz arcp contract afn double %10 to float
   br label %.loopexit
@@ -394,7 +393,7 @@ switch.lookup:                                    ; preds = %140
   %142 = and i8 %141, 6
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %144 = zext nneg i8 %142 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN6LibRaw14PentaxLensInfoEyj, i64 %144
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6LibRaw14PentaxLensInfoEyj, i64 %144
   %switch.load = load float, ptr %switch.gep, align 4
   store float %switch.load, ptr %143, align 8, !tbaa !89
   %145 = load i8, ptr %104, align 1, !tbaa !84
@@ -614,13 +613,13 @@ define void @_ZN6LibRaw21parsePentaxMakernotesEijjjj(ptr noundef nonnull align 8
 
 54:                                               ; preds = %62, %51
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %62 ]
-  %55 = getelementptr inbounds nuw i32, ptr @__const._ZN6LibRaw9PentaxISOEt.code, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN6LibRaw9PentaxISOEt.code, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !76
   %57 = icmp eq i32 %56, %53
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw double, ptr @__const._ZN6LibRaw9PentaxISOEt.value, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN6LibRaw9PentaxISOEt.value, i64 %indvars.iv.i
   %60 = load double, ptr %59, align 8, !tbaa !77
   %61 = fptrunc reassoc nsz arcp contract afn double %60 to float
   br label %_ZN6LibRaw9PentaxISOEt.exit
@@ -912,7 +911,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
   %219 = lshr i32 %.1188, 1
   %220 = xor i32 %219, %.1188
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %215, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %221
   store i32 %218, ptr %222, align 4, !tbaa !76
   %223 = add nuw nsw i32 %.1188, 1
   %exitcond221.not = icmp eq i32 %223, 4
@@ -934,7 +933,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
   %230 = lshr i32 %.2187, 1
   %231 = xor i32 %230, %.2187
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw float, ptr %226, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %232
   store float %229, ptr %233, align 4, !tbaa !104
   %234 = add nuw nsw i32 %.2187, 1
   %exitcond220.not = icmp eq i32 %234, 4
@@ -951,7 +950,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
 
 .preheader163:                                    ; preds = %.preheader164, %245
   %indvars.iv216 = phi i64 [ 0, %.preheader164 ], [ %indvars.iv.next217, %245 ]
-  %238 = getelementptr inbounds nuw [4 x float], ptr %237, i64 %indvars.iv216
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %237, i64 %indvars.iv216
   br label %239
 
 239:                                              ; preds = %.preheader163, %239
@@ -960,7 +959,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
   %241 = sitofp i16 %240 to double
   %242 = fmul reassoc nnan nsz arcp contract afn double %241, 0x3F20000000000000
   %243 = fptrunc reassoc nsz arcp contract afn double %242 to float
-  %244 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv212
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %indvars.iv212
   store float %243, ptr %244, align 4, !tbaa !104
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, 3
@@ -986,7 +985,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %253 = sext i32 %249 to i64
-  %254 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %252, i64 %253
+  %254 = getelementptr inbounds [24 x i8], ptr %252, i64 %253
   store i32 517, ptr %254, align 8, !tbaa !124
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 381552
@@ -999,7 +998,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
   %261 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %260, i64 noundef 1)
   %262 = load i32, ptr %248, align 8, !tbaa !123
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %252, i64 %263
+  %264 = getelementptr inbounds [24 x i8], ptr %252, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
   store ptr %261, ptr %265, align 8, !tbaa !129
   %266 = load ptr, ptr %255, align 8, !tbaa !81
@@ -1017,7 +1016,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
 
 275:                                              ; preds = %251
   %276 = sext i32 %.pre to i64
-  %277 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %252, i64 %276
+  %277 = getelementptr inbounds [24 x i8], ptr %252, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %279 = load ptr, ptr %278, align 8, !tbaa !129
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 3
@@ -1036,7 +1035,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
   store i16 %289, ptr %290, align 2, !tbaa !95
   %291 = load i32, ptr %248, align 8, !tbaa !123
   %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %252, i64 %292
+  %293 = getelementptr inbounds [24 x i8], ptr %252, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8, !tbaa !129
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 10
@@ -1082,7 +1081,7 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
 
 317:                                              ; preds = %312
   %318 = load ptr, ptr @_ZN6LibRaw15Pentax_wb_list1E, align 8, !tbaa !134
-  %319 = getelementptr inbounds nuw i32, ptr %318, i64 %311
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %318, i64 %311
   %320 = load i32, ptr %319, align 4, !tbaa !76
   br label %_ZNK21libraw_static_table_tixEj.exit
 
@@ -1102,11 +1101,11 @@ _ZN6LibRaw9PentaxISOEt.exit:                      ; preds = %62, %58
 _ZNK21libraw_static_table_tixEj.exit:             ; preds = %317, %321, %322, %324
   %.0.i = phi i32 [ %320, %317 ], [ %325, %324 ], [ 0, %322 ], [ 0, %321 ]
   %326 = sext i32 %.0.i to i64
-  %327 = getelementptr inbounds [4 x i32], ptr %310, i64 %326
+  %327 = getelementptr inbounds [16 x i8], ptr %310, i64 %326
   %328 = lshr i32 %.4184, 1
   %329 = xor i32 %328, %.4184
   %330 = zext nneg i32 %329 to i64
-  %331 = getelementptr inbounds nuw i32, ptr %327, i64 %330
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %330
   store i32 %314, ptr %331, align 4, !tbaa !76
   %332 = add nuw nsw i32 %.4184, 1
   %exitcond211.not = icmp eq i32 %332, 4
@@ -1127,7 +1126,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %317, %321, %322, %3
 
 .preheader168:                                    ; preds = %.preheader169, %345
   %indvars.iv207 = phi i64 [ 0, %.preheader169 ], [ %indvars.iv.next208, %345 ]
-  %338 = getelementptr inbounds nuw [4 x float], ptr %337, i64 %indvars.iv207
+  %338 = getelementptr inbounds nuw [16 x i8], ptr %337, i64 %indvars.iv207
   br label %339
 
 339:                                              ; preds = %.preheader168, %339
@@ -1136,7 +1135,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %317, %321, %322, %3
   %341 = sitofp i16 %340 to double
   %342 = fmul reassoc nnan nsz arcp contract afn double %341, 0x3F20000000000000
   %343 = fptrunc reassoc nsz arcp contract afn double %342 to float
-  %344 = getelementptr inbounds nuw float, ptr %338, i64 %indvars.iv203
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %indvars.iv203
   store float %343, ptr %344, align 4, !tbaa !104
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next204, 3
@@ -1233,7 +1232,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %317, %321, %322, %3
   %387 = zext i16 %386 to i32
   %388 = sub nsw i32 53190, %387
   %389 = uitofp i32 %388 to float
-  %390 = getelementptr inbounds nuw [5 x float], ptr %383, i64 %indvars.iv199
+  %390 = getelementptr inbounds nuw [20 x i8], ptr %383, i64 %indvars.iv199
   store float %389, ptr %390, align 4, !tbaa !104
   %391 = load ptr, ptr %384, align 8, !tbaa !81
   %392 = load ptr, ptr %391, align 8, !tbaa !82
@@ -1319,7 +1318,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %317, %321, %322, %3
 
 446:                                              ; preds = %441
   %447 = load ptr, ptr @_ZN6LibRaw15Pentax_wb_list2E, align 8, !tbaa !134
-  %448 = getelementptr inbounds nuw i32, ptr %447, i64 %440
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %447, i64 %440
   %449 = load i32, ptr %448, align 4, !tbaa !76
   br label %_ZNK21libraw_static_table_tixEj.exit158
 
@@ -1339,11 +1338,11 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %317, %321, %322, %3
 _ZNK21libraw_static_table_tixEj.exit158:          ; preds = %446, %450, %451, %453
   %.0.i157 = phi i32 [ %449, %446 ], [ %454, %453 ], [ 0, %451 ], [ 0, %450 ]
   %455 = sext i32 %.0.i157 to i64
-  %456 = getelementptr inbounds [4 x i32], ptr %430, i64 %455
+  %456 = getelementptr inbounds [16 x i8], ptr %430, i64 %455
   %457 = lshr i32 %.7178, 1
   %458 = xor i32 %457, %.7178
   %459 = zext nneg i32 %458 to i64
-  %460 = getelementptr inbounds nuw i32, ptr %456, i64 %459
+  %460 = getelementptr inbounds nuw [4 x i8], ptr %456, i64 %459
   store i32 %443, ptr %460, align 4, !tbaa !76
   %461 = add nuw nsw i32 %.7178, 1
   %exitcond198.not = icmp eq i32 %461, 4
@@ -1388,7 +1387,7 @@ _ZNK21libraw_static_table_tixEj.exit158:          ; preds = %446, %450, %451, %4
 482:                                              ; preds = %478
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 4896
   %484 = sext i32 %480 to i64
-  %485 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %483, i64 %484
+  %485 = getelementptr inbounds [24 x i8], ptr %483, i64 %484
   store i32 581, ptr %485, align 8, !tbaa !124
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 381552
@@ -1401,7 +1400,7 @@ _ZNK21libraw_static_table_tixEj.exit158:          ; preds = %446, %450, %451, %4
   %492 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %491, i64 noundef 1)
   %493 = load i32, ptr %479, align 8, !tbaa !123
   %494 = sext i32 %493 to i64
-  %495 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %483, i64 %494
+  %495 = getelementptr inbounds [24 x i8], ptr %483, i64 %494
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 16
   store ptr %492, ptr %496, align 8, !tbaa !129
   %497 = load ptr, ptr %486, align 8, !tbaa !81

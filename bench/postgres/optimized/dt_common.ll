@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds ptr, ptr @deltacache, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @deltacache, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
@@ -114,7 +114,7 @@ define range(i32 -128, 128) i32 @DecodeUnits(i32 noundef %0, ptr noundef readonl
   %15 = ptrtoint ptr %.02329.i to i64
   %16 = sub i64 %14, %15
   %17 = ashr i64 %16, 5
-  %18 = getelementptr inbounds %struct.datetkn, ptr %.02329.i, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %.02329.i, i64 %17
   %19 = load i8, ptr %18, align 4
   %20 = sext i8 %19 to i32
   %21 = sub nsw i32 %12, %20
@@ -755,7 +755,7 @@ TrimTrailingZeros.exit198:                        ; preds = %174, %.lr.ph.i195, 
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %224, ptr %225, align 8
   %226 = sext i32 %224 to i64
-  %227 = getelementptr inbounds ptr, ptr @days, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr @days, i64 %226
   %228 = load ptr, ptr %227, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) %228, i64 3, i1 false)
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 3
@@ -768,7 +768,7 @@ TrimTrailingZeros.exit198:                        ; preds = %174, %.lr.ph.i195, 
   %233 = load i32, ptr %208, align 8
   %234 = add i32 %233, -1
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds ptr, ptr @months, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr @months, i64 %235
   %237 = load ptr, ptr %236, align 8
   %238 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %230, ptr noundef nonnull @.str.59, i32 noundef %232, ptr noundef %237) #17
   br label %247
@@ -777,7 +777,7 @@ TrimTrailingZeros.exit198:                        ; preds = %174, %.lr.ph.i195, 
   %240 = load i32, ptr %208, align 8
   %241 = add i32 %240, -1
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds ptr, ptr @months, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr @months, i64 %242
   %244 = load ptr, ptr %243, align 8
   %245 = load i32, ptr %210, align 4
   %246 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %230, ptr noundef nonnull @.str.60, ptr noundef %244, i32 noundef %245) #17
@@ -1157,7 +1157,7 @@ define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %6, %.loopexit
   %.0127.ph314 = phi ptr [ %262, %.loopexit ], [ %1, %6 ]
   %indvars.iv313 = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %6 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv313
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv313
   %exitcond = icmp eq i64 %indvars.iv313, 25
   br i1 %exitcond, label %.loopexit164, label %.lr.ph.split
 
@@ -1171,7 +1171,7 @@ define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr n
   %12 = load ptr, ptr %5, align 8
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   %18 = and i32 %17, 2048
@@ -1188,7 +1188,7 @@ define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr n
   %23 = load ptr, ptr %5, align 8
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 2048
   %.not146188 = icmp eq i16 %28, 0
@@ -1206,7 +1206,7 @@ define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr n
   %33 = load ptr, ptr %5, align 8
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 2048
   %.not146 = icmp eq i16 %38, 0
@@ -1225,7 +1225,7 @@ define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 39:                                               ; preds = %._crit_edge192
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 3, ptr %40, align 4
   %41 = load ptr, ptr %5, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
@@ -1241,7 +1241,7 @@ define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr n
   %46 = load ptr, ptr %5, align 8
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %48
   %50 = load i16, ptr %49, align 2
   %.fr157 = freeze i16 %50
   %51 = and i16 %.fr157, 2048
@@ -1271,7 +1271,7 @@ switch.early.test:                                ; preds = %44
   %59 = load ptr, ptr %5, align 8
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 2048
   %.not147 = icmp eq i16 %64, 0
@@ -1280,13 +1280,13 @@ switch.early.test:                                ; preds = %44
 65:                                               ; preds = %54
   %66 = icmp eq i8 %56, 46
   %67 = select i1 %66, i32 0, i32 2
-  %68 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 %67, ptr %68, align 4
   %69 = load ptr, ptr %9, align 8
   %70 = load ptr, ptr %5, align 8
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 2048
   %.not149197 = icmp eq i16 %75, 0
@@ -1304,7 +1304,7 @@ switch.early.test:                                ; preds = %44
   %81 = load ptr, ptr %5, align 8
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %85, 2048
   %.not149 = icmp eq i16 %86, 0
@@ -1333,7 +1333,7 @@ switch.early.test:                                ; preds = %44
   %95 = load ptr, ptr %5, align 8
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, 2048
   %.not150 = icmp eq i16 %100, 0
@@ -1352,7 +1352,7 @@ switch.early.test:                                ; preds = %44
   br label %93, !llvm.loop !10
 
 106:                                              ; preds = %54
-  %107 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 2, ptr %107, align 4
   br label %108
 
@@ -1362,7 +1362,7 @@ switch.early.test:                                ; preds = %44
   %110 = load ptr, ptr %5, align 8
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = and i16 %114, 8
   %.not148 = icmp eq i16 %115, 0
@@ -1396,7 +1396,7 @@ switch.early.test:                                ; preds = %44
   %129 = load ptr, ptr %5, align 8
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %128, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %128, i64 %131
   %133 = load i16, ptr %132, align 2
   %134 = and i16 %133, 2048
   %.not144224 = icmp eq i16 %134, 0
@@ -1414,7 +1414,7 @@ switch.early.test:                                ; preds = %44
   %139 = load ptr, ptr %5, align 8
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw i16, ptr %138, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %138, i64 %141
   %143 = load i16, ptr %142, align 2
   %144 = and i16 %143, 2048
   %.not144 = icmp eq i16 %144, 0
@@ -1426,7 +1426,7 @@ switch.early.test:                                ; preds = %44
   br i1 %.not134, label %188, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 1, ptr %148, align 4
   %149 = load ptr, ptr %5, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 1
@@ -1439,7 +1439,7 @@ switch.early.test:                                ; preds = %44
   %154 = load ptr, ptr %5, align 8
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %156
   %158 = load i16, ptr %157, align 2
   %159 = and i16 %158, 1024
   %.not142205 = icmp eq i16 %159, 0
@@ -1458,7 +1458,7 @@ switch.early.test:                                ; preds = %44
   %165 = load ptr, ptr %5, align 8
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw i16, ptr %164, i64 %167
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %167
   %169 = load i16, ptr %168, align 2
   %170 = and i16 %169, 1024
   %.not142 = icmp eq i16 %170, 0
@@ -1488,7 +1488,7 @@ switch.early.test:                                ; preds = %44
   %177 = load ptr, ptr %5, align 8
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i64
-  %180 = getelementptr inbounds nuw i16, ptr %176, i64 %179
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = and i16 %181, 2048
   %.not143 = icmp eq i16 %182, 0
@@ -1534,7 +1534,7 @@ switch.early.test:                                ; preds = %44
   %197 = load ptr, ptr %5, align 8
   %198 = load i8, ptr %197, align 1
   %199 = zext i8 %198 to i64
-  %200 = getelementptr inbounds nuw i16, ptr %196, i64 %199
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %196, i64 %199
   %201 = load i16, ptr %200, align 2
   %202 = zext i16 %201 to i32
   %203 = and i32 %202, 8192
@@ -1548,7 +1548,7 @@ switch.early.test:                                ; preds = %44
   %206 = load ptr, ptr %9, align 8
   %207 = load i8, ptr %205, align 1
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw i16, ptr %206, i64 %208
+  %209 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %208
   %210 = load i16, ptr %209, align 2
   %211 = zext i16 %210 to i32
   %212 = and i32 %211, 8192
@@ -1562,7 +1562,7 @@ switch.early.test:                                ; preds = %44
   br i1 %.not138, label %231, label %214
 
 214:                                              ; preds = %._crit_edge216
-  %215 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 4, ptr %215, align 4
   %216 = load ptr, ptr %5, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 1
@@ -1578,7 +1578,7 @@ switch.early.test:                                ; preds = %44
   %222 = load ptr, ptr %5, align 8
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i64
-  %225 = getelementptr inbounds nuw i16, ptr %221, i64 %224
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %221, i64 %224
   %226 = load i16, ptr %225, align 2
   %.fr158 = freeze i16 %226
   %227 = and i16 %.fr158, 2048
@@ -1605,7 +1605,7 @@ switch.early.test156:                             ; preds = %220
   br i1 %.not139, label %.loopexit164, label %233
 
 233:                                              ; preds = %231
-  %234 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 6, ptr %234, align 4
   %235 = load ptr, ptr %5, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 1
@@ -1618,7 +1618,7 @@ switch.early.test156:                             ; preds = %220
   %241 = load ptr, ptr %5, align 8
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i64
-  %244 = getelementptr inbounds nuw i16, ptr %240, i64 %243
+  %244 = getelementptr inbounds nuw [2 x i8], ptr %240, i64 %243
   %245 = load i16, ptr %244, align 2
   %246 = and i16 %245, 1024
   %.not140218 = icmp eq i16 %246, 0
@@ -1637,7 +1637,7 @@ switch.early.test156:                             ; preds = %220
   %253 = load ptr, ptr %5, align 8
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i64
-  %256 = getelementptr inbounds nuw i16, ptr %252, i64 %255
+  %256 = getelementptr inbounds nuw [2 x i8], ptr %252, i64 %255
   %257 = load i16, ptr %256, align 2
   %258 = and i16 %257, 1024
   %.not140 = icmp eq i16 %258, 0
@@ -1650,7 +1650,7 @@ switch.early.test156:                             ; preds = %220
 
 .loopexit.sink.split:                             ; preds = %.lr.ph227, %125, %._crit_edge192
   %.7.ph = phi ptr [ %.1.lcssa, %._crit_edge192 ], [ %.8223, %125 ], [ %.8, %.lr.ph227 ]
-  %261 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv313
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv313
   store i32 0, ptr %261, align 4
   br label %.loopexit
 
@@ -1733,7 +1733,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr noundef readonly captures(none) 
   %.0292475 = phi i32 [ 2, %.lr.ph ], [ %.2294, %592 ]
   %.0295474 = phi i1 [ false, %.lr.ph ], [ %.2297, %592 ]
   %.0305473 = phi i1 [ false, %.lr.ph ], [ %.2307, %592 ]
-  %36 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %36 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   switch i32 %37, label %.thread417 [
     i32 2, label %38
@@ -1750,7 +1750,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr noundef readonly captures(none) 
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @strtoint(ptr noundef %42, ptr noundef nonnull %20, i32 noundef 10) #17
   %44 = load ptr, ptr %20, align 8
@@ -1830,11 +1830,11 @@ j2date.exit:                                      ; preds = %60, %63
 86:                                               ; preds = %82
   %87 = tail call ptr @__ctype_b_loc() #18
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %88, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %92
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 2048
   %96 = icmp ne i16 %95, 0
@@ -1887,7 +1887,7 @@ j2date.exit:                                      ; preds = %60, %63
   %116 = phi i8 [ %123, %121 ], [ %91, %115 ]
   %.01221.i = phi ptr [ %122, %121 ], [ %90, %115 ]
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw i16, ptr %88, i64 %117
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %117
   %119 = load i16, ptr %118, align 2
   %120 = and i16 %119, 1024
   %.not13.i = icmp eq i16 %120, 0
@@ -1929,7 +1929,7 @@ j2date.exit:                                      ; preds = %60, %63
   %136 = ptrtoint ptr %.02329.i.i.i to i64
   %137 = sub i64 %135, %136
   %138 = ashr i64 %137, 5
-  %139 = getelementptr inbounds %struct.datetkn, ptr %.02329.i.i.i, i64 %138
+  %139 = getelementptr inbounds [16 x i8], ptr %.02329.i.i.i, i64 %138
   %140 = load i8, ptr %139, align 4
   %141 = sext i8 %140 to i32
   %142 = sub nsw i32 %133, %141
@@ -1984,14 +1984,14 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br label %587
 
 160:                                              ; preds = %82
-  %161 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %162 = load ptr, ptr %161, align 8
   %163 = call fastcc i32 @DecodeDate(ptr noundef %162, i32 noundef %.0282481, ptr noundef %17, ptr noundef %4, i1 noundef zeroext %6)
   %.not352 = icmp eq i32 %163, 0
   br i1 %.not352, label %587, label %.thread417
 
 164:                                              ; preds = %35
-  %165 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 @DecodeTime(ptr noundef %166, ptr noundef nonnull %17, ptr noundef %4, ptr noundef nonnull %5)
   %.not351 = icmp eq i32 %167, 0
@@ -2018,7 +2018,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 
 179:                                              ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %180 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %181 = load ptr, ptr %180, align 8
   %182 = call fastcc i32 @DecodeTimezone(ptr noundef %181, ptr noundef nonnull %21)
   %.not347 = icmp eq i32 %182, 0
@@ -2033,7 +2033,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 
 186:                                              ; preds = %183
   %187 = add nsw i64 %indvars.iv, -1
-  %188 = getelementptr inbounds nuw i32, ptr %1, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, 4
   br i1 %190, label %191, label %205
@@ -2041,11 +2041,11 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 191:                                              ; preds = %186
   %192 = tail call ptr @__ctype_b_loc() #18
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds nuw ptr, ptr %0, i64 %187
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %187
   %195 = load ptr, ptr %194, align 8
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i64
-  %198 = getelementptr inbounds nuw i16, ptr %193, i64 %197
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %193, i64 %197
   %199 = load i16, ptr %198, align 2
   %200 = and i16 %199, 1024
   %.not349 = icmp eq i16 %200, 0
@@ -2079,7 +2079,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 
 209:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %210 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 8
   %212 = call i32 @strtoint(ptr noundef %211, ptr noundef nonnull %22, i32 noundef 10) #17
   %213 = load ptr, ptr %22, align 8
@@ -2283,7 +2283,7 @@ j2date.exit375:                                   ; preds = %251, %254
   br label %587
 
 300:                                              ; preds = %208
-  %301 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %302 = load ptr, ptr %301, align 8
   %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %302) #16
   %304 = trunc i64 %303 to i32
@@ -2332,9 +2332,9 @@ j2date.exit375:                                   ; preds = %251, %254
   br i1 %.not339, label %587, label %.thread417
 
 325:                                              ; preds = %35, %35
-  %326 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds nuw ptr, ptr @datecache, i64 %indvars.iv
+  %328 = getelementptr inbounds nuw [8 x i8], ptr @datecache, i64 %indvars.iv
   %329 = load ptr, ptr %328, align 8
   %.not.i377 = icmp eq ptr %329, null
   br i1 %.not.i377, label %333, label %330
@@ -2356,7 +2356,7 @@ j2date.exit375:                                   ; preds = %251, %254
   %338 = ptrtoint ptr %.02329.i.i to i64
   %339 = sub i64 %337, %338
   %340 = ashr i64 %339, 5
-  %341 = getelementptr inbounds %struct.datetkn, ptr %.02329.i.i, i64 %340
+  %341 = getelementptr inbounds [16 x i8], ptr %.02329.i.i, i64 %340
   %342 = load i8, ptr %341, align 4
   %343 = sext i8 %342 to i32
   %344 = sub nsw i32 %335, %343
@@ -3019,9 +3019,9 @@ j2date.exit403:                                   ; preds = %538, %541
 
 649:                                              ; preds = %643, %645, %638
   %650 = phi i64 [ 0, %638 ], [ 1, %643 ], [ %648, %645 ]
-  %651 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %650
+  %651 = getelementptr inbounds nuw [52 x i8], ptr @day_tab, i64 %650
   %652 = zext nneg i32 %632 to i64
-  %653 = getelementptr i32, ptr %651, i64 %652
+  %653 = getelementptr [4 x i8], ptr %651, i64 %652
   %654 = getelementptr i8, ptr %653, i64 -4
   %655 = load i32, ptr %654, align 4
   %656 = icmp sgt i32 %636, %655
@@ -3299,7 +3299,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %.154 = phi ptr [ %20, %14 ], [ %.053102, %.preheader91 ]
   %15 = load i8, ptr %.154, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8
   %.not73 = icmp eq i16 %19, 0
@@ -3307,11 +3307,11 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   br i1 %.not73, label %14, label %21, !llvm.loop !24
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %.154, ptr %22, align 8
   %23 = load i8, ptr %.154, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %13, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = and i32 %27, 2048
@@ -3322,7 +3322,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %.255 = phi ptr [ %34, %.preheader89 ], [ %.154, %21 ]
   %29 = load i8, ptr %.255, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 2048
   %.not77 = icmp eq i16 %33, 0
@@ -3338,7 +3338,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %.4 = phi ptr [ %42, %.preheader87 ], [ %.154, %35 ]
   %37 = load i8, ptr %.4, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %13, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 1024
   %.not76 = icmp eq i16 %41, 0
@@ -3382,18 +3382,18 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %.052105 = phi i1 [ false, %._crit_edge ], [ %.1, %102 ]
   %.059103 = phi i32 [ %1, %._crit_edge ], [ %.160, %102 ]
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv122
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv122
   %54 = load ptr, ptr %53, align 8
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %52, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 1024
   %.not71 = icmp eq i16 %59, 0
   br i1 %.not71, label %102, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds nuw ptr, ptr @datecache, i64 %indvars.iv122
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @datecache, i64 %indvars.iv122
   %62 = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %66, label %63
@@ -3414,7 +3414,7 @@ define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noun
   %70 = ptrtoint ptr %.02329.i.i to i64
   %71 = sub i64 %69, %70
   %72 = ashr i64 %71, 5
-  %73 = getelementptr inbounds %struct.datetkn, ptr %.02329.i.i, i64 %72
+  %73 = getelementptr inbounds [16 x i8], ptr %.02329.i.i, i64 %72
   %74 = load i8, ptr %73, align 4
   %75 = sext i8 %74 to i32
   %76 = sub nsw i32 %67, %75
@@ -3490,7 +3490,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %119
   %indvars.iv124 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next125, %119 ]
   %.261109 = phi i32 [ %.160, %.lr.ph111.preheader ], [ %.362, %119 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv124
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv124
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %119, label %106
@@ -3944,7 +3944,7 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr noundef readonly ca
 40:                                               ; preds = %.lr.ph352
   %41 = add i32 %.0256351, 1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @pgtypes_date_weekdays_short, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @pgtypes_date_weekdays_short, i64 %42
   %44 = load ptr, ptr %43, align 8
   %.not296 = icmp eq ptr %44, null
   br i1 %.not296, label %.backedgethread-pre-split, label %.lr.ph352, !llvm.loop !33
@@ -3971,7 +3971,7 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr noundef readonly ca
 54:                                               ; preds = %.lr.ph349
   %55 = add i32 %.1348, 1
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr @days, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @days, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not295 = icmp eq ptr %58, null
   br i1 %.not295, label %.backedgethread-pre-split, label %.lr.ph349, !llvm.loop !34
@@ -4013,7 +4013,7 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr noundef readonly ca
 75:                                               ; preds = %.lr.ph346
   %76 = add i32 %.2345, 1
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr @months, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @months, i64 %77
   %79 = load ptr, ptr %78, align 8
   %.not294 = icmp eq ptr %79, null
   br i1 %.not294, label %.backedgethread-pre-split, label %.lr.ph346, !llvm.loop !35
@@ -4042,7 +4042,7 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr noundef readonly ca
 90:                                               ; preds = %.lr.ph343
   %91 = add i32 %.3342, 1
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr @pgtypes_date_months, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @pgtypes_date_months, i64 %92
   %94 = load ptr, ptr %93, align 8
   %.not293 = icmp eq ptr %94, null
   br i1 %.not293, label %.backedgethread-pre-split, label %.lr.ph343, !llvm.loop !36
@@ -4436,7 +4436,7 @@ sub_0307:                                         ; preds = %180, %.tail302.thre
 
 289:                                              ; preds = %.preheader, %300
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %300 ]
-  %290 = getelementptr inbounds nuw %struct.datetkn, ptr @datetktbl, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw [16 x i8], ptr @datetktbl, i64 %indvars.iv
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 11
   %292 = load i8, ptr %291, align 1
   %.off = add i8 %292, -5
@@ -4609,10 +4609,10 @@ sub_0307:                                         ; preds = %180, %.tail302.thre
   %363 = srem i32 %357, 400
   %364 = icmp eq i32 %363, 0
   %365 = zext i1 %364 to i64
-  %366 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %365
+  %366 = getelementptr inbounds nuw [52 x i8], ptr @day_tab, i64 %365
   %367 = add i32 %355, -1
   %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds i32, ptr %366, i64 %368
+  %369 = getelementptr inbounds [4 x i8], ptr %366, i64 %368
   %370 = load i32, ptr %369, align 4
   %371 = icmp sgt i32 %356, %370
   br i1 %371, label %382, label %391
@@ -4620,7 +4620,7 @@ sub_0307:                                         ; preds = %180, %.tail302.thre
 .thread413:                                       ; preds = %360
   %372 = add i32 %355, -1
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 %373
+  %374 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 %373
   %375 = load i32, ptr %374, align 4
   %376 = icmp sgt i32 %356, %375
   br i1 %376, label %.thread297, label %391
@@ -4628,7 +4628,7 @@ sub_0307:                                         ; preds = %180, %.tail302.thre
 .thread:                                          ; preds = %354
   %377 = add i32 %355, -1
   %378 = sext i32 %377 to i64
-  %379 = getelementptr inbounds i32, ptr @day_tab, i64 %378
+  %379 = getelementptr inbounds [4 x i8], ptr @day_tab, i64 %378
   %380 = load i32, ptr %379, align 4
   %381 = icmp sgt i32 %356, %380
   br i1 %381, label %.thread297, label %391
@@ -4642,8 +4642,8 @@ sub_0307:                                         ; preds = %180, %.tail302.thre
 .thread297:                                       ; preds = %.thread413, %.thread, %382
   %386 = phi i64 [ %378, %.thread ], [ %373, %.thread413 ], [ %368, %382 ]
   %387 = phi i64 [ 0, %.thread ], [ 1, %.thread413 ], [ %385, %382 ]
-  %388 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %387
-  %389 = getelementptr inbounds i32, ptr %388, i64 %386
+  %388 = getelementptr inbounds nuw [52 x i8], ptr @day_tab, i64 %387
+  %389 = getelementptr inbounds [4 x i8], ptr %388, i64 %386
   %390 = load i32, ptr %389, align 4
   store i32 %390, ptr %5, align 4
   %.pre = load i32, ptr %4, align 4

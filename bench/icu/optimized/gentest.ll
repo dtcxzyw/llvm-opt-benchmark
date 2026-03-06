@@ -68,7 +68,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = sub nsw i32 0, %7
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef %13) #10
   br label %20

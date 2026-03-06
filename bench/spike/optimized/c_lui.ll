@@ -222,7 +222,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %52 = shl nsw i64 %48, 12
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %14
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %14
   store i64 %52, ptr %53, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -706,7 +706,7 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %50 = shl nsw i64 %46, 12
-  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %14
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %14
   store i64 %50, ptr %51, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1193,7 +1193,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %16
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %16
   store i64 %54, ptr %60, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1635,7 +1635,7 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %16
   store i64 %52, ptr %58, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1986,7 +1986,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %59 = shl nsw i64 %48, 12
-  %60 = getelementptr inbounds nuw i64, ptr %58, i64 %14
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %14
   store i64 %59, ptr %60, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -2339,7 +2339,7 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %57 = shl nsw i64 %46, 12
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %14
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %14
   store i64 %57, ptr %58, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -2709,7 +2709,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %16
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %16
   store i64 %61, ptr %67, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -3081,7 +3081,7 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %16
   store i64 %59, ptr %65, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -3858,7 +3858,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !203
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !201
-  %53 = getelementptr inbounds nuw %"class.std::tuple.134", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !202
   ret void
 }

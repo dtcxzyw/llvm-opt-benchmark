@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/regproc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.ErrorSaveContext = type { i32, i8, i8, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 
@@ -223,7 +222,7 @@ define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.01823 = phi ptr [ null, %.lr.ph ], [ %28, %22 ]
   %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @pstrdup(ptr noundef %25) #8
   %27 = call ptr @makeString(ptr noundef %26) #8
@@ -762,7 +761,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
 100:                                              ; preds = %92
   %101 = load i32, ptr %7, align 4
   %102 = sext i32 %93 to i64
-  %103 = getelementptr inbounds i32, ptr %4, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %4, i64 %102
   store i32 %101, ptr %103, align 4
   %104 = load i32, ptr %3, align 4
   %105 = add i32 %104, 1
@@ -864,7 +863,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %30
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %30 ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv32
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv32
   %28 = load i32, ptr %27, align 4
   %.not27.us = icmp eq i64 %indvars.iv32, 0
   br i1 %.not27.us, label %30, label %29
@@ -882,7 +881,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %.not27 = icmp eq i64 %indvars.iv, 0
   br i1 %.not27, label %35, label %34
@@ -984,7 +983,7 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeo
 27:                                               ; preds = %.lr.ph, %27
   %28 = phi ptr [ null, %.lr.ph ], [ %32, %27 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = tail call ptr @format_type_be_qualified(i32 noundef %30) #8
   %32 = tail call ptr @lappend(ptr noundef %28, ptr noundef %31) #8

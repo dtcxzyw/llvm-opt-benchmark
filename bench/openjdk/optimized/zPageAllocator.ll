@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.PosixSemaphore = type { %union.sem_t }
 %union.sem_t = type { i64, [24 x i8] }
 %class.ZPageAllocatorStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.anon = type { i64, i64 }
 %class.TimeInstant = type { %class.CompositeCounterRepresentation }
 %class.CompositeCounterRepresentation = type { %class.Representation }
 %class.Representation = type { %class.PairRep }
@@ -283,7 +282,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit.i:                   ; preds = %20, %19
 .lr.ph.i:                                         ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i, %.lr.ph.i
   %.sroa.0.017.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %_ZN7ZLockerI5ZLockED2Ev.exit.i ]
   %22 = add nuw i64 %.sroa.0.017.i, 1
-  %23 = getelementptr inbounds ptr, ptr %.sroa.9.0.i, i64 %.sroa.0.017.i
+  %23 = getelementptr inbounds [8 x i8], ptr %.sroa.9.0.i, i64 %.sroa.0.017.i
   %24 = load ptr, ptr %23, align 8
   %.val.val.i = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 536
@@ -713,7 +712,7 @@ _ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit: ; preds = %36
   %52 = icmp eq i8 %4, 15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %55) #14, !srcloc !8
   call void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) %49, i8 noundef zeroext %4, i32 noundef 0) #14
   %57 = and i8 %3, 2
@@ -791,7 +790,7 @@ define hidden void @_ZN14ZPageAllocator9free_pageEP5ZPage(ptr noundef nonnull al
 _ZN14ZPageAllocator13decrease_usedEm.exit:        ; preds = %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %24 = zext i8 %4 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull %25) #14, !srcloc !8
   %27 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
   %28 = tail call double @llvm.ceil.f64(double %27)
@@ -898,7 +897,7 @@ define hidden noundef i64 @_ZNK14ZPageAllocator4usedEv(ptr noundef nonnull align
 define hidden noundef i64 @_ZNK14ZPageAllocator15used_generationE13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load volatile i64, ptr %5, align 8
   ret i64 %6
 }
@@ -937,12 +936,12 @@ _ZN7ZLockerI5ZLockED2Ev.exit:
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %19
   %26 = load volatile i64, ptr %25, align 8
   %27 = tail call noundef i64 @_ZNK11ZGeneration5freedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #14
   %28 = tail call noundef i64 @_ZNK11ZGeneration8promotedEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #14
@@ -988,7 +987,7 @@ define hidden void @_ZN14ZPageAllocator16reset_statisticsE13ZGenerationId(ptr no
   %4 = load volatile i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.anon, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   store i64 %4, ptr %7, align 8
   %8 = load volatile i64, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1121,7 +1120,7 @@ define hidden void @_ZN14ZPageAllocator13decrease_usedEm(ptr noundef nonnull ali
 define hidden void @_ZN14ZPageAllocator24increase_used_generationE13ZGenerationIdm(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = zext i8 %1 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %6) #14, !srcloc !8
   ret void
 }
@@ -1130,7 +1129,7 @@ define hidden void @_ZN14ZPageAllocator24increase_used_generationE13ZGenerationI
 define hidden void @_ZN14ZPageAllocator24decrease_used_generationE13ZGenerationIdm(ptr noundef nonnull align 8 dereferenceable(609) %0, i8 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = zext i8 %1 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = sub i64 0, %2
   %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %6) #14, !srcloc !8
   ret void
@@ -2208,8 +2207,8 @@ define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocat
 
 .lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %28 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i.i
-  %46 = getelementptr inbounds nuw ptr, ptr %.sroa.14.041, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.041, i64 %indvars.iv.i.i.i
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2227,7 +2226,7 @@ define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocat
 _ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit: ; preds = %12, %.preheader.i.i.i, %48
   %.sroa.14.1 = phi ptr [ %35, %48 ], [ %35, %.preheader.i.i.i ], [ %.sroa.14.041, %12 ]
   %.sroa.8.1 = phi i32 [ %.0.i.i.i.i, %48 ], [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.8.042, %12 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.sroa.14.1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.1, i64 %indvars.iv
   store ptr %24, ptr %49, align 8
   %50 = load i64, ptr %5, align 8
   %51 = icmp eq i64 %50, 0
@@ -2286,7 +2285,7 @@ _ZN14ZPageAllocator13decrease_usedEm.exit:        ; preds = %69
   %.048 = phi i64 [ 0, %.lr.ph49 ], [ %81, %72 ]
   %.sroa.0.047 = phi i64 [ 0, %.lr.ph49 ], [ %73, %72 ]
   %73 = add nuw nsw i64 %.sroa.0.047, 1
-  %74 = getelementptr inbounds nuw ptr, ptr %.sroa.14.0.lcssa, i64 %.sroa.0.047
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.0.lcssa, i64 %.sroa.0.047
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -2615,7 +2614,7 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
   %.sroa.14.056 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
   %.sroa.019.055 = phi i64 [ 0, %.lr.ph ], [ %10, %_ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit ]
   %10 = add nuw nsw i64 %.sroa.019.055, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %.sroa.019.055
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.sroa.019.055
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
@@ -2670,8 +2669,8 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
 
 .lr.ph.i.i.i:                                     ; preds = %27, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %27 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i.i.i
-  %45 = getelementptr inbounds nuw ptr, ptr %.sroa.14.056, i64 %indvars.iv.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.056, i64 %indvars.iv.i.i.i
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %44, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2689,7 +2688,7 @@ define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPa
 _ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit: ; preds = %.preheader.i.i.i, %47, %9
   %.sroa.14.1 = phi ptr [ %.sroa.14.056, %9 ], [ %34, %47 ], [ %34, %.preheader.i.i.i ]
   %.sroa.8.1 = phi i32 [ %.sroa.8.057, %9 ], [ %.0.i.i.i.i, %47 ], [ %.0.i.i.i.i, %.preheader.i.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %.sroa.14.1, i64 %.sroa.019.055
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.1, i64 %.sroa.019.055
   store ptr %24, ptr %48, align 8
   %.not = icmp eq i64 %10, %7
   br i1 %.not, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.loopexit, label %9, !llvm.loop !14
@@ -2746,7 +2745,7 @@ _ZN14ZPageAllocator13decrease_usedEm.exit:        ; preds = %61
 70:                                               ; preds = %.lr.ph67, %70
   %.sroa.0.066 = phi i64 [ 0, %.lr.ph67 ], [ %71, %70 ]
   %71 = add nuw nsw i64 %.sroa.0.066, 1
-  %72 = getelementptr inbounds nuw ptr, ptr %.sroa.14.0.lcssa, i64 %.sroa.0.066
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.14.0.lcssa, i64 %.sroa.0.066
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
   %75 = tail call double @llvm.ceil.f64(double %74)
@@ -3012,7 +3011,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit.i:                   ; preds = %19, %18
 .lr.ph.i:                                         ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i, %_ZN11ZSafeDeleteI5ZPageE16immediate_deleteEPS0_.exit
   %.sroa.0.017.i = phi i64 [ %21, %_ZN11ZSafeDeleteI5ZPageE16immediate_deleteEPS0_.exit ], [ 0, %_ZN7ZLockerI5ZLockED2Ev.exit.i ]
   %21 = add nuw i64 %.sroa.0.017.i, 1
-  %22 = getelementptr inbounds ptr, ptr %.sroa.9.0.i, i64 %.sroa.0.017.i
+  %22 = getelementptr inbounds [8 x i8], ptr %.sroa.9.0.i, i64 %.sroa.0.017.i
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN11ZSafeDeleteI5ZPageE16immediate_deleteEPS0_.exit, label %25
@@ -3152,7 +3151,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %21, %20
 .lr.ph.i.i:                                       ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %.lr.ph.i.i
   %.sroa.0.017.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ]
   %23 = add nuw i64 %.sroa.0.017.i.i, 1
-  %24 = getelementptr inbounds ptr, ptr %.sroa.9.0.i.i, i64 %.sroa.0.017.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %.sroa.9.0.i.i, i64 %.sroa.0.017.i.i
   %25 = load ptr, ptr %24, align 8
   %.val.val.i.i = load ptr, ptr %2, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.val.val.i.i, i64 536
@@ -5262,9 +5261,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5281,7 +5280,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -5305,7 +5304,7 @@ _ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4gr
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }

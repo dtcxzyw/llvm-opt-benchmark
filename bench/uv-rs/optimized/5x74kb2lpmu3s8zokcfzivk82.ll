@@ -4218,7 +4218,7 @@ define internal fastcc void @_ZN9uv_pep5086marker5parse21parse_version_in_expr17
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h83ac14e7c6e636f9E.exit": ; preds = %43, %47
   %59 = load ptr, ptr %21, align 8, !alias.scope !719, !noalias !722, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds { { [9 x i8], i8, [6 x i8] } }, ptr %59, i64 %44
+  %60 = getelementptr inbounds [16 x i8], ptr %59, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %61 = add i64 %44, 1
   br label %24

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.PJ_COORD = type { [4 x double] }
-%struct.PJCoordOperation = type <{ i32, [4 x i8], double, double, double, double, double, double, double, double, ptr, %"class.std::__cxx11::basic_string", double, double, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -114,7 +113,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %1, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [192 x i8], ptr %46, i64 %indvars.iv
   br i1 %19, label %48, label %144
 
 48:                                               ; preds = %45
@@ -490,7 +489,7 @@ define hidden noundef i32 @_Z26pj_get_suggested_operationP6pj_ctxRKSt6vectorI16P
   %252 = load double, ptr %251, align 8, !tbaa !39
   %253 = zext nneg i32 %.0140 to i64
   %254 = load ptr, ptr %1, align 8, !tbaa !9
-  %255 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [192 x i8], ptr %254, i64 %253
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 120
   %257 = load double, ptr %256, align 8, !tbaa !39
   %258 = fcmp olt double %252, %257
@@ -965,7 +964,7 @@ define void @proj_trans(ptr dead_on_unwind noalias writable sret(%union.PJ_COORD
 78:                                               ; preds = %76, %.lr.ph226
   %79 = zext nneg i32 %67 to i64
   %80 = load ptr, ptr %33, align 8, !tbaa !9
-  %81 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [192 x i8], ptr %80, i64 %79
   %82 = load i32, ptr %57, align 8, !tbaa !78
   %.not113 = icmp eq i32 %82, %67
   br i1 %.not113, label %115, label %83
@@ -1150,7 +1149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %10
   br i1 %153, label %159, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv223
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv223
   store i32 %67, ptr %155, align 4, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv223, 1
@@ -1324,7 +1323,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
 226:                                              ; preds = %.lr.ph, %.thread156
   %indvars.iv182 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next183, %.thread156 ]
   %227 = load ptr, ptr %33, align 8, !tbaa !9
-  %228 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %227, i64 %indvars.iv182
+  %228 = getelementptr inbounds nuw [192 x i8], ptr %227, i64 %indvars.iv182
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 72
   %230 = load ptr, ptr %229, align 8, !tbaa !79
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 640
@@ -1677,7 +1676,7 @@ define ptr @proj_trans_get_last_used_operation(ptr noundef %0) local_unnamed_add
 
 14:                                               ; preds = %7
   %15 = zext nneg i32 %5 to i64
-  %16 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [192 x i8], ptr %9, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8, !tbaa !79
   br label %.sink.split
@@ -1708,7 +1707,7 @@ define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef
   %6 = load ptr, ptr %0, align 8, !tbaa !49
   call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %6, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = getelementptr inbounds nuw %union.PJ_COORD, ptr %3, i64 %.031
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %.031
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5, ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.ozz::math::Float4x4" = type { [4 x <4 x float>] }
-%"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
-%"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation15LocalToModelJob8ValidateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
@@ -95,7 +92,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %37 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %19, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !33
   %45 = sext i16 %44 to i32
   %.not65 = icmp sgt i32 %32, %45
@@ -161,7 +158,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %68 = lshr i32 %.02761.ph, 2
   %69 = zext nneg i32 %68 to i64
   %70 = load ptr, ptr %46, align 8, !tbaa !37
-  %71 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [160 x i8], ptr %70, i64 %69
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 112
   %74 = load <4 x float>, ptr %72, align 16, !tbaa !23, !noalias !38
@@ -257,15 +254,15 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %225
   %indvars.iv = phi i64 [ %65, %.lr.ph.preheader ], [ %indvars.iv.next, %225 ]
-  %159 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv
   %160 = load i16, ptr %159, align 2, !tbaa !33
   %161 = icmp eq i16 %160, -1
   %162 = sext i16 %160 to i64
   %163 = load ptr, ptr %62, align 8
-  %164 = getelementptr inbounds nuw %"struct.ozz::math::Float4x4", ptr %163, i64 %162
+  %164 = getelementptr inbounds nuw [64 x i8], ptr %163, i64 %162
   %165 = select i1 %161, ptr %spec.select, ptr %164
   %166 = and i64 %indvars.iv, 3
-  %167 = getelementptr inbounds nuw %"struct.ozz::math::Float4x4", ptr %3, i64 %166
+  %167 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %166
   %168 = load <4 x float>, ptr %167, align 16, !tbaa !23, !noalias !41
   %169 = shufflevector <4 x float> %168, <4 x float> poison, <4 x i32> zeroinitializer
   %170 = load <4 x float>, ptr %165, align 16, !tbaa !23, !noalias !41
@@ -327,7 +324,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   %220 = fmul <4 x float> %180, %219
   %221 = fadd <4 x float> %220, %215
   %222 = fadd <4 x float> %218, %221
-  %223 = getelementptr inbounds nuw %"struct.ozz::math::Float4x4", ptr %163, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [64 x i8], ptr %163, i64 %indvars.iv
   store <4 x float> %183, ptr %223, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 16
   store <4 x float> %196, ptr %.sroa.4.0..sroa_idx, align 16
@@ -344,7 +341,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br label %._crit_edge64
 
 225:                                              ; preds = %.lr.ph
-  %226 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv.next
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv.next
   %227 = load i16, ptr %226, align 2, !tbaa !33
   %228 = sext i16 %227 to i32
   %229 = load i32, ptr %31, align 8, !tbaa !29

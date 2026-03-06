@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.JXLDistributionBundle = type { i32, i32, i32, %struct.JXLHybridUintConf, ptr, i32, ptr, i32, i32, i32 }
 %struct.JXLHybridUintConf = type { i32, i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.JXLSymbolDistribution = type { %struct.JXLHybridUintConf, i32, i32, i32, %struct.VLC, i32, [258 x i32], [258 x i16], [258 x i16], [258 x i16], i32 }
 %struct.VLC = type { i32, ptr, i32, i32 }
 
 @ff_jpegxl_parser = local_unnamed_addr constant %struct.AVCodecParser { [7 x i32] [i32 258, i32 272, i32 0, i32 0, i32 0, i32 0, i32 0], i32 4352, ptr null, ptr @jpegxl_parse, ptr @ff_parse_close, ptr null }, align 8
@@ -650,9 +649,9 @@ align_get_bits.exit.i:                            ; preds = %203, %200
   %366 = call i32 @llvm.umin.i32(i32 %356, i32 %365)
   store i32 %366, ptr %188, align 8, !tbaa !65
   %367 = zext nneg i32 %364 to i64
-  %368 = getelementptr inbounds nuw i32, ptr %31, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !9
-  %370 = getelementptr inbounds nuw i32, ptr %32, i64 %367
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %367
   %371 = load i32, ptr %370, align 4, !tbaa !9
   %.not.i.i.i = icmp eq i32 %371, 0
   br i1 %.not.i.i.i, label %jxl_u32.exit.i.i, label %372
@@ -805,9 +804,9 @@ jxl_u32.exit.i.i:                                 ; preds = %get_bits_long.exit.
   %443 = call i32 @llvm.umin.i32(i32 %432, i32 %442)
   store i32 %443, ptr %188, align 8, !tbaa !65
   %444 = zext nneg i32 %441 to i64
-  %445 = getelementptr inbounds nuw i32, ptr %29, i64 %444
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %444
   %446 = load i32, ptr %445, align 4, !tbaa !9
-  %447 = getelementptr inbounds nuw i32, ptr %30, i64 %444
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %444
   %448 = load i32, ptr %447, align 4, !tbaa !9
   %.not.i302.i.i = icmp eq i32 %448, 0
   br i1 %.not.i302.i.i, label %jxl_u32.exit304.i.i, label %449
@@ -888,9 +887,9 @@ jxl_u32.exit304.i.i:                              ; preds = %get_bits_long.exit3
   %492 = call i32 @llvm.umin.i32(i32 %432, i32 %491)
   store i32 %492, ptr %188, align 8, !tbaa !65
   %493 = zext nneg i32 %490 to i64
-  %494 = getelementptr inbounds nuw i32, ptr %27, i64 %493
+  %494 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %493
   %495 = load i32, ptr %494, align 4, !tbaa !9
-  %496 = getelementptr inbounds nuw i32, ptr %28, i64 %493
+  %496 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %493
   %497 = load i32, ptr %496, align 4, !tbaa !9
   %.not.i305.i.i = icmp eq i32 %497, 0
   br i1 %.not.i305.i.i, label %jxl_u32.exit307.i.i, label %498
@@ -975,7 +974,7 @@ jxl_u32.exit307.i.i:                              ; preds = %get_bits_long.exit3
   %549 = call i32 @llvm.umin.i32(i32 %432, i32 %548)
   store i32 %549, ptr %188, align 8, !tbaa !65
   %550 = zext nneg i32 %547 to i64
-  %551 = getelementptr inbounds nuw i32, ptr %26, i64 %550
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %550
   %552 = load i32, ptr %551, align 4, !tbaa !9
   %.not.i308.i.i = icmp eq i32 %552, 0
   br i1 %.not.i308.i.i, label %jxl_u32.exit310.i.i, label %553
@@ -1071,9 +1070,9 @@ jxl_u32.exit310.i.i:                              ; preds = %jxl_u32.exit310.sin
   %600 = call i32 @llvm.umin.i32(i32 %432, i32 %599)
   store i32 %600, ptr %188, align 8, !tbaa !65
   %601 = zext nneg i32 %598 to i64
-  %602 = getelementptr inbounds nuw i32, ptr %24, i64 %601
+  %602 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %601
   %603 = load i32, ptr %602, align 4, !tbaa !9
-  %604 = getelementptr inbounds nuw i32, ptr %25, i64 %601
+  %604 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %601
   %605 = load i32, ptr %604, align 4, !tbaa !9
   %.not.i311.i.i = icmp eq i32 %605, 0
   br i1 %.not.i311.i.i, label %jxl_u32.exit313.i.i, label %606
@@ -1150,9 +1149,9 @@ jxl_u32.exit313.i.i:                              ; preds = %get_bits_long.exit3
   %648 = call i32 @llvm.umin.i32(i32 %432, i32 %647)
   store i32 %648, ptr %188, align 8, !tbaa !65
   %649 = zext nneg i32 %646 to i64
-  %650 = getelementptr inbounds nuw i32, ptr %22, i64 %649
+  %650 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %649
   %651 = load i32, ptr %650, align 4, !tbaa !9
-  %652 = getelementptr inbounds nuw i32, ptr %23, i64 %649
+  %652 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %649
   %653 = load i32, ptr %652, align 4, !tbaa !9
   %.not.i314.i.i = icmp eq i32 %653, 0
   br i1 %.not.i314.i.i, label %jxl_u32.exit316.i.i, label %654
@@ -1243,9 +1242,9 @@ jxl_u32.exit316.i.i:                              ; preds = %get_bits_long.exit3
   %704 = call i32 @llvm.umin.i32(i32 %432, i32 %703)
   store i32 %704, ptr %188, align 8, !tbaa !65
   %705 = zext nneg i32 %702 to i64
-  %706 = getelementptr inbounds nuw i32, ptr %20, i64 %705
+  %706 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %705
   %707 = load i32, ptr %706, align 4, !tbaa !9
-  %708 = getelementptr inbounds nuw i32, ptr %21, i64 %705
+  %708 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %705
   %709 = load i32, ptr %708, align 4, !tbaa !9
   %.not.i317.i.i = icmp eq i32 %709, 0
   br i1 %.not.i317.i.i, label %jxl_u32.exit319.i.i, label %710
@@ -1322,9 +1321,9 @@ jxl_u32.exit319.i.i:                              ; preds = %get_bits_long.exit3
   %752 = call i32 @llvm.umin.i32(i32 %432, i32 %751)
   store i32 %752, ptr %188, align 8, !tbaa !65
   %753 = zext nneg i32 %750 to i64
-  %754 = getelementptr inbounds nuw i32, ptr %18, i64 %753
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !9
-  %756 = getelementptr inbounds nuw i32, ptr %19, i64 %753
+  %756 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %753
   %757 = load i32, ptr %756, align 4, !tbaa !9
   %.not.i320.i.i = icmp eq i32 %757, 0
   br i1 %.not.i320.i.i, label %jxl_u32.exit322.i.i, label %758
@@ -1437,9 +1436,9 @@ jxl_u32.exit322.i.i:                              ; preds = %get_bits_long.exit3
   %809 = call i32 @llvm.umin.i32(i32 %432, i32 %808)
   store i32 %809, ptr %188, align 8, !tbaa !65
   %810 = zext nneg i32 %807 to i64
-  %811 = getelementptr inbounds nuw i32, ptr %16, i64 %810
+  %811 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %810
   %812 = load i32, ptr %811, align 4, !tbaa !9
-  %813 = getelementptr inbounds nuw i32, ptr %17, i64 %810
+  %813 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %810
   %814 = load i32, ptr %813, align 4, !tbaa !9
   %.not.i323.i.i = icmp eq i32 %814, 0
   br i1 %.not.i323.i.i, label %jxl_u32.exit325.i.i, label %815
@@ -1517,7 +1516,7 @@ jxl_u32.exit325.i.i:                              ; preds = %get_bits_long.exit3
   %859 = call i32 @llvm.umin.i32(i32 %432, i32 %858)
   store i32 %859, ptr %188, align 8, !tbaa !65
   %860 = zext nneg i32 %857 to i64
-  %861 = getelementptr inbounds nuw i32, ptr %15, i64 %860
+  %861 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %860
   %862 = load i32, ptr %861, align 4, !tbaa !9
   %.not.i326.i.i = icmp eq i32 %862, 0
   br i1 %.not.i326.i.i, label %jxl_u32.exit328.i.i, label %863
@@ -1609,9 +1608,9 @@ jxl_u32.exit328.i.i:                              ; preds = %jxl_u32.exit328.sin
   %901 = call i32 @llvm.umin.i32(i32 %432, i32 %900)
   store i32 %901, ptr %188, align 8, !tbaa !65
   %902 = zext nneg i32 %899 to i64
-  %903 = getelementptr inbounds nuw i32, ptr %13, i64 %902
+  %903 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %902
   %904 = load i32, ptr %903, align 4, !tbaa !9
-  %905 = getelementptr inbounds nuw i32, ptr %14, i64 %902
+  %905 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %902
   %906 = load i32, ptr %905, align 4, !tbaa !9
   %.not.i329.i.i = icmp eq i32 %906, 0
   br i1 %.not.i329.i.i, label %jxl_u32.exit331.i.i, label %907
@@ -1770,9 +1769,9 @@ jxl_u32.exit331.i.i:                              ; preds = %get_bits_long.exit3
   %991 = call i32 @llvm.umin.i32(i32 %432, i32 %990)
   store i32 %991, ptr %188, align 8, !tbaa !65
   %992 = zext nneg i32 %989 to i64
-  %993 = getelementptr inbounds nuw i32, ptr %11, i64 %992
+  %993 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %992
   %994 = load i32, ptr %993, align 4, !tbaa !9
-  %995 = getelementptr inbounds nuw i32, ptr %12, i64 %992
+  %995 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %992
   %996 = load i32, ptr %995, align 4, !tbaa !9
   %.not.i332.i.i = icmp eq i32 %996, 0
   br i1 %.not.i332.i.i, label %jxl_u32.exit334.i.i, label %997
@@ -2225,7 +2224,7 @@ jxl_u32.exit334.i.i:                              ; preds = %get_bits_long.exit4
 .lr.ph.i.i.i.i.i:                                 ; preds = %1243, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %1243 ]
   %1248 = load ptr, ptr %286, align 8, !tbaa !88
-  %1249 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %1248, i64 %indvars.iv.i.i.i.i.i
+  %1249 = getelementptr inbounds nuw [2640 x i8], ptr %1248, i64 %indvars.iv.i.i.i.i.i
   %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %1250) #11
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -2255,7 +2254,7 @@ entropy_decoder_init.exit.i.i:                    ; preds = %1240
 .lr.ph.i.i.i.i:                                   ; preds = %1255, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %1255 ]
   %1260 = load ptr, ptr %286, align 8, !tbaa !88
-  %1261 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %1260, i64 %indvars.iv.i.i.i.i
+  %1261 = getelementptr inbounds nuw [2640 x i8], ptr %1260, i64 %indvars.iv.i.i.i.i
   %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %1262) #11
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -2320,7 +2319,7 @@ entropy_decoder_init.exit.i.i:                    ; preds = %1240
 .lr.ph.i.i446.i.i:                                ; preds = %1287, %.lr.ph.i.i446.i.i
   %indvars.iv.i.i447.i.i = phi i64 [ %indvars.iv.next.i.i448.i.i, %.lr.ph.i.i446.i.i ], [ 0, %1287 ]
   %1292 = load ptr, ptr %286, align 8, !tbaa !88
-  %1293 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %1292, i64 %indvars.iv.i.i447.i.i
+  %1293 = getelementptr inbounds nuw [2640 x i8], ptr %1292, i64 %indvars.iv.i.i447.i.i
   %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %1294) #11
   %indvars.iv.next.i.i448.i.i = add nuw nsw i64 %indvars.iv.i.i447.i.i, 1
@@ -2388,7 +2387,7 @@ entropy_decoder_init.exit.i.i:                    ; preds = %1240
 .lr.ph.i.i461.i.i:                                ; preds = %1320, %.lr.ph.i.i461.i.i
   %indvars.iv.i.i462.i.i = phi i64 [ %indvars.iv.next.i.i463.i.i, %.lr.ph.i.i461.i.i ], [ 0, %1320 ]
   %1325 = load ptr, ptr %286, align 8, !tbaa !88
-  %1326 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %1325, i64 %indvars.iv.i.i462.i.i
+  %1326 = getelementptr inbounds nuw [2640 x i8], ptr %1325, i64 %indvars.iv.i.i462.i.i
   %1327 = getelementptr inbounds nuw i8, ptr %1326, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %1327) #11
   %indvars.iv.next.i.i463.i.i = add nuw nsw i64 %indvars.iv.i.i462.i.i, 1
@@ -2412,7 +2411,7 @@ entropy_decoder_init.exit.i.i:                    ; preds = %1240
 .lr.ph.i.i468.i.i:                                ; preds = %._crit_edge.i.i, %.lr.ph.i.i468.i.i
   %indvars.iv.i.i469.i.i = phi i64 [ %indvars.iv.next.i.i470.i.i, %.lr.ph.i.i468.i.i ], [ 0, %._crit_edge.i.i ]
   %1335 = load ptr, ptr %286, align 8, !tbaa !88
-  %1336 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %1335, i64 %indvars.iv.i.i469.i.i
+  %1336 = getelementptr inbounds nuw [2640 x i8], ptr %1335, i64 %indvars.iv.i.i469.i.i
   %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %1337) #11
   %indvars.iv.next.i.i470.i.i = add nuw nsw i64 %indvars.iv.i.i469.i.i, 1
@@ -2490,9 +2489,9 @@ align_get_bits.exit.i.i:                          ; preds = %1344, %1341
   %1363 = call i32 @llvm.umin.i32(i32 %1349, i32 %1362)
   store i32 %1363, ptr %188, align 8, !tbaa !65
   %1364 = zext nneg i32 %1361 to i64
-  %1365 = getelementptr inbounds nuw i32, ptr %9, i64 %1364
+  %1365 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1364
   %1366 = load i32, ptr %1365, align 4, !tbaa !9
-  %1367 = getelementptr inbounds nuw i32, ptr %10, i64 %1364
+  %1367 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %1364
   %1368 = load i32, ptr %1367, align 4, !tbaa !9
   %.not.i335.i.i = icmp eq i32 %1368, 0
   br i1 %.not.i335.i.i, label %jxl_u32.exit337.i.i, label %1369
@@ -2855,7 +2854,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @skip_icc_profile(ptr nound
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
   %23 = load ptr, ptr %18, align 8, !tbaa !88
-  %24 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %23, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [2640 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %25) #11
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3035,7 +3034,7 @@ icc_context.exit:                                 ; preds = %.lr.ph, %65
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %102 = load ptr, ptr %97, align 8, !tbaa !88
-  %103 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %102, i64 %indvars.iv.i.i
+  %103 = getelementptr inbounds nuw [2640 x i8], ptr %102, i64 %indvars.iv.i.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   call void @ff_vlc_free(ptr noundef nonnull %104) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3269,9 +3268,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_distribution_bundle(p
   %57 = tail call i32 @llvm.umin.i32(i32 %34, i32 %56)
   store i32 %57, ptr %26, align 8, !tbaa !65
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %23, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !9
-  %61 = getelementptr inbounds nuw i32, ptr %24, i64 %58
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %58
   %62 = load i32, ptr %61, align 4, !tbaa !9
   %.not.i = icmp eq i32 %62, 0
   br i1 %.not.i, label %jxl_u32.exit, label %63
@@ -3356,9 +3355,9 @@ jxl_u32.exit:                                     ; preds = %42, %get_bits_long.
   %112 = tail call i32 @llvm.umin.i32(i32 %34, i32 %111)
   store i32 %112, ptr %26, align 8, !tbaa !65
   %113 = zext nneg i32 %110 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %21, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !9
-  %116 = getelementptr inbounds nuw i32, ptr %22, i64 %113
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %113
   %117 = load i32, ptr %116, align 4, !tbaa !9
   %.not.i135 = icmp eq i32 %117, 0
   br i1 %.not.i135, label %jxl_u32.exit137, label %118
@@ -3579,7 +3578,7 @@ get_bitsz.exit.i:                                 ; preds = %.lr.ph, %get_bitsz.
 
 .lr.ph.i200:                                      ; preds = %.lr.ph.i200.preheader, %.lr.ph.i200
   %indvars.iv.i201 = phi i64 [ %indvars.iv.next.i202, %.lr.ph.i200 ], [ 0, %.lr.ph.i200.preheader ]
-  %242 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %237, i64 %indvars.iv.i201
+  %242 = getelementptr inbounds nuw [2640 x i8], ptr %237, i64 %indvars.iv.i201
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   tail call void @ff_vlc_free(ptr noundef nonnull %243) #11
   %indvars.iv.next.i202 = add nuw nsw i64 %indvars.iv.i201, 1
@@ -3624,7 +3623,7 @@ dist_bundle_close.exit203:                        ; preds = %.lr.ph.i200, %232, 
 
 .lr.ph.i193:                                      ; preds = %.lr.ph.i193.preheader, %.lr.ph.i193
   %indvars.iv.i194 = phi i64 [ %indvars.iv.next.i195, %.lr.ph.i193 ], [ 0, %.lr.ph.i193.preheader ]
-  %258 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %253, i64 %indvars.iv.i194
+  %258 = getelementptr inbounds nuw [2640 x i8], ptr %253, i64 %indvars.iv.i194
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   tail call void @ff_vlc_free(ptr noundef nonnull %259) #11
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i194, 1
@@ -3681,7 +3680,7 @@ dist_bundle_close.exit203:                        ; preds = %.lr.ph.i200, %232, 
 
 .lr.ph.i471:                                      ; preds = %.lr.ph.i471.preheader, %.lr.ph.i471
   %indvars.iv.i472 = phi i64 [ %indvars.iv.next.i473, %.lr.ph.i471 ], [ 0, %.lr.ph.i471.preheader ]
-  %280 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %275, i64 %indvars.iv.i472
+  %280 = getelementptr inbounds nuw [2640 x i8], ptr %275, i64 %indvars.iv.i472
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
   tail call void @ff_vlc_free(ptr noundef nonnull %281) #11
   %indvars.iv.next.i473 = add nuw nsw i64 %indvars.iv.i472, 1
@@ -3878,7 +3877,7 @@ read_dist_clustering.exit:                        ; preds = %169, %._crit_edge27
 .lr.ph278:                                        ; preds = %354, %358
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %358 ], [ 0, %354 ]
   %361 = load ptr, ptr %327, align 8, !tbaa !88
-  %362 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %361, i64 %indvars.iv346
+  %362 = getelementptr inbounds nuw [2640 x i8], ptr %361, i64 %indvars.iv346
   %363 = load i32, ptr %356, align 8, !tbaa !111
   %364 = call fastcc i32 @read_hybrid_uint_conf(ptr noundef %0, ptr noundef %362, i32 noundef %363)
   %365 = icmp slt i32 %364, 0
@@ -3934,7 +3933,7 @@ read_dist_clustering.exit:                        ; preds = %169, %._crit_edge27
 380:                                              ; preds = %.lr.ph282, %424
   %indvars.iv349 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next350, %424 ]
   %381 = phi i32 [ %.promoted283, %.lr.ph282 ], [ %426, %424 ]
-  %382 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %369, i64 %indvars.iv349
+  %382 = getelementptr inbounds nuw [2640 x i8], ptr %369, i64 %indvars.iv349
   %383 = lshr i32 %381, 3
   %384 = zext nneg i32 %383 to i64
   %385 = getelementptr inbounds nuw i8, ptr %370, i64 %384
@@ -4028,7 +4027,7 @@ get_bitsz.exit:                                   ; preds = %393, %405
   %.val141370 = phi i32 [ %426, %.lr.ph286 ], [ %.val141, %438 ]
   %indvars.iv354 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next355, %438 ]
   %442 = load ptr, ptr %327, align 8, !tbaa !88
-  %443 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %442, i64 %indvars.iv354
+  %443 = getelementptr inbounds nuw [2640 x i8], ptr %442, i64 %indvars.iv354
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %12, i8 0, i64 18, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -4131,7 +4130,7 @@ get_bitsz.exit.i.i:                               ; preds = %get_bitsz.exit.i.i,
   %490 = call i32 @llvm.umin.i32(i32 %450, i32 %489)
   store i32 %490, ptr %26, align 8, !tbaa !65
   %491 = trunc i32 %488 to i16
-  %492 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i.i
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i.i
   store i16 %491, ptr %492, align 2, !tbaa !122
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -4268,7 +4267,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %545 = lshr i32 %543, %544
   %546 = and i32 %545, 15
   %547 = zext nneg i32 %546 to i64
-  %548 = getelementptr inbounds nuw %struct.VLCElem, ptr @level0_table, i64 %547
+  %548 = getelementptr inbounds nuw [4 x i8], ptr @level0_table, i64 %547
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 2
   %550 = load i16, ptr %549, align 2, !tbaa !28
   %551 = sext i16 %550 to i32
@@ -4290,7 +4289,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
 
 563:                                              ; preds = %538
   %564 = zext nneg i32 %561 to i64
-  %565 = getelementptr inbounds nuw i32, ptr %15, i64 %564
+  %565 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %564
   %566 = load i32, ptr %565, align 4, !tbaa !9
   %567 = add i32 %566, 1
   store i32 %567, ptr %565, align 4, !tbaa !9
@@ -4332,7 +4331,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
 .preheader208.i:                                  ; preds = %.preheader208.i.preheader, %.preheader208.i
   %store_forwarded = phi i32 [ %load_initial, %.preheader208.i.preheader ], [ %582, %.preheader208.i ]
   %indvars.iv252.i = phi i64 [ 1, %.preheader208.i.preheader ], [ %indvars.iv.next253.i, %.preheader208.i ]
-  %580 = getelementptr i32, ptr %15, i64 %indvars.iv252.i
+  %580 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv252.i
   %581 = load i32, ptr %580, align 4, !tbaa !9
   %582 = add i32 %581, %store_forwarded
   store i32 %582, ptr %580, align 4, !tbaa !9
@@ -4351,7 +4350,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %587 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv256.i
   %588 = load i8, ptr %587, align 1, !tbaa !28
   %589 = sext i8 %588 to i64
-  %590 = getelementptr inbounds i32, ptr %15, i64 %589
+  %590 = getelementptr inbounds [4 x i8], ptr %15, i64 %589
   %591 = load i32, ptr %590, align 4, !tbaa !9
   %592 = add i32 %591, -1
   store i32 %592, ptr %590, align 4, !tbaa !9
@@ -4359,7 +4358,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %594 = getelementptr inbounds i8, ptr %13, i64 %593
   store i8 %588, ptr %594, align 1, !tbaa !28
   %595 = trunc i64 %indvars.iv256.i to i16
-  %596 = getelementptr inbounds i16, ptr %14, i64 %593
+  %596 = getelementptr inbounds [2 x i8], ptr %14, i64 %593
   store i16 %595, ptr %596, align 2, !tbaa !122
   %indvars.iv.next257.i = add nsw i64 %indvars.iv256.i, -1
   %.not287.i = icmp eq i64 %indvars.iv256.i, 0
@@ -4401,7 +4400,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %615 = lshr i32 %613, %614
   %616 = and i32 %615, 31
   %617 = zext nneg i32 %616 to i64
-  %618 = getelementptr inbounds nuw %struct.VLCElem, ptr %605, i64 %617
+  %618 = getelementptr inbounds nuw [4 x i8], ptr %605, i64 %617
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 2
   %620 = load i16, ptr %619, align 2, !tbaa !28
   %621 = sext i16 %620 to i32
@@ -4460,7 +4459,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %651 = add i32 %650, %643
   %652 = add nsw i32 %643, %.0144229.i
   %653 = zext nneg i32 %.0161226.i to i64
-  %654 = getelementptr inbounds nuw i32, ptr %602, i64 %653
+  %654 = getelementptr inbounds nuw [4 x i8], ptr %602, i64 %653
   %655 = load i32, ptr %654, align 4, !tbaa !9
   %656 = add i32 %655, %643
   store i32 %656, ptr %654, align 4, !tbaa !9
@@ -4500,7 +4499,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %.not174.i = icmp eq i16 %622, 0
   %681 = lshr i32 32768, %623
   %682 = zext nneg i32 %623 to i64
-  %683 = getelementptr inbounds nuw i32, ptr %602, i64 %682
+  %683 = getelementptr inbounds nuw [4 x i8], ptr %602, i64 %682
   %684 = load i32, ptr %683, align 4, !tbaa !9
   %685 = add i32 %684, 1
   store i32 %685, ptr %683, align 4, !tbaa !9
@@ -4559,7 +4558,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %store_forwarded652 = phi i32 [ %load_initial651, %.lr.ph237.preheader.i ], [ %706, %.lr.ph237.i ]
   %indvars.iv262.i = phi i64 [ 1, %.lr.ph237.preheader.i ], [ %indvars.iv.next263.i, %.lr.ph237.i ]
-  %704 = getelementptr i32, ptr %602, i64 %indvars.iv262.i
+  %704 = getelementptr [4 x i8], ptr %602, i64 %indvars.iv262.i
   %705 = load i32, ptr %704, align 4, !tbaa !9
   %706 = add i32 %705, %store_forwarded652
   store i32 %706, ptr %704, align 4, !tbaa !9
@@ -4579,7 +4578,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %710 = getelementptr inbounds nuw i8, ptr %598, i64 %indvars.iv.next267.i
   %711 = load i8, ptr %710, align 1, !tbaa !28
   %712 = sext i8 %711 to i64
-  %713 = getelementptr inbounds i32, ptr %602, i64 %712
+  %713 = getelementptr inbounds [4 x i8], ptr %602, i64 %712
   %714 = load i32, ptr %713, align 4, !tbaa !9
   %715 = add i32 %714, -1
   store i32 %715, ptr %713, align 4, !tbaa !9
@@ -4588,7 +4587,7 @@ read_simple_vlc_prefix.exit.i:                    ; preds = %532, %504
   %718 = getelementptr inbounds i8, ptr %600, i64 %717
   store i8 %716, ptr %718, align 1, !tbaa !28
   %719 = trunc i64 %indvars.iv.next267.i to i16
-  %720 = getelementptr inbounds i16, ptr %601, i64 %717
+  %720 = getelementptr inbounds [2 x i8], ptr %601, i64 %717
   store i16 %719, ptr %720, align 2, !tbaa !122
   %721 = icmp samesign ugt i64 %indvars.iv266.i, 1
   br i1 %721, label %.lr.ph239.i, label %._crit_edge240.i, !llvm.loop !131
@@ -4630,7 +4629,7 @@ read_vlc_prefix.exit._crit_edge:                  ; preds = %read_vlc_prefix.exi
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %725
   %728 = phi i32 [ %.promoted283, %.lr.ph294.preheader ], [ %.val, %725 ]
   %indvars.iv357 = phi i64 [ 0, %.lr.ph294.preheader ], [ %indvars.iv.next358, %725 ]
-  %729 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %.pre372, i64 %indvars.iv357
+  %729 = getelementptr inbounds nuw [2640 x i8], ptr %.pre372, i64 %indvars.iv357
   %730 = load i32, ptr %356, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(258) %8, i8 0, i64 258, i1 false)
@@ -4799,11 +4798,11 @@ jxl_u8.exit174.i:                                 ; preds = %get_bitsz.exit.i172
   store i32 %842, ptr %26, align 8, !tbaa !65
   %843 = getelementptr inbounds nuw i8, ptr %729, i64 52
   %844 = zext i8 %.0.i.i166 to i64
-  %845 = getelementptr inbounds nuw i32, ptr %843, i64 %844
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %843, i64 %844
   store i32 %840, ptr %845, align 4, !tbaa !9
   %846 = sub nuw nsw i32 4096, %840
   %847 = zext i8 %.0.i173.i to i64
-  %848 = getelementptr inbounds nuw i32, ptr %843, i64 %847
+  %848 = getelementptr inbounds nuw [4 x i8], ptr %843, i64 %847
   store i32 %846, ptr %848, align 4, !tbaa !9
   %849 = load i32, ptr %845, align 4, !tbaa !9
   %.not162.i = icmp eq i32 %849, 0
@@ -4861,7 +4860,7 @@ jxl_u8.exit179.i:                                 ; preds = %get_bitsz.exit.i177
   %.0.i178.i = phi i8 [ %880, %get_bitsz.exit.i177.i ], [ 0, %854 ]
   %881 = getelementptr inbounds nuw i8, ptr %729, i64 52
   %882 = zext i8 %.0.i178.i to i64
-  %883 = getelementptr inbounds nuw i32, ptr %881, i64 %882
+  %883 = getelementptr inbounds nuw [4 x i8], ptr %881, i64 %882
   store i32 4096, ptr %883, align 4, !tbaa !9
   %884 = zext i8 %.0.i178.i to i32
   store i32 %884, ptr %732, align 8, !tbaa !133
@@ -4956,7 +4955,7 @@ jxl_u8.exit184.i:                                 ; preds = %get_bitsz.exit.i182
 
 929:                                              ; preds = %929, %.lr.ph.i169
   %indvars.iv.i171 = phi i64 [ 0, %.lr.ph.i169 ], [ %indvars.iv.next.i172, %929 ]
-  %930 = getelementptr inbounds nuw i32, ptr %928, i64 %indvars.iv.i171
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %928, i64 %indvars.iv.i171
   store i32 %.zext.i, ptr %930, align 4, !tbaa !9
   %indvars.iv.next.i172 = add nuw nsw i64 %indvars.iv.i171, 1
   %exitcond.not.i173 = icmp eq i64 %indvars.iv.next.i172, %wide.trip.count.i170
@@ -4964,7 +4963,7 @@ jxl_u8.exit184.i:                                 ; preds = %get_bitsz.exit.i182
 
 931:                                              ; preds = %931, %.lr.ph221.i
   %indvars.iv240.i = phi i64 [ 0, %.lr.ph221.i ], [ %indvars.iv.next241.i, %931 ]
-  %932 = getelementptr inbounds nuw i32, ptr %928, i64 %indvars.iv240.i
+  %932 = getelementptr inbounds nuw [4 x i8], ptr %928, i64 %indvars.iv240.i
   %933 = load i32, ptr %932, align 4, !tbaa !9
   %934 = add i32 %933, 1
   store i32 %934, ptr %932, align 4, !tbaa !9
@@ -5102,7 +5101,7 @@ jxl_u8.exit189.i:                                 ; preds = %get_bitsz.exit.i187
   %1010 = lshr i32 %1008, %1009
   %1011 = and i32 %1010, 127
   %1012 = zext nneg i32 %1011 to i64
-  %1013 = getelementptr inbounds nuw %struct.VLCElem, ptr @dist_prefix_table, i64 %1012
+  %1013 = getelementptr inbounds nuw [4 x i8], ptr @dist_prefix_table, i64 %1012
   %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 2
   %1015 = load i16, ptr %1014, align 2, !tbaa !28
   %1016 = sext i16 %1015 to i32
@@ -5218,7 +5217,7 @@ jxl_u8.exit194.i:                                 ; preds = %get_bitsz.exit.i192
 
 ._crit_edge233.i:                                 ; preds = %1139
   %1086 = sub i32 4096, %.1138.i
-  %1087 = getelementptr inbounds nuw i32, ptr %1084, i64 %1085
+  %1087 = getelementptr inbounds nuw [4 x i8], ptr %1084, i64 %1085
   store i32 %1086, ptr %1087, align 4, !tbaa !9
   br label %select.unfold228
 
@@ -5239,7 +5238,7 @@ jxl_u8.exit194.i:                                 ; preds = %get_bitsz.exit.i192
   br i1 %.not156.i, label %1098, label %1094
 
 1094:                                             ; preds = %1091
-  %1095 = getelementptr i32, ptr %729, i64 %indvars.iv246.i
+  %1095 = getelementptr [4 x i8], ptr %729, i64 %indvars.iv246.i
   %1096 = getelementptr i8, ptr %1095, i64 48
   %1097 = load i32, ptr %1096, align 4, !tbaa !9
   br label %1098
@@ -5251,7 +5250,7 @@ jxl_u8.exit194.i:                                 ; preds = %get_bitsz.exit.i192
   br i1 %.not157.i, label %1102, label %1099
 
 1099:                                             ; preds = %1098
-  %1100 = getelementptr inbounds nuw i32, ptr %1084, i64 %indvars.iv246.i
+  %1100 = getelementptr inbounds nuw [4 x i8], ptr %1084, i64 %indvars.iv246.i
   store i32 %.1134.i, ptr %1100, align 4, !tbaa !9
   %1101 = add nsw i32 %.1136.i, -1
   br label %1136
@@ -5269,7 +5268,7 @@ jxl_u8.exit194.i:                                 ; preds = %get_bitsz.exit.i192
   ]
 
 1107:                                             ; preds = %1104
-  %1108 = getelementptr inbounds nuw i32, ptr %1084, i64 %indvars.iv246.i
+  %1108 = getelementptr inbounds nuw [4 x i8], ptr %1084, i64 %indvars.iv246.i
   store i32 1, ptr %1108, align 4, !tbaa !9
   br label %1136
 
@@ -5313,7 +5312,7 @@ get_bitsz.exit.i179:                              ; preds = %.thread208.i, %1116
   %1132 = phi i32 [ 0, %1116 ], [ %1128, %.thread208.i ]
   %1133 = shl i32 %1132, %.pre-phi.i
   %1134 = add nsw i32 %1133, %1115
-  %1135 = getelementptr inbounds nuw i32, ptr %1084, i64 %indvars.iv246.i
+  %1135 = getelementptr inbounds nuw [4 x i8], ptr %1084, i64 %indvars.iv246.i
   store i32 %1134, ptr %1135, align 4, !tbaa !9
   br label %1136
 
@@ -5360,7 +5359,7 @@ select.unfold228:                                 ; preds = %931, %885, %._crit_
 
 1147:                                             ; preds = %.lr.ph301, %.loopexit
   %indvars.iv360 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next361, %.loopexit ]
-  %1148 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %1141, i64 %indvars.iv360
+  %1148 = getelementptr inbounds nuw [2640 x i8], ptr %1141, i64 %indvars.iv360
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 12
@@ -5392,14 +5391,14 @@ select.unfold228:                                 ; preds = %931, %885, %._crit_
 
 1163:                                             ; preds = %1163, %.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next39.i, %1163 ]
-  %1164 = getelementptr inbounds nuw i16, ptr %1160, i64 %indvars.iv38.i
+  %1164 = getelementptr inbounds nuw [2 x i8], ptr %1160, i64 %indvars.iv38.i
   store i16 %1159, ptr %1164, align 2, !tbaa !122
   %1165 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %1166 = shl i32 %1165, %1143
   %1167 = trunc i32 %1166 to i16
-  %1168 = getelementptr inbounds nuw i16, ptr %1161, i64 %indvars.iv38.i
+  %1168 = getelementptr inbounds nuw [2 x i8], ptr %1161, i64 %indvars.iv38.i
   store i16 %1167, ptr %1168, align 2, !tbaa !122
-  %1169 = getelementptr inbounds nuw i16, ptr %1162, i64 %indvars.iv38.i
+  %1169 = getelementptr inbounds nuw [2 x i8], ptr %1162, i64 %indvars.iv38.i
   store i16 0, ptr %1169, align 2, !tbaa !122
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count36.i
@@ -5431,13 +5430,13 @@ select.unfold228:                                 ; preds = %931, %885, %._crit_
   %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.i185 ], [ %indvars.iv.next.i188, %1199 ]
   %.0919.i = phi i32 [ 0, %.lr.ph.i185 ], [ %.192.i, %1199 ]
   %.0948.i = phi i32 [ 0, %.lr.ph.i185 ], [ %.195.i, %1199 ]
-  %1183 = getelementptr inbounds nuw i32, ptr %1156, i64 %indvars.iv.i187
+  %1183 = getelementptr inbounds nuw [4 x i8], ptr %1156, i64 %indvars.iv.i187
   %1184 = load i32, ptr %1183, align 4, !tbaa !9
   %1185 = trunc i32 %1184 to i16
-  %1186 = getelementptr inbounds nuw i16, ptr %1157, i64 %indvars.iv.i187
+  %1186 = getelementptr inbounds nuw [2 x i8], ptr %1157, i64 %indvars.iv.i187
   store i16 %1185, ptr %1186, align 2, !tbaa !122
   %1187 = trunc i64 %indvars.iv.i187 to i16
-  %1188 = getelementptr inbounds nuw i16, ptr %1158, i64 %indvars.iv.i187
+  %1188 = getelementptr inbounds nuw [2 x i8], ptr %1158, i64 %indvars.iv.i187
   store i16 %1187, ptr %1188, align 2, !tbaa !122
   %1189 = and i32 %1184, 65535
   %1190 = icmp ugt i32 %1189, %1144
@@ -5518,18 +5517,18 @@ select.unfold228:                                 ; preds = %931, %885, %._crit_
   %1217 = getelementptr inbounds i8, ptr %6, i64 %1216
   %1218 = load i8, ptr %1217, align 1, !tbaa !28
   %1219 = zext i8 %1214 to i64
-  %1220 = getelementptr inbounds nuw i16, ptr %1200, i64 %1219
+  %1220 = getelementptr inbounds nuw [2 x i8], ptr %1200, i64 %1219
   %1221 = load i16, ptr %1220, align 2, !tbaa !122
   %1222 = zext i8 %1218 to i64
-  %1223 = getelementptr inbounds nuw i16, ptr %1200, i64 %1222
+  %1223 = getelementptr inbounds nuw [2 x i8], ptr %1200, i64 %1222
   %1224 = load i16, ptr %1223, align 2, !tbaa !122
   %1225 = sub i16 %1221, %1146
   %1226 = add i16 %1225, %1224
   store i16 %1226, ptr %1223, align 2, !tbaa !122
   %1227 = zext i8 %1218 to i16
-  %1228 = getelementptr inbounds nuw i16, ptr %1201, i64 %1219
+  %1228 = getelementptr inbounds nuw [2 x i8], ptr %1201, i64 %1219
   store i16 %1227, ptr %1228, align 2, !tbaa !122
-  %1229 = getelementptr inbounds nuw i16, ptr %1202, i64 %1219
+  %1229 = getelementptr inbounds nuw [2 x i8], ptr %1202, i64 %1219
   store i16 %1226, ptr %1229, align 2, !tbaa !122
   %1230 = zext i16 %1226 to i32
   %1231 = icmp ugt i32 %1144, %1230
@@ -5552,7 +5551,7 @@ select.unfold.i:                                  ; preds = %1233, %1232
 
 1235:                                             ; preds = %1248, %.preheader1.i
   %indvars.iv33.i = phi i64 [ 0, %.preheader1.i ], [ %indvars.iv.next34.i, %1248 ]
-  %1236 = getelementptr inbounds nuw i16, ptr %1206, i64 %indvars.iv33.i
+  %1236 = getelementptr inbounds nuw [2 x i8], ptr %1206, i64 %indvars.iv33.i
   %1237 = load i16, ptr %1236, align 2, !tbaa !122
   %1238 = zext i16 %1237 to i32
   %1239 = icmp eq i32 %1144, %1238
@@ -5560,15 +5559,15 @@ select.unfold.i:                                  ; preds = %1233, %1232
 
 1240:                                             ; preds = %1235
   %1241 = trunc i64 %indvars.iv33.i to i16
-  %1242 = getelementptr inbounds nuw i16, ptr %1208, i64 %indvars.iv33.i
+  %1242 = getelementptr inbounds nuw [2 x i8], ptr %1208, i64 %indvars.iv33.i
   store i16 %1241, ptr %1242, align 2, !tbaa !122
-  %1243 = getelementptr inbounds nuw i16, ptr %1207, i64 %indvars.iv33.i
+  %1243 = getelementptr inbounds nuw [2 x i8], ptr %1207, i64 %indvars.iv33.i
   store i16 0, ptr %1243, align 2, !tbaa !122
   store i16 0, ptr %1236, align 2, !tbaa !122
   br label %1248
 
 1244:                                             ; preds = %1235
-  %1245 = getelementptr inbounds nuw i16, ptr %1207, i64 %indvars.iv33.i
+  %1245 = getelementptr inbounds nuw [2 x i8], ptr %1207, i64 %indvars.iv33.i
   %1246 = load i16, ptr %1245, align 2, !tbaa !122
   %1247 = sub i16 %1246, %1237
   store i16 %1247, ptr %1245, align 2, !tbaa !122
@@ -5781,7 +5780,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
   store i32 %14, ptr %12, align 4, !tbaa !149
   %15 = and i32 %13, 1048575
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !9
   store i32 %18, ptr %4, align 4, !tbaa !9
   %19 = load i32, ptr %7, align 8, !tbaa !106
@@ -5794,7 +5793,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
   store i32 %24, ptr %22, align 8, !tbaa !107
   %25 = and i32 %23, 1048575
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %26
   store i32 %21, ptr %27, align 4, !tbaa !9
   br label %216
 
@@ -5820,7 +5819,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !88
   %43 = zext i8 %36 to i64
-  %44 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [2640 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %46 = load i32, ptr %45, align 4, !tbaa !87
   %.not83 = icmp eq i32 %46, 0
@@ -5853,7 +5852,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
   %66 = lshr i32 -1, %65
   %67 = and i32 %64, %66
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.VLCElem, ptr %55, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %71 = load i16, ptr %70, align 2, !tbaa !28
   %72 = sext i16 %71 to i32
@@ -5913,7 +5912,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
   %116 = and i32 %111, %115
   %117 = getelementptr inbounds nuw i8, ptr %44, i64 1084
   %118 = zext nneg i32 %114 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %117, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !122
   %121 = zext i16 %120 to i32
   %.not.i90 = icmp samesign ult i32 %116, %121
@@ -5921,11 +5920,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
 
 122:                                              ; preds = %108
   %123 = getelementptr inbounds nuw i8, ptr %44, i64 1600
-  %124 = getelementptr inbounds nuw i16, ptr %123, i64 %118
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %118
   %125 = load i16, ptr %124, align 2, !tbaa !122
   %126 = zext i16 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %44, i64 2116
-  %128 = getelementptr inbounds nuw i16, ptr %127, i64 %118
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %127, i64 %118
   %129 = load i16, ptr %128, align 2, !tbaa !122
   %130 = zext i16 %129 to i32
   %131 = add nuw nsw i32 %116, %130
@@ -5937,7 +5936,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
   %132 = phi i32 [ %114, %108 ], [ %126, %122 ]
   %133 = phi i32 [ %116, %108 ], [ %131, %122 ]
   %134 = getelementptr inbounds nuw i8, ptr %44, i64 52
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %.pre-phi.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %.pre-phi.i
   %136 = load i32, ptr %135, align 4, !tbaa !9
   %137 = zext i32 %136 to i64
   %138 = lshr i64 %109, 12
@@ -5993,7 +5992,7 @@ read_prefix_symbol.exit:                          ; preds = %53, %50, %read_ans_
   %170 = getelementptr i8, ptr %169, i64 -1
   %171 = load i8, ptr %170, align 1, !tbaa !28
   %172 = zext i8 %171 to i64
-  %173 = getelementptr inbounds nuw %struct.JXLSymbolDistribution, ptr %42, i64 %172
+  %173 = getelementptr inbounds nuw [2640 x i8], ptr %42, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %175 = load i32, ptr %174, align 8, !tbaa !107
   %.not87 = icmp eq i32 %175, 0
@@ -6062,7 +6061,7 @@ read_prefix_symbol.exit:                          ; preds = %53, %50, %read_ans_
   store i32 %212, ptr %210, align 8, !tbaa !107
   %213 = and i32 %211, 1048575
   %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr inbounds nuw i32, ptr %209, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %214
   store i32 %207, ptr %215, align 4, !tbaa !9
   br label %216
 
@@ -6104,7 +6103,7 @@ define internal fastcc i32 @read_prefix_symbol(ptr noundef nonnull captures(none
   %21 = lshr i32 -1, %20
   %22 = and i32 %19, %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.VLCElem, ptr %10, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = load i16, ptr %25, align 2, !tbaa !28
   %27 = sext i16 %26 to i32
@@ -6170,7 +6169,7 @@ define internal fastcc range(i32 0, 65536) i32 @read_ans_symbol(ptr noundef nonn
   %40 = and i32 %35, %39
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 1084
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !122
   %45 = zext i16 %44 to i32
   %.not = icmp samesign ult i32 %40, %45
@@ -6178,11 +6177,11 @@ define internal fastcc range(i32 0, 65536) i32 @read_ans_symbol(ptr noundef nonn
 
 46:                                               ; preds = %32
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 1600
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %42
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %42
   %49 = load i16, ptr %48, align 2, !tbaa !122
   %50 = zext i16 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 2116
-  %52 = getelementptr inbounds nuw i16, ptr %51, i64 %42
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %42
   %53 = load i16, ptr %52, align 2, !tbaa !122
   %54 = zext i16 %53 to i32
   %55 = add nuw nsw i32 %40, %54
@@ -6194,7 +6193,7 @@ define internal fastcc range(i32 0, 65536) i32 @read_ans_symbol(ptr noundef nonn
   %56 = phi i32 [ %38, %32 ], [ %50, %46 ]
   %57 = phi i32 [ %40, %32 ], [ %55, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %.pre-phi
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.pre-phi
   %60 = load i32, ptr %59, align 4, !tbaa !9
   %61 = zext i32 %60 to i64
   %62 = lshr i64 %33, 12

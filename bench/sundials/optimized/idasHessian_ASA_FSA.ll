@@ -810,7 +810,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
 34:                                               ; preds = %12, %69
   %35 = phi i1 [ true, %12 ], [ false, %69 ]
   %indvars.iv = phi i64 [ 0, %12 ], [ 1, %69 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !19
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -820,7 +820,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
   %43 = load double, ptr %42, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = load double, ptr %44, align 8, !tbaa !9
-  %46 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = load ptr, ptr %47, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -853,7 +853,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
 69:                                               ; preds = %66, %63
   %.063 = phi double [ %68, %66 ], [ %65, %63 ]
   %.062 = phi double [ %67, %66 ], [ %64, %63 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %72 = load ptr, ptr %71, align 8, !tbaa !11
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16

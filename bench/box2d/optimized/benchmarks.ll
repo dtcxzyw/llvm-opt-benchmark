@@ -88,7 +88,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   br i1 %19, label %28, label %23
 
 23:                                               ; preds = %.preheader.split.us
-  %24 = getelementptr %struct.b2BodyId, ptr %6, i64 %indvars.iv57
+  %24 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv57
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 4
   store i64 %26, ptr %4, align 8
@@ -102,7 +102,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %23, %.preheader.split.us
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
-  %29 = getelementptr inbounds %struct.b2BodyId, ptr %6, i64 %indvars.iv57
+  %29 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv57
   store i64 %21, ptr %29, align 4
   %30 = add nuw nsw i32 %.04648.us, 1
   %exitcond60.not = icmp eq i32 %30, 100
@@ -139,7 +139,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   br i1 %34, label %43, label %38
 
 38:                                               ; preds = %.preheader.split
-  %39 = getelementptr %struct.b2BodyId, ptr %6, i64 %indvars.iv
+  %39 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %40 = getelementptr i8, ptr %39, i64 -8
   %41 = load i64, ptr %40, align 4
   store i64 %41, ptr %4, align 8
@@ -152,7 +152,7 @@ define void @CreateJointGrid(i32 %0) local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %38, %.preheader.split
-  %44 = getelementptr %struct.b2BodyId, ptr %6, i64 %indvars.iv
+  %44 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %45 = getelementptr i8, ptr %44, i64 -800
   %46 = load i64, ptr %45, align 4
   store i64 %46, ptr %4, align 8
@@ -479,7 +479,7 @@ define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   %18 = fadd float %17, 4.000000e+01
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %18, i64 1
   %19 = sext i32 %5 to i64
-  %20 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %19
+  %20 = getelementptr inbounds [1360 x i8], ptr @g_rainData, i64 %19
   br label %22
 
 21:                                               ; preds = %22
@@ -488,7 +488,7 @@ define void @CreateGroup(i32 %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 22:                                               ; preds = %3, %22
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %22 ]
   %.sroa.0.022 = phi <2 x float> [ %.sroa.0.4.vec.insert, %3 ], [ %.sroa.0.0.vec.insert11, %22 ]
-  %23 = getelementptr inbounds nuw %struct.Human, ptr %20, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [272 x i8], ptr %20, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   tail call void @CreateHuman(ptr noundef nonnull %23, i32 %0, <2 x float> %.sroa.0.022, float noundef 1.000000e+00, float noundef 0x3FA99999A0000000, float noundef 5.000000e+00, float noundef 5.000000e-01, i32 noundef %24, ptr noundef null, i1 noundef zeroext false) #8
@@ -506,7 +506,7 @@ define void @DestroyGroup(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %3 = mul nsw i32 %0, 40
   %4 = add nsw i32 %3, %1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %5
+  %6 = getelementptr inbounds [1360 x i8], ptr @g_rainData, i64 %5
   br label %8
 
 7:                                                ; preds = %8
@@ -514,7 +514,7 @@ define void @DestroyGroup(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.Human, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [272 x i8], ptr %6, i64 %indvars.iv
   tail call void @DestroyHuman(ptr noundef nonnull %9) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -561,13 +561,13 @@ define noundef float @StepRain(i32 %0, i32 noundef %1) local_unnamed_addr #5 {
   %26 = fadd float %25, 4.000000e+01
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %26, i64 1
   %27 = sext i32 %13 to i64
-  %28 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %27
+  %28 = getelementptr inbounds [1360 x i8], ptr @g_rainData, i64 %27
   br label %29
 
 29:                                               ; preds = %29, %.preheader
   %indvars.iv.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i, %29 ]
   %.sroa.0.022.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %.preheader ], [ %.sroa.0.0.vec.insert11.i, %29 ]
-  %30 = getelementptr inbounds nuw %struct.Human, ptr %28, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [272 x i8], ptr %28, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   tail call void @CreateHuman(ptr noundef nonnull %30, i32 %0, <2 x float> %.sroa.0.022.i, float noundef 1.000000e+00, float noundef 0x3FA99999A0000000, float noundef 5.000000e+00, float noundef 5.000000e-01, i32 noundef %31, ptr noundef null, i1 noundef zeroext false) #8
@@ -595,12 +595,12 @@ CreateGroup.exit:                                 ; preds = %29
   %39 = mul nuw nsw i32 %.024, 40
   %40 = add nsw i32 %38, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %41
+  %42 = getelementptr inbounds [1360 x i8], ptr @g_rainData, i64 %41
   br label %43
 
 43:                                               ; preds = %43, %.preheader23
   %indvars.iv.i11 = phi i64 [ 0, %.preheader23 ], [ %indvars.iv.next.i12, %43 ]
-  %44 = getelementptr inbounds nuw %struct.Human, ptr %42, i64 %indvars.iv.i11
+  %44 = getelementptr inbounds nuw [272 x i8], ptr %42, i64 %indvars.iv.i11
   tail call void @DestroyHuman(ptr noundef nonnull %44) #8
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 5
@@ -625,13 +625,13 @@ DestroyGroup.exit:                                ; preds = %43
   %59 = fadd float %58, 4.000000e+01
   %.sroa.0.4.vec.insert.i15 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14, float %59, i64 1
   %60 = sext i32 %46 to i64
-  %61 = getelementptr inbounds %struct.Group, ptr @g_rainData, i64 %60
+  %61 = getelementptr inbounds [1360 x i8], ptr @g_rainData, i64 %60
   br label %62
 
 62:                                               ; preds = %62, %DestroyGroup.exit
   %indvars.iv.i16 = phi i64 [ 0, %DestroyGroup.exit ], [ %indvars.iv.next.i18, %62 ]
   %.sroa.0.022.i17 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15, %DestroyGroup.exit ], [ %.sroa.0.0.vec.insert11.i20, %62 ]
-  %63 = getelementptr inbounds nuw %struct.Human, ptr %61, i64 %indvars.iv.i16
+  %63 = getelementptr inbounds nuw [272 x i8], ptr %61, i64 %indvars.iv.i16
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
   %64 = trunc nuw nsw i64 %indvars.iv.next.i18 to i32
   tail call void @CreateHuman(ptr noundef nonnull %63, i32 %0, <2 x float> %.sroa.0.022.i17, float noundef 1.000000e+00, float noundef 0x3FA99999A0000000, float noundef 5.000000e+00, float noundef 5.000000e-01, i32 noundef %64, ptr noundef null, i1 noundef zeroext false) #8
@@ -757,7 +757,7 @@ define void @CreateSpinner(i32 %0) local_unnamed_addr #5 {
 41:                                               ; preds = %1, %41
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %41 ]
   %.sroa.031.047 = phi <2 x float> [ <float 4.000000e+01, float 0.000000e+00>, %1 ], [ %.sroa.010.4.vec.insert.i, %41 ]
-  %42 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %.sroa.031.0.vec.extract = extractelement <2 x float> %.sroa.031.047, i64 0
   %.sroa.031.4.vec.extract = extractelement <2 x float> %.sroa.031.047, i64 1
   %43 = fadd float %.sroa.031.4.vec.extract, 3.200000e+01

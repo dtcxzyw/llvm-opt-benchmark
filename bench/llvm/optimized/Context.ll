@@ -115,11 +115,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::PointerIntPair.459" = type { %"struct.llvm::detail::PunnedPointer.381" }
 %"class.clang::APValue" = type { i32, i8, [3 x i8], %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [48 x i8] }
-%"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"struct.std::pair.664" = type { ptr, i64 }
-%"struct.llvm::detail::DenseMapPair.626" = type { %"struct.std::pair.627" }
-%"struct.std::pair.627" = type { ptr, ptr }
 
 $_ZNK5clang4Type21isFunctionPointerTypeEv = comdat any
 
@@ -1157,7 +1152,7 @@ switch.lookup:                                    ; preds = %.split
 
 switch.lookup110:                                 ; preds = %.split1
   %100 = zext nneg i32 %33 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang6interp7Context8classifyENS_8QualTypeE, i64 %100
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang6interp7Context8classifyENS_8QualTypeE, i64 %100
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %101
 
@@ -1459,7 +1454,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i32, ptr %54, align 8, !tbaa !629
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %56
   %.not3352 = icmp eq ptr %.0.i.i.i, %57
   br i1 %.not3352, label %.thread, label %.lr.ph
 
@@ -1912,7 +1907,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !10
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.664", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1953,7 +1948,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !10
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !13
@@ -2274,7 +2269,7 @@ define linkonce_odr hidden void @_ZN5clang6interp7ProgramD2Ev(ptr noundef nonnul
   br i1 %9, label %14, label %16
 
 14:                                               ; preds = %._crit_edge
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.626", ptr %10, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPNS2_6interp6RecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit
 
 16:                                               ; preds = %._crit_edge
@@ -2300,7 +2295,7 @@ define linkonce_odr hidden void @_ZN5clang6interp7ProgramD2Ev(ptr noundef nonnul
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang10RecordDeclEPNS2_6interp6RecordENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %14, %16
   %.pn14.i = phi ptr [ %15, %14 ], [ %10, %16 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %17, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %15, %14 ], [ %17, %16 ], [ %17, %.critedge2.i8.i14.i6.i ], [ %17, %.lr.ph.i6.i12.i3.i ]
-  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.626", ptr %10, i64 %13
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %.not3033 = icmp eq ptr %.pn14.i, %20
   br i1 %.not3033, label %._crit_edge36, label %.lr.ph35
 

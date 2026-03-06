@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.__subtree_lvl = type { i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 %struct.ipv6_addr_and_prefix = type { %struct.e_in6_addr, i32 }
 %struct.e_in6_addr = type { [16 x i8] }
@@ -22,11 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ffdata_t = type { ptr, i32 }
 %struct.offset_search_t = type { i32, ptr, ptr }
 %struct.decoded_data_t = type { i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._val64_string = type { i64, ptr }
-%struct._range_string = type { i64, i64, ptr }
 %struct.json_dumper = type { ptr, ptr, i32, i32, i32, i32, [1100 x i8] }
-%struct.crumb_spec_t = type { i32, i8 }
 
 @num_tree_types = local_unnamed_addr global i32 1, align 4
 @dissector_plugins = internal unnamed_addr global ptr null, align 8
@@ -801,7 +796,7 @@ define internal fastcc void @proto_cleanup_base() unnamed_addr #0 {
 23:                                               ; preds = %20
   %24 = load ptr, ptr @gpa_hfinfo.2, align 8
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not44 = icmp eq ptr %27, null
   br i1 %.not44, label %28, label %29
@@ -1597,7 +1592,7 @@ tmp_fld_check_assert.exit:                        ; preds = %37, %52, %108, %108
   %245 = phi i32 [ 1, %237 ], [ %.pre38, %239 ], [ %234, %tmp_fld_check_assert.exit ]
   %246 = phi ptr [ %238, %237 ], [ %243, %239 ], [ %.pre, %tmp_fld_check_assert.exit ]
   %247 = zext i32 %245 to i64
-  %248 = getelementptr ptr, ptr %246, i64 %247
+  %248 = getelementptr [8 x i8], ptr %246, i64 %247
   store ptr %0, ptr %248, align 8
   %249 = add i32 %245, 1
   store i32 %249, ptr @gpa_hfinfo.0, align 8
@@ -1632,7 +1627,7 @@ tmp_fld_check_assert.exit:                        ; preds = %37, %52, %108, %108
 263:                                              ; preds = %258
   %264 = load ptr, ptr @g_ascii_table, align 8
   %265 = zext i8 %257 to i64
-  %266 = getelementptr i16, ptr %264, i64 %265
+  %266 = getelementptr [2 x i8], ptr %264, i64 %265
   %267 = load i16, ptr %266, align 2
   %268 = and i16 %267, 64
   %.not37 = icmp eq i16 %268, 0
@@ -1923,7 +1918,7 @@ define internal void @free_GPtrArray_value(ptr noundef %0, ptr noundef %1, ptr r
 17:                                               ; preds = %14
   %18 = load ptr, ptr @gpa_hfinfo.2, align 8
   %19 = and i64 %4, 2147483647
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %23
@@ -1970,7 +1965,7 @@ define internal void @free_GPtrArray_value(ptr noundef %0, ptr noundef %1, ptr r
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %28 to i64
-  %38 = getelementptr ptr, ptr %18, i64 %37
+  %38 = getelementptr [8 x i8], ptr %18, i64 %37
   %39 = load ptr, ptr %38, align 8
   %.not31 = icmp eq ptr %39, null
   br i1 %.not31, label %40, label %41
@@ -2115,7 +2110,7 @@ define noundef zeroext i1 @proto_field_is_referenced(ptr noundef readonly captur
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not16 = icmp eq ptr %25, null
   br i1 %.not16, label %26, label %27
@@ -2212,7 +2207,7 @@ define nonnull ptr @proto_registrar_get_nth(i32 noundef %0) local_unnamed_addr #
 12:                                               ; preds = %10
   %13 = load ptr, ptr @gpa_hfinfo.2, align 8
   %14 = zext i32 %0 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not9 = icmp eq ptr %16, null
   br i1 %.not9, label %17, label %18
@@ -2618,7 +2613,7 @@ ptvcursor_new_subtree_levels.exit:                ; preds = %11
   %21 = phi i8 [ %5, %._crit_edge ], [ %.pre11, %ptvcursor_new_subtree_levels.exit ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %18, %ptvcursor_new_subtree_levels.exit ]
   %23 = zext i8 %21 to i64
-  %24 = getelementptr %struct.__subtree_lvl, ptr %22, i64 %23
+  %24 = getelementptr [24 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -2704,7 +2699,7 @@ define void @ptvcursor_pop_subtree(ptr noundef captures(none) %0) local_unnamed_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i8 %6 to i64
-  %10 = getelementptr %struct.__subtree_lvl, ptr %8, i64 %9
+  %10 = getelementptr [24 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
@@ -2812,7 +2807,7 @@ ptvcursor_subtree_set_item.exit.i:                ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = zext i8 %17 to i64
-  %22 = getelementptr %struct.__subtree_lvl, ptr %20, i64 %21
+  %22 = getelementptr [24 x i8], ptr %20, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = getelementptr i8, ptr %22, i64 -16
   store ptr %12, ptr %24, align 8
@@ -2901,7 +2896,7 @@ ptvcursor_tree.exit:                              ; preds = %4
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %16 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not38 = icmp eq ptr %32, null
   br i1 %.not38, label %33, label %34
@@ -3043,7 +3038,7 @@ ptvcursor_subtree_set_item.exit.i:                ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = zext i8 %102 to i64
-  %107 = getelementptr %struct.__subtree_lvl, ptr %105, i64 %106
+  %107 = getelementptr [24 x i8], ptr %105, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -24
   %109 = getelementptr i8, ptr %107, i64 -16
   store ptr %84, ptr %109, align 8
@@ -3363,7 +3358,7 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
 34:                                               ; preds = %31
   %35 = load ptr, ptr @gpa_hfinfo.2, align 8
   %36 = zext nneg i32 %22 to i64
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not44 = icmp eq ptr %38, null
   br i1 %.not44, label %39, label %40
@@ -3548,7 +3543,7 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
 27:                                               ; preds = %24
   %28 = load ptr, ptr @gpa_hfinfo.2, align 8
   %29 = zext nneg i32 %15 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not35 = icmp eq ptr %31, null
   br i1 %.not35, label %32, label %33
@@ -3873,7 +3868,7 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
 25:                                               ; preds = %22
   %26 = load ptr, ptr @gpa_hfinfo.2, align 8
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %30, label %31
@@ -4108,7 +4103,7 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
 25:                                               ; preds = %22
   %26 = load ptr, ptr @gpa_hfinfo.2, align 8
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not38 = icmp eq ptr %29, null
   br i1 %.not38, label %30, label %31
@@ -4288,7 +4283,7 @@ define noundef ptr @proto_tree_add_item_ret_int(ptr noundef %0, i32 noundef %1, 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @gpa_hfinfo.2, align 8
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %25
@@ -4432,7 +4427,7 @@ ws_sign_ext32.exit:                               ; preds = %44, %47, %57
 83:                                               ; preds = %80
   %84 = load ptr, ptr @gpa_hfinfo.2, align 8
   %85 = zext nneg i32 %71 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8
   %.not87 = icmp eq ptr %87, null
   br i1 %.not87, label %88, label %89
@@ -5097,7 +5092,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -5228,7 +5223,7 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 79:                                               ; preds = %76
   %80 = load ptr, ptr @gpa_hfinfo.2, align 8
   %81 = zext nneg i32 %67 to i64
-  %82 = getelementptr ptr, ptr %80, i64 %81
+  %82 = getelementptr [8 x i8], ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not91 = icmp eq ptr %83, null
   br i1 %.not91, label %84, label %85
@@ -5588,7 +5583,7 @@ define noundef ptr @ptvcursor_add_ret_uint(ptr noundef captures(none) %0, i32 no
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -5734,7 +5729,7 @@ test_length.exit:                                 ; preds = %33, %49
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %87 = getelementptr ptr, ptr %86, i64 %23
+  %87 = getelementptr [8 x i8], ptr %86, i64 %23
   %88 = load ptr, ptr %87, align 8
   %.not81 = icmp eq ptr %88, null
   br i1 %.not81, label %89, label %90
@@ -5895,7 +5890,7 @@ switch.lookup:                                    ; preds = %18
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %1, i32 noundef %2)
   %21 = lshr i8 %20, 6
   %22 = zext nneg i8 %21 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_hfi_length, i64 %22
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_hfi_length, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %4, align 4
   br label %thread-pre-split60
@@ -7043,7 +7038,7 @@ define noundef ptr @ptvcursor_add_ret_int(ptr noundef captures(none) %0, i32 nou
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -7209,7 +7204,7 @@ ws_sign_ext32.exit:                               ; preds = %55, %58, %68
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %97 = getelementptr ptr, ptr %96, i64 %23
+  %97 = getelementptr [8 x i8], ptr %96, i64 %23
   %98 = load ptr, ptr %97, align 8
   %.not85 = icmp eq ptr %98, null
   br i1 %.not85, label %99, label %100
@@ -7352,7 +7347,7 @@ define noundef ptr @ptvcursor_add_ret_string(ptr noundef captures(none) %0, i32 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -7530,7 +7525,7 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
 105:                                              ; preds = %102
   %106 = load ptr, ptr @gpa_hfinfo.2, align 8
   %107 = zext nneg i32 %93 to i64
-  %108 = getelementptr ptr, ptr %106, i64 %107
+  %108 = getelementptr [8 x i8], ptr %106, i64 %107
   %109 = load ptr, ptr %108, align 8
   %.not89 = icmp eq ptr %109, null
   br i1 %.not89, label %110, label %111
@@ -7676,7 +7671,7 @@ define noundef ptr @ptvcursor_add_ret_boolean(ptr noundef captures(none) %0, i32
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -7869,7 +7864,7 @@ get_uint64_value.exit:                            ; preds = %test_length.exit, %
 100:                                              ; preds = %97
   %101 = load ptr, ptr @gpa_hfinfo.2, align 8
   %102 = zext nneg i32 %88 to i64
-  %103 = getelementptr ptr, ptr %101, i64 %102
+  %103 = getelementptr [8 x i8], ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
   %.not91 = icmp eq ptr %104, null
   br i1 %.not91, label %105, label %106
@@ -8035,7 +8030,7 @@ define noundef ptr @proto_tree_add_item_ret_uint64(ptr noundef %0, i32 noundef %
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -8170,7 +8165,7 @@ get_uint64_value.exit:                            ; preds = %45, %report_type_le
 79:                                               ; preds = %76
   %80 = load ptr, ptr @gpa_hfinfo.2, align 8
   %81 = zext nneg i32 %67 to i64
-  %82 = getelementptr ptr, ptr %80, i64 %81
+  %82 = getelementptr [8 x i8], ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not88 = icmp eq ptr %83, null
   br i1 %.not88, label %84, label %85
@@ -8423,7 +8418,7 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -8537,7 +8532,7 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 70:                                               ; preds = %67
   %71 = load ptr, ptr @gpa_hfinfo.2, align 8
   %72 = zext nneg i32 %58 to i64
-  %73 = getelementptr ptr, ptr %71, i64 %72
+  %73 = getelementptr [8 x i8], ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8
   %.not81 = icmp eq ptr %74, null
   br i1 %.not81, label %75, label %76
@@ -8893,7 +8888,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -9027,7 +9022,7 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 74:                                               ; preds = %71
   %75 = load ptr, ptr @gpa_hfinfo.2, align 8
   %76 = zext nneg i32 %62 to i64
-  %77 = getelementptr ptr, ptr %75, i64 %76
+  %77 = getelementptr [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   %.not100 = icmp eq ptr %78, null
   br i1 %.not100, label %79, label %80
@@ -9168,7 +9163,7 @@ define noundef ptr @proto_tree_add_item_ret_boolean(ptr noundef %0, i32 noundef 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @gpa_hfinfo.2, align 8
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %25
@@ -9283,7 +9278,7 @@ get_uint64_value.exit:                            ; preds = %39, %report_type_le
 69:                                               ; preds = %66
   %70 = load ptr, ptr @gpa_hfinfo.2, align 8
   %71 = zext nneg i32 %57 to i64
-  %72 = getelementptr ptr, ptr %70, i64 %71
+  %72 = getelementptr [8 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8
   %.not83 = icmp eq ptr %73, null
   br i1 %.not83, label %74, label %75
@@ -9416,7 +9411,7 @@ define noundef ptr @proto_tree_add_item_ret_float(ptr noundef %0, i32 noundef %1
 18:                                               ; preds = %16
   %19 = load ptr, ptr @gpa_hfinfo.2, align 8
   %20 = zext i32 %1 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not9.i = icmp eq ptr %22, null
   br i1 %.not9.i, label %23, label %proto_registrar_get_nth.exit
@@ -9513,7 +9508,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 60:                                               ; preds = %57
   %61 = load ptr, ptr @gpa_hfinfo.2, align 8
   %62 = zext nneg i32 %48 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not62 = icmp eq ptr %64, null
   br i1 %.not62, label %65, label %66
@@ -9673,7 +9668,7 @@ define noundef ptr @proto_tree_add_item_ret_double(ptr noundef %0, i32 noundef %
 18:                                               ; preds = %16
   %19 = load ptr, ptr @gpa_hfinfo.2, align 8
   %20 = zext i32 %1 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not9.i = icmp eq ptr %22, null
   br i1 %.not9.i, label %23, label %proto_registrar_get_nth.exit
@@ -9770,7 +9765,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 60:                                               ; preds = %57
   %61 = load ptr, ptr @gpa_hfinfo.2, align 8
   %62 = zext nneg i32 %48 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not62 = icmp eq ptr %64, null
   br i1 %.not62, label %65, label %66
@@ -9918,7 +9913,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -10020,7 +10015,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 63:                                               ; preds = %60
   %64 = load ptr, ptr @gpa_hfinfo.2, align 8
   %65 = zext nneg i32 %51 to i64
-  %66 = getelementptr ptr, ptr %64, i64 %65
+  %66 = getelementptr [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8
   %.not81 = icmp eq ptr %67, null
   br i1 %.not81, label %68, label %69
@@ -10161,7 +10156,7 @@ define noundef ptr @proto_tree_add_item_ret_ipv6(ptr noundef %0, i32 noundef %1,
 19:                                               ; preds = %17
   %20 = load ptr, ptr @gpa_hfinfo.2, align 8
   %21 = zext i32 %1 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not9.i = icmp eq ptr %23, null
   br i1 %.not9.i, label %24, label %proto_registrar_get_nth.exit
@@ -10245,7 +10240,7 @@ proto_registrar_get_nth.exit:                     ; preds = %19
 54:                                               ; preds = %51
   %55 = load ptr, ptr @gpa_hfinfo.2, align 8
   %56 = zext nneg i32 %42 to i64
-  %57 = getelementptr ptr, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not52 = icmp eq ptr %58, null
   br i1 %.not52, label %59, label %60
@@ -10390,7 +10385,7 @@ define noundef ptr @proto_tree_add_item_ret_ether(ptr noundef %0, i32 noundef %1
 18:                                               ; preds = %16
   %19 = load ptr, ptr @gpa_hfinfo.2, align 8
   %20 = zext i32 %1 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not9.i = icmp eq ptr %22, null
   br i1 %.not9.i, label %23, label %proto_registrar_get_nth.exit
@@ -10474,7 +10469,7 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 54:                                               ; preds = %51
   %55 = load ptr, ptr @gpa_hfinfo.2, align 8
   %56 = zext nneg i32 %42 to i64
-  %57 = getelementptr ptr, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not53 = icmp eq ptr %58, null
   br i1 %.not53, label %59, label %60
@@ -10609,7 +10604,7 @@ define noundef ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i3
 22:                                               ; preds = %19
   %23 = load ptr, ptr @gpa_hfinfo.2, align 8
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %28
@@ -10772,7 +10767,7 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
 88:                                               ; preds = %85
   %89 = load ptr, ptr @gpa_hfinfo.2, align 8
   %90 = zext nneg i32 %76 to i64
-  %91 = getelementptr ptr, ptr %89, i64 %90
+  %91 = getelementptr [8 x i8], ptr %89, i64 %90
   %92 = load ptr, ptr %91, align 8
   %.not99 = icmp eq ptr %92, null
   br i1 %.not99, label %93, label %94
@@ -10972,7 +10967,7 @@ define noundef ptr @proto_tree_add_item_ret_display_string_and_length(ptr nounde
 22:                                               ; preds = %19
   %23 = load ptr, ptr @gpa_hfinfo.2, align 8
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %28
@@ -11189,7 +11184,7 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
 115:                                              ; preds = %112
   %116 = load ptr, ptr @gpa_hfinfo.2, align 8
   %117 = zext nneg i32 %103 to i64
-  %118 = getelementptr ptr, ptr %116, i64 %117
+  %118 = getelementptr [8 x i8], ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
   %.not161 = icmp eq ptr %119, null
   br i1 %.not161, label %120, label %121
@@ -11468,7 +11463,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -11554,7 +11549,7 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 61:                                               ; preds = %58
   %62 = load ptr, ptr @gpa_hfinfo.2, align 8
   %63 = zext nneg i32 %49 to i64
-  %64 = getelementptr ptr, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8
   %.not73 = icmp eq ptr %65, null
   br i1 %.not73, label %66, label %67
@@ -12650,7 +12645,7 @@ define noundef ptr @ptvcursor_add(ptr noundef captures(none) %0, i32 noundef %1,
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -12759,7 +12754,7 @@ test_length.exit:                                 ; preds = %26, %43
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %67 = getelementptr ptr, ptr %66, i64 %22
+  %67 = getelementptr [8 x i8], ptr %66, i64 %22
   %68 = load ptr, ptr %67, align 8
   %.not63 = icmp eq ptr %68, null
   br i1 %.not63, label %69, label %70
@@ -12979,7 +12974,7 @@ test_length.exit:                                 ; preds = %10, %24
 44:                                               ; preds = %41
   %45 = load ptr, ptr @gpa_hfinfo.2, align 8
   %46 = zext nneg i32 %32 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not49 = icmp eq ptr %48, null
   br i1 %.not49, label %49, label %50
@@ -13109,7 +13104,7 @@ define noundef ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noun
 18:                                               ; preds = %15
   %19 = load ptr, ptr @gpa_hfinfo.2, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %24
@@ -13244,7 +13239,7 @@ test_length.exit:                                 ; preds = %11, %25
 48:                                               ; preds = %45
   %49 = load ptr, ptr @gpa_hfinfo.2, align 8
   %50 = zext nneg i32 %36 to i64
-  %51 = getelementptr ptr, ptr %49, i64 %50
+  %51 = getelementptr [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %.not66 = icmp eq ptr %52, null
   br i1 %.not66, label %53, label %54
@@ -13386,7 +13381,7 @@ define noundef ptr @proto_tree_add_item_ret_length(ptr noundef %0, i32 noundef %
 19:                                               ; preds = %16
   %20 = load ptr, ptr @gpa_hfinfo.2, align 8
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr ptr, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %24, label %25
@@ -13438,7 +13433,7 @@ define noundef ptr @proto_tree_add_bytes_item(ptr noundef %0, i32 noundef %1, pt
 23:                                               ; preds = %20
   %24 = load ptr, ptr @gpa_hfinfo.2, align 8
   %25 = zext nneg i32 %1 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %29
@@ -13634,7 +13629,7 @@ validate_proto_tree_add_bytes_ftype.exit:         ; preds = %29
 101:                                              ; preds = %98
   %102 = load ptr, ptr @gpa_hfinfo.2, align 8
   %103 = zext nneg i32 %89 to i64
-  %104 = getelementptr ptr, ptr %102, i64 %103
+  %104 = getelementptr [8 x i8], ptr %102, i64 %103
   %105 = load ptr, ptr %104, align 8
   %.not164 = icmp eq ptr %105, null
   br i1 %.not164, label %106, label %107
@@ -13880,7 +13875,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 22:                                               ; preds = %19
   %23 = load ptr, ptr @gpa_hfinfo.2, align 8
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %28
@@ -14019,7 +14014,7 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 81:                                               ; preds = %78
   %82 = load ptr, ptr @gpa_hfinfo.2, align 8
   %83 = zext nneg i32 %69 to i64
-  %84 = getelementptr ptr, ptr %82, i64 %83
+  %84 = getelementptr [8 x i8], ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8
   %.not108 = icmp eq ptr %85, null
   br i1 %.not108, label %86, label %87
@@ -14197,7 +14192,7 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
 27:                                               ; preds = %24
   %28 = load ptr, ptr @gpa_hfinfo.2, align 8
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not42 = icmp eq ptr %31, null
   br i1 %.not42, label %32, label %33
@@ -14394,7 +14389,7 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not54 = icmp eq ptr %32, null
   br i1 %.not54, label %33, label %34
@@ -14605,7 +14600,7 @@ define noundef ptr @proto_tree_add_bytes(ptr noundef %0, i32 noundef %1, ptr nou
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -14662,7 +14657,7 @@ test_length.exit:                                 ; preds = %27, %28
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %49 = getelementptr ptr, ptr %48, i64 %23
+  %49 = getelementptr [8 x i8], ptr %48, i64 %23
   %50 = load ptr, ptr %49, align 8
   %.not55 = icmp eq ptr %50, null
   br i1 %.not55, label %51, label %52
@@ -14837,7 +14832,7 @@ define noundef ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef
 22:                                               ; preds = %19
   %23 = load ptr, ptr @gpa_hfinfo.2, align 8
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %28
@@ -14894,7 +14889,7 @@ test_length.exit:                                 ; preds = %28, %29
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %50 = getelementptr ptr, ptr %49, i64 %24
+  %50 = getelementptr [8 x i8], ptr %49, i64 %24
   %51 = load ptr, ptr %50, align 8
   %.not56 = icmp eq ptr %51, null
   br i1 %.not56, label %52, label %53
@@ -15456,7 +15451,7 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not39 = icmp eq ptr %30, null
   br i1 %.not39, label %31, label %32
@@ -15689,7 +15684,7 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -15914,7 +15909,7 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
 27:                                               ; preds = %24
   %28 = load ptr, ptr @gpa_hfinfo.2, align 8
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not37 = icmp eq ptr %31, null
   br i1 %.not37, label %32, label %33
@@ -16142,7 +16137,7 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
 27:                                               ; preds = %24
   %28 = load ptr, ptr @gpa_hfinfo.2, align 8
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not37 = icmp eq ptr %31, null
   br i1 %.not37, label %32, label %33
@@ -16379,7 +16374,7 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -16611,7 +16606,7 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -16847,7 +16842,7 @@ define noundef ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr no
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -16906,7 +16901,7 @@ test_length.exit:                                 ; preds = %29, %27
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %49 = getelementptr ptr, ptr %48, i64 %23
+  %49 = getelementptr [8 x i8], ptr %48, i64 %23
   %50 = load ptr, ptr %49, align 8
   %.not63 = icmp eq ptr %50, null
   br i1 %.not63, label %51, label %52
@@ -17148,7 +17143,7 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -17372,7 +17367,7 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -17594,7 +17589,7 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -17819,7 +17814,7 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -18043,7 +18038,7 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -18271,7 +18266,7 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -18498,7 +18493,7 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -18721,7 +18716,7 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
 26:                                               ; preds = %23
   %27 = load ptr, ptr @gpa_hfinfo.2, align 8
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not37 = icmp eq ptr %30, null
   br i1 %.not37, label %31, label %32
@@ -18945,7 +18940,7 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
 27:                                               ; preds = %24
   %28 = load ptr, ptr @gpa_hfinfo.2, align 8
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not37 = icmp eq ptr %31, null
   br i1 %.not37, label %32, label %33
@@ -20035,7 +20030,7 @@ protoo_strlcpy.exit302:                           ; preds = %200, %202
 
 switch.lookup:                                    ; preds = %212
   %216 = zext nneg i32 %spec.store.select.i303 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_numeric_value_format, i64 %216
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_numeric_value_format, i64 %216
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_numeric_value_format64.exit
 
@@ -20588,7 +20583,7 @@ define internal fastcc ptr @format_bytes_hfinfo_maxlen(ptr noundef %0, ptr nound
   %.04959 = phi ptr [ %2, %.lr.ph ], [ %20, %19 ]
   %22 = load i8, ptr %.04959, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr i16, ptr %18, i64 %23
+  %24 = getelementptr [2 x i8], ptr %18, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 64
   %.not56 = icmp eq i16 %26, 0
@@ -20760,7 +20755,7 @@ define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr 
   %6 = load ptr, ptr @g_ascii_table, align 8
   %.mask = and i32 %2, 255
   %7 = zext nneg i32 %.mask to i64
-  %8 = getelementptr i16, ptr %6, i64 %7
+  %8 = getelementptr [2 x i8], ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 64
   %.not = icmp eq i16 %10, 0
@@ -20881,7 +20876,7 @@ define internal fastcc ptr @hfinfo_numeric_value_format(ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %3
   %13 = zext nneg i32 %.0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_numeric_value_format, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_numeric_value_format, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %14
 
@@ -20956,7 +20951,7 @@ hfinfo_mask_bitwidth.exit.i:                      ; preds = %14
 
 switch.lookup:                                    ; preds = %26
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_hex_digits.exit
 
@@ -21011,7 +21006,7 @@ hfinfo_mask_bitwidth.exit.i67:                    ; preds = %40
 
 switch.lookup86:                                  ; preds = %51
   %55 = zext nneg i32 %switch.tableidx85 to i64
-  %switch.gep87 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %55
+  %switch.gep87 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %55
   %switch.load88 = load i32, ptr %switch.gep87, align 4
   br label %hfinfo_hex_digits.exit70
 
@@ -21068,7 +21063,7 @@ hfinfo_mask_bitwidth.exit.i72:                    ; preds = %63
 
 switch.lookup90:                                  ; preds = %77
   %81 = zext nneg i32 %switch.tableidx89 to i64
-  %switch.gep91 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %81
+  %switch.gep91 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %81
   %switch.load92 = load i32, ptr %switch.gep91, align 4
   br label %hfinfo_hex_digits.exit75
 
@@ -21084,7 +21079,7 @@ hfinfo_hex_digits.exit75:                         ; preds = %switch.lookup90, %h
 
 switch.lookup94:                                  ; preds = %83
   %85 = zext nneg i32 %switch.tableidx93 to i64
-  %switch.gep95 = getelementptr inbounds nuw i32, ptr @switch.table.fill_label_number, i64 %85
+  %switch.gep95 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.fill_label_number, i64 %85
   %switch.load96 = load i32, ptr %switch.gep95, align 4
   br label %display_to_port_type.exit
 
@@ -21184,7 +21179,7 @@ hfinfo_mask_bitwidth.exit.i:                      ; preds = %14
 
 switch.lookup:                                    ; preds = %26
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hfinfo_hex_digits.exit
 
@@ -21239,7 +21234,7 @@ hfinfo_mask_bitwidth.exit.i48:                    ; preds = %40
 
 switch.lookup65:                                  ; preds = %51
   %55 = zext nneg i32 %switch.tableidx64 to i64
-  %switch.gep66 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %55
+  %switch.gep66 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %55
   %switch.load67 = load i32, ptr %switch.gep66, align 4
   br label %hfinfo_hex_digits.exit51
 
@@ -21296,7 +21291,7 @@ hfinfo_mask_bitwidth.exit.i53:                    ; preds = %63
 
 switch.lookup69:                                  ; preds = %77
   %81 = zext nneg i32 %switch.tableidx68 to i64
-  %switch.gep70 = getelementptr inbounds nuw i32, ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %81
+  %switch.gep70 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hfinfo_number_value_format_display64.23, i64 %81
   %switch.load71 = load i32, ptr %switch.gep70, align 4
   br label %hfinfo_hex_digits.exit56
 
@@ -21578,7 +21573,7 @@ define hidden nonnull ptr @proto_custom_set(ptr noundef %0, ptr noundef %1, i32 
   %37 = load ptr, ptr %8, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %.1275545 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %41, i32 noundef 0, i32 noundef 0)
   %.not321 = icmp eq i32 %.2266546, 0
@@ -21785,7 +21780,7 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
 135:                                              ; preds = %132
   %136 = load ptr, ptr @gpa_hfinfo.2, align 8
   %137 = zext i32 %24 to i64
-  %138 = getelementptr ptr, ptr %136, i64 %137
+  %138 = getelementptr [8 x i8], ptr %136, i64 %137
   %139 = load ptr, ptr %138, align 8
   %.not300 = icmp eq ptr %139, null
   br i1 %.not300, label %140, label %141
@@ -21821,7 +21816,7 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
 
 147:                                              ; preds = %144
   %148 = zext nneg i32 %143 to i64
-  %149 = getelementptr ptr, ptr %136, i64 %148
+  %149 = getelementptr [8 x i8], ptr %136, i64 %148
   %150 = load ptr, ptr %149, align 8
   %.not314.us = icmp eq ptr %150, null
   br i1 %.not314.us, label %.split563.us, label %.preheader385.split.us, !llvm.loop !28
@@ -21859,7 +21854,7 @@ protoo_strlcpy.exit338:                           ; preds = %108, %110
 
 159:                                              ; preds = %156
   %160 = zext nneg i32 %152 to i64
-  %161 = getelementptr ptr, ptr %136, i64 %160
+  %161 = getelementptr [8 x i8], ptr %136, i64 %160
   %162 = load ptr, ptr %161, align 8
   %.not314 = icmp eq ptr %162, null
   br i1 %.not314, label %.split563.us, label %.preheader385.split, !llvm.loop !28
@@ -21950,7 +21945,7 @@ proto_get_finfo_ptr_array.exit.thread.us582:      ; preds = %188, %.lr.ph566.spl
 
 188:                                              ; preds = %185
   %189 = zext nneg i32 %.2255.val.us to i64
-  %190 = getelementptr ptr, ptr %181, i64 %189
+  %190 = getelementptr [8 x i8], ptr %181, i64 %189
   %191 = load ptr, ptr %190, align 8
   %.not.i341.us = icmp eq ptr %191, null
   br i1 %.not.i341.us, label %.split591.us, label %proto_get_finfo_ptr_array.exit.thread.us582, !llvm.loop !31
@@ -21990,7 +21985,7 @@ proto_get_finfo_ptr_array.exit.thread.us660:      ; preds = %205, %.lr.ph566.spl
 
 205:                                              ; preds = %202
   %206 = zext nneg i32 %.2255.val.us661 to i64
-  %207 = getelementptr ptr, ptr %198, i64 %206
+  %207 = getelementptr [8 x i8], ptr %198, i64 %206
   %208 = load ptr, ptr %207, align 8
   %.not.i341.us664 = icmp eq ptr %208, null
   br i1 %.not.i341.us664, label %.split591.us, label %proto_get_finfo_ptr_array.exit.thread.us660, !llvm.loop !31
@@ -22056,7 +22051,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph566.split.spl
 228:                                              ; preds = %225
   %229 = load ptr, ptr @gpa_hfinfo.2, align 8
   %230 = zext nneg i32 %.2255.val to i64
-  %231 = getelementptr ptr, ptr %229, i64 %230
+  %231 = getelementptr [8 x i8], ptr %229, i64 %230
   %232 = load ptr, ptr %231, align 8
   %.not.i341 = icmp eq ptr %232, null
   br i1 %.not.i341, label %.split591.us, label %.lr.ph566.split.split.split, !llvm.loop !32
@@ -22125,7 +22120,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %.lr.ph566.split.spl
 254:                                              ; preds = %251
   %255 = load ptr, ptr @gpa_hfinfo.2, align 8
   %256 = zext nneg i32 %.2255.val329 to i64
-  %257 = getelementptr ptr, ptr %255, i64 %256
+  %257 = getelementptr [8 x i8], ptr %255, i64 %256
   %258 = load ptr, ptr %257, align 8
   %.not.i348 = icmp eq ptr %258, null
   br i1 %.not.i348, label %259, label %hfinfo_same_name_get_prev.exit349
@@ -22181,7 +22176,7 @@ hfinfo_same_name_get_prev.exit349:                ; preds = %254, %240
   %.3277904 = phi i32 [ %.22761269, %.lr.ph908 ], [ %474, %473 ]
   %277 = load ptr, ptr %.us-phi577, align 8
   %278 = sext i32 %.3277904 to i64
-  %279 = getelementptr ptr, ptr %277, i64 %278
+  %279 = getelementptr [8 x i8], ptr %277, i64 %278
   %280 = load ptr, ptr %279, align 8
   %.not308 = icmp eq i32 %.8272905, 0
   br i1 %.not308, label %287, label %281
@@ -22632,7 +22627,7 @@ hf_try_val64_to_str_const.exit:                   ; preds = %421, %423, %427, %4
 491:                                              ; preds = %488
   %492 = load ptr, ptr @gpa_hfinfo.2, align 8
   %493 = zext nneg i32 %.2255.val330 to i64
-  %494 = getelementptr ptr, ptr %492, i64 %493
+  %494 = getelementptr [8 x i8], ptr %492, i64 %493
   %495 = load ptr, ptr %494, align 8
   %.not.i363 = icmp eq ptr %495, null
   br i1 %.not.i363, label %496, label %.lr.ph566.lr.ph, !llvm.loop !31
@@ -23316,7 +23311,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %.1120285 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %31, i32 noundef 1, i32 noundef 0)
   %33 = load ptr, ptr %11, align 8
@@ -23396,7 +23391,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
 60:                                               ; preds = %57
   %61 = load ptr, ptr @gpa_hfinfo.2, align 8
   %62 = zext i32 %13 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not137 = icmp eq ptr %64, null
   br i1 %.not137, label %65, label %66
@@ -23432,7 +23427,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
 
 72:                                               ; preds = %69
   %73 = zext nneg i32 %68 to i64
-  %74 = getelementptr ptr, ptr %61, i64 %73
+  %74 = getelementptr [8 x i8], ptr %61, i64 %73
   %75 = load ptr, ptr %74, align 8
   %.not146.us = icmp eq ptr %75, null
   br i1 %.not146.us, label %.split256.us, label %.preheader186.split.us, !llvm.loop !35
@@ -23470,7 +23465,7 @@ define hidden noalias ptr @proto_custom_get_filter(ptr noundef readonly captures
 
 84:                                               ; preds = %81
   %85 = zext nneg i32 %77 to i64
-  %86 = getelementptr ptr, ptr %61, i64 %85
+  %86 = getelementptr [8 x i8], ptr %61, i64 %85
   %87 = load ptr, ptr %86, align 8
   %.not146 = icmp eq ptr %87, null
   br i1 %.not146, label %.split256.us, label %.preheader186.split, !llvm.loop !35
@@ -23593,7 +23588,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %108, %.lr.ph.split,
 128:                                              ; preds = %125
   %129 = load ptr, ptr @gpa_hfinfo.2, align 8
   %130 = zext nneg i32 %.2123.val158 to i64
-  %131 = getelementptr ptr, ptr %129, i64 %130
+  %131 = getelementptr [8 x i8], ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
   %.not.i160 = icmp eq ptr %132, null
   br i1 %.not.i160, label %133, label %.lr.ph.split, !llvm.loop !37
@@ -23662,7 +23657,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %108, %.lr.ph.split,
 155:                                              ; preds = %152
   %156 = load ptr, ptr @gpa_hfinfo.2, align 8
   %157 = zext nneg i32 %.2123.val157 to i64
-  %158 = getelementptr ptr, ptr %156, i64 %157
+  %158 = getelementptr [8 x i8], ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8
   %.not.i167 = icmp eq ptr %159, null
   br i1 %.not.i167, label %160, label %.outer.backedge
@@ -23706,7 +23701,7 @@ proto_get_finfo_ptr_array.exit.thread:            ; preds = %108, %.lr.ph.split,
   %.3280 = phi i32 [ %180, %179 ], [ %.2434, %.lr.ph281.preheader ]
   %170 = load ptr, ptr %.us-phi263, align 8
   %171 = sext i32 %.3280 to i64
-  %172 = getelementptr ptr, ptr %170, i64 %171
+  %172 = getelementptr [8 x i8], ptr %170, i64 %171
   %173 = load ptr, ptr %172, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -23779,7 +23774,7 @@ proto_construct_match_selected_string.exit:       ; preds = %.lr.ph281
 191:                                              ; preds = %188
   %192 = load ptr, ptr @gpa_hfinfo.2, align 8
   %193 = zext nneg i32 %.2123.val to i64
-  %194 = getelementptr ptr, ptr %192, i64 %193
+  %194 = getelementptr [8 x i8], ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8
   %.not.i176 = icmp eq ptr %195, null
   br i1 %.not.i176, label %196, label %.outer.backedge
@@ -24389,7 +24384,7 @@ define hidden void @proto_tree_prime_with_hfid(ptr noundef readnone captures(non
 14:                                               ; preds = %11
   %15 = load ptr, ptr @gpa_hfinfo.2, align 8
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %20
@@ -24440,7 +24435,7 @@ define hidden void @proto_tree_prime_with_hfid(ptr noundef readnone captures(non
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %26 to i64
-  %36 = getelementptr ptr, ptr %15, i64 %35
+  %36 = getelementptr [8 x i8], ptr %15, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not28 = icmp eq ptr %37, null
   br i1 %.not28, label %38, label %39
@@ -24498,7 +24493,7 @@ define hidden void @proto_tree_prime_with_hfid_print(ptr noundef readnone captur
 14:                                               ; preds = %11
   %15 = load ptr, ptr @gpa_hfinfo.2, align 8
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %20
@@ -24541,7 +24536,7 @@ define hidden void @proto_tree_prime_with_hfid_print(ptr noundef readnone captur
 
 31:                                               ; preds = %28
   %32 = zext nneg i32 %23 to i64
-  %33 = getelementptr ptr, ptr %15, i64 %32
+  %33 = getelementptr [8 x i8], ptr %15, i64 %32
   %34 = load ptr, ptr %33, align 8
   %.not26 = icmp eq ptr %34, null
   br i1 %.not26, label %35, label %36
@@ -24947,7 +24942,7 @@ define internal fastcc void @check_protocol_filter_name_or_fail(ptr noundef %0) 
   %23 = phi i8 [ %13, %.lr.ph ], [ %21, %19 ]
   %.026 = phi ptr [ %0, %.lr.ph ], [ %20, %19 ]
   %24 = zext i8 %23 to i64
-  %25 = getelementptr i16, ptr %18, i64 %24
+  %25 = getelementptr [2 x i8], ptr %18, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 2
   %.not23 = icmp eq i16 %27, 0
@@ -25094,7 +25089,7 @@ proto_get_id_by_short_name.exit:                  ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %26 = phi ptr [ %39, %.lr.ph ], [ %23, %.preheader ]
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   tail call fastcc void @hfinfo_remove_from_gpa_name_map(ptr noundef %29)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -25105,7 +25100,7 @@ proto_get_id_by_short_name.exit:                  ; preds = %3, %7
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr %33, i64 %36
+  %37 = getelementptr [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   tail call void @g_ptr_array_add(ptr noundef %32, ptr noundef %38)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -25132,7 +25127,7 @@ proto_get_id_by_short_name.exit:                  ; preds = %3, %7
   %50 = load ptr, ptr @deregistered_fields, align 8
   %51 = load ptr, ptr @gpa_hfinfo.2, align 8
   %52 = sext i32 %.0.i to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   tail call void @g_ptr_array_add(ptr noundef %50, ptr noundef %54)
   %55 = load ptr, ptr @gpa_name_map, align 8
@@ -25200,7 +25195,7 @@ define ptr @find_protocol_by_id(i32 noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %9
   %13 = load ptr, ptr @gpa_hfinfo.2, align 8
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %18
@@ -25299,7 +25294,7 @@ define internal fastcc void @hfinfo_remove_from_gpa_name_map(ptr noundef readonl
 24:                                               ; preds = %21
   %25 = load ptr, ptr @gpa_hfinfo.2, align 8
   %26 = zext nneg i32 %6 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %29, label %hfinfo_same_name_get_prev.exit
@@ -25461,7 +25456,7 @@ define ptr @proto_get_next_protocol_field(i32 noundef %0, ptr noundef captures(n
   store ptr %16, ptr %1, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %15
+  %19 = getelementptr [8 x i8], ptr %18, i64 %15
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -26177,7 +26172,7 @@ define void @proto_deregister_field(i32 noundef %0, i32 noundef %1) local_unname
 
 14:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %15 = getelementptr ptr, ptr %13, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i32, ptr %17, align 8
@@ -26195,7 +26190,7 @@ define void @proto_deregister_field(i32 noundef %0, i32 noundef %1) local_unname
   %28 = load ptr, ptr @deregistered_fields, align 8
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = sext i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   tail call void @g_ptr_array_add(ptr noundef %28, ptr noundef %32)
   br label %.loopexit
@@ -26244,7 +26239,7 @@ define void @proto_deregister_all_fields_with_prefix(i32 noundef %0, ptr noundef
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = and i64 %indvars.iv.next, 4294967295
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -26261,7 +26256,7 @@ define void @proto_deregister_all_fields_with_prefix(i32 noundef %0, ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   tail call void @g_ptr_array_add(ptr noundef %22, ptr noundef %28)
   %29 = load ptr, ptr %6, align 8
@@ -26556,7 +26551,7 @@ define internal void @free_deregistered_field(ptr noundef %0, ptr readnone captu
 20:                                               ; preds = %19, %2
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = sext i32 %4 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   store ptr null, ptr %23, align 8
   ret void
 }
@@ -26613,7 +26608,7 @@ define void @proto_register_subtree_array(ptr noundef readonly captures(none) %0
   %17 = xor i32 %16, -1
   %18 = ashr i32 %.01318, 5
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i32, ptr %11, i64 %19
+  %20 = getelementptr [4 x i8], ptr %11, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, %17
   store i32 %22, ptr %20, align 4
@@ -27581,7 +27576,7 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %30
 switch.lookup:                                    ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %51 = zext nneg i32 %17 to i64
-  %52 = getelementptr i32, ptr @switch.table.fill_label_number, i64 %51
+  %52 = getelementptr [4 x i8], ptr @switch.table.fill_label_number, i64 %51
   %switch.gep = getelementptr i8, ptr %52, i64 -52
   %switch.load = load i32, ptr %switch.gep, align 4
   %53 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %7, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0)
@@ -28294,7 +28289,7 @@ define ptr @proto_registrar_get_name(i32 noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gpa_hfinfo.2, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
@@ -28343,7 +28338,7 @@ define ptr @proto_registrar_get_abbrev(i32 noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gpa_hfinfo.2, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
@@ -28393,7 +28388,7 @@ define i32 @proto_registrar_get_ftype(i32 noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gpa_hfinfo.2, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
@@ -28443,7 +28438,7 @@ define i32 @proto_registrar_get_parent(i32 noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gpa_hfinfo.2, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
@@ -28493,7 +28488,7 @@ define zeroext i1 @proto_registrar_is_protocol(i32 noundef %0) local_unnamed_add
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gpa_hfinfo.2, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
@@ -28555,7 +28550,7 @@ define hidden i32 @proto_registrar_get_length(i32 noundef %0) local_unnamed_addr
 13:                                               ; preds = %10
   %14 = load ptr, ptr @gpa_hfinfo.2, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %19
@@ -28982,7 +28977,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 
 23:                                               ; preds = %20
   %24 = zext nneg i32 %15 to i64
-  %25 = getelementptr ptr, ptr %.pre89.pre, i64 %24
+  %25 = getelementptr [8 x i8], ptr %.pre89.pre, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not.i14 = icmp eq ptr %26, null
   br i1 %.not.i14, label %27, label %28
@@ -29050,7 +29045,7 @@ tailrecurse.i8.us:                                ; preds = %.lr.ph.i.us
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %48 to i64
-  %54 = getelementptr ptr, ptr %.pre89.pre, i64 %53
+  %54 = getelementptr [8 x i8], ptr %.pre89.pre, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not.i17.us = icmp eq ptr %55, null
   br i1 %.not.i17.us, label %.split52.us, label %56
@@ -29103,7 +29098,7 @@ tailrecurse.i8:                                   ; preds = %.lr.ph.i
 
 74:                                               ; preds = %72
   %75 = zext nneg i32 %67 to i64
-  %76 = getelementptr ptr, ptr %.pre89.pre, i64 %75
+  %76 = getelementptr [8 x i8], ptr %.pre89.pre, i64 %75
   %77 = load ptr, ptr %76, align 8
   %.not.i17 = icmp eq ptr %77, null
   br i1 %.not.i17, label %.split52.us, label %78
@@ -29174,7 +29169,7 @@ tailrecurse.i10:                                  ; preds = %find_protocol_by_id
 
 102:                                              ; preds = %99
   %103 = zext nneg i32 %.tr.i to i64
-  %104 = getelementptr ptr, ptr %.pre89.pre, i64 %103
+  %104 = getelementptr [8 x i8], ptr %.pre89.pre, i64 %103
   %105 = load ptr, ptr %104, align 8
   %.not.i23 = icmp eq ptr %105, null
   br i1 %.not.i23, label %106, label %107
@@ -29248,7 +29243,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 4:                                                ; preds = %.lr.ph263, %.thread240
   %indvars.iv = phi i64 [ 0, %.lr.ph263 ], [ %indvars.iv.next, %.thread240 ]
   %5 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread240, label %9
@@ -29427,7 +29422,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %75 = load i32, ptr %71, align 8
   %76 = and i32 %75, 255
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr i16, ptr %3, i64 %77
+  %78 = getelementptr [2 x i8], ptr %3, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 64
   %.not170 = icmp eq i16 %80, 0
@@ -29470,7 +29465,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 101:                                              ; preds = %97, %99, %81, %90, %88
   %102 = add i32 %.0139260, 1
   %103 = sext i32 %102 to i64
-  %104 = getelementptr %struct._value_string, ptr %.0145195281, i64 %103
+  %104 = getelementptr [16 x i8], ptr %.0145195281, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not169 = icmp eq ptr %106, null
@@ -29502,7 +29497,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %118 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.141, ptr noundef %116, i64 noundef %117, ptr noundef nonnull %114)
   %119 = add i32 %.1140257, 1
   %120 = sext i32 %119 to i64
-  %121 = getelementptr %struct._val64_string, ptr %.0144.ph285, i64 %120
+  %121 = getelementptr [16 x i8], ptr %.0144.ph285, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not166 = icmp eq ptr %123, null
@@ -29523,7 +29518,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %134 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.142..str.143, ptr noundef %130, i64 noundef %131, i64 noundef %133, ptr noundef nonnull %125)
   %135 = add i32 %.2255, 1
   %136 = sext i32 %135 to i64
-  %137 = getelementptr %struct._range_string, ptr %31, i64 %136
+  %137 = getelementptr [24 x i8], ptr %31, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   %.not165 = icmp eq ptr %139, null
@@ -29587,7 +29582,7 @@ define zeroext i1 @proto_registrar_dump_fieldcount() local_unnamed_addr #0 {
   %.041 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %21 ]
   %.01840 = phi i32 [ 0, %.lr.ph.preheader ], [ %.119, %21 ]
   %.02039 = phi i32 [ 0, %.lr.ph.preheader ], [ %.121, %21 ]
-  %4 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -29720,7 +29715,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
   %.055119 = phi i1 [ true, %.lr.ph122 ], [ %.156, %.critedge ]
   %.061118 = phi ptr [ null, %.lr.ph122 ], [ %.162, %.critedge ]
   %11 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %15
@@ -29790,7 +29785,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @gpa_hfinfo.2, align 8
   %43 = zext nneg i32 %30 to i64
-  %44 = getelementptr ptr, ptr %42, i64 %43
+  %44 = getelementptr [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %.not73 = icmp eq ptr %45, null
   br i1 %.not73, label %46, label %47
@@ -29822,7 +29817,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
 52:                                               ; preds = %49
   %53 = add i32 %.057116, 1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr ptr, ptr %.060, i64 %54
+  %55 = getelementptr [8 x i8], ptr %.060, i64 %54
   %.059 = load ptr, ptr %55, align 8
   %.not75.not = icmp eq ptr %.059, null
   br i1 %.not75.not, label %.critedge, label %49, !llvm.loop !68
@@ -29871,7 +29866,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
 
 switch.lookup:                                    ; preds = %66
   %71 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.proto_registrar_dump_elastic, i64 %71
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.proto_registrar_dump_elastic, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %73 = load ptr, ptr %72, align 8
@@ -29997,7 +29992,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %85 ]
   %4 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %5 = getelementptr ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %85, label %8
@@ -30098,7 +30093,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
 49:                                               ; preds = %46
   %50 = load ptr, ptr @gpa_hfinfo.2, align 8
   %51 = zext nneg i32 %38 to i64
-  %52 = getelementptr ptr, ptr %50, i64 %51
+  %52 = getelementptr [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %.not67 = icmp eq ptr %53, null
   br i1 %.not67, label %54, label %55
@@ -30213,7 +30208,7 @@ define zeroext i1 @proto_registrar_dump_field_completions(ptr noundef readonly c
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %.041 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %44 ]
   %5 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %44, label %9
@@ -30570,7 +30565,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %0,
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %3 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -30700,7 +30695,7 @@ define noundef ptr @proto_tree_add_bitmask_with_flags(ptr noundef %0, ptr nounde
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %3 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -30891,7 +30886,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
 61:                                               ; preds = %58
   %62 = load ptr, ptr @gpa_hfinfo.2, align 8
   %63 = zext nneg i32 %50 to i64
-  %64 = getelementptr ptr, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8
   %.not311 = icmp eq ptr %65, null
   br i1 %.not311, label %66, label %67
@@ -31767,7 +31762,7 @@ define noundef ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %0, ptr 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %3 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -31964,7 +31959,7 @@ define noundef ptr @proto_tree_add_bitmask_len(ptr noundef %0, ptr noundef %1, i
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %4 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
@@ -32147,7 +32142,7 @@ define noundef ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %1, ptr
 18:                                               ; preds = %15
   %19 = load ptr, ptr @gpa_hfinfo.2, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %24
@@ -32253,7 +32248,7 @@ test_length.exit:                                 ; preds = %27, %43
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %60 = getelementptr ptr, ptr %59, i64 %20
+  %60 = getelementptr [8 x i8], ptr %59, i64 %20
   %61 = load ptr, ptr %60, align 8
   %.not55 = icmp eq ptr %61, null
   br i1 %.not55, label %62, label %63
@@ -32385,7 +32380,7 @@ define noundef ptr @proto_tree_add_bits_ret_val(ptr noundef %0, i32 noundef %1, 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @gpa_hfinfo.2, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %27
@@ -32516,7 +32511,7 @@ _proto_tree_add_bits_ret_val.exit.thread:         ; preds = %70
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %87 = getelementptr ptr, ptr %86, i64 %23
+  %87 = getelementptr [8 x i8], ptr %86, i64 %23
   %88 = load ptr, ptr %87, align 8
   %.not142.i = icmp eq ptr %88, null
   br i1 %.not142.i, label %89, label %90
@@ -32785,7 +32780,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
 20:                                               ; preds = %17
   %21 = load ptr, ptr @gpa_hfinfo.2, align 8
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
@@ -32871,7 +32866,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %.1 = phi i64 [ %67, %59 ], [ %.0144197, %52 ], [ %.0144197, %50 ]
   %69 = add i8 %.0149194, 1
   %70 = zext i8 %69 to i64
-  %71 = getelementptr %struct.crumb_spec_t, ptr %4, i64 %70
+  %71 = getelementptr [8 x i8], ptr %4, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i8, ptr %72, align 4
   %74 = zext nneg i8 %73 to i64
@@ -32946,7 +32941,7 @@ ws_sign_ext64.exit:                               ; preds = %33, %80, %._crit_ed
 
 104:                                              ; preds = %101
   %105 = load ptr, ptr @gpa_hfinfo.2, align 8
-  %106 = getelementptr ptr, ptr %105, i64 %22
+  %106 = getelementptr [8 x i8], ptr %105, i64 %22
   %107 = load ptr, ptr %106, align 8
   %.not168 = icmp eq ptr %107, null
   br i1 %.not168, label %108, label %109
@@ -33204,7 +33199,7 @@ declare i64 @tvb_get_bits64(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 define hidden void @proto_tree_add_split_bits_crumb(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i16 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = lshr i32 %3, 3
   %8 = zext i16 %5 to i64
-  %9 = getelementptr %struct.crumb_spec_t, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
@@ -33267,7 +33262,7 @@ define hidden void @proto_tree_add_split_bits_crumb(ptr noundef %0, i32 noundef 
 37:                                               ; preds = %34
   %38 = load ptr, ptr @gpa_hfinfo.2, align 8
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not38 = icmp eq ptr %41, null
   br i1 %.not38, label %42, label %43
@@ -33352,7 +33347,7 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %34
@@ -33496,7 +33491,7 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
 22:                                               ; preds = %19
   %23 = load ptr, ptr @gpa_hfinfo.2, align 8
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %27, label %28
@@ -33785,7 +33780,7 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %34
@@ -33948,7 +33943,7 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %34
@@ -34110,7 +34105,7 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %34
@@ -34273,7 +34268,7 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %34
@@ -34436,7 +34431,7 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @gpa_hfinfo.2, align 8
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %33, label %34
@@ -34597,7 +34592,7 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
 25:                                               ; preds = %22
   %26 = load ptr, ptr @gpa_hfinfo.2, align 8
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not44 = icmp eq ptr %29, null
   br i1 %.not44, label %30, label %31
@@ -34786,7 +34781,7 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @gpa_hfinfo.2, align 8
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not44 = icmp eq ptr %29, null
   br i1 %.not44, label %30, label %31
@@ -34964,7 +34959,7 @@ define noundef ptr @proto_tree_add_checksum(ptr noundef %0, ptr noundef %1, i32 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @gpa_hfinfo.2, align 8
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %29
@@ -35253,7 +35248,7 @@ define noundef ptr @proto_tree_add_checksum_bytes(ptr noundef %0, ptr noundef %1
 22:                                               ; preds = %19
   %23 = load ptr, ptr @gpa_hfinfo.2, align 8
   %24 = zext nneg i32 %3 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %28
@@ -35543,7 +35538,7 @@ define zeroext i1 @tree_expanded(i32 noundef %0) local_unnamed_addr #19 {
   %4 = load ptr, ptr @tree_is_expanded, align 8
   %5 = lshr i32 %0, 5
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i32, ptr %4, i64 %6
+  %7 = getelementptr [4 x i8], ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %0, 31
   %10 = shl nuw i32 1, %9
@@ -35566,7 +35561,7 @@ define void @tree_expanded_set(i32 noundef %0, i1 noundef zeroext %1) local_unna
   %6 = load ptr, ptr @tree_is_expanded, align 8
   %7 = ashr i32 %0, 5
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr %6, i64 %8
+  %9 = getelementptr [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = or i32 %10, %4
   store i32 %11, ptr %9, align 4
@@ -35577,7 +35572,7 @@ define void @tree_expanded_set(i32 noundef %0, i1 noundef zeroext %1) local_unna
   %14 = load ptr, ptr @tree_is_expanded, align 8
   %15 = ashr i32 %0, 5
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i32, ptr %14, i64 %16
+  %17 = getelementptr [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, %13
   store i32 %19, ptr %17, align 4

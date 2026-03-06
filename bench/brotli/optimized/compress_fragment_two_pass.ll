@@ -244,7 +244,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -265,7 +265,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -296,7 +296,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 56
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -580,17 +580,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 56
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -785,23 +785,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 56
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 56
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -1100,7 +1100,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -1121,7 +1121,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -1152,7 +1152,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 55
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -1436,17 +1436,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 55
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -1641,23 +1641,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 55
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 55
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -1956,7 +1956,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -1977,7 +1977,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -2008,7 +2008,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 54
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -2292,17 +2292,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 54
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -2497,23 +2497,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 54
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 54
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -2812,7 +2812,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -2833,7 +2833,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -2864,7 +2864,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 53
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -3148,17 +3148,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 53
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -3353,23 +3353,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 53
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 53
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -3668,7 +3668,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -3689,7 +3689,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -3720,7 +3720,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 52
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -4004,17 +4004,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 52
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -4209,23 +4209,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 52
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 52
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -4524,7 +4524,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -4545,7 +4545,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -4576,7 +4576,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 51
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -4860,17 +4860,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 51
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -5065,23 +5065,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 51
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 51
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -5380,7 +5380,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -5401,7 +5401,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -5432,7 +5432,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 50
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -5716,17 +5716,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 50
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -5921,23 +5921,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 50
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 50
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -6236,7 +6236,7 @@ IsMatch.exit.us190:                               ; preds = %IsMatch.exit13.thre
   br i1 %34, label %43, label %IsMatch.exit15.thread.us195, !prof !40
 
 IsMatch.exit15.thread.us195:                      ; preds = %30
-  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
@@ -6257,7 +6257,7 @@ IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thre
   %45 = ptrtoint ptr %.1288.i.us191 to i64
   %46 = sub i64 %45, %9
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us193.in
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us193.in
   store i32 %47, ptr %48, align 4, !tbaa !41
   br label %IsMatch.exit.thread.us
 
@@ -6288,7 +6288,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %.0.copyload.i41.us = load i64, ptr %55, align 1
   %58 = mul i64 %.0.copyload.i41.us, 2176830425094160384
   %59 = lshr i64 %58, 49
-  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i.us
   %61 = load i32, ptr %60, align 4, !tbaa !41
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
@@ -6572,17 +6572,17 @@ EmitCopyLenLastDistance.exit:                     ; preds = %162, %167, %184, %1
   %220 = ptrtoint ptr %104 to i64
   %221 = sub i64 %220, %9
   %222 = trunc i64 %221 to i32
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %224 = shl i64 %.0.copyload.i43, 24
   %225 = and i64 %224, -4294967296
   %226 = mul i64 %225, 506832829
   %227 = lshr i64 %226, 49
   %228 = add i32 %222, -2
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %227
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %227
   store i32 %228, ptr %229, align 4, !tbaa !41
   %230 = add i32 %222, -1
   store i32 %230, ptr %223, align 4, !tbaa !41
-  %231 = getelementptr inbounds nuw i32, ptr %5, i64 %217
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %217
   %232 = load i32, ptr %231, align 4, !tbaa !41
   store i32 %222, ptr %231, align 4, !tbaa !41
   %.pn245 = sext i32 %232 to i64
@@ -6777,23 +6777,23 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
   %334 = sub i64 %333, %9
   %335 = trunc i64 %334 to i32
   %336 = add i32 %335, -3
-  %337 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %336, ptr %337, align 4, !tbaa !41
   %338 = shl i64 %.0.copyload.i44, 24
   %339 = and i64 %338, -4294967296
   %340 = mul i64 %339, 506832829
   %341 = lshr i64 %340, 49
   %342 = add i32 %335, -2
-  %343 = getelementptr inbounds nuw i32, ptr %5, i64 %341
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %341
   store i32 %342, ptr %343, align 4, !tbaa !41
   %344 = shl i64 %.0.copyload.i44, 16
   %345 = and i64 %344, -4294967296
   %346 = mul i64 %345, 506832829
   %347 = lshr i64 %346, 49
   %348 = add i32 %335, -1
-  %349 = getelementptr inbounds nuw i32, ptr %5, i64 %347
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %347
   store i32 %348, ptr %349, align 4, !tbaa !41
-  %350 = getelementptr inbounds nuw i32, ptr %5, i64 %330
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %330
   %351 = load i32, ptr %350, align 4, !tbaa !41
   store i32 %335, ptr %350, align 4, !tbaa !41
   %.pn = sext i32 %351 to i64
@@ -7118,7 +7118,7 @@ IsMatch.exit15.us200:                             ; preds = %36
 
 IsMatch.exit15.thread.us201:                      ; preds = %IsMatch.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !41
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %1, i64 %50
@@ -7152,7 +7152,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %68 = sub i64 %67, %9
   %69 = trunc i64 %68 to i32
   %70 = zext nneg i32 %.2283.i181.us195 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %70
   store i32 %69, ptr %71, align 4, !tbaa !41
   br label %.loopexit.split.us206
 
@@ -7190,7 +7190,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %.0.copyload.i41.us = load i64, ptr %83, align 1
   %85 = mul i64 %.0.copyload.i41.us, 33215796281344
   %86 = lshr i64 %85, 48
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i181.us
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i181.us
   %88 = load i32, ptr %87, align 4, !tbaa !41
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %1, i64 %89
@@ -7495,20 +7495,20 @@ EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %2
   %257 = sub i64 %256, %9
   %258 = trunc i64 %257 to i32
   %259 = add i32 %258, -5
-  %260 = getelementptr inbounds nuw i32, ptr %5, i64 %255
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %255
   store i32 %259, ptr %260, align 4, !tbaa !41
   %261 = shl i64 %.0.copyload.i44, 8
   %262 = and i64 %261, -65536
   %263 = mul i64 %262, 506832829
   %264 = lshr i64 %263, 48
   %265 = add i32 %258, -4
-  %266 = getelementptr inbounds nuw i32, ptr %5, i64 %264
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %264
   store i32 %265, ptr %266, align 4, !tbaa !41
   %267 = and i64 %.0.copyload.i44, -65536
   %268 = mul i64 %267, 506832829
   %269 = lshr i64 %268, 48
   %270 = add i32 %258, -3
-  %271 = getelementptr inbounds nuw i32, ptr %5, i64 %269
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %269
   store i32 %270, ptr %271, align 4, !tbaa !41
   %272 = getelementptr inbounds i8, ptr %144, i64 -2
   %.0.copyload.i43 = load i64, ptr %272, align 1
@@ -7518,16 +7518,16 @@ EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %2
   %276 = mul i64 %.0.copyload.i43, 33215796281344
   %277 = lshr i64 %276, 48
   %278 = add i32 %258, -2
-  %279 = getelementptr inbounds nuw i32, ptr %5, i64 %277
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %277
   store i32 %278, ptr %279, align 4, !tbaa !41
   %280 = shl i64 %.0.copyload.i43, 8
   %281 = and i64 %280, -65536
   %282 = mul i64 %281, 506832829
   %283 = lshr i64 %282, 48
   %284 = add i32 %258, -1
-  %285 = getelementptr inbounds nuw i32, ptr %5, i64 %283
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %283
   store i32 %284, ptr %285, align 4, !tbaa !41
-  %286 = getelementptr inbounds nuw i32, ptr %5, i64 %275
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %275
   %287 = load i32, ptr %286, align 4, !tbaa !41
   store i32 %258, ptr %286, align 4, !tbaa !41
   %.pn259 = sext i32 %287 to i64
@@ -7733,20 +7733,20 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   %392 = sub i64 %391, %9
   %393 = trunc i64 %392 to i32
   %394 = add i32 %393, -5
-  %395 = getelementptr inbounds nuw i32, ptr %5, i64 %390
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %390
   store i32 %394, ptr %395, align 4, !tbaa !41
   %396 = shl i64 %.0.copyload.i46, 8
   %397 = and i64 %396, -65536
   %398 = mul i64 %397, 506832829
   %399 = lshr i64 %398, 48
   %400 = add i32 %393, -4
-  %401 = getelementptr inbounds nuw i32, ptr %5, i64 %399
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %399
   store i32 %400, ptr %401, align 4, !tbaa !41
   %402 = and i64 %.0.copyload.i46, -65536
   %403 = mul i64 %402, 506832829
   %404 = lshr i64 %403, 48
   %405 = add i32 %393, -3
-  %406 = getelementptr inbounds nuw i32, ptr %5, i64 %404
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %404
   store i32 %405, ptr %406, align 4, !tbaa !41
   %407 = getelementptr inbounds i8, ptr %333, i64 -2
   %.0.copyload.i45 = load i64, ptr %407, align 1
@@ -7756,16 +7756,16 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   %411 = mul i64 %.0.copyload.i45, 33215796281344
   %412 = lshr i64 %411, 48
   %413 = add i32 %393, -2
-  %414 = getelementptr inbounds nuw i32, ptr %5, i64 %412
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %412
   store i32 %413, ptr %414, align 4, !tbaa !41
   %415 = shl i64 %.0.copyload.i45, 8
   %416 = and i64 %415, -65536
   %417 = mul i64 %416, 506832829
   %418 = lshr i64 %417, 48
   %419 = add i32 %393, -1
-  %420 = getelementptr inbounds nuw i32, ptr %5, i64 %418
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %418
   store i32 %419, ptr %420, align 4, !tbaa !41
-  %421 = getelementptr inbounds nuw i32, ptr %5, i64 %410
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %410
   %422 = load i32, ptr %421, align 4, !tbaa !41
   store i32 %393, ptr %421, align 4, !tbaa !41
   %.pn = sext i32 %422 to i64
@@ -8090,7 +8090,7 @@ IsMatch.exit15.us200:                             ; preds = %36
 
 IsMatch.exit15.thread.us201:                      ; preds = %IsMatch.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %5, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !41
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %1, i64 %50
@@ -8124,7 +8124,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %68 = sub i64 %67, %9
   %69 = trunc i64 %68 to i32
   %70 = zext nneg i32 %.2283.i181.us195 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %70
   store i32 %69, ptr %71, align 4, !tbaa !41
   br label %.loopexit.split.us206
 
@@ -8162,7 +8162,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %.0.copyload.i41.us = load i64, ptr %83, align 1
   %85 = mul i64 %.0.copyload.i41.us, 33215796281344
   %86 = lshr i64 %85, 47
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %.2283.i181.us
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2283.i181.us
   %88 = load i32, ptr %87, align 4, !tbaa !41
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %1, i64 %89
@@ -8467,20 +8467,20 @@ EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %2
   %257 = sub i64 %256, %9
   %258 = trunc i64 %257 to i32
   %259 = add i32 %258, -5
-  %260 = getelementptr inbounds nuw i32, ptr %5, i64 %255
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %255
   store i32 %259, ptr %260, align 4, !tbaa !41
   %261 = shl i64 %.0.copyload.i44, 8
   %262 = and i64 %261, -65536
   %263 = mul i64 %262, 506832829
   %264 = lshr i64 %263, 47
   %265 = add i32 %258, -4
-  %266 = getelementptr inbounds nuw i32, ptr %5, i64 %264
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %264
   store i32 %265, ptr %266, align 4, !tbaa !41
   %267 = and i64 %.0.copyload.i44, -65536
   %268 = mul i64 %267, 506832829
   %269 = lshr i64 %268, 47
   %270 = add i32 %258, -3
-  %271 = getelementptr inbounds nuw i32, ptr %5, i64 %269
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %269
   store i32 %270, ptr %271, align 4, !tbaa !41
   %272 = getelementptr inbounds i8, ptr %144, i64 -2
   %.0.copyload.i43 = load i64, ptr %272, align 1
@@ -8490,16 +8490,16 @@ EmitCopyLenLastDistance.exit:                     ; preds = %202, %207, %224, %2
   %276 = mul i64 %.0.copyload.i43, 33215796281344
   %277 = lshr i64 %276, 47
   %278 = add i32 %258, -2
-  %279 = getelementptr inbounds nuw i32, ptr %5, i64 %277
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %277
   store i32 %278, ptr %279, align 4, !tbaa !41
   %280 = shl i64 %.0.copyload.i43, 8
   %281 = and i64 %280, -65536
   %282 = mul i64 %281, 506832829
   %283 = lshr i64 %282, 47
   %284 = add i32 %258, -1
-  %285 = getelementptr inbounds nuw i32, ptr %5, i64 %283
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %283
   store i32 %284, ptr %285, align 4, !tbaa !41
-  %286 = getelementptr inbounds nuw i32, ptr %5, i64 %275
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %275
   %287 = load i32, ptr %286, align 4, !tbaa !41
   store i32 %258, ptr %286, align 4, !tbaa !41
   %.pn259 = sext i32 %287 to i64
@@ -8705,20 +8705,20 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   %392 = sub i64 %391, %9
   %393 = trunc i64 %392 to i32
   %394 = add i32 %393, -5
-  %395 = getelementptr inbounds nuw i32, ptr %5, i64 %390
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %390
   store i32 %394, ptr %395, align 4, !tbaa !41
   %396 = shl i64 %.0.copyload.i46, 8
   %397 = and i64 %396, -65536
   %398 = mul i64 %397, 506832829
   %399 = lshr i64 %398, 47
   %400 = add i32 %393, -4
-  %401 = getelementptr inbounds nuw i32, ptr %5, i64 %399
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %399
   store i32 %400, ptr %401, align 4, !tbaa !41
   %402 = and i64 %.0.copyload.i46, -65536
   %403 = mul i64 %402, 506832829
   %404 = lshr i64 %403, 47
   %405 = add i32 %393, -3
-  %406 = getelementptr inbounds nuw i32, ptr %5, i64 %404
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %404
   store i32 %405, ptr %406, align 4, !tbaa !41
   %407 = getelementptr inbounds i8, ptr %333, i64 -2
   %.0.copyload.i45 = load i64, ptr %407, align 1
@@ -8728,16 +8728,16 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   %411 = mul i64 %.0.copyload.i45, 33215796281344
   %412 = lshr i64 %411, 47
   %413 = add i32 %393, -2
-  %414 = getelementptr inbounds nuw i32, ptr %5, i64 %412
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %412
   store i32 %413, ptr %414, align 4, !tbaa !41
   %415 = shl i64 %.0.copyload.i45, 8
   %416 = and i64 %415, -65536
   %417 = mul i64 %416, 506832829
   %418 = lshr i64 %417, 47
   %419 = add i32 %393, -1
-  %420 = getelementptr inbounds nuw i32, ptr %5, i64 %418
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %418
   store i32 %419, ptr %420, align 4, !tbaa !41
-  %421 = getelementptr inbounds nuw i32, ptr %5, i64 %410
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %410
   %422 = load i32, ptr %421, align 4, !tbaa !41
   store i32 %393, ptr %421, align 4, !tbaa !41
   %.pn = sext i32 %422 to i64
@@ -8995,7 +8995,7 @@ define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.019
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !41
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !41
@@ -9017,7 +9017,7 @@ define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %22
   %26 = load double, ptr %25, align 8, !tbaa !502
   %.pre = uitofp nneg i32 %21 to double
   br label %FastLog2.exit16
@@ -9043,7 +9043,7 @@ FastLog2.exit16:                                  ; preds = %24, %27
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %FastLog2.exit16
-  %39 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %34
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %34
   %40 = load double, ptr %39, align 8, !tbaa !502
   br label %FastLog2.exit
 
@@ -9068,7 +9068,7 @@ FastLog2.exit:                                    ; preds = %38, %41
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %35
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %35
   %52 = load double, ptr %51, align 8, !tbaa !502
   br label %FastLog2.exit18
 
@@ -9110,7 +9110,7 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.06267
   %12 = load i8, ptr %11, align 1, !tbaa !7
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !41
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !41
@@ -9128,11 +9128,11 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
 
 .lr.ph70:                                         ; preds = %._crit_edge, %.lr.ph70
   %.16368 = phi i64 [ %28, %.lr.ph70 ], [ 0, %._crit_edge ]
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %.16368
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.16368
   %22 = load i32, ptr %21, align 4, !tbaa !41
   %23 = and i32 %22, 255
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !41
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !41
@@ -9256,7 +9256,7 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   %95 = phi i64 [ %151, %.loopexit ], [ %.pre, %.lr.ph78.preheader ]
   %.077 = phi ptr [ %.1, %.loopexit ], [ %1, %.lr.ph78.preheader ]
   %.26476 = phi i64 [ %152, %.loopexit ], [ 0, %.lr.ph78.preheader ]
-  %96 = getelementptr inbounds nuw i32, ptr %3, i64 %.26476
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.26476
   %97 = load i32, ptr %96, align 4, !tbaa !41
   %98 = and i32 %97, 255
   %99 = lshr i32 %97, 8
@@ -9264,7 +9264,7 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !7
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %9, i64 %100
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %100
   %105 = load i16, ptr %104, align 2, !tbaa !513
   %106 = zext i16 %105 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !508)
@@ -9279,7 +9279,7 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   store i64 %113, ptr %108, align 1, !noalias !508
   %114 = add i64 %95, %103
   store i64 %114, ptr %5, align 8, !tbaa !3, !alias.scope !508, !noalias !511
-  %115 = getelementptr inbounds nuw i32, ptr @StoreCommands.kNumExtraBits, i64 %100
+  %115 = getelementptr inbounds nuw [4 x i8], ptr @StoreCommands.kNumExtraBits, i64 %100
   %116 = load i32, ptr %115, align 4, !tbaa !41
   %117 = zext i32 %116 to i64
   %118 = zext nneg i32 %99 to i64
@@ -9299,7 +9299,7 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   br i1 %127, label %128, label %.loopexit
 
 128:                                              ; preds = %.lr.ph78
-  %129 = getelementptr inbounds nuw i32, ptr @StoreCommands.kInsertOffset, i64 %100
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @StoreCommands.kInsertOffset, i64 %100
   %130 = load i32, ptr %129, align 4, !tbaa !41
   %131 = add i32 %130, %99
   %.not82 = icmp eq i32 %131, 0
@@ -9314,7 +9314,7 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   %135 = getelementptr inbounds nuw i8, ptr %19, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !7
   %137 = zext i8 %136 to i64
-  %138 = getelementptr inbounds nuw i16, ptr %20, i64 %134
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %134
   %139 = load i16, ptr %138, align 2, !tbaa !513
   %140 = zext i16 %139 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)

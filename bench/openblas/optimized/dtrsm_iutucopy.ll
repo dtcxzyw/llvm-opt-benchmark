@@ -47,16 +47,16 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %17, label %.preheader252.us, label %.thread
 
 .thread358:                                       ; preds = %.lr.ph.us, %.preheader252.us
-  %18 = getelementptr inbounds nuw double, ptr %.1227254.us, i64 %.0216256.us
-  %19 = getelementptr inbounds double, ptr %18, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.1227254.us, i64 %.0216256.us
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %14
   store double 1.000000e+00, ptr %19, align 8, !tbaa !3
   br label %72
 
 .lr.ph.us:                                        ; preds = %.preheader252.us, %.lr.ph.us
   %.0206253.us = phi i64 [ %23, %.lr.ph.us ], [ 0, %.preheader252.us ]
-  %20 = getelementptr inbounds nuw double, ptr %.0257.us, i64 %.0206253.us
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0257.us, i64 %.0206253.us
   %21 = load double, ptr %20, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw double, ptr %.1227254.us, i64 %.0206253.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.1227254.us, i64 %.0206253.us
   store double %21, ptr %22, align 8, !tbaa !3
   %23 = add nuw nsw i64 %.0206253.us, 1
   %exitcond.not = icmp eq i64 %23, %indvars.iv320
@@ -133,7 +133,7 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 72:                                               ; preds = %.thread358, %.thread, %24
   %73 = getelementptr inbounds nuw i8, ptr %.1227254.us, i64 128
-  %74 = getelementptr inbounds double, ptr %.0257.us, i64 %3
+  %74 = getelementptr inbounds [8 x i8], ptr %.0257.us, i64 %3
   %75 = add nuw nsw i64 %.0216256.us, 1
   %indvars.iv.next321 = add i64 %indvars.iv320, 1
   %exitcond322.not = icmp eq i64 %75, %0
@@ -187,17 +187,17 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .lr.ph:                                           ; preds = %.preheader251, %.lr.ph
   %.1207273 = phi i64 [ %93, %.lr.ph ], [ 0, %.preheader251 ]
-  %90 = getelementptr inbounds nuw double, ptr %.1277, i64 %.1207273
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.1277, i64 %.1207273
   %91 = load double, ptr %90, align 8, !tbaa !3
-  %92 = getelementptr inbounds nuw double, ptr %.3229274, i64 %.1207273
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.3229274, i64 %.1207273
   store double %91, ptr %92, align 8, !tbaa !3
   %93 = add nuw nsw i64 %.1207273, 1
   %exitcond325.not = icmp eq i64 %93, %indvars.iv323
   br i1 %exitcond325.not, label %.thread362, label %.lr.ph, !llvm.loop !11
 
 .thread362:                                       ; preds = %.lr.ph, %.preheader251
-  %94 = getelementptr inbounds nuw double, ptr %.3229274, i64 %.1217276
-  %95 = getelementptr inbounds double, ptr %94, i64 %85
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.3229274, i64 %.1217276
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %85
   store double 1.000000e+00, ptr %95, align 8, !tbaa !3
   br label %120
 
@@ -240,7 +240,7 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 120:                                              ; preds = %.thread362, %.thread360, %96
   %121 = getelementptr inbounds nuw i8, ptr %.3229274, i64 64
-  %122 = getelementptr inbounds double, ptr %.1277, i64 %3
+  %122 = getelementptr inbounds [8 x i8], ptr %.1277, i64 %3
   %123 = add nuw nsw i64 %.1217276, 1
   %indvars.iv.next324 = add i64 %indvars.iv323, 1
   %exitcond326.not = icmp eq i64 %123, %0
@@ -287,17 +287,17 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .lr.ph282:                                        ; preds = %.preheader250, %.lr.ph282
   %.2208281 = phi i64 [ %138, %.lr.ph282 ], [ 0, %.preheader250 ]
-  %135 = getelementptr inbounds nuw double, ptr %.2287, i64 %.2208281
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %.2287, i64 %.2208281
   %136 = load double, ptr %135, align 8, !tbaa !3
-  %137 = getelementptr inbounds nuw double, ptr %.5284, i64 %.2208281
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.5284, i64 %.2208281
   store double %136, ptr %137, align 8, !tbaa !3
   %138 = add nuw nsw i64 %.2208281, 1
   %exitcond329.not = icmp eq i64 %138, %indvars.iv327
   br i1 %exitcond329.not, label %.thread366, label %.lr.ph282, !llvm.loop !13
 
 .thread366:                                       ; preds = %.lr.ph282, %.preheader250
-  %139 = getelementptr inbounds nuw double, ptr %.5284, i64 %.2218286
-  %140 = getelementptr inbounds double, ptr %139, i64 %130
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %.5284, i64 %.2218286
+  %140 = getelementptr inbounds [8 x i8], ptr %139, i64 %130
   store double 1.000000e+00, ptr %140, align 8, !tbaa !3
   br label %153
 
@@ -324,7 +324,7 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 153:                                              ; preds = %.thread366, %.thread364, %141
   %154 = getelementptr inbounds nuw i8, ptr %.5284, i64 32
-  %155 = getelementptr inbounds double, ptr %.2287, i64 %3
+  %155 = getelementptr inbounds [8 x i8], ptr %.2287, i64 %3
   %156 = add nuw nsw i64 %.2218286, 1
   %indvars.iv.next328 = add i64 %indvars.iv327, 1
   %exitcond330.not = icmp eq i64 %156, %0
@@ -374,8 +374,8 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.thread370
 
 .thread370:                                       ; preds = %.preheader249, %.lr.ph292.split
-  %169 = getelementptr inbounds nuw double, ptr %.7297, i64 %.3219300
-  %170 = getelementptr inbounds double, ptr %169, i64 %163
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.7297, i64 %.3219300
+  %170 = getelementptr inbounds [8 x i8], ptr %169, i64 %163
   store double 1.000000e+00, ptr %170, align 8, !tbaa !3
   br label %177
 
@@ -394,7 +394,7 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 177:                                              ; preds = %.thread370, %.thread368, %171
   %178 = getelementptr inbounds nuw i8, ptr %.7297, i64 16
-  %179 = getelementptr inbounds double, ptr %.3301, i64 %3
+  %179 = getelementptr inbounds [8 x i8], ptr %.3301, i64 %3
   %180 = add nuw nsw i64 %.3219300, 1
   %exitcond331.not = icmp eq i64 %180, %0
   br i1 %exitcond331.not, label %._crit_edge305, label %164, !llvm.loop !15
@@ -435,7 +435,7 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 188:                                              ; preds = %186, %185
   %189 = getelementptr inbounds nuw i8, ptr %.8307, i64 8
-  %190 = getelementptr inbounds double, ptr %.4310, i64 %3
+  %190 = getelementptr inbounds [8 x i8], ptr %.4310, i64 %3
   %191 = add nuw nsw i64 %.4220309, 1
   %exitcond332.not = icmp eq i64 %191, %0
   br i1 %exitcond332.not, label %.loopexit, label %.lr.ph311, !llvm.loop !16

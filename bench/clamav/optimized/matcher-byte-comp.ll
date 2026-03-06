@@ -116,7 +116,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef captures(address_is_n
   %39 = phi i32 [ %48, %47 ], [ %38, %.preheader.i ]
   %40 = phi ptr [ %49, %47 ], [ %36, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %.preheader.i ]
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !33
   %.not21.i = icmp eq ptr %42, null
   br i1 %.not21.i, label %47, label %43
@@ -125,7 +125,7 @@ define range(i32 0, 28) i32 @cli_bcomp_addpatt(ptr noundef captures(address_is_n
   %44 = load ptr, ptr %15, align 8, !tbaa !9
   tail call void @mpool_free(ptr noundef %44, ptr noundef nonnull %42) #15
   %45 = load ptr, ptr %35, align 8, !tbaa !29
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   store ptr null, ptr %46, align 8, !tbaa !33
   %.pre.i = load i32, ptr %37, align 8, !tbaa !32
   br label %47
@@ -171,7 +171,7 @@ cli_bcomp_freemeta.exit:                          ; preds = %34, %._crit_edge.i
   %62 = phi i32 [ %71, %70 ], [ %61, %.preheader.i269 ]
   %63 = phi ptr [ %72, %70 ], [ %59, %.preheader.i269 ]
   %indvars.iv.i272 = phi i64 [ %indvars.iv.next.i275, %70 ], [ 0, %.preheader.i269 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i272
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i272
   %65 = load ptr, ptr %64, align 8, !tbaa !33
   %.not21.i273 = icmp eq ptr %65, null
   br i1 %.not21.i273, label %70, label %66
@@ -180,7 +180,7 @@ cli_bcomp_freemeta.exit:                          ; preds = %34, %._crit_edge.i
   %67 = load ptr, ptr %15, align 8, !tbaa !9
   tail call void @mpool_free(ptr noundef %67, ptr noundef nonnull %65) #15
   %68 = load ptr, ptr %58, align 8, !tbaa !29
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i272
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i272
   store ptr null, ptr %69, align 8, !tbaa !33
   %.pre.i274 = load i32, ptr %60, align 8, !tbaa !32
   br label %70
@@ -248,7 +248,7 @@ cli_bcomp_freemeta.exit277:                       ; preds = %57, %._crit_edge.i2
   %96 = phi i32 [ %105, %104 ], [ %95, %.preheader.i280 ]
   %97 = phi ptr [ %106, %104 ], [ %93, %.preheader.i280 ]
   %indvars.iv.i283 = phi i64 [ %indvars.iv.next.i286, %104 ], [ 0, %.preheader.i280 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.i283
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i283
   %99 = load ptr, ptr %98, align 8, !tbaa !33
   %.not21.i284 = icmp eq ptr %99, null
   br i1 %.not21.i284, label %104, label %100
@@ -257,7 +257,7 @@ cli_bcomp_freemeta.exit277:                       ; preds = %57, %._crit_edge.i2
   %101 = load ptr, ptr %15, align 8, !tbaa !9
   tail call void @mpool_free(ptr noundef %101, ptr noundef nonnull %99) #15
   %102 = load ptr, ptr %92, align 8, !tbaa !29
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i283
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i283
   store ptr null, ptr %103, align 8, !tbaa !33
   %.pre.i285 = load i32, ptr %94, align 8, !tbaa !32
   br label %104
@@ -403,7 +403,7 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
   %171 = load ptr, ptr %170, align 8, !tbaa !37
   %172 = load i8, ptr %169, align 1, !tbaa !8
   %173 = sext i8 %172 to i64
-  %174 = getelementptr inbounds i16, ptr %171, i64 %173
+  %174 = getelementptr inbounds [2 x i8], ptr %171, i64 %173
   %175 = load i16, ptr %174, align 2, !tbaa !39
   %176 = and i16 %175, 2048
   %.not231300 = icmp eq i16 %176, 0
@@ -506,7 +506,7 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
   %218 = getelementptr inbounds nuw i8, ptr %.0202301, i64 1
   %219 = load i8, ptr %218, align 1, !tbaa !8
   %220 = sext i8 %219 to i64
-  %221 = getelementptr inbounds i16, ptr %171, i64 %220
+  %221 = getelementptr inbounds [2 x i8], ptr %171, i64 %220
   %222 = load i16, ptr %221, align 2, !tbaa !39
   %223 = and i16 %222, 2048
   %.not231 = icmp eq i16 %223, 0
@@ -667,7 +667,7 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
   %286 = load ptr, ptr %15, align 8, !tbaa !9
   %287 = call ptr @mpool_calloc(ptr noundef %286, i64 noundef 1, i64 noundef 16) #15
   %288 = load ptr, ptr %281, align 8, !tbaa !29
-  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %indvars.iv
   store ptr %287, ptr %289, align 8, !tbaa !33
   %.not238 = icmp eq ptr %287, null
   br i1 %.not238, label %290, label %291
@@ -717,7 +717,7 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
 
 306:                                              ; preds = %293
   %307 = load ptr, ptr %281, align 8, !tbaa !29
-  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %indvars.iv
   %309 = load ptr, ptr %308, align 8, !tbaa !33
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i64 %295, ptr %310, align 8, !tbaa !44
@@ -750,7 +750,7 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
 
 325:                                              ; preds = %._crit_edge305
   %326 = zext i32 %316 to i64
-  %327 = getelementptr inbounds nuw ptr, ptr %323, i64 %326
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %326
   store ptr %17, ptr %327, align 8, !tbaa !47
   store ptr %323, ptr %319, align 8, !tbaa !46
   store i32 %317, ptr %315, align 8, !tbaa !45
@@ -799,7 +799,7 @@ define void @cli_bcomp_freemeta(ptr noundef readonly captures(address_is_null) %
   %12 = phi i32 [ %9, %.lr.ph ], [ %21, %20 ]
   %13 = phi ptr [ %7, %.lr.ph ], [ %22, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %20, label %16
@@ -808,7 +808,7 @@ define void @cli_bcomp_freemeta(ptr noundef readonly captures(address_is_null) %
   %17 = load ptr, ptr %10, align 8, !tbaa !9
   tail call void @mpool_free(ptr noundef %17, ptr noundef nonnull %15) #15
   %18 = load ptr, ptr %6, align 8, !tbaa !29
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store ptr null, ptr %19, align 8, !tbaa !33
   %.pre = load i32, ptr %8, align 8, !tbaa !32
   br label %20
@@ -908,7 +908,7 @@ define i32 @cli_bcomp_scanbuf(ptr noundef readonly captures(address_is_null) %0,
   %.04766 = phi i64 [ 0, %.lr.ph ], [ %82, %81 ]
   %.04865 = phi i32 [ 0, %.lr.ph ], [ %.250, %81 ]
   %25 = load ptr, ptr %14, align 8, !tbaa !46
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.04766
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.04766
   %27 = load ptr, ptr %26, align 8, !tbaa !47
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -926,7 +926,7 @@ define i32 @cli_bcomp_scanbuf(ptr noundef readonly captures(address_is_null) %0,
   %38 = load ptr, ptr %22, align 8, !tbaa !56
   %39 = load i32, ptr %29, align 4, !tbaa !28
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !57
   %43 = call i32 @cli_ac_chklsig(ptr noundef nonnull %9, ptr noundef nonnull %37, ptr noundef %42, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #15
   %.not61 = icmp eq i32 %43, 1
@@ -935,14 +935,14 @@ define i32 @cli_bcomp_scanbuf(ptr noundef readonly captures(address_is_null) %0,
 44:                                               ; preds = %33
   %45 = load ptr, ptr %23, align 8, !tbaa !58
   %46 = zext i32 %30 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !57
   %.not62 = icmp eq ptr %48, null
   br i1 %.not62, label %81, label %49
 
 49:                                               ; preds = %44
   %50 = zext i16 %31 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !28
   br label %61
 
@@ -985,12 +985,12 @@ define i32 @cli_bcomp_scanbuf(ptr noundef readonly captures(address_is_null) %0,
   %68 = load ptr, ptr %22, align 8, !tbaa !56
   %69 = load i32, ptr %29, align 4, !tbaa !28
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !57
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %74 = load i32, ptr %73, align 4, !tbaa !28
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !28
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 4, !tbaa !28
@@ -1078,7 +1078,7 @@ define range(i32 0, 21) i32 @cli_bcomp_compare_check(ptr noundef readonly captur
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !39
   %35 = and i16 %34, 8192
   %.not124.i = icmp eq i16 %35, 0
@@ -1380,7 +1380,7 @@ cli_bcomp_chk_hex.exit:                           ; preds = %.tail27.thread.i, %
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %174
   %indvars.iv306 = phi i64 [ %indvars.iv.next307, %174 ], [ 0, %.lr.ph.split ]
   %.1154223.us232 = phi i32 [ %.3.us234, %174 ], [ 0, %.lr.ph.split ]
-  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv306
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv306
   %159 = load ptr, ptr %158, align 8, !tbaa !33
   %.not175.us = icmp eq ptr %159, null
   br i1 %.not175.us, label %174, label %160
@@ -1420,7 +1420,7 @@ cli_bcomp_chk_hex.exit:                           ; preds = %.tail27.thread.i, %
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split, %191
   %indvars.iv = phi i64 [ %indvars.iv.next, %191 ], [ 0, %.lr.ph.split ]
   %.1154223 = phi i32 [ %.3, %191 ], [ 0, %.lr.ph.split ]
-  %175 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8, !tbaa !33
   %.not175 = icmp eq ptr %176, null
   br i1 %.not175, label %191, label %177
@@ -1512,7 +1512,7 @@ define ptr @cli_bcomp_normalize_buffer(ptr noundef readonly captures(address_is_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !39
   %16 = and i16 %15, 8192
   %.not124 = icmp eq i16 %16, 0
@@ -1674,7 +1674,7 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
   %75 = getelementptr i8, ptr %74, i64 -2
   %76 = load i8, ptr %75, align 1, !tbaa !8
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %72, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !39
   %80 = and i16 %79, 4096
   %.not122 = icmp eq i16 %80, 0
@@ -1683,7 +1683,7 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
 81:                                               ; preds = %71
   %82 = tail call ptr @__ctype_toupper_loc() #17
   %83 = load ptr, ptr %82, align 8, !tbaa !57
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %77
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %77
   %85 = load i32, ptr %84, align 4, !tbaa !28
   %86 = icmp eq i32 %85, 88
   br i1 %86, label %87, label %90
@@ -1705,7 +1705,7 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
   %94 = getelementptr inbounds nuw i8, ptr %41, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !8
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !39
   %99 = and i16 %98, 4096
   %.not123 = icmp eq i16 %99, 0
@@ -1714,7 +1714,7 @@ cli_bcomp_chk_hex.exit135.thread:                 ; preds = %sub_0.i127, %.tail.
 100:                                              ; preds = %.lr.ph153._crit_edge
   %101 = tail call ptr @__ctype_toupper_loc() #17
   %102 = load ptr, ptr %101, align 8, !tbaa !57
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %96
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %96
   %104 = load i32, ptr %103, align 4, !tbaa !28
   %105 = icmp eq i32 %104, 88
   br i1 %105, label %106, label %110

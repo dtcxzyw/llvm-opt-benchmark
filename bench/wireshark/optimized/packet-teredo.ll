@@ -109,7 +109,7 @@ define internal i32 @dissect_teredo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %spec.store.select = select i1 %7, i32 0, i32 %6
   store i32 %spec.store.select, ptr @dissect_teredo.teredoh_count, align 4
   %8 = sext i32 %spec.store.select to i64
-  %9 = getelementptr %struct.e_teredohdr, ptr @dissect_teredo.teredohstruct, i64 %8
+  %9 = getelementptr [24 x i8], ptr @dissect_teredo.teredohstruct, i64 %8
   store ptr %9, ptr @dissect_teredo.teredoh, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8

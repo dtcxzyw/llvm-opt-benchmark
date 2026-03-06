@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.1 = type { ptr }
-%class.EventExecutionSample = type { %class.JfrEvent.base, i64, i64, i64 }
-%class.JfrEvent.base = type <{ i64, i64, i8, i8, i8 }>
-%class.EventNativeMethodSample = type { %class.JfrEvent.base.7, i64, i64, i64 }
-%class.JfrEvent.base.7 = type <{ i64, i64, i8, i8, i8 }>
 %class.OSThreadSampler = type { %class.SuspendedThreadTask.base, i8, ptr, %class.JfrStackTrace, ptr, %class.TimeInstant }
 %class.SuspendedThreadTask.base = type <{ ptr, ptr, i8 }>
 %class.JfrStackTrace = type <{ ptr, ptr, i64, i64, i32, i32, i8, i8, i8, i8, [4 x i8] }>
@@ -30,6 +26,10 @@ target triple = "x86_64-pc-linux-gnu"
 %class.CounterRepresentation = type { %class.Representation }
 %class.Representation = type { i64 }
 %class.JfrNativeSamplerCallback = type <{ %class.CrashProtectionCallback, ptr, ptr, ptr, %class.JfrStackTrace, i8, [7 x i8] }>
+%class.EventExecutionSample = type { %class.JfrEvent.base, i64, i64, i64 }
+%class.JfrEvent.base = type <{ i64, i64, i8, i8, i8 }>
+%class.EventNativeMethodSample = type { %class.JfrEvent.base.7, i64, i64, i64 }
+%class.JfrEvent.base.7 = type <{ i64, i64, i8, i8, i8 }>
 %class.JfrThreadSampleClosure = type { ptr, ptr, ptr, i32, i32 }
 %class.elapsedTimer = type <{ i64, i64, i8, [7 x i8] }>
 %class.ThreadsListHandle = type { %class.SafeThreadsListPtr, %class.elapsedTimer }
@@ -308,7 +308,7 @@ define hidden void @_ZN15OSThreadSampler14protected_taskERK26SuspendedThreadTask
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %class.EventExecutionSample, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %31, align 8
@@ -396,7 +396,7 @@ define hidden void @_ZN24JfrNativeSamplerCallback4callEv(ptr noundef nonnull ali
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %class.EventNativeMethodSample, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %35
   %37 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #19
   store i64 %37, ptr %36, align 8
   %38 = call noundef i64 @_ZN14JfrThreadLocal9thread_idEPK6Thread(ptr noundef %29) #19
@@ -443,7 +443,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure21sample_thread_in_
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %class.EventExecutionSample, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %21
   %23 = call noundef i64 @_ZN23JfrStackTraceRepository3addERK13JfrStackTrace(ptr noundef nonnull align 8 dereferenceable(44) %11) #19
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 %23, ptr %24, align 8
@@ -509,7 +509,7 @@ define hidden noundef zeroext i1 @_ZN22JfrThreadSampleClosure23sample_thread_in_
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %class.EventNativeMethodSample, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %25, i64 %29
   %31 = call noundef i64 @_ZN23JfrStackTraceRepository3addERK13JfrStackTrace(ptr noundef nonnull align 8 dereferenceable(44) %11) #19
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 %31, ptr %32, align 8
@@ -540,7 +540,7 @@ define hidden void @_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType(p
 .lr.ph13:                                         ; preds = %.preheader, %.lr.ph13
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph13 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw %class.EventExecutionSample, ptr %8, i64 %indvars.iv18
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv18
   tail call void @_ZN8JfrEventI20EventExecutionSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %9)
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %10 = load i32, ptr %6, align 8
@@ -566,7 +566,7 @@ define hidden void @_ZN22JfrThreadSampleClosure13commit_eventsE13JfrSampleType(p
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw %class.EventNativeMethodSample, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %indvars.iv
   tail call void @_ZN8JfrEventI23EventNativeMethodSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %15, align 4
@@ -1059,7 +1059,7 @@ define hidden noundef ptr @_ZN16JfrThreadSampler11next_threadEP11ThreadsListP10J
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %storemerge to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, %2
   %16 = select i1 %.not, ptr null, ptr %15
@@ -1381,7 +1381,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = zext i32 %storemerge.i.us58 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8
   %.not.i29.us59 = icmp eq ptr %81, %.020.ph67
   %82 = icmp eq ptr %81, null
@@ -1400,7 +1400,7 @@ _ZN16JfrThreadSampler18get_enqueue_bufferEv.exit: ; preds = %50, %_ZN16JfrThread
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = zext i32 %storemerge.i.us to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8
   %.not.i29.us = icmp eq ptr %95, %spec.select.us
   %96 = icmp eq ptr %95, null
@@ -1492,7 +1492,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.outer._crit_edge, 
 .lr.ph13.i:                                       ; preds = %134, %.lr.ph13.i
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %.lr.ph13.i ], [ 0, %134 ]
   %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds nuw %class.EventExecutionSample, ptr %137, i64 %indvars.iv18.i
+  %138 = getelementptr inbounds nuw [48 x i8], ptr %137, i64 %indvars.iv18.i
   call void @_ZN8JfrEventI20EventExecutionSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %138)
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %139 = load i32, ptr %36, align 8
@@ -1511,7 +1511,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %.outer._crit_edge, 
 .lr.ph.i:                                         ; preds = %142, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %142 ]
   %145 = load ptr, ptr %33, align 8
-  %146 = getelementptr inbounds nuw %class.EventNativeMethodSample, ptr %145, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw [48 x i8], ptr %145, i64 %indvars.iv.i
   call void @_ZN8JfrEventI23EventNativeMethodSampleE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %146)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %147 = load i32, ptr %37, align 4

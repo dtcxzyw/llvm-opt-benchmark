@@ -159,7 +159,7 @@ define linkonce_odr hidden { i64, i32 } @_ZNSt3__15__d2dB8ne210000Emj(i64 nounde
   %20 = add nsw i32 %reass.sub, 58
   %21 = add nsw i32 %20, %19
   %22 = zext i32 %17 to i64
-  %23 = getelementptr inbounds nuw [2 x i64], ptr @_ZNSt3__123__DOUBLE_POW5_INV_SPLITE, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZNSt3__123__DOUBLE_POW5_INV_SPLITE, i64 %22
   %24 = or disjoint i64 %8, 2
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !7
@@ -319,7 +319,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Emj.exit202: ; preds = %.preheader287
   %.neg284 = add nsw i32 %127, 56
   %132 = sub nsw i32 %.neg284, %131
   %133 = sext i32 %129 to i64
-  %134 = getelementptr inbounds [2 x i64], ptr @_ZNSt3__119__DOUBLE_POW5_SPLITE, i64 %133
+  %134 = getelementptr inbounds [16 x i8], ptr @_ZNSt3__119__DOUBLE_POW5_SPLITE, i64 %133
   %135 = or disjoint i64 %8, 2
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %137 = load i64, ptr %136, align 8, !tbaa !7
@@ -807,7 +807,7 @@ _ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245: ; preds = %70
   %.0248 = phi i64 [ %80, %_ZNSt3__115_BitScanForwardB8ne210000EPmj.exit245 ], [ %73, %_ZNSt3__115_BitScanForwardB8ne210000EPmj.exit ]
   %82 = lshr i64 %2, %.0248
   %83 = zext nneg i32 %3 to i64
-  %84 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_64ENS_12chars_formatEdE21_Max_shifted_mantissa, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_64ENS_12chars_formatEdE21_Max_shifted_mantissa, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !7
   %.not287 = icmp ugt i64 %82, %85
   br i1 %.not287, label %.thread256, label %.thread260

@@ -40,7 +40,7 @@ define dso_local void @gf128mul_x8_ble(ptr noundef writeonly captures(none) init
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = lshr i64 %4, 56
-  %7 = getelementptr i16, ptr @gf128mul_table_be, i64 %6
+  %7 = getelementptr [2 x i8], ptr @gf128mul_table_be, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
   %10 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %5, i64 8)
@@ -104,7 +104,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %37 = zext i8 %36 to i32
   %38 = icmp sgt i8 %36, -1
   %39 = zext i1 %38 to i64
-  %40 = getelementptr %struct.be128, ptr %7, i64 %39
+  %40 = getelementptr [16 x i8], ptr %7, i64 %39
   %41 = load i64, ptr %40, align 16
   %42 = xor i64 %41, %33
   store i64 %42, ptr %0, align 8
@@ -115,7 +115,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %46 = shl i32 %37, 25
   %47 = ashr i32 %46, 31
   %48 = sext i32 %47 to i64
-  %49 = getelementptr %struct.be128, ptr %7, i64 %48
+  %49 = getelementptr [16 x i8], ptr %7, i64 %48
   %50 = getelementptr i8, ptr %49, i64 48
   %51 = load i64, ptr %50, align 16
   %52 = xor i64 %51, %42
@@ -127,7 +127,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %56 = shl i32 %37, 26
   %57 = ashr i32 %56, 31
   %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct.be128, ptr %7, i64 %58
+  %59 = getelementptr [16 x i8], ptr %7, i64 %58
   %60 = getelementptr i8, ptr %59, i64 80
   %61 = load i64, ptr %60, align 16
   %62 = xor i64 %61, %52
@@ -139,7 +139,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %66 = shl i32 %37, 27
   %67 = ashr i32 %66, 31
   %68 = sext i32 %67 to i64
-  %69 = getelementptr %struct.be128, ptr %7, i64 %68
+  %69 = getelementptr [16 x i8], ptr %7, i64 %68
   %70 = getelementptr i8, ptr %69, i64 112
   %71 = load i64, ptr %70, align 16
   %72 = xor i64 %71, %62
@@ -151,7 +151,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %76 = shl i32 %37, 28
   %77 = ashr i32 %76, 31
   %78 = sext i32 %77 to i64
-  %79 = getelementptr %struct.be128, ptr %7, i64 %78
+  %79 = getelementptr [16 x i8], ptr %7, i64 %78
   %80 = getelementptr i8, ptr %79, i64 144
   %81 = load i64, ptr %80, align 16
   %82 = xor i64 %81, %72
@@ -163,7 +163,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %86 = shl i32 %37, 29
   %87 = ashr i32 %86, 31
   %88 = sext i32 %87 to i64
-  %89 = getelementptr %struct.be128, ptr %7, i64 %88
+  %89 = getelementptr [16 x i8], ptr %7, i64 %88
   %90 = getelementptr i8, ptr %89, i64 176
   %91 = load i64, ptr %90, align 16
   %92 = xor i64 %91, %82
@@ -175,7 +175,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %96 = shl i32 %37, 30
   %97 = ashr i32 %96, 31
   %98 = sext i32 %97 to i64
-  %99 = getelementptr %struct.be128, ptr %7, i64 %98
+  %99 = getelementptr [16 x i8], ptr %7, i64 %98
   %100 = getelementptr i8, ptr %99, i64 208
   %101 = load i64, ptr %100, align 16
   %102 = xor i64 %101, %92
@@ -187,7 +187,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   %106 = and i32 %37, 1
   %107 = xor i32 %106, 15
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr %struct.be128, ptr %7, i64 %108
+  %109 = getelementptr [16 x i8], ptr %7, i64 %108
   %110 = load i64, ptr %109, align 16
   %111 = xor i64 %110, %102
   store i64 %111, ptr %0, align 8
@@ -272,7 +272,7 @@ define dso_local void @gf128mul_bbe(ptr noundef captures(none) %0, ptr noundef r
   %9 = phi i64 [ %5, %2 ], [ %15, %7 ]
   %10 = phi i64 [ 0, %2 ], [ %11, %7 ]
   %11 = add nuw nsw i64 %10, 1
-  %12 = getelementptr %struct.be128, ptr %3, i64 %11
+  %12 = getelementptr [16 x i8], ptr %3, i64 %11
   %13 = icmp slt i64 %9, 0
   %14 = select i1 %13, i64 135, i64 0
   %15 = tail call i64 @llvm.fshl.i64(i64 %9, i64 %8, i64 1)
@@ -446,7 +446,7 @@ define dso_local void @gf128mul_bbe(ptr noundef captures(none) %0, ptr noundef r
   %126 = tail call i64 @llvm.bswap.i64(i64 %122)
   %127 = tail call i64 @llvm.bswap.i64(i64 %121)
   %128 = lshr i64 %126, 56
-  %129 = getelementptr i16, ptr @gf128mul_table_be, i64 %128
+  %129 = getelementptr [2 x i8], ptr @gf128mul_table_be, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = zext i16 %130 to i64
   %132 = tail call i64 @llvm.fshl.i64(i64 %126, i64 %127, i64 8)
@@ -479,14 +479,14 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %8 = phi i64 [ %6, %5 ], [ 0, %1 ]
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %10 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 4096) #11
-  %11 = getelementptr ptr, ptr %3, i64 %8
+  %11 = getelementptr [8 x i8], ptr %3, i64 %8
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %.preheader, label %5
 
 .preheader:                                       ; preds = %.preheader3, %.preheader
   %13 = phi i64 [ %16, %.preheader ], [ 0, %.preheader3 ]
-  %14 = getelementptr ptr, ptr %3, i64 %13
+  %14 = getelementptr [8 x i8], ptr %3, i64 %13
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree_sensitive(ptr noundef %15) #12
   %16 = add nuw nsw i64 %13, 1
@@ -514,7 +514,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %27 = phi i32 [ 1, %19 ], [ %28, %24 ]
   %28 = shl i32 %27, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.be128, ptr %20, i64 %29
+  %30 = getelementptr [16 x i8], ptr %20, i64 %29
   %31 = icmp slt i64 %26, 0
   %32 = select i1 %31, i64 135, i64 0
   %33 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %25, i64 1)
@@ -534,21 +534,21 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
 .preheader2:                                      ; preds = %24, %40
   %41 = phi ptr [ %.pre6, %40 ], [ %20, %24 ]
   %42 = phi i64 [ %68, %40 ], [ 0, %24 ]
-  %43 = getelementptr ptr, ptr %3, i64 %42
+  %43 = getelementptr [8 x i8], ptr %3, i64 %42
   br label %44
 
 44:                                               ; preds = %64, %.preheader2
   %45 = phi i32 [ 2, %.preheader2 ], [ %65, %64 ]
   %46 = zext nneg i32 %45 to i64
   %47 = sext i32 %45 to i64
-  %48 = getelementptr %struct.be128, ptr %41, i64 %46
+  %48 = getelementptr [16 x i8], ptr %41, i64 %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   br label %50
 
 50:                                               ; preds = %50, %44
   %51 = phi i64 [ 1, %44 ], [ %62, %50 ]
-  %52 = getelementptr %struct.be128, ptr %41, i64 %51
-  %53 = getelementptr %struct.be128, ptr %52, i64 %47
+  %52 = getelementptr [16 x i8], ptr %41, i64 %51
+  %53 = getelementptr [16 x i8], ptr %52, i64 %47
   %54 = load i64, ptr %48, align 8
   %55 = load i64, ptr %52, align 8
   %56 = xor i64 %55, %54
@@ -574,7 +574,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr ptr, ptr %3, i64 %68
+  %71 = getelementptr [8 x i8], ptr %3, i64 %68
   %.pre6 = load ptr, ptr %71, align 8
   %.pre7 = load ptr, ptr %43, align 8
   br label %72
@@ -582,8 +582,8 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
 72:                                               ; preds = %72, %70
   %73 = phi i32 [ 128, %70 ], [ %91, %72 ]
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr %struct.be128, ptr %.pre6, i64 %74
-  %76 = getelementptr %struct.be128, ptr %.pre7, i64 %74
+  %75 = getelementptr [16 x i8], ptr %.pre6, i64 %74
+  %76 = getelementptr [16 x i8], ptr %.pre7, i64 %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %75, ptr noundef align 8 dereferenceable(16) %76, i64 16, i1 false)
   %77 = load i64, ptr %75, align 8
   %78 = tail call i64 @llvm.bswap.i64(i64 %77)
@@ -591,7 +591,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr noundef readonly capture
   %80 = load i64, ptr %79, align 8
   %81 = tail call i64 @llvm.bswap.i64(i64 %80)
   %82 = lshr i64 %78, 56
-  %83 = getelementptr i16, ptr @gf128mul_table_be, i64 %82
+  %83 = getelementptr [2 x i8], ptr @gf128mul_table_be, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i64
   %86 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %81, i64 8)
@@ -616,7 +616,7 @@ define dso_local void @gf128mul_free_64k(ptr noundef %0) #5 align 16 {
 
 2:                                                ; preds = %2, %1
   %3 = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %4 = getelementptr ptr, ptr %0, i64 %3
+  %4 = getelementptr [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8
   tail call void @kfree_sensitive(ptr noundef %5) #12
   %6 = add nuw nsw i64 %3, 1
@@ -637,7 +637,7 @@ define dso_local void @gf128mul_64k_bbe(ptr noundef captures(none) %0, ptr nound
   %4 = getelementptr i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr %struct.be128, ptr %3, i64 %6
+  %7 = getelementptr [16 x i8], ptr %3, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8
@@ -647,13 +647,13 @@ define dso_local void @gf128mul_64k_bbe(ptr noundef captures(none) %0, ptr nound
   %12 = phi i64 [ 1, %2 ], [ %27, %11 ]
   %13 = phi i64 [ %10, %2 ], [ %26, %11 ]
   %14 = phi i64 [ %8, %2 ], [ %23, %11 ]
-  %15 = getelementptr ptr, ptr %1, i64 %12
+  %15 = getelementptr [8 x i8], ptr %1, i64 %12
   %16 = load ptr, ptr %15, align 8
   %17 = xor i64 %12, 15
   %18 = getelementptr i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.be128, ptr %16, i64 %20
+  %21 = getelementptr [16 x i8], ptr %16, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = xor i64 %22, %14
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -685,10 +685,10 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr noundef readonly 
 7:                                                ; preds = %7, %5
   %8 = phi i32 [ 64, %5 ], [ %28, %7 ]
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr %struct.be128, ptr %3, i64 %9
+  %10 = getelementptr [16 x i8], ptr %3, i64 %9
   %11 = shl nuw nsw i32 %8, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct.be128, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -712,15 +712,15 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr noundef readonly 
 .preheader:                                       ; preds = %7, %49
   %30 = phi i32 [ %50, %49 ], [ 2, %7 ]
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr %struct.be128, ptr %3, i64 %31
+  %32 = getelementptr [16 x i8], ptr %3, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = sext i32 %30 to i64
   br label %35
 
 35:                                               ; preds = %35, %.preheader
   %36 = phi i64 [ 1, %.preheader ], [ %47, %35 ]
-  %37 = getelementptr %struct.be128, ptr %3, i64 %36
-  %38 = getelementptr %struct.be128, ptr %37, i64 %34
+  %37 = getelementptr [16 x i8], ptr %3, i64 %36
+  %38 = getelementptr [16 x i8], ptr %37, i64 %34
   %39 = load i64, ptr %32, align 8
   %40 = load i64, ptr %37, align 8
   %41 = xor i64 %40, %39
@@ -767,7 +767,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr noundef readonly 
   %12 = phi i32 [ 1, %5 ], [ %13, %9 ]
   %13 = shl i32 %12, 1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.be128, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = icmp slt i64 %11, 0
   %17 = select i1 %16, i64 135, i64 0
   %18 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %10, i64 1)
@@ -784,15 +784,15 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr noundef readonly 
 .preheader:                                       ; preds = %9, %44
   %25 = phi i32 [ %45, %44 ], [ 2, %9 ]
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr %struct.be128, ptr %3, i64 %26
+  %27 = getelementptr [16 x i8], ptr %3, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = sext i32 %25 to i64
   br label %30
 
 30:                                               ; preds = %30, %.preheader
   %31 = phi i64 [ 1, %.preheader ], [ %42, %30 ]
-  %32 = getelementptr %struct.be128, ptr %3, i64 %31
-  %33 = getelementptr %struct.be128, ptr %32, i64 %29
+  %32 = getelementptr [16 x i8], ptr %3, i64 %31
+  %33 = getelementptr [16 x i8], ptr %32, i64 %29
   %34 = load i64, ptr %27, align 8
   %35 = load i64, ptr %32, align 8
   %36 = xor i64 %35, %34
@@ -821,7 +821,7 @@ define dso_local void @gf128mul_4k_lle(ptr noundef captures(none) %0, ptr nounde
   %3 = getelementptr i8, ptr %0, i64 15
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr %struct.be128, ptr %1, i64 %5
+  %6 = getelementptr [16 x i8], ptr %1, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
@@ -835,7 +835,7 @@ define dso_local void @gf128mul_4k_lle(ptr noundef captures(none) %0, ptr nounde
   %15 = tail call i64 @llvm.bswap.i64(i64 %13)
   %16 = tail call i64 @llvm.bswap.i64(i64 %12)
   %17 = and i64 %16, 255
-  %18 = getelementptr i16, ptr @gf128mul_table_le, i64 %17
+  %18 = getelementptr [2 x i8], ptr @gf128mul_table_le, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
   %21 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %16, i64 56)
@@ -847,7 +847,7 @@ define dso_local void @gf128mul_4k_lle(ptr noundef captures(none) %0, ptr nounde
   %27 = getelementptr i8, ptr %0, i64 %14
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr %struct.be128, ptr %1, i64 %29
+  %30 = getelementptr [16 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = xor i64 %26, %31
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -867,7 +867,7 @@ define dso_local void @gf128mul_4k_lle(ptr noundef captures(none) %0, ptr nounde
 define dso_local void @gf128mul_4k_bbe(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr %struct.be128, ptr %1, i64 %4
+  %5 = getelementptr [16 x i8], ptr %1, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
@@ -880,7 +880,7 @@ define dso_local void @gf128mul_4k_bbe(ptr noundef captures(none) %0, ptr nounde
   %13 = tail call i64 @llvm.bswap.i64(i64 %12)
   %14 = tail call i64 @llvm.bswap.i64(i64 %11)
   %15 = lshr i64 %13, 56
-  %16 = getelementptr i16, ptr @gf128mul_table_be, i64 %15
+  %16 = getelementptr [2 x i8], ptr @gf128mul_table_be, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i64
   %19 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %14, i64 8)
@@ -891,7 +891,7 @@ define dso_local void @gf128mul_4k_bbe(ptr noundef captures(none) %0, ptr nounde
   %24 = getelementptr i8, ptr %0, i64 %10
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr %struct.be128, ptr %1, i64 %26
+  %27 = getelementptr [16 x i8], ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = xor i64 %28, %20
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8

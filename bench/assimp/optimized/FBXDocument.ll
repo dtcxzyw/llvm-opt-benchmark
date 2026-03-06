@@ -5250,7 +5250,7 @@ _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %96,
 _ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %98, %_ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %93, ptr %72, align 8
   store ptr %97, ptr %73, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %99, ptr %75, align 8
   br label %_ZN6Assimp14StackAllocator8AllocateEm.exit
 
@@ -5615,7 +5615,7 @@ _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i82: ; preds = %2
 _ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i84: ; preds = %242, %_ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i82
   store ptr %237, ptr %119, align 8
   store ptr %241, ptr %118, align 8
-  %243 = getelementptr inbounds nuw ptr, ptr %237, i64 %235
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %235
   store ptr %243, ptr %120, align 8
   br label %_ZN6Assimp14StackAllocator8AllocateEm.exit85
 
@@ -5707,7 +5707,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %282, %_ZNK
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %284, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %278, ptr %121, align 8
   store ptr %283, ptr %122, align 8
-  %285 = getelementptr inbounds nuw i64, ptr %278, i64 %276
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %276
   store ptr %285, ptr %123, align 8
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -6261,7 +6261,7 @@ _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %197
 _ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %199, %_ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %194, ptr %75, align 8
   store ptr %198, ptr %74, align 8
-  %200 = getelementptr inbounds nuw ptr, ptr %194, i64 %192
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %192
   store ptr %200, ptr %76, align 8
   br label %206
 
@@ -7486,7 +7486,7 @@ _ZNSt6vectorIPKN6Assimp3FBX14AnimationStackESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_
 _ZNSt6vectorIPKN6Assimp3FBX14AnimationStackESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %90, %_ZNSt6vectorIPKN6Assimp3FBX14AnimationStackESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %85, ptr %4, align 8
   store ptr %89, ptr %6, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %85, i64 %83
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %83
   store ptr %91, ptr %22, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX14AnimationStackESaIS4_EE9push_backERKS4_.exit
 
@@ -7645,7 +7645,7 @@ _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE7reserveEm.exit: ; preds = %_ZNS
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %31, ptr %0, align 8
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %26
   store ptr %33, ptr %29, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %45
@@ -7741,7 +7741,7 @@ _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exi
 _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %65, ptr %0, align 8
   store ptr %70, ptr %34, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %72, ptr %29, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE9push_backERKS4_.exit
 
@@ -7872,10 +7872,10 @@ _ZNKSt8_Rb_treeImSt4pairIKmPKN6Assimp3FBX10ConnectionEESt10_Select1stIS7_ESt4les
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.088 = phi i64 [ %33, %.lr.ph ], [ 0, %7 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %5, i64 %.088
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.088
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #28
-  %32 = getelementptr inbounds nuw i64, ptr %8, i64 %.088
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.088
   store i64 %31, ptr %32, align 8
   %33 = add nuw i64 %.088, 1
   %exitcond.not = icmp eq i64 %33, %6
@@ -7915,7 +7915,7 @@ _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE7reserveEm.exit: ; preds = %_ZNS
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %0, align 8
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %35
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %35
   store ptr %42, ptr %38, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %54
@@ -8030,13 +8030,13 @@ _ZNK6Assimp3FBX10Connection21LazyDestinationObjectEv.exit: ; preds = %.lr.ph.i.i
 
 88:                                               ; preds = %.lr.ph91, %96
   %.03489 = phi i64 [ 0, %.lr.ph91 ], [ %97, %96 ]
-  %89 = getelementptr inbounds nuw i64, ptr %8, i64 %.03489
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.03489
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %86, %90
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03489
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03489
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 @strncmp(ptr noundef %94, ptr noundef %81, i64 noundef %86) #28
   %.not = icmp eq i32 %95, 0
@@ -8109,7 +8109,7 @@ _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exi
 _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %120, %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %114, ptr %0, align 8
   store ptr %119, ptr %43, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %114, i64 %112
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   store ptr %121, ptr %38, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EE9push_backERKS4_.exit
 
@@ -10019,7 +10019,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 
 .split.us.us.i.i.preheader.us:                    ; preds = %.lr.ph.split.us
   %16 = lshr i64 %14, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = getelementptr inbounds i8, ptr %storemerge29.us, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %17, ptr nonnull %18, i64 %.fr33, i64 %4)
   br label %.split.us.us.i.i.us
@@ -10083,7 +10083,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX
 
 41:                                               ; preds = %41, %.split.us
   %.09.i.i = phi i64 [ %40, %.split.us ], [ %44, %41 ]
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i
+  %42 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i
   %43 = load ptr, ptr %42, align 8
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_T2_(ptr %0, i64 noundef %.09.i.i, i64 noundef %.us-phi32, ptr noundef %43, i64 %.fr33, i64 %4)
   %.not.i.i = icmp eq i64 %.09.i.i, 0
@@ -10105,7 +10105,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX
 
 .split.i.i.preheader:                             ; preds = %.lr.ph.split
   %52 = lshr i64 %37, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %52
   %54 = getelementptr inbounds i8, ptr %storemerge29, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %11, ptr %53, ptr nonnull %54, i64 %.fr33, i64 %4)
   br label %.split.i.i
@@ -10270,17 +10270,17 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %.038.us = phi i64 [ %spec.select.us, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit.us ], [ %1, %.lr.ph ]
   %12 = shl i64 %.038.us, 1
   %13 = add i64 %12, 2
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = or disjoint i64 %12, 1
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %5
   %19 = load ptr, ptr %16, align 8
   %20 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef %19)
   %spec.select.us = select i1 %20, i64 %15, i64 %13
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.us
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.us
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %.038.us
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038.us
   store ptr %22, ptr %23, align 8
   %24 = icmp slt i64 %spec.select.us, %8
   br i1 %24, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit.us, label %._crit_edge, !llvm.loop !89
@@ -10289,9 +10289,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %.038 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit ], [ %1, %.lr.ph ]
   %25 = shl i64 %.038, 1
   %26 = add i64 %25, 2
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = or disjoint i64 %25, 1
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %28
   %30 = load ptr, ptr %27, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 %5
   %32 = load ptr, ptr %31, align 8
@@ -10301,9 +10301,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %36 = load ptr, ptr %29, align 8
   %37 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef %36)
   %spec.select = select i1 %37, i64 %28, i64 %26
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %38 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.038
+  %40 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038
   store ptr %39, ptr %40, align 8
   %41 = icmp slt i64 %spec.select, %8
   br i1 %41, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS5_EEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEESI_EEbT_T0_.exit, label %._crit_edge, !llvm.loop !89
@@ -10323,9 +10323,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
 48:                                               ; preds = %44
   %49 = shl nsw i64 %.0.lcssa, 1
   %50 = or disjoint i64 %49, 1
-  %51 = getelementptr inbounds ptr, ptr %0, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %0, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %52, ptr %53, align 8
   br label %54
 
@@ -10344,7 +10344,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %.019.i.us = phi i64 [ %.0920.i.us, %62 ], [ %.1, %.lr.ph.i.preheader ]
   %.0920.in.i.us = add nsw i64 %.019.i.us, -1
   %.0920.i.us = sdiv i64 %.0920.in.i.us, 2
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i.us
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0920.i.us
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 %5
   %61 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef %3)
@@ -10352,7 +10352,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
 
 62:                                               ; preds = %.lr.ph.i.us
   %63 = load ptr, ptr %58, align 8
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.us
+  %64 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i.us
   store ptr %63, ptr %64, align 8
   %65 = icmp sgt i64 %.0920.i.us, %1
   br i1 %65, label %.lr.ph.i.us, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_RT2_.exit, !llvm.loop !90
@@ -10361,7 +10361,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
   %.019.i = phi i64 [ %.0920.i, %74 ], [ %.1, %.lr.ph.i.preheader ]
   %.0920.in.i = add nsw i64 %.019.i, -1
   %.0920.i = sdiv i64 %.0920.in.i, 2
-  %66 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i
+  %66 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0920.i
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %5
   %69 = load ptr, ptr %68, align 8
@@ -10373,14 +10373,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7_Mem_fnIMN6Assimp3FBX10ConnectionEKFbPKS
 
 74:                                               ; preds = %.lr.ph.i
   %75 = load ptr, ptr %66, align 8
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %.019.i
+  %76 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i
   store ptr %75, ptr %76, align 8
   %77 = icmp sgt i64 %.0920.i, %1
   br i1 %77, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_RT2_.exit, !llvm.loop !90
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops14_Iter_comp_valISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_SK_T1_RT2_.exit: ; preds = %74, %.lr.ph.i, %62, %.lr.ph.i.us, %54
   %.0.lcssa.i = phi i64 [ %.1, %54 ], [ %.0920.i.us, %62 ], [ %.019.i.us, %.lr.ph.i.us ], [ %.019.i, %.lr.ph.i ], [ %.0920.i, %74 ]
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %78 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %78, align 8
   ret void
 }
@@ -10581,7 +10581,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionES
   %22 = sub i64 %21, %8
   %23 = ashr exact i64 %22, 3
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds ptr, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %25, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %22, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_.exit.us
 
@@ -10612,7 +10612,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionES
   %37 = sub i64 %36, %8
   %38 = ashr exact i64 %37, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %35, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %35, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %37, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6Assimp3FBX10ConnectionESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterISt7_Mem_fnIMS4_KFbS6_EEEEEvT_T0_.exit
 

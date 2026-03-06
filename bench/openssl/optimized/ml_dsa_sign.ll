@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.vector_st = type { ptr, i64 }
 %struct.matrix_st = type { ptr, i64, i64 }
 %struct.ml_dsa_sig_st = type { %struct.vector_st, %struct.vector_st, ptr, i64 }
-%struct.poly_st = type { [256 x i32] }
 
 @.str = private unnamed_addr constant [39 x i8] c"../openssl/crypto/ml_dsa/ml_dsa_sign.c\00", align 1
 
@@ -155,27 +154,27 @@ msg_encode.exit:                                  ; preds = %33
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %93, ptr %95, align 8, !tbaa !26
   store ptr %91, ptr %17, align 8, !tbaa !27
-  %96 = getelementptr inbounds nuw %struct.poly_st, ptr %91, i64 %69
-  %97 = getelementptr inbounds nuw %struct.poly_st, ptr %96, i64 %92
-  %98 = getelementptr inbounds nuw %struct.poly_st, ptr %97, i64 %92
+  %96 = getelementptr inbounds nuw [1024 x i8], ptr %91, i64 %69
+  %97 = getelementptr inbounds nuw [1024 x i8], ptr %96, i64 %92
+  %98 = getelementptr inbounds nuw [1024 x i8], ptr %97, i64 %92
   store ptr %98, ptr %14, align 8, !tbaa !28
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %92, ptr %99, align 8, !tbaa !29
-  %100 = getelementptr inbounds nuw %struct.poly_st, ptr %98, i64 %92
+  %100 = getelementptr inbounds nuw [1024 x i8], ptr %98, i64 %92
   store ptr %100, ptr %15, align 8, !tbaa !28
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %92, ptr %101, align 8, !tbaa !29
-  %102 = getelementptr inbounds nuw %struct.poly_st, ptr %100, i64 %92
-  %103 = getelementptr inbounds nuw %struct.poly_st, ptr %96, i64 %65
-  %104 = getelementptr inbounds nuw %struct.poly_st, ptr %103, i64 %93
+  %102 = getelementptr inbounds nuw [1024 x i8], ptr %100, i64 %92
+  %103 = getelementptr inbounds nuw [1024 x i8], ptr %96, i64 %65
+  %104 = getelementptr inbounds nuw [1024 x i8], ptr %103, i64 %93
   %105 = shl i64 %57, 1
   %106 = and i64 %105, 4294967294
-  %107 = getelementptr inbounds nuw %struct.poly_st, ptr %103, i64 %106
+  %107 = getelementptr inbounds nuw [1024 x i8], ptr %103, i64 %106
   store ptr %107, ptr %16, align 8, !tbaa !28
   %108 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %93, ptr %108, align 8, !tbaa !29
-  %109 = getelementptr inbounds nuw %struct.poly_st, ptr %103, i64 %67
-  %110 = getelementptr inbounds nuw %struct.poly_st, ptr %109, i64 %92
+  %109 = getelementptr inbounds nuw [1024 x i8], ptr %103, i64 %67
+  %110 = getelementptr inbounds nuw [1024 x i8], ptr %109, i64 %92
   store ptr %110, ptr %18, align 8, !tbaa !28
   %111 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %93, ptr %111, align 8, !tbaa !29
@@ -265,7 +264,7 @@ shake_xof_3.exit.i:                               ; preds = %141
 
 .lr.ph.i.i:                                       ; preds = %144, %.lr.ph.i.i
   %.04.i.i = phi i64 [ %149, %.lr.ph.i.i ], [ 0, %144 ]
-  %148 = getelementptr inbounds nuw %struct.poly_st, ptr %103, i64 %.04.i.i
+  %148 = getelementptr inbounds nuw [1024 x i8], ptr %103, i64 %.04.i.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %148) #5
   %149 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i = icmp eq i64 %149, %93
@@ -292,7 +291,7 @@ vector_ntt.exit180.thread.i:                      ; preds = %vector_ntt.exit.i
 
 .lr.ph.i178.i:                                    ; preds = %vector_ntt.exit.i, %.lr.ph.i178.i
   %.04.i179.i = phi i64 [ %157, %.lr.ph.i178.i ], [ 0, %vector_ntt.exit.i ]
-  %156 = getelementptr inbounds nuw %struct.poly_st, ptr %96, i64 %.04.i179.i
+  %156 = getelementptr inbounds nuw [1024 x i8], ptr %96, i64 %.04.i179.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %156) #5
   %157 = add nuw nsw i64 %.04.i179.i, 1
   %exitcond330.not.i = icmp eq i64 %157, %92
@@ -309,7 +308,7 @@ vector_ntt.exit180.i:                             ; preds = %.lr.ph.i178.i
 
 .lr.ph.i182.i:                                    ; preds = %.lr.ph.i182.i, %vector_ntt.exit180.i
   %.04.i183.i = phi i64 [ %162, %.lr.ph.i182.i ], [ 0, %vector_ntt.exit180.i ]
-  %161 = getelementptr inbounds nuw %struct.poly_st, ptr %97, i64 %.04.i183.i
+  %161 = getelementptr inbounds nuw [1024 x i8], ptr %97, i64 %.04.i183.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %161) #5
   %162 = add nuw nsw i64 %.04.i183.i, 1
   %exitcond331.not.i = icmp eq i64 %162, %92
@@ -337,7 +336,7 @@ vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vec
   %172 = add i64 %.012.i.i, %.0135.i
   %173 = trunc i64 %172 to i16
   store i16 %173, ptr %163, align 16
-  %174 = getelementptr inbounds nuw %struct.poly_st, ptr %104, i64 %.012.i.i
+  %174 = getelementptr inbounds nuw [1024 x i8], ptr %104, i64 %.012.i.i
   %175 = call i32 @ossl_ml_dsa_poly_expand_mask(ptr noundef nonnull %174, ptr noundef nonnull %13, i64 noundef 66, i32 noundef %59, ptr noundef nonnull %87, ptr noundef %171) #5
   %176 = add nuw nsw i64 %.012.i.i, 1
   %exitcond332.not.i = icmp eq i64 %176, %93
@@ -354,7 +353,7 @@ vector_expand_mask.exit.i:                        ; preds = %.lr.ph.i186.i, %168
 .lr.ph.i188.i:                                    ; preds = %vector_expand_mask.exit.i, %.lr.ph.i188.i
   %.04.i189.i = phi i64 [ %180, %.lr.ph.i188.i ], [ 0, %vector_expand_mask.exit.i ]
   %178 = load ptr, ptr %16, align 8, !tbaa !28
-  %179 = getelementptr inbounds nuw %struct.poly_st, ptr %178, i64 %.04.i189.i
+  %179 = getelementptr inbounds nuw [1024 x i8], ptr %178, i64 %.04.i189.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef %179) #5
   %180 = add nuw i64 %.04.i189.i, 1
   %181 = load i64, ptr %108, align 8, !tbaa !29
@@ -370,7 +369,7 @@ vector_ntt.exit190.i:                             ; preds = %.lr.ph.i188.i, %vec
 .lr.ph.i192.i:                                    ; preds = %vector_ntt.exit190.i, %.lr.ph.i192.i
   %.04.i193.i = phi i64 [ %186, %.lr.ph.i192.i ], [ 0, %vector_ntt.exit190.i ]
   %184 = load ptr, ptr %14, align 8, !tbaa !28
-  %185 = getelementptr inbounds nuw %struct.poly_st, ptr %184, i64 %.04.i193.i
+  %185 = getelementptr inbounds nuw [1024 x i8], ptr %184, i64 %.04.i193.i
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef %185) #5
   %186 = add nuw i64 %.04.i193.i, 1
   %187 = load i64, ptr %99, align 8, !tbaa !29
@@ -385,17 +384,17 @@ vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i192.i, %vec
 .lr.ph.i195.i:                                    ; preds = %vector_ntt_inverse.exit.i, %poly_high_bits.exit.i.i
   %.07.i.i = phi i64 [ %199, %poly_high_bits.exit.i.i ], [ 0, %vector_ntt_inverse.exit.i ]
   %190 = load ptr, ptr %14, align 8, !tbaa !28
-  %191 = getelementptr inbounds nuw %struct.poly_st, ptr %190, i64 %.07.i.i
+  %191 = getelementptr inbounds nuw [1024 x i8], ptr %190, i64 %.07.i.i
   %192 = load ptr, ptr %15, align 8, !tbaa !28
-  %193 = getelementptr inbounds nuw %struct.poly_st, ptr %192, i64 %.07.i.i
+  %193 = getelementptr inbounds nuw [1024 x i8], ptr %192, i64 %.07.i.i
   br label %194
 
 194:                                              ; preds = %194, %.lr.ph.i195.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i195.i ], [ %indvars.iv.next.i.i.i, %194 ]
-  %195 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.i.i.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv.i.i.i
   %196 = load i32, ptr %195, align 4, !tbaa !39
   %197 = call i32 @ossl_ml_dsa_key_compress_high_bits(i32 noundef %196, i32 noundef %61) #5
-  %198 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i.i.i
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i.i.i
   store i32 %197, ptr %198, align 4, !tbaa !39
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
@@ -442,9 +441,9 @@ shake_xof_2.exit199.i:                            ; preds = %207
 
 .lr.ph.i202.i:                                    ; preds = %214, %.lr.ph.i202.i
   %.07.i203.i = phi i64 [ %218, %.lr.ph.i202.i ], [ 0, %214 ]
-  %215 = getelementptr inbounds nuw %struct.poly_st, ptr %103, i64 %.07.i203.i
+  %215 = getelementptr inbounds nuw [1024 x i8], ptr %103, i64 %.07.i203.i
   %216 = load ptr, ptr %16, align 8, !tbaa !28
-  %217 = getelementptr inbounds nuw %struct.poly_st, ptr %216, i64 %.07.i203.i
+  %217 = getelementptr inbounds nuw [1024 x i8], ptr %216, i64 %.07.i203.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %215, ptr noundef nonnull %90, ptr noundef %217) #5
   %218 = add nuw nsw i64 %.07.i203.i, 1
   %exitcond333.not.i = icmp eq i64 %218, %93
@@ -458,7 +457,7 @@ vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i202.i, %214
 .lr.ph.i205.i:                                    ; preds = %vector_mult_scalar.exit.i, %.lr.ph.i205.i
   %.04.i206.i = phi i64 [ %222, %.lr.ph.i205.i ], [ 0, %vector_mult_scalar.exit.i ]
   %220 = load ptr, ptr %16, align 8, !tbaa !28
-  %221 = getelementptr inbounds nuw %struct.poly_st, ptr %220, i64 %.04.i206.i
+  %221 = getelementptr inbounds nuw [1024 x i8], ptr %220, i64 %.04.i206.i
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef %221) #5
   %222 = add nuw i64 %.04.i206.i, 1
   %223 = load i64, ptr %108, align 8, !tbaa !29
@@ -470,8 +469,8 @@ vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vec
 
 .lr.ph.i209.i:                                    ; preds = %vector_ntt_inverse.exit207.i, %.lr.ph.i209.i
   %.07.i210.i = phi i64 [ %227, %.lr.ph.i209.i ], [ 0, %vector_ntt_inverse.exit207.i ]
-  %225 = getelementptr inbounds nuw %struct.poly_st, ptr %96, i64 %.07.i210.i
-  %226 = getelementptr inbounds nuw %struct.poly_st, ptr %102, i64 %.07.i210.i
+  %225 = getelementptr inbounds nuw [1024 x i8], ptr %96, i64 %.07.i210.i
+  %226 = getelementptr inbounds nuw [1024 x i8], ptr %102, i64 %.07.i210.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %225, ptr noundef nonnull %90, ptr noundef nonnull %226) #5
   %227 = add nuw nsw i64 %.07.i210.i, 1
   %exitcond334.not.i = icmp eq i64 %227, %92
@@ -479,7 +478,7 @@ vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vec
 
 .lr.ph.i213.i:                                    ; preds = %.lr.ph.i209.i, %.lr.ph.i213.i
   %.04.i214.i = phi i64 [ %229, %.lr.ph.i213.i ], [ 0, %.lr.ph.i209.i ]
-  %228 = getelementptr inbounds nuw %struct.poly_st, ptr %102, i64 %.04.i214.i
+  %228 = getelementptr inbounds nuw [1024 x i8], ptr %102, i64 %.04.i214.i
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef nonnull %228) #5
   %229 = add nuw nsw i64 %.04.i214.i, 1
   %exitcond335.not.i = icmp eq i64 %229, %92
@@ -491,16 +490,16 @@ vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vec
 
 .lr.ph.i217.i:                                    ; preds = %vector_ntt_inverse.exit215.i, %poly_add.exit.i.i
   %.05.i.i = phi i64 [ %249, %poly_add.exit.i.i ], [ 0, %vector_ntt_inverse.exit215.i ]
-  %230 = getelementptr inbounds nuw %struct.poly_st, ptr %104, i64 %.05.i.i
-  %231 = getelementptr inbounds nuw %struct.poly_st, ptr %.val160.i, i64 %.05.i.i
-  %232 = getelementptr inbounds nuw %struct.poly_st, ptr %110, i64 %.05.i.i
+  %230 = getelementptr inbounds nuw [1024 x i8], ptr %104, i64 %.05.i.i
+  %231 = getelementptr inbounds nuw [1024 x i8], ptr %.val160.i, i64 %.05.i.i
+  %232 = getelementptr inbounds nuw [1024 x i8], ptr %110, i64 %.05.i.i
   br label %233
 
 233:                                              ; preds = %233, %.lr.ph.i217.i
   %indvars.iv.i.i218.i = phi i64 [ 0, %.lr.ph.i217.i ], [ %indvars.iv.next.i.i219.i, %233 ]
-  %234 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i.i218.i
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %indvars.iv.i.i218.i
   %235 = load i32, ptr %234, align 4, !tbaa !39
-  %236 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv.i.i218.i
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv.i.i218.i
   %237 = load i32, ptr %236, align 4, !tbaa !39
   %238 = add i32 %237, %235
   %239 = add i32 %238, -8380417
@@ -513,7 +512,7 @@ vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vec
   %245 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %244) #6, !srcloc !44
   %246 = and i32 %245, %239
   %247 = or i32 %246, %243
-  %248 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i.i218.i
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv.i.i218.i
   store i32 %247, ptr %248, align 4, !tbaa !39
   %indvars.iv.next.i.i219.i = add nuw nsw i64 %indvars.iv.i.i218.i, 1
   %exitcond.not.i.i220.i = icmp eq i64 %indvars.iv.next.i.i219.i, 256
@@ -533,16 +532,16 @@ vector_add.exit.i:                                ; preds = %poly_add.exit.i.i, 
 
 .lr.ph.i222.i:                                    ; preds = %vector_add.exit.i, %poly_sub.exit.i.i
   %.05.i223.i = phi i64 [ %270, %poly_sub.exit.i.i ], [ 0, %vector_add.exit.i ]
-  %250 = getelementptr inbounds nuw %struct.poly_st, ptr %.val162.i, i64 %.05.i223.i
-  %251 = getelementptr inbounds nuw %struct.poly_st, ptr %102, i64 %.05.i223.i
-  %252 = getelementptr inbounds nuw %struct.poly_st, ptr %.val165.i, i64 %.05.i223.i
+  %250 = getelementptr inbounds nuw [1024 x i8], ptr %.val162.i, i64 %.05.i223.i
+  %251 = getelementptr inbounds nuw [1024 x i8], ptr %102, i64 %.05.i223.i
+  %252 = getelementptr inbounds nuw [1024 x i8], ptr %.val165.i, i64 %.05.i223.i
   br label %253
 
 253:                                              ; preds = %253, %.lr.ph.i222.i
   %indvars.iv.i.i224.i = phi i64 [ 0, %.lr.ph.i222.i ], [ %indvars.iv.next.i.i225.i, %253 ]
-  %254 = getelementptr inbounds nuw i32, ptr %250, i64 %indvars.iv.i.i224.i
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %250, i64 %indvars.iv.i.i224.i
   %255 = load i32, ptr %254, align 4, !tbaa !39
-  %256 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i.i224.i
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %indvars.iv.i.i224.i
   %257 = load i32, ptr %256, align 4, !tbaa !39
   %258 = add i32 %255, 8380417
   %259 = sub i32 %258, %257
@@ -556,7 +555,7 @@ vector_add.exit.i:                                ; preds = %poly_add.exit.i.i, 
   %266 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %265) #6, !srcloc !44
   %267 = and i32 %266, %260
   %268 = or i32 %267, %264
-  %269 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv.i.i224.i
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %252, i64 %indvars.iv.i.i224.i
   store i32 %268, ptr %269, align 4, !tbaa !39
   %indvars.iv.next.i.i225.i = add nuw nsw i64 %indvars.iv.i.i224.i, 1
   %exitcond.not.i.i226.i = icmp eq i64 %indvars.iv.next.i.i225.i, 256
@@ -575,12 +574,12 @@ vector_sub.exit.i:                                ; preds = %poly_sub.exit.i.i, 
 .lr.ph.i229.i:                                    ; preds = %vector_sub.exit.i, %poly_low_bits.exit.i.i
   %.07.i230.i = phi i64 [ %278, %poly_low_bits.exit.i.i ], [ 0, %vector_sub.exit.i ]
   %272 = load ptr, ptr %15, align 8, !tbaa !28
-  %273 = getelementptr inbounds nuw %struct.poly_st, ptr %272, i64 %.07.i230.i
+  %273 = getelementptr inbounds nuw [1024 x i8], ptr %272, i64 %.07.i230.i
   br label %274
 
 274:                                              ; preds = %274, %.lr.ph.i229.i
   %indvars.iv.i.i231.i = phi i64 [ 0, %.lr.ph.i229.i ], [ %indvars.iv.next.i.i232.i, %274 ]
-  %275 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv.i.i231.i
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %indvars.iv.i.i231.i
   %276 = load i32, ptr %275, align 4, !tbaa !39
   %277 = call i32 @ossl_ml_dsa_key_compress_low_bits(i32 noundef %276, i32 noundef %61) #5
   store i32 %277, ptr %275, align 4, !tbaa !39
@@ -601,13 +600,13 @@ vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.
 .lr.ph.i235.i:                                    ; preds = %vector_low_bits.exit.i, %poly_max.exit.i.i
   %.04.i236.i = phi i64 [ %305, %poly_max.exit.i.i ], [ 0, %vector_low_bits.exit.i ]
   %.023.i.i = phi i32 [ %304, %poly_max.exit.i.i ], [ 0, %vector_low_bits.exit.i ]
-  %281 = getelementptr inbounds nuw %struct.poly_st, ptr %110, i64 %.04.i236.i
+  %281 = getelementptr inbounds nuw [1024 x i8], ptr %110, i64 %.04.i236.i
   br label %282
 
 282:                                              ; preds = %282, %.lr.ph.i235.i
   %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i235.i ], [ %304, %282 ]
   %indvars.iv.i.i237.i = phi i64 [ 0, %.lr.ph.i235.i ], [ %indvars.iv.next.i.i239.i, %282 ]
-  %283 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv.i.i237.i
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %indvars.iv.i.i237.i
   %284 = load i32, ptr %283, align 4, !tbaa !39
   %285 = sub i32 4190208, %284
   %286 = or i32 %285, %284
@@ -649,13 +648,13 @@ vector_max.exit.i:                                ; preds = %poly_max.exit.i.i, 
 .lr.ph.i243.i:                                    ; preds = %vector_max.exit.i, %poly_max_signed.exit.i.i
   %.04.i244.i = phi i64 [ %328, %poly_max_signed.exit.i.i ], [ 0, %vector_max.exit.i ]
   %.023.i245.i = phi i32 [ %327, %poly_max_signed.exit.i.i ], [ 0, %vector_max.exit.i ]
-  %306 = getelementptr inbounds nuw %struct.poly_st, ptr %.val170.i, i64 %.04.i244.i
+  %306 = getelementptr inbounds nuw [1024 x i8], ptr %.val170.i, i64 %.04.i244.i
   br label %307
 
 307:                                              ; preds = %307, %.lr.ph.i243.i
   %.1.i246.i = phi i32 [ %.023.i245.i, %.lr.ph.i243.i ], [ %327, %307 ]
   %indvars.iv.i.i247.i = phi i64 [ 0, %.lr.ph.i243.i ], [ %indvars.iv.next.i.i250.i, %307 ]
-  %308 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv.i.i247.i
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %indvars.iv.i.i247.i
   %309 = load i32, ptr %308, align 4, !tbaa !39
   %isnotneg.i.i.i.i = icmp sgt i32 %309, -1
   %.neg.i.i.i.i.i248.i = sext i1 %isnotneg.i.i.i.i to i32
@@ -714,9 +713,9 @@ vector_max_signed.exit.i:                         ; preds = %poly_max_signed.exi
 
 .lr.ph.i256.i:                                    ; preds = %346, %.lr.ph.i256.i
   %.07.i257.i = phi i64 [ %350, %.lr.ph.i256.i ], [ 0, %346 ]
-  %347 = getelementptr inbounds nuw %struct.poly_st, ptr %97, i64 %.07.i257.i
+  %347 = getelementptr inbounds nuw [1024 x i8], ptr %97, i64 %.07.i257.i
   %348 = load ptr, ptr %15, align 8, !tbaa !28
-  %349 = getelementptr inbounds nuw %struct.poly_st, ptr %348, i64 %.07.i257.i
+  %349 = getelementptr inbounds nuw [1024 x i8], ptr %348, i64 %.07.i257.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %347, ptr noundef nonnull %90, ptr noundef %349) #5
   %350 = add nuw nsw i64 %.07.i257.i, 1
   %exitcond336.not.i = icmp eq i64 %350, %92
@@ -734,7 +733,7 @@ vector_mult_scalar.exit258.i:                     ; preds = %vector_mult_scalar.
 .lr.ph.i260.i:                                    ; preds = %vector_mult_scalar.exit258.i, %.lr.ph.i260.i
   %.04.i261.i = phi i64 [ %354, %.lr.ph.i260.i ], [ 0, %vector_mult_scalar.exit258.i ]
   %352 = load ptr, ptr %15, align 8, !tbaa !28
-  %353 = getelementptr inbounds nuw %struct.poly_st, ptr %352, i64 %.04.i261.i
+  %353 = getelementptr inbounds nuw [1024 x i8], ptr %352, i64 %.04.i261.i
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef %353) #5
   %354 = add nuw i64 %.04.i261.i, 1
   %355 = load i64, ptr %101, align 8, !tbaa !29
@@ -749,23 +748,23 @@ vector_ntt_inverse.exit262.i:                     ; preds = %.lr.ph.i260.i, %vec
 .lr.ph.i264.i:                                    ; preds = %vector_ntt_inverse.exit262.i, %poly_make_hint.exit.i.i
   %.01.i.i = phi i64 [ %372, %poly_make_hint.exit.i.i ], [ 0, %vector_ntt_inverse.exit262.i ]
   %357 = load ptr, ptr %15, align 8, !tbaa !28
-  %358 = getelementptr inbounds nuw %struct.poly_st, ptr %357, i64 %.01.i.i
-  %359 = getelementptr inbounds nuw %struct.poly_st, ptr %102, i64 %.01.i.i
+  %358 = getelementptr inbounds nuw [1024 x i8], ptr %357, i64 %.01.i.i
+  %359 = getelementptr inbounds nuw [1024 x i8], ptr %102, i64 %.01.i.i
   %360 = load ptr, ptr %14, align 8, !tbaa !28
-  %361 = getelementptr inbounds nuw %struct.poly_st, ptr %360, i64 %.01.i.i
-  %362 = getelementptr inbounds nuw %struct.poly_st, ptr %169, i64 %.01.i.i
+  %361 = getelementptr inbounds nuw [1024 x i8], ptr %360, i64 %.01.i.i
+  %362 = getelementptr inbounds nuw [1024 x i8], ptr %169, i64 %.01.i.i
   br label %363
 
 363:                                              ; preds = %363, %.lr.ph.i264.i
   %indvars.iv.i.i265.i = phi i64 [ 0, %.lr.ph.i264.i ], [ %indvars.iv.next.i.i266.i, %363 ]
-  %364 = getelementptr inbounds nuw i32, ptr %358, i64 %indvars.iv.i.i265.i
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %358, i64 %indvars.iv.i.i265.i
   %365 = load i32, ptr %364, align 4, !tbaa !39
-  %366 = getelementptr inbounds nuw i32, ptr %359, i64 %indvars.iv.i.i265.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %indvars.iv.i.i265.i
   %367 = load i32, ptr %366, align 4, !tbaa !39
-  %368 = getelementptr inbounds nuw i32, ptr %361, i64 %indvars.iv.i.i265.i
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %361, i64 %indvars.iv.i.i265.i
   %369 = load i32, ptr %368, align 4, !tbaa !39
   %370 = call i32 @ossl_ml_dsa_key_compress_make_hint(i32 noundef %365, i32 noundef %367, i32 noundef %61, i32 noundef %369) #5
-  %371 = getelementptr inbounds nuw i32, ptr %362, i64 %indvars.iv.i.i265.i
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %362, i64 %indvars.iv.i.i265.i
   store i32 %370, ptr %371, align 4, !tbaa !39
   %indvars.iv.next.i.i266.i = add nuw nsw i64 %indvars.iv.i.i265.i, 1
   %exitcond.not.i.i267.i = icmp eq i64 %indvars.iv.next.i.i266.i, 256
@@ -789,13 +788,13 @@ vector_make_hint.exit.i:                          ; preds = %vector_make_hint.ex
 .lr.ph.i269.i:                                    ; preds = %vector_make_hint.exit.i, %poly_max.exit.i278.i
   %.04.i270.i = phi i64 [ %397, %poly_max.exit.i278.i ], [ 0, %vector_make_hint.exit.i ]
   %.023.i271.i = phi i32 [ %396, %poly_max.exit.i278.i ], [ 0, %vector_make_hint.exit.i ]
-  %373 = getelementptr inbounds nuw %struct.poly_st, ptr %.val168.i, i64 %.04.i270.i
+  %373 = getelementptr inbounds nuw [1024 x i8], ptr %.val168.i, i64 %.04.i270.i
   br label %374
 
 374:                                              ; preds = %374, %.lr.ph.i269.i
   %.1.i272.i = phi i32 [ %.023.i271.i, %.lr.ph.i269.i ], [ %396, %374 ]
   %indvars.iv.i.i273.i = phi i64 [ 0, %.lr.ph.i269.i ], [ %indvars.iv.next.i.i276.i, %374 ]
-  %375 = getelementptr inbounds nuw i32, ptr %373, i64 %indvars.iv.i.i273.i
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %373, i64 %indvars.iv.i.i273.i
   %376 = load i32, ptr %375, align 4, !tbaa !39
   %377 = sub i32 4190208, %376
   %378 = or i32 %377, %376
@@ -838,13 +837,13 @@ vector_max.exit281.i:                             ; preds = %poly_max.exit.i278.
 .preheader.i.i:                                   ; preds = %vector_max.exit281.i, %403
   %.04.i283.i = phi i32 [ %402, %403 ], [ 0, %vector_max.exit281.i ]
   %.093.i.i = phi i64 [ %404, %403 ], [ 0, %vector_max.exit281.i ]
-  %398 = getelementptr inbounds nuw %struct.poly_st, ptr %.val173.i, i64 %.093.i.i
+  %398 = getelementptr inbounds nuw [1024 x i8], ptr %.val173.i, i64 %.093.i.i
   br label %399
 
 399:                                              ; preds = %399, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %399 ]
   %.12.i.i = phi i32 [ %.04.i283.i, %.preheader.i.i ], [ %402, %399 ]
-  %400 = getelementptr inbounds nuw i32, ptr %398, i64 %indvars.iv.i.i
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %398, i64 %indvars.iv.i.i
   %401 = load i32, ptr %400, align 4, !tbaa !39
   %402 = add i32 %401, %.12.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1048,8 +1047,8 @@ msg_encode.exit:                                  ; preds = %20
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %52, ptr %79, align 8, !tbaa !26
   store ptr %76, ptr %10, align 8, !tbaa !27
-  %80 = getelementptr inbounds nuw %struct.poly_st, ptr %76, i64 %54
-  %81 = getelementptr inbounds nuw %struct.poly_st, ptr %80, i64 %77
+  %80 = getelementptr inbounds nuw [1024 x i8], ptr %76, i64 %54
+  %81 = getelementptr inbounds nuw [1024 x i8], ptr %80, i64 %77
   store ptr %81, ptr %12, align 8, !tbaa !28
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %52, ptr %82, align 8, !tbaa !29
@@ -1061,11 +1060,11 @@ msg_encode.exit:                                  ; preds = %20
   store ptr %15, ptr %85, align 8, !tbaa !30
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 %58, ptr %86, align 8, !tbaa !32
-  %87 = getelementptr inbounds nuw %struct.poly_st, ptr %80, i64 %49
+  %87 = getelementptr inbounds nuw [1024 x i8], ptr %80, i64 %49
   store ptr %87, ptr %11, align 8, !tbaa !28
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %77, ptr %88, align 8, !tbaa !29
-  %89 = getelementptr inbounds nuw %struct.poly_st, ptr %87, i64 %77
+  %89 = getelementptr inbounds nuw [1024 x i8], ptr %87, i64 %77
   %90 = load ptr, ptr %40, align 8, !tbaa !3
   %91 = call i32 @ossl_ml_dsa_sig_decode(ptr noundef nonnull %12, ptr noundef %7, i64 noundef %8, ptr noundef %90) #5
   %.not.i = icmp eq i32 %91, 0
@@ -1133,16 +1132,16 @@ shake_xof_2.exit.i:                               ; preds = %106
 
 120:                                              ; preds = %poly_scale_power2_round.exit.i.i, %.lr.ph.i.i
   %.01.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %128, %poly_scale_power2_round.exit.i.i ]
-  %121 = getelementptr inbounds nuw %struct.poly_st, ptr %119, i64 %.01.i.i
-  %122 = getelementptr inbounds nuw %struct.poly_st, ptr %89, i64 %.01.i.i
+  %121 = getelementptr inbounds nuw [1024 x i8], ptr %119, i64 %.01.i.i
+  %122 = getelementptr inbounds nuw [1024 x i8], ptr %89, i64 %.01.i.i
   br label %123
 
 123:                                              ; preds = %123, %120
   %indvars.iv.i.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next.i.i.i, %123 ]
-  %124 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i.i.i
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i.i.i
   %125 = load i32, ptr %124, align 4, !tbaa !39
   %126 = shl i32 %125, 13
-  %127 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i.i.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i.i.i
   store i32 %126, ptr %127, align 4, !tbaa !39
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
@@ -1159,7 +1158,7 @@ poly_scale_power2_round.exit.i.i:                 ; preds = %123
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph.i.i.i
   %.04.i.i.i = phi i64 [ %130, %.lr.ph.i.i.i ], [ 0, %._crit_edge.i.i ]
-  %129 = getelementptr inbounds nuw %struct.poly_st, ptr %89, i64 %.04.i.i.i
+  %129 = getelementptr inbounds nuw [1024 x i8], ptr %89, i64 %.04.i.i.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %129) #5
   %130 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond2.not.i.i = icmp eq i64 %130, %77
@@ -1167,7 +1166,7 @@ poly_scale_power2_round.exit.i.i:                 ; preds = %123
 
 .lr.ph.i109.i:                                    ; preds = %.lr.ph.i.i.i, %.lr.ph.i109.i
   %.07.i.i = phi i64 [ %132, %.lr.ph.i109.i ], [ 0, %.lr.ph.i.i.i ]
-  %131 = getelementptr inbounds nuw %struct.poly_st, ptr %89, i64 %.07.i.i
+  %131 = getelementptr inbounds nuw [1024 x i8], ptr %89, i64 %.07.i.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %131, ptr noundef nonnull %75, ptr noundef nonnull %131) #5
   %132 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i = icmp eq i64 %132, %77
@@ -1182,13 +1181,13 @@ vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i109.i, %._c
 .lr.ph.i112.i:                                    ; preds = %vector_mult_scalar.exit.i, %poly_max.exit.i.i
   %.04.i.i = phi i64 [ %157, %poly_max.exit.i.i ], [ 0, %vector_mult_scalar.exit.i ]
   %.023.i.i = phi i32 [ %156, %poly_max.exit.i.i ], [ 0, %vector_mult_scalar.exit.i ]
-  %133 = getelementptr inbounds nuw %struct.poly_st, ptr %.val102.i, i64 %.04.i.i
+  %133 = getelementptr inbounds nuw [1024 x i8], ptr %.val102.i, i64 %.04.i.i
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.i112.i
   %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i112.i ], [ %156, %134 ]
   %indvars.iv.i.i113.i = phi i64 [ 0, %.lr.ph.i112.i ], [ %indvars.iv.next.i.i114.i, %134 ]
-  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i.i113.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i.i113.i
   %136 = load i32, ptr %135, align 4, !tbaa !39
   %137 = sub i32 4190208, %136
   %138 = or i32 %137, %136
@@ -1224,7 +1223,7 @@ poly_max.exit.i.i:                                ; preds = %134
 .lr.ph.i119.i:                                    ; preds = %poly_max.exit.i.i, %.lr.ph.i119.i
   %.04.i120.i = phi i64 [ %160, %.lr.ph.i119.i ], [ 0, %poly_max.exit.i.i ]
   %158 = load ptr, ptr %12, align 8, !tbaa !28
-  %159 = getelementptr inbounds nuw %struct.poly_st, ptr %158, i64 %.04.i120.i
+  %159 = getelementptr inbounds nuw [1024 x i8], ptr %158, i64 %.04.i120.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef %159) #5
   %160 = add nuw i64 %.04.i120.i, 1
   %161 = load i64, ptr %82, align 8, !tbaa !29
@@ -1241,15 +1240,15 @@ vector_ntt.exit.i:                                ; preds = %.lr.ph.i119.i, %vec
 
 .lr.ph.i123.i:                                    ; preds = %vector_ntt.exit.i, %poly_sub.exit.i.i
   %.05.i.i = phi i64 [ %181, %poly_sub.exit.i.i ], [ 0, %vector_ntt.exit.i ]
-  %163 = getelementptr inbounds nuw %struct.poly_st, ptr %.val.i, i64 %.05.i.i
-  %164 = getelementptr inbounds nuw %struct.poly_st, ptr %89, i64 %.05.i.i
+  %163 = getelementptr inbounds nuw [1024 x i8], ptr %.val.i, i64 %.05.i.i
+  %164 = getelementptr inbounds nuw [1024 x i8], ptr %89, i64 %.05.i.i
   br label %165
 
 165:                                              ; preds = %165, %.lr.ph.i123.i
   %indvars.iv.i.i124.i = phi i64 [ 0, %.lr.ph.i123.i ], [ %indvars.iv.next.i.i125.i, %165 ]
-  %166 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv.i.i124.i
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv.i.i124.i
   %167 = load i32, ptr %166, align 4, !tbaa !39
-  %168 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv.i.i124.i
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv.i.i124.i
   %169 = load i32, ptr %168, align 4, !tbaa !39
   %170 = add i32 %167, 8380417
   %171 = sub i32 %170, %169
@@ -1276,7 +1275,7 @@ poly_sub.exit.i.i:                                ; preds = %165
 .lr.ph.i130.i:                                    ; preds = %poly_sub.exit.i.i, %.lr.ph.i130.i
   %.04.i131.i = phi i64 [ %184, %.lr.ph.i130.i ], [ 0, %poly_sub.exit.i.i ]
   %182 = load ptr, ptr %11, align 8, !tbaa !28
-  %183 = getelementptr inbounds nuw %struct.poly_st, ptr %182, i64 %.04.i131.i
+  %183 = getelementptr inbounds nuw [1024 x i8], ptr %182, i64 %.04.i131.i
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef %183) #5
   %184 = add nuw i64 %.04.i131.i, 1
   %185 = load i64, ptr %88, align 8, !tbaa !29
@@ -1290,16 +1289,16 @@ vector_ntt_inverse.exit.i:                        ; preds = %.lr.ph.i130.i
 .lr.ph.i134.i:                                    ; preds = %vector_ntt_inverse.exit.i, %poly_use_hint.exit.i.i
   %.09.i.i = phi i64 [ %197, %poly_use_hint.exit.i.i ], [ 0, %vector_ntt_inverse.exit.i ]
   %187 = load ptr, ptr %83, align 8, !tbaa !28
-  %188 = getelementptr inbounds nuw %struct.poly_st, ptr %187, i64 %.09.i.i
+  %188 = getelementptr inbounds nuw [1024 x i8], ptr %187, i64 %.09.i.i
   %189 = load ptr, ptr %11, align 8, !tbaa !28
-  %190 = getelementptr inbounds nuw %struct.poly_st, ptr %189, i64 %.09.i.i
+  %190 = getelementptr inbounds nuw [1024 x i8], ptr %189, i64 %.09.i.i
   br label %191
 
 191:                                              ; preds = %191, %.lr.ph.i134.i
   %indvars.iv.i.i135.i = phi i64 [ 0, %.lr.ph.i134.i ], [ %indvars.iv.next.i.i136.i, %191 ]
-  %192 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i.i135.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %indvars.iv.i.i135.i
   %193 = load i32, ptr %192, align 4, !tbaa !39
-  %194 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv.i.i135.i
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %indvars.iv.i.i135.i
   %195 = load i32, ptr %194, align 4, !tbaa !39
   %196 = call i32 @ossl_ml_dsa_key_compress_use_hint(i32 noundef %193, i32 noundef %195, i32 noundef %47) #5
   store i32 %196, ptr %194, align 4, !tbaa !39

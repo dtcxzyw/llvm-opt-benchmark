@@ -316,7 +316,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
 
 72:                                               ; preds = %.preheader71.i.i.i
   %73 = zext i8 %71 to i64
-  %74 = getelementptr i16, ptr %54, i64 %73
+  %74 = getelementptr [2 x i8], ptr %54, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 4
   %.not64.i.i.i = icmp eq i16 %76, 0
@@ -406,7 +406,7 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
 
 101:                                              ; preds = %.preheader.i.i.i
   %102 = zext i8 %100 to i64
-  %103 = getelementptr i16, ptr %54, i64 %102
+  %103 = getelementptr [2 x i8], ptr %54, i64 %102
   %104 = load i16, ptr %103, align 2
   %105 = and i16 %104, 4
   %.not66.i.i.i = icmp eq i16 %105, 0
@@ -440,12 +440,12 @@ COM_Parse.exit.i.i:                               ; preds = %95, %COM_Parse.exit
 
 111:                                              ; preds = %108
   %112 = sext i32 %109 to i64
-  %113 = getelementptr ptr, ptr @cmd_argv, i64 %112
+  %113 = getelementptr [8 x i8], ptr @cmd_argv, i64 %112
   store ptr %.0.i.i.i, ptr %113, align 8
   %114 = add i32 %.4.i.i, %.1.lcssa.i.i
-  %115 = getelementptr i32, ptr @cmd_argv_start, i64 %112
+  %115 = getelementptr [4 x i8], ptr @cmd_argv_start, i64 %112
   store i32 %114, ptr %115, align 4
-  %116 = getelementptr i32, ptr @cmd_argv_length, i64 %112
+  %116 = getelementptr [4 x i8], ptr @cmd_argv_length, i64 %112
   store i32 %.2.i.i, ptr %116, align 4
   %117 = add nsw i32 %109, 1
   store i32 %117, ptr @cmd_argc, align 4
@@ -837,7 +837,7 @@ Cmd_Argv.exit189.thread.thread.i:                 ; preds = %Cmd_Argv_length.exi
 
 Cmd_Argv.exit198.i:                               ; preds = %Cmd_Argv.exit189.thread.thread.i, %Cmd_Argv.exit198.i
   %indvars.iv323.i = phi i64 [ %indvars.iv.next324.i, %Cmd_Argv.exit198.i ], [ 2, %Cmd_Argv.exit189.thread.thread.i ]
-  %308 = getelementptr ptr, ptr @cmd_argv, i64 %indvars.iv323.i
+  %308 = getelementptr [8 x i8], ptr @cmd_argv, i64 %indvars.iv323.i
   %309 = load ptr, ptr %308, align 8
   %310 = call i64 @g_strlcat(ptr noundef nonnull %9, ptr noundef %309, i64 noundef 2049)
   %311 = call i64 @g_strlcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.78, i64 noundef 2049)
@@ -865,9 +865,9 @@ Cmd_Argv_start.exit201.i:                         ; preds = %._crit_edge.i, %._c
 319:                                              ; preds = %Cmd_Argv_start.exit201.i
   %320 = add nsw i32 %.lcssa272341.i, -1
   %321 = sext i32 %320 to i64
-  %322 = getelementptr i32, ptr @cmd_argv_start, i64 %321
+  %322 = getelementptr [4 x i8], ptr @cmd_argv_start, i64 %321
   %323 = load i32, ptr %322, align 4
-  %324 = getelementptr i32, ptr @cmd_argv_length, i64 %321
+  %324 = getelementptr [4 x i8], ptr @cmd_argv_length, i64 %321
   %325 = load i32, ptr %324, align 4
   %326 = add i32 %325, %323
   br label %Cmd_Argv_length.exit207.i

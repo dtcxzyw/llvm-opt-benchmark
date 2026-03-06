@@ -75,7 +75,7 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i:       ; preds = %4
 16:                                               ; preds = %.lr.ph, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread ]
   %.01319 = phi i8 [ 0, %.lr.ph ], [ %.1, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread ]
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
@@ -152,7 +152,7 @@ define hidden noundef range(i32 1, 6) i32 @_ZN16push_app_ite_cfg10reduce_appEP9f
 
 .lr.ph.i:                                         ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -183,7 +183,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.thread.i:   ; preds = %_ZNK11ast_manager6i
   br i1 %exitcond.not.i, label %_ZL11has_ite_argR11ast_managerjPKP4expr.exit.thread, label %.lr.ph.i, !llvm.loop !34
 
 _ZL11has_ite_argR11ast_managerjPKP4expr.exit:     ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
-  %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %32 = and i64 %indvars.iv.i, 2147483648
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %33, label %_ZL11has_ite_argR11ast_managerjPKP4expr.exit.thread
@@ -462,7 +462,7 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %4
 16:                                               ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i ]
   %.01319.i = phi i8 [ 0, %.lr.ph.i ], [ %.1.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
@@ -518,7 +518,7 @@ _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit: ; preds = %_ZNK11ast_
 
 .lr.ph:                                           ; preds = %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ]
-  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4

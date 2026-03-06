@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %.06980 = phi i64 [ 0, %.lr.ph ], [ %56, %33 ]
   %.07079 = phi i64 [ 0, %.lr.ph ], [ %49, %33 ]
   %34 = sub i64 %.06682, %23
-  %35 = getelementptr inbounds nuw i64, ptr %.067., i64 %.06881
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.067., i64 %.06881
   %36 = load i64, ptr %35, align 8, !tbaa !14
   %isneg = icmp slt i64 %34, 0
   %37 = select i1 %isneg, i64 %36, i64 0
@@ -156,12 +156,12 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %39 = icmp ult i64 %38, %.07079
   %40 = zext i1 %39 to i64
   %41 = sub i64 %.06682, %26
-  %42 = getelementptr inbounds nuw i64, ptr %20, i64 %.06980
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.06980
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %isneg78 = icmp slt i64 %41, 0
   %44 = select i1 %isneg78, i64 %43, i64 0
   %45 = add i64 %44, %38
-  %46 = getelementptr inbounds nuw i64, ptr %.067, i64 %.06682
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.067, i64 %.06682
   store i64 %45, ptr %46, align 8, !tbaa !14
   %47 = icmp ult i64 %45, %38
   %48 = zext i1 %47 to i64
@@ -186,10 +186,10 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
 
 62:                                               ; preds = %._crit_edge, %62
   %.183 = phi i64 [ 0, %._crit_edge ], [ %70, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %.067, i64 %.183
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.067, i64 %.183
   %64 = load i64, ptr %63, align 8, !tbaa !14
   %65 = and i64 %64, %60
-  %66 = getelementptr inbounds nuw i64, ptr %57, i64 %.183
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.183
   %67 = load i64, ptr %66, align 8, !tbaa !14
   %68 = and i64 %67, %61
   %69 = or i64 %68, %65
@@ -329,18 +329,18 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
   %.087103 = phi i64 [ 0, %.lr.ph ], [ %.188, %27 ]
   %.089102 = phi i64 [ 0, %.lr.ph ], [ %47, %27 ]
   %29 = sub i64 %.083105, %17
-  %30 = getelementptr inbounds nuw i64, ptr %., i64 %.084104
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %., i64 %.084104
   %31 = load i64, ptr %30, align 8, !tbaa !14
   %isneg = icmp slt i64 %29, 0
   %32 = select i1 %isneg, i64 %31, i64 0
   %33 = sub i64 %.083105, %20
-  %34 = getelementptr inbounds nuw i64, ptr %14, i64 %.089102
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.089102
   %35 = load i64, ptr %34, align 8, !tbaa !14
   %isneg98 = icmp slt i64 %33, 0
   %36 = select i1 %isneg98, i64 %35, i64 0
   %.neg101 = add i64 %32, %28
   %37 = sub i64 %.neg101, %36
-  %38 = getelementptr inbounds nuw i64, ptr %11, i64 %.083105
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.083105
   store i64 %37, ptr %38, align 8, !tbaa !14
   %.not99 = icmp eq i64 %32, %36
   %39 = icmp ult i64 %32, %36
@@ -364,13 +364,13 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
   %.1108 = phi i64 [ %62, %.lr.ph110 ], [ 0, %.lr.ph110.preheader ]
   %.085107 = phi i64 [ %61, %.lr.ph110 ], [ 0, %.lr.ph110.preheader ]
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.1108
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.1108
   %51 = load i64, ptr %50, align 8, !tbaa !14
   %52 = and i64 %51, %48
   %53 = add i64 %52, %.085107
   %54 = icmp ult i64 %53, %.085107
   %55 = zext i1 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %11, i64 %.1108
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.1108
   %57 = load i64, ptr %56, align 8, !tbaa !14
   %58 = add i64 %53, %57
   store i64 %58, ptr %56, align 8, !tbaa !14
@@ -388,13 +388,13 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
   %.2114 = phi i64 [ %75, %.lr.ph116 ], [ 0, %.lr.ph116.preheader ]
   %.186113 = phi i64 [ %74, %.lr.ph116 ], [ 0, %.lr.ph116.preheader ]
-  %63 = getelementptr inbounds nuw i64, ptr %49, i64 %.2114
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.2114
   %64 = load i64, ptr %63, align 8, !tbaa !14
   %65 = and i64 %64, %.neg
   %66 = add i64 %65, %.186113
   %67 = icmp ult i64 %66, %.186113
   %68 = zext i1 %67 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %11, i64 %.2114
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.2114
   %70 = load i64, ptr %69, align 8, !tbaa !14
   %71 = add i64 %66, %70
   store i64 %71, ptr %69, align 8, !tbaa !14

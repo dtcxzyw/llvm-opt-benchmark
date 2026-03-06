@@ -3,8 +3,6 @@ source_filename = "bench/recastnavigation/original/DetourProximityGrid.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.dtProximityGrid::Item" = type { i16, i16, i16, i16 }
-
 $__clang_call_terminate = comdat any
 
 @.str = private unnamed_addr constant [13 x i8] c"poolSize > 0\00", align 1
@@ -280,7 +278,7 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr noundef nonnull align 8 capt
   %57 = load ptr, ptr %36, align 8
   %.mask = and i32 %46, 65535
   %58 = zext nneg i32 %.mask to i64
-  %59 = getelementptr inbounds nuw %"struct.dtProximityGrid::Item", ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = trunc i32 %.02932 to i16
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 2
   store i16 %60, ptr %61, align 2
@@ -289,12 +287,12 @@ define void @_ZN15dtProximityGrid7addItemEtffff(ptr noundef nonnull align 8 capt
   store i16 %1, ptr %59, align 2
   %63 = load ptr, ptr %37, align 8
   %64 = sext i32 %54 to i64
-  %65 = getelementptr inbounds i16, ptr %63, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 %66, ptr %67, align 2
   %68 = load ptr, ptr %37, align 8
-  %69 = getelementptr inbounds i16, ptr %68, i64 %64
+  %69 = getelementptr inbounds [2 x i8], ptr %68, i64 %64
   store i16 %55, ptr %69, align 2
   br label %70
 
@@ -354,7 +352,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
   %31 = and i32 %30, %29
   %32 = load ptr, ptr %23, align 8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %32, i64 %33
   %.04257 = load i16, ptr %34, align 2
   %.not4758 = icmp eq i16 %.04257, -1
   br i1 %.not4758, label %._crit_edge63, label %.lr.ph62
@@ -364,7 +362,7 @@ define noundef i32 @_ZNK15dtProximityGrid10queryItemsEffffPti(ptr noundef nonnul
   %.259 = phi i32 [ %.3, %.critedge ], [ %.166, %26 ]
   %35 = load ptr, ptr %24, align 8
   %36 = zext i16 %.04260 to i64
-  %37 = getelementptr inbounds nuw %"struct.dtProximityGrid::Item", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i32
@@ -445,7 +443,7 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr noundef nonnull
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %12, i64 %13
   %.01213 = load i16, ptr %14, align 2
   %.not14 = icmp eq i16 %.01213, -1
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -459,7 +457,7 @@ define noundef i32 @_ZNK15dtProximityGrid14getItemCountAtEii(ptr noundef nonnull
   %.01216 = phi i16 [ %.01213, %.lr.ph ], [ %.012, %30 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
   %18 = zext i16 %.01216 to i64
-  %19 = getelementptr inbounds nuw %"struct.dtProximityGrid::Item", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i32

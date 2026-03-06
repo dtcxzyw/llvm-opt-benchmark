@@ -3,22 +3,6 @@ source_filename = "bench/clamav/original/bytecode_api.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.cli_hashset = type { ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.bc_buffer = type { ptr, i32, i32, i32 }
-%struct.bc_inflate = type { %struct.z_stream_s, i32, i32, i8 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.bc_lzma = type { %struct.CLI_LZMA, i32, i32 }
-%struct.CLI_LZMA = type { %struct.CLzmaDec, [5 x i8], i32, i32, i32, i32, i64, ptr, ptr, i64, i64 }
-%struct.CLzmaDec = type { %struct._CLzmaProps, ptr, ptr, ptr, i32, i32, i64, i64, i32, i32, i32, [4 x i32], i32, i32, i32, i32, i32, [20 x i8] }
-%struct._CLzmaProps = type { i32, i32, i32, i32 }
-%struct.bc_bzip2 = type { %struct.bz_stream, i32, i32 }
-%struct.bz_stream = type { ptr, i32, i32, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.bc_jsnorm = type { ptr, i32 }
-%struct.cli_map = type { %struct.cli_hashtable, %union.anon.0, i32, i32, i32, i32, i32 }
-%struct.cli_hashtable = type { ptr, i64, i64, i64 }
-%union.anon.0 = type { ptr }
-
 @.str = private unnamed_addr constant [15 x i8] c"API misuse @93\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"bytecode: negative read size: %d\0A\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"API misuse @98\00", align 1
@@ -1243,7 +1227,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_get_pe_section(ptr noundef readonly captu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %12 = load ptr, ptr %11, align 8, !tbaa !73
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [36 x i8], ptr %12, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1, ptr noundef nonnull align 4 dereferenceable(36) %14, i64 36, i1 false)
   br label %15
 
@@ -1689,7 +1673,7 @@ define i32 @cli_bcapi_hashset_new(ptr noundef captures(none) %0) local_unnamed_a
   store ptr %9, ptr %5, align 8, !tbaa !104
   store i32 %4, ptr %2, align 4, !tbaa !103
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %14
   %16 = tail call i32 @cli_hashset_init(ptr noundef nonnull %15, i64 noundef 16, i8 noundef zeroext 80) #28
   br label %17
 
@@ -1727,7 +1711,7 @@ get_hashset.exit.thread:                          ; preds = %3, %5, %8
 
 get_hashset.exit:                                 ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.cli_hashset, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %13
   %15 = tail call i32 @cli_hashset_addkey(ptr noundef nonnull %14, i32 noundef %2) #28
   %16 = icmp ne i32 %15, 0
   %17 = sext i1 %16 to i32
@@ -1765,7 +1749,7 @@ get_hashset.exit.thread:                          ; preds = %3, %5, %8
 
 get_hashset.exit:                                 ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.cli_hashset, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %13
   %15 = tail call i32 @cli_hashset_removekey(ptr noundef nonnull %14, i32 noundef %2) #28
   %16 = icmp ne i32 %15, 0
   %17 = sext i1 %16 to i32
@@ -1803,7 +1787,7 @@ get_hashset.exit.thread:                          ; preds = %3, %5, %8
 
 get_hashset.exit:                                 ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.cli_hashset, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %13
   %15 = tail call zeroext i1 @cli_hashset_contains(ptr noundef nonnull %14, i32 noundef %2) #28
   %16 = zext i1 %15 to i32
   br label %17
@@ -1840,7 +1824,7 @@ get_hashset.exit.thread:                          ; preds = %2, %4, %7
 
 get_hashset.exit:                                 ; preds = %7
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !105
   %.not3 = icmp eq i32 %15, 0
@@ -1877,7 +1861,7 @@ get_hashset.exit.thread:                          ; preds = %2, %4, %7
 
 get_hashset.exit:                                 ; preds = %7
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %12
   tail call void @cli_hashset_destroy(ptr noundef nonnull %13) #28
   %14 = load i32, ptr %5, align 4, !tbaa !103
   %15 = add i32 %14, -1
@@ -1939,7 +1923,7 @@ define i32 @cli_bcapi_buffer_pipe_new(ptr noundef captures(none) %0, i32 noundef
   store ptr %13, ptr %9, align 8, !tbaa !107
   store i32 %5, ptr %3, align 8, !tbaa !106
   %16 = zext i32 %4 to i64
-  %17 = getelementptr inbounds nuw %struct.bc_buffer, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %16
   store ptr %7, ptr %17, align 8, !tbaa !108
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %1, ptr %18, align 8, !tbaa !110
@@ -1979,7 +1963,7 @@ define i32 @cli_bcapi_buffer_pipe_new_fromfile(ptr noundef captures(none) %0, i3
   store ptr %13, ptr %9, align 8, !tbaa !107
   store i32 %5, ptr %3, align 8, !tbaa !106
   %15 = zext i32 %4 to i64
-  %16 = getelementptr inbounds nuw %struct.bc_buffer, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %15
   store ptr null, ptr %16, align 8, !tbaa !108
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %17, align 8, !tbaa !110
@@ -2015,7 +1999,7 @@ get_buffer.exit.thread:                           ; preds = %2, %7
 
 get_buffer.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_buffer, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !108
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %18, label %13
@@ -2075,7 +2059,7 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit.i:                                ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !108
   %.not20.i = icmp eq ptr %13, null
   br i1 %.not20.i, label %14, label %cli_bcapi_buffer_pipe_read_avail.exit.thread28
@@ -2154,7 +2138,7 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit:                                  ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !108
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %24, label %14
@@ -2214,7 +2198,7 @@ get_buffer.exit.thread:                           ; preds = %2, %7
 
 get_buffer.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_buffer, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !108
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %18, label %13
@@ -2253,7 +2237,7 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit.i:                                ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !108
   %.not11.i = icmp eq ptr %13, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit.thread, label %cli_bcapi_buffer_pipe_write_avail.exit
@@ -2299,7 +2283,7 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit:                                  ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !108
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %20, label %14
@@ -2340,7 +2324,7 @@ get_buffer.exit.thread:                           ; preds = %2, %7
 
 get_buffer.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_buffer, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !108
   tail call void @free(ptr noundef %12) #28
   store ptr null, ptr %11, align 8, !tbaa !108
@@ -2394,7 +2378,7 @@ get_buffer.exit31:                                ; preds = %get_buffer.exit
   store ptr %20, ptr %16, align 8, !tbaa !114
   store i32 %7, ptr %5, align 4, !tbaa !113
   %22 = zext i32 %6 to i64
-  %23 = getelementptr inbounds nuw %struct.bc_inflate, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   store i32 %1, ptr %24, align 8, !tbaa !115
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 116
@@ -2455,7 +2439,7 @@ define i32 @cli_bcapi_inflate_process(ptr noundef readonly captures(none) %0, i3
 
 get_inflate.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_inflate, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load i32, ptr %12, align 8, !tbaa !115
   %14 = icmp eq i32 %13, -1
@@ -2489,7 +2473,7 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !108
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
@@ -2546,7 +2530,7 @@ get_buffer.exit.thread.i66:                       ; preds = %51, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %51
   %54 = zext nneg i32 %47 to i64
-  %55 = getelementptr inbounds nuw %struct.bc_buffer, ptr %46, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !108
   %.not20.i.i = icmp eq ptr %56, null
   br i1 %.not20.i.i, label %57, label %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i
@@ -2621,7 +2605,7 @@ get_buffer.exit.thread.i70:                       ; preds = %85, %cli_bcapi_buff
 
 get_buffer.exit.i72:                              ; preds = %85
   %88 = zext nneg i32 %81 to i64
-  %89 = getelementptr inbounds nuw %struct.bc_buffer, ptr %82, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !108
   %.not11.i = icmp eq ptr %90, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit, label %91
@@ -2657,7 +2641,7 @@ get_buffer.exit.thread.i76:                       ; preds = %101, %cli_bcapi_buf
 
 get_buffer.exit.i.i78:                            ; preds = %101
   %104 = zext nneg i32 %97 to i64
-  %105 = getelementptr inbounds nuw %struct.bc_buffer, ptr %96, i64 %104
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !108
   %.not11.i.i = icmp eq ptr %106, null
   br i1 %.not11.i.i, label %cli_bcapi_buffer_pipe_write_get.exit, label %cli_bcapi_buffer_pipe_write_avail.exit.i
@@ -2756,7 +2740,7 @@ get_buffer.exit.thread.i83:                       ; preds = %141, %134
 
 get_buffer.exit.i85:                              ; preds = %141
   %144 = zext nneg i32 %135 to i64
-  %145 = getelementptr inbounds nuw %struct.bc_buffer, ptr %138, i64 %144
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !108
   %.not26.i = icmp eq ptr %146, null
   br i1 %.not26.i, label %157, label %147
@@ -2812,7 +2796,7 @@ get_buffer.exit.thread.i88:                       ; preds = %167, %cli_bcapi_buf
 
 get_buffer.exit.i90:                              ; preds = %167
   %170 = zext nneg i32 %162 to i64
-  %171 = getelementptr inbounds nuw %struct.bc_buffer, ptr %161, i64 %170
+  %171 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !108
   %.not14.i = icmp eq ptr %172, null
   br i1 %.not14.i, label %cli_bcapi_buffer_pipe_write_stopped.exit, label %173
@@ -2875,7 +2859,7 @@ define i32 @cli_bcapi_inflate_done(ptr noundef readonly captures(none) %0, i32 n
 
 get_inflate.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_inflate, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load i32, ptr %12, align 8, !tbaa !115
   %14 = icmp eq i32 %13, -1
@@ -2942,7 +2926,7 @@ get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %1
 
 get_buffer.exit.i:                                ; preds = %get_buffer.exit
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw %struct.bc_buffer, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !108
   %.not20.i = icmp eq ptr %17, null
   br i1 %.not20.i, label %23, label %18
@@ -2998,7 +2982,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread76:   ; preds = %31, %cli_bcapi_buff
   store ptr %39, ptr %35, align 8, !tbaa !128
   store i32 %6, ptr %4, align 8, !tbaa !127
   %41 = zext i32 %5 to i64
-  %42 = getelementptr inbounds nuw %struct.bc_lzma, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [208 x i8], ptr %39, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 200
   store i32 %1, ptr %43, align 8, !tbaa !129
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 204
@@ -3021,7 +3005,7 @@ get_buffer.exit.thread.i53:                       ; preds = %49, %40
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 get_buffer.exit.i.i:                              ; preds = %49
-  %51 = getelementptr inbounds nuw %struct.bc_buffer, ptr %47, i64 %15
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %15
   %52 = load ptr, ptr %51, align 8, !tbaa !108
   %.not20.i.i = icmp eq ptr %52, null
   br i1 %.not20.i.i, label %53, label %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i
@@ -3102,7 +3086,7 @@ get_buffer.exit.thread.i58:                       ; preds = %86, %78
 
 get_buffer.exit.i60:                              ; preds = %86
   %88 = zext nneg i32 %79 to i64
-  %89 = getelementptr inbounds nuw %struct.bc_buffer, ptr %83, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !108
   %.not26.i = icmp eq ptr %90, null
   br i1 %.not26.i, label %101, label %91
@@ -3158,7 +3142,7 @@ get_buffer.exit.thread.i63:                       ; preds = %113, %105
 
 get_buffer.exit.i65:                              ; preds = %113
   %115 = zext nneg i32 %106 to i64
-  %116 = getelementptr inbounds nuw %struct.bc_buffer, ptr %110, i64 %115
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %110, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !108
   %.not26.i66 = icmp eq ptr %117, null
   br i1 %.not26.i66, label %128, label %118
@@ -3218,7 +3202,7 @@ define i32 @cli_bcapi_lzma_process(ptr noundef readonly captures(none) %0, i32 n
 
 get_lzma.exit:                                    ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_lzma, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i32, ptr %12, align 8, !tbaa !129
   %14 = icmp eq i32 %13, -1
@@ -3252,7 +3236,7 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !108
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
@@ -3310,7 +3294,7 @@ get_buffer.exit.thread.i49:                       ; preds = %52, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %52
   %55 = zext nneg i32 %47 to i64
-  %56 = getelementptr inbounds nuw %struct.bc_buffer, ptr %46, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !108
   %.not20.i.i = icmp eq ptr %57, null
   br i1 %.not20.i.i, label %58, label %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i
@@ -3385,7 +3369,7 @@ get_buffer.exit.thread.i53:                       ; preds = %86, %cli_bcapi_buff
 
 get_buffer.exit.i55:                              ; preds = %86
   %89 = zext nneg i32 %82 to i64
-  %90 = getelementptr inbounds nuw %struct.bc_buffer, ptr %83, i64 %89
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !108
   %.not11.i = icmp eq ptr %91, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit, label %92
@@ -3422,7 +3406,7 @@ get_buffer.exit.thread.i59:                       ; preds = %103, %cli_bcapi_buf
 
 get_buffer.exit.i.i61:                            ; preds = %103
   %106 = zext nneg i32 %98 to i64
-  %107 = getelementptr inbounds nuw %struct.bc_buffer, ptr %97, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !108
   %.not11.i.i = icmp eq ptr %108, null
   br i1 %.not11.i.i, label %cli_bcapi_buffer_pipe_write_get.exit, label %cli_bcapi_buffer_pipe_write_avail.exit.i
@@ -3487,7 +3471,7 @@ get_buffer.exit.thread.i66:                       ; preds = %132, %123
 
 get_buffer.exit.i68:                              ; preds = %132
   %135 = zext nneg i32 %125 to i64
-  %136 = getelementptr inbounds nuw %struct.bc_buffer, ptr %129, i64 %135
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !108
   %.not26.i = icmp eq ptr %137, null
   br i1 %.not26.i, label %148, label %138
@@ -3544,7 +3528,7 @@ get_buffer.exit.thread.i71:                       ; preds = %159, %cli_bcapi_buf
 
 get_buffer.exit.i73:                              ; preds = %159
   %162 = zext nneg i32 %153 to i64
-  %163 = getelementptr inbounds nuw %struct.bc_buffer, ptr %152, i64 %162
+  %163 = getelementptr inbounds nuw [24 x i8], ptr %152, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !108
   %.not14.i = icmp eq ptr %164, null
   br i1 %.not14.i, label %cli_bcapi_buffer_pipe_write_stopped.exit, label %165
@@ -3576,7 +3560,7 @@ cli_bcapi_buffer_pipe_write_stopped.exit:         ; preds = %get_buffer.exit.thr
   br i1 %.not8.i.i, label %cli_bcapi_lzma_done.exit, label %get_lzma.exit.i
 
 get_lzma.exit.i:                                  ; preds = %174
-  %176 = getelementptr inbounds nuw %struct.bc_lzma, ptr %175, i64 %10
+  %176 = getelementptr inbounds nuw [208 x i8], ptr %175, i64 %10
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 200
   %178 = load i32, ptr %177, align 8, !tbaa !129
   %179 = icmp eq i32 %178, -1
@@ -3620,7 +3604,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_lzma_done(ptr noundef readonly captures(n
 
 get_lzma.exit:                                    ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_lzma, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i32, ptr %12, align 8, !tbaa !129
   %14 = icmp eq i32 %13, -1
@@ -3688,7 +3672,7 @@ get_buffer.exit29:                                ; preds = %get_buffer.exit
   store ptr %19, ptr %15, align 8, !tbaa !140
   store i32 %6, ptr %4, align 4, !tbaa !139
   %21 = zext i32 %5 to i64
-  %22 = getelementptr inbounds nuw %struct.bc_bzip2, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store i32 %1, ptr %23, align 8, !tbaa !141
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 84
@@ -3744,7 +3728,7 @@ define i32 @cli_bcapi_bzip2_process(ptr noundef readonly captures(none) %0, i32 
 
 get_bzip2.exit:                                   ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_bzip2, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load i32, ptr %12, align 8, !tbaa !141
   %14 = icmp eq i32 %13, -1
@@ -3778,7 +3762,7 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !108
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
@@ -3835,7 +3819,7 @@ get_buffer.exit.thread.i46:                       ; preds = %51, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %51
   %54 = zext nneg i32 %47 to i64
-  %55 = getelementptr inbounds nuw %struct.bc_buffer, ptr %46, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !108
   %.not20.i.i = icmp eq ptr %56, null
   br i1 %.not20.i.i, label %57, label %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i
@@ -3910,7 +3894,7 @@ get_buffer.exit.thread.i50:                       ; preds = %85, %cli_bcapi_buff
 
 get_buffer.exit.i52:                              ; preds = %85
   %88 = zext nneg i32 %81 to i64
-  %89 = getelementptr inbounds nuw %struct.bc_buffer, ptr %82, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !108
   %.not11.i = icmp eq ptr %90, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit, label %91
@@ -3946,7 +3930,7 @@ get_buffer.exit.thread.i56:                       ; preds = %101, %cli_bcapi_buf
 
 get_buffer.exit.i.i58:                            ; preds = %101
   %104 = zext nneg i32 %97 to i64
-  %105 = getelementptr inbounds nuw %struct.bc_buffer, ptr %96, i64 %104
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !108
   %.not11.i.i = icmp eq ptr %106, null
   br i1 %.not11.i.i, label %cli_bcapi_buffer_pipe_write_get.exit, label %cli_bcapi_buffer_pipe_write_avail.exit.i
@@ -4010,7 +3994,7 @@ get_buffer.exit.thread.i63:                       ; preds = %129, %121
 
 get_buffer.exit.i65:                              ; preds = %129
   %132 = zext nneg i32 %123 to i64
-  %133 = getelementptr inbounds nuw %struct.bc_buffer, ptr %126, i64 %132
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !108
   %.not26.i = icmp eq ptr %134, null
   br i1 %.not26.i, label %145, label %135
@@ -4066,7 +4050,7 @@ get_buffer.exit.thread.i68:                       ; preds = %155, %cli_bcapi_buf
 
 get_buffer.exit.i70:                              ; preds = %155
   %158 = zext nneg i32 %150 to i64
-  %159 = getelementptr inbounds nuw %struct.bc_buffer, ptr %149, i64 %158
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !108
   %.not14.i = icmp eq ptr %160, null
   br i1 %.not14.i, label %cli_bcapi_buffer_pipe_write_stopped.exit, label %161
@@ -4122,7 +4106,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_bzip2_done(ptr noundef readonly captures(
 
 get_bzip2.exit:                                   ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_bzip2, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load i32, ptr %12, align 8, !tbaa !141
   %14 = icmp eq i32 %13, -1
@@ -4200,7 +4184,7 @@ get_buffer.exit:                                  ; preds = %10
   store ptr %19, ptr %15, align 8, !tbaa !150
   store i32 %5, ptr %3, align 8, !tbaa !149
   %22 = zext i32 %4 to i64
-  %23 = getelementptr inbounds nuw %struct.bc_jsnorm, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %1, ptr %24, align 8, !tbaa !151
   store ptr %13, ptr %23, align 8, !tbaa !154
@@ -4274,7 +4258,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_process(ptr noundef readonly captu
 
 get_jsnorm.exit:                                  ; preds = %9
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.bc_jsnorm, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !151
   %16 = icmp eq i32 %15, -1
@@ -4307,7 +4291,7 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %15 to i64
-  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !108
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
@@ -4362,7 +4346,7 @@ get_buffer.exit.thread.i35:                       ; preds = %50, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %50
   %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds nuw %struct.bc_buffer, ptr %46, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !108
   %.not20.i.i = icmp eq ptr %55, null
   br i1 %.not20.i.i, label %56, label %cli_bcapi_buffer_pipe_read_avail.exit.thread28.i
@@ -4450,7 +4434,7 @@ get_buffer.exit.thread.i39:                       ; preds = %92, %87
 
 get_buffer.exit.i41:                              ; preds = %92
   %94 = zext nneg i32 %88 to i64
-  %95 = getelementptr inbounds nuw %struct.bc_buffer, ptr %89, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !108
   %.not26.i = icmp eq ptr %96, null
   br i1 %.not26.i, label %107, label %97
@@ -4516,7 +4500,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_done(ptr noundef captures(none) %0
 
 get_jsnorm.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.bc_jsnorm, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !151
   %14 = icmp eq i32 %13, -1
@@ -4766,7 +4750,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr noundef readnone captures(none) 
   %.021 = phi ptr [ %1, %3 ], [ %17, %8 ]
   %9 = load i8, ptr %.021, align 1, !tbaa !42
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !159
   %13 = and i16 %12, 8192
   %14 = icmp ne i16 %13, 0
@@ -4793,7 +4777,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr noundef readnone captures(none) 
 
 26:                                               ; preds = %23
   %27 = zext i8 %24 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !159
   %30 = and i16 %29, 2048
   %.not = icmp eq i16 %30, 0
@@ -4883,7 +4867,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !42
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !57
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4, !tbaa !57
@@ -4894,7 +4878,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr
 16:                                               ; preds = %.preheader, %27
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %27 ]
   %.02026 = phi double [ 0.000000e+00, %.preheader ], [ %.121, %27 ]
-  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv29
   %18 = load i32, ptr %17, align 4, !tbaa !57
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %27, label %19
@@ -4947,7 +4931,7 @@ define i32 @cli_bcapi_map_new(ptr noundef captures(none) %0, i32 noundef %1, i32
   store ptr %12, ptr %8, align 8, !tbaa !163
   store i32 %6, ptr %4, align 8, !tbaa !162
   %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds nuw %struct.cli_map, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %14
   %16 = tail call i32 @cli_map_init(ptr noundef nonnull %15, i32 noundef %1, i32 noundef %2, i32 noundef 16) #28
   br label %17
 
@@ -4977,7 +4961,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_addkey(ptr noundef readonly captures(
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = tail call i32 @cli_map_addkey(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %switch.selectcmp = icmp ne i32 %14, 9
   %switch.select = sext i1 %switch.selectcmp to i32
@@ -5011,7 +4995,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_map_setvalue(ptr noundef readonly capture
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = tail call i32 @cli_map_setvalue(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %15 = icmp ne i32 %14, 0
   %16 = sext i1 %15 to i32
@@ -5043,7 +5027,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_remove(ptr noundef readonly captures(
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = tail call i32 @cli_map_removekey(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %switch.selectcmp = icmp ne i32 %14, 10
   %switch.select = sext i1 %switch.selectcmp to i32
@@ -5077,7 +5061,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_find(ptr noundef readonly captures(no
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = tail call i32 @cli_map_find(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %switch.selectcmp = icmp ne i32 %14, 16
   %switch.select = sext i1 %switch.selectcmp to i32
@@ -5111,7 +5095,7 @@ define i32 @cli_bcapi_map_getvaluesize(ptr noundef readonly captures(none) %0, i
 
 get_hashtab.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.cli_map, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %10
   %12 = tail call i32 @cli_map_getvalue_size(ptr noundef nonnull %11) #28
   br label %get_hashtab.exit.thread
 
@@ -5141,7 +5125,7 @@ define ptr @cli_bcapi_map_getvalue(ptr noundef readonly captures(none) %0, i32 n
 
 get_hashtab.exit:                                 ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.cli_map, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %11
   %13 = tail call i32 @cli_map_getvalue_size(ptr noundef nonnull %12) #28
   %.not7 = icmp eq i32 %13, %2
   br i1 %.not7, label %14, label %get_hashtab.exit.thread
@@ -5176,7 +5160,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_map_done(ptr noundef captures(none) %0, i
 
 get_hashtab.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw %struct.cli_map, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %10
   tail call void @cli_map_delete(ptr noundef nonnull %11) #28
   %12 = load i32, ptr %5, align 8, !tbaa !162
   %13 = add i32 %12, -1
@@ -5351,7 +5335,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !42
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !57
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %20, align 1, !tbaa !42
@@ -6010,7 +5994,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr noundef readnone capt
   %19 = tail call ptr @__ctype_b_loc() #30
   %20 = load ptr, ptr %19, align 8, !tbaa !158
   %21 = zext i8 %14 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !159
   %24 = and i16 %23, 2048
   %.not = icmp eq i16 %24, 0
@@ -6046,7 +6030,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr noundef readnone capt
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !42
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !159
   %39 = and i16 %38, 2048
   %.not61 = icmp eq i16 %39, 0
@@ -6057,7 +6041,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr noundef readnone capt
 
 40:                                               ; preds = %30
   %41 = zext i8 %.pre to i64
-  %42 = getelementptr inbounds nuw i16, ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !159
   %44 = and i16 %43, 2048
   %.not62 = icmp eq i16 %44, 0
@@ -6093,7 +6077,7 @@ split:                                            ; preds = %40, %30
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next115
   %55 = load i8, ptr %54, align 1, !tbaa !42
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %32, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !159
   %59 = and i16 %58, 2048
   %60 = icmp ne i16 %59, 0
@@ -6112,7 +6096,7 @@ split:                                            ; preds = %40, %30
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next119
   %68 = load i8, ptr %67, align 1, !tbaa !42
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %32, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !159
   %72 = and i16 %71, 2048
   %73 = icmp ne i16 %72, 0
@@ -6374,7 +6358,7 @@ define i32 @cli_bcapi_pdf_lookupobj(ptr noundef readonly captures(none) %0, i32 
 9:                                                ; preds = %.lr.ph, %16
   %.09 = phi i32 [ 0, %.lr.ph ], [ %17, %16 ]
   %10 = zext i32 %.09 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !193
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !195
@@ -6417,7 +6401,7 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr noundef readonly captures(none) %0, i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %16 = load ptr, ptr %15, align 8, !tbaa !192
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !193
   %20 = load i32, ptr %19, align 8, !tbaa !199
   %21 = sub i32 %14, %20
@@ -6427,11 +6411,11 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr noundef readonly captures(none) %0, i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %24 = load ptr, ptr %23, align 8, !tbaa !192
   %25 = sext i32 %10 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !193
   %28 = load i32, ptr %27, align 8, !tbaa !199
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds ptr, ptr %24, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %24, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !193
   %32 = load i32, ptr %31, align 8, !tbaa !199
   %33 = add i32 %28, -4
@@ -6469,7 +6453,7 @@ define ptr @cli_bcapi_pdf_getobj(ptr noundef readonly captures(none) %0, i32 nou
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %17 = load ptr, ptr %16, align 8, !tbaa !192
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !193
   %21 = load i32, ptr %20, align 8, !tbaa !199
   %22 = sub i32 %15, %21
@@ -6479,11 +6463,11 @@ define ptr @cli_bcapi_pdf_getobj(ptr noundef readonly captures(none) %0, i32 nou
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %25 = load ptr, ptr %24, align 8, !tbaa !192
   %26 = sext i32 %11 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !193
   %29 = load i32, ptr %28, align 8, !tbaa !199
   %30 = sext i32 %1 to i64
-  %31 = getelementptr inbounds ptr, ptr %25, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %25, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !193
   %33 = load i32, ptr %32, align 8, !tbaa !199
   %34 = add i32 %29, -4
@@ -6501,7 +6485,7 @@ cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %41 = load ptr, ptr %40, align 8, !tbaa !192
   %42 = sext i32 %1 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !193
   %45 = load i32, ptr %44, align 8, !tbaa !199
   %46 = zext i32 %45 to i64
@@ -6533,7 +6517,7 @@ define i32 @cli_bcapi_pdf_getobjid(ptr noundef readonly captures(none) %0, i32 n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %10 = load ptr, ptr %9, align 8, !tbaa !192
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !193
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !195
@@ -6561,7 +6545,7 @@ define i32 @cli_bcapi_pdf_getobjflags(ptr noundef readonly captures(none) %0, i3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %10 = load ptr, ptr %9, align 8, !tbaa !192
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !193
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !200
@@ -6589,13 +6573,13 @@ define range(i32 -1, 1) i32 @cli_bcapi_pdf_setobjflags(ptr noundef readonly capt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %11 = load ptr, ptr %10, align 8, !tbaa !192
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !193
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !200
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.121, i32 noundef %16, i32 noundef %2) #28
   %17 = load ptr, ptr %10, align 8, !tbaa !192
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %12
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %12
   %19 = load ptr, ptr %18, align 8, !tbaa !193
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %2, ptr %20, align 4, !tbaa !200
@@ -6625,7 +6609,7 @@ define i32 @cli_bcapi_pdf_get_offset(ptr noundef readonly captures(none) %0, i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %12 = load ptr, ptr %11, align 8, !tbaa !192
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !193
   %16 = load i32, ptr %15, align 8, !tbaa !199
   %17 = add i32 %16, %10
@@ -6760,7 +6744,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %16
 30:                                               ; preds = %26
   %31 = add i32 %21, 1
   %32 = zext nneg i32 %3 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %22, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !209
   store ptr %34, ptr %5, align 8, !tbaa !209
   %.not45 = icmp eq ptr %34, null
@@ -6805,7 +6789,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %16
   store i32 %31, ptr %11, align 8, !tbaa !207
   %53 = load ptr, ptr %5, align 8, !tbaa !209
   %54 = zext i32 %21 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %54
   store ptr %53, ptr %55, align 8, !tbaa !209
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.124, ptr noundef nonnull %38, i32 noundef %21) #28
   call void @free(ptr noundef nonnull %38) #28
@@ -6873,7 +6857,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 22:                                               ; preds = %._crit_edge
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !209
   %26 = tail call i32 @json_object_get_type(ptr noundef %25) #28
   %27 = icmp ult i32 %26, 7
@@ -6939,7 +6923,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 22:                                               ; preds = %._crit_edge
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !209
   %26 = tail call i32 @json_object_get_type(ptr noundef %25) #28
   %.not15 = icmp eq i32 %26, 5
@@ -7008,7 +6992,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
 
 24:                                               ; preds = %._crit_edge
   %25 = zext nneg i32 %2 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !209
   %.not41 = icmp eq ptr %27, null
   br i1 %.not41, label %50, label %28
@@ -7051,7 +7035,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
   store ptr %43, ptr %21, align 8, !tbaa !208
   store i32 %37, ptr %9, align 8, !tbaa !207
   %48 = zext i32 %36 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %48
   store ptr %39, ptr %49, align 8, !tbaa !209
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, i32 noundef %1, i32 noundef %36) #28
   br label %50
@@ -7112,7 +7096,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 22:                                               ; preds = %._crit_edge
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !209
   %.not19 = icmp eq ptr %25, null
   br i1 %.not19, label %32, label %26
@@ -7184,7 +7168,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %15
 
 24:                                               ; preds = %._crit_edge
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !209
   %.not34 = icmp eq ptr %27, null
   br i1 %.not34, label %43, label %28
@@ -7272,7 +7256,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 22:                                               ; preds = %._crit_edge
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !209
   %26 = tail call i32 @json_object_get_boolean(ptr noundef %25) #28
   br label %27
@@ -7333,7 +7317,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 22:                                               ; preds = %._crit_edge
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !209
   %26 = tail call i32 @json_object_get_int(ptr noundef %25) #28
   br label %27

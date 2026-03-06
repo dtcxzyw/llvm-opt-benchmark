@@ -405,7 +405,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
 68:                                               ; preds = %._crit_edge.i, %56
   %69 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %57, %56 ]
   %70 = load ptr, ptr %32, align 8, !alias.scope !76, !noalias !79, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %70, i64 %69
+  %71 = getelementptr inbounds [24 x i8], ptr %70, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %72 = load i64, ptr %33, align 8, !alias.scope !76, !noalias !79, !noundef !5
   %73 = add i64 %72, 1
@@ -508,7 +508,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
 100:                                              ; preds = %._crit_edge.i121, %88
   %101 = phi i64 [ %.pre.i122, %._crit_edge.i121 ], [ %89, %88 ]
   %102 = load ptr, ptr %30, align 8, !alias.scope !106, !noalias !109, !nonnull !5, !noundef !5
-  %103 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %102, i64 %101
+  %103 = getelementptr inbounds [24 x i8], ptr %102, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %104 = load i64, ptr %31, align 8, !alias.scope !106, !noalias !109, !noundef !5
   %105 = add i64 %104, 1
@@ -726,7 +726,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
 167:                                              ; preds = %.noexc132, %152
   %168 = phi i64 [ %157, %152 ], [ %.pre.i131, %.noexc132 ]
   %169 = load ptr, ptr %32, align 8, !alias.scope !158, !noalias !161, !nonnull !5, !noundef !5
-  %170 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %169, i64 %168
+  %170 = getelementptr inbounds [24 x i8], ptr %169, i64 %168
   %171 = mul i64 %156, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %155, i64 %171, i1 false), !noalias !161
   %172 = load i64, ptr %33, align 8, !alias.scope !158, !noalias !161, !noundef !5
@@ -754,7 +754,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h6488ea98ac4683
 181:                                              ; preds = %.noexc134, %167
   %182 = phi i64 [ %176, %167 ], [ %.pre.i133, %.noexc134 ]
   %183 = load ptr, ptr %30, align 8, !alias.scope !166, !noalias !169, !nonnull !5, !noundef !5
-  %184 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %183, i64 %182
+  %184 = getelementptr inbounds [24 x i8], ptr %183, i64 %182
   %185 = mul i64 %175, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %184, ptr nonnull align 8 %174, i64 %185, i1 false), !noalias !169
   %186 = load i64, ptr %31, align 8, !alias.scope !166, !noalias !169, !noundef !5
@@ -1531,7 +1531,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %380, %201, %194
 240:                                              ; preds = %._crit_edge.i.i.i, %228
   %241 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %229, %228 ]
   %242 = load ptr, ptr %207, align 8, !alias.scope !319, !noalias !322, !nonnull !5, !noundef !5
-  %243 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %242, i64 %241
+  %243 = getelementptr inbounds [24 x i8], ptr %242, i64 %241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %243, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !noalias !306
   %244 = load i64, ptr %208, align 8, !alias.scope !319, !noalias !322, !noundef !5
   %245 = add i64 %244, 1
@@ -1599,7 +1599,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %380, %201, %194
 262:                                              ; preds = %._crit_edge.i121.i.i, %250
   %263 = phi i64 [ %.pre.i122.i.i, %._crit_edge.i121.i.i ], [ %251, %250 ]
   %264 = load ptr, ptr %205, align 8, !alias.scope !338, !noalias !341, !nonnull !5, !noundef !5
-  %265 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %264, i64 %263
+  %265 = getelementptr inbounds [24 x i8], ptr %264, i64 %263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %265, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !noalias !306
   %266 = load i64, ptr %206, align 8, !alias.scope !338, !noalias !341, !noundef !5
   %267 = add i64 %266, 1
@@ -1820,7 +1820,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %380, %201, %194
 328:                                              ; preds = %.noexc134.i.i, %314
   %329 = phi i64 [ %319, %314 ], [ %.pre.i133.i.i, %.noexc134.i.i ]
   %330 = load ptr, ptr %207, align 8, !alias.scope !398, !noalias !407, !nonnull !5, !noundef !5
-  %331 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %330, i64 %329
+  %331 = getelementptr inbounds [24 x i8], ptr %330, i64 %329
   %332 = mul i64 %318, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %331, ptr nonnull align 8 %317, i64 %332, i1 false), !noalias !408
   %333 = load i64, ptr %208, align 8, !alias.scope !398, !noalias !407, !noundef !5
@@ -1848,7 +1848,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %380, %201, %194
 342:                                              ; preds = %.noexc136.i.i, %328
   %343 = phi i64 [ %337, %328 ], [ %.pre.i135.i.i, %.noexc136.i.i ]
   %344 = load ptr, ptr %205, align 8, !alias.scope !409, !noalias !418, !nonnull !5, !noundef !5
-  %345 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %344, i64 %343
+  %345 = getelementptr inbounds [24 x i8], ptr %344, i64 %343
   %346 = mul i64 %336, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %345, ptr nonnull align 8 %335, i64 %346, i1 false), !noalias !419
   %347 = load i64, ptr %206, align 8, !alias.scope !409, !noalias !418, !noundef !5

@@ -17,12 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.9" = type { ptr }
 %"class.draco::MetadataDecoder" = type { ptr }
 %"struct.draco::DracoHeader" = type { [5 x i8], i8, i8, i8, i8, i16 }
-%"class.std::unique_ptr.39" = type { %"struct.std::__uniq_ptr_data.40" }
-%"struct.std::__uniq_ptr_data.40" = type { %"class.std::__uniq_ptr_impl.41" }
-%"class.std::__uniq_ptr_impl.41" = type { %"class.std::tuple.42" }
-%"class.std::tuple.42" = type { %"struct.std::_Tuple_impl.43" }
-%"struct.std::_Tuple_impl.43" = type { %"struct.std::_Head_base.46" }
-%"struct.std::_Head_base.46" = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -2068,7 +2062,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.critedge40
   %indvars.iv = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next, %.critedge40 ]
   %35 = load ptr, ptr %19, align 8, !tbaa !77
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !74
   %38 = load ptr, ptr %2, align 8, !tbaa !56
   %39 = load ptr, ptr %37, align 8, !tbaa !3
@@ -2087,7 +2081,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
 47:                                               ; preds = %.lr.ph66, %.critedge42
   %indvars.iv73 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next74, %.critedge42 ]
   %48 = load ptr, ptr %19, align 8, !tbaa !77
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %48, i64 %indvars.iv73
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv73
   %50 = load ptr, ptr %49, align 8, !tbaa !74
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
@@ -2108,7 +2102,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %.02963 = phi i32 [ %84, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ 0, %.lr.ph64.preheader ]
   %57 = load ptr, ptr %19, align 8, !tbaa !77
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %57, i64 %indvars.iv73
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv73
   %59 = load ptr, ptr %58, align 8, !tbaa !74
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -2141,7 +2135,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
   br i1 %78, label %79, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds nuw i32, ptr %66, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %73
   %.not.i.i = icmp eq ptr %65, %80
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %81
 
@@ -2151,7 +2145,7 @@ _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %1
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %81, %79, %77, %75, %.lr.ph64
   %82 = phi ptr [ %66, %81 ], [ %66, %79 ], [ %66, %77 ], [ %.pre, %75 ], [ %66, %.lr.ph64 ]
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %64
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %64
   store i32 %56, ptr %83, align 4, !tbaa !81
   %84 = add nuw nsw i32 %.02963, 1
   %exitcond72.not = icmp eq i32 %84, %54
@@ -2224,12 +2218,12 @@ define noundef ptr @_ZN5draco17PointCloudDecoder20GetPortableAttributeEi(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = zext nneg i32 %1 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !80
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = sext i32 %21 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !77
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.39", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !74
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
@@ -2640,9 +2634,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !80
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !79
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !88
   br label %41
 

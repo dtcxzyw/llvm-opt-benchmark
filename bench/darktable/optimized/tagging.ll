@@ -475,7 +475,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 .lr.ph:                                           ; preds = %.preheader165, %85
   %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ 0, %.preheader165 ]
   %80 = phi ptr [ %87, %85 ], [ %79, %.preheader165 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.0130184, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.0130184, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   %.not157 = icmp eq ptr %82, null
   br i1 %.not157, label %.critedge.loopexit, label %83
@@ -487,7 +487,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 
 85:                                               ; preds = %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.next
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.next
   %87 = load ptr, ptr %86, align 8, !tbaa !31
   %.not156 = icmp eq ptr %87, null
   br i1 %.not156, label %.critedge.loopexit, label %.lr.ph
@@ -528,20 +528,20 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 ._crit_edge:                                      ; preds = %.lr.ph175, %.loopexit164, %.loopexit164.thread
   %.0124222 = phi i32 [ 0, %.loopexit164 ], [ 0, %.loopexit164.thread ], [ %.1125.lcssa, %.lr.ph175 ]
   %.pre-phi205 = phi i64 [ 0, %.loopexit164 ], [ 0, %.loopexit164.thread ], [ %wide.trip.count, %.lr.ph175 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi205
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.pre-phi205
   %95 = load ptr, ptr %94, align 8, !tbaa !31
   %.not159176 = icmp eq ptr %95, null
   br i1 %.not159176, label %._crit_edge181, label %.lr.ph180
 
 .lr.ph180:                                        ; preds = %._crit_edge
   %96 = sext i32 %78 to i64
-  %97 = getelementptr ptr, ptr %76, i64 %96
+  %97 = getelementptr [8 x i8], ptr %76, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -8
   br label %102
 
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %.lr.ph175
   %indvars.iv194 = phi i64 [ 0, %.lr.ph175.preheader ], [ %indvars.iv.next195, %.lr.ph175 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv194
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv194
   %100 = load ptr, ptr %99, align 8, !tbaa !31
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef %100) #16
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
@@ -3293,7 +3293,7 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04964 = phi ptr [ null, %.lr.ph.preheader ], [ %66, %.lr.ph ]
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !46
   %64 = sext i32 %63 to i64
   %65 = inttoptr i64 %64 to ptr

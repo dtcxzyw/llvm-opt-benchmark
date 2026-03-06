@@ -3056,7 +3056,7 @@ _ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: 
 _ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %40, ptr %4, align 8, !tbaa !165
   store ptr %44, ptr %5, align 8, !tbaa !175
-  %46 = getelementptr inbounds nuw %"class.ZXing::ImageView", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %38
   store ptr %46, ptr %22, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE9push_backERKS1_.exit
 
@@ -3260,7 +3260,7 @@ _ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: 
 _ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %40, ptr %4, align 8, !tbaa !165
   store ptr %44, ptr %5, align 8, !tbaa !175
-  %46 = getelementptr inbounds nuw %"class.ZXing::ImageView", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %38
   store ptr %46, ptr %22, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE9push_backERKS1_.exit
 
@@ -3466,7 +3466,7 @@ _ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: 
 _ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %40, ptr %4, align 8, !tbaa !165
   store ptr %44, ptr %5, align 8, !tbaa !175
-  %46 = getelementptr inbounds nuw %"class.ZXing::ImageView", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %38
   store ptr %46, ptr %22, align 8, !tbaa !167
   br label %_ZNSt6vectorIN5ZXing9ImageViewESaIS1_EE9push_backERKS1_.exit
 
@@ -3658,7 +3658,7 @@ _ZNSt6vectorIN5ZXing8LumImageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; pre
 _ZNSt12_Vector_baseIN5ZXing8LumImageESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5ZXing8LumImageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %38
   store ptr %23, ptr %0, align 8, !tbaa !168
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !171
-  %42 = getelementptr inbounds nuw %"class.ZXing::LumImage", ptr %23, i64 %17
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %42, ptr %37, align 8, !tbaa !173
   ret void
 
@@ -4173,7 +4173,7 @@ _ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30: ; preds
 _ZNSt12_Vector_baseIN5ZXing6ResultESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, %199
   store ptr %20, ptr %0, align 8, !tbaa !133
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !136
-  %203 = getelementptr inbounds nuw %"class.ZXing::Result", ptr %20, i64 %16
+  %203 = getelementptr inbounds nuw [216 x i8], ptr %20, i64 %16
   store ptr %203, ptr %198, align 8, !tbaa !135
   ret void
 }
@@ -4364,7 +4364,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i: ; preds = %60, %_ZN
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i: ; preds = %62, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i
   store ptr %57, ptr %3, align 8, !tbaa !244
   store ptr %61, ptr %27, align 8, !tbaa !247
-  %63 = getelementptr inbounds nuw i16, ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %55
   store ptr %63, ptr %41, align 8, !tbaa !248
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit
 
@@ -4452,7 +4452,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i38: ; preds = %103, %
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i40: ; preds = %105, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i38
   store ptr %100, ptr %3, align 8, !tbaa !244
   store ptr %104, ptr %27, align 8, !tbaa !247
-  %106 = getelementptr inbounds nuw i16, ptr %100, i64 %98
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %98
   store ptr %106, ptr %33, align 8, !tbaa !248
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit41
 
@@ -4518,7 +4518,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i46: ; preds = %128, %
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i48: ; preds = %130, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i46
   store ptr %125, ptr %3, align 8, !tbaa !244
   store ptr %129, ptr %27, align 8, !tbaa !247
-  %131 = getelementptr inbounds nuw i16, ptr %125, i64 %123
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %123
   store ptr %131, ptr %41, align 8, !tbaa !248
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit49
 

@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct.minfo = type { i16, i32, i8 }
 
 @proto_register_mpa.hf = internal global [19 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_mpa_req, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_rep, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_fpdu, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_marker, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_key_req, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_key_rep, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_flag_m, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_flag_c, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_flag_r, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_flag_res, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_rev, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_pd_length, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_private_data, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_ulpdu_length, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_pad, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_crc, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_crc_check, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_marker_res, %struct._header_field_info { ptr @.str.18, ptr @.str.34, i32 5, i32 2, ptr null, i64 0, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mpa_marker_fpduptr, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_mpa_req = internal global i32 0, align 4
@@ -398,7 +397,7 @@ define internal range(i32 0, 33619977) i32 @iwrap_mpa_pdu_length(ptr noundef %0,
 10:                                               ; preds = %8
   %11 = load i8, ptr %5, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr %struct.minfo, ptr %9, i64 %12
+  %13 = getelementptr [12 x i8], ptr %9, i64 %12
   %14 = getelementptr i8, ptr %13, i64 24
   %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
@@ -481,7 +480,7 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
 10:                                               ; preds = %8
   %11 = load i8, ptr %5, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr %struct.minfo, ptr %9, i64 %12
+  %13 = getelementptr [12 x i8], ptr %9, i64 %12
   %14 = getelementptr i8, ptr %13, i64 24
   %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
@@ -965,7 +964,7 @@ get_mpa_state.exit:                               ; preds = %22, %24
 
 47:                                               ; preds = %39, %43
   %48 = zext nneg i8 %storemerge to i64
-  %49 = getelementptr %struct.minfo, ptr %29, i64 %48
+  %49 = getelementptr [12 x i8], ptr %29, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 4, !range !6, !noundef !7
   %52 = trunc nuw i8 %51 to i1
@@ -977,7 +976,7 @@ get_mpa_state.exit:                               ; preds = %22, %24
   store i32 %54, ptr %55, align 4
   %56 = load i8, ptr %3, align 1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr %struct.minfo, ptr %29, i64 %57
+  %58 = getelementptr [12 x i8], ptr %29, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 1, ptr %59, align 4
   br label %is_mpa_fpdu.exit.thread

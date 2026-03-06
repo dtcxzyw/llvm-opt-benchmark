@@ -862,7 +862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %43,
   %.088 = phi i64 [ 0, %._crit_edge.i.i28.lr.ph ], [ %127, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit58 ]
   %.01587 = phi i8 [ 1, %._crit_edge.i.i28.lr.ph ], [ %.116, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %50 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %.088
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %.088
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %19, ptr %5, align 8, !tbaa !6
   store i8 61, ptr %19, align 8, !tbaa !16

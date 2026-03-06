@@ -206,7 +206,7 @@ define void @jpeg_idct_ifast(ptr noundef readonly captures(none) %0, ptr noundef
 154:                                              ; preds = %.preheader, %308
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %308 ]
   %.2268 = phi ptr [ %6, %.preheader ], [ %.3, %308 ]
-  %155 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 %12
   %158 = getelementptr inbounds nuw i8, ptr %.2268, i64 4

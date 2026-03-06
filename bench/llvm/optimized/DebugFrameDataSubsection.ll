@@ -1102,7 +1102,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt
   %50 = sub i64 %49, %.pre23
   %51 = ashr exact i64 %50, 5
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %48, i64 %52
+  %53 = getelementptr inbounds [32 x i8], ptr %48, i64 %52
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.017.0, i64 %50, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.017.0, ptr noundef nonnull align 1 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !85
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1231,7 +1231,7 @@ _ZNSt6vectorIN4llvm8codeview9FrameDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN4llvm8codeview9FrameDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN4llvm8codeview9FrameDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !68
   store ptr %28, ptr %4, align 8, !tbaa !65
-  %30 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !98
   br label %_ZNSt6vectorIN4llvm8codeview9FrameDataESaIS2_EE9push_backERKS2_.exit
 
@@ -1553,13 +1553,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %25 = and i64 %.fr.i25.lcssa, 32
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %27
-  %29 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %22
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %22
   br label %30
 
 30:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", %._crit_edge
   %.08.i.i.i = phi i64 [ %22, %._crit_edge ], [ %52, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i" ]
-  %31 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.08.i.i.i
+  %31 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.08.i.i.i
   %.sroa.08.0.copyload.i.i.i = load i32, ptr %31, align 1, !tbaa !49
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
@@ -1571,15 +1571,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.039.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %30 ]
   %33 = shl i64 %.039.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %34
+  %35 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %34
   %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %36
   %.val.i.i.i.i.i = load i32, ptr %35, align 1
   %.val1.i.i.i.i.i = load i32, ptr %37, align 1
   %38 = icmp ult i32 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.039.i.i.i.i
+  %39 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.039.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %40, ptr noundef nonnull align 1 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !85
   %41 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !113
@@ -1603,20 +1603,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.0911.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.0911.i.i.i.i.i
   %.val.i.i.i.i.i.i = load i32, ptr %46, align 1
   %47 = icmp ult i32 %.val.i.i.i.i.i.i, %.sroa.08.0.copyload.i.i.i
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.010.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %49, ptr noundef nonnull align 1 dereferenceable(32) %46, i64 32, i1 false), !tbaa.struct !85
   %50 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", !llvm.loop !114
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i": ; preds = %48, %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i32 %.sroa.08.0.copyload.i.i.i, ptr %51, align 1, !tbaa !49
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.4.i.i.i, i64 28, i1 false)
@@ -1649,15 +1649,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.039.i.i.i28.i = phi i64 [ %spec.select.i.i.i31.i, %.lr.ph.i.i.i27.i ], [ 0, %.lr.ph.i10.i ]
   %61 = shl i64 %.039.i.i.i28.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %62
   %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %64
   %.val.i.i.i.i29.i = load i32, ptr %63, align 1
   %.val1.i.i.i.i30.i = load i32, ptr %65, align 1
   %66 = icmp ult i32 %.val.i.i.i.i29.i, %.val1.i.i.i.i30.i
   %spec.select.i.i.i31.i = select i1 %66, i64 %64, i64 %62
-  %67 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %spec.select.i.i.i31.i
-  %68 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.039.i.i.i28.i
+  %67 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %spec.select.i.i.i31.i
+  %68 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.039.i.i.i28.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %68, ptr noundef nonnull align 1 dereferenceable(32) %67, i64 32, i1 false), !tbaa.struct !85
   %69 = icmp slt i64 %spec.select.i.i.i31.i, %59
   br i1 %69, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i12.i, !llvm.loop !113
@@ -1677,8 +1677,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i.i26.i:                                  ; preds = %72
   %76 = shl nuw nsw i64 %.0.lcssa.i.i.i13.i, 1
   %77 = or disjoint i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %77
-  %79 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.0.lcssa.i.i.i13.i
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %77
+  %79 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %79, ptr noundef nonnull align 1 dereferenceable(32) %78, i64 32, i1 false), !tbaa.struct !85
   br label %.lr.ph.i.i.i.i17.i.preheader
 
@@ -1694,20 +1694,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i910.i.i20.i, %83 ], [ %.010.i.i.i.i18.i.ph, %.lr.ph.i.i.i.i17.i.preheader ]
   %.0911.in.i.i.i.i19.i = add nsw i64 %.010.i.i.i.i18.i, -1
   %.0911.i.i910.i.i20.i = lshr i64 %.0911.in.i.i.i.i19.i, 1
-  %81 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.0911.i.i910.i.i20.i
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.0911.i.i910.i.i20.i
   %.val.i.i.i.i.i21.i = load i32, ptr %81, align 1
   %82 = icmp ult i32 %.val.i.i.i.i.i21.i, %.sroa.07.0.copyload.i.i.i
   br i1 %82, label %83, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_SH_RT0_.exit.i22.i"
 
 83:                                               ; preds = %.lr.ph.i.i.i.i17.i
-  %84 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.010.i.i.i.i18.i
+  %84 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %84, ptr noundef nonnull align 1 dereferenceable(32) %81, i64 32, i1 false), !tbaa.struct !85
   %.not11.i.i25.i = icmp eq i64 %.0911.i.i910.i.i20.i, 0
   br i1 %.not11.i.i25.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_SH_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !114
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_SH_RT0_.exit.i22.i": ; preds = %83, %.lr.ph.i.i.i.i17.i, %80
   %.0.lcssa.i.i.i.i23.i = phi i64 [ 0, %80 ], [ %.010.i.i.i.i18.i, %.lr.ph.i.i.i.i17.i ], [ 0, %83 ]
-  %85 = getelementptr inbounds %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %.0.lcssa.i.i.i.i23.i
+  %85 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i23.i
   store i32 %.sroa.07.0.copyload.i.i.i, ptr %85, align 1, !tbaa !49
   %.sroa.5.0..sroa_idx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %85, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %.sroa.5.0..sroa_idx.i.i.i24.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.4.i.i9.i, i64 28, i1 false)
@@ -1721,7 +1721,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %87 = phi i64 [ %116, %18 ], [ %14, %.lr.ph ]
   %88 = add nsw i64 %.02440, -1
   %89 = lshr i64 %87, 1
-  %90 = getelementptr inbounds nuw %"struct.llvm::codeview::FrameData", ptr %.fr26, i64 %89
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %89
   %91 = getelementptr inbounds i8, ptr %storemerge2341, i64 -32
   %.val.i.i.i = load i32, ptr %16, align 1
   %.val1.i.i.i = load i32, ptr %90, align 1

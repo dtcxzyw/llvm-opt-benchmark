@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ADXChannelState = type { i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"adpcm_adx\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"SEGA CRI ADX ADPCM\00", align 1
@@ -223,7 +222,7 @@ thread-pre-split:                                 ; preds = %30
   br i1 %83, label %..loopexit_crit_edge.us.thread, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw %struct.ADXChannelState, ptr %74, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %86 = load i16, ptr %.387107.us, align 1, !tbaa !39
   %87 = call i16 @llvm.bswap.i16(i16 %86)
   %88 = zext i16 %87 to i32
@@ -231,10 +230,10 @@ thread-pre-split:                                 ; preds = %30
   br i1 %.not.i.us, label %89, label %..loopexit_crit_edge.us.thread
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8, !tbaa !46
   %92 = getelementptr inbounds nuw i8, ptr %.387107.us, i64 2
-  %93 = getelementptr inbounds i16, ptr %91, i64 %79
+  %93 = getelementptr inbounds [2 x i8], ptr %91, i64 %79
   %94 = load i32, ptr %85, align 4, !tbaa !47
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !49

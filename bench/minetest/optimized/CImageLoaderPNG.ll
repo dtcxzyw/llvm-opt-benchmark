@@ -466,7 +466,7 @@ for.body.epil:                                    ; preds = %for.cond.cleanup.lo
   %indvars.iv.epil = phi i64 [ %indvars.iv.next.epil, %for.body.epil ], [ %indvars.iv.unr, %for.cond.cleanup.loopexit.unr-lcssa ]
   %data.0162.epil = phi ptr [ %add.ptr.epil, %for.body.epil ], [ %data.0162.unr, %for.cond.cleanup.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %for.cond.cleanup.loopexit.unr-lcssa ]
-  %arrayidx.epil = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.epil
+  %arrayidx.epil = getelementptr inbounds nuw [8 x i8], ptr %call90, i64 %indvars.iv.epil
   store ptr %data.0162.epil, ptr %arrayidx.epil, align 8, !tbaa !15
   %add.ptr.epil = getelementptr inbounds nuw i8, ptr %data.0162.epil, i64 %idx.ext
   %indvars.iv.next.epil = add nuw nsw i64 %indvars.iv.epil, 1
@@ -484,7 +484,7 @@ for.cond.cleanup:                                 ; preds = %for.body.epil, %for
 for.body:                                         ; preds = %for.body, %for.body.lr.ph.new
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.new ], [ %indvars.iv.next.7, %for.body ]
   %data.0162 = phi ptr [ %46, %for.body.lr.ph.new ], [ %add.ptr.7, %for.body ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %call90, i64 %indvars.iv
   store ptr %data.0162, ptr %arrayidx, align 8, !tbaa !15
   %add.ptr = getelementptr inbounds nuw i8, ptr %data.0162, i64 %idx.ext
   %arrayidx.1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8

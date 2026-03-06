@@ -337,7 +337,7 @@ define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0,
   %33 = or disjoint i32 %32, %25
   %34 = load ptr, ptr %11, align 8, !tbaa !59
   %35 = sext i32 %spec.select to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !72
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %39, label %55
@@ -352,10 +352,10 @@ define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0,
   %43 = add nsw i16 %40, 1
   store i16 %43, ptr %13, align 8, !tbaa !73
   %44 = load ptr, ptr %11, align 8, !tbaa !59
-  %45 = getelementptr inbounds i16, ptr %44, i64 %35
+  %45 = getelementptr inbounds [2 x i8], ptr %44, i64 %35
   store i16 %40, ptr %45, align 2, !tbaa !72
   %46 = load ptr, ptr %12, align 8, !tbaa !61
-  %47 = getelementptr inbounds i32, ptr %46, i64 %35
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %35
   store i32 %33, ptr %47, align 4, !tbaa !74
   br label %54
 
@@ -380,7 +380,7 @@ define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0,
 
 55:                                               ; preds = %24
   %56 = load ptr, ptr %12, align 8, !tbaa !61
-  %57 = getelementptr inbounds i32, ptr %56, i64 %35
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %35
   %58 = load i32, ptr %57, align 4, !tbaa !74
   %59 = icmp eq i32 %58, %33
   br i1 %59, label %60, label %61
@@ -402,7 +402,7 @@ define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0,
   %66 = add nsw i32 %64, 5003
   %spec.select70 = select i1 %65, i32 %66, i32 %64
   %67 = sext i32 %spec.select70 to i64
-  %68 = getelementptr inbounds i16, ptr %34, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %34, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !72
   %70 = icmp eq i16 %69, 0
   br i1 %70, label %71, label %87
@@ -417,10 +417,10 @@ define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0,
   %75 = add nsw i16 %72, 1
   store i16 %75, ptr %13, align 8, !tbaa !73
   %76 = load ptr, ptr %11, align 8, !tbaa !59
-  %77 = getelementptr inbounds i16, ptr %76, i64 %67
+  %77 = getelementptr inbounds [2 x i8], ptr %76, i64 %67
   store i16 %72, ptr %77, align 2, !tbaa !72
   %78 = load ptr, ptr %12, align 8, !tbaa !61
-  %79 = getelementptr inbounds i32, ptr %78, i64 %67
+  %79 = getelementptr inbounds [4 x i8], ptr %78, i64 %67
   store i32 %33, ptr %79, align 4, !tbaa !74
   br label %86
 
@@ -444,7 +444,7 @@ define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0,
   br label %92
 
 87:                                               ; preds = %63
-  %88 = getelementptr inbounds i32, ptr %56, i64 %67
+  %88 = getelementptr inbounds [4 x i8], ptr %56, i64 %67
   %89 = load i32, ptr %88, align 4, !tbaa !74
   %90 = icmp eq i32 %89, %33
   br i1 %90, label %91, label %63

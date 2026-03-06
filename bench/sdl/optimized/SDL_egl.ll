@@ -128,7 +128,7 @@ define hidden zeroext i1 @SDL_EGL_SetErrorEx(ptr noundef %0, ptr noundef %1, i32
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit
 
@@ -1296,7 +1296,7 @@ define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captu
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 232
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %33 to i64
-  %42 = getelementptr inbounds ptr, ptr %5, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %5, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr %40(i32 noundef 12607, ptr noundef %43, ptr noundef null) #7
   %45 = load ptr, ptr %13, align 8
@@ -1328,7 +1328,7 @@ define hidden zeroext i1 @SDL_EGL_InitializeOffscreen(ptr noundef readonly captu
   %59 = load ptr, ptr %13, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 232
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = call ptr %61(i32 noundef 12607, ptr noundef %63, ptr noundef null) #7
   %65 = icmp eq ptr %64, null
@@ -1465,7 +1465,7 @@ define hidden zeroext i1 @SDL_EGL_ChooseConfig(ptr noundef readonly captures(non
 
 switch.lookup:                                    ; preds = %12
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit.i
 
@@ -1539,7 +1539,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 26:                                               ; preds = %23
   %27 = zext nneg i32 %.0139 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %27
   store i32 12321, ptr %28, align 8
   %29 = add nuw nsw i32 %.0139, 2
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -1555,7 +1555,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %.1140 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %35
   store i32 12320, ptr %36, align 4
   %37 = add nuw nsw i32 %.1140, 2
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -1571,7 +1571,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 42:                                               ; preds = %39
   %43 = zext nneg i32 %.2141 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %43
   store i32 12325, ptr %44, align 4
   %45 = add nuw nsw i32 %.2141, 2
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -1587,7 +1587,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 50:                                               ; preds = %47
   %51 = zext nneg i32 %.3 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %51
   store i32 12326, ptr %52, align 4
   %53 = add nuw nsw i32 %.3, 2
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -1603,7 +1603,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %.4 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %59
   store i32 12338, ptr %60, align 4
   %61 = add nuw nsw i32 %.4, 2
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -1619,7 +1619,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %.5 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %3, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %67
   store i32 12337, ptr %68, align 4
   %69 = add nuw nsw i32 %.5, 2
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -1635,7 +1635,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 74:                                               ; preds = %71
   %75 = zext nneg i32 %.6 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %3, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %75
   store i32 13113, ptr %76, align 4
   %77 = add nuw nsw i32 %.6, 2
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 4
@@ -1653,7 +1653,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 85:                                               ; preds = %79
   %86 = zext nneg i32 %.7 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %3, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %86
   store i32 12339, ptr %87, align 4
   %88 = add nuw nsw i32 %.7, 2
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
@@ -1664,7 +1664,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
   %.8 = phi i32 [ %88, %85 ], [ %.7, %79 ]
   %91 = add nuw nsw i32 %.8, 1
   %92 = zext nneg i32 %.8 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %3, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %92
   store i32 12352, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %95 = load i32, ptr %94, align 8
@@ -1683,7 +1683,7 @@ define internal fastcc noundef zeroext i1 @SDL_EGL_PrivateChooseConfig(ptr nound
 
 103:                                              ; preds = %101
   %104 = zext nneg i32 %91 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %3, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %104
   store i32 64, ptr %105, align 4
   br label %113
 
@@ -1695,7 +1695,7 @@ thread-pre-split:                                 ; preds = %101
   %107 = phi i32 [ %.pr, %thread-pre-split ], [ %99, %97 ]
   %108 = icmp sgt i32 %107, 1
   %109 = zext nneg i32 %91 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %3, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %109
   br i1 %108, label %111, label %112
 
 111:                                              ; preds = %106
@@ -1712,7 +1712,7 @@ thread-pre-split:                                 ; preds = %101
 
 115:                                              ; preds = %90
   %116 = zext nneg i32 %91 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %3, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %116
   store i32 8, ptr %117, align 4
   br label %118
 
@@ -1731,7 +1731,7 @@ thread-pre-split:                                 ; preds = %101
 
 125:                                              ; preds = %118
   %126 = zext nneg i32 %.10 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %3, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %126
   store i32 12339, ptr %127, align 4
   %128 = add nuw nsw i32 %.8, 4
   %129 = getelementptr inbounds nuw i8, ptr %93, i64 12
@@ -1741,7 +1741,7 @@ thread-pre-split:                                 ; preds = %101
 130:                                              ; preds = %125, %118
   %.11 = phi i32 [ %128, %125 ], [ %.10, %118 ]
   %131 = zext nneg i32 %.11 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %3, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %131
   store i32 12344, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 96
   %134 = load ptr, ptr %133, align 8
@@ -1771,7 +1771,7 @@ thread-pre-split:                                 ; preds = %101
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %152 = load ptr, ptr %151, align 8
   %153 = call i32 %148(ptr noundef %150, ptr noundef %152, i32 noundef 12334, ptr noundef nonnull %7) #7
   %154 = load ptr, ptr %80, align 8
@@ -1813,7 +1813,7 @@ thread-pre-split:                                 ; preds = %101
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %.pre183, i64 16
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv180
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv180
   %172 = load ptr, ptr %171, align 8
   %173 = call i32 %168(ptr noundef %170, ptr noundef %172, i32 noundef 12334, ptr noundef nonnull %8) #7
   %174 = load ptr, ptr %80, align 8
@@ -1830,7 +1830,7 @@ thread-pre-split:                                 ; preds = %101
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv180
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv180
   %185 = load ptr, ptr %184, align 8
   %186 = call i32 %181(ptr noundef %183, ptr noundef %185, i32 noundef 12324, ptr noundef nonnull %5) #7
   %187 = load i32, ptr %5, align 4
@@ -1868,7 +1868,7 @@ thread-pre-split:                                 ; preds = %101
 210:                                              ; preds = %209, %229
   %indvars.iv177 = phi i64 [ 0, %209 ], [ %indvars.iv.next178, %229 ]
   %.0167 = phi i32 [ 0, %209 ], [ %.1, %229 ]
-  %211 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv177
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv177
   %212 = load i32, ptr %211, align 8
   %213 = icmp eq i32 %212, 12344
   br i1 %213, label %231, label %214
@@ -1953,7 +1953,7 @@ thread-pre-split:                                 ; preds = %101
 
 254:                                              ; preds = %._crit_edge
   %255 = sext i32 %.0130.lcssa to i64
-  %256 = getelementptr inbounds ptr, ptr %6, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %6, i64 %255
   %257 = load ptr, ptr %256, align 8
   %258 = load ptr, ptr %80, align 8
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
@@ -2062,7 +2062,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 46:                                               ; preds = %43
   %47 = zext nneg i32 %.192 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %47
   store i32 12540, ptr %48, align 8
   %49 = add nuw nsw i32 %.192, 2
   br label %.sink.split
@@ -2092,7 +2092,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 58:                                               ; preds = %56
   %59 = zext nneg i32 %.091 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %4, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %59
   store i32 12723, ptr %60, align 4
   %61 = load i32, ptr %54, align 4
   %62 = add nuw nsw i32 %.091, 2
@@ -2153,7 +2153,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 88:                                               ; preds = %.lr.ph
   %89 = getelementptr inbounds nuw i8, ptr %.090113, i64 4
-  %90 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %82, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %.090113, i64 8
   %92 = load i32, ptr %89, align 4
@@ -2176,7 +2176,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 96:                                               ; preds = %._crit_edge, %64
   %.3 = phi i32 [ %.5.lcssa, %._crit_edge ], [ %.2, %64 ]
   %97 = zext nneg i32 %.3 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %4, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %97
   store i32 12344, ptr %98, align 4
   %99 = load ptr, ptr %13, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
@@ -2210,7 +2210,7 @@ define hidden ptr @SDL_EGL_CreateContext(ptr noundef captures(none) %0, ptr noun
 
 switch.lookup:                                    ; preds = %117
   %122 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %122
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %122
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit.i
 
@@ -2396,7 +2396,7 @@ define hidden zeroext i1 @SDL_EGL_MakeCurrent(ptr noundef readonly captures(none
 
 switch.lookup:                                    ; preds = %44
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %50
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %50
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit.i
 
@@ -2492,7 +2492,7 @@ define hidden zeroext i1 @SDL_EGL_SetSwapInterval(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %22
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit.i
 
@@ -2564,7 +2564,7 @@ define hidden zeroext i1 @SDL_EGL_SwapBuffers(ptr noundef readonly captures(none
 
 switch.lookup:                                    ; preds = %11
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit.i
 
@@ -2638,7 +2638,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
 23:                                               ; preds = %19, %18
   %not..041 = phi i32 [ 1, %18 ], [ %spec.select, %19 ]
   %24 = zext nneg i32 %.039 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %24
   store i32 12767, ptr %25, align 8
   %26 = add nuw nsw i32 %.039, 2
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -2699,7 +2699,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
 
 53:                                               ; preds = %.lr.ph
   %54 = getelementptr inbounds nuw i8, ptr %.055, i64 4
-  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %47, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %57 = load i32, ptr %54, align 4
@@ -2722,7 +2722,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
 61:                                               ; preds = %._crit_edge, %28
   %.2 = phi i32 [ %.4.lcssa, %._crit_edge ], [ %.140, %28 ]
   %62 = zext nneg i32 %.2 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %62
   store i32 12344, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %65 = load ptr, ptr %64, align 8
@@ -2747,7 +2747,7 @@ define hidden ptr @SDL_EGL_CreateSurface(ptr noundef captures(none) %0, ptr noun
 
 switch.lookup:                                    ; preds = %74
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_EGL_CreateSurface, i64 %80
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_EGL_CreateSurface, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SDL_EGL_GetErrorName.exit.i
 

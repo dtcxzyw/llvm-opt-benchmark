@@ -104,12 +104,12 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly captures
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 3
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr ptr, ptr @mps_inti_flags_polarity, i64 %18
+  %19 = getelementptr [8 x i8], ptr @mps_inti_flags_polarity, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = lshr i32 %16, 2
   %22 = and i32 %21, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr ptr, ptr @mps_inti_flags_trigger, i64 %23
+  %24 = getelementptr [8 x i8], ptr @mps_inti_flags_trigger, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %8, i32 noundef %11, i32 noundef %13, ptr noundef %20, ptr noundef %25) #13
   %27 = load i16, ptr %14, align 1
@@ -128,12 +128,12 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly captures
   %36 = zext i16 %35 to i32
   %37 = and i32 %36, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr ptr, ptr @mps_inti_flags_polarity, i64 %38
+  %39 = getelementptr [8 x i8], ptr @mps_inti_flags_polarity, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = lshr i32 %36, 2
   %42 = and i32 %41, 3
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr ptr, ptr @mps_inti_flags_trigger, i64 %43
+  %44 = getelementptr [8 x i8], ptr @mps_inti_flags_trigger, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %47 = load i32, ptr %46, align 1
@@ -149,12 +149,12 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly captures
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 3
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr ptr, ptr @mps_inti_flags_polarity, i64 %57
+  %58 = getelementptr [8 x i8], ptr @mps_inti_flags_polarity, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = lshr i32 %55, 2
   %61 = and i32 %60, 3
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr ptr, ptr @mps_inti_flags_trigger, i64 %62
+  %63 = getelementptr [8 x i8], ptr @mps_inti_flags_trigger, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %66 = load i8, ptr %65, align 1
@@ -171,10 +171,10 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly captures
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %76 = load i32, ptr %75, align 1
   %77 = zext nneg i16 %72 to i64
-  %78 = getelementptr ptr, ptr @mps_inti_flags_polarity, i64 %77
+  %78 = getelementptr [8 x i8], ptr @mps_inti_flags_polarity, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = zext nneg i16 %74 to i64
-  %81 = getelementptr ptr, ptr @mps_inti_flags_trigger, i64 %80
+  %81 = getelementptr [8 x i8], ptr @mps_inti_flags_trigger, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load i8, ptr %83, align 1
@@ -194,12 +194,12 @@ define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly captures
   %94 = zext i16 %93 to i32
   %95 = and i32 %94, 3
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr ptr, ptr @mps_inti_flags_polarity, i64 %96
+  %97 = getelementptr [8 x i8], ptr @mps_inti_flags_polarity, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = lshr i32 %94, 2
   %100 = and i32 %99, 3
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr ptr, ptr @mps_inti_flags_trigger, i64 %101
+  %102 = getelementptr [8 x i8], ptr @mps_inti_flags_trigger, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %105 = load i8, ptr %104, align 1
@@ -516,7 +516,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #2 section ".init
   store i32 %85, ptr @all_tables_size, align 4
   %86 = load ptr, ptr %3, align 8
   %87 = sext i32 %40 to i64
-  %88 = getelementptr %struct.cpio_data, ptr @acpi_initrd_files, i64 %87
+  %88 = getelementptr [40 x i8], ptr @acpi_initrd_files, i64 %87
   store ptr %86, ptr %88, align 8
   %89 = load i64, ptr %34, align 8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -574,7 +574,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #2 section ".init
 118:                                              ; preds = %.loopexit, %116
   %119 = phi i64 [ 0, %116 ], [ %147, %.loopexit ]
   %120 = phi i64 [ 0, %116 ], [ %126, %.loopexit ]
-  %121 = getelementptr %struct.cpio_data, ptr @acpi_initrd_files, i64 %119
+  %121 = getelementptr [40 x i8], ptr @acpi_initrd_files, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = shl i64 %120, 32
@@ -775,7 +775,7 @@ define dso_local void @acpi_reserve_initial_tables() local_unnamed_addr #2 secti
 
 1:                                                ; preds = %10, %0
   %2 = phi i64 [ 0, %0 ], [ %17, %10 ]
-  %3 = getelementptr %struct.acpi_table_desc, ptr @initial_tables, i64 %2
+  %3 = getelementptr [32 x i8], ptr @initial_tables, i64 %2
   %4 = load i64, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 16

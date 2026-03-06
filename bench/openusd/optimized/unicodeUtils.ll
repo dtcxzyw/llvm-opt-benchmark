@@ -282,7 +282,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__25TfIsUtf8CodePo
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds nuw i64, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %5, 63
   %10 = shl nuw i64 1, %9
@@ -306,7 +306,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__28TfIsUtf8CodePo
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
   %6 = lshr i64 %5, 6
-  %7 = getelementptr inbounds nuw i64, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %5, 63
   %10 = shl nuw i64 1, %9

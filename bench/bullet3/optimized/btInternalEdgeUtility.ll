@@ -9,8 +9,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b3ProcessAllTrianglesHeightfield = type { %class.btTriangleCallback, ptr, ptr }
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
-%class.btHashInt = type { i32 }
 %struct.btTriangleInfo = type { i32, float, float, float }
+%class.btHashInt = type { i32 }
 %class.btTriangleShape = type { %class.btPolyhedralConvexShape, [3 x %class.btVector3] }
 %class.btPolyhedralConvexShape = type { %class.btConvexInternalShape, ptr }
 %class.btConvexInternalShape = type { %class.btConvexShape, %class.btVector3, %class.btVector3, float, float }
@@ -254,13 +254,13 @@ define dso_local void @_Z26btGenerateInternalEdgeInfoP22btBvhTriangleMeshShapeP1
   br label %82
 
 75:                                               ; preds = %.split.us
-  %76 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv91
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv91
   %77 = load i16, ptr %76, align 2, !tbaa !30
   %78 = zext i16 %77 to i32
   br label %82
 
 79:                                               ; preds = %.split.us
-  %80 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv91
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv91
   %81 = load i32, ptr %80, align 4, !tbaa !24
   br label %82
 
@@ -280,7 +280,7 @@ define dso_local void @_Z26btGenerateInternalEdgeInfoP22btBvhTriangleMeshShapeP1
   %94 = load float, ptr %93, align 4, !tbaa !32
   %95 = load float, ptr %27, align 4, !tbaa !32
   %96 = fmul float %94, %95
-  %97 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv91
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv91
   store float %88, ptr %97, align 16
   %.sroa.474.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %97, i64 4
   store float %92, ptr %.sroa.474.0..sroa_idx.us, align 4
@@ -544,12 +544,12 @@ _ZN9btVector36setMaxERKS_.exit61:                 ; preds = %_Z8btSetMaxIfEvRT_R
   ]
 
 177:                                              ; preds = %.split
-  %178 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %179 = load i32, ptr %178, align 4, !tbaa !24
   br label %188
 
 180:                                              ; preds = %.split
-  %181 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv
   %182 = load i16, ptr %181, align 2, !tbaa !30
   %183 = zext i16 %182 to i32
   br label %188
@@ -582,7 +582,7 @@ _ZN9btVector36setMaxERKS_.exit61:                 ; preds = %_Z8btSetMaxIfEvRT_R
   %206 = fpext float %205 to double
   %207 = fmul double %204, %206
   %208 = fptrunc double %207 to float
-  %209 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   store float %196, ptr %209, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 4
   store float %202, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1008,7 +1008,7 @@ define dso_local void @_Z28btAdjustInternalEdgeContactsR15btManifoldPointPK24btC
   %65 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !82
   %67 = sext i32 %61 to i64
-  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %66, i64 %67
   %.012.i.i = load i32, ptr %68, align 4, !tbaa !24
   %.not1113.i.i = icmp eq i32 %.012.i.i, -1
   br i1 %.not1113.i.i, label %.thread665, label %.lr.ph.i.i
@@ -1023,13 +1023,13 @@ define dso_local void @_Z28btAdjustInternalEdgeContactsR15btManifoldPointPK24btC
 73:                                               ; preds = %78, %.lr.ph.i.i
   %.014.i.i = phi i32 [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %78 ]
   %74 = sext i32 %.014.i.i to i64
-  %75 = getelementptr inbounds %class.btHashInt, ptr %70, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !87
   %77 = icmp eq i32 %44, %76
   br i1 %77, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i32, ptr %72, i64 %74
+  %79 = getelementptr inbounds [4 x i8], ptr %72, i64 %74
   %.0.i.i = load i32, ptr %79, align 4, !tbaa !24
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %.thread665, label %73, !llvm.loop !89
@@ -1037,7 +1037,7 @@ define dso_local void @_Z28btAdjustInternalEdgeContactsR15btManifoldPointPK24btC
 _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit: ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %.1, i64 88
   %81 = load ptr, ptr %80, align 8, !tbaa !90
-  %82 = getelementptr inbounds %struct.btTriangleInfo, ptr %81, i64 %74
+  %82 = getelementptr inbounds [16 x i8], ptr %81, i64 %74
   %.not224 = icmp eq ptr %81, null
   br i1 %.not224, label %.thread665, label %83
 
@@ -2672,7 +2672,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 .preheader:                                       ; preds = %62, %101
   %indvars.iv444 = phi i64 [ %indvars.iv.next445, %101 ], [ 0, %62 ]
   %.0437 = phi i32 [ %.4, %101 ], [ 0, %62 ]
-  %102 = getelementptr inbounds nuw %class.btVector3, ptr %64, i64 %indvars.iv444
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %indvars.iv444
   %103 = load float, ptr %102, align 4, !tbaa !32
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %105 = load float, ptr %104, align 4, !tbaa !32
@@ -2684,7 +2684,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 109:                                              ; preds = %.preheader, %130
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %130 ]
   %.2435 = phi i32 [ %.0437, %.preheader ], [ %.4, %130 ]
-  %110 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !32
   %112 = fsub float %103, %111
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -2701,9 +2701,9 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 
 123:                                              ; preds = %109
   %124 = zext nneg i32 %.2435 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %5, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %124
   store i32 %108, ptr %125, align 4, !tbaa !24
-  %126 = getelementptr inbounds nuw i32, ptr %6, i64 %124
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %124
   %127 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %127, ptr %126, align 4, !tbaa !24
   %128 = add nuw nsw i32 %.2435, 1
@@ -2775,7 +2775,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
   %170 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !82
   %172 = sext i32 %166 to i64
-  %173 = getelementptr inbounds i32, ptr %171, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %171, i64 %172
   %.012.i.i = load i32, ptr %173, align 4, !tbaa !24
   %.not1113.i.i = icmp eq i32 %.012.i.i, -1
   br i1 %.not1113.i.i, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread, label %.lr.ph.i.i
@@ -2790,13 +2790,13 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 178:                                              ; preds = %183, %.lr.ph.i.i
   %.014.i.i = phi i32 [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %183 ]
   %179 = sext i32 %.014.i.i to i64
-  %180 = getelementptr inbounds %class.btHashInt, ptr %175, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %175, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !87
   %182 = icmp eq i32 %148, %181
   br i1 %182, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit, label %183
 
 183:                                              ; preds = %178
-  %184 = getelementptr inbounds i32, ptr %177, i64 %179
+  %184 = getelementptr inbounds [4 x i8], ptr %177, i64 %179
   %.0.i.i = load i32, ptr %184, align 4, !tbaa !24
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread, label %178, !llvm.loop !89
@@ -2804,7 +2804,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit: ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %58, i64 88
   %186 = load ptr, ptr %185, align 8, !tbaa !90
-  %187 = getelementptr inbounds %struct.btTriangleInfo, ptr %186, i64 %179
+  %187 = getelementptr inbounds [16 x i8], ptr %186, i64 %179
   %.not = icmp eq ptr %186, null
   br i1 %.not, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread, label %217
 
@@ -2835,7 +2835,7 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread: ; preds = %183
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %200 = load ptr, ptr %199, align 8, !tbaa !82
   %201 = sext i32 %195 to i64
-  %202 = getelementptr inbounds i32, ptr %200, i64 %201
+  %202 = getelementptr inbounds [4 x i8], ptr %200, i64 %201
   %.012.i.i150 = load i32, ptr %202, align 4, !tbaa !24
   %.not1113.i.i151 = icmp eq i32 %.012.i.i150, -1
   br i1 %.not1113.i.i151, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157, label %.lr.ph.i.i152
@@ -2850,13 +2850,13 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread: ; preds = %183
 207:                                              ; preds = %212, %.lr.ph.i.i152
   %.014.i.i153 = phi i32 [ %.012.i.i150, %.lr.ph.i.i152 ], [ %.0.i.i154, %212 ]
   %208 = sext i32 %.014.i.i153 to i64
-  %209 = getelementptr inbounds %class.btHashInt, ptr %204, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %204, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !87
   %211 = icmp eq i32 %148, %210
   br i1 %211, label %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156, label %212
 
 212:                                              ; preds = %207
-  %213 = getelementptr inbounds i32, ptr %206, i64 %208
+  %213 = getelementptr inbounds [4 x i8], ptr %206, i64 %208
   %.0.i.i154 = load i32, ptr %213, align 4, !tbaa !24
   %.not11.i.i155 = icmp eq i32 %.0.i.i154, -1
   br i1 %.not11.i.i155, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157, label %207, !llvm.loop !89
@@ -2864,7 +2864,7 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread: ; preds = %183
 _ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156: ; preds = %207
   %214 = getelementptr inbounds nuw i8, ptr %191, i64 88
   %215 = load ptr, ptr %214, align 8, !tbaa !90
-  %216 = getelementptr inbounds %struct.btTriangleInfo, ptr %215, i64 %208
+  %216 = getelementptr inbounds [16 x i8], ptr %215, i64 %208
   br label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157
 
 _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157: ; preds = %212, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread, %198, %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156
@@ -2878,9 +2878,9 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157: ; preds = %212, %_
   %.095 = phi ptr [ %187, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit ], [ %.0.i149, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157 ]
   %219 = add nsw i32 %145, %146
   %220 = sext i32 %145 to i64
-  %221 = getelementptr inbounds %class.btVector3, ptr %218, i64 %220
+  %221 = getelementptr inbounds [16 x i8], ptr %218, i64 %220
   %222 = sext i32 %146 to i64
-  %223 = getelementptr inbounds %class.btVector3, ptr %218, i64 %222
+  %223 = getelementptr inbounds [16 x i8], ptr %218, i64 %222
   %224 = load float, ptr %221, align 4, !tbaa !32
   %225 = load float, ptr %223, align 4, !tbaa !32
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 4
@@ -2911,15 +2911,15 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157: ; preds = %212, %_
   %243 = sub i32 3, %242
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %244 = sext i32 %239 to i64
-  %245 = getelementptr inbounds %class.btVector3, ptr %1, i64 %244
+  %245 = getelementptr inbounds [16 x i8], ptr %1, i64 %244
   %246 = sext i32 %243 to i64
-  %247 = getelementptr inbounds %class.btVector3, ptr %1, i64 %246
+  %247 = getelementptr inbounds [16 x i8], ptr %1, i64 %246
   invoke void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %10)
           to label %248 unwind label %382
 
 248:                                              ; preds = %217
   %249 = sext i32 %241 to i64
-  %250 = getelementptr inbounds %class.btVector3, ptr %1, i64 %249
+  %250 = getelementptr inbounds [16 x i8], ptr %1, i64 %249
   %251 = fsub float %231, %233
   %252 = fsub float %227, %229
   %253 = fsub float %224, %225
@@ -3047,8 +3047,8 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157: ; preds = %212, %_
   %.sroa.9339.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %356, i64 0
   %357 = load ptr, ptr %63, align 8, !tbaa !39
   %358 = sext i32 %254 to i64
-  %359 = getelementptr inbounds %class.btVector3, ptr %357, i64 %358
-  %360 = getelementptr inbounds %class.btVector3, ptr %357, i64 %222
+  %359 = getelementptr inbounds [16 x i8], ptr %357, i64 %358
+  %360 = getelementptr inbounds [16 x i8], ptr %357, i64 %222
   %361 = load float, ptr %359, align 4, !tbaa !32
   %362 = load float, ptr %360, align 4, !tbaa !32
   %363 = fsub float %361, %362
@@ -3504,7 +3504,7 @@ define linkonce_odr dso_local void @_ZN9btHashMapI9btHashInt14btTriangleInfoE6in
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !82
   %27 = sext i32 %21 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   %.012.i = load i32, ptr %28, align 4, !tbaa !24
   %.not1113.i = icmp eq i32 %.012.i, -1
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3519,13 +3519,13 @@ define linkonce_odr dso_local void @_ZN9btHashMapI9btHashInt14btTriangleInfoE6in
 33:                                               ; preds = %38, %.lr.ph.i
   %.014.i = phi i32 [ %.012.i, %.lr.ph.i ], [ %.0.i, %38 ]
   %34 = sext i32 %.014.i to i64
-  %35 = getelementptr inbounds %class.btHashInt, ptr %30, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %30, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !87
   %37 = icmp eq i32 %4, %36
   br i1 %37, label %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i32, ptr %32, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
   %.0.i = load i32, ptr %39, align 4, !tbaa !24
   %.not11.i = icmp eq i32 %.0.i, -1
   br i1 %.not11.i, label %.loopexit, label %33, !llvm.loop !89
@@ -3533,7 +3533,7 @@ define linkonce_odr dso_local void @_ZN9btHashMapI9btHashInt14btTriangleInfoE6in
 _ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit: ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !90
-  %42 = getelementptr inbounds %struct.btTriangleInfo, ptr %41, i64 %34
+  %42 = getelementptr inbounds [16 x i8], ptr %41, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !121
   br label %141
 
@@ -3574,9 +3574,9 @@ _ZN20btAlignedObjectArrayI14btTriangleInfoE8allocateEi.exit.i.i: ; preds = %51, 
 
 58:                                               ; preds = %58, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %58 ]
-  %59 = getelementptr inbounds nuw %struct.btTriangleInfo, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %60 = load ptr, ptr %57, align 8, !tbaa !90
-  %61 = getelementptr inbounds nuw %struct.btTriangleInfo, ptr %60, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %59, ptr noundef nonnull align 4 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !121
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -3608,7 +3608,7 @@ _ZN20btAlignedObjectArrayI14btTriangleInfoE9push_backERKS0_.exit: ; preds = %.lo
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %70 = load ptr, ptr %69, align 8, !tbaa !90
   %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds %struct.btTriangleInfo, ptr %70, i64 %71
+  %72 = getelementptr inbounds [16 x i8], ptr %70, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !121
   %73 = load i32, ptr %43, align 4, !tbaa !122
   %74 = add nsw i32 %73, 1
@@ -3652,8 +3652,8 @@ _ZN20btAlignedObjectArrayI9btHashIntE8allocateEi.exit.i.i: ; preds = %85, %84
 
 93:                                               ; preds = %93, %.lr.ph.i.i.i22
   %indvars.iv.i.i.i24 = phi i64 [ 0, %.lr.ph.i.i.i22 ], [ %indvars.iv.next.i.i.i25, %93 ]
-  %94 = getelementptr inbounds nuw %class.btHashInt, ptr %.0.i.i.i19, i64 %indvars.iv.i.i.i24
-  %95 = getelementptr inbounds nuw %class.btHashInt, ptr %92, i64 %indvars.iv.i.i.i24
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i19, i64 %indvars.iv.i.i.i24
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i.i.i24
   %96 = load i32, ptr %95, align 4, !tbaa !24
   store i32 %96, ptr %94, align 4, !tbaa !24
   %indvars.iv.next.i.i.i25 = add nuw nsw i64 %indvars.iv.i.i.i24, 1
@@ -3691,7 +3691,7 @@ _ZN20btAlignedObjectArrayI9btHashIntE9push_backERKS0_.exit: ; preds = %_ZN20btAl
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %105 = load ptr, ptr %104, align 8, !tbaa !83
   %106 = sext i32 %103 to i64
-  %107 = getelementptr inbounds %class.btHashInt, ptr %105, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %105, i64 %106
   %108 = load i32, ptr %1, align 4, !tbaa !24
   store i32 %108, ptr %107, align 4, !tbaa !24
   %109 = load i32, ptr %75, align 4, !tbaa !126
@@ -3727,12 +3727,12 @@ _ZN20btAlignedObjectArrayI9btHashIntE9push_backERKS0_.exit: ; preds = %_ZN20btAl
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !82
   %134 = sext i32 %.0 to i64
-  %135 = getelementptr inbounds i32, ptr %133, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %133, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !24
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8, !tbaa !82
   %139 = sext i32 %44 to i64
-  %140 = getelementptr inbounds i32, ptr %138, i64 %139
+  %140 = getelementptr inbounds [4 x i8], ptr %138, i64 %139
   store i32 %136, ptr %140, align 4, !tbaa !24
   store i32 %44, ptr %135, align 4, !tbaa !24
   br label %141
@@ -3789,8 +3789,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %13, %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !24
   store i32 %24, ptr %22, align 4, !tbaa !24
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3872,8 +3872,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i28: ; preds = %44, %43
 
 50:                                               ; preds = %50, %.lr.ph.i.i.i34
   %indvars.iv.i.i.i36 = phi i64 [ 0, %.lr.ph.i.i.i34 ], [ %indvars.iv.next.i.i.i37, %50 ]
-  %51 = getelementptr inbounds nuw i32, ptr %.0.i.i.i29, i64 %indvars.iv.i.i.i36
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i.i.i36
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i29, i64 %indvars.iv.i.i.i36
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.i.i36
   %53 = load i32, ptr %52, align 4, !tbaa !24
   store i32 %53, ptr %51, align 4, !tbaa !24
   %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
@@ -3946,7 +3946,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit43:  ; preds = %.lr.ph.i20, %.lr.ph
 
 77:                                               ; preds = %.lr.ph50, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw %class.btHashInt, ptr %73, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !87
   %80 = shl i32 %79, 15
   %81 = xor i32 %80, -1
@@ -3965,9 +3965,9 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit43:  ; preds = %.lr.ph.i20, %.lr.ph
   %94 = add nsw i32 %93, -1
   %95 = and i32 %92, %94
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %74, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %74, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !24
-  %99 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   store i32 %98, ptr %99, align 4, !tbaa !24
   %100 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %100, ptr %97, align 4, !tbaa !24
@@ -4069,9 +4069,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4, !tbaa !32
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %9, ptr %10, align 4, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -4084,9 +4084,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv.i8 = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ], [ %indvars.iv.next.i9, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8
   %15 = load float, ptr %14, align 4, !tbaa !32
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8
   store float %15, ptr %16, align 4, !tbaa !32
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
@@ -4145,7 +4145,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK15btTriangleShap
   %36 = fcmp olt float %..i, %34
   %37 = zext i1 %35 to i64
   %38 = select i1 %36, i64 2, i64 %37
-  %39 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %38
   %.sroa.0.0.copyload = load <2 x float>, ptr %39, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !29
@@ -4179,7 +4179,7 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape49batchedUnitVectorGetS
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !32
   %18 = load float, ptr %6, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -4208,8 +4208,8 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape49batchedUnitVectorGetS
   %41 = fcmp olt float %..i, %39
   %42 = zext i1 %40 to i64
   %43 = select i1 %41, i64 2, i64 %42
-  %44 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %43
-  %45 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %43
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4322,7 +4322,7 @@ define linkonce_odr dso_local void @_ZNK15btTriangleShape7getEdgeEiR9btVector3S1
 define linkonce_odr dso_local void @_ZNK15btTriangleShape9getVertexEiR9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2) unnamed_addr #11 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %class.btVector3, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !53
   ret void
 }

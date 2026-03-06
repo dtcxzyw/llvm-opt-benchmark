@@ -57,7 +57,7 @@ define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr noundef rea
 12:                                               ; preds = %.lr.ph, %_set_cond.exit
   %storemerge64 = phi i32 [ 0, %.lr.ph ], [ %70, %_set_cond.exit ]
   %13 = sext i32 %storemerge64 to i64
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #9
   %17 = trunc i64 %16 to i32
@@ -90,7 +90,7 @@ define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr noundef rea
 
 31:                                               ; preds = %69, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %30, %.lr.ph.i ], [ %indvars.iv.next.i, %69 ]
-  %32 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %32 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @parse_option_end(ptr noundef %33) #8
   %.not.i = icmp eq i32 %34, 0

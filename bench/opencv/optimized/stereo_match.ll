@@ -43,8 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator" = type { i8 }
-%"class.cv::Vec.11" = type { %"class.cv::Matx.12" }
-%"class.cv::Matx.12" = type { [3 x float] }
 
 $_ZNSt12__shared_ptrIN2cv10StereoSGBMELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -2911,7 +2909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit705: ; preds = %71
 
 switch.lookup:                                    ; preds = %955
   %963 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %963
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.main, i64 %963
   %switch.load = load i32, ptr %switch.gep, align 4
   %964 = load ptr, ptr %15, align 8, !tbaa !58
   %965 = load ptr, ptr %964, align 8, !tbaa !56
@@ -4100,7 +4098,7 @@ _ZN2cv3VecIfLi3EEC2ERKS1_.exit:                   ; preds = %.preheader, %39
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = mul i64 %25, %indvars.iv18
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds nuw %"class.cv::Vec.11", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %indvars.iv
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !28
   %29 = fpext float %.sroa.5.0.copyload to double

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.level0_client_data = type { i32, ptr }
-%struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
-%struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
 %struct.FLAC__IOCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -415,7 +411,7 @@ FLAC__metadata_simple_iterator_delete.exit:       ; preds = %38, %41
   %97 = call i64 @ftello64(ptr noundef %.pre82.pre83)
   %98 = load i32, ptr %22, align 8, !tbaa !31
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i64, ptr %13, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %99
   store i64 %97, ptr %100, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %101 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef 4, ptr noundef %.pre82.pre83) #33
@@ -957,7 +953,7 @@ read_metadata_block_data_.exit.thread149:         ; preds = %98
 
 unpack_uint64_.exit.i40.i.i:                      ; preds = %.lr.ph.i.i35.i.i
   %147 = load ptr, ptr %136, align 8, !tbaa !53
-  %148 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %147, i64 %indvars.iv.i.i.i
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %indvars.iv.i.i.i
   store i64 %145, ptr %148, align 8, !tbaa !54
   br label %.lr.ph.i21.i.i.i
 
@@ -1193,7 +1189,7 @@ unpack_uint32_little_endian_.exit.i.i.i:          ; preds = %.lr.ph.i.i43.i.i
   %241 = phi ptr [ %281, %275 ], [ %236, %.lr.ph.i45.i.preheader.i ]
   %indvars.iv.i46.i.i = phi i64 [ %indvars.iv.next.i47.i.i, %275 ], [ 0, %.lr.ph.i45.i.preheader.i ]
   %.280.i.i.i = phi i32 [ %284, %275 ], [ %215, %.lr.ph.i45.i.preheader.i ]
-  %242 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %241, i64 %indvars.iv.i46.i.i
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %indvars.iv.i46.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %243 = icmp ult i32 %.280.i.i.i, %171
   br i1 %243, label %.loopexit.i, label %244
@@ -1293,7 +1289,7 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread.i: ; preds = %268,
   %280 = add i32 %.280.i.i.i, -4
   %spec.select70.i.i.i = select i1 %279, i32 %280, i32 %.280.i.i.i
   %281 = load ptr, ptr %237, align 8, !tbaa !66
-  %282 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %281, i64 %indvars.iv.i46.i.i
+  %282 = getelementptr inbounds nuw [16 x i8], ptr %281, i64 %indvars.iv.i46.i.i
   %283 = load i32, ptr %282, align 8, !tbaa !59
   %284 = sub i32 %spec.select70.i.i.i, %283
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
@@ -1467,7 +1463,7 @@ unpack_uint32_.exit.i58.i.i:                      ; preds = %.lr.ph.i42.i.i.i
 374:                                              ; preds = %.loopexit.i61.i.i, %.lr.ph.i59.i.i
   %indvars.iv.i60.i.i = phi i64 [ 0, %.lr.ph.i59.i.i ], [ %indvars.iv.next.i62.i.i, %.loopexit.i61.i.i ]
   %375 = load ptr, ptr %338, align 8, !tbaa !72
-  %376 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %375, i64 %indvars.iv.i60.i.i
+  %376 = getelementptr inbounds nuw [32 x i8], ptr %375, i64 %indvars.iv.i60.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %377 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %342, ptr noundef %23) #33
   %.not.i48.i.i.i = icmp eq i64 %377, %342
@@ -1592,7 +1588,7 @@ unpack_uint32_.exit76.thread.i.i.i.i:             ; preds = %404
 unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i, %420
   %.05.lcssa.i83.i.i.i.i = phi i64 [ 0, %420 ], [ %425, %.lr.ph.i78.i.i.i.i ]
   %427 = load ptr, ptr %413, align 8, !tbaa !77
-  %428 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %427, i64 %indvars.iv.i.i.i.i
+  %428 = getelementptr inbounds nuw [16 x i8], ptr %427, i64 %indvars.iv.i.i.i.i
   store i64 %.05.lcssa.i83.i.i.i.i, ptr %428, align 8, !tbaa !79
   %429 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %364, ptr noundef %23) #33
   %.not60.i.i.i.i = icmp eq i64 %429, %364
@@ -1608,7 +1604,7 @@ unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i,
 unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.preheader.i.i.i, %430
   %.05.lcssa.i91.i.i.i.i = phi i8 [ 0, %430 ], [ %431, %.lr.ph.i86.i.preheader.i.i.i ]
   %432 = load ptr, ptr %413, align 8, !tbaa !77
-  %433 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %432, i64 %indvars.iv.i.i.i.i
+  %433 = getelementptr inbounds nuw [16 x i8], ptr %432, i64 %indvars.iv.i.i.i.i
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store i8 %.05.lcssa.i91.i.i.i.i, ptr %434, align 8, !tbaa !81
   %435 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %367, ptr noundef %23) #33
@@ -2065,7 +2061,7 @@ read_metadata_block_data_.exit:                   ; preds = %read_metadata_block
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %609 = load i32, ptr %608, align 8, !tbaa !31
   %610 = zext i32 %609 to i64
-  %611 = getelementptr inbounds nuw i64, ptr %607, i64 %610
+  %611 = getelementptr inbounds nuw [8 x i8], ptr %607, i64 %610
   %612 = load i64, ptr %611, align 8, !tbaa !15
   %613 = add nsw i64 %612, 4
   %614 = call i32 @fseeko64(ptr noundef %606, i64 noundef %613, i32 noundef 0)
@@ -2119,7 +2115,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_simple_iterator_next(ptr noundef capt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load i32, ptr %17, align 8, !tbaa !31
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   store i64 %15, ptr %20, align 8, !tbaa !15
   %21 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2300,7 +2296,7 @@ define internal fastcc range(i32 0, 2) i32 @simple_iterator_prime_input_(ptr nou
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %57 = load i32, ptr %53, align 8, !tbaa !31
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   store i64 %55, ptr %59, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %55, ptr %60, align 8, !tbaa !17
@@ -2445,7 +2441,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_simple_iterator_prev(ptr noundef capt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load i64, ptr %10, align 8, !tbaa !17
@@ -2514,7 +2510,7 @@ read_metadata_block_header_.exit:                 ; preds = %.lr.ph.i.i.i
   %42 = add nsw i64 %39, %41
   %43 = load i32, ptr %5, align 8, !tbaa !31
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !15
   %47 = icmp slt i64 %42, %46
   br i1 %47, label %.lr.ph, label %._crit_edge
@@ -2583,7 +2579,7 @@ read_metadata_block_header_.exit34:               ; preds = %.lr.ph.i.i.i28
   %76 = add nsw i64 %73, %75
   %77 = load i32, ptr %5, align 8, !tbaa !31
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %4, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !15
   %81 = icmp slt i64 %76, %80
   br i1 %81, label %49, label %._crit_edge, !llvm.loop !94
@@ -2591,7 +2587,7 @@ read_metadata_block_header_.exit34:               ; preds = %.lr.ph.i.i.i28
 ._crit_edge:                                      ; preds = %read_metadata_block_header_.exit34, %read_metadata_block_header_.exit
   %.lcssa45 = phi i64 [ %44, %read_metadata_block_header_.exit ], [ %78, %read_metadata_block_header_.exit34 ]
   %.0.lcssa = phi i64 [ %19, %read_metadata_block_header_.exit ], [ %57, %read_metadata_block_header_.exit34 ]
-  %82 = getelementptr inbounds nuw i64, ptr %4, i64 %.lcssa45
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.lcssa45
   store i64 %.0.lcssa, ptr %82, align 8, !tbaa !15
   br label %83
 
@@ -2613,7 +2609,7 @@ define i64 @FLAC__metadata_simple_iterator_get_block_offset(ptr noundef readonly
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !31
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !15
   ret i64 %7
 }
@@ -2743,11 +2739,11 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %42 = load i32, ptr %41, align 8, !tbaa !31
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !15
   %46 = add i32 %42, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %47
   store i64 %45, ptr %48, align 8, !tbaa !15
   store i32 %46, ptr %41, align 8, !tbaa !31
   %49 = load ptr, ptr %0, align 8, !tbaa !24
@@ -2761,7 +2757,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %54 = tail call i64 @ftello64(ptr noundef %53)
   %55 = load i32, ptr %41, align 8, !tbaa !31
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %40, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %56
   store i64 %54, ptr %57, align 8, !tbaa !15
   %58 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2872,7 +2868,7 @@ define internal fastcc range(i32 0, 2) i32 @write_metadata_block_stationary_(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load i32, ptr %7, align 8, !tbaa !31
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = tail call i32 @fseeko64(ptr noundef %5, i64 noundef %11, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
@@ -2942,7 +2938,7 @@ write_metadata_block_header_.exit:                ; preds = %write_metadata_bloc
   %37 = load ptr, ptr %0, align 8, !tbaa !24
   %38 = load i32, ptr %7, align 8, !tbaa !31
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %6, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !15
   %42 = tail call i32 @fseeko64(ptr noundef %37, i64 noundef %41, i32 noundef 0)
   %.not17 = icmp eq i32 %42, 0
@@ -3010,7 +3006,7 @@ define internal fastcc range(i32 0, 12) i32 @write_metadata_block_stationary_wit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load i32, ptr %9, align 8, !tbaa !31
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !15
   %14 = tail call i32 @fseeko64(ptr noundef %7, i64 noundef %13, i32 noundef 0)
   %.not = icmp eq i32 %14, 0
@@ -3137,7 +3133,7 @@ write_metadata_block_header_.exit47:              ; preds = %write_metadata_bloc
   %57 = load ptr, ptr %0, align 8, !tbaa !24
   %58 = load i32, ptr %9, align 8, !tbaa !31
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %8, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !15
   %62 = tail call i32 @fseeko64(ptr noundef %57, i64 noundef %61, i32 noundef 0)
   %.not34 = icmp eq i32 %62, 0
@@ -3185,7 +3181,7 @@ define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %19 = load i32, ptr %18, align 8, !tbaa !31
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !15
   br label %109
 
@@ -3198,11 +3194,11 @@ define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load i32, ptr %27, align 8, !tbaa !31
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = add i32 %28, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %26, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %33
   store i64 %31, ptr %34, align 8, !tbaa !15
   store i32 %32, ptr %27, align 8, !tbaa !31
   %35 = tail call i32 @FLAC__metadata_simple_iterator_prev(ptr noundef nonnull %0)
@@ -3215,7 +3211,7 @@ define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, 
   store i32 %38, ptr %27, align 8, !tbaa !31
   %39 = load ptr, ptr %0, align 8, !tbaa !24
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %26, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !15
   %43 = tail call i32 @fseeko64(ptr noundef %39, i64 noundef %42, i32 noundef 0)
   %.not.i = icmp eq i32 %43, 0
@@ -3272,13 +3268,13 @@ read_metadata_block_header_cb_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i
 
 65:                                               ; preds = %25
   %66 = zext i32 %36 to i64
-  %67 = getelementptr inbounds nuw i64, ptr %26, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !15
   %69 = add i32 %36, -1
   store i32 %69, ptr %27, align 8, !tbaa !31
   %70 = load ptr, ptr %0, align 8, !tbaa !24
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %26, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !15
   %74 = tail call i32 @fseeko64(ptr noundef %70, i64 noundef %73, i32 noundef 0)
   %.not.i36 = icmp eq i32 %74, 0
@@ -3340,7 +3336,7 @@ simple_iterator_pop_.exit46:                      ; preds = %.lr.ph.i.i.i.i40
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %98 = load i32, ptr %97, align 8, !tbaa !31
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i64, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !15
   br label %118
 
@@ -3349,7 +3345,7 @@ simple_iterator_pop_.exit46:                      ; preds = %.lr.ph.i.i.i.i40
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %105 = load i32, ptr %104, align 8, !tbaa !31
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i64, ptr %103, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !15
   br i1 %.not.i47, label %118, label %109
 
@@ -3550,7 +3546,7 @@ write_metadata_block_header_.exit:                ; preds = %write_metadata_bloc
 192:                                              ; preds = %write_metadata_block_header_.exit, %.loopexit
   %193 = load i32, ptr %119, align 8, !tbaa !31
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i64, ptr %120, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !15
   %197 = load ptr, ptr %0, align 8, !tbaa !24
   %198 = add nsw i64 %196, 4
@@ -3747,7 +3743,7 @@ fread.inline.exit.i:                              ; preds = %228
 .preheader.i:                                     ; preds = %272
   %273 = load i32, ptr %119, align 8, !tbaa !31
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw i64, ptr %120, i64 %274
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %274
   %276 = load i64, ptr %275, align 8, !tbaa !15
   %277 = add nsw i64 %276, 4
   %278 = load i32, ptr %199, align 4, !tbaa !29
@@ -3783,7 +3779,7 @@ fread.inline.exit.i:                              ; preds = %228
   %293 = call i64 @ftello64(ptr noundef %292)
   %294 = load i32, ptr %119, align 8, !tbaa !31
   %295 = zext i32 %294 to i64
-  %296 = getelementptr inbounds nuw i64, ptr %120, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %295
   store i64 %293, ptr %296, align 8, !tbaa !15
   %297 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3824,7 +3820,7 @@ FLAC__metadata_simple_iterator_next.exit.i:       ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %311 = load i32, ptr %119, align 8, !tbaa !31
   %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds nuw i64, ptr %120, i64 %312
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %312
   %314 = load i64, ptr %313, align 8, !tbaa !15
   %315 = zext i32 %308 to i64
   %316 = add nuw nsw i64 %315, 4
@@ -3875,7 +3871,7 @@ simple_iterator_copy_file_postfix_.exit.thread92: ; preds = %FLAC__metadata_simp
   %332 = call i64 @ftello64(ptr noundef %331)
   %333 = load i32, ptr %119, align 8, !tbaa !31
   %334 = zext i32 %333 to i64
-  %335 = getelementptr inbounds nuw i64, ptr %120, i64 %334
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %334
   store i64 %332, ptr %335, align 8, !tbaa !15
   %336 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3935,7 +3931,7 @@ define internal fastcc range(i32 0, 2) i32 @simple_iterator_pop_(ptr noundef cap
   %6 = load ptr, ptr %0, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @fseeko64(ptr noundef %6, i64 noundef %10, i32 noundef 0)
   %.not = icmp eq i32 %11, 0
@@ -4037,11 +4033,11 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(p
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load i32, ptr %23, align 8, !tbaa !31
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !15
   %28 = add i32 %24, 1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %22, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   store i64 %27, ptr %30, align 8, !tbaa !15
   store i32 %28, ptr %23, align 8, !tbaa !31
   %31 = load ptr, ptr %0, align 8, !tbaa !24
@@ -4057,7 +4053,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(p
   %38 = tail call i64 @ftello64(ptr noundef %37)
   %39 = load i32, ptr %23, align 8, !tbaa !31
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %40
   store i64 %38, ptr %41, align 8, !tbaa !15
   %42 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4103,7 +4099,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_insert_block_after(p
   store i32 %61, ptr %23, align 8, !tbaa !31
   %62 = load ptr, ptr %0, align 8, !tbaa !24
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %22, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !15
   %66 = call i32 @fseeko64(ptr noundef %62, i64 noundef %65, i32 noundef 0)
   %.not.i53 = icmp eq i32 %66, 0
@@ -4194,7 +4190,7 @@ read_metadata_block_header_cb_.exit.i.i62:        ; preds = %.lr.ph.i.i.i.i57
   store i32 %99, ptr %23, align 8, !tbaa !31
   %100 = load ptr, ptr %0, align 8, !tbaa !24
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw i64, ptr %22, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !15
   %104 = call i32 @fseeko64(ptr noundef %100, i64 noundef %103, i32 noundef 0)
   %.not.i63 = icmp eq i32 %104, 0
@@ -4268,7 +4264,7 @@ read_metadata_block_header_cb_.exit.i.i62:        ; preds = %.lr.ph.i.i.i.i57
   %134 = call i64 @ftello64(ptr noundef %133)
   %135 = load i32, ptr %23, align 8, !tbaa !31
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i64, ptr %22, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %136
   store i64 %134, ptr %137, align 8, !tbaa !15
   %138 = load ptr, ptr %0, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5101,7 +5097,7 @@ read_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %unpack_uint64_.exit
 
 unpack_uint64_.exit.i40.i.i:                      ; preds = %.lr.ph.i.i35.i.i
   %316 = load ptr, ptr %307, align 8, !tbaa !53
-  %317 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %316, i64 %indvars.iv.i.i.i
+  %317 = getelementptr inbounds nuw [24 x i8], ptr %316, i64 %indvars.iv.i.i.i
   store i64 %314, ptr %317, align 8, !tbaa !54
   br label %.lr.ph.i21.i.i.i
 
@@ -5317,7 +5313,7 @@ unpack_uint32_little_endian_.exit.i.i.i:          ; preds = %.lr.ph.i.i43.i.i
   %401 = phi ptr [ %441, %435 ], [ %397, %395 ]
   %indvars.iv.i46.i.i = phi i64 [ %indvars.iv.next.i47.i.i, %435 ], [ 0, %395 ]
   %.280.i.i.i = phi i32 [ %444, %435 ], [ %378, %395 ]
-  %402 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %401, i64 %indvars.iv.i46.i.i
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %401, i64 %indvars.iv.i46.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %403 = icmp ult i32 %.280.i.i.i, %177
   br i1 %403, label %.loopexit, label %404
@@ -5417,7 +5413,7 @@ read_metadata_block_data_vorbis_comment_entry_cb_.exit.thread: ; preds = %404, %
   %440 = add i32 %.280.i.i.i, -4
   %spec.select70.i.i.i = select i1 %439, i32 %440, i32 %.280.i.i.i
   %441 = load ptr, ptr %398, align 8, !tbaa !66
-  %442 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %441, i64 %indvars.iv.i46.i.i
+  %442 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %indvars.iv.i46.i.i
   %443 = load i32, ptr %442, align 8, !tbaa !59
   %444 = sub i32 %spec.select70.i.i.i, %443
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
@@ -5530,7 +5526,7 @@ unpack_uint32_.exit.i58.i.i:                      ; preds = %.lr.ph.i42.i.i.i
 .lr.ph.i59.i.i:                                   ; preds = %481, %.loopexit.i61.i.i
   %indvars.iv.i60.i.i = phi i64 [ %indvars.iv.next.i62.i.i, %.loopexit.i61.i.i ], [ 0, %481 ]
   %486 = load ptr, ptr %484, align 8, !tbaa !72
-  %487 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %486, i64 %indvars.iv.i60.i.i
+  %487 = getelementptr inbounds nuw [32 x i8], ptr %486, i64 %indvars.iv.i60.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %488 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %122, ptr noundef nonnull %33) #33
   %.not.i48.i.i.i = icmp eq i64 %488, %122
@@ -5655,7 +5651,7 @@ unpack_uint32_.exit76.thread.i.i.i.i:             ; preds = %515
 unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i, %531
   %.05.lcssa.i83.i.i.i.i = phi i64 [ 0, %531 ], [ %536, %.lr.ph.i78.i.i.i.i ]
   %538 = load ptr, ptr %524, align 8, !tbaa !77
-  %539 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %538, i64 %indvars.iv.i.i.i.i
+  %539 = getelementptr inbounds nuw [16 x i8], ptr %538, i64 %indvars.iv.i.i.i.i
   store i64 %.05.lcssa.i83.i.i.i.i, ptr %539, align 8, !tbaa !79
   %540 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %144, ptr noundef nonnull %33) #33
   %.not60.i.i.i.i = icmp eq i64 %540, %144
@@ -5671,7 +5667,7 @@ unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i,
 unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.preheader.i.i.i, %541
   %.05.lcssa.i91.i.i.i.i = phi i8 [ 0, %541 ], [ %542, %.lr.ph.i86.i.preheader.i.i.i ]
   %543 = load ptr, ptr %524, align 8, !tbaa !77
-  %544 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %543, i64 %indvars.iv.i.i.i.i
+  %544 = getelementptr inbounds nuw [16 x i8], ptr %543, i64 %indvars.iv.i.i.i.i
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   store i8 %.05.lcssa.i91.i.i.i.i, ptr %545, align 8, !tbaa !81
   %546 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %147, ptr noundef nonnull %33) #33
@@ -6805,7 +6801,7 @@ read_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %unpack_uint64_.exit
 
 unpack_uint64_.exit.i40.i.i:                      ; preds = %.lr.ph.i.i35.i.i
   %312 = load ptr, ptr %303, align 8, !tbaa !53
-  %313 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %312, i64 %indvars.iv.i.i.i
+  %313 = getelementptr inbounds nuw [24 x i8], ptr %312, i64 %indvars.iv.i.i.i
   store i64 %310, ptr %313, align 8, !tbaa !54
   br label %.lr.ph.i21.i.i.i
 
@@ -6935,7 +6931,7 @@ unpack_uint32_little_endian_.exit.i.i.i:          ; preds = %.lr.ph.i.i43.i.i
   %364 = phi ptr [ %372, %371 ], [ %360, %358 ]
   %indvars.iv.i46.i.i = phi i64 [ %indvars.iv.next.i47.i.i, %371 ], [ 0, %358 ]
   %.280.i.i.i = phi i32 [ %375, %371 ], [ %341, %358 ]
-  %365 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %364, i64 %indvars.iv.i46.i.i
+  %365 = getelementptr inbounds nuw [16 x i8], ptr %364, i64 %indvars.iv.i46.i.i
   %366 = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %1, ptr noundef readonly %26, ptr noundef %365, i32 noundef %.280.i.i.i)
   %367 = icmp ugt i32 %.280.i.i.i, 3
   %368 = add i32 %.280.i.i.i, -4
@@ -6952,7 +6948,7 @@ unpack_uint32_little_endian_.exit.i.i.i:          ; preds = %.lr.ph.i.i43.i.i
 
 371:                                              ; preds = %.lr.ph.i45.i.i
   %372 = load ptr, ptr %361, align 8, !tbaa !66
-  %373 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %372, i64 %indvars.iv.i46.i.i
+  %373 = getelementptr inbounds nuw [16 x i8], ptr %372, i64 %indvars.iv.i46.i.i
   %374 = load i32, ptr %373, align 8, !tbaa !59
   %375 = sub i32 %spec.select70.i.i.i, %374
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
@@ -7065,7 +7061,7 @@ unpack_uint32_.exit.i58.i.i:                      ; preds = %.lr.ph.i42.i.i.i
 .lr.ph.i59.i.i:                                   ; preds = %412, %.loopexit.i61.i.i
   %indvars.iv.i60.i.i = phi i64 [ %indvars.iv.next.i62.i.i, %.loopexit.i61.i.i ], [ 0, %412 ]
   %417 = load ptr, ptr %415, align 8, !tbaa !72
-  %418 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %417, i64 %indvars.iv.i60.i.i
+  %418 = getelementptr inbounds nuw [32 x i8], ptr %417, i64 %indvars.iv.i60.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %419 = call i64 %26(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %125, ptr noundef %1) #33
   %.not.i48.i.i.i = icmp eq i64 %419, %125
@@ -7190,7 +7186,7 @@ unpack_uint32_.exit76.thread.i.i.i.i:             ; preds = %446
 unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i, %462
   %.05.lcssa.i83.i.i.i.i = phi i64 [ 0, %462 ], [ %467, %.lr.ph.i78.i.i.i.i ]
   %469 = load ptr, ptr %455, align 8, !tbaa !77
-  %470 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %469, i64 %indvars.iv.i.i.i.i
+  %470 = getelementptr inbounds nuw [16 x i8], ptr %469, i64 %indvars.iv.i.i.i.i
   store i64 %.05.lcssa.i83.i.i.i.i, ptr %470, align 8, !tbaa !79
   %471 = call i64 %26(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %147, ptr noundef %1) #33
   %.not60.i.i.i.i = icmp eq i64 %471, %147
@@ -7206,7 +7202,7 @@ unpack_uint64_.exit84.i.i.i.i:                    ; preds = %.lr.ph.i78.i.i.i.i,
 unpack_uint32_.exit92.i.i.i.i:                    ; preds = %.lr.ph.i86.i.preheader.i.i.i, %472
   %.05.lcssa.i91.i.i.i.i = phi i8 [ 0, %472 ], [ %473, %.lr.ph.i86.i.preheader.i.i.i ]
   %474 = load ptr, ptr %455, align 8, !tbaa !77
-  %475 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %474, i64 %indvars.iv.i.i.i.i
+  %475 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %indvars.iv.i.i.i.i
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store i8 %.05.lcssa.i91.i.i.i.i, ptr %476, align 8, !tbaa !81
   %477 = call i64 %26(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %150, ptr noundef %1) #33
@@ -8298,7 +8294,7 @@ write_metadata_block_data_padding_cb_.exit.i.i:   ; preds = %.lr.ph.i.i.i, %._cr
 251:                                              ; preds = %247, %.lr.ph.i33.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i33.i.i ], [ %indvars.iv.next.i.i.i, %247 ]
   %252 = load ptr, ptr %246, align 8, !tbaa !53
-  %253 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %252, i64 %indvars.iv.i.i.i
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %indvars.iv.i.i.i
   %254 = load i64, ptr %253, align 8, !tbaa !54
   br label %.lr.ph.i.i34.i.i
 
@@ -8448,14 +8444,14 @@ pack_uint32_little_endian_.exit54.us.i.i.i:       ; preds = %.lr.ph.i47.i.i, %29
 
 303:                                              ; preds = %pack_uint32_little_endian_.exit54.us.i.i.i
   %304 = load ptr, ptr %297, align 8, !tbaa !66
-  %305 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %304, i64 %indvars.iv65.i.i.i
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 %indvars.iv65.i.i.i
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !62
   %308 = load i32, ptr %305, align 8, !tbaa !59
   %309 = zext i32 %308 to i64
   %310 = call i64 @fwrite(ptr noundef %307, i64 noundef 1, i64 noundef %309, ptr noundef nonnull %34) #33
   %311 = load ptr, ptr %297, align 8, !tbaa !66
-  %312 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %311, i64 %indvars.iv65.i.i.i
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %311, i64 %indvars.iv65.i.i.i
   %313 = load i32, ptr %312, align 8, !tbaa !59
   %314 = zext i32 %313 to i64
   %.not40.us.i.i.i = icmp eq i64 %310, %314
@@ -8471,7 +8467,7 @@ pack_uint32_little_endian_.exit54.us.i.i.i:       ; preds = %.lr.ph.i47.i.i, %29
 .lr.ph.i49.preheader.i.i.i:                       ; preds = %315, %.lr.ph.i49.preheader.preheader.i.i.i
   %319 = phi ptr [ %.pre.i.i.i, %.lr.ph.i49.preheader.preheader.i.i.i ], [ %335, %315 ]
   %indvars.iv.i48.i.i = phi i64 [ 0, %.lr.ph.i49.preheader.preheader.i.i.i ], [ %indvars.iv.next.i49.i.i, %315 ]
-  %320 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %319, i64 %indvars.iv.i48.i.i
+  %320 = getelementptr inbounds nuw [16 x i8], ptr %319, i64 %indvars.iv.i48.i.i
   %321 = load i32, ptr %320, align 8, !tbaa !59
   br label %.lr.ph.i49.i.i.i
 
@@ -8494,14 +8490,14 @@ pack_uint32_little_endian_.exit54.loopexit.i.i.i: ; preds = %.lr.ph.i49.i.i.i
 
 327:                                              ; preds = %pack_uint32_little_endian_.exit54.loopexit.i.i.i
   %328 = load ptr, ptr %297, align 8, !tbaa !66
-  %329 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %328, i64 %indvars.iv.i48.i.i
+  %329 = getelementptr inbounds nuw [16 x i8], ptr %328, i64 %indvars.iv.i48.i.i
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %331 = load ptr, ptr %330, align 8, !tbaa !62
   %332 = load i32, ptr %329, align 8, !tbaa !59
   %333 = zext i32 %332 to i64
   %334 = call i64 @fwrite(ptr noundef %331, i64 noundef 1, i64 noundef %333, ptr noundef nonnull %34) #33
   %335 = load ptr, ptr %297, align 8, !tbaa !66
-  %336 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %335, i64 %indvars.iv.i48.i.i
+  %336 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %indvars.iv.i48.i.i
   %337 = load i32, ptr %336, align 8, !tbaa !59
   %338 = zext i32 %337 to i64
   %.not40.i.i.i = icmp eq i64 %334, %338
@@ -8601,7 +8597,7 @@ pack_uint32_.exit.i59.i.i:                        ; preds = %.lr.ph.i102.i.i.i, 
 369:                                              ; preds = %.critedge99.i.i.i, %.lr.ph151.i.i.i
   %indvars.iv163.i.i.i = phi i64 [ 0, %.lr.ph151.i.i.i ], [ %indvars.iv.next164.i.i.i, %.critedge99.i.i.i ]
   %370 = load ptr, ptr %368, align 8, !tbaa !72
-  %371 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %370, i64 %indvars.iv163.i.i.i
+  %371 = getelementptr inbounds nuw [32 x i8], ptr %370, i64 %indvars.iv163.i.i.i
   br i1 %.not.i107.i.i.i, label %pack_uint64_.exit114.i.i.i, label %.lr.ph.preheader.i108.i.i.i
 
 .lr.ph.preheader.i108.i.i.i:                      ; preds = %369
@@ -8707,7 +8703,7 @@ pack_uint32_.exit130.i.i.i:                       ; preds = %.lr.ph.i125.i.i.i, 
 405:                                              ; preds = %401, %.lr.ph.i61.i.i
   %indvars.iv.i62.i.i = phi i64 [ 0, %.lr.ph.i61.i.i ], [ %indvars.iv.next.i63.i.i, %401 ]
   %406 = load ptr, ptr %400, align 8, !tbaa !77
-  %407 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %406, i64 %indvars.iv.i62.i.i
+  %407 = getelementptr inbounds nuw [16 x i8], ptr %406, i64 %indvars.iv.i62.i.i
   br i1 %.not.i131.i.i.i, label %pack_uint64_.exit138.i.i.i, label %.lr.ph.preheader.i132.i.i.i
 
 .lr.ph.preheader.i132.i.i.i:                      ; preds = %405
@@ -11631,7 +11627,7 @@ write_metadata_block_data_padding_cb_.exit.i:     ; preds = %.lr.ph.i.i, %._crit
 112:                                              ; preds = %108, %.lr.ph.i33.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i33.i ], [ %indvars.iv.next.i.i, %108 ]
   %113 = load ptr, ptr %104, align 8, !tbaa !53
-  %114 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv.i.i
   %115 = load i64, ptr %114, align 8, !tbaa !54
   br label %.lr.ph.i.i34.i
 
@@ -11789,14 +11785,14 @@ pack_uint32_little_endian_.exit54.us.i.i:         ; preds = %.lr.ph.i47.i, %166
 
 170:                                              ; preds = %pack_uint32_little_endian_.exit54.us.i.i
   %171 = load ptr, ptr %164, align 8, !tbaa !66
-  %172 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %171, i64 %indvars.iv65.i.i
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %indvars.iv65.i.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !62
   %175 = load i32, ptr %172, align 8, !tbaa !59
   %176 = zext i32 %175 to i64
   %177 = tail call i64 @fwrite(ptr noundef %174, i64 noundef 1, i64 noundef %176, ptr noundef %0) #33
   %178 = load ptr, ptr %164, align 8, !tbaa !66
-  %179 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %178, i64 %indvars.iv65.i.i
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %178, i64 %indvars.iv65.i.i
   %180 = load i32, ptr %179, align 8, !tbaa !59
   %181 = zext i32 %180 to i64
   %.not40.us.i.i = icmp eq i64 %177, %181
@@ -11812,7 +11808,7 @@ pack_uint32_little_endian_.exit54.us.i.i:         ; preds = %.lr.ph.i47.i, %166
 .lr.ph.i49.preheader.i.i:                         ; preds = %182, %.lr.ph.i49.preheader.preheader.i.i
   %186 = phi ptr [ %.pre.i.i, %.lr.ph.i49.preheader.preheader.i.i ], [ %202, %182 ]
   %indvars.iv.i48.i = phi i64 [ 0, %.lr.ph.i49.preheader.preheader.i.i ], [ %indvars.iv.next.i49.i, %182 ]
-  %187 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %186, i64 %indvars.iv.i48.i
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv.i48.i
   %188 = load i32, ptr %187, align 8, !tbaa !59
   br label %.lr.ph.i49.i.i
 
@@ -11835,14 +11831,14 @@ pack_uint32_little_endian_.exit54.loopexit.i.i:   ; preds = %.lr.ph.i49.i.i
 
 194:                                              ; preds = %pack_uint32_little_endian_.exit54.loopexit.i.i
   %195 = load ptr, ptr %164, align 8, !tbaa !66
-  %196 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %195, i64 %indvars.iv.i48.i
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %indvars.iv.i48.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !62
   %199 = load i32, ptr %196, align 8, !tbaa !59
   %200 = zext i32 %199 to i64
   %201 = tail call i64 @fwrite(ptr noundef %198, i64 noundef 1, i64 noundef %200, ptr noundef %0) #33
   %202 = load ptr, ptr %164, align 8, !tbaa !66
-  %203 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %202, i64 %indvars.iv.i48.i
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %indvars.iv.i48.i
   %204 = load i32, ptr %203, align 8, !tbaa !59
   %205 = zext i32 %204 to i64
   %.not40.i.i = icmp eq i64 %201, %205
@@ -11998,7 +11994,7 @@ pack_uint32_.exit.i59.i:                          ; preds = %.lr.ph.i102.i.i, %2
 285:                                              ; preds = %.critedge99.i.i, %.lr.ph151.i.i
   %indvars.iv163.i.i = phi i64 [ 0, %.lr.ph151.i.i ], [ %indvars.iv.next164.i.i, %.critedge99.i.i ]
   %286 = load ptr, ptr %251, align 8, !tbaa !72
-  %287 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %286, i64 %indvars.iv163.i.i
+  %287 = getelementptr inbounds nuw [32 x i8], ptr %286, i64 %indvars.iv163.i.i
   br i1 %.not.i107.i.i, label %pack_uint64_.exit114.i.i, label %.lr.ph.preheader.i108.i.i
 
 .lr.ph.preheader.i108.i.i:                        ; preds = %285
@@ -12104,7 +12100,7 @@ pack_uint32_.exit130.i.i:                         ; preds = %.lr.ph.i125.i.i, %3
 321:                                              ; preds = %317, %.lr.ph.i61.i
   %indvars.iv.i62.i = phi i64 [ 0, %.lr.ph.i61.i ], [ %indvars.iv.next.i63.i, %317 ]
   %322 = load ptr, ptr %316, align 8, !tbaa !77
-  %323 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %322, i64 %indvars.iv.i62.i
+  %323 = getelementptr inbounds nuw [16 x i8], ptr %322, i64 %indvars.iv.i62.i
   br i1 %.not.i131.i.i, label %pack_uint64_.exit138.i.i, label %.lr.ph.preheader.i132.i.i
 
 .lr.ph.preheader.i132.i.i:                        ; preds = %321
@@ -12922,7 +12918,7 @@ write_metadata_block_data_padding_cb_.exit:       ; preds = %.lr.ph.i, %._crit_e
 112:                                              ; preds = %108, %.lr.ph.i33
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i, %108 ]
   %113 = load ptr, ptr %104, align 8, !tbaa !53
-  %114 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv.i
   %115 = load i64, ptr %114, align 8, !tbaa !54
   br label %.lr.ph.i.i34
 
@@ -13080,14 +13076,14 @@ pack_uint32_little_endian_.exit54.us.i:           ; preds = %.lr.ph.i47, %166
 
 170:                                              ; preds = %pack_uint32_little_endian_.exit54.us.i
   %171 = load ptr, ptr %164, align 8, !tbaa !66
-  %172 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %171, i64 %indvars.iv65.i
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %indvars.iv65.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !62
   %175 = load i32, ptr %172, align 8, !tbaa !59
   %176 = zext i32 %175 to i64
   %177 = call i64 %1(ptr noundef %174, i64 noundef 1, i64 noundef %176, ptr noundef %0) #33
   %178 = load ptr, ptr %164, align 8, !tbaa !66
-  %179 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %178, i64 %indvars.iv65.i
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %178, i64 %indvars.iv65.i
   %180 = load i32, ptr %179, align 8, !tbaa !59
   %181 = zext i32 %180 to i64
   %.not40.us.i = icmp eq i64 %177, %181
@@ -13103,7 +13099,7 @@ pack_uint32_little_endian_.exit54.us.i:           ; preds = %.lr.ph.i47, %166
 .lr.ph.i49.preheader.i:                           ; preds = %182, %.lr.ph.i49.preheader.preheader.i
   %186 = phi ptr [ %.pre.i, %.lr.ph.i49.preheader.preheader.i ], [ %202, %182 ]
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.i49.preheader.preheader.i ], [ %indvars.iv.next.i49, %182 ]
-  %187 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %186, i64 %indvars.iv.i48
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv.i48
   %188 = load i32, ptr %187, align 8, !tbaa !59
   br label %.lr.ph.i49.i
 
@@ -13126,14 +13122,14 @@ pack_uint32_little_endian_.exit54.loopexit.i:     ; preds = %.lr.ph.i49.i
 
 194:                                              ; preds = %pack_uint32_little_endian_.exit54.loopexit.i
   %195 = load ptr, ptr %164, align 8, !tbaa !66
-  %196 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %195, i64 %indvars.iv.i48
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %indvars.iv.i48
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !62
   %199 = load i32, ptr %196, align 8, !tbaa !59
   %200 = zext i32 %199 to i64
   %201 = call i64 %1(ptr noundef %198, i64 noundef 1, i64 noundef %200, ptr noundef %0) #33
   %202 = load ptr, ptr %164, align 8, !tbaa !66
-  %203 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %202, i64 %indvars.iv.i48
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %indvars.iv.i48
   %204 = load i32, ptr %203, align 8, !tbaa !59
   %205 = zext i32 %204 to i64
   %.not40.i = icmp eq i64 %201, %205
@@ -13289,7 +13285,7 @@ pack_uint32_.exit.i59:                            ; preds = %.lr.ph.i102.i, %238
 285:                                              ; preds = %.critedge99.i, %.lr.ph151.i
   %indvars.iv163.i = phi i64 [ 0, %.lr.ph151.i ], [ %indvars.iv.next164.i, %.critedge99.i ]
   %286 = load ptr, ptr %251, align 8, !tbaa !72
-  %287 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %286, i64 %indvars.iv163.i
+  %287 = getelementptr inbounds nuw [32 x i8], ptr %286, i64 %indvars.iv163.i
   br i1 %.not.i107.i, label %pack_uint64_.exit114.i, label %.lr.ph.preheader.i108.i
 
 .lr.ph.preheader.i108.i:                          ; preds = %285
@@ -13395,7 +13391,7 @@ pack_uint32_.exit130.i:                           ; preds = %.lr.ph.i125.i, %309
 321:                                              ; preds = %317, %.lr.ph.i61
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %317 ]
   %322 = load ptr, ptr %316, align 8, !tbaa !77
-  %323 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %322, i64 %indvars.iv.i62
+  %323 = getelementptr inbounds nuw [16 x i8], ptr %322, i64 %indvars.iv.i62
   br i1 %.not.i131.i, label %pack_uint64_.exit138.i, label %.lr.ph.preheader.i132.i
 
 .lr.ph.preheader.i132.i:                          ; preds = %321

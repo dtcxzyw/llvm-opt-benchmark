@@ -49,7 +49,7 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8208
   %15 = load i64, ptr %14, align 8, !tbaa !12
-  %16 = getelementptr ptr, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11
@@ -113,7 +113,7 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL12allocate_newEPNS_19pg_pars
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8216
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = load i64, ptr %3, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %17, ptr %24, align 8, !tbaa !13
   %25 = add i64 %23, 1
   store i64 %25, ptr %3, align 8, !tbaa !12
@@ -275,7 +275,7 @@ define hidden void @_ZN17duckdb_libpgquery17pg_parser_cleanupEv() local_unnamed_
   %5 = phi i64 [ %13, %12 ], [ %3, %0 ]
   %6 = phi ptr [ %14, %12 ], [ %.pre9, %0 ]
   %.06 = phi i64 [ %15, %12 ], [ 0, %0 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.06
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.06
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -283,7 +283,7 @@ define hidden void @_ZN17duckdb_libpgquery17pg_parser_cleanupEv() local_unnamed_
 9:                                                ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %8) #24
   %10 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.06
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.06
   store ptr null, ptr %11, align 8, !tbaa !13
   %.pre8 = load i64, ptr %2, align 8, !tbaa !12
   br label %12
@@ -465,7 +465,7 @@ _ZN17duckdb_libpgquery7pstrdupEPKc.exit:          ; preds = %9, %15
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %21 = load i64, ptr %20, align 8, !tbaa !12
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %16
@@ -497,7 +497,7 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %29, %35
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %40 = load i64, ptr %39, align 8, !tbaa !12
-  %41 = getelementptr ptr, ptr %38, i64 %40
+  %41 = getelementptr [8 x i8], ptr %38, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %36
@@ -543,7 +543,7 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %1, %10
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8208
   %16 = load i64, ptr %15, align 8, !tbaa !12
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %11
@@ -588,7 +588,7 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %1, %9
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8208
   %14 = load i64, ptr %13, align 8, !tbaa !12
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %10
@@ -625,7 +625,7 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %2, %11
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8208
   %16 = load i64, ptr %15, align 8, !tbaa !12
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %12
@@ -867,7 +867,7 @@ _ZN17duckdb_libpgquery11palloc0fastEm.exit:       ; preds = %2, %10
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8208
   %15 = load i64, ptr %14, align 8, !tbaa !12
-  %16 = getelementptr ptr, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11

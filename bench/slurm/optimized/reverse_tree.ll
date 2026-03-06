@@ -245,7 +245,7 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02435 = phi i32 [ %31, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %.02435, ptr %37, align 4
   %38 = add nsw i32 %.02435, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

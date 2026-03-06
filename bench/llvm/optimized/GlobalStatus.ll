@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"class.llvm::SmallPtrSet.0" = type { %"class.llvm::SmallPtrSetImpl.base.2", [16 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.2" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZNK4llvm12MemIntrinsic10isVolatileEv = comdat any
 
@@ -64,7 +63,7 @@ thread-pre-split:                                 ; preds = %_ZN4llvm23SmallVect
   %12 = phi i32 [ %.pr, %thread-pre-split ], [ 1, %.lr.ph42.preheader ]
   %13 = load ptr, ptr %1, align 8, !tbaa !3
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = add i32 %12, -1
@@ -149,7 +148,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit21: ; p
   %49 = phi i32 [ %44, %43 ], [ %.pre.i20, %46 ]
   %50 = load ptr, ptr %1, align 8, !tbaa !3
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = ptrtoint ptr %40 to i64
   store i64 %53, ptr %52, align 1
   %54 = load i32, ptr %4, align 8, !tbaa !17
@@ -609,7 +608,7 @@ _ZN4llvm8dyn_castINS_15MemTransferInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   %181 = and i32 %180, 134217727
   %182 = zext nneg i32 %181 to i64
   %183 = sub nsw i64 0, %182
-  %184 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %183
+  %184 = getelementptr inbounds [32 x i8], ptr %25, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !74
   %186 = icmp eq ptr %185, %0
   br i1 %186, label %187, label %188
@@ -624,7 +623,7 @@ _ZN4llvm8dyn_castINS_15MemTransferInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
 
 188:                                              ; preds = %187, %178
   %.pre-phi263 = phi i64 [ %.pre262, %187 ], [ %183, %178 ]
-  %189 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %.pre-phi263
+  %189 = getelementptr inbounds [32 x i8], ptr %25, i64 %.pre-phi263
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load ptr, ptr %190, align 8, !tbaa !74
   %192 = icmp eq ptr %191, %0
@@ -701,7 +700,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12MemIntrinsic10isVolati
   %4 = and i32 %3, 134217727
   %5 = zext nneg i32 %4 to i64
   %6 = sub nsw i64 0, %5
-  %7 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24

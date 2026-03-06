@@ -705,7 +705,7 @@ sub_0:
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.thread106
-  %44 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next156
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next156
   %45 = load ptr, ptr %44, align 8, !tbaa !92
   %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(7) @.str.16, i64 noundef 6) #18
   %.not93 = icmp eq i32 %46, 0
@@ -779,7 +779,7 @@ sdslen.exit:                                      ; preds = %.lr.ph214, %54, %57
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.473126 = phi i64 [ %.372138213, %.preheader.preheader ], [ %91, %._crit_edge ]
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !92
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %75) #18
   %.not95207 = icmp eq i32 %78, 0
@@ -810,7 +810,7 @@ sdslen.exit:                                      ; preds = %.lr.ph214, %54, %57
 
 86:                                               ; preds = %.preheader._crit_edge
   %87 = call ptr @sdsempty() #19
-  %88 = getelementptr inbounds nuw ptr, ptr %72, i64 %.066.lcssa110
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.066.lcssa110
   %89 = load ptr, ptr %88, align 8, !tbaa !92
   %90 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %87, ptr noundef nonnull @.str.18, ptr noundef %89) #19
   store ptr %90, ptr %3, align 8, !tbaa !92
@@ -1801,7 +1801,7 @@ define dso_local void @evalGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %76 = load ptr, ptr %7, align 8, !tbaa !108
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load i64, ptr %4, align 8, !tbaa !131
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   %80 = load i32, ptr %14, align 8, !tbaa !117
   %81 = add nsw i32 %80, -3
   %82 = sext i32 %81 to i64
@@ -2065,7 +2065,7 @@ define dso_local void @scriptCommand(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %39 ]
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 16), align 8, !tbaa !62
   %46 = load ptr, ptr %40, align 8, !tbaa !108
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !109
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !110
@@ -2915,7 +2915,7 @@ define dso_local ptr @ldbGetSourceLine(i32 noundef %0) local_unnamed_addr #12 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !92
   br label %10
@@ -2942,7 +2942,7 @@ define dso_local range(i32 0, 2) i32 @ldbIsBreakpoint(i32 noundef %0) local_unna
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !91
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %._crit_edge, label %4
@@ -2976,7 +2976,7 @@ define dso_local range(i32 0, 2) i32 @ldbAddBreakpoint(i32 noundef %0) local_unn
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4, !tbaa !91
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %ldbIsBreakpoint.exit.thread, label %8
@@ -2989,7 +2989,7 @@ ldbIsBreakpoint.exit.thread14:                    ; preds = %5, %ldbIsBreakpoint
   %12 = add nsw i32 %6, 1
   store i32 %12, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %13
   store i32 %0, ptr %14, align 4, !tbaa !91
   br label %ldbIsBreakpoint.exit.thread
 
@@ -3010,13 +3010,13 @@ define dso_local range(i32 0, 2) i32 @ldbDelBreakpoint(i32 noundef %0) local_unn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %4 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !91
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = add nsw i32 %2, -1
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
@@ -3200,7 +3200,7 @@ sdslen.exit67:                                    ; preds = %62, %71, %74, %77, 
 86:                                               ; preds = %sdslen.exit67
   %87 = tail call ptr @sdsnewlen(ptr noundef nonnull %58, i64 noundef %63) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store ptr %87, ptr %88, align 8, !tbaa !92
   %89 = load i8, ptr %64, align 1, !tbaa !13
   %.not62 = icmp eq i8 %89, 13
@@ -3260,7 +3260,7 @@ define dso_local void @ldbLogSourceLine(i32 noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !92
   br label %ldbGetSourceLine.exit
@@ -3282,7 +3282,7 @@ ldbGetSourceLine.exit:                            ; preds = %1, %4
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4, !tbaa !91
   %15 = icmp eq i32 %14, %0
   br i1 %15, label %.loopexit, label %12
@@ -3313,7 +3313,7 @@ define dso_local void @ldbList(i32 noundef %0, i32 noundef %1) local_unnamed_add
 ldbGetSourceLine.exit.i.us:                       ; preds = %.lr.ph, %ldbLogSourceLine.exit.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %ldbLogSourceLine.exit.us ], [ 1, %.lr.ph ]
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
-  %5 = getelementptr ptr, ptr %4, i64 %indvars.iv19
+  %5 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv19
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !92
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
@@ -3326,7 +3326,7 @@ ldbGetSourceLine.exit.i.us:                       ; preds = %.lr.ph, %ldbLogSour
 
 .lr.ph.i.i.us:                                    ; preds = %14, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %14 ]
-  %10 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i.us
+  %10 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i.us
   %11 = load i32, ptr %10, align 4, !tbaa !91
   %12 = zext i32 %11 to i64
   %13 = icmp eq i64 %indvars.iv19, %12
@@ -3366,7 +3366,7 @@ ldbLogSourceLine.exit.us:                         ; preds = %.lr.ph.i.i.us, %14,
 
 ldbGetSourceLine.exit.i:                          ; preds = %.lr.ph.split
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
-  %33 = getelementptr ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr [8 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8, !tbaa !92
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
@@ -3384,7 +3384,7 @@ ldbGetSourceLine.exit.i:                          ; preds = %.lr.ph.split
 
 .lr.ph.i.i:                                       ; preds = %38, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !91
   %41 = zext i32 %40 to i64
   %42 = icmp eq i64 %indvars.iv, %41
@@ -3638,7 +3638,7 @@ sdslen.exit75.thread:                             ; preds = %sdslen.exit.thread,
 
 switch.lookup:                                    ; preds = %98
   %101 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ldbCatStackValueRec, i64 %101
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ldbCatStackValueRec, i64 %101
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.fold.split
 
@@ -4304,7 +4304,7 @@ define dso_local void @ldbBreak(ptr noundef readonly captures(none) %0, i32 noun
 .lr.ph38:                                         ; preds = %13, %ldbLogSourceLine.exit
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %ldbLogSourceLine.exit ], [ 0, %13 ]
   %21 = phi i32 [ %45, %ldbLogSourceLine.exit ], [ %19, %13 ]
-  %22 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv43
+  %22 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv43
   %23 = load i32, ptr %22, align 4, !tbaa !91
   %24 = icmp slt i32 %23, 1
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 320), align 8
@@ -4315,7 +4315,7 @@ define dso_local void @ldbBreak(ptr noundef readonly captures(none) %0, i32 noun
 26:                                               ; preds = %.lr.ph38
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
   %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !92
   br label %ldbGetSourceLine.exit.i
@@ -4336,7 +4336,7 @@ ldbGetSourceLine.exit.i:                          ; preds = %26, %.lr.ph38
 
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
   %35 = load i32, ptr %34, align 4, !tbaa !91
   %36 = icmp eq i32 %35, %23
   br i1 %36, label %ldbLogSourceLine.exit, label %33
@@ -4359,7 +4359,7 @@ ldbLogSourceLine.exit:                            ; preds = %33, %.lr.ph.i.i, %l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %133
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %133 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %50 = getelementptr inbounds i8, ptr %49, i64 -1
@@ -4465,7 +4465,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %54, %57, %
 
 .lr.ph.i.i20:                                     ; preds = %101, %.lr.ph.preheader.i.i18
   %indvars.iv.i.i21 = phi i64 [ 0, %.lr.ph.preheader.i.i18 ], [ %indvars.iv.next.i.i22, %101 ]
-  %102 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i21
+  %102 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i21
   %103 = load i32, ptr %102, align 4, !tbaa !91
   %104 = icmp eq i32 %103, %95
   br i1 %104, label %.loopexit29, label %101
@@ -4474,7 +4474,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %54, %57, %
   %105 = add nsw i32 %88, 1
   store i32 %105, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
   %106 = sext i32 %88 to i64
-  %107 = getelementptr inbounds i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %106
   store i32 %95, ptr %107, align 4, !tbaa !91
   call void @ldbList(i32 noundef %95, i32 noundef 1)
   br label %133
@@ -4498,7 +4498,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %54, %57, %
 
 .lr.ph.i:                                         ; preds = %119, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %119 ]
-  %116 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
   %117 = load i32, ptr %116, align 4, !tbaa !91
   %118 = icmp eq i32 %117, %113
   br i1 %118, label %120, label %119
@@ -4509,7 +4509,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %54, %57, %
   br i1 %exitcond.not.i, label %.loopexit31, label %.lr.ph.i, !llvm.loop !155
 
 120:                                              ; preds = %.lr.ph.i
-  %121 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
   %122 = trunc nuw nsw i64 %indvars.iv.i to i32
   %123 = add nsw i32 %114, -1
   store i32 %123, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 296), align 8, !tbaa !140
@@ -4712,7 +4712,7 @@ define dso_local void @ldbRedis(ptr noundef %0, ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %sdslen.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %sdslen.exit ]
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !92
   %15 = getelementptr inbounds i8, ptr %14, i64 -1
   %16 = load i8, ptr %15, align 1, !tbaa !13
@@ -4820,7 +4820,7 @@ define dso_local void @ldbTrace(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %10
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
   %24 = zext nneg i32 %19 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load ptr, ptr %26, align 8, !tbaa !92
   br label %ldbGetSourceLine.exit.i
@@ -4842,7 +4842,7 @@ ldbGetSourceLine.exit.i:                          ; preds = %22, %10
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
   %32 = load i32, ptr %31, align 4, !tbaa !91
   %33 = icmp eq i32 %32, %19
   br i1 %33, label %ldbLogSourceLine.exit, label %30
@@ -5428,7 +5428,7 @@ define dso_local void @luaLdbLineHook(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4, !tbaa !91
   %14 = icmp eq i32 %13, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5496,7 +5496,7 @@ ldbIsBreakpoint.exit:                             ; preds = %.lr.ph.i, %5
 48:                                               ; preds = %.thread
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 312), align 8, !tbaa !58
   %50 = zext nneg i32 %45 to i64
-  %51 = getelementptr ptr, ptr %49, i64 %50
+  %51 = getelementptr [8 x i8], ptr %49, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -8
   %53 = load ptr, ptr %52, align 8, !tbaa !92
   br label %ldbGetSourceLine.exit.i
@@ -5518,7 +5518,7 @@ ldbGetSourceLine.exit.i:                          ; preds = %48, %.thread
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ldb, i64 40), i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 4, !tbaa !91
   %59 = icmp eq i32 %58, %45
   br i1 %59, label %ldbLogSourceLine.exit, label %56

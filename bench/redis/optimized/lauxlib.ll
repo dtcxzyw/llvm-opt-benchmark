@@ -229,7 +229,7 @@ luaL_checklstring.exit:                           ; preds = %9, %7, %5
 
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %.not20 = icmp eq ptr %22, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !14

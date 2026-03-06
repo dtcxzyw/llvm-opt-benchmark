@@ -2555,7 +2555,7 @@ define internal fastcc void @dissect_attr_mesh(ptr noundef %0, ptr noundef %1, i
 
 switch.lookup:                                    ; preds = %9
   %18 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_attr_mesh, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_attr_mesh, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -3143,7 +3143,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 .preheader:                                       ; preds = %104, %113
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %113 ], [ 0, %104 ]
-  %108 = getelementptr %struct._range_channel_set, ptr @op_class_channel, i64 %indvars.iv.i
+  %108 = getelementptr [264 x i8], ptr @op_class_channel, i64 %indvars.iv.i
   %109 = load i32, ptr %108, align 8
   %.not14.i = icmp ugt i32 %109, %101
   br i1 %.not14.i, label %113, label %110
@@ -3161,7 +3161,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %116 = getelementptr i32, ptr %115, i64 %indvars.iv202
+  %116 = getelementptr [4 x i8], ptr %115, i64 %indvars.iv202
   %117 = load i32, ptr %116, align 4
   switch i32 %117, label %121 [
     i32 -3, label %118
@@ -3201,7 +3201,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 127:                                              ; preds = %133, %124
   %indvars.iv.i165 = phi i64 [ 0, %124 ], [ %indvars.iv.next.i170, %133 ]
-  %128 = getelementptr %struct._range_channel_set, ptr @op_class_channel, i64 %indvars.iv.i165
+  %128 = getelementptr [264 x i8], ptr @op_class_channel, i64 %indvars.iv.i165
   %129 = load i32, ptr %128, align 8
   %.not14.i166 = icmp ugt i32 %129, %101
   br i1 %.not14.i166, label %133, label %130
@@ -3225,7 +3225,7 @@ define internal fastcc void @dissect_attr_availability(ptr noundef %0, ptr nound
 
 138:                                              ; preds = %142, %134
   %indvars.iv.i173 = phi i64 [ 0, %134 ], [ %indvars.iv.next.i174, %142 ]
-  %139 = getelementptr i32, ptr %135, i64 %indvars.iv.i173
+  %139 = getelementptr [4 x i8], ptr %135, i64 %indvars.iv.i173
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, %137
   br i1 %141, label %channel_number_valid.exit, label %142
@@ -3269,7 +3269,7 @@ channel_number_valid.exit.thread:                 ; preds = %142, %channel_numbe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %157, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %158 = getelementptr i32, ptr %135, i64 %indvars.iv
+  %158 = getelementptr [4 x i8], ptr %135, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %100, ptr noundef nonnull @.str.737, i32 noundef %159)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

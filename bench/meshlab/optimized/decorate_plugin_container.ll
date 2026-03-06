@@ -131,7 +131,7 @@ _ZNSt6vectorIP14DecoratePluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ;
 _ZNSt6vectorIP14DecoratePluginSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIP14DecoratePluginSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %23, ptr %0, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIP14DecoratePluginSaIS1_EE9push_backERKS1_.exit
 
@@ -313,7 +313,7 @@ define noundef ptr @_ZN23DecoratePluginContainer14decoratePluginERK7QString(ptr 
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i32, ptr %21, align 8, !noalias !7
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %19)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -363,7 +363,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load i32, ptr %44, align 8, !noalias !7
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   %48 = load atomic i32, ptr %42 monotonic, align 8, !noalias !10
   %49 = icmp ugt i32 %48, 1
   br i1 %49, label %50, label %_ZN5QListIP7QActionE3endEv.exit
@@ -420,7 +420,7 @@ _ZN5QListIP7QActionE3endEv.exit:                  ; preds = %_ZN9QtPrivate8RefCo
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %72 = load i32, ptr %71, align 4, !noalias !10
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %70, i64 %73
   %.not3638 = icmp eq ptr %47, %74
   br i1 %.not3638, label %_ZN7QStringD2Ev.exit._crit_edge, label %.lr.ph
 

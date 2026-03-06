@@ -253,7 +253,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %7 = shl nuw nsw i64 %1, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !tbaa !23
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   %10 = ptrtoint ptr %9 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -303,10 +303,10 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
 
 30:                                               ; preds = %.lr.ph, %30
   %.03454 = phi i64 [ 0, %.lr.ph ], [ %37, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %.03454
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.03454
   %32 = load i32, ptr %31, align 4, !tbaa !27
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %.sroa.049.0, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.049.0, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !23
   %36 = add nsw i64 %35, 1
   store i64 %36, ptr %34, align 8, !tbaa !23
@@ -383,10 +383,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge58, %._c
 56:                                               ; preds = %.lr.ph57, %56
   %.02956 = phi i64 [ 0, %.lr.ph57 ], [ %71, %56 ]
   %.03055 = phi i1 [ true, %.lr.ph57 ], [ %69, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %48, i64 %.02956
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.02956
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %.sroa.049.0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.049.0, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !23
   %62 = icmp slt i64 %61, 3
   %63 = zext i1 %62 to i8
@@ -435,7 +435,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %7 = shl nuw nsw i64 %1, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !tbaa !23
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   %10 = ptrtoint ptr %9 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -485,10 +485,10 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
 
 30:                                               ; preds = %.lr.ph, %30
   %.03454 = phi i64 [ 0, %.lr.ph ], [ %37, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %.03454
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.03454
   %32 = load i32, ptr %31, align 4, !tbaa !27
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %.sroa.049.0, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.049.0, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !23
   %36 = add nsw i64 %35, 1
   store i64 %36, ptr %34, align 8, !tbaa !23
@@ -565,10 +565,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge58, %._c
 56:                                               ; preds = %.lr.ph57, %56
   %.02956 = phi i64 [ 0, %.lr.ph57 ], [ %71, %56 ]
   %.03055 = phi i1 [ true, %.lr.ph57 ], [ %69, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %48, i64 %.02956
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.02956
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %.sroa.049.0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.049.0, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !23
   %62 = icmp slt i64 %61, 3
   %63 = zext i1 %62 to i8
@@ -616,7 +616,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %7 = shl nuw nsw i64 %1, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !tbaa !23
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   %10 = ptrtoint ptr %9 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -666,10 +666,10 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i: ; 
 
 30:                                               ; preds = %.lr.ph, %30
   %.03454 = phi i64 [ 0, %.lr.ph ], [ %37, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %.03454
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.03454
   %32 = load i32, ptr %31, align 4, !tbaa !27
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %.sroa.049.0, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.049.0, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !23
   %36 = add nsw i64 %35, 1
   store i64 %36, ptr %34, align 8, !tbaa !23
@@ -746,10 +746,10 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge58, %._c
 56:                                               ; preds = %.lr.ph57, %56
   %.02956 = phi i64 [ 0, %.lr.ph57 ], [ %71, %56 ]
   %.03055 = phi i1 [ true, %.lr.ph57 ], [ %69, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %48, i64 %.02956
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.02956
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %.sroa.049.0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.049.0, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !23
   %62 = icmp slt i64 %61, 3
   %63 = zext i1 %62 to i8

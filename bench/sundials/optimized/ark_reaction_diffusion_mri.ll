@@ -92,7 +92,7 @@ check_retval.exit.i:                              ; preds = %22, %check_retval.e
   %28 = call double @exp(double noundef %27) #9, !tbaa !20
   %29 = fadd double %28, 1.000000e+00
   %30 = fdiv double 1.000000e+00, %29
-  %31 = getelementptr inbounds nuw double, ptr %23, i64 %.017.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.017.i
   store double %30, ptr %31, align 8, !tbaa !22
   %32 = add nuw nsw i64 %.017.i, 1
   %exitcond.not.i = icmp eq i64 %32, 1001
@@ -222,7 +222,7 @@ check_retval.exit119:                             ; preds = %79
 
 96:                                               ; preds = %92, %96
   %.1160 = phi i64 [ 0, %92 ], [ %100, %96 ]
-  %97 = getelementptr inbounds nuw double, ptr %95, i64 %.1160
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.1160
   %98 = load double, ptr %97, align 8, !tbaa !22
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.17, double noundef %98) #9
   %100 = add nuw nsw i64 %.1160, 1
@@ -262,7 +262,7 @@ check_retval.exit121:                             ; preds = %106
 
 117:                                              ; preds = %111, %117
   %.2161 = phi i64 [ 0, %111 ], [ %121, %117 ]
-  %118 = getelementptr inbounds nuw double, ptr %95, i64 %.2161
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.2161
   %119 = load double, ptr %118, align 8, !tbaa !22
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.17, double noundef %119) #9
   %121 = add nuw nsw i64 %.2161, 1
@@ -347,12 +347,12 @@ check_retval.exit20.preheader:                    ; preds = %8
 
 check_retval.exit20:                              ; preds = %check_retval.exit20.preheader, %check_retval.exit20
   %.025 = phi i64 [ %18, %check_retval.exit20 ], [ 0, %check_retval.exit20.preheader ]
-  %12 = getelementptr inbounds nuw double, ptr %6, i64 %.025
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.025
   %13 = load double, ptr %12, align 8, !tbaa !22
   %14 = fmul double %13, %13
   %15 = fsub double 1.000000e+00, %13
   %16 = fmul double %14, %15
-  %17 = getelementptr inbounds nuw double, ptr %9, i64 %.025
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.025
   store double %16, ptr %17, align 8, !tbaa !22
   %18 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %18, %5
@@ -422,7 +422,7 @@ check_retval.exit43:                              ; preds = %14
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %.048 = phi i64 [ %39, %.lr.ph ], [ 1, %19 ]
-  %32 = getelementptr double, ptr %10, i64 %.048
+  %32 = getelementptr [8 x i8], ptr %10, i64 %.048
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load double, ptr %33, align 8, !tbaa !22
   %35 = load double, ptr %32, align 8, !tbaa !22
@@ -430,23 +430,23 @@ check_retval.exit43:                              ; preds = %14
   %37 = fmul double %24, %36
   %38 = tail call double @llvm.fmuladd.f64(double %21, double %34, double %37)
   %39 = add nuw nsw i64 %.048, 1
-  %40 = getelementptr inbounds nuw double, ptr %10, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !22
   %42 = tail call double @llvm.fmuladd.f64(double %21, double %41, double %38)
-  %43 = getelementptr inbounds nuw double, ptr %15, i64 %.048
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.048
   store double %42, ptr %43, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %39, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %44 = getelementptr double, ptr %10, i64 %5
+  %44 = getelementptr [8 x i8], ptr %10, i64 %5
   %45 = getelementptr i8, ptr %44, i64 -16
   %46 = load double, ptr %45, align 8, !tbaa !22
-  %47 = getelementptr inbounds double, ptr %10, i64 %30
+  %47 = getelementptr inbounds [8 x i8], ptr %10, i64 %30
   %48 = load double, ptr %47, align 8, !tbaa !22
   %49 = fsub double %46, %48
   %50 = fmul double %24, %49
-  %51 = getelementptr inbounds double, ptr %15, i64 %30
+  %51 = getelementptr inbounds [8 x i8], ptr %15, i64 %30
   store double %50, ptr %51, align 8, !tbaa !22
   br label %52
 

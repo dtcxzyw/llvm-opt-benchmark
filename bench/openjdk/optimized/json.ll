@@ -145,7 +145,7 @@ define hidden void @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull alig
 switch.lookup:                                    ; preds = %9
   %14 = load ptr, ptr %10, align 8
   %15 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
@@ -2544,7 +2544,7 @@ define hidden noundef nonnull ptr @_ZN4JSON8strerrorENS_10JSON_ERRORE(ptr nounde
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

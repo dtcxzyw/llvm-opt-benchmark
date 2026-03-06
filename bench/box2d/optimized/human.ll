@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2BodyId = type { i32, i16, i16 }
 %struct.b2Hull = type { [8 x %struct.b2Vec2], i32 }
 %struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
-%struct.Bone = type { %struct.b2BodyId, %struct.b2JointId, float, i32 }
-%struct.b2JointId = type { i32, i16, i16 }
 
 @__const.CreateHuman.skinColors = private unnamed_addr constant [4 x i32] [i32 16768685, i32 16777184, i32 13468991, i32 13808780], align 16
 @g_seed = external local_unnamed_addr global i32, align 4
@@ -83,7 +81,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
 
 50:                                               ; preds = %10, %50
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %52, align 4, !tbaa !31
@@ -102,7 +100,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %57 = fmul float %3, %4
   %58 = srem i32 %7, 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr @__const.CreateHuman.skinColors, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr @__const.CreateHuman.skinColors, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 -1, ptr %62, align 4, !tbaa !36
@@ -183,7 +181,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %16) #6
   %98 = load i32, ptr %81, align 4, !tbaa !36
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.Bone, ptr %0, i64 %99
+  %100 = getelementptr inbounds [24 x i8], ptr %0, i64 %99
   %101 = load i64, ptr %100, align 4
   store i64 %101, ptr %16, align 8
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -267,7 +265,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %18) #6
   %145 = load i32, ptr %125, align 4, !tbaa !36
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.Bone, ptr %0, i64 %146
+  %147 = getelementptr inbounds [24 x i8], ptr %0, i64 %146
   %148 = load i64, ptr %147, align 4
   store i64 %148, ptr %18, align 8
   %149 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -346,7 +344,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %20) #6
   %188 = load i32, ptr %170, align 4, !tbaa !36
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds %struct.Bone, ptr %0, i64 %189
+  %190 = getelementptr inbounds [24 x i8], ptr %0, i64 %189
   %191 = load i64, ptr %190, align 4
   store i64 %191, ptr %20, align 8
   %192 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -452,7 +450,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %25) #6
   %245 = load i32, ptr %226, align 4, !tbaa !36
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds %struct.Bone, ptr %0, i64 %246
+  %247 = getelementptr inbounds [24 x i8], ptr %0, i64 %246
   %248 = load i64, ptr %247, align 4
   store i64 %248, ptr %25, align 8
   %249 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -522,7 +520,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %27) #6
   %281 = load i32, ptr %270, align 4, !tbaa !36
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds %struct.Bone, ptr %0, i64 %282
+  %283 = getelementptr inbounds [24 x i8], ptr %0, i64 %282
   %284 = load i64, ptr %283, align 4
   store i64 %284, ptr %27, align 8
   %285 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -594,7 +592,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %29) #6
   %319 = load i32, ptr %306, align 4, !tbaa !36
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds %struct.Bone, ptr %0, i64 %320
+  %321 = getelementptr inbounds [24 x i8], ptr %0, i64 %320
   %322 = load i64, ptr %321, align 4
   store i64 %322, ptr %29, align 8
   %323 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -671,7 +669,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %31) #6
   %360 = load i32, ptr %344, align 4, !tbaa !36
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds %struct.Bone, ptr %0, i64 %361
+  %362 = getelementptr inbounds [24 x i8], ptr %0, i64 %361
   %363 = load i64, ptr %362, align 4
   store i64 %363, ptr %31, align 8
   %364 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -748,7 +746,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %33) #6
   %401 = load i32, ptr %385, align 4, !tbaa !36
   %402 = sext i32 %401 to i64
-  %403 = getelementptr inbounds %struct.Bone, ptr %0, i64 %402
+  %403 = getelementptr inbounds [24 x i8], ptr %0, i64 %402
   %404 = load i64, ptr %403, align 4
   store i64 %404, ptr %33, align 8
   %405 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -820,7 +818,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %35) #6
   %438 = load i32, ptr %427, align 4, !tbaa !36
   %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds %struct.Bone, ptr %0, i64 %439
+  %440 = getelementptr inbounds [24 x i8], ptr %0, i64 %439
   %441 = load i64, ptr %440, align 4
   store i64 %441, ptr %35, align 8
   %442 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -890,7 +888,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %37) #6
   %474 = load i32, ptr %463, align 4, !tbaa !36
   %475 = sext i32 %474 to i64
-  %476 = getelementptr inbounds %struct.Bone, ptr %0, i64 %475
+  %476 = getelementptr inbounds [24 x i8], ptr %0, i64 %475
   %477 = load i64, ptr %476, align 4
   store i64 %477, ptr %37, align 8
   %478 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -970,7 +968,7 @@ define void @DestroyHuman(ptr noundef captures(none) %0) local_unnamed_addr #3 {
 
 2:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %3 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !57
   %6 = icmp eq i32 %5, 0
@@ -994,7 +992,7 @@ define void @DestroyHuman(ptr noundef captures(none) %0) local_unnamed_addr #3 {
 
 .preheader:                                       ; preds = %9, %17
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %17 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv20
   %13 = load i32, ptr %12, align 4, !tbaa !59
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15
@@ -1024,7 +1022,7 @@ define void @Human_SetVelocity(ptr noundef readonly captures(none) %0, <2 x floa
 
 4:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
-  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %5, align 4, !tbaa !28
   %6 = icmp eq i32 %.sroa.0.0.copyload, 0
   br i1 %6, label %8, label %7
@@ -1082,7 +1080,7 @@ define void @Human_SetJointFrictionTorque(ptr noundef readonly captures(none) %0
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 1, %2 ]
-  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv23
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 4
   tail call void @b2RevoluteJoint_EnableMotor(i64 %7, i1 noundef zeroext false) #6
@@ -1092,7 +1090,7 @@ define void @Human_SetJointFrictionTorque(ptr noundef readonly captures(none) %0
 
 8:                                                ; preds = %.preheader17, %8
   %indvars.iv = phi i64 [ 1, %.preheader17 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 4
   tail call void @b2RevoluteJoint_EnableMotor(i64 %11, i1 noundef zeroext true) #6
@@ -1122,7 +1120,7 @@ define void @Human_SetJointSpringHertz(ptr noundef readonly captures(none) %0, f
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %.preheader ], [ 1, %2 ]
-  %4 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv19
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 4
   tail call void @b2RevoluteJoint_EnableSpring(i64 %6, i1 noundef zeroext false) #6
@@ -1132,7 +1130,7 @@ define void @Human_SetJointSpringHertz(ptr noundef readonly captures(none) %0, f
 
 .preheader13:                                     ; preds = %2, %.preheader13
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader13 ], [ 1, %2 ]
-  %7 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 4
   tail call void @b2RevoluteJoint_EnableSpring(i64 %9, i1 noundef zeroext true) #6
@@ -1159,7 +1157,7 @@ define void @Human_SetJointDampingRatio(ptr noundef readonly captures(none) %0, 
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.Bone, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 4
   tail call void @b2RevoluteJoint_SetSpringDampingRatio(i64 %7, float noundef %1) #6

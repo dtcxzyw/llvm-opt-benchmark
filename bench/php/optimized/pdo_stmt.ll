@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_object_iterator_funcs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.pdo_column_data = type { ptr, i64, i64 }
 %struct.pdo_bound_param_data = type { %struct._zval_struct, %struct._zval_struct, i64, ptr, i64, ptr, ptr, i32, i32 }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.7, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.11, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.12, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.13 }
 %union.anon.7 = type { ptr }
@@ -228,7 +227,7 @@ define hidden noundef zeroext i1 @pdo_stmt_describe_columns(ptr noundef initiali
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %6, align 8, !tbaa !23
-  %25 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = icmp eq i32 %22, 2
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -237,7 +236,7 @@ define hidden noundef zeroext i1 @pdo_stmt_describe_columns(ptr noundef initiali
 29:                                               ; preds = %23
   %30 = tail call ptr @zend_string_tolower_ex(ptr noundef %26, i1 noundef zeroext false) #17
   %31 = load ptr, ptr %6, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
   store ptr %30, ptr %32, align 8, !tbaa !35
   %33 = load i32, ptr %28, align 4, !tbaa !37
   %34 = and i32 %33, 64
@@ -269,7 +268,7 @@ define hidden noundef zeroext i1 @pdo_stmt_describe_columns(ptr noundef initiali
 44:                                               ; preds = %23
   %45 = tail call ptr @zend_string_toupper_ex(ptr noundef %26, i1 noundef zeroext false) #17
   %46 = load ptr, ptr %6, align 8, !tbaa !23
-  %47 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %indvars.iv
   store ptr %45, ptr %47, align 8, !tbaa !35
   %48 = load i32, ptr %28, align 4, !tbaa !37
   %49 = and i32 %48, 64
@@ -305,7 +304,7 @@ zend_string_release.exit:                         ; preds = %58, %57, %50, %44, 
 
 60:                                               ; preds = %zend_string_release.exit
   %61 = load ptr, ptr %6, align 8, !tbaa !23
-  %62 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !35
   %64 = tail call ptr @zend_hash_find(ptr noundef nonnull %59, ptr noundef %63) #17
   %.not.i39 = icmp eq ptr %64, null
@@ -352,7 +351,7 @@ define dso_local void @php_pdo_stmt_set_column_count(ptr noundef captures(none) 
 .lr.ph.i:                                         ; preds = %.preheader.i, %zend_string_release_ex.exit.i
   %10 = phi i32 [ %23, %zend_string_release_ex.exit.i ], [ %7, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %zend_string_release_ex.exit.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %4, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %zend_string_release_ex.exit.i, label %13
@@ -1071,7 +1070,7 @@ try_convert_to_string.exit.thread:                ; preds = %32, %21, %28, %28, 
   %62 = phi i32 [ %76, %zend_string_equals.exit.thread134 ], [ %60, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %zend_string_equals.exit.thread134 ], [ 0, %.preheader ]
   %63 = load ptr, ptr %57, align 8, !tbaa !23
-  %64 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !35
   %66 = load ptr, ptr %53, align 8, !tbaa !64
   %67 = icmp eq ptr %65, %66
@@ -2289,7 +2288,7 @@ pdo_get_lazy_object.exit:                         ; preds = %._crit_edge.i, %29
   %189 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @fetch_value(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef %189, ptr noundef null)
   %190 = load ptr, ptr %183, align 8, !tbaa !23
-  %191 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %190, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %indvars.iv
   %192 = load ptr, ptr %191, align 8, !tbaa !35
   switch i32 %19, label %268 [
     i32 2, label %193
@@ -2453,7 +2452,7 @@ zend_symtable_update.exit261:                     ; preds = %227, %_zend_handle_
 261:                                              ; preds = %188
   %262 = add i32 %.0207305, 1
   %263 = zext i32 %.0207305 to i64
-  %264 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0206281, i64 %263
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %.0206281, i64 %263
   %265 = load ptr, ptr %11, align 8, !tbaa !37
   %266 = load i32, ptr %184, align 8, !tbaa !37
   store ptr %265, ptr %264, align 8, !tbaa !37
@@ -2545,7 +2544,7 @@ zend_call_known_fcc.exit:                         ; preds = %294, %286, %280
 
 .lr.ph308:                                        ; preds = %.lr.ph308.preheader, %.lr.ph308
   %indvars.iv312 = phi i64 [ 0, %.lr.ph308.preheader ], [ %indvars.iv.next313, %.lr.ph308 ]
-  %301 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0206281, i64 %indvars.iv312
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %.0206281, i64 %indvars.iv312
   call void @zval_ptr_dtor(ptr noundef %301) #17
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count
@@ -5012,7 +5011,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %7
   %48 = getelementptr inbounds i8, ptr %15, i64 -112
   %49 = load ptr, ptr %48, align 8, !tbaa !23
   %50 = load i64, ptr %3, align 8, !tbaa !80
-  %51 = getelementptr inbounds %struct.pdo_column_data, ptr %49, i64 %50
+  %51 = getelementptr inbounds [24 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !35
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !37
@@ -5767,7 +5766,7 @@ define internal fastcc noundef zeroext i1 @pdo_stmt_do_next_rowset(ptr noundef %
 .lr.ph.i:                                         ; preds = %.preheader.i, %zend_string_release_ex.exit.i
   %7 = phi i32 [ %20, %zend_string_release_ex.exit.i ], [ %5, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %zend_string_release_ex.exit.i ], [ 0, %.preheader.i ]
-  %8 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   %.not13.i = icmp eq ptr %9, null
   br i1 %.not13.i, label %zend_string_release_ex.exit.i, label %10
@@ -6308,7 +6307,7 @@ zend_string_release.exit:                         ; preds = %52, %51, %44, %40, 
 .lr.ph.i:                                         ; preds = %.preheader.i, %zend_string_release_ex.exit.i
   %58 = phi i32 [ %71, %zend_string_release_ex.exit.i ], [ %56, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %zend_string_release_ex.exit.i ], [ 0, %.preheader.i ]
-  %59 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %54, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8, !tbaa !35
   %.not13.i = icmp eq ptr %60, null
   br i1 %.not13.i, label %zend_string_release_ex.exit.i, label %61
@@ -7138,7 +7137,7 @@ row_read_column_number.exit.thread23:             ; preds = %22
   %34 = phi i32 [ %30, %.lr.ph.i ], [ %45, %zend_string_equals.exit.thread13.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %zend_string_equals.exit.thread13.i ]
   %35 = load ptr, ptr %32, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !35
   %38 = icmp eq ptr %37, %1
   br i1 %38, label %row_read_column_number.exit, label %39
@@ -7226,7 +7225,7 @@ define internal range(i32 0, 2) i32 @row_prop_exists(ptr noundef readonly captur
   %26 = phi i32 [ %21, %.lr.ph.i ], [ %37, %zend_string_equals.exit.thread13.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %zend_string_equals.exit.thread13.i ]
   %27 = load ptr, ptr %23, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !35
   %30 = icmp eq ptr %29, %1
   br i1 %30, label %row_read_column_number.exit, label %31
@@ -7749,7 +7748,7 @@ zend_std_get_properties_ex.exit:                  ; preds = %13, %15, %18
   %26 = phi i32 [ %22, %.lr.ph ], [ %40, %39 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %27 = load ptr, ptr %24, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !35
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !74
@@ -7767,7 +7766,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %25, %zend_string_eq
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @fetch_value(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef %34, ptr noundef null)
   %35 = load ptr, ptr %24, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw %struct.pdo_column_data, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !35
   %38 = call ptr @zend_hash_update(ptr noundef %20, ptr noundef %37, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

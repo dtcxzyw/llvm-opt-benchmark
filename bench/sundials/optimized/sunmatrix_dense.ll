@@ -48,8 +48,8 @@ define noundef ptr @SUNDenseMatrix(i64 noundef %0, i64 noundef %1, ptr noundef %
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.035 = phi i64 [ %28, %.lr.ph ], [ 0, %3 ]
   %25 = mul nsw i64 %.035, %0
-  %26 = getelementptr inbounds double, ptr %21, i64 %25
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %.035
+  %26 = getelementptr inbounds [8 x i8], ptr %21, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.035
   store ptr %26, ptr %27, align 8, !tbaa !30
   %28 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %28, %1
@@ -115,8 +115,8 @@ define noundef ptr @SUNMatClone_Dense(ptr noundef readonly captures(none) %0) #0
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.035.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %1 ]
   %29 = mul nsw i64 %.035.i, %4
-  %30 = getelementptr inbounds double, ptr %25, i64 %29
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %.035.i
+  %30 = getelementptr inbounds [8 x i8], ptr %25, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.035.i
   store ptr %30, ptr %31, align 8, !tbaa !30
   %32 = add nuw nsw i64 %.035.i, 1
   %exitcond.not.i = icmp eq i64 %32, %6
@@ -229,17 +229,17 @@ define noundef i32 @SUNMatCopy_Dense(ptr noundef readonly captures(none) %0, ptr
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %.014.us = phi i64 [ 0, %.preheader.lr.ph.split.us ], [ %23, %._crit_edge.us ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %.014.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.014.us
   %15 = load ptr, ptr %14, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.014.us
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.014.us
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   br label %18
 
 18:                                               ; preds = %.preheader.us, %18
   %.01213.us = phi i64 [ 0, %.preheader.us ], [ %22, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %15, i64 %.01213.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01213.us
   %20 = load double, ptr %19, align 8, !tbaa !32
-  %21 = getelementptr inbounds nuw double, ptr %17, i64 %.01213.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01213.us
   store double %20, ptr %21, align 8, !tbaa !32
   %22 = add nuw nsw i64 %.01213.us, 1
   %exitcond.not = icmp eq i64 %22, %7
@@ -277,17 +277,17 @@ define noundef i32 @SUNMatScaleAdd_Dense(double noundef %0, ptr noundef readonly
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %.018.us = phi i64 [ 0, %.preheader.lr.ph.split.us ], [ %26, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %.018.us
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.018.us
   %16 = load ptr, ptr %15, align 8, !tbaa !30
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %.018.us
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.018.us
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
   %.01617.us = phi i64 [ 0, %.preheader.us ], [ %25, %19 ]
-  %20 = getelementptr inbounds nuw double, ptr %16, i64 %.01617.us
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01617.us
   %21 = load double, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds nuw double, ptr %18, i64 %.01617.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01617.us
   %23 = load double, ptr %22, align 8, !tbaa !32
   %24 = tail call double @llvm.fmuladd.f64(double %0, double %21, double %23)
   store double %24, ptr %20, align 8, !tbaa !32
@@ -324,13 +324,13 @@ define noundef i32 @SUNMatScaleAddI_Dense(double noundef %0, ptr noundef readonl
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %.017.us = phi i64 [ 0, %.preheader.lr.ph.split.us ], [ %20, %._crit_edge.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.017.us
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.017.us
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   br label %13
 
 13:                                               ; preds = %.preheader.us, %13
   %.01516.us = phi i64 [ 0, %.preheader.us ], [ %19, %13 ]
-  %14 = getelementptr inbounds nuw double, ptr %12, i64 %.01516.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01516.us
   %15 = load double, ptr %14, align 8, !tbaa !32
   %16 = fmul double %0, %15
   %17 = icmp eq i64 %.01516.us, %.017.us
@@ -374,17 +374,17 @@ define noundef i32 @SUNMatMatvec_Dense(ptr noundef readonly captures(none) %0, p
 
 .lr.ph26.us:                                      ; preds = %.lr.ph26.us.preheader, %._crit_edge.us
   %.02127.us = phi i64 [ %26, %._crit_edge.us ], [ 0, %.lr.ph26.us.preheader ]
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02127.us
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.02127.us
   %16 = load ptr, ptr %15, align 8, !tbaa !30
-  %17 = getelementptr inbounds nuw double, ptr %4, i64 %.02127.us
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02127.us
   br label %18
 
 18:                                               ; preds = %.lr.ph26.us, %18
   %.125.us = phi i64 [ 0, %.lr.ph26.us ], [ %25, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %16, i64 %.125.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.125.us
   %20 = load double, ptr %19, align 8, !tbaa !32
   %21 = load double, ptr %17, align 8, !tbaa !32
-  %22 = getelementptr inbounds nuw double, ptr %5, i64 %.125.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.125.us
   %23 = load double, ptr %22, align 8, !tbaa !32
   %24 = tail call double @llvm.fmuladd.f64(double %20, double %21, double %23)
   store double %24, ptr %22, align 8, !tbaa !32
@@ -441,9 +441,9 @@ define void @SUNDenseMatrix_Print(ptr noundef readonly captures(none) %0, ptr no
   %.016 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !29
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.016
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.016
   %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %.01317
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.01317
   %16 = load double, ptr %15, align 8, !tbaa !32
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.1, double noundef %16) #16
   %18 = add nuw nsw i64 %.016, 1
@@ -513,7 +513,7 @@ define ptr @SUNDenseMatrix_Column(ptr noundef readonly captures(none) %0, i64 no
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   ret ptr %7
 }

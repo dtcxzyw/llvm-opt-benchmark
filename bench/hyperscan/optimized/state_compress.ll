@@ -604,12 +604,12 @@ define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, 
   %.0.i6 = phi ptr [ %0, %4 ], [ %.1.i, %84 ]
   %.025.i4 = phi i32 [ 0, %4 ], [ %.126.i, %84 ]
   %.027.i3 = phi i64 [ 0, %4 ], [ %.2.i, %84 ]
-  %65 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8
   %67 = zext nneg i32 %.025.i4 to i64
   %68 = shl i64 %66, %67
   %69 = or i64 %68, %.027.i3
-  %70 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %71, %.025.i4
   %73 = icmp ugt i32 %72, 63
@@ -678,7 +678,7 @@ define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %._crit_edge ]
   %.0.i13 = phi ptr [ %1, %4 ], [ %.1.i.lcssa, %._crit_edge ]
   %.032.i12 = phi i32 [ 0, %4 ], [ %.133.i.lcssa, %._crit_edge ]
-  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %.not.i3 = icmp eq i32 %23, 0
   br i1 %.not.i3, label %._crit_edge, label %.lr.ph
@@ -726,7 +726,7 @@ define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, p
   %.042.i.lcssa = phi i64 [ 0, %21 ], [ %34, %28 ], [ %41, %37 ]
   %.133.i.lcssa = phi i32 [ %.032.i12, %21 ], [ %spec.select, %28 ], [ 0, %37 ]
   %.1.i.lcssa = phi ptr [ %.0.i13, %21 ], [ %spec.select39, %28 ], [ %44, %37 ]
-  %45 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %.042.i.lcssa, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -902,12 +902,12 @@ define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, 
   %.0.i12 = phi ptr [ %0, %4 ], [ %.1.i, %88 ]
   %.025.i10 = phi i32 [ 0, %4 ], [ %.126.i, %88 ]
   %.027.i9 = phi i64 [ 0, %4 ], [ %.2.i, %88 ]
-  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = zext nneg i32 %.025.i10 to i64
   %72 = shl i64 %70, %71
   %73 = or i64 %72, %.027.i9
-  %74 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, %.025.i10
   %77 = icmp ugt i32 %76, 63
@@ -988,7 +988,7 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %._crit_edge ]
   %.0.i16 = phi ptr [ %1, %4 ], [ %.1.i.lcssa, %._crit_edge ]
   %.032.i15 = phi i32 [ 0, %4 ], [ %.133.i.lcssa, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !noalias !5
   %.not.i6 = icmp eq i32 %26, 0
   br i1 %.not.i6, label %._crit_edge, label %.lr.ph
@@ -1036,7 +1036,7 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %.042.i.lcssa = phi i64 [ 0, %24 ], [ %37, %31 ], [ %44, %40 ]
   %.133.i.lcssa = phi i32 [ %.032.i15, %24 ], [ %spec.select, %31 ], [ 0, %40 ]
   %.1.i.lcssa = phi ptr [ %.0.i16, %24 ], [ %spec.select42, %31 ], [ %47, %40 ]
-  %48 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %.042.i.lcssa, ptr %48, align 8, !noalias !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1246,12 +1246,12 @@ define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, 
   %.0.i14 = phi ptr [ %0, %4 ], [ %.1.i, %98 ]
   %.025.i12 = phi i32 [ 0, %4 ], [ %.126.i, %98 ]
   %.027.i11 = phi i64 [ 0, %4 ], [ %.2.i, %98 ]
-  %79 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %80 = load i64, ptr %79, align 8
   %81 = zext nneg i32 %.025.i12 to i64
   %82 = shl i64 %80, %81
   %83 = or i64 %82, %.027.i11
-  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, %.025.i12
   %87 = icmp ugt i32 %86, 63
@@ -1344,7 +1344,7 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %._crit_edge ]
   %.0.i15 = phi ptr [ %1, %4 ], [ %.1.i.lcssa, %._crit_edge ]
   %.032.i14 = phi i32 [ 0, %4 ], [ %.133.i.lcssa, %._crit_edge ]
-  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !noalias !8
   %.not.i5 = icmp eq i32 %32, 0
   br i1 %.not.i5, label %._crit_edge, label %.lr.ph
@@ -1392,7 +1392,7 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %.042.i.lcssa = phi i64 [ 0, %30 ], [ %43, %37 ], [ %50, %46 ]
   %.133.i.lcssa = phi i32 [ %.032.i14, %30 ], [ %spec.select, %37 ], [ 0, %46 ]
   %.1.i.lcssa = phi ptr [ %.0.i15, %30 ], [ %spec.select41, %37 ], [ %53, %46 ]
-  %54 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %.042.i.lcssa, ptr %54, align 8, !noalias !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

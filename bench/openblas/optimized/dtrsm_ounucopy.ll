@@ -26,7 +26,7 @@ define noundef i32 @dtrsm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.07392.us = phi i64 [ %29, %27 ], [ %4, %.lr.ph.us.preheader ]
   %.07491.us = phi i64 [ %30, %27 ], [ %7, %.lr.ph.us.preheader ]
   %.07990.us = phi ptr [ %.2.us, %27 ], [ %5, %.lr.ph.us.preheader ]
-  %13 = getelementptr inbounds double, ptr %.07293.us, i64 %3
+  %13 = getelementptr inbounds [8 x i8], ptr %.07293.us, i64 %3
   br label %32
 
 14:                                               ; preds = %._crit_edge.us
@@ -130,7 +130,7 @@ define noundef i32 @dtrsm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.07392 = phi i64 [ %72, %69 ], [ %4, %.lr.ph95.split ]
   %.07491 = phi i64 [ %73, %69 ], [ %7, %.lr.ph95.split ]
   %.07990 = phi ptr [ %70, %69 ], [ %5, %.lr.ph95.split ]
-  %61 = getelementptr inbounds double, ptr %.07293, i64 %3
+  %61 = getelementptr inbounds [8 x i8], ptr %.07293, i64 %3
   %62 = icmp eq i64 %.07392, 0
   br i1 %62, label %.sink.split, label %63
 

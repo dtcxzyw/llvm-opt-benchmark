@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { i32, [12 x i8] }
 %union.anon = type { i32, [12 x i8] }
 %struct.e_in6_addr = type { [16 x i8] }
-%struct.dns_server_data = type { ptr, i32, i32 }
 %struct._async_hostent = type { i32, i32, ptr }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.cb_serv_data = type { ptr, i32 }
@@ -345,7 +344,7 @@ define internal fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, pt
 
 switch.lookup:                                    ; preds = %.thread
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._serv_name_lookup, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._serv_name_lookup, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = trunc i32 %1 to i16
   %20 = call ptr @global_services_lookup(i16 noundef zeroext %19, i32 noundef %switch.load)
@@ -587,7 +586,7 @@ define noundef zeroext i1 @fill_dummy_ip4(i32 noundef %0, ptr noundef %1) local_
 .lr.ph42.i:                                       ; preds = %2, %.critedge35.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge35.i ], [ 32, %2 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %10 = getelementptr %struct.subnet_length_entry_t, ptr @subnet_length_entries, i64 %indvars.iv.next.i
+  %10 = getelementptr [24 x i8], ptr @subnet_length_entries, i64 %indvars.iv.next.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !noalias !8
   %.not.i = icmp eq ptr %12, null
@@ -600,7 +599,7 @@ define noundef zeroext i1 @fill_dummy_ip4(i32 noundef %0, ptr noundef %1) local_
   %17 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %16) #26, !srcloc !11
   %18 = and i32 %17, 2047
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr ptr, ptr %12, i64 %19
+  %20 = getelementptr [8 x i8], ptr %12, i64 %19
   %.02838.i = load ptr, ptr %20, align 8, !noalias !8
   %.not3039.i = icmp eq ptr %.02838.i, null
   br i1 %.not3039.i, label %.critedge35.i, label %.lr.ph.i
@@ -789,7 +788,7 @@ define noundef zeroext i1 @add_hosts_file(ptr noundef %0) local_unnamed_addr #2 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.0812 = phi i1 [ false, %.lr.ph ], [ %spec.select, %11 ]
-  %12 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %13) #27
   %15 = icmp eq i32 %14, 0
@@ -1481,7 +1480,7 @@ define internal void @c_ares_set_dns_servers() #2 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %13 ]
   %.03549 = phi ptr [ %52, %42 ], [ %16, %13 ]
   %19 = phi i64 [ %51, %42 ], [ 0, %13 ]
-  %20 = getelementptr %struct.dns_server_data, ptr %18, i64 %indvars.iv
+  %20 = getelementptr [16 x i8], ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = call zeroext i1 @ws_inet_pton6(ptr noundef %21, ptr noundef nonnull %2)
   br i1 %22, label %23, label %29
@@ -1497,7 +1496,7 @@ define internal void @c_ares_set_dns_servers() #2 {
 
 29:                                               ; preds = %.lr.ph
   %30 = load ptr, ptr @dnsserverlist_uats, align 8
-  %31 = getelementptr %struct.dns_server_data, ptr %30, i64 %indvars.iv
+  %31 = getelementptr [16 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i1 @ws_inet_pton4(ptr noundef %32, ptr noundef nonnull %1)
   %34 = getelementptr inbounds nuw i8, ptr %.03549, i64 8
@@ -1518,7 +1517,7 @@ define internal void @c_ares_set_dns_servers() #2 {
 
 42:                                               ; preds = %38, %23
   %43 = load ptr, ptr @dnsserverlist_uats, align 8
-  %44 = getelementptr %struct.dns_server_data, ptr %43, i64 %indvars.iv
+  %44 = getelementptr [16 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.03549, i64 28
@@ -1546,7 +1545,7 @@ define internal void @c_ares_set_dns_servers() #2 {
   %.lcssa47 = phi i64 [ 12, %13 ], [ %57, %.critedge.loopexit ]
   %.035.lcssa = phi ptr [ %16, %13 ], [ %52, %.critedge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %.critedge.loopexit ]
-  %59 = getelementptr %struct.dns_server_data, ptr %58, i64 %.0.lcssa
+  %59 = getelementptr [16 x i8], ptr %58, i64 %.0.lcssa
   %60 = load ptr, ptr %59, align 8
   %61 = call zeroext i1 @ws_inet_pton6(ptr noundef %60, ptr noundef nonnull %2)
   br i1 %61, label %62, label %67
@@ -1561,7 +1560,7 @@ define internal void @c_ares_set_dns_servers() #2 {
 
 67:                                               ; preds = %.critedge
   %68 = load ptr, ptr @dnsserverlist_uats, align 8
-  %69 = getelementptr %struct.dns_server_data, ptr %68, i64 %.0.lcssa
+  %69 = getelementptr [16 x i8], ptr %68, i64 %.0.lcssa
   %70 = load ptr, ptr %69, align 8
   %71 = call zeroext i1 @ws_inet_pton4(ptr noundef %70, ptr noundef nonnull %1)
   %72 = getelementptr inbounds nuw i8, ptr %.035.lcssa, i64 8
@@ -1583,7 +1582,7 @@ define internal void @c_ares_set_dns_servers() #2 {
   %.pre-phi = phi i64 [ %indvars.iv, %40 ], [ %.0.lcssa, %62 ], [ %.0.lcssa, %77 ], [ %.0.lcssa, %75 ]
   %.03541 = phi ptr [ %.03549, %40 ], [ %.035.lcssa, %62 ], [ %.035.lcssa, %77 ], [ %.035.lcssa, %75 ]
   %80 = load ptr, ptr @dnsserverlist_uats, align 8
-  %81 = getelementptr %struct.dns_server_data, ptr %80, i64 %.pre-phi
+  %81 = getelementptr [16 x i8], ptr %80, i64 %.pre-phi
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i32, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %.03541, i64 28
@@ -2331,7 +2330,7 @@ _host_name_lookup_cleanup.exit.i:                 ; preds = %16, %vlan_name_look
 
 19:                                               ; preds = %32, %_host_name_lookup_cleanup.exit.i
   %indvars.iv20.i = phi i64 [ 0, %_host_name_lookup_cleanup.exit.i ], [ %indvars.iv.next21.i, %32 ]
-  %20 = getelementptr %struct.subnet_length_entry_t, ptr @subnet_length_entries, i64 %indvars.iv20.i
+  %20 = getelementptr [24 x i8], ptr @subnet_length_entries, i64 %indvars.iv20.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
@@ -2340,7 +2339,7 @@ _host_name_lookup_cleanup.exit.i:                 ; preds = %16, %vlan_name_look
 .preheader.i:                                     ; preds = %19, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %19 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %.not1415.i = icmp eq ptr %25, null
   br i1 %.not1415.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2920,7 +2919,7 @@ initialize_enterprises.exit:                      ; preds = %178, %182, %185
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i3 ], [ 0, %.preheader.i ]
   %235 = phi ptr [ %240, %.lr.ph.i3 ], [ %232, %.preheader.i ]
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr ptr, ptr %236, i64 %indvars.iv.i
+  %237 = getelementptr [8 x i8], ptr %236, i64 %indvars.iv.i
   %238 = load ptr, ptr %237, align 8
   %239 = call fastcc zeroext i1 @read_hosts_file(ptr noundef %238, i1 noundef zeroext true)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2937,7 +2936,7 @@ initialize_enterprises.exit:                      ; preds = %178, %182, %185
 .loopexit.i:                                      ; preds = %.loopexit.i.preheader, %.loopexit.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.loopexit.i ], [ 0, %.loopexit.i.preheader ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %245 = getelementptr %struct.subnet_length_entry_t, ptr @subnet_length_entries, i64 %indvars.iv.i.i
+  %245 = getelementptr [24 x i8], ptr @subnet_length_entries, i64 %indvars.iv.i.i
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
   store ptr null, ptr %246, align 8
   store i64 %indvars.iv.next.i.i, ptr %245, align 8
@@ -4622,7 +4621,7 @@ define hidden noundef zeroext i1 @str_to_eth(ptr noundef %0, ptr noundef %1) loc
   %.05580.i = phi ptr [ %0, %2 ], [ %29, %28 ]
   %7 = load i8, ptr %.05580.i, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr i16, ptr %5, i64 %8
+  %9 = getelementptr [2 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 1024
   %.not.i = icmp eq i16 %11, 0
@@ -4707,7 +4706,7 @@ define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, p
   %.05580 = phi ptr [ %0, %4 ], [ %75, %74 ]
   %8 = load i8, ptr %.05580, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr i16, ptr %6, i64 %9
+  %10 = getelementptr [2 x i8], ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 1024
   %.not = icmp eq i16 %12, 0
@@ -4738,7 +4737,7 @@ define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, p
   %24 = getelementptr i8, ptr %15, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr i16, ptr %6, i64 %26
+  %27 = getelementptr [2 x i8], ptr %6, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8
   %.not69 = icmp eq i16 %29, 0
@@ -4757,7 +4756,7 @@ define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, p
 
 36:                                               ; preds = %34
   %37 = zext i8 %35 to i64
-  %38 = getelementptr i16, ptr %6, i64 %37
+  %38 = getelementptr [2 x i8], ptr %6, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 256
   %.not71 = icmp eq i16 %40, 0
@@ -7238,7 +7237,7 @@ fgetline.exit:                                    ; preds = %.preheader, %.backe
   %34 = load i32, ptr %3, align 4
   %35 = load i8, ptr %4, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr %struct.subnet_length_entry_t, ptr @subnet_length_entries, i64 %36
+  %37 = getelementptr [24 x i8], ptr @subnet_length_entries, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -16
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, %34
@@ -7258,7 +7257,7 @@ fgetline.exit:                                    ; preds = %.preheader, %.backe
 
 50:                                               ; preds = %47, %33
   %51 = phi ptr [ %49, %47 ], [ %45, %33 ]
-  %52 = getelementptr ptr, ptr %51, i64 %43
+  %52 = getelementptr [8 x i8], ptr %51, i64 %43
   %53 = load ptr, ptr %52, align 8
   %.not.i23 = icmp eq ptr %53, null
   br i1 %.not.i23, label %62, label %.preheader.i
@@ -7286,7 +7285,7 @@ fgetline.exit:                                    ; preds = %.preheader, %.backe
   %63 = load ptr, ptr @addr_resolv_scope, align 8
   %64 = call noalias dereferenceable_or_null(80) ptr @wmem_alloc(ptr noundef %63, i64 noundef 80) #25
   %65 = load ptr, ptr %44, align 8
-  %66 = getelementptr ptr, ptr %65, i64 %43
+  %66 = getelementptr [8 x i8], ptr %65, i64 %43
   store ptr %64, ptr %66, align 8
   br label %67
 

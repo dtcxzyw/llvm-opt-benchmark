@@ -163,7 +163,7 @@ mac_init.exit:                                    ; preds = %12
 
 switch.lookup:                                    ; preds = %33
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_mac_setup, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.psa_mac_setup, i64 %36
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread84.i
 
@@ -414,7 +414,7 @@ define internal fastcc i32 @psa_mac_finish_internal(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %20
   %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.psa_mac_finish_internal, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.psa_mac_finish_internal, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %25
 

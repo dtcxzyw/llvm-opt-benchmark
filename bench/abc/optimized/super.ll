@@ -109,7 +109,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 8:                                                ; preds = %6
   %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #6
   %14 = trunc i64 %13 to i32
@@ -121,7 +121,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 17:                                               ; preds = %6
   %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !7
   %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #6
   %23 = trunc i64 %22 to i32
@@ -133,7 +133,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 26:                                               ; preds = %6
   %27 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !7
   %31 = tail call i64 @strtol(ptr noundef nonnull captures(none) %30, ptr noundef null, i32 noundef 10) #6
   %32 = trunc i64 %31 to i32
@@ -145,7 +145,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 35:                                               ; preds = %6
   %36 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !7
   %40 = tail call i64 @strtol(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #6
   %41 = trunc i64 %40 to i32
@@ -157,7 +157,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 44:                                               ; preds = %6
   %45 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %2, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !7
   %49 = tail call double @strtod(ptr noundef nonnull captures(none) %48, ptr noundef null) #6
   %50 = fptrunc double %49 to float
@@ -169,7 +169,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 53:                                               ; preds = %6
   %54 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %2, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %2, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !7
   %58 = tail call double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #6
   %59 = fptrunc double %58 to float
@@ -194,7 +194,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 62:                                               ; preds = %6
   %63 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %2, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %2, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !7
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.loopexit, label %68
@@ -237,7 +237,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergates(ptr noundef %0, i32
 
 85:                                               ; preds = %81
   %86 = sext i32 %77 to i64
-  %87 = getelementptr inbounds ptr, ptr %2, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %2, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !7
   %89 = tail call ptr @Io_FileOpen(ptr noundef %88, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 0) #6
   %90 = icmp eq ptr %89, null
@@ -365,7 +365,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
 8:                                                ; preds = %6
   %9 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #6
   %14 = trunc i64 %13 to i32
@@ -377,7 +377,7 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
 17:                                               ; preds = %6
   %18 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !7
   %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %21, ptr noundef null, i32 noundef 10) #6
   %23 = trunc i64 %22 to i32

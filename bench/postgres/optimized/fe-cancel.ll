@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/fe-cancel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pg_conn_host = type { i32, ptr, ptr, ptr, ptr }
 %struct.anon = type { i32, %struct.CancelRequestPacket }
 %struct.CancelRequestPacket = type { i32, i32, i32 }
 
@@ -85,7 +84,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.pg_conn_host, ptr %29, i64 %32
+  %33 = getelementptr inbounds [40 x i8], ptr %29, i64 %32
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16

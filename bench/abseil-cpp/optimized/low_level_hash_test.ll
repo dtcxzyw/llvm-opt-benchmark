@@ -466,7 +466,7 @@ _ZN7testing7MessagelsImEERS0_RKT_.exit:           ; preds = %_ZN7testing7Message
           to label %_ZN7testing7MessagelsIA11_cEERS0_RKT_.exit unwind label %40
 
 _ZN7testing7MessagelsIA11_cEERS0_RKT_.exit:       ; preds = %_ZN7testing7MessagelsImEERS0_RKT_.exit
-  %28 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN12_GLOBAL__N_134LowLevelHashTest_VerifyGolden_Test8TestBodyEvE5cases, i64 %storemerge92
+  %28 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN12_GLOBAL__N_134LowLevelHashTest_VerifyGolden_Test8TestBodyEvE5cases, i64 %storemerge92
   %29 = load ptr, ptr %4, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %28, align 8, !tbaa !22
@@ -669,7 +669,7 @@ _ZN7testing7MessageD2Ev.exit42:                   ; preds = %_ZNKSt14default_del
 
 94:                                               ; preds = %88
   store i64 %93, ptr %11, align 8, !tbaa !22
-  %95 = getelementptr inbounds nuw i64, ptr %2, i64 %storemerge92
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %storemerge92
   %96 = load i64, ptr %95, align 8, !tbaa !22, !noalias !46
   %97 = icmp eq i64 %93, %96
   br i1 %97, label %98, label %99

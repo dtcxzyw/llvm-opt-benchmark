@@ -66,7 +66,7 @@ define void @_ZN6icu_777Package16enumDependenciesEPNS_4ItemEPvPFvS3_PKcS5_E(ptr 
 
 27:                                               ; preds = %30, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %30 ]
-  %28 = getelementptr inbounds nuw %struct.anon, ptr @_ZN6icu_77L11dataFormatsE, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6icu_77L11dataFormatsE, i64 %indvars.iv.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %28, ptr noundef nonnull readonly dereferenceable(4) %26, i64 4)
   %29 = icmp eq i32 %bcmp.i, 0
   br i1 %29, label %_ZN6icu_77L13getDataFormatEPKh.exit, label %30
@@ -377,13 +377,13 @@ _ZN6icu_77L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i: ; preds = %91
 
 188:                                              ; preds = %180
   %189 = zext nneg i32 %171 to i64
-  %190 = getelementptr inbounds nuw i32, ptr %169, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %190, ptr %191, align 8, !tbaa !33
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i, i64 8
   %193 = load i32, ptr %192, align 4, !tbaa !15
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i32, ptr %.sroa.12.0.i, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %.sroa.12.0.i, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %195, ptr %196, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1008,7 +1008,7 @@ define internal fastcc void @_ZN6icu_77L10checkAliasEPKcjPKDsiaPFvPvS1_S1_ES4_P1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !49
   %.not32 = icmp eq i16 %17, 47
   br i1 %.not32, label %.critedge.split.loop.exit, label %18

@@ -3,22 +3,6 @@ source_filename = "bench/postgres/original/freelist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.BufferDescPadded = type { %struct.BufferDesc, [12 x i8] }
-%struct.BufferDesc = type { %struct.buftag, i32, %struct.pg_atomic_uint32, i32, i32, %struct.LWLock }
-%struct.buftag = type { i32, i32, i32, i32, i32 }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
-
 @StrategyControl = internal unnamed_addr global ptr null, align 8
 @ProcGlobal = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [11 x i8] c"freelist.c\00", align 1
@@ -63,7 +47,7 @@ define dso_local ptr @StrategyGetBuffer(ptr noundef captures(address_is_null) %0
   store i32 %spec.store.select.i, ptr %5, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = sext i32 %spec.store.select.i to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GetBufferFromRing.exit.thread, label %15
@@ -72,7 +56,7 @@ define dso_local ptr @StrategyGetBuffer(ptr noundef captures(address_is_null) %0
   %16 = add i32 %13, -1
   %17 = load ptr, ptr @BufferDescriptors, align 8
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %18
   %20 = tail call i32 @LockBufHdr(ptr noundef %19) #8
   %21 = and i32 %20, 3932159
   %or.cond.i = icmp eq i32 %21, 0
@@ -106,7 +90,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %30 = load ptr, ptr @ProcGlobal, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %28 to i64
-  %33 = getelementptr inbounds %struct.PGPROC, ptr %31, i64 %32
+  %33 = getelementptr inbounds [832 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
   tail call void @SetLatch(ptr noundef nonnull %34) #8
   %.pre = load ptr, ptr @StrategyControl, align 8
@@ -149,7 +133,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 55:                                               ; preds = %48
   %56 = load ptr, ptr @BufferDescriptors, align 8
   %57 = zext nneg i32 %51 to i64
-  %58 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %50, align 4
@@ -173,7 +157,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %68, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %68, i64 %71
   store i32 %67, ptr %72, align 4
   br label %73
 
@@ -257,7 +241,7 @@ ClockSweepTick.exit:                              ; preds = %80, %85, %105
   %.09.i = phi i32 [ %83, %80 ], [ %86, %85 ], [ 0, %105 ]
   %111 = load ptr, ptr @BufferDescriptors, align 8
   %112 = zext i32 %.09.i to i64
-  %113 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [64 x i8], ptr %111, i64 %112
   %114 = tail call i32 @LockBufHdr(ptr noundef %113) #8
   %115 = and i32 %114, 262143
   %116 = icmp eq i32 %115, 0
@@ -284,7 +268,7 @@ ClockSweepTick.exit:                              ; preds = %80, %85, %105
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i32, ptr %126, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %126, i64 %129
   store i32 %125, ptr %130, align 4
   br label %131
 
@@ -647,7 +631,7 @@ define dso_local range(i32 0, 5) i32 @IOContextForStrategy(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.IOContextForStrategy, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.IOContextForStrategy, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -668,7 +652,7 @@ define dso_local noundef zeroext i1 @StrategyRejectBuffer(ptr noundef captures(n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr i8, ptr %1, i64 20
   %.val = load i32, ptr %12, align 4

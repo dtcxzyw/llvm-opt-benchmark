@@ -78,20 +78,20 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load ptr, ptr %26, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %30, align 8
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %37 = load ptr, ptr %26, align 8, !tbaa !33
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %36, align 8
   %42 = load ptr, ptr %26, align 8, !tbaa !33
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !36
@@ -136,11 +136,11 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
 68:                                               ; preds = %.lr.ph101, %68
   %indvars.iv106 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next107, %68 ]
   %69 = load ptr, ptr %66, align 8, !tbaa !33
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv106
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv106
   %71 = load ptr, ptr %70, align 8, !tbaa !34
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %67, align 8, !tbaa !33
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv106
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv106
   %75 = load ptr, ptr %74, align 8, !tbaa !34
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load i64, ptr %76, align 8
@@ -304,7 +304,7 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %38 = load i32, ptr %37, align 4, !tbaa !60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -337,7 +337,7 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %60 = load i32, ptr %59, align 4, !tbaa !60
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !34
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16

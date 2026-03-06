@@ -81,10 +81,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_security_loc
 %struct.pcpu_hot = type { %union.anon.22 }
 %union.anon.22 = type { %struct.anon.23, [16 x i8] }
 %struct.anon.23 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.security_hook_list = type { %struct.hlist_node, ptr, %union.security_list_options, ptr }
-%struct.hlist_node = type { ptr, ptr }
-%union.security_list_options = type { ptr }
-%struct.xattr = type { ptr, ptr, i64 }
 %struct.lsm_ctx = type { i64, i64, i64, i64, [0 x i8] }
 
 @.str = private unnamed_addr constant [5 x i8] c"none\00", align 1
@@ -717,7 +713,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %3
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr @lsm_idlist, i64 %8
+  %9 = getelementptr [8 x i8], ptr @lsm_idlist, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %2
   br i1 %11, label %17, label %12
@@ -734,7 +730,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
   %14 = add nuw nsw i32 %4, 1
   store i32 %14, ptr @lsm_active_cnt, align 4
   %15 = zext nneg i32 %4 to i64
-  %16 = getelementptr ptr, ptr @lsm_idlist, i64 %15
+  %16 = getelementptr [8 x i8], ptr @lsm_idlist, i64 %15
   store ptr %2, ptr %16, align 8
   br label %17
 
@@ -748,7 +744,7 @@ define dso_local void @security_add_hooks(ptr noundef %0, i32 noundef %1, ptr no
 
 21:                                               ; preds = %44, %19
   %22 = phi i64 [ 0, %19 ], [ %45, %44 ]
-  %23 = getelementptr %struct.security_hook_list, ptr %0, i64 %22
+  %23 = getelementptr [40 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %2, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2024,7 +2020,7 @@ define dso_local noundef i32 @security_inode_init_security(ptr noundef %0, ptr n
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %40 = phi i32 [ %46, %.preheader ], [ %.pr, %.loopexit ]
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr %struct.xattr, ptr %26, i64 %41
+  %42 = getelementptr [24 x i8], ptr %26, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -16
   %44 = load ptr, ptr %43, align 8
   call void @kfree(ptr noundef %44) #17
@@ -7163,7 +7159,7 @@ define internal fastcc void @append_ordered_lsm(ptr noundef %0, ptr noundef %1) 
 23:                                               ; preds = %22, %18
   %24 = add i32 %13, 1
   store i32 %24, ptr @last_lsm, align 4
-  %25 = getelementptr ptr, ptr %3, i64 %14
+  %25 = getelementptr [8 x i8], ptr %3, i64 %14
   store ptr %0, ptr %25, align 8
   %26 = load i1, ptr @debug, align 1
   br i1 %26, label %27, label %38

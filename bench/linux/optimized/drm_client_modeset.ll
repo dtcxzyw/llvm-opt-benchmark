@@ -11,14 +11,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_client_m
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_client_modeset_dpms: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_client_modeset_dpms ; .previous"
 
 %struct.lock_class_key = type {}
-%struct.drm_mode_set = type { ptr, ptr, ptr, i32, i32, ptr, i64 }
 %struct.drm_modeset_acquire_ctx = type { %struct.ww_acquire_ctx, ptr, i32, %struct.list_head, i8, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 %struct.list_head = type { ptr, ptr }
 %struct.drm_connector_list_iter = type { ptr, ptr }
-%struct.drm_client_offset = type { i32, i32 }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @drm_client_modeset_create.__key = internal global %struct.lock_class_key zeroinitializer, align 1
 @.str = private unnamed_addr constant [23 x i8] c"&client->modeset_mutex\00", align 1
@@ -93,7 +89,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_client_modeset_create(ptr no
   %19 = load ptr, ptr %9, align 8
   %20 = add i32 %17, 1
   %21 = zext i32 %17 to i64
-  %.split = getelementptr %struct.drm_mode_set, ptr %19, i64 %21
+  %.split = getelementptr [48 x i8], ptr %19, i64 %21
   %22 = getelementptr i8, ptr %.split, i64 8
   store ptr %18, ptr %22, align 8
   %23 = load ptr, ptr %16, align 8
@@ -171,12 +167,12 @@ define dso_local void @drm_client_modeset_free(ptr noundef %0) local_unnamed_add
   %18 = phi i64 [ 0, %15 ], [ %27, %17 ]
   %19 = phi i32 [ 0, %15 ], [ %26, %17 ]
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %18
+  %21 = getelementptr [8 x i8], ptr %20, i64 %18
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   tail call void @drm_mode_object_put(ptr noundef nonnull %23) #11
   %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr ptr, ptr %24, i64 %18
+  %25 = getelementptr [8 x i8], ptr %24, i64 %18
   store ptr null, ptr %25, align 8
   %26 = add i32 %19, 1
   %27 = zext i32 %26 to i64
@@ -284,7 +280,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 64
   call void @drm_mode_object_get(ptr noundef nonnull %34) #11
   %35 = zext i32 %22 to i64
-  %36 = getelementptr ptr, ptr %31, i64 %35
+  %36 = getelementptr [8 x i8], ptr %31, i64 %35
   store ptr %21, ptr %36, align 8
   br label %37
 
@@ -331,7 +327,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
   %63 = phi i32 [ 0, %59 ], [ %74, %62 ]
   %64 = phi i32 [ 0, %59 ], [ %73, %62 ]
   %65 = sext i32 %63 to i64
-  %66 = getelementptr ptr, ptr %38, i64 %65
+  %66 = getelementptr [8 x i8], ptr %38, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 400
   %69 = load ptr, ptr %68, align 8
@@ -358,7 +354,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
   %80 = phi i32 [ %103, %95 ], [ 0, %.preheader313 ]
   %81 = phi i1 [ %102, %95 ], [ false, %.preheader313 ]
   %82 = sext i32 %80 to i64
-  %83 = getelementptr ptr, ptr %38, i64 %82
+  %83 = getelementptr [8 x i8], ptr %38, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 352
   %86 = load i8, ptr %85, align 8, !range !15, !noundef !16
@@ -401,7 +397,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 .preheader97:                                     ; preds = %105, %118
   %106 = phi i32 [ %121, %118 ], [ 0, %105 ]
   %107 = sext i32 %106 to i64
-  %108 = getelementptr ptr, ptr %38, i64 %107
+  %108 = getelementptr [8 x i8], ptr %38, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 352
   %111 = load i8, ptr %110, align 8, !range !15, !noundef !16
@@ -482,7 +478,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 156:                                              ; preds = %170, %.loopexit96
   %157 = phi i64 [ 0, %.loopexit96 ], [ %172, %170 ]
   %158 = phi i32 [ 0, %.loopexit96 ], [ %171, %170 ]
-  %159 = getelementptr ptr, ptr %38, i64 %157
+  %159 = getelementptr [8 x i8], ptr %38, i64 %157
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 1920
   %162 = load i8, ptr %161, align 8, !range !15, !noundef !16
@@ -517,7 +513,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
   %183 = phi i32 [ %177, %174 ], [ %.ph65, %353 ]
   %184 = phi i32 [ %176, %174 ], [ %.ph64, %353 ]
   %185 = phi i8 [ %175, %174 ], [ %.ph, %353 ]
-  %186 = getelementptr ptr, ptr %38, i64 %181
+  %186 = getelementptr [8 x i8], ptr %38, i64 %181
   %187 = load ptr, ptr %186, align 8
   %188 = shl nuw i64 1, %181
   %189 = and i64 %182, %188
@@ -609,7 +605,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 
 239:                                              ; preds = %236, %234
   %240 = phi i64 [ 0, %234 ], [ %237, %236 ]
-  %241 = getelementptr ptr, ptr %47, i64 %240
+  %241 = getelementptr [8 x i8], ptr %47, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, %224
   br i1 %243, label %244, label %236
@@ -623,7 +619,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
   %247 = load ptr, ptr %246, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %247) #11
   %248 = call fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef %187)
-  %249 = getelementptr ptr, ptr %48, i64 %181
+  %249 = getelementptr [8 x i8], ptr %48, i64 %181
   store ptr %248, ptr %249, align 8
   %250 = icmp eq ptr %248, null
   br i1 %250, label %251, label %.thread62
@@ -762,7 +758,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
 
 330:                                              ; preds = %.loopexit93, %296, %.thread62
   %331 = phi ptr [ %329, %.loopexit93 ], [ %292, %296 ], [ %292, %.thread62 ]
-  %332 = getelementptr ptr, ptr %47, i64 %181
+  %332 = getelementptr [8 x i8], ptr %47, i64 %181
   store ptr %224, ptr %332, align 8
   %333 = load ptr, ptr %246, align 8
   %334 = load ptr, ptr %217, align 8
@@ -873,10 +869,10 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %390, label %.loopexit90, label %391
 
 391:                                              ; preds = %.preheader91
-  %392 = getelementptr ptr, ptr %38, i64 %387
+  %392 = getelementptr [8 x i8], ptr %38, i64 %387
   %393 = load ptr, ptr %392, align 8
   %394 = call fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef %393)
-  %395 = getelementptr ptr, ptr %48, i64 %387
+  %395 = getelementptr [8 x i8], ptr %48, i64 %387
   store ptr %394, ptr %395, align 8
   %396 = icmp eq ptr %394, null
   br i1 %396, label %.thread70, label %397
@@ -898,7 +894,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %406, label %413, label %407
 
 407:                                              ; preds = %401
-  %408 = getelementptr ptr, ptr %48, i64 %402
+  %408 = getelementptr [8 x i8], ptr %48, i64 %402
   %409 = load ptr, ptr %408, align 8
   %410 = load ptr, ptr %395, align 8
   %411 = call zeroext i1 @drm_mode_match(ptr noundef %409, ptr noundef %410, i32 noundef 15) #11
@@ -936,7 +932,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %429, label %452, label %430
 
 430:                                              ; preds = %.preheader89
-  %431 = getelementptr ptr, ptr %38, i64 %426
+  %431 = getelementptr [8 x i8], ptr %38, i64 %426
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 160
   %434 = load ptr, ptr %433, align 8
@@ -944,7 +940,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %435, label %.loopexit88, label %436
 
 436:                                              ; preds = %430
-  %437 = getelementptr ptr, ptr %48, i64 %426
+  %437 = getelementptr [8 x i8], ptr %48, i64 %426
   br label %438
 
 438:                                              ; preds = %443, %436
@@ -965,7 +961,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %447, label %.loopexit88, label %438, !llvm.loop !32
 
 .loopexit88:                                      ; preds = %443, %430
-  %448 = getelementptr ptr, ptr %48, i64 %426
+  %448 = getelementptr [8 x i8], ptr %48, i64 %426
   %449 = load ptr, ptr %448, align 8
   %450 = icmp eq ptr %449, null
   %451 = select i1 %450, i8 0, i8 %425
@@ -993,7 +989,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %461 = phi i32 [ %477, %475 ], [ 0, %.preheader301 ]
   %462 = phi i32 [ %476, %475 ], [ 0, %.preheader301 ]
   %463 = sext i32 %461 to i64
-  %464 = getelementptr ptr, ptr %38, i64 %463
+  %464 = getelementptr [8 x i8], ptr %38, i64 %463
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 1920
   %467 = load i8, ptr %466, align 8, !range !15, !noundef !16
@@ -1028,7 +1024,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %485 = phi i32 [ 0, %480 ], [ %710, %708 ]
   %486 = phi i64 [ %481, %480 ], [ %709, %708 ]
   %487 = sext i32 %485 to i64
-  %488 = getelementptr ptr, ptr %38, i64 %487
+  %488 = getelementptr [8 x i8], ptr %38, i64 %487
   %489 = load ptr, ptr %488, align 8
   %490 = zext nneg i32 %485 to i64
   %491 = shl nuw i64 1, %490
@@ -1092,7 +1088,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %523 = phi i32 [ 0, %._crit_edge ], [ %559, %558 ]
   %524 = phi i32 [ 0, %._crit_edge ], [ %561, %558 ]
   %525 = sext i32 %524 to i64
-  %526 = getelementptr ptr, ptr %38, i64 %525
+  %526 = getelementptr [8 x i8], ptr %38, i64 %525
   %527 = load ptr, ptr %526, align 8
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 1920
   %529 = load i8, ptr %528, align 8, !range !15, !noundef !16
@@ -1100,7 +1096,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %530, label %558, label %531
 
 531:                                              ; preds = %521
-  %532 = getelementptr ptr, ptr %48, i64 %525
+  %532 = getelementptr [8 x i8], ptr %48, i64 %525
   %533 = load ptr, ptr %532, align 8
   %534 = icmp ne ptr %533, null
   %535 = or i1 %520, %534
@@ -1147,7 +1143,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   br i1 %562, label %563, label %521, !llvm.loop !35
 
 563:                                              ; preds = %558
-  %564 = getelementptr %struct.drm_client_offset, ptr %49, i64 %487
+  %564 = getelementptr [8 x i8], ptr %49, i64 %487
   store i32 %559, ptr %564, align 8
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 4
   store i32 %560, ptr %565, align 4
@@ -1159,7 +1155,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %568 = load i32, ptr %567, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %568) #11
   %569 = call fastcc ptr @drm_connector_pick_cmdline_mode(ptr noundef %489)
-  %570 = getelementptr ptr, ptr %48, i64 %487
+  %570 = getelementptr [8 x i8], ptr %48, i64 %487
   store ptr %569, ptr %570, align 8
   %571 = icmp eq ptr %569, null
   br i1 %571, label %572, label %.thread71
@@ -1434,12 +1430,12 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %735 = phi i64 [ 0, %732 ], [ %744, %734 ]
   %736 = phi i32 [ 0, %732 ], [ %743, %734 ]
   %737 = load ptr, ptr %733, align 8
-  %738 = getelementptr ptr, ptr %737, i64 %735
+  %738 = getelementptr [8 x i8], ptr %737, i64 %735
   %739 = load ptr, ptr %738, align 8
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 64
   call void @drm_mode_object_put(ptr noundef nonnull %740) #11
   %741 = load ptr, ptr %733, align 8
-  %742 = getelementptr ptr, ptr %741, i64 %735
+  %742 = getelementptr [8 x i8], ptr %741, i64 %735
   store ptr null, ptr %742, align 8
   %743 = add i32 %736, 1
   %744 = zext i32 %743 to i64
@@ -1462,11 +1458,11 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
 752:                                              ; preds = %807, %.loopexit82
   %753 = phi i32 [ 0, %.loopexit82 ], [ %808, %807 ]
   %754 = sext i32 %753 to i64
-  %755 = getelementptr ptr, ptr %48, i64 %754
+  %755 = getelementptr [8 x i8], ptr %48, i64 %754
   %756 = load ptr, ptr %755, align 8
-  %757 = getelementptr ptr, ptr %47, i64 %754
+  %757 = getelementptr [8 x i8], ptr %47, i64 %754
   %758 = load ptr, ptr %757, align 8
-  %759 = getelementptr %struct.drm_client_offset, ptr %49, i64 %754
+  %759 = getelementptr [8 x i8], ptr %49, i64 %754
   %760 = icmp ne ptr %756, null
   %761 = icmp ne ptr %758, null
   %762 = select i1 %760, i1 %761, i1 false
@@ -1494,7 +1490,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
 
 .loopexit77:                                      ; preds = %771, %.preheader76, %763
   %776 = phi ptr [ null, %763 ], [ null, %771 ], [ %769, %.preheader76 ]
-  %777 = getelementptr ptr, ptr %38, i64 %754
+  %777 = getelementptr [8 x i8], ptr %38, i64 %754
   %778 = load ptr, ptr %777, align 8
   %779 = getelementptr inbounds nuw i8, ptr %756, i64 80
   %780 = getelementptr inbounds nuw i8, ptr %758, i64 96
@@ -1534,7 +1530,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
   %800 = load i64, ptr %785, align 8
   %801 = add i64 %800, 1
   store i64 %801, ptr %785, align 8
-  %802 = getelementptr ptr, ptr %799, i64 %800
+  %802 = getelementptr [8 x i8], ptr %799, i64 %800
   store ptr %778, ptr %802, align 8
   %803 = load i32, ptr %759, align 8
   %804 = getelementptr inbounds nuw i8, ptr %776, i64 24
@@ -1572,7 +1568,7 @@ thread-pre-split.thread:                          ; preds = %280, %thread-pre-sp
 .preheader:                                       ; preds = %.thread, %.preheader
   %817 = phi i32 [ %822, %.preheader ], [ 0, %.thread ]
   %818 = sext i32 %817 to i64
-  %819 = getelementptr ptr, ptr %813, i64 %818
+  %819 = getelementptr [8 x i8], ptr %813, i64 %818
   %820 = load ptr, ptr %819, align 8
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 64
   call void @drm_mode_object_put(ptr noundef nonnull %821) #11
@@ -1619,13 +1615,13 @@ define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1
 
 11:                                               ; preds = %8
   %12 = sext i32 %5 to i64
-  %13 = getelementptr ptr, ptr %1, i64 %12
+  %13 = getelementptr [8 x i8], ptr %1, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr ptr, ptr %3, i64 %12
+  %15 = getelementptr [8 x i8], ptr %3, i64 %12
   store ptr null, ptr %15, align 8
   %16 = add i32 %5, 1
   %17 = tail call fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %16, i32 noundef %6, i32 noundef %7)
-  %18 = getelementptr ptr, ptr %4, i64 %12
+  %18 = getelementptr [8 x i8], ptr %4, i64 %12
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %127, label %21
@@ -1698,7 +1694,7 @@ define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 1704
   %69 = icmp sgt i32 %5, 0
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 728
-  %71 = getelementptr ptr, ptr %24, i64 %12
+  %71 = getelementptr [8 x i8], ptr %24, i64 %12
   %72 = shl nsw i64 %12, 3
   %73 = load ptr, ptr %14, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 688
@@ -1758,7 +1754,7 @@ define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %103, %104
   %indvars.iv = phi i64 [ %indvars.iv.next, %104 ], [ 0, %103 ]
-  %106 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %106 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, %78
   br i1 %108, label %109, label %104
@@ -1769,7 +1765,7 @@ define internal fastcc i32 @drm_client_pick_crtcs(ptr noundef %0, ptr noundef %1
   br i1 %111, label %.critedge, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr ptr, ptr %4, i64 %indvars.iv
+  %113 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %18, align 8
   %116 = tail call zeroext i1 @drm_mode_equal(ptr noundef %114, ptr noundef %115) #11
@@ -1895,7 +1891,7 @@ define dso_local zeroext i1 @drm_client_rotation(ptr noundef readonly captures(n
 52:                                               ; preds = %52, %48
   %53 = phi i64 [ 0, %48 ], [ %59, %52 ]
   %54 = phi i64 [ 0, %48 ], [ %58, %52 ]
-  %55 = getelementptr i64, ptr %50, i64 %53
+  %55 = getelementptr [8 x i8], ptr %50, i64 %53
   %56 = load i64, ptr %55, align 8
   %57 = shl nuw i64 1, %56
   %58 = or i64 %57, %54
@@ -2104,7 +2100,7 @@ select.unfold:                                    ; preds = %29, %24
 91:                                               ; preds = %91, %87
   %92 = phi i64 [ 0, %87 ], [ %98, %91 ]
   %93 = phi i64 [ 0, %87 ], [ %97, %91 ]
-  %94 = getelementptr i64, ptr %89, i64 %92
+  %94 = getelementptr [8 x i8], ptr %89, i64 %92
   %95 = load i64, ptr %94, align 8
   %96 = shl nuw i64 1, %95
   %97 = or i64 %96, %93
@@ -2124,7 +2120,7 @@ drm_client_rotation.exit:                         ; preds = %91, %83
   %105 = getelementptr inbounds nuw i8, ptr %42, i64 1228
   %106 = load i32, ptr %105, align 4
   %107 = zext i32 %106 to i64
-  %.split = getelementptr %struct.__drm_planes_state, ptr %104, i64 %107
+  %.split = getelementptr [32 x i8], ptr %104, i64 %107
   %108 = getelementptr i8, ptr %.split, i64 24
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 76
@@ -2143,7 +2139,7 @@ drm_client_rotation.exit.thread:                  ; preds = %79, %77, %.preheade
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 144
   %117 = load i32, ptr %116, align 8
   %118 = zext i32 %117 to i64
-  %.split9 = getelementptr %struct.__drm_crtcs_state, ptr %115, i64 %118
+  %.split9 = getelementptr [56 x i8], ptr %115, i64 %118
   %119 = getelementptr i8, ptr %.split9, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 9
@@ -2466,7 +2462,7 @@ define dso_local range(i32 -34, -35) i32 @drm_client_modeset_dpms(ptr noundef %0
   %72 = phi i64 [ 0, %69 ], [ %85, %71 ]
   %73 = phi i32 [ 0, %69 ], [ %84, %71 ]
   %74 = load ptr, ptr %70, align 8
-  %75 = getelementptr ptr, ptr %74, i64 %72
+  %75 = getelementptr [8 x i8], ptr %74, i64 %72
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 400
   %78 = load ptr, ptr %77, align 8

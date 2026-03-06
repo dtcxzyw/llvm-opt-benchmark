@@ -105,7 +105,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7711TailoredSet10handleCE32Eii
   %22 = load ptr, ptr %17, align 8, !tbaa !33
   %23 = lshr i32 %.016, 5
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !34
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %27, 2
@@ -124,7 +124,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7711TailoredSet10handleCE32Eii
   %37 = lshr i32 %.016, 5
   %38 = add nuw nsw i32 %36, %37
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %34, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !34
   %42 = zext i16 %41 to i32
   %43 = shl nuw nsw i32 %42, 2
@@ -151,7 +151,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7711TailoredSet10handleCE32Eii
   %55 = load ptr, ptr %17, align 8, !tbaa !33
   %56 = lshr i32 %.016, 11
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4160
   %60 = load i16, ptr %59, align 2, !tbaa !34
   %61 = zext i16 %60 to i32
@@ -159,7 +159,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7711TailoredSet10handleCE32Eii
   %63 = and i32 %62, 63
   %64 = add nuw nsw i32 %63, %61
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !34
   %68 = zext i16 %67 to i32
   %69 = shl nuw nsw i32 %68, 2
@@ -170,7 +170,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7711TailoredSet10handleCE32Eii
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %21, %33, %46, %51, %54
   %72 = phi i32 [ %30, %21 ], [ %45, %33 ], [ 128, %46 ], [ %53, %51 ], [ %71, %54 ]
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i32, ptr %19, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %19, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !37
   %76 = tail call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %16, i32 noundef %75)
   br i1 %.not.i23, label %77, label %_ZN6icu_779Collation19isSelfContainedCE32Ej.exit.thread
@@ -243,7 +243,7 @@ define void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 der
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = lshr i32 %2, 13
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !42
   %18 = zext i16 %17 to i32
   %19 = shl nuw i32 %18, 16
@@ -263,7 +263,7 @@ define void @_ZN6icu_7711TailoredSet7compareEijj(ptr noundef nonnull align 8 der
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = lshr i32 %3, 13
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !42
   %35 = zext i16 %34 to i32
   %36 = shl nuw i32 %35, 16
@@ -347,7 +347,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit: ; preds = 
   %69 = load ptr, ptr %68, align 8, !tbaa !41
   %70 = lshr i32 %3, 13
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !42
   %74 = zext i16 %73 to i32
   %75 = shl nuw i32 %74, 16
@@ -422,7 +422,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %104 = load ptr, ptr %103, align 8, !tbaa !41
   %105 = lshr i32 %.0, 13
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %104, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %104, i64 %106
   %108 = and i32 %.0, 256
   %.not110 = icmp eq i32 %108, 0
   br i1 %.not110, label %109, label %118
@@ -451,7 +451,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %124 = load ptr, ptr %123, align 8, !tbaa !41
   %125 = lshr i32 %.196, 13
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %126
   %128 = and i32 %.196, 256
   %.not112 = icmp eq i32 %128, 0
   br i1 %.not112, label %129, label %138
@@ -491,7 +491,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %149 = load ptr, ptr %148, align 8, !tbaa !41
   %150 = lshr i32 %.196, 13
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw i16, ptr %149, i64 %151
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %149, i64 %151
   %153 = load i16, ptr %152, align 2, !tbaa !42
   %154 = zext i16 %153 to i32
   %155 = shl nuw i32 %154, 16
@@ -532,7 +532,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %175 = load ptr, ptr %174, align 8, !tbaa !51
   %176 = lshr i32 %.4, 13
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw i64, ptr %175, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !52
   %180 = call noundef i32 @_ZN6icu_779Collation32getThreeBytePrimaryForOffsetDataEil(i32 noundef %1, i64 noundef %179)
   %181 = and i32 %.2, -256
@@ -557,7 +557,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %186 = load ptr, ptr %185, align 8, !tbaa !54
   %187 = lshr i32 %.2, 13
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr %186, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %188
   %190 = lshr i32 %.2, 8
   %191 = and i32 %190, 31
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -566,7 +566,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %195 = load ptr, ptr %194, align 8, !tbaa !54
   %196 = lshr i32 %.4, 13
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %195, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %197
   %199 = lshr i32 %.4, 8
   %200 = and i32 %199, 31
   %.not124 = icmp eq i32 %191, %200
@@ -587,9 +587,9 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %201
   %indvars.iv148 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next149, %201 ]
-  %202 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv148
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %indvars.iv148
   %203 = load i32, ptr %202, align 4, !tbaa !37
-  %204 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv148
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv148
   %205 = load i32, ptr %204, align 4, !tbaa !37
   %.not125 = icmp eq i32 %203, %205
   br i1 %.not125, label %201, label %.loopexit.sink.split
@@ -600,7 +600,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %209 = load ptr, ptr %208, align 8, !tbaa !51
   %210 = lshr i32 %.2, 13
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw i64, ptr %209, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %211
   %213 = lshr i32 %.2, 8
   %214 = and i32 %213, 31
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -609,7 +609,7 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
   %218 = load ptr, ptr %217, align 8, !tbaa !51
   %219 = lshr i32 %.4, 13
   %220 = zext nneg i32 %219 to i64
-  %221 = getelementptr inbounds nuw i64, ptr %218, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %220
   %222 = lshr i32 %.4, 8
   %223 = and i32 %222, 31
   %.not122 = icmp eq i32 %214, %223
@@ -630,9 +630,9 @@ _ZN6icu_7711TailoredSet11addPrefixesEPKNS_13CollationDataEiPKDs.exit130: ; preds
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %224
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %224 ]
-  %225 = getelementptr inbounds nuw i64, ptr %212, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv
   %226 = load i64, ptr %225, align 8, !tbaa !52
-  %227 = getelementptr inbounds nuw i64, ptr %221, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv
   %228 = load i64, ptr %227, align 8, !tbaa !52
   %.not123 = icmp eq i64 %226, %228
   br i1 %.not123, label %224, label %.loopexit.sink.split
@@ -1445,7 +1445,7 @@ define void @_ZN6icu_7711TailoredSet9addPrefixEPKNS_13CollationDataERKNS_13Unico
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = lshr i32 %18, 13
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   tail call void @_ZN6icu_7711TailoredSet15addContractionsEiPKDs(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %3, ptr noundef nonnull %26)
   br label %27
@@ -1706,7 +1706,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions12forCodePointEPKNS_13Collatio
   %24 = load ptr, ptr %9, align 8, !tbaa !33
   %25 = lshr i32 %2, 11
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4160
   %29 = load i16, ptr %28, align 2, !tbaa !34
   %30 = zext i16 %29 to i32
@@ -1714,7 +1714,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions12forCodePointEPKNS_13Collatio
   %32 = and i32 %31, 63
   %33 = add nuw nsw i32 %32, %30
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !34
   %37 = zext i16 %36 to i32
   %38 = shl nuw nsw i32 %37, 2
@@ -1725,7 +1725,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions12forCodePointEPKNS_13Collatio
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %15, %20, %23
   %41 = phi i32 [ %40, %23 ], [ %22, %20 ], [ 128, %15 ]
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %11, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %11, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !37
   %45 = icmp eq i32 %44, 192
   br i1 %45, label %86, label %140
@@ -1737,14 +1737,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread21: ; preds = %13
   %49 = lshr i32 %2, 5
   %50 = add nuw nsw i32 %48, %49
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !34
   %54 = zext i16 %53 to i32
   %55 = shl nuw nsw i32 %54, 2
   %56 = and i32 %2, 31
   %57 = add nuw nsw i32 %55, %56
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %11, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !37
   %61 = icmp eq i32 %60, 192
   br i1 %61, label %.thread22, label %140
@@ -1753,14 +1753,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %7
   %62 = load ptr, ptr %9, align 8, !tbaa !33
   %63 = lshr i32 %2, 5
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i16, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !34
   %67 = zext i16 %66 to i32
   %68 = shl nuw nsw i32 %67, 2
   %69 = and i32 %2, 31
   %70 = add nuw nsw i32 %68, %69
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %11, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !37
   %74 = icmp eq i32 %73, 192
   br i1 %74, label %.thread, label %140
@@ -1772,7 +1772,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %7
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !29
   %80 = load ptr, ptr %77, align 8, !tbaa !33
-  %81 = getelementptr inbounds nuw i16, ptr %80, i64 %64
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %64
   %82 = load i16, ptr %81, align 2, !tbaa !34
   %83 = zext i16 %82 to i32
   %84 = shl nuw nsw i32 %83, 2
@@ -1800,7 +1800,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %7
   %101 = lshr i32 %2, 5
   %102 = add nuw nsw i32 %100, %101
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %98, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !34
   %106 = zext i16 %105 to i32
   %107 = shl nuw nsw i32 %106, 2
@@ -1823,7 +1823,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %7
   %117 = load ptr, ptr %89, align 8, !tbaa !33
   %118 = lshr i32 %2, 11
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4160
   %122 = load i16, ptr %121, align 2, !tbaa !34
   %123 = zext i16 %122 to i32
@@ -1831,7 +1831,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread: ; preds = %7
   %125 = and i32 %124, 63
   %126 = add nuw nsw i32 %125, %123
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %117, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %117, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !34
   %130 = zext i16 %129 to i32
   %131 = shl nuw nsw i32 %130, 2
@@ -1844,7 +1844,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit16:      ; preds = %.thread, %.thread22
   %135 = phi ptr [ %76, %.thread ], [ %94, %.thread22 ], [ %88, %86 ], [ %88, %113 ], [ %88, %116 ]
   %136 = phi i32 [ %85, %.thread ], [ %109, %.thread22 ], [ 128, %86 ], [ %115, %113 ], [ %133, %116 ]
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %134, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %134, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !37
   br label %140
 
@@ -2034,7 +2034,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
   %95 = load ptr, ptr %9, align 8, !tbaa !54
   %96 = lshr i32 %.092, 13
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %wide.trip.count = zext nneg i32 %94 to i64
   br label %104
@@ -2083,7 +2083,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions10handleCE32Eiij(ptr noundef n
 
 _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %.0.i = phi i64 [ %119, %109 ], [ %127, %125 ], [ %124, %120 ]
-  %128 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   store i64 %.0.i, ptr %128, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2128,7 +2128,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %150 = load ptr, ptr %149, align 8, !tbaa !51
   %151 = lshr i32 %.092, 13
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %152
   %154 = load ptr, ptr %145, align 8, !tbaa !75
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load ptr, ptr %155, align 8
@@ -2173,7 +2173,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %109, %120, %125
   %174 = load ptr, ptr %9, align 8, !tbaa !54
   %175 = lshr i32 %.092, 13
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %174, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %176
   br label %236
 
 178:                                              ; preds = %27
@@ -2365,7 +2365,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions14handlePrefixesEiij(ptr nound
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = lshr i32 %3, 13
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !42
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
@@ -2478,7 +2478,7 @@ define void @_ZN6icu_7725ContractionsAndExpansions18handleContractionsEiij(ptr n
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = lshr i32 %3, 13
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %11
   %13 = and i32 %3, 256
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %22

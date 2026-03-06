@@ -40,7 +40,7 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 19:                                               ; preds = %3
   %20 = sext i32 %7 to i64
-  %21 = getelementptr inbounds i32, ptr %9, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %9, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !17
   %23 = tail call double @cs_norm(ptr noundef nonnull %0) #5
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %5, i32 noundef %7, i32 noundef %14, i32 noundef %22, double noundef %23)
@@ -60,9 +60,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 .lr.ph77.split.us.split.us:                       ; preds = %.lr.ph77.split.us, %.loopexit.us.us
   %26 = phi i32 [ %37, %.loopexit.us.us ], [ %.pre155, %.lr.ph77.split.us ]
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.loopexit.us.us ], [ 0, %.lr.ph77.split.us ]
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv140
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv140
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %28 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next141
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next141
   %29 = load i32, ptr %28, align 4, !tbaa !17
   %30 = add nsw i32 %29, -1
   %31 = trunc nuw nsw i64 %indvars.iv140 to i32
@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph71.us.us:                                   ; preds = %.lr.ph71.us.us.preheader, %41
   %indvars.iv134 = phi i64 [ %36, %.lr.ph71.us.us.preheader ], [ %indvars.iv.next135, %41 ]
-  %38 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv134
+  %38 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv134
   %39 = load i32, ptr %38, align 4, !tbaa !17
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %39, double noundef 1.000000e+00)
   %exitcond139 = icmp eq i64 %indvars.iv134, %wide.trip.count138
@@ -101,9 +101,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 .lr.ph77.split.us.split:                          ; preds = %.lr.ph77.split.us, %.loopexit.us
   %45 = phi i32 [ %56, %.loopexit.us ], [ %.pre155, %.lr.ph77.split.us ]
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.loopexit.us ], [ 0, %.lr.ph77.split.us ]
-  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv148
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv148
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %47 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next149
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next149
   %48 = load i32, ptr %47, align 4, !tbaa !17
   %49 = add nsw i32 %48, -1
   %50 = trunc nuw nsw i64 %indvars.iv148 to i32
@@ -124,7 +124,7 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph71.us:                                      ; preds = %.lr.ph71.us.preheader, %.lr.ph71.us
   %indvars.iv145 = phi i64 [ %55, %.lr.ph71.us.preheader ], [ %indvars.iv.next146, %.lr.ph71.us ]
-  %57 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv145
+  %57 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv145
   %58 = load i32, ptr %57, align 4, !tbaa !17
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %58, double noundef 1.000000e+00)
   %indvars.iv.next146 = add nsw i64 %indvars.iv145, 1
@@ -139,9 +139,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 .lr.ph77.split.split.us:                          ; preds = %.lr.ph77.split, %.loopexit.us82
   %63 = phi i32 [ %83, %.loopexit.us82 ], [ %.pre155, %.lr.ph77.split ]
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.loopexit.us82 ], [ 0, %.lr.ph77.split ]
-  %64 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv121
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv121
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %65 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next122
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next122
   %66 = load i32, ptr %65, align 4, !tbaa !17
   %67 = add nsw i32 %66, -1
   %68 = trunc nuw nsw i64 %indvars.iv121 to i32
@@ -166,9 +166,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph71.us83:                                    ; preds = %.lr.ph71.us83.preheader, %74
   %indvars.iv116 = phi i64 [ %73, %.lr.ph71.us83.preheader ], [ %indvars.iv.next117, %74 ]
-  %78 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv116
+  %78 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv116
   %79 = load i32, ptr %78, align 4, !tbaa !17
-  %80 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv116
+  %80 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %indvars.iv116
   %81 = load double, ptr %80, align 8, !tbaa !21
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %79, double noundef %81)
   %exitcond120 = icmp eq i64 %indvars.iv116, %wide.trip.count119
@@ -187,9 +187,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 .lr.ph77.split.split:                             ; preds = %.lr.ph77.split, %.loopexit
   %85 = phi i32 [ %84, %.loopexit ], [ %.pre155, %.lr.ph77.split ]
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.loopexit ], [ 0, %.lr.ph77.split ]
-  %86 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv129
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv129
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %87 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next130
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next130
   %88 = load i32, ptr %87, align 4, !tbaa !17
   %89 = add nsw i32 %88, -1
   %90 = trunc nuw nsw i64 %indvars.iv129 to i32
@@ -205,9 +205,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
   %indvars.iv126 = phi i64 [ %95, %.lr.ph71.preheader ], [ %indvars.iv.next127, %.lr.ph71 ]
-  %96 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv126
+  %96 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv126
   %97 = load i32, ptr %96, align 4, !tbaa !17
-  %98 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv126
+  %98 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %indvars.iv126
   %99 = load double, ptr %98, align 8, !tbaa !21
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %97, double noundef %99)
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, 1
@@ -232,9 +232,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %106 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv111
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv111
   %107 = load i32, ptr %106, align 4, !tbaa !17
-  %108 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv111
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv111
   %109 = load i32, ptr %108, align 4, !tbaa !17
   %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %107, i32 noundef %109, double noundef 1.000000e+00)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -243,9 +243,9 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %116
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %116 ], [ 0, %.lr.ph.split.us ]
-  %111 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv105
   %112 = load i32, ptr %111, align 4, !tbaa !17
-  %113 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv105
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv105
   %114 = load i32, ptr %113, align 4, !tbaa !17
   %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %112, i32 noundef %114, double noundef 1.000000e+00)
   %exitcond108 = icmp eq i64 %indvars.iv105, 21
@@ -261,11 +261,11 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %117 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv100
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv100
   %118 = load i32, ptr %117, align 4, !tbaa !17
-  %119 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv100
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv100
   %120 = load i32, ptr %119, align 4, !tbaa !17
-  %121 = getelementptr inbounds nuw double, ptr %.fr, i64 %indvars.iv100
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %indvars.iv100
   %122 = load double, ptr %121, align 8, !tbaa !21
   %123 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %118, i32 noundef %120, double noundef %122)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -279,11 +279,11 @@ define range(i32 0, 2) i32 @cs_print(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %124
   %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ 0, %.lr.ph.split ]
-  %125 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !17
-  %127 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4, !tbaa !17
-  %129 = getelementptr inbounds nuw double, ptr %.fr, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %indvars.iv
   %130 = load double, ptr %129, align 8, !tbaa !21
   %131 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %126, i32 noundef %128, double noundef %130)
   %exitcond = icmp eq i64 %indvars.iv, 21

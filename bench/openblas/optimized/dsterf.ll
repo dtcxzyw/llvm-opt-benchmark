@@ -81,7 +81,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 37:                                               ; preds = %.lr.ph
   %38 = zext nneg i32 %.0356451 to i64
-  %39 = getelementptr double, ptr %13, i64 %38
+  %39 = getelementptr [8 x i8], ptr %13, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -8
   store double 0.000000e+00, ptr %40, align 8, !tbaa !7
   br label %41
@@ -100,17 +100,17 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond.not, label %67, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds double, ptr %13, i64 %indvars.iv
+  %46 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv
   %47 = load double, ptr %46, align 8, !tbaa !7
   %48 = call double @llvm.fabs.f64(double %47)
-  %49 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
+  %49 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv
   %50 = load double, ptr %49, align 8, !tbaa !7
   %51 = fcmp oge double %50, 0.000000e+00
   %52 = fneg double %50
   %53 = select i1 %51, double %50, double %52
   %54 = call double @sqrt(double noundef %53) #6, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = getelementptr double, ptr %1, i64 %indvars.iv
+  %55 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %56 = load double, ptr %55, align 8, !tbaa !7
   %57 = fcmp oge double %56, 0.000000e+00
   %58 = fneg double %56
@@ -122,7 +122,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %63, label %44, label %64, !llvm.loop !9
 
 64:                                               ; preds = %45
-  %65 = getelementptr inbounds double, ptr %13, i64 %indvars.iv
+  %65 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv
   %66 = trunc nsw i64 %indvars.iv to i32
   store double 0.000000e+00, ptr %65, align 8, !tbaa !7
   br label %69
@@ -146,8 +146,8 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %74 = sub nsw i32 %.1366, %.0356451
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %5, align 4, !tbaa !3
-  %76 = getelementptr inbounds double, ptr %14, i64 %43
-  %77 = getelementptr inbounds double, ptr %13, i64 %43
+  %76 = getelementptr inbounds [8 x i8], ptr %14, i64 %43
+  %77 = getelementptr inbounds [8 x i8], ptr %13, i64 %43
   %78 = call double @dlanst_(ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %76, ptr noundef nonnull %77) #6
   store double %78, ptr %7, align 8, !tbaa !7
   %79 = fcmp oeq double %78, 0.000000e+00
@@ -181,7 +181,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph455:                                        ; preds = %86, %.lr.ph455
   %indvars.iv515 = phi i64 [ %indvars.iv.next516, %.lr.ph455 ], [ %43, %86 ]
-  %89 = getelementptr inbounds double, ptr %13, i64 %indvars.iv515
+  %89 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv515
   %90 = load double, ptr %89, align 8, !tbaa !7
   %91 = fmul double %90, %90
   store double %91, ptr %89, align 8, !tbaa !7
@@ -190,7 +190,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond521.not, label %._crit_edge456, label %.lr.ph455, !llvm.loop !11
 
 ._crit_edge456:                                   ; preds = %.lr.ph455, %86
-  %92 = getelementptr inbounds double, ptr %14, i64 %wide.trip.count520
+  %92 = getelementptr inbounds [8 x i8], ptr %14, i64 %wide.trip.count520
   %93 = load double, ptr %92, align 8, !tbaa !7
   %94 = call double @llvm.fabs.f64(double %93)
   %95 = load double, ptr %76, align 8, !tbaa !7
@@ -224,13 +224,13 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond527.not, label %.thread, label %104
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds double, ptr %13, i64 %indvars.iv522
+  %105 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv522
   %106 = load double, ptr %105, align 8, !tbaa !7
   %107 = call double @llvm.fabs.f64(double %106)
-  %108 = getelementptr inbounds double, ptr %14, i64 %indvars.iv522
+  %108 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv522
   %109 = load double, ptr %108, align 8, !tbaa !7
   %indvars.iv.next523 = add nsw i64 %indvars.iv522, 1
-  %110 = getelementptr double, ptr %1, i64 %indvars.iv522
+  %110 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv522
   %111 = load double, ptr %110, align 8, !tbaa !7
   %112 = fmul double %109, %111
   %113 = fcmp oge double %112, 0.000000e+00
@@ -277,11 +277,11 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1.ph = phi i32 [ %.0354.ph, %.preheader412 ], [ %.1, %.outer414.backedge ]
   %.not397 = icmp eq i32 %.1370.ph, %.0
   %132 = sext i32 %.1370.ph to i64
-  %133 = getelementptr inbounds double, ptr %14, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %14, i64 %132
   %134 = add nsw i32 %.1370.ph, 1
-  %135 = getelementptr inbounds double, ptr %13, i64 %132
+  %135 = getelementptr inbounds [8 x i8], ptr %13, i64 %132
   %136 = sext i32 %134 to i64
-  %137 = getelementptr inbounds double, ptr %14, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %14, i64 %136
   %smax525 = call i32 @llvm.smax.i32(i32 %.0, i32 %.1370.ph)
   %wide.trip.count526 = sext i32 %smax525 to i64
   br label %101
@@ -313,7 +313,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %157 = fsub double %122, %156
   store double %157, ptr %6, align 8, !tbaa !7
   %158 = sext i32 %.3368406 to i64
-  %159 = getelementptr inbounds double, ptr %14, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %14, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !7
   %161 = fsub double %160, %157
   %162 = fmul double %161, %161
@@ -333,7 +333,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0361460 = phi double [ %162, %.lr.ph464.preheader ], [ %.1362, %171 ]
   %.0376458 = phi double [ 1.000000e+00, %.lr.ph464.preheader ], [ %172, %171 ]
   %indvars.iv528 = add nsw i64 %indvars.iv528.in, -1
-  %164 = getelementptr inbounds double, ptr %13, i64 %indvars.iv528
+  %164 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv528
   %165 = load double, ptr %164, align 8, !tbaa !7
   %166 = fadd double %.0361460, %165
   %167 = icmp eq i64 %indvars.iv528, %sext
@@ -348,7 +348,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 171:                                              ; preds = %168, %.lr.ph464
   %172 = fdiv double %.0361460, %166
   %173 = fdiv double %165, %166
-  %174 = getelementptr inbounds double, ptr %14, i64 %indvars.iv528
+  %174 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv528
   %175 = load double, ptr %174, align 8, !tbaa !7
   %176 = fsub double %175, %157
   %177 = fneg double %.0359461
@@ -396,12 +396,12 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 192:                                              ; preds = %191
   %indvars.iv.next532 = add nsw i64 %indvars.iv531, -1
-  %193 = getelementptr inbounds double, ptr %13, i64 %indvars.iv.next532
+  %193 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv.next532
   %194 = load double, ptr %193, align 8, !tbaa !7
   %195 = call double @llvm.fabs.f64(double %194)
-  %196 = getelementptr inbounds double, ptr %14, i64 %indvars.iv531
+  %196 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv531
   %197 = load double, ptr %196, align 8, !tbaa !7
-  %198 = getelementptr inbounds double, ptr %14, i64 %indvars.iv.next532
+  %198 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv.next532
   %199 = load double, ptr %198, align 8, !tbaa !7
   %200 = fmul double %197, %199
   %201 = fcmp oge double %200, 0.000000e+00
@@ -448,11 +448,11 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.2371.ph = phi i32 [ %.0369, %.preheader ], [ %.2371.ph.be, %.outer.backedge ]
   %.3.ph = phi i32 [ %.0354.ph, %.preheader ], [ %.3, %.outer.backedge ]
   %221 = sext i32 %.2371.ph to i64
-  %222 = getelementptr inbounds double, ptr %14, i64 %221
+  %222 = getelementptr inbounds [8 x i8], ptr %14, i64 %221
   %223 = add nsw i32 %.2371.ph, -1
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds double, ptr %13, i64 %224
-  %226 = getelementptr inbounds double, ptr %14, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %13, i64 %224
+  %226 = getelementptr inbounds [8 x i8], ptr %14, i64 %224
   br label %190
 
 227:                                              ; preds = %213
@@ -482,7 +482,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %246 = fsub double %211, %245
   store double %246, ptr %6, align 8, !tbaa !7
   %247 = sext i32 %.5409 to i64
-  %248 = getelementptr inbounds double, ptr %14, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %14, i64 %247
   %249 = load double, ptr %248, align 8, !tbaa !7
   %250 = fsub double %249, %246
   %251 = fmul double %250, %250
@@ -496,7 +496,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1360472 = phi double [ %267, %259 ], [ %250, %229 ]
   %.2363471 = phi double [ %.3364, %259 ], [ %251, %229 ]
   %.1377469 = phi double [ %260, %259 ], [ 1.000000e+00, %229 ]
-  %252 = getelementptr inbounds double, ptr %13, i64 %indvars.iv534
+  %252 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv534
   %253 = load double, ptr %252, align 8, !tbaa !7
   %254 = fadd double %.2363471, %253
   %255 = icmp eq i64 %indvars.iv534, %247
@@ -512,7 +512,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %260 = fdiv double %.2363471, %254
   %261 = fdiv double %253, %254
   %indvars.iv.next535 = add nsw i64 %indvars.iv534, 1
-  %262 = getelementptr double, ptr %1, i64 %indvars.iv534
+  %262 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv534
   %263 = load double, ptr %262, align 8, !tbaa !7
   %264 = fsub double %263, %246
   %265 = fneg double %.1360472
@@ -520,7 +520,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %267 = call double @llvm.fmuladd.f64(double %260, double %264, double %266)
   %268 = fsub double %263, %267
   %269 = fadd double %.1360472, %268
-  %270 = getelementptr inbounds double, ptr %14, i64 %indvars.iv534
+  %270 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv534
   store double %269, ptr %270, align 8, !tbaa !7
   %271 = fcmp une double %260, 0.000000e+00
   %272 = fmul double %267, %267
@@ -580,7 +580,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph483:                                        ; preds = %.lr.ph483.preheader, %291
   %indvars.iv540 = phi i64 [ 1, %.lr.ph483.preheader ], [ %indvars.iv.next541, %291 ]
-  %285 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv540
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv540
   %286 = load double, ptr %285, align 8, !tbaa !7
   %287 = fcmp une double %286, 0.000000e+00
   br i1 %287, label %288, label %291

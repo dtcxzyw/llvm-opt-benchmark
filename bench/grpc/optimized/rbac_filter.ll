@@ -17,27 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.grpc_core::EvaluateArgs" = type { ptr, ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
-%"class.grpc_core::GrpcAuthorizationEngine" = type { %"class.grpc_core::AuthorizationEngine", %"class.std::__cxx11::basic_string", i32, %"class.std::vector.8", i32, %"class.std::vector.13" }
-%"class.grpc_core::AuthorizationEngine" = type { %"class.grpc_core::RefCounted" }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::StatusOr" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData" = type { %union.anon.59, %union.anon.60 }
 %union.anon.59 = type { %"class.absl::lts_20240722::Status" }
@@ -102,7 +81,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.grpc_core::Poll" = type { i8, %union.anon.141 }
 %union.anon.141 = type { %"class.std::unique_ptr.72" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 
 $_ZN4absl12lts_202407226StatusD2Ev = comdat any
 
@@ -333,7 +311,7 @@ define void @_ZN9grpc_core10RbacFilter4Call23OnClientInitialMetadataER19grpc_met
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !8
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !11
@@ -344,7 +322,7 @@ _ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit: ; preds = %
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !18
   %19 = load ptr, ptr %15, align 8, !tbaa !36
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !39
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit.thread, label %23
@@ -358,7 +336,7 @@ _ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit.thread: ; pr
   %25 = load i64, ptr %24, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !42
-  %28 = getelementptr inbounds nuw %"class.grpc_core::GrpcAuthorizationEngine", ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1312,7 +1290,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !95
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !92
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !96
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2432,7 +2410,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !8, !noalias !205
   %17 = zext i16 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !10, !noalias !205
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !11, !noalias !205
@@ -2443,7 +2421,7 @@ _ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit.i: ; preds =
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !18, !noalias !205
   %25 = load ptr, ptr %21, align 8, !tbaa !36, !noalias !205
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !39, !noalias !205
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit.thread.i, label %29
@@ -2457,7 +2435,7 @@ _ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit.thread.i: ; 
   %31 = load i64, ptr %30, align 8, !tbaa !41, !noalias !205
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !42, !noalias !205
-  %34 = getelementptr inbounds nuw %"class.grpc_core::GrpcAuthorizationEngine", ptr %33, i64 %31
+  %34 = getelementptr inbounds nuw [112 x i8], ptr %33, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !205
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !205
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -3243,7 +3221,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -3295,7 +3273,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %class.symbol = type { ptr }
-%"struct.sat::eframe" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -231,7 +230,7 @@ _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i:        ; preds = %5
 
 14:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw %class.symbol, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   br label %_ZNK11ast_manager15get_family_nameEi.exit
 
 _ZNK11ast_manager15get_family_nameEi.exit:        ; preds = %3, %5, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i, %14
@@ -326,7 +325,7 @@ _ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i:      ; preds = %7
 
 16:                                               ; preds = %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i
   %17 = zext nneg i32 %5 to i64
-  %18 = getelementptr inbounds nuw %class.symbol, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   br label %_ZNK11ast_manager15get_family_nameEi.exit.i
 
 _ZNK11ast_manager15get_family_nameEi.exit.i:      ; preds = %16, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit.i.i.i, %7, %2
@@ -403,19 +402,19 @@ _ZNK22special_relations_util13get_family_idEv.exit: ; preds = %6, %12
   %22 = icmp ult i32 %17, %21
   call void @llvm.assume(i1 %22)
   %23 = zext i32 %17 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !404
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !406
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = load ptr, ptr %28, align 8, !tbaa !407
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !408
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !409
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %29, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !408
   %38 = load ptr, ptr %25, align 8, !tbaa !388
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -477,7 +476,7 @@ define hidden i32 @_ZN7specrel6solver11internalizeEP4exprbb(ptr noundef nonnull 
   %17 = icmp ult i32 %14, %.fr.i.i.i.i
   tail call void @llvm.assume(i1 %17)
   %18 = zext i32 %14 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %18
   %.pre.i.then.val.i.i = load ptr, ptr %19, align 8, !tbaa !408
   %20 = getelementptr inbounds nuw i8, ptr %.pre.i.then.val.i.i, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !412
@@ -515,7 +514,7 @@ define hidden i32 @_ZThn48_N7specrel6solver11internalizeEP4exprbb(ptr noundef no
   %16 = icmp ult i32 %13, %.fr.i.i.i.i.i
   tail call void @llvm.assume(i1 %16)
   %17 = zext i32 %13 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %17
   %.pre.i.then.val.i.i.i = load ptr, ptr %18, align 8, !tbaa !408
   %19 = getelementptr inbounds nuw i8, ptr %.pre.i.then.val.i.i.i, i64 28
   %20 = load i32, ptr %19, align 4, !tbaa !412
@@ -579,7 +578,7 @@ _ZN6vectorIN3sat6eframeELb0EjE9push_backEOS1_.exit: ; preds = %11, %17
   %18 = phi i32 [ %.pre2.i, %17 ], [ %13, %11 ]
   %19 = phi ptr [ %.pre.i, %17 ], [ %9, %11 ]
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.sat::eframe", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8, !tbaa !420
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !387
@@ -626,7 +625,7 @@ _ZN6vectorIN3sat6eframeELb0EjE9push_backEOS1_.exit.i: ; preds = %18, %12
   %19 = phi i32 [ %.pre2.i.i, %18 ], [ %14, %12 ]
   %20 = phi ptr [ %.pre.i.i, %18 ], [ %10, %12 ]
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.sat::eframe", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   store ptr %1, ptr %22, align 8, !tbaa !420
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !387

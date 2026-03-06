@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %struct.H5O_info2_t = type { i64, %struct.H5O_token_t, i32, i32, i64, i64, i64, i64, i64 }
 %struct.H5O_token_t = type { [16 x i8] }
-%struct.trav_obj_t = type { %struct.H5O_token_t, [2 x i32], i8, ptr, i32, ptr, i64, i64 }
 %struct.H5_timer_t = type { %struct.H5_timevals_t, %struct.H5_timevals_t, %struct.H5_timevals_t, i8 }
 %struct.H5_timevals_t = type { double, double, double }
 %union.anon = type { ptr }
@@ -225,7 +224,7 @@ have_request.exit.thread.i:                       ; preds = %15
 
 57:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i
   %59 = load i64, ptr %58, align 8, !tbaa !22
   %60 = trunc i64 %59 to i32
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %60)
@@ -265,7 +264,7 @@ have_request.exit.thread.thread.i:                ; preds = %have_request.exit.t
   %.0107181.i = phi i32 [ %.1108.i, %113 ], [ 0, %66 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !28
-  %75 = getelementptr inbounds nuw %struct.pack_info_t, ptr %74, i64 %indvars.iv209.i
+  %75 = getelementptr inbounds nuw [1112 x i8], ptr %74, i64 %indvars.iv209.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1096
   %77 = load i32, ptr %76, align 8, !tbaa !29
   %78 = icmp sgt i32 %77, 0
@@ -281,7 +280,7 @@ have_request.exit.thread.thread.i:                ; preds = %have_request.exit.t
   %84 = load ptr, ptr %2, align 8, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !28
-  %87 = getelementptr inbounds nuw %struct.pack_info_t, ptr %86, i64 %indvars.iv209.i
+  %87 = getelementptr inbounds nuw [1112 x i8], ptr %86, i64 %indvars.iv209.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1096
   %89 = load i32, ptr %88, align 8, !tbaa !29
   %90 = icmp sgt i32 %89, 0
@@ -290,9 +289,9 @@ have_request.exit.thread.thread.i:                ; preds = %have_request.exit.t
 .lr.ph179.i:                                      ; preds = %82, %.lr.ph179.i
   %indvars.iv206.i = phi i64 [ %indvars.iv.next207.i, %.lr.ph179.i ], [ 0, %82 ]
   %91 = phi ptr [ %100, %.lr.ph179.i ], [ %86, %82 ]
-  %92 = getelementptr inbounds nuw %struct.pack_info_t, ptr %91, i64 %indvars.iv209.i
+  %92 = getelementptr inbounds nuw [1112 x i8], ptr %91, i64 %indvars.iv209.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 840
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv206.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv206.i
   %95 = load i64, ptr %94, align 8, !tbaa !22
   %96 = trunc i64 %95 to i32
   %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %96)
@@ -300,7 +299,7 @@ have_request.exit.thread.thread.i:                ; preds = %have_request.exit.t
   %98 = load ptr, ptr %2, align 8, !tbaa !17
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !28
-  %101 = getelementptr inbounds nuw %struct.pack_info_t, ptr %100, i64 %indvars.iv209.i
+  %101 = getelementptr inbounds nuw [1112 x i8], ptr %100, i64 %indvars.iv209.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 1096
   %103 = load i32, ptr %102, align 8, !tbaa !29
   %104 = sext i32 %103 to i64
@@ -401,7 +400,7 @@ have_request.exit.thread.thread.i:                ; preds = %have_request.exit.t
 
 153:                                              ; preds = %168, %.lr.ph189.i
   %indvars.iv212.i = phi i64 [ 0, %.lr.ph189.i ], [ %indvars.iv.next213.i, %168 ]
-  %154 = getelementptr inbounds nuw %struct.filter_info_t, ptr %152, i64 %indvars.iv212.i
+  %154 = getelementptr inbounds nuw [96 x i8], ptr %152, i64 %indvars.iv212.i
   %155 = load i32, ptr %154, align 8, !tbaa !34
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %158
@@ -475,7 +474,7 @@ get_sfilter.exit160.i:                            ; preds = %162, %158
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !28
-  %181 = getelementptr inbounds nuw %struct.pack_info_t, ptr %180, i64 %indvars.iv218.i
+  %181 = getelementptr inbounds nuw [1112 x i8], ptr %180, i64 %indvars.iv218.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %11, ptr noundef nonnull align 8 dereferenceable(1112) %181, i64 1112, i1 false), !tbaa.struct !37
   %182 = load i32, ptr %175, align 8, !tbaa !39
   %183 = icmp sgt i32 %182, 0
@@ -497,7 +496,7 @@ get_sfilter.exit160.i:                            ; preds = %162, %158
   br i1 %187, label %188, label %197
 
 188:                                              ; preds = %.lr.ph192.split.i
-  %189 = getelementptr inbounds nuw %struct.filter_info_t, ptr %176, i64 %indvars.iv215.i
+  %189 = getelementptr inbounds nuw [96 x i8], ptr %176, i64 %indvars.iv215.i
   %190 = load i32, ptr %189, align 8, !tbaa !34
   %191 = icmp sgt i32 %190, -1
   br i1 %191, label %192, label %197
@@ -512,7 +511,7 @@ get_sfilter.exit162.i:                            ; preds = %192
 
 switch.lookup:                                    ; preds = %192
   %195 = zext nneg i32 %190 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.h5repack, i64 %195
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.h5repack, i64 %195
   %switch.load = load ptr, ptr %switch.gep, align 8
   %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, ptr noundef nonnull %11, ptr noundef nonnull %switch.load)
   br label %197
@@ -678,7 +677,7 @@ switch.lookup:                                    ; preds = %192
 
 285:                                              ; preds = %284, %.preheader.i
   %indvars.iv221.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next222.i, %284 ]
-  %286 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv221.i
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %indvars.iv221.i
   %287 = load i32, ptr %286, align 4, !tbaa !21
   %288 = icmp slt i32 %287, 0
   br i1 %288, label %289, label %284
@@ -914,7 +913,7 @@ check_options.exit.thread:                        ; preds = %334, %39, %131, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load ptr, ptr %417, align 8, !tbaa !28
-  %419 = getelementptr inbounds nuw %struct.pack_info_t, ptr %418, i64 %indvars.iv275.i
+  %419 = getelementptr inbounds nuw [1112 x i8], ptr %418, i64 %indvars.iv275.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1112) %5, ptr noundef nonnull align 8 dereferenceable(1112) %419, i64 1112, i1 false), !tbaa.struct !37
   %420 = load i32, ptr %12, align 4, !tbaa !4
   %421 = icmp sgt i32 %420, 0
@@ -981,7 +980,7 @@ check_options.exit.thread:                        ; preds = %334, %39, %131, %21
   %indvars.iv272.i = phi i64 [ %indvars.iv.next273.i, %607 ], [ 0, %454 ]
   %.389204.i = phi i64 [ %.6.i, %607 ], [ %.187212.i, %454 ]
   %.395203.i = phi i64 [ %.698.i, %607 ], [ %.193211.i, %454 ]
-  %458 = getelementptr inbounds nuw %struct.filter_info_t, ptr %412, i64 %indvars.iv272.i
+  %458 = getelementptr inbounds nuw [96 x i8], ptr %412, i64 %indvars.iv272.i
   %459 = load i32, ptr %458, align 8, !tbaa !34
   %460 = icmp slt i32 %459, 0
   br i1 %460, label %461, label %477
@@ -1031,7 +1030,7 @@ check_options.exit.thread:                        ; preds = %334, %39, %131, %21
 .preheader.i18:                                   ; preds = %.preheader.i18, %.preheader.preheader.i
   %indvars.iv267.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next268.i, %.preheader.i18 ]
   %.076202.i = phi i64 [ 1, %.preheader.preheader.i ], [ %485, %.preheader.i18 ]
-  %483 = getelementptr inbounds nuw i64, ptr %413, i64 %indvars.iv267.i
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %indvars.iv267.i
   %484 = load i64, ptr %483, align 8, !tbaa !22
   %485 = mul i64 %484, %.076202.i
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
@@ -1174,7 +1173,7 @@ check_options.exit.thread:                        ; preds = %334, %39, %131, %21
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %.lr.ph.preheader.i
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i11, %.lr.ph.i9 ]
   %.2200.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %564, %.lr.ph.i9 ]
-  %562 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i10
+  %562 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i10
   %563 = load i64, ptr %562, align 8, !tbaa !22
   %564 = mul i64 %563, %.2200.i
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
@@ -1389,7 +1388,7 @@ define dso_local i32 @h5repack_init(ptr noundef initializes((0, 1032)) %0, i32 n
   %13 = mul nuw nsw i64 %indvar, 96
   %14 = getelementptr nuw i8, ptr %0, i64 %13
   %scevgep = getelementptr nuw i8, ptr %14, i64 24
-  %15 = getelementptr inbounds nuw %struct.filter_info_t, ptr %11, i64 %indvar
+  %15 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %indvar
   store i32 -1, ptr %15, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store i64 0, ptr %16, align 8, !tbaa !67
@@ -1445,7 +1444,7 @@ define dso_local range(i32 -1, 1) i32 @h5repack_addfilter(ptr noundef %0, ptr no
 .thread:                                          ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds %struct.filter_info_t, ptr %15, i64 %16
+  %17 = getelementptr inbounds [96 x i8], ptr %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false), !tbaa.struct !69
   br label %.sink.split
 
@@ -1671,7 +1670,7 @@ define dso_local noundef i64 @copy_named_datatype(i64 noundef %0, i64 noundef %1
   %.059110 = phi i64 [ 0, %.lr.ph ], [ %110, %108 ]
   %.162109 = phi ptr [ null, %.lr.ph ], [ %.2, %108 ]
   %60 = load ptr, ptr %31, align 8, !tbaa !77
-  %61 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %60, i64 %.059110
+  %61 = getelementptr inbounds nuw [72 x i8], ptr %60, i64 %.059110
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load i32, ptr %62, align 8, !tbaa !78
   %64 = icmp eq i32 %63, 2
@@ -2404,7 +2403,7 @@ define dso_local range(i32 -1, 1) i32 @copy_attr(i64 noundef %0, i64 noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0157370 = phi i64 [ 1, %.lr.ph.preheader ], [ %225, %.lr.ph ]
-  %223 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %224 = load i64, ptr %223, align 8, !tbaa !22
   %225 = mul i64 %224, %.0157370
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

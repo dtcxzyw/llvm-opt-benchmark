@@ -825,7 +825,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hb1368d0a2a38cd1aE.exit.i.i: ; preds = %8
   %32 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %20, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load ptr, ptr %33, align 8, !alias.scope !269, !nonnull !7, !noundef !7
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %32
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %32
   store ptr %.val, ptr %35, align 8
   %36 = load i64, ptr %19, align 8, !alias.scope !269, !noundef !7
   %37 = add i64 %36, 1
@@ -1678,7 +1678,7 @@ define hidden void @"_ZN89_$LT$actix_web..http..header..if_match..IfMatch$u20$as
   %.sink6.i.i = phi ptr [ %40, %38 ], [ %35, %33 ]
   %.sink4.in.i.i = phi ptr [ %41, %38 ], [ %30, %33 ]
   %.sink4.i.i = load i64, ptr %.sink4.in.i.i, align 8, !noalias !467, !noundef !7
-  %42 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink6.i.i, i64 %.sink4.i.i
+  %42 = getelementptr inbounds [40 x i8], ptr %.sink6.i.i, i64 %.sink4.i.i
   br label %_ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit
 
 _ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit: ; preds = %.critedge, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i"
@@ -1847,7 +1847,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %12 = phi i64 [ %14, %.backedge ], [ %.promoted, %.lr.ph ]
-  %13 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr %6, i64 %12
+  %13 = getelementptr inbounds [24 x i8], ptr %6, i64 %12
   %14 = add nuw i64 %12, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !7
@@ -1981,7 +1981,7 @@ define hidden void @"_ZN98_$LT$actix_web..http..header..if_none_match..IfNoneMat
   %.sink6.i.i = phi ptr [ %40, %38 ], [ %35, %33 ]
   %.sink4.in.i.i = phi ptr [ %41, %38 ], [ %30, %33 ]
   %.sink4.i.i = load i64, ptr %.sink4.in.i.i, align 8, !noalias !500, !noundef !7
-  %42 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink6.i.i, i64 %.sink4.i.i
+  %42 = getelementptr inbounds [40 x i8], ptr %.sink6.i.i, i64 %.sink4.i.i
   br label %_ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit
 
 _ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit: ; preds = %.critedge, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i"

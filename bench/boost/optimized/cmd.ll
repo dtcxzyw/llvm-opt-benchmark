@@ -578,7 +578,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_
           to label %196 unwind label %199
 
 196:                                              ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcENSt15iterator_traitsIT_E15difference_typeESB_SB_RKT0_.exit
-  %197 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0.lcssa.i.i85
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %.0.lcssa.i.i85
   store ptr null, ptr %197, align 8, !tbaa !32
   %198 = ptrtoint ptr %186 to i64
   br label %201
@@ -708,7 +708,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
   br label %_ZNKSt14default_deleteIA_PcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
 
 .critedge:                                        ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit
-  %253 = getelementptr inbounds nuw ptr, ptr %195, i64 %202
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %202
   store ptr %.sroa.0114.0137, ptr %253, align 8, !tbaa !32
   %254 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i, i64 1
   %255 = add i32 %.040138, 1

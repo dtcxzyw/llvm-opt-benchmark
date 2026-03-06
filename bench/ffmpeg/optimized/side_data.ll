@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/side_data.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVSideDataDescriptor = type { ptr, i32 }
-
 @.str = private unnamed_addr constant [10 x i8] c"AVPanScan\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"ATSC A53 Part 4 Closed Captions\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"Stereo 3D\00", align 1
@@ -41,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_frame_side_data_desc(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 30
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @sd_props, i64 %3
   %.0 = select i1 %2, ptr %4, ptr null
   ret ptr %.0
 }
@@ -53,7 +51,7 @@ define ptr @av_frame_side_data_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @sd_props, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   br label %7
 
@@ -82,7 +80,7 @@ define void @av_frame_side_data_remove(ptr noundef readonly captures(none) %0, p
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   store ptr %10, ptr %4, align 8, !tbaa !15
   %11 = load i32, ptr %10, align 8, !tbaa !17
@@ -98,10 +96,10 @@ define void @av_frame_side_data_remove(ptr noundef readonly captures(none) %0, p
   %15 = load ptr, ptr %0, align 8, !tbaa !12
   %16 = load i32, ptr %1, align 4, !tbaa !11
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %15, i64 %17
+  %18 = getelementptr [8 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load ptr, ptr %19, align 8, !tbaa !15
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   store ptr %20, ptr %21, align 8, !tbaa !15
   %22 = add nsw i32 %16, -1
   store i32 %22, ptr %1, align 4, !tbaa !11
@@ -134,7 +132,7 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   store ptr %10, ptr %4, align 8, !tbaa !15
   %11 = load i32, ptr %10, align 8, !tbaa !17
@@ -143,7 +141,7 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw %struct.AVSideDataDescriptor, ptr @sd_props, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @sd_props, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !24
   %18 = and i32 %17, %2
@@ -159,10 +157,10 @@ define void @av_frame_side_data_remove_by_props(ptr noundef readonly captures(no
   %22 = load ptr, ptr %0, align 8, !tbaa !12
   %23 = load i32, ptr %1, align 4, !tbaa !11
   %24 = sext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load ptr, ptr %26, align 8, !tbaa !15
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next
   store ptr %27, ptr %28, align 8, !tbaa !15
   %29 = add nsw i32 %23, -1
   store i32 %29, ptr %1, align 4, !tbaa !11
@@ -189,7 +187,7 @@ define void @av_frame_side_data_free(ptr noundef %0, ptr noundef captures(none) 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !12
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @av_buffer_unref(ptr noundef nonnull %8) #5
@@ -246,7 +244,7 @@ define ptr @ff_frame_side_data_add_from_buf(ptr noundef captures(none) %0, ptr n
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %1, align 4, !tbaa !11
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   store ptr %18, ptr %27, align 8, !tbaa !15
   br label %add_side_data_from_buf_ext.exit
 
@@ -281,7 +279,7 @@ define ptr @av_frame_side_data_new(ptr noundef captures(none) %0, ptr noundef ca
   %indvars.iv.i = phi i64 [ %13, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %29 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   store ptr %16, ptr %6, align 8, !tbaa !15
   %17 = load i32, ptr %16, align 8, !tbaa !17
@@ -297,10 +295,10 @@ define ptr @av_frame_side_data_new(ptr noundef captures(none) %0, ptr noundef ca
   %21 = load ptr, ptr %0, align 8, !tbaa !12
   %22 = load i32, ptr %1, align 4, !tbaa !11
   %23 = sext i32 %22 to i64
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i
   store ptr %26, ptr %27, align 8, !tbaa !15
   %28 = add nsw i32 %22, -1
   store i32 %28, ptr %1, align 4, !tbaa !11
@@ -333,7 +331,7 @@ av_frame_side_data_remove.exit:                   ; preds = %29, %10, %5
 
 .lr.ph.i.i:                                       ; preds = %36, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = load i32, ptr %38, align 8, !tbaa !17
   %40 = icmp eq i32 %39, %2
@@ -404,7 +402,7 @@ ff_frame_side_data_add_from_buf.exit:             ; preds = %63
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %1, align 4, !tbaa !11
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %68, i64 %71
   store ptr %64, ptr %72, align 8, !tbaa !15
   br label %74
 
@@ -460,7 +458,7 @@ define ptr @av_frame_side_data_add(ptr noundef captures(none) %0, ptr noundef ca
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   store ptr %21, ptr %6, align 8, !tbaa !15
   %22 = load i32, ptr %21, align 8, !tbaa !17
@@ -476,10 +474,10 @@ define ptr @av_frame_side_data_add(ptr noundef captures(none) %0, ptr noundef ca
   %26 = load ptr, ptr %0, align 8, !tbaa !12
   %27 = load i32, ptr %1, align 4, !tbaa !11
   %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %26, i64 %28
+  %29 = getelementptr [8 x i8], ptr %26, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.next.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.next.i
   store ptr %31, ptr %32, align 8, !tbaa !15
   %33 = add nsw i32 %27, -1
   store i32 %33, ptr %1, align 4, !tbaa !11
@@ -512,7 +510,7 @@ av_frame_side_data_remove.exit:                   ; preds = %34, %15, %12
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %44 = load i32, ptr %43, align 8, !tbaa !17
   %45 = icmp eq i32 %44, %2
@@ -579,7 +577,7 @@ av_frame_side_data_get.exit.thread:               ; preds = %41, %av_frame_side_
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %1, align 4, !tbaa !11
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %74, i64 %77
   store ptr %69, ptr %78, align 8, !tbaa !15
   br label %replace_side_data_from_buf.exit
 
@@ -652,7 +650,7 @@ define range(i32 -2147483648, 1) i32 @av_frame_side_data_clone(ptr noundef captu
   %indvars.iv.i = phi i64 [ %20, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %37 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   store ptr %24, ptr %6, align 8, !tbaa !15
   %25 = load i32, ptr %24, align 8, !tbaa !17
@@ -668,10 +666,10 @@ define range(i32 -2147483648, 1) i32 @av_frame_side_data_clone(ptr noundef captu
   %29 = load ptr, ptr %0, align 8, !tbaa !12
   %30 = load i32, ptr %1, align 4, !tbaa !11
   %31 = sext i32 %30 to i64
-  %32 = getelementptr ptr, ptr %29, i64 %31
+  %32 = getelementptr [8 x i8], ptr %29, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load ptr, ptr %33, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next.i
   store ptr %34, ptr %35, align 8, !tbaa !15
   %36 = add nsw i32 %30, -1
   store i32 %36, ptr %1, align 4, !tbaa !11
@@ -707,7 +705,7 @@ av_frame_side_data_remove.exit:                   ; preds = %37, %.thread, %17
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !15
   %50 = load i32, ptr %49, align 8, !tbaa !17
   %51 = icmp eq i32 %50, %45
@@ -808,7 +806,7 @@ av_frame_side_data_get.exit.thread:               ; preds = %47, %av_frame_side_
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %1, align 4, !tbaa !11
   %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds ptr, ptr %98, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %98, i64 %101
   store ptr %92, ptr %102, align 8, !tbaa !15
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -831,7 +829,7 @@ av_frame_side_data_get.exit.thread:               ; preds = %47, %av_frame_side_
   %indvars.iv.i67 = phi i64 [ %112, %.lr.ph.i66 ], [ %indvars.iv.next.i68, %.critedge.i ]
   %indvars.iv.next.i68 = add nsw i64 %indvars.iv.i67, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv.next.i68
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.next.i68
   %115 = load ptr, ptr %114, align 8, !tbaa !15
   store ptr %115, ptr %5, align 8, !tbaa !15
   %.not.not.i = icmp eq ptr %115, %92
@@ -846,10 +844,10 @@ av_frame_side_data_get.exit.thread:               ; preds = %47, %av_frame_side_
   %119 = load ptr, ptr %0, align 8, !tbaa !12
   %120 = load i32, ptr %1, align 4, !tbaa !11
   %121 = sext i32 %120 to i64
-  %122 = getelementptr ptr, ptr %119, i64 %121
+  %122 = getelementptr [8 x i8], ptr %119, i64 %121
   %123 = getelementptr i8, ptr %122, i64 -8
   %124 = load ptr, ptr %123, align 8, !tbaa !15
-  %125 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.next.i68
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.next.i68
   store ptr %124, ptr %125, align 8, !tbaa !15
   %126 = add nsw i32 %120, -1
   store i32 %126, ptr %1, align 4, !tbaa !11
@@ -889,7 +887,7 @@ define noundef ptr @av_frame_side_data_get_c(ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = load i32, ptr %7, align 8, !tbaa !17
   %9 = icmp eq i32 %8, %2

@@ -1003,7 +1003,7 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKww
 66:                                               ; preds = %._crit_edge
   %67 = load ptr, ptr %2, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %64
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %64
   store ptr %67, ptr %5, align 8, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !50
@@ -1213,7 +1213,7 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKww
 66:                                               ; preds = %._crit_edge
   %67 = load ptr, ptr %2, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %64
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %64
   store ptr %67, ptr %5, align 8, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !50
@@ -1423,7 +1423,7 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKww
 66:                                               ; preds = %._crit_edge
   %67 = load ptr, ptr %2, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %64
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %64
   store ptr %67, ptr %5, align 8, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !50
@@ -3790,7 +3790,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
 23:                                               ; preds = %19
   %24 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   store ptr %24, ptr %16, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !50
@@ -3856,7 +3856,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 58:                                               ; preds = %54
   %59 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %56
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %56
   store ptr %59, ptr %15, align 8, !tbaa !48
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !50
@@ -3886,7 +3886,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 73:                                               ; preds = %69
   %74 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %71
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %71
   store ptr %74, ptr %14, align 8, !tbaa !48
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !50
@@ -3916,7 +3916,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 88:                                               ; preds = %84
   %89 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %86
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %86
   store ptr %89, ptr %13, align 8, !tbaa !48
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %90, ptr %91, align 8, !tbaa !50
@@ -3946,7 +3946,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 103:                                              ; preds = %99
   %104 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %101
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %101
   store ptr %104, ptr %12, align 8, !tbaa !48
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %105, ptr %106, align 8, !tbaa !50
@@ -3976,7 +3976,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 118:                                              ; preds = %114
   %119 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %116
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %116
   store ptr %119, ptr %11, align 8, !tbaa !48
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %120, ptr %121, align 8, !tbaa !50
@@ -4006,7 +4006,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 133:                                              ; preds = %129
   %134 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %131
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %131
   store ptr %134, ptr %10, align 8, !tbaa !48
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %135, ptr %136, align 8, !tbaa !50
@@ -4036,7 +4036,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 148:                                              ; preds = %144
   %149 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %146
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %146
   store ptr %149, ptr %9, align 8, !tbaa !48
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %150, ptr %151, align 8, !tbaa !50
@@ -4066,7 +4066,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 163:                                              ; preds = %159
   %164 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %161
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %161
   store ptr %164, ptr %8, align 8, !tbaa !48
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %165, ptr %166, align 8, !tbaa !50
@@ -4096,7 +4096,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 178:                                              ; preds = %174
   %179 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %176
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %176
   store ptr %179, ptr %7, align 8, !tbaa !48
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %180, ptr %181, align 8, !tbaa !50
@@ -4148,10 +4148,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; preds = %202, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i
   %203 = phi ptr [ %.pre.i.i, %202 ], [ %194, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i ]
-  %204 = getelementptr inbounds nuw i32, ptr %203, i64 %191
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %191
   store i32 37, ptr %204, align 4, !tbaa !43
   store i64 %193, ptr %190, align 8, !tbaa !41
-  %205 = getelementptr inbounds nuw i32, ptr %203, i64 %193
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %193
   store i32 0, ptr %205, align 4, !tbaa !43
   br label %.thread
 
@@ -4162,7 +4162,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
 208:                                              ; preds = %206
   %209 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %210 = getelementptr inbounds nuw i32, ptr %209, i64 %191
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %191
   store ptr %209, ptr %5, align 8, !tbaa !48
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %210, ptr %211, align 8, !tbaa !50
@@ -4246,7 +4246,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %25
   store ptr %28, ptr %20, align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !50
@@ -4328,7 +4328,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 70:                                               ; preds = %66
   %71 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %68
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %68
   store ptr %71, ptr %19, align 8, !tbaa !48
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %72, ptr %73, align 8, !tbaa !50
@@ -4358,7 +4358,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 85:                                               ; preds = %81
   %86 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %83
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %83
   store ptr %86, ptr %18, align 8, !tbaa !48
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %87, ptr %88, align 8, !tbaa !50
@@ -4388,7 +4388,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 100:                                              ; preds = %96
   %101 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %98
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %98
   store ptr %101, ptr %17, align 8, !tbaa !48
   %103 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %102, ptr %103, align 8, !tbaa !50
@@ -4418,7 +4418,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 115:                                              ; preds = %111
   %116 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %113
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %113
   store ptr %116, ptr %16, align 8, !tbaa !48
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %117, ptr %118, align 8, !tbaa !50
@@ -4448,7 +4448,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 130:                                              ; preds = %126
   %131 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %128
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %128
   store ptr %131, ptr %15, align 8, !tbaa !48
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %132, ptr %133, align 8, !tbaa !50
@@ -4478,7 +4478,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 145:                                              ; preds = %141
   %146 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %143
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %143
   store ptr %146, ptr %14, align 8, !tbaa !48
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %147, ptr %148, align 8, !tbaa !50
@@ -4508,7 +4508,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 160:                                              ; preds = %156
   %161 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %158
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %158
   store ptr %161, ptr %13, align 8, !tbaa !48
   %163 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %162, ptr %163, align 8, !tbaa !50
@@ -4538,7 +4538,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 175:                                              ; preds = %171
   %176 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %177 = getelementptr inbounds nuw i32, ptr %176, i64 %173
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %173
   store ptr %176, ptr %12, align 8, !tbaa !48
   %178 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %177, ptr %178, align 8, !tbaa !50
@@ -4568,7 +4568,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 190:                                              ; preds = %186
   %191 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %192 = getelementptr inbounds nuw i32, ptr %191, i64 %188
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %188
   store ptr %191, ptr %11, align 8, !tbaa !48
   %193 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %192, ptr %193, align 8, !tbaa !50
@@ -4598,7 +4598,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 205:                                              ; preds = %201
   %206 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %203
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %203
   store ptr %206, ptr %10, align 8, !tbaa !48
   %208 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %207, ptr %208, align 8, !tbaa !50
@@ -4628,7 +4628,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 220:                                              ; preds = %216
   %221 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %222 = getelementptr inbounds nuw i32, ptr %221, i64 %218
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %218
   store ptr %221, ptr %9, align 8, !tbaa !48
   %223 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %222, ptr %223, align 8, !tbaa !50
@@ -4658,7 +4658,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 235:                                              ; preds = %231
   %236 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %237 = getelementptr inbounds nuw i32, ptr %236, i64 %233
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %233
   store ptr %236, ptr %8, align 8, !tbaa !48
   %238 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %237, ptr %238, align 8, !tbaa !50
@@ -4688,7 +4688,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 250:                                              ; preds = %246
   %251 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %248
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %248
   store ptr %251, ptr %7, align 8, !tbaa !48
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %252, ptr %253, align 8, !tbaa !50
@@ -4740,10 +4740,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; preds = %274, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i
   %275 = phi ptr [ %.pre.i.i, %274 ], [ %266, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i ]
-  %276 = getelementptr inbounds nuw i32, ptr %275, i64 %263
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %263
   store i32 37, ptr %276, align 4, !tbaa !43
   store i64 %265, ptr %262, align 8, !tbaa !41
-  %277 = getelementptr inbounds nuw i32, ptr %275, i64 %265
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %265
   store i32 0, ptr %277, align 4, !tbaa !43
   br label %.thread
 
@@ -4754,7 +4754,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
 280:                                              ; preds = %278
   %281 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %282 = getelementptr inbounds nuw i32, ptr %281, i64 %263
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %263
   store ptr %281, ptr %5, align 8, !tbaa !48
   %283 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %282, ptr %283, align 8, !tbaa !50
@@ -4823,7 +4823,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
 21:                                               ; preds = %17
   %22 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %19
   store ptr %22, ptr %14, align 8, !tbaa !48
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !50
@@ -4891,7 +4891,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 58:                                               ; preds = %54
   %59 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %56
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %56
   store ptr %59, ptr %13, align 8, !tbaa !48
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !50
@@ -4921,7 +4921,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 73:                                               ; preds = %69
   %74 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %71
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %71
   store ptr %74, ptr %12, align 8, !tbaa !48
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !50
@@ -4951,7 +4951,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 88:                                               ; preds = %84
   %89 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %86
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %86
   store ptr %89, ptr %11, align 8, !tbaa !48
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %90, ptr %91, align 8, !tbaa !50
@@ -4981,7 +4981,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 103:                                              ; preds = %99
   %104 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %101
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %101
   store ptr %104, ptr %10, align 8, !tbaa !48
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %105, ptr %106, align 8, !tbaa !50
@@ -5011,7 +5011,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 118:                                              ; preds = %114
   %119 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %116
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %116
   store ptr %119, ptr %9, align 8, !tbaa !48
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %120, ptr %121, align 8, !tbaa !50
@@ -5041,7 +5041,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 133:                                              ; preds = %129
   %134 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %131
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %131
   store ptr %134, ptr %8, align 8, !tbaa !48
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %135, ptr %136, align 8, !tbaa !50
@@ -5071,7 +5071,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 148:                                              ; preds = %144
   %149 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %146
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %146
   store ptr %149, ptr %7, align 8, !tbaa !48
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %150, ptr %151, align 8, !tbaa !50
@@ -5101,7 +5101,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 163:                                              ; preds = %159
   %164 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %161
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %161
   store ptr %164, ptr %6, align 8, !tbaa !48
   %166 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %165, ptr %166, align 8, !tbaa !50
@@ -5131,7 +5131,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 178:                                              ; preds = %174
   %179 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %176
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %176
   store ptr %179, ptr %5, align 8, !tbaa !48
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %180, ptr %181, align 8, !tbaa !50
@@ -5212,7 +5212,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
 27:                                               ; preds = %23
   %28 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %25
   store ptr %28, ptr %20, align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !50
@@ -5298,7 +5298,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 74:                                               ; preds = %70
   %75 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %72
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %72
   store ptr %75, ptr %19, align 8, !tbaa !48
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %76, ptr %77, align 8, !tbaa !50
@@ -5329,7 +5329,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 90:                                               ; preds = %86
   %91 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %88
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %88
   store ptr %91, ptr %18, align 8, !tbaa !48
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %92, ptr %93, align 8, !tbaa !50
@@ -5360,7 +5360,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 106:                                              ; preds = %102
   %107 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %104
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %104
   store ptr %107, ptr %17, align 8, !tbaa !48
   %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %108, ptr %109, align 8, !tbaa !50
@@ -5391,7 +5391,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 122:                                              ; preds = %118
   %123 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %120
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %120
   store ptr %123, ptr %16, align 8, !tbaa !48
   %125 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %124, ptr %125, align 8, !tbaa !50
@@ -5422,7 +5422,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 138:                                              ; preds = %134
   %139 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %136
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %136
   store ptr %139, ptr %15, align 8, !tbaa !48
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %140, ptr %141, align 8, !tbaa !50
@@ -5453,7 +5453,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 154:                                              ; preds = %150
   %155 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %152
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %152
   store ptr %155, ptr %14, align 8, !tbaa !48
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %156, ptr %157, align 8, !tbaa !50
@@ -5484,7 +5484,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 170:                                              ; preds = %166
   %171 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %172 = getelementptr inbounds nuw i32, ptr %171, i64 %168
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %168
   store ptr %171, ptr %13, align 8, !tbaa !48
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %172, ptr %173, align 8, !tbaa !50
@@ -5515,7 +5515,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 186:                                              ; preds = %182
   %187 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %188 = getelementptr inbounds nuw i32, ptr %187, i64 %184
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %184
   store ptr %187, ptr %12, align 8, !tbaa !48
   %189 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %188, ptr %189, align 8, !tbaa !50
@@ -5546,7 +5546,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 202:                                              ; preds = %198
   %203 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %204 = getelementptr inbounds nuw i32, ptr %203, i64 %200
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %200
   store ptr %203, ptr %11, align 8, !tbaa !48
   %205 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %204, ptr %205, align 8, !tbaa !50
@@ -5577,7 +5577,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 218:                                              ; preds = %214
   %219 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %220 = getelementptr inbounds nuw i32, ptr %219, i64 %216
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %216
   store ptr %219, ptr %10, align 8, !tbaa !48
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %220, ptr %221, align 8, !tbaa !50
@@ -5608,7 +5608,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 234:                                              ; preds = %230
   %235 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %236 = getelementptr inbounds nuw i32, ptr %235, i64 %232
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %232
   store ptr %235, ptr %9, align 8, !tbaa !48
   %237 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %236, ptr %237, align 8, !tbaa !50
@@ -5639,7 +5639,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 250:                                              ; preds = %246
   %251 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %248
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %248
   store ptr %251, ptr %8, align 8, !tbaa !48
   %253 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %252, ptr %253, align 8, !tbaa !50
@@ -5670,7 +5670,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 266:                                              ; preds = %262
   %267 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %268 = getelementptr inbounds nuw i32, ptr %267, i64 %264
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %264
   store ptr %267, ptr %7, align 8, !tbaa !48
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %268, ptr %269, align 8, !tbaa !50
@@ -5723,10 +5723,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; preds = %291, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i
   %292 = phi ptr [ %.pre.i.i, %291 ], [ %283, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %292, i64 %280
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %280
   store i32 37, ptr %293, align 4, !tbaa !43
   store i64 %282, ptr %279, align 8, !tbaa !41
-  %294 = getelementptr inbounds nuw i32, ptr %292, i64 %282
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %282
   store i32 0, ptr %294, align 4, !tbaa !43
   br label %.thread
 
@@ -5737,7 +5737,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
 297:                                              ; preds = %295
   %298 = load ptr, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %299 = getelementptr inbounds nuw i32, ptr %298, i64 %280
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %298, i64 %280
   store ptr %298, ptr %5, align 8, !tbaa !48
   %300 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %299, ptr %300, align 8, !tbaa !50

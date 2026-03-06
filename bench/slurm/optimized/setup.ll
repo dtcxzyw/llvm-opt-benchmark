@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.sockaddr_un = type { i16, [108 x i8] }
 %union.pthread_attr_t = type { i64, [48 x i8] }
-%struct.MPIR_PROCDESC = type { ptr, ptr, i32 }
 
 @run_in_stepd = internal unnamed_addr global i1 false, align 1
 @job_info = dso_local global %struct.pmi2_job_info zeroinitializer, align 8
@@ -172,14 +171,14 @@ define dso_local i32 @pmi2_setup_stepd(ptr noundef readonly captures(none) %0, p
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 60
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %37, align 8
   %45 = add i32 %44, %43
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 48), align 8
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   store i32 %45, ptr %47, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
@@ -214,12 +213,12 @@ define dso_local i32 @pmi2_setup_stepd(ptr noundef readonly captures(none) %0, p
 64:                                               ; preds = %64, %.lr.ph77.i
   %indvars.iv81.i = phi i64 [ 0, %.lr.ph77.i ], [ %indvars.iv.next82.i, %64 ]
   %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv81.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv81.i
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 60
   %69 = load i32, ptr %68, align 4
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 48), align 8
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv81.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv81.i
   store i32 %69, ptr %71, align 4
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
@@ -760,18 +759,18 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
 64:                                               ; preds = %.preheader.us.i.i, %.critedge2.us.i.i
   %indvars.iv95.i.i = phi i32 [ %103, %.preheader.us.i.i ], [ %indvars.iv.next96.i.i, %.critedge2.us.i.i ]
   %indvars.iv89.i.i = phi i64 [ %101, %.preheader.us.i.i ], [ %indvars.iv.next90.i.i, %.critedge2.us.i.i ]
-  %65 = getelementptr inbounds i16, ptr %100, i64 %indvars.iv89.i.i
+  %65 = getelementptr inbounds [2 x i8], ptr %100, i64 %indvars.iv89.i.i
   %66 = load i16, ptr %65, align 2
-  %67 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv89.i.i
+  %67 = getelementptr inbounds [2 x i8], ptr %53, i64 %indvars.iv89.i.i
   %68 = load i16, ptr %67, align 2
   %.not150.us.i.i = icmp ult i16 %66, %68
   br i1 %.not150.us.i.i, label %69, label %.critedge2.us.i.i
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv89.i.i
+  %70 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv89.i.i
   %71 = load ptr, ptr %70, align 8
   %72 = zext i16 %66 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4
   %.not151.us.i.i = icmp eq i32 %.113660.us.i.i, %74
   br i1 %.not151.us.i.i, label %.critedge.preheader.us.i.i, label %.critedge2.us.i.i
@@ -787,18 +786,18 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %.critedge.us.i.i ], [ %indvars.iv89.i.i, %.critedge.preheader.us.i.i ]
   %.213750.us.i.i = phi i32 [ %94, %.critedge.us.i.i ], [ %.113660.us.i.i, %.critedge.preheader.us.i.i ]
   %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv93.i.i
+  %78 = getelementptr inbounds [2 x i8], ptr %77, i64 %indvars.iv93.i.i
   %79 = load i16, ptr %78, align 2
-  %80 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv93.i.i
+  %80 = getelementptr inbounds [2 x i8], ptr %53, i64 %indvars.iv93.i.i
   %81 = load i16, ptr %80, align 2
   %82 = icmp ult i16 %79, %81
   br i1 %82, label %83, label %.critedge4.us.loopexit.i.i
 
 83:                                               ; preds = %.lr.ph52.us.i.i
-  %84 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv93.i.i
+  %84 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv93.i.i
   %85 = load ptr, ptr %84, align 8
   %86 = zext i16 %79 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %.213750.us.i.i, %88
   br i1 %89, label %.critedge.us.i.i, label %.critedge4.us.loopexit.i.i
@@ -885,18 +884,18 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv75.i.i = phi i64 [ %175, %.preheader4.us.i.i ], [ %indvars.iv.next76.i.i, %.critedge9.us.i.i ]
   %indvars.iv.next76.i.i = add nsw i64 %indvars.iv75.i.i, 1
   %indvars.i = trunc i64 %indvars.iv.next76.i.i to i32
-  %114 = getelementptr inbounds i16, ptr %174, i64 %indvars.iv75.i.i
+  %114 = getelementptr inbounds [2 x i8], ptr %174, i64 %indvars.iv75.i.i
   %115 = load i16, ptr %114, align 2
-  %116 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv75.i.i
+  %116 = getelementptr inbounds [2 x i8], ptr %53, i64 %indvars.iv75.i.i
   %117 = load i16, ptr %116, align 2
   %.not.us.i.i = icmp ult i16 %115, %117
   br i1 %.not.us.i.i, label %118, label %.critedge9.us.i.i
 
 118:                                              ; preds = %113
-  %119 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv75.i.i
+  %119 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv75.i.i
   %120 = load ptr, ptr %119, align 8
   %121 = zext i16 %115 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %121
   %123 = load i32, ptr %122, align 4
   %.not146.us.i.i = icmp eq i32 %.413944.us.i.i, %123
   br i1 %.not146.us.i.i, label %.critedge7.preheader.us.i.i, label %.critedge9.us.i.i
@@ -912,7 +911,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %.014119.us.i.i = phi i32 [ %156, %.critedge7.us.i.i ], [ 0, %.critedge7.preheader.us.i.i ]
   %127 = load ptr, ptr %168, align 8
   %128 = zext i16 %125 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %.514020.us.i.i, %130
   br i1 %131, label %.critedge7.us.i.i, label %.critedge11.us.i.i
@@ -928,11 +927,11 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv86.i.i = phi i64 [ %181, %.lr.ph35.us.i.i ], [ %indvars.iv.next87.i.i, %149 ]
   %.633.us.i.i = phi i32 [ %.5140.lcssa.us.i.i, %.lr.ph35.us.i.i ], [ %151, %149 ]
   %134 = load ptr, ptr %3, align 8
-  %135 = getelementptr inbounds i16, ptr %134, i64 %indvars.iv86.i.i
+  %135 = getelementptr inbounds [2 x i8], ptr %134, i64 %indvars.iv86.i.i
   %136 = load i16, ptr %135, align 2
   %137 = zext i16 %136 to i32
   %138 = add i32 %179, %137
-  %139 = getelementptr inbounds i16, ptr %53, i64 %indvars.iv86.i.i
+  %139 = getelementptr inbounds [2 x i8], ptr %53, i64 %indvars.iv86.i.i
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = icmp ult i32 %138, %141
@@ -942,7 +941,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv78.i.i = phi i64 [ 0, %.lr.ph27.us.i.i ], [ %indvars.iv.next79.i.i, %155 ]
   %indvars80.i.i = trunc i64 %indvars.iv78.i.i to i32
   %144 = add i32 %.633.us.i.i, %indvars80.i.i
-  %gep.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i.i, i64 %indvars.iv78.i.i
+  %gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv78.i.i
   %145 = load i32, ptr %gep.i.i, align 4
   %.not148.us.i.i = icmp eq i32 %144, %145
   br i1 %.not148.us.i.i, label %155, label %._crit_edge28.us.i.i
@@ -994,7 +993,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   store i16 %157, ptr %126, align 2
   %158 = add i32 %.514020.us.i.i, 1
   %159 = load ptr, ptr %3, align 8
-  %160 = getelementptr inbounds i16, ptr %159, i64 %167
+  %160 = getelementptr inbounds [2 x i8], ptr %159, i64 %167
   %161 = load i16, ptr %160, align 2
   %162 = load i16, ptr %169, align 2
   %163 = icmp ult i16 %161, %162
@@ -1009,9 +1008,9 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %166 = trunc nsw i64 %indvars.iv75.i.i to i32
   %sext.i.i = shl i64 %indvars.iv75.i.i, 32
   %167 = ashr exact i64 %sext.i.i, 32
-  %168 = getelementptr inbounds ptr, ptr %55, i64 %167
-  %169 = getelementptr inbounds i16, ptr %53, i64 %167
-  %170 = getelementptr inbounds i16, ptr %174, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %55, i64 %167
+  %169 = getelementptr inbounds [2 x i8], ptr %53, i64 %167
+  %170 = getelementptr inbounds [2 x i8], ptr %174, i64 %167
   %171 = load i16, ptr %170, align 2
   %172 = load i16, ptr %169, align 2
   %173 = icmp ult i16 %171, %172
@@ -1025,11 +1024,11 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   br label %113
 
 .lr.ph27.us.i.i:                                  ; preds = %.preheader3.us.i.i
-  %176 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv86.i.i
+  %176 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv86.i.i
   %177 = load ptr, ptr %176, align 8
   %178 = zext i16 %136 to i64
   %wide.trip.count81.i.i = zext nneg i32 %164 to i64
-  %invariant.gep.i.i = getelementptr inbounds nuw i32, ptr %177, i64 %178
+  %invariant.gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %178
   br label %143
 
 .lr.ph35.us.i.i:                                  ; preds = %.critedge11.us.i.i
@@ -1061,7 +1060,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %195 ]
   %.415.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.5.i.i, %195 ]
   %.014213.i.i = phi i32 [ %184, %.lr.ph.preheader.i.i ], [ %.1143.i.i, %195 ]
-  %186 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i.i
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i.i
   %187 = load i16, ptr %186, align 2
   %188 = zext i16 %187 to i32
   %189 = icmp eq i32 %.014213.i.i, %188
@@ -1473,7 +1472,7 @@ define internal noalias noundef ptr @_task_launch_detection(ptr readnone capture
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %4, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0

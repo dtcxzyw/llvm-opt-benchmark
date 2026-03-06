@@ -167,14 +167,14 @@ set_workpic_from_pic.exit.critedge:               ; preds = %33
 
 33:                                               ; preds = %33, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   store ptr %35, ptr %36, align 8, !tbaa !27
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4, !tbaa !30
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store i64 %39, ptr %40, align 8, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -394,7 +394,7 @@ define range(i32 -1163346256, 1) i32 @ff_mpv_alloc_pic_accessories(ptr noundef %
   %indvars.iv.i = phi i64 [ 0, %31 ], [ 1, %45 ]
   %38 = load ptr, ptr %32, align 8, !tbaa !68
   %39 = tail call ptr @av_refstruct_pool_get(ptr noundef %38) #6
-  %40 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
   store ptr %39, ptr %40, align 8, !tbaa !27
   %.not48.i = icmp eq ptr %39, null
   br i1 %.not48.i, label %alloc_picture_tables.exit.thread, label %41
@@ -402,14 +402,14 @@ define range(i32 -1163346256, 1) i32 @ff_mpv_alloc_pic_accessories(ptr noundef %
 41:                                               ; preds = %36
   %42 = load ptr, ptr %24, align 8, !tbaa !66
   %43 = tail call ptr @av_refstruct_pool_get(ptr noundef %42) #6
-  %44 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   store ptr %43, ptr %44, align 8, !tbaa !16
   %.not49.i = icmp eq ptr %43, null
   br i1 %.not49.i, label %alloc_picture_tables.exit.thread, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %47 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   store ptr %46, ptr %47, align 8, !tbaa !16
   br i1 %37, label %36, label %.loopexit.loopexit.i, !llvm.loop !69
 
@@ -436,7 +436,7 @@ define range(i32 -1163346256, 1) i32 @ff_mpv_alloc_pic_accessories(ptr noundef %
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %61, ptr %62, align 8, !tbaa !19
-  %63 = getelementptr inbounds i32, ptr %49, i64 %59
+  %63 = getelementptr inbounds [4 x i8], ptr %49, i64 %59
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %64, ptr %65, align 8, !tbaa !18
@@ -479,14 +479,14 @@ set_workpic_from_pic.exit.critedge:               ; preds = %90
 
 90:                                               ; preds = %90, %48
   %indvars.iv.i16 = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %90 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i16
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i16
   %92 = load ptr, ptr %91, align 8, !tbaa !27
-  %93 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i16
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i16
   store ptr %92, ptr %93, align 8, !tbaa !27
-  %94 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv.i16
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv.i16
   %95 = load i32, ptr %94, align 4, !tbaa !30
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i16
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i16
   store i64 %96, ptr %97, align 8, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

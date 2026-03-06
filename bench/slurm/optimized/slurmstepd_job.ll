@@ -111,7 +111,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i32 %22 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 156
@@ -312,21 +312,21 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
 180:                                              ; preds = %.lr.ph, %180
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %180 ]
   %181 = load ptr, ptr %169, align 8
-  %182 = getelementptr inbounds nuw i16, ptr %181, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw [2 x i8], ptr %181, i64 %indvars.iv
   %183 = load i16, ptr %182, align 2
   %184 = zext i16 %183 to i64
   %185 = tail call ptr @slurm_xcalloc(i64 noundef %184, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 359, ptr noundef nonnull @__func__.stepd_step_rec_create) #9
   %186 = load ptr, ptr %177, align 8
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv
   store ptr %185, ptr %187, align 8
   %188 = load ptr, ptr %177, align 8
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %179, align 8
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %169, align 8
-  %195 = getelementptr inbounds nuw i16, ptr %194, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %194, i64 %indvars.iv
   %196 = load i16, ptr %195, align 2
   %197 = zext i16 %196 to i64
   %198 = shl nuw nsw i64 %197, 2
@@ -377,7 +377,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
 .lr.ph276:                                        ; preds = %213, %248
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %248 ], [ 0, %213 ]
   %225 = load ptr, ptr %139, align 8
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %indvars.iv281
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %indvars.iv281
   %227 = load ptr, ptr %226, align 8
   %228 = tail call i32 @xstrncmp(ptr noundef %227, ptr noundef nonnull @.str.6, i64 noundef 19) #9
   %.not270 = icmp eq i32 %228, 0
@@ -385,7 +385,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
 
 229:                                              ; preds = %.lr.ph276
   %230 = load ptr, ptr %139, align 8
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv281
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv281
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 19
   %234 = tail call i64 @strtol(ptr noundef nonnull captures(none) %233, ptr noundef null, i32 noundef 10) #9
@@ -395,7 +395,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
 
 236:                                              ; preds = %229, %.lr.ph276
   %237 = load ptr, ptr %139, align 8
-  %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv281
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %indvars.iv281
   %239 = load ptr, ptr %238, align 8
   %240 = tail call i32 @xstrncmp(ptr noundef %239, ptr noundef nonnull @.str.7, i64 noundef 20) #9
   %.not271 = icmp eq i32 %240, 0
@@ -403,7 +403,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
 
 241:                                              ; preds = %236
   %242 = load ptr, ptr %139, align 8
-  %243 = getelementptr inbounds nuw ptr, ptr %242, i64 %indvars.iv281
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv281
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 20
   %246 = tail call i64 @strtol(ptr noundef nonnull captures(none) %245, ptr noundef null, i32 noundef 10) #9
@@ -499,7 +499,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %297 = zext i16 %.pre to i32
   %298 = urem i32 %22, %297
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds nuw i16, ptr %292, i64 %299
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %292, i64 %299
   %301 = load i16, ptr %300, align 2
   %302 = load ptr, ptr %271, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 104
@@ -511,7 +511,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %307 = zext i16 %306 to i32
   %308 = urem i32 %22, %307
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw i16, ptr %305, i64 %309
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %305, i64 %309
   %311 = load i16, ptr %310, align 2
   call void @slurm_set_port(ptr noundef nonnull %3, i16 noundef zeroext %311) #9
   br label %313
@@ -534,7 +534,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %320 = zext i16 %315 to i32
   %321 = urem i32 %22, %320
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds nuw i16, ptr %319, i64 %322
+  %323 = getelementptr inbounds nuw [2 x i8], ptr %319, i64 %322
   %324 = load i16, ptr %323, align 2
   call void @slurm_set_port(ptr noundef nonnull %4, i16 noundef zeroext %324) #9
   br label %326
@@ -751,7 +751,7 @@ srun_info_create.exit:                            ; preds = %326, %335
 
 .lr.ph.i:                                         ; preds = %454
   %461 = sext i32 %448 to i64
-  %462 = getelementptr inbounds ptr, ptr %441, i64 %461
+  %462 = getelementptr inbounds [8 x i8], ptr %441, i64 %461
   %463 = icmp eq ptr %443, null
   %464 = icmp eq ptr %445, null
   %465 = icmp eq ptr %447, null
@@ -760,7 +760,7 @@ srun_info_create.exit:                            ; preds = %326, %335
 466:                                              ; preds = %539, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %539 ]
   %467 = load ptr, ptr %462, align 8
-  %468 = getelementptr inbounds nuw i32, ptr %467, i64 %indvars.iv.i
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %467, i64 %indvars.iv.i
   %469 = load i32, ptr %468, align 4
   %470 = add i32 %469, %spec.select.i
   br i1 %463, label %_expand_stdio_filename.exit.i, label %471
@@ -794,7 +794,7 @@ srun_info_create.exit:                            ; preds = %326, %335
 _expand_stdio_filename.exit.i:                    ; preds = %482, %480, %478, %474, %466
   %.0.i.i = phi ptr [ %483, %482 ], [ %475, %474 ], [ null, %478 ], [ null, %466 ], [ null, %480 ]
   %484 = load ptr, ptr %462, align 8
-  %485 = getelementptr inbounds nuw i32, ptr %484, i64 %indvars.iv.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %484, i64 %indvars.iv.i
   %486 = load i32, ptr %485, align 4
   %487 = add i32 %486, %spec.select.i
   br i1 %464, label %_expand_stdio_filename.exit63.i, label %488
@@ -828,7 +828,7 @@ _expand_stdio_filename.exit.i:                    ; preds = %482, %480, %478, %4
 _expand_stdio_filename.exit63.i:                  ; preds = %499, %497, %495, %491, %_expand_stdio_filename.exit.i
   %.0.i62.i = phi ptr [ %500, %499 ], [ %492, %491 ], [ null, %495 ], [ null, %_expand_stdio_filename.exit.i ], [ null, %497 ]
   %501 = load ptr, ptr %462, align 8
-  %502 = getelementptr inbounds nuw i32, ptr %501, i64 %indvars.iv.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %501, i64 %indvars.iv.i
   %503 = load i32, ptr %502, align 4
   %504 = add i32 %503, %spec.select.i
   br i1 %465, label %_expand_stdio_filename.exit66.i, label %505
@@ -862,12 +862,12 @@ _expand_stdio_filename.exit63.i:                  ; preds = %499, %497, %495, %4
 _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %508, %_expand_stdio_filename.exit63.i
   %.0.i65.i = phi ptr [ %517, %516 ], [ %509, %508 ], [ null, %512 ], [ null, %_expand_stdio_filename.exit63.i ], [ null, %514 ]
   %518 = load ptr, ptr %462, align 8
-  %519 = getelementptr inbounds nuw i32, ptr %518, i64 %indvars.iv.i
+  %519 = getelementptr inbounds nuw [4 x i8], ptr %518, i64 %indvars.iv.i
   %520 = load i32, ptr %519, align 4
   %521 = trunc nuw nsw i64 %indvars.iv.i to i32
   %522 = call fastcc ptr @_task_info_create(i32 noundef %521, i32 noundef %520, ptr noundef %.0.i.i, ptr noundef %.0.i62.i, ptr noundef %.0.i65.i)
   %523 = load ptr, ptr %459, align 8
-  %524 = getelementptr inbounds nuw ptr, ptr %523, i64 %indvars.iv.i
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %indvars.iv.i
   store ptr %522, ptr %524, align 8
   %525 = load i32, ptr %377, align 8
   %526 = and i32 %525, 2
@@ -877,13 +877,13 @@ _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %5
 528:                                              ; preds = %_expand_stdio_filename.exit66.i
   %529 = load i32, ptr %352, align 4
   %530 = load ptr, ptr %459, align 8
-  %531 = getelementptr inbounds nuw ptr, ptr %530, i64 %indvars.iv.i
+  %531 = getelementptr inbounds nuw [8 x i8], ptr %530, i64 %indvars.iv.i
   %532 = load ptr, ptr %531, align 8
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 152
   store i32 %529, ptr %533, align 8
   %534 = load ptr, ptr %356, align 8
   %535 = load ptr, ptr %459, align 8
-  %536 = getelementptr inbounds nuw ptr, ptr %535, i64 %indvars.iv.i
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %535, i64 %indvars.iv.i
   %537 = load ptr, ptr %536, align 8
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 160
   store ptr %534, ptr %538, align 8
@@ -911,10 +911,10 @@ _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %5
   %548 = load ptr, ptr %547, align 8
   %549 = load ptr, ptr %142, align 8
   %550 = load ptr, ptr %462, align 8
-  %551 = getelementptr inbounds nuw i32, ptr %550, i64 %indvars.iv73.i
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %550, i64 %indvars.iv73.i
   %552 = load i32, ptr %551, align 4
   %553 = load ptr, ptr %459, align 8
-  %554 = getelementptr inbounds nuw ptr, ptr %553, i64 %indvars.iv73.i
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %indvars.iv73.i
   %555 = load ptr, ptr %554, align 8
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 152
   %557 = getelementptr inbounds nuw i8, ptr %555, i64 160
@@ -982,7 +982,7 @@ define dso_local void @stepd_step_rec_destroy(ptr noundef %0) local_unnamed_addr
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_task_info_destroy.exit.us.i
   %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %_task_info_destroy.exit.us.i ], [ 0, %.lr.ph.i ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv46.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv46.i
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %18, ptr %2, align 8
@@ -1022,7 +1022,7 @@ _task_info_destroy.exit.us.i:                     ; preds = %22
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_task_info_destroy.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_task_info_destroy.exit.i ], [ 0, %.lr.ph.i ]
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %32, ptr %2, align 8
@@ -1268,7 +1268,7 @@ _task_info_array_destroy.exit:                    ; preds = %1, %._crit_edge.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv
   call void @slurm_xfree(ptr noundef %120) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = load i32, ptr %116, align 4

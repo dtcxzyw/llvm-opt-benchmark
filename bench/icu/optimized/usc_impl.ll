@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/usc_impl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ParenStackEntry = type { i32, i32 }
-
 @_ZL11pairedChars = internal unnamed_addr constant [34 x i32] [i32 40, i32 41, i32 60, i32 62, i32 91, i32 93, i32 123, i32 125, i32 171, i32 187, i32 8216, i32 8217, i32 8220, i32 8221, i32 8249, i32 8250, i32 12296, i32 12297, i32 12298, i32 12299, i32 12300, i32 12301, i32 12302, i32 12303, i32 12304, i32 12305, i32 12308, i32 12309, i32 12310, i32 12311, i32 12312, i32 12313, i32 12314, i32 12315], align 16
 
 ; Function Attrs: mustprogress uwtable
@@ -195,7 +193,7 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   %20 = phi i32 [ %9, %.lr.ph102 ], [ %137, %135 ]
   %21 = load ptr, ptr %14, align 8, !tbaa !7
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !20
   %25 = zext i16 %24 to i32
   %26 = and i16 %24, -1024
@@ -208,7 +206,7 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
 29:                                               ; preds = %18
   %30 = add nsw i32 %20, 1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %21, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %21, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !20
   %34 = and i16 %33, -1024
   %or.cond5 = icmp eq i16 %34, -9216
@@ -235,7 +233,7 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   %44 = lshr i32 %.01720.i, 1
   %45 = add nsw i32 %44, %.121.i
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr @_ZL11pairedChars, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr @_ZL11pairedChars, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %.not18.i = icmp slt i32 %.071, %48
   %spec.select19.i = select i1 %.not18.i, i32 %.121.i, i32 %45
@@ -244,7 +242,7 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
 
 _ZL12getPairIndexi.exit:                          ; preds = %43
   %50 = sext i32 %spec.select19.i to i64
-  %51 = getelementptr inbounds i32, ptr @_ZL11pairedChars, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr @_ZL11pairedChars, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !22
   %.not.i = icmp eq i32 %52, %.071
   %spec.store.select.i = select i1 %.not.i, i32 %spec.select19.i, i32 -1
@@ -271,7 +269,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %43
   %66 = srem i32 %65, 32
   store i32 %66, ptr %17, align 4, !tbaa !17
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %16, i64 %67
   store i32 %spec.store.select.i, ptr %68, align 4, !tbaa !25
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %59, ptr %69, align 4, !tbaa !27
@@ -290,7 +288,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %43
   %74 = phi i32 [ %.promoted100, %.lr.ph ], [ %spec.store.select.i95, %_ZL3popP10UScriptRun.exit ]
   %75 = phi i32 [ %57, %.lr.ph ], [ %84, %_ZL3popP10UScriptRun.exit ]
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %16, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !25
   %.not84 = icmp eq i32 %78, %71
   br i1 %.not84, label %.critedge, label %79
@@ -317,7 +315,7 @@ _ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
   br i1 %88, label %.critedge.thread, label %73, !llvm.loop !28
 
 .critedge:                                        ; preds = %73
-  %89 = getelementptr %struct.ParenStackEntry, ptr %0, i64 %76
+  %89 = getelementptr [8 x i8], ptr %0, i64 %76
   %90 = getelementptr i8, ptr %89, i64 32
   %91 = load i32, ptr %90, align 4, !tbaa !27
   br label %.critedge.thread
@@ -357,7 +355,7 @@ _ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
   %107 = add nsw i32 %.06.i, 1
   %108 = srem i32 %107, 32
   %109 = sext i32 %108 to i64
-  %110 = getelementptr %struct.ParenStackEntry, ptr %0, i64 %109
+  %110 = getelementptr [8 x i8], ptr %0, i64 %109
   %111 = getelementptr i8, ptr %110, i64 32
   store i32 %.072, ptr %111, align 4, !tbaa !27
   %112 = add nsw i32 %106, -1

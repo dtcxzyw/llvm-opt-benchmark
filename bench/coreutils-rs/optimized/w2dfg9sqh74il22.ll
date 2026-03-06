@@ -368,7 +368,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc7:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h296e4d2696be843aE.exit.i.i", %.noexc6
   %44 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !137, !noalias !143, !nonnull !28, !noundef !28
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %40
   store ptr %37, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %39, ptr %46, align 8
@@ -570,7 +570,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc7:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h296e4d2696be843aE.exit.i.i", %.noexc6
   %44 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !204, !noalias !210, !nonnull !28, !noundef !28
-  %45 = getelementptr inbounds { ptr, i64 }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %40
   store ptr %37, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %39, ptr %46, align 8
@@ -667,7 +667,7 @@ define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$alloc..vec..in_pla
 
 11:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h9aa5c941c89c8645E.exit.i.i", %.lr.ph.i.i
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %13, %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h9aa5c941c89c8645E.exit.i.i" ]
-  %12 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %.07.i.i
+  %12 = getelementptr inbounds [24 x i8], ptr %3, i64 %.07.i.i
   %13 = add nuw i64 %.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   %14 = load i64, ptr %12, align 8, !range !223, !alias.scope !224, !noalias !214, !noundef !28
@@ -713,7 +713,7 @@ define internal fastcc void @"_ZN4core3ptr142drop_in_place$LT$alloc..vec..in_pla
   br label %24
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds { i64, [2 x i64] }, ptr %3, i64 %.1.i.i
+  %29 = getelementptr inbounds [24 x i8], ptr %3, i64 %.1.i.i
   %30 = add i64 %.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h9aa5c941c89c8645E"(ptr noalias noundef align 8 dereferenceable(24) %29) #13
           to label %24 unwind label %31, !noalias !214

@@ -184,9 +184,9 @@ define dso_local i32 @tls_client_hello_psk(ptr noundef readonly captures(none) %
 
 36:                                               ; preds = %36, %33
   %37 = phi i64 [ 0, %33 ], [ %41, %36 ]
-  %38 = getelementptr i32, ptr %34, i64 %37
+  %38 = getelementptr [4 x i8], ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr i32, ptr %35, i64 %37
+  %40 = getelementptr [4 x i8], ptr %35, i64 %37
   store i32 %39, ptr %40, align 4
   %41 = add nuw nsw i64 %37, 1
   %42 = load i32, ptr %3, align 8
@@ -619,7 +619,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %38, 1
   %52 = zext i32 %38 to i64
-  %53 = getelementptr i32, ptr %5, i64 %52
+  %53 = getelementptr [4 x i8], ptr %5, i64 %52
   store i32 %50, ptr %53, align 4
   br label %54
 
@@ -682,7 +682,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_ide
 
 .preheader:                                       ; preds = %2, %8
   %13 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %14 = getelementptr i32, ptr %4, i64 %13
+  %14 = getelementptr [4 x i8], ptr %4, i64 %13
   %15 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %15, ptr %3, align 4

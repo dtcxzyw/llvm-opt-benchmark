@@ -78,7 +78,7 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_header(ptr noundef %0)
 20:                                               ; preds = %18, %20
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %20 ]
   %21 = tail call i32 @avio_rb24(ptr noundef %6) #5
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -252,7 +252,7 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_header(ptr noundef %0)
 
 102:                                              ; preds = %97, %102
   %indvars.iv182 = phi i64 [ 0, %97 ], [ %indvars.iv.next183, %102 ]
-  %103 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv182
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv182
   %104 = load i32, ptr %103, align 4, !tbaa !30
   %105 = load ptr, ptr %87, align 8, !tbaa !45
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16

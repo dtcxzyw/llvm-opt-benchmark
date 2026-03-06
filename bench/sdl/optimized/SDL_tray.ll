@@ -817,7 +817,7 @@ define hidden void @SDL_RemoveTrayEntry_REAL(ptr noundef %0) local_unnamed_addr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.031 = phi i1 [ false, %.lr.ph ], [ %spec.select, %20 ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   %spec.select = or i1 %16, %.031
@@ -859,7 +859,7 @@ define hidden void @SDL_RemoveTrayEntry_REAL(ptr noundef %0) local_unnamed_addr 
   store ptr %33, ptr %29, align 8
   %35 = load i32, ptr %4, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   store ptr null, ptr %37, align 8
   br label %38
 
@@ -894,7 +894,7 @@ define internal fastcc void @DestroySDLMenu(ptr noundef nonnull %0) unnamed_addr
 7:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %15, label %11
@@ -908,7 +908,7 @@ define internal fastcc void @DestroySDLMenu(ptr noundef nonnull %0) unnamed_addr
 14:                                               ; preds = %11
   tail call fastcc void @DestroySDLMenu(ptr noundef %13)
   %.pre = load ptr, ptr %5, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %.pre21 = load ptr, ptr %.phi.trans.insert, align 8
   br label %15
 
@@ -1050,11 +1050,11 @@ define hidden noundef ptr @SDL_InsertTrayEntryAt_REAL(ptr noundef %0, i32 nounde
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi = phi i64 [ %.pre71, %.._crit_edge_crit_edge ], [ %55, %._crit_edge.loopexit ]
   %56 = phi ptr [ %38, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
-  %57 = getelementptr inbounds ptr, ptr %48, i64 %.pre-phi
+  %57 = getelementptr inbounds [8 x i8], ptr %48, i64 %.pre-phi
   store ptr %17, ptr %57, align 8
   %58 = load i32, ptr %10, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %48, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %48, i64 %59
   store ptr null, ptr %60, align 8
   %61 = load ptr, ptr @gtk_widget_show, align 8
   tail call void %61(ptr noundef %56) #10
@@ -1073,7 +1073,7 @@ define hidden noundef ptr @SDL_InsertTrayEntryAt_REAL(ptr noundef %0, i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %71 = load ptr, ptr %42, align 8
-  %72 = getelementptr ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr [8 x i8], ptr %71, i64 %indvars.iv
   %73 = getelementptr i8, ptr %72, i64 -8
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %72, align 8

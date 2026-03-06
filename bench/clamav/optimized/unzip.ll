@@ -3,7 +3,6 @@ source_filename = "bench/clamav/original/unzip.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.zip_record = type { i32, i32, i32, i32, i16, i16, i32, ptr }
 %union.anon = type { %struct.z_stream_s }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.bz_stream = type { ptr, i32, i32, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr }
@@ -128,7 +127,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.1115 = phi i64 [ %spec.select, %33 ], [ %.1115.ph, %.outer ]
   %.0102 = phi i32 [ %18, %33 ], [ %.0102.ph, %.outer ]
   %16 = add i32 %.0121, 1
-  %17 = getelementptr inbounds nuw %struct.zip_record, ptr %.1118.ph, i64 %.1115
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %.1118.ph, i64 %.1115
   %18 = call fastcc i32 @parse_central_directory_file_header(ptr noundef %1, i32 noundef %.0102, i32 noundef %2, i32 noundef %16, ptr noundef %7, ptr noundef %0, ptr noundef null, ptr noundef nonnull %17)
   %19 = load i32, ptr %7, align 4, !tbaa !3
   %.not = icmp ne i32 %19, 27
@@ -190,7 +189,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %44, label %.preheader, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw %struct.zip_record, ptr %43, i64 %spec.select
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %spec.select
   %47 = mul i64 %37, 100
   %48 = sub i64 %47, %spec.select
   %49 = shl i64 %48, 5
@@ -216,7 +215,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
 56:                                               ; preds = %53, %54
   %.0111228 = phi i32 [ 0, %53 ], [ %.2113, %54 ]
   %.1122227 = phi i64 [ 1, %53 ], [ %55, %54 ]
-  %57 = getelementptr %struct.zip_record, ptr %.1118.ph, i64 %.1122227
+  %57 = getelementptr [32 x i8], ptr %.1118.ph, i64 %.1122227
   %58 = getelementptr i8, ptr %57, i64 -32
   %59 = getelementptr i8, ptr %57, i64 -28
   %60 = load i32, ptr %59, align 4, !tbaa !47
@@ -319,7 +318,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %.preheader, %111
   %.0229 = phi i64 [ %112, %111 ], [ 0, %.preheader ]
-  %107 = getelementptr inbounds nuw %struct.zip_record, ptr %.1118.ph, i64 %.0229
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %.1118.ph, i64 %.0229
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !55
   %.not147 = icmp eq ptr %109, null
@@ -558,11 +557,11 @@ define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, 
 
 123:                                              ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
-  %124 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !64
   %126 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, i32 noundef %126, ptr noundef %125) #13
-  %127 = getelementptr inbounds nuw i64, ptr %119, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8, !tbaa !10
   %spec.select = call i64 @llvm.umin.i64(i64 %128, i64 255)
   %129 = load ptr, ptr %124, align 8, !tbaa !64
@@ -755,7 +754,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   br label %63
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw %struct.zip_record, ptr %38, i64 %.0103188
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.0103188
   %46 = load i32, ptr %45, align 8, !tbaa !51
   %47 = getelementptr i8, ptr %45, i64 -32
   %48 = load i32, ptr %47, align 8, !tbaa !51
@@ -784,7 +783,7 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %._crit_edge218, %56, %50, %44
   %64 = phi i32 [ %.pre, %._crit_edge218 ], [ %46, %56 ], [ %46, %50 ], [ %46, %44 ]
-  %65 = getelementptr inbounds nuw %struct.zip_record, ptr %38, i64 %.0103188
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.0103188
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !47
   %68 = add i32 %67, %64
@@ -972,7 +971,7 @@ select.unfold155:                                 ; preds = %120, %62
 
 .lr.ph200:                                        ; preds = %.preheader, %157
   %.1104199 = phi i64 [ %158, %157 ], [ 0, %.preheader ]
-  %153 = getelementptr inbounds nuw %struct.zip_record, ptr %151, i64 %.1104199
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %.1104199
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !55
   %.not141 = icmp eq ptr %155, null
@@ -2346,10 +2345,10 @@ define range(i32 0, 23) i32 @unzip_search_add(ptr noundef captures(none) %0, ptr
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef %1, i64 noundef %2) #13
   %9 = load i32, ptr %4, align 8, !tbaa !62
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   store i64 %2, ptr %13, align 8, !tbaa !10
   %14 = add nsw i32 %9, 1
   store i32 %14, ptr %4, align 8, !tbaa !62

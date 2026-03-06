@@ -67,7 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::unordered_map.62" = type { %"class.std::_Hashtable.63" }
 %"class.std::_Hashtable.63" = type { [8 x i8], ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.std::allocator.0" = type { i8 }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -1232,7 +1231,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   br label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %165, %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  %166 = getelementptr inbounds nuw ptr, ptr %160, i64 %158
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %158
   br label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i
 
 167:                                              ; preds = %.lr.ph.i
@@ -1355,7 +1354,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i60
   br label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62.i
 
 _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62.i: ; preds = %203, %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i60.i
-  %204 = getelementptr inbounds nuw ptr, ptr %199, i64 %197
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %197
   br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i
 
 _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i: ; preds = %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62.i, %186
@@ -1490,7 +1489,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i72
   br label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i74.i
 
 _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i74.i: ; preds = %241, %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i72.i
-  %242 = getelementptr inbounds nuw ptr, ptr %237, i64 %235
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %235
   br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i
 
 _ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i: ; preds = %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i74.i, %224
@@ -1910,7 +1909,7 @@ _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZN12VNUser2InUseD2
 
 384:                                              ; preds = %384, %.noexc129
   %indvars.iv.i.i = phi i64 [ -2, %.noexc129 ], [ %indvars.iv.next.i.i, %384 ]
-  %385 = getelementptr inbounds ptr, ptr %.ptr83.i.i, i64 %indvars.iv.i.i
+  %385 = getelementptr inbounds [8 x i8], ptr %.ptr83.i.i, i64 %indvars.iv.i.i
   store ptr %.063233, ptr %385, align 8, !tbaa !182
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %386 = icmp eq i64 %indvars.iv.next.i.i, 0
@@ -2017,8 +2016,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i: ; 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds = %429, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i
   %430 = sub i64 %406, %403
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i, i64 noundef %430) #31
-  %431 = getelementptr inbounds nuw ptr, ptr %424, i64 %402
-  %432 = getelementptr inbounds nuw ptr, ptr %423, i64 %421
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %402
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %421
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_E3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 433:                                              ; preds = %394
@@ -2026,7 +2025,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   br i1 %434, label %435, label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_E3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
 
 435:                                              ; preds = %433
-  %436 = getelementptr inbounds nuw ptr, ptr %387, i64 %399
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %387, i64 %399
   %.not.i.i.i24.i.i = icmp eq ptr %.sroa.11.1.i, %436
   %spec.select.i122 = select i1 %.not.i.i.i24.i.i, ptr %.sroa.11.1.i, ptr %436
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_E3$_1EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i"
@@ -2041,7 +2040,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   %440 = sub i64 %438, %439
   %441 = getelementptr inbounds nuw i8, ptr %437, i64 16
   %442 = getelementptr inbounds i8, ptr %441, i64 %440
-  %443 = getelementptr inbounds nuw ptr, ptr %441, i64 %399
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %399
   %444 = getelementptr inbounds i8, ptr %443, i64 -40
   br label %445
 
@@ -2243,7 +2242,7 @@ _ZN12AstAssignPre12unlinkFrBackEP10VNRelinker.exit: ; preds = %.loopexit
 522:                                              ; preds = %520
   %.sroa.0.0.copyload.i.i = load i16, ptr %333, align 8, !tbaa !164
   %523 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %524 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %523
+  %524 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %523
   %525 = load ptr, ptr %524, align 8, !tbaa !188
   %526 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %519, ptr noundef %525)
           to label %527 unwind label %.loopexit.split-lp
@@ -2852,7 +2851,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.
 _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i
   store ptr %50, ptr %0, align 8, !tbaa !190
   store ptr %55, ptr %14, align 8, !tbaa !198
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %57, ptr %32, align 8, !tbaa !192
   br label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit
 
@@ -3016,7 +3015,7 @@ define internal fastcc void @"_ZZN7V3Sched9partitionERNS_12LogicByScopeES1_S1_EN
 
 39:                                               ; preds = %39, %1
   %indvars.iv.i.i = phi i64 [ -2, %1 ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %.ptr76.i.i, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds [8 x i8], ptr %.ptr76.i.i, i64 %indvars.iv.i.i
   store ptr %0, ptr %40, align 8, !tbaa !182
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %41 = icmp eq i64 %indvars.iv.next.i.i, 0
@@ -3122,8 +3121,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i: ; 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds = %84, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i
   %85 = sub i64 %61, %58
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i, i64 noundef %85) #31
-  %86 = getelementptr inbounds nuw ptr, ptr %79, i64 %57
-  %87 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %57
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_ENK3$_0clEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
 
 88:                                               ; preds = %49
@@ -3131,7 +3130,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   br i1 %89, label %90, label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_ENK3$_0clEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw ptr, ptr %42, i64 %54
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %54
   %.not.i.i.i22.i.i = icmp eq ptr %.sroa.11.1.i, %91
   %spec.select.i = select i1 %.not.i.i.i22.i.i, ptr %.sroa.11.1.i, ptr %91
   br label %"_ZZN7AstNode11foreachImplI13AstNodeVarRefZZN7V3Sched9partitionERNS2_12LogicByScopeES4_S4_ENK3$_0clEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i"
@@ -3146,7 +3145,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   %95 = sub i64 %93, %94
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %97 = getelementptr inbounds i8, ptr %96, i64 %95
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %54
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %54
   %99 = getelementptr inbounds i8, ptr %98, i64 -40
   br label %100
 
@@ -3361,7 +3360,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !164
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !188
   ret ptr %5
 }
@@ -3766,7 +3765,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5
 
 49:                                               ; preds = %49, %22
   %indvars.iv.i.i = phi i64 [ -2, %22 ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds ptr, ptr %.ptr71.i.i, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds [8 x i8], ptr %.ptr71.i.i, i64 %indvars.iv.i.i
   store ptr %4, ptr %50, align 8, !tbaa !182
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %51 = icmp eq i64 %indvars.iv.next.i.i, 0
@@ -3872,8 +3871,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i: ; 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds = %94, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i
   %95 = sub i64 %71, %68
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i, i64 noundef %95) #31
-  %96 = getelementptr inbounds nuw ptr, ptr %89, i64 %67
-  %97 = getelementptr inbounds nuw ptr, ptr %88, i64 %86
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %67
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %86
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5visitEP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i
 
 98:                                               ; preds = %59
@@ -3881,7 +3880,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   br i1 %99, label %100, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5visitEP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw ptr, ptr %52, i64 %64
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %64
   %.not.i.i.i22.i.i = icmp eq ptr %.sroa.11.1.i, %101
   %spec.select.i = select i1 %.not.i.i.i22.i.i, ptr %.sroa.11.1.i, ptr %101
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5visitEP9AstActiveEUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28.i.i
@@ -3896,7 +3895,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder5
   %105 = sub i64 %103, %104
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %107 = getelementptr inbounds i8, ptr %106, i64 %105
-  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %64
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %64
   %109 = getelementptr inbounds i8, ptr %108, i64 -40
   br label %110
 
@@ -5705,7 +5704,7 @@ define internal fastcc void @_ZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visit
 
 34:                                               ; preds = %34, %25
   %indvars.iv.i.i = phi i64 [ -2, %25 ], [ %indvars.iv.next.i.i, %34 ]
-  %35 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv.i.i
   store ptr %26, ptr %35, align 8, !tbaa !182
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %36 = icmp eq i64 %indvars.iv.next.i.i, 0
@@ -5817,8 +5816,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i: ; 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds = %79, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i
   %80 = sub i64 %56, %49
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i, i64 noundef %80) #31
-  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %55
-  %82 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %55
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %71
   br label %_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 83:                                               ; preds = %47
@@ -5826,7 +5825,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i: ; preds =
   br i1 %84, label %85, label %_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i, i64 %52
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1.i, i64 %52
   %.not.i.i.i24.i.i = icmp eq ptr %.sroa.13.0.i, %86
   %spec.select.i = select i1 %.not.i.i.i24.i.i, ptr %.sroa.13.0.i, ptr %86
   br label %_ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
@@ -5841,7 +5840,7 @@ _ZZN7AstNode11foreachImplI10AstSenItemZN7V3Sched12_GLOBAL__N_117SchedGraphBuilde
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i, i64 16
   %91 = getelementptr inbounds i8, ptr %90, i64 %89
   store ptr %91, ptr %4, align 8, !tbaa !242
-  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %52
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %52
   %93 = getelementptr inbounds i8, ptr %92, i64 -40
   br label %94
 
@@ -5932,7 +5931,7 @@ _ZN7AstNode7foreachIZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_E
 
 116:                                              ; preds = %116, %109
   %indvars.iv.i.i12 = phi i64 [ -2, %109 ], [ %indvars.iv.next.i.i13, %116 ]
-  %117 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv.i.i12
+  %117 = getelementptr inbounds [8 x i8], ptr %112, i64 %indvars.iv.i.i12
   store ptr %1, ptr %117, align 8, !tbaa !182
   %indvars.iv.next.i.i13 = add nsw i64 %indvars.iv.i.i12, 1
   %118 = icmp eq i64 %indvars.iv.next.i.i13, 0
@@ -6044,8 +6043,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i50: 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i51: ; preds = %161, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i50
   %162 = sub i64 %138, %131
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i21, i64 noundef %162) #31
-  %163 = getelementptr inbounds nuw ptr, ptr %156, i64 %137
-  %164 = getelementptr inbounds nuw ptr, ptr %155, i64 %153
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %137
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %153
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 165:                                              ; preds = %129
@@ -6053,7 +6052,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i51: ; preds
   br i1 %166, label %167, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i21, i64 %134
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1.i21, i64 %134
   %.not.i.i.i24.i.i40 = icmp eq ptr %.sroa.13.0.i22, %168
   %spec.select.i41 = select i1 %.not.i.i.i24.i.i40, ptr %.sroa.13.0.i22, ptr %168
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
@@ -6068,7 +6067,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i27, i64 16
   %173 = getelementptr inbounds i8, ptr %172, i64 %171
   store ptr %173, ptr %3, align 8, !tbaa !242
-  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %134
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %134
   %175 = getelementptr inbounds i8, ptr %174, i64 -40
   br label %176
 
@@ -6240,7 +6239,7 @@ _ZZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEP7AstNodeENKUlPK8AstCC
 
 230:                                              ; preds = %230, %191
   %indvars.iv.i.i55 = phi i64 [ -2, %191 ], [ %indvars.iv.next.i.i56, %230 ]
-  %231 = getelementptr inbounds ptr, ptr %.ptr34.i, i64 %indvars.iv.i.i55
+  %231 = getelementptr inbounds [8 x i8], ptr %.ptr34.i, i64 %indvars.iv.i.i55
   store ptr %1, ptr %231, align 8, !tbaa !182
   %indvars.iv.next.i.i56 = add nsw i64 %indvars.iv.i.i55, 1
   %232 = icmp eq i64 %indvars.iv.next.i.i56, 0
@@ -6347,8 +6346,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i79: 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i80: ; preds = %274, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i79
   %275 = sub i64 %251, %244
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i57, i64 noundef %275) #31
-  %276 = getelementptr inbounds nuw ptr, ptr %269, i64 %250
-  %277 = getelementptr inbounds nuw ptr, ptr %268, i64 %266
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %250
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %266
   br label %_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 278:                                              ; preds = %242
@@ -6356,7 +6355,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i80: ; preds
   br i1 %279, label %280, label %_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
 
 280:                                              ; preds = %278
-  %281 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i57, i64 %247
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1.i57, i64 %247
   %.not.i.i.i24.i.i69 = icmp eq ptr %.sroa.13.1.i58, %281
   %spec.select.i70 = select i1 %.not.i.i.i24.i.i69, ptr %.sroa.13.1.i58, ptr %281
   br label %_ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10visitLogicEPS_EUlPKS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i
@@ -6370,7 +6369,7 @@ _ZZN7AstNode11foreachImplI8AstCCallZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder10
   %284 = sub i64 %282, %283
   %285 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i61, i64 16
   %286 = getelementptr inbounds i8, ptr %285, i64 %284
-  %287 = getelementptr inbounds nuw ptr, ptr %285, i64 %247
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %247
   %288 = getelementptr inbounds i8, ptr %287, i64 -40
   br label %289
 
@@ -6564,7 +6563,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_116SchedLogicVertex4nameB5cxx11Ev
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %7, align 8, !tbaa !164
   %8 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !188
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6945,7 +6944,7 @@ _ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenItemESt4pairIKS3_PN7V3Sched12_GL
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %43 = load ptr, ptr %42, align 8, !tbaa !52
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %40
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %40
   %45 = load ptr, ptr %44, align 8, !tbaa !272
   %.not.i.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i.i, label %.critedge28.i.i.i.i.i, label %46
@@ -7076,7 +7075,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   %81 = getelementptr i8, ptr %.032.i.i.i.i.i.i.i.i, i64 24
   %.val29.i.i.i.i.i.i.i.i = load i64, ptr %81, align 8, !tbaa !273
   %82 = urem i64 %.val29.i.i.i.i.i.i.i.i, %70
-  %83 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i.i.i.i, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i.i.i, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !272
   %.not27.i.i.i.i.i.i.i.i = icmp eq ptr %84, null
   br i1 %.not27.i.i.i.i.i.i.i.i, label %85, label %90
@@ -7091,7 +7090,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   br i1 %.not28.i.i.i.i.i.i.i.i, label %93, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i.i.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i.i.i, i64 %.02531.i.i.i.i.i.i.i.i
   store ptr %.032.i.i.i.i.i.i.i.i, ptr %89, align 8, !tbaa !272
   br label %93
 
@@ -7156,7 +7155,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   %.0.i46.i.i.i.i.i = phi i64 [ %111, %_ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114SchedSenVertexEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i.i.i.i ], [ %40, %._crit_edge.i.i.i.i.i.i ]
   %114 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %37, ptr %114, align 8, !tbaa !273
-  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %.0.i46.i.i.i.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.0.i46.i.i.i.i.i
   %116 = load ptr, ptr %115, align 8, !tbaa !272
   %.not.i.i47.i.i.i.i.i = icmp eq ptr %116, null
   br i1 %.not.i.i47.i.i.i.i.i, label %120, label %117
@@ -7181,7 +7180,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenItemESt4pairIKS2_PN7V3Sched12_GLOBAL__N_114Sche
   %124 = getelementptr i8, ptr %122, i64 24
   %.val13.i.i.i.i.i.i.i = load i64, ptr %124, align 8, !tbaa !273
   %125 = urem i64 %.val13.i.i.i.i.i.i.i, %.val12.i.i.i.i.i.i.i
-  %126 = getelementptr inbounds nuw ptr, ptr %113, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %125
   store ptr %25, ptr %126, align 8, !tbaa !272
   br label %127
 
@@ -7323,7 +7322,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
 
 172:                                              ; preds = %172, %136
   %indvars.iv.i.i.i.i = phi i64 [ -2, %136 ], [ %indvars.iv.next.i.i.i.i, %172 ]
-  %173 = getelementptr inbounds ptr, ptr %.ptr76.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %173 = getelementptr inbounds [8 x i8], ptr %.ptr76.i.i.i.i, i64 %indvars.iv.i.i.i.i
   store ptr %139, ptr %173, align 8, !tbaa !182
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, 1
   %174 = icmp eq i64 %indvars.iv.next.i.i.i.i, 0
@@ -7430,8 +7429,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i.i: ; preds = %216, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i.i
   %217 = sub i64 %193, %186
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i.i, i64 noundef %217) #31
-  %218 = getelementptr inbounds nuw ptr, ptr %211, i64 %192
-  %219 = getelementptr inbounds nuw ptr, ptr %210, i64 %208
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %192
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %208
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getSenVertexEP10AstSenItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit31.i.i.i.i
 
 220:                                              ; preds = %184
@@ -7439,7 +7438,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i.i: ; pre
   br i1 %221, label %222, label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getSenVertexEP10AstSenItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit31.i.i.i.i
 
 222:                                              ; preds = %220
-  %223 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i.i.i, i64 %189
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1.i.i.i, i64 %189
   %.not.i.i.i25.i.i.i.i = icmp eq ptr %.sroa.13.1.i.i.i, %223
   %spec.select.i.i.i = select i1 %.not.i.i.i25.i.i.i.i, ptr %.sroa.13.1.i.i.i, ptr %223
   br label %_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder12getSenVertexEP10AstSenItemEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit31.i.i.i.i
@@ -7453,7 +7452,7 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_117SchedGraphBuilder1
   %226 = sub i64 %224, %225
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i.i.i, i64 16
   %228 = getelementptr inbounds i8, ptr %227, i64 %226
-  %229 = getelementptr inbounds nuw ptr, ptr %227, i64 %189
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %189
   %230 = getelementptr inbounds i8, ptr %229, i64 -40
   br label %231
 
@@ -8041,7 +8040,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotColorB5cxx11
 
 switch.lookup:                                    ; preds = %10
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotColorB5cxx11Ev, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotColorB5cxx11Ev, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK6AstVar11isNonOutputEv.exit
 
@@ -8080,7 +8079,7 @@ define internal void @_ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotShapeB5cxx11
 
 switch.lookup:                                    ; preds = %11
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotShapeB5cxx11Ev, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7V3Sched12_GLOBAL__N_114SchedVarVertex8dotShapeB5cxx11Ev, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK6AstVar11isNonOutputEv.exit
 
@@ -9065,7 +9064,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZNK6VNTypecvNS_2enEEv(ptr no
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !235
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !188
   ret ptr %5
 }

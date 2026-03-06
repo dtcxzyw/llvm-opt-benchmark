@@ -4,15 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%union.ListCell = type { ptr }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.AttrMissing = type { i8, i64 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @TTSOpsVirtual = dso_local local_unnamed_addr constant %struct.TupleTableSlotOps { i64 72, ptr @tts_virtual_init, ptr @tts_virtual_release, ptr @tts_virtual_clear, ptr @tts_virtual_getsomeattrs, ptr @tts_virtual_getsysattr, ptr @tts_virtual_is_current_xact_tuple, ptr @tts_virtual_materialize, ptr @tts_virtual_copyslot, ptr null, ptr null, ptr @tts_virtual_copy_heap_tuple, ptr @tts_virtual_copy_minimal_tuple }, align 8
 @TTSOpsHeapTuple = dso_local constant %struct.TupleTableSlotOps { i64 104, ptr @tts_heap_init, ptr @tts_heap_release, ptr @tts_heap_clear, ptr @tts_heap_getsomeattrs, ptr @tts_heap_getsysattr, ptr @tts_heap_is_current_xact_tuple, ptr @tts_heap_materialize, ptr @tts_heap_copyslot, ptr @tts_heap_get_heap_tuple, ptr null, ptr @tts_heap_copy_heap_tuple, ptr @tts_heap_copy_minimal_tuple }, align 8
@@ -143,7 +137,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   %14 = phi i32 [ %7, %.lr.ph ], [ %96, %95 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %.0110 = phi i64 [ 0, %.lr.ph ], [ %.1, %95 ]
-  %15 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %9, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %17 = load i8, ptr %16, align 2, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
@@ -158,7 +152,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %29 = load i16, ptr %28, align 4
@@ -288,7 +282,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
 111:                                              ; preds = %.lr.ph114, %210
   %indvars.iv116 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next117, %210 ]
   %.093112 = phi ptr [ %102, %.lr.ph114 ], [ %.194, %210 ]
-  %112 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %108, i64 %indvars.iv116
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %indvars.iv116
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 6
   %114 = load i8, ptr %113, align 2, !range !5, !noundef !6
   %115 = trunc nuw i8 %114 to i1
@@ -303,7 +297,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
 
 121:                                              ; preds = %116
   %122 = load ptr, ptr %110, align 8
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv116
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv116
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %126 = load i16, ptr %125, align 4
@@ -337,7 +331,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   %148 = tail call i64 @EOH_get_flat_size(ptr noundef %138) #14
   tail call void @EOH_flatten_into(ptr noundef %138, ptr noundef %147, i64 noundef %148) #14
   %149 = load ptr, ptr %110, align 8
-  %150 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv116
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv116
   store i64 %146, ptr %150, align 8
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 %148
   br label %210
@@ -420,7 +414,7 @@ define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 
   %206 = inttoptr i64 %204 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %206, ptr align 1 %.pre-phi, i64 %205, i1 false)
   %207 = load ptr, ptr %110, align 8
-  %208 = getelementptr inbounds nuw i64, ptr %207, i64 %indvars.iv116
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv116
   store i64 %204, ptr %208, align 8
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 %205
   br label %210
@@ -518,10 +512,10 @@ slot_getallattrs.exit:                            ; preds = %tts_virtual_clear.e
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %45 = load ptr, ptr %37, align 8
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8
   %48 = load ptr, ptr %38, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   store i64 %47, ptr %49, align 8
   %50 = load ptr, ptr %39, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
@@ -661,7 +655,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
 36:                                               ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %.11133 = phi i32 [ %.06069, %.lr.ph ], [ %128, %133 ]
-  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds [16 x i8], ptr %34, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
@@ -773,7 +767,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
 
 fetch_att.exit:                                   ; preds = %83, %86, %89, %92, %97
   %.0.i30 = phi i64 [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %93, %92 ], [ %98, %97 ]
-  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %99 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv
   store i64 %.0.i30, ptr %99, align 8
   %100 = load i16, ptr %77, align 4
   %101 = icmp sgt i16 %100, 0
@@ -861,7 +855,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 145:                                              ; preds = %.lr.ph138, %256
   %indvars.iv189 = phi i64 [ %144, %.lr.ph138 ], [ %indvars.iv.next190, %256 ]
   %.363136 = phi i32 [ %.06069, %.lr.ph138 ], [ %251, %256 ]
-  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv189
+  %146 = getelementptr inbounds [16 x i8], ptr %143, i64 %indvars.iv189
   %147 = trunc nsw i64 %indvars.iv189 to i32
   %148 = ashr i32 %147, 3
   %149 = sext i32 %148 to i64
@@ -875,7 +869,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %.not.i31, label %156, label %160
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
+  %157 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv189
   store i64 0, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 1, ptr %158, align 1
@@ -994,7 +988,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 
 fetch_att.exit34:                                 ; preds = %206, %209, %212, %215, %220
   %.0.i32 = phi i64 [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %216, %215 ], [ %221, %220 ]
-  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
+  %222 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv189
   store i64 %.0.i32, ptr %222, align 8
   %223 = load i16, ptr %200, align 4
   %224 = icmp sgt i16 %223, 0
@@ -1088,7 +1082,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 273:                                              ; preds = %258, %371
   %indvars.iv194 = phi i64 [ %272, %258 ], [ %indvars.iv.next195, %371 ]
   %.7140 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
-  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv194
+  %274 = getelementptr inbounds [16 x i8], ptr %271, i64 %indvars.iv194
   br i1 %8, label %275, label %288
 
 275:                                              ; preds = %273
@@ -1105,7 +1099,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %.not.i35, label %285, label %288
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
+  %286 = getelementptr inbounds [8 x i8], ptr %262, i64 %indvars.iv194
   store i64 0, ptr %286, align 8
   %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 1, ptr %287, align 1
@@ -1191,7 +1185,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 
 fetch_att.exit38:                                 ; preds = %315, %318, %321, %324, %329
   %.0.i36 = phi i64 [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %325, %324 ], [ %330, %329 ]
-  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
+  %331 = getelementptr inbounds [8 x i8], ptr %262, i64 %indvars.iv194
   store i64 %.0.i36, ptr %331, align 8
   %332 = load i16, ptr %290, align 4
   %333 = icmp sgt i16 %332, 0
@@ -1679,7 +1673,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
 36:                                               ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %.11133 = phi i32 [ %.06069, %.lr.ph ], [ %128, %133 ]
-  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds [16 x i8], ptr %34, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
@@ -1791,7 +1785,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
 
 fetch_att.exit:                                   ; preds = %83, %86, %89, %92, %97
   %.0.i30 = phi i64 [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %93, %92 ], [ %98, %97 ]
-  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %99 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv
   store i64 %.0.i30, ptr %99, align 8
   %100 = load i16, ptr %77, align 4
   %101 = icmp sgt i16 %100, 0
@@ -1879,7 +1873,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 145:                                              ; preds = %.lr.ph138, %256
   %indvars.iv189 = phi i64 [ %144, %.lr.ph138 ], [ %indvars.iv.next190, %256 ]
   %.363136 = phi i32 [ %.06069, %.lr.ph138 ], [ %251, %256 ]
-  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv189
+  %146 = getelementptr inbounds [16 x i8], ptr %143, i64 %indvars.iv189
   %147 = trunc nsw i64 %indvars.iv189 to i32
   %148 = ashr i32 %147, 3
   %149 = sext i32 %148 to i64
@@ -1893,7 +1887,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %.not.i31, label %156, label %160
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
+  %157 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv189
   store i64 0, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 1, ptr %158, align 1
@@ -2012,7 +2006,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 
 fetch_att.exit34:                                 ; preds = %206, %209, %212, %215, %220
   %.0.i32 = phi i64 [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %216, %215 ], [ %221, %220 ]
-  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
+  %222 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv189
   store i64 %.0.i32, ptr %222, align 8
   %223 = load i16, ptr %200, align 4
   %224 = icmp sgt i16 %223, 0
@@ -2106,7 +2100,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 273:                                              ; preds = %258, %371
   %indvars.iv194 = phi i64 [ %272, %258 ], [ %indvars.iv.next195, %371 ]
   %.7140 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
-  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv194
+  %274 = getelementptr inbounds [16 x i8], ptr %271, i64 %indvars.iv194
   br i1 %8, label %275, label %288
 
 275:                                              ; preds = %273
@@ -2123,7 +2117,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %.not.i35, label %285, label %288
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
+  %286 = getelementptr inbounds [8 x i8], ptr %262, i64 %indvars.iv194
   store i64 0, ptr %286, align 8
   %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 1, ptr %287, align 1
@@ -2209,7 +2203,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 
 fetch_att.exit38:                                 ; preds = %315, %318, %321, %324, %329
   %.0.i36 = phi i64 [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %325, %324 ], [ %330, %329 ]
-  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
+  %331 = getelementptr inbounds [8 x i8], ptr %262, i64 %indvars.iv194
   store i64 %.0.i36, ptr %331, align 8
   %332 = load i16, ptr %290, align 4
   %333 = icmp sgt i16 %332, 0
@@ -2713,7 +2707,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
 36:                                               ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %.11133 = phi i32 [ %.06069, %.lr.ph ], [ %128, %133 ]
-  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds [16 x i8], ptr %34, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
@@ -2825,7 +2819,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
 
 fetch_att.exit:                                   ; preds = %83, %86, %89, %92, %97
   %.0.i30 = phi i64 [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %93, %92 ], [ %98, %97 ]
-  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %99 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv
   store i64 %.0.i30, ptr %99, align 8
   %100 = load i16, ptr %77, align 4
   %101 = icmp sgt i16 %100, 0
@@ -2913,7 +2907,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 145:                                              ; preds = %.lr.ph138, %256
   %indvars.iv189 = phi i64 [ %144, %.lr.ph138 ], [ %indvars.iv.next190, %256 ]
   %.363136 = phi i32 [ %.06069, %.lr.ph138 ], [ %251, %256 ]
-  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv189
+  %146 = getelementptr inbounds [16 x i8], ptr %143, i64 %indvars.iv189
   %147 = trunc nsw i64 %indvars.iv189 to i32
   %148 = ashr i32 %147, 3
   %149 = sext i32 %148 to i64
@@ -2927,7 +2921,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %.not.i31, label %156, label %160
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
+  %157 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv189
   store i64 0, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 1, ptr %158, align 1
@@ -3046,7 +3040,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 
 fetch_att.exit34:                                 ; preds = %206, %209, %212, %215, %220
   %.0.i32 = phi i64 [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %216, %215 ], [ %221, %220 ]
-  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
+  %222 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv189
   store i64 %.0.i32, ptr %222, align 8
   %223 = load i16, ptr %200, align 4
   %224 = icmp sgt i16 %223, 0
@@ -3140,7 +3134,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 273:                                              ; preds = %258, %371
   %indvars.iv194 = phi i64 [ %272, %258 ], [ %indvars.iv.next195, %371 ]
   %.7140 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
-  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv194
+  %274 = getelementptr inbounds [16 x i8], ptr %271, i64 %indvars.iv194
   br i1 %8, label %275, label %288
 
 275:                                              ; preds = %273
@@ -3157,7 +3151,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %.not.i35, label %285, label %288
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
+  %286 = getelementptr inbounds [8 x i8], ptr %262, i64 %indvars.iv194
   store i64 0, ptr %286, align 8
   %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 1, ptr %287, align 1
@@ -3243,7 +3237,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 
 fetch_att.exit38:                                 ; preds = %315, %318, %321, %324, %329
   %.0.i36 = phi i64 [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %325, %324 ], [ %330, %329 ]
-  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
+  %331 = getelementptr inbounds [8 x i8], ptr %262, i64 %indvars.iv194
   store i64 %.0.i36, ptr %331, align 8
   %332 = load i16, ptr %290, align 4
   %333 = icmp sgt i16 %332, 0
@@ -3846,7 +3840,7 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
 .lr.ph37:                                         ; preds = %.lr.ph.split.us.split, %37
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %37 ], [ 0, %.lr.ph.split.us.split ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv40
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv40
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -3917,7 +3911,7 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
 .lr.ph35:                                         ; preds = %.lr.ph.split.split, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph.split.split ]
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -5368,7 +5362,7 @@ define dso_local void @slot_getmissingattrs(ptr noundef readonly captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = sub i32 %2, %1
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
@@ -5381,11 +5375,11 @@ define dso_local void @slot_getmissingattrs(ptr noundef readonly captures(none) 
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds %struct.AttrMissing, ptr %10, i64 %indvars.iv
+  %26 = getelementptr inbounds [16 x i8], ptr %10, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv
   store i64 %28, ptr %30, align 8
   %31 = load i8, ptr %26, align 8, !range !5, !noundef !6
   %32 = xor i8 %31, 1
@@ -5463,7 +5457,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %30 ], [ 0, %.lr.ph.split.us.split ]
   %.02225.us34 = phi i16 [ %.1.us, %30 ], [ 1, %.lr.ph.split.us.split ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv37
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv37
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %17 = load i8, ptr %16, align 2, !range !5, !noundef !6
@@ -5504,7 +5498,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph32 ], [ 0, %.lr.ph.split.split ]
   %.0222531 = phi i16 [ %49, %.lr.ph32 ], [ 1, %.lr.ph.split.split ]
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
@@ -5558,7 +5552,7 @@ list_length.exit.thread:                          ; preds = %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph23 ], [ 0, %.lr.ph ]
   %.0151921 = phi i16 [ %16, %.lr.ph23 ], [ 1, %.lr.ph ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @exprType(ptr noundef %12) #14
   %14 = tail call i32 @exprTypmod(ptr noundef %12) #14
@@ -5605,7 +5599,7 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   %7 = phi i32 [ %29, %28 ], [ %5, %.lr.ph.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.lr.ph.split ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -5618,7 +5612,7 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   %16 = shl nsw i64 %14, 4
   %17 = getelementptr i8, ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 24
-  %19 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [100 x i8], ptr %18, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i8, ptr %12, align 1
   %21 = icmp eq i8 %20, 0
@@ -5714,7 +5708,7 @@ BlessTupleDesc.exit:                              ; preds = %1, %8, %12
   %22 = shl nsw i64 %21, 4
   %23 = getelementptr i8, ptr %0, i64 %22
   %24 = getelementptr i8, ptr %23, i64 24
-  %25 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [100 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 91
   %27 = load i8, ptr %26, align 1, !range !5, !noundef !6
   %28 = trunc nuw i8 %27 to i1
@@ -5723,14 +5717,14 @@ BlessTupleDesc.exit:                              ; preds = %1, %8, %12
 29:                                               ; preds = %.lr.ph
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   call void @getTypeInputInfo(i32 noundef %31, ptr noundef nonnull %2, ptr noundef %32) #14
   %33 = load i32, ptr %2, align 4
-  %34 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   call void @fmgr_info(i32 noundef %33, ptr noundef %34) #14
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 76
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %36, ptr %37, align 4
   br label %38
 
@@ -5776,7 +5770,7 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %14 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 33
   %16 = load i8, ptr %15, align 1, !range !5, !noundef !6
   %17 = trunc nuw i8 %16 to i1
@@ -5784,17 +5778,17 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %19, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %12, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = tail call i64 @InputFunctionCall(ptr noundef %20, ptr noundef %22, i32 noundef %25, i32 noundef %28) #14
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %31, null
@@ -5810,7 +5804,7 @@ define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none)
   br label %38
 
 35:                                               ; preds = %13
-  %36 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store i64 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   store i8 1, ptr %37, align 1

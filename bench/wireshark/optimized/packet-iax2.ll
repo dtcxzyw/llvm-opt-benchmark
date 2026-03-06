@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nstime_t = type { i64, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct._iax2_dissector_info_t = type { i32, i32 }
-%struct.iax_call_dirdata = type { i32, i32, i32 }
 %struct.iax_circuit_key = type { %struct._address, i32, i32, i32, [16 x i8] }
 %struct._address = type { i32, i32, ptr, ptr }
 
@@ -875,7 +874,7 @@ define internal i32 @dissect_iax2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %86 = add i32 %85, 1
   store i32 %86, ptr %64, align 4
   %87 = zext i32 %85 to i64
-  %88 = getelementptr i32, ptr %84, i64 %87
+  %88 = getelementptr [4 x i8], ptr %84, i64 %87
   store i32 %61, ptr %88, align 4
   br label %iax_new_call.exit.i
 
@@ -1148,7 +1147,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %232 = zext i8 %196 to i64
-  %233 = getelementptr i32, ptr @hf_iax2_ies, i64 %232
+  %233 = getelementptr [4 x i8], ptr @hf_iax2_ies, i64 %232
   %234 = load i32, ptr %233, align 4
   %235 = add nuw nsw i32 %200, 2
   %236 = load i32, ptr @ett_iax2_ie, align 4
@@ -1492,7 +1491,7 @@ dissect_iax2_command.exit.i:                      ; preds = %394, %390, %dissect
 
 400:                                              ; preds = %dissect_iax2_command.exit.i
   %401 = zext nneg i8 %47 to i64
-  %402 = getelementptr i32, ptr @tap_iax_voip_state, i64 %401
+  %402 = getelementptr [4 x i8], ptr @tap_iax_voip_state, i64 %401
   %403 = load i32, ptr %402, align 4
   store i32 %403, ptr getelementptr inbounds nuw (i8, ptr @ii_arr, i64 20), align 4
   br label %dissect_fullpacket.exit
@@ -1523,7 +1522,7 @@ dissect_iax2_command.exit.i:                      ; preds = %394, %390, %dissect
 
 421:                                              ; preds = %412
   %422 = zext nneg i8 %47 to i64
-  %423 = getelementptr i32, ptr @tap_cmd_voip_state, i64 %422
+  %423 = getelementptr [4 x i8], ptr @tap_cmd_voip_state, i64 %422
   %424 = load i32, ptr %423, align 4
   store i32 %424, ptr getelementptr inbounds nuw (i8, ptr @ii_arr, i64 20), align 4
   br label %dissect_fullpacket.exit
@@ -2393,7 +2392,7 @@ define internal fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef range(i3
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %29 = getelementptr i32, ptr %25, i64 %indvars.iv.i.i
+  %29 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %16, %30
   br i1 %31, label %is_forward_circuit.exit.i, label %28
@@ -2413,7 +2412,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
   %39 = add i32 %38, 1
   store i32 %39, ptr %32, align 8
   %40 = zext i32 %38 to i64
-  %41 = getelementptr i32, ptr %37, i64 %40
+  %41 = getelementptr [4 x i8], ptr %37, i64 %40
   store i32 %10, ptr %41, align 4
   br label %iax_lookup_call_from_dest.exit
 
@@ -2429,7 +2428,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
 
 .lr.ph.i53.i:                                     ; preds = %43, %.lr.ph.preheader.i51.i
   %indvars.iv.i54.i = phi i64 [ 0, %.lr.ph.preheader.i51.i ], [ %indvars.iv.next.i55.i, %43 ]
-  %44 = getelementptr i32, ptr %42, i64 %indvars.iv.i54.i
+  %44 = getelementptr [4 x i8], ptr %42, i64 %indvars.iv.i54.i
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %10, %45
   br i1 %46, label %iax_lookup_call_from_dest.exit, label %43
@@ -2458,7 +2457,7 @@ is_reverse_circuit.exit.i:                        ; preds = %43
 
 .lr.ph.i61.i:                                     ; preds = %53, %.lr.ph.preheader.i59.i
   %indvars.iv.i62.i = phi i64 [ 0, %.lr.ph.preheader.i59.i ], [ %indvars.iv.next.i63.i, %53 ]
-  %54 = getelementptr i32, ptr %50, i64 %indvars.iv.i62.i
+  %54 = getelementptr [4 x i8], ptr %50, i64 %indvars.iv.i62.i
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %16, %55
   br i1 %56, label %is_reverse_circuit.exit66.i, label %53
@@ -2477,7 +2476,7 @@ is_reverse_circuit.exit66.i:                      ; preds = %.lr.ph.i61.i
 
 .lr.ph.i70.i:                                     ; preds = %57, %.lr.ph.preheader.i68.i
   %indvars.iv.i71.i = phi i64 [ 0, %.lr.ph.preheader.i68.i ], [ %indvars.iv.next.i72.i, %57 ]
-  %58 = getelementptr i32, ptr %25, i64 %indvars.iv.i71.i
+  %58 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv.i71.i
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %10, %59
   br i1 %60, label %iax_lookup_call_from_dest.exit, label %57
@@ -2527,7 +2526,7 @@ is_reverse_circuit.exit66.i:                      ; preds = %.lr.ph.i61.i
 
 .lr.ph.i:                                         ; preds = %76, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr i32, ptr %73, i64 %indvars.iv.i
+  %77 = getelementptr [4 x i8], ptr %73, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %10, %78
   br i1 %79, label %iax_lookup_call_from_dest.exit, label %76
@@ -2550,7 +2549,7 @@ is_reverse_circuit.exit66.i:                      ; preds = %.lr.ph.i61.i
 
 .lr.ph.i35:                                       ; preds = %83, %.lr.ph.preheader.i33
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i37, %83 ]
-  %84 = getelementptr i32, ptr %80, i64 %indvars.iv.i36
+  %84 = getelementptr [4 x i8], ptr %80, i64 %indvars.iv.i36
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %10, %85
   br i1 %86, label %iax_lookup_call_from_dest.exit, label %83
@@ -2771,7 +2770,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef range(i
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %48 = load i8, ptr %47, align 4, !range !6, !noundef !7
   %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr %struct.iax_call_dirdata, ptr %46, i64 %49
+  %50 = getelementptr [12 x i8], ptr %46, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 57

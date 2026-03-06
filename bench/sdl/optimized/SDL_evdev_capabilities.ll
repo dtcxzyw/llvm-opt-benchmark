@@ -117,7 +117,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
 .preheader148:                                    ; preds = %53, %.preheader148
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader148 ], [ 0, %53 ]
   %.067150 = phi i64 [ %57, %.preheader148 ], [ 0, %53 ]
-  %55 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8
   %57 = or i64 %56, %.067150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -136,7 +136,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
   %60 = phi i1 [ false, %._crit_edge ], [ true, %58 ]
   %indvars.iv161 = phi i64 [ 1, %._crit_edge ], [ 0, %58 ]
   %.2154 = phi i64 [ %.3, %._crit_edge ], [ 0, %58 ]
-  %61 = getelementptr inbounds nuw %struct.range, ptr @SDL_EVDEV_GuessDeviceClass.high_key_blocks, i64 %indvars.iv161
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @SDL_EVDEV_GuessDeviceClass.high_key_blocks, i64 %indvars.iv161
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
@@ -156,7 +156,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
   %indvars.iv157 = phi i64 [ %66, %.lr.ph.preheader ], [ %indvars.iv.next158, %67 ]
   %68 = lshr i64 %indvars.iv157, 6
-  %69 = getelementptr inbounds nuw i64, ptr %3, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %indvars.iv157, 63
   %72 = shl nuw i64 1, %71

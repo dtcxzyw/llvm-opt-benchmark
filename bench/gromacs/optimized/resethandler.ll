@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
 
 $_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -367,7 +366,7 @@ _Z20pme_gpu_task_enabledPK9gmx_pme_t.exit41.thread: ; preds = %60, %62, %_Z20pme
   %94 = load i32, ptr %93, align 4, !tbaa !105
   %95 = mul nsw i32 %94, 60
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.wallcc_t, ptr %85, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %96
   %98 = load i32, ptr %97, align 8, !tbaa !102
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 8, !tbaa !102

@@ -78,7 +78,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %45 = load i32, ptr %14, align 4, !tbaa !3
   %narrow = xor i32 %45, -1
   %46 = sext i32 %narrow to i64
-  %47 = getelementptr inbounds double, ptr %13, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %13, i64 %46
   store i32 0, ptr %16, align 4, !tbaa !3
   %48 = load i32, ptr %0, align 4, !tbaa !3
   %49 = icmp eq i32 %48, 0
@@ -340,7 +340,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .preheader:                                       ; preds = %154, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %154 ]
-  %158 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = tail call i32 @llvm.abs.i32(i32 %159, i1 true)
   %161 = and i32 %160, 4095
@@ -379,7 +379,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %175 = select i1 %173, double %174, double %172
   %176 = load i32, ptr %9, align 4, !tbaa !3
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds double, ptr %44, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %44, i64 %177
   %179 = load double, ptr %178, align 8, !tbaa !7
   store double %179, ptr %23, align 8, !tbaa !7
   %180 = call double @llvm.fabs.f64(double %179)
@@ -405,7 +405,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1607 = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next1608, %.lr.ph ]
   %186 = phi double [ %175, %.lr.ph.preheader ], [ %193, %.lr.ph ]
-  %187 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv1607
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv1607
   %188 = load double, ptr %187, align 8, !tbaa !7
   %189 = fcmp oge double %188, 0.000000e+00
   %190 = fneg double %188
@@ -474,7 +474,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %218 = add i32 %.0947, %45
   %219 = add i32 %218, %217
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds double, ptr %47, i64 %220
+  %221 = getelementptr inbounds [8 x i8], ptr %47, i64 %220
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %221, ptr noundef nonnull %18) #7
   br label %.loopexit1288
 
@@ -494,7 +494,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %228 = add i32 %.0947, %45
   %229 = add i32 %228, %227
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds double, ptr %47, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %47, i64 %230
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %231, ptr noundef nonnull %18) #7
   %232 = load i32, ptr %42, align 4, !tbaa !3
   store i32 %232, ptr %18, align 4, !tbaa !3
@@ -561,7 +561,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.mul1232 = mul i32 %reass.add1231, %249
   %259 = add i32 %reass.mul1232, %.0947
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds double, ptr %47, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %47, i64 %260
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %24, ptr noundef nonnull @c_false, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %261, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %34) #7
   br label %.lr.ph1395.preheader
 
@@ -584,7 +584,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %266 = add i32 %234, %.09591392
   %267 = add i32 %266, %reass.mul1235
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds double, ptr %47, i64 %268
+  %269 = getelementptr inbounds [8 x i8], ptr %47, i64 %268
   call void @dlartg_(ptr noundef %269, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   br label %270
 
@@ -608,7 +608,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %280 = add i32 %272, %.0947
   %281 = add i32 %280, %reass.mul1239
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds double, ptr %47, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %47, i64 %282
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %39, ptr noundef nonnull @c_true, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef %283, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %33) #7
   %284 = load i32, ptr %39, align 4, !tbaa !3
   %.not1150 = icmp eq i32 %284, 0
@@ -620,7 +620,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %287 = add i32 %234, %272
   %288 = add i32 %287, %reass.mul1244
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds double, ptr %47, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %47, i64 %289
   call void @dlartg_(ptr noundef %290, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   store i32 1, ptr %21, align 4, !tbaa !3
   store i32 %271, ptr %22, align 4, !tbaa !3
@@ -635,7 +635,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.mul1242 = mul i32 %272, %reass.add1231
   %295 = add i32 %reass.mul1242, %.0947
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds double, ptr %47, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %47, i64 %296
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %24, ptr noundef nonnull @c_true, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef %297, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   br label %298
 
@@ -744,7 +744,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %337 = add i32 %327, %.0947
   %338 = add i32 %337, %reass.mul1248
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds double, ptr %47, i64 %339
+  %340 = getelementptr inbounds [8 x i8], ptr %47, i64 %339
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %24, ptr noundef nonnull @c_false, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %340, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %34) #7
   br label %341
 
@@ -770,7 +770,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %348 = add i32 %311, %.29611419
   %349 = add i32 %348, %reass.mul1251
   %350 = sext i32 %349 to i64
-  %351 = getelementptr inbounds double, ptr %47, i64 %350
+  %351 = getelementptr inbounds [8 x i8], ptr %47, i64 %350
   call void @dlartg_(ptr noundef %351, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   br label %352
 
@@ -795,7 +795,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %364 = add i32 %363, %362
   %365 = sub i32 %364, %361
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds double, ptr %47, i64 %366
+  %367 = getelementptr inbounds [8 x i8], ptr %47, i64 %366
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %39, ptr noundef nonnull @c_true, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef %367, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %33) #7
   %368 = load i32, ptr %39, align 4, !tbaa !3
   %.not1145 = icmp eq i32 %368, 0
@@ -807,7 +807,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %371 = add i32 %311, %.29611419
   %372 = add i32 %371, %reass.mul1257
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds double, ptr %47, i64 %373
+  %374 = getelementptr inbounds [8 x i8], ptr %47, i64 %373
   call void @dlartg_(ptr noundef %374, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   store i32 1, ptr %21, align 4, !tbaa !3
   %375 = sub nsw i32 %353, %308
@@ -827,7 +827,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %384 = add i32 %383, %362
   %385 = sub i32 %384, %361
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds double, ptr %47, i64 %386
+  %387 = getelementptr inbounds [8 x i8], ptr %47, i64 %386
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %24, ptr noundef nonnull @c_true, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef %387, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   br label %388
 
@@ -924,7 +924,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %421 = add i32 %413, %.0947
   %422 = add i32 %421, %reass.mul1261
   %423 = sext i32 %422 to i64
-  %424 = getelementptr inbounds double, ptr %47, i64 %423
+  %424 = getelementptr inbounds [8 x i8], ptr %47, i64 %423
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_false, ptr noundef nonnull %24, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %424, ptr noundef nonnull %25, ptr noundef nonnull %34, ptr noundef nonnull %33) #7
   br label %425
 
@@ -951,7 +951,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %429 = add i32 %.21444, %.0947
   %430 = add i32 %429, %reass.mul1264
   %431 = sext i32 %430 to i64
-  %432 = getelementptr inbounds double, ptr %47, i64 %431
+  %432 = getelementptr inbounds [8 x i8], ptr %47, i64 %431
   call void @dlartg_(ptr noundef %432, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   br label %433
 
@@ -972,7 +972,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.mul1268 = mul i32 %reass.add1260, %434
   %442 = add i32 %.pre-phi1789, %reass.mul1268
   %443 = sext i32 %442 to i64
-  %444 = getelementptr inbounds double, ptr %47, i64 %443
+  %444 = getelementptr inbounds [8 x i8], ptr %47, i64 %443
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull %40, ptr noundef nonnull %39, ptr noundef nonnull %22, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %444, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   %445 = load i32, ptr %39, align 4, !tbaa !3
   %.not1137 = icmp eq i32 %445, 0
@@ -982,7 +982,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.mul1271 = mul i32 %reass.add1260, %438
   %447 = add i32 %.pre-phi1789, %reass.mul1271
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds double, ptr %47, i64 %448
+  %449 = getelementptr inbounds [8 x i8], ptr %47, i64 %448
   call void @dlartg_(ptr noundef %449, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   store i32 %404, ptr %22, align 4, !tbaa !3
   %450 = call i32 @llvm.smin.i32(i32 %404, i32 %437)
@@ -1103,7 +1103,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %494 = add i32 %.19541477, %.0947
   %495 = add i32 %494, %reass.mul1275
   %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds double, ptr %47, i64 %496
+  %497 = getelementptr inbounds [8 x i8], ptr %47, i64 %496
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull %24, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %497, ptr noundef nonnull %25, ptr noundef nonnull %34, ptr noundef nonnull %33) #7
   br label %498
 
@@ -1129,7 +1129,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %504 = add i32 %.49631468, %.0947
   %505 = add i32 %504, %reass.mul1278
   %506 = sext i32 %505 to i64
-  %507 = getelementptr inbounds double, ptr %47, i64 %506
+  %507 = getelementptr inbounds [8 x i8], ptr %47, i64 %506
   call void @dlartg_(ptr noundef %507, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   br label %508
 
@@ -1152,7 +1152,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %520 = add i32 %519, %509
   %521 = sub i32 %520, %517
   %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds double, ptr %47, i64 %522
+  %523 = getelementptr inbounds [8 x i8], ptr %47, i64 %522
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %40, ptr noundef nonnull %39, ptr noundef nonnull %22, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %523, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   %524 = load i32, ptr %39, align 4, !tbaa !3
   %.not1129 = icmp eq i32 %524, 0
@@ -1162,7 +1162,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %526 = sub i32 %519, %517
   %527 = add i32 %526, %513
   %528 = sext i32 %527 to i64
-  %529 = getelementptr inbounds double, ptr %47, i64 %528
+  %529 = getelementptr inbounds [8 x i8], ptr %47, i64 %528
   call void @dlartg_(ptr noundef %529, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   store i32 %472, ptr %22, align 4, !tbaa !3
   %530 = add nsw i32 %512, %463
@@ -1214,7 +1214,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.2951 = select i1 %89, i32 6, i32 1
   %551 = add i32 %548, %.0981
   %552 = sext i32 %551 to i64
-  %553 = getelementptr inbounds double, ptr %47, i64 %552
+  %553 = getelementptr inbounds [8 x i8], ptr %47, i64 %552
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %553, ptr noundef nonnull %18) #7
   %554 = load i32, ptr %42, align 4, !tbaa !3
   store i32 %554, ptr %18, align 4, !tbaa !3
@@ -1269,7 +1269,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %573 = add i32 %.0981, %572
   %574 = add i32 %573, %reass.mul
   %575 = sext i32 %574 to i64
-  %576 = getelementptr inbounds double, ptr %47, i64 %575
+  %576 = getelementptr inbounds [8 x i8], ptr %47, i64 %575
   %577 = load double, ptr %576, align 8, !tbaa !7
   store double %577, ptr %26, align 8, !tbaa !7
   %578 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
@@ -1289,7 +1289,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %589 = sub i32 %586, %588
   %590 = add i32 %589, %569
   %591 = sext i32 %590 to i64
-  %592 = getelementptr inbounds double, ptr %47, i64 %591
+  %592 = getelementptr inbounds [8 x i8], ptr %47, i64 %591
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %24, ptr noundef nonnull @c_true, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %592, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   store i32 %561, ptr %20, align 4, !tbaa !3
   %593 = load i32, ptr %1, align 4, !tbaa !3
@@ -1302,7 +1302,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %598 = mul nuw i32 %547, %597
   %599 = add i32 %586, %598
   %600 = sext i32 %599 to i64
-  %601 = getelementptr inbounds double, ptr %47, i64 %600
+  %601 = getelementptr inbounds [8 x i8], ptr %47, i64 %600
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull %19, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %601, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %34) #7
   store i32 %563, ptr %19, align 4, !tbaa !3
   %602 = icmp sgt i64 %567, 0
@@ -1317,13 +1317,13 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %605 = add i32 %603, %.0981
   %606 = add i32 %605, %reass.mul1215
   %607 = sext i32 %606 to i64
-  %608 = getelementptr inbounds double, ptr %47, i64 %607
+  %608 = getelementptr inbounds [8 x i8], ptr %47, i64 %607
   call void @dlartg_(ptr noundef %608, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   %reass.mul1217 = mul i32 %reass.add, %603
   %609 = add i32 %.41303, %.0981
   %610 = add i32 %609, %reass.mul1217
   %611 = sext i32 %610 to i64
-  %612 = getelementptr inbounds double, ptr %47, i64 %611
+  %612 = getelementptr inbounds [8 x i8], ptr %47, i64 %611
   %613 = load double, ptr %612, align 8, !tbaa !7
   store double %613, ptr %26, align 8, !tbaa !7
   store i32 %560, ptr %20, align 4, !tbaa !3
@@ -1335,7 +1335,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %618 = add i32 %617, %.0981
   %619 = add i32 %618, %616
   %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds double, ptr %47, i64 %620
+  %621 = getelementptr inbounds [8 x i8], ptr %47, i64 %620
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull @c_true, ptr noundef nonnull %20, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef %621, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %33) #7
   %622 = sub nsw i32 %.41303, %561
   %623 = call i32 @llvm.smax.i32(i32 %622, i32 1)
@@ -1355,7 +1355,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %631 = sub i32 %618, %630
   %632 = add i32 %631, %623
   %633 = sext i32 %632 to i64
-  %634 = getelementptr inbounds double, ptr %47, i64 %633
+  %634 = getelementptr inbounds [8 x i8], ptr %47, i64 %633
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull %24, ptr noundef nonnull @c_true, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef %634, ptr noundef nonnull %25, ptr noundef nonnull %33, ptr noundef nonnull %26) #7
   %635 = load i32, ptr %19, align 4, !tbaa !3
   %636 = add nsw i32 %635, %.41303
@@ -1420,11 +1420,11 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.mul1220 = mul i32 %reass.add1219, %657
   %658 = add i32 %652, %reass.mul1220
   %659 = sext i32 %658 to i64
-  %660 = getelementptr inbounds double, ptr %47, i64 %659
+  %660 = getelementptr inbounds [8 x i8], ptr %47, i64 %659
   %661 = load double, ptr %660, align 8, !tbaa !7
   %662 = add i32 %654, %657
   %663 = sext i32 %662 to i64
-  %664 = getelementptr inbounds double, ptr %47, i64 %663
+  %664 = getelementptr inbounds [8 x i8], ptr %47, i64 %663
   store double %661, ptr %664, align 8, !tbaa !7
   %indvars.iv.next1620 = add nuw nsw i64 %indvars.iv1619, 1
   %.not1114.not = icmp slt i64 %indvars.iv1619, %655
@@ -1493,7 +1493,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.3952 = select i1 %89, i32 5, i32 2
   %687 = add i32 %548, %.1982
   %688 = sext i32 %687 to i64
-  %689 = getelementptr inbounds double, ptr %47, i64 %688
+  %689 = getelementptr inbounds [8 x i8], ptr %47, i64 %688
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %5, ptr noundef nonnull @c__1, ptr noundef %689, ptr noundef nonnull %18) #7
   %690 = load i32, ptr %42, align 4, !tbaa !3
   store i32 %690, ptr %18, align 4, !tbaa !3
@@ -1506,7 +1506,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %692 = zext nneg i32 %547 to i64
   %693 = sext i32 %.1982 to i64
   %694 = sext i32 %45 to i64
-  %invariant.gep = getelementptr double, ptr %47, i64 %693
+  %invariant.gep = getelementptr [8 x i8], ptr %47, i64 %693
   br label %695
 
 695:                                              ; preds = %.lr.ph1364, %._crit_edge1358
@@ -1547,8 +1547,8 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %711 = trunc nsw i64 %709 to i32
   %712 = add i32 %691, %711
   %713 = sext i32 %712 to i64
-  %714 = getelementptr double, ptr %47, i64 %710
-  %715 = getelementptr double, ptr %714, i64 %713
+  %714 = getelementptr [8 x i8], ptr %47, i64 %710
+  %715 = getelementptr [8 x i8], ptr %714, i64 %713
   %716 = load double, ptr %715, align 8, !tbaa !7
   store double %716, ptr %26, align 8, !tbaa !7
   %717 = call double @dlarnd_(ptr noundef nonnull @c__1, ptr noundef nonnull %3) #7
@@ -1564,8 +1564,8 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %725 = icmp slt i64 %indvars.iv1637, %724
   %726 = zext i1 %725 to i32
   store i32 %726, ptr %24, align 4, !tbaa !3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %709
-  %727 = getelementptr double, ptr %gep, i64 %710
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %709
+  %727 = getelementptr [8 x i8], ptr %gep, i64 %710
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %24, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %727, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %33) #7
   %728 = sub nsw i64 %indvars.iv.next1635, %indvars.iv1637
   %729 = trunc i64 %728 to i32
@@ -1580,7 +1580,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %735 = add i32 %.1982, %indvars
   %736 = add i32 %735, %reass.mul1224
   %737 = sext i32 %736 to i64
-  %738 = getelementptr inbounds double, ptr %47, i64 %737
+  %738 = getelementptr inbounds [8 x i8], ptr %47, i64 %737
   call void @dlarot_(ptr noundef nonnull @c_true, ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %21, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %738, ptr noundef nonnull %25, ptr noundef nonnull %34, ptr noundef nonnull %26) #7
   %739 = load i32, ptr %1, align 4, !tbaa !3
   %740 = add nsw i32 %739, -1
@@ -1602,14 +1602,14 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %745 = add i32 %.51349, %.1982
   %746 = add i32 %745, %reass.mul1227
   %747 = sext i32 %746 to i64
-  %748 = getelementptr inbounds double, ptr %47, i64 %747
+  %748 = getelementptr inbounds [8 x i8], ptr %47, i64 %747
   call void @dlartg_(ptr noundef %748, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %34) #7
   %749 = mul nuw nsw i32 %.51349, %547
   %750 = mul nsw i32 %.51349, %45
   %751 = add i32 %691, %749
   %752 = add nsw i32 %751, %750
   %753 = sext i32 %752 to i64
-  %754 = getelementptr inbounds double, ptr %47, i64 %753
+  %754 = getelementptr inbounds [8 x i8], ptr %47, i64 %753
   %755 = load double, ptr %754, align 8, !tbaa !7
   store double %755, ptr %26, align 8, !tbaa !7
   store i32 %701, ptr %20, align 4, !tbaa !3
@@ -1629,7 +1629,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %762 = add nsw i32 %749, %.1982
   %763 = add nsw i32 %762, %750
   %764 = sext i32 %763 to i64
-  %765 = getelementptr inbounds double, ptr %47, i64 %764
+  %765 = getelementptr inbounds [8 x i8], ptr %47, i64 %764
   call void @dlarot_(ptr noundef nonnull @c_false, ptr noundef nonnull @c_true, ptr noundef nonnull %24, ptr noundef nonnull %36, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef %765, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %33) #7
   %766 = load i32, ptr %19, align 4, !tbaa !3
   %767 = add nsw i32 %766, %.51349
@@ -1692,11 +1692,11 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %reass.mul1230 = mul i32 %reass.add1229, %790
   %791 = add i32 %785, %reass.mul1230
   %792 = sext i32 %791 to i64
-  %793 = getelementptr inbounds double, ptr %47, i64 %792
+  %793 = getelementptr inbounds [8 x i8], ptr %47, i64 %792
   %794 = load double, ptr %793, align 8, !tbaa !7
   %795 = add i32 %787, %790
   %796 = sext i32 %795 to i64
-  %797 = getelementptr inbounds double, ptr %47, i64 %796
+  %797 = getelementptr inbounds [8 x i8], ptr %47, i64 %796
   store double %794, ptr %797, align 8, !tbaa !7
   %indvars.iv.next1644 = add nsw i64 %indvars.iv1643, -1
   %.not1106.not = icmp sgt i64 %indvars.iv1643, %788
@@ -1877,7 +1877,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.191527 = phi i32 [ 0, %.lr.ph1530 ], [ %spec.select1187, %869 ]
   %.2010311526 = phi i32 [ 1, %.lr.ph1530 ], [ %spec.select1186, %869 ]
   %860 = mul nsw i64 %indvars.iv1714, %857
-  %invariant.gep1847 = getelementptr double, ptr %47, i64 %860
+  %invariant.gep1847 = getelementptr [8 x i8], ptr %47, i64 %860
   br label %861
 
 861:                                              ; preds = %859, %861
@@ -1889,12 +1889,12 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %863 = zext i1 %.not1162 to i32
   %spec.select1186 = add nsw i32 %.2110321522, %863
   %spec.select1187 = select i1 %.not1162, i32 1, i32 %862
-  %gep1848 = getelementptr double, ptr %invariant.gep1847, i64 %indvars.iv1704
+  %gep1848 = getelementptr [8 x i8], ptr %invariant.gep1847, i64 %indvars.iv1704
   %864 = load double, ptr %gep1848, align 8, !tbaa !7
   %865 = mul nsw i32 %spec.select1186, %45
   %866 = add nsw i32 %865, %spec.select1187
   %867 = sext i32 %866 to i64
-  %868 = getelementptr inbounds double, ptr %47, i64 %867
+  %868 = getelementptr inbounds [8 x i8], ptr %47, i64 %867
   store double %864, ptr %868, align 8, !tbaa !7
   %indvars.iv.next1705 = add nuw nsw i64 %indvars.iv1704, 1
   %exitcond1711.not = icmp eq i64 %indvars.iv.next1705, %indvars.iv1712
@@ -1926,7 +1926,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.221516 = phi i32 [ 0, %.lr.ph1519 ], [ %spec.select1189, %886 ]
   %.2310341515 = phi i32 [ 1, %.lr.ph1519 ], [ %spec.select1188, %886 ]
   %877 = mul nsw i64 %indvars.iv1692, %875
-  %invariant.gep1845 = getelementptr double, ptr %47, i64 %877
+  %invariant.gep1845 = getelementptr [8 x i8], ptr %47, i64 %877
   br label %878
 
 878:                                              ; preds = %876, %878
@@ -1938,12 +1938,12 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %880 = zext i1 %.not1159 to i32
   %spec.select1188 = add nsw i32 %.2410351511, %880
   %spec.select1189 = select i1 %.not1159, i32 1, i32 %879
-  %gep1846 = getelementptr double, ptr %invariant.gep1845, i64 %indvars.iv1694
+  %gep1846 = getelementptr [8 x i8], ptr %invariant.gep1845, i64 %indvars.iv1694
   %881 = load double, ptr %gep1846, align 8, !tbaa !7
   %882 = mul nsw i32 %spec.select1188, %45
   %883 = add nsw i32 %882, %spec.select1189
   %884 = sext i32 %883 to i64
-  %885 = getelementptr inbounds double, ptr %47, i64 %884
+  %885 = getelementptr inbounds [8 x i8], ptr %47, i64 %884
   store double %881, ptr %885, align 8, !tbaa !7
   %indvars.iv.next1695 = add nuw nsw i64 %indvars.iv1694, 1
   %exitcond1699.not = icmp eq i64 %indvars.iv.next1695, %wide.trip.count1702
@@ -2003,17 +2003,17 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %906 = sub i32 %896, %905
   %907 = trunc nsw i64 %904 to i32
   %908 = add i32 %906, %907
-  %invariant.gep1841 = getelementptr double, ptr %47, i64 %904
+  %invariant.gep1841 = getelementptr [8 x i8], ptr %47, i64 %904
   br label %909
 
 909:                                              ; preds = %.lr.ph1493, %909
   %indvars.iv1672 = phi i64 [ %smin1671, %.lr.ph1493 ], [ %indvars.iv.next1673, %909 ]
-  %gep1842 = getelementptr double, ptr %invariant.gep1841, i64 %indvars.iv1672
+  %gep1842 = getelementptr [8 x i8], ptr %invariant.gep1841, i64 %indvars.iv1672
   %910 = load double, ptr %gep1842, align 8, !tbaa !7
   %911 = trunc nuw nsw i64 %indvars.iv1672 to i32
   %912 = add i32 %908, %911
   %913 = sext i32 %912 to i64
-  %914 = getelementptr inbounds double, ptr %47, i64 %913
+  %914 = getelementptr inbounds [8 x i8], ptr %47, i64 %913
   store double %910, ptr %914, align 8, !tbaa !7
   %indvars.iv.next1673 = add nsw i64 %indvars.iv1672, -1
   %915 = icmp sgt i64 %indvars.iv1672, 1
@@ -2058,17 +2058,17 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %933 = sub i32 %920, %932
   %934 = trunc nsw i64 %931 to i32
   %935 = add i32 %933, %934
-  %invariant.gep1843 = getelementptr double, ptr %47, i64 %931
+  %invariant.gep1843 = getelementptr [8 x i8], ptr %47, i64 %931
   br label %936
 
 936:                                              ; preds = %.lr.ph1504, %936
   %indvars.iv1682 = phi i64 [ %930, %.lr.ph1504 ], [ %indvars.iv.next1683, %936 ]
-  %gep1844 = getelementptr double, ptr %invariant.gep1843, i64 %indvars.iv1682
+  %gep1844 = getelementptr [8 x i8], ptr %invariant.gep1843, i64 %indvars.iv1682
   %937 = load double, ptr %gep1844, align 8, !tbaa !7
   %938 = trunc nsw i64 %indvars.iv1682 to i32
   %939 = add i32 %935, %938
   %940 = sext i32 %939 to i64
-  %941 = getelementptr inbounds double, ptr %47, i64 %940
+  %941 = getelementptr inbounds [8 x i8], ptr %47, i64 %940
   store double %937, ptr %941, align 8, !tbaa !7
   %indvars.iv.next1683 = add nsw i64 %indvars.iv1682, 1
   %.not1155.not = icmp slt i64 %indvars.iv1682, %929

@@ -42,7 +42,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.dynevent_arg = type { ptr, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.probe_arg = type { ptr, i8, i32, i32, ptr, ptr, ptr, ptr }
 %struct.sym_count_ctx = type { i32, ptr }
 %struct.traceprobe_parse_context = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32 }
 
@@ -510,7 +509,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   %27 = load i64, ptr %26, align 8
   %28 = inttoptr i64 %27 to ptr
   %29 = zext i32 %25 to i64
-  %30 = getelementptr i64, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %30 to i64
   %32 = xor i64 %27, %31
   %33 = icmp ugt i64 %32, 16383
@@ -554,7 +553,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   %56 = load i64, ptr %55, align 8
   %57 = inttoptr i64 %56 to ptr
   %58 = zext i32 %54 to i64
-  %59 = getelementptr i64, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   %60 = ptrtoint ptr %59 to i64
   %61 = xor i64 %56, %60
   %62 = icmp ugt i64 %61, 16383
@@ -576,7 +575,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
 
 72:                                               ; preds = %49
   %73 = zext nneg i32 %51 to i64
-  %74 = getelementptr i32, ptr @regs_get_kernel_argument.argument_offs, i64 %73
+  %74 = getelementptr [4 x i8], ptr @regs_get_kernel_argument.argument_offs, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = zext nneg i32 %75 to i64
   %77 = ptrtoint ptr %1 to i64
@@ -1238,7 +1237,7 @@ define internal void @kprobe_trace_func(ptr noundef readonly captures(none) %0, 
   %39 = phi i32 [ %53, %51 ], [ 0, %35 ]
   %40 = phi i32 [ %54, %51 ], [ 0, %35 ]
   %41 = sext i32 %40 to i64
-  %42 = getelementptr %struct.probe_arg, ptr %11, i64 %41
+  %42 = getelementptr [56 x i8], ptr %11, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8, !range !21, !noundef !22
   %45 = icmp eq i8 %44, 0
@@ -1291,7 +1290,7 @@ define internal void @kprobe_trace_func(ptr noundef readonly captures(none) %0, 
   %76 = phi ptr [ %72, %70 ], [ %105, %94 ]
   %77 = phi i32 [ %56, %70 ], [ %103, %94 ]
   %78 = sext i32 %75 to i64
-  %79 = getelementptr %struct.probe_arg, ptr %11, i64 %78
+  %79 = getelementptr [56 x i8], ptr %11, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = zext i32 %81 to i64
@@ -1408,7 +1407,7 @@ define internal void @kretprobe_trace_func(ptr noundef readonly captures(none) %
   %41 = phi i32 [ %55, %53 ], [ 0, %37 ]
   %42 = phi i32 [ %56, %53 ], [ 0, %37 ]
   %43 = sext i32 %42 to i64
-  %44 = getelementptr %struct.probe_arg, ptr %12, i64 %43
+  %44 = getelementptr [56 x i8], ptr %12, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8, !range !21, !noundef !22
   %47 = icmp eq i8 %46, 0
@@ -1464,7 +1463,7 @@ define internal void @kretprobe_trace_func(ptr noundef readonly captures(none) %
   %80 = phi ptr [ %76, %74 ], [ %109, %98 ]
   %81 = phi i32 [ %58, %74 ], [ %107, %98 ]
   %82 = sext i32 %79 to i64
-  %83 = getelementptr %struct.probe_arg, ptr %12, i64 %82
+  %83 = getelementptr [56 x i8], ptr %12, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
@@ -1548,7 +1547,7 @@ define internal noundef i32 @kprobe_perf_func(ptr noundef readonly captures(none
   %22 = phi i32 [ 0, %18 ], [ %36, %34 ]
   %23 = phi i32 [ 0, %18 ], [ %37, %34 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.probe_arg, ptr %19, i64 %24
+  %25 = getelementptr [56 x i8], ptr %19, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i8, ptr %26, align 8, !range !21, !noundef !22
   %28 = icmp eq i8 %27, 0
@@ -1608,7 +1607,7 @@ define internal noundef i32 @kprobe_perf_func(ptr noundef readonly captures(none
   %65 = phi ptr [ %60, %58 ], [ %94, %83 ]
   %66 = phi i32 [ %39, %58 ], [ %92, %83 ]
   %67 = sext i32 %64 to i64
-  %68 = getelementptr %struct.probe_arg, ptr %61, i64 %67
+  %68 = getelementptr [56 x i8], ptr %61, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
@@ -1689,7 +1688,7 @@ define internal void @kretprobe_perf_func(ptr noundef readonly captures(none) %0
   %23 = phi i32 [ 0, %19 ], [ %37, %35 ]
   %24 = phi i32 [ 0, %19 ], [ %38, %35 ]
   %25 = sext i32 %24 to i64
-  %26 = getelementptr %struct.probe_arg, ptr %20, i64 %25
+  %26 = getelementptr [56 x i8], ptr %20, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i8, ptr %27, align 8, !range !21, !noundef !22
   %29 = icmp eq i8 %28, 0
@@ -1751,7 +1750,7 @@ define internal void @kretprobe_perf_func(ptr noundef readonly captures(none) %0
   %68 = phi ptr [ %63, %61 ], [ %97, %86 ]
   %69 = phi i32 [ %40, %61 ], [ %95, %86 ]
   %70 = sext i32 %67 to i64
-  %71 = getelementptr %struct.probe_arg, ptr %64, i64 %70
+  %71 = getelementptr [56 x i8], ptr %64, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
@@ -2299,7 +2298,7 @@ define internal fastcc i32 @__register_trace_kprobe(ptr noundef %0) unnamed_addr
 22:                                               ; preds = %18, %16
   %23 = phi i32 [ 0, %16 ], [ %19, %18 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.probe_arg, ptr %17, i64 %24
+  %25 = getelementptr [56 x i8], ptr %17, i64 %24
   %26 = tail call i32 @traceprobe_update_arg(ptr noundef %25) #20
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %18, label %.loopexit
@@ -2568,7 +2567,7 @@ define internal noundef i32 @trace_kprobe_show(ptr noundef %0, ptr noundef reado
 56:                                               ; preds = %56, %54
   %57 = phi i32 [ 0, %54 ], [ %64, %56 ]
   %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct.probe_arg, ptr %55, i64 %58
+  %59 = getelementptr [56 x i8], ptr %55, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
@@ -3196,7 +3195,7 @@ define internal i32 @__trace_kprobe_create(i32 noundef %0, ptr noundef %1) #1 al
   %192 = add i32 %191, 2
   call void @trace_probe_log_set_index(i32 noundef %192) #20
   store i32 0, ptr %175, align 4
-  %193 = getelementptr ptr, ptr %162, i64 %190
+  %193 = getelementptr [8 x i8], ptr %162, i64 %190
   %194 = load ptr, ptr %193, align 8
   %195 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %176, i32 noundef %191, ptr noundef %194, ptr noundef nonnull %12) #20
   %196 = icmp eq i32 %195, 0
@@ -4803,7 +4802,7 @@ define internal noundef i32 @probes_profile_seq_show(ptr noundef %0, ptr noundef
   %52 = load ptr, ptr %40, align 8
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %48, 63
-  %55 = getelementptr i64, ptr @__per_cpu_offset, i64 %54
+  %55 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %53
   %58 = inttoptr i64 %57 to ptr

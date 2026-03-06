@@ -1910,7 +1910,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %.048 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %6, i64 %.048
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.048
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !43
   %28 = icmp eq i32 %27, %3
@@ -1981,7 +1981,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 .lr.ph:                                           ; preds = %.preheader, %69
   %29 = phi i64 [ %71, %69 ], [ 0, %.preheader ]
   %.05815 = phi i32 [ %70, %69 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %7, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !48
   %.not65 = icmp eq i64 %32, 0

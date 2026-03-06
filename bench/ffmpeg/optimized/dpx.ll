@@ -883,9 +883,9 @@ define internal range(i32 1635, 0) i32 @decode_frame(ptr noundef %0, ptr noundef
 
 ..preheader664_crit_edge.us:                      ; preds = %572, %..preheader664_crit_edge.us
   %indvars.iv727 = phi i64 [ %indvars.iv.next728, %..preheader664_crit_edge.us ], [ 0, %572 ]
-  %368 = getelementptr inbounds nuw i32, ptr %360, i64 %indvars.iv727
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %360, i64 %indvars.iv727
   %369 = load i32, ptr %368, align 4, !tbaa !33
-  %370 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv727
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv727
   %371 = load ptr, ptr %370, align 8, !tbaa !48
   %372 = sext i32 %369 to i64
   %373 = getelementptr inbounds i8, ptr %371, i64 %372
@@ -1354,9 +1354,9 @@ read12in32.exit501.us:                            ; preds = %.thread.i498.us, %5
 
 ._crit_edge705.us:                                ; preds = %664, %._crit_edge705.us
   %indvars.iv746 = phi i64 [ %indvars.iv.next747, %._crit_edge705.us ], [ 0, %664 ]
-  %593 = getelementptr inbounds nuw i32, ptr %586, i64 %indvars.iv746
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %indvars.iv746
   %594 = load i32, ptr %593, align 4, !tbaa !33
-  %595 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv746
+  %595 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv746
   %596 = load ptr, ptr %595, align 8, !tbaa !48
   %597 = sext i32 %594 to i64
   %598 = getelementptr inbounds i8, ptr %596, i64 %597
@@ -1557,9 +1557,9 @@ read10in32.exit465.us:                            ; preds = %653, %651
 
 668:                                              ; preds = %.lr.ph714.split.split.us, %668
   %indvars.iv739 = phi i64 [ 0, %.lr.ph714.split.split.us ], [ %indvars.iv.next740, %668 ]
-  %669 = getelementptr inbounds nuw i32, ptr %586, i64 %indvars.iv739
+  %669 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %indvars.iv739
   %670 = load i32, ptr %669, align 4, !tbaa !33
-  %671 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv739
+  %671 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv739
   %672 = load ptr, ptr %671, align 8, !tbaa !48
   %673 = sext i32 %670 to i64
   %674 = getelementptr inbounds i8, ptr %672, i64 %673
@@ -1574,9 +1574,9 @@ read10in32.exit465.us:                            ; preds = %653, %651
 
 675:                                              ; preds = %.lr.ph714.split.split, %675
   %indvars.iv733 = phi i64 [ 0, %.lr.ph714.split.split ], [ %indvars.iv.next734, %675 ]
-  %676 = getelementptr inbounds nuw i32, ptr %586, i64 %indvars.iv733
+  %676 = getelementptr inbounds nuw [4 x i8], ptr %586, i64 %indvars.iv733
   %677 = load i32, ptr %676, align 4, !tbaa !33
-  %678 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv733
+  %678 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv733
   %679 = load ptr, ptr %678, align 8, !tbaa !48
   %680 = sext i32 %677 to i64
   %681 = getelementptr inbounds i8, ptr %679, i64 %680
@@ -1596,9 +1596,9 @@ read10in32.exit465.us:                            ; preds = %653, %651
 
 684:                                              ; preds = %.preheader664, %684
   %indvars.iv = phi i64 [ 0, %.preheader664 ], [ %indvars.iv.next, %684 ]
-  %685 = getelementptr inbounds nuw i32, ptr %360, i64 %indvars.iv
+  %685 = getelementptr inbounds nuw [4 x i8], ptr %360, i64 %indvars.iv
   %686 = load i32, ptr %685, align 4, !tbaa !33
-  %687 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %687 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %688 = load ptr, ptr %687, align 8, !tbaa !48
   %689 = sext i32 %686 to i64
   %690 = getelementptr inbounds i8, ptr %688, i64 %689

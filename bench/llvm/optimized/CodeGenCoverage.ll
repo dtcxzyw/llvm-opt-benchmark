@@ -71,7 +71,7 @@ define dso_local void @_ZN4llvm15CodeGenCoverage10setCoveredEm(ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !9
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !18
   %21 = and i64 %20, %13
@@ -113,7 +113,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %30 ], [ %.pre.i.i, %34 ]
   %36 = phi i32 [ %22, %30 ], [ %.pre.i.i.i, %34 ]
   %37 = load ptr, ptr %0, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %.pre-phi.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !18
   %39 = trunc nuw nsw i64 %31 to i32
@@ -139,7 +139,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %46 = shl nsw i64 -1, %45
   %47 = xor i64 %46, -1
   %48 = zext i32 %41 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %.pre4, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.pre4, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 -8
   %51 = load i64, ptr %50, align 8, !tbaa !18
   %52 = and i64 %51, %47
@@ -150,7 +150,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %._ZN4llvm9BitVector
   %53 = phi ptr [ %.pre, %._ZN4llvm9BitVector6resizeEjb.exit_crit_edge ], [ %.pre4, %44 ], [ %.pre4, %_ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i ]
   %54 = lshr i64 %1, 6
   %55 = and i64 %54, 67108863
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   %57 = and i64 %1, 63
   %58 = shl nuw i64 1, %57
   %59 = load i64, ptr %56, align 8, !tbaa !18
@@ -175,7 +175,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15CodeGenCoverage9isCoveredEm(ptr 
   %8 = shl nuw i64 1, %7
   %9 = lshr i64 %1, 6
   %10 = load ptr, ptr %0, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8, !tbaa !18
   %13 = and i64 %12, %8
   %14 = icmp ne i64 %13, 0
@@ -209,7 +209,7 @@ define dso_local void @_ZNK4llvm15CodeGenCoverage7coveredEv(ptr dead_on_unwind n
 
 16:                                               ; preds = %27, %6
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i.i.i.i, %27 ]
-  %17 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !18, !noalias !21
   %19 = icmp eq i64 %indvars.iv.i.i.i.i.i, %14
   %20 = select i1 %19, i64 %13, i64 -1
@@ -534,7 +534,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %53, %55, %56
 
 73:                                               ; preds = %78, %63
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i.i.i.i.i, %78 ]
-  %74 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv.i.i.i.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i.i.i.i
   %75 = load i64, ptr %74, align 8, !tbaa !18, !noalias !84
   %76 = icmp eq i64 %indvars.iv.i.i.i.i.i, %71
   %77 = select i1 %76, i64 %70, i64 -1
@@ -605,7 +605,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %73
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %114
   %indvars.iv.i.us.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %114 ], [ %107, %.lr.ph.i.i.i.i ]
-  %110 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv.i.us.i.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i.us.i.i.i
   %111 = load i64, ptr %110, align 8, !tbaa !18
   %112 = icmp eq i64 %indvars.iv.i.us.i.i.i, %108
   %113 = select i1 %112, i64 %106, i64 -1
@@ -620,7 +620,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %73
 
 .lr.ph.i.split.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %120
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %120 ], [ %107, %.lr.ph.i.i.i.i ]
-  %115 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv.i.i.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i.i.i.i
   %116 = load i64, ptr %115, align 8, !tbaa !18
   %117 = icmp eq i64 %indvars.iv.i.i.i.i, %107
   %spec.select.i.i.i = select i1 %117, i64 %102, i64 -1
@@ -726,7 +726,7 @@ define dso_local void @_ZN4llvm15CodeGenCoverage5resetEv(ptr noundef nonnull ali
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !9
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !18
   %16 = and i64 %15, %8

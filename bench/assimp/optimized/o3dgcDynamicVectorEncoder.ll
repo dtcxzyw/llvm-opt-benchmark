@@ -524,30 +524,30 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph36.i, %._crit_edge.us.i
   %.02734.us.i = phi i64 [ %85, %._crit_edge.us.i ], [ 0, %.lr.ph36.i ]
-  %66 = getelementptr inbounds nuw float, ptr %45, i64 %.02734.us.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.02734.us.i
   %67 = load float, ptr %66, align 4
-  %68 = getelementptr inbounds nuw float, ptr %43, i64 %.02734.us.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.02734.us.i
   %69 = load float, ptr %68, align 4
   %70 = fsub float %67, %69
   %71 = fcmp ogt float %70, 0.000000e+00
   %72 = fdiv float %64, %70
   %.028.us.i = select i1 %71, float %72, float 1.000000e+00
-  %invariant.gep.us.i = getelementptr float, ptr %39, i64 %.02734.us.i
+  %invariant.gep.us.i = getelementptr [4 x i8], ptr %39, i64 %.02734.us.i
   %73 = mul i64 %.02734.us.i, %10
   br label %74
 
 74:                                               ; preds = %74, %.lr.ph.us.i
   %.033.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %84, %74 ]
   %75 = mul i64 %.033.us.i, %41
-  %gep.us.i = getelementptr float, ptr %invariant.gep.us.i, i64 %75
+  %gep.us.i = getelementptr [4 x i8], ptr %invariant.gep.us.i, i64 %75
   %76 = load float, ptr %gep.us.i, align 4
   %77 = load float, ptr %68, align 4
   %78 = fsub float %76, %77
   %79 = tail call float @llvm.fmuladd.f32(float %78, float %.028.us.i, float 5.000000e-01)
   %80 = fptosi float %79 to i64
   %81 = load ptr, ptr %65, align 8
-  %82 = getelementptr i64, ptr %81, i64 %.033.us.i
-  %83 = getelementptr i64, ptr %82, i64 %73
+  %82 = getelementptr [8 x i8], ptr %81, i64 %.033.us.i
+  %83 = getelementptr [8 x i8], ptr %82, i64 %73
   store i64 %80, ptr %83, align 8
   %84 = add nuw i64 %.033.us.i, 1
   %exitcond.not.i = icmp eq i64 %84, %10
@@ -567,7 +567,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
   %.05986.us = phi i64 [ %152, %_ZN5o3dgc9TransformEPlm.exit.loopexit.us ], [ 0, %.lr.ph87 ]
   %87 = load ptr, ptr %86, align 8
   %88 = mul i64 %.05986.us, %10
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   br label %91
 
@@ -579,7 +579,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
 
 .lr.ph.i.i.us:                                    ; preds = %91, %.lr.ph.i.i.us
   %.016.i.i.us = phi i64 [ %104, %.lr.ph.i.i.us ], [ 1, %91 ]
-  %94 = getelementptr i64, ptr %89, i64 %.016.i.i.us
+  %94 = getelementptr [8 x i8], ptr %89, i64 %.016.i.i.us
   %95 = getelementptr i8, ptr %94, i64 -8
   %96 = load i64, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -600,7 +600,7 @@ _ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN
   br i1 %106, label %107, label %_ZN5o3dgc7PredictEPll.exit.i.us
 
 107:                                              ; preds = %._crit_edge.i.i.us
-  %108 = getelementptr i64, ptr %89, i64 %92
+  %108 = getelementptr [8 x i8], ptr %89, i64 %92
   %109 = getelementptr i8, ptr %108, i64 -8
   %110 = load i64, ptr %109, align 8
   %111 = load i64, ptr %108, align 8
@@ -619,7 +619,7 @@ _ZN5o3dgc7PredictEPll.exit.i.us:                  ; preds = %107, %._crit_edge.i
 
 .lr.ph.i11.i.us:                                  ; preds = %_ZN5o3dgc7PredictEPll.exit.i.us, %.lr.ph.i11.i.us
   %.018.i.i.us = phi i64 [ %128, %.lr.ph.i11.i.us ], [ 2, %_ZN5o3dgc7PredictEPll.exit.i.us ]
-  %118 = getelementptr i64, ptr %89, i64 %.018.i.i.us
+  %118 = getelementptr [8 x i8], ptr %89, i64 %.018.i.i.us
   %119 = getelementptr i8, ptr %118, i64 -8
   %120 = load i64, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -640,7 +640,7 @@ _ZN5o3dgc7PredictEPll.exit.i.us:                  ; preds = %107, %._crit_edge.i
   br i1 %130, label %131, label %_ZN5o3dgc6UpdateEPll.exit.i.us
 
 131:                                              ; preds = %._crit_edge.i9.i.us
-  %132 = getelementptr i64, ptr %89, i64 %92
+  %132 = getelementptr [8 x i8], ptr %89, i64 %92
   %133 = getelementptr i8, ptr %132, i64 -8
   %134 = load i64, ptr %133, align 8
   %135 = ashr i64 %134, 1
@@ -659,7 +659,7 @@ _ZN5o3dgc6UpdateEPll.exit.i.us:                   ; preds = %131, %._crit_edge.i
 
 138:                                              ; preds = %138, %.preheader.i.i.us
   %.014.i.i.us = phi i64 [ %.01316.i.i.us, %.preheader.i.i.us ], [ %143, %138 ]
-  %139 = getelementptr inbounds nuw i64, ptr %89, i64 %.014.i.i.us
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.014.i.i.us
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %139, align 8
   %142 = load i64, ptr %140, align 8
@@ -690,7 +690,7 @@ _ZN5o3dgc9TransformEPlm.exit.loopexit.us:         ; preds = %_ZN5o3dgc5SplitEPll
 153:                                              ; preds = %.lr.ph, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74
   %.06085 = phi i64 [ 0, %.lr.ph ], [ %210, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74 ]
   %154 = load ptr, ptr %35, align 8
-  %155 = getelementptr inbounds nuw float, ptr %154, i64 %.06085
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %.06085
   %156 = load float, ptr %155, align 4
   %157 = load i32, ptr %11, align 8
   %158 = icmp eq i32 %157, 1
@@ -756,7 +756,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i:      ; preds = %174, %._crit_edge.i
 
 _ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i, %181
   %182 = load ptr, ptr %37, align 8
-  %183 = getelementptr inbounds nuw float, ptr %182, i64 %.06085
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %.06085
   %184 = load float, ptr %183, align 4
   %185 = load i32, ptr %11, align 8
   %186 = icmp eq i32 %185, 1
@@ -861,8 +861,8 @@ _ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit74: ; preds = %
   %.05796.us = phi i64 [ 0, %.preheader.us ], [ %286, %_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit.us ]
   %222 = load ptr, ptr %219, align 8
   %223 = mul i64 %.05796.us, %10
-  %224 = getelementptr i64, ptr %222, i64 %223
-  %225 = getelementptr i64, ptr %224, i64 %.05899.us
+  %224 = getelementptr [8 x i8], ptr %222, i64 %223
+  %225 = getelementptr [8 x i8], ptr %224, i64 %.05899.us
   %226 = load i64, ptr %225, align 8
   %227 = shl nsw i64 %226, 1
   %.lobit.i.i.us = ashr i64 %226, 63
@@ -1423,8 +1423,8 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
   %.055.us = phi i64 [ 0, %.preheader.us ], [ %68, %_ZN5o3dgc14EncodeIntACEGCElRNS_16Arithmetic_CodecERNS_19Adaptive_Data_ModelERNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelEm.exit.us ]
   %48 = load ptr, ptr %46, align 8
   %49 = mul i64 %.055.us, %1
-  %50 = getelementptr i64, ptr %48, i64 %49
-  %51 = getelementptr i64, ptr %50, i64 %.02056.us
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
+  %51 = getelementptr [8 x i8], ptr %50, i64 %.02056.us
   %52 = load i64, ptr %51, align 8
   %53 = shl nsw i64 %52, 1
   %.lobit.i.i.us = ashr i64 %52, 63
@@ -1611,30 +1611,30 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorEncoder8QuantizeEPKfmmmS2_S2_
 
 .lr.ph.us:                                        ; preds = %.lr.ph36, %._crit_edge.us
   %.02734.us = phi i64 [ %47, %._crit_edge.us ], [ 0, %.lr.ph36 ]
-  %28 = getelementptr inbounds nuw float, ptr %6, i64 %.02734.us
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.02734.us
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds nuw float, ptr %5, i64 %.02734.us
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.02734.us
   %31 = load float, ptr %30, align 4
   %32 = fsub float %29, %31
   %33 = fcmp ogt float %32, 0.000000e+00
   %34 = fdiv float %26, %32
   %.028.us = select i1 %33, float %34, float 1.000000e+00
-  %invariant.gep.us = getelementptr float, ptr %1, i64 %.02734.us
+  %invariant.gep.us = getelementptr [4 x i8], ptr %1, i64 %.02734.us
   %35 = mul i64 %.02734.us, %2
   br label %36
 
 36:                                               ; preds = %.lr.ph.us, %36
   %.033.us = phi i64 [ 0, %.lr.ph.us ], [ %46, %36 ]
   %37 = mul i64 %.033.us, %4
-  %gep.us = getelementptr float, ptr %invariant.gep.us, i64 %37
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %37
   %38 = load float, ptr %gep.us, align 4
   %39 = load float, ptr %30, align 4
   %40 = fsub float %38, %39
   %41 = tail call float @llvm.fmuladd.f32(float %40, float %.028.us, float 5.000000e-01)
   %42 = fptosi float %41 to i64
   %43 = load ptr, ptr %27, align 8
-  %44 = getelementptr i64, ptr %43, i64 %.033.us
-  %45 = getelementptr i64, ptr %44, i64 %35
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.033.us
+  %45 = getelementptr [8 x i8], ptr %44, i64 %35
   store i64 %42, ptr %45, align 8
   %46 = add nuw i64 %.033.us, 1
   %exitcond.not = icmp eq i64 %46, %2

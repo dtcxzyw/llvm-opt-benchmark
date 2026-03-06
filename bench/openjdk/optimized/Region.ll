@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/Region.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.XRectangle = type { i16, i16, i16, i16 }
-
 @.str = private unnamed_addr constant [9 x i8] c"endIndex\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"I\00", align 1
 @endIndexID = internal unnamed_addr global ptr null, align 8
@@ -256,7 +254,7 @@ define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) l
   %.03346 = phi i32 [ %42, %.loopexit ], [ 0, %14 ]
   %.13645 = phi i32 [ %.237, %.loopexit ], [ 0, %14 ]
   %18 = sext i32 %.03346 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4
   %.not42 = icmp slt i32 %20, %9
   br i1 %.not42, label %21, label %.loopexit44
@@ -282,7 +280,7 @@ define i32 @Region_CountIterationRects(ptr noundef readonly captures(none) %0) l
   %indvars.iv = phi i64 [ %29, %.preheader.preheader ], [ %indvars.iv.next, %35 ]
   %.3 = phi i32 [ %.13645, %.preheader.preheader ], [ %spec.select, %35 ]
   %.1 = phi i32 [ %23, %.preheader.preheader ], [ %34, %35 ]
-  %32 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %32 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
   %34 = add nsw i32 %.1, -1
@@ -382,7 +380,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr noundef captures(none) %0, 
 
 39:                                               ; preds = %37
   %40 = sext i32 %.173 to i64
-  %41 = getelementptr inbounds i32, ptr %28, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %28, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %31, align 4
   %.not83 = icmp slt i32 %42, %43
@@ -419,7 +417,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr noundef captures(none) %0, 
   %.2 = phi i32 [ %48, %54 ], [ %.173, %.backedge ]
   %.1 = phi i32 [ %50, %54 ], [ %.0, %.backedge ]
   %56 = sext i32 %.2 to i64
-  %57 = getelementptr inbounds i32, ptr %28, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %28, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %.2, 2
   %60 = add nsw i32 %.1, -1
@@ -579,7 +577,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %.03346.i = phi i32 [ %95, %.loopexit.i ], [ 0, %69 ]
   %.13645.i = phi i32 [ %.237.i, %.loopexit.i ], [ 0, %69 ]
   %71 = sext i32 %.03346.i to i64
-  %72 = getelementptr inbounds i32, ptr %63, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %63, i64 %71
   %73 = load i32, ptr %72, align 4
   %.not42.i = icmp slt i32 %73, %45
   br i1 %.not42.i, label %74, label %Region_CountIterationRects.exit
@@ -605,7 +603,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %indvars.iv.i = phi i64 [ %82, %.preheader.preheader.i ], [ %indvars.iv.next.i, %88 ]
   %.3.i = phi i32 [ %.13645.i, %.preheader.preheader.i ], [ %spec.select.i, %88 ]
   %.1.i = phi i32 [ %76, %.preheader.preheader.i ], [ %87, %88 ]
-  %85 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv.i
+  %85 = getelementptr inbounds [4 x i8], ptr %63, i64 %indvars.iv.i
   %86 = load i32, ptr %85, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 2
   %87 = add nsw i32 %.1.i, -1
@@ -727,7 +725,7 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
 
 127:                                              ; preds = %126
   %128 = sext i32 %.173.i to i64
-  %129 = getelementptr inbounds i32, ptr %63, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %63, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not83.i = icmp slt i32 %130, %45
   br i1 %.not83.i, label %131, label %170
@@ -754,7 +752,7 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   %.2.i = phi i32 [ %.173.i, %.backedge.i ], [ %134, %131 ]
   %.1.i58 = phi i32 [ %.0.i57, %.backedge.i ], [ %136, %131 ]
   %141 = sext i32 %.2.i to i64
-  %142 = getelementptr inbounds i32, ptr %63, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %63, i64 %141
   %143 = load i32, ptr %142, align 4
   %144 = add nsw i32 %.2.i, 2
   %145 = add nsw i32 %.1.i58, -1
@@ -782,23 +780,23 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
 Region_NextIteration.exit.loopexit:               ; preds = %149
   %153 = trunc i32 %spec.select88.i to i16
   %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds nuw %struct.XRectangle, ptr %154, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv
   store i16 %153, ptr %155, align 2
   %156 = trunc i32 %.sroa.4.2 to i16
   %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds nuw %struct.XRectangle, ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 2
   store i16 %156, ptr %159, align 2
   %160 = sub nsw i32 %.168.i, %spec.select88.i
   %161 = trunc i32 %160 to i16
   %162 = load ptr, ptr %6, align 8
-  %163 = getelementptr inbounds nuw %struct.XRectangle, ptr %162, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   store i16 %161, ptr %164, align 2
   %165 = sub nsw i32 %.sroa.11.2, %.sroa.4.2
   %166 = trunc i32 %165 to i16
   %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr inbounds nuw %struct.XRectangle, ptr %167, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 6
   store i16 %166, ptr %169, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

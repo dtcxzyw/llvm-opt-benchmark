@@ -586,7 +586,7 @@ define internal range(i32 -1, -2147483648) i32 @cond_one_of(ptr noundef %0, i32 
   %18 = phi ptr [ %55, %54 ], [ %15, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -1084,7 +1084,7 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %.04054 = phi ptr [ null, %.lr.ph ], [ %.242, %ignore_fcn.exit ]
   %.04353 = phi i32 [ %1, %.lr.ph ], [ %91, %ignore_fcn.exit ]
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8

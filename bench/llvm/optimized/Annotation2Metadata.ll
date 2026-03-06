@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"class.llvm::SmallPtrSet.0" = type { %"class.llvm::SmallPtrSetImpl.base.2", [2 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.2" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -93,7 +92,7 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %32, %29
   %43 = and i32 %37, 134217727
   %44 = zext nneg i32 %43 to i64
   %45 = sub nsw i64 0, %44
-  %46 = getelementptr inbounds %"class.llvm::Use", ptr %35, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr %35, i64 %45
   br label %_ZN4llvm4User8operandsEv.exit.i
 
 _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %42, %39
@@ -142,7 +141,7 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %42, %39
   %68 = and i32 %62, 134217727
   %69 = zext nneg i32 %68 to i64
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %"class.llvm::Use", ptr %58, i64 %70
+  %71 = getelementptr inbounds [32 x i8], ptr %58, i64 %70
   br label %_ZNK4llvm4User10getOperandEj.exit44.i
 
 _ZNK4llvm4User10getOperandEj.exit44.i:            ; preds = %67, %64
@@ -158,7 +157,7 @@ _ZNK4llvm4User10getOperandEj.exit44.i:            ; preds = %67, %64
   %78 = and i32 %77, 134217727
   %79 = zext nneg i32 %78 to i64
   %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds %"class.llvm::Use", ptr %49, i64 %80
+  %81 = getelementptr inbounds [32 x i8], ptr %49, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !106
   %83 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %82) #4
   %84 = load i8, ptr %83, align 8, !tbaa !111

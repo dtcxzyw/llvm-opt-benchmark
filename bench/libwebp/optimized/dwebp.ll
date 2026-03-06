@@ -133,7 +133,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.thre
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !11
   %32 = sext i32 %.0192427 to i64
-  %33 = getelementptr ptr, ptr %1, i64 %32
+  %33 = getelementptr [8 x i8], ptr %1, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !4
   %35 = load i8, ptr %34, align 1
   %.not433 = icmp eq i8 %35, 45
@@ -191,7 +191,7 @@ sub_1356:                                         ; preds = %.tail.thread, %.thr
 52:                                               ; preds = %.tail354
   %53 = add nsw i32 %.0192427, 1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %1, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !4
   br label %215
 
@@ -282,7 +282,7 @@ sub_1356:                                         ; preds = %.tail.thread, %.thr
 93:                                               ; preds = %91
   %94 = add nsw i32 %.0192427, 1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %1, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %1, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !4
   %98 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(4) @.str.17) #9
   %.not237 = icmp eq i32 %98, 0
@@ -363,7 +363,7 @@ sub_1356:                                         ; preds = %.tail.thread, %.thr
 127:                                              ; preds = %125
   %128 = add nsw i32 %.0192427, 1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %1, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !4
   %132 = call i32 @ExUtilGetInt(ptr noundef %131, i32 noundef 0, ptr noundef nonnull %6) #7
   %133 = icmp ugt i32 %132, 2
@@ -416,7 +416,7 @@ sub_1356:                                         ; preds = %.tail.thread, %.thr
 152:                                              ; preds = %150
   %153 = add nsw i32 %.0192427, 1
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %1, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %1, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !4
   %157 = call i32 @ExUtilGetInt(ptr noundef %156, i32 noundef 0, ptr noundef nonnull %6) #7
   store i32 %157, ptr %24, align 4, !tbaa !21
@@ -445,7 +445,7 @@ sub_1356:                                         ; preds = %.tail.thread, %.thr
   store i32 %170, ptr %22, align 4, !tbaa !25
   %171 = add nsw i32 %.0192427, 4
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr %1, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %1, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !4
   %175 = call i32 @ExUtilGetInt(ptr noundef %174, i32 noundef 0, ptr noundef nonnull %6) #7
   store i32 %175, ptr %23, align 8, !tbaa !26
@@ -475,7 +475,7 @@ sub_1356:                                         ; preds = %.tail.thread, %.thr
   store i32 %185, ptr %17, align 8, !tbaa !28
   %186 = add nsw i32 %.0192427, 2
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds ptr, ptr %1, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %1, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !4
   %190 = call i32 @ExUtilGetInt(ptr noundef %189, i32 noundef 0, ptr noundef nonnull %6) #7
   store i32 %190, ptr %18, align 4, !tbaa !29
@@ -780,7 +780,7 @@ default.unreachable494:                           ; preds = %226
 
 switch.lookup:                                    ; preds = %277
   %279 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %279
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.main, i64 %279
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge.i
 
@@ -952,7 +952,7 @@ AllocateExternalBuffer.exit:                      ; preds = %286, %315
   %359 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %360 = load i32, ptr %359, align 8, !tbaa !42
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds ptr, ptr @kFormatType, i64 %361
+  %362 = getelementptr inbounds [8 x i8], ptr @kFormatType, i64 %361
   %363 = load ptr, ptr %362, align 8, !tbaa !4
   %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %351, ptr noundef nonnull @.str.49, i32 noundef %353, i32 noundef %355, ptr noundef nonnull %358, ptr noundef %363) #10
   br label %365
@@ -1057,7 +1057,7 @@ SaveOutput.exit:                                  ; preds = %381, %382, %398, %4
   %415 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %416 = load i32, ptr %415, align 8, !tbaa !42
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds ptr, ptr @kFormatType, i64 %417
+  %418 = getelementptr inbounds [8 x i8], ptr @kFormatType, i64 %417
   %419 = load ptr, ptr %418, align 8, !tbaa !4
   %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %407, ptr noundef nonnull @.str.53, i32 noundef %409, i32 noundef %411, ptr noundef nonnull %414, ptr noundef %419) #10
   %421 = load ptr, ptr @stderr, align 8, !tbaa !9

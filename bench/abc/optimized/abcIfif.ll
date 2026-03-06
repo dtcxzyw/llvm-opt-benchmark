@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/abcIfif.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Abc_IffObj_t_ = type { [7 x float] }
-
 @.str.7 = private unnamed_addr constant [12 x i8] c"Pin+Wire: {\00", align 1
 @.str.8 = private unnamed_addr constant [7 x i8] c" %3.2f\00", align 1
 @.str.9 = private unnamed_addr constant [5 x i8] c" }  \00", align 1
@@ -80,13 +78,13 @@ define void @Abc_ObjSortByDelay(ptr noundef readonly captures(none) %0, ptr noun
 
 13:                                               ; preds = %.lr.ph48, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %.loopexit ]
-  %14 = getelementptr inbounds nuw i32, ptr %.val35, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val35, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %.val34.val.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val34.val.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %18, ptr %19, align 8, !tbaa !41
   %20 = getelementptr i8, ptr %18, i64 20
   %.val36 = load i32, ptr %20, align 4
@@ -102,10 +100,10 @@ define void @Abc_ObjSortByDelay(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph:                                           ; preds = %.preheader
   %.val37 = load ptr, ptr %10, align 8, !tbaa !32
-  %invariant.gep = getelementptr float, ptr %.val37, i64 %11
+  %invariant.gep = getelementptr [4 x i8], ptr %.val37, i64 %11
   %22 = load ptr, ptr %12, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.phi.trans.insert = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !42
   br label %24
 
@@ -114,27 +112,27 @@ define void @Abc_ObjSortByDelay(ptr noundef readonly captures(none) %0, ptr noun
   %26 = phi ptr [ %18, %.lr.ph ], [ %43, %42 ]
   %indvars.iv49 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next50, %42 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next50
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = getelementptr i8, ptr %28, i64 16
   %.val38 = load i32, ptr %29, align 8, !tbaa !43
   %30 = sext i32 %.val38 to i64
-  %gep = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep, i64 %30
+  %gep = getelementptr [28 x i8], ptr %invariant.gep, i64 %30
   %31 = load float, ptr %gep, align 4, !tbaa !42
-  %32 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.next50
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.next50
   %33 = load float, ptr %32, align 4, !tbaa !42
   %34 = fadd float %31, %33
   %35 = getelementptr i8, ptr %26, i64 16
   %.val40 = load i32, ptr %35, align 8, !tbaa !43
   %36 = sext i32 %.val40 to i64
-  %gep45 = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep, i64 %36
+  %gep45 = getelementptr [28 x i8], ptr %invariant.gep, i64 %36
   %37 = load float, ptr %gep45, align 4, !tbaa !42
   %38 = fadd float %37, %25
   %39 = fcmp olt float %34, %38
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %24
-  %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv49
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv49
   store ptr %26, ptr %27, align 8, !tbaa !41
   store ptr %28, ptr %41, align 8, !tbaa !41
   br label %42
@@ -176,13 +174,13 @@ define float @Abc_ObjDelay0(ptr noundef readonly captures(none) %0, ptr noundef 
 
 11:                                               ; preds = %.loopexit.i, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %12 = getelementptr inbounds nuw i32, ptr %.val35.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val35.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4, !tbaa !39
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %.val34.val.val.i, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val34.val.val.i, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8, !tbaa !41
   %18 = getelementptr i8, ptr %16, i64 20
   %.val36.i = load i32, ptr %18, align 4
@@ -201,7 +199,7 @@ define float @Abc_ObjDelay0(ptr noundef readonly captures(none) %0, ptr noundef 
   %invariant.gep.i = getelementptr i8, ptr %.val37.i, i64 4
   %20 = load ptr, ptr %10, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.phi.trans.insert.i = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !42
   br label %22
 
@@ -210,27 +208,27 @@ define float @Abc_ObjDelay0(ptr noundef readonly captures(none) %0, ptr noundef 
   %24 = phi ptr [ %16, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv49.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next50.i, %40 ]
   %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next50.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next50.i
   %26 = load ptr, ptr %25, align 8, !tbaa !41
   %27 = getelementptr i8, ptr %26, i64 16
   %.val38.i = load i32, ptr %27, align 8, !tbaa !43
   %28 = sext i32 %.val38.i to i64
-  %gep.i = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i, i64 %28
+  %gep.i = getelementptr [28 x i8], ptr %invariant.gep.i, i64 %28
   %29 = load float, ptr %gep.i, align 4, !tbaa !42
-  %30 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.next50.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.next50.i
   %31 = load float, ptr %30, align 4, !tbaa !42
   %32 = fadd float %29, %31
   %33 = getelementptr i8, ptr %24, i64 16
   %.val40.i = load i32, ptr %33, align 8, !tbaa !43
   %34 = sext i32 %.val40.i to i64
-  %gep45.i = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i, i64 %34
+  %gep45.i = getelementptr [28 x i8], ptr %invariant.gep.i, i64 %34
   %35 = load float, ptr %gep45.i, align 4, !tbaa !42
   %36 = fadd float %23, %35
   %37 = fcmp olt float %32, %36
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %22
-  %39 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv49.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv49.i
   store ptr %24, ptr %25, align 8, !tbaa !41
   store ptr %26, ptr %39, align 8, !tbaa !41
   br label %40
@@ -256,15 +254,15 @@ define float @Abc_ObjDelay0(ptr noundef readonly captures(none) %0, ptr noundef 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.014 = phi float [ 0.000000e+00, %.lr.ph ], [ %59, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !41
   %50 = getelementptr i8, ptr %49, i64 16
   %.val12 = load i32, ptr %50, align 8, !tbaa !43
   %51 = sext i32 %.val12 to i64
-  %52 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %.val11, i64 %51
+  %52 = getelementptr inbounds [28 x i8], ptr %.val11, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load float, ptr %53, align 4, !tbaa !42
-  %55 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   %56 = load float, ptr %55, align 4, !tbaa !42
   %57 = fadd float %54, %56
   %58 = fcmp ogt float %.014, %57
@@ -303,13 +301,13 @@ define float @Abc_ObjDelay1(ptr noundef readonly captures(none) %0, ptr noundef 
 
 11:                                               ; preds = %.loopexit.i, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %12 = getelementptr inbounds nuw i32, ptr %.val35.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val35.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4, !tbaa !39
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %.val34.val.val.i, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val34.val.val.i, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8, !tbaa !41
   %18 = getelementptr i8, ptr %16, i64 20
   %.val36.i = load i32, ptr %18, align 4
@@ -328,7 +326,7 @@ define float @Abc_ObjDelay1(ptr noundef readonly captures(none) %0, ptr noundef 
   %invariant.gep.i = getelementptr i8, ptr %.val37.i, i64 4
   %20 = load ptr, ptr %10, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.phi.trans.insert.i = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !42
   br label %22
 
@@ -337,27 +335,27 @@ define float @Abc_ObjDelay1(ptr noundef readonly captures(none) %0, ptr noundef 
   %24 = phi ptr [ %16, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv49.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next50.i, %40 ]
   %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
-  %25 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next50.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next50.i
   %26 = load ptr, ptr %25, align 8, !tbaa !41
   %27 = getelementptr i8, ptr %26, i64 16
   %.val38.i = load i32, ptr %27, align 8, !tbaa !43
   %28 = sext i32 %.val38.i to i64
-  %gep.i = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i, i64 %28
+  %gep.i = getelementptr [28 x i8], ptr %invariant.gep.i, i64 %28
   %29 = load float, ptr %gep.i, align 4, !tbaa !42
-  %30 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.next50.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.next50.i
   %31 = load float, ptr %30, align 4, !tbaa !42
   %32 = fadd float %29, %31
   %33 = getelementptr i8, ptr %24, i64 16
   %.val40.i = load i32, ptr %33, align 8, !tbaa !43
   %34 = sext i32 %.val40.i to i64
-  %gep45.i = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i, i64 %34
+  %gep45.i = getelementptr [28 x i8], ptr %invariant.gep.i, i64 %34
   %35 = load float, ptr %gep45.i, align 4, !tbaa !42
   %36 = fadd float %23, %35
   %37 = fcmp olt float %32, %36
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %22
-  %39 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv49.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv49.i
   store ptr %24, ptr %25, align 8, !tbaa !41
   store ptr %26, ptr %39, align 8, !tbaa !41
   br label %40
@@ -388,15 +386,15 @@ define float @Abc_ObjDelay1(ptr noundef readonly captures(none) %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %.04253 = phi float [ 0.000000e+00, %.lr.ph ], [ %72, %70 ]
   %52 = icmp slt i64 %indvars.iv, %50
-  %53 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !41
   %55 = getelementptr i8, ptr %54, i64 16
   %.val51 = load i32, ptr %55, align 8, !tbaa !43
   %56 = sext i32 %.val51 to i64
-  %57 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %.val50, i64 %56
+  %57 = getelementptr inbounds [28 x i8], ptr %.val50, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load float, ptr %58, align 4, !tbaa !42
-  %60 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %61 = load float, ptr %60, align 4, !tbaa !42
   %62 = fadd float %59, %61
   br i1 %52, label %63, label %70
@@ -456,13 +454,13 @@ define float @Abc_ObjDelayDegree(ptr noundef readonly captures(none) %0, ptr nou
 
 17:                                               ; preds = %.loopexit.i, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %18 = getelementptr inbounds nuw i32, ptr %.val35.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.val35.i, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !39
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %.val34.val.val.i, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val34.val.val.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   store ptr %22, ptr %23, align 8, !tbaa !41
   %24 = getelementptr i8, ptr %22, i64 20
   %.val36.i = load i32, ptr %24, align 4
@@ -478,8 +476,8 @@ define float @Abc_ObjDelayDegree(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %.val37.i = load ptr, ptr %14, align 8, !tbaa !32
-  %invariant.gep.i = getelementptr float, ptr %.val37.i, i64 %15
-  %.phi.trans.insert.i = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
+  %invariant.gep.i = getelementptr [4 x i8], ptr %.val37.i, i64 %15
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !42
   br label %26
 
@@ -488,27 +486,27 @@ define float @Abc_ObjDelayDegree(ptr noundef readonly captures(none) %0, ptr nou
   %28 = phi ptr [ %22, %.lr.ph.i ], [ %45, %44 ]
   %indvars.iv49.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next50.i, %44 ]
   %indvars.iv.next50.i = add nsw i64 %indvars.iv49.i, -1
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next50.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next50.i
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = getelementptr i8, ptr %30, i64 16
   %.val38.i = load i32, ptr %31, align 8, !tbaa !43
   %32 = sext i32 %.val38.i to i64
-  %gep.i = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i, i64 %32
+  %gep.i = getelementptr [28 x i8], ptr %invariant.gep.i, i64 %32
   %33 = load float, ptr %gep.i, align 4, !tbaa !42
-  %34 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.next50.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.next50.i
   %35 = load float, ptr %34, align 4, !tbaa !42
   %36 = fadd float %33, %35
   %37 = getelementptr i8, ptr %28, i64 16
   %.val40.i = load i32, ptr %37, align 8, !tbaa !43
   %38 = sext i32 %.val40.i to i64
-  %gep45.i = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i, i64 %38
+  %gep45.i = getelementptr [28 x i8], ptr %invariant.gep.i, i64 %38
   %39 = load float, ptr %gep45.i, align 4, !tbaa !42
   %40 = fadd float %27, %39
   %41 = fcmp olt float %36, %40
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %26
-  %43 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv49.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv49.i
   store ptr %28, ptr %29, align 8, !tbaa !41
   store ptr %30, ptr %43, align 8, !tbaa !41
   br label %44
@@ -537,21 +535,21 @@ define float @Abc_ObjDelayDegree(ptr noundef readonly captures(none) %0, ptr nou
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %invariant.gep = getelementptr float, ptr %.val28, i64 %48
+  %invariant.gep = getelementptr [4 x i8], ptr %.val28, i64 %48
   %wide.trip.count = zext nneg i32 %.val.i to i64
   br label %53
 
 53:                                               ; preds = %53, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph.split.us ]
   %.02331.us = phi float [ %63, %53 ], [ 0.000000e+00, %.lr.ph.split.us ]
-  %54 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !41
   %56 = getelementptr i8, ptr %55, i64 16
   %.val29.us = load i32, ptr %56, align 8, !tbaa !43
   %57 = sext i32 %.val29.us to i64
-  %gep = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep, i64 %57
+  %gep = getelementptr [28 x i8], ptr %invariant.gep, i64 %57
   %58 = load float, ptr %gep, align 4, !tbaa !42
-  %59 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !42
   %61 = fadd float %58, %60
   %62 = fcmp ogt float %.02331.us, %61
@@ -563,22 +561,22 @@ define float @Abc_ObjDelayDegree(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %84
   %indvars.iv35 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next36, %84 ]
   %.02331 = phi float [ 0.000000e+00, %.lr.ph.split.preheader ], [ %86, %84 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv35
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv35
   %65 = load ptr, ptr %64, align 8, !tbaa !41
   %66 = getelementptr i8, ptr %65, i64 16
   %.val29 = load i32, ptr %66, align 8, !tbaa !43
   %67 = sext i32 %.val29 to i64
-  %68 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %.val28, i64 %67
-  %69 = getelementptr inbounds float, ptr %68, i64 %48
+  %68 = getelementptr inbounds [28 x i8], ptr %.val28, i64 %67
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %48
   %70 = load float, ptr %69, align 4, !tbaa !42
-  %71 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv35
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv35
   %72 = load float, ptr %71, align 4, !tbaa !42
   %73 = fadd float %70, %72
   %74 = icmp eq i64 %indvars.iv35, 0
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %.lr.ph.split
-  %76 = getelementptr float, ptr %68, i64 %51
+  %76 = getelementptr [4 x i8], ptr %68, i64 %51
   %77 = getelementptr i8, ptr %76, i64 -4
   %78 = load float, ptr %77, align 4, !tbaa !42
   %79 = fadd float %72, %78
@@ -629,7 +627,7 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %19 = load float, ptr %18, align 4, !tbaa !42
   %20 = fpext float %19 to double
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %20)
@@ -693,12 +691,12 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 .lr.ph159.split.us:                               ; preds = %.lr.ph159.split.us.preheader, %Abc_ObjDelay0.exit.us
   %indvars.iv200 = phi i64 [ 0, %.lr.ph159.split.us.preheader ], [ %indvars.iv.next201, %Abc_ObjDelay0.exit.us ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.val104, i64 %indvars.iv200
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val104, i64 %indvars.iv200
   %55 = load ptr, ptr %54, align 8, !tbaa !40
   %56 = getelementptr i8, ptr %55, i64 16
   %.val96.us = load i32, ptr %56, align 8, !tbaa !43
   %57 = sext i32 %.val96.us to i64
-  %58 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %44, i64 %57
+  %58 = getelementptr inbounds [28 x i8], ptr %44, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = getelementptr i8, ptr %55, i64 28
   %.val.i.i116.us = load i32, ptr %59, align 4, !tbaa !33
@@ -718,13 +716,13 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 64:                                               ; preds = %.loopexit.i.i126.us, %.lr.ph48.i.i117.us
   %indvars.iv.i.i123.us = phi i64 [ 0, %.lr.ph48.i.i117.us ], [ %indvars.iv.next.i.i124.us, %.loopexit.i.i126.us ]
-  %65 = getelementptr inbounds nuw i32, ptr %.val35.i.i119.us, i64 %indvars.iv.i.i123.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.val35.i.i119.us, i64 %indvars.iv.i.i123.us
   %66 = load i32, ptr %65, align 4, !tbaa !39
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %.val34.val.val.i.i121.us, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %.val34.val.val.i.i121.us, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !40
   %indvars.iv.next.i.i124.us = add nuw nsw i64 %indvars.iv.i.i123.us, 1
-  %70 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i123.us
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i123.us
   store ptr %69, ptr %70, align 8, !tbaa !41
   %71 = getelementptr i8, ptr %69, i64 20
   %.val36.i.i125.us = load i32, ptr %71, align 4
@@ -739,7 +737,7 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not.i.i134.us, label %.loopexit.i.i126.us, label %.lr.ph.i.i135.us
 
 .lr.ph.i.i135.us:                                 ; preds = %.preheader.i.i133.us
-  %.phi.trans.insert.i.i138.us = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i.i123.us
+  %.phi.trans.insert.i.i138.us = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i.i123.us
   %.pre.i.i139.us = load float, ptr %.phi.trans.insert.i.i138.us, align 4, !tbaa !42
   br label %73
 
@@ -748,27 +746,27 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %75 = phi ptr [ %69, %.lr.ph.i.i135.us ], [ %92, %91 ]
   %indvars.iv49.i.i140.us = phi i64 [ %indvars.iv.i.i123.us, %.lr.ph.i.i135.us ], [ %indvars.iv.next50.i.i141.us, %91 ]
   %indvars.iv.next50.i.i141.us = add nsw i64 %indvars.iv49.i.i140.us, -1
-  %76 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next50.i.i141.us
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next50.i.i141.us
   %77 = load ptr, ptr %76, align 8, !tbaa !41
   %78 = getelementptr i8, ptr %77, i64 16
   %.val38.i.i142.us = load i32, ptr %78, align 8, !tbaa !43
   %79 = sext i32 %.val38.i.i142.us to i64
-  %gep.i.i143.us = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i.i137, i64 %79
+  %gep.i.i143.us = getelementptr [28 x i8], ptr %invariant.gep.i.i137, i64 %79
   %80 = load float, ptr %gep.i.i143.us, align 4, !tbaa !42
-  %81 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.next50.i.i141.us
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.next50.i.i141.us
   %82 = load float, ptr %81, align 4, !tbaa !42
   %83 = fadd float %80, %82
   %84 = getelementptr i8, ptr %75, i64 16
   %.val40.i.i144.us = load i32, ptr %84, align 8, !tbaa !43
   %85 = sext i32 %.val40.i.i144.us to i64
-  %gep45.i.i145.us = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i.i137, i64 %85
+  %gep45.i.i145.us = getelementptr [28 x i8], ptr %invariant.gep.i.i137, i64 %85
   %86 = load float, ptr %gep45.i.i145.us, align 4, !tbaa !42
   %87 = fadd float %74, %86
   %88 = fcmp olt float %83, %87
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %73
-  %90 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv49.i.i140.us
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv49.i.i140.us
   store ptr %75, ptr %76, align 8, !tbaa !41
   store ptr %77, ptr %90, align 8, !tbaa !41
   br label %91
@@ -785,15 +783,15 @@ define void @Abc_NtkPerformIfif(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 Abc_ObjSortByDelay.exit.i128.us:                  ; preds = %.loopexit.i.i126.us, %Abc_ObjSortByDelay.exit.i128.us
   %indvars.iv.i130.us = phi i64 [ %indvars.iv.next.i131.us, %Abc_ObjSortByDelay.exit.i128.us ], [ 0, %.loopexit.i.i126.us ]
   %.014.i.us = phi float [ %105, %Abc_ObjSortByDelay.exit.i128.us ], [ 0.000000e+00, %.loopexit.i.i126.us ]
-  %94 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i130.us
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i130.us
   %95 = load ptr, ptr %94, align 8, !tbaa !41
   %96 = getelementptr i8, ptr %95, i64 16
   %.val12.i.us = load i32, ptr %96, align 8, !tbaa !43
   %97 = sext i32 %.val12.i.us to i64
-  %98 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %44, i64 %97
+  %98 = getelementptr inbounds [28 x i8], ptr %44, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load float, ptr %99, align 4, !tbaa !42
-  %101 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i130.us
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i130.us
   %102 = load float, ptr %101, align 4, !tbaa !42
   %103 = fadd float %100, %102
   %104 = fcmp ogt float %.014.i.us, %103
@@ -818,7 +816,7 @@ Abc_ObjDelay0.exit.us:                            ; preds = %Abc_ObjSortByDelay.
   %109 = load i32, ptr %108, align 4, !tbaa !48
   %.not93154 = icmp slt i32 %109, 0
   %110 = sext i32 %109 to i64
-  %invariant.gep.i.i = getelementptr float, ptr %44, i64 %110
+  %invariant.gep.i.i = getelementptr [4 x i8], ptr %44, i64 %110
   br i1 %.not93154, label %.critedge.thread, label %.preheader149.preheader
 
 .preheader149.preheader:                          ; preds = %.lr.ph159.split
@@ -830,12 +828,12 @@ Abc_ObjDelay0.exit.us:                            ; preds = %Abc_ObjSortByDelay.
 
 .preheader149:                                    ; preds = %.preheader149.preheader, %..loopexit_crit_edge
   %indvars.iv195 = phi i64 [ 0, %.preheader149.preheader ], [ %indvars.iv.next196, %..loopexit_crit_edge ]
-  %114 = getelementptr inbounds nuw ptr, ptr %.val104, i64 %indvars.iv195
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %.val104, i64 %indvars.iv195
   %115 = load ptr, ptr %114, align 8, !tbaa !40
   %116 = getelementptr i8, ptr %115, i64 16
   %.val96 = load i32, ptr %116, align 8, !tbaa !43
   %117 = sext i32 %.val96 to i64
-  %118 = getelementptr %struct.Abc_IffObj_t_, ptr %44, i64 %117
+  %118 = getelementptr [28 x i8], ptr %44, i64 %117
   %119 = getelementptr i8, ptr %115, i64 28
   %.val.i.i = load i32, ptr %119, align 4, !tbaa !33
   %120 = icmp sgt i32 %.val.i.i, 0
@@ -863,13 +861,13 @@ Abc_ObjDelayDegree.exit.preheader:                ; preds = %.preheader149
 
 124:                                              ; preds = %.loopexit.i.i.us, %.lr.ph48.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph48.i.i.us ], [ %indvars.iv.next.i.i.us, %.loopexit.i.i.us ]
-  %125 = getelementptr inbounds nuw i32, ptr %.val35.i.i.us, i64 %indvars.iv.i.i.us
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.val35.i.i.us, i64 %indvars.iv.i.i.us
   %126 = load i32, ptr %125, align 4, !tbaa !39
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds ptr, ptr %.val34.val.val.i.i.us, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %.val34.val.val.i.i.us, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !40
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
-  %130 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i.us
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i.us
   store ptr %129, ptr %130, align 8, !tbaa !41
   %131 = getelementptr i8, ptr %129, i64 20
   %.val36.i.i.us = load i32, ptr %131, align 4
@@ -884,7 +882,7 @@ Abc_ObjDelayDegree.exit.preheader:                ; preds = %.preheader149
   br i1 %.not.i.i.us, label %.loopexit.i.i.us, label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %.preheader.i.i.us
-  %.phi.trans.insert.i.i.us = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i.i.us
+  %.phi.trans.insert.i.i.us = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i.i.us
   %.pre.i.i.us = load float, ptr %.phi.trans.insert.i.i.us, align 4, !tbaa !42
   br label %133
 
@@ -893,27 +891,27 @@ Abc_ObjDelayDegree.exit.preheader:                ; preds = %.preheader149
   %135 = phi ptr [ %129, %.lr.ph.i.i.us ], [ %152, %151 ]
   %indvars.iv49.i.i.us = phi i64 [ %indvars.iv.i.i.us, %.lr.ph.i.i.us ], [ %indvars.iv.next50.i.i.us, %151 ]
   %indvars.iv.next50.i.i.us = add nsw i64 %indvars.iv49.i.i.us, -1
-  %136 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next50.i.i.us
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next50.i.i.us
   %137 = load ptr, ptr %136, align 8, !tbaa !41
   %138 = getelementptr i8, ptr %137, i64 16
   %.val38.i.i.us = load i32, ptr %138, align 8, !tbaa !43
   %139 = sext i32 %.val38.i.i.us to i64
-  %gep.i.i.us = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i.i, i64 %139
+  %gep.i.i.us = getelementptr [28 x i8], ptr %invariant.gep.i.i, i64 %139
   %140 = load float, ptr %gep.i.i.us, align 4, !tbaa !42
-  %141 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.next50.i.i.us
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.next50.i.i.us
   %142 = load float, ptr %141, align 4, !tbaa !42
   %143 = fadd float %140, %142
   %144 = getelementptr i8, ptr %135, i64 16
   %.val40.i.i.us = load i32, ptr %144, align 8, !tbaa !43
   %145 = sext i32 %.val40.i.i.us to i64
-  %gep45.i.i.us = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i.i, i64 %145
+  %gep45.i.i.us = getelementptr [28 x i8], ptr %invariant.gep.i.i, i64 %145
   %146 = load float, ptr %gep45.i.i.us, align 4, !tbaa !42
   %147 = fadd float %134, %146
   %148 = fcmp olt float %143, %147
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %133
-  %150 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv49.i.i.us
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv49.i.i.us
   store ptr %135, ptr %136, align 8, !tbaa !41
   store ptr %137, ptr %150, align 8, !tbaa !41
   br label %151
@@ -934,22 +932,22 @@ Abc_ObjSortByDelay.exit.i.us:                     ; preds = %.loopexit.i.i.us
 .lr.ph.split.i.us:                                ; preds = %Abc_ObjSortByDelay.exit.i.us, %174
   %indvars.iv35.i.us = phi i64 [ %indvars.iv.next36.i.us, %174 ], [ 0, %Abc_ObjSortByDelay.exit.i.us ]
   %.02331.i.us = phi float [ %176, %174 ], [ 0.000000e+00, %Abc_ObjSortByDelay.exit.i.us ]
-  %154 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv35.i.us
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv35.i.us
   %155 = load ptr, ptr %154, align 8, !tbaa !41
   %156 = getelementptr i8, ptr %155, i64 16
   %.val29.i.us = load i32, ptr %156, align 8, !tbaa !43
   %157 = sext i32 %.val29.i.us to i64
-  %158 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %44, i64 %157
-  %159 = getelementptr inbounds nuw float, ptr %158, i64 %110
+  %158 = getelementptr inbounds [28 x i8], ptr %44, i64 %157
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %110
   %160 = load float, ptr %159, align 4, !tbaa !42
-  %161 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv35.i.us
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv35.i.us
   %162 = load float, ptr %161, align 4, !tbaa !42
   %163 = fadd float %160, %162
   %164 = icmp eq i64 %indvars.iv35.i.us, 0
   br i1 %164, label %165, label %174
 
 165:                                              ; preds = %.lr.ph.split.i.us
-  %166 = getelementptr float, ptr %158, i64 %indvars.iv192
+  %166 = getelementptr [4 x i8], ptr %158, i64 %indvars.iv192
   %167 = getelementptr i8, ptr %166, i64 -4
   %168 = load float, ptr %167, align 4, !tbaa !42
   %169 = fadd float %162, %168
@@ -970,14 +968,14 @@ Abc_ObjSortByDelay.exit.i.us:                     ; preds = %.loopexit.i.i.us
 .lr.ph.split.us.i.us:                             ; preds = %Abc_ObjSortByDelay.exit.i.us, %.lr.ph.split.us.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.split.us.i.us ], [ 0, %Abc_ObjSortByDelay.exit.i.us ]
   %.02331.us.i.us = phi float [ %186, %.lr.ph.split.us.i.us ], [ 0.000000e+00, %Abc_ObjSortByDelay.exit.i.us ]
-  %177 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.us
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.us
   %178 = load ptr, ptr %177, align 8, !tbaa !41
   %179 = getelementptr i8, ptr %178, i64 16
   %.val29.us.i.us = load i32, ptr %179, align 8, !tbaa !43
   %180 = sext i32 %.val29.us.i.us to i64
-  %gep.i.us = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep.i.i, i64 %180
+  %gep.i.us = getelementptr [28 x i8], ptr %invariant.gep.i.i, i64 %180
   %181 = load float, ptr %gep.i.us, align 4, !tbaa !42
-  %182 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i.us
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i.us
   %183 = load float, ptr %182, align 4, !tbaa !42
   %184 = fadd float %181, %183
   %185 = fcmp ogt float %.02331.us.i.us, %184
@@ -989,7 +987,7 @@ Abc_ObjSortByDelay.exit.i.us:                     ; preds = %.loopexit.i.i.us
 Abc_ObjDelayDegree.exit.us:                       ; preds = %174, %.lr.ph.split.us.i.us
   %.023.lcssa.i.us = phi float [ %186, %.lr.ph.split.us.i.us ], [ %176, %174 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %187 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv192
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv192
   store float %.023.lcssa.i.us, ptr %187, align 4, !tbaa !42
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next193, %112
@@ -1029,7 +1027,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %174, %.lr.ph.split.
 .lr.ph168.split.us:                               ; preds = %.lr.ph168, %.lr.ph168.split.us
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %.lr.ph168.split.us ], [ 0, %.lr.ph168 ]
   %.val105.us = load ptr, ptr %194, align 8, !tbaa !38
-  %196 = getelementptr inbounds nuw ptr, ptr %.val105.us, i64 %indvars.iv211
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %.val105.us, i64 %indvars.iv211
   %197 = load ptr, ptr %196, align 8, !tbaa !40
   %198 = getelementptr i8, ptr %197, i64 16
   %.val95.us = load i32, ptr %198, align 8, !tbaa !43
@@ -1047,7 +1045,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %174, %.lr.ph.split.
 .lr.ph164:                                        ; preds = %.lr.ph168, %._crit_edge165
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %._crit_edge165 ], [ 0, %.lr.ph168 ]
   %.val105 = load ptr, ptr %194, align 8, !tbaa !38
-  %204 = getelementptr inbounds nuw ptr, ptr %.val105, i64 %indvars.iv208
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %.val105, i64 %indvars.iv208
   %205 = load ptr, ptr %204, align 8, !tbaa !40
   %206 = getelementptr i8, ptr %205, i64 16
   %.val95 = load i32, ptr %206, align 8, !tbaa !43
@@ -1061,8 +1059,8 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %174, %.lr.ph.split.
   %indvars.iv205 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next206, %210 ]
   %.val103 = load i32, ptr %206, align 8, !tbaa !43
   %211 = sext i32 %.val103 to i64
-  %212 = getelementptr inbounds %struct.Abc_IffObj_t_, ptr %44, i64 %211
-  %213 = getelementptr inbounds nuw float, ptr %212, i64 %indvars.iv205
+  %212 = getelementptr inbounds [28 x i8], ptr %44, i64 %211
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %indvars.iv205
   %214 = load float, ptr %213, align 4, !tbaa !42
   %215 = fpext float %214 to double
   %216 = trunc nuw nsw i64 %indvars.iv205 to i32
@@ -1106,14 +1104,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %225
   %.val110.val = load ptr, ptr %229, align 8, !tbaa !38
   %230 = fptosi float %.087233 to i32
   %231 = sext i32 %230 to i64
-  %invariant.gep = getelementptr float, ptr %44, i64 %231
+  %invariant.gep = getelementptr [4 x i8], ptr %44, i64 %231
   %wide.trip.count217 = zext nneg i32 %.val107.val to i64
   br label %232
 
 232:                                              ; preds = %.lr.ph171, %232
   %indvars.iv214 = phi i64 [ 0, %.lr.ph171 ], [ %indvars.iv.next215, %232 ]
   %.088169 = phi float [ 0.000000e+00, %.lr.ph171 ], [ %245, %232 ]
-  %233 = getelementptr inbounds nuw ptr, ptr %.val110.val, i64 %indvars.iv214
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %.val110.val, i64 %indvars.iv214
   %234 = load ptr, ptr %233, align 8, !tbaa !40
   %.val112 = load ptr, ptr %234, align 8, !tbaa !36
   %235 = getelementptr i8, ptr %234, i64 32
@@ -1124,12 +1122,12 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %225
   %237 = getelementptr i8, ptr %.val112.val, i64 8
   %.val112.val.val = load ptr, ptr %237, align 8, !tbaa !38
   %238 = sext i32 %.val113.val to i64
-  %239 = getelementptr inbounds ptr, ptr %.val112.val.val, i64 %238
+  %239 = getelementptr inbounds [8 x i8], ptr %.val112.val.val, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !40
   %241 = getelementptr i8, ptr %240, i64 16
   %.val101 = load i32, ptr %241, align 8, !tbaa !43
   %242 = sext i32 %.val101 to i64
-  %gep = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep, i64 %242
+  %gep = getelementptr [28 x i8], ptr %invariant.gep, i64 %242
   %243 = load float, ptr %gep, align 4, !tbaa !42
   %244 = fcmp ogt float %.088169, %243
   %245 = select i1 %244, float %.088169, float %243
@@ -1145,14 +1143,14 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %225
   %.val111.val = load ptr, ptr %249, align 8, !tbaa !38
   %250 = fptosi float %.087233 to i32
   %251 = sext i32 %250 to i64
-  %invariant.gep178 = getelementptr float, ptr %44, i64 %251
+  %invariant.gep178 = getelementptr [4 x i8], ptr %44, i64 %251
   %wide.trip.count222 = zext nneg i32 %.val107.val to i64
   br label %252
 
 252:                                              ; preds = %.lr.ph176, %252
   %indvars.iv219 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next220, %252 ]
   %.0175 = phi i32 [ 0, %.lr.ph176 ], [ %.1, %252 ]
-  %253 = getelementptr inbounds nuw ptr, ptr %.val111.val, i64 %indvars.iv219
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %.val111.val, i64 %indvars.iv219
   %254 = load ptr, ptr %253, align 8, !tbaa !40
   %.val114 = load ptr, ptr %254, align 8, !tbaa !36
   %255 = getelementptr i8, ptr %254, i64 32
@@ -1163,12 +1161,12 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %225
   %257 = getelementptr i8, ptr %.val114.val, i64 8
   %.val114.val.val = load ptr, ptr %257, align 8, !tbaa !38
   %258 = sext i32 %.val115.val to i64
-  %259 = getelementptr inbounds ptr, ptr %.val114.val.val, i64 %258
+  %259 = getelementptr inbounds [8 x i8], ptr %.val114.val.val, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !40
   %261 = getelementptr i8, ptr %260, i64 16
   %.val99 = load i32, ptr %261, align 8, !tbaa !43
   %262 = sext i32 %.val99 to i64
-  %gep179 = getelementptr %struct.Abc_IffObj_t_, ptr %invariant.gep178, i64 %262
+  %gep179 = getelementptr [28 x i8], ptr %invariant.gep178, i64 %262
   %263 = load float, ptr %gep179, align 4, !tbaa !42
   %264 = fcmp oge float %263, %248
   %265 = zext i1 %264 to i32

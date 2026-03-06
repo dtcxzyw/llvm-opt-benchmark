@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"av1_frame_split\00", align 1
 @av1_frame_split_codec_ids = internal constant [2 x i32] [i32 225, i32 0], align 4
@@ -117,7 +116,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
 24:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.0127273 = phi i32 [ 0, %.lr.ph ], [ %.2129.ph, %30 ]
-  %25 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 8, !tbaa !39
   switch i32 %26, label %30 [
     i32 6, label %27
@@ -176,7 +175,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %.0130277 = phi i32 [ 0, %.lr.ph279 ], [ %52, %.thread201 ]
   %.0132276 = phi i32 [ -1, %.lr.ph279 ], [ %.2134206, %.thread201 ]
   %.0136275 = phi ptr [ null, %.lr.ph279 ], [ %.2138205, %.thread201 ]
-  %48 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %41, i64 %indvars.iv304
+  %48 = getelementptr inbounds [56 x i8], ptr %41, i64 %indvars.iv304
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !46
   %51 = trunc i64 %50 to i32
@@ -323,7 +322,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %118 = load i32, ptr %117, align 4, !tbaa !44
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %116, i64 %119
+  %120 = getelementptr inbounds [56 x i8], ptr %116, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !61
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 24

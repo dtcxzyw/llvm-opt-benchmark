@@ -3,12 +3,6 @@ source_filename = "bench/rocksdb/original/concurrent_arena.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.rocksdb::ConcurrentArena::Shard" = type { [40 x i8], %"class.rocksdb::SpinMutex", ptr, %"struct.std::atomic.8" }
-%"class.rocksdb::SpinMutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
-%"struct.std::__atomic_base.9" = type { i64 }
 %class.anon = type { ptr, i64 }
 %class.anon.10 = type { ptr, i64, i64, ptr }
 
@@ -66,7 +60,7 @@ define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef no
 
 20:                                               ; preds = %13
   %21 = shl nuw i64 1, %15
-  %22 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %19, i64 %21
+  %22 = getelementptr inbounds [64 x i8], ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %23, %20
@@ -183,7 +177,7 @@ _ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndex
   %storemerge.i = phi i64 [ %24, %20 ], [ %19, %4 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !51
-  %28 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %27, i64 %storemerge.i
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %storemerge.i
   %29 = zext nneg i32 %25 to i64
   %30 = shl nuw i64 1, %29
   %31 = or i64 %30, %storemerge.i
@@ -408,7 +402,7 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   %62 = xor i64 %notmask, -1
   %63 = and i64 %12, %62
   %64 = load ptr, ptr %58, align 8, !tbaa !51
-  %65 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %64, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load atomic i8, ptr %66 monotonic, align 1
   %68 = trunc i8 %67 to i1
@@ -454,7 +448,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   %92 = phi i32 [ %88, %87 ], [ %74, %.noexc68 ]
   %storemerge.i.i = phi i64 [ %90, %87 ], [ %86, %.noexc68 ]
   %93 = load ptr, ptr %58, align 8, !tbaa !51
-  %94 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %93, i64 %storemerge.i.i
+  %94 = getelementptr inbounds nuw [64 x i8], ptr %93, i64 %storemerge.i.i
   %95 = zext nneg i32 %92 to i64
   %96 = shl nuw i64 1, %95
   %97 = or i64 %96, %storemerge.i.i
@@ -766,7 +760,7 @@ _ZNSt11unique_lockIN7rocksdb9SpinMutexEE4lockEv.exit: ; preds = %_ZN7rocksdb9Spi
   %57 = xor i64 %notmask, -1
   %58 = and i64 %12, %57
   %59 = load ptr, ptr %53, align 8, !tbaa !51
-  %60 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %59, i64 %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load atomic i8, ptr %61 monotonic, align 1
   %63 = trunc i8 %62 to i1
@@ -812,7 +806,7 @@ _ZN7rocksdb9SpinMutex8try_lockEv.exit.thread:     ; preds = %.thread, %_ZN7rocks
   %87 = phi i32 [ %83, %82 ], [ %69, %.noexc67 ]
   %storemerge.i.i = phi i64 [ %85, %82 ], [ %81, %.noexc67 ]
   %88 = load ptr, ptr %53, align 8, !tbaa !51
-  %89 = getelementptr inbounds nuw %"struct.rocksdb::ConcurrentArena::Shard", ptr %88, i64 %storemerge.i.i
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %88, i64 %storemerge.i.i
   %90 = zext nneg i32 %87 to i64
   %91 = shl nuw i64 1, %90
   %92 = or i64 %91, %storemerge.i.i

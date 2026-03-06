@@ -30,7 +30,7 @@ define internal range(i32 0, 13) i32 @cdata_probe(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %6
   %11 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cdata_probe, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cdata_probe, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %12
 
@@ -61,13 +61,13 @@ define internal range(i32 -12, 1) i32 @cdata_read_header(ptr noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cdata_read_header, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cdata_read_header, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext nneg i32 %8 to i64
-  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table.cdata_read_header.1, i64 %12
+  %switch.gep37 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cdata_read_header.1, i64 %12
   %switch.load38 = load i32, ptr %switch.gep37, align 4
   %13 = zext nneg i32 %8 to i64
-  %switch.gep39 = getelementptr inbounds nuw i64, ptr @switch.table.cdata_read_header.2, i64 %13
+  %switch.gep39 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cdata_read_header.2, i64 %13
   %switch.load40 = load i64, ptr %switch.gep39, align 8
   store i32 %switch.load38, ptr %3, align 4, !tbaa !28
   %14 = tail call i32 @avio_rb16(ptr noundef %5) #4

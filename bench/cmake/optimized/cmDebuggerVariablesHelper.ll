@@ -90,12 +90,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.cmDebugger::cmDebuggerVariableEntry" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<cmPolicies::PolicyStatus, std::pair<const cmPolicies::PolicyStatus, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const cmPolicies::PolicyStatus, std::__cxx11::basic_string<char>>>, std::less<cmPolicies::PolicyStatus>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::pair.642" = type { %"class.std::basic_string_view", ptr }
 %"class.std::basic_string_view" = type { i64, ptr }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
 %class.cmList = type { %"class.std::vector.31" }
+%"struct.cmDebugger::cmDebuggerVariableEntry" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %class.cmValue = type { ptr }
 
 $_ZNSt4pairIKN10cmPolicies12PolicyStatusENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS1_RA4_KcTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_ = comdat any
@@ -7324,7 +7324,7 @@ _ZNSt12_Vector_baseIP9cmFileSetSaIS1_EE11_M_allocateEm.exit.i: ; preds = %1085
 _ZNSt12_Vector_baseIP9cmFileSetSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_Vector_baseIP9cmFileSetSaIS1_EE11_M_allocateEm.exit.i
   store ptr %1087, ptr %73, align 8, !tbaa !163
   store ptr %1087, ptr %180, align 8, !tbaa !165
-  %1088 = getelementptr inbounds nuw ptr, ptr %1087, i64 %1082
+  %1088 = getelementptr inbounds nuw [8 x i8], ptr %1087, i64 %1082
   store ptr %1088, ptr %179, align 8, !tbaa !166
   br label %_ZNSt6vectorIP9cmFileSetSaIS1_EE7reserveEm.exit
 
@@ -8050,7 +8050,7 @@ _ZNSt6vectorIP9cmFileSetSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds
 
 _ZNSt6vectorIP9cmFileSetSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %1312, %_ZNSt6vectorIP9cmFileSetSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %1311, ptr %180, align 8, !tbaa !165
-  %1313 = getelementptr inbounds nuw ptr, ptr %1307, i64 %1305
+  %1313 = getelementptr inbounds nuw [8 x i8], ptr %1307, i64 %1305
   br label %_ZNSt6vectorIP9cmFileSetSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
 _ZNSt6vectorIP9cmFileSetSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorIP9cmFileSetSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %1293
@@ -8176,7 +8176,7 @@ _ZNSt12_Vector_baseIP9cmFileSetSaIS1_EE11_M_allocateEm.exit.i481: ; preds = %135
 _ZNSt12_Vector_baseIP9cmFileSetSaIS1_EE13_M_deallocateEPS1_m.exit.i484: ; preds = %_ZNSt12_Vector_baseIP9cmFileSetSaIS1_EE11_M_allocateEm.exit.i481
   store ptr %1358, ptr %77, align 8, !tbaa !163
   store ptr %1358, ptr %186, align 8, !tbaa !165
-  %1359 = getelementptr inbounds nuw ptr, ptr %1358, i64 %1353
+  %1359 = getelementptr inbounds nuw [8 x i8], ptr %1358, i64 %1353
   store ptr %1359, ptr %185, align 8, !tbaa !166
   br label %_ZNSt6vectorIP9cmFileSetSaIS1_EE7reserveEm.exit487
 
@@ -8331,7 +8331,7 @@ _ZNSt6vectorIP9cmFileSetSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i499: ; pr
 
 _ZNSt6vectorIP9cmFileSetSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i501: ; preds = %1402, %_ZNSt6vectorIP9cmFileSetSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i499
   store ptr %1401, ptr %186, align 8, !tbaa !165
-  %1403 = getelementptr inbounds nuw ptr, ptr %1397, i64 %1395
+  %1403 = getelementptr inbounds nuw [8 x i8], ptr %1397, i64 %1395
   br label %_ZNSt6vectorIP9cmFileSetSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit504
 
 _ZNSt6vectorIP9cmFileSetSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit504: ; preds = %_ZNSt6vectorIP9cmFileSetSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i501, %1383
@@ -15697,7 +15697,7 @@ _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_dealloca
   store ptr %19, ptr %0, align 8, !tbaa !314
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store ptr %46, ptr %15, align 8, !tbaa !307
-  %47 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %19, i64 %1
+  %47 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %1
   store ptr %47, ptr %6, align 8, !tbaa !310
   br label %48
 
@@ -16438,7 +16438,7 @@ _ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit: ;
 _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %23, ptr %0, align 8, !tbaa !314
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !307
-  %79 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %23, i64 %17
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !310
   ret void
 
@@ -17335,7 +17335,7 @@ _ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit: ;
 _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %23, ptr %0, align 8, !tbaa !314
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !307
-  %79 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %23, i64 %17
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !310
   ret void
 
@@ -18550,7 +18550,7 @@ _ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit: ;
 _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %23, ptr %0, align 8, !tbaa !314
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !307
-  %79 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %23, i64 %17
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !310
   ret void
 
@@ -20693,7 +20693,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i2.i4
 
 switch.lookup:                                    ; preds = %._crit_edge.i.i51.i.i.i
   %112 = zext nneg i32 %110 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSetE3$_0E9_M_invokeERKSt9_Any_data", i64 %112
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSetE3$_0E9_M_invokeERKSt9_Any_data", i64 %112
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSetENK3$_1clE19cmFileSetVisibility.exit.i.i.i"
 
@@ -23934,7 +23934,7 @@ _ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit: ;
 _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %23, ptr %0, align 8, !tbaa !314
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !307
-  %79 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %23, i64 %17
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !310
   ret void
 
@@ -25211,7 +25211,7 @@ _ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit: ;
 _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %23, ptr %0, align 8, !tbaa !314
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !307
-  %79 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %23, i64 %17
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !310
   ret void
 
@@ -25634,7 +25634,7 @@ _ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit: ;
 _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN10cmDebugger23cmDebuggerVariableEntryES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %23, ptr %0, align 8, !tbaa !314
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !307
-  %79 = getelementptr inbounds nuw %"struct.cmDebugger::cmDebuggerVariableEntry", ptr %23, i64 %17
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !310
   ret void
 
@@ -27435,7 +27435,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 
 switch.lookup:                                    ; preds = %431
   %433 = zext nneg i32 %430 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP10cmMakefileE3$_1E9_M_invokeERKSt9_Any_data", i64 %433
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP10cmMakefileE3$_1E9_M_invokeERKSt9_Any_data", i64 %433
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP10cmMakefileENK3$_0clENSE_8AppleSDKE.exit.i.i.i"
 
@@ -28897,7 +28897,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i2.i2
 
 switch.lookup:                                    ; preds = %283
   %285 = zext nneg i32 %282 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP17cmGlobalGeneratorE3$_1E9_M_invokeERKSt9_Any_data", i64 %285
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP17cmGlobalGeneratorE3$_1E9_M_invokeERKSt9_Any_data", i64 %285
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %"_ZZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP17cmGlobalGeneratorENK3$_0clE16codecvt_Encoding.exit.i.i.i"
 

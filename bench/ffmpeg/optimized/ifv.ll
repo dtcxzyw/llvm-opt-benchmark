@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/ifv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [4 x i8] c"ifv\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"IFV CCTV DVR\00", align 1
 @ff_ifv_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr @.str, ptr null, ptr null, ptr null }, i32 0, i32 40, i32 0, [4 x i8] zeroinitializer, ptr @ifv_probe, ptr @ifv_read_header, ptr @ifv_read_packet, ptr null, ptr @ifv_read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -200,7 +198,7 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !49
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 328
   %18 = load i32, ptr %17, align 8, !tbaa !60
@@ -211,7 +209,7 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 320
   %22 = load ptr, ptr %21, align 8, !tbaa !72
   %23 = zext i32 %5 to i64
-  %24 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %23
   br label %25
 
 25:                                               ; preds = %9, %20, %2
@@ -235,7 +233,7 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %38 = load i32, ptr %37, align 4, !tbaa !54
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !58
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 328
   %43 = load i32, ptr %42, align 8, !tbaa !60
@@ -246,7 +244,7 @@ define internal range(i32 -2147483648, 1) i32 @ifv_read_packet(ptr noundef reado
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 320
   %47 = load ptr, ptr %46, align 8, !tbaa !72
   %48 = zext i32 %30 to i64
-  %49 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %48
   %.not107 = icmp eq ptr %.092, null
   br i1 %.not107, label %56, label %50
 
@@ -434,7 +432,7 @@ define internal noundef i32 @ifv_read_seek(ptr noundef readonly captures(none) %
 12:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %13 = load ptr, ptr %9, align 8, !tbaa !57
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !58
   %16 = tail call i32 @av_index_search_timestamp(ptr noundef %15, i64 noundef %2, i32 noundef 4) #4
   %17 = icmp sgt i32 %16, -1
@@ -495,7 +493,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_index(ptr noundef rea
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.39
   %11 = load i32, ptr %10, align 4, !tbaa !50
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %8, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %8, i64 %12
   %.026 = load i32, ptr %9, align 4, !tbaa !50
   %.027 = load ptr, ptr %13, align 8, !tbaa !58
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32

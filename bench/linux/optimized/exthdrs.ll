@@ -74,8 +74,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_fl6_update_d
 %struct.netns_xfrm = type { %struct.list_head, ptr, ptr, ptr, ptr, i32, i32, %struct.work_struct, %struct.list_head, ptr, i32, i32, [3 x %struct.hlist_head], [3 x %struct.xfrm_policy_hash], [6 x i32], %struct.work_struct, %struct.xfrm_policy_hthresh, %struct.list_head, ptr, ptr, i32, i32, i32, i32, [3 x i8], ptr, [24 x i8], %struct.dst_ops, %struct.dst_ops, %struct.spinlock, %struct.seqcount_spinlock, %struct.seqcount_spinlock, %struct.spinlock, %struct.mutex, [16 x i8] }
 %struct.xfrm_policy_hash = type { ptr, i32, i8, i8, i8, i8 }
 %struct.xfrm_policy_hthresh = type { %struct.work_struct, %struct.seqlock_t, i8, i8, i8, i8 }
-%struct.in6_addr = type { %union.anon.31 }
-%union.anon.31 = type { [4 x i32] }
 
 @rthdr_protocol = internal constant %struct.inet6_protocol { ptr @ipv6_rthdr_rcv, ptr null, i32 1 }, align 8
 @destopt_protocol = internal constant %struct.inet6_protocol { ptr @ipv6_destopt_rcv, ptr null, i32 1 }, align 8
@@ -894,7 +892,7 @@ define dso_local void @ipv6_push_nfrag_opts(ptr noundef %0, ptr noundef readonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %24
-  %30 = getelementptr %struct.in6_addr, ptr %18, i64 %23
+  %30 = getelementptr [16 x i8], ptr %18, i64 %23
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %31, ptr noundef align 4 dereferenceable(16) %32, i64 16, i1 false)
@@ -926,7 +924,7 @@ define dso_local void @ipv6_push_nfrag_opts(ptr noundef %0, ptr noundef readonly
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr %struct.in6_addr, ptr %47, i64 %54
+  %55 = getelementptr [16 x i8], ptr %47, i64 %54
   store ptr %55, ptr %3, align 8
   %56 = load i8, ptr %35, align 1
   %57 = zext i8 %56 to i32
@@ -1501,7 +1499,7 @@ define dso_local noundef ptr @fl6_update_dst(ptr noundef captures(none) %0, ptr 
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.in6_addr, ptr %17, i64 %20
+  %21 = getelementptr [16 x i8], ptr %17, i64 %20
   br label %22
 
 22:                                               ; preds = %16, %14
@@ -1979,7 +1977,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   store i8 %305, ptr %303, align 1
   %306 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %307 = zext i8 %305 to i64
-  %308 = getelementptr %struct.in6_addr, ptr %306, i64 %307
+  %308 = getelementptr [16 x i8], ptr %306, i64 %307
   %309 = call ptr @skb_push(ptr noundef %0, i32 noundef 40) #10
   %310 = load i8, ptr %80, align 8
   %311 = and i8 %310, 96
@@ -1995,7 +1993,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #2 
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 3
   %320 = load i8, ptr %319, align 1
   %321 = zext i8 %320 to i64
-  %322 = getelementptr %struct.in6_addr, ptr %318, i64 %321
+  %322 = getelementptr [16 x i8], ptr %318, i64 %321
   %323 = add i8 %320, 1
   store i8 %323, ptr %319, align 1
   %324 = load i32, ptr %317, align 4

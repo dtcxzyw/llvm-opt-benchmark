@@ -494,7 +494,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778ZoneMeta9getI
 
 .preheader.i.i:                                   ; preds = %18, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %23, %.preheader.i.i ], [ 0, %18 ]
-  %20 = getelementptr inbounds nuw i16, ptr %13, i64 %.0.i.i.i.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %.0.i.i.i.i
   %21 = load i16, ptr %20, align 2, !tbaa !44
   %22 = icmp eq i16 %21, 0
   %23 = add i64 %.0.i.i.i.i, 1
@@ -1722,7 +1722,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
 .lr.ph:                                           ; preds = %8, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %8 ]
   %.0100132 = phi i32 [ %19, %17 ], [ 0, %8 ]
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !44
   %12 = zext i16 %11 to i32
   %13 = add i16 %11, -48
@@ -1750,7 +1750,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
 .lr.ph137:                                        ; preds = %17, %.critedge
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.critedge ], [ 5, %17 ]
   %.098135 = phi i32 [ %30, %.critedge ], [ 0, %17 ]
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv155
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv155
   %23 = load i16, ptr %22, align 2, !tbaa !44
   %24 = zext i16 %23 to i32
   %25 = add i16 %23, -48
@@ -1775,7 +1775,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.critedge3
   %indvars.iv158 = phi i64 [ 8, %.lr.ph142.preheader ], [ %indvars.iv.next159, %.critedge3 ]
   %.096140 = phi i32 [ 0, %.lr.ph142.preheader ], [ %41, %.critedge3 ]
-  %33 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv158
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv158
   %34 = load i16, ptr %33, align 2, !tbaa !44
   %35 = zext i16 %34 to i32
   %36 = add i16 %34, -48
@@ -1811,7 +1811,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
 .lr.ph147:                                        ; preds = %.preheader, %52
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %52 ], [ 11, %.preheader ]
   %.194145 = phi i32 [ %54, %52 ], [ 0, %.preheader ]
-  %45 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv161
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv161
   %46 = load i16, ptr %45, align 2, !tbaa !44
   %47 = zext i16 %46 to i32
   %48 = add i16 %46, -48
@@ -1835,7 +1835,7 @@ define internal fastcc noundef double @_ZN6icu_77L9parseDateEPKDsR10UErrorCode(p
 .lr.ph152:                                        ; preds = %52, %.critedge7
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.critedge7 ], [ 14, %52 ]
   %.191150 = phi i32 [ %64, %.critedge7 ], [ 0, %52 ]
-  %56 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv164
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv164
   %57 = load i16, ptr %56, align 2, !tbaa !44
   %58 = zext i16 %57 to i32
   %59 = add i16 %57, -48
@@ -2197,7 +2197,7 @@ define internal fastcc void @_ZN6icu_77L24initAvailableMetaZoneIDsEv() unnamed_a
 
 .preheader.i.i:                                   ; preds = %57, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %62, %.preheader.i.i ], [ 0, %57 ]
-  %59 = getelementptr inbounds nuw i16, ptr %42, i64 %.0.i.i.i.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %.0.i.i.i.i
   %60 = load i16, ptr %59, align 2, !tbaa !44
   %61 = icmp eq i16 %60, 0
   %62 = add i64 %.0.i.i.i.i, 1

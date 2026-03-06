@@ -1017,7 +1017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %.bo
   %72 = fdiv float 1.000000e+00, %68
   %73 = load ptr, ptr %4, align 8, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 256
-  %75 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv
   store float %72, ptr %75, align 4, !tbaa !120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

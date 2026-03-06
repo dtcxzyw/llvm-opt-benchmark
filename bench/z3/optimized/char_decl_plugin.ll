@@ -1771,7 +1771,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit: ; preds = %13, %19
   %20 = phi i32 [ %.pre2.i, %19 ], [ %15, %13 ]
   %21 = phi ptr [ %.pre.i, %19 ], [ %11, %13 ]
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %struct.builtin_name, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !119
   %24 = load ptr, ptr %1, align 8, !tbaa !116
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -1806,7 +1806,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit9: ; preds = %31, %37
   %38 = phi i32 [ %.pre2.i8, %37 ], [ %33, %31 ]
   %39 = phi ptr [ %.pre.i6, %37 ], [ %29, %31 ]
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %struct.builtin_name, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !119
   %42 = load ptr, ptr %1, align 8, !tbaa !116
   %43 = getelementptr inbounds i8, ptr %42, i64 -4
@@ -1841,7 +1841,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit13: ; preds = %49, %55
   %56 = phi i32 [ %.pre2.i12, %55 ], [ %51, %49 ]
   %57 = phi ptr [ %.pre.i10, %55 ], [ %47, %49 ]
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct.builtin_name, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !119
   %60 = load ptr, ptr %1, align 8, !tbaa !116
   %61 = getelementptr inbounds i8, ptr %60, i64 -4
@@ -1876,7 +1876,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit17: ; preds = %67, %73
   %74 = phi i32 [ %.pre2.i16, %73 ], [ %69, %67 ]
   %75 = phi ptr [ %.pre.i14, %73 ], [ %65, %67 ]
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw %struct.builtin_name, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !119
   %78 = load ptr, ptr %1, align 8, !tbaa !116
   %79 = getelementptr inbounds i8, ptr %78, i64 -4
@@ -1911,7 +1911,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit21: ; preds = %85, %91
   %92 = phi i32 [ %.pre2.i20, %91 ], [ %87, %85 ]
   %93 = phi ptr [ %.pre.i18, %91 ], [ %83, %85 ]
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw %struct.builtin_name, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !119
   %96 = load ptr, ptr %1, align 8, !tbaa !116
   %97 = getelementptr inbounds i8, ptr %96, i64 -4
@@ -1946,7 +1946,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit25: ; preds = %103, %109
   %110 = phi i32 [ %.pre2.i24, %109 ], [ %105, %103 ]
   %111 = phi ptr [ %.pre.i22, %109 ], [ %101, %103 ]
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw %struct.builtin_name, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !119
   %114 = load ptr, ptr %1, align 8, !tbaa !116
   %115 = getelementptr inbounds i8, ptr %114, i64 -4
@@ -1987,7 +1987,7 @@ _ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit: ; preds = %8, %14
   %15 = phi i32 [ %.pre2.i, %14 ], [ %10, %8 ]
   %16 = phi ptr [ %.pre.i, %14 ], [ %6, %8 ]
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %struct.builtin_name, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !119
   %19 = load ptr, ptr %1, align 8, !tbaa !116
   %20 = getelementptr inbounds i8, ptr %19, i64 -4

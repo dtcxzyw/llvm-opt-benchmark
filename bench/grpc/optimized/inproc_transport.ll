@@ -146,9 +146,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::internal_any_invocable::Impl.217" = type { %"class.absl::lts_20240722::internal_any_invocable::CoreImpl.218" }
 %"class.absl::lts_20240722::internal_any_invocable::CoreImpl.218" = type { %"union.absl::lts_20240722::internal_any_invocable::TypeErasedState", ptr, ptr }
 %"class.absl::lts_20240722::strings_internal::StringifySink" = type { %"class.std::__cxx11::basic_string" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
-%"struct.grpc_core::CallFilters::AddedStack" = type { i64, %"class.grpc_core::RefCountedPtr.168" }
-%"class.grpc_core::RefCountedPtr.168" = type { ptr }
 %"class.std::unique_ptr.431" = type { %"struct.std::__uniq_ptr_data.432" }
 %"struct.std::__uniq_ptr_data.432" = type { %"class.std::__uniq_ptr_impl.433" }
 %"class.std::__uniq_ptr_impl.433" = type { %"class.std::tuple.434" }
@@ -1749,7 +1746,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !142
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !139
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !143
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -3045,7 +3042,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit13.i.i.i:   ; preds = %118, %_ZN4absl12lts
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 56
   %158 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !136, !noalias !207
   %159 = zext i16 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %159
   store ptr %156, ptr %160, align 8, !tbaa !144, !noalias !207
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !207
   %161 = load i8, ptr %14, align 8, !tbaa !191, !noalias !207
@@ -5904,7 +5901,7 @@ _ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detai
 _ZNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detail8DumpArgs10CustomSinkEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detail8DumpArgs10CustomSinkEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !334
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !335
-  %53 = getelementptr inbounds nuw %"class.absl::lts_20240722::AnyInvocable.216", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !337
   ret void
 }
@@ -5940,7 +5937,7 @@ switch.lookup:
   store i64 0, ptr %8, align 8, !tbaa !129
   %9 = load i16, ptr %5, align 2, !tbaa !238
   %10 = zext nneg i16 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZZN9grpc_core16dump_args_detail8DumpArgs9AddDumperIKNS_9CallState23ClientToServerPullStateEEEiPT_ENKUlRNS1_10CustomSinkEE_clES9_, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZZN9grpc_core16dump_args_detail8DumpArgs9AddDumperIKNS_9CallState23ClientToServerPullStateEEEiPT_ENKUlRNS1_10CustomSinkEE_clES9_, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #36
   invoke void @_ZN4absl12lts_2024072216strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %11, ptr nonnull %switch.load)
@@ -6643,7 +6640,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !131
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -6695,7 +6692,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !131
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -7147,7 +7144,7 @@ _ZN9grpc_core9CallState30BeginPullClientInitialMetadataEv.exit: ; preds = %2, %1
   %33 = load ptr, ptr %32, align 8
   %34 = select i1 %31, ptr %33, ptr %32
   %35 = lshr i64 %30, 1
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::CallFilters::AddedStack", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   store ptr %34, ptr %0, align 8, !tbaa !236
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8, !tbaa !237

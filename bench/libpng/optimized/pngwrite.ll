@@ -3,8 +3,6 @@ source_filename = "bench/libpng/original/pngwrite.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.png_sPLT_struct = type { ptr, i8, ptr, i32 }
-%struct.png_text_struct = type { i32, ptr, ptr, i64, i64, ptr, ptr }
 %struct.png_row_info_struct = type { i32, i64, i8, i8, i8, i8 }
 %struct.png_image_write_control = type { ptr, ptr, i32, ptr, i32, ptr, i64, ptr, ptr, i64, i64 }
 %struct.png_color_struct = type { i8, i8, i8 }
@@ -590,7 +588,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
 146:                                              ; preds = %.lr.ph138, %146
   %indvars.iv143 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next144, %146 ]
   %147 = load ptr, ptr %145, align 8, !tbaa !99
-  %148 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %147, i64 %indvars.iv143
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %indvars.iv143
   tail call void @png_write_sPLT(ptr noundef nonnull %0, ptr noundef %148) #16
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %149 = load i32, ptr %142, align 8, !tbaa !98
@@ -612,7 +610,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
 156:                                              ; preds = %.lr.ph140, %191
   %157 = phi ptr [ %.pre158, %.lr.ph140 ], [ %192, %191 ]
   %indvars.iv146 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next147, %191 ]
-  %158 = getelementptr inbounds nuw %struct.png_text_struct, ptr %157, i64 %indvars.iv146
+  %158 = getelementptr inbounds nuw [56 x i8], ptr %157, i64 %indvars.iv146
   %159 = load i32, ptr %158, align 8, !tbaa !103
   %160 = icmp sgt i32 %159, 0
   br i1 %160, label %161, label %176
@@ -628,7 +626,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %169 = load ptr, ptr %168, align 8, !tbaa !108
   tail call void @png_write_iTXt(ptr noundef nonnull %0, i32 noundef %159, ptr noundef %163, ptr noundef %165, ptr noundef %167, ptr noundef %169) #16
   %170 = load ptr, ptr %155, align 8, !tbaa !102
-  %171 = getelementptr inbounds nuw %struct.png_text_struct, ptr %170, i64 %indvars.iv146
+  %171 = getelementptr inbounds nuw [56 x i8], ptr %170, i64 %indvars.iv146
   %172 = load i32, ptr %171, align 8, !tbaa !103
   %173 = icmp eq i32 %172, -1
   br i1 %173, label %174, label %175
@@ -654,7 +652,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %181 = load ptr, ptr %180, align 8, !tbaa !108
   tail call void @png_write_zTXt(ptr noundef nonnull %0, ptr noundef %179, ptr noundef %181, i32 noundef 0) #16
   %182 = load ptr, ptr %155, align 8, !tbaa !102
-  %183 = getelementptr inbounds nuw %struct.png_text_struct, ptr %182, i64 %indvars.iv146
+  %183 = getelementptr inbounds nuw [56 x i8], ptr %182, i64 %indvars.iv146
   store i32 -2, ptr %183, align 8, !tbaa !103
   br label %191
 
@@ -665,7 +663,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %188 = load ptr, ptr %187, align 8, !tbaa !108
   tail call void @png_write_tEXt(ptr noundef nonnull %0, ptr noundef %186, ptr noundef %188, i64 noundef 0) #16
   %189 = load ptr, ptr %155, align 8, !tbaa !102
-  %190 = getelementptr inbounds nuw %struct.png_text_struct, ptr %189, i64 %indvars.iv146
+  %190 = getelementptr inbounds nuw [56 x i8], ptr %189, i64 %indvars.iv146
   store i32 -3, ptr %190, align 8, !tbaa !103
   br label %191
 
@@ -858,7 +856,7 @@ define void @png_write_end(ptr noalias noundef %0, ptr noalias noundef %1) local
 37:                                               ; preds = %.lr.ph, %75
   %38 = phi ptr [ %.pre, %.lr.ph ], [ %76, %75 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %39 = getelementptr inbounds nuw %struct.png_text_struct, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 8, !tbaa !103
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %57
@@ -874,7 +872,7 @@ define void @png_write_end(ptr noalias noundef %0, ptr noalias noundef %1) local
   %50 = load ptr, ptr %49, align 8, !tbaa !108
   tail call void @png_write_iTXt(ptr noundef nonnull %0, i32 noundef %40, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50) #16
   %51 = load ptr, ptr %36, align 8, !tbaa !102
-  %52 = getelementptr inbounds nuw %struct.png_text_struct, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 8, !tbaa !103
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %55, label %56
@@ -898,7 +896,7 @@ define void @png_write_end(ptr noalias noundef %0, ptr noalias noundef %1) local
   %63 = load ptr, ptr %62, align 8, !tbaa !108
   tail call void @png_write_zTXt(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %63, i32 noundef 0) #16
   %64 = load ptr, ptr %36, align 8, !tbaa !102
-  %65 = getelementptr inbounds nuw %struct.png_text_struct, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [56 x i8], ptr %64, i64 %indvars.iv
   store i32 -2, ptr %65, align 8, !tbaa !103
   br label %75
 
@@ -913,7 +911,7 @@ define void @png_write_end(ptr noalias noundef %0, ptr noalias noundef %1) local
   %72 = load ptr, ptr %71, align 8, !tbaa !108
   tail call void @png_write_tEXt(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %72, i64 noundef 0) #16
   %73 = load ptr, ptr %36, align 8, !tbaa !102
-  %74 = getelementptr inbounds nuw %struct.png_text_struct, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %73, i64 %indvars.iv
   store i32 -3, ptr %74, align 8, !tbaa !103
   br label %75
 
@@ -2784,7 +2782,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %.4.us.i = phi i32 [ %.01223.us.i, %.lr.ph.split.us.split.i ], [ %spec.select130.us.i, %92 ]
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 %77
   %100 = load i8, ptr %99, align 1, !tbaa !45
-  %101 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv38.i
+  %101 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv38.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store i8 %100, ptr %102, align 1, !tbaa !218
   store i8 %100, ptr %101, align 1, !tbaa !220
@@ -2807,7 +2805,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %.3.us.i = phi i32 [ %.01223.us.i, %.lr.ph.split.us.split.i ], [ %spec.select129.us.i, %104 ]
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 %80
   %112 = load i8, ptr %111, align 1, !tbaa !45
-  %113 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv38.i
+  %113 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv38.i
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 2
   store i8 %112, ptr %114, align 1, !tbaa !221
   %115 = getelementptr inbounds nuw i8, ptr %91, i64 %81
@@ -2838,14 +2836,14 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 .lr.ph.split.split.us.split.us.i:                 ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.split.us.split.us.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.i ]
   %123 = mul nuw nsw i64 %indvars.iv33.i, %122
-  %124 = getelementptr inbounds nuw i16, ptr %.val160, i64 %123
-  %125 = getelementptr inbounds nuw i16, ptr %124, i64 %84
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.val160, i64 %123
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %84
   %126 = load i16, ptr %125, align 2, !tbaa !223
   %127 = zext i16 %126 to i32
   %128 = mul nuw nsw i32 %127, 255
   %129 = lshr i32 %128, 15
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !223
   %133 = zext i16 %132 to i32
   %134 = and i32 %128, 32767
@@ -2857,7 +2855,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %140 = add nuw nsw i32 %139, %133
   %141 = lshr i32 %140, 8
   %142 = trunc i32 %141 to i8
-  %143 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv33.i
+  %143 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv33.i
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 2
   store i8 %142, ptr %144, align 1, !tbaa !221
   %145 = getelementptr inbounds nuw i8, ptr %124, i64 2
@@ -2866,7 +2864,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %148 = mul nuw nsw i32 %147, 255
   %149 = lshr i32 %148, 15
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !223
   %153 = zext i16 %152 to i32
   %154 = and i32 %148, 32767
@@ -2880,13 +2878,13 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %162 = trunc i32 %161 to i8
   %163 = getelementptr inbounds nuw i8, ptr %143, i64 1
   store i8 %162, ptr %163, align 1, !tbaa !218
-  %164 = getelementptr inbounds nuw i16, ptr %124, i64 %85
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %85
   %165 = load i16, ptr %164, align 2, !tbaa !223
   %166 = zext i16 %165 to i32
   %167 = mul nuw nsw i32 %166, 255
   %168 = lshr i32 %167, 15
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %169
+  %170 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %169
   %171 = load i16, ptr %170, align 2, !tbaa !223
   %172 = zext i16 %171 to i32
   %173 = and i32 %167, 32767
@@ -2906,13 +2904,13 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 .lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.split.us.split.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.lr.ph.split.split.us.split.i ], [ 0, %.lr.ph.split.split.us.i ]
   %182 = mul nuw nsw i64 %indvars.iv28.i, %122
-  %183 = getelementptr inbounds nuw i16, ptr %.val160, i64 %182
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %.val160, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !223
   %185 = zext i16 %184 to i32
   %186 = mul nuw nsw i32 %185, 255
   %187 = lshr i32 %186, 15
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %188
+  %189 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %188
   %190 = load i16, ptr %189, align 2, !tbaa !223
   %191 = zext i16 %190 to i32
   %192 = and i32 %186, 32767
@@ -2924,7 +2922,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %198 = add nuw nsw i32 %197, %191
   %199 = lshr i32 %198, 8
   %200 = trunc i32 %199 to i8
-  %201 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv28.i
+  %201 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv28.i
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1
   store i8 %200, ptr %202, align 1, !tbaa !218
   store i8 %200, ptr %201, align 1, !tbaa !220
@@ -2941,8 +2939,8 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
   %.01223.us11.i = phi i32 [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
   %204 = mul nuw nsw i64 %indvars.iv23.i, %122
-  %205 = getelementptr inbounds nuw i16, ptr %.val160, i64 %204
-  %206 = getelementptr inbounds nuw i16, ptr %205, i64 %75
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %.val160, i64 %204
+  %206 = getelementptr inbounds nuw [2 x i8], ptr %205, i64 %75
   %207 = load i16, ptr %206, align 2, !tbaa !223
   %208 = zext i16 %207 to i32
   %209 = mul nuw nsw i32 %208, 255
@@ -2967,7 +2965,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %219 = trunc nuw nsw i64 %indvars.iv.next24.i to i32
   %spec.select128.us.i = select i1 %.not1.us.i, i32 %.01223.us11.i, i32 %219
-  %220 = getelementptr inbounds nuw i16, ptr %205, i64 %80
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %205, i64 %80
   %221 = load i16, ptr %220, align 2, !tbaa !223
   %222 = zext i16 %221 to i32
   %223 = icmp uge i16 %221, %207
@@ -2988,7 +2986,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %.015.i.us.i = select i1 %227, i32 %230, i32 %231
   %232 = lshr i32 %.015.i.us.i, 15
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %233
+  %234 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %233
   %235 = load i16, ptr %234, align 2, !tbaa !223
   %236 = zext i16 %235 to i32
   %237 = and i32 %.015.i.us.i, 32767
@@ -3004,10 +3002,10 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 
 png_unpremultiply.exit.us.i:                      ; preds = %226, %225, %217
   %.0.i.us.i = phi i8 [ -1, %217 ], [ %245, %226 ], [ 0, %225 ]
-  %246 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv23.i
+  %246 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv23.i
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 2
   store i8 %.0.i.us.i, ptr %247, align 1, !tbaa !221
-  %248 = getelementptr inbounds nuw i16, ptr %205, i64 %81
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %205, i64 %81
   %249 = load i16, ptr %248, align 2, !tbaa !223
   %250 = zext i16 %249 to i32
   %251 = icmp uge i16 %249, %207
@@ -3027,7 +3025,7 @@ png_unpremultiply.exit.us.i:                      ; preds = %226, %225, %217
   %.015.i133.us.i = select i1 %254, i32 %257, i32 %258
   %259 = lshr i32 %.015.i133.us.i, 15
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %260
+  %261 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !223
   %263 = zext i16 %262 to i32
   %264 = and i32 %.015.i133.us.i, 32767
@@ -3045,7 +3043,7 @@ png_unpremultiply.exit135.us.i:                   ; preds = %253, %252, %png_unp
   %.0.i134.us.i = phi i8 [ -1, %png_unpremultiply.exit.us.i ], [ %272, %253 ], [ 0, %252 ]
   %273 = getelementptr inbounds nuw i8, ptr %246, i64 1
   store i8 %.0.i134.us.i, ptr %273, align 1, !tbaa !218
-  %274 = getelementptr inbounds nuw i16, ptr %205, i64 %82
+  %274 = getelementptr inbounds nuw [2 x i8], ptr %205, i64 %82
   %275 = load i16, ptr %274, align 2, !tbaa !223
   %276 = zext i16 %275 to i32
   %277 = icmp uge i16 %275, %207
@@ -3065,7 +3063,7 @@ png_unpremultiply.exit135.us.i:                   ; preds = %253, %252, %png_unp
   %.015.i138.us.i = select i1 %280, i32 %283, i32 %284
   %285 = lshr i32 %.015.i138.us.i, 15
   %286 = zext nneg i32 %285 to i64
-  %287 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %286
+  %287 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %286
   %288 = load i16, ptr %287, align 2, !tbaa !223
   %289 = zext i16 %288 to i32
   %290 = and i32 %.015.i138.us.i, 32767
@@ -3089,8 +3087,8 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %png_unpremultiply.exit145.i ], [ 0, %.lr.ph.split.split.i ]
   %.01223.i = phi i32 [ %spec.select128.i, %png_unpremultiply.exit145.i ], [ 0, %.lr.ph.split.split.i ]
   %299 = mul nuw nsw i64 %indvars.iv.i, %122
-  %300 = getelementptr inbounds nuw i16, ptr %.val160, i64 %299
-  %301 = getelementptr inbounds nuw i16, ptr %300, i64 %75
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %.val160, i64 %299
+  %301 = getelementptr inbounds nuw [2 x i8], ptr %300, i64 %75
   %302 = load i16, ptr %301, align 2, !tbaa !223
   %303 = zext i16 %302 to i32
   %304 = mul nuw nsw i32 %303, 255
@@ -3115,7 +3113,7 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %314 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %spec.select128.i = select i1 %.not1.i, i32 %.01223.i, i32 %314
-  %315 = getelementptr inbounds nuw i16, ptr %300, i64 %77
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %300, i64 %77
   %316 = load i16, ptr %315, align 2, !tbaa !223
   %317 = zext i16 %316 to i32
   %318 = icmp uge i16 %316, %302
@@ -3136,7 +3134,7 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   %.015.i143.i = select i1 %322, i32 %325, i32 %326
   %327 = lshr i32 %.015.i143.i, 15
   %328 = zext nneg i32 %327 to i64
-  %329 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %328
+  %329 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %328
   %330 = load i16, ptr %329, align 2, !tbaa !223
   %331 = zext i16 %330 to i32
   %332 = and i32 %.015.i143.i, 32767
@@ -3152,7 +3150,7 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
 
 png_unpremultiply.exit145.i:                      ; preds = %321, %320, %312
   %.0.i144.i = phi i8 [ -1, %312 ], [ %340, %321 ], [ 0, %320 ]
-  %341 = getelementptr inbounds nuw %struct.png_color_struct, ptr %2, i64 %indvars.iv.i
+  %341 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 %indvars.iv.i
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 1
   store i8 %.0.i144.i, ptr %342, align 1, !tbaa !218
   store i8 %.0.i144.i, ptr %341, align 1, !tbaa !220
@@ -3712,10 +3710,10 @@ define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures
 26:                                               ; preds = %.preheader.us, %.split71.us84
   %.05874.us = phi ptr [ %.057, %.preheader.us ], [ %50, %.split71.us84 ]
   %.06073.us = phi ptr [ %.177.us, %.preheader.us ], [ %49, %.split71.us84 ]
-  %27 = getelementptr inbounds i16, ptr %.06073.us, i64 %.063
+  %27 = getelementptr inbounds [2 x i8], ptr %.06073.us, i64 %.063
   %28 = load i16, ptr %27, align 2, !tbaa !223
   %.fr = freeze i16 %28
-  %29 = getelementptr inbounds i16, ptr %.05874.us, i64 %.063
+  %29 = getelementptr inbounds [2 x i8], ptr %.05874.us, i64 %.063
   store i16 %.fr, ptr %29, align 2, !tbaa !223
   %30 = add i16 %.fr, -1
   %or.cond.us = icmp ult i16 %30, -2
@@ -3791,7 +3789,7 @@ define internal noundef i32 @png_write_image_16bit(ptr noundef readonly captures
   %58 = load i64, ptr %23, align 8, !tbaa !226
   %59 = lshr i64 %58, 1
   %60 = and i64 %59, 32767
-  %61 = getelementptr inbounds nuw i16, ptr %.177.us, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.177.us, i64 %60
   %62 = add i32 %.06276.us, -1
   %.not68.us = icmp eq i32 %62, 0
   br i1 %.not68.us, label %._crit_edge78, label %.preheader.us, !llvm.loop !238
@@ -3872,7 +3870,7 @@ define internal noundef i32 @png_write_image_8bit(ptr noundef readonly captures(
 31:                                               ; preds = %.preheader78.us, %.split81.us92
   %.07184.us = phi ptr [ %.065, %.preheader78.us ], [ %74, %.split81.us92 ]
   %.07383.us = phi ptr [ %.187.us, %.preheader78.us ], [ %73, %.split81.us92 ]
-  %32 = getelementptr inbounds i16, ptr %.07383.us, i64 %.070
+  %32 = getelementptr inbounds [2 x i8], ptr %.07383.us, i64 %.070
   %33 = load i16, ptr %32, align 2, !tbaa !223
   %.fr = freeze i16 %33
   %34 = zext i16 %.fr to i32
@@ -3926,7 +3924,7 @@ png_unpremultiply.exit.us.us.preheader:           ; preds = %44
   %.015.i.us = select i1 %46, i32 %54, i32 %55
   %56 = lshr i32 %.015.i.us, 15
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !223
   %60 = zext i16 %59 to i32
   %61 = and i32 %.015.i.us, 32767
@@ -3962,7 +3960,7 @@ png_unpremultiply.exit.us91:                      ; preds = %51, %50, %.split.us
   %77 = load i64, ptr %25, align 8, !tbaa !226
   %78 = lshr i64 %77, 1
   %79 = and i64 %78, 32767
-  %80 = getelementptr inbounds nuw i16, ptr %.187.us, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %.187.us, i64 %79
   %81 = add i32 %.06886.us, -1
   %.not77.us = icmp eq i32 %81, 0
   br i1 %.not77.us, label %.loopexit, label %.preheader78.us, !llvm.loop !241
@@ -4003,7 +4001,7 @@ png_unpremultiply.exit.us91:                      ; preds = %51, %50, %.split.us
   %95 = mul nuw nsw i32 %94, 255
   %96 = lshr i32 %95, 15
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i16, ptr @png_sRGB_base, i64 %97
+  %98 = getelementptr inbounds nuw [2 x i8], ptr @png_sRGB_base, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !223
   %100 = zext i16 %99 to i32
   %101 = and i32 %95, 32767
@@ -4025,7 +4023,7 @@ png_unpremultiply.exit.us91:                      ; preds = %51, %50, %.split.us
   %112 = load i64, ptr %90, align 8, !tbaa !226
   %113 = lshr i64 %112, 1
   %114 = and i64 %113, 32767
-  %115 = getelementptr inbounds nuw i16, ptr %.2100.us, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %.2100.us, i64 %114
   %116 = add i32 %.16999.us, -1
   %.not75.us = icmp eq i32 %116, 0
   br i1 %.not75.us, label %.loopexit, label %.preheader.us, !llvm.loop !243

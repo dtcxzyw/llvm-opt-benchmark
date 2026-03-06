@@ -211,7 +211,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 10:                                               ; preds = %36, %5
   %.val18.i = phi i64 [ %.sroa.0.sroa.4.0.copyload, %5 ], [ %38, %36 ]
   %.0.i = phi i64 [ 0, %5 ], [ %39, %36 ]
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %0, i64 %.0.i
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -295,7 +295,7 @@ default.unreachable:                              ; preds = %10
   %.sroa.6.0.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i.i.i.i" ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7b81467cf38d7229E.exit.i.i.i.i.i" ], [ undef, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2df5dc8f11ac4fe8E.exit.i.i.i.i.i" ]
   %.sroa.0.0.i.i.i.i = phi i64 [ %25, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i.i.i.i" ], [ %30, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7b81467cf38d7229E.exit.i.i.i.i.i" ], [ %35, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2df5dc8f11ac4fe8E.exit.i.i.i.i.i" ]
   %.sink.i.i.i.i.i = phi i8 [ %13, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i.i.i.i" ], [ -126, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7b81467cf38d7229E.exit.i.i.i.i.i" ], [ -125, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2df5dc8f11ac4fe8E.exit.i.i.i.i.i" ]
-  %37 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.sroa.5.0.copyload, i64 %.val18.i
+  %37 = getelementptr inbounds [32 x i8], ptr %.sroa.0.sroa.5.0.copyload, i64 %.val18.i
   store i64 %.sroa.0.0.i.i.i.i, ptr %37, align 8, !noalias !62
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %.sroa.6.0.i.i.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !62
@@ -842,10 +842,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !183, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !184, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h953e2a224eb6447bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h953e2a224eb6447bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h953e2a224eb6447bE.17", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h953e2a224eb6447bE.17", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2560,7 +2560,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %41, %5
   %.val18 = phi i64 [ %.promoted, %5 ], [ %43, %41 ]
   %.0 = phi i64 [ 0, %5 ], [ %44, %41 ]
-  %16 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %0, i64 %.0
+  %16 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !477)
@@ -2647,7 +2647,7 @@ default.unreachable:                              ; preds = %15
   %.sink.i.i.i.i = phi i8 [ %18, %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit.i.i.i.i" ], [ -126, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7b81467cf38d7229E.exit.i.i.i.i" ], [ -125, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2df5dc8f11ac4fe8E.exit.i.i.i.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !504)
-  %42 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %11, i64 %.val18
+  %42 = getelementptr inbounds [32 x i8], ptr %11, i64 %.val18
   store i64 %.sroa.0.0.i.i.i, ptr %42, align 8, !noalias !507
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.sroa.6.0.i.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !507
@@ -2787,7 +2787,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -2870,7 +2870,7 @@ define hidden void @"_ZN12typst_syntax3ast13Destructuring8bindings28_$u7b$$u7b$c
   %25 = load ptr, ptr %24, align 8, !noalias !553, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load i64, ptr %26, align 8, !noalias !553, !noundef !4
-  %28 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %25, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %25, i64 %27
   br label %_ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E.exit
 
 _ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E.exit: ; preds = %16, %22
@@ -2913,7 +2913,7 @@ _ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E.exit: ; preds = %16, %22
   %42 = load ptr, ptr %41, align 8, !noalias !567, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %44 = load i64, ptr %43, align 8, !noalias !567, !noundef !4
-  %45 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %42, i64 %44
+  %45 = getelementptr inbounds [32 x i8], ptr %42, i64 %44
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i: ; preds = %39, %33
@@ -2975,10 +2975,10 @@ define { ptr, i64 } @_ZN12typst_syntax9highlight3Tag8tm_scope17h795f3ce5dc61953f
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !583, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax9highlight3Tag8tm_scope17h795f3ce5dc61953fE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax9highlight3Tag8tm_scope17h795f3ce5dc61953fE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax9highlight3Tag8tm_scope17h795f3ce5dc61953fE.18, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax9highlight3Tag8tm_scope17h795f3ce5dc61953fE.18, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -2989,10 +2989,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E(i8 noundef %0) unnamed_addr #19 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E.19, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E.19, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -4376,10 +4376,10 @@ _ZN12typst_syntax4node10SyntaxNode4text17h0d9372afac3f611fE.exit: ; preds = %7, 
   %39 = add i64 %38, 13
   store i64 %39, ptr %25, align 8, !alias.scope !901, !noalias !899
   %40 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E, i64 %40
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = zext nneg i8 %5 to i64
-  %switch.gep63 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E.20, i64 %41
+  %switch.gep63 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax9highlight19highlight_html_impl17he4fbcaa133e4a904E.20, i64 %41
   %switch.load64 = load i64, ptr %switch.gep63, align 8
   %42 = load i64, ptr %0, align 8, !alias.scope !902, !noalias !909, !noundef !4
   %43 = sub i64 %42, %39

@@ -269,10 +269,10 @@ define hidden noundef zeroext i1 @"_ZN101_$LT$wasmtime..runtime..component..reso
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$wasmtime..runtime..component..resource_table..ResourceTableError$u20$as$u20$core..fmt..Debug$GT$3fmt17hfca6e58851aaa39eE.llvm.484570838511886111", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$wasmtime..runtime..component..resource_table..ResourceTableError$u20$as$u20$core..fmt..Debug$GT$3fmt17hfca6e58851aaa39eE.llvm.484570838511886111", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN101_$LT$wasmtime..runtime..component..resource_table..ResourceTableError$u20$as$u20$core..fmt..Debug$GT$3fmt17hfca6e58851aaa39eE.llvm.484570838511886111.102", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$wasmtime..runtime..component..resource_table..ResourceTableError$u20$as$u20$core..fmt..Debug$GT$3fmt17hfca6e58851aaa39eE.llvm.484570838511886111.102", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -282,7 +282,7 @@ switch.lookup:
 define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h24b16d9a8fa8bfe9E"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 4 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
-  %6 = getelementptr inbounds { i16, [15 x i16] }, ptr %5, i64 %2
+  %6 = getelementptr inbounds [32 x i8], ptr %5, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false)
   ret void
 }
@@ -2039,7 +2039,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 496
   %24 = icmp ult i64 %.sroa.56.0.copyload.i, 12
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.56.0.copyload.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.56.0.copyload.i
   %26 = load ptr, ptr %25, align 8, !noalias !153, !nonnull !5, !noundef !5
   %27 = add i64 %.sroa.45.0.copyload.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !144
@@ -2110,7 +2110,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %10 = getelementptr inbounds nuw i8, ptr %.018.i, i64 496
   %11 = icmp ult i16 %8, 12
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %13 = load ptr, ptr %12, align 8, !noalias !155, !nonnull !5, !noundef !5
   %14 = add i64 %.01517.i, -1
   %.not.i = icmp eq i64 %14, 0
@@ -2129,9 +2129,9 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %20 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 448
   %21 = icmp ult i16 %16, 12
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
-  %24 = getelementptr inbounds nuw { [5 x i64] }, ptr %23, i64 %19
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   br label %25
 
 25:                                               ; preds = %17, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hbd80885f7f9466b0E.exit", %1
@@ -2194,7 +2194,7 @@ define hidden noundef align 8 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$L
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 496
   %21 = icmp ult i64 %.sroa.56.0.copyload.i, 12
   call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.sroa.56.0.copyload.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.sroa.56.0.copyload.i
   %23 = load ptr, ptr %22, align 8, !noalias !167, !nonnull !5, !noundef !5
   %24 = add i64 %.sroa.45.0.copyload.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !158
@@ -2220,7 +2220,7 @@ define hidden noundef align 8 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$L
   %28 = icmp ult i64 %.sroa.8.0.ph, 11
   call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.ph, i64 8
-  %30 = getelementptr inbounds nuw { [5 x i64] }, ptr %29, i64 %.sroa.8.0.ph
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %.sroa.8.0.ph
   br label %31
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h52b219510bff4d37E.exit", %2
@@ -2290,7 +2290,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 496
   %24 = icmp ult i64 %.sroa.56.0.copyload.i, 12
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.56.0.copyload.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.56.0.copyload.i
   %26 = load ptr, ptr %25, align 8, !noalias !177, !nonnull !5, !noundef !5
   %27 = add i64 %.sroa.45.0.copyload.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !168
@@ -2404,7 +2404,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i.i, i64 496
   %27 = icmp ult i64 %.sroa.56.0.copyload.i.i, 12
   call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.56.0.copyload.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.56.0.copyload.i.i
   %29 = load ptr, ptr %28, align 8, !noalias !194, !nonnull !5, !noundef !5
   %30 = add i64 %.sroa.45.0.copyload.i.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !185
@@ -2461,7 +2461,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.ph.i, i64 8
-  %40 = getelementptr inbounds { [5 x i64] }, ptr %39, i64 %.sroa.9.0.ph.i
+  %40 = getelementptr inbounds [40 x i8], ptr %39, i64 %.sroa.9.0.ph.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %40, i64 40, i1 false), !noalias !195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
@@ -2567,7 +2567,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN5alloc11colle
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 496
   %21 = icmp ult i64 %.sroa.56.0.copyload.i, 12
   call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.sroa.56.0.copyload.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.sroa.56.0.copyload.i
   %23 = load ptr, ptr %22, align 8, !noalias !209, !nonnull !5, !noundef !5
   %24 = add i64 %.sroa.45.0.copyload.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !200
@@ -2591,7 +2591,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.ph, i64 8
-  %29 = getelementptr inbounds { [5 x i64] }, ptr %28, i64 %.sroa.8.0.ph
+  %29 = getelementptr inbounds [40 x i8], ptr %28, i64 %.sroa.8.0.ph
   br label %30
 
 30:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17ha1c8147e3193d503E.exit", %2
@@ -4251,7 +4251,7 @@ define internal void @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_core..R
 
 10:                                               ; preds = %9, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %11
   %13 = sub nuw nsw i64 64, %11
   %14 = sub nuw i64 %2, %.020.i
   %15 = getelementptr inbounds i8, ptr %1, i64 %.020.i
@@ -4293,7 +4293,7 @@ define internal { ptr, ptr } @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand
 
 10:                                               ; preds = %9, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %11
   %13 = sub nuw nsw i64 64, %11
   %14 = sub nuw i64 %2, %.020.i
   %15 = getelementptr inbounds i8, ptr %1, i64 %.020.i
@@ -4325,7 +4325,7 @@ define internal noundef i32 @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h6513e5c2ca45ba87E.exit": ; preds = %1, %5
   %7 = phi i64 [ %3, %1 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %7
   %9 = load i32, ptr %8, align 4, !alias.scope !443, !noundef !5
   %10 = add nuw nsw i64 %7, 1
   store i64 %10, ptr %2, align 16, !alias.scope !443
@@ -4346,7 +4346,7 @@ define internal noundef i64 @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_
 6:                                                ; preds = %1
   %7 = add nuw nsw i64 %3, 2
   store i64 %7, ptr %2, align 16, !alias.scope !446
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %3
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %3
   %9 = load i64, ptr %8, align 4, !alias.scope !449
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417hbcab43d58ec5c41bE.exit"
 
@@ -8385,7 +8385,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.484570838511886111.exi
 36:                                               ; preds = %30
   %37 = add nuw nsw i64 %33, 2
   store i64 %37, ptr %32, align 16, !alias.scope !746
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %33
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %33
   %39 = load i64, ptr %38, align 4, !alias.scope !749
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417ha1a292e7d0670453E.exit"
 
@@ -8433,7 +8433,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.484570838511886111.exi
 57:                                               ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417ha1a292e7d0670453E.exit"
   %58 = add nuw nsw i64 %54, 2
   store i64 %58, ptr %53, align 16, !alias.scope !755
-  %59 = getelementptr inbounds nuw i32, ptr %52, i64 %54
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %54
   %60 = load i64, ptr %59, align 4, !alias.scope !758
   br label %"_ZN61_$LT$cap_rand..rngs..CapRng$u20$as$u20$rand_core..RngCore$GT$8next_u6417h453589367e674574E.exit"
 
@@ -9030,7 +9030,7 @@ define noundef nonnull align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %5, i64 %7
+  %9 = getelementptr inbounds [48 x i8], ptr %5, i64 %7
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h3696aa9dc20a788fE.llvm.17069743828446960565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %9)
           to label %_ZN13wasmtime_wasi3ctx14WasiCtxBuilder4envs17h0fb81ce5d20ec759E.exit unwind label %10
 
@@ -9067,7 +9067,7 @@ define noundef nonnull align 16 dereferenceable(224) ptr @_ZN13wasmtime_wasi3ctx
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %5, i64 %7
+  %9 = getelementptr inbounds [24 x i8], ptr %5, i64 %7
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h01afe46d21df39a9E.llvm.17069743828446960565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %9)
           to label %_ZN13wasmtime_wasi3ctx14WasiCtxBuilder4args17hf5fd673e2ea3bb74E.exit unwind label %10
 
@@ -9970,7 +9970,7 @@ define { ptr, ptr } @_ZN13wasmtime_wasi6random10thread_rng17hd204f6713cd78edcE()
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit.i:  ; preds = %.noexc, %0
   %11 = phi i64 [ %.pr.i.i.i.i.i, %.noexc ], [ %7, %0 ]
-  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4, !alias.scope !1052, !noalias !1055, !noundef !5
   %14 = add nuw nsw i64 %11, 1
   store i64 %14, ptr %6, align 16, !alias.scope !1052, !noalias !1055
@@ -9988,7 +9988,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit.i:  ; preds = %.noexc, %0
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit34.i: ; preds = %.noexc3, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit.i
   %18 = phi i64 [ %.pr.i.i.i.i33.i, %.noexc3 ], [ %14, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %18
   %20 = load i32, ptr %19, align 4, !alias.scope !1059, !noalias !1055, !noundef !5
   %21 = add nuw nsw i64 %18, 1
   store i64 %21, ptr %6, align 16, !alias.scope !1059, !noalias !1055
@@ -10006,7 +10006,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit34.i: ; preds = %.noexc3, %_ZN4rand
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i: ; preds = %.noexc5, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit34.i
   %25 = phi i64 [ %.pr.i.i.i.i35.i, %.noexc5 ], [ %21, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit34.i ]
-  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %25
   %27 = load i32, ptr %26, align 4, !alias.scope !1062, !noalias !1055, !noundef !5
   %28 = add nuw nsw i64 %25, 1
   store i64 %28, ptr %6, align 16, !alias.scope !1062, !noalias !1055
@@ -10024,7 +10024,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i: ; preds = %.noexc5, %_ZN4rand
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i: ; preds = %.noexc7, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i
   %32 = phi i64 [ %.pr.i.i.i.i37.i, %.noexc7 ], [ %28, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit36.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %32
   %34 = load i32, ptr %33, align 4, !alias.scope !1065, !noalias !1055, !noundef !5
   %35 = add nuw nsw i64 %32, 1
   store i64 %35, ptr %6, align 16, !alias.scope !1065, !noalias !1055
@@ -10042,7 +10042,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i: ; preds = %.noexc7, %_ZN4rand
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i: ; preds = %.noexc9, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i
   %39 = phi i64 [ %.pr.i.i.i.i39.i, %.noexc9 ], [ %35, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit38.i ]
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %39
   %41 = load i32, ptr %40, align 4, !alias.scope !1068, !noalias !1055, !noundef !5
   %42 = add nuw nsw i64 %39, 1
   store i64 %42, ptr %6, align 16, !alias.scope !1068, !noalias !1055
@@ -10060,7 +10060,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i: ; preds = %.noexc9, %_ZN4rand
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i: ; preds = %.noexc11, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i
   %46 = phi i64 [ %.pr.i.i.i.i41.i, %.noexc11 ], [ %42, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit40.i ]
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %46
   %48 = load i32, ptr %47, align 4, !alias.scope !1071, !noalias !1055, !noundef !5
   %49 = add nuw nsw i64 %46, 1
   store i64 %49, ptr %6, align 16, !alias.scope !1071, !noalias !1055
@@ -10078,7 +10078,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i: ; preds = %.noexc11, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i: ; preds = %.noexc13, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i
   %53 = phi i64 [ %.pr.i.i.i.i43.i, %.noexc13 ], [ %49, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit42.i ]
-  %54 = getelementptr inbounds nuw i32, ptr %5, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %53
   %55 = load i32, ptr %54, align 4, !alias.scope !1074, !noalias !1055, !noundef !5
   %56 = add nuw nsw i64 %53, 1
   store i64 %56, ptr %6, align 16, !alias.scope !1074, !noalias !1055
@@ -10096,7 +10096,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i: ; preds = %.noexc13, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i: ; preds = %.noexc15, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i
   %60 = phi i64 [ %.pr.i.i.i.i45.i, %.noexc15 ], [ %56, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit44.i ]
-  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %60
   %62 = load i32, ptr %61, align 4, !alias.scope !1077, !noalias !1055, !noundef !5
   %63 = add nuw nsw i64 %60, 1
   store i64 %63, ptr %6, align 16, !alias.scope !1077, !noalias !1055
@@ -10114,7 +10114,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i: ; preds = %.noexc15, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i: ; preds = %.noexc17, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i
   %67 = phi i64 [ %.pr.i.i.i.i47.i, %.noexc17 ], [ %63, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit46.i ]
-  %68 = getelementptr inbounds nuw i32, ptr %5, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %67
   %69 = load i32, ptr %68, align 4, !alias.scope !1080, !noalias !1055, !noundef !5
   %70 = add nuw nsw i64 %67, 1
   store i64 %70, ptr %6, align 16, !alias.scope !1080, !noalias !1055
@@ -10132,7 +10132,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i: ; preds = %.noexc17, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i: ; preds = %.noexc19, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i
   %74 = phi i64 [ %.pr.i.i.i.i49.i, %.noexc19 ], [ %70, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit48.i ]
-  %75 = getelementptr inbounds nuw i32, ptr %5, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %74
   %76 = load i32, ptr %75, align 4, !alias.scope !1083, !noalias !1055, !noundef !5
   %77 = add nuw nsw i64 %74, 1
   store i64 %77, ptr %6, align 16, !alias.scope !1083, !noalias !1055
@@ -10150,7 +10150,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i: ; preds = %.noexc19, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i: ; preds = %.noexc21, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i
   %81 = phi i64 [ %.pr.i.i.i.i51.i, %.noexc21 ], [ %77, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit50.i ]
-  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %81
   %83 = load i32, ptr %82, align 4, !alias.scope !1086, !noalias !1055, !noundef !5
   %84 = add nuw nsw i64 %81, 1
   store i64 %84, ptr %6, align 16, !alias.scope !1086, !noalias !1055
@@ -10168,7 +10168,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i: ; preds = %.noexc21, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i: ; preds = %.noexc23, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i
   %88 = phi i64 [ %.pr.i.i.i.i53.i, %.noexc23 ], [ %84, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit52.i ]
-  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %88
   %90 = load i32, ptr %89, align 4, !alias.scope !1089, !noalias !1055, !noundef !5
   %91 = add nuw nsw i64 %88, 1
   store i64 %91, ptr %6, align 16, !alias.scope !1089, !noalias !1055
@@ -10186,7 +10186,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i: ; preds = %.noexc23, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i: ; preds = %.noexc25, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i
   %95 = phi i64 [ %.pr.i.i.i.i55.i, %.noexc25 ], [ %91, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit54.i ]
-  %96 = getelementptr inbounds nuw i32, ptr %5, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %95
   %97 = load i32, ptr %96, align 4, !alias.scope !1092, !noalias !1055, !noundef !5
   %98 = add nuw nsw i64 %95, 1
   store i64 %98, ptr %6, align 16, !alias.scope !1092, !noalias !1055
@@ -10204,7 +10204,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i: ; preds = %.noexc25, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i: ; preds = %.noexc27, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i
   %102 = phi i64 [ %.pr.i.i.i.i57.i, %.noexc27 ], [ %98, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit56.i ]
-  %103 = getelementptr inbounds nuw i32, ptr %5, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %102
   %104 = load i32, ptr %103, align 4, !alias.scope !1095, !noalias !1055, !noundef !5
   %105 = add nuw nsw i64 %102, 1
   store i64 %105, ptr %6, align 16, !alias.scope !1095, !noalias !1055
@@ -10222,7 +10222,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i: ; preds = %.noexc27, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i: ; preds = %.noexc29, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i
   %109 = phi i64 [ %.pr.i.i.i.i59.i, %.noexc29 ], [ %105, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit58.i ]
-  %110 = getelementptr inbounds nuw i32, ptr %5, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %109
   %111 = load i32, ptr %110, align 4, !alias.scope !1098, !noalias !1055, !noundef !5
   %112 = add nuw nsw i64 %109, 1
   store i64 %112, ptr %6, align 16, !alias.scope !1098, !noalias !1055
@@ -10240,7 +10240,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i: ; preds = %.noexc29, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i: ; preds = %.noexc31, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i
   %116 = phi i64 [ %.pr.i.i.i.i61.i, %.noexc31 ], [ %112, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit60.i ]
-  %117 = getelementptr inbounds nuw i32, ptr %5, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %116
   %118 = load i32, ptr %117, align 4, !alias.scope !1101, !noalias !1055, !noundef !5
   %119 = add nuw nsw i64 %116, 1
   store i64 %119, ptr %6, align 16, !alias.scope !1101, !noalias !1055
@@ -10258,7 +10258,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i: ; preds = %.noexc31, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i: ; preds = %.noexc33, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i
   %123 = phi i64 [ %.pr.i.i.i.i63.i, %.noexc33 ], [ %119, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit62.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %5, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %123
   %125 = load i32, ptr %124, align 4, !alias.scope !1104, !noalias !1055, !noundef !5
   %126 = add nuw nsw i64 %123, 1
   store i64 %126, ptr %6, align 16, !alias.scope !1104, !noalias !1055
@@ -10276,7 +10276,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i: ; preds = %.noexc33, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i: ; preds = %.noexc35, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i
   %130 = phi i64 [ %.pr.i.i.i.i65.i, %.noexc35 ], [ %126, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit64.i ]
-  %131 = getelementptr inbounds nuw i32, ptr %5, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   %132 = load i32, ptr %131, align 4, !alias.scope !1107, !noalias !1055, !noundef !5
   %133 = add nuw nsw i64 %130, 1
   store i64 %133, ptr %6, align 16, !alias.scope !1107, !noalias !1055
@@ -10294,7 +10294,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i: ; preds = %.noexc35, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i: ; preds = %.noexc37, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i
   %137 = phi i64 [ %.pr.i.i.i.i67.i, %.noexc37 ], [ %133, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit66.i ]
-  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %137
   %139 = load i32, ptr %138, align 4, !alias.scope !1110, !noalias !1055, !noundef !5
   %140 = add nuw nsw i64 %137, 1
   store i64 %140, ptr %6, align 16, !alias.scope !1110, !noalias !1055
@@ -10312,7 +10312,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i: ; preds = %.noexc37, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i: ; preds = %.noexc39, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i
   %144 = phi i64 [ %.pr.i.i.i.i69.i, %.noexc39 ], [ %140, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit68.i ]
-  %145 = getelementptr inbounds nuw i32, ptr %5, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %144
   %146 = load i32, ptr %145, align 4, !alias.scope !1113, !noalias !1055, !noundef !5
   %147 = add nuw nsw i64 %144, 1
   store i64 %147, ptr %6, align 16, !alias.scope !1113, !noalias !1055
@@ -10330,7 +10330,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i: ; preds = %.noexc39, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i: ; preds = %.noexc41, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i
   %151 = phi i64 [ %.pr.i.i.i.i71.i, %.noexc41 ], [ %147, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit70.i ]
-  %152 = getelementptr inbounds nuw i32, ptr %5, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %151
   %153 = load i32, ptr %152, align 4, !alias.scope !1116, !noalias !1055, !noundef !5
   %154 = add nuw nsw i64 %151, 1
   store i64 %154, ptr %6, align 16, !alias.scope !1116, !noalias !1055
@@ -10348,7 +10348,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i: ; preds = %.noexc41, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i: ; preds = %.noexc43, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i
   %158 = phi i64 [ %.pr.i.i.i.i73.i, %.noexc43 ], [ %154, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit72.i ]
-  %159 = getelementptr inbounds nuw i32, ptr %5, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %158
   %160 = load i32, ptr %159, align 4, !alias.scope !1119, !noalias !1055, !noundef !5
   %161 = add nuw nsw i64 %158, 1
   store i64 %161, ptr %6, align 16, !alias.scope !1119, !noalias !1055
@@ -10366,7 +10366,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i: ; preds = %.noexc43, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i: ; preds = %.noexc45, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i
   %165 = phi i64 [ %.pr.i.i.i.i75.i, %.noexc45 ], [ %161, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit74.i ]
-  %166 = getelementptr inbounds nuw i32, ptr %5, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %165
   %167 = load i32, ptr %166, align 4, !alias.scope !1122, !noalias !1055, !noundef !5
   %168 = add nuw nsw i64 %165, 1
   store i64 %168, ptr %6, align 16, !alias.scope !1122, !noalias !1055
@@ -10384,7 +10384,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i: ; preds = %.noexc45, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i: ; preds = %.noexc47, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i
   %172 = phi i64 [ %.pr.i.i.i.i77.i, %.noexc47 ], [ %168, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit76.i ]
-  %173 = getelementptr inbounds nuw i32, ptr %5, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %172
   %174 = load i32, ptr %173, align 4, !alias.scope !1125, !noalias !1055, !noundef !5
   %175 = add nuw nsw i64 %172, 1
   store i64 %175, ptr %6, align 16, !alias.scope !1125, !noalias !1055
@@ -10402,7 +10402,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i: ; preds = %.noexc47, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i: ; preds = %.noexc49, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i
   %179 = phi i64 [ %.pr.i.i.i.i79.i, %.noexc49 ], [ %175, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit78.i ]
-  %180 = getelementptr inbounds nuw i32, ptr %5, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %179
   %181 = load i32, ptr %180, align 4, !alias.scope !1128, !noalias !1055, !noundef !5
   %182 = add nuw nsw i64 %179, 1
   store i64 %182, ptr %6, align 16, !alias.scope !1128, !noalias !1055
@@ -10420,7 +10420,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i: ; preds = %.noexc49, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i: ; preds = %.noexc51, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i
   %186 = phi i64 [ %.pr.i.i.i.i81.i, %.noexc51 ], [ %182, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit80.i ]
-  %187 = getelementptr inbounds nuw i32, ptr %5, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %186
   %188 = load i32, ptr %187, align 4, !alias.scope !1131, !noalias !1055, !noundef !5
   %189 = add nuw nsw i64 %186, 1
   store i64 %189, ptr %6, align 16, !alias.scope !1131, !noalias !1055
@@ -10438,7 +10438,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i: ; preds = %.noexc51, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i: ; preds = %.noexc53, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i
   %193 = phi i64 [ %.pr.i.i.i.i83.i, %.noexc53 ], [ %189, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit82.i ]
-  %194 = getelementptr inbounds nuw i32, ptr %5, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %193
   %195 = load i32, ptr %194, align 4, !alias.scope !1134, !noalias !1055, !noundef !5
   %196 = add nuw nsw i64 %193, 1
   store i64 %196, ptr %6, align 16, !alias.scope !1134, !noalias !1055
@@ -10456,7 +10456,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i: ; preds = %.noexc53, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i: ; preds = %.noexc55, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i
   %200 = phi i64 [ %.pr.i.i.i.i85.i, %.noexc55 ], [ %196, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit84.i ]
-  %201 = getelementptr inbounds nuw i32, ptr %5, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %200
   %202 = load i32, ptr %201, align 4, !alias.scope !1137, !noalias !1055, !noundef !5
   %203 = add nuw nsw i64 %200, 1
   store i64 %203, ptr %6, align 16, !alias.scope !1137, !noalias !1055
@@ -10474,7 +10474,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i: ; preds = %.noexc55, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i: ; preds = %.noexc57, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i
   %207 = phi i64 [ %.pr.i.i.i.i87.i, %.noexc57 ], [ %203, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit86.i ]
-  %208 = getelementptr inbounds nuw i32, ptr %5, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %207
   %209 = load i32, ptr %208, align 4, !alias.scope !1140, !noalias !1055, !noundef !5
   %210 = add nuw nsw i64 %207, 1
   store i64 %210, ptr %6, align 16, !alias.scope !1140, !noalias !1055
@@ -10492,7 +10492,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i: ; preds = %.noexc57, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i: ; preds = %.noexc59, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i
   %214 = phi i64 [ %.pr.i.i.i.i89.i, %.noexc59 ], [ %210, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit88.i ]
-  %215 = getelementptr inbounds nuw i32, ptr %5, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %214
   %216 = load i32, ptr %215, align 4, !alias.scope !1143, !noalias !1055, !noundef !5
   %217 = add nuw nsw i64 %214, 1
   store i64 %217, ptr %6, align 16, !alias.scope !1143, !noalias !1055
@@ -10510,7 +10510,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i: ; preds = %.noexc59, %_ZN4ran
 
 _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit92.i: ; preds = %.noexc61, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i
   %221 = phi i64 [ %.pr.i.i.i.i91.i, %.noexc61 ], [ %217, %_ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit90.i ]
-  %222 = getelementptr inbounds nuw i32, ptr %5, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %221
   %223 = load i32, ptr %222, align 4, !alias.scope !1146, !noalias !1055, !noundef !5
   %224 = add nuw nsw i64 %221, 1
   store i64 %224, ptr %6, align 16, !alias.scope !1146, !noalias !1055
@@ -10573,7 +10573,7 @@ _ZN4rand3rng3Rng3gen17hb6e89deef2c681d7E.exit92.i: ; preds = %.noexc61, %_ZN4ran
   %261 = trunc i32 %27 to i8
   %262 = trunc i32 %20 to i8
   %263 = trunc i32 %13 to i8
-  %264 = getelementptr inbounds nuw i32, ptr %5, i64 %232
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %232
   %265 = load i32, ptr %264, align 4, !alias.scope !1149, !noalias !1055, !noundef !5
   %266 = add nuw nsw i64 %232, 1
   store i64 %266, ptr %6, align 16, !alias.scope !1149, !noalias !1055
@@ -10681,10 +10681,10 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_wasi..preview0..types..Err
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !627, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111.104", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111.104", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -10695,10 +10695,10 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_wasi..preview1..types..Err
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !627, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111.104", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h48329544dcae9fe3E.llvm.484570838511886111.104", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

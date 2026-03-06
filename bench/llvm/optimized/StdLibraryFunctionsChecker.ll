@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"class.clang::ento::CheckerFn" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.llvm::IntrusiveRefCntPtr" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -68,8 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.691" = type { [128 x i8] }
 %class.anon = type { %"class.llvm::SmallString", %"class.clang::ento::SVal" }
 %"class.clang::ento::SVal" = type <{ ptr, i8, [7 x i8] }>
-%"struct.llvm::detail::DenseMapPair.130" = type { %"struct.std::pair.131" }
-%"struct.std::pair.131" = type { ptr, %"class.(anonymous namespace)::StdLibraryFunctionsChecker::Summary" }
 %"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
 %"class.llvm::APInt.base" = type <{ %union.anon.908, i32 }>
 %union.anon.908 = type { i64 }
@@ -95,9 +90,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::FunctionEffectsRef" = type { %"class.llvm::ArrayRef.981", %"class.llvm::ArrayRef.982" }
 %"class.llvm::ArrayRef.981" = type { ptr, i64 }
 %"class.llvm::ArrayRef.982" = type { ptr, i64 }
+%"struct.std::pair.131" = type { ptr, %"class.(anonymous namespace)::StdLibraryFunctionsChecker::Summary" }
 %"class.(anonymous namespace)::StdLibraryFunctionsChecker::SummaryCase" = type { %"class.std::vector.138", ptr, %"class.llvm::StringRef" }
 %"class.llvm::APInt" = type <{ %union.anon.908, i32, [4 x i8] }>
-%"struct.std::pair.1008" = type { ptr, i64 }
 %"class.std::optional.1067" = type { %"struct.std::_Optional_base.1068" }
 %"struct.std::_Optional_base.1068" = type { %"struct.std::_Optional_payload.1070" }
 %"struct.std::_Optional_payload.1070" = type { %"struct.std::_Optional_payload_base.base.1072", [7 x i8] }
@@ -108,7 +103,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::ento::DefinedOrUnknownSVal.base" = type { %"class.clang::ento::SVal.base" }
 %"class.clang::ento::SVal.base" = type <{ ptr, i8 }>
 %"class.std::function.1082" = type { %"class.std::_Function_base", ptr }
-%"struct.std::pair.953" = type { i64, i64 }
 %"struct.std::pair.1124" = type { %"class.llvm::IntrusiveRefCntPtr", %"class.llvm::IntrusiveRefCntPtr" }
 %"class.(anonymous namespace)::StdLibraryFunctionsChecker::BufferSizeConstraint" = type { %"class.(anonymous namespace)::StdLibraryFunctionsChecker::ValueConstraint.base", [4 x i8], %"class.std::optional.1144", %"class.std::optional.1115", %"class.std::optional.1115", i32, [4 x i8] }
 %"class.(anonymous namespace)::StdLibraryFunctionsChecker::ValueConstraint.base" = type <{ ptr, i32 }>
@@ -131,12 +125,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::PointerIntPair.147" = type { %"struct.llvm::detail::PunnedPointer.148" }
 %"struct.llvm::detail::PunnedPointer.148" = type { [8 x i8] }
 %"class.clang::CFGBlock::ElementRefImpl" = type { ptr, i64 }
-%"class.std::unique_ptr.1227" = type { %"struct.std::__uniq_ptr_data.1228" }
-%"struct.std::__uniq_ptr_data.1228" = type { %"class.std::__uniq_ptr_impl.1229" }
-%"class.std::__uniq_ptr_impl.1229" = type { %"class.std::tuple.1230" }
-%"class.std::tuple.1230" = type { %"struct.std::_Tuple_impl.1231" }
-%"struct.std::_Tuple_impl.1231" = type { %"struct.std::_Head_base.1234" }
-%"struct.std::_Head_base.1234" = type { ptr }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.clang::DeclarationName" = type { i64 }
 %"class.llvm::formatv_object" = type { %"class.llvm::formatv_object_base.base", %"class.std::tuple.1239", %"struct.std::array" }
@@ -723,7 +711,7 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.e
 _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %47, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %42, ptr %21, align 8, !tbaa !43
   store ptr %46, ptr %22, align 8, !tbaa !38
-  %48 = getelementptr inbounds nuw %"class.clang::ento::CheckerFn", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %48, ptr %24, align 8, !tbaa !41
   br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_126StdLibraryFunctionsCheckerEJEEEPT_DpOT0_.exit
 
@@ -807,7 +795,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !228
@@ -835,7 +823,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !230, !llvm.loop !231
@@ -944,7 +932,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !228
@@ -972,7 +960,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !230, !llvm.loop !231
@@ -1081,7 +1069,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %47 = xor i32 %45, %46
   %.02944.i.i = and i32 %47, %38
   %48 = zext nneg i32 %.02944.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   %51 = icmp eq ptr %41, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !228
@@ -1109,7 +1097,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %61 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %61, %38
   %62 = zext i32 %.029.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = icmp eq ptr %41, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !230, !llvm.loop !231
@@ -2020,7 +2008,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %54 = add i32 %.val7.i.i.i, -1
   %.0187.i.i.i.i.i = and i32 %53, %54
   %55 = zext nneg i32 %.0187.i.i.i.i.i to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %55
+  %56 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !245, !noalias !440
   %58 = icmp eq ptr %45, %57
   br i1 %58, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !228
@@ -2037,20 +2025,20 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %63 = add i32 %.0168.i.i.i.i.i, %.0189.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %63, %54
   %64 = zext i32 %.018.i.i.i.i.i to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %64
+  %65 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !245, !noalias !440
   %67 = icmp eq ptr %45, %66
   br i1 %67, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !230, !llvm.loop !443
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i
   %68 = zext i32 %.val7.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %68
+  %69 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %68
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i: ; preds = %61, %.loopexit.i.i.i.i, %48
   %.sroa.0.1.i.i.i.i = phi ptr [ %69, %.loopexit.i.i.i.i ], [ %56, %48 ], [ %65, %61 ]
   %70 = zext i32 %.val7.i.i.i to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %70
+  %71 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %70
   %72 = icmp eq ptr %.sroa.0.1.i.i.i.i, %71
   br i1 %72, label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker19findFunctionSummaryERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread.i, label %74
 
@@ -2571,7 +2559,7 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i: ; preds = %307, %2
   %310 = phi i32 [ %305, %290 ], [ %.pre.i.i.i.i, %307 ]
   %311 = load ptr, ptr %265, align 8, !tbaa !491
   %312 = zext i32 %310 to i64
-  %313 = getelementptr inbounds nuw %"class.clang::SourceRange", ptr %311, i64 %312
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %312
   store i64 %304, ptr %313, align 1
   %314 = load i32, ptr %266, align 8, !tbaa !488
   %315 = add i32 %314, 1
@@ -3390,7 +3378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 switch.lookup:                                    ; preds = %65
   %68 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_126StdLibraryFunctionsChecker12printArgDescEjRN4llvm11raw_ostreamE, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_126StdLibraryFunctionsChecker12printArgDescEjRN4llvm11raw_ostreamE, i64 %68
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm16getOrdinalSuffixEj.exit
 
@@ -14612,7 +14600,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i7859: ; preds = %4897, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7856
   store ptr %4891, ptr %126, align 8, !tbaa !879
   store ptr %4896, ptr %4868, align 8, !tbaa !882
-  %4898 = getelementptr inbounds nuw %"class.clang::QualType", ptr %4891, i64 %4889
+  %4898 = getelementptr inbounds nuw [8 x i8], ptr %4891, i64 %4889
   store ptr %4898, ptr %4869, align 8, !tbaa !883
   br label %4899
 
@@ -14746,7 +14734,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i7885: ; preds = %4944, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7882
   store ptr %4938, ptr %129, align 8, !tbaa !879
   store ptr %4943, ptr %4915, align 8, !tbaa !882
-  %4945 = getelementptr inbounds nuw %"class.clang::QualType", ptr %4938, i64 %4936
+  %4945 = getelementptr inbounds nuw [8 x i8], ptr %4938, i64 %4936
   store ptr %4945, ptr %4916, align 8, !tbaa !883
   br label %4946
 
@@ -15199,7 +15187,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i7965: ; preds = %5112, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7962
   store ptr %5106, ptr %136, align 8, !tbaa !879
   store ptr %5111, ptr %5083, align 8, !tbaa !882
-  %5113 = getelementptr inbounds nuw %"class.clang::QualType", ptr %5106, i64 %5104
+  %5113 = getelementptr inbounds nuw [8 x i8], ptr %5106, i64 %5104
   store ptr %5113, ptr %5084, align 8, !tbaa !883
   br label %5114
 
@@ -15336,7 +15324,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i7991: ; preds = %5160, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7988
   store ptr %5154, ptr %139, align 8, !tbaa !879
   store ptr %5159, ptr %5131, align 8, !tbaa !882
-  %5161 = getelementptr inbounds nuw %"class.clang::QualType", ptr %5154, i64 %5152
+  %5161 = getelementptr inbounds nuw [8 x i8], ptr %5154, i64 %5152
   store ptr %5161, ptr %5132, align 8, !tbaa !883
   br label %5162
 
@@ -15696,7 +15684,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i8065: ; preds = %5294, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8062
   store ptr %5288, ptr %145, align 8, !tbaa !879
   store ptr %5293, ptr %5265, align 8, !tbaa !882
-  %5295 = getelementptr inbounds nuw %"class.clang::QualType", ptr %5288, i64 %5286
+  %5295 = getelementptr inbounds nuw [8 x i8], ptr %5288, i64 %5286
   store ptr %5295, ptr %5266, align 8, !tbaa !883
   br label %5296
 
@@ -15837,7 +15825,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i8091: ; preds = %5343, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8088
   store ptr %5337, ptr %148, align 8, !tbaa !879
   store ptr %5342, ptr %5314, align 8, !tbaa !882
-  %5344 = getelementptr inbounds nuw %"class.clang::QualType", ptr %5337, i64 %5335
+  %5344 = getelementptr inbounds nuw [8 x i8], ptr %5337, i64 %5335
   store ptr %5344, ptr %5315, align 8, !tbaa !883
   br label %5345
 
@@ -17378,7 +17366,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i8521: ; preds = %5978, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8518
   store ptr %5972, ptr %162, align 8, !tbaa !879
   store ptr %5977, ptr %5949, align 8, !tbaa !882
-  %5979 = getelementptr inbounds nuw %"class.clang::QualType", ptr %5972, i64 %5970
+  %5979 = getelementptr inbounds nuw [8 x i8], ptr %5972, i64 %5970
   store ptr %5979, ptr %5950, align 8, !tbaa !883
   br label %5980
 
@@ -17947,7 +17935,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i8641: ; preds = %6203, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8638
   store ptr %6197, ptr %168, align 8, !tbaa !879
   store ptr %6202, ptr %6174, align 8, !tbaa !882
-  %6204 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6197, i64 %6195
+  %6204 = getelementptr inbounds nuw [8 x i8], ptr %6197, i64 %6195
   store ptr %6204, ptr %6175, align 8, !tbaa !883
   br label %6205
 
@@ -18896,7 +18884,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i8870: ; preds = %6575, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8867
   store ptr %6569, ptr %179, align 8, !tbaa !879
   store ptr %6574, ptr %6546, align 8, !tbaa !882
-  %6576 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6569, i64 %6567
+  %6576 = getelementptr inbounds nuw [8 x i8], ptr %6569, i64 %6567
   store ptr %6576, ptr %6547, align 8, !tbaa !883
   br label %6577
 
@@ -19467,7 +19455,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i8990: ; preds = %6801, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8987
   store ptr %6795, ptr %185, align 8, !tbaa !879
   store ptr %6800, ptr %6772, align 8, !tbaa !882
-  %6802 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6795, i64 %6793
+  %6802 = getelementptr inbounds nuw [8 x i8], ptr %6795, i64 %6793
   store ptr %6802, ptr %6773, align 8, !tbaa !883
   br label %6803
 
@@ -20908,7 +20896,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9371: ; preds = %7370, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9368
   store ptr %7364, ptr %205, align 8, !tbaa !879
   store ptr %7369, ptr %7341, align 8, !tbaa !882
-  %7371 = getelementptr inbounds nuw %"class.clang::QualType", ptr %7364, i64 %7362
+  %7371 = getelementptr inbounds nuw [8 x i8], ptr %7364, i64 %7362
   store ptr %7371, ptr %7342, align 8, !tbaa !883
   br label %7372
 
@@ -21779,7 +21767,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9568: ; preds = %7705, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9565
   store ptr %7699, ptr %214, align 8, !tbaa !879
   store ptr %7704, ptr %7676, align 8, !tbaa !882
-  %7706 = getelementptr inbounds nuw %"class.clang::QualType", ptr %7699, i64 %7697
+  %7706 = getelementptr inbounds nuw [8 x i8], ptr %7699, i64 %7697
   store ptr %7706, ptr %7677, align 8, !tbaa !883
   br label %7707
 
@@ -22480,7 +22468,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9718: ; preds = %7990, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9715
   store ptr %7984, ptr %220, align 8, !tbaa !879
   store ptr %7989, ptr %7961, align 8, !tbaa !882
-  %7991 = getelementptr inbounds nuw %"class.clang::QualType", ptr %7984, i64 %7982
+  %7991 = getelementptr inbounds nuw [8 x i8], ptr %7984, i64 %7982
   store ptr %7991, ptr %7962, align 8, !tbaa !883
   br label %7992
 
@@ -22902,7 +22890,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i9811: ; preds = %8156, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i9808
   store ptr %8150, ptr %225, align 8, !tbaa !879
   store ptr %8155, ptr %8127, align 8, !tbaa !882
-  %8157 = getelementptr inbounds nuw %"class.clang::QualType", ptr %8150, i64 %8148
+  %8157 = getelementptr inbounds nuw [8 x i8], ptr %8150, i64 %8148
   store ptr %8157, ptr %8128, align 8, !tbaa !883
   br label %8158
 
@@ -23931,7 +23919,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10043: ; preds = %8554, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10040
   store ptr %8548, ptr %235, align 8, !tbaa !879
   store ptr %8553, ptr %8525, align 8, !tbaa !882
-  %8555 = getelementptr inbounds nuw %"class.clang::QualType", ptr %8548, i64 %8546
+  %8555 = getelementptr inbounds nuw [8 x i8], ptr %8548, i64 %8546
   store ptr %8555, ptr %8526, align 8, !tbaa !883
   br label %8556
 
@@ -24198,7 +24186,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10099: ; preds = %8660, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10096
   store ptr %8654, ptr %239, align 8, !tbaa !879
   store ptr %8659, ptr %8631, align 8, !tbaa !882
-  %8661 = getelementptr inbounds nuw %"class.clang::QualType", ptr %8654, i64 %8652
+  %8661 = getelementptr inbounds nuw [8 x i8], ptr %8654, i64 %8652
   store ptr %8661, ptr %8632, align 8, !tbaa !883
   br label %8662
 
@@ -24461,7 +24449,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10155: ; preds = %8764, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10152
   store ptr %8758, ptr %243, align 8, !tbaa !879
   store ptr %8763, ptr %8735, align 8, !tbaa !882
-  %8765 = getelementptr inbounds nuw %"class.clang::QualType", ptr %8758, i64 %8756
+  %8765 = getelementptr inbounds nuw [8 x i8], ptr %8758, i64 %8756
   store ptr %8765, ptr %8736, align 8, !tbaa !883
   br label %8766
 
@@ -24706,7 +24694,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10201: ; preds = %8861, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10198
   store ptr %8855, ptr %247, align 8, !tbaa !879
   store ptr %8860, ptr %8832, align 8, !tbaa !882
-  %8862 = getelementptr inbounds nuw %"class.clang::QualType", ptr %8855, i64 %8853
+  %8862 = getelementptr inbounds nuw [8 x i8], ptr %8855, i64 %8853
   store ptr %8862, ptr %8833, align 8, !tbaa !883
   br label %8863
 
@@ -26387,7 +26375,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10719: ; preds = %9516, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10716
   store ptr %9510, ptr %284, align 8, !tbaa !879
   store ptr %9515, ptr %9487, align 8, !tbaa !882
-  %9517 = getelementptr inbounds nuw %"class.clang::QualType", ptr %9510, i64 %9508
+  %9517 = getelementptr inbounds nuw [8 x i8], ptr %9510, i64 %9508
   store ptr %9517, ptr %9488, align 8, !tbaa !883
   br label %9518
 
@@ -26580,7 +26568,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10755: ; preds = %9591, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10752
   store ptr %9585, ptr %288, align 8, !tbaa !879
   store ptr %9590, ptr %9562, align 8, !tbaa !882
-  %9592 = getelementptr inbounds nuw %"class.clang::QualType", ptr %9585, i64 %9583
+  %9592 = getelementptr inbounds nuw [8 x i8], ptr %9585, i64 %9583
   store ptr %9592, ptr %9563, align 8, !tbaa !883
   br label %9593
 
@@ -26849,7 +26837,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10802: ; preds = %9698, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10799
   store ptr %9692, ptr %292, align 8, !tbaa !879
   store ptr %9697, ptr %9669, align 8, !tbaa !882
-  %9699 = getelementptr inbounds nuw %"class.clang::QualType", ptr %9692, i64 %9690
+  %9699 = getelementptr inbounds nuw [8 x i8], ptr %9692, i64 %9690
   store ptr %9699, ptr %9670, align 8, !tbaa !883
   br label %9700
 
@@ -27046,7 +27034,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10838: ; preds = %9775, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10835
   store ptr %9769, ptr %296, align 8, !tbaa !879
   store ptr %9774, ptr %9746, align 8, !tbaa !882
-  %9776 = getelementptr inbounds nuw %"class.clang::QualType", ptr %9769, i64 %9767
+  %9776 = getelementptr inbounds nuw [8 x i8], ptr %9769, i64 %9767
   store ptr %9776, ptr %9747, align 8, !tbaa !883
   br label %9777
 
@@ -27421,7 +27409,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i10934: ; preds = %9926, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i10931
   store ptr %9920, ptr %303, align 8, !tbaa !879
   store ptr %9925, ptr %9897, align 8, !tbaa !882
-  %9927 = getelementptr inbounds nuw %"class.clang::QualType", ptr %9920, i64 %9918
+  %9927 = getelementptr inbounds nuw [8 x i8], ptr %9920, i64 %9918
   store ptr %9927, ptr %9898, align 8, !tbaa !883
   br label %9928
 
@@ -27816,7 +27804,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11046: ; preds = %10087, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11043
   store ptr %10081, ptr %310, align 8, !tbaa !879
   store ptr %10086, ptr %10058, align 8, !tbaa !882
-  %10088 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10081, i64 %10079
+  %10088 = getelementptr inbounds nuw [8 x i8], ptr %10081, i64 %10079
   store ptr %10088, ptr %10059, align 8, !tbaa !883
   br label %10089
 
@@ -28167,7 +28155,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11138: ; preds = %10228, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11135
   store ptr %10222, ptr %317, align 8, !tbaa !879
   store ptr %10227, ptr %10199, align 8, !tbaa !882
-  %10229 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10222, i64 %10220
+  %10229 = getelementptr inbounds nuw [8 x i8], ptr %10222, i64 %10220
   store ptr %10229, ptr %10200, align 8, !tbaa !883
   br label %10230
 
@@ -28356,7 +28344,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11174: ; preds = %10301, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11171
   store ptr %10295, ptr %321, align 8, !tbaa !879
   store ptr %10300, ptr %10272, align 8, !tbaa !882
-  %10302 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10295, i64 %10293
+  %10302 = getelementptr inbounds nuw [8 x i8], ptr %10295, i64 %10293
   store ptr %10302, ptr %10273, align 8, !tbaa !883
   br label %10303
 
@@ -28604,7 +28592,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11220: ; preds = %10401, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11217
   store ptr %10395, ptr %325, align 8, !tbaa !879
   store ptr %10400, ptr %10372, align 8, !tbaa !882
-  %10402 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10395, i64 %10393
+  %10402 = getelementptr inbounds nuw [8 x i8], ptr %10395, i64 %10393
   store ptr %10402, ptr %10373, align 8, !tbaa !883
   br label %10403
 
@@ -28929,7 +28917,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11280: ; preds = %10532, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11277
   store ptr %10526, ptr %329, align 8, !tbaa !879
   store ptr %10531, ptr %10503, align 8, !tbaa !882
-  %10533 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10526, i64 %10524
+  %10533 = getelementptr inbounds nuw [8 x i8], ptr %10526, i64 %10524
   store ptr %10533, ptr %10504, align 8, !tbaa !883
   br label %10534
 
@@ -29140,7 +29128,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11326: ; preds = %10614, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11323
   store ptr %10608, ptr %333, align 8, !tbaa !879
   store ptr %10613, ptr %10585, align 8, !tbaa !882
-  %10615 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10608, i64 %10606
+  %10615 = getelementptr inbounds nuw [8 x i8], ptr %10608, i64 %10606
   store ptr %10615, ptr %10586, align 8, !tbaa !883
   br label %10616
 
@@ -29843,7 +29831,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11567: ; preds = %10901, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11564
   store ptr %10895, ptr %352, align 8, !tbaa !879
   store ptr %10900, ptr %10872, align 8, !tbaa !882
-  %10902 = getelementptr inbounds nuw %"class.clang::QualType", ptr %10895, i64 %10893
+  %10902 = getelementptr inbounds nuw [8 x i8], ptr %10895, i64 %10893
   store ptr %10902, ptr %10873, align 8, !tbaa !883
   br label %10903
 
@@ -30692,7 +30680,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11805: ; preds = %11246, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i11802
   store ptr %11240, ptr %367, align 8, !tbaa !879
   store ptr %11245, ptr %11217, align 8, !tbaa !882
-  %11247 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11240, i64 %11238
+  %11247 = getelementptr inbounds nuw [8 x i8], ptr %11240, i64 %11238
   store ptr %11247, ptr %11218, align 8, !tbaa !883
   br label %11248
 
@@ -31733,7 +31721,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12027: ; preds = %11657, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12024
   store ptr %11651, ptr %377, align 8, !tbaa !879
   store ptr %11656, ptr %11628, align 8, !tbaa !882
-  %11658 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11651, i64 %11649
+  %11658 = getelementptr inbounds nuw [8 x i8], ptr %11651, i64 %11649
   store ptr %11658, ptr %11629, align 8, !tbaa !883
   br label %11659
 
@@ -31926,7 +31914,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12063: ; preds = %11731, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12060
   store ptr %11725, ptr %381, align 8, !tbaa !879
   store ptr %11730, ptr %11702, align 8, !tbaa !882
-  %11732 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11725, i64 %11723
+  %11732 = getelementptr inbounds nuw [8 x i8], ptr %11725, i64 %11723
   store ptr %11732, ptr %11703, align 8, !tbaa !883
   br label %11733
 
@@ -32199,7 +32187,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12113: ; preds = %11839, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12110
   store ptr %11833, ptr %385, align 8, !tbaa !879
   store ptr %11838, ptr %11810, align 8, !tbaa !882
-  %11840 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11833, i64 %11831
+  %11840 = getelementptr inbounds nuw [8 x i8], ptr %11833, i64 %11831
   store ptr %11840, ptr %11811, align 8, !tbaa !883
   br label %11841
 
@@ -32396,7 +32384,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12149: ; preds = %11914, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12146
   store ptr %11908, ptr %389, align 8, !tbaa !879
   store ptr %11913, ptr %11885, align 8, !tbaa !882
-  %11915 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11908, i64 %11906
+  %11915 = getelementptr inbounds nuw [8 x i8], ptr %11908, i64 %11906
   store ptr %11915, ptr %11886, align 8, !tbaa !883
   br label %11916
 
@@ -32662,7 +32650,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12199: ; preds = %12018, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12196
   store ptr %12012, ptr %393, align 8, !tbaa !879
   store ptr %12017, ptr %11989, align 8, !tbaa !882
-  %12019 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12012, i64 %12010
+  %12019 = getelementptr inbounds nuw [8 x i8], ptr %12012, i64 %12010
   store ptr %12019, ptr %11990, align 8, !tbaa !883
   br label %12020
 
@@ -32859,7 +32847,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12235: ; preds = %12094, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12232
   store ptr %12088, ptr %397, align 8, !tbaa !879
   store ptr %12093, ptr %12065, align 8, !tbaa !882
-  %12095 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12088, i64 %12086
+  %12095 = getelementptr inbounds nuw [8 x i8], ptr %12088, i64 %12086
   store ptr %12095, ptr %12066, align 8, !tbaa !883
   br label %12096
 
@@ -33125,7 +33113,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12285: ; preds = %12198, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12282
   store ptr %12192, ptr %401, align 8, !tbaa !879
   store ptr %12197, ptr %12169, align 8, !tbaa !882
-  %12199 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12192, i64 %12190
+  %12199 = getelementptr inbounds nuw [8 x i8], ptr %12192, i64 %12190
   store ptr %12199, ptr %12170, align 8, !tbaa !883
   br label %12200
 
@@ -33351,7 +33339,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12331: ; preds = %12288, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12328
   store ptr %12282, ptr %405, align 8, !tbaa !879
   store ptr %12287, ptr %12259, align 8, !tbaa !882
-  %12289 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12282, i64 %12280
+  %12289 = getelementptr inbounds nuw [8 x i8], ptr %12282, i64 %12280
   store ptr %12289, ptr %12260, align 8, !tbaa !883
   br label %12290
 
@@ -33621,7 +33609,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12381: ; preds = %12393, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12378
   store ptr %12387, ptr %409, align 8, !tbaa !879
   store ptr %12392, ptr %12364, align 8, !tbaa !882
-  %12394 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12387, i64 %12385
+  %12394 = getelementptr inbounds nuw [8 x i8], ptr %12387, i64 %12385
   store ptr %12394, ptr %12365, align 8, !tbaa !883
   br label %12395
 
@@ -33814,7 +33802,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12417: ; preds = %12466, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12414
   store ptr %12460, ptr %413, align 8, !tbaa !879
   store ptr %12465, ptr %12437, align 8, !tbaa !882
-  %12467 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12460, i64 %12458
+  %12467 = getelementptr inbounds nuw [8 x i8], ptr %12460, i64 %12458
   store ptr %12467, ptr %12438, align 8, !tbaa !883
   br label %12468
 
@@ -34007,7 +33995,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12453: ; preds = %12539, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12450
   store ptr %12533, ptr %417, align 8, !tbaa !879
   store ptr %12538, ptr %12510, align 8, !tbaa !882
-  %12540 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12533, i64 %12531
+  %12540 = getelementptr inbounds nuw [8 x i8], ptr %12533, i64 %12531
   store ptr %12540, ptr %12511, align 8, !tbaa !883
   br label %12541
 
@@ -34395,7 +34383,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12571: ; preds = %12697, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12568
   store ptr %12691, ptr %427, align 8, !tbaa !879
   store ptr %12696, ptr %12668, align 8, !tbaa !882
-  %12698 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12691, i64 %12689
+  %12698 = getelementptr inbounds nuw [8 x i8], ptr %12691, i64 %12689
   store ptr %12698, ptr %12669, align 8, !tbaa !883
   br label %12699
 
@@ -34651,7 +34639,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12617: ; preds = %12801, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12614
   store ptr %12795, ptr %431, align 8, !tbaa !879
   store ptr %12800, ptr %12772, align 8, !tbaa !882
-  %12802 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12795, i64 %12793
+  %12802 = getelementptr inbounds nuw [8 x i8], ptr %12795, i64 %12793
   store ptr %12802, ptr %12773, align 8, !tbaa !883
   br label %12803
 
@@ -35143,7 +35131,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12727: ; preds = %13004, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12724
   store ptr %12998, ptr %438, align 8, !tbaa !879
   store ptr %13003, ptr %12975, align 8, !tbaa !882
-  %13005 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12998, i64 %12996
+  %13005 = getelementptr inbounds nuw [8 x i8], ptr %12998, i64 %12996
   store ptr %13005, ptr %12976, align 8, !tbaa !883
   br label %13006
 
@@ -35428,7 +35416,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12790: ; preds = %13116, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12787
   store ptr %13110, ptr %442, align 8, !tbaa !879
   store ptr %13115, ptr %13087, align 8, !tbaa !882
-  %13117 = getelementptr inbounds nuw %"class.clang::QualType", ptr %13110, i64 %13108
+  %13117 = getelementptr inbounds nuw [8 x i8], ptr %13110, i64 %13108
   store ptr %13117, ptr %13088, align 8, !tbaa !883
   br label %13118
 
@@ -35691,7 +35679,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12846: ; preds = %13220, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12843
   store ptr %13214, ptr %446, align 8, !tbaa !879
   store ptr %13219, ptr %13191, align 8, !tbaa !882
-  %13221 = getelementptr inbounds nuw %"class.clang::QualType", ptr %13214, i64 %13212
+  %13221 = getelementptr inbounds nuw [8 x i8], ptr %13214, i64 %13212
   store ptr %13221, ptr %13192, align 8, !tbaa !883
   br label %13222
 
@@ -35935,7 +35923,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12892: ; preds = %13317, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12889
   store ptr %13311, ptr %450, align 8, !tbaa !879
   store ptr %13316, ptr %13288, align 8, !tbaa !882
-  %13318 = getelementptr inbounds nuw %"class.clang::QualType", ptr %13311, i64 %13309
+  %13318 = getelementptr inbounds nuw [8 x i8], ptr %13311, i64 %13309
   store ptr %13318, ptr %13289, align 8, !tbaa !883
   br label %13319
 
@@ -36187,7 +36175,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i12938: ; preds = %13418, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i12935
   store ptr %13412, ptr %454, align 8, !tbaa !879
   store ptr %13417, ptr %13389, align 8, !tbaa !882
-  %13419 = getelementptr inbounds nuw %"class.clang::QualType", ptr %13412, i64 %13410
+  %13419 = getelementptr inbounds nuw [8 x i8], ptr %13412, i64 %13410
   store ptr %13419, ptr %13390, align 8, !tbaa !883
   br label %13420
 
@@ -37760,7 +37748,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13367: ; preds = %14049, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13364
   store ptr %14043, ptr %475, align 8, !tbaa !879
   store ptr %14048, ptr %14020, align 8, !tbaa !882
-  %14050 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14043, i64 %14041
+  %14050 = getelementptr inbounds nuw [8 x i8], ptr %14043, i64 %14041
   store ptr %14050, ptr %14021, align 8, !tbaa !883
   br label %14051
 
@@ -37966,7 +37954,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13413: ; preds = %14127, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13410
   store ptr %14121, ptr %479, align 8, !tbaa !879
   store ptr %14126, ptr %14098, align 8, !tbaa !882
-  %14128 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14121, i64 %14119
+  %14128 = getelementptr inbounds nuw [8 x i8], ptr %14121, i64 %14119
   store ptr %14128, ptr %14099, align 8, !tbaa !883
   br label %14129
 
@@ -38252,7 +38240,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13485: ; preds = %14236, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13482
   store ptr %14230, ptr %486, align 8, !tbaa !879
   store ptr %14235, ptr %14207, align 8, !tbaa !882
-  %14237 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14230, i64 %14228
+  %14237 = getelementptr inbounds nuw [8 x i8], ptr %14230, i64 %14228
   store ptr %14237, ptr %14208, align 8, !tbaa !883
   br label %14238
 
@@ -38544,7 +38532,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13557: ; preds = %14352, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13554
   store ptr %14346, ptr %493, align 8, !tbaa !879
   store ptr %14351, ptr %14323, align 8, !tbaa !882
-  %14353 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14346, i64 %14344
+  %14353 = getelementptr inbounds nuw [8 x i8], ptr %14346, i64 %14344
   store ptr %14353, ptr %14324, align 8, !tbaa !883
   br label %14354
 
@@ -38844,7 +38832,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13623: ; preds = %14474, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13620
   store ptr %14468, ptr %497, align 8, !tbaa !879
   store ptr %14473, ptr %14445, align 8, !tbaa !882
-  %14475 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14468, i64 %14466
+  %14475 = getelementptr inbounds nuw [8 x i8], ptr %14468, i64 %14466
   store ptr %14475, ptr %14446, align 8, !tbaa !883
   br label %14476
 
@@ -39218,7 +39206,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13725: ; preds = %14625, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13722
   store ptr %14619, ptr %504, align 8, !tbaa !879
   store ptr %14624, ptr %14596, align 8, !tbaa !882
-  %14626 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14619, i64 %14617
+  %14626 = getelementptr inbounds nuw [8 x i8], ptr %14619, i64 %14617
   store ptr %14626, ptr %14597, align 8, !tbaa !883
   br label %14627
 
@@ -39437,7 +39425,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13771: ; preds = %14709, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13768
   store ptr %14703, ptr %508, align 8, !tbaa !879
   store ptr %14708, ptr %14680, align 8, !tbaa !882
-  %14710 = getelementptr inbounds nuw %"class.clang::QualType", ptr %14703, i64 %14701
+  %14710 = getelementptr inbounds nuw [8 x i8], ptr %14703, i64 %14701
   store ptr %14710, ptr %14681, align 8, !tbaa !883
   br label %14711
 
@@ -40401,7 +40389,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i13977: ; preds = %15093, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i13974
   store ptr %15087, ptr %516, align 8, !tbaa !879
   store ptr %15092, ptr %15064, align 8, !tbaa !882
-  %15094 = getelementptr inbounds nuw %"class.clang::QualType", ptr %15087, i64 %15085
+  %15094 = getelementptr inbounds nuw [8 x i8], ptr %15087, i64 %15085
   store ptr %15094, ptr %15065, align 8, !tbaa !883
   br label %15095
 
@@ -41438,7 +41426,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14197: ; preds = %15509, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14194
   store ptr %15503, ptr %524, align 8, !tbaa !879
   store ptr %15508, ptr %15480, align 8, !tbaa !882
-  %15510 = getelementptr inbounds nuw %"class.clang::QualType", ptr %15503, i64 %15501
+  %15510 = getelementptr inbounds nuw [8 x i8], ptr %15503, i64 %15501
   store ptr %15510, ptr %15481, align 8, !tbaa !883
   br label %15511
 
@@ -41836,7 +41824,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14271: ; preds = %15671, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14268
   store ptr %15665, ptr %528, align 8, !tbaa !879
   store ptr %15670, ptr %15642, align 8, !tbaa !882
-  %15672 = getelementptr inbounds nuw %"class.clang::QualType", ptr %15665, i64 %15663
+  %15672 = getelementptr inbounds nuw [8 x i8], ptr %15665, i64 %15663
   store ptr %15672, ptr %15643, align 8, !tbaa !883
   br label %15673
 
@@ -42345,7 +42333,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14381: ; preds = %15871, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14378
   store ptr %15865, ptr %534, align 8, !tbaa !879
   store ptr %15870, ptr %15842, align 8, !tbaa !882
-  %15872 = getelementptr inbounds nuw %"class.clang::QualType", ptr %15865, i64 %15863
+  %15872 = getelementptr inbounds nuw [8 x i8], ptr %15865, i64 %15863
   store ptr %15872, ptr %15843, align 8, !tbaa !883
   br label %15873
 
@@ -42533,7 +42521,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14417: ; preds = %15943, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14414
   store ptr %15937, ptr %538, align 8, !tbaa !879
   store ptr %15942, ptr %15914, align 8, !tbaa !882
-  %15944 = getelementptr inbounds nuw %"class.clang::QualType", ptr %15937, i64 %15935
+  %15944 = getelementptr inbounds nuw [8 x i8], ptr %15937, i64 %15935
   store ptr %15944, ptr %15915, align 8, !tbaa !883
   br label %15945
 
@@ -42725,7 +42713,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14453: ; preds = %16017, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14450
   store ptr %16011, ptr %542, align 8, !tbaa !879
   store ptr %16016, ptr %15988, align 8, !tbaa !882
-  %16018 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16011, i64 %16009
+  %16018 = getelementptr inbounds nuw [8 x i8], ptr %16011, i64 %16009
   store ptr %16018, ptr %15989, align 8, !tbaa !883
   br label %16019
 
@@ -43282,7 +43270,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14619: ; preds = %16244, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14616
   store ptr %16238, ptr %547, align 8, !tbaa !879
   store ptr %16243, ptr %16215, align 8, !tbaa !882
-  %16245 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16238, i64 %16236
+  %16245 = getelementptr inbounds nuw [8 x i8], ptr %16238, i64 %16236
   store ptr %16245, ptr %16216, align 8, !tbaa !883
   br label %16246
 
@@ -43503,7 +43491,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14665: ; preds = %16327, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14662
   store ptr %16321, ptr %553, align 8, !tbaa !879
   store ptr %16326, ptr %16298, align 8, !tbaa !882
-  %16328 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16321, i64 %16319
+  %16328 = getelementptr inbounds nuw [8 x i8], ptr %16321, i64 %16319
   store ptr %16328, ptr %16299, align 8, !tbaa !883
   br label %16329
 
@@ -43638,7 +43626,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14691: ; preds = %16374, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14688
   store ptr %16368, ptr %556, align 8, !tbaa !879
   store ptr %16373, ptr %16345, align 8, !tbaa !882
-  %16375 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16368, i64 %16366
+  %16375 = getelementptr inbounds nuw [8 x i8], ptr %16368, i64 %16366
   store ptr %16375, ptr %16346, align 8, !tbaa !883
   br label %16376
 
@@ -43771,7 +43759,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14717: ; preds = %16418, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14714
   store ptr %16412, ptr %559, align 8, !tbaa !879
   store ptr %16417, ptr %16389, align 8, !tbaa !882
-  %16419 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16412, i64 %16410
+  %16419 = getelementptr inbounds nuw [8 x i8], ptr %16412, i64 %16410
   store ptr %16419, ptr %16390, align 8, !tbaa !883
   br label %16420
 
@@ -44223,7 +44211,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14804: ; preds = %16600, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14801
   store ptr %16594, ptr %563, align 8, !tbaa !879
   store ptr %16599, ptr %16571, align 8, !tbaa !882
-  %16601 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16594, i64 %16592
+  %16601 = getelementptr inbounds nuw [8 x i8], ptr %16594, i64 %16592
   store ptr %16601, ptr %16572, align 8, !tbaa !883
   br label %16602
 
@@ -44554,7 +44542,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14871: ; preds = %16724, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14868
   store ptr %16718, ptr %567, align 8, !tbaa !879
   store ptr %16723, ptr %16695, align 8, !tbaa !882
-  %16725 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16718, i64 %16716
+  %16725 = getelementptr inbounds nuw [8 x i8], ptr %16718, i64 %16716
   store ptr %16725, ptr %16696, align 8, !tbaa !883
   br label %16726
 
@@ -44880,7 +44868,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14937: ; preds = %16857, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14934
   store ptr %16851, ptr %571, align 8, !tbaa !879
   store ptr %16856, ptr %16828, align 8, !tbaa !882
-  %16858 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16851, i64 %16849
+  %16858 = getelementptr inbounds nuw [8 x i8], ptr %16851, i64 %16849
   store ptr %16858, ptr %16829, align 8, !tbaa !883
   br label %16859
 
@@ -45094,7 +45082,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i14983: ; preds = %16937, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i14980
   store ptr %16931, ptr %575, align 8, !tbaa !879
   store ptr %16936, ptr %16908, align 8, !tbaa !882
-  %16938 = getelementptr inbounds nuw %"class.clang::QualType", ptr %16931, i64 %16929
+  %16938 = getelementptr inbounds nuw [8 x i8], ptr %16931, i64 %16929
   store ptr %16938, ptr %16909, align 8, !tbaa !883
   br label %16939
 
@@ -45420,7 +45408,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15049: ; preds = %17070, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15046
   store ptr %17064, ptr %579, align 8, !tbaa !879
   store ptr %17069, ptr %17041, align 8, !tbaa !882
-  %17071 = getelementptr inbounds nuw %"class.clang::QualType", ptr %17064, i64 %17062
+  %17071 = getelementptr inbounds nuw [8 x i8], ptr %17064, i64 %17062
   store ptr %17071, ptr %17042, align 8, !tbaa !883
   br label %17072
 
@@ -45634,7 +45622,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15095: ; preds = %17150, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15092
   store ptr %17144, ptr %583, align 8, !tbaa !879
   store ptr %17149, ptr %17121, align 8, !tbaa !882
-  %17151 = getelementptr inbounds nuw %"class.clang::QualType", ptr %17144, i64 %17142
+  %17151 = getelementptr inbounds nuw [8 x i8], ptr %17144, i64 %17142
   store ptr %17151, ptr %17122, align 8, !tbaa !883
   br label %17152
 
@@ -45905,7 +45893,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15151: ; preds = %17258, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15148
   store ptr %17252, ptr %587, align 8, !tbaa !879
   store ptr %17257, ptr %17229, align 8, !tbaa !882
-  %17259 = getelementptr inbounds nuw %"class.clang::QualType", ptr %17252, i64 %17250
+  %17259 = getelementptr inbounds nuw [8 x i8], ptr %17252, i64 %17250
   store ptr %17259, ptr %17230, align 8, !tbaa !883
   br label %17260
 
@@ -46808,7 +46796,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15342: ; preds = %17613, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15339
   store ptr %17607, ptr %597, align 8, !tbaa !879
   store ptr %17612, ptr %17584, align 8, !tbaa !882
-  %17614 = getelementptr inbounds nuw %"class.clang::QualType", ptr %17607, i64 %17605
+  %17614 = getelementptr inbounds nuw [8 x i8], ptr %17607, i64 %17605
   store ptr %17614, ptr %17585, align 8, !tbaa !883
   br label %17615
 
@@ -46962,7 +46950,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15368: ; preds = %17668, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15365
   store ptr %17662, ptr %600, align 8, !tbaa !879
   store ptr %17667, ptr %17639, align 8, !tbaa !882
-  %17669 = getelementptr inbounds nuw %"class.clang::QualType", ptr %17662, i64 %17660
+  %17669 = getelementptr inbounds nuw [8 x i8], ptr %17662, i64 %17660
   store ptr %17669, ptr %17640, align 8, !tbaa !883
   br label %17670
 
@@ -47791,7 +47779,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15539: ; preds = %17989, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15536
   store ptr %17983, ptr %609, align 8, !tbaa !879
   store ptr %17988, ptr %17960, align 8, !tbaa !882
-  %17990 = getelementptr inbounds nuw %"class.clang::QualType", ptr %17983, i64 %17981
+  %17990 = getelementptr inbounds nuw [8 x i8], ptr %17983, i64 %17981
   store ptr %17990, ptr %17961, align 8, !tbaa !883
   br label %17991
 
@@ -47945,7 +47933,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15565: ; preds = %18044, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15562
   store ptr %18038, ptr %612, align 8, !tbaa !879
   store ptr %18043, ptr %18015, align 8, !tbaa !882
-  %18045 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18038, i64 %18036
+  %18045 = getelementptr inbounds nuw [8 x i8], ptr %18038, i64 %18036
   store ptr %18045, ptr %18016, align 8, !tbaa !883
   br label %18046
 
@@ -48081,7 +48069,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15591: ; preds = %18090, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15588
   store ptr %18084, ptr %615, align 8, !tbaa !879
   store ptr %18089, ptr %18061, align 8, !tbaa !882
-  %18091 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18084, i64 %18082
+  %18091 = getelementptr inbounds nuw [8 x i8], ptr %18084, i64 %18082
   store ptr %18091, ptr %18062, align 8, !tbaa !883
   br label %18092
 
@@ -48297,7 +48285,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15637: ; preds = %18175, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15634
   store ptr %18169, ptr %619, align 8, !tbaa !879
   store ptr %18174, ptr %18146, align 8, !tbaa !882
-  %18176 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18169, i64 %18167
+  %18176 = getelementptr inbounds nuw [8 x i8], ptr %18169, i64 %18167
   store ptr %18176, ptr %18147, align 8, !tbaa !883
   br label %18177
 
@@ -49125,7 +49113,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15822: ; preds = %18498, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15819
   store ptr %18492, ptr %627, align 8, !tbaa !879
   store ptr %18497, ptr %18469, align 8, !tbaa !882
-  %18499 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18492, i64 %18490
+  %18499 = getelementptr inbounds nuw [8 x i8], ptr %18492, i64 %18490
   store ptr %18499, ptr %18470, align 8, !tbaa !883
   br label %18500
 
@@ -49570,7 +49558,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i15916: ; preds = %18660, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i15913
   store ptr %18654, ptr %632, align 8, !tbaa !879
   store ptr %18659, ptr %18631, align 8, !tbaa !882
-  %18661 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18654, i64 %18652
+  %18661 = getelementptr inbounds nuw [8 x i8], ptr %18654, i64 %18652
   store ptr %18661, ptr %18632, align 8, !tbaa !883
   br label %18662
 
@@ -50023,7 +50011,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16010: ; preds = %18826, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16007
   store ptr %18820, ptr %637, align 8, !tbaa !879
   store ptr %18825, ptr %18797, align 8, !tbaa !882
-  %18827 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18820, i64 %18818
+  %18827 = getelementptr inbounds nuw [8 x i8], ptr %18820, i64 %18818
   store ptr %18827, ptr %18798, align 8, !tbaa !883
   br label %18828
 
@@ -50404,7 +50392,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16077: ; preds = %18977, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16074
   store ptr %18971, ptr %641, align 8, !tbaa !879
   store ptr %18976, ptr %18948, align 8, !tbaa !882
-  %18978 = getelementptr inbounds nuw %"class.clang::QualType", ptr %18971, i64 %18969
+  %18978 = getelementptr inbounds nuw [8 x i8], ptr %18971, i64 %18969
   store ptr %18978, ptr %18949, align 8, !tbaa !883
   br label %18979
 
@@ -50656,7 +50644,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16123: ; preds = %19079, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16120
   store ptr %19073, ptr %645, align 8, !tbaa !879
   store ptr %19078, ptr %19050, align 8, !tbaa !882
-  %19080 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19073, i64 %19071
+  %19080 = getelementptr inbounds nuw [8 x i8], ptr %19073, i64 %19071
   store ptr %19080, ptr %19051, align 8, !tbaa !883
   br label %19081
 
@@ -51472,7 +51460,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16294: ; preds = %19397, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16291
   store ptr %19391, ptr %653, align 8, !tbaa !879
   store ptr %19396, ptr %19368, align 8, !tbaa !882
-  %19398 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19391, i64 %19389
+  %19398 = getelementptr inbounds nuw [8 x i8], ptr %19391, i64 %19389
   store ptr %19398, ptr %19369, align 8, !tbaa !883
   br label %19399
 
@@ -51661,7 +51649,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16330: ; preds = %19470, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16327
   store ptr %19464, ptr %657, align 8, !tbaa !879
   store ptr %19469, ptr %19441, align 8, !tbaa !882
-  %19471 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19464, i64 %19462
+  %19471 = getelementptr inbounds nuw [8 x i8], ptr %19464, i64 %19462
   store ptr %19471, ptr %19442, align 8, !tbaa !883
   br label %19472
 
@@ -51888,7 +51876,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16376: ; preds = %19556, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16373
   store ptr %19550, ptr %661, align 8, !tbaa !879
   store ptr %19555, ptr %19527, align 8, !tbaa !882
-  %19557 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19550, i64 %19548
+  %19557 = getelementptr inbounds nuw [8 x i8], ptr %19550, i64 %19548
   store ptr %19557, ptr %19528, align 8, !tbaa !883
   br label %19558
 
@@ -52573,7 +52561,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16500: ; preds = %19826, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16497
   store ptr %19820, ptr %665, align 8, !tbaa !879
   store ptr %19825, ptr %19797, align 8, !tbaa !882
-  %19827 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19820, i64 %19818
+  %19827 = getelementptr inbounds nuw [8 x i8], ptr %19820, i64 %19818
   store ptr %19827, ptr %19798, align 8, !tbaa !883
   br label %19828
 
@@ -52778,7 +52766,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16550: ; preds = %19906, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16547
   store ptr %19900, ptr %669, align 8, !tbaa !879
   store ptr %19905, ptr %19877, align 8, !tbaa !882
-  %19907 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19900, i64 %19898
+  %19907 = getelementptr inbounds nuw [8 x i8], ptr %19900, i64 %19898
   store ptr %19907, ptr %19878, align 8, !tbaa !883
   br label %19908
 
@@ -52993,7 +52981,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16596: ; preds = %19989, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16593
   store ptr %19983, ptr %673, align 8, !tbaa !879
   store ptr %19988, ptr %19960, align 8, !tbaa !882
-  %19990 = getelementptr inbounds nuw %"class.clang::QualType", ptr %19983, i64 %19981
+  %19990 = getelementptr inbounds nuw [8 x i8], ptr %19983, i64 %19981
   store ptr %19990, ptr %19961, align 8, !tbaa !883
   br label %19991
 
@@ -53196,7 +53184,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16641: ; preds = %20068, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16638
   store ptr %20062, ptr %677, align 8, !tbaa !879
   store ptr %20067, ptr %20039, align 8, !tbaa !882
-  %20069 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20062, i64 %20060
+  %20069 = getelementptr inbounds nuw [8 x i8], ptr %20062, i64 %20060
   store ptr %20069, ptr %20040, align 8, !tbaa !883
   br label %20070
 
@@ -53385,7 +53373,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16677: ; preds = %20139, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16674
   store ptr %20133, ptr %681, align 8, !tbaa !879
   store ptr %20138, ptr %20110, align 8, !tbaa !882
-  %20140 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20133, i64 %20131
+  %20140 = getelementptr inbounds nuw [8 x i8], ptr %20133, i64 %20131
   store ptr %20140, ptr %20111, align 8, !tbaa !883
   br label %20141
 
@@ -53728,7 +53716,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16796: ; preds = %20273, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16793
   store ptr %20267, ptr %688, align 8, !tbaa !879
   store ptr %20272, ptr %20244, align 8, !tbaa !882
-  %20274 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20267, i64 %20265
+  %20274 = getelementptr inbounds nuw [8 x i8], ptr %20267, i64 %20265
   store ptr %20274, ptr %20245, align 8, !tbaa !883
   br label %20275
 
@@ -53977,7 +53965,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16842: ; preds = %20370, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16839
   store ptr %20364, ptr %692, align 8, !tbaa !879
   store ptr %20369, ptr %20341, align 8, !tbaa !882
-  %20371 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20364, i64 %20362
+  %20371 = getelementptr inbounds nuw [8 x i8], ptr %20364, i64 %20362
   store ptr %20371, ptr %20342, align 8, !tbaa !883
   br label %20372
 
@@ -54355,7 +54343,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16898: ; preds = %20524, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16895
   store ptr %20518, ptr %696, align 8, !tbaa !879
   store ptr %20523, ptr %20495, align 8, !tbaa !882
-  %20525 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20518, i64 %20516
+  %20525 = getelementptr inbounds nuw [8 x i8], ptr %20518, i64 %20516
   store ptr %20525, ptr %20496, align 8, !tbaa !883
   br label %20526
 
@@ -54733,7 +54721,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i16964: ; preds = %20677, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i16961
   store ptr %20671, ptr %700, align 8, !tbaa !879
   store ptr %20676, ptr %20648, align 8, !tbaa !882
-  %20678 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20671, i64 %20669
+  %20678 = getelementptr inbounds nuw [8 x i8], ptr %20671, i64 %20669
   store ptr %20678, ptr %20649, align 8, !tbaa !883
   br label %20679
 
@@ -55091,7 +55079,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17046: ; preds = %20817, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17043
   store ptr %20811, ptr %707, align 8, !tbaa !879
   store ptr %20816, ptr %20788, align 8, !tbaa !882
-  %20818 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20811, i64 %20809
+  %20818 = getelementptr inbounds nuw [8 x i8], ptr %20811, i64 %20809
   store ptr %20818, ptr %20789, align 8, !tbaa !883
   br label %20819
 
@@ -55293,7 +55281,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17087: ; preds = %20895, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17084
   store ptr %20889, ptr %711, align 8, !tbaa !879
   store ptr %20894, ptr %20866, align 8, !tbaa !882
-  %20896 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20889, i64 %20887
+  %20896 = getelementptr inbounds nuw [8 x i8], ptr %20889, i64 %20887
   store ptr %20896, ptr %20867, align 8, !tbaa !883
   br label %20897
 
@@ -55701,7 +55689,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17230: ; preds = %21059, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17227
   store ptr %21053, ptr %720, align 8, !tbaa !879
   store ptr %21058, ptr %21030, align 8, !tbaa !882
-  %21060 = getelementptr inbounds nuw %"class.clang::QualType", ptr %21053, i64 %21051
+  %21060 = getelementptr inbounds nuw [8 x i8], ptr %21053, i64 %21051
   store ptr %21060, ptr %21031, align 8, !tbaa !883
   br label %21061
 
@@ -56048,7 +56036,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17314: ; preds = %21193, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17311
   store ptr %21187, ptr %729, align 8, !tbaa !879
   store ptr %21192, ptr %21164, align 8, !tbaa !882
-  %21194 = getelementptr inbounds nuw %"class.clang::QualType", ptr %21187, i64 %21185
+  %21194 = getelementptr inbounds nuw [8 x i8], ptr %21187, i64 %21185
   store ptr %21194, ptr %21165, align 8, !tbaa !883
   br label %21195
 
@@ -56293,7 +56281,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17361: ; preds = %21287, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17358
   store ptr %21281, ptr %734, align 8, !tbaa !879
   store ptr %21286, ptr %21258, align 8, !tbaa !882
-  %21288 = getelementptr inbounds nuw %"class.clang::QualType", ptr %21281, i64 %21279
+  %21288 = getelementptr inbounds nuw [8 x i8], ptr %21281, i64 %21279
   store ptr %21288, ptr %21259, align 8, !tbaa !883
   br label %21289
 
@@ -56554,7 +56542,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17417: ; preds = %21388, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17414
   store ptr %21382, ptr %738, align 8, !tbaa !879
   store ptr %21387, ptr %21359, align 8, !tbaa !882
-  %21389 = getelementptr inbounds nuw %"class.clang::QualType", ptr %21382, i64 %21380
+  %21389 = getelementptr inbounds nuw [8 x i8], ptr %21382, i64 %21380
   store ptr %21389, ptr %21360, align 8, !tbaa !883
   br label %21390
 
@@ -57313,7 +57301,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i17652: ; preds = %21697, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i17649
   store ptr %21691, ptr %749, align 8, !tbaa !879
   store ptr %21696, ptr %21668, align 8, !tbaa !882
-  %21698 = getelementptr inbounds nuw %"class.clang::QualType", ptr %21691, i64 %21689
+  %21698 = getelementptr inbounds nuw [8 x i8], ptr %21691, i64 %21689
   store ptr %21698, ptr %21669, align 8, !tbaa !883
   br label %21699
 
@@ -60360,7 +60348,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19092: ; preds = %22994, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i19089
   store ptr %22988, ptr %843, align 8, !tbaa !879
   store ptr %22993, ptr %22965, align 8, !tbaa !882
-  %22995 = getelementptr inbounds nuw %"class.clang::QualType", ptr %22988, i64 %22986
+  %22995 = getelementptr inbounds nuw [8 x i8], ptr %22988, i64 %22986
   store ptr %22995, ptr %22966, align 8, !tbaa !883
   br label %22996
 
@@ -60808,7 +60796,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19224: ; preds = %23181, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i19221
   store ptr %23175, ptr %850, align 8, !tbaa !879
   store ptr %23180, ptr %23152, align 8, !tbaa !882
-  %23182 = getelementptr inbounds nuw %"class.clang::QualType", ptr %23175, i64 %23173
+  %23182 = getelementptr inbounds nuw [8 x i8], ptr %23175, i64 %23173
   store ptr %23182, ptr %23153, align 8, !tbaa !883
   br label %23183
 
@@ -60996,7 +60984,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19260: ; preds = %23253, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i19257
   store ptr %23247, ptr %854, align 8, !tbaa !879
   store ptr %23252, ptr %23224, align 8, !tbaa !882
-  %23254 = getelementptr inbounds nuw %"class.clang::QualType", ptr %23247, i64 %23245
+  %23254 = getelementptr inbounds nuw [8 x i8], ptr %23247, i64 %23245
   store ptr %23254, ptr %23225, align 8, !tbaa !883
   br label %23255
 
@@ -61238,7 +61226,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19306: ; preds = %23349, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i19303
   store ptr %23343, ptr %858, align 8, !tbaa !879
   store ptr %23348, ptr %23320, align 8, !tbaa !882
-  %23350 = getelementptr inbounds nuw %"class.clang::QualType", ptr %23343, i64 %23341
+  %23350 = getelementptr inbounds nuw [8 x i8], ptr %23343, i64 %23341
   store ptr %23350, ptr %23321, align 8, !tbaa !883
   br label %23351
 
@@ -61437,7 +61425,7 @@ _ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN5clang8QualTypeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i19342: ; preds = %23426, %_ZNSt6vectorIN5clang8QualTypeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i19339
   store ptr %23420, ptr %862, align 8, !tbaa !879
   store ptr %23425, ptr %23397, align 8, !tbaa !882
-  %23427 = getelementptr inbounds nuw %"class.clang::QualType", ptr %23420, i64 %23418
+  %23427 = getelementptr inbounds nuw [8 x i8], ptr %23420, i64 %23418
   store ptr %23427, ptr %23398, align 8, !tbaa !883
   br label %23428
 
@@ -63472,7 +63460,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit._crit_edge.i.i: ; preds = %_ZNK5c
 79:                                               ; preds = %.lr.ph.i.i
   %80 = load ptr, ptr %78, align 8, !tbaa !5449
   %81 = and i64 %.sroa.7.047.i.i, 4294967295
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !5471
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %.sroa.0.0.copyload.i.i.i22 = load i64, ptr %84, align 8, !tbaa !239
@@ -63603,7 +63591,7 @@ _ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint13checkValidityEP
   %142 = add i32 %.val10.i.i, -1
   %.02910.i.i.i = and i32 %141, %142
   %143 = zext nneg i32 %.02910.i.i.i to i64
-  %144 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val9.i.i, i64 %143
+  %144 = getelementptr inbounds nuw [72 x i8], ptr %.val9.i.i, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !245, !noalias !5477
   %146 = icmp eq ptr %.val11.i.i, %145
   br i1 %146, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E.exit, label %.lr.ph.i.i.i, !prof !228
@@ -63631,7 +63619,7 @@ _ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint13checkValidityEP
   %156 = add i32 %.02712.i.i.i, %.02913.i.i.i
   %.029.i.i.i = and i32 %156, %142
   %157 = zext i32 %.029.i.i.i to i64
-  %158 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val9.i.i, i64 %157
+  %158 = getelementptr inbounds nuw [72 x i8], ptr %.val9.i.i, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !245, !noalias !5477
   %160 = icmp eq ptr %.val11.i.i, %159
   br i1 %160, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E6insertEOSt4pairIS5_S8_E.exit, label %.lr.ph.i.i.i, !prof !230, !llvm.loop !5482
@@ -64023,7 +64011,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28.i.i
   store ptr %32, ptr %2, align 8, !tbaa !417
   store ptr %49, ptr %3, align 8, !tbaa !420
-  %54 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %32, i64 %30
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %54, ptr %5, align 8, !tbaa !430
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EE9push_backERKS4_.exit
 
@@ -64575,7 +64563,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i: ; preds = %_ZN4llvm5APInt10get
   %36 = load ptr, ptr %3, align 8, !tbaa !239, !alias.scope !5505, !noalias !5497
   %37 = lshr i32 %25, 6
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !37, !noalias !5497
   %41 = and i64 %40, %29
   store i64 %41, ptr %39, align 8, !tbaa !37, !noalias !5497
@@ -64882,7 +64870,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #23
   %7 = load ptr, ptr %0, align 8, !tbaa !5524
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !5510
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -64965,7 +64953,7 @@ _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocator
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #23
   %46 = load ptr, ptr %0, align 8, !tbaa !5524
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -65026,7 +65014,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !491
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.1008", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -65067,7 +65055,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !491
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !488
@@ -65227,7 +65215,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12Func
   %9 = add i32 %.16.val, -1
   %.02910 = and i32 %8, %9
   %10 = zext nneg i32 %.02910 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.0.val, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %.0.val, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !245
   %13 = icmp eq ptr %.0.val1, %12
   br i1 %13, label %.thread, label %.lr.ph, !prof !228
@@ -65255,7 +65243,7 @@ define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12Func
   %23 = add i32 %.02913, %.02712
   %.029 = and i32 %23, %9
   %24 = zext i32 %.029 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.0.val, i64 %24
+  %25 = getelementptr inbounds nuw [72 x i8], ptr %.0.val, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !245
   %27 = icmp eq ptr %.0.val1, %26
   br i1 %27, label %.thread, label %.lr.ph, !prof !230, !llvm.loop !5482
@@ -65360,7 +65348,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126Std
   %44 = add i32 %.val15.i.i, -1
   %.02910.i.i.i = and i32 %44, %43
   %45 = zext nneg i32 %.02910.i.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val.i9.i, i64 %45
+  %46 = getelementptr inbounds nuw [72 x i8], ptr %.val.i9.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !245
   %48 = icmp eq ptr %37, %47
   br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit.i.i, label %.lr.ph.i17.i.i, !prof !228
@@ -65388,7 +65376,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126Std
   %58 = add i32 %.02712.i.i.i, %.02913.i.i.i
   %.029.i.i.i = and i32 %58, %44
   %59 = zext i32 %.029.i.i.i to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val.i9.i, i64 %59
+  %60 = getelementptr inbounds nuw [72 x i8], ptr %.val.i9.i, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !245
   %62 = icmp eq ptr %37, %61
   br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E15LookupBucketForIS5_EEbRKT_RPSD_.exit.i.i, label %.lr.ph.i17.i.i, !prof !230, !llvm.loop !5482
@@ -65559,7 +65547,7 @@ _ZNSt6vectorIN12_GLOBAL__N_126StdLibraryFunctionsChecker11SummaryCaseESaIS2_EE11
 _ZNSt6vectorIN12_GLOBAL__N_126StdLibraryFunctionsChecker11SummaryCaseESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIN12_GLOBAL__N_126StdLibraryFunctionsChecker11SummaryCaseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i
   store ptr %32, ptr %0, align 8, !tbaa !431
   store ptr %54, ptr %3, align 8, !tbaa !434
-  %59 = getelementptr inbounds nuw %"class.(anonymous namespace)::StdLibraryFunctionsChecker::SummaryCase", ptr %32, i64 %30
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %30
   store ptr %59, ptr %5, align 8, !tbaa !436
   br label %_ZNSt6vectorIN12_GLOBAL__N_126StdLibraryFunctionsChecker11SummaryCaseESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -65706,7 +65694,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %31, %23
   %35 = getelementptr inbounds nuw i8, ptr %.val9, i64 120
   %36 = load ptr, ptr %35, align 8, !tbaa !5449
   %37 = zext i32 %.val to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !5471
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit
@@ -65828,7 +65816,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %28, %20
   %32 = getelementptr inbounds nuw i8, ptr %.val37, i64 120
   %33 = load ptr, ptr %32, align 8, !tbaa !5449
   %34 = zext i32 %.val to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !5471
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit
@@ -66358,7 +66346,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit.i:            ; preds = %303
   %312 = load ptr, ptr %10, align 8
   %313 = lshr i32 %307, 6
   %314 = zext nneg i32 %313 to i64
-  %315 = getelementptr inbounds nuw i64, ptr %312, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %314
   %.in.i.i.i.i.i = select i1 %311, ptr %10, ptr %315
   %316 = load i64, ptr %.in.i.i.i.i.i, align 8, !tbaa !239
   %317 = and i64 %310, %316
@@ -66384,7 +66372,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit37.i:          ; preds = %_ZNK4llvm6APSInt10i
   %328 = load ptr, ptr %11, align 8
   %329 = lshr i32 %324, 6
   %330 = zext nneg i32 %329 to i64
-  %331 = getelementptr inbounds nuw i64, ptr %328, i64 %330
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %330
   %.in.i.i.i.i36.i = select i1 %261, ptr %11, ptr %331
   %332 = load i64, ptr %.in.i.i.i.i36.i, align 8, !tbaa !239
   %333 = and i64 %332, %327
@@ -66722,7 +66710,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i: ; preds = %62, %54
   %66 = getelementptr inbounds nuw i8, ptr %.val29, i64 120
   %67 = load ptr, ptr %66, align 8, !tbaa !5449
   %68 = zext i32 %.val to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !5471
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit
@@ -67024,7 +67012,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %19 = load ptr, ptr %18, align 8, !tbaa !5449
   %20 = zext i32 %4 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !5471
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
@@ -67164,13 +67152,13 @@ define internal fastcc void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15Ran
 33:                                               ; preds = %.critedge.i, %.lr.ph.i
   %.062.i = phi i64 [ 1, %.lr.ph.i ], [ %58, %.critedge.i ]
   %34 = load ptr, ptr %7, align 8, !tbaa !907
-  %35 = getelementptr %"struct.std::pair.953", ptr %34, i64 %.062.i
+  %35 = getelementptr [16 x i8], ptr %34, i64 %.062.i
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load i64, ptr %36, align 8, !tbaa !5580
   %38 = add i64 %37, 1
   %39 = tail call ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %38, i64 %3) #23
   %40 = load ptr, ptr %7, align 8, !tbaa !907
-  %41 = getelementptr inbounds nuw %"struct.std::pair.953", ptr %40, i64 %.062.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.062.i
   %42 = load i64, ptr %41, align 8, !tbaa !5578
   %43 = add i64 %42, -1
   %44 = tail call ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %2, i64 noundef %43, i64 %3) #23
@@ -67698,7 +67686,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %145
   %155 = load ptr, ptr %0, align 8
   %156 = lshr i32 %150, 6
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i64, ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %157
   %.in.i.i.i.i = select i1 %154, ptr %0, ptr %158
   %159 = load i64, ptr %.in.i.i.i.i, align 8, !tbaa !239
   %160 = and i64 %153, %159
@@ -67727,7 +67715,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit34:            ; preds = %_ZNK4llvm6APSInt10i
   %174 = load ptr, ptr %1, align 8
   %175 = lshr i32 %170, 6
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i64, ptr %174, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %176
   %.in.i.i.i.i33 = select i1 %98, ptr %1, ptr %177
   %178 = load i64, ptr %.in.i.i.i.i33, align 8, !tbaa !239
   %179 = and i64 %178, %173
@@ -68031,7 +68019,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %61
   %70 = load ptr, ptr %0, align 8
   %71 = lshr i32 %65, 6
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i64, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %72
   %.in.i.i.i.i = select i1 %69, ptr %0, ptr %73
   %74 = load i64, ptr %.in.i.i.i.i, align 8, !tbaa !239
   %75 = and i64 %74, %68
@@ -68053,7 +68041,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30:            ; preds = %76
   %85 = load ptr, ptr %1, align 8
   %86 = lshr i32 %80, 6
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i64, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   %.in.i.i.i.i29 = select i1 %84, ptr %1, ptr %88
   %89 = load i64, ptr %.in.i.i.i.i29, align 8, !tbaa !239
   %90 = and i64 %89, %83
@@ -68397,7 +68385,7 @@ _ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit.thread
   %41 = getelementptr inbounds nuw i8, ptr %.val44, i64 120
   %42 = load ptr, ptr %41, align 8, !tbaa !5449
   %43 = zext i32 %.val42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !5471
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %.sroa.0.0.copyload.i.sink7.i.i84 = load i64, ptr %46, align 8, !tbaa !239
@@ -68481,7 +68469,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i53: ; preds = %84, %75
   %92 = getelementptr inbounds nuw i8, ptr %.val43, i64 120
   %93 = load ptr, ptr %92, align 8, !tbaa !5449
   %94 = zext i32 %.val46 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !5471
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit55
@@ -69036,7 +69024,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %19 = load ptr, ptr %18, align 8, !tbaa !5449
   %20 = zext i32 %4 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !5471
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
@@ -69315,7 +69303,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %19 = load ptr, ptr %18, align 8, !tbaa !5449
   %20 = zext i32 %4 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !5471
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
@@ -69580,7 +69568,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i.i.i: ; preds = %70, %62
   %74 = getelementptr inbounds nuw i8, ptr %.val.i, i64 120
   %75 = load ptr, ptr %74, align 8, !tbaa !5449
   %76 = zext i32 %59 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !5471
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   br label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary10getArgTypeEj.exit.i
@@ -70033,7 +70021,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %27) #25
   store ptr %36, ptr %0, align 8, !tbaa !482
   store ptr %41, ptr %8, align 8, !tbaa !5597
-  %42 = getelementptr inbounds nuw i32, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %34
   store ptr %42, ptr %7, align 8, !tbaa !484
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit9
 
@@ -70092,7 +70080,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load i32, ptr %26, align 8, !tbaa !1589
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr @switch.table._ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint6negateEv, i64 %28
+  %29 = getelementptr [4 x i8], ptr @switch.table._ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint6negateEv, i64 %28
   %switch.gep = getelementptr i8, ptr %29, i64 -40
   %switch.load = load i32, ptr %switch.gep, align 4
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -70213,7 +70201,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %14, %6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %19 = load ptr, ptr %18, align 8, !tbaa !5449
   %20 = zext i32 %4 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !5471
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker10getArgTypeEPKN5clang12FunctionDeclEj.exit
@@ -70401,7 +70389,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i.i.i:      ; preds = %_ZN4llvm5APIntC2Ejm
   %25 = load ptr, ptr %3, align 8, !tbaa !239, !alias.scope !5709, !noalias !5705
   %26 = lshr i32 %15, 6
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !37, !noalias !5705
   %30 = or i64 %29, %18
   store i64 %30, ptr %28, align 8, !tbaa !37, !noalias !5705
@@ -70664,7 +70652,7 @@ _ZNSt6vectorISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EESaIS6_E
 _ZNSt6vectorISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_7NoteTagEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i
   store ptr %35, ptr %0, align 8, !tbaa !5727
   store ptr %40, ptr %16, align 8, !tbaa !5723
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.1227", ptr %35, i64 %33
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %42, ptr %18, align 8, !tbaa !5724
   br label %_ZNSt6vectorISt10unique_ptrIN5clang4ento7DataTagESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_7NoteTagEEEERS6_DpOT_.exit
 
@@ -71175,7 +71163,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %61 = add i32 %.val7.i.i.i, -1
   %.0187.i.i.i.i.i = and i32 %60, %61
   %62 = zext nneg i32 %.0187.i.i.i.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %62
+  %63 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !245, !noalias !5749
   %65 = icmp eq ptr %52, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !228
@@ -71192,20 +71180,20 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %70 = add i32 %.0168.i.i.i.i.i, %.0189.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %70, %61
   %71 = zext i32 %.018.i.i.i.i.i to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %71
+  %72 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !245, !noalias !5749
   %74 = icmp eq ptr %52, %73
   br i1 %74, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !230, !llvm.loop !443
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i
   %75 = zext i32 %.val7.i.i.i to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %75
+  %76 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %75
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i: ; preds = %68, %.loopexit.i.i.i.i, %55
   %.sroa.0.1.i.i.i.i = phi ptr [ %76, %.loopexit.i.i.i.i ], [ %63, %55 ], [ %72, %68 ]
   %77 = zext i32 %.val7.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %77
+  %78 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %77
   %79 = icmp eq ptr %.sroa.0.1.i.i.i.i, %78
   br i1 %79, label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker19findFunctionSummaryERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit.thread.i, label %81
 
@@ -73116,7 +73104,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %32 = add i32 %.val7.i.i.i, -1
   %.0187.i.i.i.i.i = and i32 %31, %32
   %33 = zext nneg i32 %.0187.i.i.i.i.i to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !245, !noalias !5888
   %36 = icmp eq ptr %23, %35
   br i1 %36, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !228
@@ -73133,20 +73121,20 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ;
   %41 = add i32 %.0168.i.i.i.i.i, %.0189.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %41, %32
   %42 = zext i32 %.018.i.i.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %42
+  %43 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !245, !noalias !5888
   %45 = icmp eq ptr %23, %44
   br i1 %45, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !prof !230, !llvm.loop !443
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.i.i
   %46 = zext i32 %.val7.i.i.i to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %46
+  %47 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %46
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i.i.i: ; preds = %39, %.loopexit.i.i.i.i, %26
   %.sroa.0.1.i.i.i.i = phi ptr [ %47, %.loopexit.i.i.i.i ], [ %34, %26 ], [ %43, %39 ]
   %48 = zext i32 %.val7.i.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.130", ptr %.val6.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [72 x i8], ptr %.val6.i.i.i, i64 %48
   %50 = icmp eq ptr %.sroa.0.1.i.i.i.i, %49
   br i1 %50, label %_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %51
 

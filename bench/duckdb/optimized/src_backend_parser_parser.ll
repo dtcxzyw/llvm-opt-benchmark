@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<duckdb_libpgquery::PGSimplifiedToken, std::allocator<duckdb_libpgquery::PGSimplifiedToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_libpgquery::PGSimplifiedToken, std::allocator<duckdb_libpgquery::PGSimplifiedToken>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<duckdb_libpgquery::PGSimplifiedToken, std::allocator<duckdb_libpgquery::PGSimplifiedToken>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"union.duckdb_libpgquery::YYSTYPE" = type { %"union.duckdb_libpgquery::core_YYSTYPE" }
-%"struct.duckdb_libpgquery::PGSimplifiedToken" = type { i8, i32 }
 
 $_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev = comdat any
 
@@ -574,7 +573,7 @@ define hidden void @_ZN17duckdb_libpgquery12keyword_listEv(ptr dead_on_unwind no
   store ptr %4, ptr %3, align 8, !tbaa !18
   store i64 0, ptr %5, align 8, !tbaa !20
   store i8 0, ptr %4, align 8, !tbaa !22
-  %10 = getelementptr inbounds nuw %"struct.duckdb_libpgquery::PGScanKeyword", ptr @_ZN17duckdb_libpgqueryL12ScanKeywordsE, i64 %.011
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @_ZN17duckdb_libpgqueryL12ScanKeywordsE, i64 %.011
   %11 = load ptr, ptr %10, align 16, !tbaa !23
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #15
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %12)
@@ -869,7 +868,7 @@ _ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S
 
 _ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %52, ptr %9, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw %"struct.duckdb_libpgquery::PGSimplifiedToken", ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   store ptr %54, ptr %10, align 8, !tbaa !38
   br label %_ZNSt6vectorIN17duckdb_libpgquery17PGSimplifiedTokenESaIS1_EE9push_backERKS1_.exit
 
@@ -1254,7 +1253,7 @@ _ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EE13_M_deallocateEPS1_m
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !28
-  %83 = getelementptr inbounds nuw %"struct.duckdb_libpgquery::PGKeyword", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %83, ptr %82, align 8, !tbaa !31
   ret void
 

@@ -32,9 +32,9 @@ define internal void @add_int16_c(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.028 = phi i64 [ %23, %.lr.ph ], [ 0, %4 ]
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %.028
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.028
   %14 = load i64, ptr %13, align 8, !tbaa !11
-  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %.028
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.028
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %17 = and i64 %14, %7
   %18 = and i64 %16, %7
@@ -49,10 +49,10 @@ define internal void @add_int16_c(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph30:                                         ; preds = %.preheader, %.lr.ph30
   %.129 = phi i64 [ %33, %.lr.ph30 ], [ %.0.lcssa, %.preheader ]
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %.129
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.129
   %25 = load i16, ptr %24, align 2, !tbaa !15
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %.129
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.129
   %28 = load i16, ptr %27, align 2, !tbaa !15
   %29 = zext i16 %28 to i32
   %30 = add nuw nsw i32 %29, %26
@@ -89,7 +89,7 @@ define internal void @add_hfyu_median_pred_int16_c(ptr noundef writeonly capture
   %.028 = phi i16 [ %11, %.lr.ph.preheader ], [ %15, %mid_pred.exit ]
   %.02427 = phi i16 [ %12, %.lr.ph.preheader ], [ %33, %mid_pred.exit ]
   %13 = zext i16 %.02427 to i32
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !15
   %16 = zext i16 %15 to i32
   %17 = zext i16 %.028 to i32
@@ -117,13 +117,13 @@ define internal void @add_hfyu_median_pred_int16_c(ptr noundef writeonly capture
 
 mid_pred.exit:                                    ; preds = %22, %24, %25, %27
   %.0.i = phi i32 [ %..i, %24 ], [ %16, %25 ], [ %16, %22 ], [ %.20.i, %27 ]
-  %28 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !15
   %30 = zext i16 %29 to i32
   %31 = add nuw nsw i32 %.0.i, %30
   %32 = and i32 %31, %3
   %33 = trunc i32 %32 to i16
-  %34 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %33, ptr %34, align 2, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/brin_minmax.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [27 x i8] c"invalid strategy number %d\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"brin_minmax.c\00", align 1
 @__func__.brin_minmax_consistent = private unnamed_addr constant [23 x i8] c"brin_minmax_consistent\00", align 1
@@ -63,7 +59,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %18 = shl nsw i64 %17, 4
   %19 = getelementptr i8, ptr %14, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -76
-  %21 = getelementptr %struct.FormData_pg_attribute, ptr %20, i64 %15
+  %21 = getelementptr [100 x i8], ptr %20, i64 %15
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -181,7 +177,7 @@ define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef rea
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -191,7 +187,7 @@ define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef rea
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %4 ]
-  %13 = getelementptr %struct.FmgrInfo, ptr %11, i64 %indvars.iv
+  %13 = getelementptr [48 x i8], ptr %11, i64 %indvars.iv
   %14 = getelementptr i8, ptr %13, i64 -32
   store i32 0, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -204,7 +200,7 @@ define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef rea
 
 16:                                               ; preds = %15, %4
   %17 = zext i16 %3 to i64
-  %18 = getelementptr %struct.FmgrInfo, ptr %11, i64 %17
+  %18 = getelementptr [48 x i8], ptr %11, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -40
   %20 = getelementptr i8, ptr %18, i64 -32
   %21 = load i32, ptr %20, align 8
@@ -216,7 +212,7 @@ define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef rea
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 360
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %7
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %7
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
@@ -224,7 +220,7 @@ define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef rea
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 4
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr %struct.FormData_pg_attribute, ptr %35, i64 %7
+  %36 = getelementptr [100 x i8], ptr %35, i64 %7
   %37 = zext i32 %29 to i64
   %38 = getelementptr i8, ptr %36, i64 92
   %39 = load i32, ptr %38, align 4
@@ -365,7 +361,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %19 = shl nsw i64 %18, 4
   %20 = getelementptr i8, ptr %15, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -76
-  %22 = getelementptr %struct.FormData_pg_attribute, ptr %21, i64 %16
+  %22 = getelementptr [100 x i8], ptr %21, i64 %16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %24 = load i32, ptr %23, align 4
   %25 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %13, i32 noundef %24, i16 noundef zeroext 1)

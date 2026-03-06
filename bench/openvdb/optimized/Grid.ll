@@ -1360,7 +1360,7 @@ lpad:                                             ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %cls to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase12setGridClassENS0_9GridClassE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase12setGridClassENS0_9GridClassE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %nrvo.skipdtor unwind label %lpad
@@ -1386,7 +1386,7 @@ lpad:                                             ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %cls to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase19gridClassToMenuNameB5cxx11ENS0_9GridClassE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase19gridClassToMenuNameB5cxx11ENS0_9GridClassE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %nrvo.skipdtor unwind label %lpad
@@ -1889,7 +1889,7 @@ lpad.i5:                                          ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %invoke.cont
   %3 = zext nneg i32 %cls to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase12setGridClassENS0_9GridClassE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase12setGridClassENS0_9GridClassE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull %switch.load)
           to label %invoke.cont6 unwind label %lpad.i5
@@ -2222,7 +2222,7 @@ lpad:                                             ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %typ to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase13setVectorTypeENS0_7VecTypeE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase13setVectorTypeENS0_7VecTypeE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %nrvo.skipdtor unwind label %lpad
@@ -2246,7 +2246,7 @@ lpad:                                             ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %typ to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase15vecTypeExamplesB5cxx11ENS0_7VecTypeE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase15vecTypeExamplesB5cxx11ENS0_7VecTypeE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %nrvo.skipdtor unwind label %lpad
@@ -2270,7 +2270,7 @@ lpad:                                             ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %typ to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase18vecTypeDescriptionB5cxx11ENS0_7VecTypeE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase18vecTypeDescriptionB5cxx11ENS0_7VecTypeE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load)
           to label %nrvo.skipdtor unwind label %lpad
@@ -2461,7 +2461,7 @@ lpad.i5:                                          ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %invoke.cont
   %3 = zext nneg i32 %typ to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7openvdb5v11_08GridBase13setVectorTypeENS0_7VecTypeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7openvdb5v11_08GridBase13setVectorTypeENS0_7VecTypeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, ptr noundef nonnull %switch.load)
           to label %invoke.cont6 unwind label %lpad.i5
@@ -4354,7 +4354,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_07MetaMapEEC2IS2_vEEPT_.exit: ; preds = %entry
 
 for.body:                                         ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_07MetaMapEEC2IS2_vEEPT_.exit, %_ZNSt10shared_ptrIKN7openvdb5v11_08MetadataEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt10shared_ptrIN7openvdb5v11_07MetaMapEEC2IS2_vEEPT_.exit ], [ %indvars.iv.next, %_ZNSt10shared_ptrIKN7openvdb5v11_08MetadataEED2Ev.exit ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @__const._ZNK7openvdb5v11_08GridBase16getStatsMetadataEv.fields, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNK7openvdb5v11_08GridBase16getStatsMetadataEv.fields, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #20
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -7191,7 +7191,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then, %for.body
-  %arrayidx = getelementptr inbounds nuw i32, ptr %this, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %buffer, i32 noundef %0)
           to label %for.inc unwind label %lpad.loopexit

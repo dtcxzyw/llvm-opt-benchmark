@@ -113,7 +113,7 @@ define linkonce_odr hidden void @_ZN24ciExceptionHandlerStream4nextEv(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -231,7 +231,7 @@ define hidden noundef i32 @_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %8, ptr %9, align 4
   %10 = zext i8 %7 to i64
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, 239
   br i1 %13, label %14, label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit
@@ -272,7 +272,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %3, %14
   %37 = shl i32 %36, 1
   %38 = add i32 %37, 2
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %33, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %39
   store ptr %40, ptr %24, align 8
   br label %63
 
@@ -298,7 +298,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %3, %14
   %56 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i8)
   %57 = sub nsw i32 %56, %54
   %58 = sext i32 %57 to i64
-  %59 = getelementptr i32, ptr %51, i64 %58
+  %59 = getelementptr [4 x i8], ptr %51, i64 %58
   %60 = getelementptr i8, ptr %59, i64 16
   store ptr %60, ptr %42, align 8
   br label %63
@@ -381,7 +381,7 @@ define linkonce_odr hidden noundef i32 @_ZN16ciBytecodeStream4nextEv(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %9, ptr %10, align 4
   %11 = zext i8 %8 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %13, ptr %14, align 8
@@ -418,7 +418,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %7
   %28 = zext i8 %27 to i32
   store i32 %28, ptr %10, align 4
   %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %31, 239
   br i1 %32, label %33, label %_ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i
@@ -457,7 +457,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i:  ; preds = %33, %25
   %54 = shl i32 %53, 1
   %55 = add i32 %54, 2
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %50, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %56
   store ptr %57, ptr %2, align 8
   br label %_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE.exit
 
@@ -481,7 +481,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit.i:  ; preds = %33, %25
   %71 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i8.i)
   %72 = sub nsw i32 %71, %69
   %73 = sext i32 %72 to i64
-  %74 = getelementptr i32, ptr %66, i64 %73
+  %74 = getelementptr [4 x i8], ptr %66, i64 %73
   %75 = getelementptr i8, ptr %74, i64 16
   store ptr %75, ptr %2, align 8
   br label %_ZN16ciBytecodeStream18next_wide_or_tableEN9Bytecodes4CodeE.exit
@@ -551,7 +551,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %13, %17
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 128
   %.not.i.i = icmp eq i16 %25, 0
@@ -658,7 +658,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   store ptr %25, ptr %47, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -864,7 +864,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %13, %17
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 128
   %.not.i.i = icmp eq i16 %25, 0
@@ -914,7 +914,7 @@ _ZNK16ciBytecodeStream12get_index_u1Ev.exit.i:    ; preds = %9, %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert10 = sext i32 %.pre to i64
-  %.phi.trans.insert11 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %.phi.trans.insert10
+  %.phi.trans.insert11 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %.phi.trans.insert10
   %.pre12 = load i16, ptr %.phi.trans.insert11, align 2
   br label %_ZNK16ciBytecodeStream22get_constant_raw_indexEv.exit
 
@@ -934,7 +934,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %18, %14
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 128
   %.not.i.i.i = icmp eq i16 %26, 0
@@ -1038,7 +1038,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = sext i32 %72 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   store ptr %55, ptr %77, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -1049,7 +1049,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN20ThreadIn
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = zext nneg i32 %.0.i to i64
-  %84 = getelementptr inbounds nuw i16, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i32
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
@@ -1176,7 +1176,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   store ptr %24, ptr %46, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -1207,7 +1207,7 @@ _ZNK16ciBytecodeStream12get_index_u1Ev.exit.i:    ; preds = %53, %49
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert17 = sext i32 %.pre to i64
-  %.phi.trans.insert18 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %.phi.trans.insert17
+  %.phi.trans.insert18 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %.phi.trans.insert17
   %.pre19 = load i16, ptr %.phi.trans.insert18, align 2
   br label %_ZNK16ciBytecodeStream22get_constant_raw_indexEv.exit
 
@@ -1227,7 +1227,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %62, %58
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 128
   %.not.i.i.i12 = icmp eq i16 %70, 0
@@ -1257,7 +1257,7 @@ _ZNK16ciBytecodeStream22get_constant_raw_indexEv.exit: ; preds = %_ZNK16ciByteco
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = zext nneg i32 %.0.i to i64
-  %84 = getelementptr inbounds nuw i16, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i32
   br label %102
@@ -1612,7 +1612,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %1, %5
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 128
   %.not.i.i = icmp eq i16 %13, 0
@@ -1646,7 +1646,7 @@ _ZN16ciBytecodeStream15get_field_indexEv.exit:    ; preds = %2, %12
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 128
   %.not.i.i.i = icmp eq i16 %20, 0
@@ -1753,7 +1753,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   store ptr %25, ptr %47, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -1829,7 +1829,7 @@ _ZN16ciBytecodeStream15get_field_indexEv.exit:    ; preds = %3, %13
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 128
   %.not.i.i.i = icmp eq i16 %21, 0
@@ -1901,7 +1901,7 @@ _ZN16ciBytecodeStream15get_field_indexEv.exit11:  ; preds = %_ZN20ThreadInVMfrom
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 128
   %.not.i.i.i8 = icmp eq i16 %60, 0
@@ -2002,7 +2002,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %16, %17
   %19 = phi i32 [ %8, %16 ], [ %.pre, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 128
   %.not.i.i = icmp eq i16 %24, 0
@@ -2103,7 +2103,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %46 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   store ptr %29, ptr %51, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -2156,7 +2156,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %_ZNK16ciBytecodeStr
   %72 = phi i32 [ %58, %68 ], [ %.pre.i, %69 ], [ %61, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = and i16 %76, 128
   %.not.i.i.i19 = icmp eq i16 %77, 0
@@ -2197,7 +2197,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %_ZN16ciBytecodeStre
   %97 = call noundef i32 @_ZN16ciBytecodeStream26get_method_signature_indexERK18constantPoolHandle(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 72
   %99 = zext nneg i32 %97 to i64
-  %100 = getelementptr inbounds nuw i64, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %_ZN5ciEnv10get_symbolEP6Symbol.exit
@@ -2334,7 +2334,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   store ptr %14, ptr %36, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -2387,7 +2387,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %_ZNK16ciBytecodeStr
   %57 = phi i32 [ %43, %53 ], [ %.pre.i, %54 ], [ %46, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = and i16 %61, 128
   %.not.i.i.i = icmp eq i16 %62, 0
@@ -2485,7 +2485,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %108 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = sext i32 %106 to i64
-  %111 = getelementptr inbounds ptr, ptr %109, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %109, i64 %110
   store ptr %89, ptr %111, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit12
 
@@ -2538,7 +2538,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i16:  ; preds = %_ZNK16ciBytecodeStr
   %132 = phi i32 [ %118, %128 ], [ %.pre.i21, %129 ], [ %121, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread ]
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 1
   %134 = sext i32 %132 to i64
-  %135 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %134
   %136 = load i16, ptr %135, align 2
   %137 = and i16 %136, 128
   %.not.i.i.i17 = icmp eq i16 %137, 0
@@ -2648,7 +2648,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %_ZNK16ciBytecodeStr
   %25 = phi i32 [ %11, %21 ], [ %.pre.i, %22 ], [ %14, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 128
   %.not.i.i.i = icmp eq i16 %30, 0
@@ -2755,7 +2755,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i16:  ; preds = %_ZNK16ciBytecodeStr
   %76 = phi i32 [ %62, %72 ], [ %.pre.i21, %73 ], [ %65, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i14.thread ]
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, 128
   %.not.i.i.i17 = icmp eq i16 %81, 0
@@ -2903,7 +2903,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   store ptr %24, ptr %46, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -2956,7 +2956,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %_ZNK16ciBytecodeStr
   %67 = phi i32 [ %53, %63 ], [ %.pre.i, %64 ], [ %56, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 128
   %.not.i.i.i5 = icmp eq i16 %72, 0
@@ -3093,7 +3093,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   store ptr %24, ptr %46, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -3146,7 +3146,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %_ZNK16ciBytecodeStr
   %67 = phi i32 [ %53, %63 ], [ %.pre.i, %64 ], [ %56, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 128
   %.not.i.i.i6 = icmp eq i16 %72, 0
@@ -3304,7 +3304,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   store ptr %25, ptr %47, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -3424,7 +3424,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %_ZNK16ciBytecodeStr
   %29 = phi i32 [ %15, %25 ], [ %.pre.i, %26 ], [ %18, %_ZNK16ciBytecodeStream12has_index_u4Ev.exit.i.thread ]
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 128
   %.not.i.i.i = icmp eq i16 %34, 0
@@ -3603,9 +3603,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3622,7 +3622,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

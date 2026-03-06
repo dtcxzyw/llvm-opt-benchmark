@@ -15,14 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
 %"class.std::allocator.8" = type { i8 }
-%"class.rocksdb::ThreadPoolImpl" = type { %"class.rocksdb::ThreadPool", %"class.std::unique_ptr" }
-%"class.rocksdb::ThreadPool" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr.21" }
 %"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
 %"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
@@ -572,7 +564,7 @@ _ZNSt12__shared_ptrIN7rocksdb10FileSystemELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %31 ]
   %48 = load ptr, ptr %34, align 8, !tbaa !63
   %49 = load ptr, ptr %48, align 8, !tbaa !64
-  %50 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN7rocksdb14ThreadPoolImpl17SetThreadPriorityENS_3Env8PriorityE(ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef %51)
           to label %52 unwind label %57
@@ -580,7 +572,7 @@ _ZNSt12__shared_ptrIN7rocksdb10FileSystemELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 52:                                               ; preds = %.preheader
   %53 = load ptr, ptr %34, align 8, !tbaa !63
   %54 = load ptr, ptr %53, align 8, !tbaa !64
-  %55 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv
   invoke void @_ZN7rocksdb14ThreadPoolImpl10SetHostEnvEPNS_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull %0)
           to label %56 unwind label %57
 
@@ -707,7 +699,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv17JoinThreadsOnExitD2Ev(
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8, !tbaa !63
   %16 = load ptr, ptr %15, align 8, !tbaa !64
-  %17 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -929,7 +921,7 @@ _ZNSt12_Vector_baseIN7rocksdb14ThreadPoolImplESaIS1_EEC2EmRKS2_.exit: ; preds = 
   store ptr %8, ptr %0, align 8, !tbaa !64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !98
-  %10 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !99
   br label %.lr.ph.i.i.i.i
@@ -5233,7 +5225,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv8ScheduleEPFvPvES2_NS_3E
   %8 = load ptr, ptr %7, align 8, !tbaa !63
   %9 = zext i32 %3 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !64
-  %11 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %9
   tail call void @_ZN7rocksdb14ThreadPoolImpl8ScheduleEPFvPvES1_S1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %5)
   ret void
 }
@@ -5244,7 +5236,7 @@ define internal noundef i32 @_ZN7rocksdb12_GLOBAL__N_18PosixEnv10UnScheduleEPvNS
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !64
-  %8 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = tail call noundef i32 @_ZN7rocksdb14ThreadPoolImpl10UnScheduleEPv(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %1)
   ret i32 %9
 }
@@ -5324,7 +5316,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %37, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %33, ptr %12, align 8, !tbaa !84
   store ptr %38, ptr %13, align 8, !tbaa !169
-  %40 = getelementptr inbounds nuw i64, ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !85
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -5377,7 +5369,7 @@ define internal noundef i32 @_ZN7rocksdb12_GLOBAL__N_18PosixEnv14ReserveThreadsE
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !64
-  %8 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -5391,7 +5383,7 @@ define internal noundef i32 @_ZN7rocksdb12_GLOBAL__N_18PosixEnv14ReleaseThreadsE
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !64
-  %8 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
@@ -5405,7 +5397,7 @@ define internal noundef i32 @_ZNK7rocksdb12_GLOBAL__N_18PosixEnv21GetThreadPoolQ
   %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !64
-  %7 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
@@ -6606,7 +6598,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv20SetBackgroundThreadsEi
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !64
-  %8 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -6620,7 +6612,7 @@ define internal noundef i32 @_ZN7rocksdb12_GLOBAL__N_18PosixEnv20GetBackgroundTh
   %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !64
-  %7 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -6646,7 +6638,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv28IncBackgroundThreadsIf
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !64
-  %8 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   tail call void @_ZN7rocksdb14ThreadPoolImpl28IncBackgroundThreadsIfNeededEi(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %1)
   ret void
 }
@@ -6657,7 +6649,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv25LowerThreadPoolIOPrior
   %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !64
-  %7 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %5
   tail call void @_ZN7rocksdb14ThreadPoolImpl15LowerIOPriorityEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   ret void
 }
@@ -6668,7 +6660,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv26LowerThreadPoolCPUPrio
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = zext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !64
-  %9 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %7
   tail call void @_ZN7rocksdb14ThreadPoolImpl16LowerCPUPriorityENS_11CpuPriorityE(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %10, align 8, !tbaa !105, !alias.scope !177
@@ -6682,7 +6674,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv26LowerThreadPoolCPUPrio
   %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = zext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !64
-  %7 = getelementptr inbounds nuw %"class.rocksdb::ThreadPoolImpl", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %5
   tail call void @_ZN7rocksdb14ThreadPoolImpl16LowerCPUPriorityENS_11CpuPriorityE(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 1)
   ret void
 }

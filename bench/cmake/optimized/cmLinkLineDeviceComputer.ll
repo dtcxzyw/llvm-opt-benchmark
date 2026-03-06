@@ -3813,7 +3813,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit36, %98
   store ptr %23, ptr %0, align 8, !tbaa !175
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !137
-  %102 = getelementptr inbounds nuw %class.BT, ptr %23, i64 %17
+  %102 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %102, ptr %97, align 8, !tbaa !140
   ret void
 
@@ -4168,7 +4168,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit36, %105
   store ptr %24, ptr %0, align 8, !tbaa !175
   store ptr %.0.lcssa.i.i.i35, ptr %6, align 8, !tbaa !137
-  %109 = getelementptr inbounds nuw %class.BT, ptr %24, i64 %18
+  %109 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %18
   store ptr %109, ptr %104, align 8, !tbaa !140
   ret void
 

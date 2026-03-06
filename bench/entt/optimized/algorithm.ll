@@ -983,7 +983,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   %36 = sub i64 %35, %6
   %37 = ashr exact i64 %36, 2
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i32, ptr %34, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %34, i64 %38
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %36, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterISt4lessIvEEEEvT_T0_.exit.i25.i.i.i
 
@@ -1453,7 +1453,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %14 = lshr i32 %.0.val.i.i, %.0157.i
   %15 = and i32 %14, 255
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !67
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8, !tbaa !67
@@ -1464,11 +1464,11 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
 20:                                               ; preds = %20, %._crit_edge.i.loopexit.i
   %21 = phi i64 [ 0, %._crit_edge.i.loopexit.i ], [ %24, %20 ]
   %.0213.i.i = phi i64 [ 0, %._crit_edge.i.loopexit.i ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %.0213.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0213.i.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = add i64 %23, %21
   %25 = add nuw nsw i64 %.0213.i.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %25
   store i64 %24, ptr %26, align 8, !tbaa !67
   %exitcond.not.i.i = icmp eq i64 %25, 255
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %20, !llvm.loop !69
@@ -1480,11 +1480,11 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %27 = lshr i32 %.020.val.i.i, %.0157.i
   %28 = and i32 %27, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !67
   %32 = add i64 %31, 1
   store i64 %32, ptr %30, align 8, !tbaa !67
-  %33 = getelementptr inbounds i32, ptr %11, i64 %31
+  %33 = getelementptr inbounds [4 x i8], ptr %11, i64 %31
   store i32 %.020.val.i.i, ptr %33, align 4, !tbaa !20
   %.0205.i.i.add = add nuw nsw i64 %.0205.i.i.idx, 4
   %.not23.i.i = icmp eq i64 %.0205.i.i.add, 20
@@ -1510,7 +1510,7 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %36 = lshr i32 %.val.i.i, %34
   %37 = and i32 %36, 255
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %2, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !67
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !tbaa !67
@@ -1521,11 +1521,11 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
 42:                                               ; preds = %42, %._crit_edge.i22.i
   %43 = phi i64 [ 0, %._crit_edge.i22.i ], [ %46, %42 ]
   %.012.i.i = phi i64 [ 0, %._crit_edge.i22.i ], [ %47, %42 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.012.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.012.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !67
   %46 = add i64 %45, %43
   %47 = add nuw nsw i64 %.012.i.i, 1
-  %48 = getelementptr inbounds nuw i64, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %47
   store i64 %46, ptr %48, align 8, !tbaa !67
   %exitcond.not.i23.i = icmp eq i64 %47, 255
   br i1 %exitcond.not.i23.i, label %.lr.ph15.i.i, label %42, !llvm.loop !72
@@ -1537,11 +1537,11 @@ define hidden void @_ZN24Algorithm_RadixSort_Test8TestBodyEv(ptr nonnull readnon
   %49 = lshr i32 %.val11.i.i, %34
   %50 = and i32 %49, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %3, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !67
   %54 = add i64 %53, 1
   store i64 %54, ptr %52, align 8, !tbaa !67
-  %55 = getelementptr inbounds i32, ptr %6, i64 %53
+  %55 = getelementptr inbounds [4 x i8], ptr %6, i64 %53
   store i32 %.val11.i.i, ptr %55, align 4, !tbaa !20
   %.sroa.0.014.i.i.add = add nuw nsw i64 %.sroa.0.014.i.i.idx, 4
   %.not9.i.i = icmp eq i64 %.sroa.0.014.i.i.add, 20
@@ -1747,7 +1747,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %15 = lshr i32 %.val.i.i, 4
   %16 = and i32 %15, 3
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !67
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !67
@@ -1757,11 +1757,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
 21:                                               ; preds = %21, %._crit_edge.i.i
   %22 = phi i64 [ 0, %._crit_edge.i.i ], [ %25, %21 ]
   %.013.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %26, %21 ]
-  %23 = getelementptr inbounds nuw i64, ptr %5, i64 %.013.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.013.i.i
   %24 = load i64, ptr %23, align 8, !tbaa !67
   %25 = add i64 %24, %22
   %26 = add nuw nsw i64 %.013.i.i, 1
-  %27 = getelementptr inbounds nuw i64, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %26
   store i64 %25, ptr %27, align 8, !tbaa !67
   %exitcond.not.i.i = icmp eq i64 %26, 3
   br i1 %exitcond.not.i.i, label %.lr.ph16.i.i, label %21, !llvm.loop !77
@@ -1773,11 +1773,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %29 = lshr i32 %.val9.i.i, 4
   %30 = and i32 %29, 3
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !67
   %34 = add i64 %33, 1
   store i64 %34, ptr %32, align 8, !tbaa !67
-  %35 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %33
+  %35 = getelementptr inbounds [4 x i8], ptr %13, i64 %33
   store i32 %.val9.i.i, ptr %35, align 4, !tbaa !20
   %.not10.i.i = icmp eq ptr %28, %7
   br i1 %.not10.i.i, label %.lr.ph.i.i.i.i.i.preheader.i, label %.lr.ph16.i.i, !llvm.loop !78
@@ -1793,7 +1793,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %.val.i23.i = load i32, ptr %36, align 4, !tbaa !45
   %37 = and i32 %.val.i23.i, 3
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !67
   %41 = add i64 %40, 1
   store i64 %41, ptr %39, align 8, !tbaa !67
@@ -1803,11 +1803,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
 42:                                               ; preds = %42, %._crit_edge.i25.loopexit.i
   %43 = phi i64 [ 0, %._crit_edge.i25.loopexit.i ], [ %46, %42 ]
   %.013.i26.i = phi i64 [ 0, %._crit_edge.i25.loopexit.i ], [ %47, %42 ]
-  %44 = getelementptr inbounds nuw i64, ptr %3, i64 %.013.i26.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.013.i26.i
   %45 = load i64, ptr %44, align 8, !tbaa !67
   %46 = add i64 %45, %43
   %47 = add nuw nsw i64 %.013.i26.i, 1
-  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %47
   store i64 %46, ptr %48, align 8, !tbaa !67
   %exitcond.not.i27.i = icmp eq i64 %47, 3
   br i1 %exitcond.not.i27.i, label %.lr.ph16.i29.i, label %42, !llvm.loop !77
@@ -1818,11 +1818,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %.val9.i31.i = load i32, ptr %49, align 4, !tbaa !45
   %50 = and i32 %.val9.i31.i, 3
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !67
   %54 = add i64 %53, 1
   store i64 %54, ptr %52, align 8, !tbaa !67
-  %55 = getelementptr inbounds %"struct.test::boxed_type", ptr %13, i64 %53
+  %55 = getelementptr inbounds [4 x i8], ptr %13, i64 %53
   store i32 %.val9.i31.i, ptr %55, align 4, !tbaa !20
   %.not10.i32.i = icmp eq ptr %49, %7
   br i1 %.not10.i32.i, label %.loopexit21.i, label %.lr.ph16.i29.i, !llvm.loop !78
@@ -1846,7 +1846,7 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %56 = lshr i32 %.val.i36.i, 2
   %57 = and i32 %56, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %1, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !67
   %61 = add i64 %60, 1
   store i64 %61, ptr %59, align 8, !tbaa !67
@@ -1857,11 +1857,11 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
 62:                                               ; preds = %62, %._crit_edge.i38.i
   %63 = phi i64 [ 0, %._crit_edge.i38.i ], [ %66, %62 ]
   %.012.i.i = phi i64 [ 0, %._crit_edge.i38.i ], [ %67, %62 ]
-  %64 = getelementptr inbounds nuw i64, ptr %1, i64 %.012.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.012.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !67
   %66 = add i64 %65, %63
   %67 = add nuw nsw i64 %.012.i.i, 1
-  %68 = getelementptr inbounds nuw i64, ptr %2, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %67
   store i64 %66, ptr %68, align 8, !tbaa !67
   %exitcond.not.i39.i = icmp eq i64 %67, 3
   br i1 %exitcond.not.i39.i, label %.lr.ph15.i.i, label %62, !llvm.loop !80
@@ -1873,12 +1873,12 @@ define hidden void @_ZN32Algorithm_RadixSortBoxedInt_Test8TestBodyEv(ptr nonnull
   %69 = lshr i32 %.val10.i.i, 2
   %70 = and i32 %69, 3
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %2, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !67
   %74 = add i64 %73, 1
   store i64 %74, ptr %72, align 8, !tbaa !67
   %75 = sub i64 0, %73
-  %76 = getelementptr inbounds %"struct.test::boxed_type", ptr %12, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %12, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -4
   store i32 %.val10.i.i, ptr %77, align 4, !tbaa !20
   %.sroa.0.014.i.i.add = add nuw nsw i64 %.sroa.0.014.i.i.idx, 4
@@ -2149,7 +2149,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %25 = ashr i32 %24, %22
   %26 = and i32 %25, 255
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %6, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !67
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8, !tbaa !67
@@ -2160,11 +2160,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 32:                                               ; preds = %32, %._crit_edge.i.loopexit
   %33 = phi i64 [ 0, %._crit_edge.i.loopexit ], [ %36, %32 ]
   %.022.i = phi i64 [ 0, %._crit_edge.i.loopexit ], [ %37, %32 ]
-  %34 = getelementptr inbounds nuw i64, ptr %6, i64 %.022.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.022.i
   %35 = load i64, ptr %34, align 8, !tbaa !67
   %36 = add i64 %35, %33
   %37 = add nuw nsw i64 %.022.i, 1
-  %38 = getelementptr inbounds nuw i64, ptr %7, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %37
   store i64 %36, ptr %38, align 8, !tbaa !67
   %exitcond.not.i = icmp eq i64 %37, 255
   br i1 %exitcond.not.i, label %.preheader.i, label %32, !llvm.loop !100
@@ -2175,11 +2175,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %40 = ashr i32 %39, %22
   %41 = and i32 %40, 255
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !67
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8, !tbaa !67
-  %46 = getelementptr inbounds i32, ptr %15, i64 %44
+  %46 = getelementptr inbounds [4 x i8], ptr %15, i64 %44
   store i32 %39, ptr %46, align 4, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.i, i64 4
   %.not19.i = icmp eq ptr %47, %2
@@ -2208,7 +2208,7 @@ _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   %52 = ashr i32 %51, %49
   %53 = and i32 %52, 255
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %4, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !67
   %57 = add i64 %56, 1
   store i64 %57, ptr %55, align 8, !tbaa !67
@@ -2226,11 +2226,11 @@ _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
 60:                                               ; preds = %60, %._crit_edge.i17
   %61 = phi i64 [ 0, %._crit_edge.i17 ], [ %64, %60 ]
   %.022.i18 = phi i64 [ 0, %._crit_edge.i17 ], [ %65, %60 ]
-  %62 = getelementptr inbounds nuw i64, ptr %4, i64 %.022.i18
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.022.i18
   %63 = load i64, ptr %62, align 8, !tbaa !67
   %64 = add i64 %63, %61
   %65 = add nuw nsw i64 %.022.i18, 1
-  %66 = getelementptr inbounds nuw i64, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %65
   store i64 %64, ptr %66, align 8, !tbaa !67
   %exitcond.not.i19 = icmp eq i64 %65, 255
   br i1 %exitcond.not.i19, label %.preheader.i20, label %60, !llvm.loop !100
@@ -2241,11 +2241,11 @@ _ZZNK4entt10radix_sortILm8ELm32EEclIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   %69 = ashr i32 %68, %59
   %70 = and i32 %69, 255
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %5, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !67
   %74 = add i64 %73, 1
   store i64 %74, ptr %72, align 8, !tbaa !67
-  %75 = getelementptr inbounds i32, ptr %1, i64 %73
+  %75 = getelementptr inbounds [4 x i8], ptr %1, i64 %73
   store i32 %68, ptr %75, align 4, !tbaa !20
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.i22, i64 4
   %.not19.i23 = icmp eq ptr %76, %.0.i.i.i.i.i
@@ -2618,16 +2618,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.035.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %24 = shl i64 %.035.i.i.i.i, 1
   %25 = add i64 %24, 2
-  %26 = getelementptr inbounds i32, ptr %0, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %0, i64 %25
   %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds i32, ptr %0, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %0, i64 %27
   %29 = load i32, ptr %26, align 4, !tbaa !20
   %30 = load i32, ptr %28, align 4, !tbaa !20
   %31 = icmp slt i32 %29, %30
   %spec.select.i.i.i.i = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i.i
+  %32 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !20
-  %34 = getelementptr inbounds i32, ptr %0, i64 %.035.i.i.i.i
+  %34 = getelementptr inbounds [4 x i8], ptr %0, i64 %.035.i.i.i.i
   store i32 %33, ptr %34, align 4, !tbaa !20
   %35 = icmp slt i64 %spec.select.i.i.i.i, %22
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !103
@@ -2647,9 +2647,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 .thread.i.i.i:                                    ; preds = %38
   %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds nuw i32, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !20
-  %46 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %46 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store i32 %45, ptr %46, align 4, !tbaa !20
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -2665,20 +2665,20 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i67.i.i.i, %51 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i67.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i67.i.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i67.i.i.i
   %49 = load i32, ptr %48, align 4, !tbaa !20
   %50 = icmp slt i32 %49, %16
   br i1 %50, label %51, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SC_SC_RT0_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
+  %52 = getelementptr inbounds [4 x i8], ptr %0, i64 %.019.i.i.i.i.i
   store i32 %49, ptr %52, align 4, !tbaa !20
   %.not8.i.i.i = icmp eq i64 %.0920.i.i67.i.i.i, 0
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SC_SC_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !104
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SC_SC_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
-  %53 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i32 %16, ptr %53, align 4, !tbaa !20
   %54 = icmp sgt i64 %19, 4
   br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_SC_SC_T0_.exit, !llvm.loop !105
@@ -2686,7 +2686,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops1
 55:                                               ; preds = %11
   %56 = add nsw i64 %.024, -1
   %57 = lshr i64 %12, 1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %storemerge23, i64 -4
   %60 = load i32, ptr %10, align 4, !tbaa !20
   %61 = load i32, ptr %58, align 4, !tbaa !20
@@ -2810,13 +2810,13 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us
   %.09.us = phi i64 [ %43, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds i32, ptr %0, i64 %.09.us
+  %20 = getelementptr inbounds [4 x i8], ptr %0, i64 %.09.us
   %21 = load i32, ptr %20, align 4, !tbaa !20
   %22 = icmp slt i64 %.09.us, %13
   br i1 %22, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us
@@ -2825,16 +2825,16 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.035.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.09.us, %.split.us ]
   %23 = shl i64 %.035.i.us, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds i32, ptr %0, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %25, align 4, !tbaa !20
   %29 = load i32, ptr %27, align 4, !tbaa !20
   %30 = icmp slt i32 %28, %29
   %spec.select.i.us = select i1 %30, i64 %26, i64 %24
-  %31 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.us
+  %31 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.us
   %32 = load i32, ptr %31, align 4, !tbaa !20
-  %33 = getelementptr inbounds i32, ptr %0, i64 %.035.i.us
+  %33 = getelementptr inbounds [4 x i8], ptr %0, i64 %.035.i.us
   store i32 %32, ptr %33, align 4, !tbaa !20
   %34 = icmp slt i64 %spec.select.i.us, %13
   br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !103
@@ -2847,20 +2847,20 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i.us
   %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = icmp slt i32 %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4, !tbaa !20
   %41 = icmp sgt i64 %.0920.i.i.us, %.09.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us, !llvm.loop !104
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
-  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !20
   %.not.us = icmp eq i64 %.09.us, 0
   %43 = add nsw i64 %.09.us, -1
@@ -2868,7 +2868,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit
   %.09 = phi i64 [ %71, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %44 = getelementptr inbounds i32, ptr %0, i64 %.09
+  %44 = getelementptr inbounds [4 x i8], ptr %0, i64 %.09
   %45 = load i32, ptr %44, align 4, !tbaa !20
   %46 = icmp slt i64 %.09, %13
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
@@ -2877,16 +2877,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.035.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.09, %.split ]
   %47 = shl i64 %.035.i, 1
   %48 = add i64 %47, 2
-  %49 = getelementptr inbounds i32, ptr %0, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %0, i64 %48
   %50 = or disjoint i64 %47, 1
-  %51 = getelementptr inbounds i32, ptr %0, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %50
   %52 = load i32, ptr %49, align 4, !tbaa !20
   %53 = load i32, ptr %51, align 4, !tbaa !20
   %54 = icmp slt i32 %52, %53
   %spec.select.i = select i1 %54, i64 %50, i64 %48
-  %55 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i
+  %55 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i
   %56 = load i32, ptr %55, align 4, !tbaa !20
-  %57 = getelementptr inbounds i32, ptr %0, i64 %.035.i
+  %57 = getelementptr inbounds [4 x i8], ptr %0, i64 %.035.i
   store i32 %56, ptr %57, align 4, !tbaa !20
   %58 = icmp slt i64 %spec.select.i, %13
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !103
@@ -2910,20 +2910,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !20
   %66 = icmp slt i32 %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.019.i.i
   store i32 %65, ptr %68, align 4, !tbaa !20
   %69 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit, !llvm.loop !104
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterISt4lessIvEEEEvT_T0_SD_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i32 %45, ptr %70, align 4, !tbaa !20
   %.not = icmp eq i64 %.09, 0
   %71 = add nsw i64 %.09, -1

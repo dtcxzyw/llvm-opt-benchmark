@@ -62,7 +62,7 @@ define i64 @text_normalize_buffer(ptr noundef captures(none) %0, ptr noundef rea
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.02628
   %19 = load i8, ptr %18, align 1, !tbaa !14
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @char_action, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @char_action, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !15
   switch i32 %22, label %32 [
     i32 0, label %30
@@ -168,7 +168,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 %.02628.i
   %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @char_action, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @char_action, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !15
   switch i32 %29, label %39 [
     i32 0, label %37

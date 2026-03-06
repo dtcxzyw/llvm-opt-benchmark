@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/tsginidx.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.WordEntry = type { i32 }
-%union.QueryItem = type { %struct.QueryOperand }
-%struct.QueryOperand = type { i8, i8, i8, i32, i32 }
 %struct.GinChkVal = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [46 x i8] c"gin_extract_tsvector requires three arguments\00", align 1
@@ -263,7 +260,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   %19 = phi i32 [ %32, %.lr.ph ], [ %17, %12 ]
   %.02127 = phi ptr [ %31, %.lr.ph ], [ %13, %12 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.WordEntry, ptr %13, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %13, i64 %20
   %22 = load i32, ptr %.02127, align 4
   %23 = lshr i32 %22, 12
   %24 = zext nneg i32 %23 to i64
@@ -272,7 +269,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   %27 = and i32 %26, 2047
   %28 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %25, i32 noundef %27) #5
   %29 = ptrtoint ptr %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.02127, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -340,7 +337,7 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05357 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %union.QueryItem, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %indvars.iv
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 1
   %28 = zext i1 %27 to i32
@@ -371,7 +368,7 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
   %40 = phi i32 [ %66, %65 ], [ %38, %._crit_edge ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %65 ], [ 0, %._crit_edge ]
   %.259 = phi i32 [ %.3, %65 ], [ 0, %._crit_edge ]
-  %41 = getelementptr inbounds nuw %union.QueryItem, ptr %21, i64 %indvars.iv64
+  %41 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %indvars.iv64
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 1
   br i1 %43, label %44, label %65
@@ -389,16 +386,16 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
   %54 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %52, i32 noundef %53) #5
   %55 = ptrtoint ptr %54 to i64
   %56 = sext i32 %.259 to i64
-  %57 = getelementptr inbounds i64, ptr %31, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %31, i64 %56
   store i64 %55, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %59 = load i8, ptr %58, align 2, !range !7, !noundef !8
   %60 = getelementptr inbounds i8, ptr %32, i64 %56
   store i8 %59, ptr %60, align 1
   %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %56
+  %62 = getelementptr inbounds [8 x i8], ptr %61, i64 %56
   store ptr %37, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv64
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv64
   store i32 %.259, ptr %63, align 4
   %64 = add i32 %.259, 1
   %.pre = load i32, ptr %16, align 4
@@ -599,7 +596,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   %26 = phi i32 [ %39, %.lr.ph.i ], [ %24, %19 ]
   %.02127.i = phi ptr [ %38, %.lr.ph.i ], [ %20, %19 ]
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.WordEntry, ptr %20, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %20, i64 %27
   %29 = load i32, ptr %.02127.i, align 4
   %30 = lshr i32 %29, 12
   %31 = zext nneg i32 %30 to i64
@@ -608,7 +605,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   %34 = and i32 %33, 2047
   %35 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %32, i32 noundef %34) #5
   %36 = ptrtoint ptr %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   store i64 %36, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

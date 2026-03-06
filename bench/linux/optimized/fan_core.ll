@@ -14,11 +14,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.dev_pm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.thermal_cooling_device_ops = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.acpi_buffer = type { i64, ptr }
-%struct.acpi_fan_fps = type { i64, i64, i64, i64, i64, [20 x i8], %struct.device_attribute }
-%struct.device_attribute = type { %struct.attribute, ptr, ptr }
-%struct.attribute = type { ptr, i16 }
-%union.acpi_object = type { %struct.anon.8 }
-%struct.anon.8 = type { i32, i32, i64, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"_FST\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Get fan state failed\0A\00", align 1
@@ -391,11 +386,11 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 40, ptr %4, align 8
   %118 = load ptr, ptr %102, align 8
-  %119 = getelementptr %struct.acpi_fan_fps, ptr %118, i64 %117
+  %119 = getelementptr [96 x i8], ptr %118, i64 %117
   store ptr %119, ptr %109, align 8
   %120 = load ptr, ptr %110, align 8
   %121 = add nuw nsw i64 %117, 1
-  %122 = getelementptr %union.acpi_object, ptr %120, i64 %121
+  %122 = getelementptr [24 x i8], ptr %120, i64 %121
   %123 = call i32 @acpi_extract_package(ptr noundef %122, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %112, label %125
@@ -700,7 +695,7 @@ acpi_fan_get_fst.exit:                            ; preds = %18, %21, %24, %28
 
 55:                                               ; preds = %60, %47
   %56 = phi i64 [ %61, %60 ], [ 0, %47 ]
-  %57 = getelementptr %struct.acpi_fan_fps, ptr %49, i64 %56
+  %57 = getelementptr [96 x i8], ptr %49, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %37, %58
   br i1 %59, label %63, label %60
@@ -794,7 +789,7 @@ define internal i32 @fan_set_cur_state(ptr noundef readonly captures(none) %0, i
 29:                                               ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr %struct.acpi_fan_fps, ptr %31, i64 %1
+  %32 = getelementptr [96 x i8], ptr %31, i64 %1
   %33 = load i64, ptr %32, align 8
   br label %34
 

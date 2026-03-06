@@ -85,7 +85,7 @@ define dso_local ptr @nfs4_alloc_client(ptr noundef %0) local_unnamed_addr #0 al
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 2536
   %15 = load volatile ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void @__rcu_read_unlock() #14
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 224
@@ -157,7 +157,7 @@ define dso_local ptr @nfs4_alloc_client(ptr noundef %0) local_unnamed_addr #0 al
   store i64 4, ptr %53, align 8
   %54 = load i32, ptr %9, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr ptr, ptr @nfs_v4_minor_ops, i64 %55
+  %56 = getelementptr [8 x i8], ptr @nfs_v4_minor_ops, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 664
   store ptr %57, ptr %58, align 8
@@ -553,7 +553,7 @@ define dso_local i32 @nfs40_walk_client_list(ptr noundef %0, ptr noundef writeon
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %9 = load volatile ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -703,7 +703,7 @@ thread-pre-split:                                 ; preds = %54
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 2536
   %95 = load volatile ptr, ptr %94, align 8
   %96 = zext i32 %93 to i64
-  %97 = getelementptr ptr, ptr %95, i64 %96
+  %97 = getelementptr [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8
   call void @__rcu_read_unlock() #14
   %99 = getelementptr i8, ptr %27, i64 472
@@ -778,7 +778,7 @@ define dso_local ptr @nfs4_find_client_ident(ptr noundef %0, i32 noundef %1) loc
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160

@@ -244,7 +244,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %53, %51, %._crit_ed
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit, label %73, !prof !45
 
 73:                                               ; preds = %60
-  %74 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %.pre3.i, i64 %70
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i, i64 %70
   %75 = icmp uge ptr %10, %.pre3.i
   %76 = icmp ult ptr %10, %74
   %spec.select.i.i.i.i.i = and i1 %75, %76
@@ -268,7 +268,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_12MemoryBufferESt14default_d
   %.016.i.i.i = phi ptr [ %10, %60 ], [ %81, %77 ], [ %10, %.critedge.i.i.i ]
   %83 = load i32, ptr %19, align 8, !tbaa !21
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %84
   %86 = load i64, ptr %.016.i.i.i, align 8, !tbaa !40
   store i64 %86, ptr %85, align 8, !tbaa !40
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !40
@@ -784,7 +784,7 @@ _ZSt7advanceIPKN4llvm9StringRefElEvRT_T0_.exit.i.i.i: ; preds = %_ZNK9__gnu_cxx5
   %.017.i.i.i = phi ptr [ %4, %_ZSt7advanceIPKN4llvm9StringRefElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i ]
   %.01116.i.i.i = phi i64 [ %7, %_ZSt7advanceIPKN4llvm9StringRefElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %8
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !33
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sroa.22.0.copyload.i.i.i.i)
@@ -823,7 +823,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.
 _ZN4llvm11lower_boundIRKNS_11SmallVectorINS_9StringRefELj32EEERS2_EEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i, %3
   %.pre-phi = phi i64 [ 0, %3 ], [ %7, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %4, %3 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i ]
-  %21 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %4, i64 %.pre-phi
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.pre-phi
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %21
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %22
 
@@ -1078,7 +1078,7 @@ _ZSt4moveIPSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EES6_ET0_T_
   %.pre-phi = phi i64 [ %.pre82, %_ZSt4moveIPSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.loopexit ], [ %36, %37 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.loopexit ], [ %38, %37 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.loopexit ], [ %38, %37 ]
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %49
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit, label %.lr.ph.i
 
@@ -1276,13 +1276,13 @@ _ZSt4moveIPSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EES6_ET0_T_
   %106 = load ptr, ptr %1, align 8, !tbaa !18
   %107 = load i32, ptr %31, align 8, !tbaa !21
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit, label %.lr.ph.i.i.i.i.i67.preheader
 
 .lr.ph.i.i.i.i.i67.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit66
-  %110 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %105, i64 %.026
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr.55", ptr %106, i64 %.026
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.026
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.026
   br label %.lr.ph.i.i.i.i.i67
 
 .lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67.preheader, %.lr.ph.i.i.i.i.i67

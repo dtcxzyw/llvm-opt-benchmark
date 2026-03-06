@@ -917,7 +917,7 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %59
   %79 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_igmp_v3_report, i64 %79
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_igmp_v3_report, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %._crit_edge.sink.split.i
 

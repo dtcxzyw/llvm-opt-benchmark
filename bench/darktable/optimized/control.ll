@@ -624,7 +624,7 @@ define void @dt_control_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 32:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %33 = load ptr, ptr %30, align 8, !tbaa !118
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !119
   %36 = tail call i32 @dt_pthread_join(i64 noundef %35) #13
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !115
@@ -649,7 +649,7 @@ define void @dt_control_shutdown(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %.preheader, %56
   %indvars.iv33 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next34, %56 ]
-  %48 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv33
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv33
   %49 = load i64, ptr %48, align 8, !tbaa !119
   %50 = tail call i32 @dt_pthread_join(i64 noundef %49) #13
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !115
@@ -936,7 +936,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 24:                                               ; preds = %24, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %26 = load float, ptr %25, align 8, !tbaa !143
   %27 = fpext reassoc nsz arcp contract afn float %26 to double
   %28 = fmul reassoc nsz arcp contract afn double %27, 1.000000e-02
@@ -953,7 +953,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 .preheader48.i:                                   ; preds = %24, %.preheader48.i
   %indvars.iv57.i = phi i64 [ %indvars.iv.next58.i, %.preheader48.i ], [ 1, %24 ]
-  %33 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv57.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv57.i
   %34 = load float, ptr %33, align 4, !tbaa !143
   %35 = fpext reassoc nsz arcp contract afn float %34 to double
   %36 = fmul reassoc nsz arcp contract afn double %35, 3.000000e-02
@@ -970,7 +970,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 41:                                               ; preds = %41, %.preheader47.i
   %indvars.iv60.i = phi i64 [ 0, %.preheader47.i ], [ %indvars.iv.next61.i, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv60.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv60.i
   %43 = load float, ptr %42, align 8, !tbaa !143
   %44 = fmul reassoc nsz arcp contract afn float %43, %32
   store float %44, ptr %42, align 8, !tbaa !143
@@ -986,7 +986,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 49:                                               ; preds = %49, %.preheader46.i
   %indvars.iv63.i = phi i64 [ 1, %.preheader46.i ], [ %indvars.iv.next64.i, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv63.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv63.i
   %51 = load float, ptr %50, align 4, !tbaa !143
   %52 = fmul reassoc nsz arcp contract afn float %51, %40
   store float %52, ptr %50, align 4, !tbaa !143
@@ -996,7 +996,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 .preheader45.i:                                   ; preds = %46, %.preheader45.i
   %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.preheader45.i ], [ 0, %46 ]
-  %54 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv66.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv66.i
   %55 = load float, ptr %54, align 8, !tbaa !143
   %56 = fsub reassoc nsz arcp contract afn float %32, %55
   store float %56, ptr %54, align 8, !tbaa !143
@@ -1055,7 +1055,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 99:                                               ; preds = %99, %.loopexit.i
   %indvars.iv69.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next70.i, %99 ]
-  %100 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv69.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv69.i
   %101 = load float, ptr %100, align 8, !tbaa !143
   %102 = fsub reassoc nsz arcp contract afn float %32, %101
   store float %102, ptr %100, align 8, !tbaa !143
@@ -1065,7 +1065,7 @@ define noundef i32 @dt_control_draw_endmarker(ptr noundef %0, ptr noundef %1, pt
 
 .preheader.i:                                     ; preds = %99, %.preheader.i
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %.preheader.i ], [ 1, %99 ]
-  %104 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv72.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv72.i
   %105 = load float, ptr %104, align 4, !tbaa !143
   %106 = fsub reassoc nsz arcp contract afn float %40, %105
   store float %106, ptr %104, align 4, !tbaa !143

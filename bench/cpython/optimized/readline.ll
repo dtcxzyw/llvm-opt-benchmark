@@ -408,7 +408,7 @@ define internal ptr @call_readline(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = call i32 @fileno(ptr noundef %25) #14
   %27 = sdiv i32 %26, 64
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i64, ptr %4, i64 %28
+  %29 = getelementptr [8 x i8], ptr %4, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !28
   %31 = or i64 %30, %24
   store i64 %31, ptr %29, align 8, !tbaa !28
@@ -2004,7 +2004,7 @@ get_hook_module_state.exit:                       ; preds = %Py_INCREF.exit.i, %
 25:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr ptr, ptr %0, i64 %indvars.iv.next
+  %26 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv.next
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %27, ptr noundef nonnull @.str.34) #14
   %29 = icmp eq ptr %28, null
@@ -2012,7 +2012,7 @@ get_hook_module_state.exit:                       ; preds = %Py_INCREF.exit.i, %
 
 30:                                               ; preds = %25
   %.val = load ptr, ptr %24, align 8, !tbaa !50
-  %31 = getelementptr ptr, ptr %.val, i64 %indvars.iv
+  %31 = getelementptr [8 x i8], ptr %.val, i64 %indvars.iv
   store ptr %28, ptr %31, align 8, !tbaa !41
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !53

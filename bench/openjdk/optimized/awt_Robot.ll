@@ -83,9 +83,9 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr noundef readn
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21
@@ -518,7 +518,7 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   %161 = or i32 %160, -16777216
   %162 = add i32 %155, %158
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds i32, ptr %149, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %149, i64 %163
   store i32 %161, ptr %164, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1076,7 +1076,7 @@ define hidden void @mouseAction(ptr noundef %0, ptr readnone captures(none) %1, 
   %57 = phi i32 [ %55, %.lr.ph.preheader ], [ %68, %67 ]
   %58 = phi ptr [ %.pre59, %.lr.ph.preheader ], [ %69, %67 ]
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, %2
   %.not51 = icmp eq i32 %61, 0

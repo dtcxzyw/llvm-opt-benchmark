@@ -28,15 +28,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.spinlock = type { %union.anon.1 }
 %union.anon.1 = type { %struct.raw_spinlock }
 %struct.lock_class_key = type {}
-%struct.mon_pgmap = type { ptr, ptr }
 %struct.mon_bin_get = type { ptr, ptr, i64 }
 %struct.mon_bin_mfetch = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.19, %union.anon.27, %struct.atomic_t, [8 x i8] }
-%union.anon.19 = type { %struct.anon.20 }
-%struct.anon.20 = type { %union.anon.21, ptr, %union.anon.23, i64 }
-%union.anon.21 = type { %struct.list_head }
-%union.anon.23 = type { i64 }
-%union.anon.27 = type { %struct.atomic_t }
 %struct.mon_bin_get32 = type { i32, i32, i32 }
 %struct.mon_bin_mfetch32 = type { i32, i32, i32 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
@@ -202,7 +195,7 @@ define internal i64 @mon_bin_read(ptr noundef readonly captures(none) %0, ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %14 to i64
   %18 = lshr i64 %17, 12
-  %.split = getelementptr %struct.mon_pgmap, ptr %16, i64 %18
+  %.split = getelementptr [16 x i8], ptr %16, i64 %18
   %19 = getelementptr i8, ptr %.split, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = and i64 %17, 4095
@@ -282,7 +275,7 @@ define internal i64 @mon_bin_read(ptr noundef readonly captures(none) %0, ptr no
   %74 = load ptr, ptr %15, align 8
   %75 = zext i32 %69 to i64
   %76 = lshr i64 %75, 12
-  %.split8 = getelementptr %struct.mon_pgmap, ptr %74, i64 %76
+  %.split8 = getelementptr [16 x i8], ptr %74, i64 %76
   %77 = getelementptr i8, ptr %.split8, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = and i64 %75, 4095
@@ -426,7 +419,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
   %19 = lshr i64 %18, 12
-  %.split13 = getelementptr %struct.mon_pgmap, ptr %17, i64 %19
+  %.split13 = getelementptr [16 x i8], ptr %17, i64 %19
   %20 = getelementptr i8, ptr %.split13, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = and i64 %18, 4095
@@ -478,7 +471,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 .preheader:                                       ; preds = %47, %.preheader
   %50 = phi i64 [ %51, %.preheader ], [ %44, %47 ]
   %51 = add nsw i64 %50, -1
-  %.split10 = getelementptr %struct.mon_pgmap, ptr %42, i64 %51
+  %.split10 = getelementptr [16 x i8], ptr %42, i64 %51
   %52 = getelementptr i8, ptr %.split10, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
@@ -488,7 +481,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 
 56:                                               ; preds = %.preheader27
   %57 = inttoptr i64 %45 to ptr
-  %58 = getelementptr %struct.mon_pgmap, ptr %42, i64 %44
+  %58 = getelementptr [16 x i8], ptr %42, i64 %44
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %57, ptr %59, align 8
   %60 = load i64, ptr @vmemmap_base, align 8
@@ -501,7 +494,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %67 = select i1 %63, i64 %64, i64 %66
   %68 = add i64 %62, %67
   %69 = lshr i64 %68, 12
-  %70 = getelementptr %struct.page, ptr %61, i64 %69
+  %70 = getelementptr [64 x i8], ptr %61, i64 %69
   store ptr %70, ptr %58, align 8
   %71 = add nuw nsw i64 %44, 1
   %72 = icmp eq i64 %71, %40
@@ -522,7 +515,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 
 .preheader26:                                     ; preds = %73, %.preheader26
   %79 = phi i64 [ %83, %.preheader26 ], [ 0, %73 ]
-  %.split11 = getelementptr %struct.mon_pgmap, ptr %42, i64 %79
+  %.split11 = getelementptr [16 x i8], ptr %42, i64 %79
   %80 = getelementptr i8, ptr %.split11, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %81 to i64
@@ -550,7 +543,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 
 95:                                               ; preds = %95, %92
   %96 = phi i64 [ 0, %92 ], [ %100, %95 ]
-  %.split12 = getelementptr %struct.mon_pgmap, ptr %88, i64 %96
+  %.split12 = getelementptr [16 x i8], ptr %88, i64 %96
   %97 = getelementptr i8, ptr %.split12, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
@@ -607,7 +600,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %124 = load ptr, ptr %115, align 8
   %125 = zext i32 %123 to i64
   %126 = lshr i64 %125, 12
-  %.split.i = getelementptr %struct.mon_pgmap, ptr %124, i64 %126
+  %.split.i = getelementptr [16 x i8], ptr %124, i64 %126
   %127 = getelementptr i8, ptr %.split.i, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = and i64 %125, 4095
@@ -708,7 +701,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %184 = load ptr, ptr %175, align 8
   %185 = zext i32 %183 to i64
   %186 = lshr i64 %185, 12
-  %.split.i14 = getelementptr %struct.mon_pgmap, ptr %184, i64 %186
+  %.split.i14 = getelementptr [16 x i8], ptr %184, i64 %186
   %187 = getelementptr i8, ptr %.split.i14, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = and i64 %185, 4095
@@ -820,7 +813,7 @@ mon_bin_flush.exit15:                             ; preds = %178, %201
   %254 = phi i32 [ 0, %244 ], [ %261, %251 ]
   %255 = zext i32 %252 to i64
   %256 = lshr i64 %255, 12
-  %.split = getelementptr %struct.mon_pgmap, ptr %248, i64 %256
+  %.split = getelementptr [16 x i8], ptr %248, i64 %256
   %257 = getelementptr i8, ptr %.split, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = and i64 %255, 4095
@@ -957,7 +950,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
   %51 = load ptr, ptr %42, align 8
   %52 = zext i32 %50 to i64
   %53 = lshr i64 %52, 12
-  %.split.i = getelementptr %struct.mon_pgmap, ptr %51, i64 %53
+  %.split.i = getelementptr [16 x i8], ptr %51, i64 %53
   %54 = getelementptr i8, ptr %.split.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = and i64 %52, 4095
@@ -1176,7 +1169,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
 .preheader:                                       ; preds = %38, %.preheader
   %41 = phi i64 [ %42, %.preheader ], [ %35, %38 ]
   %42 = add nsw i64 %41, -1
-  %.split = getelementptr %struct.mon_pgmap, ptr %25, i64 %42
+  %.split = getelementptr [16 x i8], ptr %25, i64 %42
   %43 = getelementptr i8, ptr %.split, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
@@ -1186,7 +1179,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
 
 47:                                               ; preds = %34
   %48 = inttoptr i64 %36 to ptr
-  %49 = getelementptr %struct.mon_pgmap, ptr %25, i64 %35
+  %49 = getelementptr [16 x i8], ptr %25, i64 %35
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %48, ptr %50, align 8
   %51 = load i64, ptr @vmemmap_base, align 8
@@ -1199,7 +1192,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
   %58 = select i1 %54, i64 %55, i64 %57
   %59 = add i64 %53, %58
   %60 = lshr i64 %59, 12
-  %61 = getelementptr %struct.page, ptr %52, i64 %60
+  %61 = getelementptr [64 x i8], ptr %52, i64 %60
   store ptr %61, ptr %49, align 8
   %62 = add nuw nsw i64 %35, 1
   %63 = icmp eq i64 %62, %33
@@ -1270,7 +1263,7 @@ define internal noundef i32 @mon_bin_release(ptr readnone captures(none) %0, ptr
 
 22:                                               ; preds = %22, %19
   %23 = phi i64 [ 0, %19 ], [ %27, %22 ]
-  %.split = getelementptr %struct.mon_pgmap, ptr %15, i64 %23
+  %.split = getelementptr [16 x i8], ptr %15, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
@@ -1414,7 +1407,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
   %16 = lshr i64 %15, 12
-  %.split = getelementptr %struct.mon_pgmap, ptr %14, i64 %16
+  %.split = getelementptr [16 x i8], ptr %14, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = and i64 %15, 4095
@@ -1451,7 +1444,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %44 = load ptr, ptr %13, align 8
   %45 = zext i32 %39 to i64
   %46 = lshr i64 %45, 12
-  %.split5 = getelementptr %struct.mon_pgmap, ptr %44, i64 %46
+  %.split5 = getelementptr [16 x i8], ptr %44, i64 %46
   %47 = getelementptr i8, ptr %.split5, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = and i64 %45, 4095
@@ -1542,10 +1535,10 @@ define internal fastcc i32 @mon_bin_fetch(ptr noundef readonly captures(none) %0
   %25 = load ptr, ptr %18, align 8
   %26 = zext i32 %23 to i64
   %27 = lshr i64 %26, 12
-  %.split = getelementptr %struct.mon_pgmap, ptr %25, i64 %27
+  %.split = getelementptr [16 x i8], ptr %25, i64 %27
   %28 = getelementptr i8, ptr %.split, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr i32, ptr %2, i64 %22
+  %30 = getelementptr [4 x i8], ptr %2, i64 %22
   %31 = tail call i64 @llvm.read_register.i64(metadata !0)
   %32 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %30, i32 %23, i64 4, i64 %31) #12, !srcloc !30
   %33 = extractvalue { ptr, i64 } %32, 0
@@ -1645,7 +1638,7 @@ define internal noundef range(i32 0, 3) i32 @mon_bin_vma_fault(ptr noundef captu
   %14 = and i64 %7, 4503599627370495
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr %struct.mon_pgmap, ptr %16, i64 %14
+  %17 = getelementptr [16 x i8], ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load volatile i64, ptr %19, align 8
@@ -1763,7 +1756,7 @@ define internal void @mon_bin_error(ptr noundef %0, ptr noundef %1, i32 noundef 
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %14 to i64
   %23 = lshr i64 %22, 12
-  %.split = getelementptr %struct.mon_pgmap, ptr %21, i64 %23
+  %.split = getelementptr [16 x i8], ptr %21, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = and i64 %22, 4095
@@ -1973,7 +1966,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %94 = load ptr, ptr %93, align 8
   %95 = zext i32 %86 to i64
   %96 = lshr i64 %95, 12
-  %.split = getelementptr %struct.mon_pgmap, ptr %94, i64 %96
+  %.split = getelementptr [16 x i8], ptr %94, i64 %96
   %97 = getelementptr i8, ptr %.split, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = and i64 %95, 4095
@@ -2043,7 +2036,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %129 = load ptr, ptr %128, align 8
   %130 = zext i32 %127 to i64
   %131 = lshr i64 %130, 12
-  %.split16 = getelementptr %struct.mon_pgmap, ptr %129, i64 %131
+  %.split16 = getelementptr [16 x i8], ptr %129, i64 %131
   %132 = getelementptr i8, ptr %.split16, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = and i64 %130, 4095
@@ -2176,7 +2169,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %221 = load ptr, ptr %128, align 8
   %222 = zext i32 %219 to i64
   %223 = lshr i64 %222, 12
-  %.split17 = getelementptr %struct.mon_pgmap, ptr %221, i64 %223
+  %.split17 = getelementptr [16 x i8], ptr %221, i64 %223
   %224 = getelementptr i8, ptr %.split17, i64 8
   %225 = load ptr, ptr %224, align 8
   %226 = and i64 %222, 4095
@@ -2237,7 +2230,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %265 = call i32 @llvm.umin.i32(i32 %264, i32 %259)
   %266 = load ptr, ptr %128, align 8
   %267 = lshr i64 %262, 12
-  %.split19 = getelementptr %struct.mon_pgmap, ptr %266, i64 %267
+  %.split19 = getelementptr [16 x i8], ptr %266, i64 %267
   %268 = getelementptr i8, ptr %.split19, i64 8
   %269 = load ptr, ptr %268, align 8
   %270 = and i64 %262, 4095
@@ -2302,7 +2295,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %317 = call i32 @llvm.umin.i32(i32 %316, i32 %311)
   %318 = load ptr, ptr %128, align 8
   %319 = lshr i64 %314, 12
-  %.split18 = getelementptr %struct.mon_pgmap, ptr %318, i64 %319
+  %.split18 = getelementptr [16 x i8], ptr %318, i64 %319
   %320 = getelementptr i8, ptr %.split18, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = and i64 %314, 4095

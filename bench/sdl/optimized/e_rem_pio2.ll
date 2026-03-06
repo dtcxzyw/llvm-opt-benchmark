@@ -96,7 +96,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
 
 50:                                               ; preds = %41
   %51 = sext i32 %44 to i64
-  %52 = getelementptr i32, ptr @npio2_hw, i64 %51
+  %52 = getelementptr [4 x i8], ptr @npio2_hw, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -4
   %54 = load i32, ptr %53, align 4
   %.not = icmp eq i32 %5, %54
@@ -212,7 +212,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
 
 115:                                              ; preds = %113, %120
   %indvars.iv144 = phi i64 [ 3, %113 ], [ %indvars.iv.next145, %120 ]
-  %116 = getelementptr double, ptr %3, i64 %indvars.iv144
+  %116 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv144
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load double, ptr %117, align 8
   %119 = fcmp oeq double %118, 0.000000e+00

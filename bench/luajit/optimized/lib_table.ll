@@ -3,10 +3,6 @@ source_filename = "bench/luajit/original/lib_table.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%struct.MRef = type { i64 }
-
 @.str = private unnamed_addr constant [6 x i8] c"table\00", align 1
 @lj_lib_init_table = internal constant [508 x i8] c"Z9\09\F9\08foreachi\00\02\0A\00\00\00\0F\10\00\0C\00\10\01\09\00)\02\01\00\15\03\00\00)\04\01\00M\02\08\80\12\06\01\00\12\08\05\00;\09\05\00B\06\03\02\0A\06\00\00X\07\01\80L\06\02\00O\02\F8\7FK\00\01\00\F9\07foreach\00\02\0B\00\00\01\10\10\00\0C\00\10\01\09\00+\02\00\00\12\03\00\00*\04\00\00X\05\07\80\12\07\01\00\12\09\05\00\12\0A\06\00B\07\03\02\0A\07\00\00X\08\01\80L\07\02\00F\05\03\03R\05\F7\7FK\00\01\00\01\FF\FF\F9\FF\0F\F9\04getn\00\01\02\00\00\00\03\10\00\0C\00\15\01\00\00L\01\02\00\04maxn\06insert\F9\06remove\00\02\0A\00\00\02\1E\10\00\0C\00\15\02\00\00\0B\01\00\00X\03\07\80\08\02\00\00X\03\17\80;\03\02\00+\04\00\00@\04\02\00L\03\02\00X\03\12\80\11\01\0F\00)\03\01\00\03\03\01\00X\03\0E\80\03\01\02\00X\03\0C\80;\03\01\00\16\04\01\01\12\05\02\00)\06\01\00M\04\04\80\17\08\01\07;\09\07\00@\09\08\00O\04\FC\7F+\04\00\00@\04\02\00L\03\02\00K\00\01\00\00\02\F9\04move\00\05\0C\00\00\00#\10\00\0C\00\11\01\0F\00\11\02\0F\00\11\03\0F\00\0B\04\00\00X\05\01\80\12\04\00\00\10\04\0C\00\03\01\02\00X\05\18\80!\05\01\03\00\02\03\00X\06\04\80\02\03\01\00X\06\02\80\04\04\00\00X\06\09\80\12\06\01\00\12\07\02\00)\08\01\00M\06\04\80 \0A\05\09;\0B\09\00@\0B\0A\04O\06\FC\7FX\06\08\80\12\06\02\00\12\07\01\00)\08\FF\FFM\06\04\80 \0A\05\09;\0B\09\00@\0B\0A\04O\06\FC\7FL\04\02\00\06concat\04sort\FE\FE\FF", align 16
 @lj_lib_cf_table = internal constant [4 x ptr] [ptr @lj_cf_table_maxn, ptr @lj_cf_table_insert, ptr @lj_cf_table_concat, ptr @lj_cf_table_sort], align 16
@@ -69,7 +65,7 @@ define internal noundef i32 @lj_cf_table_maxn(ptr noundef %0) #0 {
 
 11:                                               ; preds = %9
   %.022 = add nsw i64 %.022.in, -1
-  %12 = getelementptr inbounds nuw %union.TValue, ptr %5, i64 %.022
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.022
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %14 = icmp eq i64 %13, -1
   br i1 %14, label %9, label %15, !llvm.loop !18
@@ -92,7 +88,7 @@ define internal noundef i32 @lj_cf_table_maxn(ptr noundef %0) #0 {
 24:                                               ; preds = %.loopexit, %35
   %.127 = phi double [ %.0, %.loopexit ], [ %.3, %35 ]
   %.12326 = phi i64 [ %23, %.loopexit ], [ %36, %35 ]
-  %25 = getelementptr inbounds nuw %struct.Node, ptr %20, i64 %.12326
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.12326
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = icmp eq i64 %26, -1
   br i1 %27, label %35, label %28
@@ -167,7 +163,7 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
 23:                                               ; preds = %19
   %24 = load i64, ptr %16, align 8, !tbaa !15
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds %union.TValue, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv
   br label %29
 
 27:                                               ; preds = %19
@@ -186,7 +182,7 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
 34:                                               ; preds = %29
   %35 = load i64, ptr %16, align 8, !tbaa !15
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %union.TValue, ptr %36, i64 %indvars.iv.next
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv.next
   br label %40
 
 38:                                               ; preds = %29
@@ -220,7 +216,7 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = inttoptr i64 %51 to ptr
   %53 = sext i32 %.0 to i64
-  %54 = getelementptr inbounds %union.TValue, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   br label %57
 
 55:                                               ; preds = %.loopexit
@@ -351,7 +347,7 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
 
 50:                                               ; preds = %46, %44
   %51 = phi i64 [ %spec.select, %46 ], [ 0, %44 ]
-  %52 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !42
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 1443, ptr noundef %53, i32 noundef %32) #5
   unreachable

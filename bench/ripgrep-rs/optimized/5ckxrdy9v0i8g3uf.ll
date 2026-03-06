@@ -189,7 +189,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %9 = add i64 %8, %.01927
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 %9
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %9
   %.val23 = load ptr, ptr %11, align 8, !nonnull !5, !align !29, !noundef !5
   %12 = getelementptr i8, ptr %11, i64 8
   %.val24 = load i64, ptr %12, align 8, !noundef !5
@@ -247,7 +247,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20bina
   %8 = add i64 %7, %.01927.i
   %9 = icmp ult i64 %8, %1
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 %8
+  %10 = getelementptr inbounds [32 x i8], ptr %0, i64 %8
   %.val23.i = load ptr, ptr %10, align 8, !alias.scope !47, !noalias !50, !nonnull !5, !align !29, !noundef !5
   %11 = getelementptr i8, ptr %10, i64 8
   %.val24.i = load i64, ptr %11, align 8, !alias.scope !47, !noalias !50, !noundef !5
@@ -292,7 +292,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1
   unreachable
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit": ; preds = %5
-  %8 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %2
+  %8 = getelementptr inbounds nuw [32 x i8], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %2
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !29, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -326,7 +326,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %5 = add nuw nsw i64 %4, %.01927.i.i
   %6 = icmp ult i64 %5, 10
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %5
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %5
   %.val23.i.i = load ptr, ptr %7, align 8, !alias.scope !67, !noalias !68, !nonnull !5, !align !29, !noundef !5
   %8 = getelementptr i8, ptr %7, i64 8
   %.val24.i.i = load i64, ptr %8, align 8, !alias.scope !67, !noalias !68, !noundef !5
@@ -370,7 +370,7 @@ define hidden { ptr, i64 } @"_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u
   br i1 %2, label %3, label %11, !prof !60
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %0
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %0
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !29, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24

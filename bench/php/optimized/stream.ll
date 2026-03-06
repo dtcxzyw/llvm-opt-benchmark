@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i32 }
 %union.anon.1 = type { ptr }
 %struct._php_stream_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._phar_entry_fp = type { ptr, ptr, ptr }
 %struct._php_stream_statbuf = type { %struct.stat }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -847,7 +846,7 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
   %210 = getelementptr inbounds nuw i8, ptr %185, i64 312
   %211 = load i32, ptr %210, align 8, !tbaa !74
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %209, i64 %212
+  %213 = getelementptr inbounds nuw [24 x i8], ptr %209, i64 %212
   br label %phar_get_pharfp.exit
 
 phar_get_pharfp.exit:                             ; preds = %206, %208
@@ -886,7 +885,7 @@ phar_get_pharfp.exit:                             ; preds = %206, %208
   %229 = getelementptr inbounds nuw i8, ptr %221, i64 312
   %230 = load i32, ptr %229, align 8, !tbaa !74
   %231 = zext i32 %230 to i64
-  %232 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %228, i64 %231
+  %232 = getelementptr inbounds nuw [24 x i8], ptr %228, i64 %231
   br label %phar_get_pharfp.exit194
 
 phar_get_pharfp.exit194:                          ; preds = %225, %227

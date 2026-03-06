@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.(anonymous namespace)::ISEAPlanarProjection" = type { %"struct.(anonymous namespace)::GeoPoint", double, double }
 %"struct.(anonymous namespace)::GeoPoint" = type { double, double }
-%"struct.(anonymous namespace)::isea_sincos" = type { double, double }
 %"struct.(anonymous namespace)::isea_pt" = type { double, double }
 %union.PJ_COORD = type { [4 x double] }
 %"struct.(anonymous namespace)::hex" = type { i32, i64, i64, i64 }
@@ -104,10 +103,10 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_iseaP8PJconsts(ptr n
 
 15:                                               ; preds = %15, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GeoPoint", ptr @_ZL31facesCenterDodecahedronVertices, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @_ZL31facesCenterDodecahedronVertices, i64 %indvars.iv.i
   %17 = load double, ptr %16, align 16, !tbaa !49
   %18 = tail call double @sin(double noundef %17) #18, !tbaa !51
-  %19 = getelementptr inbounds nuw %"struct.(anonymous namespace)::isea_sincos", ptr %14, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
   store double %18, ptr %19, align 8, !tbaa !52
   %20 = tail call double @cos(double noundef %17) #18, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -546,8 +545,8 @@ _ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i: ; preds = %.lr.ph8.i.i.
 
 65:                                               ; preds = %_ZL10safeArcCosd.exit.thread.i.i.i, %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %_ZL10isea_ctranPKN12_GLOBAL__N_18GeoPointES2_d.exit.i.i ], [ %indvars.iv.next.i.i.i, %_ZL10safeArcCosd.exit.thread.i.i.i ]
-  %66 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GeoPoint", ptr @_ZL31facesCenterDodecahedronVertices, i64 %indvars.iv.i.i.i
-  %67 = getelementptr inbounds nuw %"struct.(anonymous namespace)::isea_sincos", ptr %64, i64 %indvars.iv.i.i.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @_ZL31facesCenterDodecahedronVertices, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %indvars.iv.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load double, ptr %68, align 8, !tbaa !81
   %70 = fsub double %.sroa.2.1.lcssa.i.i.i, %69
@@ -710,7 +709,7 @@ switch.lookup:                                    ; preds = %157
   %168 = fneg double %151
   %169 = select i1 %165, double %168, double %151
   %170 = zext nneg i8 %159 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table._ZL14isea_s_forward5PJ_LPP8PJconsts, i64 %170
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL14isea_s_forward5PJ_LPP8PJconsts, i64 %170
   %switch.load = load double, ptr %switch.gep, align 8
   %171 = icmp sgt i32 %158, 9
   %narrow.i.i.i = add nsw i8 %160, -2
@@ -1107,7 +1106,7 @@ select.unfold.i:                                  ; preds = %90
   %120 = fsub double %.sroa.070.0.i, %119
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 432
   %122 = zext nneg i8 %.sink.i to i64
-  %123 = getelementptr inbounds nuw double, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = load double, ptr %123, align 8, !tbaa !72
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 416
   %126 = load double, ptr %125, align 8, !tbaa !69
@@ -1214,7 +1213,7 @@ _ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i: ; preds = %
   %196 = fsub double %174, %.183.lcssa.i.i
   %197 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %198 = zext nneg i32 %.2.ph.sink.i to i64
-  %199 = getelementptr inbounds nuw %"struct.(anonymous namespace)::isea_sincos", ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %198
   %200 = load double, ptr %199, align 8, !tbaa !52
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %202 = load double, ptr %201, align 8, !tbaa !54
@@ -1246,7 +1245,7 @@ _ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i: ; preds = %
 
 _ZL10safeArcSind.exit.i.i:                        ; preds = %219, %215, %211, %177
   %221 = phi double [ 0.000000e+00, %177 ], [ 0x3FF921FB54442D18, %211 ], [ %220, %219 ], [ 0xBFF921FB54442D18, %215 ]
-  %222 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GeoPoint", ptr @_ZL31facesCenterDodecahedronVertices, i64 %198
+  %222 = getelementptr inbounds nuw [16 x i8], ptr @_ZL31facesCenterDodecahedronVertices, i64 %198
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %224 = load double, ptr %223, align 8, !tbaa !81
   %225 = tail call double @sin(double noundef %196) #18, !tbaa !51

@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UObject" = type { ptr }
 %"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_77::UCharsTrieElement" = type { i32, i32 }
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
 
 $_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE = comdat any
@@ -118,7 +117,7 @@ define noundef range(i32 -128, 128) i32 @_ZNK6icu_7717UCharsTrieElement15compare
   %20 = load ptr, ptr %19, align 8, !noalias !14
   %21 = select i1 %.not.i.i.i.i, ptr %20, ptr %18
   %22 = sext i32 %6 to i64
-  %23 = getelementptr inbounds i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !11, !noalias !14
   %25 = zext i16 %24 to i32
   br label %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
@@ -146,7 +145,7 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
   %39 = load ptr, ptr %38, align 8, !noalias !17
   %40 = select i1 %.not.i.i.i.i8, ptr %39, ptr %37
   %41 = sext i32 %27 to i64
-  %42 = getelementptr inbounds i16, ptr %40, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %40, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !11, !noalias !17
   %44 = zext i16 %43 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit.i
@@ -246,7 +245,7 @@ define linkonce_odr void @_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13Unicod
   %18 = load ptr, ptr %17, align 8
   %19 = select i1 %.not.i.i.i, ptr %18, ptr %16
   %20 = sext i32 %4 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !11
   %23 = zext i16 %22 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit
@@ -367,7 +366,7 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7717UCharsTrieB
   %18 = add nsw i32 %14, 1
   store i32 %18, ptr %13, align 4, !tbaa !34
   %19 = sext i32 %14 to i64
-  %20 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %.pre, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %19
   br label %48
 
 21:                                               ; preds = %12
@@ -413,7 +412,7 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7717UCharsTrieB
   %44 = add nsw i32 %.pre24, 1
   store i32 %44, ptr %13, align 4, !tbaa !34
   %45 = sext i32 %.pre24 to i64
-  %46 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %28, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %45
   %47 = icmp slt i32 %.pre25, 1
   br i1 %47, label %48, label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread
 
@@ -506,7 +505,7 @@ define noundef ptr @_ZN6icu_7717UCharsTrieBuilder5buildE22UStringTrieBuildOption
   %16 = load i32, ptr %15, align 4, !tbaa !33
   %17 = sub nsw i32 %14, %16
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %12, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %12, i64 %18
   store ptr %12, ptr %7, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !39
@@ -604,7 +603,7 @@ define void @_ZN6icu_7717UCharsTrieBuilder11buildUCharsE22UStringTrieBuildOption
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = load ptr, ptr %28, align 8, !tbaa !22
-  %46 = getelementptr inbounds nuw %"class.icu_77::UCharsTrieElement", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !8, !noalias !42
   %48 = load i16, ptr %23, align 8, !tbaa !7, !noalias !42
   %49 = icmp slt i16 %48, 0
@@ -621,7 +620,7 @@ define void @_ZN6icu_7717UCharsTrieBuilder11buildUCharsE22UStringTrieBuildOption
   %57 = load ptr, ptr %37, align 8, !noalias !42
   %58 = select i1 %.not.i.i.i.i, ptr %57, ptr %36
   %59 = sext i32 %47 to i64
-  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %60 = getelementptr inbounds [2 x i8], ptr %58, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !11, !noalias !42
   %62 = zext i16 %61 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit.i
@@ -781,7 +780,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7717UCharsTrieBu
   %14 = load i32, ptr %13, align 4, !tbaa !33
   %15 = sub nsw i32 %12, %14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i16, ptr %10, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr %10, i64 %16
   store ptr %17, ptr %5, align 8, !tbaa !47
   %18 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 noundef signext 0, ptr noundef nonnull %5, i32 noundef %14)
           to label %19 unwind label %21
@@ -824,7 +823,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7717UCharsTrieBuilder22getEleme
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i16, ptr %8, align 8, !tbaa !7
@@ -845,7 +844,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7717UCharsTrieBuilder22getEleme
   %21 = load ptr, ptr %20, align 8
   %22 = select i1 %.not.i.i.i.i, ptr %21, ptr %19
   %23 = sext i32 %7 to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !11
   %26 = zext i16 %25 to i32
   br label %_ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit
@@ -860,7 +859,7 @@ define noundef zeroext i16 @_ZNK6icu_7717UCharsTrieBuilder14getElementUnitEii(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !8
   %9 = add i32 %2, 1
   %10 = add i32 %9, %8
@@ -883,7 +882,7 @@ define noundef zeroext i16 @_ZNK6icu_7717UCharsTrieBuilder14getElementUnitEii(pt
   %24 = load ptr, ptr %23, align 8
   %25 = select i1 %.not.i.i.i.i, ptr %24, ptr %22
   %26 = sext i32 %10 to i64
-  %27 = getelementptr inbounds i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
@@ -897,7 +896,7 @@ define noundef i32 @_ZNK6icu_7717UCharsTrieBuilder15getElementValueEi(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !13
   ret i32 %8
@@ -908,9 +907,9 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7717UCharsTrieB
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %8, align 4, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i16, ptr %12, align 8, !tbaa !7
@@ -937,7 +936,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7717UCharsTrieB
   %25 = load ptr, ptr %24, align 8
   %26 = select i1 %.not.i.i.i.i, ptr %25, ptr %23
   %27 = sext i32 %11 to i64
-  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !11
   %30 = zext i16 %29 to i32
   br label %_ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit
@@ -970,7 +969,7 @@ _ZNK6icu_7717UCharsTrieElement15getStringLengthERKNS_13UnicodeStringE.exit: ; pr
 
 44:                                               ; preds = %39
   %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds i16, ptr %33, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %33, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
@@ -983,7 +982,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %39
 
 51:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds i16, ptr %33, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %33, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit15
 
@@ -1027,7 +1026,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7717UCharsTrieB
   %.013 = phi i32 [ %1, %4 ], [ %44, %.critedge ]
   %.0 = phi i32 [ 0, %4 ], [ %45, %.critedge ]
   %23 = sext i32 %.013 to i64
-  %24 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %6, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !8
   %26 = add i32 %25, %7
   %27 = icmp ult i32 %26, %15
@@ -1035,7 +1034,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7717UCharsTrieB
 
 28:                                               ; preds = %22
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds i16, ptr %20, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %20, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
@@ -1050,7 +1049,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %22
   br i1 %33, label %34, label %46
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %indvars.iv.next
+  %35 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next
   %36 = load i32, ptr %35, align 4, !tbaa !8
   %37 = add i32 %36, %7
   %38 = icmp ult i32 %37, %15
@@ -1058,7 +1057,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %22
 
 39:                                               ; preds = %34
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds i16, ptr %20, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %20, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit16
 
@@ -1102,7 +1101,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7717UCharsTrieB
   %.08 = phi i32 [ %3, %4 ], [ %43, %41 ]
   %.0 = phi i32 [ %1, %4 ], [ %42, %41 ]
   %22 = sext i32 %.0 to i64
-  %23 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !8
   %25 = add i32 %24, %7
   %26 = icmp ult i32 %25, %15
@@ -1110,7 +1109,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7717UCharsTrieB
 
 27:                                               ; preds = %21
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds i16, ptr %20, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %20, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
@@ -1121,7 +1120,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %21
 31:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit12, %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit12 ], [ %22, %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %indvars.iv.next
+  %32 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next
   %33 = load i32, ptr %32, align 4, !tbaa !8
   %34 = add i32 %33, %7
   %35 = icmp ult i32 %34, %15
@@ -1129,7 +1128,7 @@ _ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit: ; preds = %21
 
 36:                                               ; preds = %31
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds i16, ptr %20, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %20, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit12
 
@@ -1172,7 +1171,7 @@ define noundef i32 @_ZNK6icu_7717UCharsTrieBuilder26indexOfElementWithNextUnitEi
 
 22:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit ], [ %21, %4 ]
-  %23 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !8
   %25 = add i32 %7, %24
   %26 = icmp ult i32 %25, %15
@@ -1180,7 +1179,7 @@ define noundef i32 @_ZNK6icu_7717UCharsTrieBuilder26indexOfElementWithNextUnitEi
 
 27:                                               ; preds = %22
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds i16, ptr %20, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %20, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !11
   br label %_ZNK6icu_7717UCharsTrieElement6charAtEiRKNS_13UnicodeStringE.exit
 
@@ -1338,12 +1337,12 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnul
   %20 = load i32, ptr %4, align 4, !tbaa !33
   %21 = sub nsw i32 %14, %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %18, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %18, i64 %22
   %24 = load ptr, ptr %7, align 8, !tbaa !32
   %25 = load i32, ptr %11, align 8, !tbaa !36
   %26 = sub nsw i32 %25, %20
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %24, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %24, i64 %27
   %29 = tail call ptr @u_memcpy_77(ptr noundef nonnull %23, ptr noundef %28, i32 noundef %20)
   %30 = load ptr, ptr %7, align 8, !tbaa !32
   tail call void @uprv_free_77(ptr noundef %30)
@@ -1357,7 +1356,7 @@ _ZN6icu_7717UCharsTrieBuilder14ensureCapacityEi.exit.thread7: ; preds = %.thread
   store i32 %6, ptr %4, align 4, !tbaa !33
   %33 = sub nsw i32 %31, %6
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %32, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %32, i64 %34
   %36 = tail call ptr @u_memcpy_77(ptr noundef nonnull %35, ptr noundef %1, i32 noundef %2)
   br label %_ZN6icu_7717UCharsTrieBuilder14ensureCapacityEi.exit.thread
 
@@ -1385,7 +1384,7 @@ define noundef ptr @_ZNK6icu_7717UCharsTrieBuilder21createLinearMatchNodeEiiiPNS
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %12, align 4, !tbaa !8, !noalias !68
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1407,7 +1406,7 @@ define noundef ptr @_ZNK6icu_7717UCharsTrieBuilder21createLinearMatchNodeEiiiPNS
   %28 = load ptr, ptr %27, align 8, !noalias !68
   %29 = select i1 %.not.i.i.i.i, ptr %28, ptr %26
   %30 = sext i32 %14 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !11, !noalias !68
   %33 = zext i16 %32 to i32
   br label %_ZNK6icu_7713UnicodeStringixEi.exit.i
@@ -1442,7 +1441,7 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit, %40, %42
   %.0.i = phi ptr [ %44, %42 ], [ %41, %40 ], [ null, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
   %45 = sext i32 %2 to i64
-  %46 = getelementptr inbounds i16, ptr %.0.i, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %45
   invoke void @_ZN6icu_7717UCharsTrieBuilder18UCTLinearMatchNodeC1EPKDsiPNS_17StringTrieBuilder4NodeE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %46, i32 noundef %3, ptr noundef %4)
           to label %47 unwind label %50
 
@@ -1503,12 +1502,12 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717UCharsTrieBuilder14ensureC
   %17 = load i32, ptr %16, align 4, !tbaa !33
   %18 = sub nsw i32 %10, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %14, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %3, align 8, !tbaa !32
   %22 = load i32, ptr %7, align 8, !tbaa !36
   %23 = sub nsw i32 %22, %17
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %21, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %21, i64 %24
   %26 = tail call ptr @u_memcpy_77(ptr noundef nonnull %20, ptr noundef %25, i32 noundef %17)
   br label %.sink.split
 
@@ -1562,12 +1561,12 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEi(ptr noundef nonnull al
   %18 = load i32, ptr %3, align 4, !tbaa !33
   %19 = sub nsw i32 %12, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %16, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %16, i64 %20
   %22 = load ptr, ptr %6, align 8, !tbaa !32
   %23 = load i32, ptr %10, align 8, !tbaa !36
   %24 = sub nsw i32 %23, %18
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %22, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %22, i64 %25
   %27 = tail call ptr @u_memcpy_77(ptr noundef nonnull %21, ptr noundef %26, i32 noundef %18)
   %28 = load ptr, ptr %6, align 8, !tbaa !32
   tail call void @uprv_free_77(ptr noundef %28)
@@ -1582,7 +1581,7 @@ _ZN6icu_7717UCharsTrieBuilder14ensureCapacityEi.exit.thread5: ; preds = %.thread
   %31 = trunc i32 %1 to i16
   %32 = sub nsw i32 %29, %5
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %30, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %30, i64 %33
   store i16 %31, ptr %34, align 2, !tbaa !11
   br label %_ZN6icu_7717UCharsTrieBuilder14ensureCapacityEi.exit.thread
 
@@ -1606,7 +1605,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder17writeElementUnitsEiii(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %9, align 4, !tbaa !8, !noalias !71
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1628,7 +1627,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder17writeElementUnitsEiii(ptr nou
   %25 = load ptr, ptr %24, align 8, !noalias !71
   %26 = select i1 %.not.i.i.i.i, ptr %25, ptr %23
   %27 = sext i32 %11 to i64
-  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !11, !noalias !71
   %30 = zext i16 %29 to i32
   br label %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
@@ -1660,7 +1659,7 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit, %37, %39
   %.0.i = phi ptr [ %41, %39 ], [ %38, %37 ], [ null, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
   %42 = sext i32 %2 to i64
-  %43 = getelementptr inbounds i16, ptr %.0.i, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %42
   %44 = invoke noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %43, i32 noundef %3)
           to label %45 unwind label %46
 
@@ -1832,7 +1831,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder12writeDeltaToEi(ptr noundef no
   %22 = trunc i32 %6 to i16
   %23 = add nuw nsw i32 %.0, 1
   %24 = zext nneg i32 %.0 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %24
   store i16 %22, ptr %25, align 2, !tbaa !11
   %26 = call noundef i32 @_ZN6icu_7717UCharsTrieBuilder5writeEPKDsi(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %3, i32 noundef %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -5,12 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.TableFuncRoutine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.ListCell = type { ptr }
 
 @TTSOpsMinimalTuple = external constant %struct.TupleTableSlotOps, align 8
 @XmlTableRoutine = external constant %struct.TableFuncRoutine, align 8
@@ -139,15 +135,15 @@ define dso_local noundef ptr @ExecInitTableFuncScan(ptr noundef %0, ptr noundef 
   %80 = sext i32 %79 to i64
   %81 = shl nsw i64 %80, 4
   %82 = getelementptr i8, ptr %19, i64 %81
-  %83 = getelementptr %struct.FormData_pg_attribute, ptr %82, i64 %indvars.iv
+  %83 = getelementptr [100 x i8], ptr %82, i64 %indvars.iv
   %84 = getelementptr i8, ptr %83, i64 92
   %85 = load i32, ptr %84, align 4
   %86 = load ptr, ptr %76, align 8
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv
   call void @getTypeInputInfo(i32 noundef %85, ptr noundef nonnull %4, ptr noundef %87) #7
   %88 = load i32, ptr %4, align 4
   %89 = load ptr, ptr %71, align 8
-  %90 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [48 x i8], ptr %89, i64 %indvars.iv
   call void @fmgr_info(i32 noundef %88, ptr noundef %90) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -367,7 +363,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
 
 57:                                               ; preds = %.split.split.i
   %58 = load ptr, ptr %50, align 8
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   br label %60
 
 60:                                               ; preds = %57, %.split.split.i
@@ -391,7 +387,7 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   br i1 %.not67.i, label %109, label %93
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i
   %74 = load ptr, ptr %61, align 8
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
@@ -479,13 +475,13 @@ define internal fastcc void @tfuncFetchRows(ptr noundef initializes((344, 352)) 
   %124 = shl nsw i64 %123, 4
   %125 = getelementptr i8, ptr %112, i64 %124
   %126 = getelementptr i8, ptr %125, i64 24
-  %127 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %126, i64 %indvars.iv89.i
+  %127 = getelementptr inbounds nuw [100 x i8], ptr %126, i64 %indvars.iv89.i
   %.not70.i = icmp eq i64 %indvars.iv89.i, %120
   br i1 %.not70.i, label %151, label %128
 
 128:                                              ; preds = %.lr.ph86.i
   %129 = load ptr, ptr %116, align 8
-  %130 = getelementptr inbounds nuw %union.ListCell, ptr %129, i64 %indvars.iv89.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv89.i
   %131 = load ptr, ptr %130, align 8
   %.not71.i = icmp eq ptr %131, null
   br i1 %.not71.i, label %146, label %132
@@ -573,7 +569,7 @@ tfuncInitialize.exit:                             ; preds = %tfuncInitialize.exi
 .lr.ph61.split.us.preheader.i:                    ; preds = %.lr.ph61.i
   %180 = zext i32 %169 to i64
   %wide.trip.count.i = zext nneg i32 %.fr63.i to i64
-  %181 = getelementptr inbounds nuw i64, ptr %161, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %163, i64 %180
   br label %.lr.ph61.split.us.i
 
@@ -614,7 +610,7 @@ list_head.exit.us.i:                              ; preds = %184, %.lr.ph61.spli
   %198 = shl nsw i64 %197, 4
   %199 = getelementptr i8, ptr %159, i64 %198
   %200 = getelementptr i8, ptr %199, i64 24
-  %201 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %200, i64 %indvars.iv.i30
+  %201 = getelementptr inbounds nuw [100 x i8], ptr %200, i64 %indvars.iv.i30
   %202 = icmp eq i64 %indvars.iv.i30, %180
   br i1 %202, label %227, label %203
 
@@ -627,7 +623,7 @@ list_head.exit.us.i:                              ; preds = %184, %.lr.ph61.spli
   %208 = load i32, ptr %207, align 4
   %209 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   %210 = call i64 %204(ptr noundef nonnull %0, i32 noundef %209, i32 noundef %206, i32 noundef %208, ptr noundef nonnull %3) #7
-  %211 = getelementptr inbounds nuw i64, ptr %161, i64 %indvars.iv.i30
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv.i30
   store i64 %210, ptr %211, align 8
   %212 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %213 = trunc nuw i8 %212 to i1
@@ -690,7 +686,7 @@ list_head.exit.us.i:                              ; preds = %184, %.lr.ph61.spli
   %.val56.us.i = load ptr, ptr %235, align 8
   %236 = getelementptr inbounds nuw i8, ptr %.059.us.i, i64 8
   %237 = sext i32 %.val.us.i to i64
-  %238 = getelementptr inbounds %union.ListCell, ptr %.val56.us.i, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %.val56.us.i, i64 %237
   %239 = icmp ult ptr %236, %238
   %..i.us.i = select i1 %239, ptr %236, ptr null
   br label %240

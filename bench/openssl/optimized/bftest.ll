@@ -370,7 +370,7 @@ define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %0) #1 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #9
   %7 = trunc i64 %6 to i32
   call void @BF_set_key(ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %5) #8
-  %8 = getelementptr inbounds [2 x i32], ptr @bf_plain, i64 %4
+  %8 = getelementptr inbounds [8 x i8], ptr @bf_plain, i64 %4
   %9 = load i32, ptr %8, align 8, !tbaa !23
   store i32 %9, ptr %3, align 4, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -378,7 +378,7 @@ define internal range(i32 0, 2) i32 @test_bf_ecb_raw(i32 noundef %0) #1 {
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %11, ptr %12, align 4, !tbaa !23
   call void @BF_encrypt(ptr noundef nonnull %3, ptr noundef nonnull %2) #8
-  %13 = getelementptr inbounds [2 x i32], ptr @bf_cipher, i64 %4
+  %13 = getelementptr inbounds [8 x i8], ptr @bf_cipher, i64 %4
   %14 = call i32 @test_mem_eq(ptr noundef nonnull @.str.40, i32 noundef 306, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull %13, i64 noundef 8, ptr noundef nonnull %3, i64 noundef 8) #8
   %.not = icmp ne i32 %14, 0
   call void @BF_decrypt(ptr noundef nonnull %3, ptr noundef nonnull %2) #8

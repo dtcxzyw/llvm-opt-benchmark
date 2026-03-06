@@ -2116,7 +2116,7 @@ php_output_get_level.exit:                        ; preds = %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %zend_string_equals_cstr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %zend_string_equals_cstr.exit.thread ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = load ptr, ptr %9, align 8, !tbaa !78
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2164,7 +2164,7 @@ php_output_get_level.exit.i:                      ; preds = %4
 
 .lr.ph.i:                                         ; preds = %zend_string_equals_cstr.exit.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %zend_string_equals_cstr.exit.thread.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = load ptr, ptr %11, align 8, !tbaa !78
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16

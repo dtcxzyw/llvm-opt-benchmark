@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._ct_dissector_info = type { ptr }
 %struct._et_dissector_info = type { ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ieee802154_key_t = type { ptr, i32, i32, [16 x i8], [16 x i8] }
 %struct.ieee802154_short_addr = type { i16, i16 }
 %struct.except_stacknode = type { ptr, i32, %union.anon.0 }
 %union.anon.0 = type { ptr }
@@ -25,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.ieee802154_decrypt_info_t = type { ptr, i32, ptr, ptr, i32, i32, ptr }
-%struct.static_addr_t = type { ptr, i32, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._wmem_tree_key_t = type { i32, ptr }
 
@@ -1993,7 +1991,7 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   %storemerge46 = phi i32 [ 0, %.lr.ph ], [ %31, %.thread ]
   %15 = load ptr, ptr @ieee802154_keys, align 8
   %16 = zext i32 %storemerge46 to i64
-  %17 = getelementptr %struct.ieee802154_key_t, ptr %15, i64 %16
+  %17 = getelementptr [48 x i8], ptr %15, i64 %16
   %18 = call i32 %6(ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.thread, label %19
@@ -6757,7 +6755,7 @@ define internal void @key_uat_hash_type_set_cb(ptr noundef writeonly captures(no
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -6797,7 +6795,7 @@ define internal void @key_uat_hash_type_tostr_cb(ptr noundef readonly captures(n
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -6896,7 +6894,7 @@ define internal void @proto_init_ieee802154() #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %8 = phi ptr [ %58, %.lr.ph ], [ %5, %0 ]
-  %9 = getelementptr %struct.static_addr_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [24 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i16
@@ -7260,7 +7258,7 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %5 = phi i32 [ %2, %.lr.ph ], [ %49, %48 ]
   %6 = phi ptr [ %.pre20, %.lr.ph ], [ %50, %48 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %7 = getelementptr %struct.ieee802154_key_t, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [48 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %switch = icmp ult i32 %9, 2
@@ -7269,14 +7267,14 @@ define internal void @ieee802154_key_post_update_cb() #0 {
 10:                                               ; preds = %4
   %11 = call ptr @g_byte_array_new()
   %12 = load ptr, ptr @ieee802154_keys, align 8
-  %13 = getelementptr %struct.ieee802154_key_t, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [48 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = call zeroext i1 @hex_str_to_bytes(ptr noundef %14, ptr noundef %11, i1 noundef zeroext false)
   br i1 %15, label %16, label %46
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr @ieee802154_keys, align 8
-  %18 = getelementptr %struct.ieee802154_key_t, ptr %17, i64 %indvars.iv
+  %18 = getelementptr [48 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 1
@@ -7288,14 +7286,14 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %24 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %1, ptr noundef nonnull @.str.1151, i64 noundef 8, ptr noundef %23, i64 noundef 16)
   %.not = icmp eq i32 %24, 0
   %25 = load ptr, ptr @ieee802154_keys, align 8
-  %26 = getelementptr %struct.ieee802154_key_t, ptr %25, i64 %indvars.iv
+  %26 = getelementptr [48 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br i1 %.not, label %28, label %32
 
 28:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %27, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 noundef 16, i1 noundef false) #21
   %29 = load ptr, ptr @ieee802154_keys, align 8
-  %30 = getelementptr %struct.ieee802154_key_t, ptr %29, i64 %indvars.iv
+  %30 = getelementptr [48 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %31, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 noundef 16, i1 noundef false) #21
   br label %38
@@ -7304,7 +7302,7 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %33 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %27, ptr noundef align 1 dereferenceable(16) %33, i64 noundef 16, i1 noundef false) #21
   %34 = load ptr, ptr @ieee802154_keys, align 8
-  %35 = getelementptr %struct.ieee802154_key_t, ptr %34, i64 %indvars.iv
+  %35 = getelementptr [48 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %36, ptr noundef align 1 dereferenceable(16) %37, i64 noundef 16, i1 noundef false) #21
@@ -7319,7 +7317,7 @@ define internal void @ieee802154_key_post_update_cb() #0 {
   %41 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %40, ptr noundef align 1 dereferenceable(16) %41, i64 noundef 16, i1 noundef false) #21
   %42 = load ptr, ptr @ieee802154_keys, align 8
-  %43 = getelementptr %struct.ieee802154_key_t, ptr %42, i64 %indvars.iv
+  %43 = getelementptr [48 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %44, ptr noundef align 1 dereferenceable(16) %45, i64 noundef 16, i1 noundef false) #21
@@ -7425,7 +7423,7 @@ dissect_zboss_specific.exit:                      ; preds = %4, %10, %13, %16, %
 
 46:                                               ; preds = %dissect_zboss_specific.exit
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr i32, ptr @__const.ieee802154_fcs_type_len.fcs_type_lengths, i64 %47
+  %48 = getelementptr [4 x i8], ptr @__const.ieee802154_fcs_type_len.fcs_type_lengths, i64 %47
   %49 = load i32, ptr %48, align 4
   br label %ieee802154_fcs_type_len.exit
 
@@ -7941,7 +7939,7 @@ switch.lookup69:                                  ; preds = %255
   %258 = lshr i16 %257, 9
   %259 = and i16 %258, 3
   %260 = zext nneg i16 %259 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ieee802154_tap, i64 %260
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ieee802154_tap, i64 %260
   %switch.load = load ptr, ptr %switch.gep, align 8
   %261 = load i32, ptr @hf_ieee802154_tap_fsk_ms_phr, align 4
   %262 = load i32, ptr @ett_ieee802154_tap_phr, align 4
@@ -9226,7 +9224,7 @@ define internal range(i32 3, 30) i32 @dissect_802154_tsch_timeslot(ptr noundef %
 33:                                               ; preds = %13, %33
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %33 ]
   %.134 = phi i32 [ 3, %13 ], [ %37, %33 ]
-  %34 = getelementptr i32, ptr %5, i64 %indvars.iv
+  %34 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %35, ptr noundef %0, i32 noundef %.134, i32 noundef 2, i32 noundef -2147483648)
   %37 = add nuw nsw i32 %.134, 2

@@ -48,7 +48,7 @@ define dso_local { ptr, i64 } @_ZN5clang10installapi7Library31getFrameworkNameFr
 
 9:                                                ; preds = %2
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -16
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8, !tbaa !11
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 -8

@@ -658,9 +658,9 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
 .lr.ph:                                           ; preds = %6
   %22 = fmul double %4, 2.000000e+00
   %23 = fmul double %4, %4
-  %.phi.trans.insert = getelementptr inbounds double, ptr %0, i64 %14
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !10
-  %.phi.trans.insert94 = getelementptr inbounds double, ptr %2, i64 %14
+  %.phi.trans.insert94 = getelementptr inbounds [8 x i8], ptr %2, i64 %14
   %.pre95 = load double, ptr %.phi.trans.insert94, align 8, !tbaa !10
   br label %24
 
@@ -675,19 +675,19 @@ define void @_ZN3gmx8internal45throwUnlessDerivativeIsConsistentWithFunctionENS_
   %.06989 = phi i64 [ %19, %.lr.ph ], [ %.170, %24 ]
   %.07188 = phi i64 [ %14, %.lr.ph ], [ %.172, %24 ]
   %storemerge = add i64 %storemerge.in90, 1
-  %27 = getelementptr inbounds double, ptr %2, i64 %storemerge
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %storemerge
   %28 = load double, ptr %27, align 8, !tbaa !10
   %29 = add i64 %storemerge.in90, 2
-  %30 = getelementptr inbounds double, ptr %0, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %0, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !10
   %32 = fsub double %31, %26
   %33 = fdiv double %32, %22
-  %34 = getelementptr inbounds double, ptr %2, i64 %29
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %29
   %35 = load double, ptr %34, align 8, !tbaa !10
   %36 = tail call double @llvm.fmuladd.f64(double %28, double -2.000000e+00, double %35)
   %37 = fadd double %36, %25
   %38 = fdiv double %37, %23
-  %39 = getelementptr inbounds double, ptr %0, i64 %storemerge
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %storemerge
   %40 = load double, ptr %39, align 8, !tbaa !10
   %41 = tail call noundef double @llvm.fabs.f64(double %40)
   %42 = fmul double %41, 0x3CB0000000000000
@@ -939,7 +939,7 @@ define noundef float @_ZN3gmx8internal49findSmallestQuotientOfFunctionAndSecondD
 .lr.ph:                                           ; preds = %4
   %16 = add i64 %8, 1
   %17 = fmul double %2, %2
-  %.phi.trans.insert = getelementptr double, ptr %0, i64 %16
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %0, i64 %16
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %19
 
@@ -956,10 +956,10 @@ define noundef float @_ZN3gmx8internal49findSmallestQuotientOfFunctionAndSecondD
   %21 = phi i64 [ %14, %.lr.ph ], [ %36, %19 ]
   %.017 = phi i64 [ %16, %.lr.ph ], [ %21, %19 ]
   %.01516 = phi double [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.sroa.speculated, %19 ]
-  %22 = getelementptr double, ptr %0, i64 %.017
+  %22 = getelementptr [8 x i8], ptr %0, i64 %.017
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load double, ptr %23, align 8, !tbaa !10
-  %25 = getelementptr inbounds double, ptr %0, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %26 = load double, ptr %25, align 8, !tbaa !10
   %27 = tail call noundef double @llvm.fabs.f64(double %20)
   %28 = fcmp olt double %27, 0x3C00000000000000
@@ -1125,7 +1125,7 @@ define noundef float @_ZN3gmx8internal48findSmallestQuotientOfFunctionAndThirdDe
   %17 = fmul double %2, 2.000000e+00
   %18 = fmul double %2, %17
   %19 = fmul double %2, %18
-  %.phi.trans.insert = getelementptr double, ptr %0, i64 %16
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %0, i64 %16
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %21
 
@@ -1142,15 +1142,15 @@ define noundef float @_ZN3gmx8internal48findSmallestQuotientOfFunctionAndThirdDe
   %23 = phi i64 [ %14, %.lr.ph ], [ %44, %21 ]
   %.021 = phi i64 [ %16, %.lr.ph ], [ %29, %21 ]
   %.01920 = phi double [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.sroa.speculated, %21 ]
-  %24 = getelementptr double, ptr %0, i64 %.021
+  %24 = getelementptr [8 x i8], ptr %0, i64 %.021
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load double, ptr %25, align 8, !tbaa !10
   %27 = getelementptr i8, ptr %24, i64 -8
   %28 = load double, ptr %27, align 8, !tbaa !10
   %29 = add i64 %.021, 1
-  %30 = getelementptr inbounds double, ptr %0, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %0, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !10
-  %32 = getelementptr inbounds double, ptr %0, i64 %23
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %23
   %33 = load double, ptr %32, align 8, !tbaa !10
   %34 = tail call noundef double @llvm.fabs.f64(double %22)
   %35 = fcmp olt double %34, 0x3C00000000000000
@@ -1292,9 +1292,9 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.noexc56
   %57 = add nsw i64 %54, -1
-  %58 = getelementptr inbounds double, ptr %1, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %1, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !10
-  %60 = getelementptr inbounds double, ptr %1, i64 %55
+  %60 = getelementptr inbounds [8 x i8], ptr %1, i64 %55
   %61 = load double, ptr %60, align 8, !tbaa !10
   %62 = fmul double %61, -2.000000e+01
   %63 = tail call double @llvm.fmuladd.f64(double %59, double 1.100000e+01, double %62)
@@ -1309,7 +1309,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %72 = load double, ptr %71, align 8, !tbaa !10
   %73 = fsub double %70, %72
   %74 = fdiv double %73, %46
-  %75 = getelementptr inbounds nuw double, ptr %26, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %55
   store double %74, ptr %75, align 8, !tbaa !10
   %76 = fmul double %61, -1.040000e+02
   %77 = tail call double @llvm.fmuladd.f64(double %59, double 3.500000e+01, double %76)
@@ -1317,19 +1317,19 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %79 = tail call double @llvm.fmuladd.f64(double %69, double -5.600000e+01, double %78)
   %80 = tail call double @llvm.fmuladd.f64(double %72, double 1.100000e+01, double %79)
   %81 = fdiv double %80, %46
-  %82 = getelementptr inbounds nuw double, ptr %26, i64 %57
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %57
   store double %81, ptr %82, align 8, !tbaa !10
   ret void
 
 .lr.ph:                                           ; preds = %.noexc56, %.lr.ph
   %83 = phi double [ %90, %.lr.ph ], [ %38, %.noexc56 ]
   %.092 = phi i64 [ %88, %.lr.ph ], [ 2, %.noexc56 ]
-  %84 = getelementptr double, ptr %1, i64 %.092
+  %84 = getelementptr [8 x i8], ptr %1, i64 %.092
   %85 = getelementptr i8, ptr %84, i64 16
   %86 = load double, ptr %85, align 8, !tbaa !10
   %87 = fneg double %86
   %88 = add nuw i64 %.092, 1
-  %89 = getelementptr inbounds double, ptr %1, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %1, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !10
   %91 = tail call double @llvm.fmuladd.f64(double %90, double 1.600000e+01, double %87)
   %92 = tail call double @llvm.fmuladd.f64(double %83, double -3.000000e+01, double %91)
@@ -1340,7 +1340,7 @@ define void @_ZN3gmx8internal22vectorSecondDerivativeENS_8ArrayRefIKdEEd(ptr dea
   %97 = load double, ptr %96, align 8, !tbaa !10
   %98 = fsub double %95, %97
   %99 = fdiv double %98, %46
-  %100 = getelementptr inbounds nuw double, ptr %26, i64 %.092
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.092
   store double %99, ptr %100, align 8, !tbaa !10
   %exitcond.not = icmp eq i64 %88, %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63

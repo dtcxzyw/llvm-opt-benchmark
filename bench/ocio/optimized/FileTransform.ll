@@ -56,7 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatInfo, std::allocator<OpenColorIO_v2_5dev::FormatInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatInfo, std::allocator<OpenColorIO_v2_5dev::FormatInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<OpenColorIO_v2_5dev::FormatInfo, std::allocator<OpenColorIO_v2_5dev::FormatInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
-%"struct.OpenColorIO_v2_5dev::FormatInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32 }
 %"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
 %"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.138" }
 %"struct.std::_Head_base.138" = type { ptr }
@@ -954,7 +953,7 @@ define noundef ptr @_ZN19OpenColorIO_v2_5dev13FileTransform20GetFormatNameByInde
 
 .sink.split.i:                                    ; preds = %4
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   br label %_ZNK19OpenColorIO_v2_5dev14FormatRegistry20getFormatNameByIndexEii.exit
 
@@ -1025,7 +1024,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev14FormatRegistry20getFormatN
 .sink.split:                                      ; preds = %30, %18, %6
   %.sink18 = phi ptr [ %22, %18 ], [ %10, %6 ], [ %34, %30 ]
   %40 = zext nneg i32 %2 to i64
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink18, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %.sink18, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !45
   br label %43
 
@@ -1055,7 +1054,7 @@ define noundef ptr @_ZN19OpenColorIO_v2_5dev13FileTransform25GetFormatExtensionB
 
 .sink.split.i:                                    ; preds = %4
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   br label %_ZNK19OpenColorIO_v2_5dev14FormatRegistry25getFormatExtensionByIndexEii.exit
 
@@ -1126,7 +1125,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev14FormatRegistry25getFormatE
 .sink.split:                                      ; preds = %30, %18, %6
   %.sink18 = phi ptr [ %22, %18 ], [ %10, %6 ], [ %34, %30 ]
   %40 = zext nneg i32 %2 to i64
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink18, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %.sink18, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !45
   br label %43
 
@@ -3717,7 +3716,7 @@ _ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %100, %_ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %95, ptr %75, align 8, !tbaa !91
   store ptr %99, ptr %76, align 8, !tbaa !98
-  %101 = getelementptr inbounds nuw ptr, ptr %95, i64 %93
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %93
   store ptr %101, ptr %78, align 8, !tbaa !95
   br label %_ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE9push_backERKS2_.exit
 
@@ -3725,7 +3724,7 @@ _ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE17_M_realloc_insertIJRK
   %103 = phi ptr [ %23, %.lr.ph ], [ %407, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit141 ]
   %104 = phi i64 [ 0, %.lr.ph ], [ %405, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit141 ]
   %.023172 = phi i32 [ 0, %.lr.ph ], [ %404, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit141 ]
-  %105 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [72 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %107 = load i32, ptr %106, align 8, !tbaa !101
   %108 = icmp eq i32 %107, 0
@@ -3833,7 +3832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %123
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit73: ; preds = %137
   %139 = load ptr, ptr %10, align 8, !tbaa !105
-  %140 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %139, i64 %104
+  %140 = getelementptr inbounds nuw [72 x i8], ptr %139, i64 %104
   %141 = load ptr, ptr %140, align 8, !tbaa !45
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %143 = load i64, ptr %142, align 8, !tbaa !33
@@ -3923,7 +3922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %155
 165:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %166 = load ptr, ptr %10, align 8, !tbaa !105
-  %167 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %166, i64 %104
+  %167 = getelementptr inbounds nuw [72 x i8], ptr %166, i64 %104
   store ptr %27, ptr %18, align 8, !tbaa !32
   %168 = load ptr, ptr %167, align 8, !tbaa !45
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -4045,7 +4044,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %208 = load ptr, ptr %10, align 8, !tbaa !105
-  %209 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %208, i64 %104
+  %209 = getelementptr inbounds nuw [72 x i8], ptr %208, i64 %104
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %211 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS9_EESt4lessIS5_ESaISt4pairIKS5_SB_EEEixERSF_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(32) %210)
           to label %212 unwind label %.loopexit
@@ -4114,13 +4113,13 @@ _ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i94: ; preds = %237, %_ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i92
   store ptr %232, ptr %211, align 8, !tbaa !91
   store ptr %236, ptr %213, align 8, !tbaa !98
-  %238 = getelementptr inbounds nuw ptr, ptr %232, i64 %230
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %230
   store ptr %238, ptr %215, align 8, !tbaa !95
   br label %_ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE9push_backERKS2_.exit97
 
 _ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE9push_backERKS2_.exit97: ; preds = %_ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i94, %217
   %239 = load ptr, ptr %10, align 8, !tbaa !105
-  %240 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %239, i64 %104
+  %240 = getelementptr inbounds nuw [72 x i8], ptr %239, i64 %104
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 64
   %242 = load i32, ptr %241, align 8, !tbaa !101
   %243 = and i32 %242, 1
@@ -4189,7 +4188,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %265
   %266 = load ptr, ptr %10, align 8, !tbaa !105
-  %267 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %266, i64 %104
+  %267 = getelementptr inbounds nuw [72 x i8], ptr %266, i64 %104
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %35, align 8, !tbaa !46
   %270 = load ptr, ptr %36, align 8, !tbaa !111
@@ -4286,7 +4285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit107: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i103, %289, %_ZNSt6vectorIPN19OpenColorIO_v2_5dev10FileFormatESaIS2_EE9push_backERKS2_.exit97
   %302 = load ptr, ptr %10, align 8, !tbaa !105
-  %303 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %302, i64 %104
+  %303 = getelementptr inbounds nuw [72 x i8], ptr %302, i64 %104
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 64
   %305 = load i32, ptr %304, align 8, !tbaa !101
   %306 = and i32 %305, 2
@@ -4355,7 +4354,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit120: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i116, %328
   %329 = load ptr, ptr %10, align 8, !tbaa !105
-  %330 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %329, i64 %104
+  %330 = getelementptr inbounds nuw [72 x i8], ptr %329, i64 %104
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 32
   %332 = load ptr, ptr %41, align 8, !tbaa !46
   %333 = load ptr, ptr %42, align 8, !tbaa !111
@@ -4418,7 +4417,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit127: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i123, %352, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit107
   %353 = load ptr, ptr %10, align 8, !tbaa !105
-  %354 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %353, i64 %104
+  %354 = getelementptr inbounds nuw [72 x i8], ptr %353, i64 %104
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 64
   %356 = load i32, ptr %355, align 8, !tbaa !101
   %357 = and i32 %356, 4
@@ -4487,7 +4486,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit134: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i130, %379
   %380 = load ptr, ptr %10, align 8, !tbaa !105
-  %381 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %380, i64 %104
+  %381 = getelementptr inbounds nuw [72 x i8], ptr %380, i64 %104
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 32
   %383 = load ptr, ptr %47, align 8, !tbaa !46
   %384 = load ptr, ptr %48, align 8, !tbaa !111
@@ -5883,7 +5882,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev14FormatRegistry19getRawForm
 
 14:                                               ; preds = %4
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !99
   br label %18
 
@@ -8190,7 +8189,7 @@ _ZNK19OpenColorIO_v2_5dev14FormatRegistry19getRawFormatByIndexEi.exit.lr.ph.i: ;
 _ZNK19OpenColorIO_v2_5dev14FormatRegistry19getRawFormatByIndexEi.exit.i: ; preds = %_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit376.thread.i, %_ZNK19OpenColorIO_v2_5dev14FormatRegistry19getRawFormatByIndexEi.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK19OpenColorIO_v2_5dev14FormatRegistry19getRawFormatByIndexEi.exit.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit376.thread.i ]
   %655 = phi ptr [ %630, %_ZNK19OpenColorIO_v2_5dev14FormatRegistry19getRawFormatByIndexEi.exit.lr.ph.i ], [ %956, %_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev.exit376.thread.i ]
-  %656 = getelementptr inbounds nuw ptr, ptr %655, i64 %indvars.iv.i
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %indvars.iv.i
   %657 = load ptr, ptr %656, align 8, !tbaa !99
   %658 = load ptr, ptr %14, align 8, !tbaa !200
   %659 = load ptr, ptr %291, align 8, !tbaa !200
@@ -13545,7 +13544,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !46
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !111
   ret void
 

@@ -916,7 +916,7 @@ unreachable.i:                                    ; preds = %invoke.cont14.i
 
 switch.lookup:                                    ; preds = %invoke.cont8
   %20 = zext nneg i32 %tenor.val to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8QuantLib5BiborC2ERKNS_6PeriodERKNS_6HandleINS_18YieldTermStructureEEE, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8QuantLib5BiborC2ERKNS_6PeriodERKNS_6HandleINS_18YieldTermStructureEEE, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch = icmp samesign ugt i32 %tenor.val, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13)

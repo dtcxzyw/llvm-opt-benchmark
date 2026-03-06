@@ -578,7 +578,7 @@ define void @"_ZN10serde_json2de83_$LT$impl$u20$core..str..traits..FromStr$u20$f
 
 switch.lookup:                                    ; preds = %11
   %.sroa.2.0.copyload.i = load i64, ptr %14, align 8, !alias.scope !16, !noalias !13
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN102_$LT$serde_json..number..Number$u20$as$u20$core..convert..From$LT$serde_json..de..ParserNumber$GT$$GT$4from17h9357e4d4296c269eE", i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN102_$LT$serde_json..number..Number$u20$as$u20$core..convert..From$LT$serde_json..de..ParserNumber$GT$$GT$4from17h9357e4d4296c269eE", i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %0, align 8, !alias.scope !13, !noalias !16
   %.sroa.4.0..sroa_idx.i1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -972,7 +972,7 @@ define noundef zeroext i1 @"_ZN135_$LT$$LT$serde_json..number..Number$u20$as$u20
 define void @"_ZN102_$LT$serde_json..number..Number$u20$as$u20$core..convert..From$LT$serde_json..de..ParserNumber$GT$$GT$4from17h9357e4d4296c269eE"(ptr noalias noundef writeonly sret({ { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #11 {
 switch.lookup:
   %2 = load i64, ptr %1, align 8, !range !30, !noundef !7
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN102_$LT$serde_json..number..Number$u20$as$u20$core..convert..From$LT$serde_json..de..ParserNumber$GT$$GT$4from17h9357e4d4296c269eE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN102_$LT$serde_json..number..Number$u20$as$u20$core..convert..From$LT$serde_json..de..ParserNumber$GT$$GT$4from17h9357e4d4296c269eE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.4.0.in = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0 = load i64, ptr %.sroa.4.0.in, align 8, !noundef !7

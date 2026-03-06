@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.archive_vtable = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.archive_read_filter_vtable = type { ptr, ptr, ptr }
-%struct.archive_read_data_node = type { i64, i64, ptr }
-%struct.archive_format_descriptor = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.archive_read_filter_bidder = type { ptr, ptr, ptr }
 
 @archive_read_vtable = internal constant %struct.archive_vtable { ptr @_archive_read_close, ptr @_archive_read_free, ptr null, ptr null, ptr null, ptr null, ptr @_archive_read_next_header, ptr @_archive_read_next_header2, ptr @_archive_read_data_block, ptr @_archive_filter_count, ptr @_archive_filter_bytes, ptr @_archive_filter_code, ptr @_archive_filter_name }, align 8
 @.str = private unnamed_addr constant [35 x i8] c"archive_read_extract_set_skip_file\00", align 1
@@ -315,7 +312,7 @@ define dso_local i32 @archive_read_open1(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %25 = load ptr, ptr %20, align 8, !tbaa !34
   %26 = load ptr, ptr %14, align 8, !tbaa !36
-  %27 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !37
   %30 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef %29) #15
@@ -639,7 +636,7 @@ choose_filters.exit:                              ; preds = %74
 
 choose_format.exit:                               ; preds = %159
   %162 = zext nneg i32 %.1.i73 to i64
-  %163 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %138, i64 %162
+  %163 = getelementptr inbounds nuw [88 x i8], ptr %138, i64 %162
   store ptr %163, ptr %135, align 8, !tbaa !73
   br label %164
 
@@ -876,7 +873,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_set_callback_data2(ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %22 = load ptr, ptr %21, align 8, !tbaa !36
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %1, ptr %25, align 8, !tbaa !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 -1, i64 16, i1 false)
@@ -936,10 +933,10 @@ define dso_local range(i32 -30, 1) i32 @archive_read_add_callback_data(ptr nound
   %.033.in38 = phi i32 [ %20, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   %23 = add i32 %.033.in38, -2
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %16, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !37
-  %28 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %16, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %27, ptr %29, align 8, !tbaa !37
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -951,7 +948,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_add_callback_data(ptr nound
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %32 = zext i32 %2 to i64
-  %33 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %16, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %1, ptr %34, align 8, !tbaa !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 -1, i64 16, i1 false)
@@ -1037,7 +1034,7 @@ define internal fastcc i32 @client_switch_proxy(ptr noundef captures(none) %0, i
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 216
@@ -1490,7 +1487,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_format(ptr nound
 
 16:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !74
   %20 = icmp eq ptr %19, %3
@@ -1550,7 +1547,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_read_register_bidder(ptr nound
 
 8:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.archive_read_filter_bidder, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %.not24 = icmp eq ptr %11, null
@@ -1757,7 +1754,7 @@ define dso_local ptr @__archive_read_filter_ahead(ptr noundef %0, i64 noundef %1
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 240
   %78 = load ptr, ptr %77, align 8, !tbaa !36
   %79 = zext i32 %76 to i64
-  %80 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !37
   %83 = getelementptr inbounds nuw i8, ptr %69, i64 216
@@ -2145,7 +2142,7 @@ client_skip_proxy.exit.thread106.i:               ; preds = %client_skip_proxy.e
   %104 = getelementptr inbounds nuw i8, ptr %96, i64 240
   %105 = load ptr, ptr %104, align 8, !tbaa !36
   %106 = zext i32 %103 to i64
-  %107 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !37
   %110 = getelementptr inbounds nuw i8, ptr %96, i64 216
@@ -2336,9 +2333,9 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   br i1 %.not158, label %46, label %._crit_edge224.loopexit.loopexit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next254
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv.next254
   store i64 %40, ptr %47, align 8, !tbaa !52
-  %48 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next254
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv.next254
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !120
   %51 = icmp slt i64 %50, 0
@@ -2368,7 +2365,7 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 240
   %62 = load ptr, ptr %61, align 8, !tbaa !36
   %63 = zext i32 %.1 to i64
-  %64 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !37
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 216
@@ -2445,7 +2442,7 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
 94:                                               ; preds = %client_seek_proxy.exit
   %95 = load ptr, ptr %30, align 8, !tbaa !119
   %96 = zext i32 %.1 to i64
-  %97 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %92, ptr %98, align 8, !tbaa !120
   %99 = load i64, ptr %97, align 8, !tbaa !52
@@ -2462,7 +2459,7 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
 
 106:                                              ; preds = %103
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %95, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %107
   store i64 %100, ptr %108, align 8, !tbaa !52
   %.pre258 = load ptr, ptr %14, align 8, !tbaa !41
   br label %55
@@ -2489,9 +2486,9 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
 
 118:                                              ; preds = %.lr.ph334
   %119 = add nuw nsw i64 %116, %117
-  %120 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %17, i64 %indvars.iv.next
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv.next
   store i64 %119, ptr %120, align 8, !tbaa !52
-  %121 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %17, i64 %indvars.iv.next
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv.next
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !120
   %124 = icmp slt i64 %123, 0
@@ -2521,7 +2518,7 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 240
   %135 = load ptr, ptr %134, align 8, !tbaa !36
   %136 = zext i32 %.4 to i64
-  %137 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [24 x i8], ptr %135, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !37
   %140 = getelementptr inbounds nuw i8, ptr %129, i64 216
@@ -2598,7 +2595,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
 167:                                              ; preds = %client_seek_proxy.exit171
   %168 = load ptr, ptr %16, align 8, !tbaa !119
   %169 = zext i32 %.4 to i64
-  %170 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %168, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i64 %165, ptr %171, align 8, !tbaa !120
   %172 = load i64, ptr %170, align 8, !tbaa !52
@@ -2620,7 +2617,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
 
 179:                                              ; preds = %167
   %180 = zext i32 %174 to i64
-  %181 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %168, i64 %180
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %168, i64 %180
   store i64 %173, ptr %181, align 8, !tbaa !52
   %.pre = load ptr, ptr %14, align 8, !tbaa !41
   br label %128
@@ -2635,7 +2632,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   %.5209337 = phi i32 [ %185, %.lr.ph210 ], [ %.4, %.lr.ph210.preheader ]
   %185 = add i32 %.5209337, -1
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %168, i64 %186
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %168, i64 %186
   %188 = load i64, ptr %187, align 8, !tbaa !52
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %190 = load i64, ptr %189, align 8, !tbaa !120
@@ -2673,7 +2670,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   %.0125 = phi i64 [ %199, %._crit_edge260 ], [ %114, %113 ]
   %202 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %203 = load ptr, ptr %202, align 8, !tbaa !119
-  %204 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %203, i64 %.pre-phi
+  %204 = getelementptr inbounds nuw [24 x i8], ptr %203, i64 %.pre-phi
   %205 = load i64, ptr %204, align 8, !tbaa !52
   %206 = add nsw i64 %205, %.0125
   %207 = icmp sgt i64 %206, -1
@@ -2826,7 +2823,7 @@ define internal i32 @_archive_read_free(ptr noundef %0) #0 {
 
 18:                                               ; preds = %15, %24
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %24 ]
-  %19 = getelementptr inbounds nuw %struct.archive_format_descriptor, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %16, i64 %indvars.iv
   store ptr %19, ptr %17, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8, !tbaa !102
@@ -2898,7 +2895,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %25, %clo
 
 45:                                               ; preds = %__archive_read_free_filters.exit, %55
   %indvars.iv71 = phi i64 [ 0, %__archive_read_free_filters.exit ], [ %indvars.iv.next72, %55 ]
-  %46 = getelementptr inbounds nuw %struct.archive_read_filter_bidder, ptr %44, i64 %indvars.iv71
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv71
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !56
   %49 = icmp eq ptr %48, null
@@ -3347,7 +3344,7 @@ define internal range(i32 -2147483648, 1) i32 @client_close_proxy(ptr noundef re
   %.01416.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %10 ]
   %11 = load ptr, ptr %4, align 8, !tbaa !34
   %12 = load ptr, ptr %9, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = tail call i32 %11(ptr noundef nonnull %3, ptr noundef %15) #15

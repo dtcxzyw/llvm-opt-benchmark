@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
 %struct.posix_spawn_file_actions_t = type { i32, i32, ptr, [16 x i32] }
-%struct._descriptorspec_item = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"process\00", align 1
 @le_proc_open = internal unnamed_addr global i32 0, align 4
@@ -118,7 +117,7 @@ waitpid_cached.exit.us:                           ; preds = %waitpid_cached.exit
   %20 = phi i32 [ %6, %.lr.ph ], [ %31, %30 ]
   %21 = phi ptr [ %.pre, %.lr.ph ], [ %32, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !32
   %.not21 = icmp eq ptr %23, null
   br i1 %.not21, label %30, label %24
@@ -131,7 +130,7 @@ waitpid_cached.exit.us:                           ; preds = %waitpid_cached.exit
   store i32 %27, ptr %23, align 4, !tbaa !34
   tail call void @zend_list_close(ptr noundef nonnull %23) #13
   %28 = load ptr, ptr %8, align 8, !tbaa !21
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store ptr null, ptr %29, align 8, !tbaa !32
   %.pre37 = load i32, ptr %5, align 4, !tbaa !13
   br label %30
@@ -833,7 +832,7 @@ zval_get_string.exit.thread._crit_edge.i.i:       ; preds = %zval_get_string.exi
 .loopexit.i:                                      ; preds = %zval_get_string.exit.i.i, %126, %125, %118, %114, %111, %110, %103, %99
   %.0407083.i = phi i32 [ %.04070.i, %126 ], [ 0, %111 ], [ 0, %99 ], [ 0, %103 ], [ 0, %110 ], [ %.04070.i, %114 ], [ %.04070.i, %118 ], [ %.04070.i, %125 ], [ %.04070.i, %zval_get_string.exit.i.i ]
   %127 = sext i32 %.0407083.i to i64
-  %128 = getelementptr inbounds ptr, ptr %67, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %67, i64 %127
   store ptr null, ptr %128, align 8, !tbaa !54
   %.not46.i = icmp eq ptr %.03472.i, null
   br i1 %.not46.i, label %get_command_from_array.exit.thread, label %129
@@ -878,7 +877,7 @@ zend_string_copy.exit.i:                          ; preds = %143, %139, %get_val
   %.337.i = phi ptr [ %.03472.i, %get_valid_arg_string.exit.i ], [ %94, %139 ], [ %94, %143 ]
   %146 = call noalias ptr @_estrdup(ptr noundef nonnull %112) #13
   %147 = sext i32 %.04070.i to i64
-  %148 = getelementptr inbounds ptr, ptr %67, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %67, i64 %147
   store ptr %146, ptr %148, align 8, !tbaa !54
   %149 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %150 = load i32, ptr %149, align 4, !tbaa !39
@@ -923,7 +922,7 @@ get_command_from_array.exit.thread:               ; preds = %138, %.loopexit.i, 
 
 get_command_from_array.exit:                      ; preds = %zend_string_release_ex.exit.i
   %164 = sext i32 %.141.i to i64
-  %165 = getelementptr inbounds ptr, ptr %67, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %67, i64 %164
   store ptr null, ptr %165, align 8, !tbaa !54
   store ptr %.135.i, ptr %10, align 8, !tbaa !47
   %.not268 = icmp eq ptr %.135.i, null
@@ -1284,7 +1283,7 @@ _php_array_to_envp.exit:                          ; preds = %._crit_edge126.i, %
 
 320:                                              ; preds = %318
   %321 = sext i32 %.0236492 to i64
-  %322 = getelementptr inbounds %struct._descriptorspec_item, ptr %292, i64 %321
+  %322 = getelementptr inbounds [20 x i8], ptr %292, i64 %321
   store i32 %.0246, ptr %322, align 4, !tbaa !62
   %323 = load i8, ptr %315, align 8, !tbaa !39
   %324 = icmp eq i8 %323, 10
@@ -1910,7 +1909,7 @@ set_proc_descriptor_from_array.exit:              ; preds = %zend_string_release
 
 .lr.ph.i327:                                      ; preds = %593, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %593 ]
-  %572 = getelementptr inbounds nuw %struct._descriptorspec_item, ptr %292, i64 %indvars.iv.i
+  %572 = getelementptr inbounds nuw [20 x i8], ptr %292, i64 %indvars.iv.i
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 4
   %574 = load i32, ptr %573, align 4, !tbaa !64
   %.not.i328 = icmp eq i32 %574, 0
@@ -1966,7 +1965,7 @@ set_proc_descriptor_from_array.exit:              ; preds = %zend_string_release
 
 .lr.ph.i332:                                      ; preds = %603, %.lr.ph.preheader.i330
   %indvars.iv.i333 = phi i64 [ 0, %.lr.ph.preheader.i330 ], [ %indvars.iv.next.i335, %603 ]
-  %595 = getelementptr inbounds nuw %struct._descriptorspec_item, ptr %292, i64 %indvars.iv.i333
+  %595 = getelementptr inbounds nuw [20 x i8], ptr %292, i64 %indvars.iv.i333
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 8
   %597 = load i32, ptr %596, align 4, !tbaa !65
   %598 = call i32 @close(i32 noundef %597) #13
@@ -2044,7 +2043,7 @@ close_parentends_of_pipes.exit:                   ; preds = %593, %._crit_edge.t
 
 .lr.ph.i340:                                      ; preds = %635, %.lr.ph.preheader.i338
   %indvars.iv.i341 = phi i64 [ 0, %.lr.ph.preheader.i338 ], [ %indvars.iv.next.i343, %635 ]
-  %627 = getelementptr inbounds nuw %struct._descriptorspec_item, ptr %292, i64 %indvars.iv.i341
+  %627 = getelementptr inbounds nuw [20 x i8], ptr %292, i64 %indvars.iv.i341
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   %629 = load i32, ptr %628, align 4, !tbaa !65
   %630 = call i32 @close(i32 noundef %629) #13
@@ -2142,7 +2141,7 @@ zend_string_copy.exit:                            ; preds = %653, %659
 
 672:                                              ; preds = %.lr.ph500, %711
   %indvars.iv = phi i64 [ 0, %.lr.ph500 ], [ %indvars.iv.next, %711 ]
-  %673 = getelementptr inbounds nuw %struct._descriptorspec_item, ptr %292, i64 %indvars.iv
+  %673 = getelementptr inbounds nuw [20 x i8], ptr %292, i64 %indvars.iv
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 8
   %675 = load i32, ptr %674, align 4, !tbaa !65
   %676 = call i32 @close(i32 noundef %675) #13
@@ -2161,7 +2160,7 @@ zend_string_copy.exit:                            ; preds = %653, %659
 
 switch.lookup:                                    ; preds = %679
   %683 = zext nneg i32 %681 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zif_proc_open, i64 %683
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.zif_proc_open, i64 %683
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %684
 
@@ -2179,7 +2178,7 @@ switch.lookup:                                    ; preds = %679
   br label %693
 
 .thread447:                                       ; preds = %672
-  %692 = getelementptr inbounds nuw ptr, ptr %665, i64 %indvars.iv
+  %692 = getelementptr inbounds nuw [8 x i8], ptr %665, i64 %indvars.iv
   store ptr null, ptr %692, align 8, !tbaa !32
   br label %711
 
@@ -2207,7 +2206,7 @@ switch.lookup:                                    ; preds = %679
   %705 = load ptr, ptr %.1.i.ph, align 8, !tbaa !39
   %706 = call ptr @zend_hash_index_update(ptr noundef %705, i64 noundef range(i64 -2147483648, 2147483648) %704, ptr noundef nonnull %16) #13
   %707 = load ptr, ptr %16, align 8, !tbaa !39
-  %708 = getelementptr inbounds nuw ptr, ptr %665, i64 %indvars.iv
+  %708 = getelementptr inbounds nuw [8 x i8], ptr %665, i64 %indvars.iv
   store ptr %707, ptr %708, align 8, !tbaa !32
   %709 = load i32, ptr %707, align 4, !tbaa !34
   %710 = add i32 %709, 1
@@ -2426,7 +2425,7 @@ define internal fastcc range(i32 -1, 1) i32 @redirect_proc_descriptor(ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %struct._descriptorspec_item, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [20 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !62
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %11, label %7

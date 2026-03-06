@@ -931,19 +931,19 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit16:             ; preds = %88, %86, %85, %83, 
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %91 = zext i32 %1 to i64
   %92 = load ptr, ptr %90, align 8, !tbaa !37
-  %93 = getelementptr inbounds nuw double, ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %91
   store double %89, ptr %93, align 8, !tbaa !40
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !40
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %97 = load ptr, ptr %96, align 8, !tbaa !37
-  %98 = getelementptr inbounds nuw double, ptr %97, i64 %91
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %91
   store double %95, ptr %98, align 8, !tbaa !40
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %100 = load double, ptr %99, align 8, !tbaa !40
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %102 = load ptr, ptr %101, align 8, !tbaa !37
-  %103 = getelementptr inbounds nuw double, ptr %102, i64 %91
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %91
   store double %100, ptr %103, align 8, !tbaa !40
   ret void
 }
@@ -1048,18 +1048,18 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev9LogOpData8getValueEN
   br i1 %.not, label %13, label %26
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw double, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load double, ptr %14, align 8, !tbaa !40
   store double %15, ptr %2, align 8, !tbaa !40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load ptr, ptr %16, align 8, !tbaa !37
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %4
   %19 = load double, ptr %18, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %19, ptr %20, align 8, !tbaa !40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %22 = load ptr, ptr %21, align 8, !tbaa !37
-  %23 = getelementptr inbounds nuw double, ptr %22, i64 %4
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %4
   %24 = load double, ptr %23, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %24, ptr %25, align 8, !tbaa !40
@@ -5323,9 +5323,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !39
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !38
   br label %41
 

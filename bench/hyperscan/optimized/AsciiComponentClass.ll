@@ -214,7 +214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
 
 40:                                               ; preds = %39
   %41 = shl nsw i64 -1, %30
-  %42 = getelementptr inbounds nuw i64, ptr %5, i64 %27
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %27
   %43 = load i64, ptr %42, align 8
   %44 = or i64 %43, %41
   store i64 %44, ptr %42, align 8
@@ -258,7 +258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
 .sink.split.i.i.i:                                ; preds = %59, %34, %31
   %.sink42.i.i.i = phi i64 [ %62, %59 ], [ %27, %34 ], [ %27, %31 ]
   %.sink41.i.i.i = phi i64 [ %61, %59 ], [ %38, %34 ], [ %32, %31 ]
-  %63 = getelementptr inbounds nuw i64, ptr %5, i64 %.sink42.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sink42.i.i.i
   %64 = load i64, ptr %63, align 8
   %65 = or i64 %64, %.sink41.i.i.i
   store i64 %65, ptr %63, align 8
@@ -691,7 +691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %26, %30
   %.sink41.i.i.i = phi i64 [ -9223372036854775808, %26 ], [ %35, %30 ]
-  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %28
   %37 = load i64, ptr %36, align 8
   %38 = or i64 %37, %.sink41.i.i.i
   store i64 %38, ptr %36, align 8

@@ -451,7 +451,7 @@ define dso_local range(i32 0, 2) i32 @srp_main(i32 noundef %0, ptr noundef %1) l
 146:                                              ; preds = %146, %137
   %indvars.iv.i.i = phi i64 [ 0, %137 ], [ %indvars.iv.next.i.i, %146 ]
   %147 = load ptr, ptr @bio_err, align 8, !tbaa !9
-  %148 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv.i.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv.i.i
   %149 = load ptr, ptr %148, align 8, !tbaa !4
   %150 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %151 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %147, ptr noundef nonnull @.str.93, i32 noundef %150, ptr noundef %149) #6
@@ -1116,7 +1116,7 @@ define internal fastcc void @print_entry(ptr noundef nonnull readonly captures(n
 17:                                               ; preds = %7, %17
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr @bio_err, align 8, !tbaa !9
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.93, i32 noundef %21, ptr noundef %20) #6
@@ -1244,7 +1244,7 @@ define internal fastcc void @print_user(ptr noundef nonnull readonly captures(no
 24:                                               ; preds = %24, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %24 ]
   %25 = load ptr, ptr @bio_err, align 8, !tbaa !9
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.93, i32 noundef %28, ptr noundef %27) #6
@@ -1307,7 +1307,7 @@ get_index.exit:                                   ; preds = %46
 66:                                               ; preds = %66, %get_index.exit
   %indvars.iv.i11 = phi i64 [ 0, %get_index.exit ], [ %indvars.iv.next.i12, %66 ]
   %67 = load ptr, ptr @bio_err, align 8, !tbaa !9
-  %68 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i11
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i11
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %70 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   %71 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %67, ptr noundef nonnull @.str.93, i32 noundef %70, ptr noundef %69) #6
@@ -1391,9 +1391,9 @@ define internal fastcc range(i32 0, 2) i32 @update_index(ptr noundef nonnull rea
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %6, ptr %7, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/encryption_info.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVSubsampleEncryptionInfo = type { i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define ptr @av_encryption_info_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @av_mallocz(i64 noundef 64) #4
@@ -205,7 +203,7 @@ define ptr @av_encryption_info_get_side_data(ptr noundef readonly captures(addre
   %.04246 = phi ptr [ %44, %.lr.ph ], [ %55, %47 ]
   %48 = load i32, ptr %.04246, align 1, !tbaa !20
   %49 = tail call i32 @llvm.bswap.i32(i32 %48)
-  %50 = getelementptr inbounds nuw %struct.AVSubsampleEncryptionInfo, ptr %46, i64 %.047
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.047
   store i32 %49, ptr %50, align 4, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %.04246, i64 4
   %52 = load i32, ptr %51, align 1, !tbaa !20
@@ -304,7 +302,7 @@ define noalias ptr @av_encryption_info_add_side_data(ptr noundef readonly captur
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %.04653 = phi ptr [ %52, %.lr.ph ], [ %63, %55 ]
-  %56 = getelementptr inbounds nuw %struct.AVSubsampleEncryptionInfo, ptr %54, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !21
   %58 = tail call i32 @llvm.bswap.i32(i32 %57)
   store i32 %58, ptr %.04653, align 1, !tbaa !20
@@ -395,7 +393,7 @@ define ptr @av_encryption_init_info_alloc(i32 noundef %0, i32 noundef %1, i32 no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %35 = tail call noalias ptr @av_mallocz(i64 noundef %32) #4
   %36 = load ptr, ptr %16, align 8, !tbaa !35
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %35, ptr %37, align 8, !tbaa !41
   %.not45 = icmp eq ptr %35, null
   br i1 %.not45, label %.loopexit.sink.split, label %33
@@ -427,7 +425,7 @@ define void @av_encryption_init_info_free(ptr noundef %0) local_unnamed_addr #0 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !35
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   tail call void @av_free(ptr noundef %8) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -539,7 +537,7 @@ define ptr @av_encryption_init_info_get_side_data(ptr noundef readonly captures(
   %.177 = phi ptr [ %42, %.lr.ph ], [ %49, %45 ]
   %.16476 = phi i64 [ %43, %.lr.ph ], [ %50, %45 ]
   %46 = load ptr, ptr %44, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.06078
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.06078
   %48 = load ptr, ptr %47, align 8, !tbaa !41
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %.177, i64 %23, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %.177, i64 %23
@@ -680,7 +678,7 @@ define noalias ptr @av_encryption_init_info_add_side_data(ptr noundef readonly c
   %indvars.iv = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next, %57 ]
   %.15879 = phi ptr [ %54, %.lr.ph82 ], [ %65, %57 ]
   %59 = load ptr, ptr %56, align 8, !tbaa !35
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !41
   %62 = zext i32 %58 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.15879, ptr align 1 %61, i64 %62, i1 false)

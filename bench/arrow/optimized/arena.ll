@@ -97,7 +97,7 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
 
 .preheader:                                       ; preds = %8, %.thread
   %.064108 = phi i64 [ %31, %.thread ], [ 0, %8 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.064108
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.064108
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = icmp eq i64 %14, 0
@@ -137,7 +137,7 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
 
 .thread84:                                        ; preds = %.thread84.preheader, %.thread93
   %.065109 = phi i64 [ %49, %.thread93 ], [ 0, %.thread84.preheader ]
-  %32 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.065109
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.065109
   %33 = load atomic i64, ptr %32 monotonic, align 8
   %34 = inttoptr i64 %33 to ptr
   %35 = icmp eq i64 %33, 0
@@ -210,7 +210,7 @@ define hidden void @_mi_arena_free(ptr noundef %0, i64 noundef %1, i64 noundef %
 13:                                               ; preds = %8
   %14 = and i64 %2, 255
   %15 = lshr i64 %2, 8
-  %16 = getelementptr ptr, ptr @mi_arenas, i64 %14
+  %16 = getelementptr [8 x i8], ptr @mi_arenas, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load atomic i64, ptr %17 monotonic, align 8
   %19 = inttoptr i64 %18 to ptr
@@ -318,7 +318,7 @@ define hidden noundef zeroext i1 @mi_manage_os_memory(ptr noundef %0, i64 nounde
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store atomic i64 0, ptr %28 seq_cst, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %13
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %13
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %30, ptr %31, align 8, !tbaa !31
   %.idx = shl nuw nsw i64 %13, 4
@@ -345,7 +345,7 @@ define hidden noundef zeroext i1 @mi_manage_os_memory(ptr noundef %0, i64 nounde
   br label %mi_arena_add.exit
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %41
   %47 = ptrtoint ptr %18 to i64
   store atomic i64 %47, ptr %46 release, align 8
   br label %mi_arena_add.exit
@@ -409,7 +409,7 @@ define hidden range(i32 0, 13) i32 @mi_reserve_os_memory(i64 noundef %0, i1 noun
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store atomic i64 0, ptr %33 seq_cst, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %18
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %18
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %35, ptr %36, align 8, !tbaa !31
   %.idx.i = shl nuw nsw i64 %18, 4
@@ -436,7 +436,7 @@ define hidden range(i32 0, 13) i32 @mi_reserve_os_memory(i64 noundef %0, i1 noun
   br label %54
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %46
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %46
   %52 = ptrtoint ptr %23 to i64
   store atomic i64 %52, ptr %51 release, align 8
   br label %54
@@ -476,7 +476,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
 
 4:                                                ; preds = %.lr.ph, %mi_debug_show_bitmap.exit
   %.016 = phi i64 [ 0, %.lr.ph ], [ %26, %mi_debug_show_bitmap.exit ]
-  %5 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.016
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.016
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -497,7 +497,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
   %.04.i = phi i64 [ %spec.select17.i, %17 ], [ 0, %7 ]
   %.0163.i = phi i64 [ %18, %17 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %.0163.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0163.i
   %16 = load atomic i64, ptr %15 monotonic, align 8
   br label %19
 
@@ -618,7 +618,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %9, %12
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store atomic i64 0, ptr %39 seq_cst, align 8, !tbaa !30
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %28
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %28
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %41, ptr %42, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -642,7 +642,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %9, %12
   br label %mi_manage_os_memory.exit.thread
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %50
   %56 = ptrtoint ptr %31 to i64
   store atomic i64 %56, ptr %55 release, align 8
   br label %mi_manage_os_memory.exit.thread

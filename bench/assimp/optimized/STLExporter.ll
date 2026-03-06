@@ -17,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.20" = type { i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
-%struct.aiFace = type { i32, ptr }
-%class.aiVector3t = type { float, float, float }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
 
@@ -1178,7 +1176,7 @@ define hidden void @_ZN6Assimp11STLExporterC2EPKcPK7aiScenebb(ptr noundef nonnul
 .preheader94:                                     ; preds = %.preheader94.lr.ph, %.preheader94
   %indvars.iv112 = phi i64 [ 0, %.preheader94.lr.ph ], [ %indvars.iv.next113, %.preheader94 ]
   %.lcssa96100101 = phi i32 [ 0, %.preheader94.lr.ph ], [ %67, %.preheader94 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv112
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv112
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8
@@ -1253,7 +1251,7 @@ define hidden void @_ZN6Assimp11STLExporterC2EPKcPK7aiScenebb(ptr noundef nonnul
 87:                                               ; preds = %.lr.ph106, %91
   %indvars.iv115 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next116, %91 ]
   %88 = load ptr, ptr %79, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv115
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv115
   %90 = load ptr, ptr %89, align 8
   invoke void @_ZN6Assimp11STLExporter15WriteMeshBinaryEPK6aiMesh(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %90)
           to label %91 unwind label %95
@@ -1394,7 +1392,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 136:                                              ; preds = %.lr.ph, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit70 ]
   %137 = load ptr, ptr %132, align 8
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv
   %139 = load ptr, ptr %138, align 8
   invoke void @_ZN6Assimp11STLExporter9WriteMeshEPK6aiMesh(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %139)
           to label %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit70 unwind label %143
@@ -1588,7 +1586,7 @@ define hidden void @_ZN6Assimp11STLExporter15WriteMeshBinaryEPK6aiMesh(ptr nound
   %16 = phi i32 [ %11, %.lr.ph37 ], [ %72, %71 ]
   %indvars.iv47 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next48, %71 ]
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds nuw %struct.aiFace, ptr %17, i64 %indvars.iv47
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv47
   %19 = load i32, ptr %18, align 8
   %20 = icmp ult i32 %19, 3
   br i1 %20, label %71, label %21
@@ -1624,10 +1622,10 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %25
   %.sroa.0.132 = phi float [ 0.000000e+00, %.preheader ], [ %40, %34 ]
   %.sroa.8.131 = phi float [ 0.000000e+00, %.preheader ], [ %43, %34 ]
   %.sroa.14.130 = phi float [ 0.000000e+00, %.preheader ], [ %46, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %class.aiVector3t, ptr %22, i64 %37
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = fadd float %.sroa.0.132, %39
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -1676,10 +1674,10 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %_ZN10aiVector3tIfEd
   %indvars.iv44 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next45, %53 ]
   %54 = load ptr, ptr %14, align 8
   %55 = load ptr, ptr %51, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv44
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv44
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %class.aiVector3t, ptr %54, i64 %58
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %54, i64 %58
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = load float, ptr %59, align 4
   store float %60, ptr %6, align 4
@@ -1758,7 +1756,7 @@ define hidden void @_ZN6Assimp11STLExporter15WritePointCloudERKNSt7__cxx1112basi
   %37 = phi i32 [ %26, %.lr.ph26 ], [ %98, %.loopexit ]
   %indvars.iv29 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next30, %.loopexit ]
   %38 = load ptr, ptr %27, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv29
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.loopexit, label %.preheader
@@ -1776,7 +1774,7 @@ define hidden void @_ZN6Assimp11STLExporter15WritePointCloudERKNSt7__cxx1112basi
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds nuw %class.aiVector3t, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %indvars.iv
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.12, i64 noundef 9)
   %49 = load float, ptr %47, align 4
   %50 = fpext float %49 to double
@@ -1864,7 +1862,7 @@ define hidden void @_ZN6Assimp11STLExporter9WriteMeshEPK6aiMesh(ptr noundef nonn
   %11 = phi i32 [ %4, %.lr.ph37 ], [ %99, %98 ]
   %indvars.iv47 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next48, %98 ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw %struct.aiFace, ptr %12, i64 %indvars.iv47
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv47
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 3
   br i1 %15, label %98, label %16
@@ -1900,10 +1898,10 @@ _ZN10aiVector3tIfEdVEf.exit.i:                    ; preds = %20
   %.sroa.0.132 = phi float [ 0.000000e+00, %.preheader ], [ %35, %29 ]
   %.sroa.8.131 = phi float [ 0.000000e+00, %.preheader ], [ %38, %29 ]
   %.sroa.14.130 = phi float [ 0.000000e+00, %.preheader ], [ %41, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i64 %32
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fadd float %.sroa.0.132, %34
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -1963,10 +1961,10 @@ _ZN10aiVector3tIfE13NormalizeSafeEv.exit:         ; preds = %_ZN10aiVector3tIfEd
   %indvars.iv44 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next45, %71 ]
   %72 = load ptr, ptr %9, align 8
   %73 = load ptr, ptr %59, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv44
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv44
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %class.aiVector3t, ptr %72, i64 %76
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %72, i64 %76
   %78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.12, i64 noundef 9)
   %79 = load float, ptr %77, align 4
   %80 = fpext float %79 to double

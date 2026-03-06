@@ -1199,7 +1199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit345: ; preds = %38
 
 switch.lookup:                                    ; preds = %393
   %395 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus, i64 %395
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus, i64 %395
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %396 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -1832,7 +1832,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438: ; preds = %612
 
 switch.lookup1345:                                ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit438
   %615 = zext nneg i32 %switch.tableidx1344 to i64
-  %switch.gep1346 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 %615
+  %switch.gep1346 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 %615
   %switch.load1347 = load ptr, ptr %switch.gep1346, align 8
   br label %_ZN12_GLOBAL__N_112TypeToStringEi.exit
 
@@ -2842,7 +2842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613: ; preds = %_Z
 
 switch.lookup1349:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit613
   %940 = zext nneg i32 %switch.tableidx1348 to i64
-  %switch.gep1350 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 %940
+  %switch.gep1350 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK20cmCTestUpdateCommand13ExecuteUpdateERNS_15UpdateArgumentsER17cmExecutionStatus.12, i64 %940
   %switch.load1351 = load ptr, ptr %switch.gep1350, align 8
   br label %_ZN12_GLOBAL__N_112TypeToStringEi.exit619
 
@@ -6957,7 +6957,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i: ; preds = %32, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i
   store ptr %27, ptr %7, align 8, !tbaa !309
   store ptr %31, ptr %8, align 8, !tbaa !360
-  %33 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !310
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN20cmCTestUpdateCommand15UpdateArgumentsEE18BindParsedKeywordsEMS2_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS8_EEEUlRN14ArgumentParser8InstanceES8_E_JSE_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 

@@ -22,7 +22,7 @@ define void @Dar_CutPrint(ptr noundef readonly captures(none) %0) local_unnamed_
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -77,7 +77,7 @@ define void @Dar_ObjCutPrint(ptr noundef readnone captures(none) %0, ptr noundef
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %19)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -112,7 +112,7 @@ define i32 @Dar_CutSortVars(i32 noundef %0, ptr noundef captures(none) %1) local
 3:                                                ; preds = %2, %Dar_CutTruthSwapPolarity.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %Dar_CutTruthSwapPolarity.exit ]
   %.04160 = phi i32 [ %0, %2 ], [ %.142, %Dar_CutTruthSwapPolarity.exit ]
-  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %8
@@ -187,13 +187,13 @@ Dar_CutTruthSwapPolarity.exit:                    ; preds = %31, %25, %19, %13, 
   %.03963 = phi i32 [ 0, %.preheader54 ], [ %.140, %Dar_CutTruthSwapAdjacentVars.exit ]
   %.362 = phi i32 [ %.243, %.preheader54 ], [ %.4, %Dar_CutTruthSwapAdjacentVars.exit ]
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next68
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next68
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %.not50 = icmp sgt i32 %34, %36
   br i1 %.not50, label %37, label %Dar_CutTruthSwapAdjacentVars.exit
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv67
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv67
   store i32 %36, ptr %38, align 4, !tbaa !3
   store i32 %34, ptr %35, align 4, !tbaa !3
   %39 = trunc nuw nsw i64 %indvars.iv67 to i32
@@ -249,7 +249,7 @@ Dar_CutTruthSwapAdjacentVars.exit:                ; preds = %56, %48, %40, %33
 
 .preheader:                                       ; preds = %65, %70
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %70 ], [ 0, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv71
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv71
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = icmp eq i32 %67, 1073741823
   br i1 %68, label %69, label %70
@@ -393,7 +393,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %32, align 4, !tbaa !31
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   store ptr %1, ptr %62, align 8, !tbaa !35
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %64 = load i32, ptr %63, align 4
@@ -437,7 +437,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val.i.i = load ptr, ptr %82, align 8, !tbaa !34
   %83 = load i32, ptr %81, align 4, !tbaa !3
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !35
   %87 = icmp eq ptr %86, null
   %spec.select = select i1 %87, i32 0, i32 65601536
@@ -495,7 +495,7 @@ define void @Dar_ManCutsRestart(ptr noundef captures(none) %0, ptr noundef readn
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %2 ]
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8, !tbaa !34
-  %13 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = getelementptr i8, ptr %14, i64 24
   %.val14 = load i64, ptr %15, align 8
@@ -839,13 +839,13 @@ Dar_CutFindFree.exit:                             ; preds = %.lr.ph.i, %.thread.
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.us.preheader.i.i
   %indvars.iv27.i.i = phi i64 [ 0, %.preheader.us.preheader.i.i ], [ %indvars.iv.next28.i.i, %._crit_edge.us.i.i ]
-  %169 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv27.i.i
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %indvars.iv27.i.i
   %170 = load i32, ptr %169, align 4, !tbaa !3
   br label %171
 
 171:                                              ; preds = %175, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %175 ]
-  %172 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv.i.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %indvars.iv.i.i
   %173 = load i32, ptr %172, align 4, !tbaa !3
   %174 = icmp eq i32 %170, %173
   br i1 %174, label %._crit_edge.us.i.i, label %175
@@ -882,13 +882,13 @@ Dar_CutCheckDominance.exit.i:                     ; preds = %._crit_edge.us.i.i,
 
 .preheader.us.i34.i:                              ; preds = %189, %.preheader.lr.ph.i29.i
   %indvars.iv27.i35.i = phi i64 [ 0, %.preheader.lr.ph.i29.i ], [ %indvars.iv.next28.i41.i, %189 ]
-  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv27.i35.i
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %indvars.iv27.i35.i
   %181 = load i32, ptr %180, align 4, !tbaa !3
   br label %182
 
 182:                                              ; preds = %186, %.preheader.us.i34.i
   %indvars.iv.i36.i = phi i64 [ 0, %.preheader.us.i34.i ], [ %indvars.iv.next.i37.i, %186 ]
-  %183 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv.i36.i
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %indvars.iv.i36.i
   %184 = load i32, ptr %183, align 4, !tbaa !3
   %185 = icmp eq i32 %181, %184
   br i1 %185, label %._crit_edge.us.i40.i, label %186
@@ -941,10 +941,10 @@ Dar_CutCheckDominance.exit.thread.i:              ; preds = %._crit_edge.us.i40.
   br i1 %205, label %Dar_CutTruthPhase.exit.i, label %206
 
 206:                                              ; preds = %204
-  %207 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.i.i74
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv.i.i74
   %208 = load i32, ptr %207, align 4, !tbaa !3
   %209 = zext nneg i32 %.017.i.i to i64
-  %210 = getelementptr inbounds nuw i32, ptr %38, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !3
   %212 = icmp sge i32 %208, %211
   %213 = trunc nuw nsw i64 %indvars.iv.i.i74 to i32
@@ -1050,10 +1050,10 @@ Dar_CutTruthStretch.exit.i:                       ; preds = %248
   br i1 %254, label %Dar_CutTruthPhase.exit32.i, label %255
 
 255:                                              ; preds = %253
-  %256 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i23.i
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %indvars.iv.i23.i
   %257 = load i32, ptr %256, align 4, !tbaa !3
   %258 = zext nneg i32 %.017.i24.i to i64
-  %259 = getelementptr inbounds nuw i32, ptr %252, i64 %258
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %252, i64 %258
   %260 = load i32, ptr %259, align 4, !tbaa !3
   %261 = icmp sge i32 %257, %260
   %262 = trunc nuw nsw i64 %indvars.iv.i23.i to i32
@@ -1160,7 +1160,7 @@ Dar_CutTruth.exit:                                ; preds = %297
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i77 ]
   %.045.i = phi i32 [ %202, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i77 ]
   %.03943.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.140.i, %.lr.ph.i77 ]
-  %304 = getelementptr inbounds nuw [2 x i32], ptr @__const.Dar_CutSuppMinimize.uMasks, i64 %indvars.iv.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr @__const.Dar_CutSuppMinimize.uMasks, i64 %indvars.iv.i
   %305 = load i32, ptr %304, align 8, !tbaa !3
   %306 = and i32 %305, %300
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 4
@@ -1276,11 +1276,11 @@ Dar_CutTruthShrink.exit.i:                        ; preds = %344
   br i1 %.not.i88, label %363, label %353
 
 353:                                              ; preds = %348
-  %354 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv56.i
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %347, i64 %indvars.iv56.i
   %355 = load i32, ptr %354, align 4, !tbaa !3
   %356 = add nsw i32 %.03548.i, 1
   %357 = sext i32 %.03548.i to i64
-  %358 = getelementptr inbounds i32, ptr %347, i64 %357
+  %358 = getelementptr inbounds [4 x i8], ptr %347, i64 %357
   store i32 %355, ptr %358, align 4, !tbaa !3
   %359 = and i32 %355, 31
   %360 = shl nuw i32 1, %359
@@ -1352,13 +1352,13 @@ Dar_CutTruthShrink.exit.i:                        ; preds = %344
 
 .preheader.us.i.i122:                             ; preds = %._crit_edge.us.i.i127, %.preheader.us.preheader.i.i119
   %indvars.iv27.i.i123 = phi i64 [ 0, %.preheader.us.preheader.i.i119 ], [ %indvars.iv.next28.i.i128, %._crit_edge.us.i.i127 ]
-  %391 = getelementptr inbounds nuw i32, ptr %372, i64 %indvars.iv27.i.i123
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %indvars.iv27.i.i123
   %392 = load i32, ptr %391, align 4, !tbaa !3
   br label %393
 
 393:                                              ; preds = %397, %.preheader.us.i.i122
   %indvars.iv.i.i124 = phi i64 [ 0, %.preheader.us.i.i122 ], [ %indvars.iv.next.i.i125, %397 ]
-  %394 = getelementptr inbounds nuw i32, ptr %390, i64 %indvars.iv.i.i124
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %390, i64 %indvars.iv.i.i124
   %395 = load i32, ptr %394, align 4, !tbaa !3
   %396 = icmp eq i32 %392, %395
   br i1 %396, label %._crit_edge.us.i.i127, label %397
@@ -1395,13 +1395,13 @@ Dar_CutCheckDominance.exit.i130:                  ; preds = %._crit_edge.us.i.i1
 
 .preheader.us.i34.i108:                           ; preds = %411, %.preheader.lr.ph.i29.i105
   %indvars.iv27.i35.i109 = phi i64 [ 0, %.preheader.lr.ph.i29.i105 ], [ %indvars.iv.next28.i41.i114, %411 ]
-  %402 = getelementptr inbounds nuw i32, ptr %401, i64 %indvars.iv27.i35.i109
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %indvars.iv27.i35.i109
   %403 = load i32, ptr %402, align 4, !tbaa !3
   br label %404
 
 404:                                              ; preds = %408, %.preheader.us.i34.i108
   %indvars.iv.i36.i110 = phi i64 [ 0, %.preheader.us.i34.i108 ], [ %indvars.iv.next.i37.i111, %408 ]
-  %405 = getelementptr inbounds nuw i32, ptr %372, i64 %indvars.iv.i36.i110
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %indvars.iv.i36.i110
   %406 = load i32, ptr %405, align 4, !tbaa !3
   %407 = icmp eq i32 %403, %406
   br i1 %407, label %._crit_edge.us.i40.i113, label %408
@@ -1463,10 +1463,10 @@ Aig_ManObj.exit.i:                                ; preds = %431, %.lr.ph.split.
   %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i139, %431 ]
   %.026.i = phi i32 [ 0, %.lr.ph.split.i ], [ %439, %431 ]
   %.01625.i = phi i32 [ 0, %.lr.ph.split.i ], [ %436, %431 ]
-  %425 = getelementptr inbounds nuw i32, ptr %423, i64 %indvars.iv.i138
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %423, i64 %indvars.iv.i138
   %426 = load i32, ptr %425, align 4, !tbaa !3
   %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %427
+  %428 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %427
   %429 = load ptr, ptr %428, align 8, !tbaa !35
   %430 = icmp eq ptr %429, null
   br i1 %430, label %Dar_CutFindValue.exit, label %431
@@ -1701,18 +1701,18 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 21:                                               ; preds = %.preheader107, %19
   %indvars.iv146 = phi i64 [ 0, %.preheader107 ], [ %indvars.iv.next147, %19 ]
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv146
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv146
   %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv146
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv146
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %.not104 = icmp eq i32 %23, %25
   br i1 %.not104, label %19, label %.thread105
 
 26:                                               ; preds = %.lr.ph124, %26
   %indvars.iv150 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next151, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv150
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv150
   %28 = load i32, ptr %27, align 4, !tbaa !3
-  %29 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv150
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv150
   store i32 %28, ptr %29, align 4, !tbaa !3
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %30 = load i32, ptr %4, align 4
@@ -1748,7 +1748,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 .preheader109:                                    ; preds = %.preheader109.lr.ph, %53
   %indvars.iv139 = phi i64 [ 0, %.preheader109.lr.ph ], [ %indvars.iv.next140, %53 ]
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv139
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv139
   %45 = load i32, ptr %44, align 4, !tbaa !3
   br label %48
 
@@ -1764,7 +1764,7 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 49:                                               ; preds = %48
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, -1
-  %50 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next137
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.next137
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = icmp eq i32 %51, %45
   br i1 %52, label %53, label %48, !llvm.loop !75
@@ -1776,9 +1776,9 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv143 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next144, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv143
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv143
   %56 = load i32, ptr %55, align 4, !tbaa !3
-  %57 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv143
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv143
   store i32 %56, ptr %57, align 4, !tbaa !3
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %58 = load i32, ptr %4, align 4
@@ -1824,9 +1824,9 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 82:                                               ; preds = %74
   %83 = add nsw i32 %.4117, 1
   %84 = sext i32 %.4117 to i64
-  %85 = getelementptr inbounds i32, ptr %8, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %8, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !3
-  %87 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %86, ptr %87, align 4, !tbaa !3
   br label %113
 
@@ -1836,21 +1836,21 @@ define internal fastcc range(i32 0, 2) i32 @Dar_CutMergeOrdered(ptr noundef capt
 89:                                               ; preds = %88
   %90 = add nsw i32 %.1118, 1
   %91 = sext i32 %.1118 to i64
-  %92 = getelementptr inbounds i32, ptr %9, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %9, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !3
-  %94 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %93, ptr %94, align 4, !tbaa !3
   br label %113
 
 95:                                               ; preds = %88
   %96 = sext i32 %.4117 to i64
-  %97 = getelementptr inbounds i32, ptr %8, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %8, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !3
   %99 = sext i32 %.1118 to i64
-  %100 = getelementptr inbounds i32, ptr %9, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %9, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = icmp slt i32 %98, %101
-  %103 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   br i1 %102, label %104, label %106
 
 104:                                              ; preds = %95

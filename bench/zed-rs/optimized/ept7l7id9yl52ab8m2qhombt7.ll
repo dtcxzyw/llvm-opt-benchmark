@@ -1051,7 +1051,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12push_or_el
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %13, align 16, !nonnull !4, !align !27, !noundef !4
-  %36 = getelementptr inbounds { { i64 }, { { [3 x i64] } } }, ptr %35, i64 %19
+  %36 = getelementptr inbounds [32 x i8], ptr %35, i64 %19
   %37 = load atomic i64, ptr %36 acquire, align 8
   %38 = icmp eq i64 %.sroa.08.050, %37
   br i1 %38, label %57, label %39
@@ -1182,7 +1182,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h6b963
   %20 = phi i64 [ %10, %.lr.ph ], [ %47, %44 ]
   %.sroa.02.041 = phi i64 [ %4, %.lr.ph ], [ %.sroa.02.1, %44 ]
   %21 = load ptr, ptr %16, align 16, !nonnull !4, !align !27, !noundef !4
-  %22 = getelementptr inbounds { { i64 }, { { [3 x i64] } } }, ptr %21, i64 %20
+  %22 = getelementptr inbounds [32 x i8], ptr %21, i64 %20
   %23 = load atomic i64, ptr %22 acquire, align 8
   %24 = add i64 %.sroa.02.041, 1
   %25 = icmp eq i64 %24, %23
@@ -1379,7 +1379,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br label %.backedge
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.019.0, i64 %10
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.019.0, i64 %10
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load atomic i64, ptr %44 acquire, align 8
   %46 = and i64 %45, 1
@@ -1427,7 +1427,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   %spec.select45 = or disjoint i64 %61, %65
   store atomic ptr %.lcssa.i, ptr %5 release, align 8
   store atomic i64 %spec.select45, ptr %1 release, align 128
-  %66 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.019.0, i64 %10
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.019.0, i64 %10
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load atomic i64, ptr %67 acquire, align 8
   %69 = and i64 %68, 1
@@ -1452,7 +1452,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
 .lr.ph.i49:                                       ; preds = %84, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit48"
   %.sroa.0.04.i = phi i64 [ %74, %84 ], [ 0, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17he4169e30ac875f15E.exit48" ]
   %74 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %75 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.019.0, i64 %.sroa.0.04.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.019.0, i64 %.sroa.0.04.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load atomic i64, ptr %76 acquire, align 8
   %78 = and i64 %77, 2
@@ -1476,7 +1476,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
 .lr.ph.i51:                                       ; preds = %85, %97
   %.sroa.0.04.i52 = phi i64 [ %87, %97 ], [ %39, %85 ]
   %87 = add nuw nsw i64 %.sroa.0.04.i52, 1
-  %88 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.019.0, i64 %.sroa.0.04.i52
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.019.0, i64 %.sroa.0.04.i52
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load atomic i64, ptr %89 acquire, align 8
   %91 = and i64 %90, 2
@@ -1577,7 +1577,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 
 25:                                               ; preds = %24, %25
   %26 = phi i64 [ 0, %24 ], [ %28, %25 ]
-  %27 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %5, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %28 = add nuw nsw i64 %26, 1
   %exitcond.not = icmp eq i64 %28, 31
@@ -1617,7 +1617,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
 
 37:                                               ; preds = %36, %37
   %38 = phi i64 [ 0, %36 ], [ %40, %37 ]
-  %39 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   %40 = add nuw nsw i64 %38, 1
   %exitcond113.not = icmp eq i64 %40, 31
@@ -1740,7 +1740,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   ret void
 
 .critedge69:                                      ; preds = %58
-  %80 = getelementptr inbounds nuw { { { [3 x i64] } }, { i64 } }, ptr %.sroa.016.1, i64 %.lcssa
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.016.1, i64 %.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = atomicrmw or ptr %81, i64 1 release, align 8
@@ -3300,7 +3300,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ult i64 %5, 12
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
@@ -3404,7 +3404,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 544
   %19 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   br label %21
 
 21:                                               ; preds = %21, %17

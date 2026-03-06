@@ -490,12 +490,12 @@ define internal fastcc void @_ZN4Json12_GLOBAL__N_113valueToStringB5cxx11EdbjNS_
 9:                                                ; preds = %5
   %not. = xor i1 %2, true
   %10 = zext i1 %not. to i64
-  %11 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZN4Json12_GLOBAL__N_113valueToStringB5cxx11EdbjNS_13PrecisionTypeEE4reps, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4Json12_GLOBAL__N_113valueToStringB5cxx11EdbjNS_13PrecisionTypeEE4reps, i64 %10
   %12 = fcmp uno double %1, 0.000000e+00
   %13 = fcmp olt double %1, 0.000000e+00
   %14 = select i1 %13, i64 1, i64 2
   %15 = select i1 %12, i64 0, i64 %14
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %0, align 8, !tbaa !9
@@ -4320,7 +4320,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   call void @_ZN4Json12StyledWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %103)
   %104 = and i64 %indvars.iv.next, 4294967295
   %105 = load ptr, ptr %41, align 8, !tbaa !51
-  %106 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %105, i64 %104
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %104
   call void @_ZN4Json12StyledWriter11writeIndentEv(ptr noundef nonnull align 8 dereferenceable(105) %0)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8, !tbaa !17
@@ -4454,7 +4454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit72: ; preds = %1
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit72, %154
   %162 = load ptr, ptr %147, align 8, !tbaa !51
-  %163 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %162, i64 %.077
+  %163 = getelementptr inbounds nuw [32 x i8], ptr %162, i64 %.077
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !17
   %166 = load i64, ptr %141, align 8, !tbaa !17
@@ -4691,7 +4691,7 @@ _ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %
   %46 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %38)
   tail call void @_ZN4Json12StyledWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %46)
   %47 = load ptr, ptr %8, align 8, !tbaa !51
-  %48 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !17
   %51 = trunc i64 %50 to i32
@@ -4881,7 +4881,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !51
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !53
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !55
   br label %43
 
@@ -6586,7 +6586,7 @@ _ZN4Json18StyledStreamWriter6indentEv.exit.split: ; preds = %_ZN4Json18StyledStr
   %107 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %106)
   call void @_ZN4Json18StyledStreamWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %107)
   %108 = load ptr, ptr %0, align 8, !tbaa !51
-  %109 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %108, i64 %indvars.iv87
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %108, i64 %indvars.iv87
   %110 = load i8, ptr %31, align 8
   %111 = and i8 %110, 2
   %.not.i53 = icmp eq i8 %111, 0
@@ -6778,7 +6778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %175
 192:                                              ; preds = %189, %188
   %193 = load ptr, ptr %182, align 8, !tbaa !90
   %194 = load ptr, ptr %0, align 8, !tbaa !51
-  %195 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %194, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %194, i64 %indvars.iv
   %196 = load ptr, ptr %195, align 8, !tbaa !15
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %198 = load i64, ptr %197, align 8, !tbaa !17
@@ -7000,7 +7000,7 @@ _ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; pre
   %49 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %41)
   tail call void @_ZN4Json18StyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %49)
   %50 = load ptr, ptr %0, align 8, !tbaa !51
-  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !17
   %54 = trunc i64 %53 to i32
@@ -8929,7 +8929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %117
   %127 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %126)
   call void @_ZN4Json23BuiltStyledStreamWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %127)
   %128 = load ptr, ptr %80, align 8, !tbaa !51
-  %129 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %indvars.iv86
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %indvars.iv86
   call void @_ZN4Json23BuiltStyledStreamWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(32) %129)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next87 to i32
@@ -9076,7 +9076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %166
 195:                                              ; preds = %188, %187
   %196 = load ptr, ptr %173, align 8, !tbaa !113
   %197 = load ptr, ptr %183, align 8, !tbaa !51
-  %198 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %197, i64 %indvars.iv
   %199 = load ptr, ptr %198, align 8, !tbaa !15
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load i64, ptr %200, align 8, !tbaa !17
@@ -9313,7 +9313,7 @@ _ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: 
   %50 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %42)
   tail call void @_ZN4Json23BuiltStyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %50)
   %51 = load ptr, ptr %8, align 8, !tbaa !51
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !17
   %55 = trunc i64 %54 to i32
@@ -11697,7 +11697,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !51
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !53
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !55
   ret void
 

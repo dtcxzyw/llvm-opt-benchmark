@@ -294,7 +294,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.311 = type { ptr, ptr, ptr }
 %class.anon.310 = type { i8, %"class.fmt::v11::basic_string_view", ptr, i64 }
 %"struct.vcpkg::SourceLoc" = type { %"struct.vcpkg::Unicode::Utf8Decoder", %"struct.vcpkg::Unicode::Utf8Decoder", i32, i32 }
-%"struct.vcpkg::Json::Reader::JsonPathElement" = type { i64, %"struct.vcpkg::StringView" }
 %"struct.vcpkg::Optional.366" = type { %"struct.vcpkg::details::OptionalStorage.367" }
 %"struct.vcpkg::details::OptionalStorage.367" = type { %"struct.vcpkg::details::OptionalStorageDtor.368" }
 %"struct.vcpkg::details::OptionalStorageDtor.368" = type { i8, %union.anon.369 }
@@ -9293,7 +9292,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESa
 _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %50
   store ptr %44, ptr %13, align 8, !tbaa !301
   store ptr %49, ptr %14, align 8, !tbaa !186
-  %51 = getelementptr inbounds nuw %"class.std::unique_ptr.89", ptr %44, i64 %42
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %51, ptr %15, align 8, !tbaa !188
   br label %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EED2Ev.exit
 
@@ -11336,7 +11335,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.pre.pre = load ptr, ptr %27, align 8, !tbaa !27
   store ptr %39, ptr %7, align 8, !tbaa !31
   store ptr %39, ptr %13, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %39, i64 %34
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %34
   store ptr %40, ptr %12, align 8, !tbaa !34
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
@@ -18296,7 +18295,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESa
 _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %200
   store ptr %193, ptr %5, align 8, !tbaa !301
   store ptr %199, ptr %22, align 8, !tbaa !186
-  %203 = getelementptr inbounds nuw %"class.std::unique_ptr.89", ptr %193, i64 %191
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %191
   store ptr %203, ptr %23, align 8, !tbaa !188
   %.pr = load ptr, ptr %12, align 8, !tbaa !112
   %.not.i51 = icmp eq ptr %.pr, null
@@ -21326,7 +21325,7 @@ _ZNK3fmt3v117context3argEi.exit.thread7.i.i:      ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !19, !noalias !565
   %40 = and i64 %21, 15
-  %41 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 16 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !570
   br label %_ZN3fmt3v116detail7get_argINS0_7contextEiEEDTcldtfp_3argfp0_EERT_T0_.exit.i
 
@@ -21411,7 +21410,7 @@ _ZNK3fmt3v117context3argEi.exit.thread7.i.i12:    ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !19, !noalias !582
   %72 = and i64 %53, 15
-  %73 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !570
   br label %.sink.split.i10
 
@@ -22672,7 +22671,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %16 = getelementptr inbounds nuw i8, ptr @.str.44, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !19
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !134
   %21 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !19
@@ -22680,11 +22679,11 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %24 = load i8, ptr %23, align 1, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %26 = load i8, ptr %25, align 1, !tbaa !19
-  %27 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %18
+  %27 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %18
   %28 = load i32, ptr %27, align 4, !tbaa !134
-  %29 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %18
+  %29 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %18
   %30 = load i32, ptr %29, align 4, !tbaa !134
-  %31 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %18
+  %31 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %18
   %32 = load i32, ptr %31, align 4, !tbaa !134
   %33 = load i64, ptr %.sroa.5.0.copyload, align 8, !tbaa !23
   %.not.i8.not.i = icmp eq i64 %33, 0
@@ -22790,11 +22789,11 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %93 = getelementptr inbounds nuw i8, ptr @.str.44, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !19
   %95 = sext i8 %94 to i64
-  %96 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !134
-  %98 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %95
+  %98 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %95
   %99 = load i32, ptr %98, align 4, !tbaa !134
-  %100 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %95
+  %100 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %95
   %101 = load i32, ptr %100, align 4, !tbaa !134
   %102 = getelementptr inbounds nuw i8, ptr %.026, i64 3
   %103 = load i8, ptr %102, align 1, !tbaa !19
@@ -22802,7 +22801,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %105 = load i8, ptr %104, align 1, !tbaa !19
   %106 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %107 = load i8, ptr %106, align 1, !tbaa !19
-  %108 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %95
+  %108 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %95
   %109 = load i32, ptr %108, align 4, !tbaa !134
   %110 = add i64 %87, -1
   store i64 %110, ptr %.sroa.5.0.copyload, align 8, !tbaa !23
@@ -23041,7 +23040,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %17 = and i32 %.not.i.i, 1
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %15
+  %20 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %15
   %21 = load i32, ptr %20, align 4, !tbaa !134
   %22 = and i32 %21, %10
   %23 = shl nuw nsw i32 %22, 18
@@ -23062,10 +23061,10 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %38 = and i8 %37, 63
   %39 = zext nneg i8 %38 to i32
   %40 = or disjoint i32 %35, %39
-  %41 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %15
+  %41 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %15
   %42 = load i32, ptr %41, align 4, !tbaa !134
   %43 = lshr i32 %40, %42
-  %44 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %15
+  %44 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %15
   %45 = load i32, ptr %44, align 4, !tbaa !134
   %46 = icmp ult i32 %43, %45
   %47 = select i1 %46, i32 64, i32 0
@@ -23086,7 +23085,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail18for_each_codepointIZNS1_
   %61 = or disjoint i32 %60, %51
   %62 = or disjoint i32 %61, %49
   %63 = xor i32 %62, 42
-  %64 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %15
+  %64 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %15
   %65 = load i32, ptr %64, align 4, !tbaa !134
   %66 = lshr i32 %63, %65
   %.not.i = icmp eq i32 %66, 0
@@ -23164,7 +23163,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %91 = and i32 %.not.i.i40, 1
   %92 = zext nneg i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
-  %94 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %89
+  %94 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %89
   %95 = load i32, ptr %94, align 4, !tbaa !134
   %96 = and i32 %95, %84
   %97 = shl nuw nsw i32 %96, 18
@@ -23185,10 +23184,10 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %112 = and i8 %111, 63
   %113 = zext nneg i8 %112 to i32
   %114 = or disjoint i32 %109, %113
-  %115 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %89
+  %115 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %89
   %116 = load i32, ptr %115, align 4, !tbaa !134
   %117 = lshr i32 %114, %116
-  %118 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %89
+  %118 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %89
   %119 = load i32, ptr %118, align 4, !tbaa !134
   %120 = icmp ult i32 %117, %119
   %121 = select i1 %120, i32 64, i32 0
@@ -23209,7 +23208,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %135 = or disjoint i32 %134, %125
   %136 = or disjoint i32 %135, %123
   %137 = xor i32 %136, 42
-  %138 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %89
+  %138 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %89
   %139 = load i32, ptr %138, align 4, !tbaa !134
   %140 = lshr i32 %137, %139
   %.not.i42 = icmp eq i32 %140, 0
@@ -23269,7 +23268,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v116detail18for_each_codepoi
   %8 = getelementptr inbounds nuw i8, ptr @.str.44, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !19
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !134
   %13 = and i32 %12, %5
   %14 = shl nuw nsw i32 %13, 18
@@ -23290,10 +23289,10 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v116detail18for_each_codepoi
   %29 = and i8 %28, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %10
+  %32 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %10
   %33 = load i32, ptr %32, align 4, !tbaa !134
   %34 = lshr i32 %31, %33
-  %35 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %10
+  %35 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %10
   %36 = load i32, ptr %35, align 4, !tbaa !134
   %37 = icmp ult i32 %34, %36
   %38 = select i1 %37, i32 64, i32 0
@@ -23314,7 +23313,7 @@ define linkonce_odr dso_local noundef ptr @_ZZN3fmt3v116detail18for_each_codepoi
   %52 = or disjoint i32 %51, %42
   %53 = or disjoint i32 %52, %40
   %54 = xor i32 %53, 42
-  %55 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %10
+  %55 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %10
   %56 = load i32, ptr %55, align 4, !tbaa !134
   %57 = lshr i32 %54, %56
   %.not = icmp eq i32 %57, 0
@@ -24344,7 +24343,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail7get_argINS0_7contextENS0_
 
 18:                                               ; preds = %16, %.lr.ph.i.i.i
   %.01115.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %15, i64 %.01115.i.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.01115.i.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !645, !noalias !643
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #28, !noalias !643
   %..i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %3)
@@ -24386,7 +24385,7 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
 
 _ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10: ; preds = %36
   %43 = zext nneg i32 %26 to i64
-  %44 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %10, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !570
   br label %49
 
@@ -24397,7 +24396,7 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
 
 _ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit: ; preds = %31
   %46 = zext nneg i32 %26 to i64
-  %47 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %10, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(20) %47, i64 20, i1 false), !tbaa.struct !571
   %.pre = load i32, ptr %29, align 16, !tbaa !566
   %48 = icmp eq i32 %.pre, 0
@@ -24749,7 +24748,7 @@ _ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE11_S_relocateEPS1_S4_S4
 _ZNSt12_Vector_baseIN5vcpkg26DependencyRequestedFeatureESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg26DependencyRequestedFeatureESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit29, %83
   store ptr %22, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i27, ptr %4, align 8, !tbaa !62
-  %87 = getelementptr inbounds nuw %"struct.vcpkg::DependencyRequestedFeature", ptr %22, i64 %16
+  %87 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %87, ptr %82, align 8, !tbaa !165
   ret void
 }
@@ -25627,7 +25626,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 70:                                               ; preds = %139, %36
   %.010.i.i.i = phi i64 [ %39, %36 ], [ %140, %139 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %71 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %.010.i.i.i
+  %71 = getelementptr inbounds [144 x i8], ptr %0, i64 %.010.i.i.i
   store ptr %40, ptr %7, align 8, !tbaa !20
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -26046,7 +26045,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg10DependencyESt6vectorIS
 248:                                              ; preds = %33
   %249 = add nsw i64 %.047, -1
   %250 = udiv i64 %34, 288
-  %251 = getelementptr inbounds nuw %"struct.vcpkg::Dependency", ptr %0, i64 %250
+  %251 = getelementptr inbounds nuw [144 x i8], ptr %0, i64 %250
   %252 = getelementptr inbounds i8, ptr %storemerge46, i64 -144
   %253 = call fastcc noundef zeroext i1 @_ZNK5vcpkg12_GLOBAL__N_112Canonicalize14DependencyLessclERKNS_10DependencyES5_(ptr noundef nonnull align 8 dereferenceable(144) %13, ptr noundef nonnull align 8 dereferenceable(144) %251)
   br i1 %253, label %254, label %256
@@ -26680,13 +26679,13 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.035 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.035, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %10
+  %11 = getelementptr inbounds [144 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %12
+  %13 = getelementptr inbounds [144 x i8], ptr %0, i64 %12
   %14 = tail call fastcc noundef zeroext i1 @_ZNK5vcpkg12_GLOBAL__N_112Canonicalize14DependencyLessclERKNS_10DependencyES5_(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %13)
   %spec.select = select i1 %14, i64 %12, i64 %10
-  %15 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %.035
+  %15 = getelementptr inbounds [144 x i8], ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds [144 x i8], ptr %0, i64 %.035
   %17 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN5vcpkg10DependencyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 8 dereferenceable(144) %15) #23
   %18 = icmp slt i64 %spec.select, %7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !673
@@ -26706,8 +26705,8 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
 25:                                               ; preds = %21
   %26 = shl nsw i64 %.0.lcssa, 1
   %27 = or disjoint i64 %26, 1
-  %28 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %.0.lcssa
+  %28 = getelementptr inbounds [144 x i8], ptr %0, i64 %27
+  %29 = getelementptr inbounds [144 x i8], ptr %0, i64 %.0.lcssa
   %30 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN5vcpkg10DependencyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(144) %29, ptr noundef nonnull align 8 dereferenceable(144) %28) #23
   br label %31
 
@@ -26827,7 +26826,7 @@ _ZN5vcpkg10DependencyC2EOS0_.exit:                ; preds = %65, %_ZNKSt7__cxx11
   %.010.i = phi i64 [ %.0911.i, %92 ], [ %.1, %_ZN5vcpkg10DependencyC2EOS0_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %90 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %.0911.i
+  %90 = getelementptr inbounds [144 x i8], ptr %0, i64 %.0911.i
   %91 = invoke fastcc noundef zeroext i1 @_ZNK5vcpkg12_GLOBAL__N_112Canonicalize14DependencyLessclERKNS_10DependencyES5_(ptr noundef nonnull align 8 dereferenceable(144) %90, ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %.noexc unwind label %98
 
@@ -26835,14 +26834,14 @@ _ZN5vcpkg10DependencyC2EOS0_.exit:                ; preds = %65, %_ZNKSt7__cxx11
   br i1 %91, label %92, label %.loopexit
 
 92:                                               ; preds = %.noexc
-  %93 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %.010.i
+  %93 = getelementptr inbounds [144 x i8], ptr %0, i64 %.010.i
   %94 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN5vcpkg10DependencyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(144) %93, ptr noundef nonnull align 8 dereferenceable(144) %90) #23
   %95 = icmp sgt i64 %.0911.i, %1
   br i1 %95, label %.lr.ph.i, label %.loopexit, !llvm.loop !674
 
 .loopexit:                                        ; preds = %92, %.noexc, %_ZN5vcpkg10DependencyC2EOS0_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN5vcpkg10DependencyC2EOS0_.exit ], [ %.010.i, %.noexc ], [ %.0911.i, %92 ]
-  %96 = getelementptr inbounds %"struct.vcpkg::Dependency", ptr %0, i64 %.0.lcssa.i
+  %96 = getelementptr inbounds [144 x i8], ptr %0, i64 %.0.lcssa.i
   %97 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN5vcpkg10DependencyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(144) %96, ptr noundef nonnull align 8 dereferenceable(144) %5) #23
   call void @_ZN5vcpkg10DependencyD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %5) #23
   ret void
@@ -27821,7 +27820,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 30:                                               ; preds = %_ZN5vcpkg26DependencyRequestedFeatureD2Ev.exit15.i.i.i, %20
   %.010.i.i.i = phi i64 [ %23, %20 ], [ %57, %_ZN5vcpkg26DependencyRequestedFeatureD2Ev.exit15.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %.010.i.i.i
+  %31 = getelementptr inbounds [40 x i8], ptr %0, i64 %.010.i.i.i
   store ptr %24, ptr %6, align 8, !tbaa !20
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -28123,7 +28122,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5vcpkg26DependencyRequestedFea
 130:                                              ; preds = %17
   %131 = add nsw i64 %.027, -1
   %132 = udiv i64 %18, 80
-  %133 = getelementptr inbounds nuw %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %132
+  %133 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %132
   %134 = getelementptr inbounds i8, ptr %storemerge26, i64 -40
   %135 = load i64, ptr %13, align 8, !tbaa !22
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -28498,9 +28497,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.046 = phi i64 [ %spec.select, %_ZN5vcpkg26DependencyRequestedFeatureaSEOS0_.exit ], [ %1, %4 ]
   %9 = shl i64 %.046, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %12
+  %13 = getelementptr inbounds [40 x i8], ptr %0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -28548,8 +28547,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5vcpkg12_GLOBAL__N_112Canonicalize21Depend
   %.0.in.i.i = phi i32 [ %26, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i ], [ %30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %.0.i.i = icmp slt i32 %.0.in.i.i, 0
   %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %32 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %spec.select
-  %33 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %.046
+  %32 = getelementptr inbounds [40 x i8], ptr %0, i64 %spec.select
+  %33 = getelementptr inbounds [40 x i8], ptr %0, i64 %.046
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = icmp eq ptr %34, %35
@@ -28654,8 +28653,8 @@ _ZN5vcpkg26DependencyRequestedFeatureaSEOS0_.exit: ; preds = %40, %_ZNSt7__cxx11
 75:                                               ; preds = %71
   %76 = shl nsw i64 %.0.lcssa, 1
   %77 = or disjoint i64 %76, 1
-  %78 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %77
-  %79 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %.0.lcssa
+  %78 = getelementptr inbounds [40 x i8], ptr %0, i64 %77
+  %79 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa
   %80 = load ptr, ptr %79, align 8, !tbaa !21
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = icmp eq ptr %80, %81
@@ -28788,7 +28787,7 @@ _ZN5vcpkg26DependencyRequestedFeatureC2EOS0_.exit: ; preds = %119, %_ZNKSt7__cxx
   %.010.i = phi i64 [ %.0911.i, %_ZN5vcpkg26DependencyRequestedFeatureaSEOS0_.exit.i ], [ %.1, %_ZN5vcpkg26DependencyRequestedFeatureC2EOS0_.exit ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %131 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %.0911.i
+  %131 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0911.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !22
   %134 = load i64, ptr %127, align 8, !tbaa !22
@@ -28836,7 +28835,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize21Depende
   br i1 %.0.i.i.i, label %148, label %.critedge.i
 
 148:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEclINS_17__normal_iteratorIPNS2_26DependencyRequestedFeatureESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i
-  %149 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %.010.i
+  %149 = getelementptr inbounds [40 x i8], ptr %0, i64 %.010.i
   %150 = load ptr, ptr %149, align 8, !tbaa !21
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %152 = icmp eq ptr %150, %151
@@ -28922,7 +28921,7 @@ _ZN5vcpkg26DependencyRequestedFeatureaSEOS0_.exit.i: ; preds = %172, %171, %_ZNS
 
 .critedge.i:                                      ; preds = %_ZN5vcpkg26DependencyRequestedFeatureaSEOS0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEclINS_17__normal_iteratorIPNS2_26DependencyRequestedFeatureESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i, %_ZN5vcpkg26DependencyRequestedFeatureC2EOS0_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN5vcpkg26DependencyRequestedFeatureC2EOS0_.exit ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize21DependencyFeatureLessEEclINS_17__normal_iteratorIPNS2_26DependencyRequestedFeatureESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i ], [ %.0911.i, %_ZN5vcpkg26DependencyRequestedFeatureaSEOS0_.exit.i ]
-  %178 = getelementptr inbounds %"struct.vcpkg::DependencyRequestedFeature", ptr %0, i64 %.0.lcssa.i
+  %178 = getelementptr inbounds [40 x i8], ptr %0, i64 %.0.lcssa.i
   %179 = load ptr, ptr %178, align 8, !tbaa !21
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %181 = icmp eq ptr %179, %180
@@ -29839,7 +29838,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EED2Ev.exit13.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %21, %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EED2Ev.exit13.i.i.i ]
-  %18 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !112
   store ptr null, ptr %18, align 8, !tbaa !112
   store i64 %19, ptr %5, align 8, !tbaa !112
@@ -29908,7 +29907,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN5vcpkg16Feature
   %32 = phi i64 [ %92, %13 ], [ %9, %.lr.ph ]
   %33 = add nsw i64 %.02656, -1
   %34 = lshr i64 %32, 1
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.89", ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %34
   %36 = getelementptr inbounds i8, ptr %storemerge2557, i64 -8
   %.val.i.i.i = load ptr, ptr %11, align 8, !tbaa !112
   %.val1.i.i.i = load ptr, ptr %35, align 8, !tbaa !112
@@ -30173,9 +30172,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.042 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %8 = shl i64 %.042, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %.val.i = load ptr, ptr %10, align 8, !tbaa !112
   %.val1.i = load ptr, ptr %12, align 8, !tbaa !112
   %13 = getelementptr i8, ptr %.val.i, i64 8
@@ -30204,8 +30203,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5vcpkg12_GLOBAL__N_112Canonicalize11Featur
   %.0.i.i.i.i.i = phi i32 [ %16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %18 = icmp slt i32 %.0.i.i.i.i.i, 0
   %spec.select = select i1 %18, i64 %11, i64 %9
-  %19 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %spec.select
-  %20 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %.042
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %.042
   %21 = load ptr, ptr %19, align 8, !tbaa !112
   store ptr null, ptr %19, align 8, !tbaa !112
   %22 = load ptr, ptr %20, align 8, !tbaa !112
@@ -30237,8 +30236,8 @@ _ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit
 30:                                               ; preds = %26
   %31 = shl nsw i64 %.0.lcssa, 1
   %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %32
-  %34 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %.0.lcssa
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %32
+  %34 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %35 = load ptr, ptr %33, align 8, !tbaa !112
   store ptr null, ptr %33, align 8, !tbaa !112
   %36 = load ptr, ptr %34, align 8, !tbaa !112
@@ -30267,7 +30266,7 @@ _ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit
   %.010.i = phi i64 [ %.0911.i, %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit.i ], [ %.1, %.lr.ph.i.preheader ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %41 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %.0911.i
+  %41 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0911.i
   %.val.val10.i = load i64, ptr %40, align 8, !tbaa !22
   %.val.i.i = load ptr, ptr %41, align 8, !tbaa !112
   %42 = getelementptr i8, ptr %.val.i.i, i64 8
@@ -30296,7 +30295,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize11Feature
   br i1 %46, label %47, label %.critedge.i
 
 47:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize11FeatureLessEEclINS_17__normal_iteratorIPSt10unique_ptrINS2_16FeatureParagraphESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i
-  %48 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %.010.i
+  %48 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i
   store ptr null, ptr %41, align 8, !tbaa !112
   %49 = load ptr, ptr %48, align 8, !tbaa !112
   store ptr %.val.i.i, ptr %48, align 8, !tbaa !112
@@ -30314,7 +30313,7 @@ _ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize11FeatureLessEEclINS_17__normal_iteratorIPSt10unique_ptrINS2_16FeatureParagraphESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i, %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit27
   %.0.lcssa.i = phi i64 [ %.1, %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit27 ], [ %.010.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5vcpkg12_GLOBAL__N_112Canonicalize11FeatureLessEEclINS_17__normal_iteratorIPSt10unique_ptrINS2_16FeatureParagraphESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESD_EEbT_RT0_.exit.i ], [ %.0911.i, %_ZNSt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %51 = getelementptr inbounds %"class.std::unique_ptr.89", ptr %0, i64 %.0.lcssa.i
+  %51 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   %52 = load ptr, ptr %51, align 8, !tbaa !112
   store ptr %38, ptr %51, align 8, !tbaa !112
   %.not.i.i.i.i11.i = icmp eq ptr %52, null
@@ -32722,7 +32721,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %76
   store ptr %24, ptr %0, align 8, !tbaa !31
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !35
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !34
   ret void
 
@@ -32992,7 +32991,7 @@ _ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESa
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5vcpkg16FeatureParagraphESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !301
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.89", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !188
   ret void
 }
@@ -35533,7 +35532,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !31
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !35
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !34
   ret void
 
@@ -35794,7 +35793,7 @@ _ZNSt6vectorIN5vcpkg15FullPackageSpecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 _ZNSt12_Vector_baseIN5vcpkg15FullPackageSpecESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg15FullPackageSpecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %105
   store ptr %22, ptr %0, align 8, !tbaa !379
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !375
-  %109 = getelementptr inbounds nuw %"struct.vcpkg::FullPackageSpec", ptr %22, i64 %16
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %109, ptr %104, align 8, !tbaa !378
   ret void
 }
@@ -36041,7 +36040,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -36475,7 +36474,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -36795,7 +36794,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   store ptr %31, ptr %9, align 8, !tbaa !291
   store ptr %36, ptr %10, align 8, !tbaa !830
-  %38 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %31, i64 %29
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %29
   store ptr %38, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 
@@ -36855,7 +36854,7 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = load ptr, ptr %2, align 8, !tbaa !389
-  %58 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %57, i64 %.050
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.050
   invoke void @_ZNK5vcpkg4Json13IDeserializerINS_26DependencyRequestedFeatureEE5visitERNS0_6ReaderERKNS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.241") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %_ZZN5vcpkg4Json6Reader14array_elementsINS_26DependencyRequestedFeatureEEENS_8OptionalISt6vectorIT_SaIS6_EEEERKNS0_5ArrayERKNS0_13IDeserializerIS6_EEENKUlRS1_RKNSD_IS3_EERKNS0_5ValueEE_clESH_SK_SN_.exit unwind label %80
 
@@ -37553,7 +37552,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -37945,7 +37944,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -38250,7 +38249,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   store ptr %30, ptr %8, align 8, !tbaa !291
   store ptr %35, ptr %9, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %11, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 
@@ -38307,7 +38306,7 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = load ptr, ptr %2, align 8, !tbaa !389
-  %57 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %56, i64 %.055
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.055
   invoke void @_ZNK5vcpkg4Json13IDeserializerINS_10DependencyEE5visitERNS0_6ReaderERKNS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.249") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %57)
           to label %_ZZN5vcpkg4Json6Reader14array_elementsINS_10DependencyEEENS_8OptionalISt6vectorIT_SaIS6_EEEERKNS0_5ArrayERKNS0_13IDeserializerIS6_EEENKUlRS1_RKNSD_IS3_EERKNS0_5ValueEE_clESH_SK_SN_.exit unwind label %63
 
@@ -39020,7 +39019,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg10DependencyEEE9constructIS1_JS1_EEEvRS2_PT_Dp
 _ZNSt12_Vector_baseIN5vcpkg10DependencyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg10DependencyEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, %85
   store ptr %22, ptr %0, align 8, !tbaa !105
   store ptr %83, ptr %4, align 8, !tbaa !104
-  %89 = getelementptr inbounds nuw %"struct.vcpkg::Dependency", ptr %22, i64 %16
+  %89 = getelementptr inbounds nuw [144 x i8], ptr %22, i64 %16
   store ptr %89, ptr %84, align 8, !tbaa !143
   ret void
 }
@@ -39252,7 +39251,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   store ptr %37, ptr %15, align 8, !tbaa !291
   store ptr %42, ptr %16, align 8, !tbaa !830
-  %44 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %37, i64 %35
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %35
   store ptr %44, ptr %18, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 
@@ -39318,7 +39317,7 @@ _ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EE.exit
 _ZNK5vcpkg4Json5ArrayixEm.exit:                   ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = load ptr, ptr %2, align 8, !tbaa !389
-  %64 = getelementptr inbounds nuw %"struct.vcpkg::Json::Value", ptr %63, i64 %.063
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.063
   invoke void @_ZZNK5vcpkg35DependencyOverrideArrayDeserializer11visit_arrayERNS_4Json6ReaderERKNS1_5ArrayEENKUlS3_RKNS1_13IDeserializerINS_18DependencyOverrideEEERKNS1_5ValueEE_clES3_SB_SE_(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.257") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %64)
           to label %65 unwind label %105
 
@@ -40526,7 +40525,7 @@ _ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt12_Vector_baseIN5vcpkg18DependencyOverrideESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg18DependencyOverrideESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, %150
   store ptr %22, ptr %0, align 8, !tbaa !336
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !335
-  %154 = getelementptr inbounds nuw %"struct.vcpkg::DependencyOverride", ptr %22, i64 %16
+  %154 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %16
   store ptr %154, ptr %149, align 8, !tbaa !664
   ret void
 }
@@ -40783,7 +40782,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -41171,7 +41170,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -41701,7 +41700,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -43064,7 +43063,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -43456,7 +43455,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -43818,7 +43817,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 
@@ -44317,7 +44316,7 @@ _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE17_M_realloc_insertIJRNS0_10StringViewEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIN5vcpkg4Json6Reader15JsonPathElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !291
   store ptr %35, ptr %10, align 8, !tbaa !830
-  %37 = getelementptr inbounds nuw %"struct.vcpkg::Json::Reader::JsonPathElement", ptr %30, i64 %28
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %28
   store ptr %37, ptr %12, align 8, !tbaa !294
   br label %_ZN5vcpkg4Json6Reader9PathGuardC2ERSt6vectorINS1_15JsonPathElementESaIS4_EENS_10StringViewE.exit
 

@@ -5,10 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.tMPI_Thread_key_t = type { %struct.tMPI_Atomic, ptr }
 %struct.tMPI_Atomic = type { i32, [60 x i8] }
-%struct.tMPI_Barrier_t = type { %struct.tMPI_Atomic, i32, %struct.tMPI_Atomic }
-%struct.coll_env = type { ptr, %struct.coll_env_coll, i32 }
-%struct.coll_env_coll = type { %struct.tMPI_Atomic, %struct.tMPI_Atomic, ptr }
-%struct.coll_sync = type { i32, i32, ptr, i32 }
 
 @Nthreads = external local_unnamed_addr global i32, align 4
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
@@ -79,9 +75,9 @@ define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly
 18:                                               ; preds = %.lr.ph45, %.critedge39
   %19 = phi i32 [ %12, %.lr.ph45 ], [ %30, %.critedge39 ]
   %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %.critedge39 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv48
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv48
   %21 = load ptr, ptr %20, align 8, !tbaa !30
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv48
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv48
   %23 = load ptr, ptr %22, align 8, !tbaa !30
   %.not35 = icmp eq ptr %21, %23
   br i1 %.not35, label %.critedge39, label %24
@@ -103,7 +99,7 @@ define noundef i32 @_Z17tMPI_Comm_compareP10tmpi_comm_S0_Pi(ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = icmp eq ptr %21, %28
   br i1 %29, label %.critedge39.loopexit, label %26
@@ -234,13 +230,13 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %54 = srem i32 %.1129, 2
   %55 = add nsw i32 %53, %54
   %56 = load ptr, ptr %51, align 8, !tbaa !40
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv143
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv143
   store i32 %55, ptr %57, align 4, !tbaa !28
   %58 = sext i32 %55 to i64
   %59 = mul nsw i64 %58, 132
   %60 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %59)
   %61 = load ptr, ptr %46, align 8, !tbaa !39
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv143
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv143
   store ptr %60, ptr %62, align 8, !tbaa !41
   %.not109 = icmp eq ptr %60, null
   br i1 %.not109, label %.critedge, label %.preheader119
@@ -256,9 +252,9 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next, %.lr.ph126 ]
   %64 = load ptr, ptr %46, align 8, !tbaa !39
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv143
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv143
   %66 = load ptr, ptr %65, align 8, !tbaa !41
-  %67 = getelementptr inbounds nuw %struct.tMPI_Barrier_t, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [132 x i8], ptr %66, i64 %indvars.iv
   tail call void @_Z17tMPI_Barrier_initP14tMPI_Barrier_ti(ptr noundef %67, i32 noundef 2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -309,7 +305,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
   %88 = phi i1 [ false, %87 ], [ true, %81 ]
   %indvars.iv148 = phi i64 [ 1, %87 ], [ 0, %81 ]
   %89 = load ptr, ptr %85, align 8, !tbaa !49
-  %90 = getelementptr inbounds nuw %struct.coll_env, ptr %89, i64 %indvars.iv148
+  %90 = getelementptr inbounds nuw [152 x i8], ptr %89, i64 %indvars.iv148
   %91 = tail call noundef i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr noundef %90, i32 noundef %2)
   %.not115 = icmp eq i32 %91, 0
   br i1 %.not115, label %87, label %.critedge
@@ -339,7 +335,7 @@ define noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef writeonly 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %99
   %indvars.iv151 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next152, %99 ]
   %100 = load ptr, ptr %96, align 8, !tbaa !51
-  %101 = getelementptr inbounds nuw %struct.coll_sync, ptr %100, i64 %indvars.iv151
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %indvars.iv151
   %102 = tail call noundef i32 @_Z19tMPI_Coll_sync_initP9coll_synci(ptr noundef %101, i32 noundef %2)
   %.not114 = icmp eq i32 %102, 0
   br i1 %.not114, label %99, label %.critedge
@@ -434,7 +430,7 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !39
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   tail call void @free(ptr noundef %12) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -467,7 +463,7 @@ define noundef i32 @_Z17tMPI_Comm_destroyP10tmpi_comm_i(ptr noundef %0, i32 noun
 27:                                               ; preds = %.lr.ph56, %27
   %indvars.iv62 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next63, %27 ]
   %28 = load ptr, ptr %26, align 8, !tbaa !51
-  %29 = getelementptr inbounds nuw %struct.coll_sync, ptr %28, i64 %indvars.iv62
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv62
   tail call void @_Z22tMPI_Coll_sync_destroyP9coll_sync(ptr noundef %29)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %30 = load i32, ptr %0, align 8, !tbaa !3
@@ -635,7 +631,7 @@ define noundef i32 @_Z13tMPI_Comm_dupP10tmpi_comm_PS0_(ptr noundef %0, ptr nound
 
 8:                                                ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = icmp eq ptr %10, %3
   br i1 %11, label %.loopexit.loopexit.split.loop.exit15.i, label %12
@@ -689,7 +685,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit:                ; preds = %4, %9
 
 16:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = icmp eq ptr %18, %11
   br i1 %19, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162.loopexit, label %20
@@ -778,11 +774,11 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   %55 = phi ptr [ %.pre, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144 ], [ %32, %._crit_edge227 ]
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !63
-  %58 = getelementptr inbounds i32, ptr %57, i64 %.08.i164
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %.08.i164
   store volatile i32 %1, ptr %58, align 4, !tbaa !28
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !65
-  %61 = getelementptr inbounds i32, ptr %60, i64 %.08.i164
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %.08.i164
   store volatile i32 %2, ptr %61, align 4, !tbaa !28
   %62 = load volatile i32, ptr %54, align 8, !tbaa !66
   %63 = add nsw i32 %62, -1
@@ -881,7 +877,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
 .lr.ph73.i:                                       ; preds = %._crit_edge.thread95.i, %.lr.ph73.preheader.i
   %.0158 = phi i32 [ 0, %.lr.ph73.preheader.i ], [ %.1159, %._crit_edge.thread95.i ]
   %indvars.iv81.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next82.i, %._crit_edge.thread95.i ]
-  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv81.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv81.i
   %105 = load i32, ptr %104, align 4, !tbaa !28
   %.not.i145 = icmp eq i32 %105, -1
   br i1 %.not.i145, label %._crit_edge.thread95.i, label %.preheader.i146
@@ -895,7 +891,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   br label %._crit_edge.thread.i
 
 .lr.ph69.i:                                       ; preds = %.preheader.i146
-  %107 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv81.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv81.i
   %108 = trunc nuw nsw i64 %indvars.iv81.i to i32
   %109 = zext nneg i32 %.0158 to i64
   br label %.outer.i
@@ -908,13 +904,13 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
 
 112:                                              ; preds = %131, %.outer.i
   %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %131 ], [ %indvars.iv78.ph.i, %.outer.i ]
-  %113 = getelementptr inbounds nuw i32, ptr %.0123168, i64 %indvars.iv78.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.0123168, i64 %indvars.iv78.i
   %114 = load i32, ptr %113, align 4, !tbaa !28
   %115 = icmp eq i32 %114, %111
   br i1 %115, label %116, label %131
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw i32, ptr %.0122170, i64 %indvars.iv78.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.0122170, i64 %indvars.iv78.i
   %118 = load i32, ptr %117, align 4, !tbaa !28
   %119 = mul nuw nsw i64 %indvars.iv78.i, %.pre-phi
   %120 = icmp sgt i32 %118, 0
@@ -922,16 +918,16 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
 
 .lr.ph64.preheader.i:                             ; preds = %116
   %121 = zext nneg i32 %118 to i64
-  %invariant.gep.i = getelementptr i32, ptr %94, i64 %119
+  %invariant.gep.i = getelementptr [4 x i8], ptr %94, i64 %119
   br label %.lr.ph64.i
 
 .lr.ph64.i:                                       ; preds = %129, %.lr.ph64.preheader.i
   %indvars.iv.i148 = phi i64 [ %121, %.lr.ph64.preheader.i ], [ %indvars.iv.next.i149, %129 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i148
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i148
   %122 = getelementptr i8, ptr %gep.i, i64 -4
   %123 = load i32, ptr %122, align 4, !tbaa !28
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %103, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %103, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !28
   %127 = load i32, ptr %107, align 4, !tbaa !28
   %128 = icmp sgt i32 %126, %127
@@ -957,7 +953,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   %134 = trunc nuw i64 %119 to i32
   %135 = add nsw i32 %.0.lcssa.i, %134
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %94, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %94, i64 %136
   store i32 %108, ptr %137, align 4, !tbaa !28
   %138 = load i32, ptr %117, align 4, !tbaa !28
   %139 = add nsw i32 %138, 1
@@ -972,14 +968,14 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
 ._crit_edge.thread.i:                             ; preds = %.preheader.i146.._crit_edge.thread.i_crit_edge, %._crit_edge.i
   %.pre-phi233 = phi i32 [ %.pre232, %.preheader.i146.._crit_edge.thread.i_crit_edge ], [ %108, %._crit_edge.i ]
   %141 = sext i32 %.0158 to i64
-  %142 = getelementptr inbounds i32, ptr %.0122170, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %.0122170, i64 %141
   store i32 1, ptr %142, align 4, !tbaa !28
   %143 = load i32, ptr %104, align 4, !tbaa !28
-  %144 = getelementptr inbounds i32, ptr %.0123168, i64 %141
+  %144 = getelementptr inbounds [4 x i8], ptr %.0123168, i64 %141
   store i32 %143, ptr %144, align 4, !tbaa !28
   %145 = mul nsw i32 %.0158, %.0.i
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i32, ptr %94, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %94, i64 %146
   store i32 %.pre-phi233, ptr %147, align 4, !tbaa !28
   %148 = add i32 %.0158, 1
   br label %._crit_edge.thread95.i
@@ -1016,8 +1012,8 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %153
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %153 ]
-  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv
-  %156 = getelementptr inbounds nuw i32, ptr %.0122169, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %.0122169, i64 %indvars.iv
   %157 = load i32, ptr %156, align 4, !tbaa !28
   %158 = call noundef i32 @_Z15tMPI_Comm_allocPP10tmpi_comm_S0_i(ptr noundef %155, ptr noundef nonnull %0, i32 noundef %157)
   %.not138 = icmp eq i32 %158, 0
@@ -1037,10 +1033,10 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
 
 .lr.ph189.us:                                     ; preds = %.lr.ph189.us.preheader, %..loopexit_crit_edge.us
   %indvars.iv222 = phi i64 [ 0, %.lr.ph189.us.preheader ], [ %indvars.iv.next223, %..loopexit_crit_edge.us ]
-  %160 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv222
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv222
   store volatile ptr null, ptr %160, align 8, !tbaa !35
   %161 = load ptr, ptr %56, align 8, !tbaa !63
-  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv222
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %indvars.iv222
   br label %164
 
 163:                                              ; preds = %164
@@ -1051,13 +1047,13 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
 164:                                              ; preds = %.lr.ph189.us, %163
   %indvars.iv217 = phi i64 [ 0, %.lr.ph189.us ], [ %indvars.iv.next218, %163 ]
   %165 = load volatile i32, ptr %162, align 4, !tbaa !28
-  %166 = getelementptr inbounds nuw i32, ptr %.0123167, i64 %indvars.iv217
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.0123167, i64 %indvars.iv217
   %167 = load i32, ptr %166, align 4, !tbaa !28
   %168 = icmp eq i32 %165, %167
   br i1 %168, label %169, label %163
 
 169:                                              ; preds = %164
-  %170 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv217
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv217
   %171 = load ptr, ptr %170, align 8, !tbaa !35
   store volatile ptr %171, ptr %160, align 8, !tbaa !35
   br label %..loopexit_crit_edge.us
@@ -1069,9 +1065,9 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
 
 172:                                              ; preds = %.lr.ph186, %._crit_edge
   %indvars.iv207 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next208, %._crit_edge ]
-  %173 = getelementptr inbounds nuw i32, ptr %.0122169, i64 %indvars.iv207
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.0122169, i64 %indvars.iv207
   %174 = load i32, ptr %173, align 4, !tbaa !28
-  %175 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv207
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv207
   %176 = load ptr, ptr %175, align 8, !tbaa !35
   store i32 %174, ptr %176, align 8, !tbaa !3
   %177 = icmp sgt i32 %174, 0
@@ -1086,17 +1082,17 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
   %183 = load ptr, ptr %182, align 8, !tbaa !29
   %184 = sext i32 %181 to i64
   %wide.trip.count205 = zext nneg i32 %174 to i64
-  %invariant.gep = getelementptr i32, ptr %94, i64 %184
+  %invariant.gep = getelementptr [4 x i8], ptr %94, i64 %184
   br label %185
 
 185:                                              ; preds = %.lr.ph184, %185
   %indvars.iv202 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next203, %185 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv202
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv202
   %186 = load i32, ptr %gep, align 4, !tbaa !28
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds ptr, ptr %178, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %178, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !30
-  %190 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv202
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv202
   store ptr %189, ptr %190, align 8, !tbaa !30
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
@@ -1109,7 +1105,7 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
 
 .loopexit:                                        ; preds = %.lr.ph191, %.loopexit
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.loopexit ], [ 0, %.lr.ph191 ]
-  %191 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv212
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv212
   store volatile ptr null, ptr %191, align 8, !tbaa !35
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count225
@@ -1154,7 +1150,7 @@ _ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread9
   br label %.loopexit176
 
 .loopexit176:                                     ; preds = %75, %200
-  %201 = getelementptr inbounds ptr, ptr %55, i64 %.08.i164
+  %201 = getelementptr inbounds [8 x i8], ptr %55, i64 %.08.i164
   %202 = load volatile ptr, ptr %201, align 8, !tbaa !35
   store ptr %202, ptr %3, align 8, !tbaa !35
   %203 = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -1205,7 +1201,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_Z19tMPI_Comm_seek_rankP1
 
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %.loopexit.loopexit.split.loop.exit15, label %11
@@ -1245,7 +1241,7 @@ define noundef i32 @_Z16tMPI_Comm_createP10tmpi_comm_P11tmpi_group_PS0_(ptr noun
 
 9:                                                ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = icmp eq ptr %11, %4
   br i1 %12, label %.loopexit.loopexit.split.loop.exit15.i, label %13

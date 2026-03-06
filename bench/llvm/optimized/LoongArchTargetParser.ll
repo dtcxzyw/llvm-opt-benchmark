@@ -170,7 +170,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ;
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %33, ptr %2, align 8, !tbaa !18
   store ptr %37, ptr %9, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %31
   store ptr %39, ptr %10, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit
 
@@ -266,7 +266,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %62, ptr %2, align 8, !tbaa !18
   store ptr %66, ptr %43, align 8, !tbaa !14
-  %68 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %60
   store ptr %68, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit
 
@@ -336,7 +336,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i5
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62: ; preds = %91, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i59
   store ptr %86, ptr %2, align 8, !tbaa !18
   store ptr %90, ptr %43, align 8, !tbaa !14
-  %92 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %86, i64 %84
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %84
   store ptr %92, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit63
 
@@ -406,7 +406,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i7
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i76: ; preds = %115, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i73
   store ptr %110, ptr %2, align 8, !tbaa !18
   store ptr %114, ptr %43, align 8, !tbaa !14
-  %116 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %108
   store ptr %116, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit77
 
@@ -476,7 +476,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i8
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i90: ; preds = %139, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i87
   store ptr %134, ptr %2, align 8, !tbaa !18
   store ptr %138, ptr %43, align 8, !tbaa !14
-  %140 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %134, i64 %132
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %132
   store ptr %140, ptr %45, align 8, !tbaa !17
   br label %_ZN4llvmeqENS_9StringRefES0_.exit95
 
@@ -551,7 +551,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108: ; preds = %164, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i105
   store ptr %159, ptr %2, align 8, !tbaa !18
   store ptr %163, ptr %43, align 8, !tbaa !14
-  %165 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %159, i64 %157
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %157
   store ptr %165, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit109
 
@@ -621,7 +621,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i122: ; preds = %188, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i119
   store ptr %183, ptr %2, align 8, !tbaa !18
   store ptr %187, ptr %43, align 8, !tbaa !14
-  %189 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %183, i64 %181
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %181
   store ptr %189, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit123
 
@@ -691,7 +691,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i136: ; preds = %212, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i133
   store ptr %207, ptr %2, align 8, !tbaa !18
   store ptr %211, ptr %43, align 8, !tbaa !14
-  %213 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %207, i64 %205
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %207, i64 %205
   store ptr %213, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit137
 
@@ -761,7 +761,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i150: ; preds = %236, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i147
   store ptr %231, ptr %2, align 8, !tbaa !18
   store ptr %235, ptr %43, align 8, !tbaa !14
-  %237 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %231, i64 %229
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %231, i64 %229
   store ptr %237, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit151
 
@@ -831,7 +831,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i164: ; preds = %260, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i161
   store ptr %255, ptr %2, align 8, !tbaa !18
   store ptr %259, ptr %43, align 8, !tbaa !14
-  %261 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %255, i64 %253
+  %261 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %253
   store ptr %261, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit165
 
@@ -901,7 +901,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i1
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i178: ; preds = %284, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i175
   store ptr %279, ptr %2, align 8, !tbaa !18
   store ptr %283, ptr %43, align 8, !tbaa !14
-  %285 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %279, i64 %277
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %279, i64 %277
   store ptr %285, ptr %45, align 8, !tbaa !17
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit179
 
@@ -978,7 +978,7 @@ define dso_local void @_ZN4llvm9LoongArch16fillValidCPUListERNS_15SmallVectorImp
 11:                                               ; preds = %6
   %12 = zext i32 %7 to i64
   %13 = load ptr, ptr %0, align 8, !tbaa !73
-  %14 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.0.ptr, i64 16, i1 false)
   %15 = load i32, ptr %3, align 8, !tbaa !69
   %16 = add i32 %15, 1
@@ -1034,7 +1034,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %11 = phi i32 [ %4, %2 ], [ %.pre.i, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !73
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   store ptr %.sroa.0.0.copyload, ptr %14, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1043,7 +1043,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   store i32 %16, ptr %3, align 8, !tbaa !69
   %17 = load ptr, ptr %0, align 8, !tbaa !73
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -16
   ret ptr %20
 }

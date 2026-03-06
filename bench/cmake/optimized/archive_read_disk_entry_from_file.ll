@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.fiemap_extent = type { i64, i64, i64, [2 x i64], i32, [3 x i32] }
 
 @.str = private unnamed_addr constant [24 x i8] c"Couldn't determine path\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"archive_read_disk_entry_from_file\00", align 1
@@ -493,7 +492,7 @@ thread-pre-split124:                              ; preds = %.thread.i, %135, %1
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %161
   %185 = phi i32 [ %178, %._crit_edge.i.i ], [ %156, %161 ]
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %struct.fiemap_extent, ptr %154, i64 %186
+  %187 = getelementptr inbounds nuw [56 x i8], ptr %154, i64 %186
   %188 = getelementptr inbounds i8, ptr %187, i64 -56
   %189 = load i64, ptr %188, align 8, !tbaa !39
   %190 = getelementptr inbounds i8, ptr %187, i64 -40

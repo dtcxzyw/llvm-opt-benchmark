@@ -67,7 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TsValueSample, std::allocator<pxrInternal_v0_24__pxrReserved__::TsValueSample>>::_Vector_impl" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TsValueSample, std::allocator<pxrInternal_v0_24__pxrReserved__::TsValueSample>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TsValueSample, std::allocator<pxrInternal_v0_24__pxrReserved__::TsValueSample>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TsValueSample, std::allocator<pxrInternal_v0_24__pxrReserved__::TsValueSample>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample" = type { i8, double, double, %"class.pxrInternal_v0_24__pxrReserved__::VtValue", %"class.pxrInternal_v0_24__pxrReserved__::VtValue" }
 %"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfAnyUniquePtr", ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfAnyUniquePtr" = type { ptr, ptr }
 %struct._Guard = type { ptr }
@@ -2033,7 +2032,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalC
   store ptr %71, ptr %0, align 8
   %84 = getelementptr inbounds i8, ptr %71, i64 %69
   store ptr %84, ptr %66, align 8
-  %85 = getelementptr inbounds nuw %"class.std::shared_ptr.31", ptr %71, i64 %54
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %54
   store ptr %85, ptr %58, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EEEESaIS4_EE7reserveEm.exit
 
@@ -2467,7 +2466,7 @@ define linkonce_odr dso_local noundef double @_ZNK32pxrInternal_v0_24__pxrReserv
 
 72:                                               ; preds = %._crit_edge, %.critedge5
   %73 = phi ptr [ %.pre, %._crit_edge ], [ %60, %.critedge5 ]
-  %74 = getelementptr inbounds %"class.std::shared_ptr.31", ptr %73, i64 %.026
+  %74 = getelementptr inbounds [16 x i8], ptr %73, i64 %.026
   %75 = load ptr, ptr %74, align 8
   %.not36 = icmp eq ptr %75, null
   br i1 %.not36, label %76, label %.critedge11
@@ -2487,7 +2486,7 @@ define linkonce_odr dso_local noundef double @_ZNK32pxrInternal_v0_24__pxrReserv
 
 ..critedge11_crit_edge:                           ; preds = %76
   %.pre37 = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds %"class.std::shared_ptr.31", ptr %.pre37, i64 %.026
+  %.phi.trans.insert = getelementptr inbounds [16 x i8], ptr %.pre37, i64 %.026
   %.pre38 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.critedge11
 
@@ -50030,7 +50029,7 @@ define internal fastcc void @_ZL14_AssertSamplesIfEvRKN32pxrInternal_v0_24__pxrR
 19:                                               ; preds = %.lr.ph, %85
   %20 = phi ptr [ %16, %.lr.ph ], [ %86, %85 ]
   %.039113 = phi i64 [ 0, %.lr.ph ], [ %87, %85 ]
-  %21 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %20, i64 %.039113
+  %21 = getelementptr [56 x i8], ptr %20, i64 %.039113
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -50171,7 +50170,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %48, %53
   store ptr null, ptr %17, align 8
   %.pre = load ptr, ptr %1, align 8
-  %.phi.trans.insert = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %.pre, i64 %.039113
+  %.phi.trans.insert = getelementptr inbounds [56 x i8], ptr %.pre, i64 %.039113
   %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre119 = load double, ptr %.phi.trans.insert118, align 8
   br label %61
@@ -50193,7 +50192,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %48, %53
   br i1 %64, label %85, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", ptr %62, i64 %.039113
+  %66 = getelementptr inbounds [56 x i8], ptr %62, i64 %.039113
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline4EvalEdNS_6TsSideE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %63, i32 noundef 0)
   %68 = invoke fastcc noundef zeroext i1 @_ZL8_IsCloseIfEbRKN32pxrInternal_v0_24__pxrReserved__7VtValueES3_T_(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %13)
@@ -51501,7 +51500,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdL
 _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.31", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 }
@@ -51763,7 +51762,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TsSplineES1_EvT_S3_RSaIT0_E.e
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8TsSplineESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TsSplineES1_EvT_S3_RSaIT0_E.exit, %89
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8
-  %93 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsSpline", ptr %22, i64 %16
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %16
   store ptr %93, ptr %88, align 8
   ret void
 
@@ -55420,7 +55419,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES1_EvT_S3_RSaIT0_
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 

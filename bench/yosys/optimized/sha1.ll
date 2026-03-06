@@ -255,7 +255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.preheader: ; 
   %50 = zext i8 %49 to i32
   %51 = shl nuw i32 %50, 24
   %52 = or disjoint i32 %48, %51
-  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %52, ptr %53, align 4, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -377,7 +377,7 @@ define void @_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_tra
   %22 = zext i8 %21 to i32
   %23 = shl nuw i32 %22, 24
   %24 = or disjoint i32 %20, %23
-  %25 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1528,7 +1528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit18: ; preds = %_ZN
   %62 = zext i8 %61 to i32
   %63 = shl nuw i32 %62, 24
   %64 = or disjoint i32 %60, %63
-  %65 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %64, ptr %65, align 4, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1637,7 +1637,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc19._Z
   %109 = getelementptr inbounds i8, ptr %4, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 8, ptr %110, align 8, !tbaa !58
-  %111 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4, !tbaa !16
   %113 = zext i32 %112 to i64
   %114 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %113)

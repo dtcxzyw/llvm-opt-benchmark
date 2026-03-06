@@ -467,7 +467,7 @@ define internal void @_ellipse_get_distance(float noundef %0, float noundef %1, 
   %23 = shl nuw i32 %17, 1
   %24 = add i32 %23, -12
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw float, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %25
   %.val.i = load float, ptr %26, align 4, !tbaa !24
   %27 = getelementptr i8, ptr %26, i64 4
   %.val17.i = load float, ptr %27, align 4, !tbaa !24
@@ -660,11 +660,11 @@ _ellipse_point_in_polygon.exit:                   ; preds = %_ellipse_cross_test
   %indvars.iv = phi i64 [ 0, %103 ], [ %indvars.iv.next, %111 ]
   %112 = phi float [ %.promoted, %103 ], [ %134, %111 ]
   %113 = shl nuw nsw i64 %indvars.iv, 1
-  %114 = getelementptr inbounds nuw float, ptr %104, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !24
   %116 = fsub reassoc nsz arcp contract afn float %0, %115
   %117 = or disjoint i64 %113, 1
-  %118 = getelementptr inbounds nuw float, ptr %104, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !24
   %120 = fsub reassoc nsz arcp contract afn float %1, %119
   %121 = fmul reassoc nsz arcp contract afn float %116, %116
@@ -672,10 +672,10 @@ _ellipse_point_in_polygon.exit:                   ; preds = %_ellipse_cross_test
   %123 = fadd reassoc nsz arcp contract afn float %122, %121
   %124 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %112, float %123)
   store float %124, ptr %10, align 4, !tbaa !24
-  %125 = getelementptr inbounds nuw float, ptr %106, i64 %117
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %117
   %126 = load float, ptr %125, align 4, !tbaa !24
   %127 = fsub reassoc nsz arcp contract afn float %1, %126
-  %128 = getelementptr inbounds nuw float, ptr %106, i64 %113
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %113
   %129 = load float, ptr %128, align 4, !tbaa !24
   %130 = fsub reassoc nsz arcp contract afn float %0, %129
   %131 = fmul reassoc nsz arcp contract afn float %130, %130
@@ -1257,7 +1257,7 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   %203 = select reassoc nsz arcp contract afn i1 %202, float %200, float 1.000000e+00
   %204 = select reassoc nsz arcp contract afn i1 %201, float %203, float 0.000000e+00
   %205 = fmul reassoc nsz arcp contract afn float %204, %204
-  %206 = getelementptr inbounds nuw float, ptr %111, i64 %.01.i
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %.01.i
   store float %205, ptr %206, align 4, !tbaa !24
   %207 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %207, %91
@@ -1926,7 +1926,7 @@ _fill_mask.exit:                                  ; preds = %341
   %418 = sitofp i32 %417 to float
   %419 = sitofp i32 %412 to float
   %420 = mul nsw i64 %indvars.iv456, %408
-  %421 = getelementptr float, ptr %4, i64 %420
+  %421 = getelementptr [4 x i8], ptr %4, i64 %420
   %factor.op.fmul428 = fmul reassoc nsz arcp contract afn float %407, %418
   %factor.op.fmul430 = fmul reassoc nsz arcp contract afn float %407, %419
   br label %422
@@ -1962,7 +1962,7 @@ _fill_mask.exit:                                  ; preds = %341
   %reass.add.us = fadd reassoc nsz arcp contract afn float %445, %442
   %reass.mul.us.reass = fmul reassoc nsz arcp contract afn float %reass.add.us, %factor.op.fmul430
   %446 = fadd reassoc nsz arcp contract afn float %reass.mul.us.reass, %.reass429
-  %447 = getelementptr float, ptr %421, i64 %indvars.iv451
+  %447 = getelementptr [4 x i8], ptr %421, i64 %indvars.iv451
   store float %446, ptr %447, align 4, !tbaa !24
   %indvars.iv.next452 = add nsw i64 %indvars.iv451, 1
   %exitcond455.not = icmp eq i64 %indvars.iv.next452, %wide.trip.count454
@@ -2767,12 +2767,12 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
 309:                                              ; preds = %301, %338
   %indvars.iv = phi i64 [ 1, %301 ], [ %indvars.iv.next, %338 ]
   %310 = shl nuw nsw i64 %indvars.iv, 1
-  %311 = getelementptr inbounds nuw float, ptr %308, i64 %310
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %308, i64 %310
   %312 = load float, ptr %311, align 4, !tbaa !24
   %313 = fsub reassoc nsz arcp contract afn float %281, %312
   %314 = fmul reassoc nsz arcp contract afn float %313, %313
   %315 = or disjoint i64 %310, 1
-  %316 = getelementptr inbounds nuw float, ptr %308, i64 %315
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %308, i64 %315
   %317 = load float, ptr %316, align 4, !tbaa !24
   %318 = fsub reassoc nsz arcp contract afn float %282, %317
   %319 = fmul reassoc nsz arcp contract afn float %318, %318
@@ -2787,11 +2787,11 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
 
 324:                                              ; preds = %309
   %325 = load ptr, ptr %305, align 8, !tbaa !37
-  %326 = getelementptr inbounds nuw float, ptr %325, i64 %315
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %315
   %327 = load float, ptr %326, align 4, !tbaa !24
   %328 = fsub reassoc nsz arcp contract afn float %282, %327
   %329 = fmul reassoc nsz arcp contract afn float %328, %328
-  %330 = getelementptr inbounds nuw float, ptr %325, i64 %310
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %310
   %331 = load float, ptr %330, align 4, !tbaa !24
   %332 = fsub reassoc nsz arcp contract afn float %281, %331
   %333 = fmul reassoc nsz arcp contract afn float %332, %332
@@ -3613,14 +3613,14 @@ define internal range(i32 0, 2) i32 @_ellipse_events_button_pressed(ptr noundef 
 
 262:                                              ; preds = %244, %272
   %indvars.iv = phi i64 [ 0, %244 ], [ %indvars.iv.next, %272 ]
-  %263 = getelementptr inbounds nuw i32, ptr %247, i64 %indvars.iv
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %indvars.iv
   %264 = load i32, ptr %263, align 4, !tbaa !30
   %265 = load i32, ptr %134, align 8, !tbaa !25
   %266 = icmp eq i32 %264, %265
   br i1 %266, label %267, label %272
 
 267:                                              ; preds = %262
-  %268 = getelementptr inbounds nuw ptr, ptr %248, i64 %indvars.iv
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %indvars.iv
   %269 = load ptr, ptr %268, align 8, !tbaa !181
   %270 = tail call i64 @gtk_toggle_button_get_type() #15
   %271 = call ptr @g_type_check_instance_cast(ptr noundef %269, i64 noundef %270) #13
@@ -4418,10 +4418,10 @@ _ellipse_get_points.exit168:                      ; preds = %104, %_ellipse_get_
   %indvars.iv = phi i64 [ 1, %169 ], [ %indvars.iv.next, %249 ]
   %199 = load ptr, ptr %25, align 8, !tbaa !37
   %200 = shl nuw nsw i64 %indvars.iv, 1
-  %201 = getelementptr inbounds nuw float, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %200
   %202 = load float, ptr %201, align 4, !tbaa !24
   %203 = or disjoint i64 %200, 1
-  %204 = getelementptr inbounds nuw float, ptr %199, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %203
   %205 = load float, ptr %204, align 4, !tbaa !24
   %206 = fsub reassoc nsz arcp contract afn float %202, %136
   %207 = fmul reassoc nsz arcp contract afn float %206, %191
@@ -4449,9 +4449,9 @@ _ellipse_get_points.exit168:                      ; preds = %104, %_ellipse_get_
   %225 = phi i32 [ 1, %198 ], [ %223, %219 ]
   tail call void @dt_masks_draw_anchor(ptr noundef %0, i32 noundef %225, float noundef %1, float noundef %213, float noundef %215) #13
   %226 = load ptr, ptr %172, align 8, !tbaa !38
-  %227 = getelementptr inbounds nuw float, ptr %226, i64 %200
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %200
   %228 = load float, ptr %227, align 4, !tbaa !24
-  %229 = getelementptr inbounds nuw float, ptr %226, i64 %203
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %203
   %230 = load float, ptr %229, align 4, !tbaa !24
   %231 = fsub reassoc nsz arcp contract afn float %228, %136
   %232 = fmul reassoc nsz arcp contract afn float %231, %191

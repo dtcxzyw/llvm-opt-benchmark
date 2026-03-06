@@ -146,7 +146,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %sext76 = shl i64 %32, 32
   %33 = ashr exact i64 %sext76, 30
   %34 = getelementptr i8, ptr %24, i64 %33
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv62
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv62
   br label %38
 
 35:                                               ; preds = %37
@@ -162,7 +162,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 38:                                               ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
   %39 = mul nsw i64 %25, %indvars.iv
-  %40 = getelementptr float, ptr %34, i64 %39
+  %40 = getelementptr [4 x i8], ptr %34, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !20
   %.idx.i.i.i = mul nuw nsw i64 %indvars.iv, 48
   %42 = getelementptr i8, ptr %gep, i64 %.idx.i.i.i
@@ -181,19 +181,19 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx77
   %44 = add nuw nsw i64 %indvars.iv69, %indvars.iv72
   %.reass = mul i64 %44, %factor.op.mul
-  %45 = getelementptr inbounds float, ptr %28, i64 %.reass
+  %45 = getelementptr inbounds [4 x i8], ptr %28, i64 %.reass
   br label %.preheader.us.i.i.i.i.i.i.i.i.i.i
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i:                ; preds = %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i
   %.0810.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %52, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %46 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i, %29
-  %47 = getelementptr float, ptr %45, i64 %46
-  %invariant.gep.us.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %43, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
+  %47 = getelementptr [4 x i8], ptr %45, i64 %46
+  %invariant.gep.us.i.i.i.i.i.i.i.i.i.i = getelementptr [4 x i8], ptr %43, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
   br label %48
 
 48:                                               ; preds = %48, %.preheader.us.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ], [ %51, %48 ]
-  %49 = getelementptr float, ptr %47, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
+  %49 = getelementptr [4 x i8], ptr %47, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 48
   %gep.us.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %invariant.gep.us.i.i.i.i.i.i.i.i.i.i, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i
   %50 = load float, ptr %gep.us.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !20
@@ -289,8 +289,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %24, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %34, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %24 ]
-  %30 = getelementptr inbounds nuw double, ptr %27, i64 %.05.i.i.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw float, ptr %7, i64 %.05.i.i.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.05.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.05.i.i.i.i.i.i.i.i
   %32 = load float, ptr %31, align 4, !tbaa !20
   %33 = fpext float %32 to double
   store double %33, ptr %30, align 8, !tbaa !38
@@ -386,7 +386,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv84 = phi i64 [ 0, %.preheader47.us.preheader ], [ %indvars.iv.next85, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IdLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us ]
   %32 = load ptr, ptr %0, align 8, !tbaa !37
   %33 = load i64, ptr %13, align 8, !tbaa !33
-  %invariant.gep = getelementptr double, ptr %32, i64 %indvars.iv84
+  %invariant.gep = getelementptr [8 x i8], ptr %32, i64 %indvars.iv84
   br label %.preheader.us.us
 
 34:                                               ; preds = %._crit_edge50.split.us.us
@@ -410,19 +410,19 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %38 = load ptr, ptr %2, align 8, !tbaa !37, !noalias !41
   %39 = load i64, ptr %28, align 8, !tbaa !33, !noalias !41
   %40 = mul nsw i64 %39, %37
-  %41 = getelementptr inbounds double, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   br i1 %29, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.us, label %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IdLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i.us:             ; preds = %36, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.us
   %.0810.us.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ %48, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.us ], [ 0, %36 ]
   %42 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.us, %39
-  %43 = getelementptr double, ptr %41, i64 %42
-  %invariant.gep.us.i.i.i.i.i.i.i.i.i.i.us = getelementptr double, ptr %5, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.us
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
+  %invariant.gep.us.i.i.i.i.i.i.i.i.i.i.us = getelementptr [8 x i8], ptr %5, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.us
   br label %44
 
 44:                                               ; preds = %44, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us
   %.09.us.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us ], [ %47, %44 ]
-  %45 = getelementptr double, ptr %43, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us
+  %45 = getelementptr [8 x i8], ptr %43, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us = mul nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us, 24
   %gep.us.i.i.i.i.i.i.i.i.i.i.us = getelementptr i8, ptr %invariant.gep.us.i.i.i.i.i.i.i.i.i.i.us, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us
   %46 = load double, ptr %gep.us.i.i.i.i.i.i.i.i.i.i.us, align 8, !tbaa !38
@@ -445,14 +445,14 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9Tran
 .preheader.us.us:                                 ; preds = %._crit_edge.us.us, %.preheader47.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %._crit_edge.us.us ], [ 0, %.preheader47.us ]
   %49 = mul nuw nsw i64 %indvars.iv79, %30
-  %gep = getelementptr double, ptr %invariant.gep, i64 %49
-  %50 = getelementptr double, ptr %4, i64 %indvars.iv79
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %49
+  %50 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv79
   br label %51
 
 51:                                               ; preds = %51, %.preheader.us.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %51 ], [ 0, %.preheader.us.us ]
   %52 = mul nsw i64 %33, %indvars.iv75
-  %53 = getelementptr double, ptr %gep, i64 %52
+  %53 = getelementptr [8 x i8], ptr %gep, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !38
   %.idx.i.i.i.us.us = mul nuw nsw i64 %indvars.iv75, 24
   %55 = getelementptr i8, ptr %50, i64 %.idx.i.i.i.us.us
@@ -499,7 +499,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9Tran
 
 59:                                               ; preds = %59, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us54
   %.09.us.i.i.i.i.i.i.i.i.i.i.us57 = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us54 ], [ %62, %59 ]
-  %60 = getelementptr double, ptr %58, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us57
+  %60 = getelementptr [8 x i8], ptr %58, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us57
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us58 = mul nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us57, 24
   %gep.us.i.i.i.i.i.i.i.i.i.i.us59 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us58
   %61 = load double, ptr %gep.us.i.i.i.i.i.i.i.i.i.i.us59, align 8, !tbaa !38
@@ -604,7 +604,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv56 = phi i64 [ 0, %.preheader48.lr.ph ], [ %indvars.iv.next57, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS1_IdLi2ELi2ELi0ELi2ELi2EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
   %35 = load ptr, ptr %0, align 8, !tbaa !37
   %36 = load i64, ptr %11, align 8, !tbaa !33
-  %invariant.gep = getelementptr double, ptr %35, i64 %indvars.iv56
+  %invariant.gep = getelementptr [8 x i8], ptr %35, i64 %indvars.iv56
   br label %.preheader
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS1_IdLi2ELi2ELi0ELi2ELi2EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -615,10 +615,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %37 = phi i1 [ true, %.preheader48 ], [ false, %.preheader ]
   %indvars.iv53.sroa.phi = phi ptr [ %3, %.preheader48 ], [ %indvars.iv53.sroa.gep65, %.preheader ]
   %indvars.iv53 = phi i64 [ 0, %.preheader48 ], [ %33, %.preheader ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv53
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv53
   %38 = load double, ptr %gep, align 8, !tbaa !38
   store double %38, ptr %indvars.iv53.sroa.phi, align 8, !tbaa !38
-  %39 = getelementptr double, ptr %gep, i64 %36
+  %39 = getelementptr [8 x i8], ptr %gep, i64 %36
   %40 = load double, ptr %39, align 8, !tbaa !38
   %41 = getelementptr i8, ptr %indvars.iv53.sroa.phi, i64 16
   store double %40, ptr %41, align 8, !tbaa !38
@@ -668,18 +668,18 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %70 = load ptr, ptr %1, align 8, !tbaa !37, !noalias !51
   %71 = load i64, ptr %31, align 8, !tbaa !33, !noalias !51
   %72 = mul nsw i64 %71, %69
-  %73 = getelementptr inbounds double, ptr %70, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %70, i64 %72
   br i1 %32, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %68, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i
   %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %81, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %68 ]
   %74 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, %71
-  %75 = getelementptr double, ptr %73, i64 %74
+  %75 = getelementptr [8 x i8], ptr %73, i64 %74
   br label %76
 
 76:                                               ; preds = %76, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ %80, %76 ]
-  %77 = getelementptr double, ptr %75, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i
+  %77 = getelementptr [8 x i8], ptr %75, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i
   %78 = icmp eq i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i, %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i
   %79 = select i1 %78, double 1.000000e+00, double 0.000000e+00
   store double %79, ptr %77, align 8, !tbaa !38
@@ -699,12 +699,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %exitcond13.not.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ false, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.gep, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ %4, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %71, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %82 = getelementptr double, ptr %73, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
+  %82 = getelementptr [8 x i8], ptr %73, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
   br label %83
 
 83:                                               ; preds = %83, %.preheader.us.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ], [ %87, %83 ]
-  %84 = getelementptr double, ptr %82, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
+  %84 = getelementptr [8 x i8], ptr %82, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 4
   %85 = getelementptr i8, ptr %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.phi, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i
   %86 = load double, ptr %85, align 8, !tbaa !38
@@ -791,7 +791,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv56 = phi i64 [ 0, %.preheader48.lr.ph ], [ %indvars.iv.next57, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS1_IfLi2ELi2ELi0ELi2ELi2EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit ]
   %38 = load ptr, ptr %0, align 8, !tbaa !13
   %39 = load i64, ptr %11, align 8, !tbaa !4
-  %invariant.gep = getelementptr float, ptr %38, i64 %indvars.iv56
+  %invariant.gep = getelementptr [4 x i8], ptr %38, i64 %indvars.iv56
   br label %.preheader
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS1_IfLi2ELi2ELi0ELi2ELi2EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
@@ -802,10 +802,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %40 = phi i1 [ true, %.preheader48 ], [ false, %.preheader ]
   %indvars.iv53.sroa.phi = phi ptr [ %3, %.preheader48 ], [ %indvars.iv53.sroa.gep64, %.preheader ]
   %indvars.iv53 = phi i64 [ 0, %.preheader48 ], [ %36, %.preheader ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv53
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv53
   %41 = load float, ptr %gep, align 4, !tbaa !20
   store float %41, ptr %indvars.iv53.sroa.phi, align 4, !tbaa !20
-  %42 = getelementptr float, ptr %gep, i64 %39
+  %42 = getelementptr [4 x i8], ptr %gep, i64 %39
   %43 = load float, ptr %42, align 4, !tbaa !20
   %44 = getelementptr i8, ptr %indvars.iv53.sroa.phi, i64 8
   store float %43, ptr %44, align 4, !tbaa !20
@@ -865,18 +865,18 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %79 = load ptr, ptr %1, align 8, !tbaa !13, !noalias !60
   %80 = load i64, ptr %34, align 8, !tbaa !4, !noalias !60
   %81 = mul nsw i64 %80, %78
-  %82 = getelementptr inbounds float, ptr %79, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %79, i64 %81
   br i1 %35, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %77, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i
   %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %90, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %77 ]
   %83 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, %80
-  %84 = getelementptr float, ptr %82, i64 %83
+  %84 = getelementptr [4 x i8], ptr %82, i64 %83
   br label %85
 
 85:                                               ; preds = %85, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ %89, %85 ]
-  %86 = getelementptr float, ptr %84, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i
+  %86 = getelementptr [4 x i8], ptr %84, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i
   %87 = icmp eq i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i, %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i
   %88 = select i1 %87, float 1.000000e+00, float 0.000000e+00
   store float %88, ptr %86, align 4, !tbaa !20
@@ -896,12 +896,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %exitcond13.not.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ false, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.gep, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ %4, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %80, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader ]
-  %91 = getelementptr float, ptr %82, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
+  %91 = getelementptr [4 x i8], ptr %82, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
   br label %92
 
 92:                                               ; preds = %92, %.preheader.us.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ], [ %96, %92 ]
-  %93 = getelementptr float, ptr %91, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
+  %93 = getelementptr [4 x i8], ptr %91, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 3
   %94 = getelementptr i8, ptr %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.phi, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i
   %95 = load float, ptr %94, align 4, !tbaa !20
@@ -982,7 +982,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv84 = phi i64 [ 0, %.preheader47.us.preheader ], [ %indvars.iv.next85, %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us ]
   %32 = load ptr, ptr %0, align 8, !tbaa !13
   %33 = load i64, ptr %13, align 8, !tbaa !4
-  %invariant.gep = getelementptr float, ptr %32, i64 %indvars.iv84
+  %invariant.gep = getelementptr [4 x i8], ptr %32, i64 %indvars.iv84
   br label %.preheader.us.us
 
 34:                                               ; preds = %._crit_edge50.split.us.us
@@ -1006,19 +1006,19 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %38 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !68
   %39 = load i64, ptr %28, align 8, !tbaa !4, !noalias !68
   %40 = mul nsw i64 %39, %37
-  %41 = getelementptr inbounds float, ptr %38, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %38, i64 %40
   br i1 %29, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.us, label %_ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeINS0_INS1_IfLi3ELi3ELi0ELi3ELi3EEELin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.us
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i.us:             ; preds = %36, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.us
   %.0810.us.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ %48, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.us ], [ 0, %36 ]
   %42 = mul nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.us, %39
-  %43 = getelementptr float, ptr %41, i64 %42
-  %invariant.gep.us.i.i.i.i.i.i.i.i.i.i.us = getelementptr float, ptr %5, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.us
+  %43 = getelementptr [4 x i8], ptr %41, i64 %42
+  %invariant.gep.us.i.i.i.i.i.i.i.i.i.i.us = getelementptr [4 x i8], ptr %5, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.us
   br label %44
 
 44:                                               ; preds = %44, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us
   %.09.us.i.i.i.i.i.i.i.i.i.i.us = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us ], [ %47, %44 ]
-  %45 = getelementptr float, ptr %43, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us
+  %45 = getelementptr [4 x i8], ptr %43, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us = mul nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us, 12
   %gep.us.i.i.i.i.i.i.i.i.i.i.us = getelementptr i8, ptr %invariant.gep.us.i.i.i.i.i.i.i.i.i.i.us, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us
   %46 = load float, ptr %gep.us.i.i.i.i.i.i.i.i.i.i.us, align 4, !tbaa !20
@@ -1041,14 +1041,14 @@ _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9Tran
 .preheader.us.us:                                 ; preds = %._crit_edge.us.us, %.preheader47.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %._crit_edge.us.us ], [ 0, %.preheader47.us ]
   %49 = mul nuw nsw i64 %indvars.iv79, %30
-  %gep = getelementptr float, ptr %invariant.gep, i64 %49
-  %50 = getelementptr float, ptr %4, i64 %indvars.iv79
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %49
+  %50 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv79
   br label %51
 
 51:                                               ; preds = %51, %.preheader.us.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %51 ], [ 0, %.preheader.us.us ]
   %52 = mul nsw i64 %33, %indvars.iv75
-  %53 = getelementptr float, ptr %gep, i64 %52
+  %53 = getelementptr [4 x i8], ptr %gep, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !20
   %.idx.i.i.i.us.us = mul nuw nsw i64 %indvars.iv75, 12
   %55 = getelementptr i8, ptr %50, i64 %.idx.i.i.i.us.us
@@ -1095,7 +1095,7 @@ _ZN5Eigen5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9Tran
 
 59:                                               ; preds = %59, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us54
   %.09.us.i.i.i.i.i.i.i.i.i.i.us57 = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.us54 ], [ %62, %59 ]
-  %60 = getelementptr float, ptr %58, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us57
+  %60 = getelementptr [4 x i8], ptr %58, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us57
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us58 = mul nuw nsw i64 %.09.us.i.i.i.i.i.i.i.i.i.i.us57, 12
   %gep.us.i.i.i.i.i.i.i.i.i.i.us59 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.us58
   %61 = load float, ptr %gep.us.i.i.i.i.i.i.i.i.i.i.us59, align 4, !tbaa !20
@@ -1221,12 +1221,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %exitcond13.not.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 1, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.preheader.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ]
   %52 = mul nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, %51
-  %53 = getelementptr double, ptr %50, i64 %52
+  %53 = getelementptr [8 x i8], ptr %50, i64 %52
   br label %54
 
 54:                                               ; preds = %54, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ %58, %54 ]
-  %55 = getelementptr double, ptr %53, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i
+  %55 = getelementptr [8 x i8], ptr %53, i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i
   %56 = icmp eq i64 %.09.us.i.i.i.i.i.i.i.i.i.i.i.i, %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i
   %57 = select i1 %56, double 1.000000e+00, double 0.000000e+00
   store double %57, ptr %55, align 8, !tbaa !38
@@ -1241,12 +1241,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %exitcond13.not.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ false, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.gep, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ %3, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ]
   %.0810.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ %51, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i ], [ 0, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %59 = getelementptr double, ptr %50, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
+  %59 = getelementptr [8 x i8], ptr %50, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i
   br label %60
 
 60:                                               ; preds = %60, %.preheader.us.i.i.i.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i ], [ %64, %60 ]
-  %61 = getelementptr double, ptr %59, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
+  %61 = getelementptr [8 x i8], ptr %59, i64 %.09.us.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i = shl i64 %.09.us.i.i.i.i.i.i.i.i.i.i, 4
   %62 = getelementptr i8, ptr %.0810.us.i.i.i.i.i.i.i.i.i.i.sroa.phi, i64 %.idx.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i
   %63 = load double, ptr %62, align 8, !tbaa !38
@@ -1410,8 +1410,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %32, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i ], [ 0, %32 ]
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %.05.i.i.i.i.i
-  %39 = getelementptr inbounds nuw double, ptr %15, i64 %.05.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %.05.i.i.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.05.i.i.i.i.i
   %40 = load double, ptr %39, align 8, !tbaa !38
   %41 = fptrunc double %40 to float
   store float %41, ptr %38, align 4, !tbaa !20

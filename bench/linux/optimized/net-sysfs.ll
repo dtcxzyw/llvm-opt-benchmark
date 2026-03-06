@@ -88,16 +88,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netdev_class
 %struct.xfrm_policy_hash = type { ptr, i32, i8, i8, i8, i8 }
 %struct.xfrm_policy_hthresh = type { %struct.work_struct, %struct.seqlock_t, i8, i8, i8, i8 }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
-%struct.netdev_rx_queue = type { %struct.xdp_rxq_info, ptr, ptr, %struct.kobject, ptr, %struct.netdevice_tracker, ptr, [32 x i8] }
-%struct.xdp_rxq_info = type { ptr, i32, i32, %struct.xdp_mem_info, i32, i32, [32 x i8] }
-%struct.xdp_mem_info = type { i32, i32 }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.netdevice_tracker = type {}
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 %struct.kuid_t = type { i32 }
-%struct.rps_dev_flow = type { i16, i16, i32 }
 %struct.ethtool_link_ksettings = type { %struct.ethtool_link_settings, %struct.anon.62, i32 }
 %struct.ethtool_link_settings = type { i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i32], [0 x i32] }
 %struct.anon.62 = type { [2 x i64], [2 x i64], [2 x i64] }
@@ -353,7 +344,7 @@ define dso_local i32 @net_rx_queue_update_kobjects(ptr noundef readonly captures
 12:                                               ; preds = %.thread, %5
   %13 = phi i64 [ %10, %5 ], [ %49, %.thread ]
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr %struct.netdev_rx_queue, ptr %14, i64 %13
+  %15 = getelementptr [192 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %18 = load ptr, ptr %17, align 16
@@ -431,7 +422,7 @@ define dso_local i32 @net_rx_queue_update_kobjects(ptr noundef readonly captures
   %61 = phi i32 [ %54, %56 ], [ %78, %77 ]
   %62 = load ptr, ptr %57, align 8
   %63 = sext i32 %61 to i64
-  %.split = getelementptr %struct.netdev_rx_queue, ptr %62, i64 %63
+  %.split = getelementptr [192 x i8], ptr %62, i64 %63
   %64 = getelementptr i8, ptr %.split, i64 80
   %65 = load ptr, ptr %58, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 140
@@ -502,7 +493,7 @@ define dso_local i32 @netdev_queue_update_kobjects(ptr noundef readonly captures
 16:                                               ; preds = %37, %11
   %17 = phi i64 [ %14, %11 ], [ %39, %37 ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr %struct.netdev_queue, ptr %18, i64 %17
+  %19 = getelementptr [320 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %19, align 64
   %22 = icmp eq ptr %21, null
@@ -556,7 +547,7 @@ define dso_local i32 @netdev_queue_update_kobjects(ptr noundef readonly captures
   %50 = phi i32 [ %44, %46 ], [ %64, %62 ]
   %51 = load ptr, ptr %47, align 8
   %52 = sext i32 %50 to i64
-  %53 = getelementptr %struct.netdev_queue, ptr %51, i64 %52
+  %53 = getelementptr [320 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %48, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 140
   %56 = load volatile i32, ptr %55, align 4
@@ -841,7 +832,7 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
 39:                                               ; preds = %.thread, %33
   %40 = phi i64 [ 0, %33 ], [ %37, %.thread ]
   %41 = load ptr, ptr %34, align 8
-  %.split = getelementptr %struct.netdev_rx_queue, ptr %41, i64 %40
+  %.split = getelementptr [192 x i8], ptr %41, i64 %40
   %42 = getelementptr i8, ptr %.split, i64 80
   %43 = call i32 @sysfs_change_owner(ptr noundef %42, i32 %18, i32 %19) #10
   %44 = icmp eq i32 %43, 0
@@ -874,7 +865,7 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
 58:                                               ; preds = %55, %52
   %59 = phi i64 [ 0, %52 ], [ %56, %55 ]
   %60 = load ptr, ptr %53, align 8
-  %.split13 = getelementptr %struct.netdev_queue, ptr %60, i64 %59
+  %.split13 = getelementptr [320 x i8], ptr %60, i64 %59
   %61 = getelementptr i8, ptr %.split13, i64 24
   %62 = call i32 @sysfs_change_owner(ptr noundef %61, i32 %18, i32 %19) #10
   %63 = icmp eq i32 %62, 0
@@ -1113,7 +1104,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_rps_map(ptr noundef
 12:                                               ; preds = %12, %10
   %13 = phi i32 [ 0, %10 ], [ %18, %12 ]
   %14 = sext i32 %13 to i64
-  %15 = getelementptr i16, ptr %11, i64 %14
+  %15 = getelementptr [2 x i8], ptr %11, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %17) #10, !srcloc !25
@@ -1238,7 +1229,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @netdev_rx_queue_set_rps_ma
   %26 = trunc i64 %22 to i16
   %27 = add i32 %18, 1
   %28 = sext i32 %18 to i64
-  %29 = getelementptr i16, ptr %14, i64 %28
+  %29 = getelementptr [2 x i8], ptr %14, i64 %28
   store i16 %26, ptr %29, align 2
   %30 = add nuw nsw i64 %22, 1
   %31 = and i64 %30, 127
@@ -1384,7 +1375,7 @@ define internal i64 @store_rps_dev_flow_table_cnt(ptr noundef %0, ptr noundef %1
 
 31:                                               ; preds = %31, %29
   %32 = phi i64 [ 0, %29 ], [ %34, %31 ]
-  %33 = getelementptr %struct.rps_dev_flow, ptr %30, i64 %32
+  %33 = getelementptr [8 x i8], ptr %30, i64 %32
   store i16 -1, ptr %33, align 8
   %34 = add nuw nsw i64 %32, 1
   %35 = icmp eq i64 %32, %17
@@ -1586,7 +1577,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @traffic_class_show(ptr n
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = and i64 %20, 4294967295
-  %.split = getelementptr %struct.netdev_queue, ptr %28, i64 %29
+  %.split = getelementptr [320 x i8], ptr %28, i64 %29
   %30 = getelementptr i8, ptr %.split, i64 112
   %31 = load ptr, ptr %30, align 16
   %32 = icmp eq ptr %31, null
@@ -1668,7 +1659,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @xps_cpus_show(ptr nounde
 23:                                               ; preds = %17
   %24 = load ptr, ptr %8, align 8
   %25 = and i64 %13, 4294967295
-  %.split = getelementptr %struct.netdev_queue, ptr %24, i64 %25
+  %.split = getelementptr [320 x i8], ptr %24, i64 %25
   %26 = getelementptr i8, ptr %.split, i64 112
   %27 = load ptr, ptr %26, align 16
   %28 = icmp eq ptr %27, null
@@ -1773,7 +1764,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
   tail call void @__rcu_read_lock() #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1813,7 +1804,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
   %34 = mul i32 %31, %33
   %35 = add i32 %34, %2
   %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr %29, i64 %36
+  %37 = getelementptr [8 x i8], ptr %29, i64 %36
   %38 = load volatile ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %40
@@ -1831,7 +1822,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(pt
 46:                                               ; preds = %43
   %47 = add i32 %44, -1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr i16, ptr %42, i64 %48
+  %49 = getelementptr [2 x i8], ptr %42, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = icmp eq i32 %1, %51
@@ -2899,7 +2890,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @operstate_show(ptr nound
 
 12:                                               ; preds = %3
   %13 = zext nneg i8 %10 to i64
-  %14 = getelementptr ptr, ptr @operstates, i64 %13
+  %14 = getelementptr [8 x i8], ptr @operstates, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.44, ptr noundef %15) #10
   %17 = sext i32 %16 to i64

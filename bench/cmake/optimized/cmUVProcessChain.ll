@@ -3,7 +3,6 @@ source_filename = "bench/cmake/original/cmUVProcessChain.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.cmUVProcessChainBuilder::StdioConfiguration" = type { i32, i32 }
 %class.cmUVProcessChain = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -11,11 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.13" }
 %"struct.std::_Head_base.13" = type { ptr }
-%"struct.cmUVProcessChainBuilder::ProcessConfiguration" = type { %"class.std::vector.3" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
 %"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
 %"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
@@ -377,7 +371,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   store i32 0, ptr %5, align 8, !tbaa !4
   br label %6
 
@@ -393,7 +387,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   store i32 1, ptr %5, align 8, !tbaa !4
   br label %6
 
@@ -408,7 +402,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   store i32 2, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %7, align 4, !tbaa !10
@@ -430,7 +424,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 7:                                                ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   store i32 2, ptr %9, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %4, ptr %10, align 4, !tbaa !10
@@ -441,7 +435,7 @@ define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProce
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::StdioConfiguration", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   store i32 0, ptr %14, align 8, !tbaa !4
   br label %_ZN23cmUVProcessChainBuilder17SetExternalStreamENS_6StreamEi.exit
 
@@ -618,7 +612,7 @@ _ZN16cmUVProcessChain12InternalData6FinishEv.exit: ; preds = %.noexc
   %23 = phi i64 [ %36, %29 ], [ %18, %.lr.ph.preheader ]
   %24 = phi ptr [ %32, %29 ], [ %14, %.lr.ph.preheader ]
   %.014 = phi i64 [ %30, %29 ], [ 0, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::ProcessConfiguration", ptr %24, i64 %.014
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.014
   %26 = icmp eq i64 %.014, 0
   %27 = add nsw i64 %23, -1
   %28 = icmp eq i64 %.014, %27
@@ -922,7 +916,7 @@ _ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14d
 _ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %126
   store ptr %120, ptr %97, align 8, !tbaa !89
   store ptr %125, ptr %98, align 8, !tbaa !87
-  %127 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %120, i64 %118
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %118
   store ptr %127, ptr %99, align 8, !tbaa !88
   br label %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
 
@@ -937,7 +931,7 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
 
 131:                                              ; preds = %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
   %132 = load ptr, ptr %97, align 8, !tbaa !89
-  %133 = getelementptr %"class.std::unique_ptr.23", ptr %132, i64 %.05874
+  %133 = getelementptr [8 x i8], ptr %132, i64 %.05874
   %134 = getelementptr i8, ptr %133, i64 -8
   %135 = load ptr, ptr %134, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1029,7 +1023,7 @@ define dso_local void @_ZN16cmUVProcessChain12InternalData12SpawnProcessEmRKN23c
   %7 = alloca %"struct.std::array.41", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8, !tbaa !89
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %1
   %11 = load ptr, ptr %10, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
@@ -1057,7 +1051,7 @@ define dso_local void @_ZN16cmUVProcessChain12InternalData12SpawnProcessEmRKN23c
 .lr.ph.preheader:                                 ; preds = %22
   %23 = ashr exact i64 %19, 2
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #29
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit33
@@ -1116,7 +1110,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %41
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit33
@@ -1178,7 +1172,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28: ; preds = %
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30: ; preds = %62, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i28
-  %63 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit33
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit33:   ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i30, %45
@@ -1700,10 +1694,10 @@ _ZNSt6vectorIPKN16cmUVProcessChain6StatusESaIS3_EE17_S_check_init_lenEmRKS4_.exi
 
 21:                                               ; preds = %.loopexit, %21
   %.08 = phi i64 [ 0, %.loopexit ], [ %26, %21 ]
-  %22 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %7, i64 %.08
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.08
   %23 = load ptr, ptr %22, align 8, !tbaa !85
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %.08
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.08
   store ptr %24, ptr %25, align 8, !tbaa !140
   %26 = add nuw i64 %.08, 1
   %exitcond.not = icmp eq i64 %26, %20
@@ -1718,7 +1712,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK16cmUVProc
   %3 = load ptr, ptr %0, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8, !tbaa !89
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !85
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   ret ptr %8
@@ -2724,7 +2718,7 @@ _ZNSt6vectorIN23cmUVProcessChainBuilder20ProcessConfigurationESaIS1_EE11_S_reloc
 _ZNSt12_Vector_baseIN23cmUVProcessChainBuilder20ProcessConfigurationESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN23cmUVProcessChainBuilder20ProcessConfigurationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, %41
   store ptr %19, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !32
-  %45 = getelementptr inbounds nuw %"struct.cmUVProcessChainBuilder::ProcessConfiguration", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !33
   ret void
 }

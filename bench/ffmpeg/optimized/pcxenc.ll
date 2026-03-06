@@ -159,7 +159,7 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
 .split:                                           ; preds = %59, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %59 ]
   %.0108113 = phi ptr [ %90, %.split ], [ %80, %59 ]
-  %81 = getelementptr inbounds nuw i32, ptr %.060, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %.060, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !34
   %83 = trunc i32 %82 to i8
   %84 = getelementptr inbounds nuw i8, ptr %.0108113, i64 2
@@ -337,7 +337,7 @@ pcx_rle_encode.exit.thread.split:                 ; preds = %pcx_rle_encode.exit
 163:                                              ; preds = %161, %163
   %indvars.iv136 = phi i64 [ 0, %161 ], [ %indvars.iv.next137, %163 ]
   %.4125 = phi ptr [ %162, %161 ], [ %173, %163 ]
-  %164 = getelementptr inbounds nuw i32, ptr %.060, i64 %indvars.iv136
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.060, i64 %indvars.iv136
   %165 = load i32, ptr %164, align 4, !tbaa !34
   %166 = trunc i32 %165 to i8
   %167 = getelementptr inbounds nuw i8, ptr %.4125, i64 2

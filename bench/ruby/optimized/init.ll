@@ -258,7 +258,7 @@ define i64 @rsock_s_recvfrom(i64 noundef %0, i32 noundef %1, ptr noundef readonl
   %17 = phi i1 [ true, %.preheader ], [ false, %30 ]
   %.185.i37 = phi i32 [ 1, %.preheader ], [ %.286.i, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !39
   %20 = icmp slt i32 %.185.i37, %1
   %.not103.i = icmp eq ptr %19, null
@@ -269,7 +269,7 @@ define i64 @rsock_s_recvfrom(i64 noundef %0, i32 noundef %1, ptr noundef readonl
 
 22:                                               ; preds = %21
   %23 = sext i32 %.185.i37 to i64
-  %24 = getelementptr inbounds i64, ptr %2, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %2, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !10
   store i64 %25, ptr %19, align 8, !tbaa !10
   br label %26
@@ -1191,7 +1191,7 @@ rb_num2int_inline.exit.i:                         ; preds = %38, %36
 
 switch.lookup:                                    ; preds = %26
   %46 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rsock_connect, i64 %46
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rsock_connect, i64 %46
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split.i
 

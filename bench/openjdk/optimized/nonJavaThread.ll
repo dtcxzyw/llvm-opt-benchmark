@@ -142,7 +142,7 @@ define hidden void @_ZN13NonJavaThread8IteratorD2Ev(ptr noundef nonnull readonly
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 12), i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 12), i64 %4
   %6 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull %5) #11, !srcloc !6
   %7 = add i32 %6, 2
   %8 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 20), align 4

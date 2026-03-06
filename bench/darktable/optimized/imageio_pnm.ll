@@ -408,7 +408,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_pgm(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %.preheader73, %.lr.ph
   %.05875 = phi i64 [ %61, %.lr.ph ], [ 0, %.preheader73 ]
   %.16174 = phi ptr [ %60, %.lr.ph ], [ %.0607688, %.preheader73 ]
-  %53 = getelementptr inbounds nuw i16, ptr %40, i64 %.05875
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %.05875
   %54 = load i16, ptr %53, align 2, !tbaa !35
   %rev = call i16 @llvm.bswap.i16(i16 %54)
   %55 = uitofp i16 %rev to float
@@ -581,7 +581,7 @@ define internal fastcc range(i32 0, 7) i32 @_read_ppm(ptr noundef readonly captu
 60:                                               ; preds = %.preheader78, %60
   %indvars.iv = phi i64 [ 0, %.preheader78 ], [ %indvars.iv.next, %60 ]
   %.26380 = phi ptr [ %.16282, %.preheader78 ], [ %65, %60 ]
-  %61 = getelementptr i16, ptr %52, i64 %indvars.iv
+  %61 = getelementptr [2 x i8], ptr %52, i64 %indvars.iv
   %62 = load i16, ptr %61, align 2, !tbaa !35
   %rev = call i16 @llvm.bswap.i16(i16 %62)
   %63 = uitofp i16 %rev to float

@@ -135,7 +135,7 @@ define internal i64 @vcs_lseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #
   %21 = add nsw i32 %8, -1
   %22 = select i1 %19, i32 %20, i32 %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr %struct.vc, ptr @vc_cons, i64 %23
+  %24 = getelementptr [40 x i8], ptr @vc_cons, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -299,7 +299,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   %55 = add nsw i32 %42, -1
   %56 = select i1 %53, i32 %54, i32 %55
   %57 = zext i32 %56 to i64
-  %58 = getelementptr %struct.vc, ptr @vc_cons, i64 %57
+  %58 = getelementptr [40 x i8], ptr @vc_cons, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread33, label %61
@@ -658,7 +658,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %34 = add nsw i32 %21, -1
   %35 = select i1 %32, i32 %33, i32 %34
   %36 = zext i32 %35 to i64
-  %37 = getelementptr %struct.vc, ptr @vc_cons, i64 %36
+  %37 = getelementptr [40 x i8], ptr @vc_cons, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread39, label %40
@@ -782,7 +782,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %110 = add nsw i32 %97, -1
   %111 = select i1 %108, i32 %109, i32 %110
   %112 = zext i32 %111 to i64
-  %113 = getelementptr %struct.vc, ptr @vc_cons, i64 %112
+  %113 = getelementptr [40 x i8], ptr @vc_cons, i64 %112
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %118

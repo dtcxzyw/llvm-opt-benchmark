@@ -79,7 +79,7 @@ while.body:                                       ; preds = %if.end, %while.body
 
 while.end:                                        ; preds = %while.body, %if.end
   %.lcssa = phi ptr [ %2, %if.end ], [ %5, %while.body ]
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %.lcssa, i64 %absoluteIndex
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %.lcssa, i64 %absoluteIndex
   %6 = load i64, ptr %add.ptr.i, align 8, !tbaa !13
   ret i64 %6
 }
@@ -103,7 +103,7 @@ do.body:                                          ; preds = %do.end, %entry
 
 do.body3:                                         ; preds = %do.body3, %do.body
   %i.0 = phi i64 [ 1, %do.body ], [ %inc, %do.body3 ]
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %2, i64 %i.0
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %i.0
   %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !13
   %inc = add i64 %i.0, 1
   %rem = urem i64 %add, %3
@@ -162,7 +162,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %sub.ptr.sub.i.i.i.i) #11
   store ptr %call5.i.i.i.i.i, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, align 8, !tbaa !3
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, i64 8), align 8, !tbaa !10
-  %add.ptr19.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib12PrimeNumbers13primeNumbers_E, i64 16), align 8, !tbaa !8
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -218,7 +218,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIPKmN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET0_T_SA_S9_.exit
 
@@ -241,7 +241,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKmmEv
 _ZSt22__uninitialized_copy_aIPKmPmmET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKmmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %3 = phi ptr [ %1, %_ZSt7advanceIPKmmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
-  %add.ptr36 = getelementptr inbounds nuw i64, ptr %3, i64 %sub
+  %add.ptr36 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !10
   %tobool.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit47, label %if.then.i.i.i.i.i.i.i.i.i45
@@ -325,7 +325,7 @@ if.then.i80:                                      ; preds = %invoke.cont65
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %invoke.cont65, %if.then.i80
   store ptr %cond.i59, ptr %this, align 8, !tbaa !3
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i78, ptr %_M_finish, align 8, !tbaa !10
-  %add.ptr83 = getelementptr inbounds nuw i64, ptr %cond.i59, i64 %cond.i
+  %add.ptr83 = getelementptr inbounds nuw [8 x i8], ptr %cond.i59, i64 %cond.i
   store ptr %add.ptr83, ptr %_M_end_of_storage, align 8, !tbaa !8
   br label %if.end87
 

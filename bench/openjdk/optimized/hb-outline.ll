@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hb_atomic_ptr_t.2 = type { ptr }
 %struct.hb_draw_state_t = type { i32, float, float, float, float, %union._hb_var_num_t, %union._hb_var_num_t, %union._hb_var_num_t, %union._hb_var_num_t, %union._hb_var_num_t, %union._hb_var_num_t, %union._hb_var_num_t }
 %union._hb_var_num_t = type { float }
-%struct.hb_outline_point_t = type { float, float, i32 }
 
 $_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t44hb_outline_recording_pen_funcs_lazy_loader_tvLj0ES0_E10get_storedEv = comdat any
 
@@ -57,7 +56,7 @@ define hidden void @_ZNK12hb_outline_t6replayEP15hb_draw_funcs_tPv(ptr noundef n
 _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader: ; preds = %23
   %27 = load ptr, ptr %11, align 8
   %28 = zext i32 %.0207 to i64
-  %29 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %28
   br label %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit
 
 _ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit: ; preds = %_ZN9hb_iter_tI10hb_array_tIK18hb_outline_point_tERS2_EppEi.exit.preheader, %115
@@ -409,11 +408,11 @@ define hidden noundef float @_ZNK12hb_outline_t12control_areaEv(ptr noundef nonn
   %19 = trunc nuw i64 %indvars.iv.next to i32
   %20 = select i1 %18, i32 %19, i32 %.02334
   %.not.i = icmp samesign ult i64 %indvars.iv, %12
-  %21 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %indvars.iv
   %.0.i = select i1 %.not.i, ptr %21, ptr @_hb_NullPool
   %.not.i28 = icmp ult i32 %20, %9
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %22
   %.0.i29 = select i1 %.not.i28, ptr %23, ptr @_hb_NullPool
   %24 = load float, ptr %.0.i, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 4
@@ -499,11 +498,11 @@ define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr noundef nonnull readonly
   %29 = trunc nuw i64 %indvars.iv.next.i to i32
   %30 = select i1 %28, i32 %29, i32 %.02334.i
   %.not.i.i = icmp samesign ult i64 %indvars.iv.i, %22
-  %31 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %21, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %indvars.iv.i
   %.0.i.i = select i1 %.not.i.i, ptr %31, ptr @_hb_NullPool
   %.not.i28.i = icmp ult i32 %30, %10
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %21, i64 %32
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %32
   %.0.i29.i = select i1 %.not.i28.i, ptr %33, ptr @_hb_NullPool
   %34 = load float, ptr %.0.i.i, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.0.i29.i, i64 4
@@ -545,7 +544,7 @@ _ZNK12hb_outline_t12control_areaEv.exit:          ; preds = %._crit_edge.i
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %14, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %.pre = load i32, ptr %55, align 4
   br label %_ZN11hb_vector_tIjLb0EEixEi.exit
 
@@ -583,7 +582,7 @@ _ZN11hb_vector_tIjLb0EEixEi.exit:                 ; preds = %52, %53
 64:                                               ; preds = %61
   %65 = load ptr, ptr %48, align 8
   %66 = zext i32 %.075132 to i64
-  %67 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %65, i64 %66
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit: ; preds = %63, %64
@@ -601,7 +600,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit: ; preds = %63, %64
 71:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit
   %72 = load ptr, ptr %48, align 8
   %73 = zext i32 %.076131 to i64
-  %74 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %72, i64 %73
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95: ; preds = %70, %71
@@ -620,7 +619,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95: ; preds = %70, %71
 79:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit95
   %80 = load ptr, ptr %48, align 8
   %81 = zext i32 %.075132 to i64
-  %82 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %81
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98: ; preds = %78, %79
@@ -638,7 +637,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98: ; preds = %78, %79
 87:                                               ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit98
   %88 = load ptr, ptr %48, align 8
   %89 = zext i32 %.076131 to i64
-  %90 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [12 x i8], ptr %88, i64 %89
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %86, %87
@@ -740,7 +739,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %86, %87
 140:                                              ; preds = %137
   %141 = load ptr, ptr %48, align 8
   %142 = zext i32 %.278124 to i64
-  %143 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [12 x i8], ptr %141, i64 %142
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %139, %140
@@ -759,7 +758,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104: ; preds = %139, %140
 148:                                              ; preds = %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit104
   %149 = load ptr, ptr %48, align 8
   %150 = zext i32 %.278124 to i64
-  %151 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [12 x i8], ptr %149, i64 %150
   br label %_ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107
 
 _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit107: ; preds = %147, %148
@@ -943,7 +942,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_Z
   %29 = add i32 %28, 1
   store i32 %29, ptr %7, align 4
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %30
   store float %3, ptr %31, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 4
   store float %4, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1022,7 +1021,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_Z
   %29 = add i32 %28, 1
   store i32 %29, ptr %7, align 4
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %30
   store float %3, ptr %31, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 4
   store float %4, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1101,7 +1100,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_Z
   %31 = add i32 %30, 1
   store i32 %31, ptr %9, align 4
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %32
   store float %3, ptr %33, align 4
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float %4, ptr %.sroa.224.0..sroa_idx, align 4
@@ -1172,7 +1171,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i9: ; preds = %_
   %55 = add i32 %54, 1
   store i32 %55, ptr %9, align 4
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %56
   store float %5, ptr %57, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   store float %6, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1251,7 +1250,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i: ; preds = %_Z
   %33 = add i32 %32, 1
   store i32 %33, ptr %11, align 4
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %34
   store float %3, ptr %35, align 4
   %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 4
   store float %4, ptr %.sroa.246.0..sroa_idx, align 4
@@ -1322,7 +1321,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i12: ; preds = %
   %57 = add i32 %56, 1
   store i32 %57, ptr %11, align 4
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %58
   store float %5, ptr %59, align 4
   %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 4
   store float %6, ptr %.sroa.243.0..sroa_idx, align 4
@@ -1393,7 +1392,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.thread.i28: ; preds = %
   %81 = add i32 %80, 1
   store i32 %81, ptr %11, align 4
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw %struct.hb_outline_point_t, ptr %79, i64 %82
+  %83 = getelementptr inbounds nuw [12 x i8], ptr %79, i64 %82
   store float %7, ptr %83, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 4
   store float %8, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1475,7 +1474,7 @@ _ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i:   ; preds = %_ZN11hb_vector_tIjL
   %30 = add i32 %29, 1
   store i32 %30, ptr %7, align 4
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %6, align 4
   store i32 %33, ptr %32, align 4
   br label %_ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit

@@ -901,7 +901,7 @@ define internal fastcc void @_ZN14deltalake_core5table7builder16resolve_uri_type
   %91 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %92 = load i64, ptr %91, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !242
-  %93 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %90, i64 %92
+  %93 = getelementptr inbounds [24 x i8], ptr %90, i64 %92
   store ptr %90, ptr %16, align 8, !noalias !242
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %93, ptr %94, align 8, !noalias !242

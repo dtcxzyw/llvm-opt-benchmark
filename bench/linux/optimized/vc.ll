@@ -25,7 +25,7 @@ define dso_local i32 @pci_save_vc_state(ptr noundef %0) local_unnamed_addr #0 al
 
 3:                                                ; preds = %17, %1
   %4 = phi i64 [ 0, %1 ], [ %18, %17 ]
-  %5 = getelementptr %struct.anon, ptr @vc_caps, i64 %4
+  %5 = getelementptr [16 x i8], ptr @vc_caps, i64 %4
   %6 = load i16, ptr %5, align 16
   %7 = zext i16 %6 to i32
   %8 = tail call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef %7) #4
@@ -580,7 +580,7 @@ define dso_local void @pci_restore_vc_state(ptr noundef %0) local_unnamed_addr #
 
 2:                                                ; preds = %15, %1
   %3 = phi i64 [ 0, %1 ], [ %16, %15 ]
-  %4 = getelementptr %struct.anon, ptr @vc_caps, i64 %3
+  %4 = getelementptr [16 x i8], ptr @vc_caps, i64 %3
   %5 = load i16, ptr %4, align 16
   %6 = zext i16 %5 to i32
   %7 = tail call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef %6) #4
@@ -611,7 +611,7 @@ define dso_local void @pci_allocate_vc_save_buffers(ptr noundef %0) local_unname
 
 3:                                                ; preds = %18, %1
   %4 = phi i64 [ 0, %1 ], [ %19, %18 ]
-  %5 = getelementptr %struct.anon, ptr @vc_caps, i64 %4
+  %5 = getelementptr [16 x i8], ptr @vc_caps, i64 %4
   %6 = load i16, ptr %5, align 16
   %7 = zext i16 %6 to i32
   %8 = tail call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef %7) #4

@@ -664,7 +664,7 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds 
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %49, i64 %25
+  %68 = getelementptr inbounds [80 x i8], ptr %49, i64 %25
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit
 
 69:                                               ; preds = %65
@@ -679,11 +679,11 @@ _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EE14_M_range_checkEm.exit.i: ; preds 
 
 75:                                               ; preds = %71, %69
   %76 = phi i64 [ %70, %69 ], [ %74, %71 ]
-  %77 = getelementptr inbounds ptr, ptr %31, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %31, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !25, !noalias !89
   %.idx.i.i.i.i.i = mul i64 %76, -480
   %79 = getelementptr i8, ptr %78, i64 %.idx.i.i.i.i.i
-  %80 = getelementptr %"struct.net::TransmissionInfo", ptr %79, i64 %63
+  %80 = getelementptr [80 x i8], ptr %79, i64 %63
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE2atEm.exit: ; preds = %67, %75
@@ -972,7 +972,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFra
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
+  %21 = getelementptr inbounds [80 x i8], ptr %7, i64 %5
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 22:                                               ; preds = %18
@@ -987,11 +987,11 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap24HasRetransmittableFra
 
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %11, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !110
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
-  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
+  %33 = getelementptr [80 x i8], ptr %32, i64 %16
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
@@ -1039,7 +1039,7 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16Trans
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %8, i64 %20
+  %26 = getelementptr inbounds [80 x i8], ptr %8, i64 %20
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 27:                                               ; preds = %23
@@ -1054,11 +1054,11 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEPNS_16Trans
 
 33:                                               ; preds = %29, %27
   %34 = phi i64 [ %28, %27 ], [ %32, %29 ]
-  %35 = getelementptr inbounds ptr, ptr %12, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %12, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !25, !noalias !113
   %.idx.i.i.i.i = mul i64 %34, -480
   %37 = getelementptr i8, ptr %36, i64 %.idx.i.i.i.i
-  %38 = getelementptr %"struct.net::TransmissionInfo", ptr %37, i64 %21
+  %38 = getelementptr [80 x i8], ptr %37, i64 %21
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %25, %33
@@ -1132,7 +1132,7 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nound
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
+  %21 = getelementptr inbounds [80 x i8], ptr %7, i64 %5
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 22:                                               ; preds = %18
@@ -1147,11 +1147,11 @@ define void @_ZN3net20QuicUnackedPacketMap24RemoveRetransmittabilityEm(ptr nound
 
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %11, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !117
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
-  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
+  %33 = getelementptr [80 x i8], ptr %32, i64 %16
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
@@ -1175,7 +1175,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %38
+  %44 = getelementptr inbounds [80 x i8], ptr %7, i64 %38
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
 
 45:                                               ; preds = %41
@@ -1190,11 +1190,11 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
 
 51:                                               ; preds = %47, %45
   %52 = phi i64 [ %46, %45 ], [ %50, %47 ]
-  %53 = getelementptr inbounds ptr, ptr %11, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %11, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !25, !noalias !120
   %.idx.i.i.i.i.i = mul i64 %52, -480
   %55 = getelementptr i8, ptr %54, i64 %.idx.i.i.i.i.i
-  %56 = getelementptr %"struct.net::TransmissionInfo", ptr %55, i64 %39
+  %56 = getelementptr [80 x i8], ptr %55, i64 %39
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %51, %43
@@ -1325,7 +1325,7 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nounde
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %29, i64 %38
+  %49 = getelementptr inbounds [80 x i8], ptr %29, i64 %38
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 50:                                               ; preds = %46
@@ -1340,11 +1340,11 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap9IsUnackedEm(ptr nounde
 
 56:                                               ; preds = %52, %50
   %57 = phi i64 [ %51, %50 ], [ %55, %52 ]
-  %58 = getelementptr inbounds ptr, ptr %12, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %12, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !25, !noalias !124
   %.idx.i.i.i.i = mul i64 %57, -480
   %60 = getelementptr i8, ptr %59, i64 %.idx.i.i.i.i
-  %61 = getelementptr %"struct.net::TransmissionInfo", ptr %60, i64 %44
+  %61 = getelementptr [80 x i8], ptr %60, i64 %44
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %48, %56
@@ -1450,7 +1450,7 @@ define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTim
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %9, i64 %7
+  %23 = getelementptr inbounds [80 x i8], ptr %9, i64 %7
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 24:                                               ; preds = %20
@@ -1465,11 +1465,11 @@ define void @_ZN3net20QuicUnackedPacketMap23NotifyAndClearListenersEmNS_8QuicTim
 
 30:                                               ; preds = %26, %24
   %31 = phi i64 [ %25, %24 ], [ %29, %26 ]
-  %32 = getelementptr inbounds ptr, ptr %13, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %13, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !25, !noalias !130
   %.idx.i.i.i.i = mul i64 %31, -480
   %34 = getelementptr i8, ptr %33, i64 %.idx.i.i.i.i
-  %35 = getelementptr %"struct.net::TransmissionInfo", ptr %34, i64 %18
+  %35 = getelementptr [80 x i8], ptr %34, i64 %18
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %22, %30
@@ -1588,7 +1588,7 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef non
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %8, i64 %6
+  %22 = getelementptr inbounds [80 x i8], ptr %8, i64 %6
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 23:                                               ; preds = %19
@@ -1603,11 +1603,11 @@ define void @_ZN3net20QuicUnackedPacketMap18RemoveFromInFlightEm(ptr noundef non
 
 29:                                               ; preds = %25, %23
   %30 = phi i64 [ %24, %23 ], [ %28, %25 ]
-  %31 = getelementptr inbounds ptr, ptr %12, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %12, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25, !noalias !134
   %.idx.i.i.i.i = mul i64 %30, -480
   %33 = getelementptr i8, ptr %32, i64 %.idx.i.i.i.i
-  %34 = getelementptr %"struct.net::TransmissionInfo", ptr %33, i64 %17
+  %34 = getelementptr [80 x i8], ptr %33, i64 %17
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %21, %29
@@ -1676,7 +1676,7 @@ define void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonn
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
+  %21 = getelementptr inbounds [80 x i8], ptr %7, i64 %5
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 22:                                               ; preds = %18
@@ -1691,11 +1691,11 @@ define void @_ZN3net20QuicUnackedPacketMap17RestoreToInFlightEm(ptr noundef nonn
 
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %11, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !137
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
-  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
+  %33 = getelementptr [80 x i8], ptr %32, i64 %16
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
@@ -1772,7 +1772,7 @@ define void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %27, i64 %26
+  %39 = getelementptr inbounds [80 x i8], ptr %27, i64 %26
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
 
 40:                                               ; preds = %36
@@ -1787,11 +1787,11 @@ define void @_ZN3net20QuicUnackedPacketMap30CancelRetransmissionsForStreamEj(ptr
 
 46:                                               ; preds = %42, %40
   %47 = phi i64 [ %41, %40 ], [ %45, %42 ]
-  %48 = getelementptr inbounds ptr, ptr %29, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %29, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !25, !noalias !146
   %.idx.i.i.i.i.i = mul i64 %47, -480
   %50 = getelementptr i8, ptr %49, i64 %.idx.i.i.i.i.i
-  %51 = getelementptr %"struct.net::TransmissionInfo", ptr %50, i64 %34
+  %51 = getelementptr [80 x i8], ptr %50, i64 %34
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %46, %38
@@ -1815,7 +1815,7 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %46, %38
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %27, i64 %56
+  %62 = getelementptr inbounds [80 x i8], ptr %27, i64 %56
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i
 
 63:                                               ; preds = %59
@@ -1830,11 +1830,11 @@ _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i: ; preds = %46, %38
 
 69:                                               ; preds = %65, %63
   %70 = phi i64 [ %64, %63 ], [ %68, %65 ]
-  %71 = getelementptr inbounds ptr, ptr %29, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %29, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !25, !noalias !149
   %.idx.i.i.i.i.i.i = mul i64 %70, -480
   %73 = getelementptr i8, ptr %72, i64 %.idx.i.i.i.i.i.i
-  %74 = getelementptr %"struct.net::TransmissionInfo", ptr %73, i64 %57
+  %74 = getelementptr [80 x i8], ptr %73, i64 %57
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit.i.i: ; preds = %69, %61
@@ -1927,7 +1927,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPac
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
+  %21 = getelementptr inbounds [80 x i8], ptr %7, i64 %5
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 22:                                               ; preds = %18
@@ -1942,11 +1942,11 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPac
 
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %11, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !153
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
-  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
+  %33 = getelementptr [80 x i8], ptr %32, i64 %16
   br label %_ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNKSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
@@ -1978,7 +1978,7 @@ define noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissio
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds %"struct.net::TransmissionInfo", ptr %7, i64 %5
+  %21 = getelementptr inbounds [80 x i8], ptr %7, i64 %5
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 22:                                               ; preds = %18
@@ -1993,11 +1993,11 @@ define noundef nonnull ptr @_ZN3net20QuicUnackedPacketMap26GetMutableTransmissio
 
 28:                                               ; preds = %24, %22
   %29 = phi i64 [ %23, %22 ], [ %27, %24 ]
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %11, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !25, !noalias !156
   %.idx.i.i.i.i = mul i64 %29, -480
   %32 = getelementptr i8, ptr %31, i64 %.idx.i.i.i.i
-  %33 = getelementptr %"struct.net::TransmissionInfo", ptr %32, i64 %16
+  %33 = getelementptr [80 x i8], ptr %32, i64 %16
   br label %_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit
 
 _ZNSt5dequeIN3net16TransmissionInfoESaIS1_EEixEm.exit: ; preds = %20, %28
@@ -2403,7 +2403,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit: ; p
   store ptr %12, ptr %0, align 8, !tbaa !37
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.idx = shl nuw nsw i64 %10, 3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
@@ -2494,7 +2494,7 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_create_nodesEPPS1_S5_.ex
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !24
   store ptr %42, ptr %40, align 8, !tbaa !107
-  %53 = getelementptr inbounds nuw %"struct.net::TransmissionInfo", ptr %49, i64 %4
+  %53 = getelementptr inbounds nuw [80 x i8], ptr %49, i64 %4
   store ptr %53, ptr %46, align 8, !tbaa !62
   ret void
 
@@ -2664,9 +2664,9 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reall
   %19 = load ptr, ptr %0, align 8, !tbaa !37
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -2685,12 +2685,12 @@ define linkonce_odr void @_ZNSt5dequeIN3net16TransmissionInfoESaIS1_EE17_M_reall
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit
 
@@ -2718,9 +2718,9 @@ _ZNSt11_Deque_baseIN3net16TransmissionInfoESaIS1_EE15_M_allocate_mapEm.exit: ; p
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #21
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit26, label %53
@@ -2747,7 +2747,7 @@ _ZSt4copyIPPN3net16TransmissionInfoES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %2
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 480
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !23
   %63 = load ptr, ptr %62, align 8, !tbaa !25

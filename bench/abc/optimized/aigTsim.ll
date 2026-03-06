@@ -133,10 +133,10 @@ define range(i32 0, -1) i32 @Aig_TsiStateHash(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !35
   %7 = and i64 %indvars.iv, 127
-  %8 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @Aig_TsiStateHash.s_FPrimes, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !35
   %10 = mul i32 %9, %6
   %11 = xor i32 %10, %.089
@@ -164,10 +164,10 @@ define range(i32 0, 2) i32 @Aig_TsiStateLookup(ptr noundef readonly captures(non
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !35
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Aig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !35
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -181,7 +181,7 @@ Aig_TsiStateHash.exit:                            ; preds = %.lr.ph.i, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = sext i32 %2 to i64
   %20 = shl nsw i64 %19, 2
   %.01113 = load ptr, ptr %18, align 8, !tbaa !37
@@ -195,7 +195,7 @@ Aig_TsiStateHash.exit:                            ; preds = %.lr.ph.i, %3
   br i1 %.not12, label %._crit_edge, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i32, ptr %.01115, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %.01115, i64 %19
   %.011 = load ptr, ptr %22, align 8, !tbaa !37
   %.not = icmp eq ptr %.011, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
@@ -219,10 +219,10 @@ define void @Aig_TsiStateInsert(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.089.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !35
   %9 = and i64 %indvars.iv.i, 127
-  %10 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Aig_TsiStateHash.s_FPrimes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !35
   %12 = mul i32 %11, %8
   %13 = xor i32 %12, %.089.i
@@ -236,10 +236,10 @@ Aig_TsiStateHash.exit:                            ; preds = %.lr.ph.i, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !34
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = sext i32 %2 to i64
-  %21 = getelementptr inbounds i32, ptr %1, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %1, i64 %20
   store ptr %19, ptr %21, align 8, !tbaa !37
   store ptr %1, ptr %18, align 8, !tbaa !37
   ret void
@@ -321,7 +321,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %11, align 4, !tbaa !25
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %40
   store ptr %4, ptr %41, align 8, !tbaa !39
   ret ptr %4
 }
@@ -344,7 +344,7 @@ define void @Aig_TsiStatePrint(ptr noundef readonly captures(none) %0, ptr nound
   %6 = shl nuw nsw i32 %.01927, 1
   %7 = lshr i32 %.01927, 4
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !35
   %11 = and i32 %6, 30
   %12 = or disjoint i32 %11, 1
@@ -415,7 +415,7 @@ define i32 @Aig_TsiStateCount(ptr noundef readonly captures(none) %0, ptr nounde
   %6 = shl nuw nsw i32 %.01418, 1
   %7 = lshr i32 %.01418, 4
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !35
   %11 = and i32 %6, 30
   %12 = or disjoint i32 %11, 1
@@ -459,16 +459,16 @@ define void @Aig_TsiStateOrAll(ptr noundef readonly captures(none) %0, ptr nound
   %.val1223 = phi i32 [ %.val12, %._crit_edge ], [ %.val1214, %.lr.ph17 ]
   %11 = phi i32 [ %23, %._crit_edge ], [ %9, %.lr.ph17 ]
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge ], [ 0, %.lr.ph17 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv20
   %13 = load ptr, ptr %12, align 8, !tbaa !39
   %14 = icmp sgt i32 %11, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph17.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph17.split ]
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !35
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !35
   %19 = or i32 %18, %16
   store i32 %19, ptr %17, align 4, !tbaa !35
@@ -534,7 +534,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %21 = load ptr, ptr %14, align 8, !tbaa !46
   %22 = getelementptr i8, ptr %21, i64 8
   %.val194 = load ptr, ptr %22, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw ptr, ptr %.val194, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val194, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
@@ -564,7 +564,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %38 = phi ptr [ %16, %.critedge.preheader346 ], [ %46, %.critedge ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val193 = load ptr, ptr %39, align 8, !tbaa !28
-  %40 = getelementptr inbounds ptr, ptr %.val193, i64 %indvars.iv356
+  %40 = getelementptr inbounds [8 x i8], ptr %.val193, i64 %indvars.iv356
   %41 = load ptr, ptr %40, align 8, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i64, ptr %42, align 8
@@ -599,7 +599,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %55 = sub i32 %.2162309, %.val185310
   %56 = add i32 %55, %.val4.i214
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.val3.i216, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.val3.i216, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !39
   %60 = getelementptr i8, ptr %59, i64 24
   %.val204 = load i64, ptr %60, align 8
@@ -615,7 +615,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %67 = shl nuw nsw i32 1, %66
   %68 = lshr i32 %.2162309, 4
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %51, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !35
   %72 = or i32 %71, %67
   store i32 %72, ptr %70, align 4, !tbaa !35
@@ -632,7 +632,7 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
   %78 = shl nuw i32 2, %77
   %79 = lshr i32 %.2162309, 4
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %51, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !35
   %83 = or i32 %82, %78
   store i32 %83, ptr %81, align 4, !tbaa !35
@@ -665,10 +665,10 @@ define noalias noundef ptr @Aig_ManTernarySimulate(ptr noundef %0, i32 noundef %
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %99, %.lr.ph.i.i ]
-  %93 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.i
   %94 = load i32, ptr %93, align 4, !tbaa !35
   %95 = and i64 %indvars.iv.i.i, 127
-  %96 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr @Aig_TsiStateHash.s_FPrimes, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !35
   %98 = mul i32 %97, %94
   %99 = xor i32 %98, %.089.i.i
@@ -681,7 +681,7 @@ Aig_TsiStateHash.exit.i:                          ; preds = %.lr.ph.i.i, %89
   %100 = urem i32 %.08.lcssa.i.i, %91
   %101 = load ptr, ptr %34, align 8, !tbaa !34
   %102 = sext i32 %100 to i64
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %101, i64 %102
   %104 = sext i32 %90 to i64
   %105 = shl nsw i64 %104, 2
   %.01113.i = load ptr, ptr %103, align 8, !tbaa !37
@@ -695,7 +695,7 @@ Aig_TsiStateHash.exit.i:                          ; preds = %.lr.ph.i.i, %89
   br i1 %.not12.i, label %Aig_TsiStateLookup.exit, label %106
 
 106:                                              ; preds = %.lr.ph.i
-  %107 = getelementptr inbounds i32, ptr %.01115.i, i64 %104
+  %107 = getelementptr inbounds [4 x i8], ptr %.01115.i, i64 %104
   %.011.i = load ptr, ptr %107, align 8, !tbaa !37
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !38
@@ -710,10 +710,10 @@ Aig_TsiStateHash.exit.i:                          ; preds = %.lr.ph.i.i, %89
 .lr.ph.i.i221:                                    ; preds = %.lr.ph.i.i221, %.lr.ph.preheader.i.i219
   %indvars.iv.i.i222 = phi i64 [ 0, %.lr.ph.preheader.i.i219 ], [ %indvars.iv.next.i.i224, %.lr.ph.i.i221 ]
   %.089.i.i223 = phi i32 [ 0, %.lr.ph.preheader.i.i219 ], [ %114, %.lr.ph.i.i221 ]
-  %108 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i222
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.i222
   %109 = load i32, ptr %108, align 4, !tbaa !35
   %110 = and i64 %indvars.iv.i.i222, 127
-  %111 = getelementptr inbounds nuw i32, ptr @Aig_TsiStateHash.s_FPrimes, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @Aig_TsiStateHash.s_FPrimes, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !35
   %113 = mul i32 %112, %109
   %114 = xor i32 %113, %.089.i.i223
@@ -725,9 +725,9 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %.08.lcssa.i.i218 = phi i32 [ 0, %.loopexit ], [ %114, %.lr.ph.i.i221 ]
   %115 = urem i32 %.08.lcssa.i.i218, %91
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr %101, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %101, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !37
-  %119 = getelementptr inbounds i32, ptr %51, i64 %104
+  %119 = getelementptr inbounds [4 x i8], ptr %51, i64 %104
   store ptr %118, ptr %119, align 8, !tbaa !37
   store ptr %51, ptr %117, align 8, !tbaa !37
   %120 = load ptr, ptr %35, align 8, !tbaa !50
@@ -741,7 +741,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %indvars.iv359 = phi i64 [ %indvars.iv.next360, %160 ], [ 0, %Aig_TsiStateInsert.exit ]
   %124 = getelementptr i8, ptr %123, i64 8
   %.val192 = load ptr, ptr %124, align 8, !tbaa !28
-  %125 = getelementptr inbounds nuw ptr, ptr %.val192, i64 %indvars.iv359
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %.val192, i64 %indvars.iv359
   %126 = load ptr, ptr %125, align 8, !tbaa !39
   %127 = icmp eq ptr %126, null
   br i1 %127, label %160, label %128
@@ -843,7 +843,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %172 = phi ptr [ %166, %.lr.ph316.preheader ], [ %189, %.lr.ph316 ]
   %173 = getelementptr i8, ptr %172, i64 8
   %.val191 = load ptr, ptr %173, align 8, !tbaa !28
-  %174 = getelementptr inbounds ptr, ptr %.val191, i64 %indvars.iv362
+  %174 = getelementptr inbounds [8 x i8], ptr %.val191, i64 %indvars.iv362
   %175 = load ptr, ptr %174, align 8, !tbaa !39
   %176 = getelementptr i8, ptr %175, i64 8
   %.val211 = load ptr, ptr %176, align 8, !tbaa !51
@@ -884,7 +884,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %196 = getelementptr i8, ptr %193, i64 8
   %.val4.i243 = load ptr, ptr %196, align 8, !tbaa !28
   %197 = sext i32 %195 to i64
-  %198 = getelementptr inbounds ptr, ptr %.val4.i243, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr %.val4.i243, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !39
   %200 = load ptr, ptr %15, align 8, !tbaa !46
   %.val4.i244 = load i32, ptr %10, align 8, !tbaa !35
@@ -892,7 +892,7 @@ Aig_TsiStateInsert.exit:                          ; preds = %.lr.ph.i.i221, %.lo
   %202 = getelementptr i8, ptr %200, i64 8
   %.val3.i246 = load ptr, ptr %202, align 8, !tbaa !28
   %203 = sext i32 %201 to i64
-  %204 = getelementptr inbounds ptr, ptr %.val3.i246, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %.val3.i246, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !39
   %206 = getelementptr i8, ptr %199, i64 24
   %.val205 = load i64, ptr %206, align 8
@@ -984,15 +984,15 @@ Aig_TsiStop.exit:                                 ; preds = %Vec_PtrFree.exit.i,
 
 .lr.ph17.split.i:                                 ; preds = %.lr.ph17.split.i.preheader, %._crit_edge.loopexit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %._crit_edge.loopexit.i ], [ 0, %.lr.ph17.split.i.preheader ]
-  %239 = getelementptr inbounds nuw ptr, ptr %.val190, i64 %indvars.iv20.i
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %.val190, i64 %indvars.iv20.i
   %240 = load ptr, ptr %239, align 8, !tbaa !39
   br label %.lr.ph.i249
 
 .lr.ph.i249:                                      ; preds = %.lr.ph17.split.i, %.lr.ph.i249
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i249 ], [ 0, %.lr.ph17.split.i ]
-  %241 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %indvars.iv.i
   %242 = load i32, ptr %241, align 4, !tbaa !35
-  %243 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv.i
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %indvars.iv.i
   %244 = load i32, ptr %243, align 4, !tbaa !35
   %245 = or i32 %244, %242
   store i32 %245, ptr %243, align 4, !tbaa !35
@@ -1040,7 +1040,7 @@ Aig_TsiStateOrAll.exit.thread:                    ; preds = %.lr.ph17.i
 .lr.ph331:                                        ; preds = %.lr.ph331.preheader, %.lr.ph331
   %indvars.iv370 = phi i64 [ 0, %.lr.ph331.preheader ], [ %indvars.iv.next371, %.lr.ph331 ]
   %.0157330 = phi i32 [ 0, %.lr.ph331.preheader ], [ %spec.select, %.lr.ph331 ]
-  %256 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv370
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %indvars.iv370
   %257 = load i32, ptr %256, align 4, !tbaa !35
   %.not175 = icmp eq i32 %257, -1
   %spec.select = select i1 %.not175, i32 %.0157330, i32 1
@@ -1051,7 +1051,7 @@ Aig_TsiStateOrAll.exit.thread:                    ; preds = %.lr.ph17.i
 .lr.ph325:                                        ; preds = %.lr.ph325.preheader, %.lr.ph325
   %indvars.iv366 = phi i64 [ 0, %.lr.ph325.preheader ], [ %indvars.iv.next367, %.lr.ph325 ]
   %.3324 = phi i32 [ 0, %.lr.ph325.preheader ], [ %spec.select178, %.lr.ph325 ]
-  %258 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv366
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %indvars.iv366
   %259 = load i32, ptr %258, align 4, !tbaa !35
   %.not172 = icmp eq i32 %259, -1
   %spec.select178 = select i1 %.not172, i32 %.3324, i32 1
@@ -1070,7 +1070,7 @@ Aig_TsiStateOrAll.exit.thread:                    ; preds = %.lr.ph17.i
   %263 = phi i32 [ %249, %.preheader291 ], [ %249, %._crit_edge326.loopexit ], [ %252, %Aig_TsiStateOrAll.exit.thread ]
   %.7.lcssa = phi i64 [ 0, %.preheader291 ], [ %261, %._crit_edge326.loopexit ], [ 0, %Aig_TsiStateOrAll.exit.thread ]
   %.3.lcssa = phi i32 [ 0, %.preheader291 ], [ %spec.select178, %._crit_edge326.loopexit ], [ 0, %Aig_TsiStateOrAll.exit.thread ]
-  %264 = getelementptr inbounds nuw i32, ptr %235, i64 %.7.lcssa
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %.7.lcssa
   %265 = load i32, ptr %264, align 4, !tbaa !35
   %266 = sub i32 %263, %262
   %267 = lshr i32 -1, %266
@@ -1162,7 +1162,7 @@ Vec_PtrAlloc.exit:                                ; preds = %.thread, %280
   %292 = load ptr, ptr %15, align 8, !tbaa !46
   %293 = getelementptr i8, ptr %292, i64 8
   %.val189 = load ptr, ptr %293, align 8, !tbaa !28
-  %294 = getelementptr inbounds nuw ptr, ptr %.val189, i64 %indvars.iv377
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %.val189, i64 %indvars.iv377
   %295 = load ptr, ptr %294, align 8, !tbaa !39
   %296 = trunc nsw i64 %indvars.iv375 to i32
   %297 = icmp eq i32 %291, %296
@@ -1217,7 +1217,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %316 = phi i32 [ %291, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %315, %313 ], [ 16, %Vec_PtrGrow.exit.i ]
   %317 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %314, %313 ], [ %306, %Vec_PtrGrow.exit.i ]
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %318 = getelementptr inbounds nuw ptr, ptr %317, i64 %indvars.iv375
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %indvars.iv375
   store ptr %295, ptr %318, align 8, !tbaa !39
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %.val198 = load i32, ptr %10, align 8, !tbaa !35
@@ -1242,12 +1242,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %329 = getelementptr i8, ptr %326, i64 8
   %.val3.i261 = load ptr, ptr %329, align 8, !tbaa !28
   %330 = sext i32 %328 to i64
-  %331 = getelementptr inbounds ptr, ptr %.val3.i261, i64 %330
+  %331 = getelementptr inbounds [8 x i8], ptr %.val3.i261, i64 %330
   %332 = load ptr, ptr %331, align 8, !tbaa !39
   %333 = shl nuw nsw i32 %.9341, 1
   %334 = lshr i32 %.9341, 4
   %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds nuw i32, ptr %235, i64 %335
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %335
   %337 = load i32, ptr %336, align 4, !tbaa !35
   %338 = and i32 %333, 30
   %339 = or disjoint i32 %338, 1
@@ -1444,7 +1444,7 @@ default.unreachable:                              ; preds = %.critedge14
   %419 = add nsw i32 %325, 1
   store i32 %419, ptr %279, align 4, !tbaa !25
   %420 = sext i32 %325 to i64
-  %421 = getelementptr inbounds ptr, ptr %.sink442, i64 %420
+  %421 = getelementptr inbounds [8 x i8], ptr %.sink442, i64 %420
   store ptr %.sink, ptr %421, align 8, !tbaa !39
   br label %.critedge12
 

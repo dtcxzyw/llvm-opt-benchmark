@@ -478,13 +478,13 @@ define internal void @_ZNK4ncnn4Bias15forward_inplaceERNS_3MatERKNS_6OptionE.omp
   %indvars.iv35 = phi i64 [ %28, %.noexc23.us.preheader ], [ %indvars.iv.next36, %._crit_edge.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv35
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass.us
-  %31 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv35
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv35
   %32 = load float, ptr %31, align 4, !tbaa !49
   br label %33
 
 33:                                               ; preds = %.noexc23.us, %33
   %indvars.iv = phi i64 [ 0, %.noexc23.us ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !49
   %36 = fadd fast float %35, %32
   store float %36, ptr %34, align 4, !tbaa !49

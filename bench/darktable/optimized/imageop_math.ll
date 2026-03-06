@@ -363,7 +363,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
 34:                                               ; preds = %._crit_edge.us, %.lr.ph174.split.us
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %._crit_edge.us ], [ 0, %.lr.ph174.split.us ]
   %35 = mul nsw i64 %indvars.iv192, %31
-  %36 = getelementptr inbounds i16, ptr %0, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %0, i64 %35
   %37 = trunc nuw nsw i64 %indvars.iv192 to i32
   %38 = uitofp nneg i32 %37 to float
   %39 = fmul reassoc nsz arcp contract afn float %18, %38
@@ -425,7 +425,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
   %71 = and i32 %70, 3
   %72 = icmp slt i32 %62, %66
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 %73
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   br i1 %72, label %.preheader.lr.ph.split.us.us.us, label %._crit_edge143.us.us.thread
 
@@ -474,7 +474,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
   %89 = trunc nsw i64 %indvars.iv to i32
   %.reass.us149.us.us = add i32 %invariant.op.us.us168.us, %89
   %90 = sext i32 %.reass.us149.us.us to i64
-  %91 = getelementptr inbounds i16, ptr %1, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %1, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !16
   %93 = zext i16 %92 to i32
   %94 = add i32 %.1134.us147.us.us, %93
@@ -510,13 +510,13 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
   %104 = trunc nsw i64 %indvars.iv189 to i32
   %.reass.us.us.us.us.us = add i32 %invariant.op.us.us.us.us, %104
   %105 = sext i32 %.reass.us.us.us.us.us to i64
-  %106 = getelementptr inbounds i16, ptr %1, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %1, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !16
   %108 = zext i16 %107 to i32
   %109 = add i32 %.1134.us.us.us.us.us, %108
   %.reass139.us.us.us.us = add i32 %invariant.op138.us.us.us.us, %104
   %110 = sext i32 %.reass139.us.us.us.us to i64
-  %111 = getelementptr inbounds i16, ptr %1, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %1, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !16
   %113 = zext i16 %112 to i32
   %114 = add i32 %109, %113
@@ -544,12 +544,12 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
   %127 = and i32 %126, 3
   %128 = add nsw i32 %.0110131, %17
   %129 = zext nneg i32 %127 to i64
-  %130 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 %129
+  %130 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !6
   %132 = add nsw i32 %131, 1
   store i32 %132, ptr %130, align 4, !tbaa !6
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i32, ptr %130, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %130, i64 %133
   store i32 %128, ptr %134, align 4, !tbaa !6
   br i1 %121, label %120, label %119
 
@@ -629,7 +629,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 .lr.ph501.us:                                     ; preds = %._crit_edge502.us, %.lr.ph505.split.us
   %indvars.iv583 = phi i64 [ %indvars.iv.next584, %._crit_edge502.us ], [ 0, %.lr.ph505.split.us ]
   %51 = mul nsw i64 %indvars.iv583, %49
-  %52 = getelementptr inbounds float, ptr %0, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %0, i64 %51
   %53 = trunc nuw nsw i64 %indvars.iv583 to i32
   %54 = uitofp nneg i32 %53 to float
   %55 = fmul reassoc nsz arcp contract afn float %12, %54
@@ -670,18 +670,18 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   %87 = sext i32 %66 to i64
   %88 = sext i32 %76 to i64
   %89 = sext i32 %78 to i64
-  %invariant.gep608 = getelementptr float, ptr %1, i64 %86
-  %invariant.gep610 = getelementptr float, ptr %1, i64 %86
-  %invariant.gep612 = getelementptr float, ptr %1, i64 %87
-  %invariant.gep614 = getelementptr float, ptr %1, i64 %87
-  %invariant.gep640 = getelementptr float, ptr %1, i64 %88
-  %invariant.gep642 = getelementptr float, ptr %1, i64 %88
-  %invariant.gep644 = getelementptr float, ptr %1, i64 %89
-  %invariant.gep646 = getelementptr float, ptr %1, i64 %89
-  %invariant.gep648 = getelementptr float, ptr %1, i64 %88
-  %invariant.gep650 = getelementptr float, ptr %1, i64 %88
-  %invariant.gep652 = getelementptr float, ptr %1, i64 %89
-  %invariant.gep654 = getelementptr float, ptr %1, i64 %89
+  %invariant.gep608 = getelementptr [4 x i8], ptr %1, i64 %86
+  %invariant.gep610 = getelementptr [4 x i8], ptr %1, i64 %86
+  %invariant.gep612 = getelementptr [4 x i8], ptr %1, i64 %87
+  %invariant.gep614 = getelementptr [4 x i8], ptr %1, i64 %87
+  %invariant.gep640 = getelementptr [4 x i8], ptr %1, i64 %88
+  %invariant.gep642 = getelementptr [4 x i8], ptr %1, i64 %88
+  %invariant.gep644 = getelementptr [4 x i8], ptr %1, i64 %89
+  %invariant.gep646 = getelementptr [4 x i8], ptr %1, i64 %89
+  %invariant.gep648 = getelementptr [4 x i8], ptr %1, i64 %88
+  %invariant.gep650 = getelementptr [4 x i8], ptr %1, i64 %88
+  %invariant.gep652 = getelementptr [4 x i8], ptr %1, i64 %89
+  %invariant.gep654 = getelementptr [4 x i8], ptr %1, i64 %89
   br label %90
 
 90:                                               ; preds = %.lr.ph501.us, %351
@@ -701,23 +701,23 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %99 = add nsw i32 %98, %64
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds float, ptr %1, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %1, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !18
   store float %102, ptr %9, align 16, !tbaa !18
   %103 = add nsw i32 %98, 1
   %104 = add nsw i32 %103, %64
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds float, ptr %1, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %1, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !18
   store float %107, ptr %33, align 4, !tbaa !18
   %108 = add nsw i32 %98, %66
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds float, ptr %1, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %1, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !18
   store float %111, ptr %34, align 8, !tbaa !18
   %112 = add nsw i32 %103, %66
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds float, ptr %1, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %1, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !18
   store float %115, ptr %35, align 4, !tbaa !18
   %116 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %97
@@ -732,18 +732,18 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 121:                                              ; preds = %.lr.ph.us, %129
   %indvars.iv514 = phi i64 [ %84, %.lr.ph.us ], [ %indvars.iv.next515, %129 ]
   %122 = mul nsw i64 %indvars.iv514, %48
-  %gep = getelementptr float, ptr %invariant.gep, i64 %122
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %122
   %123 = load float, ptr %gep, align 4, !tbaa !18
   store float %123, ptr %9, align 16, !tbaa !18
-  %gep603 = getelementptr float, ptr %invariant.gep602, i64 %122
+  %gep603 = getelementptr [4 x i8], ptr %invariant.gep602, i64 %122
   %124 = load float, ptr %gep603, align 4, !tbaa !18
   store float %124, ptr %33, align 4, !tbaa !18
   %125 = add nsw i64 %indvars.iv514, 1
   %126 = mul nsw i64 %125, %48
-  %gep605 = getelementptr float, ptr %invariant.gep604, i64 %126
+  %gep605 = getelementptr [4 x i8], ptr %invariant.gep604, i64 %126
   %127 = load float, ptr %gep605, align 4, !tbaa !18
   store float %127, ptr %34, align 8, !tbaa !18
-  %gep607 = getelementptr float, ptr %invariant.gep606, i64 %126
+  %gep607 = getelementptr [4 x i8], ptr %invariant.gep606, i64 %126
   %128 = load float, ptr %gep607, align 4, !tbaa !18
   store float %128, ptr %35, align 4, !tbaa !18
   br label %130
@@ -755,10 +755,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 130:                                              ; preds = %130, %121
   %indvars.iv510 = phi i64 [ %indvars.iv.next511, %130 ], [ 0, %121 ]
-  %131 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv510
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv510
   %132 = load float, ptr %131, align 4, !tbaa !18
   %133 = fmul reassoc nsz arcp contract afn float %132, %116
-  %134 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv510
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv510
   %135 = load float, ptr %134, align 4, !tbaa !18
   %136 = fadd reassoc nsz arcp contract afn float %135, %133
   store float %136, ptr %134, align 4, !tbaa !18
@@ -778,17 +778,17 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 .lr.ph464.us:                                     ; preds = %.lr.ph464.us.preheader, %145
   %indvars.iv521 = phi i64 [ %138, %.lr.ph464.us.preheader ], [ %indvars.iv.next522, %145 ]
-  %gep609 = getelementptr float, ptr %invariant.gep608, i64 %indvars.iv521
+  %gep609 = getelementptr [4 x i8], ptr %invariant.gep608, i64 %indvars.iv521
   %140 = load float, ptr %gep609, align 4, !tbaa !18
   store float %140, ptr %9, align 16, !tbaa !18
   %141 = add nsw i64 %indvars.iv521, 1
-  %gep611 = getelementptr float, ptr %invariant.gep610, i64 %141
+  %gep611 = getelementptr [4 x i8], ptr %invariant.gep610, i64 %141
   %142 = load float, ptr %gep611, align 4, !tbaa !18
   store float %142, ptr %33, align 4, !tbaa !18
-  %gep613 = getelementptr float, ptr %invariant.gep612, i64 %indvars.iv521
+  %gep613 = getelementptr [4 x i8], ptr %invariant.gep612, i64 %indvars.iv521
   %143 = load float, ptr %gep613, align 4, !tbaa !18
   store float %143, ptr %34, align 8, !tbaa !18
-  %gep615 = getelementptr float, ptr %invariant.gep614, i64 %141
+  %gep615 = getelementptr [4 x i8], ptr %invariant.gep614, i64 %141
   %144 = load float, ptr %gep615, align 4, !tbaa !18
   store float %144, ptr %35, align 4, !tbaa !18
   br label %146
@@ -800,10 +800,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 146:                                              ; preds = %146, %.lr.ph464.us
   %indvars.iv517 = phi i64 [ %indvars.iv.next518, %146 ], [ 0, %.lr.ph464.us ]
-  %147 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv517
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv517
   %148 = load float, ptr %147, align 4, !tbaa !18
   %149 = fmul reassoc nsz arcp contract afn float %148, %67
-  %150 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv517
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv517
   %151 = load float, ptr %150, align 4, !tbaa !18
   %152 = fadd reassoc nsz arcp contract afn float %151, %149
   store float %152, ptr %150, align 4, !tbaa !18
@@ -813,17 +813,17 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 153:                                              ; preds = %.lr.ph468.us, %159
   %indvars.iv528 = phi i64 [ %391, %.lr.ph468.us ], [ %indvars.iv.next529, %159 ]
-  %gep617 = getelementptr float, ptr %invariant.gep616, i64 %indvars.iv528
+  %gep617 = getelementptr [4 x i8], ptr %invariant.gep616, i64 %indvars.iv528
   %154 = load float, ptr %gep617, align 4, !tbaa !18
   store float %154, ptr %9, align 16, !tbaa !18
   %155 = add nsw i64 %indvars.iv528, 1
-  %gep619 = getelementptr float, ptr %invariant.gep618, i64 %155
+  %gep619 = getelementptr [4 x i8], ptr %invariant.gep618, i64 %155
   %156 = load float, ptr %gep619, align 4, !tbaa !18
   store float %156, ptr %33, align 4, !tbaa !18
-  %gep621 = getelementptr float, ptr %invariant.gep620, i64 %indvars.iv528
+  %gep621 = getelementptr [4 x i8], ptr %invariant.gep620, i64 %indvars.iv528
   %157 = load float, ptr %gep621, align 4, !tbaa !18
   store float %157, ptr %34, align 8, !tbaa !18
-  %gep623 = getelementptr float, ptr %invariant.gep622, i64 %155
+  %gep623 = getelementptr [4 x i8], ptr %invariant.gep622, i64 %155
   %158 = load float, ptr %gep623, align 4, !tbaa !18
   store float %158, ptr %35, align 4, !tbaa !18
   br label %160
@@ -835,9 +835,9 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 160:                                              ; preds = %160, %153
   %indvars.iv524 = phi i64 [ %indvars.iv.next525, %160 ], [ 0, %153 ]
-  %161 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv524
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv524
   %162 = load float, ptr %161, align 4, !tbaa !18
-  %163 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv524
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv524
   %164 = load float, ptr %163, align 4, !tbaa !18
   %165 = fadd reassoc nsz arcp contract afn float %164, %162
   store float %165, ptr %163, align 4, !tbaa !18
@@ -880,17 +880,17 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 .lr.ph476.us:                                     ; preds = %.lr.ph476.us.preheader, %182
   %indvars.iv538 = phi i64 [ %384, %.lr.ph476.us.preheader ], [ %indvars.iv.next539, %182 ]
-  %gep641 = getelementptr float, ptr %invariant.gep640, i64 %indvars.iv538
+  %gep641 = getelementptr [4 x i8], ptr %invariant.gep640, i64 %indvars.iv538
   %177 = load float, ptr %gep641, align 4, !tbaa !18
   store float %177, ptr %9, align 16, !tbaa !18
   %178 = add nsw i64 %indvars.iv538, 1
-  %gep643 = getelementptr float, ptr %invariant.gep642, i64 %178
+  %gep643 = getelementptr [4 x i8], ptr %invariant.gep642, i64 %178
   %179 = load float, ptr %gep643, align 4, !tbaa !18
   store float %179, ptr %33, align 4, !tbaa !18
-  %gep645 = getelementptr float, ptr %invariant.gep644, i64 %indvars.iv538
+  %gep645 = getelementptr [4 x i8], ptr %invariant.gep644, i64 %indvars.iv538
   %180 = load float, ptr %gep645, align 4, !tbaa !18
   store float %180, ptr %34, align 8, !tbaa !18
-  %gep647 = getelementptr float, ptr %invariant.gep646, i64 %178
+  %gep647 = getelementptr [4 x i8], ptr %invariant.gep646, i64 %178
   %181 = load float, ptr %gep647, align 4, !tbaa !18
   store float %181, ptr %35, align 4, !tbaa !18
   br label %183
@@ -902,10 +902,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 183:                                              ; preds = %183, %.lr.ph476.us
   %indvars.iv534 = phi i64 [ %indvars.iv.next535, %183 ], [ 0, %.lr.ph476.us ]
-  %184 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv534
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv534
   %185 = load float, ptr %184, align 4, !tbaa !18
   %186 = fmul reassoc nsz arcp contract afn float %185, %60
-  %187 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv534
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv534
   %188 = load float, ptr %187, align 4, !tbaa !18
   %189 = fadd reassoc nsz arcp contract afn float %188, %186
   store float %189, ptr %187, align 4, !tbaa !18
@@ -916,22 +916,22 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 ._crit_edge477.us:                                ; preds = %182, %.preheader454.us
   %190 = add nsw i32 %98, %76
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds float, ptr %1, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %1, i64 %191
   %193 = load float, ptr %192, align 4, !tbaa !18
   store float %193, ptr %9, align 16, !tbaa !18
   %194 = add nsw i32 %103, %76
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds float, ptr %1, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %1, i64 %195
   %197 = load float, ptr %196, align 4, !tbaa !18
   store float %197, ptr %33, align 4, !tbaa !18
   %198 = add nsw i32 %98, %78
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds float, ptr %1, i64 %199
+  %200 = getelementptr inbounds [4 x i8], ptr %1, i64 %199
   %201 = load float, ptr %200, align 4, !tbaa !18
   store float %201, ptr %34, align 8, !tbaa !18
   %202 = add nsw i32 %103, %78
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds float, ptr %1, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %1, i64 %203
   %205 = load float, ptr %204, align 4, !tbaa !18
   store float %205, ptr %35, align 4, !tbaa !18
   %206 = fmul reassoc nsz arcp contract afn float %116, %60
@@ -948,10 +948,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 214:                                              ; preds = %214, %._crit_edge477.us
   %indvars.iv541 = phi i64 [ %indvars.iv.next542, %214 ], [ 0, %._crit_edge477.us ]
-  %215 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv541
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv541
   %216 = load float, ptr %215, align 4, !tbaa !18
   %217 = fmul reassoc nsz arcp contract afn float %206, %216
-  %218 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv541
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv541
   %219 = load float, ptr %218, align 4, !tbaa !18
   %220 = fadd reassoc nsz arcp contract afn float %219, %217
   store float %220, ptr %218, align 4, !tbaa !18
@@ -962,18 +962,18 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 221:                                              ; preds = %.lr.ph482.us, %229
   %indvars.iv549 = phi i64 [ %84, %.lr.ph482.us ], [ %indvars.iv.next550, %229 ]
   %222 = mul nsw i64 %indvars.iv549, %48
-  %gep625 = getelementptr float, ptr %invariant.gep624, i64 %222
+  %gep625 = getelementptr [4 x i8], ptr %invariant.gep624, i64 %222
   %223 = load float, ptr %gep625, align 4, !tbaa !18
   store float %223, ptr %9, align 16, !tbaa !18
-  %gep627 = getelementptr float, ptr %invariant.gep626, i64 %222
+  %gep627 = getelementptr [4 x i8], ptr %invariant.gep626, i64 %222
   %224 = load float, ptr %gep627, align 4, !tbaa !18
   store float %224, ptr %33, align 4, !tbaa !18
   %225 = add nsw i64 %indvars.iv549, 1
   %226 = mul nsw i64 %225, %48
-  %gep629 = getelementptr float, ptr %invariant.gep628, i64 %226
+  %gep629 = getelementptr [4 x i8], ptr %invariant.gep628, i64 %226
   %227 = load float, ptr %gep629, align 4, !tbaa !18
   store float %227, ptr %34, align 8, !tbaa !18
-  %gep631 = getelementptr float, ptr %invariant.gep630, i64 %226
+  %gep631 = getelementptr [4 x i8], ptr %invariant.gep630, i64 %226
   %228 = load float, ptr %gep631, align 4, !tbaa !18
   store float %228, ptr %35, align 4, !tbaa !18
   br label %230
@@ -985,10 +985,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 230:                                              ; preds = %230, %221
   %indvars.iv545 = phi i64 [ %indvars.iv.next546, %230 ], [ 0, %221 ]
-  %231 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv545
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv545
   %232 = load float, ptr %231, align 4, !tbaa !18
   %233 = fmul reassoc nsz arcp contract afn float %232, %97
-  %234 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv545
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv545
   %235 = load float, ptr %234, align 4, !tbaa !18
   %236 = fadd reassoc nsz arcp contract afn float %235, %233
   store float %236, ptr %234, align 4, !tbaa !18
@@ -1001,22 +1001,22 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   %.pre-phi590 = phi i32 [ %.pre589, %.preheader453.us.._crit_edge483.us_crit_edge ], [ %393, %229 ]
   %237 = add nsw i32 %.pre-phi590, %64
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds float, ptr %1, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %1, i64 %238
   %240 = load float, ptr %239, align 4, !tbaa !18
   store float %240, ptr %9, align 16, !tbaa !18
   %241 = add nsw i32 %.pre-phi592, %64
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds float, ptr %1, i64 %242
+  %243 = getelementptr inbounds [4 x i8], ptr %1, i64 %242
   %244 = load float, ptr %243, align 4, !tbaa !18
   store float %244, ptr %33, align 4, !tbaa !18
   %245 = add nsw i32 %.pre-phi590, %66
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds float, ptr %1, i64 %246
+  %247 = getelementptr inbounds [4 x i8], ptr %1, i64 %246
   %248 = load float, ptr %247, align 4, !tbaa !18
   store float %248, ptr %34, align 8, !tbaa !18
   %249 = add nsw i32 %.pre-phi592, %66
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds float, ptr %1, i64 %250
+  %251 = getelementptr inbounds [4 x i8], ptr %1, i64 %250
   %252 = load float, ptr %251, align 4, !tbaa !18
   store float %252, ptr %35, align 4, !tbaa !18
   %253 = fmul reassoc nsz arcp contract afn float %97, %67
@@ -1024,10 +1024,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 254:                                              ; preds = %254, %._crit_edge483.us
   %indvars.iv552 = phi i64 [ %indvars.iv.next553, %254 ], [ 0, %._crit_edge483.us ]
-  %255 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv552
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv552
   %256 = load float, ptr %255, align 4, !tbaa !18
   %257 = fmul reassoc nsz arcp contract afn float %253, %256
-  %258 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv552
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv552
   %259 = load float, ptr %258, align 4, !tbaa !18
   %260 = fadd reassoc nsz arcp contract afn float %259, %257
   store float %260, ptr %258, align 4, !tbaa !18
@@ -1038,18 +1038,18 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 261:                                              ; preds = %.lr.ph488.us, %269
   %indvars.iv560 = phi i64 [ %84, %.lr.ph488.us ], [ %indvars.iv.next561, %269 ]
   %262 = mul nsw i64 %indvars.iv560, %48
-  %gep633 = getelementptr float, ptr %invariant.gep632, i64 %262
+  %gep633 = getelementptr [4 x i8], ptr %invariant.gep632, i64 %262
   %263 = load float, ptr %gep633, align 4, !tbaa !18
   store float %263, ptr %9, align 16, !tbaa !18
-  %gep635 = getelementptr float, ptr %invariant.gep634, i64 %262
+  %gep635 = getelementptr [4 x i8], ptr %invariant.gep634, i64 %262
   %264 = load float, ptr %gep635, align 4, !tbaa !18
   store float %264, ptr %33, align 4, !tbaa !18
   %265 = add nsw i64 %indvars.iv560, 1
   %266 = mul nsw i64 %265, %48
-  %gep637 = getelementptr float, ptr %invariant.gep636, i64 %266
+  %gep637 = getelementptr [4 x i8], ptr %invariant.gep636, i64 %266
   %267 = load float, ptr %gep637, align 4, !tbaa !18
   store float %267, ptr %34, align 8, !tbaa !18
-  %gep639 = getelementptr float, ptr %invariant.gep638, i64 %266
+  %gep639 = getelementptr [4 x i8], ptr %invariant.gep638, i64 %266
   %268 = load float, ptr %gep639, align 4, !tbaa !18
   store float %268, ptr %35, align 4, !tbaa !18
   br label %270
@@ -1061,10 +1061,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 270:                                              ; preds = %270, %261
   %indvars.iv556 = phi i64 [ %indvars.iv.next557, %270 ], [ 0, %261 ]
-  %271 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv556
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv556
   %272 = load float, ptr %271, align 4, !tbaa !18
   %273 = fmul reassoc nsz arcp contract afn float %272, %97
-  %274 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv556
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv556
   %275 = load float, ptr %274, align 4, !tbaa !18
   %276 = fadd reassoc nsz arcp contract afn float %275, %273
   store float %276, ptr %274, align 4, !tbaa !18
@@ -1077,22 +1077,22 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   %.pre-phi = phi i32 [ %.pre, %.preheader452.us.._crit_edge489.us_crit_edge ], [ %397, %269 ]
   %277 = add nsw i32 %.pre-phi, %64
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds float, ptr %1, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %1, i64 %278
   %280 = load float, ptr %279, align 4, !tbaa !18
   store float %280, ptr %9, align 16, !tbaa !18
   %281 = add nsw i32 %.pre-phi588, %64
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds float, ptr %1, i64 %282
+  %283 = getelementptr inbounds [4 x i8], ptr %1, i64 %282
   %284 = load float, ptr %283, align 4, !tbaa !18
   store float %284, ptr %33, align 4, !tbaa !18
   %285 = add nsw i32 %.pre-phi, %66
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds float, ptr %1, i64 %286
+  %287 = getelementptr inbounds [4 x i8], ptr %1, i64 %286
   %288 = load float, ptr %287, align 4, !tbaa !18
   store float %288, ptr %34, align 8, !tbaa !18
   %289 = add nsw i32 %.pre-phi588, %66
   %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds float, ptr %1, i64 %290
+  %291 = getelementptr inbounds [4 x i8], ptr %1, i64 %290
   %292 = load float, ptr %291, align 4, !tbaa !18
   store float %292, ptr %35, align 4, !tbaa !18
   %293 = fmul reassoc nsz arcp contract afn float %97, %67
@@ -1100,17 +1100,17 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 .lr.ph494.us:                                     ; preds = %.lr.ph494.us.preheader, %299
   %indvars.iv571 = phi i64 [ %382, %.lr.ph494.us.preheader ], [ %indvars.iv.next572, %299 ]
-  %gep649 = getelementptr float, ptr %invariant.gep648, i64 %indvars.iv571
+  %gep649 = getelementptr [4 x i8], ptr %invariant.gep648, i64 %indvars.iv571
   %294 = load float, ptr %gep649, align 4, !tbaa !18
   store float %294, ptr %9, align 16, !tbaa !18
   %295 = add nsw i64 %indvars.iv571, 1
-  %gep651 = getelementptr float, ptr %invariant.gep650, i64 %295
+  %gep651 = getelementptr [4 x i8], ptr %invariant.gep650, i64 %295
   %296 = load float, ptr %gep651, align 4, !tbaa !18
   store float %296, ptr %33, align 4, !tbaa !18
-  %gep653 = getelementptr float, ptr %invariant.gep652, i64 %indvars.iv571
+  %gep653 = getelementptr [4 x i8], ptr %invariant.gep652, i64 %indvars.iv571
   %297 = load float, ptr %gep653, align 4, !tbaa !18
   store float %297, ptr %34, align 8, !tbaa !18
-  %gep655 = getelementptr float, ptr %invariant.gep654, i64 %295
+  %gep655 = getelementptr [4 x i8], ptr %invariant.gep654, i64 %295
   %298 = load float, ptr %gep655, align 4, !tbaa !18
   store float %298, ptr %35, align 4, !tbaa !18
   br label %300
@@ -1122,10 +1122,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 300:                                              ; preds = %300, %.lr.ph494.us
   %indvars.iv567 = phi i64 [ %indvars.iv.next568, %300 ], [ 0, %.lr.ph494.us ]
-  %301 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv567
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv567
   %302 = load float, ptr %301, align 4, !tbaa !18
   %303 = fmul reassoc nsz arcp contract afn float %302, %60
-  %304 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv567
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv567
   %305 = load float, ptr %304, align 4, !tbaa !18
   %306 = fadd reassoc nsz arcp contract afn float %305, %303
   store float %306, ptr %304, align 4, !tbaa !18
@@ -1136,22 +1136,22 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 ._crit_edge495.us:                                ; preds = %299, %.preheader451.us
   %307 = add nsw i32 %98, %76
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds float, ptr %1, i64 %308
+  %309 = getelementptr inbounds [4 x i8], ptr %1, i64 %308
   %310 = load float, ptr %309, align 4, !tbaa !18
   store float %310, ptr %9, align 16, !tbaa !18
   %311 = add nsw i32 %103, %76
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds float, ptr %1, i64 %312
+  %313 = getelementptr inbounds [4 x i8], ptr %1, i64 %312
   %314 = load float, ptr %313, align 4, !tbaa !18
   store float %314, ptr %33, align 4, !tbaa !18
   %315 = add nsw i32 %98, %78
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds float, ptr %1, i64 %316
+  %317 = getelementptr inbounds [4 x i8], ptr %1, i64 %316
   %318 = load float, ptr %317, align 4, !tbaa !18
   store float %318, ptr %34, align 8, !tbaa !18
   %319 = add nsw i32 %103, %78
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds float, ptr %1, i64 %320
+  %321 = getelementptr inbounds [4 x i8], ptr %1, i64 %320
   %322 = load float, ptr %321, align 4, !tbaa !18
   store float %322, ptr %35, align 4, !tbaa !18
   %323 = fmul reassoc nsz arcp contract afn float %116, %60
@@ -1160,22 +1160,22 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 324:                                              ; preds = %361
   %325 = add nsw i32 %.pre-phi, %76
   %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds float, ptr %1, i64 %326
+  %327 = getelementptr inbounds [4 x i8], ptr %1, i64 %326
   %328 = load float, ptr %327, align 4, !tbaa !18
   store float %328, ptr %9, align 16, !tbaa !18
   %329 = add nsw i32 %.pre-phi588, %76
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds float, ptr %1, i64 %330
+  %331 = getelementptr inbounds [4 x i8], ptr %1, i64 %330
   %332 = load float, ptr %331, align 4, !tbaa !18
   store float %332, ptr %33, align 4, !tbaa !18
   %333 = add nsw i32 %.pre-phi, %78
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds float, ptr %1, i64 %334
+  %335 = getelementptr inbounds [4 x i8], ptr %1, i64 %334
   %336 = load float, ptr %335, align 4, !tbaa !18
   store float %336, ptr %34, align 8, !tbaa !18
   %337 = add nsw i32 %.pre-phi588, %78
   %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds float, ptr %1, i64 %338
+  %339 = getelementptr inbounds [4 x i8], ptr %1, i64 %338
   %340 = load float, ptr %339, align 4, !tbaa !18
   store float %340, ptr %35, align 4, !tbaa !18
   %341 = fmul reassoc nsz arcp contract afn float %97, %60
@@ -1191,7 +1191,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   %345 = and i32 %344, 1
   %346 = or disjoint i32 %345, %82
   %347 = zext nneg i32 %346 to i64
-  %348 = getelementptr inbounds nuw float, ptr %8, i64 %347
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %347
   %349 = load float, ptr %348, align 4, !tbaa !18
   %350 = fdiv reassoc nsz arcp contract afn float %349, %.0425.us
   store float %350, ptr %.0429498.us, align 4, !tbaa !18
@@ -1207,10 +1207,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 354:                                              ; preds = %354, %324
   %indvars.iv578 = phi i64 [ %indvars.iv.next579, %354 ], [ 0, %324 ]
-  %355 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv578
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv578
   %356 = load float, ptr %355, align 4, !tbaa !18
   %357 = fmul reassoc nsz arcp contract afn float %341, %356
-  %358 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv578
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv578
   %359 = load float, ptr %358, align 4, !tbaa !18
   %360 = fadd reassoc nsz arcp contract afn float %359, %357
   store float %360, ptr %358, align 4, !tbaa !18
@@ -1220,10 +1220,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 361:                                              ; preds = %361, %._crit_edge495.us
   %indvars.iv574 = phi i64 [ %indvars.iv.next575, %361 ], [ 0, %._crit_edge495.us ]
-  %362 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv574
+  %362 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv574
   %363 = load float, ptr %362, align 4, !tbaa !18
   %364 = fmul reassoc nsz arcp contract afn float %323, %363
-  %365 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv574
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv574
   %366 = load float, ptr %365, align 4, !tbaa !18
   %367 = fadd reassoc nsz arcp contract afn float %366, %364
   store float %367, ptr %365, align 4, !tbaa !18
@@ -1233,10 +1233,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 368:                                              ; preds = %368, %._crit_edge489.us
   %indvars.iv563 = phi i64 [ %indvars.iv.next564, %368 ], [ 0, %._crit_edge489.us ]
-  %369 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv563
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv563
   %370 = load float, ptr %369, align 4, !tbaa !18
   %371 = fmul reassoc nsz arcp contract afn float %293, %370
-  %372 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv563
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv563
   %373 = load float, ptr %372, align 4, !tbaa !18
   %374 = fadd reassoc nsz arcp contract afn float %373, %371
   store float %374, ptr %372, align 4, !tbaa !18
@@ -1246,10 +1246,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 
 375:                                              ; preds = %375, %90
   %indvars.iv = phi i64 [ %indvars.iv.next, %375 ], [ 0, %90 ]
-  %376 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %377 = load float, ptr %376, align 4, !tbaa !18
   %378 = fmul reassoc nsz arcp contract afn float %117, %377
-  %379 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %380 = load float, ptr %379, align 4, !tbaa !18
   %381 = fadd reassoc nsz arcp contract afn float %380, %378
   store float %381, ptr %379, align 4, !tbaa !18
@@ -1293,20 +1293,20 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
 .lr.ph.us:                                        ; preds = %118
   %386 = sext i32 %98 to i64
   %387 = sext i32 %103 to i64
-  %invariant.gep = getelementptr float, ptr %1, i64 %386
-  %invariant.gep602 = getelementptr float, ptr %1, i64 %387
-  %invariant.gep604 = getelementptr float, ptr %1, i64 %386
-  %invariant.gep606 = getelementptr float, ptr %1, i64 %387
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %386
+  %invariant.gep602 = getelementptr [4 x i8], ptr %1, i64 %387
+  %invariant.gep604 = getelementptr [4 x i8], ptr %1, i64 %386
+  %invariant.gep606 = getelementptr [4 x i8], ptr %1, i64 %387
   br label %121
 
 .lr.ph468.us:                                     ; preds = %.preheader.us
   %388 = mul nsw i64 %indvars.iv531, %48
   %389 = add nsw i64 %indvars.iv531, 1
   %390 = mul nsw i64 %389, %48
-  %invariant.gep616 = getelementptr float, ptr %1, i64 %388
-  %invariant.gep618 = getelementptr float, ptr %1, i64 %388
-  %invariant.gep620 = getelementptr float, ptr %1, i64 %390
-  %invariant.gep622 = getelementptr float, ptr %1, i64 %390
+  %invariant.gep616 = getelementptr [4 x i8], ptr %1, i64 %388
+  %invariant.gep618 = getelementptr [4 x i8], ptr %1, i64 %388
+  %invariant.gep620 = getelementptr [4 x i8], ptr %1, i64 %390
+  %invariant.gep622 = getelementptr [4 x i8], ptr %1, i64 %390
   br label %153
 
 .preheader.lr.ph.us:                              ; preds = %.preheader455.us
@@ -1319,10 +1319,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   %394 = add nsw i32 %120, 3
   %395 = sext i32 %393 to i64
   %396 = sext i32 %394 to i64
-  %invariant.gep624 = getelementptr float, ptr %1, i64 %395
-  %invariant.gep626 = getelementptr float, ptr %1, i64 %396
-  %invariant.gep628 = getelementptr float, ptr %1, i64 %395
-  %invariant.gep630 = getelementptr float, ptr %1, i64 %396
+  %invariant.gep624 = getelementptr [4 x i8], ptr %1, i64 %395
+  %invariant.gep626 = getelementptr [4 x i8], ptr %1, i64 %396
+  %invariant.gep628 = getelementptr [4 x i8], ptr %1, i64 %395
+  %invariant.gep630 = getelementptr [4 x i8], ptr %1, i64 %396
   br label %221
 
 .lr.ph488.us:                                     ; preds = %._crit_edge472.us
@@ -1330,10 +1330,10 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size_f(ptr noundef writeonly captu
   %398 = add nsw i32 %120, 3
   %399 = sext i32 %397 to i64
   %400 = sext i32 %398 to i64
-  %invariant.gep632 = getelementptr float, ptr %1, i64 %399
-  %invariant.gep634 = getelementptr float, ptr %1, i64 %400
-  %invariant.gep636 = getelementptr float, ptr %1, i64 %399
-  %invariant.gep638 = getelementptr float, ptr %1, i64 %400
+  %invariant.gep632 = getelementptr [4 x i8], ptr %1, i64 %399
+  %invariant.gep634 = getelementptr [4 x i8], ptr %1, i64 %400
+  %invariant.gep636 = getelementptr [4 x i8], ptr %1, i64 %399
+  %invariant.gep638 = getelementptr [4 x i8], ptr %1, i64 %400
   br label %261
 
 ._crit_edge502.us:                                ; preds = %351
@@ -1402,7 +1402,7 @@ FCxtrans.exit.lr.ph.us:                           ; preds = %._crit_edge.us, %.l
 
 FCxtrans.exit.us119.preheader:                    ; preds = %FCxtrans.exit.lr.ph.us
   %42 = mul nsw i64 %indvars.iv154, %28
-  %43 = getelementptr inbounds i16, ptr %0, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %0, i64 %42
   %44 = zext nneg i32 %spec.select.us to i64
   %45 = add nuw nsw i32 %38, 1
   %wide.trip.count141 = zext nneg i32 %45 to i64
@@ -1443,7 +1443,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %FCxtrans.exit82.us
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %64 = load i16, ptr %gep, align 2, !tbaa !16
   %65 = zext i16 %64 to i32
   %66 = add i32 %.185.us, %65
@@ -1467,7 +1467,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   %71 = srem i32 %.reass108.us, 6
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds [6 x i8], ptr %6, i64 %72
-  %invariant.gep = getelementptr i16, ptr %1, i64 %69
+  %invariant.gep = getelementptr [2 x i8], ptr %1, i64 %69
   br label %FCxtrans.exit82.us
 
 ._crit_edge.split.us:                             ; preds = %68
@@ -1518,7 +1518,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   %87 = urem i32 %86, 6
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 %88
-  %invariant.gep167 = getelementptr i16, ptr %1, i64 %84
+  %invariant.gep167 = getelementptr [2 x i8], ptr %1, i64 %84
   br label %FCxtrans.exit82.us.us.us
 
 FCxtrans.exit82.us.us.us:                         ; preds = %102, %.preheader.us98.us
@@ -1535,7 +1535,7 @@ FCxtrans.exit82.us.us.us:                         ; preds = %102, %.preheader.us
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %FCxtrans.exit82.us.us.us
-  %gep168 = getelementptr i16, ptr %invariant.gep167, i64 %indvars.iv143
+  %gep168 = getelementptr [2 x i8], ptr %invariant.gep167, i64 %indvars.iv143
   %98 = load i16, ptr %gep168, align 2, !tbaa !16
   %99 = zext i16 %98 to i32
   %100 = add i32 %.185.us.us.us, %99
@@ -1604,7 +1604,7 @@ define void @dt_iop_clip_and_zoom_mosaic_third_size_xtrans_f(ptr noundef writeon
 FCxtrans.exit.lr.ph.us:                           ; preds = %._crit_edge.us, %.lr.ph.split.us
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %._crit_edge.us ], [ 0, %.lr.ph.split.us ]
   %29 = mul nsw i64 %indvars.iv154, %28
-  %30 = getelementptr inbounds float, ptr %0, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %0, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv154 to i32
   %32 = uitofp nneg i32 %31 to float
   %33 = fmul reassoc nsz arcp contract afn float %10, %32
@@ -1664,7 +1664,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %FCxtrans.exit82.us
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %64 = load float, ptr %gep, align 4, !tbaa !18
   %65 = fadd reassoc nsz arcp contract afn float %64, %.185.us
   %66 = add nsw i32 %.16384.us, 1
@@ -1687,7 +1687,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   %70 = srem i32 %.reass108.us, 6
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds [6 x i8], ptr %6, i64 %71
-  %invariant.gep = getelementptr float, ptr %1, i64 %68
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %68
   br label %FCxtrans.exit82.us
 
 ._crit_edge.split.us:                             ; preds = %67
@@ -1735,7 +1735,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   %86 = urem i32 %85, 6
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 %87
-  %invariant.gep166 = getelementptr float, ptr %1, i64 %83
+  %invariant.gep166 = getelementptr [4 x i8], ptr %1, i64 %83
   br label %FCxtrans.exit82.us.us.us
 
 FCxtrans.exit82.us.us.us:                         ; preds = %100, %.preheader.us98.us
@@ -1752,7 +1752,7 @@ FCxtrans.exit82.us.us.us:                         ; preds = %100, %.preheader.us
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %FCxtrans.exit82.us.us.us
-  %gep167 = getelementptr float, ptr %invariant.gep166, i64 %indvars.iv142
+  %gep167 = getelementptr [4 x i8], ptr %invariant.gep166, i64 %indvars.iv142
   %97 = load float, ptr %gep167, align 4, !tbaa !18
   %98 = fadd reassoc nsz arcp contract afn float %97, %.185.us.us.us
   %99 = add nsw i32 %.16384.us.us.us, 1
@@ -1829,7 +1829,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %32 = trunc nuw nsw i64 %indvars.iv341 to i32
   %33 = mul i32 %15, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds float, ptr %0, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %0, i64 %34
   %36 = uitofp nneg i32 %32 to float
   %37 = fmul reassoc nsz arcp contract afn float %9, %36
   %38 = fptosi float %37 to i32
@@ -1858,9 +1858,9 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %57 = sub i32 %56, %..us
   %58 = sext i32 %43 to i64
   %59 = sext i32 %52 to i64
-  %invariant.gep401 = getelementptr float, ptr %1, i64 %58
-  %invariant.gep405 = getelementptr float, ptr %1, i64 %59
-  %invariant.gep411 = getelementptr float, ptr %1, i64 %59
+  %invariant.gep401 = getelementptr [4 x i8], ptr %1, i64 %58
+  %invariant.gep405 = getelementptr [4 x i8], ptr %1, i64 %59
+  %invariant.gep411 = getelementptr [4 x i8], ptr %1, i64 %59
   br label %60
 
 60:                                               ; preds = %.lr.ph289.us, %161
@@ -1876,7 +1876,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %67 = tail call i32 @llvm.smin.i32(i32 %30, i32 %66)
   %68 = add nsw i32 %.236.us, %43
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds float, ptr %1, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %1, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !18
   %72 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %65
   %73 = fmul reassoc nsz arcp contract afn float %72, %44
@@ -1885,14 +1885,14 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 
 .lr.ph.us.preheader:                              ; preds = %60
   %75 = sext i32 %.236.us to i64
-  %invariant.gep = getelementptr float, ptr %1, i64 %75
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %75
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ %55, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.0217242.us = phi float [ %74, %.lr.ph.us.preheader ], [ %79, %.lr.ph.us ]
   %76 = mul nsw i64 %indvars.iv, %31
-  %gep = getelementptr float, ptr %invariant.gep, i64 %76
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %76
   %77 = load float, ptr %gep, align 4, !tbaa !18
   %78 = fmul reassoc nsz arcp contract afn float %77, %72
   %79 = fadd reassoc nsz arcp contract afn float %78, %.0217242.us
@@ -1922,7 +1922,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 .lr.ph248.us:                                     ; preds = %.lr.ph248.us.preheader, %.lr.ph248.us
   %indvars.iv309 = phi i64 [ %81, %.lr.ph248.us.preheader ], [ %indvars.iv.next310, %.lr.ph248.us ]
   %.1245.us = phi float [ %.0217.lcssa.us381, %.lr.ph248.us.preheader ], [ %87, %.lr.ph248.us ]
-  %gep402 = getelementptr float, ptr %invariant.gep401, i64 %indvars.iv309
+  %gep402 = getelementptr [4 x i8], ptr %invariant.gep401, i64 %indvars.iv309
   %85 = load float, ptr %gep402, align 4, !tbaa !18
   %86 = fmul reassoc nsz arcp contract afn float %85, %44
   %87 = fadd reassoc nsz arcp contract afn float %86, %.1245.us
@@ -1934,7 +1934,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 88:                                               ; preds = %.preheader.us295, %88
   %indvars.iv314 = phi i64 [ %185, %.preheader.us295 ], [ %indvars.iv.next315, %88 ]
   %.3251.us = phi float [ %.2257.us, %.preheader.us295 ], [ %90, %88 ]
-  %gep404 = getelementptr float, ptr %invariant.gep403, i64 %indvars.iv314
+  %gep404 = getelementptr [4 x i8], ptr %invariant.gep403, i64 %indvars.iv314
   %89 = load float, ptr %gep404, align 4, !tbaa !18
   %90 = fadd reassoc nsz arcp contract afn float %89, %.3251.us
   %indvars.iv.next315 = add nsw i64 %indvars.iv314, 1
@@ -1984,7 +1984,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 .lr.ph264.us:                                     ; preds = %.lr.ph264.us.preheader, %.lr.ph264.us
   %indvars.iv323 = phi i64 [ %179, %.lr.ph264.us.preheader ], [ %indvars.iv.next324, %.lr.ph264.us ]
   %.8262.us = phi float [ %.2.lcssa.us350362, %.lr.ph264.us.preheader ], [ %104, %.lr.ph264.us ]
-  %gep406 = getelementptr float, ptr %invariant.gep405, i64 %indvars.iv323
+  %gep406 = getelementptr [4 x i8], ptr %invariant.gep405, i64 %indvars.iv323
   %102 = load float, ptr %gep406, align 4, !tbaa !18
   %103 = fmul reassoc nsz arcp contract afn float %102, %40
   %104 = fadd reassoc nsz arcp contract afn float %103, %.8262.us
@@ -1997,7 +1997,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %.8.lcssa.us = phi float [ %.2.lcssa.us350362, %.preheader239.us ], [ %79, %.thread369 ], [ %104, %.lr.ph264.us ]
   %105 = add nsw i32 %.236.us, %52
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds float, ptr %1, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %1, i64 %106
   %108 = load float, ptr %107, align 4, !tbaa !18
   %109 = fmul reassoc nsz arcp contract afn float %72, %40
   %110 = fmul reassoc nsz arcp contract afn float %109, %108
@@ -2014,7 +2014,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %indvars.iv327 = phi i64 [ %55, %.lr.ph270.us ], [ %indvars.iv.next328, %118 ]
   %.7268.us = phi float [ %.2.lcssa.us350361368, %.lr.ph270.us ], [ %123, %118 ]
   %119 = mul nsw i64 %indvars.iv327, %31
-  %gep408 = getelementptr float, ptr %invariant.gep407, i64 %119
+  %gep408 = getelementptr [4 x i8], ptr %invariant.gep407, i64 %119
   %120 = getelementptr i8, ptr %gep408, i64 4
   %121 = load float, ptr %120, align 4, !tbaa !18
   %122 = fmul reassoc nsz arcp contract afn float %121, %65
@@ -2028,7 +2028,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %.7.lcssa.us = phi float [ %.1.lcssa.us376, %.thread ], [ %123, %118 ]
   %.reass.us = add i32 %67, %invariant.op.us
   %124 = sext i32 %.reass.us to i64
-  %125 = getelementptr inbounds float, ptr %1, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %1, i64 %124
   %126 = load float, ptr %125, align 4, !tbaa !18
   %127 = fmul reassoc nsz arcp contract afn float %65, %44
   %128 = fmul reassoc nsz arcp contract afn float %127, %126
@@ -2039,7 +2039,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %indvars.iv331 = phi i64 [ %55, %.lr.ph276.us ], [ %indvars.iv.next332, %130 ]
   %.4274.us = phi float [ %.2.lcssa.us351359, %.lr.ph276.us ], [ %134, %130 ]
   %131 = mul nsw i64 %indvars.iv331, %31
-  %gep410 = getelementptr float, ptr %invariant.gep409, i64 %131
+  %gep410 = getelementptr [4 x i8], ptr %invariant.gep409, i64 %131
   %132 = load float, ptr %gep410, align 4, !tbaa !18
   %133 = fmul reassoc nsz arcp contract afn float %132, %65
   %134 = fadd reassoc nsz arcp contract afn float %133, %.4274.us
@@ -2051,7 +2051,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 ._crit_edge277.us:                                ; preds = %130
   %135 = add nsw i32 %190, %43
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds float, ptr %1, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %1, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !18
   %139 = fmul reassoc nsz arcp contract afn float %65, %44
   %140 = fmul reassoc nsz arcp contract afn float %139, %138
@@ -2071,7 +2071,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 .lr.ph283.us:                                     ; preds = %.lr.ph283.us.preheader, %.lr.ph283.us
   %indvars.iv336 = phi i64 [ %144, %.lr.ph283.us.preheader ], [ %indvars.iv.next337, %.lr.ph283.us ]
   %.5280.us = phi float [ %142, %.lr.ph283.us.preheader ], [ %149, %.lr.ph283.us ]
-  %gep412 = getelementptr float, ptr %invariant.gep411, i64 %indvars.iv336
+  %gep412 = getelementptr [4 x i8], ptr %invariant.gep411, i64 %indvars.iv336
   %147 = load float, ptr %gep412, align 4, !tbaa !18
   %148 = fmul reassoc nsz arcp contract afn float %147, %40
   %149 = fadd reassoc nsz arcp contract afn float %148, %.5280.us
@@ -2085,12 +2085,12 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %.5.lcssa.us = phi float [ %141, %._crit_edge277.us ], [ %177, %.preheader237.us.._crit_edge277.us_crit_edge ], [ %149, %.lr.ph283.us ]
   %150 = add nsw i32 %.236.us, %52
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds float, ptr %1, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %1, i64 %151
   %153 = load float, ptr %152, align 4, !tbaa !18
   %154 = fmul reassoc nsz arcp contract afn float %153, %72
   %155 = add nsw i32 %.pre-phi394, %52
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds float, ptr %1, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %1, i64 %156
   %158 = load float, ptr %157, align 4, !tbaa !18
   %159 = fmul reassoc nsz arcp contract afn float %158, %65
   %reass.add.us = fadd reassoc nsz arcp contract afn float %159, %154
@@ -2120,14 +2120,14 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %indvars.iv318 = phi i64 [ %55, %.preheader.us295.preheader ], [ %indvars.iv.next319, %._crit_edge254.us ]
   %.2257.us = phi float [ %87, %.preheader.us295.preheader ], [ %90, %._crit_edge254.us ]
   %170 = mul nsw i64 %indvars.iv318, %31
-  %invariant.gep403 = getelementptr float, ptr %1, i64 %170
+  %invariant.gep403 = getelementptr [4 x i8], ptr %1, i64 %170
   br label %88
 
 .preheader237.us.._crit_edge277.us_crit_edge:     ; preds = %._crit_edge259.us.thread
   %.pre = add i32 %67, 1
   %171 = add nsw i32 %.pre, %43
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds float, ptr %1, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %1, i64 %172
   %174 = load float, ptr %173, align 4, !tbaa !18
   %175 = fmul reassoc nsz arcp contract afn float %65, %44
   %176 = fmul reassoc nsz arcp contract afn float %175, %174
@@ -2172,7 +2172,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
 .lr.ph270.us:                                     ; preds = %93, %.thread364
   %.2.lcssa.us350361368 = phi float [ %79, %.thread364 ], [ %90, %93 ]
   %189 = sext i32 %67 to i64
-  %invariant.gep407 = getelementptr float, ptr %1, i64 %189
+  %invariant.gep407 = getelementptr [4 x i8], ptr %1, i64 %189
   br label %118
 
 .lr.ph276.us:                                     ; preds = %._crit_edge259.us, %.preheader240.us.thread
@@ -2180,7 +2180,7 @@ define void @dt_iop_clip_and_zoom_demosaic_passthrough_monochrome_f(ptr noundef 
   %.2.lcssa.us351359 = phi float [ %79, %.preheader240.us.thread ], [ %90, %._crit_edge259.us ]
   %190 = add i32 %67, 1
   %191 = sext i32 %190 to i64
-  %invariant.gep409 = getelementptr float, ptr %1, i64 %191
+  %invariant.gep409 = getelementptr [4 x i8], ptr %1, i64 %191
   br label %130
 
 ._crit_edge290.us:                                ; preds = %161
@@ -2256,7 +2256,7 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   %51 = trunc nuw nsw i64 %indvars.iv582 to i32
   %52 = mul i32 %22, %51
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr %0, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %0, i64 %53
   %55 = uitofp nneg i32 %51 to float
   %56 = fmul reassoc nsz arcp contract afn float %12, %55
   %57 = fptosi float %56 to i32
@@ -2292,18 +2292,18 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   %85 = sext i32 %67 to i64
   %86 = sext i32 %77 to i64
   %87 = sext i32 %79 to i64
-  %invariant.gep607 = getelementptr float, ptr %1, i64 %84
-  %invariant.gep609 = getelementptr float, ptr %1, i64 %84
-  %invariant.gep611 = getelementptr float, ptr %1, i64 %85
-  %invariant.gep613 = getelementptr float, ptr %1, i64 %85
-  %invariant.gep639 = getelementptr float, ptr %1, i64 %86
-  %invariant.gep641 = getelementptr float, ptr %1, i64 %86
-  %invariant.gep643 = getelementptr float, ptr %1, i64 %87
-  %invariant.gep645 = getelementptr float, ptr %1, i64 %87
-  %invariant.gep647 = getelementptr float, ptr %1, i64 %86
-  %invariant.gep649 = getelementptr float, ptr %1, i64 %86
-  %invariant.gep651 = getelementptr float, ptr %1, i64 %87
-  %invariant.gep653 = getelementptr float, ptr %1, i64 %87
+  %invariant.gep607 = getelementptr [4 x i8], ptr %1, i64 %84
+  %invariant.gep609 = getelementptr [4 x i8], ptr %1, i64 %84
+  %invariant.gep611 = getelementptr [4 x i8], ptr %1, i64 %85
+  %invariant.gep613 = getelementptr [4 x i8], ptr %1, i64 %85
+  %invariant.gep639 = getelementptr [4 x i8], ptr %1, i64 %86
+  %invariant.gep641 = getelementptr [4 x i8], ptr %1, i64 %86
+  %invariant.gep643 = getelementptr [4 x i8], ptr %1, i64 %87
+  %invariant.gep645 = getelementptr [4 x i8], ptr %1, i64 %87
+  %invariant.gep647 = getelementptr [4 x i8], ptr %1, i64 %86
+  %invariant.gep649 = getelementptr [4 x i8], ptr %1, i64 %86
+  %invariant.gep651 = getelementptr [4 x i8], ptr %1, i64 %87
+  %invariant.gep653 = getelementptr [4 x i8], ptr %1, i64 %87
   br label %88
 
 88:                                               ; preds = %.lr.ph500.us, %.loopexit
@@ -2323,23 +2323,23 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %97 = add nsw i32 %96, %65
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds float, ptr %1, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %1, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !18
   store float %100, ptr %9, align 16, !tbaa !18
   %101 = add nsw i32 %96, 1
   %102 = add nsw i32 %101, %65
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds float, ptr %1, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %1, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !18
   %106 = add nsw i32 %96, %67
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds float, ptr %1, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %1, i64 %107
   %109 = load float, ptr %108, align 4, !tbaa !18
   %110 = fadd reassoc nsz arcp contract afn float %109, %105
   store float %110, ptr %34, align 4, !tbaa !18
   %111 = add nsw i32 %101, %67
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds float, ptr %1, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %1, i64 %112
   %114 = load float, ptr %113, align 4, !tbaa !18
   store float %114, ptr %35, align 8, !tbaa !18
   %115 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %95
@@ -2354,18 +2354,18 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 120:                                              ; preds = %.lr.ph.us, %129
   %indvars.iv513 = phi i64 [ %82, %.lr.ph.us ], [ %indvars.iv.next514, %129 ]
   %121 = mul nsw i64 %indvars.iv513, %50
-  %gep = getelementptr float, ptr %invariant.gep, i64 %121
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %121
   %122 = load float, ptr %gep, align 4, !tbaa !18
   store float %122, ptr %9, align 16, !tbaa !18
-  %gep602 = getelementptr float, ptr %invariant.gep601, i64 %121
+  %gep602 = getelementptr [4 x i8], ptr %invariant.gep601, i64 %121
   %123 = load float, ptr %gep602, align 4, !tbaa !18
   %124 = add nsw i64 %indvars.iv513, 1
   %125 = mul nsw i64 %124, %50
-  %gep604 = getelementptr float, ptr %invariant.gep603, i64 %125
+  %gep604 = getelementptr [4 x i8], ptr %invariant.gep603, i64 %125
   %126 = load float, ptr %gep604, align 4, !tbaa !18
   %127 = fadd reassoc nsz arcp contract afn float %126, %123
   store float %127, ptr %34, align 4, !tbaa !18
-  %gep606 = getelementptr float, ptr %invariant.gep605, i64 %125
+  %gep606 = getelementptr [4 x i8], ptr %invariant.gep605, i64 %125
   %128 = load float, ptr %gep606, align 4, !tbaa !18
   store float %128, ptr %35, align 8, !tbaa !18
   br label %130
@@ -2377,10 +2377,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 130:                                              ; preds = %130, %120
   %indvars.iv509 = phi i64 [ %indvars.iv.next510, %130 ], [ 0, %120 ]
-  %131 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv509
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv509
   %132 = load float, ptr %131, align 4, !tbaa !18
   %133 = fmul reassoc nsz arcp contract afn float %132, %115
-  %134 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv509
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv509
   %135 = load float, ptr %134, align 4, !tbaa !18
   %136 = fadd reassoc nsz arcp contract afn float %135, %133
   store float %136, ptr %134, align 4, !tbaa !18
@@ -2400,17 +2400,17 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 .lr.ph463.us:                                     ; preds = %.lr.ph463.us.preheader, %146
   %indvars.iv520 = phi i64 [ %138, %.lr.ph463.us.preheader ], [ %indvars.iv.next521, %146 ]
-  %gep608 = getelementptr float, ptr %invariant.gep607, i64 %indvars.iv520
+  %gep608 = getelementptr [4 x i8], ptr %invariant.gep607, i64 %indvars.iv520
   %140 = load float, ptr %gep608, align 4, !tbaa !18
   store float %140, ptr %9, align 16, !tbaa !18
   %141 = add nsw i64 %indvars.iv520, 1
-  %gep610 = getelementptr float, ptr %invariant.gep609, i64 %141
+  %gep610 = getelementptr [4 x i8], ptr %invariant.gep609, i64 %141
   %142 = load float, ptr %gep610, align 4, !tbaa !18
-  %gep612 = getelementptr float, ptr %invariant.gep611, i64 %indvars.iv520
+  %gep612 = getelementptr [4 x i8], ptr %invariant.gep611, i64 %indvars.iv520
   %143 = load float, ptr %gep612, align 4, !tbaa !18
   %144 = fadd reassoc nsz arcp contract afn float %143, %142
   store float %144, ptr %34, align 4, !tbaa !18
-  %gep614 = getelementptr float, ptr %invariant.gep613, i64 %141
+  %gep614 = getelementptr [4 x i8], ptr %invariant.gep613, i64 %141
   %145 = load float, ptr %gep614, align 4, !tbaa !18
   store float %145, ptr %35, align 8, !tbaa !18
   br label %147
@@ -2422,10 +2422,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 147:                                              ; preds = %147, %.lr.ph463.us
   %indvars.iv516 = phi i64 [ %indvars.iv.next517, %147 ], [ 0, %.lr.ph463.us ]
-  %148 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv516
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv516
   %149 = load float, ptr %148, align 4, !tbaa !18
   %150 = fmul reassoc nsz arcp contract afn float %149, %68
-  %151 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv516
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv516
   %152 = load float, ptr %151, align 4, !tbaa !18
   %153 = fadd reassoc nsz arcp contract afn float %152, %150
   store float %153, ptr %151, align 4, !tbaa !18
@@ -2435,17 +2435,17 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 154:                                              ; preds = %.lr.ph467.us, %161
   %indvars.iv527 = phi i64 [ %402, %.lr.ph467.us ], [ %indvars.iv.next528, %161 ]
-  %gep616 = getelementptr float, ptr %invariant.gep615, i64 %indvars.iv527
+  %gep616 = getelementptr [4 x i8], ptr %invariant.gep615, i64 %indvars.iv527
   %155 = load float, ptr %gep616, align 4, !tbaa !18
   store float %155, ptr %9, align 16, !tbaa !18
   %156 = add nsw i64 %indvars.iv527, 1
-  %gep618 = getelementptr float, ptr %invariant.gep617, i64 %156
+  %gep618 = getelementptr [4 x i8], ptr %invariant.gep617, i64 %156
   %157 = load float, ptr %gep618, align 4, !tbaa !18
-  %gep620 = getelementptr float, ptr %invariant.gep619, i64 %indvars.iv527
+  %gep620 = getelementptr [4 x i8], ptr %invariant.gep619, i64 %indvars.iv527
   %158 = load float, ptr %gep620, align 4, !tbaa !18
   %159 = fadd reassoc nsz arcp contract afn float %158, %157
   store float %159, ptr %34, align 4, !tbaa !18
-  %gep622 = getelementptr float, ptr %invariant.gep621, i64 %156
+  %gep622 = getelementptr [4 x i8], ptr %invariant.gep621, i64 %156
   %160 = load float, ptr %gep622, align 4, !tbaa !18
   store float %160, ptr %35, align 8, !tbaa !18
   br label %162
@@ -2457,9 +2457,9 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 162:                                              ; preds = %162, %154
   %indvars.iv523 = phi i64 [ %indvars.iv.next524, %162 ], [ 0, %154 ]
-  %163 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv523
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv523
   %164 = load float, ptr %163, align 4, !tbaa !18
-  %165 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv523
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv523
   %166 = load float, ptr %165, align 4, !tbaa !18
   %167 = fadd reassoc nsz arcp contract afn float %166, %164
   store float %167, ptr %165, align 4, !tbaa !18
@@ -2502,17 +2502,17 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 .lr.ph475.us:                                     ; preds = %.lr.ph475.us.preheader, %185
   %indvars.iv537 = phi i64 [ %395, %.lr.ph475.us.preheader ], [ %indvars.iv.next538, %185 ]
-  %gep640 = getelementptr float, ptr %invariant.gep639, i64 %indvars.iv537
+  %gep640 = getelementptr [4 x i8], ptr %invariant.gep639, i64 %indvars.iv537
   %179 = load float, ptr %gep640, align 4, !tbaa !18
   store float %179, ptr %9, align 16, !tbaa !18
   %180 = add nsw i64 %indvars.iv537, 1
-  %gep642 = getelementptr float, ptr %invariant.gep641, i64 %180
+  %gep642 = getelementptr [4 x i8], ptr %invariant.gep641, i64 %180
   %181 = load float, ptr %gep642, align 4, !tbaa !18
-  %gep644 = getelementptr float, ptr %invariant.gep643, i64 %indvars.iv537
+  %gep644 = getelementptr [4 x i8], ptr %invariant.gep643, i64 %indvars.iv537
   %182 = load float, ptr %gep644, align 4, !tbaa !18
   %183 = fadd reassoc nsz arcp contract afn float %182, %181
   store float %183, ptr %34, align 4, !tbaa !18
-  %gep646 = getelementptr float, ptr %invariant.gep645, i64 %180
+  %gep646 = getelementptr [4 x i8], ptr %invariant.gep645, i64 %180
   %184 = load float, ptr %gep646, align 4, !tbaa !18
   store float %184, ptr %35, align 8, !tbaa !18
   br label %186
@@ -2524,10 +2524,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 186:                                              ; preds = %186, %.lr.ph475.us
   %indvars.iv533 = phi i64 [ %indvars.iv.next534, %186 ], [ 0, %.lr.ph475.us ]
-  %187 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv533
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv533
   %188 = load float, ptr %187, align 4, !tbaa !18
   %189 = fmul reassoc nsz arcp contract afn float %188, %61
-  %190 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv533
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv533
   %191 = load float, ptr %190, align 4, !tbaa !18
   %192 = fadd reassoc nsz arcp contract afn float %191, %189
   store float %192, ptr %190, align 4, !tbaa !18
@@ -2538,22 +2538,22 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 ._crit_edge476.us:                                ; preds = %185, %.preheader453.us
   %193 = add nsw i32 %96, %77
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds float, ptr %1, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %1, i64 %194
   %196 = load float, ptr %195, align 4, !tbaa !18
   store float %196, ptr %9, align 16, !tbaa !18
   %197 = add nsw i32 %101, %77
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds float, ptr %1, i64 %198
+  %199 = getelementptr inbounds [4 x i8], ptr %1, i64 %198
   %200 = load float, ptr %199, align 4, !tbaa !18
   %201 = add nsw i32 %96, %79
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds float, ptr %1, i64 %202
+  %203 = getelementptr inbounds [4 x i8], ptr %1, i64 %202
   %204 = load float, ptr %203, align 4, !tbaa !18
   %205 = fadd reassoc nsz arcp contract afn float %204, %200
   store float %205, ptr %34, align 4, !tbaa !18
   %206 = add nsw i32 %101, %79
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds float, ptr %1, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %1, i64 %207
   %209 = load float, ptr %208, align 4, !tbaa !18
   store float %209, ptr %35, align 8, !tbaa !18
   %210 = fmul reassoc nsz arcp contract afn float %115, %61
@@ -2570,10 +2570,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 218:                                              ; preds = %218, %._crit_edge476.us
   %indvars.iv540 = phi i64 [ %indvars.iv.next541, %218 ], [ 0, %._crit_edge476.us ]
-  %219 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv540
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv540
   %220 = load float, ptr %219, align 4, !tbaa !18
   %221 = fmul reassoc nsz arcp contract afn float %210, %220
-  %222 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv540
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv540
   %223 = load float, ptr %222, align 4, !tbaa !18
   %224 = fadd reassoc nsz arcp contract afn float %223, %221
   store float %224, ptr %222, align 4, !tbaa !18
@@ -2584,18 +2584,18 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 225:                                              ; preds = %.lr.ph481.us, %234
   %indvars.iv548 = phi i64 [ %82, %.lr.ph481.us ], [ %indvars.iv.next549, %234 ]
   %226 = mul nsw i64 %indvars.iv548, %50
-  %gep624 = getelementptr float, ptr %invariant.gep623, i64 %226
+  %gep624 = getelementptr [4 x i8], ptr %invariant.gep623, i64 %226
   %227 = load float, ptr %gep624, align 4, !tbaa !18
   store float %227, ptr %9, align 16, !tbaa !18
-  %gep626 = getelementptr float, ptr %invariant.gep625, i64 %226
+  %gep626 = getelementptr [4 x i8], ptr %invariant.gep625, i64 %226
   %228 = load float, ptr %gep626, align 4, !tbaa !18
   %229 = add nsw i64 %indvars.iv548, 1
   %230 = mul nsw i64 %229, %50
-  %gep628 = getelementptr float, ptr %invariant.gep627, i64 %230
+  %gep628 = getelementptr [4 x i8], ptr %invariant.gep627, i64 %230
   %231 = load float, ptr %gep628, align 4, !tbaa !18
   %232 = fadd reassoc nsz arcp contract afn float %231, %228
   store float %232, ptr %34, align 4, !tbaa !18
-  %gep630 = getelementptr float, ptr %invariant.gep629, i64 %230
+  %gep630 = getelementptr [4 x i8], ptr %invariant.gep629, i64 %230
   %233 = load float, ptr %gep630, align 4, !tbaa !18
   store float %233, ptr %35, align 8, !tbaa !18
   br label %235
@@ -2607,10 +2607,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 235:                                              ; preds = %235, %225
   %indvars.iv544 = phi i64 [ %indvars.iv.next545, %235 ], [ 0, %225 ]
-  %236 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv544
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv544
   %237 = load float, ptr %236, align 4, !tbaa !18
   %238 = fmul reassoc nsz arcp contract afn float %237, %95
-  %239 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv544
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv544
   %240 = load float, ptr %239, align 4, !tbaa !18
   %241 = fadd reassoc nsz arcp contract afn float %240, %238
   store float %241, ptr %239, align 4, !tbaa !18
@@ -2623,22 +2623,22 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   %.pre-phi589 = phi i32 [ %.pre588, %.preheader452.us.._crit_edge482.us_crit_edge ], [ %404, %234 ]
   %242 = add nsw i32 %.pre-phi589, %65
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds float, ptr %1, i64 %243
+  %244 = getelementptr inbounds [4 x i8], ptr %1, i64 %243
   %245 = load float, ptr %244, align 4, !tbaa !18
   store float %245, ptr %9, align 16, !tbaa !18
   %246 = add nsw i32 %.pre-phi591, %65
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds float, ptr %1, i64 %247
+  %248 = getelementptr inbounds [4 x i8], ptr %1, i64 %247
   %249 = load float, ptr %248, align 4, !tbaa !18
   %250 = add nsw i32 %.pre-phi589, %67
   %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds float, ptr %1, i64 %251
+  %252 = getelementptr inbounds [4 x i8], ptr %1, i64 %251
   %253 = load float, ptr %252, align 4, !tbaa !18
   %254 = fadd reassoc nsz arcp contract afn float %253, %249
   store float %254, ptr %34, align 4, !tbaa !18
   %255 = add nsw i32 %.pre-phi591, %67
   %256 = sext i32 %255 to i64
-  %257 = getelementptr inbounds float, ptr %1, i64 %256
+  %257 = getelementptr inbounds [4 x i8], ptr %1, i64 %256
   %258 = load float, ptr %257, align 4, !tbaa !18
   store float %258, ptr %35, align 8, !tbaa !18
   %259 = fmul reassoc nsz arcp contract afn float %95, %68
@@ -2646,10 +2646,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 260:                                              ; preds = %260, %._crit_edge482.us
   %indvars.iv551 = phi i64 [ %indvars.iv.next552, %260 ], [ 0, %._crit_edge482.us ]
-  %261 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv551
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv551
   %262 = load float, ptr %261, align 4, !tbaa !18
   %263 = fmul reassoc nsz arcp contract afn float %259, %262
-  %264 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv551
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv551
   %265 = load float, ptr %264, align 4, !tbaa !18
   %266 = fadd reassoc nsz arcp contract afn float %265, %263
   store float %266, ptr %264, align 4, !tbaa !18
@@ -2660,18 +2660,18 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 267:                                              ; preds = %.lr.ph487.us, %276
   %indvars.iv559 = phi i64 [ %82, %.lr.ph487.us ], [ %indvars.iv.next560, %276 ]
   %268 = mul nsw i64 %indvars.iv559, %50
-  %gep632 = getelementptr float, ptr %invariant.gep631, i64 %268
+  %gep632 = getelementptr [4 x i8], ptr %invariant.gep631, i64 %268
   %269 = load float, ptr %gep632, align 4, !tbaa !18
   store float %269, ptr %9, align 16, !tbaa !18
-  %gep634 = getelementptr float, ptr %invariant.gep633, i64 %268
+  %gep634 = getelementptr [4 x i8], ptr %invariant.gep633, i64 %268
   %270 = load float, ptr %gep634, align 4, !tbaa !18
   %271 = add nsw i64 %indvars.iv559, 1
   %272 = mul nsw i64 %271, %50
-  %gep636 = getelementptr float, ptr %invariant.gep635, i64 %272
+  %gep636 = getelementptr [4 x i8], ptr %invariant.gep635, i64 %272
   %273 = load float, ptr %gep636, align 4, !tbaa !18
   %274 = fadd reassoc nsz arcp contract afn float %273, %270
   store float %274, ptr %34, align 4, !tbaa !18
-  %gep638 = getelementptr float, ptr %invariant.gep637, i64 %272
+  %gep638 = getelementptr [4 x i8], ptr %invariant.gep637, i64 %272
   %275 = load float, ptr %gep638, align 4, !tbaa !18
   store float %275, ptr %35, align 8, !tbaa !18
   br label %277
@@ -2683,10 +2683,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 277:                                              ; preds = %277, %267
   %indvars.iv555 = phi i64 [ %indvars.iv.next556, %277 ], [ 0, %267 ]
-  %278 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv555
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv555
   %279 = load float, ptr %278, align 4, !tbaa !18
   %280 = fmul reassoc nsz arcp contract afn float %279, %95
-  %281 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv555
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv555
   %282 = load float, ptr %281, align 4, !tbaa !18
   %283 = fadd reassoc nsz arcp contract afn float %282, %280
   store float %283, ptr %281, align 4, !tbaa !18
@@ -2699,22 +2699,22 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   %.pre-phi = phi i32 [ %.pre, %.preheader451.us.._crit_edge488.us_crit_edge ], [ %408, %276 ]
   %284 = add nsw i32 %.pre-phi, %65
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds float, ptr %1, i64 %285
+  %286 = getelementptr inbounds [4 x i8], ptr %1, i64 %285
   %287 = load float, ptr %286, align 4, !tbaa !18
   store float %287, ptr %9, align 16, !tbaa !18
   %288 = add nsw i32 %.pre-phi587, %65
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds float, ptr %1, i64 %289
+  %290 = getelementptr inbounds [4 x i8], ptr %1, i64 %289
   %291 = load float, ptr %290, align 4, !tbaa !18
   %292 = add nsw i32 %.pre-phi, %67
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds float, ptr %1, i64 %293
+  %294 = getelementptr inbounds [4 x i8], ptr %1, i64 %293
   %295 = load float, ptr %294, align 4, !tbaa !18
   %296 = fadd reassoc nsz arcp contract afn float %295, %291
   store float %296, ptr %34, align 4, !tbaa !18
   %297 = add nsw i32 %.pre-phi587, %67
   %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds float, ptr %1, i64 %298
+  %299 = getelementptr inbounds [4 x i8], ptr %1, i64 %298
   %300 = load float, ptr %299, align 4, !tbaa !18
   store float %300, ptr %35, align 8, !tbaa !18
   %301 = fmul reassoc nsz arcp contract afn float %95, %68
@@ -2722,17 +2722,17 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 .lr.ph493.us:                                     ; preds = %.lr.ph493.us.preheader, %308
   %indvars.iv570 = phi i64 [ %393, %.lr.ph493.us.preheader ], [ %indvars.iv.next571, %308 ]
-  %gep648 = getelementptr float, ptr %invariant.gep647, i64 %indvars.iv570
+  %gep648 = getelementptr [4 x i8], ptr %invariant.gep647, i64 %indvars.iv570
   %302 = load float, ptr %gep648, align 4, !tbaa !18
   store float %302, ptr %9, align 16, !tbaa !18
   %303 = add nsw i64 %indvars.iv570, 1
-  %gep650 = getelementptr float, ptr %invariant.gep649, i64 %303
+  %gep650 = getelementptr [4 x i8], ptr %invariant.gep649, i64 %303
   %304 = load float, ptr %gep650, align 4, !tbaa !18
-  %gep652 = getelementptr float, ptr %invariant.gep651, i64 %indvars.iv570
+  %gep652 = getelementptr [4 x i8], ptr %invariant.gep651, i64 %indvars.iv570
   %305 = load float, ptr %gep652, align 4, !tbaa !18
   %306 = fadd reassoc nsz arcp contract afn float %305, %304
   store float %306, ptr %34, align 4, !tbaa !18
-  %gep654 = getelementptr float, ptr %invariant.gep653, i64 %303
+  %gep654 = getelementptr [4 x i8], ptr %invariant.gep653, i64 %303
   %307 = load float, ptr %gep654, align 4, !tbaa !18
   store float %307, ptr %35, align 8, !tbaa !18
   br label %309
@@ -2744,10 +2744,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 309:                                              ; preds = %309, %.lr.ph493.us
   %indvars.iv566 = phi i64 [ %indvars.iv.next567, %309 ], [ 0, %.lr.ph493.us ]
-  %310 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv566
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv566
   %311 = load float, ptr %310, align 4, !tbaa !18
   %312 = fmul reassoc nsz arcp contract afn float %311, %61
-  %313 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv566
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv566
   %314 = load float, ptr %313, align 4, !tbaa !18
   %315 = fadd reassoc nsz arcp contract afn float %314, %312
   store float %315, ptr %313, align 4, !tbaa !18
@@ -2758,22 +2758,22 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 ._crit_edge494.us:                                ; preds = %308, %.preheader450.us
   %316 = add nsw i32 %96, %77
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds float, ptr %1, i64 %317
+  %318 = getelementptr inbounds [4 x i8], ptr %1, i64 %317
   %319 = load float, ptr %318, align 4, !tbaa !18
   store float %319, ptr %9, align 16, !tbaa !18
   %320 = add nsw i32 %101, %77
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds float, ptr %1, i64 %321
+  %322 = getelementptr inbounds [4 x i8], ptr %1, i64 %321
   %323 = load float, ptr %322, align 4, !tbaa !18
   %324 = add nsw i32 %96, %79
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds float, ptr %1, i64 %325
+  %326 = getelementptr inbounds [4 x i8], ptr %1, i64 %325
   %327 = load float, ptr %326, align 4, !tbaa !18
   %328 = fadd reassoc nsz arcp contract afn float %327, %323
   store float %328, ptr %34, align 4, !tbaa !18
   %329 = add nsw i32 %101, %79
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds float, ptr %1, i64 %330
+  %331 = getelementptr inbounds [4 x i8], ptr %1, i64 %330
   %332 = load float, ptr %331, align 4, !tbaa !18
   store float %332, ptr %35, align 8, !tbaa !18
   %333 = fmul reassoc nsz arcp contract afn float %115, %61
@@ -2782,22 +2782,22 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 334:                                              ; preds = %372
   %335 = add nsw i32 %.pre-phi, %77
   %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds float, ptr %1, i64 %336
+  %337 = getelementptr inbounds [4 x i8], ptr %1, i64 %336
   %338 = load float, ptr %337, align 4, !tbaa !18
   store float %338, ptr %9, align 16, !tbaa !18
   %339 = add nsw i32 %.pre-phi587, %77
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds float, ptr %1, i64 %340
+  %341 = getelementptr inbounds [4 x i8], ptr %1, i64 %340
   %342 = load float, ptr %341, align 4, !tbaa !18
   %343 = add nsw i32 %.pre-phi, %79
   %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds float, ptr %1, i64 %344
+  %345 = getelementptr inbounds [4 x i8], ptr %1, i64 %344
   %346 = load float, ptr %345, align 4, !tbaa !18
   %347 = fadd reassoc nsz arcp contract afn float %346, %342
   store float %347, ptr %34, align 4, !tbaa !18
   %348 = add nsw i32 %.pre-phi587, %79
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds float, ptr %1, i64 %349
+  %350 = getelementptr inbounds [4 x i8], ptr %1, i64 %349
   %351 = load float, ptr %350, align 4, !tbaa !18
   store float %351, ptr %35, align 8, !tbaa !18
   %352 = fmul reassoc nsz arcp contract afn float %95, %61
@@ -2828,10 +2828,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 365:                                              ; preds = %365, %334
   %indvars.iv577 = phi i64 [ %indvars.iv.next578, %365 ], [ 0, %334 ]
-  %366 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv577
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv577
   %367 = load float, ptr %366, align 4, !tbaa !18
   %368 = fmul reassoc nsz arcp contract afn float %352, %367
-  %369 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv577
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv577
   %370 = load float, ptr %369, align 4, !tbaa !18
   %371 = fadd reassoc nsz arcp contract afn float %370, %368
   store float %371, ptr %369, align 4, !tbaa !18
@@ -2841,10 +2841,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 372:                                              ; preds = %372, %._crit_edge494.us
   %indvars.iv573 = phi i64 [ %indvars.iv.next574, %372 ], [ 0, %._crit_edge494.us ]
-  %373 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv573
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv573
   %374 = load float, ptr %373, align 4, !tbaa !18
   %375 = fmul reassoc nsz arcp contract afn float %333, %374
-  %376 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv573
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv573
   %377 = load float, ptr %376, align 4, !tbaa !18
   %378 = fadd reassoc nsz arcp contract afn float %377, %375
   store float %378, ptr %376, align 4, !tbaa !18
@@ -2854,10 +2854,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 379:                                              ; preds = %379, %._crit_edge488.us
   %indvars.iv562 = phi i64 [ %indvars.iv.next563, %379 ], [ 0, %._crit_edge488.us ]
-  %380 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv562
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv562
   %381 = load float, ptr %380, align 4, !tbaa !18
   %382 = fmul reassoc nsz arcp contract afn float %301, %381
-  %383 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv562
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv562
   %384 = load float, ptr %383, align 4, !tbaa !18
   %385 = fadd reassoc nsz arcp contract afn float %384, %382
   store float %385, ptr %383, align 4, !tbaa !18
@@ -2867,10 +2867,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 
 386:                                              ; preds = %386, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %386 ], [ 0, %88 ]
-  %387 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %388 = load float, ptr %387, align 4, !tbaa !18
   %389 = fmul reassoc nsz arcp contract afn float %116, %388
-  %390 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %391 = load float, ptr %390, align 4, !tbaa !18
   %392 = fadd reassoc nsz arcp contract afn float %391, %389
   store float %392, ptr %390, align 4, !tbaa !18
@@ -2914,20 +2914,20 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
 .lr.ph.us:                                        ; preds = %117
   %397 = sext i32 %96 to i64
   %398 = sext i32 %101 to i64
-  %invariant.gep = getelementptr float, ptr %1, i64 %397
-  %invariant.gep601 = getelementptr float, ptr %1, i64 %398
-  %invariant.gep603 = getelementptr float, ptr %1, i64 %397
-  %invariant.gep605 = getelementptr float, ptr %1, i64 %398
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %397
+  %invariant.gep601 = getelementptr [4 x i8], ptr %1, i64 %398
+  %invariant.gep603 = getelementptr [4 x i8], ptr %1, i64 %397
+  %invariant.gep605 = getelementptr [4 x i8], ptr %1, i64 %398
   br label %120
 
 .lr.ph467.us:                                     ; preds = %.preheader.us
   %399 = mul nsw i64 %indvars.iv530, %50
   %400 = add nsw i64 %indvars.iv530, 1
   %401 = mul nsw i64 %400, %50
-  %invariant.gep615 = getelementptr float, ptr %1, i64 %399
-  %invariant.gep617 = getelementptr float, ptr %1, i64 %399
-  %invariant.gep619 = getelementptr float, ptr %1, i64 %401
-  %invariant.gep621 = getelementptr float, ptr %1, i64 %401
+  %invariant.gep615 = getelementptr [4 x i8], ptr %1, i64 %399
+  %invariant.gep617 = getelementptr [4 x i8], ptr %1, i64 %399
+  %invariant.gep619 = getelementptr [4 x i8], ptr %1, i64 %401
+  %invariant.gep621 = getelementptr [4 x i8], ptr %1, i64 %401
   br label %154
 
 .preheader.lr.ph.us:                              ; preds = %.preheader454.us
@@ -2940,10 +2940,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   %405 = add nsw i32 %119, 3
   %406 = sext i32 %404 to i64
   %407 = sext i32 %405 to i64
-  %invariant.gep623 = getelementptr float, ptr %1, i64 %406
-  %invariant.gep625 = getelementptr float, ptr %1, i64 %407
-  %invariant.gep627 = getelementptr float, ptr %1, i64 %406
-  %invariant.gep629 = getelementptr float, ptr %1, i64 %407
+  %invariant.gep623 = getelementptr [4 x i8], ptr %1, i64 %406
+  %invariant.gep625 = getelementptr [4 x i8], ptr %1, i64 %407
+  %invariant.gep627 = getelementptr [4 x i8], ptr %1, i64 %406
+  %invariant.gep629 = getelementptr [4 x i8], ptr %1, i64 %407
   br label %225
 
 .lr.ph487.us:                                     ; preds = %._crit_edge471.us
@@ -2951,10 +2951,10 @@ define void @dt_iop_clip_and_zoom_demosaic_half_size_f(ptr noundef writeonly cap
   %409 = add nsw i32 %119, 3
   %410 = sext i32 %408 to i64
   %411 = sext i32 %409 to i64
-  %invariant.gep631 = getelementptr float, ptr %1, i64 %410
-  %invariant.gep633 = getelementptr float, ptr %1, i64 %411
-  %invariant.gep635 = getelementptr float, ptr %1, i64 %410
-  %invariant.gep637 = getelementptr float, ptr %1, i64 %411
+  %invariant.gep631 = getelementptr [4 x i8], ptr %1, i64 %410
+  %invariant.gep633 = getelementptr [4 x i8], ptr %1, i64 %411
+  %invariant.gep635 = getelementptr [4 x i8], ptr %1, i64 %410
+  %invariant.gep637 = getelementptr [4 x i8], ptr %1, i64 %411
   br label %267
 
 ._crit_edge501.us:                                ; preds = %.loopexit
@@ -3012,7 +3012,7 @@ define void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef write
   %35 = trunc nuw nsw i64 %indvars.iv165 to i32
   %36 = mul i32 %19, %35
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds float, ptr %0, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %0, i64 %37
   %39 = uitofp nneg i32 %35 to float
   %40 = fadd reassoc nnan nsz arcp contract afn float %39, -5.000000e-01
   %41 = fmul reassoc nsz arcp contract afn float %40, %11
@@ -3073,7 +3073,7 @@ define void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef write
 FCxtrans.exit.us:                                 ; preds = %.preheader.us, %FCxtrans.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %FCxtrans.exit.us ]
   %58 = add nsw i64 %indvars.iv, %indvars.iv143
-  %gep = getelementptr float, ptr %invariant.gep, i64 %58
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %58
   %59 = load float, ptr %gep, align 4, !tbaa !18
   %60 = trunc nsw i64 %58 to i32
   %.reass.us = add i32 %invariant.op.us, %60
@@ -3082,7 +3082,7 @@ FCxtrans.exit.us:                                 ; preds = %.preheader.us, %FCx
   %63 = getelementptr inbounds i8, ptr %74, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !10
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw float, ptr %8, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !18
   %68 = fadd reassoc nsz arcp contract afn float %67, %59
   store float %68, ptr %66, align 4, !tbaa !18
@@ -3099,7 +3099,7 @@ FCxtrans.exit.us:                                 ; preds = %.preheader.us, %FCx
   %72 = srem i32 %.reass97.us, 6
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds [6 x i8], ptr %6, i64 %73
-  %invariant.gep = getelementptr float, ptr %1, i64 %70
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %70
   br label %FCxtrans.exit.us
 
 .preheader90.us:                                  ; preds = %.preheader91.us124, %.split95.us
@@ -3176,13 +3176,13 @@ FCxtrans.exit.us:                                 ; preds = %.preheader.us, %FCx
   %98 = srem i32 %97, 6
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds [6 x i8], ptr %6, i64 %99
-  %invariant.gep183 = getelementptr float, ptr %1, i64 %95
+  %invariant.gep183 = getelementptr [4 x i8], ptr %1, i64 %95
   br label %FCxtrans.exit.us.us.us.us.us
 
 FCxtrans.exit.us.us.us.us.us:                     ; preds = %FCxtrans.exit.us.us.us.us.us, %.preheader.us.us.us.us
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %FCxtrans.exit.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us ]
   %101 = add nsw i64 %indvars.iv149, %indvars.iv157
-  %gep184 = getelementptr float, ptr %invariant.gep183, i64 %101
+  %gep184 = getelementptr [4 x i8], ptr %invariant.gep183, i64 %101
   %102 = load float, ptr %gep184, align 4, !tbaa !18
   %103 = trunc i64 %101 to i32
   %104 = add i32 %103, 600
@@ -3191,7 +3191,7 @@ FCxtrans.exit.us.us.us.us.us:                     ; preds = %FCxtrans.exit.us.us
   %107 = getelementptr inbounds i8, ptr %100, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !10
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds nuw float, ptr %8, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !18
   %112 = fadd reassoc nsz arcp contract afn float %111, %102
   store float %112, ptr %110, align 4, !tbaa !18

@@ -349,7 +349,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %24 = and i64 %23, %.val4.i
   %25 = load ptr, ptr %0, align 8, !alias.scope !101, !noalias !106, !nonnull !4, !noundef !4
   %26 = sub nsw i64 0, %24
-  %27 = getelementptr inbounds { { { ptr, [2 x i64] }, { ptr, [2 x i64] } }, {} }, ptr %25, i64 %26
+  %27 = getelementptr inbounds [48 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -48
   %29 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h643ca57838f36f1bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28)
           to label %.noexc6 unwind label %.loopexit
@@ -426,7 +426,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %69 = add i64 %68, 1
   store i64 %69, ptr %67, align 8, !alias.scope !113, !noalias !116
   %70 = sub nsw i64 0, %.sroa.4.0.ph
-  %71 = getelementptr inbounds { { { ptr, [2 x i64] }, { ptr, [2 x i64] } }, {} }, ptr %55, i64 %70
+  %71 = getelementptr inbounds [48 x i8], ptr %55, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.07, i64 48, i1 false), !noalias !113
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.07)

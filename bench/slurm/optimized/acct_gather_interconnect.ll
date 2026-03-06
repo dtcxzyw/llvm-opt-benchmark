@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.slurm_acct_gather_interconnect_ops = type { ptr, ptr, ptr, ptr, ptr }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 
 @.str = private unnamed_addr constant [25 x i8] c"acct_gather_interconnect\00", align 1
@@ -131,15 +130,15 @@ define dso_local noundef i32 @acct_gather_interconnect_init() local_unnamed_addr
   %33 = load ptr, ptr @ops, align 8
   %34 = load i32, ptr @g_context_num, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.slurm_acct_gather_interconnect_ops, ptr %33, i64 %35
+  %36 = getelementptr inbounds [40 x i8], ptr %33, i64 %35
   %37 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef %36, ptr noundef nonnull @syms, i64 noundef 40) #7
   %38 = load ptr, ptr @g_context, align 8
   %39 = load i32, ptr @g_context_num, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   store ptr %37, ptr %41, align 8
   %42 = load ptr, ptr @g_context, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %40
   %44 = load ptr, ptr %43, align 8
   %.not15 = icmp eq ptr %44, null
   br i1 %.not15, label %45, label %48
@@ -344,7 +343,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %38 ]
   %.02756 = phi i32 [ %.1, %56 ], [ 0, %38 ]
   %41 = load ptr, ptr @g_context, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %.not51 = icmp eq ptr %43, null
   br i1 %.not51, label %56, label %44
@@ -361,7 +360,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr @g_context, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
@@ -561,14 +560,14 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   %15 = phi i32 [ %11, %.lr.ph.preheader ], [ %25, %24 ]
   %16 = phi ptr [ %.pre44, %.lr.ph.preheader ], [ %26, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.not23 = icmp eq ptr %18, null
   br i1 %.not23, label %24, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr @ops, align 8
-  %21 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22() #7
   %.pre = load ptr, ptr @g_context, align 8
@@ -664,14 +663,14 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_options(ptr nounde
   %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %20, %19 ]
   %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef %0, ptr noundef %1) #7
@@ -732,14 +731,14 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
   %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0) #7
@@ -800,14 +799,14 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
   %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0) #7
@@ -868,14 +867,14 @@ define dso_local noundef i32 @acct_gather_interconnect_g_get_data(ptr noundef %0
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %20, %19 ]
   %10 = phi ptr [ %.pre19, %.lr.ph.preheader ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %19, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0) #7

@@ -71,7 +71,7 @@ define hidden ptr @get_error_str(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @EncoderError, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @EncoderError, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   br label %7
 
@@ -221,7 +221,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 79:                                               ; preds = %75
   %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr @EncoderError, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @EncoderError, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !6
   br label %get_error_str.exit
 

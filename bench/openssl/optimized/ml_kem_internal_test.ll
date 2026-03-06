@@ -126,7 +126,7 @@ define internal range(i32 0, 2) i32 @sanity_test() #0 {
   br i1 %.not70.not, label %.critedge, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i32, ptr @sanity_test.alg, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @sanity_test.alg, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !4
   %29 = call ptr @ossl_ml_kem_key_new(ptr noundef null, ptr noundef null, i32 noundef %28) #5
   %30 = call ptr @ossl_ml_kem_key_new(ptr noundef null, ptr noundef null, i32 noundef %28) #5

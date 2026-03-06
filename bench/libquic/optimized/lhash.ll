@@ -110,7 +110,7 @@ define hidden void @lh_free(ptr noundef captures(address_is_null) %0) local_unna
   %7 = phi i64 [ %4, %.lr.ph16 ], [ %13, %._crit_edge ]
   %.015 = phi i64 [ 0, %.lr.ph16 ], [ %14, %._crit_edge ]
   %8 = load ptr, ptr %5, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.015
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.015
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -161,7 +161,7 @@ define hidden ptr @lh_retrieve(ptr noundef readonly captures(none) %0, ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = urem i64 %8, %10
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.01518.i = load ptr, ptr %12, align 8, !tbaa !20
   %.not1719.i = icmp eq ptr %.01518.i, null
@@ -219,7 +219,7 @@ define hidden range(i32 0, 2) i32 @lh_insert(ptr noundef captures(none) %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = urem i64 %9, %11
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.01518.i = load ptr, ptr %13, align 8, !tbaa !20
   %.not1719.i = icmp eq ptr %.01518.i, null
@@ -328,7 +328,7 @@ define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %0) unna
 
 .lr.ph35.i:                                       ; preds = %17, %._crit_edge.i
   %.02733.i = phi i64 [ %28, %._crit_edge.i ], [ 0, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.02733.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.02733.i
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %.not3031.i = icmp eq ptr %19, null
   br i1 %.not3031.i, label %._crit_edge.i, label %.lr.ph.i
@@ -341,7 +341,7 @@ define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %0) unna
   %23 = urem i64 %22, %13
   %24 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %23
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   store ptr %27, ptr %24, align 8, !tbaa !22
   store ptr %.032.i, ptr %26, align 8, !tbaa !20
@@ -384,7 +384,7 @@ define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %0) unna
 
 .lr.ph35.i21:                                     ; preds = %37, %._crit_edge.i27
   %.02733.i22 = phi i64 [ %48, %._crit_edge.i27 ], [ 0, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre.i20, i64 %.02733.i22
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i20, i64 %.02733.i22
   %39 = load ptr, ptr %38, align 8, !tbaa !20
   %.not3031.i23 = icmp eq ptr %39, null
   br i1 %.not3031.i23, label %._crit_edge.i27, label %.lr.ph.i24
@@ -397,7 +397,7 @@ define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %0) unna
   %43 = urem i64 %42, %spec.store.select
   %44 = getelementptr inbounds nuw i8, ptr %.032.i25, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !22
-  %46 = getelementptr inbounds nuw ptr, ptr %calloc.i17, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i17, i64 %43
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   store ptr %47, ptr %44, align 8, !tbaa !22
   store ptr %.032.i25, ptr %46, align 8, !tbaa !20
@@ -430,7 +430,7 @@ define hidden ptr @lh_delete(ptr noundef captures(none) %0, ptr noundef %1) loca
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = urem i64 %8, %10
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.01518.i = load ptr, ptr %12, align 8, !tbaa !20
   %.not1719.i = icmp eq ptr %.01518.i, null
@@ -515,7 +515,7 @@ define hidden void @lh_doall(ptr noundef captures(address_is_null) %0, ptr nound
   %14 = phi i64 [ %18, %._crit_edge.split.us.us.i ], [ %12, %.lr.ph31.i ]
   %.029.us.i = phi i64 [ %19, %._crit_edge.split.us.us.i ], [ 0, %.lr.ph31.i ]
   %15 = load ptr, ptr %13, align 8, !tbaa !14
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.029.us.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.029.us.i
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %.not2527.us.i = icmp eq ptr %17, null
   br i1 %.not2527.us.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i
@@ -593,7 +593,7 @@ define hidden void @lh_doall_arg(ptr noundef captures(address_is_null) %0, ptr n
   %15 = phi i64 [ %22, %._crit_edge.split.i ], [ %13, %.lr.ph31.i ]
   %.029.i = phi i64 [ %23, %._crit_edge.split.i ], [ 0, %.lr.ph31.i ]
   %16 = load ptr, ptr %14, align 8, !tbaa !14
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.029.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.029.i
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %.not2527.i = icmp eq ptr %18, null
   br i1 %.not2527.i, label %._crit_edge.split.i, label %.lr.ph.i

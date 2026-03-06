@@ -52,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.24" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::dnn_objdetect::object" = type { i32, i32, i32, i32, i64, %"class.std::__cxx11::basic_string", double }
 
 $_ZN2cv13dnn_objdetect9InferBboxD2Ev = comdat any
 
@@ -1148,7 +1147,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit308: ; preds = %37
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit313
   %380 = phi ptr [ %391, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit313 ], [ %220, %.lr.ph.preheader ]
   %.0107474 = phi i64 [ %390, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit313 ], [ 0, %.lr.ph.preheader ]
-  %381 = getelementptr inbounds nuw %"class.cv::Mat", ptr %380, i64 %.0107474
+  %381 = getelementptr inbounds nuw [96 x i8], ptr %380, i64 %.0107474
   %382 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %381)
           to label %383 unwind label %388
 
@@ -1375,7 +1374,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit325: ; preds = %_ZSt
 477:                                              ; preds = %.lr.ph476, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359
   %478 = phi ptr [ %442, %.lr.ph476 ], [ %562, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359 ]
   %.0106475 = phi i64 [ 0, %.lr.ph476 ], [ %560, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359 ]
-  %479 = getelementptr inbounds nuw %"struct.cv::dnn_objdetect::object", ptr %478, i64 %.0106475
+  %479 = getelementptr inbounds nuw [64 x i8], ptr %478, i64 %.0106475
   %480 = load i32, ptr %479, align 8, !tbaa !63
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %482 = load i32, ptr %481, align 8, !tbaa !65
@@ -1446,7 +1445,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit338: ; preds = %_ZSt
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit340: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit338
   %508 = load ptr, ptr %50, align 8, !tbaa !60
-  %509 = getelementptr inbounds nuw %"struct.cv::dnn_objdetect::object", ptr %508, i64 %.0106475
+  %509 = getelementptr inbounds nuw [64 x i8], ptr %508, i64 %.0106475
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 56
   %511 = load double, ptr %510, align 8, !tbaa !68
   %512 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %505, double noundef %511)
@@ -1462,7 +1461,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit344: ; preds = %_ZNS
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit346: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit344
   %515 = load ptr, ptr %50, align 8, !tbaa !60
-  %516 = getelementptr inbounds nuw %"struct.cv::dnn_objdetect::object", ptr %515, i64 %.0106475
+  %516 = getelementptr inbounds nuw [64 x i8], ptr %515, i64 %.0106475
   %517 = load i32, ptr %516, align 8, !tbaa !63
   %518 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %512, i32 noundef %517)
           to label %519 unwind label %570
@@ -1473,7 +1472,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit346: ; preds = %_ZSt
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit348: ; preds = %519
   %521 = load ptr, ptr %50, align 8, !tbaa !60
-  %522 = getelementptr inbounds nuw %"struct.cv::dnn_objdetect::object", ptr %521, i64 %.0106475
+  %522 = getelementptr inbounds nuw [64 x i8], ptr %521, i64 %.0106475
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load i32, ptr %523, align 8, !tbaa !65
   %525 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %518, i32 noundef %524)
@@ -1485,7 +1484,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit348: ; preds = %519
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit350: ; preds = %526
   %528 = load ptr, ptr %50, align 8, !tbaa !60
-  %529 = getelementptr inbounds nuw %"struct.cv::dnn_objdetect::object", ptr %528, i64 %.0106475
+  %529 = getelementptr inbounds nuw [64 x i8], ptr %528, i64 %.0106475
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 4
   %531 = load i32, ptr %530, align 4, !tbaa !66
   %532 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %525, i32 noundef %531)
@@ -1497,7 +1496,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit350: ; preds = %526
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit352: ; preds = %533
   %535 = load ptr, ptr %50, align 8, !tbaa !60
-  %536 = getelementptr inbounds nuw %"struct.cv::dnn_objdetect::object", ptr %535, i64 %.0106475
+  %536 = getelementptr inbounds nuw [64 x i8], ptr %535, i64 %.0106475
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 12
   %538 = load i32, ptr %537, align 4, !tbaa !67
   %539 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %532, i32 noundef %538)
@@ -2597,7 +2596,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !44
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !47
   ret void
 }

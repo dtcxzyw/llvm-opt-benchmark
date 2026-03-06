@@ -532,7 +532,7 @@ define internal noundef zeroext i1 @dissect_PNDCP_Data_heur(ptr noundef %0, ptr 
 
 switch.lookup:                                    ; preds = %12
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNDCP_Data_heur, i64 %43
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_PNDCP_Data_heur, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @pn_append_info(ptr noundef %1, ptr noundef %20, ptr noundef nonnull %switch.load)
   %44 = load i8, ptr %6, align 1
@@ -670,10 +670,10 @@ define internal fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %7
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNDCP_Option, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_PNDCP_Option, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep43 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNDCP_Option.1, i64 %14
+  %switch.gep43 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_PNDCP_Option.1, i64 %14
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %15
 

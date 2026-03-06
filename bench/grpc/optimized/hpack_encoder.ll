@@ -30,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::(anonymous namespace)::BinaryStringValue" = type { %"struct.grpc_core::(anonymous namespace)::WireValue", %"class.grpc_core::VarintWriter" }
 %"struct.grpc_core::(anonymous namespace)::WireValue" = type { %"class.grpc_core::Slice", i8, i8, i64, i64 }
 %"class.grpc_core::Timeout" = type <{ i16, i8, i8 }>
-%"struct.grpc_core::hpack_encoder_detail::PreviousTimeout" = type { %"class.grpc_core::Timeout", i32 }
-%"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex" = type <{ %"class.grpc_core::Slice", i32, [4 x i8] }>
 
 $_ZN9grpc_core5SliceD2Ev = comdat any
 
@@ -3528,7 +3526,7 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %16, %17, %.thread.i
 
 39:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit
   %.036 = phi i64 [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ %75, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit ]
-  %40 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %.036
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.036
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !339
   %43 = load i32, ptr %38, align 8, !tbaa !242
@@ -3658,7 +3656,7 @@ _ZN9grpc_core5SliceD2Ev.exit32:                   ; preds = %_ZN9grpc_core5Slice
   %.sroa.0.sroa.0.0.insert.ext = zext i24 %.sroa.0.sroa.0.0.copyload to i32
   %104 = urem i32 %102, 5
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %105
   store i32 %.sroa.0.sroa.0.0.insert.ext, ptr %106, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %77, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !100
@@ -3867,7 +3865,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !361
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !358
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !362
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4076,7 +4074,7 @@ _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE1
 _ZNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %39
   store ptr %23, ptr %0, align 8, !tbaa !364
   store ptr %.0.lcssa.i.i.i32, ptr %7, align 8, !tbaa !255
-  %43 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %23, i64 %19
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %43, ptr %38, align 8, !tbaa !268
   ret void
 }

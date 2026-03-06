@@ -78,7 +78,7 @@ default.unreachable:                              ; preds = %31, %12
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %26 = load ptr, ptr %25, align 8, !noalias !13, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds float, ptr %26, i64 %19
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %19
   %28 = load float, ptr %27, align 4, !noalias !13, !noundef !4
   %29 = add nuw i64 %19, 1
   store i64 %29, ptr %13, align 8, !alias.scope !13
@@ -118,7 +118,7 @@ default.unreachable:                              ; preds = %31, %12
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %46 = load ptr, ptr %45, align 8, !noalias !18, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds float, ptr %46, i64 %39
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %39
   %48 = load float, ptr %47, align 4, !noalias !18, !noundef !4
   %49 = add nuw i64 %39, 1
   store i64 %49, ptr %33, align 8, !alias.scope !18
@@ -643,7 +643,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc10:                                         ; preds = %54, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17haec44502a9ebd264E.exit.i.i", %.lr.ph.i.i
   %48 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !140, !noalias !141, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds float, ptr %48, i64 %36
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %36
   store float %35, ptr %49, align 4
   %50 = add i64 %36, 1
   store i64 %50, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !140, !noalias !141
@@ -826,7 +826,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc10:                                         ; preds = %62, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h93184119d04a0181E.exit.i.i", %.lr.ph.i.i
   %56 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !181, !noalias !182, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds float, ptr %56, i64 %39
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %39
   store float %38, ptr %57, align 4
   %58 = add i64 %39, 1
   store i64 %58, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !181, !noalias !182
@@ -1024,7 +1024,7 @@ define hidden noundef float @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds float, ptr %8, i64 %1
+  %9 = getelementptr inbounds [4 x i8], ptr %8, i64 %1
   %10 = load float, ptr %9, align 4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = xor i64 %1, -1
@@ -1098,10 +1098,10 @@ define hidden { ptr, i64 } @_ZN5audio5Sound4file17h5f749c4715b3cb88E(ptr noalias
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !219, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E.12, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5audio5Sound4file17h5f749c4715b3cb88E.12, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

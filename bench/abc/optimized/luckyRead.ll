@@ -139,8 +139,8 @@ Abc_TruthGetParams.exit:                          ; preds = %.lr.ph.i, %25, %1, 
 49:                                               ; preds = %49, %.lr.ph.i5
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.i5 ], [ %51, %49 ]
   %indvars.iv.i6 = phi i64 [ 1, %.lr.ph.i5 ], [ %indvars.iv.next.i7, %49 ]
-  %50 = getelementptr ptr, ptr %41, i64 %indvars.iv.i6
-  %51 = getelementptr inbounds nuw i64, ptr %store_forwarded, i64 %48
+  %50 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv.i6
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %store_forwarded, i64 %48
   store ptr %51, ptr %50, align 8, !tbaa !10
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %wide.trip.count.i
@@ -170,7 +170,7 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %49, %Abc_TruthGetPa
   %61 = phi ptr [ %97, %95 ], [ %52, %.lr.ph.i10 ]
   %.01216.us.i = phi i64 [ %indvars.iv.next24.i, %95 ], [ 0, %.lr.ph.i10 ]
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
-  %62 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv26.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv26.i
   %63 = load ptr, ptr %62, align 8, !tbaa !10
   %64 = icmp eq i8 %60, 48
   br i1 %64, label %65, label %.lr.ph.preheader.i.us.i
@@ -225,7 +225,7 @@ Abc_TruthReadHexDigit.exit.i.us.i:                ; preds = %82, %80, %77
   %86 = shl i64 %.0.i.i.us.i, %85
   %87 = lshr i64 %indvars.iv.i.us.i, 4
   %88 = and i64 %87, 268435455
-  %89 = getelementptr inbounds nuw i64, ptr %63, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !21
   %91 = or i64 %90, %86
   store i64 %91, ptr %89, align 8, !tbaa !21

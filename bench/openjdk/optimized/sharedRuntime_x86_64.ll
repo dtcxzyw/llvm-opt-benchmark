@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.XMMRegister::XMMRegisterImpl" = type { i8 }
 %class.Address = type { %class.Register, %class.Register, %class.XMMRegister, i32, i32, i8, [3 x i8], %class.RelocationHolder }
 %class.RelocationHolder = type { [40 x i8] }
-%class.VMRegPair = type { ptr, ptr }
 %class.Label = type <{ i32, [4 x i32], i32, ptr, i8, [7 x i8] }>
 %class.AddressLiteral = type { %class.RelocationHolder, i8, ptr }
 %class.ExternalAddress = type { %class.AddressLiteral }
 %class.RuntimeAddress = type { %class.AddressLiteral }
 %class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
 %class.FormatBufferBase = type { ptr }
+%class.VMRegPair = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.CodeBuffer = type { ptr, %class.CodeSection, %class.CodeSection, %class.CodeSection, ptr, ptr, ptr, i32, ptr, %class.OopRecorder, ptr, ptr, ptr, ptr, ptr, i8, i32 }
 %class.CodeSection = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i32, i8, ptr }
@@ -534,14 +534,14 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
 138:                                              ; preds = %.preheader323, %138
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %138 ], [ 40, %.preheader323 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %138 ], [ 0, %.preheader323 ]
-  %139 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv281
-  %140 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv
+  %139 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv281
+  %140 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv
   %141 = ptrtoint ptr %140 to i64
   %142 = trunc i64 %141 to i32
   %143 = sub i32 %142, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %144 = shl i32 %143, 4
   %145 = sext i32 %144 to i64
-  %146 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %145
+  %146 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %145
   %147 = getelementptr i8, ptr %146, i64 80
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull %139, ptr noundef %147) #14
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 4
@@ -560,15 +560,15 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %.0187261 = phi i32 [ %161, %.lr.ph262 ], [ 16, %148 ]
   %or.cond.i211 = icmp samesign ult i32 %.0187261, 32
   %spec.select.i212 = select i1 %or.cond.i211, i32 %.0187261, i32 -1
-  %151 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv287
+  %151 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv287
   %152 = sext i32 %spec.select.i212 to i64
-  %153 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %152
+  %153 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %152
   %154 = ptrtoint ptr %153 to i64
   %155 = trunc i64 %154 to i32
   %156 = sub i32 %155, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %157 = shl i32 %156, 4
   %158 = sext i32 %157 to i64
-  %159 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %158
+  %159 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %158
   %160 = getelementptr i8, ptr %159, i64 80
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull %151, ptr noundef %160) #14
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 16
@@ -582,14 +582,14 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
 .preheader233:                                    ; preds = %.loopexit235, %.preheader233
   %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.preheader233 ], [ 144, %.loopexit235 ]
   %indvars.iv292 = phi i64 [ %indvars.iv.next293, %.preheader233 ], [ 0, %.loopexit235 ]
-  %162 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv294
-  %163 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv292
+  %162 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv294
+  %163 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv292
   %164 = ptrtoint ptr %163 to i64
   %165 = trunc i64 %164 to i32
   %166 = sub i32 %165, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %167 = shl i32 %166, 4
   %168 = sext i32 %167 to i64
-  %169 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %168
+  %169 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %168
   %170 = getelementptr i8, ptr %169, i64 84
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull %162, ptr noundef nonnull %170) #14
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 4
@@ -606,14 +606,14 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
 .preheader231:                                    ; preds = %171, %.preheader231
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %.preheader231 ], [ 288, %171 ]
   %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.preheader231 ], [ 0, %171 ]
-  %174 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv302
-  %175 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv300
+  %174 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv302
+  %175 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv300
   %176 = ptrtoint ptr %175 to i64
   %177 = trunc i64 %176 to i32
   %178 = sub i32 %177, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %179 = shl i32 %178, 4
   %180 = sext i32 %179 to i64
-  %181 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %180
+  %181 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %180
   %182 = getelementptr i8, ptr %181, i64 88
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull %174, ptr noundef nonnull %182) #14
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 8
@@ -665,14 +665,14 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
 186:                                              ; preds = %.preheader, %186
   %indvars.iv310 = phi i64 [ %indvars.iv.next311, %186 ], [ 41, %.preheader ]
   %indvars.iv308 = phi i64 [ %indvars.iv.next309, %186 ], [ 0, %.preheader ]
-  %187 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv310
-  %188 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv308
+  %187 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv310
+  %188 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv308
   %189 = ptrtoint ptr %188 to i64
   %190 = trunc i64 %189 to i32
   %191 = sub i32 %190, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %192 = shl i32 %191, 4
   %193 = sext i32 %192 to i64
-  %194 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %193
+  %194 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %193
   %195 = getelementptr i8, ptr %194, i64 81
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull %187, ptr noundef nonnull %195) #14
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 4
@@ -691,15 +691,15 @@ _ZN14MacroAssembler17vextractf128_highE7Address11XMMRegister.exit: ; preds = %40
   %.0270 = phi i32 [ %209, %.lr.ph271 ], [ 16, %196 ]
   %or.cond.i219 = icmp samesign ult i32 %.0270, 32
   %spec.select.i220 = select i1 %or.cond.i219, i32 %.0270, i32 -1
-  %199 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv316
+  %199 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv316
   %200 = sext i32 %spec.select.i220 to i64
-  %201 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %200
+  %201 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %200
   %202 = ptrtoint ptr %201 to i64
   %203 = trunc i64 %202 to i32
   %204 = sub i32 %203, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %205 = shl i32 %204, 4
   %206 = sext i32 %205 to i64
-  %207 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %206
+  %207 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %206
   %208 = getelementptr i8, ptr %207, i64 81
   call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull %199, ptr noundef nonnull %208) #14
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 16
@@ -1215,19 +1215,19 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %11 = add nuw nsw i32 %.04649, 1
   %12 = zext nneg i32 %.04649 to i64
-  %13 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %15
+  %16 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %15
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i32
   %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %20 = shl i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %21
+  %22 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %21
   store ptr @all_VMRegs, ptr %10, align 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %22, ptr %23, align 8
@@ -1236,9 +1236,9 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
 24:                                               ; preds = %7
   %25 = add i32 %.04351, 1
   %26 = and i32 %25, -2
-  %27 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %28
+  %29 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %28
   store ptr @all_VMRegs, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %29, ptr %30, align 8
@@ -1246,7 +1246,7 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   br label %118
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   store ptr @all_VMRegs, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @all_VMRegs, ptr %34, align 8
@@ -1257,19 +1257,19 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %39 = add nuw nsw i32 %.04649, 1
   %40 = zext nneg i32 %.04649 to i64
-  %41 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %43
+  %44 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %43
   %45 = ptrtoint ptr %44 to i64
   %46 = trunc i64 %45 to i32
   %47 = sub i32 %46, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %48 = shl i32 %47, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %49
+  %50 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %51, ptr %38, align 8
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -1279,9 +1279,9 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
 53:                                               ; preds = %35
   %54 = add i32 %.04351, 1
   %55 = and i32 %54, -2
-  %56 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %57
+  %58 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %56, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -1294,19 +1294,19 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   br i1 %63, label %64, label %80
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %66 = add nuw nsw i32 %.04450, 1
   %67 = zext nneg i32 %.04450 to i64
-  %68 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %70
+  %71 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %70
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i32
   %74 = sub i32 %73, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %75 = shl i32 %74, 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %76
+  %77 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %76
   %78 = getelementptr i8, ptr %77, i64 80
   store ptr @all_VMRegs, ptr %65, align 8
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -1316,9 +1316,9 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
 80:                                               ; preds = %62
   %81 = add i32 %.04351, 1
   %82 = and i32 %81, -2
-  %83 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %84
+  %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %84
   store ptr @all_VMRegs, ptr %83, align 8
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %85, ptr %86, align 8
@@ -1330,19 +1330,19 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
   br i1 %89, label %90, label %107
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %92 = add nuw nsw i32 %.04450, 1
   %93 = zext nneg i32 %.04450 to i64
-  %94 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %96
+  %97 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %96
   %98 = ptrtoint ptr %97 to i64
   %99 = trunc i64 %98 to i32
   %100 = sub i32 %99, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %101 = shl i32 %100, 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %102
+  %103 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %102
   %104 = getelementptr i8, ptr %103, i64 80
   %105 = getelementptr i8, ptr %103, i64 81
   store ptr %105, ptr %91, align 8
@@ -1353,9 +1353,9 @@ define hidden noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicT
 107:                                              ; preds = %88
   %108 = add i32 %.04351, 1
   %109 = and i32 %108, -2
-  %110 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %111
+  %112 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %113, ptr %110, align 8
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -1710,7 +1710,7 @@ define hidden void @_ZN13SharedRuntime15gen_i2c_adapterEP14MacroAssembleriiPK9Ba
   %205 = shl nsw i64 %203, 3
   %206 = shl nsw i32 %204, 3
   %207 = add nsw i32 %206, -8
-  %208 = getelementptr inbounds nuw %class.VMRegPair, ptr %4, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -2428,7 +2428,7 @@ define hidden noundef ptr @_ZN13SharedRuntime23generate_i2c2i_adaptersEP14MacroA
   %245 = sub nsw i64 %239, %indvars.iv.i
   %246 = shl nsw i64 %245, 3
   %247 = add nsw i64 %246, -8
-  %248 = getelementptr inbounds nuw %class.VMRegPair, ptr %4, i64 %indvars.iv.i
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = load ptr, ptr %248, align 8
@@ -2732,22 +2732,22 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = icmp ult i32 %.04245, 6
-  %9 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   br i1 %8, label %10, label %24
 
 10:                                               ; preds = %7
   %11 = add nuw nsw i32 %.04245, 1
   %12 = zext nneg i32 %.04245 to i64
-  %13 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %15
+  %16 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %15
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i32
   %19 = sub i32 %18, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %20 = shl i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %21
+  %22 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %21
   store ptr @all_VMRegs, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %22, ptr %23, align 8
@@ -2755,7 +2755,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 24:                                               ; preds = %7
   %25 = sext i32 %.03947 to i64
-  %26 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %25
+  %26 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %25
   store ptr @all_VMRegs, ptr %9, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %26, ptr %27, align 8
@@ -2764,22 +2764,22 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 29:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %30 = icmp ult i32 %.04245, 6
-  %31 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   br i1 %30, label %32, label %47
 
 32:                                               ; preds = %29
   %33 = add nuw nsw i32 %.04245, 1
   %34 = zext nneg i32 %.04245 to i64
-  %35 = getelementptr inbounds nuw %class.Register, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE10INT_ArgReg, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
+  %38 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %37
   %39 = ptrtoint ptr %38 to i64
   %40 = trunc i64 %39 to i32
   %41 = sub i32 %40, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %42 = shl i32 %41, 1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %43
+  %44 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %31, align 8
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -2788,7 +2788,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 47:                                               ; preds = %29
   %48 = sext i32 %.03947 to i64
-  %49 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %48
+  %49 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %50, ptr %31, align 8
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -2798,22 +2798,22 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 53:                                               ; preds = %.lr.ph
   %54 = icmp ult i32 %.04046, 8
-  %55 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   br i1 %54, label %56, label %71
 
 56:                                               ; preds = %53
   %57 = add nuw nsw i32 %.04046, 1
   %58 = zext nneg i32 %.04046 to i64
-  %59 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
+  %62 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %61
   %63 = ptrtoint ptr %62 to i64
   %64 = trunc i64 %63 to i32
   %65 = sub i32 %64, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %66 = shl i32 %65, 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %67
+  %68 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %67
   %69 = getelementptr i8, ptr %68, i64 80
   store ptr @all_VMRegs, ptr %55, align 8
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -2822,7 +2822,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 71:                                               ; preds = %53
   %72 = sext i32 %.03947 to i64
-  %73 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %72
+  %73 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %72
   store ptr @all_VMRegs, ptr %55, align 8
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %73, ptr %74, align 8
@@ -2831,22 +2831,22 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 76:                                               ; preds = %.lr.ph
   %77 = icmp ult i32 %.04046, 8
-  %78 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   br i1 %77, label %79, label %95
 
 79:                                               ; preds = %76
   %80 = add nuw nsw i32 %.04046, 1
   %81 = zext nneg i32 %.04046 to i64
-  %82 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairiE9FP_ArgReg, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %84
+  %85 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %84
   %86 = ptrtoint ptr %85 to i64
   %87 = trunc i64 %86 to i32
   %88 = sub i32 %87, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %89 = shl i32 %88, 4
   %90 = sext i32 %89 to i64
-  %91 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %90
+  %91 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %90
   %92 = getelementptr i8, ptr %91, i64 80
   %93 = getelementptr i8, ptr %91, i64 81
   store ptr %93, ptr %78, align 8
@@ -2856,7 +2856,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
 
 95:                                               ; preds = %76
   %96 = sext i32 %.03947 to i64
-  %97 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %96
+  %97 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store ptr %98, ptr %78, align 8
   %99 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -2865,7 +2865,7 @@ define hidden noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicType
   br label %106
 
 101:                                              ; preds = %.lr.ph
-  %102 = getelementptr inbounds nuw %class.VMRegPair, ptr %1, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   store ptr @all_VMRegs, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr @all_VMRegs, ptr %103, align 8
@@ -2908,19 +2908,19 @@ define hidden noundef i32 @_ZN13SharedRuntime25vector_calling_conventionEP9VMReg
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw %class.XMMRegister, ptr @_ZZN13SharedRuntime25vector_calling_conventionEP9VMRegPairjjE10VEC_ArgReg, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN13SharedRuntime25vector_calling_conventionEP9VMRegPairjjE10VEC_ArgReg, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %13
+  %14 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %13
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
   %17 = sub i32 %16, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %18 = shl i32 %17, 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %19
+  %20 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %19
   %21 = getelementptr i8, ptr %20, i64 80
-  %22 = getelementptr inbounds nuw %class.VMRegPair, ptr %0, i64 %indvars.iv
-  %23 = getelementptr inbounds nuw %class.VMRegImpl, ptr %21, i64 %9
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %9
   store ptr %23, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %24, align 8
@@ -3754,7 +3754,7 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   %.034.ph.in.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 46
   %.034.ph.in.in.i = load i16, ptr %.034.ph.in.in.in.i, align 2
   %.034.ph.in.i = zext i16 %.034.ph.in.in.i to i64
-  %322 = getelementptr %class.VMRegPair, ptr %4, i64 %.034.ph.in.i
+  %322 = getelementptr [16 x i8], ptr %4, i64 %.034.ph.in.i
   %323 = getelementptr i8, ptr %322, i64 -8
   %324 = load ptr, ptr %323, align 8
   %.not17.i = icmp ult ptr %324, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
@@ -4079,8 +4079,8 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.lr.ph665
 
 .lr.ph.i:                                         ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i ]
-  %497 = getelementptr inbounds nuw i32, ptr %487, i64 %indvars.iv.i
-  %498 = getelementptr inbounds nuw i32, ptr %.sroa.24.0660, i64 %indvars.iv.i
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %487, i64 %indvars.iv.i
+  %498 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.0660, i64 %indvars.iv.i
   %499 = load i32, ptr %498, align 4
   store i32 %499, ptr %497, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4090,7 +4090,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.lr.ph665
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %.lr.ph665, %.lr.ph18.preheader.i, %.preheader15.i
   %.sroa.24.1 = phi ptr [ %487, %.preheader15.i ], [ %487, %.lr.ph18.preheader.i ], [ %.sroa.24.0660, %.lr.ph665 ]
   %.sroa.13.1 = phi i32 [ %.0.i.i.i.i.i, %.preheader15.i ], [ %.0.i.i.i.i.i, %.lr.ph18.preheader.i ], [ %.sroa.13.0661, %.lr.ph665 ]
-  %500 = getelementptr inbounds nuw i32, ptr %.sroa.24.1, i64 %indvars.iv678
+  %500 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.1, i64 %indvars.iv678
   store i32 %.0642663, ptr %500, align 4
   %501 = zext i32 %.sroa.13.1 to i64
   %502 = icmp eq i64 %481, %501
@@ -4127,8 +4127,8 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i590:       ; preds = %_ZN26GrowableArrayW
 
 .lr.ph.i600:                                      ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit.i590, %.lr.ph.i600
   %indvars.iv.i601 = phi i64 [ %indvars.iv.next.i602, %.lr.ph.i600 ], [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i590 ]
-  %518 = getelementptr inbounds nuw i32, ptr %509, i64 %indvars.iv.i601
-  %519 = getelementptr inbounds nuw i32, ptr %.sroa.24.1, i64 %indvars.iv.i601
+  %518 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %indvars.iv.i601
+  %519 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.1, i64 %indvars.iv.i601
   %520 = load i32, ptr %519, align 4
   store i32 %520, ptr %518, align 4
   %indvars.iv.next.i602 = add nuw nsw i64 %indvars.iv.i601, 1
@@ -4138,7 +4138,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i590:       ; preds = %_ZN26GrowableArrayW
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds = %.lr.ph18.preheader.i596, %.preheader15.loopexit.i603, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
   %.sroa.24.2 = phi ptr [ %.sroa.24.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %509, %.preheader15.loopexit.i603 ], [ %509, %.lr.ph18.preheader.i596 ]
   %.sroa.13.2 = phi i32 [ %.sroa.13.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %.0.i.i.i.i.i582, %.preheader15.loopexit.i603 ], [ %.0.i.i.i.i.i582, %.lr.ph18.preheader.i596 ]
-  %521 = getelementptr inbounds nuw i32, ptr %.sroa.24.2, i64 %481
+  %521 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.2, i64 %481
   store i32 %storemerge664, ptr %521, align 4
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 2
   %indvar.next = add nuw nsw i32 %indvar, 1
@@ -4147,7 +4147,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
 
 .lr.ph668:                                        ; preds = %.preheader, %552
   %indvars.iv687 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next688, %552 ]
-  %522 = getelementptr inbounds nuw i32, ptr %.sroa.24.2, i64 %indvars.iv687
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.24.2, i64 %indvars.iv687
   %523 = load i32, ptr %522, align 4
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 4
   %525 = load i32, ptr %524, align 4
@@ -4167,24 +4167,24 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
   ]
 
 530:                                              ; preds = %.lr.ph668, %.lr.ph668
-  %531 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %531 = getelementptr inbounds [16 x i8], ptr %4, i64 %527
   %.sroa.0189.0.copyload = load ptr, ptr %531, align 8
   %.sroa.2190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %531, i64 8
   %.sroa.2190.0.copyload = load ptr, ptr %.sroa.2190.0..sroa_idx, align 8
   %532 = sext i32 %525 to i64
-  %533 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %532
+  %533 = getelementptr inbounds [16 x i8], ptr %384, i64 %532
   %534 = or i32 %523, %400
   %535 = icmp eq i32 %534, 0
   call void @_ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %471, i32 noundef %394, i32 noundef %410, ptr %.sroa.0189.0.copyload, ptr %.sroa.2190.0.copyload, ptr noundef nonnull byval(%class.VMRegPair) align 8 %533, i1 noundef zeroext %535, ptr noundef nonnull %39) #14
   br label %552
 
 536:                                              ; preds = %.lr.ph668
-  %537 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %537 = getelementptr inbounds [16 x i8], ptr %4, i64 %527
   %.sroa.0187.0.copyload = load ptr, ptr %537, align 8
   %.sroa.2188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %537, i64 8
   %.sroa.2188.0.copyload = load ptr, ptr %.sroa.2188.0..sroa_idx, align 8
   %538 = sext i32 %525 to i64
-  %539 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %538
+  %539 = getelementptr inbounds [16 x i8], ptr %384, i64 %538
   %.sroa.0185.0.copyload = load ptr, ptr %539, align 8
   %.sroa.2186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %539, i64 8
   %.sroa.2186.0.copyload = load ptr, ptr %.sroa.2186.0..sroa_idx, align 8
@@ -4192,12 +4192,12 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
   br label %552
 
 540:                                              ; preds = %.lr.ph668
-  %541 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %541 = getelementptr inbounds [16 x i8], ptr %4, i64 %527
   %.sroa.0182.0.copyload = load ptr, ptr %541, align 8
   %.sroa.2183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %541, i64 8
   %.sroa.2183.0.copyload = load ptr, ptr %.sroa.2183.0..sroa_idx, align 8
   %542 = sext i32 %525 to i64
-  %543 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %542
+  %543 = getelementptr inbounds [16 x i8], ptr %384, i64 %542
   %.sroa.0180.0.copyload = load ptr, ptr %543, align 8
   %.sroa.2181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %543, i64 8
   %.sroa.2181.0.copyload = load ptr, ptr %.sroa.2181.0..sroa_idx, align 8
@@ -4205,12 +4205,12 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
   br label %552
 
 544:                                              ; preds = %.lr.ph668
-  %545 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %545 = getelementptr inbounds [16 x i8], ptr %4, i64 %527
   %.sroa.0177.0.copyload = load ptr, ptr %545, align 8
   %.sroa.2178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %545, i64 8
   %.sroa.2178.0.copyload = load ptr, ptr %.sroa.2178.0..sroa_idx, align 8
   %546 = sext i32 %525 to i64
-  %547 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %546
+  %547 = getelementptr inbounds [16 x i8], ptr %384, i64 %546
   %.sroa.0175.0.copyload = load ptr, ptr %547, align 8
   %.sroa.2176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %547, i64 8
   %.sroa.2176.0.copyload = load ptr, ptr %.sroa.2176.0..sroa_idx, align 8
@@ -4218,12 +4218,12 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds =
   br label %552
 
 548:                                              ; preds = %.lr.ph668
-  %549 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %549 = getelementptr inbounds [16 x i8], ptr %4, i64 %527
   %.sroa.0172.0.copyload = load ptr, ptr %549, align 8
   %.sroa.2173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %549, i64 8
   %.sroa.2173.0.copyload = load ptr, ptr %.sroa.2173.0..sroa_idx, align 8
   %550 = sext i32 %525 to i64
-  %551 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %550
+  %551 = getelementptr inbounds [16 x i8], ptr %384, i64 %550
   %.sroa.0171.0.copyload = load ptr, ptr %551, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %551, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -4283,7 +4283,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %557, %567
   store i32 0, ptr %579, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %41, i32 14) #14
   %580 = sext i32 %.0567 to i64
-  %581 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %580
+  %581 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %580
   call void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(32) %471, ptr noundef nonnull %581) #14
   store i32 4, ptr %42, align 8
   %582 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -5339,7 +5339,7 @@ define internal fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr nou
 
 21:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %22 = getelementptr inbounds nuw %class.VMRegPair, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr @UseAPX, align 1
@@ -5441,7 +5441,7 @@ define internal fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr
 25:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %26 = getelementptr inbounds nuw %class.VMRegPair, ptr %3, i64 %indvars.iv.next
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.next
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i8, ptr @UseAPX, align 1
@@ -7677,19 +7677,19 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   %13 = shl i32 %11, 5
   %14 = sext i32 %13 to i64
   %15 = alloca i8, i64 %14, align 16
-  %16 = getelementptr inbounds i64, ptr %15, i64 %12
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %12
   %17 = shl nsw i32 %11, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %20 = mul nsw i32 %11, 3
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %15, i64 %21
   %23 = icmp sgt i32 %3, 1
   br i1 %23, label %.lr.ph.preheader.i, label %_ZL13reverse_wordsPmS_i.exit41
 
 .lr.ph.preheader.i:                               ; preds = %10
   %24 = zext nneg i32 %11 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %24
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -7706,7 +7706,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   br i1 %31, label %.lr.ph.i, label %.lr.ph.preheader.i30, !llvm.loop !38
 
 .lr.ph.preheader.i30:                             ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds nuw i64, ptr %16, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %24
   br label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31, %.lr.ph.preheader.i30
@@ -7723,7 +7723,7 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   br i1 %38, label %.lr.ph.i31, label %.lr.ph.preheader.i36, !llvm.loop !38
 
 .lr.ph.preheader.i36:                             ; preds = %.lr.ph.i31
-  %39 = getelementptr inbounds nuw i64, ptr %19, i64 %24
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %24
   br label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i37, %.lr.ph.preheader.i36
@@ -7745,7 +7745,7 @@ _ZL13reverse_wordsPmS_i.exit41:                   ; preds = %10
 
 .lr.ph.preheader.i42:                             ; preds = %.lr.ph.i37
   call fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef %15, ptr noundef %16, ptr noundef %19, ptr noundef %22, i64 noundef %4, i32 noundef %11)
-  %46 = getelementptr inbounds nuw i64, ptr %5, i64 %24
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %24
   br label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %.lr.ph.i43, %.lr.ph.preheader.i42
@@ -7802,18 +7802,18 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %.180 = phi i64 [ %27, %.lr.ph ], [ %.084, %.preheader77 ]
   %.16879 = phi i64 [ %28, %.lr.ph ], [ %.06783, %.preheader77 ]
   %12 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %15 = sub nuw nsw i64 %indvars.iv112, %indvars.iv
-  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %14, i64 %17, i64 %.180, i64 %.16879, i64 %12) #14, !srcloc !39
   %19 = extractvalue { i64, i64, i64, i64 } %18, 2
   %20 = extractvalue { i64, i64, i64, i64 } %18, 3
   %21 = load i64, ptr %7, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %15
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %15
   %25 = load i64, ptr %24, align 8
   %26 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %23, i64 %25, i64 %19, i64 %20, i64 %21) #14, !srcloc !40
   %27 = extractvalue { i64, i64, i64, i64 } %26, 2
@@ -7830,14 +7830,14 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %29 = phi i64 [ 0, %.preheader77 ], [ %.pre, %._crit_edge.loopexit ]
   %.168.lcssa = phi i64 [ %.06783, %.preheader77 ], [ %28, %._crit_edge.loopexit ]
   %.1.lcssa = phi i64 [ %.084, %.preheader77 ], [ %27, %._crit_edge.loopexit ]
-  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv112
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv112
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %1, align 8
   %33 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %31, i64 %32, i64 %.1.lcssa, i64 %.168.lcssa, i64 %29) #14, !srcloc !42
   %34 = extractvalue { i64, i64, i64, i64 } %33, 2
   %35 = extractvalue { i64, i64, i64, i64 } %33, 3
   %36 = mul i64 %34, %4
-  %37 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv112
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv112
   store i64 %36, ptr %37, align 8
   %38 = load i64, ptr %7, align 8
   %39 = load i64, ptr %2, align 8
@@ -7872,18 +7872,18 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %.389 = phi i64 [ %61, %.lr.ph92 ], [ %.298, %.lr.ph99 ]
   %.37088 = phi i64 [ %62, %.lr.ph92 ], [ %.26997, %.lr.ph99 ]
   %46 = load i64, ptr %7, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv119
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv119
   %48 = load i64, ptr %47, align 8
   %49 = sub nsw i64 %indvars.iv123, %indvars.iv119
-  %50 = getelementptr inbounds i64, ptr %1, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %48, i64 %51, i64 %.389, i64 %.37088, i64 %46) #14, !srcloc !45
   %53 = extractvalue { i64, i64, i64, i64 } %52, 2
   %54 = extractvalue { i64, i64, i64, i64 } %52, 3
   %55 = load i64, ptr %7, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv119
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv119
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i64, ptr %2, i64 %49
+  %58 = getelementptr inbounds [8 x i8], ptr %2, i64 %49
   %59 = load i64, ptr %58, align 8
   %60 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %57, i64 %59, i64 %53, i64 %54, i64 %55) #14, !srcloc !46
   %61 = extractvalue { i64, i64, i64, i64 } %60, 2
@@ -7900,7 +7900,7 @@ define internal fastcc void @_ZL19montgomery_multiplyPmS_S_S_mi(ptr noundef nonn
   %63 = phi i64 [ 0, %.lr.ph99 ], [ %.pre129, %._crit_edge93.loopexit ]
   %.370.lcssa = phi i64 [ %.26997, %.lr.ph99 ], [ %62, %._crit_edge93.loopexit ]
   %.3.lcssa = phi i64 [ %.298, %.lr.ph99 ], [ %61, %._crit_edge93.loopexit ]
-  %64 = getelementptr inbounds i64, ptr %3, i64 %44
+  %64 = getelementptr inbounds [8 x i8], ptr %3, i64 %44
   store i64 %.3.lcssa, ptr %64, align 8
   store i64 0, ptr %7, align 8
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
@@ -7937,16 +7937,16 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr noundef
   %13 = mul i32 %7, 24
   %14 = sext i32 %13 to i64
   %15 = alloca i8, i64 %14, align 16
-  %16 = getelementptr inbounds i64, ptr %15, i64 %12
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %12
   %17 = shl nsw i32 %7, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %20 = icmp sgt i32 %2, 1
   br i1 %20, label %.lr.ph.preheader.i, label %_ZL13reverse_wordsPmS_i.exit36.thread
 
 .lr.ph.preheader.i:                               ; preds = %11
   %21 = zext nneg i32 %7 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -7963,7 +7963,7 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr noundef
   br i1 %28, label %.lr.ph.i, label %.lr.ph.preheader.i31, !llvm.loop !38
 
 .lr.ph.preheader.i31:                             ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i64, ptr %16, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %21
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i31
@@ -8011,18 +8011,18 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.1119.i = phi i64 [ %.0132.i, %.lr.ph.preheader.i37 ], [ %54, %.lr.ph.i38 ]
   %.1102118.i = phi i64 [ %.0101131.i, %.lr.ph.preheader.i37 ], [ %55, %.lr.ph.i38 ]
   %39 = load i64, ptr %6, align 8
-  %40 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %41 = load i64, ptr %40, align 8
   %42 = sub nsw i64 %indvars.iv183.i, %indvars.iv.i
-  %43 = getelementptr inbounds i64, ptr %15, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %15, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %41, i64 %44, i64 %.1119.i, i64 %.1102118.i, i64 %39) #14, !srcloc !51
   %46 = extractvalue { i64, i64, i64, i64 } %45, 2
   %47 = extractvalue { i64, i64, i64, i64 } %45, 3
   %48 = load i64, ptr %6, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i64, ptr %16, i64 %42
+  %51 = getelementptr inbounds [8 x i8], ptr %16, i64 %42
   %52 = load i64, ptr %51, align 8
   %53 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %50, i64 %52, i64 %46, i64 %47, i64 %48) #14, !srcloc !52
   %54 = extractvalue { i64, i64, i64, i64 } %53, 2
@@ -8045,7 +8045,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.1.lcssa211.i = phi i64 [ %54, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
   %.1102.lcssa210.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
   %.0111.lcssa209.i = phi i64 [ %wide.trip.count.i, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %59 = getelementptr inbounds nuw i64, ptr %15, i64 %.0111.lcssa209.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.0111.lcssa209.i
   %60 = load i64, ptr %59, align 8
   %61 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %60, i64 %60, i64 %.1.lcssa211.i, i64 %.1102.lcssa210.i, i64 %58) #14, !srcloc !54
   %62 = extractvalue { i64, i64, i64, i64 } %61, 2
@@ -8064,10 +8064,10 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.3124.i = phi i64 [ %73, %.lr.ph126.i ], [ %.2.i, %64 ]
   %.3104123.i = phi i64 [ %74, %.lr.ph126.i ], [ %.2103.i, %64 ]
   %66 = load i64, ptr %6, align 8
-  %67 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv178.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv178.i
   %68 = load i64, ptr %67, align 8
   %69 = sub nuw nsw i64 %indvars.iv183.i, %indvars.iv178.i
-  %70 = getelementptr inbounds nuw i64, ptr %16, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %68, i64 %71, i64 %.3124.i, i64 %.3104123.i, i64 %66) #14, !srcloc !55
   %73 = extractvalue { i64, i64, i64, i64 } %72, 2
@@ -8080,7 +8080,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.3104.lcssa.i = phi i64 [ %.2103.i, %64 ], [ %74, %.lr.ph126.i ]
   %.3.lcssa.i = phi i64 [ %.2.i, %64 ], [ %73, %.lr.ph126.i ]
   %75 = mul i64 %.3.lcssa.i, %3
-  %76 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv183.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv183.i
   store i64 %75, ptr %76, align 8
   %77 = load i64, ptr %6, align 8
   %78 = load i64, ptr %16, align 8
@@ -8117,18 +8117,18 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.5139.i = phi i64 [ %105, %.lr.ph141.i ], [ %.4156.i, %.lr.ph157.i ]
   %.5106138.i = phi i64 [ %106, %.lr.ph141.i ], [ %.4105155.i, %.lr.ph157.i ]
   %90 = load i64, ptr %6, align 8
-  %91 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv190.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv190.i
   %92 = load i64, ptr %91, align 8
   %93 = sub nsw i64 %indvars.iv197.i, %indvars.iv190.i
-  %94 = getelementptr inbounds i64, ptr %15, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %15, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %92, i64 %95, i64 %.5139.i, i64 %.5106138.i, i64 %90) #14, !srcloc !59
   %97 = extractvalue { i64, i64, i64, i64 } %96, 2
   %98 = extractvalue { i64, i64, i64, i64 } %96, 3
   %99 = load i64, ptr %6, align 8
-  %100 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv190.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv190.i
   %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds i64, ptr %16, i64 %93
+  %102 = getelementptr inbounds [8 x i8], ptr %16, i64 %93
   %103 = load i64, ptr %102, align 8
   %104 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %101, i64 %103, i64 %97, i64 %98, i64 %99) #14, !srcloc !60
   %105 = extractvalue { i64, i64, i64, i64 } %104, 2
@@ -8173,10 +8173,10 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %.7148.i = phi i64 [ %.6.i, %.lr.ph150.preheader.i ], [ %128, %.lr.ph150.i ]
   %.7108147.i = phi i64 [ %.6107.i, %.lr.ph150.preheader.i ], [ %129, %.lr.ph150.i ]
   %121 = load i64, ptr %6, align 8
-  %122 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv193.i
+  %122 = getelementptr inbounds [8 x i8], ptr %19, i64 %indvars.iv193.i
   %123 = load i64, ptr %122, align 8
   %124 = sub nsw i64 %indvars.iv197.i, %indvars.iv193.i
-  %125 = getelementptr inbounds i64, ptr %16, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %16, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %123, i64 %126, i64 %.7148.i, i64 %.7108147.i, i64 %121) #14, !srcloc !63
   %128 = extractvalue { i64, i64, i64, i64 } %127, 2
@@ -8189,7 +8189,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
 ._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %118
   %.7108.lcssa.i = phi i64 [ %.6107.i, %118 ], [ %129, %.lr.ph150.i ]
   %.7.lcssa.i = phi i64 [ %.6.i, %118 ], [ %128, %.lr.ph150.i ]
-  %130 = getelementptr inbounds nuw i64, ptr %19, i64 %82
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %82
   store i64 %.7.lcssa.i, ptr %130, align 8
   %131 = load i64, ptr %6, align 8
   store i64 0, ptr %6, align 8
@@ -8218,7 +8218,7 @@ _ZL13reverse_wordsPmS_i.exit36.thread:            ; preds = %11, %_ZL13reverse_w
 
 .lr.ph.preheader.i40:                             ; preds = %134
   %135 = zext nneg i32 %7 to i64
-  %136 = getelementptr inbounds nuw i64, ptr %4, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %135
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %.lr.ph.preheader.i40
@@ -9195,7 +9195,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm5
 _ZN14AccessInternal15BarrierResolverILm548932EPFP7oopDescPvELNS_11BarrierTypeE2EE15resolve_barrierEv.exit: ; preds = %11, %8
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv, %8 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5, %11 ]
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 %14
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.5.sink, i64 %14
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %15 = tail call noundef ptr %switch.load6(ptr noundef %0) #14
@@ -9422,7 +9422,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -9436,7 +9436,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -9476,7 +9476,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -9502,7 +9502,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55

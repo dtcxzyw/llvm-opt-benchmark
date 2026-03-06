@@ -48,12 +48,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.2 = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
 %struct.blocking_notifier_head = type { %struct.rw_semaphore, ptr }
-%struct.crypto_alg = type { %struct.list_head, %struct.list_head, i32, i32, i32, i32, i32, %struct.refcount_struct, [128 x i8], [128 x i8], ptr, %union.anon, ptr, ptr, ptr, ptr }
-%struct.refcount_struct = type { %struct.atomic_t }
-%union.anon = type { %struct.cipher_alg }
-%struct.cipher_alg = type { i32, i32, ptr, ptr, ptr }
-%struct.crypto_template = type { %struct.list_head, %struct.hlist_head, ptr, ptr, [128 x i8] }
-%struct.hlist_head = type { ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"crypto/algapi.c\00", align 1
 @__UNIQUE_ID___addressable_crypto_remove_spawns512 = internal global ptr @crypto_remove_spawns, section ".discard.addressable", align 8
@@ -1039,7 +1033,7 @@ define dso_local noundef i32 @crypto_register_algs(ptr noundef %0, i32 noundef %
 6:                                                ; preds = %16, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %16 ], [ -1, %4 ]
   %7 = phi i64 [ %17, %16 ], [ 0, %4 ]
-  %8 = getelementptr %struct.crypto_alg, ptr %0, i64 %7
+  %8 = getelementptr [384 x i8], ptr %0, i64 %7
   %9 = tail call i32 @crypto_register_alg(ptr noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %16, label %11
@@ -1062,7 +1056,7 @@ define dso_local noundef i32 @crypto_register_algs(ptr noundef %0, i32 noundef %
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv13 = phi i64 [ %15, %.preheader.preheader ], [ %indvars.iv.next14, %.preheader ]
-  %19 = getelementptr %struct.crypto_alg, ptr %0, i64 %indvars.iv13
+  %19 = getelementptr [384 x i8], ptr %0, i64 %indvars.iv13
   tail call void @crypto_unregister_alg(ptr noundef %19)
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, -1
   %.not = icmp eq i64 %indvars.iv13, 0
@@ -1084,7 +1078,7 @@ define dso_local void @crypto_unregister_algs(ptr noundef %0, i32 noundef %1) #0
 
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %9, %6 ]
-  %8 = getelementptr %struct.crypto_alg, ptr %0, i64 %7
+  %8 = getelementptr [384 x i8], ptr %0, i64 %7
   tail call void @crypto_unregister_alg(ptr noundef %8)
   %9 = add nuw nsw i64 %7, 1
   %10 = icmp eq i64 %9, %5
@@ -1137,7 +1131,7 @@ define dso_local noundef range(i32 -17, 1) i32 @crypto_register_templates(ptr no
 6:                                                ; preds = %20, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %20 ], [ -1, %4 ]
   %7 = phi i64 [ %24, %20 ], [ 0, %4 ]
-  %8 = getelementptr %struct.crypto_template, ptr %0, i64 %7
+  %8 = getelementptr [168 x i8], ptr %0, i64 %7
   tail call void @down_write(ptr noundef nonnull @crypto_alg_sem) #16
   br label %9
 
@@ -1178,7 +1172,7 @@ define dso_local noundef range(i32 -17, 1) i32 @crypto_register_templates(ptr no
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv9 = phi i64 [ %19, %.preheader.preheader ], [ %indvars.iv.next10, %.preheader ]
-  %26 = getelementptr %struct.crypto_template, ptr %0, i64 %indvars.iv9
+  %26 = getelementptr [168 x i8], ptr %0, i64 %indvars.iv9
   tail call void @crypto_unregister_template(ptr noundef %26)
   %indvars.iv.next10 = add nsw i64 %indvars.iv9, -1
   %.not = icmp eq i64 %indvars.iv9, 0
@@ -1349,7 +1343,7 @@ define dso_local void @crypto_unregister_templates(ptr noundef %0, i32 noundef %
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
-  %9 = getelementptr %struct.crypto_template, ptr %0, i64 %8
+  %9 = getelementptr [168 x i8], ptr %0, i64 %8
   tail call void @crypto_unregister_template(ptr noundef %9)
   %10 = add nsw i64 %8, -1
   %.not = icmp eq i64 %8, 0

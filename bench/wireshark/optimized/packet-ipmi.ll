@@ -309,11 +309,11 @@ define hidden void @ipmi_set_data(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 12:                                               ; preds = %9
   %13 = zext nneg i8 %6 to i64
-  %14 = getelementptr ptr, ptr %11, i64 %13
+  %14 = getelementptr [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr i32, ptr %16, i64 %17
+  %18 = getelementptr [4 x i8], ptr %16, i64 %17
   store i32 %2, ptr %18, align 4
   br label %19
 
@@ -339,11 +339,11 @@ define hidden noundef zeroext i1 @ipmi_get_data(ptr noundef %0, i32 noundef %1, 
 
 12:                                               ; preds = %9
   %13 = zext nneg i8 %6 to i64
-  %14 = getelementptr ptr, ptr %11, i64 %13
+  %14 = getelementptr [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr i32, ptr %16, i64 %17
+  %18 = getelementptr [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %2, align 4
   br label %20
@@ -369,7 +369,7 @@ define hidden void @ipmi_add_typelen(ptr noundef readonly captures(none) %0, ptr
   %.047 = select i1 %7, ptr @.str, ptr @.str.1
   %.046 = select i1 %7, i32 63, i32 31
   %.0.in.v = select i1 %7, ptr %16, ptr @ipmi_add_typelen.ipmi
-  %.0.in = getelementptr ptr, ptr %.0.in.v, i64 %17
+  %.0.in = getelementptr [8 x i8], ptr %.0.in.v, i64 %17
   %.0 = load ptr, ptr %.0.in, align 8
   %18 = and i32 %.046, %12
   %19 = load ptr, ptr %.0, align 8
@@ -514,7 +514,7 @@ define hidden void @ipmi_register_netfn_cmdtab(i32 noundef %0, i32 noundef %1, p
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %11
+  %12 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, %3
@@ -549,7 +549,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 define hidden i32 @ipmi_getsiglen(i32 noundef %0) local_unnamed_addr #3 {
   %2 = lshr i32 %0, 1
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %3
+  %4 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   ret i32 %6
@@ -559,7 +559,7 @@ define hidden i32 @ipmi_getsiglen(i32 noundef %0) local_unnamed_addr #3 {
 define hidden ptr @ipmi_getnetfnname(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = lshr i32 %1, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %5
+  %6 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -589,7 +589,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 define hidden ptr @ipmi_getnetfn(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = lshr i32 %0, 1
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %4
+  %5 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.016 = load ptr, ptr %5, align 8
   %.not17 = icmp eq ptr %.016, null
@@ -1220,7 +1220,7 @@ define internal fastcc i32 @dissect_ipmi_cmd(ptr noundef %0, ptr noundef %1, ptr
   %22 = load i8, ptr %21, align 2
   %23 = lshr i8 %22, 1
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %24
+  %25 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = and i8 %22, 1
@@ -1355,7 +1355,7 @@ remove_old_requests.exit:                         ; preds = %remove_old_requests
   %99 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %100 = load ptr, ptr %99, align 8
   %101 = zext nneg i8 %92 to i64
-  %102 = getelementptr ptr, ptr %100, i64 %101
+  %102 = getelementptr [8 x i8], ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %.not.i283 = icmp eq ptr %103, null
   br i1 %.not.i283, label %104, label %match_request_response.exit
@@ -1482,7 +1482,7 @@ get_frame_data.exit.i284:                         ; preds = %160, %154
   %164 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 16
   %165 = load i8, ptr %164, align 4
   %166 = zext i8 %165 to i64
-  %167 = getelementptr ptr, ptr %.0.i.i285, i64 %166
+  %167 = getelementptr [8 x i8], ptr %.0.i.i285, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %170 = load i32, ptr %169, align 8
@@ -1506,7 +1506,7 @@ get_frame_data.exit.i284:                         ; preds = %160, %154
 180:                                              ; preds = %get_frame_data.exit.i284, %get_matched_request.exit.i, %get_matched_request.exit.thread.i
   %181 = load i8, ptr %44, align 8
   %182 = zext i8 %181 to i64
-  %183 = getelementptr ptr, ptr %100, i64 %182
+  %183 = getelementptr [8 x i8], ptr %100, i64 %182
   store ptr %106, ptr %183, align 8
   br label %match_request_response.exit
 
@@ -1514,7 +1514,7 @@ get_frame_data.exit.i284:                         ; preds = %160, %154
   %185 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = zext nneg i8 %92 to i64
-  %188 = getelementptr ptr, ptr %186, i64 %187
+  %188 = getelementptr [8 x i8], ptr %186, i64 %187
   %189 = load ptr, ptr %188, align 8
   %.not.i286 = icmp eq ptr %189, null
   br i1 %.not.i286, label %190, label %match_request_response.exit
@@ -1524,7 +1524,7 @@ get_frame_data.exit.i284:                         ; preds = %160, %154
   %192 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %191, i64 noundef 12) #14
   %193 = load i8, ptr %44, align 8
   %194 = zext i8 %193 to i64
-  %195 = getelementptr ptr, ptr %186, i64 %194
+  %195 = getelementptr [8 x i8], ptr %186, i64 %194
   store ptr %192, ptr %195, align 8
   %196 = call ptr @wmem_file_scope()
   %197 = call noalias dereferenceable_or_null(20) ptr @wmem_alloc0(ptr noundef %196, i64 noundef 20) #14
@@ -1557,7 +1557,7 @@ match_request_response.exit:                      ; preds = %190, %184, %180, %9
   %214 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %213, i32 noundef %27)
   %215 = lshr i8 %211, 1
   %216 = zext nneg i8 %215 to i64
-  %217 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %216
+  %217 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %.016.i = load ptr, ptr %217, align 8
   %.not17.i = icmp eq ptr %.016.i, null
@@ -1761,7 +1761,7 @@ add_command_info.exit:                            ; preds = %.thread, %273, %ipm
   %305 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %306 = load ptr, ptr %305, align 8
   %307 = zext nneg i8 %300 to i64
-  %308 = getelementptr ptr, ptr %306, i64 %307
+  %308 = getelementptr [8 x i8], ptr %306, i64 %307
   %309 = load ptr, ptr %308, align 8
   %310 = load i32, ptr %309, align 4
   %.not264 = icmp eq i32 %310, 0
@@ -1875,7 +1875,7 @@ proto_item_set_generated.exit304:                 ; preds = %342, %339, %336, %3
   %363 = load i8, ptr %21, align 2
   %364 = lshr i8 %363, 1
   %365 = zext nneg i8 %364 to i64
-  %366 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %365
+  %366 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load ptr, ptr %367, align 8
   %.not.i305 = icmp eq ptr %368, null
@@ -2139,7 +2139,7 @@ define hidden void @proto_register_ipmi() local_unnamed_addr #0 {
 8:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 48, %0 ], [ %indvars.iv.next, %8 ]
   %9 = lshr exact i64 %indvars.iv, 1
-  %10 = getelementptr %struct.ipmi_netfn_root, ptr @ipmi_cmd_tab, i64 %9
+  %10 = getelementptr [24 x i8], ptr @ipmi_cmd_tab, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @.str.119, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16

@@ -91,7 +91,7 @@ define void @Cut_CellLoad() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %26 ]
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = shl nuw nsw i32 1, %11
-  %13 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %indvars.iv.i
   br label %14
 
 14:                                               ; preds = %24, %.preheader.i
@@ -105,7 +105,7 @@ define void @Cut_CellLoad() local_unnamed_addr #0 {
   %18 = shl nuw i32 1, %17
   %19 = lshr i32 %.01415.i, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !13
   %23 = or i32 %22, %18
   store i32 %23, ptr %21, align 4, !tbaa !13
@@ -279,9 +279,9 @@ select.unfold.preheader.i:                        ; preds = %._crit_edge
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
   %indvars.iv.i = phi i64 [ %32, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %33 = getelementptr inbounds nuw i32, ptr %.03537, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.03537, i64 %indvars.iv.next.i
   %34 = load i32, ptr %33, align 4, !tbaa !13
-  %35 = getelementptr inbounds nuw i32, ptr %.040, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.040, i64 %indvars.iv.next.i
   store i32 %34, ptr %35, align 4, !tbaa !13
   %36 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %36, label %select.unfold.i, label %Extra_TruthCopy.exit.loopexit, !llvm.loop !27
@@ -364,9 +364,9 @@ select.unfold.i:                                  ; preds = %32, %29
 
 32:                                               ; preds = %select.unfold.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.next.i
   %34 = load i32, ptr %33, align 4, !tbaa !13
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i
   %36 = load i32, ptr %35, align 4, !tbaa !13
   %.not.i = icmp eq i32 %34, %36
   br i1 %.not.i, label %select.unfold.i, label %Extra_TruthIsEqual.exit.thread, !llvm.loop !32
@@ -384,7 +384,7 @@ Extra_TruthIsEqual.exit.thread:                   ; preds = %32, %25
   %39 = load i32, ptr %5, align 8
   %40 = and i32 %39, 15
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !35
@@ -437,7 +437,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %indvars.iv.i = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next.i, %34 ]
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = shl nuw nsw i32 1, %19
-  %21 = getelementptr inbounds nuw [16 x i32], ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %indvars.iv.i
   br label %22
 
 22:                                               ; preds = %32, %.preheader.i
@@ -451,7 +451,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %26 = shl nuw i32 1, %25
   %27 = lshr i32 %.01415.i, 5
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = or i32 %30, %26
   store i32 %31, ptr %29, align 4, !tbaa !13
@@ -483,7 +483,7 @@ Cut_CManStart.exit:                               ; preds = %34
 
 42:                                               ; preds = %Cut_CManStart.exit, %42
   %indvars.iv = phi i64 [ 0, %Cut_CManStart.exit ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw [16 x i32], ptr %37, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %indvars.iv
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %18, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %43, i32 noundef %44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -499,7 +499,7 @@ Cut_CManStart.exit:                               ; preds = %34
 
 49:                                               ; preds = %.preheader318, %49
   %indvars.iv372 = phi i64 [ 0, %.preheader318 ], [ %indvars.iv.next373, %49 ]
-  %50 = getelementptr inbounds nuw [16 x i32], ptr %41, i64 %indvars.iv372
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %indvars.iv372
   %51 = trunc nuw nsw i64 %indvars.iv372 to i32
   call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %50, i32 noundef %51)
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
@@ -518,7 +518,7 @@ Cut_CManStart.exit:                               ; preds = %34
 
 59:                                               ; preds = %.preheader317, %59
   %indvars.iv376 = phi i64 [ 0, %.preheader317 ], [ %indvars.iv.next377, %59 ]
-  %60 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 %indvars.iv376
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv376
   %61 = trunc nuw nsw i64 %indvars.iv376 to i32
   call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %60, i32 noundef %61)
   %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
@@ -527,19 +527,19 @@ Cut_CManStart.exit:                               ; preds = %34
 
 .preheader315:                                    ; preds = %.preheader316, %215
   %indvars.iv404 = phi i64 [ 0, %.preheader316 ], [ %indvars.iv.next405, %215 ]
-  %62 = getelementptr inbounds nuw i32, ptr @s_NPNe3, i64 %indvars.iv404
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @s_NPNe3, i64 %indvars.iv404
   br label %.preheader314
 
 .preheader314:                                    ; preds = %.preheader315, %214
   %indvars.iv400 = phi i64 [ 0, %.preheader315 ], [ %indvars.iv.next401, %214 ]
   %63 = trunc i64 %indvars.iv400 to i8
-  %64 = getelementptr inbounds nuw [16 x i32], ptr %37, i64 %indvars.iv400
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %indvars.iv400
   br label %.preheader313
 
 .preheader313:                                    ; preds = %.preheader314, %213
   %indvars.iv396 = phi i64 [ 0, %.preheader314 ], [ %indvars.iv.next397, %213 ]
   %65 = trunc i64 %indvars.iv396 to i8
-  %66 = getelementptr inbounds nuw [16 x i32], ptr %41, i64 %indvars.iv396
+  %66 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %indvars.iv396
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit311, %.preheader313
@@ -573,7 +573,7 @@ Cut_CManStart.exit:                               ; preds = %34
   br i1 %81, label %78, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %78
-  %82 = getelementptr inbounds nuw [16 x i32], ptr %48, i64 %indvars.iv392
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv392
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 84
   call fastcc void @Cut_CellTruthElem(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef nonnull %82, ptr noundef nonnull %83, i32 noundef %70)
   %84 = load i32, ptr %69, align 8
@@ -640,9 +640,9 @@ select.unfold.preheader.i.i:                      ; preds = %._crit_edge.i
 select.unfold.i.i:                                ; preds = %select.unfold.i.i, %select.unfold.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %111, %select.unfold.preheader.i.i ], [ %indvars.iv.next.i.i, %select.unfold.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %112 = getelementptr inbounds nuw i32, ptr %.03537.i, i64 %indvars.iv.next.i.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.03537.i, i64 %indvars.iv.next.i.i
   %113 = load i32, ptr %112, align 4, !tbaa !13
-  %114 = getelementptr inbounds nuw i32, ptr %.040.i, i64 %indvars.iv.next.i.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.040.i, i64 %indvars.iv.next.i.i
   store i32 %113, ptr %114, align 4, !tbaa !13
   %115 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %115, label %select.unfold.i.i, label %Extra_TruthCopy.exit.loopexit.i, !llvm.loop !27
@@ -733,9 +733,9 @@ select.unfold.i.i245:                             ; preds = %157, %154
 
 157:                                              ; preds = %select.unfold.i.i245
   %indvars.iv.next.i.i247 = add nsw i64 %indvars.iv.i.i246, -1
-  %158 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv.next.i.i247
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %indvars.iv.next.i.i247
   %159 = load i32, ptr %158, align 4, !tbaa !13
-  %160 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next.i.i247
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.next.i.i247
   %161 = load i32, ptr %160, align 4, !tbaa !13
   %.not.i.i = icmp eq i32 %159, %161
   br i1 %.not.i.i, label %select.unfold.i.i245, label %Extra_TruthIsEqual.exit.thread.i, !llvm.loop !32
@@ -758,7 +758,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %157, %150
   %165 = load i32, ptr %69, align 8
   %166 = and i32 %165, 15
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw ptr, ptr %54, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !31
   %170 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %169, ptr %170, align 8, !tbaa !35
@@ -770,7 +770,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %157, %150
   %173 = load i32, ptr %69, align 8
   %174 = and i32 %173, 15
   %175 = zext nneg i32 %174 to i64
-  %176 = getelementptr inbounds nuw i32, ptr %56, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !13
   %178 = add nsw i32 %177, 1
   store i32 %178, ptr %176, align 4, !tbaa !13
@@ -785,12 +785,12 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %157, %150
   %.4331 = phi i32 [ %.pre-phi466, %208 ], [ 0, %.loopexit312 ]
   %183 = shl nsw i32 %.4331, 1
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds i16, ptr %124, i64 %184
+  %185 = getelementptr inbounds [2 x i8], ptr %124, i64 %184
   %186 = load i16, ptr %185, align 2, !tbaa !43
   %187 = add nsw i32 %.4331, 1
   %188 = shl nsw i32 %187, 1
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i16, ptr %124, i64 %189
+  %190 = getelementptr inbounds [2 x i8], ptr %124, i64 %189
   %191 = load i16, ptr %190, align 2, !tbaa !43
   %.not233 = icmp eq i16 %186, %191
   br i1 %.not233, label %.preheader309, label %208
@@ -830,7 +830,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %157, %150
   %203 = sub nsw i32 %.0217.lcssa, %.4331
   %204 = sext i32 %203 to i64
   %. = select i1 %202, ptr %58, ptr %57
-  %205 = getelementptr inbounds i32, ptr %., i64 %204
+  %205 = getelementptr inbounds [4 x i8], ptr %., i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !13
   %207 = add nsw i32 %206, 1
   store i32 %207, ptr %205, align 4, !tbaa !13
@@ -896,7 +896,7 @@ Abc_Clock.exit249:                                ; preds = %216, %222
 
 233:                                              ; preds = %Abc_Clock.exit249, %233
   %indvars.iv408 = phi i64 [ 0, %Abc_Clock.exit249 ], [ %indvars.iv.next409, %233 ]
-  %234 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv408
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv408
   %235 = load i32, ptr %234, align 4, !tbaa !13
   %236 = trunc nuw nsw i64 %indvars.iv408 to i32
   %237 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %236, i32 noundef %235)
@@ -910,7 +910,7 @@ Abc_Clock.exit249:                                ; preds = %216, %222
 
 240:                                              ; preds = %238, %240
   %indvars.iv412 = phi i64 [ 0, %238 ], [ %indvars.iv.next413, %240 ]
-  %241 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv412
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv412
   %242 = load i32, ptr %241, align 4, !tbaa !13
   %243 = trunc nuw nsw i64 %indvars.iv412 to i32
   %244 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %243, i32 noundef %242)
@@ -924,7 +924,7 @@ Abc_Clock.exit249:                                ; preds = %216, %222
 
 247:                                              ; preds = %245, %247
   %indvars.iv416 = phi i64 [ 0, %245 ], [ %indvars.iv.next417, %247 ]
-  %248 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv416
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv416
   %249 = load i32, ptr %248, align 4, !tbaa !13
   %250 = trunc nuw nsw i64 %indvars.iv416 to i32
   %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %250, i32 noundef %249)
@@ -939,7 +939,7 @@ Abc_Clock.exit249:                                ; preds = %216, %222
 
 254:                                              ; preds = %252, %538
   %indvars.iv454 = phi i64 [ 9, %252 ], [ %indvars.iv.next455, %538 ]
-  %255 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv454
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv454
   %.0226357 = load ptr, ptr %255, align 8, !tbaa !31
   %.not358 = icmp eq ptr %.0226357, null
   br i1 %.not358, label %._crit_edge360, label %.preheader308.us
@@ -991,9 +991,9 @@ select.unfold.preheader.i.us:                     ; preds = %489, %265
 select.unfold.i.us:                               ; preds = %select.unfold.i.us, %select.unfold.preheader.i.us
   %indvars.iv.i250.us = phi i64 [ %278, %select.unfold.preheader.i.us ], [ %indvars.iv.next.i251.us, %select.unfold.i.us ]
   %indvars.iv.next.i251.us = add nsw i64 %indvars.iv.i250.us, -1
-  %279 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv.next.i251.us
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv.next.i251.us
   %280 = load i32, ptr %279, align 4, !tbaa !13
-  %281 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv.next.i251.us
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv.next.i251.us
   store i32 %280, ptr %281, align 4, !tbaa !13
   %282 = icmp samesign ugt i64 %indvars.iv.i250.us, 1
   br i1 %282, label %select.unfold.i.us, label %Extra_TruthCopy.exit.us, !llvm.loop !27
@@ -1017,9 +1017,9 @@ Extra_TruthCopy.exit.us:                          ; preds = %select.unfold.i.us
 select.unfold.i.i254.us:                          ; preds = %select.unfold.i.i254.us, %Extra_TruthCopy.exit.us
   %indvars.iv.i.i255.us = phi i64 [ %293, %Extra_TruthCopy.exit.us ], [ %indvars.iv.next.i.i256.us, %select.unfold.i.i254.us ]
   %indvars.iv.next.i.i256.us = add nsw i64 %indvars.iv.i.i255.us, -1
-  %294 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv.next.i.i256.us
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv.next.i.i256.us
   %295 = load i32, ptr %294, align 4, !tbaa !13
-  %296 = getelementptr inbounds nuw i32, ptr @Cut_CellCrossBar.uTemp0, i64 %indvars.iv.next.i.i256.us
+  %296 = getelementptr inbounds nuw [4 x i8], ptr @Cut_CellCrossBar.uTemp0, i64 %indvars.iv.next.i.i256.us
   store i32 %295, ptr %296, align 4, !tbaa !13
   %297 = icmp samesign ugt i64 %indvars.iv.i.i255.us, 1
   br i1 %297, label %select.unfold.i.i254.us, label %select.unfold.preheader.i35.i.us, !llvm.loop !27
@@ -1037,9 +1037,9 @@ select.unfold.preheader.i35.i.us:                 ; preds = %select.unfold.i.i25
 select.unfold.i36.i.us:                           ; preds = %select.unfold.i36.i.us, %select.unfold.preheader.i35.i.us
   %indvars.iv.i37.i.us = phi i64 [ %303, %select.unfold.preheader.i35.i.us ], [ %indvars.iv.next.i38.i.us, %select.unfold.i36.i.us ]
   %indvars.iv.next.i38.i.us = add nsw i64 %indvars.iv.i37.i.us, -1
-  %304 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv.next.i38.i.us
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv.next.i38.i.us
   %305 = load i32, ptr %304, align 4, !tbaa !13
-  %306 = getelementptr inbounds nuw i32, ptr @Cut_CellCrossBar.uTemp1, i64 %indvars.iv.next.i38.i.us
+  %306 = getelementptr inbounds nuw [4 x i8], ptr @Cut_CellCrossBar.uTemp1, i64 %indvars.iv.next.i38.i.us
   store i32 %305, ptr %306, align 4, !tbaa !13
   %307 = icmp samesign ugt i64 %indvars.iv.i37.i.us, 1
   br i1 %307, label %select.unfold.i36.i.us, label %Extra_TruthCopy.exit39.i.us, !llvm.loop !27
@@ -1189,9 +1189,9 @@ select.unfold.preheader.i.i273.us:                ; preds = %._crit_edge.i272.us
 select.unfold.i.i275.us:                          ; preds = %select.unfold.i.i275.us, %select.unfold.preheader.i.i273.us
   %indvars.iv.i.i276.us = phi i64 [ %389, %select.unfold.preheader.i.i273.us ], [ %indvars.iv.next.i.i277.us, %select.unfold.i.i275.us ]
   %indvars.iv.next.i.i277.us = add nsw i64 %indvars.iv.i.i276.us, -1
-  %390 = getelementptr inbounds nuw i32, ptr %.03537.i270.us, i64 %indvars.iv.next.i.i277.us
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %.03537.i270.us, i64 %indvars.iv.next.i.i277.us
   %391 = load i32, ptr %390, align 4, !tbaa !13
-  %392 = getelementptr inbounds nuw i32, ptr %.040.i268.us, i64 %indvars.iv.next.i.i277.us
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %.040.i268.us, i64 %indvars.iv.next.i.i277.us
   store i32 %391, ptr %392, align 4, !tbaa !13
   %393 = icmp samesign ugt i64 %indvars.iv.i.i276.us, 1
   br i1 %393, label %select.unfold.i.i275.us, label %Extra_TruthCopy.exit.loopexit.i278.us, !llvm.loop !27
@@ -1288,9 +1288,9 @@ select.unfold.i.i294.us:                          ; preds = %437, %432
 
 437:                                              ; preds = %select.unfold.i.i294.us
   %indvars.iv.next.i.i296.us = add nsw i64 %indvars.iv.i.i295.us, -1
-  %438 = getelementptr inbounds nuw i32, ptr %433, i64 %indvars.iv.next.i.i296.us
+  %438 = getelementptr inbounds nuw [4 x i8], ptr %433, i64 %indvars.iv.next.i.i296.us
   %439 = load i32, ptr %438, align 4, !tbaa !13
-  %440 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv.next.i.i296.us
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv.next.i.i296.us
   %441 = load i32, ptr %440, align 4, !tbaa !13
   %.not.i.i297.us = icmp eq i32 %439, %441
   br i1 %.not.i.i297.us, label %select.unfold.i.i294.us, label %Extra_TruthIsEqual.exit.thread.i289.us, !llvm.loop !32
@@ -1307,7 +1307,7 @@ Extra_TruthIsEqual.exit.thread.i289.us:           ; preds = %437, %428
   %443 = load i32, ptr %270, align 8
   %444 = and i32 %443, 15
   %445 = zext nneg i32 %444 to i64
-  %446 = getelementptr inbounds nuw ptr, ptr %54, i64 %445
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %445
   %447 = load ptr, ptr %446, align 8, !tbaa !31
   %448 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr %447, ptr %448, align 8, !tbaa !35
@@ -1319,7 +1319,7 @@ Extra_TruthIsEqual.exit.thread.i289.us:           ; preds = %437, %428
   %451 = load i32, ptr %270, align 8
   %452 = and i32 %451, 15
   %453 = zext nneg i32 %452 to i64
-  %454 = getelementptr inbounds nuw i32, ptr %56, i64 %453
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %453
   %455 = load i32, ptr %454, align 4, !tbaa !13
   %456 = add nsw i32 %455, 1
   store i32 %456, ptr %454, align 4, !tbaa !13
@@ -1339,12 +1339,12 @@ Extra_TruthIsEqual.exit.thread.i289.us:           ; preds = %437, %428
   %.10349.us = phi i32 [ %.pre-phi464, %483 ], [ 0, %.loopexit305.us ]
   %463 = shl nsw i32 %.10349.us, 1
   %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds i16, ptr %402, i64 %464
+  %465 = getelementptr inbounds [2 x i8], ptr %402, i64 %464
   %466 = load i16, ptr %465, align 2, !tbaa !43
   %467 = add nsw i32 %.10349.us, 1
   %468 = shl nsw i32 %467, 1
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds i16, ptr %402, i64 %469
+  %470 = getelementptr inbounds [2 x i8], ptr %402, i64 %469
   %471 = load i16, ptr %470, align 2, !tbaa !43
   %.not229.us = icmp eq i16 %466, %471
   br i1 %.not229.us, label %.preheader.us, label %483
@@ -1369,7 +1369,7 @@ Extra_TruthIsEqual.exit.thread.i289.us:           ; preds = %437, %428
   %478 = sub nsw i32 %.1218.lcssa.us, %.10349.us
   %479 = sext i32 %478 to i64
   %.497 = select i1 %477, ptr %58, ptr %57
-  %480 = getelementptr inbounds i32, ptr %.497, i64 %479
+  %480 = getelementptr inbounds [4 x i8], ptr %.497, i64 %479
   %481 = load i32, ptr %480, align 4, !tbaa !13
   %482 = add nsw i32 %481, 1
   store i32 %482, ptr %480, align 4, !tbaa !13
@@ -1464,7 +1464,7 @@ Abc_Clock.exit300:                                ; preds = %._crit_edge360, %50
 
 519:                                              ; preds = %Abc_Clock.exit300, %519
   %indvars.iv442 = phi i64 [ 0, %Abc_Clock.exit300 ], [ %indvars.iv.next443, %519 ]
-  %520 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv442
+  %520 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv442
   %521 = load i32, ptr %520, align 4, !tbaa !13
   %522 = trunc nuw nsw i64 %indvars.iv442 to i32
   %523 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %522, i32 noundef %521)
@@ -1478,7 +1478,7 @@ Abc_Clock.exit300:                                ; preds = %._crit_edge360, %50
 
 526:                                              ; preds = %524, %526
   %indvars.iv446 = phi i64 [ 0, %524 ], [ %indvars.iv.next447, %526 ]
-  %527 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv446
+  %527 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv446
   %528 = load i32, ptr %527, align 4, !tbaa !13
   %529 = trunc nuw nsw i64 %indvars.iv446 to i32
   %530 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %529, i32 noundef %528)
@@ -1492,7 +1492,7 @@ Abc_Clock.exit300:                                ; preds = %._crit_edge360, %50
 
 533:                                              ; preds = %531, %533
   %indvars.iv450 = phi i64 [ 0, %531 ], [ %indvars.iv.next451, %533 ]
-  %534 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv450
+  %534 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv450
   %535 = load i32, ptr %534, align 4, !tbaa !13
   %536 = trunc nuw nsw i64 %indvars.iv450 to i32
   %537 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %536, i32 noundef %535)
@@ -1565,9 +1565,9 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader282:                                    ; preds = %5, %.preheader282
   %indvars.iv438 = phi i64 [ %indvars.iv.next439, %.preheader282 ], [ 0, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv438
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv438
   %7 = load i32, ptr %6, align 4, !tbaa !13
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv438
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv438
   store i32 %7, ptr %8, align 4, !tbaa !13
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond441.not = icmp eq i64 %indvars.iv.next439, 16
@@ -1575,12 +1575,12 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader284:                                    ; preds = %5, %.preheader284
   %indvars.iv434 = phi i64 [ %indvars.iv.next435, %.preheader284 ], [ 0, %5 ]
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv434
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv434
   %10 = load i32, ptr %9, align 4, !tbaa !13
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv434
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv434
   %12 = load i32, ptr %11, align 4, !tbaa !13
   %13 = and i32 %12, %10
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv434
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv434
   store i32 %13, ptr %14, align 4, !tbaa !13
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next435, 16
@@ -1588,13 +1588,13 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader286:                                    ; preds = %5, %.preheader286
   %indvars.iv430 = phi i64 [ %indvars.iv.next431, %.preheader286 ], [ 0, %5 ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv430
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv430
   %16 = load i32, ptr %15, align 4, !tbaa !13
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv430
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv430
   %18 = load i32, ptr %17, align 4, !tbaa !13
   %19 = and i32 %18, %16
   %20 = xor i32 %19, -1
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv430
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv430
   store i32 %20, ptr %21, align 4, !tbaa !13
   %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
   %exitcond433.not = icmp eq i64 %indvars.iv.next431, 16
@@ -1602,12 +1602,12 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader288:                                    ; preds = %5, %.preheader288
   %indvars.iv426 = phi i64 [ %indvars.iv.next427, %.preheader288 ], [ 0, %5 ]
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv426
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv426
   %23 = load i32, ptr %22, align 4, !tbaa !13
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv426
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv426
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = xor i32 %25, %23
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv426
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv426
   store i32 %26, ptr %27, align 4, !tbaa !13
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next427, 16
@@ -1615,15 +1615,15 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader290:                                    ; preds = %5, %.preheader290
   %indvars.iv422 = phi i64 [ %indvars.iv.next423, %.preheader290 ], [ 0, %5 ]
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv422
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv422
   %29 = load i32, ptr %28, align 4, !tbaa !13
-  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv422
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv422
   %31 = load i32, ptr %30, align 4, !tbaa !13
   %32 = and i32 %31, %29
-  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv422
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv422
   %34 = load i32, ptr %33, align 4, !tbaa !13
   %35 = and i32 %32, %34
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv422
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv422
   store i32 %35, ptr %36, align 4, !tbaa !13
   %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
   %exitcond425.not = icmp eq i64 %indvars.iv.next423, 16
@@ -1631,16 +1631,16 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader292:                                    ; preds = %5, %.preheader292
   %indvars.iv418 = phi i64 [ %indvars.iv.next419, %.preheader292 ], [ 0, %5 ]
-  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv418
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv418
   %38 = load i32, ptr %37, align 4, !tbaa !13
-  %39 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv418
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv418
   %40 = load i32, ptr %39, align 4, !tbaa !13
   %41 = and i32 %40, %38
-  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv418
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv418
   %43 = load i32, ptr %42, align 4, !tbaa !13
   %44 = and i32 %41, %43
   %45 = xor i32 %44, -1
-  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv418
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv418
   store i32 %45, ptr %46, align 4, !tbaa !13
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
   %exitcond421.not = icmp eq i64 %indvars.iv.next419, 16
@@ -1648,15 +1648,15 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader294:                                    ; preds = %5, %.preheader294
   %indvars.iv414 = phi i64 [ %indvars.iv.next415, %.preheader294 ], [ 0, %5 ]
-  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv414
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv414
   %48 = load i32, ptr %47, align 4, !tbaa !13
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv414
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv414
   %50 = load i32, ptr %49, align 4, !tbaa !13
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv414
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv414
   %52 = load i32, ptr %51, align 4, !tbaa !13
   %53 = or i32 %52, %50
   %54 = and i32 %53, %48
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv414
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv414
   store i32 %54, ptr %55, align 4, !tbaa !13
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next415, 16
@@ -1664,16 +1664,16 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader296:                                    ; preds = %5, %.preheader296
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %.preheader296 ], [ 0, %5 ]
-  %56 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv410
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv410
   %57 = load i32, ptr %56, align 4, !tbaa !13
-  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv410
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv410
   %59 = load i32, ptr %58, align 4, !tbaa !13
-  %60 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv410
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv410
   %61 = load i32, ptr %60, align 4, !tbaa !13
   %62 = or i32 %61, %59
   %63 = and i32 %62, %57
   %64 = xor i32 %63, -1
-  %65 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv410
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv410
   store i32 %64, ptr %65, align 4, !tbaa !13
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next411, 16
@@ -1681,15 +1681,15 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader298:                                    ; preds = %5, %.preheader298
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %.preheader298 ], [ 0, %5 ]
-  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv406
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv406
   %67 = load i32, ptr %66, align 4, !tbaa !13
-  %68 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv406
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv406
   %69 = load i32, ptr %68, align 4, !tbaa !13
   %70 = xor i32 %69, %67
-  %71 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv406
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv406
   %72 = load i32, ptr %71, align 4, !tbaa !13
   %73 = xor i32 %70, %72
-  %74 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv406
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv406
   store i32 %73, ptr %74, align 4, !tbaa !13
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next407, 16
@@ -1697,15 +1697,15 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader300:                                    ; preds = %5, %.preheader300
   %indvars.iv402 = phi i64 [ %indvars.iv.next403, %.preheader300 ], [ 0, %5 ]
-  %75 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv402
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv402
   %76 = load i32, ptr %75, align 4, !tbaa !13
-  %77 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv402
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv402
   %78 = load i32, ptr %77, align 4, !tbaa !13
-  %79 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv402
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv402
   %80 = load i32, ptr %79, align 4, !tbaa !13
   %81 = and i32 %80, %78
   %82 = xor i32 %81, %76
-  %83 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv402
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv402
   store i32 %82, ptr %83, align 4, !tbaa !13
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next403, 16
@@ -1713,15 +1713,15 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader302:                                    ; preds = %5, %.preheader302
   %indvars.iv398 = phi i64 [ %indvars.iv.next399, %.preheader302 ], [ 0, %5 ]
-  %84 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv398
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv398
   %85 = load i32, ptr %84, align 4, !tbaa !13
-  %86 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv398
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv398
   %87 = load i32, ptr %86, align 4, !tbaa !13
-  %88 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv398
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv398
   %89 = load i32, ptr %88, align 4, !tbaa !13
   %90 = xor i32 %89, %87
   %91 = and i32 %90, %85
-  %92 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv398
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv398
   store i32 %91, ptr %92, align 4, !tbaa !13
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next399, 16
@@ -1729,16 +1729,16 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader304:                                    ; preds = %5, %.preheader304
   %indvars.iv394 = phi i64 [ %indvars.iv.next395, %.preheader304 ], [ 0, %5 ]
-  %93 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv394
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv394
   %94 = load i32, ptr %93, align 4, !tbaa !13
-  %95 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv394
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv394
   %96 = load i32, ptr %95, align 4, !tbaa !13
-  %97 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv394
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv394
   %98 = load i32, ptr %97, align 4, !tbaa !13
   %99 = xor i32 %98, %96
   %100 = and i32 %99, %94
   %101 = xor i32 %100, -1
-  %102 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv394
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv394
   store i32 %101, ptr %102, align 4, !tbaa !13
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next395, 16
@@ -1746,17 +1746,17 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader306:                                    ; preds = %5, %.preheader306
   %indvars.iv390 = phi i64 [ %indvars.iv.next391, %.preheader306 ], [ 0, %5 ]
-  %103 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv390
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv390
   %104 = load i32, ptr %103, align 4, !tbaa !13
-  %105 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv390
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv390
   %106 = load i32, ptr %105, align 4, !tbaa !13
-  %107 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv390
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv390
   %108 = load i32, ptr %107, align 4, !tbaa !13
   %109 = or i32 %108, %104
   %110 = and i32 %109, %106
   %111 = and i32 %108, %104
   %112 = or i32 %110, %111
-  %113 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv390
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv390
   store i32 %112, ptr %113, align 4, !tbaa !13
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next391, 16
@@ -1764,19 +1764,19 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader308:                                    ; preds = %5, %.preheader308
   %indvars.iv386 = phi i64 [ %indvars.iv.next387, %.preheader308 ], [ 0, %5 ]
-  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv386
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv386
   %115 = load i32, ptr %114, align 4, !tbaa !13
-  %116 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv386
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv386
   %117 = load i32, ptr %116, align 4, !tbaa !13
   %118 = and i32 %117, %115
-  %119 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv386
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv386
   %120 = load i32, ptr %119, align 4, !tbaa !13
   %121 = and i32 %118, %120
   %.demorgan278 = or i32 %117, %115
   %.demorgan279 = or i32 %.demorgan278, %120
   %122 = xor i32 %.demorgan279, -1
   %123 = or i32 %121, %122
-  %124 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv386
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv386
   store i32 %123, ptr %124, align 4, !tbaa !13
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next387, 16
@@ -1784,18 +1784,18 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader310:                                    ; preds = %5, %.preheader310
   %indvars.iv382 = phi i64 [ %indvars.iv.next383, %.preheader310 ], [ 0, %5 ]
-  %125 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv382
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv382
   %126 = load i32, ptr %125, align 4, !tbaa !13
-  %127 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv382
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv382
   %128 = load i32, ptr %127, align 4, !tbaa !13
   %129 = and i32 %128, %126
-  %130 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv382
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv382
   %131 = load i32, ptr %130, align 4, !tbaa !13
   %132 = and i32 %129, %131
   %.demorgan = or i32 %128, %126
   %.demorgan277 = or i32 %.demorgan, %131
   %133 = xor i32 %132, %.demorgan277
-  %134 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv382
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv382
   store i32 %133, ptr %134, align 4, !tbaa !13
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next383, 16
@@ -1803,18 +1803,18 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader312:                                    ; preds = %5, %.preheader312
   %indvars.iv378 = phi i64 [ %indvars.iv.next379, %.preheader312 ], [ 0, %5 ]
-  %135 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv378
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv378
   %136 = load i32, ptr %135, align 4, !tbaa !13
-  %137 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv378
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv378
   %138 = load i32, ptr %137, align 4, !tbaa !13
-  %139 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv378
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv378
   %140 = load i32, ptr %139, align 4, !tbaa !13
   %141 = or i32 %140, %136
   %142 = and i32 %141, %138
   %143 = xor i32 %136, -1
   %144 = and i32 %140, %143
   %145 = or i32 %142, %144
-  %146 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv378
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv378
   store i32 %145, ptr %146, align 4, !tbaa !13
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next379, 16
@@ -1822,11 +1822,11 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader314:                                    ; preds = %5, %.preheader314
   %indvars.iv374 = phi i64 [ %indvars.iv.next375, %.preheader314 ], [ 0, %5 ]
-  %147 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv374
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv374
   %148 = load i32, ptr %147, align 4, !tbaa !13
-  %149 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv374
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv374
   %150 = load i32, ptr %149, align 4, !tbaa !13
-  %151 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv374
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv374
   %152 = load i32, ptr %151, align 4, !tbaa !13
   %153 = xor i32 %150, %148
   %154 = and i32 %153, %152
@@ -1834,7 +1834,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   %156 = and i32 %148, %155
   %157 = and i32 %156, %150
   %158 = or i32 %157, %154
-  %159 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv374
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv374
   store i32 %158, ptr %159, align 4, !tbaa !13
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next375, 16
@@ -1842,11 +1842,11 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader316:                                    ; preds = %5, %.preheader316
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %.preheader316 ], [ 0, %5 ]
-  %160 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv370
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv370
   %161 = load i32, ptr %160, align 4, !tbaa !13
-  %162 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv370
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv370
   %163 = load i32, ptr %162, align 4, !tbaa !13
-  %164 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv370
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv370
   %165 = load i32, ptr %164, align 4, !tbaa !13
   %166 = xor i32 %163, %161
   %167 = and i32 %166, %165
@@ -1855,7 +1855,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   %170 = and i32 %169, %163
   %171 = or i32 %170, %167
   %172 = xor i32 %171, -1
-  %173 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv370
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv370
   store i32 %172, ptr %173, align 4, !tbaa !13
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next371, 16
@@ -1863,18 +1863,18 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader318:                                    ; preds = %5, %.preheader318
   %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.preheader318 ], [ 0, %5 ]
-  %174 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv366
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv366
   %175 = load i32, ptr %174, align 4, !tbaa !13
-  %176 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv366
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv366
   %177 = load i32, ptr %176, align 4, !tbaa !13
-  %178 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv366
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv366
   %179 = load i32, ptr %178, align 4, !tbaa !13
   %180 = or i32 %179, %177
   %181 = xor i32 %180, -1
   %182 = and i32 %175, %181
   %183 = and i32 %179, %177
   %184 = or i32 %182, %183
-  %185 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv366
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv366
   store i32 %184, ptr %185, align 4, !tbaa !13
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next367, 16
@@ -1882,11 +1882,11 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
 
 .preheader320:                                    ; preds = %5, %.preheader320
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader320 ], [ 0, %5 ]
-  %186 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %187 = load i32, ptr %186, align 4, !tbaa !13
-  %188 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %189 = load i32, ptr %188, align 4, !tbaa !13
-  %190 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %191 = load i32, ptr %190, align 4, !tbaa !13
   %192 = or i32 %191, %189
   %193 = xor i32 %192, -1
@@ -1894,7 +1894,7 @@ define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(non
   %195 = and i32 %191, %189
   %196 = or i32 %194, %195
   %197 = xor i32 %196, -1
-  %198 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %197, ptr %198, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1995,13 +1995,13 @@ Abc_Clock.exit:                                   ; preds = %0, %8
 
 15:                                               ; preds = %.preheader89, %._crit_edge
   %indvars.iv134 = phi i64 [ 9, %.preheader89 ], [ %indvars.iv.next135, %._crit_edge ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv134
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv134
   %.096 = load ptr, ptr %16, align 8, !tbaa !31
   %.not8397 = icmp eq ptr %.096, null
   br i1 %.not8397, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %17 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 %indvars.iv134
+  %17 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 %indvars.iv134
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2040,7 +2040,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv130
   %37 = load i8, ptr %36, align 1, !tbaa !19
   %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds [5 x i32], ptr %4, i64 %38
+  %39 = getelementptr inbounds [20 x i8], ptr %4, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !13
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !13
@@ -2060,7 +2060,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv126
   %46 = load i8, ptr %45, align 1, !tbaa !19
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds [5 x i32], ptr %4, i64 %47
+  %48 = getelementptr inbounds [20 x i8], ptr %4, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !13
   %51 = add nsw i32 %50, 1
@@ -2081,7 +2081,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv122
   %56 = load i8, ptr %55, align 1, !tbaa !19
   %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds [5 x i32], ptr %4, i64 %57
+  %58 = getelementptr inbounds [20 x i8], ptr %4, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 4, !tbaa !13
   %61 = add nsw i32 %60, 1
@@ -2107,7 +2107,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv118
   %67 = load i8, ptr %66, align 1, !tbaa !19
   %68 = sext i8 %67 to i64
-  %69 = getelementptr inbounds [5 x i32], ptr %4, i64 %68
+  %69 = getelementptr inbounds [20 x i8], ptr %4, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !13
   %72 = add nsw i32 %71, 1
@@ -2121,7 +2121,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv
   %74 = load i8, ptr %73, align 1, !tbaa !19
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds [5 x i32], ptr %4, i64 %75
+  %76 = getelementptr inbounds [20 x i8], ptr %4, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 4, !tbaa !13
   %79 = add nsw i32 %78, 1
@@ -2153,12 +2153,12 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %indvars.iv141 = phi i64 [ 0, %81 ], [ %indvars.iv.next142, %95 ]
   %88 = trunc nuw nsw i64 %indvars.iv141 to i32
   %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %88)
-  %90 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 %indvars.iv141
+  %90 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 %indvars.iv141
   br label %91
 
 91:                                               ; preds = %87, %91
   %indvars.iv137 = phi i64 [ 0, %87 ], [ %indvars.iv.next138, %91 ]
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv137
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv137
   %93 = load i32, ptr %92, align 4, !tbaa !13
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %93)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
@@ -2179,12 +2179,12 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %indvars.iv149 = phi i64 [ 0, %96 ], [ %indvars.iv.next150, %105 ]
   %98 = trunc nuw nsw i64 %indvars.iv149 to i32
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %98)
-  %100 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 %indvars.iv149
+  %100 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 %indvars.iv149
   br label %101
 
 101:                                              ; preds = %97, %101
   %indvars.iv145 = phi i64 [ 0, %97 ], [ %indvars.iv.next146, %101 ]
-  %102 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv145
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv145
   %103 = load i32, ptr %102, align 4, !tbaa !13
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %103)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
@@ -2192,7 +2192,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   br i1 %exitcond148.not, label %105, label %101, !llvm.loop !101
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw ptr, ptr @s_NP3Names, i64 %indvars.iv149
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @s_NP3Names, i64 %indvars.iv149
   %107 = load ptr, ptr %106, align 8, !tbaa !102
   %108 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %107)
   %putchar = call i32 @putchar(i32 10)
@@ -2212,7 +2212,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
 .preheader:                                       ; preds = %109, %._crit_edge110
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge110 ], [ 0, %109 ]
   %.068112 = phi i32 [ %.169.lcssa, %._crit_edge110 ], [ 0, %109 ]
-  %113 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv153
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv153
   %.1104 = load ptr, ptr %113, align 8, !tbaa !31
   %.not105 = icmp eq ptr %.1104, null
   br i1 %.not105, label %._crit_edge110, label %.lr.ph109
@@ -2396,9 +2396,9 @@ select.unfold.i36:                                ; preds = %60, %57
 
 60:                                               ; preds = %select.unfold.i36
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, -1
-  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.next.i38
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.next.i38
   %62 = load i32, ptr %61, align 4, !tbaa !13
-  %63 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i38
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.next.i38
   %64 = load i32, ptr %63, align 4, !tbaa !13
   %.not.i = icmp eq i32 %62, %64
   br i1 %.not.i, label %select.unfold.i36, label %Extra_TruthIsEqual.exit.thread, !llvm.loop !32

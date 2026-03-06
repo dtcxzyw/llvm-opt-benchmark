@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [32 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [4 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_ = comdat any
 
@@ -40,7 +39,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %Size, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %1
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %1
   %call.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr)
   %conv = trunc i64 %call.i to i32
   ret i32 %conv
@@ -115,7 +114,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %if.then.i.i.i.i, %
   %3 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %1, %entry ]
   %4 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %conv.i3.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %conv.i3.i.i.i.i
   store i32 %conv.i.i, ptr %add.ptr.i.i.i.i.i, align 1
   %5 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i.i.i = add i32 %5, 1
@@ -136,7 +135,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i.i = trunc nuw i64 %shr.i.i to i32
   %8 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i.i = zext i32 %7 to i64
-  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw i32, ptr %8, i64 %conv.i3.i.i8.i.i
+  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %conv.i3.i.i8.i.i
   store i32 %conv2.i.i, ptr %add.ptr.i.i.i9.i.i, align 1
   %9 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i10.i.i = add i32 %9, 1
@@ -165,7 +164,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i:  ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i.i.i
   store i32 %conv.i, ptr %add.ptr.i.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i.i = add i32 %4, 1
@@ -186,7 +185,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i = trunc nuw i64 %shr.i to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i = zext i32 %6 to i64
-  %add.ptr.i.i.i9.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8.i
+  %add.ptr.i.i.i9.i = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv.i3.i.i8.i
   store i32 %conv2.i, ptr %add.ptr.i.i.i9.i, align 1
   %8 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i10.i = add i32 %8, 1
@@ -214,7 +213,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i
   store i32 %I, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -242,7 +241,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i
   store i32 %I, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -271,7 +270,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %if.then.i.i.i.i, %
   %2 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i.i.i.i
   store i32 %conv.i.i, ptr %add.ptr.i.i.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i.i.i = add i32 %4, 1
@@ -292,7 +291,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i.i = trunc nuw i64 %shr.i.i to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8.i.i
+  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv.i3.i.i8.i.i
   store i32 %conv2.i.i, ptr %add.ptr.i.i.i9.i.i, align 1
   %8 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i10.i.i = add i32 %8, 1
@@ -321,7 +320,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %entry, %if.then.i.i
   %2 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i.i
   store i32 %conv, ptr %add.ptr.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i = add i32 %4, 1
@@ -342,7 +341,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit11:  ; preds = %_ZN4llvh16FoldingSe
   %conv2 = trunc nuw i64 %shr to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8 = zext i32 %6 to i64
-  %add.ptr.i.i.i9 = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv.i3.i.i8
   store i32 %conv2, ptr %add.ptr.i.i.i9, align 1
   %8 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i10 = add i32 %8, 1
@@ -371,7 +370,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i:  ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i.i.i
   store i32 %conv.i, ptr %add.ptr.i.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i.i = add i32 %4, 1
@@ -392,7 +391,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i = trunc nuw i64 %shr.i to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i = zext i32 %6 to i64
-  %add.ptr.i.i.i9.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8.i
+  %add.ptr.i.i.i9.i = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv.i3.i.i8.i
   store i32 %conv2.i, ptr %add.ptr.i.i.i9.i, align 1
   %8 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i10.i = add i32 %8, 1
@@ -421,7 +420,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %conv.i3.i
   store i32 %conv, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -469,7 +468,7 @@ if.then.i.i:                                      ; preds = %if.end.i.thread, %i
   %.pre13.i68 = phi i32 [ %.pre13.pre.i, %if.end.i.thread ], [ %add.i, %if.end.i ]
   %7 = load ptr, ptr %this, align 8
   %conv.i9.i = zext i32 %.pre13.i68 to i64
-  %add.ptr.i.i14 = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i9.i
+  %add.ptr.i.i14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i14, ptr align 4 %String.coerce0, i64 %add.ptr.idx, i1 false)
   %.pre.i15 = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
@@ -525,7 +524,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32: ; preds = %for.bo
   %16 = phi i32 [ %.pre.i27, %if.then.i25 ], [ %10, %for.body ]
   %17 = load ptr, ptr %this, align 8
   %conv.i3.i29 = zext i32 %16 to i64
-  %add.ptr.i.i30 = getelementptr inbounds nuw i32, ptr %17, i64 %conv.i3.i29
+  %add.ptr.i.i30 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %conv.i3.i29
   store i32 %or25, ptr %add.ptr.i.i30, align 1
   %18 = load i32, ptr %Size.i.i, align 8
   %add.i31 = add i32 %18, 1
@@ -586,7 +585,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit46: ; preds = %sw.bb4
   %26 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %19, %sw.bb44 ]
   %27 = load ptr, ptr %this, align 8
   %conv.i3.i43 = zext i32 %26 to i64
-  %add.ptr.i.i44 = getelementptr inbounds nuw i32, ptr %27, i64 %conv.i3.i43
+  %add.ptr.i.i44 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %conv.i3.i43
   store i32 %or50, ptr %add.ptr.i.i44, align 1
   %28 = load i32, ptr %Size.i.i, align 8
   %add.i45 = add i32 %28, 1
@@ -630,7 +629,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then.i.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
   %conv.i9.i = zext i32 %.pre13.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %conv.i9.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 4 %0, i64 %add.ptr.i.idx, i1 false)
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
@@ -649,7 +648,7 @@ entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %conv.i
   %call.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr.i)
   %conv.i3 = trunc i64 %call.i.i to i32
   ret i32 %conv.i3
@@ -806,7 +805,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   %idxprom.i = zext i32 %shl to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
   %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i, ptr %Buckets, align 8
@@ -882,7 +881,7 @@ entry:
   %2 = load ptr, ptr %Buckets, align 8
   %3 = load i32, ptr %NumBuckets, align 8
   %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
   %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
@@ -913,7 +912,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   %idxprom.i = zext i32 %NewBucketCount to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %idxprom.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
   store ptr %call.i.i, ptr %Buckets, align 8
   store i32 %NewBucketCount, ptr %NumBuckets, align 8
@@ -937,7 +936,7 @@ for.body.lr.ph:                                   ; preds = %_ZL15AllocateBucket
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
@@ -958,7 +957,7 @@ while.body:                                       ; preds = %for.body, %_ZN4llvh
   %sub.i = add i32 %8, -1
   %and.i10 = and i32 %sub.i, %call7
   %idx.ext.i = zext i32 %and.i10 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(ptr nonnull %TempID.i)
   %9 = load i32, ptr %NumNodes, align 4
   %add.i11 = add i32 %9, 1
@@ -980,7 +979,7 @@ if.then.i:                                        ; preds = %while.body
   %sub.i17 = add i32 %12, -1
   %and.i18 = and i32 %sub.i17, %call2.i
   %idx.ext.i19 = zext i32 %and.i18 to i64
-  %add.ptr.i20 = getelementptr inbounds nuw ptr, ptr %11, i64 %idx.ext.i19
+  %add.ptr.i20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %idx.ext.i19
   %13 = load ptr, ptr %TempID.i, align 8
   %cmp.i.i.i.i14 = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i21
   br i1 %cmp.i.i.i.i14, label %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit, label %if.then.i.i.i15
@@ -1061,7 +1060,7 @@ if.then:                                          ; preds = %entry
   %sub.i = add i32 %4, -1
   %and.i = and i32 %sub.i, %call2
   %idx.ext.i = zext i32 %and.i to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %idx.ext.i
   %5 = load ptr, ptr %TempID, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.end, label %if.then.i.i.i
@@ -1127,7 +1126,7 @@ entry:
   %Size.i.i = getelementptr inbounds nuw i8, ptr %ID, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %conv.i.i
   %call.i.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr.i.i)
   %conv.i3.i = trunc i64 %call.i.i.i to i32
   %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1137,7 +1136,7 @@ entry:
   %sub.i = add i32 %3, -1
   %and.i = and i32 %sub.i, %conv.i3.i
   %idx.ext.i = zext i32 %and.i to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext.i
   %4 = load ptr, ptr %add.ptr.i, align 8
   store ptr null, ptr %InsertPos, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 16
@@ -1255,7 +1254,7 @@ entry:
   %1 = load ptr, ptr %ID, align 8
   %2 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %conv.i.i.i
   %call.i.i.i.i = call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %1, ptr noundef %add.ptr.i.i.i)
   %conv.i3.i.i = trunc i64 %call.i.i.i.i to i32
   %Buckets.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1265,7 +1264,7 @@ entry:
   %sub.i.i = add i32 %4, -1
   %and.i.i = and i32 %sub.i.i, %conv.i3.i.i
   %idx.ext.i.i = zext i32 %and.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %idx.ext.i.i
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %TempID.i, align 8
@@ -1344,7 +1343,7 @@ if.then.i:                                        ; preds = %if.end
   %sub.i.i13 = add i32 %14, -1
   %and.i.i14 = and i32 %sub.i.i13, %call2.i
   %idx.ext.i.i15 = zext i32 %and.i.i14 to i64
-  %add.ptr.i.i16 = getelementptr inbounds nuw ptr, ptr %13, i64 %idx.ext.i.i15
+  %add.ptr.i.i16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %idx.ext.i.i15
   %15 = load ptr, ptr %TempID.i4, align 8
   %cmp.i.i.i.i.i17 = icmp eq ptr %15, %add.ptr.i.i.i.i.i.i.i7
   br i1 %cmp.i.i.i.i.i17, label %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit, label %if.then.i.i.i.i18
@@ -2044,7 +2043,7 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit: ; pred
   %6 = phi i32 [ %.pre.i, %if.then.i ], [ %4, %_ZN4llvh15MallocAllocator8AllocateEmm.exit ]
   %7 = load ptr, ptr %CustomSizedSlabs, align 8
   %conv.i3.i = zext i32 %6 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %conv.i3.i
   store ptr %call.i.i, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i64 %sub, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -2091,7 +2090,7 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   %15 = phi i32 [ %.pre.i.i, %if.then.i.i14 ], [ %13, %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i ]
   %16 = load ptr, ptr %Slabs.i, align 8
   %conv.i3.i.i = zext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %conv.i3.i.i
   %17 = ptrtoint ptr %call.i.i.i to i64
   store i64 %17, ptr %add.ptr.i.i.i, align 1
   %18 = load i32, ptr %Size.i.i13, align 8

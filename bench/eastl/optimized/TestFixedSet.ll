@@ -18942,7 +18942,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i, %if.then.i
@@ -19012,7 +19012,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i146: ; preds = %_ZN5eastl34uniniti
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i147: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i146, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i143
   %incdec.ptr.i.i148 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i144, i64 4
-  %add.ptr.i.i149 = getelementptr inbounds i32, ptr %retval.0.i.i.i138, i64 %cond.i.i.i131
+  %add.ptr.i.i149 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i138, i64 %cond.i.i.i131
   br label %for.inc
 
 lpad:                                             ; preds = %.noexc, %entry
@@ -19146,7 +19146,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
 for.body.i:                                       ; preds = %for.body25, %for.body.i
   %rng.sroa.0.3 = phi i64 [ %xor.i.i.i.i, %for.body.i ], [ %rng.sroa.0.21736, %for.body25 ]
   %swapIter.08.i = phi i64 [ %add.i, %for.body.i ], [ 1, %for.body25 ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31864, i64 %swapIter.08.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31864, i64 %swapIter.08.i
   %add.i = add nuw nsw i64 %swapIter.08.i, 1
   %cmp.i.i.i.i = icmp eq i64 %rng.sroa.0.3, 0
   %8 = mul i64 %rng.sroa.0.3, 6364136223846793005
@@ -19157,7 +19157,7 @@ for.body.i:                                       ; preds = %for.body25, %for.bo
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 32
   %xor.i.i.i.i = xor i64 %add5.i.i.i.i, %shr.i.i.i.i
   %rem.i.i.i = urem i64 %xor.i.i.i.i, %add.i
-  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31864, i64 %rem.i.i.i
+  %add.ptr2.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31864, i64 %rem.i.i.i
   %10 = load i32, ptr %add.ptr.i, align 4
   %11 = load i32, ptr %add.ptr2.i, align 4
   store i32 %11, ptr %add.ptr.i, align 4
@@ -19171,7 +19171,7 @@ invoke.cont28:                                    ; preds = %for.body.i, %for.bo
 
 for.body33:                                       ; preds = %invoke.cont28, %invoke.cont49
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont49 ], [ 0, %invoke.cont28 ]
-  %add.ptr.i157 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31864, i64 %indvars.iv
+  %add.ptr.i157 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31864, i64 %indvars.iv
   %12 = load i32, ptr %add.ptr.i157, align 4
   %pCurrent.015.i.i = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not16.i.i = icmp eq ptr %pCurrent.015.i.i, null
@@ -19531,7 +19531,7 @@ invoke.cont58:                                    ; preds = %while.body
 
 for.body69:                                       ; preds = %for.cond67.preheader, %invoke.cont87
   %indvars.iv1774 = phi i64 [ %indvars.iv.next1775, %invoke.cont87 ], [ 0, %for.cond67.preheader ]
-  %add.ptr.i181 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31864, i64 %indvars.iv1774
+  %add.ptr.i181 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31864, i64 %indvars.iv1774
   %pCurrent.09.i.i = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not10.i.i = icmp eq ptr %pCurrent.09.i.i, null
   br i1 %tobool.not10.i.i, label %invoke.cont74, label %while.body.lr.ph.i.i
@@ -20008,7 +20008,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i303: ; preds = %_ZN5eastl34uniniti
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i304
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i304: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i303, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i300
-  %add.ptr.i.i306 = getelementptr inbounds i32, ptr %retval.0.i.i.i295, i64 %cond.i.i.i288
+  %add.ptr.i.i306 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i295, i64 %cond.i.i.i288
   br label %for.inc112
 
 for.inc112:                                       ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i304, %if.then.i308
@@ -20087,7 +20087,7 @@ for.body120:                                      ; preds = %while.body.i.i.i319
 
 for.body125:                                      ; preds = %for.body120, %invoke.cont144
   %indvars.iv1780 = phi i64 [ %indvars.iv.next1781, %invoke.cont144 ], [ 0, %for.body120 ]
-  %add.ptr.i325 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1780
+  %add.ptr.i325 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1780
   %117 = load i32, ptr %add.ptr.i325, align 4
   %pCurrent.015.i.i1308 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not16.i.i1309 = icmp eq ptr %pCurrent.015.i.i1308, null
@@ -20422,7 +20422,7 @@ invoke.cont144:                                   ; preds = %invoke.cont140
 
 for.body154:                                      ; preds = %invoke.cont144, %invoke.cont169
   %indvars.iv1785 = phi i64 [ %indvars.iv.next1786, %invoke.cont169 ], [ 0, %invoke.cont144 ]
-  %add.ptr.i456 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1785
+  %add.ptr.i456 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1785
   %pCurrent.09.i.i458 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not10.i.i459 = icmp eq ptr %pCurrent.09.i.i458, null
   br i1 %tobool.not10.i.i459, label %invoke.cont159, label %while.body.lr.ph.i.i460
@@ -20970,7 +20970,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i631: ; preds = %_ZN5eastl34uniniti
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i632
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i632: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i631, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i628
-  %add.ptr.i.i634 = getelementptr inbounds i32, ptr %retval.0.i.i.i623, i64 %cond.i.i.i616
+  %add.ptr.i.i634 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i623, i64 %cond.i.i.i616
   br label %invoke.cont218
 
 invoke.cont218:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i632, %if.then.i636
@@ -21020,7 +21020,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i665: ; preds = %_ZN5eastl34uniniti
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i666
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i666: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i665, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i662
-  %add.ptr.i.i668 = getelementptr inbounds i32, ptr %retval.0.i.i.i657, i64 %cond.i.i.i650
+  %add.ptr.i.i668 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i657, i64 %cond.i.i.i650
   br label %invoke.cont221
 
 invoke.cont221:                                   ; preds = %if.then.i670, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i666
@@ -21085,7 +21085,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i706: ; preds = %_ZN5eastl34uniniti
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i707: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i706, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i703
   %incdec.ptr.i.i708 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i704, i64 4
-  %add.ptr.i.i709 = getelementptr inbounds i32, ptr %retval.0.i.i.i698, i64 %cond.i.i.i691
+  %add.ptr.i.i709 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i698, i64 %cond.i.i.i691
   br label %invoke.cont226
 
 invoke.cont226:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i707, %if.then.i711
@@ -21136,7 +21136,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i740: ; preds = %_ZN5eastl34uniniti
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i741: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i740, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i737
   %incdec.ptr.i.i742 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i738, i64 4
-  %add.ptr.i.i743 = getelementptr inbounds i32, ptr %retval.0.i.i.i732, i64 %cond.i.i.i725
+  %add.ptr.i.i743 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i732, i64 %cond.i.i.i725
   br label %for.inc230
 
 ehcleanup:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad9, %lpad9.thread1595
@@ -22991,7 +22991,7 @@ invoke.cont64.preheader:                          ; preds = %invoke.cont57, %inv
 for.body37:                                       ; preds = %for.body37.preheader, %invoke.cont57
   %indvars.iv = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next, %invoke.cont57 ]
   %55 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %55, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv
   %56 = load i32, ptr %add.ptr.i, align 8
   store i32 %56, ptr %ref.tmp41, align 8
   %mbThrowOnCopy3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
@@ -23473,7 +23473,7 @@ for.body81.preheader:                             ; preds = %while.end
 for.body81:                                       ; preds = %for.body81.preheader, %invoke.cont99
   %indvars.iv2922 = phi i64 [ 0, %for.body81.preheader ], [ %indvars.iv.next2923, %invoke.cont99 ]
   %132 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i297 = getelementptr inbounds nuw %struct.TestObject, ptr %132, i64 %indvars.iv2922
+  %add.ptr.i297 = getelementptr inbounds nuw [24 x i8], ptr %132, i64 %indvars.iv2922
   %pCurrent.09.i.i = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not10.i.i = icmp eq ptr %pCurrent.09.i.i, null
   br i1 %tobool.not10.i.i, label %invoke.cont86, label %while.body.lr.ph.i.i
@@ -24104,7 +24104,7 @@ for.body140.preheader:                            ; preds = %for.body135
 for.body140:                                      ; preds = %for.body140.preheader, %invoke.cont165
   %indvars.iv2928 = phi i64 [ 0, %for.body140.preheader ], [ %indvars.iv.next2929, %invoke.cont165 ]
   %222 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i468 = getelementptr inbounds nuw %struct.TestObject, ptr %222, i64 %indvars.iv2928
+  %add.ptr.i468 = getelementptr inbounds nuw [24 x i8], ptr %222, i64 %indvars.iv2928
   %223 = load i32, ptr %add.ptr.i468, align 8
   store i32 %223, ptr %ref.tmp145, align 8
   %mbThrowOnCopy3.i470 = getelementptr inbounds nuw i8, ptr %add.ptr.i468, i64 4
@@ -24483,7 +24483,7 @@ for.body175.preheader:                            ; preds = %for.end170
 for.body175:                                      ; preds = %for.body175.preheader, %invoke.cont190
   %indvars.iv2933 = phi i64 [ 0, %for.body175.preheader ], [ %indvars.iv.next2934, %invoke.cont190 ]
   %280 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i610 = getelementptr inbounds nuw %struct.TestObject, ptr %280, i64 %indvars.iv2933
+  %add.ptr.i610 = getelementptr inbounds nuw [24 x i8], ptr %280, i64 %indvars.iv2933
   %pCurrent.09.i.i612 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not10.i.i613 = icmp eq ptr %pCurrent.09.i.i612, null
   br i1 %tobool.not10.i.i613, label %invoke.cont180, label %while.body.lr.ph.i.i614
@@ -28317,7 +28317,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i, %if.then.i
@@ -28387,7 +28387,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i146: ; preds = %_ZN5eastl34uniniti
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i147: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i146, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i143
   %incdec.ptr.i.i148 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i144, i64 4
-  %add.ptr.i.i149 = getelementptr inbounds i32, ptr %retval.0.i.i.i138, i64 %cond.i.i.i131
+  %add.ptr.i.i149 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i138, i64 %cond.i.i.i131
   br label %for.inc
 
 lpad:                                             ; preds = %.noexc, %entry
@@ -28531,7 +28531,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
 for.body.i:                                       ; preds = %for.body25, %for.body.i
   %rng.sroa.0.3 = phi i64 [ %xor.i.i.i.i, %for.body.i ], [ %rng.sroa.0.21615, %for.body25 ]
   %swapIter.08.i = phi i64 [ %add.i, %for.body.i ], [ 1, %for.body25 ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31734, i64 %swapIter.08.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31734, i64 %swapIter.08.i
   %add.i = add nuw nsw i64 %swapIter.08.i, 1
   %cmp.i.i.i.i = icmp eq i64 %rng.sroa.0.3, 0
   %8 = mul i64 %rng.sroa.0.3, 6364136223846793005
@@ -28542,7 +28542,7 @@ for.body.i:                                       ; preds = %for.body25, %for.bo
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 32
   %xor.i.i.i.i = xor i64 %add5.i.i.i.i, %shr.i.i.i.i
   %rem.i.i.i = urem i64 %xor.i.i.i.i, %add.i
-  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31734, i64 %rem.i.i.i
+  %add.ptr2.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31734, i64 %rem.i.i.i
   %10 = load i32, ptr %add.ptr.i, align 4
   %11 = load i32, ptr %add.ptr2.i, align 4
   store i32 %11, ptr %add.ptr.i, align 4
@@ -28556,7 +28556,7 @@ invoke.cont28:                                    ; preds = %for.body.i, %for.bo
 
 for.body33:                                       ; preds = %invoke.cont28, %invoke.cont49
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont49 ], [ 0, %invoke.cont28 ]
-  %add.ptr.i157 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31734, i64 %indvars.iv
+  %add.ptr.i157 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31734, i64 %indvars.iv
   %12 = load i32, ptr %add.ptr.i157, align 4
   %pCurrent.05.i.i.i.i = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not6.i.i.i.i = icmp eq ptr %pCurrent.05.i.i.i.i, null
@@ -28860,7 +28860,7 @@ invoke.cont58:                                    ; preds = %while.body
 
 for.body68:                                       ; preds = %for.cond66.preheader, %invoke.cont85
   %indvars.iv1648 = phi i64 [ %indvars.iv.next1649, %invoke.cont85 ], [ 0, %for.cond66.preheader ]
-  %add.ptr.i182 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.31734, i64 %indvars.iv1648
+  %add.ptr.i182 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.31734, i64 %indvars.iv1648
   %pCurrent.05.i.i.i = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not6.i.i.i = icmp eq ptr %pCurrent.05.i.i.i, null
   br i1 %tobool.not6.i.i.i, label %_ZN5eastl8distanceINS_15rbtree_iteratorIiPKiRS2_EEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i, label %while.body.lr.ph.i.i.i
@@ -29390,7 +29390,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i301: ; preds = %_ZN5eastl34uniniti
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i302
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i302: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i301, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i298
-  %add.ptr.i.i304 = getelementptr inbounds i32, ptr %retval.0.i.i.i293, i64 %cond.i.i.i286
+  %add.ptr.i.i304 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i293, i64 %cond.i.i.i286
   br label %for.inc110
 
 for.inc110:                                       ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i302, %if.then.i306
@@ -29469,7 +29469,7 @@ for.body118:                                      ; preds = %while.body.i.i.i316
 
 for.body123:                                      ; preds = %for.body118, %invoke.cont143
   %indvars.iv1654 = phi i64 [ %indvars.iv.next1655, %invoke.cont143 ], [ 0, %for.body118 ]
-  %add.ptr.i322 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1654
+  %add.ptr.i322 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1654
   %115 = load i32, ptr %add.ptr.i322, align 4
   %pCurrent.05.i.i.i.i324 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not6.i.i.i.i325 = icmp eq ptr %pCurrent.05.i.i.i.i324, null
@@ -29748,7 +29748,7 @@ invoke.cont143:                                   ; preds = %invoke.cont139
 
 for.body153:                                      ; preds = %invoke.cont143, %invoke.cont167
   %indvars.iv1659 = phi i64 [ %indvars.iv.next1660, %invoke.cont167 ], [ 0, %invoke.cont143 ]
-  %add.ptr.i471 = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1659
+  %add.ptr.i471 = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.8, i64 %indvars.iv1659
   %pCurrent.05.i.i.i473 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not6.i.i.i474 = icmp eq ptr %pCurrent.05.i.i.i473, null
   br i1 %tobool.not6.i.i.i474, label %_ZN5eastl8distanceINS_15rbtree_iteratorIiPKiRS2_EEEENS_15iterator_traitsIT_E15difference_typeES7_S7_.exit.i504, label %while.body.lr.ph.i.i.i475
@@ -30347,7 +30347,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i651: ; preds = %_ZN5eastl34uniniti
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i652
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i652: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i651, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i648
-  %add.ptr.i.i654 = getelementptr inbounds i32, ptr %retval.0.i.i.i643, i64 %cond.i.i.i636
+  %add.ptr.i.i654 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i643, i64 %cond.i.i.i636
   br label %invoke.cont216
 
 invoke.cont216:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i652, %if.then.i656
@@ -30397,7 +30397,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i685: ; preds = %_ZN5eastl34uniniti
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i686
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i686: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i685, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i682
-  %add.ptr.i.i688 = getelementptr inbounds i32, ptr %retval.0.i.i.i677, i64 %cond.i.i.i670
+  %add.ptr.i.i688 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i677, i64 %cond.i.i.i670
   br label %invoke.cont219
 
 invoke.cont219:                                   ; preds = %if.then.i690, %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i686
@@ -30462,7 +30462,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i726: ; preds = %_ZN5eastl34uniniti
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i727: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i726, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i723
   %incdec.ptr.i.i728 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i724, i64 4
-  %add.ptr.i.i729 = getelementptr inbounds i32, ptr %retval.0.i.i.i718, i64 %cond.i.i.i711
+  %add.ptr.i.i729 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i718, i64 %cond.i.i.i711
   br label %invoke.cont224
 
 invoke.cont224:                                   ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i727, %if.then.i731
@@ -30513,7 +30513,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i760: ; preds = %_ZN5eastl34uniniti
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i761: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i760, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i757
   %incdec.ptr.i.i762 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i758, i64 4
-  %add.ptr.i.i763 = getelementptr inbounds i32, ptr %retval.0.i.i.i752, i64 %cond.i.i.i745
+  %add.ptr.i.i763 = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i752, i64 %cond.i.i.i745
   br label %for.inc228
 
 ehcleanup:                                        ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %lpad9, %lpad9.thread1479
@@ -32276,7 +32276,7 @@ invoke.cont64.preheader:                          ; preds = %invoke.cont57, %inv
 for.body37:                                       ; preds = %for.body37.preheader, %invoke.cont57
   %indvars.iv = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next, %invoke.cont57 ]
   %55 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %55, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv
   %56 = load i32, ptr %add.ptr.i, align 8
   %mbThrowOnCopy3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %57 = load i8, ptr %mbThrowOnCopy3.i, align 4
@@ -32827,7 +32827,7 @@ for.body80.preheader:                             ; preds = %while.end
 for.body80:                                       ; preds = %for.body80.preheader, %invoke.cont97
   %indvars.iv2875 = phi i64 [ 0, %for.body80.preheader ], [ %indvars.iv.next2876, %invoke.cont97 ]
   %146 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i298 = getelementptr inbounds nuw %struct.TestObject, ptr %146, i64 %indvars.iv2875
+  %add.ptr.i298 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %indvars.iv2875
   %pCurrent.05.i.i.i = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not6.i.i.i = icmp eq ptr %pCurrent.05.i.i.i, null
   br i1 %tobool.not6.i.i.i, label %_ZN5eastl8distanceINS_15rbtree_iteratorI10TestObjectPKS2_RS3_EEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i, label %while.body.lr.ph.i.i.i
@@ -33506,7 +33506,7 @@ for.body138.preheader:                            ; preds = %for.body133
 for.body138:                                      ; preds = %for.body138.preheader, %invoke.cont164
   %indvars.iv2881 = phi i64 [ 0, %for.body138.preheader ], [ %indvars.iv.next2882, %invoke.cont164 ]
   %239 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i472 = getelementptr inbounds nuw %struct.TestObject, ptr %239, i64 %indvars.iv2881
+  %add.ptr.i472 = getelementptr inbounds nuw [24 x i8], ptr %239, i64 %indvars.iv2881
   %240 = load i32, ptr %add.ptr.i472, align 8
   %mbThrowOnCopy3.i474 = getelementptr inbounds nuw i8, ptr %add.ptr.i472, i64 4
   %241 = load i8, ptr %mbThrowOnCopy3.i474, align 4
@@ -33954,7 +33954,7 @@ for.body174.preheader:                            ; preds = %for.end169
 for.body174:                                      ; preds = %for.body174.preheader, %invoke.cont188
   %indvars.iv2886 = phi i64 [ 0, %for.body174.preheader ], [ %indvars.iv.next2887, %invoke.cont188 ]
   %311 = load ptr, ptr %valueArrayInsert, align 8
-  %add.ptr.i642 = getelementptr inbounds nuw %struct.TestObject, ptr %311, i64 %indvars.iv2886
+  %add.ptr.i642 = getelementptr inbounds nuw [24 x i8], ptr %311, i64 %indvars.iv2886
   %pCurrent.05.i.i.i644 = load ptr, ptr %mpNodeParent.i.i.i.i, align 8
   %tobool.not6.i.i.i645 = icmp eq ptr %pCurrent.05.i.i.i644, null
   br i1 %tobool.not6.i.i.i645, label %_ZN5eastl8distanceINS_15rbtree_iteratorI10TestObjectPKS2_RS3_EEEENS_15iterator_traitsIT_E15difference_typeES8_S8_.exit.i675, label %while.body.lr.ph.i.i.i646
@@ -37575,7 +37575,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i, %if.then.i
@@ -37647,7 +37647,7 @@ for.body.i.preheader:                             ; preds = %invoke.cont7
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %rng.sroa.0.0 = phi i64 [ %xor.i.i.i.i, %for.body.i ], [ %conv, %for.body.i.preheader ]
   %swapIter.08.i = phi i64 [ %add.i, %for.body.i ], [ 1, %for.body.i.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.1, i64 %swapIter.08.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.1, i64 %swapIter.08.i
   %add.i = add nuw nsw i64 %swapIter.08.i, 1
   %cmp.i.i.i.i = icmp eq i64 %rng.sroa.0.0, 0
   %2 = mul i64 %rng.sroa.0.0, 6364136223846793005
@@ -37658,7 +37658,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 32
   %xor.i.i.i.i = xor i64 %add5.i.i.i.i, %shr.i.i.i.i
   %rem.i.i.i = urem i64 %xor.i.i.i.i, %add.i
-  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.1, i64 %rem.i.i.i
+  %add.ptr2.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.1, i64 %rem.i.i.i
   %4 = load i32, ptr %add.ptr.i, align 4
   %5 = load i32, ptr %add.ptr2.i, align 4
   store i32 %5, ptr %add.ptr.i, align 4
@@ -40362,7 +40362,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i
 
 _ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPiS1_S1_EET1_T_T0_S2_.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %retval.0.i.i.i, i64 %cond.i.i.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE16DoInsertValueEndIJiEEEvDpOT_.exit.i, %if.then.i
@@ -40459,7 +40459,7 @@ for.body.i.preheader:                             ; preds = %invoke.cont7
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %rng.sroa.0.0 = phi i64 [ %xor.i.i.i.i, %for.body.i ], [ %conv, %for.body.i.preheader ]
   %swapIter.08.i = phi i64 [ %add.i, %for.body.i ], [ 1, %for.body.i.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.1, i64 %swapIter.08.i
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.1, i64 %swapIter.08.i
   %add.i = add nuw nsw i64 %swapIter.08.i, 1
   %cmp.i.i.i.i = icmp eq i64 %rng.sroa.0.0, 0
   %2 = mul i64 %rng.sroa.0.0, 6364136223846793005
@@ -40470,7 +40470,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 32
   %xor.i.i.i.i = xor i64 %add5.i.i.i.i, %shr.i.i.i.i
   %rem.i.i.i = urem i64 %xor.i.i.i.i, %add.i
-  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %valueArrayInsert.sroa.0.1, i64 %rem.i.i.i
+  %add.ptr2.i = getelementptr inbounds nuw [4 x i8], ptr %valueArrayInsert.sroa.0.1, i64 %rem.i.i.i
   %4 = load i32, ptr %add.ptr.i, align 4
   %5 = load i32, ptr %add.ptr2.i, align 4
   store i32 %5, ptr %add.ptr.i, align 4
@@ -59958,7 +59958,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit
   %swapIter.08 = phi i64 [ %add, %_ZN5eastl9iter_swapIP10TestObjectS2_EEvT_T0_.exit ], [ 1, %for.body.preheader ]
-  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %swapIter.08
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %swapIter.08
   %add = add nuw nsw i64 %swapIter.08, 1
   %1 = load i64, ptr %rng, align 8
   %cmp.i.i.i = icmp eq i64 %1, 0
@@ -59971,7 +59971,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %xor.i.i.i = xor i64 %add5.i.i.i, %shr.i.i.i
   store i64 %xor.i.i.i, ptr %rng, align 8
   %rem.i.i = urem i64 %xor.i.i.i, %add
-  %add.ptr2 = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %rem.i.i
+  %add.ptr2 = getelementptr inbounds nuw [24 x i8], ptr %first, i64 %rem.i.i
   %4 = load i32, ptr %add.ptr, align 8
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %5 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
@@ -60450,7 +60450,7 @@ _ZN5eastl10VectorBaseI10TestObjectNS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 24
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [24 x i8], ptr %retval.0.i, i64 %cond.i
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
 }

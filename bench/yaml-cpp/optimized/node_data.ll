@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.__gnu_cxx::__normal_iterator.16" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator.17" = type { ptr }
 %"struct.YAML::Mark" = type { i32, i32, i32 }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -364,7 +363,7 @@ define noundef i64 @_ZNK4YAML6detail9node_data4sizeEv(ptr noundef nonnull align 
 
 .lr.ph.i:                                         ; preds = %7, %25
   %18 = phi i64 [ %26, %25 ], [ %.promoted.i, %7 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !55
   %21 = load ptr, ptr %20, align 8, !tbaa !57
   %22 = load ptr, ptr %21, align 8, !tbaa !62
@@ -456,7 +455,7 @@ define void @_ZNK4YAML6detail9node_data16compute_seq_sizeEv(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %1, %19
   %12 = phi i64 [ %20, %19 ], [ %.promoted, %1 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !55
   %15 = load ptr, ptr %14, align 8, !tbaa !57
   %16 = load ptr, ptr %15, align 8, !tbaa !62
@@ -892,7 +891,7 @@ _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 _ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %45, %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %40, ptr %20, align 8, !tbaa !46
   store ptr %44, ptr %21, align 8, !tbaa !47
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %46, ptr %23, align 8, !tbaa !86
   br label %_ZNSt6vectorIPN4YAML6detail4nodeESaIS3_EE9push_backEOS3_.exit
 
@@ -1224,7 +1223,7 @@ _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6
 _ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE17_M_realloc_insertIJS4_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i
   store ptr %25, ptr %4, align 8, !tbaa !49
   store ptr %30, ptr %5, align 8, !tbaa !50
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %25, i64 %23
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %23
   store ptr %32, ptr %7, align 8, !tbaa !93
   br label %_ZNSt6vectorISt4pairIPN4YAML6detail4nodeES4_ESaIS5_EE12emplace_backIJS4_S4_EEEvDpOT_.exit
 
@@ -1771,7 +1770,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4YAML6detail4node10set_scalarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = load ptr, ptr %17, align 8, !tbaa !46
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.035
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.035
   %77 = load ptr, ptr %76, align 8, !tbaa !55
   invoke void @_ZN4YAML6detail9node_data15insert_map_pairERNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(72) %54, ptr noundef nonnull align 8 dereferenceable(72) %77)
           to label %78 unwind label %100

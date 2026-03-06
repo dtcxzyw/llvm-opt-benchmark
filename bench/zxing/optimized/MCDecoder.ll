@@ -982,7 +982,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit.i.i:
   unreachable
 
 372:                                              ; preds = %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit.i.i
-  %373 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %369
+  %373 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %369
   %374 = load i16, ptr %373, align 2, !tbaa !69, !noalias !68
   %375 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #19
           to label %.lr.ph.preheader.i62.i.i unwind label %.body.i59.i.i, !noalias !68
@@ -1044,7 +1044,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit72.i.
   unreachable
 
 395:                                              ; preds = %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit72.i.i
-  %396 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %392
+  %396 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %392
   %397 = load i16, ptr %396, align 2, !tbaa !69, !noalias !68
   %398 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #19
           to label %.lr.ph.preheader.i81.i.i unwind label %.body.i76.i.i, !noalias !68
@@ -1106,7 +1106,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit91.i.
   unreachable
 
 418:                                              ; preds = %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit91.i.i
-  %419 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %415
+  %419 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %415
   %420 = load i16, ptr %419, align 2, !tbaa !69, !noalias !68
   %421 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #19
           to label %.lr.ph.preheader.i100.i.i unwind label %.body.i95.i.i, !noalias !68
@@ -1168,7 +1168,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit110.i
   unreachable
 
 441:                                              ; preds = %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit110.i.i
-  %442 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %438
+  %442 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %438
   %443 = load i16, ptr %442, align 2, !tbaa !69, !noalias !68
   %444 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #19
           to label %.lr.ph.preheader.i119.i.i unwind label %.body.i114.i.i, !noalias !68
@@ -1230,7 +1230,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit129.i
   unreachable
 
 464:                                              ; preds = %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL6GetIntERKNS_9ByteArrayES4_.exit129.i.i
-  %465 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %461
+  %465 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %461
   %466 = load i16, ptr %465, align 2, !tbaa !69, !noalias !68
   %467 = invoke noalias noundef nonnull dereferenceable(6) ptr @_Znwm(i64 noundef 6) #19
           to label %.lr.ph.preheader.i138.i.i unwind label %.body.i133.i.i, !noalias !68
@@ -1353,7 +1353,7 @@ _ZN5ZXing8MaxiCode22DecodedBitStreamParserL12GetPostCode3B5cxx11ERKNS_9ByteArray
   %500 = trunc i16 %420 to i8
   %501 = trunc i16 %397 to i8
   %502 = trunc i16 %374 to i8
-  %503 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %484
+  %503 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %484
   %504 = load i16, ptr %503, align 2, !tbaa !69, !noalias !68
   %505 = trunc i16 %504 to i8
   %506 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3053,7 +3053,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %11 = shl nuw nsw i64 %10, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19
   store ptr %12, ptr %5, align 8, !tbaa !111
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !114
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false), !tbaa !115
@@ -3080,7 +3080,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %25 = zext i8 %24 to i32
   %26 = lshr i32 %20, %8
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %27
   store i32 %25, ptr %28, align 4, !tbaa !115
   br label %29
 
@@ -3101,7 +3101,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = lshr i32 %33, %8
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %12, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %35
   store i32 %32, ptr %36, align 4, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
@@ -3131,7 +3131,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %46 = lshr i32 %42, %8
   %47 = zext nneg i32 %46 to i64
   %48 = load ptr, ptr %5, align 8, !tbaa !111
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load i32, ptr %49, align 4, !tbaa !115
   %51 = trunc i32 %50 to i8
   %52 = load ptr, ptr %0, align 8, !tbaa !50
@@ -3166,7 +3166,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing8MaxiCodeL13CorrectErrorsERN
   %65 = lshr i32 %64, %8
   %66 = zext nneg i32 %65 to i64
   %67 = load ptr, ptr %5, align 8, !tbaa !111
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %66
   %69 = load i32, ptr %68, align 4, !tbaa !115
   %70 = trunc i32 %69 to i8
   %71 = load ptr, ptr %0, align 8, !tbaa !50
@@ -3667,8 +3667,8 @@ define internal fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMes
 
 _ZNKSt5arrayIsLm64EE2atEm.exit:                   ; preds = %16
   %24 = sext i32 %.02658 to i64
-  %25 = getelementptr inbounds %"struct.std::array", ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %24
-  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %21
+  %25 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL8CHARSETSE, i64 %24
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %21
   %27 = load i16, ptr %26, align 2, !tbaa !69
   switch i16 %27, label %138 [
     i16 263, label %_ZN5ZXing7Content9push_backEh.exit.thread

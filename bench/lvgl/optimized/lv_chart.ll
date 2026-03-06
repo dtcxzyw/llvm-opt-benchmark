@@ -950,9 +950,9 @@ define internal fastcc void @new_points_alloc(ptr noundef nonnull readonly captu
   %24 = add i32 %22, %23
   %25 = urem i32 %24, %9
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !3
-  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -960,7 +960,7 @@ define internal fastcc void @new_points_alloc(ptr noundef nonnull readonly captu
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv78 = phi i64 [ %20, %.lr.ph68.preheader ], [ %indvars.iv.next79, %.lr.ph68 ]
-  %30 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv78
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv78
   store i32 2147483647, ptr %30, align 4, !tbaa !3
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %12
@@ -973,9 +973,9 @@ define internal fastcc void @new_points_alloc(ptr noundef nonnull readonly captu
   %34 = add i32 %32, %33
   %35 = urem i32 %34, %9
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !3
-  %39 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv83
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv83
   store i32 %38, ptr %39, align 4, !tbaa !3
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %12
@@ -1009,7 +1009,7 @@ define internal fastcc void @new_points_alloc(ptr noundef nonnull readonly captu
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv88 = phi i64 [ %47, %.lr.ph72.preheader ], [ %indvars.iv.next89, %.lr.ph72 ]
-  %48 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv88
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv88
   store i32 2147483647, ptr %48, align 4, !tbaa !3
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next89 to i32
@@ -1243,7 +1243,7 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
 24:                                               ; preds = %11
   %25 = load ptr, ptr %1, align 8, !tbaa !27
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1251,10 +1251,10 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
   %32 = lshr i8 %31, 3
   %33 = and i8 %32, 1
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %34
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %34
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = tail call i32 @lv_map(i32 noundef %28, i32 noundef %36, i32 noundef %39, i32 noundef 0, i32 noundef %12) #8
   br label %78
@@ -1360,7 +1360,7 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !23
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1368,12 +1368,12 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
   %108 = lshr i8 %107, 4
   %109 = and i8 %108, 1
   %110 = zext nneg i8 %109 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %105, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !3
   %113 = sub nsw i32 %104, %112
   %114 = mul nsw i32 %113, %13
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %110
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %110
   %117 = load i32, ptr %116, align 4, !tbaa !3
   %118 = sub nsw i32 %117, %112
   %119 = sdiv i32 %114, %118
@@ -1852,7 +1852,7 @@ define void @lv_chart_set_all_values(ptr noundef %0, ptr noundef captures(addres
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %2, ptr %10, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %5, align 4, !tbaa !20
@@ -1888,7 +1888,7 @@ define void @lv_chart_set_next_value(ptr noundef %0, ptr noundef captures(addres
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !76
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   store i32 %2, ptr %11, align 4, !tbaa !3
   %12 = load i32, ptr %8, align 4, !tbaa !76
   tail call fastcc void @invalidate_point(ptr noundef nonnull %0, i32 noundef %12)
@@ -2073,13 +2073,13 @@ define void @lv_chart_set_next_value2(ptr noundef %0, ptr noundef captures(addre
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !76
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   store i32 %2, ptr %15, align 4, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = load i32, ptr %12, align 4, !tbaa !76
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   store i32 %3, ptr %20, align 4, !tbaa !3
   %21 = load i32, ptr %12, align 4, !tbaa !76
   %22 = add i32 %21, 1
@@ -2112,12 +2112,12 @@ define void @lv_chart_set_series_values(ptr noundef %0, ptr noundef captures(add
 
 lv_chart_set_next_value.exit:                     ; preds = %.lr.ph.split, %lv_chart_set_next_value.exit
   %.06 = phi i64 [ %19, %lv_chart_set_next_value.exit ], [ 0, %.lr.ph.split ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %.06
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.06
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = load ptr, ptr %5, align 8, !tbaa !23
   %11 = load i32, ptr %6, align 4, !tbaa !76
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   store i32 %9, ptr %13, align 4, !tbaa !3
   %14 = load i32, ptr %6, align 4, !tbaa !76
   tail call fastcc void @invalidate_point(ptr noundef nonnull %0, i32 noundef %14)
@@ -2172,19 +2172,19 @@ define void @lv_chart_set_series_values2(ptr noundef %0, ptr noundef captures(ad
   br label %.preheader17.i
 
 12:                                               ; preds = %.lr.ph.split.split
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %.08
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.08
   %14 = load i32, ptr %13, align 4, !tbaa !3
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %.08
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.08
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = load ptr, ptr %1, align 8, !tbaa !27
   %18 = load i32, ptr %7, align 4, !tbaa !76
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   store i32 %16, ptr %20, align 4, !tbaa !3
   %21 = load ptr, ptr %8, align 8, !tbaa !23
   %22 = load i32, ptr %7, align 4, !tbaa !76
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   store i32 %14, ptr %24, align 4, !tbaa !3
   %25 = load i32, ptr %7, align 4, !tbaa !76
   %26 = add i32 %25, 1
@@ -2228,7 +2228,7 @@ define void @lv_chart_set_series_value_by_id(ptr noundef %0, ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 %3, ptr %13, align 4, !tbaa !3
   tail call fastcc void @invalidate_point(ptr noundef nonnull %0, i32 noundef %2)
   br label %14
@@ -2268,11 +2268,11 @@ define void @lv_chart_set_series_value_by_id2(ptr noundef %0, ptr noundef readon
 14:                                               ; preds = %11
   %15 = load ptr, ptr %1, align 8, !tbaa !27
   %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %3, ptr %17, align 4, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !23
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %16
   store i32 %4, ptr %20, align 4, !tbaa !3
   tail call fastcc void @invalidate_point(ptr noundef nonnull %0, i32 noundef %2)
   br label %21
@@ -2657,17 +2657,17 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %117 = getelementptr inbounds nuw i8, ptr %.0146185, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !23
   %119 = sext i32 %116 to i64
-  %120 = getelementptr inbounds i32, ptr %118, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %118, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !3
   %122 = load i8, ptr %99, align 8
   %123 = lshr i8 %122, 4
   %124 = and i8 %123, 1
   %125 = zext nneg i8 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %77, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !3
   %128 = sub nsw i32 %121, %127
   %129 = mul nsw i32 %128, %26
-  %130 = getelementptr inbounds nuw i32, ptr %78, i64 %125
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %125
   %131 = load i32, ptr %130, align 4, !tbaa !3
   %132 = sub nsw i32 %131, %127
   %133 = sdiv i32 %129, %132
@@ -2703,17 +2703,17 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %148 = urem i32 %147, %137
   %149 = load ptr, ptr %117, align 8, !tbaa !23
   %150 = sext i32 %148 to i64
-  %151 = getelementptr inbounds i32, ptr %149, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %149, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !3
   %153 = load i8, ptr %99, align 8
   %154 = lshr i8 %153, 4
   %155 = and i8 %154, 1
   %156 = zext nneg i8 %155 to i64
-  %157 = getelementptr inbounds nuw i32, ptr %77, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !3
   %159 = sub nsw i32 %152, %158
   %160 = mul nsw i32 %159, %26
-  %161 = getelementptr inbounds nuw i32, ptr %78, i64 %156
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %156
   %162 = load i32, ptr %161, align 4, !tbaa !3
   %163 = sub nsw i32 %162, %158
   %164 = sdiv i32 %160, %163
@@ -2738,7 +2738,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %174 = add nsw i32 %45, %172
   store i32 %174, ptr %90, align 4, !tbaa !68
   %175 = sext i32 %.0142170.us to i64
-  %176 = getelementptr inbounds i32, ptr %149, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %149, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !3
   %.not152.us = icmp eq i32 %177, 2147483647
   br i1 %.not152.us, label %181, label %178
@@ -2758,7 +2758,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 
 182:                                              ; preds = %181
   %183 = load ptr, ptr %117, align 8, !tbaa !23
-  %184 = getelementptr inbounds i32, ptr %183, i64 %175
+  %184 = getelementptr inbounds [4 x i8], ptr %183, i64 %175
   %185 = load i32, ptr %184, align 4, !tbaa !3
   %.not154.us = icmp eq i32 %185, 2147483647
   br i1 %.not154.us, label %188, label %186
@@ -2804,17 +2804,17 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
   %204 = urem i32 %203, %193
   %205 = load ptr, ptr %117, align 8, !tbaa !23
   %206 = sext i32 %204 to i64
-  %207 = getelementptr inbounds i32, ptr %205, i64 %206
+  %207 = getelementptr inbounds [4 x i8], ptr %205, i64 %206
   %208 = load i32, ptr %207, align 4, !tbaa !3
   %209 = load i8, ptr %99, align 8
   %210 = lshr i8 %209, 4
   %211 = and i8 %210, 1
   %212 = zext nneg i8 %211 to i64
-  %213 = getelementptr inbounds nuw i32, ptr %77, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !3
   %215 = sub nsw i32 %208, %214
   %216 = mul nsw i32 %215, %26
-  %217 = getelementptr inbounds nuw i32, ptr %78, i64 %212
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %212
   %218 = load i32, ptr %217, align 4, !tbaa !3
   %219 = sub nsw i32 %218, %214
   %220 = sdiv i32 %216, %219
@@ -2828,7 +2828,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 
 224:                                              ; preds = %197
   %225 = sext i32 %.0142170 to i64
-  %226 = getelementptr inbounds i32, ptr %205, i64 %225
+  %226 = getelementptr inbounds [4 x i8], ptr %205, i64 %225
   %227 = load i32, ptr %226, align 4, !tbaa !3
   %.not155 = icmp eq i32 %227, 2147483647
   %.not156 = icmp eq i32 %208, 2147483647
@@ -2879,7 +2879,7 @@ define internal fastcc void @draw_series_line(ptr noundef %0, ptr noundef %1) un
 246:                                              ; preds = %._crit_edge
   %247 = load ptr, ptr %117, align 8, !tbaa !23
   %248 = sext i32 %.0142.lcssa to i64
-  %249 = getelementptr inbounds i32, ptr %247, i64 %248
+  %249 = getelementptr inbounds [4 x i8], ptr %247, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !3
   %.not157 = icmp eq i32 %250, 2147483647
   br i1 %.not157, label %261, label %251
@@ -3105,17 +3105,17 @@ define internal fastcc void @draw_series_bar(ptr noundef %0, ptr noundef %1) unn
   %104 = getelementptr inbounds nuw i8, ptr %.08195, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !23
   %106 = sext i32 %103 to i64
-  %107 = getelementptr inbounds i32, ptr %105, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %105, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !3
   %109 = load i8, ptr %80, align 8
   %110 = lshr i8 %109, 4
   %111 = and i8 %110, 1
   %112 = zext nneg i8 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %61, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = sub nsw i32 %108, %114
   %116 = mul nsw i32 %115, %14
-  %117 = getelementptr inbounds nuw i32, ptr %62, i64 %112
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %112
   %118 = load i32, ptr %117, align 4, !tbaa !3
   %119 = sub nsw i32 %118, %114
   %120 = sdiv i32 %116, %119
@@ -3316,37 +3316,37 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
   %101 = getelementptr inbounds nuw i8, ptr %.0114133, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !23
   %103 = sext i32 %100 to i64
-  %104 = getelementptr inbounds i32, ptr %102, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %102, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !3
   %.not117 = icmp eq i32 %105, 10
   br i1 %.not117, label %136, label %106
 
 106:                                              ; preds = %99
   %107 = load ptr, ptr %.0114133, align 8, !tbaa !27
-  %108 = getelementptr inbounds i32, ptr %107, i64 %103
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %103
   %109 = load i32, ptr %108, align 4, !tbaa !3
   %110 = load i8, ptr %88, align 8
   %111 = lshr i8 %110, 3
   %112 = and i8 %111, 1
   %113 = zext nneg i8 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %64, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !3
-  %116 = getelementptr inbounds nuw i32, ptr %65, i64 %113
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %113
   %117 = load i32, ptr %116, align 4, !tbaa !3
   %118 = call i32 @lv_map(i32 noundef %109, i32 noundef %115, i32 noundef %117, i32 noundef 0, i32 noundef %19) #8
   %119 = sitofp i32 %118 to float
   %120 = fadd float %61, %119
   store float %120, ptr %63, align 8, !tbaa !46
   %121 = load ptr, ptr %101, align 8, !tbaa !23
-  %122 = getelementptr inbounds i32, ptr %121, i64 %103
+  %122 = getelementptr inbounds [4 x i8], ptr %121, i64 %103
   %123 = load i32, ptr %122, align 4, !tbaa !3
   %124 = load i8, ptr %88, align 8
   %125 = lshr i8 %124, 4
   %126 = and i8 %125, 1
   %127 = zext nneg i8 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %66, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !3
-  %130 = getelementptr inbounds nuw i32, ptr %67, i64 %127
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %127
   %131 = load i32, ptr %130, align 4, !tbaa !3
   %132 = call i32 @lv_map(i32 noundef %123, i32 noundef %129, i32 noundef %131, i32 noundef 0, i32 noundef %20) #8
   %133 = sitofp i32 %132 to float
@@ -3377,7 +3377,7 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
   %143 = urem i32 %142, %139
   %144 = load ptr, ptr %101, align 8, !tbaa !23
   %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds i32, ptr %144, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %144, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !3
   %.not118 = icmp eq i32 %147, 2147483647
   br i1 %.not118, label %212, label %148
@@ -3387,9 +3387,9 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
   %150 = lshr i8 %149, 4
   %151 = and i8 %150, 1
   %152 = zext nneg i8 %151 to i64
-  %153 = getelementptr inbounds nuw i32, ptr %66, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !3
-  %155 = getelementptr inbounds nuw i32, ptr %67, i64 %152
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %152
   %156 = load i32, ptr %155, align 4, !tbaa !3
   %157 = call i32 @lv_map(i32 noundef %147, i32 noundef %154, i32 noundef %156, i32 noundef 0, i32 noundef %20) #8
   %158 = sitofp i32 %157 to float
@@ -3397,15 +3397,15 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
   %160 = fadd float %159, %70
   store float %160, ptr %68, align 4, !tbaa !48
   %161 = load ptr, ptr %.0114133, align 8, !tbaa !27
-  %162 = getelementptr inbounds i32, ptr %161, i64 %145
+  %162 = getelementptr inbounds [4 x i8], ptr %161, i64 %145
   %163 = load i32, ptr %162, align 4, !tbaa !3
   %164 = load i8, ptr %88, align 8
   %165 = lshr i8 %164, 3
   %166 = and i8 %165, 1
   %167 = zext nneg i8 %166 to i64
-  %168 = getelementptr inbounds nuw i32, ptr %64, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !3
-  %170 = getelementptr inbounds nuw i32, ptr %65, i64 %167
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %167
   %171 = load i32, ptr %170, align 4, !tbaa !3
   %172 = call i32 @lv_map(i32 noundef %163, i32 noundef %169, i32 noundef %171, i32 noundef 0, i32 noundef %19) #8
   %173 = sitofp i32 %172 to float
@@ -3430,13 +3430,13 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
   store i32 %183, ptr %75, align 4, !tbaa !68
   %184 = load ptr, ptr %101, align 8, !tbaa !23
   %185 = sext i32 %.0131 to i64
-  %186 = getelementptr inbounds i32, ptr %184, i64 %185
+  %186 = getelementptr inbounds [4 x i8], ptr %184, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !3
   %.not120 = icmp eq i32 %187, 2147483647
   br i1 %.not120, label %194, label %188
 
 188:                                              ; preds = %175
-  %189 = getelementptr inbounds i32, ptr %184, i64 %145
+  %189 = getelementptr inbounds [4 x i8], ptr %184, i64 %145
   %190 = load i32, ptr %189, align 4, !tbaa !3
   %.not121 = icmp eq i32 %190, 2147483647
   br i1 %.not121, label %194, label %191
@@ -3465,7 +3465,7 @@ define internal fastcc void @draw_series_scatter(ptr noundef %0, ptr noundef %1)
 
 199:                                              ; preds = %195
   %200 = load ptr, ptr %101, align 8, !tbaa !23
-  %201 = getelementptr inbounds i32, ptr %200, i64 %145
+  %201 = getelementptr inbounds [4 x i8], ptr %200, i64 %145
   %202 = load i32, ptr %201, align 4, !tbaa !3
   %.not122 = icmp eq i32 %202, 2147483647
   br i1 %.not122, label %212, label %203

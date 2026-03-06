@@ -59,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GLFWlibraryGLX = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._GLFWlibraryLinux = type { i32, i32, %struct.re_pattern_buffer, i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.GLFWimage = type { i32, i32, ptr }
 
 @_glfw = external global %struct._GLFWlibrary, align 8
 @.str = private unnamed_addr constant [26 x i8] c"Invalid window size %ix%i\00", align 1
@@ -984,7 +983,7 @@ define void @glfwSetWindowIcon(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8, !tbaa !224
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %17, label %13

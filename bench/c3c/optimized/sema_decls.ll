@@ -21,15 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.102 = type { ptr, ptr, ptr, ptr }
 %struct.anon.103 = type { ptr, ptr, i32, i8 }
 %struct.anon.104 = type { ptr, ptr }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.56 }
-%union.anon.56 = type { %struct.anon.57 }
-%struct.anon.57 = type { ptr, ptr }
 %struct.NameResolve = type { ptr, ptr, ptr, ptr, %union.SourceSpan, ptr, i8, i8 }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.62 }
-%union.anon.62 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.65 }
-%union.anon.65 = type { %struct.anon.66 }
-%struct.anon.66 = type { ptr, %union.SourceSpan, i8 }
 %struct.Int = type { %struct.Int128_, i32 }
 %struct.Int128_ = type { i64, i64 }
 %struct.SemaContext_ = type { ptr, ptr, ptr, %struct.CallEnv, ptr, %union.SourceSpan, i32, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i32, %struct.anon.88, ptr, ptr, ptr, %struct.DynamicScope_, ptr }
@@ -37,16 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.84 = type { ptr }
 %struct.anon.88 = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr }
 %struct.DynamicScope_ = type { i32, i8, i32, i32, i32, i32, i32, ptr, i32 }
-%struct.Decl_ = type { ptr, ptr, %union.SourceSpan, i64, %union.anon, i32, %union.anon.0, i64, ptr, ptr, ptr, %union.anon.1 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i16 }
-%union.anon.1 = type { %struct.FuncDecl }
-%struct.FuncDecl = type { i32, [4 x i8], %struct.Signature_, i32, i32, %union.anon.8 }
-%struct.Signature_ = type <{ %struct.CalleeAttributes, i16, i8, i32, i32, [4 x i8], ptr }>
-%struct.CalleeAttributes = type { i8 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { i16, %union.anon.10 }
-%union.anon.10 = type { ptr }
 %struct.StringSlice_ = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [31 x i8] c"Expected an argument to '@if'.\00", align 1
@@ -464,12 +446,12 @@ define dso_local noundef zeroext i1 @sema_analyse_function_signature(ptr noundef
   %45 = add i32 %44, 1
   store i32 %45, ptr %.1.i, align 4
   %46 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %51
   store ptr %50, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -521,7 +503,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_signature(ptr noundef %0
 22:                                               ; preds = %15
   %23 = load ptr, ptr @type_info_arena, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %24
   %.mask = and i16 %6, 1
   %26 = zext nneg i16 %.mask to i32
   %27 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef nonnull %25, i32 noundef %26) #11
@@ -637,7 +619,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_signature(ptr noundef %0
 83:                                               ; preds = %80
   %84 = load ptr, ptr @type_info_arena, align 8
   %85 = zext i32 %2 to i64
-  %86 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %85
   %87 = select i1 %18, i32 3, i32 2
   %88 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef nonnull %86, i32 noundef %87) #11
   br i1 %88, label %89, label %.critedge268
@@ -724,7 +706,7 @@ switch.early.test:                                ; preds = %93, %97, %101
 
 131:                                              ; preds = %.lr.ph, %332
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %332 ]
-  %132 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8
   %.not252 = icmp eq ptr %133, null
   br i1 %.not252, label %332, label %134
@@ -791,7 +773,7 @@ switch.early.test:                                ; preds = %93, %97, %101
   %.not.i = icmp eq i32 %170, 0
   %171 = load ptr, ptr @type_info_arena, align 8
   %172 = zext i32 %170 to i64
-  %173 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [40 x i8], ptr %171, i64 %172
   %174 = select i1 %.not.i, ptr null, ptr %173
   %.not254 = icmp eq ptr %174, null
   br i1 %.not254, label %185, label %175
@@ -1231,7 +1213,7 @@ define dso_local ptr @sema_find_operator(ptr noundef readonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8
@@ -1281,7 +1263,7 @@ define dso_local ptr @sema_find_operator(ptr noundef readonly captures(none) %0,
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8
@@ -1335,7 +1317,7 @@ operator_in_module.exit:                          ; preds = %.lr.ph.i
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.loopexit
   %indvars.iv89 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next90, %.loopexit ]
-  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv89
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv89
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 96
   %67 = load ptr, ptr %66, align 8
@@ -1369,7 +1351,7 @@ operator_in_module.exit:                          ; preds = %.lr.ph.i
 
 .lr.ph.i58:                                       ; preds = %76, %.lr.ph.preheader.i56
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.preheader.i56 ], [ %indvars.iv.next.i60, %76 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i59
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i59
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load i64, ptr %79, align 8
@@ -1441,7 +1423,7 @@ define dso_local noundef zeroext i1 @sema_decl_if_cond(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i16, ptr %11, align 8
@@ -1583,7 +1565,7 @@ define dso_local zeroext i1 @sema_analyse_var_decl_ct(ptr noundef %0, ptr nounde
   %.not.i = icmp eq i32 %5, 0
   %6 = load ptr, ptr @type_info_arena, align 8
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %7
   %9 = select i1 %.not.i, ptr null, ptr %8
   %10 = load i32, ptr %3, align 8
   %trunc = trunc i32 %10 to i8
@@ -1763,7 +1745,7 @@ define dso_local zeroext i1 @sema_analyse_var_decl(ptr noundef %0, ptr noundef %
   %.not.i295 = icmp eq i32 %11, 0
   %12 = load ptr, ptr @type_info_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %13
   %15 = select i1 %.not.i295, ptr null, ptr %14
   store i8 0, ptr %4, align 1
   br label %50
@@ -1774,7 +1756,7 @@ define dso_local zeroext i1 @sema_analyse_var_decl(ptr noundef %0, ptr noundef %
   %.not.i = icmp eq i32 %18, 0
   %19 = load ptr, ptr @type_info_arena, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %20
   %22 = select i1 %.not.i, ptr null, ptr %21
   br i1 %2, label %23, label %49
 
@@ -2488,7 +2470,7 @@ define dso_local void @sema_display_deprecated_warning_on_use(ptr readnone captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i16, ptr %17, align 8
@@ -2591,7 +2573,7 @@ define dso_local ptr @sema_analyse_parameterized_identifier(ptr noundef %0, ptr 
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %37, align 8
@@ -2668,10 +2650,10 @@ extend_span_with_token.exit:                      ; preds = %47, %48
 .lr.ph.i:                                         ; preds = %125, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %125 ]
   %76 = load ptr, ptr %25, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i
   %78 = load ptr, ptr %77, align 8
   %79 = call zeroext i1 @str_is_valid_constant(ptr noundef %78) #11
-  %80 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i16, ptr %82, align 8
@@ -2744,7 +2726,7 @@ extend_span_with_token.exit:                      ; preds = %47, %48
 
 125:                                              ; preds = %105, %89
   %.sink.i = phi ptr [ %109, %105 ], [ %90, %89 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %.sink.i, ptr %126, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2827,7 +2809,7 @@ expand_.exit.i:                                   ; preds = %149, %145
   store i32 %164, ptr %.1.i.i, align 4
   %165 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   store ptr %165, ptr %137, align 8
-  %166 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv133.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv133.i
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
@@ -2861,7 +2843,7 @@ expand_.exit.i:                                   ; preds = %149, %145
 
 189:                                              ; preds = %184, %expand_.exit.i
   %.087.i = phi i64 [ %188, %184 ], [ 4294967295, %expand_.exit.i ]
-  %190 = getelementptr inbounds nuw ptr, ptr %183, i64 %.087.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %.087.i
   store ptr %170, ptr %190, align 8
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %exitcond137.not.i = icmp eq i64 %indvars.iv.next134.i, %wide.trip.count136.i
@@ -2931,12 +2913,12 @@ expand_.exit.i:                                   ; preds = %149, %145
   store i32 %222, ptr %.1.i106.i, align 4
   %223 = getelementptr inbounds nuw i8, ptr %.1.i106.i, i64 8
   store ptr %223, ptr %194, align 8
-  %224 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv138.i
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv138.i
   %225 = load ptr, ptr %224, align 8
   %226 = load i32, ptr %.1.i106.i, align 4
   %227 = add i32 %226, -1
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %223, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %228
   store ptr %225, ptr %229, align 8
   %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
   %exitcond142.not.i = icmp eq i64 %indvars.iv.next139.i, %wide.trip.count141.i
@@ -2953,7 +2935,7 @@ expand_.exit.i:                                   ; preds = %149, %145
   %233 = load i32, ptr %230, align 4
   %234 = load ptr, ptr @ast_arena, align 8
   %235 = zext i32 %233 to i64
-  %236 = getelementptr inbounds nuw %struct.Ast_, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw [48 x i8], ptr %234, i64 %235
   %237 = call ptr @copy_ast_macro(ptr noundef %236) #11
   %238 = load ptr, ptr @ast_arena, align 8
   %239 = ptrtoint ptr %237 to i64
@@ -3041,7 +3023,7 @@ module_instantiate_generic.exit:                  ; preds = %101, %88, %98, %._c
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = add i32 %.0, -1
   %282 = zext i32 %281 to i64
-  %283 = getelementptr inbounds nuw ptr, ptr %4, i64 %282
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %282
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load i64, ptr %280, align 8
@@ -3136,7 +3118,7 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
 
 18:                                               ; preds = %.lr.ph128, %139
   %indvars.iv = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next, %139 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %.not99 = icmp eq i64 %indvars.iv, 0
   br i1 %.not99, label %22, label %21
@@ -3423,7 +3405,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_generic_module_contracts
   %.02742 = phi i32 [ %6, %.lr.ph45 ], [ %13, %._crit_edge ]
   %9 = load ptr, ptr @ast_arena, align 8
   %10 = zext i32 %.02742 to i64
-  %11 = getelementptr inbounds nuw %struct.Ast_, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
@@ -3448,7 +3430,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_generic_module_contracts
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @sema_check_comp_time_bool(ptr noundef %16, ptr noundef %25) #11
   switch i32 %26, label %34 [
@@ -3904,7 +3886,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_interface(ptr noundef %0
   %.086153 = phi i32 [ %19, %.preheader.lr.ph ], [ %.1, %.critedge ]
   %.087151 = phi i32 [ 0, %.preheader.lr.ph ], [ %.01517.i, %.critedge ]
   %24 = zext i32 %.087151 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %16, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %24
   %.01517.i = add nuw i32 %.087151, 1
   br label %26
 
@@ -3941,7 +3923,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_interface(ptr noundef %0
 41:                                               ; preds = %38
   %42 = load ptr, ptr @type_info_arena, align 8
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.129) #11
@@ -4039,9 +4021,9 @@ define internal fastcc noundef zeroext i1 @sema_analyse_interface(ptr noundef %0
   %indvars.iv = phi i64 [ %99, %.lr.ph.preheader ], [ %101, %.lr.ph ]
   %100 = load ptr, ptr %68, align 8
   %101 = add nsw i64 %indvars.iv, -1
-  %102 = getelementptr inbounds nuw ptr, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv
   store ptr %103, ptr %104, align 8
   %.not96.wide = icmp eq i64 %101, 0
   br i1 %.not96.wide, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
@@ -4079,10 +4061,10 @@ define internal fastcc noundef zeroext i1 @sema_analyse_interface(ptr noundef %0
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ 1, %115 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ 0, %115 ]
   %119 = sext i32 %.01519.i to i64
-  %120 = getelementptr inbounds ptr, ptr %114, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %114, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = sext i32 %.015.in18.i to i64
-  %123 = getelementptr inbounds ptr, ptr %114, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %114, i64 %122
   store ptr %121, ptr %123, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %117
@@ -4109,10 +4091,10 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %109, %11
   %.01519.i104 = phi i32 [ %.015.i106, %.lr.ph.i103 ], [ %.01517.i, %130 ]
   %.015.in18.i105 = phi i32 [ %.01519.i104, %.lr.ph.i103 ], [ %.087151, %130 ]
   %132 = sext i32 %.01519.i104 to i64
-  %133 = getelementptr inbounds ptr, ptr %16, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %16, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = sext i32 %.015.in18.i105 to i64
-  %136 = getelementptr inbounds ptr, ptr %16, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %16, i64 %135
   store ptr %134, ptr %136, align 8
   %.015.i106 = add nuw i32 %.01519.i104, 1
   %exitcond.not.i107 = icmp eq i32 %.015.i106, %.pre191
@@ -4142,7 +4124,7 @@ vec_erase_ptr_at.exit108:                         ; preds = %vec_erase_ptr_at.ex
 
 .lr.ph149:                                        ; preds = %140, %142
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %142 ], [ 0, %140 ]
-  %143 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv187
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv187
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, %141
@@ -4150,7 +4132,7 @@ vec_erase_ptr_at.exit108:                         ; preds = %vec_erase_ptr_at.ex
 
 147:                                              ; preds = %.lr.ph149
   %148 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %149 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv187
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv187
   %150 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %151 = load i64, ptr %150, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %151, ptr noundef nonnull @.str.130, ptr noundef %141) #11
@@ -4304,7 +4286,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct(ptr noundef %0
 .preheader:                                       ; preds = %.preheader.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %102 ]
   %.06178 = phi i32 [ %.060, %.preheader.lr.ph ], [ %.1, %102 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = trunc nuw i64 %indvars.iv.next to i32
   %70 = trunc nuw i64 %indvars.iv to i32
@@ -4354,10 +4336,10 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct(ptr noundef %0
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %69, %88 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ %70, %88 ]
   %92 = sext i32 %.01519.i to i64
-  %93 = getelementptr inbounds ptr, ptr %56, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %56, i64 %92
   %94 = load ptr, ptr %93, align 8
   %95 = sext i32 %.015.in18.i to i64
-  %96 = getelementptr inbounds ptr, ptr %56, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %56, i64 %95
   store ptr %94, ptr %96, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %89
@@ -4526,7 +4508,7 @@ sema_analyse_func_macro.exit:                     ; preds = %3
   %50 = load i32, ptr %49, align 8
   %51 = load ptr, ptr @type_info_arena, align 8
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %52
   %54 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef %53, i32 noundef 0) #11
   br i1 %54, label %55, label %227
 
@@ -4620,7 +4602,7 @@ sema_analyse_func_macro.exit:                     ; preds = %3
   %107 = load i32, ptr %106, align 8
   %108 = load ptr, ptr @type_info_arena, align 8
   %109 = zext i32 %107 to i64
-  %110 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %108, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -4899,7 +4881,7 @@ thread-pre-split:                                 ; preds = %29, %34
 43:                                               ; preds = %thread-pre-split
   %44 = load ptr, ptr @decl_arena, align 8
   %45 = zext i32 %33 to i64
-  %46 = getelementptr inbounds nuw %struct.Decl_, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [136 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %48 = load ptr, ptr %47, align 8
   %.not74 = icmp eq ptr %48, null
@@ -4917,7 +4899,7 @@ thread-pre-split:                                 ; preds = %29, %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %88 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i64, ptr %53, align 8
@@ -4929,7 +4911,7 @@ thread-pre-split:                                 ; preds = %29, %34
   %59 = load i32, ptr %58, align 4
   %60 = load ptr, ptr @type_info_arena, align 8
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %57, align 8
   %trunc = trunc i32 %63 to i8
   switch i8 %trunc, label %80 [
@@ -5031,7 +5013,7 @@ thread-pre-split:                                 ; preds = %29, %34
 105:                                              ; preds = %103
   %106 = load ptr, ptr @type_info_arena, align 8
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [40 x i8], ptr %106, i64 %107
   %109 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef nonnull %0, ptr noundef nonnull %108, i32 noundef 3) #11
   br i1 %109, label %110, label %sema_analyse_macro_method.exit.thread
 
@@ -5159,7 +5141,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attribute_decl(ptr nound
 .lr.ph49:                                         ; preds = %18, %._crit_edge
   %.03547 = phi i32 [ %56, %._crit_edge ], [ 0, %18 ]
   %21 = zext i32 %.03547 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load i32, ptr %24, align 8
@@ -5217,7 +5199,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attribute_decl(ptr nound
 
 49:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %50 = getelementptr inbounds nuw %struct.Decl_, ptr %23, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [136 x i8], ptr %23, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %47
   br i1 %52, label %53, label %48
@@ -5551,7 +5533,7 @@ type_flatten.exit:                                ; preds = %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %171 ]
   %.0135210 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1136, %171 ]
   %.0138208 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1139, %171 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i64, ptr %64, align 8
@@ -5620,7 +5602,7 @@ type_flatten.exit:                                ; preds = %34
   %.not.i.i = icmp eq i32 %97, 0
   %98 = load ptr, ptr @type_info_arena, align 8
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %98, i64 %99
   %101 = select i1 %.not.i.i, ptr null, ptr %100
   %102 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef %101, i32 noundef 0) #11
   br i1 %102, label %103, label %sema_analyse_enum_param.exit.thread
@@ -5790,7 +5772,7 @@ type_flatten.exit:                                ; preds = %34
   %.sroa.3.0215 = phi i64 [ 0, %.lr.ph218 ], [ %.sroa.3.1, %281 ]
   %.0132214 = phi i32 [ %176, %.lr.ph218 ], [ %.1133, %281 ]
   %181 = zext i32 %.0129216 to i64
-  %182 = getelementptr inbounds nuw ptr, ptr %173, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %181
   %183 = load ptr, ptr %182, align 8
   store i8 0, ptr %4, align 1
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
@@ -5836,10 +5818,10 @@ type_flatten.exit:                                ; preds = %34
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %.01517.i, %204 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ %.0129216, %204 ]
   %207 = sext i32 %.01519.i to i64
-  %208 = getelementptr inbounds ptr, ptr %173, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %173, i64 %207
   %209 = load ptr, ptr %208, align 8
   %210 = sext i32 %.015.in18.i to i64
-  %211 = getelementptr inbounds ptr, ptr %173, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %173, i64 %210
   store ptr %209, ptr %211, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %205
@@ -5928,7 +5910,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
 
 254:                                              ; preds = %249
   %255 = zext i32 %.0128285 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %244, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %255
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load i64, ptr %258, align 8
@@ -5963,9 +5945,9 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %264
   %indvars.iv267 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next268, %264 ]
-  %265 = getelementptr inbounds nuw ptr, ptr %244, i64 %indvars.iv267
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv267
   %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv267
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv267
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 72
   %270 = load ptr, ptr %269, align 8
@@ -6044,7 +6026,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_error(ptr noundef %0, pt
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 72
@@ -6272,7 +6254,7 @@ type_flatten.exit:                                ; preds = %.preheader31
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %56 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %.not29 = icmp eq ptr %41, null
   br i1 %.not29, label %56, label %42
@@ -6283,7 +6265,7 @@ type_flatten.exit:                                ; preds = %.preheader31
   br i1 %44, label %45, label %56
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load i64, ptr %47, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %48, ptr noundef nonnull @.str.54, ptr noundef nonnull %38) #11
@@ -6409,7 +6391,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr nou
 36:                                               ; preds = %.lr.ph225, %562
   %indvars.iv359 = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next360, %562 ]
   %.sroa.0.0223 = phi i16 [ undef, %.lr.ph225 ], [ %.sroa.0.1, %562 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv359
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv359
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i16, ptr %39, align 8
@@ -6420,7 +6402,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr nou
 42:                                               ; preds = %36
   %43 = and i16 %40, 255
   %44 = zext nneg i16 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr @sema_analyse_attribute.attribute_domain, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @sema_analyse_attribute.attribute_domain, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, %3
   %.not.i = icmp eq i32 %47, %3
@@ -6437,7 +6419,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr nou
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %54 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 1, 131073) %3, i1 true)
   %55 = zext nneg i32 %54 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sema_analyse_attributes_inner, i64 %55
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sema_analyse_attributes_inner, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %56 = load i64, ptr %53, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %56, ptr noundef nonnull @.str.60, ptr noundef %52, ptr noundef nonnull %switch.load) #11
@@ -6977,7 +6959,7 @@ is_power_of_two.exit.thread.i:                    ; preds = %194
 .lr.ph.i:                                         ; preds = %299, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %298, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %299 ]
   %300 = load ptr, ptr %59, align 8
-  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %indvars.iv.i
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %indvars.iv.i
   %302 = load ptr, ptr %301, align 8
   %303 = call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %302) #11
   br i1 %303, label %304, label %sema_analyse_attribute.exit.thread
@@ -7448,14 +7430,14 @@ sema_analyse_attribute.exit:                      ; preds = %478, %392, %388, %3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %543
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %543 ]
-  %540 = getelementptr inbounds nuw ptr, ptr %522, i64 %indvars.iv
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %522, i64 %indvars.iv
   %541 = load ptr, ptr %540, align 8
   %542 = call zeroext i1 @sema_analyse_ct_expr(ptr noundef %0, ptr noundef %541) #11
   br i1 %542, label %543, label %.loopexit
 
 543:                                              ; preds = %.lr.ph
   %544 = load ptr, ptr %540, align 8
-  %545 = getelementptr inbounds nuw ptr, ptr %516, i64 %indvars.iv
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %516, i64 %indvars.iv
   %546 = load ptr, ptr %545, align 8
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 88
   store ptr %544, ptr %547, align 8
@@ -7715,7 +7697,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(p
 
 .preheader3.split.us:                             ; preds = %.preheader3, %17
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %17 ], [ 0, %.preheader3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %.80.val, i64 %indvars.iv40
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.80.val, i64 %indvars.iv40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef %7, i32 noundef 2) #11
   br i1 %8, label %9, label %.thread
@@ -7745,7 +7727,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(p
 
 .lr.ph.us:                                        ; preds = %.preheader.us, %15
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %15 ], [ 0, %.preheader.us ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.80.val, i64 %indvars.iv36
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.80.val, i64 %indvars.iv36
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -7760,7 +7742,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(p
 
 .preheader3.split:                                ; preds = %.preheader3, %._crit_edge
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %._crit_edge ], [ 0, %.preheader3 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.80.val, i64 %indvars.iv31
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.80.val, i64 %indvars.iv31
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef %26, i32 noundef 2) #11
   br i1 %27, label %28, label %.thread
@@ -7794,7 +7776,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(p
 
 .lr.ph:                                           ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.80.val, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.80.val, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -7856,7 +7838,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr @type_info_arena, align 8
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %21
   %23 = icmp eq i64 %10, 128
   br i1 %23, label %24, label %27
 
@@ -8235,7 +8217,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %235
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %235 ]
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 96
   %226 = load i32, ptr %225, align 8
@@ -8311,7 +8293,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_union_members(ptr nounde
   %.089145 = phi i32 [ %9, %.preheader.lr.ph ], [ %.190, %58 ]
   %.091144 = phi i32 [ 0, %.preheader.lr.ph ], [ %.2, %58 ]
   %.093143 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select, %58 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = trunc nuw i64 %indvars.iv.next to i32
   %13 = trunc nuw i64 %indvars.iv to i32
@@ -8363,10 +8345,10 @@ define internal fastcc noundef zeroext i1 @sema_analyse_union_members(ptr nounde
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %12, %30 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ %13, %30 ]
   %34 = sext i32 %.01519.i to i64
-  %35 = getelementptr inbounds ptr, ptr %6, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %6, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %.015.in18.i to i64
-  %38 = getelementptr inbounds ptr, ptr %6, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %6, i64 %37
   store ptr %36, ptr %38, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %31
@@ -8481,7 +8463,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
 
 93:                                               ; preds = %.lr.ph, %93
   %indvars.iv179 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next180, %93 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv179
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv179
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   store i32 %81, ptr %96, align 8
@@ -8500,7 +8482,7 @@ vec_erase_ptr_at.exit:                            ; preds = %vec_erase_ptr_at.ex
   %100 = urem i32 %99, %97
   %101 = sub nuw i32 %99, %100
   %102 = sext i32 %.091136 to i64
-  %103 = getelementptr inbounds ptr, ptr %6, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %6, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %106 = load ptr, ptr %105, align 8
@@ -8555,7 +8537,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_struct_members(ptr nound
   %.0124198 = phi i8 [ 0, %.preheader.lr.ph ], [ %.1125, %136 ]
   %.0126197 = phi i32 [ 0, %.preheader.lr.ph ], [ %144, %136 ]
   %15 = zext i32 %.0121200 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %.01517.i = add nuw i32 %.0121200, 1
   br label %17
 
@@ -8610,10 +8592,10 @@ define internal fastcc noundef zeroext i1 @sema_analyse_struct_members(ptr nound
   %.01519.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %.01517.i, %36 ]
   %.015.in18.i = phi i32 [ %.01519.i, %.lr.ph.i ], [ %.0121200, %36 ]
   %39 = sext i32 %.01519.i to i64
-  %40 = getelementptr inbounds ptr, ptr %9, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %9, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %.015.in18.i to i64
-  %43 = getelementptr inbounds ptr, ptr %9, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %9, i64 %42
   store ptr %41, ptr %43, align 8
   %.015.i = add nuw i32 %.01519.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %37
@@ -9003,7 +8985,7 @@ define internal fastcc zeroext i1 @sema_analyse_struct_member(ptr noundef %0, pt
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr @type_info_arena, align 8
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %58
   %60 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef %59, i32 noundef 8) #11
   br i1 %60, label %65, label %61
 
@@ -9119,7 +9101,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_method(ptr noundef %0, p
   %26 = load i32, ptr %3, align 8
   %27 = load ptr, ptr @type_info_arena, align 8
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %28
   %30 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %0, ptr noundef %29, i32 noundef 2) #11
   br i1 %30, label %31, label %122
 
@@ -9314,7 +9296,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_main_function(ptr nounde
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr @type_info_arena, align 8
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not80 = icmp eq ptr %22, null
@@ -9818,7 +9800,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %
   %8 = phi ptr [ %.pre146, %.lr.ph117 ], [ %22, %.backedge ]
   %.066114 = phi i32 [ %0, %.lr.ph117 ], [ %12, %.backedge ]
   %9 = zext i32 %.066114 to i64
-  %10 = getelementptr inbounds nuw %struct.Ast_, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -9870,7 +9852,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %25
@@ -9895,7 +9877,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %35
   %indvars.iv141 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next142, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv141
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv141
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %25
@@ -10120,7 +10102,7 @@ define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
@@ -10148,7 +10130,7 @@ define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly c
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %18
   %indvars.iv50 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next51, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv50
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv50
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -10173,13 +10155,13 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
   tail call void @llvm.assume(i1 %.not)
   %2 = load ptr, ptr @type_info_arena, align 8
   %3 = zext i32 %.96.val to i64
-  %4 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %2, i64 %3
+  %4 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not68 = icmp ne i32 %.sroa.1.0.copyload, 0
   tail call void @llvm.assume(i1 %.not68)
   %7 = zext i32 %.sroa.1.0.copyload to i64
-  %8 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10196,7 +10178,7 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
   %19 = load i64, ptr %16, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %19, ptr noundef nonnull @.str.183, ptr noundef %17, ptr noundef %18) #11
   %20 = load ptr, ptr @type_info_arena, align 8
-  %21 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %20, i64 %3
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   tail call void (i64, ptr, ...) @sema_error_prev_at(i64 %23, ptr noundef nonnull @.str.184) #11
@@ -10238,7 +10220,7 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
   %34 = load i64, ptr %33, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str.185, i32 noundef %.0917) #11
   %35 = zext i32 %.065318 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %.104.val, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.104.val, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
@@ -10247,7 +10229,7 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
 
 40:                                               ; preds = %31
   %41 = zext i32 %.010 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %.sroa.335.0.copyload, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.335.0.copyload, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8
@@ -10273,13 +10255,13 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
   br i1 %50, label %84, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds nuw ptr, ptr %.sroa.335.0.copyload, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.335.0.copyload, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %.104.val, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.104.val, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %61 = load ptr, ptr %60, align 8
@@ -10290,11 +10272,11 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
 
 64:                                               ; preds = %51
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %66 = getelementptr inbounds nuw ptr, ptr %.104.val, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.104.val, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 84
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %2, i64 %69
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = tail call ptr @type_quoted_error_string(ptr noundef nonnull %61) #11
   %73 = load ptr, ptr %65, align 8
@@ -10306,7 +10288,7 @@ define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(pt
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr @type_info_arena, align 8
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8
   tail call void (i64, ptr, ...) @sema_error_prev_at(i64 %83, ptr noundef nonnull @.str.184) #11
@@ -10356,7 +10338,7 @@ define internal fastcc ptr @sema_find_interface_for_method(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %.03144 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %41 ]
   %.03342 = phi ptr [ null, %.lr.ph.preheader ], [ %.134, %41 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -10593,7 +10575,7 @@ method_name_by_decl.exit:                         ; preds = %.critedge131, %27
   %89 = load i32, ptr %.1.i.i, align 4
   %90 = add i32 %89, -1
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %88, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %91
   store ptr %2, ptr %92, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -10667,7 +10649,7 @@ expand_.exit56.i:                                 ; preds = %106, %102
 
 133:                                              ; preds = %128, %expand_.exit56.i
   %.041.i = phi i64 [ %132, %128 ], [ 4294967295, %expand_.exit56.i ]
-  %134 = getelementptr inbounds nuw ptr, ptr %127, i64 %.041.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %.041.i
   store ptr %2, ptr %134, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -10725,7 +10707,7 @@ expand_.exit56.i:                                 ; preds = %106, %102
   %164 = load i32, ptr %.1.i61.i, align 4
   %165 = add i32 %164, -1
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %163, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %166
   store ptr %2, ptr %167, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -11000,7 +10982,7 @@ sema_check_operator_method_validity.exit:         ; preds = %200
   %288 = load i32, ptr %.1.i, align 4
   %289 = add i32 %288, -1
   %290 = zext i32 %289 to i64
-  %291 = getelementptr inbounds nuw ptr, ptr %287, i64 %290
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %290
   store ptr %2, ptr %291, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -11030,7 +11012,7 @@ sema_check_operator_method_validity.exit:         ; preds = %200
   %307 = load i32, ptr %306, align 4
   %308 = add i32 %307, -1
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %305, i64 %309
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %309
   store ptr %2, ptr %310, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -11103,7 +11085,7 @@ expand_.exit146:                                  ; preds = %319, %323
 
 350:                                              ; preds = %expand_.exit146, %345
   %.0106 = phi i64 [ %349, %345 ], [ 4294967295, %expand_.exit146 ]
-  %351 = getelementptr inbounds nuw ptr, ptr %344, i64 %.0106
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %.0106
   store ptr %2, ptr %351, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -11129,7 +11111,7 @@ expand_.exit146:                                  ; preds = %319, %323
   %365 = load i32, ptr %364, align 4
   %366 = add i32 %365, -1
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds nuw ptr, ptr %363, i64 %367
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %363, i64 %367
   store ptr %2, ptr %368, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -11187,7 +11169,7 @@ expand_.exit146:                                  ; preds = %319, %323
   %398 = load i32, ptr %.1.i151, align 4
   %399 = add i32 %398, -1
   %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw ptr, ptr %397, i64 %400
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %400
   store ptr %2, ptr %401, align 8
   br label %unit_add_base_extension_method.exit
 
@@ -11220,7 +11202,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noun
 
 11:                                               ; preds = %7
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %0, align 8
@@ -11263,7 +11245,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 84
   %34 = load i32, ptr %33, align 4
@@ -11280,7 +11262,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_operator_common(ptr noun
 ._crit_edge:                                      ; preds = %30
   %39 = load ptr, ptr @type_info_arena, align 8
   %40 = zext i32 %25 to i64
-  %41 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %40
   store ptr %41, ptr %1, align 8
   br label %42
 
@@ -11411,7 +11393,7 @@ define internal fastcc ptr @sema_create_synthetic_main(ptr noundef %0, ptr nound
   store i32 %86, ptr %.1.i, align 4
   %87 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %88 = zext i32 %85 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   store ptr %.0167, ptr %89, align 8
   %90 = icmp eq i32 %86, %.pre.i
   br i1 %90, label %91, label %104
@@ -11444,7 +11426,7 @@ define internal fastcc ptr @sema_create_synthetic_main(ptr noundef %0, ptr nound
   store i32 %106, ptr %.1.i191, align 4
   %107 = getelementptr inbounds nuw i8, ptr %.1.i191, i64 8
   %108 = zext i32 %105 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   store ptr %.0169, ptr %109, align 8
   %.not181 = icmp eq ptr %.0170, null
   br i1 %.not181, label %131, label %110
@@ -11480,7 +11462,7 @@ define internal fastcc ptr @sema_create_synthetic_main(ptr noundef %0, ptr nound
   store i32 %127, ptr %.1.i196, align 4
   %128 = getelementptr inbounds nuw i8, ptr %.1.i196, i64 8
   %129 = zext i32 %126 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %129
   store ptr %.0170, ptr %130, align 8
   br label %131
 
@@ -11522,7 +11504,7 @@ switch.lookup:                                    ; preds = %140, %131, %141
   %switch.table.sema_create_synthetic_main.13.sink = phi ptr [ @switch.table.sema_create_synthetic_main.13, %131 ], [ %spec.select, %140 ], [ %switch.table.sema_create_synthetic_main.11.switch.table.sema_create_synthetic_main.12, %141 ]
   %143 = select i1 %4, i64 2, i64 0
   %144 = select i1 %3, i64 1, i64 %143
-  %switch.gep263 = getelementptr inbounds nuw ptr, ptr %switch.table.sema_create_synthetic_main.13.sink, i64 %144
+  %switch.gep263 = getelementptr inbounds nuw [8 x i8], ptr %switch.table.sema_create_synthetic_main.13.sink, i64 %144
   %switch.load264 = load ptr, ptr %switch.gep263, align 8
   %145 = tail call ptr @symtab_preset(ptr noundef nonnull %switch.load264, i32 noundef 73) #11
   %146 = tail call ptr @sema_find_symbol(ptr noundef %0, ptr noundef %145) #11
@@ -11607,7 +11589,7 @@ switch.lookup:                                    ; preds = %140, %131, %141
   %192 = load i32, ptr %.1.i201, align 4
   %193 = add i32 %192, -1
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw ptr, ptr %191, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %194
   store ptr %161, ptr %195, align 8
   %196 = load ptr, ptr %163, align 8
   %.not.i204 = icmp eq ptr %196, null
@@ -11673,7 +11655,7 @@ expand_.exit210:                                  ; preds = %202, %206
 
 230:                                              ; preds = %expand_.exit210, %225
   %.0163 = phi i64 [ %229, %225 ], [ 4294967295, %expand_.exit210 ]
-  %231 = getelementptr inbounds nuw ptr, ptr %224, i64 %.0163
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %.0163
   store ptr %223, ptr %231, align 8
   %232 = load ptr, ptr %163, align 8
   %.not.i211 = icmp eq ptr %232, null
@@ -11739,7 +11721,7 @@ expand_.exit217:                                  ; preds = %238, %242
 
 266:                                              ; preds = %expand_.exit217, %261
   %.0164 = phi i64 [ %265, %261 ], [ 4294967295, %expand_.exit217 ]
-  %267 = getelementptr inbounds nuw ptr, ptr %260, i64 %.0164
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %.0164
   store ptr %259, ptr %267, align 8
   br i1 %.not181, label %.critedge, label %268
 
@@ -11808,7 +11790,7 @@ expand_.exit224:                                  ; preds = %275, %279
 
 303:                                              ; preds = %298, %expand_.exit224
   %.0165 = phi i64 [ %302, %298 ], [ 4294967295, %expand_.exit224 ]
-  %304 = getelementptr inbounds nuw ptr, ptr %297, i64 %.0165
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %.0165
   store ptr %296, ptr %304, align 8
   %305 = load ptr, ptr @expr_arena, align 8
   %306 = ptrtoint ptr %151 to i64

@@ -86,8 +86,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm_trans_q
 %struct.pcpu_hot = type { %union.anon.76 }
 %union.anon.76 = type { %struct.anon.77, [16 x i8] }
 %struct.anon.77 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.xfrm_offload = type { %struct.anon.2, i32, i32, i8, i8 }
-%struct.anon.2 = type { i32, i32 }
 
 @.str = private unnamed_addr constant [22 x i8] c"net/xfrm/xfrm_input.c\00", align 1
 @xfrm_input_afinfo_lock = internal global %struct.spinlock zeroinitializer, align 4
@@ -133,8 +131,8 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_input_register_afinfo(ptr n
   %8 = zext nneg i8 %7 to i64
   %9 = load i8, ptr %0, align 8
   %10 = zext i8 %9 to i64
-  %.split = getelementptr [11 x ptr], ptr @xfrm_input_afinfo, i64 %8
-  %11 = getelementptr ptr, ptr %.split, i64 %10
+  %.split = getelementptr [88 x i8], ptr @xfrm_input_afinfo, i64 %8
+  %11 = getelementptr [8 x i8], ptr %.split, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %20, !prof !11
@@ -145,8 +143,8 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_input_register_afinfo(ptr n
   %16 = zext nneg i8 %15 to i64
   %17 = load i8, ptr %0, align 8
   %18 = zext i8 %17 to i64
-  %.split1 = getelementptr [11 x ptr], ptr @xfrm_input_afinfo, i64 %16
-  %19 = getelementptr ptr, ptr %.split1, i64 %18
+  %.split1 = getelementptr [88 x i8], ptr @xfrm_input_afinfo, i64 %16
+  %19 = getelementptr [8 x i8], ptr %.split1, i64 %18
   store volatile ptr %0, ptr %19, align 8
   br label %20
 
@@ -168,8 +166,8 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_input_unregister_afinfo(ptr
   %4 = zext nneg i8 %3 to i64
   %5 = load i8, ptr %0, align 8
   %6 = zext i8 %5 to i64
-  %.split = getelementptr [11 x ptr], ptr @xfrm_input_afinfo, i64 %4
-  %7 = getelementptr ptr, ptr %.split, i64 %6
+  %.split = getelementptr [88 x i8], ptr @xfrm_input_afinfo, i64 %4
+  %7 = getelementptr [8 x i8], ptr %.split, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10, !prof !5
@@ -404,7 +402,7 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %33 = add i32 %26, -1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.xfrm_offload, ptr %32, i64 %34
+  %35 = getelementptr [20 x i8], ptr %32, i64 %34
   br label %.thread
 
 .thread:                                          ; preds = %4, %31, %28, %24, %15
@@ -442,7 +440,7 @@ define dso_local i32 @xfrm_input(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %57 = load i32, ptr %55, align 8
   %58 = add i32 %57, -1
   %59 = sext i32 %58 to i64
-  %60 = getelementptr ptr, ptr %56, i64 %59
+  %60 = getelementptr [8 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 200
   %63 = load i8, ptr %62, align 8
@@ -827,7 +825,7 @@ xfrm_parse_spi.exit51:                            ; preds = %.xfrm_parse_spi.exi
   %305 = add i32 %304, 1
   store i32 %305, ptr %282, align 8
   %306 = sext i32 %304 to i64
-  %307 = getelementptr ptr, ptr %303, i64 %306
+  %307 = getelementptr [8 x i8], ptr %303, i64 %306
   store ptr %285, ptr %307, align 8
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %309 = load i64, ptr %308, align 8
@@ -2005,8 +2003,8 @@ xfrm_parse_spi.exit52:                            ; preds = %1032, %1027
   %1100 = zext i1 %1099 to i64
   %1101 = and i32 %1088, 15
   %1102 = zext nneg i32 %1101 to i64
-  %.split = getelementptr [11 x ptr], ptr @xfrm_input_afinfo, i64 %1100
-  %1103 = getelementptr ptr, ptr %.split, i64 %1102
+  %.split = getelementptr [88 x i8], ptr @xfrm_input_afinfo, i64 %1100
+  %1103 = getelementptr [8 x i8], ptr %.split, i64 %1102
   %1104 = load volatile ptr, ptr %1103, align 8
   %1105 = icmp eq ptr %1104, null
   br i1 %1105, label %1106, label %1107, !prof !5
@@ -2255,8 +2253,8 @@ xfrm_parse_spi.exit52:                            ; preds = %1032, %1027
   %1244 = zext i1 %1243 to i64
   %1245 = and i32 %1235, 15
   %1246 = zext nneg i32 %1245 to i64
-  %.split44 = getelementptr [11 x ptr], ptr @xfrm_input_afinfo, i64 %1244
-  %1247 = getelementptr ptr, ptr %.split44, i64 %1246
+  %.split44 = getelementptr [88 x i8], ptr @xfrm_input_afinfo, i64 %1244
+  %1247 = getelementptr [8 x i8], ptr %.split44, i64 %1246
   %1248 = load volatile ptr, ptr %1247, align 8
   %1249 = icmp eq ptr %1248, null
   br i1 %1249, label %1250, label %1251, !prof !5
@@ -2315,7 +2313,7 @@ define internal fastcc ptr @xfrm_offload(ptr noundef readonly captures(none) %0)
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %24 = add i32 %17, -1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr %struct.xfrm_offload, ptr %23, i64 %25
+  %26 = getelementptr [20 x i8], ptr %23, i64 %25
   br label %.thread
 
 .thread:                                          ; preds = %1, %22, %19, %15, %6
@@ -2472,7 +2470,7 @@ define dso_local void @xfrm_input_init() local_unnamed_addr #6 section ".init.te
 
 15:                                               ; preds = %11
   %16 = and i64 %12, 63
-  %17 = getelementptr i64, ptr @__per_cpu_offset, i64 %16
+  %17 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, ptrtoint (ptr @xfrm_trans_tasklet to i64)
   %20 = inttoptr i64 %19 to ptr

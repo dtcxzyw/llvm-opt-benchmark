@@ -64,7 +64,7 @@ define dso_local i32 @cmd_main(i32 noundef %0, ptr noundef %1) local_unnamed_add
   %.04997 = phi i32 [ %60, %skip_prefix.exit68 ], [ 1, %2 ]
   %.05296 = phi i32 [ %.153, %skip_prefix.exit68 ], [ 0, %2 ]
   %14 = sext i32 %.04997 to i64
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 45
@@ -88,7 +88,7 @@ define dso_local i32 @cmd_main(i32 noundef %0, ptr noundef %1) local_unnamed_add
 23:                                               ; preds = %19
   %24 = add nsw i32 %.04997, 1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   store ptr %26, ptr %5, align 8, !tbaa !4
   br label %skip_prefix.exit68
 
@@ -251,7 +251,7 @@ skip_prefix.exit68:                               ; preds = %52, %30, %28, %19, 
 
 81:                                               ; preds = %78
   %82 = sext i32 %.049.lcssa to i64
-  %83 = getelementptr inbounds ptr, ptr %1, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %1, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !9
   %85 = load ptr, ptr %9, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -351,7 +351,7 @@ fetch_single_packfile.exit:                       ; preds = %120
 .split:                                           ; preds = %126
   %127 = call i32 @walker_targets_stdin(ptr noundef nonnull %6, ptr noundef nonnull %5) #10
   %128 = sext i32 %.049.lcssa to i64
-  %129 = getelementptr inbounds ptr, ptr %1, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %1, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !9
   %131 = load ptr, ptr %6, align 8, !tbaa !4
   %132 = load ptr, ptr %5, align 8, !tbaa !4
@@ -360,7 +360,7 @@ fetch_single_packfile.exit:                       ; preds = %120
 
 .split55:                                         ; preds = %126
   %134 = sext i32 %.049.lcssa to i64
-  %135 = getelementptr ptr, ptr %1, i64 %134
+  %135 = getelementptr [8 x i8], ptr %1, i64 %134
   store ptr %135, ptr %6, align 8, !tbaa !4
   %136 = getelementptr i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !9

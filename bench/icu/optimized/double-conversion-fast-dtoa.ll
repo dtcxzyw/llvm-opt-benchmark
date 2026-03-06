@@ -228,12 +228,12 @@ _ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit
   %149 = ashr i32 %148, 12
   %150 = add nsw i32 %149, 1
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i32, ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !14
   %154 = icmp ugt i32 %153, %144
   %spec.select.i.i.i = select i1 %154, i32 %149, i32 %150
   %155 = sext i32 %spec.select.i.i.i to i64
-  %156 = getelementptr inbounds i32, ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !14
   store i32 0, ptr %5, align 4, !tbaa !14
   %158 = add nuw i64 %98, %85
@@ -513,12 +513,12 @@ _ZNK6icu_7717double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %
   %309 = ashr i32 %308, 12
   %310 = add nsw i32 %309, 1
   %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds i32, ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %311
+  %312 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %311
   %313 = load i32, ptr %312, align 4, !tbaa !14
   %314 = icmp ugt i32 %313, %304
   %spec.select.i.i.i17 = select i1 %314, i32 %309, i32 %310
   %315 = sext i32 %spec.select.i.i.i17 to i64
-  %316 = getelementptr inbounds i32, ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %315
+  %316 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_7717double_conversionL17kSmallPowersOfTenE, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !14
   store i32 0, ptr %5, align 4, !tbaa !14
   %318 = icmp sgt i32 %spec.select.i.i.i17, 0

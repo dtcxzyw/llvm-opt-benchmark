@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.Luau::CodeGen::Label" = type { i32, i32 }
-%"struct.std::pair.16" = type { i32, i32 }
-%"struct.std::pair" = type <{ i64, i32, [4 x i8] }>
 
 $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 
@@ -2055,10 +2052,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 3:                                                ; preds = %2
   %4 = and i64 %.sroa.4.0.extract.shift, 7
-  %5 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %4
+  %5 = getelementptr inbounds nuw [128 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %4
   %6 = lshr i64 %1, 19
   %7 = and i64 %6, 31
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %9)
   br label %64
@@ -2074,7 +2071,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 14:                                               ; preds = %13
   %15 = and i64 %.sroa.9.0.extract.shift, 15
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %17)
   br label %18
@@ -2088,7 +2085,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 20:                                               ; preds = %19
   %21 = and i64 %.sroa.9.0.extract.shift, 15
-  %22 = getelementptr inbounds nuw ptr, ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.94, ptr noundef %23)
   br label %24
@@ -2100,10 +2097,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 
 25:                                               ; preds = %24
   %26 = and i64 %.sroa.4.0.extract.shift, 7
-  %27 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %26
+  %27 = getelementptr inbounds nuw [128 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %26
   %28 = lshr i64 %1, 19
   %29 = and i64 %28, 31
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.93, ptr noundef %31)
   br label %32
@@ -2116,10 +2113,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logENS1_10Operan
 34:                                               ; preds = %32
   %35 = select i1 %.not25, ptr @.str.99, ptr @.str.98
   %36 = and i64 %.sroa.2.0.extract.shift, 7
-  %37 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %36
+  %37 = getelementptr inbounds nuw [128 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %36
   %38 = lshr i64 %1, 11
   %39 = and i64 %38, 31
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !64
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3X6418AssemblyBuilderX649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull @.str.97, ptr noundef nonnull %35, ptr noundef %41)
   br label %42
@@ -3154,7 +3151,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645setccENS0_12Cond
 
 7:                                                ; preds = %3
   %8 = zext i8 %1 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN4Luau7CodeGen3X64L21setccTextForConditionE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Luau7CodeGen3X64L21setccTextForConditionE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643logEPKcNS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef %10, i64 %2)
   br label %11
@@ -3255,7 +3252,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644cmovENS0_12Condi
 
 8:                                                ; preds = %4
   %9 = zext i8 %1 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZN4Luau7CodeGen3X64L20cmovTextForConditionE, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Luau7CodeGen3X64L20cmovTextForConditionE, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %.sroa.352.0.insert.ext = zext i8 %2 to i64
   %.sroa.352.0.insert.shift = shl nuw nsw i64 %.sroa.352.0.insert.ext, 16
@@ -3352,7 +3349,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX646commitEv.exit: ; preds = %_ZN4Luau7Code
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext %1, ptr noundef nonnull align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = zext i8 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN4Luau7CodeGen3X64L19jccTextForConditionE, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Luau7CodeGen3X64L19jccTextForConditionE, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = getelementptr inbounds nuw i8, ptr @_ZN4Luau7CodeGen3X64L16codeForConditionE, i64 %4
   %8 = load i8, ptr %7, align 1, !tbaa !13
@@ -3563,7 +3560,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %36, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %33, ptr %13, align 8, !tbaa !55
   store ptr %37, ptr %14, align 8, !tbaa !68
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store ptr %39, ptr %16, align 8, !tbaa !56
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -3650,7 +3647,7 @@ _ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.
 _ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %75, %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %69, ptr %40, align 8, !tbaa !57
   store ptr %74, ptr %49, align 8, !tbaa !70
-  %76 = getelementptr inbounds nuw %"struct.Luau::CodeGen::Label", ptr %69, i64 %67
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %76, ptr %51, align 8, !tbaa !58
   br label %_ZNSt6vectorIN4Luau7CodeGen5LabelESaIS2_EE9push_backEOS2_.exit
 
@@ -5555,7 +5552,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648fi
   %24 = add i32 %.sroa.0.0.copyload, -1
   %25 = zext i32 %24 to i64
   %26 = load ptr, ptr %13, align 8, !tbaa !55
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %25
   %28 = load i32, ptr %27, align 4, !tbaa !69
   %reass.sub = sub i32 %28, %.sroa.4.0.copyload
   %29 = add i32 %reass.sub, -4
@@ -5653,7 +5650,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %32, ptr %12, align 8, !tbaa !55
   store ptr %36, ptr %13, align 8, !tbaa !68
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %15, align 8, !tbaa !56
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5751,7 +5748,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %29, ptr %9, align 8, !tbaa !55
   store ptr %33, ptr %10, align 8, !tbaa !68
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8, !tbaa !56
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5771,7 +5768,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %47 = add i32 %46, -1
   %48 = zext i32 %47 to i64
   %49 = load ptr, ptr %45, align 8, !tbaa !55
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %48
   store i32 %43, ptr %50, align 4, !tbaa !69
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i8, ptr %51, align 8, !tbaa !14, !range !61, !noundef !62
@@ -5817,7 +5814,7 @@ define dso_local range(i64 318799873, -3758096384) i64 @_ZN4Luau7CodeGen3X6418As
 19:                                               ; preds = %25, %12
   %.02032.i.i = phi i64 [ 0, %12 ], [ %26, %25 ]
   %.02131.i.i = phi i64 [ %17, %12 ], [ %28, %25 ]
-  %20 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %18, i64 %.02131.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02131.i.i
   %21 = load i32, ptr %20, align 4, !tbaa !69
   %22 = icmp eq i32 %21, %1
   br i1 %22, label %29, label %23
@@ -5834,7 +5831,7 @@ define dso_local range(i64 318799873, -3758096384) i64 @_ZN4Luau7CodeGen3X6418As
   br i1 %.not.i.i, label %.critedge, label %19, !llvm.loop !86
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %18, i64 %.02131.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02131.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !69
   br label %115
@@ -5912,7 +5909,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %.crit
 80:                                               ; preds = %86, %75
   %.02032.i.i.i = phi i64 [ 0, %75 ], [ %87, %86 ]
   %.02131.i.i.i = phi i64 [ %78, %75 ], [ %89, %86 ]
-  %81 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %79, i64 %.02131.i.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.02131.i.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !69
   %83 = icmp eq i32 %82, %1
   br i1 %83, label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i, label %84
@@ -5941,14 +5938,14 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
   %94 = load ptr, ptr %62, align 8, !tbaa !54
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %96 = load i32, ptr %95, align 8, !tbaa !69
-  %97 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %94, i64 %93
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %93
   %98 = load i32, ptr %97, align 4, !tbaa !69
   %99 = icmp eq i32 %98, %96
   br i1 %99, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %105, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
   %.02334.i.lcssa5.i = phi i64 [ %93, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ], [ %108, %105 ]
-  %100 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %94, i64 %.02334.i.lcssa5.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.02334.i.lcssa5.i
   store i32 %1, ptr %100, align 4, !tbaa !87
   %101 = load i64, ptr %63, align 8, !tbaa !84
   %102 = add i64 %101, 1
@@ -5968,14 +5965,14 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
   %108 = and i64 %107, %91
   %.not.i3.i = icmp ule i64 %106, %91
   tail call void @llvm.assume(i1 %.not.i3.i)
-  %109 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %94, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !69
   %111 = icmp eq i32 %110, %96
   br i1 %111, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEEixERKj.exit: ; preds = %.lr.ph.i, %._crit_edge.i
   %112 = phi i64 [ %.02334.i.lcssa5.i, %._crit_edge.i ], [ %.02334.i7.i, %.lr.ph.i ]
-  %113 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %94, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %60, ptr %114, align 4, !tbaa !69
   br label %115
@@ -6051,7 +6048,7 @@ define dso_local range(i64 335577089, -3758096384) i64 @_ZN4Luau7CodeGen3X6418As
   %.pn.i.i = phi i64 [ %1, %12 ], [ %25, %23 ]
   %.02028.i.i = phi i64 [ 0, %12 ], [ %24, %23 ]
   %.02129.i.i = and i64 %.pn.i.i, %15
-  %18 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %.02129.i.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.02129.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !90
   %20 = icmp eq i64 %19, %1
   br i1 %20, label %26, label %21
@@ -6143,7 +6140,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %.crit
   %.pn.i.i.i = phi i64 [ %1, %71 ], [ %82, %80 ]
   %.02028.i.i.i = phi i64 [ 0, %71 ], [ %81, %80 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %72
-  %75 = getelementptr inbounds nuw %"struct.std::pair", ptr %73, i64 %.02129.i.i.i
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %.02129.i.i.i
   %76 = load i64, ptr %75, align 8, !tbaa !90
   %77 = icmp eq i64 %76, %1
   br i1 %77, label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE14rehash_if_fullERS4_.exit.i, label %78
@@ -6170,7 +6167,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %87 = load i64, ptr %86, align 8, !tbaa !90
   %.02331.i5.i = and i64 %84, %1
-  %88 = getelementptr inbounds nuw %"struct.std::pair", ptr %85, i64 %.02331.i5.i
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.02331.i5.i
   %89 = load i64, ptr %88, align 8, !tbaa !90
   %90 = icmp eq i64 %89, %87
   br i1 %90, label %._crit_edge.i, label %.lr.ph.i.preheader
@@ -6199,7 +6196,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
   %.not.i3.i = icmp ule i64 %95, %84
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.02331.i.i = and i64 %96, %84
-  %97 = getelementptr inbounds nuw %"struct.std::pair", ptr %85, i64 %.02331.i.i
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.02331.i.i
   %98 = load i64, ptr %97, align 8, !tbaa !90
   %99 = icmp eq i64 %98, %87
   br i1 %99, label %._crit_edge.i, label %.lr.ph.i
@@ -6249,7 +6246,7 @@ define dso_local range(i64 318799873, -3758096384) i64 @_ZN4Luau7CodeGen3X6418As
 20:                                               ; preds = %26, %13
   %.02032.i.i = phi i64 [ 0, %13 ], [ %27, %26 ]
   %.02131.i.i = phi i64 [ %18, %13 ], [ %29, %26 ]
-  %21 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %19, i64 %.02131.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02131.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !69
   %23 = icmp eq i32 %22, %3
   br i1 %23, label %30, label %24
@@ -6266,7 +6263,7 @@ define dso_local range(i64 318799873, -3758096384) i64 @_ZN4Luau7CodeGen3X6418As
   br i1 %.not.i.i, label %.critedge, label %20, !llvm.loop !86
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %19, i64 %.02131.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02131.i.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !69
   br label %116
@@ -6344,7 +6341,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %.crit
 81:                                               ; preds = %87, %76
   %.02032.i.i.i = phi i64 [ 0, %76 ], [ %88, %87 ]
   %.02131.i.i.i = phi i64 [ %79, %76 ], [ %90, %87 ]
-  %82 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %80, i64 %.02131.i.i.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.02131.i.i.i
   %83 = load i32, ptr %82, align 4, !tbaa !69
   %84 = icmp eq i32 %83, %3
   br i1 %84, label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i, label %85
@@ -6373,14 +6370,14 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
   %95 = load ptr, ptr %63, align 8, !tbaa !54
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %97 = load i32, ptr %96, align 8, !tbaa !69
-  %98 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %95, i64 %94
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %94
   %99 = load i32, ptr %98, align 4, !tbaa !69
   %100 = icmp eq i32 %99, %97
   br i1 %100, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %106, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i
   %.02334.i.lcssa5.i = phi i64 [ %94, %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE14rehash_if_fullERS4_.exit.i ], [ %109, %106 ]
-  %101 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %95, i64 %.02334.i.lcssa5.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.02334.i.lcssa5.i
   store float %1, ptr %101, align 4, !tbaa !87
   %102 = load i64, ptr %64, align 8, !tbaa !84
   %103 = add i64 %102, 1
@@ -6400,14 +6397,14 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
   %109 = and i64 %108, %92
   %.not.i3.i = icmp ule i64 %107, %92
   tail call void @llvm.assume(i1 %.not.i3.i)
-  %110 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %95, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !69
   %112 = icmp eq i32 %111, %97
   br i1 %112, label %._crit_edge.i, label %.lr.ph.i
 
 _ZN4Luau12DenseHashMapIjiSt4hashIjESt8equal_toIjEEixERKj.exit: ; preds = %.lr.ph.i, %._crit_edge.i
   %113 = phi i64 [ %.02334.i.lcssa5.i, %._crit_edge.i ], [ %.02334.i7.i, %.lr.ph.i ]
-  %114 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %95, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 %61, ptr %115, align 4, !tbaa !69
   br label %116
@@ -6450,7 +6447,7 @@ define dso_local range(i64 335577089, -3758096384) i64 @_ZN4Luau7CodeGen3X6418As
   %.pn.i.i = phi i64 [ %3, %13 ], [ %26, %24 ]
   %.02028.i.i = phi i64 [ 0, %13 ], [ %25, %24 ]
   %.02129.i.i = and i64 %.pn.i.i, %16
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %.02129.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.02129.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !90
   %21 = icmp eq i64 %20, %3
   br i1 %21, label %27, label %22
@@ -6542,7 +6539,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX6412allocateDataEmm.exit: ; preds = %.crit
   %.pn.i.i.i = phi i64 [ %3, %72 ], [ %83, %81 ]
   %.02028.i.i.i = phi i64 [ 0, %72 ], [ %82, %81 ]
   %.02129.i.i.i = and i64 %.pn.i.i.i, %73
-  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %74, i64 %.02129.i.i.i
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %.02129.i.i.i
   %77 = load i64, ptr %76, align 8, !tbaa !90
   %78 = icmp eq i64 %77, %3
   br i1 %78, label %_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEESt4hashImESt8equal_toImEE14rehash_if_fullERS4_.exit.i, label %79
@@ -6569,7 +6566,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %88 = load i64, ptr %87, align 8, !tbaa !90
   %.02331.i5.i = and i64 %85, %3
-  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %86, i64 %.02331.i5.i
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %.02331.i5.i
   %90 = load i64, ptr %89, align 8, !tbaa !90
   %91 = icmp eq i64 %90, %88
   br i1 %91, label %._crit_edge.i, label %.lr.ph.i.preheader
@@ -6598,7 +6595,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
   %.not.i3.i = icmp ule i64 %96, %85
   tail call void @llvm.assume(i1 %.not.i3.i)
   %.02331.i.i = and i64 %97, %85
-  %98 = getelementptr inbounds nuw %"struct.std::pair", ptr %86, i64 %.02331.i.i
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %.02331.i.i
   %99 = load i64, ptr %98, align 8, !tbaa !90
   %100 = icmp eq i64 %99, %88
   br i1 %100, label %._crit_edge.i, label %.lr.ph.i
@@ -7103,10 +7100,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(252) %0, i8 %1) local_unnamed_addr #9 align 2 {
   %3 = and i8 %1, 7
   %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %4
+  %5 = getelementptr inbounds nuw [128 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegisterNameENS1_11RegisterX64EE5names, i64 %4
   %6 = lshr i8 %1, 3
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   ret ptr %9
 }
@@ -7114,7 +7111,7 @@ define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6415getRegi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(252) %0, i8 noundef zeroext %1) local_unnamed_addr #9 align 2 {
   %3 = zext i8 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK4Luau7CodeGen3X6418AssemblyBuilderX6411getSizeNameENS1_7SizeX64EE9sizeNames, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !64
   ret ptr %5
 }
@@ -7156,7 +7153,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjiE
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %8
   %.07.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %10, i64 %.07.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07.i.i
   store i32 %11, ptr %12, align 4, !tbaa !69
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4, !tbaa !69
@@ -7194,7 +7191,7 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
 
 18:                                               ; preds = %.lr.ph26, %44
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %45, %44 ]
-  %19 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %.pre30, i64 %.025
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre30, i64 %.025
   %20 = load i32, ptr %19, align 4, !tbaa !69
   %21 = load i32, ptr %6, align 8, !tbaa !69
   %22 = icmp eq i32 %20, %21
@@ -7203,14 +7200,14 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
 23:                                               ; preds = %18
   %24 = zext i32 %20 to i64
   %25 = and i64 %16, %24
-  %26 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %.sroa.0.0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !69
   %28 = icmp eq i32 %27, %7
   br i1 %28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %32, %23
   %.02334.i.lcssa21 = phi i64 [ %25, %23 ], [ %35, %32 ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %.sroa.0.0, i64 %.02334.i.lcssa21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02334.i.lcssa21
   store i32 %20, ptr %29, align 4, !tbaa !87
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit
 
@@ -7227,13 +7224,13 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEES
   %35 = and i64 %34, %16
   %.not.i12 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i12)
-  %36 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %.sroa.0.0, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !69
   %38 = icmp eq i32 %37, %7
   br i1 %38, label %._crit_edge, label %.lr.ph
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit: ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw %"struct.std::pair.16", ptr %.sroa.0.0, i64 %.02334.i23
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %.02334.i23
   br label %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit
 
 _ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit: ; preds = %_ZN4Luau6detail14DenseHashTableIjSt4pairIjiES2_IKjiENS0_16ItemInterfaceMapIjiEESt4hashIjESt8equal_toIjEE13insert_unsafeERS4_.exit.loopexit, %._crit_edge
@@ -7276,7 +7273,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableImSt4pairImiE
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.07.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %.07.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.07.i.i
   store i64 %.pre.i.i, ptr %10, align 8, !tbaa !90
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %11, align 8, !tbaa !69
@@ -7314,7 +7311,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
 
 16:                                               ; preds = %.lr.ph26, %36
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %37, %36 ]
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre32, i64 %.025
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %.pre32, i64 %.025
   %18 = load i64, ptr %17, align 8, !tbaa !90
   %19 = load i64, ptr %6, align 8, !tbaa !90
   %20 = icmp eq i64 %18, %19
@@ -7322,7 +7319,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
 
 21:                                               ; preds = %16
   %.02331.i21 = and i64 %18, %14
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.0, i64 %.02331.i21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i21
   %23 = load i64, ptr %22, align 8, !tbaa !90
   %24 = icmp eq i64 %23, %7
   br i1 %24, label %._crit_edge, label %.lr.ph.preheader
@@ -7348,7 +7345,7 @@ _ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEES
   %.not.i12 = icmp ule i64 %27, %14
   tail call void @llvm.assume(i1 %.not.i12)
   %.02331.i = and i64 %28, %14
-  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.0.0, i64 %.02331.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02331.i
   %30 = load i64, ptr %29, align 8, !tbaa !90
   %31 = icmp eq i64 %30, %7
   br i1 %31, label %._crit_edge, label %.lr.ph

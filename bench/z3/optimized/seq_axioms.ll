@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %class.symbol = type { ptr }
 %class.obj_ref = type { ptr, ptr }
-%"struct.smt::bool_var_data" = type { %"class.smt::b_justification", i64 }
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
@@ -1413,7 +1412,7 @@ define hidden void @_ZN3smt10seq_axioms9set_phaseEP4expr(ptr noundef nonnull rea
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8872
   %10 = load ptr, ptr %9, align 8, !tbaa !120
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, -201326593
@@ -1468,7 +1467,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
   %24 = tail call i32 @_ZN3smt10seq_axioms10mk_literalEP4expr(ptr noundef nonnull align 8 dereferenceable(1240) %0, ptr noundef %17)
   %25 = add i32 %.029, 1
   %26 = zext i32 %.029 to i64
-  %27 = getelementptr inbounds nuw %"class.sat::literal", ptr %8, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %26
   store i32 %24, ptr %27, align 4, !tbaa !83
   br label %28
 
@@ -1754,7 +1753,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit24:       ; preds = %_ZN7obj_refI4expr11
   %85 = phi ptr [ %.pre.i.i, %.noexc15 ], [ %31, %33 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 -4
   %87 = zext i32 %84 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   store ptr %29, ptr %88, align 8, !tbaa !139
   %89 = add i32 %84, 1
   store i32 %89, ptr %86, align 4, !tbaa !83
@@ -1959,7 +1958,7 @@ define internal void @"_ZNSt17_Function_handlerIFvP4exprEZN3smt10seq_axiomsC1ERN
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8872
   %10 = load ptr, ptr %9, align 8, !tbaa !120
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, -201326593

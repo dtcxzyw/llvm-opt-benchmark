@@ -3,9 +3,6 @@ source_filename = "bench/ruby/original/shape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.rb_shape = type { ptr, i64, i32, i32, i8, i8, i32, ptr }
-%struct.redblack_node = type { i64, ptr, i32, i32 }
-
 @rb_shape_tree_ptr = hidden local_unnamed_addr global ptr null, align 8
 @id_frozen = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [12 x i8] c"Unreachable\00", align 1
@@ -46,7 +43,7 @@ define dso_local void @rb_shape_each_shape(ptr noundef readonly captures(none) %
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = load ptr, ptr %3, align 8, !tbaa !16
   %9 = zext i32 %7 to i64
-  %10 = getelementptr %struct.rb_shape, ptr %8, i64 %9
+  %10 = getelementptr [40 x i8], ptr %8, i64 %9
   %11 = icmp ult ptr %5, %10
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -66,7 +63,7 @@ define hidden ptr @rb_shape_get_shape_by_id(i32 noundef %0) local_unnamed_addr #
   %2 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = zext i32 %0 to i64
-  %5 = getelementptr %struct.rb_shape, ptr %3, i64 %4
+  %5 = getelementptr [40 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -77,7 +74,7 @@ define hidden ptr @rb_shape_get_parent(ptr noundef readonly captures(none) %0) l
   %4 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   %6 = zext i32 %3 to i64
-  %7 = getelementptr %struct.rb_shape, ptr %5, i64 %6
+  %7 = getelementptr [40 x i8], ptr %5, i64 %6
   ret ptr %7
 }
 
@@ -118,7 +115,7 @@ define dso_local i64 @rb_shape_depth(ptr noundef readonly captures(none) %0) loc
   %.05 = phi i64 [ 1, %.lr.ph ], [ %8, %6 ]
   %8 = add i64 %.05, 1
   %9 = zext i32 %7 to i64
-  %10 = getelementptr %struct.rb_shape, ptr %5, i64 %9
+  %10 = getelementptr [40 x i8], ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !20
   %.not = icmp eq i32 %12, -1
@@ -147,7 +144,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
   %.0.i = phi i64 [ %9, %6 ], [ 1, %1 ]
   %10 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %11 = load ptr, ptr %10, align 8, !tbaa !16
-  %12 = getelementptr %struct.rb_shape, ptr %11, i64 %.0.i
+  %12 = getelementptr [40 x i8], ptr %11, i64 %.0.i
   ret ptr %12
 }
 
@@ -223,11 +220,11 @@ ROBJECT_IVPTR.exit:                               ; preds = %27, %24, %29, %21
   %35 = load i32, ptr %34, align 8, !tbaa !40
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr i64, ptr %.0, i64 %37
+  %38 = getelementptr [8 x i8], ptr %.0, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !41
   store i64 %39, ptr %3, align 8, !tbaa !41
   %40 = zext i32 %35 to i64
-  %41 = getelementptr i64, ptr %.0, i64 %40
+  %41 = getelementptr [8 x i8], ptr %.0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !40
   %reass.sub = sub i32 %43, %35
@@ -312,14 +309,14 @@ define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %
   %17 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = zext i32 %6 to i64
-  %20 = getelementptr %struct.rb_shape, ptr %18, i64 %19
+  %20 = getelementptr [40 x i8], ptr %18, i64 %19
   br label %37
 
 21:                                               ; preds = %12, %8
   %22 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = zext i32 %6 to i64
-  %25 = getelementptr %struct.rb_shape, ptr %23, i64 %24
+  %25 = getelementptr [40 x i8], ptr %23, i64 %24
   %26 = tail call fastcc ptr @remove_shape_recursive(ptr noundef %25, i64 noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %37, label %27
@@ -390,7 +387,7 @@ rb_shape_get_shape.exit.thread:                   ; preds = %1
   %14 = lshr i64 %13, 32
   %15 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %16 = load ptr, ptr %15, align 8, !tbaa !16
-  %17 = getelementptr %struct.rb_shape, ptr %16, i64 %14
+  %17 = getelementptr [40 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i8, ptr %18, align 8, !tbaa !27
   %.not13 = icmp eq i8 %19, 2
@@ -517,7 +514,7 @@ rb_shape_alloc.exit.i:                            ; preds = %24
   %36 = sdiv exact i64 %35, 40
   %37 = trunc i64 %36 to i32
   %38 = zext nneg i32 %26 to i64
-  %39 = getelementptr %struct.rb_shape, ptr %31, i64 %38
+  %39 = getelementptr [40 x i8], ptr %31, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %1, ptr %40, align 8, !tbaa !42
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -800,7 +797,7 @@ define hidden noundef zeroext i1 @rb_shape_get_iv_index_with_hint(i32 noundef %0
   %6 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = zext i32 %0 to i64
-  %9 = getelementptr %struct.rb_shape, ptr %7, i64 %8
+  %9 = getelementptr [40 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %3, align 4, !tbaa !54
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %62
@@ -844,7 +841,7 @@ tailrecurse.backedge.i.i.i:                       ; preds = %34, %26
   %29 = load ptr, ptr %20, align 8, !tbaa !59
   %30 = add i32 %.val13.sink.i.i.i, -1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr %struct.redblack_node, ptr %29, i64 %31
+  %32 = getelementptr [24 x i8], ptr %29, i64 %31
   %33 = icmp eq ptr %32, null
   br i1 %33, label %rb_shape_get_iv_index.exit, label %21
 
@@ -898,7 +895,7 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
 53:                                               ; preds = %49, %44
   %54 = load ptr, ptr %43, align 8, !tbaa !16
   %55 = zext i32 %45 to i64
-  %56 = getelementptr %struct.rb_shape, ptr %54, i64 %55
+  %56 = getelementptr [40 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4, !tbaa !20
   %.not.i8.i = icmp eq i32 %58, -1
@@ -914,7 +911,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
 
 62:                                               ; preds = %4
   %63 = zext i32 %10 to i64
-  %64 = getelementptr %struct.rb_shape, ptr %7, i64 %63
+  %64 = getelementptr [40 x i8], ptr %7, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !55
   %.not = icmp ne ptr %66, null
@@ -951,7 +948,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   %78 = getelementptr inbounds nuw i8, ptr %.14182, i64 28
   %79 = load i32, ptr %78, align 4, !tbaa !20
   %80 = zext i32 %79 to i64
-  %81 = getelementptr %struct.rb_shape, ptr %7, i64 %80
+  %81 = getelementptr [40 x i8], ptr %7, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8, !tbaa !40
   %84 = icmp ugt i32 %83, %73
@@ -992,7 +989,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   %104 = getelementptr inbounds nuw i8, ptr %.04483, i64 28
   %105 = load i32, ptr %104, align 4, !tbaa !20
   %106 = zext i32 %105 to i64
-  %107 = getelementptr %struct.rb_shape, ptr %7, i64 %106
+  %107 = getelementptr [40 x i8], ptr %7, i64 %106
   %108 = add nsw i32 %.185, -1
   %109 = icmp sgt i32 %.185, 1
   br i1 %109, label %71, label %.critedge, !llvm.loop !64
@@ -1042,7 +1039,7 @@ tailrecurse.backedge.i.i.i62:                     ; preds = %134, %126
   %129 = load ptr, ptr %120, align 8, !tbaa !59
   %130 = add i32 %.val13.sink.i.i.i63, -1
   %131 = zext i32 %130 to i64
-  %132 = getelementptr %struct.redblack_node, ptr %129, i64 %131
+  %132 = getelementptr [24 x i8], ptr %129, i64 %131
   %133 = icmp eq ptr %132, null
   br i1 %133, label %rb_shape_get_iv_index.exit, label %121
 
@@ -1096,7 +1093,7 @@ shape_cache_get_iv_index.exit.i66:                ; preds = %121
 153:                                              ; preds = %149, %144
   %154 = load ptr, ptr %143, align 8, !tbaa !16
   %155 = zext i32 %145 to i64
-  %156 = getelementptr %struct.rb_shape, ptr %154, i64 %155
+  %156 = getelementptr [40 x i8], ptr %154, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 28
   %158 = load i32, ptr %157, align 4, !tbaa !20
   %.not.i8.i55 = icmp eq i32 %158, -1
@@ -1154,7 +1151,7 @@ tailrecurse.backedge.i.i:                         ; preds = %25, %17
   %20 = load ptr, ptr %11, align 8, !tbaa !59
   %21 = add i32 %.val13.sink.i.i, -1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr %struct.redblack_node, ptr %20, i64 %22
+  %23 = getelementptr [24 x i8], ptr %20, i64 %22
   %24 = icmp eq ptr %23, null
   br i1 %24, label %shape_get_iv_index.exit, label %12
 
@@ -1208,7 +1205,7 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
 44:                                               ; preds = %40, %35
   %45 = load ptr, ptr %34, align 8, !tbaa !16
   %46 = zext i32 %36 to i64
-  %47 = getelementptr %struct.rb_shape, ptr %45, i64 %46
+  %47 = getelementptr [40 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4, !tbaa !20
   %.not.i8 = icmp eq i32 %49, -1
@@ -1250,7 +1247,7 @@ define hidden ptr @rb_shape_traverse_from_new_root(ptr noundef %0, ptr noundef r
   %11 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = zext i32 %10 to i64
-  %14 = getelementptr %struct.rb_shape, ptr %12, i64 %13
+  %14 = getelementptr [40 x i8], ptr %12, i64 %13
   %15 = tail call ptr @rb_shape_traverse_from_new_root(ptr noundef nonnull %0, ptr noundef %14)
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %39, label %thread-pre-split
@@ -1332,7 +1329,7 @@ define hidden ptr @rb_shape_rebuild_shape(ptr noundef %0, ptr noundef readonly c
   %11 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = zext i32 %10 to i64
-  %14 = getelementptr %struct.rb_shape, ptr %12, i64 %13
+  %14 = getelementptr [40 x i8], ptr %12, i64 %13
   %15 = tail call ptr @rb_shape_rebuild_shape(ptr noundef nonnull %0, ptr noundef %14)
   %16 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %17 = load ptr, ptr %16, align 8, !tbaa !16
@@ -1492,7 +1489,7 @@ define hidden void @Init_default_shapes() local_unnamed_addr #1 {
 rb_shape_alloc_with_parent_id.exit:               ; preds = %28
   %35 = load ptr, ptr %29, align 8, !tbaa !16
   %36 = zext i32 %31 to i64
-  %37 = getelementptr %struct.rb_shape, ptr %35, i64 %36
+  %37 = getelementptr [40 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %38, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -1527,7 +1524,7 @@ rb_shape_alloc_with_parent_id.exit:               ; preds = %28
 rb_shape_alloc_with_parent_id.exit22:             ; preds = %rb_shape_alloc_with_parent_id.exit
   %54 = load ptr, ptr %48, align 8, !tbaa !16
   %55 = zext i32 %50 to i64
-  %56 = getelementptr %struct.rb_shape, ptr %54, i64 %55
+  %56 = getelementptr [40 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i32 0, ptr %57, align 4, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -1562,7 +1559,7 @@ rb_shape_alloc_with_parent_id.exit22:             ; preds = %rb_shape_alloc_with
 rb_shape_alloc_with_parent_id.exit23:             ; preds = %.lr.ph
   %69 = load ptr, ptr %63, align 8, !tbaa !16
   %70 = zext i32 %65 to i64
-  %71 = getelementptr %struct.rb_shape, ptr %69, i64 %70
+  %71 = getelementptr [40 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 0, ptr %72, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -1587,7 +1584,7 @@ rb_shape_alloc_with_parent_id.exit23:             ; preds = %.lr.ph
   store ptr null, ptr %84, align 8, !tbaa !55
   %85 = add i32 %.025, 1
   %86 = sext i32 %85 to i64
-  %87 = getelementptr i64, ptr %60, i64 %86
+  %87 = getelementptr [8 x i8], ptr %60, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !41
   %.not21 = icmp eq i64 %88, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !66
@@ -1640,7 +1637,7 @@ define internal fastcc ptr @redblack_cache_ancestors(ptr noundef %0) unnamed_add
   %9 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = zext i32 %6 to i64
-  %12 = getelementptr %struct.rb_shape, ptr %10, i64 %11
+  %12 = getelementptr [40 x i8], ptr %10, i64 %11
   %13 = tail call fastcc ptr @redblack_cache_ancestors(ptr noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i8, ptr %14, align 8, !tbaa !27
@@ -1696,7 +1693,7 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly cap
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr %7, align 8, !tbaa !65
   %15 = zext i32 %8 to i64
-  %16 = getelementptr %struct.redblack_node, ptr %13, i64 %15
+  %16 = getelementptr [24 x i8], ptr %13, i64 %15
   store i64 %1, ptr %16, align 8, !tbaa !56
   %17 = ptrtoint ptr %2 to i64
   %18 = or i64 %17, 1
@@ -1724,7 +1721,7 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly cap
   %31 = load ptr, ptr %30, align 8, !tbaa !59
   %32 = add i32 %.val, -1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr %struct.redblack_node, ptr %31, i64 %33
+  %34 = getelementptr [24 x i8], ptr %31, i64 %33
   br label %redblack_left.exit
 
 redblack_left.exit:                               ; preds = %25, %28
@@ -1741,7 +1738,7 @@ redblack_left.exit:                               ; preds = %25, %28
   %41 = load ptr, ptr %40, align 8, !tbaa !59
   %42 = add i32 %.val28, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr %struct.redblack_node, ptr %41, i64 %43
+  %44 = getelementptr [24 x i8], ptr %41, i64 %43
   br label %redblack_color.exit
 
 45:                                               ; preds = %22
@@ -1760,7 +1757,7 @@ redblack_left.exit:                               ; preds = %25, %28
   %53 = load ptr, ptr %52, align 8, !tbaa !59
   %54 = add i32 %.val27, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr %struct.redblack_node, ptr %53, i64 %55
+  %56 = getelementptr [24 x i8], ptr %53, i64 %55
   br label %redblack_left.exit34
 
 redblack_left.exit34:                             ; preds = %47, %50
@@ -1776,7 +1773,7 @@ redblack_left.exit34:                             ; preds = %47, %50
   %62 = load ptr, ptr %61, align 8, !tbaa !59
   %63 = add i32 %.val29, -1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr %struct.redblack_node, ptr %62, i64 %64
+  %65 = getelementptr [24 x i8], ptr %62, i64 %64
   br label %redblack_right.exit36
 
 redblack_right.exit36:                            ; preds = %redblack_left.exit34, %59
@@ -1820,7 +1817,7 @@ redblack_left.exit.i:                             ; preds = %80
   %85 = load ptr, ptr %84, align 8, !tbaa !59
   %86 = add i32 %.val93.i, -1
   %87 = zext i32 %86 to i64
-  %88 = getelementptr %struct.redblack_node, ptr %85, i64 %87
+  %88 = getelementptr [24 x i8], ptr %85, i64 %87
   %.not.i.i118.i = icmp eq ptr %88, null
   br i1 %.not.i.i118.i, label %113, label %redblack_red_p.exit119.i
 
@@ -1838,7 +1835,7 @@ redblack_left.exit126.i:                          ; preds = %redblack_red_p.exit
   %95 = icmp eq i32 %.val109.i, 0
   %96 = add i32 %.val109.i, -1
   %97 = zext i32 %96 to i64
-  %98 = getelementptr %struct.redblack_node, ptr %85, i64 %97
+  %98 = getelementptr [24 x i8], ptr %85, i64 %97
   %.0.i120.i = select i1 %95, ptr null, ptr %98
   %99 = load i64, ptr %88, align 8, !tbaa !56
   %100 = and i64 %91, -2
@@ -1848,7 +1845,7 @@ redblack_left.exit126.i:                          ; preds = %redblack_red_p.exit
   %103 = icmp eq i32 %.val89.i, 0
   %104 = add i32 %.val89.i, -1
   %105 = zext i32 %104 to i64
-  %106 = getelementptr %struct.redblack_node, ptr %85, i64 %105
+  %106 = getelementptr [24 x i8], ptr %85, i64 %105
   %.0.i127.i = select i1 %103, ptr null, ptr %106
   %107 = getelementptr i8, ptr %88, i64 20
   %.val108.i = load i32, ptr %107, align 4, !tbaa !60
@@ -1858,7 +1855,7 @@ redblack_left.exit126.i:                          ; preds = %redblack_red_p.exit
 109:                                              ; preds = %redblack_left.exit126.i
   %110 = add i32 %.val108.i, -1
   %111 = zext i32 %110 to i64
-  %112 = getelementptr %struct.redblack_node, ptr %85, i64 %111
+  %112 = getelementptr [24 x i8], ptr %85, i64 %111
   br label %redblack_right.exit132.i
 
 113:                                              ; preds = %redblack_red_p.exit119.i, %redblack_left.exit.i, %80
@@ -1873,7 +1870,7 @@ redblack_right.exit136.i:                         ; preds = %113
   %118 = load ptr, ptr %117, align 8, !tbaa !59
   %119 = add i32 %.val107.i, -1
   %120 = zext i32 %119 to i64
-  %121 = getelementptr %struct.redblack_node, ptr %118, i64 %120
+  %121 = getelementptr [24 x i8], ptr %118, i64 %120
   %.not.i.i137.i = icmp eq ptr %121, null
   br i1 %.not.i.i137.i, label %redblack_red_p.exit134.thread.i, label %redblack_red_p.exit138.i
 
@@ -1890,7 +1887,7 @@ redblack_right.exit146.i:                         ; preds = %redblack_red_p.exit
   %128 = inttoptr i64 %127 to ptr
   %129 = add i32 %.val93.i, -1
   %130 = zext i32 %129 to i64
-  %131 = getelementptr %struct.redblack_node, ptr %118, i64 %130
+  %131 = getelementptr [24 x i8], ptr %118, i64 %130
   %.0.i139.i = select i1 %82, ptr null, ptr %131
   %132 = load i64, ptr %121, align 8, !tbaa !56
   %133 = getelementptr i8, ptr %121, i64 16
@@ -1898,7 +1895,7 @@ redblack_right.exit146.i:                         ; preds = %redblack_red_p.exit
   %134 = icmp eq i32 %.val86.i, 0
   %135 = add i32 %.val86.i, -1
   %136 = zext i32 %135 to i64
-  %137 = getelementptr %struct.redblack_node, ptr %118, i64 %136
+  %137 = getelementptr [24 x i8], ptr %118, i64 %136
   %.0.i147.i = select i1 %134, ptr null, ptr %137
   %138 = getelementptr i8, ptr %121, i64 20
   %.val102.i = load i32, ptr %138, align 4, !tbaa !60
@@ -1908,7 +1905,7 @@ redblack_right.exit146.i:                         ; preds = %redblack_red_p.exit
 140:                                              ; preds = %redblack_right.exit146.i
   %141 = add i32 %.val102.i, -1
   %142 = zext i32 %141 to i64
-  %143 = getelementptr %struct.redblack_node, ptr %118, i64 %142
+  %143 = getelementptr [24 x i8], ptr %118, i64 %142
   br label %redblack_right.exit132.i
 
 redblack_red_p.exit134.thread.i:                  ; preds = %redblack_red_p.exit138.i, %redblack_right.exit136.i, %113, %redblack_red_p.exit.i, %75
@@ -1934,7 +1931,7 @@ redblack_left.exit156.i:                          ; preds = %148
   %153 = load ptr, ptr %152, align 8, !tbaa !59
   %154 = add i32 %.val85.i, -1
   %155 = zext i32 %154 to i64
-  %156 = getelementptr %struct.redblack_node, ptr %153, i64 %155
+  %156 = getelementptr [24 x i8], ptr %153, i64 %155
   %.not.i.i157.i = icmp eq ptr %156, null
   br i1 %.not.i.i157.i, label %181, label %redblack_red_p.exit158.i
 
@@ -1954,7 +1951,7 @@ redblack_left.exit166.i:                          ; preds = %redblack_red_p.exit
   %165 = icmp eq i32 %.val101.i, 0
   %166 = add i32 %.val101.i, -1
   %167 = zext i32 %166 to i64
-  %168 = getelementptr %struct.redblack_node, ptr %153, i64 %167
+  %168 = getelementptr [24 x i8], ptr %153, i64 %167
   %.0.i159.i = select i1 %165, ptr null, ptr %168
   %169 = load i64, ptr %156, align 8, !tbaa !56
   %170 = getelementptr i8, ptr %156, i64 16
@@ -1962,7 +1959,7 @@ redblack_left.exit166.i:                          ; preds = %redblack_red_p.exit
   %171 = icmp eq i32 %.val81.i, 0
   %172 = add i32 %.val81.i, -1
   %173 = zext i32 %172 to i64
-  %174 = getelementptr %struct.redblack_node, ptr %153, i64 %173
+  %174 = getelementptr [24 x i8], ptr %153, i64 %173
   %.0.i167.i = select i1 %171, ptr null, ptr %174
   %175 = getelementptr i8, ptr %156, i64 20
   %.val100.i = load i32, ptr %175, align 4, !tbaa !60
@@ -1972,7 +1969,7 @@ redblack_left.exit166.i:                          ; preds = %redblack_red_p.exit
 177:                                              ; preds = %redblack_left.exit166.i
   %178 = add i32 %.val100.i, -1
   %179 = zext i32 %178 to i64
-  %180 = getelementptr %struct.redblack_node, ptr %153, i64 %179
+  %180 = getelementptr [24 x i8], ptr %153, i64 %179
   br label %redblack_right.exit132.i
 
 181:                                              ; preds = %redblack_red_p.exit158.i, %redblack_left.exit156.i, %148
@@ -1987,7 +1984,7 @@ redblack_right.exit176.i:                         ; preds = %181
   %186 = load ptr, ptr %185, align 8, !tbaa !59
   %187 = add i32 %.val99.i, -1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr %struct.redblack_node, ptr %186, i64 %188
+  %189 = getelementptr [24 x i8], ptr %186, i64 %188
   %.not.i.i177.i = icmp eq ptr %189, null
   br i1 %.not.i.i177.i, label %redblack_red_p.exit174.thread.i, label %redblack_red_p.exit178.i
 
@@ -2002,7 +1999,7 @@ redblack_right.exit186.i:                         ; preds = %redblack_red_p.exit
   %194 = load i64, ptr %.0, align 8, !tbaa !56
   %195 = add i32 %.val85.i, -1
   %196 = zext i32 %195 to i64
-  %197 = getelementptr %struct.redblack_node, ptr %186, i64 %196
+  %197 = getelementptr [24 x i8], ptr %186, i64 %196
   %.0.i179.i = select i1 %150, ptr null, ptr %197
   %198 = load i64, ptr %189, align 8, !tbaa !56
   %199 = and i64 %192, -2
@@ -2012,7 +2009,7 @@ redblack_right.exit186.i:                         ; preds = %redblack_red_p.exit
   %202 = icmp eq i32 %.val.i, 0
   %203 = add i32 %.val.i, -1
   %204 = zext i32 %203 to i64
-  %205 = getelementptr %struct.redblack_node, ptr %186, i64 %204
+  %205 = getelementptr [24 x i8], ptr %186, i64 %204
   %.0.i187.i = select i1 %202, ptr null, ptr %205
   %206 = getelementptr i8, ptr %189, i64 20
   %.val94.i = load i32, ptr %206, align 4, !tbaa !60
@@ -2022,7 +2019,7 @@ redblack_right.exit186.i:                         ; preds = %redblack_red_p.exit
 208:                                              ; preds = %redblack_right.exit186.i
   %209 = add i32 %.val94.i, -1
   %210 = zext i32 %209 to i64
-  %211 = getelementptr %struct.redblack_node, ptr %186, i64 %210
+  %211 = getelementptr [24 x i8], ptr %186, i64 %210
   br label %redblack_right.exit132.i
 
 redblack_red_p.exit174.thread.i:                  ; preds = %redblack_red_p.exit178.i, %redblack_right.exit176.i, %181, %redblack_red_p.exit154.i, %redblack_red_p.exit134.thread.i
@@ -2039,7 +2036,7 @@ redblack_red_p.exit174.thread.i:                  ; preds = %redblack_red_p.exit
   %220 = add nsw i32 %214, 1
   store i32 %220, ptr %213, align 8, !tbaa !65
   %221 = zext i32 %214 to i64
-  %222 = getelementptr %struct.redblack_node, ptr %219, i64 %221
+  %222 = getelementptr [24 x i8], ptr %219, i64 %221
   store i64 %70, ptr %222, align 8, !tbaa !56
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr %72, ptr %223, align 8, !tbaa !61
@@ -2086,7 +2083,7 @@ redblack_right.exit132.i:                         ; preds = %208, %redblack_righ
   %242 = add nsw i32 %238, 1
   store i32 %242, ptr %237, align 8, !tbaa !65
   %243 = zext i32 %238 to i64
-  %244 = getelementptr %struct.redblack_node, ptr %235, i64 %243
+  %244 = getelementptr [24 x i8], ptr %235, i64 %243
   store i64 %.076.i, ptr %244, align 8, !tbaa !56
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr %.073.i, ptr %245, align 8, !tbaa !61
@@ -2139,7 +2136,7 @@ redblack_new.exit199.i:                           ; preds = %258, %redblack_id_f
   %272 = add nsw i32 %.pre228.i, 1
   store i32 %272, ptr %.phi.trans.insert.i, align 8, !tbaa !65
   %273 = zext i32 %.pre228.i to i64
-  %274 = getelementptr %struct.redblack_node, ptr %271, i64 %273
+  %274 = getelementptr [24 x i8], ptr %271, i64 %273
   store i64 %.075.i, ptr %274, align 8, !tbaa !56
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store ptr %.072.i, ptr %275, align 8, !tbaa !61
@@ -2192,7 +2189,7 @@ redblack_new.exit205.i:                           ; preds = %288, %redblack_id_f
   %302 = add nsw i32 %.pre231.i, 1
   store i32 %302, ptr %.phi.trans.insert230.i, align 8, !tbaa !65
   %303 = zext i32 %.pre231.i to i64
-  %304 = getelementptr %struct.redblack_node, ptr %301, i64 %303
+  %304 = getelementptr [24 x i8], ptr %301, i64 %303
   store i64 %.077.i, ptr %304, align 8, !tbaa !56
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store ptr %.074.in.in.pre-phi.i, ptr %305, align 8, !tbaa !61
@@ -2223,7 +2220,7 @@ redblack_new.exit205.i:                           ; preds = %288, %redblack_id_f
   %325 = add nsw i32 %319, 1
   store i32 %325, ptr %318, align 8, !tbaa !65
   %326 = zext i32 %319 to i64
-  %327 = getelementptr %struct.redblack_node, ptr %324, i64 %326
+  %327 = getelementptr [24 x i8], ptr %324, i64 %326
   store i64 %70, ptr %327, align 8, !tbaa !56
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store ptr %68, ptr %328, align 8, !tbaa !61

@@ -1839,7 +1839,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
 
 .preheader:                                       ; preds = %12, %41
   %15 = phi i64 [ %42, %41 ], [ 0, %12 ]
-  %16 = getelementptr ptr, ptr %0, i64 %15
+  %16 = getelementptr [8 x i8], ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load volatile i64, ptr %18, align 8
@@ -1904,9 +1904,9 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
 
 54:                                               ; preds = %78, %48
   %55 = phi i64 [ 0, %48 ], [ %85, %78 ]
-  %56 = getelementptr ptr, ptr %0, i64 %55
+  %56 = getelementptr [8 x i8], ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr %struct.default_wait_cb, ptr %46, i64 %55
+  %58 = getelementptr [32 x i8], ptr %46, i64 %55
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %50, ptr %59, align 8
   %60 = icmp eq ptr %57, null
@@ -1992,7 +1992,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly captures(a
 
 98:                                               ; preds = %.lr.ph
   %99 = sext i32 %109 to i64
-  %100 = getelementptr ptr, ptr %0, i64 %99
+  %100 = getelementptr [8 x i8], ptr %0, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %103 = load volatile i64, ptr %102, align 8
@@ -2068,9 +2068,9 @@ select.unfold:                                    ; preds = %.critedge
 .preheader26:                                     ; preds = %.thread22, %140
   %127 = phi i64 [ %128, %140 ], [ %125, %.thread22 ]
   %128 = add nsw i64 %127, -1
-  %129 = getelementptr ptr, ptr %0, i64 %128
+  %129 = getelementptr [8 x i8], ptr %0, i64 %128
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr %struct.default_wait_cb, ptr %46, i64 %128
+  %131 = getelementptr [32 x i8], ptr %46, i64 %128
   %132 = load ptr, ptr %130, align 8
   %133 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %132) #14
   %134 = load volatile ptr, ptr %131, align 8

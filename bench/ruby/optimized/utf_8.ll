@@ -32,7 +32,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
+  %17 = getelementptr [4 x i8], ptr @EncLen_UTF8, i64 %6
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %19 = sub i32 0, %18
   br label %64
@@ -58,7 +58,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
+  %35 = getelementptr [4 x i8], ptr @EncLen_UTF8, i64 %6
   %36 = load i32, ptr %35, align 4, !tbaa !10
   %37 = sub i32 1, %36
   br label %64
@@ -84,7 +84,7 @@ define internal i32 @mbc_enc_len(ptr noundef readonly captures(address) %0, ptr 
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
-  %53 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
+  %53 = getelementptr [4 x i8], ptr @EncLen_UTF8, i64 %6
   %54 = load i32, ptr %53, align 4, !tbaa !10
   %55 = sub i32 2, %54
   br label %64
@@ -195,7 +195,7 @@ mbc_enc_len.exit.thread25:                        ; preds = %22, %35, %39
 
 mbc_enc_len.exit:                                 ; preds = %37, %24, %11
   %.sink = phi i32 [ 1, %24 ], [ 0, %11 ], [ 2, %37 ]
-  %48 = getelementptr i32, ptr @EncLen_UTF8, i64 %6
+  %48 = getelementptr [4 x i8], ptr @EncLen_UTF8, i64 %6
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = sub i32 %.sink, %49
   %51 = zext i8 %5 to i32

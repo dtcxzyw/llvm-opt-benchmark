@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.anon = type { ptr, i32 }
 %struct.tparam_ctx = type { ptr }
 %struct.ssl_conn_close_info_st = type { i64, i64, ptr, i64, i32 }
-%struct.tparam_test = type { i64, i32, ptr, ptr, i64 }
 %struct.timeval = type { i64, i64 }
 %struct.in_addr = type { i32 }
 %struct.PACKET = type { ptr, i64 }
@@ -1252,7 +1250,7 @@ define internal range(i32 0, 2) i32 @test_ciphersuites() #1 {
   %.b = phi i1 [ %.b.pre33, %18 ], [ %.b34, %32 ]
   %.032 = phi i64 [ 0, %18 ], [ %.1, %32 ]
   %.02031 = phi i64 [ 0, %18 ], [ %33, %32 ]
-  %21 = getelementptr inbounds nuw i32, ptr @__const.test_ciphersuites.cipherids, i64 %.02031
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @__const.test_ciphersuites.cipherids, i64 %.02031
   %22 = icmp eq i64 %.02031, 1
   %or.cond = select i1 %22, i1 %.b, i1 false
   br i1 %or.cond, label %32, label %23
@@ -1317,7 +1315,7 @@ define internal range(i32 0, 2) i32 @test_cipher_find() #1 {
 
 .preheader:                                       ; preds = %5, %16
   %.01218 = phi i64 [ %17, %16 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @__const.test_cipher_find.testciphers, i64 %.01218
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @__const.test_cipher_find.testciphers, i64 %.01218
   %9 = add nsw i64 %.01218, -3
   %.not15 = icmp ult i64 %9, 4
   %10 = load ptr, ptr %8, align 16, !tbaa !26
@@ -3622,7 +3620,7 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   store ptr null, ptr %4, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.tparam_test, ptr @tparam_tests, i64 %7
+  %8 = getelementptr inbounds [40 x i8], ptr @tparam_tests, i64 %7
   store ptr %8, ptr %5, align 8, !tbaa !50
   %9 = load ptr, ptr @libctx, align 8, !tbaa !4
   %10 = tail call ptr @OSSL_QUIC_client_method() #10

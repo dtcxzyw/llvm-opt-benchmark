@@ -367,7 +367,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17h936d2cdcb480a581E.llvm.1023
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h73ddc6db3ba945d2E.llvm.10237324351089278644"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = sub nsw i64 0, %1
-  %4 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %0, i64 %3
+  %4 = getelementptr inbounds [80 x i8], ptr %0, i64 %3
   ret ptr %4
 }
 
@@ -436,7 +436,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14in
   %36 = getelementptr i8, ptr %35, i64 16
   store i8 %32, ptr %36, align 1, !noalias !51
   %37 = sub nsw i64 0, %.0.i.i.i
-  %38 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %6, i64 %37
+  %38 = getelementptr inbounds [80 x i8], ptr %6, i64 %37
   %39 = and i8 %29, 1
   %40 = zext nneg i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -653,7 +653,7 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %98 = load ptr, ptr %0, align 8, !alias.scope !112, !noalias !113, !nonnull !5, !noundef !5
   %99 = sub nsw i64 0, %96
-  %100 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %98, i64 %99
+  %100 = getelementptr inbounds [80 x i8], ptr %98, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -80
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !115
@@ -909,7 +909,7 @@ _ZN4core3ptr19swap_nonoverlapping17ha4784058f1b0d5a0E.exit.loopexit.i: ; preds =
 _ZN4core3ptr19swap_nonoverlapping17ha4784058f1b0d5a0E.exit.i: ; preds = %_ZN4core3ptr19swap_nonoverlapping17ha4784058f1b0d5a0E.exit.loopexit.i, %197
   %201 = phi ptr [ %.pre.i22, %_ZN4core3ptr19swap_nonoverlapping17ha4784058f1b0d5a0E.exit.loopexit.i ], [ %194, %197 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
-  %202 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %201, i64 %200
+  %202 = getelementptr inbounds [80 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds i8, ptr %202, i64 -80
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !169
   store i64 %179, ptr %6, align 8, !alias.scope !175, !noalias !178

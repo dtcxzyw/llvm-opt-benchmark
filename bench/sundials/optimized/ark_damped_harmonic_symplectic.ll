@@ -50,7 +50,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.sroa.0.0 = phi i32 [ %.sroa.0.1, %52 ], [ 4, %2 ]
   %.050.i = phi i32 [ %53, %52 ], [ 1, %2 ]
   %7 = sext i32 %.050.i to i64
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(8) @.str.9) #10
   %.not.i = icmp eq i32 %10, 0
@@ -59,7 +59,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 11:                                               ; preds = %.lr.ph.i
   %12 = add nsw i32 %.050.i, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = tail call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #11
   %17 = trunc i64 %16 to i32
@@ -73,7 +73,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 20:                                               ; preds = %18
   %21 = add nsw i32 %.050.i, 1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = tail call double @strtod(ptr noundef nonnull captures(none) %24, ptr noundef null) #11
   br label %52
@@ -86,7 +86,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 28:                                               ; preds = %26
   %29 = add nsw i32 %.050.i, 1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %1, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %1, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !9
   %33 = tail call double @strtod(ptr noundef nonnull captures(none) %32, ptr noundef null) #11
   br label %52
@@ -99,7 +99,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
 36:                                               ; preds = %34
   %37 = add nsw i32 %.050.i, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %1, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %1, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !9
   %41 = tail call i64 @strtol(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 10) #11
   %42 = trunc i64 %41 to i32

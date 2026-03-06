@@ -6,12 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64 }
 %struct.pairingheap_node = type { ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.ConstrCheck = type { ptr, ptr, i8, i8, i8 }
-%struct.ParamExecData = type { ptr, i64, i8 }
 
 @ExecutorStart_hook = dso_local local_unnamed_addr global ptr null, align 8
 @ExecutorRun_hook = dso_local local_unnamed_addr global ptr null, align 8
@@ -149,7 +144,7 @@ define dso_local void @standard_ExecutorStart(ptr noundef captures(none) %0, i32
 .lr.ph18.i:                                       ; preds = %.lr.ph.i, %35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %35 ], [ 0, %.lr.ph.i ]
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
@@ -368,7 +363,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
 .lr.ph:                                           ; preds = %.lr.ph.i42, %256
   %indvars.iv.i4364 = phi i64 [ %indvars.iv.next.i45, %256 ], [ 0, %.lr.ph.i42 ]
   %147 = load ptr, ptr %142, align 8
-  %148 = getelementptr inbounds nuw %union.ListCell, ptr %147, i64 %indvars.iv.i4364
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv.i4364
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %151 = load i8, ptr %150, align 4, !range !4, !noundef !5
@@ -389,7 +384,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   %.val.val.i = load ptr, ptr %160, align 8
   %161 = add i32 %159, -1
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds %union.ListCell, ptr %.val.val.i, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %.val.val.i, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 28
   %166 = load i32, ptr %165, align 4
@@ -544,7 +539,7 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   %252 = load ptr, ptr %139, align 8
   %253 = add i32 %231, -1
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw ptr, ptr %252, i64 %254
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %254
   store ptr %229, ptr %255, align 8
   br label %256
 
@@ -580,7 +575,7 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.lr.ph160.i ], [ 0, %.lr.ph156.i ]
   %.0109155158.i = phi i32 [ %280, %.lr.ph160.i ], [ 1, %.lr.ph156.i ]
   %272 = load ptr, ptr %265, align 8
-  %273 = getelementptr inbounds nuw %union.ListCell, ptr %272, i64 %indvars.iv179.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv179.i
   %274 = load ptr, ptr %273, align 8
   %275 = load ptr, ptr %267, align 8
   %276 = tail call zeroext i1 @bms_is_member(i32 noundef %.0109155158.i, ptr noundef %275) #8
@@ -627,7 +622,7 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
 
 296:                                              ; preds = %295, %.lr.ph165.i
   %indvars.iv182.i = phi i64 [ 0, %.lr.ph165.i ], [ %indvars.iv.next183.i, %295 ]
-  %297 = getelementptr inbounds nuw %union.ListCell, ptr %294, i64 %indvars.iv182.i
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv182.i
   %298 = load ptr, ptr %297, align 8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 42
   %300 = load i8, ptr %299, align 2, !range !4, !noundef !5
@@ -1217,7 +1212,7 @@ define dso_local void @standard_ExecutorFinish(ptr noundef readonly captures(non
 .lr.ph23.i:                                       ; preds = %.lr.ph.i, %39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %.lr.ph.i ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -1350,7 +1345,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
 .lr.ph16.i:                                       ; preds = %.lr.ph.i, %.lr.ph16.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph16.i ], [ 0, %.lr.ph.i ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   tail call void @ExecEndNode(ptr noundef %26) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1378,7 +1373,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %44, %42 ]
   %37 = load ptr, ptr %34, align 8
   %38 = sext i32 %.07.i.i to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %42, label %41
@@ -1448,7 +1443,7 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
 .lr.ph60:                                         ; preds = %.lr.ph, %.critedge
   %indvars.iv59 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv59
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv59
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -1945,7 +1940,7 @@ define dso_local ptr @ExecGetTriggerResultRel(ptr noundef captures(none) %0, i32
 
 12:                                               ; preds = %.lr.ph94, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -1979,7 +1974,7 @@ define dso_local ptr @ExecGetTriggerResultRel(ptr noundef captures(none) %0, i32
 
 28:                                               ; preds = %.lr.ph102, %27
   %indvars.iv119 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next120, %27 ]
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv119
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv119
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -2013,7 +2008,7 @@ define dso_local ptr @ExecGetTriggerResultRel(ptr noundef captures(none) %0, i32
 
 44:                                               ; preds = %.lr.ph110, %43
   %indvars.iv124 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next125, %43 ]
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %42, i64 %indvars.iv124
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv124
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
@@ -2096,7 +2091,7 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
   %.0253340 = phi ptr [ %39, %35 ], [ null, %.lr.ph ]
   %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 8
   %.not30 = icmp eq i32 %34, %19
   br i1 %.not30, label %.critedge, label %35
@@ -2144,7 +2139,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
 .lr.ph65:                                         ; preds = %.lr.ph47, %.critedge39
   %indvars.iv5564 = phi i64 [ %indvars.iv.next56, %.critedge39 ], [ 0, %.lr.ph47 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv5564
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv5564
   %10 = load ptr, ptr %9, align 8
   tail call void @ExecCloseIndices(ptr noundef %10) #8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 384
@@ -2176,7 +2171,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
   %23 = phi i32 [ %36, %35 ], [ %15, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
@@ -2207,7 +2202,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
 .lr.ph53:                                         ; preds = %.lr.ph50, %.lr.ph53
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.lr.ph53 ], [ 0, %.lr.ph50 ]
   %39 = load ptr, ptr %20, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv58
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv58
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -2242,7 +2237,7 @@ define dso_local void @ExecCloseRangeTableRelations(ptr noundef readonly capture
   %.07 = phi i32 [ 0, %.lr.ph ], [ %14, %12 ]
   %7 = load ptr, ptr %4, align 8
   %8 = sext i32 %.07 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -2458,7 +2453,7 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   %33 = shl nsw i64 %32, 4
   %34 = getelementptr i8, ptr %2, i64 %33
   %35 = getelementptr i8, ptr %34, i64 24
-  %36 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [100 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 91
   %38 = load i8, ptr %37, align 1, !range !4, !noundef !5
   %39 = trunc nuw i8 %38 to i1
@@ -2515,7 +2510,7 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   call void @getTypeOutputInfo(i32 noundef %66, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %67 = load i32, ptr %8, align 4
   %68 = load ptr, ptr %29, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = call ptr @OidOutputFunctionCall(i32 noundef %67, i64 noundef %70) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2622,7 +2617,7 @@ define dso_local void @ExecConstraints(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = getelementptr i8, ptr %7, i64 %21
   %23 = getelementptr i8, ptr %22, i64 24
   %24 = sext i32 %18 to i64
-  %25 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %23, i64 %24
+  %25 = getelementptr inbounds [100 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 86
   %27 = load i8, ptr %26, align 2, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
@@ -2771,7 +2766,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
 
 .lr.ph.i:                                         ; preds = %110, %129
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %129 ], [ 0, %110 ]
-  %117 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %91, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i8, ptr %118, align 8, !range !4, !noundef !5
   %120 = trunc nuw i8 %119 to i1
@@ -2784,7 +2779,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   %125 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %124, ptr noundef %82, i32 noundef 1) #8
   %126 = tail call ptr @ExecPrepareExpr(ptr noundef %125, ptr noundef %2) #8
   %127 = load ptr, ptr %107, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i
   store ptr %126, ptr %128, align 8
   br label %129
 
@@ -2821,7 +2816,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
 .lr.ph57.i:                                       ; preds = %143, %.lr.ph57.preheader.i
   %indvars.iv62.i = phi i64 [ 0, %.lr.ph57.preheader.i ], [ %indvars.iv.next63.i, %143 ]
   %138 = load ptr, ptr %107, align 8
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv62.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv62.i
   %140 = load ptr, ptr %139, align 8
   %.not50.i = icmp eq ptr %140, null
   br i1 %.not50.i, label %143, label %141
@@ -2836,7 +2831,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   br i1 %exitcond66.not.i, label %ExecRelCheck.exit.thread, label %.lr.ph57.i, !llvm.loop !12
 
 ExecRelCheck.exit:                                ; preds = %141
-  %144 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %91, i64 %indvars.iv62.i
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv62.i
   %145 = load ptr, ptr %144, align 8
   %.not90 = icmp eq ptr %145, null
   br i1 %.not90, label %ExecRelCheck.exit.thread, label %146
@@ -2952,7 +2947,7 @@ define dso_local void @ExecWithCheckOptions(i32 noundef %0, ptr noundef %1, ptr 
 
 29:                                               ; preds = %.split.split
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   br label %32
 
 32:                                               ; preds = %.split.split, %29
@@ -2964,7 +2959,7 @@ define dso_local void @ExecWithCheckOptions(i32 noundef %0, ptr noundef %1, ptr 
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = icmp ne ptr %33, null
   %41 = icmp ne ptr %38, null
   %42 = select i1 %40, i1 %41, i1 false
@@ -3218,7 +3213,7 @@ define dso_local ptr @ExecFindRowMark(ptr noundef readonly captures(none) %0, i3
 10:                                               ; preds = %7
   %11 = add i32 %1, -1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not16.not = icmp ne ptr %14, null
   %brmerge = or i1 %2, %.not16.not
@@ -3319,7 +3314,7 @@ define dso_local ptr @EvalPlanQual(ptr noundef %0, ptr noundef %1, i32 noundef %
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %2, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %EvalPlanQualSlot.exit
@@ -3542,19 +3537,19 @@ list_length.exit.i:                               ; preds = %74, %69
 86:                                               ; preds = %86, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %85, %.lr.ph.i ], [ %indvars.iv.next.i, %86 ]
   %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr inbounds nuw %struct.ParamExecData, ptr %87, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %indvars.iv.i
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = load ptr, ptr %81, align 8
-  %92 = getelementptr inbounds nuw %struct.ParamExecData, ptr %91, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %90, ptr %93, align 8
   %94 = load ptr, ptr %84, align 8
-  %95 = getelementptr inbounds nuw %struct.ParamExecData, ptr %94, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i8, ptr %96, align 8, !range !4, !noundef !5
   %98 = load ptr, ptr %81, align 8
-  %99 = getelementptr inbounds nuw %struct.ParamExecData, ptr %98, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %indvars.iv.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i8 %97, ptr %100, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -3583,7 +3578,7 @@ list_length.exit.i:                               ; preds = %74, %69
 .lr.ph122.i:                                      ; preds = %.lr.ph119.i, %.lr.ph122.i
   %indvars.iv134.i = phi i64 [ %indvars.iv.next135.i, %.lr.ph122.i ], [ 0, %.lr.ph119.i ]
   %112 = load ptr, ptr %108, align 8
-  %113 = getelementptr inbounds nuw %union.ListCell, ptr %112, i64 %indvars.iv134.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv134.i
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @ExecInitNode(ptr noundef %114, ptr noundef nonnull %11, i32 noundef 0) #8
   %116 = load ptr, ptr %109, align 8
@@ -3616,7 +3611,7 @@ list_length.exit.i:                               ; preds = %74, %69
 .lr.ph127.i:                                      ; preds = %.lr.ph124.i, %.lr.ph127.i
   %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %.lr.ph127.i ], [ 0, %.lr.ph124.i ]
   %131 = load ptr, ptr %128, align 8
-  %132 = getelementptr inbounds nuw %union.ListCell, ptr %131, i64 %indvars.iv137.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv137.i
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %124, align 8
   %135 = load ptr, ptr %133, align 8
@@ -3624,7 +3619,7 @@ list_length.exit.i:                               ; preds = %74, %69
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, -1
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %134, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %139
   store ptr %133, ptr %140, align 8
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 1
   %141 = load i32, ptr %127, align 4
@@ -3654,7 +3649,7 @@ list_length.exit.i:                               ; preds = %74, %69
 .lr.ph132.i:                                      ; preds = %.lr.ph129.i, %.lr.ph132.i
   %indvars.iv140.i = phi i64 [ %indvars.iv.next141.i, %.lr.ph132.i ], [ 0, %.lr.ph129.i ]
   %154 = load ptr, ptr %151, align 8
-  %155 = getelementptr inbounds nuw %union.ListCell, ptr %154, i64 %indvars.iv140.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv140.i
   %156 = load i32, ptr %155, align 8
   %157 = load ptr, ptr %147, align 8
   %158 = add i32 %156, -1
@@ -3738,19 +3733,19 @@ list_length.exit:                                 ; preds = %191
 203:                                              ; preds = %.lr.ph, %203
   %indvars.iv = phi i64 [ %202, %.lr.ph ], [ %indvars.iv.next, %203 ]
   %204 = load ptr, ptr %200, align 8
-  %205 = getelementptr inbounds nuw %struct.ParamExecData, ptr %204, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw [24 x i8], ptr %204, i64 %indvars.iv
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load i64, ptr %206, align 8
   %208 = load ptr, ptr %201, align 8
-  %209 = getelementptr inbounds nuw %struct.ParamExecData, ptr %208, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw [24 x i8], ptr %208, i64 %indvars.iv
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i64 %207, ptr %210, align 8
   %211 = load ptr, ptr %200, align 8
-  %212 = getelementptr inbounds nuw %struct.ParamExecData, ptr %211, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw [24 x i8], ptr %211, i64 %indvars.iv
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load i8, ptr %213, align 8, !range !4, !noundef !5
   %215 = load ptr, ptr %201, align 8
-  %216 = getelementptr inbounds nuw %struct.ParamExecData, ptr %215, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %indvars.iv
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i8 %214, ptr %217, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3776,7 +3771,7 @@ define dso_local ptr @EvalPlanQualSlot(ptr noundef %0, ptr noundef %1, i32 nound
   %5 = load ptr, ptr %4, align 8
   %6 = add i32 %2, -1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %18
@@ -3911,7 +3906,7 @@ define dso_local void @EvalPlanQualEnd(ptr noundef captures(none) %0) local_unna
 .lr.ph33:                                         ; preds = %.lr.ph, %.lr.ph33
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph33 ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   tail call void @ExecEndNode(ptr noundef %31) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3944,7 +3939,7 @@ define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr noundef readon
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %1, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -3994,7 +3989,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %23, %slot_getsomeat
 39:                                               ; preds = %ExecGetJunkAttribute.exit
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %35
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %35
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4035,7 +4030,7 @@ ExecGetJunkAttribute.exit38:                      ; preds = %54, %slot_getsomeat
   %64 = load i8, ptr %63, align 1, !range !4, !noundef !5
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i64, ptr %66, i64 %62
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %62
   %68 = load i64, ptr %67, align 8
   %69 = trunc nuw i8 %64 to i1
   br i1 %69, label %.critedge, label %70
@@ -4146,7 +4141,7 @@ ExecGetJunkAttribute.exit40:                      ; preds = %119, %slot_getsomea
 131:                                              ; preds = %ExecGetJunkAttribute.exit40
   %132 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i64, ptr %133, i64 %127
+  %134 = getelementptr inbounds [8 x i8], ptr %133, i64 %127
   %135 = load i64, ptr %134, align 8
   tail call void @ExecStoreHeapTupleDatum(i64 noundef %135, ptr noundef %2) #8
   br label %.critedge

@@ -218,12 +218,12 @@ _ZN8grep_cli10decompress30default_decompression_commands17hf198ba34859272b7E.exi
   %49 = load ptr, ptr %48, align 8, !nonnull !8, !noundef !8
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %51 = load i64, ptr %50, align 8, !noundef !8
-  %52 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i64, ptr, {} }, i64 } }, ptr %49, i64 %51
+  %52 = getelementptr inbounds [72 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %53, align 8, !nonnull !8, !noundef !8
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val41 = load i64, ptr %54, align 8, !noundef !8
-  %55 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.val41
+  %55 = getelementptr inbounds [72 x i8], ptr %.val, i64 %.val41
   %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.964.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -506,7 +506,7 @@ select.unfold:                                    ; preds = %58
 135:                                              ; preds = %._crit_edge.i, %126
   %136 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %127, %126 ]
   %137 = load ptr, ptr %46, align 8, !alias.scope !61, !noalias !64, !nonnull !8, !noundef !8
-  %138 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i64, ptr, {} }, i64 } }, ptr %137, i64 %136
+  %138 = getelementptr inbounds [72 x i8], ptr %137, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %138, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false)
   %139 = add i64 %136, 1
   store i64 %139, ptr %47, align 8, !alias.scope !61, !noalias !64
@@ -903,7 +903,7 @@ define internal fastcc void @_ZN8grep_cli10decompress30default_decompression_com
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %3
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   store ptr %2, ptr %6, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %19, ptr %.sroa.44.0..sroa_idx, align 8
@@ -957,7 +957,7 @@ define internal fastcc void @_ZN8grep_cli10decompress30default_decompression_com
   %34 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %25, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9643b51f39a1d728E.exit" ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8, !alias.scope !139, !noalias !142, !nonnull !8, !noundef !8
-  %37 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i64, ptr, {} }, i64 } }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [72 x i8], ptr %36, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   %38 = load i64, ptr %24, align 8, !alias.scope !139, !noalias !142, !noundef !8
   %39 = add i64 %38, 1

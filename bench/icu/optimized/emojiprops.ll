@@ -138,13 +138,13 @@ define noundef ptr @_ZN6icu_7710EmojiProps12getSingletonER10UErrorCode(ptr nound
   %33 = phi i32 [ %.pre.i.i.i, %.preheader.preheader.i.i.i ], [ %35, %.preheader.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 4, %.preheader.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.preheader.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %34 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.next.i.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.next.i.i.i
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = icmp sgt i32 %35, %33
   %37 = sext i32 %33 to i64
   %38 = getelementptr inbounds i8, ptr %20, i64 %37
   %39 = select i1 %36, ptr %38, ptr null
-  %40 = getelementptr ptr, ptr %12, i64 %indvars.iv.i.i.i
+  %40 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv.i.i.i
   %41 = getelementptr i8, ptr %40, i64 -16
   store ptr %39, ptr %41, align 8, !tbaa !15
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 10
@@ -277,13 +277,13 @@ define void @_ZN6icu_7710EmojiProps4loadER10UErrorCode(ptr noundef nonnull align
   %21 = phi i32 [ %.pre, %.preheader.preheader ], [ %23, %.preheader ]
   %indvars.iv = phi i64 [ 4, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp sgt i32 %23, %21
   %25 = sext i32 %21 to i64
   %26 = getelementptr inbounds i8, ptr %7, i64 %25
   %27 = select i1 %24, ptr %26, ptr null
-  %28 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %29 = getelementptr i8, ptr %28, i64 -16
   store ptr %27, ptr %29, align 8, !tbaa !15
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -365,7 +365,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   %21 = load ptr, ptr %16, align 8, !tbaa !34
   %22 = lshr i32 %0, 6
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !37
   %26 = zext i16 %25 to i32
   %27 = and i32 %0, 63
@@ -442,7 +442,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %18 = load ptr, ptr %13, align 8, !tbaa !34
   %19 = lshr i32 %1, 6
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !37
   %23 = zext i16 %22 to i32
   %24 = and i32 %1, 63
@@ -560,7 +560,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
 
 24:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %25 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 -504
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %.not42 = icmp eq ptr %27, null
@@ -639,7 +639,7 @@ define void @_ZNK6icu_7710EmojiProps10addStringsEPK9USetAdder9UPropertyR10UError
 
 18:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %19 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %20 = getelementptr i8, ptr %19, i64 -504
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %.not30 = icmp eq ptr %21, null

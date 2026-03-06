@@ -913,7 +913,7 @@ define void @_ZN11uu_truncate6uu_app17he60b8c10088ae3b0E(ptr noalias noundef wri
   %153 = phi i64 [ %.pre.i.i, %.noexc.i54 ], [ %144, %140 ]
   %154 = getelementptr inbounds nuw i8, ptr %33, i64 256
   %155 = load ptr, ptr %154, align 8, !alias.scope !209, !noalias !213, !nonnull !5, !noundef !5
-  %156 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %155, i64 %153
+  %156 = getelementptr inbounds [16 x i8], ptr %155, i64 %153
   store ptr @anon.2b6d2131ced5aa1b3ee90bb1056f4cd9.3.llvm.1458127044300850450, ptr %156, align 8, !noalias !213
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i64 4, ptr %157, align 8, !noalias !206
@@ -1150,7 +1150,7 @@ define void @_ZN11uu_truncate6uu_app17he60b8c10088ae3b0E(ptr noalias noundef wri
   %219 = phi i64 [ %.pre.i.i79, %.noexc.i78 ], [ %210, %206 ]
   %220 = getelementptr inbounds nuw i8, ptr %30, i64 256
   %221 = load ptr, ptr %220, align 8, !alias.scope !307, !noalias !311, !nonnull !5, !noundef !5
-  %222 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %221, i64 %219
+  %222 = getelementptr inbounds [16 x i8], ptr %221, i64 %219
   store ptr @anon.2b6d2131ced5aa1b3ee90bb1056f4cd9.2.llvm.1458127044300850450, ptr %222, align 8, !noalias !311
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i64 9, ptr %223, align 8, !noalias !304
@@ -1871,7 +1871,7 @@ define { ptr, ptr } @_ZN11uu_truncate8truncate17h732514ec80b14299E(i1 noundef ze
   br label %.loopexit
 
 92:                                               ; preds = %98, %96, %86
-  %93 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %5
+  %93 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.1460.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 56
   %.sroa.1561.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 80
@@ -2375,7 +2375,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i.i: ; preds = %201
   %.sroa.1146.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 80
   %.sroa.1146.0.copyload.i = load i64, ptr %.sroa.1146.0..sroa_idx.i, align 8, !alias.scope !624, !noalias !625
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !577
-  %223 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %5
+  %223 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   br label %224
 
 224:                                              ; preds = %.noexc44, %222
@@ -2777,7 +2777,7 @@ _ZN6uucore4mods5error12USimpleError3new17h6381c26e7ac7b7dbE.exit.i77: ; preds = 
 
 _ZN11uu_truncate12TruncateMode7to_size17h72c20f81ed9aa85cE.exit.i52: ; preds = %341, %337, %332, %331, %330, %328
   %.0.i.i = phi i64 [ %339, %337 ], [ %329, %328 ], [ %343, %341 ], [ %spec.select.i.i55, %330 ], [ %.0.sroa.speculated.i.i.i54, %331 ], [ %.0.sroa.speculated.i5.i.i53, %332 ]
-  %344 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %5
+  %344 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   br label %345
 
 345:                                              ; preds = %.noexc90, %_ZN11uu_truncate12TruncateMode7to_size17h72c20f81ed9aa85cE.exit.i52

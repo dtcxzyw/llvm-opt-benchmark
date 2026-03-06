@@ -110,10 +110,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 31:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.07079 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !41
   %34 = tail call i32 @av_adler32_update(i32 noundef 0, ptr noundef %33, i64 noundef %30) #9
-  %35 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !42
   %.not75 = icmp eq i64 %indvars.iv, 0
   br i1 %.not75, label %38, label %36
@@ -177,7 +177,7 @@ av_ts_make_string.exit:                           ; preds = %49, %50
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv88 = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next89, %.lr.ph81 ]
   %62 = load ptr, ptr %9, align 8, !tbaa !37
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv88
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv88
   %64 = load i32, ptr %63, align 4, !tbaa !42
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 32, ptr noundef nonnull @.str.5, i32 noundef %64) #8
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -198,7 +198,7 @@ av_ts_make_string.exit:                           ; preds = %49, %50
 69:                                               ; preds = %.lr.ph85, %dump_matrixenc.exit
   %indvars.iv93 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next94, %dump_matrixenc.exit ]
   %70 = load ptr, ptr %68, align 8, !tbaa !52
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv93
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv93
   %72 = load ptr, ptr %71, align 8, !tbaa !53
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %7, i32 noundef 32, ptr noundef nonnull @.str.7) #8
   %73 = load i32, ptr %72, align 8, !tbaa !55
@@ -422,7 +422,7 @@ dump_replaygain.exit:                             ; preds = %115, %146, %147
 
 switch.lookup:                                    ; preds = %155
   %160 = zext nneg i32 %158 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.filter_frame, i64 %160
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter_frame, i64 %160
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dump_audio_service_type.exit
 

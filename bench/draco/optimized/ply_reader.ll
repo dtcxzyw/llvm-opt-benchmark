@@ -4149,7 +4149,7 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader16ParseElementDataEPNS_1
   %4 = alloca i64, align 8
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8, !tbaa !97
-  %7 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [112 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !36
   %10 = trunc i64 %9 to i32
@@ -4197,7 +4197,7 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader16ParseElementDataEPNS_1
 .lr.ph:                                           ; preds = %.preheader, %212
   %indvars.iv = phi i64 [ %indvars.iv.next, %212 ], [ 0, %.preheader ]
   %31 = phi ptr [ %214, %212 ], [ %17, %.preheader ]
-  %32 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [96 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load i32, ptr %33, align 8, !tbaa !29
   %.not = icmp eq i32 %34, 0
@@ -4292,7 +4292,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %79, %_ZN
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %76, ptr %45, align 8, !tbaa !32
   store ptr %80, ptr %57, align 8, !tbaa !139
-  %82 = getelementptr inbounds nuw i64, ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %82, ptr %59, align 8, !tbaa !33
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -4354,7 +4354,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %103, %_ZNK
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %105, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %100, ptr %45, align 8, !tbaa !32
   store ptr %104, ptr %57, align 8, !tbaa !139
-  %106 = getelementptr inbounds nuw i64, ptr %100, i64 %98
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %98
   store ptr %106, ptr %59, align 8, !tbaa !33
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
@@ -4626,7 +4626,7 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiE
   %9 = alloca i32, align 4
   %10 = sext i32 %2 to i64
   %11 = load ptr, ptr %0, align 8, !tbaa !97
-  %12 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [112 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %15 = trunc i64 %14 to i32
@@ -4661,7 +4661,7 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiE
 .lr.ph163:                                        ; preds = %.preheader, %153
   %indvars.iv = phi i64 [ %indvars.iv.next, %153 ], [ 0, %.preheader ]
   %30 = phi ptr [ %155, %153 ], [ %23, %.preheader ]
-  %31 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [96 x i8], ptr %30, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %31, ptr %6, align 8, !tbaa !142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
@@ -4677,10 +4677,10 @@ define dso_local noundef zeroext i1 @_ZN5draco9PlyReader21ParseElementDataAsciiE
 
 switch.lookup:                                    ; preds = %.lr.ph163
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep188 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi.1, i64 %36
+  %switch.gep188 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5draco9PlyReader21ParseElementDataAsciiEPNS_13DecoderBufferEi.1, i64 %36
   %switch.load189 = load ptr, ptr %switch.gep188, align 8
   store i64 %19, ptr %18, align 8
   store i64 0, ptr %.sroa.0.i.i.i15.i.sroa.4.0..sroa_idx, align 8, !tbaa !15
@@ -4788,7 +4788,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %80, %.no
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %82, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %77, ptr %46, align 8, !tbaa !32
   store ptr %81, ptr %58, align 8, !tbaa !139
-  %83 = getelementptr inbounds nuw i64, ptr %77, i64 %75
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %83, ptr %60, align 8, !tbaa !33
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -4858,7 +4858,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   %.pre169 = phi i32 [ %.pre169.pre, %108 ], [ %86, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70 ]
   store ptr %103, ptr %46, align 8, !tbaa !32
   store ptr %107, ptr %58, align 8, !tbaa !139
-  %109 = getelementptr inbounds nuw i64, ptr %103, i64 %101
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %101
   store ptr %109, ptr %60, align 8, !tbaa !33
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit75
 
@@ -5463,7 +5463,7 @@ _ZNSt6vectorIN5draco11PlyPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ;
 _ZNSt12_Vector_baseIN5draco11PlyPropertyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5draco11PlyPropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %94
   store ptr %20, ptr %0, align 8, !tbaa !117
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !118
-  %98 = getelementptr inbounds nuw %"class.draco::PlyProperty", ptr %20, i64 %16
+  %98 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %98, ptr %93, align 8, !tbaa !120
   ret void
 
@@ -6396,7 +6396,7 @@ _ZNSt6vectorIN5draco10PlyElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; 
 _ZNSt12_Vector_baseIN5draco10PlyElementESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5draco10PlyElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %74
   store ptr %22, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !96
-  %78 = getelementptr inbounds nuw %"class.draco::PlyElement", ptr %22, i64 %16
+  %78 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %16
   store ptr %78, ptr %73, align 8, !tbaa !134
   ret void
 }
@@ -7281,7 +7281,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !68
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !77
   ret void
 

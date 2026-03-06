@@ -19,12 +19,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.197" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.198" = type { [192 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
 %"class.llvm::AttributeSet" = type { ptr }
 %"struct.llvm::Align" = type { i8 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZNK4llvm10DataLayout16getTypeAllocSizeEPNS_4TypeE = comdat any
 
@@ -400,7 +398,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %34 = lshr i64 %25, 2
   %35 = and i64 %34, 15
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %"class.llvm::MDOperand", ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   %38 = lshr i64 %25, 6
   %39 = and i64 %38, 15
   br label %_ZNK4llvm6MDNode8operandsEv.exit
@@ -435,7 +433,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %27, %33
   %51 = lshr i64 %45, 2
   %52 = and i64 %51, 15
   %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %"class.llvm::MDOperand", ptr %44, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %44, i64 %53
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %47, %50
@@ -475,7 +473,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %47, %50
   %72 = lshr i64 %66, 2
   %73 = and i64 %72, 15
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds %"class.llvm::MDOperand", ptr %44, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %44, i64 %74
   br label %_ZNK4llvm6MDNode10getOperandEj.exit54
 
 _ZNK4llvm6MDNode10getOperandEj.exit54:            ; preds = %68, %71
@@ -518,7 +516,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit54:            ; preds = %68, %71
   %96 = lshr i64 %90, 2
   %97 = and i64 %96, 15
   %98 = sub nsw i64 0, %97
-  %99 = getelementptr inbounds %"class.llvm::MDOperand", ptr %44, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %44, i64 %98
   br label %_ZNK4llvm6MDNode10getOperandEj.exit60
 
 _ZNK4llvm6MDNode10getOperandEj.exit60:            ; preds = %92, %95
@@ -1257,7 +1255,7 @@ define internal fastcc noundef zeroext i1 @_ZL13isNullOrUndefPKN4llvm8ConstantE(
   %16 = and i32 %10, 134217727
   %17 = zext nneg i32 %16 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %18
   br label %_ZNK4llvm4User14operand_valuesEv.exit
 
 _ZNK4llvm4User14operand_valuesEv.exit:            ; preds = %12, %15

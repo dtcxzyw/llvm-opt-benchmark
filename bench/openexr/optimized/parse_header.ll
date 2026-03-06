@@ -3,8 +3,6 @@ source_filename = "bench/openexr/original/parse_header.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
 %struct.exr_attr_tiledesc_t = type <{ i32, i32, i8 }>
 %union.anon.1 = type { i32 }
 %struct.exr_attr_v2f_t = type { float, float }
@@ -13,6 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.exr_attr_v2i_t = type { i32, i32 }
 %struct.exr_attr_chlist_t = type { i32, i32, ptr }
 %struct._internal_exr_seq_scratch = type { ptr, i64, i64, i64, ptr, ptr, ptr }
+%struct.exr_attr_string_t = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [92 x i8] c"Invalid data window x dims (%d, %d) resulting in invalid tile level size (%ld) for level %d\00", align 1
 @.str.1 = private unnamed_addr constant [92 x i8] c"Invalid data window y dims (%d, %d) resulting in invalid tile level size (%ld) for level %d\00", align 1
@@ -387,10 +386,10 @@ ceil_log2.exit:                                   ; preds = %floor_log2.exit151,
 
 .lr.ph:                                           ; preds = %ceil_log2.exit
   %122 = sext i32 %.0133 to i64
-  %123 = getelementptr inbounds i32, ptr %116, i64 %122
-  %124 = getelementptr inbounds i32, ptr %123, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %116, i64 %122
+  %124 = getelementptr inbounds [4 x i8], ptr %123, i64 %122
   %125 = sext i32 %.0132 to i64
-  %126 = getelementptr inbounds i32, ptr %124, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %124, i64 %125
   %127 = load i8, ptr %58, align 1, !tbaa !33
   %.mask193 = and i8 %127, -16
   %128 = icmp eq i8 %.mask193, 16
@@ -431,10 +430,10 @@ ceil_log2.exit:                                   ; preds = %floor_log2.exit151,
   %144 = add nuw nsw i64 %143, %142
   %145 = udiv i64 %144, %142
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv
   store i32 %146, ptr %147, align 4, !tbaa !28
   %148 = trunc nuw nsw i64 %spec.store.select.i to i32
-  %149 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv
   store i32 %148, ptr %149, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -467,10 +466,10 @@ ceil_log2.exit:                                   ; preds = %floor_log2.exit151,
   %163 = add nuw nsw i64 %162, %161
   %164 = udiv i64 %163, %161
   %165 = trunc i64 %164 to i32
-  %166 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv213
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv213
   store i32 %165, ptr %166, align 4, !tbaa !28
   %167 = trunc nuw nsw i64 %spec.store.select.i177 to i32
-  %168 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv213
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv213
   store i32 %167, ptr %168, align 4, !tbaa !28
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
@@ -563,7 +562,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
 .preheader124.us:                                 ; preds = %._crit_edge.us, %.preheader124.lr.ph.split.us
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %._crit_edge.us ], [ 0, %.preheader124.lr.ph.split.us ]
   %.1101132.us = phi i64 [ %41, %._crit_edge.us ], [ 0, %.preheader124.lr.ph.split.us ]
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv155
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv155
   %33 = load i32, ptr %32, align 4, !tbaa !28
   %34 = sext i32 %33 to i64
   br label %36
@@ -576,7 +575,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
 36:                                               ; preds = %.preheader124.us, %35
   %indvars.iv = phi i64 [ 0, %.preheader124.us ], [ %indvars.iv.next, %35 ]
   %.3103129.us = phi i64 [ %.1101132.us, %.preheader124.us ], [ %41, %35 ]
-  %37 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %39, %34
@@ -610,10 +609,10 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv160 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next161, %52 ]
   %.0100135 = phi i64 [ 0, %.lr.ph ], [ %60, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv160
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv160
   %54 = load i32, ptr %53, align 4, !tbaa !28
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv160
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv160
   %57 = load i32, ptr %56, align 4, !tbaa !28
   %58 = sext i32 %57 to i64
   %59 = mul nsw i64 %58, %55
@@ -651,7 +650,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
 72:                                               ; preds = %.lr.ph139, %72
   %indvars.iv165 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next166, %72 ]
   %.091138 = phi i64 [ 0, %.lr.ph139 ], [ %80, %72 ]
-  %73 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %64, i64 %indvars.iv165
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %indvars.iv165
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8, !tbaa !56
   %76 = icmp eq i32 %75, 1
@@ -707,7 +706,7 @@ define hidden i32 @internal_exr_compute_chunk_offset_size(ptr noundef captures(n
   %indvars.iv170 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next171, %compute_sampled_height.exit ]
   %.192143 = phi i64 [ 0, %.lr.ph145 ], [ %137, %compute_sampled_height.exit ]
   %.093142 = phi i16 [ 0, %.lr.ph145 ], [ %.194, %compute_sampled_height.exit ]
-  %104 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %91, i64 %indvars.iv170
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %indvars.iv170
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load i32, ptr %105, align 8, !tbaa !61
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 28
@@ -2993,7 +2992,7 @@ check_req_attr.exit.thread.i:                     ; preds = %check_req_attr.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !28
   %1032 = load ptr, ptr %86, align 8, !tbaa !77
-  %1033 = getelementptr inbounds nuw ptr, ptr %1032, i64 %indvars.iv
+  %1033 = getelementptr inbounds nuw [8 x i8], ptr %1032, i64 %indvars.iv
   %1034 = load ptr, ptr %1033, align 8, !tbaa !78
   %1035 = load ptr, ptr %1032, align 8, !tbaa !78
   %1036 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3129,7 +3128,7 @@ define internal fastcc i32 @update_chunk_offsets(ptr noundef %0, i64 %.16.val, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.0457 = phi ptr [ %6, %.lr.ph ], [ %15, %60 ]
   %13 = load ptr, ptr %2, align 8, !tbaa !77
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !78
   %16 = tail call i32 @internal_exr_compute_tile_information(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   %.not56 = icmp eq i32 %16, 0
@@ -4212,8 +4211,8 @@ check_bad_attrsz.exit:                            ; preds = %10, %34
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %87 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %79, i64 %indvars.iv
-  %88 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %.2, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %.2, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv197
@@ -4222,7 +4221,7 @@ check_bad_attrsz.exit:                            ; preds = %10, %34
 89:                                               ; preds = %._crit_edge, %72
   %.284 = phi i32 [ %75, %._crit_edge ], [ %.183, %72 ]
   %.3 = phi ptr [ %79, %._crit_edge ], [ %.2, %72 ]
-  %90 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %.3, i64 %indvars.iv197
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.3, i64 %indvars.iv197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !118
   %91 = load i32, ptr %7, align 4, !tbaa !28
   %92 = call i32 @exr_attr_string_init(ptr noundef %0, ptr noundef nonnull %90, i32 noundef %91) #9
@@ -4286,7 +4285,7 @@ check_bad_attrsz.exit:                            ; preds = %10, %34
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv200 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next201, %.lr.ph153 ]
-  %117 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %.1, i64 %indvars.iv200
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %.1, i64 %indvars.iv200
   %118 = call i32 @exr_attr_string_destroy(ptr noundef %0, ptr noundef %117) #9
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count

@@ -440,7 +440,7 @@ sub_0326:                                         ; preds = %110
 
 .outer:                                           ; preds = %110, %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %139 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.next
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.next
   %140 = load ptr, ptr %139, align 8, !tbaa !4
   %.not259350 = icmp eq ptr %140, null
   br i1 %.not259350, label %.loopexit337, label %.lr.ph
@@ -448,7 +448,7 @@ sub_0326:                                         ; preds = %110
 .lr.ph:                                           ; preds = %.preheader336, %.outer
   %indvars.iv = phi i64 [ %indvars.iv.next, %.outer ], [ 0, %.preheader336 ]
   %141 = phi ptr [ %140, %.outer ], [ %105, %.preheader336 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   br label %110
 
 .loopexit337:                                     ; preds = %.outer, %.backedge, %.preheader336, %.loopexit339
@@ -588,7 +588,7 @@ sub_0326:                                         ; preds = %110
   br i1 %203, label %204, label %215
 
 204:                                              ; preds = %.lr.ph366
-  %205 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv393
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv393
   %206 = load ptr, ptr @ddd_ht, align 8, !tbaa !26
   %207 = load ptr, ptr %205, align 8, !tbaa !4
   %208 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %207) #18
@@ -607,7 +607,7 @@ sub_0326:                                         ; preds = %110
 
 215:                                              ; preds = %213, %.lr.ph366
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %216 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.next394
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv.next394
   %217 = load ptr, ptr %216, align 8, !tbaa !4
   %.not265 = icmp eq ptr %217, null
   br i1 %.not265, label %.loopexit333, label %.lr.ph366
@@ -757,7 +757,7 @@ thread-pre-split:                                 ; preds = %267, %272
 291:                                              ; preds = %.lr.ph369, %339
   %indvars.iv396 = phi i64 [ 0, %.lr.ph369 ], [ %indvars.iv.next397, %339 ]
   %292 = phi ptr [ %287, %.lr.ph369 ], [ %341, %339 ]
-  %293 = getelementptr inbounds nuw ptr, ptr %.0227, i64 %indvars.iv396
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %.0227, i64 %indvars.iv396
   store i32 0, ptr %288, align 4, !tbaa !11
   %294 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %292) #18
   %295 = load ptr, ptr @ddd_ht, align 8, !tbaa !26
@@ -845,7 +845,7 @@ thread-pre-split320:                              ; preds = %322, %327
 
 339:                                              ; preds = %onas_ddd_watch.exit296, %331, %334, %314, %291
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
-  %340 = getelementptr inbounds nuw ptr, ptr %.0227, i64 %indvars.iv.next397
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %.0227, i64 %indvars.iv.next397
   %341 = load ptr, ptr %340, align 8, !tbaa !4
   %.not270 = icmp eq ptr %341, null
   br i1 %.not270, label %.loopexit329, label %291
@@ -870,7 +870,7 @@ thread-pre-split320:                              ; preds = %322, %327
   %352 = shl nuw i64 1, %351
   %353 = sdiv i32 %349, 64
   %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i64, ptr %8, i64 %354
+  %355 = getelementptr inbounds [8 x i8], ptr %8, i64 %354
   %356 = load i64, ptr %355, align 8, !tbaa !40
   %357 = or i64 %352, %356
   store i64 %357, ptr %355, align 8, !tbaa !40
@@ -937,7 +937,7 @@ thread-pre-split320:                              ; preds = %322, %327
 385:                                              ; preds = %.lr.ph374
   %386 = load ptr, ptr @wdlt, align 8, !tbaa !9
   %387 = zext nneg i32 %383 to i64
-  %388 = getelementptr inbounds nuw ptr, ptr %386, i64 %387
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %387
   %389 = load ptr, ptr %388, align 8, !tbaa !4
   %390 = getelementptr inbounds nuw i8, ptr %.0214372, i64 16
   %391 = icmp eq ptr %389, null
@@ -1480,7 +1480,7 @@ define internal fastcc range(i32 0, 21) i32 @onas_ddd_watch_hierarchy(ptr nounde
   store ptr %27, ptr @wdlt, align 8, !tbaa !9
   %29 = load i32, ptr @wdlt_len, align 4, !tbaa !11
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = add i32 %29, -1
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
@@ -1496,7 +1496,7 @@ onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !50
   %40 = zext nneg i32 %18 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %40
   store ptr %39, ptr %41, align 8, !tbaa !4
   br label %50
 
@@ -1632,7 +1632,7 @@ define internal fastcc noundef range(i32 0, 21) i32 @onas_ddd_unwatch_hierarchy(
   store i32 0, ptr %14, align 8, !tbaa !47
   %21 = load ptr, ptr @wdlt, align 8, !tbaa !9
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   store ptr null, ptr %23, align 8, !tbaa !4
   br label %29
 

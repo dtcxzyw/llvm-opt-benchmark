@@ -3,12 +3,7 @@ source_filename = "bench/hyperscan/original/limex_native.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.RepeatControl = type { %struct.RepeatRingControl }
-%struct.RepeatRingControl = type { i64, i16, i16 }
 %struct.NFAContext32 = type { i32, i32, i32, i32, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.mq_item = type { i32, i64, i64 }
-%struct.NFAException32 = type { i32, i32, i32, i32, i8, i8 }
-%struct.NFAAccept = type { i8, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecLimEx32_queueCompressState(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -84,7 +79,7 @@ queue_prev_byte.exit:                             ; preds = %12, %17, %24
   %49 = load i32, ptr %46, align 16
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 %50
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 %54
@@ -110,7 +105,7 @@ queue_prev_byte.exit:                             ; preds = %12, %17, %24
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %45, i64 %71
-  %73 = getelementptr inbounds nuw %union.RepeatControl, ptr %41, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv
   tail call void @repeatPack(ptr noundef %72, ptr noundef nonnull %68, ptr noundef nonnull %73, i64 noundef %33) #8
   %.pre = load i32, ptr %34, align 4
   br label %74
@@ -169,7 +164,7 @@ nfaExecLimEx32_Compress_Repeats.exit:             ; preds = %queue_prev_byte.exi
   %97 = getelementptr inbounds nuw i8, ptr %30, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %95, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %99
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %4, align 4
   %102 = and i32 %79, 2
@@ -276,7 +271,7 @@ partial_load_u32.exit:                            ; preds = %12, %15, %17, %25, 
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %36
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %6, align 4
   %39 = and i32 %10, 2
@@ -339,7 +334,7 @@ moNfaExpandState32.exit:                          ; preds = %partial_load_u32.ex
   %70 = load i32, ptr %67, align 16
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 %71
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 %75
@@ -365,7 +360,7 @@ moNfaExpandState32.exit:                          ; preds = %partial_load_u32.ex
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %66, i64 %92
-  %94 = getelementptr inbounds nuw %union.RepeatControl, ptr %62, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv
   call void @repeatUnpack(ptr noundef %93, ptr noundef nonnull %89, i64 noundef %3, ptr noundef nonnull %94) #8
   %.pre = load i32, ptr %54, align 4
   br label %95
@@ -398,7 +393,7 @@ define hidden noundef signext i8 @nfaExecLimEx32_queueInitState(ptr noundef read
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw %union.RepeatControl, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %7, align 4
@@ -473,7 +468,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_initCompressedState(ptr 
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %35
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %5, align 4
   %38 = and i32 %15, 2
@@ -538,7 +533,7 @@ moNfaCompressState32.exit:                        ; preds = %28, %26, %21, %20, 
   %62 = load i32, ptr %60, align 16
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 %63
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 %67
@@ -591,7 +586,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_Q(ptr noundef %0, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %21
@@ -652,7 +647,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %64 = zext i32 %36 to i64
-  %65 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %62
@@ -674,7 +669,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   %storemerge102 = phi i32 [ %storemerge100, %.lr.ph ], [ %storemerge, %120 ]
   %.074101 = phi i64 [ %68, %.lr.ph ], [ %82, %120 ]
   %77 = zext i32 %storemerge102 to i64
-  %78 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, %62
@@ -694,7 +689,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
 ._crit_edge114:                                   ; preds = %83
   %.pre = load i32, ptr %35, align 8
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert115 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %.phi.trans.insert
+  %.phi.trans.insert115 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %.phi.trans.insert
   %.phi.trans.insert116 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert115, i64 8
   %.pre117 = load i64, ptr %.phi.trans.insert116, align 8
   %.pre120 = add i64 %.pre117, %62
@@ -716,7 +711,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   %95 = add i32 %93, -1
   store i32 %95, ptr %35, align 8
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %96
   store i32 0, ptr %97, align 8
   %98 = sub i64 %82, %62
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -727,7 +722,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   br label %.thread
 
 102:                                              ; preds = %92
-  %103 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %.pre-phi
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %.pre-phi
   %104 = load i32, ptr %103, align 8
   switch i32 %104, label %110 [
     i32 2, label %105
@@ -751,7 +746,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 %114
   %116 = zext i32 %112 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = or i32 %118, %111
   br label %.sink.split
@@ -801,7 +796,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   %137 = load i32, ptr %130, align 16
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 %138
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %indvars.iv
   %141 = load i32, ptr %140, align 4
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 %142
@@ -819,7 +814,7 @@ moNfaReportCurrent32.exit:                        ; preds = %8, %15
   br i1 %151, label %191, label %152
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw %union.RepeatControl, ptr %131, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %indvars.iv
   %154 = getelementptr inbounds nuw i8, ptr %143, i64 12
   %155 = load i32, ptr %154, align 4
   %156 = zext i32 %155 to i64
@@ -918,7 +913,7 @@ limexExpireExtendedState32.exit:                  ; preds = %191, %._crit_edge, 
   %201 = add i32 %198, -1
   store i32 %201, ptr %35, align 8
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw %struct.mq_item, ptr %63, i64 %202
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %202
   store i32 0, ptr %203, align 8
   %204 = sub i64 %.074.lcssa, %62
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
@@ -1168,7 +1163,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx32_Stream_CB(ptr n
   %148 = and i32 %146, %147
   %149 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %148)
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw %struct.NFAException32, ptr %37, i64 %150
+  %151 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 17
   %153 = load i8, ptr %152, align 1
   %.not69.i = icmp eq i8 %153, 0
@@ -1184,7 +1179,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx32_Stream_CB(ptr n
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %162 = load i32, ptr %161, align 4
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %union.RepeatControl, ptr %160, i64 %163
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %163
   %165 = load ptr, ptr %58, align 8
   %166 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %167 = load i32, ptr %166, align 4
@@ -1431,7 +1426,7 @@ processExceptional32.exit60.thread:               ; preds = %137, %133, %252, %2
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 %257
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw i32, ptr %6, i64 %260
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %260
   %262 = load i32, ptr %261, align 4
   %263 = and i32 %262, %.7259.ph
   %264 = add i64 %.058.i8514, 1
@@ -1626,7 +1621,7 @@ processExceptional32.exit60.thread:               ; preds = %137, %133, %252, %2
   %377 = and i32 %375, %376
   %378 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %377)
   %379 = zext nneg i32 %378 to i64
-  %380 = getelementptr inbounds nuw %struct.NFAException32, ptr %37, i64 %379
+  %380 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %379
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 17
   %382 = load i8, ptr %381, align 1
   %.not69.i67 = icmp eq i8 %382, 0
@@ -1642,7 +1637,7 @@ processExceptional32.exit60.thread:               ; preds = %137, %133, %252, %2
   %390 = getelementptr inbounds nuw i8, ptr %387, i64 4
   %391 = load i32, ptr %390, align 4
   %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds nuw %union.RepeatControl, ptr %389, i64 %392
+  %393 = getelementptr inbounds nuw [16 x i8], ptr %389, i64 %392
   %394 = load ptr, ptr %285, align 8
   %395 = getelementptr inbounds nuw i8, ptr %387, i64 12
   %396 = load i32, ptr %395, align 4
@@ -1889,7 +1884,7 @@ processExceptional32.exit46.thread:               ; preds = %366, %362, %481, %4
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 %486
   %488 = load i8, ptr %487, align 1
   %489 = zext i8 %488 to i64
-  %490 = getelementptr inbounds nuw i32, ptr %6, i64 %489
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %489
   %491 = load i32, ptr %490, align 4
   %492 = and i32 %491, %.7245.ph
   %493 = add i64 %.058.i525, 1
@@ -2110,7 +2105,7 @@ nfaExecLimEx32_Loop_No_Accel.exit14:              ; preds = %processExceptional3
   %615 = and i32 %613, %614
   %616 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %615)
   %617 = zext nneg i32 %616 to i64
-  %618 = getelementptr inbounds nuw %struct.NFAException32, ptr %24, i64 %617
+  %618 = getelementptr inbounds nuw [20 x i8], ptr %24, i64 %617
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 17
   %620 = load i8, ptr %619, align 1
   %.not69.i82 = icmp eq i8 %620, 0
@@ -2126,7 +2121,7 @@ nfaExecLimEx32_Loop_No_Accel.exit14:              ; preds = %processExceptional3
   %628 = getelementptr inbounds nuw i8, ptr %625, i64 4
   %629 = load i32, ptr %628, align 4
   %630 = zext i32 %629 to i64
-  %631 = getelementptr inbounds nuw %union.RepeatControl, ptr %627, i64 %630
+  %631 = getelementptr inbounds nuw [16 x i8], ptr %627, i64 %630
   %632 = load ptr, ptr %514, align 8
   %633 = getelementptr inbounds nuw i8, ptr %625, i64 12
   %634 = load i32, ptr %633, align 4
@@ -2373,7 +2368,7 @@ processExceptional32.exit.thread:                 ; preds = %604, %600, %719, %7
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 %724
   %726 = load i8, ptr %725, align 1
   %727 = zext i8 %726 to i64
-  %728 = getelementptr inbounds nuw i32, ptr %6, i64 %727
+  %728 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %727
   %729 = load i32, ptr %728, align 4
   %730 = and i32 %729, %.7.ph
   %731 = add i64 %.1227540, 1
@@ -2445,7 +2440,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx32_Q2(ptr noundef %0, ptr n
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %23
@@ -2507,7 +2502,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %65 = sub i64 0, %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %67 = zext i32 %38 to i64
-  %68 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %64
@@ -2530,7 +2525,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %storemerge145 = phi i32 [ %storemerge143, %.lr.ph ], [ %storemerge, %158 ]
   %.0109144 = phi i64 [ %71, %.lr.ph ], [ %86, %158 ]
   %81 = zext i32 %storemerge145 to i64
-  %82 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, %64
@@ -2557,7 +2552,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %98 = add i32 %97, -1
   store i32 %98, ptr %37, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %99
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %99
   store i32 0, ptr %100, align 8
   %101 = load i64, ptr %5, align 8
   %102 = sub i64 %.0109144, %64
@@ -2598,7 +2593,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %117 = add i32 %.pre164, -1
   store i32 %117, ptr %37, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %118
   store i32 0, ptr %119, align 8
   %120 = load i64, ptr %6, align 8
   %121 = sub i64 %.1110, %64
@@ -2613,7 +2608,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
 126:                                              ; preds = %._crit_edge163, %109
   %127 = phi i32 [ %.pre, %._crit_edge163 ], [ %.pre164, %109 ]
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %128
+  %129 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, %64
@@ -2624,7 +2619,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %134 = add i32 %127, -1
   store i32 %134, ptr %37, align 8
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %135
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %135
   store i32 0, ptr %136, align 8
   %137 = sub i64 %86, %64
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -2658,7 +2653,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %152 = zext i32 %151 to i64
   %153 = getelementptr inbounds nuw i8, ptr %7, i64 %152
   %154 = zext i32 %150 to i64
-  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = or i32 %156, %149
   br label %.sink.split
@@ -2708,7 +2703,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   %175 = load i32, ptr %168, align 16
   %176 = zext i32 %175 to i64
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 %176
-  %178 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv
   %179 = load i32, ptr %178, align 4
   %180 = zext i32 %179 to i64
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 %180
@@ -2726,7 +2721,7 @@ moNfaReportCurrent32.exit:                        ; preds = %10, %17
   br i1 %189, label %229, label %190
 
 190:                                              ; preds = %185
-  %191 = getelementptr inbounds nuw %union.RepeatControl, ptr %169, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %indvars.iv
   %192 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
@@ -2825,7 +2820,7 @@ limexExpireExtendedState32.exit:                  ; preds = %229, %._crit_edge, 
   %239 = add i32 %236, -1
   store i32 %239, ptr %37, align 8
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw %struct.mq_item, ptr %66, i64 %240
+  %241 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %240
   store i32 0, ptr %241, align 8
   %242 = sub i64 %.0109.lcssa, %64
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
@@ -3051,7 +3046,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx32_Stream_First(pt
   %138 = and i32 %136, %137
   %139 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %138)
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw %struct.NFAException32, ptr %38, i64 %140
+  %141 = getelementptr inbounds nuw [20 x i8], ptr %38, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 17
   %143 = load i8, ptr %142, align 1
   %.not69.i = icmp eq i8 %143, 0
@@ -3067,7 +3062,7 @@ define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx32_Stream_First(pt
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw %union.RepeatControl, ptr %150, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %153
   %155 = load ptr, ptr %60, align 8
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 12
   %157 = load i32, ptr %156, align 4
@@ -3269,7 +3264,7 @@ runException32.exit:                              ; preds = %219, %179, %175, %1
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i64
-  %236 = getelementptr inbounds nuw i32, ptr %7, i64 %235
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = and i32 %237, %.7222.ph
   %239 = add i64 %.058.i9359, 1
@@ -3444,7 +3439,7 @@ nfaExecLimEx32_Loop_No_Accel.exit15.thread:       ; preds = %124
   %341 = and i32 %339, %340
   %342 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %341)
   %343 = zext nneg i32 %342 to i64
-  %344 = getelementptr inbounds nuw %struct.NFAException32, ptr %38, i64 %343
+  %344 = getelementptr inbounds nuw [20 x i8], ptr %38, i64 %343
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 17
   %346 = load i8, ptr %345, align 1
   %.not69.i54 = icmp eq i8 %346, 0
@@ -3460,7 +3455,7 @@ nfaExecLimEx32_Loop_No_Accel.exit15.thread:       ; preds = %124
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 4
   %355 = load i32, ptr %354, align 4
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw %union.RepeatControl, ptr %353, i64 %356
+  %357 = getelementptr inbounds nuw [16 x i8], ptr %353, i64 %356
   %358 = load ptr, ptr %261, align 8
   %359 = getelementptr inbounds nuw i8, ptr %351, i64 12
   %360 = load i32, ptr %359, align 4
@@ -3662,7 +3657,7 @@ runException32.exit60:                            ; preds = %422, %382, %378, %3
   %436 = getelementptr inbounds nuw i8, ptr %0, i64 %435
   %437 = load i8, ptr %436, align 1
   %438 = zext i8 %437 to i64
-  %439 = getelementptr inbounds nuw i32, ptr %7, i64 %438
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %438
   %440 = load i32, ptr %439, align 4
   %441 = and i32 %440, %.7208.ph
   %442 = add i64 %.058.i363, 1
@@ -3863,7 +3858,7 @@ nfaExecLimEx32_Loop_No_Accel.exit15:              ; preds = %229, %265, %432, %3
   %553 = and i32 %551, %552
   %554 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %553)
   %555 = zext nneg i32 %554 to i64
-  %556 = getelementptr inbounds nuw %struct.NFAException32, ptr %25, i64 %555
+  %556 = getelementptr inbounds nuw [20 x i8], ptr %25, i64 %555
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 17
   %558 = load i8, ptr %557, align 1
   %.not69.i61 = icmp eq i8 %558, 0
@@ -3879,7 +3874,7 @@ nfaExecLimEx32_Loop_No_Accel.exit15:              ; preds = %229, %265, %432, %3
   %566 = getelementptr inbounds nuw i8, ptr %563, i64 4
   %567 = load i32, ptr %566, align 4
   %568 = zext i32 %567 to i64
-  %569 = getelementptr inbounds nuw %union.RepeatControl, ptr %565, i64 %568
+  %569 = getelementptr inbounds nuw [16 x i8], ptr %565, i64 %568
   %570 = load ptr, ptr %464, align 8
   %571 = getelementptr inbounds nuw i8, ptr %563, i64 12
   %572 = load i32, ptr %571, align 4
@@ -4081,7 +4076,7 @@ runException32.exit67:                            ; preds = %634, %594, %590, %6
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 %647
   %649 = load i8, ptr %648, align 1
   %650 = zext i8 %649 to i64
-  %651 = getelementptr inbounds nuw i32, ptr %7, i64 %650
+  %651 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %650
   %652 = load i32, ptr %651, align 4
   %653 = and i32 %652, %.7.ph
   %654 = add i64 %.1190372, 1
@@ -4155,7 +4150,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx32_QR(ptr noundef %0, ptr n
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %30 = zext i32 %7 to i64
-  %31 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %28
@@ -4177,7 +4172,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx32_QR(ptr noundef %0, ptr n
   %storemerge112 = phi i32 [ %storemerge110, %.lr.ph ], [ %storemerge, %nfaExecLimEx32_HandleEvent.exit ]
   %.060111 = phi i64 [ %34, %.lr.ph ], [ %47, %nfaExecLimEx32_HandleEvent.exit ]
   %43 = zext i32 %storemerge112 to i64
-  %44 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %28
@@ -4232,7 +4227,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx32_QR(ptr noundef %0, ptr n
 73:                                               ; preds = %67, %68
   %74 = load i32, ptr %6, align 8
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.mq_item, ptr %29, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %75
   %77 = load i32, ptr %76, align 8
   switch i32 %77, label %83 [
     i32 2, label %78
@@ -4256,7 +4251,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx32_QR(ptr noundef %0, ptr n
   %87 = zext i32 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = or i32 %91, %84
   br label %nfaExecLimEx32_HandleEvent.exit.sink.split
@@ -4306,7 +4301,7 @@ nfaExecLimEx32_HandleEvent.exit:                  ; preds = %nfaExecLimEx32_Hand
   %109 = load i32, ptr %102, align 16
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 %110
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 %114
@@ -4324,7 +4319,7 @@ nfaExecLimEx32_HandleEvent.exit:                  ; preds = %nfaExecLimEx32_Hand
   br i1 %123, label %163, label %124
 
 124:                                              ; preds = %119
-  %125 = getelementptr inbounds nuw %union.RepeatControl, ptr %103, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %indvars.iv
   %126 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %127 = load i32, ptr %126, align 4
   %128 = zext i32 %127 to i64
@@ -4438,7 +4433,7 @@ limexExpireExtendedState32.exit:                  ; preds = %163, %._crit_edge, 
   %181 = load i32, ptr %179, align 16
   %182 = zext i32 %181 to i64
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 %182
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv133
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %indvars.iv133
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 %186
@@ -4449,7 +4444,7 @@ limexExpireExtendedState32.exit:                  ; preds = %163, %._crit_edge, 
   br i1 %.not19.i, label %repeatHasMatch.exit.thread96, label %191
 
 191:                                              ; preds = %180
-  %192 = getelementptr inbounds nuw %union.RepeatControl, ptr %170, i64 %indvars.iv133
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 %indvars.iv133
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 12
   %194 = load i32, ptr %193, align 4
   %195 = zext i32 %194 to i64
@@ -4551,7 +4546,7 @@ lazyTug32.exit:                                   ; preds = %repeatHasMatch.exit
   %241 = and i32 %174, %240
   %242 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %241)
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw %struct.NFAAccept, ptr %236, i64 %243
+  %244 = getelementptr inbounds nuw [12 x i8], ptr %236, i64 %243
   %245 = load i8, ptr %244, align 4
   %.not.i80 = icmp eq i8 %245, 0
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 4
@@ -4793,7 +4788,7 @@ define internal fastcc void @nfaExecLimEx32_Stream_Silent(ptr noundef %0, ptr no
   %133 = and i32 %131, %132
   %134 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %133)
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw %struct.NFAException32, ptr %37, i64 %135
+  %136 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 17
   %138 = load i8, ptr %137, align 1
   %.not69.i = icmp eq i8 %138, 0
@@ -4809,7 +4804,7 @@ define internal fastcc void @nfaExecLimEx32_Stream_Silent(ptr noundef %0, ptr no
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw %union.RepeatControl, ptr %145, i64 %148
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %148
   %150 = load ptr, ptr %58, align 8
   %151 = getelementptr inbounds nuw i8, ptr %143, i64 12
   %152 = load i32, ptr %151, align 4
@@ -5011,7 +5006,7 @@ nfaExecLimEx32_Run_Exceptions.exit:               ; preds = %218, %220, %221, %2
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 %226
   %228 = load i8, ptr %227, align 1
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw i32, ptr %6, i64 %229
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %229
   %231 = load i32, ptr %230, align 4
   %232 = and i32 %231, %.7219
   %233 = add i64 %.058.i8331, 1
@@ -5172,7 +5167,7 @@ nfaExecLimEx32_Run_Exceptions.exit:               ; preds = %218, %220, %221, %2
   %331 = and i32 %329, %330
   %332 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %331)
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw %struct.NFAException32, ptr %37, i64 %333
+  %334 = getelementptr inbounds nuw [20 x i8], ptr %37, i64 %333
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 17
   %336 = load i8, ptr %335, align 1
   %.not69.i53 = icmp eq i8 %336, 0
@@ -5188,7 +5183,7 @@ nfaExecLimEx32_Run_Exceptions.exit:               ; preds = %218, %220, %221, %2
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 4
   %345 = load i32, ptr %344, align 4
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw %union.RepeatControl, ptr %343, i64 %346
+  %347 = getelementptr inbounds nuw [16 x i8], ptr %343, i64 %346
   %348 = load ptr, ptr %254, align 8
   %349 = getelementptr inbounds nuw i8, ptr %341, i64 12
   %350 = load i32, ptr %349, align 4
@@ -5390,7 +5385,7 @@ nfaExecLimEx32_Run_Exceptions.exit23:             ; preds = %416, %418, %419, %4
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 %424
   %426 = load i8, ptr %425, align 1
   %427 = zext i8 %426 to i64
-  %428 = getelementptr inbounds nuw i32, ptr %6, i64 %427
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %427
   %429 = load i32, ptr %428, align 4
   %430 = and i32 %429, %.7205
   %431 = add i64 %.058.i335, 1
@@ -5577,7 +5572,7 @@ nfaExecLimEx32_Loop_No_Accel.exit14:              ; preds = %nfaExecLimEx32_Run_
   %538 = and i32 %536, %537
   %539 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %538)
   %540 = zext nneg i32 %539 to i64
-  %541 = getelementptr inbounds nuw %struct.NFAException32, ptr %24, i64 %540
+  %541 = getelementptr inbounds nuw [20 x i8], ptr %24, i64 %540
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 17
   %543 = load i8, ptr %542, align 1
   %.not69.i60 = icmp eq i8 %543, 0
@@ -5593,7 +5588,7 @@ nfaExecLimEx32_Loop_No_Accel.exit14:              ; preds = %nfaExecLimEx32_Run_
   %551 = getelementptr inbounds nuw i8, ptr %548, i64 4
   %552 = load i32, ptr %551, align 4
   %553 = zext i32 %552 to i64
-  %554 = getelementptr inbounds nuw %union.RepeatControl, ptr %550, i64 %553
+  %554 = getelementptr inbounds nuw [16 x i8], ptr %550, i64 %553
   %555 = load ptr, ptr %452, align 8
   %556 = getelementptr inbounds nuw i8, ptr %548, i64 12
   %557 = load i32, ptr %556, align 4
@@ -5795,7 +5790,7 @@ nfaExecLimEx32_Run_Exceptions.exit29:             ; preds = %623, %625, %626, %6
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 %631
   %633 = load i8, ptr %632, align 1
   %634 = zext i8 %633 to i64
-  %635 = getelementptr inbounds nuw i32, ptr %6, i64 %634
+  %635 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %634
   %636 = load i32, ptr %635, align 4
   %637 = and i32 %636, %.7
   %638 = add i64 %.1187344, 1
@@ -5842,7 +5837,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_testEOD(ptr noundef %0, 
   %25 = load i32, ptr %23, align 16
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 %26
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 %30
@@ -5853,7 +5848,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_testEOD(ptr noundef %0, 
   br i1 %.not19.i, label %repeatHasMatch.exit.thread25, label %35
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds nuw %union.RepeatControl, ptr %8, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
@@ -5979,7 +5974,7 @@ define hidden noundef signext i8 @nfaExecLimEx32_reportCurrent(ptr noundef reado
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %16
@@ -6063,7 +6058,7 @@ define hidden noundef signext i8 @nfaExecLimEx32_B_Reverse(ptr noundef %0, i64 n
   %39 = load i32, ptr %37, align 16
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 %40
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 %44
@@ -6074,7 +6069,7 @@ define hidden noundef signext i8 @nfaExecLimEx32_B_Reverse(ptr noundef %0, i64 n
   br i1 %.not19.i, label %repeatHasMatch.exit.thread46, label %49
 
 49:                                               ; preds = %38
-  %50 = getelementptr inbounds nuw %union.RepeatControl, ptr null, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [16 x i8], ptr null, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
@@ -6331,7 +6326,7 @@ define internal fastcc void @nfaExecLimEx32_Rev_Stream(ptr noundef %0, ptr nound
   %119 = and i32 %117, %118
   %120 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %119)
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw %struct.NFAException32, ptr %12, i64 %121
+  %122 = getelementptr inbounds nuw [20 x i8], ptr %12, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 4
   %.not70.i = icmp eq i32 %124, -1
@@ -6418,7 +6413,7 @@ processExceptional32.exit.thread:                 ; preds = %109, %105, %151, %1
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %6, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = and i32 %160, %.7.ph
   %162 = add i64 %.072177, -1
@@ -6470,7 +6465,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_inAccept(ptr noundef %0,
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.mq_item, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %16, 1
@@ -6497,7 +6492,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_inAccept(ptr noundef %0,
   %35 = load i32, ptr %33, align 16
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 %36
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
@@ -6508,7 +6503,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_inAccept(ptr noundef %0,
   br i1 %.not19.i, label %repeatHasMatch.exit.thread31, label %45
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw %union.RepeatControl, ptr %7, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
@@ -6610,7 +6605,7 @@ lazyTug32.exit:                                   ; preds = %repeatHasMatch.exit
   %95 = and i32 %27, %94
   %96 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %95)
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.NFAAccept, ptr %90, i64 %97
+  %98 = getelementptr inbounds nuw [12 x i8], ptr %90, i64 %97
   %99 = load i8, ptr %98, align 4
   %.not.i18 = icmp eq i8 %99, 0
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
@@ -6667,7 +6662,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_inAnyAccept(ptr noundef 
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %15, 1
@@ -6694,7 +6689,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_inAnyAccept(ptr noundef 
   %34 = load i32, ptr %32, align 16
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
@@ -6705,7 +6700,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx32_inAnyAccept(ptr noundef 
   br i1 %.not19.i, label %repeatHasMatch.exit.thread22, label %44
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds nuw %union.RepeatControl, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
@@ -6831,7 +6826,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx32_zombie_status(ptr noundef %0, 
   %25 = load i32, ptr %23, align 16
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 %26
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 %30
@@ -6842,7 +6837,7 @@ define hidden range(i32 0, 2) i32 @nfaExecLimEx32_zombie_status(ptr noundef %0, 
   br i1 %.not19.i, label %repeatHasMatch.exit.thread25, label %35
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds nuw %union.RepeatControl, ptr %16, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
@@ -6957,7 +6952,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash32(ptr
   %11 = and i32 %.0.val1, %10
   %12 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %13
   %15 = load i8, ptr %14, align 4
   %.not.i7 = icmp eq i8 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -7018,7 +7013,7 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts32(ptr noundef
   %11 = and i32 %.0.val1, %10
   %12 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.NFAAccept, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %13
   %15 = load i8, ptr %14, align 4
   %.not.i6 = icmp eq i8 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4

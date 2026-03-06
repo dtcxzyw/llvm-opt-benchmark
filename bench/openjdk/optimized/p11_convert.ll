@@ -599,7 +599,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %.preheader130, %.lr.ph
   %.0131 = phi i64 [ %66, %.lr.ph ], [ 0, %.preheader130 ]
-  %62 = getelementptr inbounds nuw i16, ptr %52, i64 %.0131
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %.0131
   %63 = load i16, ptr %62, align 2
   %64 = trunc i16 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 %.0131
@@ -656,7 +656,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
 
 89:                                               ; preds = %.lr.ph135, %89
   %.1134 = phi i64 [ 0, %.lr.ph135 ], [ %94, %89 ]
-  %90 = getelementptr inbounds nuw i16, ptr %78, i64 %.1134
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %.1134
   %91 = load i16, ptr %90, align 2
   %92 = trunc i16 %91 to i8
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 %.1134
@@ -713,7 +713,7 @@ define hidden noalias noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr no
 
 117:                                              ; preds = %.lr.ph140, %117
   %.2139 = phi i64 [ 0, %.lr.ph140 ], [ %122, %117 ]
-  %118 = getelementptr inbounds nuw i16, ptr %106, i64 %.2139
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %.2139
   %119 = load i16, ptr %118, align 2
   %120 = trunc i16 %119 to i8
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 %.2139
@@ -3605,7 +3605,7 @@ define hidden void @copyBackPBEInitializationVector(ptr noundef %0, ptr noundef 
   %64 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i16
-  %67 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %indvars.iv
   store i16 %66, ptr %67, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

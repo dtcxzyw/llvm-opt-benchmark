@@ -848,7 +848,7 @@ define noundef nonnull ptr @port_type_to_str(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.port_type_to_str, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.port_type_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

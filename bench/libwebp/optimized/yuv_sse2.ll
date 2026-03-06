@@ -2201,7 +2201,7 @@ define internal void @ConvertARGBToY_SSE2(ptr noalias noundef readonly captures(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %11 = load <16 x i8>, ptr %10, align 1, !tbaa !3, !alias.scope !60
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load <16 x i8>, ptr %12, align 1, !tbaa !3, !alias.scope !60
@@ -2274,7 +2274,7 @@ define internal void @ConvertARGBToY_SSE2(ptr noalias noundef readonly captures(
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %.lr.ph35
   %indvars.iv37 = phi i64 [ %9, %.lr.ph35.preheader ], [ %indvars.iv.next38, %.lr.ph35 ]
-  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv37
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv37
   %78 = load i32, ptr %77, align 4, !tbaa !64
   %79 = lshr i32 %78, 16
   %80 = and i32 %79, 255
@@ -2314,7 +2314,7 @@ define internal void @ConvertARGBToUV_SSE2(ptr noalias noundef %0, ptr noalias n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %155 ]
   %.093 = phi ptr [ %1, %.lr.ph ], [ %156, %155 ]
   %.02592 = phi ptr [ %2, %.lr.ph ], [ %157, %155 ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %11 = load <16 x i8>, ptr %10, align 1, !tbaa !3, !alias.scope !67
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load <16 x i8>, ptr %12, align 1, !tbaa !3, !alias.scope !67
@@ -2487,7 +2487,7 @@ define internal void @ConvertARGBToUV_SSE2(ptr noalias noundef %0, ptr noalias n
 
 161:                                              ; preds = %._crit_edge
   %162 = zext nneg i32 %.026.lcssa to i64
-  %163 = getelementptr inbounds nuw i32, ptr %0, i64 %162
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %162
   %164 = sub nsw i32 %3, %.026.lcssa
   tail call void @WebPConvertARGBToUV_C(ptr noundef %163, ptr noundef %.0.lcssa, ptr noundef %.025.lcssa, i32 noundef %164, i32 noundef %4) #10
   br label %165

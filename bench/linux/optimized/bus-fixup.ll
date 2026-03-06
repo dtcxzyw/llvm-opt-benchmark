@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mkhi_gfx_mem_ready = type { %struct.mkhi_msg_hdr, i32 }
 %struct.mkhi_msg_hdr = type { i8, i8, i8, i8 }
 %struct.mkhi_msg = type { %struct.mkhi_msg_hdr, [0 x i8] }
-%struct.mkhi_fw_ver_block = type { i16, i8, i8, i16, i16 }
-%struct.mei_fw_version = type { i8, i8, i16, i16, i16 }
 
 @mei_fixups = internal unnamed_addr constant [10 x %struct.mei_fixup] [%struct.mei_fixup { %struct.uuid_le zeroinitializer, ptr @number_of_connections }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"%\16\DE\D2-8}AH\A4\EF\AB\BA\8A\12\06" }, ptr @blacklist }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"xz\B1\0B\8E*PL\94\D4P&g#w\\" }, ptr @mei_nfc }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"o\9A\B7\05(F\7FM\89\9D\A9\15\14\CB2\AB" }, ptr @mei_wd }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"\845!U)\9A\16I\BA\DF\0F\B7\EDh*\EB" }, ptr @mei_mkhi_fix }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"\FB\C1\E0FF\A5OA\91p\B7\F4mW\B4\AD" }, ptr @mei_gsc_mkhi_fix_ver }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"\A2\AF\C2\E2\178\19M\9D\95\06\B1kX\8A]" }, ptr @mei_gsc_mkhi_ver }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"~\AB8\B6\E2\94\A2N\A5R\D1\C5Kb\7F\04" }, ptr @whitelist }, %struct.mei_fixup { %struct.uuid_le zeroinitializer, ptr @vt_support }, %struct.mei_fixup { %struct.uuid_le { [16 x i8] c"\F1\FC\F6\FB\CF\96.N\A6\A6\1B\AB\8C\BE6\B1" }, ptr @pxp_is_ready }], align 16
 @.str = private unnamed_addr constant [26 x i8] c"nfc hook alloc failed %d\0A\00", align 1
@@ -49,7 +47,7 @@ define dso_local void @mei_cl_bus_dev_fixup(ptr noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %29, %1
   %14 = phi i64 [ 0, %1 ], [ %30, %29 ]
-  %15 = getelementptr %struct.mei_fixup, ptr @mei_fixups, i64 %14
+  %15 = getelementptr [24 x i8], ptr @mei_fixups, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
@@ -682,12 +680,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   br i1 %35, label %63, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr %struct.mkhi_fw_ver_block, ptr %27, i64 %31
+  %37 = getelementptr [8 x i8], ptr %27, i64 %31
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 3
   %39 = load i8, ptr %38, align 1
   %40 = load ptr, ptr %13, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 3324
-  %42 = getelementptr %struct.mei_fw_version, ptr %41, i64 %31
+  %42 = getelementptr [8 x i8], ptr %41, i64 %31
   store i8 %39, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %44 = load i8, ptr %43, align 2

@@ -6,12 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%class.PreservedMark = type { ptr, %class.markWord }
-%class.markWord = type { i64 }
-%class.Padded = type { %class.PreservedMarks, [256 x i8] }
-%class.PreservedMarks = type { %class.Stack }
-%class.Stack = type { ptr, %class.StackBase, ptr, ptr }
-%class.StackBase = type { i64, i64, i64, i64, i64, i64 }
 %class.RestorePreservedMarksTask = type { %class.WorkerTask.base, ptr, %class.SequentialSubTasksDone, i64 }
 %class.WorkerTask.base = type <{ ptr, ptr, i32 }>
 %class.SequentialSubTasksDone = type { i32, i32 }
@@ -88,7 +82,7 @@ define hidden void @_ZN14PreservedMarks7restoreEv(ptr noundef nonnull align 8 de
   %13 = load i64, ptr %5, align 8
   %14 = add i64 %13, -1
   store i64 %14, ptr %5, align 8
-  %15 = getelementptr inbounds %class.PreservedMark, ptr %12, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %12, i64 %14
   %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -190,7 +184,7 @@ define hidden void @_ZN14PreservedMarks21adjust_during_full_gcEv(ptr noundef non
 
 15:                                               ; preds = %8
   %16 = add i64 %.sroa.2.04, -1
-  %17 = getelementptr inbounds %class.PreservedMark, ptr %.sroa.6.03, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %.sroa.6.03, i64 %16
   br label %_ZN13StackIteratorI13PreservedMarkL8MEMFLAGS5EE9next_addrEv.exit
 
 _ZN13StackIteratorI13PreservedMarkL8MEMFLAGS5EE9next_addrEv.exit: ; preds = %10, %15
@@ -243,7 +237,7 @@ define hidden void @_ZN14PreservedMarks21restore_and_incrementEPVm(ptr noundef n
   %18 = load i64, ptr %8, align 8
   %19 = add i64 %18, -1
   store i64 %19, ptr %8, align 8
-  %20 = getelementptr inbounds %class.PreservedMark, ptr %17, i64 %19
+  %20 = getelementptr inbounds [16 x i8], ptr %17, i64 %19
   %.sroa.0.0.copyload.i.i = load ptr, ptr %20, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -336,7 +330,7 @@ define hidden void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 ca
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw %class.Padded, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [328 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 255, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -453,7 +447,7 @@ define linkonce_odr hidden void @_ZN25RestorePreservedMarksTask4workEj(ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %class.Padded, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [328 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -477,7 +471,7 @@ define linkonce_odr hidden void @_ZN25RestorePreservedMarksTask4workEj(ptr nound
   %30 = load i64, ptr %20, align 8
   %31 = add i64 %30, -1
   store i64 %31, ptr %20, align 8
-  %32 = getelementptr inbounds %class.PreservedMark, ptr %29, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %29, i64 %31
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %32, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -583,7 +577,7 @@ define hidden void @_ZN17PreservedMarksSet7reclaimEv(ptr noundef nonnull align 8
 5:                                                ; preds = %.lr.ph, %_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw %class.Padded, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [328 x i8], ptr %6, i64 %indvars.iv
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackI13PreservedMarkL8MEMFLAGS5EE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8

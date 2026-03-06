@@ -147,7 +147,7 @@ define hidden noundef nonnull ptr @_ZN2lp19lp_status_to_stringENS_9lp_statusE(i3
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2lp19lp_status_to_stringENS_9lp_statusE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -289,9 +289,9 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit18:        ; preds = %_ZNK6vectorI8ration
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8, !tbaa !14
-  %17 = getelementptr inbounds nuw %class.rational, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %1, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw %class.rational, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv
   call void @_ZmiRK8rationalS1_(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %20 = load i32, ptr %3, align 8, !tbaa !19
   %21 = icmp eq i32 %20, 0

@@ -3,8 +3,6 @@ source_filename = "bench/slurm/original/multi_prog.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.MPIR_PROCDESC = type { ptr, ptr, i32 }
-
 @MPIR_proctable = external global ptr, align 8
 @.str = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"Unable to open configuration file %s\00", align 1
@@ -51,7 +49,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = load ptr, ptr @MPIR_proctable, align 8
-  %8 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -139,7 +137,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   %44 = phi i8 [ %40, %.lr.ph62 ], [ %51, %49 ]
   %.03961 = phi ptr [ %4, %.lr.ph62 ], [ %50, %49 ]
   %45 = sext i8 %44 to i64
-  %46 = getelementptr inbounds i16, ptr %42, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %42, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = and i16 %47, 8192
   %.not50 = icmp eq i16 %48, 0
@@ -191,7 +189,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 .lr.ph.split.us.i.i:                              ; preds = %75, %.lr.ph.i.i
   %68 = phi ptr [ %.pre18.i.i, %.lr.ph.i.i ], [ %76, %75 ]
   %indvars.iv13.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next14.i.i, %75 ]
-  %69 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %68, i64 %indvars.iv13.i.i
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %indvars.iv13.i.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
@@ -219,7 +217,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   %80 = load ptr, ptr %41, align 8
   %81 = load i8, ptr %79, align 1
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds i16, ptr %80, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %80, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = and i16 %84, 2048
   %.not.i = icmp eq i16 %85, 0
@@ -250,7 +248,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 .lr.ph.split.i.i:                                 ; preds = %106, %.lr.ph.i34.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %106 ], [ %94, %.lr.ph.i34.i ]
   %96 = load ptr, ptr @MPIR_proctable, align 8
-  %97 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %96, i64 %indvars.iv.i.i
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %indvars.iv.i.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
@@ -297,7 +295,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 .lr.ph.split.i38.i:                               ; preds = %128, %.lr.ph.i37.i
   %indvars.iv.i39.i = phi i64 [ %indvars.iv.next.i40.i, %128 ], [ %116, %.lr.ph.i37.i ]
   %118 = load ptr, ptr @MPIR_proctable, align 8
-  %119 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %118, i64 %indvars.iv.i39.i
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %indvars.iv.i39.i
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
@@ -410,10 +408,10 @@ define dso_local void @mpir_cleanup() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %3 = load ptr, ptr @MPIR_proctable, align 8
-  %4 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %4) #9
   %5 = load ptr, ptr @MPIR_proctable, align 8
-  %6 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %7) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -445,7 +443,7 @@ define dso_local void @mpir_set_executable_names(ptr noundef %0, i32 noundef %1,
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = tail call ptr @xstrdup(ptr noundef %0) #9
   %9 = load ptr, ptr @MPIR_proctable, align 8
-  %10 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %8, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -473,7 +471,7 @@ define dso_local void @mpir_dump_proctable() local_unnamed_addr #0 {
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8
@@ -611,7 +609,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %57 = phi i8 [ %53, %.lr.ph ], [ %64, %62 ]
   %.054102 = phi ptr [ %4, %.lr.ph ], [ %63, %62 ]
   %58 = sext i8 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %55, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %55, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 8192
   %.not64 = icmp eq i16 %61, 0
@@ -676,7 +674,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %88 = phi i8 [ %85, %.lr.ph.i ], [ %95, %93 ]
   %.03247.i = phi ptr [ %.03353.i, %.lr.ph.i ], [ %94, %93 ]
   %89 = sext i8 %88 to i64
-  %90 = getelementptr inbounds i16, ptr %86, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %86, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 2048
   %.not38.i = icmp eq i16 %92, 0
@@ -718,7 +716,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr nou
   %.1.i = phi ptr [ %103, %102 ], [ %111, %105 ]
   %106 = load i8, ptr %.1.i, align 1
   %107 = sext i8 %106 to i64
-  %108 = getelementptr inbounds i16, ptr %104, i64 %107
+  %108 = getelementptr inbounds [2 x i8], ptr %104, i64 %107
   %109 = load i16, ptr %108, align 2
   %110 = and i16 %109, 2048
   %.not39.i = icmp eq i16 %110, 0

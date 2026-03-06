@@ -10,9 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.JsonUniqueHashEntry = type { ptr, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.JsonUniqueBuilderState = type { ptr, %struct.StringInfoData, ptr }
@@ -593,7 +590,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   %21 = shl nsw i64 %20, 4
   %22 = getelementptr i8, ptr %14, i64 %21
   %23 = getelementptr i8, ptr %22, i64 24
-  %24 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds [100 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 91
   %26 = load i8, ptr %25, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -636,7 +633,7 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   br i1 %43, label %85, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr %struct.CompactAttribute, ptr %14, i64 %32
+  %45 = getelementptr [16 x i8], ptr %14, i64 %32
   %46 = getelementptr i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, -1
@@ -1773,9 +1770,9 @@ json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
 61:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
   %62 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i64, ptr %1, i64 %40
+  %64 = getelementptr inbounds [8 x i8], ptr %1, i64 %40
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i32, ptr %3, i64 %40
+  %66 = getelementptr inbounds [4 x i8], ptr %3, i64 %40
   %67 = load i32, ptr %66, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1832,12 +1829,12 @@ add_json.exit:                                    ; preds = %61
   call void @appendStringInfoString(ptr noundef %20, ptr noundef nonnull @.str.13) #11
   %89 = or disjoint i32 %.043, 1
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i64, ptr %1, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %1, i64 %90
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %2, i64 %90
   %94 = load i8, ptr %93, align 1, !range !4, !noundef !5
   %95 = trunc nuw i8 %94 to i1
-  %96 = getelementptr inbounds i32, ptr %3, i64 %90
+  %96 = getelementptr inbounds [4 x i8], ptr %3, i64 %90
   %97 = load i32, ptr %96, align 4
   call fastcc void @add_json(i64 noundef %92, i1 noundef zeroext %95, ptr noundef %20, i32 noundef %97, i1 noundef zeroext false)
   br label %98
@@ -1968,11 +1965,11 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readon
 
 11:                                               ; preds = %.lr.ph.split.us
   tail call void @appendStringInfoString(ptr noundef %6, ptr noundef %.01819.us) #11
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv23
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv23
   %13 = load i64, ptr %12, align 8
   %14 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv23
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv23
   %17 = load i32, ptr %16, align 4
   tail call fastcc void @add_json(i64 noundef %13, i1 noundef zeroext %15, ptr noundef %6, i32 noundef %17, i1 noundef zeroext false)
   br label %18
@@ -1987,12 +1984,12 @@ define dso_local i64 @json_build_array_worker(i32 noundef %0, ptr noundef readon
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.01819 = phi ptr [ @.str.10, %.lr.ph.split ], [ @.str.6, %.lr.ph ]
   tail call void @appendStringInfoString(ptr noundef %6, ptr noundef nonnull %.01819) #11
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !range !4, !noundef !5
   %23 = trunc nuw i8 %22 to i1
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   tail call fastcc void @add_json(i64 noundef %20, i1 noundef zeroext %23, ptr noundef %6, i32 noundef %25, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2043,12 +2040,12 @@ define dso_local i64 @json_build_array(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.01819.i = phi ptr [ @.str.10, %.lr.ph.split.i ], [ @.str.6, %.lr.ph.i ]
   call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull %.01819.i) #11
-  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1, !range !4, !noundef !5
   %18 = trunc nuw i8 %17 to i1
-  %19 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
   call fastcc void @add_json(i64 noundef %15, i1 noundef zeroext %18, ptr noundef %13, i32 noundef %20, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2178,7 +2175,7 @@ define dso_local i64 @json_object(ptr noundef readonly captures(none) %0) local_
 
 48:                                               ; preds = %47, %46
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds i64, ptr %49, i64 %38
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %38
   %51 = load i64, ptr %50, align 8
   %52 = inttoptr i64 %51 to ptr
   %53 = call ptr @pg_detoast_datum_packed(ptr noundef %52) #11
@@ -2242,7 +2239,7 @@ escape_json_text.exit:                            ; preds = %73, %77
 
 84:                                               ; preds = %escape_json_text.exit
   %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds i64, ptr %85, i64 %79
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %79
   %87 = load i64, ptr %86, align 8
   %88 = inttoptr i64 %87 to ptr
   %89 = call ptr @pg_detoast_datum_packed(ptr noundef %88) #11
@@ -2475,7 +2472,7 @@ define dso_local i64 @json_object_two_arg(ptr noundef readonly captures(none) %0
 
 50:                                               ; preds = %49, %48
   %51 = load ptr, ptr %3, align 8
-  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
   %54 = inttoptr i64 %53 to ptr
   %55 = call ptr @pg_detoast_datum_packed(ptr noundef %54) #11
@@ -2538,7 +2535,7 @@ escape_json_text.exit:                            ; preds = %75, %79
 
 85:                                               ; preds = %escape_json_text.exit
   %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds nuw i64, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load i64, ptr %87, align 8
   %89 = inttoptr i64 %88 to ptr
   %90 = call ptr @pg_detoast_datum_packed(ptr noundef %89) #11
@@ -3223,7 +3220,7 @@ define dso_local i64 @json_typeof(ptr noundef readonly captures(none) %0) local_
 
 switch.lookup:                                    ; preds = %10
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.json_typeof, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.json_typeof, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = call ptr @cstring_to_text(ptr noundef nonnull %switch.load) #11
   %20 = ptrtoint ptr %19 to i64
@@ -3244,7 +3241,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
   %11 = select i1 %9, ptr @.str.28, ptr @.str.29
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 91) #11
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds i32, ptr %3, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not30 = icmp slt i32 %14, 1
   br i1 %.not30, label %._crit_edge, label %.lr.ph
@@ -3266,7 +3263,7 @@ define internal fastcc void @array_dim_to_json(ptr noundef %0, i32 noundef %1, i
 19:                                               ; preds = %18, %.lr.ph.split.us
   %20 = load i32, ptr %6, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %4, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %4, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 %21
   %25 = load i8, ptr %24, align 1, !range !4, !noundef !5

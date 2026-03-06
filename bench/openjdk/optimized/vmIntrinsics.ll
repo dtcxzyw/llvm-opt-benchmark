@@ -189,7 +189,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN12vmIntrinsics17predicates_neededE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12vmIntrinsics17predicates_neededE13vmIntrinsicID, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12vmIntrinsics17predicates_neededE13vmIntrinsicID, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -780,7 +780,7 @@ define hidden void @_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv() local_un
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %1 ]
   %.013 = phi ptr [ @.str.6, %0 ], [ %5, %1 ]
-  %2 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv
   store ptr %.013, ptr %2, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013) #9
   %4 = getelementptr inbounds i8, ptr %.013, i64 %3
@@ -806,7 +806,7 @@ define hidden noundef ptr @_ZN12vmIntrinsics7name_atE13vmIntrinsicID(i32 noundef
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 1, %1 ]
   %.013.i = phi ptr [ %7, %.preheader ], [ @.str.6, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
   store ptr %.013.i, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i) #9
   %6 = getelementptr inbounds i8, ptr %.013.i, i64 %5
@@ -825,7 +825,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 
 10:                                               ; preds = %8
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -843,7 +843,7 @@ define hidden noundef range(i32 422, 421) i32 @_ZN12vmIntrinsics7find_idEPKc(ptr
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 1, %1 ]
   %.013.i = phi ptr [ %7, %.preheader ], [ @.str.6, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
   store ptr %.013.i, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i) #9
   %6 = getelementptr inbounds i8, ptr %.013.i, i64 %5
@@ -861,7 +861,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 
 8:                                                ; preds = %.preheader16, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %.preheader16 ]
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #9
   %12 = icmp eq i32 %11, 0
@@ -936,7 +936,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 1, %.lr.ph ]
   %.013.i.i = phi ptr [ %19, %.preheader.i ], [ @.str.6, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i
   store ptr %.013.i.i, ptr %16, align 8
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i) #9
   %18 = getelementptr inbounds i8, ptr %.013.i.i, i64 %17
@@ -954,7 +954,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.
 
 20:                                               ; preds = %.preheader84, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 1, %.preheader84 ]
-  %21 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = icmp eq i32 %23, 0
@@ -983,7 +983,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit:               ; preds = %20
   %sext = shl i64 %indvars.iv.i, 32
   %36 = ashr exact i64 %sext, 32
   %37 = lshr i64 %36, 4
-  %38 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26vm_intrinsic_control_words, i64 %37
   %39 = lshr exact i64 %sext, 31
   %40 = load i32, ptr %38, align 4, !noalias !9
   %41 = trunc i64 %39 to i32
@@ -1019,7 +1019,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %34
 .preheader.i18:                                   ; preds = %.lr.ph72, %.preheader.i18
   %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i21, %.preheader.i18 ], [ 1, %.lr.ph72 ]
   %.013.i.i20 = phi ptr [ %59, %.preheader.i18 ], [ @.str.6, %.lr.ph72 ]
-  %56 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i19
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i19
   store ptr %.013.i.i20, ptr %56, align 8
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i20) #9
   %58 = getelementptr inbounds i8, ptr %.013.i.i20, i64 %57
@@ -1037,7 +1037,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23: ; preds = %.preheade
 
 60:                                               ; preds = %.preheader, %65
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %65 ], [ 1, %.preheader ]
-  %61 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i13
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i13
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %62) #9
   %64 = icmp eq i32 %63, 0
@@ -1052,7 +1052,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24:             ; preds = %60
   %sext64 = shl i64 %indvars.iv.i13, 32
   %66 = ashr exact i64 %sext64, 32
   %67 = lshr i64 %66, 4
-  %68 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26vm_intrinsic_control_words, i64 %67
   %69 = lshr exact i64 %sext64, 31
   %70 = load i32, ptr %68, align 4, !noalias !17
   %71 = trunc i64 %69 to i32
@@ -1075,7 +1075,7 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
 81:                                               ; preds = %._crit_edge73, %1
   %82 = sext i32 %0 to i64
   %83 = lshr i64 %82, 4
-  %84 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @_ZL26vm_intrinsic_control_words, i64 %83
   %85 = shl i32 %0, 1
   %86 = and i32 %85, 30
   %87 = load i32, ptr %84, align 4, !noalias !21
@@ -3671,7 +3671,7 @@ define hidden noundef ptr @_ZN12vmIntrinsics22short_name_as_C_stringE13vmIntrins
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 1, %3 ]
   %.013.i.i = phi ptr [ %9, %.preheader.i ], [ @.str.6, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i
   store ptr %.013.i.i, ptr %6, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i) #9
   %8 = getelementptr inbounds i8, ptr %.013.i.i, i64 %7
@@ -3690,7 +3690,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.
 
 12:                                               ; preds = %10
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @_ZL23vm_intrinsic_name_table, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %_ZN12vmIntrinsics7name_atE13vmIntrinsicID.exit
 

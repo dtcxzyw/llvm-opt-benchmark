@@ -741,7 +741,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i:  ; preds = %4
 15:                                               ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.thread.i
   %16 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.thread.i ], [ %10, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i ]
   %.pre8.i5.i = phi i64 [ %14, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i ]
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %.pre8.i5.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.pre8.i5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 4 %2, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %11, align 8, !tbaa !26
   br label %_ZN4llvm11SmallVectorIjLj4EEC2IjvEENS_8ArrayRefIT_EE.exit
@@ -778,7 +778,7 @@ define dso_local noundef i32 @_ZNK4llvm21CheckPredicateMatcher12getOperandNoEj(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !23
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4, !tbaa !44
   ret i32 %7
 }
@@ -3575,7 +3575,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %92, %94
 _ZN4llvm11raw_ostreamlsEc.exit33:                 ; preds = %102, %104
   %.0.i32 = phi ptr [ %103, %102 ], [ %1, %104 ]
   %106 = load ptr, ptr %85, align 8, !tbaa !173
-  %107 = getelementptr inbounds nuw i16, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !174
   %109 = tail call { ptr, i64 } @_ZN4llvm11getEnumNameENS_3MVT15SimpleValueTypeE(i16 noundef zeroext %108) #14
   %110 = extractvalue { ptr, i64 } %109, 0
@@ -3636,7 +3636,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %132, %134
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %_ZN4llvm11raw_ostreamlsEc.exit42
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next51, %_ZN4llvm11raw_ostreamlsEc.exit42 ]
   %137 = load ptr, ptr %96, align 8, !tbaa !23
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv50
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv50
   %139 = load i32, ptr %138, align 4, !tbaa !44
   %140 = zext i32 %139 to i64
   %141 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %140) #14

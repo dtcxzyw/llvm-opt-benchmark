@@ -244,10 +244,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, i64 } @_ZN4llvh6Triple15getArchTypeNameENS0_8ArchTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep103 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 %1
+  %switch.gep103 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 %1
   %switch.load104 = load ptr, ptr %switch.gep103, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load104, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -263,10 +263,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE.3, i64 %2
+  %switch.gep55 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple17getArchTypePrefixENS0_8ArchTypeE.3, i64 %2
   %switch.load56 = load i64, ptr %switch.gep55, align 8
   br label %return
 
@@ -285,10 +285,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden { ptr, i64 } @_ZN4llvh6Triple17getVendorTypeNameENS0_10VendorTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 %1
+  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 %1
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load36, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -299,10 +299,10 @@ entry:
 define hidden { ptr, i64 } @_ZN4llvh6Triple13getOSTypeNameENS0_6OSTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep67 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 %1
+  %switch.gep67 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 %1
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load68, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -313,10 +313,10 @@ entry:
 define hidden { ptr, i64 } @_ZN4llvh6Triple22getEnvironmentTypeNameENS0_15EnvironmentTypeE(i32 noundef %Kind) local_unnamed_addr #0 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep39 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %1
+  %switch.gep39 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %1
   %switch.load40 = load ptr, ptr %switch.gep39, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load40, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1339,7 +1339,7 @@ sw.epilog14.i.sink.split:                         ; preds = %sw.bb7.i, %sw.bb.i
   %switch.tableidx2115.sink = phi i32 [ %switch.tableidx, %sw.bb.i ], [ %switch.tableidx2115, %sw.bb7.i ]
   %switch.table._ZL9parseArchN4llvh9StringRefE.7.sink = phi ptr [ @switch.table._ZL9parseArchN4llvh9StringRefE, %sw.bb.i ], [ @switch.table._ZL9parseArchN4llvh9StringRefE.7, %sw.bb7.i ]
   %89 = zext nneg i32 %switch.tableidx2115.sink to i64
-  %switch.gep2117 = getelementptr inbounds nuw i32, ptr %switch.table._ZL9parseArchN4llvh9StringRefE.7.sink, i64 %89
+  %switch.gep2117 = getelementptr inbounds nuw [4 x i8], ptr %switch.table._ZL9parseArchN4llvh9StringRefE.7.sink, i64 %89
   %switch.load2118 = load i32, ptr %switch.gep2117, align 4
   br label %sw.epilog14.i
 
@@ -1455,7 +1455,7 @@ if.end17:                                         ; preds = %if.end
 
 switch.lookup:                                    ; preds = %if.end17
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZL12parseSubArchN4llvh9StringRefE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZL12parseSubArchN4llvh9StringRefE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -2886,7 +2886,7 @@ land.lhs.true:                                    ; preds = %for.body58
 
 if.end66:                                         ; preds = %land.lhs.true, %for.body58
   %14 = load ptr, ptr %Components, align 8
-  %arrayidx.i540 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %14, i64 %conv55339
+  %arrayidx.i540 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %conv55339
   %Comp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i540, align 8
   %Comp.sroa.8.0.arrayidx.i540.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i540, i64 8
   %Comp.sroa.8.0.copyload = load i64, ptr %Comp.sroa.8.0.arrayidx.i540.sroa_idx, align 8
@@ -2970,7 +2970,7 @@ if.end105:                                        ; preds = %sw.bb91, %_ZNK4llvh
 
 if.then107:                                       ; preds = %if.end105
   %22 = load ptr, ptr %Components, align 8
-  %arrayidx.i535 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %22, i64 %conv55339
+  %arrayidx.i535 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %conv55339
   %CurrentComponent.sroa.0.0.copyload239 = load ptr, ptr %arrayidx.i535, align 8
   %CurrentComponent.sroa.5.0.arrayidx.i535.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i535, i64 8
   %CurrentComponent.sroa.5.0.copyload242 = load i64, ptr %CurrentComponent.sroa.5.0.arrayidx.i535.sroa_idx, align 8
@@ -3014,7 +3014,7 @@ while.end:                                        ; preds = %while.body, %while.
   %i.1.lcssa = phi i32 [ %i.0362, %while.cond.preheader ], [ %28, %while.end.loopexit.split.loop.exit444 ], [ 4, %while.body ]
   %conv113.lcssa = phi i64 [ %conv113351, %while.cond.preheader ], [ %indvars.iv, %while.end.loopexit.split.loop.exit444 ], [ %26, %while.body ]
   %29 = load ptr, ptr %Components, align 8
-  %arrayidx.i530 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %29, i64 %conv113.lcssa
+  %arrayidx.i530 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %conv113.lcssa
   %CurrentComponent.sroa.0.0.copyload241 = load ptr, ptr %arrayidx.i530, align 8
   %CurrentComponent.sroa.5.0.arrayidx.i530.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i530, i64 8
   %CurrentComponent.sroa.5.0.copyload244 = load i64, ptr %CurrentComponent.sroa.5.0.arrayidx.i530.sroa_idx, align 8
@@ -3040,7 +3040,7 @@ for.body130:                                      ; preds = %do.body, %while.end
   %CurrentComponent124.sroa.4.0346 = phi i64 [ %CurrentComponent124.sroa.4.0.copyload236, %while.end147 ], [ 0, %do.body ]
   %conv127 = zext i32 %i125.0348 to i64
   %31 = load ptr, ptr %Components, align 8
-  %arrayidx.i525 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %31, i64 %conv127
+  %arrayidx.i525 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %conv127
   %CurrentComponent124.sroa.0.0.copyload234 = load ptr, ptr %arrayidx.i525, align 8
   %CurrentComponent124.sroa.4.0.arrayidx.i525.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i525, i64 8
   %CurrentComponent124.sroa.4.0.copyload236 = load i64, ptr %CurrentComponent124.sroa.4.0.arrayidx.i525.sroa_idx, align 8
@@ -3087,7 +3087,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
   %36 = phi i32 [ %.pre.i, %if.then.i ], [ %34, %if.then150 ]
   %37 = load ptr, ptr %Components, align 8
   %conv.i3.i = zext i32 %36 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %37, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %conv.i3.i
   store ptr %CurrentComponent124.sroa.0.0.copyload234, ptr %add.ptr.i.i, align 1
   %CurrentComponent124.sroa.4.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i64 %CurrentComponent124.sroa.4.0.copyload236, ptr %CurrentComponent124.sroa.4.0.add.ptr.i.i.sroa_idx, align 1
@@ -3165,7 +3165,7 @@ for.body180.preheader:                            ; preds = %for.end174
 for.body180:                                      ; preds = %for.body180.preheader, %for.inc188
   %indvars.iv390 = phi i64 [ 0, %for.body180.preheader ], [ %indvars.iv.next391, %for.inc188 ]
   %44 = load ptr, ptr %Components, align 8
-  %arrayidx.i520 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %44, i64 %indvars.iv390
+  %arrayidx.i520 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv390
   %Length.i630 = getelementptr inbounds nuw i8, ptr %arrayidx.i520, i64 8
   %45 = load i64, ptr %Length.i630, align 8
   %cmp.i631 = icmp eq i64 %45, 0
@@ -3472,10 +3472,10 @@ if.end15.sink.split.i214:                         ; preds = %for.body.preheader.
 _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit219: ; preds = %if.else.i198, %if.end15.sink.split.i214
   %switch.tableidx = add nsw i32 %ObjectFormat.2, -2
   %72 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE, i64 %72
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE, i64 %72
   %switch.load = load i64, ptr %switch.gep, align 8
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep458 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8, i64 %73
+  %switch.gep458 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8, i64 %73
   %switch.load459 = load ptr, ptr %switch.gep458, align 8
   %74 = load ptr, ptr %Components, align 8
   %arrayidx.i450 = getelementptr inbounds nuw i8, ptr %74, i64 64
@@ -3505,7 +3505,7 @@ if.then278:                                       ; preds = %for.body276
 
 if.end280:                                        ; preds = %if.then278, %for.body276
   %77 = load ptr, ptr %Components, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %77, i64 %indvars.iv397
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv397
   %agg.tmp281.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
   %agg.tmp281.sroa.2.0.arrayidx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %agg.tmp281.sroa.2.0.copyload = load i64, ptr %agg.tmp281.sroa.2.0.arrayidx.i.sroa_idx, align 8
@@ -3826,14 +3826,14 @@ entry:
   %Environment.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load i32, ptr %Environment.i, align 8
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %cmp.i.not = icmp ult i64 %1, %switch.load
   br i1 %cmp.i.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %4 = zext nneg i32 %2 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %4
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %4
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %switch.load19, i64 %switch.load)
   %5 = icmp eq i32 %bcmp, 0
@@ -3891,7 +3891,7 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   br i1 %or.cond.i.i, label %do.body.i.i, label %_ZL9EatNumberRN4llvh9StringRefE.exit.i, !llvm.loop !151
 
 _ZL9EatNumberRN4llvh9StringRefE.exit.i:           ; preds = %land.lhs.true.i.i, %do.body.i.i
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %Components.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %Components.i, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   store i32 %add.i.i, ptr %13, align 4
   %cmp.i.not.i = icmp eq i64 %sub.i.i.i, 0
@@ -3925,14 +3925,14 @@ entry:
   %OS.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %2 = load i32, ptr %OS.i, align 4
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %cmp.i.not = icmp ult i64 %1, %switch.load
   br i1 %cmp.i.not, label %if.else, label %if.end.i40
 
 if.end.i40:                                       ; preds = %entry
   %4 = zext nneg i32 %2 to i64
-  %switch.gep59 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 %4
+  %switch.gep59 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 %4
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %switch.load60, i64 %switch.load)
   %5 = icmp eq i32 %bcmp, 0
@@ -4006,7 +4006,7 @@ land.lhs.true.i.i:                                ; preds = %do.body.i.i
   br i1 %or.cond.i.i, label %do.body.i.i, label %_ZL9EatNumberRN4llvh9StringRefE.exit.i, !llvm.loop !151
 
 _ZL9EatNumberRN4llvh9StringRefE.exit.i:           ; preds = %land.lhs.true.i.i, %do.body.i.i
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %Components.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %Components.i, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
   store i32 %add.i.i, ptr %14, align 4
   %cmp.i.not.i = icmp eq i64 %sub.i.i.i, 0
@@ -4184,10 +4184,10 @@ entry:
 define hidden void @_ZN4llvh6Triple7setArchENS0_8ArchTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 %1
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple7setArchENS0_8ArchTypeE.11, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple11setArchNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -4373,10 +4373,10 @@ _ZN4llvh11SmallStringILj64EED2Ev.exit:            ; preds = %_ZN4llvh11SmallStri
 define hidden void @_ZN4llvh6Triple9setVendorENS0_10VendorTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 %1
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple9setVendorENS0_10VendorTypeE.12, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple13setVendorNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -4466,10 +4466,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit63:
 define hidden void @_ZN4llvh6Triple5setOSENS0_6OSTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %Kind) local_unnamed_addr #4 align 2 {
 entry:
   %0 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE, i64 %0
   %switch.load = load i64, ptr %switch.gep, align 8
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 %1
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple5setOSENS0_6OSTypeE.13, i64 %1
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   tail call void @_ZN4llvh6Triple9setOSNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load2, i64 %switch.load)
   ret void
@@ -4681,17 +4681,17 @@ entry:
   br i1 %cmp, label %switch.lookup, label %switch.lookup68
 
 switch.lookup:                                    ; preds = %entry
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep66 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %4
+  %switch.gep66 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %4
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   tail call void @_ZN4llvh6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load67, i64 %switch.load)
   br label %return
 
 switch.lookup68:                                  ; preds = %entry
-  %switch.gep69 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %3
+  %switch.gep69 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.15, i64 %3
   %switch.load70 = load i64, ptr %switch.gep69, align 8
-  %switch.gep71 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %4
+  %switch.gep71 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple14setEnvironmentENS0_15EnvironmentTypeE.16, i64 %4
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   store ptr %switch.load72, ptr %ref.tmp7, align 8
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
@@ -4704,10 +4704,10 @@ switch.lookup68:                                  ; preds = %entry
   %RHSKind6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !235
   %6 = zext nneg i32 %0 to i64
-  %switch.gep74 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 %6
+  %switch.gep74 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 %6
   %switch.load75 = load i64, ptr %switch.gep74, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep76 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 %7
+  %switch.gep76 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 %7
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   store ptr %switch.load77, ptr %ref.tmp11, align 8
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
@@ -4867,10 +4867,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %Kind to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %Kind to i64
-  %switch.gep51 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 %2
+  %switch.gep51 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 %2
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   tail call void @_ZN4llvh6Triple18setEnvironmentNameENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull %switch.load52, i64 %switch.load)
   br label %return
@@ -4943,10 +4943,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %_ZN4llvh9St
   %RHSKind6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 17
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !279
   %4 = zext nneg i32 %Kind to i64
-  %switch.gep54 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 %4
+  %switch.gep54 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.20, i64 %4
   %switch.load55 = load i64, ptr %switch.gep54, align 8
   %5 = zext nneg i32 %Kind to i64
-  %switch.gep56 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 %5
+  %switch.gep56 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh6Triple15setObjectFormatENS0_16ObjectFormatTypeE.21, i64 %5
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   store ptr %switch.load57, ptr %ref.tmp11, align 8
   %6 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
@@ -5885,10 +5885,10 @@ sw.default39:                                     ; preds = %sw.default36
 
 switch.lookup:                                    ; preds = %sw.bb31
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep42 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.22, i64 %12
+  %switch.gep42 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvh6Triple16getARMCPUForArchENS_9StringRefE.22, i64 %12
   %switch.load43 = load i64, ptr %switch.gep42, align 8
   br label %return
 

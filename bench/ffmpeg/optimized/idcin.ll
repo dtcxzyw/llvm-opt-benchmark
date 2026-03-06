@@ -339,7 +339,7 @@ define internal i32 @idcin_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %45 = or disjoint i32 %44, %35
   %46 = and i32 %43, 252
   %47 = or disjoint i32 %45, %46
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv109
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv109
   %49 = lshr i32 %47, 6
   %50 = and i32 %49, 197379
   %51 = or disjoint i32 %47, %50
@@ -365,7 +365,7 @@ define internal i32 @idcin_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %63 = shl nuw nsw i32 %58, 8
   %64 = or disjoint i32 %63, %62
   %65 = or disjoint i32 %64, %61
-  %66 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv105
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv105
   %67 = or disjoint i32 %65, -16777216
   store i32 %67, ptr %66, align 4, !tbaa !64
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -508,7 +508,7 @@ define internal i32 @idcin_read_seek(ptr noundef %0, i32 %1, i64 %2, i32 %3) #1 
   %19 = load ptr, ptr %18, align 8, !tbaa !69
   %20 = load i32, ptr %6, align 8, !tbaa !42
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !70
   tail call void @avpriv_update_cur_dts(ptr noundef nonnull %0, ptr noundef %23, i64 noundef 0) #5
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24

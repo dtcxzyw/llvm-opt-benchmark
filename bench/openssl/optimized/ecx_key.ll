@@ -27,7 +27,7 @@ define ptr @ossl_ecx_key_new(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 switch.lookup:                                    ; preds = %7
   %15 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ossl_ecx_key_new, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_ecx_key_new, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 %switch.load, ptr %16, align 8, !tbaa !13

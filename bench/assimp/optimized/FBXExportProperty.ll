@@ -488,9 +488,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.011 = phi i64 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %.011
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.011
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i32, ptr %16, i64 %.011
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.011
   store i32 %25, ptr %26, align 4
   %27 = add nuw i64 %.011, 1
   %28 = icmp ult i64 %27, %23
@@ -553,9 +553,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.011 = phi i64 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %24 = getelementptr inbounds nuw i64, ptr %19, i64 %.011
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.011
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %16, i64 %.011
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.011
   store i64 %25, ptr %26, align 8
   %27 = add nuw i64 %.011, 1
   %28 = icmp ult i64 %27, %23
@@ -618,9 +618,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.011 = phi i64 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %24 = getelementptr inbounds nuw float, ptr %19, i64 %.011
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.011
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw float, ptr %16, i64 %.011
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.011
   store float %25, ptr %26, align 4
   %27 = add nuw i64 %.011, 1
   %28 = icmp ult i64 %27, %23
@@ -683,9 +683,9 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.011 = phi i64 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %24 = getelementptr inbounds nuw double, ptr %19, i64 %.011
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.011
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds nuw double, ptr %16, i64 %.011
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.011
   store double %25, ptr %26, align 8
   %27 = add nuw i64 %.011, 1
   %28 = icmp ult i64 %27, %23
@@ -748,10 +748,10 @@ default.unreachable5.i:                           ; preds = %13
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %13, %15, %16, %17
   %.0.i = phi ptr [ %9, %16 ], [ %8, %17 ], [ %1, %13 ], [ %10, %15 ]
-  %18 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv16
   %19 = load float, ptr %18, align 4
   %20 = fpext float %19 to double
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %20, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1219,7 +1219,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109: ; preds = %_ZN6Assimp12Strea
 .lr.ph176:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113
   %191 = phi i64 [ %205, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113 ], [ %190, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109 ]
   %.068175 = phi i64 [ %206, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit113 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit109 ]
-  %192 = getelementptr inbounds nuw i32, ptr %23, i64 %.068175
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.068175
   %193 = load i32, ptr %192, align 4
   %194 = add i64 %191, 4
   %195 = load ptr, ptr %10, align 8
@@ -1337,7 +1337,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125: ; preds = %_ZN6Assimp12Strea
 .lr.ph174:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129
   %257 = phi i64 [ %271, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129 ], [ %256, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125 ]
   %.067173 = phi i64 [ %272, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit129 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit125 ]
-  %258 = getelementptr inbounds nuw i64, ptr %23, i64 %.067173
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.067173
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %257, 8
   %261 = load ptr, ptr %10, align 8
@@ -1455,7 +1455,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141: ; preds = %_ZN6Assimp12Strea
 .lr.ph172:                                        ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145
   %323 = phi i64 [ %337, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145 ], [ %322, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141 ]
   %.066171 = phi i64 [ %338, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit145 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit141 ]
-  %324 = getelementptr inbounds nuw float, ptr %23, i64 %.066171
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.066171
   %325 = load float, ptr %324, align 4
   %326 = add i64 %323, 4
   %327 = load ptr, ptr %10, align 8
@@ -1573,7 +1573,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157: ; preds = %_ZN6Assimp12Strea
 .lr.ph:                                           ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161
   %389 = phi i64 [ %403, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161 ], [ %388, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157 ]
   %.065170 = phi i64 [ %404, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit161 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU4Ej.exit157 ]
-  %390 = getelementptr inbounds nuw double, ptr %23, i64 %.065170
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.065170
   %391 = load double, ptr %390, align 8
   %392 = add i64 %389, 8
   %393 = load ptr, ptr %10, align 8
@@ -2400,7 +2400,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit200: ; preds = %221, %
 
 225:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit200, %211
   %.1155 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit200 ], [ %212, %211 ]
-  %226 = getelementptr inbounds nuw i32, ptr %37, i64 %.0143301
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.0143301
   %227 = load i32, ptr %226, align 4
   %228 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %227)
   %229 = add nuw nsw i64 %.0143301, 1
@@ -2585,7 +2585,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit218: ; preds = %300, %
 
 304:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit218, %290
   %.3 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit218 ], [ %291, %290 ]
-  %305 = getelementptr inbounds nuw i64, ptr %37, i64 %.0140289
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0140289
   %306 = load i64, ptr %305, align 8
   %307 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %306)
   %308 = add nuw nsw i64 %.0140289, 1
@@ -2770,7 +2770,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit236: ; preds = %379, %
 
 383:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit236, %369
   %.5 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit236 ], [ %370, %369 ]
-  %384 = getelementptr inbounds nuw float, ptr %37, i64 %.0137277
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.0137277
   %385 = load float, ptr %384, align 4
   %386 = fpext float %385 to double
   %387 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %386)
@@ -2962,7 +2962,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit254: ; preds = %464, %
 
 468:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit254, %454
   %.7 = phi i64 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit254 ], [ %455, %454 ]
-  %469 = getelementptr inbounds nuw double, ptr %37, i64 %.0134265
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0134265
   %470 = load double, ptr %469, align 8
   %471 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %470)
   %472 = add nuw nsw i64 %.0134265, 1

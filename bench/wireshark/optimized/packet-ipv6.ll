@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon.3 = type { i32, i32 }
 %struct.anon.4 = type { i32, i32, i32 }
-%struct.nat64_prefix_data = type { ptr, i8, i32 }
 
 @proto_ipv6 = internal unnamed_addr global i32 0, align 4
 @ip_dissector_table = internal unnamed_addr global ptr null, align 8
@@ -1872,7 +1871,7 @@ define internal void @nat64_prefix_uats_prefix_len_set_cb(ptr noundef writeonly 
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -1914,7 +1913,7 @@ define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr noundef readonly
   %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
   %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -1964,7 +1963,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr noundef w
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -2005,7 +2004,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr noundef
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -5298,7 +5297,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.preheader, %88
   %.099137 = phi i64 [ %89, %88 ], [ 0, %.preheader ]
   %14 = load ptr, ptr @nat64_prefix_uats, align 8
-  %15 = getelementptr %struct.nat64_prefix_data, ptr %14, i64 %.099137
+  %15 = getelementptr [16 x i8], ptr %14, i64 %.099137
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = zext i8 %17 to i32
@@ -5314,7 +5313,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @nat64_prefix_uats, align 8
-  %26 = getelementptr %struct.nat64_prefix_data, ptr %25, i64 %.099137
+  %26 = getelementptr [16 x i8], ptr %25, i64 %.099137
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = zext i8 %28 to i32
@@ -5329,7 +5328,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
 
 37:                                               ; preds = %24
   %38 = load ptr, ptr @nat64_prefix_uats, align 8
-  %39 = getelementptr %struct.nat64_prefix_data, ptr %38, i64 %.099137
+  %39 = getelementptr [16 x i8], ptr %38, i64 %.099137
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = zext i8 %41 to i32
@@ -5399,7 +5398,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
 82:                                               ; preds = %77, %73, %65, %57, %49, %45
   %.2 = phi i32 [ %48, %45 ], [ %56, %49 ], [ %64, %57 ], [ %72, %65 ], [ %76, %73 ], [ %80, %77 ]
   %83 = load ptr, ptr @nat64_prefix_uats, align 8
-  %84 = getelementptr %struct.nat64_prefix_data, ptr %83, i64 %.099137
+  %84 = getelementptr [16 x i8], ptr %83, i64 %.099137
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i8, ptr %85, align 8
   %87 = zext i8 %86 to i32

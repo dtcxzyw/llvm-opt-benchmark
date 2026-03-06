@@ -2017,7 +2017,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CTFReaderTransformElt5startEPPKc(p
 77:                                               ; preds = %72
   %78 = or disjoint i32 %.068410, 1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !42
   %.not138 = icmp eq ptr %81, null
   br i1 %.not138, label %.noexc.i, label %82
@@ -2095,7 +2095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %94
 104:                                              ; preds = %100
   %105 = or disjoint i32 %.068410, 1
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %1, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !42
   %.not134 = icmp eq ptr %108, null
   br i1 %.not134, label %.noexc.i149, label %109
@@ -2183,7 +2183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %12
 139:                                              ; preds = %135
   %140 = or disjoint i32 %.068410, 1
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw ptr, ptr %1, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !42
   %.not130 = icmp eq ptr %143, null
   br i1 %.not130, label %.noexc.i160, label %144
@@ -2395,7 +2395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit189: ; preds = %20
 210:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186, %192
   %211 = or disjoint i32 %.068410, 1
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw ptr, ptr %1, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !42
   %.not120 = icmp eq ptr %214, null
   br i1 %.not120, label %.noexc.i191, label %215
@@ -2754,7 +2754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236: ; preds = %31
 322:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233, %304
   %323 = or disjoint i32 %.068410, 1
   %324 = zext i32 %323 to i64
-  %325 = getelementptr inbounds nuw ptr, ptr %1, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %324
   %326 = load ptr, ptr %325, align 8, !tbaa !42
   %.not104 = icmp eq ptr %326, null
   br i1 %.not104, label %.noexc.i238, label %327
@@ -3046,7 +3046,7 @@ _ZN19OpenColorIO_v2_5dev18CTFReaderTransform5setIDEPKc.exit: ; preds = %_ZNSt7__
   %.163 = phi i8 [ %.062413, %411 ], [ %.062413, %162 ], [ %.062413, %127 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ], [ 1, %405 ], [ %.062413, %407 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit213 ]
   %413 = add i32 %.068410, 2
   %414 = zext i32 %413 to i64
-  %415 = getelementptr inbounds nuw ptr, ptr %1, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %414
   %416 = load ptr, ptr %415, align 8, !tbaa !42
   %.not96 = icmp eq ptr %416, null
   br i1 %.not96, label %._crit_edge, label %72, !llvm.loop !47
@@ -3060,7 +3060,7 @@ _ZN19OpenColorIO_v2_5dev18CTFReaderTransform5setIDEPKc.exit.thread: ; preds = %8
   %422 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(356) %418, i64 noundef 0, i64 noundef %420, ptr noundef nonnull %417, i64 noundef %421)
   %423 = add i32 %.068410, 2
   %424 = zext i32 %423 to i64
-  %425 = getelementptr inbounds nuw ptr, ptr %1, i64 %424
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %424
   %426 = load ptr, ptr %425, align 8, !tbaa !42
   %.not96495 = icmp eq ptr %426, null
   br i1 %.not96495, label %._crit_edge.thread499, label %.outer, !llvm.loop !47
@@ -4152,7 +4152,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderArrayElt5startEPPKc(ptr n
 78:                                               ; preds = %75
   %79 = or disjoint i32 %.030242, 1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %1, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !42
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -5092,7 +5092,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit142:                 ; preds = %_ZNSt7__cxx1112basi
   %.1 = phi i1 [ true, %_ZNSt6vectorIjSaIjEED2Ev.exit140 ], [ %.0243, %403 ]
   %406 = add i32 %.030242, 2
   %407 = zext i32 %406 to i64
-  %408 = getelementptr inbounds nuw ptr, ptr %1, i64 %407
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %407
   %409 = load ptr, ptr %408, align 8, !tbaa !42
   %.not = icmp eq ptr %409, null
   br i1 %.not, label %.critedge, label %71, !llvm.loop !125
@@ -5383,7 +5383,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %53, %.noex
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %54, ptr %8, align 8, !tbaa !88
-  %56 = getelementptr inbounds nuw i32, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   store ptr %56, ptr %9, align 8, !tbaa !87
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -7247,7 +7247,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderIndexMapElt5startEPPKc(pt
   %29 = phi ptr [ %14, %.lr.ph ], [ %202, %199 ]
   %.0123 = phi i1 [ false, %.lr.ph ], [ %.1, %199 ]
   %.029122 = phi i64 [ 0, %.lr.ph ], [ %200, %199 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %.029122
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.029122
   %31 = load i8, ptr %29, align 1, !tbaa !34
   %.not42 = icmp eq i8 %31, 0
   br i1 %.not42, label %.critedge, label %32
@@ -7684,7 +7684,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit93:                  ; preds = %_ZNSt7__cxx1112basi
 199:                                              ; preds = %197, %_ZNSt6vectorIjSaIjEED2Ev.exit91
   %.1 = phi i1 [ true, %_ZNSt6vectorIjSaIjEED2Ev.exit91 ], [ %.0123, %197 ]
   %200 = add i64 %.029122, 2
-  %201 = getelementptr inbounds nuw ptr, ptr %1, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !42
   %.not = icmp eq ptr %202, null
   br i1 %.not, label %.critedge, label %28, !llvm.loop !200
@@ -9109,7 +9109,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderMetadataElt5startEPPKc(pt
 8:                                                ; preds = %5
   %9 = or disjoint i32 %.019, 1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %16, label %13
@@ -9126,7 +9126,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderMetadataElt5startEPPKc(pt
 16:                                               ; preds = %15, %13, %8
   %17 = add i32 %.019, 2
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !42
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.critedge, label %5, !llvm.loop !224
@@ -9759,7 +9759,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126validateInfoElementVersionEPKcS2_.exit: 
 80:                                               ; preds = %77
   %81 = or disjoint i32 %.019.i, 1
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %1, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !42
   %.not16.i = icmp eq ptr %84, null
   br i1 %.not16.i, label %88, label %85
@@ -9776,7 +9776,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126validateInfoElementVersionEPKcS2_.exit: 
 88:                                               ; preds = %87, %85, %80
   %89 = add i32 %.019.i, 2
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %1, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !42
   %.not.i4 = icmp eq ptr %92, null
   br i1 %.not.i4, label %_ZN19OpenColorIO_v2_5dev20CTFReaderMetadataElt5startEPPKc.exit, label %77, !llvm.loop !224
@@ -10729,7 +10729,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %216 = or disjoint i32 %.059332, 1
   %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %1, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !42
   store ptr %201, ptr %20, align 8, !tbaa !43
   %220 = icmp eq ptr %219, null
@@ -10977,7 +10977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %303 = or disjoint i32 %.059332, 1
   %304 = zext i32 %303 to i64
-  %305 = getelementptr inbounds nuw ptr, ptr %1, i64 %304
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %304
   %306 = load ptr, ptr %305, align 8, !tbaa !42
   store ptr %198, ptr %22, align 8, !tbaa !43
   %307 = icmp eq ptr %306, null
@@ -11150,7 +11150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %364 = or disjoint i32 %.059332, 1
   %365 = zext i32 %364 to i64
-  %366 = getelementptr inbounds nuw ptr, ptr %1, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %365
   %367 = load ptr, ptr %366, align 8, !tbaa !42
   store ptr %182, ptr %23, align 8, !tbaa !43
   %368 = icmp eq ptr %367, null
@@ -11412,7 +11412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %455 = or disjoint i32 %.059332, 1
   %456 = zext i32 %455 to i64
-  %457 = getelementptr inbounds nuw ptr, ptr %1, i64 %456
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %456
   %458 = load ptr, ptr %457, align 8, !tbaa !42
   store ptr %179, ptr %24, align 8, !tbaa !43
   %459 = icmp eq ptr %458, null
@@ -11531,7 +11531,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %48
   %.158 = phi i32 [ %.057333, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit130 ], [ %.057333, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit152 ], [ %448, %447 ], [ %492, %491 ], [ %.057333, %452 ]
   %494 = add i32 %.059332, 2
   %495 = zext i32 %494 to i64
-  %496 = getelementptr inbounds nuw ptr, ptr %1, i64 %495
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %495
   %497 = load ptr, ptr %496, align 8, !tbaa !42
   %.not = icmp eq ptr %497, null
   br i1 %.not, label %._crit_edge, label %204, !llvm.loop !256
@@ -12054,7 +12054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit254: ; preds = %_Z
 685:                                              ; preds = %683, %.lr.ph.i
   %686 = add i32 %.09.i, 2
   %687 = zext i32 %686 to i64
-  %688 = getelementptr inbounds nuw ptr, ptr %1, i64 %687
+  %688 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %687
   %689 = load ptr, ptr %688, align 8, !tbaa !42
   %.not.i255 = icmp eq ptr %689, null
   br i1 %.not.i255, label %_ZNK19OpenColorIO_v2_5dev14CTFReaderOpElt21validateXmlParametersEPPKc.exit, label %.lr.ph.i, !llvm.loop !282
@@ -12416,7 +12416,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev14CTFReaderOpElt21validateXmlParame
 12:                                               ; preds = %10, %.lr.ph
   %13 = add i32 %.09, 2
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !282
@@ -16718,7 +16718,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16CTFReaderACESElt5startEPPKc(ptr no
   %15 = load ptr, ptr %8, align 8, !tbaa !435
   %16 = or disjoint i32 %.01940, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData8GetStyleEPKc(ptr noundef %19)
           to label %.thread unwind label %21
@@ -16793,7 +16793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %41,
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10
   %48 = add i32 %.01940, 2
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !42
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !439
@@ -16803,7 +16803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %41,
   store i32 %20, ptr %52, align 8, !tbaa !440
   %53 = add i32 %.01940, 2
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !42
   %.not54 = icmp eq ptr %56, null
   br i1 %.not54, label %._crit_edge.thread, label %.outer, !llvm.loop !439
@@ -17224,7 +17224,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22CTFReaderACESParamsElt5startEPPKc(
 21:                                               ; preds = %.lr.ph
   %22 = or disjoint i32 %.02359, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %20, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %27
@@ -17236,7 +17236,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22CTFReaderACESParamsElt5startEPPKc(
 27:                                               ; preds = %26, %21
   %28 = add i32 %.02359, 2
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !42
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !451
@@ -18379,7 +18379,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15CTFReaderCDLElt5startEPPKc(ptr nou
 9:                                                ; preds = %5
   %10 = add i32 %.013, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !492
@@ -18388,13 +18388,13 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15CTFReaderCDLElt5startEPPKc(ptr nou
   %14 = load ptr, ptr %4, align 8, !tbaa !488
   %15 = or disjoint i32 %.013, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev9CDLOpData8GetStyleEPKc(ptr noundef %18)
   tail call void @_ZN19OpenColorIO_v2_5dev9CDLOpData8setStyleENS0_5StyleE(ptr noundef nonnull align 8 dereferenceable(256) %14, i32 noundef %19)
   %20 = add i32 %.013, 2
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   %.not16 = icmp eq ptr %23, null
   br i1 %.not16, label %._crit_edge.thread, label %.outer, !llvm.loop !492
@@ -19128,7 +19128,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev25CTFReaderFixedFunctionElt5startEPP
   %24 = load ptr, ptr %16, align 8, !tbaa !435
   %25 = or disjoint i32 %.02683, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !42
   %29 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData8GetStyleEPKc(ptr noundef %28)
           to label %.thread unwind label %30
@@ -19211,7 +19211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %50,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %61 = or disjoint i32 %.02683, 1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %1, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !42
   %.not40 = icmp eq ptr %64, null
   br i1 %.not40, label %67, label %65
@@ -19379,7 +19379,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit60:                  ; preds = %.loopexit, %125
 130:                                              ; preds = %56, %_ZNSt6vectorIdSaIdEED2Ev.exit55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %131 = add i32 %.02683, 2
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %1, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !42
   %.not = icmp eq ptr %134, null
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !501
@@ -19389,7 +19389,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit60:                  ; preds = %.loopexit, %125
   store i32 %29, ptr %135, align 8, !tbaa !440
   %136 = add i32 %.02683, 2
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %1, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !42
   %.not111 = icmp eq ptr %139, null
   br i1 %.not111, label %._crit_edge.thread, label %.outer, !llvm.loop !501
@@ -19673,7 +19673,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %53, %.noex
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %54, ptr %8, align 8, !tbaa !458
-  %56 = getelementptr inbounds nuw double, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %56, ptr %9, align 8, !tbaa !467
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -19985,7 +19985,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderFunctionElt5startEPPKc(pt
   %15 = load ptr, ptr %8, align 8, !tbaa !435
   %16 = or disjoint i32 %.01940, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %20 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev19FixedFunctionOpData8GetStyleEPKc(ptr noundef %19)
           to label %.thread unwind label %21
@@ -20060,7 +20060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %41,
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %10
   %48 = add i32 %.01940, 2
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !42
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !506
@@ -20070,7 +20070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %41,
   store i32 %20, ptr %52, align 8, !tbaa !440
   %53 = add i32 %.01940, 2
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !42
   %.not54 = icmp eq ptr %56, null
   br i1 %.not54, label %._crit_edge.thread, label %.outer, !llvm.loop !506
@@ -20524,7 +20524,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev21XmlReaderContainerEltEEC2ERKS2_.exit: 
 43:                                               ; preds = %41
   %44 = or disjoint i32 %.0227, 1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !42
   %48 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @_ZN19OpenColorIO_v2_5devL21TAG_DYN_PROP_EXPOSUREE, ptr noundef %47)
           to label %49 unwind label %54
@@ -21899,7 +21899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %64
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev22ExposureContrastOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %551, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i146, %536, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %467, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i134, %452, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %383, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i122, %368, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %299, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i109, %284, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit106, %215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i94, %200, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91, %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i80, %116, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %660, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %41
   %665 = add i32 %.0227, 2
   %666 = zext i32 %665 to i64
-  %667 = getelementptr inbounds nuw ptr, ptr %1, i64 %666
+  %667 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %666
   %668 = load ptr, ptr %667, align 8, !tbaa !42
   %.not = icmp eq ptr %668, null
   br i1 %.not, label %._crit_edge, label %38, !llvm.loop !569
@@ -22339,7 +22339,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev28CTFReaderExposureContrastElt5start
 11:                                               ; preds = %7
   %12 = or disjoint i32 %.02133, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   %16 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData20ConvertStringToStyleEPKc(ptr noundef %15)
           to label %.thread unwind label %17
@@ -22376,7 +22376,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev28CTFReaderExposureContrastElt5start
 32:                                               ; preds = %7
   %33 = add i32 %.02133, 2
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !581
@@ -22388,7 +22388,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev28CTFReaderExposureContrastElt5start
   store i32 %.020, ptr %38, align 8, !tbaa !582
   %39 = add i32 %.02133, 2
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !42
   %.not42 = icmp eq ptr %42, null
   br i1 %.not42, label %._crit_edge.thread, label %.outer, !llvm.loop !581
@@ -22972,7 +22972,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 26:                                               ; preds = %22
   %27 = or disjoint i32 %.055140, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %25, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %77
@@ -22986,7 +22986,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 35:                                               ; preds = %31
   %36 = or disjoint i32 %.055140, 1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %34, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %77
@@ -23000,7 +23000,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 44:                                               ; preds = %40
   %45 = or disjoint i32 %.055140, 1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %43, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(8) %8)
   br label %77
@@ -23014,7 +23014,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 53:                                               ; preds = %49
   %54 = or disjoint i32 %.055140, 1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %52, ptr noundef %57, ptr noundef nonnull align 8 dereferenceable(8) %9)
   br label %77
@@ -23028,7 +23028,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 62:                                               ; preds = %58
   %63 = or disjoint i32 %.055140, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %1, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %61, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(8) %10)
   br label %77
@@ -23042,7 +23042,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 71:                                               ; preds = %67
   %72 = or disjoint i32 %.055140, 1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %1, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %70, ptr noundef %75, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %77
@@ -23054,7 +23054,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderECParamsElt5startEPPKc(pt
 77:                                               ; preds = %35, %53, %71, %76, %62, %44, %26
   %78 = add i32 %.055140, 2
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !42
   %.not = icmp eq ptr %81, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !593
@@ -23915,7 +23915,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderGammaElt5startEPPKc(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = or disjoint i32 %.01876, 1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = call noundef i32 @_ZN19OpenColorIO_v2_5dev11GammaOpData20ConvertStringToStyleEPKc(ptr noundef %34)
   store i32 %35, ptr %4, align 4, !tbaa !622
@@ -24220,7 +24220,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit59:                  ; preds = %148, %151
 157:                                              ; preds = %26
   %158 = add i32 %.01876, 2
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %1, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !42
   %.not = icmp eq ptr %161, null
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !633
@@ -24230,7 +24230,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit59:                  ; preds = %148, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %162 = add i32 %.01876, 2
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw ptr, ptr %1, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !42
   %.not92 = icmp eq ptr %165, null
   br i1 %.not92, label %._crit_edge.thread, label %.outer, !llvm.loop !633
@@ -24929,7 +24929,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23CTFReaderGammaParamsElt5startEPPKc
 13:                                               ; preds = %.lr.ph
   %14 = or disjoint i32 %.04072, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = load ptr, ptr %0, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -24959,7 +24959,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23CTFReaderGammaParamsElt5startEPPKc
   %34 = load ptr, ptr %10, align 8, !tbaa !42
   %35 = or disjoint i32 %.04072, 1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %34, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %50
@@ -24974,7 +24974,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23CTFReaderGammaParamsElt5startEPPKc
 44:                                               ; preds = %39
   %45 = or disjoint i32 %.04072, 1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %43, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %50
@@ -24987,7 +24987,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23CTFReaderGammaParamsElt5startEPPKc
   %.1 = phi i32 [ -1, %23 ], [ %21, %13 ], [ %.073, %33 ], [ %.073, %44 ], [ %.073, %49 ]
   %51 = add i32 %.04072, 2
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !42
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !654
@@ -26019,7 +26019,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev26CTFReaderGradingPrimaryElt5startEP
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = or disjoint i32 %.01927, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   invoke void @_ZN19OpenColorIO_v2_5dev33ConvertStringToGradingStyleAndDirEPKcRNS_12GradingStyleERNS_18TransformDirectionE(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %17 unwind label %27
@@ -26108,7 +26108,7 @@ _ZN19OpenColorIO_v2_5dev14GradingPrimaryC2ENS_12GradingStyleE.exit: ; preds = %.
   %.1 = phi i1 [ %.028, %8 ], [ true, %37 ], [ true, %_ZN19OpenColorIO_v2_5dev14GradingPrimaryC2ENS_12GradingStyleE.exit ]
   %41 = add i32 %.01927, 2
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !42
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !696
@@ -26756,7 +26756,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31CTFReaderGradingPrimaryParamElt19
 28:                                               ; preds = %24
   %29 = or disjoint i32 %.043141, 1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !42
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27107,7 +27107,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit76:                  ; preds = %163, %165
   %.196 = phi i1 [ %.0143, %163 ], [ %.195, %165 ]
   %.14294 = phi i1 [ %.041142, %163 ], [ %.14293, %165 ]
   %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr %1, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !42
   %.not = icmp eq ptr %172, null
   br i1 %.not, label %.critedge, label %24, !llvm.loop !725
@@ -28603,7 +28603,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31CTFReaderGradingPrimaryParamElt17
 26:                                               ; preds = %22
   %27 = or disjoint i32 %.042140, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !42
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -28947,7 +28947,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit75:                  ; preds = %155, %157
   %.195 = phi i1 [ %.0142, %155 ], [ %.194, %157 ]
   %.14193 = phi i1 [ %.040141, %155 ], [ %.14192, %157 ]
   %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %1, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !42
   %.not = icmp eq ptr %164, null
   br i1 %.not, label %.critedge, label %22, !llvm.loop !782
@@ -29480,7 +29480,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31CTFReaderGradingPrimaryParamElt20
 54:                                               ; preds = %50
   %55 = or disjoint i32 %.051275, 1
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %1, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !42
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -30178,7 +30178,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit105:                 ; preds = %302, %304
   %.150144 = phi i1 [ %.049276, %302 ], [ %.150143, %304 ]
   %.153142 = phi i1 [ %.052274, %302 ], [ %.153141, %304 ]
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %1, i64 %309
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %309
   %311 = load ptr, ptr %310, align 8, !tbaa !42
   %.not = icmp eq ptr %311, null
   br i1 %.not, label %.critedge, label %50, !llvm.loop !825
@@ -30399,7 +30399,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31CTFReaderGradingPrimaryParamElt20
 20:                                               ; preds = %16
   %21 = or disjoint i32 %.03491, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !42
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -30637,7 +30637,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit53:                  ; preds = %109, %111
   %114 = phi i32 [ %110, %109 ], [ %112, %111 ]
   %.165 = phi i1 [ %.092, %109 ], [ %.164, %111 ]
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %1, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !42
   %.not = icmp eq ptr %117, null
   br i1 %.not, label %.critedge, label %16, !llvm.loop !840
@@ -31539,7 +31539,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev27CTFReaderGradingRGBCurveElt5startE
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = or disjoint i32 %.02752, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !42
   invoke void @_ZN19OpenColorIO_v2_5dev33ConvertStringToGradingStyleAndDirEPKcRNS_12GradingStyleERNS_18TransformDirectionE(ptr noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %36 unwind label %89
@@ -31717,7 +31717,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_
 106:                                              ; preds = %102
   %107 = or disjoint i32 %.02752, 1
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %1, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !42
   %111 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %110)
   %.not29 = icmp eq i32 %111, 0
@@ -31869,7 +31869,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %.1 = phi i1 [ %.053, %102 ], [ %.053, %161 ], [ true, %99 ], [ true, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GradingRGBCurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %165 = add i32 %.02752, 2
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %1, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !42
   %.not = icmp eq ptr %168, null
   br i1 %.not, label %._crit_edge, label %26, !llvm.loop !873
@@ -33520,7 +33520,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %53, %.noex
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
   store ptr %54, ptr %8, align 8, !tbaa !884
-  %56 = getelementptr inbounds nuw float, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   store ptr %56, ptr %9, align 8, !tbaa !883
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
@@ -34010,7 +34010,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19GradingBSplineCurveELN9__gnu_cxx12_L
 .lr.ph:                                           ; preds = %52, %81
   %.020 = phi i64 [ %82, %81 ], [ 0, %52 ]
   %75 = load ptr, ptr %8, align 8, !tbaa !880
-  %76 = getelementptr inbounds nuw float, ptr %75, i64 %.020
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.020
   %77 = load float, ptr %76, align 4, !tbaa !212
   %78 = load ptr, ptr %29, align 8, !tbaa !9
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
@@ -34301,7 +34301,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23CTFReaderGradingToneElt5startEPPKc
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = or disjoint i32 %.01926, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   invoke void @_ZN19OpenColorIO_v2_5dev33ConvertStringToGradingStyleAndDirEPKcRNS_12GradingStyleERNS_18TransformDirectionE(ptr noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %47 unwind label %64
@@ -34433,7 +34433,7 @@ _ZN19OpenColorIO_v2_5dev17GradingToneOpData8setValueERKNS_11GradingToneE.exit: ;
   %.1 = phi i1 [ %.027, %38 ], [ true, %74 ], [ true, %_ZN19OpenColorIO_v2_5dev17GradingToneOpData8setValueERKNS_11GradingToneE.exit ]
   %78 = add i32 %.01926, 2
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !42
   %.not = icmp eq ptr %81, null
   br i1 %.not, label %._crit_edge, label %38, !llvm.loop !911
@@ -34807,7 +34807,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev28CTFReaderGradingToneParamElt21par
 46:                                               ; preds = %42
   %47 = or disjoint i32 %.065255, 1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !42
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -35372,7 +35372,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit130:                 ; preds = %265, %267
   %.167158 = phi i1 [ %.066254, %265 ], [ %.167157, %267 ]
   %.169156 = phi i1 [ %.068253, %265 ], [ %.169155, %267 ]
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr %1, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %272
   %274 = load ptr, ptr %273, align 8, !tbaa !42
   %.not = icmp eq ptr %274, null
   br i1 %.not, label %.critedge, label %42, !llvm.loop !940
@@ -35653,7 +35653,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev28CTFReaderGradingToneParamElt20par
 20:                                               ; preds = %16
   %21 = or disjoint i32 %.03491, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !42
   %25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -35891,7 +35891,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit53:                  ; preds = %109, %111
   %114 = phi i32 [ %110, %109 ], [ %112, %111 ]
   %.165 = phi i1 [ %.092, %109 ], [ %.164, %111 ]
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %1, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !42
   %.not = icmp eq ptr %117, null
   br i1 %.not, label %.critedge, label %16, !llvm.loop !955
@@ -36340,7 +36340,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderInvLut1DElt5startEPPKc(pt
 53:                                               ; preds = %48
   %54 = or disjoint i32 %.0138, 1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !42
   %58 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev18GetInterpolation1DEPKc(ptr noundef %57)
           to label %59 unwind label %61
@@ -36426,7 +36426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %81,
 91:                                               ; preds = %87
   %92 = or disjoint i32 %.0138, 1
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %1, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !42
   %96 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %95)
   %.not44 = icmp eq i32 %96, 0
@@ -36582,7 +36582,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 152:                                              ; preds = %148
   %153 = or disjoint i32 %.0138, 1
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %1, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !42
   %157 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %156)
   %.not48 = icmp eq i32 %157, 0
@@ -36738,7 +36738,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit92: ; preds
 213:                                              ; preds = %209
   %214 = or disjoint i32 %.0138, 1
   %215 = zext i32 %214 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %1, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !42
   %218 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.131, ptr noundef %217)
   %.not52 = icmp eq i32 %218, 0
@@ -36888,7 +36888,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit119: ; pred
 270:                                              ; preds = %268, %209
   %271 = add i32 %.0138, 2
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr %1, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %272
   %274 = load ptr, ptr %273, align 8, !tbaa !42
   %.not = icmp eq ptr %274, null
   br i1 %.not, label %._crit_edge, label %48, !llvm.loop !985
@@ -37129,12 +37129,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderInvLut1DElt8endArrayEj(pt
 17:                                               ; preds = %.lr.ph, %17
   %18 = phi ptr [ %.pre, %.lr.ph ], [ %23, %17 ]
   %.03656 = phi i64 [ 0, %.lr.ph ], [ %25, %17 ]
-  %19 = getelementptr inbounds nuw float, ptr %18, i64 %.03656
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.03656
   %20 = load float, ptr %19, align 4, !tbaa !212
   %21 = fptoui float %20 to i16
   %22 = tail call noundef float @_ZN19OpenColorIO_v2_5dev22ConvertHalfBitsToFloatEt(i16 noundef zeroext %21)
   %23 = load ptr, ptr %16, align 8, !tbaa !880
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %.03656
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.03656
   store float %22, ptr %24, align 4, !tbaa !212
   %25 = add nuw i64 %.03656, 1
   %exitcond.not = icmp eq i64 %25, %15
@@ -37329,7 +37329,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %.03559 = phi i64 [ %.03558, %.preheader.lr.ph ], [ %.035, %.loopexit ]
-  %101 = getelementptr inbounds nuw float, ptr %99, i64 %.03559
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.03559
   %.idx = mul i64 %.03559, 12
   %102 = getelementptr i8, ptr %99, i64 %.idx
   %.pre62 = load float, ptr %101, align 4, !tbaa !212
@@ -37337,7 +37337,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 103:                                              ; preds = %.preheader, %103
   %.057 = phi i64 [ 0, %.preheader ], [ %105, %103 ]
-  %104 = getelementptr float, ptr %102, i64 %.057
+  %104 = getelementptr [4 x i8], ptr %102, i64 %.057
   store float %.pre62, ptr %104, align 4, !tbaa !212
   %105 = add nuw nsw i64 %.057, 1
   %exitcond61.not = icmp eq i64 %105, 3
@@ -37625,7 +37625,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20CTFReaderInvLut3DElt5startEPPKc(pt
 13:                                               ; preds = %9
   %14 = or disjoint i32 %.026, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev18GetInterpolation3DEPKc(ptr noundef %17)
           to label %19 unwind label %21
@@ -37705,7 +37705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %41,
 47:                                               ; preds = %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
   %48 = add i32 %.026, 2
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !42
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !1015
@@ -38373,7 +38373,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15CTFReaderLogElt5startEPPKc(ptr nou
 11:                                               ; preds = %7
   %12 = or disjoint i32 %.02032, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   %16 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev7LogUtil20ConvertStringToStyleEPKc(ptr noundef %15)
           to label %17 unwind label %18
@@ -38412,7 +38412,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15CTFReaderLogElt5startEPPKc(ptr nou
   %.1 = phi i1 [ %.033, %7 ], [ true, %27 ], [ true, %17 ]
   %31 = add i32 %.02032, 2
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !1042
@@ -39625,7 +39625,7 @@ _ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsEltD2Ev.exit: ; preds = %1, %9, %_ZN
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsElt11parseCineonEPPKcjRdS4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #4 align 2 {
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @_ZN19OpenColorIO_v2_5devL10ATTR_GAMMAE, ptr noundef %11)
   %13 = icmp eq i32 %12, 0
@@ -39635,7 +39635,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsEl
 15:                                               ; preds = %8
   %16 = add i32 %2, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   tail call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %14, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %56
@@ -39649,7 +39649,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsEl
 24:                                               ; preds = %20
   %25 = add i32 %2, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !42
   tail call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %23, ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %56
@@ -39663,7 +39663,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsEl
 33:                                               ; preds = %29
   %34 = add i32 %2, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   tail call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %32, ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %56
@@ -39677,7 +39677,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsEl
 42:                                               ; preds = %38
   %43 = add i32 %2, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   tail call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %41, ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %56
@@ -39691,7 +39691,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsEl
   %51 = load ptr, ptr %10, align 8, !tbaa !42
   %52 = add i32 %2, 1
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %1, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   tail call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %51, ptr noundef %55, ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %56
@@ -39997,7 +39997,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CTFReaderLogParamsElt5startEPPKc(p
 32:                                               ; preds = %27
   %33 = or disjoint i32 %.02446, 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   %37 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.95, ptr noundef %36)
   %38 = icmp eq i32 %37, 0
@@ -40169,7 +40169,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %.126 = phi i32 [ %.02545, %98 ], [ 0, %32 ], [ 1, %39 ], [ %.02545, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.02545, %96 ], [ 2, %43 ]
   %101 = add i32 %.02446, 2
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %1, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !42
   %.not = icmp eq ptr %104, null
   br i1 %.not, label %._crit_edge.loopexit, label %27, !llvm.loop !1076
@@ -40399,7 +40399,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18CTFReaderTransformELN9__gnu_cxx12_Lo
 100:                                              ; preds = %95
   %101 = or disjoint i32 %.090205, 1
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %1, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !42
   %105 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.95, ptr noundef %104)
   %106 = icmp eq i32 %105, 0
@@ -40570,7 +40570,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 171:                                              ; preds = %166
   %172 = or disjoint i32 %.090205, 1
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw ptr, ptr %1, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %173
   %175 = load ptr, ptr %174, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %170, ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %176 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40592,7 +40592,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 182:                                              ; preds = %178
   %183 = or disjoint i32 %.090205, 1
   %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds nuw ptr, ptr %1, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %181, ptr noundef %186, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %187 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40614,7 +40614,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 193:                                              ; preds = %189
   %194 = or disjoint i32 %.090205, 1
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw ptr, ptr %1, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %192, ptr noundef %197, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %198 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40636,7 +40636,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 204:                                              ; preds = %200
   %205 = or disjoint i32 %.090205, 1
   %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw ptr, ptr %1, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %203, ptr noundef %208, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %209 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40658,7 +40658,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 215:                                              ; preds = %211
   %216 = or disjoint i32 %.090205, 1
   %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %1, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %214, ptr noundef %219, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %220 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40680,7 +40680,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 226:                                              ; preds = %222
   %227 = or disjoint i32 %.090205, 1
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %1, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %225, ptr noundef %230, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %231 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40702,7 +40702,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %237 = load ptr, ptr %97, align 8, !tbaa !42
   %238 = or disjoint i32 %.090205, 1
   %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr %1, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !42
   call void @_ZN19OpenColorIO_v2_5dev16XmlReaderElement20parseScalarAttributeIdEEvPKcS3_RT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %237, ptr noundef %241, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %242 = load i32, ptr %71, align 8, !tbaa !1040
@@ -40863,7 +40863,7 @@ _ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit.thread: ; pre
   %.192247 = phi i32 [ %.091204, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.192253, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_16ThrowMIA55_cJEEEvRKNS_16XmlReaderElementERKT_DpT0_.exit ], [ %.192, %_ZN19OpenColorIO_v2_5dev7LogUtil9CTFParams7setTypeENS1_4TypeE.exit ], [ %.091204, %250 ], [ %.091204, %171 ], [ %.091204, %177 ], [ %.091204, %182 ], [ %.091204, %188 ], [ %.091204, %193 ], [ %.091204, %199 ], [ %.091204, %204 ], [ %.091204, %210 ], [ %.091204, %215 ], [ %.091204, %221 ], [ %.091204, %226 ], [ %.091204, %232 ], [ %.091204, %236 ], [ %.091204, %243 ], [ %.091204, %247 ], [ %.091204, %249 ]
   %287 = add i32 %.090205, 2
   %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds nuw ptr, ptr %1, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %288
   %290 = load ptr, ptr %289, align 8, !tbaa !42
   %.not106 = icmp eq ptr %290, null
   br i1 %.not106, label %._crit_edge, label %95, !llvm.loop !1094
@@ -41074,7 +41074,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   call void @_ZdlPvm(ptr noundef nonnull %366, i64 noundef %369) #35
   store ptr %378, ptr %20, align 8, !tbaa !459
   store ptr %383, ptr %306, align 8, !tbaa !458
-  %384 = getelementptr inbounds nuw double, ptr %378, i64 %376
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %378, i64 %376
   store ptr %384, ptr %304, align 8, !tbaa !467
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit162
 
@@ -41677,7 +41677,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderLut1DElt5startEPPKc(ptr n
 14:                                               ; preds = %9
   %15 = or disjoint i32 %.040, 1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev18GetInterpolation1DEPKc(ptr noundef %18)
           to label %20 unwind label %22
@@ -41763,7 +41763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %42,
 52:                                               ; preds = %48
   %53 = or disjoint i32 %.040, 1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !42
   %57 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %56)
   %.not32 = icmp eq i32 %57, 0
@@ -41788,7 +41788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %42,
 66:                                               ; preds = %62
   %67 = or disjoint i32 %.040, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !42
   %71 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %70)
   %.not33 = icmp eq i32 %71, 0
@@ -41807,7 +41807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %42,
 76:                                               ; preds = %74, %62
   %77 = add i32 %.040, 2
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !42
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !1110
@@ -42175,12 +42175,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderLut1DElt8endArrayEj(ptr n
 15:                                               ; preds = %.lr.ph, %15
   %16 = phi ptr [ %.pre, %.lr.ph ], [ %21, %15 ]
   %.03040 = phi i64 [ 0, %.lr.ph ], [ %23, %15 ]
-  %17 = getelementptr inbounds nuw float, ptr %16, i64 %.03040
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.03040
   %18 = load float, ptr %17, align 4, !tbaa !212
   %19 = fptoui float %18 to i16
   %20 = tail call noundef float @_ZN19OpenColorIO_v2_5dev22ConvertHalfBitsToFloatEt(i16 noundef zeroext %19)
   %21 = load ptr, ptr %14, align 8, !tbaa !880
-  %22 = getelementptr inbounds nuw float, ptr %21, i64 %.03040
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.03040
   store float %20, ptr %22, align 4, !tbaa !212
   %23 = add nuw i64 %.03040, 1
   %exitcond.not = icmp eq i64 %23, %13
@@ -42236,7 +42236,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderLut1DElt8endArrayEj(ptr n
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %indvars.iv47 = phi i64 [ %45, %.preheader.lr.ph ], [ %indvars.iv.next48, %.loopexit ]
-  %47 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv47
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv47
   %48 = mul i64 %indvars.iv47, 3
   %.pre50 = load float, ptr %47, align 4, !tbaa !212
   br label %49
@@ -42245,7 +42245,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderLut1DElt8endArrayEj(ptr n
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %49 ]
   %50 = add i64 %48, %indvars.iv
   %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw float, ptr %44, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %51
   store float %.pre50, ptr %52, align 4, !tbaa !212
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next, 3
@@ -42714,7 +42714,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CTFReaderLut1DElt_1_45startEPPKc(p
 29:                                               ; preds = %24
   %30 = or disjoint i32 %.051, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   %34 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev18GetInterpolation1DEPKc(ptr noundef %33)
           to label %35 unwind label %37
@@ -42800,7 +42800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %57,
 67:                                               ; preds = %63
   %68 = or disjoint i32 %.051, 1
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !42
   %72 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %71)
   %.not38 = icmp eq i32 %72, 0
@@ -42825,7 +42825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %57,
 81:                                               ; preds = %77
   %82 = or disjoint i32 %.051, 1
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %1, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !42
   %86 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.119, ptr noundef %85)
   %.not39 = icmp eq i32 %86, 0
@@ -42850,7 +42850,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %57,
 95:                                               ; preds = %91
   %96 = or disjoint i32 %.051, 1
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !42
   %100 = call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.131, ptr noundef %99)
   %.not40 = icmp eq i32 %100, 0
@@ -43004,7 +43004,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_16ThrowMIA32_cJPKcS4_EEEvRKNS_16XmlReaderEl
 152:                                              ; preds = %150, %91
   %153 = add i32 %.051, 2
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %1, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !42
   %.not = icmp eq ptr %156, null
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !1142
@@ -43494,7 +43494,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17CTFReaderLut3DElt5startEPPKc(ptr n
 13:                                               ; preds = %9
   %14 = or disjoint i32 %.026, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev18GetInterpolation3DEPKc(ptr noundef %17)
           to label %19 unwind label %21
@@ -43574,7 +43574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %41,
 47:                                               ; preds = %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
   %48 = add i32 %.026, 2
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !42
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !1154
@@ -45468,7 +45468,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %35, %57
   br i1 %77, label %78, label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw double, ptr %68, i64 %66
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   %.not.i.i.i = icmp eq ptr %67, %79
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %80
 
@@ -46120,7 +46120,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CTFReaderRangeElt_1_75startEPPKc(p
 8:                                                ; preds = %.lr.ph
   %9 = or disjoint i32 %.010, 1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @.str.160, ptr noundef %12)
   %14 = icmp eq i32 %13, 0
@@ -46131,7 +46131,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CTFReaderRangeElt_1_75startEPPKc(p
 16:                                               ; preds = %8, %.lr.ph
   %17 = add i32 %.010, 2
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !42
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1215
@@ -46509,7 +46509,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22CTFReaderRangeValueElt5startEPPKc(
   tail call void @_ZNK19OpenColorIO_v2_5dev16XmlReaderElement19logParameterWarningEPKc(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %4)
   %5 = add i32 %.07, 2
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1217
@@ -47367,7 +47367,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CTFReaderReferenceElt5startEPPKc(p
   %23 = phi ptr [ %17, %.lr.ph ], [ %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   %.02698 = phi i64 [ 0, %.lr.ph ], [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
   %.02797 = phi i1 [ false, %.lr.ph ], [ %.128, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ]
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02698
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02698
   %25 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @_ZN19OpenColorIO_v2_5devL9ATTR_PATHE, ptr noundef nonnull %23)
           to label %26 unwind label %.loopexit
 
@@ -47580,7 +47580,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %110, %108
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %98, %_ZNK19OpenColorIO_v2_5dev21CTFReaderReferenceElt12getReferenceEv.exit, %28, %37, %73, %79, %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.128 = phi i1 [ true, %37 ], [ %.02797, %73 ], [ %.02797, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.02797, %52 ], [ %.02797, %28 ], [ %.02797, %79 ], [ %.02797, %_ZNK19OpenColorIO_v2_5dev21CTFReaderReferenceElt12getReferenceEv.exit ], [ %.02797, %98 ], [ %.02797, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ %.02797, %113 ]
   %114 = add i64 %.02698, 2
-  %115 = getelementptr inbounds nuw ptr, ptr %1, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !42
   %.not = icmp eq ptr %116, null
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !1243
@@ -50906,7 +50906,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exi
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, %58
   store ptr %20, ptr %0, align 8, !tbaa !1245
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !225
-  %62 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !228
   ret void
 
@@ -51525,7 +51525,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !1250
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !70
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !73
   ret void
 
@@ -53027,7 +53027,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev6OpDataEESaIS4_EE11_S_relocat
 _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_5dev6OpDataEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev6OpDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !1149
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !241
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.35", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !244
   ret void
 }
@@ -56486,7 +56486,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds float, ptr %13, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit
 
@@ -56509,7 +56509,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit:
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES2_fET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw float, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !884
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit53, label %38
@@ -56593,7 +56593,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIfSaIf
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !880
   store ptr %67, ptr %12, align 8, !tbaa !884
-  %70 = getelementptr inbounds nuw float, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8, !tbaa !883
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEES6_ET0_T_S8_S7_.exit
 
@@ -57615,9 +57615,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !459
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !458
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !467
   br label %41
 

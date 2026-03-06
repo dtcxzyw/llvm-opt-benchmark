@@ -98,7 +98,7 @@ define noundef i32 @dsymm_thread_LU(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 54:                                               ; preds = %50
   %55 = and i64 %.056, 4294967295
-  %56 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @blas_quick_divide_table, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !15
   %58 = tail call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %57, i32 %51) #6, !srcloc !16
   %59 = extractvalue { i32, i32 } %58, 0
@@ -261,7 +261,7 @@ blas_quickdivide.exit:                            ; preds = %50, %54
 
 140:                                              ; preds = %.lr.ph165.i
   %141 = and i64 %137, 4294967295
-  %142 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @blas_quick_divide_table, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !15
   %144 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %143, i32 %136) #6, !srcloc !16
   %145 = extractvalue { i32, i32 } %144, 0
@@ -285,7 +285,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
   %spec.select.i = select i1 %153, i64 %.1134162.i, i64 %151
   %154 = add nsw i64 %spec.select.i, %132
   %155 = add nuw nsw i64 %.0163.i, 1
-  %156 = getelementptr inbounds nuw i64, ptr %121, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %155
   store i64 %154, ptr %156, align 8, !tbaa !11
   %157 = icmp sgt i64 %152, 0
   br i1 %157, label %.lr.ph165.i, label %.preheader161.i, !llvm.loop !30
@@ -293,7 +293,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
 158:                                              ; preds = %158, %.lr.ph167.i
   %.0139166.i = phi i64 [ %.0.lcssa201.i, %.lr.ph167.i ], [ %159, %158 ]
   %159 = add nuw nsw i64 %.0139166.i, 1
-  %160 = getelementptr inbounds nuw i64, ptr %121, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %159
   store i64 %131, ptr %160, align 8, !tbaa !11
   %exitcond.not.i = icmp eq i64 %159, 16
   br i1 %exitcond.not.i, label %.lr.ph169.i.preheader, label %158, !llvm.loop !31
@@ -303,7 +303,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
 
 .lr.ph169.i:                                      ; preds = %.lr.ph169.i.preheader, %.lr.ph169.i
   %.1140168.i = phi i64 [ %167, %.lr.ph169.i ], [ 0, %.lr.ph169.i.preheader ]
-  %161 = getelementptr inbounds nuw %struct.blas_queue, ptr %11, i64 %.1140168.i
+  %161 = getelementptr inbounds nuw [168 x i8], ptr %11, i64 %.1140168.i
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 160
   store i32 8195, ptr %162, align 8, !tbaa !32
   store ptr @inner_thread, ptr %161, align 8, !tbaa !35
@@ -315,7 +315,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
   store ptr %122, ptr %165, align 8, !tbaa !38
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 48
   %167 = add nuw nsw i64 %.1140168.i, 1
-  %168 = getelementptr inbounds nuw %struct.blas_queue, ptr %11, i64 %167
+  %168 = getelementptr inbounds nuw [168 x i8], ptr %11, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %161, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, i8 0, i64 16, i1 false)
   store ptr %168, ptr %169, align 8, !tbaa !39
@@ -327,7 +327,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
   store ptr %3, ptr %170, align 16, !tbaa !41
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %4, ptr %171, align 8, !tbaa !42
-  %172 = getelementptr %struct.blas_queue, ptr %11, i64 %74
+  %172 = getelementptr [168 x i8], ptr %11, i64 %74
   %173 = getelementptr i8, ptr %172, i64 -104
   store ptr null, ptr %173, align 8, !tbaa !39
   br i1 %.not65, label %177, label %174
@@ -387,13 +387,13 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
 
 193:                                              ; preds = %.lr.ph174.i
   %194 = and i64 %190, 4294967295
-  %195 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @blas_quick_divide_table, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !15
   %197 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %196, i32 %189) #6, !srcloc !16
   %198 = extractvalue { i32, i32 } %197, 0
   store volatile i32 %198, ptr %7, align 4, !tbaa !15
   %.0..0..0..0..0..0..0..0..i152.i = load volatile i32, ptr %7, align 4, !tbaa !15
-  %.phi.trans.insert.i = getelementptr inbounds nuw i64, ptr %122, i64 %.1172.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %.1172.i
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !11
   br label %blas_quickdivide.exit154.i
 
@@ -415,19 +415,19 @@ blas_quickdivide.exit154.i:                       ; preds = %193, %.lr.ph174.i
   %.2.i = select i1 %207, i64 %.1132171.i, i64 %205
   %208 = add nsw i64 %.2.i, %199
   %209 = add nuw nsw i64 %.1172.i, 1
-  %210 = getelementptr inbounds nuw i64, ptr %122, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %209
   store i64 %208, ptr %210, align 8, !tbaa !11
   %211 = icmp sgt i64 %206, 0
   br i1 %211, label %.lr.ph174.i, label %.preheader159.i, !llvm.loop !43
 
 .preheader157.us.i:                               ; preds = %.preheader157.us.i.preheader, %._crit_edge180.us.i
   %.2141181.us.i = phi i64 [ %216, %._crit_edge180.us.i ], [ 0, %.preheader157.us.i.preheader ]
-  %212 = getelementptr inbounds nuw %struct.job_t, ptr %10, i64 %.2141181.us.i
+  %212 = getelementptr inbounds nuw [2048 x i8], ptr %10, i64 %.2141181.us.i
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i, %.preheader157.us.i
   %.1138179.us.i = phi i64 [ 0, %.preheader157.us.i ], [ %215, %.preheader.us.i ]
-  %213 = getelementptr inbounds nuw [16 x i64], ptr %212, i64 %.1138179.us.i
+  %213 = getelementptr inbounds nuw [128 x i8], ptr %212, i64 %.1138179.us.i
   store volatile i64 0, ptr %213, align 16, !tbaa !11
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 64
   store volatile i64 0, ptr %214, align 16, !tbaa !11
@@ -443,7 +443,7 @@ blas_quickdivide.exit154.i:                       ; preds = %193, %.lr.ph174.i
 217:                                              ; preds = %217, %.lr.ph177.i
   %.0137176.i = phi i64 [ %.1.lcssa203.i, %.lr.ph177.i ], [ %218, %217 ]
   %218 = add nuw nsw i64 %.0137176.i, 1
-  %219 = getelementptr inbounds nuw i64, ptr %122, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %218
   store i64 %184, ptr %219, align 8, !tbaa !11
   %exitcond189.not.i = icmp eq i64 %218, 16
   br i1 %exitcond189.not.i, label %.preheader157.us.i.preheader, label %217, !llvm.loop !46
@@ -521,7 +521,7 @@ define internal noundef i32 @inner_thread(ptr noundef readonly captures(none) %0
 
 33:                                               ; preds = %6
   %34 = and i64 %.0307, 4294967295
-  %35 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @blas_quick_divide_table, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !15
   %37 = tail call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %36, i32 %30) #6, !srcloc !16
   %38 = extractvalue { i32, i32 } %37, 0
@@ -538,7 +538,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 
 41:                                               ; preds = %blas_quickdivide.exit
   %42 = sub nsw i64 %5, %40
-  %43 = getelementptr inbounds i64, ptr %1, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %1, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !11
   %45 = getelementptr i8, ptr %43, i64 8
   br label %46
@@ -552,7 +552,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %.not327, label %52, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i64, ptr %2, i64 %5
+  %49 = getelementptr inbounds [8 x i8], ptr %2, i64 %5
   %50 = load i64, ptr %49, align 8, !tbaa !11
   %51 = getelementptr i8, ptr %49, i64 8
   br label %52
@@ -573,14 +573,14 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %57 = sub nsw i64 %.0305, %.0291
   %58 = add nuw nsw i64 %39, 1
   %59 = mul nsw i64 %58, %.0307
-  %60 = getelementptr inbounds i64, ptr %2, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %2, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !11
-  %62 = getelementptr inbounds i64, ptr %2, i64 %40
+  %62 = getelementptr inbounds [8 x i8], ptr %2, i64 %40
   %63 = load i64, ptr %62, align 8, !tbaa !11
   %64 = sub nsw i64 %61, %63
   %65 = mul nsw i64 %63, %23
-  %66 = getelementptr double, ptr %17, i64 %.0291
-  %67 = getelementptr double, ptr %66, i64 %65
+  %66 = getelementptr [8 x i8], ptr %17, i64 %.0291
+  %67 = getelementptr [8 x i8], ptr %66, i64 %65
   %68 = tail call i32 @dgemm_beta(i64 noundef %57, i64 noundef %64, i64 noundef 0, double noundef %54, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef %67, i64 noundef %23) #6
   br label %69
 
@@ -617,12 +617,12 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %86 = add nuw nsw i64 %85, 15
   %87 = and i64 %86, 9223372036854775792
   %88 = icmp slt i64 %.0306, %.0308
-  %89 = getelementptr inbounds %struct.job_t, ptr %10, i64 %5
-  %90 = getelementptr double, ptr %17, i64 %.0291
+  %89 = getelementptr inbounds [2048 x i8], ptr %10, i64 %5
+  %90 = getelementptr [8 x i8], ptr %17, i64 %.0291
   %91 = add nuw nsw i64 %39, 1
   %92 = mul nsw i64 %91, %.0307
   %93 = icmp sgt i64 %.0307, 0
-  %invariant.gep380 = getelementptr [16 x i64], ptr %10, i64 %5
+  %invariant.gep380 = getelementptr [128 x i8], ptr %10, i64 %5
   %.mux = select i1 %83, i64 192, i64 %87
   br label %97
 
@@ -632,7 +632,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %95, label %.preheader348.lr.ph, label %._crit_edge404
 
 .preheader348.lr.ph:                              ; preds = %.preheader349
-  %96 = getelementptr inbounds %struct.job_t, ptr %10, i64 %5
+  %96 = getelementptr inbounds [2048 x i8], ptr %10, i64 %5
   br label %.preheader348
 
 97:                                               ; preds = %.lr.ph398, %._crit_edge396
@@ -667,7 +667,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %88, label %.preheader352.lr.ph, label %.preheader353
 
 .preheader352.lr.ph:                              ; preds = %109
-  %111 = getelementptr double, ptr %15, i64 %.0299397
+  %111 = getelementptr [8 x i8], ptr %15, i64 %.0299397
   br label %.preheader352
 
 .preheader353:                                    ; preds = %._crit_edge367, %109
@@ -689,7 +689,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 .preheader351:                                    ; preds = %.preheader351.lr.ph, %._crit_edge
   %115 = phi i64 [ %113, %.preheader351.lr.ph ], [ %118, %._crit_edge ]
   %.1288358 = phi i64 [ 0, %.preheader351.lr.ph ], [ %119, %._crit_edge ]
-  %gep = getelementptr inbounds nuw [16 x i64], ptr %invariant.gep, i64 %.1288358
+  %gep = getelementptr inbounds nuw [128 x i8], ptr %invariant.gep, i64 %.1288358
   %116 = load volatile i64, ptr %gep, align 8, !tbaa !11
   %.not341357 = icmp eq i64 %116, 0
   br i1 %.not341357, label %._crit_edge, label %.lr.ph
@@ -718,7 +718,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %123, label %.lr.ph362, label %._crit_edge363
 
 .lr.ph362:                                        ; preds = %._crit_edge359
-  %124 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0296371
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0296371
   %125 = load ptr, ptr %124, align 8, !tbaa !52
   br label %126
 
@@ -727,14 +727,14 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %127 = sub nsw i64 %122, %.0295360
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %127, i64 12)
   %128 = mul nsw i64 %.0295360, %21
-  %129 = getelementptr double, ptr %111, i64 %128
+  %129 = getelementptr [8 x i8], ptr %111, i64 %128
   %130 = sub nsw i64 %.0295360, %.0300370
   %131 = mul i64 %.0285, %130
-  %132 = getelementptr inbounds double, ptr %125, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %125, i64 %131
   %133 = tail call i32 @dgemm_oncopy(i64 noundef %.0292, i64 noundef %spec.store.select, ptr noundef %129, i64 noundef %21, ptr noundef %132) #6
   %134 = load double, ptr %25, align 8, !tbaa !50
   %135 = mul nsw i64 %.0295360, %23
-  %136 = getelementptr double, ptr %90, i64 %135
+  %136 = getelementptr [8 x i8], ptr %90, i64 %135
   %137 = tail call i32 @dgemm_kernel(i64 noundef %.0293, i64 noundef %spec.store.select, i64 noundef %.0292, double noundef %134, ptr noundef %3, ptr noundef %132, ptr noundef %136, i64 noundef %23) #6
   %138 = add nsw i64 %spec.store.select, %.0295360
   %139 = icmp slt i64 %138, %122
@@ -745,7 +745,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %93, label %.lr.ph366, label %._crit_edge367
 
 .lr.ph366:                                        ; preds = %._crit_edge363
-  %140 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0296371
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0296371
   %141 = load ptr, ptr %140, align 8, !tbaa !52
   %142 = ptrtoint ptr %141 to i64
   %.idx339 = shl nsw i64 %.0296371, 6
@@ -754,7 +754,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 
 143:                                              ; preds = %.lr.ph366, %143
   %.2289364 = phi i64 [ %40, %.lr.ph366 ], [ %144, %143 ]
-  %gep369 = getelementptr [16 x i64], ptr %invariant.gep368, i64 %.2289364
+  %gep369 = getelementptr [128 x i8], ptr %invariant.gep368, i64 %.2289364
   store volatile i64 %142, ptr %gep369, align 8, !tbaa !11
   %144 = add nuw nsw i64 %.2289364, 1
   %145 = icmp slt i64 %144, %92
@@ -770,7 +770,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %149 = add nsw i64 %.0286, 1
   %.not330 = icmp slt i64 %149, %92
   %spec.select344 = select i1 %.not330, i64 %149, i64 %40
-  %150 = getelementptr i64, ptr %2, i64 %spec.select344
+  %150 = getelementptr [8 x i8], ptr %2, i64 %spec.select344
   %151 = getelementptr i8, ptr %150, i64 8
   %152 = load i64, ptr %151, align 8, !tbaa !11
   %153 = load i64, ptr %150, align 8, !tbaa !11
@@ -782,7 +782,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 
 .lr.ph378:                                        ; preds = %148
   %.not336 = icmp eq i64 %spec.select344, %5
-  %gep381 = getelementptr %struct.job_t, ptr %invariant.gep380, i64 %spec.select344
+  %gep381 = getelementptr [2048 x i8], ptr %invariant.gep380, i64 %spec.select344
   br i1 %.not336, label %.lr.ph378.split.us, label %.preheader350
 
 .lr.ph378.split.us:                               ; preds = %.lr.ph378
@@ -826,7 +826,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %172 = load volatile i64, ptr %164, align 8, !tbaa !11
   %173 = inttoptr i64 %172 to ptr
   %174 = mul nsw i64 %.1301375, %23
-  %175 = getelementptr double, ptr %90, i64 %174
+  %175 = getelementptr [8 x i8], ptr %90, i64 %174
   %176 = tail call i32 @dgemm_kernel(i64 noundef %.0293, i64 noundef %., i64 noundef %.0292, double noundef %171, ptr noundef %3, ptr noundef %173, ptr noundef %175, i64 noundef %23) #6
   br i1 %112, label %177, label %179
 
@@ -872,7 +872,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 196:                                              ; preds = %.lr.ph395, %189, %191
   %.1294 = phi i64 [ %187, %189 ], [ %195, %191 ], [ 192, %.lr.ph395 ]
   %197 = tail call i32 @dsymm_iutcopy(i64 noundef %.0292, i64 noundef %.1294, ptr noundef %13, i64 noundef %19, i64 noundef %.0304393, i64 noundef %.0299397, ptr noundef %3) #6
-  %198 = getelementptr double, ptr %17, i64 %.0304393
+  %198 = getelementptr [8 x i8], ptr %17, i64 %.0304393
   %199 = add nsw i64 %.1294, %.0304393
   %.not335 = icmp slt i64 %199, %.0305
   %.not335.fr = freeze i1 %.not335
@@ -881,9 +881,9 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 .split.us:                                        ; preds = %196, %._crit_edge388.split.us.us
   %.2.us = phi i64 [ %spec.select346.us, %._crit_edge388.split.us.us ], [ %5, %196 ]
   %200 = add nsw i64 %.2.us, 1
-  %201 = getelementptr inbounds i64, ptr %2, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %2, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !11
-  %203 = getelementptr inbounds i64, ptr %2, i64 %.2.us
+  %203 = getelementptr inbounds [8 x i8], ptr %2, i64 %.2.us
   %204 = load i64, ptr %203, align 8, !tbaa !11
   %205 = add i64 %202, 1
   %206 = sub i64 %205, %204
@@ -898,7 +898,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %.not333.us, label %.split392.us, label %.split.us, !llvm.loop !68
 
 .lr.ph387.us:                                     ; preds = %.split.us
-  %gep390.us = getelementptr %struct.job_t, ptr %invariant.gep380, i64 %.2.us
+  %gep390.us = getelementptr [2048 x i8], ptr %invariant.gep380, i64 %.2.us
   br label %209
 
 209:                                              ; preds = %209, %.lr.ph387.us
@@ -913,7 +913,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %214 = load volatile i64, ptr %213, align 8, !tbaa !11
   %215 = inttoptr i64 %214 to ptr
   %216 = mul nsw i64 %.2302384.us.us, %23
-  %217 = getelementptr double, ptr %198, i64 %216
+  %217 = getelementptr [8 x i8], ptr %198, i64 %216
   %218 = tail call i32 @dgemm_kernel(i64 noundef %.1294, i64 noundef %.345.us.us, i64 noundef %.0292, double noundef %212, ptr noundef %3, ptr noundef %215, ptr noundef %217, i64 noundef %23) #6
   %219 = add nsw i64 %.2302384.us.us, %207
   %220 = add nuw nsw i64 %.2298385.us.us, 1
@@ -924,9 +924,9 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 .split:                                           ; preds = %196, %._crit_edge388.split
   %.2 = phi i64 [ %spec.select346, %._crit_edge388.split ], [ %5, %196 ]
   %223 = add nsw i64 %.2, 1
-  %224 = getelementptr inbounds i64, ptr %2, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %2, i64 %223
   %225 = load i64, ptr %224, align 8, !tbaa !11
-  %226 = getelementptr inbounds i64, ptr %2, i64 %.2
+  %226 = getelementptr inbounds [8 x i8], ptr %2, i64 %.2
   %227 = load i64, ptr %226, align 8, !tbaa !11
   %228 = add i64 %225, 1
   %229 = sub i64 %228, %227
@@ -935,7 +935,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   br i1 %231, label %.lr.ph387, label %._crit_edge388.split
 
 .lr.ph387:                                        ; preds = %.split
-  %gep390 = getelementptr %struct.job_t, ptr %invariant.gep380, i64 %.2
+  %gep390 = getelementptr [2048 x i8], ptr %invariant.gep380, i64 %.2
   br label %232
 
 232:                                              ; preds = %.lr.ph387, %232
@@ -950,7 +950,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
   %237 = load volatile i64, ptr %236, align 8, !tbaa !11
   %238 = inttoptr i64 %237 to ptr
   %239 = mul nsw i64 %.2302384, %23
-  %240 = getelementptr double, ptr %198, i64 %239
+  %240 = getelementptr [8 x i8], ptr %198, i64 %239
   %241 = tail call i32 @dgemm_kernel(i64 noundef %.1294, i64 noundef %.345, i64 noundef %.0292, double noundef %235, ptr noundef %3, ptr noundef %238, ptr noundef %240, i64 noundef %23) #6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !70
   %242 = load volatile i64, ptr %236, align 8, !tbaa !11
@@ -977,7 +977,7 @@ blas_quickdivide.exit:                            ; preds = %6, %33
 
 .preheader348:                                    ; preds = %.preheader348.lr.ph, %254
   %.3290403 = phi i64 [ 0, %.preheader348.lr.ph ], [ %255, %254 ]
-  %249 = getelementptr inbounds nuw [16 x i64], ptr %96, i64 %.3290403
+  %249 = getelementptr inbounds nuw [128 x i8], ptr %96, i64 %.3290403
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader348, %._crit_edge401

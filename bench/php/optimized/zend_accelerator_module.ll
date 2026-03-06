@@ -1222,7 +1222,7 @@ define hidden void @zif_opcache_get_status(ptr noundef readonly captures(none) %
   %indvars.iv.i = phi i64 [ 0, %.lr.ph44.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 48
   %275 = load ptr, ptr %274, align 8, !tbaa !127
-  %276 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv.i
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %indvars.iv.i
   %.03539.i = load ptr, ptr %276, align 8, !tbaa !128
   %.not3740.i = icmp eq ptr %.03539.i, null
   br i1 %.not3740.i, label %._crit_edge.i, label %.lr.ph.i

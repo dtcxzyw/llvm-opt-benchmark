@@ -438,7 +438,7 @@ get_ue_golomb.exit133.i.i.i.us:                   ; preds = %250, %235
   %.0.i131.i.i.i.us = phi i32 [ %259, %250 ], [ %.1.i130.i.i.i.us, %235 ]
   store i32 %.38.i129.i.i.sink.i.us, ptr %26, align 8, !tbaa !4
   %260 = trunc i32 %.0.i131.i.i.i.us to i16
-  %261 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv.i52.i.i.us
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv.i52.i.i.us
   store i16 %260, ptr %261, align 2, !tbaa !28
   %262 = lshr i32 %.38.i129.i.i.sink.i.us, 3
   %263 = zext nneg i32 %262 to i64
@@ -494,7 +494,7 @@ get_ue_golomb.exit145.i.i.i.us:                   ; preds = %285, %270
   %.0.i143.i.i.i.us = phi i32 [ %294, %285 ], [ %.1.i142.i.i.i.us, %270 ]
   store i32 %.38.i141.i.i.sink.i.us, ptr %26, align 8, !tbaa !4
   %295 = trunc i32 %.0.i143.i.i.i.us to i16
-  %296 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv.i52.i.i.us
+  %296 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv.i52.i.i.us
   store i16 %295, ptr %296, align 2, !tbaa !28
   %297 = lshr i32 %.38.i141.i.i.sink.i.us, 3
   %298 = zext nneg i32 %297 to i64
@@ -701,7 +701,7 @@ get_bits_long.exit149.i.i.i.us:                   ; preds = %402, %384, %374, %3
   %435 = call i32 @llvm.umin.i32(i32 %101, i32 %434)
   store i32 %435, ptr %26, align 8, !tbaa !4
   %436 = trunc nuw nsw i32 %433 to i16
-  %437 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv.i52.i.i.us
+  %437 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv.i52.i.i.us
   %438 = add nsw i16 %436, -512
   store i16 %438, ptr %437, align 2, !tbaa !28
   br label %439
@@ -842,7 +842,7 @@ get_bits_long.exit149.i.i.i.us:                   ; preds = %402, %384, %374, %3
   %540 = call i32 @llvm.umin.i32(i32 %101, i32 %539)
   store i32 %540, ptr %26, align 8, !tbaa !4
   %541 = trunc nuw nsw i32 %538 to i16
-  %542 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv.i35.i.i.us
+  %542 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv.i35.i.i.us
   store i16 %541, ptr %542, align 2, !tbaa !28
   %.not74.i.i.i.us = icmp sgt i32 %501, -1
   %543 = lshr i32 %540, 3
@@ -1038,7 +1038,7 @@ get_bits_long.exit.i.i.i.us:                      ; preds = %678, %660
   %.sink.i39.i.i.us = phi i32 [ %682, %678 ], [ %676, %660 ]
   %.0.i89.i.i.i.us = phi i32 [ %680, %678 ], [ %677, %660 ]
   store i32 %.sink.i39.i.i.us, ptr %26, align 8, !tbaa !4
-  %683 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i35.i.i.us
+  %683 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i35.i.i.us
   store i32 %.0.i89.i.i.i.us, ptr %683, align 4, !tbaa !34
   br label %684
 
@@ -1322,7 +1322,7 @@ get_se_golomb.exit.i.i.i.us:                      ; preds = %838, %813
 870:                                              ; preds = %95
   %871 = load i32, ptr %60, align 8, !tbaa !37
   %872 = sext i32 %871 to i64
-  %873 = getelementptr inbounds ptr, ptr %66, i64 %872
+  %873 = getelementptr inbounds [8 x i8], ptr %66, i64 %872
   %874 = load ptr, ptr %873, align 8, !tbaa !64
   %.not.i.i.i.us = icmp eq ptr %874, null
   br i1 %.not.i.i.i.us, label %decode_nal_sei_message.exit.thread17, label %875
@@ -1348,10 +1348,10 @@ get_se_golomb.exit.i.i.i.us:                      ; preds = %838, %813
 
 switch.lookup:                                    ; preds = %878
   %883 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_hevc_decode_nal_sei, i64 %883
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_hevc_decode_nal_sei, i64 %883
   %switch.load = load ptr, ptr %switch.gep, align 8
   %884 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep119 = getelementptr inbounds nuw i32, ptr @switch.table.ff_hevc_decode_nal_sei.4, i64 %884
+  %switch.gep119 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ff_hevc_decode_nal_sei.4, i64 %884
   %switch.load120 = load i32, ptr %switch.gep119, align 4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 48, ptr noundef nonnull %switch.load) #6
   store i32 %switch.load120, ptr %65, align 4, !tbaa !79

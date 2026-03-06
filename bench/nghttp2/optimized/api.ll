@@ -433,7 +433,7 @@ define noundef nonnull ptr @llhttp_errno_name(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.llhttp_errno_name, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.llhttp_errno_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -449,7 +449,7 @@ define noundef nonnull ptr @llhttp_method_name(i32 noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.llhttp_method_name, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.llhttp_method_name, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

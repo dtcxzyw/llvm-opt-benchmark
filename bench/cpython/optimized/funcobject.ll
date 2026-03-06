@@ -1034,13 +1034,13 @@ define dso_local range(i32 -1, 8) i32 @PyFunction_AddWatcher(ptr noundef %0) loc
 
 7:                                                ; preds = %1, %19
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %19 ]
-  %8 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %0, ptr %12, align 8, !tbaa !21
   %14 = shl nuw nsw i32 1, %13
@@ -1085,7 +1085,7 @@ define dso_local range(i32 -1, 1) i32 @PyFunction_ClearWatcher(i32 noundef %0) l
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8480
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %17
@@ -1344,7 +1344,7 @@ _Py_NewRef.exit43:                                ; preds = %_Py_XNewRef.exit42,
   br i1 %.not14.i.i, label %125, label %118
 
 118:                                              ; preds = %116
-  %119 = getelementptr ptr, ptr %115, i64 %indvars.iv.i.i
+  %119 = getelementptr [8 x i8], ptr %115, i64 %indvars.iv.i.i
   %120 = load ptr, ptr %119, align 8, !tbaa !21
   %121 = call i32 %120(i32 noundef range(i32 0, 5) 0, ptr noundef nonnull %7, ptr noundef null) #8
   %122 = icmp slt i32 %121, 0
@@ -1554,7 +1554,7 @@ Py_INCREF.exit:                                   ; preds = %37, %40
   br i1 %.not14.i.i, label %103, label %96
 
 96:                                               ; preds = %94
-  %97 = getelementptr ptr, ptr %93, i64 %indvars.iv.i.i
+  %97 = getelementptr [8 x i8], ptr %93, i64 %indvars.iv.i.i
   %98 = load ptr, ptr %97, align 8, !tbaa !21
   %99 = call i32 %98(i32 noundef range(i32 0, 5) 0, ptr noundef nonnull %48, ptr noundef null) #8
   %100 = icmp slt i32 %99, 0
@@ -1709,7 +1709,7 @@ define dso_local void @_PyFunction_SetVersion(ptr noundef initializes((144, 148)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 14112
   %9 = and i32 %1, 4095
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr %struct._func_version_cache_item, ptr %8, i64 %10
+  %11 = getelementptr [16 x i8], ptr %8, i64 %10
   store ptr %0, ptr %11, align 8, !tbaa !137
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !109
@@ -1727,7 +1727,7 @@ define hidden void @_PyFunction_ClearCodeByVersion(i32 noundef %0) local_unnamed
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14112
   %7 = and i32 %0, 4095
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr %struct._func_version_cache_item, ptr %6, i64 %8
+  %9 = getelementptr [16 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !139
   %.not = icmp eq ptr %11, null
@@ -1756,7 +1756,7 @@ define hidden ptr @_PyFunction_LookupByVersion(i32 noundef %0, ptr noundef write
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 14112
   %8 = and i32 %0, 4095
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr %struct._func_version_cache_item, ptr %7, i64 %9
+  %10 = getelementptr [16 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !139
   %.not = icmp eq ptr %12, null
@@ -1958,7 +1958,7 @@ Py_INCREF.exit:                                   ; preds = %15, %12, %5
   br i1 %.not14.i.i, label %36, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr ptr, ptr %25, i64 %indvars.iv.i.i
+  %30 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = tail call i32 %31(i32 noundef range(i32 0, 5) 3, ptr noundef %0, ptr noundef %.013) #8
   %33 = icmp slt i32 %32, 0
@@ -2005,7 +2005,7 @@ handle_func_event.exit:                           ; preds = %notify_func_watcher
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 14112
   %53 = and i32 %49, 4095
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr %struct._func_version_cache_item, ptr %52, i64 %54
+  %55 = getelementptr [16 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !137
   %57 = icmp eq ptr %56, %0
   br i1 %57, label %58, label %59
@@ -2070,7 +2070,7 @@ define dso_local void @PyFunction_SetVectorcall(ptr noundef captures(address) %0
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 14112
   %15 = and i32 %11, 4095
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr %struct._func_version_cache_item, ptr %14, i64 %16
+  %17 = getelementptr [16 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !137
   %19 = icmp eq ptr %18, %0
   br i1 %19, label %20, label %21
@@ -2181,7 +2181,7 @@ Py_INCREF.exit:                                   ; preds = %15, %12, %5
   br i1 %.not14.i.i, label %36, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr ptr, ptr %25, i64 %indvars.iv.i.i
+  %30 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = tail call i32 %31(i32 noundef range(i32 0, 5) 4, ptr noundef %0, ptr noundef %.013) #8
   %33 = icmp slt i32 %32, 0
@@ -2228,7 +2228,7 @@ handle_func_event.exit:                           ; preds = %notify_func_watcher
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 14112
   %53 = and i32 %49, 4095
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr %struct._func_version_cache_item, ptr %52, i64 %54
+  %55 = getelementptr [16 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !137
   %57 = icmp eq ptr %56, %0
   br i1 %57, label %58, label %59
@@ -2355,7 +2355,7 @@ Py_INCREF.exit:                                   ; preds = %14, %11, %5
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 14112
   %33 = and i32 %29, 4095
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr %struct._func_version_cache_item, ptr %32, i64 %34
+  %35 = getelementptr [16 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !137
   %37 = icmp eq ptr %36, %0
   br i1 %37, label %38, label %39
@@ -2521,7 +2521,7 @@ define internal fastcc ptr @func_get_annotation_dict(ptr noundef captures(none) 
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %44
   %.04164 = phi i64 [ 0, %.critedge.lr.ph ], [ %45, %44 ]
-  %46 = getelementptr ptr, ptr %43, i64 %.04164
+  %46 = getelementptr [8 x i8], ptr %43, i64 %.04164
   %47 = load ptr, ptr %46, align 8, !tbaa !96
   %48 = getelementptr i8, ptr %46, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !96
@@ -2744,7 +2744,7 @@ _PyObject_ResurrectStart.exit:                    ; preds = %1, %3
   br i1 %.not14.i.i, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr ptr, ptr %10, i64 %indvars.iv.i.i
+  %15 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = tail call i32 %16(i32 noundef range(i32 0, 5) 1, ptr noundef nonnull %0, ptr noundef null) #8
   %18 = icmp slt i32 %17, 0
@@ -3055,7 +3055,7 @@ define internal noundef i32 @func_clear(ptr noundef captures(address) %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 14112
   %11 = and i32 %3, 4095
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct._func_version_cache_item, ptr %10, i64 %12
+  %13 = getelementptr [16 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !137
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %16, label %17
@@ -3627,7 +3627,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %.thread75, %PyObjec
 
 107:                                              ; preds = %105, %.lr.ph.i
   %.05110.i = phi i64 [ 0, %.lr.ph.i ], [ %106, %105 ]
-  %108 = getelementptr ptr, ptr %104, i64 %.05110.i
+  %108 = getelementptr [8 x i8], ptr %104, i64 %.05110.i
   %109 = load ptr, ptr %108, align 8, !tbaa !96
   %110 = getelementptr i8, ptr %109, i64 8
   %.val80.i = load ptr, ptr %110, align 8, !tbaa !130
@@ -4441,7 +4441,7 @@ define internal range(i32 -1, 1) i32 @func_set_code(ptr noundef %0, ptr noundef 
   br i1 %.not14.i.i, label %58, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr ptr, ptr %47, i64 %indvars.iv.i.i
+  %52 = getelementptr [8 x i8], ptr %47, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !21
   %54 = tail call i32 %53(i32 noundef range(i32 0, 5) 2, ptr noundef %0, ptr noundef nonnull %1) #8
   %55 = icmp slt i32 %54, 0
@@ -4488,7 +4488,7 @@ handle_func_event.exit:                           ; preds = %notify_func_watcher
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 14112
   %75 = and i32 %71, 4095
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr %struct._func_version_cache_item, ptr %74, i64 %76
+  %77 = getelementptr [16 x i8], ptr %74, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !137
   %79 = icmp eq ptr %78, %0
   br i1 %79, label %80, label %81
@@ -4617,7 +4617,7 @@ define internal range(i32 -1, 1) i32 @func_set_defaults(ptr noundef %0, ptr noun
   br i1 %.not14.i.i, label %31, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr ptr, ptr %20, i64 %indvars.iv.i.i
+  %25 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = tail call i32 %26(i32 noundef range(i32 0, 5) 3, ptr noundef %0, ptr noundef nonnull %1) #8
   %28 = icmp slt i32 %27, 0
@@ -4664,7 +4664,7 @@ handle_func_event.exit:                           ; preds = %notify_func_watcher
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 14112
   %48 = and i32 %44, 4095
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr %struct._func_version_cache_item, ptr %47, i64 %49
+  %50 = getelementptr [16 x i8], ptr %47, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !137
   %52 = icmp eq ptr %51, %0
   br i1 %52, label %53, label %54
@@ -4721,7 +4721,7 @@ func_clear_version.exit.i:                        ; preds = %54, %40
   br i1 %.not14.i.i25, label %81, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr ptr, ptr %70, i64 %indvars.iv.i.i23
+  %75 = getelementptr [8 x i8], ptr %70, i64 %indvars.iv.i.i23
   %76 = load ptr, ptr %75, align 8, !tbaa !21
   %77 = tail call i32 %76(i32 noundef range(i32 0, 5) 3, ptr noundef %0, ptr noundef null) #8
   %78 = icmp slt i32 %77, 0
@@ -4768,7 +4768,7 @@ handle_func_event.exit30:                         ; preds = %notify_func_watcher
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 14112
   %98 = and i32 %94, 4095
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr %struct._func_version_cache_item, ptr %97, i64 %99
+  %100 = getelementptr [16 x i8], ptr %97, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !137
   %102 = icmp eq ptr %101, %0
   br i1 %102, label %103, label %104
@@ -4894,7 +4894,7 @@ define internal range(i32 -1, 1) i32 @func_set_kwdefaults(ptr noundef %0, ptr no
   br i1 %.not14.i.i, label %31, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr ptr, ptr %20, i64 %indvars.iv.i.i
+  %25 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = tail call i32 %26(i32 noundef range(i32 0, 5) 4, ptr noundef %0, ptr noundef nonnull %1) #8
   %28 = icmp slt i32 %27, 0
@@ -4941,7 +4941,7 @@ handle_func_event.exit:                           ; preds = %notify_func_watcher
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 14112
   %48 = and i32 %44, 4095
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr %struct._func_version_cache_item, ptr %47, i64 %49
+  %50 = getelementptr [16 x i8], ptr %47, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !137
   %52 = icmp eq ptr %51, %0
   br i1 %52, label %53, label %54
@@ -4998,7 +4998,7 @@ func_clear_version.exit.i:                        ; preds = %54, %40
   br i1 %.not14.i.i25, label %81, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr ptr, ptr %70, i64 %indvars.iv.i.i23
+  %75 = getelementptr [8 x i8], ptr %70, i64 %indvars.iv.i.i23
   %76 = load ptr, ptr %75, align 8, !tbaa !21
   %77 = tail call i32 %76(i32 noundef range(i32 0, 5) 4, ptr noundef %0, ptr noundef null) #8
   %78 = icmp slt i32 %77, 0
@@ -5045,7 +5045,7 @@ handle_func_event.exit30:                         ; preds = %notify_func_watcher
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 14112
   %98 = and i32 %94, 4095
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr %struct._func_version_cache_item, ptr %97, i64 %99
+  %100 = getelementptr [16 x i8], ptr %97, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !137
   %102 = icmp eq ptr %101, %0
   br i1 %102, label %103, label %104

@@ -3,13 +3,8 @@ source_filename = "bench/lua/original/lgc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.Node = type { %struct.NodeKey }
-%struct.NodeKey = type { %union.Value, i8, i8, i32, %union.Value }
-%union.Value = type { ptr }
-%union.UValue = type { %struct.TValue }
 %struct.TValue = type { %union.Value, i8 }
-%struct.Upvaldesc = type { ptr, i8, i8, i8 }
-%struct.LocVar = type { ptr, i32, i32 }
+%union.Value = type { ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"__gc\00", align 1
 @sweepgen.nextage = internal unnamed_addr constant [7 x i8] c"\01\03\03\04\04\05\06", align 1
@@ -814,7 +809,7 @@ define internal fastcc range(i64 -576460752303423487, 576460752303423489) i64 @s
 
 30:                                               ; preds = %38, %28
   %indvars.iv.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i, %38 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %38, label %33
@@ -2395,7 +2390,7 @@ define internal fastcc void @atomic(ptr noundef %0) unnamed_addr #0 {
 
 24:                                               ; preds = %32, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %32 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !63
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %32, label %27
@@ -3158,7 +3153,7 @@ define internal fastcc void @clearbyvalues(ptr noundef captures(none) %0, ptr no
   %8 = zext nneg i8 %7 to i32
   %9 = shl nuw i32 1, %8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %union.Node, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %.048, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !97
   %.not52 = icmp eq i32 %13, 0
@@ -3182,7 +3177,7 @@ define internal fastcc void @clearbyvalues(ptr noundef captures(none) %0, ptr no
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %16, i64 -8
   %23 = sub nsw i64 0, %indvars.iv
-  %24 = getelementptr inbounds %union.Value, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !33
   %26 = icmp eq ptr %25, null
   br i1 %26, label %iscleared.exit.thread, label %27
@@ -3565,7 +3560,7 @@ traverseweakvalue.exit.i:                         ; preds = %clearkey.exit.i.i
   %128 = zext nneg i8 %127 to i32
   %129 = shl nuw i32 1, %128
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %union.Node, ptr %125, i64 %130
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %133 = load i32, ptr %132, align 4, !tbaa !97
   %.not19.i.i.i = icmp eq i32 %133, 0
@@ -3589,7 +3584,7 @@ traverseweakvalue.exit.i:                         ; preds = %clearkey.exit.i.i
 141:                                              ; preds = %135
   %142 = getelementptr inbounds i8, ptr %136, i64 -8
   %143 = sub nsw i64 0, %indvars.iv.i.i.i
-  %144 = getelementptr inbounds %union.Value, ptr %142, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %142, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !33
   %.not14.i.i.i = icmp eq ptr %145, null
   br i1 %.not14.i.i.i, label %.thread.i.i.i, label %146
@@ -3763,7 +3758,7 @@ traversetable.exit:                               ; preds = %traverseweakvalue.e
 211:                                              ; preds = %223, %.lr.ph.i
   %212 = phi i16 [ %209, %.lr.ph.i ], [ %224, %223 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %223 ]
-  %213 = getelementptr inbounds nuw %union.UValue, ptr %210, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %indvars.iv.i
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load i8, ptr %214, align 8, !tbaa !33
   %216 = and i8 %215, 64
@@ -3868,7 +3863,7 @@ getgclist.exit.i.i:                               ; preds = %235, %234, %233, %2
 249:                                              ; preds = %258, %.lr.ph.i19
   %250 = phi i8 [ %247, %.lr.ph.i19 ], [ %259, %258 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i24, %258 ]
-  %251 = getelementptr inbounds nuw ptr, ptr %248, i64 %indvars.iv.i20
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %indvars.iv.i20
   %252 = load ptr, ptr %251, align 8, !tbaa !110
   %.not17.i21 = icmp eq ptr %252, null
   br i1 %.not17.i21, label %258, label %253
@@ -3904,7 +3899,7 @@ traverseLclosure.exit.loopexit:                   ; preds = %258
 265:                                              ; preds = %277, %.lr.ph.i27
   %266 = phi i8 [ %21, %.lr.ph.i27 ], [ %278, %277 ]
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i27 ], [ %indvars.iv.next.i31, %277 ]
-  %267 = getelementptr inbounds nuw %struct.TValue, ptr %264, i64 %indvars.iv.i28
+  %267 = getelementptr inbounds nuw [16 x i8], ptr %264, i64 %indvars.iv.i28
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i8, ptr %268, align 8, !tbaa !36
   %270 = and i8 %269, 64
@@ -3971,7 +3966,7 @@ traverseCclosure.exit.loopexit:                   ; preds = %277
   %298 = phi i32 [ %290, %.lr.ph.i39 ], [ %311, %310 ]
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i42, %310 ]
   %299 = load ptr, ptr %292, align 8, !tbaa !114
-  %300 = getelementptr inbounds nuw %struct.TValue, ptr %299, i64 %indvars.iv.i40
+  %300 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %indvars.iv.i40
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load i8, ptr %301, align 8, !tbaa !36
   %303 = and i8 %302, 64
@@ -4012,7 +4007,7 @@ traverseCclosure.exit.loopexit:                   ; preds = %277
   %319 = phi i32 [ %294, %.lr.ph68.i ], [ %329, %328 ]
   %indvars.iv75.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next76.i, %328 ]
   %320 = load ptr, ptr %296, align 8, !tbaa !116
-  %321 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %320, i64 %indvars.iv75.i
+  %321 = getelementptr inbounds nuw [16 x i8], ptr %320, i64 %indvars.iv75.i
   %322 = load ptr, ptr %321, align 8, !tbaa !117
   %.not57.i = icmp eq ptr %322, null
   br i1 %.not57.i, label %328, label %323
@@ -4051,7 +4046,7 @@ traverseCclosure.exit.loopexit:                   ; preds = %277
   %338 = phi i32 [ %315, %.lr.ph70.i ], [ %348, %347 ]
   %indvars.iv78.i = phi i64 [ 0, %.lr.ph70.i ], [ %indvars.iv.next79.i, %347 ]
   %339 = load ptr, ptr %317, align 8, !tbaa !120
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv78.i
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv78.i
   %341 = load ptr, ptr %340, align 8, !tbaa !121
   %.not55.i = icmp eq ptr %341, null
   br i1 %.not55.i, label %347, label %342
@@ -4079,7 +4074,7 @@ traverseCclosure.exit.loopexit:                   ; preds = %277
   %352 = phi i32 [ %334, %.lr.ph72.i ], [ %362, %361 ]
   %indvars.iv81.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next82.i, %361 ]
   %353 = load ptr, ptr %336, align 8, !tbaa !122
-  %354 = getelementptr inbounds nuw %struct.LocVar, ptr %353, i64 %indvars.iv81.i
+  %354 = getelementptr inbounds nuw [16 x i8], ptr %353, i64 %indvars.iv81.i
   %355 = load ptr, ptr %354, align 8, !tbaa !123
   %.not53.i = icmp eq ptr %355, null
   br i1 %.not53.i, label %361, label %356
@@ -4296,7 +4291,7 @@ define internal fastcc range(i32 0, 2) i32 @traverseephemeron(ptr noundef captur
 17:                                               ; preds = %11
   %18 = getelementptr inbounds i8, ptr %12, i64 -8
   %19 = sub nsw i64 0, %indvars.iv.i
-  %20 = getelementptr inbounds %union.Value, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %.not14.i = icmp eq ptr %21, null
   br i1 %.not14.i, label %.thread.i, label %22
@@ -4336,7 +4331,7 @@ traversearray.exit:                               ; preds = %.thread.i, %3
   %32 = add i32 %7, %31
   %33 = zext i32 %32 to i64
   %indvars.iv.sink = select i1 %.not44, i64 %indvars.iv, i64 %33
-  %34 = getelementptr inbounds nuw %union.Node, ptr %29, i64 %indvars.iv.sink
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv.sink
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8, !tbaa !33
   %37 = and i8 %36, 15

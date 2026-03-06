@@ -16403,7 +16403,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relo
 _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %114, %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i
   store ptr %53, ptr %0, align 8, !tbaa !107
   store ptr %113, ptr %3, align 8, !tbaa !110
-  %118 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberContext", ptr %53, i64 %49
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %49
   store ptr %118, ptr %5, align 8, !tbaa !112
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -22084,7 +22084,7 @@ _ZSt7advanceIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEmEvRT_T0_.exit.i.i
   %139 = tail call fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %138, ptr noundef %3, ptr noundef %17)
   %140 = sub nuw nsw i64 %13, %23
   %141 = load ptr, ptr %16, align 8, !tbaa !127
-  %142 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %141, i64 %140
+  %142 = getelementptr inbounds nuw [64 x i8], ptr %141, i64 %140
   store ptr %142, ptr %16, align 8, !tbaa !127
   %.not11.i.i.i.i.i61.i.i = icmp eq ptr %1, %17
   br i1 %.not11.i.i.i.i.i61.i.i, label %_ZSt22__uninitialized_move_aIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES4_SaIS3_EET0_T_S7_S6_RT1_.exit71.i.thread.i, label %.lr.ph.i.i.i.i.i62.i.i
@@ -22418,7 +22418,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E
 _ZNSt12_Vector_baseIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE13_M_deallocateEPS3_m.exit.i.i: ; preds = %270, %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E.exit.i.i
   store ptr %195, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i.i.i97.i.i, ptr %16, align 8, !tbaa !127
-  %274 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NumberTest", ptr %195, i64 %191
+  %274 = getelementptr inbounds nuw [64 x i8], ptr %195, i64 %191
   store ptr %274, ptr %14, align 8, !tbaa !129
   br label %_ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_dispatchIPKS3_EEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SD_St12__false_type.exit
 
@@ -28702,7 +28702,7 @@ _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EEC2EmRKS3_.exit: ; 
   store ptr %9, ptr %0, align 8, !tbaa !153
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !144
-  %11 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !147
   br label %.lr.ph.i.i.i.i.i
@@ -42696,7 +42696,7 @@ _ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRK
 _ZNSt12_Vector_baseIN4i18n12phonenumbers11PhoneNumberESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt16allocator_traitsISaIN4i18n12phonenumbers11PhoneNumberEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %26
   store ptr %20, ptr %0, align 8, !tbaa !153
   store ptr %24, ptr %4, align 8, !tbaa !144
-  %30 = getelementptr inbounds nuw %"class.i18n::phonenumbers::PhoneNumber", ptr %20, i64 %16
+  %30 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %30, ptr %25, align 8, !tbaa !147
   ret void
 

@@ -55,7 +55,7 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   %.038 = phi ptr [ %12, %6 ], [ %0, %.preheader ]
   %7 = load i8, ptr %.038, align 1, !tbaa !3
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %5, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !11
   %11 = and i16 %10, 8192
   %.not = icmp eq i16 %11, 0
@@ -101,7 +101,7 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
 
 31:                                               ; preds = %27, %25
   %32 = sext i8 %16 to i64
-  %33 = getelementptr inbounds i16, ptr %5, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %5, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !11
   %35 = and i16 %34, 8192
   %.not45 = icmp eq i16 %35, 0

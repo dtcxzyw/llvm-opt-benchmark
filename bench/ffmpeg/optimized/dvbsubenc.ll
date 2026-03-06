@@ -115,7 +115,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   store ptr %62, ptr %5, align 8, !tbaa !37
   store i8 -1, ptr %61, align 1, !tbaa !34
   %63 = load ptr, ptr %57, align 8, !tbaa !31
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !38
   %66 = load i32, ptr %65, align 8, !tbaa !40
   %67 = trunc i32 %66 to i16
@@ -124,7 +124,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   store i16 %68, ptr %69, align 1, !tbaa !34
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %71 = load ptr, ptr %57, align 8, !tbaa !31
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !38
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !42
@@ -165,7 +165,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %94 = phi ptr [ %.pre264, %.lr.ph228 ], [ %186, %._crit_edge225 ]
   %indvars.iv255 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next256, %._crit_edge225 ]
   %.2150227 = phi i32 [ %90, %.lr.ph228 ], [ %191, %._crit_edge225 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv255
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv255
   %96 = load ptr, ptr %95, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i32, ptr %97, align 8, !tbaa !45
@@ -204,7 +204,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   store ptr %116, ptr %5, align 8, !tbaa !37
   store i8 15, ptr %115, align 1, !tbaa !34
   %117 = load ptr, ptr %91, align 8, !tbaa !31
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv255
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv255
   %119 = load ptr, ptr %118, align 8, !tbaa !38
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i32, ptr %120, align 8, !tbaa !45
@@ -225,11 +225,11 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i8 %124, ptr %128, align 1, !tbaa !34
   %130 = load ptr, ptr %91, align 8, !tbaa !31
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv255
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv255
   %132 = load ptr, ptr %131, align 8, !tbaa !38
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !37
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv252
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv252
   %136 = load i32, ptr %135, align 4, !tbaa !46
   %137 = lshr i32 %136, 16
   %138 = and i32 %137, 255
@@ -276,7 +276,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   store i8 %170, ptr %167, align 1, !tbaa !34
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %172 = load ptr, ptr %91, align 8, !tbaa !31
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv255
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv255
   %174 = load ptr, ptr %173, align 8, !tbaa !38
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load i32, ptr %175, align 8, !tbaa !45
@@ -294,7 +294,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %185 = tail call i16 @llvm.bswap.i16(i16 %184)
   store i16 %185, ptr %112, align 1, !tbaa !34
   %186 = load ptr, ptr %91, align 8, !tbaa !31
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv255
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv255
   %188 = load ptr, ptr %187, align 8, !tbaa !38
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load i32, ptr %189, align 8, !tbaa !45
@@ -324,7 +324,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %199 = phi ptr [ %179, %.lr.ph232 ], [ %248, %210 ]
   %indvars.iv258 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next259, %210 ]
   %200 = load ptr, ptr %197, align 8, !tbaa !31
-  %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv258
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv258
   %202 = load ptr, ptr %201, align 8, !tbaa !38
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load i32, ptr %203, align 8, !tbaa !45
@@ -360,7 +360,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 7
   store i8 %220, ptr %217, align 1, !tbaa !34
   %222 = load ptr, ptr %197, align 8, !tbaa !31
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv258
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv258
   %224 = load ptr, ptr %223, align 8, !tbaa !38
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load i32, ptr %225, align 8, !tbaa !49
@@ -369,7 +369,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   store i16 %228, ptr %221, align 1, !tbaa !34
   %229 = getelementptr inbounds nuw i8, ptr %212, i64 9
   %230 = load ptr, ptr %197, align 8, !tbaa !31
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv258
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv258
   %232 = load ptr, ptr %231, align 8, !tbaa !38
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 12
   %234 = load i32, ptr %233, align 4, !tbaa !50
@@ -423,7 +423,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
 
 256:                                              ; preds = %254
   %257 = load ptr, ptr %253, align 8, !tbaa !31
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv261
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %indvars.iv261
   %259 = load ptr, ptr %258, align 8, !tbaa !38
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load i32, ptr %260, align 8, !tbaa !45
@@ -472,7 +472,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   store ptr %286, ptr %5, align 8, !tbaa !37
   %287 = add nsw i32 %.3151236, -13
   %288 = load ptr, ptr %253, align 8, !tbaa !31
-  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv261
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %indvars.iv261
   %290 = load ptr, ptr %289, align 8, !tbaa !38
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
   %292 = load ptr, ptr %291, align 8, !tbaa !37
@@ -490,7 +490,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %302 = sub nsw i32 %287, %299
   %303 = load ptr, ptr %5, align 8, !tbaa !37
   %304 = load ptr, ptr %253, align 8, !tbaa !31
-  %305 = getelementptr inbounds nuw ptr, ptr %304, i64 %indvars.iv261
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %indvars.iv261
   %306 = load ptr, ptr %305, align 8, !tbaa !38
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %308 = load ptr, ptr %307, align 8, !tbaa !37

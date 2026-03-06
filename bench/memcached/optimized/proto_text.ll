@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.settings = type { i64, i32, i32, i32, ptr, i32, i32, i32, ptr, ptr, i32, double, i32, i32, i32, i8, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i32, i32, double, double, i32, i32, i8, i32, i8, i8, ptr, i32, i32, i32, i32, double, double, i32, i8, i32, i32, i32, i32, i32, i8, i8, i8, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, double, i8, i32, i32, ptr, i32 }
-%struct.slab_stats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.token_s = type { ptr, i64 }
 %struct._meta_flags = type { i16, i8, i32, i32, i32, i32, i64, i64, i64, i64 }
 
@@ -212,7 +211,7 @@ define dso_local void @complete_nread_ascii(ptr noundef %0) local_unnamed_addr #
   %17 = load i8, ptr %16, align 8, !tbaa !29
   %18 = and i8 %17, 63
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.slab_stats, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !30
   %22 = add i64 %21, 1
   store i64 %22, ptr %20, align 8, !tbaa !30
@@ -638,7 +637,7 @@ define dso_local range(i32 0, 2) i32 @try_read_command_asciiauth(ptr noundef %0)
   br i1 %.not.i, label %34, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw %struct.token_s, ptr %2, i64 %.04159.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.04159.i
   store ptr %.04060.i, ptr %26, align 16, !tbaa !66
   %27 = ptrtoint ptr %.04457.i to i64
   %28 = ptrtoint ptr %.04060.i to i64
@@ -673,7 +672,7 @@ define dso_local range(i32 0, 2) i32 @try_read_command_asciiauth(ptr noundef %0)
   br i1 %.not48.i, label %tokenize_command.exit, label %41
 
 41:                                               ; preds = %._crit_edge.i
-  %42 = getelementptr inbounds nuw %struct.token_s, ptr %2, i64 %.243.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.243.i
   store ptr %.2.i, ptr %42, align 16, !tbaa !66
   %43 = add i64 %.243.i, 1
   br label %tokenize_command.exit
@@ -684,7 +683,7 @@ tokenize_command.exit:                            ; preds = %19, %.thread.i, %._
   %44 = load i8, ptr %.14553.i, align 1, !tbaa !29
   %45 = icmp eq i8 %44, 0
   %46 = select i1 %45, ptr null, ptr %.14553.i
-  %47 = getelementptr inbounds nuw %struct.token_s, ptr %2, i64 %.4.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.4.i
   store ptr %46, ptr %47, align 16, !tbaa !66
   %48 = add i64 %.4.i, 1
   %49 = load ptr, ptr %12, align 8, !tbaa !65
@@ -820,7 +819,7 @@ sub_0:                                            ; preds = %.sub_0_crit_edge, %
   br i1 %.not.i72, label %116, label %107
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw %struct.token_s, ptr %2, i64 %.04159.i64
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.04159.i64
   store ptr %.04060.i63, ptr %108, align 16, !tbaa !66
   %109 = ptrtoint ptr %.04457.i65 to i64
   %110 = ptrtoint ptr %.04060.i63 to i64
@@ -855,7 +854,7 @@ sub_0:                                            ; preds = %.sub_0_crit_edge, %
   br i1 %.not48.i69, label %tokenize_command.exit75, label %123
 
 123:                                              ; preds = %._crit_edge.i68
-  %124 = getelementptr inbounds nuw %struct.token_s, ptr %2, i64 %.243.i66
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.243.i66
   store ptr %.2.i67, ptr %124, align 16, !tbaa !66
   %125 = add i64 %.243.i66, 1
   br label %tokenize_command.exit75
@@ -866,7 +865,7 @@ tokenize_command.exit75:                          ; preds = %102, %.thread.i74, 
   %126 = load i8, ptr %.14553.i70, align 1, !tbaa !29
   %127 = icmp eq i8 %126, 0
   %128 = select i1 %127, ptr null, ptr %.14553.i70
-  %129 = getelementptr inbounds nuw %struct.token_s, ptr %2, i64 %.4.i71
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.4.i71
   store ptr %128, ptr %129, align 16, !tbaa !66
   %130 = add i64 %.4.i71, 1
   %131 = icmp ult i64 %130, 3
@@ -1092,7 +1091,7 @@ define dso_local void @process_command_ascii(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not.i, label %33, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw %struct.token_s, ptr %3, i64 %.04159.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.04159.i
   store ptr %.04060.i, ptr %25, align 16, !tbaa !66
   %26 = ptrtoint ptr %.04457.i to i64
   %27 = ptrtoint ptr %.04060.i to i64
@@ -1127,7 +1126,7 @@ define dso_local void @process_command_ascii(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not48.i, label %tokenize_command.exit, label %40
 
 40:                                               ; preds = %._crit_edge.i
-  %41 = getelementptr inbounds nuw %struct.token_s, ptr %3, i64 %.243.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.243.i
   store ptr %.2.i, ptr %41, align 16, !tbaa !66
   %42 = ptrtoint ptr %36 to i64
   %43 = ptrtoint ptr %.2.i to i64
@@ -1143,7 +1142,7 @@ tokenize_command.exit:                            ; preds = %14, %.thread.i, %._
   %47 = load i8, ptr %.14553.i, align 1, !tbaa !29
   %48 = icmp eq i8 %47, 0
   %49 = select i1 %48, ptr null, ptr %.14553.i
-  %50 = getelementptr inbounds nuw %struct.token_s, ptr %3, i64 %.4.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.4.i
   store ptr %49, ptr %50, align 16, !tbaa !66
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 0, ptr %51, align 8, !tbaa !68
@@ -1650,7 +1649,7 @@ tokenize_command.exit:                            ; preds = %14, %.thread.i, %._
   br label %256
 
 248:                                              ; preds = %241
-  %249 = getelementptr %struct.token_s, ptr %3, i64 %52
+  %249 = getelementptr [16 x i8], ptr %3, i64 %52
   %250 = getelementptr i8, ptr %249, i64 -32
   %251 = load ptr, ptr %250, align 16, !tbaa !66
   %252 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %251, ptr noundef nonnull dereferenceable(6) @.str.46, i64 noundef 5) #14
@@ -1859,7 +1858,7 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   %.0239308 = phi i8 [ 0, %.lr.ph ], [ %.1240, %216 ]
   %.0242307 = phi i1 [ false, %.lr.ph ], [ %.1243, %216 ]
   %.0248306 = phi i32 [ 2, %.lr.ph ], [ %217, %216 ]
-  %107 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !66
   %109 = load i8, ptr %108, align 1, !tbaa !29
   switch i8 %109, label %216 [
@@ -2278,7 +2277,7 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   %329 = load i8, ptr %328, align 8, !tbaa !29
   %330 = and i8 %329, 63
   %331 = zext nneg i8 %330 to i64
-  %332 = getelementptr inbounds nuw %struct.slab_stats, ptr %322, i64 %331
+  %332 = getelementptr inbounds nuw [64 x i8], ptr %322, i64 %331
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 656
   %334 = load i64, ptr %333, align 8, !tbaa !95
   %335 = add i64 %334, 1
@@ -2290,7 +2289,7 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   %338 = getelementptr inbounds nuw i8, ptr %.1238294, i64 40
   %339 = load i8, ptr %338, align 8, !tbaa !29
   %340 = zext i8 %339 to i64
-  %341 = getelementptr inbounds nuw i64, ptr %337, i64 %340
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %340
   %342 = load i64, ptr %341, align 8, !tbaa !40
   %343 = add i64 %342, 1
   store i64 %343, ptr %341, align 8, !tbaa !40
@@ -2339,7 +2338,7 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   %367 = phi i64 [ %395, %393 ], [ 2, %363 ]
   %.7313 = phi ptr [ %.8, %393 ], [ %364, %363 ]
   %.1249312 = phi i32 [ %394, %393 ], [ 2, %363 ]
-  %368 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %367
+  %368 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %367
   %369 = load ptr, ptr %368, align 8, !tbaa !66
   %370 = load i8, ptr %369, align 1, !tbaa !29
   switch i8 %370, label %393 [
@@ -2557,7 +2556,7 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
   %.0107132 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %81 ]
   %.0109131 = phi ptr [ %10, %.lr.ph.preheader ], [ %.1110, %81 ]
-  %55 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !66
   %57 = load i8, ptr %56, align 1, !tbaa !29
   %58 = sext i8 %57 to i32
@@ -2905,7 +2904,7 @@ define internal fastcc void @process_mdelete_command(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 2, %.lr.ph.preheader ]
   %.0111153 = phi ptr [ %.1112, %60 ], [ %10, %.lr.ph.preheader ]
-  %35 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = load i8, ptr %36, align 1, !tbaa !29
   switch i8 %37, label %60 [
@@ -3144,7 +3143,7 @@ define internal fastcc void @process_mdelete_command(ptr noundef %0, ptr noundef
   %166 = load i8, ptr %165, align 8, !tbaa !29
   %167 = and i8 %166, 63
   %168 = zext nneg i8 %167 to i64
-  %169 = getelementptr inbounds nuw %struct.slab_stats, ptr %164, i64 %168
+  %169 = getelementptr inbounds nuw [64 x i8], ptr %164, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 664
   %171 = load i64, ptr %170, align 8, !tbaa !110
   %172 = add i64 %171, 1
@@ -3536,7 +3535,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
 152:                                              ; preds = %.lr.ph, %214
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %214 ]
   %.2220 = phi ptr [ %.1144, %.lr.ph ], [ %.4, %214 ]
-  %153 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8, !tbaa !66
   %155 = load i8, ptr %154, align 1, !tbaa !29
   switch i8 %155, label %214 [
@@ -3682,7 +3681,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
 .lr.ph224:                                        ; preds = %.lr.ph224.preheader, %247
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %247 ], [ 2, %.lr.ph224.preheader ]
   %.7222 = phi ptr [ %.8, %247 ], [ %.0143.ph, %.lr.ph224.preheader ]
-  %222 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv227
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv227
   %223 = load ptr, ptr %222, align 8, !tbaa !66
   %224 = load i8, ptr %223, align 1, !tbaa !29
   switch i8 %224, label %247 [
@@ -4237,7 +4236,7 @@ make_ascii_get_suffix.exit:                       ; preds = %74, %83
   %156 = load i8, ptr %155, align 8, !tbaa !29
   %157 = and i8 %156, 63
   %158 = zext nneg i8 %157 to i64
-  %159 = getelementptr inbounds nuw %struct.slab_stats, ptr %150, i64 %158
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %150, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 656
   %161 = load i64, ptr %160, align 8, !tbaa !95
   %162 = add i64 %161, 1
@@ -4249,7 +4248,7 @@ make_ascii_get_suffix.exit:                       ; preds = %74, %83
   %165 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %166 = load i8, ptr %165, align 8, !tbaa !29
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw i64, ptr %164, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %167
   %169 = load i64, ptr %168, align 8, !tbaa !40
   %170 = add i64 %169, 1
   store i64 %170, ptr %168, align 8, !tbaa !40
@@ -4343,7 +4342,7 @@ make_ascii_get_suffix.exit:                       ; preds = %74, %83
   br i1 %.not.i133, label %219, label %210
 
 210:                                              ; preds = %209
-  %211 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %.04159.i
+  %211 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.04159.i
   store ptr %.04060.i, ptr %211, align 8, !tbaa !66
   %212 = ptrtoint ptr %.04457.i to i64
   %213 = ptrtoint ptr %.04060.i to i64
@@ -4378,7 +4377,7 @@ make_ascii_get_suffix.exit:                       ; preds = %74, %83
   br i1 %.not48.i, label %tokenize_command.exit, label %226
 
 226:                                              ; preds = %._crit_edge.i
-  %227 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %.243.i
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.243.i
   store ptr %.2.i, ptr %227, align 8, !tbaa !66
   %228 = ptrtoint ptr %222 to i64
   %229 = ptrtoint ptr %.2.i to i64
@@ -4394,7 +4393,7 @@ tokenize_command.exit:                            ; preds = %205, %.thread.i, %.
   %233 = load i8, ptr %.14553.i, align 1, !tbaa !29
   %234 = icmp eq i8 %233, 0
   %235 = select i1 %234, ptr null, ptr %.14553.i
-  %236 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %.4.i
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.4.i
   store ptr %235, ptr %236, align 8, !tbaa !66
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i64 0, ptr %237, align 8, !tbaa !68
@@ -5395,7 +5394,7 @@ set_noreply_maybe.exit:                           ; preds = %.tail, %17, %20
   %48 = load i8, ptr %47, align 8, !tbaa !29
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds nuw %struct.slab_stats, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 664
   %53 = load i64, ptr %52, align 8, !tbaa !110
   %54 = add i64 %53, 1
@@ -5666,7 +5665,7 @@ set_noreply_maybe.exit:                           ; preds = %3, %9, %12
   %43 = load i8, ptr %42, align 8, !tbaa !29
   %44 = and i8 %43, 63
   %45 = zext nneg i8 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.slab_stats, ptr %37, i64 %45
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 656
   %48 = load i64, ptr %47, align 8, !tbaa !95
   %49 = add i64 %48, 1
@@ -6120,7 +6119,7 @@ set_noreply_maybe.exit:                           ; preds = %3, %8, %11
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %54
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
   %.04852 = phi i16 [ 0, %.lr.ph.preheader ], [ %55, %54 ]
-  %22 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !66
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.154) #14
   %25 = icmp eq i32 %24, 0
@@ -6667,7 +6666,7 @@ define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr noundef non
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(127) %6, i8 0, i64 127, i1 false)
-  %7 = getelementptr inbounds nuw %struct.token_s, ptr %0, i64 %1
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !68
   %.not91 = icmp eq i64 %9, 0
@@ -6974,7 +6973,7 @@ define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr noundef non
 157:                                              ; preds = %147, %150, %141, %144, %135, %138, %128, %131, %119, %122, %110, %113, %33, %33, %33, %33, %33, %33, %33, %33, %83, %86, %66, %69, %51, %54, %153, %107, %104, %101, %98, %95, %92, %42
   %158 = add i32 %.08692, 1
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %struct.token_s, ptr %0, i64 %159
+  %160 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i64, ptr %161, align 8, !tbaa !68
   %.not = icmp eq i64 %162, 0

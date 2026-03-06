@@ -904,7 +904,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %32
   %39 = load i64, ptr %38, align 8, !noundef !9
   store i64 %21, ptr %38, align 8
   %40 = load i64, ptr %13, align 8, !noundef !9
@@ -913,7 +913,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %21
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %21
   store i64 %39, ptr %44, align 8
   br label %.backedge.us
 
@@ -973,7 +973,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %61
   %68 = load i64, ptr %67, align 8, !noundef !9
   store i64 %52, ptr %67, align 8
   %69 = load i64, ptr %13, align 8, !noundef !9
@@ -1013,7 +1013,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %52
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %52
   store i64 %68, ptr %84, align 8
   br label %.backedge
 
@@ -1096,7 +1096,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %32
   %39 = load i64, ptr %38, align 8, !noundef !9
   store i64 %21, ptr %38, align 8
   %40 = load i64, ptr %13, align 8, !noundef !9
@@ -1105,7 +1105,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %21
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %21
   store i64 %39, ptr %44, align 8
   br label %.backedge.us
 
@@ -1165,7 +1165,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %61
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %61
   %68 = load i64, ptr %67, align 8, !noundef !9
   store i64 %52, ptr %67, align 8
   %69 = load i64, ptr %13, align 8, !noundef !9
@@ -1205,7 +1205,7 @@ define hidden void @_ZN6object4read3elf10relocation18RelocationSections5parse17h
 
 82:                                               ; preds = %65
   %83 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %52
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %52
   store i64 %68, ptr %84, align 8
   br label %.backedge
 
@@ -1799,7 +1799,7 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
   br i1 %.not.i30, label %53, label %71
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %32, i64 %.sroa.7.8.insert.ext.i
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %.sroa.7.8.insert.ext.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4, !alias.scope !245, !noalias !250, !noundef !9
   %57 = call i32 @llvm.bswap.i32(i32 %56)
@@ -1990,7 +1990,7 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
   br i1 %.not.i30, label %51, label %69
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }, ptr %30, i64 %.sroa.7.8.insert.ext.i
+  %52 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %.sroa.7.8.insert.ext.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !alias.scope !311, !noalias !316, !noundef !9
   %55 = call i32 @llvm.bswap.i32(i32 %54)

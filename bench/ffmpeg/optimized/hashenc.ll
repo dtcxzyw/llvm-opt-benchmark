@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
 %union.anon = type { i64 }
-%struct.AVPacketSideData = type { ptr, i64, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"hash\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Hash testing\00", align 1
@@ -71,7 +70,7 @@ define internal noundef i32 @hash_write_packet(ptr noundef readonly captures(non
 
 13:                                               ; preds = %2, %9
   %14 = phi i64 [ %12, %9 ], [ 0, %2 ]
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %6, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !35
@@ -118,7 +117,7 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8, !tbaa !38
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !41
@@ -128,14 +127,14 @@ define internal noundef i32 @hash_write_trailer(ptr noundef readonly captures(no
 
 switch.lookup:                                    ; preds = %17
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hash_write_trailer, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hash_write_trailer, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_media_type_char.exit
 
 get_media_type_char.exit:                         ; preds = %17, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 63, %17 ]
   %26 = load ptr, ptr %13, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !33
   %29 = call ptr @av_hash_get_name(ptr noundef %28) #6
   %30 = trunc nuw nsw i64 %indvars.iv to i32
@@ -144,7 +143,7 @@ get_media_type_char.exit:                         ; preds = %17, %switch.lookup
 
 32:                                               ; preds = %15
   %33 = load ptr, ptr %13, align 8, !tbaa !24
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !33
   %36 = call ptr @av_hash_get_name(ptr noundef %35) #6
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 56, ptr noundef nonnull @.str.16, ptr noundef %36) #6
@@ -152,7 +151,7 @@ get_media_type_char.exit:                         ; preds = %17, %switch.lookup
 
 38:                                               ; preds = %32, %get_media_type_char.exit
   %39 = load ptr, ptr %13, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !33
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 %42
@@ -229,7 +228,7 @@ define internal void @hash_free(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %14 = load ptr, ptr %4, align 8, !tbaa !24
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   tail call void @av_hash_freep(ptr noundef %15) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -267,7 +266,7 @@ define internal range(i32 -2147483648, 1) i32 @streamhash_init(ptr noundef reado
 12:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %13 = load ptr, ptr %9, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %11, align 8, !tbaa !50
   %16 = tail call i32 @av_hash_alloc(ptr noundef %14, ptr noundef %15) #6
   %17 = icmp slt i32 %16, 0
@@ -275,7 +274,7 @@ define internal range(i32 -2147483648, 1) i32 @streamhash_init(ptr noundef reado
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %9, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   tail call void @av_hash_init(ptr noundef %21) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -320,7 +319,7 @@ define internal noundef i32 @framehash_write_header(ptr noundef %0) #0 {
   %22 = phi i32 [ %19, %.lr.ph.i ], [ %53, %52 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
   %23 = load ptr, ptr %20, align 8, !tbaa !38
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !41
@@ -446,13 +445,13 @@ define internal noundef i32 @framehash_write_packet(ptr noundef readonly capture
   %52 = load ptr, ptr %6, align 8, !tbaa !24
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   %54 = load ptr, ptr %48, align 8, !tbaa !61
-  %55 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !62
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !64
   call void @av_hash_update(ptr noundef %53, ptr noundef %56, i64 noundef %58) #6
   %59 = load ptr, ptr %48, align 8, !tbaa !61
-  %60 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !64
   %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.33, i64 noundef %62) #6

@@ -167,7 +167,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ 0, %.preheader.i.i ]
   store ptr null, ptr %6, align 8
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 @classSignature(ptr noundef %46, ptr noundef nonnull %6, ptr noundef null) #4
   %.not37.i.i = icmp eq i32 %47, 0

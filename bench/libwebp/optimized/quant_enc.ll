@@ -3,9 +3,6 @@ source_filename = "bench/libwebp/original/quant_enc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VP8SegmentInfo = type { %struct.VP8Matrix, %struct.VP8Matrix, %struct.VP8Matrix, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.VP8Matrix = type { [16 x i16], [16 x i16], [16 x i32], [16 x i32], [16 x i16] }
-%struct.VP8MBInfo = type { i8, i8, [2 x i8] }
 %struct.VP8ModeScore = type { i64, i64, i64, i64, i64, [16 x i16], [16 x [16 x i16]], [8 x [16 x i16]], i32, [16 x i8], i32, i32, [2 x [3 x i8]] }
 %struct.Node = type { i8, i8, i16 }
 %struct.ScoreState = type { i64, ptr }
@@ -115,7 +112,7 @@ QualityToJPEGCompression.exit:                    ; preds = %16, %22
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [744 x i8], ptr %41, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 672
   %46 = load i32, ptr %45, align 8, !tbaa !35
   %47 = sitofp i32 %46 to double
@@ -147,7 +144,7 @@ QualityToJPEGCompression.exit:                    ; preds = %16, %22
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv65 = phi i64 [ %61, %.lr.ph59.preheader ], [ %indvars.iv.next66, %.lr.ph59 ]
-  %62 = getelementptr %struct.VP8SegmentInfo, ptr %0, i64 %indvars.iv65
+  %62 = getelementptr [744 x i8], ptr %0, i64 %indvars.iv65
   %63 = getelementptr i8, ptr %62, i64 1288
   store i32 %60, ptr %63, align 8, !tbaa !31
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
@@ -188,13 +185,13 @@ QualityToJPEGCompression.exit:                    ; preds = %16, %22
 
 88:                                               ; preds = %88, %._crit_edge60
   %indvars.iv.i = phi i64 [ 0, %._crit_edge60 ], [ %indvars.iv.next.i, %88 ]
-  %89 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %86, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [744 x i8], ptr %86, i64 %indvars.iv.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 680
   %91 = load i32, ptr %90, align 8, !tbaa !31
   %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
   %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 127)
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @kAcTable, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @kAcTable, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !46
   %97 = lshr i16 %96, 2
   %98 = zext nneg i16 %97 to i32
@@ -247,7 +244,7 @@ SetupFilterStrength.exit:                         ; preds = %88
 125:                                              ; preds = %147, %.lr.ph63.i
   %indvars.iv74.i = phi i64 [ 1, %.lr.ph63.i ], [ %indvars.iv.next75.i, %147 ]
   %.04462.i = phi i32 [ 1, %.lr.ph63.i ], [ %.145.i, %147 ]
-  %126 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %86, i64 %indvars.iv74.i
+  %126 = getelementptr inbounds nuw [744 x i8], ptr %86, i64 %indvars.iv74.i
   %.not5759.i = icmp sgt i32 %.04462.i, 0
   br i1 %.not5759.i, label %.lr.ph.i, label %..critedge_crit_edge.i
 
@@ -264,7 +261,7 @@ SetupFilterStrength.exit:                         ; preds = %88
 
 130:                                              ; preds = %SegmentsAreEquivalent.exit.thread.i, %.lr.ph.i
   %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i45, %SegmentsAreEquivalent.exit.thread.i ]
-  %131 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %86, i64 %indvars.iv.i44
+  %131 = getelementptr inbounds nuw [744 x i8], ptr %86, i64 %indvars.iv.i44
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 680
   %133 = load i32, ptr %132, align 8, !tbaa !31
   %134 = icmp eq i32 %128, %133
@@ -284,21 +281,21 @@ SegmentsAreEquivalent.exit.thread.i:              ; preds = %SegmentsAreEquivale
 
 138:                                              ; preds = %SegmentsAreEquivalent.exit.i
   %139 = trunc nuw nsw i64 %indvars.iv.i44 to i32
-  %140 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv74.i
   store i32 %139, ptr %140, align 4, !tbaa !30
   br label %147
 
 .critedge.i:                                      ; preds = %SegmentsAreEquivalent.exit.thread.i, %..critedge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %..critedge_crit_edge.i ], [ %wide.trip.count.i, %SegmentsAreEquivalent.exit.thread.i ]
   %.049.lcssa.i = phi i32 [ 0, %..critedge_crit_edge.i ], [ %.04462.i, %SegmentsAreEquivalent.exit.thread.i ]
-  %141 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv74.i
   store i32 %.049.lcssa.i, ptr %141, align 4, !tbaa !30
   %.not53.i = icmp eq i64 %.pre-phi.i, %indvars.iv74.i
   br i1 %.not53.i, label %145, label %142
 
 142:                                              ; preds = %.critedge.i
   %143 = sext i32 %.04462.i to i64
-  %144 = getelementptr inbounds %struct.VP8SegmentInfo, ptr %86, i64 %143
+  %144 = getelementptr inbounds [744 x i8], ptr %86, i64 %143
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(744) %144, ptr noundef nonnull align 8 dereferenceable(744) %126, i64 744, i1 false), !tbaa.struct !57
   br label %145
 
@@ -335,12 +332,12 @@ SegmentsAreEquivalent.exit.thread.i:              ; preds = %SegmentsAreEquivale
   %indvars.iv79.i = phi i64 [ %157, %.lr.ph67.i ], [ %indvars.iv.next80.i, %158 ]
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, -1
   %159 = load ptr, ptr %156, align 8, !tbaa !63
-  %160 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %159, i64 %indvars.iv.next80.i
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv.next80.i
   %161 = load i8, ptr %160, align 4
   %162 = lshr i8 %161, 5
   %163 = and i8 %162, 3
   %164 = zext nneg i8 %163 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %3, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !30
   %167 = trunc i32 %166 to i8
   %168 = shl i8 %167, 5
@@ -354,14 +351,14 @@ SegmentsAreEquivalent.exit.thread.i:              ; preds = %SegmentsAreEquivale
 .lr.ph71.i:                                       ; preds = %158, %149
   store i32 %.044.lcssa.i, ptr %4, align 8, !tbaa !3
   %173 = sext i32 %.044.lcssa.i to i64
-  %174 = getelementptr %struct.VP8SegmentInfo, ptr %86, i64 %173
+  %174 = getelementptr [744 x i8], ptr %86, i64 %173
   %175 = getelementptr i8, ptr %174, i64 -744
   %wide.trip.count85.i = sext i32 %spec.select.i to i64
   br label %176
 
 176:                                              ; preds = %176, %.lr.ph71.i
   %indvars.iv82.i = phi i64 [ %173, %.lr.ph71.i ], [ %indvars.iv.next83.i, %176 ]
-  %177 = getelementptr inbounds %struct.VP8SegmentInfo, ptr %86, i64 %indvars.iv82.i
+  %177 = getelementptr inbounds [744 x i8], ptr %86, i64 %indvars.iv82.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(744) %177, ptr noundef nonnull align 8 dereferenceable(744) %175, i64 744, i1 false), !tbaa.struct !57
   %indvars.iv.next83.i = add nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
@@ -395,7 +392,7 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
 
 190:                                              ; preds = %CheckLambdaValue.exit95.i, %.lr.ph.i48
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i51, %CheckLambdaValue.exit95.i ]
-  %191 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %86, i64 %indvars.iv.i50
+  %191 = getelementptr inbounds nuw [744 x i8], ptr %86, i64 %indvars.iv.i50
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 680
   %193 = load i32, ptr %192, align 8, !tbaa !31
   %194 = load i32, ptr %78, align 4, !tbaa !40
@@ -410,7 +407,7 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
   %202 = tail call i32 @llvm.smax.i32(i32 %193, i32 0)
   %203 = tail call i32 @llvm.umin.i32(i32 %202, i32 127)
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw i16, ptr @kAcTable, i64 %204
+  %205 = getelementptr inbounds nuw [2 x i8], ptr @kAcTable, i64 %204
   %206 = load i16, ptr %205, align 2, !tbaa !46
   %207 = getelementptr inbounds nuw i8, ptr %191, i64 2
   store i16 %206, ptr %207, align 2, !tbaa !46
@@ -430,7 +427,7 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
   %220 = tail call i32 @llvm.smax.i32(i32 %219, i32 0)
   %221 = tail call i32 @llvm.umin.i32(i32 %220, i32 127)
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw i16, ptr @kAcTable2, i64 %222
+  %223 = getelementptr inbounds nuw [2 x i8], ptr @kAcTable2, i64 %222
   %224 = load i16, ptr %223, align 2, !tbaa !46
   %225 = getelementptr inbounds nuw i8, ptr %191, i64 226
   store i16 %224, ptr %225, align 2, !tbaa !46
@@ -449,7 +446,7 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
   %237 = tail call i32 @llvm.smax.i32(i32 %236, i32 0)
   %238 = tail call i32 @llvm.umin.i32(i32 %237, i32 127)
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds nuw i16, ptr @kAcTable, i64 %239
+  %240 = getelementptr inbounds nuw [2 x i8], ptr @kAcTable, i64 %239
   %241 = load i16, ptr %240, align 2, !tbaa !46
   %242 = getelementptr inbounds nuw i8, ptr %191, i64 450
   store i16 %241, ptr %242, align 2, !tbaa !46
@@ -471,20 +468,20 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
   %251 = getelementptr inbounds nuw i8, ptr @kBiasMatrices, i64 %indvars.iv.i.i
   %252 = load i8, ptr %251, align 1, !tbaa !58
   %253 = zext i8 %252 to i32
-  %254 = getelementptr inbounds nuw i16, ptr %191, i64 %indvars.iv.i.i
+  %254 = getelementptr inbounds nuw [2 x i8], ptr %191, i64 %indvars.iv.i.i
   %255 = load i16, ptr %254, align 2, !tbaa !46
   %256 = zext i16 %255 to i32
   %257 = udiv i32 131072, %256
   %258 = trunc i32 %257 to i16
-  %259 = getelementptr inbounds nuw i16, ptr %243, i64 %indvars.iv.i.i
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %indvars.iv.i.i
   store i16 %258, ptr %259, align 2, !tbaa !46
   %260 = shl nuw nsw i32 %253, 9
-  %261 = getelementptr inbounds nuw i32, ptr %244, i64 %indvars.iv.i.i
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %indvars.iv.i.i
   store i32 %260, ptr %261, align 4, !tbaa !30
   %262 = xor i32 %260, 131071
   %263 = and i32 %257, 65535
   %264 = udiv i32 %262, %263
-  %265 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv.i.i
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %indvars.iv.i.i
   store i32 %264, ptr %265, align 4, !tbaa !30
   br i1 %250, label %249, label %.preheader46.i.i, !llvm.loop !67
 
@@ -498,13 +495,13 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
   %267 = getelementptr inbounds nuw i8, ptr @kFreqSharpening, i64 %indvars.iv61.i.i
   %268 = load i8, ptr %267, align 1, !tbaa !58
   %269 = zext i8 %268 to i32
-  %270 = getelementptr inbounds nuw i16, ptr %191, i64 %indvars.iv61.i.i
+  %270 = getelementptr inbounds nuw [2 x i8], ptr %191, i64 %indvars.iv61.i.i
   %271 = load i16, ptr %270, align 2, !tbaa !46
   %272 = zext i16 %271 to i32
   %273 = mul nuw nsw i32 %272, %269
   %274 = lshr i32 %273, 11
   %275 = trunc nuw nsw i32 %274 to i16
-  %276 = getelementptr inbounds nuw i16, ptr %266, i64 %indvars.iv61.i.i
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %indvars.iv61.i.i
   store i16 %275, ptr %276, align 2, !tbaa !46
   %277 = add nuw nsw i32 %.04549.us.i.i, %272
   %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
@@ -513,15 +510,15 @@ SimplifySegments.exit:                            ; preds = %176, %._crit_edge.i
 
 278:                                              ; preds = %278, %.preheader46.i.i
   %indvars.iv54.i.i = phi i64 [ 2, %.preheader46.i.i ], [ %indvars.iv.next55.i.i, %278 ]
-  %279 = getelementptr inbounds nuw i16, ptr %191, i64 %indvars.iv54.i.i
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %191, i64 %indvars.iv54.i.i
   store i16 %206, ptr %279, align 2, !tbaa !46
   %280 = load i16, ptr %246, align 2, !tbaa !46
-  %281 = getelementptr inbounds nuw i16, ptr %243, i64 %indvars.iv54.i.i
+  %281 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %indvars.iv54.i.i
   store i16 %280, ptr %281, align 2, !tbaa !46
-  %282 = getelementptr inbounds nuw i32, ptr %244, i64 %indvars.iv54.i.i
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %indvars.iv54.i.i
   store i32 %.pre65.i.i, ptr %282, align 4, !tbaa !30
   %283 = load i32, ptr %248, align 4, !tbaa !30
-  %284 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv54.i.i
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %indvars.iv54.i.i
   store i32 %283, ptr %284, align 4, !tbaa !30
   %indvars.iv.next55.i.i = add nuw nsw i64 %indvars.iv54.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next55.i.i, 16
@@ -547,20 +544,20 @@ ExpandMatrix.exit.i:                              ; preds = %.preheader.split.us
   %293 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @kBiasMatrices, i64 2), i64 %indvars.iv.i66.i
   %294 = load i8, ptr %293, align 1, !tbaa !58
   %295 = zext i8 %294 to i32
-  %296 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv.i66.i
+  %296 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %indvars.iv.i66.i
   %297 = load i16, ptr %296, align 2, !tbaa !46
   %298 = zext i16 %297 to i32
   %299 = udiv i32 131072, %298
   %300 = trunc i32 %299 to i16
-  %301 = getelementptr inbounds nuw i16, ptr %285, i64 %indvars.iv.i66.i
+  %301 = getelementptr inbounds nuw [2 x i8], ptr %285, i64 %indvars.iv.i66.i
   store i16 %300, ptr %301, align 2, !tbaa !46
   %302 = shl nuw nsw i32 %295, 9
-  %303 = getelementptr inbounds nuw i32, ptr %286, i64 %indvars.iv.i66.i
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %indvars.iv.i66.i
   store i32 %302, ptr %303, align 4, !tbaa !30
   %304 = xor i32 %302, 131071
   %305 = and i32 %299, 65535
   %306 = udiv i32 %304, %305
-  %307 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv.i66.i
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv.i66.i
   store i32 %306, ptr %307, align 4, !tbaa !30
   br i1 %292, label %291, label %.preheader46.i67.i, !llvm.loop !67
 
@@ -570,15 +567,15 @@ ExpandMatrix.exit.i:                              ; preds = %.preheader.split.us
 
 309:                                              ; preds = %309, %.preheader46.i67.i
   %indvars.iv54.i70.i = phi i64 [ 2, %.preheader46.i67.i ], [ %indvars.iv.next55.i71.i, %309 ]
-  %310 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv54.i70.i
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %indvars.iv54.i70.i
   store i16 %.pre.i68.i, ptr %310, align 2, !tbaa !46
   %311 = load i16, ptr %288, align 2, !tbaa !46
-  %312 = getelementptr inbounds nuw i16, ptr %285, i64 %indvars.iv54.i70.i
+  %312 = getelementptr inbounds nuw [2 x i8], ptr %285, i64 %indvars.iv54.i70.i
   store i16 %311, ptr %312, align 2, !tbaa !46
-  %313 = getelementptr inbounds nuw i32, ptr %286, i64 %indvars.iv54.i70.i
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %indvars.iv54.i70.i
   store i32 %.pre65.i69.i, ptr %313, align 4, !tbaa !30
   %314 = load i32, ptr %290, align 4, !tbaa !30
-  %315 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv54.i70.i
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv54.i70.i
   store i32 %314, ptr %315, align 4, !tbaa !30
   %indvars.iv.next55.i71.i = add nuw nsw i64 %indvars.iv54.i70.i, 1
   %exitcond.not.i72.i = icmp eq i64 %indvars.iv.next55.i71.i, 16
@@ -587,9 +584,9 @@ ExpandMatrix.exit.i:                              ; preds = %.preheader.split.us
 .preheader.split.i.i:                             ; preds = %.preheader.split.i.i, %.preheader.i73.i
   %indvars.iv57.i.i = phi i64 [ %indvars.iv.next58.i.i, %.preheader.split.i.i ], [ 0, %.preheader.i73.i ]
   %.04549.i.i = phi i32 [ %320, %.preheader.split.i.i ], [ 0, %.preheader.i73.i ]
-  %316 = getelementptr inbounds nuw i16, ptr %308, i64 %indvars.iv57.i.i
+  %316 = getelementptr inbounds nuw [2 x i8], ptr %308, i64 %indvars.iv57.i.i
   store i16 0, ptr %316, align 2, !tbaa !46
-  %317 = getelementptr inbounds nuw i16, ptr %217, i64 %indvars.iv57.i.i
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %indvars.iv57.i.i
   %318 = load i16, ptr %317, align 2, !tbaa !46
   %319 = zext i16 %318 to i32
   %320 = add nuw nsw i32 %.04549.i.i, %319
@@ -617,20 +614,20 @@ ExpandMatrix.exit74.i:                            ; preds = %.preheader.split.i.
   %329 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @kBiasMatrices, i64 4), i64 %indvars.iv.i75.i
   %330 = load i8, ptr %329, align 1, !tbaa !58
   %331 = zext i8 %330 to i32
-  %332 = getelementptr inbounds nuw i16, ptr %234, i64 %indvars.iv.i75.i
+  %332 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %indvars.iv.i75.i
   %333 = load i16, ptr %332, align 2, !tbaa !46
   %334 = zext i16 %333 to i32
   %335 = udiv i32 131072, %334
   %336 = trunc i32 %335 to i16
-  %337 = getelementptr inbounds nuw i16, ptr %321, i64 %indvars.iv.i75.i
+  %337 = getelementptr inbounds nuw [2 x i8], ptr %321, i64 %indvars.iv.i75.i
   store i16 %336, ptr %337, align 2, !tbaa !46
   %338 = shl nuw nsw i32 %331, 9
-  %339 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv.i75.i
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %indvars.iv.i75.i
   store i32 %338, ptr %339, align 4, !tbaa !30
   %340 = xor i32 %338, 131071
   %341 = and i32 %335, 65535
   %342 = udiv i32 %340, %341
-  %343 = getelementptr inbounds nuw i32, ptr %323, i64 %indvars.iv.i75.i
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %indvars.iv.i75.i
   store i32 %342, ptr %343, align 4, !tbaa !30
   br i1 %328, label %327, label %.preheader46.i76.i, !llvm.loop !67
 
@@ -640,15 +637,15 @@ ExpandMatrix.exit74.i:                            ; preds = %.preheader.split.i.
 
 345:                                              ; preds = %345, %.preheader46.i76.i
   %indvars.iv54.i79.i = phi i64 [ 2, %.preheader46.i76.i ], [ %indvars.iv.next55.i80.i, %345 ]
-  %346 = getelementptr inbounds nuw i16, ptr %234, i64 %indvars.iv54.i79.i
+  %346 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %indvars.iv54.i79.i
   store i16 %.pre.i77.i, ptr %346, align 2, !tbaa !46
   %347 = load i16, ptr %324, align 2, !tbaa !46
-  %348 = getelementptr inbounds nuw i16, ptr %321, i64 %indvars.iv54.i79.i
+  %348 = getelementptr inbounds nuw [2 x i8], ptr %321, i64 %indvars.iv54.i79.i
   store i16 %347, ptr %348, align 2, !tbaa !46
-  %349 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv54.i79.i
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %indvars.iv54.i79.i
   store i32 %.pre65.i78.i, ptr %349, align 4, !tbaa !30
   %350 = load i32, ptr %326, align 4, !tbaa !30
-  %351 = getelementptr inbounds nuw i32, ptr %323, i64 %indvars.iv54.i79.i
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %indvars.iv54.i79.i
   store i32 %350, ptr %351, align 4, !tbaa !30
   %indvars.iv.next55.i80.i = add nuw nsw i64 %indvars.iv54.i79.i, 1
   %exitcond.not.i81.i = icmp eq i64 %indvars.iv.next55.i80.i, 16
@@ -657,9 +654,9 @@ ExpandMatrix.exit74.i:                            ; preds = %.preheader.split.i.
 .preheader.split.i83.i:                           ; preds = %.preheader.split.i83.i, %.preheader.i82.i
   %indvars.iv57.i84.i = phi i64 [ %indvars.iv.next58.i86.i, %.preheader.split.i83.i ], [ 0, %.preheader.i82.i ]
   %.04549.i85.i = phi i32 [ %356, %.preheader.split.i83.i ], [ 0, %.preheader.i82.i ]
-  %352 = getelementptr inbounds nuw i16, ptr %344, i64 %indvars.iv57.i84.i
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %344, i64 %indvars.iv57.i84.i
   store i16 0, ptr %352, align 2, !tbaa !46
-  %353 = getelementptr inbounds nuw i16, ptr %234, i64 %indvars.iv57.i84.i
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %indvars.iv57.i84.i
   %354 = load i16, ptr %353, align 2, !tbaa !46
   %355 = zext i16 %354 to i32
   %356 = add nuw nsw i32 %.04549.i85.i, %355
@@ -947,7 +944,7 @@ VP8MakeChroma8Preds.exit:                         ; preds = %38, %41
   %56 = lshr i8 %55, 5
   %57 = and i8 %56, 3
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %52, i64 %58
+  %59 = getelementptr inbounds nuw [744 x i8], ptr %52, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 696
   %61 = load i32, ptr %60, align 8, !tbaa !71, !noalias !104
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 716
@@ -1035,7 +1032,7 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   %100 = phi i64 [ %98, %92 ], [ 0, %83 ]
   %101 = getelementptr inbounds nuw i8, ptr %.06267.i, i64 8
   store i64 %100, ptr %101, align 8, !tbaa !110, !noalias !98
-  %102 = getelementptr inbounds nuw i16, ptr @VP8FixedCostsI16, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [2 x i8], ptr @VP8FixedCostsI16, i64 %indvars.iv.i
   %103 = load i16, ptr %102, align 2, !tbaa !46, !noalias !104
   %104 = zext i16 %103 to i64
   %105 = getelementptr inbounds nuw i8, ptr %.06267.i, i64 16
@@ -1064,7 +1061,7 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
 
 113:                                              ; preds = %112, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.preheader.i.i ], [ %indvars.iv.next.i.i, %112 ]
-  %114 = getelementptr inbounds nuw i16, ptr %.01626.i.i, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %.01626.i.i, i64 %indvars.iv.i.i
   %115 = load i16, ptr %114, align 2, !tbaa !46, !noalias !98
   %.not77.i = icmp eq i16 %115, 0
   br i1 %.not77.i, label %112, label %IsFlat_C.exit.thread.i
@@ -1197,7 +1194,7 @@ PickBestIntra16.exit:                             ; preds = %143, %163, %169, %1
   %190 = lshr i8 %189, 5
   %191 = and i8 %190, 3
   %192 = zext nneg i8 %191 to i64
-  %193 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %188, i64 %192
+  %193 = getelementptr inbounds nuw [744 x i8], ptr %188, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 700
   %195 = load i32, ptr %194, align 4, !tbaa !70, !noalias !127
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 716
@@ -1238,7 +1235,7 @@ PickBestIntra16.exit:                             ; preds = %143, %163, %169, %1
   %.062.i = phi i32 [ 0, %201 ], [ %355, %367 ]
   %220 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i16, ptr @VP8Scan, i64 %221
+  %222 = getelementptr inbounds [2 x i8], ptr @VP8Scan, i64 %221
   %223 = load i16, ptr %222, align 2, !tbaa !46, !noalias !127
   %224 = zext i16 %223 to i64
   %225 = getelementptr inbounds nuw i8, ptr %.pre98, i64 %224
@@ -1282,9 +1279,9 @@ GetCostModeI4.exit.i:                             ; preds = %243, %238
   %.in16.in.i.i = phi ptr [ %242, %238 ], [ %245, %243 ]
   %.in16.i.i = load i8, ptr %.in16.in.i.i, align 1, !tbaa !58, !noalias !130
   %246 = zext i8 %.in16.i.i to i64
-  %247 = getelementptr inbounds nuw [10 x [10 x i16]], ptr @VP8FixedCostsI4, i64 %246
+  %247 = getelementptr inbounds nuw [200 x i8], ptr @VP8FixedCostsI4, i64 %246
   %248 = zext i8 %.in.i.i29 to i64
-  %249 = getelementptr inbounds nuw [10 x i16], ptr %247, i64 %248
+  %249 = getelementptr inbounds nuw [20 x i8], ptr %247, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %.pre100, i64 %224
   %251 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !122, !noalias !125
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 1672
@@ -1308,7 +1305,7 @@ GetCostModeI4.exit.i:                             ; preds = %243, %238
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %255 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !141, !noalias !142
   %256 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !141, !noalias !142
-  %257 = getelementptr inbounds nuw i16, ptr @VP8I4ModeOffsets, i64 %indvars.iv.i30
+  %257 = getelementptr inbounds nuw [2 x i8], ptr @VP8I4ModeOffsets, i64 %indvars.iv.i30
   %258 = load i16, ptr %257, align 2, !tbaa !46, !noalias !145
   %259 = zext i16 %258 to i64
   %260 = getelementptr inbounds nuw i8, ptr %256, i64 %259
@@ -1318,7 +1315,7 @@ GetCostModeI4.exit.i:                             ; preds = %243, %238
   %264 = lshr i8 %263, 5
   %265 = and i8 %264, 3
   %266 = zext nneg i8 %265 to i64
-  %267 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %261, i64 %266
+  %267 = getelementptr inbounds nuw [744 x i8], ptr %261, i64 %266
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !145
   %268 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !145
   call void %268(ptr noundef %225, ptr noundef %260, ptr noundef nonnull %8) #12, !noalias !147
@@ -1331,10 +1328,10 @@ GetCostModeI4.exit.i:                             ; preds = %243, %238
   %272 = and i32 %271, 3
   %273 = ashr i32 %271, 2
   %274 = zext nneg i32 %272 to i64
-  %275 = getelementptr inbounds nuw i32, ptr %215, i64 %274
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %274
   %276 = load i32, ptr %275, align 4, !tbaa !30, !alias.scope !141, !noalias !142
   %277 = sext i32 %273 to i64
-  %278 = getelementptr inbounds i32, ptr %216, i64 %277
+  %278 = getelementptr inbounds [4 x i8], ptr %216, i64 %277
   %279 = load i32, ptr %278, align 4, !tbaa !30, !alias.scope !141, !noalias !142
   %280 = add nsw i32 %279, %276
   %281 = getelementptr inbounds nuw i8, ptr %267, i64 724
@@ -1370,7 +1367,7 @@ ReconstructIntra4.exit.i:                         ; preds = %284, %270
 
 300:                                              ; preds = %293, %ReconstructIntra4.exit.i
   %301 = phi i64 [ %299, %293 ], [ 0, %ReconstructIntra4.exit.i ]
-  %302 = getelementptr inbounds nuw i16, ptr %249, i64 %indvars.iv.i30
+  %302 = getelementptr inbounds nuw [2 x i8], ptr %249, i64 %indvars.iv.i30
   %303 = load i16, ptr %302, align 2, !tbaa !46, !noalias !127
   %304 = zext i16 %303 to i64
   %.not78.i = icmp eq i64 %indvars.iv.i30, 0
@@ -1384,7 +1381,7 @@ ReconstructIntra4.exit.i:                         ; preds = %284, %270
 .preheader.i.preheader.i:                         ; preds = %300, %305
   %indvars.iv.i.i32 = phi i64 [ %indvars.iv.next.i.i33, %305 ], [ 1, %300 ]
   %.124.i.i = phi i32 [ %310, %305 ], [ 0, %300 ]
-  %306 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i.i32
+  %306 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv.i.i32
   %307 = load i16, ptr %306, align 2, !tbaa !46, !noalias !127
   %308 = icmp ne i16 %307, 0
   %309 = zext i1 %308 to i32
@@ -1418,7 +1415,7 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
 326:                                              ; preds = %318
   %327 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds [16 x i16], ptr %218, i64 %328
+  %329 = getelementptr inbounds [32 x i8], ptr %218, i64 %328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false), !noalias !127
   %330 = trunc nuw nsw i64 %indvars.iv.i30 to i32
   br label %331
@@ -1478,7 +1475,7 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
 358:                                              ; preds = %353
   %359 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
   %360 = sext i32 %359 to i64
-  %361 = getelementptr inbounds i16, ptr @VP8Scan, i64 %360
+  %361 = getelementptr inbounds [2 x i8], ptr @VP8Scan, i64 %360
   %362 = load i16, ptr %361, align 2, !tbaa !46, !noalias !127
   %363 = zext i16 %362 to i64
   %364 = getelementptr inbounds nuw i8, ptr %.pre100, i64 %363
@@ -1502,12 +1499,12 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   %371 = zext i1 %.not75.i to i32
   %372 = ashr i32 %368, 2
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds i32, ptr %216, i64 %373
+  %374 = getelementptr inbounds [4 x i8], ptr %216, i64 %373
   store i32 %371, ptr %374, align 4, !tbaa !30, !alias.scope !122, !noalias !125
   %375 = load i32, ptr %211, align 8, !tbaa !129, !alias.scope !122, !noalias !125
   %376 = and i32 %375, 3
   %377 = zext nneg i32 %376 to i64
-  %378 = getelementptr inbounds nuw i32, ptr %215, i64 %377
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %377
   store i32 %371, ptr %378, align 4, !tbaa !30, !alias.scope !122, !noalias !125
   %379 = call i32 @VP8IteratorRotateI4(ptr noundef nonnull %0, ptr noundef %.pre100) #12, !noalias !125
   %.not76.i = icmp eq i32 %379, 0
@@ -1560,7 +1557,7 @@ PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit
   %396 = lshr i8 %395, 5
   %397 = and i8 %396, 3
   %398 = zext nneg i8 %397 to i64
-  %399 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %394, i64 %398
+  %399 = getelementptr inbounds nuw [744 x i8], ptr %394, i64 %398
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 1312
   %401 = load i32, ptr %400, align 8, !tbaa !72, !noalias !164
   %402 = getelementptr inbounds nuw i8, ptr %392, i64 16
@@ -1600,7 +1597,7 @@ PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit
   %422 = sext i32 %421 to i64
   store i64 %422, ptr %7, align 8, !tbaa !109, !noalias !164
   store i64 0, ptr %408, align 8, !tbaa !110, !noalias !164
-  %423 = getelementptr inbounds nuw i16, ptr @VP8FixedCostsUV, i64 %indvars.iv.i40
+  %423 = getelementptr inbounds nuw [2 x i8], ptr @VP8FixedCostsUV, i64 %indvars.iv.i40
   %424 = load i16, ptr %423, align 2, !tbaa !46, !noalias !164
   %425 = zext i16 %424 to i64
   store i64 %425, ptr %409, align 8, !tbaa !111, !noalias !164
@@ -1624,7 +1621,7 @@ PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit
 430:                                              ; preds = %429, %.preheader.i.i41
   %indvars.iv.i.i44 = phi i64 [ 1, %.preheader.i.i41 ], [ %indvars.iv.next.i.i46, %429 ]
   %.124.i.i45 = phi i32 [ %.01127.i.i, %.preheader.i.i41 ], [ %435, %429 ]
-  %431 = getelementptr inbounds nuw i16, ptr %.01626.i.i43, i64 %indvars.iv.i.i44
+  %431 = getelementptr inbounds nuw [2 x i8], ptr %.01626.i.i43, i64 %indvars.iv.i.i44
   %432 = load i16, ptr %431, align 2, !tbaa !46, !noalias !164
   %433 = icmp ne i16 %432, 0
   %434 = zext i1 %433 to i32
@@ -1721,7 +1718,7 @@ IsFlat_C.exit.thread.i49:                         ; preds = %430, %IsFlat_C.exit
   %475 = load i32, ptr %0, align 8, !tbaa !82, !alias.scope !184, !noalias !185
   %476 = sext i32 %475 to i64
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %478 = getelementptr inbounds [2 x [2 x i8]], ptr %473, i64 %476
+  %478 = getelementptr inbounds [4 x i8], ptr %473, i64 %476
   br label %479
 
 479:                                              ; preds = %479, %474
@@ -1800,7 +1797,7 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   %527 = load i8, ptr %526, align 1, !tbaa !58
   %528 = load ptr, ptr %64, align 8, !tbaa !105, !alias.scope !188, !noalias !191
   %529 = sext i32 %519 to i64
-  %530 = getelementptr inbounds i16, ptr @VP8Scan, i64 %529
+  %530 = getelementptr inbounds [2 x i8], ptr @VP8Scan, i64 %529
   %531 = load i16, ptr %530, align 2, !tbaa !46, !noalias !193
   %532 = zext i16 %531 to i64
   %533 = getelementptr inbounds nuw i8, ptr %528, i64 %532
@@ -1812,12 +1809,12 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   call void %536(ptr noundef %.val.i, ptr noundef %.val33.i) #12
   %537 = load i32, ptr %511, align 8, !tbaa !129, !alias.scope !188, !noalias !191
   %538 = sext i32 %537 to i64
-  %539 = getelementptr inbounds [16 x i16], ptr %514, i64 %538
+  %539 = getelementptr inbounds [32 x i8], ptr %514, i64 %538
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %540 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !197, !noalias !198
   %541 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !197, !noalias !198
   %542 = zext i8 %527 to i64
-  %543 = getelementptr inbounds nuw i16, ptr @VP8I4ModeOffsets, i64 %542
+  %543 = getelementptr inbounds nuw [2 x i8], ptr @VP8I4ModeOffsets, i64 %542
   %544 = load i16, ptr %543, align 2, !tbaa !46, !noalias !201
   %545 = zext i16 %544 to i64
   %546 = getelementptr inbounds nuw i8, ptr %541, i64 %545
@@ -1827,7 +1824,7 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   %550 = lshr i8 %549, 5
   %551 = and i8 %550, 3
   %552 = zext nneg i8 %551 to i64
-  %553 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %547, i64 %552
+  %553 = getelementptr inbounds nuw [744 x i8], ptr %547, i64 %552
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !201
   %554 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !201
   call void %554(ptr noundef %533, ptr noundef %546, ptr noundef nonnull %6) #12, !noalias !203
@@ -1839,10 +1836,10 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   %557 = and i32 %537, 3
   %558 = ashr i32 %537, 2
   %559 = zext nneg i32 %557 to i64
-  %560 = getelementptr inbounds nuw i32, ptr %515, i64 %559
+  %560 = getelementptr inbounds nuw [4 x i8], ptr %515, i64 %559
   %561 = load i32, ptr %560, align 4, !tbaa !30, !alias.scope !197, !noalias !198
   %562 = sext i32 %558 to i64
-  %563 = getelementptr inbounds i32, ptr %516, i64 %562
+  %563 = getelementptr inbounds [4 x i8], ptr %516, i64 %562
   %564 = load i32, ptr %563, align 4, !tbaa !30, !alias.scope !197, !noalias !198
   %565 = add nsw i32 %564, %561
   %566 = getelementptr inbounds nuw i8, ptr %553, i64 724
@@ -1897,7 +1894,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %594 = lshr i8 %592, 5
   %595 = and i8 %594, 3
   %596 = zext nneg i8 %595 to i64
-  %597 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %593, i64 %596
+  %597 = getelementptr inbounds nuw [744 x i8], ptr %593, i64 %596
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 1344
   %599 = load i64, ptr %598, align 8, !tbaa !80, !noalias !210
   %600 = getelementptr inbounds nuw i8, ptr %593, i64 23628
@@ -1912,7 +1909,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %607 = lshr i8 %592, 5
   %608 = and i8 %607, 3
   %609 = zext nneg i8 %608 to i64
-  %610 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %606, i64 %609
+  %610 = getelementptr inbounds nuw [744 x i8], ptr %606, i64 %609
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 1344
   %612 = load i64, ptr %611, align 8, !tbaa !80, !noalias !210
   br i1 %605, label %613, label %.thread.i
@@ -1929,7 +1926,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %indvars.iv.i63 = phi i64 [ 0, %613 ], [ %indvars.iv.next.i64, %619 ]
   %.1108186.i = phi i64 [ 36028797018963967, %613 ], [ %.2.i, %619 ]
   %.0126184.i = phi i32 [ -1, %613 ], [ %.1127.i, %619 ]
-  %620 = getelementptr inbounds nuw i16, ptr @VP8I16ModeOffsets, i64 %indvars.iv.i63
+  %620 = getelementptr inbounds nuw [2 x i8], ptr @VP8I16ModeOffsets, i64 %indvars.iv.i63
   %621 = load i16, ptr %620, align 2, !tbaa !46, !noalias !210
   %622 = zext i16 %621 to i64
   %623 = getelementptr inbounds nuw i8, ptr %618, i64 %622
@@ -1937,7 +1934,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   %625 = tail call i32 %624(ptr noundef %617, ptr noundef %623) #12, !noalias !210
   %626 = sext i32 %625 to i64
   %627 = shl nsw i64 %626, 8
-  %628 = getelementptr inbounds nuw i16, ptr @VP8FixedCostsI16, i64 %indvars.iv.i63
+  %628 = getelementptr inbounds nuw [2 x i8], ptr @VP8FixedCostsI16, i64 %indvars.iv.i63
   %629 = load i16, ptr %628, align 2, !tbaa !46, !noalias !210
   %630 = zext i16 %629 to i64
   %631 = mul nuw nsw i64 %630, 106
@@ -2042,7 +2039,7 @@ IsFlatSource16.exit.thread.i:                     ; preds = %652, %650, %648, %6
   %672 = load ptr, ptr %661, align 8, !tbaa !105, !alias.scope !205, !noalias !208
   %673 = load i32, ptr %662, align 8, !tbaa !129, !alias.scope !205, !noalias !208
   %674 = sext i32 %673 to i64
-  %675 = getelementptr inbounds i16, ptr @VP8Scan, i64 %674
+  %675 = getelementptr inbounds [2 x i8], ptr @VP8Scan, i64 %674
   %676 = load i16, ptr %675, align 2, !tbaa !46, !noalias !210
   %677 = zext i16 %676 to i64
   %678 = getelementptr inbounds nuw i8, ptr %672, i64 %677
@@ -2086,9 +2083,9 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
   %.in16.in.i.i71 = phi ptr [ %695, %691 ], [ %698, %696 ]
   %.in16.i.i72 = load i8, ptr %.in16.in.i.i71, align 1, !tbaa !58, !noalias !213
   %699 = zext i8 %.in16.i.i72 to i64
-  %700 = getelementptr inbounds nuw [10 x [10 x i16]], ptr @VP8FixedCostsI4, i64 %699
+  %700 = getelementptr inbounds nuw [200 x i8], ptr @VP8FixedCostsI4, i64 %699
   %701 = zext i8 %.in.i.i69 to i64
-  %702 = getelementptr inbounds nuw [10 x i16], ptr %700, i64 %701
+  %702 = getelementptr inbounds nuw [20 x i8], ptr %700, i64 %701
   %.val.i73 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
   %.val152.i = load ptr, ptr %664, align 8, !tbaa !137, !alias.scope !205, !noalias !208
   %703 = load ptr, ptr @VP8EncPredLuma4, align 8, !tbaa !89, !noalias !210
@@ -2100,14 +2097,14 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
   %.0130188.i = phi i64 [ 36028797018963967, %GetCostModeI4.exit.i70 ], [ %spec.select148.i, %704 ]
   %.0132187.i = phi i32 [ -1, %GetCostModeI4.exit.i70 ], [ %spec.select147.i, %704 ]
   %705 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
-  %706 = getelementptr inbounds nuw i16, ptr @VP8I4ModeOffsets, i64 %indvars.iv196.i
+  %706 = getelementptr inbounds nuw [2 x i8], ptr @VP8I4ModeOffsets, i64 %indvars.iv196.i
   %707 = load i16, ptr %706, align 2, !tbaa !46, !noalias !210
   %708 = zext i16 %707 to i64
   %709 = getelementptr inbounds nuw i8, ptr %705, i64 %708
   %710 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !89, !noalias !210
   %711 = call i32 %710(ptr noundef %678, ptr noundef %709) #12
   %712 = shl nsw i32 %711, 8
-  %713 = getelementptr inbounds nuw i16, ptr %702, i64 %indvars.iv196.i
+  %713 = getelementptr inbounds nuw [2 x i8], ptr %702, i64 %indvars.iv196.i
   %714 = load i16, ptr %713, align 2, !tbaa !46, !noalias !210
   %715 = zext i16 %714 to i32
   %716 = mul nuw nsw i32 %715, 11
@@ -2123,7 +2120,7 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
 
 721:                                              ; preds = %704
   %722 = sext i32 %spec.select147.i to i64
-  %723 = getelementptr inbounds i16, ptr %702, i64 %722
+  %723 = getelementptr inbounds [2 x i8], ptr %702, i64 %722
   %724 = load i16, ptr %723, align 2, !tbaa !46, !noalias !210
   %725 = zext i16 %724 to i64
   %726 = add nuw nsw i64 %.0125.i, %725
@@ -2140,15 +2137,15 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
 
 733:                                              ; preds = %721
   %734 = load ptr, ptr %666, align 8, !tbaa !108, !alias.scope !205, !noalias !208
-  %735 = getelementptr inbounds i16, ptr @VP8Scan, i64 %729
+  %735 = getelementptr inbounds [2 x i8], ptr @VP8Scan, i64 %729
   %736 = load i16, ptr %735, align 2, !tbaa !46, !noalias !210
   %737 = zext i16 %736 to i64
   %738 = getelementptr inbounds nuw i8, ptr %734, i64 %737
-  %739 = getelementptr inbounds [16 x i16], ptr %667, i64 %729
+  %739 = getelementptr inbounds [32 x i8], ptr %667, i64 %729
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
   %740 = load ptr, ptr %13, align 8, !tbaa !93, !alias.scope !221, !noalias !222
   %741 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !221, !noalias !222
-  %742 = getelementptr inbounds i16, ptr @VP8I4ModeOffsets, i64 %722
+  %742 = getelementptr inbounds [2 x i8], ptr @VP8I4ModeOffsets, i64 %722
   %743 = load i16, ptr %742, align 2, !tbaa !46, !noalias !225
   %744 = zext i16 %743 to i64
   %745 = getelementptr inbounds nuw i8, ptr %741, i64 %744
@@ -2158,7 +2155,7 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
   %749 = lshr i8 %748, 5
   %750 = and i8 %749, 3
   %751 = zext nneg i8 %750 to i64
-  %752 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %746, i64 %751
+  %752 = getelementptr inbounds nuw [744 x i8], ptr %746, i64 %751
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !225
   %753 = load ptr, ptr @VP8FTransform, align 8, !tbaa !89, !noalias !225
   call void %753(ptr noundef %678, ptr noundef %745, ptr noundef nonnull %4) #12, !noalias !227
@@ -2170,10 +2167,10 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
   %756 = and i32 %728, 3
   %757 = ashr i32 %728, 2
   %758 = zext nneg i32 %756 to i64
-  %759 = getelementptr inbounds nuw i32, ptr %669, i64 %758
+  %759 = getelementptr inbounds nuw [4 x i8], ptr %669, i64 %758
   %760 = load i32, ptr %759, align 4, !tbaa !30, !alias.scope !221, !noalias !222
   %761 = sext i32 %757 to i64
-  %762 = getelementptr inbounds i32, ptr %670, i64 %761
+  %762 = getelementptr inbounds [4 x i8], ptr %670, i64 %761
   %763 = load i32, ptr %762, align 4, !tbaa !30, !alias.scope !221, !noalias !222
   %764 = add nsw i32 %763, %760
   %765 = getelementptr inbounds nuw i8, ptr %752, i64 724
@@ -2235,14 +2232,14 @@ GetCostModeI4.exit.i70:                           ; preds = %696, %691
   %.0113192.i = phi i64 [ 36028797018963967, %789 ], [ %spec.select151.i, %793 ]
   %.0115191.i = phi i32 [ -1, %789 ], [ %spec.select150.i, %793 ]
   %794 = load ptr, ptr %32, align 8, !tbaa !90, !alias.scope !205, !noalias !208
-  %795 = getelementptr inbounds nuw i16, ptr @VP8UVModeOffsets, i64 %indvars.iv200.i
+  %795 = getelementptr inbounds nuw [2 x i8], ptr @VP8UVModeOffsets, i64 %indvars.iv200.i
   %796 = load i16, ptr %795, align 2, !tbaa !46, !noalias !210
   %797 = zext i16 %796 to i64
   %798 = getelementptr inbounds nuw i8, ptr %794, i64 %797
   %799 = load ptr, ptr @VP8SSE16x8, align 8, !tbaa !89, !noalias !210
   %800 = call i32 %799(ptr noundef nonnull %792, ptr noundef %798) #12
   %801 = shl nsw i32 %800, 8
-  %802 = getelementptr inbounds nuw i16, ptr @VP8FixedCostsUV, i64 %indvars.iv200.i
+  %802 = getelementptr inbounds nuw [2 x i8], ptr @VP8FixedCostsUV, i64 %indvars.iv200.i
   %803 = load i16, ptr %802, align 2, !tbaa !46, !noalias !210
   %804 = zext i16 %803 to i32
   %805 = mul nuw nsw i32 %804, 120
@@ -2299,7 +2296,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !90
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds i16, ptr @VP8I16ModeOffsets, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr @VP8I16ModeOffsets, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !46
   %14 = zext i16 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 %14
@@ -2315,12 +2312,12 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
 21:                                               ; preds = %4, %21
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr @VP8FTransform2, align 8, !tbaa !89
-  %23 = getelementptr inbounds nuw i16, ptr @VP8Scan, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr @VP8Scan, i64 %indvars.iv
   %24 = load i16, ptr %23, align 4, !tbaa !46
   %25 = zext i16 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 %25
-  %28 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   call void %22(ptr noundef %26, ptr noundef %27, ptr noundef nonnull %28) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %29 = icmp samesign ult i64 %indvars.iv, 14
@@ -2331,7 +2328,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %32 = lshr i8 %20, 5
   %33 = and i8 %32, 3
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [744 x i8], ptr %31, i64 %34
   %36 = load ptr, ptr @VP8FTransformWHT, align 8, !tbaa !89
   call void %36(ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %37 = load ptr, ptr @VP8EncQuantizeBlockWHT, align 8, !tbaa !89
@@ -2361,7 +2358,7 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %indvars.iv90 = phi i64 [ 0, %45 ], [ %indvars.iv.next91, %63 ]
   %.075 = phi i32 [ %41, %45 ], [ %62, %63 ]
   %.16274 = phi i64 [ 0, %45 ], [ %indvars.iv.next84, %63 ]
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv90
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv90
   %sext = shl i64 %.16274, 32
   %51 = ashr exact i64 %sext, 32
   br label %52
@@ -2370,12 +2367,12 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %indvars.iv85 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next86, %52 ]
   %indvars.iv83 = phi i64 [ %51, %.preheader67 ], [ %indvars.iv.next84, %52 ]
   %.172 = phi i32 [ %.075, %.preheader67 ], [ %62, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv85
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv85
   %54 = load i32, ptr %53, align 4, !tbaa !30
   %55 = load i32, ptr %50, align 4, !tbaa !30
   %56 = add nsw i32 %55, %54
-  %57 = getelementptr inbounds [16 x i16], ptr %5, i64 %indvars.iv83
-  %58 = getelementptr inbounds [16 x i16], ptr %48, i64 %indvars.iv83
+  %57 = getelementptr inbounds [32 x i8], ptr %5, i64 %indvars.iv83
+  %58 = getelementptr inbounds [32 x i8], ptr %48, i64 %indvars.iv83
   %59 = call fastcc i32 @TrellisQuantizeBlock(ptr noundef nonnull %8, ptr noundef %57, ptr noundef nonnull %58, i32 noundef %56, i32 noundef 0, ptr noundef nonnull %35, i32 noundef %.pre.pre)
   store i32 %59, ptr %50, align 4, !tbaa !30
   store i32 %59, ptr %53, align 4, !tbaa !30
@@ -2396,12 +2393,12 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
 64:                                               ; preds = %.preheader, %64
   %indvars.iv94 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next95, %64 ]
   %.377 = phi i32 [ %41, %.preheader ], [ %72, %64 ]
-  %65 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv94
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv94
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i16 0, ptr %66, align 16, !tbaa !46
   store i16 0, ptr %65, align 16, !tbaa !46
   %67 = load ptr, ptr @VP8EncQuantize2Blocks, align 8, !tbaa !89
-  %68 = getelementptr inbounds nuw [16 x i16], ptr %44, i64 %indvars.iv94
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv94
   %69 = call i32 %67(ptr noundef nonnull %65, ptr noundef nonnull %68, ptr noundef nonnull %35) #12
   %70 = trunc nuw nsw i64 %indvars.iv94 to i32
   %71 = shl i32 %69, %70
@@ -2419,11 +2416,11 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
 75:                                               ; preds = %.loopexit, %75
   %indvars.iv97 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next98, %75 ]
   %76 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89
-  %77 = getelementptr inbounds nuw i16, ptr @VP8Scan, i64 %indvars.iv97
+  %77 = getelementptr inbounds nuw [2 x i8], ptr @VP8Scan, i64 %indvars.iv97
   %78 = load i16, ptr %77, align 4, !tbaa !46
   %79 = zext i16 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 %79
-  %81 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv97
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv97
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 %79
   call void %76(ptr noundef %80, ptr noundef nonnull %81, ptr noundef %82, i32 noundef 1) #12
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 2
@@ -2448,9 +2445,9 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %9 = alloca [2 x [2 x %struct.ScoreState]], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3620
   %11 = zext nneg i32 %4 to i64
-  %12 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [264 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 21960
-  %14 = getelementptr inbounds nuw [16 x [3 x ptr]], ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [384 x i8], ptr %13, i64 %11
   %15 = icmp eq i32 %4, 0
   %16 = zext i1 %15 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2465,7 +2462,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %24 = getelementptr inbounds nuw i8, ptr @VP8EncBands, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !58
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %12, i64 %26
+  %27 = getelementptr inbounds nuw [33 x i8], ptr %12, i64 %26
   %28 = sext i32 %3 to i64
   %29 = getelementptr inbounds [11 x i8], ptr %27, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !58
@@ -2479,7 +2476,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %34 = getelementptr inbounds nuw i8, ptr @kZigzag, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !58
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !46
   %39 = sext i16 %38 to i32
   %40 = mul nsw i32 %39, %39
@@ -2497,21 +2494,21 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %46 = zext i1 %45 to i32
   %spec.select = add i32 %.1189, %46
   %.pn.i = zext i8 %30 to i64
-  %.in.in.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i
+  %.in.in.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i
   %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !46
   %47 = zext i16 %.in.i to i64
   %48 = sext i32 %6 to i64
   %49 = mul nsw i64 %47, %48
   %50 = icmp eq i32 %3, 0
-  %51 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 %23
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %28
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %23
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %28
   %53 = load ptr, ptr %52, align 8, !tbaa !236
   br i1 %50, label %.split.us, label %.preheader
 
 .split.us:                                        ; preds = %44
   %.pn.in.i = xor i8 %30, -1
   %.pn.i206 = zext i8 %.pn.in.i to i64
-  %.in.in.i207 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i206
+  %.in.in.i207 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i206
   %.in.i208.us = load i16, ptr %.in.in.i207, align 2, !tbaa !46
   %54 = zext i16 %.in.i208.us to i64
   %55 = mul nsw i64 %54, %48
@@ -2547,17 +2544,17 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %63 = getelementptr inbounds nuw i8, ptr @kZigzag, i64 %indvars.iv249
   %64 = load i8, ptr %63, align 1, !tbaa !58
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !46
   %68 = zext i16 %67 to i32
-  %69 = getelementptr inbounds nuw i16, ptr %59, i64 %65
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %65
   %70 = load i16, ptr %69, align 2, !tbaa !46
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw i16, ptr %1, i64 %65
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %65
   %73 = load i16, ptr %72, align 2, !tbaa !46
   %74 = tail call i16 @llvm.abs.i16(i16 %73, i1 false)
   %75 = zext i16 %74 to i32
-  %76 = getelementptr inbounds nuw i16, ptr %60, i64 %65
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %65
   %77 = load i16, ptr %76, align 2, !tbaa !46
   %78 = zext i16 %77 to i32
   %79 = add nuw nsw i32 %75, %78
@@ -2567,12 +2564,12 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %83 = lshr i32 %82, 17
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %83, i32 2047)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %81, i32 2047)
-  %84 = getelementptr inbounds nuw [2 x %struct.Node], ptr %8, i64 %indvars.iv249
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv249
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %85 = getelementptr inbounds nuw i8, ptr @VP8EncBands, i64 %indvars.iv.next250
   %86 = load i8, ptr %85, align 1, !tbaa !58
-  %87 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 %indvars.iv.next250
-  %88 = getelementptr inbounds nuw i16, ptr @kWeightTrellis, i64 %65
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv.next250
+  %88 = getelementptr inbounds nuw [2 x i8], ptr @kWeightTrellis, i64 %65
   %89 = shl nuw nsw i32 %79, 1
   %90 = getelementptr inbounds nuw i8, ptr %.0173229, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %.0173229, i64 16
@@ -2581,7 +2578,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %93 = trunc nuw nsw i16 %.lobit to i8
   %94 = icmp samesign ult i64 %indvars.iv249, 15
   %95 = zext i8 %86 to i64
-  %96 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %12, i64 %95
+  %96 = getelementptr inbounds nuw [33 x i8], ptr %12, i64 %95
   %97 = zext nneg i32 %spec.store.select1 to i64
   %98 = zext nneg i32 %spec.store.select to i64
   %99 = zext i16 %67 to i64
@@ -2600,9 +2597,9 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %104 = trunc nuw nsw i64 %103 to i32
   %105 = tail call i32 @llvm.umin.i32(i32 %104, i32 2)
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %87, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !236
-  %109 = getelementptr inbounds nuw %struct.ScoreState, ptr %.0176228, i64 %indvars.iv245
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %.0176228, i64 %indvars.iv245
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %108, ptr %110, align 8, !tbaa !239
   %111 = icmp samesign ugt i64 %103, %98
@@ -2614,7 +2611,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
 
 113:                                              ; preds = %101
   %114 = add nuw nsw i32 %spec.store.select1, %indvars248
-  %115 = getelementptr inbounds nuw %struct.Node, ptr %84, i64 %indvars.iv245
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv245
   %116 = mul nuw nsw i64 %103, %99
   %117 = mul nuw nsw i32 %114, %68
   %118 = load i16, ptr %88, align 2, !tbaa !46
@@ -2626,12 +2623,12 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %122 = sext i32 %121 to i64
   %123 = shl nsw i64 %122, 8
   %124 = load ptr, ptr %90, align 8, !tbaa !239
-  %125 = getelementptr inbounds nuw i16, ptr @VP8LevelFixedCosts, i64 %103
+  %125 = getelementptr inbounds nuw [2 x i8], ptr @VP8LevelFixedCosts, i64 %103
   %126 = load i16, ptr %125, align 2, !tbaa !46
   %127 = zext i16 %126 to i32
   %128 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 32768) %104, i32 67)
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %124, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !46
   %132 = zext i16 %131 to i32
   %133 = add nuw nsw i32 %132, %127
@@ -2640,7 +2637,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %136 = mul nsw i64 %134, %48
   %137 = add nsw i64 %136, %135
   %138 = load ptr, ptr %92, align 8, !tbaa !239
-  %139 = getelementptr inbounds nuw i16, ptr %138, i64 %129
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %138, i64 %129
   %140 = load i16, ptr %139, align 2, !tbaa !46
   %141 = zext i16 %140 to i32
   %142 = add nuw nsw i32 %141, %127
@@ -2672,7 +2669,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %156 = getelementptr inbounds nuw [11 x i8], ptr %96, i64 %106
   %157 = load i8, ptr %156, align 1, !tbaa !58
   %.pn.i210 = zext i8 %157 to i64
-  %.in.in.i211 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i210
+  %.in.in.i211 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i210
   %.in.i212 = load i16, ptr %.in.in.i211, align 2, !tbaa !46
   %158 = zext i16 %.in.i212 to i64
   %159 = mul nsw i64 %158, %48
@@ -2726,9 +2723,9 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
 
 174:                                              ; preds = %172
   %175 = sext i32 %.sroa.0.0.lcssa to i64
-  %176 = getelementptr inbounds [2 x %struct.Node], ptr %8, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %8, i64 %175
   %177 = sext i32 %.sroa.6.0.lcssa to i64
-  %178 = getelementptr inbounds %struct.Node, ptr %176, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %176, i64 %177
   store i8 %.sroa.8.0.lcssa, ptr %178, align 4, !tbaa !243
   %.not200232 = icmp slt i32 %.sroa.0.0.lcssa, %16
   br i1 %.not200232, label %._crit_edge238, label %.lr.ph237.preheader
@@ -2741,9 +2738,9 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %indvars.iv252 = phi i64 [ %179, %.lr.ph237.preheader ], [ %indvars.iv.next253, %.lr.ph237 ]
   %.0174235 = phi i32 [ %.sroa.6.0.lcssa, %.lr.ph237.preheader ], [ %200, %.lr.ph237 ]
   %.0175234 = phi i32 [ 0, %.lr.ph237.preheader ], [ %193, %.lr.ph237 ]
-  %180 = getelementptr inbounds nuw [2 x %struct.Node], ptr %8, i64 %indvars.iv252
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv252
   %181 = sext i32 %.0174235 to i64
-  %182 = getelementptr inbounds %struct.Node, ptr %180, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %180, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr @kZigzag, i64 %indvars.iv252
   %184 = load i8, ptr %183, align 1, !tbaa !58
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 1
@@ -2753,15 +2750,15 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %188 = load i16, ptr %187, align 2, !tbaa !242
   %189 = sub i16 0, %188
   %190 = select i1 %.not201, i16 %188, i16 %189
-  %191 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv252
+  %191 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv252
   store i16 %190, ptr %191, align 2, !tbaa !46
   %192 = sext i16 %188 to i32
   %193 = or i32 %.0175234, %192
   %194 = zext i8 %184 to i64
-  %195 = getelementptr inbounds nuw i16, ptr %5, i64 %194
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !46
   %197 = mul i16 %196, %190
-  %198 = getelementptr inbounds nuw i16, ptr %1, i64 %194
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %194
   store i16 %197, ptr %198, align 2, !tbaa !46
   %199 = load i8, ptr %182, align 4, !tbaa !243
   %200 = sext i8 %199 to i32
@@ -2801,7 +2798,7 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds i16, ptr @VP8UVModeOffsets, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr @VP8UVModeOffsets, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !46
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
@@ -2817,12 +2814,12 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nound
 21:                                               ; preds = %4, %21
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr @VP8FTransform2, align 8, !tbaa !89
-  %23 = getelementptr inbounds nuw i16, ptr @VP8ScanUV, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr @VP8ScanUV, i64 %indvars.iv
   %24 = load i16, ptr %23, align 4, !tbaa !46
   %25 = zext i16 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 %25
-  %28 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   call void %22(ptr noundef nonnull %26, ptr noundef %27, ptr noundef nonnull %28) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %29 = icmp samesign ult i64 %indvars.iv, 6
@@ -2833,7 +2830,7 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nound
   %32 = lshr i8 %20, 5
   %33 = and i8 %32, 3
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [744 x i8], ptr %31, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %37 = load ptr, ptr %36, align 8, !tbaa !172
   %.not = icmp eq ptr %37, null
@@ -2846,7 +2843,7 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nound
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
   %40 = load i32, ptr %0, align 8, !tbaa !82, !alias.scope !248, !noalias !255
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [2 x [2 x i8]], ptr %37, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %37, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 576
   %45 = load i32, ptr %44, align 4, !tbaa !30, !alias.scope !256, !noalias !259
@@ -3043,8 +3040,8 @@ CorrectDCValues.exit:                             ; preds = %QuantizeSingle.exit
   %indvars.iv38 = phi i64 [ 0, %CorrectDCValues.exit ], [ %indvars.iv.next39, %175 ]
   %.03234 = phi i32 [ 0, %CorrectDCValues.exit ], [ %182, %175 ]
   %176 = load ptr, ptr @VP8EncQuantize2Blocks, align 8, !tbaa !89
-  %177 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv38
-  %178 = getelementptr inbounds nuw [16 x i16], ptr %173, i64 %indvars.iv38
+  %177 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv38
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %173, i64 %indvars.iv38
   %179 = call i32 %176(ptr noundef nonnull %177, ptr noundef nonnull %178, ptr noundef nonnull %174) #12
   %180 = trunc nuw nsw i64 %indvars.iv38 to i32
   %181 = shl i32 %179, %180
@@ -3056,11 +3053,11 @@ CorrectDCValues.exit:                             ; preds = %QuantizeSingle.exit
 .preheader:                                       ; preds = %175, %.preheader
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 0, %175 ]
   %184 = load ptr, ptr @VP8ITransform, align 8, !tbaa !89
-  %185 = getelementptr inbounds nuw i16, ptr @VP8ScanUV, i64 %indvars.iv41
+  %185 = getelementptr inbounds nuw [2 x i8], ptr @VP8ScanUV, i64 %indvars.iv41
   %186 = load i16, ptr %185, align 4, !tbaa !46
   %187 = zext i16 %186 to i64
   %188 = getelementptr inbounds nuw i8, ptr %14, i64 %187
-  %189 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv41
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv41
   %190 = getelementptr inbounds nuw i8, ptr %2, i64 %187
   call void %184(ptr noundef %188, ptr noundef nonnull %189, ptr noundef %190, i32 noundef 1) #12
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 2

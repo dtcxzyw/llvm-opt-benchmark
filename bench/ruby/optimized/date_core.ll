@@ -546,7 +546,7 @@ define void @Init_date_core() local_unnamed_addr #0 {
   br i1 %.not.i, label %40, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw ptr, ptr @monthnames, i64 %.01214.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @monthnames, i64 %.01214.i
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %37) #22
   %39 = tail call i64 @rb_obj_freeze(i64 noundef %38) #22
@@ -572,7 +572,7 @@ mk_ary_of_str.exit:                               ; preds = %40
   br i1 %.not.i2, label %52, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw ptr, ptr @abbr_monthnames, i64 %.01214.i1
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @abbr_monthnames, i64 %.01214.i1
   %49 = load ptr, ptr %48, align 8, !tbaa !12
   %50 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %49) #22
   %51 = tail call i64 @rb_obj_freeze(i64 noundef %50) #22
@@ -594,7 +594,7 @@ mk_ary_of_str.exit5:                              ; preds = %52
 
 58:                                               ; preds = %mk_ary_of_str.exit5, %58
   %.01214.i6 = phi i64 [ 0, %mk_ary_of_str.exit5 ], [ %64, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr @daynames, i64 %.01214.i6
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @daynames, i64 %.01214.i6
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %60) #22
   %62 = tail call i64 @rb_obj_freeze(i64 noundef %61) #22
@@ -612,7 +612,7 @@ mk_ary_of_str.exit10:                             ; preds = %58
 
 68:                                               ; preds = %mk_ary_of_str.exit10, %68
   %.01214.i11 = phi i64 [ 0, %mk_ary_of_str.exit10 ], [ %74, %68 ]
-  %69 = getelementptr inbounds nuw ptr, ptr @abbr_daynames, i64 %.01214.i11
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @abbr_daynames, i64 %.01214.i11
   %70 = load ptr, ptr %69, align 8, !tbaa !12
   %71 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %70) #22
   %72 = tail call i64 @rb_obj_freeze(i64 noundef %71) #22
@@ -1108,7 +1108,7 @@ define internal range(i64 0, 21) i64 @date_s_valid_ordinal_p(i32 noundef %0, ptr
   %exitcond.not = phi i1 [ true, %.preheader6 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %9, %.preheader6 ], [ %8, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader6 ], [ 0, %3 ]
-  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !6
   store i64 %12, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader, label %.preheader6, !llvm.loop !30
@@ -1234,13 +1234,13 @@ define internal range(i64 0, 21) i64 @date_s_valid_civil_p(i32 noundef %0, ptr n
 .preheader11:                                     ; preds = %3, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %.not109.i = icmp eq ptr %20, null
   br i1 %.not109.i, label %24, label %21
 
 21:                                               ; preds = %.preheader11
-  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !6
   store i64 %23, ptr %20, align 8, !tbaa !6
   br label %24
@@ -1430,9 +1430,9 @@ guess_style.exit.i:                               ; preds = %84, %80, %f_negativ
 
 c_gregorian_last_day_of_month.exit.i.i.i:         ; preds = %104, %92
   %108 = phi i64 [ 1, %92 ], [ %107, %104 ]
-  %109 = getelementptr inbounds nuw [13 x i32], ptr @monthtab, i64 %108
+  %109 = getelementptr inbounds nuw [52 x i8], ptr @monthtab, i64 %108
   %110 = zext nneg i32 %spec.select.i.i.i to i64
-  %111 = getelementptr inbounds nuw i32, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !33
   %113 = icmp slt i32 %61, 0
   %114 = add nsw i32 %61, 1
@@ -1502,13 +1502,13 @@ define internal range(i64 0, 21) i64 @date_s_valid_commercial_p(i32 noundef %0, 
 .preheader7:                                      ; preds = %3, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %.not109.i = icmp eq ptr %20, null
   br i1 %.not109.i, label %24, label %21
 
 21:                                               ; preds = %.preheader7
-  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !6
   store i64 %23, ptr %20, align 8, !tbaa !6
   br label %24
@@ -1747,7 +1747,7 @@ define internal i64 @date_s_jd(i32 noundef %0, ptr noundef readonly captures(non
 
 11:                                               ; preds = %.preheader
   %12 = sext i32 %.185.i48 to i64
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !6
   store i64 %14, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %15 = add nsw i32 %.185.i48, 1
@@ -2027,7 +2027,7 @@ define internal i64 @date_s_ordinal(i32 noundef %0, ptr noundef readonly capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %3 ]
   %.185.i57 = phi i32 [ %.286.i, %28 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = icmp slt i32 %.185.i57, %0
   %.not108.i = icmp eq ptr %17, null
@@ -2038,7 +2038,7 @@ define internal i64 @date_s_ordinal(i32 noundef %0, ptr noundef readonly capture
 
 20:                                               ; preds = %19
   %21 = sext i32 %.185.i57 to i64
-  %22 = getelementptr inbounds i64, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !6
   store i64 %23, ptr %17, align 8, !tbaa !6
   br label %24
@@ -2413,7 +2413,7 @@ define internal i64 @date_s_commercial(i32 noundef %0, ptr noundef readonly capt
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %3 ]
   %.185.i66 = phi i32 [ %.286.i, %32 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !31
   %22 = icmp slt i32 %.185.i66, %0
   %.not108.i = icmp eq ptr %21, null
@@ -2424,7 +2424,7 @@ define internal i64 @date_s_commercial(i32 noundef %0, ptr noundef readonly capt
 
 24:                                               ; preds = %23
   %25 = sext i32 %.185.i66 to i64
-  %26 = getelementptr inbounds i64, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !6
   store i64 %27, ptr %21, align 8, !tbaa !6
   br label %28
@@ -3014,7 +3014,7 @@ define internal i64 @date_s_strptime(i32 noundef %0, ptr noundef readonly captur
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %3 ]
   %.185.i6 = phi i32 [ %.286.i, %24 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = icmp slt i32 %.185.i6, %0
   %.not108.i = icmp eq ptr %13, null
@@ -3025,7 +3025,7 @@ define internal i64 @date_s_strptime(i32 noundef %0, ptr noundef readonly captur
 
 16:                                               ; preds = %15
   %17 = sext i32 %.185.i6 to i64
-  %18 = getelementptr inbounds i64, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !6
   store i64 %19, ptr %13, align 8, !tbaa !6
   br label %20
@@ -3101,7 +3101,7 @@ define internal i64 @date_s__parse(i32 noundef %0, ptr noundef readonly captures
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = tail call i32 @rb_keyword_given_p() #22
@@ -3192,7 +3192,7 @@ rb_scan_args_n_opt.exit:
 
 13:                                               ; preds = %rb_scan_args_n_opt.exit
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr i64, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !6
   %18 = call i32 @rb_keyword_given_p() #22
@@ -3217,7 +3217,7 @@ rb_scan_args_n_opt.exit:
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %36 ]
   %.185.i9 = phi i32 [ 0, %.preheader.preheader ], [ %.286.i, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = icmp slt i32 %.185.i9, %.0.i20
   %.not108.i = icmp eq ptr %25, null
@@ -3228,7 +3228,7 @@ rb_scan_args_n_opt.exit:
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i9 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -3317,7 +3317,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #22
@@ -3361,7 +3361,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -3391,7 +3391,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -3497,7 +3497,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #22
@@ -3541,7 +3541,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -3571,7 +3571,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -3677,7 +3677,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #22
@@ -3721,7 +3721,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -3751,7 +3751,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -3857,7 +3857,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #22
@@ -3901,7 +3901,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -3931,7 +3931,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -4037,7 +4037,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #22
@@ -4081,7 +4081,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -4111,7 +4111,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -4217,7 +4217,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #22
@@ -4261,7 +4261,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -4291,7 +4291,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -4438,7 +4438,7 @@ define internal i64 @date_initialize(i32 noundef %0, ptr noundef readonly captur
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %23 ]
   %.185.i105 = phi i32 [ %.286.i, %40 ], [ 0, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !31
   %30 = icmp slt i32 %.185.i105, %0
   %.not108.i = icmp eq ptr %29, null
@@ -4449,7 +4449,7 @@ define internal i64 @date_initialize(i32 noundef %0, ptr noundef readonly captur
 
 32:                                               ; preds = %31
   %33 = sext i32 %.185.i105 to i64
-  %34 = getelementptr inbounds i64, ptr %1, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !6
   store i64 %35, ptr %29, align 8, !tbaa !6
   br label %36
@@ -4736,9 +4736,9 @@ guess_style.exit:                                 ; preds = %111, %f_negative_p.
 
 c_gregorian_last_day_of_month.exit.i.i:           ; preds = %147, %135
   %151 = phi i64 [ 1, %135 ], [ %150, %147 ]
-  %152 = getelementptr inbounds nuw [13 x i32], ptr @monthtab, i64 %151
+  %152 = getelementptr inbounds nuw [52 x i8], ptr @monthtab, i64 %151
   %153 = zext nneg i32 %spec.select.i.i to i64
-  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !33
   %156 = icmp slt i32 %.037, 0
   %157 = add nsw i32 %.037, 1
@@ -11201,7 +11201,7 @@ define internal i64 @datetime_s_jd(i32 noundef %0, ptr noundef readonly captures
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %3 ]
   %.185.i215 = phi i32 [ %.286.i, %33 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = icmp slt i32 %.185.i215, %0
   %.not108.i = icmp eq ptr %22, null
@@ -11212,7 +11212,7 @@ define internal i64 @datetime_s_jd(i32 noundef %0, ptr noundef readonly captures
 
 25:                                               ; preds = %24
   %26 = sext i32 %.185.i215 to i64
-  %27 = getelementptr inbounds i64, ptr %1, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !6
   store i64 %28, ptr %22, align 8, !tbaa !6
   br label %29
@@ -11875,7 +11875,7 @@ define internal i64 @datetime_s_ordinal(i32 noundef %0, ptr noundef readonly cap
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %3 ]
   %.185.i154 = phi i32 [ %.286.i, %37 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !31
   %27 = icmp slt i32 %.185.i154, %0
   %.not108.i = icmp eq ptr %26, null
@@ -11886,7 +11886,7 @@ define internal i64 @datetime_s_ordinal(i32 noundef %0, ptr noundef readonly cap
 
 29:                                               ; preds = %28
   %30 = sext i32 %.185.i154 to i64
-  %31 = getelementptr inbounds i64, ptr %1, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %1, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !6
   store i64 %32, ptr %26, align 8, !tbaa !6
   br label %33
@@ -12648,7 +12648,7 @@ d_lite_s_alloc_complex.exit:                      ; preds = %3, %29
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %66 ], [ 0, %45 ]
   %.185.i242.i = phi i32 [ %.286.i.i, %66 ], [ 0, %45 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8, !tbaa !31
   %56 = icmp slt i32 %.185.i242.i, %0
   %.not108.i.i = icmp eq ptr %55, null
@@ -12659,7 +12659,7 @@ d_lite_s_alloc_complex.exit:                      ; preds = %3, %29
 
 58:                                               ; preds = %57
   %59 = sext i32 %.185.i242.i to i64
-  %60 = getelementptr inbounds i64, ptr %1, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %1, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !6
   store i64 %61, ptr %55, align 8, !tbaa !6
   br label %62
@@ -13239,9 +13239,9 @@ guess_style.exit.i:                               ; preds = %262, %258, %f_negat
 
 c_gregorian_last_day_of_month.exit.i.i.i:         ; preds = %282, %270
   %286 = phi i64 [ 1, %270 ], [ %285, %282 ]
-  %287 = getelementptr inbounds nuw [13 x i32], ptr @monthtab, i64 %286
+  %287 = getelementptr inbounds nuw [52 x i8], ptr @monthtab, i64 %286
   %288 = zext nneg i32 %spec.select.i.i.i to i64
-  %289 = getelementptr inbounds nuw i32, ptr %287, i64 %288
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %288
   %290 = load i32, ptr %289, align 4, !tbaa !33
   %291 = icmp slt i32 %.080.i, 0
   %292 = add nsw i32 %.080.i, 1
@@ -13621,7 +13621,7 @@ define internal i64 @datetime_s_commercial(i32 noundef %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %3 ]
   %.185.i166 = phi i32 [ %.286.i, %41 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !31
   %31 = icmp slt i32 %.185.i166, %0
   %.not108.i = icmp eq ptr %30, null
@@ -13632,7 +13632,7 @@ define internal i64 @datetime_s_commercial(i32 noundef %0, ptr noundef readonly 
 
 33:                                               ; preds = %32
   %34 = sext i32 %.185.i166 to i64
-  %35 = getelementptr inbounds i64, ptr %1, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !6
   store i64 %36, ptr %30, align 8, !tbaa !6
   br label %37
@@ -14543,7 +14543,7 @@ define internal i64 @datetime_s_strptime(i32 noundef %0, ptr noundef readonly ca
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %3 ]
   %.185.i6 = phi i32 [ %.286.i, %24 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !31
   %14 = icmp slt i32 %.185.i6, %0
   %.not108.i = icmp eq ptr %13, null
@@ -14554,7 +14554,7 @@ define internal i64 @datetime_s_strptime(i32 noundef %0, ptr noundef readonly ca
 
 16:                                               ; preds = %15
   %17 = sext i32 %.185.i6 to i64
-  %18 = getelementptr inbounds i64, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !6
   store i64 %19, ptr %13, align 8, !tbaa !6
   br label %20
@@ -14646,7 +14646,7 @@ rb_scan_args_n_opt.exit:
 
 13:                                               ; preds = %rb_scan_args_n_opt.exit
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr i64, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !6
   %18 = call i32 @rb_keyword_given_p() #22
@@ -14671,7 +14671,7 @@ rb_scan_args_n_opt.exit:
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %36 ]
   %.185.i9 = phi i32 [ 0, %.preheader.preheader ], [ %.286.i, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = icmp slt i32 %.185.i9, %.0.i19
   %.not108.i = icmp eq ptr %25, null
@@ -14682,7 +14682,7 @@ rb_scan_args_n_opt.exit:
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i9 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -14770,7 +14770,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -14800,7 +14800,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -14911,7 +14911,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -14941,7 +14941,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -15052,7 +15052,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -15082,7 +15082,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -15193,7 +15193,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -15223,7 +15223,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -15334,7 +15334,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -15364,7 +15364,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -15475,7 +15475,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !6
   %12 = tail call i32 @rb_keyword_given_p() #22
@@ -15505,7 +15505,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %.preheader
   %20 = sext i32 %.185.i17 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %23 = add nsw i32 %.185.i17, 1
@@ -18328,9 +18328,9 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
 
 c_gregorian_last_day_of_month.exit.i:             ; preds = %82, %70
   %86 = phi i64 [ 1, %70 ], [ %85, %82 ]
-  %87 = getelementptr inbounds nuw [13 x i32], ptr @monthtab, i64 %86
+  %87 = getelementptr inbounds nuw [52 x i8], ptr @monthtab, i64 %86
   %88 = zext nneg i32 %spec.select.i to i64
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !33
   %91 = icmp slt i32 %2, 0
   %92 = add nsw i32 %2, 1
@@ -18354,9 +18354,9 @@ c_gregorian_last_day_of_month.exit.i:             ; preds = %82, %70
   %102 = and i32 %101, 3
   %103 = icmp eq i32 %102, 0
   %104 = zext i1 %103 to i64
-  %105 = getelementptr inbounds nuw [13 x i32], ptr @monthtab, i64 %104
+  %105 = getelementptr inbounds nuw [52 x i8], ptr @monthtab, i64 %104
   %106 = zext nneg i32 %spec.select.i52 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !33
   %109 = icmp slt i32 %2, 0
   %110 = add nsw i32 %2, 1
@@ -20972,7 +20972,7 @@ rb_array_len.exit.thread:                         ; preds = %176
 
 rb_array_const_ptr.exit:                          ; preds = %.thread, %188
   %.0.i620 = phi ptr [ %187, %.thread ], [ %190, %188 ]
-  %191 = getelementptr inbounds nuw i64, ptr %.0.i620, i64 %.0229
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %.0.i620, i64 %.0229
   %192 = load i64, ptr %191, align 8, !tbaa !6
   %193 = inttoptr i64 %192 to ptr
   %194 = load i64, ptr %193, align 8, !tbaa !35
@@ -21023,7 +21023,7 @@ rb_array_len.exit626.thread:                      ; preds = %206
 
 rb_array_const_ptr.exit629:                       ; preds = %rb_array_len.exit626.thread, %214
   %.0.i628 = phi ptr [ %215, %214 ], [ %204, %rb_array_len.exit626.thread ]
-  %216 = getelementptr inbounds nuw i64, ptr %.0.i628, i64 %.0234
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %.0.i628, i64 %.0234
   %217 = load i64, ptr %216, align 8, !tbaa !6
   %218 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %217) #22
   %219 = icmp ne i64 %218, 4
@@ -21058,7 +21058,7 @@ rb_array_const_ptr.exit629:                       ; preds = %rb_array_len.exit62
 
 rb_array_const_ptr.exit632:                       ; preds = %.thread790, %229
   %.0.i631 = phi ptr [ %228, %.thread790 ], [ %231, %229 ]
-  %232 = getelementptr inbounds nuw i64, ptr %.0.i631, i64 %.0232
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.0.i631, i64 %.0232
   %233 = load i64, ptr %232, align 8, !tbaa !6
   %234 = inttoptr i64 %233 to ptr
   %235 = load i64, ptr %234, align 8, !tbaa !35
@@ -21244,7 +21244,7 @@ rb_array_len.exit677.thread:                      ; preds = %289
 
 rb_array_const_ptr.exit680:                       ; preds = %rb_array_len.exit677.thread, %297
   %.0.i679 = phi ptr [ %298, %297 ], [ %287, %rb_array_len.exit677.thread ]
-  %299 = getelementptr inbounds nuw i64, ptr %.0.i679, i64 %.0237
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %.0.i679, i64 %.0237
   %300 = load i64, ptr %299, align 8, !tbaa !6
   %301 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %300) #22
   %302 = icmp eq i64 %301, 4
@@ -21362,7 +21362,7 @@ rb_array_len.exit701.thread:                      ; preds = %337
 
 rb_array_const_ptr.exit704:                       ; preds = %rb_array_len.exit701.thread, %345
   %.0.i703 = phi ptr [ %346, %345 ], [ %335, %rb_array_len.exit701.thread ]
-  %347 = getelementptr inbounds nuw i64, ptr %.0.i703, i64 %.0242
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %.0.i703, i64 %.0242
   %348 = load i64, ptr %347, align 8, !tbaa !6
   %349 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %348) #22
   %350 = icmp eq i64 %349, 4
@@ -21469,7 +21469,7 @@ rb_array_len.exit707.thread:                      ; preds = %403
 
 rb_array_const_ptr.exit710:                       ; preds = %rb_array_len.exit707.thread, %411
   %.0.i709 = phi ptr [ %412, %411 ], [ %401, %rb_array_len.exit707.thread ]
-  %413 = getelementptr inbounds nuw i64, ptr %.0.i709, i64 %.0243
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %.0.i709, i64 %.0243
   %414 = load i64, ptr %413, align 8, !tbaa !6
   %415 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %414) #22
   %416 = icmp eq i64 %415, 4
@@ -21554,7 +21554,7 @@ rb_array_len.exit713.thread:                      ; preds = %451
 
 rb_array_const_ptr.exit716:                       ; preds = %rb_array_len.exit713.thread, %459
   %.0.i715 = phi ptr [ %460, %459 ], [ %449, %rb_array_len.exit713.thread ]
-  %461 = getelementptr inbounds nuw i64, ptr %.0.i715, i64 %.0244
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %.0.i715, i64 %.0244
   %462 = load i64, ptr %461, align 8, !tbaa !6
   %463 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %462) #22
   %464 = icmp eq i64 %463, 4
@@ -24036,9 +24036,9 @@ m_mday.exit:                                      ; preds = %61, %62
 
 c_gregorian_to_yday.exit:                         ; preds = %m_mday.exit, %74
   %78 = phi i64 [ 1, %m_mday.exit ], [ %77, %74 ]
-  %79 = getelementptr inbounds nuw [13 x i32], ptr @yeartab, i64 %78
+  %79 = getelementptr inbounds nuw [52 x i8], ptr @yeartab, i64 %78
   %80 = zext nneg i32 %.0.i20 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !33
   %83 = add nsw i32 %82, %.0.i25
   br label %137
@@ -24113,9 +24113,9 @@ m_mday.exit47:                                    ; preds = %98, %99
   %100 = and i32 %.0.i34, 3
   %101 = icmp eq i32 %100, 0
   %102 = zext i1 %101 to i64
-  %103 = getelementptr inbounds nuw [13 x i32], ptr @yeartab, i64 %102
+  %103 = getelementptr inbounds nuw [52 x i8], ptr @yeartab, i64 %102
   %104 = zext nneg i32 %.0.i40 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !33
   %107 = add nsw i32 %.0.i46, %106
   br label %137
@@ -26639,7 +26639,7 @@ rb_array_len.exit.thread:                         ; preds = %186
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %194
   %.0.i107 = phi ptr [ %195, %194 ], [ %179, %rb_array_len.exit.thread ]
-  %196 = getelementptr inbounds nuw i64, ptr %.0.i107, i64 %.073
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %.0.i107, i64 %.073
   %197 = load i64, ptr %196, align 8, !tbaa !6
   %198 = load i64, ptr @sym_year, align 8, !tbaa !6
   %199 = icmp eq i64 %198, %197

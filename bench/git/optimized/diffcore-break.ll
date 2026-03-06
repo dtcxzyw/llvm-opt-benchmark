@@ -41,7 +41,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
 15:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %16 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
@@ -299,7 +299,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %79 ], [ 0, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 1, %0 ]
   %5 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv54
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv54
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %79, label %8
@@ -335,7 +335,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
 
 24:                                               ; preds = %.lr.ph, %77
   %indvars.iv51 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next52, %77 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv51
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv51
   %26 = load ptr, ptr %25, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 19
   %28 = load i8, ptr %27, align 1
@@ -429,7 +429,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   call void @free(ptr noundef nonnull %spec.select.i) #11
   call void @free(ptr noundef nonnull %spec.select24.i) #11
   %75 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv51
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv51
   store ptr null, ptr %76, align 8, !tbaa !12
   br label %79
 

@@ -26,7 +26,7 @@ define hidden void @lj_lib_register(ptr noundef %0, ptr noundef %1, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %16 = load i8, ptr %9, align 1, !tbaa !14
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %20 = load i8, ptr %15, align 1, !tbaa !14
   %21 = zext i8 %20 to i32
@@ -310,7 +310,7 @@ lib_create_table.exit:                            ; preds = %40, %47
   %170 = load i8, ptr %80, align 1, !tbaa !14
   %171 = zext i8 %170 to i64
   %172 = sub nsw i64 0, %171
-  %173 = getelementptr inbounds %union.TValue, ptr %168, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %168, i64 %172
   %174 = load i64, ptr %173, align 8, !tbaa !14
   store i64 %174, ptr %168, align 8, !tbaa !14
   %175 = load ptr, ptr %48, align 8, !tbaa !16
@@ -469,7 +469,7 @@ define hidden nonnull ptr @lj_lib_checkany(ptr noundef %0, i32 noundef %1) local
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -492,7 +492,7 @@ define hidden ptr @lj_lib_checkstr(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -540,7 +540,7 @@ define hidden ptr @lj_lib_optstr(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -587,7 +587,7 @@ define hidden double @lj_lib_checknum(ptr noundef %0, i32 noundef %1) local_unna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -632,7 +632,7 @@ define hidden i32 @lj_lib_checkint(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -676,7 +676,7 @@ define hidden i32 @lj_lib_optint(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %union.TValue, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !16
@@ -728,7 +728,7 @@ define hidden ptr @lj_lib_checkfunc(ptr noundef %0, i32 noundef %1) local_unname
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -756,7 +756,7 @@ define hidden ptr @lj_lib_checkLproto(ptr noundef %0, i32 noundef %1, i32 nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %union.TValue, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !16
@@ -809,7 +809,7 @@ define hidden ptr @lj_lib_checktab(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -837,7 +837,7 @@ define hidden ptr @lj_lib_checktabornil(ptr noundef %0, i32 noundef %1) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -874,7 +874,7 @@ define hidden i32 @lj_lib_checkopt(ptr noundef %0, i32 noundef %1, i32 noundef %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %union.TValue, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !16
@@ -1000,7 +1000,7 @@ define hidden ptr @lj_lib_checkstrx(ptr noundef %0, i32 noundef %1) local_unname
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %union.TValue, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !16
@@ -1028,7 +1028,7 @@ define hidden i32 @lj_lib_checkintrange(ptr noundef %0, i32 noundef %1, i32 noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %union.TValue, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !16

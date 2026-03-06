@@ -181,7 +181,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
   %66 = getelementptr inbounds i8, ptr %63, i64 -1
   %67 = load i8, ptr %66, align 1, !tbaa !39
   %68 = sext i8 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %65, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %65, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !40
   %71 = and i16 %70, 8
   %.not333 = icmp eq i16 %71, 0

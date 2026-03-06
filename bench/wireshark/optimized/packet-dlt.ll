@@ -1058,7 +1058,7 @@ expert_dlt_parsing_error.exit.i.i:                ; preds = %313, %311
 
 switch.lookup:                                    ; preds = %316
   %321 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_dlt, i64 %321
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_dlt, i64 %321
   %switch.load = load i32, ptr %switch.gep, align 4
   %322 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %318)
   %323 = icmp slt i32 %322, %switch.load

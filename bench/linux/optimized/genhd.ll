@@ -229,7 +229,7 @@ define dso_local void @blkdev_show(ptr noundef %0, i64 noundef %1) local_unnamed
   %3 = trunc i64 %1 to i32
   %4 = urem i32 %3, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr ptr, ptr @major_names, i64 %5
+  %6 = getelementptr [8 x i8], ptr @major_names, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -269,7 +269,7 @@ define dso_local i32 @__register_blkdev(i32 noundef %0, ptr noundef %1, ptr noun
 .preheader:                                       ; preds = %3, %10
   %5 = phi i32 [ %11, %10 ], [ 254, %3 ]
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr ptr, ptr @major_names, i64 %6
+  %7 = getelementptr [8 x i8], ptr @major_names, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -311,7 +311,7 @@ define dso_local i32 @__register_blkdev(i32 noundef %0, ptr noundef %1, ptr noun
   %29 = urem i16 %.lhs.trunc, 255
   tail call void @_raw_spin_lock(ptr noundef nonnull @major_names_spinlock) #17
   %30 = zext nneg i16 %29 to i64
-  %31 = getelementptr ptr, ptr @major_names, i64 %30
+  %31 = getelementptr [8 x i8], ptr @major_names, i64 %30
   br label %32
 
 32:                                               ; preds = %36, %24
@@ -366,7 +366,7 @@ define dso_local void @unregister_blkdev(i32 noundef %0, ptr noundef readonly ca
   tail call void @mutex_lock(ptr noundef nonnull @major_names_lock) #17
   tail call void @_raw_spin_lock(ptr noundef nonnull @major_names_spinlock) #17
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr ptr, ptr @major_names, i64 %4
+  %5 = getelementptr [8 x i8], ptr @major_names, i64 %4
   br label %6
 
 6:                                                ; preds = %10, %2
@@ -1200,7 +1200,7 @@ define dso_local void @del_gendisk(ptr noundef %0) #0 align 16 {
   %89 = load ptr, ptr %77, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %85, 63
-  %92 = getelementptr i64, ptr @__per_cpu_offset, i64 %91
+  %92 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = add i64 %93, %90
   %95 = inttoptr i64 %94 to ptr
@@ -1343,7 +1343,7 @@ define dso_local void @blk_request_module(i32 noundef %0) local_unnamed_addr #0 
   %.lhs.trunc = trunc nuw nsw i32 %2 to i16
   %3 = urem i16 %.lhs.trunc, 255
   %4 = zext nneg i16 %3 to i64
-  %5 = getelementptr ptr, ptr @major_names, i64 %4
+  %5 = getelementptr [8 x i8], ptr @major_names, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1457,7 +1457,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
   %27 = load ptr, ptr %15, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %23, 63
-  %30 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
+  %30 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %28
   %33 = inttoptr i64 %32 to ptr
@@ -1531,7 +1531,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
   %74 = load ptr, ptr %57, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = and i64 %70, 63
-  %77 = getelementptr i64, ptr @__per_cpu_offset, i64 %76
+  %77 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %75
   %80 = inttoptr i64 %79 to ptr
@@ -1542,27 +1542,27 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_stat_show(
 
 84:                                               ; preds = %84, %73
   %85 = phi i64 [ 0, %73 ], [ %106, %84 ]
-  %86 = getelementptr i64, ptr %80, i64 %85
+  %86 = getelementptr [8 x i8], ptr %80, i64 %85
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr i64, ptr %4, i64 %85
+  %88 = getelementptr [8 x i8], ptr %4, i64 %85
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, %87
   store i64 %90, ptr %88, align 8
-  %91 = getelementptr i64, ptr %81, i64 %85
+  %91 = getelementptr [8 x i8], ptr %81, i64 %85
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr i64, ptr %58, i64 %85
+  %93 = getelementptr [8 x i8], ptr %58, i64 %85
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, %92
   store i64 %95, ptr %93, align 8
-  %96 = getelementptr i64, ptr %82, i64 %85
+  %96 = getelementptr [8 x i8], ptr %82, i64 %85
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr i64, ptr %59, i64 %85
+  %98 = getelementptr [8 x i8], ptr %59, i64 %85
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, %97
   store i64 %100, ptr %98, align 8
-  %101 = getelementptr i64, ptr %83, i64 %85
+  %101 = getelementptr [8 x i8], ptr %83, i64 %85
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr i64, ptr %60, i64 %85
+  %103 = getelementptr [8 x i8], ptr %60, i64 %85
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, %102
   store i64 %105, ptr %103, align 8
@@ -1695,7 +1695,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @part_inflight_s
   %28 = load ptr, ptr %14, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %24, 63
-  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
+  %31 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %29
   %34 = inttoptr i64 %33 to ptr
@@ -2561,7 +2561,7 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
   %54 = load ptr, ptr %42, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %50, 63
-  %57 = getelementptr i64, ptr @__per_cpu_offset, i64 %56
+  %57 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, %55
   %60 = inttoptr i64 %59 to ptr
@@ -2630,7 +2630,7 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
   %97 = load ptr, ptr %84, align 8
   %98 = ptrtoint ptr %97 to i64
   %99 = and i64 %93, 63
-  %100 = getelementptr i64, ptr @__per_cpu_offset, i64 %99
+  %100 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %99
   %101 = load i64, ptr %100, align 8
   %102 = add i64 %101, %98
   %103 = inttoptr i64 %102 to ptr
@@ -2641,27 +2641,27 @@ define internal noundef i32 @diskstats_show(ptr noundef %0, ptr noundef %1) #0 a
 
 107:                                              ; preds = %107, %96
   %108 = phi i64 [ 0, %96 ], [ %129, %107 ]
-  %109 = getelementptr i64, ptr %103, i64 %108
+  %109 = getelementptr [8 x i8], ptr %103, i64 %108
   %110 = load i64, ptr %109, align 8
-  %111 = getelementptr i64, ptr %3, i64 %108
+  %111 = getelementptr [8 x i8], ptr %3, i64 %108
   %112 = load i64, ptr %111, align 8
   %113 = add i64 %112, %110
   store i64 %113, ptr %111, align 8
-  %114 = getelementptr i64, ptr %104, i64 %108
+  %114 = getelementptr [8 x i8], ptr %104, i64 %108
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr i64, ptr %10, i64 %108
+  %116 = getelementptr [8 x i8], ptr %10, i64 %108
   %117 = load i64, ptr %116, align 8
   %118 = add i64 %117, %115
   store i64 %118, ptr %116, align 8
-  %119 = getelementptr i64, ptr %105, i64 %108
+  %119 = getelementptr [8 x i8], ptr %105, i64 %108
   %120 = load i64, ptr %119, align 8
-  %121 = getelementptr i64, ptr %11, i64 %108
+  %121 = getelementptr [8 x i8], ptr %11, i64 %108
   %122 = load i64, ptr %121, align 8
   %123 = add i64 %122, %120
   store i64 %123, ptr %121, align 8
-  %124 = getelementptr i64, ptr %106, i64 %108
+  %124 = getelementptr [8 x i8], ptr %106, i64 %108
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr i64, ptr %12, i64 %108
+  %126 = getelementptr [8 x i8], ptr %12, i64 %108
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, %125
   store i64 %128, ptr %126, align 8

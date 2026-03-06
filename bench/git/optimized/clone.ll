@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.bundle_header = type { i32, %struct.string_list, %struct.string_list, ptr, %struct.list_objects_filter_options }
 %struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -738,7 +737,7 @@ define dso_local i32 @cmd_clone(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 .lr.ph.preheader:                                 ; preds = %181
   %183 = load ptr, ptr @option_recurse_submodules, align 8, !tbaa !19
   %184 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8, !tbaa !15
-  %185 = getelementptr inbounds nuw %struct.string_list_item, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %184
   %186 = icmp ult ptr %182, %185
   br i1 %186, label %.lr.ph, label %.critedge
 
@@ -751,7 +750,7 @@ define dso_local i32 @cmd_clone(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   %190 = getelementptr inbounds nuw i8, ptr %.0199445512, i64 16
   %191 = load ptr, ptr @option_recurse_submodules, align 8, !tbaa !19
   %192 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_recurse_submodules, i64 8), align 8, !tbaa !15
-  %193 = getelementptr inbounds nuw %struct.string_list_item, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %192
   %194 = icmp ult ptr %190, %193
   br i1 %194, label %.lr.ph, label %.critedge
 
@@ -846,7 +845,7 @@ strbuf_setlen.exit:                               ; preds = %220, %228
 .lr.ph.i:                                         ; preds = %strbuf_setlen.exit, %231
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %231 ], [ 0, %strbuf_setlen.exit ]
   %234 = load ptr, ptr @option_config, align 8, !tbaa !19
-  %235 = getelementptr inbounds nuw %struct.string_list_item, ptr %234, i64 %indvars.iv.i
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %234, i64 %indvars.iv.i
   %236 = load ptr, ptr %235, align 8, !tbaa !20
   %237 = call i32 @git_config_parse_parameter(ptr noundef %236, ptr noundef nonnull @write_one_config, ptr noundef null) #20
   %238 = icmp slt i32 %237, 0
@@ -1334,7 +1333,7 @@ _.exit354:                                        ; preds = %355, %357
 
 437:                                              ; preds = %439, %434
   %.0811.i = phi i64 [ 0, %434 ], [ %440, %439 ]
-  %438 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
+  %438 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i
   %.not.i355 = icmp eq ptr %436, %438
   br i1 %.not.i355, label %.split.loop.exit9.i, label %439
 
@@ -1597,7 +1596,7 @@ _.exit.i:                                         ; preds = %548, %546
 .lr.ph.i370:                                      ; preds = %.preheader32.i, %.lr.ph.i370
   %indvars.iv.i371 = phi i64 [ %indvars.iv.next.i372, %.lr.ph.i370 ], [ 0, %.preheader32.i ]
   %551 = load ptr, ptr %303, align 8, !tbaa !77
-  %552 = getelementptr inbounds nuw %struct.refspec_item, ptr %551, i64 %indvars.iv.i371
+  %552 = getelementptr inbounds nuw [32 x i8], ptr %551, i64 %indvars.iv.i371
   %553 = call i32 @get_fetch_map(ptr noundef %.029.i, ptr noundef %552, ptr noundef nonnull %25, i32 noundef 0) #20
   %indvars.iv.next.i372 = add nuw nsw i64 %indvars.iv.i371, 1
   %554 = load i32, ptr %543, align 4, !tbaa !76
@@ -1616,7 +1615,7 @@ _.exit.i:                                         ; preds = %548, %546
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %.lr.ph35.i ], [ 0, %.preheader.i ]
   %559 = load ptr, ptr %303, align 8, !tbaa !77
-  %560 = getelementptr inbounds nuw %struct.refspec_item, ptr %559, i64 %indvars.iv37.i
+  %560 = getelementptr inbounds nuw [32 x i8], ptr %559, i64 %indvars.iv37.i
   %561 = call i32 @get_fetch_map(ptr noundef nonnull %435, ptr noundef %560, ptr noundef nonnull %25, i32 noundef 0) #20
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %562 = load i32, ptr %528, align 4, !tbaa !76
@@ -3162,7 +3161,7 @@ define internal fastcc ptr @get_repo_path(ptr noundef %0, ptr noundef nonnull wr
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %18, %16
-  %20 = getelementptr inbounds nuw ptr, ptr @get_repo_path_1.suffix, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @get_repo_path_1.suffix, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #22
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %21, i64 noundef %22) #20
@@ -3254,7 +3253,7 @@ get_repo_path_1.exit.thread7:                     ; preds = %45
   br label %strbuf_setlen.exit46.i
 
 strbuf_setlen.exit46.i:                           ; preds = %54, %52
-  %56 = getelementptr inbounds nuw ptr, ptr @get_repo_path_1.bundle_suffix, i64 %indvars.iv57.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @get_repo_path_1.bundle_suffix, i64 %indvars.iv57.i
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #22
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %57, i64 noundef %58) #20

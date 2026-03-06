@@ -65,7 +65,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Deriving_SizeOf_mkSizeOf
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %23, %22, %20, %14
-  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04083
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04083
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i1
@@ -571,7 +571,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_Deriving_SizeOf_mkSizeOfHandle
 8:                                                ; preds = %.lr.ph, %105
   %.04586 = phi i64 [ %1, %.lr.ph ], [ %106, %105 ]
   %.04885 = phi ptr [ %5, %.lr.ph ], [ %81, %105 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04586
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04586
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i1

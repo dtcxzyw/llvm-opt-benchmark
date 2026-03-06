@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @euctw_mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @EncLen_EUCTW, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCTW, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !7
   ret i32 %5
 }
@@ -50,7 +50,7 @@ define internal range(i32 -400, 5) i32 @euctw_code_to_mbclen(i32 noundef %0) #3 
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @EncLen_EUCTW, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_EUCTW, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !7
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %16, label %15

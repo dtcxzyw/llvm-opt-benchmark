@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
 %struct.client_conn_tag = type { i32, ptr, i32, i32, ptr, ptr, ptr, i64, i8, ptr, i32, i64, ptr, i32 }
-%struct.fd_buf = type { ptr, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i64, ptr, i64, ptr }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 
 @progexit = dso_local local_unnamed_addr global i32 0, align 4
@@ -1627,7 +1626,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %732, %773
   %.0295523 = phi i64 [ %774, %773 ], [ 0, %732 ]
-  %766 = getelementptr inbounds nuw i32, ptr %0, i64 %.0295523
+  %766 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0295523
   %767 = load i32, ptr %766, align 4, !tbaa !4
   %768 = call i32 @fds_add(ptr noundef nonnull %17, i32 noundef %767, i32 noundef 1, i32 noundef 0) #15
   %769 = icmp eq i32 %768, -1
@@ -1783,7 +1782,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 0, ptr %21, align 4, !tbaa !4
   %849 = load ptr, ptr %807, align 8, !tbaa !41
-  %850 = getelementptr inbounds nuw %struct.fd_buf, ptr %849, i64 %.4299536
+  %850 = getelementptr inbounds nuw [88 x i8], ptr %849, i64 %.4299536
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 32
   %852 = load i32, ptr %851, align 8, !tbaa !42
   %.not470 = icmp eq i32 %852, 0
@@ -2410,7 +2409,7 @@ thread-pre-split489.thread:                       ; preds = %1076, %1074, %1084
 .lr.ph543:                                        ; preds = %1129, %1167
   %.6301542 = phi i64 [ %1168, %1167 ], [ 0, %1129 ]
   %1135 = load ptr, ptr %807, align 8, !tbaa !41
-  %1136 = getelementptr inbounds nuw %struct.fd_buf, ptr %1135, i64 %.6301542
+  %1136 = getelementptr inbounds nuw [88 x i8], ptr %1135, i64 %.6301542
   %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 24
   %1138 = load i32, ptr %1137, align 8, !tbaa !45
   %1139 = icmp eq i32 %1138, -1
@@ -2421,7 +2420,7 @@ thread-pre-split489.thread:                       ; preds = %1076, %1074, %1084
   %1142 = load ptr, ptr %1141, align 8, !tbaa !47
   call void @thrmgr_group_terminate(ptr noundef %1142) #15
   %1143 = load ptr, ptr %807, align 8, !tbaa !41
-  %1144 = getelementptr inbounds nuw %struct.fd_buf, ptr %1143, i64 %.6301542
+  %1144 = getelementptr inbounds nuw [88 x i8], ptr %1143, i64 %.6301542
   %1145 = getelementptr inbounds nuw i8, ptr %1144, i64 80
   %1146 = load ptr, ptr %1145, align 8, !tbaa !47
   %1147 = call i32 @thrmgr_group_finished(ptr noundef %1146, i32 noundef 1) #15
@@ -2430,22 +2429,22 @@ thread-pre-split489.thread:                       ; preds = %1076, %1074, %1084
 
 1148:                                             ; preds = %1140
   %1149 = load ptr, ptr %807, align 8, !tbaa !41
-  %1150 = getelementptr inbounds nuw %struct.fd_buf, ptr %1149, i64 %.6301542
+  %1150 = getelementptr inbounds nuw [88 x i8], ptr %1149, i64 %.6301542
   %1151 = getelementptr inbounds nuw i8, ptr %1150, i64 24
   %1152 = load i32, ptr %1151, align 8, !tbaa !45
   %1153 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.181, i32 noundef %1152) #15
   %1154 = load ptr, ptr %807, align 8, !tbaa !41
-  %1155 = getelementptr inbounds nuw %struct.fd_buf, ptr %1154, i64 %.6301542
+  %1155 = getelementptr inbounds nuw [88 x i8], ptr %1154, i64 %.6301542
   %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 24
   %1157 = load i32, ptr %1156, align 8, !tbaa !45
   %1158 = call i32 @shutdown(i32 noundef %1157, i32 noundef 2) #15
   %1159 = load ptr, ptr %807, align 8, !tbaa !41
-  %1160 = getelementptr inbounds nuw %struct.fd_buf, ptr %1159, i64 %.6301542
+  %1160 = getelementptr inbounds nuw [88 x i8], ptr %1159, i64 %.6301542
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 24
   %1162 = load i32, ptr %1161, align 8, !tbaa !45
   %1163 = call i32 @close(i32 noundef %1162) #15
   %1164 = load ptr, ptr %807, align 8, !tbaa !41
-  %1165 = getelementptr inbounds nuw %struct.fd_buf, ptr %1164, i64 %.6301542
+  %1165 = getelementptr inbounds nuw [88 x i8], ptr %1164, i64 %.6301542
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 24
   store i32 -1, ptr %1166, align 8, !tbaa !45
   br label %1167
@@ -2653,7 +2652,7 @@ thread-pre-split489.thread:                       ; preds = %1076, %1074, %1084
 
 .lr.ph546:                                        ; preds = %1270, %.lr.ph546
   %.7302544 = phi i64 [ %1277, %.lr.ph546 ], [ 0, %1270 ]
-  %1274 = getelementptr inbounds nuw i32, ptr %0, i64 %.7302544
+  %1274 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.7302544
   %1275 = load i32, ptr %1274, align 4, !tbaa !4
   %1276 = call i32 @shutdown(i32 noundef %1275, i32 noundef 2) #15
   %1277 = add nuw nsw i64 %.7302544, 1
@@ -2881,7 +2880,7 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
 .lr.ph101:                                        ; preds = %32, %.thread
   %.0100 = phi i64 [ %113, %.thread ], [ 0, %32 ]
   %34 = load ptr, ptr %11, align 8, !tbaa !41
-  %35 = getelementptr inbounds nuw %struct.fd_buf, ptr %34, i64 %.0100
+  %35 = getelementptr inbounds nuw [88 x i8], ptr %34, i64 %.0100
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !42
   %.not76 = icmp eq i32 %37, 0
@@ -2948,7 +2947,7 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
 
 74:                                               ; preds = %.loopexit93
   %75 = load ptr, ptr %11, align 8, !tbaa !41
-  %76 = getelementptr inbounds nuw %struct.fd_buf, ptr %75, i64 %.0100
+  %76 = getelementptr inbounds nuw [88 x i8], ptr %75, i64 %.0100
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load i32, ptr %77, align 8, !tbaa !45
   %79 = call i32 @accept(i32 noundef %78, ptr null, ptr noundef null) #15
@@ -3038,7 +3037,7 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
   %124 = phi i64 [ %143, %142 ], [ %123, %.preheader ]
   %.1102 = phi i64 [ %144, %142 ], [ 0, %.preheader ]
   %125 = load ptr, ptr %11, align 8, !tbaa !41
-  %126 = getelementptr inbounds nuw %struct.fd_buf, ptr %125, i64 %.1102
+  %126 = getelementptr inbounds nuw [88 x i8], ptr %125, i64 %.1102
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load i32, ptr %127, align 8, !tbaa !45
   %129 = icmp eq i32 %128, -1
@@ -3047,12 +3046,12 @@ define internal noalias noundef ptr @acceptloop_th(ptr noundef %0) #0 {
 130:                                              ; preds = %.lr.ph103
   %131 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.205, i32 noundef %128) #15
   %132 = load ptr, ptr %11, align 8, !tbaa !41
-  %133 = getelementptr inbounds nuw %struct.fd_buf, ptr %132, i64 %.1102
+  %133 = getelementptr inbounds nuw [88 x i8], ptr %132, i64 %.1102
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load i32, ptr %134, align 8, !tbaa !45
   %136 = call i32 @shutdown(i32 noundef %135, i32 noundef 2) #15
   %137 = load ptr, ptr %11, align 8, !tbaa !41
-  %138 = getelementptr inbounds nuw %struct.fd_buf, ptr %137, i64 %.1102
+  %138 = getelementptr inbounds nuw [88 x i8], ptr %137, i64 %.1102
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load i32, ptr %139, align 8, !tbaa !45
   %141 = call i32 @close(i32 noundef %140) #15

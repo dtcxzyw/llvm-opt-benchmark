@@ -3019,7 +3019,7 @@ _ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE13_M_deallocateEPS0_m.exit: ;
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !121
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i32
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !102
-  %add.ptr21 = getelementptr inbounds nuw %struct.ServerParticleTexture, ptr %call5.i.i.i, i64 %__n
+  %add.ptr21 = getelementptr inbounds nuw [136 x i8], ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8, !tbaa !101
   br label %if.end24
 
@@ -4747,7 +4747,7 @@ _ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE13_M_deallocateEPS0_m.exit: ;
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !121
   store ptr %__cur.0.lcssa.i.i.i80, ptr %_M_finish.i.i, align 8, !tbaa !102
-  %add.ptr26 = getelementptr inbounds nuw %struct.ServerParticleTexture, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [136 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !101
   ret void
 }

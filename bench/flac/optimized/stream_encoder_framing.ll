@@ -3,11 +3,6 @@ source_filename = "bench/flac/original/stream_encoder_framing.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
-%struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-
 @FLAC__VENDOR_STRING = external local_unnamed_addr global ptr, align 8
 @FLAC__STREAM_METADATA_IS_LAST_LEN = external local_unnamed_addr constant i32, align 4
 @FLAC__STREAM_METADATA_TYPE_LEN = external local_unnamed_addr constant i32, align 4
@@ -265,7 +260,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 107:                                              ; preds = %.lr.ph251, %103
   %indvars.iv268 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next269, %103 ]
   %108 = load ptr, ptr %35, align 8, !tbaa !14
-  %109 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %108, i64 %indvars.iv268
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %indvars.iv268
   %110 = load i64, ptr %109, align 8, !tbaa !17
   %111 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %110, i32 noundef %36) #6
   %.not210 = icmp eq i32 %111, 0
@@ -273,7 +268,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 
 112:                                              ; preds = %107
   %113 = load ptr, ptr %35, align 8, !tbaa !14
-  %114 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %113, i64 %indvars.iv268
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv268
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i64, ptr %115, align 8, !tbaa !20
   %117 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %116, i32 noundef %37) #6
@@ -282,7 +277,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 
 118:                                              ; preds = %112
   %119 = load ptr, ptr %35, align 8, !tbaa !14
-  %120 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %119, i64 %indvars.iv268
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %indvars.iv268
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !21
   %123 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %1, i32 noundef %122, i32 noundef %38) #6
@@ -344,7 +339,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 149:                                              ; preds = %.lr.ph249, %145
   %indvars.iv265 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next266, %145 ]
   %150 = load ptr, ptr %144, align 8, !tbaa !14
-  %151 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %150, i64 %indvars.iv265
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %indvars.iv265
   %152 = load i32, ptr %151, align 8, !tbaa !23
   %153 = tail call i32 @FLAC__bitwriter_write_raw_uint32_little_endian(ptr noundef %1, i32 noundef %152) #6
   %.not208 = icmp eq i32 %153, 0
@@ -352,7 +347,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr %144, align 8, !tbaa !14
-  %156 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %155, i64 %indvars.iv265
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv265
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !25
   %159 = load i32, ptr %156, align 8, !tbaa !23
@@ -423,7 +418,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 198:                                              ; preds = %.lr.ph247, %.critedge
   %indvars.iv262 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next263, %.critedge ]
   %199 = load ptr, ptr %186, align 8, !tbaa !14
-  %200 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %199, i64 %indvars.iv262
+  %200 = getelementptr inbounds nuw [32 x i8], ptr %199, i64 %indvars.iv262
   %201 = load i64, ptr %200, align 8, !tbaa !26
   %202 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %201, i32 noundef %187) #6
   %.not193 = icmp eq i32 %202, 0
@@ -493,7 +488,7 @@ define hidden range(i32 0, 2) i32 @FLAC__add_metadata_block(ptr noundef %0, ptr 
 236:                                              ; preds = %.lr.ph, %232
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %232 ]
   %237 = load ptr, ptr %231, align 8, !tbaa !31
-  %238 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %237, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %237, i64 %indvars.iv
   %239 = load i64, ptr %238, align 8, !tbaa !32
   %240 = tail call i32 @FLAC__bitwriter_write_raw_uint64(ptr noundef %1, i64 noundef %239, i32 noundef %195) #6
   %.not200 = icmp eq i32 %240, 0
@@ -865,7 +860,7 @@ define hidden range(i32 0, 2) i32 @FLAC__frame_add_header(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %76
   %82 = zext nneg i32 %80 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.FLAC__frame_add_header, i64 %82
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.FLAC__frame_add_header, i64 %82
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %83
 
@@ -1049,7 +1044,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_fixed(ptr noundef readonly
 
 30:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !50
   %33 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %32, i32 noundef %2) #6
   %.not30 = icmp eq i32 %33, 0
@@ -1160,7 +1155,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %31
   %indvars.iv95 = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next96, %31 ]
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv95
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv95
   %33 = load i32, ptr %32, align 4, !tbaa !11
   %34 = load i32, ptr %5, align 4, !tbaa !11
   %35 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %0, i32 noundef %33, i32 noundef %34) #6
@@ -1184,13 +1179,13 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
   %spec.select = sub i32 %38, %42
   %43 = add i32 %spec.select, %.06588
   %44 = zext i32 %.06887 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !11
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %57
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i32, ptr %4, i64 %44
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %44
   %50 = load i32, ptr %49, align 4, !tbaa !11
   %51 = tail call i32 @FLAC__bitwriter_write_raw_uint32(ptr noundef %0, i32 noundef %50, i32 noundef %11) #6
   %.not74 = icmp eq i32 %51, 0
@@ -1198,7 +1193,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
 
 52:                                               ; preds = %48
   %53 = zext i32 %.06588 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %1, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %53
   %55 = load i32, ptr %49, align 4, !tbaa !11
   %56 = tail call i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef %0, ptr noundef %54, i32 noundef %spec.select, i32 noundef %55) #6
   %.not75 = icmp eq i32 %56, 0
@@ -1231,7 +1226,7 @@ define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ %63, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !11
   %67 = load i32, ptr %45, align 4, !tbaa !11
   %68 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %0, i32 noundef %66, i32 noundef %67) #6
@@ -1296,7 +1291,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 31:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %32 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !50
   %34 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %33, i32 noundef %2) #6
   %.not44 = icmp eq i32 %34, 0
@@ -1337,7 +1332,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_lpc(ptr noundef readonly c
 
 51:                                               ; preds = %.lr.ph52, %47
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %47 ]
-  %52 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv58
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv58
   %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = load i32, ptr %35, align 4, !tbaa !63
   %55 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %4, i32 noundef %53, i32 noundef %54) #6
@@ -1441,7 +1436,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_verbatim(ptr noundef reado
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %25
   %indvars.iv53 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next54, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv53
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv53
   %27 = load i32, ptr %26, align 4, !tbaa !11
   %28 = tail call i32 @FLAC__bitwriter_write_raw_int32(ptr noundef %4, i32 noundef %27, i32 noundef %2) #6
   %.not34 = icmp eq i32 %28, 0
@@ -1461,7 +1456,7 @@ define hidden range(i32 0, 2) i32 @FLAC__subframe_add_verbatim(ptr noundef reado
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !50
   %33 = tail call i32 @FLAC__bitwriter_write_raw_int64(ptr noundef %4, i64 noundef %32, i32 noundef %2) #6
   %.not32 = icmp eq i32 %33, 0

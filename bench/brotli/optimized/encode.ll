@@ -14,11 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BrotliTrieNode = type { i8, i8, i8, i32, i32 }
 %struct.MetaBlockSplit = type { %struct.BlockSplit, %struct.BlockSplit, %struct.BlockSplit, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64 }
 %struct.BlockSplit = type { i64, i64, ptr, ptr, i64, i64 }
-%struct.SlotH40 = type { i16, i16 }
-%struct.SlotH41 = type { i16, i16 }
-%struct.BankH42 = type { [512 x %struct.SlotH42] }
-%struct.SlotH42 = type { i16, i16 }
-%struct.Command = type { i32, i32, i32, i16, i16 }
 
 @kStaticDictionaryHashWords = external constant [32768 x i16], align 16
 @kStaticDictionaryHashLengths = external constant [32768 x i8], align 16
@@ -2663,14 +2658,14 @@ HasherSize.exit.i:                                ; preds = %323, %HashMemAllocI
 
 330:                                              ; preds = %HasherSize.exit.i, %337
   %.0.i462 = phi i64 [ 0, %HasherSize.exit.i ], [ %338, %337 ]
-  %331 = getelementptr inbounds nuw i64, ptr %11, i64 %.0.i462
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0.i462
   %332 = load i64, ptr %331, align 8, !tbaa !69
   %333 = icmp eq i64 %332, 0
   br i1 %333, label %337, label %334
 
 334:                                              ; preds = %330
   %335 = tail call ptr @BrotliAllocate(ptr noundef nonnull %29, i64 noundef %332) #19
-  %336 = getelementptr inbounds nuw ptr, ptr %175, i64 %.0.i462
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.0.i462
   store ptr %335, ptr %336, align 8, !tbaa !63
   br label %337
 
@@ -2931,7 +2926,7 @@ HasherSize.exit.i:                                ; preds = %323, %HashMemAllocI
   %.val.i = load i64, ptr %439, align 1, !alias.scope !223
   %440 = mul i64 %.val.i, 8922571613522624512
   %441 = lshr i64 %440, 48
-  %442 = getelementptr inbounds nuw i32, ptr %.val332, i64 %441
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %.val332, i64 %441
   store i32 0, ptr %442, align 4, !tbaa !59, !noalias !223
   %443 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %443, %178
@@ -2959,11 +2954,11 @@ HasherSize.exit.i:                                ; preds = %323, %HashMemAllocI
   %.val.i377 = load i64, ptr %448, align 1, !alias.scope !227
   %449 = mul i64 %.val.i377, 8922571613522624512
   %450 = lshr i64 %449, 48
-  %451 = getelementptr inbounds nuw i32, ptr %.val339, i64 %450
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %.val339, i64 %450
   store i32 0, ptr %451, align 4, !tbaa !59, !noalias !227
   %452 = add nuw nsw i64 %450, 8
   %453 = and i64 %452, 65535
-  %454 = getelementptr inbounds nuw i32, ptr %.val339, i64 %453
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %.val339, i64 %453
   store i32 0, ptr %454, align 4, !tbaa !59, !noalias !227
   %455 = add nuw nsw i64 %.0142.i, 1
   %exitcond.not.i379 = icmp eq i64 %455, %178
@@ -3044,7 +3039,7 @@ HasherSize.exit.i:                                ; preds = %323, %HashMemAllocI
 
 484:                                              ; preds = %484, %481
   %indvars.iv.i = phi i64 [ 0, %481 ], [ %indvars.iv.next.i, %484 ]
-  %485 = getelementptr inbounds nuw i32, ptr %.val357, i64 %indvars.iv.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %.val357, i64 %indvars.iv.i
   store i32 %.val358, ptr %485, align 4, !tbaa !59
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i380 = icmp eq i64 %indvars.iv.next.i, 131072
@@ -3093,7 +3088,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %498 = trunc nuw i64 %493 to i32
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %500 = load ptr, ptr %499, align 8, !tbaa !151, !alias.scope !232, !noalias !235
-  %501 = getelementptr inbounds nuw i32, ptr %500, i64 %497
+  %501 = getelementptr inbounds nuw [4 x i8], ptr %500, i64 %497
   store i32 %498, ptr %501, align 4, !tbaa !59, !noalias !232
   %502 = add nsw i64 %177, -2
   %503 = and i64 %502, %176
@@ -3102,7 +3097,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %505 = mul i64 %.val330, 8922571613522624512
   %506 = lshr i64 %505, 48
   %507 = trunc nuw i64 %502 to i32
-  %508 = getelementptr inbounds nuw i32, ptr %500, i64 %506
+  %508 = getelementptr inbounds nuw [4 x i8], ptr %500, i64 %506
   store i32 %507, ptr %508, align 4, !tbaa !59, !noalias !237
   %509 = add nsw i64 %177, -1
   %510 = and i64 %509, %176
@@ -3111,7 +3106,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %512 = mul i64 %.val331, 8922571613522624512
   %513 = lshr i64 %512, 48
   %514 = trunc nuw i64 %509 to i32
-  %515 = getelementptr inbounds nuw i32, ptr %500, i64 %513
+  %515 = getelementptr inbounds nuw [4 x i8], ptr %500, i64 %513
   store i32 %514, ptr %515, align 4, !tbaa !59, !noalias !240
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3135,7 +3130,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %528 = load ptr, ptr %527, align 8, !tbaa !157, !alias.scope !243, !noalias !246
   %529 = add nuw nsw i64 %524, %526
   %530 = and i64 %529, 65535
-  %531 = getelementptr inbounds nuw i32, ptr %528, i64 %530
+  %531 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %530
   store i32 %525, ptr %531, align 4, !tbaa !59, !noalias !243
   %532 = add nsw i64 %177, -2
   %533 = and i64 %532, %176
@@ -3147,7 +3142,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %538 = and i64 %532, 8
   %539 = add nuw nsw i64 %536, %538
   %540 = and i64 %539, 65535
-  %541 = getelementptr inbounds nuw i32, ptr %528, i64 %540
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %540
   store i32 %537, ptr %541, align 4, !tbaa !59, !noalias !248
   %542 = add nsw i64 %177, -1
   %543 = and i64 %542, %176
@@ -3159,7 +3154,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %548 = and i64 %542, 8
   %549 = add nuw nsw i64 %546, %548
   %550 = and i64 %549, 65535
-  %551 = getelementptr inbounds nuw i32, ptr %528, i64 %550
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %550
   store i32 %547, ptr %551, align 4, !tbaa !59, !noalias !251
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3183,7 +3178,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %564 = load ptr, ptr %563, align 8, !tbaa !163, !alias.scope !254, !noalias !257
   %565 = add nuw nsw i64 %560, %562
   %566 = and i64 %565, 131071
-  %567 = getelementptr inbounds nuw i32, ptr %564, i64 %566
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %566
   store i32 %561, ptr %567, align 4, !tbaa !59, !noalias !254
   %568 = add nsw i64 %177, -2
   %569 = and i64 %568, %176
@@ -3195,7 +3190,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %574 = and i64 %568, 24
   %575 = add nuw nsw i64 %572, %574
   %576 = and i64 %575, 131071
-  %577 = getelementptr inbounds nuw i32, ptr %564, i64 %576
+  %577 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %576
   store i32 %573, ptr %577, align 4, !tbaa !59, !noalias !259
   %578 = add nsw i64 %177, -1
   %579 = and i64 %578, %176
@@ -3207,7 +3202,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %584 = and i64 %578, 24
   %585 = add nuw nsw i64 %582, %584
   %586 = and i64 %585, 131071
-  %587 = getelementptr inbounds nuw i32, ptr %564, i64 %586
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %586
   store i32 %583, ptr %587, align 4, !tbaa !59, !noalias !262
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3232,7 +3227,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %601 = mul i32 %.val344, 506832829
   %602 = lshr i32 %601, %600
   %603 = zext i32 %602 to i64
-  %604 = getelementptr inbounds nuw i16, ptr %594, i64 %603
+  %604 = getelementptr inbounds nuw [2 x i8], ptr %594, i64 %603
   %605 = load i16, ptr %604, align 2, !tbaa !80, !noalias !265
   %606 = zext i16 %605 to i32
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 1732
@@ -3246,8 +3241,8 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %615 = add i16 %605, 1
   store i16 %615, ptr %604, align 2, !tbaa !80, !noalias !265
   %616 = trunc nuw i64 %592 to i32
-  %617 = getelementptr inbounds nuw i32, ptr %596, i64 %610
-  %618 = getelementptr inbounds nuw i32, ptr %617, i64 %614
+  %617 = getelementptr inbounds nuw [4 x i8], ptr %596, i64 %610
+  %618 = getelementptr inbounds nuw [4 x i8], ptr %617, i64 %614
   store i32 %616, ptr %618, align 4, !tbaa !59, !noalias !265
   %619 = add nsw i64 %177, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
@@ -3258,7 +3253,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %623 = mul i32 %.val345, 506832829
   %624 = lshr i32 %623, %622
   %625 = zext i32 %624 to i64
-  %626 = getelementptr inbounds nuw i16, ptr %594, i64 %625
+  %626 = getelementptr inbounds nuw [2 x i8], ptr %594, i64 %625
   %627 = load i16, ptr %626, align 2, !tbaa !80, !noalias !276
   %628 = zext i16 %627 to i32
   %629 = load i32, ptr %607, align 4, !tbaa !274, !alias.scope !276, !noalias !279
@@ -3270,8 +3265,8 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %635 = add i16 %627, 1
   store i16 %635, ptr %626, align 2, !tbaa !80, !noalias !276
   %636 = trunc nuw i64 %619 to i32
-  %637 = getelementptr inbounds nuw i32, ptr %596, i64 %631
-  %638 = getelementptr inbounds nuw i32, ptr %637, i64 %634
+  %637 = getelementptr inbounds nuw [4 x i8], ptr %596, i64 %631
+  %638 = getelementptr inbounds nuw [4 x i8], ptr %637, i64 %634
   store i32 %636, ptr %638, align 4, !tbaa !59, !noalias !276
   %639 = add nsw i64 %177, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
@@ -3282,7 +3277,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %643 = mul i32 %.val346, 506832829
   %644 = lshr i32 %643, %642
   %645 = zext i32 %644 to i64
-  %646 = getelementptr inbounds nuw i16, ptr %594, i64 %645
+  %646 = getelementptr inbounds nuw [2 x i8], ptr %594, i64 %645
   %647 = load i16, ptr %646, align 2, !tbaa !80, !noalias !281
   %648 = zext i16 %647 to i32
   %649 = load i32, ptr %607, align 4, !tbaa !274, !alias.scope !281, !noalias !284
@@ -3294,8 +3289,8 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %655 = add i16 %647, 1
   store i16 %655, ptr %646, align 2, !tbaa !80, !noalias !281
   %656 = trunc nuw i64 %639 to i32
-  %657 = getelementptr inbounds nuw i32, ptr %596, i64 %651
-  %658 = getelementptr inbounds nuw i32, ptr %657, i64 %654
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %596, i64 %651
+  %658 = getelementptr inbounds nuw [4 x i8], ptr %657, i64 %654
   store i32 %656, ptr %658, align 4, !tbaa !59, !noalias !281
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3320,7 +3315,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %.0.copyload.i.i.i274 = load i64, ptr %669, align 1, !alias.scope !294, !noalias !286
   %672 = mul i64 %.0.copyload.i.i.i274, %671
   %673 = lshr i64 %672, 49
-  %674 = getelementptr inbounds nuw i16, ptr %665, i64 %673
+  %674 = getelementptr inbounds nuw [2 x i8], ptr %665, i64 %673
   %675 = load i16, ptr %674, align 2, !tbaa !80, !noalias !297
   %676 = zext i16 %675 to i32
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 1736
@@ -3334,8 +3329,8 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %685 = add i16 %675, 1
   store i16 %685, ptr %674, align 2, !tbaa !80, !noalias !297
   %686 = trunc nuw i64 %663 to i32
-  %687 = getelementptr i32, ptr %667, i64 %684
-  %688 = getelementptr i32, ptr %687, i64 %680
+  %687 = getelementptr [4 x i8], ptr %667, i64 %684
+  %688 = getelementptr [4 x i8], ptr %687, i64 %680
   store i32 %686, ptr %688, align 4, !tbaa !59, !noalias !297
   %689 = add nsw i64 %177, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
@@ -3345,7 +3340,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %.0.copyload.i.i.i273 = load i64, ptr %691, align 1, !alias.scope !305, !noalias !300
   %692 = mul i64 %.0.copyload.i.i.i273, %671
   %693 = lshr i64 %692, 49
-  %694 = getelementptr inbounds nuw i16, ptr %665, i64 %693
+  %694 = getelementptr inbounds nuw [2 x i8], ptr %665, i64 %693
   %695 = load i16, ptr %694, align 2, !tbaa !80, !noalias !308
   %696 = zext i16 %695 to i32
   %697 = load i32, ptr %677, align 8, !tbaa !298, !alias.scope !300, !noalias !303
@@ -3357,8 +3352,8 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %703 = add i16 %695, 1
   store i16 %703, ptr %694, align 2, !tbaa !80, !noalias !308
   %704 = trunc nuw i64 %689 to i32
-  %705 = getelementptr i32, ptr %667, i64 %702
-  %706 = getelementptr i32, ptr %705, i64 %699
+  %705 = getelementptr [4 x i8], ptr %667, i64 %702
+  %706 = getelementptr [4 x i8], ptr %705, i64 %699
   store i32 %704, ptr %706, align 4, !tbaa !59, !noalias !308
   %707 = add nsw i64 %177, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
@@ -3368,7 +3363,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %.0.copyload.i.i.i272 = load i64, ptr %709, align 1, !alias.scope !314, !noalias !309
   %710 = mul i64 %.0.copyload.i.i.i272, %671
   %711 = lshr i64 %710, 49
-  %712 = getelementptr inbounds nuw i16, ptr %665, i64 %711
+  %712 = getelementptr inbounds nuw [2 x i8], ptr %665, i64 %711
   %713 = load i16, ptr %712, align 2, !tbaa !80, !noalias !317
   %714 = zext i16 %713 to i32
   %715 = load i32, ptr %677, align 8, !tbaa !298, !alias.scope !309, !noalias !312
@@ -3380,8 +3375,8 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %721 = add i16 %713, 1
   store i16 %721, ptr %712, align 2, !tbaa !80, !noalias !317
   %722 = trunc nuw i64 %707 to i32
-  %723 = getelementptr i32, ptr %667, i64 %720
-  %724 = getelementptr i32, ptr %723, i64 %717
+  %723 = getelementptr [4 x i8], ptr %667, i64 %720
+  %724 = getelementptr [4 x i8], ptr %723, i64 %717
   store i32 %722, ptr %724, align 4, !tbaa !59, !noalias !317
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3412,7 +3407,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %743 = add i16 %742, 1
   store i16 %743, ptr %729, align 8, !tbaa !80, !alias.scope !318, !noalias !321
   %744 = zext i16 %742 to i64
-  %745 = getelementptr inbounds nuw i32, ptr %732, i64 %741
+  %745 = getelementptr inbounds nuw [4 x i8], ptr %732, i64 %741
   %746 = load i32, ptr %745, align 4, !tbaa !59, !noalias !326
   %747 = zext i32 %746 to i64
   %748 = sub nsw i64 %730, %747
@@ -3422,9 +3417,9 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %749, ptr %751, align 1, !tbaa !70, !noalias !326
   %spec.store.select.i279 = tail call i64 @llvm.umin.i64(i64 %748, i64 65535)
   %752 = trunc nuw i64 %spec.store.select.i279 to i16
-  %753 = getelementptr inbounds nuw %struct.SlotH40, ptr %736, i64 %744
+  %753 = getelementptr inbounds nuw [4 x i8], ptr %736, i64 %744
   store i16 %752, ptr %753, align 2, !tbaa !327, !noalias !326
-  %754 = getelementptr inbounds nuw i16, ptr %733, i64 %741
+  %754 = getelementptr inbounds nuw [2 x i8], ptr %733, i64 %741
   %755 = load i16, ptr %754, align 2, !tbaa !80, !noalias !326
   %756 = getelementptr inbounds nuw i8, ptr %753, i64 2
   store i16 %755, ptr %756, align 2, !tbaa !329, !noalias !326
@@ -3448,7 +3443,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %769 = add i16 %768, 1
   store i16 %769, ptr %729, align 8, !tbaa !80, !alias.scope !330, !noalias !333
   %770 = zext i16 %768 to i64
-  %771 = getelementptr inbounds nuw i32, ptr %759, i64 %767
+  %771 = getelementptr inbounds nuw [4 x i8], ptr %759, i64 %767
   %772 = load i32, ptr %771, align 4, !tbaa !59, !noalias !338
   %773 = zext i32 %772 to i64
   %774 = sub nsw i64 %758, %773
@@ -3458,9 +3453,9 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %775, ptr %777, align 1, !tbaa !70, !noalias !338
   %spec.store.select.i277 = tail call i64 @llvm.umin.i64(i64 %774, i64 65535)
   %778 = trunc nuw i64 %spec.store.select.i277 to i16
-  %779 = getelementptr inbounds nuw %struct.SlotH40, ptr %762, i64 %770
+  %779 = getelementptr inbounds nuw [4 x i8], ptr %762, i64 %770
   store i16 %778, ptr %779, align 2, !tbaa !327, !noalias !338
-  %780 = getelementptr inbounds nuw i16, ptr %760, i64 %767
+  %780 = getelementptr inbounds nuw [2 x i8], ptr %760, i64 %767
   %781 = load i16, ptr %780, align 2, !tbaa !80, !noalias !338
   %782 = getelementptr inbounds nuw i8, ptr %779, i64 2
   store i16 %781, ptr %782, align 2, !tbaa !329, !noalias !338
@@ -3484,7 +3479,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %795 = add i16 %794, 1
   store i16 %795, ptr %729, align 8, !tbaa !80, !alias.scope !339, !noalias !342
   %796 = zext i16 %794 to i64
-  %797 = getelementptr inbounds nuw i32, ptr %785, i64 %793
+  %797 = getelementptr inbounds nuw [4 x i8], ptr %785, i64 %793
   %798 = load i32, ptr %797, align 4, !tbaa !59, !noalias !347
   %799 = zext i32 %798 to i64
   %800 = sub nsw i64 %784, %799
@@ -3494,9 +3489,9 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %801, ptr %803, align 1, !tbaa !70, !noalias !347
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %800, i64 65535)
   %804 = trunc nuw i64 %spec.store.select.i to i16
-  %805 = getelementptr inbounds nuw %struct.SlotH40, ptr %788, i64 %796
+  %805 = getelementptr inbounds nuw [4 x i8], ptr %788, i64 %796
   store i16 %804, ptr %805, align 2, !tbaa !327, !noalias !347
-  %806 = getelementptr inbounds nuw i16, ptr %786, i64 %793
+  %806 = getelementptr inbounds nuw [2 x i8], ptr %786, i64 %793
   %807 = load i16, ptr %806, align 2, !tbaa !80, !noalias !347
   %808 = getelementptr inbounds nuw i8, ptr %805, i64 2
   store i16 %807, ptr %808, align 2, !tbaa !329, !noalias !347
@@ -3532,7 +3527,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %828 = add i16 %827, 1
   store i16 %828, ptr %814, align 8, !tbaa !80, !alias.scope !348, !noalias !351
   %829 = zext i16 %827 to i64
-  %830 = getelementptr inbounds nuw i32, ptr %817, i64 %826
+  %830 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %826
   %831 = load i32, ptr %830, align 4, !tbaa !59, !noalias !356
   %832 = zext i32 %831 to i64
   %833 = sub nsw i64 %815, %832
@@ -3542,9 +3537,9 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %834, ptr %836, align 1, !tbaa !70, !noalias !356
   %spec.store.select.i285 = tail call i64 @llvm.umin.i64(i64 %833, i64 65535)
   %837 = trunc nuw i64 %spec.store.select.i285 to i16
-  %838 = getelementptr inbounds nuw %struct.SlotH41, ptr %821, i64 %829
+  %838 = getelementptr inbounds nuw [4 x i8], ptr %821, i64 %829
   store i16 %837, ptr %838, align 2, !tbaa !357, !noalias !356
-  %839 = getelementptr inbounds nuw i16, ptr %818, i64 %826
+  %839 = getelementptr inbounds nuw [2 x i8], ptr %818, i64 %826
   %840 = load i16, ptr %839, align 2, !tbaa !80, !noalias !356
   %841 = getelementptr inbounds nuw i8, ptr %838, i64 2
   store i16 %840, ptr %841, align 2, !tbaa !359, !noalias !356
@@ -3568,7 +3563,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %854 = add i16 %853, 1
   store i16 %854, ptr %814, align 8, !tbaa !80, !alias.scope !360, !noalias !363
   %855 = zext i16 %853 to i64
-  %856 = getelementptr inbounds nuw i32, ptr %844, i64 %852
+  %856 = getelementptr inbounds nuw [4 x i8], ptr %844, i64 %852
   %857 = load i32, ptr %856, align 4, !tbaa !59, !noalias !368
   %858 = zext i32 %857 to i64
   %859 = sub nsw i64 %843, %858
@@ -3578,9 +3573,9 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %860, ptr %862, align 1, !tbaa !70, !noalias !368
   %spec.store.select.i283 = tail call i64 @llvm.umin.i64(i64 %859, i64 65535)
   %863 = trunc nuw i64 %spec.store.select.i283 to i16
-  %864 = getelementptr inbounds nuw %struct.SlotH41, ptr %847, i64 %855
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %855
   store i16 %863, ptr %864, align 2, !tbaa !357, !noalias !368
-  %865 = getelementptr inbounds nuw i16, ptr %845, i64 %852
+  %865 = getelementptr inbounds nuw [2 x i8], ptr %845, i64 %852
   %866 = load i16, ptr %865, align 2, !tbaa !80, !noalias !368
   %867 = getelementptr inbounds nuw i8, ptr %864, i64 2
   store i16 %866, ptr %867, align 2, !tbaa !359, !noalias !368
@@ -3604,7 +3599,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %880 = add i16 %879, 1
   store i16 %880, ptr %814, align 8, !tbaa !80, !alias.scope !369, !noalias !372
   %881 = zext i16 %879 to i64
-  %882 = getelementptr inbounds nuw i32, ptr %870, i64 %878
+  %882 = getelementptr inbounds nuw [4 x i8], ptr %870, i64 %878
   %883 = load i32, ptr %882, align 4, !tbaa !59, !noalias !377
   %884 = zext i32 %883 to i64
   %885 = sub nsw i64 %869, %884
@@ -3614,9 +3609,9 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %886, ptr %888, align 1, !tbaa !70, !noalias !377
   %spec.store.select.i281 = tail call i64 @llvm.umin.i64(i64 %885, i64 65535)
   %889 = trunc nuw i64 %spec.store.select.i281 to i16
-  %890 = getelementptr inbounds nuw %struct.SlotH41, ptr %873, i64 %881
+  %890 = getelementptr inbounds nuw [4 x i8], ptr %873, i64 %881
   store i16 %889, ptr %890, align 2, !tbaa !357, !noalias !377
-  %891 = getelementptr inbounds nuw i16, ptr %871, i64 %878
+  %891 = getelementptr inbounds nuw [2 x i8], ptr %871, i64 %878
   %892 = load i16, ptr %891, align 2, !tbaa !80, !noalias !377
   %893 = getelementptr inbounds nuw i8, ptr %890, i64 2
   store i16 %892, ptr %893, align 2, !tbaa !359, !noalias !377
@@ -3649,13 +3644,13 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %910 = lshr i32 %909, 17
   %911 = zext nneg i32 %910 to i64
   %912 = and i64 %911, 511
-  %913 = getelementptr inbounds nuw i16, ptr %899, i64 %912
+  %913 = getelementptr inbounds nuw [2 x i8], ptr %899, i64 %912
   %914 = load i16, ptr %913, align 2, !tbaa !80, !alias.scope !378, !noalias !381
   %915 = add i16 %914, 1
   store i16 %915, ptr %913, align 2, !tbaa !80, !alias.scope !378, !noalias !381
   %916 = and i16 %914, 511
   %917 = zext nneg i16 %916 to i64
-  %918 = getelementptr inbounds nuw i32, ptr %902, i64 %911
+  %918 = getelementptr inbounds nuw [4 x i8], ptr %902, i64 %911
   %919 = load i32, ptr %918, align 4, !tbaa !59, !noalias !386
   %920 = zext i32 %919 to i64
   %921 = sub nsw i64 %900, %920
@@ -3665,10 +3660,10 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %922, ptr %924, align 1, !tbaa !70, !noalias !386
   %spec.store.select.i291 = tail call i64 @llvm.umin.i64(i64 %921, i64 65535)
   %925 = trunc nuw i64 %spec.store.select.i291 to i16
-  %926 = getelementptr inbounds nuw %struct.BankH42, ptr %906, i64 %912
-  %927 = getelementptr inbounds nuw %struct.SlotH42, ptr %926, i64 %917
+  %926 = getelementptr inbounds nuw [2048 x i8], ptr %906, i64 %912
+  %927 = getelementptr inbounds nuw [4 x i8], ptr %926, i64 %917
   store i16 %925, ptr %927, align 2, !tbaa !387, !noalias !386
-  %928 = getelementptr inbounds nuw i16, ptr %903, i64 %911
+  %928 = getelementptr inbounds nuw [2 x i8], ptr %903, i64 %911
   %929 = load i16, ptr %928, align 2, !tbaa !80, !noalias !386
   %930 = getelementptr inbounds nuw i8, ptr %927, i64 2
   store i16 %929, ptr %930, align 2, !tbaa !389, !noalias !386
@@ -3689,13 +3684,13 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %940 = lshr i32 %939, 17
   %941 = zext nneg i32 %940 to i64
   %942 = and i64 %941, 511
-  %943 = getelementptr inbounds nuw i16, ptr %899, i64 %942
+  %943 = getelementptr inbounds nuw [2 x i8], ptr %899, i64 %942
   %944 = load i16, ptr %943, align 2, !tbaa !80, !alias.scope !390, !noalias !393
   %945 = add i16 %944, 1
   store i16 %945, ptr %943, align 2, !tbaa !80, !alias.scope !390, !noalias !393
   %946 = and i16 %944, 511
   %947 = zext nneg i16 %946 to i64
-  %948 = getelementptr inbounds nuw i32, ptr %933, i64 %941
+  %948 = getelementptr inbounds nuw [4 x i8], ptr %933, i64 %941
   %949 = load i32, ptr %948, align 4, !tbaa !59, !noalias !398
   %950 = zext i32 %949 to i64
   %951 = sub nsw i64 %932, %950
@@ -3705,10 +3700,10 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %952, ptr %954, align 1, !tbaa !70, !noalias !398
   %spec.store.select.i289 = tail call i64 @llvm.umin.i64(i64 %951, i64 65535)
   %955 = trunc nuw i64 %spec.store.select.i289 to i16
-  %956 = getelementptr inbounds nuw %struct.BankH42, ptr %936, i64 %942
-  %957 = getelementptr inbounds nuw %struct.SlotH42, ptr %956, i64 %947
+  %956 = getelementptr inbounds nuw [2048 x i8], ptr %936, i64 %942
+  %957 = getelementptr inbounds nuw [4 x i8], ptr %956, i64 %947
   store i16 %955, ptr %957, align 2, !tbaa !387, !noalias !398
-  %958 = getelementptr inbounds nuw i16, ptr %934, i64 %941
+  %958 = getelementptr inbounds nuw [2 x i8], ptr %934, i64 %941
   %959 = load i16, ptr %958, align 2, !tbaa !80, !noalias !398
   %960 = getelementptr inbounds nuw i8, ptr %957, i64 2
   store i16 %959, ptr %960, align 2, !tbaa !389, !noalias !398
@@ -3729,13 +3724,13 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %970 = lshr i32 %969, 17
   %971 = zext nneg i32 %970 to i64
   %972 = and i64 %971, 511
-  %973 = getelementptr inbounds nuw i16, ptr %899, i64 %972
+  %973 = getelementptr inbounds nuw [2 x i8], ptr %899, i64 %972
   %974 = load i16, ptr %973, align 2, !tbaa !80, !alias.scope !399, !noalias !402
   %975 = add i16 %974, 1
   store i16 %975, ptr %973, align 2, !tbaa !80, !alias.scope !399, !noalias !402
   %976 = and i16 %974, 511
   %977 = zext nneg i16 %976 to i64
-  %978 = getelementptr inbounds nuw i32, ptr %963, i64 %971
+  %978 = getelementptr inbounds nuw [4 x i8], ptr %963, i64 %971
   %979 = load i32, ptr %978, align 4, !tbaa !59, !noalias !407
   %980 = zext i32 %979 to i64
   %981 = sub nsw i64 %962, %980
@@ -3745,10 +3740,10 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   store i8 %982, ptr %984, align 1, !tbaa !70, !noalias !407
   %spec.store.select.i287 = tail call i64 @llvm.umin.i64(i64 %981, i64 65535)
   %985 = trunc nuw i64 %spec.store.select.i287 to i16
-  %986 = getelementptr inbounds nuw %struct.BankH42, ptr %966, i64 %972
-  %987 = getelementptr inbounds nuw %struct.SlotH42, ptr %986, i64 %977
+  %986 = getelementptr inbounds nuw [2048 x i8], ptr %966, i64 %972
+  %987 = getelementptr inbounds nuw [4 x i8], ptr %986, i64 %977
   store i16 %985, ptr %987, align 2, !tbaa !387, !noalias !407
-  %988 = getelementptr inbounds nuw i16, ptr %964, i64 %971
+  %988 = getelementptr inbounds nuw [2 x i8], ptr %964, i64 %971
   %989 = load i16, ptr %988, align 2, !tbaa !80, !noalias !407
   %990 = getelementptr inbounds nuw i8, ptr %987, i64 2
   store i16 %989, ptr %990, align 2, !tbaa !389, !noalias !407
@@ -3777,7 +3772,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1004 = load ptr, ptr %1003, align 8, !tbaa !187, !alias.scope !408, !noalias !411
   %1005 = add nuw nsw i64 %1000, %1002
   %1006 = and i64 %1005, 1048575
-  %1007 = getelementptr inbounds nuw i32, ptr %1004, i64 %1006
+  %1007 = getelementptr inbounds nuw [4 x i8], ptr %1004, i64 %1006
   store i32 %1001, ptr %1007, align 4, !tbaa !59, !noalias !408
   %1008 = add nsw i64 %177, -2
   %1009 = and i64 %1008, %176
@@ -3789,7 +3784,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1014 = and i64 %1008, 24
   %1015 = add nuw nsw i64 %1012, %1014
   %1016 = and i64 %1015, 1048575
-  %1017 = getelementptr inbounds nuw i32, ptr %1004, i64 %1016
+  %1017 = getelementptr inbounds nuw [4 x i8], ptr %1004, i64 %1016
   store i32 %1013, ptr %1017, align 4, !tbaa !59, !noalias !413
   %1018 = add nsw i64 %177, -1
   %1019 = and i64 %1018, %176
@@ -3801,7 +3796,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1024 = and i64 %1018, 24
   %1025 = add nuw nsw i64 %1022, %1024
   %1026 = and i64 %1025, 1048575
-  %1027 = getelementptr inbounds nuw i32, ptr %1004, i64 %1026
+  %1027 = getelementptr inbounds nuw [4 x i8], ptr %1004, i64 %1026
   store i32 %1023, ptr %1027, align 4, !tbaa !59, !noalias !416
   br label %InitOrStitchToPreviousBlock.exit
 
@@ -3830,7 +3825,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1045 = lshr i32 %1044, 8
   %1046 = zext nneg i32 %1045 to i64
   %1047 = trunc i32 %1044 to i8
-  %1048 = getelementptr inbounds nuw i16, ptr %1034, i64 %1046
+  %1048 = getelementptr inbounds nuw [2 x i8], ptr %1034, i64 %1046
   %1049 = load i16, ptr %1048, align 2, !tbaa !80, !noalias !419
   %1050 = zext i16 %1049 to i32
   %1051 = getelementptr inbounds nuw i8, ptr %0, i64 1732
@@ -3845,7 +3840,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1060 = add i16 %1049, -1
   store i16 %1060, ptr %1048, align 2, !tbaa !80, !noalias !419
   %1061 = trunc nuw i64 %1032 to i32
-  %1062 = getelementptr inbounds nuw i32, ptr %1038, i64 %1059
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %1038, i64 %1059
   store i32 %1061, ptr %1062, align 4, !tbaa !59, !noalias !419
   %1063 = getelementptr inbounds nuw i8, ptr %1036, i64 %1059
   store i8 %1047, ptr %1063, align 1, !tbaa !70, !noalias !419
@@ -3863,7 +3858,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1073 = lshr i32 %1072, 8
   %1074 = zext nneg i32 %1073 to i64
   %1075 = trunc i32 %1072 to i8
-  %1076 = getelementptr inbounds nuw i16, ptr %1065, i64 %1074
+  %1076 = getelementptr inbounds nuw [2 x i8], ptr %1065, i64 %1074
   %1077 = load i16, ptr %1076, align 2, !tbaa !80, !noalias !431
   %1078 = zext i16 %1077 to i32
   %1079 = load i32, ptr %1051, align 4, !tbaa !429, !alias.scope !431, !noalias !434
@@ -3876,7 +3871,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1086 = add i16 %1077, -1
   store i16 %1086, ptr %1076, align 2, !tbaa !80, !noalias !431
   %1087 = trunc nuw i64 %1064 to i32
-  %1088 = getelementptr inbounds nuw i32, ptr %1067, i64 %1085
+  %1088 = getelementptr inbounds nuw [4 x i8], ptr %1067, i64 %1085
   store i32 %1087, ptr %1088, align 4, !tbaa !59, !noalias !431
   %1089 = getelementptr inbounds nuw i8, ptr %1066, i64 %1085
   store i8 %1075, ptr %1089, align 1, !tbaa !70, !noalias !431
@@ -3894,7 +3889,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1099 = lshr i32 %1098, 8
   %1100 = zext nneg i32 %1099 to i64
   %1101 = trunc i32 %1098 to i8
-  %1102 = getelementptr inbounds nuw i16, ptr %1091, i64 %1100
+  %1102 = getelementptr inbounds nuw [2 x i8], ptr %1091, i64 %1100
   %1103 = load i16, ptr %1102, align 2, !tbaa !80, !noalias !436
   %1104 = zext i16 %1103 to i32
   %1105 = load i32, ptr %1051, align 4, !tbaa !429, !alias.scope !436, !noalias !439
@@ -3907,7 +3902,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1112 = add i16 %1103, -1
   store i16 %1112, ptr %1102, align 2, !tbaa !80, !noalias !436
   %1113 = trunc nuw i64 %1090 to i32
-  %1114 = getelementptr inbounds nuw i32, ptr %1093, i64 %1111
+  %1114 = getelementptr inbounds nuw [4 x i8], ptr %1093, i64 %1111
   store i32 %1113, ptr %1114, align 4, !tbaa !59, !noalias !436
   %1115 = getelementptr inbounds nuw i8, ptr %1092, i64 %1111
   store i8 %1101, ptr %1115, align 1, !tbaa !70, !noalias !436
@@ -3938,7 +3933,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1132 = lshr i64 %1131, 41
   %1133 = lshr i64 %1131, 49
   %1134 = trunc i64 %1132 to i8
-  %1135 = getelementptr inbounds nuw i16, ptr %1122, i64 %1133
+  %1135 = getelementptr inbounds nuw [2 x i8], ptr %1122, i64 %1133
   %1136 = load i16, ptr %1135, align 2, !tbaa !80, !noalias !454
   %1137 = zext i16 %1136 to i32
   %1138 = getelementptr inbounds nuw i8, ptr %0, i64 1736
@@ -3953,7 +3948,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1147 = add i16 %1136, -1
   store i16 %1147, ptr %1135, align 2, !tbaa !80, !noalias !454
   %1148 = trunc nuw i64 %1120 to i32
-  %1149 = getelementptr inbounds nuw i32, ptr %1126, i64 %1146
+  %1149 = getelementptr inbounds nuw [4 x i8], ptr %1126, i64 %1146
   store i32 %1148, ptr %1149, align 4, !tbaa !59, !noalias !454
   %1150 = getelementptr inbounds nuw i8, ptr %1124, i64 %1146
   store i8 %1134, ptr %1150, align 1, !tbaa !70, !noalias !454
@@ -3971,7 +3966,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1159 = lshr i64 %1158, 41
   %1160 = lshr i64 %1158, 49
   %1161 = trunc i64 %1159 to i8
-  %1162 = getelementptr inbounds nuw i16, ptr %1152, i64 %1160
+  %1162 = getelementptr inbounds nuw [2 x i8], ptr %1152, i64 %1160
   %1163 = load i16, ptr %1162, align 2, !tbaa !80, !noalias !465
   %1164 = zext i16 %1163 to i32
   %1165 = load i32, ptr %1138, align 8, !tbaa !455, !alias.scope !457, !noalias !460
@@ -3984,7 +3979,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1172 = add i16 %1163, -1
   store i16 %1172, ptr %1162, align 2, !tbaa !80, !noalias !465
   %1173 = trunc nuw i64 %1151 to i32
-  %1174 = getelementptr inbounds nuw i32, ptr %1154, i64 %1171
+  %1174 = getelementptr inbounds nuw [4 x i8], ptr %1154, i64 %1171
   store i32 %1173, ptr %1174, align 4, !tbaa !59, !noalias !465
   %1175 = getelementptr inbounds nuw i8, ptr %1153, i64 %1171
   store i8 %1161, ptr %1175, align 1, !tbaa !70, !noalias !465
@@ -4002,7 +3997,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1184 = lshr i64 %1183, 41
   %1185 = lshr i64 %1183, 49
   %1186 = trunc i64 %1184 to i8
-  %1187 = getelementptr inbounds nuw i16, ptr %1177, i64 %1185
+  %1187 = getelementptr inbounds nuw [2 x i8], ptr %1177, i64 %1185
   %1188 = load i16, ptr %1187, align 2, !tbaa !80, !noalias !474
   %1189 = zext i16 %1188 to i32
   %1190 = load i32, ptr %1138, align 8, !tbaa !455, !alias.scope !466, !noalias !469
@@ -4015,7 +4010,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1197 = add i16 %1188, -1
   store i16 %1197, ptr %1187, align 2, !tbaa !80, !noalias !474
   %1198 = trunc nuw i64 %1176 to i32
-  %1199 = getelementptr inbounds nuw i32, ptr %1179, i64 %1196
+  %1199 = getelementptr inbounds nuw [4 x i8], ptr %1179, i64 %1196
   store i32 %1198, ptr %1199, align 4, !tbaa !59, !noalias !474
   %1200 = getelementptr inbounds nuw i8, ptr %1178, i64 %1196
   store i8 %1186, ptr %1200, align 1, !tbaa !70, !noalias !474
@@ -4041,7 +4036,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1213 = load ptr, ptr %1212, align 8, !tbaa !157, !alias.scope !475, !noalias !478
   %1214 = add nuw nsw i64 %1209, %1211
   %1215 = and i64 %1214, 65535
-  %1216 = getelementptr inbounds nuw i32, ptr %1213, i64 %1215
+  %1216 = getelementptr inbounds nuw [4 x i8], ptr %1213, i64 %1215
   store i32 %1210, ptr %1216, align 4, !tbaa !59, !noalias !475
   %1217 = add nsw i64 %177, -2
   %1218 = and i64 %1217, %176
@@ -4053,7 +4048,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1223 = and i64 %1217, 8
   %1224 = add nuw nsw i64 %1221, %1223
   %1225 = and i64 %1224, 65535
-  %1226 = getelementptr inbounds nuw i32, ptr %1213, i64 %1225
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %1213, i64 %1225
   store i32 %1222, ptr %1226, align 4, !tbaa !59, !noalias !480
   %1227 = add nsw i64 %177, -1
   %1228 = and i64 %1227, %176
@@ -4065,7 +4060,7 @@ HasherSetup.exit:                                 ; preds = %429, %PrepareH2.exi
   %1233 = and i64 %1227, 8
   %1234 = add nuw nsw i64 %1231, %1233
   %1235 = and i64 %1234, 65535
-  %1236 = getelementptr inbounds nuw i32, ptr %1213, i64 %1235
+  %1236 = getelementptr inbounds nuw [4 x i8], ptr %1213, i64 %1235
   store i32 %1232, ptr %1236, align 4, !tbaa !59, !noalias !483
   br label %StitchToPreviousBlockH35.exit
 
@@ -4140,7 +4135,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %StitchToPreviousBlo
   %1273 = load ptr, ptr %1272, align 8, !tbaa !187, !alias.scope !498, !noalias !501
   %1274 = add nuw nsw i64 %1269, %1271
   %1275 = and i64 %1274, 1048575
-  %1276 = getelementptr inbounds nuw i32, ptr %1273, i64 %1275
+  %1276 = getelementptr inbounds nuw [4 x i8], ptr %1273, i64 %1275
   store i32 %1270, ptr %1276, align 4, !tbaa !59, !noalias !498
   %1277 = add nsw i64 %177, -2
   %1278 = and i64 %1277, %176
@@ -4152,7 +4147,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %StitchToPreviousBlo
   %1283 = and i64 %1277, 24
   %1284 = add nuw nsw i64 %1281, %1283
   %1285 = and i64 %1284, 1048575
-  %1286 = getelementptr inbounds nuw i32, ptr %1273, i64 %1285
+  %1286 = getelementptr inbounds nuw [4 x i8], ptr %1273, i64 %1285
   store i32 %1282, ptr %1286, align 4, !tbaa !59, !noalias !503
   %1287 = add nsw i64 %177, -1
   %1288 = and i64 %1287, %176
@@ -4164,7 +4159,7 @@ PrepareHROLLING_FAST.exit:                        ; preds = %StitchToPreviousBlo
   %1293 = and i64 %1287, 24
   %1294 = add nuw nsw i64 %1291, %1293
   %1295 = and i64 %1294, 1048575
-  %1296 = getelementptr inbounds nuw i32, ptr %1273, i64 %1295
+  %1296 = getelementptr inbounds nuw [4 x i8], ptr %1273, i64 %1295
   store i32 %1292, ptr %1296, align 4, !tbaa !59, !noalias !506
   br label %StitchToPreviousBlockH55.exit
 
@@ -4240,7 +4235,7 @@ PrepareHROLLING_FAST.exit383:                     ; preds = %StitchToPreviousBlo
   %.0.copyload.i.i.i271 = load i64, ptr %1331, align 1, !alias.scope !522, !noalias !517
   %1334 = mul i64 %.0.copyload.i.i.i271, %1333
   %1335 = lshr i64 %1334, 49
-  %1336 = getelementptr inbounds nuw i16, ptr %1327, i64 %1335
+  %1336 = getelementptr inbounds nuw [2 x i8], ptr %1327, i64 %1335
   %1337 = load i16, ptr %1336, align 2, !tbaa !80, !noalias !525
   %1338 = zext i16 %1337 to i32
   %1339 = getelementptr inbounds nuw i8, ptr %0, i64 1736
@@ -4254,8 +4249,8 @@ PrepareHROLLING_FAST.exit383:                     ; preds = %StitchToPreviousBlo
   %1347 = add i16 %1337, 1
   store i16 %1347, ptr %1336, align 2, !tbaa !80, !noalias !525
   %1348 = trunc nuw i64 %1325 to i32
-  %1349 = getelementptr i32, ptr %1329, i64 %1346
-  %1350 = getelementptr i32, ptr %1349, i64 %1342
+  %1349 = getelementptr [4 x i8], ptr %1329, i64 %1346
+  %1350 = getelementptr [4 x i8], ptr %1349, i64 %1342
   store i32 %1348, ptr %1350, align 4, !tbaa !59, !noalias !525
   %1351 = add nsw i64 %177, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
@@ -4265,7 +4260,7 @@ PrepareHROLLING_FAST.exit383:                     ; preds = %StitchToPreviousBlo
   %.0.copyload.i.i.i270 = load i64, ptr %1353, align 1, !alias.scope !531, !noalias !526
   %1354 = mul i64 %.0.copyload.i.i.i270, %1333
   %1355 = lshr i64 %1354, 49
-  %1356 = getelementptr inbounds nuw i16, ptr %1327, i64 %1355
+  %1356 = getelementptr inbounds nuw [2 x i8], ptr %1327, i64 %1355
   %1357 = load i16, ptr %1356, align 2, !tbaa !80, !noalias !534
   %1358 = zext i16 %1357 to i32
   %1359 = load i32, ptr %1339, align 8, !tbaa !298, !alias.scope !526, !noalias !529
@@ -4277,8 +4272,8 @@ PrepareHROLLING_FAST.exit383:                     ; preds = %StitchToPreviousBlo
   %1365 = add i16 %1357, 1
   store i16 %1365, ptr %1356, align 2, !tbaa !80, !noalias !534
   %1366 = trunc nuw i64 %1351 to i32
-  %1367 = getelementptr i32, ptr %1329, i64 %1364
-  %1368 = getelementptr i32, ptr %1367, i64 %1361
+  %1367 = getelementptr [4 x i8], ptr %1329, i64 %1364
+  %1368 = getelementptr [4 x i8], ptr %1367, i64 %1361
   store i32 %1366, ptr %1368, align 4, !tbaa !59, !noalias !534
   %1369 = add nsw i64 %177, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !535)
@@ -4288,7 +4283,7 @@ PrepareHROLLING_FAST.exit383:                     ; preds = %StitchToPreviousBlo
   %.0.copyload.i.i.i = load i64, ptr %1371, align 1, !alias.scope !540, !noalias !535
   %1372 = mul i64 %.0.copyload.i.i.i, %1333
   %1373 = lshr i64 %1372, 49
-  %1374 = getelementptr inbounds nuw i16, ptr %1327, i64 %1373
+  %1374 = getelementptr inbounds nuw [2 x i8], ptr %1327, i64 %1373
   %1375 = load i16, ptr %1374, align 2, !tbaa !80, !noalias !543
   %1376 = zext i16 %1375 to i32
   %1377 = load i32, ptr %1339, align 8, !tbaa !298, !alias.scope !535, !noalias !538
@@ -4300,8 +4295,8 @@ PrepareHROLLING_FAST.exit383:                     ; preds = %StitchToPreviousBlo
   %1383 = add i16 %1375, 1
   store i16 %1383, ptr %1374, align 2, !tbaa !80, !noalias !543
   %1384 = trunc nuw i64 %1369 to i32
-  %1385 = getelementptr i32, ptr %1329, i64 %1382
-  %1386 = getelementptr i32, ptr %1385, i64 %1379
+  %1385 = getelementptr [4 x i8], ptr %1329, i64 %1382
+  %1386 = getelementptr [4 x i8], ptr %1385, i64 %1379
   store i32 %1384, ptr %1386, align 4, !tbaa !59, !noalias !543
   br label %StitchToPreviousBlockH65.exit
 
@@ -4375,7 +4370,7 @@ PrepareHROLLING.exit:                             ; preds = %StitchToPreviousBlo
   %1424 = mul i32 %.val359, 506832829
   %1425 = lshr i32 %1424, 15
   %1426 = zext nneg i32 %1425 to i64
-  %1427 = getelementptr inbounds nuw i32, ptr %1414, i64 %1426
+  %1427 = getelementptr inbounds nuw [4 x i8], ptr %1414, i64 %1426
   %1428 = load i32, ptr %1427, align 4, !tbaa !59, !noalias !559
   %1429 = and i64 %1412, %.0.i269490
   %1430 = shl i64 %1429, 1
@@ -4404,7 +4399,7 @@ PrepareHROLLING.exit:                             ; preds = %StitchToPreviousBlo
   %.0102.i.lcssa = phi i64 [ %1431, %1418 ], [ %.0102.i480, %.lr.ph484 ], [ %.3105.i, %1491 ]
   %.098.i.lcssa = phi i64 [ %1430, %1418 ], [ %.098.i481, %.lr.ph484 ], [ %.3101.i, %1491 ]
   %1437 = load i32, ptr %1417, align 8, !tbaa !221, !alias.scope !559, !noalias !562
-  %1438 = getelementptr inbounds nuw i32, ptr %1416, i64 %.098.i.lcssa
+  %1438 = getelementptr inbounds nuw [4 x i8], ptr %1416, i64 %.098.i.lcssa
   store i32 %1437, ptr %1438, align 4, !tbaa !59
   br label %StoreAndFindMatchesH10.exit
 
@@ -4489,7 +4484,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %1447, %.critedge.i
   %.idx = shl nuw nsw i64 %1472, 3
   %1473 = getelementptr inbounds nuw i8, ptr %1416, i64 %.idx
   %1474 = load i32, ptr %1473, align 4, !tbaa !59
-  %1475 = getelementptr inbounds nuw i32, ptr %1416, i64 %.098.i481
+  %1475 = getelementptr inbounds nuw [4 x i8], ptr %1416, i64 %.098.i481
   store i32 %1474, ptr %1475, align 4, !tbaa !59
   %1476 = getelementptr inbounds nuw i8, ptr %1473, i64 4
   %1477 = load i32, ptr %1476, align 4, !tbaa !59
@@ -4506,13 +4501,13 @@ FindMatchLengthWithLimit.exit:                    ; preds = %1447, %.critedge.i
   br i1 %1483, label %1486, label %1489
 
 1486:                                             ; preds = %1478
-  %1487 = getelementptr inbounds nuw i32, ptr %1416, i64 %.098.i481
+  %1487 = getelementptr inbounds nuw [4 x i8], ptr %1416, i64 %.098.i481
   store i32 %.093.i.in482, ptr %1487, align 4, !tbaa !59
   %1488 = or disjoint i64 %1485, 1
   br label %1491
 
 1489:                                             ; preds = %1478
-  %1490 = getelementptr inbounds nuw i32, ptr %1416, i64 %.0102.i480
+  %1490 = getelementptr inbounds nuw [4 x i8], ptr %1416, i64 %.0102.i480
   store i32 %.093.i.in482, ptr %1490, align 4, !tbaa !59
   br label %1491
 
@@ -4522,7 +4517,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %1447, %.critedge.i
   %.3105.i = phi i64 [ %.0102.i480, %1486 ], [ %1485, %1489 ]
   %.3101.i = phi i64 [ %1488, %1486 ], [ %.098.i481, %1489 ]
   %.pn.i = phi i64 [ %1488, %1486 ], [ %1485, %1489 ]
-  %.3.in.in.i = getelementptr inbounds nuw i32, ptr %1416, i64 %.pn.i
+  %.3.in.in.i = getelementptr inbounds nuw [4 x i8], ptr %1416, i64 %.pn.i
   %.3.in.i = load i32, ptr %.3.in.in.i, align 4, !tbaa !59
   %1492 = add nsw i64 %.0106.i479, -1
   %.093.i = zext i32 %.3.in.i to i64
@@ -4532,7 +4527,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %1447, %.critedge.i
 StoreAndFindMatchesH10.exit:                      ; preds = %._crit_edge, %1471
   %.0102.i.lcssa.sink = phi i64 [ %.0102.i.lcssa, %._crit_edge ], [ %.0102.i480, %1471 ]
   %.sink = phi i32 [ %1437, %._crit_edge ], [ %1477, %1471 ]
-  %1494 = getelementptr inbounds nuw i32, ptr %1416, i64 %.0102.i.lcssa.sink
+  %1494 = getelementptr inbounds nuw [4 x i8], ptr %1416, i64 %.0102.i.lcssa.sink
   store i32 %.sink, ptr %1494, align 4, !tbaa !59
   %1495 = add nuw nsw i64 %.0.i269490, 1
   %1496 = icmp ult i64 %1495, %1411
@@ -4601,7 +4596,7 @@ ChooseContextMode.exit:                           ; preds = %1509, %1514
   %1532 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %1533 = load ptr, ptr %1532, align 8, !tbaa !61
   %1534 = load i64, ptr %148, align 8, !tbaa !133
-  %1535 = getelementptr inbounds nuw %struct.Command, ptr %1533, i64 %1534
+  %1535 = getelementptr inbounds nuw [16 x i8], ptr %1533, i64 %1534
   %1536 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   switch i32 %1525, label %1539 [
     i32 10, label %1537
@@ -4693,7 +4688,7 @@ ChooseContextMode.exit:                           ; preds = %1509, %1514
   %1584 = load i64, ptr %148, align 8, !tbaa !133
   %1585 = add i64 %1584, 1
   store i64 %1585, ptr %148, align 8, !tbaa !133
-  %1586 = getelementptr inbounds nuw %struct.Command, ptr %1583, i64 %1584
+  %1586 = getelementptr inbounds nuw [16 x i8], ptr %1583, i64 %1584
   %1587 = trunc i64 %1580 to i32
   store i32 %1587, ptr %1586, align 4, !tbaa !569
   %1588 = getelementptr inbounds nuw i8, ptr %1586, i64 4
@@ -4898,7 +4893,7 @@ WrapPosition.exit.i395:                           ; preds = %1675, %GetBrotliSto
   %1709 = getelementptr inbounds nuw i8, ptr %33, i64 %1708
   %1710 = load i8, ptr %1709, align 1, !tbaa !70
   %1711 = zext i8 %1710 to i64
-  %1712 = getelementptr inbounds nuw i32, ptr %6, i64 %1711
+  %1712 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %1711
   %1713 = load i32, ptr %1712, align 4, !tbaa !59
   %1714 = add i32 %1713, 1
   store i32 %1714, ptr %1712, align 4, !tbaa !59
@@ -4921,7 +4916,7 @@ WrapPosition.exit.i395:                           ; preds = %1675, %GetBrotliSto
   br i1 %1721, label %1722, label %1725
 
 1722:                                             ; preds = %.preheader.i.i
-  %1723 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %1718
+  %1723 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %1718
   %1724 = load double, ptr %1723, align 8, !tbaa !587
   br label %FastLog2.exit24.i.i
 
@@ -4942,7 +4937,7 @@ FastLog2.exit24.i.i:                              ; preds = %1725, %1722
   br i1 %1733, label %1734, label %1737
 
 1734:                                             ; preds = %FastLog2.exit24.i.i
-  %1735 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %1730
+  %1735 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %1730
   %1736 = load double, ptr %1735, align 8, !tbaa !587
   br label %FastLog2.exit.i.i
 
@@ -4969,7 +4964,7 @@ FastLog2.exit.i.i:                                ; preds = %1737, %1734
   br i1 %1747, label %1748, label %1751
 
 1748:                                             ; preds = %1745
-  %1749 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %1731
+  %1749 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %1731
   %1750 = load double, ptr %1749, align 8, !tbaa !587
   br label %FastLog2.exit26.i.i
 
@@ -5471,7 +5466,7 @@ define range(i32 0, 2) i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef %0
 
 66:                                               ; preds = %.lr.ph, %62
   %.051 = phi i64 [ 0, %.lr.ph ], [ %63, %62 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %.051
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.051
   %68 = load ptr, ptr %67, align 8, !tbaa !612
   %69 = tail call i32 @AttachPreparedDictionary(ptr noundef nonnull %60, ptr noundef %68) #19
   %.not49 = icmp eq i32 %69, 0
@@ -5950,7 +5945,7 @@ define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef readonly c
 52:                                               ; preds = %.lr.ph, %56
   %.06282 = phi i64 [ 0, %.lr.ph ], [ %58, %56 ]
   %.06481 = phi i64 [ 1320, %.lr.ph ], [ %57, %56 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %.06282
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.06282
   %54 = load ptr, ptr %53, align 8, !tbaa !612
   %55 = tail call i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef %54)
   %.not78.not = icmp eq i64 %55, 0
@@ -5991,7 +5986,7 @@ define hidden i64 @BrotliEncoderGetPreparedDictionarySize(ptr noundef readonly c
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %94
   %.16384 = phi i64 [ %98, %94 ], [ 0, %.lr.ph86.preheader ]
   %.36783 = phi i64 [ %spec.select79, %94 ], [ %.266101, %.lr.ph86.preheader ]
-  %68 = getelementptr inbounds nuw %struct.BrotliEncoderDictionary, ptr %.060103, i64 %.16384
+  %68 = getelementptr inbounds nuw [168 x i8], ptr %.060103, i64 %.16384
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load i64, ptr %69, align 8, !tbaa !626
   %71 = mul i64 %70, 12
@@ -6112,7 +6107,7 @@ define internal fastcc void @ExtendLastCommand(ptr noundef readonly captures(non
   %5 = load ptr, ptr %4, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %7 = load i64, ptr %6, align 8, !tbaa !133
-  %8 = getelementptr %struct.Command, ptr %5, i64 %7
+  %8 = getelementptr [16 x i8], ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %11 = load ptr, ptr %10, align 8, !tbaa !130
@@ -6237,7 +6232,7 @@ CommandRestoreDistanceCode.exit:                  ; preds = %3, %38
 96:                                               ; preds = %96, %92
   %.086 = phi i64 [ 0, %92 ], [ %97, %96 ]
   %97 = add i64 %.086, 1
-  %98 = getelementptr inbounds nuw i64, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !69
   %.not98 = icmp ult i64 %94, %99
   br i1 %.not98, label %100, label %96, !llvm.loop !639
@@ -6249,10 +6244,10 @@ CommandRestoreDistanceCode.exit:                  ; preds = %3, %38
   br i1 %.not99117, label %.critedge, label %.lr.ph122.preheader
 
 .lr.ph122.preheader:                              ; preds = %100
-  %103 = getelementptr inbounds nuw i64, ptr %95, i64 %.086
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %.086
   %104 = load i64, ptr %103, align 8, !tbaa !69
   %105 = sub i64 %99, %104
-  %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %.086
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.086
   %107 = load ptr, ptr %106, align 8, !tbaa !71
   %108 = sub i64 %94, %104
   %.pre126 = load i32, ptr %2, align 4, !tbaa !59
@@ -6294,12 +6289,12 @@ CommandRestoreDistanceCode.exit:                  ; preds = %3, %38
   br i1 %.not100, label %.critedge, label %129
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw ptr, ptr %101, i64 %127
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %127
   %131 = load ptr, ptr %130, align 8, !tbaa !71
-  %132 = getelementptr i64, ptr %95, i64 %.187118
+  %132 = getelementptr [8 x i8], ptr %95, i64 %.187118
   %133 = getelementptr i8, ptr %132, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !69
-  %135 = getelementptr inbounds nuw i64, ptr %95, i64 %127
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %127
   %136 = load i64, ptr %135, align 8, !tbaa !69
   %137 = sub i64 %134, %136
   br label %138
@@ -6642,7 +6637,7 @@ define internal fastcc void @PrepareH4(ptr writeonly captures(none) %.8.val, i32
   %11 = add nuw nsw i32 %10, %8
   %12 = and i32 %11, 131071
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %.8.val, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.8.val, i64 %13
   store i32 0, ptr %14, align 4, !tbaa !59
   %15 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %15, 4
@@ -6688,7 +6683,7 @@ define internal fastcc void @PrepareH5(ptr noalias noundef readonly captures(non
   %12 = mul i32 %.val, 506832829
   %13 = lshr i32 %12, %9
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %14
   store i16 0, ptr %15, align 2, !tbaa !80
   %16 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %16, %2
@@ -6729,7 +6724,7 @@ define internal fastcc void @PrepareH6(ptr noalias noundef readonly captures(non
   %.0.copyload.i.i = load i64, ptr %11, align 1, !alias.scope !664
   %12 = mul i64 %.0.copyload.i.i, %9
   %13 = lshr i64 %12, 49
-  %14 = getelementptr inbounds nuw i16, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %13
   store i16 0, ptr %14, align 2, !tbaa !80
   %15 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6765,9 +6760,9 @@ define internal fastcc void @PrepareH40(ptr noalias noundef captures(none) %0, i
   %10 = mul i32 %.0.copyload.i.i, 506832829
   %11 = lshr i32 %10, 17
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   store i32 -858993460, ptr %13, align 4, !tbaa !59
-  %14 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   store i16 -13108, ptr %14, align 2, !tbaa !80
   %15 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6806,9 +6801,9 @@ define internal fastcc void @PrepareH41(ptr noalias noundef captures(none) %0, i
   %10 = mul i32 %.0.copyload.i.i, 506832829
   %11 = lshr i32 %10, 17
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   store i32 -858993460, ptr %13, align 4, !tbaa !59
-  %14 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   store i16 -13108, ptr %14, align 2, !tbaa !80
   %15 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6847,9 +6842,9 @@ define internal fastcc void @PrepareH42(ptr noalias noundef captures(none) %0, i
   %10 = mul i32 %.0.copyload.i.i, 506832829
   %11 = lshr i32 %10, 17
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   store i32 -858993460, ptr %13, align 4, !tbaa !59
-  %14 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   store i16 -13108, ptr %14, align 2, !tbaa !80
   %15 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -6893,7 +6888,7 @@ define internal fastcc void @PrepareH54(ptr writeonly captures(none) %.8.val, i3
   %11 = add nuw nsw i32 %10, %8
   %12 = and i32 %11, 1048575
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %.8.val, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.8.val, i64 %13
   store i32 0, ptr %14, align 4, !tbaa !59
   %15 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %15, 4
@@ -6940,7 +6935,7 @@ define internal fastcc void @PrepareH58(ptr noalias noundef readonly captures(no
   %13 = lshr i32 %12, %9
   %14 = lshr i32 %13, 8
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %15
   store i16 -1, ptr %16, align 2, !tbaa !80
   %17 = add nuw nsw i64 %.017, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -6981,7 +6976,7 @@ define internal fastcc void @PrepareH68(ptr noalias noundef readonly captures(no
   %.0.copyload.i.i = load i64, ptr %11, align 1, !alias.scope !683
   %12 = mul i64 %.0.copyload.i.i, %9
   %13 = lshr i64 %12, 49
-  %14 = getelementptr inbounds nuw i16, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %13
   store i16 -1, ptr %14, align 2, !tbaa !80
   %15 = add nuw nsw i64 %.017, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -7066,11 +7061,11 @@ define internal fastcc void @PrepareH35(ptr noalias noundef %0, i32 noundef rang
   %.val.i = load i64, ptr %31, align 1, !alias.scope !695
   %32 = mul i64 %.val.i, 8922571613522624512
   %33 = lshr i64 %32, 48
-  %34 = getelementptr inbounds nuw i32, ptr %.val, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %33
   store i32 0, ptr %34, align 4, !tbaa !59, !noalias !695
   %35 = add nuw nsw i64 %33, 8
   %36 = and i64 %35, 65535
-  %37 = getelementptr inbounds nuw i32, ptr %.val, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !59, !noalias !695
   %38 = add nuw nsw i64 %.0142.i, 1
   %exitcond.not.i = icmp eq i64 %38, %2
@@ -7192,7 +7187,7 @@ define internal fastcc void @PrepareH55(ptr noalias noundef %0, i32 noundef rang
   %37 = add nuw nsw i32 %36, %34
   %38 = and i32 %37, 1048575
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %.val, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %39
   store i32 0, ptr %40, align 4, !tbaa !59, !noalias !709
   %41 = add nuw nsw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %41, 4
@@ -7346,7 +7341,7 @@ define internal fastcc void @PrepareH65(ptr noalias noundef %0, i32 noundef rang
   %.0.copyload.i.i.i = load i64, ptr %54, align 1, !alias.scope !730, !noalias !717
   %55 = mul i64 %.0.copyload.i.i.i, %52
   %56 = lshr i64 %55, 49
-  %57 = getelementptr inbounds nuw i16, ptr %49, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %56
   store i16 0, ptr %57, align 2, !tbaa !80, !noalias !733
   %58 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %58, %2
@@ -7454,12 +7449,12 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   %34 = load i8, ptr %33, align 1, !tbaa !70
   %35 = or i8 %34, %31
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @ShouldUseComplexStaticContextMap.kStaticContextMapComplexUTF8, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !59
   %39 = lshr i8 %28, 3
   %40 = zext nneg i8 %39 to i32
   %41 = zext nneg i8 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %8, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !59
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !59
@@ -7467,7 +7462,7 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   %46 = and i32 %45, 8160
   %47 = or disjoint i32 %46, %40
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !59
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4, !tbaa !59
@@ -7496,7 +7491,7 @@ define internal fastcc void @DecideOverLiteralContextModeling(ptr noundef readon
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %.preheader.i
-  %61 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %56
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %56
   %62 = load double, ptr %61, align 8, !tbaa !587
   br label %FastLog2.exit64.i
 
@@ -7517,7 +7512,7 @@ FastLog2.exit64.i:                                ; preds = %63, %60
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %FastLog2.exit64.i
-  %73 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %68
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %68
   %74 = load double, ptr %73, align 8, !tbaa !587
   br label %FastLog2.exit.i
 
@@ -7542,7 +7537,7 @@ FastLog2.exit.i:                                  ; preds = %75, %72
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %69
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %69
   %86 = load double, ptr %85, align 8, !tbaa !587
   br label %FastLog2.exit66.i
 
@@ -7580,7 +7575,7 @@ ShannonEntropy.exit62.i:                          ; preds = %FastLog2.exit66.i, 
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %94
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %94
   %100 = load double, ptr %99, align 8, !tbaa !587
   br label %FastLog2.exit70.i
 
@@ -7601,7 +7596,7 @@ FastLog2.exit70.i:                                ; preds = %101, %98
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %FastLog2.exit70.i
-  %111 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %106
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %106
   %112 = load double, ptr %111, align 8, !tbaa !587
   br label %FastLog2.exit68.i
 
@@ -7626,7 +7621,7 @@ FastLog2.exit68.i:                                ; preds = %113, %110
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %107
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %107
   %124 = load double, ptr %123, align 8, !tbaa !587
   br label %FastLog2.exit72.i
 
@@ -7678,7 +7673,7 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   %141 = load i8, ptr %140, align 1, !tbaa !70
   %142 = lshr i8 %141, 6
   %143 = zext nneg i8 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr @DecideOverLiteralContextModeling.lut, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr @DecideOverLiteralContextModeling.lut, i64 %143
   %.038.in.pre = load i32, ptr %144, align 4, !tbaa !59
   br label %.lr.ph
 
@@ -7691,11 +7686,11 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   %147 = load i8, ptr %146, align 1, !tbaa !70
   %148 = lshr i8 %147, 6
   %149 = zext nneg i8 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr @DecideOverLiteralContextModeling.lut, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr @DecideOverLiteralContextModeling.lut, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !59
   %152 = add nsw i32 %151, %.038
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i32, ptr %8, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %8, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !59
   %156 = add i32 %155, 1
   store i32 %156, ptr %154, align 4, !tbaa !59
@@ -7718,19 +7713,19 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
 
 158:                                              ; preds = %158, %._crit_edge76
   %.088.i = phi i64 [ 0, %._crit_edge76 ], [ %169, %158 ]
-  %159 = getelementptr inbounds nuw i32, ptr %8, i64 %.088.i
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.088.i
   %160 = load i32, ptr %159, align 4, !tbaa !59
   %.lhs.trunc.i = trunc nuw nsw i64 %.088.i to i8
   %161 = urem i8 %.lhs.trunc.i, 3
   %.zext.i = zext nneg i8 %161 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %10, i64 %.zext.i
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.zext.i
   %163 = load i32, ptr %162, align 4, !tbaa !59
   %164 = add i32 %163, %160
   store i32 %164, ptr %162, align 4, !tbaa !59
   %.urem.i = add nsw i64 %.088.i, -6
   %.cmp.i = icmp samesign ult i64 %.088.i, 6
   %165 = select i1 %.cmp.i, i64 %.088.i, i64 %.urem.i
-  %166 = getelementptr inbounds nuw i32, ptr %11, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !59
   %168 = add i32 %167, %160
   store i32 %168, ptr %166, align 4, !tbaa !59
@@ -7751,7 +7746,7 @@ ShouldUseComplexStaticContextMap.exit:            ; preds = %135
   br i1 %175, label %176, label %179
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %172
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %172
   %178 = load double, ptr %177, align 8, !tbaa !587
   br label %FastLog2.exit.i52
 
@@ -7779,7 +7774,7 @@ FastLog2.exit.i52:                                ; preds = %179, %176
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %.preheader.i44
-  %190 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %185
+  %190 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %185
   %191 = load double, ptr %190, align 8, !tbaa !587
   br label %FastLog2.exit51.i
 
@@ -7804,7 +7799,7 @@ FastLog2.exit51.i:                                ; preds = %192, %189
   br i1 %199, label %200, label %203
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %186
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %186
   %202 = load double, ptr %201, align 8, !tbaa !587
   br label %FastLog2.exit49.i
 
@@ -7830,7 +7825,7 @@ ShannonEntropy.exit46.i:                          ; preds = %FastLog2.exit49.i, 
   br i1 %211, label %212, label %215
 
 212:                                              ; preds = %206
-  %213 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %208
+  %213 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %208
   %214 = load double, ptr %213, align 8, !tbaa !587
   br label %FastLog2.exit53.i
 
@@ -7858,7 +7853,7 @@ FastLog2.exit53.i:                                ; preds = %215, %212
   br i1 %225, label %226, label %229
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %222
+  %227 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %222
   %228 = load double, ptr %227, align 8, !tbaa !587
   br label %FastLog2.exit57.i
 
@@ -7882,7 +7877,7 @@ FastLog2.exit57.i:                                ; preds = %229, %226
   br i1 %236, label %237, label %240
 
 237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %223
+  %238 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %223
   %239 = load double, ptr %238, align 8, !tbaa !587
   br label %FastLog2.exit55.i
 
@@ -7909,7 +7904,7 @@ ShannonEntropy.exit40.i:                          ; preds = %FastLog2.exit55.i, 
   br i1 %248, label %249, label %252
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %245
+  %250 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %245
   %251 = load double, ptr %250, align 8, !tbaa !587
   br label %FastLog2.exit59.i
 
@@ -7937,7 +7932,7 @@ FastLog2.exit59.i:                                ; preds = %252, %249
   br i1 %261, label %262, label %265
 
 262:                                              ; preds = %256
-  %263 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %258
+  %263 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %258
   %264 = load double, ptr %263, align 8, !tbaa !587
   br label %FastLog2.exit63.i
 
@@ -7962,7 +7957,7 @@ FastLog2.exit63.i:                                ; preds = %265, %262
   br i1 %273, label %274, label %277
 
 274:                                              ; preds = %271
-  %275 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %259
+  %275 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %259
   %276 = load double, ptr %275, align 8, !tbaa !587
   br label %FastLog2.exit61.i
 
@@ -7995,7 +7990,7 @@ ShannonEntropy.exit34.i:                          ; preds = %FastLog2.exit61.i, 
   br i1 %287, label %288, label %291
 
 288:                                              ; preds = %282
-  %289 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %284
+  %289 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %284
   %290 = load double, ptr %289, align 8, !tbaa !587
   br label %FastLog2.exit65.i
 
@@ -8024,7 +8019,7 @@ FastLog2.exit65.i:                                ; preds = %291, %288
   br i1 %301, label %302, label %305
 
 302:                                              ; preds = %295
-  %303 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %298
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %298
   %304 = load double, ptr %303, align 8, !tbaa !587
   br label %FastLog2.exit69.i
 
@@ -8048,7 +8043,7 @@ FastLog2.exit69.i:                                ; preds = %305, %302
   br i1 %312, label %313, label %316
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %299
+  %314 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %299
   %315 = load double, ptr %314, align 8, !tbaa !587
   br label %FastLog2.exit67.i
 

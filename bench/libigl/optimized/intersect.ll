@@ -62,7 +62,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit.preheader: ; pred
 .preheader36.us:                                  ; preds = %.preheader36.lr.ph, %._crit_edge.us
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge.us ], [ 0, %.preheader36.lr.ph ]
   %.03139.us = phi i32 [ %.2.us, %._crit_edge.us ], [ 0, %.preheader36.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv46
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv46
   %16 = load ptr, ptr %4, align 8
   br label %17
 
@@ -70,14 +70,14 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit.preheader: ; pred
   %indvars.iv = phi i64 [ 0, %.preheader36.us ], [ %indvars.iv.next, %26 ]
   %.137.us = phi i32 [ %.03139.us, %.preheader36.us ], [ %.2.us, %26 ]
   %18 = load i32, ptr %15, align 4, !tbaa !12
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %17
   %23 = sext i32 %.137.us to i64
-  %24 = getelementptr inbounds i32, ptr %16, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %16, i64 %23
   store i32 %18, ptr %24, align 4, !tbaa !12
   %25 = add nsw i32 %.137.us, 1
   br label %26
@@ -136,9 +136,9 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit._crit_edge: ; pre
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next51, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv50
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv50
   %40 = load i32, ptr %39, align 4, !tbaa !12
-  %41 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv50
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv50
   store i32 %40, ptr %41, align 4, !tbaa !12
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count

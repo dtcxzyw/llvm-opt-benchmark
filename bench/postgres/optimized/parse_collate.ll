@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.assign_collations_context = type { ptr, i32, i32, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [61 x i8] c"collation mismatch between implicit collations \22%s\22 and \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [88 x i8] c"You can choose the collation by applying the COLLATE clause to one or both expressions.\00", align 1
@@ -51,7 +50,7 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
 .lr.ph13.i:                                       ; preds = %.lr.ph.i, %.lr.ph13.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph13.i ], [ 0, %.lr.ph.i ]
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
@@ -102,7 +101,7 @@ define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef readon
 .lr.ph13:                                         ; preds = %.lr.ph, %.lr.ph13
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph13 ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
@@ -231,7 +230,7 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
 .lr.ph189:                                        ; preds = %.lr.ph186, %.lr.ph189
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.lr.ph189 ], [ 0, %.lr.ph186 ]
   %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv194
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv194
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %12, ptr %8, align 8
@@ -273,7 +272,7 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
 
 63:                                               ; preds = %.split.split
   %64 = load ptr, ptr %55, align 8
-  %65 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv191
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv191
   br label %66
 
 66:                                               ; preds = %.split.split, %63
@@ -297,7 +296,7 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   br label %assign_list_collations.exit
 
 select_common_collation.exit:                     ; preds = %71
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %72, i64 %indvars.iv191
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv191
   %78 = load ptr, ptr %67, align 8
   %79 = load ptr, ptr %77, align 8
   %80 = load ptr, ptr %1, align 8
@@ -499,7 +498,7 @@ select_common_collation.exit:                     ; preds = %71
 .lr.ph175:                                        ; preds = %.lr.ph, %.lr.ph175
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph175 ], [ 0, %.lr.ph ]
   %184 = load ptr, ptr %181, align 8
-  %185 = getelementptr inbounds nuw %union.ListCell, ptr %184, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
@@ -708,7 +707,7 @@ define internal fastcc void @assign_aggregate_collations(ptr noundef nonnull rea
 .lr.ph16:                                         ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %17 = load i8, ptr %16, align 2, !range !6, !noundef !7
@@ -788,7 +787,7 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
 .lr.ph22:                                         ; preds = %.lr.ph.split.us.split, %.lr.ph22
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph22 ], [ 0, %.lr.ph.split.us.split ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv26
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv26
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @assign_collations_walker(ptr noundef %27, ptr noundef nonnull %1)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
@@ -803,7 +802,7 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
 .lr.ph20:                                         ; preds = %.lr.ph.split.split, %.lr.ph20
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph20 ], [ 0, %.lr.ph.split.split ]
   %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -916,7 +915,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.val32 = load ptr, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %51 = sext i32 %.val to i64
-  %52 = getelementptr inbounds %union.ListCell, ptr %.val32, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val32, i64 %51
   %53 = icmp ult ptr %50, %52
   %..i = select i1 %53, ptr %50, ptr null
   %54 = icmp samesign ugt i32 %.02948, 1
@@ -996,7 +995,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.val34 = load ptr, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.151, i64 8
   %98 = sext i32 %.val33 to i64
-  %99 = getelementptr inbounds %union.ListCell, ptr %.val34, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val34, i64 %98
   %100 = icmp ult ptr %97, %99
   %..i44 = select i1 %100, ptr %97, ptr null
   %101 = load ptr, ptr %10, align 8
@@ -1006,7 +1005,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   %.val36 = load ptr, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.02850, i64 8
   %105 = sext i32 %.val35 to i64
-  %106 = getelementptr inbounds %union.ListCell, ptr %.val36, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %.val36, i64 %105
   %107 = icmp ult ptr %104, %106
   %..i45 = select i1 %107, ptr %104, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

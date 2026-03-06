@@ -1056,7 +1056,7 @@ define dso_local i32 @inet6_recvmsg(ptr noundef readonly captures(none) %0, ptr 
   %29 = or i32 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %31 = zext i32 %24 to i64
-  %32 = getelementptr i32, ptr %30, i64 %31
+  %32 = getelementptr [4 x i8], ptr %30, i64 %31
   %33 = load volatile i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %29
   br i1 %34, label %36, label %35
@@ -1200,7 +1200,7 @@ define dso_local noundef range(i32 -22, 1) i32 @inet6_register_protosw(ptr nound
 
 8:                                                ; preds = %1
   %9 = zext nneg i16 %6 to i64
-  %10 = getelementptr %struct.list_head, ptr @inetsw6, i64 %9
+  %10 = getelementptr [16 x i8], ptr @inetsw6, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %.thread, label %.preheader
@@ -2145,7 +2145,7 @@ define internal i32 @inet6_create(ptr noundef %0, ptr noundef %1, i32 noundef %2
   tail call void @__rcu_read_lock() #14
   %9 = load i16, ptr %6, align 4
   %10 = sext i16 %9 to i64
-  %11 = getelementptr %struct.list_head, ptr @inetsw6, i64 %10
+  %11 = getelementptr [16 x i8], ptr @inetsw6, i64 %10
   %12 = load volatile ptr, ptr %11, align 16
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %.loopexit.split.us.us, label %.split.us.us
@@ -2191,7 +2191,7 @@ define internal i32 @inet6_create(ptr noundef %0, ptr noundef %1, i32 noundef %2
   tail call void @__rcu_read_lock() #14
   %33 = load i16, ptr %6, align 4
   %34 = sext i16 %33 to i64
-  %35 = getelementptr %struct.list_head, ptr @inetsw6, i64 %34
+  %35 = getelementptr [16 x i8], ptr @inetsw6, i64 %34
   %36 = load volatile ptr, ptr %35, align 16
   %37 = icmp eq ptr %36, %35
   br i1 %37, label %.loopexit.split, label %.split

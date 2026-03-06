@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct.dt_wb_data = type { ptr, ptr, ptr, i32, [4 x double] }
 
 @Daylight = local_unnamed_addr constant [9 x i8] c"daylight\00", align 1
 @DirectSunlight = local_unnamed_addr constant [16 x i8] c"direct sunlight\00", align 16
@@ -92,7 +91,7 @@ define i32 @dt_wb_presets_count() local_unnamed_addr #0 {
 define ptr @dt_wb_preset(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.dt_wb_data, ptr %2, i64 %3
+  %4 = getelementptr inbounds [64 x i8], ptr %2, i64 %3
   ret ptr %4
 }
 
@@ -306,7 +305,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %89 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %90 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.dt_wb_data, ptr %89, i64 %91
+  %92 = getelementptr inbounds [64 x i8], ptr %89, i64 %91
   store ptr %88, ptr %92, align 8, !tbaa !54
   call void @json_reader_end_member(ptr noundef %40) #11
   %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
@@ -318,7 +317,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %96 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %97 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.dt_wb_data, ptr %96, i64 %98
+  %99 = getelementptr inbounds [64 x i8], ptr %96, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !54
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef %100) #11
   br label %101
@@ -396,7 +395,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %132 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %133 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds %struct.dt_wb_data, ptr %132, i64 %134
+  %135 = getelementptr inbounds [64 x i8], ptr %132, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr %131, ptr %136, align 8, !tbaa !56
   call void @json_reader_end_member(ptr noundef %40) #11
@@ -409,7 +408,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %140 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %141 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %struct.dt_wb_data, ptr %140, i64 %142
+  %143 = getelementptr inbounds [64 x i8], ptr %140, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !56
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef %145) #11
@@ -454,13 +453,13 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %161 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %162 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds %struct.dt_wb_data, ptr %161, i64 %163
+  %164 = getelementptr inbounds [64 x i8], ptr %161, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !54
   %166 = icmp eq ptr %165, null
   br i1 %166, label %167, label %170
 
 167:                                              ; preds = %160
-  %168 = getelementptr inbounds %struct.dt_wb_data, ptr %161, i64 %114
+  %168 = getelementptr inbounds [64 x i8], ptr %161, i64 %114
   %169 = load ptr, ptr %168, align 8, !tbaa !54
   store ptr %169, ptr %164, align 8, !tbaa !54
   %.pre = load ptr, ptr @wb_presets, align 8, !tbaa !10
@@ -468,14 +467,14 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
 
 170:                                              ; preds = %167, %160
   %171 = phi ptr [ %.pre, %167 ], [ %161, %160 ]
-  %172 = getelementptr inbounds %struct.dt_wb_data, ptr %171, i64 %163
+  %172 = getelementptr inbounds [64 x i8], ptr %171, i64 %163
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !56
   %175 = icmp eq ptr %174, null
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds %struct.dt_wb_data, ptr %171, i64 %159
+  %177 = getelementptr inbounds [64 x i8], ptr %171, i64 %159
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !56
   store ptr %179, ptr %173, align 8, !tbaa !56
@@ -504,7 +503,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %191 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %192 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds %struct.dt_wb_data, ptr %191, i64 %193
+  %194 = getelementptr inbounds [64 x i8], ptr %191, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store ptr %190, ptr %195, align 8, !tbaa !57
   call void @json_reader_end_member(ptr noundef %40) #11
@@ -514,7 +513,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %199 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %200 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds %struct.dt_wb_data, ptr %199, i64 %201
+  %202 = getelementptr inbounds [64 x i8], ptr %199, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store i32 %198, ptr %203, align 8, !tbaa !58
   call void @json_reader_end_member(ptr noundef %40) #11
@@ -538,9 +537,9 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   %214 = load ptr, ptr @wb_presets, align 8, !tbaa !10
   %215 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %216 = sext i32 %215 to i64
-  %217 = getelementptr inbounds %struct.dt_wb_data, ptr %214, i64 %216
+  %217 = getelementptr inbounds [64 x i8], ptr %214, i64 %216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
-  %219 = getelementptr inbounds nuw double, ptr %218, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %indvars.iv
   store double %213, ptr %219, align 8, !tbaa !59
   call void @json_reader_end_element(ptr noundef %40) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -572,7 +571,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %225, ptr @wb_presets, align 8, !tbaa !10
   %232 = load i32, ptr @wb_presets_count, align 4, !tbaa !6
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds %struct.dt_wb_data, ptr %225, i64 %233
+  %234 = getelementptr inbounds [64 x i8], ptr %225, i64 %233
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128000) %234, i8 0, i64 128000, i1 false)
   br label %235
 
@@ -734,15 +733,15 @@ define void @dt_wb_preset_interpolate(ptr noundef readonly captures(none) %0, pt
 
 26:                                               ; preds = %19, %26
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %28 = load double, ptr %27, align 8, !tbaa !59
   %29 = fdiv reassoc nsz arcp contract afn double %21, %28
-  %30 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %31 = load double, ptr %30, align 8, !tbaa !59
   %32 = fdiv reassoc nsz arcp contract afn double %20, %31
   %33 = fadd reassoc nsz arcp contract afn double %32, %29
   %34 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %33
-  %35 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store double %34, ptr %35, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

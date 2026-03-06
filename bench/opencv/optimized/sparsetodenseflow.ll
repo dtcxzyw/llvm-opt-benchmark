@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.cv::Point_" = type { float, float }
 
 $_ZNSt12__shared_ptrIN2cv8ximgproc21EdgeAwareInterpolatorELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -569,7 +568,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %217, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %211, ptr %28, align 8, !tbaa !42
   store ptr %216, ptr %177, align 8, !tbaa !41
-  %218 = getelementptr inbounds nuw %"class.cv::Point_", ptr %211, i64 %209
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %209
   store ptr %218, ptr %178, align 8, !tbaa !38
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
 
@@ -687,7 +686,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vecto
   br i1 %.not, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit155, label %257
 
 257:                                              ; preds = %251
-  %258 = getelementptr inbounds nuw %"class.cv::Point_", ptr %252, i64 %253
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %253
   %259 = load ptr, ptr %244, align 8, !tbaa !41
   %260 = load ptr, ptr %245, align 8, !tbaa !38
   %.not.i = icmp eq ptr %259, %260
@@ -761,13 +760,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %284, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %277, ptr %32, align 8, !tbaa !42
   store ptr %283, ptr %244, align 8, !tbaa !41
-  %285 = getelementptr inbounds nuw %"class.cv::Point_", ptr %277, i64 %275
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %275
   store ptr %285, ptr %245, align 8, !tbaa !38
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %261
   %286 = load ptr, ptr %29, align 8, !tbaa !42
-  %287 = getelementptr inbounds nuw %"class.cv::Point_", ptr %286, i64 %253
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %253
   %288 = load ptr, ptr %246, align 8, !tbaa !41
   %289 = load ptr, ptr %247, align 8, !tbaa !38
   %.not.i140 = icmp eq ptr %288, %289
@@ -834,7 +833,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i149: 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i152: ; preds = %313, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i149
   store ptr %306, ptr %33, align 8, !tbaa !42
   store ptr %312, ptr %246, align 8, !tbaa !41
-  %314 = getelementptr inbounds nuw %"class.cv::Point_", ptr %306, i64 %304
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %304
   store ptr %314, ptr %247, align 8, !tbaa !38
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit155
 

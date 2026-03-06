@@ -76,11 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.86" = type { %"class.std::__shared_ptr.87" }
 %"class.std::__shared_ptr.87" = type { ptr, %"class.std::__shared_count" }
 %"struct.arrow_vendored_private::flatbuffers::Offset.70" = type { i32 }
-%"struct.org::apache::arrow::flatbuf::FieldNode" = type { i64, i64 }
-%"struct.arrow::ipc::internal::FieldMetadata" = type { i64, i64, i64 }
-%"struct.arrow::ipc::internal::BufferMetadata" = type { i64, i64 }
 %"struct.org::apache::arrow::flatbuf::Buffer" = type { i64, i64 }
-%"struct.arrow_vendored_private::flatbuffers::Offset.95" = type { i32 }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr.126", ptr }
 %"class.std::unique_ptr.126" = type { %"struct.std::__uniq_ptr_data.127" }
 %"struct.std::__uniq_ptr_data.127" = type { %"class.std::__uniq_ptr_impl.128" }
@@ -105,7 +101,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.57" = type { %"struct.std::_Tuple_impl.58" }
 %"struct.std::_Tuple_impl.58" = type { %"struct.std::_Head_base.61" }
 %"struct.std::_Head_base.61" = type { ptr }
-%"struct.org::apache::arrow::flatbuf::Block" = type { i64, i32, i32, i64 }
 %"class.std::shared_ptr.116" = type { %"class.std::__shared_ptr.117" }
 %"class.std::__shared_ptr.117" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.306" = type { %"class.std::__shared_ptr.307" }
@@ -122,7 +117,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.arrow_vendored_private::flatbuffers::Verifier::Options" = type <{ i32, i32, i8, i8, [6 x i8], i64, i8, [7 x i8] }>
 %"class.arrow::Result.155" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.158" }
 %"class.arrow::internal::AlignedStorage.158" = type { [8 x i8] }
-%"struct.arrow_vendored_private::flatbuffers::Offset.169" = type { i32 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 
 $_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_ = comdat any
@@ -7668,7 +7662,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i
-  %61 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.146", ptr %54, i64 %52
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %52
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %40
@@ -8645,7 +8639,7 @@ define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBat
 .lr.ph.preheader.i:                               ; preds = %20
   %21 = shl nuw nsw i64 %18, 4
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25, !noalias !427
-  %23 = getelementptr inbounds nuw %"struct.org::apache::arrow::flatbuf::FieldNode", ptr %22, i64 %18
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %18
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
@@ -8655,7 +8649,7 @@ define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_115MakeRecordBat
   %.sroa.18.069.i = phi ptr [ %.sroa.18.2.ph.i, %56 ], [ %23, %.lr.ph.preheader.i ]
   %.sroa.12.068.i = phi ptr [ %.sroa.12.1.ph.i, %56 ], [ %22, %.lr.ph.preheader.i ]
   %.sroa.0.067.i = phi ptr [ %.sroa.0.2.ph.i, %56 ], [ %22, %.lr.ph.preheader.i ]
-  %26 = getelementptr inbounds nuw %"struct.arrow::ipc::internal::FieldMetadata", ptr %24, i64 %.01770.i
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01770.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !434, !noalias !427
   %.not.i = icmp eq i64 %28, 0
@@ -8739,7 +8733,7 @@ _ZNSt6vectorIN3org6apache5arrow7flatbuf9FieldNodeESaIS4_EE17_M_realloc_insertIJR
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.067.i, i64 noundef %39) #23, !noalias !427
   %.pre81.pre.i = load ptr, ptr %3, align 8, !tbaa !433, !noalias !427
   %.pre.pre.i = load ptr, ptr %12, align 8, !tbaa !430, !noalias !427
-  %55 = getelementptr inbounds nuw %"struct.org::apache::arrow::flatbuf::FieldNode", ptr %48, i64 %46
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %46
   br label %56
 
 56:                                               ; preds = %_ZNSt6vectorIN3org6apache5arrow7flatbuf9FieldNodeESaIS4_EE17_M_realloc_insertIJRKlS9_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %32
@@ -8864,7 +8858,7 @@ _ZN5arrow6StatusD2Ev.exit33:                      ; preds = %_ZN5arrow6StatusD2E
   %.sroa.18.047.i = phi ptr [ %.sroa.18.3.i, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE12emplace_backIJRKlS9_EEERS4_DpOT_.exit.i ], [ %92, %.lr.ph.preheader.i35 ]
   %.sroa.12.046.i = phi ptr [ %.sroa.12.2.i, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE12emplace_backIJRKlS9_EEERS4_DpOT_.exit.i ], [ %91, %.lr.ph.preheader.i35 ]
   %.sroa.0.045.i = phi ptr [ %.sroa.0.3.i, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE12emplace_backIJRKlS9_EEERS4_DpOT_.exit.i ], [ %91, %.lr.ph.preheader.i35 ]
-  %100 = getelementptr inbounds nuw %"struct.arrow::ipc::internal::BufferMetadata", ptr %98, i64 %.01248.i
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %.01248.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.not.i.i37 = icmp eq ptr %.sroa.12.046.i, %.sroa.18.047.i
   br i1 %.not.i.i37, label %106, label %102
@@ -8928,7 +8922,7 @@ _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJRKlS
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.045.i, i64 noundef %109) #23, !noalias !455
   %.pre56.pre.i = load ptr, ptr %4, align 8, !tbaa !458, !noalias !455
   %.pre.pre.i53 = load ptr, ptr %83, align 8, !tbaa !452, !noalias !455
-  %125 = getelementptr inbounds nuw %"struct.org::apache::arrow::flatbuf::Buffer", ptr %118, i64 %116
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %116
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE12emplace_backIJRKlS9_EEERS4_DpOT_.exit.i
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE12emplace_backIJRKlS9_EEERS4_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJRKlS9_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %102
@@ -9416,7 +9410,7 @@ _ZN5arrow6StatusD2Ev.exit57:                      ; preds = %_ZNSt12__shared_ptr
 140:                                              ; preds = %136
   %141 = load i32, ptr %19, align 8, !tbaa !299
   %142 = load ptr, ptr %117, align 8, !tbaa !502
-  %143 = getelementptr inbounds nuw i64, ptr %142, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv
   %144 = load i64, ptr %143, align 8, !tbaa !98
   store i8 1, ptr %22, align 8, !tbaa !303
   invoke void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIlEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %5, i16 noundef zeroext 4, i64 noundef %144, i64 noundef 0)
@@ -9628,7 +9622,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %232, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
-  %233 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.95", ptr %227, i64 %225
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %225
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE9push_backEOS8_.exit
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE9push_backEOS8_.exit: ; preds = %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %214
@@ -10778,7 +10772,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorI
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %45, %.lr.ph ], [ %2, %3 ]
   %45 = add i64 %.07, -1
-  %46 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.95", ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   %.sroa.0.0.copyload = load i32, ptr %46, align 4, !tbaa !13
   %47 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIN3org6apache5arrow7flatbuf9TensorDimENS0_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 %.sroa.0.0.copyload)
   %.not = icmp eq i64 %45, 0
@@ -11424,7 +11418,7 @@ _ZN5arrow6StatusD2Ev.exit55._crit_edge.i:         ; preds = %_ZNSt6vectorIN22arr
 101:                                              ; preds = %97
   %102 = load i32, ptr %28, align 8, !tbaa !299, !noalias !538
   %103 = load ptr, ptr %75, align 8, !tbaa !502, !noalias !538
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.i
   %105 = load i64, ptr %104, align 8, !tbaa !98, !noalias !538
   store i8 1, ptr %31, align 8, !tbaa !303, !noalias !538
   invoke void @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIlEEvtT_S4_(ptr noundef nonnull align 8 dereferenceable(128) %20, i16 noundef zeroext 4, i64 noundef %105, i64 noundef 0)
@@ -11636,7 +11630,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %193, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i
-  %194 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.95", ptr %188, i64 %186
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %186
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE9push_backEOS8_.exit.i
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE9push_backEOS8_.exit.i: ; preds = %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf9TensorDimEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, %175
@@ -12646,7 +12640,7 @@ _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE11_S_relocateEPS4_S7_S7_R
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i.i: ; preds = %679, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i.i.i
-  %680 = getelementptr inbounds nuw %"struct.org::apache::arrow::flatbuf::Buffer", ptr %675, i64 %673
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %675, i64 %673
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE9push_backEOS4_.exit.i.i.i
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE9push_backEOS4_.exit.i.i.i: ; preds = %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i.i.i, %662
@@ -12907,7 +12901,7 @@ _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE11_S_relocateEPS4_S7_S7_R
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i125.i.i.i
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i125.i.i.i: ; preds = %782, %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i122.i.i.i
-  %783 = getelementptr inbounds nuw %"struct.org::apache::arrow::flatbuf::Buffer", ptr %778, i64 %776
+  %783 = getelementptr inbounds nuw [16 x i8], ptr %778, i64 %776
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE9push_backEOS4_.exit128.i.i.i
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE9push_backEOS4_.exit128.i.i.i: ; preds = %_ZNSt6vectorIN3org6apache5arrow7flatbuf6BufferESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i125.i.i.i, %765
@@ -12980,7 +12974,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE21CreateVec
   %.sroa.10.0133.i.i.i = phi ptr [ null, %.lr.ph136.preheader.i.i.i ], [ %.sroa.10.1.i.i.i, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i.i.i ]
   %.sroa.02.0132.i.i.i = phi ptr [ null, %.lr.ph136.preheader.i.i.i ], [ %.sroa.02.1.i.i.i, %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i.i.i ]
   %802 = load ptr, ptr %473, align 8, !tbaa !502, !noalias !602
-  %803 = getelementptr inbounds nuw i64, ptr %802, i64 %indvars.iv.i.i.i
+  %803 = getelementptr inbounds nuw [8 x i8], ptr %802, i64 %indvars.iv.i.i.i
   %804 = load i64, ptr %803, align 8, !tbaa !98, !noalias !602
   %805 = trunc i64 %804 to i32
   %.not.i132.i.i.i = icmp eq ptr %.sroa.10.0133.i.i.i, %.sroa.14.0134.i.i.i
@@ -13036,7 +13030,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %822,
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i: ; preds = %823, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i
-  %824 = getelementptr inbounds nuw i32, ptr %819, i64 %817
+  %824 = getelementptr inbounds nuw [4 x i8], ptr %819, i64 %817
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i.i.i: ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i, %806
@@ -13416,7 +13410,7 @@ _ZN5arrow6StatusD2Ev.exit102.i:                   ; preds = %_ZN5arrow6StatusD2E
   %.sroa.0.1125.i = phi i32 [ %.sroa.0.0.i, %_ZN5arrow6StatusD2Ev.exit100.thread.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit100.i ]
   %.1119124.i = phi i8 [ %.0118.i, %_ZN5arrow6StatusD2Ev.exit100.thread.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit100.i ]
   %960 = load ptr, ptr %3, align 8, !tbaa !458, !noalias !538
-  %961 = getelementptr inbounds nuw %"struct.arrow::ipc::internal::BufferMetadata", ptr %960, i64 %.1126.i
+  %961 = getelementptr inbounds nuw [16 x i8], ptr %960, i64 %.1126.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !538
   %962 = load i64, ptr %961, align 8, !tbaa !577, !noalias !538
   %963 = getelementptr inbounds nuw i8, ptr %961, i64 8
@@ -14282,7 +14276,7 @@ _ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE11_S_relocateEPS4_S7_S7_RS
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE17_M_realloc_insertIJRKlRKiS9_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE17_M_realloc_insertIJRKlRKiS9_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit34.i.i
-  %39 = getelementptr inbounds nuw %"struct.org::apache::arrow::flatbuf::Block", ptr %28, i64 %26
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %26
   br label %_ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE12emplace_backIJRKlRKiS9_EEERS4_DpOT_.exit
 
 _ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE12emplace_backIJRKlRKiS9_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorIN3org6apache5arrow7flatbuf5BlockESaIS4_EE17_M_realloc_insertIJRKlRKiS9_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %9
@@ -14789,7 +14783,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE17_S_check_init_lenEmRKS4_.ex
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i63.preheader: ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %66, ptr %8, align 8, !tbaa !119
-  %67 = getelementptr inbounds nuw %"class.std::shared_ptr.8", ptr %66, i64 %60
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %60
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %66, i8 0, i64 %65, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -14837,7 +14831,7 @@ _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %.sroa.4.8.insert.ext.i = zext i32 %92 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %indvars.iv
-  %93 = getelementptr inbounds nuw %"class.std::shared_ptr.8", ptr %66, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv
   invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %90, ptr nonnull %7, i64 %.sroa.2.8.insert.insert.i, ptr noundef %2, ptr noundef %93)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %96
 
@@ -15499,7 +15493,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE6resizeEm.exit: ; preds = %_Z
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %76, i8 0, i64 %75, i1 false)
   store ptr %76, ptr %14, align 8, !tbaa !119
-  %78 = getelementptr inbounds nuw %"class.std::shared_ptr.8", ptr %76, i64 %73
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %73
   store ptr %78, ptr %74, align 8, !tbaa !116
   store ptr %78, ptr %77, align 8, !tbaa !199
   %.not145379 = icmp sgt i32 %72, 0
@@ -15536,7 +15530,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EE6resizeEm.exit: ; preds = %_Z
   %.sroa.4.8.insert.ext.i = zext i32 %94 to i64
   %.sroa.4.8.insert.shift.i = shl nuw i64 %.sroa.4.8.insert.ext.i, 32
   %.sroa.2.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %indvars.iv
-  %95 = getelementptr inbounds nuw %"class.std::shared_ptr.8", ptr %76, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv
   invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_119FieldFromFlatbufferEPKN3org6apache5arrow7flatbuf5FieldENS1_13FieldPositionEPNS0_14DictionaryMemoEPSt10shared_ptrINS_5FieldEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %92, ptr nonnull %10, i64 %.sroa.2.8.insert.insert.i, ptr noundef %4, ptr noundef %95)
           to label %_ZN5arrow6StatusD2Ev.exit208 unwind label %98
 
@@ -16956,7 +16950,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %660
 
 .noexc308:                                        ; preds = %.noexc9.i
   store ptr %666, ptr %37, align 8, !tbaa !786, !alias.scope !783
-  %667 = getelementptr inbounds nuw i32, ptr %666, i64 %663
+  %667 = getelementptr inbounds nuw [4 x i8], ptr %666, i64 %663
   %668 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %667, ptr %668, align 8, !tbaa !788, !alias.scope !783
   store i32 0, ptr %666, align 4, !tbaa !13, !noalias !783
@@ -16988,7 +16982,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc308
   %677 = add nsw i64 %indvars.iv.i, -1
   %678 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %679 = load i32, ptr %678, align 8, !tbaa !343, !noalias !783
-  %680 = getelementptr inbounds nuw i32, ptr %666, i64 %677
+  %680 = getelementptr inbounds nuw [4 x i8], ptr %666, i64 %677
   store i32 %679, ptr %680, align 4, !tbaa !13, !noalias !783
   %681 = load ptr, ptr %.0810.i, align 8, !tbaa !340, !noalias !783
   %682 = trunc nuw i64 %indvars.iv.i to i32
@@ -17810,7 +17804,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %135, %_Z
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %137, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %132, ptr %3, align 8, !tbaa !502
   store ptr %136, ptr %68, align 8, !tbaa !500
-  %138 = getelementptr inbounds nuw i64, ptr %132, i64 %130
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %130
   store ptr %138, ptr %69, align 8, !tbaa !768
   %.pre = load i32, ptr %101, align 4, !tbaa !13
   %.pre108 = sext i32 %.pre to i64
@@ -18007,7 +18001,7 @@ _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %209 = zext i32 %208 to i64
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
-  %212 = getelementptr inbounds nuw i64, ptr %211, i64 %indvars.iv90
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv90
   %213 = load i64, ptr %212, align 8, !tbaa !98
   %.not.i.i66 = icmp eq ptr %199, %198
   br i1 %.not.i.i66, label %216, label %214
@@ -18062,7 +18056,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70: ; preds = %232, %
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i72: ; preds = %234, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i70
   store ptr %229, ptr %4, align 8, !tbaa !502
   store ptr %233, ptr %195, align 8, !tbaa !500
-  %235 = getelementptr inbounds nuw i64, ptr %229, i64 %227
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %227
   store ptr %235, ptr %196, align 8, !tbaa !768
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit73
 
@@ -18448,7 +18442,7 @@ _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !13
   %75 = sext i32 %74 to i64
   %76 = load ptr, ptr %57, align 8, !tbaa !500
@@ -18510,7 +18504,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   %.pre51.pre-phi = phi i64 [ %.pre54, %98 ], [ %63, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i ]
   store ptr %93, ptr %2, align 8, !tbaa !502
   store ptr %97, ptr %57, align 8, !tbaa !500
-  %99 = getelementptr inbounds nuw i64, ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %99, ptr %58, align 8, !tbaa !768
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -18585,7 +18579,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i40: ; preds = %132, %
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i42: ; preds = %134, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i40
   store ptr %129, ptr %3, align 8, !tbaa !502
   store ptr %133, ptr %59, align 8, !tbaa !500
-  %135 = getelementptr inbounds nuw i64, ptr %129, i64 %127
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %127
   store ptr %135, ptr %60, align 8, !tbaa !768
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit43
 
@@ -18860,7 +18854,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %135, %_Z
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %137, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %132, ptr %3, align 8, !tbaa !502
   store ptr %136, ptr %72, align 8, !tbaa !500
-  %138 = getelementptr inbounds nuw i64, ptr %132, i64 %130
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %130
   store ptr %138, ptr %73, align 8, !tbaa !768
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -19804,7 +19798,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %27
   %35 = shl nuw nsw i64 %33, 2
   %36 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #25, !noalias !889
   store ptr %36, ptr %6, align 8, !tbaa !786, !alias.scope !889
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %33
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %37, ptr %38, align 8, !tbaa !788, !alias.scope !889
   store i32 0, ptr %36, align 4, !tbaa !13, !noalias !889
@@ -19836,7 +19830,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc9.i
   %47 = add nsw i64 %indvars.iv.i, -1
   %48 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !343, !noalias !889
-  %50 = getelementptr inbounds nuw i32, ptr %36, i64 %47
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %47
   store i32 %49, ptr %50, align 4, !tbaa !13, !noalias !889
   %51 = load ptr, ptr %.0810.i, align 8, !tbaa !340, !noalias !889
   %52 = trunc nuw i64 %indvars.iv.i to i32
@@ -20141,7 +20135,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
 
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %171, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
   store ptr %170, ptr %.phi.trans.insert116, align 8, !tbaa !905
-  %172 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.169", ptr %165, i64 %163
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %163
   store ptr %172, ptr %133, align 8, !tbaa !383
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE9push_backEOS8_.exit
 
@@ -20654,7 +20648,7 @@ _ZNSt12_Vector_baseIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5a
   store ptr %21, ptr %2, align 8, !tbaa !381
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %26, ptr %16, align 8, !tbaa !905
-  %27 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.169", ptr %21, i64 %4
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %4
   store ptr %27, ptr %8, align 8, !tbaa !383
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE7reserveEm.exit
 
@@ -20750,7 +20744,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %65, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
   store ptr %59, ptr %2, align 8, !tbaa !381
   store ptr %64, ptr %31, align 8, !tbaa !905
-  %66 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.169", ptr %59, i64 %57
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %57
   store ptr %66, ptr %8, align 8, !tbaa !383
   br label %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf8KeyValueEEESaIS8_EE9push_backEOS8_.exit
 
@@ -20856,7 +20850,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorI
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %45, %.lr.ph ], [ %2, %3 ]
   %45 = add i64 %.07, -1
-  %46 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.146", ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   %.sroa.0.0.copyload = load i32, ptr %46, align 4, !tbaa !13
   %47 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIN3org6apache5arrow7flatbuf5FieldENS0_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 %.sroa.0.0.copyload)
   %.not = icmp eq i64 %45, 0
@@ -23144,7 +23138,7 @@ _ZN5arrow6StatusD2Ev.exit:
 .lr.ph.preheader:                                 ; preds = %19
   %20 = shl nuw nsw i64 %17, 2
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #25
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %17
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %17
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
@@ -23222,7 +23216,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %47, %.no
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %48, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %42
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %42
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %31
@@ -24251,7 +24245,7 @@ define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbu
   store float 1.000000e+00, ptr %27, align 8, !tbaa !360
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %40 = getelementptr inbounds nuw %"class.std::shared_ptr.8", ptr %35, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv
   invoke fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef %4)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %43
 
@@ -24342,7 +24336,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7fl
 _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i
   store ptr %63, ptr %29, align 8, !tbaa !373
   store ptr %69, ptr %30, align 8, !tbaa !912
-  %71 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.146", ptr %63, i64 %61
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %71, ptr %31, align 8, !tbaa !376
   br label %.critedge
 
@@ -24910,7 +24904,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %12 = load i64, ptr %11, align 8, !tbaa !359
   %13 = urem i64 %7, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !352
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !1285
   %.not.i.i = icmp eq ptr %16, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !100
@@ -25099,7 +25093,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %2, ptr %32, align 8, !tbaa !1286
   %33 = load ptr, ptr %0, align 8, !tbaa !352
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !1285
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -25125,7 +25119,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %46 = load i64, ptr %45, align 8, !tbaa !1286
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !1285
   br label %49
 
@@ -25232,7 +25226,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !1286
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !1285
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -25247,7 +25241,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !1285
   br label %28
 
@@ -25894,7 +25888,7 @@ _ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorI
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %45, %.lr.ph ], [ %2, %3 ]
   %45 = add i64 %.07, -1
-  %46 = getelementptr inbounds nuw %"struct.arrow_vendored_private::flatbuffers::Offset.169", ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   %.sroa.0.0.copyload = load i32, ptr %46, align 4, !tbaa !13
   %47 = tail call noundef i32 @_ZN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIN3org6apache5arrow7flatbuf8KeyValueENS0_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 %.sroa.0.0.copyload)
   %.not = icmp eq i64 %45, 0
@@ -41191,7 +41185,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !1363
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !822
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !824
   ret void
 }

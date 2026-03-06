@@ -433,7 +433,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
   %130 = urem i64 %129, %112
-  %131 = getelementptr inbounds ptr, ptr %125, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %125, i64 %130
   store ptr %113, ptr %131, align 8
   br label %_ZNSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEEC2EOSD_.exit
 
@@ -674,13 +674,13 @@ define dso_local noundef i32 @_ZN9Stockfish4Eval11simple_evalERKNS_8PositionENS_
   %4 = shl i32 %1, 3
   %5 = or disjoint i32 %4, 1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = xor i32 %1, 1
   %10 = shl i32 %9, 3
   %11 = or disjoint i32 %10, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sub nsw i32 %8, %14
   %16 = mul nsw i32 %15, 208
@@ -688,10 +688,10 @@ define dso_local noundef i32 @_ZN9Stockfish4Eval11simple_evalERKNS_8PositionENS_
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = zext i32 %1 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %9 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %16, %22
   %27 = sub i32 %26, %25
@@ -707,13 +707,13 @@ define dso_local noundef range(i32 -31506, 31507) i32 @_ZN9Stockfish4Eval8evalua
   %7 = shl i32 %5, 3
   %8 = or disjoint i32 %7, 1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %5, 1
   %13 = shl i32 %12, 3
   %14 = or disjoint i32 %13, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %11, %17
   %19 = mul nsw i32 %18, 208
@@ -721,10 +721,10 @@ define dso_local noundef range(i32 -31506, 31507) i32 @_ZN9Stockfish4Eval8evalua
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = zext i32 %5 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %12 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %19, %25
   %30 = sub i32 %29, %28

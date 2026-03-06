@@ -457,7 +457,7 @@ _ZNSt12__shared_ptrIN2cv8datasets14SLAM_tumindoorELN9__gnu_cxx12_Lock_policyE2EE
 
 158:                                              ; preds = %.preheader, %158
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %158 ]
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %159 = load double, ptr %gep, align 8, !tbaa !46
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %159)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

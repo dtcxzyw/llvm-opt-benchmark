@@ -896,7 +896,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add.i669 = add i32 %xor2.i6.i668, %X.sroa.135.11576
   %add2.i670 = add i32 %add.i669, %add3.i580
   %add3.i671 = add i32 %add2.i670, %xor2.i.i663
-  %arrayidx192 = getelementptr inbounds nuw i32, ptr @K256, i64 %indvars.iv
+  %arrayidx192 = getelementptr inbounds nuw [4 x i8], ptr @K256, i64 %indvars.iv
   %22 = load i32, ptr %arrayidx192, align 16
   %or.i.i.i672 = tail call i32 @llvm.fshl.i32(i32 %e.01572, i32 %e.01572, i32 26)
   %or.i3.i.i673 = tail call i32 @llvm.fshl.i32(i32 %e.01572, i32 %e.01572, i32 21)
@@ -1409,7 +1409,7 @@ if.end:                                           ; preds = %if.then, %entry
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %for.body ], [ 0, %if.end ]
   %md.addr.041 = phi ptr [ %add.ptr13, %for.body ], [ %md, %if.end ]
-  %arrayidx12 = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv45
+  %arrayidx12 = getelementptr inbounds nuw [4 x i8], ptr %c, i64 %indvars.iv45
   %4 = load i32, ptr %arrayidx12, align 4
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %or7.i.i, ptr %md.addr.041, align 1
@@ -1429,7 +1429,7 @@ for.cond20.preheader:                             ; preds = %sw.default
 for.body24:                                       ; preds = %for.cond20.preheader, %for.body24
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body24 ], [ 0, %for.cond20.preheader ]
   %md.addr.139 = phi ptr [ %add.ptr28, %for.body24 ], [ %md, %for.cond20.preheader ]
-  %arrayidx27 = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [4 x i8], ptr %c, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx27, align 4
   %or7.i.i35 = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %or7.i.i35, ptr %md.addr.139, align 1
@@ -1545,7 +1545,7 @@ if.end.i7:                                        ; preds = %if.then.i, %SHA256_
 for.body.i:                                       ; preds = %if.end.i7, %for.body.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %for.body.i ], [ 0, %if.end.i7 ]
   %md.addr.041.i = phi ptr [ %add.ptr13.i, %for.body.i ], [ %spec.store.select, %if.end.i7 ]
-  %arrayidx12.i12 = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv45.i
+  %arrayidx12.i12 = getelementptr inbounds nuw [4 x i8], ptr %c, i64 %indvars.iv45.i
   %5 = load i32, ptr %arrayidx12.i12, align 4
   %or7.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %or7.i.i.i, ptr %md.addr.041.i, align 1
@@ -1567,7 +1567,7 @@ for.body24.i.preheader:                           ; preds = %sw.default.i
 for.body24.i:                                     ; preds = %for.body24.i.preheader, %for.body24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body24.i ], [ 0, %for.body24.i.preheader ]
   %md.addr.139.i = phi ptr [ %add.ptr28.i, %for.body24.i ], [ %spec.store.select, %for.body24.i.preheader ]
-  %arrayidx27.i = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv.i
+  %arrayidx27.i = getelementptr inbounds nuw [4 x i8], ptr %c, i64 %indvars.iv.i
   %8 = load i32, ptr %arrayidx27.i, align 4
   %or7.i.i35.i = call noundef i32 @llvm.bswap.i32(i32 %8)
   store i32 %or7.i.i35.i, ptr %md.addr.139.i, align 1

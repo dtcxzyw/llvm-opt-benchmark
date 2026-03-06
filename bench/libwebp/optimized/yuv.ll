@@ -236,7 +236,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr noalias noundef readonly captures(
 87:                                               ; preds = %._crit_edge
   %88 = shl nuw nsw i32 %.0.lcssa, 1
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %0, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !9
   %92 = lshr i32 %91, 14
   %93 = and i32 %92, 1020
@@ -1588,7 +1588,7 @@ define internal void @ConvertARGBToY_C(ptr noalias noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = lshr i32 %6, 16
   %8 = and i32 %7, 255

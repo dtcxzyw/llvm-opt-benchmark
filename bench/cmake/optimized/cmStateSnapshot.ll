@@ -14,37 +14,29 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl" }
 %"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cmStateSnapshot, std::allocator<cmStateSnapshot>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cmStateDetail::SnapshotDataType" = type { %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator", %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator", %"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator", %"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator", %"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator", i32, i8, %"class.cmLinkedTree<std::__cxx11::basic_string<char>>::iterator", %"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator", %"class.cmLinkedTree<cmDefinitions>::iterator", %"class.cmLinkedTree<cmDefinitions>::iterator", %"class.cmLinkedTree<cmDefinitions>::iterator", i64, i64, i64, i64, i64 }
-%"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<cmStateDetail::PolicyStackEntry>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<std::__cxx11::basic_string<char>>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator" = type { ptr, i64 }
-%"class.cmLinkedTree<cmDefinitions>::iterator" = type { ptr, i64 }
-%"struct.cmStateDetail::BuildsystemDirectoryStateType" = type { %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.3", %"class.std::vector.3", %"class.std::vector.3", %"class.std::vector.3", %"class.std::vector.3", %"class.std::vector.8", %"class.std::vector.8", %"class.std::__cxx11::basic_string", %class.cmPropertyMap, %"class.std::vector" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.cmPropertyMap = type { %"class.std::unordered_map" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %class.cmStateSnapshot = type { ptr, %"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator" }
+%"class.cmLinkedTree<cmStateDetail::SnapshotDataType>::iterator" = type { ptr, i64 }
 %"struct.cmStateDetail::PolicyStackEntry" = type <{ %"struct.cmPolicies::PolicyMap", i8, [7 x i8] }>
 %"struct.cmPolicies::PolicyMap" = type { %"class.std::bitset.94" }
 %"class.std::bitset.94" = type { %"struct.std::_Base_bitset.95" }
 %"struct.std::_Base_bitset.95" = type { [9 x i64] }
+%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
+%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.cmDefinitions = type { %"class.std::unordered_map.96" }
 %"class.std::unordered_map.96" = type { %"class.std::_Hashtable.97" }
 %"class.std::_Hashtable.97" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
+%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
+%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl" }
+%"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<BT<std::__cxx11::basic_string<char>>, std::allocator<BT<std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator.123" }
 %"class.__gnu_cxx::__normal_iterator.123" = type { ptr }
 %class.cmStateDirectory = type { %"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator", %class.cmStateSnapshot }
+%"class.cmLinkedTree<cmStateDetail::BuildsystemDirectoryStateType>::iterator" = type { ptr, i64 }
 
 $_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_ = comdat any
 
@@ -136,13 +128,13 @@ define dso_local void @_ZN15cmStateSnapshot11GetChildrenEv(ptr dead_on_unwind no
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -104
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr i8, ptr %8, i64 -96
   %12 = load i64, ptr %11, align 8, !tbaa !21
   %13 = load ptr, ptr %10, align 8, !tbaa !22
-  %14 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %13, i64 %12
+  %14 = getelementptr [360 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = getelementptr i8, ptr %14, i64 -16
   %17 = load ptr, ptr %16, align 8, !tbaa !25
@@ -214,7 +206,7 @@ define dso_local noundef i32 @_ZNK15cmStateSnapshot7GetTypeEv(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %6 = load ptr, ptr %3, align 8, !tbaa !15
-  %7 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %6, i64 %5
+  %7 = getelementptr [208 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -128
   %9 = load i32, ptr %8, align 8, !tbaa !37
   ret i32 %9
@@ -227,13 +219,13 @@ define dso_local void @_ZN15cmStateSnapshot11SetListFileERKNSt7__cxx1112basic_st
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -120
   %10 = load ptr, ptr %9, align 8, !tbaa !47
   %11 = getelementptr i8, ptr %8, i64 -112
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = load ptr, ptr %10, align 8, !tbaa !49
-  %14 = getelementptr %"class.std::__cxx11::basic_string", ptr %13, i64 %12
+  %14 = getelementptr [32 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -246,13 +238,13 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK15cmStateS
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %6 = load ptr, ptr %3, align 8, !tbaa !15
-  %7 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %6, i64 %5
+  %7 = getelementptr [208 x i8], ptr %6, i64 %5
   %8 = getelementptr i8, ptr %7, i64 -120
   %9 = load ptr, ptr %8, align 8, !tbaa !47
   %10 = getelementptr i8, ptr %7, i64 -112
   %11 = load i64, ptr %10, align 8, !tbaa !48
   %12 = load ptr, ptr %9, align 8, !tbaa !49
-  %13 = getelementptr %"class.std::__cxx11::basic_string", ptr %12, i64 %11
+  %13 = getelementptr [32 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -32
   ret ptr %14
 }
@@ -296,13 +288,13 @@ define dso_local void @_ZNK15cmStateSnapshot23GetBuildsystemDirectoryEv(ptr dead
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = load ptr, ptr %5, align 8, !tbaa !15
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %7
+  %9 = getelementptr [208 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -104
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = getelementptr i8, ptr %9, i64 -96
   %13 = load i64, ptr %12, align 8, !tbaa !21
   %14 = load ptr, ptr %11, align 8, !tbaa !22
-  %15 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %14, i64 %13
+  %15 = getelementptr [360 x i8], ptr %14, i64 %13
   %16 = getelementptr i8, ptr %15, i64 -360
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8, !tbaa !33
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %15, i64 -352
@@ -333,7 +325,7 @@ define dso_local void @_ZNK15cmStateSnapshot29GetBuildsystemDirectoryParentEv(pt
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = load ptr, ptr %11, align 8, !tbaa !15
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %12, i64 %7
+  %13 = getelementptr [208 x i8], ptr %12, i64 %7
   %.sroa.49.0..sroa_idx = getelementptr i8, ptr %13, i64 -184
   %.sroa.49.0.copyload = load i64, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !34
   %.not11 = icmp eq i64 %.sroa.49.0.copyload, 0
@@ -343,13 +335,13 @@ define dso_local void @_ZNK15cmStateSnapshot29GetBuildsystemDirectoryParentEv(pt
   %15 = getelementptr i8, ptr %13, i64 -192
   %.sroa.08.0.copyload = load ptr, ptr %15, align 8, !tbaa !33
   %16 = load ptr, ptr %.sroa.08.0.copyload, align 8, !tbaa !15
-  %17 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %16, i64 %.sroa.49.0.copyload
+  %17 = getelementptr [208 x i8], ptr %16, i64 %.sroa.49.0.copyload
   %18 = getelementptr i8, ptr %17, i64 -104
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %20 = getelementptr i8, ptr %17, i64 -96
   %21 = load i64, ptr %20, align 8, !tbaa !21
   %22 = load ptr, ptr %19, align 8, !tbaa !22
-  %23 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %22, i64 %21
+  %23 = getelementptr [360 x i8], ptr %22, i64 %21
   %24 = getelementptr i8, ptr %23, i64 -360
   %.sroa.0.0.copyload = load ptr, ptr %24, align 8, !tbaa !33
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %23, i64 -352
@@ -378,7 +370,7 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackParentEv(ptr dead_on_u
 7:                                                ; preds = %.critedge, %2
   %.sroa.13.0.in = phi ptr [ %.sroa.13.0..sroa_idx, %2 ], [ %13, %.critedge ]
   %.sroa.13.0 = load i64, ptr %.sroa.13.0.in, align 8, !tbaa !34
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %5, i64 %.sroa.13.0
+  %8 = getelementptr [208 x i8], ptr %5, i64 %.sroa.13.0
   %9 = getelementptr i8, ptr %8, i64 -128
   %10 = load i32, ptr %9, align 8, !tbaa !37
   switch i32 %10, label %14 [
@@ -390,7 +382,7 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackParentEv(ptr dead_on_u
 
 .critedge:                                        ; preds = %7, %7
   %11 = load ptr, ptr %6, align 8, !tbaa !53
-  %12 = getelementptr i64, ptr %11, i64 %.sroa.13.0
+  %12 = getelementptr [8 x i8], ptr %11, i64 %.sroa.13.0
   %13 = getelementptr i8, ptr %12, i64 -8
   br label %7, !llvm.loop !56
 
@@ -400,10 +392,10 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackParentEv(ptr dead_on_u
 
 .critedge2:                                       ; preds = %.critedge2, %14
   %.sroa.13.0.pn = phi i64 [ %.sroa.13.0, %14 ], [ %.sroa.13.1, %.critedge2 ]
-  %.pn = getelementptr i64, ptr %15, i64 %.sroa.13.0.pn
+  %.pn = getelementptr [8 x i8], ptr %15, i64 %.sroa.13.0.pn
   %.sroa.13.1.in = getelementptr i8, ptr %.pn, i64 -8
   %.sroa.13.1 = load i64, ptr %.sroa.13.1.in, align 8, !tbaa !34
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %5, i64 %.sroa.13.1
+  %16 = getelementptr [208 x i8], ptr %5, i64 %.sroa.13.1
   %17 = getelementptr i8, ptr %16, i64 -128
   %18 = load i32, ptr %17, align 8, !tbaa !37
   %.off = add i32 %18, -7
@@ -433,7 +425,7 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackBottomEv(ptr dead_on_u
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %.sroa.0.0.copyload6, align 8, !tbaa !15
   %.sroa.7.011 = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
-  %5 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %4, i64 %.sroa.7.011
+  %5 = getelementptr [208 x i8], ptr %4, i64 %.sroa.7.011
   %6 = getelementptr i8, ptr %5, i64 -128
   %7 = load i32, ptr %6, align 8, !tbaa !37
   %switch12 = icmp ult i32 %7, 2
@@ -448,10 +440,10 @@ define dso_local void @_ZNK15cmStateSnapshot18GetCallStackBottomEv(ptr dead_on_u
 
 10:                                               ; preds = %.lr.ph, %10
   %.sroa.7.015 = phi i64 [ %.sroa.7.011, %.lr.ph ], [ %.sroa.7.0, %10 ]
-  %11 = getelementptr i64, ptr %9, i64 %.sroa.7.015
+  %11 = getelementptr [8 x i8], ptr %9, i64 %.sroa.7.015
   %12 = getelementptr i8, ptr %11, i64 -8
   %.sroa.7.0 = load i64, ptr %12, align 8, !tbaa !34
-  %13 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %4, i64 %.sroa.7.0
+  %13 = getelementptr [208 x i8], ptr %4, i64 %.sroa.7.0
   %14 = getelementptr i8, ptr %13, i64 -128
   %15 = load i32, ptr %14, align 8, !tbaa !37
   %switch = icmp ult i32 %15, 2
@@ -480,7 +472,7 @@ define dso_local void @_ZN15cmStateSnapshot10PushPolicyERKN10cmPolicies9PolicyMa
   %6 = load ptr, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %8 = load ptr, ptr %.sroa.05.0.copyload, align 8, !tbaa !15
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %.sroa.5.0.copyload
+  %9 = getelementptr [208 x i8], ptr %8, i64 %.sroa.5.0.copyload
   %10 = getelementptr i8, ptr %9, i64 -176
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !59
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %9, i64 -168
@@ -495,7 +487,7 @@ define dso_local void @_ZN15cmStateSnapshot10PushPolicyERKN10cmPolicies9PolicyMa
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
   %15 = load ptr, ptr %.sroa.05.0.copyload, align 8, !tbaa !15
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %.sroa.5.0.copyload
+  %16 = getelementptr [208 x i8], ptr %15, i64 %.sroa.5.0.copyload
   %17 = getelementptr i8, ptr %16, i64 -176
   store ptr %13, ptr %17, align 8, !tbaa !59
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %16, i64 -168
@@ -510,7 +502,7 @@ define dso_local noundef zeroext i1 @_ZN15cmStateSnapshot9PopPolicyEv(ptr nounde
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
   %3 = load ptr, ptr %.sroa.0.0.copyload8, align 8, !tbaa !15
-  %4 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %3, i64 %.sroa.7.0.copyload
+  %4 = getelementptr [208 x i8], ptr %3, i64 %.sroa.7.0.copyload
   %.sroa.23.0..sroa_idx = getelementptr i8, ptr %4, i64 -136
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !34
   %5 = getelementptr i8, ptr %4, i64 -168
@@ -533,7 +525,7 @@ define dso_local noundef zeroext i1 @_ZN15cmStateSnapshot9PopPolicyEv(ptr nounde
   %19 = icmp eq i64 %6, %18
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !53
-  %22 = getelementptr i64, ptr %21, i64 %6
+  %22 = getelementptr [8 x i8], ptr %21, i64 %6
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load i64, ptr %23, align 8, !tbaa !34
   br i1 %19, label %25, label %_ZN12cmLinkedTreeIN13cmStateDetail16PolicyStackEntryEE3PopENS2_8iteratorE.exit
@@ -562,7 +554,7 @@ define dso_local noundef zeroext i1 @_ZN15cmStateSnapshot17CanPopPolicyScopeEv(p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %6 = load ptr, ptr %3, align 8, !tbaa !15
-  %7 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %6, i64 %5
+  %7 = getelementptr [208 x i8], ptr %6, i64 %5
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %7, i64 -136
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !34
   %8 = getelementptr i8, ptr %7, i64 -168
@@ -578,7 +570,7 @@ define dso_local void @_ZN15cmStateSnapshot9SetPolicyEN10cmPolicies8PolicyIDENS0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = load ptr, ptr %5, align 8, !tbaa !15
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %7
+  %9 = getelementptr [208 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -176
   %.sroa.0.0.copyload5 = load ptr, ptr %10, align 8, !tbaa !59
   %.sroa.6.0..sroa_idx = getelementptr i8, ptr %9, i64 -168
@@ -591,7 +583,7 @@ define dso_local void @_ZN15cmStateSnapshot9SetPolicyEN10cmPolicies8PolicyIDENS0
   %13 = load ptr, ptr %4, align 8, !tbaa !13
   %14 = load i64, ptr %6, align 8, !tbaa !14
   %15 = load ptr, ptr %13, align 8, !tbaa !15
-  %16 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %15, i64 %14
+  %16 = getelementptr [208 x i8], ptr %15, i64 %14
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %16, i64 -152
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !34
   %.not = icmp eq i64 %.sroa.6.010, %.sroa.2.0.copyload
@@ -602,16 +594,16 @@ define dso_local void @_ZN15cmStateSnapshot9SetPolicyEN10cmPolicies8PolicyIDENS0
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %.sroa.0.0.copyload5, align 8, !tbaa !64
-  %19 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %18, i64 %.sroa.6.010
+  %19 = getelementptr [80 x i8], ptr %18, i64 %.sroa.6.010
   %20 = getelementptr i8, ptr %19, i64 -80
   tail call void @_ZN10cmPolicies9PolicyMap3SetENS_8PolicyIDENS_12PolicyStatusE(ptr noundef nonnull align 8 dereferenceable(72) %20, i32 noundef %1, i32 noundef %2)
   %21 = load ptr, ptr %.sroa.0.0.copyload5, align 8, !tbaa !64
-  %22 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %21, i64 %.sroa.6.010
+  %22 = getelementptr [80 x i8], ptr %21, i64 %.sroa.6.010
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load i8, ptr %23, align 8, !tbaa !66, !range !71, !noundef !72
   %25 = trunc nuw i8 %24 to i1
   %26 = load ptr, ptr %11, align 8, !tbaa !53
-  %27 = getelementptr i64, ptr %26, i64 %.sroa.6.010
+  %27 = getelementptr [8 x i8], ptr %26, i64 %.sroa.6.010
   %28 = getelementptr i8, ptr %27, i64 -8
   br i1 %25, label %12, label %.critedge, !llvm.loop !73
 }
@@ -635,19 +627,19 @@ define dso_local noundef i32 @_ZNK15cmStateSnapshot9GetPolicyEN10cmPolicies8Poli
   %.011 = phi i1 [ %.112.lcssa, %._crit_edge ], [ %2, %5 ]
   %.sroa.0.0.copyload.sink = load ptr, ptr %.sroa.0.0.copyload.sink.in, align 8, !tbaa !33
   %10 = load ptr, ptr %.sroa.0.0.copyload.sink, align 8, !tbaa !15
-  %11 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %10, i64 %.sroa.4.0.copyload19.sink
+  %11 = getelementptr [208 x i8], ptr %10, i64 %.sroa.4.0.copyload19.sink
   %.sroa.7.0.in = getelementptr i8, ptr %11, i64 -96
   %.sroa.029.0.in = getelementptr i8, ptr %11, i64 -104
   %.sroa.7.0 = load i64, ptr %.sroa.7.0.in, align 8, !tbaa !34
   %.sroa.029.0 = load ptr, ptr %.sroa.029.0.in, align 8, !tbaa !74
   %12 = load ptr, ptr %.sroa.029.0, align 8, !tbaa !22
-  %13 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %12, i64 %.sroa.7.0
+  %13 = getelementptr [360 x i8], ptr %12, i64 %.sroa.7.0
   %14 = getelementptr i8, ptr %13, i64 -360
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = getelementptr i8, ptr %13, i64 -352
   %17 = load i64, ptr %16, align 8, !tbaa !14
   %18 = load ptr, ptr %15, align 8, !tbaa !15
-  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %17
+  %19 = getelementptr [208 x i8], ptr %18, i64 %17
   %20 = getelementptr i8, ptr %19, i64 -176
   %.sroa.023.0.copyload = load ptr, ptr %20, align 8, !tbaa !59
   %.sroa.6.0..sroa_idx = getelementptr i8, ptr %19, i64 -168
@@ -668,21 +660,21 @@ define dso_local noundef i32 @_ZNK15cmStateSnapshot9GetPolicyEN10cmPolicies8Poli
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %.sroa.023.0.copyload, align 8, !tbaa !64
-  %25 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %24, i64 %.sroa.6.056
+  %25 = getelementptr [80 x i8], ptr %24, i64 %.sroa.6.056
   %26 = getelementptr i8, ptr %25, i64 -80
   %27 = tail call noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(72) %26, i32 noundef %1)
   br i1 %27, label %.thread, label %32
 
 .thread:                                          ; preds = %23
   %28 = load ptr, ptr %.sroa.023.0.copyload, align 8, !tbaa !64
-  %29 = getelementptr %"struct.cmStateDetail::PolicyStackEntry", ptr %28, i64 %.sroa.6.056
+  %29 = getelementptr [80 x i8], ptr %28, i64 %.sroa.6.056
   %30 = getelementptr i8, ptr %29, i64 -80
   %31 = tail call noundef i32 @_ZNK10cmPolicies9PolicyMap3GetENS_8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(72) %30, i32 noundef %1)
   br label %.loopexit
 
 32:                                               ; preds = %22, %23
   %33 = load ptr, ptr %21, align 8, !tbaa !53
-  %34 = getelementptr i64, ptr %33, i64 %.sroa.6.056
+  %34 = getelementptr [8 x i8], ptr %33, i64 %.sroa.6.056
   %35 = getelementptr i8, ptr %34, i64 -8
   %.sroa.6.0 = load i64, ptr %35, align 8, !tbaa !34
   %.not = icmp eq i64 %.sroa.6.0, %.sroa.4.0.copyload
@@ -690,7 +682,7 @@ define dso_local noundef i32 @_ZNK15cmStateSnapshot9GetPolicyEN10cmPolicies8Poli
 
 ._crit_edge.loopexit:                             ; preds = %32
   %.pre = load ptr, ptr %.sroa.029.0, align 8, !tbaa !22
-  %.phi.trans.insert = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %.pre, i64 %.sroa.7.0
+  %.phi.trans.insert = getelementptr [360 x i8], ptr %.pre, i64 %.sroa.7.0
   %.phi.trans.insert59 = getelementptr i8, ptr %.phi.trans.insert, i64 -360
   %.sroa.021.0.copyload.pre = load ptr, ptr %.phi.trans.insert59, align 8, !tbaa !33
   %.sroa.422.0..sroa_idx.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert, i64 -352
@@ -702,7 +694,7 @@ define dso_local noundef i32 @_ZNK15cmStateSnapshot9GetPolicyEN10cmPolicies8Poli
   %36 = phi ptr [ %18, %9 ], [ %.pre62, %._crit_edge.loopexit ]
   %.sroa.422.0.copyload = phi i64 [ %17, %9 ], [ %.sroa.422.0.copyload.pre, %._crit_edge.loopexit ]
   %.112.lcssa = phi i1 [ %.011, %9 ], [ false, %._crit_edge.loopexit ]
-  %37 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %36, i64 %.sroa.422.0.copyload
+  %37 = getelementptr [208 x i8], ptr %36, i64 %.sroa.422.0.copyload
   %.sroa.4.0..sroa_idx18 = getelementptr i8, ptr %37, i64 -184
   %.sroa.4.0.copyload19 = load i64, ptr %.sroa.4.0..sroa_idx18, align 8, !tbaa !34
   %38 = icmp eq i64 %.sroa.4.0.copyload19, 0
@@ -727,7 +719,7 @@ define dso_local ptr @_ZNK15cmStateSnapshot13GetDefinitionERKNSt7__cxx1112basic_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -88
   %.sroa.01.0.copyload = load ptr, ptr %9, align 8, !tbaa !76
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %8, i64 -80
@@ -749,7 +741,7 @@ define dso_local noundef zeroext i1 @_ZNK15cmStateSnapshot13IsInitializedERKNSt7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -88
   %.sroa.01.0.copyload = load ptr, ptr %9, align 8, !tbaa !76
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %8, i64 -80
@@ -771,13 +763,13 @@ define dso_local void @_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = load ptr, ptr %6, align 8, !tbaa !15
-  %10 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %9, i64 %8
+  %10 = getelementptr [208 x i8], ptr %9, i64 %8
   %11 = getelementptr i8, ptr %10, i64 -88
   %12 = load ptr, ptr %11, align 8, !tbaa !77
   %13 = getelementptr i8, ptr %10, i64 -80
   %14 = load i64, ptr %13, align 8, !tbaa !78
   %15 = load ptr, ptr %12, align 8, !tbaa !79
-  %16 = getelementptr %class.cmDefinitions, ptr %15, i64 %14
+  %16 = getelementptr [56 x i8], ptr %15, i64 %14
   %17 = getelementptr i8, ptr %16, i64 -56
   tail call void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2, ptr %3)
   ret void
@@ -792,13 +784,13 @@ define dso_local void @_ZN15cmStateSnapshot16RemoveDefinitionERKNSt7__cxx1112bas
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -88
   %10 = load ptr, ptr %9, align 8, !tbaa !77
   %11 = getelementptr i8, ptr %8, i64 -80
   %12 = load i64, ptr %11, align 8, !tbaa !78
   %13 = load ptr, ptr %10, align 8, !tbaa !79
-  %14 = getelementptr %class.cmDefinitions, ptr %13, i64 %12
+  %14 = getelementptr [56 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -56
   tail call void @_ZN13cmDefinitions5UnsetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -813,7 +805,7 @@ define dso_local void @_ZNK15cmStateSnapshot11ClosureKeysB5cxx11Ev(ptr dead_on_u
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -88
   %.sroa.01.0.copyload = load ptr, ptr %9, align 8, !tbaa !76
   %.sroa.22.0..sroa_idx = getelementptr i8, ptr %8, i64 -80
@@ -835,7 +827,7 @@ define dso_local noundef zeroext i1 @_ZN15cmStateSnapshot10RaiseScopeERKNSt7__cx
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = load ptr, ptr %5, align 8, !tbaa !15
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %7
+  %9 = getelementptr [208 x i8], ptr %8, i64 %7
   %.sroa.24.0..sroa_idx = getelementptr i8, ptr %9, i64 -184
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !34
   %10 = getelementptr i8, ptr %9, i64 -200
@@ -856,13 +848,13 @@ define dso_local noundef zeroext i1 @_ZN15cmStateSnapshot10RaiseScopeERKNSt7__cx
   %17 = getelementptr i8, ptr %9, i64 -192
   %.sroa.08.0.copyload.i = load ptr, ptr %17, align 8, !tbaa !33, !noalias !82
   %18 = load ptr, ptr %.sroa.08.0.copyload.i, align 8, !tbaa !15, !noalias !82
-  %19 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %18, i64 %.sroa.24.0.copyload
+  %19 = getelementptr [208 x i8], ptr %18, i64 %.sroa.24.0.copyload
   %20 = getelementptr i8, ptr %19, i64 -104
   %21 = load ptr, ptr %20, align 8, !tbaa !18, !noalias !82
   %22 = getelementptr i8, ptr %19, i64 -96
   %23 = load i64, ptr %22, align 8, !tbaa !21, !noalias !82
   %24 = load ptr, ptr %21, align 8, !tbaa !22, !noalias !82
-  %25 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %24, i64 %23
+  %25 = getelementptr [360 x i8], ptr %24, i64 %23
   %26 = getelementptr i8, ptr %25, i64 -360
   %.sroa.0.0.copyload.i = load ptr, ptr %26, align 8, !tbaa !33, !noalias !82
   %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %25, i64 -352
@@ -888,25 +880,25 @@ _ZNK15cmStateSnapshot7IsValidEv.exit:             ; preds = %16
 
 36:                                               ; preds = %35
   %37 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
-  %38 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %.sroa.2.0.copyload.i
+  %38 = getelementptr [208 x i8], ptr %29, i64 %.sroa.2.0.copyload.i
   %39 = getelementptr i8, ptr %38, i64 -88
   %40 = load ptr, ptr %39, align 8, !tbaa !77
   %41 = getelementptr i8, ptr %38, i64 -80
   %42 = load i64, ptr %41, align 8, !tbaa !78
   %43 = load ptr, ptr %40, align 8, !tbaa !79
-  %44 = getelementptr %class.cmDefinitions, ptr %43, i64 %42
+  %44 = getelementptr [56 x i8], ptr %43, i64 %42
   %45 = getelementptr i8, ptr %44, i64 -56
   tail call void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %37, ptr nonnull %2)
   br label %_ZNK15cmStateSnapshot7IsValidEv.exit.thread
 
 46:                                               ; preds = %35
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %29, i64 %.sroa.2.0.copyload.i
+  %47 = getelementptr [208 x i8], ptr %29, i64 %.sroa.2.0.copyload.i
   %48 = getelementptr i8, ptr %47, i64 -88
   %49 = load ptr, ptr %48, align 8, !tbaa !77
   %50 = getelementptr i8, ptr %47, i64 -80
   %51 = load i64, ptr %50, align 8, !tbaa !78
   %52 = load ptr, ptr %49, align 8, !tbaa !79
-  %53 = getelementptr %class.cmDefinitions, ptr %52, i64 %51
+  %53 = getelementptr [56 x i8], ptr %52, i64 %51
   %54 = getelementptr i8, ptr %53, i64 -56
   tail call void @_ZN13cmDefinitions5UnsetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %_ZNK15cmStateSnapshot7IsValidEv.exit.thread
@@ -925,13 +917,13 @@ _ZNK15cmStateSnapshot7IsValidEv.exit:             ; preds = %16
   %58 = load ptr, ptr %4, align 8, !tbaa !13
   %59 = load i64, ptr %6, align 8, !tbaa !14
   %60 = load ptr, ptr %58, align 8, !tbaa !15
-  %61 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %60, i64 %59
+  %61 = getelementptr [208 x i8], ptr %60, i64 %59
   %62 = getelementptr i8, ptr %61, i64 -56
   %63 = load ptr, ptr %62, align 8, !tbaa !77
   %64 = getelementptr i8, ptr %61, i64 -48
   %65 = load i64, ptr %64, align 8, !tbaa !78
   %66 = load ptr, ptr %63, align 8, !tbaa !79
-  %67 = getelementptr %class.cmDefinitions, ptr %66, i64 %65
+  %67 = getelementptr [56 x i8], ptr %66, i64 %65
   %68 = getelementptr i8, ptr %67, i64 -56
   br i1 %.not, label %71, label %69
 
@@ -1013,13 +1005,13 @@ define dso_local void @_ZN15cmStateSnapshot21SetDefaultDefinitionsEv(ptr noundef
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = load ptr, ptr %43, align 8, !tbaa !15
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %45
+  %47 = getelementptr [208 x i8], ptr %46, i64 %45
   %48 = getelementptr i8, ptr %47, i64 -88
   %49 = load ptr, ptr %48, align 8, !tbaa !77
   %50 = getelementptr i8, ptr %47, i64 -80
   %51 = load i64, ptr %50, align 8, !tbaa !78
   %52 = load ptr, ptr %49, align 8, !tbaa !79
-  %53 = getelementptr %class.cmDefinitions, ptr %52, i64 %51
+  %53 = getelementptr [56 x i8], ptr %52, i64 %51
   %54 = getelementptr i8, ptr %53, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 %34, ptr %35)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit unwind label %123
@@ -1057,13 +1049,13 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %64 = load ptr, ptr %42, align 8, !tbaa !13
   %65 = load i64, ptr %44, align 8, !tbaa !14
   %66 = load ptr, ptr %64, align 8, !tbaa !15
-  %67 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %66, i64 %65
+  %67 = getelementptr [208 x i8], ptr %66, i64 %65
   %68 = getelementptr i8, ptr %67, i64 -88
   %69 = load ptr, ptr %68, align 8, !tbaa !77
   %70 = getelementptr i8, ptr %67, i64 -80
   %71 = load i64, ptr %70, align 8, !tbaa !78
   %72 = load ptr, ptr %69, align 8, !tbaa !79
-  %73 = getelementptr %class.cmDefinitions, ptr %72, i64 %71
+  %73 = getelementptr [56 x i8], ptr %72, i64 %71
   %74 = getelementptr i8, ptr %73, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %74, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 1, ptr nonnull @.str.5)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit79 unwind label %129
@@ -1103,13 +1095,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
   %85 = load ptr, ptr %42, align 8, !tbaa !13
   %86 = load i64, ptr %44, align 8, !tbaa !14
   %87 = load ptr, ptr %85, align 8, !tbaa !15
-  %88 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %87, i64 %86
+  %88 = getelementptr [208 x i8], ptr %87, i64 %86
   %89 = getelementptr i8, ptr %88, i64 -88
   %90 = load ptr, ptr %89, align 8, !tbaa !77
   %91 = getelementptr i8, ptr %88, i64 -80
   %92 = load i64, ptr %91, align 8, !tbaa !78
   %93 = load ptr, ptr %90, align 8, !tbaa !79
-  %94 = getelementptr %class.cmDefinitions, ptr %93, i64 %92
+  %94 = getelementptr [56 x i8], ptr %93, i64 %92
   %95 = getelementptr i8, ptr %94, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %95, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 1, ptr nonnull @.str.5)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit88 unwind label %137
@@ -1149,13 +1141,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %_ZN
   %106 = load ptr, ptr %42, align 8, !tbaa !13
   %107 = load i64, ptr %44, align 8, !tbaa !14
   %108 = load ptr, ptr %106, align 8, !tbaa !15
-  %109 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %108, i64 %107
+  %109 = getelementptr [208 x i8], ptr %108, i64 %107
   %110 = getelementptr i8, ptr %109, i64 -88
   %111 = load ptr, ptr %110, align 8, !tbaa !77
   %112 = getelementptr i8, ptr %109, i64 -80
   %113 = load i64, ptr %112, align 8, !tbaa !78
   %114 = load ptr, ptr %111, align 8, !tbaa !79
-  %115 = getelementptr %class.cmDefinitions, ptr %114, i64 %113
+  %115 = getelementptr [56 x i8], ptr %114, i64 %113
   %116 = getelementptr i8, ptr %115, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %116, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 4, ptr nonnull @.str.8)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit97 unwind label %145
@@ -1273,13 +1265,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %14
   %154 = load ptr, ptr %42, align 8, !tbaa !13
   %155 = load i64, ptr %44, align 8, !tbaa !14
   %156 = load ptr, ptr %154, align 8, !tbaa !15
-  %157 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %156, i64 %155
+  %157 = getelementptr [208 x i8], ptr %156, i64 %155
   %158 = getelementptr i8, ptr %157, i64 -88
   %159 = load ptr, ptr %158, align 8, !tbaa !77
   %160 = getelementptr i8, ptr %157, i64 -80
   %161 = load i64, ptr %160, align 8, !tbaa !78
   %162 = load ptr, ptr %159, align 8, !tbaa !79
-  %163 = getelementptr %class.cmDefinitions, ptr %162, i64 %161
+  %163 = getelementptr [56 x i8], ptr %162, i64 %161
   %164 = getelementptr i8, ptr %163, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %164, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 1, ptr nonnull @.str.5)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit118 unwind label %208
@@ -1308,13 +1300,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %_Z
   %172 = load ptr, ptr %42, align 8, !tbaa !13
   %173 = load i64, ptr %44, align 8, !tbaa !14
   %174 = load ptr, ptr %172, align 8, !tbaa !15
-  %175 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %174, i64 %173
+  %175 = getelementptr [208 x i8], ptr %174, i64 %173
   %176 = getelementptr i8, ptr %175, i64 -88
   %177 = load ptr, ptr %176, align 8, !tbaa !77
   %178 = getelementptr i8, ptr %175, i64 -80
   %179 = load i64, ptr %178, align 8, !tbaa !78
   %180 = load ptr, ptr %177, align 8, !tbaa !79
-  %181 = getelementptr %class.cmDefinitions, ptr %180, i64 %179
+  %181 = getelementptr [56 x i8], ptr %180, i64 %179
   %182 = getelementptr i8, ptr %181, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %182, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 1, ptr nonnull @.str.5)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit127 unwind label %214
@@ -1354,13 +1346,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %_Z
   %193 = load ptr, ptr %42, align 8, !tbaa !13
   %194 = load i64, ptr %44, align 8, !tbaa !14
   %195 = load ptr, ptr %193, align 8, !tbaa !15
-  %196 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %195, i64 %194
+  %196 = getelementptr [208 x i8], ptr %195, i64 %194
   %197 = getelementptr i8, ptr %196, i64 -88
   %198 = load ptr, ptr %197, align 8, !tbaa !77
   %199 = getelementptr i8, ptr %196, i64 -80
   %200 = load i64, ptr %199, align 8, !tbaa !78
   %201 = load ptr, ptr %198, align 8, !tbaa !79
-  %202 = getelementptr %class.cmDefinitions, ptr %201, i64 %200
+  %202 = getelementptr [56 x i8], ptr %201, i64 %200
   %203 = getelementptr i8, ptr %202, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %203, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 0, ptr nonnull @.str.11)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit136 unwind label %222
@@ -1449,13 +1441,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %22
   %231 = load ptr, ptr %42, align 8, !tbaa !13
   %232 = load i64, ptr %44, align 8, !tbaa !14
   %233 = load ptr, ptr %231, align 8, !tbaa !15
-  %234 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %233, i64 %232
+  %234 = getelementptr [208 x i8], ptr %233, i64 %232
   %235 = getelementptr i8, ptr %234, i64 -88
   %236 = load ptr, ptr %235, align 8, !tbaa !77
   %237 = getelementptr i8, ptr %234, i64 -80
   %238 = load i64, ptr %237, align 8, !tbaa !78
   %239 = load ptr, ptr %236, align 8, !tbaa !79
-  %240 = getelementptr %class.cmDefinitions, ptr %239, i64 %238
+  %240 = getelementptr [56 x i8], ptr %239, i64 %238
   %241 = getelementptr i8, ptr %240, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %241, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 1, ptr nonnull @.str.5)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit154 unwind label %677
@@ -1495,13 +1487,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %252 = load ptr, ptr %42, align 8, !tbaa !13
   %253 = load i64, ptr %44, align 8, !tbaa !14
   %254 = load ptr, ptr %252, align 8, !tbaa !15
-  %255 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %254, i64 %253
+  %255 = getelementptr [208 x i8], ptr %254, i64 %253
   %256 = getelementptr i8, ptr %255, i64 -88
   %257 = load ptr, ptr %256, align 8, !tbaa !77
   %258 = getelementptr i8, ptr %255, i64 -80
   %259 = load i64, ptr %258, align 8, !tbaa !78
   %260 = load ptr, ptr %257, align 8, !tbaa !79
-  %261 = getelementptr %class.cmDefinitions, ptr %260, i64 %259
+  %261 = getelementptr [56 x i8], ptr %260, i64 %259
   %262 = getelementptr i8, ptr %261, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %262, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 1, ptr nonnull @.str.5)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit163 unwind label %685
@@ -1658,13 +1650,13 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %316, %324
   %333 = load ptr, ptr %42, align 8, !tbaa !13
   %334 = load i64, ptr %44, align 8, !tbaa !14
   %335 = load ptr, ptr %333, align 8, !tbaa !15
-  %336 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %335, i64 %334
+  %336 = getelementptr [208 x i8], ptr %335, i64 %334
   %337 = getelementptr i8, ptr %336, i64 -88
   %338 = load ptr, ptr %337, align 8, !tbaa !77
   %339 = getelementptr i8, ptr %336, i64 -80
   %340 = load i64, ptr %339, align 8, !tbaa !78
   %341 = load ptr, ptr %338, align 8, !tbaa !79
-  %342 = getelementptr %class.cmDefinitions, ptr %341, i64 %340
+  %342 = getelementptr [56 x i8], ptr %341, i64 %340
   %343 = getelementptr i8, ptr %342, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %343, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 %332, ptr %330)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit173 unwind label %695
@@ -1833,13 +1825,13 @@ _ZNSt7__cxx119to_stringEj.exit196:                ; preds = %401, %409
   %418 = load ptr, ptr %42, align 8, !tbaa !13
   %419 = load i64, ptr %44, align 8, !tbaa !14
   %420 = load ptr, ptr %418, align 8, !tbaa !15
-  %421 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %420, i64 %419
+  %421 = getelementptr [208 x i8], ptr %420, i64 %419
   %422 = getelementptr i8, ptr %421, i64 -88
   %423 = load ptr, ptr %422, align 8, !tbaa !77
   %424 = getelementptr i8, ptr %421, i64 -80
   %425 = load i64, ptr %424, align 8, !tbaa !78
   %426 = load ptr, ptr %423, align 8, !tbaa !79
-  %427 = getelementptr %class.cmDefinitions, ptr %426, i64 %425
+  %427 = getelementptr [56 x i8], ptr %426, i64 %425
   %428 = getelementptr i8, ptr %427, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %428, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 %417, ptr %415)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit200 unwind label %709
@@ -2008,13 +2000,13 @@ _ZNSt7__cxx119to_stringEj.exit223:                ; preds = %486, %494
   %503 = load ptr, ptr %42, align 8, !tbaa !13
   %504 = load i64, ptr %44, align 8, !tbaa !14
   %505 = load ptr, ptr %503, align 8, !tbaa !15
-  %506 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %505, i64 %504
+  %506 = getelementptr [208 x i8], ptr %505, i64 %504
   %507 = getelementptr i8, ptr %506, i64 -88
   %508 = load ptr, ptr %507, align 8, !tbaa !77
   %509 = getelementptr i8, ptr %506, i64 -80
   %510 = load i64, ptr %509, align 8, !tbaa !78
   %511 = load ptr, ptr %508, align 8, !tbaa !79
-  %512 = getelementptr %class.cmDefinitions, ptr %511, i64 %510
+  %512 = getelementptr [56 x i8], ptr %511, i64 %510
   %513 = getelementptr i8, ptr %512, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %513, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 %502, ptr %500)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit227 unwind label %723
@@ -2183,13 +2175,13 @@ _ZNSt7__cxx119to_stringEj.exit250:                ; preds = %571, %579
   %588 = load ptr, ptr %42, align 8, !tbaa !13
   %589 = load i64, ptr %44, align 8, !tbaa !14
   %590 = load ptr, ptr %588, align 8, !tbaa !15
-  %591 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %590, i64 %589
+  %591 = getelementptr [208 x i8], ptr %590, i64 %589
   %592 = getelementptr i8, ptr %591, i64 -88
   %593 = load ptr, ptr %592, align 8, !tbaa !77
   %594 = getelementptr i8, ptr %591, i64 -80
   %595 = load i64, ptr %594, align 8, !tbaa !78
   %596 = load ptr, ptr %593, align 8, !tbaa !79
-  %597 = getelementptr %class.cmDefinitions, ptr %596, i64 %595
+  %597 = getelementptr [56 x i8], ptr %596, i64 %595
   %598 = getelementptr i8, ptr %597, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %598, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 %587, ptr %585)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit254 unwind label %737
@@ -2235,13 +2227,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit260: ; preds = %_Z
   %613 = load ptr, ptr %42, align 8, !tbaa !13
   %614 = load i64, ptr %44, align 8, !tbaa !14
   %615 = load ptr, ptr %613, align 8, !tbaa !15
-  %616 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %615, i64 %614
+  %616 = getelementptr [208 x i8], ptr %615, i64 %614
   %617 = getelementptr i8, ptr %616, i64 -88
   %618 = load ptr, ptr %617, align 8, !tbaa !77
   %619 = getelementptr i8, ptr %616, i64 -80
   %620 = load i64, ptr %619, align 8, !tbaa !78
   %621 = load ptr, ptr %618, align 8, !tbaa !79
-  %622 = getelementptr %class.cmDefinitions, ptr %621, i64 %620
+  %622 = getelementptr [56 x i8], ptr %621, i64 %620
   %623 = getelementptr i8, ptr %622, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %623, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 %612, ptr nonnull %610)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit266 unwind label %747
@@ -2281,13 +2273,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %_Z
   %634 = load ptr, ptr %42, align 8, !tbaa !13
   %635 = load i64, ptr %44, align 8, !tbaa !14
   %636 = load ptr, ptr %634, align 8, !tbaa !15
-  %637 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %636, i64 %635
+  %637 = getelementptr [208 x i8], ptr %636, i64 %635
   %638 = getelementptr i8, ptr %637, i64 -88
   %639 = load ptr, ptr %638, align 8, !tbaa !77
   %640 = getelementptr i8, ptr %637, i64 -80
   %641 = load i64, ptr %640, align 8, !tbaa !78
   %642 = load ptr, ptr %639, align 8, !tbaa !79
-  %643 = getelementptr %class.cmDefinitions, ptr %642, i64 %641
+  %643 = getelementptr [56 x i8], ptr %642, i64 %641
   %644 = getelementptr i8, ptr %643, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %644, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 11, ptr nonnull @.str.20)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit275 unwind label %755
@@ -2308,7 +2300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278: ; preds = %_Z
   %649 = load ptr, ptr %42, align 8, !tbaa !13
   %650 = load i64, ptr %44, align 8, !tbaa !14
   %651 = load ptr, ptr %649, align 8, !tbaa !15
-  %652 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %651, i64 %650
+  %652 = getelementptr [208 x i8], ptr %651, i64 %650
   %653 = getelementptr i8, ptr %652, i64 -104
   %654 = load ptr, ptr %653, align 8, !tbaa !18
   %655 = getelementptr i8, ptr %652, i64 -96
@@ -2323,7 +2315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278: ; preds = %_Z
           to label %.noexc281 unwind label %761
 
 .noexc281:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit278
-  %660 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %657, i64 %656
+  %660 = getelementptr [360 x i8], ptr %657, i64 %656
   %661 = getelementptr i8, ptr %660, i64 -80
   store ptr %659, ptr %31, align 8, !tbaa !88
   %662 = load i64, ptr %1, align 8, !tbaa !34
@@ -2714,13 +2706,13 @@ define dso_local void @_ZN15cmStateSnapshot23SetDirectoryDefinitionsEv(ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !14
   %25 = load ptr, ptr %22, align 8, !tbaa !15
-  %26 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %25, i64 %24
+  %26 = getelementptr [208 x i8], ptr %25, i64 %24
   %27 = getelementptr i8, ptr %26, i64 -88
   %28 = load ptr, ptr %27, align 8, !tbaa !77
   %29 = getelementptr i8, ptr %26, i64 -80
   %30 = load i64, ptr %29, align 8, !tbaa !78
   %31 = load ptr, ptr %28, align 8, !tbaa !79
-  %32 = getelementptr %class.cmDefinitions, ptr %31, i64 %30
+  %32 = getelementptr [56 x i8], ptr %31, i64 %30
   %33 = getelementptr i8, ptr %32, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 %20, ptr %18)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit unwind label %121
@@ -2768,13 +2760,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN15
   %50 = load ptr, ptr %21, align 8, !tbaa !13
   %51 = load i64, ptr %23, align 8, !tbaa !14
   %52 = load ptr, ptr %50, align 8, !tbaa !15
-  %53 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %52, i64 %51
+  %53 = getelementptr [208 x i8], ptr %52, i64 %51
   %54 = getelementptr i8, ptr %53, i64 -88
   %55 = load ptr, ptr %54, align 8, !tbaa !77
   %56 = getelementptr i8, ptr %53, i64 -80
   %57 = load i64, ptr %56, align 8, !tbaa !78
   %58 = load ptr, ptr %55, align 8, !tbaa !79
-  %59 = getelementptr %class.cmDefinitions, ptr %58, i64 %57
+  %59 = getelementptr [56 x i8], ptr %58, i64 %57
   %60 = getelementptr i8, ptr %59, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %49, ptr %47)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit29 unwind label %129
@@ -2822,13 +2814,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
   %77 = load ptr, ptr %21, align 8, !tbaa !13
   %78 = load i64, ptr %23, align 8, !tbaa !14
   %79 = load ptr, ptr %77, align 8, !tbaa !15
-  %80 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %79, i64 %78
+  %80 = getelementptr [208 x i8], ptr %79, i64 %78
   %81 = getelementptr i8, ptr %80, i64 -88
   %82 = load ptr, ptr %81, align 8, !tbaa !77
   %83 = getelementptr i8, ptr %80, i64 -80
   %84 = load i64, ptr %83, align 8, !tbaa !78
   %85 = load ptr, ptr %82, align 8, !tbaa !79
-  %86 = getelementptr %class.cmDefinitions, ptr %85, i64 %84
+  %86 = getelementptr [56 x i8], ptr %85, i64 %84
   %87 = getelementptr i8, ptr %86, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %87, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 %76, ptr %74)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit40 unwind label %137
@@ -2876,13 +2868,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
   %104 = load ptr, ptr %21, align 8, !tbaa !13
   %105 = load i64, ptr %23, align 8, !tbaa !14
   %106 = load ptr, ptr %104, align 8, !tbaa !15
-  %107 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %106, i64 %105
+  %107 = getelementptr [208 x i8], ptr %106, i64 %105
   %108 = getelementptr i8, ptr %107, i64 -88
   %109 = load ptr, ptr %108, align 8, !tbaa !77
   %110 = getelementptr i8, ptr %107, i64 -80
   %111 = load i64, ptr %110, align 8, !tbaa !78
   %112 = load ptr, ptr %109, align 8, !tbaa !79
-  %113 = getelementptr %class.cmDefinitions, ptr %112, i64 %111
+  %113 = getelementptr [56 x i8], ptr %112, i64 %111
   %114 = getelementptr i8, ptr %113, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 %103, ptr %101)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit51 unwind label %145
@@ -3015,14 +3007,14 @@ define dso_local void @_ZN15cmStateSnapshot20InitializeFromParentEv(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !14
   %11 = load ptr, ptr %8, align 8, !tbaa !15
-  %12 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %11, i64 %10
+  %12 = getelementptr [208 x i8], ptr %11, i64 %10
   %13 = getelementptr i8, ptr %12, i64 -192
   %.sroa.029.0.copyload = load ptr, ptr %13, align 8, !tbaa !33
   %.sroa.12.0..sroa_idx = getelementptr i8, ptr %12, i64 -184
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %15 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %14, i64 %.sroa.12.0.copyload
+  %15 = getelementptr [208 x i8], ptr %14, i64 %.sroa.12.0.copyload
   %16 = getelementptr i8, ptr %15, i64 -88
   %.sroa.03.0.copyload = load ptr, ptr %16, align 8, !tbaa !76
   %.sroa.24.0..sroa_idx = getelementptr i8, ptr %15, i64 -80
@@ -3035,13 +3027,13 @@ define dso_local void @_ZN15cmStateSnapshot20InitializeFromParentEv(ptr noundef 
   %18 = load ptr, ptr %7, align 8, !tbaa !13
   %19 = load i64, ptr %9, align 8, !tbaa !14
   %20 = load ptr, ptr %18, align 8, !tbaa !15
-  %21 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %20, i64 %19
+  %21 = getelementptr [208 x i8], ptr %20, i64 %19
   %22 = getelementptr i8, ptr %21, i64 -88
   %23 = load ptr, ptr %22, align 8, !tbaa !77
   %24 = getelementptr i8, ptr %21, i64 -80
   %25 = load i64, ptr %24, align 8, !tbaa !78
   %26 = load ptr, ptr %23, align 8, !tbaa !79
-  %27 = getelementptr %class.cmDefinitions, ptr %26, i64 %25
+  %27 = getelementptr [56 x i8], ptr %26, i64 %25
   %28 = getelementptr i8, ptr %27, i64 -56
   invoke void @_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE14_M_move_assignEOSJ_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(56) %4)
           to label %_ZN13cmDefinitionsaSEOS_.exit unwind label %29
@@ -3089,117 +3081,117 @@ _ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__det
 _ZN13cmDefinitionsD2Ev.exit:                      ; preds = %_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %47 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %46, i64 %.sroa.12.0.copyload
+  %47 = getelementptr [208 x i8], ptr %46, i64 %.sroa.12.0.copyload
   %48 = getelementptr i8, ptr %47, i64 -104
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = getelementptr i8, ptr %47, i64 -96
   %51 = load i64, ptr %50, align 8, !tbaa !21
   %52 = load ptr, ptr %49, align 8, !tbaa !22
-  %53 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %52, i64 %51
+  %53 = getelementptr [360 x i8], ptr %52, i64 %51
   %54 = getelementptr i8, ptr %53, i64 -280
   %55 = load ptr, ptr %7, align 8, !tbaa !13
   %56 = load i64, ptr %9, align 8, !tbaa !14
   %57 = load ptr, ptr %55, align 8, !tbaa !15
-  %58 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %57, i64 %56
+  %58 = getelementptr [208 x i8], ptr %57, i64 %56
   %59 = getelementptr i8, ptr %58, i64 -104
   %60 = load ptr, ptr %59, align 8, !tbaa !18
   %61 = getelementptr i8, ptr %58, i64 -96
   %62 = load i64, ptr %61, align 8, !tbaa !21
   %63 = load ptr, ptr %60, align 8, !tbaa !22
-  %64 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %63, i64 %62
+  %64 = getelementptr [360 x i8], ptr %63, i64 %62
   %65 = getelementptr i8, ptr %64, i64 -280
   %66 = getelementptr i8, ptr %58, i64 -40
   call void @_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(8) %66)
   %67 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %68 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %67, i64 %.sroa.12.0.copyload
+  %68 = getelementptr [208 x i8], ptr %67, i64 %.sroa.12.0.copyload
   %69 = getelementptr i8, ptr %68, i64 -104
   %70 = load ptr, ptr %69, align 8, !tbaa !18
   %71 = getelementptr i8, ptr %68, i64 -96
   %72 = load i64, ptr %71, align 8, !tbaa !21
   %73 = load ptr, ptr %70, align 8, !tbaa !22
-  %74 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %73, i64 %72
+  %74 = getelementptr [360 x i8], ptr %73, i64 %72
   %75 = getelementptr i8, ptr %74, i64 -256
   %76 = load ptr, ptr %7, align 8, !tbaa !13
   %77 = load i64, ptr %9, align 8, !tbaa !14
   %78 = load ptr, ptr %76, align 8, !tbaa !15
-  %79 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %78, i64 %77
+  %79 = getelementptr [208 x i8], ptr %78, i64 %77
   %80 = getelementptr i8, ptr %79, i64 -104
   %81 = load ptr, ptr %80, align 8, !tbaa !18
   %82 = getelementptr i8, ptr %79, i64 -96
   %83 = load i64, ptr %82, align 8, !tbaa !21
   %84 = load ptr, ptr %81, align 8, !tbaa !22
-  %85 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %84, i64 %83
+  %85 = getelementptr [360 x i8], ptr %84, i64 %83
   %86 = getelementptr i8, ptr %85, i64 -256
   %87 = getelementptr i8, ptr %79, i64 -32
   call void @_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(8) %87)
   %88 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %89 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %88, i64 %.sroa.12.0.copyload
+  %89 = getelementptr [208 x i8], ptr %88, i64 %.sroa.12.0.copyload
   %90 = getelementptr i8, ptr %89, i64 -104
   %91 = load ptr, ptr %90, align 8, !tbaa !18
   %92 = getelementptr i8, ptr %89, i64 -96
   %93 = load i64, ptr %92, align 8, !tbaa !21
   %94 = load ptr, ptr %91, align 8, !tbaa !22
-  %95 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %94, i64 %93
+  %95 = getelementptr [360 x i8], ptr %94, i64 %93
   %96 = getelementptr i8, ptr %95, i64 -232
   %97 = load ptr, ptr %7, align 8, !tbaa !13
   %98 = load i64, ptr %9, align 8, !tbaa !14
   %99 = load ptr, ptr %97, align 8, !tbaa !15
-  %100 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %99, i64 %98
+  %100 = getelementptr [208 x i8], ptr %99, i64 %98
   %101 = getelementptr i8, ptr %100, i64 -104
   %102 = load ptr, ptr %101, align 8, !tbaa !18
   %103 = getelementptr i8, ptr %100, i64 -96
   %104 = load i64, ptr %103, align 8, !tbaa !21
   %105 = load ptr, ptr %102, align 8, !tbaa !22
-  %106 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %105, i64 %104
+  %106 = getelementptr [360 x i8], ptr %105, i64 %104
   %107 = getelementptr i8, ptr %106, i64 -232
   %108 = getelementptr i8, ptr %100, i64 -24
   call void @_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(8) %108)
   %109 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %110 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %109, i64 %.sroa.12.0.copyload
+  %110 = getelementptr [208 x i8], ptr %109, i64 %.sroa.12.0.copyload
   %111 = getelementptr i8, ptr %110, i64 -104
   %112 = load ptr, ptr %111, align 8, !tbaa !18
   %113 = getelementptr i8, ptr %110, i64 -96
   %114 = load i64, ptr %113, align 8, !tbaa !21
   %115 = load ptr, ptr %112, align 8, !tbaa !22
-  %116 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %115, i64 %114
+  %116 = getelementptr [360 x i8], ptr %115, i64 %114
   %117 = getelementptr i8, ptr %116, i64 -208
   %118 = load ptr, ptr %7, align 8, !tbaa !13
   %119 = load i64, ptr %9, align 8, !tbaa !14
   %120 = load ptr, ptr %118, align 8, !tbaa !15
-  %121 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %120, i64 %119
+  %121 = getelementptr [208 x i8], ptr %120, i64 %119
   %122 = getelementptr i8, ptr %121, i64 -104
   %123 = load ptr, ptr %122, align 8, !tbaa !18
   %124 = getelementptr i8, ptr %121, i64 -96
   %125 = load i64, ptr %124, align 8, !tbaa !21
   %126 = load ptr, ptr %123, align 8, !tbaa !22
-  %127 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %126, i64 %125
+  %127 = getelementptr [360 x i8], ptr %126, i64 %125
   %128 = getelementptr i8, ptr %127, i64 -208
   %129 = getelementptr i8, ptr %121, i64 -16
   call void @_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(8) %129)
   %130 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %131 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %130, i64 %.sroa.12.0.copyload
+  %131 = getelementptr [208 x i8], ptr %130, i64 %.sroa.12.0.copyload
   %132 = getelementptr i8, ptr %131, i64 -104
   %133 = load ptr, ptr %132, align 8, !tbaa !18
   %134 = getelementptr i8, ptr %131, i64 -96
   %135 = load i64, ptr %134, align 8, !tbaa !21
   %136 = load ptr, ptr %133, align 8, !tbaa !22
-  %137 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %136, i64 %135
+  %137 = getelementptr [360 x i8], ptr %136, i64 %135
   %138 = getelementptr i8, ptr %137, i64 -184
   %139 = load ptr, ptr %7, align 8, !tbaa !13
   %140 = load i64, ptr %9, align 8, !tbaa !14
   %141 = load ptr, ptr %139, align 8, !tbaa !15
-  %142 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %141, i64 %140
+  %142 = getelementptr [208 x i8], ptr %141, i64 %140
   %143 = getelementptr i8, ptr %142, i64 -104
   %144 = load ptr, ptr %143, align 8, !tbaa !18
   %145 = getelementptr i8, ptr %142, i64 -96
   %146 = load i64, ptr %145, align 8, !tbaa !21
   %147 = load ptr, ptr %144, align 8, !tbaa !22
-  %148 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %147, i64 %146
+  %148 = getelementptr [360 x i8], ptr %147, i64 %146
   %149 = getelementptr i8, ptr %148, i64 -184
   %150 = getelementptr i8, ptr %142, i64 -8
   call void @_Z27InitializeContentFromParentISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEmEvRT_SC_RT0_(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %149, ptr noundef nonnull align 8 dereferenceable(8) %150)
   %151 = load ptr, ptr %.sroa.029.0.copyload, align 8, !tbaa !15
-  %152 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %151, i64 %.sroa.12.0.copyload
+  %152 = getelementptr [208 x i8], ptr %151, i64 %.sroa.12.0.copyload
   %153 = getelementptr i8, ptr %152, i64 -104
   %154 = load ptr, ptr %153, align 8, !tbaa !18
   %155 = getelementptr i8, ptr %152, i64 -96
@@ -3214,7 +3206,7 @@ _ZN13cmDefinitionsD2Ev.exit:                      ; preds = %_ZNSt10_HashtableIN
           to label %.noexc unwind label %194
 
 .noexc:                                           ; preds = %_ZN13cmDefinitionsD2Ev.exit
-  %160 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %157, i64 %156
+  %160 = getelementptr [360 x i8], ptr %157, i64 %156
   store ptr %159, ptr %5, align 8, !tbaa !88
   %161 = load i64, ptr %3, align 8, !tbaa !34
   store i64 %161, ptr %158, align 8, !tbaa !90
@@ -3245,7 +3237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %167, 
   %172 = load ptr, ptr %7, align 8, !tbaa !13
   %173 = load i64, ptr %9, align 8, !tbaa !14
   %174 = load ptr, ptr %172, align 8, !tbaa !15
-  %175 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %174, i64 %173
+  %175 = getelementptr [208 x i8], ptr %174, i64 %173
   %176 = getelementptr i8, ptr %175, i64 -104
   %177 = load ptr, ptr %176, align 8, !tbaa !18
   %178 = getelementptr i8, ptr %175, i64 -96
@@ -3260,7 +3252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %167, 
           to label %.noexc17 unwind label %202
 
 .noexc17:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %183 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %180, i64 %179
+  %183 = getelementptr [360 x i8], ptr %180, i64 %179
   store ptr %182, ptr %6, align 8, !tbaa !88
   %184 = load i64, ptr %2, align 8, !tbaa !34
   store i64 %184, ptr %181, align 8, !tbaa !90
@@ -3451,7 +3443,7 @@ define dso_local void @_ZNK15cmStateSnapshot12GetDirectoryEv(ptr dead_on_unwind 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -104
   %.sroa.0.0.copyload = load ptr, ptr %9, align 8, !tbaa !74
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %8, i64 -96
@@ -3469,13 +3461,13 @@ define dso_local void @_ZN15cmStateSnapshot14SetProjectNameERKNSt7__cxx1112basic
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !14
   %7 = load ptr, ptr %4, align 8, !tbaa !15
-  %8 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %7, i64 %6
+  %8 = getelementptr [208 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -104
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = getelementptr i8, ptr %8, i64 -96
   %12 = load i64, ptr %11, align 8, !tbaa !21
   %13 = load ptr, ptr %10, align 8, !tbaa !22
-  %14 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %13, i64 %12
+  %14 = getelementptr [360 x i8], ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 -112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -3489,13 +3481,13 @@ define dso_local void @_ZNK15cmStateSnapshot14GetProjectNameB5cxx11Ev(ptr dead_o
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = load ptr, ptr %5, align 8, !tbaa !15
-  %9 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %8, i64 %7
+  %9 = getelementptr [208 x i8], ptr %8, i64 %7
   %10 = getelementptr i8, ptr %9, i64 -104
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = getelementptr i8, ptr %9, i64 -96
   %13 = load i64, ptr %12, align 8, !tbaa !21
   %14 = load ptr, ptr %11, align 8, !tbaa !22
-  %15 = getelementptr %"struct.cmStateDetail::BuildsystemDirectoryStateType", ptr %14, i64 %13
+  %15 = getelementptr [360 x i8], ptr %14, i64 %13
   %16 = getelementptr i8, ptr %15, i64 -112
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %0, align 8, !tbaa !85
@@ -3585,7 +3577,7 @@ define dso_local void @_ZN15cmStateSnapshot38InitializeFromParent_ForSubdirsComm
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = load ptr, ptr %24, align 8, !tbaa !15
-  %28 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %27, i64 %26
+  %28 = getelementptr [208 x i8], ptr %27, i64 %26
   %29 = getelementptr i8, ptr %28, i64 -88
   %.sroa.01.0.copyload.i = load ptr, ptr %29, align 8, !tbaa !76
   %.sroa.22.0..sroa_idx.i = getelementptr i8, ptr %28, i64 -80
@@ -3679,7 +3671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
   %58 = load ptr, ptr %23, align 8, !tbaa !13
   %59 = load i64, ptr %25, align 8, !tbaa !14
   %60 = load ptr, ptr %58, align 8, !tbaa !15
-  %61 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %60, i64 %59
+  %61 = getelementptr [208 x i8], ptr %60, i64 %59
   %62 = getelementptr i8, ptr %61, i64 -88
   %.sroa.01.0.copyload.i39 = load ptr, ptr %62, align 8, !tbaa !76
   %.sroa.22.0..sroa_idx.i40 = getelementptr i8, ptr %61, i64 -80
@@ -3784,13 +3776,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %76,
   %97 = load ptr, ptr %23, align 8, !tbaa !13
   %98 = load i64, ptr %25, align 8, !tbaa !14
   %99 = load ptr, ptr %97, align 8, !tbaa !15
-  %100 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %99, i64 %98
+  %100 = getelementptr [208 x i8], ptr %99, i64 %98
   %101 = getelementptr i8, ptr %100, i64 -88
   %102 = load ptr, ptr %101, align 8, !tbaa !77
   %103 = getelementptr i8, ptr %100, i64 -80
   %104 = load i64, ptr %103, align 8, !tbaa !78
   %105 = load ptr, ptr %102, align 8, !tbaa !79
-  %106 = getelementptr %class.cmDefinitions, ptr %105, i64 %104
+  %106 = getelementptr [56 x i8], ptr %105, i64 %104
   %107 = getelementptr i8, ptr %106, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %107, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 %96, ptr %94)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit unwind label %213
@@ -3838,13 +3830,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   %124 = load ptr, ptr %23, align 8, !tbaa !13
   %125 = load i64, ptr %25, align 8, !tbaa !14
   %126 = load ptr, ptr %124, align 8, !tbaa !15
-  %127 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %126, i64 %125
+  %127 = getelementptr [208 x i8], ptr %126, i64 %125
   %128 = getelementptr i8, ptr %127, i64 -88
   %129 = load ptr, ptr %128, align 8, !tbaa !77
   %130 = getelementptr i8, ptr %127, i64 -80
   %131 = load i64, ptr %130, align 8, !tbaa !78
   %132 = load ptr, ptr %129, align 8, !tbaa !79
-  %133 = getelementptr %class.cmDefinitions, ptr %132, i64 %131
+  %133 = getelementptr [56 x i8], ptr %132, i64 %131
   %134 = getelementptr i8, ptr %133, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %134, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 %123, ptr %121)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit71 unwind label %221
@@ -3886,13 +3878,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   %147 = load ptr, ptr %23, align 8, !tbaa !13
   %148 = load i64, ptr %25, align 8, !tbaa !14
   %149 = load ptr, ptr %147, align 8, !tbaa !15
-  %150 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %149, i64 %148
+  %150 = getelementptr [208 x i8], ptr %149, i64 %148
   %151 = getelementptr i8, ptr %150, i64 -88
   %152 = load ptr, ptr %151, align 8, !tbaa !77
   %153 = getelementptr i8, ptr %150, i64 -80
   %154 = load i64, ptr %153, align 8, !tbaa !78
   %155 = load ptr, ptr %152, align 8, !tbaa !79
-  %156 = getelementptr %class.cmDefinitions, ptr %155, i64 %154
+  %156 = getelementptr [56 x i8], ptr %155, i64 %154
   %157 = getelementptr i8, ptr %156, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %157, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 %146, ptr %145)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit82 unwind label %229
@@ -3934,13 +3926,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   %170 = load ptr, ptr %23, align 8, !tbaa !13
   %171 = load i64, ptr %25, align 8, !tbaa !14
   %172 = load ptr, ptr %170, align 8, !tbaa !15
-  %173 = getelementptr %"struct.cmStateDetail::SnapshotDataType", ptr %172, i64 %171
+  %173 = getelementptr [208 x i8], ptr %172, i64 %171
   %174 = getelementptr i8, ptr %173, i64 -88
   %175 = load ptr, ptr %174, align 8, !tbaa !77
   %176 = getelementptr i8, ptr %173, i64 -80
   %177 = load i64, ptr %176, align 8, !tbaa !78
   %178 = load ptr, ptr %175, align 8, !tbaa !79
-  %179 = getelementptr %class.cmDefinitions, ptr %178, i64 %177
+  %179 = getelementptr [56 x i8], ptr %178, i64 %177
   %180 = getelementptr i8, ptr %179, i64 -56
   invoke void @_ZN13cmDefinitions3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(56) %180, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 %169, ptr %168)
           to label %_ZN15cmStateSnapshot13SetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit93 unwind label %237
@@ -4286,7 +4278,7 @@ _ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__det
 
 _ZNKSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS8_16_Hash_node_valueIS6_Lb0EEE.exit.i: ; preds = %33
   %39 = urem i64 %35, %26
-  %40 = getelementptr inbounds nuw ptr, ptr %24, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %39
   store ptr %5, ptr %40, align 8, !tbaa !137
   br label %_ZNSt10_HashtableIN2cm6StringESt4pairIKS1_N13cmDefinitions3DefEESaIS6_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEv.exit
 
@@ -4530,7 +4522,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %5, align 8, !tbaa !53
   store ptr %29, ptr %6, align 8, !tbaa !65
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !149
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -4599,7 +4591,7 @@ _ZNSt6vectorIN13cmStateDetail16PolicyStackEntryESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt6vectorIN13cmStateDetail16PolicyStackEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %57, %_ZNSt6vectorIN13cmStateDetail16PolicyStackEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %52, ptr %0, align 8, !tbaa !64
   store ptr %56, ptr %32, align 8, !tbaa !61
-  %58 = getelementptr inbounds nuw %"struct.cmStateDetail::PolicyStackEntry", ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [80 x i8], ptr %52, i64 %50
   store ptr %58, ptr %34, align 8, !tbaa !150
   br label %_ZNSt6vectorIN13cmStateDetail16PolicyStackEntryESaIS1_EE9push_backEOS1_.exit
 

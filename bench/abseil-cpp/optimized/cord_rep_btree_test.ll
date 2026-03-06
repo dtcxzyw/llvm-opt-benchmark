@@ -136,8 +136,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.300" = type { %"struct.std::_Tuple_impl.301" }
 %"struct.std::_Tuple_impl.301" = type { %"struct.std::_Head_base.302" }
 %"struct.std::_Head_base.302" = type { ptr }
-%"class.std::shared_ptr.316" = type { %"class.std::__shared_ptr.317" }
-%"class.std::__shared_ptr.317" = type { ptr, %"class.std::__shared_count" }
 %"class.absl::cordrep_testing::AutoUnref" = type { %"class.std::vector.323" }
 %"class.std::vector.323" = type { %"struct.std::_Vector_base.324" }
 %"struct.std::_Vector_base.324" = type { %"struct.std::_Vector_base<absl::cord_internal::CordRep *, std::allocator<absl::cord_internal::CordRep *>>::_Vector_impl" }
@@ -175,8 +173,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::Matcher.455" = type { %"class.testing::internal::MatcherBase.456" }
 %"class.testing::internal::MatcherBase.456" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const std::vector<absl::cord_internal::CordRep *> &>::Buffer" }
 %"union.testing::internal::MatcherBase<const std::vector<absl::cord_internal::CordRep *> &>::Buffer" = type { ptr }
-%"class.std::shared_ptr.496" = type { %"class.std::__shared_ptr.497" }
-%"class.std::__shared_ptr.497" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::ScopedTrace" = type { i8 }
 %"class.testing::internal::PredicateFormatterFromMatcher.510" = type { %"class.testing::internal::ElementsAreMatcher.511" }
 %"class.testing::internal::ElementsAreMatcher.511" = type { %"class.std::tuple.512" }
@@ -244,8 +240,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::Matcher.691" = type { %"class.testing::internal::MatcherBase.692" }
 %"class.testing::internal::MatcherBase.692" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const char &>::Buffer" }
 %"union.testing::internal::MatcherBase<const char &>::Buffer" = type { ptr }
-%"class.std::shared_ptr.717" = type { %"class.std::__shared_ptr.718" }
-%"class.std::__shared_ptr.718" = type { ptr, %"class.std::__shared_count" }
 %"class.absl::Span.728" = type { ptr, i64 }
 %"class.testing::Matcher.729" = type { %"class.testing::internal::MatcherBase.730" }
 %"class.testing::internal::MatcherBase.730" = type { %"class.testing::MatcherDescriberInterface", ptr, %"union.testing::internal::MatcherBase<const absl::Span<char> &>::Buffer" }
@@ -341,9 +335,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.128" = type { %"struct.std::_Head_base.129" }
 %"struct.std::_Head_base.129" = type { i8 }
 %"struct.std::_Head_base.130" = type { i8 }
-%"struct.testing::internal::ParameterizedTestSuiteInfo<absl::cord_internal::(anonymous namespace)::CordRepBtreeTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.testing::internal::ParameterizedTestSuiteInfo<absl::cord_internal::(anonymous namespace)::CordRepBtreeHeightTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
-%"struct.testing::internal::ParameterizedTestSuiteInfo<absl::cord_internal::(anonymous namespace)::CordRepBtreeDualTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci = comdat any
 
@@ -3175,7 +3166,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -3427,7 +3418,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !13
   store ptr %114, ptr %86, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3714,7 +3705,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -3966,7 +3957,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !13
   store ptr %114, ptr %86, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -4185,7 +4176,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -4437,7 +4428,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !13
   store ptr %114, ptr %86, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -5548,7 +5539,7 @@ define linkonce_odr dso_local void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef 
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #35
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5663,12 +5654,12 @@ _ZNSt6vectorIbSaIbEE13_M_initializeEm.exit.i:     ; preds = %6
 
 .noexc:                                           ; preds = %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit.i
   %23 = lshr i64 %19, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %24, ptr %10, align 8, !tbaa !132
   store ptr %22, ptr %0, align 8
   store i32 0, ptr %7, align 8
   %25 = sdiv i64 %18, 64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = and i64 %18, -9223372036854775745
   %28 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %28, i64 -8, i64 0
@@ -5749,7 +5740,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal30ValuesInIteratorRangeG
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #35
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5781,7 +5772,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal30ValuesInIteratorRangeG
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #35
   br label %_ZN7testing8internal30ValuesInIteratorRangeGeneratorIbED2Ev.exit
 
@@ -13229,7 +13220,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.112, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !425
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !414
   %99 = icmp ne ptr %98, null
@@ -13472,7 +13463,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.112, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !425
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !414
   %81 = icmp ne ptr %80, null
@@ -13574,7 +13565,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #34
   store ptr %26, ptr %9, align 8, !tbaa !436
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !438
   br label %.lr.ph.i.i.i.i.i
@@ -13648,7 +13639,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %65
   %66 = load ptr, ptr %16, align 8, !tbaa !425
-  %67 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %66, i64 %storemerge163.us
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %storemerge163.us
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !414
   %70 = icmp ne ptr %69, null
@@ -13709,7 +13700,7 @@ _ZNK7testing8internal11MatcherBaseIRKPN4absl13cord_internal7CordRepEE15MatchAndE
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %87, %81
   %88 = load ptr, ptr %9, align 8, !tbaa !436
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %storemerge163.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %storemerge163.us
   %90 = load ptr, ptr %89, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = icmp eq ptr %90, %91
@@ -13834,7 +13825,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   %130 = add i64 %storemerge163.us, 1
   %131 = load ptr, ptr %1, align 8, !tbaa !441
   %132 = load i64, ptr %35, align 8, !tbaa !444
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %.not.us = icmp eq ptr %129, %133
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !456
 
@@ -13875,7 +13866,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not52, label %.critedge, label %146
 
 146:                                              ; preds = %.lr.ph.split
-  %147 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %141, i64 %storemerge163
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %storemerge163
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %37, align 8, !tbaa !260
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !18
@@ -13950,7 +13941,7 @@ _ZNK7testing8internal11MatcherBaseIRKPN4absl13cord_internal7CordRepEE15MatchAndE
   %165 = add i64 %storemerge163, 1
   %166 = load ptr, ptr %1, align 8, !tbaa !441
   %167 = load i64, ptr %35, align 8, !tbaa !444
-  %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %167
   %.not = icmp eq ptr %164, %168
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !456
 
@@ -13960,7 +13951,7 @@ _ZNK7testing8internal11MatcherBaseIRKPN4absl13cord_internal7CordRepEE15MatchAndE
   %.139 = phi i1 [ false, %.loopexit ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %128 ], [ false, %.lr.ph.split.us ], [ false, %.lr.ph.split ], [ true, %162 ], [ false, %163 ]
   %169 = load ptr, ptr %1, align 8, !tbaa !441
   %170 = load i64, ptr %35, align 8, !tbaa !444
-  %171 = getelementptr inbounds nuw ptr, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %170
   %.not56198 = icmp eq ptr %.040.lcssa, %171
   br i1 %.not56198, label %._crit_edge, label %.lr.ph201.preheader
 
@@ -14202,7 +14193,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %254
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %256
   %.pre215 = load ptr, ptr %13, align 8, !tbaa !260
   %258 = load ptr, ptr %9, align 8, !tbaa !436
-  %259 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %258, i64 %storemerge.lcssa
+  %259 = getelementptr inbounds nuw [32 x i8], ptr %258, i64 %storemerge.lcssa
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %261 = load i64, ptr %260, align 8, !tbaa !22
   %262 = icmp eq i64 %261, 0
@@ -14232,7 +14223,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %256
 .lr.ph205:                                        ; preds = %.lr.ph205.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.034204 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph205.preheader ]
   %storemerge58203 = phi i64 [ %290, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph205.preheader ]
-  %270 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge58203
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge58203
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !22
   %273 = icmp eq i64 %272, 0
@@ -14500,7 +14491,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKPN4absl13cord_internal7CordRepEEES8_EvT_SA_RS
 _ZNSt12_Vector_baseIN7testing7MatcherIRKPN4absl13cord_internal7CordRepEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKPN4absl13cord_internal7CordRepEEES8_EvT_SA_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !425
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !420
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !423
   ret void
 }
@@ -25902,7 +25893,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJPS9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i
   store ptr %78, ptr %55, align 8, !tbaa !761
   store ptr %87, ptr %56, align 8, !tbaa !757
-  %105 = getelementptr inbounds nuw %"class.std::shared_ptr.316", ptr %78, i64 %74
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   store ptr %105, ptr %58, align 8, !tbaa !760
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE8TestInfoEESaISA_EE12emplace_backIJPS9_EEERSA_DpOT_.exit
 
@@ -26411,7 +26402,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %83, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %78, ptr %2, align 8, !tbaa !779
   store ptr %82, ptr %38, align 8, !tbaa !776
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %84, ptr %39, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit
 
@@ -26466,7 +26457,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i63: ; preds = %103, %.noexc65
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0135.1344, i64 noundef %91) #35
-  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %98
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %98
   %.pre = load ptr, ptr %101, align 8, !tbaa !464
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit66
 
@@ -26928,7 +26919,7 @@ _ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 14
   %233 = load i8, ptr %232, align 1, !tbaa !24
   %234 = zext i8 %233 to i64
-  %235 = getelementptr inbounds nuw ptr, ptr %231, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %230, i64 15
   %237 = load i8, ptr %236, align 1, !tbaa !24
   %238 = zext i8 %237 to i64
@@ -29172,7 +29163,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %110, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %105, ptr %5, align 8, !tbaa !779
   store ptr %109, ptr %47, align 8, !tbaa !776
-  %111 = getelementptr inbounds nuw ptr, ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %103
   store ptr %111, ptr %48, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit
 
@@ -29632,7 +29623,7 @@ _ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 14
   %250 = load i8, ptr %249, align 1, !tbaa !24
   %251 = zext i8 %250 to i64
-  %252 = getelementptr inbounds nuw ptr, ptr %248, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %247, i64 15
   %254 = load i8, ptr %253, align 1, !tbaa !24
   %255 = zext i8 %254 to i64
@@ -30012,7 +30003,7 @@ _ZNSt11_Deque_baseIPN4absl13cord_internal7CordRepESaIS3_EE15_M_allocate_mapEm.ex
   store ptr %7, ptr %0, align 8, !tbaa !910
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -30106,7 +30097,7 @@ _ZNSt11_Deque_baseIPN4absl13cord_internal7CordRepESaIS3_EE15_M_create_nodesEPPS3
   store ptr %48, ptr %49, align 8, !tbaa !893
   store ptr %39, ptr %37, align 8, !tbaa !917
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !918
   ret void
 
@@ -30225,9 +30216,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIPN4absl13cord_internal7CordRepES
   %19 = load ptr, ptr %0, align 8, !tbaa !910
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -30246,12 +30237,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIPN4absl13cord_internal7CordRepES
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN4absl13cord_internal7CordRepES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN4absl13cord_internal7CordRepES5_ET0_T_S7_S6_.exit
 
@@ -30279,9 +30270,9 @@ _ZNSt11_Deque_baseIPN4absl13cord_internal7CordRepESaIS3_EE15_M_allocate_mapEm.ex
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #34
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN4absl13cord_internal7CordRepES5_ET0_T_S7_S6_.exit26, label %53
@@ -30309,7 +30300,7 @@ _ZSt4copyIPPPN4absl13cord_internal7CordRepES5_ET0_T_S7_S6_.exit: ; preds = %32, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !893
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !894
   %64 = load ptr, ptr %63, align 8, !tbaa !791
@@ -30378,7 +30369,7 @@ _ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit
 _ZNSt12_Vector_baseIPN4absl13cord_internal7CordRepESaIS3_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   %36 = phi ptr [ null, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %35, %_ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit.i.i ]
   store ptr %36, ptr %0, align 8, !tbaa !779
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %31
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %38, align 8, !tbaa !778
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, %14
@@ -30731,7 +30722,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %111, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %106, ptr %5, align 8, !tbaa !779
   store ptr %110, ptr %48, align 8, !tbaa !776
-  %112 = getelementptr inbounds nuw ptr, ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %104
   store ptr %112, ptr %49, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit
 
@@ -31272,7 +31263,7 @@ _ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 14
   %284 = load i8, ptr %283, align 1, !tbaa !24
   %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds nuw ptr, ptr %282, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %285
   %287 = getelementptr inbounds nuw i8, ptr %281, i64 15
   %288 = load i8, ptr %287, align 1, !tbaa !24
   %289 = zext i8 %288 to i64
@@ -32087,7 +32078,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 14
   %144 = load i8, ptr %143, align 1, !tbaa !24
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 15
   %148 = load i8, ptr %147, align 1, !tbaa !24
   %149 = zext i8 %148 to i64
@@ -32886,7 +32877,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %426 = getelementptr inbounds nuw i8, ptr %424, i64 14
   %427 = load i8, ptr %426, align 1, !tbaa !24
   %428 = zext i8 %427 to i64
-  %429 = getelementptr inbounds nuw ptr, ptr %425, i64 %428
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %425, i64 %428
   %430 = getelementptr inbounds nuw i8, ptr %424, i64 15
   %431 = load i8, ptr %430, align 1, !tbaa !24
   %432 = zext i8 %431 to i64
@@ -35838,7 +35829,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !436
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !440
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !438
   ret void
 }
@@ -37004,7 +36995,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 14
   %144 = load i8, ptr %143, align 1, !tbaa !24
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 15
   %148 = load i8, ptr %147, align 1, !tbaa !24
   %149 = zext i8 %148 to i64
@@ -37802,7 +37793,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %425 = getelementptr inbounds nuw i8, ptr %423, i64 14
   %426 = load i8, ptr %425, align 1, !tbaa !24
   %427 = zext i8 %426 to i64
-  %428 = getelementptr inbounds nuw ptr, ptr %424, i64 %427
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %423, i64 15
   %430 = load i8, ptr %429, align 1, !tbaa !24
   %431 = zext i8 %430 to i64
@@ -38239,7 +38230,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i101: ; preds = %62, %.noexc103
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0261.1454, i64 noundef %50) #35
-  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   %.pre = load ptr, ptr %60, align 8, !tbaa !464
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit104
 
@@ -38536,7 +38527,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %.pre580 = phi ptr [ %.pre580.pre, %164 ], [ %138, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i ]
   store ptr %159, ptr %2, align 8, !tbaa !779
   store ptr %163, ptr %124, align 8, !tbaa !776
-  %165 = getelementptr inbounds nuw ptr, ptr %159, i64 %157
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %157
   store ptr %165, ptr %125, align 8, !tbaa !778
   br label %166
 
@@ -38547,7 +38538,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %170 = zext i8 %169 to i64
   %171 = and i64 %.041459, 3
   %172 = icmp eq i64 %171, 0
-  %173 = getelementptr inbounds nuw ptr, ptr %167, i64 %170
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %170
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !464
   br i1 %172, label %176, label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit
@@ -38617,7 +38608,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i132: ; preds = %201, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i130
   store ptr %196, ptr %2, align 8, !tbaa !779
   store ptr %200, ptr %124, align 8, !tbaa !776
-  %202 = getelementptr inbounds nuw ptr, ptr %196, i64 %194
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %194
   store ptr %202, ptr %125, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit
 
@@ -38672,7 +38663,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i141: ; preds = %221, %.noexc143
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0261.5458, i64 noundef %209) #35
-  %222 = getelementptr inbounds nuw ptr, ptr %218, i64 %216
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %216
   %.pre581 = load ptr, ptr %219, align 8, !tbaa !464
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit144
 
@@ -40180,7 +40171,7 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdges
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %10 = load i8, ptr %9, align 1, !tbaa !24
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %.not1930 = icmp eq i8 %8, %10
   br i1 %5, label %13, label %47
 
@@ -40189,7 +40180,7 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112GetLeafEdges
 
 .lr.ph32:                                         ; preds = %13
   %14 = zext i8 %8 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %16, align 8, !tbaa !776
@@ -40254,7 +40245,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %37, ptr %1, align 8, !tbaa !779
   store ptr %41, ptr %16, align 8, !tbaa !776
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %17, align 8, !tbaa !778
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backERKS3_.exit
 
@@ -40270,7 +40261,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backERKS3_.exit: ; pre
 
 .lr.ph.preheader:                                 ; preds = %47
   %48 = zext i8 %8 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %6, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -41092,7 +41083,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.112, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !425
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !414
   %99 = icmp ne ptr %98, null
@@ -41335,7 +41326,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.112, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !425
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !414
   %81 = icmp ne ptr %80, null
@@ -41437,7 +41428,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #34
   store ptr %26, ptr %9, align 8, !tbaa !436
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !438
   br label %.lr.ph.i.i.i.i.i
@@ -41511,7 +41502,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %65
   %66 = load ptr, ptr %16, align 8, !tbaa !425
-  %67 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %66, i64 %storemerge164.us
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %storemerge164.us
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !414
   %70 = icmp ne ptr %69, null
@@ -41572,7 +41563,7 @@ _ZNK7testing8internal11MatcherBaseIRKPN4absl13cord_internal7CordRepEE15MatchAndE
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %87, %81
   %88 = load ptr, ptr %9, align 8, !tbaa !436
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %storemerge164.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %storemerge164.us
   %90 = load ptr, ptr %89, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = icmp eq ptr %90, %91
@@ -41736,7 +41727,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not, label %.critedge, label %144
 
 144:                                              ; preds = %.lr.ph.split
-  %145 = getelementptr inbounds nuw %"class.testing::Matcher.201", ptr %139, i64 %storemerge164
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %storemerge164
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %37, align 8, !tbaa !260
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !18
@@ -42057,7 +42048,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %246
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
   %.pre216 = load ptr, ptr %13, align 8, !tbaa !260
   %250 = load ptr, ptr %9, align 8, !tbaa !436
-  %251 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %250, i64 %storemerge.lcssa
+  %251 = getelementptr inbounds nuw [32 x i8], ptr %250, i64 %storemerge.lcssa
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 8, !tbaa !22
   %254 = icmp eq i64 %253, 0
@@ -42087,7 +42078,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.028205 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph206.preheader ]
   %storemerge48204 = phi i64 [ %282, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph206.preheader ]
-  %262 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge48204
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge48204
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load i64, ptr %263, align 8, !tbaa !22
   %265 = icmp eq i64 %264, 0
@@ -42751,7 +42742,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i102: ; preds = %62, %.noexc104
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0280.1484, i64 noundef %50) #35
-  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   %.pre = load ptr, ptr %60, align 8, !tbaa !464
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit105
 
@@ -43048,7 +43039,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %.pre614 = phi ptr [ %.pre614.pre, %164 ], [ %138, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i ]
   store ptr %159, ptr %2, align 8, !tbaa !779
   store ptr %163, ptr %124, align 8, !tbaa !776
-  %165 = getelementptr inbounds nuw ptr, ptr %159, i64 %157
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %157
   store ptr %165, ptr %125, align 8, !tbaa !778
   br label %166
 
@@ -43059,7 +43050,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %170 = zext i8 %169 to i64
   %171 = and i64 %.042489, 15
   %172 = icmp eq i64 %171, 0
-  %173 = getelementptr inbounds nuw ptr, ptr %167, i64 %170
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %170
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !464
   br i1 %172, label %176, label %203
@@ -43131,7 +43122,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %.pre615 = phi ptr [ %.pre615.pre, %201 ], [ %167, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i131 ]
   store ptr %196, ptr %2, align 8, !tbaa !779
   store ptr %200, ptr %124, align 8, !tbaa !776
-  %202 = getelementptr inbounds nuw ptr, ptr %196, i64 %194
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %194
   store ptr %202, ptr %125, align 8, !tbaa !778
   br label %203
 
@@ -43142,13 +43133,13 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 15
   %208 = load i8, ptr %207, align 1, !tbaa !24
   %209 = zext i8 %208 to i64
-  %210 = getelementptr inbounds nuw ptr, ptr %204, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load ptr, ptr %211, align 8, !tbaa !464
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 15
   %214 = load i8, ptr %213, align 1, !tbaa !24
   %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %212, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !464
   br i1 %206, label %219, label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit149
@@ -43218,7 +43209,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i146: ; preds = %244, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i144
   store ptr %239, ptr %2, align 8, !tbaa !779
   store ptr %243, ptr %124, align 8, !tbaa !776
-  %245 = getelementptr inbounds nuw ptr, ptr %239, i64 %237
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %237
   store ptr %245, ptr %125, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit149
 
@@ -43273,7 +43264,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i156: ; preds = %264, %.noexc158
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0280.5488, i64 noundef %252) #35
-  %265 = getelementptr inbounds nuw ptr, ptr %261, i64 %259
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %259
   %.pre616 = load ptr, ptr %262, align 8, !tbaa !464
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit159
 
@@ -44682,7 +44673,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %.pre265 = phi ptr [ %.pre265.pre, %194 ], [ %171, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i ]
   store ptr %189, ptr %5, align 8, !tbaa !779
   store ptr %193, ptr %141, align 8, !tbaa !776
-  %195 = getelementptr inbounds nuw ptr, ptr %189, i64 %187
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %187
   store ptr %195, ptr %142, align 8, !tbaa !778
   br label %196
 
@@ -44697,7 +44688,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %204 = zext i8 %203 to i64
   %205 = and i64 %.042254, 3
   %206 = icmp eq i64 %205, 0
-  %207 = getelementptr inbounds nuw ptr, ptr %198, i64 %204
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %204
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8, !tbaa !464
   br i1 %206, label %210, label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit
@@ -44764,7 +44755,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i124: ; preds = %232, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i122
   store ptr %227, ptr %5, align 8, !tbaa !779
   store ptr %231, ptr %141, align 8, !tbaa !776
-  %233 = getelementptr inbounds nuw ptr, ptr %227, i64 %225
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %225
   store ptr %233, ptr %142, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit
 
@@ -46200,7 +46191,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %.pre289 = phi ptr [ %.pre289.pre, %195 ], [ %172, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i ]
   store ptr %190, ptr %5, align 8, !tbaa !779
   store ptr %194, ptr %141, align 8, !tbaa !776
-  %196 = getelementptr inbounds nuw ptr, ptr %190, i64 %188
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %188
   store ptr %196, ptr %142, align 8, !tbaa !778
   br label %197
 
@@ -46216,7 +46207,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %206 = zext i8 %205 to i64
   %207 = and i64 %.043278, 15
   %208 = icmp eq i64 %207, 0
-  %209 = getelementptr inbounds nuw ptr, ptr %200, i64 %206
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %206
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !464
   br i1 %208, label %212, label %236
@@ -46285,7 +46276,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %.pre290 = phi ptr [ %.pre290.pre, %234 ], [ %200, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i123 ]
   store ptr %229, ptr %5, align 8, !tbaa !779
   store ptr %233, ptr %141, align 8, !tbaa !776
-  %235 = getelementptr inbounds nuw ptr, ptr %229, i64 %227
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %227
   store ptr %235, ptr %142, align 8, !tbaa !778
   br label %236
 
@@ -46301,13 +46292,13 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %245 = getelementptr inbounds nuw i8, ptr %238, i64 15
   %246 = load i8, ptr %245, align 1, !tbaa !24
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %238, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load ptr, ptr %249, align 8, !tbaa !464
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 15
   %252 = load i8, ptr %251, align 1, !tbaa !24
   %253 = zext i8 %252 to i64
-  %254 = getelementptr inbounds nuw ptr, ptr %250, i64 %253
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8, !tbaa !464
   br i1 %244, label %257, label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit141
@@ -46374,7 +46365,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i138: ; preds = %279, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i136
   store ptr %274, ptr %5, align 8, !tbaa !779
   store ptr %278, ptr %141, align 8, !tbaa !776
-  %280 = getelementptr inbounds nuw ptr, ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %272
   store ptr %280, ptr %142, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal7CordRepEEEPT_bS6_.exit141
 
@@ -47573,7 +47564,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJPS9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i
   store ptr %78, ptr %55, align 8, !tbaa !1380
   store ptr %87, ptr %56, align 8, !tbaa !1376
-  %105 = getelementptr inbounds nuw %"class.std::shared_ptr.496", ptr %78, i64 %74
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   store ptr %105, ptr %58, align 8, !tbaa !1379
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE8TestInfoEESaISA_EE12emplace_backIJPS9_EEERSA_DpOT_.exit
 
@@ -48035,7 +48026,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i53: ; preds = %66, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i51
   store ptr %61, ptr %3, align 8, !tbaa !779
   store ptr %65, ptr %14, align 8, !tbaa !776
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %67, ptr %15, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit56
 
@@ -48375,7 +48366,7 @@ _ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 14
   %166 = load i8, ptr %165, align 1, !tbaa !24
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw ptr, ptr %164, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %163, i64 15
   %170 = load i8, ptr %169, align 1, !tbaa !24
   %171 = zext i8 %170 to i64
@@ -48994,7 +48985,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i43: ; preds = %59, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i41
   store ptr %54, ptr %3, align 8, !tbaa !779
   store ptr %58, ptr %13, align 8, !tbaa !776
-  %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %52
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   store ptr %60, ptr %14, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit46
 
@@ -49202,7 +49193,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 14
   %125 = load i8, ptr %124, align 1, !tbaa !24
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %123, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 15
   %129 = load i8, ptr %128, align 1, !tbaa !24
   %130 = zext i8 %129 to i64
@@ -50466,7 +50457,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i65: ; preds = %73, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i63
   store ptr %68, ptr %3, align 8, !tbaa !779
   store ptr %72, ptr %19, align 8, !tbaa !776
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %74, ptr %20, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit68
 
@@ -50673,7 +50664,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 14
   %139 = load i8, ptr %138, align 1, !tbaa !24
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 15
   %143 = load i8, ptr %142, align 1, !tbaa !24
   %144 = zext i8 %143 to i64
@@ -52840,7 +52831,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i65: ; preds = %73, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i63
   store ptr %68, ptr %3, align 8, !tbaa !779
   store ptr %72, ptr %19, align 8, !tbaa !776
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %74, ptr %20, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit68
 
@@ -53047,7 +53038,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 14
   %139 = load i8, ptr %138, align 1, !tbaa !24
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 15
   %143 = load i8, ptr %142, align 1, !tbaa !24
   %144 = zext i8 %143 to i64
@@ -53877,7 +53868,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i65: ; preds = %73, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i63
   store ptr %68, ptr %3, align 8, !tbaa !779
   store ptr %72, ptr %19, align 8, !tbaa !776
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %74, ptr %20, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit68
 
@@ -54084,7 +54075,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 14
   %139 = load i8, ptr %138, align 1, !tbaa !24
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 15
   %143 = load i8, ptr %142, align 1, !tbaa !24
   %144 = zext i8 %143 to i64
@@ -55453,7 +55444,7 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_110RefEdgesAtEm
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %6 = load i8, ptr %5, align 1, !tbaa !24
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %10 = load i8, ptr %9, align 1, !tbaa !24
   %11 = zext i8 %10 to i64
@@ -55524,12 +55515,12 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %41, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %36, ptr %1, align 8, !tbaa !779
   store ptr %40, ptr %17, align 8, !tbaa !776
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %42, ptr %19, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref3RefINS_13cord_internal7CordRepEEEPT_S6_.exit
 
 _ZN4absl15cordrep_testing9AutoUnref3RefINS_13cord_internal7CordRepEEEPT_S6_.exit: ; preds = %21, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
-  %43 = getelementptr inbounds nuw ptr, ptr %13, i64 %.lcssa
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.lcssa
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !464, !nonnull !40, !noundef !40
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -55589,7 +55580,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i13: ; preds = %70, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i11
   store ptr %65, ptr %1, align 8, !tbaa !779
   store ptr %69, ptr %17, align 8, !tbaa !776
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %19, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref3RefINS_13cord_internal7CordRepEEEPT_S6_.exit14
 
@@ -55601,14 +55592,14 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   %75 = add i64 %.tr23, -1
   %76 = load ptr, ptr %73, align 8, !tbaa !464
   tail call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_110RefEdgesAtEmRNS_15cordrep_testing9AutoUnrefEPNS0_12CordRepBtreeE(i64 noundef %75, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %76)
-  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %72
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !464
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 14
   %82 = load i8, ptr %81, align 1, !tbaa !24
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 15
   %86 = load i8, ptr %85, align 1, !tbaa !24
   %87 = zext i8 %86 to i64
@@ -56316,7 +56307,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i216: ; preds = %232, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i214
   store ptr %227, ptr %12, align 8, !tbaa !779
   store ptr %231, ptr %68, align 8, !tbaa !776
-  %233 = getelementptr inbounds nuw ptr, ptr %227, i64 %225
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %225
   store ptr %233, ptr %69, align 8, !tbaa !778
   br label %234
 
@@ -56625,7 +56616,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250: ; preds = %337, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i248
-  %338 = getelementptr inbounds nuw ptr, ptr %333, i64 %331
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %331
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit.i: ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i250, %320
@@ -57354,7 +57345,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i26.i.i: ; preds = %560, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i24.i.i
   store ptr %555, ptr %31, align 8, !tbaa !779, !alias.scope !1595
   store ptr %559, ptr %85, align 8, !tbaa !776, !alias.scope !1595
-  %561 = getelementptr inbounds nuw ptr, ptr %555, i64 %553
+  %561 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %553
   store ptr %561, ptr %84, align 8, !tbaa !778, !alias.scope !1595
   %.pre.pre.i = load i8, ptr %543, align 4, !tbaa !308
   br label %"_ZZN4absl15cordrep_testing17CordCollectRepsIfIRZNS_13cord_internal12_GLOBAL__N_134CordRepBtreeTest_RemoveSuffix_Test8TestBodyEvE3$_0EESt6vectorIPNS2_7CordRepESaIS9_EEOT_S9_ENKUlS9_E_clES9_.exit.i.i.outer", !llvm.loop !1600
@@ -57366,13 +57357,13 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EE
   %566 = getelementptr inbounds nuw i8, ptr %.0.i.i318, i64 15
   %567 = load i8, ptr %566, align 1, !tbaa !24
   %568 = zext i8 %567 to i64
-  %569 = getelementptr inbounds nuw ptr, ptr %563, i64 %568
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %563, i64 %568
   %.not32.i.i = icmp eq i8 %565, %567
   br i1 %.not32.i.i, label %.loopexit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %562
   %570 = zext i8 %565 to i64
-  %571 = getelementptr inbounds nuw ptr, ptr %563, i64 %570
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %563, i64 %570
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc7.i, %.lr.ph.preheader.i.i
@@ -57409,7 +57400,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EE
 .loopexit.split-lp.i321:                          ; preds = %.loopexit.split-lp.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp, %.loopexit.split-lp.loopexit.i, %.loopexit.i319
   %lpad.phi.i322 = phi { ptr, i32 } [ %lpad.loopexit.i320, %.loopexit.i319 ], [ %lpad.loopexit10.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit572, %.loopexit.split-lp.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp573, %.loopexit.split-lp.loopexit.split-lp.i.loopexit.split-lp ]
   %574 = getelementptr inbounds nuw i8, ptr %412, i64 8
-  %575 = getelementptr inbounds nuw ptr, ptr %411, i64 %409
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %409
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1595
   %576 = load ptr, ptr %31, align 8, !tbaa !779, !alias.scope !1595
   %.not.i.i.i8.i = icmp eq ptr %576, null
@@ -57445,7 +57436,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EE
 586:                                              ; preds = %_ZN7testing7MessageD2Ev.exit312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit304
   %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn, %_ZN7testing7MessageD2Ev.exit312 ], [ %.pn133.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit304 ]
   %587 = getelementptr inbounds nuw i8, ptr %412, i64 8
-  %588 = getelementptr inbounds nuw ptr, ptr %411, i64 %409
+  %588 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %409
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.body499
 
@@ -57605,7 +57596,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %639 = add i64 %.01171497, 1
-  %640 = getelementptr inbounds nuw ptr, ptr %340, i64 %.01171497
+  %640 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %.01171497
   %641 = load ptr, ptr %640, align 8, !tbaa !464
   store ptr %641, ptr %40, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIPN4absl13cord_internal7CordRepEEEEclIS6_EENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @.str.223, ptr noundef nonnull align 8 dereferenceable(8) %38)
@@ -57918,7 +57909,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 734:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %735 = getelementptr inbounds nuw ptr, ptr %340, i64 %.0117.lcssa
+  %735 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %.0117.lcssa
   %736 = load ptr, ptr %735, align 8, !tbaa !464
   store ptr %736, ptr %48, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIPN4absl13cord_internal7CordRepEEEEclIS6_EENS_15AssertionResultEPKcRKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %47, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @.str.225, ptr noundef nonnull align 8 dereferenceable(8) %37)
@@ -58541,7 +58532,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i448: ; preds = %921, %.lr.ph.i4
 926:                                              ; preds = %.body506, %637
   %.pn169.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn169.pn.pn.pn, %.body506 ], [ %.pn144.pn.pn, %637 ]
   %927 = getelementptr inbounds nuw i8, ptr %412, i64 8
-  %928 = getelementptr inbounds nuw ptr, ptr %411, i64 %409
+  %928 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %409
   %929 = load ptr, ptr %31, align 8, !tbaa !779
   %.not.i.i.i456 = icmp eq ptr %929, null
   br i1 %.not.i.i.i456, label %.body327, label %.body327.sink.split
@@ -60010,7 +60001,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %46, ptr %6, align 8, !tbaa !776
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %48, ptr %7, align 8, !tbaa !778
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit
 
@@ -63574,13 +63565,13 @@ define linkonce_odr dso_local void @_ZN4absl15cordrep_testing12CordToStringEPNS_
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 15
   %18 = load i8, ptr %17, align 1, !tbaa !24
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %19
   %.not33 = icmp eq i8 %16, %18
   br i1 %.not33, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
   %21 = zext i8 %16 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %21
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -63713,7 +63704,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %25, ptr %.val18, align 8, !tbaa !779
   store ptr %29, ptr %6, align 8, !tbaa !776
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !778
   br label %"_ZZN4absl15cordrep_testing17CordCollectRepsIfIRZNS_13cord_internal12_GLOBAL__N_134CordRepBtreeTest_RemoveSuffix_Test8TestBodyEvE3$_0EESt6vectorIPNS2_7CordRepESaIS9_EEOT_S9_ENKUlS9_E_clES9_.exit.preheader"
 
@@ -63799,7 +63790,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i26: ; preds = %64, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i24
   store ptr %59, ptr %.val, align 8, !tbaa !779
   store ptr %63, ptr %40, align 8, !tbaa !776
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %42, align 8, !tbaa !778
   br label %"_ZZN4absl15cordrep_testing17CordCollectRepsIfIRZNS_13cord_internal12_GLOBAL__N_134CordRepBtreeTest_RemoveSuffix_Test8TestBodyEvE3$_0EESt6vectorIPNS2_7CordRepESaIS9_EEOT_S9_ENKUlS9_E_clES9_.exit.backedge"
 
@@ -63810,13 +63801,13 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJRKS3_EE
   %70 = getelementptr inbounds nuw i8, ptr %.0, i64 15
   %71 = load i8, ptr %70, align 1, !tbaa !24
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %67, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %72
   %.not32 = icmp eq i8 %69, %71
   br i1 %.not32, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %66
   %74 = zext i8 %69 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %74
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -64072,7 +64063,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %54 = getelementptr inbounds nuw ptr, ptr %49, i64 %47
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   br label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %36
@@ -64177,7 +64168,7 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %_ZN
 .lr.ph228:                                        ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit
   %.031227 = phi ptr [ %.0.i55, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ], [ %.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
   %.034226 = phi i64 [ %107, %_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_PNS0_7CordRepE.exit ], [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ]
-  %94 = getelementptr inbounds nuw ptr, ptr %.sroa.0115.1, i64 %.034226
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0115.1, i64 %.034226
   %95 = load ptr, ptr %94, align 8, !tbaa !464, !nonnull !40, !noundef !40
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = atomicrmw add ptr %96, i32 2 monotonic, align 4
@@ -65113,7 +65104,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 14
   %156 = load i8, ptr %155, align 1, !tbaa !24
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr %154, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %153, i64 15
   %160 = load i8, ptr %159, align 1, !tbaa !24
   %161 = zext i8 %160 to i64
@@ -65906,7 +65897,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   store ptr %82, ptr %37, align 8
   %431 = load i8, ptr %155, align 1, !tbaa !24
   %432 = zext i8 %431 to i64
-  %433 = getelementptr inbounds nuw ptr, ptr %154, i64 %432
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %432
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %435 = load ptr, ptr %434, align 8, !tbaa !464
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
@@ -69474,7 +69465,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %113, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %108, ptr %7, align 8, !tbaa !779
   store ptr %112, ptr %34, align 8, !tbaa !776
-  %114 = getelementptr inbounds nuw ptr, ptr %108, i64 %106
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %114, ptr %35, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit
 
@@ -70886,7 +70877,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %82 = getelementptr inbounds nuw i8, ptr %55, i64 14
   %83 = load i8, ptr %82, align 1, !tbaa !24
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !464
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !464
@@ -71061,7 +71052,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %129, %_ZNKSt14defau
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 14
   %144 = load i8, ptr %143, align 1, !tbaa !24
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 15
   %148 = load i8, ptr %147, align 1, !tbaa !24
   %149 = zext i8 %148 to i64
@@ -72977,7 +72968,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %124, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %119, ptr %6, align 8, !tbaa !779
   store ptr %123, ptr %100, align 8, !tbaa !776
-  %125 = getelementptr inbounds nuw ptr, ptr %119, i64 %117
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %117
   store ptr %125, ptr %102, align 8, !tbaa !778
   br label %126
 
@@ -72986,7 +72977,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   %128 = getelementptr inbounds nuw i8, ptr %.07.lcssa.i, i64 14
   %129 = load i8, ptr %128, align 1, !tbaa !24
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !464
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !464
@@ -73161,7 +73152,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %175, %_ZNKSt14defau
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 14
   %190 = load i8, ptr %189, align 1, !tbaa !24
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr %188, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 15
   %194 = load i8, ptr %193, align 1, !tbaa !24
   %195 = zext i8 %194 to i64
@@ -75288,7 +75279,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %239, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %234, ptr %9, align 8, !tbaa !779
   store ptr %238, ptr %78, align 8, !tbaa !776
-  %240 = getelementptr inbounds nuw ptr, ptr %234, i64 %232
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %232
   store ptr %240, ptr %79, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit
 
@@ -75971,7 +75962,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i406: ; preds = %450, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i404
   store ptr %445, ptr %9, align 8, !tbaa !779
   store ptr %449, ptr %78, align 8, !tbaa !776
-  %451 = getelementptr inbounds nuw ptr, ptr %445, i64 %443
+  %451 = getelementptr inbounds nuw [8 x i8], ptr %445, i64 %443
   store ptr %451, ptr %79, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit409
 
@@ -76516,7 +76507,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i489: ; preds = %619, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i487
   store ptr %614, ptr %9, align 8, !tbaa !779
   store ptr %618, ptr %78, align 8, !tbaa !776
-  %620 = getelementptr inbounds nuw ptr, ptr %614, i64 %612
+  %620 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %612
   store ptr %620, ptr %79, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit492
 
@@ -77175,7 +77166,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i588: ; preds = %828, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i586
   store ptr %823, ptr %9, align 8, !tbaa !779
   store ptr %827, ptr %78, align 8, !tbaa !776
-  %829 = getelementptr inbounds nuw ptr, ptr %823, i64 %821
+  %829 = getelementptr inbounds nuw [8 x i8], ptr %823, i64 %821
   store ptr %829, ptr %79, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit591
 
@@ -85679,7 +85670,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE17_M_realloc_insertIJPS9_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i
   store ptr %78, ptr %55, align 8, !tbaa !2341
   store ptr %87, ptr %56, align 8, !tbaa !2337
-  %105 = getelementptr inbounds nuw %"class.std::shared_ptr.717", ptr %78, i64 %74
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   store ptr %105, ptr %58, align 8, !tbaa !2340
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE8TestInfoEESaISA_EE12emplace_backIJPS9_EEERSA_DpOT_.exit
 
@@ -86848,7 +86839,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtre
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = getelementptr ptr, ptr %9, i64 %8
+  %10 = getelementptr [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !464
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load atomic i32, ptr %12 acquire, align 4
@@ -86861,7 +86852,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtre
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr i8, ptr %.0, i64 8
-  %20 = getelementptr ptr, ptr %19, i64 %18
+  %20 = getelementptr [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !464
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load atomic i32, ptr %22 acquire, align 4
@@ -86875,7 +86866,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtre
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
   %29 = getelementptr i8, ptr %.1, i64 8
-  %30 = getelementptr ptr, ptr %29, i64 %28
+  %30 = getelementptr [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !464
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load atomic i32, ptr %32 acquire, align 4
@@ -86890,7 +86881,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtre
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = getelementptr i8, ptr %.2, i64 8
-  %40 = getelementptr ptr, ptr %39, i64 %38
+  %40 = getelementptr [8 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !464
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load atomic i32, ptr %42 acquire, align 4
@@ -88621,7 +88612,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %65, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %60, ptr %2, align 8, !tbaa !779
   store ptr %64, ptr %23, align 8, !tbaa !776
-  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
   store ptr %66, ptr %24, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref3RefINS_13cord_internal12CordRepBtreeEEEPT_S6_.exit
 
@@ -103270,7 +103261,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !2590
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !2593
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.569", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !2594
   ret void
 }
@@ -103733,7 +103724,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.317, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !2590
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.569", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -103802,7 +103793,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.318, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !2590
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.569", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -106405,7 +106396,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.318, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !2590
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.569", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -106474,7 +106465,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.317, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !2590
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.569", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -109965,12 +109956,12 @@ _ZN7testing7MessageD2Ev.exit583:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %802 = load i8, ptr %234, align 1, !tbaa !24
   %803 = zext i8 %802 to i64
-  %804 = getelementptr inbounds nuw ptr, ptr %236, i64 %803
+  %804 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %803
   %805 = load ptr, ptr %804, align 8, !tbaa !464
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 12
   %807 = load i8, ptr %806, align 4, !tbaa !308
   %808 = zext i8 %591 to i64
-  %809 = getelementptr inbounds nuw ptr, ptr %236, i64 %808
+  %809 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %808
   store ptr null, ptr %809, align 8, !tbaa !464
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %810 = call noundef zeroext i1 @_ZN4absl13cord_internal12CordRepBtree7IsValidEPKS1_b(ptr noundef nonnull %245, i1 noundef zeroext false)
@@ -110937,7 +110928,7 @@ _ZN7testing7MessageD2Ev.exit717:                  ; preds = %_ZNKSt14default_del
   %1110 = getelementptr inbounds nuw i8, ptr %246, i64 14
   %1111 = load i8, ptr %1110, align 1, !tbaa !24
   %1112 = zext i8 %1111 to i64
-  %1113 = getelementptr inbounds nuw ptr, ptr %1109, i64 %1112
+  %1113 = getelementptr inbounds nuw [8 x i8], ptr %1109, i64 %1112
   %1114 = load ptr, ptr %1113, align 8, !tbaa !464
   %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 12
   %1116 = load i8, ptr %1115, align 4, !tbaa !308
@@ -115439,7 +115430,7 @@ _ZNSt6vectorIPN4absl13cord_internal11CordRepFlatESaIS3_EE11_S_relocateEPS3_S6_S6
 _ZNSt6vectorIPN4absl13cord_internal11CordRepFlatESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %96, %_ZNSt6vectorIPN4absl13cord_internal11CordRepFlatESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %91, ptr %6, align 8, !tbaa !2857
   store ptr %95, ptr %24, align 8, !tbaa !2854
-  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %89
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %97, ptr %25, align 8, !tbaa !2856
   br label %_ZNSt6vectorIPN4absl13cord_internal11CordRepFlatESaIS3_EE9push_backEOS3_.exit
 
@@ -115679,7 +115670,7 @@ _ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr %183, ptr %8, align 8, !tbaa !779
   store ptr %186, ptr %26, align 8, !tbaa !776
-  %187 = getelementptr inbounds nuw ptr, ptr %183, i64 %181
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %181
   store ptr %187, ptr %27, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref5RefIfINS_13cord_internal12CordRepBtreeEEEPT_bS6_.exit
 
@@ -115742,7 +115733,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i116: ; preds = %211, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i114
   store ptr %206, ptr %8, align 8, !tbaa !779
   store ptr %210, ptr %26, align 8, !tbaa !776
-  %212 = getelementptr inbounds nuw ptr, ptr %206, i64 %204
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %204
   store ptr %212, ptr %27, align 8, !tbaa !778
   br label %_ZN4absl15cordrep_testing9AutoUnref3AddINS_13cord_internal12CordRepBtreeEEEPT_S6_.exit
 
@@ -115975,13 +115966,13 @@ _ZN7testing7MessageD2Ev.exit129:                  ; preds = %_ZNKSt14default_del
   %283 = getelementptr inbounds nuw i8, ptr %.0.i135, i64 15
   %284 = load i8, ptr %283, align 1, !tbaa !24
   %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds nuw ptr, ptr %280, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %285
   %.not23.i = icmp eq i8 %282, %284
   br i1 %.not23.i, label %"_ZN4absl15cordrep_testing13CordVisitRepsIZNS_13cord_internal12_GLOBAL__N_129CordRepBtreeTest_Rebuild_Test8TestBodyEvE3$_0EEvPNS2_7CordRepEOT_.exit", label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %279
   %287 = zext i8 %282 to i64
-  %288 = getelementptr inbounds nuw ptr, ptr %280, i64 %287
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %287
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -116533,13 +116524,13 @@ define internal fastcc void @"_ZN4absl15cordrep_testing13CordVisitRepsIRZNS_13co
   %55 = getelementptr inbounds nuw i8, ptr %.0, i64 15
   %56 = load i8, ptr %55, align 1, !tbaa !24
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %57
   %.not23 = icmp eq i8 %54, %56
   br i1 %.not23, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %51
   %59 = zext i8 %54 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %52, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %59
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -123069,7 +123060,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %104 = load i8, ptr %48, align 1, !tbaa !24
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %50, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %105
   %107 = load i8, ptr %49, align 1, !tbaa !24
   %108 = zext i8 %107 to i64
   %109 = sub nsw i64 %108, %105
@@ -123210,7 +123201,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %153 = getelementptr inbounds nuw i8, ptr %24, i64 14
   %154 = load i8, ptr %153, align 1, !tbaa !24
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %152, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %24, i64 15
   %158 = load i8, ptr %157, align 1, !tbaa !24
   %159 = zext i8 %158 to i64
@@ -123354,7 +123345,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %206 = getelementptr inbounds nuw i8, ptr %35, i64 14
   %207 = load i8, ptr %206, align 1, !tbaa !24
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw ptr, ptr %205, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %35, i64 15
   %211 = load i8, ptr %210, align 1, !tbaa !24
   %212 = zext i8 %211 to i64
@@ -123935,7 +123926,7 @@ _ZNSt16allocator_traitsISaIPN4absl13cord_internal7CordRepEEE8allocateERS4_m.exit
   %134 = getelementptr inbounds nuw i8, ptr %22, i64 14
   %135 = load i8, ptr %134, align 1, !tbaa !24
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %133, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %22, i64 15
   %139 = load i8, ptr %138, align 1, !tbaa !24
   %140 = zext i8 %139 to i64
@@ -126899,7 +126890,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !3157
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !3158
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !3159
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -129107,7 +129098,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !3158
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !3159
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge28, label %52
@@ -129270,7 +129261,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !3160
   %33 = load ptr, ptr %0, align 8, !tbaa !3158
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !3159
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -129296,7 +129287,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !3160
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !3159
   br label %49
 
@@ -129388,7 +129379,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !3160
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !3159
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -129403,7 +129394,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !3159
   br label %28
 
@@ -134006,7 +133997,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_interna
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE17InstantiationInfoESaIS8_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIbEEvERPFSH_RKNS0_13TestParamInfoIbEEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %461, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE17InstantiationInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit44.i.i.i.i
   store ptr %435, ptr %407, align 8, !tbaa !3163
   store ptr %460, ptr %408, align 8, !tbaa !3166
-  %465 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::cord_internal::(anonymous namespace)::CordRepBtreeTest>::InstantiationInfo", ptr %435, i64 %430
+  %465 = getelementptr inbounds nuw [64 x i8], ptr %435, i64 %430
   store ptr %465, ptr %410, align 8, !tbaa !3168
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_116CordRepBtreeTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorIbEEvEPFSC_RKNS_13TestParamInfoIbEEEPKci.exit.i
 
@@ -134352,7 +134343,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_interna
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE17InstantiationInfoESaIS8_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIiEEvERPFSH_RKNS0_13TestParamInfoIiEEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %586, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE17InstantiationInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit44.i.i.i.i
   store ptr %560, ptr %532, align 8, !tbaa !3224
   store ptr %585, ptr %533, align 8, !tbaa !3227
-  %590 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::cord_internal::(anonymous namespace)::CordRepBtreeHeightTest>::InstantiationInfo", ptr %560, i64 %555
+  %590 = getelementptr inbounds nuw [64 x i8], ptr %560, i64 %555
   store ptr %590, ptr %535, align 8, !tbaa !3229
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_122CordRepBtreeHeightTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorIiEEvEPFSC_RKNS_13TestParamInfoIiEEEPKci.exit.i
 
@@ -134686,7 +134677,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_interna
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE17InstantiationInfoESaIS8_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorISt5tupleIJbbEEEEvERPFSH_RKNS0_13TestParamInfoISK_EEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i: ; preds = %710, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE17InstantiationInfoESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit44.i.i.i.i
   store ptr %684, ptr %656, align 8, !tbaa !3259
   store ptr %709, ptr %657, align 8, !tbaa !3262
-  %714 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::cord_internal::(anonymous namespace)::CordRepBtreeDualTest>::InstantiationInfo", ptr %684, i64 %679
+  %714 = getelementptr inbounds nuw [64 x i8], ptr %684, i64 %679
   store ptr %714, ptr %659, align 8, !tbaa !3264
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_120CordRepBtreeDualTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJbbEEEEvEPFSC_RKNS_13TestParamInfoISF_EEEPKci.exit.i
 

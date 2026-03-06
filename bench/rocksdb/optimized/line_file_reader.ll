@@ -30,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::shared_ptr.36" = type { %"class.std::__shared_ptr.37" }
-%"class.std::__shared_ptr.37" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN7rocksdb14LineFileReaderC2IJSt10unique_ptrINS_16FSSequentialFileESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDnSt6vectorISt10shared_ptrINS_13EventListenerEESaISI_EERPNS_11RateLimiterEEEEDpOT_ = comdat any
 
@@ -1758,7 +1756,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !39
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.36", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !50
   ret void
 }

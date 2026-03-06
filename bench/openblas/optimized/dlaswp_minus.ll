@@ -7,11 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, i64 noundef %7, ptr noundef readonly captures(none) %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %4, i64 -8
   %12 = add nsw i64 %1, -1
-  %13 = getelementptr inbounds i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   %14 = sub nsw i64 %2, %12
   %.neg = sub i64 1, %14
   %.neg1050 = mul i64 %9, %.neg
-  %15 = getelementptr inbounds i32, ptr %13, i64 %.neg1050
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %.neg1050
   %16 = icmp slt i64 %0, 1
   %17 = icmp slt i64 %14, 1
   %or.cond = select i1 %16, i1 true, i1 %17
@@ -24,15 +24,15 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 20:                                               ; preds = %18
   %21 = load i32, ptr %15, align 4, !tbaa !3
   %22 = sext i32 %21 to i64
-  %.idx1079 = shl nsw i64 %12, 3
-  %23 = add nsw i64 %.idx1079, 8
-  %.idx1080 = shl nsw i64 %22, 3
-  %.not1230 = icmp eq i64 %23, %.idx1080
+  %.idx1069 = shl nsw i64 %12, 3
+  %23 = add nsw i64 %.idx1069, 8
+  %.idx1070 = shl nsw i64 %22, 3
+  %.not1230 = icmp eq i64 %23, %.idx1070
   br i1 %.not1230, label %.loopexit, label %.lr.ph1180.preheader
 
 .lr.ph1180.preheader:                             ; preds = %20
-  %24 = getelementptr i8, ptr %4, i64 %.idx1079
-  %25 = getelementptr inbounds i8, ptr %11, i64 %.idx1080
+  %24 = getelementptr i8, ptr %4, i64 %.idx1069
+  %25 = getelementptr inbounds i8, ptr %11, i64 %.idx1070
   br label %.lr.ph1180
 
 .lr.ph1180:                                       ; preds = %.lr.ph1180.preheader, %.lr.ph1180
@@ -43,8 +43,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %27 = load double, ptr %.010041178, align 8, !tbaa !7
   store double %27, ptr %.010111177, align 8, !tbaa !7
   store double %26, ptr %.010041178, align 8, !tbaa !7
-  %28 = getelementptr inbounds double, ptr %.010111177, i64 %5
-  %29 = getelementptr inbounds double, ptr %.010041178, i64 %5
+  %28 = getelementptr inbounds [8 x i8], ptr %.010111177, i64 %5
+  %29 = getelementptr inbounds [8 x i8], ptr %.010041178, i64 %5
   %30 = add nuw nsw i64 %.010191176, 1
   %exitcond.not = icmp eq i64 %30, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph1180, !llvm.loop !9
@@ -57,34 +57,34 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 .preheader:                                       ; preds = %31
   %33 = shl nsw i64 %5, 1
   %34 = mul nsw i64 %5, 3
-  %35 = getelementptr inbounds i32, ptr %15, i64 %9
+  %35 = getelementptr inbounds [4 x i8], ptr %15, i64 %9
   %36 = lshr i64 %14, 1
-  %.010151092 = getelementptr inbounds i32, ptr %35, i64 %9
+  %.010151092 = getelementptr inbounds [4 x i8], ptr %35, i64 %9
   %37 = icmp samesign ugt i64 %14, 3
   %38 = and i64 %14, 1
-  %.not1055 = icmp eq i64 %38, 0
+  %.not1053 = icmp eq i64 %38, 0
   %.idx = shl nsw i64 %5, 5
   %.pre = load i32, ptr %15, align 4, !tbaa !3
   %.pre1214 = load i32, ptr %35, align 4, !tbaa !3
-  %.pn10521082 = sext i32 %.pre1214 to i64
+  %.pn10721082 = sext i32 %.pre1214 to i64
   %.pn1085 = sext i32 %.pre to i64
   br label %39
 
 39:                                               ; preds = %.preheader, %157
   %.11025 = phi ptr [ %158, %157 ], [ %11, %.preheader ]
   %.11020 = phi i64 [ %159, %157 ], [ %32, %.preheader ]
-  %40 = getelementptr inbounds double, ptr %.11025, i64 %2
-  %41 = getelementptr inbounds double, ptr %40, i64 %5
-  %42 = getelementptr inbounds double, ptr %40, i64 %33
-  %43 = getelementptr inbounds double, ptr %40, i64 %34
-  %.010021083 = getelementptr inbounds double, ptr %.11025, i64 %.pn10521082
-  %.01084 = getelementptr inbounds double, ptr %.010021083, i64 %34
-  %.110051086 = getelementptr inbounds double, ptr %.11025, i64 %.pn1085
-  %.09961087 = getelementptr inbounds double, ptr %.110051086, i64 %34
-  %.09971088 = getelementptr inbounds double, ptr %.010021083, i64 %33
-  %.09981089 = getelementptr inbounds double, ptr %.110051086, i64 %33
-  %.09991090 = getelementptr inbounds double, ptr %.010021083, i64 %5
-  %.010001091 = getelementptr inbounds double, ptr %.110051086, i64 %5
+  %40 = getelementptr inbounds [8 x i8], ptr %.11025, i64 %2
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %5
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %33
+  %43 = getelementptr inbounds [8 x i8], ptr %40, i64 %34
+  %.010021083 = getelementptr inbounds [8 x i8], ptr %.11025, i64 %.pn10721082
+  %.01084 = getelementptr inbounds [8 x i8], ptr %.010021083, i64 %34
+  %.110051086 = getelementptr inbounds [8 x i8], ptr %.11025, i64 %.pn1085
+  %.09961087 = getelementptr inbounds [8 x i8], ptr %.110051086, i64 %34
+  %.09971088 = getelementptr inbounds [8 x i8], ptr %.010021083, i64 %33
+  %.09981089 = getelementptr inbounds [8 x i8], ptr %.110051086, i64 %33
+  %.09991090 = getelementptr inbounds [8 x i8], ptr %.010021083, i64 %5
+  %.010001091 = getelementptr inbounds [8 x i8], ptr %.110051086, i64 %5
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39, %89
@@ -98,7 +98,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.110051102 = phi ptr [ %.11005, %89 ], [ %.110051086, %39 ]
   %.01101 = phi ptr [ %.0, %89 ], [ %.01084, %39 ]
   %.010021100 = phi ptr [ %.01002, %89 ], [ %.010021083, %39 ]
-  %.pn1052.in1099 = phi i32 [ %66, %89 ], [ %.pre1214, %39 ]
+  %.pn1072.in1099 = phi i32 [ %66, %89 ], [ %.pre1214, %39 ]
   %.pn.in1098 = phi i32 [ %64, %89 ], [ %.pre, %39 ]
   %.010071097 = phi ptr [ %93, %89 ], [ %43, %39 ]
   %.010081096 = phi ptr [ %92, %89 ], [ %42, %39 ]
@@ -126,7 +126,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %62 = load double, ptr %.09961103, align 8, !tbaa !7
   %63 = load double, ptr %.01101, align 8, !tbaa !7
   %64 = load i32, ptr %.010151108, align 4, !tbaa !3
-  %65 = getelementptr inbounds i32, ptr %.010151108, i64 %9
+  %65 = getelementptr inbounds [4 x i8], ptr %.010151108, i64 %9
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %67 = icmp eq ptr %.110051102, %.110121094
   br i1 %67, label %68, label %73
@@ -147,8 +147,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %89
 
 71:                                               ; preds = %68
-  %.not1078 = icmp eq ptr %.010021100, %45
-  br i1 %.not1078, label %89, label %72
+  %.not1068 = icmp eq ptr %.010021100, %45
+  br i1 %.not1068, label %89, label %72
 
 72:                                               ; preds = %71
   store double %57, ptr %45, align 8, !tbaa !7
@@ -163,11 +163,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 73:                                               ; preds = %.lr.ph
   %74 = icmp eq ptr %.110051102, %45
-  %.not1077 = icmp eq ptr %.010021100, %.110121094
+  %.not1067 = icmp eq ptr %.010021100, %.110121094
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %73
-  br i1 %.not1077, label %89, label %76
+  br i1 %.not1067, label %89, label %76
 
 76:                                               ; preds = %75
   %77 = icmp eq ptr %.010021100, %.110051102
@@ -199,7 +199,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %89
 
 80:                                               ; preds = %73
-  br i1 %.not1077, label %81, label %82
+  br i1 %.not1067, label %81, label %82
 
 81:                                               ; preds = %80
   store double %46, ptr %.010021100, align 8, !tbaa !7
@@ -232,7 +232,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %89
 
 85:                                               ; preds = %82
-  %86 = icmp eq i32 %.pn1052.in1099, %.pn.in1098
+  %86 = icmp eq i32 %.pn1072.in1099, %.pn.in1098
   store double %56, ptr %.110121094, align 8, !tbaa !7
   br i1 %86, label %87, label %88
 
@@ -273,17 +273,17 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %91 = getelementptr inbounds i8, ptr %.010091095, i64 -16
   %92 = getelementptr inbounds i8, ptr %.010081096, i64 -16
   %93 = getelementptr inbounds i8, ptr %.010071097, i64 -16
-  %.pn1052 = sext i32 %66 to i64
-  %.01002 = getelementptr inbounds double, ptr %.11025, i64 %.pn1052
-  %.0 = getelementptr inbounds double, ptr %.01002, i64 %34
+  %.pn1072 = sext i32 %66 to i64
+  %.01002 = getelementptr inbounds [8 x i8], ptr %.11025, i64 %.pn1072
+  %.0 = getelementptr inbounds [8 x i8], ptr %.01002, i64 %34
   %.pn = sext i32 %64 to i64
-  %.11005 = getelementptr inbounds double, ptr %.11025, i64 %.pn
-  %.0996 = getelementptr inbounds double, ptr %.11005, i64 %34
-  %.0997 = getelementptr inbounds double, ptr %.01002, i64 %33
-  %.0998 = getelementptr inbounds double, ptr %.11005, i64 %33
-  %.0999 = getelementptr inbounds double, ptr %.01002, i64 %5
-  %.01000 = getelementptr inbounds double, ptr %.11005, i64 %5
-  %.01015 = getelementptr inbounds i32, ptr %65, i64 %9
+  %.11005 = getelementptr inbounds [8 x i8], ptr %.11025, i64 %.pn
+  %.0996 = getelementptr inbounds [8 x i8], ptr %.11005, i64 %34
+  %.0997 = getelementptr inbounds [8 x i8], ptr %.01002, i64 %33
+  %.0998 = getelementptr inbounds [8 x i8], ptr %.11005, i64 %33
+  %.0999 = getelementptr inbounds [8 x i8], ptr %.01002, i64 %5
+  %.01000 = getelementptr inbounds [8 x i8], ptr %.11005, i64 %5
+  %.01015 = getelementptr inbounds [4 x i8], ptr %65, i64 %9
   %94 = icmp sgt i64 %.010211109.in, 2
   br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
@@ -293,7 +293,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.01008.lcssa = phi ptr [ %42, %39 ], [ %92, %89 ]
   %.01007.lcssa = phi ptr [ %43, %39 ], [ %93, %89 ]
   %.pn.in.lcssa = phi i32 [ %.pre, %39 ], [ %64, %89 ]
-  %.pn1052.in.lcssa = phi i32 [ %.pre1214, %39 ], [ %66, %89 ]
+  %.pn1072.in.lcssa = phi i32 [ %.pre1214, %39 ], [ %66, %89 ]
   %.01002.lcssa = phi ptr [ %.010021083, %39 ], [ %.01002, %89 ]
   %.0.lcssa = phi ptr [ %.01084, %39 ], [ %.0, %89 ]
   %.11005.lcssa = phi ptr [ %.110051086, %39 ], [ %.11005, %89 ]
@@ -342,8 +342,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %137
 
 119:                                              ; preds = %116
-  %.not1054 = icmp eq ptr %.01002.lcssa, %96
-  br i1 %.not1054, label %137, label %120
+  %.not1052 = icmp eq ptr %.01002.lcssa, %96
+  br i1 %.not1052, label %137, label %120
 
 120:                                              ; preds = %119
   store double %108, ptr %96, align 8, !tbaa !7
@@ -358,11 +358,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 121:                                              ; preds = %._crit_edge
   %122 = icmp eq ptr %.11005.lcssa, %96
-  %.not1053 = icmp eq ptr %.01002.lcssa, %.11012.lcssa
+  %.not1051 = icmp eq ptr %.01002.lcssa, %.11012.lcssa
   br i1 %122, label %123, label %128
 
 123:                                              ; preds = %121
-  br i1 %.not1053, label %137, label %124
+  br i1 %.not1051, label %137, label %124
 
 124:                                              ; preds = %123
   %125 = icmp eq ptr %.01002.lcssa, %.11005.lcssa
@@ -394,7 +394,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %137
 
 128:                                              ; preds = %121
-  br i1 %.not1053, label %129, label %130
+  br i1 %.not1051, label %129, label %130
 
 129:                                              ; preds = %128
   store double %97, ptr %.11012.lcssa, align 8, !tbaa !7
@@ -427,7 +427,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %137
 
 133:                                              ; preds = %130
-  %134 = icmp eq i32 %.pn1052.in.lcssa, %.pn.in.lcssa
+  %134 = icmp eq i32 %.pn1072.in.lcssa, %.pn.in.lcssa
   store double %107, ptr %.11012.lcssa, align 8, !tbaa !7
   br i1 %134, label %135, label %136
 
@@ -464,7 +464,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %137
 
 137:                                              ; preds = %126, %127, %123, %132, %136, %135, %129, %118, %120, %119
-  br i1 %.not1055, label %157, label %138
+  br i1 %.not1053, label %157, label %138
 
 138:                                              ; preds = %137
   %139 = getelementptr inbounds i8, ptr %.01007.lcssa, i64 -16
@@ -473,10 +473,10 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %142 = getelementptr inbounds i8, ptr %.11012.lcssa, i64 -16
   %143 = load i32, ptr %.01015.lcssa, align 4, !tbaa !3
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds double, ptr %.11025, i64 %144
-  %146 = getelementptr inbounds double, ptr %145, i64 %5
-  %147 = getelementptr inbounds double, ptr %145, i64 %33
-  %148 = getelementptr inbounds double, ptr %145, i64 %34
+  %145 = getelementptr inbounds [8 x i8], ptr %.11025, i64 %144
+  %146 = getelementptr inbounds [8 x i8], ptr %145, i64 %5
+  %147 = getelementptr inbounds [8 x i8], ptr %145, i64 %33
+  %148 = getelementptr inbounds [8 x i8], ptr %145, i64 %34
   %149 = load double, ptr %142, align 8, !tbaa !7
   %150 = load double, ptr %145, align 8, !tbaa !7
   %151 = load double, ptr %141, align 8, !tbaa !7
@@ -504,22 +504,22 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 .loopexit1081:                                    ; preds = %157, %31
   %.01024 = phi ptr [ %11, %31 ], [ %158, %157 ]
   %161 = and i64 %0, 2
-  %.not1056 = icmp eq i64 %161, 0
-  br i1 %.not1056, label %256, label %162
+  %.not1054 = icmp eq i64 %161, 0
+  br i1 %.not1054, label %256, label %162
 
 162:                                              ; preds = %.loopexit1081
-  %163 = getelementptr inbounds double, ptr %.01024, i64 %2
-  %164 = getelementptr inbounds double, ptr %163, i64 %5
+  %163 = getelementptr inbounds [8 x i8], ptr %.01024, i64 %2
+  %164 = getelementptr inbounds [8 x i8], ptr %163, i64 %5
   %165 = load i32, ptr %15, align 4, !tbaa !3
-  %166 = getelementptr inbounds i32, ptr %15, i64 %9
+  %166 = getelementptr inbounds [4 x i8], ptr %15, i64 %9
   %167 = load i32, ptr %166, align 4, !tbaa !3
-  %.pn10611124 = sext i32 %167 to i64
-  %.110031125 = getelementptr inbounds double, ptr %.01024, i64 %.pn10611124
-  %.11126 = getelementptr inbounds double, ptr %.110031125, i64 %5
-  %.pn10591127 = sext i32 %165 to i64
-  %.210061128 = getelementptr inbounds double, ptr %.01024, i64 %.pn10591127
-  %.110011129 = getelementptr inbounds double, ptr %.210061128, i64 %5
-  %.110161130 = getelementptr inbounds i32, ptr %166, i64 %9
+  %.pn10771124 = sext i32 %167 to i64
+  %.110031125 = getelementptr inbounds [8 x i8], ptr %.01024, i64 %.pn10771124
+  %.11126 = getelementptr inbounds [8 x i8], ptr %.110031125, i64 %5
+  %.pn10751127 = sext i32 %165 to i64
+  %.210061128 = getelementptr inbounds [8 x i8], ptr %.01024, i64 %.pn10751127
+  %.110011129 = getelementptr inbounds [8 x i8], ptr %.210061128, i64 %5
+  %.110161130 = getelementptr inbounds [4 x i8], ptr %166, i64 %9
   %168 = icmp ugt i64 %14, 3
   br i1 %168, label %.lr.ph1143.preheader, label %._crit_edge1144
 
@@ -534,8 +534,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.210061138 = phi ptr [ %.21006, %205 ], [ %.210061128, %.lr.ph1143.preheader ]
   %.11137 = phi ptr [ %.1, %205 ], [ %.11126, %.lr.ph1143.preheader ]
   %.110031136 = phi ptr [ %.11003, %205 ], [ %.110031125, %.lr.ph1143.preheader ]
-  %.pn1061.in1135 = phi i32 [ %182, %205 ], [ %167, %.lr.ph1143.preheader ]
-  %.pn1059.in1134 = phi i32 [ %180, %205 ], [ %165, %.lr.ph1143.preheader ]
+  %.pn1077.in1135 = phi i32 [ %182, %205 ], [ %167, %.lr.ph1143.preheader ]
+  %.pn1075.in1134 = phi i32 [ %180, %205 ], [ %165, %.lr.ph1143.preheader ]
   %.110101133 = phi ptr [ %207, %205 ], [ %164, %.lr.ph1143.preheader ]
   %.210131132 = phi ptr [ %206, %205 ], [ %163, %.lr.ph1143.preheader ]
   %.110221141 = add nsw i64 %.110221141.in, -1
@@ -550,7 +550,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %178 = load double, ptr %.110011139, align 8, !tbaa !7
   %179 = load double, ptr %.11137, align 8, !tbaa !7
   %180 = load i32, ptr %.110161140, align 4, !tbaa !3
-  %181 = getelementptr inbounds i32, ptr %.110161140, i64 %9
+  %181 = getelementptr inbounds [4 x i8], ptr %.110161140, i64 %9
   %182 = load i32, ptr %181, align 4, !tbaa !3
   %183 = icmp eq ptr %.210061138, %.210131132
   br i1 %183, label %184, label %189
@@ -567,8 +567,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %205
 
 187:                                              ; preds = %184
-  %.not1076 = icmp eq ptr %.110031136, %171
-  br i1 %.not1076, label %205, label %188
+  %.not1066 = icmp eq ptr %.110031136, %171
+  br i1 %.not1066, label %205, label %188
 
 188:                                              ; preds = %187
   store double %177, ptr %171, align 8, !tbaa !7
@@ -579,11 +579,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 189:                                              ; preds = %.lr.ph1143
   %190 = icmp eq ptr %.210061138, %171
-  %.not1075 = icmp eq ptr %.110031136, %.210131132
+  %.not1065 = icmp eq ptr %.110031136, %.210131132
   br i1 %190, label %191, label %196
 
 191:                                              ; preds = %189
-  br i1 %.not1075, label %205, label %192
+  br i1 %.not1065, label %205, label %192
 
 192:                                              ; preds = %191
   %193 = icmp eq ptr %.110031136, %.210061138
@@ -605,7 +605,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %205
 
 196:                                              ; preds = %189
-  br i1 %.not1075, label %197, label %198
+  br i1 %.not1065, label %197, label %198
 
 197:                                              ; preds = %196
   store double %172, ptr %.110031136, align 8, !tbaa !7
@@ -628,7 +628,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %205
 
 201:                                              ; preds = %198
-  %202 = icmp eq i32 %.pn1061.in1135, %.pn1059.in1134
+  %202 = icmp eq i32 %.pn1077.in1135, %.pn1075.in1134
   store double %176, ptr %.210131132, align 8, !tbaa !7
   br i1 %202, label %203, label %204
 
@@ -653,21 +653,21 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 205:                                              ; preds = %194, %195, %191, %200, %204, %203, %197, %186, %188, %187
   %206 = getelementptr inbounds i8, ptr %.210131132, i64 -16
   %207 = getelementptr inbounds i8, ptr %.110101133, i64 -16
-  %.pn1061 = sext i32 %182 to i64
-  %.11003 = getelementptr inbounds double, ptr %.01024, i64 %.pn1061
-  %.1 = getelementptr inbounds double, ptr %.11003, i64 %5
-  %.pn1059 = sext i32 %180 to i64
-  %.21006 = getelementptr inbounds double, ptr %.01024, i64 %.pn1059
-  %.11001 = getelementptr inbounds double, ptr %.21006, i64 %5
-  %.11016 = getelementptr inbounds i32, ptr %181, i64 %9
+  %.pn1077 = sext i32 %182 to i64
+  %.11003 = getelementptr inbounds [8 x i8], ptr %.01024, i64 %.pn1077
+  %.1 = getelementptr inbounds [8 x i8], ptr %.11003, i64 %5
+  %.pn1075 = sext i32 %180 to i64
+  %.21006 = getelementptr inbounds [8 x i8], ptr %.01024, i64 %.pn1075
+  %.11001 = getelementptr inbounds [8 x i8], ptr %.21006, i64 %5
+  %.11016 = getelementptr inbounds [4 x i8], ptr %181, i64 %9
   %208 = icmp samesign ugt i64 %.110221141.in, 2
   br i1 %208, label %.lr.ph1143, label %._crit_edge1144, !llvm.loop !13
 
 ._crit_edge1144:                                  ; preds = %205, %162
   %.21013.lcssa = phi ptr [ %163, %162 ], [ %206, %205 ]
   %.11010.lcssa = phi ptr [ %164, %162 ], [ %207, %205 ]
-  %.pn1059.in.lcssa = phi i32 [ %165, %162 ], [ %180, %205 ]
-  %.pn1061.in.lcssa = phi i32 [ %167, %162 ], [ %182, %205 ]
+  %.pn1075.in.lcssa = phi i32 [ %165, %162 ], [ %180, %205 ]
+  %.pn1077.in.lcssa = phi i32 [ %167, %162 ], [ %182, %205 ]
   %.11003.lcssa = phi ptr [ %.110031125, %162 ], [ %.11003, %205 ]
   %.1.lcssa = phi ptr [ %.11126, %162 ], [ %.1, %205 ]
   %.21006.lcssa = phi ptr [ %.210061128, %162 ], [ %.21006, %205 ]
@@ -698,8 +698,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %241
 
 223:                                              ; preds = %220
-  %.not1063 = icmp eq ptr %.11003.lcssa, %214
-  br i1 %.not1063, label %241, label %224
+  %.not1056 = icmp eq ptr %.11003.lcssa, %214
+  br i1 %.not1056, label %241, label %224
 
 224:                                              ; preds = %223
   store double %210, ptr %214, align 8, !tbaa !7
@@ -710,11 +710,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 225:                                              ; preds = %._crit_edge1144
   %226 = icmp eq ptr %.21006.lcssa, %214
-  %.not1062 = icmp eq ptr %.11003.lcssa, %.21013.lcssa
+  %.not1055 = icmp eq ptr %.11003.lcssa, %.21013.lcssa
   br i1 %226, label %227, label %232
 
 227:                                              ; preds = %225
-  br i1 %.not1062, label %241, label %228
+  br i1 %.not1055, label %241, label %228
 
 228:                                              ; preds = %227
   %229 = icmp eq ptr %.11003.lcssa, %.21006.lcssa
@@ -736,7 +736,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %241
 
 232:                                              ; preds = %225
-  br i1 %.not1062, label %233, label %234
+  br i1 %.not1055, label %233, label %234
 
 233:                                              ; preds = %232
   store double %215, ptr %.21013.lcssa, align 8, !tbaa !7
@@ -759,7 +759,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %241
 
 237:                                              ; preds = %234
-  %238 = icmp eq i32 %.pn1061.in.lcssa, %.pn1059.in.lcssa
+  %238 = icmp eq i32 %.pn1077.in.lcssa, %.pn1075.in.lcssa
   store double %209, ptr %.21013.lcssa, align 8, !tbaa !7
   br i1 %238, label %239, label %240
 
@@ -783,16 +783,16 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 241:                                              ; preds = %230, %231, %227, %236, %240, %239, %233, %222, %224, %223
   %242 = and i64 %14, 1
-  %.not1064 = icmp eq i64 %242, 0
-  br i1 %.not1064, label %254, label %243
+  %.not1057 = icmp eq i64 %242, 0
+  br i1 %.not1057, label %254, label %243
 
 243:                                              ; preds = %241
   %244 = getelementptr inbounds i8, ptr %.11010.lcssa, i64 -16
   %245 = getelementptr inbounds i8, ptr %.21013.lcssa, i64 -16
   %246 = load i32, ptr %.11016.lcssa, align 4, !tbaa !3
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %.01024, i64 %247
-  %249 = getelementptr inbounds double, ptr %248, i64 %5
+  %248 = getelementptr inbounds [8 x i8], ptr %.01024, i64 %247
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %5
   %250 = load double, ptr %245, align 8, !tbaa !7
   %251 = load double, ptr %248, align 8, !tbaa !7
   %252 = load double, ptr %244, align 8, !tbaa !7
@@ -804,26 +804,26 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %254
 
 254:                                              ; preds = %243, %241
-  %.idx1065 = shl nsw i64 %5, 4
-  %255 = getelementptr inbounds i8, ptr %.01024, i64 %.idx1065
+  %.idx1058 = shl nsw i64 %5, 4
+  %255 = getelementptr inbounds i8, ptr %.01024, i64 %.idx1058
   br label %256
 
 256:                                              ; preds = %254, %.loopexit1081
   %.21026 = phi ptr [ %255, %254 ], [ %.01024, %.loopexit1081 ]
   %257 = and i64 %0, 1
-  %.not1066 = icmp eq i64 %257, 0
-  br i1 %.not1066, label %.loopexit, label %258
+  %.not1059 = icmp eq i64 %257, 0
+  br i1 %.not1059, label %.loopexit, label %258
 
 258:                                              ; preds = %256
-  %259 = getelementptr inbounds double, ptr %.21026, i64 %2
+  %259 = getelementptr inbounds [8 x i8], ptr %.21026, i64 %2
   %260 = load i32, ptr %15, align 4, !tbaa !3
-  %261 = getelementptr inbounds i32, ptr %15, i64 %9
+  %261 = getelementptr inbounds [4 x i8], ptr %15, i64 %9
   %262 = load i32, ptr %261, align 4, !tbaa !3
-  %.pn10691154 = sext i32 %262 to i64
-  %.21155 = getelementptr inbounds double, ptr %.21026, i64 %.pn10691154
-  %.pn10681156 = sext i32 %260 to i64
-  %.31157 = getelementptr inbounds double, ptr %.21026, i64 %.pn10681156
-  %.210171158 = getelementptr inbounds i32, ptr %261, i64 %9
+  %.pn10801154 = sext i32 %262 to i64
+  %.21155 = getelementptr inbounds [8 x i8], ptr %.21026, i64 %.pn10801154
+  %.pn10791156 = sext i32 %260 to i64
+  %.31157 = getelementptr inbounds [8 x i8], ptr %.21026, i64 %.pn10791156
+  %.210171158 = getelementptr inbounds [4 x i8], ptr %261, i64 %9
   %263 = icmp ugt i64 %14, 3
   br i1 %263, label %.lr.ph1168.preheader, label %._crit_edge1169
 
@@ -836,8 +836,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.210171165 = phi ptr [ %.21017, %295 ], [ %.210171158, %.lr.ph1168.preheader ]
   %.31164 = phi ptr [ %.3, %295 ], [ %.31157, %.lr.ph1168.preheader ]
   %.21163 = phi ptr [ %.2, %295 ], [ %.21155, %.lr.ph1168.preheader ]
-  %.pn1069.in1162 = phi i32 [ %272, %295 ], [ %262, %.lr.ph1168.preheader ]
-  %.pn1068.in1161 = phi i32 [ %270, %295 ], [ %260, %.lr.ph1168.preheader ]
+  %.pn1080.in1162 = phi i32 [ %272, %295 ], [ %262, %.lr.ph1168.preheader ]
+  %.pn1079.in1161 = phi i32 [ %270, %295 ], [ %260, %.lr.ph1168.preheader ]
   %.310141160 = phi ptr [ %296, %295 ], [ %259, %.lr.ph1168.preheader ]
   %.210231166 = add nsw i64 %.210231166.in, -1
   %265 = load double, ptr %.310141160, align 8, !tbaa !7
@@ -846,7 +846,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %268 = load double, ptr %.31164, align 8, !tbaa !7
   %269 = load double, ptr %.21163, align 8, !tbaa !7
   %270 = load i32, ptr %.210171165, align 4, !tbaa !3
-  %271 = getelementptr inbounds i32, ptr %.210171165, i64 %9
+  %271 = getelementptr inbounds [4 x i8], ptr %.210171165, i64 %9
   %272 = load i32, ptr %271, align 4, !tbaa !3
   %273 = icmp eq ptr %.31164, %.310141160
   br i1 %273, label %274, label %279
@@ -861,8 +861,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %295
 
 277:                                              ; preds = %274
-  %.not1074 = icmp eq ptr %.21163, %266
-  br i1 %.not1074, label %295, label %278
+  %.not1064 = icmp eq ptr %.21163, %266
+  br i1 %.not1064, label %295, label %278
 
 278:                                              ; preds = %277
   store double %269, ptr %266, align 8, !tbaa !7
@@ -871,11 +871,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 279:                                              ; preds = %.lr.ph1168
   %280 = icmp eq ptr %.31164, %266
-  %.not1073 = icmp eq ptr %.21163, %.310141160
+  %.not1063 = icmp eq ptr %.21163, %.310141160
   br i1 %280, label %281, label %286
 
 281:                                              ; preds = %279
-  br i1 %.not1073, label %295, label %282
+  br i1 %.not1063, label %295, label %282
 
 282:                                              ; preds = %281
   %283 = icmp eq ptr %.21163, %.31164
@@ -892,7 +892,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %295
 
 286:                                              ; preds = %279
-  br i1 %.not1073, label %287, label %288
+  br i1 %.not1063, label %287, label %288
 
 287:                                              ; preds = %286
   store double %267, ptr %.21163, align 8, !tbaa !7
@@ -910,7 +910,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %295
 
 291:                                              ; preds = %288
-  %292 = icmp eq i32 %.pn1069.in1162, %.pn1068.in1161
+  %292 = icmp eq i32 %.pn1080.in1162, %.pn1079.in1161
   store double %268, ptr %.310141160, align 8, !tbaa !7
   br i1 %292, label %293, label %294
 
@@ -927,18 +927,18 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 295:                                              ; preds = %284, %285, %281, %290, %294, %293, %287, %276, %278, %277
   %296 = getelementptr inbounds i8, ptr %.310141160, i64 -16
-  %.pn1069 = sext i32 %272 to i64
-  %.2 = getelementptr inbounds double, ptr %.21026, i64 %.pn1069
-  %.pn1068 = sext i32 %270 to i64
-  %.3 = getelementptr inbounds double, ptr %.21026, i64 %.pn1068
-  %.21017 = getelementptr inbounds i32, ptr %271, i64 %9
+  %.pn1080 = sext i32 %272 to i64
+  %.2 = getelementptr inbounds [8 x i8], ptr %.21026, i64 %.pn1080
+  %.pn1079 = sext i32 %270 to i64
+  %.3 = getelementptr inbounds [8 x i8], ptr %.21026, i64 %.pn1079
+  %.21017 = getelementptr inbounds [4 x i8], ptr %271, i64 %9
   %297 = icmp samesign ugt i64 %.210231166.in, 2
   br i1 %297, label %.lr.ph1168, label %._crit_edge1169, !llvm.loop !14
 
 ._crit_edge1169:                                  ; preds = %295, %258
   %.31014.lcssa = phi ptr [ %259, %258 ], [ %296, %295 ]
-  %.pn1068.in.lcssa = phi i32 [ %260, %258 ], [ %270, %295 ]
-  %.pn1069.in.lcssa = phi i32 [ %262, %258 ], [ %272, %295 ]
+  %.pn1079.in.lcssa = phi i32 [ %260, %258 ], [ %270, %295 ]
+  %.pn1080.in.lcssa = phi i32 [ %262, %258 ], [ %272, %295 ]
   %.2.lcssa = phi ptr [ %.21155, %258 ], [ %.2, %295 ]
   %.3.lcssa = phi ptr [ %.31157, %258 ], [ %.3, %295 ]
   %.21017.lcssa = phi ptr [ %.210171158, %258 ], [ %.21017, %295 ]
@@ -960,8 +960,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %325
 
 307:                                              ; preds = %304
-  %.not1071 = icmp eq ptr %.2.lcssa, %299
-  br i1 %.not1071, label %325, label %308
+  %.not1061 = icmp eq ptr %.2.lcssa, %299
+  br i1 %.not1061, label %325, label %308
 
 308:                                              ; preds = %307
   store double %302, ptr %299, align 8, !tbaa !7
@@ -970,11 +970,11 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 309:                                              ; preds = %._crit_edge1169
   %310 = icmp eq ptr %.3.lcssa, %299
-  %.not1070 = icmp eq ptr %.2.lcssa, %.31014.lcssa
+  %.not1060 = icmp eq ptr %.2.lcssa, %.31014.lcssa
   br i1 %310, label %311, label %316
 
 311:                                              ; preds = %309
-  br i1 %.not1070, label %325, label %312
+  br i1 %.not1060, label %325, label %312
 
 312:                                              ; preds = %311
   %313 = icmp eq ptr %.2.lcssa, %.3.lcssa
@@ -991,7 +991,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %325
 
 316:                                              ; preds = %309
-  br i1 %.not1070, label %317, label %318
+  br i1 %.not1060, label %317, label %318
 
 317:                                              ; preds = %316
   store double %300, ptr %.31014.lcssa, align 8, !tbaa !7
@@ -1009,7 +1009,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   br label %325
 
 321:                                              ; preds = %318
-  %322 = icmp eq i32 %.pn1069.in.lcssa, %.pn1068.in.lcssa
+  %322 = icmp eq i32 %.pn1080.in.lcssa, %.pn1079.in.lcssa
   store double %301, ptr %.31014.lcssa, align 8, !tbaa !7
   br i1 %322, label %323, label %324
 
@@ -1026,14 +1026,14 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
 
 325:                                              ; preds = %314, %315, %311, %320, %324, %323, %317, %306, %308, %307
   %326 = and i64 %14, 1
-  %.not1072 = icmp eq i64 %326, 0
-  br i1 %.not1072, label %.loopexit, label %327
+  %.not1062 = icmp eq i64 %326, 0
+  br i1 %.not1062, label %.loopexit, label %327
 
 327:                                              ; preds = %325
   %328 = getelementptr inbounds i8, ptr %.31014.lcssa, i64 -16
   %329 = load i32, ptr %.21017.lcssa, align 4, !tbaa !3
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds double, ptr %.21026, i64 %330
+  %331 = getelementptr inbounds [8 x i8], ptr %.21026, i64 %330
   %332 = load double, ptr %328, align 8, !tbaa !7
   %333 = load double, ptr %331, align 8, !tbaa !7
   store double %333, ptr %328, align 8, !tbaa !7

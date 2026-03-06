@@ -88,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair.78" = type { %"class.std::vector.73", i64 }
-%"union.absl::debian2::container_internal::map_slot_type" = type { i64, [8 x i8] }
 %struct._Guard = type { ptr }
 
 $_ZN10open_spiel5chess19kDefaultStandardFENB5cxx11E = comdat any
@@ -4565,7 +4564,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN
   %26 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %25, i1 true)
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
-  %29 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %19, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %27
   %30 = load i8, ptr %28, align 1
   %31 = icmp slt i8 %30, -1
   br i1 %31, label %.lr.ph.i.i.i, label %.loopexit26, !llvm.loop !43
@@ -4638,7 +4637,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN
   %69 = getelementptr i8, ptr %68, i64 %66
   store i8 %60, ptr %69, align 1
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %70, i64 %58
+  %71 = getelementptr inbounds [16 x i8], ptr %70, i64 %58
   %72 = load i64, ptr %.sroa.7.035, align 8
   store i64 %72, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -4671,7 +4670,7 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i.i: ; preds = %.loop
   %89 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %88, i1 true)
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 %90
-  %92 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %82, i64 %90
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %90
   %93 = load i8, ptr %91, align 1
   %94 = icmp slt i8 %93, -1
   br i1 %94, label %.lr.ph.i.i.i20, label %._crit_edge.i.i.i, !llvm.loop !43
@@ -4772,7 +4771,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEEN
   br i1 %25, label %26, label %64
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %5, i64 %.02132
+  %27 = getelementptr inbounds [16 x i8], ptr %5, i64 %.02132
   %28 = load i64, ptr %27, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = load i64, ptr %6, align 8
@@ -4822,7 +4821,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %61 = getelementptr i8, ptr %60, i64 %58
   store i8 %52, ptr %61, align 1
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %62, i64 %50
+  %63 = getelementptr inbounds [16 x i8], ptr %62, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false)
   br label %64
 

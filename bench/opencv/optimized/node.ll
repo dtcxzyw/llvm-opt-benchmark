@@ -338,7 +338,7 @@ _ZNSt6vectorIPN3ade4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pred
 _ZNSt6vectorIPN3ade4EdgeESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPN3ade4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !22
   store ptr %27, ptr %4, align 8, !tbaa !23
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !38
   br label %_ZNSt6vectorIPN3ade4EdgeESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit
 
@@ -517,7 +517,7 @@ _ZNSt6vectorIPN3ade4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pred
 _ZNSt6vectorIPN3ade4EdgeESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPN3ade4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !22
   store ptr %27, ptr %4, align 8, !tbaa !23
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !38
   br label %_ZNSt6vectorIPN3ade4EdgeESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit
 

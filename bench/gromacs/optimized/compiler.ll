@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %struct.gmx_ana_index_t = type { i32, ptr, i32 }
 %struct.gmx_sel_evaluate_t = type { ptr, ptr, ptr, ptr, ptr }
-%"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
-%"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
-%"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
-%"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.36" }
-%"struct.std::_Tuple_impl.36" = type { %"struct.std::_Head_base.39" }
-%"struct.std::_Head_base.39" = type { ptr }
 %"struct.gmx::SelectionLocation" = type { i32, i32 }
 %"class.gmx::InconsistentInputError" = type { %"class.gmx::UserInputError" }
 %"class.gmx::UserInputError" = type { %"class.gmx::GromacsException" }
@@ -526,7 +520,7 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
 .lr.ph:                                           ; preds = %.preheader460, %45
   %35 = phi ptr [ %48, %45 ], [ %34, %.preheader460 ]
   %.0468 = phi i64 [ %46, %45 ], [ 0, %.preheader460 ]
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.32", ptr %35, i64 %.0468
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0468
   %37 = load ptr, ptr %36, align 8, !tbaa !79
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 272
   %39 = load ptr, ptr %38, align 8, !tbaa !81
@@ -5151,7 +5145,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit413: ; preds = %1925
 .lr.ph503:                                        ; preds = %.preheader, %1974
   %1970 = phi ptr [ %1977, %1974 ], [ %1969, %.preheader ]
   %.1502 = phi i64 [ %1975, %1974 ], [ 0, %.preheader ]
-  %1971 = getelementptr inbounds nuw %"class.std::unique_ptr.32", ptr %1970, i64 %.1502
+  %1971 = getelementptr inbounds nuw [8 x i8], ptr %1970, i64 %.1502
   %1972 = load ptr, ptr %1971, align 8, !tbaa !79
   %1973 = load ptr, ptr %27, align 8, !tbaa !76
   invoke void @_ZN3gmx8internal13SelectionData26initializeMassesAndChargesEPK10gmx_mtop_t(ptr noundef nonnull align 8 dereferenceable(294) %1972, ptr noundef %1973)
@@ -14411,7 +14405,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit.i: ; preds = %_ZNSt
   %238 = load ptr, ptr %1, align 8, !tbaa !98
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load ptr, ptr %239, align 8, !tbaa !100
-  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv.i
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv.i
   %242 = load ptr, ptr %241, align 8, !tbaa !155
   %243 = icmp eq ptr %242, null
   br i1 %243, label %244, label %248
@@ -14562,7 +14556,7 @@ _ZL11init_methodRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPK10gmx_mtop_ti.ex
 306:                                              ; preds = %.lr.ph, %306
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %306 ]
   %307 = load ptr, ptr %305, align 8, !tbaa !100
-  %308 = getelementptr inbounds nuw float, ptr %307, i64 %indvars.iv
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %indvars.iv
   store float 0.000000e+00, ptr %308, align 4, !tbaa !156
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

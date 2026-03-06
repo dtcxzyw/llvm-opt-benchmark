@@ -10,13 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 %struct.ws_intervals = type { ptr, i32, i32 }
-%struct.sbg_script_tseq = type { %struct.sbg_timestamp, ptr, i32, i32, %struct.sbg_fade }
-%struct.sbg_timestamp = type { i64, i8 }
-%struct.sbg_fade = type { i8, i8, i8 }
-%struct.sbg_script_event = type { i64, i64, i64, i64, i32, i32, %struct.sbg_fade }
-%struct.ws_interval = type { i64, i64, i32, i32, i32, i32, i32, i32, i32 }
 %struct.sbg_parser = type { ptr, ptr, ptr, ptr, %struct.sbg_script, %struct.sbg_timestamp, i32, i32, i32, i32, i32, i32, [128 x i8] }
-%struct.sbg_script_definition = type { ptr, i32, i32, i32, i8 }
+%struct.sbg_timestamp = type { i64, i8 }
 
 @.str = private unnamed_addr constant [4 x i8] c"sbg\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"SBaGen binaural beats script\00", align 1
@@ -196,7 +191,7 @@ read_whole_file.exit:                             ; preds = %25
 56:                                               ; preds = %56, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %56 ]
   %.07091.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %62, %56 ]
-  %57 = getelementptr inbounds nuw %struct.sbg_script_tseq, ptr %55, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv.i.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 8, !tbaa !48
   %60 = icmp eq i8 %59, 78
@@ -310,7 +305,7 @@ read_whole_file.exit:                             ; preds = %25
 
 111:                                              ; preds = %119, %.lr.ph95.i.i
   %indvars.iv106.i.i = phi i64 [ 0, %.lr.ph95.i.i ], [ %indvars.iv.next107.i.i, %119 ]
-  %112 = getelementptr inbounds nuw %struct.sbg_script_tseq, ptr %110, i64 %indvars.iv106.i.i
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %110, i64 %indvars.iv106.i.i
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i8, ptr %113, align 8, !tbaa !48
   %115 = icmp eq i8 %114, 78
@@ -389,7 +384,7 @@ read_whole_file.exit:                             ; preds = %25
   %indvars.iv111.i.i = phi i64 [ 0, %.lr.ph101.i.i ], [ %indvars.iv.next112.i.i, %156 ]
   %.06799.i.i = phi i64 [ 0, %.lr.ph101.i.i ], [ %spec.select86.i.i, %156 ]
   %.06898.i.i = phi i64 [ %.069.i.i, %.lr.ph101.i.i ], [ %159, %156 ]
-  %147 = getelementptr inbounds nuw %struct.sbg_script_tseq, ptr %145, i64 %indvars.iv111.i.i
+  %147 = getelementptr inbounds nuw [40 x i8], ptr %145, i64 %indvars.iv111.i.i
   %148 = load i64, ptr %147, align 8, !tbaa !56
   %149 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %148, i64 %.06799.i.i)
   %150 = extractvalue { i64, i1 } %149, 1
@@ -421,7 +416,7 @@ read_whole_file.exit:                             ; preds = %25
 expand_timestamps.exit.i:                         ; preds = %156, %160
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %160 ], [ 0, %156 ]
   %164 = load ptr, ptr %144, align 8, !tbaa !47
-  %165 = getelementptr inbounds nuw %struct.sbg_script_tseq, ptr %164, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw [40 x i8], ptr %164, i64 %indvars.iv.i
   %166 = call fastcc i32 @expand_tseq(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %7, i64 noundef 0, ptr noundef %165)
   %167 = icmp slt i32 %166, 0
   br i1 %167, label %expand_script.exit.thread, label %160
@@ -446,7 +441,7 @@ expand_timestamps.exit.i:                         ; preds = %156, %160
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %176 = load ptr, ptr %175, align 8, !tbaa !69
   %177 = sext i32 %169 to i64
-  %178 = getelementptr %struct.sbg_script_event, ptr %176, i64 %177
+  %178 = getelementptr [48 x i8], ptr %176, i64 %177
   %179 = getelementptr i8, ptr %178, i64 -48
   %180 = load i64, ptr %179, align 8, !tbaa !70
   store i64 %180, ptr %141, align 8, !tbaa !64
@@ -468,7 +463,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
   %188 = load ptr, ptr %187, align 8, !tbaa !69
   %189 = load i32, ptr %168, align 8, !tbaa !67
   %190 = sext i32 %189 to i64
-  %191 = getelementptr %struct.sbg_script_event, ptr %188, i64 %190
+  %191 = getelementptr [48 x i8], ptr %188, i64 %190
   %192 = getelementptr i8, ptr %191, i64 -48
   %193 = load i64, ptr %192, align 8, !tbaa !70
   %194 = load i64, ptr %188, align 8, !tbaa !70
@@ -492,11 +487,11 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
 
 205:                                              ; preds = %221, %.lr.ph.i
   %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i72, %221 ]
-  %206 = getelementptr inbounds nuw %struct.sbg_script_event, ptr %188, i64 %indvars.iv.i71
+  %206 = getelementptr inbounds nuw [48 x i8], ptr %188, i64 %indvars.iv.i71
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
   %207 = icmp ne i64 %indvars.iv.next.i72, %204
   %208 = select i1 %207, i64 %indvars.iv.next.i72, i64 0
-  %209 = getelementptr inbounds nuw %struct.sbg_script_event, ptr %188, i64 %208
+  %209 = getelementptr inbounds nuw [48 x i8], ptr %188, i64 %208
   %210 = load i64, ptr %206, align 8, !tbaa !70
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i64 %210, ptr %211, align 8, !tbaa !73
@@ -533,11 +528,11 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
 
 .lr.ph142.i:                                      ; preds = %221, %241
   %indvars.iv156.i = phi i64 [ %indvars.iv.next157.i, %241 ], [ 0, %221 ]
-  %224 = getelementptr inbounds nuw %struct.sbg_script_event, ptr %188, i64 %indvars.iv156.i
+  %224 = getelementptr inbounds nuw [48 x i8], ptr %188, i64 %indvars.iv156.i
   %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
   %.not278 = icmp eq i64 %indvars.iv.next157.i, %204
   %225 = select i1 %.not278, i64 0, i64 %indvars.iv.next157.i
-  %226 = getelementptr inbounds nuw %struct.sbg_script_event, ptr %188, i64 %225
+  %226 = getelementptr inbounds nuw [48 x i8], ptr %188, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 42
   %228 = load i8, ptr %227, align 2, !tbaa !74
   %.not126.i = icmp eq i8 %228, 0
@@ -634,7 +629,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
 
 .else134:                                         ; preds = %259
   %264 = zext nneg i32 %.2143.i to i64
-  %265 = getelementptr inbounds nuw %struct.sbg_script_event, ptr %188, i64 %264
+  %265 = getelementptr inbounds nuw [48 x i8], ptr %188, i64 %264
   %.sroa.gep172.i = getelementptr inbounds nuw i8, ptr %265, i64 8
   %.else.val160 = load i64, ptr %.sroa.gep172.i, align 8, !tbaa !73
   %266 = call i64 @av_rescale(i64 noundef %.else.val160, i64 noundef %253, i64 noundef 1000000) #17
@@ -681,7 +676,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
 
 286:                                              ; preds = %286, %.lr.ph147.i
   %indvars.iv162.i = phi i64 [ 0, %.lr.ph147.i ], [ %indvars.iv.next163.i, %286 ]
-  %287 = getelementptr inbounds nuw %struct.sbg_script_synth, ptr %258, i64 %indvars.iv162.i
+  %287 = getelementptr inbounds nuw [24 x i8], ptr %258, i64 %indvars.iv162.i
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 20
   store i32 -1, ptr %288, align 4, !tbaa !83
   %289 = getelementptr inbounds nuw i8, ptr %287, i64 16
@@ -696,7 +691,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
   %292 = icmp slt i32 %.4148.i, 0
   %.pre175.i = load ptr, ptr %187, align 8, !tbaa !69
   %293 = zext nneg i32 %.4148.i to i64
-  %294 = getelementptr inbounds nuw %struct.sbg_script_event, ptr %.pre175.i, i64 %293
+  %294 = getelementptr inbounds nuw [48 x i8], ptr %.pre175.i, i64 %293
   %295 = add nsw i32 %.4148.i, 1
   br i1 %292, label %.cont109, label %.cont109.thread
 
@@ -752,7 +747,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
   %304 = phi i32 [ %.sroa.15.0.copyload, %.backedge ], [ %.else.val124, %.else123 ]
   %305 = add nsw i32 %304, %.01719.i.i
   %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds %struct.sbg_script_synth, ptr %303, i64 %306
+  %307 = getelementptr inbounds [24 x i8], ptr %303, i64 %306
   %308 = call fastcc i32 @generate_interval(ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef nonnull %10, i64 noundef %297, i64 noundef %298, ptr noundef %307, ptr noundef %307, i32 noundef 0)
   %309 = icmp slt i32 %308, 0
   br i1 %309, label %.sink.split, label %299
@@ -798,7 +793,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
   %326 = phi i64 [ %285, %.loopexit.i.cont.thread ], [ %321, %.loopexit.i.cont.else ]
   %.sroa.gep92204207 = phi ptr [ %.sroa.gep92203, %.loopexit.i.cont.thread ], [ %.sroa.gep92, %.loopexit.i.cont.else ]
   %327 = phi i8 [ %.sroa.18104.0.copyload, %.loopexit.i.cont.thread ], [ %.else.val108, %.loopexit.i.cont.else ]
-  %328 = getelementptr inbounds %struct.sbg_script_event, ptr %.pre175.i, i64 %.pn
+  %328 = getelementptr inbounds [48 x i8], ptr %.pre175.i, i64 %.pn
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 40
   %330 = load i8, ptr %329, align 8, !tbaa !92
   %331 = and i8 %330, %327
@@ -846,7 +841,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
   %344 = phi i32 [ %.sroa.15.0.copyload, %340 ], [ %.else.val128, %.else127 ]
   %345 = add nsw i32 %344, %.078.us.i.i
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds %struct.sbg_script_synth, ptr %343, i64 %346
+  %347 = getelementptr inbounds [24 x i8], ptr %343, i64 %346
   br label %348
 
 348:                                              ; preds = %.cont113.thread, %.cont125, %.cont113
@@ -860,7 +855,7 @@ expand_script.exit.thread:                        ; preds = %146, %expand_timest
   %354 = load i32, ptr %336, align 8, !tbaa !90
   %355 = add nsw i32 %354, %.078.us.i.i
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds %struct.sbg_script_synth, ptr %353, i64 %356
+  %357 = getelementptr inbounds [24 x i8], ptr %353, i64 %356
   br label %358
 
 358:                                              ; preds = %352, %348
@@ -1100,7 +1095,7 @@ generate_transition.exit.i:                       ; preds = %._crit_edge.us.i.i,
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77, %.lr.ph.preheader.i
   %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i79, %.lr.ph.i77 ]
   %.0692.i = phi i32 [ 4, %.lr.ph.preheader.i ], [ %450, %.lr.ph.i77 ]
-  %443 = getelementptr inbounds nuw %struct.ws_interval, ptr %.val, i64 %indvars.iv.i78
+  %443 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %indvars.iv.i78
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 16
   %445 = load i32, ptr %444, align 8, !tbaa !133
   %446 = icmp eq i32 %445, 1162758483
@@ -1132,7 +1127,7 @@ generate_transition.exit.i:                       ; preds = %._crit_edge.us.i.i,
 .lr.ph6.i:                                        ; preds = %493, %.lr.ph6.preheader.i
   %indvars.iv10.i = phi i64 [ 0, %.lr.ph6.preheader.i ], [ %indvars.iv.next11.i, %493 ]
   %.04.i = phi ptr [ %456, %.lr.ph6.preheader.i ], [ %.1.i, %493 ]
-  %457 = getelementptr inbounds nuw %struct.ws_interval, ptr %.val, i64 %indvars.iv10.i
+  %457 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %indvars.iv10.i
   %458 = load i64, ptr %457, align 8, !tbaa !137
   store i64 %458, ptr %.04.i, align 1, !tbaa !79
   %459 = getelementptr inbounds nuw i8, ptr %.04.i, i64 8
@@ -4246,7 +4241,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 
 31:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %32 = getelementptr inbounds nuw %struct.sbg_script_definition, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !176
   %35 = icmp eq i32 %34, %28
@@ -4273,7 +4268,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 
 43:                                               ; preds = %36
   %44 = and i64 %indvars.iv, 4294967295
-  %45 = getelementptr inbounds nuw %struct.sbg_script_definition, ptr %26, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = load i8, ptr %46, align 4, !tbaa !178
   %48 = icmp eq i8 %47, 66
@@ -4285,7 +4280,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !179
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.sbg_script_tseq, ptr %51, i64 %54
+  %55 = getelementptr inbounds [40 x i8], ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %57 = load i32, ptr %56, align 8, !tbaa !180
   %58 = icmp sgt i32 %57, 0
@@ -4300,7 +4295,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 
 .lr.ph68:                                         ; preds = %49, %59
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %59 ], [ 0, %49 ]
-  %63 = getelementptr inbounds nuw %struct.sbg_script_tseq, ptr %55, i64 %indvars.iv72
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv72
   %64 = tail call fastcc i32 @expand_tseq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %16, ptr noundef %63)
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %alloc_array_elem.exit.thread, label %59
@@ -4535,7 +4530,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_interval(ptr noun
   %indvars.iv.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i, %95 ]
   %.0304.i = phi i64 [ %3, %68 ], [ %..i, %95 ]
   %.0313.i = phi i32 [ %71, %68 ], [ %103, %95 ]
-  %97 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %98 = load i32, ptr %97, align 8, !tbaa !45
   %99 = sext i32 %98 to i64
   %100 = mul nsw i64 %99, %92
@@ -4661,7 +4656,7 @@ define internal fastcc i32 @add_interval(ptr noundef nonnull captures(none) %0, 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8, !tbaa !146
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw %struct.ws_interval, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !133
   %18 = icmp eq i32 %17, %1

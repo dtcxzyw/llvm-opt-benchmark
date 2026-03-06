@@ -577,16 +577,16 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnon
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.i
   %.0102124.i = phi i64 [ %69, %.lr.ph.i ], [ %56, %54 ]
   %57 = load double, ptr %51, align 8, !tbaa !43
-  %58 = getelementptr inbounds double, ptr %20, i64 %.0102124.i
+  %58 = getelementptr inbounds [8 x i8], ptr %20, i64 %.0102124.i
   %59 = load double, ptr %58, align 8, !tbaa !64
   %60 = tail call double @llvm.fabs.f64(double %59)
-  %61 = getelementptr inbounds double, ptr %21, i64 %.0102124.i
+  %61 = getelementptr inbounds [8 x i8], ptr %21, i64 %.0102124.i
   %62 = load double, ptr %61, align 8, !tbaa !64
   %63 = fdiv double 1.000000e+00, %62
   %64 = fcmp ogt double %60, %63
   %.122.i = select i1 %64, double %60, double %63
   %65 = fmul double %57, %.122.i
-  %66 = getelementptr inbounds double, ptr %24, i64 %.0102124.i
+  %66 = getelementptr inbounds [8 x i8], ptr %24, i64 %.0102124.i
   %67 = load double, ptr %66, align 8, !tbaa !64
   %68 = fadd double %67, %65
   store double %68, ptr %66, align 8, !tbaa !64
@@ -611,16 +611,16 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnon
 
 .lr.ph131.i:                                      ; preds = %.preheader.i, %._crit_edge129.i
   %.1130.i = phi i64 [ %108, %._crit_edge129.i ], [ %56, %.preheader.i ]
-  %77 = getelementptr inbounds double, ptr %20, i64 %.1130.i
+  %77 = getelementptr inbounds [8 x i8], ptr %20, i64 %.1130.i
   %78 = load double, ptr %77, align 8, !tbaa !64
-  %79 = getelementptr inbounds double, ptr %24, i64 %.1130.i
+  %79 = getelementptr inbounds [8 x i8], ptr %24, i64 %.1130.i
   store double %78, ptr %79, align 8, !tbaa !64
   %80 = load ptr, ptr %8, align 8, !tbaa !33
   %81 = tail call ptr @SUNBandMatrix_Column(ptr noundef %80, i64 noundef %.1130.i) #9
   %82 = load double, ptr %51, align 8, !tbaa !43
   %83 = load double, ptr %77, align 8, !tbaa !64
   %84 = tail call double @llvm.fabs.f64(double %83)
-  %85 = getelementptr inbounds double, ptr %21, i64 %.1130.i
+  %85 = getelementptr inbounds [8 x i8], ptr %21, i64 %.1130.i
   %86 = load double, ptr %85, align 8, !tbaa !64
   %87 = fdiv double 1.000000e+00, %86
   %88 = fcmp ogt double %84, %87
@@ -640,14 +640,14 @@ define internal i32 @KINBBDPrecSetup(ptr noundef %0, ptr noundef %1, ptr readnon
 
 .lr.ph128.i:                                      ; preds = %.lr.ph131.i, %.lr.ph128.i
   %.0101126.i = phi i64 [ %107, %.lr.ph128.i ], [ %93, %.lr.ph131.i ]
-  %99 = getelementptr inbounds nuw double, ptr %23, i64 %.0101126.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.0101126.i
   %100 = load double, ptr %99, align 8, !tbaa !64
-  %101 = getelementptr inbounds nuw double, ptr %22, i64 %.0101126.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0101126.i
   %102 = load double, ptr %101, align 8, !tbaa !64
   %103 = fsub double %100, %102
   %104 = fmul double %90, %103
   %105 = sub nsw i64 %.0101126.i, %.1130.i
-  %106 = getelementptr inbounds double, ptr %81, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %81, i64 %105
   store double %104, ptr %106, align 8, !tbaa !64
   %107 = add nuw nsw i64 %.0101126.i, 1
   %.not121.not.i = icmp slt i64 %.0101126.i, %98
@@ -703,9 +703,9 @@ define internal i32 @KINBBDPrecSolve(ptr readnone captures(none) %0, ptr readnon
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
-  %23 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %24 = load double, ptr %23, align 8, !tbaa !64
-  %25 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21

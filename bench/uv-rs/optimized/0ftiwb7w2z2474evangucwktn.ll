@@ -344,7 +344,7 @@ _ZN4core4hash11BuildHasher8hash_one17hb6136d779419af90E.exit: ; preds = %9, %19
   %41 = add i64 %.sroa.01.0.i.i, %40
   %42 = and i64 %41, %32
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds { { i64, [10 x i64] }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %33, i64 %43
+  %44 = getelementptr inbounds [112 x i8], ptr %33, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -112
   %46 = call noundef zeroext i1 @"_ZN77_$LT$uv_distribution_types..id..VersionId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7c534760642e6ff7E.llvm.16539403835048581065"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %45), !noalias !126
   br i1 %46, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h54e83902914a13d8E.exit", label %50, !prof !129
@@ -945,7 +945,7 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
 
 "_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17he2d5b55c4bdaf801E.llvm.16932568900092155113.exit.i.i.i.i": ; preds = %28
   %34 = load ptr, ptr %22, align 8, !alias.scope !132, !noalias !135, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds nuw { { i64, [6 x i64] }, [2 x i32] }, ptr %34, i64 %31
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %31
   %36 = load i64, ptr %35, align 8, !range !149, !noalias !150, !noundef !4
   %37 = icmp eq i64 %36, 3
   br i1 %37, label %42, label %38
@@ -1178,7 +1178,7 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
   store i64 %101, ptr %6, align 8, !noalias !166
   store ptr %104, ptr %25, align 8, !noalias !166
   store i64 0, ptr %26, align 8, !noalias !166
-  %106 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %48, i64 %49
+  %106 = getelementptr inbounds [16 x i8], ptr %48, i64 %49
   br label %107
 
 107:                                              ; preds = %129, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hab9932fba190fb05E.exit.i"
@@ -1229,7 +1229,7 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
   unreachable
 
 129:                                              ; preds = %125, %122, %118, %113
-  %130 = getelementptr inbounds nuw { [2 x i64] }, ptr %104, i64 %.sroa.7.022.i
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.sroa.7.022.i
   store ptr %.val14.i, ptr %130, align 8, !noalias !166
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i8 %.val15.i, ptr %131, align 8, !noalias !166

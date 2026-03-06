@@ -2682,7 +2682,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 112
   %43 = load ptr, ptr %42, align 8
   %44 = zext i8 %30 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = trunc i32 %46 to i8
   br label %SB_lower_char.exit
@@ -2712,7 +2712,7 @@ SB_lower_char.exit:                               ; preds = %33, %38, %40
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %61 = load ptr, ptr %60, align 8
   %62 = zext i8 %48 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = trunc i32 %64 to i8
   br label %SB_lower_char.exit195
@@ -2787,7 +2787,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 112
   %95 = load ptr, ptr %94, align 8
   %96 = zext i8 %82 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = trunc i32 %98 to i8
   br label %SB_lower_char.exit197
@@ -2815,7 +2815,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 112
   %113 = load ptr, ptr %112, align 8
   %114 = zext i8 %66 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = trunc i32 %116 to i8
   br label %SB_lower_char.exit197
@@ -2851,7 +2851,7 @@ SB_lower_char.exit197:                            ; preds = %110, %108, %103, %9
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 112
   %132 = load ptr, ptr %131, align 8
   %133 = zext i8 %119 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = trunc i32 %135 to i8
   br label %SB_lower_char.exit201
@@ -2915,7 +2915,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 112
   %162 = load ptr, ptr %161, align 8
   %163 = zext i8 %19 to i64
-  %164 = getelementptr inbounds nuw i32, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = trunc i32 %165 to i8
   br label %SB_lower_char.exit203
@@ -2945,7 +2945,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 112
   %180 = load ptr, ptr %179, align 8
   %181 = zext i8 %167 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = trunc i32 %183 to i8
   br label %SB_lower_char.exit205
@@ -2978,7 +2978,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 112
   %200 = load ptr, ptr %199, align 8
   %201 = zext i8 %19 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %201
   %203 = load i32, ptr %202, align 4
   %204 = trunc i32 %203 to i8
   br label %SB_lower_char.exit207
@@ -3008,7 +3008,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 112
   %218 = load ptr, ptr %217, align 8
   %219 = zext i8 %205 to i64
-  %220 = getelementptr inbounds nuw i32, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = trunc i32 %221 to i8
   br label %SB_lower_char.exit205

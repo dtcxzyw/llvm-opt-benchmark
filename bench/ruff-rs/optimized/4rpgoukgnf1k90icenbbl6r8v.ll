@@ -1206,7 +1206,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
 
 29:                                               ; preds = %20
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr { i32, i32 }, ptr %30, i64 %22
+  %31 = getelementptr [8 x i8], ptr %30, i64 %22
   %32 = getelementptr i8, ptr %31, i64 -8
   br label %33
 

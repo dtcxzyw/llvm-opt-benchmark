@@ -50,12 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.84" = type { %"struct.std::_Tuple_impl.85" }
 %"struct.std::_Tuple_impl.85" = type { %"struct.std::_Head_base.88" }
 %"struct.std::_Head_base.88" = type { ptr }
-%"class.std::unique_ptr.65" = type { %"struct.std::__uniq_ptr_data.66" }
-%"struct.std::__uniq_ptr_data.66" = type { %"class.std::__uniq_ptr_impl.67" }
-%"class.std::__uniq_ptr_impl.67" = type { %"class.std::tuple.68" }
-%"class.std::tuple.68" = type { %"struct.std::_Tuple_impl.69" }
-%"struct.std::_Tuple_impl.69" = type { %"struct.std::_Head_base.72" }
-%"struct.std::_Head_base.72" = type { ptr }
 %union.PJ_COORD = type { [4 x double] }
 %struct.PJ_PROJ_INFO = type { ptr, ptr, ptr, i32, double }
 %"class.std::allocator" = type { i8 }
@@ -65,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.116" = type { %"struct.std::_Vector_base<std::pair<pj_ctx *, double>, std::allocator<std::pair<pj_ctx *, double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<pj_ctx *, double>, std::allocator<std::pair<pj_ctx *, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<pj_ctx *, double>, std::allocator<std::pair<pj_ctx *, double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<pj_ctx *, double>, std::allocator<std::pair<pj_ctx *, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.120" = type { ptr, double }
 %struct.PROJ_FILE_API = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.UserData = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
@@ -4302,7 +4295,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %349, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i
   store ptr %344, ptr %3, align 8, !tbaa !100
   store ptr %348, ptr %325, align 8, !tbaa !93
-  %350 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %344, i64 %342
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %342
   store ptr %350, ptr %327, align 8, !tbaa !96
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_9OpenEventES3_IS9_EEEEERS5_DpOT_.exit
 
@@ -4416,7 +4409,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %390, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i465
   store ptr %385, ptr %3, align 8, !tbaa !100
   store ptr %389, ptr %325, align 8, !tbaa !93
-  %391 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %385, i64 %383
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %383
   store ptr %391, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -4518,7 +4511,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i488: ; preds = %427, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i485
   store ptr %422, ptr %3, align 8, !tbaa !100
   store ptr %426, ptr %325, align 8, !tbaa !93
-  %428 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %422, i64 %420
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %422, i64 %420
   store ptr %428, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit494
 
@@ -4620,7 +4613,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i512: ; preds = %464, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i509
   store ptr %459, ptr %3, align 8, !tbaa !100
   store ptr %463, ptr %325, align 8, !tbaa !93
-  %465 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %459, i64 %457
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %459, i64 %457
   store ptr %465, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit518
 
@@ -4731,7 +4724,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %502, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i529
   store ptr %497, ptr %3, align 8, !tbaa !100
   store ptr %501, ptr %325, align 8, !tbaa !93
-  %503 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %497, i64 %495
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %495
   store ptr %503, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -5286,7 +5279,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i611: ; preds = %693, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i608
   store ptr %688, ptr %3, align 8, !tbaa !100
   store ptr %692, ptr %325, align 8, !tbaa !93
-  %694 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %688, i64 %686
+  %694 = getelementptr inbounds nuw [8 x i8], ptr %688, i64 %686
   store ptr %694, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit617
 
@@ -5398,7 +5391,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i635: ; preds = %735, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i632
   store ptr %730, ptr %3, align 8, !tbaa !100
   store ptr %734, ptr %325, align 8, !tbaa !93
-  %736 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %730, i64 %728
+  %736 = getelementptr inbounds nuw [8 x i8], ptr %730, i64 %728
   store ptr %736, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit641
 
@@ -5500,7 +5493,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i659: ; preds = %772, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i656
   store ptr %767, ptr %3, align 8, !tbaa !100
   store ptr %771, ptr %325, align 8, !tbaa !93
-  %773 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %767, i64 %765
+  %773 = getelementptr inbounds nuw [8 x i8], ptr %767, i64 %765
   store ptr %773, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit665
 
@@ -5602,7 +5595,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i683: ; preds = %809, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i680
   store ptr %804, ptr %3, align 8, !tbaa !100
   store ptr %808, ptr %325, align 8, !tbaa !93
-  %810 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %804, i64 %802
+  %810 = getelementptr inbounds nuw [8 x i8], ptr %804, i64 %802
   store ptr %810, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit689
 
@@ -6262,7 +6255,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_14ReadRangeEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %1029, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i772
   store ptr %1024, ptr %3, align 8, !tbaa !100
   store ptr %1028, ptr %325, align 8, !tbaa !93
-  %1030 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1024, i64 %1022
+  %1030 = getelementptr inbounds nuw [8 x i8], ptr %1024, i64 %1022
   store ptr %1030, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -6374,7 +6367,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i795: ; preds = %1071, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i792
   store ptr %1066, ptr %3, align 8, !tbaa !100
   store ptr %1070, ptr %325, align 8, !tbaa !93
-  %1072 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1066, i64 %1064
+  %1072 = getelementptr inbounds nuw [8 x i8], ptr %1066, i64 %1064
   store ptr %1072, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit801
 
@@ -6476,7 +6469,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i819: ; preds = %1108, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i816
   store ptr %1103, ptr %3, align 8, !tbaa !100
   store ptr %1107, ptr %325, align 8, !tbaa !93
-  %1109 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1103, i64 %1101
+  %1109 = getelementptr inbounds nuw [8 x i8], ptr %1103, i64 %1101
   store ptr %1109, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit825
 
@@ -6578,7 +6571,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i843: ; preds = %1145, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i840
   store ptr %1140, ptr %3, align 8, !tbaa !100
   store ptr %1144, ptr %325, align 8, !tbaa !93
-  %1146 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1140, i64 %1138
+  %1146 = getelementptr inbounds nuw [8 x i8], ptr %1140, i64 %1138
   store ptr %1146, ptr %327, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit849
 
@@ -7816,7 +7809,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_18open_cbkEP6pj_ctxPKcymPvPmmPcS4_(
   br label %80
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %.val, i64 %15
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %15
   %.val55 = load ptr, ptr %25, align 8, !tbaa !106
   %26 = icmp eq ptr %.val55, null
   br i1 %26, label %.thread, label %27
@@ -7938,7 +7931,7 @@ define internal void @_ZN12_GLOBAL__N_19close_cbkEP6pj_ctxP19PROJ_NETWORK_HANDLE
   br label %46
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %.val, i64 %9
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %9
   %.val28 = load ptr, ptr %19, align 8, !tbaa !106
   %20 = icmp eq ptr %.val28, null
   br i1 %20, label %.thread, label %21
@@ -8024,7 +8017,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120get_header_value_cbkEP6pj_ctxP19
   br label %54
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %.val, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %10
   %.val34 = load ptr, ptr %20, align 8, !tbaa !106
   %21 = icmp eq ptr %.val34, null
   br i1 %21, label %.thread, label %22
@@ -8121,7 +8114,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_114read_range_cbkEP6pj_ctxP19PROJ_N
   br label %76
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %.val, i64 %14
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %14
   %.val47 = load ptr, ptr %24, align 8, !tbaa !106
   %25 = icmp eq ptr %.val47, null
   br i1 %25, label %.thread, label %26
@@ -8625,7 +8618,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !100
   store ptr %28, ptr %3, align 8, !tbaa !93
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !96
   br label %31
 
@@ -10859,7 +10852,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %304, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i
   store ptr %299, ptr %3, align 8, !tbaa !100
   store ptr %303, ptr %280, align 8, !tbaa !93
-  %305 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %297
   store ptr %305, ptr %282, align 8, !tbaa !96
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_9OpenEventES3_IS9_EEEEERS5_DpOT_.exit
 
@@ -10973,7 +10966,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %345, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i267
   store ptr %340, ptr %3, align 8, !tbaa !100
   store ptr %344, ptr %280, align 8, !tbaa !93
-  %346 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %340, i64 %338
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %338
   store ptr %346, ptr %282, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -11075,7 +11068,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i290: ; preds = %382, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i287
   store ptr %377, ptr %3, align 8, !tbaa !100
   store ptr %381, ptr %280, align 8, !tbaa !93
-  %383 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %377, i64 %375
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %375
   store ptr %383, ptr %282, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit296
 
@@ -11177,7 +11170,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i314: ; preds = %419, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i311
   store ptr %414, ptr %3, align 8, !tbaa !100
   store ptr %418, ptr %280, align 8, !tbaa !93
-  %420 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %414, i64 %412
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %412
   store ptr %420, ptr %282, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit320
 
@@ -11288,7 +11281,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %457, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i331
   store ptr %452, ptr %3, align 8, !tbaa !100
   store ptr %456, ptr %280, align 8, !tbaa !93
-  %458 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %452, i64 %450
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %450
   store ptr %458, ptr %282, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -12459,7 +12452,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %110, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i
   store ptr %105, ptr %2, align 8, !tbaa !100
   store ptr %109, ptr %86, align 8, !tbaa !93
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %103
   store ptr %111, ptr %88, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -13775,7 +13768,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %329, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i
   store ptr %324, ptr %3, align 8, !tbaa !100
   store ptr %328, ptr %305, align 8, !tbaa !93
-  %330 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %324, i64 %322
   store ptr %330, ptr %307, align 8, !tbaa !96
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_9OpenEventES3_IS9_EEEEERS5_DpOT_.exit
 
@@ -13889,7 +13882,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %370, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i381
   store ptr %365, ptr %3, align 8, !tbaa !100
   store ptr %369, ptr %305, align 8, !tbaa !93
-  %371 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %365, i64 %363
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %363
   store ptr %371, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -13991,7 +13984,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i404: ; preds = %407, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i401
   store ptr %402, ptr %3, align 8, !tbaa !100
   store ptr %406, ptr %305, align 8, !tbaa !93
-  %408 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %402, i64 %400
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %400
   store ptr %408, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit410
 
@@ -14093,7 +14086,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i428: ; preds = %444, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i425
   store ptr %439, ptr %3, align 8, !tbaa !100
   store ptr %443, ptr %305, align 8, !tbaa !93
-  %445 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %439, i64 %437
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %437
   store ptr %445, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit434
 
@@ -14204,7 +14197,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %482, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i445
   store ptr %477, ptr %3, align 8, !tbaa !100
   store ptr %481, ptr %305, align 8, !tbaa !93
-  %483 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %477, i64 %475
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %475
   store ptr %483, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -14754,7 +14747,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i527: ; preds = %671, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i524
   store ptr %666, ptr %3, align 8, !tbaa !100
   store ptr %670, ptr %305, align 8, !tbaa !93
-  %672 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %666, i64 %664
+  %672 = getelementptr inbounds nuw [8 x i8], ptr %666, i64 %664
   store ptr %672, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit533
 
@@ -14866,7 +14859,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i551: ; preds = %713, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i548
   store ptr %708, ptr %3, align 8, !tbaa !100
   store ptr %712, ptr %305, align 8, !tbaa !93
-  %714 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %708, i64 %706
+  %714 = getelementptr inbounds nuw [8 x i8], ptr %708, i64 %706
   store ptr %714, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit557
 
@@ -14968,7 +14961,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i575: ; preds = %750, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i572
   store ptr %745, ptr %3, align 8, !tbaa !100
   store ptr %749, ptr %305, align 8, !tbaa !93
-  %751 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %745, i64 %743
+  %751 = getelementptr inbounds nuw [8 x i8], ptr %745, i64 %743
   store ptr %751, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit581
 
@@ -15070,7 +15063,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i599: ; preds = %787, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i596
   store ptr %782, ptr %3, align 8, !tbaa !100
   store ptr %786, ptr %305, align 8, !tbaa !93
-  %788 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %782, i64 %780
+  %788 = getelementptr inbounds nuw [8 x i8], ptr %782, i64 %780
   store ptr %788, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit605
 
@@ -15713,7 +15706,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_14ReadRangeEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %1002, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i690
   store ptr %997, ptr %3, align 8, !tbaa !100
   store ptr %1001, ptr %305, align 8, !tbaa !93
-  %1003 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %997, i64 %995
+  %1003 = getelementptr inbounds nuw [8 x i8], ptr %997, i64 %995
   store ptr %1003, ptr %307, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_114ReadRangeEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -17275,7 +17268,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %331, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i
   store ptr %326, ptr %4, align 8, !tbaa !100
   store ptr %330, ptr %307, align 8, !tbaa !93
-  %332 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %326, i64 %324
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %324
   store ptr %332, ptr %309, align 8, !tbaa !96
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_9OpenEventES3_IS9_EEEEERS5_DpOT_.exit
 
@@ -17389,7 +17382,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %372, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i442
   store ptr %367, ptr %4, align 8, !tbaa !100
   store ptr %371, ptr %307, align 8, !tbaa !93
-  %373 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %367, i64 %365
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %365
   store ptr %373, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -17491,7 +17484,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i465: ; preds = %409, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i462
   store ptr %404, ptr %4, align 8, !tbaa !100
   store ptr %408, ptr %307, align 8, !tbaa !93
-  %410 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %404, i64 %402
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 %402
   store ptr %410, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit471
 
@@ -17593,7 +17586,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i489: ; preds = %446, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i486
   store ptr %441, ptr %4, align 8, !tbaa !100
   store ptr %445, ptr %307, align 8, !tbaa !93
-  %447 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %441, i64 %439
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %439
   store ptr %447, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit495
 
@@ -17704,7 +17697,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %484, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i506
   store ptr %479, ptr %4, align 8, !tbaa !100
   store ptr %483, ptr %307, align 8, !tbaa !93
-  %485 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %479, i64 %477
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %477
   store ptr %485, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit
 
@@ -18254,7 +18247,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i588: ; preds = %673, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i585
   store ptr %668, ptr %4, align 8, !tbaa !100
   store ptr %672, ptr %307, align 8, !tbaa !93
-  %674 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %668, i64 %666
+  %674 = getelementptr inbounds nuw [8 x i8], ptr %668, i64 %666
   store ptr %674, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_19OpenEventESt14default_deleteIS1_EED2Ev.exit594
 
@@ -18366,7 +18359,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i612: ; preds = %715, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i609
   store ptr %710, ptr %4, align 8, !tbaa !100
   store ptr %714, ptr %307, align 8, !tbaa !93
-  %716 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %710, i64 %708
+  %716 = getelementptr inbounds nuw [8 x i8], ptr %710, i64 %708
   store ptr %716, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit618
 
@@ -18468,7 +18461,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i636: ; preds = %752, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i633
   store ptr %747, ptr %4, align 8, !tbaa !100
   store ptr %751, ptr %307, align 8, !tbaa !93
-  %753 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %747, i64 %745
+  %753 = getelementptr inbounds nuw [8 x i8], ptr %747, i64 %745
   store ptr %753, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit642
 
@@ -18570,7 +18563,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i660: ; preds = %789, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i657
   store ptr %784, ptr %4, align 8, !tbaa !100
   store ptr %788, ptr %307, align 8, !tbaa !93
-  %790 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %784, i64 %782
+  %790 = getelementptr inbounds nuw [8 x i8], ptr %784, i64 %782
   store ptr %790, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit666
 
@@ -18681,7 +18674,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i686: ; preds = %827, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i683
   store ptr %822, ptr %4, align 8, !tbaa !100
   store ptr %826, ptr %307, align 8, !tbaa !93
-  %828 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %822, i64 %820
+  %828 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %820
   store ptr %828, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit692
 
@@ -19402,7 +19395,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_9OpenEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i797: ; preds = %1071, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i794
   store ptr %1066, ptr %4, align 8, !tbaa !100
   store ptr %1070, ptr %307, align 8, !tbaa !93
-  %1072 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1066, i64 %1064
+  %1072 = getelementptr inbounds nuw [8 x i8], ptr %1066, i64 %1064
   store ptr %1072, ptr %309, align 8, !tbaa !96
   br label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_9OpenEventES3_IS9_EEEEERS5_DpOT_.exit800
 
@@ -19516,7 +19509,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i824: ; preds = %1112, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i821
   store ptr %1107, ptr %4, align 8, !tbaa !100
   store ptr %1111, ptr %307, align 8, !tbaa !93
-  %1113 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1107, i64 %1105
+  %1113 = getelementptr inbounds nuw [8 x i8], ptr %1107, i64 %1105
   store ptr %1113, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit830
 
@@ -19618,7 +19611,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i848: ; preds = %1149, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i845
   store ptr %1144, ptr %4, align 8, !tbaa !100
   store ptr %1148, ptr %307, align 8, !tbaa !93
-  %1150 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1144, i64 %1142
+  %1150 = getelementptr inbounds nuw [8 x i8], ptr %1144, i64 %1142
   store ptr %1150, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit854
 
@@ -19720,7 +19713,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_19GetHeaderValueEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i872: ; preds = %1186, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i869
   store ptr %1181, ptr %4, align 8, !tbaa !100
   store ptr %1185, ptr %307, align 8, !tbaa !93
-  %1187 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1181, i64 %1179
+  %1187 = getelementptr inbounds nuw [8 x i8], ptr %1181, i64 %1179
   store ptr %1187, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119GetHeaderValueEventESt14default_deleteIS1_EED2Ev.exit878
 
@@ -20373,7 +20366,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS0_INS1_10CloseEventES3_IS9_EEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i963: ; preds = %1401, %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_15EventESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit27.i.i960
   store ptr %1396, ptr %4, align 8, !tbaa !100
   store ptr %1400, ptr %307, align 8, !tbaa !93
-  %1402 = getelementptr inbounds nuw %"class.std::unique_ptr.65", ptr %1396, i64 %1394
+  %1402 = getelementptr inbounds nuw [8 x i8], ptr %1396, i64 %1394
   store ptr %1402, ptr %309, align 8, !tbaa !96
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_110CloseEventESt14default_deleteIS1_EED2Ev.exit969
 
@@ -49037,7 +49030,7 @@ _ZNSt6vectorISt4pairIP6pj_ctxdESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
 _ZNSt6vectorISt4pairIP6pj_ctxdESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %29, %_ZNSt6vectorISt4pairIP6pj_ctxdESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i
   store ptr %24, ptr %2, align 8, !tbaa !664
   store ptr %28, ptr %4, align 8, !tbaa !661
-  %30 = getelementptr inbounds nuw %"struct.std::pair.120", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8, !tbaa !666
   br label %"_ZZN12_GLOBAL__N_136networking_download_whole_files_Test8TestBodyEvENK3$_0clEP6pj_ctxdPv.exit"
 

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._internal_exr_attr_map = type { ptr, i32, i32, i64 }
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
 
 @the_predefined_attr_typenames = internal unnamed_addr constant [29 x %struct._internal_exr_attr_map] [%struct._internal_exr_attr_map { ptr @.str.16, i32 5, i32 1, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.17, i32 5, i32 2, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.18, i32 6, i32 3, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.19, i32 14, i32 4, i64 32 }, %struct._internal_exr_attr_map { ptr @.str.20, i32 11, i32 5, i64 0 }, %struct._internal_exr_attr_map { ptr @.str.21, i32 6, i32 6, i64 0 }, %struct._internal_exr_attr_map { ptr @.str.22, i32 6, i32 7, i64 0 }, %struct._internal_exr_attr_map { ptr @.str.23, i32 5, i32 8, i64 0 }, %struct._internal_exr_attr_map { ptr @.str.24, i32 11, i32 9, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.25, i32 3, i32 10, i64 0 }, %struct._internal_exr_attr_map { ptr @.str.26, i32 7, i32 11, i64 28 }, %struct._internal_exr_attr_map { ptr @.str.27, i32 9, i32 12, i64 0 }, %struct._internal_exr_attr_map { ptr @.str.28, i32 4, i32 13, i64 36 }, %struct._internal_exr_attr_map { ptr @.str.29, i32 4, i32 14, i64 72 }, %struct._internal_exr_attr_map { ptr @.str.30, i32 4, i32 15, i64 64 }, %struct._internal_exr_attr_map { ptr @.str.31, i32 4, i32 16, i64 128 }, %struct._internal_exr_attr_map { ptr @.str.32, i32 7, i32 17, i64 24 }, %struct._internal_exr_attr_map { ptr @.str.33, i32 8, i32 18, i64 8 }, %struct._internal_exr_attr_map { ptr @.str.34, i32 6, i32 19, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.35, i32 12, i32 20, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.36, i32 8, i32 21, i64 9 }, %struct._internal_exr_attr_map { ptr @.str.37, i32 8, i32 22, i64 8 }, %struct._internal_exr_attr_map { ptr @.str.38, i32 3, i32 23, i64 8 }, %struct._internal_exr_attr_map { ptr @.str.39, i32 3, i32 24, i64 8 }, %struct._internal_exr_attr_map { ptr @.str.40, i32 3, i32 25, i64 16 }, %struct._internal_exr_attr_map { ptr @.str.41, i32 3, i32 26, i64 12 }, %struct._internal_exr_attr_map { ptr @.str.42, i32 3, i32 27, i64 12 }, %struct._internal_exr_attr_map { ptr @.str.43, i32 3, i32 28, i64 24 }, %struct._internal_exr_attr_map { ptr @.str.44, i32 14, i32 29, i64 0 }], align 16
 @.str = private unnamed_addr constant [29 x i8] c"Missing list to compute size\00", align 1
@@ -72,7 +70,7 @@ define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr noundef rea
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @the_predefined_attr_typenames, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !5
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #7
   %7 = icmp eq i32 %6, 0
@@ -122,7 +120,7 @@ define hidden i32 @exr_attr_list_destroy(ptr noundef %0, ptr noundef captures(ad
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.223 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr %5, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = tail call fastcc i32 @attr_destroy(ptr noundef %0, ptr noundef %14)
   %.not22 = icmp eq i32 %15, 0
@@ -247,7 +245,7 @@ define hidden i32 @exr_attr_list_compute_size(ptr noundef %0, ptr noundef readon
   %indvars.iv155 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next156, %.thread ]
   %.093139 = phi i64 [ 0, %.lr.ph141 ], [ %.6113, %.thread ]
   %20 = load ptr, ptr %17, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv155
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv155
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 8, !tbaa !35
@@ -331,7 +329,7 @@ define hidden i32 @exr_attr_list_compute_size(ptr noundef %0, ptr noundef readon
 51:                                               ; preds = %.lr.ph136, %51
   %indvars.iv150 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next151, %51 ]
   %.396134 = phi i64 [ %32, %.lr.ph136 ], [ %56, %51 ]
-  %52 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %46, i64 %indvars.iv150
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %indvars.iv150
   %53 = load i32, ptr %52, align 8, !tbaa !40
   %54 = sext i32 %53 to i64
   %55 = add i64 %.396134, 17
@@ -417,7 +415,7 @@ define hidden i32 @exr_attr_list_compute_size(ptr noundef %0, ptr noundef readon
 103:                                              ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %.497132 = phi i64 [ %32, %.lr.ph ], [ %108, %103 ]
-  %104 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %40, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv
   %105 = load i32, ptr %104, align 8, !tbaa !49
   %106 = sext i32 %105 to i64
   %107 = add i64 %.497132, 4
@@ -575,7 +573,7 @@ define hidden i32 @exr_attr_list_find_by_name(ptr noundef %0, ptr noundef readon
 26:                                               ; preds = %23
   %27 = load i32, ptr %1, align 8, !tbaa !16
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = icmp sgt i32 %27, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 
@@ -584,7 +582,7 @@ define hidden i32 @exr_attr_list_find_by_name(ptr noundef %0, ptr noundef readon
   %.03952 = phi ptr [ %.140, %39 ], [ %25, %26 ]
   %31 = lshr i32 %.03853, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %.03952, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.03952, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = load ptr, ptr %34, align 8, !tbaa !57
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %2) #7
@@ -714,7 +712,7 @@ define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef capture
 
 55:                                               ; preds = %52, %54
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %54 ]
-  %56 = getelementptr inbounds nuw %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [24 x i8], ptr @the_predefined_attr_typenames, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !5
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %57) #7
   %59 = icmp eq i32 %58, 0
@@ -853,7 +851,7 @@ define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %0, ptr 
 42:                                               ; preds = %39
   %43 = load i32, ptr %1, align 8, !tbaa !16
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = icmp sgt i32 %43, 0
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
 
@@ -862,7 +860,7 @@ define internal fastcc i32 @validate_attr_arguments(ptr noundef nonnull %0, ptr 
   %.03952.i = phi ptr [ %.140.i, %54 ], [ %41, %42 ]
   %47 = lshr i32 %.03853.i, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %.03952.i, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.03952.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !28
   %51 = load ptr, ptr %50, align 8, !tbaa !57
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %2) #7
@@ -1074,7 +1072,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 27:                                               ; preds = %12
   %28 = trunc i64 %spec.select to i32
   store i32 %28, ptr %10, align 4, !tbaa !70
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %spec.select
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %spec.select
   %30 = icmp sgt i32 %4, 0
   br i1 %30, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1090,14 +1088,14 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %32 = load ptr, ptr %6, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !28
-  %35 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store ptr %34, ptr %35, align 8, !tbaa !28
   %36 = load ptr, ptr %8, align 8, !tbaa !60
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store ptr %38, ptr %39, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1118,9 +1116,9 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
   %.075 = phi ptr [ %21, %43 ], [ %7, %3 ]
   %.073 = phi ptr [ %29, %43 ], [ %9, %3 ]
   %45 = sext i32 %4 to i64
-  %46 = getelementptr inbounds ptr, ptr %.075, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.075, i64 %45
   store ptr %2, ptr %46, align 8, !tbaa !28
-  %47 = getelementptr inbounds ptr, ptr %.073, i64 %45
+  %47 = getelementptr inbounds [8 x i8], ptr %.073, i64 %45
   store ptr %2, ptr %47, align 8, !tbaa !28
   %48 = icmp sgt i32 %4, 0
   br i1 %48, label %.lr.ph13.preheader, label %.thread3
@@ -1132,7 +1130,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 .lr.ph13:                                         ; preds = %.lr.ph13.preheader, %56
   %indvars.iv17 = phi i64 [ %49, %.lr.ph13.preheader ], [ %indvars.iv.next18, %56 ]
   %indvars.iv.next18 = add nsw i64 %indvars.iv17, -1
-  %50 = getelementptr inbounds nuw ptr, ptr %.073, i64 %indvars.iv.next18
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.073, i64 %indvars.iv.next18
   %51 = load ptr, ptr %50, align 8, !tbaa !28
   %52 = load ptr, ptr %2, align 8, !tbaa !57
   %53 = load ptr, ptr %51, align 8, !tbaa !57
@@ -1359,7 +1357,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 
 .lr.ph.i:                                         ; preds = %150, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %150 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.i
   %148 = load ptr, ptr %147, align 8, !tbaa !28
   %149 = icmp eq ptr %148, %2
   br i1 %149, label %154, label %150
@@ -1378,7 +1376,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 154:                                              ; preds = %.lr.ph.i
   %155 = trunc nuw nsw i64 %indvars.iv.i to i32
   %156 = and i64 %indvars.iv.i, 4294967295
-  %157 = getelementptr inbounds nuw ptr, ptr %145, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %156
   store ptr null, ptr %157, align 8, !tbaa !28
   %158 = add nsw i32 %144, -1
   %159 = icmp sgt i32 %158, %155
@@ -1396,9 +1394,9 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 .lr.ph60.i:                                       ; preds = %.lr.ph60.i, %.lr.ph60.preheader.i
   %indvars.iv72.i = phi i64 [ %indvars.iv.i, %.lr.ph60.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph60.i ]
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %161 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv.next73.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.next73.i
   %162 = load ptr, ptr %161, align 8, !tbaa !28
-  %163 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv72.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv72.i
   store ptr %162, ptr %163, align 8, !tbaa !28
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
   br i1 %exitcond76.not.i, label %.lr.ph65.preheader.i, label %.lr.ph60.i, !llvm.loop !73
@@ -1410,7 +1408,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 .lr.ph65.i:                                       ; preds = %172, %.lr.ph65.preheader.i
   %indvars.iv77.i = phi i64 [ 0, %.lr.ph65.preheader.i ], [ %indvars.iv.next78.i, %172 ]
   %.162.i = phi i32 [ 0, %.lr.ph65.preheader.i ], [ %.2.i, %172 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv77.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv77.i
   %166 = load ptr, ptr %165, align 8, !tbaa !28
   %167 = icmp eq ptr %166, %2
   br i1 %167, label %172, label %168
@@ -1418,7 +1416,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
 168:                                              ; preds = %.lr.ph65.i
   %169 = add nsw i32 %.162.i, 1
   %170 = sext i32 %.162.i to i64
-  %171 = getelementptr inbounds ptr, ptr %160, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %160, i64 %170
   store ptr %166, ptr %171, align 8, !tbaa !28
   br label %172
 
@@ -1467,7 +1465,7 @@ define internal fastcc void @check_attr_handler(ptr noundef nonnull %0, ptr noun
 20:                                               ; preds = %17
   %21 = load i32, ptr %7, align 8, !tbaa !16
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %24 = icmp sgt i32 %21, 0
   br i1 %24, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1476,7 +1474,7 @@ define internal fastcc void @check_attr_handler(ptr noundef nonnull %0, ptr noun
   %.03952.i = phi ptr [ %.140.i, %32 ], [ %19, %20 ]
   %25 = lshr i32 %.03853.i, 1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %.03952.i, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.03952.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = load ptr, ptr %28, align 8, !tbaa !57
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %9) #7
@@ -1600,7 +1598,7 @@ define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(addres
 
 44:                                               ; preds = %34
   %45 = zext nneg i32 %3 to i64
-  %46 = getelementptr %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %45
+  %46 = getelementptr [24 x i8], ptr @the_predefined_attr_typenames, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -8
   %48 = load i64, ptr %47, align 8, !tbaa !64
   %.not.i = icmp eq i64 %23, 0
@@ -1791,7 +1789,7 @@ define hidden i32 @exr_attr_list_add_static_name(ptr noundef %0, ptr noundef cap
 
 44:                                               ; preds = %34
   %45 = zext nneg i32 %3 to i64
-  %46 = getelementptr %struct._internal_exr_attr_map, ptr @the_predefined_attr_typenames, i64 %45
+  %46 = getelementptr [24 x i8], ptr @the_predefined_attr_typenames, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -8
   %48 = load i64, ptr %47, align 8, !tbaa !64
   %.not81.i = icmp eq i64 %48, 0
@@ -1927,7 +1925,7 @@ define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(add
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = icmp eq ptr %20, %2
   br i1 %21, label %26, label %22
@@ -1946,7 +1944,7 @@ define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(add
 26:                                               ; preds = %.lr.ph
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = and i64 %indvars.iv, 4294967295
-  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %28
   store ptr null, ptr %29, align 8, !tbaa !28
   %30 = add nsw i32 %15, -1
   %31 = icmp sgt i32 %30, %27
@@ -1966,9 +1964,9 @@ define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(add
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv72 = phi i64 [ %indvars.iv, %.lr.ph60.preheader ], [ %indvars.iv.next73, %.lr.ph60 ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.next73
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next73
   %35 = load ptr, ptr %34, align 8, !tbaa !28
-  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv72
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv72
   store ptr %35, ptr %36, align 8, !tbaa !28
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
   br i1 %exitcond76.not, label %.lr.ph65.preheader, label %.lr.ph60, !llvm.loop !73
@@ -1980,7 +1978,7 @@ define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(add
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %45
   %indvars.iv77 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next78, %45 ]
   %.162 = phi i32 [ 0, %.lr.ph65.preheader ], [ %.2, %45 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv77
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv77
   %39 = load ptr, ptr %38, align 8, !tbaa !28
   %40 = icmp eq ptr %39, %2
   br i1 %40, label %45, label %41
@@ -1988,7 +1986,7 @@ define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(add
 41:                                               ; preds = %.lr.ph65
   %42 = add nsw i32 %.162, 1
   %43 = sext i32 %.162 to i64
-  %44 = getelementptr inbounds ptr, ptr %33, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %33, i64 %43
   store ptr %39, ptr %44, align 8, !tbaa !28
   br label %45
 

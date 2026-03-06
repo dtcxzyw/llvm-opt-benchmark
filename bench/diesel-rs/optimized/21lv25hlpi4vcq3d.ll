@@ -252,7 +252,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %38 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %33, %30 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !85, !noalias !88, !nonnull !5, !noundef !5
-  %41 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %40, i64 %38
+  %41 = getelementptr inbounds [32 x i8], ptr %40, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %42 = load i64, ptr %32, align 8, !alias.scope !85, !noalias !88, !noundef !5
   %43 = add i64 %42, 1
@@ -426,7 +426,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %40 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %35, %32 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !117, !noalias !120, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [32 x i8], ptr %42, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %44 = load i64, ptr %34, align 8, !alias.scope !117, !noalias !120, !noundef !5
   %45 = add i64 %44, 1
@@ -600,7 +600,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %39 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %34, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !149, !noalias !152, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %43 = load i64, ptr %33, align 8, !alias.scope !149, !noalias !152, !noundef !5
   %44 = add i64 %43, 1
@@ -772,7 +772,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %39 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %34, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !175, !noalias !178, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %43 = load i64, ptr %33, align 8, !alias.scope !175, !noalias !178, !noundef !5
   %44 = add i64 %43, 1
@@ -941,7 +941,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %37 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %32, %29 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !195, !noalias !198, !nonnull !5, !noundef !5
-  %40 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %39, i64 %37
+  %40 = getelementptr inbounds [32 x i8], ptr %39, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %41 = load i64, ptr %31, align 8, !alias.scope !195, !noalias !198, !noundef !5
   %42 = add i64 %41, 1
@@ -1028,7 +1028,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %7 = load ptr, ptr %6, align 8, !alias.scope !206, !noalias !208, !nonnull !5, !noundef !5
   %8 = sub nsw i64 0, %1
-  %9 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %7, i64 %8
+  %9 = getelementptr inbounds [56 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %.val.i.i = load ptr, ptr %4, align 8, !alias.scope !203, !noalias !211, !nonnull !5, !align !46, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
@@ -2051,7 +2051,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h161d7
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hce9b8573f9b9d8b6E.llvm.14418932532550506065"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #6 {
   %3 = sub nsw i64 0, %1
-  %4 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %0, i64 %3
+  %4 = getelementptr inbounds [56 x i8], ptr %0, i64 %3
   ret ptr %4
 }
 
@@ -2109,7 +2109,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9737
   %31 = add i64 %.sroa.01.0.i, %28
   %32 = and i64 %31, %8
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %9, i64 %33
+  %34 = getelementptr inbounds [56 x i8], ptr %9, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -56
   call void @llvm.experimental.noalias.scope.decl(metadata !295), !noalias !298
   call void @llvm.experimental.noalias.scope.decl(metadata !299), !noalias !298
@@ -2180,7 +2180,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !46, !noundef !5
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
   %8 = sub nsw i64 0, %1
-  %9 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, ptr }, ptr %7, i64 %8
+  %9 = getelementptr inbounds [56 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %.val = load ptr, ptr %4, align 8, !nonnull !5, !align !46, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)

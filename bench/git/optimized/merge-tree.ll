@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.merge_result = type { i32, ptr, ptr, ptr, i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
-%struct.s_mmbuffer = type { ptr, i64 }
 
 @empty_strvec = external global [0 x ptr], align 8
 @__const.cmd_merge_tree.xopts = private unnamed_addr constant %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, align 8
@@ -339,7 +337,7 @@ define dso_local range(i32 0, 2) i32 @cmd_merge_tree(i32 noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.preheader, %139
   %.05176 = phi i64 [ %140, %139 ], [ 0, %.preheader ]
   %130 = load ptr, ptr %19, align 8, !tbaa !31
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %.05176
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.05176
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = call i32 @parse_merge_opt(ptr noundef nonnull %118, ptr noundef %132) #15
   %.not68 = icmp eq i32 %133, 0
@@ -348,7 +346,7 @@ define dso_local range(i32 0, 2) i32 @cmd_merge_tree(i32 noundef %0, ptr noundef
 134:                                              ; preds = %.lr.ph
   %135 = call fastcc ptr @_(ptr noundef nonnull @.str.22)
   %136 = load ptr, ptr %19, align 8, !tbaa !31
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %.05176
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.05176
   %138 = load ptr, ptr %137, align 8, !tbaa !4
   call void (ptr, ...) @die(ptr noundef %135, ptr noundef %138) #16
   unreachable
@@ -727,7 +725,7 @@ explanation.exit.i.i.i:                           ; preds = %283, %280, %277, %2
   %292 = load i8, ptr %291, align 8
   %293 = and i8 %292, 3
   %294 = zext nneg i8 %293 to i64
-  %295 = getelementptr inbounds nuw ptr, ptr @show_result_list.desc, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr @show_result_list.desc, i64 %294
   %296 = load ptr, ptr %295, align 8, !tbaa !4
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   %298 = load i32, ptr %297, align 4, !tbaa !70
@@ -1179,7 +1177,7 @@ define internal fastcc range(i32 0, 2) i32 @real_merge(ptr noundef nonnull %0, p
   %.04676 = phi ptr [ null, %.lr.ph ], [ %.1, %121 ]
   %.04775 = phi i64 [ 0, %.lr.ph ], [ %123, %121 ]
   %102 = load ptr, ptr %12, align 8, !tbaa !99
-  %103 = getelementptr inbounds nuw %struct.string_list_item, ptr %102, i64 %.04775
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.04775
   %104 = load ptr, ptr %103, align 8, !tbaa !100
   %105 = load i32, ptr %99, align 4, !tbaa !102
   %.not69 = icmp eq i32 %105, 0
@@ -1504,7 +1502,7 @@ define internal fastcc void @unresolved(ptr noundef %0, ptr noundef %1) unnamed_
   %.02963 = phi i32 [ 0, %2 ], [ %.1, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw nsw i32 1, %10
-  %12 = getelementptr inbounds nuw %struct.name_entry, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %14 = load i32, ptr %13, align 4, !tbaa !109
   %.not39 = icmp eq i32 %14, 0
@@ -1780,7 +1778,7 @@ define internal noundef i32 @show_outf(ptr readnone captures(none) %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %struct.s_mmbuffer, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !117
   %8 = trunc i64 %7 to i32

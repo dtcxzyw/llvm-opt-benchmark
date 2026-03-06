@@ -2344,7 +2344,7 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h7c51ce
 
 11:                                               ; preds = %1, %9
   %.019 = phi ptr [ %10, %9 ], [ null, %1 ]
-  %12 = getelementptr inbounds { { { i64, [3 x i64] }, {} }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 %5
+  %12 = getelementptr inbounds [40 x i8], ptr %3, i64 %5
   %13 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 24, i64 8)
   store ptr %3, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2373,7 +2373,7 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha474b3
 
 11:                                               ; preds = %1, %9
   %.019 = phi ptr [ %10, %9 ], [ null, %1 ]
-  %12 = getelementptr inbounds { ptr, { [1 x i32] }, [1 x i32] }, ptr %3, i64 %5
+  %12 = getelementptr inbounds [16 x i8], ptr %3, i64 %5
   %13 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hbb1747b8bbd8f118E(i64 24, i64 8)
   store ptr %3, ptr %13, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8

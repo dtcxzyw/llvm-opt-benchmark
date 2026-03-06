@@ -513,7 +513,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly ca
 
 50:                                               ; preds = %42
   %51 = sext i32 %25 to i64
-  %52 = getelementptr i32, ptr @constinit, i64 %51
+  %52 = getelementptr [4 x i8], ptr @constinit, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 28
   br label %55
@@ -725,7 +725,7 @@ define internal i32 @intel_dp_hdcp2_write_msg(ptr noundef readonly captures(none
 
 8:                                                ; preds = %5, %3
   %9 = phi i64 [ 0, %3 ], [ %6, %5 ]
-  %10 = getelementptr %struct.hdcp2_dp_msg_data, ptr @hdcp2_dp_msg_data, i64 %9
+  %10 = getelementptr [24 x i8], ptr @hdcp2_dp_msg_data, i64 %9
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, %4
   br i1 %12, label %13, label %5
@@ -839,7 +839,7 @@ define internal i32 @intel_dp_hdcp2_read_msg(ptr noundef %0, i8 noundef zeroext 
 
 21:                                               ; preds = %18, %15
   %22 = phi i64 [ 0, %15 ], [ %19, %18 ]
-  %23 = getelementptr %struct.hdcp2_dp_msg_data, ptr @hdcp2_dp_msg_data, i64 %22
+  %23 = getelementptr [24 x i8], ptr @hdcp2_dp_msg_data, i64 %22
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, %1
   br i1 %25, label %26, label %18
@@ -1493,7 +1493,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr noundef readonly c
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 419776, ptr %81, align 4
   %82 = sext i32 %16 to i64
-  %83 = getelementptr i32, ptr %3, i64 %82
+  %83 = getelementptr [4 x i8], ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4
   br label %85
 

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/trace.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.trace_category_st = type { ptr, i32 }
-
 @.str = private unnamed_addr constant [26 x i8] c"[len %zu limited to %d]: \00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"%.*s\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"ALL\00", align 1
@@ -37,7 +35,7 @@ define ptr @OSSL_trace_get_category_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.trace_category_st, ptr @trace_categories, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @trace_categories, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !10
@@ -62,7 +60,7 @@ define i32 @OSSL_trace_get_category_num(ptr noundef %0) local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %1, %3
   %.08 = phi i64 [ %4, %3 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.trace_category_st, ptr @trace_categories, i64 %.08
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @trace_categories, i64 %.08
   %6 = load ptr, ptr %5, align 16, !tbaa !3
   %7 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %0, ptr noundef %6) #4
   %8 = icmp eq i32 %7, 0

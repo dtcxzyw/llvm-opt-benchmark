@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"struct.std::pair.356" = type { ptr, i64 }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -101,7 +100,7 @@ _ZSt18uninitialized_copyIPKmPmET0_T_S4_S3_.exit.i: ; preds = %_ZnamRKN5clang10AS
   %.0.i.i.i.i.i.i12 = phi ptr [ %40, %_ZnamRKN5clang10ASTContextEm.exit.i.i.thread ], [ %41, %_ZnamRKN5clang10ASTContextEm.exit.i.i ]
   store ptr %.0.i.i.i.i.i.i12, ptr %15, align 8, !tbaa !44
   store ptr %.0.i.i.i.i.i.i12, ptr %22, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw i64, ptr %.0.i.i.i.i.i.i12, i64 %18
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i12, i64 %18
   %.0.copyload.i.i.i.i9.i = load i64, ptr %21, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %.0.copyload.i.i.i.i9.i, 7
@@ -246,7 +245,7 @@ _ZN5clang9ASTVectorImE4growERKNS_10ASTContextEm.exit.i: ; preds = %94, %_ZnamRKN
   store ptr %.0.i.i.i.i.i.i, ptr %29, align 8, !tbaa !44
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 %68
   store ptr %95, ptr %60, align 8, !tbaa !45
-  %96 = getelementptr inbounds nuw i64, ptr %.0.i.i.i.i.i.i, i64 %spec.select.i.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i, i64 %spec.select.i.i
   %.0.copyload.i.i.i.i9.i = load i64, ptr %58, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %.0.copyload.i.i.i.i9.i, 7
@@ -439,7 +438,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !58
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.356", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -480,7 +479,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !58
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !56

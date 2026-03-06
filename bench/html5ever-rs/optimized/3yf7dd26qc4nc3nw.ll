@@ -783,7 +783,7 @@ define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_inte
   unreachable
 
 _ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit: ; preds = %20
-  %25 = getelementptr inbounds nuw { i32, i32 }, ptr %7, i64 %17
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !alias.scope !161, !noalias !168, !noundef !17
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -802,7 +802,7 @@ _ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit: ; preds = %20
 39:                                               ; preds = %_ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !17, !align !169, !noundef !17
-  %42 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %37
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !noundef !17
   %.not.i = icmp eq i64 %44, %2
@@ -878,7 +878,7 @@ define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_inte
   unreachable
 
 _ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit: ; preds = %20
-  %25 = getelementptr inbounds nuw { i32, i32 }, ptr %7, i64 %17
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !alias.scope !175, !noalias !180, !noundef !17
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -897,7 +897,7 @@ _ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit: ; preds = %20
 39:                                               ; preds = %_ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !17, !align !169, !noundef !17
-  %42 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %37
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !noundef !17
   %.not.i = icmp eq i64 %44, %2
@@ -973,7 +973,7 @@ define hidden void @"_ZN12string_cache4atom18Atom$LT$Static$GT$19try_static_inte
   unreachable
 
 _ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit: ; preds = %20
-  %25 = getelementptr inbounds nuw { i32, i32 }, ptr %7, i64 %17
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !alias.scope !185, !noalias !190, !noundef !17
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -992,7 +992,7 @@ _ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit: ; preds = %20
 39:                                               ; preds = %_ZN10phf_shared9get_index17hdf7bb333ea0ad2e7E.exit
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !17, !align !169, !noundef !17
-  %42 = getelementptr inbounds nuw { ptr, i64 }, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %37
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !noundef !17
   %.not.i = icmp eq i64 %44, %2
@@ -1039,9 +1039,9 @@ switch.lookup:
   %7 = load i64, ptr %6, align 8, !range !29, !alias.scope !195, !noalias !200, !noundef !17
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E.8", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E.8", i64 %8
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !198
@@ -1087,9 +1087,9 @@ switch.lookup:
   %7 = load i64, ptr %6, align 8, !range !29, !alias.scope !206, !noalias !211, !noundef !17
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E.8", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hacb371aa3091d9f9E.8", i64 %8
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !209
@@ -1171,7 +1171,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !226, !nonnull !17, !align !169, !noundef !17
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !noalias !226, !nonnull !17, !align !170, !noundef !17
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !226, !noundef !17
@@ -1237,7 +1237,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !239, !nonnull !17, !align !169, !noundef !17
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !noalias !239, !nonnull !17, !align !170, !noundef !17
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !239, !noundef !17

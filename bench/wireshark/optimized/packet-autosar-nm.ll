@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.true_false_string = type { ptr, ptr }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
-%struct._user_data_field_t = type { ptr, ptr, i32, i32, i64, ptr }
 
 @proto_register_autosar_nm.hf_autosar_nm = internal global [17 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_repeat_msg_req, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 2, i32 8, ptr @tfs_autosar_nm_control_rep_msg_req, i64 1, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved1, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 2, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_pn_shutdown_request, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 2, i32 8, ptr @tfs_autosar_nm_control_pn_shutdown_req, i64 2, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved2, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 4, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_nm_coord_id, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 4, i32 1, ptr null, i64 6, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved3, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 8, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_nm_coord_sleep, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 8, ptr @tfs_autosar_nm_control_sleep_bit, i64 8, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved4, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr null, i64 16, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_active_wakeup, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 2, i32 8, ptr @tfs_autosar_nm_control_active_wakeup, i64 16, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved5, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 1, ptr null, i64 32, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_pn_learning, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 2, i32 8, ptr @tfs_autosar_nm_control_pn_learning, i64 32, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved6, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 1, ptr null, i64 64, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_pni, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 8, ptr @tfs_autosar_nm_control_pni, i64 64, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_control_bit_vector_reserved7, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 4, i32 1, ptr null, i64 128, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_source_node_identifier, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 1, ptr null, i64 0, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_autosar_nm_user_data, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 30, i32 0, ptr null, i64 0, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_autosar_nm_control_bit_vector = internal global i32 0, align 4
@@ -642,12 +641,12 @@ define internal void @user_data_post_update_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %5 = load i32, ptr @proto_autosar_nm, align 4
   %6 = load ptr, ptr @dynamic_hf, align 8
-  %7 = getelementptr %struct.hf_register_info, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr [80 x i8], ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 4
   tail call void @proto_deregister_field(i32 noundef %5, i32 noundef %9)
   %10 = load ptr, ptr @dynamic_hf, align 8
-  %11 = getelementptr %struct.hf_register_info, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr [80 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -708,12 +707,12 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %35 = call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #11
   store i32 -1, ptr %35, align 4
   %36 = load ptr, ptr @dynamic_hf, align 8
-  %37 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv
+  %37 = getelementptr [80 x i8], ptr %36, i64 %indvars.iv
   store ptr %35, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr null, ptr %38, align 8
   %39 = load ptr, ptr @user_data_fields, align 8
-  %40 = getelementptr %struct._user_data_field_t, ptr %39, i64 %indvars.iv
+  %40 = getelementptr [40 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -723,7 +722,7 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 68
   store i32 -1, ptr %45, align 4
   %46 = load ptr, ptr @user_data_fields, align 8
-  %47 = getelementptr %struct._user_data_field_t, ptr %46, i64 %indvars.iv
+  %47 = getelementptr [40 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 0
@@ -740,15 +739,15 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %56 = load ptr, ptr %47, align 8
   %57 = call noalias ptr @g_strdup(ptr noundef %56)
   %58 = load ptr, ptr @dynamic_hf, align 8
-  %59 = getelementptr %struct.hf_register_info, ptr %58, i64 %indvars.iv
+  %59 = getelementptr [80 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %57, ptr %60, align 8
   %61 = load ptr, ptr @user_data_fields, align 8
-  %62 = getelementptr %struct._user_data_field_t, ptr %61, i64 %indvars.iv
+  %62 = getelementptr [40 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.143, ptr noundef %63)
   %65 = load ptr, ptr @dynamic_hf, align 8
-  %66 = getelementptr %struct.hf_register_info, ptr %65, i64 %indvars.iv
+  %66 = getelementptr [80 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
@@ -764,23 +763,23 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %73 = load ptr, ptr %72, align 8
   %74 = call noalias ptr @g_strdup(ptr noundef %73)
   %75 = load ptr, ptr @dynamic_hf, align 8
-  %76 = getelementptr %struct.hf_register_info, ptr %75, i64 %indvars.iv
+  %76 = getelementptr [80 x i8], ptr %75, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %74, ptr %77, align 8
   %78 = load ptr, ptr @user_data_fields, align 8
-  %79 = getelementptr %struct._user_data_field_t, ptr %78, i64 %indvars.iv
+  %79 = getelementptr [40 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.144, ptr noundef %80, ptr noundef %82)
   %84 = load ptr, ptr @dynamic_hf, align 8
-  %85 = getelementptr %struct.hf_register_info, ptr %84, i64 %indvars.iv
+  %85 = getelementptr [80 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store ptr %83, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store i32 2, ptr %87, align 8
   %88 = load ptr, ptr @user_data_fields, align 8
-  %89 = getelementptr %struct._user_data_field_t, ptr %88, i64 %indvars.iv
+  %89 = getelementptr [40 x i8], ptr %88, i64 %indvars.iv
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 20
   %91 = load i32, ptr %90, align 4
   %92 = shl i32 %91, 3
@@ -791,16 +790,16 @@ deregister_user_data.exit:                        ; preds = %16, %18
 94:                                               ; preds = %71, %55
   %.sink85 = phi i64 [ 32, %71 ], [ 8, %55 ]
   %95 = load ptr, ptr @user_data_fields, align 8
-  %96 = getelementptr %struct._user_data_field_t, ptr %95, i64 %indvars.iv
+  %96 = getelementptr [40 x i8], ptr %95, i64 %indvars.iv
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.sink85
   %98 = load ptr, ptr %97, align 8
   %99 = call noalias ptr @g_strdup(ptr noundef %98)
   %100 = load ptr, ptr @dynamic_hf, align 8
-  %101 = getelementptr %struct.hf_register_info, ptr %100, i64 %indvars.iv
+  %101 = getelementptr [80 x i8], ptr %100, i64 %indvars.iv
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   store ptr %99, ptr %102, align 8
   %103 = load ptr, ptr @user_data_fields, align 8
-  %104 = getelementptr %struct._user_data_field_t, ptr %103, i64 %indvars.iv
+  %104 = getelementptr [40 x i8], ptr %103, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %104, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 16
   %.sroa.471.0.copyload = load i32, ptr %.sroa.471.0..sroa_idx, align 8
@@ -812,7 +811,7 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %106 = load ptr, ptr @user_data_fields_hash_hf, align 8
   %107 = call i32 @g_hash_table_insert(ptr noundef %106, ptr noundef %105, ptr noundef %35)
   %108 = load ptr, ptr @user_data_fields, align 8
-  %109 = getelementptr %struct._user_data_field_t, ptr %108, i64 %indvars.iv
+  %109 = getelementptr [40 x i8], ptr %108, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i32, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 20
@@ -847,7 +846,7 @@ get_ett_for_user_data.exit:                       ; preds = %94
   %125 = call ptr @wmem_epan_scope()
   %126 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %125, i64 noundef 8) #12
   %127 = load ptr, ptr @user_data_fields, align 8
-  %128 = getelementptr %struct._user_data_field_t, ptr %127, i64 %indvars.iv
+  %128 = getelementptr [40 x i8], ptr %127, i64 %indvars.iv
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load i32, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 20
@@ -898,12 +897,12 @@ define internal void @user_data_reset_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_autosar_nm, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -985,7 +984,7 @@ define internal i32 @dissect_autosar_nm(ptr noundef %0, ptr noundef readonly cap
 
 switch.lookup:                                    ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_autosar_nm, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_autosar_nm, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = load i32, ptr @hf_autosar_nm_control_bit_vector, align 4
   %28 = load i32, ptr @ett_autosar_nm_cbv, align 4
@@ -1064,7 +1063,7 @@ switch.lookup:                                    ; preds = %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %53 ]
   %.06891 = phi ptr [ %.1, %98 ], [ null, %53 ]
   %61 = load ptr, ptr @user_data_fields, align 8
-  %62 = getelementptr %struct._user_data_field_t, ptr %61, i64 %indvars.iv
+  %62 = getelementptr [40 x i8], ptr %61, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %62, align 8
   %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
   %.sroa.490.0.copyload = load i32, ptr %.sroa.490.0..sroa_idx, align 8
@@ -1084,7 +1083,7 @@ switch.lookup:                                    ; preds = %23
 get_hf_for_user_data.exit:                        ; preds = %.lr.ph, %65
   %.0.i = phi ptr [ %66, %65 ], [ null, %.lr.ph ]
   %67 = load ptr, ptr @user_data_fields, align 8
-  %68 = getelementptr %struct._user_data_field_t, ptr %67, i64 %indvars.iv
+  %68 = getelementptr [40 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 20
@@ -1114,7 +1113,7 @@ get_ett_for_user_data.exit:                       ; preds = %get_hf_for_user_dat
 
 81:                                               ; preds = %get_ett_for_user_data.exit
   %82 = load ptr, ptr @user_data_fields, align 8
-  %83 = getelementptr %struct._user_data_field_t, ptr %82, i64 %indvars.iv
+  %83 = getelementptr [40 x i8], ptr %82, i64 %indvars.iv
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load i64, ptr %84, align 8
   %86 = icmp eq i64 %85, 0

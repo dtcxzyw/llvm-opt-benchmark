@@ -72,7 +72,7 @@ define dso_local ptr @nlmclnt_lookup_host(ptr noundef %0, i64 noundef %1, i16 no
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 2536
   %22 = load volatile ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @__rcu_read_unlock() #9
   tail call void @mutex_lock(ptr noundef nonnull @nlm_host_mutex) #9
@@ -122,7 +122,7 @@ define dso_local ptr @nlmclnt_lookup_host(ptr noundef %0, i64 noundef %1, i16 no
   %60 = phi i32 [ %58, %34 ], [ %33, %27 ], [ 0, %8 ]
   %61 = and i32 %60, 31
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr %struct.hlist_head, ptr @nlm_client_hosts, i64 %62
+  %63 = getelementptr [8 x i8], ptr @nlm_client_hosts, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %66
@@ -568,7 +568,7 @@ define internal fastcc void @nlm_destroy_host_locked(ptr noundef nonnull %0) unn
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2536
   %6 = load volatile ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void @__rcu_read_unlock() #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -679,7 +679,7 @@ define dso_local ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %1, i64 nou
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 2536
   %33 = load volatile ptr, ptr %32, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   tail call void @__rcu_read_unlock() #9
   tail call void @mutex_lock(ptr noundef nonnull @nlm_host_mutex) #9
@@ -741,7 +741,7 @@ define dso_local ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %1, i64 nou
   %78 = phi i32 [ %76, %52 ], [ %51, %45 ], [ 0, %43 ]
   %79 = and i32 %78, 31
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr %struct.hlist_head, ptr @nlm_server_hosts, i64 %80
+  %81 = getelementptr [8 x i8], ptr @nlm_server_hosts, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.loopexit, label %84
@@ -1088,7 +1088,7 @@ define internal fastcc void @nlm_gc_hosts(ptr noundef %0) unnamed_addr #0 align 
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 2536
   %59 = load volatile ptr, ptr %58, align 8
   %60 = zext i32 %57 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   tail call void @__rcu_read_unlock() #9
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -1171,7 +1171,7 @@ nlm_destroy_host_locked.exit:                     ; preds = %79, %83, %87
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %101 = load volatile ptr, ptr %100, align 8
   %102 = zext i32 %99 to i64
-  %103 = getelementptr ptr, ptr %101, i64 %102
+  %103 = getelementptr [8 x i8], ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
   tail call void @__rcu_read_unlock() #9
   %105 = load volatile i64, ptr @jiffies, align 64
@@ -1806,7 +1806,7 @@ define dso_local void @nlm_shutdown_hosts_net(ptr noundef %0) local_unnamed_addr
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %43 = load volatile ptr, ptr %42, align 8
   %44 = zext i32 %41 to i64
-  %45 = getelementptr ptr, ptr %43, i64 %44
+  %45 = getelementptr [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
   tail call void @__rcu_read_unlock() #9
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16

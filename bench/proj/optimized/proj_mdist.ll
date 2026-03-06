@@ -26,7 +26,7 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %8 = fmul double %.06468, %7
   %9 = fdiv double %5, %8
   %10 = fmul double %.05971, %9
-  %11 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %10, ptr %11, align 8, !tbaa !3
   %12 = fsub double %.05374, %10
   %13 = fcmp oeq double %12, %.05374
@@ -75,14 +75,14 @@ define hidden noalias noundef ptr @_Z14proj_mdist_inid(double noundef %0) local_
   %.05878 = phi double [ %41, %.lr.ph ], [ 2.000000e+00, %26 ]
   %.16177 = phi double [ %42, %.lr.ph ], [ 3.000000e+00, %26 ]
   %.16376 = phi double [ %37, %.lr.ph ], [ 1.000000e+00, %26 ]
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv83
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv83
   %34 = load double, ptr %33, align 8, !tbaa !3
   %35 = fsub double %.280, %34
   %36 = fmul double %.05878, %.15679
   %37 = fmul double %.16376, %.16177
   %38 = fmul double %36, %35
   %39 = fdiv double %38, %37
-  %40 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv83
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv83
   store double %39, ptr %40, align 8, !tbaa !3
   %41 = fadd double %.05878, 2.000000e+00
   %42 = fadd double %.16177, 2.000000e+00
@@ -114,7 +114,7 @@ define hidden noundef double @_Z10proj_mdistdddPKv(double noundef %0, double nou
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load i32, ptr %3, align 8, !tbaa !9
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds double, ptr %13, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %15
   %17 = load double, ptr %16, align 8, !tbaa !3
   %.not21 = icmp eq i32 %14, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -123,7 +123,7 @@ define hidden noundef double @_Z10proj_mdistdddPKv(double noundef %0, double nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %15, %4 ]
   %.02022 = phi double [ %20, %.lr.ph ], [ %17, %4 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds double, ptr %13, i64 %indvars.iv.next
+  %18 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv.next
   %19 = load double, ptr %18, align 8, !tbaa !3
   %20 = tail call double @llvm.fmuladd.f64(double %5, double %.02022, double %19)
   %.not = icmp eq i64 %indvars.iv.next, 0
@@ -176,7 +176,7 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   %22 = tail call double @sqrt(double noundef %21) #10, !tbaa !15
   %23 = load i32, ptr %2, align 8, !tbaa !9
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds double, ptr %11, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %11, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !3
   %.not21.i = icmp eq i32 %23, 0
   br i1 %.not21.i, label %_Z10proj_mdistdddPKv.exit, label %.lr.ph.i
@@ -185,7 +185,7 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %24, %13 ]
   %.02022.i = phi double [ %29, %.lr.ph.i ], [ %26, %13 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %27 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next.i
+  %27 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv.next.i
   %28 = load double, ptr %27, align 8, !tbaa !3
   %29 = tail call double @llvm.fmuladd.f64(double %20, double %.02022.i, double %28)
   %.not.i = icmp eq i64 %indvars.iv.next.i, 0

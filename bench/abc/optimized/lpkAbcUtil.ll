@@ -96,7 +96,7 @@ Kit_TruthCopy.exit.preheader:
 
 Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthCopy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Kit_TruthCopy.exit ]
-  %41 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val35, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = trunc i64 %indvars.iv to i8
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv
@@ -104,7 +104,7 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = lshr i32 %46, 12
-  %48 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -173,7 +173,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %6, align 4, !tbaa !3
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %76
   store ptr %14, ptr %77, align 8, !tbaa !16
   ret ptr %14
 }
@@ -292,7 +292,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %36, align 4, !tbaa !3
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   store ptr %10, ptr %66, align 8, !tbaa !16
   ret ptr %10
 }
@@ -339,7 +339,7 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %33 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 5)
   %34 = shl nuw nsw i32 1, %33
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %35
   tail call void @Kit_TruthShrink(ptr noundef nonnull %36, ptr noundef nonnull %32, i32 noundef %31, i32 noundef %7, i32 noundef %3, i32 noundef 1) #13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -361,9 +361,9 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %47 = sext i32 %.02629 to i64
   %48 = getelementptr inbounds i8, ptr %37, i64 %47
   store i8 %46, ptr %48, align 1, !tbaa !17
-  %49 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %51 = getelementptr inbounds i32, ptr %38, i64 %47
+  %51 = getelementptr inbounds [4 x i8], ptr %38, i64 %47
   store i32 %50, ptr %51, align 4, !tbaa !14
   %52 = add nsw i32 %.02629, 1
   br label %53
@@ -404,10 +404,10 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
   %7 = tail call i32 @llvm.usub.sat.i32(i32 %6, i32 5)
   %8 = shl nuw nsw i32 1, %7
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %9
   %11 = shl nuw nsw i32 2, %7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -470,7 +470,7 @@ define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr noundef 
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = tail call noundef i32 @llvm.smax.i32(i32 %.078, i32 %9)
   br label %11

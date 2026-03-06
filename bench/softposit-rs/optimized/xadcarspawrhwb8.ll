@@ -201,7 +201,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %101 = zext nneg i32 %100 to i64
   %102 = sub nsw i32 271, %95
   %103 = and i32 %98, -64
-  %104 = getelementptr inbounds nuw i64, ptr %5, i64 %101
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %101
   %105 = and i32 %102, 63
   %106 = zext nneg i32 %105 to i64
   %107 = lshr i64 %.066, %106
@@ -218,7 +218,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
 
 112:                                              ; preds = %.split
   %113 = zext nneg i32 %99 to i64
-  %114 = getelementptr inbounds nuw i64, ptr %5, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = add nsw i32 %95, 49
   %117 = and i32 %116, 63
@@ -299,9 +299,9 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113: ; preds = %134
   %.064204 = phi i1 [ false, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread" ], [ %.165, %181 ]
   %.sroa.24.0203 = phi i64 [ 8, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread" ], [ %143, %181 ]
   %143 = add nsw i64 %.sroa.24.0203, -1
-  %144 = getelementptr inbounds i64, ptr %4, i64 %143
-  %145 = getelementptr inbounds i64, ptr %6, i64 %143
-  %146 = getelementptr inbounds i64, ptr %5, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %4, i64 %143
+  %145 = getelementptr inbounds [8 x i8], ptr %6, i64 %143
+  %146 = getelementptr inbounds [8 x i8], ptr %5, i64 %143
   %147 = load i64, ptr %145, align 8, !noundef !4
   %148 = load i64, ptr %146, align 8, !noundef !4
   %149 = icmp eq i64 %143, 7
@@ -501,7 +501,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
   %68 = zext nneg i32 %67 to i64
   %69 = sub nsw i32 271, %62
   %70 = and i32 %65, -64
-  %71 = getelementptr inbounds nuw i64, ptr %4, i64 %68
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %68
   %72 = and i32 %69, 63
   %73 = zext nneg i32 %72 to i64
   %74 = lshr i64 %59, %73
@@ -517,7 +517,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; p
 
 78:                                               ; preds = %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split
   %79 = zext nneg i32 %66 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %4, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = and i32 %.neg66, 63
   %83 = zext nneg i32 %82 to i64
@@ -597,9 +597,9 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86: ; preds = %99
   %.052171 = phi i1 [ false, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread" ], [ %.153, %146 ]
   %.sroa.24.0170 = phi i64 [ 8, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread" ], [ %108, %146 ]
   %108 = add nsw i64 %.sroa.24.0170, -1
-  %109 = getelementptr inbounds i64, ptr %3, i64 %108
-  %110 = getelementptr inbounds i64, ptr %5, i64 %108
-  %111 = getelementptr inbounds i64, ptr %4, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %3, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %5, i64 %108
+  %111 = getelementptr inbounds [8 x i8], ptr %4, i64 %108
   %112 = load i64, ptr %110, align 8, !noundef !4
   %113 = load i64, ptr %111, align 8, !noundef !4
   %114 = icmp eq i64 %108, 7

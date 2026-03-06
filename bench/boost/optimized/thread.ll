@@ -47,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.std::pair.27" = type { i32, i32 }
 %"class.boost::shared_ptr.13" = type { ptr, %"class.boost::detail::shared_count" }
-%"struct.std::pair" = type { ptr, ptr }
 %"struct.boost::exception_detail::bad_alloc_" = type { %"class.boost::exception", %"class.std::bad_alloc" }
 %"class.boost::exception" = type { ptr, %"class.boost::exception_detail::refcount_ptr", ptr, ptr, i32, i32 }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
@@ -5455,7 +5454,7 @@ _ZNSt6vectorISt4pairIPN5boost18condition_variableEPNS1_5mutexEESaIS6_EE11_S_relo
 _ZNSt6vectorISt4pairIPN5boost18condition_variableEPNS1_5mutexEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorISt4pairIPN5boost18condition_variableEPNS1_5mutexEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !34
   store ptr %29, ptr %5, align 8, !tbaa !180
-  %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !36
   br label %_ZNSt6vectorISt4pairIPN5boost18condition_variableEPNS1_5mutexEESaIS6_EE9push_backEOS6_.exit
 
@@ -9327,7 +9326,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_6detail17shared_state_baseEEESaIS4_EE11_S_r
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_6detail17shared_state_baseEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_6detail17shared_state_baseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !27
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !29
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.13", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !33
   ret void
 }

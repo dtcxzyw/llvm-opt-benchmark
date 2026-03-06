@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<ceres::internal::Block, std::allocator<ceres::internal::Block>>::_Vector_impl" }
 %"struct.std::_Vector_base<ceres::internal::Block, std::allocator<ceres::internal::Block>>::_Vector_impl" = type { %"struct.std::_Vector_base<ceres::internal::Block, std::allocator<ceres::internal::Block>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ceres::internal::Block, std::allocator<ceres::internal::Block>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ceres::internal::Block" = type { i32, i32 }
 %"struct.ceres::internal::LinearSolver::Options" = type { i32, i32, i32, i32, i32, i32, i8, i8, i32, i32, i32, i8, double, i32, %"class.std::vector", i32, i32, i32, i32, i8, i32, i32, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
@@ -292,7 +291,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit: ; pr
 
 .lr.ph.preheader:                                 ; preds = %.critedge
   store ptr %89, ptr %8, align 8, !tbaa !25
-  %90 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %89, i64 %87
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %89, i8 -1, i64 %88, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %89, i64 %88
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -331,9 +330,9 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit: ; pr
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   %104 = add nsw i32 %102, %103
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %94, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !59
-  %108 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %89, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   %.sroa.4.0.insert.ext = zext i32 %.02886 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.075.0.insert.ext = zext i32 %107 to i64

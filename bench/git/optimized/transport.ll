@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.oid_array = type { ptr, i64, i64, i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.packet_reader = type { i32, ptr, i64, ptr, i32, i32, i32, i32, ptr, i32, i8, ptr, ptr, %struct.strbuf }
 %struct.fetch_pack_args = type { ptr, i32, i32, ptr, ptr, %struct.list_objects_filter_options, ptr, ptr, i32 }
 %struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
@@ -626,7 +625,7 @@ define internal fastcc range(i32 -1, 1) i32 @transport_color_config() unnamed_ad
 .preheader:                                       ; preds = %8, %.preheader.backedge
   %11 = phi i1 [ false, %.preheader.backedge ], [ true, %8 ]
   %.016 = phi i64 [ 1, %.preheader.backedge ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw ptr, ptr @__const.transport_color_config.keys, i64 %.016
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @__const.transport_color_config.keys, i64 %.016
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = load ptr, ptr @the_repository, align 8, !tbaa !27
   %15 = call i32 @repo_config_get_string(ptr noundef %14, ptr noundef %13, ptr noundef nonnull %1) #21
@@ -2284,7 +2283,7 @@ _.exit:                                           ; preds = %1, %4
   %.05 = phi i64 [ %18, %.lr.ph ], [ 0, %_.exit ]
   %13 = load ptr, ptr @stderr, align 8, !tbaa !24
   %14 = load ptr, ptr %0, align 8, !tbaa !111
-  %15 = getelementptr inbounds nuw %struct.string_list_item, ptr %14, i64 %.05
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.05
   %16 = load ptr, ptr %15, align 8, !tbaa !112
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.118, ptr noundef %16) #22
   %18 = add nuw i64 %.05, 1
@@ -2393,7 +2392,7 @@ st_mult.exit:                                     ; preds = %13
   %.338 = phi i32 [ %., %st_mult.exit ], [ %.03559, %11 ]
   %.2 = phi ptr [ %21, %st_mult.exit ], [ %.03261, %11 ]
   %23 = sext i32 %.03958 to i64
-  %24 = getelementptr inbounds ptr, ptr %.2, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.2, i64 %23
   store ptr %.062, ptr %24, align 8, !tbaa !8
   br label %25
 
@@ -2419,7 +2418,7 @@ st_mult.exit:                                     ; preds = %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph69 ], [ 0, %27 ]
   %.167 = phi ptr [ %32, %.lr.ph69 ], [ %1, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store ptr %.167, ptr %31, align 8, !tbaa !8
   %32 = load ptr, ptr %.167, align 8, !tbaa !8
   %.not46 = icmp eq ptr %32, null
@@ -2541,7 +2540,7 @@ define dso_local void @transport_unlock_pack(ptr noundef %0, i32 noundef %1) loc
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.010.us = phi i64 [ %11, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8, !tbaa !125
-  %8 = getelementptr inbounds nuw %struct.string_list_item, ptr %7, i64 %.010.us
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.010.us
   %9 = load ptr, ptr %8, align 8, !tbaa !112
   %10 = tail call i32 @unlink_or_warn(ptr noundef %9) #21
   %11 = add nuw i64 %.010.us, 1
@@ -2555,7 +2554,7 @@ define dso_local void @transport_unlock_pack(ptr noundef %0, i32 noundef %1) loc
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.010 = phi i64 [ %18, %.lr.ph.split ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %4, align 8, !tbaa !125
-  %15 = getelementptr inbounds nuw %struct.string_list_item, ptr %14, i64 %.010
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.010
   %16 = load ptr, ptr %15, align 8, !tbaa !112
   %17 = tail call i32 @unlink(ptr noundef %16) #21
   %18 = add nuw i64 %.010, 1
@@ -3323,7 +3322,7 @@ define internal range(i32 -1, 1) i32 @fetch_refs_via_pack(ptr noundef %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %103 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 136
   %107 = load i8, ptr %106, align 8
@@ -4021,7 +4020,7 @@ get_refs_from_bundle_inner.exit:                  ; preds = %14
   %.01720 = phi ptr [ null, %.lr.ph ], [ %33, %29 ]
   %.01819 = phi i64 [ 0, %.lr.ph ], [ %40, %29 ]
   %30 = load ptr, ptr %28, align 8, !tbaa !160
-  %31 = getelementptr inbounds nuw %struct.string_list_item, ptr %30, i64 %.01819
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.01819
   %32 = load ptr, ptr %31, align 8, !tbaa !112
   %33 = tail call ptr @alloc_ref(ptr noundef %32) #21
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8

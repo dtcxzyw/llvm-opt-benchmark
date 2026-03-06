@@ -93,7 +93,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   br i1 %56, label %.preheader118.us, label %.loopexit, !llvm.loop !10
 
 .loopexit119.us:                                  ; preds = %23
-  %57 = getelementptr inbounds float, ptr %.1106.us, i64 %9
+  %57 = getelementptr inbounds [4 x i8], ptr %.1106.us, i64 %9
   br i1 %.not, label %.loopexit117.us, label %.preheader116.us
 
 .preheader120.split:                              ; preds = %.preheader120
@@ -135,7 +135,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %.0105.us = phi ptr [ %8, %.lr.ph.us.preheader ], [ %80, %._crit_edge.us ]
   %.098.us = phi i64 [ %1, %.lr.ph.us.preheader ], [ %81, %._crit_edge.us ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.0105.us, i8 0, i64 %63, i1 false), !tbaa !11
-  %80 = getelementptr float, ptr %.0105.us, i64 %9
+  %80 = getelementptr [4 x i8], ptr %.0105.us, i64 %9
   br i1 %79, label %.lr.ph129.us.preheader, label %.preheader.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph134.us.preheader, %.preheader.us
@@ -185,7 +185,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %.0105.us136 = phi ptr [ %8, %.preheader114.us135.preheader ], [ %98, %._crit_edge.us150 ]
   %.098.us137 = phi i64 [ %1, %.preheader114.us135.preheader ], [ %99, %._crit_edge.us150 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0105.us136, i8 0, i64 %90, i1 false), !tbaa !11
-  %98 = getelementptr float, ptr %.0105.us136, i64 %9
+  %98 = getelementptr [4 x i8], ptr %.0105.us136, i64 %9
   br i1 %97, label %.lr.ph134.us149.preheader, label %._crit_edge.us150
 
 ._crit_edge.us150:                                ; preds = %.lr.ph134.us149.preheader, %.preheader114.us135
@@ -210,7 +210,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %.0105.us152 = phi ptr [ %103, %.preheader114.us151 ], [ %8, %.preheader114.us151.preheader ]
   %.098.us153 = phi i64 [ %104, %.preheader114.us151 ], [ %1, %.preheader114.us151.preheader ]
   tail call void @llvm.memset.p0.i64(ptr align 4 %.0105.us152, i8 0, i64 %102, i1 false), !tbaa !3
-  %103 = getelementptr float, ptr %.0105.us152, i64 %9
+  %103 = getelementptr [4 x i8], ptr %.0105.us152, i64 %9
   %104 = add nsw i64 %.098.us153, -1
   %105 = icmp sgt i64 %.098.us153, 1
   br i1 %105, label %.preheader114.us151, label %.loopexit, !llvm.loop !12
@@ -232,7 +232,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   br i1 %111, label %106, label %.loopexit117, !llvm.loop !9
 
 .loopexit117:                                     ; preds = %106
-  %112 = getelementptr inbounds float, ptr %.1106, i64 %9
+  %112 = getelementptr inbounds [4 x i8], ptr %.1106, i64 %9
   %113 = add nsw i64 %.199, -1
   %114 = icmp sgt i64 %.199, 1
   br i1 %114, label %.preheader116, label %.loopexit, !llvm.loop !10

@@ -3,13 +3,6 @@ source_filename = "bench/php/original/zend_call_graph.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_send_arg_info = type { ptr }
-%struct._zend_func_info = type { i32, i32, %struct._zend_ssa, ptr, ptr, ptr, %struct._zend_ssa_var_info }
-%struct._zend_ssa = type { %struct._zend_cfg, i32, i32, ptr, ptr, ptr, ptr }
-%struct._zend_cfg = type { i32, i32, ptr, ptr, ptr, i32 }
-%struct._zend_ssa_var_info = type { i32, i8, %struct._zend_ssa_range, ptr }
-%struct._zend_ssa_range = type { i64, i64, i8, i8 }
-
 @zend_func_info_rid = external local_unnamed_addr global i32, align 4
 @zend_flf_functions = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [61 x i8] c"Possible integer overflow in zend_arena_calloc() (%zu * %zu)\00", align 1
@@ -88,7 +81,7 @@ define dso_local void @zend_analyze_calls(ptr noundef captures(none) %0, ptr nou
 
 28:                                               ; preds = %25, %25, %25, %25
   %29 = sext i32 %.0125151 to i64
-  %30 = getelementptr inbounds ptr, ptr %21, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %21, i64 %29
   store ptr %.0124152, ptr %30, align 8, !tbaa !27
   %31 = call ptr @zend_optimizer_get_called_func(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %.0123153, ptr noundef nonnull %6) #11
   %.not136 = icmp eq ptr %31, null
@@ -196,7 +189,7 @@ zend_arena_alloc.exit148:                         ; preds = %52, %54
   %86 = getelementptr inbounds nuw i8, ptr %31, i64 208
   %87 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %86, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %86, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !67
   %.not139 = icmp eq ptr %90, null
   br i1 %.not139, label %95, label %91
@@ -221,7 +214,7 @@ zend_arena_alloc.exit148:                         ; preds = %52, %54
 
 99:                                               ; preds = %25, %25, %25, %25, %25
   %100 = sext i32 %.0125151 to i64
-  %101 = getelementptr inbounds ptr, ptr %21, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %21, i64 %100
   store ptr %.0124152, ptr %101, align 8, !tbaa !27
   %102 = add nsw i32 %.0125151, 1
   br label %172
@@ -231,7 +224,7 @@ zend_arena_alloc.exit148:                         ; preds = %52, %54
   %105 = getelementptr inbounds nuw i8, ptr %.0123153, i64 20
   %106 = load i32, ptr %105, align 4, !tbaa !29
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %104, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !76
   %110 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 72, i64 1) #12, !srcloc !30
   %111 = extractvalue { i64, i64 } %110, 0
@@ -320,7 +313,7 @@ zend_arena_alloc.exit:                            ; preds = %123, %125
 152:                                              ; preds = %150, %147
   %153 = add nsw i32 %.0125151, -1
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %21, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %21, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !27
   br label %172
 
@@ -345,7 +338,7 @@ zend_arena_alloc.exit:                            ; preds = %123, %125
   %narrow = call i32 @llvm.usub.sat.i32(i32 %166, i32 1)
   %.0 = zext i32 %narrow to i64
   %167 = getelementptr inbounds nuw i8, ptr %.0124152, i64 64
-  %168 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %167, i64 %.0
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %.0
   store ptr %.0123153, ptr %168, align 8, !tbaa !80
   br label %172
 
@@ -513,15 +506,15 @@ define internal void @zend_op_array_collect(ptr noundef %0, ptr noundef captures
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = load i32, ptr %1, align 8, !tbaa !84
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct._zend_func_info, ptr %4, i64 %6
+  %7 = getelementptr inbounds [152 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   store ptr %7, ptr %11, align 8, !tbaa !89
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !87
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %6
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %6
   store ptr %0, ptr %14, align 8, !tbaa !90
   store i32 %5, ptr %7, align 8, !tbaa !91
   %15 = add nsw i32 %5, 1
@@ -543,10 +536,10 @@ define dso_local void @zend_analyze_call_graph(ptr noundef captures(none) %0, pt
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !87
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !90
   %12 = load ptr, ptr %7, align 8, !tbaa !88
-  %13 = getelementptr inbounds nuw %struct._zend_func_info, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [152 x i8], ptr %12, i64 %indvars.iv
   tail call void @zend_analyze_calls(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %11, ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %2, align 8, !tbaa !84
@@ -592,10 +585,10 @@ define internal fastcc void @zend_analyze_recursion(ptr noundef readonly capture
   %19 = phi i32 [ %14, %.lr.ph69 ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %._crit_edge ]
   %20 = load ptr, ptr %16, align 8, !tbaa !87
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !90
   %23 = load ptr, ptr %17, align 8, !tbaa !88
-  %24 = getelementptr inbounds nuw %struct._zend_func_info, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [152 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %.064 = load ptr, ptr %25, align 8, !tbaa !27
   %.not65 = icmp eq ptr %.064, null
@@ -769,7 +762,7 @@ zend_arena_alloc.exit:                            ; preds = %23, %25
 
 60:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %61 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !80
   %.not33 = icmp eq ptr %62, null
   br i1 %.not33, label %68, label %63
@@ -813,12 +806,12 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !72
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !93
   %11 = load i32, ptr %10, align 8, !tbaa !91
   %12 = zext i32 %11 to i64
   %13 = lshr i64 %12, 6
-  %14 = getelementptr inbounds nuw i64, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !94
   %16 = and i64 %12, 63
   %17 = lshr i64 %15, %16
@@ -831,7 +824,7 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %22 = shl nuw i64 1, %21
   %23 = lshr i32 %11, 6
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !94
   %27 = or i64 %26, %22
   store i64 %27, ptr %25, align 8, !tbaa !94

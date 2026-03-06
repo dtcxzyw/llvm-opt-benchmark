@@ -18651,7 +18651,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %.thread
 
 _ZNK10reflection5Field2idEv.exit.i:               ; preds = %41, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %.thread.i
   %46 = phi i64 [ %45, %41 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %.thread.i ]
-  %47 = getelementptr inbounds nuw i32, ptr %20, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %46
   store i32 %26, ptr %47, align 4, !tbaa !78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %24
@@ -18694,7 +18694,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8.us: ; preds = %.lr
 _ZNK10reflection6Object6fieldsEv.exit.us:         ; preds = %59, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8.us, %.lr.ph.split.us
   %65 = phi ptr [ %64, %59 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8.us ], [ null, %.lr.ph.split.us ]
   %.neg.us = xor i64 %.030.us, -1
-  %66 = getelementptr i32, ptr %50, i64 %.neg.us
+  %66 = getelementptr [4 x i8], ptr %50, i64 %.neg.us
   %67 = load i32, ptr %66, align 4, !tbaa !78
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %69 = shl i32 %67, 2
@@ -18758,7 +18758,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8: ; preds = %.lr.ph
 
 _ZNK10reflection6Object6fieldsEv.exit:            ; preds = %88, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8, %.lr.ph.split
   %94 = phi ptr [ %93, %88 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i8 ], [ null, %.lr.ph.split ]
-  %95 = getelementptr inbounds nuw i32, ptr %20, i64 %.030
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.030
   %96 = load i32, ptr %95, align 4, !tbaa !78
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %98 = shl i32 %96, 2
@@ -28327,7 +28327,7 @@ define internal fastcc void @_ZNK11flatbuffers12_GLOBAL__N_116LuaBfbsGenerator12
 
 _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit: ; preds = %40
   %42 = zext nneg i32 %1 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !609
   br label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit.thread
 

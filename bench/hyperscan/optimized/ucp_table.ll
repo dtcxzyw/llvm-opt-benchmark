@@ -194,7 +194,7 @@ define hidden void @_ZN3ue27getUcpCEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_C_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_C_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -259,7 +259,7 @@ define hidden void @_ZN3ue28getUcpCcEv(ptr dead_on_unwind noalias writable sret(
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Cc_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Cc_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -301,7 +301,7 @@ define hidden void @_ZN3ue28getUcpCfEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Cf_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Cf_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -345,7 +345,7 @@ define hidden void @_ZN3ue28getUcpCnEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Cn_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Cn_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -389,7 +389,7 @@ define hidden void @_ZN3ue28getUcpCoEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Co_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Co_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -464,7 +464,7 @@ define hidden void @_ZN3ue27getUcpLEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_L_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_L_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -508,7 +508,7 @@ define hidden void @_ZN3ue211getUcpL_andEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_L_and_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_L_and_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -552,7 +552,7 @@ define hidden void @_ZN3ue28getUcpLlEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Ll_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Ll_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -596,7 +596,7 @@ define hidden void @_ZN3ue28getUcpLmEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lm_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Lm_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -640,7 +640,7 @@ define hidden void @_ZN3ue28getUcpLoEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lo_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Lo_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -684,7 +684,7 @@ define hidden void @_ZN3ue28getUcpLtEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lt_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Lt_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -728,7 +728,7 @@ define hidden void @_ZN3ue28getUcpLuEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Lu_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Lu_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -772,7 +772,7 @@ define hidden void @_ZN3ue27getUcpMEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_M_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_M_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -816,7 +816,7 @@ define hidden void @_ZN3ue28getUcpMcEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Mc_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Mc_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -860,7 +860,7 @@ define hidden void @_ZN3ue28getUcpMeEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Me_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Me_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -904,7 +904,7 @@ define hidden void @_ZN3ue28getUcpMnEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Mn_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Mn_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -948,7 +948,7 @@ define hidden void @_ZN3ue27getUcpNEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_N_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_N_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -992,7 +992,7 @@ define hidden void @_ZN3ue28getUcpNdEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Nd_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Nd_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1036,7 +1036,7 @@ define hidden void @_ZN3ue28getUcpNlEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Nl_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Nl_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1080,7 +1080,7 @@ define hidden void @_ZN3ue28getUcpNoEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_No_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_No_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1124,7 +1124,7 @@ define hidden void @_ZN3ue27getUcpPEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_P_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_P_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1168,7 +1168,7 @@ define hidden void @_ZN3ue28getUcpPcEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pc_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Pc_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1212,7 +1212,7 @@ define hidden void @_ZN3ue28getUcpPdEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pd_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Pd_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1256,7 +1256,7 @@ define hidden void @_ZN3ue28getUcpPeEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pe_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Pe_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1300,7 +1300,7 @@ define hidden void @_ZN3ue28getUcpPfEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pf_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Pf_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1344,7 +1344,7 @@ define hidden void @_ZN3ue28getUcpPiEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Pi_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Pi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1388,7 +1388,7 @@ define hidden void @_ZN3ue28getUcpPoEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Po_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Po_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1432,7 +1432,7 @@ define hidden void @_ZN3ue28getUcpPsEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Ps_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Ps_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1476,7 +1476,7 @@ define hidden void @_ZN3ue27getUcpSEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_S_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_S_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1520,7 +1520,7 @@ define hidden void @_ZN3ue28getUcpScEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Sc_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Sc_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1564,7 +1564,7 @@ define hidden void @_ZN3ue28getUcpSkEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Sk_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Sk_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1608,7 +1608,7 @@ define hidden void @_ZN3ue28getUcpSmEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Sm_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Sm_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1652,7 +1652,7 @@ define hidden void @_ZN3ue28getUcpSoEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_So_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_So_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1696,7 +1696,7 @@ define hidden void @_ZN3ue29getUcpXanEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xan_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Xan_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1740,7 +1740,7 @@ define hidden void @_ZN3ue29getUcpXpsEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xps_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Xps_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1784,7 +1784,7 @@ define hidden void @_ZN3ue29getUcpXspEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xsp_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1828,7 +1828,7 @@ define hidden void @_ZN3ue29getUcpXwdEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Xwd_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1872,7 +1872,7 @@ define hidden void @_ZN3ue27getUcpZEv(ptr dead_on_unwind noalias writable sret(%
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L9ucp_Z_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L9ucp_Z_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1978,7 +1978,7 @@ define hidden void @_ZN3ue28getUcpZsEv(ptr dead_on_unwind noalias writable sret(
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Zs_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Zs_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2022,7 +2022,7 @@ define hidden void @_ZN3ue212getUcpArabicEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Arabic_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2066,7 +2066,7 @@ define hidden void @_ZN3ue214getUcpArmenianEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Armenian_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2111,7 +2111,7 @@ define hidden void @_ZN3ue213getUcpAvestanEv(ptr dead_on_unwind noalias writable
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Avestan_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2154,7 +2154,7 @@ define hidden void @_ZN3ue214getUcpBalineseEv(ptr dead_on_unwind noalias writabl
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Balinese_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2197,7 +2197,7 @@ define hidden void @_ZN3ue211getUcpBamumEv(ptr dead_on_unwind noalias writable s
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Bamum_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2240,7 +2240,7 @@ define hidden void @_ZN3ue215getUcpBassa_VahEv(ptr dead_on_unwind noalias writab
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2283,7 +2283,7 @@ define hidden void @_ZN3ue211getUcpBatakEv(ptr dead_on_unwind noalias writable s
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Batak_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Batak_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2325,7 +2325,7 @@ define hidden void @_ZN3ue213getUcpBengaliEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Bengali_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2369,7 +2369,7 @@ define hidden void @_ZN3ue214getUcpBopomofoEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2413,7 +2413,7 @@ define hidden void @_ZN3ue212getUcpBrahmiEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2489,7 +2489,7 @@ define hidden void @_ZN3ue214getUcpBugineseEv(ptr dead_on_unwind noalias writabl
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Buginese_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2563,7 +2563,7 @@ define hidden void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr dead_on_unwind noal
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2637,7 +2637,7 @@ define hidden void @_ZN3ue224getUcpCaucasian_AlbanianEv(ptr dead_on_unwind noali
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2680,7 +2680,7 @@ define hidden void @_ZN3ue212getUcpChakmaEv(ptr dead_on_unwind noalias writable 
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Chakma_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2722,7 +2722,7 @@ define hidden void @_ZN3ue210getUcpChamEv(ptr dead_on_unwind noalias writable sr
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Cham_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L12ucp_Cham_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2797,7 +2797,7 @@ define hidden void @_ZN3ue212getUcpCommonEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Common_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Common_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2841,7 +2841,7 @@ define hidden void @_ZN3ue212getUcpCopticEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Coptic_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2885,7 +2885,7 @@ define hidden void @_ZN3ue215getUcpCuneiformEv(ptr dead_on_unwind noalias writab
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2929,7 +2929,7 @@ define hidden void @_ZN3ue213getUcpCypriotEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -2973,7 +2973,7 @@ define hidden void @_ZN3ue214getUcpCyrillicEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3048,7 +3048,7 @@ define hidden void @_ZN3ue216getUcpDevanagariEv(ptr dead_on_unwind noalias writa
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3092,7 +3092,7 @@ define hidden void @_ZN3ue214getUcpDuployanEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Duployan_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3198,7 +3198,7 @@ define hidden void @_ZN3ue214getUcpEthiopicEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3242,7 +3242,7 @@ define hidden void @_ZN3ue214getUcpGeorgianEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Georgian_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3287,7 +3287,7 @@ define hidden void @_ZN3ue216getUcpGlagoliticEv(ptr dead_on_unwind noalias writa
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -3360,7 +3360,7 @@ define hidden void @_ZN3ue213getUcpGranthaEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Grantha_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3404,7 +3404,7 @@ define hidden void @_ZN3ue211getUcpGreekEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Greek_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Greek_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3448,7 +3448,7 @@ define hidden void @_ZN3ue214getUcpGujaratiEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3492,7 +3492,7 @@ define hidden void @_ZN3ue214getUcpGurmukhiEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3536,7 +3536,7 @@ define hidden void @_ZN3ue29getUcpHanEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Han_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Han_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3580,7 +3580,7 @@ define hidden void @_ZN3ue212getUcpHangulEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Hangul_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3655,7 +3655,7 @@ define hidden void @_ZN3ue212getUcpHebrewEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3699,7 +3699,7 @@ define hidden void @_ZN3ue214getUcpHiraganaEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3744,7 +3744,7 @@ define hidden void @_ZN3ue222getUcpImperial_AramaicEv(ptr dead_on_unwind noalias
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -3786,7 +3786,7 @@ define hidden void @_ZN3ue215getUcpInheritedEv(ptr dead_on_unwind noalias writab
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Inherited_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3831,7 +3831,7 @@ define hidden void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr dead_on_unwind no
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -3874,7 +3874,7 @@ define hidden void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr dead_on_unwind n
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -3916,7 +3916,7 @@ define hidden void @_ZN3ue214getUcpJavaneseEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Javanese_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -3991,7 +3991,7 @@ define hidden void @_ZN3ue213getUcpKannadaEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Kannada_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4035,7 +4035,7 @@ define hidden void @_ZN3ue214getUcpKatakanaEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Katakana_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4080,7 +4080,7 @@ define hidden void @_ZN3ue214getUcpKayah_LiEv(ptr dead_on_unwind noalias writabl
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4122,7 +4122,7 @@ define hidden void @_ZN3ue216getUcpKharoshthiEv(ptr dead_on_unwind noalias writa
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4166,7 +4166,7 @@ define hidden void @_ZN3ue211getUcpKhmerEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Khmer_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4211,7 +4211,7 @@ define hidden void @_ZN3ue212getUcpKhojkiEv(ptr dead_on_unwind noalias writable 
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Khojki_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4254,7 +4254,7 @@ define hidden void @_ZN3ue215getUcpKhudawadiEv(ptr dead_on_unwind noalias writab
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4296,7 +4296,7 @@ define hidden void @_ZN3ue29getUcpLaoEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Lao_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Lao_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4340,7 +4340,7 @@ define hidden void @_ZN3ue211getUcpLatinEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Latin_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Latin_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4384,7 +4384,7 @@ define hidden void @_ZN3ue212getUcpLepchaEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4428,7 +4428,7 @@ define hidden void @_ZN3ue211getUcpLimbuEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Limbu_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4472,7 +4472,7 @@ define hidden void @_ZN3ue214getUcpLinear_AEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4516,7 +4516,7 @@ define hidden void @_ZN3ue214getUcpLinear_BEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4623,7 +4623,7 @@ define hidden void @_ZN3ue212getUcpLydianEv(ptr dead_on_unwind noalias writable 
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Lydian_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4696,7 +4696,7 @@ define hidden void @_ZN3ue215getUcpMalayalamEv(ptr dead_on_unwind noalias writab
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4741,7 +4741,7 @@ define hidden void @_ZN3ue213getUcpMandaicEv(ptr dead_on_unwind noalias writable
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4784,7 +4784,7 @@ define hidden void @_ZN3ue216getUcpManichaeanEv(ptr dead_on_unwind noalias writa
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4826,7 +4826,7 @@ define hidden void @_ZN3ue218getUcpMeetei_MayekEv(ptr dead_on_unwind noalias wri
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -4871,7 +4871,7 @@ define hidden void @_ZN3ue219getUcpMende_KikakuiEv(ptr dead_on_unwind noalias wr
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4914,7 +4914,7 @@ define hidden void @_ZN3ue222getUcpMeroitic_CursiveEv(ptr dead_on_unwind noalias
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -4987,7 +4987,7 @@ define hidden void @_ZN3ue210getUcpMiaoEv(ptr dead_on_unwind noalias writable sr
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Miao_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L12ucp_Miao_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5032,7 +5032,7 @@ define hidden void @_ZN3ue210getUcpModiEv(ptr dead_on_unwind noalias writable sr
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Modi_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L12ucp_Modi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5074,7 +5074,7 @@ define hidden void @_ZN3ue215getUcpMongolianEv(ptr dead_on_unwind noalias writab
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5118,7 +5118,7 @@ define hidden void @_ZN3ue29getUcpMroEv(ptr dead_on_unwind noalias writable sret
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L11ucp_Mro_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L11ucp_Mro_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5162,7 +5162,7 @@ define hidden void @_ZN3ue213getUcpMyanmarEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5207,7 +5207,7 @@ define hidden void @_ZN3ue215getUcpNabataeanEv(ptr dead_on_unwind noalias writab
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5249,7 +5249,7 @@ define hidden void @_ZN3ue217getUcpNew_Tai_LueEv(ptr dead_on_unwind noalias writ
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5480,7 +5480,7 @@ define hidden void @_ZN3ue217getUcpOld_PersianEv(ptr dead_on_unwind noalias writ
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5584,7 +5584,7 @@ define hidden void @_ZN3ue211getUcpOriyaEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Oriya_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5629,7 +5629,7 @@ define hidden void @_ZN3ue213getUcpOsmanyaEv(ptr dead_on_unwind noalias writable
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5671,7 +5671,7 @@ define hidden void @_ZN3ue218getUcpPahawh_HmongEv(ptr dead_on_unwind noalias wri
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5809,7 +5809,7 @@ define hidden void @_ZN3ue216getUcpPhoenicianEv(ptr dead_on_unwind noalias writa
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5851,7 +5851,7 @@ define hidden void @_ZN3ue221getUcpPsalter_PahlaviEv(ptr dead_on_unwind noalias 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -5896,7 +5896,7 @@ define hidden void @_ZN3ue212getUcpRejangEv(ptr dead_on_unwind noalias writable 
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Rejang_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5939,7 +5939,7 @@ define hidden void @_ZN3ue211getUcpRunicEv(ptr dead_on_unwind noalias writable s
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Runic_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Runic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -5982,7 +5982,7 @@ define hidden void @_ZN3ue215getUcpSamaritanEv(ptr dead_on_unwind noalias writab
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6025,7 +6025,7 @@ define hidden void @_ZN3ue216getUcpSaurashtraEv(ptr dead_on_unwind noalias writa
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6067,7 +6067,7 @@ define hidden void @_ZN3ue213getUcpSharadaEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Sharada_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6143,7 +6143,7 @@ define hidden void @_ZN3ue213getUcpSiddhamEv(ptr dead_on_unwind noalias writable
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Siddham_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6185,7 +6185,7 @@ define hidden void @_ZN3ue213getUcpSinhalaEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6230,7 +6230,7 @@ define hidden void @_ZN3ue218getUcpSora_SompengEv(ptr dead_on_unwind noalias wri
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6273,7 +6273,7 @@ define hidden void @_ZN3ue215getUcpSundaneseEv(ptr dead_on_unwind noalias writab
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6346,7 +6346,7 @@ define hidden void @_ZN3ue212getUcpSyriacEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Syriac_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6391,7 +6391,7 @@ define hidden void @_ZN3ue213getUcpTagalogEv(ptr dead_on_unwind noalias writable
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6433,7 +6433,7 @@ define hidden void @_ZN3ue214getUcpTagbanwaEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6478,7 +6478,7 @@ define hidden void @_ZN3ue212getUcpTai_LeEv(ptr dead_on_unwind noalias writable 
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6520,7 +6520,7 @@ define hidden void @_ZN3ue214getUcpTai_ThamEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6565,7 +6565,7 @@ define hidden void @_ZN3ue214getUcpTai_VietEv(ptr dead_on_unwind noalias writabl
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6608,7 +6608,7 @@ define hidden void @_ZN3ue211getUcpTakriEv(ptr dead_on_unwind noalias writable s
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Takri_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Takri_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6650,7 +6650,7 @@ define hidden void @_ZN3ue211getUcpTamilEv(ptr dead_on_unwind noalias writable s
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L13ucp_Tamil_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6694,7 +6694,7 @@ define hidden void @_ZN3ue212getUcpTeluguEv(ptr dead_on_unwind noalias writable 
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L14ucp_Telugu_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6770,7 +6770,7 @@ define hidden void @_ZN3ue210getUcpThaiEv(ptr dead_on_unwind noalias writable sr
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L12ucp_Thai_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L12ucp_Thai_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6812,7 +6812,7 @@ define hidden void @_ZN3ue213getUcpTibetanEv(ptr dead_on_unwind noalias writable
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6856,7 +6856,7 @@ define hidden void @_ZN3ue214getUcpTifinaghEv(ptr dead_on_unwind noalias writabl
 
 9:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -6901,7 +6901,7 @@ define hidden void @_ZN3ue213getUcpTirhutaEv(ptr dead_on_unwind noalias writable
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -6944,7 +6944,7 @@ define hidden void @_ZN3ue214getUcpUgariticEv(ptr dead_on_unwind noalias writabl
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -7018,7 +7018,7 @@ define hidden void @_ZN3ue217getUcpWarang_CitiEv(ptr dead_on_unwind noalias writ
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -7061,7 +7061,7 @@ define hidden void @_ZN3ue28getUcpYiEv(ptr dead_on_unwind noalias writable sret(
 9:                                                ; preds = %1, %16
   %10 = phi i1 [ true, %1 ], [ false, %16 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 2, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN3ue2L10ucp_Yi_defE, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3ue2L10ucp_Yi_defE, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
@@ -7189,7 +7189,7 @@ _ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i:  ; preds = %.lr.ph, %_ZSt7advan
   %.026.i.i = phi ptr [ %54, %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i ], [ %.177, %.lr.ph ]
   %.01125.i.i = phi i64 [ %53, %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i ], [ %45, %.lr.ph ]
   %47 = lshr i64 %.01125.i.i, 1
-  %48 = getelementptr inbounds nuw %"struct.ue2::unicase", ptr %.026.i.i, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.026.i.i, i64 %47
   %.val.i.i.i = load i32, ptr %48, align 4
   %49 = icmp ult i32 %.val.i.i.i, %.03576
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -7381,7 +7381,7 @@ _ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i:  ; preds = %_ZSt7advanceIPKN3ue
   %.026.i.i = phi ptr [ @_ZN3ue2L16ucp_caseless_defE, %1 ], [ %10, %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i ]
   %.01125.i.i = phi i64 [ 2254, %1 ], [ %9, %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i ]
   %3 = lshr i64 %.01125.i.i, 1
-  %4 = getelementptr inbounds nuw %"struct.ue2::unicase", ptr %.026.i.i, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %.026.i.i, i64 %3
   %.val.i.i.i = load i32, ptr %4, align 4
   %5 = icmp ult i32 %.val.i.i.i, %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8

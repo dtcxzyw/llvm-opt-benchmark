@@ -8183,7 +8183,7 @@ define hidden void @_ZN6ty_ide9find_node13covering_node17hde6eeca9ff86dbbfE(ptr 
   %35 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %36 = icmp ult i64 %27, 576460752303423489
   call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %35, i64 %32
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %32
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !noundef !8
   br label %40
@@ -8248,7 +8248,7 @@ define noundef zeroext i1 @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h284c959c8b432ae2E.exit": ; preds = %19, %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !603, !nonnull !8, !noundef !8
-  %27 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %26, i64 %21
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %21
   store i64 %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %2, ptr %28, align 8
@@ -8280,7 +8280,7 @@ define void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ru
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !8, !noundef !8
-  %13 = getelementptr { i64, [1 x i64] }, ptr %12, i64 %9
+  %13 = getelementptr [16 x i8], ptr %12, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -16
   %.val = load i64, ptr %14, align 8, !range !503, !noundef !8
   %15 = getelementptr i8, ptr %13, i64 -8
@@ -8896,7 +8896,7 @@ define hidden { i64, ptr } @_ZN6ty_ide9find_node12CoveringNode6parent17h17978272
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !nonnull !8, !noundef !8
-  %7 = getelementptr { i64, [1 x i64] }, ptr %6, i64 %3
+  %7 = getelementptr [16 x i8], ptr %6, i64 %3
   %8 = getelementptr i8, ptr %7, i64 -16
   %9 = load i64, ptr %8, align 8, !range !503, !noundef !8
   %10 = getelementptr i8, ptr %7, i64 -8

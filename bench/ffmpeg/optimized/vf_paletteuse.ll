@@ -7,15 +7,12 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.cache_node = type { ptr, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 %struct.color_rect = type { [3 x i32], [3 x i32] }
-%struct.color_node = type { %struct.color_info, i8, i32, i32, i32 }
-%struct.color_info = type { i32, [3 x i32] }
 %struct.color = type { %struct.Lab, i8 }
 %struct.Lab = type { i32, i32, i32 }
 %struct.nearest_color = type { i32, i64 }
-%struct.cached_color = type { i32, i8 }
+%struct.color_info = type { i32, [3 x i32] }
 
 @.str = private unnamed_addr constant [11 x i8] c"paletteuse\00", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"Use a palette to downsample an input video stream.\00", align 1
@@ -96,7 +93,7 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 533620
   %11 = load i32, ptr %10, align 4, !tbaa !29
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr @set_frame_lut, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @set_frame_lut, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 533632
   store ptr %14, ptr %15, align 8, !tbaa !31
@@ -137,7 +134,7 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   %42 = or disjoint i32 %41, %37
   %43 = lshr i32 %42, %19
   %44 = add nsw i32 %43, %.neg
-  %45 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -166,7 +163,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 9:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.cache_node, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %10) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32768
@@ -342,7 +339,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
 
 40:                                               ; preds = %40, %37
   %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %40 ]
-  %41 = getelementptr inbounds nuw %struct.cache_node, ptr %39, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv.i
   call void @av_freep(ptr noundef nonnull %41) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32768
@@ -382,9 +379,9 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.preheader.i
   %indvars.iv46.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next47.i, %64 ]
   %indvars.iv44.i = phi i64 [ %55, %.lr.ph.preheader.i ], [ %indvars.iv.next45.i, %64 ]
-  %56 = getelementptr inbounds nuw i32, ptr %.03139.i, i64 %indvars.iv46.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.03139.i, i64 %indvars.iv46.i
   %57 = load i32, ptr %56, align 4, !tbaa !33
-  %58 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv44.i
+  %58 = getelementptr inbounds [4 x i8], ptr %48, i64 %indvars.iv44.i
   store i32 %57, ptr %58, align 4, !tbaa !33
   %59 = lshr i32 %57, 24
   %60 = load i32, ptr %49, align 4, !tbaa !71
@@ -413,7 +410,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
   %69 = phi i32 [ %52, %.preheader.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %70 = phi i32 [ %53, %.preheader.i ], [ %65, %._crit_edge.loopexit.i ]
   %.2.lcssa.i = phi i32 [ %.140.i, %.preheader.i ], [ %68, %._crit_edge.loopexit.i ]
-  %71 = getelementptr inbounds i32, ptr %.03139.i, i64 %33
+  %71 = getelementptr inbounds [4 x i8], ptr %.03139.i, i64 %33
   %72 = add nuw nsw i32 %.03238.i, 1
   %73 = icmp slt i32 %72, %69
   br i1 %73, label %.preheader.i, label %._crit_edge41.i, !llvm.loop !73
@@ -433,7 +430,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 533604
   %79 = load i32, ptr %78, align 4, !tbaa !33
   %80 = zext nneg i32 %74 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !33
   store i32 %82, ptr %78, align 4, !tbaa !33
   store i32 %79, ptr %81, align 4, !tbaa !33
@@ -471,7 +468,7 @@ define internal i32 @load_apply_palette(ptr noundef %0) #1 {
 99:                                               ; preds = %108, %85
   %indvars.iv.i.i = phi i64 [ 0, %85 ], [ %indvars.iv.next.i.i, %108 ]
   %.032.i.i = phi i32 [ 0, %85 ], [ %.1.i.i, %108 ]
-  %100 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.i.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !33
   %.not30.i.i = icmp ne i64 %indvars.iv.i.i, 0
   %102 = icmp eq i32 %101, %.032.i.i
@@ -612,9 +609,9 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 176:                                              ; preds = %184, %.lr.ph.i.i
   %indvars.iv.i.i18 = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i20, %184 ]
   %177 = mul nsw i64 %indvars.iv.i.i18, %172
-  %178 = getelementptr inbounds i32, ptr %150, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %150, i64 %177
   %179 = mul nsw i64 %indvars.iv.i.i18, %173
-  %180 = getelementptr inbounds i32, ptr %157, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %157, i64 %179
   %181 = load i32, ptr %146, align 8, !tbaa !70
   %182 = shl nsw i32 %181, 2
   %183 = sext i32 %182 to i64
@@ -656,9 +653,9 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 200:                                              ; preds = %208, %.lr.ph178.i.i
   %indvars.iv215.i.i = phi i64 [ %194, %.lr.ph178.i.i ], [ %indvars.iv.next216.i.i, %208 ]
   %201 = mul nsw i64 %indvars.iv215.i.i, %195
-  %202 = getelementptr inbounds i32, ptr %150, i64 %201
+  %202 = getelementptr inbounds [4 x i8], ptr %150, i64 %201
   %203 = mul nsw i64 %indvars.iv215.i.i, %196
-  %204 = getelementptr inbounds i32, ptr %157, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %157, i64 %203
   %205 = load i32, ptr %146, align 8, !tbaa !70
   %206 = shl nsw i32 %205, 2
   %207 = sext i32 %206 to i64
@@ -704,8 +701,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 
 .preheader168.i.i:                                ; preds = %._crit_edge.i.i, %.preheader168.preheader.i.i
   %indvars.iv222.i.i = phi i64 [ 0, %.preheader168.preheader.i.i ], [ %indvars.iv.next223.i.i, %._crit_edge.i.i ]
-  %invariant.gep261.i.i = getelementptr i32, ptr %150, i64 %indvars.iv222.i.i
-  %invariant.gep263.i.i = getelementptr i32, ptr %157, i64 %indvars.iv222.i.i
+  %invariant.gep261.i.i = getelementptr [4 x i8], ptr %150, i64 %indvars.iv222.i.i
+  %invariant.gep263.i.i = getelementptr [4 x i8], ptr %157, i64 %indvars.iv222.i.i
   br label %224
 
 223:                                              ; preds = %224
@@ -717,10 +714,10 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 224:                                              ; preds = %223, %.preheader168.i.i
   %indvars.iv218.i.i = phi i64 [ %219, %.preheader168.i.i ], [ %indvars.iv.next219.i.i, %223 ]
   %225 = mul nsw i64 %indvars.iv218.i.i, %220
-  %gep262.i.i = getelementptr i32, ptr %invariant.gep261.i.i, i64 %225
+  %gep262.i.i = getelementptr [4 x i8], ptr %invariant.gep261.i.i, i64 %225
   %226 = load i32, ptr %gep262.i.i, align 4, !tbaa !33
   %227 = mul nsw i64 %indvars.iv218.i.i, %221
-  %gep264.i.i = getelementptr i32, ptr %invariant.gep263.i.i, i64 %227
+  %gep264.i.i = getelementptr [4 x i8], ptr %invariant.gep263.i.i, i64 %227
   %228 = load i32, ptr %gep264.i.i, align 4, !tbaa !33
   %.not146.i.i = icmp eq i32 %226, %228
   br i1 %.not146.i.i, label %223, label %.thread.loopexit207.i.i
@@ -754,8 +751,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 
 .preheader166.i.i:                                ; preds = %._crit_edge190.i.i, %.preheader166.preheader.i.i
   %indvars.iv232.i.i = phi i64 [ %235, %.preheader166.preheader.i.i ], [ %indvars.iv.next233.i.i, %._crit_edge190.i.i ]
-  %invariant.gep265.i.i = getelementptr i32, ptr %150, i64 %indvars.iv232.i.i
-  %invariant.gep267.i.i = getelementptr i32, ptr %157, i64 %indvars.iv232.i.i
+  %invariant.gep265.i.i = getelementptr [4 x i8], ptr %150, i64 %indvars.iv232.i.i
+  %invariant.gep267.i.i = getelementptr [4 x i8], ptr %157, i64 %indvars.iv232.i.i
   br label %238
 
 237:                                              ; preds = %238
@@ -767,10 +764,10 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 238:                                              ; preds = %237, %.preheader166.i.i
   %indvars.iv227.i.i = phi i64 [ %231, %.preheader166.i.i ], [ %indvars.iv.next228.i.i, %237 ]
   %239 = mul nsw i64 %indvars.iv227.i.i, %232
-  %gep266.i.i = getelementptr i32, ptr %invariant.gep265.i.i, i64 %239
+  %gep266.i.i = getelementptr [4 x i8], ptr %invariant.gep265.i.i, i64 %239
   %240 = load i32, ptr %gep266.i.i, align 4, !tbaa !33
   %241 = mul nsw i64 %indvars.iv227.i.i, %233
-  %gep268.i.i = getelementptr i32, ptr %invariant.gep267.i.i, i64 %241
+  %gep268.i.i = getelementptr [4 x i8], ptr %invariant.gep267.i.i, i64 %241
   %242 = load i32, ptr %gep268.i.i, align 4, !tbaa !33
   %.not149.i.i = icmp eq i32 %240, %242
   br i1 %.not149.i.i, label %237, label %.thread162.loopexit205.i.i
@@ -956,7 +953,7 @@ define internal fastcc i32 @colormap_insert(ptr noundef %0, ptr noundef nonnull 
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %2, align 4, !tbaa !33
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %struct.color_node, ptr %0, i64 %14
+  %15 = getelementptr inbounds [32 x i8], ptr %0, i64 %14
   %16 = load i32, ptr %6, align 4, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 %16, ptr %17, align 4, !tbaa !89
@@ -964,7 +961,7 @@ define internal fastcc i32 @colormap_insert(ptr noundef %0, ptr noundef nonnull 
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 %18, ptr %19, align 4, !tbaa !92
   %20 = zext nneg i32 %9 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !33
   %23 = tail call { i64, i32 } @ff_srgb_u8_to_oklab_int(i32 noundef %22) #13
   %.fca.0.extract.i = extractvalue { i64, i32 } %23, 0
@@ -983,18 +980,18 @@ define internal fastcc i32 @colormap_insert(ptr noundef %0, ptr noundef nonnull 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(24) %4, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %26 = sext i32 %16 to i64
-  %27 = getelementptr inbounds i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %30 = getelementptr inbounds i32, ptr %29, i64 %26
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %26
   store i32 %28, ptr %30, align 4, !tbaa !33
   %31 = tail call i32 @llvm.smin.i32(i32 %28, i32 65534)
   %32 = add nsw i32 %31, 1
-  %33 = getelementptr inbounds i32, ptr %8, i64 %26
+  %33 = getelementptr inbounds [4 x i8], ptr %8, i64 %26
   store i32 %32, ptr %33, align 4, !tbaa !33
   %34 = call fastcc i32 @colormap_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %7)
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %36 = getelementptr inbounds i32, ptr %35, i64 %26
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %26
   %37 = load i32, ptr %36, align 4, !tbaa !33
   %.not.not = icmp slt i32 %31, %37
   br i1 %.not.not, label %38, label %40
@@ -1052,7 +1049,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %.sroa.10.0237 = phi i32 [ 65535, %4 ], [ %.sroa.10.1, %53 ]
   %.sroa.6.0235 = phi i32 [ 65535, %4 ], [ %.sroa.6.1, %53 ]
   %.sroa.0142.0234 = phi i32 [ 65535, %4 ], [ %.sroa.0142.1, %53 ]
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !33
   %24 = tail call { i64, i32 } @ff_srgb_u8_to_oklab_int(i32 noundef %23) #13
   %.fca.0.extract = extractvalue { i64, i32 } %24, 0
@@ -1105,7 +1102,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %.sroa.18.2 = tail call i32 @llvm.smax.i32(i32 %.sroa.18.0239, i32 %.sroa.0104.sroa.10.0.extract.trunc)
   %.sroa.22.2 = tail call i32 @llvm.smax.i32(i32 %.fca.1.extract, i32 %.sroa.22.0240)
   %48 = zext i32 %.0198241 to i64
-  %49 = getelementptr inbounds nuw %struct.color, ptr %5, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %48
   store i64 %.fca.0.extract, ptr %49, align 16
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !33
@@ -1144,13 +1141,13 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %or.cond221 = select i1 %.not212, i1 true, i1 %.not213
   %.2197 = select i1 %or.cond221, i32 %.1196, i32 0
   %58 = zext nneg i32 %.2197 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr @cmp_funcs, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @cmp_funcs, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !30
   store i32 %.2197, ptr %2, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 16, !tbaa !30
   %61 = zext i32 %.1199 to i64
-  %62 = getelementptr inbounds nuw %struct.color, ptr %5, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -16
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %63, ptr %64, align 8, !tbaa !30
@@ -1160,7 +1157,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %.0191259 = phi i32 [ 1, %54 ], [ %.1192233, %.thread ]
   %66 = add nsw i32 %.0191259, -1
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [2 x ptr], ptr %6, i64 %67
+  %68 = getelementptr inbounds [16 x i8], ptr %6, i64 %67
   %69 = load ptr, ptr %68, align 16, !tbaa !30
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !30
@@ -1187,7 +1184,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   %81 = ptrtoint ptr %.0188251 to i64
   %82 = sub i64 %80, %81
   %83 = ashr i64 %82, 5
-  %84 = getelementptr inbounds %struct.color, ptr %.0188251, i64 %83
+  %84 = getelementptr inbounds [16 x i8], ptr %.0188251, i64 %83
   %85 = call i32 %60(ptr noundef %.0188251, ptr noundef nonnull %.0185252) #13
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %92
@@ -1343,7 +1340,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %124
-  %130 = getelementptr inbounds [2 x ptr], ptr %6, i64 %indvars.iv265
+  %130 = getelementptr inbounds [16 x i8], ptr %6, i64 %indvars.iv265
   store ptr %.0188251, ptr %130, align 16, !tbaa !30
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr %.0180.lcssa, ptr %131, align 8, !tbaa !30
@@ -1352,7 +1349,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
 
 133:                                              ; preds = %124
   %134 = getelementptr inbounds nuw i8, ptr %.0179.lcssa, i64 16
-  %135 = getelementptr inbounds [2 x ptr], ptr %6, i64 %indvars.iv265
+  %135 = getelementptr inbounds [16 x i8], ptr %6, i64 %indvars.iv265
   store ptr %134, ptr %135, align 16, !tbaa !30
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr %.0185252, ptr %136, align 8, !tbaa !30
@@ -1393,7 +1390,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_next_color(ptr noundef nonnul
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %145 = lshr i32 %.1199, 1
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw %struct.color, ptr %5, i64 %146
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 12
   %149 = load i8, ptr %148, align 4, !tbaa !96
   %150 = zext i8 %149 to i32
@@ -1453,7 +1450,7 @@ tailrecurse:                                      ; preds = %._crit_edge, %5
   %.tr39 = phi i32 [ %3, %5 ], [ %50, %._crit_edge ]
   %.tr40 = phi i32 [ %4, %5 ], [ %.pre, %._crit_edge ]
   %6 = sext i32 %.tr39 to i64
-  %7 = getelementptr inbounds %struct.color_node, ptr %1, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %1, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !33
   %10 = icmp sgt i32 %9, 32767
@@ -1489,7 +1486,7 @@ tailrecurse:                                      ; preds = %._crit_edge, %5
 
 37:                                               ; preds = %tailrecurse
   %38 = sext i32 %.tr38 to i64
-  %39 = getelementptr inbounds %struct.color_node, ptr %1, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %1, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i8, ptr %40, align 4, !tbaa !92
   %42 = zext i8 %41 to i32
@@ -1574,7 +1571,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   %23 = load ptr, ptr %2, align 8, !tbaa !61
   %24 = mul nsw i32 %16, %4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %1, align 8, !tbaa !61
   %28 = mul nsw i32 %13, %4
   %29 = sext i32 %28 to i64
@@ -1591,13 +1588,13 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
 
 33:                                               ; preds = %.preheader.us, %69
   %indvars.iv39 = phi i64 [ %31, %.preheader.us ], [ %indvars.iv.next40, %69 ]
-  %34 = getelementptr inbounds i32, ptr %.0474.i35.us, i64 %indvars.iv39
+  %34 = getelementptr inbounds [4 x i8], ptr %.0474.i35.us, i64 %indvars.iv39
   %35 = load i32, ptr %34, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = tail call i32 @ff_lowbias32(i32 noundef %35) #13
   %37 = and i32 %36, 32767
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.cache_node, ptr %17, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %38
   %40 = lshr i32 %35, 24
   %41 = load i32, ptr %18, align 4, !tbaa !71
   %42 = icmp ult i32 %40, %41
@@ -1642,7 +1639,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %20, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %53, ptr noundef %8)
   %54 = load i32, ptr %8, align 8, !tbaa !116
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.color_node, ptr %20, i64 %55
+  %56 = getelementptr inbounds [32 x i8], ptr %20, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i8, ptr %57, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1653,13 +1650,13 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
 
 61:                                               ; preds = %.lr.ph.us, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %49 ]
-  %62 = getelementptr inbounds nuw %struct.cached_color, ptr %72, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !114
   %64 = icmp eq i32 %63, %35
   br i1 %64, label %.thread.us, label %49
 
 .thread.us:                                       ; preds = %61
-  %65 = getelementptr inbounds nuw %struct.cached_color, ptr %72, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i8, ptr %66, align 4, !tbaa !118
   %68 = zext i8 %67 to i32
@@ -1681,7 +1678,7 @@ define internal range(i32 -12, 1) i32 @set_frame_none(ptr noundef %0, ptr nounde
   br label %61
 
 ..thread20_crit_edge.us:                          ; preds = %69
-  %73 = getelementptr inbounds i32, ptr %.0474.i35.us, i64 %21
+  %73 = getelementptr inbounds [4 x i8], ptr %.0474.i35.us, i64 %21
   %74 = getelementptr inbounds i8, ptr %.0475.i34.us, i64 %22
   %75 = add nsw i32 %.0476.i33.us, 1
   %.not511.i.us = icmp slt i32 %75, %11
@@ -1726,7 +1723,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %24 = load ptr, ptr %2, align 8, !tbaa !61
   %25 = mul nsw i32 %16, %4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %1, align 8, !tbaa !61
   %29 = mul nsw i32 %13, %4
   %30 = sext i32 %29 to i64
@@ -1749,9 +1746,9 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %38 = and i32 %37, 7
   %39 = or disjoint i32 %38, %35
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %17, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !33
-  %43 = getelementptr inbounds i32, ptr %.0474.i43.us, i64 %indvars.iv47
+  %43 = getelementptr inbounds [4 x i8], ptr %.0474.i43.us, i64 %indvars.iv47
   %44 = load i32, ptr %43, align 4, !tbaa !33
   %45 = and i32 %44, -16777216
   %46 = lshr i32 %44, 16
@@ -1786,7 +1783,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   %65 = tail call i32 @ff_lowbias32(i32 noundef %64) #13
   %66 = and i32 %65, 32767
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %67
   %69 = lshr i32 %44, 24
   %70 = load i32, ptr %19, align 4, !tbaa !71
   %71 = icmp ult i32 %69, %70
@@ -1831,7 +1828,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %82, ptr noundef %8)
   %83 = load i32, ptr %8, align 8, !tbaa !116
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.color_node, ptr %21, i64 %84
+  %85 = getelementptr inbounds [32 x i8], ptr %21, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i8, ptr %86, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1842,13 +1839,13 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
 
 90:                                               ; preds = %.lr.ph.us, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %78 ]
-  %91 = getelementptr inbounds nuw %struct.cached_color, ptr %101, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !114
   %93 = icmp eq i32 %92, %64
   br i1 %93, label %.thread.us, label %78
 
 .thread.us:                                       ; preds = %90
-  %94 = getelementptr inbounds nuw %struct.cached_color, ptr %101, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i8, ptr %95, align 4, !tbaa !118
   %97 = zext i8 %96 to i32
@@ -1870,7 +1867,7 @@ define internal range(i32 -12, 1) i32 @set_frame_bayer(ptr noundef %0, ptr nound
   br label %90
 
 ..thread28_crit_edge.us:                          ; preds = %98
-  %102 = getelementptr inbounds i32, ptr %.0474.i43.us, i64 %22
+  %102 = getelementptr inbounds [4 x i8], ptr %.0474.i43.us, i64 %22
   %103 = getelementptr inbounds i8, ptr %.0475.i42.us, i64 %23
   %104 = add nsw i32 %.0476.i41.us, 1
   %.not511.i.us = icmp slt i32 %104, %11
@@ -1917,7 +1914,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %26 = load ptr, ptr %2, align 8, !tbaa !61
   %27 = mul nsw i32 %14, %4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %1, align 8, !tbaa !61
   %31 = mul nsw i32 %16, %4
   %32 = sext i32 %31 to i64
@@ -1932,19 +1929,19 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   %.0475.i119.us = phi ptr [ %181, %..thread83_crit_edge.us ], [ %33, %.preheader.us.preheader ]
   %.0476.i118.us = phi i32 [ %182, %..thread83_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %37 = icmp slt i32 %.0476.i118.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i120.us, i64 %23
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i120.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %.thread57.us
   %indvars.iv124 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next125, %.thread57.us ]
   %39 = icmp slt i64 %indvars.iv124, %35
-  %40 = getelementptr inbounds i32, ptr %.0474.i120.us, i64 %indvars.iv124
+  %40 = getelementptr inbounds [4 x i8], ptr %.0474.i120.us, i64 %indvars.iv124
   %41 = load i32, ptr %40, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = tail call i32 @ff_lowbias32(i32 noundef %41) #13
   %43 = and i32 %42, 32767
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %44
   %46 = lshr i32 %41, 24
   %47 = load i32, ptr %19, align 4, !tbaa !71
   %48 = icmp ult i32 %46, %47
@@ -1989,7 +1986,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %59, ptr noundef %8)
   %60 = load i32, ptr %8, align 8, !tbaa !116
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.color_node, ptr %21, i64 %61
+  %62 = getelementptr inbounds [32 x i8], ptr %21, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i8, ptr %63, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2000,13 +1997,13 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
 
 67:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %55 ]
-  %68 = getelementptr inbounds nuw %struct.cached_color, ptr %179, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !114
   %70 = icmp eq i32 %69, %41
   br i1 %70, label %.thread.us, label %55
 
 .thread.us:                                       ; preds = %67
-  %71 = getelementptr inbounds nuw %struct.cached_color, ptr %179, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i8, ptr %72, align 4, !tbaa !118
   %74 = zext i8 %73 to i32
@@ -2021,7 +2018,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
 
 78:                                               ; preds = %75
   %79 = zext nneg i32 %.0.i.i.ph.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %22, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !33
   %82 = lshr i32 %41, 16
   %83 = lshr i32 %41, 8
@@ -2098,7 +2095,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   br i1 %37, label %128, label %.thread57.us
 
 128:                                              ; preds = %127
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv124
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv124
   %129 = load i32, ptr %gep, align 4, !tbaa !33
   %130 = and i32 %129, -16777216
   %131 = lshr i32 %129, 16
@@ -2193,7 +2190,7 @@ define internal range(i32 -12, 1) i32 @set_frame_heckbert(ptr noundef %0, ptr no
   br label %67
 
 ..thread83_crit_edge.us:                          ; preds = %.thread57.us
-  %180 = getelementptr inbounds i32, ptr %.0474.i120.us, i64 %23
+  %180 = getelementptr inbounds [4 x i8], ptr %.0474.i120.us, i64 %23
   %181 = getelementptr inbounds i8, ptr %.0475.i119.us, i64 %24
   %182 = add nsw i32 %.0476.i118.us, 1
   %.not511.i.us = icmp slt i32 %182, %11
@@ -2240,7 +2237,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %26 = load ptr, ptr %2, align 8, !tbaa !61
   %27 = mul nsw i32 %14, %4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %1, align 8, !tbaa !61
   %31 = mul nsw i32 %16, %4
   %32 = sext i32 %31 to i64
@@ -2255,21 +2252,21 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %.0475.i137.us = phi ptr [ %209, %..thread95_crit_edge.us ], [ %33, %.preheader.us.preheader ]
   %.0476.i136.us = phi i32 [ %210, %..thread95_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %37 = icmp slt i32 %.0476.i136.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i138.us, i64 %23
-  %invariant.gep149 = getelementptr i32, ptr %.0474.i138.us, i64 %23
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i138.us, i64 %23
+  %invariant.gep149 = getelementptr [4 x i8], ptr %.0474.i138.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %.thread69.us
   %indvars.iv142 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next143, %.thread69.us ]
   %39 = icmp slt i64 %indvars.iv142, %35
   %40 = icmp sgt i64 %indvars.iv142, %34
-  %41 = getelementptr inbounds i32, ptr %.0474.i138.us, i64 %indvars.iv142
+  %41 = getelementptr inbounds [4 x i8], ptr %.0474.i138.us, i64 %indvars.iv142
   %42 = load i32, ptr %41, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %43 = tail call i32 @ff_lowbias32(i32 noundef %42) #13
   %44 = and i32 %43, 32767
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %45
   %47 = lshr i32 %42, 24
   %48 = load i32, ptr %19, align 4, !tbaa !71
   %49 = icmp ult i32 %47, %48
@@ -2314,7 +2311,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %60, ptr noundef %8)
   %61 = load i32, ptr %8, align 8, !tbaa !116
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.color_node, ptr %21, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %21, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2325,13 +2322,13 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
 
 68:                                               ; preds = %.lr.ph.us, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %56 ]
-  %69 = getelementptr inbounds nuw %struct.cached_color, ptr %207, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !114
   %71 = icmp eq i32 %70, %42
   br i1 %71, label %.thread.us, label %56
 
 .thread.us:                                       ; preds = %68
-  %72 = getelementptr inbounds nuw %struct.cached_color, ptr %207, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i8, ptr %73, align 4, !tbaa !118
   %75 = zext i8 %74 to i32
@@ -2346,7 +2343,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
 
 79:                                               ; preds = %76
   %80 = zext nneg i32 %.0.i.i.ph.us to i64
-  %81 = getelementptr inbounds nuw i32, ptr %22, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !33
   %83 = lshr i32 %42, 16
   %84 = lshr i32 %42, 8
@@ -2424,7 +2421,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br i1 %or.cond14.i.us, label %129, label %155
 
 129:                                              ; preds = %128
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv142
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv142
   %130 = getelementptr i8, ptr %gep, i64 -4
   %131 = load i32, ptr %130, align 4, !tbaa !33
   %132 = and i32 %131, -16777216
@@ -2472,7 +2469,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br i1 %37, label %156, label %.thread69.us
 
 156:                                              ; preds = %155
-  %gep150 = getelementptr i32, ptr %invariant.gep149, i64 %indvars.iv142
+  %gep150 = getelementptr [4 x i8], ptr %invariant.gep149, i64 %indvars.iv142
   %157 = load i32, ptr %gep150, align 4, !tbaa !33
   %158 = and i32 %157, -16777216
   %159 = lshr i32 %157, 16
@@ -2567,7 +2564,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br label %68
 
 ..thread95_crit_edge.us:                          ; preds = %.thread69.us
-  %208 = getelementptr inbounds i32, ptr %.0474.i138.us, i64 %23
+  %208 = getelementptr inbounds [4 x i8], ptr %.0474.i138.us, i64 %23
   %209 = getelementptr inbounds i8, ptr %.0475.i137.us, i64 %24
   %210 = add nsw i32 %.0476.i136.us, 1
   %.not511.i.us = icmp slt i32 %210, %11
@@ -2616,7 +2613,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %28 = load ptr, ptr %2, align 8, !tbaa !61
   %29 = mul nsw i32 %14, %4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %1, align 8, !tbaa !61
   %33 = mul nsw i32 %16, %4
   %34 = sext i32 %33 to i64
@@ -2633,7 +2630,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %.0475.i195.us = phi ptr [ %299, %..thread129_crit_edge.us ], [ %35, %.preheader.us.preheader ]
   %.0476.i194.us = phi i32 [ %300, %..thread129_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %41 = icmp slt i32 %.0476.i194.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i196.us, i64 %23
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i196.us, i64 %23
   br label %42
 
 42:                                               ; preds = %.preheader.us, %296
@@ -2642,13 +2639,13 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   %44 = icmp sgt i64 %indvars.iv200, %36
   %45 = icmp slt i64 %indvars.iv200, %38
   %46 = icmp sgt i64 %indvars.iv200, %39
-  %47 = getelementptr inbounds i32, ptr %.0474.i196.us, i64 %indvars.iv200
+  %47 = getelementptr inbounds [4 x i8], ptr %.0474.i196.us, i64 %indvars.iv200
   %48 = load i32, ptr %47, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = tail call i32 @ff_lowbias32(i32 noundef %48) #13
   %50 = and i32 %49, 32767
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %51
   %53 = lshr i32 %48, 24
   %54 = load i32, ptr %19, align 4, !tbaa !71
   %55 = icmp ult i32 %53, %54
@@ -2693,7 +2690,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %66, ptr noundef %8)
   %67 = load i32, ptr %8, align 8, !tbaa !116
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.color_node, ptr %21, i64 %68
+  %69 = getelementptr inbounds [32 x i8], ptr %21, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i8, ptr %70, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2704,13 +2701,13 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
 
 74:                                               ; preds = %.lr.ph.us, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %62 ]
-  %75 = getelementptr inbounds nuw %struct.cached_color, ptr %297, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !114
   %77 = icmp eq i32 %76, %48
   br i1 %77, label %.thread.us, label %62
 
 .thread.us:                                       ; preds = %74
-  %78 = getelementptr inbounds nuw %struct.cached_color, ptr %297, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i8, ptr %79, align 4, !tbaa !118
   %81 = zext i8 %80 to i32
@@ -2725,7 +2722,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
 
 85:                                               ; preds = %82
   %86 = zext nneg i32 %.0.i.i.ph.us to i64
-  %87 = getelementptr inbounds nuw i32, ptr %22, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !33
   %89 = lshr i32 %48, 16
   %90 = lshr i32 %48, 8
@@ -2849,7 +2846,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br i1 %46, label %163, label %189
 
 163:                                              ; preds = %162
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv200
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv200
   %164 = getelementptr i8, ptr %gep, i64 -8
   %165 = load i32, ptr %164, align 4, !tbaa !33
   %166 = and i32 %165, -16777216
@@ -2895,7 +2892,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br i1 %44, label %191, label %._crit_edge
 
 191:                                              ; preds = %189
-  %192 = getelementptr i32, ptr %.0474.i196.us, i64 %190
+  %192 = getelementptr [4 x i8], ptr %.0474.i196.us, i64 %190
   %193 = getelementptr i8, ptr %192, i64 -4
   %194 = load i32, ptr %193, align 4, !tbaa !33
   %195 = and i32 %194, -16777216
@@ -2937,7 +2934,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %189, %191
-  %218 = getelementptr inbounds i32, ptr %.0474.i196.us, i64 %190
+  %218 = getelementptr inbounds [4 x i8], ptr %.0474.i196.us, i64 %190
   %219 = load i32, ptr %218, align 4, !tbaa !33
   %220 = and i32 %219, -16777216
   %221 = lshr i32 %219, 16
@@ -3076,7 +3073,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2(ptr noundef %0, ptr nou
   br label %74
 
 ..thread129_crit_edge.us:                         ; preds = %296
-  %298 = getelementptr inbounds i32, ptr %.0474.i196.us, i64 %23
+  %298 = getelementptr inbounds [4 x i8], ptr %.0474.i196.us, i64 %23
   %299 = getelementptr inbounds i8, ptr %.0475.i195.us, i64 %24
   %300 = add nsw i32 %.0476.i194.us, 1
   %.not511.i.us = icmp slt i32 %300, %11
@@ -3123,7 +3120,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %26 = load ptr, ptr %2, align 8, !tbaa !61
   %27 = mul nsw i32 %14, %4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %1, align 8, !tbaa !61
   %31 = mul nsw i32 %16, %4
   %32 = sext i32 %31 to i64
@@ -3138,20 +3135,20 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %.0475.i117.us = phi ptr [ %184, %..thread81_crit_edge.us ], [ %33, %.preheader.us.preheader ]
   %.0476.i116.us = phi i32 [ %185, %..thread81_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %37 = icmp slt i32 %.0476.i116.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i118.us, i64 %23
-  %invariant.gep129 = getelementptr i32, ptr %.0474.i118.us, i64 %23
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i118.us, i64 %23
+  %invariant.gep129 = getelementptr [4 x i8], ptr %.0474.i118.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %181
   %indvars.iv122 = phi i64 [ %34, %.preheader.us ], [ %indvars.iv.next123, %181 ]
   %39 = icmp sgt i64 %indvars.iv122, %34
-  %40 = getelementptr inbounds i32, ptr %.0474.i118.us, i64 %indvars.iv122
+  %40 = getelementptr inbounds [4 x i8], ptr %.0474.i118.us, i64 %indvars.iv122
   %41 = load i32, ptr %40, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = tail call i32 @ff_lowbias32(i32 noundef %41) #13
   %43 = and i32 %42, 32767
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %44
   %46 = lshr i32 %41, 24
   %47 = load i32, ptr %19, align 4, !tbaa !71
   %48 = icmp ult i32 %46, %47
@@ -3196,7 +3193,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %59, ptr noundef %8)
   %60 = load i32, ptr %8, align 8, !tbaa !116
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.color_node, ptr %21, i64 %61
+  %62 = getelementptr inbounds [32 x i8], ptr %21, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i8, ptr %63, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3207,13 +3204,13 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
 
 67:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %55 ]
-  %68 = getelementptr inbounds nuw %struct.cached_color, ptr %182, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !114
   %70 = icmp eq i32 %69, %41
   br i1 %70, label %.thread.us, label %55
 
 .thread.us:                                       ; preds = %67
-  %71 = getelementptr inbounds nuw %struct.cached_color, ptr %182, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i8, ptr %72, align 4, !tbaa !118
   %74 = zext i8 %73 to i32
@@ -3228,7 +3225,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
 
 78:                                               ; preds = %75
   %79 = zext nneg i32 %.0.i.i.ph.us to i64
-  %80 = getelementptr inbounds nuw i32, ptr %22, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !33
   %82 = lshr i32 %41, 16
   %83 = lshr i32 %41, 8
@@ -3304,7 +3301,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br i1 %or.cond18.i.us, label %129, label %155
 
 129:                                              ; preds = %128
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv122
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv122
   %130 = getelementptr i8, ptr %gep, i64 -4
   %131 = load i32, ptr %130, align 4, !tbaa !33
   %132 = and i32 %131, -16777216
@@ -3349,7 +3346,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br i1 %37, label %156, label %181
 
 156:                                              ; preds = %155
-  %gep130 = getelementptr i32, ptr %invariant.gep129, i64 %indvars.iv122
+  %gep130 = getelementptr [4 x i8], ptr %invariant.gep129, i64 %indvars.iv122
   %157 = load i32, ptr %gep130, align 4, !tbaa !33
   %158 = and i32 %157, -16777216
   %159 = lshr i32 %157, 16
@@ -3400,7 +3397,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br label %67
 
 ..thread81_crit_edge.us:                          ; preds = %181
-  %183 = getelementptr inbounds i32, ptr %.0474.i118.us, i64 %23
+  %183 = getelementptr inbounds [4 x i8], ptr %.0474.i118.us, i64 %23
   %184 = getelementptr inbounds i8, ptr %.0475.i117.us, i64 %24
   %185 = add nsw i32 %.0476.i116.us, 1
   %.not511.i.us = icmp slt i32 %185, %11
@@ -3451,7 +3448,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %30 = load ptr, ptr %2, align 8, !tbaa !61
   %31 = mul nsw i32 %14, %4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %30, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %1, align 8, !tbaa !61
   %35 = mul nsw i32 %16, %4
   %36 = sext i32 %35 to i64
@@ -3470,7 +3467,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %.0476.i257.us = phi i32 [ %385, %..thread165_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %44 = icmp slt i32 %.0476.i257.us, %17
   %45 = icmp slt i32 %.0476.i257.us, %18
-  %invariant.gep = getelementptr i32, ptr %.0474.i259.us, i64 %24
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i259.us, i64 %24
   br label %46
 
 46:                                               ; preds = %.preheader.us, %381
@@ -3479,13 +3476,13 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   %48 = icmp sgt i64 %indvars.iv263, %38
   %49 = icmp slt i64 %indvars.iv263, %40
   %50 = icmp sgt i64 %indvars.iv263, %41
-  %51 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %indvars.iv263
+  %51 = getelementptr inbounds [4 x i8], ptr %.0474.i259.us, i64 %indvars.iv263
   %52 = load i32, ptr %51, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = tail call i32 @ff_lowbias32(i32 noundef %52) #13
   %54 = and i32 %53, 32767
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.cache_node, ptr %19, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %55
   %57 = lshr i32 %52, 24
   %58 = load i32, ptr %20, align 4, !tbaa !71
   %59 = icmp ult i32 %57, %58
@@ -3530,7 +3527,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %70, ptr noundef %8)
   %71 = load i32, ptr %8, align 8, !tbaa !116
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.color_node, ptr %22, i64 %72
+  %73 = getelementptr inbounds [32 x i8], ptr %22, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i8, ptr %74, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3541,13 +3538,13 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
 
 78:                                               ; preds = %.lr.ph.us, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %66 ]
-  %79 = getelementptr inbounds nuw %struct.cached_color, ptr %382, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4, !tbaa !114
   %81 = icmp eq i32 %80, %52
   br i1 %81, label %.thread.us, label %66
 
 .thread.us:                                       ; preds = %78
-  %82 = getelementptr inbounds nuw %struct.cached_color, ptr %382, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %indvars.iv
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i8, ptr %83, align 4, !tbaa !118
   %85 = zext i8 %84 to i32
@@ -3562,7 +3559,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
 
 89:                                               ; preds = %86
   %90 = zext nneg i32 %.0.i.i.ph.us to i64
-  %91 = getelementptr inbounds nuw i32, ptr %23, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !33
   %93 = lshr i32 %52, 16
   %94 = lshr i32 %52, 8
@@ -3689,7 +3686,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br i1 %50, label %167, label %193
 
 167:                                              ; preds = %166
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv263
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv263
   %168 = getelementptr i8, ptr %gep, i64 -8
   %169 = load i32, ptr %168, align 4, !tbaa !33
   %170 = and i32 %169, -16777216
@@ -3735,7 +3732,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br i1 %48, label %195, label %._crit_edge266
 
 195:                                              ; preds = %193
-  %196 = getelementptr i32, ptr %.0474.i259.us, i64 %194
+  %196 = getelementptr [4 x i8], ptr %.0474.i259.us, i64 %194
   %197 = getelementptr i8, ptr %196, i64 -4
   %198 = load i32, ptr %197, align 4, !tbaa !33
   %199 = and i32 %198, -16777216
@@ -3777,7 +3774,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %._crit_edge266
 
 ._crit_edge266:                                   ; preds = %193, %195
-  %222 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %194
+  %222 = getelementptr inbounds [4 x i8], ptr %.0474.i259.us, i64 %194
   %223 = load i32, ptr %222, align 4, !tbaa !33
   %224 = and i32 %223, -16777216
   %225 = lshr i32 %223, 16
@@ -3913,7 +3910,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br i1 %48, label %303, label %._crit_edge
 
 303:                                              ; preds = %301
-  %304 = getelementptr i32, ptr %.0474.i259.us, i64 %302
+  %304 = getelementptr [4 x i8], ptr %.0474.i259.us, i64 %302
   %305 = getelementptr i8, ptr %304, i64 -4
   %306 = load i32, ptr %305, align 4, !tbaa !33
   %307 = and i32 %306, -16777216
@@ -3955,7 +3952,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %301, %303
-  %330 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %302
+  %330 = getelementptr inbounds [4 x i8], ptr %.0474.i259.us, i64 %302
   %331 = load i32, ptr %330, align 4, !tbaa !33
   %332 = and i32 %331, -16777216
   %333 = lshr i32 %331, 16
@@ -4050,7 +4047,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra3(ptr noundef %0, ptr nou
   br label %78
 
 ..thread165_crit_edge.us:                         ; preds = %381
-  %383 = getelementptr inbounds i32, ptr %.0474.i259.us, i64 %24
+  %383 = getelementptr inbounds [4 x i8], ptr %.0474.i259.us, i64 %24
   %384 = getelementptr inbounds i8, ptr %.0475.i258.us, i64 %25
   %385 = add nsw i32 %.0476.i257.us, 1
   %.not511.i.us = icmp slt i32 %385, %11
@@ -4099,7 +4096,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %28 = load ptr, ptr %2, align 8, !tbaa !61
   %29 = mul nsw i32 %14, %4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %1, align 8, !tbaa !61
   %33 = mul nsw i32 %16, %4
   %34 = sext i32 %33 to i64
@@ -4116,7 +4113,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %.0475.i207.us = phi ptr [ %299, %..thread129_crit_edge.us ], [ %35, %.preheader.us.preheader ]
   %.0476.i206.us = phi i32 [ %300, %..thread129_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %41 = icmp slt i32 %.0476.i206.us, %17
-  %invariant.gep = getelementptr i32, ptr %.0474.i208.us, i64 %23
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i208.us, i64 %23
   br label %42
 
 42:                                               ; preds = %.preheader.us, %296
@@ -4125,13 +4122,13 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   %44 = icmp sgt i64 %indvars.iv212, %36
   %45 = icmp slt i64 %indvars.iv212, %38
   %46 = icmp sgt i64 %indvars.iv212, %39
-  %47 = getelementptr inbounds i32, ptr %.0474.i208.us, i64 %indvars.iv212
+  %47 = getelementptr inbounds [4 x i8], ptr %.0474.i208.us, i64 %indvars.iv212
   %48 = load i32, ptr %47, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = tail call i32 @ff_lowbias32(i32 noundef %48) #13
   %50 = and i32 %49, 32767
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.cache_node, ptr %18, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %51
   %53 = lshr i32 %48, 24
   %54 = load i32, ptr %19, align 4, !tbaa !71
   %55 = icmp ult i32 %53, %54
@@ -4176,7 +4173,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %21, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %66, ptr noundef %8)
   %67 = load i32, ptr %8, align 8, !tbaa !116
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.color_node, ptr %21, i64 %68
+  %69 = getelementptr inbounds [32 x i8], ptr %21, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i8, ptr %70, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4187,13 +4184,13 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
 
 74:                                               ; preds = %.lr.ph.us, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %62 ]
-  %75 = getelementptr inbounds nuw %struct.cached_color, ptr %297, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !114
   %77 = icmp eq i32 %76, %48
   br i1 %77, label %.thread.us, label %62
 
 .thread.us:                                       ; preds = %74
-  %78 = getelementptr inbounds nuw %struct.cached_color, ptr %297, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i8, ptr %79, align 4, !tbaa !118
   %81 = zext i8 %80 to i32
@@ -4208,7 +4205,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
 
 85:                                               ; preds = %82
   %86 = zext nneg i32 %.0.i.i.ph.us to i64
-  %87 = getelementptr inbounds nuw i32, ptr %22, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !33
   %89 = lshr i32 %48, 16
   %90 = lshr i32 %48, 8
@@ -4329,7 +4326,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br i1 %46, label %163, label %189
 
 163:                                              ; preds = %162
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv212
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv212
   %164 = getelementptr i8, ptr %gep, i64 -8
   %165 = load i32, ptr %164, align 4, !tbaa !33
   %166 = and i32 %165, -16777216
@@ -4375,7 +4372,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br i1 %44, label %191, label %._crit_edge
 
 191:                                              ; preds = %189
-  %192 = getelementptr i32, ptr %.0474.i208.us, i64 %190
+  %192 = getelementptr [4 x i8], ptr %.0474.i208.us, i64 %190
   %193 = getelementptr i8, ptr %192, i64 -4
   %194 = load i32, ptr %193, align 4, !tbaa !33
   %195 = and i32 %194, -16777216
@@ -4417,7 +4414,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %189, %191
-  %218 = getelementptr inbounds i32, ptr %.0474.i208.us, i64 %190
+  %218 = getelementptr inbounds [4 x i8], ptr %.0474.i208.us, i64 %190
   %219 = load i32, ptr %218, align 4, !tbaa !33
   %220 = and i32 %219, -16777216
   %221 = lshr i32 %219, 16
@@ -4553,7 +4550,7 @@ define internal range(i32 -12, 1) i32 @set_frame_burkes(ptr noundef %0, ptr noun
   br label %74
 
 ..thread129_crit_edge.us:                         ; preds = %296
-  %298 = getelementptr inbounds i32, ptr %.0474.i208.us, i64 %23
+  %298 = getelementptr inbounds [4 x i8], ptr %.0474.i208.us, i64 %23
   %299 = getelementptr inbounds i8, ptr %.0475.i207.us, i64 %24
   %300 = add nsw i32 %.0476.i206.us, 1
   %.not511.i.us = icmp slt i32 %300, %11
@@ -4603,7 +4600,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %29 = load ptr, ptr %2, align 8, !tbaa !61
   %30 = mul nsw i32 %14, %4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %1, align 8, !tbaa !61
   %34 = mul nsw i32 %16, %4
   %35 = sext i32 %34 to i64
@@ -4621,7 +4618,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %.0476.i158.us = phi i32 [ %261, %..thread117_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %42 = icmp slt i32 %.0476.i158.us, %17
   %43 = icmp slt i32 %.0476.i158.us, %18
-  %invariant.gep = getelementptr i32, ptr %.0474.i160.us, i64 %40
+  %invariant.gep = getelementptr [4 x i8], ptr %.0474.i160.us, i64 %40
   br label %44
 
 44:                                               ; preds = %.preheader.us, %257
@@ -4629,13 +4626,13 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   %45 = icmp slt i64 %indvars.iv164, %38
   %46 = icmp sgt i64 %indvars.iv164, %37
   %47 = icmp slt i64 %indvars.iv164, %39
-  %48 = getelementptr inbounds i32, ptr %.0474.i160.us, i64 %indvars.iv164
+  %48 = getelementptr inbounds [4 x i8], ptr %.0474.i160.us, i64 %indvars.iv164
   %49 = load i32, ptr %48, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = tail call i32 @ff_lowbias32(i32 noundef %49) #13
   %51 = and i32 %50, 32767
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.cache_node, ptr %19, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %52
   %54 = lshr i32 %49, 24
   %55 = load i32, ptr %20, align 4, !tbaa !71
   %56 = icmp ult i32 %54, %55
@@ -4680,7 +4677,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   call fastcc void @colormap_nearest_node(ptr noundef nonnull %22, i32 noundef 0, ptr noundef nonnull %9, i32 noundef %67, ptr noundef %8)
   %68 = load i32, ptr %8, align 8, !tbaa !116
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.color_node, ptr %22, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %22, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i8, ptr %71, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4691,13 +4688,13 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
 
 75:                                               ; preds = %.lr.ph.us, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %63 ]
-  %76 = getelementptr inbounds nuw %struct.cached_color, ptr %258, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !114
   %78 = icmp eq i32 %77, %49
   br i1 %78, label %.thread.us, label %63
 
 .thread.us:                                       ; preds = %75
-  %79 = getelementptr inbounds nuw %struct.cached_color, ptr %258, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i8, ptr %80, align 4, !tbaa !118
   %82 = zext i8 %81 to i32
@@ -4712,7 +4709,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
 
 86:                                               ; preds = %83
   %87 = zext nneg i32 %.0.i.i.ph.us to i64
-  %88 = getelementptr inbounds nuw i32, ptr %23, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !33
   %90 = lshr i32 %49, 16
   %91 = lshr i32 %49, 8
@@ -4828,7 +4825,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br i1 %46, label %165, label %._crit_edge
 
 165:                                              ; preds = %163
-  %166 = getelementptr i32, ptr %.0474.i160.us, i64 %164
+  %166 = getelementptr [4 x i8], ptr %.0474.i160.us, i64 %164
   %167 = getelementptr i8, ptr %166, i64 -4
   %168 = load i32, ptr %167, align 4, !tbaa !33
   %169 = and i32 %168, -16777216
@@ -4864,7 +4861,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %163, %165
-  %189 = getelementptr inbounds i32, ptr %.0474.i160.us, i64 %164
+  %189 = getelementptr inbounds [4 x i8], ptr %.0474.i160.us, i64 %164
   %190 = load i32, ptr %189, align 4, !tbaa !33
   %191 = and i32 %190, -16777216
   %192 = lshr i32 %190, 16
@@ -4937,7 +4934,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br i1 %43, label %235, label %257
 
 235:                                              ; preds = %234
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv164
   %236 = load i32, ptr %gep, align 4, !tbaa !33
   %237 = and i32 %236, -16777216
   %238 = lshr i32 %236, 16
@@ -4982,7 +4979,7 @@ define internal range(i32 -12, 1) i32 @set_frame_atkinson(ptr noundef %0, ptr no
   br label %75
 
 ..thread117_crit_edge.us:                         ; preds = %257
-  %259 = getelementptr inbounds i32, ptr %.0474.i160.us, i64 %24
+  %259 = getelementptr inbounds [4 x i8], ptr %.0474.i160.us, i64 %24
   %260 = getelementptr inbounds i8, ptr %.0475.i159.us, i64 %25
   %261 = add nsw i32 %.0476.i158.us, 1
   %.not511.i.us = icmp slt i32 %261, %11
@@ -5014,7 +5011,7 @@ tailrecurse:                                      ; preds = %66, %5
   %10 = phi i32 [ %.pre47, %5 ], [ %65, %66 ]
   %.tr43 = phi i32 [ %1, %5 ], [ %.037, %66 ]
   %11 = sext i32 %.tr43 to i64
-  %12 = getelementptr inbounds %struct.color_node, ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = lshr i32 %10, 24
   %14 = load i32, ptr %12, align 4, !tbaa !122
   %15 = lshr i32 %14, 24
@@ -5078,10 +5075,10 @@ diff.exit:                                        ; preds = %tailrecurse, %18, %
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !89
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %7, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %7, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !33
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %57 = getelementptr inbounds i32, ptr %56, i64 %53
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %53
   %58 = load i32, ptr %57, align 4, !tbaa !33
   %59 = sub nsw i32 %55, %58
   %60 = sext i32 %59 to i64

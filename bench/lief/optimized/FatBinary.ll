@@ -147,7 +147,7 @@ define noundef ptr @_ZN4LIEF5MachO9FatBinary2atEm(ptr noundef nonnull readonly a
   br i1 %.not.i, label %11, label %_ZNK4LIEF5MachO9FatBinary2atEm.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   br label %_ZNK4LIEF5MachO9FatBinary2atEm.exit
 
@@ -170,7 +170,7 @@ define noundef ptr @_ZNK4LIEF5MachO9FatBinary2atEm(ptr noundef nonnull readonly 
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   br label %14
 
@@ -466,7 +466,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeEm(ptr dead_on_unwind noalias writable
   br label %37
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit: ; preds = %3
-  %13 = getelementptr inbounds %"class.std::unique_ptr", ptr %7, i64 %2
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %2
   %14 = load i64, ptr %13, align 8, !tbaa !12
   store i64 %14, ptr %0, align 8, !tbaa !12
   store ptr null, ptr %13, align 8, !tbaa !12

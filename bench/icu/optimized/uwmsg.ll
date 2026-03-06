@@ -91,7 +91,7 @@ define dso_local range(i32 -1, 1) i32 @u_wmsg(ptr noundef captures(none) %0, ptr
 28:                                               ; preds = %25
   store ptr %16, ptr %7, align 8, !tbaa !11
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds i16, ptr %16, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %16, i64 %29
   store ptr %6, ptr %8, align 8, !tbaa !13
   %31 = call ptr @ucnv_open_77(ptr noundef null, ptr noundef nonnull %10) #8
   %32 = load i32, ptr %10, align 4, !tbaa !4
@@ -131,7 +131,7 @@ uprint.exit:                                      ; preds = %25, %.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %12, ptr %4, align 8, !tbaa !11
   %44 = sext i32 %22 to i64
-  %45 = getelementptr inbounds i16, ptr %12, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %12, i64 %44
   store ptr %3, ptr %5, align 8, !tbaa !13
   %46 = call ptr @ucnv_open_77(ptr noundef null, ptr noundef nonnull %10) #8
   %47 = load i32, ptr %10, align 4, !tbaa !4
@@ -217,9 +217,9 @@ define dso_local ptr @u_wmsg_errorName(i32 noundef %0) local_unnamed_addr #0 {
 fetchErrorName.exit:                              ; preds = %7, %10
   %11 = phi ptr [ %calloc.i, %10 ], [ %9, %7 ]
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = sext i32 %0 to i64
-  %15 = getelementptr ptr, ptr %8, i64 %14
+  %15 = getelementptr [8 x i8], ptr %8, i64 %14
   %16 = getelementptr i8, ptr %15, i64 1024
   %17 = icmp slt i32 %0, 0
   %.0.in.i = select i1 %17, ptr %16, ptr %13
@@ -275,13 +275,13 @@ fetchErrorName.exit:                              ; preds = %7, %10
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %12
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %12
   store ptr %.2, ptr %43, align 8, !tbaa !11
   br label %48
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
-  %46 = getelementptr ptr, ptr %45, i64 %14
+  %46 = getelementptr [8 x i8], ptr %45, i64 %14
   %47 = getelementptr i8, ptr %46, i64 1024
   store ptr %.2, ptr %47, align 8, !tbaa !11
   br label %48

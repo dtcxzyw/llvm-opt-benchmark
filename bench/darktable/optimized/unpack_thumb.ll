@@ -3,16 +3,12 @@ source_filename = "bench/darktable/original/unpack_thumb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.libraw_thumbnail_item_t = type { i32, i16, i16, i16, i32, i32, i64 }
 %struct.jpegErrorManager = type { %struct.jpeg_error_mgr, [1 x %struct.__jmp_buf_tag] }
 %struct.jpeg_error_mgr = type { ptr, ptr, ptr, ptr, ptr, i32, %union.anon, i32, i64, ptr, i32, ptr, i32, i32 }
 %union.anon = type { [8 x i32], [48 x i8] }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.jpeg_decompress_struct = type { ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, double, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, [4 x ptr], [4 x ptr], [4 x ptr], i32, ptr, i32, i32, i32, [16 x i8], [16 x i8], [16 x i8], i32, i32, i8, i8, i8, i16, i16, i32, i8, i32, ptr, i32, i32, i32, i32, i32, ptr, i32, [4 x ptr], i32, i32, i32, [10 x i32], i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.tiff_ifd_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i64, i64, i32, [2 x %struct.libraw_dng_color_t], %struct.libraw_dng_levels_t, i32 }
-%struct.libraw_dng_color_t = type { i32, i16, [4 x [4 x float]], [4 x [3 x float]], [3 x [4 x float]] }
-%struct.libraw_dng_levels_t = type { i32, [4104 x i32], i32, [4104 x float], float, [4 x i32], [4 x i16], [4 x float], i32, [4 x float], [4 x float], float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -41,7 +37,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw15unpack_thumb_exEi(ptr noun
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 193384
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %struct.libraw_thumbnail_item_t, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 381456
@@ -706,7 +702,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 
 .lr.ph330:                                        ; preds = %.preheader315, %.lr.ph330
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %.lr.ph330 ], [ 0, %.preheader315 ]
-  %305 = getelementptr inbounds nuw i16, ptr %297, i64 %indvars.iv349
+  %305 = getelementptr inbounds nuw [2 x i8], ptr %297, i64 %indvars.iv349
   %306 = load i16, ptr %305, align 2, !tbaa !121
   %307 = trunc i16 %306 to i8
   %308 = shl i8 %307, 3
@@ -810,7 +806,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 364:                                              ; preds = %362
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %366 = zext nneg i32 %361 to i64
-  %367 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %365, i64 %366
+  %367 = getelementptr inbounds nuw [33408 x i8], ptr %365, i64 %366
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 72
   %369 = load i32, ptr %368, align 8, !tbaa !123
   %.not251 = icmp eq i32 %369, 0
@@ -848,7 +844,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 378:                                              ; preds = %.lr.ph322, %378
   %indvars.iv341 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next342, %378 ]
   %.0205320 = phi i64 [ 0, %.lr.ph322 ], [ %382, %378 ]
-  %379 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv341
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %374, i64 %indvars.iv341
   %380 = load i32, ptr %379, align 4, !tbaa !127
   %381 = sext i32 %380 to i64
   %382 = add nsw i64 %.0205320, %381
@@ -964,10 +960,10 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 
 436:                                              ; preds = %425
   %437 = load ptr, ptr %423, align 8, !tbaa !126
-  %438 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv346
+  %438 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %indvars.iv346
   %439 = load i32, ptr %438, align 4, !tbaa !127
   %440 = load ptr, ptr %424, align 8, !tbaa !129
-  %441 = getelementptr inbounds nuw i32, ptr %440, i64 %indvars.iv346
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 %indvars.iv346
   %442 = load i32, ptr %441, align 4, !tbaa !127
   %443 = sext i32 %442 to i64
   %444 = icmp sgt i32 %442, -1
@@ -1230,7 +1226,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %567 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv
+  %567 = getelementptr inbounds nuw [2 x i8], ptr %542, i64 %indvars.iv
   %568 = load i16, ptr %567, align 2, !tbaa !121
   %569 = lshr i16 %568, 8
   %570 = trunc nuw i16 %569 to i8

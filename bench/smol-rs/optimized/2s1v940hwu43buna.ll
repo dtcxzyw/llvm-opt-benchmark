@@ -194,7 +194,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
   %20 = phi i64 [ %10, %.lr.ph ], [ %47, %44 ]
   %.030 = phi i64 [ %4, %.lr.ph ], [ %.1, %44 ]
   %21 = load ptr, ptr %16, align 16, !nonnull !4, !align !6, !noundef !4
-  %22 = getelementptr inbounds { { i64 }, ptr }, ptr %21, i64 %20
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %20
   %23 = load atomic i64, ptr %22 acquire, align 8
   %24 = add i64 %.030, 1
   %25 = icmp eq i64 %24, %23
@@ -334,7 +334,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
 
 25:                                               ; preds = %14
   %26 = load ptr, ptr %13, align 16, !nonnull !4, !align !6, !noundef !4
-  %27 = getelementptr inbounds { { i64 }, ptr }, ptr %26, i64 %17
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %17
   %28 = load atomic i64, ptr %27 acquire, align 8
   %29 = icmp eq i64 %.01939, %28
   br i1 %29, label %35, label %30

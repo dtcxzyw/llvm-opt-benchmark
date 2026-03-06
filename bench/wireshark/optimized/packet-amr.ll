@@ -928,7 +928,7 @@ proto_item_set_generated.exit47:                  ; preds = %36, %40, %43
   %89 = load i32, ptr @hf_amr_wb_toc_ft, align 4
   %90 = tail call ptr @proto_tree_add_bits_item(ptr noundef %59, i32 noundef %89, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0)
   %91 = zext i8 %88 to i64
-  %92 = getelementptr i32, ptr @Framebits_WB, i64 %91
+  %92 = getelementptr [4 x i8], ptr @Framebits_WB, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, %.098.i
   %95 = add i32 %94, 7
@@ -1075,7 +1075,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %36 = load i32, ptr @hf_amr_wb_toc_ft, align 4
   %37 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0)
   %38 = zext i8 %35 to i64
-  %39 = getelementptr i32, ptr @Framebits_WB, i64 %38
+  %39 = getelementptr [4 x i8], ptr @Framebits_WB, i64 %38
   %40 = load i32, ptr %39, align 4
   %.1 = add i32 %40, %.081
   %41 = add i32 %.0, 5

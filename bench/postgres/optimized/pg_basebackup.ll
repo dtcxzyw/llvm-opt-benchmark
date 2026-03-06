@@ -664,7 +664,7 @@ sub_0117:                                         ; preds = %.tail112.thread
   %127 = phi i8 [ %122, %.lr.ph.i ], [ %135, %133 ]
   %128 = phi ptr [ %114, %.lr.ph.i ], [ %134, %133 ]
   %129 = zext i8 %127 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %124, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %129
   %131 = load i16, ptr %130, align 2
   %132 = and i16 %131, 8192
   %.not21.i = icmp eq i16 %132, 0
@@ -716,7 +716,7 @@ sub_0117:                                         ; preds = %.tail112.thread
   %145 = phi i8 [ %141, %.lr.ph36.i ], [ %153, %151 ]
   %146 = phi ptr [ %.promoted32.i, %.lr.ph36.i ], [ %152, %151 ]
   %147 = zext i8 %145 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %143, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %147
   %149 = load i16, ptr %148, align 2
   %150 = and i16 %149, 8192
   %.not24.i = icmp eq i16 %150, 0
@@ -893,7 +893,7 @@ parse_max_rate.exit:                              ; preds = %158
   %214 = tail call ptr @__ctype_b_loc() #21
   %215 = load ptr, ptr %214, align 8
   %216 = zext i8 %207 to i64
-  %217 = getelementptr inbounds nuw i16, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [2 x i8], ptr %215, i64 %216
   %218 = load i16, ptr %217, align 2
   %219 = and i16 %218, 1024
   %.not44.i = icmp eq i16 %219, 0
@@ -1120,7 +1120,7 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
 
 295:                                              ; preds = %292
   %296 = sext i32 %293 to i64
-  %297 = getelementptr inbounds ptr, ptr %1, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %1, i64 %296
   %298 = load ptr, ptr %297, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.59, ptr noundef %298) #17
   %299 = load ptr, ptr @progname, align 8
@@ -3604,7 +3604,7 @@ define internal zeroext i1 @reached_end_position(i64 noundef %0, i32 %1, i1 zero
   %13 = shl nuw i64 1, %12
   %14 = sdiv i32 %10, 64
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %4, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %4, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = or i64 %13, %17
   store i64 %18, ptr %16, align 8

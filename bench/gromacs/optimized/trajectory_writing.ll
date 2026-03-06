@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.306" = type { %"struct.std::_Tuple_impl.307" }
 %"struct.std::_Tuple_impl.307" = type { %"struct.std::_Head_base.310" }
 %"struct.std::_Head_base.310" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
 
 $_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE = comdat any
 
@@ -210,7 +209,7 @@ _Z11do_per_stepll.exit125.thread:                 ; preds = %_Z11do_per_stepll.e
   %102 = load i32, ptr %101, align 4, !tbaa !128
   %103 = mul nsw i32 %102, 60
   %104 = sext i32 %103 to i64
-  %105 = getelementptr %struct.wallcc_t, ptr %91, i64 %104
+  %105 = getelementptr [24 x i8], ptr %91, i64 %104
   %106 = getelementptr i8, ptr %105, i64 1128
   %107 = load i32, ptr %106, align 8, !tbaa !129
   %108 = add nsw i32 %107, 1
@@ -373,9 +372,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %.thread, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %197 = getelementptr inbounds nuw [3 x float], ptr %194, i64 %indvars.iv.i
+  %197 = getelementptr inbounds nuw [12 x i8], ptr %194, i64 %indvars.iv.i
   %198 = load float, ptr %197, align 4, !tbaa !346
-  %199 = getelementptr inbounds nuw [3 x float], ptr %191, i64 %indvars.iv.i
+  %199 = getelementptr inbounds nuw [12 x i8], ptr %191, i64 %indvars.iv.i
   store float %198, ptr %199, align 4, !tbaa !346
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %201 = load float, ptr %200, align 4, !tbaa !346

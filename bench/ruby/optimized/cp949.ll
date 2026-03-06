@@ -46,7 +46,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr n
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i32, ptr @EncLen_CP949, i64 %6
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @EncLen_CP949, i64 %6
   %19 = load i32, ptr %18, align 4, !tbaa !9
   %20 = sub nsw i32 0, %19
   br label %30

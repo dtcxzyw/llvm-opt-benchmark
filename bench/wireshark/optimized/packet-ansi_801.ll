@@ -491,8 +491,8 @@ define hidden void @proto_register_ansi_801() local_unnamed_addr #0 {
 4:                                                ; preds = %0, %4
   %indvars.iv40 = phi i64 [ 3, %0 ], [ %indvars.iv.next41, %4 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr i32, ptr @ett_for_req_type, i64 %indvars.iv
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv40
+  %5 = getelementptr [4 x i8], ptr @ett_for_req_type, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv40
   store ptr %5, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
@@ -502,8 +502,8 @@ define hidden void @proto_register_ansi_801() local_unnamed_addr #0 {
 .preheader29:                                     ; preds = %4, %.preheader29
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.preheader29 ], [ 12, %4 ]
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader29 ], [ 0, %4 ]
-  %7 = getelementptr i32, ptr @ett_for_rsp_type, i64 %indvars.iv45
-  %8 = getelementptr ptr, ptr %1, i64 %indvars.iv47
+  %7 = getelementptr [4 x i8], ptr @ett_for_rsp_type, i64 %indvars.iv45
+  %8 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv47
   store ptr %7, ptr %8, align 8
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
@@ -513,8 +513,8 @@ define hidden void @proto_register_ansi_801() local_unnamed_addr #0 {
 .preheader28:                                     ; preds = %.preheader29, %.preheader28
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.preheader28 ], [ 26, %.preheader29 ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.preheader28 ], [ 0, %.preheader29 ]
-  %9 = getelementptr i32, ptr @ett_rev_req_type, i64 %indvars.iv53
-  %10 = getelementptr ptr, ptr %1, i64 %indvars.iv55
+  %9 = getelementptr [4 x i8], ptr @ett_rev_req_type, i64 %indvars.iv53
+  %10 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv55
   store ptr %9, ptr %10, align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
@@ -524,8 +524,8 @@ define hidden void @proto_register_ansi_801() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %.preheader28, %.preheader
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader ], [ 40, %.preheader28 ]
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader ], [ 0, %.preheader28 ]
-  %11 = getelementptr i32, ptr @ett_rev_rsp_type, i64 %indvars.iv61
-  %12 = getelementptr ptr, ptr %1, i64 %indvars.iv63
+  %11 = getelementptr [4 x i8], ptr @ett_rev_rsp_type, i64 %indvars.iv61
+  %12 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv63
   store ptr %11, ptr %12, align 8
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
@@ -703,7 +703,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %36, %33, %28
   %88 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %87, ptr noundef %0, i32 noundef %.1105108.us.i, i32 noundef 1, i32 noundef %83, ptr noundef nonnull @.str.257, ptr noundef nonnull %84, i32 noundef %83)
   %89 = load i32, ptr %8, align 4
   %90 = sext i32 %89 to i64
-  %91 = getelementptr i32, ptr @ett_for_req_type, i64 %90
+  %91 = getelementptr [4 x i8], ptr @ett_for_req_type, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %92)
   %94 = add i32 %.1105108.us.i, 1
@@ -724,7 +724,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %36, %33, %28
   br i1 %.not37.i.us.i, label %108, label %105
 
 105:                                              ; preds = %100
-  %106 = getelementptr ptr, ptr @for_req_type_fcn, i64 %102
+  %106 = getelementptr [8 x i8], ptr @for_req_type_fcn, i64 %102
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef %0, ptr noundef %1, ptr noundef %93, i32 noundef %99, i32 noundef %98)
   br label %111
@@ -797,7 +797,7 @@ for_request.exit.i:                               ; preds = %.lr.ph.i, %for_requ
   %140 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %139, ptr noundef %0, i32 noundef %.2114.i, i32 noundef 1, i32 noundef %135, ptr noundef nonnull @.str.257, ptr noundef nonnull %136, i32 noundef %135)
   %141 = load i32, ptr %7, align 4
   %142 = sext i32 %141 to i64
-  %143 = getelementptr i32, ptr @ett_for_rsp_type, i64 %142
+  %143 = getelementptr [4 x i8], ptr @ett_for_rsp_type, i64 %142
   %144 = load i32, ptr %143, align 4
   %145 = call ptr @proto_item_add_subtree(ptr noundef %140, i32 noundef %144)
   %146 = add i32 %.2114.i, 1
@@ -814,7 +814,7 @@ for_request.exit.i:                               ; preds = %.lr.ph.i, %for_requ
   br i1 %.not.not.i.i, label %156, label %160
 
 156:                                              ; preds = %138
-  %157 = getelementptr ptr, ptr @for_rsp_type_fcn, i64 %152
+  %157 = getelementptr [8 x i8], ptr @for_rsp_type_fcn, i64 %152
   %158 = load ptr, ptr %157, align 8
   %159 = zext i8 %147 to i32
   call void %158(ptr noundef %0, ptr noundef %1, ptr noundef %145, i32 noundef %159, i32 noundef %150)
@@ -967,7 +967,7 @@ proto_item_set_hidden.exit.i16:                   ; preds = %184, %181, %176
   %236 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %235, ptr noundef %0, i32 noundef %.1105108.us.i42, i32 noundef 1, i32 noundef %231, ptr noundef nonnull @.str.257, ptr noundef nonnull %232, i32 noundef %231)
   %237 = load i32, ptr %6, align 4
   %238 = sext i32 %237 to i64
-  %239 = getelementptr i32, ptr @ett_rev_req_type, i64 %238
+  %239 = getelementptr [4 x i8], ptr @ett_rev_req_type, i64 %238
   %240 = load i32, ptr %239, align 4
   %241 = call ptr @proto_item_add_subtree(ptr noundef %236, i32 noundef %240)
   %242 = add i32 %.1105108.us.i42, 1
@@ -990,7 +990,7 @@ proto_item_set_hidden.exit.i16:                   ; preds = %184, %181, %176
   br label %260
 
 256:                                              ; preds = %234
-  %257 = getelementptr ptr, ptr @rev_req_type_fcn, i64 %248
+  %257 = getelementptr [8 x i8], ptr @rev_req_type_fcn, i64 %248
   %258 = load ptr, ptr %257, align 8
   %259 = zext i8 %243 to i32
   call void %258(ptr noundef %0, ptr noundef %1, ptr noundef %241, i32 noundef %259, i32 noundef %246)
@@ -1060,7 +1060,7 @@ rev_request.exit.i:                               ; preds = %.lr.ph.i38, %rev_re
   %289 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %288, ptr noundef %0, i32 noundef %.2114.i36, i32 noundef 1, i32 noundef %284, ptr noundef nonnull @.str.257, ptr noundef nonnull %285, i32 noundef %284)
   %290 = load i32, ptr %5, align 4
   %291 = sext i32 %290 to i64
-  %292 = getelementptr i32, ptr @ett_rev_rsp_type, i64 %291
+  %292 = getelementptr [4 x i8], ptr @ett_rev_rsp_type, i64 %291
   %293 = load i32, ptr %292, align 4
   %294 = call ptr @proto_item_add_subtree(ptr noundef %289, i32 noundef %293)
   %295 = add i32 %.2114.i36, 1
@@ -1077,7 +1077,7 @@ rev_request.exit.i:                               ; preds = %.lr.ph.i38, %rev_re
   br i1 %.not.not.i81.i, label %305, label %309
 
 305:                                              ; preds = %287
-  %306 = getelementptr ptr, ptr @rev_rsp_type_fcn, i64 %301
+  %306 = getelementptr [8 x i8], ptr @rev_rsp_type_fcn, i64 %301
   %307 = load ptr, ptr %306, align 8
   %308 = zext i8 %296 to i32
   call void %307(ptr noundef %0, ptr noundef %1, ptr noundef %294, i32 noundef %308, i32 noundef %299)
@@ -2180,7 +2180,7 @@ define internal void @rev_pr_ms_information(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %9
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rev_pr_ms_information, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rev_pr_ms_information, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %19
 

@@ -87,17 +87,17 @@ define internal i32 @sierpinski_request_frame(ptr noundef %0) #0 {
   %38 = add i32 %37, 40
   %39 = and i32 %38, 63
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !34
   %43 = add i32 %37, 9
   %44 = and i32 %43, 63
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %35, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !34
   %48 = add i32 %47, %42
   %49 = and i32 %37, 63
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %35, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %50
   store i32 %48, ptr %51, align 4, !tbaa !34
   %52 = add i32 %37, 1
   store i32 %52, ptr %36, align 4, !tbaa !49

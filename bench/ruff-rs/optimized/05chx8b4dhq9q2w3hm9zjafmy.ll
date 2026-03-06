@@ -1355,7 +1355,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 41:                                               ; preds = %36, %32
   %42 = load ptr, ptr %17, align 8, !alias.scope !41, !noalias !44, !nonnull !3, !noundef !3
-  %43 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %42, i64 %33
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %42, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false), !noalias !38
   %44 = add i64 %33, 1
   store i64 %44, ptr %18, align 8, !alias.scope !41, !noalias !44
@@ -3637,7 +3637,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 62:                                               ; preds = %57, %53
   %63 = load ptr, ptr %24, align 8, !alias.scope !113, !noalias !116, !nonnull !3, !noundef !3
-  %64 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %63, i64 %54
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %64, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !108
   %65 = add i64 %54, 1
   store i64 %65, ptr %25, align 8, !alias.scope !113, !noalias !116
@@ -3678,7 +3678,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !104
   %74 = load ptr, ptr %24, align 8, !noalias !104, !nonnull !3, !noundef !3
   %75 = load i64, ptr %25, align 8, !noalias !104, !noundef !3
-  %76 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %75
   store ptr %74, ptr %11, align 8, !noalias !104
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %76, ptr %77, align 8, !noalias !104
@@ -6722,7 +6722,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 67:                                               ; preds = %62, %58
   %68 = load ptr, ptr %19, align 8, !alias.scope !224, !noalias !227, !nonnull !3, !noundef !3
-  %69 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %68, i64 %59
+  %69 = getelementptr inbounds nuw [64 x i8], ptr %68, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !219
   %70 = add i64 %59, 1
   store i64 %70, ptr %20, align 8, !alias.scope !224, !noalias !227
@@ -8148,7 +8148,7 @@ default.unreachable:                              ; preds = %102
 
 171:                                              ; preds = %166, %162
   %172 = load ptr, ptr %37, align 8, !alias.scope !271, !noalias !274, !nonnull !3, !noundef !3
-  %173 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %172, i64 %163
+  %173 = getelementptr inbounds nuw [64 x i8], ptr %172, i64 %163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %173, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !noalias !248
   %174 = add i64 %163, 1
   store i64 %174, ptr %38, align 8, !alias.scope !271, !noalias !274
@@ -13955,7 +13955,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 59:                                               ; preds = %54, %50
   %60 = load ptr, ptr %20, align 8, !alias.scope !443, !noalias !446, !nonnull !3, !noundef !3
-  %61 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %60, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !439
   %62 = add i64 %51, 1
   store i64 %62, ptr %21, align 8, !alias.scope !443, !noalias !446
@@ -17649,7 +17649,7 @@ default.unreachable:                              ; preds = %53
 
 112:                                              ; preds = %107, %103
   %113 = load ptr, ptr %27, align 8, !alias.scope !563, !noalias !566, !nonnull !3, !noundef !3
-  %114 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %113, i64 %104
+  %114 = getelementptr inbounds nuw [64 x i8], ptr %113, i64 %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %114, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !549
   %115 = add i64 %104, 1
   store i64 %115, ptr %28, align 8, !alias.scope !563, !noalias !566
@@ -17779,7 +17779,7 @@ default.unreachable:                              ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !545
   %146 = load ptr, ptr %27, align 8, !noalias !545, !nonnull !3, !noundef !3
   %147 = load i64, ptr %28, align 8, !noalias !545, !noundef !3
-  %148 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [64 x i8], ptr %146, i64 %147
   store ptr %146, ptr %3, align 8, !noalias !545
   %149 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %148, ptr %149, align 8, !noalias !545
@@ -21962,7 +21962,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 39:                                               ; preds = %34, %30
   %40 = load ptr, ptr %15, align 8, !alias.scope !699, !noalias !702, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %40, i64 %31
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !698
   %42 = add i64 %31, 1
   store i64 %42, ptr %16, align 8, !alias.scope !699, !noalias !702
@@ -26367,7 +26367,7 @@ define hidden void @"_ZN10serde_json5value2de130_$LT$impl$u20$serde..de..Deseria
 
 89:                                               ; preds = %84, %80
   %90 = load ptr, ptr %25, align 8, !alias.scope !825, !noalias !828, !nonnull !3, !noundef !3
-  %91 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %90, i64 %81
+  %91 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %91, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !814
   %92 = add i64 %81, 1
   store i64 %92, ptr %26, align 8, !alias.scope !825, !noalias !828
@@ -28976,7 +28976,7 @@ default.unreachable:                              ; preds = %58
 
 121:                                              ; preds = %116, %112
   %122 = load ptr, ptr %30, align 8, !alias.scope !906, !noalias !909, !nonnull !3, !noundef !3
-  %123 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %122, i64 %113
+  %123 = getelementptr inbounds nuw [64 x i8], ptr %122, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false), !noalias !890
   %124 = add i64 %113, 1
   store i64 %124, ptr %31, align 8, !alias.scope !906, !noalias !909
@@ -29169,7 +29169,7 @@ default.unreachable:                              ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !886
   %175 = load ptr, ptr %30, align 8, !noalias !886, !nonnull !3, !noundef !3
   %176 = load i64, ptr %31, align 8, !noalias !886, !noundef !3
-  %177 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %175, i64 %176
   store ptr %175, ptr %3, align 8, !noalias !886
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %177, ptr %178, align 8, !noalias !886

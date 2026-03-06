@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/outfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [3 x i8] c"<>\00", align 1
@@ -1828,7 +1827,7 @@ define dso_local void @outToken(ptr noundef %0, ptr noundef readonly captures(ad
   %7 = tail call ptr @__ctype_b_loc() #5
   %8 = load ptr, ptr %7, align 8
   %9 = zext i8 %5 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 2048
   %.not = icmp eq i16 %12, 0
@@ -1844,7 +1843,7 @@ define dso_local void @outToken(ptr noundef %0, ptr noundef readonly captures(ad
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 2048
   %.not28 = icmp ne i16 %20, 0
@@ -2037,7 +2036,7 @@ switch.lookup:                                    ; preds = %7
 14:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %1, align 8
   switch i32 %17, label %30 [
     i32 1, label %18
@@ -2053,7 +2052,7 @@ switch.lookup:                                    ; preds = %7
   %.val32.i = load ptr, ptr %13, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = sext i32 %.val.i to i64
-  %22 = getelementptr inbounds %union.ListCell, ptr %.val32.i, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.val32.i, i64 %21
   %.not = icmp ult ptr %20, %22
   br i1 %.not, label %23, label %34
 
@@ -4942,7 +4941,7 @@ define internal fastcc void @_outBoolExpr(ptr noundef %0, ptr noundef nonnull re
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._outBoolExpr, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._outBoolExpr, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -12600,7 +12599,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 32) #6
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   tail call void @outNode(ptr noundef %0, ptr noundef %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -13375,7 +13374,7 @@ define internal fastcc void @_outIndexOptInfo(ptr noundef %0, ptr noundef nonnul
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %25) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -13409,7 +13408,7 @@ writeIntCols.exit:                                ; preds = %._crit_edge.i, %26
 
 .lr.ph.i89:                                       ; preds = %.lr.ph.i89, %.lr.ph.preheader.i87
   %indvars.iv.i90 = phi i64 [ 0, %.lr.ph.preheader.i87 ], [ %indvars.iv.next.i91, %.lr.ph.i89 ]
-  %32 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i90
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i90
   %33 = load i32, ptr %32, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %33) #6
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
@@ -13443,7 +13442,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i86, %3
 
 .lr.ph.i97:                                       ; preds = %.lr.ph.i97, %.lr.ph.preheader.i95
   %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.preheader.i95 ], [ %indvars.iv.next.i99, %.lr.ph.i97 ]
-  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i98
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i98
   %41 = load i32, ptr %40, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %41) #6
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
@@ -13477,7 +13476,7 @@ writeOidCols.exit101:                             ; preds = %._crit_edge.i94, %4
 
 .lr.ph.i106:                                      ; preds = %.lr.ph.i106, %.lr.ph.preheader.i104
   %indvars.iv.i107 = phi i64 [ 0, %.lr.ph.preheader.i104 ], [ %indvars.iv.next.i108, %.lr.ph.i106 ]
-  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i107
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i107
   %49 = load i32, ptr %48, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %49) #6
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -13511,7 +13510,7 @@ writeOidCols.exit110:                             ; preds = %._crit_edge.i103, %
 
 .lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i113
   %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.preheader.i113 ], [ %indvars.iv.next.i117, %.lr.ph.i115 ]
-  %56 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i116
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i116
   %57 = load i32, ptr %56, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %57) #6
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
@@ -13739,7 +13738,7 @@ define internal fastcc void @_outForeignKeyOptInfo(ptr noundef %0, ptr noundef n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %14) #6
@@ -13762,7 +13761,7 @@ writeAttrNumberCols.exit:                         ; preds = %.lr.ph.i, %2
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42, %.lr.ph.preheader.i40
   %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.preheader.i40 ], [ %indvars.iv.next.i44, %.lr.ph.i42 ]
-  %18 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.i43
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.i43
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %20) #6
@@ -13785,7 +13784,7 @@ writeAttrNumberCols.exit46:                       ; preds = %.lr.ph.i42, %writeA
 
 .lr.ph.i49:                                       ; preds = %.lr.ph.i49, %.lr.ph.preheader.i47
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.preheader.i47 ], [ %indvars.iv.next.i51, %.lr.ph.i49 ]
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i50
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i50
   %25 = load i32, ptr %24, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %25) #6
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
@@ -13817,7 +13816,7 @@ writeOidCols.exit:                                ; preds = %.lr.ph.i49, %writeA
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %39, null
   %41 = zext i1 %40 to i32
@@ -13840,7 +13839,7 @@ writeOidCols.exit:                                ; preds = %.lr.ph.i49, %writeA
 
 48:                                               ; preds = %.lr.ph56, %list_length.exit
   %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %list_length.exit ]
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv59
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv59
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %list_length.exit, label %51
@@ -14146,7 +14145,7 @@ list_length.exit.thread:                          ; preds = %2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %15) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -19953,7 +19952,7 @@ define internal fastcc void @_outAppendRelInfo(ptr noundef %0, ptr noundef nonnu
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %22) #6
@@ -21110,7 +21109,7 @@ outBitmapset.exit72:                              ; preds = %.lr.ph.i71, %outBit
 
 .lr.ph.i73:                                       ; preds = %.lr.ph.i73, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i73 ]
-  %73 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv.i
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %75) #6
@@ -21145,7 +21144,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %76
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78, %.lr.ph.preheader.i76
   %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
-  %82 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.i79
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv.i79
   %83 = load i32, ptr %82, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %83) #6
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
@@ -21179,7 +21178,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i75, %8
 
 .lr.ph.i86:                                       ; preds = %.lr.ph.i86, %.lr.ph.preheader.i84
   %indvars.iv.i87 = phi i64 [ 0, %.lr.ph.preheader.i84 ], [ %indvars.iv.next.i88, %.lr.ph.i86 ]
-  %90 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i87
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i87
   %91 = load i32, ptr %90, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %91) #6
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
@@ -21368,7 +21367,7 @@ outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBit
 
 .lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i63 ]
-  %66 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #6
@@ -21403,7 +21402,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
 
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i69
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i69
   %76 = load i32, ptr %75, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76) #6
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
@@ -21437,7 +21436,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i65, %7
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
   %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
-  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i77
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i77
   %84 = load i32, ptr %83, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %84) #6
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
@@ -24140,7 +24139,7 @@ list_length.exit.thread:                          ; preds = %outBitmapset.exit72
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i74 ]
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %79) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -24188,7 +24187,7 @@ list_length.exit76.thread:                        ; preds = %writeOidCols.exit
 
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i79
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
-  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i82
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i82
   %89 = load i32, ptr %88, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %89) #6
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -24683,7 +24682,7 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
 
 .lr.ph.i67:                                       ; preds = %.lr.ph.i67, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i67 ]
-  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %65) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -24717,7 +24716,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i, %66
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %72 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv.i73
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i73
   %73 = load i32, ptr %72, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %73) #6
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
@@ -24899,7 +24898,7 @@ outBitmapset.exit62:                              ; preds = %.lr.ph.i61, %outBit
 
 .lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i63 ]
-  %64 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %66) #6
@@ -24934,7 +24933,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
 
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i69
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i69
   %74 = load i32, ptr %73, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %74) #6
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
@@ -24968,7 +24967,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i65, %7
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
   %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i77
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i77
   %82 = load i32, ptr %81, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %82) #6
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
@@ -25151,7 +25150,7 @@ outBitmapset.exit64:                              ; preds = %.lr.ph.i63, %outBit
 
 .lr.ph.i65:                                       ; preds = %.lr.ph.i65, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i65 ]
-  %64 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %66) #6
@@ -25186,7 +25185,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i68
   %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.preheader.i68 ], [ %indvars.iv.next.i72, %.lr.ph.i70 ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i71
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i71
   %74 = load i32, ptr %73, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %74) #6
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
@@ -25220,7 +25219,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i67, %7
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78, %.lr.ph.preheader.i76
   %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %.lr.ph.i78 ]
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i79
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i79
   %82 = load i32, ptr %81, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %82) #6
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
@@ -25406,7 +25405,7 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %outBit
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i59 ]
-  %64 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %66) #6
@@ -25441,7 +25440,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
 
 .lr.ph.i64:                                       ; preds = %.lr.ph.i64, %.lr.ph.preheader.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %.lr.ph.i64 ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i65
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i65
   %74 = load i32, ptr %73, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %74) #6
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
@@ -25475,7 +25474,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i61, %7
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i73
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i73
   %82 = load i32, ptr %81, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %82) #6
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
@@ -25628,7 +25627,7 @@ outBitmapset.exit75:                              ; preds = %.lr.ph.i74, %outBit
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i76 ]
-  %68 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv.i
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %70) #6
@@ -25663,7 +25662,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %71
 
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i79
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
-  %77 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i82
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i82
   %78 = load i32, ptr %77, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %78) #6
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -25697,7 +25696,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i78, %7
 
 .lr.ph.i89:                                       ; preds = %.lr.ph.i89, %.lr.ph.preheader.i87
   %indvars.iv.i90 = phi i64 [ 0, %.lr.ph.preheader.i87 ], [ %indvars.iv.next.i91, %.lr.ph.i89 ]
-  %85 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i90
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i90
   %86 = load i32, ptr %85, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %86) #6
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
@@ -25879,7 +25878,7 @@ outBitmapset.exit100:                             ; preds = %.lr.ph.i99, %outBit
 
 .lr.ph.i101:                                      ; preds = %.lr.ph.i101, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i101 ]
-  %66 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %68) #6
@@ -25914,7 +25913,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %69
 
 .lr.ph.i106:                                      ; preds = %.lr.ph.i106, %.lr.ph.preheader.i104
   %indvars.iv.i107 = phi i64 [ 0, %.lr.ph.preheader.i104 ], [ %indvars.iv.next.i108, %.lr.ph.i106 ]
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i107
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i107
   %76 = load i32, ptr %75, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %76) #6
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -25948,7 +25947,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i103, %
 
 .lr.ph.i114:                                      ; preds = %.lr.ph.i114, %.lr.ph.preheader.i112
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %.lr.ph.i114 ]
-  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i115
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i115
   %84 = load i32, ptr %83, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %84) #6
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
@@ -25985,7 +25984,7 @@ writeOidCols.exit118:                             ; preds = %._crit_edge.i111, %
 
 .lr.ph.i123:                                      ; preds = %.lr.ph.i123, %.lr.ph.preheader.i121
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.preheader.i121 ], [ %indvars.iv.next.i125, %.lr.ph.i123 ]
-  %93 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv.i124
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %indvars.iv.i124
   %94 = load i16, ptr %93, align 2
   %95 = sext i16 %94 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %95) #6
@@ -26020,7 +26019,7 @@ writeAttrNumberCols.exit127:                      ; preds = %._crit_edge.i120, %
 
 .lr.ph.i132:                                      ; preds = %.lr.ph.i132, %.lr.ph.preheader.i130
   %indvars.iv.i133 = phi i64 [ 0, %.lr.ph.preheader.i130 ], [ %indvars.iv.next.i134, %.lr.ph.i132 ]
-  %102 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i133
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv.i133
   %103 = load i32, ptr %102, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %103) #6
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i133, 1
@@ -26054,7 +26053,7 @@ writeOidCols.exit136:                             ; preds = %._crit_edge.i129, %
 
 .lr.ph.i141:                                      ; preds = %.lr.ph.i141, %.lr.ph.preheader.i139
   %indvars.iv.i142 = phi i64 [ 0, %.lr.ph.preheader.i139 ], [ %indvars.iv.next.i143, %.lr.ph.i141 ]
-  %110 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv.i142
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv.i142
   %111 = load i32, ptr %110, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %111) #6
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1
@@ -26244,7 +26243,7 @@ outBitmapset.exit58:                              ; preds = %.lr.ph.i57, %outBit
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i59 ]
-  %64 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv.i
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %66) #6
@@ -26279,7 +26278,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %67
 
 .lr.ph.i64:                                       ; preds = %.lr.ph.i64, %.lr.ph.preheader.i62
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %.lr.ph.i64 ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i65
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i65
   %74 = load i32, ptr %73, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %74) #6
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
@@ -26313,7 +26312,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i61, %7
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i73
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i73
   %82 = load i32, ptr %81, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %82) #6
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
@@ -26610,7 +26609,7 @@ outBitmapset.exit69:                              ; preds = %.lr.ph.i68, %outBit
 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i70, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i70 ]
-  %68 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv.i
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %70) #6
@@ -26645,7 +26644,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %71
 
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i73
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %.lr.ph.i75 ]
-  %77 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i76
   %78 = load i32, ptr %77, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %78) #6
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
@@ -26679,7 +26678,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i72, %7
 
 .lr.ph.i83:                                       ; preds = %.lr.ph.i83, %.lr.ph.preheader.i81
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i85, %.lr.ph.i83 ]
-  %85 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i84
   %86 = load i32, ptr %85, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %86) #6
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
@@ -27020,7 +27019,7 @@ outBitmapset.exit68:                              ; preds = %.lr.ph.i67, %outBit
 
 .lr.ph.i69:                                       ; preds = %.lr.ph.i69, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i69 ]
-  %68 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv.i
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %70) #6
@@ -27055,7 +27054,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %71
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
-  %77 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i75
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i75
   %78 = load i32, ptr %77, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %78) #6
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
@@ -27089,7 +27088,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i71, %7
 
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82, %.lr.ph.preheader.i80
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i84, %.lr.ph.i82 ]
-  %85 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i83
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i83
   %86 = load i32, ptr %85, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %86) #6
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
@@ -27403,7 +27402,7 @@ outBitmapset.exit66:                              ; preds = %.lr.ph.i65, %outBit
 
 .lr.ph.i67:                                       ; preds = %.lr.ph.i67, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i67 ]
-  %70 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv.i
   %71 = load i16, ptr %70, align 2
   %72 = sext i16 %71 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %72) #6
@@ -27438,7 +27437,7 @@ writeAttrNumberCols.exit:                         ; preds = %._crit_edge.i, %73
 
 .lr.ph.i72:                                       ; preds = %.lr.ph.i72, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %.lr.ph.i72 ]
-  %79 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i73
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i73
   %80 = load i32, ptr %79, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %80) #6
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
@@ -27472,7 +27471,7 @@ writeOidCols.exit:                                ; preds = %._crit_edge.i69, %8
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
-  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i81
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i81
   %88 = load i32, ptr %87, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %88) #6
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
@@ -27614,7 +27613,7 @@ outBitmapset.exit:                                ; preds = %.lr.ph.i, %2
 
 .lr.ph.i33:                                       ; preds = %.lr.ph.i33, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i33 ]
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %20) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -27648,7 +27647,7 @@ writeIntCols.exit:                                ; preds = %._crit_edge.i, %21
 
 .lr.ph.i38:                                       ; preds = %.lr.ph.i38, %.lr.ph.preheader.i36
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i40, %.lr.ph.i38 ]
-  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i39
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i39
   %28 = load i32, ptr %27, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %28) #6
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
@@ -27682,7 +27681,7 @@ writeIntCols.exit42:                              ; preds = %._crit_edge.i35, %2
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47, %.lr.ph.preheader.i45
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.preheader.i45 ], [ %indvars.iv.next.i49, %.lr.ph.i47 ]
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i48
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i48
   %36 = load i32, ptr %35, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %36) #6
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -27716,7 +27715,7 @@ writeIntCols.exit51:                              ; preds = %._crit_edge.i44, %3
 
 .lr.ph.i56:                                       ; preds = %.lr.ph.i56, %.lr.ph.preheader.i54
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i58, %.lr.ph.i56 ]
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i57
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i57
   %44 = load i32, ptr %43, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %44) #6
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
@@ -27867,7 +27866,7 @@ define internal fastcc void @_outForeignKeyCacheInfo(ptr noundef %0, ptr noundef
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %16) #6
@@ -27890,7 +27889,7 @@ writeAttrNumberCols.exit:                         ; preds = %.lr.ph.i, %2
 
 .lr.ph.i23:                                       ; preds = %.lr.ph.i23, %.lr.ph.preheader.i21
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.preheader.i21 ], [ %indvars.iv.next.i25, %.lr.ph.i23 ]
-  %20 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv.i24
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv.i24
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %22) #6
@@ -27913,7 +27912,7 @@ writeAttrNumberCols.exit27:                       ; preds = %.lr.ph.i23, %writeA
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i28
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.preheader.i28 ], [ %indvars.iv.next.i32, %.lr.ph.i30 ]
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i31
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i31
   %27 = load i32, ptr %26, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %27) #6
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1

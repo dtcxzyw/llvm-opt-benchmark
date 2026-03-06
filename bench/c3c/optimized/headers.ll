@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Vmem = type { ptr, i64, i64 }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.56 }
-%union.SourceSpan = type { i64 }
-%union.anon.56 = type { %struct.anon.57 }
-%struct.anon.57 = type { ptr, ptr }
 %struct.HTable = type { i32, ptr }
 %struct.Int = type { %struct.Int128_, i32 }
 %struct.Int128_ = type { i64, i64 }
@@ -120,7 +116,7 @@ define dso_local void @header_ensure_member_types_exist(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
@@ -261,7 +257,7 @@ type_flatten.exit128:                             ; preds = %27
 47:                                               ; preds = %type_flatten.exit128
   %48 = load ptr, ptr @type_info_arena, align 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not87.i = icmp eq ptr %52, null
@@ -311,7 +307,7 @@ type_flatten.exit128:                             ; preds = %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load ptr, ptr %73, align 8
@@ -375,7 +371,7 @@ type_flatten.exit128:                             ; preds = %27
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %110
   %indvars.iv177 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next178, %110 ]
-  %99 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv177
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv177
   %100 = load ptr, ptr %99, align 8
   %101 = icmp ne i64 %indvars.iv177, 0
   %or.cond3.i = or i1 %87, %101
@@ -532,7 +528,7 @@ type_flatten.exit128:                             ; preds = %27
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %indvars.iv187 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next188, %.lr.ph155 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv187
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv187
   %163 = load ptr, ptr %162, align 8
   %164 = load ptr, ptr %153, align 8
   %165 = load ptr, ptr %163, align 8
@@ -567,7 +563,7 @@ type_flatten.exit128:                             ; preds = %27
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv182 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next183, %.lr.ph152 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv182
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv182
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %170, align 8
   %180 = load ptr, ptr %178, align 8
@@ -671,7 +667,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %._crit_edge230
   %indvars.iv303 = phi i64 [ 0, %.lr.ph233.preheader ], [ %indvars.iv.next304, %._crit_edge230 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv303
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv303
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
@@ -690,7 +686,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph229:                                        ; preds = %.lr.ph229.preheader, %._crit_edge
   %indvars.iv298 = phi i64 [ 0, %.lr.ph229.preheader ], [ %indvars.iv.next299, %._crit_edge ]
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv298
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv298
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
@@ -709,7 +705,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i64, ptr %39, align 8
@@ -745,7 +741,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph245:                                        ; preds = %._crit_edge234, %._crit_edge242
   %indvars.iv318 = phi i64 [ 0, %._crit_edge234 ], [ %indvars.iv.next319, %._crit_edge242 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv318
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv318
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
@@ -764,7 +760,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph241:                                        ; preds = %.lr.ph241.preheader, %._crit_edge238
   %indvars.iv313 = phi i64 [ 0, %.lr.ph241.preheader ], [ %indvars.iv.next314, %._crit_edge238 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv313
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv313
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 144
   %57 = load ptr, ptr %56, align 8
@@ -783,7 +779,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph237:                                        ; preds = %.lr.ph237.preheader, %67
   %indvars.iv308 = phi i64 [ 0, %.lr.ph237.preheader ], [ %indvars.iv.next309, %67 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv308
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv308
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %64 = load i32, ptr %63, align 8
@@ -817,7 +813,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph257:                                        ; preds = %._crit_edge246, %._crit_edge254
   %indvars.iv333 = phi i64 [ 0, %._crit_edge246 ], [ %indvars.iv.next334, %._crit_edge254 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv333
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv333
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %72 = load ptr, ptr %71, align 8
@@ -836,7 +832,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph253:                                        ; preds = %.lr.ph253.preheader, %._crit_edge250
   %indvars.iv328 = phi i64 [ 0, %.lr.ph253.preheader ], [ %indvars.iv.next329, %._crit_edge250 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv328
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv328
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 144
   %79 = load ptr, ptr %78, align 8
@@ -855,7 +851,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph249:                                        ; preds = %.lr.ph249.preheader, %89
   %indvars.iv323 = phi i64 [ 0, %.lr.ph249.preheader ], [ %indvars.iv.next324, %89 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv323
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv323
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %86 = load i32, ptr %85, align 8
@@ -889,7 +885,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph269:                                        ; preds = %._crit_edge258, %._crit_edge266
   %indvars.iv348 = phi i64 [ 0, %._crit_edge258 ], [ %indvars.iv.next349, %._crit_edge266 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv348
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv348
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %94 = load ptr, ptr %93, align 8
@@ -908,7 +904,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %._crit_edge262
   %indvars.iv343 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next344, %._crit_edge262 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv343
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv343
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %101 = load ptr, ptr %100, align 8
@@ -927,7 +923,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph261:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
   %indvars.iv338 = phi i64 [ 0, %.lr.ph261.preheader ], [ %indvars.iv.next339, %.lr.ph261 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv338
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv338
   %106 = load ptr, ptr %105, align 8
   call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %106)
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
@@ -951,7 +947,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph280:                                        ; preds = %._crit_edge270, %.loopexit
   %indvars.iv363 = phi i64 [ 0, %._crit_edge270 ], [ %indvars.iv.next364, %.loopexit ]
-  %108 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv363
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv363
   %109 = load ptr, ptr %108, align 8
   br label %110
 
@@ -988,7 +984,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph277:                                        ; preds = %.lr.ph277.preheader, %._crit_edge274
   %indvars.iv358 = phi i64 [ 0, %.lr.ph277.preheader ], [ %indvars.iv.next359, %._crit_edge274 ]
-  %125 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv358
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv358
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 160
   %128 = load ptr, ptr %127, align 8
@@ -1007,7 +1003,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 
 .lr.ph273:                                        ; preds = %.lr.ph273.preheader, %.lr.ph273
   %indvars.iv353 = phi i64 [ 0, %.lr.ph273.preheader ], [ %indvars.iv.next354, %.lr.ph273 ]
-  %132 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv353
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv353
   %133 = load ptr, ptr %132, align 8
   call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %133)
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
@@ -1308,7 +1304,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 12:                                               ; preds = %8
   %13 = load ptr, ptr @type_info_arena, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not74 = icmp eq ptr %17, null
@@ -1393,7 +1389,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %62
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %62 ], [ 0, %.lr.ph ]
-  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv84
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv84
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 2, i64 1, ptr %0)
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 72
@@ -1416,7 +1412,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph ]
-  %63 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %.not81 = icmp eq i64 %indvars.iv, 0
   br i1 %.not81, label %67, label %65
@@ -1802,7 +1798,7 @@ define internal fastcc void @header_gen_members(ptr noundef %0, i32 noundef %1, 
 
 9:                                                ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8

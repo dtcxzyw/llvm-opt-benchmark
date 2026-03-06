@@ -1441,7 +1441,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6json119JsonArrayixE
   br label %_ZN6json11L11static_nullEv.exit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw %"class.json11::Json", ptr %6, i64 %1
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   br label %_ZN6json11L11static_nullEv.exit
 
 _ZN6json11L11static_nullEv.exit:                  ; preds = %16, %14, %11, %18
@@ -11456,7 +11456,7 @@ _ZNSt6vectorIN6json114JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds 
 _ZNSt12_Vector_baseIN6json114JsonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6json114JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !66
-  %44 = getelementptr inbounds nuw %"class.json11::Json", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !67
   ret void
 }

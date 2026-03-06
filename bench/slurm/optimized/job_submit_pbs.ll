@@ -106,7 +106,7 @@ define dso_local noundef i32 @job_submit(ptr noundef %0, i32 noundef %1) local_u
   %24 = load ptr, ptr %9, align 8
   %25 = load i32, ptr %17, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   store ptr %23, ptr %27, align 8
   %28 = load i32, ptr %17, align 4
   %29 = add i32 %28, 1
@@ -155,7 +155,7 @@ _add_env2.exit:                                   ; preds = %8, %_add_env.exit.i
   %49 = load ptr, ptr %34, align 8
   %50 = load i32, ptr %42, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
   %53 = load i32, ptr %42, align 4
   %54 = add i32 %53, 1

@@ -607,10 +607,10 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
 117:                                              ; preds = %115
   %118 = load ptr, ptr %107, align 8, !tbaa !12
   %119 = zext nneg i32 %.085172 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !48
   %122 = zext nneg i32 %.082173 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %109, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !48
   %125 = icmp slt i32 %121, %124
   br i1 %125, label %126, label %134
@@ -621,7 +621,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %129 = load ptr, ptr %128, align 8, !tbaa !12
   %130 = add nsw i32 %.082173, -1
   %131 = sext i32 %.082173 to i64
-  %132 = getelementptr inbounds i32, ptr %129, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %129, i64 %131
   %133 = load ptr, ptr %110, align 8, !tbaa !12
   br label %138
 
@@ -629,7 +629,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.pre-phi = phi i64 [ %.pre187, %._crit_edge186 ], [ %119, %117 ]
   %135 = load ptr, ptr %110, align 8, !tbaa !12
   %136 = add nsw i32 %.085172, -1
-  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %.pre-phi
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %.pre-phi
   br label %138
 
 138:                                              ; preds = %126, %134
@@ -638,7 +638,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.186 = phi i32 [ %.085172, %126 ], [ %136, %134 ]
   %.183 = phi i32 [ %130, %126 ], [ %.082173, %134 ]
   %.sink = load i32, ptr %.sink.in, align 4, !tbaa !48
-  %139 = getelementptr inbounds nuw i32, ptr %.sink203, i64 %indvars.iv.next183
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %.sink203, i64 %indvars.iv.next183
   store i32 %.sink, ptr %139, align 4, !tbaa !48
   %140 = icmp samesign ugt i64 %indvars.iv182, 1
   br i1 %140, label %113, label %.loopexit, !llvm.loop !51
@@ -676,10 +676,10 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
 154:                                              ; preds = %152
   %155 = load ptr, ptr %144, align 8, !tbaa !12
   %156 = zext nneg i32 %.287167 to i64
-  %157 = getelementptr inbounds nuw i32, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !48
   %159 = zext nneg i32 %.284168 to i64
-  %160 = getelementptr inbounds nuw i32, ptr %146, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !48
   %162 = icmp slt i32 %158, %161
   br i1 %162, label %163, label %171
@@ -690,7 +690,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %166 = load ptr, ptr %165, align 8, !tbaa !12
   %167 = add nsw i32 %.284168, -1
   %168 = sext i32 %.284168 to i64
-  %169 = getelementptr inbounds float, ptr %166, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %166, i64 %168
   %170 = load ptr, ptr %147, align 8, !tbaa !12
   br label %175
 
@@ -698,7 +698,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.pre-phi189 = phi i64 [ %.pre188, %._crit_edge185 ], [ %156, %154 ]
   %172 = load ptr, ptr %147, align 8, !tbaa !12
   %173 = add nsw i32 %.287167, -1
-  %174 = getelementptr inbounds nuw float, ptr %172, i64 %.pre-phi189
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %.pre-phi189
   br label %175
 
 175:                                              ; preds = %163, %171
@@ -707,7 +707,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.388 = phi i32 [ %.287167, %163 ], [ %173, %171 ]
   %.3 = phi i32 [ %167, %163 ], [ %.284168, %171 ]
   %.sink204 = load float, ptr %.sink204.in, align 4, !tbaa !53
-  %176 = getelementptr inbounds nuw float, ptr %.sink206, i64 %indvars.iv.next180
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.sink206, i64 %indvars.iv.next180
   store float %.sink204, ptr %176, align 4, !tbaa !53
   %177 = icmp samesign ugt i64 %indvars.iv179, 1
   br i1 %177, label %150, label %.loopexit, !llvm.loop !55
@@ -745,10 +745,10 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
 191:                                              ; preds = %189
   %192 = load ptr, ptr %181, align 8, !tbaa !12
   %193 = zext nneg i32 %.489163 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !48
   %196 = zext nneg i32 %.4164 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %183, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !48
   %199 = icmp slt i32 %195, %198
   br i1 %199, label %200, label %208
@@ -759,7 +759,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %203 = load ptr, ptr %202, align 8, !tbaa !12
   %204 = add nsw i32 %.4164, -1
   %205 = sext i32 %.4164 to i64
-  %206 = getelementptr inbounds ptr, ptr %203, i64 %205
+  %206 = getelementptr inbounds [8 x i8], ptr %203, i64 %205
   %207 = load ptr, ptr %184, align 8, !tbaa !12
   br label %212
 
@@ -767,7 +767,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.pre-phi191 = phi i64 [ %.pre190, %._crit_edge ], [ %193, %191 ]
   %209 = load ptr, ptr %184, align 8, !tbaa !12
   %210 = add nsw i32 %.489163, -1
-  %211 = getelementptr inbounds nuw ptr, ptr %209, i64 %.pre-phi191
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %.pre-phi191
   br label %212
 
 212:                                              ; preds = %200, %208
@@ -776,7 +776,7 @@ _ZN12_GLOBAL__N_122MempoolSelelemReserverC2ERKSt10shared_ptrIN3gmx20SelectionTre
   %.590 = phi i32 [ %.489163, %200 ], [ %210, %208 ]
   %.5 = phi i32 [ %204, %200 ], [ %.4164, %208 ]
   %.sink207 = load ptr, ptr %.sink207.in, align 8, !tbaa !56
-  %213 = getelementptr inbounds nuw ptr, ptr %.sink209, i64 %indvars.iv.next
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %.sink209, i64 %indvars.iv.next
   store ptr %.sink207, ptr %213, align 8, !tbaa !56
   %214 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %214, label %187, label %.loopexit, !llvm.loop !57
@@ -1148,7 +1148,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %indvars.iv151 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next152, %48 ]
   %.094130 = phi i64 [ 0, %.preheader.lr.ph ], [ %54, %48 ]
   %40 = load ptr, ptr %35, align 8, !tbaa !12
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv151
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv151
   %42 = load i32, ptr %41, align 4, !tbaa !48
   %sext162 = shl i64 %.094130, 32
   %43 = ashr exact i64 %sext162, 32
@@ -1156,7 +1156,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 44:                                               ; preds = %44, %.preheader
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %44 ], [ %43, %.preheader ]
-  %45 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv148
+  %45 = getelementptr inbounds [4 x i8], ptr %40, i64 %indvars.iv148
   %46 = load i32, ptr %45, align 4, !tbaa !48
   %47 = icmp slt i32 %46, %42
   %indvars.iv.next149 = add nsw i64 %indvars.iv148, 1
@@ -1164,10 +1164,10 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %38, align 8, !tbaa !12
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv148
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %indvars.iv148
   %51 = load i32, ptr %50, align 4, !tbaa !48
   %52 = load ptr, ptr %39, align 8, !tbaa !12
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv151
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv151
   store i32 %51, ptr %53, align 4, !tbaa !48
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %54 = add i64 %indvars.iv148, 1
@@ -1215,7 +1215,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %indvars.iv143 = phi i64 [ 0, %.preheader114.lr.ph ], [ %indvars.iv.next144, %88 ]
   %.296128 = phi i64 [ 0, %.preheader114.lr.ph ], [ %94, %88 ]
   %80 = load ptr, ptr %75, align 8, !tbaa !12
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv143
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv143
   %82 = load i32, ptr %81, align 4, !tbaa !48
   %sext161 = shl i64 %.296128, 32
   %83 = ashr exact i64 %sext161, 32
@@ -1223,7 +1223,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 84:                                               ; preds = %84, %.preheader114
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %84 ], [ %83, %.preheader114 ]
-  %85 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv140
+  %85 = getelementptr inbounds [4 x i8], ptr %80, i64 %indvars.iv140
   %86 = load i32, ptr %85, align 4, !tbaa !48
   %87 = icmp slt i32 %86, %82
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
@@ -1231,10 +1231,10 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %78, align 8, !tbaa !12
-  %90 = getelementptr inbounds float, ptr %89, i64 %indvars.iv140
+  %90 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv140
   %91 = load float, ptr %90, align 4, !tbaa !53
   %92 = load ptr, ptr %79, align 8, !tbaa !12
-  %93 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv143
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv143
   store float %91, ptr %93, align 4, !tbaa !53
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %94 = add i64 %indvars.iv140, 1
@@ -1280,7 +1280,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
   %indvars.iv137 = phi i64 [ 0, %.preheader116.lr.ph ], [ %indvars.iv.next138, %125 ]
   %.4126 = phi i64 [ 0, %.preheader116.lr.ph ], [ %131, %125 ]
   %117 = load ptr, ptr %112, align 8, !tbaa !12
-  %118 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv137
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv137
   %119 = load i32, ptr %118, align 4, !tbaa !48
   %sext = shl i64 %.4126, 32
   %120 = ashr exact i64 %sext, 32
@@ -1288,7 +1288,7 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 121:                                              ; preds = %121, %.preheader116
   %indvars.iv = phi i64 [ %indvars.iv.next, %121 ], [ %120, %.preheader116 ]
-  %122 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv
+  %122 = getelementptr inbounds [4 x i8], ptr %117, i64 %indvars.iv
   %123 = load i32, ptr %122, align 4, !tbaa !48
   %124 = icmp slt i32 %123, %119
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1296,10 +1296,10 @@ define void @_Z28_gmx_sel_evaluate_subexprrefP18gmx_sel_evaluate_tRKSt10shared_p
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %115, align 8, !tbaa !12
-  %127 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds [8 x i8], ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !56
   %129 = load ptr, ptr %116, align 8, !tbaa !12
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv137
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv137
   store ptr %128, ptr %130, align 8, !tbaa !56
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %131 = add i64 %indvars.iv, 1
@@ -1531,7 +1531,7 @@ define void @_Z24_gmx_sel_evaluate_methodP18gmx_sel_evaluate_tRKSt10shared_ptrIN
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !90
   %72 = zext nneg i32 %68 to i64
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !48
   br label %73
 
@@ -1540,20 +1540,20 @@ define void @_Z24_gmx_sel_evaluate_methodP18gmx_sel_evaluate_tRKSt10shared_ptrIN
   %indvars.iv.i = phi i64 [ %72, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZSt4fillIPffEvT_S1_RKT0_.exit.i ]
   %.022.i = phi i32 [ %67, %.lr.ph.i ], [ %77, %_ZSt4fillIPffEvT_S1_RKT0_.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.next.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.next.i
   %76 = load i32, ptr %75, align 4, !tbaa !48
   %.neg.i = sub i32 %76, %74
   %77 = add i32 %.neg.i, %.022.i
   %78 = sext i32 %.022.i to i64
-  %79 = getelementptr inbounds float, ptr %58, i64 %78
-  %80 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.next.i
+  %79 = getelementptr inbounds [4 x i8], ptr %58, i64 %78
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.next.i
   %81 = load float, ptr %80, align 4, !tbaa !53
   %.not6.i.i.i.i = icmp eq i32 %76, %74
   br i1 %.not6.i.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit.i, label %.lr.ph.i.i.i.preheader.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %73
   %82 = sext i32 %77 to i64
-  %83 = getelementptr inbounds float, ptr %58, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %58, i64 %82
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.preheader.i
@@ -3093,7 +3093,7 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %.05468.us = phi float [ 0.000000e+00, %.lr.ph.split.us.preheader ], [ %.155.us, %63 ]
   %48 = load ptr, ptr %41, align 8, !tbaa !12
   %49 = zext nneg i32 %.04971.us to i64
-  %50 = getelementptr inbounds nuw float, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !53
   %52 = load i32, ptr %37, align 8, !tbaa !12
   switch i32 %52, label %63 [
@@ -3130,7 +3130,7 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
 63:                                               ; preds = %61, %60, %58, %56, %54, %53, %.lr.ph.split.us
   %.155.us = phi float [ %.05468.us, %.lr.ph.split.us ], [ %62, %61 ], [ %51, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ 1.000000e+00, %53 ]
   %64 = load ptr, ptr %42, align 8, !tbaa !12
-  %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv75
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv75
   store float %.155.us, ptr %65, align 4, !tbaa !53
   %spec.select.us = add nuw nsw i32 %47, %.04971.us
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
@@ -3151,11 +3151,11 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
   %.05468 = phi float [ 0.000000e+00, %.lr.ph.split ], [ %.155, %91 ]
   %70 = load ptr, ptr %41, align 8, !tbaa !12
   %71 = zext nneg i32 %.04971 to i64
-  %72 = getelementptr inbounds nuw float, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !53
   %74 = load ptr, ptr %67, align 8, !tbaa !12
   %75 = zext nneg i32 %.05070 to i64
-  %76 = getelementptr inbounds nuw float, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !53
   %78 = load i32, ptr %37, align 8, !tbaa !12
   switch i32 %78, label %91 [
@@ -3194,7 +3194,7 @@ define void @_Z28_gmx_sel_evaluate_arithmeticP18gmx_sel_evaluate_tRKSt10shared_p
 91:                                               ; preds = %89, %87, %85, %83, %81, %79, %69
   %.155 = phi float [ %.05468, %69 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ]
   %92 = load ptr, ptr %42, align 8, !tbaa !12
-  %93 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   store float %.155, ptr %93, align 4, !tbaa !53
   %94 = load i32, ptr %43, align 8, !tbaa !27
   %95 = lshr i32 %94, 1

@@ -677,7 +677,7 @@ define dso_local ptr @parse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 12:                                               ; preds = %8, %12
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @ustr_init(ptr noundef nonnull %14)
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -710,7 +710,7 @@ define dso_local ptr @parse(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 22:                                               ; preds = %21, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %21 ]
   %23 = load ptr, ptr %20, align 8, !tbaa !22
-  %24 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -794,7 +794,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
   call void @_ZN7SRBRoot9setLocaleEPDsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176) %50, ptr noundef %60, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %61 = load i32, ptr %19, align 8, !tbaa !18
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %62
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %62
   %64 = load i32, ptr %63, align 8, !tbaa !24
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %66 = load i32, ptr %65, align 8, !tbaa !41
@@ -804,7 +804,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
   %70 = and i32 %69, 3
   store i32 %70, ptr %19, align 8, !tbaa !18
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %71
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   call void @ustr_setlen(ptr noundef nonnull %73, i32 noundef 0, ptr noundef nonnull %7)
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -828,7 +828,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
 82:                                               ; preds = %78
   %83 = load i32, ptr %19, align 8, !tbaa !18
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %84
+  %85 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %84
   %86 = load i32, ptr %85, align 8, !tbaa !24
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %88 = load i32, ptr %87, align 8, !tbaa !41
@@ -838,7 +838,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
   %92 = and i32 %91, 3
   store i32 %92, ptr %19, align 8, !tbaa !18
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %93
+  %94 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   call void @ustr_setlen(ptr noundef nonnull %95, i32 noundef 0, ptr noundef nonnull %7)
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -859,7 +859,7 @@ _ZL13initLookaheadP10ParseStateP8UCHARBUFP10UErrorCode.exit: ; preds = %22, %31
   store i32 3, ptr %7, align 4, !tbaa !14
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 8), align 8, !tbaa !42
   %105 = zext i32 %86 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !42
   call void (i32, ptr, ...) @error(i32 noundef %88, ptr noundef nonnull @.str.10, ptr noundef %104, ptr noundef %107)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
@@ -952,7 +952,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; p
 134:                                              ; preds = %125
   %135 = load i32, ptr %19, align 8, !tbaa !18
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %136
+  %137 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %136
   %138 = load i32, ptr %137, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %140 = load i32, ptr %139, align 8, !tbaa !41
@@ -962,7 +962,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; p
   %144 = and i32 %143, 3
   store i32 %144, ptr %19, align 8, !tbaa !18
   %145 = zext nneg i32 %142 to i64
-  %146 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %145
+  %146 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   call void @ustr_setlen(ptr noundef nonnull %147, i32 noundef 0, ptr noundef nonnull %7)
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -989,7 +989,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit.thread: ; p
 
 155:                                              ; preds = %.preheader, %155
   %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %155 ], [ 0, %.preheader ]
-  %156 = getelementptr inbounds nuw %struct.Lookahead, ptr %11, i64 %indvars.iv.i57
+  %156 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv.i57
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   call void @ustr_deinit(ptr noundef nonnull %157)
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
@@ -1021,7 +1021,7 @@ define internal fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !24
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %14, label %12
@@ -1051,7 +1051,7 @@ _ZL8getTokenP10ParseStatePP7UStringS2_PjP10UErrorCode.exit: ; preds = %14, %17
   %23 = and i32 %22, 3
   store i32 %23, ptr %7, align 8, !tbaa !18
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %5)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1080,10 +1080,10 @@ _ZL8getTokenP10ParseStatePP7UStringS2_PjP10UErrorCode.exit: ; preds = %14, %17
 37:                                               ; preds = %36
   store i32 3, ptr %5, align 4, !tbaa !14
   %38 = zext nneg i32 %1 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !42
   %41 = zext i32 %11 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %16, ptr noundef nonnull @.str.10, ptr noundef %40, ptr noundef %43)
   br label %45
@@ -1138,7 +1138,7 @@ define internal fastcc noundef i32 @_ZL17parseResourceTypeP10ParseStateP10UError
 12:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %10, align 8, !tbaa !40
-  %14 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZL14gResourceTypes, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [24 x i8], ptr @_ZL14gResourceTypes, i64 %indvars.iv.next
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %17 = call i32 @u_strcmp_77(ptr noundef %13, ptr noundef %16)
@@ -1244,7 +1244,7 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
 21:                                               ; preds = %20
   %22 = load i32, ptr %18, align 8, !tbaa !18
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %23
   %25 = load i32, ptr %24, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -1261,7 +1261,7 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
   %33 = and i32 %32, 3
   store i32 %33, ptr %18, align 8, !tbaa !18
   %34 = zext nneg i32 %31 to i64
-  %35 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   invoke void @ustr_setlen(ptr noundef nonnull %36, i32 noundef 0, ptr noundef %4)
           to label %.noexc40 unwind label %.loopexit
@@ -1312,7 +1312,7 @@ define internal fastcc noundef ptr @_ZL14realParseTableP10ParseStateP13TableReso
 
 51:                                               ; preds = %47
   %52 = zext i32 %25 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !42
   br label %.invoke117
 
@@ -1435,7 +1435,7 @@ define internal noundef ptr @_ZL11parseStringP10ParseStatePcjPK7UStringP10UError
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load i32, ptr %12, align 8, !tbaa !18
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1446,7 +1446,7 @@ define internal noundef ptr @_ZL11parseStringP10ParseStatePcjPK7UStringP10UError
   %23 = and i32 %22, 3
   store i32 %23, ptr %12, align 8, !tbaa !18
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %26, i32 noundef 0, ptr noundef %4)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1472,7 +1472,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 3, ptr %4, align 4, !tbaa !14
   %35 = load ptr, ptr @tokenNames, align 16, !tbaa !42
   %36 = zext i32 %16 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %19, ptr noundef nonnull @.str.10, ptr noundef %35, ptr noundef %38)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
@@ -1495,7 +1495,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 50:                                               ; preds = %40
   %51 = load i32, ptr %12, align 8, !tbaa !18
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %52
   %54 = load i32, ptr %53, align 8, !tbaa !24
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %56 = load i32, ptr %55, align 8, !tbaa !41
@@ -1505,7 +1505,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %60 = and i32 %59, 3
   store i32 %60, ptr %12, align 8, !tbaa !18
   %61 = zext nneg i32 %58 to i64
-  %62 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %63, i32 noundef 0, ptr noundef nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -1530,7 +1530,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit23: ; preds 
   store i32 3, ptr %4, align 4, !tbaa !14
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %72 = zext i32 %54 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %56, ptr noundef nonnull @.str.10, ptr noundef %71, ptr noundef %74)
   %.pre24 = load i32, ptr %4, align 4, !tbaa !14
@@ -1572,7 +1572,7 @@ define internal noundef ptr @_ZL11parseBinaryP10ParseStatePcjPK7UStringP10UError
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = load i32, ptr %17, align 8, !tbaa !18
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %19
   %21 = load i32, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !41
@@ -1582,7 +1582,7 @@ define internal noundef ptr @_ZL11parseBinaryP10ParseStatePcjPK7UStringP10UError
   %27 = and i32 %26, 3
   store i32 %27, ptr %17, align 8, !tbaa !18
   %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   invoke void @ustr_setlen(ptr noundef nonnull %30, i32 noundef 0, ptr noundef nonnull %4)
           to label %.noexc unwind label %14
@@ -1613,7 +1613,7 @@ define internal noundef ptr @_ZL11parseBinaryP10ParseStatePcjPK7UStringP10UError
   store i32 3, ptr %4, align 4, !tbaa !14
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %41 = zext i32 %21 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   invoke void (i32, ptr, ...) @error(i32 noundef %23, ptr noundef nonnull @.str.10, ptr noundef %40, ptr noundef %43)
           to label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit unwind label %14
@@ -1924,7 +1924,7 @@ define internal noundef ptr @_ZL12parseIntegerP10ParseStatePcjPK7UStringP10UErro
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !41
@@ -1934,7 +1934,7 @@ define internal noundef ptr @_ZL12parseIntegerP10ParseStatePcjPK7UStringP10UErro
   %24 = and i32 %23, 3
   store i32 %24, ptr %14, align 8, !tbaa !18
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %27, i32 noundef 0, ptr noundef nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1960,7 +1960,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 3, ptr %4, align 4, !tbaa !14
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %37 = zext i32 %18 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %20, ptr noundef nonnull @.str.10, ptr noundef %36, ptr noundef %39)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
@@ -2063,9 +2063,9 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %.backed
   %25 = load i32, ptr %21, align 8, !tbaa !18
   %26 = and i32 %25, 3
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %27
   %29 = zext i32 %25 to i64
-  %30 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void @ustr_cpy(ptr noundef nonnull %6, ptr noundef nonnull %31, ptr noundef nonnull %4)
   %32 = load i32, ptr %28, align 8, !tbaa !24
@@ -2083,7 +2083,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %.backed
   %38 = and i32 %37, 3
   store i32 %38, ptr %21, align 8, !tbaa !18
   %39 = zext nneg i32 %36 to i64
-  %40 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void @ustr_setlen(ptr noundef nonnull %41, i32 noundef 0, ptr noundef nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -2107,7 +2107,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %.backed
 48:                                               ; preds = %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
   %49 = load i32, ptr %21, align 8, !tbaa !18
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %50
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
   call void @ustr_cpy(ptr noundef nonnull %6, ptr noundef nonnull %53, ptr noundef nonnull %4)
@@ -2118,7 +2118,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %.backed
   %57 = and i32 %56, 3
   store i32 %57, ptr %21, align 8, !tbaa !18
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   call void @ustr_setlen(ptr noundef nonnull %60, i32 noundef 0, ptr noundef nonnull %4)
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -2162,7 +2162,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit.thread: ; preds = %
 _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit50: ; preds = %77
   %81 = and i32 %78, 3
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %82
+  %83 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %82
   %84 = load i32, ptr %83, align 8, !tbaa !24
   %85 = icmp eq i32 %84, 3
   br i1 %85, label %86, label %.backedge.backedge
@@ -2177,7 +2177,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit50: ; preds = %77
   %90 = and i32 %89, 3
   store i32 %90, ptr %21, align 8, !tbaa !18
   %91 = zext nneg i32 %88 to i64
-  %92 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   call void @ustr_setlen(ptr noundef nonnull %93, i32 noundef 0, ptr noundef nonnull %4)
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -2209,7 +2209,7 @@ define internal noundef ptr @_ZL10parseAliasP10ParseStatePcjPK7UStringP10UErrorC
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !24
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -2220,7 +2220,7 @@ define internal noundef ptr @_ZL10parseAliasP10ParseStatePcjPK7UStringP10UErrorC
   %17 = and i32 %16, 3
   store i32 %17, ptr %6, align 8, !tbaa !18
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %20, i32 noundef 0, ptr noundef %4)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -2242,7 +2242,7 @@ define internal noundef ptr @_ZL10parseAliasP10ParseStatePcjPK7UStringP10UErrorC
   store i32 3, ptr %4, align 4, !tbaa !14
   %30 = load ptr, ptr @tokenNames, align 16, !tbaa !42
   %31 = zext i32 %10 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %13, ptr noundef nonnull @.str.10, ptr noundef %30, ptr noundef %33)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
@@ -2276,7 +2276,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %49 = tail call ptr @alias_open(ptr noundef %45, ptr noundef %1, ptr noundef %46, i32 noundef %48, ptr noundef %3, ptr noundef nonnull %4)
   %50 = load i32, ptr %6, align 8, !tbaa !18
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %51
   %53 = load i32, ptr %52, align 8, !tbaa !24
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %55 = load i32, ptr %54, align 8, !tbaa !41
@@ -2286,7 +2286,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %59 = and i32 %58, 3
   store i32 %59, ptr %6, align 8, !tbaa !18
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %62, i32 noundef 0, ptr noundef nonnull %4)
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -2311,7 +2311,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit19: ; preds 
   store i32 3, ptr %4, align 4, !tbaa !14
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %71 = zext i32 %53 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %55, ptr noundef nonnull @.str.10, ptr noundef %70, ptr noundef %73)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
@@ -2373,11 +2373,11 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %25
   %28 = load i32, ptr %23, align 8, !tbaa !18
   %29 = and i32 %28, 3
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   call void @ustr_cpy(ptr noundef nonnull %7, ptr noundef nonnull %32, ptr noundef nonnull %4)
   %33 = zext nneg i32 %29 to i64
-  %34 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !24
   %36 = icmp eq i32 %35, 2
   br i1 %36, label %37, label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit.thread
@@ -2390,7 +2390,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %25
   %42 = and i32 %41, 3
   store i32 %42, ptr %23, align 8, !tbaa !18
   %43 = zext nneg i32 %40 to i64
-  %44 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @ustr_setlen(ptr noundef nonnull %45, i32 noundef 0, ptr noundef nonnull %4)
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -2454,7 +2454,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit52: ; preds = %55
   %69 = load i32, ptr %23, align 8, !tbaa !18
   %70 = and i32 %69, 3
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %71
   %73 = load i32, ptr %72, align 8, !tbaa !24
   %74 = icmp eq i32 %73, 3
   br i1 %74, label %75, label %.thread
@@ -2467,7 +2467,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit52: ; preds = %55
   %80 = and i32 %79, 3
   store i32 %80, ptr %23, align 8, !tbaa !18
   %81 = zext nneg i32 %78 to i64
-  %82 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   call void @ustr_setlen(ptr noundef nonnull %83, i32 noundef 0, ptr noundef nonnull %4)
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -2507,7 +2507,7 @@ define internal noundef ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UError
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load i32, ptr %15, align 8, !tbaa !18
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !24
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !41
@@ -2517,7 +2517,7 @@ define internal noundef ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UError
   %25 = and i32 %24, 3
   store i32 %25, ptr %15, align 8, !tbaa !18
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   invoke void @ustr_setlen(ptr noundef nonnull %28, i32 noundef 0, ptr noundef nonnull %4)
           to label %.noexc unwind label %43
@@ -2548,7 +2548,7 @@ define internal noundef ptr @_ZL11parseImportP10ParseStatePcjPK7UStringP10UError
   store i32 3, ptr %4, align 4, !tbaa !14
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %39 = zext i32 %19 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !42
   invoke void (i32, ptr, ...) @error(i32 noundef %21, ptr noundef nonnull @.str.10, ptr noundef %38, ptr noundef %41)
           to label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit unwind label %43
@@ -2801,7 +2801,7 @@ define internal noundef ptr @_ZL12parseIncludeP10ParseStatePcjPK7UStringP10UErro
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !41
@@ -2811,7 +2811,7 @@ define internal noundef ptr @_ZL12parseIncludeP10ParseStatePcjPK7UStringP10UErro
   %24 = and i32 %23, 3
   store i32 %24, ptr %14, align 8, !tbaa !18
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void @ustr_setlen(ptr noundef nonnull %27, i32 noundef 0, ptr noundef nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -2837,7 +2837,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 3, ptr %4, align 4, !tbaa !14
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %37 = zext i32 %18 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   call void (i32, ptr, ...) @error(i32 noundef %20, ptr noundef nonnull @.str.10, ptr noundef %36, ptr noundef %39)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
@@ -2957,7 +2957,7 @@ define internal noundef ptr @_ZL13parseUCARulesP10ParseStatePcjPK7UStringP10UErr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -2968,7 +2968,7 @@ define internal noundef ptr @_ZL13parseUCARulesP10ParseStatePcjPK7UStringP10UErr
   %20 = and i32 %19, 3
   store i32 %20, ptr %9, align 8, !tbaa !18
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %23, i32 noundef 0, ptr noundef %4)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2990,7 +2990,7 @@ define internal noundef ptr @_ZL13parseUCARulesP10ParseStatePcjPK7UStringP10UErr
   store i32 3, ptr %4, align 4, !tbaa !14
   %33 = load ptr, ptr @tokenNames, align 16, !tbaa !42
   %34 = zext i32 %13 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %16, ptr noundef nonnull @.str.10, ptr noundef %33, ptr noundef %36)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
@@ -3045,7 +3045,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   call void @u_UCharsToChars_77(ptr noundef %59, ptr noundef nonnull %7, i32 noundef %61)
   %62 = load i32, ptr %9, align 8, !tbaa !18
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %63
   %65 = load i32, ptr %64, align 8, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %67 = load i32, ptr %66, align 8, !tbaa !41
@@ -3055,7 +3055,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %71 = and i32 %70, 3
   store i32 %71, ptr %9, align 8, !tbaa !18
   %72 = zext nneg i32 %69 to i64
-  %73 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %72
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   call void @ustr_setlen(ptr noundef nonnull %74, i32 noundef 0, ptr noundef nonnull %4)
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -3080,7 +3080,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit111: ; preds
   store i32 3, ptr %4, align 4, !tbaa !14
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %83 = zext i32 %65 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !42
   call void (i32, ptr, ...) @error(i32 noundef %67, ptr noundef nonnull @.str.10, ptr noundef %82, ptr noundef %85)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
@@ -3308,7 +3308,7 @@ define internal noundef ptr @_ZL19parseTransliteratorP10ParseStatePcjPK7UStringP
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load i32, ptr %10, align 8, !tbaa !18
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -3319,7 +3319,7 @@ define internal noundef ptr @_ZL19parseTransliteratorP10ParseStatePcjPK7UStringP
   %21 = and i32 %20, 3
   store i32 %21, ptr %10, align 8, !tbaa !18
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %24, i32 noundef 0, ptr noundef %4)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3341,7 +3341,7 @@ define internal noundef ptr @_ZL19parseTransliteratorP10ParseStatePcjPK7UStringP
   store i32 3, ptr %4, align 4, !tbaa !14
   %34 = load ptr, ptr @tokenNames, align 16, !tbaa !42
   %35 = zext i32 %14 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %17, ptr noundef nonnull @.str.10, ptr noundef %34, ptr noundef %37)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
@@ -3396,7 +3396,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   call void @u_UCharsToChars_77(ptr noundef %60, ptr noundef nonnull %7, i32 noundef %62)
   %63 = load i32, ptr %10, align 8, !tbaa !18
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %64
   %66 = load i32, ptr %65, align 8, !tbaa !24
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %68 = load i32, ptr %67, align 8, !tbaa !41
@@ -3406,7 +3406,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %72 = and i32 %71, 3
   store i32 %72, ptr %10, align 8, !tbaa !18
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %73
+  %74 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   call void @ustr_setlen(ptr noundef nonnull %75, i32 noundef 0, ptr noundef nonnull %4)
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -3431,7 +3431,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit36: ; preds 
   store i32 3, ptr %4, align 4, !tbaa !14
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %84 = zext i32 %66 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !42
   call void (i32, ptr, ...) @error(i32 noundef %68, ptr noundef nonnull @.str.10, ptr noundef %83, ptr noundef %86)
   %.pre = load i32, ptr %4, align 4, !tbaa !14
@@ -3491,7 +3491,7 @@ define internal noundef ptr @_ZL15parseDependencyP10ParseStatePcjPK7UStringP10UE
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load i32, ptr %8, align 8, !tbaa !18
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -3502,7 +3502,7 @@ define internal noundef ptr @_ZL15parseDependencyP10ParseStatePcjPK7UStringP10UE
   %19 = and i32 %18, 3
   store i32 %19, ptr %8, align 8, !tbaa !18
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %22, i32 noundef 0, ptr noundef %4)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -3524,7 +3524,7 @@ define internal noundef ptr @_ZL15parseDependencyP10ParseStatePcjPK7UStringP10UE
   store i32 3, ptr %4, align 4, !tbaa !14
   %32 = load ptr, ptr @tokenNames, align 16, !tbaa !42
   %33 = zext i32 %12 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %15, ptr noundef nonnull @.str.10, ptr noundef %32, ptr noundef %35)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit
@@ -3640,7 +3640,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
 93:                                               ; preds = %84
   %94 = load i32, ptr %8, align 8, !tbaa !18
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %95
+  %96 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %95
   %97 = load i32, ptr %96, align 8, !tbaa !24
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %99 = load i32, ptr %98, align 8, !tbaa !41
@@ -3650,7 +3650,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %103 = and i32 %102, 3
   store i32 %103, ptr %8, align 8, !tbaa !18
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %104
+  %105 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   call void @ustr_setlen(ptr noundef nonnull %106, i32 noundef 0, ptr noundef nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -3671,7 +3671,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 3, ptr %4, align 4, !tbaa !14
   %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 16), align 16, !tbaa !42
   %116 = zext i32 %97 to i64
-  %117 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !42
   call void (i32, ptr, ...) @error(i32 noundef %99, ptr noundef nonnull @.str.10, ptr noundef %115, ptr noundef %118)
   br label %_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit38
@@ -3874,7 +3874,7 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
 35:                                               ; preds = %34
   %36 = load i32, ptr %30, align 8, !tbaa !18
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !24
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -3891,7 +3891,7 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
   %47 = and i32 %46, 3
   store i32 %47, ptr %30, align 8, !tbaa !18
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   invoke void @ustr_setlen(ptr noundef nonnull %50, i32 noundef 0, ptr noundef nonnull %4)
           to label %.noexc89 unwind label %.loopexit
@@ -3929,7 +3929,7 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
 
 60:                                               ; preds = %57
   %61 = zext i32 %39 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !42
   invoke void (i32, ptr, ...) @error(i32 noundef %42, ptr noundef nonnull @.str.44, ptr noundef %63)
           to label %.loopexit112 unwind label %.loopexit.split-lp
@@ -3980,11 +3980,11 @@ define internal fastcc noundef ptr @_ZL22parseCollationElementsP10ParseStatePcja
   %85 = load i32, ptr %30, align 8, !tbaa !18
   %86 = and i32 %85, 3
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load i32, ptr %89, align 8, !tbaa !41
   %91 = zext i32 %85 to i64
-  %92 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   invoke void @ustr_cpy(ptr noundef nonnull %6, ptr noundef nonnull %93, ptr noundef nonnull %4)
           to label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit unwind label %.loopexit
@@ -3999,7 +3999,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %84
 95:                                               ; preds = %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit
   %96 = load i32, ptr %30, align 8, !tbaa !18
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %97
+  %98 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   invoke void @ustr_cpy(ptr noundef nonnull %6, ptr noundef nonnull %99, ptr noundef nonnull %4)
           to label %.noexc95 unwind label %.loopexit
@@ -4012,7 +4012,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %84
   %103 = and i32 %102, 3
   store i32 %103, ptr %30, align 8, !tbaa !18
   %104 = zext nneg i32 %101 to i64
-  %105 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %104
+  %105 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   invoke void @ustr_setlen(ptr noundef nonnull %106, i32 noundef 0, ptr noundef nonnull %4)
           to label %.noexc96 unwind label %.loopexit
@@ -4063,11 +4063,11 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %84
   %127 = add i32 %126, 1
   %128 = and i32 %127, 3
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %129
+  %130 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 40
   %132 = load i32, ptr %131, align 8, !tbaa !41
   %133 = zext i32 %126 to i64
-  %134 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %133
+  %134 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   invoke void @ustr_cpy(ptr noundef nonnull %6, ptr noundef nonnull %135, ptr noundef nonnull %4)
           to label %_ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit102 unwind label %.loopexit
@@ -4075,7 +4075,7 @@ _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit: ; preds = %84
 _ZL9peekTokenP10ParseStatejPP7UStringPjS2_P10UErrorCode.exit102: ; preds = %125, %122
   %136 = phi i64 [ %87, %122 ], [ %129, %125 ]
   %.1 = phi i32 [ %90, %122 ], [ %132, %125 ]
-  %137 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %136
+  %137 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %136
   %.1107 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 0, ptr %12, align 8, !tbaa !59
   %138 = load ptr, ptr %8, align 8, !tbaa !4
@@ -4189,7 +4189,7 @@ define internal fastcc noundef ptr @_ZL12addCollationP10ParseStateP13TableResour
 27:                                               ; preds = %26
   %28 = load i32, ptr %22, align 8, !tbaa !18
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %29
   %31 = load i32, ptr %30, align 8, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -4206,7 +4206,7 @@ define internal fastcc noundef ptr @_ZL12addCollationP10ParseStateP13TableResour
   %39 = and i32 %38, 3
   store i32 %39, ptr %22, align 8, !tbaa !18
   %40 = zext nneg i32 %37 to i64
-  %41 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   invoke void @ustr_setlen(ptr noundef nonnull %42, i32 noundef 0, ptr noundef %4)
           to label %.noexc183 unwind label %.loopexit
@@ -4254,7 +4254,7 @@ define internal fastcc noundef ptr @_ZL12addCollationP10ParseStateP13TableResour
 
 52:                                               ; preds = %49
   %53 = zext i32 %31 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   invoke void (i32, ptr, ...) @error(i32 noundef %34, ptr noundef nonnull @.str.44, ptr noundef %55)
           to label %321 unwind label %.loopexit.split-lp
@@ -4908,7 +4908,7 @@ define internal fastcc noundef ptr @_ZL13parseResourceP10ParseStatePcPK7UStringP
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %7
   %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !41
@@ -4918,7 +4918,7 @@ define internal fastcc noundef ptr @_ZL13parseResourceP10ParseStatePcPK7UStringP
   %15 = and i32 %14, 3
   store i32 %15, ptr %5, align 8, !tbaa !18
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %18, i32 noundef 0, ptr noundef %3)
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -4959,7 +4959,7 @@ define internal fastcc noundef ptr @_ZL13parseResourceP10ParseStatePcPK7UStringP
   %33 = tail call fastcc noundef i32 @_ZL17parseResourceTypeP10ParseStateP10UErrorCode(ptr noundef nonnull %0, ptr noundef %3)
   %34 = load i32, ptr %5, align 8, !tbaa !18
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %35
   %37 = load i32, ptr %36, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !41
@@ -4969,7 +4969,7 @@ define internal fastcc noundef ptr @_ZL13parseResourceP10ParseStatePcPK7UStringP
   %43 = and i32 %42, 3
   store i32 %43, ptr %5, align 8, !tbaa !18
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %44
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   tail call void @ustr_setlen(ptr noundef nonnull %46, i32 noundef 0, ptr noundef %3)
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -4994,7 +4994,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   store i32 3, ptr %3, align 4, !tbaa !14
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tokenNames, i64 8), align 8, !tbaa !42
   %55 = zext i32 %37 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr @tokenNames, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @tokenNames, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !42
   tail call void (i32, ptr, ...) @error(i32 noundef %39, ptr noundef nonnull @.str.10, ptr noundef %54, ptr noundef %57)
   %.pre = load i32, ptr %3, align 4, !tbaa !14
@@ -5022,7 +5022,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %62 = load i32, ptr %5, align 8, !tbaa !18
   %63 = and i32 %62, 3
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %64
   %66 = load i32, ptr %65, align 8, !tbaa !24
   switch i32 %66, label %78 [
     i32 4, label %82
@@ -5035,7 +5035,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %68 = add i32 %62, 1
   %69 = and i32 %68, 3
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw %struct.Lookahead, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %70
   %72 = load i32, ptr %71, align 8, !tbaa !24
   switch i32 %72, label %75 [
     i32 3, label %82
@@ -5073,7 +5073,7 @@ _ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode.exit: ; preds = 
   %.06064 = phi i32 [ %39, %60 ], [ %.0606375, %.thread.thread ], [ %.0606375, %73 ], [ %.0606375, %74 ], [ %.0606375, %67 ], [ %.0606375, %.thread.thread ], [ %.0606375, %.thread.thread ]
   %.1 = phi i32 [ %33, %60 ], [ 6, %.thread.thread ], [ 3, %73 ], [ 1, %74 ], [ 6, %67 ], [ 6, %.thread.thread ], [ 6, %.thread.thread ]
   %83 = zext i32 %.1 to i64
-  %84 = getelementptr inbounds nuw %struct.anon.1, ptr @_ZL14gResourceTypes, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr @_ZL14gResourceTypes, i64 %83
   %85 = shl nuw i64 1, %83
   %86 = and i64 %85, 36881
   %.not48.not = icmp eq i64 %86, 0
@@ -5121,7 +5121,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef nonnul
   %.022 = phi ptr [ %1, %2 ], [ %.022.be, %.backedge.backedge ]
   %4 = add nsw i32 %.025, 1
   %5 = sext i32 %.025 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %0, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !66
   %8 = zext i16 %7 to i32
   %9 = and i32 %8, 64512
@@ -5132,7 +5132,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef nonnul
 
 .thread:                                          ; preds = %.backedge
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !66
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 64512
@@ -5251,14 +5251,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.i:      ; preds = %64, %31
   %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %39 = lshr i64 %indvars.iv.i, 5
   %40 = and i64 %39, 134217727
-  %41 = getelementptr inbounds nuw i16, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !139
   %43 = zext i16 %42 to i32
   %44 = shl nuw nsw i32 %43, 2
   %45 = and i32 %38, 31
   %46 = add nuw nsw i32 %44, %45
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %34, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !13
   %50 = icmp eq i32 %49, 192
   br i1 %50, label %_ZNK6icu_7713CollationData7getCE32Ei.exit21.i, label %64
@@ -5269,19 +5269,19 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit21.i:    ; preds = %_ZNK6icu_7713Collat
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !134
   %55 = load ptr, ptr %52, align 8, !tbaa !138
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %40
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %40
   %57 = load i16, ptr %56, align 2, !tbaa !139
   %58 = zext i16 %57 to i32
   %59 = shl nuw nsw i32 %58, 2
   %60 = add nuw nsw i32 %59, %45
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %54, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !13
   br label %64
 
 64:                                               ; preds = %_ZNK6icu_7713CollationData7getCE32Ei.exit21.i, %_ZNK6icu_7713CollationData7getCE32Ei.exit.i
   %.0.i = phi i32 [ %63, %_ZNK6icu_7713CollationData7getCE32Ei.exit21.i ], [ %49, %_ZNK6icu_7713CollationData7getCE32Ei.exit.i ]
-  %65 = getelementptr i32, ptr %10, i64 %indvars.iv.i
+  %65 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv.i
   %66 = getelementptr i8, ptr %65, i64 -17408
   store i32 %.0.i, ptr %66, align 4, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5317,7 +5317,7 @@ _ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7713CollationDataEP10UErrorCode.exit
   %80 = add i32 %79, 1
   %81 = lshr i32 %80, 16
   %82 = trunc nuw i32 %81 to i16
-  %83 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i130
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i130
   store i16 %82, ptr %83, align 2, !tbaa !139
   %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i130, 1
   %exitcond.not.i132 = icmp eq i64 %indvars.iv.next.i131, 4
@@ -5364,14 +5364,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %.preheader
   %100 = load ptr, ptr %97, align 8, !tbaa !138
   %101 = lshr i32 %.0106154, 5
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !139
   %105 = zext i16 %104 to i32
   %106 = shl nuw nsw i32 %105, 2
   %107 = and i32 %.0106154, 31
   %108 = add nuw nsw i32 %106, %107
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %99, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %.not = icmp eq i32 %111, 192
   br i1 %.not, label %.thread, label %_ZNK6icu_7713CollationData7getCE32Ei.exit135
@@ -5381,13 +5381,13 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit135:     ; preds = %_ZNK6icu_7713Collat
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !134
   %115 = load ptr, ptr %112, align 8, !tbaa !138
-  %116 = getelementptr inbounds nuw i16, ptr %115, i64 %102
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %102
   %117 = load i16, ptr %116, align 2, !tbaa !139
   %118 = zext i16 %117 to i32
   %119 = shl nuw nsw i32 %118, 2
   %120 = add nuw nsw i32 %119, %107
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %114, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !13
   %.not117 = icmp eq i32 %111, %123
   br i1 %.not117, label %.thread, label %124
@@ -5530,14 +5530,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.i139:   ; preds = %176
   %181 = load ptr, ptr %177, align 8, !tbaa !138
   %182 = lshr i32 %.05678.i, 5
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw i16, ptr %181, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %181, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !139
   %186 = zext i16 %185 to i32
   %187 = shl nuw nsw i32 %186, 2
   %188 = and i32 %.05678.i, 31
   %189 = add nuw nsw i32 %187, %188
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %179, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !13
   %193 = icmp eq i32 %192, 192
   br i1 %193, label %197, label %216
@@ -5552,7 +5552,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit.thread.i: ; preds = %176
   %198 = load ptr, ptr %20, align 8, !tbaa !130
   %199 = load ptr, ptr %198, align 8, !tbaa !133
   %200 = load ptr, ptr %199, align 8, !tbaa !138
-  %201 = getelementptr inbounds nuw i16, ptr %200, i64 %183
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %200, i64 %183
   %202 = load i16, ptr %201, align 2, !tbaa !139
   %203 = zext i16 %202 to i32
   %204 = shl nuw nsw i32 %203, 2
@@ -5570,7 +5570,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit73.i:    ; preds = %207, %197
   %210 = phi i64 [ %206, %197 ], [ 128, %207 ]
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn76.i, i64 16
   %211 = load ptr, ptr %.in.i, align 8, !tbaa !134
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %210
   %213 = load i32, ptr %212, align 4, !tbaa !13
   invoke void @umutablecptrie_set_77(ptr noundef %167, i32 noundef %.05678.i, i32 noundef %213, ptr noundef %5)
           to label %216 unwind label %214
@@ -6418,14 +6418,14 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %8, %.thread70
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = lshr i64 %indvars.iv, 5
   %16 = and i64 %15, 134217727
-  %17 = getelementptr inbounds nuw i16, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !139
   %19 = zext i16 %18 to i32
   %20 = shl nuw nsw i32 %19, 2
   %21 = and i32 %14, 31
   %22 = add nuw nsw i32 %20, %21
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = icmp eq i32 %25, 192
   br i1 %26, label %_ZNK6icu_7713CollationData7getCE32Ei.exit63, label %40
@@ -6436,13 +6436,13 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit63:      ; preds = %_ZNK6icu_7713Collat
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !134
   %31 = load ptr, ptr %28, align 8, !tbaa !138
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %16
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %16
   %33 = load i16, ptr %32, align 2, !tbaa !139
   %34 = zext i16 %33 to i32
   %35 = shl nuw nsw i32 %34, 2
   %36 = add nuw nsw i32 %35, %21
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %30, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !13
   br label %40
 
@@ -6518,7 +6518,7 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %56, %67, %72
 
 .thread70:                                        ; preds = %40, %_ZN6icu_779Collation10ceFromCE32Ej.exit
   %.047 = phi i16 [ 0, %40 ], [ %77, %_ZN6icu_779Collation10ceFromCE32Ej.exit ]
-  %78 = getelementptr i16, ptr %6, i64 %indvars.iv
+  %78 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv
   %79 = getelementptr i8, ptr %78, i64 -1536
   store i16 %.047, ptr %79, align 2, !tbaa !139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

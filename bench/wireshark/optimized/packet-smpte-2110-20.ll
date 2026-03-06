@@ -189,7 +189,7 @@ proto_item_set_generated.exit93:                  ; preds = %proto_item_set_gene
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = load i32, ptr @ett_st2110_20_srd_row, align 4
   %57 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.0103, i32 noundef 6, i32 noundef %56, ptr noundef nonnull %5, ptr noundef nonnull @.str.30, i32 noundef %55)
-  %58 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %58 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr @hf_st2110_srd_index, align 4
   %60 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %59, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %55)
@@ -211,7 +211,7 @@ proto_item_set_generated.exit93:                  ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit96:                  ; preds = %54, %61, %64
   %68 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.0103, i32 noundef 0)
-  %69 = getelementptr i16, ptr %6, i64 %indvars.iv
+  %69 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %68, ptr %69, align 2
   %70 = load i32, ptr @hf_st2110_srd_length, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %70, ptr noundef %0, i32 noundef %.0103, i32 noundef 2, i32 noundef 0)
@@ -283,9 +283,9 @@ proto_item_set_generated.exit96:                  ; preds = %54, %61, %64
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv112 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next113, %.lr.ph ]
   %.2105 = phi i32 [ %.lcssa108, %.lr.ph.preheader ], [ %108, %.lr.ph ]
-  %101 = getelementptr i16, ptr %6, i64 %indvars.iv112
+  %101 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv112
   %102 = load i16, ptr %101, align 2
-  %103 = getelementptr ptr, ptr %7, i64 %indvars.iv112
+  %103 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv112
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr @hf_st2110_srd_data, align 4
   %106 = zext i16 %102 to i32

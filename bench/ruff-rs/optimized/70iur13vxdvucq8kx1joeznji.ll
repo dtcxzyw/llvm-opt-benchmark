@@ -517,7 +517,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h0b4e21dc02b58cfcE(p
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2f1ffabda5144352E.exit.i.i": ; preds = %34, %30
   %39 = load ptr, ptr %24, align 8, !alias.scope !38, !noalias !41, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %39, i64 %31
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !45
   %41 = add i64 %31, 1
   store i64 %41, ptr %23, align 8, !alias.scope !38, !noalias !41
@@ -660,7 +660,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17h4eb68e8ecaa65af6E(p
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h79260c48be957671E.exit.i.i": ; preds = %34, %30
   %39 = load ptr, ptr %24, align 8, !alias.scope !70, !noalias !73, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %39, i64 %31
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !76
   %41 = add i64 %31, 1
   store i64 %41, ptr %23, align 8, !alias.scope !70, !noalias !73
@@ -803,7 +803,7 @@ define hidden void @_ZN5serde3ser10Serializer11collect_seq17hf2be2b70ffc30f6fE(p
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h942271426a5eb3a8E.exit.i.i": ; preds = %34, %30
   %39 = load ptr, ptr %24, align 8, !alias.scope !101, !noalias !104, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %39, i64 %31
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !107
   %41 = add i64 %31, 1
   store i64 %41, ptr %23, align 8, !alias.scope !101, !noalias !104
@@ -3138,7 +3138,7 @@ define hidden void @_ZN13ruff_notebook4cell11CellOffsets4push17h792b89ce6973236a
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %9 = getelementptr i32, ptr %8, i64 %5
+  %9 = getelementptr [4 x i8], ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load i32, ptr %10, align 4, !noundef !6
   %.not1 = icmp ugt i32 %11, %1
@@ -3156,7 +3156,7 @@ define hidden void @_ZN13ruff_notebook4cell11CellOffsets4push17h792b89ce6973236a
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdbe2f6e41d8d580dE.exit": ; preds = %12, %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !680, !nonnull !6, !noundef !6
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %5
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %5
   store i32 %1, ptr %18, align 4
   %19 = add i64 %5, 1
   store i64 %19, ptr %4, align 8, !alias.scope !680
@@ -3186,7 +3186,7 @@ define void @_ZN13ruff_notebook4cell11CellOffsets16containing_range17h7d19ba8099
   %7 = load ptr, ptr %6, align 8, !alias.scope !683, !nonnull !6, !noundef !6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !683, !noundef !6
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %9
   store ptr %7, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
@@ -3276,7 +3276,7 @@ define noundef zeroext i1 @_ZN13ruff_notebook4cell11CellOffsets17has_cell_bounda
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %16, %"_ZN13ruff_notebook4cell11CellOffsets17has_cell_boundary28_$u7b$$u7b$closure$u7d$$u7d$17hac6dcd1d6da8b12bE.exit29.thread.i" ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %.sroa.05.0.lcssa.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i
   %.val23.i = load i32, ptr %9, align 4, !alias.scope !709, !noalias !712, !noundef !6
   %.not.i.i = icmp ule i32 %1, %.val23.i
   %.not.i = icmp uge i32 %2, %.val23.i
@@ -3290,7 +3290,7 @@ define noundef zeroext i1 @_ZN13ruff_notebook4cell11CellOffsets17has_cell_bounda
   %11 = add i64 %10, %.sroa.05.034.i
   %12 = icmp ult i64 %11, %7
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %11
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %.val25.i = load i32, ptr %13, align 4, !alias.scope !709, !noalias !712, !noundef !6
   %.not.i26.i = icmp ugt i32 %1, %.val25.i
   %14 = icmp uge i32 %2, %.val25.i

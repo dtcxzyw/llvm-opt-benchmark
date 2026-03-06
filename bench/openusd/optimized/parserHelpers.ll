@@ -44,18 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData", ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::Vt_ShapeData" = type { i64, [3 x i32] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext" = type <{ ptr, ptr, i64, ptr, i8, [7 x i8] }>
-%"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.16" }
-%"union.std::__detail::__variant::_Variadic_union.16" = type { %"union.std::__detail::__variant::_Variadic_union.18" }
-%"union.std::__detail::__variant::_Variadic_union.18" = type { %"struct.std::__detail::__variant::_Uninitialized.19", [56 x i8] }
-%"struct.std::__detail::__variant::_Uninitialized.19" = type { double }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::_GetImpl" = type { i8 }
 %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState" = type <{ i64, i8, [7 x i8] }>
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<bool>::_Streamer" = type { ptr }
@@ -28255,7 +28243,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %32, i64 %6
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %6
   %34 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIbEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %33)
   %35 = zext i1 %34 to i8
   store i8 %35, ptr %0, align 1
@@ -29379,7 +29367,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %32, i64 %6
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %6
   %34 = tail call noundef zeroext i8 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIhEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %33)
   store i8 %34, ptr %0, align 1
   ret void
@@ -30475,7 +30463,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %32, i64 %6
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %6
   %34 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %33)
   store i32 %34, ptr %0, align 4
   ret void
@@ -31548,7 +31536,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %32, i64 %6
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %6
   %34 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIjEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %33)
   store i32 %34, ptr %0, align 4
   ret void
@@ -32620,7 +32608,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %32, i64 %6
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %6
   %34 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIlEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %33)
   store i64 %34, ptr %0, align 8
   ret void
@@ -33636,7 +33624,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %32, i64 %6
+  %33 = getelementptr inbounds [72 x i8], ptr %32, i64 %6
   %34 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetImEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %33)
   store i64 %34, ptr %0, align 8
   ret void
@@ -34639,7 +34627,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 22:                                               ; preds = %3
   store i64 %6, ptr %2, align 8
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %23, i64 %5
+  %24 = getelementptr inbounds [72 x i8], ptr %23, i64 %5
   %25 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %24)
   %26 = bitcast float %25 to i32
   %27 = fcmp oeq float %25, 0.000000e+00
@@ -34653,7 +34641,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 31:                                               ; preds = %22
   %32 = lshr i32 %26, 23
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %33
   %35 = load i16, ptr %34, align 2
   %.not.i = icmp eq i16 %35, 0
   br i1 %.not.i, label %45, label %36
@@ -34931,11 +34919,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_8pxr_half4halfES3_NS0_14_LocalTypeInfoIS3_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   ret i1 %11
@@ -34945,11 +34933,11 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_8pxr_half4halfES3_NS0_14_LocalTypeInfoIS3_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   ret i1 %11
@@ -35381,7 +35369,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 25:                                               ; preds = %5
   store i64 %9, ptr %3, align 8
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %26, i64 %8
+  %27 = getelementptr inbounds [72 x i8], ptr %26, i64 %8
   %28 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
           to label %45 unwind label %29
 
@@ -35544,7 +35532,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.ex
 47:                                               ; preds = %30
   store i64 %32, ptr %3, align 8
   %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %48, i64 %31
+  %49 = getelementptr inbounds [72 x i8], ptr %48, i64 %31
   %50 = invoke noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %49)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIfEELb0EEppEv.exit unwind label %.loopexit
 
@@ -36135,7 +36123,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 25:                                               ; preds = %5
   store i64 %9, ptr %3, align 8
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %26, i64 %8
+  %27 = getelementptr inbounds [72 x i8], ptr %26, i64 %8
   %28 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
           to label %45 unwind label %29
 
@@ -36298,7 +36286,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.ex
 47:                                               ; preds = %30
   store i64 %32, ptr %3, align 8
   %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %48, i64 %31
+  %49 = getelementptr inbounds [72 x i8], ptr %48, i64 %31
   %50 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %49)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayIdEELb0EEppEv.exit unwind label %.loopexit
 
@@ -37096,7 +37084,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 25:                                               ; preds = %5
   store i64 %9, ptr %3, align 8
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %26, i64 %8
+  %27 = getelementptr inbounds [72 x i8], ptr %26, i64 %8
   %28 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %27)
           to label %45 unwind label %29
 
@@ -37235,7 +37223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit: ; pre
 34:                                               ; preds = %.noexc24
   %35 = load ptr, ptr %32, align 8
   %36 = load i64, ptr %10, align 8
-  %37 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   %.not5762 = icmp eq ptr %33, %37
   br i1 %.not5762, label %._crit_edge, label %.lr.ph
 
@@ -37285,7 +37273,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEEC2Em.exit: ; pre
 56:                                               ; preds = %39
   store i64 %41, ptr %3, align 8
   %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %57, i64 %40
+  %58 = getelementptr inbounds [72 x i8], ptr %57, i64 %40
   %59 = invoke noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %58)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_7VtArrayINS_11SdfTimeCodeEEELb0EEppEv.exit unwind label %.loopexit
 
@@ -38383,8 +38371,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE9_IsUniqueEv.ex
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit: ; preds = %.lr.ph.i.i.i.i46, %53, %48
   %.1 = phi ptr [ %36, %48 ], [ %54, %53 ], [ %54, %.lr.ph.i.i.i.i46 ]
-  %59 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %.1, i64 %1
-  %60 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %.1, i64 %4
+  %59 = getelementptr inbounds [8 x i8], ptr %.1, i64 %1
+  %60 = getelementptr inbounds [8 x i8], ptr %.1, i64 %4
   %61 = load ptr, ptr %2, align 8
   %.pre.i.i.i.i50 = load i64, ptr %61, align 8
   br label %.lr.ph.i.i.i.i51
@@ -38419,8 +38407,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyE
   br i1 %34, label %.lr.ph.preheader.i.i.i.i63, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit
 
 .lr.ph.preheader.i.i.i.i63:                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11SdfTimeCodeEE13_AllocateCopyEPS1_mm.exit61
-  %70 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %65, i64 %1
-  %71 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfTimeCode", ptr %65, i64 %4
+  %70 = getelementptr inbounds [8 x i8], ptr %65, i64 %1
+  %71 = getelementptr inbounds [8 x i8], ptr %65, i64 %4
   %72 = load ptr, ptr %2, align 8
   %.pre.i.i.i.i64 = load i64, ptr %72, align 8
   br label %.lr.ph.i.i.i.i65
@@ -38967,7 +38955,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 22:                                               ; preds = %3
   store i64 %6, ptr %2, align 8
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %23, i64 %5
+  %24 = getelementptr inbounds [72 x i8], ptr %23, i64 %5
   %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %24)
   %26 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %25)
   ret void
@@ -39940,7 +39928,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 23:                                               ; preds = %3
   store i64 %7, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %6
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %6
   %26 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %.not.i = icmp eq ptr %5, %0
@@ -40634,7 +40622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorIjSaIjEELb0EEppEv.ex
 29:                                               ; preds = %.noexc24
   %30 = load ptr, ptr %27, align 8
   %31 = load i64, ptr %7, align 8
-  %32 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %30, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %30, i64 %31
   %.not6266 = icmp eq ptr %28, %32
   br i1 %.not6266, label %._crit_edge, label %.lr.ph
 
@@ -40855,7 +40843,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 24:                                               ; preds = %3
   store i64 %8, ptr %2, align 8
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %25, i64 %7
+  %26 = getelementptr inbounds [72 x i8], ptr %25, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplINS_12SdfAssetPathEvE5VisitERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7TfTokenES2_EE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(72) %26)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetINS_12SdfAssetPathEEENS0_8_GetImplIT_vE10ResultTypeEv.exit unwind label %27
@@ -42052,18 +42040,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9_IsUniqueEv.e
 
 27:                                               ; preds = %22
   %28 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %29 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %23, i64 %4
+  %29 = getelementptr inbounds [64 x i8], ptr %23, i64 %4
   %30 = tail call noundef ptr @_ZSt16__do_uninit_copyIPN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES2_ET0_T_S4_S3_(ptr noundef nonnull %23, ptr noundef %29, ptr noundef %28)
   br label %31
 
 31:                                               ; preds = %27, %22
   %.1 = phi ptr [ %28, %27 ], [ %12, %22 ]
-  %32 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %.1, i64 %4
+  %32 = getelementptr inbounds [64 x i8], ptr %.1, i64 %4
   br label %.loopexit.sink.split
 
 .lr.ph.preheader:                                 ; preds = %21
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %12, i64 %4
-  %34 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %12, i64 %1
+  %33 = getelementptr inbounds [64 x i8], ptr %12, i64 %4
+  %34 = getelementptr inbounds [64 x i8], ptr %12, i64 %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -42079,18 +42067,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9_IsUniqueEv.e
   %37 = phi ptr [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9_IsUniqueEv.exit._ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9_IsUniqueEv.exit.thread_crit_edge ], [ %12, %15 ]
   %38 = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
   %39 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1)
-  %40 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %37, i64 %38
+  %40 = getelementptr inbounds [64 x i8], ptr %37, i64 %38
   %41 = tail call noundef ptr @_ZSt16__do_uninit_copyIPN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES2_ET0_T_S4_S3_(ptr noundef %37, ptr noundef %40, ptr noundef %39)
   br i1 %10, label %42, label %.loopexit
 
 42:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9_IsUniqueEv.exit.thread
-  %43 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %39, i64 %4
+  %43 = getelementptr inbounds [64 x i8], ptr %39, i64 %4
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %13, %42, %31
   %.1.sink = phi ptr [ %.1, %31 ], [ %39, %42 ], [ %14, %13 ]
   %.sink = phi ptr [ %32, %31 ], [ %43, %42 ], [ %14, %13 ]
-  %44 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %.1.sink, i64 %1
+  %44 = getelementptr inbounds [64 x i8], ptr %.1.sink, i64 %1
   %45 = load ptr, ptr %2, align 8
   tail call void @_ZSt16__do_uninit_fillIPN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES1_EvT_S3_RKT0_(ptr noundef %.sink, ptr noundef nonnull %44, ptr noundef nonnull align 8 dereferenceable(64) %45)
   br label %.loopexit
@@ -42423,7 +42411,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9_IsUniqueEv.e
   %10 = load ptr, ptr %2, align 8
   %11 = load i64, ptr %0, align 8
   %12 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE12_AllocateNewEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %11)
-  %13 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %10, i64 %11
+  %13 = getelementptr inbounds [64 x i8], ptr %10, i64 %11
   %14 = tail call noundef ptr @_ZSt16__do_uninit_copyIPN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathES2_ET0_T_S4_S3_(ptr noundef %10, ptr noundef %13, ptr noundef %12)
   %15 = load ptr, ptr %2, align 8
   %.not.i2 = icmp eq ptr %15, null
@@ -42648,7 +42636,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_14SdfOpaqueValueEEC2Em.exit: ; 
 34:                                               ; preds = %.noexc24
   %35 = load ptr, ptr %32, align 8
   %36 = load i64, ptr %10, align 8
-  %37 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfOpaqueValue", ptr %35, i64 %36
+  %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %.not56 = icmp eq ptr %33, %37
   br i1 %.not56, label %63, label %38
 
@@ -44019,7 +44007,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEEC2Em.exit:
 65:                                               ; preds = %.noexc24
   %66 = load ptr, ptr %29, align 8
   %67 = load i64, ptr %9, align 8
-  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %66, i64 %67
+  %68 = getelementptr inbounds [104 x i8], ptr %66, i64 %67
   %.not7579 = icmp eq ptr %64, %68
   br i1 %.not7579, label %._crit_edge, label %.lr.ph
 
@@ -44229,7 +44217,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 24:                                               ; preds = %3
   store i64 %8, ptr %2, align 8
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %25, i64 %7
+  %26 = getelementptr inbounds [72 x i8], ptr %25, i64 %7
   %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %26)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -44304,7 +44292,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPatternESaIS1_EED2Ev.ex
   %22 = and i32 %20, 255
   %23 = lshr i32 %20, 8
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = mul nuw nsw i32 %23, 24
   %28 = zext nneg i32 %27 to i64
@@ -44473,7 +44461,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfP
   %16 = and i32 %14, 255
   %17 = lshr i32 %14, 8
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = mul nuw nsw i32 %17, 24
   %22 = zext nneg i32 %21 to i64
@@ -44535,7 +44523,7 @@ define linkonce_odr void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17SdfP
   %8 = and i32 %6, 255
   %9 = lshr i32 %6, 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = mul nuw nsw i32 %9, 24
   %14 = zext nneg i32 %13 to i64
@@ -44601,7 +44589,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17Sd
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64
@@ -44642,7 +44630,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
@@ -44934,7 +44922,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfPathPattern9ComponentESaIS2
   %37 = and i32 %35, 255
   %38 = lshr i32 %35, 8
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = mul nuw nsw i32 %38, 24
   %43 = zext nneg i32 %42 to i64
@@ -46929,7 +46917,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64
@@ -47008,7 +46996,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64
@@ -48684,8 +48672,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqu
 
 43:                                               ; preds = %41, %36
   %.1 = phi ptr [ %42, %41 ], [ %12, %36 ]
-  %44 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %.1, i64 %4
-  %45 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %.1, i64 %1
+  %44 = getelementptr inbounds [104 x i8], ptr %.1, i64 %4
+  %45 = getelementptr inbounds [104 x i8], ptr %.1, i64 %1
   %46 = load ptr, ptr %2, align 8
   br label %.lr.ph.i.i.i.i47
 
@@ -48735,8 +48723,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionEEvT_S3_.ex
   unreachable
 
 .lr.ph.preheader:                                 ; preds = %35
-  %59 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %12, i64 %4
-  %60 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %12, i64 %1
+  %59 = getelementptr inbounds [104 x i8], ptr %12, i64 %4
+  %60 = getelementptr inbounds [104 x i8], ptr %12, i64 %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -48753,8 +48741,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqu
   br i1 %10, label %65, label %_ZZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE6assignEmRKS1_ENK7_FillerclEPS1_S6_.exit
 
 65:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_17SdfPathExpressionEE9_IsUniqueEv.exit.thread
-  %66 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %64, i64 %4
-  %67 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %64, i64 %1
+  %66 = getelementptr inbounds [104 x i8], ptr %64, i64 %4
+  %67 = getelementptr inbounds [104 x i8], ptr %64, i64 %1
   %68 = load ptr, ptr %2, align 8
   br label %.lr.ph.i.i.i.i58
 
@@ -49366,14 +49354,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store i32 %26, ptr %0, align 4
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %31, ptr %32, align 4
@@ -50103,7 +50091,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   %27 = bitcast float %26 to i32
   %28 = fcmp oeq float %26, 0.000000e+00
@@ -50117,7 +50105,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 32:                                               ; preds = %22
   %33 = lshr i32 %27, 23
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %34
   %36 = load i16, ptr %35, align 2
   %.not.i = icmp eq i16 %36, 0
   br i1 %.not.i, label %46, label %37
@@ -50144,7 +50132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %29, %37
   %49 = add i64 %48, 1
   store i64 %49, ptr %2, align 8
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %50, i64 %48
+  %51 = getelementptr inbounds [72 x i8], ptr %50, i64 %48
   %52 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %51)
   %53 = bitcast float %52 to i32
   %54 = fcmp oeq float %52, 0.000000e+00
@@ -50158,7 +50146,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %29, %37
 58:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
   %59 = lshr i32 %53, 23
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %60
   %62 = load i16, ptr %61, align 2
   %.not.i8 = icmp eq i16 %62, 0
   br i1 %.not.i8, label %72, label %63
@@ -50232,11 +50220,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec2hES2_NS0_14_LocalTypeInfoIS2_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -50245,12 +50233,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -50264,11 +50252,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5Equal
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec2hES2_NS0_14_LocalTypeInfoIS2_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -50277,12 +50265,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec2hEvE5EqualERKS2_S5_.exit
@@ -50944,14 +50932,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store float %26, ptr %0, align 4
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %31, ptr %32, align 4
@@ -51697,14 +51685,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store double %26, ptr %0, align 8
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
@@ -52512,14 +52500,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store i32 %26, ptr %0, align 4
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %31, ptr %32, align 4
@@ -52527,7 +52515,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %37, ptr %38, align 4
@@ -53366,7 +53354,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   %27 = bitcast float %26 to i32
   %28 = fcmp oeq float %26, 0.000000e+00
@@ -53380,7 +53368,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 32:                                               ; preds = %22
   %33 = lshr i32 %27, 23
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %34
   %36 = load i16, ptr %35, align 2
   %.not.i = icmp eq i16 %36, 0
   br i1 %.not.i, label %46, label %37
@@ -53407,7 +53395,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %29, %37
   %49 = add i64 %48, 1
   store i64 %49, ptr %2, align 8
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %50, i64 %48
+  %51 = getelementptr inbounds [72 x i8], ptr %50, i64 %48
   %52 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %51)
   %53 = bitcast float %52 to i32
   %54 = fcmp oeq float %52, 0.000000e+00
@@ -53421,7 +53409,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %29, %37
 58:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
   %59 = lshr i32 %53, 23
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %60
   %62 = load i16, ptr %61, align 2
   %.not.i11 = icmp eq i16 %62, 0
   br i1 %.not.i11, label %72, label %63
@@ -53449,7 +53437,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit13: ; preds = %55, %
   %76 = add i64 %75, 1
   store i64 %76, ptr %2, align 8
   %77 = load ptr, ptr %1, align 8
-  %78 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %77, i64 %75
+  %78 = getelementptr inbounds [72 x i8], ptr %77, i64 %75
   %79 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %78)
   %80 = bitcast float %79 to i32
   %81 = fcmp oeq float %79, 0.000000e+00
@@ -53463,7 +53451,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit13: ; preds = %55, %
 85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit13
   %86 = lshr i32 %80, 23
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %87
   %89 = load i16, ptr %88, align 2
   %.not.i14 = icmp eq i16 %89, 0
   br i1 %.not.i14, label %99, label %90
@@ -53543,11 +53531,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec3hES2_NS0_14_LocalTypeInfoIS2_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -53556,12 +53544,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -53570,12 +53558,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -53589,11 +53577,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5Equal
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec3hES2_NS0_14_LocalTypeInfoIS2_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -53602,12 +53590,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -53616,12 +53604,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec3hEvE5EqualERKS2_S5_.exit
@@ -54293,14 +54281,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store float %26, ptr %0, align 4
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %31, ptr %32, align 4
@@ -54308,7 +54296,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %37, ptr %38, align 4
@@ -55223,14 +55211,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store double %26, ptr %0, align 8
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
@@ -55238,7 +55226,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %37, ptr %38, align 8
@@ -56147,14 +56135,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store i32 %26, ptr %0, align 4
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %31, ptr %32, align 4
@@ -56162,7 +56150,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %37, ptr %38, align 4
@@ -56170,7 +56158,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %40 = add i64 %39, 1
   store i64 %40, ptr %2, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %41, i64 %39
+  %42 = getelementptr inbounds [72 x i8], ptr %41, i64 %39
   %43 = tail call noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIiEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %43, ptr %44, align 4
@@ -57095,7 +57083,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   %27 = bitcast float %26 to i32
   %28 = fcmp oeq float %26, 0.000000e+00
@@ -57109,7 +57097,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 32:                                               ; preds = %22
   %33 = lshr i32 %27, 23
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %34
   %36 = load i16, ptr %35, align 2
   %.not.i = icmp eq i16 %36, 0
   br i1 %.not.i, label %46, label %37
@@ -57136,7 +57124,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %29, %37
   %49 = add i64 %48, 1
   store i64 %49, ptr %2, align 8
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %50, i64 %48
+  %51 = getelementptr inbounds [72 x i8], ptr %50, i64 %48
   %52 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %51)
   %53 = bitcast float %52 to i32
   %54 = fcmp oeq float %52, 0.000000e+00
@@ -57150,7 +57138,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %29, %37
 58:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit
   %59 = lshr i32 %53, 23
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %60
   %62 = load i16, ptr %61, align 2
   %.not.i14 = icmp eq i16 %62, 0
   br i1 %.not.i14, label %72, label %63
@@ -57178,7 +57166,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit16: ; preds = %55, %
   %76 = add i64 %75, 1
   store i64 %76, ptr %2, align 8
   %77 = load ptr, ptr %1, align 8
-  %78 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %77, i64 %75
+  %78 = getelementptr inbounds [72 x i8], ptr %77, i64 %75
   %79 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %78)
   %80 = bitcast float %79 to i32
   %81 = fcmp oeq float %79, 0.000000e+00
@@ -57192,7 +57180,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit16: ; preds = %55, %
 85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit16
   %86 = lshr i32 %80, 23
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %87
   %89 = load i16, ptr %88, align 2
   %.not.i17 = icmp eq i16 %89, 0
   br i1 %.not.i17, label %99, label %90
@@ -57220,7 +57208,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit19: ; preds = %82, %
   %103 = add i64 %102, 1
   store i64 %103, ptr %2, align 8
   %104 = load ptr, ptr %1, align 8
-  %105 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %104, i64 %102
+  %105 = getelementptr inbounds [72 x i8], ptr %104, i64 %102
   %106 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %105)
   %107 = bitcast float %106 to i32
   %108 = fcmp oeq float %106, 0.000000e+00
@@ -57234,7 +57222,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit19: ; preds = %82, %
 112:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit19
   %113 = lshr i32 %107, 23
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %114
   %116 = load i16, ptr %115, align 2
   %.not.i20 = icmp eq i16 %116, 0
   br i1 %.not.i20, label %126, label %117
@@ -57324,11 +57312,11 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec4hES2_NS0_14_LocalTypeInfoIS2_EEE6_EqualERKNSt15aligned_storageILm8ELm8EE4typeESA_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 8
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57337,12 +57325,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57351,12 +57339,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br i1 %35, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57365,12 +57353,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = fcmp oeq float %41, %46
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57384,11 +57372,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5Equal
 define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7GfVec4hES2_NS0_14_LocalTypeInfoIS2_EEE9_EqualPtrERKNSt15aligned_storageILm8ELm8EE4typeEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #0 comdat align 2 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = load i16, ptr %1, align 2
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57397,12 +57385,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fcmp oeq float %17, %22
   br i1 %23, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57411,12 +57399,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %32
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %29, %34
   br i1 %35, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -57425,12 +57413,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = fcmp oeq float %41, %46
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfVec4hEvE5EqualERKS2_S5_.exit
@@ -58165,14 +58153,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store float %26, ptr %0, align 4
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %31, ptr %32, align 4
@@ -58180,7 +58168,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %37, ptr %38, align 4
@@ -58188,7 +58176,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %40 = add i64 %39, 1
   store i64 %40, ptr %2, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %41, i64 %39
+  %42 = getelementptr inbounds [72 x i8], ptr %41, i64 %39
   %43 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %43, ptr %44, align 4
@@ -59141,14 +59129,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store double %26, ptr %0, align 8
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
@@ -59156,7 +59144,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %37, ptr %38, align 8
@@ -59164,7 +59152,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %40 = add i64 %39, 1
   store i64 %40, ptr %2, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %41, i64 %39
+  %42 = getelementptr inbounds [72 x i8], ptr %41, i64 %39
   %43 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %43, ptr %44, align 8
@@ -60179,12 +60167,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %3, align 2
   %4 = zext i16 %.sroa.0.0.copyload.i.i.i.i to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.sroa.0.0.copyload.i3.i.i.i = load i16, ptr %7, align 2
   %8 = zext i16 %.sroa.0.0.copyload.i3.i.i.i to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60192,11 +60180,11 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 12:                                               ; preds = %2
   %13 = load i16, ptr %0, align 8
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
   %16 = load float, ptr %15, align 4
   %17 = load i16, ptr %1, align 8
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %16, %20
   br i1 %21, label %22, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60205,12 +60193,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
   %32 = load float, ptr %31, align 4
   %33 = fcmp oeq float %27, %32
   br i1 %33, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60219,12 +60207,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = fcmp oeq float %39, %44
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60239,12 +60227,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %3, align 2
   %4 = zext i16 %.sroa.0.0.copyload.i.i.i.i to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.sroa.0.0.copyload.i3.i.i.i = load i16, ptr %7, align 2
   %8 = zext i16 %.sroa.0.0.copyload.i3.i.i.i to i64
-  %9 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %8
   %10 = load float, ptr %9, align 4
   %11 = fcmp oeq float %6, %10
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60252,11 +60240,11 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 12:                                               ; preds = %2
   %13 = load i16, ptr %0, align 8
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %14
   %16 = load float, ptr %15, align 4
   %17 = load i16, ptr %1, align 2
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %16, %20
   br i1 %21, label %22, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60265,12 +60253,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %30
   %32 = load float, ptr %31, align 4
   %33 = fcmp oeq float %27, %32
   br i1 %33, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -60279,12 +60267,12 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %37
   %39 = load float, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = fcmp oeq float %39, %44
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_7GfQuathEvE5EqualERKS2_S5_.exit
@@ -61044,7 +61032,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers19MakeScalarValueImplEPfRKSt6vectorINS0_5ValueESaIS3_EERm.exit: ; preds = %24
   store i64 %25, ptr %2, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %34, i64 %7
+  %35 = getelementptr inbounds [72 x i8], ptr %34, i64 %7
   %36 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIfEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -62025,7 +62013,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers19MakeScalarValueImplEPdRKSt6vectorINS0_5ValueESaIS3_EERm.exit: ; preds = %24
   store i64 %25, ptr %2, align 8
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %34, i64 %7
+  %35 = getelementptr inbounds [72 x i8], ptr %34, i64 %7
   %36 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -62975,14 +62963,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store double %26, ptr %0, align 8
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
@@ -62990,7 +62978,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %37, ptr %38, align 8
@@ -62998,7 +62986,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %40 = add i64 %39, 1
   store i64 %40, ptr %2, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %41, i64 %39
+  %42 = getelementptr inbounds [72 x i8], ptr %41, i64 %39
   %43 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %43, ptr %44, align 8
@@ -63885,14 +63873,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store double %26, ptr %0, align 8
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
@@ -63900,7 +63888,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %37, ptr %38, align 8
@@ -63908,7 +63896,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %40 = add i64 %39, 1
   store i64 %40, ptr %2, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %41, i64 %39
+  %42 = getelementptr inbounds [72 x i8], ptr %41, i64 %39
   %43 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %43, ptr %44, align 8
@@ -63916,7 +63904,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %46 = add i64 %45, 1
   store i64 %46, ptr %2, align 8
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %47, i64 %45
+  %48 = getelementptr inbounds [72 x i8], ptr %47, i64 %45
   %49 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %48)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %49, ptr %50, align 8
@@ -63924,7 +63912,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %52 = add i64 %51, 1
   store i64 %52, ptr %2, align 8
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %53, i64 %51
+  %54 = getelementptr inbounds [72 x i8], ptr %53, i64 %51
   %55 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %54)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %55, ptr %56, align 8
@@ -63932,7 +63920,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %58 = add i64 %57, 1
   store i64 %58, ptr %2, align 8
   %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %59, i64 %57
+  %60 = getelementptr inbounds [72 x i8], ptr %59, i64 %57
   %61 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %60)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %61, ptr %62, align 8
@@ -63940,7 +63928,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %64 = add i64 %63, 1
   store i64 %64, ptr %2, align 8
   %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %65, i64 %63
+  %66 = getelementptr inbounds [72 x i8], ptr %65, i64 %63
   %67 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %66)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %67, ptr %68, align 8
@@ -63948,7 +63936,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %70 = add i64 %69, 1
   store i64 %70, ptr %2, align 8
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %71, i64 %69
+  %72 = getelementptr inbounds [72 x i8], ptr %71, i64 %69
   %73 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %73, ptr %74, align 8
@@ -64925,14 +64913,14 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %23 = add i64 %5, 1
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %24, i64 %5
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %5
   %26 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %25)
   store double %26, ptr %0, align 8
   %27 = load i64, ptr %2, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %2, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %29, i64 %27
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %27
   %31 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %31, ptr %32, align 8
@@ -64940,7 +64928,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %34 = add i64 %33, 1
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %35, i64 %33
+  %36 = getelementptr inbounds [72 x i8], ptr %35, i64 %33
   %37 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %37, ptr %38, align 8
@@ -64948,7 +64936,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %40 = add i64 %39, 1
   store i64 %40, ptr %2, align 8
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %41, i64 %39
+  %42 = getelementptr inbounds [72 x i8], ptr %41, i64 %39
   %43 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %42)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %43, ptr %44, align 8
@@ -64956,7 +64944,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %46 = add i64 %45, 1
   store i64 %46, ptr %2, align 8
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %47, i64 %45
+  %48 = getelementptr inbounds [72 x i8], ptr %47, i64 %45
   %49 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %48)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %49, ptr %50, align 8
@@ -64964,7 +64952,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %52 = add i64 %51, 1
   store i64 %52, ptr %2, align 8
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %53, i64 %51
+  %54 = getelementptr inbounds [72 x i8], ptr %53, i64 %51
   %55 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %54)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %55, ptr %56, align 8
@@ -64972,7 +64960,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %58 = add i64 %57, 1
   store i64 %58, ptr %2, align 8
   %59 = load ptr, ptr %1, align 8
-  %60 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %59, i64 %57
+  %60 = getelementptr inbounds [72 x i8], ptr %59, i64 %57
   %61 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %60)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %61, ptr %62, align 8
@@ -64980,7 +64968,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %64 = add i64 %63, 1
   store i64 %64, ptr %2, align 8
   %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %65, i64 %63
+  %66 = getelementptr inbounds [72 x i8], ptr %65, i64 %63
   %67 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %66)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %67, ptr %68, align 8
@@ -64988,7 +64976,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %70 = add i64 %69, 1
   store i64 %70, ptr %2, align 8
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %71, i64 %69
+  %72 = getelementptr inbounds [72 x i8], ptr %71, i64 %69
   %73 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %73, ptr %74, align 8
@@ -64996,7 +64984,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %76 = add i64 %75, 1
   store i64 %76, ptr %2, align 8
   %77 = load ptr, ptr %1, align 8
-  %78 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %77, i64 %75
+  %78 = getelementptr inbounds [72 x i8], ptr %77, i64 %75
   %79 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %78)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %79, ptr %80, align 8
@@ -65004,7 +64992,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %82 = add i64 %81, 1
   store i64 %82, ptr %2, align 8
   %83 = load ptr, ptr %1, align 8
-  %84 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %83, i64 %81
+  %84 = getelementptr inbounds [72 x i8], ptr %83, i64 %81
   %85 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %84)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %85, ptr %86, align 8
@@ -65012,7 +65000,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %88 = add i64 %87, 1
   store i64 %88, ptr %2, align 8
   %89 = load ptr, ptr %1, align 8
-  %90 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %89, i64 %87
+  %90 = getelementptr inbounds [72 x i8], ptr %89, i64 %87
   %91 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %90)
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %91, ptr %92, align 8
@@ -65020,7 +65008,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %94 = add i64 %93, 1
   store i64 %94, ptr %2, align 8
   %95 = load ptr, ptr %1, align 8
-  %96 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %95, i64 %93
+  %96 = getelementptr inbounds [72 x i8], ptr %95, i64 %93
   %97 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %96)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %97, ptr %98, align 8
@@ -65028,7 +65016,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %100 = add i64 %99, 1
   store i64 %100, ptr %2, align 8
   %101 = load ptr, ptr %1, align 8
-  %102 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %101, i64 %99
+  %102 = getelementptr inbounds [72 x i8], ptr %101, i64 %99
   %103 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %102)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %103, ptr %104, align 8
@@ -65036,7 +65024,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %106 = add i64 %105, 1
   store i64 %106, ptr %2, align 8
   %107 = load ptr, ptr %1, align 8
-  %108 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %107, i64 %105
+  %108 = getelementptr inbounds [72 x i8], ptr %107, i64 %105
   %109 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %108)
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %109, ptr %110, align 8
@@ -65044,7 +65032,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpe
   %112 = add i64 %111, 1
   store i64 %112, ptr %2, align 8
   %113 = load ptr, ptr %1, align 8
-  %114 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ParserHelpers::Value", ptr %113, i64 %111
+  %114 = getelementptr inbounds [72 x i8], ptr %113, i64 %111
   %115 = tail call noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value3GetIdEENS0_8_GetImplIT_vE10ResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %114)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %115, ptr %116, align 8

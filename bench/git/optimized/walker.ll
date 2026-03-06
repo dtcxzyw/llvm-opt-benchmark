@@ -126,7 +126,7 @@ st_mult.exit33:                                   ; preds = %15
   %.2 = phi i32 [ %17, %st_mult.exit33 ], [ %.02539, %13 ]
   %26 = call ptr @xstrdup(ptr noundef nonnull %9) #14
   %27 = load ptr, ptr %0, align 8, !tbaa !12
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %26, ptr %28, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.024, null
   br i1 %.not.i, label %31, label %29
@@ -138,7 +138,7 @@ st_mult.exit33:                                   ; preds = %15
 31:                                               ; preds = %29, %25
   %32 = phi ptr [ %30, %29 ], [ null, %25 ]
   %33 = load ptr, ptr %1, align 8, !tbaa !12
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store ptr %32, ptr %34, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load ptr, ptr @stdin, align 8, !tbaa !10
@@ -184,7 +184,7 @@ define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.lr.ph.split.us ], [ %5, %.lr.ph ]
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv10
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv10
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   tail call void @free(ptr noundef %7) #14
   %indvars.iv.next11 = add nsw i64 %indvars.iv10, -1
@@ -193,10 +193,10 @@ define dso_local void @walker_targets_free(i32 noundef %0, ptr noundef readonly 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %5, %.lr.ph ]
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   tail call void @free(ptr noundef %10) #14
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   tail call void @free(ptr noundef %12) #14
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -275,9 +275,9 @@ st_mult.exit:                                     ; preds = %5
 
 33:                                               ; preds = %.lr.ph, %process.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %process.exit ]
-  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw %struct.object_id, ptr %14, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [36 x i8], ptr %14, i64 %indvars.iv
   %37 = call i32 @get_oid_hex(ptr noundef %35, ptr noundef %36) #14
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %interpret_target.exit.thread, label %38
@@ -309,7 +309,7 @@ interpret_target.exit:                            ; preds = %40
   br label %interpret_target.exit.thread61
 
 interpret_target.exit.thread61:                   ; preds = %38, %interpret_target.exit
-  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !19
   %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %49) #14
   br label %301
@@ -844,7 +844,7 @@ loop.exit:                                        ; preds = %._crit_edge.i, %272
 
 281:                                              ; preds = %.lr.ph92, %295
   %indvars.iv113 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next114, %295 ]
-  %282 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv113
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv113
   %283 = load ptr, ptr %282, align 8, !tbaa !19
   %.not52 = icmp eq ptr %283, null
   br i1 %.not52, label %295, label %284
@@ -864,7 +864,7 @@ strbuf_setlen.exit:                               ; preds = %284, %286
   %287 = phi ptr [ %283, %284 ], [ %.pre, %286 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef %287) #14
   %288 = load ptr, ptr %279, align 8, !tbaa !14
-  %289 = getelementptr inbounds nuw %struct.object_id, ptr %14, i64 %indvars.iv113
+  %289 = getelementptr inbounds nuw [36 x i8], ptr %14, i64 %indvars.iv113
   %290 = call i32 @ref_transaction_update(ptr noundef %.040, ptr noundef %288, ptr noundef %289, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %280, ptr noundef nonnull %10) #14
   %.not54 = icmp eq i32 %290, 0
   br i1 %.not54, label %295, label %291

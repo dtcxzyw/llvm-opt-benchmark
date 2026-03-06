@@ -8,8 +8,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_tb_unlo
 
 %struct.acpi_table_list = type { ptr, i32, i32, i8 }
 %struct.acpi_rw_lock = type { ptr, ptr, i32 }
-%struct.acpi_table_desc = type { i64, ptr, i32, %union.acpi_name_union, i16, i8, i16 }
-%union.acpi_name_union = type { i32 }
 
 @acpi_gbl_enable_table_validation = external dso_local local_unnamed_addr global i8, align 1
 @_acpi_module_name = internal constant [7 x i8] c"tbdata\00", align 1
@@ -442,7 +440,7 @@ default.unreachable33:                            ; preds = %61
 .preheader:                                       ; preds = %51, %.critedge.thread
   %55 = phi i64 [ %98, %.critedge.thread ], [ 0, %51 ]
   %56 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %.split = getelementptr %struct.acpi_table_desc, ptr %56, i64 %55
+  %.split = getelementptr [32 x i8], ptr %56, i64 %55
   %57 = getelementptr i8, ptr %.split, i64 26
   %58 = load i8, ptr %57, align 2
   %59 = and i8 %58, 4
@@ -507,7 +505,7 @@ default.unreachable33:                            ; preds = %61
 
 92:                                               ; preds = %.critedge
   %93 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %.split12 = getelementptr %struct.acpi_table_desc, ptr %93, i64 %55
+  %.split12 = getelementptr [32 x i8], ptr %93, i64 %55
   %94 = getelementptr i8, ptr %.split12, i64 26
   %95 = load i8, ptr %94, align 2
   %96 = and i8 %95, 8
@@ -647,14 +645,14 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_resize_root_table_list() 
 30:                                               ; preds = %40, %28
   %31 = phi i64 [ 0, %28 ], [ %42, %40 ]
   %32 = phi i32 [ 0, %28 ], [ %41, %40 ]
-  %33 = getelementptr %struct.acpi_table_desc, ptr %24, i64 %31
+  %33 = getelementptr [32 x i8], ptr %24, i64 %31
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %30
   %37 = zext i32 %32 to i64
-  %38 = getelementptr %struct.acpi_table_desc, ptr %20, i64 %37
+  %38 = getelementptr [32 x i8], ptr %20, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %38, ptr noundef align 8 dereferenceable(32) %33, i64 32, i1 false)
   %39 = add i32 %32, 1
   br label %40
@@ -731,7 +729,7 @@ define dso_local noundef range(i32 0, 16) i32 @acpi_tb_get_next_table_descriptor
 16:                                               ; preds = %14
   %17 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %18 = zext i32 %10 to i64
-  %19 = getelementptr %struct.acpi_table_desc, ptr %17, i64 %18
+  %19 = getelementptr [32 x i8], ptr %17, i64 %18
   store ptr %19, ptr %1, align 8
   br label %20
 
@@ -750,7 +748,7 @@ define dso_local void @acpi_tb_terminate() local_unnamed_addr #2 align 16 {
 .preheader:                                       ; preds = %0, %.preheader
   %4 = phi i64 [ %7, %.preheader ], [ 0, %0 ]
   %5 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %6 = getelementptr %struct.acpi_table_desc, ptr %5, i64 %4
+  %6 = getelementptr [32 x i8], ptr %5, i64 %4
   tail call void @acpi_tb_uninstall_table(ptr noundef %6) #8
   %7 = add nuw nsw i64 %4, 1
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
@@ -804,7 +802,7 @@ define dso_local i32 @acpi_tb_delete_namespace_by_owner(i32 noundef %0) local_un
 9:                                                ; preds = %4
   %10 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %11 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %10, i64 %11
+  %.split = getelementptr [32 x i8], ptr %10, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load i16, ptr %12, align 8
   %14 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
@@ -841,7 +839,7 @@ define dso_local i32 @acpi_tb_allocate_owner_id(i32 noundef %0) local_unnamed_ad
 5:                                                ; preds = %1
   %6 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %7 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7
+  %.split = getelementptr [32 x i8], ptr %6, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = tail call i32 @acpi_ut_allocate_owner_id(ptr noundef %8) #8
   br label %10
@@ -865,7 +863,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_release_owner_id(i32 no
 5:                                                ; preds = %1
   %6 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %7 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7
+  %.split = getelementptr [32 x i8], ptr %6, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   tail call void @acpi_ut_release_owner_id(ptr noundef %8) #8
   br label %9
@@ -889,7 +887,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_get_owner_id(i32 nounde
 6:                                                ; preds = %2
   %7 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %8 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %7, i64 %8
+  %.split = getelementptr [32 x i8], ptr %7, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load i16, ptr %9, align 8
   store i16 %10, ptr %1, align 2
@@ -911,7 +909,7 @@ define dso_local zeroext range(i8 0, 9) i8 @acpi_tb_is_table_loaded(i32 noundef 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %7 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %6, i64 %7
+  %.split = getelementptr [32 x i8], ptr %6, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 26
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 8
@@ -934,7 +932,7 @@ define dso_local void @acpi_tb_set_table_loaded_flag(i32 noundef %0, i8 noundef 
   %7 = icmp eq i8 %1, 0
   %8 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %9 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %8, i64 %9
+  %.split = getelementptr [32 x i8], ptr %8, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 26
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, -9
@@ -975,7 +973,7 @@ define dso_local i32 @acpi_tb_load_table(i32 noundef %0, ptr noundef %1) local_u
 15:                                               ; preds = %9
   %16 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %17 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %16, i64 %17
+  %.split = getelementptr [32 x i8], ptr %16, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 24
   %19 = load i16, ptr %18, align 8
   %20 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
@@ -1063,7 +1061,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %8 = zext i32 %0 to i64
-  %.split = getelementptr %struct.acpi_table_desc, ptr %7, i64 %8
+  %.split = getelementptr [32 x i8], ptr %7, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 26
   %10 = load i8, ptr %9, align 2
   %11 = and i8 %10, 8
@@ -1099,7 +1097,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %.split.i = getelementptr %struct.acpi_table_desc, ptr %31, i64 %8
+  %.split.i = getelementptr [32 x i8], ptr %31, i64 %8
   %32 = getelementptr i8, ptr %.split.i, i64 24
   %33 = load i16, ptr %32, align 8
   %34 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #8
@@ -1117,7 +1115,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %.split3 = getelementptr %struct.acpi_table_desc, ptr %42, i64 %8
+  %.split3 = getelementptr [32 x i8], ptr %42, i64 %8
   %43 = getelementptr i8, ptr %.split3, i64 24
   call void @acpi_ut_release_owner_id(ptr noundef %43) #8
   br label %44
@@ -1131,7 +1129,7 @@ define dso_local i32 @acpi_tb_unload_table(i32 noundef %0) #2 align 16 {
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %.split4 = getelementptr %struct.acpi_table_desc, ptr %50, i64 %8
+  %.split4 = getelementptr [32 x i8], ptr %50, i64 %8
   %51 = getelementptr i8, ptr %.split4, i64 26
   %52 = load i8, ptr %51, align 2
   %53 = and i8 %52, -9

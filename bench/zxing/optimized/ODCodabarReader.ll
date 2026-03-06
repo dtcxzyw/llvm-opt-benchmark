@@ -143,9 +143,9 @@ define linkonce_odr noundef i32 @_ZN5ZXing4OneD9RowReader20NarrowWideBitPatternE
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %14 = and i64 %indvars.iv.i, 1
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %14
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %14
-  %17 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %14
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %14
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2, !tbaa !10
   %19 = load i16, ptr %15, align 2, !tbaa !10
   %.sroa.speculated8.i.i = tail call i16 @llvm.umin.i16(i16 %18, i16 %19)
@@ -233,11 +233,11 @@ _ZN5ZXing4OneD9RowReader19NarrowWideThresholdERKNS_11PatternViewE.exit: ; preds 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
   %.02123 = phi i32 [ 0, %.lr.ph.preheader ], [ %61, %57 ]
-  %48 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   %49 = load i16, ptr %48, align 2, !tbaa !10
   %50 = zext i16 %49 to i32
   %51 = and i64 %indvars.iv, 1
-  %52 = getelementptr inbounds nuw i16, ptr %4, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !10
   %54 = zext i16 %53 to i32
   %55 = shl nuw nsw i32 %54, 1
@@ -336,7 +336,7 @@ _ZN5ZXing4OneD11IsLeftGuardERKNS_11PatternViewEi.exit105: ; preds = %.lr.ph.i.i.
   %33 = phi i32 [ %12, %15 ], [ %.pre10.i.pre, %.lr.ph.i.i.i.i.i.i104.._crit_edge.i_crit_edge ], [ %12, %_ZNK5ZXing11PatternView3sumEi.exit.i102 ]
   %34 = phi ptr [ %16, %15 ], [ %.pre.i.pre, %.lr.ph.i.i.i.i.i.i104.._crit_edge.i_crit_edge ], [ %16, %_ZNK5ZXing11PatternView3sumEi.exit.i102 ]
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -56
   %.not9.i = icmp ult ptr %32, %37
   br i1 %.not9.i, label %.lr.ph.i, label %.critedge.i
@@ -423,7 +423,7 @@ _ZN5ZXing13FindLeftGuardILi7EPFbRKNS_11PatternViewEiEEES1_S3_iT0_.exit: ; preds 
 _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %_ZN5ZXing13FindLeftGuardILi7EPFbRKNS_11PatternViewEiEEES1_S3_iT0_.exit
   %60 = load i32, ptr %11, align 8, !tbaa !17
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i16, ptr %57, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %57, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !29
   %.not = icmp ugt ptr %62, %64
@@ -685,9 +685,9 @@ _ZN5ZXing6ResultC2Ev.exit:                        ; preds = %144
 _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %.preheader
   %167 = load i32, ptr %11, align 8, !tbaa !17
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i16, ptr %166, i64 %168
+  %169 = getelementptr inbounds [2 x i8], ptr %166, i64 %168
   store ptr %169, ptr %3, align 8, !tbaa !3
-  %170 = getelementptr inbounds i16, ptr %169, i64 %168
+  %170 = getelementptr inbounds [2 x i8], ptr %169, i64 %168
   %171 = load ptr, ptr %63, align 8, !tbaa !29
   %.not106 = icmp ugt ptr %170, %171
   br i1 %.not106, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %_ZN5ZXing11PatternView5shiftEi.exit.i
@@ -695,7 +695,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %.preheader
 _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternView10skipSymbolEv.exit
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 2
   store ptr %172, ptr %3, align 8, !tbaa !3
-  %173 = getelementptr inbounds i16, ptr %172, i64 %168
+  %173 = getelementptr inbounds [2 x i8], ptr %172, i64 %168
   %.not.i38 = icmp ugt ptr %173, %171
   br i1 %.not.i38, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %_ZN5ZXing11PatternView10skipSingleEi.exit
 
@@ -907,7 +907,7 @@ _ZN5ZXing6ResultC2Ev.exit62:                      ; preds = %240
   %269 = load ptr, ptr %3, align 8, !tbaa !3
   %270 = load i32, ptr %11, align 8, !tbaa !17
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i16, ptr %269, i64 %271
+  %272 = getelementptr inbounds [2 x i8], ptr %269, i64 %271
   %273 = load ptr, ptr %63, align 8, !tbaa !29
   %274 = getelementptr inbounds i8, ptr %273, i64 -2
   %275 = icmp eq ptr %272, %274
@@ -1027,7 +1027,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %314, 
   %.pre-phi = phi i64 [ %.pre132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %271, %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread ]
   %324 = phi ptr [ %.pre130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %269, %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread ]
   %325 = load ptr, ptr %58, align 8, !tbaa !28
-  %326 = getelementptr inbounds i16, ptr %324, i64 %.pre-phi
+  %326 = getelementptr inbounds [2 x i8], ptr %324, i64 %.pre-phi
   %.not6.i.i.i68 = icmp eq ptr %325, %326
   br i1 %.not6.i.i.i68, label %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit, label %.lr.ph.i.i.i69
 

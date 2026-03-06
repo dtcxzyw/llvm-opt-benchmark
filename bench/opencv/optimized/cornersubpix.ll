@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Point_" = type { float, float }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 
 $_ZN2cv5utils5trace7details6RegionD2Ev = comdat any
@@ -365,7 +364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %11
   %138 = fmul float %136, %137
   %139 = call noundef float @expf(float noundef %138) #16, !tbaa !32
   %140 = mul nuw nsw i64 %indvars.iv376, %131
-  %invariant.gep = getelementptr inbounds nuw float, ptr %127, i64 %140
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %140
   br label %141
 
 141:                                              ; preds = %.lr.ph, %141
@@ -378,7 +377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %11
   %147 = fmul float %145, %146
   %148 = call noundef float @expf(float noundef %147) #16, !tbaa !32
   %149 = fmul float %139, %148
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %149, ptr %gep, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -472,7 +471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %11
 
 188:                                              ; preds = %.lr.ph365, %309
   %indvars.iv398 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next399, %309 ]
-  %189 = getelementptr inbounds nuw %"class.cv::Point_", ptr %75, i64 %indvars.iv398
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv398
   %190 = load <2 x float>, ptr %189, align 4
   %191 = load i32, ptr %91, align 4, !tbaa !29
   %192 = load i32, ptr %95, align 8, !tbaa !30
@@ -567,7 +566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %20
   %218 = sitofp i32 %217 to double
   %sext = shl i64 %.0173349, 32
   %219 = ashr exact i64 %sext, 32
-  %invariant.gep415 = getelementptr float, ptr %.0197348, i64 %184
+  %invariant.gep415 = getelementptr [4 x i8], ptr %.0197348, i64 %184
   br label %220
 
 220:                                              ; preds = %.lr.ph335, %220
@@ -578,22 +577,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %20
   %.1205329 = phi double [ %.0204345, %.lr.ph335 ], [ %250, %220 ]
   %.1207328 = phi double [ %.0206344, %.lr.ph335 ], [ %249, %220 ]
   %.1209327 = phi double [ %.0208343, %.lr.ph335 ], [ %248, %220 ]
-  %221 = getelementptr inbounds float, ptr %127, i64 %indvars.iv388
+  %221 = getelementptr inbounds [4 x i8], ptr %127, i64 %indvars.iv388
   %222 = load float, ptr %221, align 4, !tbaa !33
   %223 = fpext float %222 to double
   %indvars.iv.next387 = add nuw nsw i64 %indvars.iv386, 1
-  %224 = getelementptr inbounds nuw float, ptr %.0197348, i64 %indvars.iv.next387
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %.0197348, i64 %indvars.iv.next387
   %225 = load float, ptr %224, align 4, !tbaa !33
-  %226 = getelementptr float, ptr %.0197348, i64 %indvars.iv386
+  %226 = getelementptr [4 x i8], ptr %.0197348, i64 %indvars.iv386
   %227 = getelementptr i8, ptr %226, i64 -4
   %228 = load float, ptr %227, align 4, !tbaa !33
   %229 = fsub float %225, %228
   %230 = fpext float %229 to double
-  %gep416 = getelementptr float, ptr %invariant.gep415, i64 %indvars.iv386
+  %gep416 = getelementptr [4 x i8], ptr %invariant.gep415, i64 %indvars.iv386
   %231 = getelementptr inbounds nuw i8, ptr %gep416, i64 8
   %232 = load float, ptr %231, align 4, !tbaa !33
   %233 = sub nsw i64 %indvars.iv386, %184
-  %234 = getelementptr float, ptr %.0197348, i64 %233
+  %234 = getelementptr [4 x i8], ptr %.0197348, i64 %233
   %235 = getelementptr i8, ptr %234, i64 -8
   %236 = load float, ptr %235, align 4, !tbaa !33
   %237 = fsub float %232, %236
@@ -630,7 +629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %20
 ._crit_edge336:                                   ; preds = %220
   %259 = add nsw i64 %219, %186
   %260 = add nuw nsw i32 %.2350, 1
-  %261 = getelementptr inbounds nuw float, ptr %.0197348, i64 %.sroa.0270.0.insert.ext
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %.0197348, i64 %.sroa.0270.0.insert.ext
   %exitcond397.not = icmp eq i32 %.2350, %smax396
   br i1 %exitcond397.not, label %._crit_edge353, label %.lr.ph335, !llvm.loop !45
 

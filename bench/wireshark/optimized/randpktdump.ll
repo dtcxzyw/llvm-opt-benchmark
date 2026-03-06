@@ -209,7 +209,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %44 = load i32, ptr @ws_optind, align 4
   %45 = add i32 %44, -1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr %1, i64 %46
+  %47 = getelementptr [8 x i8], ptr %1, i64 %46
   %48 = load ptr, ptr %47, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 254, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.30, ptr noundef %48)
   br label %.preheader.backedge
@@ -225,7 +225,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %54 = load i32, ptr @ws_optind, align 4
   %55 = add i32 %54, -1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr ptr, ptr %1, i64 %56
+  %57 = getelementptr [8 x i8], ptr %1, i64 %56
   %58 = load ptr, ptr %57, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 261, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.31, ptr noundef %58)
   br label %.loopexit
@@ -441,7 +441,7 @@ define internal fastcc void @help(ptr noundef %0) unnamed_addr #0 {
   %8 = phi i64 [ %16, %12 ], [ 0, %1 ]
   %.09 = phi i32 [ %14, %12 ], [ 0, %1 ]
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr ptr, ptr %9, i64 %8
+  %10 = getelementptr [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8
   %.not7 = icmp eq ptr %11, null
   br i1 %.not7, label %.critedge, label %12
@@ -451,7 +451,7 @@ define internal fastcc void @help(ptr noundef %0) unnamed_addr #0 {
   %14 = add i32 %.09, 1
   %15 = load ptr, ptr %2, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
@@ -537,7 +537,7 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
 
 .lr.ph:                                           ; preds = %.lr.ph23
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %28
+  %21 = getelementptr [8 x i8], ptr %20, i64 %28
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %.critedge, label %.lr.ph23, !llvm.loop !11
@@ -550,7 +550,7 @@ define internal fastcc range(i32 0, 2) i32 @list_config(ptr noundef %0) unnamed_
   %26 = add i32 %.01522, 1
   %27 = load ptr, ptr %3, align 8
   %28 = zext i32 %26 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not12 = icmp eq ptr %30, null
   br i1 %.not12, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11

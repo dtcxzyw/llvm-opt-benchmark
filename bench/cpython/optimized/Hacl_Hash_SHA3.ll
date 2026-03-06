@@ -32,11 +32,11 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef z
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   %11 = mul i32 %switch.load, %3
   %12 = zext nneg i8 %0 to i64
-  %13 = getelementptr i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %12
+  %13 = getelementptr [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %12
   %switch.gep49 = getelementptr i8, ptr %13, i64 -32
   %switch.load50 = load i32, ptr %switch.gep49, align 4
   %14 = udiv i32 %11, %switch.load50
@@ -327,9 +327,9 @@ define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captur
 
 90:                                               ; preds = %2, %90
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %91 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %92 = load i64, ptr %91, align 8, !tbaa !10
-  %93 = getelementptr i64, ptr %3, i64 %indvars.iv
+  %93 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !10
   %95 = xor i64 %94, %92
   store i64 %95, ptr %91, align 8, !tbaa !10
@@ -574,7 +574,7 @@ define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captur
   store i64 %271, ptr %79, align 8, !tbaa !10
   store i64 %274, ptr %84, align 8, !tbaa !10
   store i64 %277, ptr %89, align 8, !tbaa !10
-  %278 = getelementptr i64, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv659
+  %278 = getelementptr [8 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv659
   %279 = load i64, ptr %278, align 8, !tbaa !10
   %280 = xor i64 %183, %279
   %281 = xor i64 %280, %179
@@ -586,12 +586,12 @@ define internal fastcc void @absorb_inner_32(ptr noundef nonnull readonly captur
 282:                                              ; preds = %97, %282
   %indvars.iv655 = phi i64 [ 0, %97 ], [ %indvars.iv.next656, %282 ]
   %.0609652 = phi i64 [ %152, %97 ], [ %289, %282 ]
-  %283 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv655
+  %283 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv655
   %284 = load i32, ptr %283, align 4, !tbaa !14
-  %285 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv655
+  %285 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv655
   %286 = load i32, ptr %285, align 4, !tbaa !14
   %287 = zext i32 %284 to i64
-  %288 = getelementptr i64, ptr %1, i64 %287
+  %288 = getelementptr [8 x i8], ptr %1, i64 %287
   %289 = load i64, ptr %288, align 8, !tbaa !10
   %290 = zext nneg i32 %286 to i64
   %291 = shl i64 %.0609652, %290
@@ -628,7 +628,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_update_last_sha3(i8 noundef ze
 
 switch.lookup:                                    ; preds = %4
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   %17 = icmp eq i32 %3, %switch.load
   br i1 %17, label %18, label %30
@@ -648,9 +648,9 @@ switch.lookup:                                    ; preds = %4
 
 21:                                               ; preds = %18, %21
   %indvars.iv1352 = phi i64 [ 0, %18 ], [ %indvars.iv.next1353, %21 ]
-  %22 = getelementptr i64, ptr %1, i64 %indvars.iv1352
+  %22 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv1352
   %23 = load i64, ptr %22, align 8, !tbaa !10
-  %24 = getelementptr i64, ptr %6, i64 %indvars.iv1352
+  %24 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv1352
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = xor i64 %25, %23
   store i64 %26, ptr %22, align 8, !tbaa !10
@@ -813,9 +813,9 @@ switch.lookup:                                    ; preds = %4
 
 100:                                              ; preds = %30, %100
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %100 ]
-  %101 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %101 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8, !tbaa !10
-  %103 = getelementptr i64, ptr %9, i64 %indvars.iv
+  %103 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv
   %104 = load i64, ptr %103, align 8, !tbaa !10
   %105 = xor i64 %104, %102
   store i64 %105, ptr %101, align 8, !tbaa !10
@@ -860,7 +860,7 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA3_malloc(i8 nound
 
 block_len.exit:                                   ; preds = %1
   %5 = zext nneg i8 %0 to i64
-  %6 = getelementptr i64, ptr @switch.table.digest_.18, i64 %5
+  %6 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %5
   %switch.gep = getelementptr i8, ptr %6, i64 -64
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = tail call noalias ptr @calloc(i64 noundef %switch.load, i64 noundef 1) #19
@@ -1045,7 +1045,7 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA3_update(pt
 
 switch.lookup:                                    ; preds = %9
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.digest_.18, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.digest_.18, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   %15 = urem i64 %.sroa.5162.0.copyload, %switch.load
   %16 = icmp eq i64 %15, 0
@@ -1077,7 +1077,7 @@ default.unreachable:                              ; preds = %18
 
 switch.lookup398:                                 ; preds = %switch.lookup
   %19 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %20 = getelementptr i64, ptr @switch.table.digest_.18, i64 %19
+  %20 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %19
   %switch.gep399 = getelementptr i8, ptr %20, i64 -64
   %switch.load400 = load i64, ptr %switch.gep399, align 8
   %21 = urem i64 %.sroa.5162.0.copyload, %switch.load400
@@ -1121,7 +1121,7 @@ switch.lookup402:                                 ; preds = %block_len.exit212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %.sroa.4119.0.copyload = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
   %28 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %29 = getelementptr i64, ptr @switch.table.digest_.18, i64 %28
+  %29 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %28
   %switch.gep403 = getelementptr i8, ptr %29, i64 -64
   %switch.load404 = load i64, ptr %switch.gep403, align 8
   %30 = urem i64 %.sroa.5162.0.copyload, %switch.load404
@@ -1132,12 +1132,12 @@ switch.lookup402:                                 ; preds = %block_len.exit212
   br i1 %or.cond3, label %switch.lookup406, label %switch.lookup410
 
 switch.lookup406:                                 ; preds = %switch.lookup402
-  %switch.gep407 = getelementptr inbounds nuw i64, ptr @switch.table.digest_.18, i64 %32
+  %switch.gep407 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.digest_.18, i64 %32
   %switch.load408 = load i64, ptr %switch.gep407, align 8
   br label %block_len.exit216
 
 switch.lookup410:                                 ; preds = %switch.lookup402
-  %switch.gep411 = getelementptr inbounds nuw i64, ptr @switch.table.digest_.18, i64 %32
+  %switch.gep411 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.digest_.18, i64 %32
   %switch.load412 = load i64, ptr %switch.gep411, align 8
   %33 = urem i64 %.sroa.5162.0.copyload, %switch.load412
   br label %block_len.exit216
@@ -1160,7 +1160,7 @@ switch.lookup414:                                 ; preds = %36
   %.sroa.5103.0.copyload = load ptr, ptr %.sroa.5103.0..sroa_idx, align 8, !tbaa !20
   %.sroa.6104.0.copyload = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
   %38 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %39 = getelementptr i64, ptr @switch.table.digest_.18, i64 %38
+  %39 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %38
   %switch.gep415 = getelementptr i8, ptr %39, i64 -64
   %switch.load416 = load i64, ptr %switch.gep415, align 8
   %40 = urem i64 %.sroa.5162.0.copyload, %switch.load416
@@ -1170,7 +1170,7 @@ switch.lookup414:                                 ; preds = %36
 
 switch.lookup418:                                 ; preds = %switch.lookup414
   %42 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %43 = getelementptr i64, ptr @switch.table.digest_.18, i64 %42
+  %43 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %42
   %switch.gep419 = getelementptr i8, ptr %43, i64 -64
   %switch.load420 = load i64, ptr %switch.gep419, align 8
   %44 = urem i64 %.sroa.5162.0.copyload, %switch.load420
@@ -1183,7 +1183,7 @@ block_len.exit222:                                ; preds = %switch.lookup414, %
 
 switch.lookup422:                                 ; preds = %block_len.exit222, %switch.lookup418
   %46 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %47 = getelementptr i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %46
+  %47 = getelementptr [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %46
   %switch.gep423 = getelementptr i8, ptr %47, i64 -32
   %switch.load424 = load i32, ptr %switch.gep423, align 4
   %48 = urem i32 %2, %switch.load424
@@ -1221,7 +1221,7 @@ default.unreachable367:                           ; preds = %50
 
 switch.lookup426:                                 ; preds = %switch.lookup422
   %55 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %56 = getelementptr i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %55
+  %56 = getelementptr [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %55
   %switch.gep427 = getelementptr i8, ptr %56, i64 -32
   %switch.load428 = load i32, ptr %switch.gep427, align 4
   %57 = urem i32 %2, %switch.load428
@@ -1427,12 +1427,12 @@ block_len.exit244:                                ; preds = %block_len.exit242.t
   br i1 %or.cond10, label %switch.lookup430, label %switch.lookup434
 
 switch.lookup430:                                 ; preds = %block_len.exit244
-  %switch.gep431 = getelementptr inbounds nuw i64, ptr @switch.table.digest_.18, i64 %114
+  %switch.gep431 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.digest_.18, i64 %114
   %switch.load432 = load i64, ptr %switch.gep431, align 8
   br label %block_len.exit246
 
 switch.lookup434:                                 ; preds = %block_len.exit244
-  %switch.gep435 = getelementptr inbounds nuw i64, ptr @switch.table.digest_.18, i64 %114
+  %switch.gep435 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.digest_.18, i64 %114
   %switch.load436 = load i64, ptr %switch.gep435, align 8
   %115 = urem i64 %.sroa.5162.0.copyload, %switch.load436
   br label %block_len.exit246
@@ -1450,7 +1450,7 @@ block_len.exit246:                                ; preds = %switch.lookup430, %
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !20
   %119 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %120 = getelementptr i64, ptr @switch.table.digest_.18, i64 %119
+  %120 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %119
   %switch.gep439 = getelementptr i8, ptr %120, i64 -64
   %switch.load440 = load i64, ptr %switch.gep439, align 8
   %121 = urem i64 %117, %switch.load440
@@ -1461,7 +1461,7 @@ block_len.exit246:                                ; preds = %switch.lookup430, %
 
 switch.lookup442:                                 ; preds = %block_len.exit246
   %124 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %125 = getelementptr i64, ptr @switch.table.digest_.18, i64 %124
+  %125 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %124
   %switch.gep443 = getelementptr i8, ptr %125, i64 -64
   %switch.load444 = load i64, ptr %switch.gep443, align 8
   %126 = urem i64 %117, %switch.load444
@@ -1498,7 +1498,7 @@ switch.lookup448:                                 ; preds = %switch.lookup460, %
   %135 = sub i32 %2, %111
   %136 = zext i32 %135 to i64
   %137 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %138 = getelementptr i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %137
+  %138 = getelementptr [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %137
   %switch.gep449 = getelementptr i8, ptr %138, i64 -32
   %switch.load450 = load i32, ptr %switch.gep449, align 4
   %139 = urem i32 %135, %switch.load450
@@ -1538,7 +1538,7 @@ default.unreachable386:                           ; preds = %141
 
 switch.lookup452:                                 ; preds = %switch.lookup448
   %146 = zext nneg i8 %.sroa.0159.0.copyload to i64
-  %147 = getelementptr i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %146
+  %147 = getelementptr [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %146
   %switch.gep453 = getelementptr i8, ptr %147, i64 -32
   %switch.load454 = load i32, ptr %switch.gep453, align 4
   %148 = urem i32 %135, %switch.load454
@@ -1624,7 +1624,7 @@ switch.lookup456:                                 ; preds = %block_len.exit268
   %166 = getelementptr i8, ptr %109, i64 %165
   %167 = sub i32 %135, %164
   %168 = zext nneg i8 %switch.tableidx455 to i64
-  %switch.gep457 = getelementptr inbounds nuw i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %168
+  %switch.gep457 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %168
   %switch.load458 = load i32, ptr %switch.gep457, align 4
   %169 = udiv i32 %164, %switch.load458
   tail call void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %.sroa.0.0.copyload, ptr noundef %.sroa.5.0.copyload, ptr noundef %109, i32 noundef %169)
@@ -1668,7 +1668,7 @@ define hidden zeroext range(i8 0, 2) i8 @python_hashlib_Hacl_Hash_SHA3_digest(pt
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_hash_len, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_hash_len, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call fastcc void @digest_(i8 noundef zeroext %.sroa.0.0.copyload.i, ptr noundef nonnull %0, ptr noundef %1, i32 noundef %switch.load)
   br label %10
@@ -1704,7 +1704,7 @@ define internal fastcc void @digest_(i8 noundef zeroext %0, ptr noundef readonly
 
 switch.lookup:                                    ; preds = %4
   %15 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.digest_.18, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.digest_.18, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = urem i64 %.sroa.6.0.copyload, %switch.load
   %17 = icmp eq i64 %16, 0
@@ -1751,7 +1751,7 @@ default.unreachable:                              ; preds = %19
 
 switch.lookup1320:                                ; preds = %switch.lookup
   %20 = zext nneg i8 %0 to i64
-  %21 = getelementptr i64, ptr @switch.table.digest_.18, i64 %20
+  %21 = getelementptr [8 x i8], ptr @switch.table.digest_.18, i64 %20
   %switch.gep1321 = getelementptr i8, ptr %21, i64 -64
   %switch.load1322 = load i64, ptr %switch.gep1321, align 8
   %22 = urem i64 %.sroa.6.0.copyload, %switch.load1322
@@ -1888,7 +1888,7 @@ block_len.exit1200:                               ; preds = %block_len.exit1196,
   %switch.tableidx1325 = add nsw i8 %0, -9
   %77 = icmp ult i8 %switch.tableidx1325, 4
   %78 = zext nneg i8 %switch.tableidx1325 to i64
-  %switch.gep1327 = getelementptr inbounds nuw i32, ptr @switch.table.digest_.19, i64 %78
+  %switch.gep1327 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.digest_.19, i64 %78
   %.200..sroa_idx1338 = getelementptr inbounds nuw i8, ptr %7, i64 200
   br label %.preheader.split
 
@@ -1909,7 +1909,7 @@ block_len.exit1202:                               ; preds = %.preheader.split, %
 
 switch.lookup1330:                                ; preds = %block_len.exit1202
   %82 = zext nneg i8 %0 to i64
-  %83 = getelementptr i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %82
+  %83 = getelementptr [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %82
   %switch.gep1331 = getelementptr i8, ptr %83, i64 -32
   %switch.load1332 = load i32, ptr %switch.gep1331, align 4
   %.200..sroa_idx1337 = getelementptr inbounds nuw i8, ptr %8, i64 200
@@ -2262,7 +2262,7 @@ block_len.exit1208:                               ; preds = %block_len.exit1206.
   store i64 %288, ptr %66, align 16, !tbaa !10
   store i64 %291, ptr %71, align 8, !tbaa !10
   store i64 %294, ptr %76, align 16, !tbaa !10
-  %295 = getelementptr i64, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv1281
+  %295 = getelementptr [8 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv1281
   %296 = load i64, ptr %295, align 8, !tbaa !10
   %297 = xor i64 %200, %296
   %298 = xor i64 %297, %196
@@ -2274,12 +2274,12 @@ block_len.exit1208:                               ; preds = %block_len.exit1206.
 299:                                              ; preds = %114, %299
   %indvars.iv = phi i64 [ 0, %114 ], [ %indvars.iv.next, %299 ]
   %.011811275 = phi i64 [ %169, %114 ], [ %306, %299 ]
-  %300 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv
+  %300 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv
   %301 = load i32, ptr %300, align 4, !tbaa !14
-  %302 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv
+  %302 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv
   %303 = load i32, ptr %302, align 4, !tbaa !14
   %304 = zext i32 %301 to i64
-  %305 = getelementptr i64, ptr %5, i64 %304
+  %305 = getelementptr [8 x i8], ptr %5, i64 %304
   %306 = load i64, ptr %305, align 8, !tbaa !10
   %307 = zext nneg i32 %303 to i64
   %308 = shl i64 %.011811275, %307
@@ -2300,7 +2300,7 @@ block_len.exit1211:                               ; preds = %block_len.exit1200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %10, ptr noundef nonnull align 16 dereferenceable(200) %5, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull align 16 dereferenceable(256) %10, i64 256, i1 false)
   %313 = zext nneg i8 %0 to i64
-  %314 = getelementptr i64, ptr @switch.table.digest_.21, i64 %313
+  %314 = getelementptr [8 x i8], ptr @switch.table.digest_.21, i64 %313
   %switch.gep1335 = getelementptr i8, ptr %314, i64 -64
   %switch.load1336 = load i64, ptr %switch.gep1335, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(1) %9, i64 %switch.load1336, i1 false)
@@ -2348,7 +2348,7 @@ define hidden range(i32 72, 169) i32 @python_hashlib_Hacl_Hash_SHA3_block_len(pt
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_block_len, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2368,7 +2368,7 @@ define hidden range(i32 28, 65) i32 @python_hashlib_Hacl_Hash_SHA3_hash_len(ptr 
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_hash_len, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.python_hashlib_Hacl_Hash_SHA3_hash_len, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2563,9 +2563,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr no
 
 91:                                               ; preds = %3, %91
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr i64, ptr %2, i64 %indvars.iv
+  %92 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %93 = load i64, ptr %92, align 8, !tbaa !10
-  %94 = getelementptr i64, ptr %4, i64 %indvars.iv
+  %94 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv
   %95 = load i64, ptr %94, align 8, !tbaa !10
   %96 = xor i64 %95, %93
   store i64 %96, ptr %92, align 8, !tbaa !10
@@ -2810,7 +2810,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr no
   store i64 %272, ptr %80, align 8, !tbaa !10
   store i64 %275, ptr %85, align 8, !tbaa !10
   store i64 %278, ptr %90, align 8, !tbaa !10
-  %279 = getelementptr i64, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv659
+  %279 = getelementptr [8 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv659
   %280 = load i64, ptr %279, align 8, !tbaa !10
   %281 = xor i64 %184, %280
   %282 = xor i64 %281, %180
@@ -2822,12 +2822,12 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_absorb_inner_32(i32 %0, ptr no
 283:                                              ; preds = %98, %283
   %indvars.iv655 = phi i64 [ 0, %98 ], [ %indvars.iv.next656, %283 ]
   %.0609652 = phi i64 [ %153, %98 ], [ %290, %283 ]
-  %284 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv655
+  %284 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv655
   %285 = load i32, ptr %284, align 4, !tbaa !14
-  %286 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv655
+  %286 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv655
   %287 = load i32, ptr %286, align 4, !tbaa !14
   %288 = zext i32 %285 to i64
-  %289 = getelementptr i64, ptr %2, i64 %288
+  %289 = getelementptr [8 x i8], ptr %2, i64 %288
   %290 = load i64, ptr %289, align 8, !tbaa !10
   %291 = zext nneg i32 %287 to i64
   %292 = shl i64 %.0609652, %291
@@ -3075,9 +3075,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
 
 111:                                              ; preds = %._crit_edge, %111
   %indvars.iv541 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next542, %111 ]
-  %112 = getelementptr i64, ptr %5, i64 %indvars.iv541
+  %112 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv541
   %113 = load i64, ptr %112, align 8, !tbaa !10
-  %114 = getelementptr i64, ptr %8, i64 %indvars.iv541
+  %114 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv541
   %115 = load i64, ptr %114, align 8, !tbaa !10
   %116 = xor i64 %115, %113
   store i64 %116, ptr %112, align 8, !tbaa !10
@@ -3368,7 +3368,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
   store i64 %301, ptr %100, align 16, !tbaa !10
   store i64 %304, ptr %105, align 8, !tbaa !10
   store i64 %307, ptr %110, align 16, !tbaa !10
-  %308 = getelementptr i64, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv552
+  %308 = getelementptr [8 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv552
   %309 = load i64, ptr %308, align 8, !tbaa !10
   %310 = xor i64 %213, %309
   %311 = xor i64 %310, %209
@@ -3380,12 +3380,12 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128(ptr noundef writeonly
 312:                                              ; preds = %127, %312
   %indvars.iv548 = phi i64 [ 0, %127 ], [ %indvars.iv.next549, %312 ]
   %.0487532 = phi i64 [ %182, %127 ], [ %319, %312 ]
-  %313 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv548
+  %313 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv548
   %314 = load i32, ptr %313, align 4, !tbaa !14
-  %315 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv548
+  %315 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv548
   %316 = load i32, ptr %315, align 4, !tbaa !14
   %317 = zext i32 %314 to i64
-  %318 = getelementptr i64, ptr %5, i64 %317
+  %318 = getelementptr [8 x i8], ptr %5, i64 %317
   %319 = load i64, ptr %318, align 8, !tbaa !10
   %320 = zext nneg i32 %316 to i64
   %321 = shl i64 %.0487532, %320
@@ -3633,9 +3633,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
 
 111:                                              ; preds = %._crit_edge, %111
   %indvars.iv541 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next542, %111 ]
-  %112 = getelementptr i64, ptr %5, i64 %indvars.iv541
+  %112 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv541
   %113 = load i64, ptr %112, align 8, !tbaa !10
-  %114 = getelementptr i64, ptr %8, i64 %indvars.iv541
+  %114 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv541
   %115 = load i64, ptr %114, align 8, !tbaa !10
   %116 = xor i64 %115, %113
   store i64 %116, ptr %112, align 8, !tbaa !10
@@ -3926,7 +3926,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
   store i64 %301, ptr %100, align 16, !tbaa !10
   store i64 %304, ptr %105, align 8, !tbaa !10
   store i64 %307, ptr %110, align 16, !tbaa !10
-  %308 = getelementptr i64, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv552
+  %308 = getelementptr [8 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv552
   %309 = load i64, ptr %308, align 8, !tbaa !10
   %310 = xor i64 %213, %309
   %311 = xor i64 %310, %209
@@ -3938,12 +3938,12 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake256(ptr noundef writeonly
 312:                                              ; preds = %127, %312
   %indvars.iv548 = phi i64 [ 0, %127 ], [ %indvars.iv.next549, %312 ]
   %.0487532 = phi i64 [ %182, %127 ], [ %319, %312 ]
-  %313 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv548
+  %313 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv548
   %314 = load i32, ptr %313, align 4, !tbaa !14
-  %315 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv548
+  %315 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv548
   %316 = load i32, ptr %315, align 4, !tbaa !14
   %317 = zext i32 %314 to i64
-  %318 = getelementptr i64, ptr %5, i64 %317
+  %318 = getelementptr [8 x i8], ptr %5, i64 %317
   %319 = load i64, ptr %318, align 8, !tbaa !10
   %320 = zext nneg i32 %316 to i64
   %321 = shl i64 %.0487532, %320
@@ -4144,9 +4144,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_224(ptr noundef writeonly
 
 84:                                               ; preds = %._crit_edge, %84
   %indvars.iv521 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next522, %84 ]
-  %85 = getelementptr i64, ptr %4, i64 %indvars.iv521
+  %85 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv521
   %86 = load i64, ptr %85, align 8, !tbaa !10
-  %87 = getelementptr i64, ptr %7, i64 %indvars.iv521
+  %87 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv521
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %89 = xor i64 %88, %86
   store i64 %89, ptr %85, align 8, !tbaa !10
@@ -4342,9 +4342,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_256(ptr noundef writeonly
 
 84:                                               ; preds = %._crit_edge, %84
   %indvars.iv521 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next522, %84 ]
-  %85 = getelementptr i64, ptr %4, i64 %indvars.iv521
+  %85 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv521
   %86 = load i64, ptr %85, align 8, !tbaa !10
-  %87 = getelementptr i64, ptr %7, i64 %indvars.iv521
+  %87 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv521
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %89 = xor i64 %88, %86
   store i64 %89, ptr %85, align 8, !tbaa !10
@@ -4540,9 +4540,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_384(ptr noundef writeonly
 
 84:                                               ; preds = %._crit_edge, %84
   %indvars.iv521 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next522, %84 ]
-  %85 = getelementptr i64, ptr %4, i64 %indvars.iv521
+  %85 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv521
   %86 = load i64, ptr %85, align 8, !tbaa !10
-  %87 = getelementptr i64, ptr %7, i64 %indvars.iv521
+  %87 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv521
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %89 = xor i64 %88, %86
   store i64 %89, ptr %85, align 8, !tbaa !10
@@ -4738,9 +4738,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_sha3_512(ptr noundef writeonly
 
 84:                                               ; preds = %._crit_edge, %84
   %indvars.iv521 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next522, %84 ]
-  %85 = getelementptr i64, ptr %4, i64 %indvars.iv521
+  %85 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv521
   %86 = load i64, ptr %85, align 8, !tbaa !10
-  %87 = getelementptr i64, ptr %7, i64 %indvars.iv521
+  %87 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv521
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %89 = xor i64 %88, %86
   store i64 %89, ptr %85, align 8, !tbaa !10
@@ -4948,9 +4948,9 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_absorb_final(ptr noun
 
 78:                                               ; preds = %3, %78
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %78 ]
-  %79 = getelementptr i64, ptr %0, i64 %indvars.iv
+  %79 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %80 = load i64, ptr %79, align 8, !tbaa !10
-  %81 = getelementptr i64, ptr %5, i64 %indvars.iv
+  %81 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %82 = load i64, ptr %81, align 8, !tbaa !10
   %83 = xor i64 %82, %80
   store i64 %83, ptr %79, align 8, !tbaa !10
@@ -5264,7 +5264,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_squeeze_nblocks(ptr n
   store i64 %208, ptr %18, align 8, !tbaa !10
   store i64 %211, ptr %23, align 8, !tbaa !10
   store i64 %214, ptr %28, align 8, !tbaa !10
-  %215 = getelementptr i64, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv566
+  %215 = getelementptr [8 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rndc, i64 %indvars.iv566
   %216 = load i64, ptr %215, align 8, !tbaa !10
   %217 = xor i64 %216, %120
   store i64 %217, ptr %0, align 8, !tbaa !10
@@ -5275,12 +5275,12 @@ define hidden void @python_hashlib_Hacl_Hash_SHA3_shake128_squeeze_nblocks(ptr n
 218:                                              ; preds = %33, %218
   %indvars.iv = phi i64 [ 0, %33 ], [ %indvars.iv.next, %218 ]
   %.0549561 = phi i64 [ %88, %33 ], [ %225, %218 ]
-  %219 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv
+  %219 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_piln, i64 %indvars.iv
   %220 = load i32, ptr %219, align 4, !tbaa !14
-  %221 = getelementptr i32, ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv
+  %221 = getelementptr [4 x i8], ptr @python_hashlib_Hacl_Hash_SHA3_keccak_rotc, i64 %indvars.iv
   %222 = load i32, ptr %221, align 4, !tbaa !14
   %223 = zext i32 %220 to i64
-  %224 = getelementptr i64, ptr %0, i64 %223
+  %224 = getelementptr [8 x i8], ptr %0, i64 %223
   %225 = load i64, ptr %224, align 8, !tbaa !10
   %226 = zext nneg i32 %222 to i64
   %227 = shl i64 %.0549561, %226

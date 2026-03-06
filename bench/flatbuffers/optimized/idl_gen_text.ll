@@ -10786,7 +10786,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -11079,7 +11079,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -11372,7 +11372,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -11665,7 +11665,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -11958,7 +11958,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -12251,7 +12251,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -12544,7 +12544,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -12837,7 +12837,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26: ; preds = %_ZN11flatbuffers1
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i64, ptr %147, align 8, !tbaa !29
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %146, i64 noundef %148, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %150 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   br label %151
 
 151:                                              ; preds = %.split, %_ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit26
@@ -14332,7 +14332,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %147 = load i16, ptr %146, align 2, !tbaa !192
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIsEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef signext %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14613,7 +14613,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %147 = load i16, ptr %146, align 2, !tbaa !192
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarItEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -14894,7 +14894,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4, !tbaa !135
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIiEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15175,7 +15175,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4, !tbaa !135
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIjEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15456,7 +15456,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %147 = load i64, ptr %146, align 8, !tbaa !207
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIlEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15737,7 +15737,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %147 = load i64, ptr %146, align 8, !tbaa !207
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarImEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -16018,7 +16018,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %147 = load float, ptr %146, align 4, !tbaa !209
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIfEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -16299,7 +16299,7 @@ _ZN11flatbuffers11JsonPrinter10AddNewLineEv.exit25: ; preds = %_ZNSt7__cxx1112ba
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !29
   %145 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %144, i64 noundef 0, i64 noundef %51, i8 noundef signext 32)
-  %146 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %147 = load double, ptr %146, align 8, !tbaa !211
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIdEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %147, ptr noundef nonnull align 8 dereferenceable(26) %3, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

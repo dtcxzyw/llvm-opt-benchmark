@@ -23,12 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.grpc_core::NoInterceptor" = type { i8 }
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
 %"struct.std::__atomic_base.1" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
 %"class.grpc_core::MessageSizeParsedConfig" = type { %"class.grpc_core::ServiceConfigParser::ParsedConfig", %"class.std::optional", %"class.std::optional" }
 %"class.grpc_core::ServiceConfigParser::ParsedConfig" = type { ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
@@ -36,6 +30,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.20" }
+%"struct.std::_Head_base.20" = type { ptr }
 %"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
 %"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
 %"class.std::__uniq_ptr_impl.23" = type { %"class.std::tuple.24" }
@@ -129,7 +129,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::Race" = type { %class.anon.382, [8 x i8], %"class.grpc_core::Race.383" }
 %class.anon.382 = type { ptr }
 %"class.grpc_core::Race.383" = type { %"class.grpc_core::ArenaPromise" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::Poll" = type { i8, [7 x i8], %union.anon.362 }
 %union.anon.362 = type { %"class.std::optional.363" }
 %"class.std::optional.363" = type { %"struct.std::_Optional_base.364" }
@@ -146,11 +145,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.360" = type { ptr }
 %"class.grpc_core::Poll.380" = type { i8, %union.anon.381 }
 %union.anon.381 = type { %"class.std::unique_ptr.158" }
-%"struct.grpc_core::filters_detail::ChannelDataDestructor" = type { ptr, ptr }
-%"struct.grpc_core::filters_detail::Operator" = type { ptr, i64, ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::Operator.494" = type { ptr, i64, ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::FilterDestructor" = type { i64, ptr }
-%"struct.grpc_core::filters_detail::FilterConstructor" = type { ptr, i64, ptr }
 %"class.grpc_core::Poll.492" = type { i8, %union.anon.493 }
 %union.anon.493 = type { %"struct.grpc_core::filters_detail::ResultOr" }
 %"struct.grpc_core::filters_detail::ResultOr" = type { %"class.std::unique_ptr.158", %"class.std::unique_ptr.158" }
@@ -775,7 +769,7 @@ define noundef ptr @_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEP
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !3
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit, label %9
@@ -788,7 +782,7 @@ define noundef ptr @_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEP
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %11, align 8, !tbaa !17
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %1
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   br label %_ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit
 
@@ -1170,7 +1164,7 @@ define void @_ZN9grpc_core23ClientMessageSizeFilter4Call23OnClientInitialMetadat
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !3
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !7
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPNS_5ArenaEm.exit.thread, label %16
@@ -1183,7 +1177,7 @@ define void @_ZN9grpc_core23ClientMessageSizeFilter4Call23OnClientInitialMetadat
 
 _ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPNS_5ArenaEm.exit: ; preds = %16
   %20 = load ptr, ptr %18, align 8, !tbaa !17
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %9
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %9
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPNS_5ArenaEm.exit.thread, label %.critedge
@@ -1859,7 +1853,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !116
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !113
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !117
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4135,7 +4129,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !85
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -4187,7 +4181,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -4887,7 +4881,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %16 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !3
   %17 = zext i16 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !7
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN9grpc_core23ClientMessageSizeFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit, label %21
@@ -4900,7 +4894,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
 
 _ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPNS_5ArenaEm.exit.i: ; preds = %21
   %25 = load ptr, ptr %23, align 8, !tbaa !17
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %14
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %14
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZN9grpc_core23ClientMessageSizeFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit, label %.critedge.i
@@ -6337,7 +6331,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %65, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %60, ptr %39, align 8, !tbaa !435
   store ptr %64, ptr %40, align 8, !tbaa !433
-  %66 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %58
   store ptr %66, ptr %42, align 8, !tbaa !434
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core23ClientMessageSizeFilterESt14default_deleteIS5_EEED2Ev.exit
 
@@ -6444,7 +6438,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !438
   store ptr %29, ptr %5, align 8, !tbaa !436
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !437
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_23ClientMessageSizeFilterEEEvPT_m.exit
 
@@ -6520,7 +6514,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %58, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %53, ptr %32, align 8, !tbaa !441
   store ptr %57, ptr %33, align 8, !tbaa !439
-  %59 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.494", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %51
   store ptr %59, ptr %35, align 8, !tbaa !440
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientToServerMessageOpINS_23ClientMessageSizeFilterEEEvPT_m.exit
 
@@ -6596,7 +6590,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i37: ; preds = %86, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i35
   store ptr %81, ptr %60, align 8, !tbaa !441
   store ptr %85, ptr %61, align 8, !tbaa !439
-  %87 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.494", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8, !tbaa !440
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerToClientMessageOpINS_23ClientMessageSizeFilterEEEvPT_m.exit
 
@@ -6977,7 +6971,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail16FilterDestructorESaIS2_EE11_S_relocate
 _ZNSt6vectorIN9grpc_core14filters_detail16FilterDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail16FilterDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !458
   store ptr %29, ptr %5, align 8, !tbaa !456
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::FilterDestructor", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !457
   br label %_ZN9grpc_core14filters_detail9StackData19AddFilterDestructorINS_23ClientMessageSizeFilterEEENSt9enable_ifIXntsr3std25is_trivially_destructibleINT_4CallEEE5valueEvE4typeEm.exit
 
@@ -7063,7 +7057,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE11_S_relocat
 _ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %29, ptr %8, align 8, !tbaa !462
   store ptr %33, ptr %9, align 8, !tbaa !460
-  %35 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::FilterConstructor", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8, !tbaa !461
   br label %_ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE9push_backEOS2_.exit
 
@@ -7108,7 +7102,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_23ClientMe
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %19 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !3
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !7
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN9grpc_core23ClientMessageSizeFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit, label %24
@@ -7121,7 +7115,7 @@ define linkonce_odr void @_ZZN9grpc_core14filters_detail9AddOpImplINS_23ClientMe
 
 _ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPNS_5ArenaEm.exit.i: ; preds = %24
   %28 = load ptr, ptr %26, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %28, i64 %17
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %17
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZN9grpc_core23ClientMessageSizeFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit, label %.critedge.i
@@ -7661,7 +7655,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %81, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %76, ptr %55, align 8, !tbaa !435
   store ptr %80, ptr %56, align 8, !tbaa !433
-  %82 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %74
   store ptr %82, ptr %58, align 8, !tbaa !434
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core23ServerMessageSizeFilterESt14default_deleteIS5_EEED2Ev.exit
 
@@ -7770,7 +7764,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !441
   store ptr %29, ptr %5, align 8, !tbaa !439
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.494", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !440
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientToServerMessageOpINS_23ServerMessageSizeFilterEEEvPT_m.exit
 
@@ -7846,7 +7840,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i27: ; preds = %58, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i25
   store ptr %53, ptr %32, align 8, !tbaa !441
   store ptr %57, ptr %33, align 8, !tbaa !439
-  %59 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.494", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %51
   store ptr %59, ptr %35, align 8, !tbaa !440
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerToClientMessageOpINS_23ServerMessageSizeFilterEEEvPT_m.exit
 

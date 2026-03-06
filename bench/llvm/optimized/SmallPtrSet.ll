@@ -98,7 +98,7 @@ define dso_local { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %.02428.i = and i32 %25, %23
   %27 = zext nneg i32 %.02428.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %30 = icmp eq ptr %29, inttoptr (i64 -1 to ptr)
   br i1 %30, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %.lr.ph.i, !prof !16
@@ -121,7 +121,7 @@ define dso_local { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(
   %38 = add i32 %.02329.i, %.02431.i
   %.024.i = and i32 %38, %25
   %39 = zext i32 %.024.i to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %26, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = icmp eq ptr %41, inttoptr (i64 -1 to ptr)
   br i1 %42, label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %.lr.ph.i, !prof !17, !llvm.loop !18
@@ -230,7 +230,7 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %2, %18
   %32 = load ptr, ptr %0, align 8, !tbaa !3
   %.02428.i = and i32 %31, %23
   %33 = zext nneg i32 %.02428.i to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %36 = icmp eq ptr %35, inttoptr (i64 -1 to ptr)
   br i1 %36, label %._crit_edge.i, label %.lr.ph.i, !prof !16
@@ -260,7 +260,7 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %2, %18
   %45 = add i32 %.02329.i, %.02431.i
   %.024.i = and i32 %45, %23
   %46 = zext i32 %.024.i to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
   br i1 %49, label %._crit_edge.i, label %.lr.ph.i, !prof !17, !llvm.loop !18
@@ -304,7 +304,7 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv(
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %.02428 = and i32 %7, %10
   %12 = zext nneg i32 %.02428 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !16
@@ -334,7 +334,7 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv(
   %24 = add i32 %.02431, %.02329
   %.024 = and i32 %24, %10
   %25 = zext i32 %.024 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %11, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = icmp eq ptr %27, inttoptr (i64 -1 to ptr)
   br i1 %28, label %._crit_edge, label %.lr.ph, !prof !17, !llvm.loop !18
@@ -357,7 +357,7 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noun
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %.01425 = and i32 %7, %10
   %12 = zext nneg i32 %.01425 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %.split.loop.exit, label %.lr.ph, !prof !16
@@ -374,14 +374,14 @@ define dso_local noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noun
   %20 = add i32 %.01427, %.01226
   %.014 = and i32 %20, %10
   %21 = zext i32 %.014 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %.split.loop.exit, label %.lr.ph, !prof !17, !llvm.loop !24
 
 .split.loop.exit:                                 ; preds = %18, %2
   %.lcssa24 = phi i64 [ %12, %2 ], [ %21, %18 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %.lcssa24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.lcssa24
   br label %.split.loop.exit22
 
 .split.loop.exit22:                               ; preds = %.lr.ph, %.split.loop.exit
@@ -939,7 +939,7 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i, %66
   %84 = sub nsw i64 %81, %72
   %gepdiff58 = shl nsw i64 %84, 3
   %85 = load ptr, ptr %3, align 8, !tbaa !3
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %72
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %72
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %86, ptr align 8 %83, i64 %gepdiff58, i1 false)
   br label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit45
 
@@ -954,7 +954,7 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %.lr.ph.i, %66
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx53
   %gepdiff = sub nsw i64 %.idx54, %.idx53
   %92 = load ptr, ptr %0, align 8, !tbaa !3
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %72
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %72
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %93, ptr align 8 %91, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit45
 

@@ -177,12 +177,12 @@ define dso_local noundef i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_ad
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 154, ptr noundef nonnull @__func__._calc_cpu_affinity) #5
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %8, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
@@ -193,7 +193,7 @@ define dso_local noundef i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_ad
 
 20:                                               ; preds = %7
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %24) #5
@@ -293,7 +293,7 @@ switch.early.test:                                ; preds = %26
 nodemask_isset_compat.exit.i:                     ; preds = %32, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %32 ]
   %35 = lshr i64 %indvars.iv.i, 6
-  %36 = getelementptr inbounds nuw i64, ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %indvars.iv.i, 63
   %39 = shl nuw i64 1, %38
@@ -352,7 +352,7 @@ define dso_local i32 @task_p_pre_launch_priv(ptr noundef %0, i32 noundef %1, i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8

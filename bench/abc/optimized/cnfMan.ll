@@ -37,7 +37,7 @@ define noundef ptr @Cnf_ManStart() local_unnamed_addr #0 {
 8:                                                ; preds = %0, %8
   %store_forwarded = phi ptr [ %6, %0 ], [ %10, %8 ]
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %store_forwarded, i64 128
   store ptr %10, ptr %9, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -171,13 +171,13 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
   %20 = phi ptr [ %14, %.lr.ph ], [ %51, %Vec_IntPush.exit ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val10 = load ptr, ptr %21, align 8, !tbaa !40
-  %22 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   %24 = load ptr, ptr %17, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %26 = load i32, ptr %25, align 4, !tbaa !45
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !28
   %30 = load i32, ptr %6, align 4, !tbaa !20
   %31 = load i32, ptr %4, align 8, !tbaa !22
@@ -227,7 +227,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %48 = add nsw i32 %30, 1
   store i32 %48, ptr %6, align 4, !tbaa !20
   %49 = sext i32 %30 to i64
-  %50 = getelementptr inbounds i32, ptr %.pre.i15, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %.pre.i15, i64 %49
   store i32 %29, ptr %50, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load ptr, ptr %13, align 8, !tbaa !29
@@ -261,9 +261,9 @@ define noalias noundef ptr @Cnf_DataAlloc(ptr noundef %0, i32 noundef %1, i32 no
   %15 = shl nsw i64 %14, 2
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #18
   store ptr %16, ptr %12, align 8, !tbaa !16
-  %17 = getelementptr inbounds i32, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %12, i64 %18
   store ptr %17, ptr %19, align 8, !tbaa !16
   ret ptr %5
 }
@@ -298,9 +298,9 @@ define noalias noundef ptr @Cnf_DataDup(ptr noundef readonly captures(none) %0) 
   %19 = shl nsw i64 %18, 2
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #18
   store ptr %20, ptr %16, align 8, !tbaa !16
-  %21 = getelementptr inbounds i32, ptr %20, i64 %18
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %18
   %22 = sext i32 %6 to i64
-  %23 = getelementptr inbounds ptr, ptr %16, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %16, i64 %22
   store ptr %21, ptr %23, align 8, !tbaa !16
   %24 = load ptr, ptr %16, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -319,14 +319,14 @@ define noalias noundef ptr @Cnf_DataDup(ptr noundef readonly captures(none) %0) 
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %35 = load ptr, ptr %31, align 8, !tbaa !16
   %36 = ptrtoint ptr %34 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = getelementptr inbounds i8, ptr %30, i64 %38
-  %40 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -368,9 +368,9 @@ define noalias noundef ptr @Cnf_DataDupCof(ptr noundef readonly captures(none) %
   %22 = shl nsw i64 %21, 2
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #18
   store ptr %23, ptr %19, align 8, !tbaa !16
-  %24 = getelementptr inbounds i32, ptr %23, i64 %21
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %21
   %25 = sext i32 %8 to i64
-  %26 = getelementptr inbounds ptr, ptr %19, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %19, i64 %25
   store ptr %24, ptr %26, align 8, !tbaa !16
   %27 = load ptr, ptr %19, align 8, !tbaa !16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -391,14 +391,14 @@ define noalias noundef ptr @Cnf_DataDupCof(ptr noundef readonly captures(none) %
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !16
   %39 = load ptr, ptr %35, align 8, !tbaa !16
   %40 = ptrtoint ptr %38 to i64
   %41 = ptrtoint ptr %39 to i64
   %42 = sub i64 %40, %41
   %43 = getelementptr inbounds i8, ptr %.pre, i64 %42
-  %44 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store ptr %43, ptr %44, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -407,9 +407,9 @@ define noalias noundef ptr @Cnf_DataDupCof(ptr noundef readonly captures(none) %
 ._crit_edge:                                      ; preds = %36, %2
   %45 = load i32, ptr %9, align 4, !tbaa !50
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %.pre, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %46
   %48 = sext i32 %33 to i64
-  %49 = getelementptr inbounds ptr, ptr %19, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %19, i64 %48
   store ptr %47, ptr %49, align 8, !tbaa !16
   store i32 %1, ptr %47, align 4, !tbaa !28
   ret ptr %12
@@ -446,9 +446,9 @@ define noalias noundef ptr @Cnf_DataDupCofArray(ptr noundef readonly captures(no
   %23 = shl nsw i64 %22, 2
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #18
   store ptr %24, ptr %20, align 8, !tbaa !16
-  %25 = getelementptr inbounds i32, ptr %24, i64 %22
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %22
   %26 = sext i32 %9 to i64
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %20, i64 %26
   store ptr %25, ptr %27, align 8, !tbaa !16
   %28 = load ptr, ptr %20, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -479,14 +479,14 @@ define noalias noundef ptr @Cnf_DataDupCofArray(ptr noundef readonly captures(no
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = load ptr, ptr %37, align 8, !tbaa !16
   %44 = ptrtoint ptr %42 to i64
   %45 = ptrtoint ptr %43 to i64
   %46 = sub i64 %44, %45
   %47 = getelementptr inbounds i8, ptr %36, i64 %46
-  %48 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %47, ptr %48, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -494,18 +494,18 @@ define noalias noundef ptr @Cnf_DataDupCofArray(ptr noundef readonly captures(no
 
 49:                                               ; preds = %.lr.ph45, %49
   %indvars.iv47 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next48, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv47
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.val41, i64 %indvars.iv47
   %51 = load i32, ptr %50, align 4, !tbaa !28
   %52 = load ptr, ptr %20, align 8, !tbaa !16
   %53 = load i32, ptr %10, align 4, !tbaa !50
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv47
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %54
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv47
   %57 = load i32, ptr %6, align 8, !tbaa !49
   %58 = trunc nuw nsw i64 %indvars.iv47 to i32
   %59 = add nsw i32 %57, %58
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %20, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %20, i64 %60
   store ptr %56, ptr %61, align 8, !tbaa !16
   store i32 %51, ptr %56, align 4, !tbaa !28
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
@@ -638,7 +638,7 @@ define void @Cnf_DataLift(ptr noundef readonly captures(none) %0, i32 noundef %1
 10:                                               ; preds = %.lr.ph, %24
   %.val28 = phi i32 [ %.val20, %.lr.ph ], [ %.val, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val19, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = icmp eq ptr %12, null
   br i1 %13, label %24, label %14
@@ -648,7 +648,7 @@ define void @Cnf_DataLift(ptr noundef readonly captures(none) %0, i32 noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !45
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %24
@@ -681,7 +681,7 @@ define void @Cnf_DataLift(ptr noundef readonly captures(none) %0, i32 noundef %1
 
 34:                                               ; preds = %.lr.ph23, %34
   %indvars.iv25 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next26, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv25
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv25
   %36 = load i32, ptr %35, align 4, !tbaa !28
   %37 = add nsw i32 %36, %30
   store i32 %37, ptr %35, align 4, !tbaa !28
@@ -714,7 +714,7 @@ define void @Cnf_DataCollectFlipLits(ptr noundef readonly captures(none) %0, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !51
   %12 = load ptr, ptr %11, align 8, !tbaa !16
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !28
   %15 = ashr i32 %14, 1
   %16 = icmp eq i32 %15, %1
@@ -781,7 +781,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %4, align 4, !tbaa !20
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds i32, ptr %41, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %41, i64 %44
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %46, ptr %45, align 4, !tbaa !28
   %.pre = load i32, ptr %5, align 4, !tbaa !50
@@ -816,10 +816,10 @@ define void @Cnf_DataLiftAndFlipLits(ptr noundef readonly captures(none) %0, i32
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %.val9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !28
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %9, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %9, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !28
   %17 = xor i32 %16, 1
   %18 = add nsw i32 %17, %10
@@ -854,10 +854,10 @@ define void @Cnf_DataPrint(ptr noundef readonly captures(none) %0, i32 noundef %
 .lr.ph25.split.us:                                ; preds = %.lr.ph25, %._crit_edge.split.us.us
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %._crit_edge.split.us.us ], [ 0, %.lr.ph25 ]
   %12 = load ptr, ptr %11, align 8, !tbaa !51
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv29
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv29
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next30
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next30
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = icmp ult ptr %14, %16
   br i1 %17, label %.lr.ph.us, label %._crit_edge.split.us.us
@@ -885,10 +885,10 @@ define void @Cnf_DataPrint(ptr noundef readonly captures(none) %0, i32 noundef %
 .lr.ph25.split:                                   ; preds = %.lr.ph25, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph25 ]
   %29 = load ptr, ptr %11, align 8, !tbaa !51
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = icmp ult ptr %31, %33
   br i1 %34, label %.lr.ph, label %._crit_edge.split
@@ -956,7 +956,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.val58 = load ptr, ptr %20, align 8, !tbaa !23
-  %23 = getelementptr inbounds nuw i32, ptr %.val58, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.val58, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !28
   %25 = add nsw i32 %24, %21
   %26 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %25) #17
@@ -990,7 +990,7 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
 37:                                               ; preds = %.lr.ph64, %37
   %indvars.iv73 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next74, %37 ]
   %.val57 = load ptr, ptr %35, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %.val57, i64 %indvars.iv73
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.val57, i64 %indvars.iv73
   %39 = load i32, ptr %38, align 4, !tbaa !28
   %40 = add nsw i32 %39, %36
   %41 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %40) #17
@@ -1017,10 +1017,10 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
 .lr.ph69.split.us:                                ; preds = %.lr.ph69, %._crit_edge.split.us.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %._crit_edge.split.us.us ], [ 0, %.lr.ph69 ]
   %49 = load ptr, ptr %48, align 8, !tbaa !51
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv79
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv79
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.next80
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.next80
   %53 = load ptr, ptr %52, align 8, !tbaa !16
   %54 = icmp ult ptr %51, %53
   br i1 %54, label %.lr.ph66.us, label %._crit_edge.split.us.us
@@ -1049,10 +1049,10 @@ define void @Cnf_DataWriteIntoFileGz(ptr noundef readonly captures(none) %0, ptr
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %._crit_edge.split
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %._crit_edge.split ], [ 0, %.lr.ph69 ]
   %68 = load ptr, ptr %48, align 8, !tbaa !51
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv76
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv76
   %70 = load ptr, ptr %69, align 8, !tbaa !16
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.next77
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.next77
   %72 = load ptr, ptr %71, align 8, !tbaa !16
   %73 = icmp ult ptr %70, %72
   br i1 %73, label %.lr.ph66, label %._crit_edge.split
@@ -1128,7 +1128,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.val77 = load ptr, ptr %21, align 8, !tbaa !23
-  %24 = getelementptr inbounds nuw i32, ptr %.val77, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val77, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !28
   %26 = add nsw i32 %25, %22
   %27 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %26) #17
@@ -1162,7 +1162,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
 38:                                               ; preds = %.lr.ph83, %38
   %indvars.iv95 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next96, %38 ]
   %.val76 = load ptr, ptr %36, align 8, !tbaa !23
-  %39 = getelementptr inbounds nuw i32, ptr %.val76, i64 %indvars.iv95
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.val76, i64 %indvars.iv95
   %40 = load i32, ptr %39, align 4, !tbaa !28
   %41 = add nsw i32 %40, %37
   %42 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %41) #17
@@ -1196,7 +1196,7 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
 53:                                               ; preds = %.lr.ph86, %53
   %indvars.iv98 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next99, %53 ]
   %.val75 = load ptr, ptr %51, align 8, !tbaa !23
-  %54 = getelementptr inbounds nuw i32, ptr %.val75, i64 %indvars.iv98
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.val75, i64 %indvars.iv98
   %55 = load i32, ptr %54, align 4, !tbaa !28
   %56 = add nsw i32 %55, %52
   %57 = tail call i32 (ptr, ptr, ...) @gzprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, i32 noundef %56) #17
@@ -1223,10 +1223,10 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
 .lr.ph91.split.us:                                ; preds = %.lr.ph91, %._crit_edge.split.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %._crit_edge.split.us.us ], [ 0, %.lr.ph91 ]
   %65 = load ptr, ptr %64, align 8, !tbaa !51
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv104
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv104
   %67 = load ptr, ptr %66, align 8, !tbaa !16
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.next105
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.next105
   %69 = load ptr, ptr %68, align 8, !tbaa !16
   %70 = icmp ult ptr %67, %69
   br i1 %70, label %.lr.ph88.us, label %._crit_edge.split.us.us
@@ -1255,10 +1255,10 @@ define void @Cnf_DataWriteIntoFileInvGz(ptr noundef readonly captures(none) %0, 
 .lr.ph91.split:                                   ; preds = %.lr.ph91, %._crit_edge.split
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %._crit_edge.split ], [ 0, %.lr.ph91 ]
   %84 = load ptr, ptr %64, align 8, !tbaa !51
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv101
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv101
   %86 = load ptr, ptr %85, align 8, !tbaa !16
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %87 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.next102
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.next102
   %88 = load ptr, ptr %87, align 8, !tbaa !16
   %89 = icmp ult ptr %86, %88
   br i1 %89, label %.lr.ph88, label %._crit_edge.split
@@ -1353,7 +1353,7 @@ sub_1:                                            ; preds = %sub_0
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.val66 = load ptr, ptr %29, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw i32, ptr %.val66, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.val66, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !28
   %34 = add nsw i32 %33, %30
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %34) #17
@@ -1387,7 +1387,7 @@ sub_1:                                            ; preds = %sub_0
 46:                                               ; preds = %.lr.ph72, %46
   %indvars.iv83 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next84, %46 ]
   %.val65 = load ptr, ptr %44, align 8, !tbaa !23
-  %47 = getelementptr inbounds nuw i32, ptr %.val65, i64 %indvars.iv83
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.val65, i64 %indvars.iv83
   %48 = load i32, ptr %47, align 4, !tbaa !28
   %49 = add nsw i32 %48, %45
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.9, i32 noundef %49) #17
@@ -1414,10 +1414,10 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph77.split.us:                                ; preds = %.lr.ph77, %._crit_edge.split.us.us
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %._crit_edge.split.us.us ], [ 0, %.lr.ph77 ]
   %58 = load ptr, ptr %57, align 8, !tbaa !51
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv89
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv89
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.next90
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.next90
   %62 = load ptr, ptr %61, align 8, !tbaa !16
   %63 = icmp ult ptr %60, %62
   br i1 %63, label %.lr.ph74.us, label %._crit_edge.split.us.us
@@ -1446,10 +1446,10 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph77.split:                                   ; preds = %.lr.ph77, %._crit_edge.split
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %._crit_edge.split ], [ 0, %.lr.ph77 ]
   %77 = load ptr, ptr %57, align 8, !tbaa !51
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv86
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv86
   %79 = load ptr, ptr %78, align 8, !tbaa !16
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv.next87
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.next87
   %81 = load ptr, ptr %80, align 8, !tbaa !16
   %82 = icmp ult ptr %79, %81
   br i1 %82, label %.lr.ph74, label %._crit_edge.split
@@ -1553,7 +1553,7 @@ sub_1:                                            ; preds = %sub_0
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.val86 = load ptr, ptr %30, align 8, !tbaa !23
-  %33 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.val86, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !28
   %35 = add nsw i32 %34, %31
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %35) #17
@@ -1587,7 +1587,7 @@ sub_1:                                            ; preds = %sub_0
 47:                                               ; preds = %.lr.ph92, %47
   %indvars.iv106 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next107, %47 ]
   %.val85 = load ptr, ptr %45, align 8, !tbaa !23
-  %48 = getelementptr inbounds nuw i32, ptr %.val85, i64 %indvars.iv106
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.val85, i64 %indvars.iv106
   %49 = load i32, ptr %48, align 4, !tbaa !28
   %50 = add nsw i32 %49, %46
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %50) #17
@@ -1621,7 +1621,7 @@ sub_1:                                            ; preds = %sub_0
 62:                                               ; preds = %.lr.ph95, %62
   %indvars.iv109 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next110, %62 ]
   %.val84 = load ptr, ptr %60, align 8, !tbaa !23
-  %63 = getelementptr inbounds nuw i32, ptr %.val84, i64 %indvars.iv109
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.val84, i64 %indvars.iv109
   %64 = load i32, ptr %63, align 4, !tbaa !28
   %65 = add nsw i32 %64, %61
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.9, i32 noundef %65) #17
@@ -1648,10 +1648,10 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph100.split.us:                               ; preds = %.lr.ph100, %._crit_edge.split.us.us
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %._crit_edge.split.us.us ], [ 0, %.lr.ph100 ]
   %74 = load ptr, ptr %73, align 8, !tbaa !51
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv115
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv115
   %76 = load ptr, ptr %75, align 8, !tbaa !16
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.next116
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.next116
   %78 = load ptr, ptr %77, align 8, !tbaa !16
   %79 = icmp ult ptr %76, %78
   br i1 %79, label %.lr.ph97.us, label %._crit_edge.split.us.us
@@ -1680,10 +1680,10 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph100.split:                                  ; preds = %.lr.ph100, %._crit_edge.split
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %._crit_edge.split ], [ 0, %.lr.ph100 ]
   %93 = load ptr, ptr %73, align 8, !tbaa !51
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv112
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv112
   %95 = load ptr, ptr %94, align 8, !tbaa !16
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %96 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.next113
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.next113
   %97 = load ptr, ptr %96, align 8, !tbaa !16
   %98 = icmp ult ptr %95, %97
   br i1 %98, label %.lr.ph97, label %._crit_edge.split
@@ -1738,10 +1738,10 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %11, align 8, !tbaa !51
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %19, ptr noundef %21) #17
   %.not96 = icmp eq i32 %22, 0
@@ -1808,7 +1808,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %55 = getelementptr i8, ptr %51, i64 8
   %.val.i = load ptr, ptr %55, align 8, !tbaa !40
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %.val.i, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !29
@@ -1818,13 +1818,13 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %63 = getelementptr i8, ptr %60, i64 8
   %.val3.i104 = load ptr, ptr %63, align 8, !tbaa !40
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val3.i104, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %.val3.i104, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !41
   %67 = load ptr, ptr %31, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %69 = load i32, ptr %68, align 4, !tbaa !45
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %67, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %67, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !28
   %73 = shl nsw i32 %72, 1
   %74 = add nsw i32 %73, %39
@@ -1832,7 +1832,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 36
   %76 = load i32, ptr %75, align 4, !tbaa !45
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %67, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %67, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !28
   %80 = shl nsw i32 %79, 1
   %81 = add i32 %41, %80
@@ -1854,7 +1854,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
 
 .lr.ph:                                           ; preds = %.preheader105, %.lr.ph
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.lr.ph ], [ 0, %.preheader105 ]
-  %89 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv132
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv132
   %90 = load i32, ptr %89, align 4, !tbaa !28
   %91 = add nsw i32 %90, %28
   store i32 %91, ptr %89, align 4, !tbaa !28
@@ -1876,10 +1876,10 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
 
 98:                                               ; preds = %.preheader
   %99 = load ptr, ptr %11, align 8, !tbaa !51
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv135
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv135
   %101 = load ptr, ptr %100, align 8, !tbaa !16
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.next136
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.next136
   %103 = load ptr, ptr %102, align 8, !tbaa !16
   %104 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %101, ptr noundef %103) #17
   %.not = icmp eq i32 %104, 0
@@ -1898,7 +1898,7 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
 
 .lr.ph123:                                        ; preds = %107, %.lr.ph123
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph123 ], [ 0, %107 ]
-  %111 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv138
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv138
   %112 = load i32, ptr %111, align 4, !tbaa !28
   %113 = sub nsw i32 %112, %108
   store i32 %113, ptr %111, align 4, !tbaa !28
@@ -1958,13 +1958,13 @@ define noundef ptr @Cnf_DataWriteIntoSolverInt(ptr noundef %0, ptr noundef reado
   %136 = phi ptr [ %124, %.lr.ph127 ], [ %132, %129 ]
   %137 = getelementptr i8, ptr %136, i64 8
   %.val99 = load ptr, ptr %137, align 8, !tbaa !40
-  %138 = getelementptr inbounds ptr, ptr %.val99, i64 %indvars.iv141
+  %138 = getelementptr inbounds [8 x i8], ptr %.val99, i64 %indvars.iv141
   %139 = load ptr, ptr %138, align 8, !tbaa !41
   %140 = load ptr, ptr %126, align 8, !tbaa !42
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 36
   %142 = load i32, ptr %141, align 4, !tbaa !45
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i32, ptr %140, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %140, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !28
   %146 = shl nsw i32 %145, 1
   %147 = or disjoint i32 %146, 1
@@ -2035,10 +2035,10 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %11, align 8, !tbaa !51
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = tail call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %19, ptr noundef %21, i32 noundef 0) #17
   %.not95 = icmp eq i32 %22, 0
@@ -2105,7 +2105,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %55 = getelementptr i8, ptr %51, i64 8
   %.val.i = load ptr, ptr %55, align 8, !tbaa !40
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %.val.i, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !29
@@ -2115,13 +2115,13 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %63 = getelementptr i8, ptr %60, i64 8
   %.val3.i103 = load ptr, ptr %63, align 8, !tbaa !40
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val3.i103, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %.val3.i103, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !41
   %67 = load ptr, ptr %31, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %69 = load i32, ptr %68, align 4, !tbaa !45
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %67, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %67, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !28
   %73 = shl nsw i32 %72, 1
   %74 = add nsw i32 %73, %39
@@ -2129,7 +2129,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 36
   %76 = load i32, ptr %75, align 4, !tbaa !45
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %67, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %67, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !28
   %80 = shl nsw i32 %79, 1
   %81 = add i32 %41, %80
@@ -2151,7 +2151,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %.preheader104, %.lr.ph
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph ], [ 0, %.preheader104 ]
-  %89 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv131
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv131
   %90 = load i32, ptr %89, align 4, !tbaa !28
   %91 = add nsw i32 %90, %28
   store i32 %91, ptr %89, align 4, !tbaa !28
@@ -2173,10 +2173,10 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
 
 98:                                               ; preds = %.preheader
   %99 = load ptr, ptr %11, align 8, !tbaa !51
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv134
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv134
   %101 = load ptr, ptr %100, align 8, !tbaa !16
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.next135
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.next135
   %103 = load ptr, ptr %102, align 8, !tbaa !16
   %104 = call i32 @sat_solver2_addclause(ptr noundef %6, ptr noundef %101, ptr noundef %103, i32 noundef 0) #17
   %.not = icmp eq i32 %104, 0
@@ -2195,7 +2195,7 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
 
 .lr.ph122:                                        ; preds = %107, %.lr.ph122
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph122 ], [ 0, %107 ]
-  %111 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv137
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv137
   %112 = load i32, ptr %111, align 4, !tbaa !28
   %113 = sub nsw i32 %112, %108
   store i32 %113, ptr %111, align 4, !tbaa !28
@@ -2255,13 +2255,13 @@ define noundef ptr @Cnf_DataWriteIntoSolver2(ptr noundef readonly captures(none)
   %136 = phi ptr [ %124, %.lr.ph126 ], [ %132, %129 ]
   %137 = getelementptr i8, ptr %136, i64 8
   %.val98 = load ptr, ptr %137, align 8, !tbaa !40
-  %138 = getelementptr inbounds ptr, ptr %.val98, i64 %indvars.iv140
+  %138 = getelementptr inbounds [8 x i8], ptr %.val98, i64 %indvars.iv140
   %139 = load ptr, ptr %138, align 8, !tbaa !41
   %140 = load ptr, ptr %126, align 8, !tbaa !42
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 36
   %142 = load i32, ptr %141, align 4, !tbaa !45
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i32, ptr %140, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %140, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !28
   %146 = shl nsw i32 %145, 1
   %147 = or disjoint i32 %146, 1
@@ -2328,22 +2328,22 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause(ptr noundef %0, ptr noundef re
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.val23, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val23, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !45
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %14, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %14, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %24 = shl nsw i32 %23, 1
-  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %26, label %16, label %.critedge, !llvm.loop !103
 
 .critedge:                                        ; preds = %16, %2
-  %27 = getelementptr inbounds i32, ptr %7, i64 %5
+  %27 = getelementptr inbounds [4 x i8], ptr %7, i64 %5
   %28 = tail call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %7, ptr noundef %27) #17
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %29, label %.sink.split
@@ -2383,22 +2383,22 @@ define range(i32 0, 2) i32 @Cnf_DataWriteOrClause2(ptr noundef %0, ptr noundef r
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %.val23, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val23, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !45
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %14, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %14, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %24 = shl nsw i32 %23, 1
-  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp samesign ult i64 %indvars.iv.next, %15
   br i1 %26, label %16, label %.critedge, !llvm.loop !104
 
 .critedge:                                        ; preds = %16, %2
-  %27 = getelementptr inbounds i32, ptr %7, i64 %5
+  %27 = getelementptr inbounds [4 x i8], ptr %7, i64 %5
   %28 = tail call i32 @sat_solver2_addclause(ptr noundef %0, ptr noundef %7, ptr noundef %27, i32 noundef 0) #17
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %29, label %.sink.split
@@ -2446,13 +2446,13 @@ define range(i32 0, 2) i32 @Cnf_DataWriteAndClauses(ptr noundef %0, ptr noundef 
   %19 = phi ptr [ %6, %.lr.ph ], [ %14, %11 ]
   %20 = getelementptr i8, ptr %19, i64 8
   %.val10 = load ptr, ptr %20, align 8, !tbaa !40
-  %21 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !41
   %23 = load ptr, ptr %9, align 8, !tbaa !42
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %25 = load i32, ptr %24, align 4, !tbaa !45
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %23, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %23, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !28
   %29 = shl nsw i32 %28, 1
   store i32 %29, ptr %3, align 4, !tbaa !28
@@ -2490,7 +2490,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %34
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %34 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv41
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val33, i64 %indvars.iv41
   %15 = load ptr, ptr %14, align 8, !tbaa !41
   %16 = icmp eq ptr %15, null
   br i1 %16, label %34, label %17
@@ -2507,7 +2507,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %23 = load i32, ptr %22, align 4, !tbaa !45
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %21, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %21, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !28
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %28, label %34
@@ -2517,7 +2517,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
   %30 = lshr i32 %29, 3
   %31 = and i32 %30, 1
   %32 = zext nneg i32 %26 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %32
   store i32 %31, ptr %33, align 4, !tbaa !28
   br label %34
 
@@ -2540,7 +2540,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val33, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !41
   %43 = icmp eq ptr %42, null
   br i1 %43, label %60, label %44
@@ -2550,7 +2550,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %47 = load i32, ptr %46, align 4, !tbaa !45
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %45, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !28
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %52, label %60
@@ -2562,7 +2562,7 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
   %56 = lshr i32 %55, 3
   %57 = and i32 %56, 1
   %58 = zext nneg i32 %50 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %58
   store i32 %57, ptr %59, align 4, !tbaa !28
   br label %60
 
@@ -2574,11 +2574,11 @@ define void @Cnf_DataTranformPolarity(ptr noundef readonly captures(none) %0, i3
 61:                                               ; preds = %.lr.ph38, %.critedge
   %62 = phi i32 [ %36, %.lr.ph38 ], [ %71, %.critedge ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next47, %.critedge ]
-  %63 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv46
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv46
   %64 = load i32, ptr %63, align 4, !tbaa !28
   %65 = ashr i32 %64, 1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %6, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %6, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !28
   %.not30 = icmp eq i32 %68, 0
   br i1 %.not30, label %.critedge, label %69

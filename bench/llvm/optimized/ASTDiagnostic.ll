@@ -41,10 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.384" = type { [96 x i8] }
 %"class.llvm::APInt" = type <{ %union.anon.388, i32, [4 x i8] }>
 %union.anon.388 = type { i64 }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
-%"class.clang::FunctionType::ExtParameterInfo" = type { i8 }
 %"class.llvm::ArrayRef.428" = type { ptr, i64 }
 %"class.llvm::ArrayRef.429" = type { ptr, i64 }
 %"class.clang::TemplateName" = type { %"class.llvm::PointerUnion" }
@@ -69,10 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.145 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.145 = type { i64, [8 x i8] }
-%"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode" = type <{ i32, i32, i32, i32, %"struct.(anonymous namespace)::TemplateDiff::DiffTree::TemplateArgumentInfo", %"struct.(anonymous namespace)::TemplateDiff::DiffTree::TemplateArgumentInfo", i8, [7 x i8] }>
-%"struct.(anonymous namespace)::TemplateDiff::DiffTree::TemplateArgumentInfo" = type <{ %"class.clang::QualType", %"class.clang::Qualifiers", %"class.llvm::APSInt", i8, [7 x i8], ptr, ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
-%"class.llvm::APInt.base" = type <{ %union.anon.388, i32 }>
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::SmallVector.531" = type { %"class.llvm::SmallVectorImpl.532", %"struct.llvm::SmallVectorStorage.535" }
 %"class.llvm::SmallVectorImpl.532" = type { %"class.llvm::SmallVectorTemplateBase.533" }
@@ -85,6 +77,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.563" = type { %"class.llvm::SmallVectorTemplateCommon.564" }
 %"class.llvm::SmallVectorTemplateCommon.564" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.565" = type { [128 x i8] }
+%"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
+%"class.llvm::APInt.base" = type <{ %union.anon.388, i32 }>
+%"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode" = type <{ i32, i32, i32, i32, %"struct.(anonymous namespace)::TemplateDiff::DiffTree::TemplateArgumentInfo", %"struct.(anonymous namespace)::TemplateDiff::DiffTree::TemplateArgumentInfo", i8, [7 x i8] }>
+%"struct.(anonymous namespace)::TemplateDiff::DiffTree::TemplateArgumentInfo" = type <{ %"class.clang::QualType", %"class.clang::Qualifiers", %"class.llvm::APSInt", i8, [7 x i8], ptr, ptr, ptr, i8, i8, i8, [5 x i8] }>
 %"class.(anonymous namespace)::TemplateDiff::TSTiterator" = type { %"struct.(anonymous namespace)::TemplateDiff::TSTiterator::InternalIterator", %"struct.(anonymous namespace)::TemplateDiff::TSTiterator::InternalIterator" }
 %"struct.(anonymous namespace)::TemplateDiff::TSTiterator::InternalIterator" = type { ptr, i32, ptr, ptr }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.568" }
@@ -409,7 +405,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; p
   %91 = phi i32 [ %86, %85 ], [ %.pre.i, %88 ]
   %92 = load ptr, ptr %8, align 8, !tbaa !21
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw %"class.clang::QualType", ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %93
   store i64 %.sroa.0294.0, ptr %94, align 1
   %95 = load i32, ptr %17, align 8, !tbaa !24
   %96 = add i32 %95, 1
@@ -564,7 +560,7 @@ _ZN4llvm11SmallVectorIN5clang8QualTypeELj4EED2Ev.exit..thread738_crit_edge: ; pr
   br i1 %.not.i.i.not.i562, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, label %147, !prof !26
 
 147:                                              ; preds = %139
-  %148 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.pre3.i, i64 %144
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %144
   %149 = icmp uge ptr %14, %.pre3.i
   %150 = icmp ult ptr %14, %148
   %spec.select.i.i.i.i.i = and i1 %149, %150
@@ -588,7 +584,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %14, %139 ], [ %155, %151 ], [ %14, %.critedge.i.i.i ]
   %157 = load i32, ptr %125, align 8, !tbaa !24
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %156, i64 %158
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %156, i64 %158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %160 = load i32, ptr %125, align 8, !tbaa !24
   %161 = add i32 %160, 1
@@ -605,7 +601,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   br i1 %.not.i.i.not.i564, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit570, label %166, !prof !26
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.pre3.i565, i64 %163
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i565, i64 %163
   %168 = icmp uge ptr %.0478827, %.pre3.i565
   %169 = icmp ult ptr %.0478827, %167
   %spec.select.i.i.i.i.i566 = and i1 %168, %169
@@ -630,7 +626,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   %.016.i.i.i569 = phi ptr [ %.0478827, %162 ], [ %175, %170 ], [ %.0478827, %.critedge.i.i.i567 ]
   %177 = load i32, ptr %125, align 8, !tbaa !24
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %176, i64 %178
+  %179 = getelementptr inbounds nuw [24 x i8], ptr %176, i64 %178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %179, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i569, i64 24, i1 false)
   %180 = load i32, ptr %125, align 8, !tbaa !24
   %181 = add i32 %180, 1
@@ -1261,7 +1257,7 @@ _ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread: ; preds = %_
   %470 = lshr i32 %469, 19
   %471 = and i32 %470, 127
   %472 = zext nneg i32 %471 to i64
-  %473 = getelementptr inbounds nuw %"class.clang::QualType", ptr %467, i64 %472
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %472
   %474 = lshr i32 %469, 26
   %475 = zext nneg i32 %474 to i64
   %476 = getelementptr inbounds nuw i8, ptr %457, i64 20
@@ -1321,7 +1317,7 @@ define linkonce_odr hidden void @_ZNK5clang17FunctionProtoType15getExtProtoInfoE
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = lshr i64 %12, 38
   %22 = and i64 %21, 65535
-  %23 = getelementptr inbounds nuw %"class.clang::QualType", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !67
   br label %_ZNK5clang17FunctionProtoType14getEllipsisLocEv.exit
 
@@ -1354,10 +1350,10 @@ _ZNK5clang17FunctionProtoType14getEllipsisLocEv.exit._ZNK5clang17FunctionProtoTy
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = lshr i64 %31, 38
   %39 = and i64 %38, 65535
-  %40 = getelementptr inbounds nuw %"class.clang::QualType", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = lshr i64 %31, 60
   %42 = and i64 %41, 1
-  %43 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = add i64 %44, 7
   %46 = and i64 %45, -8
@@ -1391,18 +1387,18 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = and i32 %61, 15
   %63 = and i64 %60, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %63
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   %64 = lshr i64 %31, 59
   %65 = and i64 %64, 1
-  %66 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %47, i64 %65
-  %67 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %66, i64 %53
-  %68 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %67, i64 %spec.select.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %53
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %spec.select.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i = add nsw i32 %62, -6
   %switch.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 3
   %69 = zext i1 %switch.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %switch.load
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %switch.load
   br label %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit
 
 _ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit: ; preds = %_ZNK5clang17FunctionProtoType14getEllipsisLocEv.exit._ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit_crit_edge, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i
@@ -1417,10 +1413,10 @@ _ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i: ; preds = %_ZNK5cl
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %74 = lshr i64 %31, 38
   %75 = and i64 %74, 65535
-  %76 = getelementptr inbounds nuw %"class.clang::QualType", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %75
   %77 = lshr i64 %31, 60
   %78 = and i64 %77, 1
-  %79 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %78
   %80 = ptrtoint ptr %79 to i64
   %81 = add i64 %80, 7
   %82 = and i64 %81, -8
@@ -1465,33 +1461,33 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %103 = trunc nuw nsw i64 %102 to i32
   %104 = and i32 %103, 15
   %105 = and i64 %102, 15
-  %switch.gep8 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
+  %switch.gep8 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %105
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   %106 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %106, i64 %97
-  %108 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %107, i64 %spec.select.i.i.i.i.i.i.i.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %97
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %spec.select.i.i.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i.i.i = add nsw i32 %104, -6
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i, 3
   %109 = zext i1 %switch.i.i.i.i.i.i.i.i to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load9
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %switch.load9
   %112 = select i1 %.not.i3, i64 0, i64 %75
-  %113 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 %112
   %114 = ptrtoint ptr %113 to i64
   %115 = add i64 %114, 7
   %116 = and i64 %115, -8
   %117 = inttoptr i64 %116 to ptr
   %118 = lshr i64 %31, 37
   %119 = and i64 %118, 1
-  %120 = getelementptr inbounds nuw %"class.clang::Qualifiers", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %119
   br i1 %.not10.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %121 = and i64 %102, 15
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %121
   %switch.load11 = load i64, ptr %switch.gep10, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %switch.load11
-  %123 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %122, i64 %112
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %switch.load11
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %112
   %124 = ptrtoint ptr %123 to i64
   %125 = add i64 %124, 7
   %126 = and i64 %125, -8
@@ -1712,7 +1708,7 @@ define linkonce_odr hidden i64 @_ZNK5clang16PackIndexingType7desugarEv(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = tail call i64 @_ZNK5clang16PackIndexingType16getSelectedIndexEv(ptr noundef nonnull align 16 dereferenceable(64) %0) #16
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds nuw %"class.clang::QualType", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 8, !tbaa !16
   br label %11
 
@@ -2352,7 +2348,7 @@ _ZN5clang10QualifiersmIES0_.exit34.i.i:           ; preds = %295, %291
   %.val.i.i = load ptr, ptr %193, align 8, !tbaa !21
   %.val7.i.i = load i32, ptr %197, align 8, !tbaa !471
   %319 = zext i32 %.val7.i.i to i64
-  %320 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i.i, i64 %319
+  %320 = getelementptr inbounds nuw [168 x i8], ptr %.val.i.i, i64 %319
   store i32 1, ptr %320, align 8, !tbaa !484
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 64
   store ptr %316, ptr %321, align 8, !tbaa !485
@@ -4138,10 +4134,10 @@ define linkonce_odr hidden void @_ZNK5clang17FunctionProtoType20getExceptionSpec
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = lshr i64 %5, 38
   %13 = and i64 %12, 65535
-  %14 = getelementptr inbounds nuw %"class.clang::QualType", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = lshr i64 %5, 60
   %16 = and i64 %15, 1
-  %17 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = ptrtoint ptr %17 to i64
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
@@ -4156,7 +4152,7 @@ define linkonce_odr hidden void @_ZNK5clang17FunctionProtoType20getExceptionSpec
   %.lobit.i.i.i.i.i.i = and i16 %25, 1
   %26 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %28 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %23, %10
@@ -4175,8 +4171,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %23, %10
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %34
   %38 = phi i64 [ %37, %34 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %39 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %30, i64 %31
-  %40 = getelementptr inbounds nuw %"class.clang::QualType", ptr %39, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %29 to i64
   %43 = sub i64 %41, %42
@@ -4195,10 +4191,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = lshr i64 %5, 38
   %51 = and i64 %50, 65535
-  %52 = getelementptr inbounds nuw %"class.clang::QualType", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   %53 = lshr i64 %5, 60
   %54 = and i64 %53, 1
-  %55 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %54
   %56 = ptrtoint ptr %55 to i64
   %57 = add i64 %56, 7
   %58 = and i64 %57, -8
@@ -4230,9 +4226,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %71, %68 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %72 = lshr i64 %5, 59
   %73 = and i64 %72, 1
-  %74 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %59, i64 %73
-  %75 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %74, i64 %65
-  %76 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %75, i64 %spec.select.i.i.i.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %65
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %spec.select.i.i.i.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !543
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %77, ptr %78, align 8, !tbaa !544
@@ -4248,10 +4244,10 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %82 = lshr i64 %5, 38
   %83 = and i64 %82, 65535
-  %84 = getelementptr inbounds nuw %"class.clang::QualType", ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %83
   %85 = lshr i64 %5, 60
   %86 = and i64 %85, 1
-  %87 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %86
   %88 = ptrtoint ptr %87 to i64
   %89 = add i64 %88, 7
   %90 = and i64 %89, -8
@@ -4279,9 +4275,9 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit.thread: ; preds = %_Z
   %102 = zext nneg i16 %101 to i64
   %103 = lshr i64 %5, 59
   %104 = and i64 %103, 1
-  %105 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %91, i64 %104
-  %106 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %105, i64 %97
-  %107 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %106, i64 %102
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %97
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %102
   %108 = load ptr, ptr %107, align 8, !tbaa !545
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %108, ptr %109, align 8, !tbaa !546
@@ -4290,8 +4286,8 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit.thread: ; preds = %_Z
 _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i
   %110 = lshr i64 %5, 59
   %111 = and i64 %110, 1
-  %112 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %91, i64 %111
-  %113 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %112, i64 %97
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %111
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %97
   %114 = load ptr, ptr %113, align 8, !tbaa !545
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %114, ptr %115, align 8, !tbaa !546
@@ -4310,7 +4306,7 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit: ; preds = %_ZN4llvm2
 
 _ZNK4llvm15TrailingObjectsIN5clang17FunctionProtoTypeEJNS1_8QualTypeENS1_14SourceLocationENS1_12FunctionType26FunctionTypeExtraBitfieldsENS5_25FunctionTypeArmAttributesENS5_13ExceptionTypeEPNS1_4ExprEPNS1_12FunctionDeclENS5_16ExtParameterInfoENS1_10QualifiersENS1_14FunctionEffectENS1_19EffectConditionExprEEE18getTrailingObjectsISC_EEPKT_v.exit.i8: ; preds = %117, %116
   %121 = phi i64 [ 0, %116 ], [ %120, %117 ]
-  %122 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %112, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !545
   br label %_ZNK5clang17FunctionProtoType24getExceptionSpecTemplateEv.exit
@@ -4325,10 +4321,10 @@ _ZNK5clang17FunctionProtoType24getExceptionSpecTemplateEv.exit: ; preds = %_ZNK5
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %128 = lshr i64 %5, 38
   %129 = and i64 %128, 65535
-  %130 = getelementptr inbounds nuw %"class.clang::QualType", ptr %127, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %129
   %131 = lshr i64 %5, 60
   %132 = and i64 %131, 1
-  %133 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %132
   %134 = ptrtoint ptr %133 to i64
   %135 = add i64 %134, 7
   %136 = and i64 %135, -8
@@ -4360,9 +4356,9 @@ _ZNK5clang17FunctionProtoType20getExceptionSpecDeclEv.exit17: ; preds = %_ZN4llv
   %spec.select.i.i.i.i.i.i16 = phi i64 [ %149, %146 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i14 ]
   %150 = lshr i64 %5, 59
   %151 = and i64 %150, 1
-  %152 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %137, i64 %151
-  %153 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %152, i64 %143
-  %154 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %153, i64 %spec.select.i.i.i.i.i.i16
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %143
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %spec.select.i.i.i.i.i.i16
   %155 = load ptr, ptr %154, align 8, !tbaa !545
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %155, ptr %156, align 8, !tbaa !546
@@ -4384,10 +4380,10 @@ define linkonce_odr hidden i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = lshr i64 %3, 38
   %8 = and i64 %7, 65535
-  %9 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = lshr i64 %3, 60
   %11 = and i64 %10, 1
-  %12 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = ptrtoint ptr %12 to i64
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
@@ -4421,22 +4417,22 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1
-  %35 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %16, i64 %34
-  %36 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %35, i64 %22
-  %37 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %36, i64 %spec.select.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %22
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %spec.select.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i = add nsw i32 %31, -6
   %switch.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 3
   %38 = zext i1 %switch.i.i.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %switch.load
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %switch.load
   %41 = and i64 %3, 288230376151711744
   %.not.i.i.i.i = icmp eq i64 %41, 0
   %42 = select i1 %.not.i.i.i.i, i64 0, i64 %8
-  %43 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = add i64 %44, 7
   %46 = and i64 %45, -8
@@ -4867,7 +4863,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang26TemplateSpecializationTypeELb1EE9pu
   %26 = phi i32 [ %21, %.lr.ph.i ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %4, align 8, !tbaa !21
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %.07.i to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %15, align 8, !tbaa !24
@@ -4911,7 +4907,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang26TemplateSpecializationTypeELb1EE9pu
   %48 = phi i32 [ %43, %.lr.ph.i13 ], [ %.pre.i.i16, %45 ]
   %49 = load ptr, ptr %5, align 8, !tbaa !21
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = ptrtoint ptr %.07.i14 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %18, align 8, !tbaa !24
@@ -4936,11 +4932,11 @@ _ZN12_GLOBAL__N_112TemplateDiff16makeTemplateListERN4llvm15SmallVectorImplIPKN5c
   %64 = load ptr, ptr %4, align 8, !tbaa !21, !noalias !565
   %65 = load i32, ptr %15, align 8, !tbaa !24, !noalias !565
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %66
   %68 = load ptr, ptr %5, align 8, !tbaa !21, !noalias !568
   %69 = load i32, ptr %18, align 8, !tbaa !24, !noalias !568
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %70
   %72 = getelementptr inbounds i8, ptr %67, i64 -8
   %73 = load ptr, ptr %72, align 8, !tbaa !481
   %74 = getelementptr inbounds i8, ptr %71, i64 -8
@@ -5172,7 +5168,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112TemplateDiff12DiffTemplateEPKN5c
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112TemplateDiff8DiffTree8DiffNodeELb0EE9push_backEOS4_.exit.i, label %97, !prof !26
 
 97:                                               ; preds = %.critedge
-  %98 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.pre4.i.i, i64 %94
+  %98 = getelementptr inbounds nuw [168 x i8], ptr %.val.pre4.i.i, i64 %94
   %99 = icmp uge ptr %28, %.val.pre4.i.i
   %100 = icmp ult ptr %28, %98
   %spec.select.i.i.i.i.i.i = and i1 %99, %100
@@ -5196,7 +5192,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112TemplateDiff8DiffTree8DiffNod
   %.016.i.i.i.i = phi ptr [ %28, %.critedge ], [ %104, %101 ], [ %28, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %63, align 8, !tbaa !24
   %105 = zext i32 %.val3.i.i to i64
-  %106 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i.i, i64 %105
+  %106 = getelementptr inbounds nuw [168 x i8], ptr %.val.i.i, i64 %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(161) %106, ptr noundef nonnull align 8 dereferenceable(161) %.016.i.i.i.i, i64 16, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 16
@@ -5271,7 +5267,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree8DiffNodeD2Ev.exit.i: ; preds = %143, %_
   %144 = load i32, ptr %46, align 8, !tbaa !471
   %145 = zext i32 %144 to i64
   %.val9.i = load ptr, ptr %45, align 8, !tbaa !21
-  %146 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val9.i, i64 %145
+  %146 = getelementptr inbounds nuw [168 x i8], ptr %.val9.i, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load i32, ptr %147, align 8, !tbaa !581
   %149 = icmp eq i32 %148, 0
@@ -5285,7 +5281,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree8DiffNodeD2Ev.exit.i: ; preds = %143, %_
 .preheader.i:                                     ; preds = %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree8DiffNodeD2Ev.exit.i, %.preheader.i
   %.0.i = phi i32 [ %155, %.preheader.i ], [ %148, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree8DiffNodeD2Ev.exit.i ]
   %152 = zext i32 %.0.i to i64
-  %153 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val9.i, i64 %152
+  %153 = getelementptr inbounds nuw [168 x i8], ptr %.val9.i, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !580
   %.not.i = icmp eq i32 %155, 0
@@ -5307,7 +5303,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree7AddNodeEv.exit: ; preds = %150, %156
   %163 = add nsw i32 %162, -1
   %.sroa.speculated160 = call i32 @llvm.umin.i32(i32 %163, i32 %.0)
   %164 = zext i32 %.sroa.speculated160 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %68, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !585
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 28
   %168 = load i32, ptr %167, align 4
@@ -5344,7 +5340,7 @@ _ZNK12_GLOBAL__N_112TemplateDiff11TSTiterator14hasDesugaredTAEv.exit.thread.sink
   %176 = icmp eq ptr %174, %175
   %177 = getelementptr inbounds nuw i8, ptr %.val5.sink.i126, i64 48
   %178 = zext i32 %.val6.sink.i127 to i64
-  %179 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [24 x i8], ptr %177, i64 %178
   %.0.i.i.i128 = select i1 %176, ptr %179, ptr %174
   %180 = getelementptr inbounds nuw i8, ptr %.0.i.i.i128, i64 8
   %181 = load i64, ptr %180, align 8, !tbaa !16
@@ -5381,7 +5377,7 @@ _ZNK12_GLOBAL__N_112TemplateDiff11TSTiterator14hasDesugaredTAEv.exit.thread.sink
   %188 = icmp eq ptr %186, %187
   %189 = getelementptr inbounds nuw i8, ptr %.val5.sink.i, i64 48
   %190 = zext i32 %.val6.sink.i to i64
-  %191 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %189, i64 %190
   %.0.i.i.i = select i1 %188, ptr %191, ptr %186
   %192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %193 = load i64, ptr %192, align 8, !tbaa !16
@@ -5437,14 +5433,14 @@ _ZN12_GLOBAL__N_112TemplateDiff19OnlyPerformTypeDiffERN5clang10ASTContextENS1_8Q
   %217 = load i32, ptr %46, align 8, !tbaa !471
   %218 = zext i32 %217 to i64
   %.val4.i = load ptr, ptr %45, align 8, !tbaa !21
-  %219 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val4.i, i64 %218
+  %219 = getelementptr inbounds nuw [168 x i8], ptr %.val4.i, i64 %218
   store i32 2, ptr %219, align 8, !tbaa !484
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store i64 %.sroa.0.0.i122, ptr %220, align 8, !tbaa !16
   %221 = load i32, ptr %46, align 8, !tbaa !471
   %222 = zext i32 %221 to i64
   %.val.i98 = load ptr, ptr %45, align 8, !tbaa !21
-  %223 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i98, i64 %222
+  %223 = getelementptr inbounds nuw [168 x i8], ptr %.val.i98, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 88
   store i64 %.sroa.0.0.i, ptr %224, align 8, !tbaa !16
   %.val5.i = load ptr, ptr %45, align 8, !tbaa !21
@@ -5452,7 +5448,7 @@ _ZN12_GLOBAL__N_112TemplateDiff19OnlyPerformTypeDiffERN5clang10ASTContextENS1_8Q
   %225 = zext i1 %195 to i8
   %226 = zext i1 %197 to i8
   %227 = zext i32 %.val6.i to i64
-  %228 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val5.i, i64 %227
+  %228 = getelementptr inbounds nuw [168 x i8], ptr %.val5.i, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 82
   store i8 %225, ptr %229, align 2, !tbaa !487
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 154
@@ -5648,7 +5644,7 @@ _ZN5clang10QualifiersmIES0_.exit:                 ; preds = %318, %314
   %.val.i = load ptr, ptr %45, align 8, !tbaa !21
   %.val17.i = load i32, ptr %46, align 8, !tbaa !471
   %342 = zext i32 %.val17.i to i64
-  %343 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i, i64 %342
+  %343 = getelementptr inbounds nuw [168 x i8], ptr %.val.i, i64 %342
   store i32 1, ptr %343, align 8, !tbaa !484
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 64
   store ptr %339, ptr %344, align 8, !tbaa !485
@@ -5685,7 +5681,7 @@ _ZN12_GLOBAL__N_112TemplateDiff9DiffTypesERKNS0_11TSTiteratorES3_.exit: ; preds 
   %355 = load ptr, ptr %.sink13.i125.sroa.gep, align 8, !tbaa !587
   %356 = icmp eq ptr %354, %355
   %357 = zext i32 %.val7.i.i to i64
-  %358 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %86, i64 %357
+  %358 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %357
   %.0.i.i.i.i151 = select i1 %356, ptr %358, ptr %354
   %359 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i151, i64 8
   %360 = load ptr, ptr %359, align 8, !tbaa !16
@@ -5713,7 +5709,7 @@ _ZNK12_GLOBAL__N_112TemplateDiff11TSTiterator14hasDesugaredTAEv.exit.i147: ; pre
   %368 = icmp eq ptr %366, %367
   %369 = getelementptr inbounds nuw i8, ptr %.val6.i144, i64 48
   %370 = zext i32 %.val7.i145 to i64
-  %371 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %369, i64 %370
+  %371 = getelementptr inbounds nuw [24 x i8], ptr %369, i64 %370
   %.0.i.i.i150 = select i1 %368, ptr %371, ptr %366
   %372 = getelementptr inbounds nuw i8, ptr %.0.i.i.i150, i64 8
   %373 = load ptr, ptr %372, align 8, !tbaa !16
@@ -5738,7 +5734,7 @@ _ZN12_GLOBAL__N_112TemplateDiff15GetTemplateDeclERKNS0_11TSTiteratorE.exit152: ;
   %379 = icmp eq ptr %377, %378
   %380 = getelementptr inbounds nuw i8, ptr %.val.i130, i64 48
   %381 = zext i32 %.val5.i131 to i64
-  %382 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %380, i64 %381
+  %382 = getelementptr inbounds nuw [24 x i8], ptr %380, i64 %381
   %.0.i.i.i.i = select i1 %379, ptr %382, ptr %377
   %383 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %384 = load ptr, ptr %383, align 8, !tbaa !16
@@ -5766,7 +5762,7 @@ _ZNK12_GLOBAL__N_112TemplateDiff11TSTiterator14hasDesugaredTAEv.exit.i136: ; pre
   %392 = icmp eq ptr %390, %391
   %393 = getelementptr inbounds nuw i8, ptr %.val6.i134, i64 48
   %394 = zext i32 %.val7.i to i64
-  %395 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %393, i64 %394
+  %395 = getelementptr inbounds nuw [24 x i8], ptr %393, i64 %394
   %.0.i.i.i139 = select i1 %392, ptr %395, ptr %390
   %396 = getelementptr inbounds nuw i8, ptr %.0.i.i.i139, i64 8
   %397 = load ptr, ptr %396, align 8, !tbaa !16
@@ -5788,7 +5784,7 @@ _ZN12_GLOBAL__N_112TemplateDiff15GetTemplateDeclERKNS0_11TSTiteratorE.exit: ; pr
   %.val20.i21 = load ptr, ptr %45, align 8, !tbaa !21
   %.val21.i22 = load i32, ptr %46, align 8, !tbaa !471
   %405 = zext i32 %.val21.i22 to i64
-  %406 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val20.i21, i64 %405
+  %406 = getelementptr inbounds nuw [168 x i8], ptr %.val20.i21, i64 %405
   store i32 4, ptr %406, align 8, !tbaa !484
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 64
   store ptr %.0.i149, ptr %407, align 8, !tbaa !485
@@ -5823,7 +5819,7 @@ _ZN12_GLOBAL__N_112TemplateDiff21DiffTemplateTemplatesERKNS0_11TSTiteratorES3_.e
   %.pre-phi.i = phi i64 [ %.pre.i, %413 ], [ %405, %_ZN12_GLOBAL__N_112TemplateDiff15GetTemplateDeclERKNS0_11TSTiteratorE.exit ]
   %.val18.i23 = phi ptr [ %.val18.pre.i, %413 ], [ %.val20.i21, %_ZN12_GLOBAL__N_112TemplateDiff15GetTemplateDeclERKNS0_11TSTiteratorE.exit ]
   %424 = phi i8 [ %423, %413 ], [ 0, %_ZN12_GLOBAL__N_112TemplateDiff15GetTemplateDeclERKNS0_11TSTiteratorE.exit ]
-  %425 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val18.i23, i64 %.pre-phi.i
+  %425 = getelementptr inbounds nuw [168 x i8], ptr %.val18.i23, i64 %.pre-phi.i
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 160
   store i8 %424, ptr %426, align 8, !tbaa !476
   br label %681
@@ -5834,7 +5830,7 @@ _ZN12_GLOBAL__N_112TemplateDiff21DiffTemplateTemplatesERKNS0_11TSTiteratorES3_.e
   %430 = add nsw i32 %429, -1
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %430, i32 %.0)
   %431 = zext i32 %.sroa.speculated to i64
-  %432 = getelementptr inbounds nuw ptr, ptr %73, i64 %431
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %431
   %433 = load ptr, ptr %432, align 8, !tbaa !585
   %434 = icmp eq i32 %169, 45
   call void @llvm.assume(i1 %434)
@@ -5937,7 +5933,7 @@ _ZN12_GLOBAL__N_112TemplateDiff21DiffTemplateTemplatesERKNS0_11TSTiteratorES3_.e
   %465 = load i32, ptr %46, align 8, !tbaa !471
   %466 = zext i32 %465 to i64
   %.val16.i.i = load ptr, ptr %45, align 8, !tbaa !21
-  %467 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val16.i.i, i64 %466
+  %467 = getelementptr inbounds nuw [168 x i8], ptr %.val16.i.i, i64 %466
   store i32 8, ptr %467, align 8, !tbaa !484
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 72
   store ptr %453, ptr %468, align 8, !tbaa !589
@@ -5974,7 +5970,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5
   %484 = load i32, ptr %46, align 8, !tbaa !471
   %485 = zext i32 %484 to i64
   %.val10.i.i = load ptr, ptr %45, align 8, !tbaa !21
-  %486 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val10.i.i, i64 %485
+  %486 = getelementptr inbounds nuw [168 x i8], ptr %.val10.i.i, i64 %485
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 120
   store i8 1, ptr %487, align 8, !tbaa !593
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 88
@@ -5982,7 +5978,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5
   %489 = load i32, ptr %46, align 8, !tbaa !471
   %490 = zext i32 %489 to i64
   %.val.i.i30 = load ptr, ptr %45, align 8, !tbaa !21
-  %491 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i.i30, i64 %490
+  %491 = getelementptr inbounds nuw [168 x i8], ptr %.val.i.i30, i64 %490
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 128
   store ptr %464, ptr %492, align 8, !tbaa !594
   %493 = getelementptr inbounds nuw i8, ptr %491, i64 82
@@ -6005,7 +6001,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5
   %502 = load i32, ptr %46, align 8, !tbaa !471
   %503 = zext i32 %502 to i64
   %.val16.i63.i = load ptr, ptr %45, align 8, !tbaa !21
-  %504 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val16.i63.i, i64 %503
+  %504 = getelementptr inbounds nuw [168 x i8], ptr %.val16.i63.i, i64 %503
   store i32 7, ptr %504, align 8, !tbaa !484
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 32
   %506 = getelementptr inbounds nuw i8, ptr %504, i64 40
@@ -6034,7 +6030,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN
   %517 = load i32, ptr %46, align 8, !tbaa !471
   %518 = zext i32 %517 to i64
   %.val14.i.i = load ptr, ptr %45, align 8, !tbaa !21
-  %519 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val14.i.i, i64 %518
+  %519 = getelementptr inbounds nuw [168 x i8], ptr %.val14.i.i, i64 %518
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 48
   store i8 1, ptr %520, align 8, !tbaa !595
   %521 = getelementptr inbounds nuw i8, ptr %519, i64 16
@@ -6042,7 +6038,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN
   %522 = load i32, ptr %46, align 8, !tbaa !471
   %523 = zext i32 %522 to i64
   %.val12.i.i = load ptr, ptr %45, align 8, !tbaa !21
-  %524 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val12.i.i, i64 %523
+  %524 = getelementptr inbounds nuw [168 x i8], ptr %.val12.i.i, i64 %523
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 56
   store ptr %499, ptr %525, align 8, !tbaa !592
   %526 = getelementptr inbounds nuw i8, ptr %524, i64 144
@@ -6071,7 +6067,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN
   %536 = load i32, ptr %46, align 8, !tbaa !471
   %537 = zext i32 %536 to i64
   %.val16.i64.i = load ptr, ptr %45, align 8, !tbaa !21
-  %538 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val16.i64.i, i64 %537
+  %538 = getelementptr inbounds nuw [168 x i8], ptr %.val16.i64.i, i64 %537
   store i32 5, ptr %538, align 8, !tbaa !484
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 32
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 40
@@ -6100,7 +6096,7 @@ _ZN4llvm6APSIntaSERKS0_.exit.i.i:                 ; preds = %548, %545
   %551 = load i32, ptr %46, align 8, !tbaa !471
   %552 = zext i32 %551 to i64
   %.val14.i65.i = load ptr, ptr %45, align 8, !tbaa !21
-  %553 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val14.i65.i, i64 %552
+  %553 = getelementptr inbounds nuw [168 x i8], ptr %.val14.i65.i, i64 %552
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 104
   %555 = getelementptr inbounds nuw i8, ptr %553, i64 112
   %556 = load i32, ptr %555, align 8, !tbaa !34
@@ -6128,7 +6124,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree14SetIntegerDiffERKN4llvm6APSIntES5_bbN5
   %566 = load i32, ptr %46, align 8, !tbaa !471
   %567 = zext i32 %566 to i64
   %.val13.i.i = load ptr, ptr %45, align 8, !tbaa !21
-  %568 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val13.i.i, i64 %567
+  %568 = getelementptr inbounds nuw [168 x i8], ptr %.val13.i.i, i64 %567
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 48
   store i8 %496, ptr %569, align 8, !tbaa !595
   %570 = getelementptr inbounds nuw i8, ptr %568, i64 120
@@ -6138,13 +6134,13 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree14SetIntegerDiffERKN4llvm6APSIntES5_bbN5
   %572 = load i32, ptr %46, align 8, !tbaa !471
   %573 = zext i32 %572 to i64
   %.val10.i66.i = load ptr, ptr %45, align 8, !tbaa !21
-  %574 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val10.i66.i, i64 %573
+  %574 = getelementptr inbounds nuw [168 x i8], ptr %.val10.i66.i, i64 %573
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 88
   store i64 %.sroa.022.0.copyload.i, ptr %575, align 8, !tbaa !16
   %576 = load i32, ptr %46, align 8, !tbaa !471
   %577 = zext i32 %576 to i64
   %.val9.i.i = load ptr, ptr %45, align 8, !tbaa !21
-  %578 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val9.i.i, i64 %577
+  %578 = getelementptr inbounds nuw [168 x i8], ptr %.val9.i.i, i64 %577
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 56
   store ptr %534, ptr %579, align 8, !tbaa !592
   %580 = getelementptr inbounds nuw i8, ptr %578, i64 128
@@ -6204,7 +6200,7 @@ _ZNK4llvm6APSInteqERKS0_.exit.i:                  ; preds = %604, %600, %583
   %.val59.i = load ptr, ptr %45, align 8, !tbaa !21
   %.val60.i = load i32, ptr %46, align 8, !tbaa !471
   %614 = zext i32 %.val60.i to i64
-  %615 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val59.i, i64 %614
+  %615 = getelementptr inbounds nuw [168 x i8], ptr %.val59.i, i64 %614
   store i32 6, ptr %615, align 8, !tbaa !484
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 72
   store ptr %453, ptr %616, align 8, !tbaa !589
@@ -6253,7 +6249,7 @@ _ZNK4llvm6APSInteqERKS0_.exit.i:                  ; preds = %604, %600, %583
   %.val55.i = phi ptr [ %.val55.pre.i, %628 ], [ %.val59.i, %609 ]
   %640 = phi i1 [ %638, %628 ], [ %626, %609 ]
   %641 = zext i1 %640 to i8
-  %642 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val55.i, i64 %.pre-phi.i29
+  %642 = getelementptr inbounds nuw [168 x i8], ptr %.val55.i, i64 %.pre-phi.i29
   br label %.sink.split.i
 
 643:                                              ; preds = %608
@@ -6262,7 +6258,7 @@ _ZNK4llvm6APSInteqERKS0_.exit.i:                  ; preds = %604, %600, %583
   %.val61.i = load ptr, ptr %45, align 8, !tbaa !21
   %.val62.i = load i32, ptr %46, align 8, !tbaa !471
   %646 = zext i32 %.val62.i to i64
-  %647 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val61.i, i64 %646
+  %647 = getelementptr inbounds nuw [168 x i8], ptr %.val61.i, i64 %646
   store i32 3, ptr %647, align 8, !tbaa !484
   %648 = getelementptr inbounds nuw i8, ptr %647, i64 56
   store ptr %644, ptr %648, align 8, !tbaa !592
@@ -6324,7 +6320,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_
   %.pre-phi87.i = phi i64 [ %646, %643 ], [ %646, %654 ], [ %.pre86.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit12.i.i ]
   %.val57.i = phi ptr [ %.val61.i, %643 ], [ %.val61.i, %654 ], [ %.val57.pre.i, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit12.i.i ]
   %.0.i.i = phi i8 [ 1, %643 ], [ 0, %654 ], [ %665, %_ZN4llvm16FoldingSetNodeIDD2Ev.exit12.i.i ]
-  %666 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val57.i, i64 %.pre-phi87.i
+  %666 = getelementptr inbounds nuw [168 x i8], ptr %.val57.i, i64 %.pre-phi87.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZN12_GLOBAL__N_112TemplateDiff11IsEqualExprERN5clang10ASTContextEPNS1_4ExprES5_.exit.i, %639, %_ZNK4llvm6APSInteqERKS0_.exit.i, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromIntegerAndToDeclarationDiffERKN4llvm6APSIntEbN5clang8QualTypeEPNS6_4ExprEPNS6_9ValueDeclEbbS9_bb.exit.i, %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree34SetFromDeclarationAndToIntegerDiffEPN5clang9ValueDeclEbbPNS2_4ExprERKN4llvm6APSIntEbNS2_8QualTypeES6_bb.exit.i
@@ -6406,7 +6402,7 @@ _ZN12_GLOBAL__N_112TemplateDiff12DiffNonTypesERKNS0_11TSTiteratorES3_PN5clang23N
 
 .lr.ph.preheader:                                 ; preds = %688
   %691 = zext i32 %689 to i64
-  %692 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %87, i64 %691
+  %692 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %691
   %.sroa.010.0.copyload.i.i319 = load i32, ptr %692, align 8
   %693 = and i32 %.sroa.010.0.copyload.i.i319, 2147483647
   %.not5.i.i320 = icmp eq i32 %693, 9
@@ -6419,7 +6415,7 @@ _ZN12_GLOBAL__N_112TemplateDiff12DiffNonTypesERKNS0_11TSTiteratorES3_PN5clang23N
 
 .lr.ph:                                           ; preds = %694
   %697 = zext i32 %695 to i64
-  %698 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %87, i64 %697
+  %698 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %697
   %.sroa.010.0.copyload.i.i = load i32, ptr %698, align 8
   %699 = and i32 %.sroa.010.0.copyload.i.i, 2147483647
   %.not5.i.i = icmp eq i32 %699, 9
@@ -6485,7 +6481,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiterator16InternalIteratorppEv.exit.i: ; pre
 
 .lr.ph212.preheader:                              ; preds = %713
   %717 = zext i32 %715 to i64
-  %718 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %714, i64 %717
+  %718 = getelementptr inbounds nuw [24 x i8], ptr %714, i64 %717
   %.sroa.010.0.copyload.i6.i331 = load i32, ptr %718, align 8
   %719 = and i32 %.sroa.010.0.copyload.i6.i331, 2147483647
   %.not5.i7.i332 = icmp eq i32 %719, 9
@@ -6498,7 +6494,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiterator16InternalIteratorppEv.exit.i: ; pre
 
 .lr.ph212:                                        ; preds = %720
   %723 = zext i32 %721 to i64
-  %724 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %714, i64 %723
+  %724 = getelementptr inbounds nuw [24 x i8], ptr %714, i64 %723
   %.sroa.010.0.copyload.i6.i = load i32, ptr %724, align 8
   %725 = and i32 %.sroa.010.0.copyload.i6.i, 2147483647
   %.not5.i7.i = icmp eq i32 %725, 9
@@ -6557,7 +6553,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiteratorppEv.exit: ; preds = %_ZN12_GLOBAL__
 
 .lr.ph228.preheader:                              ; preds = %738
   %742 = zext i32 %740 to i64
-  %743 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %739, i64 %742
+  %743 = getelementptr inbounds nuw [24 x i8], ptr %739, i64 %742
   %.sroa.010.0.copyload.i.i54344 = load i32, ptr %743, align 8
   %744 = and i32 %.sroa.010.0.copyload.i.i54344, 2147483647
   %.not5.i.i55345 = icmp eq i32 %744, 9
@@ -6570,7 +6566,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiteratorppEv.exit: ; preds = %_ZN12_GLOBAL__
 
 .lr.ph228:                                        ; preds = %745
   %748 = zext i32 %746 to i64
-  %749 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %739, i64 %748
+  %749 = getelementptr inbounds nuw [24 x i8], ptr %739, i64 %748
   %.sroa.010.0.copyload.i.i54 = load i32, ptr %749, align 8
   %750 = and i32 %.sroa.010.0.copyload.i.i54, 2147483647
   %.not5.i.i55 = icmp eq i32 %750, 9
@@ -6635,7 +6631,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiterator16InternalIteratorppEv.exit.i37: ; p
 
 .lr.ph244.preheader:                              ; preds = %764
   %768 = zext i32 %766 to i64
-  %769 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %765, i64 %768
+  %769 = getelementptr inbounds nuw [24 x i8], ptr %765, i64 %768
   %.sroa.010.0.copyload.i6.i44357 = load i32, ptr %769, align 8
   %770 = and i32 %.sroa.010.0.copyload.i6.i44357, 2147483647
   %.not5.i7.i45358 = icmp eq i32 %770, 9
@@ -6648,7 +6644,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiterator16InternalIteratorppEv.exit.i37: ; p
 
 .lr.ph244:                                        ; preds = %771
   %774 = zext i32 %772 to i64
-  %775 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %765, i64 %774
+  %775 = getelementptr inbounds nuw [24 x i8], ptr %765, i64 %774
   %.sroa.010.0.copyload.i6.i44 = load i32, ptr %775, align 8
   %776 = and i32 %.sroa.010.0.copyload.i6.i44, 2147483647
   %.not5.i7.i45 = icmp eq i32 %776, 9
@@ -6684,7 +6680,7 @@ _ZN12_GLOBAL__N_112TemplateDiff11TSTiteratorppEv.exit62: ; preds = %_ZN12_GLOBAL
   %782 = load i32, ptr %46, align 8, !tbaa !471
   %783 = zext i32 %782 to i64
   %.val.i63 = load ptr, ptr %45, align 8, !tbaa !21
-  %784 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i63, i64 %783
+  %784 = getelementptr inbounds nuw [168 x i8], ptr %.val.i63, i64 %783
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 12
   %786 = load i32, ptr %785, align 4, !tbaa !582
   store i32 %786, ptr %46, align 8, !tbaa !471
@@ -6754,7 +6750,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112TemplateDiff11TSTiteratorC2ERN5c
 
 23:                                               ; preds = %.preheader.i
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %12, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %24
   %.sroa.010.0.copyload.i.i = load i32, ptr %25, align 8
   %26 = and i32 %.sroa.010.0.copyload.i.i, 2147483647
   %.not5.i.i = icmp eq i32 %26, 9
@@ -6869,7 +6865,7 @@ _ZNK5clang26TemplateSpecializationType9isSugaredEv.exit.thread: ; preds = %_ZN12
 
 73:                                               ; preds = %.preheader.i18
   %74 = zext i32 %70 to i64
-  %75 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %62, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %74
   %.sroa.010.0.copyload.i.i19 = load i32, ptr %75, align 8
   %76 = and i32 %.sroa.010.0.copyload.i.i19, 2147483647
   %.not5.i.i20 = icmp eq i32 %76, 9
@@ -6914,7 +6910,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112TemplateDiff30InitializeNonTypeD
   %19 = icmp eq ptr %16, %18
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %21 = zext i32 %.val44 to i64
-  %22 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %.0.i.i.i = select i1 %19, ptr %22, ptr %16
   %23 = load i32, ptr %.0.i.i.i, align 8
   %24 = and i32 %23, 2147483647
@@ -6986,7 +6982,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %46, %43, %_ZNK5clan
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load i32, ptr %12, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %54
   %.0.i.i.i48 = select i1 %50, ptr %55, ptr %48
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i48, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !16
@@ -7002,7 +6998,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %46, %43, %_ZNK5clan
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load i32, ptr %12, align 8
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %65
   %.0.i.i.i50 = select i1 %19, ptr %66, ptr %16
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i50, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !16
@@ -7130,7 +7126,7 @@ _ZNK12_GLOBAL__N_112TemplateDiff11TSTiterator14hasDesugaredTAEv.exit: ; preds = 
   %137 = icmp eq ptr %134, %136
   %138 = getelementptr inbounds nuw i8, ptr %.val45, i64 48
   %139 = zext i32 %.val46 to i64
-  %140 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %139
   %.0.i.i = select i1 %137, ptr %140, ptr %134
   %141 = load i32, ptr %.0.i.i, align 8
   %142 = and i32 %141, 2147483647
@@ -7365,7 +7361,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %48, %50
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %.val25 = load i32, ptr %58, align 8, !tbaa !473
   %59 = zext i32 %.val25 to i64
-  %60 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val, i64 %59
+  %60 = getelementptr inbounds nuw [168 x i8], ptr %.val, i64 %59
   %61 = load i32, ptr %60, align 8, !tbaa !484
   switch i32 %61, label %_ZN12_GLOBAL__N_112TemplateDiff9PrintExprEPKN5clang4ExprES4_bbb.exit [
     i32 1, label %1672
@@ -9311,7 +9307,7 @@ _ZN4llvm6APSIntaSERKS0_.exit.i.thread:            ; preds = %962
   %973 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %974 = load i8, ptr %973, align 4, !tbaa !474, !range !27, !noundef !28
   store i8 %974, ptr %964, align 4, !tbaa !474
-  %975 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val, i64 %59
+  %975 = getelementptr inbounds nuw [168 x i8], ptr %.val, i64 %59
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 104
   br label %982
 
@@ -9325,7 +9321,7 @@ _ZN4llvm6APSIntaSERKS0_.exit.i:                   ; preds = %962
   %978 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %979 = load i8, ptr %978, align 4, !tbaa !474, !range !27, !noundef !28
   store i8 %979, ptr %964, align 4, !tbaa !474
-  %980 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val14.i.pre, i64 %.pre206
+  %980 = getelementptr inbounds nuw [168 x i8], ptr %.val14.i.pre, i64 %.pre206
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 104
   br i1 %977, label %982, label %991
 
@@ -9362,7 +9358,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree14GetIntegerDiffERN4llvm6APSIntES4_RbS5_
   %995 = getelementptr inbounds nuw i8, ptr %994, i64 116
   %996 = load i8, ptr %995, align 4, !tbaa !474, !range !27, !noundef !28
   store i8 %996, ptr %966, align 4, !tbaa !474
-  %997 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val13.i, i64 %.pre-phi208
+  %997 = getelementptr inbounds nuw [168 x i8], ptr %.val13.i, i64 %.pre-phi208
   %998 = getelementptr inbounds nuw i8, ptr %997, i64 48
   %999 = load i8, ptr %998, align 8, !tbaa !595, !range !27, !noundef !28
   %1000 = getelementptr inbounds nuw i8, ptr %997, i64 120
@@ -10095,7 +10091,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34GetFromDeclarationAndToIntegerDiffERPN
   %1395 = getelementptr inbounds nuw i8, ptr %60, i64 116
   %1396 = load i8, ptr %1395, align 4, !tbaa !474, !range !27, !noundef !28
   store i8 %1396, ptr %1378, align 4, !tbaa !474
-  %1397 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val10.i121, i64 %.pre-phi210
+  %1397 = getelementptr inbounds nuw [168 x i8], ptr %.val10.i121, i64 %.pre-phi210
   %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 88
   %1399 = load i64, ptr %1398, align 8, !tbaa !16
   %1400 = getelementptr inbounds nuw i8, ptr %1397, i64 128
@@ -10388,7 +10384,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree34GetFromIntegerAndToDeclarationDiffERN4
   %1548 = getelementptr inbounds nuw i8, ptr %60, i64 44
   %1549 = load i8, ptr %1548, align 4, !tbaa !474, !range !27, !noundef !28
   store i8 %1549, ptr %1539, align 4, !tbaa !474
-  %1550 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val14.i135, i64 %.pre-phi212
+  %1550 = getelementptr inbounds nuw [168 x i8], ptr %.val14.i135, i64 %.pre-phi212
   %1551 = getelementptr inbounds nuw i8, ptr %1550, i64 16
   %1552 = load i64, ptr %1551, align 8, !tbaa !16
   %1553 = getelementptr inbounds nuw i8, ptr %1550, i64 56
@@ -10618,7 +10614,7 @@ _ZN4llvm5APIntD2Ev.exit144:                       ; preds = %_ZN12_GLOBAL__N_112
   %.val74 = load ptr, ptr %57, align 8, !tbaa !21
   %.val75 = load i32, ptr %58, align 8, !tbaa !473
   %1679 = zext i32 %.val75 to i64
-  %1680 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val74, i64 %1679
+  %1680 = getelementptr inbounds nuw [168 x i8], ptr %.val74, i64 %1679
   %1681 = getelementptr inbounds nuw i8, ptr %1680, i64 8
   %1682 = load i32, ptr %1681, align 8, !tbaa !581
   %.not193 = icmp eq i32 %1682, 0
@@ -10673,7 +10669,7 @@ _ZN4llvm11raw_ostreamlsEc.exit148:                ; preds = %1706, %1708
   %1710 = load i32, ptr %58, align 8, !tbaa !473
   %1711 = zext i32 %1710 to i64
   %.val.i149 = load ptr, ptr %57, align 8, !tbaa !21
-  %1712 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i149, i64 %1711
+  %1712 = getelementptr inbounds nuw [168 x i8], ptr %.val.i149, i64 %1711
   %1713 = getelementptr inbounds nuw i8, ptr %1712, i64 8
   %1714 = load i32, ptr %1713, align 8, !tbaa !581
   %1715 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10691,7 +10687,7 @@ _ZN12_GLOBAL__N_112TemplateDiff8DiffTree14AdvanceSiblingEv.exit: ; preds = %_ZN4
 
 1718:                                             ; preds = %_ZN12_GLOBAL__N_112TemplateDiff8DiffTree14AdvanceSiblingEv.exit
   %1719 = zext i32 %.val65 to i64
-  %1720 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val64, i64 %1719
+  %1720 = getelementptr inbounds nuw [168 x i8], ptr %.val64, i64 %1719
   %1721 = getelementptr inbounds nuw i8, ptr %1720, i64 160
   %1722 = load i8, ptr %1721, align 8, !tbaa !476, !range !27, !noundef !28
   %1723 = trunc nuw i8 %1722 to i1
@@ -10736,7 +10732,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit152:              ; preds = %1739, %1737, %1726,
   %.val76 = load ptr, ptr %57, align 8, !tbaa !21
   %.val77 = load i32, ptr %58, align 8, !tbaa !473
   %1742 = zext i32 %.val77 to i64
-  %1743 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val76, i64 %1742
+  %1743 = getelementptr inbounds nuw [168 x i8], ptr %.val76, i64 %1742
   %1744 = getelementptr inbounds nuw i8, ptr %1743, i64 4
   %1745 = load i32, ptr %1744, align 4, !tbaa !580
   %.not194 = icmp eq i32 %1745, 0
@@ -10771,7 +10767,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit155:              ; preds = %1758, %1756, %_ZN4l
   %1761 = load i32, ptr %58, align 8, !tbaa !473
   %1762 = zext i32 %1761 to i64
   %.val2.i = load ptr, ptr %57, align 8, !tbaa !21
-  %1763 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val2.i, i64 %1762
+  %1763 = getelementptr inbounds nuw [168 x i8], ptr %.val2.i, i64 %1762
   %1764 = getelementptr inbounds nuw i8, ptr %1763, i64 4
   %1765 = load i32, ptr %1764, align 4, !tbaa !580
   %.not195 = icmp eq i32 %1765, 0
@@ -10797,7 +10793,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit155:              ; preds = %1758, %1756, %_ZN4l
   %1773 = load i32, ptr %58, align 8, !tbaa !473
   %1774 = zext i32 %1773 to i64
   %.val.i156 = load ptr, ptr %57, align 8, !tbaa !21
-  %1775 = getelementptr inbounds nuw %"struct.(anonymous namespace)::TemplateDiff::DiffTree::DiffNode", ptr %.val.i156, i64 %1774
+  %1775 = getelementptr inbounds nuw [168 x i8], ptr %.val.i156, i64 %1774
   %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 12
   %1777 = load i32, ptr %1776, align 4, !tbaa !582
   store i32 %1777, ptr %58, align 8, !tbaa !473
@@ -12318,7 +12314,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %61
   %70 = load ptr, ptr %0, align 8
   %71 = lshr i32 %65, 6
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i64, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %72
   %.in.i.i.i.i = select i1 %69, ptr %0, ptr %73
   %74 = load i64, ptr %.in.i.i.i.i, align 8, !tbaa !16
   %75 = and i64 %74, %68
@@ -12340,7 +12336,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30:            ; preds = %76
   %85 = load ptr, ptr %1, align 8
   %86 = lshr i32 %80, 6
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i64, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   %.in.i.i.i.i29 = select i1 %84, ptr %1, ptr %88
   %89 = load i64, ptr %.in.i.i.i.i29, align 8, !tbaa !16
   %90 = and i64 %89, %83

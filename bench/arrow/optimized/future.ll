@@ -3887,7 +3887,7 @@ _ZNSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_S_relocateEPS2_S5_S5
 _ZNSt12_Vector_baseIN5arrow10FutureImpl14CallbackRecordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow10FutureImpl14CallbackRecordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %37
   store ptr %20, ptr %0, align 8, !tbaa !127
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !57
-  %41 = getelementptr inbounds nuw %"struct.arrow::FutureImpl::CallbackRecord", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8, !tbaa !60
   ret void
 }
@@ -6894,7 +6894,7 @@ _ZSt10_ConstructIN5arrow6ResultINS0_8internal5EmptyEEEJEEvPT_DpOT0_.exit.i.i.i.i
   %.026 = phi i64 [ %54, %_ZN5arrow6ResultINS_8internal5EmptyEEaSERKS3_.exit ], [ 0, %.lr.ph.preheader ]
   %35 = load ptr, ptr %0, align 8, !tbaa !125
   %36 = load ptr, ptr %35, align 8, !tbaa !107
-  %37 = getelementptr inbounds nuw %"class.arrow::Future", ptr %36, i64 %.026
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.026
   %38 = load ptr, ptr %37, align 8, !tbaa !48
   invoke void @_ZN5arrow18ConcreteFutureImpl6DoWaitEv(ptr noundef nonnull align 8 dereferenceable(160) %38)
           to label %39 unwind label %60
@@ -6903,7 +6903,7 @@ _ZSt10_ConstructIN5arrow6ResultINS0_8internal5EmptyEEEJEEvPT_DpOT0_.exit.i.i.i.i
   %40 = load ptr, ptr %37, align 8, !tbaa !48
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !129
-  %43 = getelementptr inbounds nuw %"class.arrow::Result", ptr %33, i64 %.026
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.026
   %44 = icmp eq ptr %43, %42
   br i1 %44, label %_ZN5arrow6ResultINS_8internal5EmptyEEaSERKS3_.exit, label %45, !prof !56
 

@@ -101,7 +101,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6Matrix
   %.val15 = load ptr, ptr %8, align 8, !tbaa !12
   %.val16 = load i32, ptr %10, align 4, !tbaa !16
   %19 = sext i32 %.val16 to i64
-  %20 = getelementptr inbounds i32, ptr %.val15, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %.val15, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %"_ZSt10__invoke_rIbRZN3igl32infinite_cost_stopping_conditionERKSt8functionIFviRKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEERKNS3_IiLin1ELin1ELi0ELin1ELin1EEES9_RKNS3_IiLin1ELi1ELi0ELin1ELi1EEES9_S9_RdRNS3_IdLi1ELin1ELi1ELi1ELin1EEEEERS1_IFbS6_S9_S9_SC_S9_S9_RKSt14priority_queueISt5tupleIJdiiEESt6vectorISM_SaISM_EESt7greaterISM_EESC_S6_iiiiiEEE3$_0JS6_S9_S9_SC_S9_S9_SU_SC_S6_iiiiiEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES11_E4typeEOS12_DpOS13_.exit", label %23

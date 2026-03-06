@@ -7142,7 +7142,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
 
 30:                                               ; preds = %.noexc5
   %31 = load ptr, ptr %13, align 8, !alias.scope !537, !nonnull !7, !noundef !7
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   %33 = load i32, ptr %32, align 4, !noundef !7
   %34 = icmp ne i32 %23, 0
   call void @llvm.assume(i1 %34)
@@ -7329,7 +7329,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
 
 43:                                               ; preds = %.noexc5
   %44 = load ptr, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !563, !noalias !564, !nonnull !7, !noundef !7
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %40
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %40
   %46 = load i32, ptr %45, align 4, !noalias !564, !noundef !7
   %47 = icmp ne i32 %36, 0
   call void @llvm.assume(i1 %47)
@@ -7510,7 +7510,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
 
 43:                                               ; preds = %.noexc5
   %44 = load ptr, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !585, !noalias !586, !nonnull !7, !noundef !7
-  %45 = getelementptr inbounds nuw { i32, [3 x i32] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %40
   %46 = load i32, ptr %45, align 8, !range !587, !noalias !586, !noundef !7
   %47 = trunc nuw i32 %46 to i1
   br i1 %47, label %.thread.i.i, label %49
@@ -7662,7 +7662,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
 
 30:                                               ; preds = %.noexc5
   %31 = load ptr, ptr %13, align 8, !alias.scope !595, !nonnull !7, !noundef !7
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   %33 = load i32, ptr %32, align 4, !noundef !7
   %34 = icmp ne i32 %23, 0
   call void @llvm.assume(i1 %34)
@@ -8030,7 +8030,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
 
 49:                                               ; preds = %34
   %50 = load ptr, ptr %8, align 8, !alias.scope !658, !noalias !661, !noundef !7
-  %51 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %50, i64 %35
+  %51 = getelementptr inbounds nuw [160 x i8], ptr %50, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %51, ptr noundef nonnull align 16 dereferenceable(160) %9, i64 160, i1 false), !noalias !665
   %52 = add nuw i64 %35, 1
   store i64 %52, ptr %18, align 8, !alias.scope !658, !noalias !661
@@ -8271,7 +8271,7 @@ define hidden void @"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT
 
 46:                                               ; preds = %31
   %47 = load ptr, ptr %9, align 8, !alias.scope !709, !noalias !712, !noundef !7
-  %48 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %47, i64 %32
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !716
   %49 = add nuw i64 %32, 1
   store i64 %49, ptr %19, align 8, !alias.scope !709, !noalias !712
@@ -8569,7 +8569,7 @@ define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf074c2635e33153bE.exit": ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noundef !7
-  %9 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %8, i64 %2
+  %9 = getelementptr inbounds nuw [160 x i8], ptr %8, i64 %2
   %10 = sub nuw i64 %5, %2
   %11 = load ptr, ptr %1, align 8, !nonnull !7, !align !596, !noundef !7
   store ptr %11, ptr %0, align 8
@@ -8607,7 +8607,7 @@ define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$
 "_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17ha2c0f7b3492ac782E.exit": ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !noundef !7
-  %9 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %8, i64 %2
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %2
   %10 = sub nuw i64 %5, %2
   %11 = load ptr, ptr %1, align 8, !nonnull !7, !align !596, !noundef !7
   store ptr %11, ptr %0, align 8
@@ -8690,7 +8690,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
   %5 = load ptr, ptr %1, align 8, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !7
-  %8 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [160 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %2, align 8, !noundef !7
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %12, label %11
@@ -8747,7 +8747,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
   %5 = load ptr, ptr %1, align 8, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !7
-  %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %2, align 8, !noundef !7
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %12, label %11
@@ -18107,7 +18107,7 @@ define hidden { ptr, i64 } @"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
-  %12 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %11, i64 %4
+  %12 = getelementptr inbounds nuw [160 x i8], ptr %11, i64 %4
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %1, 1
   ret { ptr, i64 } %14
@@ -18131,7 +18131,7 @@ define hidden { ptr, i64 } @"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
-  %12 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr %11, i64 %4
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %4
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %1, 1
   ret { ptr, i64 } %14
@@ -32536,7 +32536,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i.i:
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !2174
   %112 = icmp ult i64 %.sroa.6.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %112), !noalias !2177
-  %113 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
   %114 = icmp sgt i64 %.sroa.05.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %114), !noalias !2177
   store ptr %.sroa.5.0.copyload.i.i.i, ptr %33, align 8, !noalias !2174
@@ -33259,7 +33259,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i.i:
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !2221
   %112 = icmp ult i64 %.sroa.6.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %112), !noalias !2224
-  %113 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
   %114 = icmp sgt i64 %.sroa.05.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %114), !noalias !2224
   store ptr %.sroa.5.0.copyload.i.i.i, ptr %33, align 8, !noalias !2221
@@ -35289,7 +35289,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i.i:
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !2436
   %121 = icmp ult i64 %.sroa.6.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %121), !noalias !2440
-  %122 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
   %123 = icmp sgt i64 %.sroa.05.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %123), !noalias !2440
   store ptr %.sroa.5.0.copyload.i.i.i, ptr %38, align 8, !noalias !2436
@@ -38087,7 +38087,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i.i:
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !2736
   %121 = icmp ult i64 %.sroa.6.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %121), !noalias !2740
-  %122 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
   %123 = icmp sgt i64 %.sroa.05.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %123), !noalias !2740
   store ptr %.sroa.5.0.copyload.i.i.i, ptr %38, align 8, !noalias !2736
@@ -42130,7 +42130,7 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i.i:
   %.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !3147
   %121 = icmp ult i64 %.sroa.6.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %121), !noalias !3151
-  %122 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload.i.i.i, i64 %.sroa.6.0.copyload.i.i.i
   %123 = icmp sgt i64 %.sroa.05.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %123), !noalias !3151
   store ptr %.sroa.5.0.copyload.i.i.i, ptr %38, align 8, !noalias !3147
@@ -52775,7 +52775,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -52819,7 +52819,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3629, !noalias !3632, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3629, !noalias !3632
@@ -52921,7 +52921,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [432 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 416
   %26 = load i32, ptr %25, align 16, !noundef !7
   %27 = or i32 %26, 1
@@ -52958,7 +52958,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 38:                                               ; preds = %33, %29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !3636, !noalias !3639, !nonnull !7, !noundef !7
-  %41 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %40, i64 %12
+  %41 = getelementptr inbounds nuw [432 x i8], ptr %40, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(432) %41, ptr noundef nonnull align 16 dereferenceable(432) %4, i64 432, i1 false)
   %42 = add nuw nsw i64 %12, 1
   store i64 %42, ptr %11, align 8, !alias.scope !3636, !noalias !3639
@@ -53050,7 +53050,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53094,7 +53094,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3643, !noalias !3646, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3643, !noalias !3646
@@ -53196,7 +53196,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53240,7 +53240,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3650, !noalias !3653, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3650, !noalias !3653
@@ -53342,7 +53342,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53386,7 +53386,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3657, !noalias !3660, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3657, !noalias !3660
@@ -53488,7 +53488,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53532,7 +53532,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3664, !noalias !3667, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3664, !noalias !3667
@@ -53634,7 +53634,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53678,7 +53678,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3671, !noalias !3674, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3671, !noalias !3674
@@ -53777,7 +53777,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53821,7 +53821,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3678, !noalias !3681, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3678, !noalias !3681
@@ -53923,7 +53923,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -53967,7 +53967,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3685, !noalias !3688, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3685, !noalias !3688
@@ -54069,7 +54069,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54113,7 +54113,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3692, !noalias !3695, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3692, !noalias !3695
@@ -54215,7 +54215,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54259,7 +54259,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3699, !noalias !3702, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3699, !noalias !3702
@@ -54361,7 +54361,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54405,7 +54405,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3706, !noalias !3709, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3706, !noalias !3709
@@ -54507,7 +54507,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54551,7 +54551,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3713, !noalias !3716, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3713, !noalias !3716
@@ -54653,7 +54653,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54697,7 +54697,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3720, !noalias !3723, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3720, !noalias !3723
@@ -54799,7 +54799,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54843,7 +54843,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3727, !noalias !3730, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3727, !noalias !3730
@@ -54945,7 +54945,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -54989,7 +54989,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3734, !noalias !3737, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3734, !noalias !3737
@@ -55091,7 +55091,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -55135,7 +55135,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3741, !noalias !3744, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3741, !noalias !3744
@@ -55237,7 +55237,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -55281,7 +55281,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3748, !noalias !3751, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3748, !noalias !3751
@@ -55383,7 +55383,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -55427,7 +55427,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3755, !noalias !3758, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3755, !noalias !3758
@@ -55529,7 +55529,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -55573,7 +55573,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3762, !noalias !3765, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3762, !noalias !3765
@@ -55675,7 +55675,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -55719,7 +55719,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3769, !noalias !3772, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3769, !noalias !3772
@@ -55818,7 +55818,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -55862,7 +55862,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3776, !noalias !3779, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3776, !noalias !3779
@@ -55964,7 +55964,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56008,7 +56008,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3783, !noalias !3786, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3783, !noalias !3786
@@ -56110,7 +56110,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56154,7 +56154,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3790, !noalias !3793, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3790, !noalias !3793
@@ -56256,7 +56256,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56300,7 +56300,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3797, !noalias !3800, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3797, !noalias !3800
@@ -56399,7 +56399,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56443,7 +56443,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3804, !noalias !3807, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3804, !noalias !3807
@@ -56545,7 +56545,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56589,7 +56589,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3811, !noalias !3814, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3811, !noalias !3814
@@ -56688,7 +56688,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56732,7 +56732,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3818, !noalias !3821, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3818, !noalias !3821
@@ -56834,7 +56834,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -56878,7 +56878,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3825, !noalias !3828, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3825, !noalias !3828
@@ -56980,7 +56980,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57024,7 +57024,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3832, !noalias !3835, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3832, !noalias !3835
@@ -57123,7 +57123,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57167,7 +57167,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3839, !noalias !3842, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3839, !noalias !3842
@@ -57269,7 +57269,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57306,7 +57306,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 38:                                               ; preds = %33, %29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !3846, !noalias !3849, !nonnull !7, !noundef !7
-  %41 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %40, i64 %12
+  %41 = getelementptr inbounds nuw [72 x i8], ptr %40, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %42 = add nuw nsw i64 %12, 1
   store i64 %42, ptr %11, align 8, !alias.scope !3846, !noalias !3849
@@ -57418,7 +57418,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha991e301c4d7574dE.exit": ; preds = %16, %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !3851, !noalias !3854, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds nuw { { [5 x i64] }, i32, [1 x i32] }, ptr %29, i64 %10
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %31 = add nuw nsw i64 %10, 1
   store i64 %31, ptr %9, align 8, !alias.scope !3851, !noalias !3854
@@ -57432,7 +57432,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 34:                                               ; preds = %8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !nonnull !7, !noundef !7
-  %37 = getelementptr inbounds nuw { { [5 x i64] }, i32, [1 x i32] }, ptr %36, i64 %13
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %13
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8, !noundef !7
   %40 = or i32 %39, 1
@@ -57485,7 +57485,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57522,7 +57522,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 38:                                               ; preds = %33, %29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !3858, !noalias !3861, !nonnull !7, !noundef !7
-  %41 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %40, i64 %12
+  %41 = getelementptr inbounds nuw [72 x i8], ptr %40, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %42 = add nuw nsw i64 %12, 1
   store i64 %42, ptr %11, align 8, !alias.scope !3858, !noalias !3861
@@ -57614,7 +57614,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57658,7 +57658,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3865, !noalias !3868, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3865, !noalias !3868
@@ -57760,7 +57760,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57804,7 +57804,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3872, !noalias !3875, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3872, !noalias !3875
@@ -57906,7 +57906,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -57950,7 +57950,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3879, !noalias !3882, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3879, !noalias !3882
@@ -58049,7 +58049,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58093,7 +58093,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3886, !noalias !3889, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3886, !noalias !3889
@@ -58195,7 +58195,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58239,7 +58239,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3893, !noalias !3896, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3893, !noalias !3896
@@ -58341,7 +58341,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58385,7 +58385,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3900, !noalias !3903, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3900, !noalias !3903
@@ -58487,7 +58487,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58531,7 +58531,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3907, !noalias !3910, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3907, !noalias !3910
@@ -58633,7 +58633,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58677,7 +58677,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3914, !noalias !3917, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3914, !noalias !3917
@@ -58779,7 +58779,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58823,7 +58823,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3921, !noalias !3924, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3921, !noalias !3924
@@ -58925,7 +58925,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -58969,7 +58969,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3928, !noalias !3931, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3928, !noalias !3931
@@ -59071,7 +59071,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -59115,7 +59115,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3935, !noalias !3938, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3935, !noalias !3938
@@ -59217,7 +59217,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -59261,7 +59261,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3942, !noalias !3945, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3942, !noalias !3945
@@ -59384,7 +59384,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
-  %24 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %23, i64 %15
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !7
   %27 = or i32 %26, 1
@@ -59428,7 +59428,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 43:                                               ; preds = %38, %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !3949, !noalias !3952, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %45, i64 %12
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %47 = add nuw nsw i64 %12, 1
   store i64 %47, ptr %11, align 8, !alias.scope !3949, !noalias !3952
@@ -59852,7 +59852,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN7slotmap5basi
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load i32, ptr %16, align 8, !alias.scope !3996, !noundef !7
@@ -59882,7 +59882,7 @@ define hidden noundef align 16 ptr @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$3get
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [432 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 416
   %17 = load i32, ptr %16, align 16, !noundef !7
@@ -59976,7 +59976,7 @@ define hidden { ptr, ptr } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h0d
   br label %34
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h28471ea04a9a3801E.exit": ; preds = %3
-  %15 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %13
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %13
   %16 = extractvalue { i32, i32 } %11, 0
   %17 = getelementptr i8, ptr %15, i64 16
   %.val5.i.i = load i32, ptr %17, align 8, !alias.scope !3999, !noundef !7
@@ -59987,7 +59987,7 @@ define hidden { ptr, ptr } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h0d
 19:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h28471ea04a9a3801E.exit"
   %20 = extractvalue { i32, i32 } %7, 1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %21
   %23 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8, !nonnull !7, !align !740, !noundef !7
@@ -60042,7 +60042,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h71d13db275
   br label %20
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h553ece3a48b25df0E.exit": ; preds = %4
-  %16 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %.val, i64 %14
+  %16 = getelementptr inbounds nuw [432 x i8], ptr %.val, i64 %14
   %17 = extractvalue { i32, i32 } %12, 0
   %18 = getelementptr i8, ptr %16, i64 416
   %.val5.i.i = load i32, ptr %18, align 16, !noundef !7
@@ -60057,7 +60057,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17h71d13db275
 21:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h553ece3a48b25df0E.exit"
   %22 = extractvalue { i32, i32 } %8, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %.val, i64 %23
+  %24 = getelementptr inbounds nuw [432 x i8], ptr %.val, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %0, ptr noundef nonnull align 16 dereferenceable(416) %24, i64 416, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i32, ptr %25, align 8, !noundef !7
@@ -60106,7 +60106,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17ha09c94e934
   br label %20
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17ha2758ef722068acdE.exit": ; preds = %4
-  %16 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %14
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %.val, i64 %14
   %17 = extractvalue { i32, i32 } %12, 0
   %18 = getelementptr i8, ptr %16, i64 64
   %.val5.i.i = load i32, ptr %18, align 8, !alias.scope !4002, !noundef !7
@@ -60122,7 +60122,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17ha09c94e934
 22:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17ha2758ef722068acdE.exit"
   %23 = extractvalue { i32, i32 } %8, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %24
+  %25 = getelementptr inbounds nuw [72 x i8], ptr %.val, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 64, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8, !noundef !7
@@ -60159,7 +60159,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN7slotmap5basi
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load i32, ptr %16, align 8, !alias.scope !4005, !noundef !7
@@ -60215,7 +60215,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %.val5.i = load i32, ptr %14, align 4, !alias.scope !4008, !noundef !7
   %16 = icmp eq i32 %.val5.i, %15
@@ -60243,7 +60243,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %.val5.i = load i64, ptr %14, align 8, !range !4011, !alias.scope !4012, !noundef !7
   %16 = getelementptr i8, ptr %14, i64 40
@@ -60543,7 +60543,7 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN7slotmap9secon
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h43e02f42f554ba42E.exit.i": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !7
-  %13 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %10
   %14 = extractvalue { i32, i32 } %6, 0
   %15 = load i32, ptr %13, align 4, !alias.scope !4045, !noundef !7
   %16 = icmp eq i32 %15, 0
@@ -60591,7 +60591,7 @@ define hidden { i32, i32 } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !7, !noundef !7
-  %23 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %22, i64 %17
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %17
   %24 = load i32, ptr %23, align 4, !noundef !7
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread
@@ -60696,7 +60696,7 @@ define hidden void @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6insert17h6
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !7, !noundef !7
-  %28 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %21
   %29 = load i64, ptr %28, align 8, !range !4011, !noundef !7
   %30 = icmp eq i64 %29, -9223372036854775802
   br i1 %30, label %42, label %.thread24
@@ -60817,7 +60817,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %15
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %15
   %22 = load i32, ptr %21, align 4, !noundef !7
   %23 = icmp ne i32 %10, 0
   call void @llvm.assume(i1 %23)
@@ -60886,7 +60886,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !7, !noundef !7
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %15
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %15
   %22 = load i32, ptr %21, align 4, !noundef !7
   %23 = icmp ne i32 %10, 0
   call void @llvm.assume(i1 %23)
@@ -60955,7 +60955,7 @@ define hidden { i64, i64 } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !7, !noundef !7
-  %22 = getelementptr inbounds nuw { i32, [3 x i32] }, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %16
   %23 = load i32, ptr %22, align 8, !range !587, !noundef !7
   %24 = trunc nuw i32 %23 to i1
   br i1 %24, label %.thread, label %26
@@ -61027,7 +61027,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$
   %13 = extractvalue { i32, i32 } %6, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %10
   %17 = load i32, ptr %16, align 4, !noundef !7
   %18 = icmp ne i32 %13, 0
   call void @llvm.assume(i1 %18)
@@ -61065,7 +61065,7 @@ define hidden void @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17ha
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
-  %17 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %16, i64 %12
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %12
   %18 = load i64, ptr %17, align 8, !range !4011, !noundef !7
   %19 = icmp eq i64 %18, -9223372036854775802
   br i1 %19, label %23, label %20
@@ -61120,7 +61120,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN7slotmap9seco
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds nuw { i32, [3 x i32] }, ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %11
   %17 = load i32, ptr %16, align 8, !range !587, !noundef !7
   %18 = trunc nuw i32 %17 to i1
   br i1 %18, label %22, label %19
@@ -61170,7 +61170,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN7slotmap9secon
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17h2effdd6b5ac6401eE.exit.i": ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !7
-  %13 = getelementptr inbounds nuw { i32, [3 x i32] }, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %10
   %14 = extractvalue { i32, i32 } %6, 0
   %15 = load i32, ptr %13, align 8, !range !587, !alias.scope !4051, !noundef !7
   %16 = trunc nuw i32 %15 to i1
@@ -74696,7 +74696,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN89_$LT$slotma
   br i1 %.not.i.i, label %20, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %11
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %.val, i64 %11
   %15 = extractvalue { i32, i32 } %9, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load i32, ptr %16, align 8, !alias.scope !5505, !noundef !7
@@ -74732,7 +74732,7 @@ define hidden noundef nonnull align 16 ptr @"_ZN89_$LT$slotmap..basic..SlotMap$L
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !5508, !nonnull !7
-  %15 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [432 x i8], ptr %14, i64 %11
   %16 = extractvalue { i32, i32 } %7, 0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %18 = load i32, ptr %17, align 16, !noalias !5508, !noundef !7
@@ -74768,7 +74768,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN89_$LT$slotma
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !5511, !nonnull !7
-  %15 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %14, i64 %11
   %16 = extractvalue { i32, i32 } %7, 0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %18 = load i32, ptr %17, align 8, !alias.scope !5514, !noalias !5511, !noundef !7
@@ -74805,7 +74805,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN89_$LT$slotma
   br i1 %.not.i.i, label %20, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw { { [5 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %11
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %11
   %15 = extractvalue { i32, i32 } %9, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load i32, ptr %16, align 8, !alias.scope !5517, !noundef !7
@@ -74988,7 +74988,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN92_$LT$slotma
   br i1 %.not.i.i, label %20, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %11
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %.val, i64 %11
   %15 = extractvalue { i32, i32 } %9, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load i32, ptr %16, align 8, !alias.scope !5544, !noundef !7
@@ -75025,7 +75025,7 @@ define hidden noundef nonnull align 16 dereferenceable(416) ptr @"_ZN92_$LT$slot
   br i1 %.not.i.i, label %20, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw { { [52 x i64] }, i32, [3 x i32] }, ptr %.val, i64 %11
+  %14 = getelementptr inbounds nuw [432 x i8], ptr %.val, i64 %11
   %15 = extractvalue { i32, i32 } %9, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 416
   %17 = load i32, ptr %16, align 16, !alias.scope !5547, !noundef !7
@@ -75061,7 +75061,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN92_$LT$slotma
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !5550, !nonnull !7
-  %15 = getelementptr inbounds nuw { { [8 x i64] }, i32, [1 x i32] }, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %14, i64 %11
   %16 = extractvalue { i32, i32 } %7, 0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %18 = load i32, ptr %17, align 8, !alias.scope !5553, !noalias !5550, !noundef !7
@@ -75098,7 +75098,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN92_$LT$slotma
   br i1 %.not.i.i, label %20, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw { { [5 x i64] }, i32, [1 x i32] }, ptr %.val, i64 %11
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %11
   %15 = extractvalue { i32, i32 } %9, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load i32, ptr %16, align 8, !alias.scope !5556, !noundef !7
@@ -75236,7 +75236,7 @@ define hidden void @"_ZN93_$LT$slotmap..basic..Drain$LT$K$C$V$GT$$u20$as$u20$cor
   %14 = add nuw nsw i64 %10, 1
   store i64 %14, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !noundef !7
   %19 = and i32 %18, 1
@@ -75252,7 +75252,7 @@ define hidden void @"_ZN93_$LT$slotmap..basic..Drain$LT$K$C$V$GT$$u20$as$u20$cor
   %24 = extractvalue { i32, i32 } %23, 0
   %25 = extractvalue { i32, i32 } %23, 1
   %26 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %27 = getelementptr inbounds nuw { { [2 x i64] }, i32, [1 x i32] }, ptr %26, i64 %10
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %10
   %28 = load ptr, ptr %27, align 8, !nonnull !7, !noundef !7
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !7, !align !740, !noundef !7
@@ -75347,7 +75347,7 @@ define hidden noundef nonnull align 4 dereferenceable(8) ptr @"_ZN98_$LT$slotmap
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17h43e02f42f554ba42E.exit.i.i": ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !5565, !nonnull !7
-  %14 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %11
   %15 = extractvalue { i32, i32 } %7, 0
   %16 = load i32, ptr %14, align 4, !alias.scope !5568, !noalias !5565, !noundef !7
   %17 = icmp eq i32 %16, 0
@@ -79667,7 +79667,7 @@ default.unreachable20:                            ; preds = %3
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %8 = icmp ult i64 %.sroa.6.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   %10 = icmp sgt i64 %.sroa.05.0.copyload, -1
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -79833,7 +79833,7 @@ default.unreachable20:                            ; preds = %3
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %8 = icmp ult i64 %.sroa.6.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   %10 = icmp sgt i64 %.sroa.05.0.copyload, -1
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -80509,7 +80509,7 @@ common.ret:                                       ; preds = %141, %45, %43
 .thread.i.i:                                      ; preds = %118
   %137 = getelementptr i8, ptr %123, i64 24
   %.val19.i.i = load ptr, ptr %137, align 8, !noalias !6101, !nonnull !7, !noundef !7
-  %138 = getelementptr inbounds nuw ptr, ptr %.val19.i.i, i64 %84
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i.i, i64 %84
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %138, ptr %139, align 8, !noalias !6081
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -80873,7 +80873,7 @@ default.unreachable81:                            ; preds = %58, %3
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 0, ptr %46, align 8, !alias.scope !6131
   store i8 1, ptr %30, align 8
-  %47 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} }, i8, [7 x i8] }, ptr %35, i64 %37
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %37
   store ptr %35, ptr %1, align 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %47, ptr %48, align 8
@@ -81431,7 +81431,7 @@ common.ret:                                       ; preds = %260, %206
 222:                                              ; preds = %217, %210
   %223 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %224 = load ptr, ptr %223, align 8, !alias.scope !6205, !noalias !6208, !nonnull !7, !noundef !7
-  %225 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %224, i64 %214
+  %225 = getelementptr inbounds nuw [160 x i8], ptr %224, i64 %214
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %225, ptr noundef nonnull align 16 dereferenceable(160) %21, i64 160, i1 false)
   %226 = add i64 %214, 1
   store i64 %226, ptr %213, align 8, !alias.scope !6205, !noalias !6208
@@ -81666,7 +81666,7 @@ default.unreachable20:                            ; preds = %3
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %8 = icmp ult i64 %.sroa.6.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   %10 = icmp sgt i64 %.sroa.05.0.copyload, -1
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -81829,7 +81829,7 @@ default.unreachable9:                             ; preds = %2
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %6 = icmp ult i64 %.sroa.6.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   %8 = icmp sgt i64 %.sroa.05.0.copyload, -1
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -81964,7 +81964,7 @@ default.unreachable9:                             ; preds = %2
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %6 = icmp ult i64 %.sroa.6.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { { ptr, [1 x i64] } }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   %8 = icmp sgt i64 %.sroa.05.0.copyload, -1
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24

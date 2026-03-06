@@ -11,15 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.3 = type { %struct.ptp_clock_time }
 %struct.ptp_clock_time = type { i64, i32, i32 }
 %union.anon.4 = type { %struct.ptp_clock_time }
-%struct.ptp_pin_desc = type { [64 x i8], i32, i32, i32, [5 x i32] }
 %struct.ptp_sys_offset_precise = type { %struct.ptp_clock_time, %struct.ptp_clock_time, %struct.ptp_clock_time, [4 x i32] }
 %struct.system_device_crosststamp = type { i64, i64, i64 }
 %struct.ptp_system_timestamp = type { %struct.timespec64, %struct.timespec64 }
 %struct.timespec64 = type { i64, i64 }
 %struct.ptp_clock_caps = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, [11 x i32] }
+%struct.ptp_pin_desc = type { [64 x i8], i32, i32, i32, [5 x i32] }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.ptp_extts_event = type { %struct.ptp_clock_time, i32, i32, [2 x i32] }
 
 @.str = private unnamed_addr constant [43 x i8] c"\013driver cannot use function %u on pin %u\0A\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"0x%p\00", align 1
@@ -38,7 +37,7 @@ define dso_local noundef range(i32 -95, 1) i32 @ptp_set_pinfunc(ptr noundef read
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr %struct.ptp_pin_desc, ptr %10, i64 %11
+  %12 = getelementptr [96 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
@@ -54,7 +53,7 @@ define dso_local noundef range(i32 -95, 1) i32 @ptp_set_pinfunc(ptr noundef read
 
 18:                                               ; preds = %28, %16
   %19 = phi i64 [ 0, %16 ], [ %29, %28 ]
-  %20 = getelementptr %struct.ptp_pin_desc, ptr %10, i64 %19
+  %20 = getelementptr [96 x i8], ptr %10, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %2
@@ -751,7 +750,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
 272:                                              ; preds = %265
   %273 = load i64, ptr %6, align 8
   %274 = zext i32 %266 to i64
-  %275 = getelementptr [3 x %struct.ptp_clock_time], ptr %260, i64 %274
+  %275 = getelementptr [48 x i8], ptr %260, i64 %274
   store i64 %273, ptr %275, align 8
   %276 = load i64, ptr %261, align 8
   %277 = trunc i64 %276 to i32
@@ -932,7 +931,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ptp_ioctl(ptr noundef r
   %394 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %395 = load ptr, ptr %394, align 8
   %396 = zext i32 %393 to i64
-  %397 = getelementptr %struct.ptp_pin_desc, ptr %395, i64 %396
+  %397 = getelementptr [96 x i8], ptr %395, i64 %396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %10, ptr noundef align 4 dereferenceable(96) %397, i64 96, i1 false)
   call void @mutex_unlock(ptr noundef nonnull %388) #9
   %398 = call i64 @_copy_to_user(ptr noundef %350, ptr noundef nonnull %10, i64 noundef 96) #9
@@ -1214,9 +1213,9 @@ define dso_local range(i64 -512, 961) i64 @ptp_read(ptr noundef readonly capture
 .preheader:                                       ; preds = %56, %.preheader
   %68 = phi i32 [ %74, %.preheader ], [ %60, %56 ]
   %69 = phi i64 [ %75, %.preheader ], [ 0, %56 ]
-  %70 = getelementptr %struct.ptp_extts_event, ptr %54, i64 %69
+  %70 = getelementptr [32 x i8], ptr %54, i64 %69
   %71 = sext i32 %68 to i64
-  %72 = getelementptr %struct.ptp_extts_event, ptr %8, i64 %71
+  %72 = getelementptr [32 x i8], ptr %8, i64 %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %70, ptr noundef align 8 dereferenceable(32) %72, i64 32, i1 false)
   %73 = add i32 %68, 1
   %74 = srem i32 %73, 128

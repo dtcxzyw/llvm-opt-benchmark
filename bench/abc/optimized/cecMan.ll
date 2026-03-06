@@ -604,7 +604,7 @@ define noalias noundef ptr @Cec_ManSimStart(ptr noundef %0, ptr noundef %1) loca
   %35 = sext i32 %.val27.val to i64
   %36 = mul i64 %34, %35
   %37 = tail call noalias ptr @malloc(i64 noundef %36) #17
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %35
   %39 = icmp sgt i32 %.val27.val, 0
   br i1 %39, label %.lr.ph.preheader.i, label %Vec_PtrAllocSimInfo.exit
 
@@ -615,8 +615,8 @@ define noalias noundef ptr @Cec_ManSimStart(ptr noundef %0, ptr noundef %1) loca
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %40 = mul nsw i64 %indvars.iv.i, %32
-  %41 = getelementptr inbounds i32, ptr %38, i64 %40
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
+  %41 = getelementptr inbounds [4 x i8], ptr %38, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   store ptr %41, ptr %42, align 8, !tbaa !103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -650,7 +650,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   %54 = sext i32 %.val26.val to i64
   %55 = mul i64 %34, %54
   %56 = tail call noalias ptr @malloc(i64 noundef %55) #17
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %54
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %54
   %58 = icmp sgt i32 %.val26.val, 0
   br i1 %58, label %.lr.ph.preheader.i29, label %Vec_PtrCleanSimInfo.exit.critedge
 
@@ -661,8 +661,8 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31, %.lr.ph.preheader.i29
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.preheader.i29 ], [ %indvars.iv.next.i33, %.lr.ph.i31 ]
   %59 = mul nsw i64 %indvars.iv.i32, %32
-  %60 = getelementptr inbounds i32, ptr %57, i64 %59
-  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i32
+  %60 = getelementptr inbounds [4 x i8], ptr %57, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i32
   store ptr %60, ptr %61, align 8, !tbaa !103
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i30
@@ -684,7 +684,7 @@ Vec_PtrAllocSimInfo.exit35:                       ; preds = %.lr.ph.i31
 68:                                               ; preds = %68, %Vec_PtrAllocSimInfo.exit35
   %indvars.iv.i37 = phi i64 [ 0, %Vec_PtrAllocSimInfo.exit35 ], [ %indvars.iv.next.i38, %68 ]
   %.val.i = load ptr, ptr %64, align 8, !tbaa !38
-  %69 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i37
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i37
   %70 = load ptr, ptr %69, align 8, !tbaa !103
   tail call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %67, i1 false)
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1

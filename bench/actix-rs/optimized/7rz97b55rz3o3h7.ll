@@ -6675,10 +6675,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$h2..codec..error..UserError$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1005, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E.113", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17hb91fd37631a5b917E.113", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -8564,7 +8564,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr585dro
   %185 = add i64 %180, -1
   store i64 %185, ptr %163, align 8, !alias.scope !1283, !noalias !1281
   %186 = load ptr, ptr %165, align 8, !alias.scope !1283, !noalias !1281, !nonnull !4, !noundef !4
-  %187 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %186, i64 %181
+  %187 = getelementptr inbounds [72 x i8], ptr %186, i64 %181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0539, ptr noundef nonnull align 8 dereferenceable(64) %187, i64 64, i1 false), !noalias !1283
   %.sroa.7.0..sroa_idx542 = getelementptr inbounds nuw i8, ptr %187, i64 64
   %.sroa.7.0.copyload543 = load i32, ptr %.sroa.7.0..sroa_idx542, align 8, !noalias !1283
@@ -11542,7 +11542,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr175dro
   %191 = add i64 %186, -1
   store i64 %191, ptr %170, align 8, !alias.scope !1619, !noalias !1617
   %192 = load ptr, ptr %172, align 8, !alias.scope !1619, !noalias !1617, !nonnull !4, !noundef !4
-  %193 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %192, i64 %187
+  %193 = getelementptr inbounds [72 x i8], ptr %192, i64 %187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0535, ptr noundef nonnull align 8 dereferenceable(64) %193, i64 64, i1 false), !noalias !1619
   %.sroa.7.0..sroa_idx536 = getelementptr inbounds nuw i8, ptr %193, i64 64
   %.sroa.7.0.copyload537 = load i32, ptr %.sroa.7.0..sroa_idx536, align 8, !noalias !1619
@@ -14563,7 +14563,7 @@ define hidden void @"_ZN3awc6client4pool18Acquired$LT$Io$GT$7release17h78e80d652
   store i8 %58, ptr %65, align 1, !noalias !2070
   %66 = load ptr, ptr %.sroa.423.0.copyload, align 8, !alias.scope !2077, !noalias !2070, !nonnull !4, !noundef !4
   %67 = sub nsw i64 0, %48
-  %68 = getelementptr inbounds { { { { { ptr, ptr, i64, { ptr } } } } }, { { i64, ptr, {} }, i64, i64 } }, ptr %66, i64 %67
+  %68 = getelementptr inbounds [64 x i8], ptr %66, i64 %67
   %69 = and i8 %56, 1
   %70 = zext nneg i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.423.0.copyload, i64 16
@@ -14652,7 +14652,7 @@ define hidden void @"_ZN3awc6client4pool18Acquired$LT$Io$GT$7release17h78e80d652
   %.0.i.i = sub nuw i64 %105, %106
   %107 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %108 = load ptr, ptr %107, align 8, !alias.scope !2082, !noalias !2085, !nonnull !4, !noundef !4
-  %109 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %108, i64 %.0.i.i
+  %109 = getelementptr inbounds [72 x i8], ptr %108, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   %110 = load i64, ptr %91, align 8, !alias.scope !2082, !noalias !2085, !noundef !4
   %111 = add i64 %110, 1
@@ -14834,7 +14834,7 @@ define hidden void @"_ZN3awc6client4pool18Acquired$LT$Io$GT$7release17hedb7f41dc
   store i8 %58, ptr %65, align 1, !noalias !2139
   %66 = load ptr, ptr %.sroa.423.0.copyload, align 8, !alias.scope !2146, !noalias !2139, !nonnull !4, !noundef !4
   %67 = sub nsw i64 0, %48
-  %68 = getelementptr inbounds { { { { { ptr, ptr, i64, { ptr } } } } }, { { i64, ptr, {} }, i64, i64 } }, ptr %66, i64 %67
+  %68 = getelementptr inbounds [64 x i8], ptr %66, i64 %67
   %69 = and i8 %56, 1
   %70 = zext nneg i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.423.0.copyload, i64 16
@@ -14923,7 +14923,7 @@ define hidden void @"_ZN3awc6client4pool18Acquired$LT$Io$GT$7release17hedb7f41dc
   %.0.i.i = sub nuw i64 %105, %106
   %107 = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %108 = load ptr, ptr %107, align 8, !alias.scope !2151, !noalias !2154, !nonnull !4, !noundef !4
-  %109 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %108, i64 %.0.i.i
+  %109 = getelementptr inbounds [72 x i8], ptr %108, i64 %.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   %110 = load i64, ptr %91, align 8, !alias.scope !2151, !noalias !2154, !noundef !4
   %111 = add i64 %110, 1

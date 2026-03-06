@@ -92,10 +92,10 @@ define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %1 to i64
-  %switch.gep7 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE.1, i64 %6
+  %switch.gep7 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE.1, i64 %6
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   store ptr %switch.load, ptr %0, align 8, !tbaa !8
   store i8 1, ptr %3, align 8, !tbaa !3
@@ -147,10 +147,10 @@ define dso_local void @_ZN4llvm29convertExceptionBehaviorToStrENS_2fp17Exception
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i8 %1 to i64
-  %switch.gep5 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE.2, i64 %6
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE.2, i64 %6
   %switch.load6 = load i64, ptr %switch.gep5, align 8
   store ptr %switch.load, ptr %0, align 8, !tbaa !8
   store i8 1, ptr %3, align 8, !tbaa !3

@@ -12,8 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CLzma2Dec = type { %struct.CLzmaDec, i32, i32, i32, i8, i32, i32, i32 }
 %struct.CLzmaDec = type { %struct._CLzmaProps, ptr, ptr, ptr, i32, i32, i64, i64, i32, i32, i32, [4 x i32], i32, i32, i32, i32, i32, [20 x i8] }
 %struct._CLzmaProps = type { i32, i32, i32, i32 }
-%struct.CSzCoderInfo = type { i32, i32, i64, %struct.CBuf }
-%struct.CBuf = type { ptr, i64 }
 
 @__const.SzFolder_Decode2.indices = private unnamed_addr constant [3 x i32] [i32 3, i32 2, i32 0], align 4
 
@@ -339,7 +337,7 @@ IS_SUPPORTED_CODER.exit66.i.i:                    ; preds = %109, %109, %109, %1
   %.0149435.i = phi i64 [ 0, %.lr.ph.i ], [ %.5154.ph.i, %SzDecodeCopy.exit.thread.i ]
   %.0156434.i = phi ptr [ null, %.lr.ph.i ], [ %.5161.ph.i, %SzDecodeCopy.exit.thread.i ]
   %184 = load ptr, ptr %0, align 8, !tbaa !11
-  %185 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %184, i64 %indvars.iv.i
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %184, i64 %indvars.iv.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i64, ptr %186, align 8, !tbaa !12
   %188 = trunc i64 %187 to i32
@@ -356,9 +354,9 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
 
 190:                                              ; preds = %IS_MAIN_METHOD.exit.i
   %191 = load ptr, ptr %160, align 8, !tbaa !28
-  %192 = getelementptr inbounds nuw i64, ptr %191, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv.i
   %193 = load i64, ptr %192, align 8, !tbaa !29
-  %194 = getelementptr inbounds nuw i32, ptr @__const.SzFolder_Decode2.indices, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [4 x i8], ptr @__const.SzFolder_Decode2.indices, i64 %indvars.iv.i
   %195 = load i32, ptr %194, align 4, !tbaa !22
   %196 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %196, label %197, label %206
@@ -373,9 +371,9 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
 
 202:                                              ; preds = %197
   %203 = sub nuw nsw i64 1, %indvars.iv.i
-  %204 = getelementptr inbounds nuw ptr, ptr %27, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %203
   store ptr %199, ptr %204, align 8, !tbaa !32
-  %205 = getelementptr inbounds nuw i64, ptr %25, i64 %203
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %203
   store i64 %193, ptr %205, align 8, !tbaa !33
   br label %211
 
@@ -408,7 +406,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %215, %.lr.ph.i.i ]
-  %213 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i
   %214 = load i64, ptr %213, align 8, !tbaa !29
   %215 = add i64 %214, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -422,7 +420,7 @@ GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %212, %
   %.1157297308.i = phi ptr [ %.1157.i, %212 ], [ %.0156434.i, %.thread286.i ], [ %.1157.i, %.lr.ph.i.i ]
   %.1150298307.i = phi i64 [ %.1150.i, %212 ], [ %.0149435.i, %.thread286.i ], [ %.1150.i, %.lr.ph.i.i ]
   %.06.lcssa.i.i = phi i64 [ 0, %212 ], [ 0, %.thread286.i ], [ %215, %.lr.ph.i.i ]
-  %216 = getelementptr inbounds nuw i64, ptr %1, i64 %.0177296309.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0177296309.i
   %217 = load i64, ptr %216, align 8, !tbaa !29
   %218 = add i64 %.06.lcssa.i.i, %3
   %219 = call i32 @LookInStream_SeekTo(ptr noundef %2, i64 noundef %218) #6
@@ -959,7 +957,7 @@ SzFolder_Decode2.exit:                            ; preds = %197, %206, %211, %.
 392:                                              ; preds = %SzFolder_Decode2.exit, %392
   %indvars.iv = phi i64 [ 0, %SzFolder_Decode2.exit ], [ %indvars.iv.next, %392 ]
   %393 = load ptr, ptr %391, align 8, !tbaa !63
-  %394 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %395 = load ptr, ptr %394, align 8, !tbaa !32
   call void %393(ptr noundef %6, ptr noundef %395) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

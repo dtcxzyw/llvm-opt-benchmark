@@ -60,7 +60,7 @@ define void @_ZN5draco22AdaptiveRAnsBitEncoderD2Ev(ptr noundef nonnull align 8 c
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #16
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -334,7 +334,7 @@ _ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit: ; preds = %80, %.lr.ph155
   %86 = phi i32 [ %.sroa.19.0149, %.lr.ph155 ], [ %85, %80 ]
   %87 = zext nneg i32 %86 to i64
   %88 = zext i8 %77 to i64
-  %89 = getelementptr inbounds nuw %"struct.draco::fastdiv_elem", ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5draco16vp10_fastdiv_tabE, i64 %88
   %90 = load i32, ptr %89, align 8, !tbaa !23
   %91 = zext i32 %90 to i64
   %92 = mul nuw nsw i64 %91, %87

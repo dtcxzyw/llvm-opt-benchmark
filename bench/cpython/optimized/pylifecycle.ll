@@ -1715,7 +1715,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %88, %84
   %92 = add nsw i32 %91, -1
   store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 %93
+  %94 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !256
   store ptr null, ptr %94, align 8, !tbaa !256
   %96 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
@@ -2988,7 +2988,7 @@ finalize_restore_builtins.exit:                   ; preds = %248, %249, %251, %2
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i36, %Py_DECREF.exit22.us.i
   %.030.us.i = phi i64 [ %.0.us.i, %Py_DECREF.exit22.us.i ], [ %.029.i, %.lr.ph.i36 ]
   %260 = load ptr, ptr %258, align 8, !tbaa !296
-  %261 = getelementptr ptr, ptr %260, i64 %.030.us.i
+  %261 = getelementptr [8 x i8], ptr %260, i64 %.030.us.i
   %262 = load ptr, ptr %261, align 8, !tbaa !252
   %263 = getelementptr i8, ptr %262, i64 32
   %264 = load ptr, ptr %263, align 8, !tbaa !252
@@ -3057,7 +3057,7 @@ Py_DECREF.exit22.us.i:                            ; preds = %286, %285, %284, %2
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i36, %Py_DECREF.exit22.i
   %.030.i = phi i64 [ %.0.i, %Py_DECREF.exit22.i ], [ %.029.i, %.lr.ph.i36 ]
   %289 = load ptr, ptr %258, align 8, !tbaa !296
-  %290 = getelementptr ptr, ptr %289, i64 %.030.i
+  %290 = getelementptr [8 x i8], ptr %289, i64 %.030.i
   %291 = load ptr, ptr %290, align 8, !tbaa !252
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %293 = load ptr, ptr %292, align 8, !tbaa !252
@@ -3846,7 +3846,7 @@ _PyMutex_Lock.exit:                               ; preds = %1, %4
   %11 = add nsw i32 %5, 1
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2584), align 8, !tbaa !255
   %12 = sext i32 %5 to i64
-  %13 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 %12
+  %13 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2328), i64 %12
   store ptr %0, ptr %13, align 8, !tbaa !256
   %14 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2320), i8 1, i8 0 seq_cst seq_cst, align 1
   %15 = extractvalue { i8, i1 } %14, 1

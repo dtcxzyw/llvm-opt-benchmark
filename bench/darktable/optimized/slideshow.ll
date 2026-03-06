@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
-%struct._slideshow_buf_t = type { ptr, i64, i64, i32, i32, i32 }
 %struct.dt_mipmap_buffer_t = type { i32, i32, i32, i32, float, ptr, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"slideshow\00", align 1
@@ -188,7 +187,7 @@ define void @enter(ptr noundef readonly captures(none) %0) local_unnamed_addr #1
 
 49:                                               ; preds = %1, %49
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 -1, ptr %51, align 8, !tbaa !72
@@ -306,7 +305,7 @@ _process_job_create.exit:                         ; preds = %96, %108
 
 111:                                              ; preds = %85, %111
   %indvars.iv53 = phi i64 [ 0, %85 ], [ %indvars.iv.next54, %111 ]
-  %112 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %45, i64 %indvars.iv53
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %indvars.iv53
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load i32, ptr %113, align 8, !tbaa !72
   %115 = call fastcc i32 @_get_image_at_rank(i32 noundef %114)
@@ -500,7 +499,7 @@ define void @leave(ptr noundef readonly captures(none) %0) local_unnamed_addr #1
 
 27:                                               ; preds = %._crit_edge, %27
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %19, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !86
   tail call void @free(ptr noundef %29) #12
   store ptr null, ptr %28, align 8, !tbaa !86
@@ -1359,7 +1358,7 @@ _is_slot_waiting.exit32.thread:                   ; preds = %_is_slot_waiting.ex
 81:                                               ; preds = %.preheader, %_is_slot_waiting.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_is_slot_waiting.exit.i ], [ 0, %.preheader ]
   %.056.i = phi i32 [ %96, %_is_slot_waiting.exit.i ], [ 1, %.preheader ]
-  %82 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %5, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i32, ptr %83, align 8, !tbaa !75
   %.not.i.i = icmp eq i32 %84, 0
@@ -1432,7 +1431,7 @@ define internal fastcc void @_process_image(ptr noundef %0, i32 noundef range(i3
   %14 = load i64, ptr %13, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %19 = load i32, ptr %18, align 4, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1459,7 +1458,7 @@ define internal fastcc void @_process_image(ptr noundef %0, i32 noundef range(i3
 
 .preheader:                                       ; preds = %2, %38
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %2 ]
-  %34 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %0, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 52
   %36 = load i32, ptr %35, align 4, !tbaa !74
   %37 = icmp eq i32 %36, %19
@@ -1488,7 +1487,7 @@ _get_slot_for_image.exit.thread35:                ; preds = %_get_slot_for_image
 45:                                               ; preds = %42
   %46 = load i64, ptr %3, align 8, !tbaa !99
   %47 = zext i32 %.038 to i64
-  %48 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %15, i64 %47
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 %46, ptr %49, align 8, !tbaa !87
   %50 = load i64, ptr %4, align 8, !tbaa !99
@@ -1532,7 +1531,7 @@ define internal range(i32 0, 2) i32 @_auto_advance(ptr noundef %0) #1 {
 6:                                                ; preds = %_is_slot_waiting.exit.i, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %_is_slot_waiting.exit.i ]
   %.056.i = phi i32 [ 1, %4 ], [ %21, %_is_slot_waiting.exit.i ]
-  %7 = getelementptr inbounds nuw %struct._slideshow_buf_t, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !75
   %.not.i.i = icmp eq i32 %9, 0

@@ -174,7 +174,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hd3f230acb602f4
   unreachable
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %.0.lcssa.i
+  %23 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0.lcssa.i
   %24 = sub nuw i64 %2, %.0.lcssa.i
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -266,7 +266,7 @@ default.unreachable:                              ; preds = %32
 
 57:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bc0dd3313fa47f4E.exit.thread.i14"
   %58 = sub nuw i64 %.sroa.8.040, %.0.lcssa.i16
-  %59 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.041, i64 %.0.lcssa.i16
+  %59 = getelementptr inbounds [16 x i8], ptr %.sroa.0.041, i64 %.0.lcssa.i16
   %60 = icmp eq i64 %.sroa.8.040, %.0.lcssa.i16
   br i1 %60, label %.thread.i18, label %64
 
@@ -1371,7 +1371,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 .preheader:                                       ; preds = %4, %.preheader
   %.017.i = phi i64 [ %10, %.preheader ], [ 0, %4 ]
   %.016.i = phi i64 [ %11, %.preheader ], [ 0, %4 ]
-  %8 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %.016.i
+  %8 = getelementptr inbounds [16 x i8], ptr %2, i64 %.016.i
   %9 = getelementptr i8, ptr %8, i64 8
   %.val.i = load i64, ptr %9, align 8, !noundef !4
   %10 = add i64 %.val.i, %.017.i

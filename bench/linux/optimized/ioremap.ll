@@ -27,17 +27,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_iounmap: ; .
 %struct.x86_hyper_runtime = type { ptr, ptr, ptr, ptr }
 %struct.x86_guest = type { ptr, ptr, ptr, ptr }
 %struct.ioremap_desc = type { i32 }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.mem_section = type { i64, ptr }
-%struct.page = type { i64, %union.anon.6, %union.anon.14, %struct.atomic_t, [8 x i8] }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { %union.anon.8, ptr, %union.anon.10, i64 }
-%union.anon.8 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.10 = type { i64 }
-%union.anon.14 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @__UNIQUE_ID___addressable_ioremap527 = internal global ptr @ioremap, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_ioremap_uc528 = internal global ptr @ioremap_uc, section ".discard.addressable", align 8
@@ -525,7 +514,7 @@ define internal fastcc ptr @early_ioremap_pmd(i64 noundef range(i64 -14680064, -
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 %0, %8
   %10 = and i64 %9, 511
-  %11 = getelementptr %struct.pgd_t, ptr %6, i64 %10
+  %11 = getelementptr [8 x i8], ptr %6, i64 %10
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #12
           to label %12 [label %12, label %._crit_edge], !srcloc !27
 
@@ -543,7 +532,7 @@ define internal fastcc ptr @early_ioremap_pmd(i64 noundef range(i64 -14680064, -
   %19 = add i32 %18, 33554431
   %20 = and i32 %19, 33554431
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr %struct.p4d_t, ptr %17, i64 %21
+  %22 = getelementptr [8 x i8], ptr %17, i64 %21
   br label %23
 
 23:                                               ; preds = %._crit_edge, %12
@@ -586,7 +575,7 @@ define dso_local void @__early_set_fixmap(i32 noundef %0, i64 noundef %1, i64 %2
 11:                                               ; preds = %3
   %12 = lshr exact i64 %8, 12
   %13 = and i64 %12, 511
-  %14 = getelementptr %struct.pte_t, ptr @bm_pte, i64 %13
+  %14 = getelementptr [8 x i8], ptr @bm_pte, i64 %13
   %15 = load i64, ptr @__supported_pte_mask, align 8
   %16 = and i64 %15, %2
   %17 = icmp eq i64 %16, 0
@@ -712,14 +701,14 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr noundef rea
   br i1 %40, label %48, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr ptr, ptr %39, i64 %33
+  %42 = getelementptr [8 x i8], ptr %39, i64 %33
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %41
   %46 = and i64 %27, 255
-  %47 = getelementptr %struct.mem_section, ptr %43, i64 %46
+  %47 = getelementptr [16 x i8], ptr %43, i64 %46
   br label %48
 
 48:                                               ; preds = %45, %41, %38, %35
@@ -793,7 +782,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr noundef rea
 88:                                               ; preds = %85
   %89 = load i64, ptr @vmemmap_base, align 8
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr %struct.page, ptr %90, i64 %24
+  %91 = getelementptr [64 x i8], ptr %90, i64 %24
   %92 = load volatile i64, ptr %91, align 8
   %93 = and i64 %92, 16384
   %94 = icmp eq i64 %93, 0

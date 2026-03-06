@@ -94,13 +94,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.39" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
 %"struct.std::pair.120" = type { i8, %"class.std::__cxx11::basic_string" }
-%"struct.std::pair" = type { %"class.std::unique_ptr.48", ptr }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
 %"class.std::tuple.551" = type { %"struct.std::_Tuple_impl.552" }
 %"struct.std::_Tuple_impl.552" = type { %"struct.std::_Head_base.553" }
 %"struct.std::_Head_base.553" = type { ptr }
@@ -3241,7 +3234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47.i: ; preds = %1
 
 switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i40
   %1033 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN17cmDyndepCollation23AddCollationInformationERN4Json5ValueEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacks, i64 %1033
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN17cmDyndepCollation23AddCollationInformationERN4Json5ValueEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacks, i64 %1033
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %1034
 
@@ -9596,7 +9589,7 @@ _ZNSt6vectorISt4pairISt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS2
 .noexc301:                                        ; preds = %210, %_ZNSt6vectorISt4pairISt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS2_EEPK15CxxModuleExportESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit33.i
   store ptr %199, ptr %35, align 8, !tbaa !504
   store ptr %209, ptr %118, align 8, !tbaa !495
-  %211 = getelementptr inbounds nuw %"struct.std::pair", ptr %199, i64 %197
+  %211 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %211, ptr %119, align 8, !tbaa !505
   br label %_ZNSt6vectorISt4pairISt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS2_EEPK15CxxModuleExportESaIS9_EE12emplace_backIJS5_S8_EEERS9_DpOT_.exit
 
@@ -15500,7 +15493,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !218
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !219
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !222
   ret void
 
@@ -15866,7 +15859,7 @@ _ZNSt6vectorI15CxxModuleExportSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; pre
 _ZNSt12_Vector_baseI15CxxModuleExportSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI15CxxModuleExportSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !382
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !385
-  %32 = getelementptr inbounds nuw %struct.CxxModuleExport, ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [200 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !387
   ret void
 

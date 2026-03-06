@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.draco::IndexType.53" = type { i32 }
 %"class.draco::GeometryAttribute" = type { ptr, %"struct.draco::DataBufferDescriptor", i8, i32, i8, i64, i64, i32, i32 }
 %"struct.draco::DataBufferDescriptor" = type { i64, i64 }
-%"class.std::unique_ptr.54" = type { %"struct.std::__uniq_ptr_data.55" }
-%"struct.std::__uniq_ptr_data.55" = type { %"class.std::__uniq_ptr_impl.56" }
-%"class.std::__uniq_ptr_impl.56" = type { %"class.std::tuple.57" }
-%"class.std::tuple.57" = type { %"struct.std::_Tuple_impl.58" }
-%"struct.std::_Tuple_impl.58" = type { %"struct.std::_Head_base.61" }
-%"struct.std::_Head_base.61" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -86,7 +80,7 @@ _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN
   br i1 %25, label %26, label %_ZN5draco4Mesh11SetNumFacesEm.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %"struct.std::array", ptr %16, i64 %12
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %12
   %.not.i.i.i.i4 = icmp eq ptr %15, %27
   br i1 %.not.i.i.i.i4, label %_ZN5draco4Mesh11SetNumFacesEm.exit, label %28
 
@@ -240,7 +234,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = sext i32 %1 to i64
   %14 = load ptr, ptr %12, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.54", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = zext i32 %9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -304,7 +298,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9
   br i1 %57, label %58, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw %"struct.std::array", ptr %44, i64 %52
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %52
   %.not.i.i.i.i = icmp eq ptr %43, %59
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %60
 
@@ -320,13 +314,13 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 61:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %6
   %62 = phi ptr [ %.pre.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %44, %6 ]
   %63 = zext i32 %2 to i64
-  %64 = getelementptr inbounds nuw %"struct.std::array", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %62, i64 %63
   br label %65
 
 65:                                               ; preds = %65, %61
   %.05.i.i = phi i64 [ 0, %61 ], [ %69, %65 ]
-  %66 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %64, i64 %.05.i.i
-  %67 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %8, i64 %.05.i.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.05.i.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.05.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !49
   store i32 %68, ptr %66, align 4, !tbaa !49
   %69 = add nuw nsw i64 %.05.i.i, 1
@@ -354,7 +348,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFace
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = sext i32 %1 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !35
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr.54", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = zext i32 %7 to i64
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -418,7 +412,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFace
   br i1 %55, label %56, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw %"struct.std::array", ptr %42, i64 %50
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %50
   %.not.i.i.i.i = icmp eq ptr %41, %57
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %58
 
@@ -434,13 +428,13 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 59:                                               ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, %4
   %60 = phi ptr [ %.pre.i, %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i ], [ %42, %4 ]
   %61 = zext i32 %2 to i64
-  %62 = getelementptr inbounds nuw %"struct.std::array", ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %61
   br label %63
 
 63:                                               ; preds = %63, %59
   %.05.i.i = phi i64 [ 0, %59 ], [ %67, %63 ]
-  %64 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %62, i64 %.05.i.i
-  %65 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %6, i64 %.05.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.05.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.05.i.i
   %66 = load i32, ptr %65, align 4, !tbaa !49
   store i32 %66, ptr %64, align 4, !tbaa !49
   %67 = add nuw nsw i64 %.05.i.i, 1
@@ -535,7 +529,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder20SetAttributeUniqueIdEij(ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !35
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.54", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i32 %2, ptr %11, align 4, !tbaa !62
@@ -595,7 +589,7 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %"struct.std::array", ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8, !tbaa !10
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %25, %15
@@ -616,8 +610,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 31:                                               ; preds = %31, %.lr.ph.i.i.i.i.i68
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %30, i64 %.05.i.i.i.i.i.i
-  %33 = getelementptr inbounds nuw %"class.draco::IndexType.53", ptr %29, i64 %.05.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.05.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.05.i.i.i.i.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !49
   store i32 %34, ptr %32, align 4, !tbaa !49
   %35 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
@@ -756,7 +750,7 @@ _ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag
 
 _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %68, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ], [ %73, %.lr.ph.i.i.i.i.i93 ]
-  %74 = getelementptr inbounds nuw %"struct.std::array", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
@@ -784,7 +778,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20Poin
 _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, %77
   store ptr %68, ptr %0, align 8, !tbaa !13
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8, !tbaa !10
-  %81 = getelementptr inbounds nuw %"struct.std::array", ptr %68, i64 %62
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %62
   store ptr %81, ptr %6, align 8, !tbaa !63
   br label %82
 

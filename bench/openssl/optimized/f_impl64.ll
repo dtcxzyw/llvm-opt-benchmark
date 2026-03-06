@@ -15,23 +15,23 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = or disjoint i64 %indvars.iv, 4
-  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = add i64 %12, %9
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i64 %13, ptr %14, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw i64, ptr %2, i64 %10
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %10
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = add i64 %18, %16
-  %20 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %19, ptr %20, align 8, !tbaa !3
   %21 = add i64 %19, %18
-  %22 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %21, ptr %22, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -49,7 +49,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %24 = getelementptr i64, ptr %2, i64 %indvars.iv161
+  %24 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv161
   %25 = getelementptr i8, ptr %24, i64 64
   %26 = trunc nuw nsw i64 %indvars.iv161 to i32
   %27 = or disjoint i32 %26, 4
@@ -60,18 +60,18 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %.1138 = phi i128 [ %.0149, %.preheader132 ], [ %53, %28 ]
   %.199137 = phi i128 [ %.098148, %.preheader132 ], [ %45, %28 ]
   %.0101136 = phi i128 [ 0, %.preheader132 ], [ %37, %28 ]
-  %29 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv159
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv159
   %30 = load i64, ptr %29, align 8, !tbaa !3
   %31 = sub nuw nsw i64 %indvars.iv161, %indvars.iv159
-  %32 = getelementptr inbounds nuw i64, ptr %2, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = zext i64 %30 to i128
   %35 = zext i64 %33 to i128
   %36 = mul nuw i128 %35, %34
   %37 = add i128 %36, %.0101136
-  %38 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv159
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv159
   %39 = load i64, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i64, ptr %5, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %31
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = zext i64 %39 to i128
   %43 = zext i64 %41 to i128
@@ -97,20 +97,20 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %.1102141 = phi i128 [ %37, %.lr.ph ], [ %64, %54 ]
   %55 = trunc nuw nsw i64 %indvars.iv169 to i32
   %.1106.neg144 = xor i32 %55, -1
-  %56 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv172
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv172
   %57 = load i64, ptr %56, align 8, !tbaa !3
   %58 = sext i32 %.1106.neg144 to i64
-  %59 = getelementptr i64, ptr %25, i64 %58
+  %59 = getelementptr [8 x i8], ptr %25, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !3
   %61 = zext i64 %57 to i128
   %62 = zext i64 %60 to i128
   %63 = mul nuw i128 %62, %61
   %64 = add i128 %63, %.1102141
-  %65 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv172
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv172
   %66 = load i64, ptr %65, align 8, !tbaa !3
   %67 = add nsw i32 %27, %.1106.neg144
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !3
   %71 = zext i64 %66 to i128
   %72 = zext i64 %70 to i128
@@ -118,7 +118,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %74 = add i128 %73, %.2100142
   %75 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %76 = load i64, ptr %75, align 8, !tbaa !3
-  %77 = getelementptr inbounds nuw i64, ptr %5, i64 %68
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %68
   %78 = load i64, ptr %77, align 8, !tbaa !3
   %79 = zext i64 %76 to i128
   %80 = zext i64 %78 to i128
@@ -137,7 +137,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
   %84 = add i128 %.2.lcssa, %.1102.lcssa
   %85 = trunc i128 %84 to i64
   %86 = and i64 %85, 72057594037927935
-  %87 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv161
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv161
   store i64 %86, ptr %87, align 8, !tbaa !3
   %88 = trunc i128 %83 to i64
   %89 = and i64 %88, 72057594037927935
@@ -192,25 +192,25 @@ define void @ossl_gf_mulw_unsigned(ptr noalias noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
   %.047 = phi i128 [ 0, %3 ], [ %20, %5 ]
   %.03846 = phi i128 [ 0, %3 ], [ %24, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %8 = zext i64 %7 to i128
   %9 = mul nuw nsw i128 %8, %4
   %10 = add nuw nsw i128 %9, %.047
   %11 = or disjoint i64 %indvars.iv, 4
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = zext i64 %13 to i128
   %15 = mul nuw nsw i128 %14, %4
   %16 = add nuw nsw i128 %15, %.03846
   %17 = trunc i128 %10 to i64
   %18 = and i64 %17, 72057594037927935
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %18, ptr %19, align 8, !tbaa !3
   %20 = lshr i128 %10, 56
   %21 = trunc i128 %16 to i64
   %22 = and i64 %21, 72057594037927935
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %11
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %11
   store i64 %22, ptr %23, align 8, !tbaa !3
   %24 = lshr i128 %16, 56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -255,12 +255,12 @@ define void @ossl_gf_sqr(ptr noalias noundef writeonly captures(none) %0, ptr no
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %6
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

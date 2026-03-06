@@ -3188,7 +3188,7 @@ define internal fastcc noundef i32 @_ZL12process_argsiPPKcP13JsonnetConfigP9Json
 152:                                              ; preds = %.lr.ph, %_ZNSolsEPFRSoS_E.exit315.thread
   %153 = phi ptr [ %69, %.lr.ph ], [ %1095, %_ZNSolsEPFRSoS_E.exit315.thread ]
   %154 = phi i64 [ 0, %.lr.ph ], [ %1093, %_ZNSolsEPFRSoS_E.exit315.thread ]
-  %155 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %154
   %156 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull @.str.50) #27
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %161, label %158
@@ -3395,7 +3395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %208, 
 233:                                              ; preds = %.lr.ph1085, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %234 = phi ptr [ %225, %.lr.ph1085 ], [ %262, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
   %235 = phi i64 [ %223, %.lr.ph1085 ], [ %260, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
-  %236 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw [32 x i8], ptr %234, i64 %235
   %237 = load ptr, ptr %231, align 8, !tbaa !103
   %238 = load ptr, ptr %232, align 8, !tbaa !105
   %.not.i = icmp eq ptr %237, %238
@@ -5870,7 +5870,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %1087 = load i32, ptr %9, align 4, !tbaa !91
   %1088 = zext i32 %1087 to i64
   %1089 = load ptr, ptr %7, align 8, !tbaa !90
-  %1090 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1089, i64 %1088
+  %1090 = getelementptr inbounds nuw [32 x i8], ptr %1089, i64 %1088
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %1090)
           to label %_ZNSolsEPFRSoS_E.exit315.thread unwind label %.loopexit.split-lp.loopexit
 
@@ -7143,7 +7143,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !90
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !103
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !105
   ret void
 
@@ -8956,7 +8956,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !90
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !103
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !105
   ret void
 

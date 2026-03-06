@@ -650,7 +650,7 @@ bytestream2_get_byte.exit117:                     ; preds = %279, %280
   %286 = phi ptr [ %.pre, %279 ], [ %281, %280 ]
   %.0.i116 = phi i32 [ %.0.i114, %279 ], [ %285, %280 ]
   %287 = or i32 %.0.i116, -16777216
-  %288 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %287, ptr %288, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

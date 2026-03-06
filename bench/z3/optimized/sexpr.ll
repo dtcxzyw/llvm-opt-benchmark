@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.buffer = type { ptr, i32, i32, [16 x i8] }
 %class.escaped = type { ptr, i8, i32 }
 %class.vector = type { ptr }
-%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::allocator" = type { i8 }
 
 $_ZN8rationalD2Ev = comdat any
@@ -117,7 +116,7 @@ define hidden noundef i32 @_ZNK5sexpr16get_num_childrenEv(ptr noundef nonnull re
 define hidden noundef ptr @_ZNK5sexpr9get_childEj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   ret ptr %6
 }
@@ -1721,7 +1720,7 @@ _ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit.preheader: ; preds 
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !57
   %8 = zext i32 %.pre2.i to i64
-  %9 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %8
   store ptr %0, ptr %9, align 8
   %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %.sroa.562.0..sroa_idx, align 8
@@ -1745,9 +1744,9 @@ thread-pre-split68:                               ; preds = %_ZNK6vectorISt4pair
   %.pre = phi i32 [ %15, %thread-pre-split68 ], [ %68, %61 ]
   %17 = phi ptr [ %10, %thread-pre-split68 ], [ %66, %61 ]
   %18 = zext i32 %.pre to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !81
-  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %18
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !22
@@ -1784,7 +1783,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %26, %16
 
 .invoke:                                          ; preds = %31
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %30, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !24
   %37 = icmp eq i32 %32, 0
   %38 = select i1 %37, ptr @.str.3, ptr @.str.4
@@ -1844,7 +1843,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %.invo
   %62 = phi i32 [ %.pre2.i49, %.noexc50 ], [ %51, %49 ]
   %63 = phi ptr [ %.pre.i47, %.noexc50 ], [ %47, %49 ]
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %"struct.std::pair", ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %64
   store ptr %36, ptr %65, align 8
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 0, ptr %.sroa.555.0..sroa_idx, align 8
@@ -1930,7 +1929,7 @@ _ZNK6vectorIP5sexprLb0EjE5emptyEv.exit.preheader: ; preds = %12, %6
   %14 = phi ptr [ %.pre.i, %12 ], [ %4, %6 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -4
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   store ptr %1, ptr %17, align 8, !tbaa !24
   %18 = add i32 %13, 1
   store i32 %18, ptr %15, align 4, !tbaa !57
@@ -1946,7 +1945,7 @@ _ZNK6vectorIP5sexprLb0EjE5emptyEv.exit:           ; preds = %_ZNK6vectorIP5sexpr
 _ZN6vectorIP5sexprLb0EjE4backEv.exit:             ; preds = %_ZNK6vectorIP5sexprLb0EjE5emptyEv.exit
   %23 = add i32 %21, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !24
   store i32 %23, ptr %20, align 4, !tbaa !57
   %27 = load i32, ptr %26, align 4, !tbaa !3
@@ -1983,7 +1982,7 @@ _ZN6vectorIP5sexprLb0EjE4backEv.exit:             ; preds = %_ZNK6vectorIP5sexpr
 34:                                               ; preds = %.lr.ph, %57
   %35 = phi ptr [ %19, %.lr.ph ], [ %58, %57 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !9
@@ -2016,7 +2015,7 @@ _ZN6vectorIP5sexprLb0EjE9push_backERKS1_.exit20:  ; preds = %44, %50
   %52 = phi i32 [ %.pre2.i19, %50 ], [ %46, %44 ]
   %53 = getelementptr inbounds i8, ptr %51, i64 -4
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   store ptr %37, ptr %55, align 8, !tbaa !24
   %56 = add i32 %52, 1
   store i32 %56, ptr %53, align 4, !tbaa !57
@@ -2143,9 +2142,9 @@ define hidden noundef ptr @_ZN13sexpr_manager12mk_compositeEjPKP5sexprjj(ptr nou
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !9

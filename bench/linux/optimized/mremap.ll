@@ -21,16 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.7 = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
 %struct.mmu_notifier_range = type { ptr, i64, i64, i32, i32, ptr }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
-%struct.page = type { i64, %union.anon.14, %union.anon.22, %struct.atomic_t, [8 x i8] }
-%union.anon.14 = type { %struct.anon.15 }
-%struct.anon.15 = type { %union.anon.16, ptr, %union.anon.18, i64 }
-%union.anon.16 = type { %struct.list_head }
-%union.anon.18 = type { i64 }
-%union.anon.22 = type { %struct.atomic_t }
 %struct.vma_iterator = type { %struct.ma_state }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
 
@@ -207,7 +197,7 @@ define dso_local i64 @move_page_tables(ptr noundef %0, i64 noundef %1, ptr nound
   %104 = zext nneg i32 %103 to i64
   %105 = lshr i64 %85, %104
   %106 = and i64 %105, 511
-  %107 = getelementptr %struct.pgd_t, ptr %102, i64 %106
+  %107 = getelementptr [8 x i8], ptr %102, i64 %106
   %108 = load i64, ptr %107, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #7
           to label %109 [label %109, label %114], !srcloc !6
@@ -236,7 +226,7 @@ define dso_local i64 @move_page_tables(ptr noundef %0, i64 noundef %1, ptr nound
   %123 = add i32 %122, -1
   %124 = zext i32 %123 to i64
   %125 = and i64 %121, %124
-  %126 = getelementptr %struct.p4d_t, ptr %120, i64 %125
+  %126 = getelementptr [8 x i8], ptr %120, i64 %125
   br label %127
 
 127:                                              ; preds = %115, %114
@@ -267,7 +257,7 @@ alloc_new_pud.exit:                               ; preds = %130, %._crit_edge.i
   %141 = inttoptr i64 %140 to ptr
   %142 = lshr i64 %85, 30
   %143 = and i64 %142, 511
-  %144 = getelementptr %struct.pud_t, ptr %141, i64 %143
+  %144 = getelementptr [8 x i8], ptr %141, i64 %143
   %145 = icmp eq ptr %144, null
   br i1 %145, label %alloc_new_pud.exit.thread, label %146
 
@@ -304,7 +294,7 @@ alloc_new_pud.exit:                               ; preds = %130, %._crit_edge.i
   %169 = inttoptr i64 %168 to ptr
   %170 = lshr i64 %86, 21
   %171 = and i64 %170, 511
-  %172 = getelementptr %struct.pmd_t, ptr %169, i64 %171
+  %172 = getelementptr [8 x i8], ptr %169, i64 %171
   %173 = load i64, ptr %172, align 8
   %174 = and i64 %173, -97
   %175 = icmp eq i64 %174, 0
@@ -320,7 +310,7 @@ alloc_new_pud.exit:                               ; preds = %130, %._crit_edge.i
   %182 = zext nneg i32 %181 to i64
   %183 = lshr i64 %85, %182
   %184 = and i64 %183, 511
-  %185 = getelementptr %struct.pgd_t, ptr %180, i64 %184
+  %185 = getelementptr [8 x i8], ptr %180, i64 %184
   %186 = load i64, ptr %185, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #7
           to label %187 [label %187, label %192], !srcloc !6
@@ -349,7 +339,7 @@ alloc_new_pud.exit:                               ; preds = %130, %._crit_edge.i
   %201 = add i32 %200, -1
   %202 = zext i32 %201 to i64
   %203 = and i64 %199, %202
-  %204 = getelementptr %struct.p4d_t, ptr %198, i64 %203
+  %204 = getelementptr [8 x i8], ptr %198, i64 %203
   br label %205
 
 205:                                              ; preds = %193, %192
@@ -378,7 +368,7 @@ alloc_new_pud.exit29:                             ; preds = %208, %._crit_edge.i
   %217 = load i64, ptr @page_offset_base, align 8
   %218 = add i64 %217, %216
   %219 = inttoptr i64 %218 to ptr
-  %220 = getelementptr %struct.pud_t, ptr %219, i64 %143
+  %220 = getelementptr [8 x i8], ptr %219, i64 %143
   %221 = icmp eq ptr %220, null
   br i1 %221, label %alloc_new_pud.exit.thread, label %222
 
@@ -409,7 +399,7 @@ alloc_new_pud.exit29:                             ; preds = %208, %._crit_edge.i
   %237 = inttoptr i64 %236 to ptr
   %238 = lshr i64 %85, 21
   %239 = and i64 %238, 511
-  %240 = getelementptr %struct.pmd_t, ptr %237, i64 %239
+  %240 = getelementptr [8 x i8], ptr %237, i64 %239
   %241 = icmp eq ptr %240, null
   br i1 %241, label %alloc_new_pud.exit.thread, label %242
 
@@ -670,7 +660,7 @@ define internal fastcc noundef ptr @get_old_pud(ptr %.128.val, i64 noundef %0) u
   %3 = zext nneg i32 %2 to i64
   %4 = lshr i64 %0, %3
   %5 = and i64 %4, 511
-  %6 = getelementptr %struct.pgd_t, ptr %.128.val, i64 %5
+  %6 = getelementptr [8 x i8], ptr %.128.val, i64 %5
   %7 = load i64, ptr %6, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #7
           to label %8 [label %8, label %10], !srcloc !6
@@ -708,7 +698,7 @@ define internal fastcc noundef ptr @get_old_pud(ptr %.128.val, i64 noundef %0) u
   %25 = add i32 %24, -1
   %26 = zext i32 %25 to i64
   %27 = and i64 %23, %26
-  %28 = getelementptr %struct.p4d_t, ptr %22, i64 %27
+  %28 = getelementptr [8 x i8], ptr %22, i64 %27
   br label %29
 
 29:                                               ; preds = %17, %16
@@ -734,7 +724,7 @@ define internal fastcc noundef ptr @get_old_pud(ptr %.128.val, i64 noundef %0) u
   %42 = inttoptr i64 %41 to ptr
   %43 = lshr i64 %0, 30
   %44 = and i64 %43, 511
-  %45 = getelementptr %struct.pud_t, ptr %42, i64 %44
+  %45 = getelementptr [8 x i8], ptr %42, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, -97
   %48 = icmp eq i64 %47, 0
@@ -820,7 +810,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   %41 = select i1 %37, i64 %38, i64 %40
   %42 = add i64 %36, %41
   %43 = lshr i64 %42, 12
-  %.split = getelementptr %struct.page, ptr %33, i64 %43
+  %.split = getelementptr [64 x i8], ptr %33, i64 %43
   %44 = getelementptr i8, ptr %.split, i64 40
   tail call void @_raw_spin_lock(ptr noundef %44) #7
   %45 = load i64, ptr @vmemmap_base, align 8
@@ -835,7 +825,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   %54 = select i1 %50, i64 %51, i64 %53
   %55 = add i64 %49, %54
   %56 = lshr i64 %55, 12
-  %.split8 = getelementptr %struct.page, ptr %46, i64 %56
+  %.split8 = getelementptr [64 x i8], ptr %46, i64 %56
   %57 = getelementptr i8, ptr %.split8, i64 40
   %58 = icmp eq ptr %.split8, %.split
   br i1 %58, label %60, label %59

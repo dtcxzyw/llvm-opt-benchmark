@@ -274,7 +274,7 @@ define internal fastcc noundef ptr @_ZN7uu_join4Repr12print_fields17hbb2562c1757
 
 28:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h3021e2fc1b351f11E.exit.thread"
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %29 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %.sroa.01.010
+  %29 = getelementptr inbounds [16 x i8], ptr %10, i64 %.sroa.01.010
   %30 = load i64, ptr %29, align 8, !noalias !34, !noundef !5
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8, !noalias !34, !noundef !5
@@ -511,7 +511,7 @@ define hidden noundef ptr @_ZN7uu_join5State7combine17hbe6e8602686d80c6E(ptr noa
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !83, !noalias !80, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { i64, i64 }, ptr %19, i64 %13
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %13
   %21 = load i64, ptr %20, align 8, !noalias !86, !noundef !5
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !86, !noundef !5
@@ -552,7 +552,7 @@ define hidden noundef ptr @_ZN7uu_join5State7combine17hbe6e8602686d80c6E(ptr noa
   %.val48 = load ptr, ptr %37, align 8, !nonnull !5, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val49 = load i64, ptr %38, align 8, !noundef !5
-  %39 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %.val48, i64 %.val49
+  %39 = getelementptr inbounds [48 x i8], ptr %.val48, i64 %.val49
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load i64, ptr %40, align 8
   %.fr = freeze i64 %41
@@ -728,7 +728,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
   br label %_ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread
 
 120:                                              ; preds = %118, %106
-  %121 = getelementptr inbounds { i8, [15 x i8] }, ptr %42, i64 %.sroa.01.0.i
+  %121 = getelementptr inbounds [16 x i8], ptr %42, i64 %.sroa.01.0.i
   call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %122 = load i8, ptr %121, align 8, !range !45, !alias.scope !125, !noalias !128, !noundef !5
   %trunc.i.i = trunc nuw i8 %122 to i1
@@ -754,7 +754,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr %94, align 8, !alias.scope !130, !noalias !133, !nonnull !5, !noundef !5
-  %136 = getelementptr inbounds { i64, i64 }, ptr %135, i64 %127
+  %136 = getelementptr inbounds [16 x i8], ptr %135, i64 %127
   %137 = load i64, ptr %136, align 8, !noalias !134, !noundef !5
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %139 = load i64, ptr %138, align 8, !noalias !134, !noundef !5
@@ -788,7 +788,7 @@ _ZN7uu_join4Repr12print_format17h2e2d56df4791540dE.exit.thread: ; preds = %.loop
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr %102, align 8, !alias.scope !138, !noalias !133, !nonnull !5, !noundef !5
-  %154 = getelementptr inbounds { i64, i64 }, ptr %153, i64 %127
+  %154 = getelementptr inbounds [16 x i8], ptr %153, i64 %127
   %155 = load i64, ptr %154, align 8, !noalias !141, !noundef !5
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load i64, ptr %156, align 8, !noalias !141, !noundef !5
@@ -1123,7 +1123,7 @@ define hidden noundef ptr @_ZN7uu_join5State10print_line17h6f9e97174e2507ffE.llv
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !176, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds { i64, i64 }, ptr %17, i64 %11
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %11
   %19 = load i64, ptr %18, align 8, !noalias !176, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !176, !noundef !5
@@ -1201,7 +1201,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   %57 = icmp ult i64 %54, %56
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !197, !noalias !203, !nonnull !5
-  %60 = getelementptr inbounds { i64, i64 }, ptr %59, i64 %54
+  %60 = getelementptr inbounds [16 x i8], ptr %59, i64 %54
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = load ptr, ptr %62, align 8, !alias.scope !197, !noalias !203, !nonnull !5
@@ -1257,7 +1257,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   br label %_ZN7uu_join4Repr12print_format17hfee7c7e838b68403E.exit.thread
 
 87:                                               ; preds = %85, %73
-  %88 = getelementptr inbounds { i8, [15 x i8] }, ptr %48, i64 %.sroa.01.0.i
+  %88 = getelementptr inbounds [16 x i8], ptr %48, i64 %.sroa.01.0.i
   call void @llvm.experimental.noalias.scope.decl(metadata !214)
   %89 = load i8, ptr %88, align 8, !range !45, !alias.scope !214, !noalias !213, !noundef !5
   %trunc.i.i = trunc nuw i8 %89 to i1
@@ -1302,7 +1302,7 @@ _ZN7uu_join4Repr11print_field17h64553d81e0893f63E.exit: ; preds = %_ZN7uu_join4L
   br i1 %108, label %109, label %"_ZN7uu_join5State10print_line28_$u7b$$u7b$closure$u7d$$u7d$17h83d04a87f782643fE.exit.i"
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds { i64, i64 }, ptr %59, i64 %107
+  %110 = getelementptr inbounds [16 x i8], ptr %59, i64 %107
   %111 = load i64, ptr %110, align 8, !noalias !223, !noundef !5
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load i64, ptr %112, align 8, !noalias !223, !noundef !5

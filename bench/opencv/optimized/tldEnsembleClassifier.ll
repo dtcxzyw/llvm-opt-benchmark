@@ -5,12 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cv::Point_" = type { i32, i32 }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [4 x i8] }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Vec<unsigned char, 4>, std::allocator<cv::Vec<unsigned char, 4>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.cv::Vec" = type { %"class.cv::Matx" }
+%"class.cv::Matx" = type { [4 x i8] }
 %"class.cv::tracking::impl::tld::TLDEnsembleClassifier" = type <{ %"class.std::vector", %"class.std::vector.0", %"class.std::vector", i32, [4 x i8] }>
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
@@ -79,9 +79,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6assignEmRKS2_.exit: ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = load ptr, ptr %1, align 8, !tbaa !24
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds %"class.cv::Vec", ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = sext i32 %3 to i64
-  %20 = getelementptr inbounds %"class.cv::Vec", ptr %16, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %19
   invoke void @_ZNSt6vectorIN2cv3VecIhLi4EEESaIS2_EE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %18, ptr %20)
           to label %_ZNSt6vectorIN2cv3VecIhLi4EEESaIS2_EE6assignIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEvEEvT_SB_.exit unwind label %25
 
@@ -188,7 +188,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuf
 31:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %32 = phi ptr [ %14, %.lr.ph ], [ %57, %55 ]
-  %33 = getelementptr inbounds nuw %"class.cv::Vec", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds i8, ptr %33, i64 %23
   %35 = load i8, ptr %34, align 1, !tbaa !28
   %36 = zext i8 %35 to i32
@@ -268,7 +268,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier17prepareClas
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %"class.cv::Vec", ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !28
   %22 = zext i8 %21 to i32
@@ -276,7 +276,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier17prepareClas
   %24 = load i8, ptr %19, align 1, !tbaa !28
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %23, %25
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 3
   %29 = load i8, ptr %28, align 1, !tbaa !28
@@ -324,7 +324,7 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERK
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01314.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %20 = shl i32 %.01314.i, 1
-  %21 = getelementptr inbounds nuw %"class.cv::Vec", ptr %9, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !28
   %24 = zext i8 %23 to i64
@@ -360,7 +360,7 @@ _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit: ; pred
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, %3
   %.013.lcssa.i = phi i64 [ 0, %3 ], [ %43, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
   %44 = load ptr, ptr %0, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw %"class.cv::Point_", ptr %44, i64 %.013.lcssa.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.013.lcssa.i
   br i1 %2, label %46, label %49
 
 46:                                               ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit
@@ -406,7 +406,7 @@ define hidden noundef i32 @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4code
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01314 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %14 = shl i32 %.01314, 1
-  %15 = getelementptr inbounds nuw %"class.cv::Vec", ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !28
   %18 = zext i8 %17 to i32
@@ -458,7 +458,7 @@ define hidden noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier20
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01314.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %14 = shl i32 %.01314.i, 1
-  %15 = getelementptr inbounds nuw %"class.cv::Vec", ptr %7, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !28
   %18 = zext i8 %17 to i32
@@ -494,7 +494,7 @@ _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit: ; pred
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, %3
   %.013.lcssa.i = phi i64 [ 0, %3 ], [ %39, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
   %40 = load ptr, ptr %0, align 8, !tbaa !25
-  %41 = getelementptr inbounds nuw %"class.cv::Point_", ptr %40, i64 %.013.lcssa.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.013.lcssa.i
   %42 = load i32, ptr %41, align 4, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !21
@@ -533,7 +533,7 @@ define hidden noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier24
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %.0910.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %15 ]
   %16 = shl i32 %.0910.i, 1
-  %17 = getelementptr inbounds nuw %"class.cv::Point_", ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %1, i64 %19
@@ -557,7 +557,7 @@ _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit: ; p
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit, %2
   %.09.lcssa.i = phi i64 [ 0, %2 ], [ %29, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit ]
   %30 = load ptr, ptr %0, align 8, !tbaa !25
-  %31 = getelementptr inbounds nuw %"class.cv::Point_", ptr %30, i64 %.09.lcssa.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.09.lcssa.i
   %32 = load i32, ptr %31, align 4, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !21
@@ -600,7 +600,7 @@ define hidden noundef i32 @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8code
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.0910 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %15 ]
   %16 = shl i32 %.0910, 1
-  %17 = getelementptr inbounds nuw %"class.cv::Point_", ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %1, i64 %19
@@ -680,7 +680,7 @@ define hidden noundef i32 @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier15make
 
 39:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
-  %40 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.lcssa64, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa64, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1, !tbaa !28
   %42 = zext i8 %41 to i32
   %43 = icmp sgt i32 %23, %42
@@ -723,7 +723,7 @@ define hidden noundef i32 @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier15make
 
 .lr.ph.i27:                                       ; preds = %60, %82
   %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i30, %82 ], [ 0, %60 ]
-  %61 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.lcssa64, i64 %indvars.iv.i28
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa64, i64 %indvars.iv.i28
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %63 = load i8, ptr %62, align 1, !tbaa !28
   %64 = zext i8 %63 to i32
@@ -785,7 +785,7 @@ _ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3Vec
 
 98:                                               ; preds = %120, %_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3VecIhLi4EEESaIS6_EEiii.exit34
   %indvars.iv.i36 = phi i64 [ 0, %_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3VecIhLi4EEESaIS6_EEiii.exit34 ], [ %indvars.iv.next.i38, %120 ]
-  %99 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.lcssa64, i64 %indvars.iv.i36
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa64, i64 %indvars.iv.i36
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %101 = load i8, ptr %100, align 1, !tbaa !28
   %102 = zext i8 %101 to i32
@@ -829,7 +829,7 @@ _ZN2cv8tracking4impl3tld21TLDEnsembleClassifier12stepPrefSuffERSt6vectorINS_3Vec
 
 .lr.ph.i43:                                       ; preds = %120, %142
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i46, %142 ], [ 0, %120 ]
-  %121 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.lcssa64, i64 %indvars.iv.i44
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa64, i64 %indvars.iv.i44
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 3
   %123 = load i8, ptr %122, align 1, !tbaa !28
   %124 = zext i8 %123 to i32
@@ -998,7 +998,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi4EEES3_SaIS2_EET0_T_S6_S5_
 
 .noexc:                                           ; preds = %198, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i
   store ptr %197, ptr %13, align 8, !tbaa !27
-  %199 = getelementptr inbounds nuw %"class.cv::Vec", ptr %188, i64 %186
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %186
   store ptr %199, ptr %14, align 8, !tbaa !48
   br label %_ZNSt6vectorIN2cv3VecIhLi4EEESaIS2_EE9push_backERKS2_.exit
 
@@ -1243,7 +1243,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS2_RKS3_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !57
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw %"class.cv::Point_", ptr %16, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !25
   store ptr %19, ptr %21, align 8, !tbaa !30
@@ -1689,7 +1689,7 @@ _ZNSt12_Vector_baseIN2cv8tracking4impl3tld21TLDEnsembleClassifierESaIS4_EE13_M_d
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !53
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !50
-  %113 = getelementptr inbounds nuw %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %20, i64 %16
+  %113 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %113, ptr %112, align 8, !tbaa !54
   ret void
 }

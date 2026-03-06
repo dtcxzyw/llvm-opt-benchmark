@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"global tonemap\00", align 1
 @.str.1 = private unnamed_addr constant [69 x i8] c"this module is deprecated. please use the filmic rgb module instead.\00", align 1
@@ -166,8 +163,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 46:                                               ; preds = %46, %.lr.ph.i
   %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %46 ]
   %47 = mul i64 %.01.i, %45
-  %48 = getelementptr inbounds nuw float, ptr %2, i64 %47
-  %49 = getelementptr inbounds nuw float, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   %50 = load float, ptr %48, align 4, !tbaa !41
   %51 = fpext reassoc nsz arcp contract afn float %50 to double
   %52 = fmul reassoc nsz arcp contract afn double %51, 1.000000e-02
@@ -261,7 +258,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.02.i = phi float [ 0x3F1A36E2E0000000, %.lr.ph.i45 ], [ %114, %109 ]
   %.0691.i = phi i64 [ 0, %.lr.ph.i45 ], [ %115, %109 ]
   %110 = mul i64 %.0691.i, %108
-  %111 = getelementptr inbounds nuw float, ptr %2, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !41
   %113 = fmul reassoc nsz arcp contract afn float %112, 0x3F847AE140000000
   %114 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.02.i, float %113)
@@ -334,8 +331,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 160:                                              ; preds = %160, %.lr.ph4.i
   %.0703.i = phi i64 [ 0, %.lr.ph4.i ], [ %183, %160 ]
   %161 = mul i64 %.0703.i, %157
-  %162 = getelementptr inbounds nuw float, ptr %2, i64 %161
-  %163 = getelementptr inbounds nuw float, ptr %3, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %161
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %161
   %164 = load float, ptr %162, align 4, !tbaa !41
   %165 = fmul reassoc nsz arcp contract afn float %164, 0x3F847AE140000000
   %166 = fadd reassoc nsz arcp contract afn float %165, 1.000000e+00
@@ -382,8 +379,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 194:                                              ; preds = %194, %.lr.ph.i49
   %.01.i50 = phi i64 [ 0, %.lr.ph.i49 ], [ %220, %194 ]
   %195 = mul i64 %.01.i50, %193
-  %196 = getelementptr inbounds nuw float, ptr %2, i64 %195
-  %197 = getelementptr inbounds nuw float, ptr %3, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %195
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %195
   %198 = load float, ptr %196, align 4, !tbaa !41
   %199 = fpext reassoc nsz arcp contract afn float %198 to double
   %200 = fmul reassoc nsz arcp contract afn double %199, 1.000000e-02
@@ -736,7 +733,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !121
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

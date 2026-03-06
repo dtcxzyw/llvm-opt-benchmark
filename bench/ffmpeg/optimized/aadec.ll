@@ -93,7 +93,7 @@ define internal range(i32 -1094995529, 1) i32 @aa_read_header(ptr noundef %0) #1
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %26 = tail call i64 @avio_skip(ptr noundef %13, i64 noundef 4) #10
   %27 = tail call i32 @avio_rb32(ptr noundef %13) #10
-  %28 = getelementptr inbounds nuw %struct.toc_entry, ptr %4, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i32 %27, ptr %28, align 8, !tbaa !28
   %29 = tail call i32 @avio_rb32(ptr noundef %13) #10
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -146,7 +146,7 @@ define internal range(i32 -1094995529, 1) i32 @aa_read_header(ptr noundef %0) #1
 
 .preheader:                                       ; preds = %44, %.preheader
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.preheader ], [ 0, %44 ]
-  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv225
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv225
   %47 = load i32, ptr %46, align 4, !tbaa !33
   %48 = call i32 @llvm.bswap.i32(i32 %47)
   %49 = shl nuw nsw i64 %indvars.iv225, 2
@@ -334,7 +334,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
 ._crit_edge220:                                   ; preds = %._crit_edge220.loopexit, %111
   %.0141.lcssa = phi i64 [ -1, %111 ], [ %spec.select, %._crit_edge220.loopexit ]
   %.0132.lcssa = phi i64 [ -1, %111 ], [ %113, %._crit_edge220.loopexit ]
-  %114 = getelementptr inbounds %struct.toc_entry, ptr %4, i64 %.0132.lcssa
+  %114 = getelementptr inbounds [8 x i8], ptr %4, i64 %.0132.lcssa
   %115 = load i32, ptr %114, align 8, !tbaa !28
   %116 = zext i32 %115 to i64
   %117 = call i64 @avio_seek(ptr noundef %13, i64 noundef %116, i32 noundef 0) #10
@@ -353,7 +353,7 @@ select.unfold:                                    ; preds = %60, %select.unfold.
   %indvars.iv234 = phi i64 [ 1, %.lr.ph219.preheader ], [ %indvars.iv.next235, %.lr.ph219 ]
   %.0132217 = phi i32 [ -1, %.lr.ph219.preheader ], [ %spec.select176, %.lr.ph219 ]
   %.0141215 = phi i64 [ -1, %.lr.ph219.preheader ], [ %spec.select, %.lr.ph219 ]
-  %124 = getelementptr inbounds nuw %struct.toc_entry, ptr %4, i64 %indvars.iv234
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv234
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !30
   %127 = zext i32 %126 to i64
@@ -560,7 +560,7 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
 
 11:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8, !tbaa !85
@@ -581,7 +581,7 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8, !tbaa !82
   %22 = zext nneg i32 %17 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !83
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8, !tbaa !85
@@ -590,7 +590,7 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
 .critedge.thread.loopexit:                        ; preds = %11
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre = and i64 %indvars.iv, 4294967295
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %10, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.pre
   %.pre63 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !83
   %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %.pre63, i64 24
   %.pre65 = load i64, ptr %.phi.trans.insert64, align 8, !tbaa !85

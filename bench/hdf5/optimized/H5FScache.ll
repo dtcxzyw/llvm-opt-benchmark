@@ -3,9 +3,7 @@ source_filename = "bench/hdf5/original/H5FScache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5FS_section_class_t = type { i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5FS_iter_ud_t = type { ptr, ptr, i32 }
-%struct.H5FS_bin_t = type { i64, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"Free Space Header\00", align 1
 @H5AC_FSPACE_HDR = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str, i32 6, i32 0, ptr @H5FS__cache_hdr_get_initial_load_size, ptr null, ptr @H5FS__cache_hdr_verify_chksum, ptr @H5FS__cache_hdr_deserialize, ptr @H5FS__cache_hdr_image_len, ptr @H5FS__cache_hdr_pre_serialize, ptr @H5FS__cache_hdr_serialize, ptr @H5FS__cache_hdr_notify, ptr @H5FS__cache_hdr_free_icr, ptr null }], align 16
@@ -2145,7 +2143,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   store i32 0, ptr %7, align 4, !tbaa !18
   %105 = load ptr, ptr %61, align 8, !tbaa !80
   %106 = zext i8 %104 to i64
-  %107 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [136 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %109 = load ptr, ptr %108, align 8, !tbaa !81
   %110 = call ptr %109(ptr noundef %107, ptr noundef nonnull %103, i64 noundef %.086.lcssa, i64 noundef %.091.lcssa, ptr noundef nonnull %7) #7
@@ -2160,7 +2158,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
 
 116:                                              ; preds = %._crit_edge134
   %117 = load ptr, ptr %61, align 8, !tbaa !80
-  %118 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %117, i64 %106
+  %118 = getelementptr inbounds nuw [136 x i8], ptr %117, i64 %106
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !83
   %121 = load ptr, ptr %6, align 8, !tbaa !36
@@ -2468,7 +2466,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %29, %34, %41, %46, 
   %83 = phi i32 [ %80, %.lr.ph ], [ %96, %95 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %84 = load ptr, ptr %81, align 8, !tbaa !93
-  %85 = getelementptr inbounds nuw %struct.H5FS_bin_t, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !94
   %.not = icmp eq ptr %87, null
@@ -2893,7 +2891,7 @@ define internal range(i32 -1, 1) i32 @H5FS__sinfo_serialize_sect_cb(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !104
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [136 x i8], ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !106
   %22 = and i32 %21, 1

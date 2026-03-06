@@ -72,11 +72,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.Eigen::Product" = type { %"class.Eigen::Product.130", ptr }
 %"class.Eigen::Product.130" = type { %"class.Eigen::Inverse", ptr }
 %"class.Eigen::Inverse" = type { ptr }
-%"struct.std::pair.51" = type { i32, i32 }
-%"class.Eigen::Matrix.168" = type { %"class.Eigen::PlainObjectBase.169" }
-%"class.Eigen::PlainObjectBase.169" = type { %"class.Eigen::DenseStorage.176" }
-%"class.Eigen::DenseStorage.176" = type { %"struct.Eigen::internal::plain_array.177" }
-%"struct.Eigen::internal::plain_array.177" = type { [2 x i32] }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.Eigen::internal::evaluator.335" = type { %"struct.Eigen::internal::product_evaluator" }
 %"struct.Eigen::internal::product_evaluator" = type { %"class.Eigen::Matrix.65", ptr, %"struct.Eigen::internal::evaluator.216", %"struct.Eigen::internal::evaluator.216", i64 }
@@ -779,7 +774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit173: ; preds = %_Z
   %162 = phi ptr [ %.pre, %.preheader371 ], [ %191, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader371 ], [ %indvars.iv.next, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit ]
   %163 = load ptr, ptr %11, align 8, !tbaa !41
-  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv
   %165 = load i32, ptr %164, align 4, !tbaa !57
   %.sroa.2.0.insert.ext.i = zext i32 %165 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -853,7 +848,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %189, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %183, ptr %9, align 8, !tbaa !60
   store ptr %188, ptr %135, align 8, !tbaa !54
-  %190 = getelementptr inbounds nuw %"struct.std::pair.51", ptr %183, i64 %181
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %181
   store ptr %190, ptr %136, align 8, !tbaa !59
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit
 
@@ -1408,7 +1403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %38
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit230
   %403 = phi ptr [ %440, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit230 ], [ %375, %_ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit ]
   %.047385 = phi i64 [ %435, %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit230 ], [ 0, %_ZNSt6vectorISt4pairIiiESaIS1_EE5clearEv.exit ]
-  %404 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %403, i64 %.047385
+  %404 = getelementptr inbounds nuw [24 x i8], ptr %403, i64 %.047385
   %405 = invoke noundef i32 @_ZNK6open3d8geometry11KDTreeFlann9SearchKNNIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEiRKT_iRSt6vectorIiSaIiEERS9_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %404, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %406 unwind label %446
 
@@ -1489,7 +1484,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i224: ; 
 _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i227: ; preds = %433, %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i224
   store ptr %427, ptr %9, align 8, !tbaa !60
   store ptr %432, ptr %135, align 8, !tbaa !54
-  %434 = getelementptr inbounds nuw %"struct.std::pair.51", ptr %427, i64 %425
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %425
   store ptr %434, ptr %136, align 8, !tbaa !59
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit230
 
@@ -1700,15 +1695,15 @@ _ZSt10_ConstructISt10shared_ptrIKN6open3d8geometry8GeometryEEJRKS5_EEvPT_DpOT0_.
   %527 = phi ptr [ %459, %.lr.ph387 ], [ %563, %561 ]
   %.046386 = phi i64 [ 0, %.lr.ph387 ], [ %562, %561 ]
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 48
-  %529 = getelementptr inbounds nuw %"class.Eigen::Matrix.168", ptr %526, i64 %.046386
+  %529 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %.046386
   %530 = load i32, ptr %529, align 4, !tbaa !57, !noalias !115
   %531 = sext i32 %530 to i64
   %532 = load ptr, ptr %528, align 8, !tbaa !51, !noalias !115
-  %533 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %532, i64 %531
+  %533 = getelementptr inbounds nuw [24 x i8], ptr %532, i64 %531
   %534 = getelementptr inbounds nuw i8, ptr %529, i64 4
   %535 = load i32, ptr %534, align 4, !tbaa !57, !noalias !115
   %536 = sext i32 %535 to i64
-  %537 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %532, i64 %536
+  %537 = getelementptr inbounds nuw [24 x i8], ptr %532, i64 %536
   %.sroa.0.0.copyload = load <2 x double>, ptr %533, align 8
   %.sroa.5.0..sroa_idx364 = getelementptr inbounds nuw i8, ptr %533, i64 16
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx364, align 8, !tbaa !27
@@ -1740,7 +1735,7 @@ _ZSt10_ConstructISt10shared_ptrIKN6open3d8geometry8GeometryEEJRKS5_EEvPT_DpOT0_.
   %555 = fcmp olt double %.scalar.i, %554
   %556 = getelementptr inbounds nuw i8, ptr %527, i64 96
   %557 = load ptr, ptr %556, align 8, !tbaa !51
-  %558 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %557, i64 %.046386
+  %558 = getelementptr inbounds nuw [24 x i8], ptr %557, i64 %.046386
   br i1 %555, label %559, label %560
 
 559:                                              ; preds = %525
@@ -2644,9 +2639,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !51
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !104
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !119
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -2655,7 +2650,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix.42", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
@@ -3513,7 +3508,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_
   %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !145
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -3654,7 +3649,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !145
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -3681,7 +3676,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !57
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !145
   br label %49
 
@@ -3746,7 +3741,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !57
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !145
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -3761,7 +3756,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !145
   br label %29
 

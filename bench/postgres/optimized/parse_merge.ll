@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/parse_merge.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [52 x i8] c"WITH RECURSIVE is not supported for MERGE statement\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"parse_merge.c\00", align 1
 @__func__.transformMergeStmt = private unnamed_addr constant [19 x i8] c"transformMergeStmt\00", align 1
@@ -81,7 +79,7 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
 34:                                               ; preds = %.lr.ph198, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next, %72 ]
   %.0141190196 = phi i64 [ 0, %.lr.ph198 ], [ %57, %72 ]
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8
@@ -125,7 +123,7 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
 
 switch.lookup:                                    ; preds = %34
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.transformMergeStmt, i64 %56
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.transformMergeStmt, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
   %57 = or i64 %.0141190196, %switch.load
   %58 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -261,7 +259,7 @@ list_length.exit:                                 ; preds = %87, %93
   %.0143201290 = phi ptr [ %319, %318 ], [ null, %.lr.ph202 ]
   %indvars.iv226289 = phi i64 [ %indvars.iv.next227, %318 ], [ 0, %.lr.ph202 ]
   %144 = load ptr, ptr %137, align 8
-  %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv226289
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv226289
   %146 = load ptr, ptr %145, align 8
   %147 = call noundef ptr @palloc0(i64 noundef 40) #5
   store i32 54, ptr %147, align 4
@@ -279,9 +277,9 @@ list_length.exit:                                 ; preds = %87, %93
   %157 = getelementptr i8, ptr %155, i64 16
   %.val.i = load ptr, ptr %157, align 8
   %158 = sext i32 %156 to i64
-  %159 = getelementptr inbounds %union.ListCell, ptr %.val.i, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %158
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds %union.ListCell, ptr %.val.i, i64 %139
+  %161 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %139
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %140, align 8
   %.not.i51.i = icmp eq ptr %163, null
@@ -312,7 +310,7 @@ list_length.exit:                                 ; preds = %87, %93
 
 .critedge17.i.i:                                  ; preds = %170, %.critedge17.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.critedge17.lr.ph.i.i ], [ %indvars.iv.next.i.i, %170 ]
-  %171 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv.i.i
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i.i
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
@@ -351,7 +349,7 @@ setNamespaceVisibilityForRTE.exit.i:              ; preds = %170, %.split.i.i
 
 .critedge17.i22.i:                                ; preds = %180, %.critedge17.lr.ph.i20.i
   %indvars.iv.i23.i = phi i64 [ 0, %.critedge17.lr.ph.i20.i ], [ %indvars.iv.next.i25.i, %180 ]
-  %181 = getelementptr inbounds nuw %union.ListCell, ptr %179, i64 %indvars.iv.i23.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv.i23.i
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
@@ -380,7 +378,7 @@ setNamespaceVisibilityForRTE.exit.i:              ; preds = %170, %.split.i.i
 
 .critedge17.i33.i:                                ; preds = %191, %.critedge17.lr.ph.i31.i
   %indvars.iv.i34.i = phi i64 [ 0, %.critedge17.lr.ph.i31.i ], [ %indvars.iv.next.i36.i, %191 ]
-  %192 = getelementptr inbounds nuw %union.ListCell, ptr %190, i64 %indvars.iv.i34.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv.i34.i
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8
@@ -419,7 +417,7 @@ setNamespaceVisibilityForRTE.exit39.i:            ; preds = %191, %.split.i38.i
 
 .critedge17.i44.i:                                ; preds = %201, %.critedge17.lr.ph.i42.i
   %indvars.iv.i45.i = phi i64 [ 0, %.critedge17.lr.ph.i42.i ], [ %indvars.iv.next.i47.i, %201 ]
-  %202 = getelementptr inbounds nuw %union.ListCell, ptr %200, i64 %indvars.iv.i45.i
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv.i45.i
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8
@@ -448,7 +446,7 @@ setNamespaceVisibilityForRTE.exit39.i:            ; preds = %191, %.split.i38.i
 
 .critedge17.i55.i:                                ; preds = %212, %.critedge17.lr.ph.i53.i
   %indvars.iv.i56.i = phi i64 [ 0, %.critedge17.lr.ph.i53.i ], [ %indvars.iv.next.i58.i, %212 ]
-  %213 = getelementptr inbounds nuw %union.ListCell, ptr %211, i64 %indvars.iv.i56.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i56.i
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load ptr, ptr %215, align 8
@@ -487,7 +485,7 @@ setNamespaceVisibilityForRTE.exit61.i:            ; preds = %212, %.split.i60.i
 
 .critedge17.i66.i:                                ; preds = %222, %.critedge17.lr.ph.i64.i
   %indvars.iv.i67.i = phi i64 [ 0, %.critedge17.lr.ph.i64.i ], [ %indvars.iv.next.i69.i, %222 ]
-  %223 = getelementptr inbounds nuw %union.ListCell, ptr %221, i64 %indvars.iv.i67.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv.i67.i
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load ptr, ptr %225, align 8
@@ -584,7 +582,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
 
 271:                                              ; preds = %267
   %272 = load ptr, ptr %261, align 8
-  %273 = getelementptr inbounds nuw %union.ListCell, ptr %272, i64 %indvars.iv223
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv223
   br label %274
 
 274:                                              ; preds = %.split199, %267, %271
@@ -599,7 +597,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
 
 280:                                              ; preds = %276
   %281 = load ptr, ptr %263, align 8
-  %282 = getelementptr inbounds nuw %union.ListCell, ptr %281, i64 %indvars.iv223
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv223
   br label %283
 
 283:                                              ; preds = %274, %276, %280
@@ -623,7 +621,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   br label %318
 
 293:                                              ; preds = %288
-  %294 = getelementptr inbounds nuw %union.ListCell, ptr %289, i64 %indvars.iv223
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %indvars.iv223
   %295 = load ptr, ptr %275, align 8
   %296 = load ptr, ptr %284, align 8
   %297 = load i32, ptr %294, align 8

@@ -299,23 +299,23 @@ define hidden noundef i32 @_ZN4ncnn33DeconvolutionDepthWise_x86_avx51215create_p
   %.037125.us = phi i32 [ %75, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   %.038124.us = phi ptr [ %73, %._crit_edge.us ], [ %66, %.preheader.us.preheader ]
   %.044123.us = phi ptr [ %74, %._crit_edge.us ], [ %65, %.preheader.us.preheader ]
-  %67 = getelementptr float, ptr %.044123.us, i64 %64
+  %67 = getelementptr [4 x i8], ptr %.044123.us, i64 %64
   br label %68
 
 68:                                               ; preds = %.preheader.us, %68
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds nuw float, ptr %.038124.us, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.038124.us, i64 %indvars.iv
   %70 = load float, ptr %69, align 4, !tbaa !49
   %71 = xor i64 %indvars.iv, -1
-  %72 = getelementptr float, ptr %67, i64 %71
+  %72 = getelementptr [4 x i8], ptr %67, i64 %71
   store float %70, ptr %72, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %68, !llvm.loop !51
 
 ._crit_edge.us:                                   ; preds = %68
-  %73 = getelementptr inbounds nuw float, ptr %.038124.us, i64 %64
-  %74 = getelementptr inbounds nuw float, ptr %.044123.us, i64 %64
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.038124.us, i64 %64
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.044123.us, i64 %64
   %75 = add nuw nsw i32 %.037125.us, 1
   %exitcond129.not = icmp eq i32 %75, %61
   br i1 %exitcond129.not, label %._crit_edge126, label %.preheader.us, !llvm.loop !53
@@ -963,14 +963,14 @@ _ZNSt6vectorIPN4ncnn5LayerESaIS2_EE5clearEv.exit: ; preds = %._crit_edge, %13
 .lr.ph:                                           ; preds = %2, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %2 ]
   %14 = phi ptr [ %30, %29 ], [ %6, %2 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(208) %16, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %21 = load ptr, ptr %3, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
@@ -1135,8 +1135,8 @@ _ZNK4ncnn3Mat5emptyEv.exit161:                    ; preds = %69
   %91 = trunc nuw nsw i64 %indvars.iv203 to i32
   %92 = mul i32 %.reass, %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds float, ptr %70, i64 %93
-  %95 = getelementptr inbounds float, ptr %84, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %70, i64 %93
+  %95 = getelementptr inbounds [4 x i8], ptr %84, i64 %93
   br label %.preheader163.us.us.us.us.us
 
 .preheader163.us.us.us.us.us:                     ; preds = %._crit_edge166.split.us.us.us.us.us.us, %.preheader163.lr.ph.us.us.us
@@ -1151,15 +1151,15 @@ _ZNK4ncnn3Mat5emptyEv.exit161:                    ; preds = %69
   %99 = mul nuw nsw i64 %98, %89
   %100 = add nuw nsw i64 %indvars.iv193, %96
   %101 = mul nuw nsw i64 %100, %89
-  %invariant.gep = getelementptr inbounds nuw float, ptr %95, i64 %99
-  %invariant.gep247 = getelementptr inbounds nuw float, ptr %94, i64 %101
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %99
+  %invariant.gep247 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %101
   br label %102
 
 102:                                              ; preds = %102, %.preheader.us.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.preheader.us.us.us.us.us.us ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %103 = load float, ptr %gep, align 4, !tbaa !49
-  %gep248 = getelementptr inbounds nuw float, ptr %invariant.gep247, i64 %indvars.iv
+  %gep248 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep247, i64 %indvars.iv
   store float %103, ptr %gep248, align 4, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %89
@@ -2624,7 +2624,7 @@ _ZNK4ncnn3Mat5emptyEv.exit215:                    ; preds = %300
   %389 = load i32, ptr %274, align 8, !tbaa !56, !noalias !96
   store i32 %389, ptr %328, align 8, !tbaa !56, !alias.scope !96
   %390 = load ptr, ptr %334, align 8, !tbaa !18
-  %391 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %indvars.iv
   %392 = load ptr, ptr %391, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !89
@@ -3476,7 +3476,7 @@ _ZNSt6vectorIPN4ncnn5LayerESaIS2_EE5clearEv.exit: ; preds = %._crit_edge, %36
   br i1 %50, label %51, label %_ZNSt6vectorIPN4ncnn5LayerESaIS2_EE6resizeEm.exit
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw ptr, ptr %.lcssa340, i64 %42
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa340, i64 %42
   %.not.i.i162 = icmp eq ptr %37, %52
   br i1 %.not.i.i162, label %_ZNSt6vectorIPN4ncnn5LayerESaIS2_EE6resizeEm.exit, label %53
 
@@ -3571,7 +3571,7 @@ _ZNSt6vectorIPN4ncnn5LayerESaIS2_EE6resizeEm.exit: ; preds = %47, %49, %51, %53
   %129 = phi ptr [ %139, %138 ], [ %29, %2 ]
   %130 = phi ptr [ %140, %138 ], [ %28, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %138 ], [ 0, %2 ]
-  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv
   %132 = load ptr, ptr %131, align 8, !tbaa !63
   %133 = icmp eq ptr %132, null
   br i1 %133, label %138, label %134
@@ -4302,7 +4302,7 @@ _ZN4ncnn3MatD2Ev.exit63:                          ; preds = %410, %407, %417, %4
 
 _ZN4ncnn3MatD2Ev.exit62:                          ; preds = %426
   %431 = load ptr, ptr %26, align 8, !tbaa !18
-  %432 = getelementptr inbounds nuw ptr, ptr %431, i64 %indvars.iv353
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %indvars.iv353
   store ptr %198, ptr %432, align 8, !tbaa !63
   call void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4515,9 +4515,9 @@ _ZNSt6vectorIPN4ncnn5LayerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = 
 
 _ZNSt12_Vector_baseIPN4ncnn5LayerESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIPN4ncnn5LayerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !62
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !22
   br label %41
 
@@ -4633,7 +4633,7 @@ define internal void @_ZNK4ncnn33DeconvolutionDepthWise_x86_avx5127forwardERKNS_
   %83 = shl i32 %82, 4
   %84 = mul i32 %83, %81
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds float, ptr %80, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %80, i64 %85
   %87 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !108
   %88 = load i64, ptr %30, align 8, !tbaa !17, !noalias !108
   %89 = mul i64 %88, %indvars.iv142
@@ -4937,13 +4937,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge131, %.p
 287:                                              ; preds = %283
   %288 = shl nsw i32 %286, 4
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds float, ptr %277, i64 %289
+  %290 = getelementptr inbounds [4 x i8], ptr %277, i64 %289
   %291 = load <16 x float>, ptr %290, align 1, !tbaa !117
   %292 = trunc i64 %indvars.iv to i32
   %293 = add i32 %278, %292
   %294 = shl nsw i32 %293, 4
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw float, ptr %86, i64 %295
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %295
   %297 = load <16 x float>, ptr %296, align 1, !tbaa !117
   %298 = call fast noundef nofpclass(nan inf) <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %291, <16 x float> nofpclass(nan inf) %297, <16 x float> nofpclass(nan inf) %.4121)
   br label %299
@@ -5061,7 +5061,7 @@ define internal void @_ZNK4ncnn33DeconvolutionDepthWise_x86_avx5127forwardERKNS_
   %51 = shl i32 %50, 3
   %52 = mul i32 %51, %49
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr %48, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %48, i64 %53
   %55 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !123
   %56 = load i64, ptr %30, align 8, !tbaa !17, !noalias !123
   %57 = mul i64 %56, %indvars.iv252
@@ -5370,13 +5370,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge241, %.p
 258:                                              ; preds = %254
   %259 = shl nsw i32 %257, 3
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds float, ptr %248, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %248, i64 %260
   %262 = load <8 x float>, ptr %261, align 1, !tbaa !117
   %263 = trunc i64 %indvars.iv to i32
   %264 = add i32 %249, %263
   %265 = shl nsw i32 %264, 3
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw float, ptr %54, i64 %266
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %266
   %268 = load <8 x float>, ptr %267, align 1, !tbaa !117
   %269 = call fast noundef nofpclass(nan inf) <8 x float> @llvm.fma.v8f32(<8 x float> nofpclass(nan inf) %262, <8 x float> nofpclass(nan inf) %268, <8 x float> nofpclass(nan inf) %.3230)
   br label %270
@@ -5479,7 +5479,7 @@ define internal void @_ZNK4ncnn33DeconvolutionDepthWise_x86_avx5127forwardERKNS_
   %51 = shl i32 %50, 2
   %52 = mul i32 %51, %49
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr %48, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %48, i64 %53
   %55 = load ptr, ptr %6, align 8, !tbaa !16, !noalias !134
   %56 = load i64, ptr %30, align 8, !tbaa !17, !noalias !134
   %57 = mul i64 %56, %indvars.iv237
@@ -5795,13 +5795,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge226, %.p
 267:                                              ; preds = %263
   %268 = shl nsw i32 %266, 2
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds float, ptr %257, i64 %269
+  %270 = getelementptr inbounds [4 x i8], ptr %257, i64 %269
   %271 = load <4 x float>, ptr %270, align 1, !tbaa !117
   %272 = trunc i64 %indvars.iv to i32
   %273 = add i32 %258, %272
   %274 = shl nsw i32 %273, 2
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds nuw float, ptr %54, i64 %275
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %275
   %277 = load <4 x float>, ptr %276, align 1, !tbaa !117
   %278 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.fma.v4f32(<4 x float> nofpclass(nan inf) %271, <4 x float> nofpclass(nan inf) %277, <4 x float> nofpclass(nan inf) %.3215)
   br label %279
@@ -5921,7 +5921,7 @@ define internal void @_ZNK4ncnn33DeconvolutionDepthWise_x86_avx5127forwardERKNS_
   %.reass.us138.us = mul i64 %factor.op.mul, %indvars.iv149
   %64 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass.us138.us
   %65 = mul nsw i64 %indvars.iv149, %62
-  %66 = getelementptr inbounds float, ptr %32, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %32, i64 %65
   %.reass137.us.us = mul i64 %factor.op.mul136, %indvars.iv149
   %67 = getelementptr inbounds nuw i8, ptr %35, i64 %.reass137.us.us
   br label %.preheader.us.us.us
@@ -5941,7 +5941,7 @@ define internal void @_ZNK4ncnn33DeconvolutionDepthWise_x86_avx5127forwardERKNS_
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %44, align 8, !tbaa !16
-  %72 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv149
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv149
   %73 = load float, ptr %72, align 4, !tbaa !49
   br label %74
 
@@ -6076,9 +6076,9 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %115, %109, %108, %1
 
 140:                                              ; preds = %136
   %141 = sext i32 %139 to i64
-  %142 = getelementptr inbounds float, ptr %129, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %129, i64 %141
   %143 = load float, ptr %142, align 4, !tbaa !49
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %144 = load float, ptr %gep, align 4, !tbaa !49
   %145 = fmul fast float %144, %143
   %146 = fadd fast float %145, %.4119.us.us.us
@@ -6101,7 +6101,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us.us.us:  ; preds = %115, %109, %108, %1
   %150 = mul nuw nsw i32 %130, %.065121.us.us.us
   %151 = zext nneg i32 %150 to i64
   %wide.trip.count = zext nneg i32 %130 to i64
-  %invariant.gep = getelementptr inbounds nuw float, ptr %66, i64 %151
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %151
   br label %132
 
 .lr.ph123.us.us.us:                               ; preds = %74

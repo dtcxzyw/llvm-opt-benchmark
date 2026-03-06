@@ -137,7 +137,7 @@ define hidden void @_ZN4cvc58internal5proof20AlfListNodeConverter10preConvertENS
   %26 = icmp eq i32 %25, 2
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = zext i1 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !18, !noalias !15
   %31 = load i64, ptr %30, align 8, !noalias !15
   %32 = lshr i64 %31, 40
@@ -214,7 +214,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %46, %53, %59
   %71 = icmp eq i32 %70, 2
   %72 = getelementptr inbounds nuw i8, ptr %.pre94, i64 24
   %73 = zext i1 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !18, !noalias !21
   store ptr %75, ptr %6, align 8, !tbaa !12, !alias.scope !21
   %76 = load i64, ptr %75, align 8, !noalias !21
@@ -258,7 +258,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit43: ; preds = %81, %87, %89
   %98 = icmp eq i32 %97, 2
   %99 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %100 = zext i1 %98 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !18, !noalias !24
   store ptr %102, ptr %5, align 8, !tbaa !12, !alias.scope !24
   %103 = load i64, ptr %102, align 8, !noalias !24
@@ -378,7 +378,7 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_
   %159 = icmp eq i32 %158, 2
   %160 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %161 = zext i1 %159 to i64
-  %162 = getelementptr inbounds nuw ptr, ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !18, !noalias !50
   store ptr %163, ptr %8, align 8, !tbaa !12, !alias.scope !50
   %164 = load i64, ptr %163, align 8, !noalias !50
@@ -1467,7 +1467,7 @@ define hidden void @_ZN4cvc58internal5proof20AlfListNodeConverter11postConvertEN
   %37 = load i64, ptr %36, align 8
   %38 = lshr i64 %37, 32
   %39 = and i64 %38, 67108863
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %39
   %.not39 = icmp eq ptr %spec.select.i.i, %40
   br i1 %.not39, label %._crit_edge.i.i, label %.lr.ph
 

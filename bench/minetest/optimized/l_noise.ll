@@ -678,7 +678,7 @@ for.body8:                                        ; preds = %for.body, %for.body
   %i.130 = phi i64 [ %inc, %for.body8 ], [ %i.033, %for.body ]
   %7 = load ptr, ptr %result, align 8, !tbaa !40
   %inc = add i64 %i.130, 1
-  %arrayidx = getelementptr inbounds float, ptr %7, i64 %i.130
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %7, i64 %i.130
   %8 = load float, ptr %arrayidx, align 4, !tbaa !5
   %conv = fpext float %8 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
@@ -737,7 +737,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.end
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %4 = load ptr, ptr %result, align 8, !tbaa !40
-  %arrayidx = getelementptr inbounds nuw float, ptr %4, i64 %i.022
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %i.022
   %5 = load float, ptr %arrayidx, align 4, !tbaa !5
   %conv6 = fpext float %5 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv6)
@@ -819,7 +819,7 @@ for.body14:                                       ; preds = %for.body9, %for.bod
   %i.249 = phi i64 [ %inc, %for.body14 ], [ %i.152, %for.body9 ]
   %11 = load ptr, ptr %result, align 8, !tbaa !40
   %inc = add i64 %i.249, 1
-  %arrayidx = getelementptr inbounds float, ptr %11, i64 %i.249
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %11, i64 %i.249
   %12 = load float, ptr %arrayidx, align 4, !tbaa !5
   %conv = fpext float %12 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
@@ -885,7 +885,7 @@ for.body.lr.ph:                                   ; preds = %if.end8
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %i.030 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %6 = load ptr, ptr %result, align 8, !tbaa !40
-  %arrayidx = getelementptr inbounds nuw float, ptr %6, i64 %i.030
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %i.030
   %7 = load float, ptr %arrayidx, align 4, !tbaa !5
   %conv10 = fpext float %7 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv10)

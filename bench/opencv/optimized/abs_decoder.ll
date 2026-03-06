@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_" = type { float, float }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -172,7 +171,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   tail call void @_ZdlPv(ptr noundef nonnull %21) #18
   store ptr %68, ptr %4, align 8, !tbaa !9
   store ptr %75, ptr %22, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw %"class.cv::Point_", ptr %68, i64 %66
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %76, ptr %24, align 8, !tbaa !11
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -435,7 +434,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 
 30:                                               ; preds = %.lr.ph
   %31 = zext i32 %.031 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !34
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !34
@@ -451,7 +450,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i32, ptr %7, i64 %39
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %39
   store i32 1, ptr %42, align 4, !tbaa !34
   %43 = load i32, ptr %15, align 8, !tbaa !40
   %44 = add i32 %43, 1
@@ -550,10 +549,10 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_
   %39 = phi i64 [ %51, %48 ], [ 0, %34 ]
   %.0325.i = phi i32 [ %50, %48 ], [ 0, %34 ]
   %.0334.i = phi i32 [ %49, %48 ], [ 0, %34 ]
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !34
   %42 = shl i32 %41, 8
-  %43 = getelementptr inbounds nuw i32, ptr %15, i64 %39
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %39
   %44 = load i32, ptr %43, align 4, !tbaa !34
   %45 = mul nsw i32 %44, %36
   %46 = sub nsw i32 %42, %45

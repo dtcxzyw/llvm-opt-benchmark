@@ -170,7 +170,7 @@ _ZN9btVector313safeNormalizeEv.exit41:            ; preds = %48, %53
   %indvars.iv = phi i64 [ 0, %_ZN9btVector313safeNormalizeEv.exit41 ], [ %indvars.iv.next, %88 ]
   call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %84 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !9
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %85 = call noundef zeroext i1 @_ZN15btGjkEpaSolver211PenetrationEPK13btConvexShapeRK11btTransformS2_S5_RK9btVector3RNS_8sResultsEb(ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(56) %13, i1 noundef zeroext true)

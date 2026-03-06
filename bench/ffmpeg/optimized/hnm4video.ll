@@ -254,7 +254,7 @@ bytestream2_get_be24.exit.us.us.i:                ; preds = %65, %.lr.ph.us.i
   %.sroa.0.4.us.us.i = phi ptr [ %66, %65 ], [ %22, %.lr.ph.us.i ]
   %.0.i25.us.us.i = phi i32 [ %79, %65 ], [ -16777216, %.lr.ph.us.i ]
   %80 = zext i8 %.023.us.us.i to i64
-  %81 = getelementptr inbounds nuw i32, ptr %33, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %80
   store i32 %.0.i25.us.us.i, ptr %81, align 4, !tbaa !47
   %82 = add nsw i16 %.02122.us.us.i, -1
   %83 = add i8 %.023.us.us.i, 1
@@ -342,7 +342,7 @@ bytestream2_get_be24.exit.i:                      ; preds = %109, %.lr.ph.i
   %.sroa.0.4.i = phi ptr [ %110, %109 ], [ %37, %.lr.ph.i ]
   %.0.i25.i = phi i32 [ %124, %109 ], [ -16777216, %.lr.ph.i ]
   %125 = zext i8 %.023.i to i64
-  %126 = getelementptr inbounds nuw i32, ptr %39, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %125
   store i32 %.0.i25.i, ptr %126, align 4, !tbaa !47
   %127 = add nsw i16 %.02122.i, -1
   %128 = add i8 %.023.i, 1

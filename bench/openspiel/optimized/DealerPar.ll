@@ -150,7 +150,7 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
   %11 = alloca i32, align 4
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds [2 x i32], ptr @VUL_LOOKUP, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr @VUL_LOOKUP, i64 %13
   call void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(ptr noundef nonnull align 4 dereferenceable(80) %0, i32 noundef %2, ptr noundef nonnull %14, ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %6)
   %15 = load i32, ptr %5, align 4
   %16 = icmp eq i32 %15, -1
@@ -164,7 +164,7 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
 
 19:                                               ; preds = %4
   %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds [5 x %struct.list_type], ptr %6, i64 %20
+  %21 = getelementptr inbounds [100 x i8], ptr %6, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load i32, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %10, i8 0, i64 100, i1 false)
@@ -179,10 +179,10 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %19
   %27 = sext i32 %23 to i64
-  %invariant.gep = getelementptr i32, ptr @DOWN_TARGET, i64 %27
+  %invariant.gep = getelementptr [4 x i8], ptr @DOWN_TARGET, i64 %27
   %28 = sub nsw i32 1, %15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [5 x %struct.list_type], ptr %6, i64 %29
+  %30 = getelementptr inbounds [100 x i8], ptr %6, i64 %29
   %31 = add i32 %2, 3
   %smax.i = tail call i32 @llvm.smax.i32(i32 %2, i32 %31)
   %wide.trip.count = zext nneg i32 %24 to i64
@@ -193,27 +193,27 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
   %.086121 = phi i32 [ 0, %.lr.ph ], [ %.2, %84 ]
   %.088120 = phi i32 [ 0, %.lr.ph ], [ %.189, %84 ]
   %.090119 = phi i32 [ 0, %.lr.ph ], [ %.292, %84 ]
-  %33 = getelementptr inbounds nuw %struct.list_type, ptr %21, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %21, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %35 to i64
-  %gep = getelementptr [4 x i32], ptr %invariant.gep, i64 %38
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %38
   %39 = load i32, ptr %gep, align 4
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds [5 x i32], ptr %10, i64 %40
+  %41 = getelementptr inbounds [20 x i8], ptr %10, i64 %40
   %42 = add i32 %35, 4
   %43 = add nsw i32 %35, 34
   %44 = sdiv i32 %43, 5
   %45 = zext i32 %37 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @DENOM_ORDER, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @DENOM_ORDER, i64 %45
   br label %47
 
 47:                                               ; preds = %.loopexit117, %32
   %.0114 = phi i32 [ 9999, %32 ], [ %spec.select115, %.loopexit117 ]
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %.loopexit117 ]
-  %48 = getelementptr inbounds nuw %struct.list_type, ptr %30, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [20 x i8], ptr %30, i64 %indvars.iv.i
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %49 = icmp eq i64 %indvars.iv.i, %45
@@ -222,7 +222,7 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
 50:                                               ; preds = %47
   %51 = load i32, ptr %46, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [4 x i32], ptr %0, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %0, i64 %52
   br label %54
 
 54:                                               ; preds = %66, %50
@@ -231,7 +231,7 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
   %.04549.i = phi i32 [ %2, %50 ], [ %67, %66 ]
   %55 = srem i32 %.04549.i, 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %53, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %53, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = srem i32 %.04549.i, 2
   %60 = icmp eq i32 %59, %15
@@ -266,7 +266,7 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
   %72 = add nsw i32 %71, %.sroa.1.0.copyload.i
   %73 = icmp sgt i32 %72, 35
   %spec.store.select1.i = select i1 %73, i32 9999, i32 %.sink57.i
-  %74 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.i
   store i32 %spec.store.select1.i, ptr %74, align 4
   %spec.select115 = tail call i32 @llvm.smin.i32(i32 %spec.store.select1.i, i32 %.0114)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -275,7 +275,7 @@ define noundef i32 @DealerPar(ptr noundef nonnull readonly captures(none) %0, pt
 
 _Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit: ; preds = %.loopexit117
   %.not103 = icmp sgt i32 %spec.select115, %39
-  %75 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   br i1 %.not103, label %80, label %76
 
 76:                                               ; preds = %_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit
@@ -298,7 +298,7 @@ _Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit: ; preds = %
   %spec.select105 = tail call i32 @llvm.smax.i32(i32 %81, i32 %.086121)
   store i32 1, ptr %75, align 4
   %82 = sub nsw i32 %39, %spec.select115
-  %83 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %82, ptr %83, align 4
   br label %84
 
@@ -313,12 +313,12 @@ _Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit: ; preds = %
 ._crit_edge:                                      ; preds = %84
   %85 = icmp eq i32 %.189, 0
   store i32 0, ptr %11, align 4
-  %86 = getelementptr inbounds i32, ptr %14, i64 %29
+  %86 = getelementptr inbounds [4 x i8], ptr %14, i64 %29
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [14 x i32], ptr @DOUBLED_SCORES, i64 %88
+  %89 = getelementptr inbounds [56 x i8], ptr @DOUBLED_SCORES, i64 %88
   %90 = zext nneg i32 %.292 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %.2, %92
   %or.cond = select i1 %85, i1 true, i1 %93
@@ -337,13 +337,13 @@ _Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit: ; preds = %
 99:                                               ; preds = %.lr.ph131, %129
   %indvars.iv139 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next140, %129 ]
   %100 = phi i32 [ 0, %.lr.ph131 ], [ %130, %129 ]
-  %101 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv139
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv139
   %102 = load i32, ptr %101, align 4
   %.not101 = icmp eq i32 %102, 1
   br i1 %.not101, label %103, label %129
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw %struct.list_type, ptr %21, i64 %indvars.iv139
+  %104 = getelementptr inbounds nuw [20 x i8], ptr %21, i64 %indvars.iv139
   %105 = load i32, ptr %104, align 4
   %.not102 = icmp eq i32 %105, %.2
   br i1 %.not102, label %106, label %129
@@ -351,14 +351,14 @@ _Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit: ; preds = %
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv139
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv139
   %110 = load i32, ptr %109, align 4
   %111 = icmp sgt i32 %110, -2
   br i1 %111, label %_Z15reduce_contractRiiS_.exit, label %112
 
 112:                                              ; preds = %106
   %113 = sext i32 %108 to i64
-  %114 = getelementptr inbounds i32, ptr @FLOOR_CONTRACT, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr @FLOOR_CONTRACT, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = mul i32 %110, 5
   %117 = add i32 %108, 5
@@ -396,13 +396,13 @@ _Z15reduce_contractRiiS_.exit:                    ; preds = %106, %112
 
 133:                                              ; preds = %.lr.ph127, %145
   %indvars.iv134 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next135, %145 ]
-  %134 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv134
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv134
   %135 = load i32, ptr %134, align 4
   %.not99 = icmp eq i32 %135, 0
   br i1 %.not99, label %136, label %145
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw %struct.list_type, ptr %21, i64 %indvars.iv134
+  %137 = getelementptr inbounds nuw [20 x i8], ptr %21, i64 %indvars.iv134
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load i32, ptr %138, align 4
   %.not100 = icmp eq i32 %139, %.292
@@ -445,9 +445,9 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %9 = phi i1 [ true, %6 ], [ false, %41 ]
   %indvars.iv156.sroa.phi = phi ptr [ %7, %6 ], [ %indvars.iv156.sroa.gep176, %41 ]
   %indvars.iv156 = phi i64 [ 0, %6 ], [ 1, %41 ]
-  %10 = getelementptr inbounds nuw [5 x %struct.list_type], ptr %5, i64 %indvars.iv156
-  %invariant.gep = getelementptr i32, ptr %0, i64 %indvars.iv156
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv156
+  %10 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 %indvars.iv156
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %indvars.iv156
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv156
   br label %12
 
 12:                                               ; preds = %.preheader, %40
@@ -455,11 +455,11 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %.0122148 = phi i32 [ 0, %.preheader ], [ %.1123, %40 ]
   %.0124147 = phi i32 [ 0, %.preheader ], [ %.1125, %40 ]
   %.0126146 = phi i32 [ 0, %.preheader ], [ %.1127, %40 ]
-  %13 = getelementptr inbounds nuw %struct.list_type, ptr %10, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw i32, ptr @DENOM_ORDER, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @DENOM_ORDER, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %gep = getelementptr [4 x i32], ptr %invariant.gep, i64 %16
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %16
   %17 = load i32, ptr %gep, align 4
   %18 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %19 = load i32, ptr %18, align 4
@@ -475,10 +475,10 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
 
 27:                                               ; preds = %12
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds [2 x i32], ptr @SCORES, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr @SCORES, i64 %28
   %30 = load i32, ptr %11, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %29, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %35 = trunc nuw nsw i64 %indvars.iv to i32
@@ -537,13 +537,13 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %57 = add nsw i32 %47, -1
   %58 = srem i32 %57, 5
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.list_type, ptr %5, i64 %59
+  %60 = getelementptr inbounds [20 x i8], ptr %5, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i32, ptr @DENOM_ORDER, i64 %59
+  %63 = getelementptr inbounds [4 x i8], ptr @DENOM_ORDER, i64 %59
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [4 x i32], ptr %0, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %0, i64 %65
   %67 = add i32 %1, 3
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 %67)
   br label %68
@@ -552,7 +552,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %.0129150 = phi i32 [ %1, %56 ], [ %76, %75 ]
   %69 = srem i32 %.0129150, 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %66, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %66, i64 %70
   %72 = load i32, ptr %71, align 4
   %.not139 = icmp eq i32 %72, %62
   br i1 %.not139, label %73, label %75
@@ -569,7 +569,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
 .loopexit143:                                     ; preds = %75, %51, %45, %73
   %.0131 = phi i32 [ 1, %51 ], [ 0, %45 ], [ %74, %73 ], [ 0, %75 ]
   %77 = sext i32 %.0131 to i64
-  %78 = getelementptr inbounds %struct.data_type, ptr %7, i64 %77
+  %78 = getelementptr inbounds [20 x i8], ptr %7, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 4
   store i32 %.0131, ptr %3, align 4
@@ -583,20 +583,20 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %86, ptr %87, align 4
-  %88 = getelementptr inbounds i32, ptr %2, i64 %77
+  %88 = getelementptr inbounds [4 x i8], ptr %2, i64 %77
   %89 = load i32, ptr %88, align 4
   %90 = sub nsw i32 1, %.0131
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %2, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %89 to i64
-  %95 = getelementptr inbounds [2 x i32], ptr @VUL_TO_NO, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr @VUL_TO_NO, i64 %94
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds i32, ptr %95, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %95, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %98, ptr %99, align 4
-  %100 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %77
+  %100 = getelementptr inbounds [100 x i8], ptr %5, i64 %77
   br label %101
 
 101:                                              ; preds = %._crit_edge, %.loopexit143
@@ -611,7 +611,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %112
   %indvars.iv160 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next161, %112 ]
   %.0118151 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %112 ]
-  %103 = getelementptr %struct.list_type, ptr %100, i64 %indvars.iv160
+  %103 = getelementptr [20 x i8], ptr %100, i64 %indvars.iv160
   %104 = getelementptr i8, ptr %103, i64 -12
   %105 = load i32, ptr %104, align 4
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -644,7 +644,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
 113:                                              ; preds = %._crit_edge.thread, %121
   %indvars.iv164 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next165, %121 ]
   %114 = phi i32 [ 5, %._crit_edge.thread ], [ %122, %121 ]
-  %115 = getelementptr inbounds nuw %struct.list_type, ptr %100, i64 %indvars.iv164
+  %115 = getelementptr inbounds nuw [20 x i8], ptr %100, i64 %indvars.iv164
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i32, ptr %116, align 4
   %118 = icmp slt i32 %117, %80
@@ -675,22 +675,22 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %7) local_unnamed_addr #4 {
   %9 = sub nsw i32 1, %1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 %10
+  %11 = getelementptr inbounds [100 x i8], ptr %5, i64 %10
   store i32 9999, ptr %7, align 4
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds [5 x i32], ptr %6, i64 %12
+  %13 = getelementptr inbounds [20 x i8], ptr %6, i64 %12
   %14 = add i32 %2, 4
   %15 = add nsw i32 %2, 34
   %16 = sdiv i32 %15, 5
   %17 = zext i32 %3 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @DENOM_ORDER, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @DENOM_ORDER, i64 %17
   %19 = add i32 %4, 3
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 %19)
   br label %20
 
 20:                                               ; preds = %8, %51
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %51 ]
-  %21 = getelementptr inbounds nuw %struct.list_type, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %indvars.iv
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 4
   %22 = icmp eq i64 %indvars.iv, %17
@@ -699,7 +699,7 @@ define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr 
 23:                                               ; preds = %20
   %24 = load i32, ptr %18, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [4 x i32], ptr %0, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %0, i64 %25
   br label %27
 
 27:                                               ; preds = %23, %39
@@ -708,7 +708,7 @@ define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr 
   %.04549 = phi i32 [ %4, %23 ], [ %40, %39 ]
   %28 = srem i32 %.04549, 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %26, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = srem i32 %.04549, 2
   %33 = icmp eq i32 %32, %1
@@ -743,7 +743,7 @@ define void @_Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi(ptr 
   %45 = add nsw i32 %44, %.sroa.1.0.copyload
   %46 = icmp sgt i32 %45, 35
   %spec.store.select1 = select i1 %46, i32 9999, i32 %.sink57
-  %47 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %spec.store.select1, ptr %47, align 4
   %48 = load i32, ptr %7, align 4
   %49 = icmp slt i32 %spec.store.select1, %48
@@ -774,7 +774,7 @@ define void @_Z15reduce_contractRiiS_(ptr noundef nonnull align 4 captures(none)
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr @FLOOR_CONTRACT, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr @FLOOR_CONTRACT, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = mul i32 %1, 5
   %12 = add i32 %11, 5
@@ -803,20 +803,20 @@ define void @_Z16contract_as_textB5cxx11RK14ddTableResultsiiii(ptr dead_on_unwin
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.0", align 1
   %17 = sext i32 %4 to i64
-  %18 = getelementptr inbounds i32, ptr @DENOM_ORDER, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr @DENOM_ORDER, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [4 x i32], ptr %1, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %1, i64 %20
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %2, 2
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %21, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %21, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %3 to i64
   %30 = load ptr, ptr @_ZL18NUMBER_TO_CONTRACTB5cxx11, align 8
-  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %29
   %32 = icmp slt i32 %5, 0
   %33 = select i1 %32, ptr @.str.42, ptr @.str.43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %31)
@@ -840,7 +840,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 37:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   %38 = zext i32 %2 to i64
   %39 = load ptr, ptr @_ZL16NUMBER_TO_PLAYERB5cxx11, align 8
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %38
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %85
 
@@ -875,7 +875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 47:                                               ; preds = %46
   %48 = zext i32 %25 to i64
   %49 = load ptr, ptr @_ZL16NUMBER_TO_PLAYERB5cxx11, align 8
-  %50 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %48
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %50)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58 unwind label %91
 
@@ -1091,14 +1091,14 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = sub nsw i32 1, %1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [5 x %struct.list_type], ptr %6, i64 %18
+  %19 = getelementptr inbounds [100 x i8], ptr %6, i64 %18
   %20 = sext i32 %5 to i64
-  %21 = getelementptr inbounds [5 x i32], ptr %7, i64 %20
+  %21 = getelementptr inbounds [20 x i8], ptr %7, i64 %20
   %22 = mul nsw i32 %3, 5
   %23 = sub nsw i32 0, %3
   %24 = add nsw i32 %4, 34
   %25 = sdiv i32 %24, 5
-  %26 = getelementptr inbounds i32, ptr @DENOM_ORDER, i64 %20
+  %26 = getelementptr inbounds [4 x i8], ptr @DENOM_ORDER, i64 %20
   %27 = add i32 %2, 3
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 %27)
@@ -1107,7 +1107,7 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
 
 30:                                               ; preds = %10, %93
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %93 ]
-  %31 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %.not = icmp eq i32 %32, %3
   br i1 %.not, label %33, label %93
@@ -1117,7 +1117,7 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   br i1 %.not79, label %43, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw %struct.list_type, ptr %19, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [20 x i8], ptr %19, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, %22
@@ -1131,7 +1131,7 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
 43:                                               ; preds = %33
   %44 = load i32, ptr %26, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [4 x i32], ptr %0, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %0, i64 %45
   br label %47
 
 47:                                               ; preds = %43, %66
@@ -1140,7 +1140,7 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   %.07488 = phi i32 [ %2, %43 ], [ %67, %66 ]
   %48 = srem i32 %.07488, 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %46, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = srem i32 %.07488, 2
   %53 = icmp eq i32 %52, %1
@@ -1159,11 +1159,11 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
 
 59:                                               ; preds = %56
   %60 = sext i32 %.07289 to i64
-  %61 = getelementptr inbounds i32, ptr %12, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %12, i64 %60
   store i32 %48, ptr %61, align 4
   %62 = mul nuw nsw i32 %.07190, 5
   %63 = add nsw i32 %62, %4
-  %64 = getelementptr inbounds i32, ptr %13, i64 %60
+  %64 = getelementptr inbounds [4 x i8], ptr %13, i64 %60
   store i32 %63, ptr %64, align 4
   %65 = add nsw i32 %.07289, 1
   br label %66
@@ -1243,7 +1243,7 @@ define void @_Z17sacrifice_as_textB5cxx11iii(ptr dead_on_unwind noalias writable
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = zext i32 %1 to i64
   %10 = load ptr, ptr @_ZL18NUMBER_TO_CONTRACTB5cxx11, align 8
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.43)
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit unwind label %13
@@ -1261,7 +1261,7 @@ common.resume:                                    ; preds = %34, %40, %13
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %4
   %15 = zext i32 %2 to i64
   %16 = load ptr, ptr @_ZL16NUMBER_TO_PLAYERB5cxx11, align 8
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %15
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %19 unwind label %34
 

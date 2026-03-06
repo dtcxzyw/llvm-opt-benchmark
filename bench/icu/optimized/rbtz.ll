@@ -2909,7 +2909,7 @@ define void @_ZNK6icu_7717RuleBasedTimeZone16getTimeZoneRulesERPKNS_19InitialTim
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars40 = trunc i64 %indvars.iv.next to i32
   %20 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef %indvars41)
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !51
   %22 = load i32, ptr %3, align 4, !tbaa !48
   %23 = sext i32 %22 to i64
@@ -2945,7 +2945,7 @@ define void @_ZNK6icu_7717RuleBasedTimeZone16getTimeZoneRulesERPKNS_19InitialTim
   %37 = add nuw nsw i32 %.12334, 1
   %38 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %36, i32 noundef %.12334)
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv42
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv42
   store ptr %38, ptr %39, align 8, !tbaa !51
   %40 = load i32, ptr %3, align 4, !tbaa !48
   %41 = trunc nuw i64 %indvars.iv.next43 to i32

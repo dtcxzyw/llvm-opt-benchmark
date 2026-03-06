@@ -6374,7 +6374,7 @@ define internal void @pnio_load_gsd_files() #0 {
 42:                                               ; preds = %.lr.ph, %pnio_load_gsd_device_profile.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pnio_load_gsd_device_profile.exit ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @xmlXPathSetContextNode(ptr noundef %45, ptr noundef nonnull %27)
   %47 = call ptr @xmlXPathEvalExpression(ptr noundef nonnull @.str.3230, ptr noundef nonnull %27)
@@ -6481,7 +6481,7 @@ define internal void @pnio_load_gsd_files() #0 {
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %89, align 8
-  %96 = getelementptr ptr, ptr %95, i64 %indvars.iv.i.i
+  %96 = getelementptr [8 x i8], ptr %95, i64 %indvars.iv.i.i
   %97 = load ptr, ptr %96, align 8
   br label %98
 
@@ -6689,7 +6689,7 @@ pnio_load_gsd_device_modules.exit.i:              ; preds = %._crit_edge.i.i, %6
 
 190:                                              ; preds = %186
   %191 = load ptr, ptr %185, align 8
-  %192 = getelementptr ptr, ptr %191, i64 %indvars.iv.i37.i
+  %192 = getelementptr [8 x i8], ptr %191, i64 %indvars.iv.i37.i
   %193 = load ptr, ptr %192, align 8
   br label %194
 
@@ -10704,7 +10704,7 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
 215:                                              ; preds = %212
   %216 = and i32 %160, 255
   %217 = zext nneg i32 %213 to i64
-  %218 = getelementptr ptr, ptr @pn_io_pa_profile_transducer_block_class_vals, i64 %217
+  %218 = getelementptr [8 x i8], ptr @pn_io_pa_profile_transducer_block_class_vals, i64 %217
   %219 = load ptr, ptr %218, align 8
   %220 = call ptr @try_val_to_str(i32 noundef %216, ptr noundef %219)
   %221 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %131, i64 noundef 200, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1474, ptr noundef nonnull %172, ptr noundef nonnull %214, ptr noundef %220)
@@ -12409,32 +12409,32 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
   %51 = load i32, ptr @hf_pn_io_red_orange_period_begin_tx, align 4
   %52 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.2156, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %15)
   %53 = load i32, ptr %15, align 4
-  %54 = getelementptr i32, ptr %20, i64 %indvars.iv
+  %54 = getelementptr [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
   %55 = load i32, ptr @hf_pn_io_orange_period_begin_tx, align 4
   %56 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %55, ptr noundef nonnull %16)
   %57 = load i32, ptr %16, align 4
-  %58 = getelementptr i32, ptr %21, i64 %indvars.iv
+  %58 = getelementptr [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %57, ptr %58, align 4
   %59 = load i32, ptr @hf_pn_io_green_period_begin_tx, align 4
   %60 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %59, ptr noundef nonnull %17)
   %61 = load i32, ptr %17, align 4
-  %62 = getelementptr i32, ptr %22, i64 %indvars.iv
+  %62 = getelementptr [4 x i8], ptr %22, i64 %indvars.iv
   store i32 %61, ptr %62, align 4
   %63 = load i32, ptr @hf_pn_io_red_orange_period_begin_rx, align 4
   %64 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %15)
   %65 = load i32, ptr %15, align 4
-  %66 = getelementptr i32, ptr %23, i64 %indvars.iv
+  %66 = getelementptr [4 x i8], ptr %23, i64 %indvars.iv
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr @hf_pn_io_orange_period_begin_rx, align 4
   %68 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %67, ptr noundef nonnull %16)
   %69 = load i32, ptr %16, align 4
-  %70 = getelementptr i32, ptr %24, i64 %indvars.iv
+  %70 = getelementptr [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %69, ptr %70, align 4
   %71 = load i32, ptr @hf_pn_io_green_period_begin_rx, align 4
   %72 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %45, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %17)
   %73 = load i32, ptr %17, align 4
-  %74 = getelementptr i32, ptr %25, i64 %indvars.iv
+  %74 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv
   store i32 %73, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not149 = icmp eq i32 %50, 0
@@ -12469,17 +12469,17 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
   %93 = zext i16 %92 to i32
   %94 = and i32 %93, 15
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr i32, ptr %20, i64 %95
+  %96 = getelementptr [4 x i8], ptr %20, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = lshr i32 %93, 4
   %99 = and i32 %98, 15
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr i32, ptr %21, i64 %100
+  %101 = getelementptr [4 x i8], ptr %21, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = lshr i32 %93, 8
   %104 = and i32 %103, 15
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr i32, ptr %22, i64 %105
+  %106 = getelementptr [4 x i8], ptr %22, i64 %105
   %107 = load i32, ptr %106, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef nonnull @.str.1646, i32 noundef %93, i32 noundef %97, i32 noundef %102, i32 noundef %107)
   %108 = load i32, ptr @hf_pn_ir_rx_phase_assignment, align 4
@@ -12498,17 +12498,17 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
   %121 = zext i16 %120 to i32
   %122 = and i32 %121, 15
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr i32, ptr %23, i64 %123
+  %124 = getelementptr [4 x i8], ptr %23, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = lshr i32 %121, 4
   %127 = and i32 %126, 15
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr i32, ptr %24, i64 %128
+  %129 = getelementptr [4 x i8], ptr %24, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = lshr i32 %121, 8
   %132 = and i32 %131, 15
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr i32, ptr %25, i64 %133
+  %134 = getelementptr [4 x i8], ptr %25, i64 %133
   %135 = load i32, ptr %134, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.1646, i32 noundef %121, i32 noundef %125, i32 noundef %130, i32 noundef %135)
   %.not150 = icmp eq i32 %79, 0
@@ -19408,7 +19408,7 @@ define internal fastcc i32 @dissect_Diagnosis(ptr noundef %0, i32 noundef %1, pt
 
 switch.lookup:                                    ; preds = %21
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_Diagnosis, i64 %23
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_Diagnosis, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %24
 

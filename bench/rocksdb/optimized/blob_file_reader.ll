@@ -85,19 +85,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.107" }
-%"struct.std::pair.139" = type { ptr, %"class.std::unique_ptr.141" }
-%"class.std::unique_ptr.141" = type { %"struct.std::__uniq_ptr_data.142" }
-%"struct.std::__uniq_ptr_data.142" = type { %"class.std::__uniq_ptr_impl.143" }
-%"class.std::__uniq_ptr_impl.143" = type { %"class.std::tuple.144" }
-%"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
-%"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
-%"struct.std::_Head_base.148" = type { ptr }
 %"class.std::shared_ptr.75" = type { %"class.std::__shared_ptr.76" }
 %"class.std::__shared_ptr.76" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
 %"class.std::function.169" = type { %"class.std::_Function_base", ptr }
-%"class.std::shared_ptr.173" = type { %"class.std::__shared_ptr.174" }
-%"class.std::__shared_ptr.174" = type { ptr, %"class.std::__shared_count" }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
@@ -3703,9 +3694,9 @@ define void @_ZNK7rocksdb14BlobFileReader12MultiGetBlobERKNS_11ReadOptionsEPNS_1
   %.0104288 = phi i64 [ 0, %.lr.ph ], [ %206, %205 ]
   %78 = icmp ult i64 %.0104288, 8
   %79 = load ptr, ptr %39, align 8
-  %80 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %79, i64 %.0104288
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %.0104288
   %81 = load ptr, ptr %27, align 8
-  %82 = getelementptr %"struct.std::pair.139", ptr %81, i64 %.0104288
+  %82 = getelementptr [16 x i8], ptr %81, i64 %.0104288
   %83 = getelementptr i8, ptr %82, i64 -128
   %.0.i = select i1 %78, ptr %80, ptr %83
   %84 = load ptr, ptr %.0.i, align 8, !tbaa !317
@@ -3895,12 +3886,12 @@ _ZN7rocksdb6StatusD2Ev.exit139:                   ; preds = %_ZN7rocksdb6Statusa
 
 150:                                              ; preds = %144
   %151 = load ptr, ptr %36, align 8, !tbaa !316
-  %152 = getelementptr inbounds nuw i64, ptr %151, i64 %148
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %148
   store i64 0, ptr %152, align 8, !tbaa !11
   %153 = load i64, ptr %11, align 8, !tbaa !310
   %154 = add i64 %153, 1
   store i64 %154, ptr %11, align 8, !tbaa !310
-  %155 = getelementptr inbounds nuw i64, ptr %151, i64 %153
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %153
   store i64 %spec.select, ptr %155, align 8, !tbaa !11
   br label %181
 
@@ -3966,7 +3957,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %177, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %179, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %174, ptr %38, align 8, !tbaa !336
   store ptr %178, ptr %59, align 8, !tbaa !334
-  %180 = getelementptr inbounds nuw i64, ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %172
   store ptr %180, ptr %60, align 8, !tbaa !335
   br label %181
 
@@ -4139,7 +4130,7 @@ _ZN7rocksdb6StatusD2Ev.exit229.thread:            ; preds = %_ZNK7rocksdb21FSRan
 
 .lr.ph294:                                        ; preds = %.lr.ph294.preheader, %.lr.ph294
   %.0105293 = phi i64 [ %234, %.lr.ph294 ], [ 0, %.lr.ph294.preheader ]
-  %232 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %226, i64 %.0105293
+  %232 = getelementptr inbounds nuw [96 x i8], ptr %226, i64 %.0105293
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store ptr null, ptr %233, align 8, !tbaa !354
   %234 = add nuw i64 %.0105293, 1
@@ -4168,7 +4159,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %_Z
   %.0106291 = phi i64 [ %249, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ], [ 0, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.preheader309 ]
   %.0107290 = phi i64 [ %250, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit ], [ 0, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.preheader309 ]
   %244 = getelementptr inbounds i8, ptr %236, i64 %.0106291
-  %245 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %239, i64 %.0107290
+  %245 = getelementptr inbounds nuw [96 x i8], ptr %239, i64 %.0107290
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
   store ptr %244, ptr %246, align 8, !tbaa !354
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
@@ -4400,9 +4391,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %.sroa.5245.0296 = phi i64 [ 0, %.lr.ph298 ], [ %375, %_ZN7rocksdb6StatusaSERKS0_.exit ]
   %352 = icmp ult i64 %.sroa.5245.0296, 8
   %353 = load ptr, ptr %350, align 8
-  %354 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %353, i64 %.sroa.5245.0296
+  %354 = getelementptr inbounds nuw [16 x i8], ptr %353, i64 %.sroa.5245.0296
   %355 = load ptr, ptr %27, align 8
-  %356 = getelementptr %"struct.std::pair.139", ptr %355, i64 %.sroa.5245.0296
+  %356 = getelementptr [16 x i8], ptr %355, i64 %.sroa.5245.0296
   %357 = getelementptr i8, ptr %356, i64 -128
   %.0.i.i169 = select i1 %352, ptr %354, ptr %357
   %358 = load ptr, ptr %.0.i.i169, align 8, !tbaa !317
@@ -4481,9 +4472,9 @@ _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %_ZNSt10unique_ptrIA
   %.0100299 = phi i64 [ 0, %.lr.ph302 ], [ %.1101, %524 ]
   %377 = icmp ult i64 %.099300, 8
   %378 = load ptr, ptr %325, align 8
-  %379 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %378, i64 %.099300
+  %379 = getelementptr inbounds nuw [16 x i8], ptr %378, i64 %.099300
   %380 = load ptr, ptr %27, align 8
-  %381 = getelementptr %"struct.std::pair.139", ptr %380, i64 %.099300
+  %381 = getelementptr [16 x i8], ptr %380, i64 %.099300
   %382 = getelementptr i8, ptr %381, i64 -128
   %.0.i175 = select i1 %377, ptr %379, ptr %382
   %383 = load ptr, ptr %.0.i175, align 8, !tbaa !317
@@ -4496,7 +4487,7 @@ _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %_ZNSt10unique_ptrIA
 388:                                              ; preds = %376
   %389 = add i64 %.097301, 1
   %390 = load ptr, ptr %10, align 8, !tbaa !353
-  %391 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %390, i64 %.097301
+  %391 = getelementptr inbounds nuw [96 x i8], ptr %390, i64 %.097301
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
   %393 = getelementptr inbounds nuw i8, ptr %391, i64 40
   %394 = load i8, ptr %393, align 8, !tbaa !16
@@ -4704,9 +4695,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %476 = load ptr, ptr %392, align 8, !tbaa !134
   %477 = load ptr, ptr %36, align 8
-  %478 = getelementptr inbounds nuw i64, ptr %477, i64 %.099300
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %.099300
   %479 = load ptr, ptr %38, align 8
-  %480 = getelementptr i64, ptr %479, i64 %.099300
+  %480 = getelementptr [8 x i8], ptr %479, i64 %.099300
   %481 = getelementptr i8, ptr %480, i64 -64
   %.0.i205 = select i1 %377, ptr %478, ptr %481
   %482 = load i64, ptr %.0.i205, align 8, !tbaa !11
@@ -4720,9 +4711,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %487 = load ptr, ptr %335, align 8, !tbaa !220
   %488 = load ptr, ptr %69, align 8, !tbaa !221
   %489 = load ptr, ptr %325, align 8
-  %490 = getelementptr inbounds nuw %"struct.std::pair.139", ptr %489, i64 %.099300
+  %490 = getelementptr inbounds nuw [16 x i8], ptr %489, i64 %.099300
   %491 = load ptr, ptr %27, align 8
-  %492 = getelementptr %"struct.std::pair.139", ptr %491, i64 %.099300
+  %492 = getelementptr [16 x i8], ptr %491, i64 %.099300
   %493 = getelementptr i8, ptr %492, i64 -128
   %.0.i206 = select i1 %377, ptr %490, ptr %493
   %494 = getelementptr inbounds nuw i8, ptr %.0.i206, i64 8
@@ -5214,7 +5205,7 @@ _ZNSt12_Vector_baseIN7rocksdb13FSReadRequestESaIS1_EE13_M_deallocateEPS1_m.exit:
   store ptr %19, ptr %0, align 8, !tbaa !353
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %60, ptr %14, align 8, !tbaa !350
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %19, i64 %1
+  %61 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %1
   store ptr %61, ptr %6, align 8, !tbaa !364
   br label %62
 
@@ -6841,7 +6832,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !388
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !194
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.173", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !195
   ret void
 }
@@ -8393,7 +8384,7 @@ _ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN7rocksdb13FSReadRequestESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %124
   store ptr %20, ptr %0, align 8, !tbaa !353
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !350
-  %128 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %20, i64 %16
+  %128 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %128, ptr %123, align 8, !tbaa !364
   ret void
 }

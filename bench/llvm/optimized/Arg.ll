@@ -165,7 +165,7 @@ define dso_local void @_ZN4llvm3opt3ArgD2Ev(ptr noundef nonnull align 8 captures
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !33
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %14
@@ -358,7 +358,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %65, %63, %.lr.ph
 _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %71, %73
   %.0.i.i26 = phi ptr [ %72, %71 ], [ %1, %73 ]
   %76 = load ptr, ptr %42, align 8, !tbaa !33
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %78, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit30, label %_ZN4llvm9StringRefC2EPKc.exit.i
@@ -681,7 +681,7 @@ _ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i:  ; preds = %32, %18
 34:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i
   %35 = load ptr, ptr %2, align 8, !tbaa !33
   %36 = zext i32 %.pre8.i to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 8 %20, i64 %.idx68, i1 false)
   %.pre.i = load i32, ptr %24, align 8, !tbaa !34
   br label %_ZN4llvm15SmallVectorImplIPKcE6appendIPKS2_vEEvT_S7_.exit
@@ -786,7 +786,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %._crit
   %83 = phi i32 [ %76, %._crit_edge ], [ %.pre.i23, %79 ]
   %84 = load ptr, ptr %2, align 8, !tbaa !33
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   %87 = ptrtoint ptr %74 to i64
   store i64 %87, ptr %86, align 1
   %88 = load i32, ptr %75, align 8, !tbaa !34
@@ -834,7 +834,7 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZN4llvm23SmallVect
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %97, %99
   %101 = load ptr, ptr %65, align 8, !tbaa !33
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   br label %103
 
 103:                                              ; preds = %.split, %_ZN4llvm11raw_ostreamlsEc.exit
@@ -912,7 +912,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit35: ; preds = %_ZN4
   %136 = phi i32 [ %129, %_ZN4llvm9StringRefC2EPKc.exit ], [ %.pre.i34, %132 ]
   %137 = load ptr, ptr %2, align 8, !tbaa !33
   %138 = zext i32 %136 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %138
   %140 = ptrtoint ptr %127 to i64
   store i64 %140, ptr %139, align 1
   %141 = load i32, ptr %128, align 8, !tbaa !34
@@ -947,7 +947,7 @@ _ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i36: ; preds = %154, %_ZN4llvm23Sm
 156:                                              ; preds = %_ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i36
   %157 = load ptr, ptr %2, align 8, !tbaa !33
   %158 = zext i32 %.pre8.i37 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %158
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %159, ptr nonnull align 8 %144, i64 %gepdiff, i1 false)
   %.pre.i39 = load i32, ptr %128, align 8, !tbaa !34
   br label %_ZN4llvm15SmallVectorImplIPKcE6appendIPKS2_vEEvT_S7_.exit41
@@ -992,7 +992,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit49: ; preds = %163,
   %177 = phi i32 [ %170, %163 ], [ %.pre.i48, %173 ]
   %178 = load ptr, ptr %2, align 8, !tbaa !33
   %179 = zext i32 %177 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %179
   %181 = ptrtoint ptr %168 to i64
   store i64 %181, ptr %180, align 1
   %182 = load i32, ptr %169, align 8, !tbaa !34
@@ -1026,7 +1026,7 @@ _ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i50: ; preds = %194, %_ZN4llvm23Sm
 196:                                              ; preds = %_ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i50
   %197 = load ptr, ptr %2, align 8, !tbaa !33
   %198 = zext i32 %.pre8.i51 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %198
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr align 8 %185, i64 %.idx, i1 false)
   %.pre.i53 = load i32, ptr %169, align 8, !tbaa !34
   br label %_ZN4llvm15SmallVectorImplIPKcE6appendIPKS2_vEEvT_S7_.exit55
@@ -1088,7 +1088,7 @@ _ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i:  ; preds = %23, %9
 25:                                               ; preds = %_ZN4llvm15SmallVectorImplIPKcE7reserveEm.exit.i
   %26 = load ptr, ptr %2, align 8, !tbaa !33
   %27 = zext i32 %.pre8.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 8 %11, i64 %.idx, i1 false)
   %.pre.i = load i32, ptr %15, align 8, !tbaa !34
   br label %_ZN4llvm15SmallVectorImplIPKcE6appendIPKS2_vEEvT_S7_.exit

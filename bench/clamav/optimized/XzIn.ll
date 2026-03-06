@@ -3,10 +3,9 @@ source_filename = "bench/clamav/original/XzIn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CXzBlockSizes = type { i64, i64 }
-%struct.CXzStream = type { i16, i64, i64, ptr, i64 }
 %struct.CSecToRead = type { %struct.ISeqInStream, ptr }
 %struct.ISeqInStream = type { ptr }
+%struct.CXzStream = type { i16, i64, i64, ptr, i64 }
 
 @XZ_SIG = external global [6 x i8], align 1
 @XZ_FOOTER_SIG = external global [2 x i8], align 1
@@ -97,7 +96,7 @@ define i64 @Xz_GetUnpackSize(ptr noundef readonly captures(none) %0) local_unnam
 8:                                                ; preds = %.lr.ph, %6
   %.01217 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
   %.01316 = phi i64 [ 0, %.lr.ph ], [ %11, %6 ]
-  %9 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %5, i64 %.01217
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.01217
   %10 = load i64, ptr %9, align 8, !tbaa !15
   %11 = add i64 %10, %.01316
   %.not = icmp ult i64 %11, %.01316
@@ -128,7 +127,7 @@ define i64 @Xz_GetPackSize(ptr noundef readonly captures(none) %0) local_unnamed
 8:                                                ; preds = %.lr.ph, %6
   %.01217 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
   %.01316 = phi i64 [ 0, %.lr.ph ], [ %14, %6 ]
-  %9 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %5, i64 %.01217
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.01217
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !17
   %12 = add i64 %11, 3
@@ -161,7 +160,7 @@ define void @Xzs_Free(ptr noundef captures(none) %0, ptr noundef %1) local_unnam
 5:                                                ; preds = %.lr.ph, %5
   %.011 = phi i64 [ 0, %.lr.ph ], [ %8, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !20
-  %7 = getelementptr inbounds nuw %struct.CXzStream, ptr %6, i64 %.011
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %.011
   tail call void @Xz_Free(ptr noundef %7, ptr noundef %1) #9
   %8 = add nuw i64 %.011, 1
   %9 = load i64, ptr %0, align 8, !tbaa !18
@@ -194,7 +193,7 @@ define i64 @Xzs_GetNumBlocks(ptr noundef readonly captures(none) %0) local_unnam
 5:                                                ; preds = %.lr.ph, %5
   %.08 = phi i64 [ 0, %.lr.ph ], [ %10, %5 ]
   %.067 = phi i64 [ 0, %.lr.ph ], [ %9, %5 ]
-  %6 = getelementptr inbounds nuw %struct.CXzStream, ptr %4, i64 %.08
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %.08
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !8
   %9 = add i64 %8, %.067
@@ -226,7 +225,7 @@ define i64 @Xzs_GetUnpackSize(ptr noundef readonly captures(none) %0) local_unna
 7:                                                ; preds = %.lr.ph, %5
   %.01217 = phi i64 [ 0, %.lr.ph ], [ %6, %5 ]
   %.01316 = phi i64 [ 0, %.lr.ph ], [ %19, %5 ]
-  %8 = getelementptr inbounds nuw %struct.CXzStream, ptr %4, i64 %.01217
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %.01217
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !8
   %.not20.i = icmp eq i64 %10, 0
@@ -245,7 +244,7 @@ define i64 @Xzs_GetUnpackSize(ptr noundef readonly captures(none) %0) local_unna
 15:                                               ; preds = %13, %.lr.ph.i
   %.01217.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %13 ]
   %.01316.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %13 ]
-  %16 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %12, i64 %.01217.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.01217.i
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = add i64 %17, %.01316.i
   %.not.i = icmp ult i64 %18, %.01316.i
@@ -469,7 +468,7 @@ define i32 @Xzs_ReadBackward(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 101:                                              ; preds = %99, %.lr.ph.i.i
   %.01217.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %100, %99 ]
   %.01316.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %107, %99 ]
-  %102 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %98, i64 %.01217.i.i
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %.01217.i.i
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i64, ptr %103, align 8, !tbaa !17
   %105 = add i64 %104, 3
@@ -559,7 +558,7 @@ Xz_ReadBackward.exit.thread68:                    ; preds = %118, %116
   %142 = phi ptr [ %.pre, %._crit_edge ], [ %133, %134 ]
   %143 = add i64 %141, 1
   store i64 %143, ptr %0, align 8, !tbaa !18
-  %144 = getelementptr inbounds nuw %struct.CXzStream, ptr %142, i64 %141
+  %144 = getelementptr inbounds nuw [40 x i8], ptr %142, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %144, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !34
   %145 = load i64, ptr %2, align 8, !tbaa !23
   %146 = icmp eq i64 %145, 0
@@ -704,7 +703,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
   %.06799.i = phi i64 [ %43, %42 ], [ 0, %34 ]
   %.27698.i = phi i64 [ %45, %42 ], [ %28, %34 ]
   %46 = load ptr, ptr %40, align 8, !tbaa !14
-  %47 = getelementptr inbounds nuw %struct.CXzBlockSizes, ptr %46, i64 %.06799.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %.06799.i
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 %.27698.i
   %49 = sub i64 %19, %.27698.i
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8

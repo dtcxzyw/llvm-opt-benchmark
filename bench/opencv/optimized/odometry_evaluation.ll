@@ -2723,7 +2723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %895
 943:                                              ; preds = %1144, %.lr.ph.i
   %944 = phi ptr [ %912, %.lr.ph.i ], [ %1147, %1144 ]
   %.0361.i = phi i64 [ 0, %.lr.ph.i ], [ %1145, %1144 ]
-  %945 = getelementptr inbounds nuw %"class.cv::Mat", ptr %944, i64 %.0361.i
+  %945 = getelementptr inbounds nuw [96 x i8], ptr %944, i64 %.0361.i
   %946 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %945)
           to label %947 unwind label %948
 
@@ -2948,7 +2948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %1
 
 1009:                                             ; preds = %995
   %1010 = load ptr, ptr %28, align 8, !tbaa !129
-  %1011 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1010, i64 %.0361.i
+  %1011 = getelementptr inbounds nuw [32 x i8], ptr %1010, i64 %.0361.i
   %1012 = load ptr, ptr %1011, align 8, !tbaa !39
   %1013 = getelementptr inbounds nuw i8, ptr %1011, i64 8
   %1014 = load i64, ptr %1013, align 8, !tbaa !41
@@ -3065,7 +3065,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86.i: ; preds = %_ZN
   %1083 = mul i64 %1081, %1082
   %1084 = getelementptr inbounds nuw i8, ptr %1079, i64 %1083
   %1085 = sext i32 %1078 to i64
-  %1086 = getelementptr inbounds double, ptr %1084, i64 %1085
+  %1086 = getelementptr inbounds [8 x i8], ptr %1084, i64 %1085
   br label %_ZN2cv3Mat2atIdEERT_i.exit89.i
 
 _ZN2cv3Mat2atIdEERT_i.exit89.i:                   ; preds = %1072, %1067, %1060
@@ -3121,7 +3121,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93.i: ; preds = %_ZN
   %1117 = mul i64 %1115, %1116
   %1118 = getelementptr inbounds nuw i8, ptr %1113, i64 %1117
   %1119 = sext i32 %.recomposed to i64
-  %1120 = getelementptr inbounds double, ptr %1118, i64 %1119
+  %1120 = getelementptr inbounds [8 x i8], ptr %1118, i64 %1119
   br label %_ZN2cv3Mat2atIdEERT_i.exit96.i
 
 _ZN2cv3Mat2atIdEERT_i.exit96.i:                   ; preds = %1109, %1103, %1096
@@ -4626,7 +4626,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !129
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !101
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !104
   ret void
 
@@ -4731,7 +4731,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !130
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !112
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !114
   ret void
 }

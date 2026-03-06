@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.41" = type { %"struct.std::_Vector_base<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t, std::allocator<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t, std::allocator<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t, std::allocator<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t, std::allocator<cv::base64::RawDataToBinaryConvertor::elem_to_binary_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::base64::RawDataToBinaryConvertor::elem_to_binary_t" = type { i64, i64, ptr }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
 
@@ -1016,7 +1015,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN2
 28:                                               ; preds = %.noexc, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %.noexc ]
   %29 = load ptr, ptr %11, align 8, !tbaa !124
-  %30 = getelementptr inbounds nuw %"struct.cv::base64::RawDataToBinaryConvertor::elem_to_binary_t", ptr %29, i64 %.09.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.09.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !135
   %33 = load ptr, ptr %6, align 8, !tbaa !128
@@ -1910,7 +1909,7 @@ _ZNSt6vectorIN2cv6base6424RawDataToBinaryConvertor16elem_to_binary_tESaIS3_EE11_
 _ZNSt6vectorIN2cv6base6424RawDataToBinaryConvertor16elem_to_binary_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %113, %_ZNSt6vectorIN2cv6base6424RawDataToBinaryConvertor16elem_to_binary_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %108, ptr %19, align 8, !tbaa !124
   store ptr %112, ptr %20, align 8, !tbaa !134
-  %114 = getelementptr inbounds nuw %"struct.cv::base64::RawDataToBinaryConvertor::elem_to_binary_t", ptr %108, i64 %106
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %106
   store ptr %114, ptr %21, align 8, !tbaa !155
   br label %_ZNSt6vectorIN2cv6base6424RawDataToBinaryConvertor16elem_to_binary_tESaIS3_EE9push_backERKS3_.exit
 

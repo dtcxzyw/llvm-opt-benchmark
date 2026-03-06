@@ -146,7 +146,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 25:                                               ; preds = %17
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds float, ptr %16, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %16, i64 %26
   %28 = sub nsw i32 256, %23
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
@@ -231,7 +231,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv.i = phi i64 [ %72, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.071135.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i ], [ %79, %.lr.ph.i ]
   %.072134.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %80, %.lr.ph.i ]
-  %73 = getelementptr inbounds float, ptr %60, i64 %indvars.iv.i
+  %73 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv.i
   %74 = load float, ptr %73, align 4, !tbaa !27
   %75 = getelementptr i8, ptr %73, i64 512
   %76 = load float, ptr %75, align 4, !tbaa !27
@@ -265,7 +265,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 91:                                               ; preds = %86, %._crit_edge.i
   %92 = phi float [ %90, %86 ], [ 0.000000e+00, %._crit_edge.i ]
-  %93 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv171.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv171.i
   store float %92, ptr %93, align 4, !tbaa !27
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next172.i, 23
@@ -292,7 +292,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 104:                                              ; preds = %104, %101
   %indvars.iv.i.i = phi i64 [ 0, %101 ], [ %indvars.iv.next.i.i, %104 ]
-  %105 = getelementptr inbounds nuw float, ptr %.val.i, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %indvars.iv.i.i
   store float 0x7FF0000000000000, ptr %105, align 4, !tbaa !27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 822664
@@ -304,13 +304,13 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 .preheader5.i.i:                                  ; preds = %.preheader5.i.i, %.preheader5.i.preheader.i
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.preheader5.i.i ], [ 0, %.preheader5.i.preheader.i ]
-  %107 = getelementptr inbounds nuw i16, ptr @ff_nelly_init_table, i64 %indvars.iv21.i.i
+  %107 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_init_table, i64 %indvars.iv21.i.i
   %108 = load i16, ptr %107, align 2, !tbaa !65
   %109 = uitofp i16 %108 to float
   %110 = fsub nsz float %106, %109
   %111 = fmul nsz float %110, %110
   %112 = zext i16 %108 to i64
-  %113 = getelementptr inbounds nuw float, ptr %.val.i, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %112
   store float %111, ptr %113, align 4, !tbaa !27
   %114 = trunc i64 %indvars.iv21.i.i to i8
   %115 = getelementptr inbounds nuw i8, ptr %.val85.i, i64 %112
@@ -326,9 +326,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .preheader4.i.i:                                  ; preds = %.preheader5.i.i, %169
   %.pre.i.i = phi float [ %118, %169 ], [ %106, %.preheader5.i.i ]
   %indvars.iv32.i.i = phi i64 [ %indvars.iv.next33.i.i, %169 ], [ 1, %.preheader5.i.i ]
-  %117 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv32.i.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv32.i.i
   %118 = load float, ptr %117, align 4, !tbaa !27
-  %119 = getelementptr [35768 x float], ptr %.val.i, i64 %indvars.iv32.i.i
+  %119 = getelementptr [143072 x i8], ptr %.val.i, i64 %indvars.iv32.i.i
   %120 = getelementptr i8, ptr %119, i64 -143072
   %121 = getelementptr inbounds nuw [35768 x i8], ptr %.val85.i, i64 %indvars.iv32.i.i
   br label %122
@@ -359,7 +359,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv29.i.i = phi i64 [ %136, %.lr.ph.preheader.i.i ], [ %indvars.iv.next30.i.i, %.loopexit.i.i ]
   %.110610.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2107.i.i, %.loopexit.i.i ]
-  %137 = getelementptr inbounds float, ptr %120, i64 %indvars.iv29.i.i
+  %137 = getelementptr inbounds [4 x i8], ptr %120, i64 %indvars.iv29.i.i
   %138 = load float, ptr %137, align 4, !tbaa !27
   %139 = tail call nsz float @llvm.fabs.f32(float %138) #10
   %140 = fcmp nsz oeq float %139, 0x7FF0000000000000
@@ -372,7 +372,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .preheader3.i.i:                                  ; preds = %161, %.preheader3.preheader.i.i
   %indvars.iv25.i.i = phi i64 [ 0, %.preheader3.preheader.i.i ], [ %indvars.iv.next26.i.i, %161 ]
   %.31088.i.i = phi i32 [ %.110610.i.i, %.preheader3.preheader.i.i ], [ %.4.i.i, %161 ]
-  %142 = getelementptr inbounds nuw i16, ptr @ff_nelly_delta_table, i64 %indvars.iv25.i.i
+  %142 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_delta_table, i64 %indvars.iv25.i.i
   %143 = load i16, ptr %142, align 2, !tbaa !65
   %144 = sext i16 %143 to i32
   %145 = add nsw i32 %144, %141
@@ -390,7 +390,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %152 = fmul nsz float %151, %151
   %153 = fadd nsz float %152, %149
   %154 = sext i32 %145 to i64
-  %155 = getelementptr inbounds float, ptr %119, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %119, i64 %154
   %156 = load float, ptr %155, align 4, !tbaa !27
   %157 = fcmp nsz ogt float %156, %153
   br i1 %157, label %158, label %161
@@ -436,7 +436,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv36.i.i = phi i64 [ 0, %.preheader2.i.i ], [ %indvars.iv.next37.i.i, %170 ]
   %.010116.i.i = phi i32 [ -1, %.preheader2.i.i ], [ %.1102.i.i, %170 ]
   %.011015.i.i = phi float [ 0x7FF0000000000000, %.preheader2.i.i ], [ %.1111.i.i, %170 ]
-  %171 = getelementptr inbounds nuw float, ptr %116, i64 %indvars.iv36.i.i
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv36.i.i
   %172 = load float, ptr %171, align 4, !tbaa !27
   %173 = fcmp nsz ogt float %.011015.i.i, %172
   %.1111.i.i = select nsz i1 %173, float %172, float %.011015.i.i
@@ -461,7 +461,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.210318.i143.i = phi i32 [ %.1102.i.i, %.preheader.i.preheader.i ], [ %186, %.preheader.i.i ]
   %indvars.iv40.i142.i = phi i64 [ 22, %.preheader.i.preheader.i ], [ %indvars.iv.next41.i.i, %.preheader.i.i ]
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw i16, ptr @ff_nelly_delta_table, i64 %182
+  %183 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_delta_table, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !65
   %185 = sext i16 %184 to i32
   %186 = sub nsw i32 %.210318.i143.i, %185
@@ -471,7 +471,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %189 = getelementptr inbounds i8, ptr %187, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !60
   %191 = zext i8 %190 to i32
-  %192 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next41.i.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next41.i.i
   store i32 %191, ptr %192, align 4, !tbaa !73
   %.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 0
   br i1 %.not.i.i, label %get_exponent_dynamic.exit.i, label %.preheader.i.i, !llvm.loop !74
@@ -489,14 +489,14 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %203 = load i8, ptr %202, align 1, !tbaa !60
   %204 = zext i8 %203 to i32
   %205 = zext i8 %203 to i64
-  %206 = getelementptr inbounds nuw i16, ptr @ff_nelly_init_table, i64 %205
+  %206 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_init_table, i64 %205
   %207 = load i16, ptr %206, align 2, !tbaa !65
   %208 = uitofp i16 %207 to float
   %209 = fsub nsz float %194, %208
   %210 = tail call nsz float @llvm.fabs.f32(float %209)
   %211 = add nuw nsw i32 %204, 1
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw i16, ptr @ff_nelly_init_table, i64 %212
+  %213 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_init_table, i64 %212
   %214 = load i16, ptr %213, align 2, !tbaa !65
   %215 = uitofp i16 %214 to float
   %216 = fsub nsz float %194, %215
@@ -505,7 +505,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.025.i.i = select i1 %218, i32 %211, i32 %204
   store i32 %.025.i.i, ptr %7, align 16, !tbaa !73
   %219 = zext nneg i32 %.025.i.i to i64
-  %220 = getelementptr inbounds nuw i16, ptr @ff_nelly_init_table, i64 %219
+  %220 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_init_table, i64 %219
   %221 = load i16, ptr %220, align 2, !tbaa !65
   %222 = zext i16 %221 to i32
   br label %223
@@ -513,7 +513,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 223:                                              ; preds = %223, %193
   %indvars.iv.i88.i = phi i64 [ 1, %193 ], [ %indvars.iv.next.i89.i, %223 ]
   %.0241.i.i = phi i32 [ %222, %193 ], [ %257, %223 ]
-  %224 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i88.i
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i88.i
   %225 = load float, ptr %224, align 4, !tbaa !27
   %226 = sitofp i32 %.0241.i.i to float
   %227 = fsub nsz float %225, %226
@@ -528,24 +528,24 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %236 = load i8, ptr %235, align 1, !tbaa !60
   %237 = zext i8 %236 to i32
   %238 = zext i8 %236 to i64
-  %239 = getelementptr inbounds nuw i16, ptr @ff_nelly_delta_table, i64 %238
+  %239 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_delta_table, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !65
   %241 = sitofp i16 %240 to float
   %242 = fsub nsz float %227, %241
   %243 = tail call nsz float @llvm.fabs.f32(float %242)
   %244 = add nuw nsw i32 %237, 1
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw i16, ptr @ff_nelly_delta_table, i64 %245
+  %246 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_delta_table, i64 %245
   %247 = load i16, ptr %246, align 2, !tbaa !65
   %248 = sitofp i16 %247 to float
   %249 = fsub nsz float %227, %248
   %250 = tail call nsz float @llvm.fabs.f32(float %249)
   %251 = fcmp nsz ogt float %243, %250
   %.1.i.i = select i1 %251, i32 %244, i32 %237
-  %252 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i88.i
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i88.i
   store i32 %.1.i.i, ptr %252, align 4, !tbaa !73
   %253 = zext nneg i32 %.1.i.i to i64
-  %254 = getelementptr inbounds nuw i16, ptr @ff_nelly_delta_table, i64 %253
+  %254 = getelementptr inbounds nuw [2 x i8], ptr @ff_nelly_delta_table, i64 %253
   %255 = load i16, ptr %254, align 2, !tbaa !65
   %256 = sext i16 %255 to i32
   %257 = add nsw i32 %.0241.i.i, %256
@@ -568,10 +568,10 @@ get_exponent_dynamic.exit.i:                      ; preds = %.preheader.i.i, %22
   br i1 %.not84.i, label %282, label %260
 
 260:                                              ; preds = %259
-  %261 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv179.i
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv179.i
   %262 = load i32, ptr %261, align 4, !tbaa !73
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i16, ptr @ff_nelly_delta_table, i64 %263
+  %264 = getelementptr inbounds [2 x i8], ptr @ff_nelly_delta_table, i64 %263
   %265 = load i16, ptr %264, align 2, !tbaa !65
   %266 = sext i16 %265 to i32
   %267 = add nsw i32 %.076153.i, %266
@@ -612,7 +612,7 @@ put_bits.exit.i:                                  ; preds = %278, %260
 282:                                              ; preds = %259
   %283 = load i32, ptr %7, align 16, !tbaa !73
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds i16, ptr @ff_nelly_init_table, i64 %284
+  %285 = getelementptr inbounds [2 x i8], ptr @ff_nelly_init_table, i64 %284
   %286 = load i16, ptr %285, align 2, !tbaa !65
   %287 = zext i16 %286 to i32
   %288 = sub nsw i32 32, %.sroa.15.0151.i
@@ -656,7 +656,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %.177.i = phi i32 [ %287, %put_bits.exit94.i ], [ %267, %put_bits.exit.i ]
   %303 = and i32 %.177.i, 2047
   %304 = zext nneg i32 %303 to i64
-  %305 = getelementptr inbounds nuw float, ptr @pow_table, i64 %304
+  %305 = getelementptr inbounds nuw [4 x i8], ptr @pow_table, i64 %304
   %306 = load float, ptr %305, align 4, !tbaa !27
   %307 = ashr i32 %.177.i, 11
   %308 = add nsw i32 %307, 3
@@ -677,7 +677,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
 317:                                              ; preds = %317, %.lr.ph147.i
   %indvars.iv175.i = phi i64 [ %316, %.lr.ph147.i ], [ %indvars.iv.next176.i, %317 ]
   %.173144.i = phi i32 [ 0, %.lr.ph147.i ], [ %325, %317 ]
-  %318 = getelementptr inbounds float, ptr %60, i64 %indvars.iv175.i
+  %318 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv175.i
   %319 = load float, ptr %318, align 4, !tbaa !27
   %320 = fmul nsz float %311, %319
   store float %320, ptr %318, align 4, !tbaa !27
@@ -685,7 +685,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %322 = load float, ptr %321, align 4, !tbaa !27
   %323 = fmul nsz float %311, %322
   store float %323, ptr %321, align 4, !tbaa !27
-  %324 = getelementptr inbounds float, ptr %5, i64 %indvars.iv175.i
+  %324 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv175.i
   store float %315, ptr %324, align 4, !tbaa !27
   %indvars.iv.next176.i = add nsw i64 %indvars.iv175.i, 1
   %325 = add nuw nsw i32 %.173144.i, 1
@@ -721,7 +721,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %.sroa.0.3158.i = phi i32 [ %.sroa.0.2162.i, %.preheader.i ], [ %.sroa.0.4.i, %384 ]
   %.sroa.15.3157.i = phi i32 [ %.sroa.15.2161.i, %.preheader.i ], [ %.sroa.15.4.i, %384 ]
   %.sroa.31.3156.i = phi ptr [ %.sroa.31.2160.i, %.preheader.i ], [ %.sroa.31.4.i, %384 ]
-  %330 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv183.i
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv183.i
   %331 = load i32, ptr %330, align 4, !tbaa !73
   %332 = icmp sgt i32 %331, 0
   br i1 %332, label %333, label %384
@@ -729,14 +729,14 @@ put_bits.exit94.i:                                ; preds = %298, %282
 333:                                              ; preds = %329
   %334 = shl nuw i32 1, %331
   %335 = sext i32 %334 to i64
-  %336 = getelementptr inbounds float, ptr @ff_nelly_dequantization_table, i64 %335
+  %336 = getelementptr inbounds [4 x i8], ptr @ff_nelly_dequantization_table, i64 %335
   %337 = getelementptr inbounds i8, ptr %336, i64 -4
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv183.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv183.i
   %338 = load float, ptr %gep.i, align 4, !tbaa !27
   %339 = zext nneg i32 %331 to i64
-  %340 = getelementptr inbounds nuw float, ptr @quant_lut_mul, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr @quant_lut_mul, i64 %339
   %341 = load float, ptr %340, align 4, !tbaa !27
-  %342 = getelementptr inbounds nuw float, ptr @quant_lut_add, i64 %339
+  %342 = getelementptr inbounds nuw [4 x i8], ptr @quant_lut_add, i64 %339
   %343 = load float, ptr %342, align 4, !tbaa !27
   %344 = call nsz float @llvm.fmuladd.f32(float %338, float %341, float %343)
   %345 = fptosi float %344 to i32
@@ -755,13 +755,13 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %356 = load i8, ptr %355, align 1, !tbaa !60
   %357 = zext i8 %356 to i32
   %358 = zext i8 %356 to i64
-  %359 = getelementptr inbounds nuw float, ptr %337, i64 %358
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %358
   %360 = load float, ptr %359, align 4, !tbaa !27
   %361 = fsub nsz float %338, %360
   %362 = call nsz float @llvm.fabs.f32(float %361)
   %363 = add nuw nsw i32 %357, 1
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds nuw float, ptr %337, i64 %364
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %364
   %366 = load float, ptr %365, align 4, !tbaa !27
   %367 = fsub nsz float %338, %366
   %368 = call nsz float @llvm.fabs.f32(float %367)
@@ -946,12 +946,12 @@ define internal void @nellymoser_init_static() #0 {
   %6 = fmul nnan nsz double %5, 0x3F40000000000000
   %7 = tail call nsz double @llvm.exp2.f64(double %6)
   %8 = fptrunc nsz double %7 to float
-  %9 = getelementptr inbounds nuw float, ptr @pow_table, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @pow_table, i64 %indvars.iv
   store float %8, ptr %9, align 4, !tbaa !27
   %10 = fdiv nsz double 0x3FE6A09E667F3BCD, %7
   %11 = fptrunc nsz double %10 to float
   %12 = sub nuw nsw i64 1024, %indvars.iv
-  %13 = getelementptr inbounds nuw float, ptr @pow_table, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @pow_table, i64 %12
   store float %11, ptr %13, align 4, !tbaa !27
   %14 = fmul nnan nsz double %7, 0x3FE6A09E667F3BCD
   %15 = fptrunc nsz double %14 to float
@@ -960,7 +960,7 @@ define internal void @nellymoser_init_static() #0 {
   %17 = fdiv nsz double 5.000000e-01, %7
   %18 = fptrunc nsz double %17 to float
   %19 = sub nuw nsw i64 2048, %indvars.iv
-  %20 = getelementptr inbounds nuw float, ptr @pow_table, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @pow_table, i64 %19
   store float %18, ptr %20, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 513

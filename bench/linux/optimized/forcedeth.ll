@@ -47,18 +47,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.register_test = type { i32, i32 }
 %struct.nv_ethtool_str = type { [32 x i8] }
 %struct.anon.77 = type { i32, i32 }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
-%struct.ring_desc = type { i32, i32 }
-%struct.ring_desc_ex = type { i32, i32, i32, i32 }
-%struct.nv_skb_map = type { ptr, i64, i32, ptr, ptr }
-%struct.page = type { i64, %union.anon.55, %union.anon.63, %struct.atomic_t, [8 x i8] }
-%union.anon.55 = type { %struct.anon.56 }
-%struct.anon.56 = type { %union.anon.57, ptr, %union.anon.59, i64 }
-%union.anon.57 = type { %struct.list_head }
-%union.anon.59 = type { i64 }
-%union.anon.63 = type { %struct.atomic_t }
-%struct.msix_entry = type { i32, i16 }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @__param_str_max_interrupt_work = internal constant [29 x i8] c"forcedeth.max_interrupt_work\00", align 16
 @param_ops_int = external dso_local constant %struct.kernel_param_ops, align 8
@@ -314,7 +302,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
 
 51:                                               ; preds = %.thread59, %47
   %52 = phi i64 [ 0, %47 ], [ %71, %.thread59 ]
-  %53 = getelementptr %struct.resource, ptr %49, i64 %52
+  %53 = getelementptr [64 x i8], ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 512
@@ -500,7 +488,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
 160:                                              ; preds = %157
   %161 = load i32, ptr %149, align 4
   %162 = sext i32 %161 to i64
-  %163 = getelementptr %struct.ring_desc, ptr %158, i64 %162
+  %163 = getelementptr [8 x i8], ptr %158, i64 %162
   br label %171
 
 164:                                              ; preds = %148
@@ -512,7 +500,7 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
 167:                                              ; preds = %164
   %168 = load i32, ptr %149, align 4
   %169 = sext i32 %168 to i64
-  %170 = getelementptr %struct.ring_desc_ex, ptr %165, i64 %169
+  %170 = getelementptr [16 x i8], ptr %165, i64 %169
   br label %171
 
 171:                                              ; preds = %167, %160
@@ -3170,7 +3158,7 @@ mii_rw.exit.thread:                               ; preds = %58, %1
 83:                                               ; preds = %mii_rw.exit34, %81
   %84 = phi i64 [ 0, %81 ], [ %113, %mii_rw.exit34 ]
   %85 = load i32, ptr %82, align 4
-  %86 = getelementptr %struct.anon.77, ptr @init_realtek_8211b.ri, i64 %84
+  %86 = getelementptr [8 x i8], ptr @init_realtek_8211b.ri, i64 %84
   %87 = load i32, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %89 = load i32, ptr %88, align 4
@@ -5404,7 +5392,7 @@ mii_rw.exit54:                                    ; preds = %837, %861, %919, %9
 .preheader:                                       ; preds = %1388, %mii_rw.exit74
   %1392 = phi i64 [ %1421, %mii_rw.exit74 ], [ 0, %1388 ]
   %1393 = load i32, ptr %337, align 4
-  %1394 = getelementptr %struct.anon.77, ptr @init_realtek_8211b.ri, i64 %1392
+  %1394 = getelementptr [8 x i8], ptr @init_realtek_8211b.ri, i64 %1392
   %1395 = load i32, ptr %1394, align 8
   %1396 = getelementptr inbounds nuw i8, ptr %1394, i64 4
   %1397 = load i32, ptr %1396, align 4
@@ -6156,26 +6144,26 @@ define internal fastcc void @nv_drain_rxtx(ptr noundef captures(none) %0) unname
   br i1 %14, label %20, label %16
 
 16:                                               ; preds = %10
-  %.split = getelementptr %struct.ring_desc, ptr %15, i64 %11
+  %.split = getelementptr [8 x i8], ptr %15, i64 %11
   %17 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr %struct.ring_desc, ptr %18, i64 %11
+  %19 = getelementptr [8 x i8], ptr %18, i64 %11
   br label %28
 
 20:                                               ; preds = %10
-  %.split2 = getelementptr %struct.ring_desc_ex, ptr %15, i64 %11
+  %.split2 = getelementptr [16 x i8], ptr %15, i64 %11
   %21 = getelementptr i8, ptr %.split2, i64 12
   store i32 0, ptr %21, align 4
   %22 = load ptr, ptr %7, align 8
-  %.split3 = getelementptr %struct.ring_desc_ex, ptr %22, i64 %11
+  %.split3 = getelementptr [16 x i8], ptr %22, i64 %11
   %23 = getelementptr i8, ptr %.split3, i64 8
   store i32 0, ptr %23, align 4
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr %struct.ring_desc_ex, ptr %24, i64 %11
+  %25 = getelementptr [16 x i8], ptr %24, i64 %11
   store i32 0, ptr %25, align 4
   %26 = load ptr, ptr %7, align 8
-  %.split4 = getelementptr %struct.ring_desc_ex, ptr %26, i64 %11
+  %.split4 = getelementptr [16 x i8], ptr %26, i64 %11
   %27 = getelementptr i8, ptr %.split4, i64 4
   br label %28
 
@@ -6184,7 +6172,7 @@ define internal fastcc void @nv_drain_rxtx(ptr noundef captures(none) %0) unname
   store i32 0, ptr %29, align 4
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !30
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr %struct.nv_skb_map, ptr %30, i64 %11
+  %31 = getelementptr [40 x i8], ptr %30, i64 %11
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %55, label %34
@@ -6207,11 +6195,11 @@ define internal fastcc void @nv_drain_rxtx(ptr noundef captures(none) %0) unname
   %49 = sub i64 %47, %48
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %36, i64 noundef %38, i64 noundef %49, i32 noundef 2, i64 noundef 0) #18
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr %struct.nv_skb_map, ptr %50, i64 %11
+  %51 = getelementptr [40 x i8], ptr %50, i64 %11
   %52 = load ptr, ptr %51, align 8
   tail call void @consume_skb(ptr noundef %52) #18
   %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr %struct.nv_skb_map, ptr %53, i64 %11
+  %54 = getelementptr [40 x i8], ptr %53, i64 %11
   store ptr null, ptr %54, align 8
   br label %55
 
@@ -6245,8 +6233,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
   %13 = add i32 %12, -1
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %0, i64 3144
-  %16 = getelementptr %struct.ring_desc_ex, ptr %10, i64 %14
-  %17 = getelementptr %struct.ring_desc, ptr %10, i64 %14
+  %16 = getelementptr [16 x i8], ptr %10, i64 %14
+  %17 = getelementptr [8 x i8], ptr %10, i64 %14
   %18 = select i1 %9, ptr %16, ptr %17
   store ptr %18, ptr %15, align 8
   %19 = getelementptr i8, ptr %0, i64 3176
@@ -6255,7 +6243,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
   store ptr %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %0, i64 3160
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr %struct.nv_skb_map, ptr %20, i64 %14
+  %23 = getelementptr [40 x i8], ptr %20, i64 %14
   %24 = getelementptr i8, ptr %0, i64 3168
   store ptr %23, ptr %24, align 8
   %25 = icmp sgt i32 %12, 0
@@ -6270,26 +6258,26 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
   br i1 %29, label %35, label %31
 
 31:                                               ; preds = %.preheader
-  %.split = getelementptr %struct.ring_desc, ptr %30, i64 %26
+  %.split = getelementptr [8 x i8], ptr %30, i64 %26
   %32 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %32, align 4
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr %struct.ring_desc, ptr %33, i64 %26
+  %34 = getelementptr [8 x i8], ptr %33, i64 %26
   br label %43
 
 35:                                               ; preds = %.preheader
-  %.split1 = getelementptr %struct.ring_desc_ex, ptr %30, i64 %26
+  %.split1 = getelementptr [16 x i8], ptr %30, i64 %26
   %36 = getelementptr i8, ptr %.split1, i64 12
   store i32 0, ptr %36, align 4
   %37 = load ptr, ptr %3, align 8
-  %.split2 = getelementptr %struct.ring_desc_ex, ptr %37, i64 %26
+  %.split2 = getelementptr [16 x i8], ptr %37, i64 %26
   %38 = getelementptr i8, ptr %.split2, i64 8
   store i32 0, ptr %38, align 4
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr %struct.ring_desc_ex, ptr %39, i64 %26
+  %40 = getelementptr [16 x i8], ptr %39, i64 %26
   store i32 0, ptr %40, align 4
   %41 = load ptr, ptr %3, align 8
-  %.split3 = getelementptr %struct.ring_desc_ex, ptr %41, i64 %26
+  %.split3 = getelementptr [16 x i8], ptr %41, i64 %26
   %42 = getelementptr i8, ptr %.split3, i64 4
   br label %43
 
@@ -6297,10 +6285,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_init_ring(ptr noundef ini
   %44 = phi ptr [ %42, %35 ], [ %34, %31 ]
   store i32 0, ptr %44, align 4
   %45 = load ptr, ptr %19, align 8
-  %46 = getelementptr %struct.nv_skb_map, ptr %45, i64 %26
+  %46 = getelementptr [40 x i8], ptr %45, i64 %26
   store ptr null, ptr %46, align 8
   %47 = load ptr, ptr %19, align 8
-  %.split4 = getelementptr %struct.nv_skb_map, ptr %47, i64 %26
+  %.split4 = getelementptr [40 x i8], ptr %47, i64 %26
   %48 = getelementptr i8, ptr %.split4, i64 8
   store i64 0, ptr %48, align 8
   %49 = add nuw nsw i64 %26, 1
@@ -6969,26 +6957,26 @@ define internal fastcc void @nv_drain_tx(ptr noundef captures(none) %0) unnamed_
   br i1 %15, label %21, label %17
 
 17:                                               ; preds = %11
-  %.split = getelementptr %struct.ring_desc, ptr %16, i64 %12
+  %.split = getelementptr [8 x i8], ptr %16, i64 %12
   %18 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %18, align 4
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr %struct.ring_desc, ptr %19, i64 %12
+  %20 = getelementptr [8 x i8], ptr %19, i64 %12
   br label %29
 
 21:                                               ; preds = %11
-  %.split3 = getelementptr %struct.ring_desc_ex, ptr %16, i64 %12
+  %.split3 = getelementptr [16 x i8], ptr %16, i64 %12
   %22 = getelementptr i8, ptr %.split3, i64 12
   store i32 0, ptr %22, align 4
   %23 = load ptr, ptr %7, align 8
-  %.split4 = getelementptr %struct.ring_desc_ex, ptr %23, i64 %12
+  %.split4 = getelementptr [16 x i8], ptr %23, i64 %12
   %24 = getelementptr i8, ptr %.split4, i64 8
   store i32 0, ptr %24, align 4
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr %struct.ring_desc_ex, ptr %25, i64 %12
+  %26 = getelementptr [16 x i8], ptr %25, i64 %12
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %7, align 8
-  %.split5 = getelementptr %struct.ring_desc_ex, ptr %27, i64 %12
+  %.split5 = getelementptr [16 x i8], ptr %27, i64 %12
   %28 = getelementptr i8, ptr %.split5, i64 4
   br label %29
 
@@ -6996,7 +6984,7 @@ define internal fastcc void @nv_drain_tx(ptr noundef captures(none) %0) unnamed_
   %30 = phi ptr [ %28, %21 ], [ %20, %17 ]
   store i32 0, ptr %30, align 4
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr %struct.nv_skb_map, ptr %31, i64 %12
+  %32 = getelementptr [40 x i8], ptr %31, i64 %12
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
@@ -7028,27 +7016,27 @@ define internal fastcc void @nv_drain_tx(ptr noundef captures(none) %0) unnamed_
 
 49:                                               ; preds = %46, %43
   %50 = load ptr, ptr %8, align 8
-  %.split6 = getelementptr %struct.nv_skb_map, ptr %50, i64 %12
+  %.split6 = getelementptr [40 x i8], ptr %50, i64 %12
   %51 = getelementptr i8, ptr %.split6, i64 8
   store i64 0, ptr %51, align 8
   %52 = load ptr, ptr %8, align 8
-  %.split7 = getelementptr %struct.nv_skb_map, ptr %52, i64 %12
+  %.split7 = getelementptr [40 x i8], ptr %52, i64 %12
   %53 = getelementptr i8, ptr %.split7, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, -2147483648
   store i32 %55, ptr %53, align 8
   %56 = load ptr, ptr %8, align 8
-  %.split8 = getelementptr %struct.nv_skb_map, ptr %56, i64 %12
+  %.split8 = getelementptr [40 x i8], ptr %56, i64 %12
   %57 = getelementptr i8, ptr %.split8, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 2147483647
   store i32 %59, ptr %57, align 8
   %60 = load ptr, ptr %8, align 8
-  %.split9 = getelementptr %struct.nv_skb_map, ptr %60, i64 %12
+  %.split9 = getelementptr [40 x i8], ptr %60, i64 %12
   %61 = getelementptr i8, ptr %.split9, i64 24
   store ptr null, ptr %61, align 8
   %62 = load ptr, ptr %8, align 8
-  %.split10 = getelementptr %struct.nv_skb_map, ptr %62, i64 %12
+  %.split10 = getelementptr [40 x i8], ptr %62, i64 %12
   %63 = getelementptr i8, ptr %.split10, i64 32
   store ptr null, ptr %63, align 8
   %64 = add nuw nsw i64 %12, 1
@@ -7090,8 +7078,8 @@ define internal fastcc void @nv_init_tx(ptr noundef captures(none) initializes((
   %13 = add i32 %12, -1
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %0, i64 3368
-  %16 = getelementptr %struct.ring_desc_ex, ptr %10, i64 %14
-  %17 = getelementptr %struct.ring_desc, ptr %10, i64 %14
+  %16 = getelementptr [16 x i8], ptr %10, i64 %14
+  %17 = getelementptr [8 x i8], ptr %10, i64 %14
   %18 = select i1 %9, ptr %16, ptr %17
   store ptr %18, ptr %15, align 8
   %19 = getelementptr i8, ptr %0, i64 3400
@@ -7100,7 +7088,7 @@ define internal fastcc void @nv_init_tx(ptr noundef captures(none) initializes((
   store ptr %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %0, i64 3384
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr %struct.nv_skb_map, ptr %20, i64 %14
+  %23 = getelementptr [40 x i8], ptr %20, i64 %14
   %24 = getelementptr i8, ptr %0, i64 3392
   store ptr %23, ptr %24, align 8
   %25 = getelementptr i8, ptr %0, i64 2312
@@ -7126,26 +7114,26 @@ define internal fastcc void @nv_init_tx(ptr noundef captures(none) initializes((
   br i1 %37, label %43, label %39
 
 39:                                               ; preds = %.preheader
-  %.split = getelementptr %struct.ring_desc, ptr %38, i64 %34
+  %.split = getelementptr [8 x i8], ptr %38, i64 %34
   %40 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %40, align 4
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr %struct.ring_desc, ptr %41, i64 %34
+  %42 = getelementptr [8 x i8], ptr %41, i64 %34
   br label %51
 
 43:                                               ; preds = %.preheader
-  %.split1 = getelementptr %struct.ring_desc_ex, ptr %38, i64 %34
+  %.split1 = getelementptr [16 x i8], ptr %38, i64 %34
   %44 = getelementptr i8, ptr %.split1, i64 12
   store i32 0, ptr %44, align 4
   %45 = load ptr, ptr %3, align 8
-  %.split2 = getelementptr %struct.ring_desc_ex, ptr %45, i64 %34
+  %.split2 = getelementptr [16 x i8], ptr %45, i64 %34
   %46 = getelementptr i8, ptr %.split2, i64 8
   store i32 0, ptr %46, align 4
   %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr %struct.ring_desc_ex, ptr %47, i64 %34
+  %48 = getelementptr [16 x i8], ptr %47, i64 %34
   store i32 0, ptr %48, align 4
   %49 = load ptr, ptr %3, align 8
-  %.split3 = getelementptr %struct.ring_desc_ex, ptr %49, i64 %34
+  %.split3 = getelementptr [16 x i8], ptr %49, i64 %34
   %50 = getelementptr i8, ptr %.split3, i64 4
   br label %51
 
@@ -7153,30 +7141,30 @@ define internal fastcc void @nv_init_tx(ptr noundef captures(none) initializes((
   %52 = phi ptr [ %50, %43 ], [ %42, %39 ]
   store i32 0, ptr %52, align 4
   %53 = load ptr, ptr %19, align 8
-  %54 = getelementptr %struct.nv_skb_map, ptr %53, i64 %34
+  %54 = getelementptr [40 x i8], ptr %53, i64 %34
   store ptr null, ptr %54, align 8
   %55 = load ptr, ptr %19, align 8
-  %.split4 = getelementptr %struct.nv_skb_map, ptr %55, i64 %34
+  %.split4 = getelementptr [40 x i8], ptr %55, i64 %34
   %56 = getelementptr i8, ptr %.split4, i64 8
   store i64 0, ptr %56, align 8
   %57 = load ptr, ptr %19, align 8
-  %.split5 = getelementptr %struct.nv_skb_map, ptr %57, i64 %34
+  %.split5 = getelementptr [40 x i8], ptr %57, i64 %34
   %58 = getelementptr i8, ptr %.split5, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, -2147483648
   store i32 %60, ptr %58, align 8
   %61 = load ptr, ptr %19, align 8
-  %.split6 = getelementptr %struct.nv_skb_map, ptr %61, i64 %34
+  %.split6 = getelementptr [40 x i8], ptr %61, i64 %34
   %62 = getelementptr i8, ptr %.split6, i64 16
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, 2147483647
   store i32 %64, ptr %62, align 8
   %65 = load ptr, ptr %19, align 8
-  %.split7 = getelementptr %struct.nv_skb_map, ptr %65, i64 %34
+  %.split7 = getelementptr [40 x i8], ptr %65, i64 %34
   %66 = getelementptr i8, ptr %.split7, i64 24
   store ptr null, ptr %66, align 8
   %67 = load ptr, ptr %19, align 8
-  %.split8 = getelementptr %struct.nv_skb_map, ptr %67, i64 %34
+  %.split8 = getelementptr [40 x i8], ptr %67, i64 %34
   %68 = getelementptr i8, ptr %.split8, i64 32
   store ptr null, ptr %68, align 8
   %69 = add nuw nsw i64 %34, 1
@@ -7293,7 +7281,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_alloc_rx(ptr noundef %0) 
   %69 = select i1 %65, i64 %66, i64 %68
   %70 = add i64 %64, %69
   %71 = lshr i64 %70, 12
-  %72 = getelementptr %struct.page, ptr %62, i64 %71
+  %72 = getelementptr [64 x i8], ptr %62, i64 %71
   %73 = and i64 %63, 4095
   %74 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %31, ptr noundef %72, i64 noundef %73, i64 noundef %45, i32 noundef 2, i64 noundef 0) #18
   br label %75
@@ -7492,7 +7480,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_alloc_rx_optimized(ptr no
   %69 = select i1 %65, i64 %66, i64 %68
   %70 = add i64 %64, %69
   %71 = lshr i64 %70, 12
-  %72 = getelementptr %struct.page, ptr %62, i64 %71
+  %72 = getelementptr [64 x i8], ptr %62, i64 %71
   %73 = and i64 %63, 4095
   %74 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %31, ptr noundef %72, i64 noundef %73, i64 noundef %45, i32 noundef 2, i64 noundef 0) #18
   br label %75
@@ -8159,14 +8147,14 @@ define internal fastcc void @nv_gear_backoff_reseed(ptr %.3120.val) unnamed_addr
   %52 = load i32, ptr %4, align 4
   %53 = zext i32 %52 to i64
   %54 = add nsw i64 %51, -1
-  %.split = getelementptr [15 x i32], ptr @main_seedset, i64 %53
-  %55 = getelementptr i32, ptr %.split, i64 %54
+  %.split = getelementptr [60 x i8], ptr @main_seedset, i64 %53
+  %55 = getelementptr [4 x i8], ptr %.split, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1023
   %58 = trunc i64 %51 to i32
   %59 = shl i32 %58, 24
-  %.split1 = getelementptr [15 x i32], ptr @gear_seedset, i64 %53
-  %60 = getelementptr i32, ptr %.split1, i64 %54
+  %.split1 = getelementptr [60 x i8], ptr @gear_seedset, i64 %53
+  %60 = getelementptr [4 x i8], ptr %.split1, i64 %54
   %61 = load i32, ptr %60, align 4
   %62 = shl i32 %61, 12
   %63 = and i32 %62, 4190208
@@ -10712,7 +10700,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i1, %86
 
 125:                                              ; preds = %125, %123
   %126 = phi i64 [ 0, %123 ], [ %130, %125 ]
-  %127 = getelementptr %struct.msix_entry, ptr %124, i64 %126
+  %127 = getelementptr [8 x i8], ptr %124, i64 %126
   %128 = load i32, ptr %127, align 8
   %129 = tail call ptr @free_irq(i32 noundef %128, ptr noundef %0) #18
   %130 = add nuw nsw i64 %126, 1
@@ -11099,7 +11087,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %111 = select i1 %107, i64 %108, i64 %110
   %112 = add i64 %106, %111
   %113 = lshr i64 %112, 12
-  %114 = getelementptr %struct.page, ptr %104, i64 %113
+  %114 = getelementptr [64 x i8], ptr %104, i64 %113
   %115 = and i64 %105, 4095
   %116 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %83, ptr noundef %114, i64 noundef %115, i64 noundef %87, i32 noundef 1, i64 noundef 0) #18
   br label %117
@@ -11193,7 +11181,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %176 = zext i32 %175 to i64
   %177 = getelementptr i8, ptr %174, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 48
-  %179 = getelementptr %struct.bio_vec, ptr %178, i64 %170
+  %179 = getelementptr [16 x i8], ptr %178, i64 %170
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 12
@@ -12217,7 +12205,7 @@ define internal void @nv_tx_timeout(ptr noundef %0, i32 %1) #11 align 16 {
   br i1 %57, label %77, label %60
 
 60:                                               ; preds = %53
-  %61 = getelementptr %struct.ring_desc, ptr %59, i64 %58
+  %61 = getelementptr [8 x i8], ptr %59, i64 %58
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
@@ -12237,7 +12225,7 @@ define internal void @nv_tx_timeout(ptr noundef %0, i32 %1) #11 align 16 {
   br label %102
 
 77:                                               ; preds = %53
-  %78 = getelementptr %struct.ring_desc_ex, ptr %59, i64 %58
+  %78 = getelementptr [16 x i8], ptr %59, i64 %58
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %81 = load i32, ptr %80, align 4
@@ -12400,7 +12388,7 @@ define internal void @nv_get_stats64(ptr noundef %0, ptr noundef captures(none) 
   %21 = load ptr, ptr %3, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %17, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %27 = inttoptr i64 %26 to ptr
@@ -13705,7 +13693,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %107 = select i1 %103, i64 %104, i64 %106
   %108 = add i64 %102, %107
   %109 = lshr i64 %108, 12
-  %110 = getelementptr %struct.page, ptr %100, i64 %109
+  %110 = getelementptr [64 x i8], ptr %100, i64 %109
   %111 = and i64 %101, 4095
   %112 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %79, ptr noundef %110, i64 noundef %111, i64 noundef %83, i32 noundef 1, i64 noundef 0) #18
   br label %113
@@ -13805,7 +13793,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %177 = zext i32 %176 to i64
   %178 = getelementptr i8, ptr %175, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 48
-  %180 = getelementptr %struct.bio_vec, ptr %179, i64 %171
+  %180 = getelementptr [16 x i8], ptr %179, i64 %171
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i32, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 12
@@ -14195,7 +14183,7 @@ define internal void @nv_get_regs(ptr noundef %0, ptr noundef writeonly captures
   %12 = shl nuw nsw i64 %11, 2
   %13 = getelementptr i8, ptr %6, i64 %12
   %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #18, !srcloc !10
-  %15 = getelementptr i32, ptr %2, i64 %11
+  %15 = getelementptr [4 x i8], ptr %2, i64 %11
   store i32 %14, ptr %15, align 4
   %16 = add nuw nsw i64 %11, 1
   %17 = load i32, ptr %8, align 4
@@ -14825,8 +14813,8 @@ define internal noundef range(i32 -22, 1) i32 @nv_set_ringparam(ptr noundef %0, 
   store ptr %46, ptr %90, align 8
   %91 = sext i32 %83 to i64
   %92 = getelementptr i8, ptr %0, i64 3408
-  %93 = getelementptr %struct.ring_desc_ex, ptr %46, i64 %91
-  %94 = getelementptr %struct.ring_desc, ptr %46, i64 %91
+  %93 = getelementptr [16 x i8], ptr %46, i64 %91
+  %94 = getelementptr [8 x i8], ptr %46, i64 %91
   %95 = select i1 %89, ptr %93, ptr %94
   store ptr %95, ptr %92, align 8
   %96 = getelementptr i8, ptr %0, i64 3176
@@ -15848,7 +15836,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
 
 179:                                              ; preds = %193, %177
   %180 = phi i64 [ %194, %193 ], [ 0, %177 ]
-  %181 = getelementptr %struct.register_test, ptr @nv_registers_test, i64 %180
+  %181 = getelementptr [8 x i8], ptr @nv_registers_test, i64 %180
   %182 = load i32, ptr %181, align 8
   %183 = zext i32 %182 to i64
   %184 = getelementptr i8, ptr %178, i64 %183
@@ -15902,7 +15890,7 @@ nv_stop_tx.exit:                                  ; preds = %.loopexit.i8, %164
 
 214:                                              ; preds = %214, %212
   %215 = phi i64 [ 0, %212 ], [ %219, %214 ]
-  %216 = getelementptr %struct.msix_entry, ptr %213, i64 %215
+  %216 = getelementptr [8 x i8], ptr %213, i64 %215
   %217 = load i32, ptr %216, align 8
   %218 = tail call ptr @free_irq(i32 noundef %217, ptr noundef %0) #18
   %219 = add nuw nsw i64 %215, 1
@@ -16030,7 +16018,7 @@ nv_free_irq.exit:                                 ; preds = %226, %237
 
 287:                                              ; preds = %287, %285
   %288 = phi i64 [ 0, %285 ], [ %292, %287 ]
-  %289 = getelementptr %struct.msix_entry, ptr %286, i64 %288
+  %289 = getelementptr [8 x i8], ptr %286, i64 %288
   %290 = load i32, ptr %289, align 8
   %291 = tail call ptr @free_irq(i32 noundef %290, ptr noundef %0) #18
   %292 = add nuw nsw i64 %288, 1
@@ -16354,7 +16342,7 @@ nv_disable_irq.exit:                              ; preds = %341, %343, %347
   %506 = select i1 %502, i64 %503, i64 %505
   %507 = add i64 %501, %506
   %508 = lshr i64 %507, 12
-  %509 = getelementptr %struct.page, ptr %499, i64 %508
+  %509 = getelementptr [64 x i8], ptr %499, i64 %508
   %510 = and i64 %500, 4095
   %511 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %468, ptr noundef %509, i64 noundef %510, i64 noundef %482, i32 noundef 2, i64 noundef 0) #18
   %512 = icmp eq i64 %511, -1
@@ -18246,7 +18234,7 @@ define internal noundef i32 @nv_suspend(ptr noundef readonly captures(none) %0) 
   %17 = shl nuw nsw i64 %16, 2
   %18 = getelementptr i8, ptr %5, i64 %17
   %19 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18) #18, !srcloc !10
-  %20 = getelementptr i32, ptr %14, i64 %16
+  %20 = getelementptr [4 x i8], ptr %14, i64 %16
   store i32 %19, ptr %20, align 4
   %21 = add nuw nsw i64 %16, 1
   %22 = load i32, ptr %13, align 4
@@ -18271,7 +18259,7 @@ define internal noundef range(i32 0, 2) i32 @nv_resume(ptr noundef %0) #2 align 
 
 8:                                                ; preds = %8, %1
   %9 = phi i64 [ 0, %1 ], [ %14, %8 ]
-  %10 = getelementptr i32, ptr %7, i64 %9
+  %10 = getelementptr [4 x i8], ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = shl nuw nsw i64 %9, 2
   %13 = getelementptr i8, ptr %5, i64 %12

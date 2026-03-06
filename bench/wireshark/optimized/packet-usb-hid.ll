@@ -4391,10 +4391,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %.thread
   %21 = and i32 %20, 3
   %22 = lshr i32 %17, 4
   %23 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_hid_report_item, i64 %23
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_hid_report_item, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %24 = zext nneg i32 %21 to i64
-  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_hid_report_item.7, i64 %24
+  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_hid_report_item.7, i64 %24
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   %.0 = load i32, ptr %switch.load27, align 4
   %25 = add nuw nsw i32 %spec.select, 1
@@ -6661,7 +6661,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 switch.lookup:                                    ; preds = %466
   %trunc.i45.i.i.mask = and i32 %159, 3
   %473 = zext nneg i32 %trunc.i45.i.i.mask to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_usb_hid_data, i64 %473
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_usb_hid_data, i64 %473
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %470, ptr noundef nonnull %switch.load)
   br label %474

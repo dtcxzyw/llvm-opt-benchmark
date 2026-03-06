@@ -390,7 +390,7 @@ define internal noundef i32 @colorizey_slice16(ptr noundef readonly captures(non
   %27 = load ptr, ptr %1, align 8, !tbaa !50
   %28 = sext i32 %12 to i64
   %29 = mul nsw i64 %19, %28
-  %30 = getelementptr inbounds i16, ptr %27, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %27, i64 %29
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.preheader.us
 
@@ -401,7 +401,7 @@ define internal noundef i32 @colorizey_slice16(ptr noundef readonly captures(non
 
 31:                                               ; preds = %.preheader.us, %31
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw i16, ptr %.03133.us, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.03133.us, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !55
   %34 = uitofp i16 %33 to float
   %35 = fsub nsz float %34, %26
@@ -413,7 +413,7 @@ define internal noundef i32 @colorizey_slice16(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %31
-  %38 = getelementptr inbounds i16, ptr %.03133.us, i64 %19
+  %38 = getelementptr inbounds [2 x i8], ptr %.03133.us, i64 %19
   %39 = add nsw i32 %.03034.us, 1
   %exitcond38.not = icmp eq i32 %39, %15
   br i1 %exitcond38.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !58
@@ -533,11 +533,11 @@ define internal noundef i32 @colorize_slice16(ptr noundef readonly captures(none
   %33 = load ptr, ptr %32, align 8, !tbaa !50
   %34 = sext i32 %12 to i64
   %35 = mul nsw i64 %19, %34
-  %36 = getelementptr inbounds i16, ptr %33, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = mul nsw i64 %23, %34
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.preheader.us
 
@@ -549,17 +549,17 @@ define internal noundef i32 @colorize_slice16(ptr noundef readonly captures(none
 
 41:                                               ; preds = %.preheader.us, %41
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %.03741.us, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.03741.us, i64 %indvars.iv
   store i16 %30, ptr %42, align 2, !tbaa !55
-  %43 = getelementptr inbounds nuw i16, ptr %.03840.us, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.03840.us, i64 %indvars.iv
   store i16 %31, ptr %43, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %41
-  %44 = getelementptr inbounds i16, ptr %.03741.us, i64 %19
-  %45 = getelementptr inbounds i16, ptr %.03840.us, i64 %23
+  %44 = getelementptr inbounds [2 x i8], ptr %.03741.us, i64 %19
+  %45 = getelementptr inbounds [2 x i8], ptr %.03840.us, i64 %23
   %46 = add nsw i32 %.03642.us, 1
   %exitcond46.not = icmp eq i32 %46, %15
   br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !62

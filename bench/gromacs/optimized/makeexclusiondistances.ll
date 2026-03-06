@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
@@ -49,7 +47,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %15
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #12
   store ptr %19, ptr %0, align 8, !tbaa !17
   store ptr %19, ptr %17, align 8, !tbaa !20
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %13
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %13
   store ptr %20, ptr %16, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -70,11 +68,11 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = load ptr, ptr %21, align 8, !tbaa !22
   %34 = load ptr, ptr %22, align 8, !tbaa !23
-  %35 = getelementptr inbounds nuw %struct.t_atom, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [36 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 4, !tbaa !24
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.t_resinfo, ptr %33, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %33, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = load ptr, ptr %40, align 8, !tbaa !32
   store ptr %23, ptr %9, align 8, !tbaa !34
@@ -132,7 +130,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = load ptr, ptr %25, align 8, !tbaa !42
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !43
   %60 = load ptr, ptr %59, align 8, !tbaa !32
   store ptr %26, ptr %10, align 8, !tbaa !34
@@ -279,7 +277,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %105, %.noe
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %107, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
   store ptr %106, ptr %28, align 8, !tbaa !20
-  %108 = getelementptr inbounds nuw float, ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %100
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 
 .loopexit47:                                      ; preds = %.noexc.i

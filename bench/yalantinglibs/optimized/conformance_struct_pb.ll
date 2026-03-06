@@ -668,7 +668,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %error_number to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4absl17ErrnoToStatusCodeEi, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4absl17ErrnoToStatusCodeEi, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -6051,7 +6051,7 @@ if.then.i.i.i53:                                  ; preds = %_ZNSt6vectorIN22pro
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %68, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %68, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #25
   store ptr null, ptr %unpacked_bool, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1520
@@ -6207,7 +6207,7 @@ if.then.i.i.i88:                                  ; preds = %_ZNSt6vectorIN22pro
   %sub.ptr.sub.i.i.i92 = sub i64 %sub.ptr.lhs.cast.i.i.i90, %sub.ptr.rhs.cast.i.i.i91
   %sub.ptr.div.i.i.i93 = ashr exact i64 %sub.ptr.sub.i.i.i92, 3
   %idx.neg.i.i.i94 = sub nsw i64 0, %sub.ptr.div.i.i.i93
-  %add.ptr.i.i.i95 = getelementptr inbounds i64, ptr %83, i64 %idx.neg.i.i.i94
+  %add.ptr.i.i.i95 = getelementptr inbounds [8 x i8], ptr %83, i64 %idx.neg.i.i.i94
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i95) #25
   store ptr null, ptr %packed_bool, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %this, i64 1168
@@ -6574,7 +6574,7 @@ if.then.i.i.i205:                                 ; preds = %_ZNSt6vectorINSt7__
   %sub.ptr.sub.i.i.i209 = sub i64 %sub.ptr.lhs.cast.i.i.i207, %sub.ptr.rhs.cast.i.i.i208
   %sub.ptr.div.i.i.i210 = ashr exact i64 %sub.ptr.sub.i.i.i209, 3
   %idx.neg.i.i.i211 = sub nsw i64 0, %sub.ptr.div.i.i.i210
-  %add.ptr.i.i.i212 = getelementptr inbounds i64, ptr %124, i64 %idx.neg.i.i.i211
+  %add.ptr.i.i.i212 = getelementptr inbounds [8 x i8], ptr %124, i64 %idx.neg.i.i.i211
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i212) #25
   store ptr null, ptr %repeated_bool, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %this, i64 648
@@ -8379,7 +8379,7 @@ if.then.i.i.i178:                                 ; preds = %_ZNSt6vectorIN22pro
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %147, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %147, i64 %idx.neg.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #25
   store ptr null, ptr %unpacked_bool, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1440
@@ -8535,7 +8535,7 @@ if.then.i.i.i226:                                 ; preds = %_ZNSt6vectorIN22pro
   %sub.ptr.sub.i.i.i230 = sub i64 %sub.ptr.lhs.cast.i.i.i228, %sub.ptr.rhs.cast.i.i.i229
   %sub.ptr.div.i.i.i231 = ashr exact i64 %sub.ptr.sub.i.i.i230, 3
   %idx.neg.i.i.i232 = sub nsw i64 0, %sub.ptr.div.i.i.i231
-  %add.ptr.i.i.i233 = getelementptr inbounds i64, ptr %162, i64 %idx.neg.i.i.i232
+  %add.ptr.i.i.i233 = getelementptr inbounds [8 x i8], ptr %162, i64 %idx.neg.i.i.i232
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i233) #25
   store ptr null, ptr %packed_bool, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i234 = getelementptr inbounds nuw i8, ptr %this, i64 1088
@@ -8902,7 +8902,7 @@ if.then.i.i.i364:                                 ; preds = %_ZNSt6vectorINSt7__
   %sub.ptr.sub.i.i.i368 = sub i64 %sub.ptr.lhs.cast.i.i.i366, %sub.ptr.rhs.cast.i.i.i367
   %sub.ptr.div.i.i.i369 = ashr exact i64 %sub.ptr.sub.i.i.i368, 3
   %idx.neg.i.i.i370 = sub nsw i64 0, %sub.ptr.div.i.i.i369
-  %add.ptr.i.i.i371 = getelementptr inbounds i64, ptr %203, i64 %idx.neg.i.i.i370
+  %add.ptr.i.i.i371 = getelementptr inbounds [8 x i8], ptr %203, i64 %idx.neg.i.i.i370
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i371) #25
   store ptr null, ptr %repeated_bool, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %this, i64 568

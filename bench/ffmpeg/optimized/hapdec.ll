@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.TextureDSPContext = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.GetByteContext = type { ptr, ptr, ptr }
-%struct.HapChunk = type { i32, i32, i64, i32, i64 }
-%struct.TextureDSPThreadContext = type { %union.anon.1, i64, i32, i32, %union.anon.2, i32, i32, i32, ptr }
-%union.anon.1 = type { ptr }
-%union.anon.2 = type { ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"hap\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Vidvox Hap\00", align 1
@@ -452,7 +448,7 @@ bytestream2_init.exit:                            ; preds = %4
 bytestream2_get_byte.exit.i:                      ; preds = %136, %135
   %141 = phi ptr [ %127, %135 ], [ %137, %136 ]
   %.0.i.i107 = phi i32 [ 0, %135 ], [ %140, %136 ]
-  %142 = getelementptr inbounds nuw %struct.HapChunk, ptr %129, i64 %indvars.iv142.i
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %indvars.iv142.i
   store i32 %.0.i.i107, ptr %142, align 8, !tbaa !57
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %143 = load i32, ptr %5, align 4, !tbaa !55
@@ -502,7 +498,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %136, %135
 bytestream2_get_le32.exit.i:                      ; preds = %161, %160
   %165 = phi ptr [ %152, %160 ], [ %162, %161 ]
   %.0.i87.i = phi i64 [ 0, %160 ], [ %164, %161 ]
-  %166 = getelementptr inbounds nuw %struct.HapChunk, ptr %154, i64 %indvars.iv139.i
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %154, i64 %indvars.iv139.i
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i64 %.0.i87.i, ptr %167, align 8, !tbaa !61
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
@@ -548,7 +544,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %161, %160
 bytestream2_get_le32.exit89.i:                    ; preds = %182, %181
   %185 = phi ptr [ %173, %181 ], [ %183, %182 ]
   %.0.i88.i = phi i32 [ 0, %181 ], [ %184, %182 ]
-  %186 = getelementptr inbounds nuw %struct.HapChunk, ptr %175, i64 %indvars.iv.i103
+  %186 = getelementptr inbounds nuw [32 x i8], ptr %175, i64 %indvars.iv.i103
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   store i32 %.0.i88.i, ptr %187, align 4, !tbaa !59
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
@@ -594,7 +590,7 @@ bytestream2_get_le32.exit89.i:                    ; preds = %182, %181
   %indvars.iv145.i = phi i64 [ 0, %.lr.ph130.i ], [ %indvars.iv.next146.i, %210 ]
   %.0129.i = phi i64 [ 0, %.lr.ph130.i ], [ %211, %210 ]
   %203 = trunc i64 %.0129.i to i32
-  %204 = getelementptr inbounds nuw %struct.HapChunk, ptr %201, i64 %indvars.iv145.i
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %indvars.iv145.i
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i32 %203, ptr %205, align 4, !tbaa !59
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -639,7 +635,7 @@ hap_parse_decode_instructions.exit:               ; preds = %109, %123, %146, %1
   %222 = phi i64 [ 0, %.lr.ph.i ], [ %260, %256 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %256 ]
   %223 = load ptr, ptr %218, align 8, !tbaa !56
-  %224 = getelementptr inbounds nuw %struct.HapChunk, ptr %223, i64 %indvars.iv.i
+  %224 = getelementptr inbounds nuw [32 x i8], ptr %223, i64 %indvars.iv.i
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 4
   %226 = load i32, ptr %225, align 4, !tbaa !59
   %227 = zext i32 %226 to i64
@@ -743,7 +739,7 @@ hap_parse_frame_header.exit:                      ; preds = %53, %98, %212, %252
   %268 = load i32, ptr %44, align 4, !tbaa !30
   %269 = sdiv i32 %268, 4
   %270 = mul nsw i32 %269, %267
-  %271 = getelementptr inbounds nuw %struct.TextureDSPThreadContext, ptr %45, i64 %indvars.iv138
+  %271 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv138
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %273 = load i32, ptr %272, align 8, !tbaa !40
   %274 = mul nsw i32 %270, %273
@@ -771,7 +767,7 @@ hap_parse_frame_header.exit:                      ; preds = %53, %98, %212, %252
 284:                                              ; preds = %291, %.lr.ph.i96
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i99, %291 ]
   %.015.i = phi i64 [ 0, %.lr.ph.i96 ], [ %294, %291 ]
-  %285 = getelementptr inbounds nuw %struct.HapChunk, ptr %283, i64 %indvars.iv.i97
+  %285 = getelementptr inbounds nuw [32 x i8], ptr %283, i64 %indvars.iv.i97
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 4
   %287 = load i32, ptr %286, align 4, !tbaa !59
   %288 = zext i32 %287 to i64
@@ -843,7 +839,7 @@ hap_can_use_tex_in_place.exit:                    ; preds = %291, %277
 
 323:                                              ; preds = %.lr.ph, %322
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %322 ]
-  %324 = getelementptr inbounds nuw i32, ptr %321, i64 %indvars.iv
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %indvars.iv
   %325 = load i32, ptr %324, align 4, !tbaa !55
   %326 = icmp slt i32 %325, 0
   br i1 %326, label %.loopexit, label %322
@@ -918,7 +914,7 @@ define internal range(i32 -2147483648, 1) i32 @decompress_chunks_thread(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds %struct.HapChunk, ptr %10, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %10, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !77

@@ -736,7 +736,7 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   %61 = trunc nuw nsw i64 %indvars.iv125 to i32
   %62 = mul i32 %59, %61
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds float, ptr %51, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %51, i64 %63
   %65 = uitofp nneg i32 %61 to float
   %66 = fadd reassoc nsz arcp contract afn float %65, %57
   br label %67
@@ -881,10 +881,10 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv130 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next131, %.lr.ph ]
   %148 = shl nuw nsw i64 %indvars.iv130, 1
-  %149 = getelementptr inbounds nuw float, ptr %51, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %148
   %150 = load float, ptr %149, align 8, !tbaa !20
   %151 = fsub reassoc nsz arcp contract afn float %150, %125
-  %152 = getelementptr inbounds nuw float, ptr %139, i64 %148
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %148
   %153 = load float, ptr %152, align 4, !tbaa !20
   %154 = fsub reassoc nsz arcp contract afn float %153, %129
   %.neg = fmul reassoc nsz arcp contract afn float %151, %151
@@ -897,7 +897,7 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   %159 = select reassoc nsz arcp contract afn i1 %158, float %156, float 1.000000e+00
   %160 = select reassoc nsz arcp contract afn i1 %157, float %159, float 0.000000e+00
   %161 = fmul reassoc nsz arcp contract afn float %160, %160
-  %162 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv130
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv130
   store float %161, ptr %162, align 4, !tbaa !20
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
@@ -1512,7 +1512,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %359 = sitofp i32 %358 to float
   %360 = sitofp i32 %353 to float
   %361 = mul nsw i64 %indvars.iv514, %79
-  %362 = getelementptr float, ptr %4, i64 %361
+  %362 = getelementptr [4 x i8], ptr %4, i64 %361
   %factor.op.fmul = fmul reassoc nsz arcp contract afn float %349, %359
   %factor.op.fmul479 = fmul reassoc nsz arcp contract afn float %349, %360
   br label %363
@@ -1548,7 +1548,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %reass.add440.us = fadd reassoc nsz arcp contract afn float %386, %383
   %reass.mul441.us.reass = fmul reassoc nsz arcp contract afn float %reass.add440.us, %factor.op.fmul479
   %387 = fadd reassoc nsz arcp contract afn float %reass.mul441.us.reass, %.reass
-  %388 = getelementptr float, ptr %362, i64 %indvars.iv509
+  %388 = getelementptr [4 x i8], ptr %362, i64 %indvars.iv509
   store float %387, ptr %388, align 4, !tbaa !20
   %indvars.iv.next510 = add nsw i64 %indvars.iv509, 1
   %exitcond513.not = icmp eq i64 %indvars.iv.next510, %wide.trip.count512
@@ -2790,14 +2790,14 @@ define internal range(i32 0, 2) i32 @_circle_events_button_pressed(ptr noundef %
 
 229:                                              ; preds = %211, %239
   %indvars.iv = phi i64 [ 0, %211 ], [ %indvars.iv.next, %239 ]
-  %230 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %indvars.iv
   %231 = load i32, ptr %230, align 4, !tbaa !22
   %232 = load i32, ptr %116, align 8, !tbaa !19
   %233 = icmp eq i32 %231, %232
   br i1 %233, label %234, label %239
 
 234:                                              ; preds = %229
-  %235 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv
   %236 = load ptr, ptr %235, align 8, !tbaa !180
   %237 = tail call i64 @gtk_toggle_button_get_type() #15
   %238 = call ptr @g_type_check_instance_cast(ptr noundef %236, i64 noundef %237) #13

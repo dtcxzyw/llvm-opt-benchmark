@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/mastering_display_metadata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVRational = type { i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define noalias ptr @av_mastering_display_metadata_alloc() local_unnamed_addr #0 {
   %1 = tail call noalias ptr @av_mallocz(i64 noundef 88) #3
@@ -13,7 +11,7 @@ define noalias ptr @av_mastering_display_metadata_alloc() local_unnamed_addr #0 
 
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
   %indvars.iv16.i.i = phi i64 [ %indvars.iv.next17.i.i, %.preheader.i.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %1, i64 %indvars.iv16.i.i
+  %2 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv16.i.i
   store i32 0, ptr %2, align 4, !tbaa !4
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !tbaa !4
@@ -51,7 +49,7 @@ define noalias ptr @av_mastering_display_metadata_alloc_size(ptr noundef writeon
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.preheader.i ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %2, i64 %indvars.iv16.i
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv16.i
   store i32 0, ptr %3, align 4, !tbaa !4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !4
@@ -103,7 +101,7 @@ define ptr @av_mastering_display_metadata_create_side_data(ptr noundef %0) local
 
 .preheader.i:                                     ; preds = %.preheader.i, %3
   %indvars.iv16.i = phi i64 [ 0, %3 ], [ %indvars.iv.next17.i, %.preheader.i ]
-  %7 = getelementptr inbounds nuw [2 x %struct.AVRational], ptr %6, i64 %indvars.iv16.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv16.i
   store i32 0, ptr %7, align 4, !tbaa !4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !4

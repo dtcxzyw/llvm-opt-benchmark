@@ -97,7 +97,7 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv233 = phi i64 [ 2, %.lr.ph193.preheader ], [ %indvars.iv.next234, %.lr.ph193 ]
   %37 = load double, ptr %1, align 8, !tbaa !7
   %38 = fdiv double 1.000000e+00, %37
-  %39 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv233
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv233
   store double %38, ptr %39, align 8, !tbaa !7
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
@@ -134,7 +134,7 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
   %indvars.iv224 = phi i64 [ 1, %.lr.ph183.preheader ], [ %indvars.iv.next225, %.lr.ph183 ]
-  %49 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv224
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv224
   store double 1.000000e+00, ptr %49, align 8, !tbaa !7
   %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next225, %wide.trip.count227
@@ -164,7 +164,7 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.pre-phi = phi i64 [ %.pre, %._crit_edge184.._crit_edge189_crit_edge ], [ %50, %.lr.ph188.preheader ]
   %57 = load double, ptr %1, align 8, !tbaa !7
   %58 = fdiv double 1.000000e+00, %57
-  %59 = getelementptr inbounds double, ptr %11, i64 %.pre-phi
+  %59 = getelementptr inbounds [8 x i8], ptr %11, i64 %.pre-phi
   store double %58, ptr %59, align 8, !tbaa !7
   br label %.loopexit167
 
@@ -218,7 +218,7 @@ define void @dlatm7_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i, %72
   %.011.i = phi double [ %spec.select20.i, %72 ], [ %spec.select.i, %.lr.ph.i ]
-  %81 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv216
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv216
   store double %.011.i, ptr %81, align 8, !tbaa !7
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
@@ -263,7 +263,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %72
   %101 = sub i32 %12, %100
   %102 = sitofp i32 %101 to double
   %103 = tail call double @llvm.fmuladd.f64(double %102, double %97, double %93)
-  %104 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv211
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv211
   store double %103, ptr %104, align 8, !tbaa !7
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
@@ -287,7 +287,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %72
   %111 = tail call double @dlaran_(ptr noundef %4) #7
   %112 = fmul double %108, %111
   %113 = tail call double @exp(double noundef %112) #7, !tbaa !3
-  %114 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %113, ptr %114, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -327,7 +327,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %72
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %.lr.ph203
-  %126 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv242
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv242
   %127 = load double, ptr %126, align 8, !tbaa !7
   %128 = fneg double %127
   store double %128, ptr %126, align 8, !tbaa !7
@@ -362,10 +362,10 @@ thread-pre-split165:                              ; preds = %120, %thread-pre-sp
 
 138:                                              ; preds = %.lr.ph207, %138
   %indvars.iv247 = phi i64 [ 1, %.lr.ph207 ], [ %indvars.iv.next248, %138 ]
-  %139 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv247
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv247
   %140 = load double, ptr %139, align 8, !tbaa !7
   %141 = sub nsw i64 %136, %indvars.iv247
-  %142 = getelementptr inbounds double, ptr %11, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %11, i64 %141
   %143 = load double, ptr %142, align 8, !tbaa !7
   store double %143, ptr %139, align 8, !tbaa !7
   store double %140, ptr %142, align 8, !tbaa !7

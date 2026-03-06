@@ -31,15 +31,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
-%"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"struct.open_spiel::bargaining::Offer" = type { %"class.std::vector.9" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -50,16 +45,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.39" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.open_spiel::bargaining::Instance" = type { %"class.std::vector", %"class.std::vector.9" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
+%"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
+%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
 %"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<long, double>, std::allocator<std::pair<long, double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.48" = type { i64, double }
 %"class.open_spiel::file::File" = type { %"class.std::unique_ptr.51" }
 %"class.std::unique_ptr.51" = type { %"struct.std::__uniq_ptr_data.52" }
 %"struct.std::__uniq_ptr_data.52" = type { %"class.std::__uniq_ptr_impl.53" }
@@ -74,6 +67,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::debian2::strings_internal::Splitter" = type <{ %"class.absl::debian2::string_view", %"class.absl::debian2::ByChar", [7 x i8] }>
 %"class.absl::debian2::ByChar" = type { i8 }
+%"struct.open_spiel::bargaining::Instance" = type { %"class.std::vector", %"class.std::vector.9" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.open_spiel::bargaining::Offer" = type { %"class.std::vector.9" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"class.absl::debian2::optional.72" = type { %"class.absl::debian2::optional_internal::optional_data.73" }
 %"class.absl::debian2::optional_internal::optional_data.73" = type { %"class.absl::debian2::optional_internal::optional_data_base.74" }
@@ -1941,13 +1940,13 @@ define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on
   store ptr %12, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %19
   %23 = getelementptr inbounds i8, ptr %8, i64 -24
-  %24 = getelementptr inbounds nuw double, ptr %10, i64 %19
-  %25 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %18
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %19
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw double, ptr %10, i64 %18
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %18
   %.pre = load ptr, ptr %23, align 8
   %.pre35 = load double, ptr %24, align 8
   %.pre36 = load double, ptr %28, align 8
@@ -1958,18 +1957,18 @@ define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on
   %31 = phi double [ %.pre35, %.noexc ], [ %39, %29 ]
   %indvars.iv = phi i64 [ 0, %.noexc ], [ %indvars.iv.next, %29 ]
   %32 = load ptr, ptr %22, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = mul nsw i32 %36, %34
   %38 = sitofp i32 %37 to double
   %39 = fadd double %31, %38
   store double %39, ptr %24, align 8
   %40 = load ptr, ptr %25, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %35, align 4
   %46 = sub nsw i32 %44, %45
@@ -1999,7 +1998,7 @@ define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %57 ]
-  %58 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv31
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv31
   %59 = load double, ptr %58, align 8
   %60 = fmul double %52, %59
   store double %60, ptr %58, align 8
@@ -2222,7 +2221,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 12, ptr %82, align 8
   %83 = zext nneg i32 %2 to i64
   %84 = load ptr, ptr %56, align 8
-  %85 = getelementptr inbounds nuw %"class.std::vector.9", ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !noalias !99
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8, !noalias !99
@@ -2802,7 +2801,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store i64 12, ptr %79, align 8
   %80 = zext nneg i32 %2 to i64
   %81 = load ptr, ptr %53, align 8
-  %82 = getelementptr inbounds nuw %"class.std::vector.9", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !noalias !121
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load ptr, ptr %84, align 8, !noalias !121
@@ -2955,7 +2954,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit38:           ; preds = %_ZN4absl7debian28Al
 _ZN4absl7debian28AlphaNumC2EPKc.exit41:           ; preds = %.noexc39
   store i64 %143, ptr %129, align 8
   %146 = load ptr, ptr %123, align 8
-  %147 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %146, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %indvars.iv
   invoke void @_ZNK10open_spiel10bargaining5Offer8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %147)
           to label %148 unwind label %.loopexit55
 
@@ -3079,7 +3078,7 @@ define void @_ZNK10open_spiel10bargaining15BargainingState21ResampleFromInfostat
   %33 = load ptr, ptr %16, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 280
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Instance", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %30, align 8
   %39 = load ptr, ptr %29, align 8
@@ -3106,9 +3105,9 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %50
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %50, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
   %51 = load ptr, ptr %28, align 8
-  %52 = getelementptr inbounds %"class.std::vector.9", ptr %51, i64 %31
+  %52 = getelementptr inbounds [24 x i8], ptr %51, i64 %31
   %53 = load ptr, ptr %36, align 8
-  %54 = getelementptr inbounds %"class.std::vector.9", ptr %53, i64 %31
+  %54 = getelementptr inbounds [24 x i8], ptr %53, i64 %31
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %52, align 8
@@ -3191,7 +3190,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %88, %.noex
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %90, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %91 = getelementptr inbounds nuw i32, ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %82
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -3314,7 +3313,7 @@ _ZNKSt8functionIFdvEEclEv.exit:                   ; preds = %101
   br label %178
 
 126:                                              ; preds = %118
-  %127 = getelementptr inbounds nuw i32, ptr %.sroa.040.1, i64 %119
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.040.1, i64 %119
   %128 = load i32, ptr %127, align 4
   %129 = load ptr, ptr %16, align 8
   %130 = load ptr, ptr %129, align 8
@@ -3649,7 +3648,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -3730,7 +3729,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %25
@@ -3949,7 +3948,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %70
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit47:             ; preds = %72
-  %83 = getelementptr inbounds float, ptr %2, i64 %80
+  %83 = getelementptr inbounds [4 x i8], ptr %2, i64 %80
   store float 1.000000e+00, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = load ptr, ptr %84, align 8
@@ -3969,7 +3968,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit47:             ; preds = %72
   %indvars.iv105 = phi i32 [ %91, %_ZNK4absl7debian24SpanIfEixEm.exit47 ], [ %indvars.iv.next106, %._crit_edge ]
   %indvars.iv95 = phi i64 [ %90, %_ZNK4absl7debian24SpanIfEixEm.exit47 ], [ %indvars.iv.next96, %._crit_edge ]
   %indvars.iv93 = phi i64 [ 0, %_ZNK4absl7debian24SpanIfEixEm.exit47 ], [ %indvars.iv.next94, %._crit_edge ]
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv93
   %95 = load i32, ptr %94, align 4
   %.not4472 = icmp slt i32 %95, 0
   br i1 %.not4472, label %._crit_edge, label %.lr.ph
@@ -3992,11 +3991,11 @@ _ZNK4absl7debian24SpanIfEixEm.exit47:             ; preds = %72
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit48:             ; preds = %.lr.ph
-  %102 = getelementptr inbounds float, ptr %2, i64 %99
+  %102 = getelementptr inbounds [4 x i8], ptr %2, i64 %99
   store float 1.000000e+00, ptr %102, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = load ptr, ptr %89, align 8
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv93
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv93
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
   %.not44.not = icmp slt i64 %indvars.iv, %106
@@ -4016,9 +4015,9 @@ _ZNK4absl7debian24SpanIfEixEm.exit48:             ; preds = %.lr.ph
   %indvars.iv122 = phi i32 [ %indvars.iv119, %.preheader67 ], [ %indvars.iv.next123, %._crit_edge79 ]
   %indvars.iv108 = phi i64 [ %98, %.preheader67 ], [ %indvars.iv.next109, %._crit_edge79 ]
   %indvars.iv103 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next104, %._crit_edge79 ]
-  %109 = getelementptr inbounds nuw %"class.std::vector.9", ptr %108, i64 %97
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %97
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv103
   %112 = load i32, ptr %111, align 4
   %.not4376 = icmp slt i32 %112, 0
   br i1 %.not4376, label %._crit_edge79, label %.lr.ph78
@@ -4034,13 +4033,13 @@ _ZNK4absl7debian24SpanIfEixEm.exit48:             ; preds = %.lr.ph
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit49:             ; preds = %.lr.ph78
-  %116 = getelementptr inbounds float, ptr %2, i64 %113
+  %116 = getelementptr inbounds [4 x i8], ptr %2, i64 %113
   store float 1.000000e+00, ptr %116, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %117 = load ptr, ptr %96, align 8
-  %118 = getelementptr inbounds nuw %"class.std::vector.9", ptr %117, i64 %97
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %97
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv103
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv103
   %121 = load i32, ptr %120, align 4
   %122 = sext i32 %121 to i64
   %.not43.not = icmp slt i64 %indvars.iv100, %122
@@ -4070,7 +4069,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit49:             ; preds = %.lr.ph78
   %indvars.iv117 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next118, %._crit_edge85 ]
   %130 = getelementptr inbounds i8, ptr %129, i64 -24
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i32, ptr %131, i64 %indvars.iv117
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv117
   %133 = load i32, ptr %132, align 4
   %.not82 = icmp slt i32 %133, 0
   br i1 %.not82, label %._crit_edge85, label %.lr.ph84
@@ -4086,13 +4085,13 @@ _ZNK4absl7debian24SpanIfEixEm.exit49:             ; preds = %.lr.ph78
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit50:             ; preds = %.lr.ph84
-  %137 = getelementptr inbounds float, ptr %2, i64 %134
+  %137 = getelementptr inbounds [4 x i8], ptr %2, i64 %134
   store float 1.000000e+00, ptr %137, align 4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %138 = load ptr, ptr %74, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 -24
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv117
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv117
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %.not.not = icmp slt i64 %indvars.iv114, %143
@@ -4437,7 +4436,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %70
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit53:             ; preds = %72
-  %83 = getelementptr inbounds float, ptr %2, i64 %80
+  %83 = getelementptr inbounds [4 x i8], ptr %2, i64 %80
   store float 1.000000e+00, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = load ptr, ptr %84, align 8
@@ -4455,7 +4454,7 @@ _ZNK4absl7debian24SpanIfEixEm.exit53:             ; preds = %72
   %indvars.iv116 = phi i32 [ %91, %_ZNK4absl7debian24SpanIfEixEm.exit53 ], [ %indvars.iv.next117, %._crit_edge ]
   %indvars.iv106 = phi i64 [ %90, %_ZNK4absl7debian24SpanIfEixEm.exit53 ], [ %indvars.iv.next107, %._crit_edge ]
   %indvars.iv104 = phi i64 [ 0, %_ZNK4absl7debian24SpanIfEixEm.exit53 ], [ %indvars.iv.next105, %._crit_edge ]
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv104
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv104
   %94 = load i32, ptr %93, align 4
   %.not5080 = icmp slt i32 %94, 0
   br i1 %.not5080, label %._crit_edge, label %.lr.ph
@@ -4478,11 +4477,11 @@ _ZNK4absl7debian24SpanIfEixEm.exit53:             ; preds = %72
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit54:             ; preds = %.lr.ph
-  %101 = getelementptr inbounds float, ptr %2, i64 %98
+  %101 = getelementptr inbounds [4 x i8], ptr %2, i64 %98
   store float 1.000000e+00, ptr %101, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = load ptr, ptr %89, align 8
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv104
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv104
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
   %.not50.not = icmp slt i64 %indvars.iv, %105
@@ -4500,9 +4499,9 @@ _ZNK4absl7debian24SpanIfEixEm.exit54:             ; preds = %.lr.ph
   %107 = phi ptr [ %.pre139, %.preheader74 ], [ %127, %._crit_edge87 ]
   %indvars.iv119 = phi i64 [ %97, %.preheader74 ], [ %indvars.iv.next120, %._crit_edge87 ]
   %indvars.iv114 = phi i64 [ 0, %.preheader74 ], [ %indvars.iv.next115, %._crit_edge87 ]
-  %108 = getelementptr inbounds nuw %"class.std::vector.9", ptr %107, i64 %96
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %96
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv114
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv114
   %111 = load i32, ptr %110, align 4
   %.not4984 = icmp slt i32 %111, 0
   br i1 %.not4984, label %._crit_edge87, label %.lr.ph86
@@ -4530,13 +4529,13 @@ _ZNK4absl7debian24SpanIfEixEm.exit54:             ; preds = %.lr.ph
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit55:             ; preds = %.lr.ph86
-  %120 = getelementptr inbounds float, ptr %2, i64 %117
+  %120 = getelementptr inbounds [4 x i8], ptr %2, i64 %117
   store float 1.000000e+00, ptr %120, align 4
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %121 = load ptr, ptr %95, align 8
-  %122 = getelementptr inbounds nuw %"class.std::vector.9", ptr %121, i64 %96
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %96
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv114
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv114
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
   %.not49.not = icmp slt i64 %indvars.iv111, %126
@@ -4571,9 +4570,9 @@ _ZNK4absl7debian24SpanIfEixEm.exit55:             ; preds = %.lr.ph86
   %138 = phi ptr [ %129, %.preheader.preheader ], [ %153, %._crit_edge93 ]
   %indvars.iv130 = phi i64 [ %137, %.preheader.preheader ], [ %indvars.iv.next131, %._crit_edge93 ]
   %indvars.iv128 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next129, %._crit_edge93 ]
-  %139 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %138, i64 %indvars.iv136
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %indvars.iv136
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv128
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv128
   %142 = load i32, ptr %141, align 4
   %.not90 = icmp slt i32 %142, 0
   br i1 %.not90, label %._crit_edge93, label %.lr.ph92
@@ -4589,13 +4588,13 @@ _ZNK4absl7debian24SpanIfEixEm.exit55:             ; preds = %.lr.ph86
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit56:             ; preds = %.lr.ph92
-  %146 = getelementptr inbounds float, ptr %2, i64 %143
+  %146 = getelementptr inbounds [4 x i8], ptr %2, i64 %143
   store float 1.000000e+00, ptr %146, align 4
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %147 = load ptr, ptr %73, align 8
-  %148 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %147, i64 %indvars.iv136
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %147, i64 %indvars.iv136
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv128
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv128
   %151 = load i32, ptr %150, align 4
   %152 = sext i32 %151 to i64
   %.not.not = icmp slt i64 %indvars.iv125, %152
@@ -5318,7 +5317,7 @@ define void @_ZN10open_spiel10bargaining15BargainingState13DoApplyActionEl(ptr n
 19:                                               ; preds = %15
   %sext = shl i64 %1, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"struct.open_spiel::bargaining::Instance", ptr %18, i64 %20
+  %21 = getelementptr inbounds [48 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIS_IiSaIiEESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %21)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5408,7 +5407,7 @@ define void @_ZN10open_spiel10bargaining15BargainingState13DoApplyActionEl(ptr n
   unreachable
 
 _ZNKSt6vectorIN10open_spiel10bargaining5OfferESaIS2_EE2atEm.exit: ; preds = %67
-  %70 = getelementptr inbounds %"struct.open_spiel::bargaining::Offer", ptr %62, i64 %1
+  %70 = getelementptr inbounds [24 x i8], ptr %62, i64 %1
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5584,9 +5583,9 @@ define noundef zeroext i1 @_ZNK10open_spiel10bargaining15BargainingState12IsLega
 
 6:                                                ; preds = %6, %2
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not = icmp sle i32 %8, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5644,16 +5643,16 @@ define void @_ZNK10open_spiel10bargaining15BargainingState12LegalActionsEv(ptr d
   %27 = phi ptr [ null, %.lr.ph ], [ %71, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %28 = phi ptr [ %22, %.lr.ph ], [ %73, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %29 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %23, align 8
   br label %32
 
 32:                                               ; preds = %32, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4
   %.not.i = icmp sle i32 %34, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5726,7 +5725,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %58, %.no
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %55, ptr %0, align 8
   store ptr %59, ptr %24, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %25, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -5845,7 +5844,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i18: ; preds = %108, %
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i20: ; preds = %110, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i18
   store ptr %105, ptr %0, align 8
   store ptr %109, ptr %86, align 8
-  %111 = getelementptr inbounds nuw i64, ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %103
   store ptr %111, ptr %87, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit23
 
@@ -5928,7 +5927,7 @@ _ZNSt12_Vector_baseISt4pairIldESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %37, ptr %0, align 8
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %37, i64 %31
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %31
   store ptr %39, ptr %35, align 8
   br label %_ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit
 
@@ -6019,7 +6018,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 
 _ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorISt4pairIldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %66, ptr %43, align 8
-  %68 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %60
   br label %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %48
@@ -6332,7 +6331,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit18:           ; preds = %_ZN4absl7debian28Al
 _ZN4absl7debian28AlphaNumC2EPKc.exit21:           ; preds = %.noexc19
   store i64 %57, ptr %43, align 8
   %60 = load ptr, ptr %37, align 8
-  %61 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %indvars.iv
   invoke void @_ZNK10open_spiel10bargaining5Offer8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %61)
           to label %62 unwind label %.loopexit30
 
@@ -6831,7 +6830,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
 103:                                              ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEcvT_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEvEEv.exit40, %102
   %indvars.iv = phi i64 [ 0, %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEcvT_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEvEEv.exit40 ], [ %indvars.iv.next, %102 ]
   %104 = load ptr, ptr %24, align 8
-  %105 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv
   %106 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #25
   %107 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #25
   %108 = icmp sgt i64 %107, -1
@@ -6848,7 +6847,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
           to label %112 unwind label %.loopexit112
 
 112:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
-  %113 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv
   %114 = load i32, ptr %7, align 4
   store i32 %114, ptr %113, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6924,7 +6923,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
 131:                                              ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEcvT_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEvEEv.exit43, %130
   %indvars.iv142 = phi i64 [ 0, %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEcvT_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEvEEv.exit43 ], [ %indvars.iv.next143, %130 ]
   %132 = load ptr, ptr %28, align 8
-  %133 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %132, i64 %indvars.iv142
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %indvars.iv142
   %134 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %133) #25
   %135 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %133) #25
   %136 = icmp sgt i64 %135, -1
@@ -6942,7 +6941,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
           to label %141 unwind label %.loopexit107
 
 141:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit44
-  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv142
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %indvars.iv142
   %143 = load i32, ptr %5, align 4
   store i32 %143, ptr %142, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7013,7 +7012,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
 158:                                              ; preds = %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEcvT_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEvEEv.exit48, %157
   %indvars.iv146 = phi i64 [ 0, %_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEcvT_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEvEEv.exit48 ], [ %indvars.iv.next147, %157 ]
   %159 = load ptr, ptr %32, align 8
-  %160 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %159, i64 %indvars.iv146
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %159, i64 %indvars.iv146
   %161 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %160) #25
   %162 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %160) #25
   %163 = icmp sgt i64 %162, -1
@@ -7032,7 +7031,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
           to label %169 unwind label %.loopexit
 
 169:                                              ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit49
-  %170 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv146
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv146
   %171 = load i32, ptr %3, align 4
   store i32 %171, ptr %170, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7762,13 +7761,13 @@ _ZNSt6vectorIN10open_spiel10bargaining5OfferESaIS2_EE9push_backEOS2_.exit: ; pre
 
 _ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZN10open_spiel10bargaining5OfferD2Ev.exit.preheader, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %_ZN10open_spiel10bargaining5OfferD2Ev.exit.preheader ]
-  %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = icmp slt i32 %39, 7
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %_ZN10open_spiel10bargaining5OfferD2Ev.exit
-  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %43 = add nsw i32 %39, 1
   store i32 %43, ptr %42, align 4
   %.not = icmp eq i64 %indvars.iv, 0
@@ -10214,7 +10213,7 @@ _ZN4absl7debian28AlphaNumC2El.exit:               ; preds = %_ZN4absl7debian28Al
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds %"struct.open_spiel::bargaining::Offer", ptr %26, i64 %3
+  %33 = getelementptr inbounds [24 x i8], ptr %26, i64 %3
   tail call void @_ZNK10open_spiel10bargaining5Offer8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %33)
   br label %46
 
@@ -10382,7 +10381,7 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame20GetOfferByQuantitiesE
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us ], [ 0, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv52
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv52
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
@@ -10399,7 +10398,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7.us: ; preds = %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread7 ], [ 0, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %26, align 8
@@ -10418,7 +10417,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread: ; preds = %_ZSteqIiSaIiEEbRKSt
   %.us-phi16 = phi ptr [ %20, %.lr.ph.split.us ], [ %28, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %34 = phi ptr [ %21, %.lr.ph.split.us ], [ %29, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %.us-phi19 = phi i64 [ %indvars.iv52, %.lr.ph.split.us ], [ %indvars.iv, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
-  %35 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %7, i64 %.us-phi19
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.us-phi19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.us-phi16, %34
   br i1 %.not.i.i.i.i.i.i, label %40, label %37
@@ -10887,7 +10886,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
@@ -10952,7 +10951,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerRewardEi(ptr n
   br label %33
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
-  %27 = getelementptr inbounds double, ptr %13, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -11056,7 +11055,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerReturnEi(ptr n
   br label %44
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %23
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -11201,7 +11200,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %0, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -11281,7 +11280,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %27
@@ -15381,7 +15380,7 @@ _ZNSt6vectorIN10open_spiel10bargaining5OfferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN10open_spiel10bargaining5OfferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel10bargaining5OfferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %61
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8
-  %65 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8
   ret void
 
@@ -15451,7 +15450,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
   %17 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i ], [ %16, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ]
   store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   %20 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4absl7debian211string_viewESt6vectorIS4_SaIS4_EEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SJ_SI_(ptr %6, ptr %8, ptr noundef %17)
@@ -15602,7 +15601,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EE6insertIPZNKS1_16strings_intern
   %40 = phi i64 [ %64, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre17, %.preheader.preheader ]
   %41 = phi ptr [ %57, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %42 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.0
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %40, ptr %43, align 8
@@ -15676,7 +15675,7 @@ _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_
 .critedge:                                        ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.thread
   %71 = phi i64 [ %45, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.thread ], [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ]
   %72 = load ptr, ptr %36, align 8
-  %73 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %71
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %71
   %74 = load ptr, ptr %0, align 8
   %75 = ptrtoint ptr %72 to i64
   %76 = ptrtoint ptr %74 to i64
@@ -15780,7 +15779,7 @@ _ZSt22__uninitialized_move_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_
   %30 = sub i64 %29, %18
   %31 = ashr exact i64 %30, 4
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %13, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %13, i64 %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPN4absl7debian211string_viewES3_ET0_T_S5_S4_.exit
 
@@ -15846,7 +15845,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6B
 _ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewmEvRT_T0_.exit
   %54 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewmEvRT_T0_.exit ]
   %55 = sub nuw nsw i64 %9, %20
-  %56 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %54, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %54, i64 %55
   store ptr %56, ptr %12, align 8
   %.not11.i.i.i.i.i58 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_RT1_.exit64, label %.lr.ph.i.i.i.i.i59
@@ -15991,7 +15990,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4absl7debian211string_viewES3_SaIS2_E
 _ZNSt12_Vector_baseIN4absl7debian211string_viewESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_RT1_.exit92, %101
   store ptr %87, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i91, ptr %12, align 8
-  %105 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %87, i64 %83
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %83
   store ptr %105, ptr %10, align 8
   br label %_ZSt4copyIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewN9__gnu_cxx17__normal_iteratorIPS6_SB_EEET0_T_SM_SL_.exit
 
@@ -16209,7 +16208,7 @@ _ZNSt6vectorIN10open_spiel10bargaining8InstanceESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt12_Vector_baseIN10open_spiel10bargaining8InstanceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel10bargaining8InstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %60
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %64 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Instance", ptr %20, i64 %16
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %16
   store ptr %64, ptr %59, align 8
   ret void
 
@@ -16349,7 +16348,7 @@ _ZNSt6vectorIN10open_spiel10bargaining5OfferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN10open_spiel10bargaining5OfferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel10bargaining5OfferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"struct.open_spiel::bargaining::Offer", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 }

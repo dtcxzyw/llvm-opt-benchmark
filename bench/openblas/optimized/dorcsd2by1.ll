@@ -40,23 +40,23 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %33 = load i32, ptr %7, align 4, !tbaa !3
   %narrow = xor i32 %33, -1
   %34 = sext i32 %narrow to i64
-  %35 = getelementptr inbounds double, ptr %6, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %6, i64 %34
   %36 = load i32, ptr %9, align 4, !tbaa !3
   %narrow1274 = xor i32 %36, -1
   %37 = sext i32 %narrow1274 to i64
-  %38 = getelementptr inbounds double, ptr %8, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %8, i64 %37
   %39 = load i32, ptr %12, align 4, !tbaa !3
   %narrow1278 = xor i32 %39, -1
   %40 = sext i32 %narrow1278 to i64
-  %41 = getelementptr inbounds double, ptr %11, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %11, i64 %40
   %42 = load i32, ptr %14, align 4, !tbaa !3
   %narrow1279 = xor i32 %42, -1
   %43 = sext i32 %narrow1279 to i64
-  %44 = getelementptr inbounds double, ptr %13, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %13, i64 %43
   %45 = load i32, ptr %16, align 4, !tbaa !3
   %narrow1280 = xor i32 %45, -1
   %46 = sext i32 %narrow1280 to i64
-  %47 = getelementptr inbounds double, ptr %15, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %15, i64 %46
   %48 = getelementptr inbounds i8, ptr %17, i64 -8
   %49 = getelementptr inbounds i8, ptr %19, i64 -4
   store i32 0, ptr %20, align 4, !tbaa !3
@@ -276,7 +276,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %158, ptr %24, align 4, !tbaa !3
   %159 = shl i32 %39, 1
   %160 = sext i32 %159 to i64
-  %161 = getelementptr double, ptr %41, i64 %160
+  %161 = getelementptr [8 x i8], ptr %41, i64 %160
   %162 = getelementptr i8, ptr %161, i64 16
   call void @dorgqr_(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %162, ptr noundef nonnull %12, ptr noundef nonnull %31, ptr noundef nonnull %17, ptr noundef nonnull @c_n1, ptr noundef nonnull %26) #4
   %163 = load i32, ptr %4, align 4, !tbaa !3
@@ -395,7 +395,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %215, ptr %24, align 4, !tbaa !3
   %216 = shl i32 %42, 1
   %217 = sext i32 %216 to i64
-  %218 = getelementptr double, ptr %44, i64 %217
+  %218 = getelementptr [8 x i8], ptr %44, i64 %217
   %219 = getelementptr i8, ptr %218, i64 16
   call void @dorgqr_(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef %219, ptr noundef nonnull %14, ptr noundef nonnull %31, ptr noundef nonnull %17, ptr noundef nonnull @c_n1, ptr noundef nonnull %26) #4
   %220 = load i32, ptr %3, align 4, !tbaa !3
@@ -597,13 +597,13 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 318:                                              ; preds = %312
   %319 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %320 = zext nneg i32 %93 to i64
-  %321 = getelementptr inbounds nuw double, ptr %48, i64 %320
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %320
   %322 = zext nneg i32 %105 to i64
-  %323 = getelementptr inbounds nuw double, ptr %48, i64 %322
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %322
   %324 = zext nneg i32 %107 to i64
-  %325 = getelementptr inbounds nuw double, ptr %48, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %324
   %326 = zext nneg i32 %109 to i64
-  %327 = getelementptr inbounds nuw double, ptr %48, i64 %326
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %326
   call void @dorbdb1_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %319, ptr noundef nonnull %321, ptr noundef nonnull %323, ptr noundef nonnull %325, ptr noundef nonnull %327, ptr noundef nonnull %28, ptr noundef nonnull %26) #4
   %.not1275 = icmp eq i32 %50, 0
   br i1 %.not1275, label %332, label %328
@@ -658,16 +658,16 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %348 = sext i32 %45 to i64
   %349 = add nuw i32 %345, 1
   %wide.trip.count1406 = zext i32 %349 to i64
-  %invariant.gep1484 = getelementptr double, ptr %47, i64 %348
+  %invariant.gep1484 = getelementptr [8 x i8], ptr %47, i64 %348
   br label %.lr.ph1349
 
 .lr.ph1349:                                       ; preds = %.lr.ph1349.preheader, %.lr.ph1349
   %indvars.iv1403 = phi i64 [ 2, %.lr.ph1349.preheader ], [ %indvars.iv.next1404, %.lr.ph1349 ]
   %350 = mul nsw i64 %indvars.iv1403, %348
-  %351 = getelementptr double, ptr %47, i64 %350
+  %351 = getelementptr [8 x i8], ptr %47, i64 %350
   %352 = getelementptr i8, ptr %351, i64 8
   store double 0.000000e+00, ptr %352, align 8, !tbaa !7
-  %gep1485 = getelementptr double, ptr %invariant.gep1484, i64 %indvars.iv1403
+  %gep1485 = getelementptr [8 x i8], ptr %invariant.gep1484, i64 %indvars.iv1403
   store double 0.000000e+00, ptr %gep1485, align 8, !tbaa !7
   %indvars.iv.next1404 = add nuw nsw i64 %indvars.iv1403, 1
   %exitcond1407.not = icmp eq i64 %indvars.iv.next1404, %wide.trip.count1406
@@ -679,11 +679,11 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %353, ptr %23, align 4, !tbaa !3
   %354 = shl i32 %36, 1
   %355 = sext i32 %354 to i64
-  %356 = getelementptr double, ptr %38, i64 %355
+  %356 = getelementptr [8 x i8], ptr %38, i64 %355
   %357 = getelementptr i8, ptr %356, i64 8
   %358 = shl i32 %45, 1
   %359 = sext i32 %358 to i64
-  %360 = getelementptr double, ptr %47, i64 %359
+  %360 = getelementptr [8 x i8], ptr %47, i64 %359
   %361 = getelementptr i8, ptr %360, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %357, ptr noundef nonnull %9, ptr noundef %361, ptr noundef nonnull %16) #4
   %362 = load i32, ptr %5, align 4, !tbaa !3
@@ -696,21 +696,21 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 364:                                              ; preds = %._crit_edge1350, %344, %343
   %365 = zext nneg i32 %95 to i64
-  %366 = getelementptr inbounds nuw double, ptr %48, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %365
   %367 = sext i32 %98 to i64
-  %368 = getelementptr inbounds double, ptr %48, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %48, i64 %367
   %369 = sext i32 %99 to i64
-  %370 = getelementptr inbounds double, ptr %48, i64 %369
+  %370 = getelementptr inbounds [8 x i8], ptr %48, i64 %369
   %371 = sext i32 %100 to i64
-  %372 = getelementptr inbounds double, ptr %48, i64 %371
+  %372 = getelementptr inbounds [8 x i8], ptr %48, i64 %371
   %373 = sext i32 %101 to i64
-  %374 = getelementptr inbounds double, ptr %48, i64 %373
+  %374 = getelementptr inbounds [8 x i8], ptr %48, i64 %373
   %375 = sext i32 %102 to i64
-  %376 = getelementptr inbounds double, ptr %48, i64 %375
+  %376 = getelementptr inbounds [8 x i8], ptr %48, i64 %375
   %377 = sext i32 %103 to i64
-  %378 = getelementptr inbounds double, ptr %48, i64 %377
+  %378 = getelementptr inbounds [8 x i8], ptr %48, i64 %377
   %379 = sext i32 %104 to i64
-  %380 = getelementptr inbounds double, ptr %48, i64 %379
+  %380 = getelementptr inbounds [8 x i8], ptr %48, i64 %379
   call void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %10, ptr noundef nonnull %319, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %32, ptr noundef nonnull @c__1, ptr noundef nonnull %321, ptr noundef nonnull %366, ptr noundef nonnull %368, ptr noundef nonnull %370, ptr noundef nonnull %372, ptr noundef nonnull %374, ptr noundef nonnull %376, ptr noundef nonnull %378, ptr noundef nonnull %380, ptr noundef nonnull %27, ptr noundef nonnull %26) #4
   %381 = load i32, ptr %5, align 4, !tbaa !3
   %382 = icmp sgt i32 %381, 0
@@ -731,7 +731,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %.neg1302 = add i32 %386, %389
   %390 = add i32 %387, %388
   %391 = sub i32 %.neg1302, %390
-  %392 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv1408
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv1408
   store i32 %391, ptr %392, align 4, !tbaa !3
   %indvars.iv.next1409 = add nuw nsw i64 %indvars.iv1408, 1
   %exitcond1412.not = icmp eq i64 %indvars.iv.next1409, %wide.trip.count1411
@@ -756,7 +756,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %400 = load i32, ptr %5, align 4, !tbaa !3
   %401 = trunc nsw i64 %indvars.iv.next1414 to i32
   %402 = sub nsw i32 %401, %400
-  %403 = getelementptr i32, ptr %19, i64 %indvars.iv1413
+  %403 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv1413
   store i32 %402, ptr %403, align 4, !tbaa !3
   %.not1282.not = icmp slt i64 %indvars.iv.next1414, %399
   br i1 %.not1282.not, label %.lr.ph1355, label %._crit_edge1356.loopexit, !llvm.loop !12
@@ -782,13 +782,13 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 407:                                              ; preds = %404
   %408 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %409 = zext nneg i32 %93 to i64
-  %410 = getelementptr inbounds nuw double, ptr %48, i64 %409
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %409
   %411 = zext nneg i32 %105 to i64
-  %412 = getelementptr inbounds nuw double, ptr %48, i64 %411
+  %412 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %411
   %413 = zext nneg i32 %107 to i64
-  %414 = getelementptr inbounds nuw double, ptr %48, i64 %413
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %413
   %415 = zext nneg i32 %109 to i64
-  %416 = getelementptr inbounds nuw double, ptr %48, i64 %415
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %415
   call void @dorbdb2_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %408, ptr noundef nonnull %410, ptr noundef nonnull %412, ptr noundef nonnull %414, ptr noundef nonnull %416, ptr noundef nonnull %28, ptr noundef nonnull %26) #4
   %.not1269 = icmp eq i32 %50, 0
   br i1 %.not1269, label %436, label %417
@@ -807,16 +807,16 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %421 = sext i32 %39 to i64
   %422 = add nuw i32 %418, 1
   %wide.trip.count1393 = zext i32 %422 to i64
-  %invariant.gep1482 = getelementptr double, ptr %41, i64 %421
+  %invariant.gep1482 = getelementptr [8 x i8], ptr %41, i64 %421
   br label %.lr.ph1338
 
 .lr.ph1338:                                       ; preds = %.lr.ph1338.preheader, %.lr.ph1338
   %indvars.iv1390 = phi i64 [ 2, %.lr.ph1338.preheader ], [ %indvars.iv.next1391, %.lr.ph1338 ]
   %423 = mul nsw i64 %indvars.iv1390, %421
-  %424 = getelementptr double, ptr %41, i64 %423
+  %424 = getelementptr [8 x i8], ptr %41, i64 %423
   %425 = getelementptr i8, ptr %424, i64 8
   store double 0.000000e+00, ptr %425, align 8, !tbaa !7
-  %gep1483 = getelementptr double, ptr %invariant.gep1482, i64 %indvars.iv1390
+  %gep1483 = getelementptr [8 x i8], ptr %invariant.gep1482, i64 %indvars.iv1390
   store double 0.000000e+00, ptr %gep1483, align 8, !tbaa !7
   %indvars.iv.next1391 = add nuw nsw i64 %indvars.iv1390, 1
   %exitcond1394.not = icmp eq i64 %indvars.iv.next1391, %wide.trip.count1393
@@ -827,11 +827,11 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %426, ptr %22, align 4, !tbaa !3
   store i32 %426, ptr %23, align 4, !tbaa !3
   %427 = sext i32 %33 to i64
-  %428 = getelementptr double, ptr %35, i64 %427
+  %428 = getelementptr [8 x i8], ptr %35, i64 %427
   %429 = getelementptr i8, ptr %428, i64 16
   %430 = shl i32 %39, 1
   %431 = sext i32 %430 to i64
-  %432 = getelementptr double, ptr %41, i64 %431
+  %432 = getelementptr [8 x i8], ptr %41, i64 %431
   %433 = getelementptr i8, ptr %432, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %429, ptr noundef nonnull %7, ptr noundef %433, ptr noundef nonnull %12) #4
   %434 = load i32, ptr %4, align 4, !tbaa !3
@@ -880,21 +880,21 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 452:                                              ; preds = %451, %448, %447
   %453 = zext nneg i32 %95 to i64
-  %454 = getelementptr inbounds nuw double, ptr %48, i64 %453
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %453
   %455 = sext i32 %98 to i64
-  %456 = getelementptr inbounds double, ptr %48, i64 %455
+  %456 = getelementptr inbounds [8 x i8], ptr %48, i64 %455
   %457 = sext i32 %99 to i64
-  %458 = getelementptr inbounds double, ptr %48, i64 %457
+  %458 = getelementptr inbounds [8 x i8], ptr %48, i64 %457
   %459 = sext i32 %100 to i64
-  %460 = getelementptr inbounds double, ptr %48, i64 %459
+  %460 = getelementptr inbounds [8 x i8], ptr %48, i64 %459
   %461 = sext i32 %101 to i64
-  %462 = getelementptr inbounds double, ptr %48, i64 %461
+  %462 = getelementptr inbounds [8 x i8], ptr %48, i64 %461
   %463 = sext i32 %102 to i64
-  %464 = getelementptr inbounds double, ptr %48, i64 %463
+  %464 = getelementptr inbounds [8 x i8], ptr %48, i64 %463
   %465 = sext i32 %103 to i64
-  %466 = getelementptr inbounds double, ptr %48, i64 %465
+  %466 = getelementptr inbounds [8 x i8], ptr %48, i64 %465
   %467 = sext i32 %104 to i64
-  %468 = getelementptr inbounds double, ptr %48, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr %48, i64 %467
   call void @dbbcsd_(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %10, ptr noundef nonnull %408, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %32, ptr noundef nonnull @c__1, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %410, ptr noundef nonnull %454, ptr noundef nonnull %456, ptr noundef nonnull %458, ptr noundef nonnull %460, ptr noundef nonnull %462, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %27, ptr noundef nonnull %26) #4
   %469 = load i32, ptr %5, align 4, !tbaa !3
   %470 = icmp sgt i32 %469, 0
@@ -915,7 +915,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %.neg1299 = add i32 %474, %477
   %478 = add i32 %475, %476
   %479 = sub i32 %.neg1299, %478
-  %480 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv1395
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv1395
   store i32 %479, ptr %480, align 4, !tbaa !3
   %indvars.iv.next1396 = add nuw nsw i64 %indvars.iv1395, 1
   %exitcond1399.not = icmp eq i64 %indvars.iv.next1396, %wide.trip.count1398
@@ -940,7 +940,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %488 = load i32, ptr %5, align 4, !tbaa !3
   %489 = trunc nsw i64 %indvars.iv.next1401 to i32
   %490 = sub nsw i32 %489, %488
-  %491 = getelementptr i32, ptr %19, i64 %indvars.iv1400
+  %491 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv1400
   store i32 %490, ptr %491, align 4, !tbaa !3
   %.not1273.not = icmp slt i64 %indvars.iv.next1401, %487
   br i1 %.not1273.not, label %.lr.ph1344, label %._crit_edge1345.loopexit, !llvm.loop !15
@@ -967,13 +967,13 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 496:                                              ; preds = %492
   %497 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %498 = zext nneg i32 %93 to i64
-  %499 = getelementptr inbounds nuw double, ptr %48, i64 %498
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %498
   %500 = zext nneg i32 %105 to i64
-  %501 = getelementptr inbounds nuw double, ptr %48, i64 %500
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %500
   %502 = zext nneg i32 %107 to i64
-  %503 = getelementptr inbounds nuw double, ptr %48, i64 %502
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %502
   %504 = zext nneg i32 %109 to i64
-  %505 = getelementptr inbounds nuw double, ptr %48, i64 %504
+  %505 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %504
   call void @dorbdb3_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %497, ptr noundef nonnull %499, ptr noundef nonnull %501, ptr noundef nonnull %503, ptr noundef nonnull %505, ptr noundef nonnull %28, ptr noundef nonnull %26) #4
   %.not1263 = icmp eq i32 %50, 0
   br i1 %.not1263, label %510, label %506
@@ -1009,16 +1009,16 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %518 = add i32 %512, 1
   %519 = sub i32 %518, %513
   %wide.trip.count1378 = zext i32 %519 to i64
-  %invariant.gep = getelementptr double, ptr %44, i64 %517
+  %invariant.gep = getelementptr [8 x i8], ptr %44, i64 %517
   br label %.lr.ph1323
 
 .lr.ph1323:                                       ; preds = %.lr.ph1323.preheader, %.lr.ph1323
   %indvars.iv1375 = phi i64 [ 2, %.lr.ph1323.preheader ], [ %indvars.iv.next1376, %.lr.ph1323 ]
   %520 = mul nsw i64 %indvars.iv1375, %517
-  %521 = getelementptr double, ptr %44, i64 %520
+  %521 = getelementptr [8 x i8], ptr %44, i64 %520
   %522 = getelementptr i8, ptr %521, i64 8
   store double 0.000000e+00, ptr %522, align 8, !tbaa !7
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv1375
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv1375
   store double 0.000000e+00, ptr %gep, align 8, !tbaa !7
   %indvars.iv.next1376 = add nuw nsw i64 %indvars.iv1375, 1
   %exitcond1379.not = icmp eq i64 %indvars.iv.next1376, %wide.trip.count1378
@@ -1030,11 +1030,11 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %524, ptr %22, align 4, !tbaa !3
   store i32 %524, ptr %23, align 4, !tbaa !3
   %525 = sext i32 %36 to i64
-  %526 = getelementptr double, ptr %38, i64 %525
+  %526 = getelementptr [8 x i8], ptr %38, i64 %525
   %527 = getelementptr i8, ptr %526, i64 16
   %528 = shl i32 %42, 1
   %529 = sext i32 %528 to i64
-  %530 = getelementptr double, ptr %44, i64 %529
+  %530 = getelementptr [8 x i8], ptr %44, i64 %529
   %531 = getelementptr i8, ptr %530, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %527, ptr noundef nonnull %9, ptr noundef %531, ptr noundef nonnull %14) #4
   %532 = load i32, ptr %3, align 4, !tbaa !3
@@ -1073,21 +1073,21 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %547 = sub nsw i32 %544, %546
   store i32 %547, ptr %23, align 4, !tbaa !3
   %548 = zext nneg i32 %95 to i64
-  %549 = getelementptr inbounds nuw double, ptr %48, i64 %548
+  %549 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %548
   %550 = sext i32 %98 to i64
-  %551 = getelementptr inbounds double, ptr %48, i64 %550
+  %551 = getelementptr inbounds [8 x i8], ptr %48, i64 %550
   %552 = sext i32 %99 to i64
-  %553 = getelementptr inbounds double, ptr %48, i64 %552
+  %553 = getelementptr inbounds [8 x i8], ptr %48, i64 %552
   %554 = sext i32 %100 to i64
-  %555 = getelementptr inbounds double, ptr %48, i64 %554
+  %555 = getelementptr inbounds [8 x i8], ptr %48, i64 %554
   %556 = sext i32 %101 to i64
-  %557 = getelementptr inbounds double, ptr %48, i64 %556
+  %557 = getelementptr inbounds [8 x i8], ptr %48, i64 %556
   %558 = sext i32 %102 to i64
-  %559 = getelementptr inbounds double, ptr %48, i64 %558
+  %559 = getelementptr inbounds [8 x i8], ptr %48, i64 %558
   %560 = sext i32 %103 to i64
-  %561 = getelementptr inbounds double, ptr %48, i64 %560
+  %561 = getelementptr inbounds [8 x i8], ptr %48, i64 %560
   %562 = sext i32 %104 to i64
-  %563 = getelementptr inbounds double, ptr %48, i64 %562
+  %563 = getelementptr inbounds [8 x i8], ptr %48, i64 %562
   call void @dbbcsd_(ptr noundef nonnull @.str.1, ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %10, ptr noundef nonnull %497, ptr noundef nonnull %32, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull %16, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %499, ptr noundef nonnull %549, ptr noundef nonnull %551, ptr noundef nonnull %553, ptr noundef nonnull %555, ptr noundef nonnull %557, ptr noundef nonnull %559, ptr noundef nonnull %561, ptr noundef nonnull %563, ptr noundef nonnull %27, ptr noundef nonnull %26) #4
   %564 = load i32, ptr %5, align 4, !tbaa !3
   %565 = load i32, ptr %25, align 4, !tbaa !3
@@ -1109,7 +1109,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %571 = trunc i64 %indvars.iv1380 to i32
   %572 = sub i32 %571, %565
   %573 = add i32 %572, %570
-  %574 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv1380
+  %574 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv1380
   store i32 %573, ptr %574, align 4, !tbaa !3
   %indvars.iv.next1381 = add nuw nsw i64 %indvars.iv1380, 1
   %exitcond1384.not = icmp eq i64 %indvars.iv.next1381, %wide.trip.count1383
@@ -1133,7 +1133,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 .lr.ph1333:                                       ; preds = %.lr.ph1333.preheader, %.lr.ph1333
   %indvars.iv1385 = phi i64 [ %576, %.lr.ph1333.preheader ], [ %indvars.iv.next1386, %.lr.ph1333 ]
   %indvars.iv.next1386 = add nsw i64 %indvars.iv1385, 1
-  %577 = getelementptr i32, ptr %19, i64 %indvars.iv1385
+  %577 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv1385
   %578 = trunc i64 %indvars.iv.next1386 to i32
   %579 = sub i32 %578, %565
   store i32 %579, ptr %577, align 4, !tbaa !3
@@ -1159,16 +1159,16 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %584, ptr %22, align 4, !tbaa !3
   %585 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %586 = zext nneg i32 %93 to i64
-  %587 = getelementptr inbounds nuw double, ptr %48, i64 %586
+  %587 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %586
   %588 = zext nneg i32 %105 to i64
-  %589 = getelementptr inbounds nuw double, ptr %48, i64 %588
+  %589 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %588
   %590 = zext nneg i32 %107 to i64
-  %591 = getelementptr inbounds nuw double, ptr %48, i64 %590
+  %591 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %590
   %592 = zext nneg i32 %109 to i64
-  %593 = getelementptr inbounds nuw double, ptr %48, i64 %592
+  %593 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %592
   %594 = add nsw i32 %493, %109
   %595 = sext i32 %594 to i64
-  %596 = getelementptr inbounds double, ptr %48, i64 %595
+  %596 = getelementptr inbounds [8 x i8], ptr %48, i64 %595
   call void @dorbdb4_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %585, ptr noundef nonnull %587, ptr noundef nonnull %589, ptr noundef nonnull %591, ptr noundef nonnull %593, ptr noundef nonnull %596, ptr noundef nonnull %22, ptr noundef nonnull %26) #4
   %.not1255 = icmp eq i32 %50, 0
   br i1 %.not1255, label %622, label %597
@@ -1193,7 +1193,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %604 = mul nsw i64 %indvars.iv, %602
-  %605 = getelementptr double, ptr %41, i64 %604
+  %605 = getelementptr [8 x i8], ptr %41, i64 %604
   %606 = getelementptr i8, ptr %605, i64 8
   store double 0.000000e+00, ptr %606, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1209,11 +1209,11 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %611 = add i32 %608, %610
   store i32 %611, ptr %23, align 4, !tbaa !3
   %612 = sext i32 %33 to i64
-  %613 = getelementptr double, ptr %35, i64 %612
+  %613 = getelementptr [8 x i8], ptr %35, i64 %612
   %614 = getelementptr i8, ptr %613, i64 16
   %615 = shl i32 %39, 1
   %616 = sext i32 %615 to i64
-  %617 = getelementptr double, ptr %41, i64 %616
+  %617 = getelementptr [8 x i8], ptr %41, i64 %616
   %618 = getelementptr i8, ptr %617, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %614, ptr noundef nonnull %7, ptr noundef %618, ptr noundef nonnull %12) #4
   %619 = load i32, ptr %3, align 4, !tbaa !3
@@ -1238,7 +1238,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %626, ptr %22, align 4, !tbaa !3
   %629 = add nsw i32 %625, %109
   %630 = sext i32 %629 to i64
-  %631 = getelementptr inbounds double, ptr %48, i64 %630
+  %631 = getelementptr inbounds [8 x i8], ptr %48, i64 %630
   call void @dcopy_(ptr noundef nonnull %22, ptr noundef nonnull %631, ptr noundef nonnull @c__1, ptr noundef %13, ptr noundef nonnull @c__1) #4
   %632 = load i32, ptr %3, align 4, !tbaa !3
   %633 = load i32, ptr %4, align 4, !tbaa !3
@@ -1256,7 +1256,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 .lr.ph1308:                                       ; preds = %.lr.ph1308.preheader, %.lr.ph1308
   %indvars.iv1360 = phi i64 [ 2, %.lr.ph1308.preheader ], [ %indvars.iv.next1361, %.lr.ph1308 ]
   %638 = mul nsw i64 %indvars.iv1360, %635
-  %639 = getelementptr double, ptr %44, i64 %638
+  %639 = getelementptr [8 x i8], ptr %44, i64 %638
   %640 = getelementptr i8, ptr %639, i64 8
   store double 0.000000e+00, ptr %640, align 8, !tbaa !7
   %indvars.iv.next1361 = add nuw nsw i64 %indvars.iv1360, 1
@@ -1272,11 +1272,11 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %645 = add i32 %632, %644
   store i32 %645, ptr %23, align 4, !tbaa !3
   %646 = sext i32 %36 to i64
-  %647 = getelementptr double, ptr %38, i64 %646
+  %647 = getelementptr [8 x i8], ptr %38, i64 %646
   %648 = getelementptr i8, ptr %647, i64 16
   %649 = shl i32 %42, 1
   %650 = sext i32 %649 to i64
-  %651 = getelementptr double, ptr %44, i64 %650
+  %651 = getelementptr [8 x i8], ptr %44, i64 %650
   %652 = getelementptr i8, ptr %651, i64 16
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %648, ptr noundef nonnull %9, ptr noundef %652, ptr noundef nonnull %14) #4
   %653 = load i32, ptr %3, align 4, !tbaa !3
@@ -1315,11 +1315,11 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %670 = add i32 %33, 1
   %671 = mul i32 %669, %670
   %672 = sext i32 %671 to i64
-  %673 = getelementptr inbounds double, ptr %35, i64 %672
+  %673 = getelementptr inbounds [8 x i8], ptr %35, i64 %672
   %674 = add i32 %45, 1
   %675 = mul i32 %669, %674
   %676 = sext i32 %675 to i64
-  %677 = getelementptr inbounds double, ptr %47, i64 %676
+  %677 = getelementptr inbounds [8 x i8], ptr %47, i64 %676
   call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %673, ptr noundef nonnull %7, ptr noundef %677, ptr noundef nonnull %16) #4
   %678 = load i32, ptr %4, align 4, !tbaa !3
   %679 = load i32, ptr %5, align 4, !tbaa !3
@@ -1333,10 +1333,10 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %684 = add i32 %reass.sub1358, 1
   %685 = add i32 %684, %681
   %686 = sext i32 %685 to i64
-  %687 = getelementptr inbounds double, ptr %38, i64 %686
+  %687 = getelementptr inbounds [8 x i8], ptr %38, i64 %686
   %688 = mul i32 %682, %674
   %689 = sext i32 %688 to i64
-  %690 = getelementptr inbounds double, ptr %47, i64 %689
+  %690 = getelementptr inbounds [8 x i8], ptr %47, i64 %689
   call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %687, ptr noundef nonnull %9, ptr noundef %690, ptr noundef nonnull %16) #4
   call void @dorglq_(ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %591, ptr noundef nonnull %593, ptr noundef nonnull %29, ptr noundef nonnull %26) #4
   %.pre1419 = load i32, ptr %5, align 4, !tbaa !3
@@ -1351,21 +1351,21 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %696 = sub nsw i32 %693, %692
   store i32 %696, ptr %23, align 4, !tbaa !3
   %697 = zext nneg i32 %95 to i64
-  %698 = getelementptr inbounds nuw double, ptr %48, i64 %697
+  %698 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %697
   %699 = sext i32 %98 to i64
-  %700 = getelementptr inbounds double, ptr %48, i64 %699
+  %700 = getelementptr inbounds [8 x i8], ptr %48, i64 %699
   %701 = sext i32 %99 to i64
-  %702 = getelementptr inbounds double, ptr %48, i64 %701
+  %702 = getelementptr inbounds [8 x i8], ptr %48, i64 %701
   %703 = sext i32 %100 to i64
-  %704 = getelementptr inbounds double, ptr %48, i64 %703
+  %704 = getelementptr inbounds [8 x i8], ptr %48, i64 %703
   %705 = sext i32 %101 to i64
-  %706 = getelementptr inbounds double, ptr %48, i64 %705
+  %706 = getelementptr inbounds [8 x i8], ptr %48, i64 %705
   %707 = sext i32 %102 to i64
-  %708 = getelementptr inbounds double, ptr %48, i64 %707
+  %708 = getelementptr inbounds [8 x i8], ptr %48, i64 %707
   %709 = sext i32 %103 to i64
-  %710 = getelementptr inbounds double, ptr %48, i64 %709
+  %710 = getelementptr inbounds [8 x i8], ptr %48, i64 %709
   %711 = sext i32 %104 to i64
-  %712 = getelementptr inbounds double, ptr %48, i64 %711
+  %712 = getelementptr inbounds [8 x i8], ptr %48, i64 %711
   call void @dbbcsd_(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %10, ptr noundef nonnull %585, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %11, ptr noundef nonnull %12, ptr noundef nonnull %32, ptr noundef nonnull @c__1, ptr noundef %15, ptr noundef nonnull %16, ptr noundef nonnull %587, ptr noundef nonnull %698, ptr noundef nonnull %700, ptr noundef nonnull %702, ptr noundef nonnull %704, ptr noundef nonnull %706, ptr noundef nonnull %708, ptr noundef nonnull %710, ptr noundef nonnull %712, ptr noundef nonnull %27, ptr noundef nonnull %26) #4
   %713 = load i32, ptr %4, align 4, !tbaa !3
   %714 = load i32, ptr %25, align 4, !tbaa !3
@@ -1387,7 +1387,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %720 = trunc i64 %indvars.iv1365 to i32
   %721 = sub i32 %720, %714
   %722 = add i32 %721, %719
-  %723 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv1365
+  %723 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv1365
   store i32 %722, ptr %723, align 4, !tbaa !3
   %indvars.iv.next1366 = add nuw nsw i64 %indvars.iv1365, 1
   %exitcond1369.not = icmp eq i64 %indvars.iv.next1366, %wide.trip.count1368
@@ -1411,7 +1411,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 .lr.ph1318:                                       ; preds = %.lr.ph1318.preheader, %.lr.ph1318
   %indvars.iv1370 = phi i64 [ %725, %.lr.ph1318.preheader ], [ %indvars.iv.next1371, %.lr.ph1318 ]
   %indvars.iv.next1371 = add nsw i64 %indvars.iv1370, 1
-  %726 = getelementptr i32, ptr %19, i64 %indvars.iv1370
+  %726 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv1370
   %727 = trunc i64 %indvars.iv.next1371 to i32
   %728 = sub i32 %727, %714
   store i32 %728, ptr %726, align 4, !tbaa !3

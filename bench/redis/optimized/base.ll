@@ -24,8 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.witness_list_t = type { ptr }
 %struct.ehooks_s = type { i32, %struct.atomic_p_t }
 %struct.atomic_p_t = type { ptr }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
 
 @je_opt_metadata_thp = hidden local_unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"disabled\00", align 1
@@ -130,7 +128,7 @@ define hidden noundef ptr @je_base_new(ptr noundef %0, i32 noundef %1, ptr nound
 
 50:                                               ; preds = %31, %50
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %38, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   call void @je_edata_heap_new(ptr noundef nonnull %51) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 235
@@ -187,7 +185,7 @@ sz_psz2u.exit:                                    ; preds = %7, %20
   %37 = icmp ult i32 %36, 198
   %spec.select = select i1 %37, i32 %36, i32 %35
   %38 = zext i32 %spec.select to i64
-  %39 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !11
   %41 = add i64 %40, 2097151
   %42 = tail call i64 @llvm.umax.i64(i64 %.0.i53, i64 %41)
@@ -880,7 +878,7 @@ sz_size2index.exit:                               ; preds = %18, %16, %10
   %29 = add nuw nsw i64 %.0.i, 4294967295
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = and i64 %29, 4294967295
-  %32 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   tail call void @je_edata_heap_insert(ptr noundef nonnull %32, ptr noundef nonnull %1) #9
   br label %33
 
@@ -1070,7 +1068,7 @@ sz_size2index.exit:                               ; preds = %37, %30
 
 55:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ %53, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %56 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %52, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %indvars.iv
   %57 = tail call ptr @je_edata_heap_remove_first(ptr noundef nonnull %56) #9
   %.not = icmp eq ptr %57, null
   br i1 %.not, label %54, label %.loopexit

@@ -155,7 +155,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %30 = phi i8 [ %26, %.lr.ph ], [ %45, %43 ]
   %31 = sext i8 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %28, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %28, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !18
   %34 = and i16 %33, 2048
   %.not105 = icmp eq i16 %34, 0

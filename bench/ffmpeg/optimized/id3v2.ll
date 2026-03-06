@@ -718,7 +718,7 @@ check_tag.exit:                                   ; preds = %.preheader.i57, %17
   br i1 %.not14.us23.i, label %get_extra_meta_func.exit.thread, label %.lr.ph.i55
 
 237:                                              ; preds = %.lr.ph.i55
-  %238 = getelementptr inbounds nuw %struct.ID3v2EMFunc, ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.next31.i
+  %238 = getelementptr inbounds nuw [32 x i8], ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.next31.i
   %239 = load ptr, ptr %238, align 16, !tbaa !20
   %bcmp.us.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %17, ptr noundef nonnull dereferenceable(3) %239, i64 3)
   %.not14.us.i = icmp eq i32 %bcmp.us.i, 0
@@ -735,7 +735,7 @@ check_tag.exit:                                   ; preds = %.preheader.i57, %17
 
 .split.split.i:                                   ; preds = %236, %243
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %243 ], [ 0, %236 ]
-  %240 = getelementptr inbounds nuw %struct.ID3v2EMFunc, ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.i
+  %240 = getelementptr inbounds nuw [32 x i8], ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.i
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8, !tbaa !23
   %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %17, ptr noundef nonnull dereferenceable(4) %242, i64 4)
@@ -1356,7 +1356,7 @@ define void @ff_id3v2_free_extra_meta(ptr noundef captures(none) %0) local_unnam
 
 .split.split.i:                                   ; preds = %.lr.ph, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %struct.ID3v2EMFunc, ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [32 x i8], ptr @id3v2_extra_meta_funcs, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %7, i64 4)
@@ -1421,7 +1421,7 @@ define range(i32 -2147483648, 1) i32 @ff_id3v2_parse_apic(ptr noundef %0, ptr no
   %14 = load i32, ptr %4, align 4, !tbaa !53
   %15 = add i32 %14, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %.02230, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !56
@@ -1724,7 +1724,7 @@ define internal fastcc void @read_ttag(ptr noundef %0, ptr noundef %1, i32 nound
   call void @av_freep(ptr noundef nonnull %8) #9
   %33 = load i32, ptr %9, align 4, !tbaa !12
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @ff_id3v1_genre_str, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ff_id3v1_genre_str, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = call noalias ptr @av_strdup(ptr noundef %36) #9
   store ptr %37, ptr %8, align 8, !tbaa !10
@@ -2308,7 +2308,7 @@ define internal void @read_apic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 48:                                               ; preds = %._crit_edge, %47
   %.046 = phi i32 [ 0, %47 ], [ %44, %._crit_edge ]
   %49 = zext nneg i32 %.046 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @ff_id3v2_picture_types, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @ff_id3v2_picture_types, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !10
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %51, ptr %52, align 8, !tbaa !70

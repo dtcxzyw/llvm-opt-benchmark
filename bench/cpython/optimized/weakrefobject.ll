@@ -3532,7 +3532,7 @@ clear_weakref_lock_held.exit94:                   ; preds = %.preheader116.split
   br label %176
 
 176:                                              ; preds = %172, %174
-  %177 = getelementptr ptr, ptr %94, i64 %.041118157
+  %177 = getelementptr [8 x i8], ptr %94, i64 %.041118157
   store ptr %137, ptr %177, align 8, !tbaa !45
   %178 = getelementptr i8, ptr %177, i64 8
   store ptr %171, ptr %178, align 8, !tbaa !45
@@ -3587,7 +3587,7 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %188, 
 
 .lr.ph:                                           ; preds = %.preheader, %handle_callback.exit
   %.040119 = phi i64 [ %206, %handle_callback.exit ], [ 0, %.preheader ]
-  %192 = getelementptr ptr, ptr %94, i64 %.040119
+  %192 = getelementptr [8 x i8], ptr %94, i64 %.040119
   %193 = getelementptr i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !45
   %.not53 = icmp eq ptr %194, null

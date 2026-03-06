@@ -15206,7 +15206,7 @@ _ZSt8_DestroyIPN7testing7MatcherIN4absl4TimeEEES4_EvT_S6_RSaIT0_E.exit: ; preds 
 _ZNSt12_Vector_baseIN7testing7MatcherIN4absl4TimeEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIN4absl4TimeEEES4_EvT_S6_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !215
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !211
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.28", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !214
   ret void
 }
@@ -15557,7 +15557,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIN4ab
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.45, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !215
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.28", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -15626,7 +15626,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIN4ab
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.46, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !215
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.28", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -17501,7 +17501,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !256
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !259
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.0", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !260
   ret void
 }
@@ -18108,7 +18108,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.45, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !256
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.0", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -18177,7 +18177,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.46, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !256
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.0", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9

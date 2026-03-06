@@ -188,7 +188,7 @@ _cmsReadUInt16Number.exit.thread:                 ; preds = %.lr.ph.split
   br label %.loopexit
 
 _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
-  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %13 = load i16, ptr %5, align 2
   %.sroa.0.0.insert.insert.i.i = call noundef i16 @llvm.bswap.i16(i16 %13)
   store i16 %.sroa.0.0.insert.insert.i.i, ptr %12, align 2
@@ -438,7 +438,7 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noun
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.insert.insert.i.i = call noundef i16 @llvm.bswap.i16(i16 %9)
@@ -1116,13 +1116,13 @@ _cmsGetContext.exit:                              ; preds = %6, %.sink.split.i
   %.08.i = phi ptr [ @globalContext, %6 ], [ %.08.ph.i, %.sink.split.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %18, label %21
 
 18:                                               ; preds = %_cmsGetContext.exit
-  %19 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), i64 %15
+  %19 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @globalContext, i64 16), i64 %15
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -1556,7 +1556,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 
 49:                                               ; preds = %46, %48
   %indvars.iv = phi i64 [ 1, %46 ], [ %indvars.iv.next, %48 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %48

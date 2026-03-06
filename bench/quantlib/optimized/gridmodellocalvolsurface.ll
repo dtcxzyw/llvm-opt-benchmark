@@ -41,7 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.boost::shared_ptr.46" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::PositiveConstraint" = type { %"class.QuantLib::Constraint" }
 %"class.QuantLib::Date" = type { i64 }
-%"class.boost::shared_ptr.44" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.47" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.48" = type { ptr, %"class.boost::detail::shared_count" }
 
@@ -999,7 +998,7 @@ lpad18:                                           ; preds = %_ZNSt16allocator_tr
 do.body:                                          ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit, %for.cond
   %47 = phi ptr [ %40, %for.cond ], [ %38, %_ZN8QuantLib10DayCounterC2ERKS0_.exit ]
   %i.0166 = phi i64 [ %inc, %for.cond ], [ 1, %_ZN8QuantLib10DayCounterC2ERKS0_.exit ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.44", ptr %47, i64 %i.0166
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %i.0166
   %48 = load ptr, ptr %add.ptr.i, align 8, !tbaa !54
   %cmp.not.i58 = icmp eq ptr %48, null
   br i1 %cmp.not.i58, label %cond.false.i59, label %invoke.cont25, !prof !56
@@ -1381,7 +1380,7 @@ ehcleanup83:                                      ; preds = %ehcleanup82, %lpad7
 for.body90:                                       ; preds = %_ZN8QuantLib10ConstraintD2Ev.exit, %invoke.cont99
   %103 = phi ptr [ %106, %invoke.cont99 ], [ %99, %_ZN8QuantLib10ConstraintD2Ev.exit ]
   %i85.0172 = phi i64 [ %inc106, %invoke.cont99 ], [ 0, %_ZN8QuantLib10ConstraintD2Ev.exit ]
-  %add.ptr.i136 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %103, i64 %i85.0172
+  %add.ptr.i136 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %i85.0172
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp93)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93)
           to label %invoke.cont95 unwind label %lpad94
@@ -1397,7 +1396,7 @@ invoke.cont98:                                    ; preds = %invoke.cont95
 
 invoke.cont99:                                    ; preds = %invoke.cont98
   %104 = load ptr, ptr %times_, align 8, !tbaa !59
-  %add.ptr.i137 = getelementptr inbounds nuw double, ptr %104, i64 %i85.0172
+  %add.ptr.i137 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %i85.0172
   store double %call100, ptr %add.ptr.i137, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp96)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp93)
@@ -3070,7 +3069,7 @@ lpad18:                                           ; preds = %_ZNSt16allocator_tr
 do.body:                                          ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit, %for.cond
   %43 = phi ptr [ %35, %for.cond ], [ %33, %_ZN8QuantLib10DayCounterC2ERKS0_.exit ]
   %i.0172 = phi i64 [ %inc, %for.cond ], [ 1, %_ZN8QuantLib10DayCounterC2ERKS0_.exit ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.44", ptr %43, i64 %i.0172
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %i.0172
   %44 = load ptr, ptr %add.ptr.i, align 8, !tbaa !54
   %cmp.not.i64 = icmp eq ptr %44, null
   br i1 %cmp.not.i64, label %cond.false.i65, label %invoke.cont25, !prof !56
@@ -3452,7 +3451,7 @@ ehcleanup85:                                      ; preds = %ehcleanup84, %lpad7
 for.body92:                                       ; preds = %_ZN8QuantLib10ConstraintD2Ev.exit, %invoke.cont101
   %99 = phi ptr [ %102, %invoke.cont101 ], [ %95, %_ZN8QuantLib10ConstraintD2Ev.exit ]
   %i87.0178 = phi i64 [ %inc108, %invoke.cont101 ], [ 0, %_ZN8QuantLib10ConstraintD2Ev.exit ]
-  %add.ptr.i142 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %99, i64 %i87.0178
+  %add.ptr.i142 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %i87.0178
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp95)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95)
           to label %invoke.cont97 unwind label %lpad96
@@ -3468,7 +3467,7 @@ invoke.cont100:                                   ; preds = %invoke.cont97
 
 invoke.cont101:                                   ; preds = %invoke.cont100
   %100 = load ptr, ptr %times_, align 8, !tbaa !59
-  %add.ptr.i143 = getelementptr inbounds nuw double, ptr %100, i64 %i87.0178
+  %add.ptr.i143 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %i87.0178
   store double %call102, ptr %add.ptr.i143, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp98)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp95)

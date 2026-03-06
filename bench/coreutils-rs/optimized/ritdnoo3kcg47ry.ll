@@ -1083,7 +1083,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 358:                                              ; preds = %56, %368
   %359 = phi i64 [ 0, %56 ], [ %360, %368 ]
   %360 = add nuw nsw i64 %359, 1
-  %361 = getelementptr inbounds nuw { [2 x i64] }, ptr %53, i64 %359
+  %361 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %359
   %362 = load ptr, ptr %361, align 8, !alias.scope !276, !nonnull !7, !align !31, !noundef !7
   %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
   %364 = load i64, ptr %363, align 8, !alias.scope !276, !noundef !7
@@ -1118,7 +1118,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
 
 371:                                              ; preds = %4, %380
   %372 = phi i64 [ 0, %4 ], [ %381, %380 ]
-  %373 = getelementptr inbounds nuw { [2 x i64] }, ptr %55, i64 %372
+  %373 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %372
   %374 = load ptr, ptr %373, align 8, !alias.scope !279, !nonnull !7, !align !31, !noundef !7
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %376 = load i64, ptr %375, align 8, !alias.scope !279, !noundef !7

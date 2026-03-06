@@ -91,7 +91,7 @@ define noundef ptr @_ZN6LibRaw21HassyRawFormat_idx2HREj(ptr noundef nonnull read
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @_ZL14HassyRawFormat, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL14HassyRawFormat, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16, !tbaa !8
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %3
@@ -477,7 +477,7 @@ define void @_ZN6LibRaw15parseHassyModelEv(ptr noundef nonnull align 8 dereferen
 
 127:                                              ; preds = %.preheader444, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader444 ]
-  %128 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6LibRaw15parseHassyModelEvE15Hasselblad_Ctrl, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !86
   %130 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %11, ptr noundef %129)
   %.not122 = icmp eq ptr %130, null
@@ -599,7 +599,7 @@ sub_2:                                            ; preds = %sub_1
 
 .preheader:                                       ; preds = %172, %178
   %indvars.iv407 = phi i64 [ %indvars.iv.next408, %178 ], [ 0, %172 ]
-  %179 = getelementptr inbounds nuw ptr, ptr @_ZZN6LibRaw15parseHassyModelEvE27Hasselblad_SensorEnclosures, i64 %indvars.iv407
+  %179 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6LibRaw15parseHassyModelEvE27Hasselblad_SensorEnclosures, i64 %indvars.iv407
   %180 = load ptr, ptr %179, align 8, !tbaa !86
   %181 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %11, ptr noundef %180)
   %.not129 = icmp eq ptr %181, null
@@ -1660,7 +1660,7 @@ sub_2:                                            ; preds = %sub_1
 
 588:                                              ; preds = %587, %586
   %indvars.iv.i = phi i64 [ 0, %586 ], [ %indvars.iv.next.i, %587 ]
-  %589 = getelementptr inbounds nuw %struct.anon, ptr @_ZL14HassyRawFormat, i64 %indvars.iv.i
+  %589 = getelementptr inbounds nuw [16 x i8], ptr @_ZL14HassyRawFormat, i64 %indvars.iv.i
   %590 = load i32, ptr %589, align 16, !tbaa !8
   %591 = icmp eq i32 %590, %.4
   br i1 %591, label %592, label %587

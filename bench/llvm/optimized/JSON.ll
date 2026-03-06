@@ -5,18 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::pair" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.2" }
-%"struct.std::pair.2" = type { %"class.llvm::json::ObjectKey", %"class.llvm::json::Value" }
-%"class.llvm::json::ObjectKey" = type { %"class.std::unique_ptr", %"class.llvm::StringRef" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.llvm::StringRef" = type { ptr, i64 }
-%"class.llvm::json::Value" = type { i16, [6 x i8], %"struct.llvm::AlignedCharArrayUnion" }
-%"struct.llvm::AlignedCharArrayUnion" = type { [32 x i8] }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
@@ -27,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.30" = type { %"struct.std::_Optional_payload_base.base.32", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.32" = type <{ %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage" = type { %"class.llvm::StringRef" }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::DenseMapIterator.4" = type { ptr, ptr }
 %"class.llvm::json::Array" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::json::Value, std::allocator<llvm::json::Value>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::json::Path::Segment" = type <{ i64, i32, [4 x i8] }>
 %"class.llvm::Error" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -56,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage" = type { [128 x i8] }
 %class.anon.49 = type { ptr, ptr }
 %class.anon.85 = type { ptr, ptr, ptr }
-%"struct.llvm::json::OStream::State" = type <{ i32, i8, [3 x i8] }>
 %"class.llvm::Expected" = type { %union.anon.50, i8, [7 x i8] }
 %union.anon.50 = type { %"struct.llvm::AlignedCharArrayUnion.51" }
 %"struct.llvm::AlignedCharArrayUnion.51" = type { [40 x i8] }
@@ -67,6 +54,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base.60" = type { %"struct.std::_Optional_payload_base.base.59" }
 %"struct.std::_Optional_payload_base.base.59" = type <{ %"union.std::_Optional_payload_base<llvm::Error>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::Error>::_Storage" = type { %"class.llvm::Error" }
+%"class.llvm::json::Value" = type { i16, [6 x i8], %"struct.llvm::AlignedCharArrayUnion" }
+%"struct.llvm::AlignedCharArrayUnion" = type { [32 x i8] }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.136" }
 %"class.llvm::SmallVector.136" = type { %"class.llvm::SmallVectorImpl.137", %"struct.llvm::SmallVectorStorage.141" }
 %"class.llvm::SmallVectorImpl.137" = type { %"class.llvm::SmallVectorTemplateBase.138" }
@@ -74,6 +63,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.139" = type { %"class.llvm::SmallVectorBase.140" }
 %"class.llvm::SmallVectorBase.140" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.141" = type { [24 x i8] }
+%"class.llvm::json::ObjectKey" = type { %"class.std::unique_ptr", %"class.llvm::StringRef" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
 %"class.llvm::format_object" = type { %"class.llvm::format_object_base", %"class.std::tuple.76" }
 %"class.llvm::format_object_base" = type { ptr, ptr }
 %"class.std::tuple.76" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
@@ -286,7 +282,7 @@ define dso_local noundef ptr @_ZN4llvm4json6Object3getENS_9StringRefE(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %11 = icmp eq ptr %5, %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %spec.select = select i1 %11, ptr null, ptr %12
@@ -319,7 +315,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4llvm4json6Object4findENS_9StringRef
   %.pn.i.us.us = phi i32 [ %21, %19 ], [ %9, %.split.us ]
   %.022.i.us.us = and i32 %.pn.i.us.us, %10
   %14 = zext i32 %.022.i.us.us to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.0.0.copyload.i27.i.us.us = load ptr, ptr %16, align 8, !tbaa !20
   %magicptr = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us.us to i64
@@ -351,7 +347,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us.us: ; 
   %.pn.i.us.us49 = phi i32 [ %29, %27 ], [ %9, %.split.us.split ]
   %.022.i.us.us50 = and i32 %.pn.i.us.us49, %10
   %22 = zext i32 %.022.i.us.us50 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.0.0.copyload.i27.i.us.us51 = load ptr, ptr %24, align 8, !tbaa !20
   %magicptr74 = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us.us51 to i64
@@ -380,7 +376,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us.us57: 
   %.pn.i.us = phi i32 [ %37, %35 ], [ %9, %.split.us.split ]
   %.022.i.us = and i32 %.pn.i.us, %10
   %30 = zext i32 %.022.i.us to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.0.0.copyload.i27.i.us = load ptr, ptr %32, align 8, !tbaa !20
   %switch = icmp ugt ptr %.sroa.0.0.copyload.i27.i.us, inttoptr (i64 -3 to ptr)
@@ -409,7 +405,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us: ; pre
   %.pn.i.us5 = phi i32 [ %47, %45 ], [ %9, %.split ]
   %.022.i.us6 = and i32 %.pn.i.us5, %10
   %38 = zext i32 %.022.i.us6 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.0.0.copyload.i27.i.us7 = load ptr, ptr %40, align 8, !tbaa !20
   %magicptr75 = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us7 to i64
@@ -446,7 +442,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us13: ; p
   %.pn.i.us19 = phi i32 [ %57, %55 ], [ %9, %.split.split ]
   %.022.i.us20 = and i32 %.pn.i.us19, %10
   %48 = zext i32 %.022.i.us20 to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %48
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.0.0.copyload.i27.i.us21 = load ptr, ptr %50, align 8, !tbaa !20
   %magicptr76 = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us21 to i64
@@ -480,7 +476,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us28: ; p
   %.pn.i = phi i32 [ %67, %65 ], [ %9, %.split.split ]
   %.022.i = and i32 %.pn.i, %10
   %58 = zext i32 %.022.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sroa.0.0.copyload.i27.i = load ptr, ptr %60, align 8, !tbaa !20
   %switch77 = icmp ugt ptr %.sroa.0.0.copyload.i27.i, inttoptr (i64 -3 to ptr)
@@ -518,7 +514,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapI
   %68 = load ptr, ptr %0, align 8, !tbaa !15
   %69 = load i32, ptr %5, align 8, !tbaa !18
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %68, i64 %70
   %..i = select i1 %.not.not.i, ptr %71, ptr %.0.i
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %..i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %71, 1
@@ -536,7 +532,7 @@ define dso_local noundef ptr @_ZNK4llvm4json6Object3getENS_9StringRefE(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %11 = icmp eq ptr %5, %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %spec.select = select i1 %11, ptr null, ptr %12
@@ -569,7 +565,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK4llvm4json6Object4findENS_9StringRe
   %.pn.i.us.us = phi i32 [ %21, %19 ], [ %9, %.split.us ]
   %.022.i.us.us = and i32 %.pn.i.us.us, %10
   %14 = zext i32 %.022.i.us.us to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.0.0.copyload.i27.i.us.us = load ptr, ptr %16, align 8, !tbaa !20
   %magicptr = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us.us to i64
@@ -601,7 +597,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us.us: ; 
   %.pn.i.us.us49 = phi i32 [ %29, %27 ], [ %9, %.split.us.split ]
   %.022.i.us.us50 = and i32 %.pn.i.us.us49, %10
   %22 = zext i32 %.022.i.us.us50 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.0.0.copyload.i27.i.us.us51 = load ptr, ptr %24, align 8, !tbaa !20
   %magicptr74 = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us.us51 to i64
@@ -630,7 +626,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us.us57: 
   %.pn.i.us = phi i32 [ %37, %35 ], [ %9, %.split.us.split ]
   %.022.i.us = and i32 %.pn.i.us, %10
   %30 = zext i32 %.022.i.us to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.0.0.copyload.i27.i.us = load ptr, ptr %32, align 8, !tbaa !20
   %switch = icmp ugt ptr %.sroa.0.0.copyload.i27.i.us, inttoptr (i64 -3 to ptr)
@@ -659,7 +655,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us: ; pre
   %.pn.i.us5 = phi i32 [ %47, %45 ], [ %9, %.split ]
   %.022.i.us6 = and i32 %.pn.i.us5, %10
   %38 = zext i32 %.022.i.us6 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %38
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.0.0.copyload.i27.i.us7 = load ptr, ptr %40, align 8, !tbaa !20
   %magicptr75 = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us7 to i64
@@ -696,7 +692,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us13: ; p
   %.pn.i.us19 = phi i32 [ %57, %55 ], [ %9, %.split.split ]
   %.022.i.us20 = and i32 %.pn.i.us19, %10
   %48 = zext i32 %.022.i.us20 to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %48
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.0.0.copyload.i27.i.us21 = load ptr, ptr %50, align 8, !tbaa !20
   %magicptr76 = ptrtoint ptr %.sroa.0.0.copyload.i27.i.us21 to i64
@@ -730,7 +726,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread42.i.us28: ; p
   %.pn.i = phi i32 [ %67, %65 ], [ %9, %.split.split ]
   %.022.i = and i32 %.pn.i, %10
   %58 = zext i32 %.022.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sroa.0.0.copyload.i27.i = load ptr, ptr %60, align 8, !tbaa !20
   %switch77 = icmp ugt ptr %.sroa.0.0.copyload.i27.i, inttoptr (i64 -3 to ptr)
@@ -768,7 +764,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapI
   %68 = load ptr, ptr %0, align 8, !tbaa !15
   %69 = load i32, ptr %5, align 8, !tbaa !18
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %68, i64 %70
   %..i = select i1 %.not.not.i, ptr %71, ptr %.0.i
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %..i, 0
   %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %71, 1
@@ -783,7 +779,7 @@ define dso_local void @_ZNK4llvm4json6Object7getNullENS_9StringRefE(ptr dead_on_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !18
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %10
   %12 = icmp eq ptr %6, %11
   br i1 %12, label %18, label %13
 
@@ -813,7 +809,7 @@ define dso_local range(i16 0, 258) i16 @_ZNK4llvm4json6Object10getBooleanENS_9St
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %11 = icmp eq ptr %5, %10
   br i1 %11, label %20, label %12
 
@@ -841,7 +837,7 @@ define dso_local { double, i8 } @_ZNK4llvm4json6Object9getNumberENS_9StringRefE(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %11 = icmp eq ptr %5, %10
   br i1 %11, label %26, label %12
 
@@ -888,7 +884,7 @@ define dso_local { i64, i8 } @_ZNK4llvm4json6Object10getIntegerENS_9StringRefE(p
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !18
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %10
   %12 = icmp eq ptr %6, %11
   br i1 %12, label %32, label %13
 
@@ -953,7 +949,7 @@ define dso_local void @_ZNK4llvm4json6Object9getStringENS_9StringRefE(ptr dead_o
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !18
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %10
   %12 = icmp eq ptr %6, %11
   br i1 %12, label %23, label %13
 
@@ -996,7 +992,7 @@ define dso_local noundef ptr @_ZNK4llvm4json6Object9getObjectENS_9StringRefE(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %.not = icmp eq ptr %5, %10
   br i1 %.not, label %16, label %11
 
@@ -1021,7 +1017,7 @@ define dso_local noundef ptr @_ZN4llvm4json6Object9getObjectENS_9StringRefE(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %.not = icmp eq ptr %5, %10
   br i1 %.not, label %16, label %11
 
@@ -1046,7 +1042,7 @@ define dso_local noundef ptr @_ZNK4llvm4json6Object8getArrayENS_9StringRefE(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %.not = icmp eq ptr %5, %10
   br i1 %.not, label %16, label %11
 
@@ -1071,7 +1067,7 @@ define dso_local noundef ptr @_ZN4llvm4json6Object8getArrayENS_9StringRefE(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %9
   %.not = icmp eq ptr %5, %10
   br i1 %.not, label %16, label %11
 
@@ -1106,7 +1102,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4jsoneqERKNS0_6ObjectES3_(ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !18
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %14
   br i1 %10, label %_ZNK4llvm4json6Object5beginEv.exit, label %16
 
 16:                                               ; preds = %9
@@ -1131,7 +1127,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %9, %16
   store ptr %.pn8.i.i, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.pn6.i.i, ptr %19, align 8
-  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %.pre-phi
   %.not2223 = icmp eq ptr %.pn8.i.i, %20
   br i1 %.not2223, label %.critedge, label %.lr.ph
 
@@ -1150,7 +1146,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %9, %16
   %27 = load ptr, ptr %1, align 8, !tbaa !15
   %28 = load i32, ptr %21, align 8, !tbaa !18
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %29
   %31 = icmp eq ptr %26, %30
   br i1 %31, label %.critedge, label %32
 
@@ -1300,7 +1296,7 @@ _ZNSt12_Vector_baseIN4llvm4json5ValueESaIS2_EE13_M_deallocateEPS2_m.exit: ; pred
   store ptr %19, ptr %0, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %29, ptr %14, align 8, !tbaa !61
-  %30 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %19, i64 %1
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %1
   store ptr %30, ptr %6, align 8, !tbaa !64
   br label %31
 
@@ -1713,11 +1709,11 @@ switch.lookup:
   %3 = alloca double, align 8
   %4 = load i16, ptr %0, align 8, !tbaa !32
   %5 = zext nneg i16 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = load i16, ptr %1, align 8, !tbaa !32
   %7 = zext nneg i16 %6 to i64
-  %switch.gep111 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %7
+  %switch.gep111 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %7
   %switch.load112 = load i32, ptr %switch.gep111, align 4
   %.not = icmp eq i32 %switch.load, %switch.load112
   br i1 %.not, label %8, label %_ZNK4llvm4json5Value9getAsNullEv.exit28
@@ -2005,7 +2001,7 @@ define dso_local void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef
   br i1 %25, label %26, label %_ZNSt6vectorIN4llvm4json4Path7SegmentESaIS3_EE6resizeEm.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %"class.llvm::json::Path::Segment", ptr %16, i64 %13
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %13
   %.not.i.i = icmp eq ptr %15, %27
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm4json4Path7SegmentESaIS3_EE6resizeEm.exit, label %28
 
@@ -2366,7 +2362,7 @@ define dso_local void @_ZN4llvm4json14sortedElementsERKNS0_6ObjectE(ptr dead_on_
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %11
   br i1 %7, label %_ZNK4llvm4json6Object5beginEv.exit, label %13
 
 13:                                               ; preds = %2
@@ -2391,7 +2387,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %2, %13
   store ptr %.pn8.i.i, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.pn6.i.i, ptr %16, align 8
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %.pre-phi
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %.pre-phi
   %.not10 = icmp eq ptr %.pn8.i.i, %17
   br i1 %.not10, label %._crit_edge.thread, label %.lr.ph
 
@@ -2592,7 +2588,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6detail12DenseMapPai
   %66 = sub i64 %65, %22
   %67 = ashr exact i64 %66, 3
   %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds ptr, ptr %64, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %64, i64 %68
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %69, ptr noundef nonnull align 8 dereferenceable(1) %106, i64 %66, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6detail12DenseMapPairINS2_4json9ObjectKeyENS5_5ValueEEESt6vectorISA_SaISA_EEEENS0_5__ops14_Val_comp_iterIZNS5_14sortedElementsERKNS5_6ObjectEE3$_0EEEvT_T0_.exit.i.i.i.i"
 
@@ -2698,7 +2694,7 @@ _ZNSt6vectorIPKN4llvm6detail12DenseMapPairINS0_4json9ObjectKeyENS3_5ValueEEESaIS
 
 _ZNSt6vectorIPKN4llvm6detail12DenseMapPairINS0_4json9ObjectKeyENS3_5ValueEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %102, %_ZNSt6vectorIPKN4llvm6detail12DenseMapPairINS0_4json9ObjectKeyENS3_5ValueEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i
   store ptr %101, ptr %18, align 8, !tbaa !136
-  %103 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   store ptr %103, ptr %19, align 8, !tbaa !139
   br label %_ZNSt6vectorIPKN4llvm6detail12DenseMapPairINS0_4json9ObjectKeyENS3_5ValueEEESaIS8_EE9push_backEOS8_.exit
 
@@ -2783,7 +2779,7 @@ define internal fastcc void @"_ZZNK4llvm4json4Path4Root17printErrorContextERKNS0
   br label %156
 
 15:                                               ; preds = %5
-  %16 = getelementptr %"class.llvm::json::Path::Segment", ptr %2, i64 %3
+  %16 = getelementptr [16 x i8], ptr %2, i64 %3
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = load i64, ptr %17, align 8, !tbaa !85
   %.not26 = icmp eq i64 %18, 0
@@ -2807,7 +2803,7 @@ define internal fastcc void @"_ZZNK4llvm4json4Path4Root17printErrorContextERKNS0
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !18
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %29, i64 %32
   %34 = icmp eq ptr %28, %33
   br i1 %34, label %35, label %.critedge
 
@@ -2922,7 +2918,7 @@ _ZNSt6vectorIPKN4llvm6detail12DenseMapPairINS0_4json9ObjectKeyENS3_5ValueEEESaIS
   %71 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !153
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -4
   %76 = load i8, ptr %75, align 4, !tbaa !163, !range !40, !noundef !166
   %77 = trunc nuw i8 %76 to i1
@@ -3033,7 +3029,7 @@ _ZN4llvm4json7OStream6objectENS_12function_refIFvvEEE.exit: ; preds = %91, %93
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %131 = load i32, ptr %130, align 8, !tbaa !153
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %129, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %132
   %134 = getelementptr inbounds i8, ptr %133, i64 -4
   %135 = load i8, ptr %134, align 4, !tbaa !163, !range !40, !noundef !166
   %136 = trunc nuw i8 %135 to i1
@@ -5129,7 +5125,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 10:                                               ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = shl nuw nsw i64 %2, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #29
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %2
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   store i32 0, ptr %12, align 4, !tbaa !70
   %14 = getelementptr i8, ptr %12, i64 4
   %15 = add nsw i64 %2, -1
@@ -5234,8 +5230,8 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %55, %_ZSt27__u
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %56, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  %58 = getelementptr inbounds nuw i32, ptr %50, i64 %31
-  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %47
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %31
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   %.pre = ptrtoint ptr %49 to i64
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -5321,7 +5317,7 @@ define dso_local void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !153
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -4
   %14 = load i8, ptr %13, align 4, !tbaa !163, !range !40, !noundef !166
   %15 = trunc nuw i8 %14 to i1
@@ -5351,7 +5347,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %25, %23, %7
   %27 = load ptr, ptr %0, align 8, !tbaa !140
   %28 = load i32, ptr %9, align 8, !tbaa !153
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %32 = load i32, ptr %31, align 4, !tbaa !245
   %33 = icmp ne i32 %32, 1
@@ -5376,7 +5372,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit:         ; preds = %_ZN4llvm11raw_ostre
   %44 = load ptr, ptr %0, align 8, !tbaa !140
   %45 = load i32, ptr %9, align 8, !tbaa !153
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   store i8 1, ptr %48, align 4, !tbaa !163
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -5407,7 +5403,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit:         ; preds = %_ZN4llvm11raw_ostre
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !153
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %65, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -4
   %71 = load i8, ptr %70, align 4, !tbaa !163, !range !40, !noundef !166
   %72 = trunc nuw i8 %71 to i1
@@ -5437,7 +5433,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i11:               ; preds = %82, %80, %64
   %84 = load ptr, ptr %0, align 8, !tbaa !140
   %85 = load i32, ptr %66, align 8, !tbaa !153
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %86
   %88 = getelementptr inbounds i8, ptr %87, i64 -8
   %89 = load i32, ptr %88, align 4, !tbaa !245
   %90 = icmp ne i32 %89, 1
@@ -5462,7 +5458,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit15:       ; preds = %_ZN4llvm11raw_ostre
   %101 = load ptr, ptr %0, align 8, !tbaa !140
   %102 = load i32, ptr %66, align 8, !tbaa !153
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 -4
   store i8 1, ptr %105, align 4, !tbaa !163
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -5501,7 +5497,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit15:       ; preds = %_ZN4llvm11raw_ostre
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %132 = load i32, ptr %131, align 8, !tbaa !153
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %130, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %133
   %135 = getelementptr inbounds i8, ptr %134, i64 -4
   %136 = load i8, ptr %135, align 4, !tbaa !163, !range !40, !noundef !166
   %137 = trunc nuw i8 %136 to i1
@@ -5531,7 +5527,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i20:               ; preds = %147, %145, %129
   %149 = load ptr, ptr %0, align 8, !tbaa !140
   %150 = load i32, ptr %131, align 8, !tbaa !153
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %149, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %151
   %153 = getelementptr inbounds i8, ptr %152, i64 -8
   %154 = load i32, ptr %153, align 4, !tbaa !245
   %155 = icmp ne i32 %154, 1
@@ -5556,7 +5552,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit24:       ; preds = %_ZN4llvm11raw_ostre
   %166 = load ptr, ptr %0, align 8, !tbaa !140
   %167 = load i32, ptr %131, align 8, !tbaa !153
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %166, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %168
   %170 = getelementptr inbounds i8, ptr %169, i64 -4
   store i8 1, ptr %170, align 4, !tbaa !163
   %171 = load i16, ptr %1, align 8, !tbaa !32
@@ -5601,7 +5597,7 @@ _ZNK4llvm4json5Value11getAsNumberEv.exit:         ; preds = %_ZN4llvm4json7OStre
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %189 = load i32, ptr %188, align 8, !tbaa !153
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %187, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %190
   %192 = getelementptr inbounds i8, ptr %191, i64 -4
   %193 = load i8, ptr %192, align 4, !tbaa !163, !range !40, !noundef !166
   %194 = trunc nuw i8 %193 to i1
@@ -5631,7 +5627,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i34:               ; preds = %204, %202, %186
   %206 = load ptr, ptr %0, align 8, !tbaa !140
   %207 = load i32, ptr %188, align 8, !tbaa !153
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %206, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %208
   %210 = getelementptr inbounds i8, ptr %209, i64 -8
   %211 = load i32, ptr %210, align 4, !tbaa !245
   %212 = icmp ne i32 %211, 1
@@ -5656,7 +5652,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit38:       ; preds = %_ZN4llvm11raw_ostre
   %223 = load ptr, ptr %0, align 8, !tbaa !140
   %224 = load i32, ptr %188, align 8, !tbaa !153
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %223, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %225
   %227 = getelementptr inbounds i8, ptr %226, i64 -4
   store i8 1, ptr %227, align 4, !tbaa !163
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -5714,7 +5710,7 @@ _ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %_ZN4llvm4json7OStre
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %251 = load i32, ptr %250, align 8, !tbaa !153
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %249, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %252
   %254 = getelementptr inbounds i8, ptr %253, i64 -4
   %255 = load i8, ptr %254, align 4, !tbaa !163, !range !40, !noundef !166
   %256 = trunc nuw i8 %255 to i1
@@ -5814,7 +5810,7 @@ _ZNSt6vectorIPKN4llvm6detail12DenseMapPairINS0_4json9ObjectKeyENS3_5ValueEEESaIS
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %301 = load i32, ptr %300, align 8, !tbaa !153
   %302 = zext i32 %301 to i64
-  %303 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %299, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %302
   %304 = getelementptr inbounds i8, ptr %303, i64 -4
   %305 = load i8, ptr %304, align 4, !tbaa !163, !range !40, !noundef !166
   %306 = trunc nuw i8 %305 to i1
@@ -5867,7 +5863,7 @@ define dso_local void @_ZN4llvm4json7OStream10valueBeginEv(ptr noundef nonnull a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !153
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -4
   %8 = load i8, ptr %7, align 4, !tbaa !163, !range !40, !noundef !166
   %9 = trunc nuw i8 %8 to i1
@@ -5897,7 +5893,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %19, %17, %1
   %21 = load ptr, ptr %0, align 8, !tbaa !140
   %22 = load i32, ptr %3, align 8, !tbaa !153
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = load i32, ptr %25, align 4, !tbaa !245
   %27 = icmp ne i32 %26, 1
@@ -5922,7 +5918,7 @@ _ZN4llvm4json7OStream7newlineEv.exit:             ; preds = %30, %_ZN4llvm11raw_
   %38 = load ptr, ptr %0, align 8, !tbaa !140
   %39 = load i32, ptr %3, align 8, !tbaa !153
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   store i8 1, ptr %42, align 4, !tbaa !163
   ret void
@@ -6314,7 +6310,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %92, %94
 100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit16
   %101 = zext i32 %98 to i64
   %102 = load ptr, ptr %0, align 8, !tbaa !140
-  %103 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %101
   %104 = getelementptr inbounds i8, ptr %103, i64 -8
   %105 = load i32, ptr %104, align 4, !tbaa !245
   %106 = icmp eq i32 %105, 0
@@ -6383,7 +6379,7 @@ define dso_local void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !153
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -4
   %8 = load i8, ptr %7, align 4, !tbaa !163, !range !40, !noundef !166
   %9 = trunc nuw i8 %8 to i1
@@ -6413,7 +6409,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %19, %17, %1
   %21 = load ptr, ptr %0, align 8, !tbaa !140
   %22 = load i32, ptr %3, align 8, !tbaa !153
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = load i32, ptr %25, align 4, !tbaa !245
   %27 = icmp ne i32 %26, 1
@@ -6438,7 +6434,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit:         ; preds = %_ZN4llvm11raw_ostre
   %38 = load ptr, ptr %0, align 8, !tbaa !140
   %39 = load i32, ptr %3, align 8, !tbaa !153
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   store i8 1, ptr %42, align 4, !tbaa !163
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -6462,7 +6458,7 @@ _ZN4llvm15SmallVectorImplINS_4json7OStream5StateEE12emplace_backIJEEERS3_DpOT_.e
   %50 = phi i32 [ %.pre, %45 ], [ %49, %47 ]
   %51 = load ptr, ptr %0, align 8, !tbaa !140
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   store i32 1, ptr %54, align 4, !tbaa !245
   %55 = load i32, ptr %28, align 8, !tbaa !145
@@ -6505,7 +6501,7 @@ define dso_local void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull alig
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !153
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -4
   %13 = load i8, ptr %12, align 4, !tbaa !163, !range !40, !noundef !166
   %14 = trunc nuw i8 %13 to i1
@@ -6555,7 +6551,7 @@ define dso_local void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !153
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -4
   %8 = load i8, ptr %7, align 4, !tbaa !163, !range !40, !noundef !166
   %9 = trunc nuw i8 %8 to i1
@@ -6585,7 +6581,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %19, %17, %1
   %21 = load ptr, ptr %0, align 8, !tbaa !140
   %22 = load i32, ptr %3, align 8, !tbaa !153
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = load i32, ptr %25, align 4, !tbaa !245
   %27 = icmp ne i32 %26, 1
@@ -6610,7 +6606,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit:         ; preds = %_ZN4llvm11raw_ostre
   %38 = load ptr, ptr %0, align 8, !tbaa !140
   %39 = load i32, ptr %3, align 8, !tbaa !153
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   store i8 1, ptr %42, align 4, !tbaa !163
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -6634,7 +6630,7 @@ _ZN4llvm15SmallVectorImplINS_4json7OStream5StateEE12emplace_backIJEEERS3_DpOT_.e
   %50 = phi i32 [ %.pre, %45 ], [ %49, %47 ]
   %51 = load ptr, ptr %0, align 8, !tbaa !140
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   store i32 2, ptr %54, align 4, !tbaa !245
   %55 = load i32, ptr %28, align 8, !tbaa !145
@@ -6677,7 +6673,7 @@ define dso_local void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull ali
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !153
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -4
   %13 = load i8, ptr %12, align 4, !tbaa !163, !range !40, !noundef !166
   %14 = trunc nuw i8 %13 to i1
@@ -6729,7 +6725,7 @@ define dso_local void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !153
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -4
   %12 = load i8, ptr %11, align 4, !tbaa !163, !range !40, !noundef !166
   %13 = trunc nuw i8 %12 to i1
@@ -6776,7 +6772,7 @@ _ZN4llvm4json7OStream7newlineEv.exit:             ; preds = %_ZN4llvm11raw_ostre
   %35 = load ptr, ptr %0, align 8, !tbaa !140
   %36 = load i32, ptr %7, align 8, !tbaa !153
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -4
   store i8 1, ptr %39, align 4, !tbaa !163
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -6800,7 +6796,7 @@ _ZN4llvm15SmallVectorImplINS_4json7OStream5StateEE12emplace_backIJEEERS3_DpOT_.e
   %47 = phi i32 [ %.pre, %42 ], [ %46, %44 ]
   %48 = load ptr, ptr %0, align 8, !tbaa !140
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   store i32 0, ptr %51, align 4, !tbaa !245
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %2
@@ -6888,7 +6884,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4json7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !153
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -4
   %8 = load i8, ptr %7, align 4, !tbaa !163, !range !40, !noundef !166
   %9 = trunc nuw i8 %8 to i1
@@ -6918,7 +6914,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %19, %17, %1
   %21 = load ptr, ptr %0, align 8, !tbaa !140
   %22 = load i32, ptr %3, align 8, !tbaa !153
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   %26 = load i32, ptr %25, align 4, !tbaa !245
   %27 = icmp ne i32 %26, 1
@@ -6943,7 +6939,7 @@ _ZN4llvm4json7OStream10valueBeginEv.exit:         ; preds = %_ZN4llvm11raw_ostre
   %38 = load ptr, ptr %0, align 8, !tbaa !140
   %39 = load i32, ptr %3, align 8, !tbaa !153
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   store i8 1, ptr %42, align 4, !tbaa !163
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -6967,7 +6963,7 @@ _ZN4llvm15SmallVectorImplINS_4json7OStream5StateEE12emplace_backIJEEERS3_DpOT_.e
   %50 = phi i32 [ %.pre, %45 ], [ %49, %47 ]
   %51 = load ptr, ptr %0, align 8, !tbaa !140
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   store i32 3, ptr %54, align 4, !tbaa !245
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -7706,7 +7702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !153
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -4
   %40 = load i8, ptr %39, align 4, !tbaa !163, !range !40, !noundef !166
   %41 = trunc nuw i8 %40 to i1
@@ -7806,7 +7802,7 @@ _ZNK4llvm4json5Value4kindEv.exit.i:               ; preds = %_ZNSt7__cxx1112basi
   %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !153
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %86
   %88 = getelementptr inbounds i8, ptr %87, i64 -4
   %89 = load i8, ptr %88, align 4, !tbaa !163, !range !40, !noundef !166
   %90 = trunc nuw i8 %89 to i1
@@ -9632,7 +9628,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.i: ; preds = %_ZN4
   %.sink15 = load ptr, ptr %1, align 8, !tbaa !15
   %.sink17 = load i32, ptr %.sink17.in, align 8, !tbaa !18
   %40 = zext i32 %.sink17 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink15, i64 %40
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %.sink15, i64 %40
   store ptr %.sink14, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %41, ptr %.sroa.4.0..sroa_idx, align 8
@@ -9665,7 +9661,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.036 = phi ptr [ null, %8 ], [ %spec.select, %27 ]
   %.039 = and i32 %.pn, %11
   %13 = zext i32 %.039 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %13
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !20
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9809,7 +9805,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapI
 
 38:                                               ; preds = %_ZN4llvm8DenseMapINS_4json9ObjectKeyENS1_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS2_S3_EEE15allocateBucketsEj.exit
   %39 = zext i32 %4 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %39
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E18moveFromOldBucketsEPSA_SD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %5, ptr noundef nonnull %40)
   %41 = shl nuw nsw i64 %39, 6
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %41, i64 noundef 8) #27
@@ -9977,14 +9973,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4json7OStream5StateELb1EE9push_backES3_.exi
   %10 = phi i32 [ %3, %1 ], [ %.pre.i, %6 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !140
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   store i64 0, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !153
   %15 = add i32 %14, 1
   store i32 %15, ptr %2, align 8, !tbaa !153
   %16 = load ptr, ptr %0, align 8, !tbaa !140
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::json::OStream::State", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   ret ptr %19
 }
@@ -10164,7 +10160,7 @@ _ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i.i,
 _ZNSt12_Vector_baseIN4llvm4json5ValueESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm4json5ValueES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !61
-  %33 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !64
   ret void
 }
@@ -10260,8 +10256,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapI
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i12: ; preds = %26, %46
   %.054.i = phi i64 [ %47, %46 ], [ 0, %26 ]
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %29, i64 %.054.i
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %36, i64 %.054.i
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %29, i64 %.054.i
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 %.054.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, i8 0, i64 24, i1 false)
   %41 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm4json9ObjectKeyaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40)
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -10390,9 +10386,9 @@ _ZNSt6vectorIN4llvm4json4Path7SegmentESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit:
 
 _ZNSt12_Vector_baseIN4llvm4json4Path7SegmentESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4llvm4json4Path7SegmentESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !89
-  %44 = getelementptr inbounds nuw %"class.llvm::json::Path::Segment", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !86
-  %45 = getelementptr inbounds nuw %"class.llvm::json::Path::Segment", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !303
   br label %46
 
@@ -10430,7 +10426,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6detail12DenseMapPairINS2_4json9ObjectKeyENS5_5ValueEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_14sortedElementsERKNS5_6ObjectEE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -10453,7 +10449,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 27:                                               ; preds = %10
   %28 = add nsw i64 %.025, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge24, i64 -8
   %32 = load ptr, ptr %9, align 8, !tbaa !12
   %33 = load ptr, ptr %30, align 8, !tbaa !12
@@ -10700,9 +10696,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.039 = phi i64 [ %22, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit.thread" ], [ %1, %4 ]
   %8 = shl i64 %.039, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %10, align 8, !tbaa !12
   %14 = load ptr, ptr %12, align 8, !tbaa !12
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -10737,7 +10733,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit.thread": ; preds = %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit.thread36"
   %21 = phi ptr [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit.thread36" ], [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit" ], [ %13, %.thread.i.i.i.i.i ]
   %22 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit.thread36" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESM_EEbT_T0_.exit" ], [ %9, %.thread.i.i.i.i.i ]
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %.039
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %.039
   store ptr %21, ptr %23, align 8, !tbaa !12
   %24 = icmp slt i64 %22, %6
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !311
@@ -10757,9 +10753,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph
 31:                                               ; preds = %27
   %32 = shl nsw i64 %.0.lcssa, 1
   %33 = or disjoint i64 %32, 1
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %0, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !12
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %36 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %35, ptr %36, align 8, !tbaa !12
   br label %37
 
@@ -10778,7 +10774,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph
   %.012.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.thread8.i" ]
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0913.i
+  %41 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0913.i
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !23
@@ -10804,14 +10800,14 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %40
   br i1 %47, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.thread8.i", label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6detail12DenseMapPairINS2_4json9ObjectKeyENS5_5ValueEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops14_Iter_comp_valIZNS5_14sortedElementsERKNS5_6ObjectEE3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.thread8.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.i", %.thread.i.i.i.i.i.i
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.012.i
+  %48 = getelementptr inbounds [8 x i8], ptr %0, i64 %.012.i
   store ptr %42, ptr %48, align 8, !tbaa !12
   %49 = icmp sgt i64 %.0913.i, %1
   br i1 %49, label %40, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6detail12DenseMapPairINS2_4json9ObjectKeyENS5_5ValueEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops14_Iter_comp_valIZNS5_14sortedElementsERKNS5_6ObjectEE3$_0EEEvT_T0_SO_T1_RT2_.exit", !llvm.loop !312
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6detail12DenseMapPairINS2_4json9ObjectKeyENS5_5ValueEEESt6vectorISA_SaISA_EEEElSA_NS0_5__ops14_Iter_comp_valIZNS5_14sortedElementsERKNS5_6ObjectEE3$_0EEEvT_T0_SO_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.thread8.i", %37
   %.0.lcssa.i = phi i64 [ %.1, %37 ], [ %.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.i" ], [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm4json14sortedElementsERKNS3_6ObjectEE3$_0EclINS_17__normal_iteratorIPPKNS2_6detail12DenseMapPairINS3_9ObjectKeyENS3_5ValueEEESt6vectorISH_SaISH_EEEESH_EEbT_RT0_.exit.thread8.i" ], [ %.012.i, %.thread.i.i.i.i.i.i ]
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %50 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %50, align 8, !tbaa !12
   ret void
 }

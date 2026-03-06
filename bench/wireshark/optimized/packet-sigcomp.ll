@@ -6875,15 +6875,15 @@ thread-pre-split3014:                             ; preds = %2648
 2970:                                             ; preds = %2966
   %2971 = load i16, ptr %36, align 2
   %2972 = zext nneg i8 %2959 to i64
-  %2973 = getelementptr i16, ptr %22, i64 %2972
+  %2973 = getelementptr [2 x i8], ptr %22, i64 %2972
   store i16 %2971, ptr %2973, align 2
   %2974 = load i16, ptr %37, align 2
-  %2975 = getelementptr i16, ptr %23, i64 %2972
+  %2975 = getelementptr [2 x i8], ptr %23, i64 %2972
   store i16 %2974, ptr %2975, align 2
   %2976 = load i16, ptr %38, align 2
-  %2977 = getelementptr i16, ptr %24, i64 %2972
+  %2977 = getelementptr [2 x i8], ptr %24, i64 %2972
   store i16 %2976, ptr %2977, align 2
-  %2978 = getelementptr i16, ptr %25, i64 %2972
+  %2978 = getelementptr [2 x i8], ptr %25, i64 %2972
   store i16 %2963, ptr %2978, align 2
   %2979 = zext i16 %2971 to i32
   %2980 = add i32 %135, %2979
@@ -7306,16 +7306,16 @@ thread-pre-split3014:                             ; preds = %2648
   %3234 = zext nneg i8 %3230 to i32
   %3235 = load i16, ptr %36, align 2
   %3236 = zext nneg i8 %3230 to i64
-  %3237 = getelementptr i16, ptr %22, i64 %3236
+  %3237 = getelementptr [2 x i8], ptr %22, i64 %3236
   store i16 %3235, ptr %3237, align 2
   %3238 = load i16, ptr %37, align 2
-  %3239 = getelementptr i16, ptr %23, i64 %3236
+  %3239 = getelementptr [2 x i8], ptr %23, i64 %3236
   store i16 %3238, ptr %3239, align 2
   %3240 = load i16, ptr %38, align 2
-  %3241 = getelementptr i16, ptr %24, i64 %3236
+  %3241 = getelementptr [2 x i8], ptr %24, i64 %3236
   store i16 %3240, ptr %3241, align 2
   %3242 = load i16, ptr %54, align 2
-  %3243 = getelementptr i16, ptr %25, i64 %3236
+  %3243 = getelementptr [2 x i8], ptr %25, i64 %3236
   store i16 %3242, ptr %3243, align 2
   %3244 = load i32, ptr @hf_sigcomp_num_state_create, align 4
   %3245 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %3244, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %3234)
@@ -7342,7 +7342,7 @@ thread-pre-split3014:                             ; preds = %2648
 
 3259:                                             ; preds = %3246, %3306
   %indvars.iv3660 = phi i64 [ 1, %3246 ], [ %indvars.iv.next3661, %3306 ]
-  %3260 = getelementptr i16, ptr %22, i64 %indvars.iv3660
+  %3260 = getelementptr [2 x i8], ptr %22, i64 %indvars.iv3660
   %3261 = load i16, ptr %3260, align 2
   %3262 = zext i16 %3261 to i64
   %3263 = add nuw nsw i64 %3262, 8
@@ -7353,7 +7353,7 @@ thread-pre-split3014:                             ; preds = %2648
   %3267 = trunc i16 %3261 to i8
   %3268 = getelementptr i8, ptr %3264, i64 1
   store i8 %3267, ptr %3268, align 1
-  %3269 = getelementptr i16, ptr %23, i64 %indvars.iv3660
+  %3269 = getelementptr [2 x i8], ptr %23, i64 %indvars.iv3660
   %3270 = load i16, ptr %3269, align 2
   %3271 = lshr i16 %3270, 8
   %3272 = trunc nuw i16 %3271 to i8
@@ -7362,7 +7362,7 @@ thread-pre-split3014:                             ; preds = %2648
   %3274 = trunc i16 %3270 to i8
   %3275 = getelementptr i8, ptr %3264, i64 3
   store i8 %3274, ptr %3275, align 1
-  %3276 = getelementptr i16, ptr %24, i64 %indvars.iv3660
+  %3276 = getelementptr [2 x i8], ptr %24, i64 %indvars.iv3660
   %3277 = load i16, ptr %3276, align 2
   %3278 = lshr i16 %3277, 8
   %3279 = trunc nuw i16 %3278 to i8
@@ -7371,7 +7371,7 @@ thread-pre-split3014:                             ; preds = %2648
   %3281 = trunc i16 %3277 to i8
   %3282 = getelementptr i8, ptr %3264, i64 5
   store i8 %3281, ptr %3282, align 1
-  %3283 = getelementptr i16, ptr %25, i64 %indvars.iv3660
+  %3283 = getelementptr [2 x i8], ptr %25, i64 %indvars.iv3660
   %3284 = load i16, ptr %3283, align 2
   %3285 = lshr i16 %3284, 8
   %3286 = trunc nuw i16 %3285 to i8

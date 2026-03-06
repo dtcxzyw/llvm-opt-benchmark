@@ -604,7 +604,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals25enable_jvmci_product_modeE1
 
 4:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @__const._ZN12JVMCIGlobals25enable_jvmci_product_modeE13JVMFlagOriginb.JVMCIFlags, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN12JVMCIGlobals25enable_jvmci_product_modeE13JVMFlagOriginb.JVMCIFlags, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #6
   %8 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %6, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #5

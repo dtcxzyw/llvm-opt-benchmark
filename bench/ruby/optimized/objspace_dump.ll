@@ -553,7 +553,7 @@ dump_append_ref.exit:                             ; preds = %.lr.ph.i.i
 
 switch.lookup:                                    ; preds = %dump_append_ref.exit
   %75 = and i64 %73, 31
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dump_object, i64 %75
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dump_object, i64 %75
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %obj_type.exit232
 
@@ -1211,7 +1211,7 @@ rb_num2ulong_inline.exit:                         ; preds = %325, %327
 333:                                              ; preds = %331, %341
   %.0377 = phi i64 [ 0, %331 ], [ %342, %341 ]
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
-  %334 = getelementptr inbounds nuw i64, ptr %5, i64 %.0377
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0377
   %335 = load i64, ptr %334, align 8, !tbaa !82
   %336 = call ptr @rb_id2name(i64 noundef %335) #12
   %337 = load i64, ptr %334, align 8, !tbaa !82

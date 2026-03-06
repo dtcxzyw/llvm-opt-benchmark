@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/syncscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ss_lru_item_t = type { ptr, ptr, %struct.ss_scan_location_t }
-%struct.ss_scan_location_t = type { %struct.RelFileLocator, i32 }
-%struct.RelFileLocator = type { i32, i32, i32 }
-
 @.str = private unnamed_addr constant [25 x i8] c"Sync Scan Locations List\00", align 1
 @scan_locations = internal unnamed_addr global ptr null, align 8
 @IsUnderPostmaster = external local_unnamed_addr global i8, align 1
@@ -37,7 +33,7 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
 
 9:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.ss_lru_item_t, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -47,7 +43,7 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 -1, ptr %14, align 4
   %.not = icmp eq i64 %indvars.iv, 0
-  %15 = getelementptr %struct.ss_lru_item_t, ptr %2, i64 %indvars.iv
+  %15 = getelementptr [32 x i8], ptr %2, i64 %indvars.iv
   %16 = getelementptr i8, ptr %15, i64 -16
   %17 = select i1 %.not, ptr null, ptr %16
   store ptr %17, ptr %10, align 8

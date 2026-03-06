@@ -1287,7 +1287,7 @@ _ZN13yara_x_parser6parser10ParserImpl15peek_non_trivia17hc9ff329bba10a8c3E.exit:
 
 15:                                               ; preds = %_ZN13yara_x_parser6parser10ParserImpl15peek_non_trivia17hc9ff329bba10a8c3E.exit
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
-  %16 = getelementptr inbounds nuw i16, ptr %.0.val, i64 %.8.val
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %.0.val, i64 %.8.val
   br label %17
 
 17:                                               ; preds = %20, %15
@@ -1308,7 +1308,7 @@ _ZN13yara_x_parser6parser10ParserImpl15peek_non_trivia17hc9ff329bba10a8c3E.exit.
   br i1 %.not7.i1225, label %_ZN13yara_x_parser6parser8TokenSet8contains17h900da57d5743bfacE.exit19, label %.lr.ph.i13.preheader.lr.ph
 
 .lr.ph.i13.preheader.lr.ph:                       ; preds = %_ZN13yara_x_parser6parser10ParserImpl15peek_non_trivia17hc9ff329bba10a8c3E.exit.thread
-  %26 = getelementptr inbounds nuw i16, ptr %.0.val, i64 %.8.val
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.0.val, i64 %.8.val
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -1674,7 +1674,7 @@ _ZN13yara_x_parser6parser10ParserImpl9set_state17hf20643656986de2cE.exit: ; pred
   %23 = load ptr, ptr %1, align 8, !alias.scope !170, !noalias !173, !nonnull !9, !align !175, !noundef !9
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8, !alias.scope !170, !noalias !173, !noundef !9
-  %26 = getelementptr inbounds nuw i16, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %25
   br label %27
 
 27:                                               ; preds = %33, %21
@@ -1779,7 +1779,7 @@ _ZN13yara_x_parser6parser10ParserImpl15peek_non_trivia17hc9ff329bba10a8c3E.exit.
   %65 = load ptr, ptr %1, align 8, !alias.scope !187, !nonnull !9, !align !175, !noundef !9
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i64, ptr %66, align 8, !alias.scope !187, !noundef !9
-  %68 = getelementptr inbounds nuw i16, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %67
   tail call void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h3c00dd62b1568326E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull %65, ptr noundef nonnull %68)
   br label %69
 
@@ -2219,7 +2219,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hff72a34b958d437eE.exit: ; preds 
   %97 = load ptr, ptr %96, align 8, !nonnull !9, !noundef !9
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %99 = load i64, ptr %98, align 8, !noundef !9
-  %100 = getelementptr inbounds nuw { { { i32, i32 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %99
   br label %"_ZN13yara_x_parser6parser10ParserImpl13handle_errors28_$u7b$$u7b$closure$u7d$$u7d$17hbe144ada6439bf77E.exit.i"
 
 "_ZN13yara_x_parser6parser10ParserImpl13handle_errors28_$u7b$$u7b$closure$u7d$$u7d$17hbe144ada6439bf77E.exit.i": ; preds = %102, %"_ZN4core3ptr111drop_in_place$LT$$LP$yara_x_parser..tokenizer..tokens..TokenId$C$indexmap..set..IndexSet$LT$$RF$str$GT$$RP$$GT$17hf71c33a3720715d0E.exit"
@@ -2420,7 +2420,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hff72a34b958d437eE.exit: ; preds 
   %180 = load i64, ptr %179, align 8, !noundef !9
   %.not100 = icmp eq i64 %180, 0
   %181 = add i64 %180, -1
-  %182 = getelementptr inbounds nuw { { ptr, i64 }, i64, {} }, ptr %178, i64 %181
+  %182 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %181
   br i1 %.not100, label %194, label %190, !prof !43
 
 183:                                              ; preds = %173
@@ -2779,7 +2779,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hff72a34b958d437eE.exit: ; preds 
 
 255:                                              ; preds = %247, %241
   %256 = load ptr, ptr %96, align 8, !alias.scope !283, !noalias !286, !nonnull !9, !noundef !9
-  %257 = getelementptr inbounds nuw { { { i32, i32 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %256, i64 %244
+  %257 = getelementptr inbounds nuw [32 x i8], ptr %256, i64 %244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
   %258 = add i64 %244, 1
   store i64 %258, ptr %98, align 8, !alias.scope !283, !noalias !286
@@ -4698,7 +4698,7 @@ define hidden noundef align 2 dereferenceable_or_null(2) ptr @_ZN13yara_x_parser
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !align !175, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !9
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %2
@@ -4723,7 +4723,7 @@ define hidden { ptr, ptr } @_ZN13yara_x_parser6parser8TokenSet9token_ids17h3a530
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !175, !noundef !9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !9
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %4
   %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7

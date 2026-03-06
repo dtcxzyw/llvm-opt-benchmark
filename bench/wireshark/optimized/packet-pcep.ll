@@ -2029,7 +2029,7 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 37:                                               ; preds = %.lr.ph.i.i
   %38 = zext nneg i8 %34 to i64
-  %39 = getelementptr %struct.pcep_lut_t, ptr @dissect_pcep_obj_tree.obj_lut, i64 %38
+  %39 = getelementptr [32 x i8], ptr @dissect_pcep_obj_tree.obj_lut, i64 %38
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 24
   %.sroa.9.0.copyload.i.i = load ptr, ptr %.sroa.9.0..sroa_idx.i.i, align 8
   %40 = shl nuw nsw i64 1, %38

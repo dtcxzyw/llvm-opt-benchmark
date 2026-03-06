@@ -651,7 +651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
 
 75:                                               ; preds = %71, %67
   %76 = load ptr, ptr %38, align 8, !tbaa !73
-  %77 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 78:                                               ; preds = %71
@@ -680,7 +680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
   %96 = mul i64 %94, %95
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 %96
   %98 = sext i32 %.recomposed to i64
-  %99 = getelementptr inbounds float, ptr %97, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %97, i64 %98
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %88, %82, %75
@@ -1293,7 +1293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 
 66:                                               ; preds = %62, %59
   %67 = load ptr, ptr %37, align 8, !tbaa !73
-  %68 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 69:                                               ; preds = %62
@@ -1322,7 +1322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
   %87 = mul i64 %85, %86
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 %87
   %89 = sext i32 %.recomposed to i64
-  %90 = getelementptr inbounds float, ptr %88, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %88, i64 %89
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %79, %73, %66
@@ -2095,7 +2095,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %292, %291
 317:                                              ; preds = %313, %301
   %318 = load ptr, ptr %256, align 8, !tbaa !73
   %319 = sext i32 %299 to i64
-  %320 = getelementptr inbounds float, ptr %318, i64 %319
+  %320 = getelementptr inbounds [4 x i8], ptr %318, i64 %319
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 321:                                              ; preds = %313
@@ -2125,7 +2125,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %292, %291
   %340 = mul i64 %338, %339
   %341 = getelementptr inbounds nuw i8, ptr %336, i64 %340
   %342 = sext i32 %.recomposed to i64
-  %343 = getelementptr inbounds float, ptr %341, i64 %342
+  %343 = getelementptr inbounds [4 x i8], ptr %341, i64 %342
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %332, %325, %317
@@ -2507,7 +2507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %44
   %463 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %464 = load ptr, ptr %463, align 8, !tbaa !73
   %465 = sext i32 %95 to i64
-  %466 = getelementptr inbounds float, ptr %464, i64 %465
+  %466 = getelementptr inbounds [4 x i8], ptr %464, i64 %465
   br label %495
 
 467:                                              ; preds = %457
@@ -2542,7 +2542,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit164: ; preds = %44
   %491 = mul i64 %489, %490
   %492 = getelementptr inbounds nuw i8, ptr %486, i64 %491
   %493 = sext i32 %.recomposed184 to i64
-  %494 = getelementptr inbounds float, ptr %492, i64 %493
+  %494 = getelementptr inbounds [4 x i8], ptr %492, i64 %493
   br label %495
 
 495:                                              ; preds = %462, %471, %480
@@ -3026,7 +3026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %74,
 
 112:                                              ; preds = %108, %104
   %113 = load ptr, ptr %96, align 8, !tbaa !73
-  %114 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 115:                                              ; preds = %108
@@ -3055,7 +3055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %74,
   %133 = mul i64 %131, %132
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 %133
   %135 = sext i32 %.recomposed to i64
-  %136 = getelementptr inbounds float, ptr %134, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %134, i64 %135
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %125, %119, %112

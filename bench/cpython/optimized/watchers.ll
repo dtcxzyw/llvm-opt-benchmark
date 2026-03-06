@@ -645,7 +645,7 @@ define internal noundef ptr @clear_code_watcher(ptr readnone captures(none) %0, 
 .preheader:                                       ; preds = %12, %22
   %14 = phi i1 [ false, %22 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 1, %22 ], [ 0, %12 ]
-  %15 = getelementptr i32, ptr @code_watcher_ids, i64 %indvars.iv
+  %15 = getelementptr [4 x i8], ptr @code_watcher_ids, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = sext i32 %16 to i64
   %18 = icmp eq i64 %8, %17
@@ -653,9 +653,9 @@ define internal noundef ptr @clear_code_watcher(ptr readnone captures(none) %0, 
 
 19:                                               ; preds = %.preheader
   store i32 -1, ptr %15, align 4, !tbaa !20
-  %20 = getelementptr i32, ptr @num_code_object_created_events, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr @num_code_object_created_events, i64 %indvars.iv
   store i32 0, ptr %20, align 4, !tbaa !20
-  %21 = getelementptr i32, ptr @num_code_object_destroyed_events, i64 %indvars.iv
+  %21 = getelementptr [4 x i8], ptr @num_code_object_destroyed_events, i64 %indvars.iv
   store i32 0, ptr %21, align 4, !tbaa !20
   br label %22
 
@@ -691,7 +691,7 @@ define internal ptr @get_code_watcher_num_created_events(ptr readnone captures(n
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr i32, ptr @num_code_object_created_events, i64 %8
+  %11 = getelementptr [4 x i8], ptr @num_code_object_created_events, i64 %8
   %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = sext i32 %12 to i64
   %14 = tail call ptr @PyLong_FromLong(i64 noundef %13) #6
@@ -722,7 +722,7 @@ define internal ptr @get_code_watcher_num_destroyed_events(ptr readnone captures
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr i32, ptr @num_code_object_destroyed_events, i64 %8
+  %11 = getelementptr [4 x i8], ptr @num_code_object_destroyed_events, i64 %8
   %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = sext i32 %12 to i64
   %14 = tail call ptr @PyLong_FromLong(i64 noundef %13) #6
@@ -742,7 +742,7 @@ define internal ptr @allocate_too_many_code_watchers(ptr readnone captures(none)
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr i32, ptr %3, i64 %.01622
+  %7 = getelementptr [4 x i8], ptr %3, i64 %.01622
   store i32 %5, ptr %7, align 4, !tbaa !20
   %8 = add nuw nsw i64 %.01622, 1
   %exitcond.not = icmp eq i64 %8, 9
@@ -771,7 +771,7 @@ define internal ptr @allocate_too_many_code_watchers(ptr readnone captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = tail call i32 @PyCode_ClearWatcher(i32 noundef %15) #6
   %17 = icmp slt i32 %16, 0
@@ -817,7 +817,7 @@ define internal ptr @add_func_watcher(ptr readnone captures(none) %0, ptr nounde
 .preheader:                                       ; preds = %2, %10
   %6 = phi i1 [ false, %10 ], [ true, %2 ]
   %indvars.iv = phi i64 [ 1, %10 ], [ 0, %2 ]
-  %7 = getelementptr i32, ptr @func_watcher_ids, i64 %indvars.iv
+  %7 = getelementptr [4 x i8], ptr @func_watcher_ids, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %13, label %10
@@ -831,10 +831,10 @@ define internal ptr @add_func_watcher(ptr readnone captures(none) %0, ptr nounde
   br label %27
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr ptr, ptr @func_watcher_callbacks, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr @func_watcher_callbacks, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = tail call i32 @PyFunction_AddWatcher(ptr noundef %15) #6
-  %17 = getelementptr i32, ptr @func_watcher_ids, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr @func_watcher_ids, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !20
   %18 = icmp slt i32 %16, 0
   br i1 %18, label %27, label %19
@@ -850,7 +850,7 @@ define internal ptr @add_func_watcher(ptr readnone captures(none) %0, ptr nounde
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %19, %22
-  %24 = getelementptr ptr, ptr @pyfunc_watchers, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr @pyfunc_watchers, i64 %indvars.iv
   store ptr %1, ptr %24, align 8, !tbaa !21
   %25 = zext nneg i32 %16 to i64
   %26 = tail call ptr @PyLong_FromLong(i64 noundef %25) #6
@@ -882,7 +882,7 @@ define internal noundef ptr @clear_func_watcher(ptr readnone captures(none) %0, 
 .preheader:                                       ; preds = %7, %15
   %11 = phi i1 [ false, %15 ], [ true, %7 ]
   %indvars.iv = phi i64 [ 1, %15 ], [ 0, %7 ]
-  %12 = getelementptr i32, ptr @func_watcher_ids, i64 %indvars.iv
+  %12 = getelementptr [4 x i8], ptr @func_watcher_ids, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !20
   %14 = icmp eq i32 %13, %8
   br i1 %14, label %17, label %15
@@ -895,7 +895,7 @@ define internal noundef ptr @clear_func_watcher(ptr readnone captures(none) %0, 
   unreachable
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr ptr, ptr @pyfunc_watchers, i64 %indvars.iv
+  %18 = getelementptr [8 x i8], ptr @pyfunc_watchers, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !21
   %.not22 = icmp eq ptr %19, null
   br i1 %.not22, label %Py_DECREF.exit, label %20
@@ -917,7 +917,7 @@ define internal noundef ptr @clear_func_watcher(ptr readnone captures(none) %0, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %25, %22, %20, %17
-  %26 = getelementptr i32, ptr @func_watcher_ids, i64 %indvars.iv
+  %26 = getelementptr [4 x i8], ptr @func_watcher_ids, i64 %indvars.iv
   store i32 -1, ptr %26, align 4, !tbaa !20
   br label %27
 
@@ -987,7 +987,7 @@ define internal ptr @allocate_too_many_func_watchers(ptr readnone captures(none)
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr i32, ptr %3, i64 %.01622
+  %7 = getelementptr [4 x i8], ptr %3, i64 %.01622
   store i32 %5, ptr %7, align 4, !tbaa !20
   %8 = add nuw nsw i64 %.01622, 1
   %exitcond.not = icmp eq i64 %8, 9
@@ -1016,7 +1016,7 @@ define internal ptr @allocate_too_many_func_watchers(ptr readnone captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = tail call i32 @PyFunction_ClearWatcher(i32 noundef %15) #6
   %17 = icmp slt i32 %16, 0
@@ -1072,7 +1072,7 @@ define internal ptr @add_context_watcher(ptr readnone captures(none) %0, ptr nou
   br label %34
 
 12:                                               ; preds = %7
-  %13 = getelementptr ptr, ptr @add_context_watcher.callbacks, i64 %8
+  %13 = getelementptr [8 x i8], ptr @add_context_watcher.callbacks, i64 %8
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = tail call i32 @PyContext_AddWatcher(ptr noundef %14) #6
   %16 = icmp slt i32 %15, 0
@@ -1083,9 +1083,9 @@ define internal ptr @add_context_watcher(ptr readnone captures(none) %0, ptr nou
   br i1 %.not22, label %31, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr i32, ptr @context_watcher_ids, i64 %8
+  %19 = getelementptr [4 x i8], ptr @context_watcher_ids, i64 %8
   store i32 %15, ptr %19, align 4, !tbaa !20
-  %20 = getelementptr ptr, ptr @context_switches, i64 %8
+  %20 = getelementptr [8 x i8], ptr @context_switches, i64 %8
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = tail call ptr @PyList_New(i64 noundef 0) #6
   store ptr %22, ptr %20, align 8, !tbaa !21
@@ -1151,7 +1151,7 @@ define internal noundef ptr @clear_context_watcher(ptr readnone captures(none) %
 .preheader:                                       ; preds = %12, %Py_DECREF.exit
   %14 = phi i1 [ false, %Py_DECREF.exit ], [ true, %12 ]
   %indvars.iv = phi i64 [ 1, %Py_DECREF.exit ], [ 0, %12 ]
-  %15 = getelementptr i32, ptr @context_watcher_ids, i64 %indvars.iv
+  %15 = getelementptr [4 x i8], ptr @context_watcher_ids, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !20
   %17 = sext i32 %16 to i64
   %18 = icmp eq i64 %8, %17
@@ -1159,7 +1159,7 @@ define internal noundef ptr @clear_context_watcher(ptr readnone captures(none) %
 
 19:                                               ; preds = %.preheader
   store i32 -1, ptr %15, align 4, !tbaa !20
-  %20 = getelementptr ptr, ptr @context_switches, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr @context_switches, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %.not17 = icmp eq ptr %21, null
   br i1 %.not17, label %Py_DECREF.exit, label %22
@@ -1253,7 +1253,7 @@ define internal ptr @get_context_switches(ptr readnone captures(none) %0, ptr no
   br label %_Py_NewRef.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr ptr, ptr @context_switches, i64 %8
+  %13 = getelementptr [8 x i8], ptr @context_switches, i64 %8
   %14 = load ptr, ptr %13, align 8, !tbaa !21
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
@@ -1290,7 +1290,7 @@ define internal ptr @allocate_too_many_context_watchers(ptr readnone captures(no
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr i32, ptr %3, i64 %.01622
+  %7 = getelementptr [4 x i8], ptr %3, i64 %.01622
   store i32 %5, ptr %7, align 4, !tbaa !20
   %8 = add nuw nsw i64 %.01622, 1
   %exitcond.not = icmp eq i64 %8, 9
@@ -1319,7 +1319,7 @@ define internal ptr @allocate_too_many_context_watchers(ptr readnone captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = tail call i32 @PyContext_ClearWatcher(i32 noundef %15) #6
   %17 = icmp slt i32 %16, 0

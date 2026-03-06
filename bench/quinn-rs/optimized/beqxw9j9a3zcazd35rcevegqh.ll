@@ -3382,7 +3382,7 @@ _ZN5quinn10connection11wake_stream17hcecaeef05f7aac91E.exit33.i: ; preds = %536,
 540:                                              ; preds = %451
   %541 = and i8 %.sroa.6.0.copyload.i, 1
   %542 = zext nneg i8 %541 to i64
-  %543 = getelementptr inbounds nuw { { { { i64 } } }, { { { { i32 } }, { { i8 } }, [3 x i8], { { ptr, ptr, {} } } } } }, ptr %54, i64 %542
+  %543 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %542
   br label %.invoke
 
 .loopexit187:                                     ; preds = %.noexc128, %.noexc123
@@ -5967,7 +5967,7 @@ common.resume:                                    ; preds = %.body.thread, %24
 103:                                              ; preds = %95
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %104 = zext i1 %4 to i64
-  %105 = getelementptr inbounds nuw { { { { i64 } } }, { { { { i32 } }, { { i8 } }, [3 x i8], { { ptr, ptr, {} } } } } }, ptr %14, i64 %104
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %104
   br label %119
 
 106:                                              ; preds = %99
@@ -6490,7 +6490,7 @@ _ZN5quinn10connection5State4wake17hbe58586656adee20E.exit: ; preds = %._ZN5quinn
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %118 = zext i1 %4 to i64
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %120 = getelementptr inbounds nuw { { { { i64 } } }, { { { { i32 } }, { { i8 } }, [3 x i8], { { ptr, ptr, {} } } } } }, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %118
   br label %121
 
 "_ZN79_$LT$quinn_proto..connection..ConnectionError$u20$as$u20$core..clone..Clone$GT$5clone17hf50737fff87799faE.exit": ; preds = %.noexc12, %.noexc11, %98, %97, %96, %95, %.noexc10, %72

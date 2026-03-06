@@ -746,7 +746,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   store i32 1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 152
   %46 = sext i32 %39 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 344
   store ptr %48, ptr %49, align 8

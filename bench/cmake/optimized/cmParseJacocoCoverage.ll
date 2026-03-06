@@ -202,7 +202,7 @@ define dso_local noundef zeroext i1 @_ZN21cmParseJacocoCoverage16LoadCoverageDat
 33:                                               ; preds = %.lr.ph, %115
   %.01339 = phi i64 [ 0, %.lr.ph ], [ %116, %115 ]
   %34 = load ptr, ptr %1, align 8, !tbaa !36
-  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %34, i64 %.01339
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %.01339
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %102
 
@@ -1744,7 +1744,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %447, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %449, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %444, ptr %415, align 8, !tbaa !123
   store ptr %448, ptr %425, align 8, !tbaa !119
-  %450 = getelementptr inbounds nuw i32, ptr %444, i64 %442
+  %450 = getelementptr inbounds nuw [4 x i8], ptr %444, i64 %442
   store ptr %450, ptr %427, align 8, !tbaa !121
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -1837,7 +1837,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i144: ; preds = %478, 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i146: ; preds = %480, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i144
   store ptr %475, ptr %415, align 8, !tbaa !123
   store ptr %479, ptr %453, align 8, !tbaa !119
-  %481 = getelementptr inbounds nuw i32, ptr %475, i64 %473
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %475, i64 %473
   store ptr %481, ptr %454, align 8, !tbaa !121
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit149.backedge
 
@@ -1937,7 +1937,7 @@ sub_0:                                            ; preds = %504, %.tail192.thre
   %indvars.iv = phi i64 [ %indvars.iv.next, %.tail192.thread ], [ 0, %504 ]
   %.027 = phi i32 [ %.128, %.tail192.thread ], [ -1, %504 ]
   %.025 = phi i32 [ %.126, %.tail192.thread ], [ -1, %504 ]
-  %507 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %508 = load ptr, ptr %507, align 8, !tbaa !86
   %509 = load i8, ptr %508, align 1
   switch i8 %509, label %.tail192.thread [
@@ -2006,7 +2006,7 @@ sub_1194:                                         ; preds = %sub_0
 
 542:                                              ; preds = %532
   %543 = zext nneg i32 %.128 to i64
-  %544 = getelementptr i32, ptr %538, i64 %543
+  %544 = getelementptr [4 x i8], ptr %538, i64 %543
   %545 = getelementptr i8, ptr %544, i64 -4
   store i32 %.126, ptr %545, align 4, !tbaa !122
   br label %546

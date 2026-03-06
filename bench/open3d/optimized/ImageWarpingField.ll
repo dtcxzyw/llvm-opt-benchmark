@@ -208,7 +208,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines9color_map17ImageWarpingField18C
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = load ptr, ptr %39, align 8, !tbaa !7
-  %53 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !21
   invoke void @_ZN4Json5ValueC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %9, double noundef %54)
           to label %55 unwind label %64
@@ -607,7 +607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %60,
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr %101, align 8, !tbaa !7
-  %114 = getelementptr inbounds nuw double, ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv
   store double %111, ptr %114, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %71, align 8, !tbaa !13
@@ -820,7 +820,7 @@ define void @_ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii(ptr
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = zext nneg i32 %9 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !7
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load double, ptr %20, align 8, !tbaa !21
   store double %22, ptr %0, align 16, !tbaa !21
@@ -878,7 +878,7 @@ define void @_ZNK6open3d9pipelines9color_map17ImageWarpingField20GetImageWarping
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = zext nneg i32 %19 to i64
   %29 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !36
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load double, ptr %30, align 8, !tbaa !21, !noalias !36
   store double %32, ptr %5, align 16, !tbaa !21, !alias.scope !36
@@ -912,7 +912,7 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit: ; preds = 
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = zext nneg i32 %38 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !7, !noalias !39
-  %49 = getelementptr inbounds nuw double, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load double, ptr %49, align 8, !tbaa !21, !noalias !39
   store double %51, ptr %6, align 16, !tbaa !21, !alias.scope !39
@@ -945,7 +945,7 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit23: ; preds 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = zext nneg i32 %56 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !7, !noalias !42
-  %67 = getelementptr inbounds nuw double, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load double, ptr %67, align 8, !tbaa !21, !noalias !42
   store double %69, ptr %7, align 16, !tbaa !21, !alias.scope !42
@@ -977,7 +977,7 @@ _ZNK6open3d9pipelines9color_map17ImageWarpingField9QueryFlowEii.exit25: ; preds 
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = zext nneg i32 %73 to i64
   %83 = load ptr, ptr %81, align 8, !tbaa !7, !noalias !45
-  %84 = getelementptr inbounds nuw double, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load double, ptr %84, align 8, !tbaa !21, !noalias !45
   store double %86, ptr %8, align 16, !tbaa !21, !alias.scope !45

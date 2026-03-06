@@ -107,7 +107,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %1, i64 %sub.ptr.sub.i
   %tobool.not.i.i = icmp eq ptr %2, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit, label %if.then.i.i
 
@@ -203,7 +203,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %3, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %sub.ptr.sub.i.i
   %tobool.not.i.i.i = icmp eq ptr %4, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i, label %if.then.i.i.i
 
@@ -294,7 +294,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %conv29 = zext nneg i8 %17 to i16
-  %arrayidx31 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
+  %arrayidx31 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv
   store i16 %conv29, ptr %arrayidx31, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -319,7 +319,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %index.0.lcssa = phi i64 [ 0, %if.end9 ], [ %18, %while.end.loopexit ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %21, i64 %index.0.lcssa
   store ptr %add.ptr, ptr %utf8Begin_, align 8
-  %add.ptr34 = getelementptr inbounds nuw i16, ptr %13, i64 %index.0.lcssa
+  %add.ptr34 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %index.0.lcssa
   store ptr %add.ptr34, ptr %out, align 8
   %call38 = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef nonnull %utf8Begin_, ptr noundef %20, ptr noundef nonnull %out, ptr noundef %19, i32 noundef 1) #12
   %cmp39.not = icmp eq i32 %call38, 2
@@ -439,9 +439,9 @@ if.then.i30:                                      ; preds = %_ZNSt6vectorIDsSaID
 
 _ZNSt12_Vector_baseIDsSaIDsEE13_M_deallocateEPDsm.exit: ; preds = %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit, %if.then.i30
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr34 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [2 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8
-  %add.ptr37 = getelementptr inbounds nuw i16, ptr %call5.i.i.i, i64 %3
+  %add.ptr37 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8
   br label %if.end41
 

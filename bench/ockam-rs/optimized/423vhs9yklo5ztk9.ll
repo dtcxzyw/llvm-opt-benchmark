@@ -316,7 +316,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %.sroa.010.0.copyload = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.412.0.copyload = load i64, ptr %.sroa.412.0..sroa_idx, align 8
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.010.0.copyload, i64 %.sroa.412.0.copyload
+  %29 = getelementptr inbounds [16 x i8], ptr %.sroa.010.0.copyload, i64 %.sroa.412.0.copyload
   %30 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !7
@@ -409,7 +409,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.410.0.copyload = load i64, ptr %.sroa.410.0..sroa_idx, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 176
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %34, i64 %.sroa.410.0.copyload
+  %35 = getelementptr inbounds [16 x i8], ptr %34, i64 %.sroa.410.0.copyload
   %36 = load ptr, ptr %33, align 8, !nonnull !7, !noundef !7
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8, !noundef !7
@@ -440,7 +440,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map5entry30OccupiedEnt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !34, !noundef !7
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 %6
+  %8 = getelementptr inbounds [16 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !align !37, !noundef !7
@@ -456,7 +456,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map5entry30OccupiedEnt
   %4 = load ptr, ptr %0, align 8, !alias.scope !38, !nonnull !7, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !38, !noundef !7
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !7, !align !37, !noundef !7
@@ -971,7 +971,7 @@ define { ptr, ptr } @_ZN15ockam_multiaddr8registry8Registry11get_by_code17hb4d1f
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !98
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !98
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 232
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.sroa.3.0.copyload.i.i
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %.sroa.3.0.copyload.i.i
   %22 = load ptr, ptr %21, align 8, !noalias !100, !nonnull !7, !noundef !7
   %23 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h150fae04a2b84f63E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull %22, i64 noundef %23, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !94
@@ -993,7 +993,7 @@ define { ptr, ptr } @_ZN15ockam_multiaddr8registry8Registry11get_by_code17hb4d1f
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !93
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !93
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !93
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sroa.4.sroa.0.0.copyload12.i, i64 %.sroa.4.sroa.5.0.copyload15.i
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %27 = load ptr, ptr %26, align 8, !alias.scope !110, !nonnull !7, !noundef !7
@@ -1060,7 +1060,7 @@ define { ptr, ptr } @_ZN15ockam_multiaddr8registry8Registry13get_by_prefix17h9f4
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !120
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !120
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 368
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.sroa.3.0.copyload.i.i
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %.sroa.3.0.copyload.i.i
   %22 = load ptr, ptr %21, align 8, !noalias !122, !nonnull !7, !noundef !7
   %23 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h8d51a13a97334004E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %22, i64 noundef %23, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !117
@@ -1083,7 +1083,7 @@ define { ptr, ptr } @_ZN15ockam_multiaddr8registry8Registry13get_by_prefix17h9f4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !116
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !116
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 176
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %26, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %.sroa.4.sroa.5.0.copyload15.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %28 = load ptr, ptr %27, align 8, !alias.scope !132, !nonnull !7, !noundef !7
@@ -1248,7 +1248,7 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder8has_co
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !155
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !155
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 232
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %.sroa.3.0.copyload.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %.sroa.3.0.copyload.i.i
   %20 = load ptr, ptr %19, align 8, !noalias !157, !nonnull !7, !noundef !7
   %21 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h150fae04a2b84f63E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull %20, i64 noundef %21, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !152
@@ -1309,7 +1309,7 @@ define noundef zeroext i1 @_ZN15ockam_multiaddr8registry15RegistryBuilder10has_p
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !169
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !169
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 368
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.3.0.copyload.i.i
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %.sroa.3.0.copyload.i.i
   %21 = load ptr, ptr %20, align 8, !noalias !171, !nonnull !7, !noundef !7
   %22 = add i64 %.sroa.2.0.copyload.i.i, -1
   call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h8d51a13a97334004E.llvm.13372823326256807255"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %21, i64 noundef %22, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !166
@@ -1398,7 +1398,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
   %.sroa.0.0.copyload.i = load ptr, ptr %29, align 8, !noalias !177, !nonnull !7, !noundef !7
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !177
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.43.0.copyload.i
+  %30 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.43.0.copyload.i
   %31 = load ptr, ptr %30, align 8, !noalias !181, !nonnull !7, !noundef !7
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8, !noalias !181, !nonnull !7, !align !37, !noundef !7
@@ -1464,7 +1464,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN15ockam_multia
   %.sroa.43.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.43.0.copyload.i11 = load i64, ptr %.sroa.43.0..sroa_idx.i10, align 8, !noalias !192
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i9, i64 176
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %50, i64 %.sroa.43.0.copyload.i11
+  %51 = getelementptr inbounds [16 x i8], ptr %50, i64 %.sroa.43.0.copyload.i11
   %52 = load ptr, ptr %51, align 8, !noalias !197, !nonnull !7, !noundef !7
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load ptr, ptr %53, align 8, !noalias !197, !nonnull !7, !align !37, !noundef !7

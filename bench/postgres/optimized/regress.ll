@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.test_lock_struct = type { [4 x i8], i8, [4 x i8] }
 %struct.pg_atomic_uint64 = type { i64 }
 %struct.pg_atomic_uint32 = type { i32 }
@@ -233,9 +231,9 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 
 34:                                               ; preds = %.outer, %.loopexit.thread
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.loopexit.thread ], [ %indvars.iv30.ph, %.outer ]
-  %35 = getelementptr inbounds nuw %struct.Point, ptr %16, i64 %indvars.iv30
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv30
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %36 = getelementptr inbounds nuw %struct.Point, ptr %16, i64 %indvars.iv.next31
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.next31
   %37 = load double, ptr %35, align 8
   store double %37, ptr %2, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -250,9 +248,9 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %34 ]
-  %43 = getelementptr inbounds nuw %struct.Point, ptr %21, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw %struct.Point, ptr %21, i64 %indvars.iv.next
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.next
   %45 = load double, ptr %43, align 8
   store double %45, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -375,7 +373,7 @@ switch.early.test:                                ; preds = %1, %15
   %11 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %12 = add i32 %.01925, 1
   %13 = sext i32 %.01925 to i64
-  %14 = getelementptr inbounds ptr, ptr %2, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %2, i64 %13
   store ptr %11, ptr %14, align 8
   br label %15
 
@@ -682,7 +680,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %61 = phi i1 [ true, %53 ], [ false, %59 ]
   %indvars.iv.sroa.phi = phi ptr [ %2, %53 ], [ %indvars.iv.sroa.gep174, %59 ]
   %indvars.iv = phi i64 [ 0, %53 ], [ 1, %59 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 @SPI_fnumber(ptr noundef nonnull %57, ptr noundef %63) #17
   store i32 %64, ptr %indvars.iv.sroa.phi, align 4
@@ -690,7 +688,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %65, label %66, label %71
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %69 = load ptr, ptr %67, align 8
   %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %39, ptr noundef %69) #17
@@ -703,7 +701,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not138, label %59, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %76 = load ptr, ptr %74, align 8
   %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %39, ptr noundef %76) #17
@@ -828,7 +826,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %141 = trunc nuw nsw i64 %indvars.iv.next154 to i32
   %142 = call i64 @SPI_getbinval(ptr noundef %139, ptr noundef nonnull %57, i32 noundef %141, ptr noundef nonnull %4) #17
-  %143 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv153
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv153
   store i64 %142, ptr %143, align 8
   %144 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %145 = trunc nuw i8 %144 to i1
@@ -844,7 +842,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 148:                                              ; preds = %._crit_edge
   %149 = add i32 %79, -1
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i64, ptr %136, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %136, i64 %150
   store i64 %132, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %137, i64 %150
   store i8 32, ptr %152, align 1
@@ -854,7 +852,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %.sink = phi i64 [ 999999, %148 ], [ %132, %._crit_edge ]
   %154 = add i32 %89, -1
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i64, ptr %136, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %136, i64 %155
   store i64 %.sink, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %137, i64 %155
   store i8 32, ptr %157, align 1
@@ -883,7 +881,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %173 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2146) #17
   %174 = add i32 %.2146, -1
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i32, ptr %162, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %162, i64 %175
   store i32 %173, ptr %176, align 4
   %177 = add i32 %.2146, 1
   %.not136 = icmp sgt i32 %177, %58
@@ -1157,7 +1155,7 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %26 = shl nsw i64 %25, 4
   %27 = getelementptr i8, ptr %9, i64 %26
   %28 = getelementptr i8, ptr %27, i64 24
-  %29 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [100 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 91
   %31 = load i8, ptr %30, align 1, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
@@ -1182,7 +1180,7 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   br i1 %43, label %99, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   %47 = inttoptr i64 %46 to ptr
   %48 = load i8, ptr %47, align 1
@@ -1362,11 +1360,11 @@ define i64 @get_environ(ptr noundef readnone captures(none) %0) local_unnamed_ad
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next, %.lr.ph19 ]
   %13 = load ptr, ptr @environ, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @cstring_to_text(ptr noundef %15) #17
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2438,7 +2436,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef %18, i32 noundef %13) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1042, ptr noundef nonnull @__func__.test_enc_setup) #17
@@ -2454,7 +2452,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef %26, i32 noundef %21) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.test_enc_setup) #17
@@ -2470,7 +2468,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef %34, i32 noundef %29) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1052, ptr noundef nonnull @__func__.test_enc_setup) #17
@@ -2486,7 +2484,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef %42, i32 noundef %37) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1057, ptr noundef nonnull @__func__.test_enc_setup) #17
@@ -2507,7 +2505,7 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %52, i32 noundef %47) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1065, ptr noundef nonnull @__func__.test_enc_setup) #17

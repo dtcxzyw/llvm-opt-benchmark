@@ -40,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::MapBase.base" = type <{ ptr, %"class.Eigen::internal::variable_if_dynamic", %"class.Eigen::internal::variable_if_dynamic.37" }>
 %"struct.Eigen::internal::scalar_product_op" = type { i8 }
 %"struct.Eigen::internal::scalar_sum_op" = type { i8 }
-%"class.tinyformat::detail::FormatArg" = type { ptr, ptr, ptr }
 
 $_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_ = comdat any
 
@@ -306,20 +305,20 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 120
   %70 = load i64, ptr %69, align 8
   %71 = mul nsw i64 %70, %67
-  %72 = getelementptr i32, ptr %68, i64 %71
+  %72 = getelementptr [4 x i8], ptr %68, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr i8, ptr %68, i64 4
-  %75 = getelementptr i32, ptr %74, i64 %71
+  %75 = getelementptr [4 x i8], ptr %74, i64 %71
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr i8, ptr %68, i64 8
-  %78 = getelementptr i32, ptr %77, i64 %71
+  %78 = getelementptr [4 x i8], ptr %77, i64 %71
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %73 to i64
   %81 = load ptr, ptr %64, align 8, !noalias !10
   %82 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %83 = load i64, ptr %82, align 8, !noalias !10
   %84 = mul nsw i64 %83, %80
-  %85 = getelementptr inbounds float, ptr %81, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %81, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = getelementptr i8, ptr %85, i64 4
   %88 = load float, ptr %87, align 4
@@ -327,7 +326,7 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %90 = load float, ptr %89, align 4
   %91 = zext i32 %76 to i64
   %92 = mul nsw i64 %83, %91
-  %93 = getelementptr inbounds float, ptr %81, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %81, i64 %92
   %94 = load float, ptr %93, align 4
   %95 = getelementptr i8, ptr %93, i64 4
   %96 = load float, ptr %95, align 4
@@ -335,7 +334,7 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %98 = load float, ptr %97, align 4
   %99 = zext i32 %79 to i64
   %100 = mul nsw i64 %83, %99
-  %101 = getelementptr inbounds float, ptr %81, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %81, i64 %100
   %102 = load float, ptr %101, align 4
   %103 = getelementptr i8, ptr %101, i64 4
   %104 = load float, ptr %103, align 4
@@ -373,11 +372,11 @@ define hidden noundef zeroext i1 @_ZNK4nori5Accel12rayIntersectERKNS_4TRayINS_6T
   %131 = getelementptr inbounds nuw i8, ptr %63, i64 88
   %132 = load ptr, ptr %131, align 8, !noalias !13
   %133 = mul nsw i64 %125, %80
-  %134 = getelementptr inbounds float, ptr %132, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %132, i64 %133
   %135 = mul nsw i64 %125, %91
-  %136 = getelementptr inbounds float, ptr %132, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %132, i64 %135
   %137 = mul nsw i64 %125, %99
-  %138 = getelementptr inbounds float, ptr %132, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %132, i64 %137
   %139 = load float, ptr %134, align 4
   %140 = fmul float %62, %139
   %141 = load float, ptr %136, align 4
@@ -510,11 +509,11 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ;
 228:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
   %229 = load ptr, ptr %65, align 8, !noalias !16
   %230 = mul nsw i64 %223, %80
-  %231 = getelementptr inbounds float, ptr %229, i64 %230
+  %231 = getelementptr inbounds [4 x i8], ptr %229, i64 %230
   %232 = mul nsw i64 %223, %91
-  %233 = getelementptr inbounds float, ptr %229, i64 %232
+  %233 = getelementptr inbounds [4 x i8], ptr %229, i64 %232
   %234 = mul nsw i64 %223, %99
-  %235 = getelementptr inbounds float, ptr %229, i64 %234
+  %235 = getelementptr inbounds [4 x i8], ptr %229, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %223, ptr %236, align 8, !alias.scope !19
   %237 = getelementptr inbounds nuw i8, ptr %14, i64 36
@@ -742,15 +741,15 @@ _ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit: ; preds = %23
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i.i ]
-  %36 = getelementptr inbounds nuw float, ptr %25, i64 %.011.i.i.i.i.i.i.i
-  %37 = getelementptr inbounds nuw float, ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.011.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i.i.i.i.i.i
   %38 = load <4 x float>, ptr %37, align 1
   %39 = fmul <4 x float> %31, %38
-  %40 = getelementptr inbounds nuw float, ptr %10, i64 %.011.i.i.i.i.i.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.011.i.i.i.i.i.i.i
   %41 = load <4 x float>, ptr %40, align 1
   %42 = fmul <4 x float> %33, %41
   %43 = fadd <4 x float> %39, %42
-  %44 = getelementptr inbounds nuw float, ptr %14, i64 %.011.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.011.i.i.i.i.i.i.i
   %45 = load <4 x float>, ptr %44, align 1
   %46 = fmul <4 x float> %35, %45
   %47 = fadd <4 x float> %43, %46
@@ -767,15 +766,15 @@ _ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeElll.exit: ; preds = %23
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i.i.i.i ], [ %50, %._crit_edge.i.i.i.i.i.i.i ]
-  %52 = getelementptr inbounds float, ptr %.sink.i21, i64 %.05.i.i.i.i.i.i.i.i
-  %53 = getelementptr inbounds float, ptr %6, i64 %.05.i.i.i.i.i.i.i.i
+  %52 = getelementptr inbounds [4 x i8], ptr %.sink.i21, i64 %.05.i.i.i.i.i.i.i.i
+  %53 = getelementptr inbounds [4 x i8], ptr %6, i64 %.05.i.i.i.i.i.i.i.i
   %54 = load float, ptr %53, align 4
   %55 = fmul float %4, %54
-  %56 = getelementptr inbounds float, ptr %10, i64 %.05.i.i.i.i.i.i.i.i
+  %56 = getelementptr inbounds [4 x i8], ptr %10, i64 %.05.i.i.i.i.i.i.i.i
   %57 = load float, ptr %56, align 4
   %58 = fmul float %8, %57
   %59 = fadd float %55, %58
-  %60 = getelementptr inbounds float, ptr %14, i64 %.05.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds [4 x i8], ptr %14, i64 %.05.i.i.i.i.i.i.i.i
   %61 = load float, ptr %60, align 4
   %62 = fmul float %12, %61
   %63 = fadd float %59, %62
@@ -811,11 +810,11 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   %.054.in77.i.i.i.i = phi i64 [ %.05478.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %73 ]
   %storemerge76.i.i.i.i = phi <4 x float> [ %86, %.lr.ph.i.i.i.i ], [ %76, %73 ]
   %.17375.i.i.i.i = phi <4 x float> [ %81, %.lr.ph.i.i.i.i ], [ %71, %73 ]
-  %78 = getelementptr inbounds nuw float, ptr %.sink.i21, i64 %.05478.i.i.i.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.sink.i21, i64 %.05478.i.i.i.i
   %79 = load <4 x float>, ptr %78, align 16
   %80 = fmul <4 x float> %79, %79
   %81 = fadd <4 x float> %.17375.i.i.i.i, %80
-  %82 = getelementptr inbounds nuw float, ptr %.sink.i21, i64 %.054.in77.i.i.i.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sink.i21, i64 %.054.in77.i.i.i.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load <4 x float>, ptr %83, align 16
   %85 = fmul <4 x float> %84, %84
@@ -832,7 +831,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %._crit_edge.i.i.i.i
-  %91 = getelementptr inbounds nuw float, ptr %.sink.i21, i64 %66
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.sink.i21, i64 %66
   %92 = load <4 x float>, ptr %91, align 16
   %93 = fmul <4 x float> %92, %92
   %94 = fadd <4 x float> %88, %93
@@ -851,7 +850,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
 .lr.ph83.i.i.i.i:                                 ; preds = %95, %.lr.ph83.i.i.i.i
   %.05281.i.i.i.i = phi i64 [ %104, %.lr.ph83.i.i.i.i ], [ %68, %95 ]
   %.180.i.i.i.i = phi float [ %103, %.lr.ph83.i.i.i.i ], [ %98, %95 ]
-  %100 = getelementptr inbounds float, ptr %.sink.i21, i64 %.05281.i.i.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %.sink.i21, i64 %.05281.i.i.i.i
   %101 = load float, ptr %100, align 4
   %102 = fmul float %101, %101
   %103 = fadd float %.180.i.i.i.i, %102
@@ -868,7 +867,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
 .lr.ph88.i.i.i.i:                                 ; preds = %105, %.lr.ph88.i.i.i.i
   %.086.i.i.i.i = phi i64 [ %113, %.lr.ph88.i.i.i.i ], [ 1, %105 ]
   %.385.i.i.i.i = phi float [ %112, %.lr.ph88.i.i.i.i ], [ %107, %105 ]
-  %109 = getelementptr inbounds nuw float, ptr %.sink.i21, i64 %.086.i.i.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.sink.i21, i64 %.086.i.i.i.i
   %110 = load float, ptr %109, align 4
   %111 = fmul float %110, %110
   %112 = fadd float %.385.i.i.i.i, %111
@@ -917,8 +916,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %129, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %125 = getelementptr inbounds nuw float, ptr %121, i64 %.011.i.i.i.i.i.i
-  %126 = getelementptr inbounds nuw float, ptr %.sink.i21, i64 %.011.i.i.i.i.i.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %.011.i.i.i.i.i.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.sink.i21, i64 %.011.i.i.i.i.i.i
   %127 = load <4 x float>, ptr %126, align 16
   %128 = fdiv <4 x float> %127, %124
   store <4 x float> %128, ptr %125, align 16
@@ -932,8 +931,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
 
 .lr.ph.i.i.i.i.i.i.i8:                            ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i8
   %.05.i.i.i.i.i.i.i = phi i64 [ %136, %.lr.ph.i.i.i.i.i.i.i8 ], [ %.pre-phi41, %._crit_edge.i.i.i.i.i.i ]
-  %132 = getelementptr inbounds float, ptr %121, i64 %.05.i.i.i.i.i.i.i
-  %133 = getelementptr inbounds float, ptr %.sink.i21, i64 %.05.i.i.i.i.i.i.i
+  %132 = getelementptr inbounds [4 x i8], ptr %121, i64 %.05.i.i.i.i.i.i.i
+  %133 = getelementptr inbounds [4 x i8], ptr %.sink.i21, i64 %.05.i.i.i.i.i.i.i
   %134 = load float, ptr %133, align 4
   %135 = fdiv float %134, %116
   store float %135, ptr %132, align 4
@@ -1061,7 +1060,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -1425,7 +1424,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %115 = add nsw i32 %112, 1
   store i32 %115, ptr %5, align 4
   %116 = sext i32 %112 to i64
-  %117 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %4, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %117, align 8
@@ -1487,7 +1486,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %157 = add nsw i32 %154, 1
   store i32 %157, ptr %5, align 4
   %158 = sext i32 %154 to i64
-  %159 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %158
+  %159 = getelementptr inbounds [24 x i8], ptr %4, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %159, align 8

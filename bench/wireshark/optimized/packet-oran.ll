@@ -1903,8 +1903,8 @@ define hidden void @proto_register_oran() local_unnamed_addr #0 {
 
 16:                                               ; preds = %0, %16
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr i32, ptr @ett_oran_c_section_extension, i64 %indvars.iv
-  %18 = getelementptr ptr, ptr @proto_register_oran.ext_ett, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr @ett_oran_c_section_extension, i64 %indvars.iv
+  %18 = getelementptr [8 x i8], ptr @proto_register_oran.ext_ett, i64 %indvars.iv
   store ptr %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
@@ -2135,7 +2135,7 @@ proto_item_set_generated.exit.i:                  ; preds = %98, %95, %dissect_p
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 1
   store i8 %140, ptr %141, align 1
   %142 = getelementptr inbounds nuw i8, ptr %.1227.i, i64 4
-  %143 = getelementptr i32, ptr %142, i64 %138
+  %143 = getelementptr [4 x i8], ptr %142, i64 %138
   %144 = load i32, ptr %143, align 4
   %145 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 %144, ptr %145, align 4
@@ -2152,7 +2152,7 @@ proto_item_set_generated.exit.i:                  ; preds = %98, %95, %dissect_p
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %151 = load i32, ptr %150, align 4
   %152 = getelementptr inbounds nuw i8, ptr %.1227.i, i64 4
-  %153 = getelementptr i32, ptr %152, i64 %.pre-phi.i
+  %153 = getelementptr [4 x i8], ptr %152, i64 %.pre-phi.i
   store i32 %151, ptr %153, align 4
   %154 = load i32, ptr %12, align 4
   %155 = zext i32 %154 to i64
@@ -3103,7 +3103,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %58, %61
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store i8 %123, ptr %124, align 1
   %125 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %126 = getelementptr i32, ptr %125, i64 %121
+  %126 = getelementptr [4 x i8], ptr %125, i64 %121
   %127 = load i32, ptr %126, align 4
   %128 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 %127, ptr %128, align 4
@@ -3120,7 +3120,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %58, %61
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %136 = getelementptr i32, ptr %135, i64 %.pre-phi
+  %136 = getelementptr [4 x i8], ptr %135, i64 %.pre-phi
   store i32 %134, ptr %136, align 4
   %137 = load i32, ptr %17, align 4
   %138 = zext i32 %137 to i64
@@ -4363,7 +4363,7 @@ decompress_value.exit575:                         ; preds = %decompress_value.ex
 
 809:                                              ; preds = %805
   %810 = zext i32 %806 to i64
-  %811 = getelementptr float, ptr @__const.dissect_oran_c.slot_length_by_scs, i64 %810
+  %811 = getelementptr [4 x i8], ptr @__const.dissect_oran_c.slot_length_by_scs, i64 %810
   %812 = load float, ptr %811, align 4
   %813 = add i32 %802, %800
   %814 = uitofp i32 %813 to float
@@ -6496,7 +6496,7 @@ decompress_value.exit1576:                        ; preds = %decompress_value.ex
   %433 = add i8 %9, -1
   %or.cond.i1627 = icmp ult i8 %433, 5
   %434 = zext nneg i8 %9 to i64
-  %435 = getelementptr ptr, ptr @__const.dissect_csf.shift_value, i64 %434
+  %435 = getelementptr [8 x i8], ptr @__const.dissect_csf.shift_value, i64 %434
   %.not1533 = icmp eq ptr %3, null
   %436 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %437 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6524,7 +6524,7 @@ decompress_value.exit1576:                        ; preds = %decompress_value.ex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond2134 = select i1 %455, i1 %switch.lobit, i1 false
   %456 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.dissect_oran_c_section, i64 %456
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_oran_c_section, i64 %456
   br label %457
 
 457:                                              ; preds = %.lr.ph1857, %1804
@@ -6541,7 +6541,7 @@ decompress_value.exit1576:                        ; preds = %decompress_value.ex
   %464 = add nsw i32 %460, -1
   %465 = zext i32 %464 to i64
   %466 = select i1 %or.cond14, i64 0, i64 %465
-  %467 = getelementptr i32, ptr @ett_oran_c_section_extension, i64 %466
+  %467 = getelementptr [4 x i8], ptr @ett_oran_c_section_extension, i64 %466
   %468 = load i32, ptr %467, align 4
   %469 = call ptr @proto_item_add_subtree(ptr noundef %463, i32 noundef %468)
   %470 = load i32, ptr @hf_oran_ef, align 4
@@ -6570,7 +6570,7 @@ decompress_value.exit1576:                        ; preds = %decompress_value.ex
 switch.lookup:                                    ; preds = %479, %.thread1651
   %switch.load = load i64, ptr %switch.gep, align 8
   %480 = zext nneg i8 %459 to i64
-  %481 = getelementptr %struct.AllowedCTs_t, ptr @ext_cts, i64 %480
+  %481 = getelementptr [7 x i8], ptr @ext_cts, i64 %480
   %482 = getelementptr i8, ptr %481, i64 %switch.load
   %483 = load i8, ptr %482, align 1, !range !8, !noundef !9
   %484 = trunc nuw i8 %483 to i1
@@ -7545,7 +7545,7 @@ proto_item_set_hidden.exit1602:                   ; preds = %943, %946, %949
   %1002 = load i32, ptr @pref_num_weights_per_bundle, align 4
   %1003 = select i1 %998, i32 %1001, i32 %1002
   %1004 = load i32, ptr %63, align 4
-  %1005 = getelementptr %struct.anon.1, ptr %451, i64 %indvars.iv
+  %1005 = getelementptr [12 x i8], ptr %451, i64 %indvars.iv
   %1006 = load i32, ptr %1005, align 4
   %1007 = getelementptr inbounds nuw i8, ptr %1005, i64 4
   %1008 = load i32, ptr %1007, align 4
@@ -7764,7 +7764,7 @@ dissect_bfw_bundle.exit:                          ; preds = %proto_item_set_hidd
 dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.exit
   %1115 = add i32 %996, -1
   %1116 = zext i32 %1115 to i64
-  %1117 = getelementptr %struct.anon.1, ptr %30, i64 %1116
+  %1117 = getelementptr [12 x i8], ptr %30, i64 %1116
   %1118 = getelementptr i8, ptr %1117, i64 828
   %1119 = load i8, ptr %1118, align 4, !range !8, !noundef !9
   br label %dissect_bfw_bundle.exit._crit_edge.thread
@@ -7801,7 +7801,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %993, %dissect_bfw_b
   %1128 = call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %1127, ptr noundef %0, i32 noundef %.201813, i32 noundef 1, i32 noundef 0)
   %1129 = load i32, ptr @hf_oran_beam_id, align 4
   %1130 = call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %1129, ptr noundef %0, i32 noundef %.201813, i32 noundef 2, i32 noundef 0)
-  %1131 = getelementptr %struct.anon.1, ptr %30, i64 %indvars.iv1931
+  %1131 = getelementptr [12 x i8], ptr %30, i64 %indvars.iv1931
   %1132 = getelementptr i8, ptr %1131, i64 828
   %1133 = load i8, ptr %1132, align 4, !range !8, !noundef !9
   %1134 = trunc nuw i8 %1133 to i1
@@ -7908,7 +7908,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %993, %dissect_bfw_b
   %1172 = load i32, ptr %65, align 4
   %1173 = trunc i32 %1172 to i8
   %1174 = zext nneg i32 %1152 to i64
-  %1175 = getelementptr %struct.anon.0, ptr %449, i64 %1174
+  %1175 = getelementptr [2 x i8], ptr %449, i64 %1174
   store i8 %1173, ptr %1175, align 2
   %1176 = load i32, ptr %66, align 4
   %1177 = trunc i32 %1176 to i8
@@ -7978,7 +7978,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %993, %dissect_bfw_b
 1209:                                             ; preds = %1207
   %1210 = add nuw nsw i32 %1186, 1
   %1211 = zext nneg i32 %1186 to i64
-  %1212 = getelementptr i32, ptr %446, i64 %1211
+  %1212 = getelementptr [4 x i8], ptr %446, i64 %1211
   store i32 %1204, ptr %1212, align 4
   br label %1213
 
@@ -9436,7 +9436,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %41 = mul i32 %.0238, %2
   %42 = add i32 %41, %37
   %43 = zext i32 %.2 to i64
-  %44 = getelementptr %struct.anon.1, ptr %29, i64 %43
+  %44 = getelementptr [12 x i8], ptr %29, i64 %43
   store i32 %42, ptr %44, align 4
   %45 = icmp ugt i32 %42, %31
   br i1 %45, label %57, label %46
@@ -9507,7 +9507,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %75 = trunc nuw nsw i64 %indvars.iv312 to i32
   %76 = mul i32 %2, %75
   %77 = add i32 %76, %0
-  %78 = getelementptr %struct.anon.1, ptr %70, i64 %indvars.iv312
+  %78 = getelementptr [12 x i8], ptr %70, i64 %indvars.iv312
   store i32 %77, ptr %78, align 4
   %79 = add i32 %66, %77
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
@@ -9542,7 +9542,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 91:                                               ; preds = %.lr.ph284, %._crit_edge280
   %indvars.iv320 = phi i64 [ 0, %.lr.ph284 ], [ %indvars.iv.next321, %._crit_edge280 ]
   %.0235281 = phi i32 [ %88, %.lr.ph284 ], [ %118, %._crit_edge280 ]
-  %92 = getelementptr %struct.anon.0, ptr %89, i64 %indvars.iv320
+  %92 = getelementptr [2 x i8], ptr %89, i64 %indvars.iv320
   %93 = load i8, ptr %92, align 2
   %94 = zext i8 %93 to i32
   %95 = add i32 %.0235281, %94
@@ -9570,7 +9570,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %104 = mul i32 %.0229277, %2
   %105 = add i32 %104, %95
   %106 = zext i32 %103 to i64
-  %107 = getelementptr %struct.anon.1, ptr %90, i64 %106
+  %107 = getelementptr [12 x i8], ptr %90, i64 %106
   store i32 %105, ptr %107, align 4
   %108 = add i32 %66, %105
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
@@ -9640,7 +9640,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %indvars.iv307 = phi i64 [ 0, %.lr.ph271.us.preheader ], [ %indvars.iv.next308, %..critedge258_crit_edge.us ]
   %133 = trunc nuw i64 %indvars.iv307 to i32
   %134 = mul i32 %125, %133
-  %135 = getelementptr i32, ptr %131, i64 %indvars.iv307
+  %135 = getelementptr [4 x i8], ptr %131, i64 %indvars.iv307
   %136 = zext i32 %134 to i64
   br label %137
 
@@ -9656,7 +9656,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %143 = mul i32 %2, %142
   %144 = add i32 %143, %0
   %145 = add i32 %144, %141
-  %146 = getelementptr %struct.anon.1, ptr %132, i64 %138
+  %146 = getelementptr [12 x i8], ptr %132, i64 %138
   store i32 %145, ptr %146, align 4
   %147 = add i32 %123, %145
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 4
@@ -9702,7 +9702,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %161 = trunc nuw nsw i64 %indvars.iv to i32
   %162 = mul i32 %2, %161
   %163 = add i32 %162, %0
-  %164 = getelementptr %struct.anon.1, ptr %157, i64 %indvars.iv
+  %164 = getelementptr [12 x i8], ptr %157, i64 %indvars.iv
   store i32 %163, ptr %164, align 4
   %165 = add i32 %123, %163
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 4

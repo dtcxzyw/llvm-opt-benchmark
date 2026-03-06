@@ -90,12 +90,12 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8Array
 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !8
   %13 = fcmp une float %12, 0.000000e+00
   %14 = fdiv float 1.000000e+00, %12
   %15 = select i1 %13, float %14, float 1.000000e+00
-  %16 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %15, ptr %16, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -227,12 +227,12 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefIN
 
 11:                                               ; preds = %11, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4, !tbaa !8
   %14 = fcmp une float %13, 0.000000e+00
   %15 = fdiv float 1.000000e+00, %13
   %16 = select i1 %14, float %15, float 1.000000e+00
-  %17 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store float %16, ptr %17, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -289,12 +289,12 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleEPNS_11BasicVec
 
 18:                                               ; preds = %18, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4, !tbaa !8
   %21 = fcmp une float %20, 0.000000e+00
   %22 = fdiv float 1.000000e+00, %20
   %23 = select i1 %21, float %22, float 1.000000e+00
-  %24 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store float %23, ptr %24, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

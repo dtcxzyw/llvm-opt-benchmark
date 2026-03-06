@@ -11,12 +11,12 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 8:                                                ; preds = %5
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = icmp slt i32 %4, 0
   br i1 %11, label %.preheader, label %45
 
 .preheader:                                       ; preds = %8
-  %12 = getelementptr inbounds i64, ptr %2, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = add i64 %6, %13
   %15 = sub i64 0, %14
@@ -80,7 +80,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %44, label %.thread157, label %.lr.ph190
 
 45:                                               ; preds = %8
-  %46 = getelementptr inbounds i64, ptr %1, i64 %9
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %.not170 = icmp eq i64 %6, 0
   br i1 %.not170, label %.preheader163, label %.lr.ph
 
@@ -221,7 +221,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %24 = add nsw i32 %23, %4
   %25 = add nsw i32 %24, %5
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i64, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = sub nsw i32 0, %20
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 3
@@ -230,10 +230,10 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 31:                                               ; preds = %15
   %32 = zext nneg i32 %8 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %32
   %34 = sub i32 0, %4
   %35 = tail call i32 @bn_cmp_part_words(ptr noundef %1, ptr noundef %33, i32 noundef %9, i32 noundef %34) #4
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %32
   %37 = tail call i32 @bn_cmp_part_words(ptr noundef %36, ptr noundef %2, i32 noundef %10, i32 noundef %5) #4
   %38 = mul nsw i32 %35, 3
   %39 = add nsw i32 %38, %37
@@ -251,27 +251,27 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 40:                                               ; preds = %31
   %41 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef %33, ptr noundef %1, i32 noundef %9, i32 noundef %4)
-  %42 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %43 = sub i32 0, %5
   %44 = tail call i64 @bn_sub_part_words(ptr noundef %42, ptr noundef %2, ptr noundef %36, i32 noundef %10, i32 noundef %43)
   br label %58
 
 45:                                               ; preds = %31
   %46 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef %33, ptr noundef %1, i32 noundef %9, i32 noundef %4)
-  %47 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %48 = tail call i64 @bn_sub_part_words(ptr noundef %47, ptr noundef %36, ptr noundef %2, i32 noundef %10, i32 noundef %5)
   br label %58
 
 49:                                               ; preds = %31
   %50 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef %1, ptr noundef %33, i32 noundef %9, i32 noundef %34)
-  %51 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %52 = sub i32 0, %5
   %53 = tail call i64 @bn_sub_part_words(ptr noundef %51, ptr noundef %2, ptr noundef %36, i32 noundef %10, i32 noundef %52)
   br label %58
 
 54:                                               ; preds = %31
   %55 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef %1, ptr noundef %33, i32 noundef %9, i32 noundef %34)
-  %56 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %57 = tail call i64 @bn_sub_part_words(ptr noundef %56, ptr noundef %36, ptr noundef %2, i32 noundef %10, i32 noundef %5)
   br label %58
 
@@ -290,14 +290,14 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 63:                                               ; preds = %58
   %64 = zext nneg i32 %3 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %6, i64 %64
-  %66 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   tail call void @bn_mul_comba8(ptr noundef nonnull %65, ptr noundef %6, ptr noundef nonnull %66) #4
   br label %70
 
 67:                                               ; preds = %.thread247
   %68 = zext nneg i32 %3 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %69, i8 0, i64 128, i1 false)
   br label %70
 
@@ -305,7 +305,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %.pre-phi = phi i64 [ %68, %67 ], [ %64, %63 ]
   %.not232238253258 = phi i1 [ true, %67 ], [ %.not232, %63 ]
   tail call void @bn_mul_comba8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
-  %71 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi
   tail call void @bn_mul_comba8(ptr noundef %71, ptr noundef nonnull %33, ptr noundef nonnull %36) #4
   %72 = tail call i64 @bn_add_words(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %71, i32 noundef %3) #4
   %73 = trunc i64 %72 to i32
@@ -314,19 +314,19 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 74:                                               ; preds = %58
   %75 = shl nuw nsw i32 %3, 1
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %6, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %76
   %78 = zext nneg i32 %3 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %6, i64 %78
-  %80 = getelementptr inbounds nuw i64, ptr %6, i64 %32
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   tail call void @bn_mul_recursive(ptr noundef nonnull %79, ptr noundef %6, ptr noundef %80, i32 noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %77)
   br label %88
 
 81:                                               ; preds = %.thread247
   %82 = shl nuw nsw i32 %3, 1
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw i64, ptr %6, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %83
   %85 = zext nneg i32 %3 to i64
-  %86 = getelementptr inbounds nuw i64, ptr %6, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %85
   %87 = shl nuw nsw i64 %85, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %86, i8 0, i64 %87, i1 false)
   br label %88
@@ -336,7 +336,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %89 = phi ptr [ %77, %74 ], [ %84, %81 ]
   %.not232238254263 = phi i1 [ %.not232, %74 ], [ true, %81 ]
   tail call void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 0, i32 noundef 0, ptr noundef %89)
-  %90 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi265
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi265
   tail call void @bn_mul_recursive(ptr noundef %90, ptr noundef %33, ptr noundef %36, i32 noundef %8, i32 noundef %4, i32 noundef %5, ptr noundef %89)
   %91 = tail call i64 @bn_add_words(ptr noundef %6, ptr noundef %0, ptr noundef %90, i32 noundef %3) #4
   %92 = trunc i64 %91 to i32
@@ -345,7 +345,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 93:                                               ; preds = %70, %88
   %94 = phi i32 [ %73, %70 ], [ %92, %88 ]
   %95 = phi i64 [ %.pre-phi, %70 ], [ %.pre-phi265, %88 ]
-  %96 = getelementptr inbounds nuw i64, ptr %6, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %95
   %97 = tail call i64 @bn_sub_words(ptr noundef %96, ptr noundef %6, ptr noundef %96, i32 noundef %3) #4
   %98 = trunc i64 %97 to i32
   %99 = sub nsw i32 %94, %98
@@ -354,7 +354,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 100:                                              ; preds = %70, %88
   %101 = phi i32 [ %73, %70 ], [ %92, %88 ]
   %102 = phi i64 [ %.pre-phi, %70 ], [ %.pre-phi265, %88 ]
-  %103 = getelementptr inbounds nuw i64, ptr %6, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %102
   %104 = tail call i64 @bn_add_words(ptr noundef %103, ptr noundef %103, ptr noundef %6, i32 noundef %3) #4
   %105 = trunc i64 %104 to i32
   %106 = add nsw i32 %101, %105
@@ -363,8 +363,8 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 107:                                              ; preds = %100, %93
   %108 = phi i64 [ %95, %93 ], [ %102, %100 ]
   %.0226 = phi i32 [ %99, %93 ], [ %106, %100 ]
-  %109 = getelementptr inbounds nuw i64, ptr %0, i64 %32
-  %110 = getelementptr inbounds nuw i64, ptr %6, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %108
   %111 = tail call i64 @bn_add_words(ptr noundef %109, ptr noundef %109, ptr noundef %110, i32 noundef %3) #4
   %112 = trunc i64 %111 to i32
   %113 = add nsw i32 %.0226, %112
@@ -374,7 +374,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 114:                                              ; preds = %107
   %115 = add nuw nsw i32 %8, %3
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i64, ptr %0, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %116
   %118 = load i64, ptr %117, align 8, !tbaa !3
   %119 = sext i32 %113 to i64
   %120 = add i64 %118, %119
@@ -419,7 +419,7 @@ define void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
 
 12:                                               ; preds = %8
   %13 = sext i32 %.050 to i64
-  %14 = getelementptr inbounds i64, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = load i64, ptr %.048, align 8, !tbaa !3
   %16 = tail call i64 @bn_mul_words(ptr noundef %0, ptr noundef %.045, i32 noundef %.050, i64 noundef %15) #4
   store i64 %16, ptr %14, align 8, !tbaa !3
@@ -496,10 +496,10 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %14
   %16 = sub nsw i32 %3, %4
   %17 = tail call i32 @bn_cmp_part_words(ptr noundef %1, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %16) #4
-  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
   %19 = sub nsw i32 %5, %3
   %20 = tail call i32 @bn_cmp_part_words(ptr noundef nonnull %18, ptr noundef %2, i32 noundef %5, i32 noundef %19) #4
   %21 = mul nsw i32 %17, 3
@@ -519,7 +519,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 23:                                               ; preds = %13
   %24 = sub nsw i32 %4, %3
   %25 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %15, ptr noundef nonnull %1, i32 noundef %4, i32 noundef %24)
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %27 = sub nsw i32 %3, %5
   %28 = tail call i64 @bn_sub_part_words(ptr noundef nonnull %26, ptr noundef nonnull %2, ptr noundef nonnull %18, i32 noundef %5, i32 noundef %27)
   br label %43
@@ -527,20 +527,20 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 29:                                               ; preds = %13, %13
   %30 = sub nsw i32 %4, %3
   %31 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %15, ptr noundef nonnull %1, i32 noundef %4, i32 noundef %30)
-  %32 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %33 = tail call i64 @bn_sub_part_words(ptr noundef nonnull %32, ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef %5, i32 noundef %19)
   br label %43
 
 34:                                               ; preds = %13, %13, %13, %13
   %35 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %16)
-  %36 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %37 = sub nsw i32 %3, %5
   %38 = tail call i64 @bn_sub_part_words(ptr noundef nonnull %36, ptr noundef nonnull %2, ptr noundef nonnull %18, i32 noundef %5, i32 noundef %37)
   br label %43
 
 39:                                               ; preds = %13, %13
   %40 = tail call i64 @bn_sub_part_words(ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %15, i32 noundef %4, i32 noundef %16)
-  %41 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %42 = tail call i64 @bn_sub_part_words(ptr noundef nonnull %41, ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef %5, i32 noundef %19)
   br label %43
 
@@ -551,16 +551,16 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 45:                                               ; preds = %43
   %46 = zext nneg i32 %8 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %6, i64 %46
-  %48 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   tail call void @bn_mul_comba8(ptr noundef nonnull %47, ptr noundef %6, ptr noundef nonnull %48) #4
   tail call void @bn_mul_comba8(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) #4
-  %49 = getelementptr inbounds nuw i64, ptr %0, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %46
   tail call void @bn_mul_normal(ptr noundef nonnull %49, ptr noundef nonnull %15, i32 noundef %4, ptr noundef nonnull %18, i32 noundef %5)
   %50 = add i32 %5, %4
   %51 = add i32 %50, %8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i64, ptr %0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %52
   %54 = sub i32 16, %50
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 3
@@ -570,10 +570,10 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 57:                                               ; preds = %43
   %58 = shl nsw i32 %3, 2
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %6, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %59
   %61 = zext nneg i32 %8 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %6, i64 %61
-  %63 = getelementptr inbounds nuw i64, ptr %6, i64 %14
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   tail call void @bn_mul_recursive(ptr noundef nonnull %62, ptr noundef %6, ptr noundef nonnull %63, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %60)
   tail call void @bn_mul_recursive(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %60)
   %64 = lshr i32 %3, 1
@@ -582,14 +582,14 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %65, label %66, label %77
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %61
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %61
   %68 = sub nsw i32 %4, %64
   %69 = sub nsw i32 %5, %64
   tail call void @bn_mul_recursive(ptr noundef nonnull %67, ptr noundef nonnull %15, ptr noundef nonnull %18, i32 noundef %64, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %60)
   %70 = and i32 %3, 2147483646
   %71 = add nuw nsw i32 %8, %70
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i64, ptr %0, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %72
   %74 = sub nsw i32 %8, %70
   %75 = sext i32 %74 to i64
   %76 = shl nsw i64 %75, 3
@@ -598,7 +598,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 77:                                               ; preds = %57
   %78 = icmp sgt i32 %., %64
-  %79 = getelementptr inbounds nuw i64, ptr %0, i64 %61
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %61
   br i1 %78, label %80, label %90
 
 80:                                               ; preds = %77
@@ -608,7 +608,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
   %83 = add i32 %5, %4
   %84 = add i32 %83, %8
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i64, ptr %0, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %0, i64 %85
   %87 = sub i32 %8, %83
   %88 = sext i32 %87 to i64
   %89 = shl nsw i64 %88, 3
@@ -653,10 +653,10 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 105:                                              ; preds = %66, %94, %102, %96, %80, %45
   %.pre-phi = phi i64 [ %61, %66 ], [ %61, %94 ], [ %61, %102 ], [ %61, %96 ], [ %61, %80 ], [ 16, %45 ]
-  %106 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre-phi
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre-phi
   %107 = tail call i64 @bn_add_words(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %106, i32 noundef %8) #4
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds nuw i64, ptr %6, i64 %.pre-phi
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.pre-phi
   br i1 %.not, label %114, label %110
 
 110:                                              ; preds = %105
@@ -673,8 +673,8 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 118:                                              ; preds = %114, %110
   %.0259 = phi i32 [ %113, %110 ], [ %117, %114 ]
-  %119 = getelementptr inbounds nuw i64, ptr %0, i64 %14
-  %120 = getelementptr inbounds nuw i64, ptr %6, i64 %.pre-phi
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.pre-phi
   %121 = tail call i64 @bn_add_words(ptr noundef nonnull %119, ptr noundef nonnull %119, ptr noundef nonnull %120, i32 noundef %8) #4
   %122 = trunc i64 %121 to i32
   %123 = add nsw i32 %.0259, %122
@@ -684,7 +684,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 124:                                              ; preds = %118
   %125 = mul nuw nsw i32 %3, 3
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i64, ptr %0, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !3
   %129 = sext i32 %123 to i64
   %130 = add i64 %128, %129
@@ -717,25 +717,25 @@ common.ret56:                                     ; preds = %8, %common.ret
 
 8:                                                ; preds = %5
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %9
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   tail call void @bn_mul_low_recursive(ptr noundef %4, ptr noundef %1, ptr noundef %10, i32 noundef %6, ptr noundef nonnull %12)
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %14 = tail call i64 @bn_add_words(ptr noundef %13, ptr noundef %13, ptr noundef %4, i32 noundef %6) #4
-  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %9
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %9
   tail call void @bn_mul_low_recursive(ptr noundef %4, ptr noundef %15, ptr noundef %2, i32 noundef %6, ptr noundef nonnull %12)
   %16 = tail call i64 @bn_add_words(ptr noundef %13, ptr noundef %13, ptr noundef %4, i32 noundef %6) #4
   br label %common.ret56
 
 common.ret:                                       ; preds = %5
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds i64, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   tail call void @bn_mul_low_normal(ptr noundef %4, ptr noundef %1, ptr noundef %18, i32 noundef %6)
-  %19 = getelementptr inbounds i64, ptr %4, i64 %17
-  %20 = getelementptr inbounds i64, ptr %1, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %4, i64 %17
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   tail call void @bn_mul_low_normal(ptr noundef %19, ptr noundef %20, ptr noundef %2, i32 noundef %6)
-  %21 = getelementptr inbounds i64, ptr %0, i64 %17
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %22 = tail call i64 @bn_add_words(ptr noundef %21, ptr noundef %21, ptr noundef %4, i32 noundef %6) #4
   %23 = tail call i64 @bn_add_words(ptr noundef %21, ptr noundef %21, ptr noundef %19, i32 noundef %6) #4
   br label %common.ret56

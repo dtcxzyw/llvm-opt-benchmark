@@ -144,7 +144,7 @@ define range(i32 0, 2) i32 @grpc_byte_buffer_reader_peek(ptr noundef captures(no
 .thread:                                          ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw %struct.grpc_slice, ptr %16, i64 %11
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %11
   store ptr %17, ptr %1, align 8, !tbaa !19
   %18 = load i32, ptr %9, align 8, !tbaa !13
   %19 = add i32 %18, 1
@@ -178,7 +178,7 @@ define range(i32 0, 2) i32 @grpc_byte_buffer_reader_next(ptr noundef captures(no
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw %struct.grpc_slice, ptr %17, i64 %11
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %11
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = icmp ugt ptr %19, inttoptr (i64 1 to ptr)
   br i1 %20, label %21, label %.thread
@@ -282,7 +282,7 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %26, %_ZN9grpc_core4
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw %struct.grpc_slice, ptr %43, i64 %37
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %37
   %45 = load ptr, ptr %44, align 8, !tbaa !20
   %46 = icmp ugt ptr %45, inttoptr (i64 1 to ptr)
   br i1 %46, label %47, label %49

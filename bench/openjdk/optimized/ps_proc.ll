@@ -134,7 +134,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.loopexit.i.i ], [ 0, %.preheader.i.i ]
   %.13447.i.i = phi ptr [ %46, %.critedge.loopexit.i.i ], [ %.033.i.i, %.preheader.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   store ptr %.13447.i.i, ptr %41, align 8
   br label %42
 
@@ -482,7 +482,7 @@ define internal fastcc range(i32 0, 2) i32 @process_doesnt_exist(i32 noundef %0)
   %.0 = phi ptr [ %12, %11 ], [ %21, %15 ]
   %16 = load i8, ptr %.0, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8192
   %.not18 = icmp eq i16 %20, 0

@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Luau::CodeGen::IrOp" = type { i32 }
 %"struct.Luau::CodeGen::X64::RegisterX64" = type { i8 }
 %"struct.Luau::CodeGen::A64::RegisterA64" = type { i8 }
-%"struct.Luau::CodeGen::IrBlock" = type { i8, i16, i32, i32, i32, i32, i32, %"struct.Luau::CodeGen::Label" }
-%"struct.Luau::CodeGen::Label" = type { i32, i32 }
-%"struct.Luau::CodeGen::IrConst" = type { i8, %union.anon }
-%union.anon = type { double }
 %"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
 %"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
@@ -46,7 +42,7 @@ define dso_local void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr 
   %6 = lshr i32 %1, 4
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [44 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = load i16, ptr %10, align 4, !tbaa !10
   %12 = add i16 %11, 1
@@ -57,7 +53,7 @@ define dso_local void @_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE(ptr 
   %14 = lshr i32 %1, 4
   %15 = zext nneg i32 %14 to i64
   %16 = load ptr, ptr %0, align 8, !tbaa !22
-  %17 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2, !tbaa !25
   %20 = add i16 %19, 1
@@ -81,7 +77,7 @@ define dso_local void @_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = zext nneg i32 %5 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [44 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = load i16, ptr %10, align 4, !tbaa !10
   %12 = add i16 %11, -1
@@ -97,7 +93,7 @@ define dso_local void @_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE(p
   %16 = lshr i32 %1, 4
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !22
-  %19 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !25
   %22 = add i16 %21, -1
@@ -125,7 +121,7 @@ define dso_local void @_ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE(p
 33:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
   %34 = load ptr, ptr %30, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [44 x i8], ptr %34, i64 %indvars.iv.i
   %36 = load i8, ptr %35, align 4, !tbaa !32
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %39, label %38
@@ -178,7 +174,7 @@ define dso_local noundef range(i32 0, 13) i32 @_ZN4Luau7CodeGen18tmToHostMetamet
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4Luau7CodeGen18tmToHostMetamethodEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4Luau7CodeGen18tmToHostMetamethodEi, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -203,7 +199,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = zext nneg i32 %6 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !4
-  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [44 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i16, ptr %11, align 4, !tbaa !10
   %13 = add i16 %12, -1
@@ -219,7 +215,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr
   %17 = lshr i32 %.sroa.06.0.copyload, 4
   %18 = zext nneg i32 %17 to i64
   %19 = load ptr, ptr %0, align 8, !tbaa !22
-  %20 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !25
   %23 = add i16 %22, -1
@@ -247,7 +243,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr
 34:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %35 = load ptr, ptr %31, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [44 x i8], ptr %35, i64 %indvars.iv
   %37 = load i8, ptr %36, align 4, !tbaa !32
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %40, label %39
@@ -280,7 +276,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %16, %_Z
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = zext nneg i32 %44 to i64
   %47 = load ptr, ptr %45, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [44 x i8], ptr %47, i64 %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i16, ptr %49, align 4, !tbaa !10
   %51 = add i16 %50, -1
@@ -296,7 +292,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %16, %_Z
   %55 = lshr i32 %.sroa.05.0.copyload, 4
   %56 = zext nneg i32 %55 to i64
   %57 = load ptr, ptr %0, align 8, !tbaa !22
-  %58 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %56
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
   %60 = load i16, ptr %59, align 2, !tbaa !25
   %61 = add i16 %60, -1
@@ -324,7 +320,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %16, %_Z
 72:                                               ; preds = %.lr.ph80, %78
   %indvars.iv97 = phi i64 [ %70, %.lr.ph80 ], [ %indvars.iv.next98, %78 ]
   %73 = load ptr, ptr %69, align 8, !tbaa !4
-  %74 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %73, i64 %indvars.iv97
+  %74 = getelementptr inbounds nuw [44 x i8], ptr %73, i64 %indvars.iv97
   %75 = load i8, ptr %74, align 4, !tbaa !32
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %78, label %77
@@ -357,7 +353,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31: ; preds = %54, %
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = zext nneg i32 %82 to i64
   %85 = load ptr, ptr %83, align 8, !tbaa !4
-  %86 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [44 x i8], ptr %85, i64 %84
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 36
   %88 = load i16, ptr %87, align 4, !tbaa !10
   %89 = add i16 %88, -1
@@ -373,7 +369,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31: ; preds = %54, %
   %93 = lshr i32 %.sroa.04.0.copyload, 4
   %94 = zext nneg i32 %93 to i64
   %95 = load ptr, ptr %0, align 8, !tbaa !22
-  %96 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %94
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %98 = load i16, ptr %97, align 2, !tbaa !25
   %99 = add i16 %98, -1
@@ -401,7 +397,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit31: ; preds = %54, %
 110:                                              ; preds = %.lr.ph83, %116
   %indvars.iv100 = phi i64 [ %108, %.lr.ph83 ], [ %indvars.iv.next101, %116 ]
   %111 = load ptr, ptr %107, align 8, !tbaa !4
-  %112 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %111, i64 %indvars.iv100
+  %112 = getelementptr inbounds nuw [44 x i8], ptr %111, i64 %indvars.iv100
   %113 = load i8, ptr %112, align 4, !tbaa !32
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %116, label %115
@@ -434,7 +430,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35: ; preds = %92, %
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = zext nneg i32 %120 to i64
   %123 = load ptr, ptr %121, align 8, !tbaa !4
-  %124 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [44 x i8], ptr %123, i64 %122
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 36
   %126 = load i16, ptr %125, align 4, !tbaa !10
   %127 = add i16 %126, -1
@@ -450,7 +446,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35: ; preds = %92, %
   %131 = lshr i32 %.sroa.03.0.copyload, 4
   %132 = zext nneg i32 %131 to i64
   %133 = load ptr, ptr %0, align 8, !tbaa !22
-  %134 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %132
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 2
   %136 = load i16, ptr %135, align 2, !tbaa !25
   %137 = add i16 %136, -1
@@ -478,7 +474,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit35: ; preds = %92, %
 148:                                              ; preds = %.lr.ph86, %154
   %indvars.iv103 = phi i64 [ %146, %.lr.ph86 ], [ %indvars.iv.next104, %154 ]
   %149 = load ptr, ptr %145, align 8, !tbaa !4
-  %150 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %149, i64 %indvars.iv103
+  %150 = getelementptr inbounds nuw [44 x i8], ptr %149, i64 %indvars.iv103
   %151 = load i8, ptr %150, align 4, !tbaa !32
   %152 = icmp eq i8 %151, 0
   br i1 %152, label %154, label %153
@@ -511,7 +507,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39: ; preds = %130, 
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %160 = zext nneg i32 %158 to i64
   %161 = load ptr, ptr %159, align 8, !tbaa !4
-  %162 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %161, i64 %160
+  %162 = getelementptr inbounds nuw [44 x i8], ptr %161, i64 %160
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 36
   %164 = load i16, ptr %163, align 4, !tbaa !10
   %165 = add i16 %164, -1
@@ -527,7 +523,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39: ; preds = %130, 
   %169 = lshr i32 %.sroa.02.0.copyload, 4
   %170 = zext nneg i32 %169 to i64
   %171 = load ptr, ptr %0, align 8, !tbaa !22
-  %172 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %171, i64 %170
+  %172 = getelementptr inbounds nuw [32 x i8], ptr %171, i64 %170
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 2
   %174 = load i16, ptr %173, align 2, !tbaa !25
   %175 = add i16 %174, -1
@@ -555,7 +551,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit39: ; preds = %130, 
 186:                                              ; preds = %.lr.ph89, %192
   %indvars.iv106 = phi i64 [ %184, %.lr.ph89 ], [ %indvars.iv.next107, %192 ]
   %187 = load ptr, ptr %183, align 8, !tbaa !4
-  %188 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %187, i64 %indvars.iv106
+  %188 = getelementptr inbounds nuw [44 x i8], ptr %187, i64 %indvars.iv106
   %189 = load i8, ptr %188, align 4, !tbaa !32
   %190 = icmp eq i8 %189, 0
   br i1 %190, label %192, label %191
@@ -588,7 +584,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43: ; preds = %168, 
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %198 = zext nneg i32 %196 to i64
   %199 = load ptr, ptr %197, align 8, !tbaa !4
-  %200 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %199, i64 %198
+  %200 = getelementptr inbounds nuw [44 x i8], ptr %199, i64 %198
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 36
   %202 = load i16, ptr %201, align 4, !tbaa !10
   %203 = add i16 %202, -1
@@ -604,7 +600,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43: ; preds = %168, 
   %207 = lshr i32 %.sroa.01.0.copyload, 4
   %208 = zext nneg i32 %207 to i64
   %209 = load ptr, ptr %0, align 8, !tbaa !22
-  %210 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %209, i64 %208
+  %210 = getelementptr inbounds nuw [32 x i8], ptr %209, i64 %208
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 2
   %212 = load i16, ptr %211, align 2, !tbaa !25
   %213 = add i16 %212, -1
@@ -632,7 +628,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit43: ; preds = %168, 
 224:                                              ; preds = %.lr.ph92, %230
   %indvars.iv109 = phi i64 [ %222, %.lr.ph92 ], [ %indvars.iv.next110, %230 ]
   %225 = load ptr, ptr %221, align 8, !tbaa !4
-  %226 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %225, i64 %indvars.iv109
+  %226 = getelementptr inbounds nuw [44 x i8], ptr %225, i64 %indvars.iv109
   %227 = load i8, ptr %226, align 4, !tbaa !32
   %228 = icmp eq i8 %227, 0
   br i1 %228, label %230, label %229
@@ -665,7 +661,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %206, 
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %236 = zext nneg i32 %234 to i64
   %237 = load ptr, ptr %235, align 8, !tbaa !4
-  %238 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %237, i64 %236
+  %238 = getelementptr inbounds nuw [44 x i8], ptr %237, i64 %236
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 36
   %240 = load i16, ptr %239, align 4, !tbaa !10
   %241 = add i16 %240, -1
@@ -681,7 +677,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %206, 
   %245 = lshr i32 %.sroa.0.0.copyload, 4
   %246 = zext nneg i32 %245 to i64
   %247 = load ptr, ptr %0, align 8, !tbaa !22
-  %248 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %247, i64 %246
+  %248 = getelementptr inbounds nuw [32 x i8], ptr %247, i64 %246
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 2
   %250 = load i16, ptr %249, align 2, !tbaa !25
   %251 = add i16 %250, -1
@@ -709,7 +705,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %206, 
 262:                                              ; preds = %.lr.ph95, %268
   %indvars.iv112 = phi i64 [ %260, %.lr.ph95 ], [ %indvars.iv.next113, %268 ]
   %263 = load ptr, ptr %259, align 8, !tbaa !4
-  %264 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %263, i64 %indvars.iv112
+  %264 = getelementptr inbounds nuw [44 x i8], ptr %263, i64 %indvars.iv112
   %265 = load i8, ptr %264, align 4, !tbaa !32
   %266 = icmp eq i8 %265, 0
   br i1 %266, label %268, label %267
@@ -753,7 +749,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj(ptr noundef no
 7:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ %5, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [44 x i8], ptr %8, i64 %indvars.iv
   %10 = load i8, ptr %9, align 4, !tbaa !32
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %13, label %12
@@ -787,7 +783,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE(pt
 10:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [44 x i8], ptr %11, i64 %indvars.iv
   %13 = load i8, ptr %12, align 4, !tbaa !32
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %16, label %15
@@ -820,7 +816,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_4IrOpES3_
   %7 = lshr i32 %2, 4
   %8 = zext nneg i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !4
-  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [44 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i16, ptr %11, align 4, !tbaa !10
   %13 = add i16 %12, 1
@@ -831,7 +827,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_4IrOpES3_
   %15 = lshr i32 %2, 4
   %16 = zext nneg i32 %15 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !22
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i16, ptr %19, align 2, !tbaa !25
   %21 = add i16 %20, 1
@@ -851,7 +847,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = zext nneg i32 %24 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [44 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i16, ptr %29, align 4, !tbaa !10
   %31 = add i16 %30, -1
@@ -867,7 +863,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
   %35 = lshr i32 %.sroa.0.0.copyload, 4
   %36 = zext nneg i32 %35 to i64
   %37 = load ptr, ptr %0, align 8, !tbaa !22
-  %38 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = load i16, ptr %39, align 2, !tbaa !25
   %41 = add i16 %40, -1
@@ -895,7 +891,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
 52:                                               ; preds = %58, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %58 ]
   %53 = load ptr, ptr %49, align 8, !tbaa !4
-  %54 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %53, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw [44 x i8], ptr %53, i64 %indvars.iv.i.i
   %55 = load i8, ptr %54, align 4, !tbaa !32
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %58, label %57
@@ -924,7 +920,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = zext i32 %2 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.013.0.copyload = load i32, ptr %9, align 4, !tbaa !35
   %10 = and i32 %.sroa.013.0.copyload, 15
@@ -936,7 +932,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockE
 11:                                               ; preds = %4
   %12 = lshr i32 %.sroa.013.0.copyload, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %16 = load i16, ptr %15, align 4, !tbaa !10
   %17 = add i16 %16, 1
@@ -947,7 +943,7 @@ define dso_local void @_ZN4Luau7CodeGen7replaceERNS0_10IrFunctionERNS0_7IrBlockE
   %19 = lshr i32 %.sroa.013.0.copyload, 4
   %20 = zext nneg i32 %19 to i64
   %21 = load ptr, ptr %0, align 8, !tbaa !22
-  %22 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i16, ptr %23, align 2, !tbaa !25
   %25 = add i16 %24, 1
@@ -966,7 +962,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %4, %11, %1
 28:                                               ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit
   %29 = lshr i32 %.sroa.012.0.copyload, 4
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %30
+  %31 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %33 = load i16, ptr %32, align 4, !tbaa !10
   %34 = add i16 %33, 1
@@ -977,7 +973,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %4, %11, %1
   %36 = lshr i32 %.sroa.012.0.copyload, 4
   %37 = zext nneg i32 %36 to i64
   %38 = load ptr, ptr %0, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 2, !tbaa !25
   %42 = add i16 %41, 1
@@ -996,7 +992,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45: ; preds = %_ZN4Luau
 45:                                               ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45
   %46 = lshr i32 %.sroa.011.0.copyload, 4
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %47
+  %48 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i16, ptr %49, align 4, !tbaa !10
   %51 = add i16 %50, 1
@@ -1007,7 +1003,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit45: ; preds = %_ZN4Luau
   %53 = lshr i32 %.sroa.011.0.copyload, 4
   %54 = zext nneg i32 %53 to i64
   %55 = load ptr, ptr %0, align 8, !tbaa !22
-  %56 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %54
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %58 = load i16, ptr %57, align 2, !tbaa !25
   %59 = add i16 %58, 1
@@ -1026,7 +1022,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4Luau
 62:                                               ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46
   %63 = lshr i32 %.sroa.010.0.copyload, 4
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %64
+  %65 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   %67 = load i16, ptr %66, align 4, !tbaa !10
   %68 = add i16 %67, 1
@@ -1037,7 +1033,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4Luau
   %70 = lshr i32 %.sroa.010.0.copyload, 4
   %71 = zext nneg i32 %70 to i64
   %72 = load ptr, ptr %0, align 8, !tbaa !22
-  %73 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !25
   %76 = add i16 %75, 1
@@ -1056,7 +1052,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %_ZN4Luau
 79:                                               ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47
   %80 = lshr i32 %.sroa.09.0.copyload, 4
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %81
+  %82 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %84 = load i16, ptr %83, align 4, !tbaa !10
   %85 = add i16 %84, 1
@@ -1067,7 +1063,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit47: ; preds = %_ZN4Luau
   %87 = lshr i32 %.sroa.09.0.copyload, 4
   %88 = zext nneg i32 %87 to i64
   %89 = load ptr, ptr %0, align 8, !tbaa !22
-  %90 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %88
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %92 = load i16, ptr %91, align 2, !tbaa !25
   %93 = add i16 %92, 1
@@ -1086,7 +1082,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48: ; preds = %_ZN4Luau
 96:                                               ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48
   %97 = lshr i32 %.sroa.08.0.copyload, 4
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %98
+  %99 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 36
   %101 = load i16, ptr %100, align 4, !tbaa !10
   %102 = add i16 %101, 1
@@ -1097,7 +1093,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit48: ; preds = %_ZN4Luau
   %104 = lshr i32 %.sroa.08.0.copyload, 4
   %105 = zext nneg i32 %104 to i64
   %106 = load ptr, ptr %0, align 8, !tbaa !22
-  %107 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %105
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %109 = load i16, ptr %108, align 2, !tbaa !25
   %110 = add i16 %109, 1
@@ -1116,7 +1112,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit49: ; preds = %_ZN4Luau
 113:                                              ; preds = %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit49
   %114 = lshr i32 %.sroa.07.0.copyload, 4
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %7, i64 %115
+  %116 = getelementptr inbounds nuw [44 x i8], ptr %7, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 36
   %118 = load i16, ptr %117, align 4, !tbaa !10
   %119 = add i16 %118, 1
@@ -1127,7 +1123,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit49: ; preds = %_ZN4Luau
   %121 = lshr i32 %.sroa.07.0.copyload, 4
   %122 = zext nneg i32 %121 to i64
   %123 = load ptr, ptr %0, align 8, !tbaa !22
-  %124 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %122
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 2
   %126 = load i16, ptr %125, align 2, !tbaa !25
   %127 = add i16 %126, 1
@@ -1163,7 +1159,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit50: ; preds = %_ZN4Luau
 142:                                              ; preds = %148, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %140, %.lr.ph.i ], [ %indvars.iv.next.i, %148 ]
   %143 = load ptr, ptr %5, align 8, !tbaa !4
-  %144 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %143, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw [44 x i8], ptr %143, i64 %indvars.iv.i
   %145 = load i8, ptr %144, align 4, !tbaa !32
   %146 = icmp eq i8 %145, 0
   br i1 %146, label %148, label %147
@@ -1194,7 +1190,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj.exit:  ; preds = %148, %136
   %153 = lshr i32 %.sroa.06.0.copyload, 4
   %154 = zext nneg i32 %153 to i64
   %155 = load ptr, ptr %5, align 8, !tbaa !4
-  %156 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %155, i64 %154
+  %156 = getelementptr inbounds nuw [44 x i8], ptr %155, i64 %154
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 36
   %158 = load i16, ptr %157, align 4, !tbaa !10
   %159 = add i16 %158, -1
@@ -1210,7 +1206,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj.exit:  ; preds = %148, %136
   %163 = lshr i32 %.sroa.06.0.copyload, 4
   %164 = zext nneg i32 %163 to i64
   %165 = load ptr, ptr %0, align 8, !tbaa !22
-  %166 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %165, i64 %164
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %165, i64 %164
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 2
   %168 = load i16, ptr %167, align 2, !tbaa !25
   %169 = add i16 %168, -1
@@ -1237,7 +1233,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj.exit:  ; preds = %148, %136
 179:                                              ; preds = %185, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %177, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %185 ]
   %180 = load ptr, ptr %5, align 8, !tbaa !4
-  %181 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %180, i64 %indvars.iv.i.i
+  %181 = getelementptr inbounds nuw [44 x i8], ptr %180, i64 %indvars.iv.i.i
   %182 = load i8, ptr %181, align 4, !tbaa !32
   %183 = icmp eq i8 %182, 0
   br i1 %183, label %185, label %184
@@ -1269,7 +1265,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %149, %1
   %189 = lshr i32 %.sroa.05.0.copyload, 4
   %190 = zext nneg i32 %189 to i64
   %191 = load ptr, ptr %5, align 8, !tbaa !4
-  %192 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %191, i64 %190
+  %192 = getelementptr inbounds nuw [44 x i8], ptr %191, i64 %190
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 36
   %194 = load i16, ptr %193, align 4, !tbaa !10
   %195 = add i16 %194, -1
@@ -1285,7 +1281,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %149, %1
   %199 = lshr i32 %.sroa.05.0.copyload, 4
   %200 = zext nneg i32 %199 to i64
   %201 = load ptr, ptr %0, align 8, !tbaa !22
-  %202 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 2
   %204 = load i16, ptr %203, align 2, !tbaa !25
   %205 = add i16 %204, -1
@@ -1312,7 +1308,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %149, %1
 215:                                              ; preds = %221, %.lr.ph.i.i53
   %indvars.iv.i.i54 = phi i64 [ %213, %.lr.ph.i.i53 ], [ %indvars.iv.next.i.i55, %221 ]
   %216 = load ptr, ptr %5, align 8, !tbaa !4
-  %217 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %216, i64 %indvars.iv.i.i54
+  %217 = getelementptr inbounds nuw [44 x i8], ptr %216, i64 %indvars.iv.i.i54
   %218 = load i8, ptr %217, align 4, !tbaa !32
   %219 = icmp eq i8 %218, 0
   br i1 %219, label %221, label %220
@@ -1344,7 +1340,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58: ; preds = %_ZN4L
   %225 = lshr i32 %.sroa.04.0.copyload, 4
   %226 = zext nneg i32 %225 to i64
   %227 = load ptr, ptr %5, align 8, !tbaa !4
-  %228 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %227, i64 %226
+  %228 = getelementptr inbounds nuw [44 x i8], ptr %227, i64 %226
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 36
   %230 = load i16, ptr %229, align 4, !tbaa !10
   %231 = add i16 %230, -1
@@ -1360,7 +1356,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58: ; preds = %_ZN4L
   %235 = lshr i32 %.sroa.04.0.copyload, 4
   %236 = zext nneg i32 %235 to i64
   %237 = load ptr, ptr %0, align 8, !tbaa !22
-  %238 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %237, i64 %236
+  %238 = getelementptr inbounds nuw [32 x i8], ptr %237, i64 %236
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 2
   %240 = load i16, ptr %239, align 2, !tbaa !25
   %241 = add i16 %240, -1
@@ -1387,7 +1383,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit58: ; preds = %_ZN4L
 251:                                              ; preds = %257, %.lr.ph.i.i61
   %indvars.iv.i.i62 = phi i64 [ %249, %.lr.ph.i.i61 ], [ %indvars.iv.next.i.i63, %257 ]
   %252 = load ptr, ptr %5, align 8, !tbaa !4
-  %253 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %252, i64 %indvars.iv.i.i62
+  %253 = getelementptr inbounds nuw [44 x i8], ptr %252, i64 %indvars.iv.i.i62
   %254 = load i8, ptr %253, align 4, !tbaa !32
   %255 = icmp eq i8 %254, 0
   br i1 %255, label %257, label %256
@@ -1419,7 +1415,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66: ; preds = %_ZN4L
   %261 = lshr i32 %.sroa.03.0.copyload, 4
   %262 = zext nneg i32 %261 to i64
   %263 = load ptr, ptr %5, align 8, !tbaa !4
-  %264 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %263, i64 %262
+  %264 = getelementptr inbounds nuw [44 x i8], ptr %263, i64 %262
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 36
   %266 = load i16, ptr %265, align 4, !tbaa !10
   %267 = add i16 %266, -1
@@ -1435,7 +1431,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66: ; preds = %_ZN4L
   %271 = lshr i32 %.sroa.03.0.copyload, 4
   %272 = zext nneg i32 %271 to i64
   %273 = load ptr, ptr %0, align 8, !tbaa !22
-  %274 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %273, i64 %272
+  %274 = getelementptr inbounds nuw [32 x i8], ptr %273, i64 %272
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 2
   %276 = load i16, ptr %275, align 2, !tbaa !25
   %277 = add i16 %276, -1
@@ -1462,7 +1458,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit66: ; preds = %_ZN4L
 287:                                              ; preds = %293, %.lr.ph.i.i69
   %indvars.iv.i.i70 = phi i64 [ %285, %.lr.ph.i.i69 ], [ %indvars.iv.next.i.i71, %293 ]
   %288 = load ptr, ptr %5, align 8, !tbaa !4
-  %289 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %288, i64 %indvars.iv.i.i70
+  %289 = getelementptr inbounds nuw [44 x i8], ptr %288, i64 %indvars.iv.i.i70
   %290 = load i8, ptr %289, align 4, !tbaa !32
   %291 = icmp eq i8 %290, 0
   br i1 %291, label %293, label %292
@@ -1494,7 +1490,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74: ; preds = %_ZN4L
   %297 = lshr i32 %.sroa.02.0.copyload, 4
   %298 = zext nneg i32 %297 to i64
   %299 = load ptr, ptr %5, align 8, !tbaa !4
-  %300 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %299, i64 %298
+  %300 = getelementptr inbounds nuw [44 x i8], ptr %299, i64 %298
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 36
   %302 = load i16, ptr %301, align 4, !tbaa !10
   %303 = add i16 %302, -1
@@ -1510,7 +1506,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74: ; preds = %_ZN4L
   %307 = lshr i32 %.sroa.02.0.copyload, 4
   %308 = zext nneg i32 %307 to i64
   %309 = load ptr, ptr %0, align 8, !tbaa !22
-  %310 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %309, i64 %308
+  %310 = getelementptr inbounds nuw [32 x i8], ptr %309, i64 %308
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 2
   %312 = load i16, ptr %311, align 2, !tbaa !25
   %313 = add i16 %312, -1
@@ -1537,7 +1533,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit74: ; preds = %_ZN4L
 323:                                              ; preds = %329, %.lr.ph.i.i77
   %indvars.iv.i.i78 = phi i64 [ %321, %.lr.ph.i.i77 ], [ %indvars.iv.next.i.i79, %329 ]
   %324 = load ptr, ptr %5, align 8, !tbaa !4
-  %325 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %324, i64 %indvars.iv.i.i78
+  %325 = getelementptr inbounds nuw [44 x i8], ptr %324, i64 %indvars.iv.i.i78
   %326 = load i8, ptr %325, align 4, !tbaa !32
   %327 = icmp eq i8 %326, 0
   br i1 %327, label %329, label %328
@@ -1569,7 +1565,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82: ; preds = %_ZN4L
   %333 = lshr i32 %.sroa.01.0.copyload, 4
   %334 = zext nneg i32 %333 to i64
   %335 = load ptr, ptr %5, align 8, !tbaa !4
-  %336 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %335, i64 %334
+  %336 = getelementptr inbounds nuw [44 x i8], ptr %335, i64 %334
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 36
   %338 = load i16, ptr %337, align 4, !tbaa !10
   %339 = add i16 %338, -1
@@ -1585,7 +1581,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82: ; preds = %_ZN4L
   %343 = lshr i32 %.sroa.01.0.copyload, 4
   %344 = zext nneg i32 %343 to i64
   %345 = load ptr, ptr %0, align 8, !tbaa !22
-  %346 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %345, i64 %344
+  %346 = getelementptr inbounds nuw [32 x i8], ptr %345, i64 %344
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 2
   %348 = load i16, ptr %347, align 2, !tbaa !25
   %349 = add i16 %348, -1
@@ -1612,7 +1608,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit82: ; preds = %_ZN4L
 359:                                              ; preds = %365, %.lr.ph.i.i85
   %indvars.iv.i.i86 = phi i64 [ %357, %.lr.ph.i.i85 ], [ %indvars.iv.next.i.i87, %365 ]
   %360 = load ptr, ptr %5, align 8, !tbaa !4
-  %361 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %360, i64 %indvars.iv.i.i86
+  %361 = getelementptr inbounds nuw [44 x i8], ptr %360, i64 %indvars.iv.i.i86
   %362 = load i8, ptr %361, align 4, !tbaa !32
   %363 = icmp eq i8 %362, 0
   br i1 %363, label %365, label %364
@@ -1644,7 +1640,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90: ; preds = %_ZN4L
   %369 = lshr i32 %.sroa.0.0.copyload, 4
   %370 = zext nneg i32 %369 to i64
   %371 = load ptr, ptr %5, align 8, !tbaa !4
-  %372 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %371, i64 %370
+  %372 = getelementptr inbounds nuw [44 x i8], ptr %371, i64 %370
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 36
   %374 = load i16, ptr %373, align 4, !tbaa !10
   %375 = add i16 %374, -1
@@ -1660,7 +1656,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90: ; preds = %_ZN4L
   %379 = lshr i32 %.sroa.0.0.copyload, 4
   %380 = zext nneg i32 %379 to i64
   %381 = load ptr, ptr %0, align 8, !tbaa !22
-  %382 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %381, i64 %380
+  %382 = getelementptr inbounds nuw [32 x i8], ptr %381, i64 %380
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 2
   %384 = load i16, ptr %383, align 2, !tbaa !25
   %385 = add i16 %384, -1
@@ -1687,7 +1683,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit90: ; preds = %_ZN4L
 395:                                              ; preds = %401, %.lr.ph.i.i93
   %indvars.iv.i.i94 = phi i64 [ %393, %.lr.ph.i.i93 ], [ %indvars.iv.next.i.i95, %401 ]
   %396 = load ptr, ptr %5, align 8, !tbaa !4
-  %397 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %396, i64 %indvars.iv.i.i94
+  %397 = getelementptr inbounds nuw [44 x i8], ptr %396, i64 %indvars.iv.i.i94
   %398 = load i8, ptr %397, align 4, !tbaa !32
   %399 = icmp eq i8 %398, 0
   br i1 %399, label %401, label %400
@@ -1759,7 +1755,7 @@ define dso_local void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrIn
   %7 = lshr i32 %2, 4
   %8 = zext nneg i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !4
-  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [44 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i16, ptr %11, align 4, !tbaa !10
   %13 = add i16 %12, 1
@@ -1770,7 +1766,7 @@ define dso_local void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrIn
   %15 = lshr i32 %2, 4
   %16 = zext nneg i32 %15 to i64
   %17 = load ptr, ptr %0, align 8, !tbaa !22
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i16, ptr %19, align 2, !tbaa !25
   %21 = add i16 %20, 1
@@ -1791,7 +1787,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = zext nneg i32 %25 to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [44 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = load i16, ptr %30, align 4, !tbaa !10
   %32 = add i16 %31, -1
@@ -1807,7 +1803,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
   %36 = lshr i32 %.sroa.06.0.copyload, 4
   %37 = zext nneg i32 %36 to i64
   %38 = load ptr, ptr %0, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 2, !tbaa !25
   %42 = add i16 %41, -1
@@ -1835,7 +1831,7 @@ _ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %3, %5, %14
 53:                                               ; preds = %59, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %51, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %59 ]
   %54 = load ptr, ptr %50, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %54, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw [44 x i8], ptr %54, i64 %indvars.iv.i.i
   %56 = load i8, ptr %55, align 4, !tbaa !32
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %59, label %58
@@ -1868,7 +1864,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %_ZN4Lua
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = zext nneg i32 %63 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [44 x i8], ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 36
   %69 = load i16, ptr %68, align 4, !tbaa !10
   %70 = add i16 %69, -1
@@ -1884,7 +1880,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %_ZN4Lua
   %74 = lshr i32 %.sroa.05.0.copyload, 4
   %75 = zext nneg i32 %74 to i64
   %76 = load ptr, ptr %0, align 8, !tbaa !22
-  %77 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %75
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %79 = load i16, ptr %78, align 2, !tbaa !25
   %80 = add i16 %79, -1
@@ -1912,7 +1908,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit: ; preds = %_ZN4Lua
 91:                                               ; preds = %97, %.lr.ph.i.i33
   %indvars.iv.i.i34 = phi i64 [ %89, %.lr.ph.i.i33 ], [ %indvars.iv.next.i.i35, %97 ]
   %92 = load ptr, ptr %88, align 8, !tbaa !4
-  %93 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %92, i64 %indvars.iv.i.i34
+  %93 = getelementptr inbounds nuw [44 x i8], ptr %92, i64 %indvars.iv.i.i34
   %94 = load i8, ptr %93, align 4, !tbaa !32
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %97, label %96
@@ -1945,7 +1941,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38: ; preds = %_ZN4L
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = zext nneg i32 %101 to i64
   %104 = load ptr, ptr %102, align 8, !tbaa !4
-  %105 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [44 x i8], ptr %104, i64 %103
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 36
   %107 = load i16, ptr %106, align 4, !tbaa !10
   %108 = add i16 %107, -1
@@ -1961,7 +1957,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38: ; preds = %_ZN4L
   %112 = lshr i32 %.sroa.04.0.copyload, 4
   %113 = zext nneg i32 %112 to i64
   %114 = load ptr, ptr %0, align 8, !tbaa !22
-  %115 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %114, i64 %113
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 2
   %117 = load i16, ptr %116, align 2, !tbaa !25
   %118 = add i16 %117, -1
@@ -1989,7 +1985,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit38: ; preds = %_ZN4L
 129:                                              ; preds = %135, %.lr.ph.i.i41
   %indvars.iv.i.i42 = phi i64 [ %127, %.lr.ph.i.i41 ], [ %indvars.iv.next.i.i43, %135 ]
   %130 = load ptr, ptr %126, align 8, !tbaa !4
-  %131 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %130, i64 %indvars.iv.i.i42
+  %131 = getelementptr inbounds nuw [44 x i8], ptr %130, i64 %indvars.iv.i.i42
   %132 = load i8, ptr %131, align 4, !tbaa !32
   %133 = icmp eq i8 %132, 0
   br i1 %133, label %135, label %134
@@ -2022,7 +2018,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4L
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %141 = zext nneg i32 %139 to i64
   %142 = load ptr, ptr %140, align 8, !tbaa !4
-  %143 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [44 x i8], ptr %142, i64 %141
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 36
   %145 = load i16, ptr %144, align 4, !tbaa !10
   %146 = add i16 %145, -1
@@ -2038,7 +2034,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4L
   %150 = lshr i32 %.sroa.03.0.copyload, 4
   %151 = zext nneg i32 %150 to i64
   %152 = load ptr, ptr %0, align 8, !tbaa !22
-  %153 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %152, i64 %151
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %151
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 2
   %155 = load i16, ptr %154, align 2, !tbaa !25
   %156 = add i16 %155, -1
@@ -2066,7 +2062,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit46: ; preds = %_ZN4L
 167:                                              ; preds = %173, %.lr.ph.i.i49
   %indvars.iv.i.i50 = phi i64 [ %165, %.lr.ph.i.i49 ], [ %indvars.iv.next.i.i51, %173 ]
   %168 = load ptr, ptr %164, align 8, !tbaa !4
-  %169 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %168, i64 %indvars.iv.i.i50
+  %169 = getelementptr inbounds nuw [44 x i8], ptr %168, i64 %indvars.iv.i.i50
   %170 = load i8, ptr %169, align 4, !tbaa !32
   %171 = icmp eq i8 %170, 0
   br i1 %171, label %173, label %172
@@ -2099,7 +2095,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54: ; preds = %_ZN4L
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %179 = zext nneg i32 %177 to i64
   %180 = load ptr, ptr %178, align 8, !tbaa !4
-  %181 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw [44 x i8], ptr %180, i64 %179
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 36
   %183 = load i16, ptr %182, align 4, !tbaa !10
   %184 = add i16 %183, -1
@@ -2115,7 +2111,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54: ; preds = %_ZN4L
   %188 = lshr i32 %.sroa.02.0.copyload, 4
   %189 = zext nneg i32 %188 to i64
   %190 = load ptr, ptr %0, align 8, !tbaa !22
-  %191 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %190, i64 %189
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %189
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 2
   %193 = load i16, ptr %192, align 2, !tbaa !25
   %194 = add i16 %193, -1
@@ -2143,7 +2139,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit54: ; preds = %_ZN4L
 205:                                              ; preds = %211, %.lr.ph.i.i57
   %indvars.iv.i.i58 = phi i64 [ %203, %.lr.ph.i.i57 ], [ %indvars.iv.next.i.i59, %211 ]
   %206 = load ptr, ptr %202, align 8, !tbaa !4
-  %207 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %206, i64 %indvars.iv.i.i58
+  %207 = getelementptr inbounds nuw [44 x i8], ptr %206, i64 %indvars.iv.i.i58
   %208 = load i8, ptr %207, align 4, !tbaa !32
   %209 = icmp eq i8 %208, 0
   br i1 %209, label %211, label %210
@@ -2176,7 +2172,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62: ; preds = %_ZN4L
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %217 = zext nneg i32 %215 to i64
   %218 = load ptr, ptr %216, align 8, !tbaa !4
-  %219 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %218, i64 %217
+  %219 = getelementptr inbounds nuw [44 x i8], ptr %218, i64 %217
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 36
   %221 = load i16, ptr %220, align 4, !tbaa !10
   %222 = add i16 %221, -1
@@ -2192,7 +2188,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62: ; preds = %_ZN4L
   %226 = lshr i32 %.sroa.01.0.copyload, 4
   %227 = zext nneg i32 %226 to i64
   %228 = load ptr, ptr %0, align 8, !tbaa !22
-  %229 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %228, i64 %227
+  %229 = getelementptr inbounds nuw [32 x i8], ptr %228, i64 %227
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 2
   %231 = load i16, ptr %230, align 2, !tbaa !25
   %232 = add i16 %231, -1
@@ -2220,7 +2216,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit62: ; preds = %_ZN4L
 243:                                              ; preds = %249, %.lr.ph.i.i65
   %indvars.iv.i.i66 = phi i64 [ %241, %.lr.ph.i.i65 ], [ %indvars.iv.next.i.i67, %249 ]
   %244 = load ptr, ptr %240, align 8, !tbaa !4
-  %245 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %244, i64 %indvars.iv.i.i66
+  %245 = getelementptr inbounds nuw [44 x i8], ptr %244, i64 %indvars.iv.i.i66
   %246 = load i8, ptr %245, align 4, !tbaa !32
   %247 = icmp eq i8 %246, 0
   br i1 %247, label %249, label %248
@@ -2253,7 +2249,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70: ; preds = %_ZN4L
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %255 = zext nneg i32 %253 to i64
   %256 = load ptr, ptr %254, align 8, !tbaa !4
-  %257 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %256, i64 %255
+  %257 = getelementptr inbounds nuw [44 x i8], ptr %256, i64 %255
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 36
   %259 = load i16, ptr %258, align 4, !tbaa !10
   %260 = add i16 %259, -1
@@ -2269,7 +2265,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70: ; preds = %_ZN4L
   %264 = lshr i32 %.sroa.0.0.copyload, 4
   %265 = zext nneg i32 %264 to i64
   %266 = load ptr, ptr %0, align 8, !tbaa !22
-  %267 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %266, i64 %265
+  %267 = getelementptr inbounds nuw [32 x i8], ptr %266, i64 %265
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 2
   %269 = load i16, ptr %268, align 2, !tbaa !25
   %270 = add i16 %269, -1
@@ -2297,7 +2293,7 @@ _ZN4Luau7CodeGen9removeUseERNS0_10IrFunctionENS0_4IrOpE.exit70: ; preds = %_ZN4L
 281:                                              ; preds = %287, %.lr.ph.i.i73
   %indvars.iv.i.i74 = phi i64 [ %279, %.lr.ph.i.i73 ], [ %indvars.iv.next.i.i75, %287 ]
   %282 = load ptr, ptr %278, align 8, !tbaa !4
-  %283 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %282, i64 %indvars.iv.i.i74
+  %283 = getelementptr inbounds nuw [44 x i8], ptr %282, i64 %indvars.iv.i.i74
   %284 = load i8, ptr %283, align 4, !tbaa !32
   %285 = icmp eq i8 %284, 0
   br i1 %285, label %287, label %286
@@ -2334,7 +2330,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
   %8 = lshr i32 %3, 4
   %9 = zext nneg i32 %8 to i64
   %10 = load ptr, ptr %7, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [44 x i8], ptr %10, i64 %9
   %12 = load i8, ptr %11, align 4, !tbaa !32
   %13 = icmp eq i8 %12, 118
   br i1 %13, label %14, label %73
@@ -2357,7 +2353,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
   %25 = lshr i32 %20, 4
   %26 = zext nneg i32 %25 to i64
   %27 = load ptr, ptr %7, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [44 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i16, ptr %29, align 4, !tbaa !10
   %31 = add i16 %30, 1
@@ -2385,7 +2381,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
   %40 = lshr i32 %.sroa.0.0.copyload, 4
   %41 = zext nneg i32 %40 to i64
   %42 = load ptr, ptr %7, align 8, !tbaa !4
-  %43 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [44 x i8], ptr %42, i64 %41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %45 = load i16, ptr %44, align 4, !tbaa !10
   %46 = add i16 %45, -1
@@ -2401,7 +2397,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
   %50 = lshr i32 %.sroa.0.0.copyload, 4
   %51 = zext nneg i32 %50 to i64
   %52 = load ptr, ptr %0, align 8, !tbaa !22
-  %53 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %51
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !25
   %56 = add i16 %55, -1
@@ -2428,7 +2424,7 @@ define dso_local void @_ZN4Luau7CodeGen18applySubstitutionsERNS0_10IrFunctionERN
 66:                                               ; preds = %72, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %64, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %72 ]
   %67 = load ptr, ptr %7, align 8, !tbaa !4
-  %68 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %67, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [44 x i8], ptr %67, i64 %indvars.iv.i.i
   %69 = load i8, ptr %68, align 4, !tbaa !32
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %72, label %71
@@ -2632,7 +2628,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = zext i32 %3 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [44 x i8], ptr %20, i64 %19
   %22 = load i8, ptr %21, align 4, !tbaa !32
   switch i8 %22, label %1097 [
     i8 20, label %23
@@ -2696,12 +2692,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %35 = lshr i32 %25, 4
   %36 = zext nneg i32 %35 to i64
   %37 = load ptr, ptr %34, align 8, !tbaa !41
-  %38 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !35
   %41 = lshr i32 %30, 4
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !35
   %46 = add i32 %45, %40
@@ -2728,12 +2724,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %60 = lshr i32 %50, 4
   %61 = zext nneg i32 %60 to i64
   %62 = load ptr, ptr %59, align 8, !tbaa !41
-  %63 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !35
   %66 = lshr i32 %55, 4
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %62, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i32, ptr %69, align 8, !tbaa !35
   %71 = sub i32 %65, %70
@@ -2760,12 +2756,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %85 = lshr i32 %75, 4
   %86 = zext nneg i32 %85 to i64
   %87 = load ptr, ptr %84, align 8, !tbaa !41
-  %88 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %86
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load double, ptr %89, align 8, !tbaa !35
   %91 = lshr i32 %80, 4
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %87, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !35
   %96 = fadd double %90, %95
@@ -2792,12 +2788,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %110 = lshr i32 %100, 4
   %111 = zext nneg i32 %110 to i64
   %112 = load ptr, ptr %109, align 8, !tbaa !41
-  %113 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load double, ptr %114, align 8, !tbaa !35
   %116 = lshr i32 %105, 4
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %112, i64 %117
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load double, ptr %119, align 8, !tbaa !35
   %121 = fsub double %115, %120
@@ -2824,12 +2820,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %135 = lshr i32 %125, 4
   %136 = zext nneg i32 %135 to i64
   %137 = load ptr, ptr %134, align 8, !tbaa !41
-  %138 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %136
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load double, ptr %139, align 8, !tbaa !35
   %141 = lshr i32 %130, 4
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %137, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load double, ptr %144, align 8, !tbaa !35
   %146 = fmul double %140, %145
@@ -2856,12 +2852,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %160 = lshr i32 %150, 4
   %161 = zext nneg i32 %160 to i64
   %162 = load ptr, ptr %159, align 8, !tbaa !41
-  %163 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %161
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load double, ptr %164, align 8, !tbaa !35
   %166 = lshr i32 %155, 4
   %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %162, i64 %167
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load double, ptr %169, align 8, !tbaa !35
   %171 = fdiv double %165, %170
@@ -2888,12 +2884,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %185 = lshr i32 %175, 4
   %186 = zext nneg i32 %185 to i64
   %187 = load ptr, ptr %184, align 8, !tbaa !41
-  %188 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %187, i64 %186
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %187, i64 %186
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load double, ptr %189, align 8, !tbaa !35
   %191 = lshr i32 %180, 4
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %187, i64 %192
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %187, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load double, ptr %194, align 8, !tbaa !35
   %196 = fdiv double %190, %195
@@ -2921,12 +2917,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %211 = lshr i32 %201, 4
   %212 = zext nneg i32 %211 to i64
   %213 = load ptr, ptr %210, align 8, !tbaa !41
-  %214 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %213, i64 %212
+  %214 = getelementptr inbounds nuw [16 x i8], ptr %213, i64 %212
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load double, ptr %215, align 8, !tbaa !35
   %217 = lshr i32 %206, 4
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %213, i64 %218
+  %219 = getelementptr inbounds nuw [16 x i8], ptr %213, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load double, ptr %220, align 8, !tbaa !35
   %222 = fdiv double %216, %221
@@ -2956,12 +2952,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %239 = lshr i32 %229, 4
   %240 = zext nneg i32 %239 to i64
   %241 = load ptr, ptr %238, align 8, !tbaa !41
-  %242 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %240
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load double, ptr %243, align 8, !tbaa !35
   %245 = lshr i32 %234, 4
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %241, i64 %246
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load double, ptr %248, align 8, !tbaa !35
   %250 = fcmp olt double %244, %249
@@ -2989,12 +2985,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %265 = lshr i32 %255, 4
   %266 = zext nneg i32 %265 to i64
   %267 = load ptr, ptr %264, align 8, !tbaa !41
-  %268 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %267, i64 %266
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %266
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %270 = load double, ptr %269, align 8, !tbaa !35
   %271 = lshr i32 %260, 4
   %272 = zext nneg i32 %271 to i64
-  %273 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %267, i64 %272
+  %273 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load double, ptr %274, align 8, !tbaa !35
   %276 = fcmp ogt double %270, %275
@@ -3015,7 +3011,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %286 = lshr i32 %281, 4
   %287 = zext nneg i32 %286 to i64
   %288 = load ptr, ptr %285, align 8, !tbaa !41
-  %289 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %288, i64 %287
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %288, i64 %287
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = load double, ptr %290, align 8, !tbaa !35
   %292 = fneg double %291
@@ -3035,7 +3031,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %301 = lshr i32 %296, 4
   %302 = zext nneg i32 %301 to i64
   %303 = load ptr, ptr %300, align 8, !tbaa !41
-  %304 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %303, i64 %302
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %302
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = load double, ptr %305, align 8, !tbaa !35
   %307 = tail call double @llvm.floor.f64(double %306)
@@ -3055,7 +3051,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %316 = lshr i32 %311, 4
   %317 = zext nneg i32 %316 to i64
   %318 = load ptr, ptr %315, align 8, !tbaa !41
-  %319 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %318, i64 %317
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %318, i64 %317
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %321 = load double, ptr %320, align 8, !tbaa !35
   %322 = tail call double @llvm.ceil.f64(double %321)
@@ -3075,7 +3071,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %331 = lshr i32 %326, 4
   %332 = zext nneg i32 %331 to i64
   %333 = load ptr, ptr %330, align 8, !tbaa !41
-  %334 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %332
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = load double, ptr %335, align 8, !tbaa !35
   %337 = tail call double @llvm.round.f64(double %336)
@@ -3095,7 +3091,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %346 = lshr i32 %341, 4
   %347 = zext nneg i32 %346 to i64
   %348 = load ptr, ptr %345, align 8, !tbaa !41
-  %349 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %348, i64 %347
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %348, i64 %347
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = load double, ptr %350, align 8, !tbaa !35
   %352 = tail call double @sqrt(double noundef %351) #19, !tbaa !38
@@ -3115,7 +3111,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %361 = lshr i32 %356, 4
   %362 = zext nneg i32 %361 to i64
   %363 = load ptr, ptr %360, align 8, !tbaa !41
-  %364 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %363, i64 %362
+  %364 = getelementptr inbounds nuw [16 x i8], ptr %363, i64 %362
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load double, ptr %365, align 8, !tbaa !35
   %367 = tail call double @llvm.fabs.f64(double %366)
@@ -3135,7 +3131,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %376 = lshr i32 %371, 4
   %377 = zext nneg i32 %376 to i64
   %378 = load ptr, ptr %375, align 8, !tbaa !41
-  %379 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %378, i64 %377
+  %379 = getelementptr inbounds nuw [16 x i8], ptr %378, i64 %377
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %381 = load double, ptr %380, align 8, !tbaa !35
   %382 = fcmp ogt double %381, 0.000000e+00
@@ -3165,12 +3161,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %399 = lshr i32 %389, 4
   %400 = zext nneg i32 %399 to i64
   %401 = load ptr, ptr %398, align 8, !tbaa !41
-  %402 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %401, i64 %400
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %401, i64 %400
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load double, ptr %403, align 8, !tbaa !35
   %405 = lshr i32 %394, 4
   %406 = zext nneg i32 %405 to i64
-  %407 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %401, i64 %406
+  %407 = getelementptr inbounds nuw [16 x i8], ptr %401, i64 %406
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 8
   %409 = load double, ptr %408, align 8, !tbaa !35
   %410 = fcmp oeq double %404, %409
@@ -3192,7 +3188,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %419 = lshr i32 %414, 4
   %420 = zext nneg i32 %419 to i64
   %421 = load ptr, ptr %418, align 8, !tbaa !41
-  %422 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %421, i64 %420
+  %422 = getelementptr inbounds nuw [16 x i8], ptr %421, i64 %420
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load i8, ptr %423, align 8, !tbaa !35
   switch i8 %424, label %427 [
@@ -3220,7 +3216,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 434:                                              ; preds = %429
   %435 = lshr i32 %431, 4
   %436 = zext nneg i32 %435 to i64
-  %437 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %421, i64 %436
+  %437 = getelementptr inbounds nuw [16 x i8], ptr %421, i64 %436
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
   %439 = load i32, ptr %438, align 8, !tbaa !35
   %440 = icmp ne i32 %439, 1
@@ -3248,12 +3244,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %455 = lshr i32 %445, 4
   %456 = zext nneg i32 %455 to i64
   %457 = load ptr, ptr %454, align 8, !tbaa !41
-  %458 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %457, i64 %456
+  %458 = getelementptr inbounds nuw [16 x i8], ptr %457, i64 %456
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load i8, ptr %459, align 8, !tbaa !35
   %461 = lshr i32 %450, 4
   %462 = zext nneg i32 %461 to i64
-  %463 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %457, i64 %462
+  %463 = getelementptr inbounds nuw [16 x i8], ptr %457, i64 %462
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %465 = load i8, ptr %464, align 8, !tbaa !35
   %466 = icmp eq i8 %460, %465
@@ -3308,12 +3304,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %493 = lshr i32 %483, 4
   %494 = zext nneg i32 %493 to i64
   %495 = load ptr, ptr %492, align 8, !tbaa !41
-  %496 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %495, i64 %494
+  %496 = getelementptr inbounds nuw [16 x i8], ptr %495, i64 %494
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
   %498 = load i32, ptr %497, align 8, !tbaa !35
   %499 = lshr i32 %488, 4
   %500 = zext nneg i32 %499 to i64
-  %501 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %495, i64 %500
+  %501 = getelementptr inbounds nuw [16 x i8], ptr %495, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %503 = load i32, ptr %502, align 8, !tbaa !35
   %504 = getelementptr inbounds nuw i8, ptr %21, i64 12
@@ -3372,12 +3368,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %534 = lshr i32 %524, 4
   %535 = zext nneg i32 %534 to i64
   %536 = load ptr, ptr %533, align 8, !tbaa !41
-  %537 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %536, i64 %535
+  %537 = getelementptr inbounds nuw [16 x i8], ptr %536, i64 %535
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 8
   %539 = load double, ptr %538, align 8, !tbaa !35
   %540 = lshr i32 %529, 4
   %541 = zext nneg i32 %540 to i64
-  %542 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %536, i64 %541
+  %542 = getelementptr inbounds nuw [16 x i8], ptr %536, i64 %541
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 8
   %544 = load double, ptr %543, align 8, !tbaa !35
   %545 = getelementptr inbounds nuw i8, ptr %21, i64 12
@@ -3429,7 +3425,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %570 = lshr i32 %565, 4
   %571 = zext nneg i32 %570 to i64
   %572 = load ptr, ptr %569, align 8, !tbaa !41
-  %573 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %572, i64 %571
+  %573 = getelementptr inbounds nuw [16 x i8], ptr %572, i64 %571
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %575 = load double, ptr %574, align 8, !tbaa !35
   %576 = fcmp oge double %575, 0xC1E0000000000000
@@ -3490,7 +3486,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %605 = lshr i32 %600, 4
   %606 = zext nneg i32 %605 to i64
   %607 = load ptr, ptr %604, align 8, !tbaa !41
-  %608 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %607, i64 %606
+  %608 = getelementptr inbounds nuw [16 x i8], ptr %607, i64 %606
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
   %610 = load i32, ptr %609, align 8, !tbaa !35
   %611 = sitofp i32 %610 to double
@@ -3510,7 +3506,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %620 = lshr i32 %615, 4
   %621 = zext nneg i32 %620 to i64
   %622 = load ptr, ptr %619, align 8, !tbaa !41
-  %623 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %622, i64 %621
+  %623 = getelementptr inbounds nuw [16 x i8], ptr %622, i64 %621
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 8
   %625 = load i32, ptr %624, align 8, !tbaa !35
   %626 = uitofp i32 %625 to double
@@ -3530,7 +3526,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %635 = lshr i32 %630, 4
   %636 = zext nneg i32 %635 to i64
   %637 = load ptr, ptr %634, align 8, !tbaa !41
-  %638 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %637, i64 %636
+  %638 = getelementptr inbounds nuw [16 x i8], ptr %637, i64 %636
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 8
   %640 = load double, ptr %639, align 8, !tbaa !35
   %641 = fcmp oge double %640, 0xC1E0000000000000
@@ -3556,7 +3552,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %653 = lshr i32 %648, 4
   %654 = zext nneg i32 %653 to i64
   %655 = load ptr, ptr %652, align 8, !tbaa !41
-  %656 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %655, i64 %654
+  %656 = getelementptr inbounds nuw [16 x i8], ptr %655, i64 %654
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 8
   %658 = load double, ptr %657, align 8, !tbaa !35
   %659 = fcmp oge double %658, 0.000000e+00
@@ -3589,12 +3585,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %676 = lshr i32 %666, 4
   %677 = zext nneg i32 %676 to i64
   %678 = load ptr, ptr %675, align 8, !tbaa !41
-  %679 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %678, i64 %677
+  %679 = getelementptr inbounds nuw [16 x i8], ptr %678, i64 %677
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 8
   %681 = load i8, ptr %680, align 8, !tbaa !35
   %682 = lshr i32 %671, 4
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %678, i64 %683
+  %684 = getelementptr inbounds nuw [16 x i8], ptr %678, i64 %683
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
   %686 = load i8, ptr %685, align 8, !tbaa !35
   %687 = icmp eq i8 %681, %686
@@ -3631,7 +3627,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %703 = lshr i32 %698, 4
   %704 = zext nneg i32 %703 to i64
   %705 = load ptr, ptr %702, align 8, !tbaa !41
-  %706 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %705, i64 %704
+  %706 = getelementptr inbounds nuw [16 x i8], ptr %705, i64 %704
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 8
   %708 = load i8, ptr %707, align 8, !tbaa !35
   switch i8 %708, label %736 [
@@ -3664,7 +3660,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 721:                                              ; preds = %716
   %722 = lshr i32 %718, 4
   %723 = zext nneg i32 %722 to i64
-  %724 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %705, i64 %723
+  %724 = getelementptr inbounds nuw [16 x i8], ptr %705, i64 %723
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 8
   %726 = load i32, ptr %725, align 8, !tbaa !35
   %727 = icmp eq i32 %726, 0
@@ -3709,7 +3705,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %748 = lshr i32 %739, 4
   %749 = zext nneg i32 %748 to i64
   %750 = load ptr, ptr %747, align 8, !tbaa !41
-  %751 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %750, i64 %749
+  %751 = getelementptr inbounds nuw [16 x i8], ptr %750, i64 %749
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
   %753 = load i32, ptr %752, align 8, !tbaa !35
   br i1 %746, label %754, label %762
@@ -3717,7 +3713,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 754:                                              ; preds = %744
   %755 = lshr i32 %743, 4
   %756 = zext nneg i32 %755 to i64
-  %757 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %750, i64 %756
+  %757 = getelementptr inbounds nuw [16 x i8], ptr %750, i64 %756
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 8
   %759 = load i32, ptr %758, align 8, !tbaa !35
   %760 = and i32 %759, %753
@@ -3750,7 +3746,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %770 = lshr i32 %743, 4
   %771 = zext nneg i32 %770 to i64
   %772 = load ptr, ptr %769, align 8, !tbaa !41
-  %773 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %772, i64 %771
+  %773 = getelementptr inbounds nuw [16 x i8], ptr %772, i64 %771
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 8
   %775 = load i32, ptr %774, align 8, !tbaa !35
   switch i32 %775, label %1097 [
@@ -3783,7 +3779,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %790 = lshr i32 %781, 4
   %791 = zext nneg i32 %790 to i64
   %792 = load ptr, ptr %789, align 8, !tbaa !41
-  %793 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %792, i64 %791
+  %793 = getelementptr inbounds nuw [16 x i8], ptr %792, i64 %791
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 8
   %795 = load i32, ptr %794, align 8, !tbaa !35
   br i1 %788, label %796, label %804
@@ -3791,7 +3787,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 796:                                              ; preds = %786
   %797 = lshr i32 %785, 4
   %798 = zext nneg i32 %797 to i64
-  %799 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %792, i64 %798
+  %799 = getelementptr inbounds nuw [16 x i8], ptr %792, i64 %798
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 8
   %801 = load i32, ptr %800, align 8, !tbaa !35
   %802 = xor i32 %801, %795
@@ -3832,7 +3828,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %815 = lshr i32 %785, 4
   %816 = zext nneg i32 %815 to i64
   %817 = load ptr, ptr %814, align 8, !tbaa !41
-  %818 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %817, i64 %816
+  %818 = getelementptr inbounds nuw [16 x i8], ptr %817, i64 %816
   %819 = getelementptr inbounds nuw i8, ptr %818, i64 8
   %820 = load i32, ptr %819, align 8, !tbaa !35
   switch i32 %820, label %1097 [
@@ -3873,7 +3869,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %838 = lshr i32 %829, 4
   %839 = zext nneg i32 %838 to i64
   %840 = load ptr, ptr %837, align 8, !tbaa !41
-  %841 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %840, i64 %839
+  %841 = getelementptr inbounds nuw [16 x i8], ptr %840, i64 %839
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 8
   %843 = load i32, ptr %842, align 8, !tbaa !35
   br i1 %836, label %844, label %852
@@ -3881,7 +3877,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
 844:                                              ; preds = %834
   %845 = lshr i32 %833, 4
   %846 = zext nneg i32 %845 to i64
-  %847 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %840, i64 %846
+  %847 = getelementptr inbounds nuw [16 x i8], ptr %840, i64 %846
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 8
   %849 = load i32, ptr %848, align 8, !tbaa !35
   %850 = or i32 %849, %843
@@ -3914,7 +3910,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %860 = lshr i32 %833, 4
   %861 = zext nneg i32 %860 to i64
   %862 = load ptr, ptr %859, align 8, !tbaa !41
-  %863 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %862, i64 %861
+  %863 = getelementptr inbounds nuw [16 x i8], ptr %862, i64 %861
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 8
   %865 = load i32, ptr %864, align 8, !tbaa !35
   switch i32 %865, label %1097 [
@@ -3943,7 +3939,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %876 = lshr i32 %871, 4
   %877 = zext nneg i32 %876 to i64
   %878 = load ptr, ptr %875, align 8, !tbaa !41
-  %879 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %878, i64 %877
+  %879 = getelementptr inbounds nuw [16 x i8], ptr %878, i64 %877
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 8
   %881 = load i32, ptr %880, align 8, !tbaa !35
   %882 = xor i32 %881, -1
@@ -3968,12 +3964,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %895 = lshr i32 %886, 4
   %896 = zext nneg i32 %895 to i64
   %897 = load ptr, ptr %894, align 8, !tbaa !41
-  %898 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %897, i64 %896
+  %898 = getelementptr inbounds nuw [16 x i8], ptr %897, i64 %896
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
   %900 = load i32, ptr %899, align 8, !tbaa !35
   %901 = lshr i32 %890, 4
   %902 = zext nneg i32 %901 to i64
-  %903 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %897, i64 %902
+  %903 = getelementptr inbounds nuw [16 x i8], ptr %897, i64 %902
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 8
   %905 = load i32, ptr %904, align 8, !tbaa !35
   %906 = and i32 %905, 31
@@ -3992,7 +3988,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %913 = lshr i32 %890, 4
   %914 = zext nneg i32 %913 to i64
   %915 = load ptr, ptr %912, align 8, !tbaa !41
-  %916 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %915, i64 %914
+  %916 = getelementptr inbounds nuw [16 x i8], ptr %915, i64 %914
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 8
   %918 = load i32, ptr %917, align 8, !tbaa !35
   %919 = icmp eq i32 %918, 0
@@ -4019,12 +4015,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %932 = lshr i32 %923, 4
   %933 = zext nneg i32 %932 to i64
   %934 = load ptr, ptr %931, align 8, !tbaa !41
-  %935 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %934, i64 %933
+  %935 = getelementptr inbounds nuw [16 x i8], ptr %934, i64 %933
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 8
   %937 = load i32, ptr %936, align 8, !tbaa !35
   %938 = lshr i32 %927, 4
   %939 = zext nneg i32 %938 to i64
-  %940 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %934, i64 %939
+  %940 = getelementptr inbounds nuw [16 x i8], ptr %934, i64 %939
   %941 = getelementptr inbounds nuw i8, ptr %940, i64 8
   %942 = load i32, ptr %941, align 8, !tbaa !35
   %943 = and i32 %942, 31
@@ -4043,7 +4039,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %950 = lshr i32 %927, 4
   %951 = zext nneg i32 %950 to i64
   %952 = load ptr, ptr %949, align 8, !tbaa !41
-  %953 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %952, i64 %951
+  %953 = getelementptr inbounds nuw [16 x i8], ptr %952, i64 %951
   %954 = getelementptr inbounds nuw i8, ptr %953, i64 8
   %955 = load i32, ptr %954, align 8, !tbaa !35
   %956 = icmp eq i32 %955, 0
@@ -4070,12 +4066,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %969 = lshr i32 %960, 4
   %970 = zext nneg i32 %969 to i64
   %971 = load ptr, ptr %968, align 8, !tbaa !41
-  %972 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %971, i64 %970
+  %972 = getelementptr inbounds nuw [16 x i8], ptr %971, i64 %970
   %973 = getelementptr inbounds nuw i8, ptr %972, i64 8
   %974 = load i32, ptr %973, align 8, !tbaa !35
   %975 = lshr i32 %964, 4
   %976 = zext nneg i32 %975 to i64
-  %977 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %971, i64 %976
+  %977 = getelementptr inbounds nuw [16 x i8], ptr %971, i64 %976
   %978 = getelementptr inbounds nuw i8, ptr %977, i64 8
   %979 = load i32, ptr %978, align 8, !tbaa !35
   %980 = and i32 %979, 31
@@ -4094,7 +4090,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %987 = lshr i32 %964, 4
   %988 = zext nneg i32 %987 to i64
   %989 = load ptr, ptr %986, align 8, !tbaa !41
-  %990 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %989, i64 %988
+  %990 = getelementptr inbounds nuw [16 x i8], ptr %989, i64 %988
   %991 = getelementptr inbounds nuw i8, ptr %990, i64 8
   %992 = load i32, ptr %991, align 8, !tbaa !35
   %993 = icmp eq i32 %992, 0
@@ -4121,12 +4117,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1006 = lshr i32 %997, 4
   %1007 = zext nneg i32 %1006 to i64
   %1008 = load ptr, ptr %1005, align 8, !tbaa !41
-  %1009 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1008, i64 %1007
+  %1009 = getelementptr inbounds nuw [16 x i8], ptr %1008, i64 %1007
   %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 8
   %1011 = load i32, ptr %1010, align 8, !tbaa !35
   %1012 = lshr i32 %1001, 4
   %1013 = zext nneg i32 %1012 to i64
-  %1014 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1008, i64 %1013
+  %1014 = getelementptr inbounds nuw [16 x i8], ptr %1008, i64 %1013
   %1015 = getelementptr inbounds nuw i8, ptr %1014, i64 8
   %1016 = load i32, ptr %1015, align 8, !tbaa !35
   %1017 = tail call noundef i32 @llvm.fshl.i32(i32 %1011, i32 %1011, i32 %1016)
@@ -4144,7 +4140,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1023 = lshr i32 %1001, 4
   %1024 = zext nneg i32 %1023 to i64
   %1025 = load ptr, ptr %1022, align 8, !tbaa !41
-  %1026 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1025, i64 %1024
+  %1026 = getelementptr inbounds nuw [16 x i8], ptr %1025, i64 %1024
   %1027 = getelementptr inbounds nuw i8, ptr %1026, i64 8
   %1028 = load i32, ptr %1027, align 8, !tbaa !35
   %1029 = icmp eq i32 %1028, 0
@@ -4171,12 +4167,12 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1042 = lshr i32 %1033, 4
   %1043 = zext nneg i32 %1042 to i64
   %1044 = load ptr, ptr %1041, align 8, !tbaa !41
-  %1045 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1044, i64 %1043
+  %1045 = getelementptr inbounds nuw [16 x i8], ptr %1044, i64 %1043
   %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 8
   %1047 = load i32, ptr %1046, align 8, !tbaa !35
   %1048 = lshr i32 %1037, 4
   %1049 = zext nneg i32 %1048 to i64
-  %1050 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1044, i64 %1049
+  %1050 = getelementptr inbounds nuw [16 x i8], ptr %1044, i64 %1049
   %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 8
   %1052 = load i32, ptr %1051, align 8, !tbaa !35
   %1053 = tail call noundef i32 @llvm.fshr.i32(i32 %1047, i32 %1047, i32 %1052)
@@ -4194,7 +4190,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1059 = lshr i32 %1037, 4
   %1060 = zext nneg i32 %1059 to i64
   %1061 = load ptr, ptr %1058, align 8, !tbaa !41
-  %1062 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1061, i64 %1060
+  %1062 = getelementptr inbounds nuw [16 x i8], ptr %1061, i64 %1060
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 8
   %1064 = load i32, ptr %1063, align 8, !tbaa !35
   %1065 = icmp eq i32 %1064, 0
@@ -4216,7 +4212,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1074 = lshr i32 %1069, 4
   %1075 = zext nneg i32 %1074 to i64
   %1076 = load ptr, ptr %1073, align 8, !tbaa !41
-  %1077 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1076, i64 %1075
+  %1077 = getelementptr inbounds nuw [16 x i8], ptr %1076, i64 %1075
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 8
   %1079 = load i32, ptr %1078, align 8, !tbaa !35
   %1080 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1079, i1 false)
@@ -4236,7 +4232,7 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %1089 = lshr i32 %1084, 4
   %1090 = zext nneg i32 %1089 to i64
   %1091 = load ptr, ptr %1088, align 8, !tbaa !41
-  %1092 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1091, i64 %1090
+  %1092 = getelementptr inbounds nuw [16 x i8], ptr %1091, i64 %1090
   %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 8
   %1094 = load i32, ptr %1093, align 8, !tbaa !35
   %1095 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1094, i1 false)
@@ -4370,7 +4366,7 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
   %12 = phi ptr [ %3, %.lr.ph ], [ %36, %34 ]
   %13 = phi i64 [ 1, %.lr.ph ], [ %38, %34 ]
   %.09 = phi i32 [ 1, %.lr.ph ], [ %37, %34 ]
-  %14 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %13
   %15 = load i8, ptr %14, align 4, !tbaa !29
   %.not = icmp eq i8 %15, 4
   br i1 %.not, label %34, label %16
@@ -4398,7 +4394,7 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
 27:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %25, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
   %28 = load ptr, ptr %9, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [44 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 4, !tbaa !32
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %33, label %32
@@ -4467,7 +4463,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %11
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #21
   store ptr %15, ptr %0, align 8, !tbaa !46
   store ptr %15, ptr %13, align 8, !tbaa !49
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %9
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %9
   store ptr %16, ptr %12, align 8, !tbaa !50
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
@@ -4518,7 +4514,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %.sroa.0.09.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %73, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
   %30 = load i32, ptr %.sroa.0.09.i.i.i.i, align 4, !tbaa !38
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i.i.i.i.i, i64 %31
   %33 = load i8, ptr %32, align 4, !tbaa !29
   %.fr.i.i.i.i.i = freeze i8 %33
   %34 = icmp eq i8 %.fr.i.i.i.i.i, 1
@@ -4530,7 +4526,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %.sroa.0.0.us12.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i, i64 -4
   %37 = load i32, ptr %.sroa.0.0.us12.i.i.i.i.i, align 4, !tbaa !38
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i.i.i.i.i, i64 %38
   %40 = load i8, ptr %39, align 4, !tbaa !29
   %.not.i.i.i.i.i = icmp eq i8 %40, 1
   br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i"
@@ -4562,7 +4558,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %.sroa.0.0.us.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.us14.i.i.i.i.i, i64 -4
   %53 = load i32, ptr %.sroa.0.0.us.i.i.i.i.i, align 4, !tbaa !38
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i.i.i.i.i, i64 %54
   %56 = load i8, ptr %55, align 4, !tbaa !29
   %.not16.i.i.i.i.i = icmp eq i8 %56, 1
   br i1 %.not16.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit.i.i.i.i", !llvm.loop !53
@@ -4572,7 +4568,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i, i64 -4
   %57 = load i32, ptr %.sroa.0.0.i.i.i.i.i, align 4, !tbaa !38
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i.i.i.i.i, i64 %58
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i.i.i.i.i, i64 %58
   %60 = load i8, ptr %59, align 4, !tbaa !29
   %61 = icmp eq i8 %60, 1
   br i1 %61, label %72, label %62
@@ -4682,7 +4678,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre35 = phi ptr [ %.pre35.pre, %100 ], [ %.pre3539, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   %.pre = phi ptr [ %.pre.pre, %100 ], [ %.pre36, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   store ptr %99, ptr %17, align 8, !tbaa !49
-  %101 = getelementptr inbounds nuw i32, ptr %95, i64 %93
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %93
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %81
@@ -4754,10 +4750,10 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZN4Luau7CodeG
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %.014
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.014
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %18
   %20 = load i8, ptr %19, align 4, !tbaa !29
   %.not = icmp eq i8 %20, 4
   br i1 %.not, label %13, label %21, !llvm.loop !56
@@ -4815,7 +4811,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 17:                                               ; preds = %17, %14
   %.09.i.i.i = phi i64 [ %16, %14 ], [ %20, %17 ]
-  %18 = getelementptr inbounds i32, ptr %0, i64 %.09.i.i.i
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %.09.i.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !38
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %12, i32 noundef %19, ptr readonly %3)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -4839,14 +4835,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %29 = add nsw i64 %.024, -1
   %.val = load ptr, ptr %3, align 8, !tbaa !22
   %30 = lshr i64 %12, 1
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %storemerge23, i64 -4
   %33 = load i32, ptr %10, align 4, !tbaa !38
   %34 = load i32, ptr %31, align 4, !tbaa !38
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %35
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %37
   %39 = load i8, ptr %36, align 4, !tbaa !29
   %40 = icmp eq i8 %39, 1
   %41 = load i8, ptr %38, align 4, !tbaa !29
@@ -4882,7 +4878,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 59:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %52, %44
   %60 = load i32, ptr %32, align 4, !tbaa !38
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %61
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %61
   %63 = load i8, ptr %62, align 4, !tbaa !29
   %64 = icmp eq i8 %63, 1
   %65 = xor i1 %42, %64
@@ -4948,7 +4944,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 99:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %52, %44
   %100 = load i32, ptr %32, align 4, !tbaa !38
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %101
   %103 = load i8, ptr %102, align 4, !tbaa !29
   %104 = icmp eq i8 %103, 1
   %105 = xor i1 %40, %104
@@ -5024,7 +5020,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.sroa.015.0.i.i = phi ptr [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %211, %210 ]
   %141 = load i32, ptr %0, align 4, !tbaa !38
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %142
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %142
   %144 = load i8, ptr %143, align 4, !tbaa !29
   %.fr32.i.i = freeze i8 %144
   %145 = icmp eq i8 %.fr32.i.i, 1
@@ -5035,7 +5031,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .split.us.i.i:                                    ; preds = %140
   %148 = load i32, ptr %.sroa.015.0.i.i, align 4, !tbaa !38
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %149
   %151 = load i8, ptr %150, align 4, !tbaa !29
   %152 = icmp eq i8 %151, 1
   br i1 %152, label %.split22.us.i.i, label %.lr.ph.i.i
@@ -5068,7 +5064,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.us30.i.i, i64 4
   %167 = load i32, ptr %166, align 4, !tbaa !38
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %168
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %168
   %170 = load i8, ptr %169, align 4, !tbaa !29
   %171 = icmp eq i8 %170, 1
   br i1 %171, label %.split22.us.i.i, label %154, !llvm.loop !59
@@ -5077,7 +5073,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.sroa.015.1.i.i = phi ptr [ %187, %186 ], [ %.sroa.015.0.i.i, %140 ]
   %172 = load i32, ptr %.sroa.015.1.i.i, align 4, !tbaa !38
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %173
+  %174 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %173
   %175 = load i8, ptr %174, align 4, !tbaa !29
   %.not.i.i = icmp eq i8 %175, 1
   br i1 %.not.i.i, label %176, label %186
@@ -5115,7 +5111,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.sroa.012.1.i.i = getelementptr inbounds i8, ptr %.sroa.012.0.pn.i.i, i64 -4
   %190 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !38
   %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val, i64 %191
+  %192 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %191
   %193 = load i8, ptr %192, align 4, !tbaa !29
   %194 = icmp eq i8 %193, 1
   %195 = xor i1 %145, %194
@@ -5183,15 +5179,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.040 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit" ]
   %10 = shl i64 %.040, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds i32, ptr %0, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %0, i64 %13
   %15 = load i32, ptr %12, align 4, !tbaa !38
   %16 = load i32, ptr %14, align 4, !tbaa !38
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %17
   %19 = zext i32 %16 to i64
-  %20 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %19
   %21 = load i8, ptr %18, align 4, !tbaa !29
   %22 = icmp eq i8 %21, 1
   %23 = load i8, ptr %20, align 4, !tbaa !29
@@ -5227,9 +5223,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit": ; preds = %26, %34, %36
   %.0.i.i = phi i1 [ %28, %26 ], [ %35, %34 ], [ %41, %36 ]
   %spec.select = select i1 %.0.i.i, i64 %13, i64 %11
-  %42 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %42 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select
   %43 = load i32, ptr %42, align 4, !tbaa !38
-  %44 = getelementptr inbounds i32, ptr %0, i64 %.040
+  %44 = getelementptr inbounds [4 x i8], ptr %0, i64 %.040
   store i32 %43, ptr %44, align 4, !tbaa !38
   %45 = icmp slt i64 %spec.select, %7
   br i1 %45, label %9, label %._crit_edge, !llvm.loop !63
@@ -5249,9 +5245,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 52:                                               ; preds = %48
   %53 = shl nsw i64 %.0.lcssa, 1
   %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds i32, ptr %0, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %0, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !38
-  %57 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %57 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa
   store i32 %56, ptr %57, align 4, !tbaa !38
   br label %58
 
@@ -5265,7 +5261,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.099.i = sdiv i64 %.09.in8.i, 2
   %.val.val.i = load ptr, ptr %4, align 8, !tbaa !22
   %60 = zext i32 %3 to i64
-  %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i, i64 %60
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i, i64 %60
   %62 = load i8, ptr %61, align 4, !tbaa !29
   %.fr23.i = freeze i8 %62
   %63 = icmp eq i8 %.fr23.i, 1
@@ -5276,10 +5272,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %82
   %.0911.us.i = phi i64 [ %.09.us.i, %82 ], [ %.099.i, %.lr.ph.i ]
   %.010.us.i = phi i64 [ %.0911.us.i, %82 ], [ %.1, %.lr.ph.i ]
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.0911.us.i
+  %66 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0911.us.i
   %67 = load i32, ptr %66, align 4, !tbaa !38
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i, i64 %68
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i, i64 %68
   %70 = load i8, ptr %69, align 4, !tbaa !29
   %71 = icmp eq i8 %70, 1
   br i1 %71, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit", label %72
@@ -5303,7 +5299,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %81, label %82, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 82:                                               ; preds = %77, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i"
-  %83 = getelementptr inbounds i32, ptr %0, i64 %.010.us.i
+  %83 = getelementptr inbounds [4 x i8], ptr %0, i64 %.010.us.i
   store i32 %67, ptr %83, align 4, !tbaa !38
   %.09.in.us.i = add nsw i64 %.0911.us.i, -1
   %.09.us.i = sdiv i64 %.09.in.us.i, 2
@@ -5313,10 +5309,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %100
   %.0911.i = phi i64 [ %.09.i, %100 ], [ %.099.i, %.lr.ph.i ]
   %.010.i = phi i64 [ %.0911.i, %100 ], [ %.1, %.lr.ph.i ]
-  %85 = getelementptr inbounds i32, ptr %0, i64 %.0911.i
+  %85 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0911.i
   %86 = load i32, ptr %85, align 4, !tbaa !38
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val.i, i64 %87
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %.val.val.i, i64 %87
   %89 = load i8, ptr %88, align 4, !tbaa !29
   %.not.i = icmp eq i8 %89, 1
   br i1 %.not.i, label %90, label %100
@@ -5340,7 +5336,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br i1 %99, label %100, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 100:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", %94, %.lr.ph.split.i
-  %101 = getelementptr inbounds i32, ptr %0, i64 %.010.i
+  %101 = getelementptr inbounds [4 x i8], ptr %0, i64 %.010.i
   store i32 %86, ptr %101, align 4, !tbaa !38
   %.09.in.i = add nsw i64 %.0911.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
@@ -5349,7 +5345,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %.lr.ph.split.us.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i", %77, %82, %94, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i", %100, %58
   %.0.lcssa.i = phi i64 [ %.1, %58 ], [ %.010.i, %94 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.i" ], [ %.0911.i, %100 ], [ %.010.us.i, %77 ], [ %.010.us.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEEbT_RT0_.exit.us.i" ], [ %.010.us.i, %.lr.ph.split.us.i ], [ %.0911.us.i, %82 ]
-  %103 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i
+  %103 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i
   store i32 %3, ptr %103, align 4, !tbaa !38
   ret void
 }
@@ -5378,9 +5374,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   %7 = load i32, ptr %.sroa.0.022, align 4, !tbaa !38
   %8 = load i32, ptr %0, align 4, !tbaa !38
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %9
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %11
   %13 = load i8, ptr %10, align 4, !tbaa !29
   %.fr.i = freeze i8 %13
   %14 = icmp eq i8 %.fr.i, 1
@@ -5420,7 +5416,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %35 = sub i64 %34, %5
   %36 = ashr exact i64 %35, 2
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i32, ptr %33, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %38, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %35, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit"
 
@@ -5432,7 +5428,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
 .split.us.i:                                      ; preds = %39
   %42 = load i32, ptr %.pn21, align 4, !tbaa !38
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %43
   %45 = load i8, ptr %44, align 4, !tbaa !29
   %.not.i = icmp eq i8 %45, 1
   br i1 %.not.i, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit"
@@ -5464,7 +5460,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %.sroa.0.0.us.i = getelementptr inbounds i8, ptr %.sroa.0.0.us14.i, i64 -4
   %58 = load i32, ptr %.sroa.0.0.us.i, align 4, !tbaa !38
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %59
   %61 = load i8, ptr %60, align 4, !tbaa !29
   %.not16.i = icmp eq i8 %61, 1
   br i1 %.not16.i, label %.lr.ph.i, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_.exit", !llvm.loop !53
@@ -5474,7 +5470,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 -4
   %62 = load i32, ptr %.sroa.0.0.i, align 4, !tbaa !38
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val.val, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %.val.val, i64 %63
   %65 = load i8, ptr %64, align 4, !tbaa !29
   %66 = icmp eq i8 %65, 1
   br i1 %66, label %77, label %67

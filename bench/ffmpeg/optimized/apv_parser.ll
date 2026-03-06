@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecParser = type { [7 x i32], i32, ptr, ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_apv_parser = local_unnamed_addr constant %struct.AVCodecParser { [7 x i32] [i32 273, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], i32 56, ptr @init, ptr @parse, ptr @close, ptr null }, align 8
 @decompose_unit_types = internal constant [1 x i32] [i32 1], align 4
@@ -81,7 +80,7 @@ define internal noundef i32 @parse(ptr noundef captures(none) %0, ptr noundef %1
 
 27:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %28 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %26, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %indvars.iv
   %29 = load i32, ptr %28, align 8, !tbaa !34
   %cond = icmp eq i32 %29, 1
   br i1 %cond, label %30, label %.thread
@@ -111,11 +110,11 @@ define internal noundef i32 @parse(ptr noundef captures(none) %0, ptr noundef %1
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %47 = load i8, ptr %46, align 4, !tbaa !43
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw [5 x i32], ptr @apv_format_table, i64 %48
+  %49 = getelementptr inbounds nuw [20 x i8], ptr @apv_format_table, i64 %48
   %50 = add nuw nsw i32 %35, 4
   %51 = lshr i32 %50, 2
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !25
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %54, ptr %55, align 8, !tbaa !44

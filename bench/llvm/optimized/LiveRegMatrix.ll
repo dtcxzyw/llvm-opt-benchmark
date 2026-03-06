@@ -31,34 +31,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %class.anon.246 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"class.llvm::LiveIntervalUnion::Query" = type <{ ptr, ptr, ptr, %"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::const_iterator", %"class.llvm::SmallVector.187", i8, i8, [2 x i8], i32, i32, [4 x i8] }>
-%"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::const_iterator" = type { ptr, %"class.llvm::IntervalMapImpl::Path" }
-%"class.llvm::IntervalMapImpl::Path" = type { %"class.llvm::SmallVector.182" }
-%"class.llvm::SmallVector.182" = type { %"class.llvm::SmallVectorImpl.183", %"struct.llvm::SmallVectorStorage.186" }
-%"class.llvm::SmallVectorImpl.183" = type { %"class.llvm::SmallVectorTemplateBase.184" }
-%"class.llvm::SmallVectorTemplateBase.184" = type { %"class.llvm::SmallVectorTemplateCommon.185" }
-%"class.llvm::SmallVectorTemplateCommon.185" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.186" = type { [64 x i8] }
-%"class.llvm::SmallVector.187" = type { %"class.llvm::SmallVectorImpl.188", %"struct.llvm::SmallVectorStorage.191" }
-%"class.llvm::SmallVectorImpl.188" = type { %"class.llvm::SmallVectorTemplateBase.189" }
-%"class.llvm::SmallVectorTemplateBase.189" = type { %"class.llvm::SmallVectorTemplateCommon.190" }
-%"class.llvm::SmallVectorTemplateCommon.190" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.191" = type { [32 x i8] }
-%"class.llvm::LiveIntervalUnion" = type { i32, %"class.llvm::IntervalMap" }
-%"class.llvm::IntervalMap" = type { %union.anon.193, i32, i32, ptr }
-%union.anon.193 = type { %"class.llvm::IntervalMapImpl::LeafNode" }
-%"class.llvm::IntervalMapImpl::LeafNode" = type { %"class.llvm::IntervalMapImpl::NodeBase" }
-%"class.llvm::IntervalMapImpl::NodeBase" = type { [8 x %"struct.std::pair"], [8 x ptr] }
-%"struct.std::pair" = type { %"class.llvm::SlotIndex", %"class.llvm::SlotIndex" }
-%"class.llvm::SlotIndex" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"struct.llvm::LaneBitmask" = type { i64 }
-%"class.llvm::MCRegister" = type { i32 }
 %"class.llvm::CoalescerPair" = type { ptr, %"class.llvm::Register", %"class.llvm::Register", i32, i32, i8, i8, i8, ptr }
 %"class.llvm::Register" = type { i32 }
 %"class.llvm::VNInfo" = type { i32, [4 x i8], %"class.llvm::SlotIndex" }
+%"class.llvm::SlotIndex" = type { %"class.llvm::PointerIntPair" }
+%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
+%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %"class.llvm::LiveRange" = type { %"class.llvm::SmallVector.197", %"class.llvm::SmallVector.202", %"class.std::unique_ptr.207" }
 %"class.llvm::SmallVector.197" = type { %"class.llvm::SmallVectorImpl.198", %"struct.llvm::SmallVectorStorage.201" }
 %"class.llvm::SmallVectorImpl.198" = type { %"class.llvm::SmallVectorTemplateBase.199" }
@@ -77,6 +55,19 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.211" = type { %"struct.std::_Head_base.214" }
 %"struct.std::_Head_base.214" = type { ptr }
 %"struct.llvm::LiveRange::Segment" = type { %"class.llvm::SlotIndex", %"class.llvm::SlotIndex", ptr }
+%"class.llvm::LiveIntervalUnion::Query" = type <{ ptr, ptr, ptr, %"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::const_iterator", %"class.llvm::SmallVector.187", i8, i8, [2 x i8], i32, i32, [4 x i8] }>
+%"class.llvm::IntervalMap<llvm::SlotIndex, const llvm::LiveInterval *>::const_iterator" = type { ptr, %"class.llvm::IntervalMapImpl::Path" }
+%"class.llvm::IntervalMapImpl::Path" = type { %"class.llvm::SmallVector.182" }
+%"class.llvm::SmallVector.182" = type { %"class.llvm::SmallVectorImpl.183", %"struct.llvm::SmallVectorStorage.186" }
+%"class.llvm::SmallVectorImpl.183" = type { %"class.llvm::SmallVectorTemplateBase.184" }
+%"class.llvm::SmallVectorTemplateBase.184" = type { %"class.llvm::SmallVectorTemplateCommon.185" }
+%"class.llvm::SmallVectorTemplateCommon.185" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.186" = type { [64 x i8] }
+%"class.llvm::SmallVector.187" = type { %"class.llvm::SmallVectorImpl.188", %"struct.llvm::SmallVectorStorage.191" }
+%"class.llvm::SmallVectorImpl.188" = type { %"class.llvm::SmallVectorTemplateBase.189" }
+%"class.llvm::SmallVectorTemplateBase.189" = type { %"class.llvm::SmallVectorTemplateCommon.190" }
+%"class.llvm::SmallVectorTemplateCommon.190" = type { %"class.llvm::SmallVectorBase" }
+%"struct.llvm::SmallVectorStorage.191" = type { [32 x i8] }
 %"class.llvm::LiveRegMatrix" = type { ptr, ptr, ptr, i32, %"class.std::unique_ptr", %"class.llvm::LiveIntervalUnion::Array", %"class.std::unique_ptr.11", i32, i32, %"class.llvm::BitVector" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -102,9 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.232" = type { %"class.llvm::SmallVectorTemplateCommon.233" }
 %"class.llvm::SmallVectorTemplateCommon.233" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.234" = type { [32 x i8] }
-%"class.llvm::IntervalMapImpl::NodeRef" = type { %"class.llvm::PointerIntPair.195" }
-%"class.llvm::PointerIntPair.195" = type { %"struct.llvm::detail::PunnedPointer.196" }
-%"struct.llvm::detail::PunnedPointer.196" = type { [8 x i8] }
 
 $_ZN4llvm13LiveRegMatrixD2Ev = comdat any
 
@@ -315,7 +303,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix4initERNS_15MachineFunctionERNS_13
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion::Query", ptr %23, i64 %19
+  %26 = getelementptr inbounds nuw [176 x i8], ptr %23, i64 %19
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -430,7 +418,7 @@ define dso_local void @_ZN4llvm26LiveRegMatrixWrapperLegacy13releaseMemoryEv(ptr
 6:                                                ; preds = %_ZN4llvm17LiveIntervalUnion5clearEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4llvm17LiveIntervalUnion5clearEv.exit.i ]
   %7 = load ptr, ptr %4, align 8, !tbaa !229
-  %8 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [216 x i8], ptr %7, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %10 = load i32, ptr %9, align 8, !tbaa !230
   %.not.i.i.i = icmp eq i32 %10, 0
@@ -474,7 +462,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix13releaseMemoryEv(ptr noundef nonn
 6:                                                ; preds = %.lr.ph, %_ZN4llvm17LiveIntervalUnion5clearEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm17LiveIntervalUnion5clearEv.exit ]
   %7 = load ptr, ptr %4, align 8, !tbaa !229
-  %8 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [216 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %10 = load i32, ptr %9, align 8, !tbaa !230
   %.not.i.i = icmp eq i32 %10, 0
@@ -521,7 +509,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix6assignERKNS_12LiveIntervalENS_10M
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !262
   %16 = zext i32 %2 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 4, !tbaa !263
   %20 = and i32 %19, 4095
@@ -530,10 +518,10 @@ define dso_local void @_ZN4llvm13LiveRegMatrix6assignERKNS_12LiveIntervalENS_10M
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %24 = load i16, ptr %23, align 4, !tbaa !267
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = lshr i32 %19, 12
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %11, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %28
   br label %.lr.ph85.split.i
 
 .lr.ph85.split.i:                                 ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i, %.lr.ph85.split.preheader.i
@@ -556,7 +544,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix6assignERKNS_12LiveIntervalENS_10M
 .thread.i:                                        ; preds = %.lr.ph.i
   %.val.val.i = load ptr, ptr %13, align 8, !tbaa !229
   %34 = zext i32 %.sroa.058.081.i to i64
-  %35 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %.val.val.i, i64 %34
+  %35 = getelementptr inbounds nuw [216 x i8], ptr %.val.val.i, i64 %34
   tail call void @_ZN4llvm17LiveIntervalUnion5unifyERKNS_12LiveIntervalERKNS_9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(216) %35, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.053.079.i) #17
   br label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i
 
@@ -582,12 +570,12 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.lr.ph.i:     ; preds = %43
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !262, !noalias !274
   %46 = zext i32 %2 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 4, !tbaa !263, !noalias !274
   %50 = lshr i32 %49, 12
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %11, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %51
   %53 = and i32 %49, 4095
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i
@@ -597,7 +585,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %_ZN4llvm17MCRegUnit
   %.sroa.9.087.i = phi i32 [ %53, %_ZN4llvm17MCRegUnitIteratorppEv.exit.lr.ph.i ], [ %60, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
   %.val37.val.i = load ptr, ptr %54, align 8, !tbaa !229
   %55 = zext i32 %.sroa.9.087.i to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %.val37.val.i, i64 %55
+  %56 = getelementptr inbounds nuw [216 x i8], ptr %.val37.val.i, i64 %55
   tail call void @_ZN4llvm17LiveIntervalUnion5unifyERKNS_12LiveIntervalERKNS_9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(216) %56, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(120) %1) #17
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.545.088.i, i64 2
   %58 = load i16, ptr %.sroa.545.088.i, align 2, !tbaa !271
@@ -625,7 +613,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix8unassignERKNS_12LiveIntervalE(ptr
   %7 = and i32 %.sroa.0.0.copyload.i, 2147483647
   %8 = zext nneg i32 %7 to i64
   %9 = load ptr, ptr %6, align 8, !tbaa !211
-  %10 = getelementptr inbounds nuw %"class.llvm::MCRegister", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %.sroa.02.0.copyload.i = load i32, ptr %10, align 4, !tbaa !237
   store i32 0, ptr %10, align 4, !tbaa !237
   %11 = load ptr, ptr %0, align 8, !tbaa !157
@@ -645,7 +633,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix8unassignERKNS_12LiveIntervalE(ptr
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !262
   %20 = zext i32 %.sroa.02.0.copyload.i to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !263
   %24 = and i32 %23, 4095
@@ -654,10 +642,10 @@ define dso_local void @_ZN4llvm13LiveRegMatrix8unassignERKNS_12LiveIntervalE(ptr
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %28 = load i16, ptr %27, align 4, !tbaa !267
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = lshr i32 %23, 12
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %15, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %32
   br label %.lr.ph85.split.i
 
 .lr.ph85.split.i:                                 ; preds = %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i, %.lr.ph85.split.preheader.i
@@ -680,7 +668,7 @@ define dso_local void @_ZN4llvm13LiveRegMatrix8unassignERKNS_12LiveIntervalE(ptr
 .thread.i:                                        ; preds = %.lr.ph.i
   %.val.val.i = load ptr, ptr %17, align 8, !tbaa !229
   %38 = zext i32 %.sroa.058.081.i to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %.val.val.i, i64 %38
+  %39 = getelementptr inbounds nuw [216 x i8], ptr %.val.val.i, i64 %38
   tail call void @_ZN4llvm17LiveIntervalUnion7extractERKNS_12LiveIntervalERKNS_9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(216) %39, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.053.079.i) #17
   br label %_ZN4llvm21MCRegUnitMaskIteratorppEv.exit.i
 
@@ -706,12 +694,12 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.lr.ph.i:     ; preds = %47
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !262, !noalias !278
   %50 = zext i32 %.sroa.02.0.copyload.i to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 4, !tbaa !263, !noalias !278
   %54 = lshr i32 %53, 12
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %15, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %55
   %57 = and i32 %53, 4095
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %_ZN4llvm17MCRegUnitIteratorppEv.exit.i
@@ -721,7 +709,7 @@ _ZN4llvm17MCRegUnitIteratorppEv.exit.i:           ; preds = %_ZN4llvm17MCRegUnit
   %.sroa.9.087.i = phi i32 [ %57, %_ZN4llvm17MCRegUnitIteratorppEv.exit.lr.ph.i ], [ %64, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
   %.val37.val.i = load ptr, ptr %58, align 8, !tbaa !229
   %59 = zext i32 %.sroa.9.087.i to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %.val37.val.i, i64 %59
+  %60 = getelementptr inbounds nuw [216 x i8], ptr %.val37.val.i, i64 %59
   tail call void @_ZN4llvm17LiveIntervalUnion7extractERKNS_12LiveIntervalERKNS_9LiveRangeE(ptr noundef nonnull align 8 dereferenceable(216) %60, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(120) %1) #17
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.545.088.i, i64 2
   %62 = load i16, ptr %.sroa.545.088.i, align 2, !tbaa !271
@@ -746,12 +734,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LiveRegMatrix13isPhysRegUsedENS_
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !262, !noalias !281
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 4, !tbaa !263, !noalias !281
   %12 = lshr i32 %11, 12
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = and i32 %11, 4095
   %17 = load ptr, ptr %15, align 8, !tbaa !229
@@ -761,7 +749,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13LiveRegMatrix13isPhysRegUsedENS_
   %.sroa.510.019 = phi ptr [ %14, %.lr.ph ], [ %23, %_ZN4llvm17MCRegUnitIteratorppEv.exit ]
   %.sroa.09.018 = phi i32 [ %16, %.lr.ph ], [ %26, %_ZN4llvm17MCRegUnitIteratorppEv.exit ]
   %19 = zext i32 %.sroa.09.018 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [216 x i8], ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 204
   %22 = load i32, ptr %21, align 4, !tbaa !232
   %.not.not = icmp ne i32 %22, 0
@@ -835,7 +823,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegMaskInterf
   %30 = lshr i32 %2, 6
   %31 = zext nneg i32 %30 to i64
   %32 = load ptr, ptr %21, align 8, !tbaa !211
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load i64, ptr %33, align 8, !tbaa !11
   %35 = and i64 %34, %29
   %.not10 = icmp eq i64 %35, 0
@@ -886,7 +874,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegUnitInterf
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !262
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4, !tbaa !263
   %26 = and i32 %25, 4095
@@ -895,10 +883,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegUnitInterf
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %30 = load i16, ptr %29, align 4, !tbaa !267
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %31
   %33 = lshr i32 %25, 12
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %17, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %34
   br label %.lr.ph102.split.i
 
 .lr.ph102.split.i:                                ; preds = %.thread78.i, %.lr.ph102.split.preheader.i
@@ -923,7 +911,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix24checkRegUnitInterf
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 424
   %43 = zext i32 %.sroa.066.098.i to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !211
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !292
   %.not.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i, label %47, label %67
@@ -998,12 +986,12 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i:                ; preds = %58, %47
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !262, !noalias !352
   %80 = zext i32 %2 to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 4, !tbaa !263, !noalias !352
   %84 = lshr i32 %83, 12
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %17, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %85
   %87 = and i32 %83, 4095
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %89
@@ -1015,7 +1003,7 @@ _ZN4llvm9LiveRangeC2Eb.exit.i.i.i:                ; preds = %58, %47
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 424
   %92 = zext i32 %.sroa.9.0106.i to i64
   %93 = load ptr, ptr %91, align 8, !tbaa !211
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %92
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %92
   %95 = load ptr, ptr %94, align 8, !tbaa !292
   %.not.i.i45.i = icmp eq ptr %95, null
   br i1 %.not.i.i45.i, label %96, label %"_ZZN4llvm13LiveRegMatrix24checkRegUnitInterferenceERKNS_12LiveIntervalENS_10MCRegisterEENK3$_0clEjRKNS_9LiveRangeE.exit50.i"
@@ -1091,12 +1079,12 @@ define dso_local noundef nonnull align 8 dereferenceable(172) ptr @_ZN4llvm13Liv
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = zext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !226
-  %7 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion::Query", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [176 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !228
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !229
-  %12 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %11, i64 %5
+  %12 = getelementptr inbounds nuw [216 x i8], ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %14 = load i32, ptr %13, align 8, !tbaa !225
   %15 = icmp eq i32 %14, %9
@@ -1192,7 +1180,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %32 = lshr i32 %2, 6
   %33 = zext nneg i32 %32 to i64
   %34 = load ptr, ptr %24, align 8, !tbaa !211
-  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load i64, ptr %35, align 8, !tbaa !11
   %37 = and i64 %36, %31
   %.not10.i = icmp eq i64 %37, 0
@@ -1222,7 +1210,7 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !262
   %51 = zext i32 %2 to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 4, !tbaa !263
   %55 = and i32 %54, 4095
@@ -1231,10 +1219,10 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %59 = load i16, ptr %58, align 4, !tbaa !267
   %60 = zext i16 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   %62 = lshr i32 %54, 12
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %44, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %63
   br label %.lr.ph101.split.i
 
 .lr.ph101.split.i:                                ; preds = %.thread75.i, %.lr.ph101.split.preheader.i
@@ -1257,10 +1245,10 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
 69:                                               ; preds = %.lr.ph.i
   %70 = zext i32 %.sroa.064.097.i to i64
   %71 = load ptr, ptr %46, align 8, !tbaa !226
-  %72 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion::Query", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [176 x i8], ptr %71, i64 %70
   %73 = load i32, ptr %47, align 8, !tbaa !228
   %74 = load ptr, ptr %48, align 8, !tbaa !229
-  %75 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %74, i64 %70
+  %75 = getelementptr inbounds nuw [216 x i8], ptr %74, i64 %70
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %77 = load i32, ptr %76, align 8, !tbaa !225
   %78 = icmp eq i32 %77, %73
@@ -1318,12 +1306,12 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %100 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !262, !noalias !361
   %102 = zext i32 %2 to i64
-  %103 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 4, !tbaa !263, !noalias !361
   %106 = lshr i32 %105, 12
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw i16, ptr %44, i64 %107
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %107
   %109 = and i32 %105, 4095
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1335,10 +1323,10 @@ _ZN4llvm13LiveRegMatrix24checkRegMaskInterferenceERKNS_12LiveIntervalENS_10MCReg
   %.sroa.9.0105.i = phi i32 [ %109, %.lr.ph107.i ], [ %138, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i ]
   %114 = zext i32 %.sroa.9.0105.i to i64
   %115 = load ptr, ptr %110, align 8, !tbaa !226
-  %116 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion::Query", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [176 x i8], ptr %115, i64 %114
   %117 = load i32, ptr %111, align 8, !tbaa !228
   %118 = load ptr, ptr %112, align 8, !tbaa !229
-  %119 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %118, i64 %114
+  %119 = getelementptr inbounds nuw [216 x i8], ptr %118, i64 %114
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 168
   %121 = load i32, ptr %120, align 8, !tbaa !225
   %122 = icmp eq i32 %121, %117
@@ -1429,12 +1417,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix17checkInterferenceE
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !262, !noalias !372
   %24 = zext i32 %3 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 4, !tbaa !263, !noalias !372
   %28 = lshr i32 %27, 12
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %29
   %31 = and i32 %27, 4095
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1467,7 +1455,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13LiveRegMatrix17checkInterferenceE
   %49 = load i32, ptr %45, align 8, !tbaa !228
   %50 = load ptr, ptr %46, align 8, !tbaa !229
   %51 = zext i32 %.sroa.019.029 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [216 x i8], ptr %50, i64 %51
   store ptr %52, ptr %8, align 8, !tbaa !358
   store ptr %6, ptr %47, align 8, !tbaa !359
   store i32 0, ptr %39, align 8, !tbaa !212
@@ -1589,18 +1577,18 @@ define dso_local i64 @_ZN4llvm13LiveRegMatrix22checkInterferenceLanesENS_9SlotIn
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !262
   %24 = zext i32 %3 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 4, !tbaa !263
   %28 = lshr i32 %27, 12
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !266
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %34 = load i16, ptr %33, align 4, !tbaa !267
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %35
   %37 = and i32 %27, 4095
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1673,7 +1661,7 @@ _ZN4llvm9LiveRangeD2Ev.exit:                      ; preds = %_ZN4llvm11SmallVect
   %65 = load i32, ptr %51, align 8, !tbaa !228
   %66 = load ptr, ptr %52, align 8, !tbaa !229
   %67 = zext i32 %.sroa.012.026 to i64
-  %68 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [216 x i8], ptr %66, i64 %67
   store ptr %68, ptr %8, align 8, !tbaa !358
   store ptr %6, ptr %53, align 8, !tbaa !359
   store i32 0, ptr %45, align 8, !tbaa !212
@@ -1726,12 +1714,12 @@ define dso_local i32 @_ZNK4llvm13LiveRegMatrix10getOneVRegEj(ptr noundef nonnull
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !262, !noalias !377
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 4, !tbaa !263, !noalias !377
   %12 = lshr i32 %11, 12
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %13
   %15 = and i32 %11, 4095
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %17
@@ -1741,7 +1729,7 @@ define dso_local i32 @_ZNK4llvm13LiveRegMatrix10getOneVRegEj(ptr noundef nonnull
   %.sroa.612.022 = phi ptr [ %14, %.lr.ph ], [ %24, %.critedge ]
   %18 = load ptr, ptr %16, align 8, !tbaa !229
   %19 = zext i32 %.sroa.011.023 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [216 x i8], ptr %18, i64 %19
   %21 = tail call noundef ptr @_ZNK4llvm17LiveIntervalUnion10getOneVRegEv(ptr noundef nonnull align 8 dereferenceable(216) %20) #17
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.critedge, label %22
@@ -2103,7 +2091,7 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
 .lr.ph59.us:                                      ; preds = %.lr.ph59.us.preheader, %44
   %indvars.iv82 = phi i64 [ 0, %.lr.ph59.us.preheader ], [ %indvars.iv.next83, %44 ]
   %24 = load ptr, ptr %4, align 8, !tbaa !211
-  %25 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %24, i64 %indvars.iv82
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv82
   %.0.copyload.i.i.i.i.us.us = load i64, ptr %25, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.us.us, 63
   %.pre92 = load i32, ptr %13, align 8, !tbaa !212
@@ -2113,11 +2101,11 @@ define linkonce_odr void @_ZN4llvm11IntervalMapINS_9SlotIndexEPKNS_12LiveInterva
   %28 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50.us.us ], [ %.pre92, %.lr.ph59.us ]
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50.us.us ], [ 0, %.lr.ph59.us ]
   %29 = load ptr, ptr %4, align 8, !tbaa !211
-  %30 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %29, i64 %indvars.iv82
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv82
   %.0.copyload.i.i.i.i47.us.us = load i64, ptr %30, align 8
   %31 = and i64 %.0.copyload.i.i.i.i47.us.us, -64
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %32, i64 %indvars.iv79
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv79
   %.sroa.05.0.copyload.us.us = load i64, ptr %33, align 8, !tbaa !369
   %34 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.not.i48.us.us = icmp ult i32 %28, %34
@@ -2134,7 +2122,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %38 = phi i32 [ %28, %27 ], [ %.pre.i49.us.us, %35 ]
   %39 = load ptr, ptr %5, align 8, !tbaa !211
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   store i64 %.sroa.05.0.copyload.us.us, ptr %41, align 1
   %42 = load i32, ptr %13, align 8, !tbaa !212
   %43 = add i32 %42, 1
@@ -2145,7 +2133,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
 
 44:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50.us.us
   %45 = load ptr, ptr %4, align 8, !tbaa !211
-  %46 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %45, i64 %indvars.iv82
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv82
   %.sroa.04.0.copyload.us.us = load i64, ptr %46, align 8, !tbaa !369
   call void %21(ptr noundef nonnull align 8 dereferenceable(208) %19, i64 %.sroa.04.0.copyload.us.us, i32 noundef %.03763.us) #17
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
@@ -2156,7 +2144,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %48 = phi i32 [ 0, %.lr.ph ], [ %60, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %.054 = phi i32 [ 0, %.lr.ph ], [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit ]
   %49 = zext i32 %.054 to i64
-  %50 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %17, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %49
   %.sroa.019.0.copyload = load i64, ptr %50, align 8, !tbaa !369
   %51 = load i32, ptr %11, align 4, !tbaa !213
   %.not.i.i.not.i = icmp ult i32 %48, %51
@@ -2173,7 +2161,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %55 = phi i32 [ %48, %47 ], [ %.pre.i, %52 ]
   %56 = load ptr, ptr %4, align 8, !tbaa !211
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   store i64 %.sroa.019.0.copyload, ptr %58, align 1
   %59 = load i32, ptr %10, align 8, !tbaa !212
   %60 = add i32 %59, 1
@@ -2199,7 +2187,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
 .lr.ph70.split.us:                                ; preds = %.lr.ph70, %.lr.ph70.split.us
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.lr.ph70.split.us ], [ 0, %.lr.ph70 ]
   %68 = load ptr, ptr %4, align 8, !tbaa !211
-  %69 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %68, i64 %indvars.iv88
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv88
   %.sroa.0.0.copyload.us = load i64, ptr %69, align 8, !tbaa !369
   call void %66(ptr noundef nonnull align 8 dereferenceable(208) %64, i64 %.sroa.0.0.copyload.us, i32 noundef 0) #17
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -2226,7 +2214,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %75
   %indvars.iv76 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next77, %75 ]
   %72 = load ptr, ptr %4, align 8, !tbaa !211
-  %73 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %72, i64 %indvars.iv76
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv76
   %.0.copyload.i.i.i.i = load i64, ptr %73, align 8
   %74 = and i64 %.0.copyload.i.i.i.i, 63
   %.pre91 = load i32, ptr %13, align 8, !tbaa !212
@@ -2238,7 +2226,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %78 = getelementptr i8, ptr %77, i64 -1
   %79 = load ptr, ptr %78, align 8, !nosanitize !300
   %80 = load ptr, ptr %4, align 8, !tbaa !211
-  %81 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %80, i64 %indvars.iv76
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv76
   %.sroa.04.0.copyload = load i64, ptr %81, align 8, !tbaa !369
   call void %79(ptr noundef nonnull align 8 dereferenceable(208) %19, i64 %.sroa.04.0.copyload, i32 noundef %.03763) #17
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
@@ -2249,11 +2237,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %83 = phi i32 [ %.pre91, %.lr.ph59 ], [ %98, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES2_.exit50 ]
   %84 = load ptr, ptr %4, align 8, !tbaa !211
-  %85 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %84, i64 %indvars.iv76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv76
   %.0.copyload.i.i.i.i47 = load i64, ptr %85, align 8
   %86 = and i64 %.0.copyload.i.i.i.i47, -64
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv
   %.sroa.05.0.copyload = load i64, ptr %88, align 8, !tbaa !369
   %89 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.not.i48 = icmp ult i32 %83, %89
@@ -2270,7 +2258,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE9push_backES
   %93 = phi i32 [ %83, %82 ], [ %.pre.i49, %90 ]
   %94 = load ptr, ptr %5, align 8, !tbaa !211
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   store i64 %.sroa.05.0.copyload, ptr %96, align 1
   %97 = load i32, ptr %13, align 8, !tbaa !212
   %98 = add i32 %97, 1
@@ -2309,7 +2297,7 @@ _ZN4llvm11SmallVectorINS_15IntervalMapImpl7NodeRefELj4EED2Ev.exit51: ; preds = %
   %107 = getelementptr i8, ptr %106, i64 -1
   %108 = load ptr, ptr %107, align 8, !nosanitize !300
   %109 = load ptr, ptr %4, align 8, !tbaa !211
-  %110 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %109, i64 %indvars.iv85
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv85
   %.sroa.0.0.copyload = load i64, ptr %110, align 8, !tbaa !369
   call void %108(ptr noundef nonnull align 8 dereferenceable(208) %64, i64 %.sroa.0.0.copyload, i32 noundef 0) #17
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -2418,9 +2406,9 @@ _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl7NodeRefEE7reserveEm.exit40: ; pre
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl7NodeRefEE7reserveEm.exit40, %.lr.ph
   %.03648 = phi i64 [ %50, %.lr.ph ], [ 0, %_ZN4llvm15SmallVectorImplINS_15IntervalMapImpl7NodeRefEE7reserveEm.exit40 ]
   %45 = load ptr, ptr %0, align 8, !tbaa !211
-  %46 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %45, i64 %.03648
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.03648
   %47 = load ptr, ptr %1, align 8, !tbaa !211
-  %48 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %47, i64 %.03648
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.03648
   %.sroa.0.0.copyload.i = load i64, ptr %46, align 8, !tbaa !369
   %49 = load i64, ptr %48, align 8, !tbaa !369
   store i64 %49, ptr %46, align 8, !tbaa !369
@@ -2439,7 +2427,7 @@ _ZN4llvm15SmallVectorImplINS_15IntervalMapImpl7NodeRefEE7reserveEm.exit40: ; pre
   %.idx44 = shl nuw nsw i64 %spec.select, 3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx44
   %56 = load ptr, ptr %1, align 8, !tbaa !211
-  %57 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %56, i64 %43
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %43
   %58 = sub nsw i64 %42, %spec.select
   %gepdiff45 = shl nsw i64 %58, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 8 %55, i64 %gepdiff45, i1 false)
@@ -2467,7 +2455,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15IntervalMapImpl7NodeRefELb1EE18uninitiali
   %.idx43 = shl nuw nsw i64 %spec.select, 3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx43
   %68 = load ptr, ptr %0, align 8, !tbaa !211
-  %69 = getelementptr inbounds nuw %"class.llvm::IntervalMapImpl::NodeRef", ptr %68, i64 %42
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %42
   %70 = sub nsw i64 %43, %spec.select
   %gepdiff = shl nsw i64 %70, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 8 %67, i64 %gepdiff, i1 false)

@@ -32,8 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct._zend_accel_globals = type { i8, i8, i8, i8, i8, %struct._zend_accel_directives, ptr, ptr, [32 x i8], [32 x i8], i32, i8, i32, i8, i32, i64, i64, %struct._zend_array, i64, ptr, ptr, ptr, ptr, ptr }
 %struct._zend_accel_directives = type { i64, i64, double, ptr, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i64, ptr, ptr, i64, i64, i64, i64, i64, ptr, ptr, ptr, i8, i8, i8, i8, ptr, ptr }
-%struct._zend_early_binding = type { ptr, ptr, ptr, i32 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @accel_shared_globals = external local_unnamed_addr global ptr, align 8
 @compiler_globals = external local_unnamed_addr global %struct._zend_compiler_globals, align 8
@@ -137,7 +135,7 @@ zend_string_release_ex.exit:                      ; preds = %21, %16, %12, %8
 .lr.ph:                                           ; preds = %.preheader, %zend_string_release.exit25
   %indvars.iv = phi i64 [ %indvars.iv.next, %zend_string_release.exit25 ], [ 0, %.preheader ]
   %27 = load ptr, ptr %22, align 8, !tbaa !36
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !38
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !40
@@ -242,7 +240,7 @@ define hidden void @zend_accel_free_delayed_early_binding_list(ptr noundef captu
 7:                                                ; preds = %.lr.ph, %zend_string_release.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_string_release.exit ]
   %8 = load ptr, ptr %4, align 8, !tbaa !44
-  %9 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !34
@@ -363,7 +361,7 @@ define hidden void @zend_accel_move_user_functions(ptr noundef %0, i32 noundef %
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !51
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct._Bucket, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %13
   %15 = zext i32 %1 to i64
   %.neg = mul nsw i64 %15, -32
   %16 = getelementptr inbounds i8, ptr %14, i64 %.neg
@@ -401,7 +399,7 @@ define hidden void @zend_accel_move_user_functions(ptr noundef %0, i32 noundef %
   store i32 %38, ptr %17, align 8, !tbaa !51
   %39 = load ptr, ptr %18, align 8, !tbaa !34
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw %struct._Bucket, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %40
   store ptr %27, ptr %41, align 8, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 13, ptr %42, align 8, !tbaa !34
@@ -448,12 +446,12 @@ _zend_hash_append_ptr_ex.exit:                    ; preds = %56, %zend_string_ad
   %64 = or i32 %63, %62
   %65 = load ptr, ptr %18, align 8, !tbaa !34
   %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !61
   %69 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 %68, ptr %69, align 4, !tbaa !34
   %70 = load ptr, ptr %18, align 8, !tbaa !34
-  %71 = getelementptr inbounds i32, ptr %70, i64 %66
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   store i32 %37, ptr %71, align 4, !tbaa !61
   %72 = load i32, ptr %21, align 4, !tbaa !62
   %73 = add i32 %72, 1
@@ -496,7 +494,7 @@ define hidden void @zend_accel_move_user_classes(ptr noundef %0, i32 noundef %1,
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !51
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct._Bucket, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %13
   %15 = zext i32 %1 to i64
   %.neg = mul nsw i64 %15, -32
   %16 = getelementptr inbounds i8, ptr %14, i64 %.neg
@@ -534,7 +532,7 @@ define hidden void @zend_accel_move_user_classes(ptr noundef %0, i32 noundef %1,
   store i32 %38, ptr %17, align 8, !tbaa !51
   %39 = load ptr, ptr %18, align 8, !tbaa !34
   %40 = zext i32 %37 to i64
-  %41 = getelementptr inbounds nuw %struct._Bucket, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %40
   store ptr %27, ptr %41, align 8, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 13, ptr %42, align 8, !tbaa !34
@@ -581,12 +579,12 @@ _zend_hash_append_ptr_ex.exit:                    ; preds = %56, %zend_string_ad
   %64 = or i32 %63, %62
   %65 = load ptr, ptr %18, align 8, !tbaa !34
   %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !61
   %69 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 %68, ptr %69, align 4, !tbaa !34
   %70 = load ptr, ptr %18, align 8, !tbaa !34
-  %71 = getelementptr inbounds i32, ptr %70, i64 %66
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   store i32 %37, ptr %71, align 4, !tbaa !61
   %72 = load i32, ptr %21, align 4, !tbaa !62
   %73 = add i32 %72, 1
@@ -756,7 +754,7 @@ define hidden void @zend_accel_finalize_delayed_early_binding_list(ptr noundef r
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -947,7 +945,7 @@ zend_string_release_ex.exit:                      ; preds = %38, %33, %29, %12, 
   store i32 %68, ptr %47, align 8, !tbaa !51
   %69 = load ptr, ptr %57, align 8, !tbaa !34
   %70 = zext i32 %67 to i64
-  %71 = getelementptr inbounds nuw %struct._Bucket, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %70
   store ptr %66, ptr %71, align 8, !tbaa !34
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 13, ptr %72, align 8, !tbaa !34
@@ -962,12 +960,12 @@ zend_string_release_ex.exit:                      ; preds = %38, %33, %29, %12, 
   %79 = or i32 %78, %77
   %80 = load ptr, ptr %57, align 8, !tbaa !34
   %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %80, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !61
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store i32 %83, ptr %84, align 4, !tbaa !34
   %85 = load ptr, ptr %57, align 8, !tbaa !34
-  %86 = getelementptr inbounds i32, ptr %85, i64 %81
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %81
   store i32 %67, ptr %86, align 4, !tbaa !61
   %87 = load i32, ptr %59, align 4, !tbaa !62
   %88 = add i32 %87, 1
@@ -1113,7 +1111,7 @@ _zend_accel_function_hash_copy.exit:              ; preds = %64, %46
   store i32 %171, ptr %127, align 8, !tbaa !51
   %172 = load ptr, ptr %137, align 8, !tbaa !34
   %173 = zext i32 %170 to i64
-  %174 = getelementptr inbounds nuw %struct._Bucket, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw [32 x i8], ptr %172, i64 %173
   store ptr %168, ptr %174, align 8, !tbaa !34
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 13, ptr %175, align 8, !tbaa !34
@@ -1128,12 +1126,12 @@ _zend_accel_function_hash_copy.exit:              ; preds = %64, %46
   %182 = or i32 %181, %180
   %183 = load ptr, ptr %137, align 8, !tbaa !34
   %184 = sext i32 %182 to i64
-  %185 = getelementptr inbounds i32, ptr %183, i64 %184
+  %185 = getelementptr inbounds [4 x i8], ptr %183, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !61
   %187 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 %186, ptr %187, align 4, !tbaa !34
   %188 = load ptr, ptr %137, align 8, !tbaa !34
-  %189 = getelementptr inbounds i32, ptr %188, i64 %184
+  %189 = getelementptr inbounds [4 x i8], ptr %188, i64 %184
   store i32 %170, ptr %189, align 4, !tbaa !61
   %190 = load i32, ptr %139, align 4, !tbaa !62
   %191 = add i32 %190, 1
@@ -1213,7 +1211,7 @@ _zend_accel_class_hash_copy.exit:                 ; preds = %._crit_edge, %160, 
 227:                                              ; preds = %.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.i ]
   %228 = load ptr, ptr %226, align 8, !tbaa !44
-  %229 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %228, i64 %indvars.iv.i
+  %229 = getelementptr inbounds nuw [32 x i8], ptr %228, i64 %indvars.iv.i
   %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8, !tbaa !162
   %231 = load ptr, ptr %229, align 8, !tbaa !45
   %232 = tail call ptr @zend_hash_find_known_hash(ptr noundef %230, ptr noundef %231) #12
@@ -1344,7 +1342,7 @@ define internal fastcc void @zend_accel_function_hash_copy_notify(ptr noundef %0
   store i32 %24, ptr %3, align 8, !tbaa !51
   %25 = load ptr, ptr %13, align 8, !tbaa !34
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw %struct._Bucket, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   store ptr %22, ptr %27, align 8, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 13, ptr %28, align 8, !tbaa !34
@@ -1359,12 +1357,12 @@ define internal fastcc void @zend_accel_function_hash_copy_notify(ptr noundef %0
   %35 = or i32 %34, %33
   %36 = load ptr, ptr %13, align 8, !tbaa !34
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %39, ptr %40, align 4, !tbaa !34
   %41 = load ptr, ptr %13, align 8, !tbaa !34
-  %42 = getelementptr inbounds i32, ptr %41, i64 %37
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %37
   store i32 %23, ptr %42, align 4, !tbaa !61
   %43 = load i32, ptr %15, align 4, !tbaa !62
   %44 = add i32 %43, 1
@@ -1507,7 +1505,7 @@ define internal fastcc void @zend_accel_class_hash_copy_notify(ptr noundef %0, p
   store i32 %47, ptr %3, align 8, !tbaa !51
   %48 = load ptr, ptr %13, align 8, !tbaa !34
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw %struct._Bucket, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %49
   store ptr %44, ptr %50, align 8, !tbaa !34
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 13, ptr %51, align 8, !tbaa !34
@@ -1522,12 +1520,12 @@ define internal fastcc void @zend_accel_class_hash_copy_notify(ptr noundef %0, p
   %58 = or i32 %57, %56
   %59 = load ptr, ptr %13, align 8, !tbaa !34
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !61
   %63 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %62, ptr %63, align 4, !tbaa !34
   %64 = load ptr, ptr %13, align 8, !tbaa !34
-  %65 = getelementptr inbounds i32, ptr %64, i64 %60
+  %65 = getelementptr inbounds [4 x i8], ptr %64, i64 %60
   store i32 %46, ptr %65, align 4, !tbaa !61
   %66 = load i32, ptr %15, align 4, !tbaa !62
   %67 = add i32 %66, 1

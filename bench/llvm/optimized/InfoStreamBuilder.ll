@@ -133,7 +133,7 @@ _ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !31
   store ptr %27, ptr %4, align 8, !tbaa !27
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !28
   br label %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE9push_backERKS2_.exit
 

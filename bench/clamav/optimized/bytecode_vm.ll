@@ -8,13 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cli_bc_type = type { i32, ptr, i32, i32, i32 }
 %struct.ptr_infos = type { ptr, ptr, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.ptr_info = type { ptr, i32 }
-%struct.cli_bc_bb = type { i32, ptr }
-%struct.anon = type { ptr, i32 }
-%struct.cli_bc_func = type { i8, i16, i32, i32, i32, i32, i16, i16, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.cli_bc_inst = type { i32, i16, i32, i8, %union.anon.0 }
-%union.anon.0 = type { %struct.cli_bc_callop }
-%struct.cli_bc_callop = type { ptr, ptr, i16, i8 }
 
 @cli_apicall_maxglobal = external local_unnamed_addr constant i32, align 4
 @cli_globals = external local_unnamed_addr constant [0 x %struct.cli_apiglobal], align 8
@@ -85,7 +78,7 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
   %17 = phi ptr [ %52, %ptr_register_glob_fixedid.exit ], [ null, %.lr.ph.split.preheader ]
   %18 = phi i32 [ %53, %ptr_register_glob_fixedid.exit ], [ 0, %.lr.ph.split.preheader ]
   %.0522617727 = phi i64 [ %54, %ptr_register_glob_fixedid.exit ], [ 0, %.lr.ph.split.preheader ]
-  %19 = getelementptr inbounds nuw %struct.cli_apiglobal, ptr @cli_globals, i64 %.0522617727
+  %19 = getelementptr inbounds nuw [24 x i8], ptr @cli_globals, i64 %.0522617727
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !35
   %22 = zext i32 %21 to i64
@@ -109,7 +102,7 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
 
 36:                                               ; preds = %32
   %37 = zext i32 %18 to i64
-  %38 = getelementptr inbounds nuw %struct.ptr_info, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %37
   %39 = sub i32 %30, %18
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 4
@@ -123,7 +116,7 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
   %45 = phi i32 [ %30, %36 ], [ %18, %.lr.ph.split ]
   %46 = add i32 %29, -32768
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.ptr_info, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %47
   %.not27.i = icmp eq ptr %24, null
   %spec.select.i = select i1 %.not27.i, i32 0, i32 %27
   store ptr %24, ptr %48, align 8, !tbaa !40
@@ -168,7 +161,7 @@ ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %32
 
 69:                                               ; preds = %65
   %70 = zext i32 %56 to i64
-  %71 = getelementptr inbounds nuw %struct.ptr_info, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %70
   %72 = sub i32 %61, %56
   %73 = zext i32 %72 to i64
   %74 = shl nuw nsw i64 %73, 4
@@ -181,7 +174,7 @@ ptr_register_glob_fixedid.exit:                   ; preds = %._crit_edge.i, %32
   %75 = phi ptr [ %68, %69 ], [ %55, %._crit_edge ]
   %76 = add i32 %10, -32767
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw %struct.ptr_info, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %77
   %.not27.i12552 = icmp eq ptr %58, null
   %spec.select.i12553 = select i1 %.not27.i12552, i32 0, i32 %60
   store ptr %58, ptr %78, align 8, !tbaa !40
@@ -10774,7 +10767,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   %4911 = getelementptr inbounds nuw i8, ptr %.013705, i64 40
   %4912 = load ptr, ptr %4911, align 8, !tbaa !73
   %4913 = zext i16 %.in10611 to i64
-  %4914 = getelementptr inbounds nuw %struct.cli_bc_bb, ptr %4912, i64 %4913
+  %4914 = getelementptr inbounds nuw [16 x i8], ptr %4912, i64 %4913
   %4915 = getelementptr inbounds nuw i8, ptr %4914, i64 8
   %4916 = load ptr, ptr %4915, align 8, !tbaa !74
   br label %jump.exit
@@ -10791,7 +10784,7 @@ ptr_register_glob_fixedid.exit12556:              ; preds = %65, %._crit_edge.i1
   %4923 = getelementptr inbounds nuw i8, ptr %.013705, i64 40
   %4924 = load ptr, ptr %4923, align 8, !tbaa !73
   %4925 = zext i16 %4919 to i64
-  %4926 = getelementptr inbounds nuw %struct.cli_bc_bb, ptr %4924, i64 %4925
+  %4926 = getelementptr inbounds nuw [16 x i8], ptr %4924, i64 %4925
   %4927 = getelementptr inbounds nuw i8, ptr %4926, i64 8
   %4928 = load ptr, ptr %4927, align 8, !tbaa !74
   br label %jump.exit
@@ -17405,7 +17398,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %7982 = getelementptr inbounds nuw i8, ptr %.013718, i64 32
   %7983 = load i16, ptr %7982, align 8, !tbaa !62
   %7984 = zext i16 %7983 to i64
-  %7985 = getelementptr inbounds nuw %struct.cli_apicall, ptr @cli_apicalls, i64 %7984
+  %7985 = getelementptr inbounds nuw [16 x i8], ptr @cli_apicalls, i64 %7984
   %7986 = zext i16 %7983 to i32
   %.not9716 = icmp ugt i32 %96, %7986
   br i1 %.not9716, label %7987, label %.thread13775
@@ -17516,7 +17509,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8027 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8028 = load i16, ptr %8027, align 2, !tbaa !92
   %8029 = zext i16 %8028 to i64
-  %8030 = getelementptr inbounds nuw ptr, ptr @cli_apicalls0, i64 %8029
+  %8030 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls0, i64 %8029
   %8031 = load ptr, ptr %8030, align 8, !tbaa !37
   %8032 = tail call i32 %8031(ptr noundef %1, i32 noundef %.77174, i32 noundef %.77165) #14
   %8033 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -17584,7 +17577,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8062 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8063 = load i16, ptr %8062, align 2, !tbaa !92
   %8064 = zext i16 %8063 to i64
-  %8065 = getelementptr inbounds nuw ptr, ptr @cli_apicalls1, i64 %8064
+  %8065 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls1, i64 %8064
   %8066 = load ptr, ptr %8065, align 8, !tbaa !37
   br label %8068
 
@@ -17594,7 +17587,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
 8068:                                             ; preds = %.thread16541, %8067
   %8069 = phi i1 [ true, %.thread16541 ], [ false, %8067 ]
   %.1522717733 = phi i64 [ 0, %.thread16541 ], [ 1, %8067 ]
-  %8070 = getelementptr inbounds nuw %struct.anon, ptr @apisize_override, i64 %.1522717733
+  %8070 = getelementptr inbounds nuw [16 x i8], ptr @apisize_override, i64 %.1522717733
   %8071 = load ptr, ptr %8070, align 16, !tbaa !93
   %8072 = icmp eq ptr %8066, %8071
   br i1 %8072, label %8073, label %8067
@@ -17733,7 +17726,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8131 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8132 = load i16, ptr %8131, align 2, !tbaa !92
   %8133 = zext i16 %8132 to i64
-  %8134 = getelementptr inbounds nuw ptr, ptr @cli_apicalls2, i64 %8133
+  %8134 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls2, i64 %8133
   %8135 = load ptr, ptr %8134, align 8, !tbaa !37
   %8136 = tail call i32 %8135(ptr noundef %1, i32 noundef %.87092) #14
   %8137 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -17800,7 +17793,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8165 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8166 = load i16, ptr %8165, align 2, !tbaa !92
   %8167 = zext i16 %8166 to i64
-  %8168 = getelementptr inbounds nuw ptr, ptr @cli_apicalls3, i64 %8167
+  %8168 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls3, i64 %8167
   %8169 = load ptr, ptr %8168, align 8, !tbaa !37
   %8170 = tail call ptr %8169(ptr noundef %1, i32 noundef %.87076) #14
   %8171 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8170, i32 noundef %.87076)
@@ -18045,7 +18038,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8274 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8275 = load i16, ptr %8274, align 2, !tbaa !92
   %8276 = zext i16 %8275 to i64
-  %8277 = getelementptr inbounds nuw ptr, ptr @cli_apicalls4, i64 %8276
+  %8277 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls4, i64 %8276
   %8278 = load ptr, ptr %8277, align 8, !tbaa !37
   %8279 = tail call i32 %8278(ptr noundef %1, ptr noundef nonnull %8218, i32 noundef %.87053, i32 noundef %.87044, i32 noundef %.87035, i32 noundef %.87026) #14
   %8280 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -18069,7 +18062,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8289 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8290 = load i16, ptr %8289, align 2, !tbaa !92
   %8291 = zext i16 %8290 to i64
-  %8292 = getelementptr inbounds nuw ptr, ptr @cli_apicalls5, i64 %8291
+  %8292 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls5, i64 %8291
   %8293 = load ptr, ptr %8292, align 8, !tbaa !37
   %8294 = tail call i32 %8293(ptr noundef %1) #14
   %8295 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -18179,7 +18172,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8341 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8342 = load i16, ptr %8341, align 2, !tbaa !92
   %8343 = zext i16 %8342 to i64
-  %8344 = getelementptr inbounds nuw ptr, ptr @cli_apicalls6, i64 %8343
+  %8344 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls6, i64 %8343
   %8345 = load ptr, ptr %8344, align 8, !tbaa !37
   %8346 = tail call ptr %8345(ptr noundef %1, i32 noundef %.86965, i32 noundef %.86956) #14
   %8347 = call fastcc i64 @ptr_register_glob(ptr noundef %5, ptr noundef %8346, i32 noundef %.86956)
@@ -18333,7 +18326,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8412 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8413 = load i16, ptr %8412, align 2, !tbaa !92
   %8414 = zext i16 %8413 to i64
-  %8415 = getelementptr inbounds nuw ptr, ptr @cli_apicalls7, i64 %8414
+  %8415 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls7, i64 %8414
   %8416 = load ptr, ptr %8415, align 8, !tbaa !37
   %8417 = tail call i32 %8416(ptr noundef %1, i32 noundef %.86926, i32 noundef %.86917, i32 noundef %.86908) #14
   %8418 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -18539,7 +18532,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8504 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8505 = load i16, ptr %8504, align 2, !tbaa !92
   %8506 = zext i16 %8505 to i64
-  %8507 = getelementptr inbounds nuw ptr, ptr @cli_apicalls8, i64 %8506
+  %8507 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls8, i64 %8506
   %8508 = load ptr, ptr %8507, align 8, !tbaa !37
   %8509 = tail call i32 %8508(ptr noundef %1, ptr noundef nonnull %8464, i32 noundef %.86878, ptr noundef nonnull %8502, i32 noundef %.86869) #14
   %8510 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -18697,7 +18690,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %8575 = getelementptr inbounds nuw i8, ptr %7985, i64 10
   %8576 = load i16, ptr %8575, align 2, !tbaa !92
   %8577 = zext i16 %8576 to i64
-  %8578 = getelementptr inbounds nuw ptr, ptr @cli_apicalls9, i64 %8577
+  %8578 = getelementptr inbounds nuw [8 x i8], ptr @cli_apicalls9, i64 %8577
   %8579 = load ptr, ptr %8578, align 8, !tbaa !37
   %8580 = tail call i32 %8579(ptr noundef %1, ptr noundef nonnull %8555, i32 noundef %.86791, i32 noundef %.86782) #14
   %8581 = getelementptr inbounds nuw i8, ptr %.013705, i64 16
@@ -18733,7 +18726,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
 8596:                                             ; preds = %8591
   %8597 = load ptr, ptr %95, align 8, !tbaa !97
   %8598 = zext i16 %8593 to i64
-  %8599 = getelementptr inbounds nuw %struct.cli_bc_func, ptr %8597, i64 %8598
+  %8599 = getelementptr inbounds nuw [72 x i8], ptr %8597, i64 %8598
   %8600 = load i8, ptr %8599, align 8, !tbaa !98
   %8601 = getelementptr inbounds nuw i8, ptr %.013718, i64 34
   %8602 = load i8, ptr %8601, align 2, !tbaa !62
@@ -18850,7 +18843,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   %.2522817730 = phi i64 [ 0, %.lr.ph17731 ], [ %8739, %8737 ]
   %.0523717729 = phi i32 [ 0, %.lr.ph17731 ], [ %.55242, %8737 ]
   %8662 = load ptr, ptr %8657, align 8, !tbaa !62
-  %8663 = getelementptr inbounds nuw i16, ptr %8662, i64 %.2522817730
+  %8663 = getelementptr inbounds nuw [2 x i8], ptr %8662, i64 %.2522817730
   %8664 = load i16, ptr %8663, align 2, !tbaa !69
   %8665 = zext i16 %8664 to i32
   %8666 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %8665)
@@ -18869,7 +18862,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
 8669:                                             ; preds = %.split
   %8670 = load i32, ptr %8658, align 8, !tbaa !63
   %8671 = load ptr, ptr %8656, align 8, !tbaa !62
-  %8672 = getelementptr inbounds nuw i32, ptr %8671, i64 %.2522817730
+  %8672 = getelementptr inbounds nuw [4 x i8], ptr %8671, i64 %.2522817730
   %8673 = load i32, ptr %8672, align 4, !tbaa !34
   %.not9714 = icmp ugt i32 %8670, %8673
   br i1 %.not9714, label %8674, label %.thread13775
@@ -18893,7 +18886,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
 8683:                                             ; preds = %.split
   %8684 = load i32, ptr %8658, align 8, !tbaa !63
   %8685 = load ptr, ptr %8656, align 8, !tbaa !62
-  %8686 = getelementptr inbounds nuw i32, ptr %8685, i64 %.2522817730
+  %8686 = getelementptr inbounds nuw [4 x i8], ptr %8685, i64 %.2522817730
   %8687 = load i32, ptr %8686, align 4, !tbaa !34
   %8688 = add i32 %8687, 1
   %.not9711 = icmp ugt i32 %8684, %8688
@@ -18922,7 +18915,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
 8701:                                             ; preds = %.split
   %8702 = load i32, ptr %8658, align 8, !tbaa !63
   %8703 = load ptr, ptr %8656, align 8, !tbaa !62
-  %8704 = getelementptr inbounds nuw i32, ptr %8703, i64 %.2522817730
+  %8704 = getelementptr inbounds nuw [4 x i8], ptr %8703, i64 %.2522817730
   %8705 = load i32, ptr %8704, align 4, !tbaa !34
   %8706 = add i32 %8705, 3
   %.not9708 = icmp ugt i32 %8702, %8706
@@ -18951,7 +18944,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
 8719:                                             ; preds = %.split
   %8720 = load i32, ptr %8658, align 8, !tbaa !63
   %8721 = load ptr, ptr %8656, align 8, !tbaa !62
-  %8722 = getelementptr inbounds nuw i32, ptr %8721, i64 %.2522817730
+  %8722 = getelementptr inbounds nuw [4 x i8], ptr %8721, i64 %.2522817730
   %8723 = load i32, ptr %8722, align 4, !tbaa !34
   %8724 = add i32 %8723, 7
   %.not9705 = icmp ugt i32 %8720, %8724
@@ -19000,7 +18993,7 @@ cli_stack_free.exit:                              ; preds = %5494, %5504, %5509,
   store ptr %8748, ptr %5, align 8, !tbaa !89
   store i32 %8744, ptr %93, align 8, !tbaa !88
   %8750 = zext i32 %8743 to i64
-  %8751 = getelementptr inbounds nuw %struct.ptr_info, ptr %8748, i64 %8750
+  %8751 = getelementptr inbounds nuw [16 x i8], ptr %8748, i64 %8750
   store ptr %8641, ptr %8751, align 8, !tbaa !40
   %8752 = getelementptr inbounds nuw i8, ptr %8751, i64 8
   store i32 %8742, ptr %8752, align 8, !tbaa !42
@@ -19377,7 +19370,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 8925:                                             ; preds = %8922
   %8926 = load ptr, ptr %5, align 8, !tbaa !89
   %8927 = zext nneg i32 %8923 to i64
-  %8928 = getelementptr inbounds nuw %struct.ptr_info, ptr %8926, i64 %8927
+  %8928 = getelementptr inbounds nuw [16 x i8], ptr %8926, i64 %8927
   br label %8936
 
 8929:                                             ; preds = %8920
@@ -19389,7 +19382,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 8932:                                             ; preds = %8929
   %8933 = load ptr, ptr %64, align 8, !tbaa !52
   %8934 = sext i32 %8930 to i64
-  %8935 = getelementptr inbounds %struct.ptr_info, ptr %8933, i64 %8934
+  %8935 = getelementptr inbounds [16 x i8], ptr %8933, i64 %8934
   br label %8936
 
 8936:                                             ; preds = %8932, %8925
@@ -19746,7 +19739,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9091:                                             ; preds = %9088
   %9092 = load ptr, ptr %5, align 8, !tbaa !89
   %9093 = zext nneg i32 %9089 to i64
-  %9094 = getelementptr inbounds nuw %struct.ptr_info, ptr %9092, i64 %9093
+  %9094 = getelementptr inbounds nuw [16 x i8], ptr %9092, i64 %9093
   br label %9102
 
 9095:                                             ; preds = %9086
@@ -19758,7 +19751,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9098:                                             ; preds = %9095
   %9099 = load ptr, ptr %64, align 8, !tbaa !52
   %9100 = sext i32 %9096 to i64
-  %9101 = getelementptr inbounds %struct.ptr_info, ptr %9099, i64 %9100
+  %9101 = getelementptr inbounds [16 x i8], ptr %9099, i64 %9100
   br label %9102
 
 9102:                                             ; preds = %9098, %9091
@@ -19877,7 +19870,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9154:                                             ; preds = %9151
   %9155 = load ptr, ptr %5, align 8, !tbaa !89
   %9156 = zext nneg i32 %9152 to i64
-  %9157 = getelementptr inbounds nuw %struct.ptr_info, ptr %9155, i64 %9156
+  %9157 = getelementptr inbounds nuw [16 x i8], ptr %9155, i64 %9156
   br label %9165
 
 9158:                                             ; preds = %9149
@@ -19889,7 +19882,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9161:                                             ; preds = %9158
   %9162 = load ptr, ptr %64, align 8, !tbaa !52
   %9163 = sext i32 %9159 to i64
-  %9164 = getelementptr inbounds %struct.ptr_info, ptr %9162, i64 %9163
+  %9164 = getelementptr inbounds [16 x i8], ptr %9162, i64 %9163
   br label %9165
 
 9165:                                             ; preds = %9161, %9154
@@ -20007,7 +20000,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9216:                                             ; preds = %9213
   %9217 = load ptr, ptr %5, align 8, !tbaa !89
   %9218 = zext nneg i32 %9214 to i64
-  %9219 = getelementptr inbounds nuw %struct.ptr_info, ptr %9217, i64 %9218
+  %9219 = getelementptr inbounds nuw [16 x i8], ptr %9217, i64 %9218
   br label %9227
 
 9220:                                             ; preds = %9211
@@ -20019,7 +20012,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9223:                                             ; preds = %9220
   %9224 = load ptr, ptr %64, align 8, !tbaa !52
   %9225 = sext i32 %9221 to i64
-  %9226 = getelementptr inbounds %struct.ptr_info, ptr %9224, i64 %9225
+  %9226 = getelementptr inbounds [16 x i8], ptr %9224, i64 %9225
   br label %9227
 
 9227:                                             ; preds = %9223, %9216
@@ -20147,7 +20140,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9282:                                             ; preds = %9279
   %9283 = load ptr, ptr %5, align 8, !tbaa !89
   %9284 = zext nneg i32 %9280 to i64
-  %9285 = getelementptr inbounds nuw %struct.ptr_info, ptr %9283, i64 %9284
+  %9285 = getelementptr inbounds nuw [16 x i8], ptr %9283, i64 %9284
   br label %9293
 
 9286:                                             ; preds = %9277
@@ -20159,7 +20152,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9289:                                             ; preds = %9286
   %9290 = load ptr, ptr %64, align 8, !tbaa !52
   %9291 = sext i32 %9287 to i64
-  %9292 = getelementptr inbounds %struct.ptr_info, ptr %9290, i64 %9291
+  %9292 = getelementptr inbounds [16 x i8], ptr %9290, i64 %9291
   br label %9293
 
 9293:                                             ; preds = %9289, %9282
@@ -20287,7 +20280,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9348:                                             ; preds = %9345
   %9349 = load ptr, ptr %5, align 8, !tbaa !89
   %9350 = zext nneg i32 %9346 to i64
-  %9351 = getelementptr inbounds nuw %struct.ptr_info, ptr %9349, i64 %9350
+  %9351 = getelementptr inbounds nuw [16 x i8], ptr %9349, i64 %9350
   br label %9359
 
 9352:                                             ; preds = %9343
@@ -20299,7 +20292,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9355:                                             ; preds = %9352
   %9356 = load ptr, ptr %64, align 8, !tbaa !52
   %9357 = sext i32 %9353 to i64
-  %9358 = getelementptr inbounds %struct.ptr_info, ptr %9356, i64 %9357
+  %9358 = getelementptr inbounds [16 x i8], ptr %9356, i64 %9357
   br label %9359
 
 9359:                                             ; preds = %9355, %9348
@@ -20644,7 +20637,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9520:                                             ; preds = %9517
   %9521 = load ptr, ptr %5, align 8, !tbaa !89
   %9522 = zext nneg i32 %9518 to i64
-  %9523 = getelementptr inbounds nuw %struct.ptr_info, ptr %9521, i64 %9522
+  %9523 = getelementptr inbounds nuw [16 x i8], ptr %9521, i64 %9522
   br label %9531
 
 9524:                                             ; preds = %9515
@@ -20656,7 +20649,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9527:                                             ; preds = %9524
   %9528 = load ptr, ptr %64, align 8, !tbaa !52
   %9529 = sext i32 %9525 to i64
-  %9530 = getelementptr inbounds %struct.ptr_info, ptr %9528, i64 %9529
+  %9530 = getelementptr inbounds [16 x i8], ptr %9528, i64 %9529
   br label %9531
 
 9531:                                             ; preds = %9527, %9520
@@ -20882,7 +20875,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9632:                                             ; preds = %9629
   %9633 = load ptr, ptr %5, align 8, !tbaa !89
   %9634 = zext nneg i32 %9630 to i64
-  %9635 = getelementptr inbounds nuw %struct.ptr_info, ptr %9633, i64 %9634
+  %9635 = getelementptr inbounds nuw [16 x i8], ptr %9633, i64 %9634
   br label %9643
 
 9636:                                             ; preds = %9627
@@ -20894,7 +20887,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9639:                                             ; preds = %9636
   %9640 = load ptr, ptr %64, align 8, !tbaa !52
   %9641 = sext i32 %9637 to i64
-  %9642 = getelementptr inbounds %struct.ptr_info, ptr %9640, i64 %9641
+  %9642 = getelementptr inbounds [16 x i8], ptr %9640, i64 %9641
   br label %9643
 
 9643:                                             ; preds = %9639, %9632
@@ -21102,7 +21095,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9736:                                             ; preds = %9733
   %9737 = load ptr, ptr %5, align 8, !tbaa !89
   %9738 = zext nneg i32 %9734 to i64
-  %9739 = getelementptr inbounds nuw %struct.ptr_info, ptr %9737, i64 %9738
+  %9739 = getelementptr inbounds nuw [16 x i8], ptr %9737, i64 %9738
   br label %9747
 
 9740:                                             ; preds = %9731
@@ -21114,7 +21107,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9743:                                             ; preds = %9740
   %9744 = load ptr, ptr %64, align 8, !tbaa !52
   %9745 = sext i32 %9741 to i64
-  %9746 = getelementptr inbounds %struct.ptr_info, ptr %9744, i64 %9745
+  %9746 = getelementptr inbounds [16 x i8], ptr %9744, i64 %9745
   br label %9747
 
 9747:                                             ; preds = %9743, %9736
@@ -21324,7 +21317,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9841:                                             ; preds = %9838
   %9842 = load ptr, ptr %5, align 8, !tbaa !89
   %9843 = zext nneg i32 %9839 to i64
-  %9844 = getelementptr inbounds nuw %struct.ptr_info, ptr %9842, i64 %9843
+  %9844 = getelementptr inbounds nuw [16 x i8], ptr %9842, i64 %9843
   br label %9852
 
 9845:                                             ; preds = %9836
@@ -21336,7 +21329,7 @@ jump.exit12507:                                   ; preds = %ptr_register_stack.
 9848:                                             ; preds = %9845
   %9849 = load ptr, ptr %64, align 8, !tbaa !52
   %9850 = sext i32 %9846 to i64
-  %9851 = getelementptr inbounds %struct.ptr_info, ptr %9849, i64 %9850
+  %9851 = getelementptr inbounds [16 x i8], ptr %9849, i64 %9850
   br label %9852
 
 9852:                                             ; preds = %9848, %9841
@@ -21985,7 +21978,7 @@ allocate_stack.exit.thread.thread.sink.split:     ; preds = %5524, %5474, %5424,
   store ptr %.sink20520, ptr %5, align 8, !tbaa !89
   store i32 %.sink20519, ptr %93, align 8, !tbaa !88
   %10164 = zext i32 %.sink20518 to i64
-  %10165 = getelementptr inbounds nuw %struct.ptr_info, ptr %.sink20520, i64 %10164
+  %10165 = getelementptr inbounds nuw [16 x i8], ptr %.sink20520, i64 %10164
   store ptr %.sink20514, ptr %10165, align 8, !tbaa !40
   %10166 = getelementptr inbounds nuw i8, ptr %10165, i64 8
   store i32 %.sink20511, ptr %10166, align 8, !tbaa !42
@@ -22005,7 +21998,7 @@ allocate_stack.exit.thread.thread:                ; preds = %allocate_stack.exit
   %10168 = getelementptr inbounds nuw i8, ptr %.sink20509, i64 8
   %10169 = load ptr, ptr %10168, align 8, !tbaa !74
   %10170 = zext i32 %.sink20507 to i64
-  %10171 = getelementptr inbounds nuw %struct.cli_bc_inst, ptr %10169, i64 %10170
+  %10171 = getelementptr inbounds nuw [40 x i8], ptr %10169, i64 %10170
   %10172 = add i32 %.sink20507, 1
   %10173 = getelementptr inbounds nuw i8, ptr %10171, i64 40
   br label %10176
@@ -22135,7 +22128,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
 
 6:                                                ; preds = %.lr.ph
   %7 = zext i16 %.tr24 to i64
-  %8 = getelementptr %struct.cli_bc_type, ptr @cli_apicall_types, i64 %7
+  %8 = getelementptr [32 x i8], ptr @cli_apicall_types, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -2208
   %10 = load i32, ptr %9, align 8, !tbaa !107
   switch i32 %10, label %.loopexit [
@@ -22169,7 +22162,7 @@ tailrecurse:                                      ; preds = %6
 23:                                               ; preds = %.lr.ph28, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next, %23 ]
   %.027 = phi i32 [ 0, %.lr.ph28 ], [ %27, %23 ]
-  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !69
   %26 = tail call fastcc i32 @globaltypesize(i16 noundef zeroext %25)
   %27 = add i32 %26, %.027
@@ -22213,7 +22206,7 @@ define internal fastcc ptr @ptr_torealptr(ptr noundef nonnull readonly captures(
 13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8, !tbaa !89
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr inbounds nuw %struct.ptr_info, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   br label %26
 
 17:                                               ; preds = %7
@@ -22227,7 +22220,7 @@ define internal fastcc ptr @ptr_torealptr(ptr noundef nonnull readonly captures(
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !52
   %24 = sext i32 %18 to i64
-  %25 = getelementptr inbounds %struct.ptr_info, ptr %23, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %23, i64 %24
   br label %26
 
 26:                                               ; preds = %21, %13
@@ -22277,7 +22270,7 @@ define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 
 14:                                               ; preds = %10
   %15 = load i32, ptr %5, align 4, !tbaa !55
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.ptr_info, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %16
   %18 = sub i32 %7, %15
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 4
@@ -22289,7 +22282,7 @@ define internal fastcc range(i64 -9223372036854775808, 9223372032559808513) i64 
 ._crit_edge.i:                                    ; preds = %14, %4
   %21 = phi ptr [ %13, %14 ], [ %9, %4 ]
   %22 = zext i32 %6 to i64
-  %23 = getelementptr inbounds nuw %struct.ptr_info, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   store ptr %1, ptr %23, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %2, ptr %24, align 8, !tbaa !42

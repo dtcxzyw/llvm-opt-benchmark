@@ -47,25 +47,9 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon.60, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon.60 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.page = type { i64, %union.anon.11, %union.anon.19, %struct.atomic_t, [8 x i8] }
-%union.anon.11 = type { %struct.anon.12 }
-%struct.anon.12 = type { %union.anon.13, ptr, %union.anon.15, i64 }
-%union.anon.13 = type { %struct.list_head }
-%union.anon.15 = type { i64 }
-%union.anon.19 = type { %struct.atomic_t }
-%struct.zonelist = type { [257 x %struct.zoneref] }
-%struct.zoneref = type { ptr, i32 }
 %struct.mmu_notifier_range = type { ptr, i64, i64, i32, i32, ptr }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
 %struct.mmu_gather = type { ptr, ptr, i64, i64, i16, i32, ptr, %struct.mmu_gather_batch, [8 x ptr] }
 %struct.mmu_gather_batch = type { ptr, i32, i32, [0 x ptr] }
-%struct.page_counter = type { %struct.atomic64_t, [56 x i8], %struct.cacheline_padding, i64, %struct.atomic64_t, %struct.atomic64_t, i64, %struct.atomic64_t, %struct.atomic64_t, i64, i64, %struct.cacheline_padding, i64, i64, i64, i64, ptr, [24 x i8] }
-%struct.cacheline_padding = type { [0 x i8] }
-%struct.zone = type { [4 x i64], i64, i64, [4 x i64], i32, ptr, ptr, ptr, i32, i32, i32, i64, %struct.atomic64_t, i64, i64, ptr, i32, [20 x i8], %struct.cacheline_padding, [11 x %struct.free_area], i64, %struct.spinlock, [28 x i8], %struct.cacheline_padding, i64, i64, [2 x i64], i64, i64, i32, i32, i32, i8, i8, [2 x i8], %struct.cacheline_padding, [10 x %struct.atomic64_t], [6 x %struct.atomic64_t] }
-%struct.free_area = type { [4 x %struct.list_head], i64 }
 
 @huge_boot_pages = dso_local global %struct.list_head { ptr @huge_boot_pages, ptr @huge_boot_pages }, section ".init.data", align 8
 @hugetlb_lock = dso_local global %struct.spinlock zeroinitializer, align 4
@@ -349,7 +333,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @hugetlb_acct_memory(ptr no
   store i64 %54, ptr %20, align 8
   %55 = load i64, ptr %45, align 16
   %56 = lshr i64 %55, 58
-  %57 = getelementptr i32, ptr %22, i64 %56
+  %57 = getelementptr [4 x i8], ptr %22, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -407,7 +391,7 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %44, %37, %53, %40, 
   %91 = load ptr, ptr %85, align 8
   %92 = load i64, ptr %90, align 16
   %93 = lshr i64 %92, 58
-  %94 = getelementptr %struct.list_head, ptr %82, i64 %93
+  %94 = getelementptr [16 x i8], ptr %82, i64 %93
   %95 = getelementptr i8, ptr %85, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -422,7 +406,7 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %44, %37, %53, %40, 
   %100 = load i64, ptr %14, align 8
   %101 = add i64 %100, 1
   store i64 %101, ptr %14, align 8
-  %102 = getelementptr i32, ptr %83, i64 %93
+  %102 = getelementptr [4 x i8], ptr %83, i64 %93
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
@@ -516,7 +500,7 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %44, %37, %53, %40, 
   %152 = phi i32 [ %167, %165 ], [ %148, %150 ]
   %153 = phi i32 [ %157, %165 ], [ 0, %150 ]
   %154 = zext nneg i32 %152 to i64
-  %155 = getelementptr i32, ptr %114, i64 %154
+  %155 = getelementptr [4 x i8], ptr %114, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = add i32 %156, %153
   %158 = icmp eq i32 %152, 63
@@ -547,7 +531,7 @@ alloc_surplus_hugetlb_folio.exit.thread:          ; preds = %44, %37, %53, %40, 
   br i1 %174, label %179, label %175
 
 175:                                              ; preds = %.split
-  %176 = getelementptr i32, ptr %114, i64 %171
+  %176 = getelementptr [4 x i8], ptr %114, i64 %171
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, %170
   br label %179
@@ -1539,7 +1523,7 @@ define dso_local void @clear_vma_resv_huge_pages(ptr noundef captures(address) %
 define dso_local ptr @size_to_hstate(i64 noundef %0) local_unnamed_addr #7 align 16 {
   %2 = load i32, ptr @hugetlb_max_hstate, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.hstate, ptr @hstates, i64 %3
+  %4 = getelementptr [6088 x i8], ptr @hstates, i64 %3
   %5 = icmp ugt ptr %4, @hstates
   br i1 %5, label %.preheader, label %.loopexit
 
@@ -1580,7 +1564,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %11 = shl i64 4096, %10
   %12 = load i32, ptr @hugetlb_max_hstate, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.hstate, ptr @hstates, i64 %13
+  %14 = getelementptr [6088 x i8], ptr @hstates, i64 %13
   %15 = icmp ugt ptr %14, @hstates
   br i1 %15, label %.preheader, label %.loopexit
 
@@ -1767,7 +1751,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %129 = add i64 %128, -1
   store i64 %129, ptr %127, align 8
   %130 = getelementptr inbounds nuw i8, ptr %25, i64 1656
-  %131 = getelementptr i32, ptr %130, i64 %117
+  %131 = getelementptr [4 x i8], ptr %130, i64 %117
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, -1
   store i32 %133, ptr %131, align 4
@@ -1793,7 +1777,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %144 = add i64 %143, -1
   store i64 %144, ptr %142, align 8
   %145 = getelementptr inbounds nuw i8, ptr %25, i64 1400
-  %146 = getelementptr i32, ptr %145, i64 %117
+  %146 = getelementptr [4 x i8], ptr %145, i64 %117
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, -1
   store i32 %148, ptr %146, align 4
@@ -1818,7 +1802,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
 
 158:                                              ; preds = %111
   %159 = getelementptr inbounds nuw i8, ptr %25, i64 1912
-  %160 = getelementptr i32, ptr %159, i64 %26
+  %160 = getelementptr [4 x i8], ptr %159, i64 %26
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %161, 0
   %163 = load i64, ptr %0, align 16
@@ -1846,7 +1830,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %177 = add i64 %176, -1
   store i64 %177, ptr %175, align 8
   %178 = getelementptr inbounds nuw i8, ptr %25, i64 1656
-  %179 = getelementptr i32, ptr %178, i64 %164
+  %179 = getelementptr [4 x i8], ptr %178, i64 %164
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, -1
   store i32 %181, ptr %179, align 4
@@ -1857,7 +1841,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %184 = load i64, ptr %183, align 8
   %185 = add i64 %184, -1
   store i64 %185, ptr %183, align 8
-  %186 = getelementptr i32, ptr %159, i64 %164
+  %186 = getelementptr [4 x i8], ptr %159, i64 %164
   %187 = load i32, ptr %186, align 4
   %188 = add i32 %187, -1
   store i32 %188, ptr %186, align 4
@@ -1880,7 +1864,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %198 = add i64 %197, -1
   store i64 %198, ptr %196, align 8
   %199 = getelementptr inbounds nuw i8, ptr %25, i64 1400
-  %200 = getelementptr i32, ptr %199, i64 %164
+  %200 = getelementptr [4 x i8], ptr %199, i64 %164
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, -1
   store i32 %202, ptr %200, align 4
@@ -1905,7 +1889,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
 
 212:                                              ; preds = %158
   %213 = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %214 = getelementptr %struct.list_head, ptr %213, i64 %164
+  %214 = getelementptr [16 x i8], ptr %213, i64 %164
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %165, align 8
@@ -1923,7 +1907,7 @@ define dso_local void @free_huge_folio(ptr noundef %0) local_unnamed_addr #0 ali
   %223 = add i64 %222, 1
   store i64 %223, ptr %221, align 8
   %224 = getelementptr inbounds nuw i8, ptr %25, i64 1656
-  %225 = getelementptr i32, ptr %224, i64 %164
+  %225 = getelementptr [4 x i8], ptr %224, i64 %164
   %226 = load i32, ptr %225, align 4
   %227 = add i32 %226, 1
   store i32 %227, ptr %225, align 4
@@ -2262,7 +2246,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %57 = select i1 %54, i64 4096, i64 %56
   %58 = load i32, ptr @hugetlb_max_hstate, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.hstate, ptr @hstates, i64 %59
+  %60 = getelementptr [6088 x i8], ptr @hstates, i64 %59
   %61 = icmp ugt ptr %60, @hstates
   br i1 %61, label %.preheader, label %.loopexit
 
@@ -2315,7 +2299,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %92 = add i64 %91, -1
   store i64 %92, ptr %82, align 8
   %93 = getelementptr inbounds nuw i8, ptr %71, i64 1656
-  %94 = getelementptr i32, ptr %93, i64 %83
+  %94 = getelementptr [4 x i8], ptr %93, i64 %83
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, -1
   store i32 %96, ptr %94, align 4
@@ -2339,7 +2323,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %105 = add i64 %104, -1
   store i64 %105, ptr %103, align 8
   %106 = getelementptr inbounds nuw i8, ptr %71, i64 1400
-  %107 = getelementptr i32, ptr %106, i64 %83
+  %107 = getelementptr [4 x i8], ptr %106, i64 %83
   %108 = load i32, ptr %107, align 4
   %109 = add i32 %108, -1
   store i32 %109, ptr %107, align 4
@@ -2373,7 +2357,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %126 = load i64, ptr %103, align 8
   %127 = add i64 %126, 1
   store i64 %127, ptr %103, align 8
-  %128 = getelementptr i32, ptr %106, i64 %125
+  %128 = getelementptr [4 x i8], ptr %106, i64 %125
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, 1
   store i32 %130, ptr %128, align 4
@@ -2390,7 +2374,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %135 = load i64, ptr %27, align 16
   %136 = lshr i64 %135, 58
   %137 = getelementptr inbounds nuw i8, ptr %71, i64 120
-  %138 = getelementptr %struct.list_head, ptr %137, i64 %136
+  %138 = getelementptr [16 x i8], ptr %137, i64 %136
   %139 = load ptr, ptr %32, align 16
   %140 = load ptr, ptr %31, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -2406,7 +2390,7 @@ define dso_local i32 @dissolve_free_huge_page(ptr noundef %0) local_unnamed_addr
   %145 = add i64 %144, 1
   store i64 %145, ptr %82, align 8
   %146 = getelementptr inbounds nuw i8, ptr %71, i64 1656
-  %147 = getelementptr i32, ptr %146, i64 %136
+  %147 = getelementptr [4 x i8], ptr %146, i64 %136
   %148 = load i32, ptr %147, align 4
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 4
@@ -2449,12 +2433,12 @@ declare dso_local i32 @hugetlb_vmemmap_restore_folio(ptr noundef, ptr noundef) l
 define dso_local i32 @dissolve_free_huge_pages(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr @default_hstate_idx, align 4
   %4 = zext i32 %3 to i64
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %4
+  %.split = getelementptr [6088 x i8], ptr @hstates, i64 %4
   %5 = getelementptr i8, ptr %.split, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @hugetlb_max_hstate, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.hstate, ptr @hstates, i64 %8
+  %9 = getelementptr [6088 x i8], ptr @hstates, i64 %8
   %10 = icmp ugt ptr %9, @hstates
   br i1 %10, label %.preheader, label %.loopexit4
 
@@ -2482,7 +2466,7 @@ define dso_local i32 @dissolve_free_huge_pages(i64 noundef %0, i64 noundef %1) l
   %24 = phi i64 [ %0, %13 ], [ %31, %30 ]
   %25 = load i64, ptr @vmemmap_base, align 8
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr %struct.page, ptr %26, i64 %24
+  %27 = getelementptr [64 x i8], ptr %26, i64 %24
   %28 = tail call i32 @dissolve_free_huge_page(ptr noundef %27)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.loopexit
@@ -2544,13 +2528,13 @@ define dso_local ptr @alloc_hugetlb_folio_nodemask(ptr noundef %0, i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = sext i32 %2 to i64
-  %6 = getelementptr ptr, ptr @node_data, i64 %5
+  %6 = getelementptr [8 x i8], ptr @node_data, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4864
   %9 = lshr i32 %1, 21
   %10 = and i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.zonelist, ptr %8, i64 %11
+  %12 = getelementptr [4112 x i8], ptr %8, i64 %11
   %13 = shl i32 %1, 1
   %14 = and i32 %13, 30
   %15 = lshr i32 20054306, %14
@@ -2636,7 +2620,7 @@ define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 n
   %63 = and i32 %.fr, 268435456
   %64 = icmp eq i32 %63, 0
   %65 = sext i32 %56 to i64
-  %66 = getelementptr %struct.list_head, ptr %19, i64 %65
+  %66 = getelementptr [16 x i8], ptr %19, i64 %65
   %67 = load i64, ptr @vmemmap_base, align 8
   %68 = load i64, ptr @zero_pfn, align 8
   br i1 %64, label %.split.us, label %.split
@@ -2690,7 +2674,7 @@ define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 n
   %93 = load i64, ptr %21, align 8
   %94 = add i64 %93, -1
   store i64 %94, ptr %21, align 8
-  %95 = getelementptr i32, ptr %22, i64 %65
+  %95 = getelementptr [4 x i8], ptr %22, i64 %65
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4
@@ -3054,7 +3038,7 @@ define dso_local noundef range(i32 -16, 1) i32 @isolate_or_dissolve_huge_page(pt
   %43 = select i1 %40, i64 4096, i64 %42
   %44 = load i32, ptr @hugetlb_max_hstate, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr %struct.hstate, ptr @hstates, i64 %45
+  %46 = getelementptr [6088 x i8], ptr @hstates, i64 %45
   %47 = icmp ugt ptr %46, @hstates
   br i1 %47, label %.preheader, label %.loopexit2
 
@@ -3260,7 +3244,7 @@ isolate_hugetlb.exit:                             ; preds = %.lr.ph.i
   %160 = add i64 %159, -1
   store i64 %160, ptr %158, align 8
   %161 = getelementptr inbounds nuw i8, ptr %57, i64 1656
-  %162 = getelementptr i32, ptr %161, i64 %148
+  %162 = getelementptr [4 x i8], ptr %161, i64 %148
   %163 = load i32, ptr %162, align 4
   %164 = add i32 %163, -1
   store i32 %164, ptr %162, align 4
@@ -3281,18 +3265,18 @@ isolate_hugetlb.exit:                             ; preds = %.lr.ph.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !30
   store volatile i32 1, ptr %63, align 4
   %172 = getelementptr inbounds nuw i8, ptr %57, i64 1400
-  %173 = getelementptr i32, ptr %172, i64 %148
+  %173 = getelementptr [4 x i8], ptr %172, i64 %148
   %174 = load i32, ptr %173, align 4
   %175 = add i32 %174, -1
   store i32 %175, ptr %173, align 4
-  %176 = getelementptr i32, ptr %172, i64 %113
+  %176 = getelementptr [4 x i8], ptr %172, i64 %113
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, 1
   store i32 %178, ptr %176, align 4
   %179 = load i64, ptr %115, align 16
   %180 = lshr i64 %179, 58
   %181 = getelementptr inbounds nuw i8, ptr %57, i64 120
-  %182 = getelementptr %struct.list_head, ptr %181, i64 %180
+  %182 = getelementptr [16 x i8], ptr %181, i64 %180
   %183 = load ptr, ptr %120, align 16
   %184 = load ptr, ptr %119, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
@@ -3309,7 +3293,7 @@ isolate_hugetlb.exit:                             ; preds = %.lr.ph.i
   %190 = add i64 %189, 1
   store i64 %190, ptr %188, align 8
   %191 = getelementptr inbounds nuw i8, ptr %57, i64 1656
-  %192 = getelementptr i32, ptr %191, i64 %180
+  %192 = getelementptr [4 x i8], ptr %191, i64 %180
   %193 = load i32, ptr %192, align 4
   %194 = add i32 %193, 1
   store i32 %194, ptr %192, align 4
@@ -4194,7 +4178,7 @@ define dso_local void @hugetlb_unregister_node(ptr noundef readonly captures(non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %4
+  %5 = getelementptr [24 x i8], ptr @node_hstates, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %39, label %8
@@ -4202,7 +4186,7 @@ define dso_local void @hugetlb_unregister_node(ptr noundef readonly captures(non
 8:                                                ; preds = %1
   %9 = load i32, ptr @hugetlb_max_hstate, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.hstate, ptr @hstates, i64 %10
+  %11 = getelementptr [6088 x i8], ptr @hstates, i64 %10
   %12 = icmp ugt ptr %11, @hstates
   br i1 %12, label %13, label %.loopexit
 
@@ -4244,7 +4228,7 @@ define dso_local void @hugetlb_unregister_node(ptr noundef readonly captures(non
   %33 = phi i32 [ %.pre, %31 ], [ %16, %15 ]
   %34 = getelementptr i8, ptr %17, i64 6088
   %35 = sext i32 %33 to i64
-  %36 = getelementptr %struct.hstate, ptr @hstates, i64 %35
+  %36 = getelementptr [6088 x i8], ptr @hstates, i64 %35
   %37 = icmp ult ptr %34, %36
   br i1 %37, label %15, label %.loopexit.loopexit, !llvm.loop !49
 
@@ -4273,7 +4257,7 @@ define dso_local void @hugetlb_register_node(ptr noundef %0) local_unnamed_addr 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %4
+  %5 = getelementptr [24 x i8], ptr @node_hstates, i64 %4
   %6 = load i1, ptr @hugetlb_sysfs_initialized, align 1
   br i1 %6, label %7, label %.loopexit
 
@@ -4291,7 +4275,7 @@ define dso_local void @hugetlb_register_node(ptr noundef %0) local_unnamed_addr 
 13:                                               ; preds = %10
   %14 = load i32, ptr @hugetlb_max_hstate, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.hstate, ptr @hstates, i64 %15
+  %16 = getelementptr [6088 x i8], ptr @hstates, i64 %15
   %17 = icmp ugt ptr %16, @hstates
   br i1 %17, label %18, label %.loopexit
 
@@ -4317,7 +4301,7 @@ define dso_local void @hugetlb_register_node(ptr noundef %0) local_unnamed_addr 
   %30 = getelementptr i8, ptr %21, i64 6088
   %31 = load i32, ptr @hugetlb_max_hstate, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr %struct.hstate, ptr @hstates, i64 %32
+  %33 = getelementptr [6088 x i8], ptr @hstates, i64 %32
   %34 = icmp ult ptr %30, %33
   br i1 %34, label %20, label %.loopexit, !llvm.loop !50
 
@@ -4387,7 +4371,7 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
 3:                                                ; preds = %0
   %4 = load i32, ptr @hugetlb_max_hstate, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr %struct.hstate, ptr @hstates, i64 %5
+  %6 = getelementptr [6088 x i8], ptr @hstates, i64 %5
   %7 = icmp ugt ptr %6, @hstates
   br i1 %7, label %.preheader14, label %18
 
@@ -4420,7 +4404,7 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
 
 25:                                               ; preds = %18
   %26 = and i64 %21, 4294967295
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %26
+  %.split = getelementptr [6088 x i8], ptr @hstates, i64 %26
   %27 = getelementptr i8, ptr %.split, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
@@ -4436,7 +4420,7 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
   %35 = call i32 @string_get_size(i64 noundef %34, i64 noundef 1, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 32) #22
   %36 = load i32, ptr @default_hstate_idx, align 4
   %37 = zext i32 %36 to i64
-  %.split7 = getelementptr %struct.hstate, ptr @hstates, i64 %37
+  %.split7 = getelementptr [6088 x i8], ptr @hstates, i64 %37
   %38 = getelementptr i8, ptr %.split7, i64 56
   %39 = load i64, ptr %38, align 8
   %40 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i64 noundef %39, ptr noundef nonnull %1) #25
@@ -4451,7 +4435,7 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
   %44 = phi i32 [ %.pre15, %30 ], [ %22, %25 ]
   %45 = phi i64 [ %.pre, %30 ], [ %23, %25 ]
   %46 = zext i32 %44 to i64
-  %.split8 = getelementptr %struct.hstate, ptr @hstates, i64 %46
+  %.split8 = getelementptr [6088 x i8], ptr @hstates, i64 %46
   %47 = getelementptr i8, ptr %.split8, i64 56
   store i64 %45, ptr %47, align 8
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
@@ -4471,9 +4455,9 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
 54:                                               ; preds = %.preheader13, %67
   %55 = phi i32 [ %69, %67 ], [ %52, %.preheader13 ]
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr i32, ptr @default_hugepages_in_node, i64 %56
+  %57 = getelementptr [4 x i8], ptr @default_hugepages_in_node, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr i32, ptr %.split10, i64 %56
+  %59 = getelementptr [4 x i8], ptr %.split10, i64 %56
   store i32 %58, ptr %59, align 4
   %60 = icmp eq i32 %55, 63
   br i1 %60, label %.thread, label %61, !prof !15
@@ -4538,7 +4522,7 @@ define internal noundef i32 @hugetlb_init() #9 section ".init.text" align 16 {
 .preheader:                                       ; preds = %87, %.preheader
   %91 = phi i64 [ %94, %.preheader ], [ 0, %87 ]
   %92 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
-  %93 = getelementptr %struct.mutex, ptr %92, i64 %91
+  %93 = getelementptr [32 x i8], ptr %92, i64 %91
   call void @__mutex_init(ptr noundef %93, ptr noundef nonnull @.str.27, ptr noundef nonnull @hugetlb_init.__key) #22
   %94 = add nuw nsw i64 %91, 1
   %95 = load i32, ptr @num_fault_mutexes, align 4
@@ -4562,7 +4546,7 @@ define dso_local void @hugetlb_add_hstate(i32 noundef %0) local_unnamed_addr #9 
   %3 = shl i64 4096, %2
   %4 = load i32, ptr @hugetlb_max_hstate, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr %struct.hstate, ptr @hstates, i64 %5
+  %6 = getelementptr [6088 x i8], ptr @hstates, i64 %5
   %7 = icmp ugt ptr %6, @hstates
   br i1 %7, label %.preheader, label %.thread
 
@@ -4616,7 +4600,7 @@ define dso_local void @hugetlb_add_hstate(i32 noundef %0) local_unnamed_addr #9 
 
 30:                                               ; preds = %30, %24
   %31 = phi i64 [ 0, %24 ], [ %34, %30 ]
-  %32 = getelementptr %struct.list_head, ptr %29, i64 %31
+  %32 = getelementptr [16 x i8], ptr %29, i64 %31
   store volatile ptr %32, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store volatile ptr %32, ptr %33, align 8
@@ -4859,7 +4843,7 @@ define internal noundef i32 @hugepagesz_setup(ptr noundef %0) #9 section ".init.
 6:                                                ; preds = %1
   %7 = load i32, ptr @hugetlb_max_hstate, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.hstate, ptr @hstates, i64 %8
+  %9 = getelementptr [6088 x i8], ptr @hstates, i64 %8
   %10 = icmp ugt ptr %9, @hstates
   br i1 %10, label %.preheader, label %.thread
 
@@ -4888,7 +4872,7 @@ define internal noundef i32 @hugepagesz_setup(ptr noundef %0) #9 section ".init.
 24:                                               ; preds = %22
   %25 = load i32, ptr @default_hstate_idx, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr %struct.hstate, ptr @hstates, i64 %26
+  %27 = getelementptr [6088 x i8], ptr @hstates, i64 %26
   %28 = icmp eq ptr %11, %27
   br i1 %28, label %29, label %33
 
@@ -4945,7 +4929,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
   store i1 true, ptr @parsed_default_hugepagesz, align 1
   %13 = load i32, ptr @hugetlb_max_hstate, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.hstate, ptr @hstates, i64 %14
+  %15 = getelementptr [6088 x i8], ptr @hstates, i64 %14
   %16 = icmp ugt ptr %15, @hstates
   br i1 %16, label %.preheader9, label %29
 
@@ -4980,7 +4964,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
 
 36:                                               ; preds = %29
   %37 = and i64 %32, 4294967295
-  %.split = getelementptr %struct.hstate, ptr @hstates, i64 %37
+  %.split = getelementptr [6088 x i8], ptr @hstates, i64 %37
   %38 = getelementptr i8, ptr %.split, i64 56
   store i64 %34, ptr %38, align 8
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 8), align 8
@@ -5000,9 +4984,9 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
 45:                                               ; preds = %.preheader, %58
   %46 = phi i32 [ %60, %58 ], [ %43, %.preheader ]
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr i32, ptr @default_hugepages_in_node, i64 %47
+  %48 = getelementptr [4 x i8], ptr @default_hugepages_in_node, i64 %47
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr i32, ptr %.split7, i64 %47
+  %50 = getelementptr [4 x i8], ptr %.split7, i64 %47
   store i32 %49, ptr %50, align 4
   %51 = icmp eq i32 %46, 63
   br i1 %51, label %.thread, label %52, !prof !15
@@ -5043,7 +5027,7 @@ define internal noundef i32 @default_hugepagesz_setup(ptr noundef %0) #9 section
 define dso_local void @hugetlb_report_meminfo(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @hugetlb_max_hstate, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.hstate, ptr @hstates, i64 %3
+  %4 = getelementptr [6088 x i8], ptr @hstates, i64 %3
   %5 = icmp ugt ptr %4, @hstates
   br i1 %5, label %.preheader.preheader, label %38
 
@@ -5065,7 +5049,7 @@ define dso_local void @hugetlb_report_meminfo(ptr noundef %0) local_unnamed_addr
   %16 = mul i64 %15, %11
   %17 = add i64 %16, %8
   %18 = zext i32 %7 to i64
-  %19 = getelementptr %struct.hstate, ptr @hstates, i64 %18
+  %19 = getelementptr [6088 x i8], ptr @hstates, i64 %18
   %20 = icmp eq ptr %9, %19
   br i1 %20, label %21, label %29
 
@@ -5087,7 +5071,7 @@ define dso_local void @hugetlb_report_meminfo(ptr noundef %0) local_unnamed_addr
   %31 = phi i32 [ %.pre, %21 ], [ %7, %.preheader ]
   %32 = getelementptr i8, ptr %9, i64 6088
   %33 = sext i32 %30 to i64
-  %34 = getelementptr %struct.hstate, ptr @hstates, i64 %33
+  %34 = getelementptr [6088 x i8], ptr @hstates, i64 %33
   %35 = icmp ult ptr %32, %34
   br i1 %35, label %.preheader, label %36, !llvm.loop !64
 
@@ -5108,16 +5092,16 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 define dso_local i32 @hugetlb_report_node_meminfo(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr @default_hstate_idx, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr %struct.hstate, ptr @hstates, i64 %5
+  %6 = getelementptr [6088 x i8], ptr @hstates, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1400
   %8 = sext i32 %2 to i64
-  %9 = getelementptr i32, ptr %7, i64 %8
+  %9 = getelementptr [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1656
-  %12 = getelementptr i32, ptr %11, i64 %8
+  %12 = getelementptr [4 x i8], ptr %11, i64 %8
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1912
-  %15 = getelementptr i32, ptr %14, i64 %8
+  %15 = getelementptr [4 x i8], ptr %14, i64 %8
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.9, i32 noundef %2, i32 noundef %10, i32 noundef %2, i32 noundef %13, i32 noundef %2, i32 noundef %16) #22
   ret i32 %17
@@ -5130,7 +5114,7 @@ declare dso_local i32 @sysfs_emit_at(ptr noundef, i32 noundef, ptr noundef, ...)
 define dso_local void @hugetlb_show_meminfo_node(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @hugetlb_max_hstate, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.hstate, ptr @hstates, i64 %3
+  %4 = getelementptr [6088 x i8], ptr @hstates, i64 %3
   %5 = icmp ugt ptr %4, @hstates
   br i1 %5, label %6, label %.loopexit
 
@@ -5141,13 +5125,13 @@ define dso_local void @hugetlb_show_meminfo_node(i32 noundef %0) local_unnamed_a
 8:                                                ; preds = %8, %6
   %9 = phi ptr [ @hstates, %6 ], [ %25, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1400
-  %11 = getelementptr i32, ptr %10, i64 %7
+  %11 = getelementptr [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1656
-  %14 = getelementptr i32, ptr %13, i64 %7
+  %14 = getelementptr [4 x i8], ptr %13, i64 %7
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1912
-  %17 = getelementptr i32, ptr %16, i64 %7
+  %17 = getelementptr [4 x i8], ptr %16, i64 %7
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load i32, ptr %19, align 8
@@ -5158,7 +5142,7 @@ define dso_local void @hugetlb_show_meminfo_node(i32 noundef %0) local_unnamed_a
   %25 = getelementptr i8, ptr %9, i64 6088
   %26 = load i32, ptr @hugetlb_max_hstate, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %28 = getelementptr [6088 x i8], ptr @hstates, i64 %27
   %29 = icmp ult ptr %25, %28
   br i1 %29, label %8, label %.loopexit, !llvm.loop !65
 
@@ -5179,7 +5163,7 @@ define dso_local void @hugetlb_report_usage(ptr noundef %0, ptr noundef %1) loca
 define dso_local i64 @hugetlb_total_pages() local_unnamed_addr #7 align 16 {
   %1 = load i32, ptr @hugetlb_max_hstate, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr %struct.hstate, ptr @hstates, i64 %2
+  %3 = getelementptr [6088 x i8], ptr @hstates, i64 %2
   %4 = icmp ugt ptr %3, @hstates
   br i1 %4, label %.preheader, label %.loopexit
 
@@ -5810,7 +5794,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %100 = zext nneg i32 %99 to i64
   %101 = lshr i64 %95, %100
   %102 = and i64 %101, 511
-  %103 = getelementptr %struct.pgd_t, ptr %98, i64 %102
+  %103 = getelementptr [8 x i8], ptr %98, i64 %102
   %104 = load i64, ptr %103, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %105 [label %105, label %108], !srcloc !75
@@ -5835,7 +5819,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %117 = add i32 %116, -1
   %118 = zext i32 %117 to i64
   %119 = and i64 %115, %118
-  %120 = getelementptr %struct.p4d_t, ptr %114, i64 %119
+  %120 = getelementptr [8 x i8], ptr %114, i64 %119
   br label %121
 
 121:                                              ; preds = %109, %108
@@ -5852,7 +5836,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %130 = inttoptr i64 %129 to ptr
   %131 = lshr i64 %95, 30
   %132 = and i64 %131, 511
-  %133 = getelementptr %struct.pud_t, ptr %130, i64 %132
+  %133 = getelementptr [8 x i8], ptr %130, i64 %132
   br i1 %83, label %148, label %134
 
 134:                                              ; preds = %126
@@ -5870,7 +5854,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %144 = inttoptr i64 %143 to ptr
   %145 = lshr i64 %95, 21
   %146 = and i64 %145, 511
-  %147 = getelementptr %struct.pmd_t, ptr %144, i64 %146
+  %147 = getelementptr [8 x i8], ptr %144, i64 %146
   br label %148
 
 148:                                              ; preds = %138, %126
@@ -5899,7 +5883,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %164 = select i1 %160, i64 %161, i64 %163
   %165 = add i64 %159, %164
   %166 = lshr i64 %165, 12
-  %167 = getelementptr %struct.page, ptr %157, i64 %166
+  %167 = getelementptr [64 x i8], ptr %157, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load volatile i64, ptr %168, align 8
   %170 = and i64 %169, 1
@@ -5966,7 +5950,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %210 = select i1 %160, i64 %207, i64 %209
   %211 = add i64 %206, %210
   %212 = lshr i64 %211, 12
-  %.split = getelementptr %struct.page, ptr %204, i64 %212
+  %.split = getelementptr [64 x i8], ptr %204, i64 %212
   %213 = getelementptr i8, ptr %.split, i64 40
   br label %214
 
@@ -5996,7 +5980,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %228 = select i1 %224, i64 %225, i64 %227
   %229 = add i64 %223, %228
   %230 = lshr i64 %229, 12
-  %.split15 = getelementptr %struct.page, ptr %220, i64 %230
+  %.split15 = getelementptr [64 x i8], ptr %220, i64 %230
   %231 = getelementptr i8, ptr %.split15, i64 40
   br label %232
 
@@ -6083,7 +6067,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %271 = xor i64 %263, %270
   %272 = lshr i64 %271, 12
   %273 = and i64 %272, 1099511627775
-  %274 = getelementptr %struct.page, ptr %265, i64 %273
+  %274 = getelementptr [64 x i8], ptr %265, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load volatile i64, ptr %275, align 8
   %277 = and i64 %276, 1
@@ -6245,7 +6229,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %367 = select i1 %160, i64 %364, i64 %366
   %368 = add i64 %236, %367
   %369 = lshr i64 %368, 12
-  %.split16 = getelementptr %struct.page, ptr %363, i64 %369
+  %.split16 = getelementptr [64 x i8], ptr %363, i64 %369
   %370 = getelementptr i8, ptr %.split16, i64 40
   br label %371
 
@@ -6265,7 +6249,7 @@ define dso_local i32 @copy_hugetlb_page_range(ptr noundef %0, ptr noundef %1, pt
   %381 = select i1 %237, i64 %378, i64 %380
   %382 = add i64 %.pre-phi149, %381
   %383 = lshr i64 %382, 12
-  %.split17 = getelementptr %struct.page, ptr %377, i64 %383
+  %.split17 = getelementptr [64 x i8], ptr %377, i64 %383
   %384 = getelementptr i8, ptr %.split17, i64 40
   br label %385
 
@@ -6511,7 +6495,7 @@ define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef readonl
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %2, %9
   %11 = and i64 %10, 511
-  %12 = getelementptr %struct.pgd_t, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %14 [label %14, label %19], !srcloc !75
@@ -6540,7 +6524,7 @@ define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef readonl
   %28 = add i32 %27, -1
   %29 = zext i32 %28 to i64
   %30 = and i64 %26, %29
-  %31 = getelementptr %struct.p4d_t, ptr %25, i64 %30
+  %31 = getelementptr [8 x i8], ptr %25, i64 %30
   br label %32
 
 32:                                               ; preds = %20, %19
@@ -6571,7 +6555,7 @@ define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef readonl
   %47 = inttoptr i64 %46 to ptr
   %48 = lshr i64 %2, 30
   %49 = and i64 %48, 511
-  %50 = getelementptr %struct.pud_t, ptr %47, i64 %49
+  %50 = getelementptr [8 x i8], ptr %47, i64 %49
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread, label %52
 
@@ -6651,7 +6635,7 @@ define dso_local noundef ptr @huge_pte_alloc(ptr noundef %0, ptr noundef readonl
   %95 = inttoptr i64 %94 to ptr
   %96 = lshr i64 %2, 21
   %97 = and i64 %96, 511
-  %98 = getelementptr %struct.pmd_t, ptr %95, i64 %97
+  %98 = getelementptr [8 x i8], ptr %95, i64 %97
   br label %99
 
 99:                                               ; preds = %87, %78
@@ -6839,7 +6823,7 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %106 = zext nneg i32 %105 to i64
   %107 = lshr i64 %99, %106
   %108 = and i64 %107, 511
-  %109 = getelementptr %struct.pgd_t, ptr %104, i64 %108
+  %109 = getelementptr [8 x i8], ptr %104, i64 %108
   %110 = load i64, ptr %109, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %111 [label %111, label %114], !srcloc !75
@@ -6864,7 +6848,7 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %123 = add i32 %122, -1
   %124 = zext i32 %123 to i64
   %125 = and i64 %121, %124
-  %126 = getelementptr %struct.p4d_t, ptr %120, i64 %125
+  %126 = getelementptr [8 x i8], ptr %120, i64 %125
   br label %127
 
 127:                                              ; preds = %115, %114
@@ -6881,7 +6865,7 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %136 = inttoptr i64 %135 to ptr
   %137 = lshr i64 %99, 30
   %138 = and i64 %137, 511
-  %139 = getelementptr %struct.pud_t, ptr %136, i64 %138
+  %139 = getelementptr [8 x i8], ptr %136, i64 %138
   br i1 %97, label %154, label %140
 
 140:                                              ; preds = %132
@@ -6899,7 +6883,7 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %150 = inttoptr i64 %149 to ptr
   %151 = lshr i64 %99, 21
   %152 = and i64 %151, 511
-  %153 = getelementptr %struct.pmd_t, ptr %150, i64 %152
+  %153 = getelementptr [8 x i8], ptr %150, i64 %152
   br label %154
 
 154:                                              ; preds = %144, %132
@@ -6965,7 +6949,7 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %196 = select i1 %192, i64 %193, i64 %195
   %197 = add i64 %191, %196
   %198 = lshr i64 %197, 12
-  %.split = getelementptr %struct.page, ptr %188, i64 %198
+  %.split = getelementptr [64 x i8], ptr %188, i64 %198
   %199 = getelementptr i8, ptr %.split, i64 40
   br label %202
 
@@ -6993,7 +6977,7 @@ define dso_local i32 @move_hugetlb_page_tables(ptr noundef readonly captures(non
   %216 = select i1 %212, i64 %213, i64 %215
   %217 = add i64 %211, %216
   %218 = lshr i64 %217, 12
-  %.split13 = getelementptr %struct.page, ptr %208, i64 %218
+  %.split13 = getelementptr [64 x i8], ptr %208, i64 %218
   %219 = getelementptr i8, ptr %.split13, i64 40
   br label %222
 
@@ -7225,7 +7209,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %2, %9
   %11 = and i64 %10, 511
-  %12 = getelementptr %struct.pgd_t, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %13 [label %13, label %._crit_edge], !srcloc !75
 
@@ -7244,7 +7228,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
   %21 = add i32 %20, -1
   %22 = zext i32 %21 to i64
   %23 = and i64 %19, %22
-  %24 = getelementptr %struct.p4d_t, ptr %18, i64 %23
+  %24 = getelementptr [8 x i8], ptr %18, i64 %23
   br label %25
 
 25:                                               ; preds = %._crit_edge, %13
@@ -7256,7 +7240,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
   %31 = inttoptr i64 %30 to ptr
   %32 = lshr i64 %2, 30
   %33 = and i64 %32, 511
-  %34 = getelementptr %struct.pud_t, ptr %31, i64 %33
+  %34 = getelementptr [8 x i8], ptr %31, i64 %33
   %35 = load i64, ptr @vmemmap_base, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = ptrtoint ptr %3 to i64
@@ -7267,7 +7251,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
   %42 = select i1 %39, i64 %40, i64 %41
   %43 = add i64 %42, %38
   %44 = lshr i64 %43, 12
-  %45 = getelementptr %struct.page, ptr %36, i64 %44
+  %45 = getelementptr [64 x i8], ptr %36, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load volatile i64, ptr %46, align 8
   %48 = and i64 %47, 1
@@ -7328,7 +7312,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
   %82 = select i1 %39, i64 %79, i64 %81
   %83 = add i64 %82, %38
   %84 = lshr i64 %83, 12
-  %85 = getelementptr %struct.page, ptr %78, i64 %84
+  %85 = getelementptr [64 x i8], ptr %78, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load volatile i64, ptr %86, align 8
   %88 = and i64 %87, 1
@@ -7389,7 +7373,7 @@ define dso_local noundef range(i32 0, 2) i32 @huge_pmd_unshare(ptr noundef %0, p
   %121 = select i1 %39, i64 %118, i64 %120
   %122 = add i64 %121, %38
   %123 = lshr i64 %122, 12
-  %124 = getelementptr %struct.page, ptr %117, i64 %123
+  %124 = getelementptr [64 x i8], ptr %117, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load volatile i64, ptr %125, align 8
   %127 = and i64 %126, 1
@@ -7571,7 +7555,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %88 = zext nneg i32 %87 to i64
   %89 = lshr i64 %82, %88
   %90 = and i64 %89, 511
-  %91 = getelementptr %struct.pgd_t, ptr %86, i64 %90
+  %91 = getelementptr [8 x i8], ptr %86, i64 %90
   %92 = load i64, ptr %91, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %93 [label %93, label %96], !srcloc !75
@@ -7596,7 +7580,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %105 = add i32 %104, -1
   %106 = zext i32 %105 to i64
   %107 = and i64 %103, %106
-  %108 = getelementptr %struct.p4d_t, ptr %102, i64 %107
+  %108 = getelementptr [8 x i8], ptr %102, i64 %107
   br label %109
 
 109:                                              ; preds = %97, %96
@@ -7613,7 +7597,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %118 = inttoptr i64 %117 to ptr
   %119 = lshr i64 %82, 30
   %120 = and i64 %119, 511
-  %121 = getelementptr %struct.pud_t, ptr %118, i64 %120
+  %121 = getelementptr [8 x i8], ptr %118, i64 %120
   br i1 %74, label %136, label %122
 
 122:                                              ; preds = %114
@@ -7631,7 +7615,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %132 = inttoptr i64 %131 to ptr
   %133 = lshr i64 %82, 21
   %134 = and i64 %133, 511
-  %135 = getelementptr %struct.pmd_t, ptr %132, i64 %134
+  %135 = getelementptr [8 x i8], ptr %132, i64 %134
   br label %136
 
 136:                                              ; preds = %126, %114
@@ -7660,7 +7644,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %152 = select i1 %149, i64 %150, i64 %151
   %153 = add i64 %148, %152
   %154 = lshr i64 %153, 12
-  %.split = getelementptr %struct.page, ptr %145, i64 %154
+  %.split = getelementptr [64 x i8], ptr %145, i64 %154
   %155 = getelementptr i8, ptr %.split, i64 40
   br label %156
 
@@ -7722,7 +7706,7 @@ define dso_local void @__unmap_hugepage_range(ptr noundef %0, ptr noundef captur
   %183 = xor i64 %sext, %171
   %184 = lshr i64 %183, 12
   %185 = and i64 %184, 1099511627775
-  %186 = getelementptr %struct.page, ptr %181, i64 %185
+  %186 = getelementptr [64 x i8], ptr %181, i64 %185
   br i1 %78, label %195, label %187
 
 187:                                              ; preds = %179
@@ -8614,7 +8598,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %102 = and i32 %99, %101
   %103 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
   %104 = zext i32 %102 to i64
-  %105 = getelementptr %struct.mutex, ptr %103, i64 %104
+  %105 = getelementptr [32 x i8], ptr %103, i64 %104
   tail call void @mutex_lock(ptr noundef %105) #22
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %107 = load i64, ptr %106, align 8
@@ -8693,7 +8677,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
 
 153:                                              ; preds = %151, %142, %138
   %154 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
-  %155 = getelementptr %struct.mutex, ptr %154, i64 %104
+  %155 = getelementptr [32 x i8], ptr %154, i64 %104
   tail call void @mutex_unlock(ptr noundef %155) #22
   br label %653
 
@@ -8797,7 +8781,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %230 = select i1 %226, i64 %227, i64 %229
   %231 = add i64 %225, %230
   %232 = lshr i64 %231, 12
-  %.split16 = getelementptr %struct.page, ptr %222, i64 %232
+  %.split16 = getelementptr [64 x i8], ptr %222, i64 %232
   %233 = getelementptr i8, ptr %.split16, i64 40
   br label %236
 
@@ -9011,7 +8995,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %363 = select i1 %359, i64 %360, i64 %362
   %364 = add i64 %358, %363
   %365 = lshr i64 %364, 12
-  %.split = getelementptr %struct.page, ptr %355, i64 %365
+  %.split = getelementptr [64 x i8], ptr %355, i64 %365
   %366 = getelementptr i8, ptr %.split, i64 40
   br label %369
 
@@ -9158,7 +9142,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   %440 = and i32 %439, %99
   %441 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
   %442 = zext i32 %440 to i64
-  %443 = getelementptr %struct.mutex, ptr %441, i64 %442
+  %443 = getelementptr [32 x i8], ptr %441, i64 %442
   call void @mutex_unlock(ptr noundef %443) #22
   br label %653
 
@@ -9174,7 +9158,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
 
 450:                                              ; preds = %447
   %451 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
-  %452 = getelementptr %struct.mutex, ptr %451, i64 %104
+  %452 = getelementptr [32 x i8], ptr %451, i64 %104
   tail call void @mutex_unlock(ptr noundef %452) #22
   tail call void @migration_entry_wait_huge(ptr noundef %1, ptr noundef nonnull %131) #22
   br label %653
@@ -9296,7 +9280,7 @@ vma_needs_reservation.exit:                       ; preds = %484, %502
   %526 = select i1 %522, i64 %523, i64 %525
   %527 = add i64 %521, %526
   %528 = lshr i64 %527, 12
-  %.split17 = getelementptr %struct.page, ptr %518, i64 %528
+  %.split17 = getelementptr [64 x i8], ptr %518, i64 %528
   %529 = getelementptr i8, ptr %.split17, i64 40
   br label %532
 
@@ -9322,7 +9306,7 @@ vma_needs_reservation.exit:                       ; preds = %484, %502
   %540 = xor i64 %sext, %157
   %541 = lshr i64 %540, 12
   %542 = and i64 %541, 1099511627775
-  %543 = getelementptr %struct.page, ptr %538, i64 %542
+  %543 = getelementptr [64 x i8], ptr %538, i64 %542
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 8
   %545 = load volatile i64, ptr %544, align 8
   %546 = and i64 %545, 1
@@ -9499,7 +9483,7 @@ vma_needs_reservation.exit:                       ; preds = %484, %502
 
 644:                                              ; preds = %642, %633, %629
   %645 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
-  %646 = getelementptr %struct.mutex, ptr %645, i64 %104
+  %646 = getelementptr [32 x i8], ptr %645, i64 %104
   tail call void @mutex_unlock(ptr noundef %646) #22
   %647 = icmp eq i32 %622, 0
   br i1 %647, label %653, label %648
@@ -9609,7 +9593,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %60 = xor i64 %17, %59
   %61 = lshr i64 %60, 12
   %62 = and i64 %61, 1099511627775
-  %63 = getelementptr %struct.page, ptr %54, i64 %62
+  %63 = getelementptr [64 x i8], ptr %54, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load volatile i64, ptr %64, align 8
   %66 = and i64 %65, 1
@@ -9895,7 +9879,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
 265:                                              ; preds = %263, %254, %250
   %266 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
   %267 = zext i32 %245 to i64
-  %268 = getelementptr %struct.mutex, ptr %266, i64 %267
+  %268 = getelementptr [32 x i8], ptr %266, i64 %267
   tail call void @mutex_unlock(ptr noundef %268) #22
   %269 = load ptr, ptr %18, align 8
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 168
@@ -9963,7 +9947,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
 .loopexit:                                        ; preds = %313, %265
   tail call void @up_write(ptr noundef nonnull %288) #22
   %316 = load ptr, ptr @hugetlb_fault_mutex_table, align 64
-  %317 = getelementptr %struct.mutex, ptr %316, i64 %267
+  %317 = getelementptr [32 x i8], ptr %316, i64 %267
   tail call void @mutex_lock(ptr noundef %317) #22
   %318 = load i64, ptr %36, align 8
   %319 = and i64 %318, 128
@@ -10007,7 +9991,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %343 = zext nneg i32 %342 to i64
   %344 = lshr i64 %30, %343
   %345 = and i64 %344, 511
-  %346 = getelementptr %struct.pgd_t, ptr %341, i64 %345
+  %346 = getelementptr [8 x i8], ptr %341, i64 %345
   %347 = load i64, ptr %346, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %348 [label %348, label %351], !srcloc !75
@@ -10031,7 +10015,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %359 = add i32 %358, -1
   %360 = zext i32 %359 to i64
   %361 = and i64 %106, %360
-  %362 = getelementptr %struct.p4d_t, ptr %357, i64 %361
+  %362 = getelementptr [8 x i8], ptr %357, i64 %361
   br label %363
 
 363:                                              ; preds = %352, %351
@@ -10046,7 +10030,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %370 = load i64, ptr @page_offset_base, align 8
   %371 = add i64 %370, %369
   %372 = inttoptr i64 %371 to ptr
-  %373 = getelementptr %struct.pud_t, ptr %372, i64 %108
+  %373 = getelementptr [8 x i8], ptr %372, i64 %108
   %374 = icmp eq i32 %338, 18
   br i1 %374, label %387, label %375
 
@@ -10063,7 +10047,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %383 = and i64 %382, %376
   %384 = add i64 %383, %370
   %385 = inttoptr i64 %384 to ptr
-  %386 = getelementptr %struct.pmd_t, ptr %385, i64 %110
+  %386 = getelementptr [8 x i8], ptr %385, i64 %110
   br label %387
 
 387:                                              ; preds = %379, %368
@@ -10157,7 +10141,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %438 = zext nneg i32 %437 to i64
   %439 = lshr i64 %30, %438
   %440 = and i64 %439, 511
-  %441 = getelementptr %struct.pgd_t, ptr %436, i64 %440
+  %441 = getelementptr [8 x i8], ptr %436, i64 %440
   %442 = load i64, ptr %441, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %443 [label %443, label %446], !srcloc !75
@@ -10181,7 +10165,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %454 = add i32 %453, -1
   %455 = zext i32 %454 to i64
   %456 = and i64 %106, %455
-  %457 = getelementptr %struct.p4d_t, ptr %452, i64 %456
+  %457 = getelementptr [8 x i8], ptr %452, i64 %456
   br label %458
 
 458:                                              ; preds = %447, %446
@@ -10196,7 +10180,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %465 = load i64, ptr @page_offset_base, align 8
   %466 = add i64 %465, %464
   %467 = inttoptr i64 %466 to ptr
-  %468 = getelementptr %struct.pud_t, ptr %467, i64 %108
+  %468 = getelementptr [8 x i8], ptr %467, i64 %108
   %469 = icmp eq i32 %433, 18
   br i1 %469, label %482, label %470
 
@@ -10213,7 +10197,7 @@ define internal fastcc range(i32 0, 65) i32 @hugetlb_wp(ptr noundef %0, ptr noun
   %478 = and i64 %477, %471
   %479 = add i64 %478, %465
   %480 = inttoptr i64 %479 to ptr
-  %481 = getelementptr %struct.pmd_t, ptr %480, i64 %110
+  %481 = getelementptr [8 x i8], ptr %480, i64 %110
   br label %482
 
 482:                                              ; preds = %474, %463
@@ -10391,7 +10375,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %49 = zext nneg i32 %48 to i64
   %50 = lshr i64 %20, %49
   %51 = and i64 %50, 511
-  %52 = getelementptr %struct.pgd_t, ptr %47, i64 %51
+  %52 = getelementptr [8 x i8], ptr %47, i64 %51
   %53 = load i64, ptr %52, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %54 [label %54, label %57], !srcloc !75
@@ -10416,7 +10400,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %66 = add i32 %65, -1
   %67 = zext i32 %66 to i64
   %68 = and i64 %64, %67
-  %69 = getelementptr %struct.p4d_t, ptr %63, i64 %68
+  %69 = getelementptr [8 x i8], ptr %63, i64 %68
   br label %70
 
 70:                                               ; preds = %58, %57
@@ -10433,7 +10417,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %79 = inttoptr i64 %78 to ptr
   %80 = lshr i64 %20, 30
   %81 = and i64 %80, 511
-  %82 = getelementptr %struct.pud_t, ptr %79, i64 %81
+  %82 = getelementptr [8 x i8], ptr %79, i64 %81
   %83 = icmp eq i32 %45, 18
   br i1 %83, label %98, label %84
 
@@ -10452,7 +10436,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %94 = inttoptr i64 %93 to ptr
   %95 = lshr i64 %20, 21
   %96 = and i64 %95, 511
-  %97 = getelementptr %struct.pmd_t, ptr %94, i64 %96
+  %97 = getelementptr [8 x i8], ptr %94, i64 %96
   br label %98
 
 98:                                               ; preds = %88, %75
@@ -10477,7 +10461,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %113 = select i1 %110, i64 %111, i64 %112
   %114 = add i64 %109, %113
   %115 = lshr i64 %114, 12
-  %.split = getelementptr %struct.page, ptr %106, i64 %115
+  %.split = getelementptr [64 x i8], ptr %106, i64 %115
   %116 = getelementptr i8, ptr %.split, i64 40
   br label %119
 
@@ -10504,7 +10488,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %128 = xor i64 %sext, %121
   %129 = lshr i64 %128, 12
   %130 = and i64 %129, 1099511627775
-  %131 = getelementptr %struct.page, ptr %126, i64 %130
+  %131 = getelementptr [64 x i8], ptr %126, i64 %130
   %132 = and i64 %121, 2
   %133 = icmp eq i64 %132, 0
   br i1 %133, label %134, label %.critedge
@@ -10708,7 +10692,7 @@ define dso_local ptr @hugetlb_follow_page_mask(ptr noundef readonly captures(add
   %255 = xor i64 %254, -1
   %256 = and i64 %1, %255
   %257 = lshr i64 %256, 12
-  %258 = getelementptr %struct.page, ptr %131, i64 %257
+  %258 = getelementptr [64 x i8], ptr %131, i64 %257
   %259 = tail call i32 @try_grab_page(ptr noundef %258, i32 noundef %2) #22
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %264, label %261, !prof !24
@@ -10972,7 +10956,7 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(ad
   %117 = zext nneg i32 %116 to i64
   %118 = lshr i64 %110, %117
   %119 = and i64 %118, 511
-  %120 = getelementptr %struct.pgd_t, ptr %115, i64 %119
+  %120 = getelementptr [8 x i8], ptr %115, i64 %119
   %121 = load i64, ptr %120, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %122 [label %122, label %125], !srcloc !75
@@ -10997,7 +10981,7 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(ad
   %134 = add i32 %133, -1
   %135 = zext i32 %134 to i64
   %136 = and i64 %132, %135
-  %137 = getelementptr %struct.p4d_t, ptr %131, i64 %136
+  %137 = getelementptr [8 x i8], ptr %131, i64 %136
   br label %138
 
 138:                                              ; preds = %126, %125
@@ -11014,7 +10998,7 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(ad
   %147 = inttoptr i64 %146 to ptr
   %148 = lshr i64 %110, 30
   %149 = and i64 %148, 511
-  %150 = getelementptr %struct.pud_t, ptr %147, i64 %149
+  %150 = getelementptr [8 x i8], ptr %147, i64 %149
   br i1 %103, label %165, label %151
 
 151:                                              ; preds = %143
@@ -11032,7 +11016,7 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(ad
   %161 = inttoptr i64 %160 to ptr
   %162 = lshr i64 %110, 21
   %163 = and i64 %162, 511
-  %164 = getelementptr %struct.pmd_t, ptr %161, i64 %163
+  %164 = getelementptr [8 x i8], ptr %161, i64 %163
   br label %165
 
 165:                                              ; preds = %155, %143
@@ -11071,7 +11055,7 @@ define dso_local i64 @hugetlb_change_protection(ptr noundef readonly captures(ad
   %187 = select i1 %183, i64 %184, i64 %186
   %188 = add i64 %182, %187
   %189 = lshr i64 %188, 12
-  %.split = getelementptr %struct.page, ptr %179, i64 %189
+  %.split = getelementptr [64 x i8], ptr %179, i64 %189
   %190 = getelementptr i8, ptr %.split, i64 40
   br label %191
 
@@ -11393,7 +11377,7 @@ define internal fastcc ptr @pfn_swap_entry_to_page(i64 range(i64 0, 893626756060
 5:                                                ; preds = %4, %1, %1
   %6 = phi i64 [ 17179869183, %4 ], [ 1099511627775, %1 ], [ 1099511627775, %1 ]
   %7 = and i64 %6, %0
-  %8 = getelementptr %struct.page, ptr %3, i64 %7
+  %8 = getelementptr [64 x i8], ptr %3, i64 %7
   %9 = and i64 %0, 8646911284551352320
   %10 = icmp ne i64 %9, 8070450532247928832
   %.mask = and i64 %0, 8935141660703064064
@@ -11603,7 +11587,7 @@ define dso_local noundef zeroext i1 @hugetlb_reserve_pages(ptr noundef readonly 
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 640
   %94 = shl i64 %71, 32
   %95 = ashr exact i64 %94, 32
-  %96 = getelementptr %struct.page_counter, ptr %93, i64 %95
+  %96 = getelementptr [192 x i8], ptr %93, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %96, ptr %97, align 8
   %98 = load i32, ptr %73, align 8
@@ -12332,7 +12316,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 %31, %62
   %64 = and i64 %63, 511
-  %65 = getelementptr %struct.pgd_t, ptr %60, i64 %64
+  %65 = getelementptr [8 x i8], ptr %60, i64 %64
   %66 = load i64, ptr %65, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %67 [label %67, label %70], !srcloc !75
@@ -12357,7 +12341,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
   %81 = and i64 %77, %80
-  %82 = getelementptr %struct.p4d_t, ptr %76, i64 %81
+  %82 = getelementptr [8 x i8], ptr %76, i64 %81
   br label %83
 
 83:                                               ; preds = %71, %70
@@ -12374,7 +12358,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %92 = inttoptr i64 %91 to ptr
   %93 = lshr i64 %31, 30
   %94 = and i64 %93, 511
-  %95 = getelementptr %struct.pud_t, ptr %92, i64 %94
+  %95 = getelementptr [8 x i8], ptr %92, i64 %94
   %96 = icmp eq i64 %56, 1073741824
   br i1 %96, label %111, label %97
 
@@ -12393,7 +12377,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %107 = inttoptr i64 %106 to ptr
   %108 = lshr i64 %31, 21
   %109 = and i64 %108, 511
-  %110 = getelementptr %struct.pmd_t, ptr %107, i64 %109
+  %110 = getelementptr [8 x i8], ptr %107, i64 %109
   br label %111
 
 111:                                              ; preds = %101, %88
@@ -12412,7 +12396,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %122 = select i1 %119, i64 %120, i64 %121
   %123 = add i64 %118, %122
   %124 = lshr i64 %123, 12
-  %125 = getelementptr %struct.page, ptr %116, i64 %124
+  %125 = getelementptr [64 x i8], ptr %116, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load volatile i64, ptr %126, align 8
   %128 = and i64 %127, 1
@@ -12491,7 +12475,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %171 = inttoptr i64 %170 to ptr
   %172 = add i64 %118, %162
   %173 = lshr i64 %172, 12
-  %174 = getelementptr %struct.page, ptr %171, i64 %173
+  %174 = getelementptr [64 x i8], ptr %171, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load volatile i64, ptr %175, align 8
   %177 = and i64 %176, 1
@@ -12574,7 +12558,7 @@ define dso_local ptr @huge_pmd_share(ptr noundef %0, ptr noundef readonly captur
   %221 = inttoptr i64 %220 to ptr
   %222 = lshr i64 %2, 21
   %223 = and i64 %222, 511
-  %224 = getelementptr %struct.pmd_t, ptr %221, i64 %223
+  %224 = getelementptr [8 x i8], ptr %221, i64 %223
   br label %225
 
 225:                                              ; preds = %213, %210
@@ -12597,7 +12581,7 @@ define dso_local ptr @huge_pte_offset(ptr noundef readonly captures(none) %0, i6
   %7 = zext nneg i32 %6 to i64
   %8 = lshr i64 %1, %7
   %9 = and i64 %8, 511
-  %10 = getelementptr %struct.pgd_t, ptr %5, i64 %9
+  %10 = getelementptr [8 x i8], ptr %5, i64 %9
   %11 = load i64, ptr %10, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %12 [label %12, label %15], !srcloc !75
@@ -12622,7 +12606,7 @@ define dso_local ptr @huge_pte_offset(ptr noundef readonly captures(none) %0, i6
   %24 = add i32 %23, -1
   %25 = zext i32 %24 to i64
   %26 = and i64 %22, %25
-  %27 = getelementptr %struct.p4d_t, ptr %21, i64 %26
+  %27 = getelementptr [8 x i8], ptr %21, i64 %26
   br label %28
 
 28:                                               ; preds = %16, %15
@@ -12639,7 +12623,7 @@ define dso_local ptr @huge_pte_offset(ptr noundef readonly captures(none) %0, i6
   %37 = inttoptr i64 %36 to ptr
   %38 = lshr i64 %1, 30
   %39 = and i64 %38, 511
-  %40 = getelementptr %struct.pud_t, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   %41 = icmp eq i64 %2, 1073741824
   br i1 %41, label %56, label %42
 
@@ -12658,7 +12642,7 @@ define dso_local ptr @huge_pte_offset(ptr noundef readonly captures(none) %0, i6
   %52 = inttoptr i64 %51 to ptr
   %53 = lshr i64 %1, 21
   %54 = and i64 %53, 511
-  %55 = getelementptr %struct.pmd_t, ptr %52, i64 %54
+  %55 = getelementptr [8 x i8], ptr %52, i64 %54
   br label %56
 
 56:                                               ; preds = %46, %42, %33, %28, %12
@@ -12753,7 +12737,7 @@ define dso_local void @folio_putback_active_hugetlb(ptr noundef %0) local_unname
   %13 = shl i64 4096, %12
   %14 = load i32, ptr @hugetlb_max_hstate, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.hstate, ptr @hstates, i64 %15
+  %16 = getelementptr [6088 x i8], ptr @hstates, i64 %15
   %17 = icmp ugt ptr %16, @hstates
   br i1 %17, label %.preheader, label %.loopexit
 
@@ -12820,7 +12804,7 @@ define dso_local void @move_hugetlb_state(ptr noundef %0, ptr noundef %1, i32 no
   %13 = shl i64 4096, %12
   %14 = load i32, ptr @hugetlb_max_hstate, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.hstate, ptr @hstates, i64 %15
+  %16 = getelementptr [6088 x i8], ptr @hstates, i64 %15
   %17 = icmp ugt ptr %16, @hstates
   br i1 %17, label %.preheader, label %.loopexit
 
@@ -12861,7 +12845,7 @@ define dso_local void @move_hugetlb_state(ptr noundef %0, ptr noundef %1, i32 no
 39:                                               ; preds = %32
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 1912
-  %41 = getelementptr i32, ptr %40, i64 %34
+  %41 = getelementptr [4 x i8], ptr %40, i64 %34
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %49, label %44
@@ -12869,7 +12853,7 @@ define dso_local void @move_hugetlb_state(ptr noundef %0, ptr noundef %1, i32 no
 44:                                               ; preds = %39
   %45 = add i32 %42, -1
   store i32 %45, ptr %41, align 4
-  %46 = getelementptr i32, ptr %40, i64 %36
+  %46 = getelementptr [4 x i8], ptr %40, i64 %36
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -13000,7 +12984,7 @@ define internal fastcc void @hugetlb_unshare_pmds(ptr noundef readonly captures(
   %71 = zext nneg i32 %70 to i64
   %72 = lshr i64 %66, %71
   %73 = and i64 %72, 511
-  %74 = getelementptr %struct.pgd_t, ptr %69, i64 %73
+  %74 = getelementptr [8 x i8], ptr %69, i64 %73
   %75 = load i64, ptr %74, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
           to label %76 [label %76, label %79], !srcloc !75
@@ -13025,7 +13009,7 @@ define internal fastcc void @hugetlb_unshare_pmds(ptr noundef readonly captures(
   %88 = add i32 %87, -1
   %89 = zext i32 %88 to i64
   %90 = and i64 %86, %89
-  %91 = getelementptr %struct.p4d_t, ptr %85, i64 %90
+  %91 = getelementptr [8 x i8], ptr %85, i64 %90
   br label %92
 
 92:                                               ; preds = %80, %79
@@ -13042,7 +13026,7 @@ define internal fastcc void @hugetlb_unshare_pmds(ptr noundef readonly captures(
   %101 = inttoptr i64 %100 to ptr
   %102 = lshr i64 %66, 30
   %103 = and i64 %102, 511
-  %104 = getelementptr %struct.pud_t, ptr %101, i64 %103
+  %104 = getelementptr [8 x i8], ptr %101, i64 %103
   br i1 %63, label %119, label %105
 
 105:                                              ; preds = %97
@@ -13060,7 +13044,7 @@ define internal fastcc void @hugetlb_unshare_pmds(ptr noundef readonly captures(
   %115 = inttoptr i64 %114 to ptr
   %116 = lshr i64 %66, 21
   %117 = and i64 %116, 511
-  %118 = getelementptr %struct.pmd_t, ptr %115, i64 %117
+  %118 = getelementptr [8 x i8], ptr %115, i64 %117
   br label %119
 
 119:                                              ; preds = %109, %97
@@ -13085,7 +13069,7 @@ define internal fastcc void @hugetlb_unshare_pmds(ptr noundef readonly captures(
   %134 = select i1 %131, i64 %132, i64 %133
   %135 = add i64 %130, %134
   %136 = lshr i64 %135, 12
-  %.split = getelementptr %struct.page, ptr %127, i64 %136
+  %.split = getelementptr [64 x i8], ptr %127, i64 %136
   %137 = getelementptr i8, ptr %.split, i64 40
   br label %138
 
@@ -13293,7 +13277,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %22 = add i64 %21, 1
   store i64 %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %24 = getelementptr i32, ptr %23, i64 %17
+  %24 = getelementptr [4 x i8], ptr %23, i64 %17
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -13302,7 +13286,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  %31 = getelementptr i32, ptr %30, i64 %17
+  %31 = getelementptr [4 x i8], ptr %30, i64 %17
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -13321,7 +13305,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %40 = load i64, ptr %1, align 16
   %41 = lshr i64 %40, 58
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %43 = getelementptr %struct.list_head, ptr %42, i64 %41
+  %43 = getelementptr [16 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %19, align 16
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -13338,7 +13322,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
   %51 = add i64 %50, 1
   store i64 %51, ptr %49, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %53 = getelementptr i32, ptr %52, i64 %41
+  %53 = getelementptr [4 x i8], ptr %52, i64 %41
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
@@ -13381,7 +13365,7 @@ define internal fastcc void @__update_and_free_hugetlb_folio(ptr noundef %0, ptr
 
 71:                                               ; preds = %71, %69
   %72 = phi i64 [ 1, %69 ], [ %79, %71 ]
-  %73 = getelementptr %struct.page, ptr %1, i64 %72
+  %73 = getelementptr [64 x i8], ptr %1, i64 %72
   %74 = load i64, ptr %73, align 16
   %75 = and i64 %74, -3262756
   store i64 %75, ptr %73, align 16
@@ -13450,7 +13434,7 @@ define internal void @free_hpage_workfn(ptr readnone captures(none) %0) #0 align
   %16 = shl i64 4096, %15
   %17 = load i32, ptr @hugetlb_max_hstate, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct.hstate, ptr @hstates, i64 %18
+  %19 = getelementptr [6088 x i8], ptr @hstates, i64 %18
   %20 = icmp ugt ptr %19, @hstates
   br i1 %20, label %.preheader, label %.loopexit
 
@@ -13548,7 +13532,7 @@ define internal fastcc ptr @alloc_fresh_hugetlb_folio(ptr noundef %0, i32 nounde
   %35 = add i64 %34, 1
   store i64 %35, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %37 = getelementptr i32, ptr %36, i64 %28
+  %37 = getelementptr [4 x i8], ptr %36, i64 %28
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4
@@ -13701,7 +13685,7 @@ define internal fastcc zeroext i1 @__prep_compound_gigantic_folio(ptr noundef no
   %12 = phi i32 [ 0, %5 ], [ %37, %33 ]
   %13 = phi i64 [ 0, %5 ], [ %34, %33 ]
   %14 = phi i1 [ false, %5 ], [ %35, %33 ]
-  %15 = getelementptr %struct.page, ptr %0, i64 %13
+  %15 = getelementptr [64 x i8], ptr %0, i64 %13
   %16 = icmp eq i64 %13, 0
   br i1 %16, label %17, label %.thread
 
@@ -13790,7 +13774,7 @@ define internal fastcc zeroext i1 @__prep_compound_gigantic_folio(ptr noundef no
 
 59:                                               ; preds = %65, %29
   %60 = phi i64 [ 0, %29 ], [ %67, %65 ]
-  %61 = getelementptr %struct.page, ptr %0, i64 %60
+  %61 = getelementptr [64 x i8], ptr %0, i64 %60
   %62 = icmp eq i64 %60, 0
   br i1 %62, label %65, label %63
 
@@ -13808,7 +13792,7 @@ define internal fastcc zeroext i1 @__prep_compound_gigantic_folio(ptr noundef no
 
 69:                                               ; preds = %69, %56
   %70 = phi i64 [ %57, %56 ], [ %72, %69 ]
-  %71 = getelementptr %struct.page, ptr %0, i64 %70
+  %71 = getelementptr [64 x i8], ptr %0, i64 %70
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %71, i64 14) #22, !srcloc !28
   %72 = add nuw nsw i64 %70, 1
   %73 = icmp eq i64 %72, %58
@@ -13974,7 +13958,7 @@ define internal fastcc ptr @alloc_surplus_hugetlb_folio(ptr noundef %0, i32 noun
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1912
   %26 = load i64, ptr %15, align 16
   %27 = lshr i64 %26, 58
-  %28 = getelementptr i32, ptr %25, i64 %27
+  %28 = getelementptr [4 x i8], ptr %25, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -14000,7 +13984,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.loopexit, label %4
@@ -14018,7 +14002,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -14037,7 +14021,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @demote_size_show(ptr nou
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
   %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
-  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %25 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %27 = load i32, ptr %26, align 4
   %28 = zext nneg i32 %27 to i64
@@ -14053,7 +14037,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
   %5 = tail call i64 @memparse(ptr noundef %2, ptr noundef null) #22
   %6 = load i32, ptr @hugetlb_max_hstate, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.hstate, ptr @hstates, i64 %7
+  %8 = getelementptr [6088 x i8], ptr @hstates, i64 %7
   %9 = icmp ugt ptr %8, @hstates
   br i1 %9, label %.preheader12, label %.thread
 
@@ -14083,7 +14067,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
 .preheader10:                                     ; preds = %19, %22
   %23 = phi i1 [ false, %22 ], [ true, %19 ]
   %24 = phi i64 [ 1, %22 ], [ 0, %19 ]
-  %25 = getelementptr ptr, ptr @hstate_kobjs, i64 %24
+  %25 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %0
   br i1 %27, label %.loopexit, label %22
@@ -14101,7 +14085,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
 .preheader:                                       ; preds = %28, %.critedge
   %33 = phi i32 [ %31, %.critedge ], [ 0, %28 ]
   %34 = sext i32 %33 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %34
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %34
   %35 = getelementptr i8, ptr %.split, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %0
@@ -14120,7 +14104,7 @@ define internal noundef i64 @demote_size_store(ptr noundef readnone captures(add
 
 .loopexit:                                        ; preds = %.preheader10, %.preheader, %38
   %.pn = phi i64 [ 1, %38 ], [ 0, %.preheader ], [ %24, %.preheader10 ]
-  %42 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %42 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = icmp ult i32 %12, %44
@@ -14166,7 +14150,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 .preheader41:                                     ; preds = %4, %11
   %12 = phi i1 [ false, %11 ], [ true, %4 ]
   %13 = phi i64 [ 1, %11 ], [ 0, %4 ]
-  %14 = getelementptr ptr, ptr @hstate_kobjs, i64 %13
+  %14 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %.thread22, label %11
@@ -14184,7 +14168,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 .preheader38:                                     ; preds = %17, %.critedge
   %22 = phi i32 [ %20, %.critedge ], [ 0, %17 ]
   %23 = sext i32 %22 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %23
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
@@ -14216,7 +14200,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %.pn = phi i64 [ %31, %.loopexit37 ], [ %31, %33 ], [ %13, %.preheader41 ]
   %35 = phi i64 [ -1, %.loopexit37 ], [ %23, %33 ], [ -1, %.preheader41 ]
   %36 = phi ptr [ getelementptr inbounds nuw (i8, ptr @node_states, i64 24), %.loopexit37 ], [ %6, %33 ], [ getelementptr inbounds nuw (i8, ptr @node_states, i64 24), %.preheader41 ]
-  %37 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %37 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn
   call void @mutex_lock(ptr noundef %37) #22
   call void @_raw_spin_lock_irq(ptr noundef nonnull @hugetlb_lock) #22
   %38 = load i64, ptr %5, align 8
@@ -14225,7 +14209,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 
 40:                                               ; preds = %.thread22
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 1656
-  %42 = getelementptr i32, ptr %41, i64 %35
+  %42 = getelementptr [4 x i8], ptr %41, i64 %35
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 44
@@ -14353,7 +14337,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %117 = phi i32 [ %109, %107 ], [ %115, %112 ], [ 64, %.thread26 ], [ 64, %.thread23 ]
   store i32 %117, ptr %46, align 4
   %118 = sext i32 %116 to i64
-  %119 = getelementptr %struct.list_head, ptr %47, i64 %118
+  %119 = getelementptr [16 x i8], ptr %47, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, %119
   br i1 %121, label %72, label %122
@@ -14367,7 +14351,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %128 = shl i64 4096, %127
   %129 = load i32, ptr @hugetlb_max_hstate, align 4
   %130 = sext i32 %129 to i64
-  %131 = getelementptr %struct.hstate, ptr @hstates, i64 %130
+  %131 = getelementptr [6088 x i8], ptr @hstates, i64 %130
   %132 = icmp ugt ptr %131, @hstates
   br i1 %132, label %.preheader, label %.loopexit32
 
@@ -14405,7 +14389,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %152 = load i64, ptr %43, align 8
   %153 = add i64 %152, -1
   store i64 %153, ptr %43, align 8
-  %154 = getelementptr i32, ptr %41, i64 %125
+  %154 = getelementptr [4 x i8], ptr %41, i64 %125
   %155 = load i32, ptr %154, align 4
   %156 = add i32 %155, -1
   store i32 %156, ptr %154, align 4
@@ -14426,7 +14410,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %164 = load i64, ptr %48, align 8
   %165 = add i64 %164, -1
   store i64 %165, ptr %48, align 8
-  %166 = getelementptr i32, ptr %49, i64 %125
+  %166 = getelementptr [4 x i8], ptr %49, i64 %125
   %167 = load i32, ptr %166, align 4
   %168 = add i32 %167, -1
   store i32 %168, ptr %166, align 4
@@ -14461,7 +14445,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %185 = load i64, ptr %48, align 8
   %186 = add i64 %185, 1
   store i64 %186, ptr %48, align 8
-  %187 = getelementptr i32, ptr %49, i64 %184
+  %187 = getelementptr [4 x i8], ptr %49, i64 %184
   %188 = load i32, ptr %187, align 4
   %189 = add i32 %188, 1
   store i32 %189, ptr %187, align 4
@@ -14478,7 +14462,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 194:                                              ; preds = %180
   %195 = load i64, ptr %123, align 16
   %196 = lshr i64 %195, 58
-  %197 = getelementptr %struct.list_head, ptr %47, i64 %196
+  %197 = getelementptr [16 x i8], ptr %47, i64 %196
   %198 = load ptr, ptr %181, align 8
   %199 = load ptr, ptr %120, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
@@ -14493,7 +14477,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %203 = load i64, ptr %43, align 8
   %204 = add i64 %203, 1
   store i64 %204, ptr %43, align 8
-  %205 = getelementptr i32, ptr %41, i64 %196
+  %205 = getelementptr [4 x i8], ptr %41, i64 %196
   %206 = load i32, ptr %205, align 4
   %207 = add i32 %206, 1
   store i32 %207, ptr %205, align 4
@@ -14518,7 +14502,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
 
 217:                                              ; preds = %217, %215
   %218 = phi i64 [ 1, %215 ], [ %224, %217 ]
-  %219 = getelementptr %struct.page, ptr %123, i64 %218
+  %219 = getelementptr [64 x i8], ptr %123, i64 %218
   %220 = load i64, ptr %219, align 16
   %221 = and i64 %220, -3262756
   store i64 %221, ptr %219, align 16
@@ -14536,13 +14520,13 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   %226 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %227 = getelementptr inbounds nuw i8, ptr %142, i64 64
   %228 = getelementptr inbounds nuw i8, ptr %142, i64 1400
-  %229 = getelementptr i32, ptr %228, i64 %125
+  %229 = getelementptr [4 x i8], ptr %228, i64 %125
   br label %230
 
 230:                                              ; preds = %297, %.loopexit31
   %231 = phi i32 [ 0, %.loopexit31 ], [ %309, %297 ]
   %232 = sext i32 %231 to i64
-  %233 = getelementptr %struct.page, ptr %123, i64 %232
+  %233 = getelementptr [64 x i8], ptr %123, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load volatile i64, ptr %234, align 8
   %236 = and i64 %235, 1
@@ -14611,7 +14595,7 @@ define internal i64 @demote_store(ptr noundef readnone captures(address) %0, ptr
   br i1 %274, label %278, label %275
 
 275:                                              ; preds = %272
-  %276 = getelementptr %struct.page, ptr %262, i64 %273
+  %276 = getelementptr [64 x i8], ptr %262, i64 %273
   call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %276, i64 14) #22, !srcloc !28
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store volatile i64 %269, ptr %277, align 8
@@ -14742,7 +14726,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.thread5, label %4
@@ -14760,7 +14744,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -14784,15 +14768,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_show(ptr no
 
 .thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %28 = getelementptr [6088 x i8], ptr @hstates, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load i64, ptr %29, align 8
   br label %37
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %32 = getelementptr [6088 x i8], ptr @hstates, i64 %25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1400
-  %34 = getelementptr i32, ptr %33, i64 %17
+  %34 = getelementptr [4 x i8], ptr %33, i64 %17
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   br label %37
@@ -14823,7 +14807,7 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
 .preheader7.i:                                    ; preds = %4, %10
   %11 = phi i1 [ false, %10 ], [ true, %4 ]
   %12 = phi i64 [ 1, %10 ], [ 0, %4 ]
-  %13 = getelementptr ptr, ptr @hstate_kobjs, i64 %12
+  %13 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %.loopexit.i, label %10
@@ -14841,7 +14825,7 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
 .preheader.i:                                     ; preds = %16, %.critedge
   %21 = phi i32 [ %19, %.critedge ], [ 0, %16 ]
   %22 = sext i32 %21 to i64
-  %.split.i = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22
+  %.split.i = getelementptr [24 x i8], ptr @node_hstates, i64 %22
   %23 = getelementptr i8, ptr %.split.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
@@ -14861,7 +14845,7 @@ define internal i64 @nr_hugepages_store(ptr noundef readnone captures(address) %
 .loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
   %30 = phi i32 [ %21, %.preheader.i ], [ %21, %26 ], [ -1, %.preheader7.i ]
   %.pn.i = phi i64 [ 1, %26 ], [ 0, %.preheader.i ], [ %12, %.preheader7.i ]
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
+  %31 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext false, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)
   br label %nr_hugepages_store_common.exit
@@ -14926,10 +14910,10 @@ define internal fastcc noundef i64 @__nr_hugepages_store_common(i1 noundef zeroe
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 1400
   %33 = sext i32 %2 to i64
-  %34 = getelementptr i32, ptr %32, i64 %33
+  %34 = getelementptr [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 1912
-  %37 = getelementptr i32, ptr %36, i64 %33
+  %37 = getelementptr [4 x i8], ptr %36, i64 %33
   %38 = load i32, ptr %37, align 4
   %39 = sub i32 %35, %38
   %40 = zext i32 %39 to i64
@@ -15226,7 +15210,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @adjust_pool_surplus(ptr noun
   %59 = phi i32 [ %51, %49 ], [ %57, %54 ], [ 64, %.thread15 ], [ 64, %.thread ]
   store i32 %59, ptr %11, align 8
   %60 = sext i32 %58 to i64
-  %61 = getelementptr i32, ptr %12, i64 %60
+  %61 = getelementptr [4 x i8], ptr %12, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %13, label %.loopexit
@@ -15319,9 +15303,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @adjust_pool_surplus(ptr noun
   %115 = phi i32 [ %107, %105 ], [ %113, %110 ], [ 64, %.thread21 ], [ 64, %.thread17 ]
   store i32 %115, ptr %66, align 4
   %116 = sext i32 %114 to i64
-  %117 = getelementptr i32, ptr %67, i64 %116
+  %117 = getelementptr [4 x i8], ptr %67, i64 %116
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr i32, ptr %68, i64 %116
+  %119 = getelementptr [4 x i8], ptr %68, i64 %116
   %120 = load i32, ptr %119, align 4
   %121 = icmp ult i32 %118, %120
   br i1 %121, label %.loopexit, label %69
@@ -15334,7 +15318,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @adjust_pool_surplus(ptr noun
   %125 = add i64 %124, %122
   store i64 %125, ptr %123, align 8
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  %127 = getelementptr i32, ptr %126, i64 %.pre-phi
+  %127 = getelementptr [4 x i8], ptr %126, i64 %.pre-phi
   %128 = load i32, ptr %127, align 4
   %129 = add i32 %128, %2
   store i32 %129, ptr %127, align 4
@@ -15490,7 +15474,7 @@ define internal fastcc ptr @alloc_pool_huge_folio(ptr noundef captures(none) %0,
   %87 = phi i32 [ 0, %80 ], [ %112, %108 ]
   %88 = phi i64 [ 0, %80 ], [ %109, %108 ]
   %89 = phi i1 [ false, %80 ], [ %110, %108 ]
-  %90 = getelementptr %struct.page, ptr %72, i64 %88
+  %90 = getelementptr [64 x i8], ptr %72, i64 %88
   %91 = icmp eq i64 %88, 0
   br i1 %91, label %92, label %.thread.i
 
@@ -15583,7 +15567,7 @@ define internal fastcc ptr @alloc_pool_huge_folio(ptr noundef captures(none) %0,
 
 134:                                              ; preds = %140, %104
   %135 = phi i64 [ 0, %104 ], [ %142, %140 ]
-  %136 = getelementptr %struct.page, ptr %72, i64 %135
+  %136 = getelementptr [64 x i8], ptr %72, i64 %135
   %137 = icmp eq i64 %135, 0
   br i1 %137, label %140, label %138
 
@@ -15601,7 +15585,7 @@ define internal fastcc ptr @alloc_pool_huge_folio(ptr noundef captures(none) %0,
 
 144:                                              ; preds = %144, %131
   %145 = phi i64 [ %132, %131 ], [ %147, %144 ]
-  %146 = getelementptr %struct.page, ptr %72, i64 %145
+  %146 = getelementptr [64 x i8], ptr %72, i64 %145
   tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %146, i64 14) #22, !srcloc !28
   %147 = add nuw nsw i64 %145, 1
   %148 = icmp eq i64 %147, %133
@@ -15662,13 +15646,13 @@ define internal fastcc void @prep_and_add_allocated_folios(ptr noundef %0, ptr n
   %18 = load i64, ptr %7, align 8
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8
-  %20 = getelementptr i32, ptr %8, i64 %17
+  %20 = getelementptr [4 x i8], ptr %8, i64 %17
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4
   %23 = load i64, ptr %14, align 16
   %24 = lshr i64 %23, 58
-  %25 = getelementptr %struct.list_head, ptr %9, i64 %24
+  %25 = getelementptr [16 x i8], ptr %9, i64 %24
   %26 = getelementptr i8, ptr %13, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %13, align 8
@@ -15684,7 +15668,7 @@ define internal fastcc void @prep_and_add_allocated_folios(ptr noundef %0, ptr n
   %32 = load i64, ptr %10, align 8
   %33 = add i64 %32, 1
   store i64 %33, ptr %10, align 8
-  %34 = getelementptr i32, ptr %11, i64 %24
+  %34 = getelementptr [4 x i8], ptr %11, i64 %24
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -15789,13 +15773,13 @@ define internal fastcc noundef ptr @remove_pool_hugetlb_folio(ptr noundef %0, pt
   br i1 %2, label %57, label %._crit_edge
 
 57:                                               ; preds = %.thread10.thread
-  %58 = getelementptr i32, ptr %10, i64 %56
+  %58 = getelementptr [4 x i8], ptr %10, i64 %56
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %107, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread10.thread, %57
-  %61 = getelementptr %struct.list_head, ptr %11, i64 %56
+  %61 = getelementptr [16 x i8], ptr %11, i64 %56
   %62 = load volatile ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, %61
   br i1 %63, label %107, label %64
@@ -15824,7 +15808,7 @@ define internal fastcc noundef ptr @remove_pool_hugetlb_folio(ptr noundef %0, pt
   %79 = add i64 %78, -1
   store i64 %79, ptr %77, align 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %81 = getelementptr i32, ptr %80, i64 %67
+  %81 = getelementptr [4 x i8], ptr %80, i64 %67
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, -1
   store i32 %83, ptr %81, align 4
@@ -15838,7 +15822,7 @@ define internal fastcc noundef ptr @remove_pool_hugetlb_folio(ptr noundef %0, pt
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, -1
   store i64 %88, ptr %86, align 8
-  %89 = getelementptr i32, ptr %10, i64 %67
+  %89 = getelementptr [4 x i8], ptr %10, i64 %67
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, -1
   store i32 %91, ptr %89, align 4
@@ -15864,7 +15848,7 @@ define internal fastcc noundef ptr @remove_pool_hugetlb_folio(ptr noundef %0, pt
   %102 = add i64 %101, -1
   store i64 %102, ptr %100, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %104 = getelementptr i32, ptr %103, i64 %67
+  %104 = getelementptr [4 x i8], ptr %103, i64 %67
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, -1
   store i32 %106, ptr %104, align 4
@@ -15958,14 +15942,14 @@ define internal fastcc void @update_and_free_pages_bulk(ptr noundef %0, ptr noun
   %44 = load i64, ptr %8, align 8
   %45 = add i64 %44, 1
   store i64 %45, ptr %8, align 8
-  %46 = getelementptr i32, ptr %9, i64 %43
+  %46 = getelementptr [4 x i8], ptr %9, i64 %43
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
   %49 = load i64, ptr %10, align 8
   %50 = add i64 %49, 1
   store i64 %50, ptr %10, align 8
-  %51 = getelementptr i32, ptr %11, i64 %43
+  %51 = getelementptr [4 x i8], ptr %11, i64 %43
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 4
@@ -15984,7 +15968,7 @@ define internal fastcc void @update_and_free_pages_bulk(ptr noundef %0, ptr noun
 60:                                               ; preds = %41
   %61 = load i64, ptr %33, align 16
   %62 = lshr i64 %61, 58
-  %63 = getelementptr %struct.list_head, ptr %12, i64 %62
+  %63 = getelementptr [16 x i8], ptr %12, i64 %62
   %64 = load ptr, ptr %37, align 8
   %65 = load ptr, ptr %32, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -15999,7 +15983,7 @@ define internal fastcc void @update_and_free_pages_bulk(ptr noundef %0, ptr noun
   %69 = load i64, ptr %13, align 8
   %70 = add i64 %69, 1
   store i64 %70, ptr %13, align 8
-  %71 = getelementptr i32, ptr %14, i64 %62
+  %71 = getelementptr [4 x i8], ptr %14, i64 %62
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
@@ -16093,7 +16077,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.thread5, label %4
@@ -16111,7 +16095,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -16135,15 +16119,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @free_hugepages_show(ptr 
 
 .thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %28 = getelementptr [6088 x i8], ptr @hstates, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load i64, ptr %29, align 8
   br label %37
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %32 = getelementptr [6088 x i8], ptr @hstates, i64 %25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1656
-  %34 = getelementptr i32, ptr %33, i64 %17
+  %34 = getelementptr [4 x i8], ptr %33, i64 %17
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   br label %37
@@ -16165,7 +16149,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.thread5, label %4
@@ -16183,7 +16167,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -16207,15 +16191,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @surplus_hugepages_show(p
 
 .thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %28 = getelementptr [6088 x i8], ptr @hstates, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %30 = load i64, ptr %29, align 8
   br label %37
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %32 = getelementptr [6088 x i8], ptr @hstates, i64 %25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1912
-  %34 = getelementptr i32, ptr %33, i64 %17
+  %34 = getelementptr [4 x i8], ptr %33, i64 %17
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   br label %37
@@ -16237,7 +16221,7 @@ declare dso_local i32 @string_get_size(i64 noundef, i64 noundef, i32 noundef, pt
 define internal fastcc void @hugetlb_init_hstates() unnamed_addr #9 section ".init.text" align 16 {
   %1 = load i32, ptr @hugetlb_max_hstate, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr %struct.hstate, ptr @hstates, i64 %2
+  %3 = getelementptr [6088 x i8], ptr @hstates, i64 %2
   %4 = icmp ugt ptr %3, @hstates
   br i1 %4, label %.preheader, label %.loopexit5
 
@@ -16257,7 +16241,7 @@ define internal fastcc void @hugetlb_init_hstates() unnamed_addr #9 section ".in
 11:                                               ; preds = %10, %.preheader
   %12 = phi i32 [ %.pre, %10 ], [ %5, %.preheader ]
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.hstate, ptr @hstates, i64 %13
+  %14 = getelementptr [6088 x i8], ptr @hstates, i64 %13
   %15 = icmp ugt ptr %14, @hstates
   br i1 %15, label %16, label %.loopexit
 
@@ -16325,7 +16309,7 @@ define internal fastcc void @gather_bootmem_prealloc() unnamed_addr #9 section "
   %15 = select i1 %11, i64 %12, i64 %14
   %16 = add i64 %10, %15
   %17 = lshr i64 %16, 12
-  %18 = getelementptr %struct.page, ptr %8, i64 %17
+  %18 = getelementptr [64 x i8], ptr %8, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, %6
@@ -16387,7 +16371,7 @@ define internal fastcc void @report_hugepages() unnamed_addr #9 section ".init.t
   %1 = alloca [32 x i8], align 16
   %2 = load i32, ptr @hugetlb_max_hstate, align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.hstate, ptr @hstates, i64 %3
+  %4 = getelementptr [6088 x i8], ptr @hstates, i64 %3
   %5 = icmp ugt ptr %4, @hstates
   br i1 %5, label %.preheader, label %.loopexit
 
@@ -16413,7 +16397,7 @@ define internal fastcc void @report_hugepages() unnamed_addr #9 section ".init.t
   %21 = getelementptr i8, ptr %6, i64 6088
   %22 = load i32, ptr @hugetlb_max_hstate, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.hstate, ptr @hstates, i64 %23
+  %24 = getelementptr [6088 x i8], ptr @hstates, i64 %23
   %25 = icmp ult ptr %21, %24
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !174
 
@@ -16432,7 +16416,7 @@ define internal fastcc void @hugetlb_sysfs_init() unnamed_addr #9 section ".init
 4:                                                ; preds = %0
   %5 = load i32, ptr @hugetlb_max_hstate, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.hstate, ptr @hstates, i64 %6
+  %7 = getelementptr [6088 x i8], ptr @hstates, i64 %6
   %8 = icmp ugt ptr %7, @hstates
   br i1 %8, label %.preheader, label %.loopexit
 
@@ -16452,7 +16436,7 @@ define internal fastcc void @hugetlb_sysfs_init() unnamed_addr #9 section ".init
   %17 = getelementptr i8, ptr %9, i64 6088
   %18 = load i32, ptr @hugetlb_max_hstate, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr %struct.hstate, ptr @hstates, i64 %19
+  %20 = getelementptr [6088 x i8], ptr @hstates, i64 %19
   %21 = icmp ult ptr %17, %20
   br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !175
 
@@ -16495,7 +16479,7 @@ define internal fastcc void @hugetlb_hstate_alloc_pages(ptr noundef %0) unnamed_
   %15 = phi i32 [ %10, %12 ], [ %34, %32 ]
   %16 = phi i8 [ 0, %12 ], [ %23, %32 ]
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr i32, ptr %13, i64 %17
+  %18 = getelementptr [4 x i8], ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %22, label %21
@@ -16619,7 +16603,7 @@ define internal fastcc void @hugetlb_hstate_alloc_pages_onenode(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr i32, ptr %4, i64 %5
+  %6 = getelementptr [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit.thread, label %9
@@ -16742,13 +16726,13 @@ define internal fastcc void @prep_and_add_bootmem_folios(ptr noundef %0, ptr nou
   %28 = load i64, ptr %8, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %8, align 8
-  %30 = getelementptr i32, ptr %9, i64 %27
+  %30 = getelementptr [4 x i8], ptr %9, i64 %27
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4
   %33 = load i64, ptr %15, align 16
   %34 = lshr i64 %33, 58
-  %35 = getelementptr %struct.list_head, ptr %10, i64 %34
+  %35 = getelementptr [16 x i8], ptr %10, i64 %34
   %36 = getelementptr i8, ptr %14, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %14, align 8
@@ -16764,7 +16748,7 @@ define internal fastcc void @prep_and_add_bootmem_folios(ptr noundef %0, ptr nou
   %42 = load i64, ptr %11, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr %11, align 8
-  %44 = getelementptr i32, ptr %12, i64 %34
+  %44 = getelementptr [4 x i8], ptr %12, i64 %34
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -16841,11 +16825,11 @@ define internal fastcc void @hugetlb_folio_init_tail_vmemmap(ptr noundef %0, i64
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %3
-  %15 = getelementptr ptr, ptr @node_data, i64 %5
+  %15 = getelementptr [8 x i8], ptr @node_data, i64 %5
   %16 = load ptr, ptr %15, align 8
   %17 = lshr i64 %4, 56
   %18 = and i64 %17, 3
-  %19 = getelementptr %struct.zone, ptr %16, i64 %18
+  %19 = getelementptr [1216 x i8], ptr %16, i64 %18
   %20 = ptrtoint ptr %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %22 = load ptr, ptr %21, align 8
@@ -16860,7 +16844,7 @@ define internal fastcc void @hugetlb_folio_init_tail_vmemmap(ptr noundef %0, i64
   %29 = phi i64 [ %12, %14 ], [ %42, %28 ]
   %30 = load i64, ptr @vmemmap_base, align 8
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr %struct.page, ptr %31, i64 %29
+  %32 = getelementptr [64 x i8], ptr %31, i64 %29
   tail call void @__init_single_page(ptr noundef %32, i64 noundef %29, i64 noundef %26, i32 noundef %6) #25
   %33 = sub i64 %29, %10
   %34 = shl i64 %33, 32
@@ -16900,7 +16884,7 @@ define internal fastcc void @hugetlb_register_all_nodes() unnamed_addr #9 sectio
 .preheader:                                       ; preds = %3, %19
   %7 = phi i32 [ %21, %19 ], [ %5, %3 ]
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr ptr, ptr @node_devices, i64 %8
+  %9 = getelementptr [8 x i8], ptr @node_devices, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @hugetlb_register_node(ptr noundef %10)
   %11 = icmp eq i32 %7, 63
@@ -16935,7 +16919,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.loopexit, label %4
@@ -16953,7 +16937,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -16972,7 +16956,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_overcommit_hugepages_
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
   %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
-  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %25 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i64, ptr %26, align 8
   %28 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %27) #22
@@ -16992,7 +16976,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
 7:                                                ; preds = %6, %4
   %8 = phi i1 [ true, %4 ], [ false, %6 ]
   %9 = phi i64 [ 0, %4 ], [ 1, %6 ]
-  %10 = getelementptr ptr, ptr @hstate_kobjs, i64 %9
+  %10 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %.loopexit, label %6
@@ -17010,7 +16994,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
 .preheader:                                       ; preds = %13, %.critedge
   %18 = phi i32 [ %16, %.critedge ], [ 0, %13 ]
   %19 = sext i32 %18 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %19
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %19
   %20 = getelementptr i8, ptr %.split, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %0
@@ -17029,7 +17013,7 @@ define internal i64 @nr_overcommit_hugepages_store(ptr noundef readnone captures
 
 .loopexit:                                        ; preds = %7, %.preheader, %23
   %.pn = phi i64 [ 1, %23 ], [ 0, %.preheader ], [ %9, %7 ]
-  %27 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %27 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = icmp ugt i32 %29, 10
@@ -17069,7 +17053,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.loopexit, label %4
@@ -17087,7 +17071,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -17106,7 +17090,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @resv_hugepages_show(ptr 
 
 .loopexit:                                        ; preds = %5, %.preheader, %21
   %.pn = phi i64 [ 1, %21 ], [ 0, %.preheader ], [ %7, %5 ]
-  %25 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn
+  %25 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load i64, ptr %26, align 8
   %28 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.21, i64 noundef %27) #22
@@ -17124,7 +17108,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
 5:                                                ; preds = %4, %3
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %7 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %8 = getelementptr ptr, ptr @hstate_kobjs, i64 %7
+  %8 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.thread5, label %4
@@ -17142,7 +17126,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
 .preheader:                                       ; preds = %11, %.critedge
   %16 = phi i32 [ %14, %.critedge ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %.split = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %17
+  %.split = getelementptr [24 x i8], ptr @node_hstates, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
@@ -17166,15 +17150,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @nr_hugepages_mempolicy_s
 
 .thread5:                                         ; preds = %5, %.loopexit
   %27 = phi i64 [ %25, %.loopexit ], [ %7, %5 ]
-  %28 = getelementptr %struct.hstate, ptr @hstates, i64 %27
+  %28 = getelementptr [6088 x i8], ptr @hstates, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load i64, ptr %29, align 8
   br label %37
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr %struct.hstate, ptr @hstates, i64 %25
+  %32 = getelementptr [6088 x i8], ptr @hstates, i64 %25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1400
-  %34 = getelementptr i32, ptr %33, i64 %17
+  %34 = getelementptr [4 x i8], ptr %33, i64 %17
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   br label %37
@@ -17205,7 +17189,7 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
 .preheader7.i:                                    ; preds = %4, %10
   %11 = phi i1 [ false, %10 ], [ true, %4 ]
   %12 = phi i64 [ 1, %10 ], [ 0, %4 ]
-  %13 = getelementptr ptr, ptr @hstate_kobjs, i64 %12
+  %13 = getelementptr [8 x i8], ptr @hstate_kobjs, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %.loopexit.i, label %10
@@ -17223,7 +17207,7 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
 .preheader.i:                                     ; preds = %16, %.critedge
   %21 = phi i32 [ %19, %.critedge ], [ 0, %16 ]
   %22 = sext i32 %21 to i64
-  %.split.i = getelementptr %struct.node_hstate, ptr @node_hstates, i64 %22
+  %.split.i = getelementptr [24 x i8], ptr @node_hstates, i64 %22
   %23 = getelementptr i8, ptr %.split.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
@@ -17243,7 +17227,7 @@ define internal i64 @nr_hugepages_mempolicy_store(ptr noundef readnone captures(
 .loopexit.i:                                      ; preds = %.preheader7.i, %.preheader.i, %26
   %30 = phi i32 [ %21, %.preheader.i ], [ %21, %26 ], [ -1, %.preheader7.i ]
   %.pn.i = phi i64 [ 1, %26 ], [ 0, %.preheader.i ], [ %12, %.preheader7.i ]
-  %31 = getelementptr %struct.hstate, ptr @hstates, i64 %.pn.i
+  %31 = getelementptr [6088 x i8], ptr @hstates, i64 %.pn.i
   %32 = load i64, ptr %5, align 8
   %33 = call fastcc i64 @__nr_hugepages_store_common(i1 noundef zeroext true, ptr noundef %31, i32 noundef %30, i64 noundef %32, i64 noundef %3)
   br label %nr_hugepages_store_common.exit
@@ -17263,7 +17247,7 @@ define internal i32 @hugetlb_sysctl_handler(ptr noundef readonly captures(none) 
   %7 = alloca i64, align 8
   %8 = load i32, ptr @default_hstate_idx, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.hstate, ptr @hstates, i64 %9
+  %10 = getelementptr [6088 x i8], ptr @hstates, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i64, ptr %11, align 8
@@ -17298,7 +17282,7 @@ define internal i32 @hugetlb_mempolicy_sysctl_handler(ptr noundef readonly captu
   %7 = alloca i64, align 8
   %8 = load i32, ptr @default_hstate_idx, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.hstate, ptr @hstates, i64 %9
+  %10 = getelementptr [6088 x i8], ptr @hstates, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i64, ptr %11, align 8
@@ -17336,7 +17320,7 @@ define internal i32 @hugetlb_overcommit_handler(ptr noundef readonly captures(no
   %7 = alloca i64, align 8
   %8 = load i32, ptr @default_hstate_idx, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.hstate, ptr @hstates, i64 %9
+  %10 = getelementptr [6088 x i8], ptr @hstates, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i64, ptr %11, align 8
@@ -17668,7 +17652,7 @@ define internal fastcc noundef i64 @hugetlb_resv_map_add(ptr noundef captures(ad
   %26 = sdiv exact i64 %25, 6088
   %27 = shl i64 %26, 32
   %28 = ashr exact i64 %27, 32
-  %29 = getelementptr %struct.page_counter, ptr %23, i64 %28
+  %29 = getelementptr [192 x i8], ptr %23, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 40

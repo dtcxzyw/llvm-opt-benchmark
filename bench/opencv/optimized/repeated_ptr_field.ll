@@ -99,7 +99,7 @@ _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %.critedge30
   %.pn = phi ptr [ %37, %36 ], [ %9, %2 ]
   %.sink = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %40 = sext i32 %.sink45 to i64
-  %41 = getelementptr inbounds ptr, ptr %.sink, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.sink, i64 %40
   ret ptr %41
 }
 
@@ -211,7 +211,7 @@ define hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase13DestroyP
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
@@ -322,7 +322,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit: ; pre
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 8, !tbaa !3
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %45, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %45, i64 %49
   store ptr %1, ptr %50, align 8, !tbaa !16
   ret ptr %1
 }
@@ -360,10 +360,10 @@ define hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapE
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %17 = phi ptr [ %5, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = sub nsw i64 %indvars.iv, %12
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   store ptr %20, ptr %22, align 8, !tbaa !16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %4, align 8, !tbaa !12
@@ -402,7 +402,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7Ad
   %12 = add nsw i32 %7, 1
   store i32 %12, ptr %6, align 8, !tbaa !3
   %13 = sext i32 %7 to i64
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   br label %84
 
@@ -535,7 +535,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMess
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 8, !tbaa !3
   %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds ptr, ptr %78, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %78, i64 %82
   store ptr %76, ptr %83, align 8, !tbaa !16
   br label %84
 

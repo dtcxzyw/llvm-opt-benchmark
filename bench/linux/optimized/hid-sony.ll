@@ -22,7 +22,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.hid_device_id = type { i16, i16, i32, i32, i64 }
 %struct.ratelimit_state = type { %struct.raw_spinlock, i32, i32, i32, i32, i64, i64 }
 %struct.power_supply_config = type { ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.sixaxis_led = type { i8, i8, i8, i8, i8 }
 
 @sony_driver = internal global %struct.hid_driver { ptr @.str, ptr @sony_devices, %struct.list_head zeroinitializer, %struct.spinlock zeroinitializer, ptr null, ptr @sony_probe, ptr @sony_remove, ptr null, ptr @sony_raw_event, ptr null, ptr null, ptr null, ptr @sony_report_fixup, ptr @sony_mapping, ptr null, ptr @sony_input_configured, ptr null, ptr @sony_suspend, ptr @sony_resume, ptr @sony_resume, %struct.device_driver zeroinitializer }, align 8
 @sony_device_id_allocator = internal global %struct.ida { %struct.xarray { %struct.spinlock zeroinitializer, i32 67108869, ptr null } }, align 8
@@ -844,7 +843,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %15 to i64
-  %29 = getelementptr i32, ptr @buzz_keymap, i64 %28
+  %29 = getelementptr [4 x i8], ptr @buzz_keymap, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %32 = trunc i32 %30 to i16
@@ -885,7 +884,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %42 to i64
-  %52 = getelementptr i32, ptr @ps3remote_keymap_joypad_buttons, i64 %51
+  %52 = getelementptr [4 x i8], ptr @ps3remote_keymap_joypad_buttons, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = shl nuw nsw i64 1, %51
   %55 = and i64 %54, 786433
@@ -898,7 +897,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %42 to i64
-  %61 = getelementptr i32, ptr @ps3remote_keymap_remote_buttons, i64 %60
+  %61 = getelementptr [4 x i8], ptr @ps3remote_keymap_remote_buttons, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %guitar_mapping.exit, label %64
@@ -965,7 +964,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr i32, ptr @navigation_keymap, i64 %94
+  %101 = getelementptr [4 x i8], ptr @navigation_keymap, i64 %94
   %102 = load i32, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %104 = trunc i32 %102 to i16
@@ -1019,7 +1018,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = zext nneg i32 %126 to i64
-  %132 = getelementptr i32, ptr @navigation_absmap, i64 %131
+  %132 = getelementptr [4 x i8], ptr @navigation_absmap, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 152
   %135 = trunc i32 %133 to i16
@@ -1054,7 +1053,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = zext nneg i32 %148 to i64
-  %154 = getelementptr i32, ptr @sixaxis_keymap, i64 %153
+  %154 = getelementptr [4 x i8], ptr @sixaxis_keymap, i64 %153
   %155 = load i32, ptr %154, align 4
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %157 = trunc i32 %155 to i16
@@ -1116,7 +1115,7 @@ define internal noundef range(i32 -1, 2) i32 @sony_mapping(ptr noundef readonly 
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = zext nneg i32 %182 to i64
-  %188 = getelementptr i32, ptr @sixaxis_absmap, i64 %187
+  %188 = getelementptr [4 x i8], ptr @sixaxis_absmap, i64 %187
   %189 = load i32, ptr %188, align 4
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 152
   %191 = trunc i32 %189 to i16
@@ -1830,7 +1829,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br label %402
 
 402:                                              ; preds = %400, %381
-  %403 = getelementptr ptr, ptr %370, i64 %372
+  %403 = getelementptr [8 x i8], ptr %370, i64 %372
   store ptr %373, ptr %403, align 8
   %404 = tail call i32 @devm_led_classdev_register_ext(ptr noundef nonnull %355, ptr noundef nonnull %373, ptr noundef null) #14
   %405 = icmp eq i32 %404, 0
@@ -1856,7 +1855,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
 416:                                              ; preds = %414, %.split
   %417 = phi ptr [ %415, %414 ], [ %412, %.split ]
   %418 = tail call i64 @strlen(ptr noundef %417) #14
-  %419 = getelementptr ptr, ptr @sony_leds_init.color_name_str, i64 %411
+  %419 = getelementptr [8 x i8], ptr @sony_leds_init.color_name_str, i64 %411
   %420 = load ptr, ptr %419, align 8
   %421 = tail call i64 @strlen(ptr noundef %420) #14
   %422 = add i64 %418, 2
@@ -1915,7 +1914,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br label %453
 
 453:                                              ; preds = %451, %434
-  %454 = getelementptr ptr, ptr %370, i64 %411
+  %454 = getelementptr [8 x i8], ptr %370, i64 %411
   store ptr %425, ptr %454, align 8
   %455 = tail call i32 @devm_led_classdev_register_ext(ptr noundef nonnull %355, ptr noundef nonnull %425, ptr noundef null) #14
   %456 = icmp eq i32 %455, 0
@@ -2318,7 +2317,7 @@ define internal void @sixaxis_send_output_report(ptr noundef readonly captures(n
 
 ._crit_edge:                                      ; preds = %27
   %35 = xor i64 %28, 3
-  %36 = getelementptr %struct.sixaxis_led, ptr %26, i64 %35
+  %36 = getelementptr [5 x i8], ptr %26, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
   store i8 %33, ptr %37, align 1
   %38 = load i8, ptr %29, align 1
@@ -2686,7 +2685,7 @@ define internal range(i32 0, 256) i32 @sony_led_get_brightness(ptr noundef reado
 
 20:                                               ; preds = %17, %13
   %21 = phi i64 [ 0, %13 ], [ %18, %17 ]
-  %22 = getelementptr ptr, ptr %14, i64 %21
+  %22 = getelementptr [8 x i8], ptr %14, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %25, label %17
@@ -2739,7 +2738,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly captures(addr
 
 .split.us:                                        ; preds = %15, %42
   %25 = phi i64 [ %43, %42 ], [ 0, %15 ]
-  %26 = getelementptr ptr, ptr %20, i64 %25
+  %26 = getelementptr [8 x i8], ptr %20, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %0
   br i1 %28, label %29, label %42
@@ -2770,7 +2769,7 @@ define internal void @sony_led_set_brightness(ptr noundef readonly captures(addr
 
 .split:                                           ; preds = %15, %53
   %45 = phi i64 [ %54, %53 ], [ 0, %15 ]
-  %46 = getelementptr ptr, ptr %20, i64 %45
+  %46 = getelementptr [8 x i8], ptr %20, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %0
   br i1 %48, label %.split5.us, label %53
@@ -2866,7 +2865,7 @@ define internal noundef range(i32 -22, 1) i32 @sony_led_blink_set(ptr noundef re
   br i1 %37, label %.thread, label %.preheader
 
 38:                                               ; preds = %.preheader
-  %39 = getelementptr ptr, ptr %34, i64 %43
+  %39 = getelementptr [8 x i8], ptr %34, i64 %43
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
   br i1 %41, label %45, label %.preheader, !llvm.loop !18

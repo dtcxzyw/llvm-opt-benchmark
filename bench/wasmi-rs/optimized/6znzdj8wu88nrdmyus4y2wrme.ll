@@ -139,8 +139,8 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   unreachable
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %9
-  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %0, i64 %4
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %9
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %4
   %21 = shl i64 %11, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %19, i64 %21, i1 false)
   ret void
@@ -544,10 +544,10 @@ switch.lookup:                                    ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !42
   %14 = load i8, ptr %13, align 1, !range !43, !alias.scope !44, !noalias !40, !noundef !4
   %15 = zext nneg i8 %14 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext nneg i8 %14 to i64
-  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %16
+  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %16
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   store ptr %switch.load24, ptr %6, align 8, !noalias !42
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -661,10 +661,10 @@ switch.lookup:                                    ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1, !range !43, !noundef !4
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %8
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %8
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hba9c8648f1e7f378E.exit"
 
@@ -681,10 +681,10 @@ define { ptr, i64 } @_ZN10wasmi_core4trap8TrapCode12trap_message17hee8c6c2d2abf7
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !43, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -701,10 +701,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %0, align 1, !range !43, !alias.scope !56, !noundef !4
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %7
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$wasmi_core..trap..TrapCode$u20$as$u20$core..fmt..Display$GT$3fmt17h7efe1e41f18beb05E.12", i64 %7
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   store ptr %switch.load5, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8

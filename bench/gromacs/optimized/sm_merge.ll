@@ -501,7 +501,7 @@ define internal void @_ZL14evaluate_mergeRKN3gmx20SelMethodEvalContextEP13gmx_an
   %40 = mul nsw i32 %38, %37
   %41 = add nsw i32 %40, %.04359
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %39, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !22
   %.not49 = icmp eq i32 %44, -1
   br i1 %.not49, label %51, label %45
@@ -527,7 +527,7 @@ define internal void @_ZL14evaluate_mergeRKN3gmx20SelMethodEvalContextEP13gmx_an
   %.lcssa = phi i32 [ %35, %.preheader ], [ %54, %51 ]
   %56 = add nsw i32 %.lcssa, 1
   %57 = load ptr, ptr %34, align 8, !tbaa !36
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !22
   %60 = mul nsw i32 %59, %56
   %61 = add nsw i32 %60, %.lcssa
@@ -1045,7 +1045,7 @@ define internal void @_ZL13evaluate_plusRKN3gmx20SelMethodEvalContextEP13gmx_ana
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %10, align 8, !tbaa !34
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !22
   %21 = load ptr, ptr %5, align 8, !tbaa !17
   %22 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1059,7 +1059,7 @@ define internal void @_ZL13evaluate_plusRKN3gmx20SelMethodEvalContextEP13gmx_ana
 26:                                               ; preds = %.lr.ph28, %33
   %indvars.iv30 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next31, %33 ]
   %27 = load ptr, ptr %15, align 8, !tbaa !36
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv30
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv30
   %29 = load i32, ptr %28, align 4, !tbaa !22
   %.not = icmp eq i32 %29, -1
   br i1 %.not, label %33, label %30

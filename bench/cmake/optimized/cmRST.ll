@@ -2801,7 +2801,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
   %4 = alloca i64, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds ptr, ptr %1, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !82, !noalias !110
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %8, label %11
@@ -2816,7 +2816,7 @@ define linkonce_odr dso_local void @_ZNK5cmsys17RegularExpression5matchB5cxx11Ei
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %5
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8, !tbaa !82, !noalias !110
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %7 to i64
@@ -2912,7 +2912,7 @@ define dso_local void @_ZN5cmRST13UnindentLinesERSt6vectorINSt7__cxx1112basic_st
   %.0141 = phi i1 [ true, %.lr.ph142 ], [ %.1, %.loopexit121 ]
   %.046140 = phi i64 [ 1, %.lr.ph142 ], [ %88, %.loopexit121 ]
   %.0119139 = phi i64 [ 0, %.lr.ph142 ], [ %.1120, %.loopexit121 ]
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %.046140
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %.046140
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = icmp eq i64 %31, 0
@@ -3113,7 +3113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %98 = phi ptr [ %86, %.lr.ph144 ], [ %150, %149 ]
   %99 = phi ptr [ %87, %.lr.ph144 ], [ %151, %149 ]
   %.055143 = phi i64 [ 1, %.lr.ph144 ], [ %152, %149 ]
-  %100 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %98, i64 %.055143
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %.055143
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !15
   %103 = icmp eq i64 %102, 0
@@ -3435,7 +3435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %207
 215:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90
   %216 = getelementptr inbounds i8, ptr %182, i64 %160
   %217 = sub nsw i64 0, %175
-  %218 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %181, i64 %217
+  %218 = getelementptr inbounds [32 x i8], ptr %181, i64 %217
   %219 = invoke ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEEET_SE_SE_SE_St26random_access_iterator_tag(ptr %182, ptr %216, ptr %218)
           to label %.noexc98 unwind label %238
 
@@ -8454,7 +8454,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !59
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !61
   ret void
 }
@@ -8602,7 +8602,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit25, %55
   store ptr %19, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8, !tbaa !59
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %15
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %59, ptr %54, align 8, !tbaa !61
   ret void
 }
@@ -8796,7 +8796,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !59
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !61
   ret void
 
@@ -9882,9 +9882,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !58
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !59
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !61
   br label %56
 
@@ -9940,7 +9940,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   br i1 %26, label %.lr.ph66.preheader, label %._crit_edge67
 
 .lr.ph66.preheader:                               ; preds = %25
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.026.0, i64 %.0
+  %27 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0, i64 %.0
   br label %.lr.ph66
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %25
@@ -9965,9 +9965,9 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   br label %.backedge
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.sroa.026.0, i64 %.056
+  %35 = getelementptr inbounds [32 x i8], ptr %.sroa.026.0, i64 %.056
   %36 = sub i64 0, %23
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %35, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %35, i64 %36
   %38 = icmp sgt i64 %.0, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 

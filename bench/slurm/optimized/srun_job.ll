@@ -533,11 +533,11 @@ _set_ntasks.exit:                                 ; preds = %2, %15, %24, %26
   %114 = phi i32 [ %.pre, %.lr.ph ], [ %123, %113 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = load ptr, ptr %82, align 8
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv
   %121 = load i32, ptr %120, align 4
   %122 = mul i32 %121, %118
   %123 = add i32 %114, %122
@@ -956,7 +956,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 
 .preheader.i:                                     ; preds = %143
   %147 = load ptr, ptr %138, align 8
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i
   %149 = load i32, ptr %148, align 4
   %.not5054.not.i = icmp eq i32 %149, 0
   br i1 %.not5054.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -978,7 +978,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %.03756.us.i.us = phi i32 [ %161, %160 ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.14255.us.i.us = phi i32 [ %158, %160 ], [ %.04163.i, %.lr.ph.split.us.i.preheader ]
   %154 = load ptr, ptr %139, align 8
-  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %indvars.iv.i
   %156 = load i16, ptr %155, align 2
   %157 = zext i16 %156 to i32
   %158 = add nsw i32 %.14255.us.i.us, %157
@@ -990,7 +990,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 160:                                              ; preds = %.lr.ph.split.us.i.us
   %161 = add nuw nsw i32 %.03756.us.i.us, 1
   %162 = load ptr, ptr %138, align 8
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %indvars.iv.i
   %164 = load i32, ptr %163, align 4
   %.not50.us.i.us = icmp ult i32 %161, %164
   br i1 %.not50.us.i.us, label %.lr.ph.split.us.i.us, label %._crit_edge.i, !llvm.loop !16
@@ -1000,7 +1000,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %.03756.us.i = phi i32 [ %174, %173 ], [ 0, %.lr.ph.split.us.i.preheader ]
   %.14255.us.i = phi i32 [ %171, %173 ], [ %.04163.i, %.lr.ph.split.us.i.preheader ]
   %166 = load ptr, ptr %139, align 8
-  %167 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv.i
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %indvars.iv.i
   %168 = load i16, ptr %167, align 2
   %169 = zext i16 %168 to i32
   %170 = tail call i32 @llvm.smin.i32(i32 %169, i32 %.fr.i)
@@ -1013,7 +1013,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 173:                                              ; preds = %.lr.ph.split.us.i
   %174 = add nuw nsw i32 %.03756.us.i, 1
   %175 = load ptr, ptr %138, align 8
-  %176 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv.i
   %177 = load i32, ptr %176, align 4
   %.not50.us.i = icmp ult i32 %174, %177
   br i1 %.not50.us.i, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !16
@@ -1026,7 +1026,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %.03756.us57.i = phi i32 [ %187, %186 ], [ 0, %.lr.ph.split.i ]
   %.14255.us58.i = phi i32 [ %184, %186 ], [ %.04163.i, %.lr.ph.split.i ]
   %179 = load ptr, ptr %139, align 8
-  %180 = getelementptr inbounds nuw i16, ptr %179, i64 %indvars.iv.i
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %179, i64 %indvars.iv.i
   %181 = load i16, ptr %180, align 2
   %182 = zext i16 %181 to i32
   %183 = sdiv i32 %182, %150
@@ -1039,7 +1039,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 186:                                              ; preds = %.lr.ph.split.split.us.i
   %187 = add nuw nsw i32 %.03756.us57.i, 1
   %188 = load ptr, ptr %138, align 8
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %indvars.iv.i
   %190 = load i32, ptr %189, align 4
   %.not50.us59.i = icmp ult i32 %187, %190
   br i1 %.not50.us59.i, label %.lr.ph.split.split.us.i, label %._crit_edge.i, !llvm.loop !16
@@ -1047,7 +1047,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
 191:                                              ; preds = %.lr.ph.split.split.i
   %192 = add nuw nsw i32 %.03756.i, 1
   %193 = load ptr, ptr %138, align 8
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i
   %195 = load i32, ptr %194, align 4
   %.not50.i = icmp ult i32 %192, %195
   br i1 %.not50.i, label %.lr.ph.split.split.i, label %._crit_edge.i, !llvm.loop !16
@@ -1057,7 +1057,7 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   %.03756.i = phi i32 [ %192, %191 ], [ 0, %.lr.ph.split.i ]
   %.14255.i = phi i32 [ %203, %191 ], [ %.04163.i, %.lr.ph.split.i ]
   %197 = load ptr, ptr %139, align 8
-  %198 = getelementptr inbounds nuw i16, ptr %197, i64 %indvars.iv.i
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %197, i64 %indvars.iv.i
   %199 = load i16, ptr %198, align 2
   %200 = zext i16 %199 to i32
   %201 = sdiv i32 %200, %150
@@ -1469,7 +1469,7 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 
 .preheader:                                       ; preds = %.preheader.preheader, %44
   %indvars.iv = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next, %44 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %.04974, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.04974, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @xstrcmp(ptr noundef %40, ptr noundef nonnull @.str.14) #15
   %.not35 = icmp eq i32 %41, 0
@@ -1499,7 +1499,7 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 
 50:                                               ; preds = %.loopexit
   %51 = zext nneg i32 %47 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %.04974, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.04974, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @xstrcmp(ptr noundef %53, ptr noundef nonnull @.str.14) #15
   %.not36 = icmp eq i32 %54, 0
@@ -1509,7 +1509,7 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
   %56 = load i32, ptr %11, align 4
   %57 = sub nsw i32 %.0254875, %56
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds ptr, ptr %.04974, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %.04974, i64 %58
   %60 = load i32, ptr @colon_cnt, align 4
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr @colon_cnt, align 4
@@ -1587,11 +1587,11 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 .lr.ph.i.i.i:                                     ; preds = %88, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %88 ]
   %98 = load ptr, ptr %87, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.i.i.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv.i.i.i
   %100 = load ptr, ptr %99, align 8
   %101 = call ptr @xstrdup(ptr noundef %100) #15
   %102 = load ptr, ptr %95, align 8
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i.i.i
   store ptr %101, ptr %103, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %104 = load i32, ptr %91, align 8
@@ -3476,11 +3476,11 @@ define internal fastcc void @_print_job_information(ptr noundef nonnull readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.012 = phi ptr [ @.str.51, %.lr.ph ], [ @.str.56, %15 ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.67, ptr noundef nonnull %.012, i32 noundef %19, i32 noundef %22) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3589,7 +3589,7 @@ _build_key.exit:                                  ; preds = %11, %13
 33:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @xstrdup(ptr noundef %36) #15
   store ptr %37, ptr %7, align 8
@@ -3772,7 +3772,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
 
 .preheader:                                       ; preds = %34
   %37 = load ptr, ptr %29, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv122
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv122
   %39 = load i32, ptr %38, align 4
   %.not117 = icmp eq i32 %39, 0
   br i1 %.not117, label %._crit_edge, label %.lr.ph.preheader
@@ -3784,7 +3784,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
 41:                                               ; preds = %.lr.ph
   %42 = add nuw nsw i32 %.07093, 1
   %43 = load ptr, ptr %29, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv122
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv122
   %45 = load i32, ptr %44, align 4
   %46 = icmp ult i32 %42, %45
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !35
@@ -3793,11 +3793,11 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
   %.07093 = phi i32 [ 0, %.lr.ph.preheader ], [ %42, %41 ]
   %47 = load ptr, ptr %28, align 8
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv122
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv122
   %49 = load i16, ptr %48, align 2
   %50 = load ptr, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds i16, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds [2 x i8], ptr %50, i64 %indvars.iv
   store i16 %49, ptr %51, align 2
   %52 = load i32, ptr %17, align 8
   %53 = trunc nsw i64 %indvars.iv.next to i32
@@ -3863,10 +3863,10 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
 
 77:                                               ; preds = %73
   %78 = zext i32 %.0111 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %61, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = sext i32 %71 to i64
-  %82 = getelementptr inbounds i16, ptr %74, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %74, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = icmp eq i16 %80, %83
   br i1 %84, label %.loopexit.sink.split, label %85
@@ -3876,14 +3876,14 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   %86 = zext i1 %.not88 to i32
   %spec.select = add i32 %.0111, %86
   %87 = zext i32 %spec.select to i64
-  %88 = getelementptr inbounds nuw i16, ptr %61, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %87
   store i16 %83, ptr %88, align 2
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %77, %85
   %.sink146 = phi i64 [ %87, %85 ], [ %78, %77 ]
   %.1.ph = phi i32 [ %spec.select, %85 ], [ %.0111, %77 ]
-  %89 = getelementptr inbounds nuw i32, ptr %63, i64 %.sink146
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %.sink146
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4
@@ -4694,7 +4694,7 @@ define internal noalias noundef ptr @_srun_signal_mgr(ptr noundef %0) #0 {
   %10 = phi i32 [ %13, %.lr.ph ], [ %5, %1 ]
   %11 = tail call ptr @xsignal_default(i32 noundef %10) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw i32, ptr @sig_array, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @sig_array, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !45
@@ -5368,10 +5368,10 @@ define internal fastcc range(i32 0, 256) i32 @_run_srun_script(ptr noundef %0) u
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %21 ]
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next
   store ptr %27, ptr %28, align 8
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 64), align 8
   %30 = sext i32 %29 to i64
@@ -5384,7 +5384,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_srun_script(ptr noundef %0) u
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
   %.0.lcssa = phi i64 [ 0, %21 ], [ %32, %._crit_edge.loopexit ]
-  %33 = getelementptr inbounds nuw ptr, ptr %22, i64 %.0.lcssa
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0.lcssa
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %34, align 8
   %35 = tail call i32 @execv(ptr noundef nonnull %0, ptr noundef nonnull %22) #15

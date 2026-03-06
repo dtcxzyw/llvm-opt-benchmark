@@ -916,7 +916,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._ts = type { ptr, ptr, ptr, i64, %struct.anon.805, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, ptr, i64, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem, ptr, i64, ptr, ptr }
 %struct.anon.805 = type { i32 }
 %struct._err_stackitem = type { ptr, ptr }
-%struct._ttinfo = type { ptr, ptr, ptr, i64 }
 
 @DAYS_IN_MONTH = internal unnamed_addr constant [13 x i32] [i32 -1, i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], align 16
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
@@ -1033,7 +1032,7 @@ define hidden range(i64 -185542705159808, 185542705069748) i64 @calendarrule_yea
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !3
   %5 = zext i8 %4 to i64
-  %6 = getelementptr i32, ptr @DAYS_BEFORE_MONTH, i64 %5
+  %6 = getelementptr [4 x i8], ptr @DAYS_BEFORE_MONTH, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !10
   %8 = icmp ugt i8 %4, 2
   br i1 %8, label %9, label %ymd_to_ord.exit
@@ -1062,7 +1061,7 @@ is_leap_year.exit.thread.i:                       ; preds = %is_leap_year.exit.i
   br label %32
 
 ymd_to_ord.exit:                                  ; preds = %2
-  %17 = getelementptr i32, ptr @DAYS_IN_MONTH, i64 %5
+  %17 = getelementptr [4 x i8], ptr @DAYS_IN_MONTH, i64 %5
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %19 = icmp eq i8 %4, 2
   br i1 %19, label %20, label %.thread
@@ -1100,7 +1099,7 @@ is_leap_year.exit.thread:                         ; preds = %20, %is_leap_year.e
 
 32:                                               ; preds = %is_leap_year.exit.thread.i, %is_leap_year.exit.i, %is_leap_year.exit.thread13.i
   %.0.i.ph = phi i32 [ %14, %is_leap_year.exit.thread13.i ], [ %16, %is_leap_year.exit.i ], [ %7, %is_leap_year.exit.thread.i ]
-  %33 = getelementptr i32, ptr @DAYS_IN_MONTH, i64 %5
+  %33 = getelementptr [4 x i8], ptr @DAYS_IN_MONTH, i64 %5
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %36 = load i8, ptr %35, align 2, !tbaa !12
@@ -2132,7 +2131,7 @@ define internal void @zoneinfo_dealloc(ptr noundef %0) #1 {
 17:                                               ; preds = %10, %22
   %18 = phi i1 [ true, %10 ], [ false, %22 ]
   %.02640 = phi i64 [ 0, %10 ], [ 1, %22 ]
-  %19 = getelementptr ptr, ptr %11, i64 %.02640
+  %19 = getelementptr [8 x i8], ptr %11, i64 %.02640
   %20 = load ptr, ptr %19, align 8, !tbaa !74
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %22, label %21
@@ -2156,7 +2155,7 @@ define internal void @zoneinfo_dealloc(ptr noundef %0) #1 {
 .lr.ph:                                           ; preds = %.preheader, %xdecref_ttinfo.exit
   %.041 = phi i64 [ %50, %xdecref_ttinfo.exit ], [ 0, %.preheader ]
   %24 = load ptr, ptr %13, align 8, !tbaa !72
-  %25 = getelementptr %struct._ttinfo, ptr %24, i64 %.041
+  %25 = getelementptr [32 x i8], ptr %24, i64 %.041
   %.not.i34 = icmp eq ptr %25, null
   br i1 %.not.i34, label %xdecref_ttinfo.exit, label %26
 
@@ -3294,7 +3293,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %2, %PyObject_TypeCh
   br label %137
 
 33:                                               ; preds = %25
-  %34 = getelementptr i64, ptr %27, i64 %24
+  %34 = getelementptr [8 x i8], ptr %27, i64 %24
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load i64, ptr %35, align 8, !tbaa !107
   %37 = icmp sgt i64 %.pre, %36
@@ -3379,7 +3378,7 @@ find_tzrule_ttinfo_fromutc.exit:                  ; preds = %38, %74
 88:                                               ; preds = %find_tzrule_ttinfo_fromutc.exit
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %90 = load ptr, ptr %89, align 8, !tbaa !80
-  %91 = getelementptr ptr, ptr %90, i64 %24
+  %91 = getelementptr [8 x i8], ptr %90, i64 %24
   %92 = getelementptr i8, ptr %91, i64 -16
   br label %93
 
@@ -3397,7 +3396,7 @@ find_tzrule_ttinfo_fromutc.exit:                  ; preds = %38, %74
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %102 = load ptr, ptr %101, align 8, !tbaa !71
-  %103 = getelementptr i64, ptr %102, i64 %24
+  %103 = getelementptr [8 x i8], ptr %102, i64 %24
   %104 = getelementptr i8, ptr %103, i64 -8
   %105 = load i64, ptr %104, align 8, !tbaa !107
   %106 = add i64 %105, %98
@@ -3410,7 +3409,7 @@ find_tzrule_ttinfo_fromutc.exit:                  ; preds = %38, %74
   %.01012.i = phi i64 [ %.111.i, %.lr.ph.i ], [ %24, %33 ]
   %108 = add i64 %.01012.i, %.013.i
   %109 = lshr i64 %108, 1
-  %110 = getelementptr i64, ptr %27, i64 %109
+  %110 = getelementptr [8 x i8], ptr %27, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !107
   %112 = icmp sgt i64 %111, %.pre
   %113 = add nuw i64 %109, 1
@@ -3426,7 +3425,7 @@ _bisect.exit:                                     ; preds = %.lr.ph.i
 116:                                              ; preds = %_bisect.exit
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %118 = load ptr, ptr %117, align 8, !tbaa !80
-  %119 = getelementptr ptr, ptr %118, i64 %.111.i
+  %119 = getelementptr [8 x i8], ptr %118, i64 %.111.i
   %120 = getelementptr i8, ptr %119, i64 -16
   %121 = getelementptr i8, ptr %119, i64 -8
   br label %126
@@ -3447,7 +3446,7 @@ _bisect.exit:                                     ; preds = %.lr.ph.i
   %129 = getelementptr inbounds nuw i8, ptr %.175, i64 24
   %130 = load i64, ptr %129, align 8, !tbaa !113
   %131 = sub i64 %128, %130
-  %132 = getelementptr i64, ptr %27, i64 %.111.i
+  %132 = getelementptr [8 x i8], ptr %27, i64 %.111.i
   %133 = getelementptr i8, ptr %132, i64 -8
   %134 = load i64, ptr %133, align 8, !tbaa !107
   %135 = sub i64 %.pre, %134
@@ -4100,7 +4099,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
 60:                                               ; preds = %.lr.ph
   %61 = tail call i64 @PyLong_AsLongLong(ptr noundef nonnull %58) #9
   %62 = load ptr, ptr %4, align 8, !tbaa !71
-  %63 = getelementptr i64, ptr %62, i64 %.0230337
+  %63 = getelementptr [8 x i8], ptr %62, i64 %.0230337
   store i64 %61, ptr %63, align 8, !tbaa !107
   %64 = icmp eq i64 %61, -1
   br i1 %64, label %65, label %67
@@ -4121,7 +4120,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
   br i1 %72, label %.loopexit328, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr i64, ptr %51, i64 %.0230337
+  %74 = getelementptr [8 x i8], ptr %51, i64 %.0230337
   store i64 %71, ptr %74, align 8, !tbaa !107
   %75 = load i64, ptr %44, align 8, !tbaa !73
   %76 = icmp ugt i64 %71, %75
@@ -4156,7 +4155,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
 
 90:                                               ; preds = %.lr.ph339
   %91 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %88) #9
-  %92 = getelementptr i64, ptr %82, i64 %.0231338
+  %92 = getelementptr [8 x i8], ptr %82, i64 %.0231338
   store i64 %91, ptr %92, align 8, !tbaa !107
   %93 = icmp eq i64 %91, -1
   br i1 %93, label %94, label %96
@@ -4228,12 +4227,12 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
 
 129:                                              ; preds = %.lr.ph343
   %130 = add nuw i64 %.1228342, 1
-  %131 = getelementptr i64, ptr %82, i64 %.1228342
+  %131 = getelementptr [8 x i8], ptr %82, i64 %.1228342
   %132 = load i64, ptr %131, align 8, !tbaa !107
-  %133 = getelementptr i64, ptr %109, i64 %.1228342
+  %133 = getelementptr [8 x i8], ptr %109, i64 %.1228342
   %134 = load i64, ptr %133, align 8, !tbaa !107
   %135 = load ptr, ptr %7, align 8, !tbaa !72
-  %136 = getelementptr %struct._ttinfo, ptr %135, i64 %.1228342
+  %136 = getelementptr [32 x i8], ptr %135, i64 %.1228342
   %137 = tail call fastcc i32 @build_ttinfo(ptr noundef %0, i64 noundef %132, i64 noundef %134, ptr noundef nonnull %127, ptr noundef %136)
   %.not268 = icmp eq i32 %137, 0
   br i1 %.not268, label %124, label %.loopexit328
@@ -4258,12 +4257,12 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
 
 .lr.ph346:                                        ; preds = %.preheader326, %.lr.ph346
   %.0224345 = phi i64 [ %149, %.lr.ph346 ], [ 0, %.preheader326 ]
-  %143 = getelementptr i64, ptr %51, i64 %.0224345
+  %143 = getelementptr [8 x i8], ptr %51, i64 %.0224345
   %144 = load i64, ptr %143, align 8, !tbaa !107
   %145 = load ptr, ptr %7, align 8, !tbaa !72
-  %146 = getelementptr %struct._ttinfo, ptr %145, i64 %144
+  %146 = getelementptr [32 x i8], ptr %145, i64 %144
   %147 = load ptr, ptr %6, align 8, !tbaa !80
-  %148 = getelementptr ptr, ptr %147, i64 %.0224345
+  %148 = getelementptr [8 x i8], ptr %147, i64 %.0224345
   store ptr %146, ptr %148, align 8, !tbaa !19
   %149 = add nuw i64 %.0224345, 1
   %exitcond.not = icmp eq i64 %149, %141
@@ -4278,7 +4277,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
 
 152:                                              ; preds = %.lr.ph348
   %153 = load ptr, ptr %7, align 8, !tbaa !72
-  %154 = getelementptr %struct._ttinfo, ptr %153, i64 %.0221347
+  %154 = getelementptr [32 x i8], ptr %153, i64 %.0221347
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %154, ptr %155, align 8, !tbaa !108
   br label %.loopexit
@@ -4338,7 +4337,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
   br label %180
 
 176:                                              ; preds = %172
-  %177 = getelementptr i64, ptr %51, i64 %173
+  %177 = getelementptr [8 x i8], ptr %51, i64 %173
   %178 = getelementptr i8, ptr %177, i64 -8
   %179 = load i64, ptr %178, align 8, !tbaa !107
   br label %180
@@ -4346,7 +4345,7 @@ define internal fastcc range(i32 -1, 1) i32 @load_data(ptr noundef readonly capt
 180:                                              ; preds = %176, %174
   %.0220 = phi i64 [ %179, %176 ], [ %175, %174 ]
   %181 = load ptr, ptr %7, align 8, !tbaa !72
-  %182 = getelementptr %struct._ttinfo, ptr %181, i64 %.0220
+  %182 = getelementptr [32 x i8], ptr %181, i64 %.0220
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !78
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 24
@@ -4461,7 +4460,7 @@ Py_DECREF.exit:                                   ; preds = %203, %200, %_Py_New
 225:                                              ; preds = %.thread312, %230
   %226 = phi i1 [ true, %.thread312 ], [ false, %230 ]
   %.0214350 = phi i64 [ 0, %.thread312 ], [ 1, %230 ]
-  %227 = getelementptr ptr, ptr %5, i64 %.0214350
+  %227 = getelementptr [8 x i8], ptr %5, i64 %.0214350
   %228 = load ptr, ptr %227, align 8, !tbaa !74
   %.not285 = icmp eq ptr %228, null
   br i1 %.not285, label %230, label %229
@@ -4487,7 +4486,7 @@ Py_DECREF.exit:                                   ; preds = %203, %200, %_Py_New
 .lr.ph352:                                        ; preds = %.preheader, %xdecref_ttinfo.exit
   %.0351 = phi i64 [ %258, %xdecref_ttinfo.exit ], [ 0, %.preheader ]
   %232 = load ptr, ptr %7, align 8, !tbaa !72
-  %233 = getelementptr %struct._ttinfo, ptr %232, i64 %.0351
+  %233 = getelementptr [32 x i8], ptr %232, i64 %.0351
   %.not.i287 = icmp eq ptr %233, null
   br i1 %.not.i287, label %xdecref_ttinfo.exit, label %234
 
@@ -4663,7 +4662,7 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
 9:                                                ; preds = %.lr.ph78, %.thread65
   %.05177 = phi i64 [ 0, %.lr.ph78 ], [ %.152, %.thread65 ]
   %.05376 = phi i64 [ 1, %.lr.ph78 ], [ %39, %.thread65 ]
-  %10 = getelementptr i64, ptr %0, i64 %.05376
+  %10 = getelementptr [8 x i8], ptr %0, i64 %.05376
   %11 = load i64, ptr %10, align 8, !tbaa !107
   %12 = getelementptr i8, ptr %10, i64 -8
   %13 = load i64, ptr %12, align 8, !tbaa !107
@@ -4673,13 +4672,13 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
   br i1 %.not, label %.thread65, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr i64, ptr %2, i64 %11
+  %17 = getelementptr [8 x i8], ptr %2, i64 %11
   %18 = load i64, ptr %17, align 8, !tbaa !107
   %.not56 = icmp eq i64 %18, 0
   br i1 %.not56, label %19, label %.thread65
 
 19:                                               ; preds = %16
-  %20 = getelementptr i64, ptr %1, i64 %11
+  %20 = getelementptr [8 x i8], ptr %1, i64 %11
   %21 = load i64, ptr %20, align 8, !tbaa !107
   %22 = getelementptr i8, ptr %3, i64 %13
   %23 = load i8, ptr %22, align 1, !tbaa !20
@@ -4687,7 +4686,7 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
   br i1 %.not57, label %24, label %.thread
 
 24:                                               ; preds = %19
-  %25 = getelementptr i64, ptr %1, i64 %13
+  %25 = getelementptr [8 x i8], ptr %1, i64 %13
   %26 = load i64, ptr %25, align 8, !tbaa !107
   %27 = sub i64 %21, %26
   %.not58 = icmp eq i64 %27, 0
@@ -4706,7 +4705,7 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
   br i1 %.not59, label %34, label %.thread65
 
 34:                                               ; preds = %29
-  %35 = getelementptr i64, ptr %1, i64 %31
+  %35 = getelementptr [8 x i8], ptr %1, i64 %31
   %36 = load i64, ptr %35, align 8, !tbaa !107
   %37 = sub i64 %21, %36
   %.not60 = icmp eq i64 %37, 0
@@ -4741,7 +4740,7 @@ define internal fastcc void @utcoff_to_dstoff(ptr noundef nonnull readonly captu
   br i1 %.not61, label %49, label %45
 
 45:                                               ; preds = %.lr.ph81
-  %46 = getelementptr i64, ptr %2, i64 %.080
+  %46 = getelementptr [8 x i8], ptr %2, i64 %.080
   %47 = load i64, ptr %46, align 8, !tbaa !107
   %.not62 = icmp eq i64 %47, 0
   br i1 %.not62, label %48, label %49
@@ -4772,7 +4771,7 @@ define internal fastcc range(i32 -1, 1) i32 @ts_to_local(ptr noundef nonnull rea
   %10 = phi i1 [ true, %.preheader ], [ false, %14 ]
   %.05270 = phi i64 [ 0, %.preheader ], [ 1, %14 ]
   %11 = tail call ptr @PyMem_Malloc(i64 noundef %8) #9
-  %12 = getelementptr ptr, ptr %3, i64 %.05270
+  %12 = getelementptr [8 x i8], ptr %3, i64 %.05270
   store ptr %11, ptr %12, align 8, !tbaa !74
   %13 = icmp eq ptr %11, null
   br i1 %13, label %.loopexit, label %14
@@ -4788,7 +4787,7 @@ define internal fastcc range(i32 -1, 1) i32 @ts_to_local(ptr noundef nonnull rea
 
 18:                                               ; preds = %15
   %19 = load i64, ptr %0, align 8, !tbaa !107
-  %20 = getelementptr i64, ptr %2, i64 %19
+  %20 = getelementptr [8 x i8], ptr %2, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !107
   %spec.select = tail call i64 @llvm.smax.i64(i64 %21, i64 %17)
   %spec.select65 = tail call i64 @llvm.smin.i64(i64 %21, i64 %17)
@@ -4815,21 +4814,21 @@ define internal fastcc range(i32 -1, 1) i32 @ts_to_local(ptr noundef nonnull rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.071 = phi i64 [ %44, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %30 = getelementptr i64, ptr %0, i64 %.071
+  %30 = getelementptr [8 x i8], ptr %0, i64 %.071
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !107
-  %33 = getelementptr i64, ptr %2, i64 %32
+  %33 = getelementptr [8 x i8], ptr %2, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !107
   %35 = load i64, ptr %30, align 8, !tbaa !107
-  %36 = getelementptr i64, ptr %2, i64 %35
+  %36 = getelementptr [8 x i8], ptr %2, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !107
   %spec.select66 = tail call i64 @llvm.smax.i64(i64 %37, i64 %34)
   %spec.select67 = tail call i64 @llvm.smin.i64(i64 %37, i64 %34)
-  %38 = getelementptr i64, ptr %23, i64 %.071
+  %38 = getelementptr [8 x i8], ptr %23, i64 %.071
   %39 = load i64, ptr %38, align 8, !tbaa !107
   %40 = add i64 %39, %spec.select66
   store i64 %40, ptr %38, align 8, !tbaa !107
-  %41 = getelementptr i64, ptr %27, i64 %.071
+  %41 = getelementptr [8 x i8], ptr %27, i64 %.071
   %42 = load i64, ptr %41, align 8, !tbaa !107
   %43 = add i64 %42, %spec.select67
   store i64 %43, ptr %41, align 8, !tbaa !107
@@ -4920,7 +4919,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_tz_str(ptr noundef readonly c
   %21 = phi i8 [ %28, %26 ], [ %20, %18 ]
   %.03546.i = phi ptr [ %27, %26 ], [ %19, %18 ]
   %22 = zext i8 %21 to i64
-  %23 = getelementptr i32, ptr @_Py_ctype_table, i64 %22
+  %23 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %.fr42.i = freeze i32 %24
   %25 = and i32 %.fr42.i, 7
@@ -4948,7 +4947,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %.3.i = phi ptr [ %35, %.preheader.i ], [ %13, %15 ]
   %30 = load i8, ptr %.3.i, align 1, !tbaa !20
   %31 = zext i8 %30 to i64
-  %32 = getelementptr i32, ptr @_Py_ctype_table, i64 %31
+  %32 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %33, 3
   %.not.i37 = icmp eq i32 %34, 0
@@ -5009,7 +5008,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %58 = phi i8 [ %65, %63 ], [ %57, %55 ]
   %.03546.i47 = phi ptr [ %64, %63 ], [ %56, %55 ]
   %59 = zext i8 %58 to i64
-  %60 = getelementptr i32, ptr @_Py_ctype_table, i64 %59
+  %60 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !10
   %.fr42.i48 = freeze i32 %61
   %62 = and i32 %.fr42.i48, 7
@@ -5037,7 +5036,7 @@ switch.early.test.i53:                            ; preds = %.lr.ph.i46
   %.3.i39 = phi ptr [ %72, %.preheader.i38 ], [ %53, %52 ]
   %67 = load i8, ptr %.3.i39, align 1, !tbaa !20
   %68 = zext i8 %67 to i64
-  %69 = getelementptr i32, ptr @_Py_ctype_table, i64 %68
+  %69 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = and i32 %70, 3
   %.not.i40 = icmp eq i32 %71, 0
@@ -5135,7 +5134,7 @@ switch.early.test.i53:                            ; preds = %.lr.ph.i46
   %109 = getelementptr i8, ptr %99, i64 2
   %110 = load i8, ptr %109, align 1, !tbaa !20
   %111 = zext i8 %110 to i64
-  %112 = getelementptr i32, ptr @_Py_ctype_table, i64 %111
+  %112 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !10
   %114 = and i32 %113, 4
   %.not.i104.i = icmp eq i32 %114, 0
@@ -5149,7 +5148,7 @@ switch.early.test.i53:                            ; preds = %.lr.ph.i46
   %116 = getelementptr i8, ptr %123, i64 1
   %117 = load i8, ptr %116, align 1, !tbaa !20
   %118 = zext i8 %117 to i64
-  %119 = getelementptr i32, ptr @_Py_ctype_table, i64 %118
+  %119 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !10
   %121 = and i32 %120, 4
   %.not.i.i = icmp eq i32 %121, 0
@@ -5177,7 +5176,7 @@ parse_digits.exit.thread.i:                       ; preds = %115, %.lr.ph.i56
 .preheader79.i:                                   ; preds = %parse_digits.exit.thread.i
   %131 = load i8, ptr %129, align 1, !tbaa !20
   %132 = zext i8 %131 to i64
-  %133 = getelementptr i32, ptr @_Py_ctype_table, i64 %132
+  %133 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !10
   %135 = and i32 %134, 4
   %.not.i35112.i = icmp eq i32 %135, 0
@@ -5196,7 +5195,7 @@ parse_digits.exit37.thread.i:                     ; preds = %.preheader79.i
 .preheader.i57:                                   ; preds = %parse_digits.exit37.thread.i
   %140 = load i8, ptr %138, align 1, !tbaa !20
   %141 = zext i8 %140 to i64
-  %142 = getelementptr i32, ptr @_Py_ctype_table, i64 %141
+  %142 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !10
   %144 = and i32 %143, 4
   %.not.i40122.i = icmp eq i32 %144, 0
@@ -5245,7 +5244,7 @@ parse_digits.exit42.thread.i:                     ; preds = %.preheader.i57
   %.promoted.i43.i = phi ptr [ %161, %160 ], [ %105, %104 ]
   %.016.i = phi i32 [ 1, %160 ], [ 0, %104 ]
   %164 = zext i8 %163 to i64
-  %165 = getelementptr i32, ptr @_Py_ctype_table, i64 %164
+  %165 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !10
   %167 = and i32 %166, 4
   %.not.i45132.i = icmp eq i32 %167, 0
@@ -5259,7 +5258,7 @@ parse_digits.exit42.thread.i:                     ; preds = %.preheader.i57
   %169 = getelementptr i8, ptr %176, i64 1
   %170 = load i8, ptr %169, align 1, !tbaa !20
   %171 = zext i8 %170 to i64
-  %172 = getelementptr i32, ptr @_Py_ctype_table, i64 %171
+  %172 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !10
   %174 = and i32 %173, 4
   %.not.i45.i = icmp eq i32 %174, 0
@@ -5309,7 +5308,7 @@ parse_digits.exit47.thread.i:                     ; preds = %168, %.lr.ph135.i.p
   store i32 0, ptr %5, align 4, !tbaa !10
   %192 = load i8, ptr %.029.i.i, align 1, !tbaa !20
   %193 = zext i8 %192 to i64
-  %194 = getelementptr i32, ptr @_Py_ctype_table, i64 %193
+  %194 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !10
   %196 = and i32 %195, 4
   %.not.i.i142.i = icmp eq i32 %196, 0
@@ -5323,7 +5322,7 @@ parse_digits.exit47.thread.i:                     ; preds = %168, %.lr.ph135.i.p
   %198 = getelementptr i8, ptr %.2.i143.i, i64 1
   %199 = load i8, ptr %198, align 1, !tbaa !20
   %200 = zext i8 %199 to i64
-  %201 = getelementptr i32, ptr @_Py_ctype_table, i64 %200
+  %201 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !10
   %203 = and i32 %202, 4
   %.not.i.i.i = icmp eq i32 %203, 0
@@ -5361,7 +5360,7 @@ parse_digits.exit.thread.i.i:                     ; preds = %197, %.lr.ph145.i
   %exitcond.not.i18.i.i = phi i1 [ false, %214 ], [ true, %223 ]
   %218 = load i8, ptr %.4.i.i, align 1, !tbaa !20
   %219 = zext i8 %218 to i64
-  %220 = getelementptr i32, ptr @_Py_ctype_table, i64 %219
+  %220 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !10
   %222 = and i32 %221, 4
   %.not.i17.i.i = icmp eq i32 %222, 0
@@ -5396,7 +5395,7 @@ parse_digits.exit19.thread.i.i:                   ; preds = %223
   %exitcond.not.i23.i.i = phi i1 [ false, %233 ], [ true, %242 ]
   %237 = load i8, ptr %.6.i.i, align 1, !tbaa !20
   %238 = zext i8 %237 to i64
-  %239 = getelementptr i32, ptr @_Py_ctype_table, i64 %238
+  %239 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !10
   %241 = and i32 %240, 4
   %.not.i22.i.i = icmp eq i32 %241, 0
@@ -5918,7 +5917,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_tz_delta(ptr noundef nonnull 
   %.01217.i.i = phi i32 [ 0, %8 ], [ %21, %16 ]
   %11 = load i8, ptr %.2.i, align 1, !tbaa !20
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i32, ptr @_Py_ctype_table, i64 %12
+  %13 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = and i32 %14, 4
   %.not.i.i = icmp eq i32 %15, 0
@@ -5957,7 +5956,7 @@ parse_digits.exit.thread.i:                       ; preds = %16, %parse_digits.e
   %.4.i = getelementptr i8, ptr %.332.i.pn, i64 1
   %30 = load i8, ptr %.4.i, align 1, !tbaa !20
   %31 = zext i8 %30 to i64
-  %32 = getelementptr i32, ptr @_Py_ctype_table, i64 %31
+  %32 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %33, 4
   %.not.i17.i = icmp eq i32 %34, 0
@@ -5987,7 +5986,7 @@ parse_digits.exit19.thread.i:                     ; preds = %35
   %exitcond.not.i23.i = phi i1 [ false, %43 ], [ true, %52 ]
   %47 = load i8, ptr %.6.i, align 1, !tbaa !20
   %48 = zext i8 %47 to i64
-  %49 = getelementptr i32, ptr @_Py_ctype_table, i64 %48
+  %49 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !10
   %51 = and i32 %50, 4
   %.not.i22.i = icmp eq i32 %51, 0
@@ -6059,7 +6058,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_transition_time(ptr noundef n
   %.01217.i = phi i32 [ 0, %10 ], [ %24, %18 ]
   %13 = load i8, ptr %.2, align 1, !tbaa !20
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i32, ptr @_Py_ctype_table, i64 %14
+  %15 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !10
   %17 = and i32 %16, 4
   %.not.i = icmp eq i32 %17, 0
@@ -6102,7 +6101,7 @@ parse_digits.exit.thread:                         ; preds = %18, %parse_digits.e
   %exitcond.not.i18 = phi i1 [ false, %30 ], [ true, %39 ]
   %34 = load i8, ptr %.4, align 1, !tbaa !20
   %35 = zext i8 %34 to i64
-  %36 = getelementptr i32, ptr @_Py_ctype_table, i64 %35
+  %36 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !10
   %38 = and i32 %37, 4
   %.not.i17 = icmp eq i32 %38, 0
@@ -6137,7 +6136,7 @@ parse_digits.exit19.thread:                       ; preds = %39
   %exitcond.not.i23 = phi i1 [ false, %49 ], [ true, %58 ]
   %53 = load i8, ptr %.6, align 1, !tbaa !20
   %54 = zext i8 %53 to i64
-  %55 = getelementptr i32, ptr @_Py_ctype_table, i64 %54
+  %55 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !10
   %57 = and i32 %56, 4
   %.not.i22 = icmp eq i32 %57, 0
@@ -6202,7 +6201,7 @@ define internal fastcc ptr @find_ttinfo(ptr noundef readnone captures(ret: addre
   %17 = load i8, ptr %16, align 1, !tbaa !115
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = zext i8 %17 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i64, ptr %22, align 8, !tbaa !106
@@ -6221,7 +6220,7 @@ define internal fastcc ptr @find_ttinfo(ptr noundef readnone captures(ret: addre
   br label %find_tzrule_ttinfo.exit
 
 30:                                               ; preds = %24
-  %31 = getelementptr i64, ptr %21, i64 %23
+  %31 = getelementptr [8 x i8], ptr %21, i64 %23
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !107
   %34 = icmp sgt i64 %.pre, %33
@@ -6287,7 +6286,7 @@ define internal fastcc ptr @find_ttinfo(ptr noundef readnone captures(ret: addre
   %.01012.i = phi i64 [ %.111.i, %.lr.ph.i ], [ %23, %30 ]
   %73 = add i64 %.01012.i, %.013.i
   %74 = lshr i64 %73, 1
-  %75 = getelementptr i64, ptr %21, i64 %74
+  %75 = getelementptr [8 x i8], ptr %21, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !107
   %77 = icmp sgt i64 %76, %.pre
   %78 = add nuw i64 %74, 1
@@ -6299,7 +6298,7 @@ define internal fastcc ptr @find_ttinfo(ptr noundef readnone captures(ret: addre
 _bisect.exit:                                     ; preds = %.lr.ph.i
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %81 = load ptr, ptr %80, align 8, !tbaa !80
-  %82 = getelementptr ptr, ptr %81, i64 %.111.i
+  %82 = getelementptr [8 x i8], ptr %81, i64 %.111.i
   %83 = getelementptr i8, ptr %82, i64 -8
   %84 = load ptr, ptr %83, align 8, !tbaa !19
   br label %find_tzrule_ttinfo.exit
@@ -6348,7 +6347,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_local_timestamp(ptr noundef %0,
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %29 = zext i8 %28 to i64
   %30 = zext i8 %17 to i64
-  %31 = getelementptr i32, ptr @DAYS_BEFORE_MONTH, i64 %30
+  %31 = getelementptr [4 x i8], ptr @DAYS_BEFORE_MONTH, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !10
   %33 = icmp ugt i8 %17, 2
   br i1 %33, label %34, label %ymd_to_ord.exit

@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<std::array<open_spiel::havannah::Move, 6>, std::allocator<std::array<open_spiel::havannah::Move, 6>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::array<open_spiel::havannah::Move, 6>, std::allocator<std::array<open_spiel::havannah::Move, 6>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<open_spiel::havannah::Move, 6>, std::allocator<std::array<open_spiel::havannah::Move, 6>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::array<open_spiel::havannah::Move, 6>, std::allocator<std::array<open_spiel::havannah::Move, 6>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.open_spiel::havannah::HavannahState::Cell" = type { i8, i8, i16, i16, i8, i8 }
 %"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
 %"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
@@ -1371,7 +1370,7 @@ define noundef i32 @_ZNK10open_spiel8havannah13HavannahState4Cell10NumCornersEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i8, ptr %2, align 2
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 %4
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -1381,7 +1380,7 @@ define noundef i32 @_ZNK10open_spiel8havannah13HavannahState4Cell8NumEdgesEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel8havannah12_GLOBAL__N_115kBitsSetTable64E, i64 %4
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -1547,7 +1546,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %22, %40, %53, %_ZNS
   br i1 %87, label %88, label %_ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE6resizeEm.exit.i
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds %"class.std::vector.19", ptr %75, i64 %82
+  %89 = getelementptr inbounds [24 x i8], ptr %75, i64 %82
   %.not.i.i.i25 = icmp eq ptr %74, %89
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -1577,7 +1576,7 @@ _ZSt8_DestroyIPSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS5_EES7_Ev
 
 _ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE6resizeEm.exit.i: ; preds = %84, %_ZSt8_DestroyIPSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS5_EES7_EvT_S9_RSaIT0_E.exit.i.i.i, %88, %86, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   %98 = load ptr, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_113neighbor_listE, align 8
-  %99 = getelementptr inbounds %"class.std::vector.19", ptr %98, i64 %73
+  %99 = getelementptr inbounds [24 x i8], ptr %98, i64 %73
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load ptr, ptr %101, align 8
@@ -1618,7 +1617,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.pr
 
 113:                                              ; preds = %113, %110
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %113 ], [ 0, %110 ]
-  %114 = getelementptr inbounds nuw %"struct.open_spiel::havannah::Move", ptr @_ZN10open_spiel8havannah12_GLOBAL__N_116neighbor_offsetsE, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr @_ZN10open_spiel8havannah12_GLOBAL__N_116neighbor_offsetsE, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.us.i.i = load i8, ptr %114, align 2, !noalias !6
   %.sroa.2.0..sroa_idx.us.i.i = getelementptr inbounds nuw i8, ptr %114, i64 1
   %.sroa.2.0.copyload.us.i.i = load i8, ptr %.sroa.2.0..sroa_idx.us.i.i, align 1, !noalias !6
@@ -1641,9 +1640,9 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.pr
   %127 = mul nsw i32 %118, %63
   %128 = add nuw nsw i32 %127, %116
   %129 = load ptr, ptr %6, align 8, !alias.scope !6
-  %130 = getelementptr %"struct.std::array.35", ptr %129, i64 %indvars.iv30.i.i
-  %131 = getelementptr %"struct.std::array.35", ptr %130, i64 %108
-  %132 = getelementptr inbounds nuw %"struct.open_spiel::havannah::Move", ptr %131, i64 %indvars.iv.i.i
+  %130 = getelementptr [24 x i8], ptr %129, i64 %indvars.iv30.i.i
+  %131 = getelementptr [24 x i8], ptr %130, i64 %108
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv.i.i
   %133 = shl i32 %128, 16
   %.sroa.3.0.insert.shift.us.i.i = select i1 %or.cond27.i.i.us.i.i, i32 %133, i32 -131072
   %.sroa.2.0.insert.ext.us.i.i = shl i32 %118, 8
@@ -1679,7 +1678,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.pr
 
 _ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i: ; preds = %._crit_edge.us.i.i, %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE6resizeEm.exit.preheader.i.i
   %143 = load ptr, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_113neighbor_listE, align 8
-  %144 = getelementptr inbounds %"class.std::vector.19", ptr %143, i64 %73
+  %144 = getelementptr inbounds [24 x i8], ptr %143, i64 %73
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
@@ -1715,7 +1714,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EEaSEOS6_.exit.i: ;
 
 162:                                              ; preds = %157, %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EEaSEOS6_.exit.i, %_ZN10open_spiel8havannah12_GLOBAL__N_113gen_neighborsEi.exit.i, %_ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE6resizeEm.exit.i
   %163 = load ptr, ptr @_ZN10open_spiel8havannah12_GLOBAL__N_113neighbor_listE, align 8
-  %164 = getelementptr inbounds %"class.std::vector.19", ptr %163, i64 %73
+  %164 = getelementptr inbounds [24 x i8], ptr %163, i64 %73
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %164, ptr %165, align 8
@@ -1871,7 +1870,7 @@ _ZNK10open_spiel8havannah4Move4EdgeEi.exit:       ; preds = %224, %.thread.i, %2
   %.sroa.0.0.insert.ext = phi i64 [ 2, %224 ], [ 2, %.thread ], [ 2, %thread-pre-split.i ], [ 2, %218 ], [ 2, %219 ], [ 2, %.thread.i ], [ 4, %175 ]
   %.0.i40 = phi i8 [ %.0.i.ph43, %224 ], [ %.0.i.ph44, %.thread ], [ %.0.i.ph43, %thread-pre-split.i ], [ %.0.i.ph43, %218 ], [ %.0.i.ph43, %219 ], [ %.0.i.ph43, %.thread.i ], [ 0, %175 ]
   %.0.i27 = phi i64 [ %225, %224 ], [ 72057594037927936, %.thread ], [ 144115188075855872, %thread-pre-split.i ], [ 288230376151711744, %218 ], [ 576460752303423488, %219 ], [ 1152921504606846976, %.thread.i ], [ 0, %175 ]
-  %226 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %176, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv
   %.sroa.5.0.insert.ext = zext nneg i8 %.0.i40 to i64
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 48
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.0.i27
@@ -2084,9 +2083,9 @@ _ZNSt6vectorIN10open_spiel8havannah13HavannahState4CellESaIS3_EE11_S_relocateEPS
 
 _ZNSt12_Vector_baseIN10open_spiel8havannah13HavannahState4CellESaIS3_EE13_M_deallocateEPS3_m.exit32.i: ; preds = %34, %_ZNSt6vectorIN10open_spiel8havannah13HavannahState4CellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %29, ptr %0, align 8
-  %36 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %12
   store ptr %36, ptr %3, align 8
-  %37 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIN10open_spiel8havannah13HavannahState4CellESaIS3_EE17_M_default_appendEm.exit
 
@@ -2095,7 +2094,7 @@ _ZNSt12_Vector_baseIN10open_spiel8havannah13HavannahState4CellESaIS3_EE13_M_deal
   br i1 %39, label %40, label %_ZNSt6vectorIN10open_spiel8havannah13HavannahState4CellESaIS3_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds %"struct.open_spiel::havannah::HavannahState::Cell", ptr %5, i64 %1
+  %41 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN10open_spiel8havannah13HavannahState4CellESaIS3_EE17_M_default_appendEm.exit, label %42
 
@@ -2310,7 +2309,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %8, %9
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i: ; preds = %27
   %28 = shl nuw nsw i64 %25, 3
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #29
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %25
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %25
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
 _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %27, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
@@ -2325,7 +2324,7 @@ _ZNSt6vectorIlSaIlEE7reserveEm.exit:              ; preds = %27, %_ZNSt12_Vector
   %.sroa.0.258 = phi ptr [ %.sroa.0.3, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %.sroa.12.3, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
   %.sroa.12.057 = phi ptr [ %.sroa.12.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %.sroa.12.3, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
   %.sroa.24.256 = phi ptr [ %.sroa.24.3, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %.sroa.24.5, %_ZNSt6vectorIlSaIlEE7reserveEm.exit ]
-  %32 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load i8, ptr %32, align 2
   %34 = icmp eq i8 %33, 2
   br i1 %34, label %35, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
@@ -2386,7 +2385,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %53, %.no
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
-  %56 = getelementptr inbounds nuw i64, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, %36, %.lr.ph
@@ -2480,7 +2479,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i14: ; preds = %92, %.
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i16
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i16: ; preds = %93, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i14
-  %94 = getelementptr inbounds nuw i64, ptr %89, i64 %87
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit19
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit19:         ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i16, %76
@@ -3136,7 +3135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit113: ; 
   %.140 = phi i8 [ 1, %184 ], [ 0, %.invoke ]
   %187 = sext i16 %168 to i64
   %188 = load ptr, ptr %124, align 8
-  %189 = getelementptr inbounds %"struct.open_spiel::havannah::HavannahState::Cell", ptr %188, i64 %187
+  %189 = getelementptr inbounds [8 x i8], ptr %188, i64 %187
   %190 = load i8, ptr %189, align 2
   switch i8 %190, label %195 [
     i8 2, label %.invoke131
@@ -3861,7 +3860,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %57 = phi ptr [ %50, %.lr.ph ], [ %77, %76 ]
   %58 = phi ptr [ %51, %.lr.ph ], [ %78, %76 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %59 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %60 = load i8, ptr %59, align 2
   %61 = icmp ult i8 %60, 3
   br i1 %61, label %62, label %76
@@ -3892,7 +3891,7 @@ _ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit: ; preds = 
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %.06.i, %_ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit ], [ %65, %66 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit ], [ 1, %66 ]
   %.078.i.i = phi i32 [ 0, %_ZN10open_spiel8havannah14PlayerRelativeENS0_14HavannahPlayerEi.exit ], [ %71, %66 ]
-  %68 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i.i
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, %.078.i.i
   %71 = add nsw i32 %70, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -3908,7 +3907,7 @@ _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %66
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
-  %75 = getelementptr inbounds float, ptr %2, i64 %72
+  %75 = getelementptr inbounds [4 x i8], ptr %2, i64 %72
   store float 1.000000e+00, ptr %75, align 4
   %.pre24 = load ptr, ptr %33, align 8
   %.pre25 = load ptr, ptr %32, align 8
@@ -4063,7 +4062,7 @@ _ZNK10open_spiel8havannah13HavannahState9AllowSwapEv.exit.thread: ; preds = %58
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %73 = zext nneg i32 %46 to i64
   %74 = load ptr, ptr %72, align 8
-  %75 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %73
   %76 = load i8, ptr %75, align 2
   store i8 %76, ptr %12, align 1
   store i8 2, ptr %13, align 1
@@ -4100,12 +4099,12 @@ _ZNK10open_spiel8havannah13HavannahState9AllowSwapEv.exit.thread: ; preds = %58
   %88 = phi i8 [ 1, %._crit_edge ], [ %.pre, %82 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %91 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %87, i64 %.pre-phi
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pre-phi
   store i8 %88, ptr %91, align 2
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw %"struct.std::array.35", ptr %94, i64 %.pre-phi
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %.pre-phi
   br label %96
 
 96:                                               ; preds = %86, %181
@@ -4125,14 +4124,14 @@ _ZNK10open_spiel8havannah13HavannahState9AllowSwapEv.exit.thread: ; preds = %58
   %102 = load i8, ptr %89, align 8
   %103 = zext nneg i16 %99 to i64
   %104 = load ptr, ptr %90, align 8
-  %105 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %103
   %106 = load i8, ptr %105, align 2
   %107 = icmp eq i8 %102, %106
   br i1 %107, label %108, label %181
 
 108:                                              ; preds = %101
   %109 = zext nneg i16 %99 to i32
-  %110 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %104, i64 %.pre-phi
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.pre-phi
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 2
   %112 = load i16, ptr %111, align 2
   %.not.i.i = icmp eq i16 %112, %47
@@ -4145,12 +4144,12 @@ _ZNK10open_spiel8havannah13HavannahState9AllowSwapEv.exit.thread: ; preds = %58
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
   %.1.i.i = phi i32 [ %118, %.preheader.i.i ], [ %113, %.preheader.i.i.preheader ]
   %114 = zext nneg i32 %.1.i.i to i64
-  %115 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %104, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 2
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = zext i16 %117 to i64
-  %120 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %104, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 2
   %122 = load i16, ptr %121, align 2
   %.not12.i.i = icmp eq i16 %117, %122
@@ -4164,7 +4163,7 @@ _ZNK10open_spiel8havannah13HavannahState9AllowSwapEv.exit.thread: ; preds = %58
 _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit.i: ; preds = %123, %108
   %124 = phi ptr [ %.pre.i, %123 ], [ %104, %108 ]
   %.0.i.i = phi i32 [ %118, %123 ], [ %46, %108 ]
-  %125 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %124, i64 %103
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %103
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 2
   %127 = load i16, ptr %126, align 2
   %.not.i4.i = icmp eq i16 %99, %127
@@ -4177,12 +4176,12 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit.i: ; preds = %12
 .preheader.i5.i:                                  ; preds = %.preheader.i5.i.preheader, %.preheader.i5.i
   %.1.i6.i = phi i32 [ %133, %.preheader.i5.i ], [ %128, %.preheader.i5.i.preheader ]
   %129 = zext nneg i32 %.1.i6.i to i64
-  %130 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %124, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2
   %132 = load i16, ptr %131, align 2
   %133 = zext i16 %132 to i32
   %134 = zext i16 %132 to i64
-  %135 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %124, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %137 = load i16, ptr %136, align 2
   %.not12.i7.i = icmp eq i16 %132, %137
@@ -4200,11 +4199,11 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9.i: ; preds = %1
 140:                                              ; preds = %_ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9.i
   %141 = zext nneg i32 %.0.i.i to i64
   %142 = load ptr, ptr %90, align 8
-  %143 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %141
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %145 = load i16, ptr %144, align 2
   %146 = zext nneg i32 %.0.i8.i to i64
-  %147 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %142, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
   %149 = load i16, ptr %148, align 2
   %150 = icmp ult i16 %145, %149
@@ -4212,33 +4211,33 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9.i: ; preds = %1
   %spec.select22.i = select i1 %150, i32 %.0.i.i, i32 %.0.i8.i
   %151 = trunc nuw i32 %spec.select.i to i16
   %152 = zext nneg i32 %spec.select22.i to i64
-  %153 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %142, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 2
   store i16 %151, ptr %154, align 2
   %155 = load ptr, ptr %90, align 8
-  %156 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %155, i64 %152
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %152
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %158 = load i16, ptr %157, align 2
   %159 = zext nneg i32 %spec.select.i to i64
-  %160 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %155, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i16, ptr %161, align 2
   %163 = add i16 %162, %158
   store i16 %163, ptr %161, align 2
   %164 = load ptr, ptr %90, align 8
-  %165 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %164, i64 %152
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %152
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 6
   %167 = load i8, ptr %166, align 2
-  %168 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %164, i64 %159
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %159
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 6
   %170 = load i8, ptr %169, align 2
   %171 = or i8 %170, %167
   store i8 %171, ptr %169, align 2
   %172 = load ptr, ptr %90, align 8
-  %173 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %172, i64 %152
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %152
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 7
   %175 = load i8, ptr %174, align 1
-  %176 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %172, i64 %159
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %159
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 7
   %178 = load i8, ptr %177, align 1
   %179 = or i8 %178, %175
@@ -4258,7 +4257,7 @@ _ZN10open_spiel8havannah13HavannahState10JoinGroupsEii.exit: ; preds = %_ZN10ope
 
 182:                                              ; preds = %181
   %183 = load ptr, ptr %90, align 8
-  %184 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %183, i64 %.pre-phi
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %.pre-phi
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 2
   %186 = load i16, ptr %185, align 2
   %.not.i = icmp eq i16 %186, %47
@@ -4271,12 +4270,12 @@ _ZN10open_spiel8havannah13HavannahState10JoinGroupsEii.exit: ; preds = %_ZN10ope
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %.1.i = phi i32 [ %192, %.preheader.i ], [ %187, %.preheader.i.preheader ]
   %188 = zext nneg i32 %.1.i to i64
-  %189 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %183, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 2
   %191 = load i16, ptr %190, align 2
   %192 = zext i16 %191 to i32
   %193 = zext i16 %191 to i64
-  %194 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %183, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 2
   %.not12.i = icmp eq i16 %191, %196
@@ -4291,7 +4290,7 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit: ; preds = %182,
   %198 = phi ptr [ %.pre43, %197 ], [ %183, %182 ]
   %.0.i = phi i32 [ %192, %197 ], [ %46, %182 ]
   %199 = zext nneg i32 %.0.i to i64
-  %200 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 7
   %202 = load i8, ptr %201, align 1
   %203 = zext nneg i8 %202 to i64
@@ -4560,7 +4559,7 @@ define noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState10JoinGroupsEi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.open_spiel::havannah::HavannahState::Cell", ptr %6, i64 %5
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
@@ -4570,12 +4569,12 @@ define noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState10JoinGroupsEi
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %.1.i = phi i32 [ %15, %.preheader.i ], [ %10, %3 ]
   %11 = zext nneg i32 %.1.i to i64
-  %12 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = zext i16 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i16, ptr %18, align 2
   %.not12.i = icmp eq i16 %14, %19
@@ -4590,7 +4589,7 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit: ; preds = %3, %
   %21 = phi ptr [ %.pre, %20 ], [ %6, %3 ]
   %.0.i = phi i32 [ %15, %20 ], [ %1, %3 ]
   %22 = sext i32 %2 to i64
-  %23 = getelementptr inbounds %"struct.open_spiel::havannah::HavannahState::Cell", ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
@@ -4600,12 +4599,12 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit: ; preds = %3, %
 .preheader.i5:                                    ; preds = %_ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit, %.preheader.i5
   %.1.i6 = phi i32 [ %31, %.preheader.i5 ], [ %26, %_ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit ]
   %27 = zext nneg i32 %.1.i6 to i64
-  %28 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = zext i16 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %21, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %35 = load i16, ptr %34, align 2
   %.not12.i7 = icmp eq i16 %30, %35
@@ -4623,11 +4622,11 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9: ; preds = %_ZN
 38:                                               ; preds = %_ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9
   %39 = zext nneg i32 %.0.i to i64
   %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i16, ptr %42, align 2
   %44 = zext nneg i32 %.0.i8 to i64
-  %45 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %40, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i16, ptr %46, align 2
   %48 = icmp ult i16 %43, %47
@@ -4635,33 +4634,33 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9: ; preds = %_ZN
   %spec.select22 = select i1 %48, i32 %.0.i, i32 %.0.i8
   %49 = trunc nuw i32 %spec.select to i16
   %50 = zext nneg i32 %spec.select22 to i64
-  %51 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %40, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store i16 %49, ptr %52, align 2
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %53, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i16, ptr %55, align 2
   %57 = zext nneg i32 %spec.select to i64
-  %58 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %53, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i16, ptr %59, align 2
   %61 = add i16 %60, %56
   store i16 %61, ptr %59, align 2
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %62, i64 %50
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %50
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   %65 = load i8, ptr %64, align 2
-  %66 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %62, i64 %57
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %57
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6
   %68 = load i8, ptr %67, align 2
   %69 = or i8 %68, %65
   store i8 %69, ptr %67, align 2
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %70, i64 %50
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %50
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 7
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %70, i64 %57
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %57
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 7
   %76 = load i8, ptr %75, align 1
   %77 = or i8 %76, %73
@@ -4677,7 +4676,7 @@ define noundef range(i32 0, 65536) i32 @_ZN10open_spiel8havannah13HavannahState1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.open_spiel::havannah::HavannahState::Cell", ptr %5, i64 %4
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
@@ -4687,12 +4686,12 @@ define noundef range(i32 0, 65536) i32 @_ZN10open_spiel8havannah13HavannahState1
 .preheader:                                       ; preds = %2, %.preheader
   %.1 = phi i32 [ %14, %.preheader ], [ %9, %2 ]
   %10 = zext nneg i32 %.1 to i64
-  %11 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = zext i16 %13 to i64
-  %16 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2
   %.not12 = icmp eq i16 %13, %18
@@ -4718,7 +4717,7 @@ define noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState12CheckRingDFS
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = zext nneg i16 %6 to i64
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %15 = load i8, ptr %12, align 2
@@ -4748,9 +4747,9 @@ define noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState12CheckRingDFS
   %27 = load i16, ptr %5, align 2
   %28 = sext i16 %27 to i64
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds %"struct.std::array.35", ptr %29, i64 %28
+  %30 = getelementptr inbounds [24 x i8], ptr %29, i64 %28
   %31 = sext i32 %25 to i64
-  %32 = getelementptr inbounds %"struct.open_spiel::havannah::Move", ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   %33 = add nsw i32 %25, -1
   %34 = add nsw i32 %25, 1
   %35 = tail call noundef zeroext i1 @_ZN10open_spiel8havannah13HavannahState12CheckRingDFSERKNS0_4MoveEii(ptr noundef nonnull align 8 dereferenceable(122) %0, ptr noundef nonnull align 2 dereferenceable(4) %32, i32 noundef %33, i32 noundef %34)
@@ -6699,7 +6698,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
@@ -6764,7 +6763,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerRewardEi(ptr n
   br label %33
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
-  %27 = getelementptr inbounds double, ptr %13, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -6868,7 +6867,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerReturnEi(ptr n
   br label %44
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %23
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -7105,7 +7104,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %0, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -7185,7 +7184,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %27
@@ -8541,9 +8540,9 @@ _ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE11_S_r
 
 _ZNSt12_Vector_baseISt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS5_EESaIS7_EE13_M_deallocateEPS7_m.exit37: ; preds = %_ZNSt6vectorIS_ISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %38
   store ptr %26, ptr %0, align 8
-  %42 = getelementptr inbounds nuw %"class.std::vector.19", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw %"class.std::vector.19", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -8676,9 +8675,9 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE11_S_relocateEPS4
 
 _ZNSt12_Vector_baseISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE13_M_deallocateEPS4_m.exit45: ; preds = %_ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %41
   store ptr %31, ptr %0, align 8
-  %43 = getelementptr inbounds nuw %"struct.std::array.35", ptr %32, i64 %1
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %1
   store ptr %43, ptr %4, align 8
-  %44 = getelementptr inbounds nuw %"struct.std::array.35", ptr %31, i64 %29
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %29
   store ptr %44, ptr %11, align 8
   br label %45
 
@@ -8721,7 +8720,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -8802,7 +8801,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %25
@@ -10286,7 +10285,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEES6_ET0_T
   %35 = sub i64 %34, %5
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i64, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %35, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i
 
@@ -10361,16 +10360,16 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %24 = shl i64 %.034.i.i.i.i, 1
   %25 = add i64 %24, 2
-  %26 = getelementptr inbounds i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %0, i64 %25
   %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds i64, ptr %0, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %0, i64 %27
   %29 = load i64, ptr %26, align 8
   %30 = load i64, ptr %28, align 8
   %31 = icmp slt i64 %29, %30
   %spec.select.i.i.i.i = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds i64, ptr %0, i64 %spec.select.i.i.i.i
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i64, ptr %0, i64 %.034.i.i.i.i
+  %34 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034.i.i.i.i
   store i64 %33, ptr %34, align 8
   %35 = icmp slt i64 %spec.select.i.i.i.i, %22
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !75
@@ -10390,9 +10389,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 .thread.i.i.i:                                    ; preds = %38
   %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i64, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store i64 %45, ptr %46, align 8
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -10408,20 +10407,20 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i56.i.i.i, %51 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i56.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %48 = getelementptr inbounds nuw i64, ptr %0, i64 %.0920.i.i56.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i56.i.i.i
   %49 = load i64, ptr %48, align 8
   %50 = icmp slt i64 %49, %16
   br i1 %50, label %51, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds i64, ptr %0, i64 %.019.i.i.i.i.i
+  %52 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i.i.i.i.i
   store i64 %49, ptr %52, align 8
   %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !76
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
-  %53 = getelementptr inbounds i64, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i64 %16, ptr %53, align 8
   %54 = icmp sgt i64 %19, 8
   br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !77
@@ -10429,7 +10428,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops1
 55:                                               ; preds = %11
   %56 = add nsw i64 %.018, -1
   %57 = lshr i64 %12, 1
-  %58 = getelementptr inbounds nuw i64, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %storemerge17, i64 -8
   %60 = load i64, ptr %10, align 8
   %61 = load i64, ptr %58, align 8
@@ -10553,13 +10552,13 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6
 
 .split.split.preheader:                           ; preds = %.split
   %16 = or disjoint i64 %9, 1
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
   %.0.us = phi i64 [ %42, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %10, %.split ]
-  %phi.call.us = getelementptr inbounds i64, ptr %0, i64 %.0.us
+  %phi.call.us = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.us
   %19 = load i64, ptr %phi.call.us, align 8
   %20 = icmp slt i64 %.0.us, %12
   br i1 %20, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
@@ -10568,16 +10567,16 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6
   %.034.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.0.us, %.split.split.us ]
   %21 = shl i64 %.034.i.us, 1
   %22 = add i64 %21, 2
-  %23 = getelementptr inbounds i64, ptr %0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %22
   %24 = or disjoint i64 %21, 1
-  %25 = getelementptr inbounds i64, ptr %0, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
   %26 = load i64, ptr %23, align 8
   %27 = load i64, ptr %25, align 8
   %28 = icmp slt i64 %26, %27
   %spec.select.i.us = select i1 %28, i64 %24, i64 %22
-  %29 = getelementptr inbounds i64, ptr %0, i64 %spec.select.i.us
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.us
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i64, ptr %0, i64 %.034.i.us
+  %31 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034.i.us
   store i64 %30, ptr %31, align 8
   %32 = icmp slt i64 %spec.select.i.us, %12
   br i1 %32, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !75
@@ -10590,20 +10589,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPlSt6
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %37 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %.0920.i.i.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i.us
   %35 = load i64, ptr %34, align 8
   %36 = icmp slt i64 %35, %19
   br i1 %36, label %37, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 37:                                               ; preds = %.lr.ph.i.i.us
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %.019.i.i.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.019.i.i.us
   store i64 %35, ptr %38, align 8
   %39 = icmp sgt i64 %.0920.i.i.us, %.0.us
   br i1 %39, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !76
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %37, %.split.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.us, %.split.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %37 ]
-  %40 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.lcssa.i.i.us
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.us
   store i64 %19, ptr %40, align 8
   %41 = icmp eq i64 %.0.us, 0
   %42 = add nsw i64 %.0.us, -1
@@ -10611,7 +10610,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5_
 
 .split.split:                                     ; preds = %.split.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
   %.0 = phi i64 [ %70, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %10, %.split.split.preheader ]
-  %phi.call = getelementptr inbounds i64, ptr %0, i64 %.0
+  %phi.call = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   %43 = load i64, ptr %phi.call, align 8
   %44 = icmp slt i64 %.0, %12
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
@@ -10620,16 +10619,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5_
   %.034.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.0, %.split.split ]
   %45 = shl i64 %.034.i, 1
   %46 = add i64 %45, 2
-  %47 = getelementptr inbounds i64, ptr %0, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %0, i64 %46
   %48 = or disjoint i64 %45, 1
-  %49 = getelementptr inbounds i64, ptr %0, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %0, i64 %48
   %50 = load i64, ptr %47, align 8
   %51 = load i64, ptr %49, align 8
   %52 = icmp slt i64 %50, %51
   %spec.select.i = select i1 %52, i64 %48, i64 %46
-  %53 = getelementptr inbounds i64, ptr %0, i64 %spec.select.i
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i64, ptr %0, i64 %.034.i
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034.i
   store i64 %54, ptr %55, align 8
   %56 = icmp slt i64 %spec.select.i, %12
   br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !75
@@ -10653,20 +10652,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %65 ], [ %.1.i, %60 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %.0920.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i
   %63 = load i64, ptr %62, align 8
   %64 = icmp slt i64 %63, %43
   br i1 %64, label %65, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 65:                                               ; preds = %.lr.ph.i.i
-  %66 = getelementptr inbounds nuw i64, ptr %0, i64 %.019.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.019.i.i
   store i64 %63, ptr %66, align 8
   %67 = icmp sgt i64 %.0920.i.i, %.0
   br i1 %67, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !76
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEllNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %65, %60
   %.0.lcssa.i.i = phi i64 [ %.1.i, %60 ], [ %.0920.i.i, %65 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %68 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.lcssa.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i64 %43, ptr %68, align 8
   %69 = icmp eq i64 %.0, 0
   %70 = add nsw i64 %.0, -1

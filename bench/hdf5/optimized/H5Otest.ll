@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5T_vlen_alloc_info_t = type { ptr, ptr, ptr, ptr }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
 %struct.H5VL_connector_prop_t = type { ptr, ptr }
-%struct.H5O_chunk_t = type { i64, i64, i64, ptr, ptr }
 %struct.H5O_msg_alloc_info_t = type { i32, i32, i32, i64, i64, i64, i32 }
 
 @H5O_init_g = external local_unnamed_addr global i8, align 1
@@ -915,9 +914,9 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
 
 21:                                               ; preds = %.lr.ph, %21
   %.02022 = phi i64 [ 0, %.lr.ph ], [ %25, %21 ]
-  %22 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %20, i64 %.02022
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %.02022
   %23 = load i64, ptr %22, align 8, !tbaa !47
-  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %.02022
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.02022
   store i64 %23, ptr %24, align 8, !tbaa !10
   %25 = add nuw i64 %.02022, 1
   %exitcond.not = icmp eq i64 %25, %18
@@ -944,7 +943,7 @@ define range(i32 -1, 1) i32 @H5O__expunge_chunks_test(ptr noundef %0) local_unna
   %34 = load ptr, ptr %0, align 8, !tbaa !28
   %35 = icmp eq i64 %.1, 0
   %36 = select i1 %35, ptr @H5AC_OHDR, ptr @H5AC_OHDR_CHK
-  %37 = getelementptr inbounds nuw i64, ptr %2, i64 %.1
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.1
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = tail call i32 @H5AC_expunge_entry(ptr noundef %34, ptr noundef nonnull %36, i64 noundef %38, i32 noundef 0) #4
   %40 = icmp slt i32 %39, 0
@@ -1193,7 +1192,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 392
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8

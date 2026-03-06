@@ -135,7 +135,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr noundef readonly
   %indvars.iv170 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next171, %192 ]
   %.088163 = phi i32 [ 0, %.lr.ph164 ], [ %.189, %192 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %50 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv170
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv170
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %52 = call i32 @clGetDeviceIDs(ptr noundef %51, i64 noundef 4294967295, i32 noundef 0, ptr noundef null, ptr noundef nonnull %10) #9
   %.not96 = icmp eq i32 %52, 0
@@ -171,7 +171,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !19
   %65 = call i32 @clGetDeviceInfo(ptr noundef %64, i32 noundef 4096, i64 noundef 8, ptr noundef nonnull %12, ptr noundef null) #9
   %66 = load i64, ptr %12, align 8, !tbaa !21

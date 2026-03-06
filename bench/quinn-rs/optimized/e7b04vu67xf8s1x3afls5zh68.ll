@@ -1547,7 +1547,7 @@ define hidden void @_ZN5bench15parse_byte_size17h204e5e12ea9660d7E(ptr dead_on_u
 define noundef nonnull align 8 dereferenceable(80) ptr @_ZN5bench11CipherSuite9as_rustls17hbe647a22201487e7E(i8 noundef range(i8 0, 3) %0) unnamed_addr #7 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5bench11CipherSuite9as_rustls17hbe647a22201487e7E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5bench11CipherSuite9as_rustls17hbe647a22201487e7E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0 = load ptr, ptr %switch.load, align 8, !nonnull !8, !align !29, !noundef !8
   ret ptr %.sroa.0.0
@@ -2406,7 +2406,7 @@ define void @"_ZN57_$LT$bench..Opt$u20$as$u20$clap_builder..derive..Args$GT$12au
 196:                                              ; preds = %189, %183
   %197 = getelementptr inbounds nuw i8, ptr %159, i64 208
   %198 = load ptr, ptr %197, align 8, !alias.scope !143, !noalias !146, !nonnull !8, !noundef !8
-  %199 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { ptr, i64 } } } }, i8, i8, [6 x i8] }, ptr %198, i64 %186
+  %199 = getelementptr inbounds nuw [96 x i8], ptr %198, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %199, ptr noundef nonnull readonly align 8 dereferenceable(96) %158, i64 96, i1 false), !noalias !150
   %200 = add i64 %186, 1
   store i64 %200, ptr %185, align 8, !alias.scope !143, !noalias !146
@@ -5534,7 +5534,7 @@ define void @"_ZN57_$LT$bench..Opt$u20$as$u20$clap_builder..derive..Args$GT$23au
 196:                                              ; preds = %189, %183
   %197 = getelementptr inbounds nuw i8, ptr %159, i64 208
   %198 = load ptr, ptr %197, align 8, !alias.scope !855, !noalias !858, !nonnull !8, !noundef !8
-  %199 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { ptr, i64 } } } }, i8, i8, [6 x i8] }, ptr %198, i64 %186
+  %199 = getelementptr inbounds nuw [96 x i8], ptr %198, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %199, ptr noundef nonnull readonly align 8 dereferenceable(96) %158, i64 96, i1 false), !noalias !861
   %200 = add i64 %186, 1
   store i64 %200, ptr %185, align 8, !alias.scope !855, !noalias !858

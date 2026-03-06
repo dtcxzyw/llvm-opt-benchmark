@@ -3,10 +3,6 @@ source_filename = "bench/ffmpeg/original/lafdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.StreamParams = type { %struct.AVChannelLayout, float, float, i32, i32 }
-%struct.AVChannelLayout = type { i32, i32, %union.anon, ptr }
-%union.anon = type { i64 }
-
 @.str = private unnamed_addr constant [4 x i8] c"laf\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"LAF (Limitless Audio Format)\00", align 1
 @ff_laf_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 256, [4 x i8] zeroinitializer, ptr @.str, ptr null, ptr null, ptr null }, i32 0, i32 164384, i32 1, [4 x i8] zeroinitializer, ptr @laf_probe, ptr @laf_read_header, ptr @laf_read_packet, ptr @laf_read_close, ptr @laf_read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -79,7 +75,7 @@ define internal range(i32 -1094995529, 1) i32 @laf_read_header(ptr noundef %0) #
 
 23:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %24 = getelementptr inbounds nuw %struct.StreamParams, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %indvars.iv
   %25 = tail call i32 @avio_rl32(ptr noundef %5) #7
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 %25, ptr %26, align 4, !tbaa !27
@@ -136,10 +132,10 @@ define internal range(i32 -1094995529, 1) i32 @laf_read_header(ptr noundef %0) #
 
 switch.lookup:                                    ; preds = %._crit_edge
   %47 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.laf_read_header, i64 %47
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.laf_read_header, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   %48 = zext nneg i32 %9 to i64
-  %switch.gep147 = getelementptr inbounds nuw i32, ptr @switch.table.laf_read_header.1, i64 %48
+  %switch.gep147 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.laf_read_header.1, i64 %48
   %switch.load148 = load i32, ptr %switch.gep147, align 4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %49, align 8, !tbaa !38
@@ -175,7 +171,7 @@ switch.lookup:                                    ; preds = %._crit_edge
   br i1 %.not122.not, label %.critedge, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw %struct.StreamParams, ptr %62, i64 %indvars.iv137
+  %66 = getelementptr inbounds nuw [40 x i8], ptr %62, i64 %indvars.iv137
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -312,7 +308,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   br i1 %exitcond229.not, label %._crit_edge, label %31, !llvm.loop !64
 
 38:                                               ; preds = %36
-  %39 = getelementptr %struct.StreamParams, ptr %6, i64 %indvars.iv
+  %39 = getelementptr [40 x i8], ptr %6, i64 %indvars.iv
   %40 = getelementptr i8, ptr %39, i64 60
   store i32 0, ptr %40, align 4, !tbaa !65
   %41 = and i8 %.0145180, 1
@@ -354,9 +350,9 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   %.promoted = phi i32 [ %.pre, %._crit_edge243 ], [ %22, %21 ]
   %60 = load ptr, ptr %7, align 8, !tbaa !60
   %61 = zext i32 %.promoted to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !61
-  %.0156186 = getelementptr inbounds nuw %struct.StreamParams, ptr %6, i64 %61
+  %.0156186 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %.0156186, i64 60
   %65 = load i32, ptr %64, align 4, !tbaa !65
   %.not164187 = icmp eq i32 %65, 0
@@ -370,7 +366,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
 
 68:                                               ; preds = %72
   %69 = zext i32 %74 to i64
-  %.0156 = getelementptr inbounds nuw %struct.StreamParams, ptr %6, i64 %69
+  %.0156 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %69
   %70 = getelementptr inbounds nuw i8, ptr %.0156, i64 60
   %71 = load i32, ptr %70, align 4, !tbaa !65
   %.not164 = icmp eq i32 %71, 0
@@ -384,7 +380,7 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
 
 ._crit_edge193:                                   ; preds = %68
   store i32 %74, ptr %14, align 8, !tbaa !38
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %60, i64 %69
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %69
   %.pre244 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
   br label %._crit_edge190
 

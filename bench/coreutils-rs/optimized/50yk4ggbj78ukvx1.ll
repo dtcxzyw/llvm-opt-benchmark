@@ -1284,7 +1284,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.17982877770584496632.exit.i: ; pre
 191:                                              ; preds = %._crit_edge.i, %182
   %192 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %183, %182 ]
   %193 = load ptr, ptr %72, align 8, !alias.scope !221, !noalias !224, !nonnull !4, !noundef !4
-  %194 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %193, i64 %192
+  %194 = getelementptr inbounds [80 x i8], ptr %193, i64 %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %194, ptr noundef nonnull align 8 dereferenceable(80) %19, i64 80, i1 false)
   %195 = add i64 %192, 1
   store i64 %195, ptr %73, align 8, !alias.scope !221, !noalias !224
@@ -1371,7 +1371,7 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
 .lr.ph164:                                        ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %21, i64 %2
+  %22 = getelementptr inbounds [80 x i8], ptr %21, i64 %2
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -1751,7 +1751,7 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %10, i64 %2
+  %11 = getelementptr inbounds [80 x i8], ptr %10, i64 %2
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !range !53, !noundef !4
   %.not = icmp eq i64 %13, -9223372036854775808

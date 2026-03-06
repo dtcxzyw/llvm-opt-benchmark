@@ -24,7 +24,7 @@ define internal void @rv34_inv_transform_noround_c(ptr noundef captures(none) %0
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !12
   %6 = sext i16 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -65,7 +65,7 @@ define internal void @rv34_inv_transform_noround_c(ptr noundef captures(none) %0
 
 rv34_row_transform.exit:                          ; preds = %3, %rv34_row_transform.exit
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %rv34_row_transform.exit ], [ 0, %3 ]
-  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv29
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv29
   %34 = load i32, ptr %33, align 4, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %36 = load i32, ptr %35, align 4, !tbaa !14
@@ -129,7 +129,7 @@ define internal void @rv34_inv_transform_dc_noround_c(ptr noundef captures(none)
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i16, ptr %.0911, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %.0911, i64 %indvars.iv
   store i16 %6, ptr %8, align 2, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -153,7 +153,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !12
   %8 = sext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -200,7 +200,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %indvars.iv41.lver.orig = phi i64 [ %indvars.iv.next42.lver.orig, %.ph.lver.orig ], [ 0, %.lver.check ]
   %.039.lver.orig = phi ptr [ %89, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv41.lver.orig
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv41.lver.orig
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %38 = load i32, ptr %37, align 4, !tbaa !14
@@ -281,7 +281,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i36, %90 ]
   %indvars.iv41 = phi i64 [ 0, %.ph ], [ %indvars.iv.next42, %90 ]
   %.039 = phi ptr [ %0, %.ph ], [ %144, %90 ]
-  %91 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv41
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv41
   %92 = load i32, ptr %91, align 4, !tbaa !14
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load i32, ptr %93, align 4, !tbaa !14

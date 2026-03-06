@@ -325,7 +325,7 @@ for.body.i:                                       ; preds = %entry, %_ZNK3irr17I
   %3 = phi ptr [ %8, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %1, %entry ]
   %4 = phi ptr [ %9, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %0, %entry ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ 0, %entry ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %vtable.i = load ptr, ptr %5, align 8, !tbaa !3
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
@@ -466,7 +466,7 @@ for.body:                                         ; preds = %entry, %_ZNK3irr17I
   %3 = phi ptr [ %8, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %1, %entry ]
   %4 = phi ptr [ %9, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %5, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -524,7 +524,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %Name = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name, align 8, !tbaa !27
@@ -569,7 +569,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %Name = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name, align 8, !tbaa !27
@@ -610,7 +610,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -690,7 +690,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Attributes.i, align 8, !tbaa !22
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !23
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !33
   br label %_ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit
 
@@ -840,7 +840,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -888,7 +888,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -968,7 +968,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Attributes.i, align 8, !tbaa !22
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !23
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !33
   br label %_ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit
 
@@ -1115,7 +1115,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -1163,7 +1163,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -1243,7 +1243,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Attributes.i, align 8, !tbaa !22
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !23
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !33
   br label %_ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit
 
@@ -1390,7 +1390,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -1447,7 +1447,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %Name = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %Name, align 8, !tbaa !27
@@ -1481,7 +1481,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -1523,7 +1523,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
@@ -1553,7 +1553,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1583,7 +1583,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -1613,7 +1613,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -1690,7 +1690,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Attributes, align 8, !tbaa !22
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !23
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !33
   br label %_ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit
 
@@ -1764,7 +1764,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Attributes, align 8, !tbaa !22
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !23
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !33
   br label %_ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit
 
@@ -1838,7 +1838,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr2io10IAttributeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Attributes, align 8, !tbaa !22
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !23
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !33
   br label %_ZN3irr4core5arrayIPNS_2io10IAttributeEE9push_backEOS4_.exit
 
@@ -1871,7 +1871,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %3 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !24
   %Name.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Name.i, align 8, !tbaa !27
@@ -1911,7 +1911,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
@@ -1940,7 +1940,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
@@ -1969,7 +1969,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !24
   %vtable = load ptr, ptr %2, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48

@@ -279,7 +279,7 @@ _glfw_realloc.exit:                               ; preds = %34, %46
   %.1.i40 = phi ptr [ %37, %34 ], [ %45, %46 ]
   %48 = load i32, ptr %1, align 4, !tbaa !6
   %49 = sext i32 %48 to i64
-  %50 = getelementptr ptr, ptr %.1.i40, i64 %49
+  %50 = getelementptr [8 x i8], ptr %.1.i40, i64 %49
   %51 = getelementptr i8, ptr %50, i64 -8
   store ptr %.1.i, ptr %51, align 8, !tbaa !98
   br label %52
@@ -790,7 +790,7 @@ define internal fastcc void @terminate() unnamed_addr #1 {
 .lr.ph23:                                         ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1920), align 8, !tbaa !113
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !114
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 216
   %13 = load i32, ptr %12, align 8, !tbaa !116

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Triple = type { double, double, double }
 %struct.TripleDistances = type { double, double }
 %struct.hb_vector_t = type { i32, i32, ptr }
-%struct.hb_pair_t = type { double, %struct.Triple }
 
 @_hb_CrapPool = external hidden local_unnamed_addr global [80 x i64], align 16
 @_hb_NullPool = external hidden local_unnamed_addr constant [80 x i64], align 16
@@ -211,7 +210,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_
   %44 = phi ptr [ %18, %35 ], [ %43, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %18, %32 ]
   %.sink.i.ph.i3050 = phi i32 [ %.sink.i.ph.i305153, %35 ], [ %38, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i ], [ %.sink.i.ph.i305153, %32 ]
   %45 = zext i32 %19 to i64
-  %46 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.054, i64 32, i1 false), !tbaa.struct !30
   br label %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE4pushIJRS2_EEEPS2_DpOT_.exit
 
@@ -270,7 +269,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i31: ; preds = 
   %62 = phi ptr [ %18, %52 ], [ %60, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %18, %_ZNK6TripleeqERKS_.exit.thread ]
   %.sink.i.ph.i3048 = phi i32 [ %.sink.i.ph.i305153, %52 ], [ %55, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE14realloc_vectorIS2_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS2_j11hb_priorityILj0EE.exit.i.i24..critedge.i19_crit_edge ], [ %.sink.i.ph.i305153, %_ZNK6TripleeqERKS_.exit.thread ]
   %63 = zext i32 %19 to i64
-  %64 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %63
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store double %47, ptr %65, align 8
@@ -590,7 +589,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i: ; preds = %_
   %133 = phi ptr [ %malloc.i, %128 ], [ %132, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i ], [ %malloc.i, %121 ]
   store i32 %.pre-phi386, ptr %102, align 4, !tbaa !22
   %134 = zext nneg i32 %104 to i64
-  %135 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store double %.sroa.speculated312, ptr %136, align 8
   %.sroa.4379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 16
@@ -666,7 +665,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i138: ; preds =
   %159 = add i32 %158, 1
   store i32 %159, ptr %102, align 4, !tbaa !22
   %160 = zext i32 %158 to i64
-  %161 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %157, i64 %160
+  %161 = getelementptr inbounds nuw [32 x i8], ptr %157, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store double %124, ptr %162, align 8
   %.sroa.4376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %161, i64 16
@@ -742,7 +741,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i156: ; preds =
   %187 = add i32 %186, 1
   store i32 %187, ptr %102, align 4, !tbaa !22
   %188 = zext i32 %186 to i64
-  %189 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %185, i64 %188
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %185, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store double %124, ptr %190, align 8
   %.sroa.4373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 16
@@ -814,7 +813,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i174: ; preds =
   %210 = add i32 %209, 1
   store i32 %210, ptr %102, align 4, !tbaa !22
   %211 = zext i32 %209 to i64
-  %212 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %208, i64 %211
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %208, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store double %.0, ptr %213, align 8
   %.sroa.4370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %212, i64 16
@@ -866,7 +865,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i192: ; preds =
   %224 = phi ptr [ %malloc.i, %219 ], [ %223, %_ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.i187 ], [ %malloc.i, %214 ]
   store i32 %.pre-phi, ptr %102, align 4, !tbaa !22
   %225 = zext nneg i32 %104 to i64
-  %226 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [32 x i8], ptr %224, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store double %.sroa.speculated, ptr %227, align 8
   %.sroa.4367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %226, i64 16
@@ -942,7 +941,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i210: ; preds =
   %250 = add i32 %249, 1
   store i32 %250, ptr %102, align 4, !tbaa !22
   %251 = zext i32 %249 to i64
-  %252 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %248, i64 %251
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %248, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store double %14, ptr %253, align 8
   %.sroa.4364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
@@ -1064,7 +1063,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i234: ; preds =
   %302 = add i32 %301, 1
   store i32 %302, ptr %102, align 4, !tbaa !22
   %303 = zext i32 %301 to i64
-  %304 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %300, i64 %303
+  %304 = getelementptr inbounds nuw [32 x i8], ptr %300, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store double %7, ptr %305, align 8
   %.sroa.4361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %304, i64 16
@@ -1140,7 +1139,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i252: ; preds =
   %330 = add i32 %329, 1
   store i32 %330, ptr %102, align 4, !tbaa !22
   %331 = zext i32 %329 to i64
-  %332 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %328, i64 %331
+  %332 = getelementptr inbounds nuw [32 x i8], ptr %328, i64 %331
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store double %7, ptr %333, align 8
   %.sroa.4358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %332, i64 16
@@ -1212,7 +1211,7 @@ _ZN11hb_vector_tI9hb_pair_tId6TripleELb0EE5allocEjb.exit.thread6.i270: ; preds =
   %353 = add i32 %352, 1
   store i32 %353, ptr %102, align 4, !tbaa !22
   %354 = zext i32 %352 to i64
-  %355 = getelementptr inbounds nuw %struct.hb_pair_t, ptr %351, i64 %354
+  %355 = getelementptr inbounds nuw [32 x i8], ptr %351, i64 %354
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store double %7, ptr %356, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %355, i64 16

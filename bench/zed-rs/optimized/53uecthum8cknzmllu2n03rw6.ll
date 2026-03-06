@@ -239,7 +239,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h25b06ea4ef
   %22 = add i16 %.lcssa.i, -1
   %23 = and i16 %22, %.lcssa.i
   %24 = sub nsw i64 0, %21
-  %25 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i32, [1 x i32] }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %.sroa.06.1, i64 %24
   %26 = add i64 %.sroa.108.015, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
@@ -311,7 +311,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h791ae095b3
   %22 = add i16 %.lcssa.i, -1
   %23 = and i16 %22, %.lcssa.i
   %24 = sub nsw i64 0, %21
-  %25 = getelementptr inbounds { { { { { ptr, i64 } }, {}, {} } }, i32, [1 x i32] }, ptr %.sroa.06.1, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %.sroa.06.1, i64 %24
   %26 = add i64 %.sroa.108.015, -1
   %27 = getelementptr inbounds i8, ptr %25, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -383,7 +383,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h3906a49
   %29 = add i16 %.lcssa.i.i, -1
   %30 = and i16 %29, %.lcssa.i.i
   %31 = sub nsw i64 0, %28
-  %32 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i32, [1 x i32] }, ptr %.sroa.06.1.i, i64 %31
+  %32 = getelementptr inbounds [24 x i8], ptr %.sroa.06.1.i, i64 %31
   %33 = add i64 %.sroa.108.015.i, -1
   %34 = getelementptr inbounds i8, ptr %32, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
@@ -520,7 +520,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hf430baf
   %29 = add i16 %.lcssa.i.i, -1
   %30 = and i16 %29, %.lcssa.i.i
   %31 = sub nsw i64 0, %28
-  %32 = getelementptr inbounds { { { { { ptr, i64 } }, {}, {} } }, i32, [1 x i32] }, ptr %.sroa.06.1.i, i64 %31
+  %32 = getelementptr inbounds [24 x i8], ptr %.sroa.06.1.i, i64 %31
   %33 = add i64 %.sroa.108.015.i, -1
   %34 = getelementptr inbounds i8, ptr %32, i64 -24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
@@ -758,7 +758,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h353e8b754193eccbE.exit.thr
   %96 = add i64 %.sroa.5.2.lcssa, %93
   %97 = add i64 %.sroa.9.061, -1
   %98 = sub nsw i64 0, %96
-  %99 = getelementptr inbounds { { ptr, i64 }, {} }, ptr %84, i64 %98
+  %99 = getelementptr inbounds [16 x i8], ptr %84, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 -16
   %.val3.i = load ptr, ptr %100, align 8, !alias.scope !145, !noalias !150, !nonnull !7, !align !156, !noundef !7
   %101 = getelementptr i8, ptr %99, i64 -8
@@ -790,8 +790,8 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h353e8b754193eccbE.exit.thr
 
 104:                                              ; preds = %104, %.thread40
   %.sroa.0.05.i.i = phi i64 [ 0, %.thread40 ], [ %109, %104 ]
-  %105 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
-  %106 = getelementptr inbounds nuw i64, ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
   %107 = load i64, ptr %105, align 8
   %108 = load i64, ptr %106, align 8
   store i64 %108, ptr %105, align 8
@@ -1032,7 +1032,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3c05659574bc05fbE.exit.loopexit.i: ; preds =
 _ZN4core3ptr19swap_nonoverlapping17h3c05659574bc05fbE.exit.i: ; preds = %_ZN4core3ptr19swap_nonoverlapping17h3c05659574bc05fbE.exit.loopexit.i, %205
   %210 = phi ptr [ %.pre.i, %_ZN4core3ptr19swap_nonoverlapping17h3c05659574bc05fbE.exit.loopexit.i ], [ %202, %205 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  %211 = getelementptr inbounds { { ptr, i64 }, {} }, ptr %210, i64 %209
+  %211 = getelementptr inbounds [16 x i8], ptr %210, i64 %209
   %212 = getelementptr inbounds i8, ptr %211, i64 -16
   %.val3.i.i = load ptr, ptr %212, align 8, !alias.scope !217, !noalias !222, !nonnull !7, !align !156, !noundef !7
   %213 = getelementptr i8, ptr %211, i64 -8

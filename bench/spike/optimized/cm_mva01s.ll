@@ -94,8 +94,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cm_mva01sP
   %15 = and i64 %14, 7
   %16 = icmp samesign ult i64 %15, 2
   %.v = select i1 %16, i64 8, i64 16
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %15
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.v
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.v
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i64 %19, ptr %20, align 8, !tbaa !3
@@ -106,8 +106,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cm_mva01sP
   %24 = shl i64 %2, 32
   %25 = add i64 %24, 8589934592
   %26 = ashr exact i64 %25, 32
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %22
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %.v20
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %22
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.v20
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 %29, ptr %30, align 8, !tbaa !3
@@ -155,8 +155,8 @@ define noundef i64 @_Z20fast_rv64i_cm_mva01sP11processor_t6insn_tm(ptr noundef c
   %15 = and i64 %14, 7
   %16 = icmp samesign ult i64 %15, 2
   %.v = select i1 %16, i64 8, i64 16
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %15
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.v
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.v
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i64 %19, ptr %20, align 8, !tbaa !3
@@ -165,8 +165,8 @@ define noundef i64 @_Z20fast_rv64i_cm_mva01sP11processor_t6insn_tm(ptr noundef c
   %23 = icmp samesign ult i64 %22, 2
   %.v20 = select i1 %23, i64 8, i64 16
   %24 = add i64 %2, 2
-  %25 = getelementptr inbounds nuw i64, ptr %13, i64 %22
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %.v20
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %22
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.v20
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 %27, ptr %28, align 8, !tbaa !3
@@ -201,8 +201,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cm_mva01
   %17 = and i64 %16, 7
   %18 = icmp samesign ult i64 %17, 2
   %.v = select i1 %18, i64 8, i64 16
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %17
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %.v
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.v
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -221,8 +221,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cm_mva01
   %28 = shl i64 %2, 32
   %29 = add i64 %28, 8589934592
   %30 = ashr exact i64 %29, 32
-  %31 = getelementptr inbounds nuw i64, ptr %15, i64 %26
-  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %.v27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %26
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.v27
   %33 = load i64, ptr %32, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 176, ptr %5, align 8, !tbaa !3
@@ -350,8 +350,8 @@ define noundef i64 @_Z22logged_rv64i_cm_mva01sP11processor_t6insn_tm(ptr noundef
   %17 = and i64 %16, 7
   %18 = icmp samesign ult i64 %17, 2
   %.v = select i1 %18, i64 8, i64 16
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %17
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %.v
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.v
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -368,8 +368,8 @@ define noundef i64 @_Z22logged_rv64i_cm_mva01sP11processor_t6insn_tm(ptr noundef
   %27 = icmp samesign ult i64 %26, 2
   %.v27 = select i1 %27, i64 8, i64 16
   %28 = add i64 %2, 2
-  %29 = getelementptr inbounds nuw i64, ptr %15, i64 %26
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.v27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %26
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.v27
   %31 = load i64, ptr %30, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 176, ptr %5, align 8, !tbaa !3
@@ -423,7 +423,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cm_mva01sP
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %14
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -449,7 +449,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cm_mva01sP
   %36 = shl i64 %2, 32
   %37 = add i64 %36, 8589934592
   %38 = ashr exact i64 %37, 32
-  %39 = getelementptr inbounds nuw i64, ptr %22, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %28
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -497,7 +497,7 @@ define noundef i64 @_Z20fast_rv64e_cm_mva01sP11processor_t6insn_tm(ptr noundef c
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %14
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -521,7 +521,7 @@ define noundef i64 @_Z20fast_rv64e_cm_mva01sP11processor_t6insn_tm(ptr noundef c
 
 35:                                               ; preds = %21
   %36 = add i64 %2, 2
-  %37 = getelementptr inbounds nuw i64, ptr %22, i64 %28
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %28
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load i64, ptr %38, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -571,7 +571,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cm_mva01
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %16
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -605,7 +605,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cm_mva01
   %40 = shl i64 %2, 32
   %41 = add i64 %40, 8589934592
   %42 = ashr exact i64 %41, 32
-  %43 = getelementptr inbounds nuw i64, ptr %24, i64 %32
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load i64, ptr %44, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -662,7 +662,7 @@ define noundef i64 @_Z22logged_rv64e_cm_mva01sP11processor_t6insn_tm(ptr noundef
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %16
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -694,7 +694,7 @@ define noundef i64 @_Z22logged_rv64e_cm_mva01sP11processor_t6insn_tm(ptr noundef
 
 39:                                               ; preds = %23
   %40 = add i64 %2, 2
-  %41 = getelementptr inbounds nuw i64, ptr %24, i64 %32
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load i64, ptr %42, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

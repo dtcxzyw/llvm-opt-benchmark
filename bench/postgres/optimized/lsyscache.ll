@@ -235,7 +235,7 @@ define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, 
 
 11:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 80
   %.val = load ptr, ptr %14, align 8
@@ -307,7 +307,7 @@ define dso_local i32 @get_equality_op_for_ordering_op(i32 noundef %0, ptr nounde
 
 9:                                                ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 80
   %.val.i = load ptr, ptr %12, align 8
@@ -399,7 +399,7 @@ define dso_local noundef i32 @get_ordering_op_for_equality_op(i32 noundef %0, i1
 
 9:                                                ; preds = %.lr.ph, %get_opfamily_member.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %get_opfamily_member.exit.thread ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 80
   %.val = load ptr, ptr %12, align 8
@@ -473,7 +473,7 @@ define dso_local ptr @get_mergejoin_opfamilies(i32 noundef %0) local_unnamed_add
   %9 = phi i32 [ %5, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.014 = phi ptr [ null, %.lr.ph ], [ %.1, %28 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 80
   %.val = load ptr, ptr %12, align 8
@@ -553,7 +553,7 @@ define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.thread.us.us
   %indvars.iv98 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next99, %.thread.us.us ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv98
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv98
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 80
   %.val.us.us = load ptr, ptr %17, align 8
@@ -588,7 +588,7 @@ define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread.us
   %36 = phi i32 [ %69, %.thread.us ], [ %11, %.lr.ph.split.us ]
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.thread.us ], [ 0, %.lr.ph.split.us ]
-  %37 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv96
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv96
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 80
   %.val.us = load ptr, ptr %39, align 8
@@ -658,7 +658,7 @@ get_opfamily_member.exit56.us..thread.us_crit_edge: ; preds = %get_opfamily_memb
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us79
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.thread.us79 ], [ 0, %.lr.ph.split ]
-  %72 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv94
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv94
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 80
   %.val.us76 = load ptr, ptr %74, align 8
@@ -721,7 +721,7 @@ get_opfamily_member.exit.thread.us:               ; preds = %92
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph.split ]
-  %108 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr i8, ptr %109, i64 80
   %.val = load ptr, ptr %110, align 8
@@ -864,7 +864,7 @@ define dso_local noundef zeroext i1 @get_op_hash_functions(i32 noundef %0, ptr n
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread58.us
   %14 = phi i32 [ %43, %.thread58.us ], [ %11, %.lr.ph.split.us ]
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.thread58.us ], [ 0, %.lr.ph.split.us ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv89
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv89
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 80
   %.val.us = load ptr, ptr %17, align 8
@@ -928,7 +928,7 @@ get_opfamily_proc.exit52.us..thread58.us_crit_edge: ; preds = %get_opfamily_proc
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread58.us75
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.thread58.us75 ], [ 0, %.lr.ph.split ]
-  %46 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv87
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv87
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 80
   %.val.us72 = load ptr, ptr %48, align 8
@@ -985,7 +985,7 @@ get_opfamily_proc.exit.thread.us:                 ; preds = %60
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread58
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread58 ], [ 0, %.lr.ph.split ]
-  %78 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 80
   %.val = load ptr, ptr %80, align 8
@@ -1131,7 +1131,7 @@ define dso_local ptr @get_op_btree_interpretation(i32 noundef %0) local_unnamed_
   %9 = phi i32 [ %5, %.lr.ph ], [ %35, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.053 = phi ptr [ null, %.lr.ph ], [ %.1, %34 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 80
   %.val49 = load ptr, ptr %12, align 8
@@ -1213,7 +1213,7 @@ get_negator.exit:                                 ; preds = %39
   %56 = phi i32 [ %52, %.lr.ph57 ], [ %82, %81 ]
   %indvars.iv61 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next62, %81 ]
   %.455 = phi ptr [ null, %.lr.ph57 ], [ %.5, %81 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv61
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv61
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 80
   %.val = load ptr, ptr %59, align 8
@@ -1318,7 +1318,7 @@ define dso_local noundef zeroext i1 @equality_ops_are_compatible(i32 noundef %0,
 12:                                               ; preds = %.lr.ph, %28
   %13 = phi i32 [ %8, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 80
   %.val = load ptr, ptr %16, align 8
@@ -1382,7 +1382,7 @@ define dso_local noundef zeroext i1 @comparison_ops_are_compatible(i32 noundef %
 12:                                               ; preds = %.lr.ph, %29
   %13 = phi i32 [ %8, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 80
   %.val = load ptr, ptr %16, align 8
@@ -4319,7 +4319,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %18 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.next87
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.next87
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
   %21 = icmp eq i32 %2, %20
@@ -4332,14 +4332,14 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 
 .split:                                           ; preds = %5, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %5 ]
-  %22 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i32
   %25 = icmp eq i32 %2, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.split
-  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, %3
   br i1 %29, label %.split74.us.loopexit82, label %30
@@ -4360,11 +4360,11 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 .split74.us:                                      ; preds = %.split74.us.loopexit82, %.split74.us.loopexit, %.split.us
   %.us-phi = phi i32 [ %31, %.split74.us.loopexit ], [ 0, %.split.us ], [ %32, %.split74.us.loopexit82 ]
   %33 = zext nneg i32 %.us-phi to i64
-  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 52
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %33
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %38, ptr %39, align 4
@@ -4704,7 +4704,7 @@ define dso_local i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) l
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = add i32 %1, -1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %.sink.split
 

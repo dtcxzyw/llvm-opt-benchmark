@@ -3809,7 +3809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %745 = phi ptr [ %752, %751 ], [ %738, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %746 = phi ptr [ %753, %751 ], [ %737, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %.05.i.i = phi i64 [ %754, %751 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  %747 = getelementptr inbounds nuw ptr, ptr %745, i64 %.05.i.i
+  %747 = getelementptr inbounds nuw [8 x i8], ptr %745, i64 %.05.i.i
   %748 = load ptr, ptr %747, align 8, !tbaa !325
   %749 = icmp eq ptr %748, null
   br i1 %749, label %751, label %750
@@ -4434,7 +4434,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %177, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %179, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %174, ptr %3, align 8, !tbaa !317
   store ptr %178, ptr %59, align 8, !tbaa !355
-  %180 = getelementptr inbounds nuw i32, ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %172
   store ptr %180, ptr %60, align 8, !tbaa !319
   br label %.critedge
 
@@ -4724,7 +4724,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i56: ; preds = %265, %
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i58: ; preds = %267, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i56
   store ptr %262, ptr %3, align 8, !tbaa !317
   store ptr %266, ptr %243, align 8, !tbaa !355
-  %268 = getelementptr inbounds nuw i32, ptr %262, i64 %260
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %260
   store ptr %268, ptr %245, align 8, !tbaa !319
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit61
 
@@ -5376,7 +5376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
   %18 = phi ptr [ %25, %24 ], [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %19 = phi ptr [ %26, %24 ], [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.05.i = phi i64 [ %27, %24 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %.05.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.05.i
   %21 = load ptr, ptr %20, align 8, !tbaa !325
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %23
@@ -8484,7 +8484,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
 35:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.018 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.018
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.8.018
   %37 = load ptr, ptr %36, align 8, !tbaa !476
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 160

@@ -3,8 +3,6 @@ source_filename = "bench/php/original/getopt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._opt_struct = type { i8, i32, ptr }
-
 @php_optidx = dso_local local_unnamed_addr global i32 -1, align 4
 @php_getopt.optchr = internal unnamed_addr global i32 0, align 4
 @php_getopt.dash = internal unnamed_addr global i1 false, align 4
@@ -38,7 +36,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 12:                                               ; preds = %10
   %.b118 = load i1, ptr @php_getopt.dash, align 4
   %.phi.trans.insert = sext i32 %11 to i64
-  %.phi.trans.insert138 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert
+  %.phi.trans.insert138 = getelementptr inbounds [8 x i8], ptr %1, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert138, align 8, !tbaa !11
   %.pre139 = load i8, ptr %.pre, align 1, !tbaa !13
   %13 = icmp eq i8 %.pre139, 45
@@ -109,7 +107,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef %42, i32 noundef %47) #5
   %49 = load ptr, ptr @stderr, align 8, !tbaa !16
   %50 = sext i32 %42 to i64
-  %51 = getelementptr inbounds ptr, ptr %1, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !11
   %53 = sext i32 %45 to i64
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
@@ -121,7 +119,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %32, %73
   %58 = phi i32 [ %74, %73 ], [ 0, %32 ]
   %59 = phi i64 [ %75, %73 ], [ 0, %32 ]
-  %60 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !18
   %.not124 = icmp eq ptr %62, null
@@ -130,7 +128,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 63:                                               ; preds = %.lr.ph
   %64 = load i32, ptr %4, align 4, !tbaa !4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %1, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %69 = tail call i32 @strncmp(ptr noundef nonnull %68, ptr noundef nonnull %62, i64 noundef %.0109) #4
@@ -146,7 +144,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %74 = add nuw nsw i32 %58, 1
   store i32 %74, ptr @php_optidx, align 4, !tbaa !4
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %75
   %77 = load i8, ptr %76, align 8, !tbaa !14
   %78 = icmp eq i8 %77, 45
   br i1 %78, label %._crit_edge, label %.lr.ph
@@ -201,17 +199,17 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr @php_optidx, align 4, !tbaa !4
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %101
+  %102 = getelementptr inbounds [16 x i8], ptr %2, i64 %101
   %103 = load i8, ptr %102, align 8, !tbaa !14
   %104 = icmp eq i8 %103, 45
   %105 = load i32, ptr %4, align 4, !tbaa !4
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr %1, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %1, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !11
   br i1 %104, label %109, label %128
 
 109:                                              ; preds = %98
-  %110 = getelementptr inbounds ptr, ptr %1, i64 %106
+  %110 = getelementptr inbounds [8 x i8], ptr %1, i64 %106
   %111 = add nsw i32 %81, 1
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds i8, ptr %108, i64 %112
@@ -255,7 +253,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %132 = phi i32 [ 0, %..loopexit_crit_edge ], [ %81, %128 ]
   %.pre-phi143 = phi i64 [ %.pre142, %..loopexit_crit_edge ], [ %101, %128 ]
   %133 = phi i32 [ %64, %..loopexit_crit_edge ], [ %105, %128 ]
-  %134 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %.pre-phi143
+  %134 = getelementptr inbounds [16 x i8], ptr %2, i64 %.pre-phi143
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4, !tbaa !19
   %.not126 = icmp eq i32 %136, 0
@@ -264,7 +262,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 137:                                              ; preds = %.loopexit
   store i1 false, ptr @php_getopt.dash, align 4
   %138 = sext i32 %133 to i64
-  %139 = getelementptr inbounds ptr, ptr %1, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %1, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !11
   %141 = sext i32 %.2155 to i64
   %142 = getelementptr inbounds i8, ptr %140, i64 %141
@@ -280,7 +278,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %146 = icmp eq i32 %145, %0
   %147 = load i32, ptr @php_optidx, align 4, !tbaa !4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %148
+  %149 = getelementptr inbounds [16 x i8], ptr %2, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4, !tbaa !19
   %152 = icmp eq i32 %151, 1
@@ -300,7 +298,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
   %157 = add nsw i32 %133, 2
   store i32 %157, ptr %4, align 4, !tbaa !4
   %158 = sext i32 %145 to i64
-  %159 = getelementptr inbounds ptr, ptr %1, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %1, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !11
   store ptr %160, ptr %3, align 8, !tbaa !11
   br label %166
@@ -321,7 +319,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 166:                                              ; preds = %161, %164, %153, %156, %155
   %167 = load i32, ptr @php_optidx, align 4, !tbaa !4
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %168
+  %169 = getelementptr inbounds [16 x i8], ptr %2, i64 %168
   %170 = load i8, ptr %169, align 8, !tbaa !14
   %171 = sext i8 %170 to i32
   br label %php_opt_error.exit131
@@ -332,7 +330,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 
 174:                                              ; preds = %172
   %175 = sext i32 %133 to i64
-  %176 = getelementptr inbounds ptr, ptr %1, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %1, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !11
   %178 = load i8, ptr %177, align 1, !tbaa !13
   %179 = icmp eq i8 %178, 45
@@ -370,7 +368,7 @@ define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr nounde
 194:                                              ; preds = %189, %191, %192
   %195 = load i32, ptr @php_optidx, align 4, !tbaa !4
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %196
+  %197 = getelementptr inbounds [16 x i8], ptr %2, i64 %196
   %198 = load i8, ptr %197, align 8, !tbaa !14
   %199 = sext i8 %198 to i32
   br label %php_opt_error.exit131
@@ -408,7 +406,7 @@ define internal fastcc void @php_opt_error(ptr noundef readonly captures(none) %
 
 13:                                               ; preds = %6
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = sext i32 %2 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
@@ -419,7 +417,7 @@ define internal fastcc void @php_opt_error(ptr noundef readonly captures(none) %
 
 22:                                               ; preds = %6
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %0, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = sext i32 %2 to i64
   %27 = getelementptr inbounds i8, ptr %25, i64 %26

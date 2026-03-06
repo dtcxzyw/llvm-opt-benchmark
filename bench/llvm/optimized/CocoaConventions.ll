@@ -671,7 +671,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
   %17 = getelementptr inbounds i8, ptr %.131.ptr75, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !26
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !50
   %22 = and i16 %21, 96
   %.not68 = icmp eq i16 %22, 0
@@ -723,7 +723,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   %.4.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.232.add
   %31 = load i8, ptr %.4.ptr, align 1, !tbaa !26
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !50
   %35 = and i16 %34, 64
   %.not70 = icmp eq i16 %35, 0

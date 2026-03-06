@@ -2273,7 +2273,7 @@ generic_ivtbl_no_ractor_check.exit:               ; preds = %1, %4, %rb_ractor_m
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr i64, ptr %21, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !32
   call void @rb_gc_mark_movable(i64 noundef %26) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2457,7 +2457,7 @@ rb_vm_lock_enter.exit:                            ; preds = %22, %24
   %36 = load ptr, ptr %35, align 8, !tbaa !97
   %37 = load i32, ptr %6, align 4, !tbaa !98
   %38 = zext i32 %37 to i64
-  %39 = getelementptr i64, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !14
   br label %41
 
@@ -2574,7 +2574,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %77, %66, %62
 82:                                               ; preds = %ROBJECT_IVPTR.exit
   %83 = load i32, ptr %10, align 4, !tbaa !98
   %84 = zext i32 %83 to i64
-  %85 = getelementptr i64, ptr %.039, i64 %84
+  %85 = getelementptr [8 x i8], ptr %.039, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !14
   br label %87
 
@@ -3095,7 +3095,7 @@ RB_FL_TEST.exit:                                  ; preds = %8
 59:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
   %.110.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i14, %59 ]
-  %60 = getelementptr i64, ptr %55, i64 %indvars.iv.i
+  %60 = getelementptr [8 x i8], ptr %55, i64 %indvars.iv.i
   %61 = load i64, ptr %60, align 8, !tbaa !32
   %62 = icmp ne i64 %61, 36
   %63 = zext i1 %62 to i64
@@ -3415,7 +3415,7 @@ obj_ivar_set_shape_ivptr.exit:                    ; preds = %29, %34
   %.0.i.i = phi ptr [ %35, %34 ], [ %33, %29 ]
   %36 = load i32, ptr %4, align 4, !tbaa !98
   %37 = zext i32 %36 to i64
-  %38 = getelementptr i64, ptr %.0.i.i, i64 %37
+  %38 = getelementptr [8 x i8], ptr %.0.i.i, i64 %37
   store i64 %2, ptr %38, align 8, !tbaa !14
   %39 = icmp eq i64 %2, 0
   %40 = and i64 %2, 7
@@ -3741,7 +3741,7 @@ generic_ivar_set_shape_ivptr.exit.i:              ; preds = %67, %generic_ivtbl.
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i32, ptr %5, align 4, !tbaa !98
   %73 = zext i32 %72 to i64
-  %74 = getelementptr i64, ptr %71, i64 %73
+  %74 = getelementptr [8 x i8], ptr %71, i64 %73
   store i64 %2, ptr %74, align 8, !tbaa !14
   %75 = icmp eq i64 %2, 0
   %76 = and i64 %2, 7
@@ -3942,7 +3942,7 @@ RB_FL_ABLE.exit.i:                                ; preds = %rb_check_frozen_inl
 35:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
   %.110.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i31, %35 ]
-  %36 = getelementptr i64, ptr %31, i64 %indvars.iv.i
+  %36 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.i
   %37 = load i64, ptr %36, align 8, !tbaa !32
   %38 = icmp ne i64 %37, 36
   %39 = zext i1 %38 to i64
@@ -3994,7 +3994,7 @@ RB_FL_SET.exit:                                   ; preds = %RB_FL_ABLE.exit.i33
 
 57:                                               ; preds = %57, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i37, %57 ]
-  %58 = getelementptr i64, ptr %56, i64 %indvars.iv.i36
+  %58 = getelementptr [8 x i8], ptr %56, i64 %indvars.iv.i36
   store i64 36, ptr %58, align 8, !tbaa !32
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %52
@@ -4012,8 +4012,8 @@ gen_ivtbl_resize.exit:                            ; preds = %57, %50
 
 62:                                               ; preds = %.lr.ph, %rb_obj_write.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %rb_obj_write.exit ]
-  %63 = getelementptr i64, ptr %60, i64 %indvars.iv
-  %64 = getelementptr i64, ptr %61, i64 %indvars.iv
+  %63 = getelementptr [8 x i8], ptr %60, i64 %indvars.iv
+  %64 = getelementptr [8 x i8], ptr %61, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !32
   store i64 %65, ptr %63, align 8, !tbaa !14
   %66 = icmp eq i64 %65, 0
@@ -7131,7 +7131,7 @@ define internal fastcc void @set_const_visibility(i64 noundef %0, i32 noundef %1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %19 = getelementptr i64, ptr %2, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !14
   store i64 %20, ptr %9, align 8, !tbaa !14
   %21 = call i64 @rb_check_id(ptr noundef nonnull %9) #27
@@ -7668,7 +7668,7 @@ rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inl
   %50 = load ptr, ptr %49, align 8, !tbaa !97
   %51 = load i32, ptr %4, align 4, !tbaa !98
   %52 = zext i32 %51 to i64
-  %53 = getelementptr i64, ptr %50, i64 %52
+  %53 = getelementptr [8 x i8], ptr %50, i64 %52
   store i64 %2, ptr %53, align 8, !tbaa !14
   %54 = icmp eq i64 %2, 0
   %55 = and i64 %2, 7
@@ -8760,7 +8760,7 @@ define internal noundef i32 @generic_ivar_lookup_ensure_size(ptr noundef readonl
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr i64, ptr %36, i64 %indvars.iv.i
+  %39 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv.i
   store i64 36, ptr %39, align 8, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %31
@@ -8867,7 +8867,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %18, %15, %23, %20
   %28 = load i32, ptr %27, align 8, !tbaa !103
   %29 = add i32 %28, -1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr i64, ptr %.019, i64 %30
+  %31 = getelementptr [8 x i8], ptr %.019, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !14
   %33 = icmp eq i64 %32, 36
   br i1 %33, label %41, label %34

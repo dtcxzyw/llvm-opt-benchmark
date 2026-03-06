@@ -871,7 +871,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h60d8c9ef63906183E.ll
   %12 = phi i64 [ %.pre, %._crit_edge ], [ %7, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 %12
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %12
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8
@@ -1637,7 +1637,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.e
   %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %27, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !194, !noalias !199, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %36
   store ptr %22, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @anon.3a7200eba26683bd0834a5ba84a91366.41.llvm.12717259899696012883, ptr %40, align 8
@@ -1756,7 +1756,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.e
   %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %27, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !203, !noalias !208, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %36
   store ptr %22, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @anon.3a7200eba26683bd0834a5ba84a91366.42.llvm.12717259899696012883, ptr %40, align 8
@@ -1875,7 +1875,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.e
   %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %27, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !212, !noalias !217, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %36
   store ptr %22, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @anon.3a7200eba26683bd0834a5ba84a91366.42.llvm.12717259899696012883, ptr %40, align 8
@@ -1994,7 +1994,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.e
   %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %27, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !221, !noalias !226, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %36
   store ptr %22, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @anon.3a7200eba26683bd0834a5ba84a91366.41.llvm.12717259899696012883, ptr %40, align 8
@@ -2113,7 +2113,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.e
   %36 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %27, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.12717259899696012883.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !230, !noalias !235, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [16 x i8], ptr %38, i64 %36
   store ptr %22, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @anon.3a7200eba26683bd0834a5ba84a91366.43.llvm.12717259899696012883, ptr %40, align 8
@@ -2364,10 +2364,10 @@ define internal noundef zeroext i1 @"_ZN70_$LT$diesel..result..DatabaseErrorKind
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !264, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.9", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.9", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

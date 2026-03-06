@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"struct.benchmark::internal::BenchmarkRunner::IterationResults" = type { %"struct.benchmark::internal::ThreadManager::Result", i64, double }
 %"struct.benchmark::internal::ThreadManager::Result" = type { i64, double, double, double, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, %"class.std::map" }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -34,6 +32,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.18" }
 %"struct.std::_Head_base.18" = type { ptr }
+%"class.std::thread" = type { %"class.std::thread::id" }
+%"class.std::thread::id" = type { i64 }
 %"class.benchmark::internal::ThreadTimer" = type { i8, i8, double, double, double, double, double }
 %"class.benchmark::State" = type { i64, i64, i64, i8, i8, i32, %"class.std::vector.19", i64, %"class.std::map", %"class.std::__cxx11::basic_string", i32, i32, ptr, ptr, ptr, ptr, [8 x i8] }
 %"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
@@ -42,7 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.benchmark::MutexLock" = type { %"class.std::unique_lock" }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
-%"struct.benchmark::MemoryManager::Result" = type { i64, i64, i64, i64 }
 %"struct.benchmark::BenchmarkReporter::Run" = type { %"struct.benchmark::BenchmarkName", i64, i64, i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", i64, i64, i64, i64, i32, double, double, double, i8, i32, ptr, i64, ptr, i8, i8, %"class.std::map", ptr, double }
 %"struct.benchmark::BenchmarkName" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -520,7 +519,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EEC2EmRKS1_.exit.thread.i: ; preds = %_ZNSt6v
 
 .noexc13:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %65, ptr %57, align 8, !tbaa !79
-  %66 = getelementptr inbounds nuw %"class.std::thread", ptr %65, i64 %61
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %61
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %65, i8 0, i64 %64, i1 false), !tbaa !80
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %65, i64 %64
   br label %67
@@ -1062,7 +1061,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i12.i: ; preds = %115
 121:                                              ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %122 = load ptr, ptr %76, align 8, !tbaa !79
-  %123 = getelementptr inbounds nuw %"class.std::thread", ptr %122, i64 %.014139
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %.014139
   %.sroa.0.0.copyload.i.i = load i64, ptr %123, align 8, !tbaa !93
   %.not.i38 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i38, label %_ZNSt6threadD2Ev.exit, label %124
@@ -2230,7 +2229,7 @@ _ZNSt6vectorIN9benchmark13MemoryManager6ResultESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt6vectorIN9benchmark13MemoryManager6ResultESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN9benchmark13MemoryManager6ResultESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %26, ptr %4, align 8, !tbaa !89
   store ptr %30, ptr %6, align 8, !tbaa !185
-  %32 = getelementptr inbounds nuw %"struct.benchmark::MemoryManager::Result", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8, !tbaa !90
   br label %_ZNSt6vectorIN9benchmark13MemoryManager6ResultESaIS2_EE9push_backEOS2_.exit
 
@@ -4538,7 +4537,7 @@ _ZNSt6vectorIN9benchmark17BenchmarkReporter3RunESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt12_Vector_baseIN9benchmark17BenchmarkReporter3RunESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9benchmark17BenchmarkReporter3RunESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !95
-  %32 = getelementptr inbounds nuw %"struct.benchmark::BenchmarkReporter::Run", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [560 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !96
   ret void
 

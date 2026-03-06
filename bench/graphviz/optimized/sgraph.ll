@@ -3,9 +3,6 @@ source_filename = "bench/graphviz/original/sgraph.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.snode = type { i32, i32, ptr, ptr, i16, i16, [2 x ptr], ptr, i32, i8 }
-%struct.sedge = type { double, i32, i32, i32 }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
@@ -30,7 +27,7 @@ define void @gsave(ptr noundef captures(none) initializes((8, 16)) %0) local_unn
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.snode, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i16, ptr %12, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 26
@@ -75,7 +72,7 @@ define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unna
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %struct.snode, ptr %9, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 26
   %17 = load i16, ptr %16, align 2, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -90,7 +87,7 @@ define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unna
 
 20:                                               ; preds = %.lr.ph17, %20
   %indvars.iv19 = phi i64 [ %.0.lcssa26, %.lr.ph17 ], [ %indvars.iv.next20, %20 ]
-  %21 = getelementptr inbounds nuw %struct.snode, ptr %13, i64 %indvars.iv19
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i16 0, ptr %22, align 8, !tbaa !15
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
@@ -201,7 +198,7 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %.027 = phi ptr [ %20, %.lr.ph ], [ %49, %46 ]
-  %47 = getelementptr inbounds nuw %struct.snode, ptr %40, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr %.027, ptr %48, align 8, !tbaa !28
   %49 = getelementptr inbounds nuw i8, ptr %.027, i64 24
@@ -216,10 +213,10 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
 51:                                               ; preds = %.lr.ph31, %51
   %indvars.iv34 = phi i64 [ %.019.lcssa46, %.lr.ph31 ], [ %indvars.iv.next35, %51 ]
   %.130 = phi ptr [ %.0.lcssa47, %.lr.ph31 ], [ %54, %51 ]
-  %52 = getelementptr inbounds nuw %struct.snode, ptr %44, i64 %indvars.iv34
+  %52 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %indvars.iv34
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr %.130, ptr %53, align 8, !tbaa !28
-  %54 = getelementptr inbounds i32, ptr %.130, i64 %45
+  %54 = getelementptr inbounds [4 x i8], ptr %.130, i64 %45
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %._crit_edge, label %51, !llvm.loop !30
@@ -284,7 +281,7 @@ define ptr @createSNode(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = load i32, ptr %0, align 8, !tbaa !3
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.snode, ptr %3, i64 %5
+  %6 = getelementptr inbounds [64 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 %4, ptr %7, align 8, !tbaa !31
   %8 = add nsw i32 %4, 1
@@ -301,7 +298,7 @@ define noundef ptr @createSEdge(ptr noundef captures(none) %0, ptr noundef captu
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds %struct.sedge, ptr %9, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -318,7 +315,7 @@ define noundef ptr @createSEdge(ptr noundef captures(none) %0, ptr noundef captu
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i16, ptr %21, align 8, !tbaa !15
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %20, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %20, i64 %23
   store i32 %6, ptr %24, align 4, !tbaa !38
   %25 = add i16 %22, 1
   store i16 %25, ptr %21, align 8, !tbaa !15
@@ -327,7 +324,7 @@ define noundef ptr @createSEdge(ptr noundef captures(none) %0, ptr noundef captu
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load i16, ptr %28, align 8, !tbaa !15
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %27, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %27, i64 %30
   store i32 %6, ptr %31, align 4, !tbaa !38
   %32 = add i16 %29, 1
   store i16 %32, ptr %28, align 8, !tbaa !15
@@ -367,7 +364,7 @@ define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.snode, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %indvars.iv
   store i32 -2147483648, ptr %9, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -420,10 +417,10 @@ define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, pt
   %indvars.iv58 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next59, %60 ]
   %28 = load ptr, ptr %14, align 8, !tbaa !27
   %29 = load ptr, ptr %25, align 8, !tbaa !28
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv58
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv58
   %31 = load i32, ptr %30, align 4, !tbaa !38
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.sedge, ptr %28, i64 %32
+  %33 = getelementptr inbounds [24 x i8], ptr %28, i64 %32
   %.val = load i32, ptr %26, align 8, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !32
@@ -439,7 +436,7 @@ define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, pt
 adjacentNode.exit:                                ; preds = %27, %38
   %.sink2.i = phi i32 [ %40, %38 ], [ %35, %27 ]
   %41 = sext i32 %.sink2.i to i64
-  %42 = getelementptr inbounds %struct.snode, ptr %37, i64 %41
+  %42 = getelementptr inbounds [64 x i8], ptr %37, i64 %41
   %43 = load i32, ptr %42, align 8, !tbaa !39
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %60

@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DumpState = type { ptr, ptr, ptr, i64, i32, i32, ptr, i64 }
 %struct.TValue = type { %union.Value, i8 }
 %union.Value = type { ptr }
-%struct.Upvaldesc = type { ptr, i8, i8, i8 }
-%struct.LocVar = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"\1BLua\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"\19\93\0D\0A\1A\0A\00", align 1
@@ -584,7 +582,7 @@ dumpInt.exit.i43:                                 ; preds = %194, %._crit_edge.i
 210:                                              ; preds = %247, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %247 ]
   %211 = load ptr, ptr %207, align 8, !tbaa !46
-  %212 = getelementptr inbounds nuw %struct.TValue, ptr %211, i64 %indvars.iv.i
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %211, i64 %indvars.iv.i
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i8, ptr %213, align 8, !tbaa !15
   %215 = and i8 %214, 63
@@ -737,7 +735,7 @@ dumpInt.exit.i52:                                 ; preds = %264, %._crit_edge.i
   %282 = phi i32 [ %276, %.lr.ph.i53 ], [ %315, %dumpByte.exit15.i ]
   %indvars.iv.i55 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i56, %dumpByte.exit15.i ]
   %283 = load ptr, ptr %278, align 8, !tbaa !47
-  %284 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %283, i64 %indvars.iv.i55
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %indvars.iv.i55
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load i8, ptr %285, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -761,7 +759,7 @@ dumpByte.exit.i58:                                ; preds = %281
   store i64 %293, ptr %146, align 8, !tbaa !23
   %.pre.i59 = load ptr, ptr %278, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %294 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %.pre.i59, i64 %indvars.iv.i55
+  %294 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i59, i64 %indvars.iv.i55
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 9
   %296 = load i8, ptr %295, align 1, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -786,7 +784,7 @@ dumpByte.exit14.i:                                ; preds = %dumpByte.exit.i58
   store i64 %303, ptr %146, align 8, !tbaa !23
   %.pre18.i = load ptr, ptr %278, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %304 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %.pre18.i, i64 %indvars.iv.i55
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %.pre18.i, i64 %indvars.iv.i55
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 10
   %306 = load i8, ptr %305, align 2, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -877,7 +875,7 @@ dumpInt.exit86:                                   ; preds = %._crit_edge.i.i84, 
 346:                                              ; preds = %.lr.ph, %346
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %346 ]
   %347 = load ptr, ptr %345, align 8, !tbaa !53
-  %348 = getelementptr inbounds nuw ptr, ptr %347, i64 %indvars.iv
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %indvars.iv
   %349 = load ptr, ptr %348, align 8, !tbaa !54
   call fastcc void @dumpFunction(ptr noundef nonnull %0, ptr noundef %349)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1185,11 +1183,11 @@ dumpInt.exit66.i:                                 ; preds = %484, %._crit_edge.i
 505:                                              ; preds = %dumpInt.exit84.i, %.lr.ph.i64
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %dumpInt.exit84.i ]
   %506 = load ptr, ptr %498, align 8, !tbaa !62
-  %507 = getelementptr inbounds nuw %struct.LocVar, ptr %506, i64 %indvars.iv.i66
+  %507 = getelementptr inbounds nuw [16 x i8], ptr %506, i64 %indvars.iv.i66
   %508 = load ptr, ptr %507, align 8, !tbaa !63
   call fastcc void @dumpString(ptr noundef nonnull %0, ptr noundef %508)
   %509 = load ptr, ptr %498, align 8, !tbaa !62
-  %510 = getelementptr inbounds nuw %struct.LocVar, ptr %509, i64 %indvars.iv.i66
+  %510 = getelementptr inbounds nuw [16 x i8], ptr %509, i64 %indvars.iv.i66
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %512 = load i32, ptr %511, align 8, !tbaa !65
   %513 = sext i32 %512 to i64
@@ -1242,7 +1240,7 @@ dumpInt.exit75.i:                                 ; preds = %526, %._crit_edge.i
   %535 = phi i32 [ %524, %._crit_edge.i.i73.i ], [ %532, %526 ]
   %536 = phi ptr [ %509, %._crit_edge.i.i73.i ], [ %.pre.i69, %526 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %537 = getelementptr inbounds nuw %struct.LocVar, ptr %536, i64 %indvars.iv.i66
+  %537 = getelementptr inbounds nuw [16 x i8], ptr %536, i64 %indvars.iv.i66
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 12
   %539 = load i32, ptr %538, align 4, !tbaa !66
   %540 = sext i32 %539 to i64
@@ -1372,7 +1370,7 @@ dumpInt.exit93.i:                                 ; preds = %581, %._crit_edge.i
 595:                                              ; preds = %595, %.lr.ph103.i
   %indvars.iv106.i = phi i64 [ 0, %.lr.ph103.i ], [ %indvars.iv.next107.i, %595 ]
   %596 = load ptr, ptr %594, align 8, !tbaa !47
-  %597 = getelementptr inbounds nuw %struct.Upvaldesc, ptr %596, i64 %indvars.iv106.i
+  %597 = getelementptr inbounds nuw [16 x i8], ptr %596, i64 %indvars.iv106.i
   %598 = load ptr, ptr %597, align 8, !tbaa !67
   call fastcc void @dumpString(ptr noundef nonnull %0, ptr noundef %598)
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1

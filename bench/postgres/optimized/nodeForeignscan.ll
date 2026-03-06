@@ -120,7 +120,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 64:                                               ; preds = %60
   %65 = add i32 %55, -1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %62, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %73

@@ -728,7 +728,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_instToTextArray___spec__1___rarg
 9:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.02644 = phi i64 [ %2, %.lr.ph ], [ %58, %lean_dec.exit ]
   %.02843 = phi ptr [ %4, %.lr.ph ], [ %57, %lean_dec.exit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02644
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02644
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1

@@ -715,7 +715,7 @@ check_content.exit.thread199:                     ; preds = %19, %23, %check_con
   %72 = call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %71) #4
   %73 = load ptr, ptr %8, align 8, !tbaa !10
   %74 = load ptr, ptr %9, align 8, !tbaa !12
-  %75 = getelementptr inbounds nuw ptr, ptr %.2, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %14) #4
   %77 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %14) #4
@@ -819,7 +819,7 @@ cms_signerinfo_verify_cert.exit.thread:           ; preds = %80, %91, %84
   br i1 %.not177, label %113, label %110
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds nuw ptr, ptr %.1135, i64 %indvars.iv244
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.1135, i64 %indvars.iv244
   %112 = load ptr, ptr %111, align 8, !tbaa !10
   br label %113
 
@@ -1073,7 +1073,7 @@ do_free_upto.exit196:                             ; preds = %.preheader.i194, %1
 
 .lr.ph233:                                        ; preds = %.lr.ph233.preheader, %.lr.ph233
   %indvars.iv249 = phi i64 [ 0, %.lr.ph233.preheader ], [ %indvars.iv.next250, %.lr.ph233 ]
-  %202 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv249
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %.3, i64 %indvars.iv249
   %203 = load ptr, ptr %202, align 8, !tbaa !10
   call void @OSSL_STACK_OF_X509_free(ptr noundef %203) #4
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1

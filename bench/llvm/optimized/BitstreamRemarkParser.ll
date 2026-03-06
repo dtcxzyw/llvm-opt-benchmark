@@ -37,17 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::AlignedCharArrayUnion.52" = type { [8 x i8] }
 %"class.llvm::SmallVector.242" = type { %"class.llvm::SmallVectorImpl.233", %"struct.llvm::SmallVectorStorage.243" }
 %"struct.llvm::SmallVectorStorage.243" = type { [40 x i8] }
-%"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument" = type { %"class.std::optional", %"class.std::optional", %"class.std::optional", %"class.std::optional.19", %"class.std::optional.19" }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
-%"class.std::optional.19" = type { %"struct.std::_Optional_base.20" }
-%"struct.std::_Optional_base.20" = type { %"struct.std::_Optional_payload.22" }
-%"struct.std::_Optional_payload.22" = type { %"struct.std::_Optional_payload_base.base.24", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.24" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
 %"class.llvm::Expected" = type { %union.anon, i8, [7 x i8] }
 %union.anon = type { %"struct.llvm::AlignedCharArrayUnion.41" }
 %"struct.std::array" = type { [4 x i8] }
@@ -107,6 +96,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.4" = type { %"union.std::_Optional_payload_base<unsigned char>::_Storage", i8 }
 %"union.std::_Optional_payload_base<unsigned char>::_Storage" = type { %"struct.std::_Optional_payload_base<unsigned char>::_Empty_byte" }
 %"struct.std::_Optional_payload_base<unsigned char>::_Empty_byte" = type { i8 }
+%"class.std::optional.19" = type { %"struct.std::_Optional_base.20" }
+%"struct.std::_Optional_base.20" = type { %"struct.std::_Optional_payload.22" }
+%"struct.std::_Optional_payload.22" = type { %"struct.std::_Optional_payload_base.base.24", [3 x i8] }
+%"struct.std::_Optional_payload_base.base.24" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
+%"class.std::optional" = type { %"struct.std::_Optional_base" }
+%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
+%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
+%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
 %"class.std::optional.27" = type { %"struct.std::_Optional_base.28" }
 %"struct.std::_Optional_base.28" = type { %"struct.std::_Optional_payload.30" }
 %"struct.std::_Optional_payload.30" = type { %"struct.std::_Optional_payload_base.base.33", [7 x i8] }
@@ -132,14 +131,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.145" = type { %union.anon.146, i8, [7 x i8] }
 %union.anon.146 = type { %"struct.llvm::AlignedCharArrayUnion.147" }
 %"struct.llvm::AlignedCharArrayUnion.147" = type { [16 x i8] }
-%"struct.llvm::remarks::Argument" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.std::optional.132" }
-%"class.std::optional.132" = type { %"struct.std::_Optional_base.133" }
-%"struct.std::_Optional_base.133" = type { %"struct.std::_Optional_payload.135" }
-%"struct.std::_Optional_payload.135" = type { %"struct.std::_Optional_payload_base.base.137", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.137" = type <{ %"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage" = type { %"struct.llvm::remarks::RemarkLocation" }
-%"struct.llvm::remarks::RemarkLocation" = type { %"class.llvm::StringRef", i32, i32 }
-%"struct.llvm::BitstreamCursor::Block" = type { i32, %"class.std::vector" }
 %"class.std::unique_ptr.150" = type { %"struct.std::__uniq_ptr_data.151" }
 %"struct.std::__uniq_ptr_data.151" = type { %"class.std::__uniq_ptr_impl.152" }
 %"class.std::__uniq_ptr_impl.152" = type { %"class.std::tuple.153" }
@@ -150,6 +141,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::format_object.237" = type { %"class.llvm::format_object_base", %"class.std::tuple.238" }
 %"class.std::tuple.238" = type { %"struct.std::_Tuple_impl.239" }
 %"struct.std::_Tuple_impl.239" = type { %"struct.std::_Tuple_impl.160", %"struct.std::_Head_base.192" }
+%"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument" = type { %"class.std::optional", %"class.std::optional", %"class.std::optional", %"class.std::optional.19", %"class.std::optional.19" }
+%"struct.llvm::remarks::Argument" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.std::optional.132" }
+%"class.std::optional.132" = type { %"struct.std::_Optional_base.133" }
+%"struct.std::_Optional_base.133" = type { %"struct.std::_Optional_payload.135" }
+%"struct.std::_Optional_payload.135" = type { %"struct.std::_Optional_payload_base.base.137", [7 x i8] }
+%"struct.std::_Optional_payload_base.base.137" = type <{ %"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage" = type { %"struct.llvm::remarks::RemarkLocation" }
+%"struct.llvm::remarks::RemarkLocation" = type { %"class.llvm::StringRef", i32, i32 }
 
 $_ZN4llvm21SimpleBitstreamCursor4ReadEj = comdat any
 
@@ -1333,7 +1332,7 @@ _ZNSt8optionalIjEaSIRmEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
 187:                                              ; preds = %182
   %188 = zext i32 %183 to i64
   %189 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
-  %190 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %189, i64 %188
+  %190 = getelementptr inbounds nuw [64 x i8], ptr %189, i64 %188
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %190, i8 0, i64 64, i1 false), !noalias !198
   %191 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %192 = add i32 %191, 1
@@ -1346,7 +1345,7 @@ _ZN4llvm15SmallVectorImplINS_7remarks27BitstreamRemarkParserHelper8ArgumentEE12e
   %195 = load i64, ptr %194, align 8, !tbaa !126, !noalias !198
   %196 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
   %197 = zext i32 %193 to i64
-  %198 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw [64 x i8], ptr %196, i64 %197
   %199 = getelementptr inbounds i8, ptr %198, i64 -64
   store i64 %195, ptr %199, align 8, !noalias !198
   %.sroa.455.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %198, i64 -56
@@ -1357,7 +1356,7 @@ _ZN4llvm15SmallVectorImplINS_7remarks27BitstreamRemarkParserHelper8ArgumentEE12e
   %203 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
   %204 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [64 x i8], ptr %203, i64 %205
   %207 = getelementptr inbounds i8, ptr %206, i64 -48
   store i64 %202, ptr %207, align 8, !noalias !198
   %.sroa.452.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %206, i64 -40
@@ -1368,7 +1367,7 @@ _ZN4llvm15SmallVectorImplINS_7remarks27BitstreamRemarkParserHelper8ArgumentEE12e
   %211 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
   %212 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %211, i64 %213
+  %214 = getelementptr inbounds nuw [64 x i8], ptr %211, i64 %213
   %215 = getelementptr inbounds i8, ptr %214, i64 -32
   store i64 %210, ptr %215, align 8, !noalias !198
   %.sroa.449.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %214, i64 -24
@@ -1378,7 +1377,7 @@ _ZN4llvm15SmallVectorImplINS_7remarks27BitstreamRemarkParserHelper8ArgumentEE12e
   %218 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
   %219 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %220 = zext i32 %219 to i64
-  %221 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %218, i64 %220
+  %221 = getelementptr inbounds nuw [64 x i8], ptr %218, i64 %220
   %222 = getelementptr inbounds i8, ptr %221, i64 -16
   %223 = getelementptr inbounds i8, ptr %221, i64 -12
   %224 = load i8, ptr %223, align 4, !tbaa !17, !range !127, !noalias !198, !noundef !128
@@ -1396,7 +1395,7 @@ _ZNSt8optionalIjEaSIRmEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
   %228 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %229 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %218, i64 %230
+  %231 = getelementptr inbounds nuw [64 x i8], ptr %218, i64 %230
   %232 = getelementptr inbounds i8, ptr %231, i64 -8
   %233 = getelementptr inbounds i8, ptr %231, i64 -4
   %234 = load i8, ptr %233, align 4, !tbaa !17, !range !127, !noalias !198, !noundef !128
@@ -1446,7 +1445,7 @@ _ZNSt8optionalIjEaSIRmEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
 251:                                              ; preds = %246
   %252 = zext i32 %247 to i64
   %253 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
-  %254 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %253, i64 %252
+  %254 = getelementptr inbounds nuw [64 x i8], ptr %253, i64 %252
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %254, i8 0, i64 64, i1 false), !noalias !198
   %255 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %256 = add i32 %255, 1
@@ -1459,7 +1458,7 @@ _ZN4llvm15SmallVectorImplINS_7remarks27BitstreamRemarkParserHelper8ArgumentEE12e
   %259 = load i64, ptr %258, align 8, !tbaa !126, !noalias !198
   %260 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
   %261 = zext i32 %257 to i64
-  %262 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %260, i64 %261
+  %262 = getelementptr inbounds nuw [64 x i8], ptr %260, i64 %261
   %263 = getelementptr inbounds i8, ptr %262, i64 -64
   store i64 %259, ptr %263, align 8, !noalias !198
   %.sroa.444.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %262, i64 -56
@@ -1470,7 +1469,7 @@ _ZN4llvm15SmallVectorImplINS_7remarks27BitstreamRemarkParserHelper8ArgumentEE12e
   %267 = load ptr, ptr %69, align 8, !tbaa !21, !noalias !198
   %268 = load i32, ptr %70, align 8, !tbaa !24, !noalias !198
   %269 = zext i32 %268 to i64
-  %270 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %267, i64 %269
+  %270 = getelementptr inbounds nuw [64 x i8], ptr %267, i64 %269
   %271 = getelementptr inbounds i8, ptr %270, i64 -48
   store i64 %266, ptr %271, align 8, !noalias !198
   %.sroa.442.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %270, i64 -40
@@ -4851,7 +4850,7 @@ _ZN4llvm5ErrorD2Ev.exit139:                       ; preds = %226
   %240 = load ptr, ptr %28, align 8, !tbaa !21
   %241 = load i32, ptr %213, align 8, !tbaa !24
   %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %240, i64 %242
+  %243 = getelementptr inbounds nuw [64 x i8], ptr %240, i64 %242
   %244 = getelementptr inbounds i8, ptr %243, i64 -64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %244, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !349
   %.pre = load i8, ptr %212, align 8
@@ -4899,7 +4898,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit147:    ; preds = %253, %_ZNKSt14defau
   %263 = load ptr, ptr %28, align 8, !tbaa !21
   %264 = load i32, ptr %213, align 8, !tbaa !24
   %265 = zext i32 %264 to i64
-  %266 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %263, i64 %265
+  %266 = getelementptr inbounds nuw [64 x i8], ptr %263, i64 %265
   %267 = getelementptr inbounds i8, ptr %266, i64 -48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %267, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !349
   %.pre202 = load i8, ptr %215, align 8
@@ -4968,7 +4967,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155:    ; preds = %276, %_ZNKSt14defau
   %301 = load ptr, ptr %28, align 8, !tbaa !21
   %302 = load i32, ptr %213, align 8, !tbaa !24
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %301, i64 %303
+  %304 = getelementptr inbounds nuw [64 x i8], ptr %301, i64 %303
   %305 = getelementptr inbounds i8, ptr %304, i64 -32
   %306 = getelementptr inbounds i8, ptr %304, i64 -8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %305, i8 0, i64 24, i1 false)
@@ -4976,14 +4975,14 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit155:    ; preds = %276, %_ZNKSt14defau
   %307 = load ptr, ptr %28, align 8, !tbaa !21
   %308 = load i32, ptr %213, align 8, !tbaa !24
   %309 = zext i32 %308 to i64
-  %310 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %307, i64 %309
+  %310 = getelementptr inbounds nuw [64 x i8], ptr %307, i64 %309
   %311 = getelementptr inbounds i8, ptr %310, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %311, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !349
   %312 = load i32, ptr %287, align 4, !tbaa !125
   %313 = load ptr, ptr %28, align 8, !tbaa !21
   %314 = load i32, ptr %213, align 8, !tbaa !24
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %313, i64 %315
+  %316 = getelementptr inbounds nuw [64 x i8], ptr %313, i64 %315
   %317 = getelementptr inbounds i8, ptr %316, i64 -16
   store i32 %312, ptr %317, align 8, !tbaa !586
   %318 = load i32, ptr %292, align 4, !tbaa !125
@@ -5080,14 +5079,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
 8:                                                ; preds = %1
   %9 = zext i32 %3 to i64
   %10 = load ptr, ptr %0, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   %12 = load i32, ptr %2, align 8, !tbaa !24
   %13 = add i32 %12, 1
   store i32 %13, ptr %2, align 8, !tbaa !24
   %14 = load ptr, ptr %0, align 8, !tbaa !21
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -64
   br label %18
 
@@ -5257,7 +5256,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamCursor13popBlockScopeEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !24
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   %9 = load i32, ptr %8, align 8, !tbaa !610
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -5354,7 +5353,7 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEaSEOS5_.exit: ; preds
   store i32 %52, ptr %4, align 8, !tbaa !24
   %53 = load ptr, ptr %2, align 8, !tbaa !21
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !399
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -7766,7 +7765,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !690
   store ptr %67, ptr %41, align 8, !tbaa !687
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.150", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !689
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -7916,7 +7915,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !690
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !687
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.150", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !689
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -8036,7 +8035,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !690
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !687
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.150", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !689
   ret void
 }
@@ -8113,7 +8112,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   br i1 %.not33, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %6, i64 %13
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %13
   %21 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN4llvm15BitstreamCursor5BlockES6_EET0_T_S8_S7_(ptr noundef %6, ptr noundef nonnull %20, ptr noundef %18)
   %.pre = load ptr, ptr %0, align 8, !tbaa !21
   %.pre35 = load i32, ptr %14, align 8, !tbaa !24
@@ -8124,7 +8123,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %.pre-phi = phi i64 [ %.pre38, %19 ], [ %16, %17 ]
   %23 = phi ptr [ %.pre, %19 ], [ %18, %17 ]
   %.0 = phi ptr [ %21, %19 ], [ %18, %17 ]
-  %24 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %23, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %24
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15BitstreamCursor5BlockELb0EE13destroy_rangeEPS2_S4_.exit, label %.lr.ph.i
 
@@ -8255,7 +8254,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15BitstreamCursor5BlockELb0EE4growEm.exit: 
   br i1 %.not32, label %77, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %6, i64 %16
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %16
   %76 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN4llvm15BitstreamCursor5BlockES6_EET0_T_S8_S7_(ptr noundef %6, ptr noundef nonnull %75, ptr noundef %.pre37)
   %.pre36 = load ptr, ptr %0, align 8, !tbaa !21
   br label %77
@@ -8266,13 +8265,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15BitstreamCursor5BlockELb0EE4growEm.exit: 
   %79 = load ptr, ptr %1, align 8, !tbaa !21
   %80 = load i32, ptr %11, align 8, !tbaa !24
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %81
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %81
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15BitstreamCursor5BlockELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %77
-  %83 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %78, i64 %.026
-  %84 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %79, i64 %.026
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %.026
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %.026
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -9064,7 +9063,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7remarks27BitstreamRemarkParserHelper8ArgumentELb1EE9push_backERKS3_.exit, label %9, !prof !203
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %.pre3.i, i64 %5
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %.pre3.i, i64 %5
   %11 = icmp uge ptr %2, %.pre3.i
   %12 = icmp ult ptr %2, %10
   %spec.select.i.i.i.i.i = and i1 %11, %12
@@ -9091,7 +9090,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks27BitstreamRemarkParserHelper8Argum
   %.016.i.i.i = phi ptr [ %2, %1 ], [ %19, %13 ], [ %2, %.critedge.i.i.i ]
   %22 = load i32, ptr %3, align 8, !tbaa !24
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i, i64 64, i1 false)
   %25 = load i32, ptr %3, align 8, !tbaa !24
   %26 = add i32 %25, 1
@@ -9099,7 +9098,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks27BitstreamRemarkParserHelper8Argum
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = load ptr, ptr %0, align 8, !tbaa !21
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::remarks::BitstreamRemarkParserHelper::Argument", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   ret ptr %30
 }
@@ -9198,7 +9197,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit, label %9, !prof !203
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %.pre3.i, i64 %5
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %.pre3.i, i64 %5
   %11 = icmp uge ptr %2, %.pre3.i
   %12 = icmp ult ptr %2, %10
   %spec.select.i.i.i.i.i = and i1 %11, %12
@@ -9225,7 +9224,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exi
   %.016.i.i.i = phi ptr [ %2, %1 ], [ %19, %13 ], [ %2, %.critedge.i.i.i ]
   %22 = load i32, ptr %3, align 8, !tbaa !24
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i, i64 64, i1 false)
   %25 = load i32, ptr %3, align 8, !tbaa !24
   %26 = add i32 %25, 1
@@ -9233,7 +9232,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = load ptr, ptr %0, align 8, !tbaa !21
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   ret ptr %30
 }

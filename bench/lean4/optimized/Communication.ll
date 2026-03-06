@@ -910,7 +910,7 @@ declare ptr @l_String_intercalate(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -8142,7 +8142,7 @@ lean_alloc_ctor.exit730:                          ; preds = %780
 
 switch.lookup:                                    ; preds = %lean_alloc_ctor.exit730
   %789 = zext nneg i8 %.val600 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_IO_FS_Stream_writeLspMessage, i64 %789
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_IO_FS_Stream_writeLspMessage, i64 %789
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %790
 

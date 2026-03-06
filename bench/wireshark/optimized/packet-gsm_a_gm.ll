@@ -2844,19 +2844,19 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %177
   %185 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 %185
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 %185
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %188
 
 switch.lookup4461:                                ; preds = %179
   %186 = zext nneg i8 %switch.tableidx4460 to i64
-  %switch.gep4462 = getelementptr inbounds nuw ptr, ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 %186
+  %switch.gep4462 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 %186
   %switch.load4463 = load ptr, ptr %switch.gep4462, align 8
   br label %188
 
 switch.lookup4465:                                ; preds = %183
   %187 = zext nneg i8 %switch.tableidx4464 to i64
-  %switch.gep4466 = getelementptr inbounds nuw ptr, ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 %187
+  %switch.gep4466 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 %187
   %switch.load4467 = load ptr, ptr %switch.gep4466, align 8
   br label %188
 
@@ -2994,19 +2994,19 @@ switch.lookup4465:                                ; preds = %183
 
 switch.lookup4469:                                ; preds = %249
   %257 = zext nneg i8 %switch.tableidx4468 to i64
-  %switch.gep4470 = getelementptr inbounds nuw ptr, ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 %257
+  %switch.gep4470 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 %257
   %switch.load4471 = load ptr, ptr %switch.gep4470, align 8
   br label %260
 
 switch.lookup4473:                                ; preds = %251
   %258 = zext nneg i8 %switch.tableidx4472 to i64
-  %switch.gep4474 = getelementptr inbounds nuw ptr, ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 %258
+  %switch.gep4474 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 %258
   %switch.load4475 = load ptr, ptr %switch.gep4474, align 8
   br label %260
 
 switch.lookup4477:                                ; preds = %255
   %259 = zext nneg i8 %switch.tableidx4476 to i64
-  %switch.gep4478 = getelementptr inbounds nuw ptr, ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 %259
+  %switch.gep4478 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 %259
   %switch.load4479 = load ptr, ptr %switch.gep4478, align 8
   br label %260
 
@@ -8594,7 +8594,7 @@ define zeroext i16 @de_sm_pdp_addr(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %17
   %26 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.de_sm_pdp_addr, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_sm_pdp_addr, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %27
 
@@ -10714,7 +10714,7 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
   %16 = and i8 %.135, 1
   %17 = zext nneg i8 %16 to i32
   %18 = zext nneg i8 %16 to i64
-  %19 = getelementptr ptr, ptr @pdp_str, i64 %18
+  %19 = getelementptr [8 x i8], ptr @pdp_str, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %17, ptr noundef nonnull @.str.1090, i32 noundef %indvars.iv, ptr noundef %20, i32 noundef %17)
   %22 = lshr i8 %.135, 1
@@ -10823,7 +10823,7 @@ define internal noundef zeroext i16 @de_gc_mbms_context_stat(ptr noundef %0, ptr
   %14 = zext nneg i8 %13 to i32
   %15 = add nuw nsw i32 %10, %indvars.iv
   %16 = zext nneg i8 %13 to i64
-  %17 = getelementptr ptr, ptr @pdp_str, i64 %16
+  %17 = getelementptr [8 x i8], ptr @pdp_str, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.02025, i32 noundef 1, i32 noundef %14, ptr noundef nonnull @.str.1090, i32 noundef %15, ptr noundef %18, i32 noundef %14)
   %20 = lshr i8 %.01823, 1
@@ -10912,10 +10912,10 @@ define hidden void @get_gmm_msg_params(i8 noundef zeroext %0, ptr noundef captur
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr @ett_gsm_dtap_msg_gmm, i64 %13
+  %14 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_gmm, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr ptr, ptr @dtap_msg_gmm_fcn, i64 %13
+  %16 = getelementptr [8 x i8], ptr @dtap_msg_gmm_fcn, i64 %13
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
   br label %18
@@ -10944,10 +10944,10 @@ define hidden void @get_sm_msg_params(i8 noundef zeroext %0, ptr noundef capture
 11:                                               ; preds = %5
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr @ett_gsm_dtap_msg_sm, i64 %13
+  %14 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_sm, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
-  %16 = getelementptr ptr, ptr @dtap_msg_sm_fcn, i64 %13
+  %16 = getelementptr [8 x i8], ptr @dtap_msg_sm_fcn, i64 %13
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
   br label %18
@@ -10979,8 +10979,8 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
 8:                                                ; preds = %0, %8
   %indvars.iv29 = phi i64 [ 7, %0 ], [ %indvars.iv.next30, %8 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr i32, ptr @ett_gsm_dtap_msg_gmm, i64 %indvars.iv
-  %10 = getelementptr ptr, ptr %1, i64 %indvars.iv29
+  %9 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_gmm, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv29
   store ptr %9, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -10990,8 +10990,8 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
 .preheader21:                                     ; preds = %8, %.preheader21
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.preheader21 ], [ 31, %8 ]
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader21 ], [ 0, %8 ]
-  %11 = getelementptr i32, ptr @ett_gsm_dtap_msg_sm, i64 %indvars.iv34
-  %12 = getelementptr ptr, ptr %1, i64 %indvars.iv36
+  %11 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_sm, i64 %indvars.iv34
+  %12 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv36
   store ptr %11, ptr %12, align 8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
@@ -11001,8 +11001,8 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %.preheader21, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 61, %.preheader21 ]
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.preheader ], [ 0, %.preheader21 ]
-  %13 = getelementptr i32, ptr @ett_gsm_gm_elem, i64 %indvars.iv42
-  %14 = getelementptr ptr, ptr %1, i64 %indvars.iv44
+  %13 = getelementptr [4 x i8], ptr @ett_gsm_gm_elem, i64 %indvars.iv42
+  %14 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv44
   store ptr %13, ptr %14, align 8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1

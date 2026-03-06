@@ -4327,7 +4327,7 @@ rb_array_len.exit94.thread:                       ; preds = %187
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit94.thread, %195
   %.0.i.i96 = phi ptr [ %196, %195 ], [ %185, %rb_array_len.exit94.thread ]
-  %197 = getelementptr i64, ptr %.0.i.i96, i64 %.084
+  %197 = getelementptr [8 x i8], ptr %.0.i.i96, i64 %.084
   %198 = load i64, ptr %197, align 8, !tbaa !11
   %199 = load i64, ptr @sym_year, align 8, !tbaa !11
   %200 = icmp eq i64 %199, %198
@@ -11788,7 +11788,7 @@ rb_num2int_inline.exit:                           ; preds = %28, %30
 
 leap_year_p.exit.thread.i:                        ; preds = %45
   %48 = sext i32 %38 to i64
-  %49 = getelementptr i16, ptr @common_year_yday_offset, i64 %48
+  %49 = getelementptr [2 x i8], ptr @common_year_yday_offset, i64 %48
   br label %calc_tm_yday.exit
 
 50:                                               ; preds = %45
@@ -11801,7 +11801,7 @@ leap_year_p.exit.thread.i:                        ; preds = %45
 
 leap_year_p.exit.thread14.i:                      ; preds = %50
   %53 = sext i32 %38 to i64
-  %54 = getelementptr i16, ptr @leap_year_yday_offset, i64 %53
+  %54 = getelementptr [2 x i8], ptr @leap_year_yday_offset, i64 %53
   br label %calc_tm_yday.exit
 
 leap_year_p.exit.i:                               ; preds = %50
@@ -11809,7 +11809,7 @@ leap_year_p.exit.i:                               ; preds = %50
   %.not.i = icmp eq i64 %55, 0
   %56 = sext i32 %38 to i64
   %spec.select.v.i = select i1 %.not.i, ptr @leap_year_yday_offset, ptr @common_year_yday_offset
-  %spec.select.i = getelementptr i16, ptr %spec.select.v.i, i64 %56
+  %spec.select.i = getelementptr [2 x i8], ptr %spec.select.v.i, i64 %56
   br label %calc_tm_yday.exit
 
 calc_tm_yday.exit:                                ; preds = %leap_year_p.exit.thread.i, %leap_year_p.exit.thread14.i, %leap_year_p.exit.i
@@ -12120,7 +12120,7 @@ define internal fastcc i32 @calc_tm_yday(i64 noundef range(i64 -2147483648, 2147
 
 leap_year_p.exit.thread:                          ; preds = %10
   %13 = sext i32 %1 to i64
-  %14 = getelementptr i16, ptr @common_year_yday_offset, i64 %13
+  %14 = getelementptr [2 x i8], ptr @common_year_yday_offset, i64 %13
   br label %22
 
 15:                                               ; preds = %10
@@ -12133,7 +12133,7 @@ leap_year_p.exit.thread:                          ; preds = %10
 
 leap_year_p.exit.thread14:                        ; preds = %15
   %18 = sext i32 %1 to i64
-  %19 = getelementptr i16, ptr @leap_year_yday_offset, i64 %18
+  %19 = getelementptr [2 x i8], ptr @leap_year_yday_offset, i64 %18
   br label %22
 
 leap_year_p.exit:                                 ; preds = %15
@@ -12141,7 +12141,7 @@ leap_year_p.exit:                                 ; preds = %15
   %.not = icmp eq i64 %20, 0
   %21 = sext i32 %1 to i64
   %spec.select.v = select i1 %.not, ptr @leap_year_yday_offset, ptr @common_year_yday_offset
-  %spec.select = getelementptr i16, ptr %spec.select.v, i64 %21
+  %spec.select = getelementptr [2 x i8], ptr %spec.select.v, i64 %21
   br label %22
 
 22:                                               ; preds = %leap_year_p.exit, %leap_year_p.exit.thread, %leap_year_p.exit.thread14
@@ -14927,14 +14927,14 @@ leap_year_p.exit.i:                               ; preds = %219
 leap_year_p.exit.thread.i:                        ; preds = %leap_year_p.exit.i, %216, %rb_num2int_inline.exit.i
   %223 = lshr i64 %186, 9
   %224 = and i64 %223, 15
-  %225 = getelementptr [7 x i32], ptr @compat_common_month_table, i64 %224
+  %225 = getelementptr [28 x i8], ptr @compat_common_month_table, i64 %224
   %226 = getelementptr i8, ptr %225, i64 -28
   br label %leap_year_p.exit.thread45.i
 
 leap_year_p.exit.thread45.i:                      ; preds = %leap_year_p.exit.thread.i, %leap_year_p.exit.i, %219
   %.sink.i = phi ptr [ %226, %leap_year_p.exit.thread.i ], [ @compat_leap_month_table, %219 ], [ @compat_leap_month_table, %leap_year_p.exit.i ]
   %227 = sext i32 %208 to i64
-  %228 = getelementptr i32, ptr %.sink.i, i64 %227
+  %228 = getelementptr [4 x i8], ptr %.sink.i, i64 %227
   %storemerge.in.in.in.i = load i32, ptr %228, align 4, !tbaa !74
   %storemerge.in.in.i = sext i32 %storemerge.in.in.in.i to i64
   %storemerge.in.i = shl nsw i64 %storemerge.in.in.i, 1
@@ -17094,7 +17094,7 @@ define internal fastcc range(i64 -67957296196158848, 67957291746472448) i64 @tim
 
 leap_year_p.exit.thread.i:                        ; preds = %14
   %17 = sext i32 %6 to i64
-  %18 = getelementptr i16, ptr @common_year_yday_offset, i64 %17
+  %18 = getelementptr [2 x i8], ptr @common_year_yday_offset, i64 %17
   br label %calc_tm_yday.exit
 
 19:                                               ; preds = %14
@@ -17107,7 +17107,7 @@ leap_year_p.exit.thread.i:                        ; preds = %14
 
 leap_year_p.exit.thread14.i:                      ; preds = %19
   %22 = sext i32 %6 to i64
-  %23 = getelementptr i16, ptr @leap_year_yday_offset, i64 %22
+  %23 = getelementptr [2 x i8], ptr @leap_year_yday_offset, i64 %22
   br label %calc_tm_yday.exit
 
 leap_year_p.exit.i:                               ; preds = %19
@@ -17115,7 +17115,7 @@ leap_year_p.exit.i:                               ; preds = %19
   %.not.i = icmp eq i64 %24, 0
   %25 = sext i32 %6 to i64
   %spec.select.v.i = select i1 %.not.i, ptr @leap_year_yday_offset, ptr @common_year_yday_offset
-  %spec.select.i = getelementptr i16, ptr %spec.select.v.i, i64 %25
+  %spec.select.i = getelementptr [2 x i8], ptr %spec.select.v.i, i64 %25
   br label %calc_tm_yday.exit
 
 calc_tm_yday.exit:                                ; preds = %leap_year_p.exit.thread.i, %leap_year_p.exit.thread14.i, %leap_year_p.exit.i
@@ -17372,7 +17372,7 @@ define internal fastcc void @time_arg(i32 noundef %0, ptr noundef readonly captu
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %69 ]
   %.185.i101 = phi i32 [ 1, %.preheader ], [ %.286.i, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %57 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !39
   %59 = icmp slt i32 %.185.i101, %0
   %.not103.i = icmp eq ptr %58, null
@@ -17383,7 +17383,7 @@ define internal fastcc void @time_arg(i32 noundef %0, ptr noundef readonly captu
 
 61:                                               ; preds = %60
   %62 = sext i32 %.185.i101 to i64
-  %63 = getelementptr i64, ptr %1, i64 %62
+  %63 = getelementptr [8 x i8], ptr %1, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !11
   store i64 %64, ptr %58, align 8, !tbaa !11
   br label %65

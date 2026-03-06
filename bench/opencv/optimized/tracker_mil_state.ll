@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type <{ %"struct.cv::Ptr", float, [4 x i8] }>
 %"struct.cv::Ptr.18" = type { %"class.std::shared_ptr.19" }
 %"class.std::shared_ptr.19" = type { %"class.std::__shared_ptr.20" }
 %"class.std::__shared_ptr.20" = type { ptr, %"class.std::__shared_count" }
@@ -1091,7 +1090,7 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting12estimateI
   unreachable
 
 39:                                               ; preds = %.loopexit
-  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %31
   %41 = load ptr, ptr %40, align 8, !tbaa !67
   store ptr %41, ptr %0, align 8, !tbaa !67
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1212,7 +1211,7 @@ _ZNKSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS
   %.03364 = phi i32 [ %.158, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %4 ]
   %.03463 = phi i32 [ %.13556, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %4 ]
   %.04162 = phi i64 [ %61, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %4 ]
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %.04162
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.04162
   %25 = load ptr, ptr %24, align 8, !tbaa !67, !noalias !86
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !56, !noalias !86
@@ -1311,7 +1310,7 @@ _ZNKSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS
   %.03772 = phi i32 [ 0, %_ZNKSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EE2atEm.exit44.lr.ph ], [ %.138, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52 ]
   %.03971 = phi i32 [ 0, %_ZNKSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EE2atEm.exit44.lr.ph ], [ %.140, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %69, i64 %.03673
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %.03673
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %71 = load ptr, ptr %70, align 8, !tbaa !67, !noalias !95
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -1400,7 +1399,7 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetState
   %110 = mul i64 %99, %indvars.iv77
   %111 = getelementptr inbounds nuw i8, ptr %97, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !82
-  %113 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv77
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv77
   store float %112, ptr %113, align 4, !tbaa !82
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
@@ -1415,7 +1414,7 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorMILBoosting21TrackerMILTargetState
   %116 = mul i64 %90, %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %88, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !82
-  %119 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   store float %118, ptr %119, align 4, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

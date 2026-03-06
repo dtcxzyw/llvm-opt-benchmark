@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::log::v2_mt_posix::once_block_flag" = type { i8 }
 %"class.boost::shared_ptr.9" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::detail::shared_count" = type { ptr }
-%"class.boost::weak_ptr" = type { ptr, %"class.boost::detail::weak_count" }
-%"class.boost::detail::weak_count" = type { ptr }
 %"class.boost::log::v2_mt_posix::record_view" = type { %"class.boost::intrusive_ptr" }
 %"class.boost::intrusive_ptr" = type { ptr }
 %"class.boost::intrusive_ptr.1" = type { ptr }
@@ -20,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>>>::_Vector_impl" }
 %"struct.std::_Vector_base<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>, std::allocator<boost::shared_ptr<boost::log::v2_mt_posix::sinks::sink>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -179,7 +176,7 @@ define void @_ZN5boost3log11v2_mt_posix11record_view11public_data7destroyEPKS3_(
 
 .lr.ph.i:                                         ; preds = %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit.i ]
-  %4 = getelementptr inbounds nuw %"class.boost::weak_ptr", ptr %0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %.not.i.i.i = icmp eq ptr %6, null
@@ -236,7 +233,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix11record_view12privat
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit ]
-  %5 = getelementptr inbounds nuw %"class.boost::weak_ptr", ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %7, null
@@ -2405,7 +2402,7 @@ _ZN5boost3log11v2_mt_posix15attribute_value18detach_from_threadEv.exit.i: ; pred
 
 42:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %41, ptr %5, align 8, !tbaa !55
-  %43 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %41, i64 %37
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %37
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %41, i8 0, i64 %40, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %41, i64 %40
   %.pre = load i32, ptr %35, align 8, !tbaa !3
@@ -2680,7 +2677,7 @@ _ZN5boost3log11v2_mt_posix4core14implementation15get_thread_dataEv.exit: ; preds
   %147 = ashr exact i64 %146, 4
   %148 = add nsw i64 %147, 1
   %149 = srem i64 %144, %148
-  %150 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %87, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %149
   %.not14.i = icmp eq ptr %150, %.018.i
   br i1 %.not14.i, label %158, label %151
 
@@ -2896,7 +2893,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_3log11v2_mt_posix5sinks4sinkEEESaIS6_EED2Ev
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i90
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i.i90 ], [ %indvars.iv.next.i.i.i.i.i, %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit.i.i.i.i.i ]
-  %230 = getelementptr inbounds nuw %"class.boost::weak_ptr", ptr %222, i64 %indvars.iv.i.i.i.i.i
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %indvars.iv.i.i.i.i.i
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 40
   %232 = load ptr, ptr %231, align 8, !tbaa !15
   %.not.i.i.i.i.i.i.i91 = icmp eq ptr %232, null
@@ -3143,7 +3140,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix11record_viewD2Ev(ptr
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks4sinkEED2Ev.exit.i.i.i.i ]
-  %10 = getelementptr inbounds nuw %"class.boost::weak_ptr", ptr %2, i64 %indvars.iv.i.i.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.i.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %.not.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -4093,7 +4090,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_3log11v2_mt_posix5sinks4sinkEEESaIS6_EE11_S
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_3log11v2_mt_posix5sinks4sinkEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_3log11v2_mt_posix5sinks4sinkEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !57
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !59
   ret void
 }
@@ -4313,7 +4310,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix4core14implementation
   %41 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %"class.boost::weak_ptr", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %43
   %45 = load ptr, ptr %1, align 8, !tbaa !38
   store ptr %45, ptr %44, align 8, !tbaa !100
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8

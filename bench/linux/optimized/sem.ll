@@ -40,7 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.18 }
 %union.anon.18 = type { i64 }
 %struct.wake_q_head = type { ptr, ptr }
-%struct.sem = type { i32, ptr, %struct.spinlock, %struct.list_head, %struct.list_head, i64 }
 %struct.ipc_params = type { i32, i32, %union.anon.4 }
 %union.anon.4 = type { i64 }
 %struct.semid64_ds = type { %struct.ipc64_perm, i64, i64, i64, i64, i64, i64, i64 }
@@ -50,8 +49,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.compat_semid_ds = type { %struct.compat_ipc_perm, i32, i32, i32, i32, i32, i32, i16 }
 %struct.compat_ipc_perm = type { i32, i16, i16, i16, i16, i16, i16 }
 %struct.sem_queue = type { %struct.list_head, ptr, ptr, ptr, i32, ptr, ptr, i32, i8, i8 }
-%struct.sembuf = type { i16, i16, i16 }
 %struct.timespec64 = type { i64, i64 }
+%struct.sembuf = type { i16, i16, i16 }
 %struct.seminfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @init_ipc_ns = external dso_local global %struct.ipc_namespace, align 8
@@ -295,7 +294,7 @@ define internal void @freeary(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 103:                                              ; preds = %168, %73
   %104 = phi i64 [ 0, %73 ], [ %169, %168 ]
-  %105 = getelementptr %struct.sem, ptr %74, i64 %104
+  %105 = getelementptr [64 x i8], ptr %74, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, %106
@@ -725,7 +724,7 @@ define internal i32 @newary(ptr noundef %0, ptr noundef readonly captures(none) 
 
 36:                                               ; preds = %36, %32
   %37 = phi i64 [ 0, %32 ], [ %44, %36 ]
-  %38 = getelementptr %struct.sem, ptr %33, i64 %37
+  %38 = getelementptr [64 x i8], ptr %33, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store volatile ptr %39, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -1313,7 +1312,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_semtimedop(i32 nou
   %35 = phi ptr [ %7, %25 ], [ null, %16 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false), !annotation !24
   %36 = zext i32 %2 to i64
-  %37 = getelementptr %struct.sembuf, ptr %1, i64 %36
+  %37 = getelementptr [6 x i8], ptr %1, i64 %36
   %38 = icmp ugt ptr %37, %1
   br i1 %38, label %.preheader, label %.thread
 
@@ -1697,7 +1696,7 @@ set_semotime.exit:                                ; preds = %220, %222
   %240 = and i16 %234, %239
   %241 = getelementptr inbounds nuw i8, ptr %167, i64 256
   %242 = zext i16 %240 to i64
-  %243 = getelementptr %struct.sem, ptr %241, i64 %242
+  %243 = getelementptr [64 x i8], ptr %241, i64 %242
   br i1 %178, label %257, label %244
 
 244:                                              ; preds = %233
@@ -1915,7 +1914,7 @@ define internal fastcc range(i32 -1, 65536) i32 @sem_lock(ptr noundef %0, ptr no
   %29 = and i16 %22, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %31 = zext i16 %29 to i64
-  %32 = getelementptr %struct.sem, ptr %30, i64 %31
+  %32 = getelementptr [64 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %34 = load volatile i32, ptr %33, align 64
   %35 = icmp eq i32 %34, 0
@@ -1970,7 +1969,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.sembuf, ptr %4, i64 %13
+  %14 = getelementptr [6 x i8], ptr %4, i64 %13
   %15 = icmp ult ptr %4, %14
   br i1 %15, label %16, label %.critedge
 
@@ -1998,7 +1997,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
   %31 = trunc i64 %30 to i16
   %32 = and i16 %26, %31
   %33 = zext i16 %32 to i64
-  %34 = getelementptr %struct.sem, ptr %18, i64 %33
+  %34 = getelementptr [64 x i8], ptr %18, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i32
@@ -2027,7 +2026,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
 52:                                               ; preds = %47
   %53 = load i16, ptr %25, align 2
   %54 = zext i16 %53 to i64
-  %55 = getelementptr i16, ptr %19, i64 %54
+  %55 = getelementptr [2 x i8], ptr %19, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
   %reass.sub = sub nsw i32 %57, %37
@@ -2044,7 +2043,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
   %64 = phi ptr [ %4, %22 ], [ %99, %98 ]
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
-  %67 = getelementptr %struct.sem, ptr %18, i64 %66
+  %67 = getelementptr [64 x i8], ptr %18, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i32
@@ -2055,7 +2054,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop(ptr noundef c
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %63
-  %76 = getelementptr i16, ptr %19, i64 %66
+  %76 = getelementptr [2 x i8], ptr %19, i64 %66
   %77 = load i16, ptr %76, align 2
   %78 = sub i16 %77, %69
   store i16 %78, ptr %76, align 2
@@ -2144,10 +2143,10 @@ define internal fastcc void @do_smart_update(ptr noundef %0, ptr noundef readonl
   %19 = phi i64 [ 0, %9 ], [ %35, %32 ]
   %20 = phi i32 [ 0, %9 ], [ %34, %32 ]
   %21 = phi i32 [ 0, %9 ], [ %33, %32 ]
-  %22 = getelementptr %struct.sembuf, ptr %1, i64 %19
+  %22 = getelementptr [6 x i8], ptr %1, i64 %19
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
-  %25 = getelementptr %struct.sem, ptr %10, i64 %24
+  %25 = getelementptr [64 x i8], ptr %10, i64 %24
   %26 = load i32, ptr %25, align 64
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %32
@@ -2170,7 +2169,7 @@ define internal fastcc void @do_smart_update(ptr noundef %0, ptr noundef readonl
   %39 = phi i64 [ 0, %16 ], [ %53, %49 ]
   %40 = phi i32 [ 0, %16 ], [ %52, %49 ]
   %41 = phi i32 [ 0, %16 ], [ %51, %49 ]
-  %42 = getelementptr %struct.sem, ptr %17, i64 %39
+  %42 = getelementptr [64 x i8], ptr %17, i64 %39
   %43 = load i32, ptr %42, align 64
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %49
@@ -2259,7 +2258,7 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
 91:                                               ; preds = %103, %80
   %92 = phi i64 [ 0, %80 ], [ %105, %103 ]
   %93 = phi i32 [ %63, %80 ], [ %104, %103 ]
-  %94 = getelementptr %struct.sembuf, ptr %1, i64 %92
+  %94 = getelementptr [6 x i8], ptr %1, i64 %92
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %96 = load i16, ptr %95, align 2
   %97 = icmp sgt i16 %96, 0
@@ -3141,13 +3140,13 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
 141:                                              ; preds = %175, %138
   %142 = phi i32 [ %136, %138 ], [ %176, %175 ]
   %143 = phi i64 [ 0, %138 ], [ %177, %175 ]
-  %144 = getelementptr i16, ptr %139, i64 %143
+  %144 = getelementptr [2 x i8], ptr %139, i64 %143
   %145 = load i16, ptr %144, align 2
   %146 = icmp eq i16 %145, 0
   br i1 %146, label %175, label %147
 
 147:                                              ; preds = %141
-  %148 = getelementptr %struct.sem, ptr %140, i64 %143
+  %148 = getelementptr [64 x i8], ptr %140, i64 %143
   %149 = sext i16 %145 to i32
   %150 = load i32, ptr %148, align 64
   %151 = add i32 %150, %149
@@ -3211,7 +3210,7 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
 
 184:                                              ; preds = %.outer, %189
   %185 = phi i64 [ %190, %189 ], [ %.ph77, %.outer ]
-  %186 = getelementptr %struct.sem, ptr %140, i64 %185
+  %186 = getelementptr [64 x i8], ptr %140, i64 %185
   %187 = load i32, ptr %186, align 64
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %.thread75, label %189
@@ -3746,10 +3745,10 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
 
 62:                                               ; preds = %62, %59
   %63 = phi i64 [ 0, %59 ], [ %68, %62 ]
-  %64 = getelementptr %struct.sem, ptr %60, i64 %63
+  %64 = getelementptr [64 x i8], ptr %60, i64 %63
   %65 = load i32, ptr %64, align 64
   %66 = trunc i32 %65 to i16
-  %67 = getelementptr i16, ptr %56, i64 %63
+  %67 = getelementptr [2 x i8], ptr %56, i64 %63
   store i16 %66, ptr %67, align 2
   %68 = add nuw nsw i64 %63, 1
   %69 = icmp samesign ult i64 %68, %61
@@ -3836,7 +3835,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
 
 .preheader38:                                     ; preds = %.preheader38.preheader, %100
   %indvars.iv = phi i64 [ 0, %.preheader38.preheader ], [ %indvars.iv.next, %100 ]
-  %102 = getelementptr i16, ptr %89, i64 %indvars.iv
+  %102 = getelementptr [2 x i8], ptr %89, i64 %indvars.iv
   %103 = load i16, ptr %102, align 2
   %104 = icmp slt i16 %103, 0
   br i1 %104, label %105, label %100
@@ -3866,10 +3865,10 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
 
 116:                                              ; preds = %140, %110
   %117 = phi i64 [ 0, %110 ], [ %141, %140 ]
-  %118 = getelementptr i16, ptr %89, i64 %117
+  %118 = getelementptr [2 x i8], ptr %89, i64 %117
   %119 = load i16, ptr %118, align 2
   %120 = zext i16 %119 to i32
-  %121 = getelementptr %struct.sem, ptr %111, i64 %117
+  %121 = getelementptr [64 x i8], ptr %111, i64 %117
   store i32 %120, ptr %121, align 64
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %114, align 8
@@ -3966,7 +3965,7 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
   %173 = and i32 %2, %172
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %175 = zext nneg i32 %173 to i64
-  %176 = getelementptr %struct.sem, ptr %174, i64 %175
+  %176 = getelementptr [64 x i8], ptr %174, i64 %175
   switch i32 %3, label %.thread [
     i32 12, label %177
     i32 11, label %179
@@ -4161,7 +4160,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 
   %41 = and i32 %2, %40
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr %struct.sem, ptr %42, i64 %43
+  %44 = getelementptr [64 x i8], ptr %42, i64 %43
   %45 = load volatile i32, ptr %9, align 8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %48, !prof !5
@@ -4180,7 +4179,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 
 .preheader:                                       ; preds = %48, %.preheader
   %52 = phi ptr [ %55, %.preheader ], [ %50, %48 ]
   %53 = getelementptr i8, ptr %52, i64 20
-  %54 = getelementptr i16, ptr %53, i64 %43
+  %54 = getelementptr [2 x i8], ptr %53, i64 %43
   store i16 0, ptr %54, align 2
   %55 = load ptr, ptr %52, align 8
   %56 = icmp eq ptr %55, %49
@@ -4714,7 +4713,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.sembuf, ptr %4, i64 %7
+  %8 = getelementptr [6 x i8], ptr %4, i64 %7
   %9 = icmp ult ptr %4, %8
   br i1 %9, label %10, label %.loopexit16
 
@@ -4736,7 +4735,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   %23 = trunc i64 %22 to i16
   %24 = and i16 %18, %23
   %25 = zext i16 %24 to i64
-  %26 = getelementptr %struct.sem, ptr %14, i64 %25
+  %26 = getelementptr [64 x i8], ptr %14, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
@@ -4765,7 +4764,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
 44:                                               ; preds = %39
   %45 = load i16, ptr %17, align 2
   %46 = zext i16 %45 to i64
-  %47 = getelementptr i16, ptr %15, i64 %46
+  %47 = getelementptr [2 x i8], ptr %15, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
   %50 = sub nsw i32 %49, %29
@@ -4878,7 +4877,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   %108 = sext i16 %107 to i32
   %109 = load i16, ptr %104, align 2
   %110 = zext i16 %109 to i64
-  %111 = getelementptr %struct.sem, ptr %14, i64 %110
+  %111 = getelementptr [64 x i8], ptr %14, i64 %110
   %112 = load i32, ptr %111, align 64
   %113 = sub i32 %112, %108
   store i32 %113, ptr %111, align 64
@@ -4891,7 +4890,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
 118:                                              ; preds = %.preheader
   %119 = load i16, ptr %104, align 2
   %120 = zext i16 %119 to i64
-  %121 = getelementptr i16, ptr %15, i64 %120
+  %121 = getelementptr [2 x i8], ptr %15, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = add i16 %122, %107
   store i16 %123, ptr %121, align 2
@@ -4922,7 +4921,7 @@ define internal fastcc range(i32 0, 2) i32 @update_queue(ptr noundef %0, i32 nou
   br i1 %12, label %.thread6, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr %struct.sem, ptr %6, i64 %7
+  %14 = getelementptr [64 x i8], ptr %6, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %20
@@ -4995,10 +4994,10 @@ define internal fastcc range(i32 0, 2) i32 @update_queue(ptr noundef %0, i32 nou
 55:                                               ; preds = %67, %50
   %56 = phi i64 [ 0, %50 ], [ %69, %67 ]
   %57 = phi i32 [ 0, %50 ], [ %68, %67 ]
-  %58 = getelementptr %struct.sembuf, ptr %45, i64 %56
+  %58 = getelementptr [6 x i8], ptr %45, i64 %56
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i64
-  %61 = getelementptr %struct.sem, ptr %6, i64 %60
+  %61 = getelementptr [64 x i8], ptr %6, i64 %60
   %62 = load i32, ptr %61, align 64
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %67
@@ -5018,7 +5017,7 @@ define internal fastcc range(i32 0, 2) i32 @update_queue(ptr noundef %0, i32 nou
   %71 = phi i32 [ %81, %80 ], [ %53, %52 ]
   %72 = phi i64 [ %83, %80 ], [ 0, %52 ]
   %73 = phi i32 [ %82, %80 ], [ 0, %52 ]
-  %74 = getelementptr %struct.sem, ptr %6, i64 %72
+  %74 = getelementptr [64 x i8], ptr %6, i64 %72
   %75 = load i32, ptr %74, align 64
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %80

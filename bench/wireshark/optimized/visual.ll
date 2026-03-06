@@ -808,7 +808,7 @@ define internal noundef zeroext i1 @visual_dump(ptr noundef %0, ptr noundef read
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %91 = load i32, ptr %90, align 8
   %92 = sext i32 %88 to i64
-  %93 = getelementptr i32, ptr %89, i64 %92
+  %93 = getelementptr [4 x i8], ptr %89, i64 %92
   store i32 %91, ptr %93, align 4
   %94 = load i32, ptr %27, align 4
   %95 = add i32 %94, 1

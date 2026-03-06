@@ -3,14 +3,6 @@ source_filename = "bench/recastnavigation/original/DetourDebugDraw.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.dtPoly = type { i32, [6 x i16], [6 x i16], i16, i8, i8 }
-%struct.dtPolyDetail = type { i32, i32, i8, i8 }
-%struct.dtOffMeshConnection = type { [6 x float], float, i16, i8, i8, i32 }
-%struct.dtLink = type { i32, i32, i8, i8, i8, i8 }
-%struct.dtNode = type { [3 x float], float, float, i32, i32 }
-%struct.dtBVNode = type { [3 x i16], [3 x i16], i32 }
-%struct.dtTileCacheContour = type { i32, ptr, i8, i8 }
-
 @__const._Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMeshPKfff.offs = private unnamed_addr constant [8 x i32] [i32 -1, i32 0, i32 0, i32 1, i32 1, i32 0, i32 0, i32 -1], align 16
 @__const._ZL25debugDrawTileCachePortalsP11duDebugDrawRK16dtTileCacheLayerff.segs = private unnamed_addr constant [16 x i32] [i32 0, i32 0, i32 0, i32 1, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0], align 16
 
@@ -91,7 +83,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
 32:                                               ; preds = %.lr.ph182, %.loopexit
   %indvars.iv202 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next203, %.loopexit ]
   %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds nuw %struct.dtPoly, ptr %33, i64 %indvars.iv202
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %indvars.iv202
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 31
   %36 = load i8, ptr %35, align 1
   %.mask178 = and i8 %36, -64
@@ -100,7 +92,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %27, align 8
-  %40 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %39, i64 %indvars.iv202
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %39, i64 %indvars.iv202
   br i1 %.not174, label %45, label %41
 
 41:                                               ; preds = %38
@@ -164,7 +156,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
 74:                                               ; preds = %69
   %75 = load ptr, ptr %31, align 8
   %76 = zext i8 %71 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %61, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i64
   %.idx176 = mul nuw nsw i64 %79, 12
@@ -179,7 +171,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %85 = add i32 %83, %84
   %86 = mul i32 %85, 3
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw float, ptr %82, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %87
   br label %89
 
 89:                                               ; preds = %74, %81
@@ -242,7 +234,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %120 = phi ptr [ %111, %.lr.ph194 ], [ %248, %247 ]
   %indvars.iv205 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next206, %247 ]
   %121 = load ptr, ptr %115, align 8
-  %122 = getelementptr inbounds nuw %struct.dtPoly, ptr %121, i64 %indvars.iv205
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %indvars.iv205
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 31
   %124 = load i8, ptr %123, align 1
   %.mask = and i8 %124, -64
@@ -283,7 +275,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %143 = load i32, ptr %142, align 4
   %144 = sub nsw i32 %.pre217, %143
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds %struct.dtOffMeshConnection, ptr %140, i64 %145
+  %146 = getelementptr inbounds [36 x i8], ptr %140, i64 %145
   %147 = load ptr, ptr %117, align 8
   %148 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %149 = load i16, ptr %148, align 4
@@ -308,7 +300,7 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
   %.0158186 = phi i1 [ false, %.lr.ph189 ], [ %.1, %157 ]
   %.0159185 = phi i1 [ false, %.lr.ph189 ], [ %spec.select, %157 ]
   %158 = zext i32 %.0157187 to i64
-  %159 = getelementptr inbounds nuw %struct.dtLink, ptr %156, i64 %158
+  %159 = getelementptr inbounds nuw [12 x i8], ptr %156, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i8, ptr %160, align 4
   %162 = icmp eq i8 %161, 0
@@ -553,7 +545,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %16 = phi i32 [ %11, %.lr.ph67 ], [ %35, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %._crit_edge ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv
   %.04462 = load i16, ptr %18, align 2
   %.not6063 = icmp eq i16 %.04462, -1
   br i1 %.not6063, label %._crit_edge, label %.lr.ph
@@ -575,7 +567,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   br i1 %.not61, label %.lr.ph.split._crit_edge, label %22
 
 22:                                               ; preds = %.lr.ph.split
-  %23 = getelementptr inbounds nuw %struct.dtNode, ptr %21, i64 %.pre86
+  %23 = getelementptr inbounds nuw [28 x i8], ptr %21, i64 %.pre86
   %24 = load float, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load float, ptr %25, align 4
@@ -590,7 +582,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
 
 .lr.ph.split._crit_edge:                          ; preds = %.lr.ph.split, %22
   %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr inbounds nuw i16, ptr %33, i64 %.pre86
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %.pre86
   %.044 = load i16, ptr %34, align 2
   %.not60 = icmp eq i16 %.044, -1
   br i1 %.not60, label %._crit_edge.loopexit80, label %.lr.ph.splitthread-pre-split, !llvm.loop !13
@@ -628,7 +620,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %49 = phi i32 [ %44, %.lr.ph77 ], [ %87, %._crit_edge74 ]
   %indvars.iv82 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next83, %._crit_edge74 ]
   %50 = load ptr, ptr %46, align 8
-  %51 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv82
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %indvars.iv82
   %.04569 = load i16, ptr %51, align 2
   %.not5670 = icmp eq i16 %.04569, -1
   br i1 %.not5670, label %._crit_edge74, label %.lr.ph73
@@ -646,7 +638,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   %54 = phi ptr [ %.pr94, %.lr.ph73.splitthread-pre-split ], [ %52, %.lr.ph73 ]
   %.04571 = phi i16 [ %.045, %.lr.ph73.splitthread-pre-split ], [ %.04569, %.lr.ph73 ]
   %55 = zext i16 %.04571 to i64
-  %56 = getelementptr inbounds nuw %struct.dtNode, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [28 x i8], ptr %54, i64 %55
   %.not57 = icmp eq ptr %54, null
   br i1 %.not57, label %84, label %57
 
@@ -659,7 +651,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
 
 61:                                               ; preds = %57
   %62 = zext nneg i32 %60 to i64
-  %63 = getelementptr %struct.dtNode, ptr %54, i64 %62
+  %63 = getelementptr [28 x i8], ptr %54, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -28
   %.not59 = icmp eq ptr %64, null
   br i1 %.not59, label %84, label %65
@@ -689,7 +681,7 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
 
 84:                                               ; preds = %61, %57, %.lr.ph73.split, %65
   %85 = load ptr, ptr %47, align 8
-  %86 = getelementptr inbounds nuw i16, ptr %85, i64 %55
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %55
   %.045 = load i16, ptr %86, align 2
   %.not56 = icmp eq i16 %.045, -1
   br i1 %.not56, label %._crit_edge74.loopexit79, label %.lr.ph73.splitthread-pre-split, !llvm.loop !16
@@ -756,7 +748,7 @@ define void @_Z24duDebugDrawNavMeshBVTreeP11duDebugDrawRK9dtNavMesh(ptr noundef 
   %21 = phi ptr [ %15, %.lr.ph.i ], [ %58, %57 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds nuw %struct.dtBVNode, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 0
@@ -869,7 +861,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   %26 = phi ptr [ %167, %._crit_edge.i ], [ %20, %.split.i ]
   %indvars.iv148.i = phi i64 [ %indvars.iv.next149.i, %._crit_edge.i ], [ 0, %.split.i ]
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds nuw %struct.dtPoly, ptr %27, i64 %indvars.iv148.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv148.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 30
   %30 = load i8, ptr %29, align 2
   %.not145.i = icmp eq i8 %30, 0
@@ -883,7 +875,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
 
 34:                                               ; preds = %166, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %166 ]
-  %35 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv.i
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   %.not.i = icmp eq i32 %22, %37
@@ -895,7 +887,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %15, align 8
-  %40 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvars.iv.i
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
   %.idx.i = mul nuw nsw i64 %42, 12
@@ -903,7 +895,7 @@ define void @_Z25duDebugDrawNavMeshPortalsP11duDebugDrawRK9dtNavMesh(ptr noundef
   %44 = add nuw nsw i64 %indvars.iv.i, 1
   %45 = icmp eq i64 %44, %33
   %46 = select i1 %45, i64 0, i64 %44
-  %47 = getelementptr inbounds nuw i16, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i64
   %.idx136.i = mul nuw nsw i64 %49, 12
@@ -1130,7 +1122,7 @@ define void @_Z32duDebugDrawNavMeshPolysWithFlagsP11duDebugDrawRK9dtNavMeshtj(pt
   %18 = phi ptr [ %12, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %struct.dtPoly, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %22 = load i16, ptr %21, align 4
   %23 = and i16 %22, %2
@@ -1210,7 +1202,7 @@ define void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef 
   %34 = load i32, ptr %33, align 4
   %35 = sub i32 %28, %34
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.dtOffMeshConnection, ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [36 x i8], ptr %30, i64 %36
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
@@ -1238,7 +1230,7 @@ define void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef 
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = and i64 %23, 4294967295
-  %60 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [12 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
@@ -1283,7 +1275,7 @@ define void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef 
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %91 = zext i8 %78 to i64
-  %92 = getelementptr inbounds nuw i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %91
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i64
   %.idx = mul nuw nsw i64 %94, 12
@@ -1299,7 +1291,7 @@ define void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef 
   %101 = add i32 %99, %100
   %102 = mul i32 %101, 3
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw float, ptr %98, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %103
   br label %105
 
 105:                                              ; preds = %87, %96
@@ -1887,7 +1879,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
 16:                                               ; preds = %.lr.ph111, %._crit_edge
   %indvars.iv122 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next123, %._crit_edge ]
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds nuw %struct.dtTileCacheContour, ptr %17, i64 %indvars.iv122
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv122
   %19 = trunc nuw nsw i64 %indvars.iv122 to i32
   %20 = tail call noundef i32 @_Z10duIntToColii(i32 noundef %19, i32 noundef 255)
   %21 = load i32, ptr %18, align 8
@@ -1957,7 +1949,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %75 = shl i8 %66, 1
   %76 = and i8 %75, 30
   %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr @__const._Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMeshPKfff.offs, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @__const._Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMeshPKfff.offs, i64 %77
   %79 = load i32, ptr %78, align 8
   %80 = shl nsw i32 %79, 1
   %81 = sitofp i32 %80 to float
@@ -2015,7 +2007,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %113 = phi i32 [ %107, %.lr.ph119 ], [ %155, %._crit_edge116 ]
   %indvars.iv128 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next129, %._crit_edge116 ]
   %114 = load ptr, ptr %109, align 8
-  %115 = getelementptr inbounds nuw %struct.dtTileCacheContour, ptr %114, i64 %indvars.iv128
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %114, i64 %indvars.iv128
   %116 = load i32, ptr %115, align 8
   %117 = icmp sgt i32 %116, 0
   br i1 %117, label %.lr.ph115, label %._crit_edge116
@@ -2131,7 +2123,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %25 = trunc nuw nsw i64 %indvars.iv261 to i32
   %26 = mul i32 %16, %25
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %24, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %17, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv261
   %31 = load i8, ptr %30, align 1
@@ -2157,7 +2149,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 
 39:                                               ; preds = %.lr.ph.us, %47
   %indvars.iv257 = phi i64 [ 2, %.lr.ph.us ], [ %indvars.iv.next258, %47 ]
-  %40 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv257
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv257
   %41 = load i16, ptr %40, align 2
   %42 = icmp eq i16 %41, -1
   br i1 %42, label %._crit_edge.us, label %43
@@ -2179,7 +2171,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 48:                                               ; preds = %48, %43
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %48 ], [ 0, %43 ]
   %49 = load ptr, ptr %21, align 8
-  %50 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv254
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv254
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i64
   %.idx.us = mul nuw nsw i64 %52, 6
@@ -2275,19 +2267,19 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %107 = trunc nuw nsw i64 %indvars.iv272 to i32
   %108 = mul i32 %99, %107
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i16, ptr %106, i64 %109
-  %invariant.gep = getelementptr i16, ptr %110, i64 %104
+  %110 = getelementptr inbounds [2 x i8], ptr %106, i64 %109
+  %invariant.gep = getelementptr [2 x i8], ptr %110, i64 %104
   br label %111
 
 111:                                              ; preds = %.lr.ph.us237, %.loopexit222.us
   %indvars.iv267 = phi i64 [ 0, %.lr.ph.us237 ], [ %117, %.loopexit222.us ]
-  %112 = getelementptr inbounds nuw i16, ptr %110, i64 %indvars.iv267
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %indvars.iv267
   %113 = load i16, ptr %112, align 2
   %114 = icmp eq i16 %113, -1
   br i1 %114, label %._crit_edge.us238, label %115
 
 115:                                              ; preds = %111
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv267
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv267
   %116 = load i16, ptr %gep, align 2
   %.not219.us = icmp sgt i16 %116, -1
   %117 = add nuw nsw i64 %indvars.iv267, 1
@@ -2298,7 +2290,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   br i1 %.not220.us, label %119, label %123
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds nuw i16, ptr %110, i64 %117
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %117
   %121 = load i16, ptr %120, align 2
   %122 = icmp eq i16 %121, -1
   %spec.select.us = select i1 %122, i64 0, i64 %117
@@ -2306,7 +2298,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 
 123:                                              ; preds = %119, %118
   %124 = phi i64 [ 0, %118 ], [ %spec.select.us, %119 ]
-  %125 = getelementptr inbounds nuw i16, ptr %110, i64 %124
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %124
   %126 = load i16, ptr %125, align 2
   br label %127
 
@@ -2384,21 +2376,21 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %171 = trunc nuw nsw i64 %indvars.iv283 to i32
   %172 = mul i32 %163, %171
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i16, ptr %170, i64 %173
+  %174 = getelementptr inbounds [2 x i8], ptr %170, i64 %173
   %175 = and i32 %171, 1
   %176 = add nuw nsw i32 %175, 1
-  %invariant.gep300 = getelementptr i16, ptr %174, i64 %168
+  %invariant.gep300 = getelementptr [2 x i8], ptr %174, i64 %168
   br label %177
 
 177:                                              ; preds = %.lr.ph.us246, %.loopexit.us
   %indvars.iv278 = phi i64 [ 0, %.lr.ph.us246 ], [ %.pre289, %.loopexit.us ]
-  %178 = getelementptr inbounds nuw i16, ptr %174, i64 %indvars.iv278
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %174, i64 %indvars.iv278
   %179 = load i16, ptr %178, align 2
   %180 = icmp eq i16 %179, -1
   br i1 %180, label %._crit_edge.us247, label %181
 
 181:                                              ; preds = %177
-  %gep301 = getelementptr i16, ptr %invariant.gep300, i64 %indvars.iv278
+  %gep301 = getelementptr [2 x i8], ptr %invariant.gep300, i64 %indvars.iv278
   %182 = load i16, ptr %gep301, align 2
   %183 = icmp sgt i16 %182, -1
   %.pre289 = add nuw nsw i64 %indvars.iv278, 1
@@ -2409,7 +2401,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   br i1 %.not217.us, label %185, label %189
 
 185:                                              ; preds = %184
-  %186 = getelementptr inbounds nuw i16, ptr %174, i64 %.pre289
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %174, i64 %.pre289
   %187 = load i16, ptr %186, align 2
   %188 = icmp eq i16 %187, -1
   %spec.select221.us = select i1 %188, i64 0, i64 %.pre289
@@ -2418,7 +2410,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
 189:                                              ; preds = %185, %184
   %190 = phi i64 [ 0, %184 ], [ %spec.select221.us, %185 ]
   %191 = zext i16 %179 to i32
-  %192 = getelementptr inbounds nuw i16, ptr %174, i64 %190
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %174, i64 %190
   %193 = load i16, ptr %192, align 2
   %194 = zext i16 %193 to i32
   %195 = and i16 %182, 15
@@ -2429,10 +2421,10 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %197 = load ptr, ptr %165, align 8
   %198 = mul nuw nsw i32 %191, 3
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw i16, ptr %197, i64 %199
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %197, i64 %199
   %201 = mul nuw nsw i32 %194, 3
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw i16, ptr %197, i64 %202
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %197, i64 %202
   %204 = load float, ptr %2, align 4
   %205 = load i16, ptr %200, align 2
   %206 = uitofp i16 %205 to float
@@ -2470,7 +2462,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %238 = fmul float %237, 5.000000e-01
   %239 = shl nuw nsw i16 %195, 1
   %240 = zext nneg i16 %239 to i64
-  %241 = getelementptr inbounds nuw i32, ptr @__const._Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMeshPKfff.offs, i64 %240
+  %241 = getelementptr inbounds nuw [4 x i8], ptr @__const._Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMeshPKfff.offs, i64 %240
   %242 = load i32, ptr %241, align 8
   %243 = shl nsw i32 %242, 1
   %244 = sitofp i32 %243 to float
@@ -2500,7 +2492,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %260 = load ptr, ptr %165, align 8
   %261 = mul nuw nsw i32 %indvars.iv275.sroa.phi.sroa.speculated, 3
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw i16, ptr %260, i64 %262
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %260, i64 %262
   %264 = load float, ptr %2, align 4
   %265 = load i16, ptr %263, align 2
   %266 = uitofp i16 %265 to float
@@ -2627,7 +2619,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %22 = phi ptr [ %11, %.lr.ph118 ], [ %160, %.loopexit104 ]
   %indvars.iv130 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next131, %.loopexit104 ]
   %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw %struct.dtPoly, ptr %23, i64 %indvars.iv130
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv130
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 31
   %26 = load i8, ptr %25, align 1
   %.mask = and i8 %26, -64
@@ -2636,7 +2628,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr inbounds nuw %struct.dtPolyDetail, ptr %29, i64 %indvars.iv130
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %indvars.iv130
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 30
   %32 = load i8, ptr %31, align 2
   %.not119 = icmp eq i8 %32, 0
@@ -2652,7 +2644,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
 
 38:                                               ; preds = %.lr.ph116, %.loopexit
   %indvars.iv126 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next127, %.loopexit ]
-  %39 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv126
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv126
   %40 = load i16, ptr %39, align 2
   %41 = icmp eq i16 %40, 0
   br i1 %4, label %42, label %54
@@ -2682,7 +2674,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
 47:                                               ; preds = %.lr.ph, %45
   %.081107 = phi i32 [ %.081105, %.lr.ph ], [ %.081, %45 ]
   %48 = zext i32 %.081107 to i64
-  %49 = getelementptr inbounds nuw %struct.dtLink, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 4
   %52 = zext i8 %51 to i64
@@ -2695,7 +2687,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
 .critedge:                                        ; preds = %47, %45, %.preheader103, %43, %54
   %.080 = phi i32 [ %2, %54 ], [ 541077504, %43 ], [ 805306368, %.preheader103 ], [ 822083583, %47 ], [ 805306368, %45 ]
   %55 = load ptr, ptr %18, align 8
-  %56 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv126
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv126
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i64
   %.idx = mul nuw nsw i64 %58, 12
@@ -2704,7 +2696,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %61 = icmp eq i64 %60, %37
   %62 = and i64 %60, 4294967295
   %63 = select i1 %61, i64 0, i64 %62
-  %64 = getelementptr inbounds nuw i16, ptr %34, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
   %.idx89 = mul nuw nsw i64 %66, 12
@@ -2743,7 +2735,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
 84:                                               ; preds = %80
   %85 = load ptr, ptr %18, align 8
   %86 = zext i8 %82 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %34, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i64
   %.idx90 = mul nuw nsw i64 %89, 12
@@ -2758,12 +2750,12 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   %95 = add i32 %93, %94
   %96 = mul i32 %95, 3
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw float, ptr %92, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %97
   br label %99
 
 99:                                               ; preds = %84, %91
   %.sink = phi ptr [ %90, %84 ], [ %98, %91 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %.sink, ptr %100, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2782,7 +2774,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
 
 108:                                              ; preds = %101
   %109 = zext nneg i32 %.0112 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %6, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %109
   %111 = load ptr, ptr %110, align 8
   %.val = load float, ptr %111, align 4
   %112 = getelementptr i8, ptr %111, i64 8
@@ -2812,7 +2804,7 @@ define internal fastcc void @_ZL18drawPolyBoundariesP11duDebugDrawPK10dtMeshTile
   br i1 %129, label %130, label %153
 
 130:                                              ; preds = %108
-  %131 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv122
   %132 = load ptr, ptr %131, align 8
   %.val96 = load float, ptr %132, align 4
   %133 = getelementptr i8, ptr %132, i64 8

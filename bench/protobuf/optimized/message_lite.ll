@@ -59,7 +59,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::lts_20230802::cord_internal::InlineData::Rep" = type { %union.anon.20 }
 %union.anon.20 = type { %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree" }
 %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree" = type { i64, ptr }
-%"struct.std::pair" = type { ptr, ptr }
 %struct._Guard = type { ptr }
 %"class.google::protobuf::io::CordInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", %"class.absl::lts_20230802::Cord::CharIterator", i64, i64, ptr, i64, i64 }
 %"class.absl::lts_20230802::Cord::CharIterator" = type { %"class.absl::lts_20230802::Cord::ChunkIterator" }
@@ -3845,7 +3844,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i2, ptr %3, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i.i2, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i2, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %invoke.cont2
 

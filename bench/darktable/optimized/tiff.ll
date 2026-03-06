@@ -250,7 +250,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %101 = add nuw nsw i64 %indvars.iv770, %97
   %102 = shl i64 %101, 2
   %103 = and i64 %102, 4294967292
-  %104 = getelementptr inbounds nuw float, ptr %2, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !44
   %106 = fcmp reassoc nsz arcp contract afn ogt float %105, 0x3F50624DE0000000
   %107 = select reassoc nsz arcp contract afn i1 %106, float %105, float 0x3F50624DE0000000
@@ -316,7 +316,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %136 = add nuw nsw i64 %indvars.iv, %132
   %137 = shl i64 %136, 2
   %138 = and i64 %137, 4294967292
-  %139 = getelementptr inbounds nuw i16, ptr %2, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !40
   %141 = zext i16 %140 to i32
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 2
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %242 = shl nuw nsw i64 %indvars.iv798, 2
   %243 = zext nneg i32 %240 to i64
   %244 = mul i64 %242, %243
-  %245 = getelementptr inbounds nuw float, ptr %2, i64 %244
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %244
   br label %.lr.ph672
 
 ._crit_edge673:                                   ; preds = %.lr.ph672, %.lr.ph675
@@ -535,7 +535,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %251 = getelementptr inbounds nuw i8, ptr %.0441668, i64 16
   %.0..0..0..0.190 = load volatile i16, ptr %15, align 2, !tbaa !40
   %252 = zext i16 %.0..0..0..0.190 to i64
-  %253 = getelementptr inbounds nuw float, ptr %.0440669, i64 %252
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %.0440669, i64 %252
   %exitcond797.not = icmp eq i32 %250, %240
   br i1 %exitcond797.not, label %._crit_edge673, label %.lr.ph672
 
@@ -567,7 +567,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %265 = shl nuw nsw i64 %indvars.iv794, 2
   %266 = zext nneg i32 %263 to i64
   %267 = mul i64 %265, %266
-  %268 = getelementptr inbounds nuw i16, ptr %2, i64 %267
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %267
   br label %.lr.ph664
 
 ._crit_edge665:                                   ; preds = %.lr.ph664, %.lr.ph667
@@ -588,7 +588,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %274 = getelementptr inbounds nuw i8, ptr %.0437660, i64 8
   %.0..0..0..0.192 = load volatile i16, ptr %15, align 2, !tbaa !40
   %275 = zext i16 %.0..0..0..0.192 to i64
-  %276 = getelementptr inbounds nuw i16, ptr %.0436661, i64 %275
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %.0436661, i64 %275
   %exitcond793.not = icmp eq i32 %273, %263
   br i1 %exitcond793.not, label %._crit_edge665, label %.lr.ph664
 
@@ -865,7 +865,7 @@ thread-pre-split:                                 ; preds = %378
 398:                                              ; preds = %.lr.ph712, %397
   %indvars.iv833 = phi i64 [ 0, %.lr.ph712 ], [ %indvars.iv.next834, %397 ]
   %399 = mul nsw i64 %indvars.iv833, %.0419
-  %400 = getelementptr inbounds nuw float, ptr %.4416, i64 %399
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %.4416, i64 %399
   br i1 %.not738, label %._crit_edge710, label %.preheader618
 
 .preheader618:                                    ; preds = %398, %._crit_edge707
@@ -876,7 +876,7 @@ thread-pre-split:                                 ; preds = %378
   br i1 %.not739, label %._crit_edge707, label %.lr.ph706
 
 .lr.ph706:                                        ; preds = %.preheader618
-  %401 = getelementptr inbounds nuw float, ptr %400, i64 %indvars.iv829
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %400, i64 %indvars.iv829
   %.pre = load float, ptr %401, align 4, !tbaa !44
   br label %406
 
@@ -890,13 +890,13 @@ thread-pre-split:                                 ; preds = %378
   %indvars.iv.next830 = add nuw nsw i64 %indvars.iv829, 1
   %.0..0..0..0.199 = load volatile i16, ptr %15, align 2, !tbaa !40
   %404 = zext i16 %.0..0..0..0.199 to i64
-  %405 = getelementptr inbounds nuw float, ptr %.0406708, i64 %404
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %.0406708, i64 %404
   %exitcond832.not = icmp eq i64 %indvars.iv.next830, %.0419
   br i1 %exitcond832.not, label %._crit_edge710, label %.preheader618
 
 406:                                              ; preds = %.lr.ph706, %406
   %indvars.iv826 = phi i64 [ 0, %.lr.ph706 ], [ %indvars.iv.next827, %406 ]
-  %407 = getelementptr inbounds nuw float, ptr %.0406708, i64 %indvars.iv826
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %.0406708, i64 %indvars.iv826
   store float %.pre, ptr %407, align 4, !tbaa !44
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %.0..0..0..0.198 = load volatile i16, ptr %15, align 2, !tbaa !40
@@ -920,7 +920,7 @@ thread-pre-split:                                 ; preds = %378
 .preheader619.lr.ph.us:                           ; preds = %.lr.ph697, %414
   %indvars.iv818 = phi i64 [ %indvars.iv.next819, %414 ], [ 0, %.lr.ph697 ]
   %412 = mul nsw i64 %indvars.iv818, %.0419
-  %413 = getelementptr inbounds nuw float, ptr %.4416, i64 %412
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %.4416, i64 %412
   br label %.preheader619.us
 
 414:                                              ; preds = %._crit_edge695.us
@@ -932,13 +932,13 @@ thread-pre-split:                                 ; preds = %378
   %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
   %.0..0..0..0.201.us = load volatile i16, ptr %15, align 2, !tbaa !40
   %415 = zext i16 %.0..0..0..0.201.us to i64
-  %416 = getelementptr inbounds nuw i16, ptr %.0401691.us, i64 %415
+  %416 = getelementptr inbounds nuw [2 x i8], ptr %.0401691.us, i64 %415
   %exitcond817.not = icmp eq i64 %indvars.iv.next815, %.0419
   br i1 %exitcond817.not, label %._crit_edge695.us, label %.preheader619.us
 
 .lr.ph687.split.split.us702:                      ; preds = %.lr.ph687.split.us701, %.lr.ph687.split.split.us702
   %indvars.iv805 = phi i64 [ %indvars.iv.next806, %.lr.ph687.split.split.us702 ], [ 0, %.lr.ph687.split.us701 ]
-  %417 = getelementptr inbounds nuw i16, ptr %.0401691.us, i64 %indvars.iv805
+  %417 = getelementptr inbounds nuw [2 x i8], ptr %.0401691.us, i64 %indvars.iv805
   store i16 %425, ptr %417, align 2, !tbaa !40
   %indvars.iv.next806 = add nuw nsw i64 %indvars.iv805, 1
   %.0..0..0..0.200.us699 = load volatile i16, ptr %15, align 2, !tbaa !40
@@ -954,7 +954,7 @@ thread-pre-split:                                 ; preds = %378
   br i1 %.not736, label %._crit_edge688.us, label %.lr.ph687.us
 
 .lr.ph687.us:                                     ; preds = %.preheader619.us
-  %420 = getelementptr inbounds nuw float, ptr %413, i64 %indvars.iv814
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %413, i64 %indvars.iv814
   %421 = load float, ptr %420, align 4, !tbaa !44
   %422 = fcmp reassoc nsz arcp contract afn ult float %421, 0.000000e+00
   %423 = fmul reassoc nnan nsz arcp contract afn float %421, 6.553500e+04
@@ -968,7 +968,7 @@ thread-pre-split:                                 ; preds = %378
 
 .lr.ph687.split.us.us:                            ; preds = %.lr.ph687.us, %.lr.ph687.split.us.us
   %indvars.iv811 = phi i64 [ %indvars.iv.next812, %.lr.ph687.split.us.us ], [ 0, %.lr.ph687.us ]
-  %427 = getelementptr inbounds nuw i16, ptr %.0401691.us, i64 %indvars.iv811
+  %427 = getelementptr inbounds nuw [2 x i8], ptr %.0401691.us, i64 %indvars.iv811
   store i16 0, ptr %427, align 2, !tbaa !40
   %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1
   %.0..0..0..0.200.us.us = load volatile i16, ptr %15, align 2, !tbaa !40
@@ -978,7 +978,7 @@ thread-pre-split:                                 ; preds = %378
 
 .lr.ph687.split.split.us.us:                      ; preds = %.lr.ph687.split.us701, %.lr.ph687.split.split.us.us
   %indvars.iv808 = phi i64 [ %indvars.iv.next809, %.lr.ph687.split.split.us.us ], [ 0, %.lr.ph687.split.us701 ]
-  %430 = getelementptr inbounds nuw i16, ptr %.0401691.us, i64 %indvars.iv808
+  %430 = getelementptr inbounds nuw [2 x i8], ptr %.0401691.us, i64 %indvars.iv808
   store i16 -1, ptr %430, align 2, !tbaa !40
   %indvars.iv.next809 = add nuw nsw i64 %indvars.iv808, 1
   %.0..0..0..0.200.us690.us = load volatile i16, ptr %15, align 2, !tbaa !40
@@ -1020,7 +1020,7 @@ thread-pre-split:                                 ; preds = %378
 440:                                              ; preds = %.lr.ph722, %439
   %indvars.iv844 = phi i64 [ 0, %.lr.ph722 ], [ %indvars.iv.next845, %439 ]
   %441 = mul nsw i64 %indvars.iv844, %.0419
-  %442 = getelementptr inbounds nuw float, ptr %.4416, i64 %441
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %.4416, i64 %441
   br i1 %.not741, label %._crit_edge719, label %.preheader
 
 .preheader:                                       ; preds = %440, %._crit_edge716
@@ -1031,7 +1031,7 @@ thread-pre-split:                                 ; preds = %378
   br i1 %.not742, label %._crit_edge716, label %.lr.ph715
 
 .lr.ph715:                                        ; preds = %.preheader
-  %443 = getelementptr inbounds nuw float, ptr %442, i64 %indvars.iv840
+  %443 = getelementptr inbounds nuw [4 x i8], ptr %442, i64 %indvars.iv840
   br label %448
 
 ._crit_edge719:                                   ; preds = %._crit_edge716, %440

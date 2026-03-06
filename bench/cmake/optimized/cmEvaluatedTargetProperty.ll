@@ -691,7 +691,7 @@ _ZNSt12_Vector_baseI28EvaluatedTargetPropertyEntrySaIS0_EE13_M_deallocateEPS0_m.
   store ptr %19, ptr %0, align 8, !tbaa !66
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %47, ptr %14, align 8, !tbaa !59
-  %48 = getelementptr inbounds nuw %struct.EvaluatedTargetPropertyEntry, ptr %19, i64 %1
+  %48 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %1
   store ptr %48, ptr %6, align 8, !tbaa !62
   br label %49
 
@@ -2129,7 +2129,7 @@ _ZNSt6vectorI28EvaluatedTargetPropertyEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.
 _ZNSt12_Vector_baseI28EvaluatedTargetPropertyEntrySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI28EvaluatedTargetPropertyEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22, %85
   store ptr %20, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !59
-  %89 = getelementptr inbounds nuw %struct.EvaluatedTargetPropertyEntry, ptr %20, i64 %16
+  %89 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %89, ptr %84, align 8, !tbaa !62
   ret void
 }
@@ -2205,7 +2205,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !148
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !149
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !150
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorI14cmLinkImplItemSaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34

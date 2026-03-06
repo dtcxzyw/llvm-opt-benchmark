@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.9 = type { ptr }
 %struct._h225ras_call_info_key = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
-%struct._rtd_timestat = type { i32, ptr, i32, i32, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 
 @nsp_handle = internal unnamed_addr global ptr null, align 8
@@ -3543,7 +3542,7 @@ define hidden void @proto_register_h225() local_unnamed_addr #0 {
   %23 = tail call ptr @wmem_epan_scope()
   %24 = tail call ptr @wmem_file_scope()
   %25 = tail call noalias ptr @wmem_map_new_autoreset(ptr noundef %23, ptr noundef %24, ptr noundef nonnull @h225ras_call_hash, ptr noundef nonnull @h225ras_call_equal)
-  %26 = getelementptr ptr, ptr @ras_calls, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr @ras_calls, i64 %indvars.iv
   store ptr %25, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -3596,11 +3595,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 13:                                               ; preds = %13, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %8 ]
   %indvars251 = trunc i64 %indvars.iv to i32
-  %14 = getelementptr %struct._value_string, ptr @h225_RasMessage_vals, i64 %indvars.iv
+  %14 = getelementptr [16 x i8], ptr @h225_RasMessage_vals, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %12, align 8
-  %17 = getelementptr i32, ptr @ras_msg_idx, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr @ras_msg_idx, i64 %indvars.iv
   store i32 %indvars251, ptr %17, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %indvars251, i32 noundef 2, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3610,11 +3609,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader223:                                    ; preds = %13, %.preheader223
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %.preheader223 ], [ 0, %13 ]
   %.1154 = phi i32 [ %22, %.preheader223 ], [ 33, %13 ]
-  %18 = getelementptr %struct._value_string, ptr @T_h323_message_body_vals, i64 %indvars.iv254
+  %18 = getelementptr [16 x i8], ptr @T_h323_message_body_vals, i64 %indvars.iv254
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %12, align 8
-  %21 = getelementptr i32, ptr @cs_msg_idx, i64 %indvars.iv254
+  %21 = getelementptr [4 x i8], ptr @cs_msg_idx, i64 %indvars.iv254
   store i32 %.1154, ptr %21, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.1154, i32 noundef 2, ptr noundef nonnull %2)
   %22 = add nuw nsw i32 %.1154, 1
@@ -3625,11 +3624,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader222:                                    ; preds = %.preheader223, %.preheader222
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %.preheader222 ], [ 0, %.preheader223 ]
   %.2155 = phi i32 [ %27, %.preheader222 ], [ 46, %.preheader223 ]
-  %23 = getelementptr %struct._value_string, ptr @GatekeeperRejectReason_vals, i64 %indvars.iv257
+  %23 = getelementptr [16 x i8], ptr @GatekeeperRejectReason_vals, i64 %indvars.iv257
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %12, align 8
-  %26 = getelementptr i32, ptr @grj_reason_idx, i64 %indvars.iv257
+  %26 = getelementptr [4 x i8], ptr @grj_reason_idx, i64 %indvars.iv257
   store i32 %.2155, ptr %26, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.2155, i32 noundef 2, ptr noundef nonnull %2)
   %27 = add nuw nsw i32 %.2155, 1
@@ -3640,11 +3639,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader221:                                    ; preds = %.preheader222, %.preheader221
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %.preheader221 ], [ 0, %.preheader222 ]
   %.3156 = phi i32 [ %32, %.preheader221 ], [ 54, %.preheader222 ]
-  %28 = getelementptr %struct._value_string, ptr @RegistrationRejectReason_vals, i64 %indvars.iv260
+  %28 = getelementptr [16 x i8], ptr @RegistrationRejectReason_vals, i64 %indvars.iv260
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %12, align 8
-  %31 = getelementptr i32, ptr @rrj_reason_idx, i64 %indvars.iv260
+  %31 = getelementptr [4 x i8], ptr @rrj_reason_idx, i64 %indvars.iv260
   store i32 %.3156, ptr %31, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.3156, i32 noundef 2, ptr noundef nonnull %2)
   %32 = add nuw nsw i32 %.3156, 1
@@ -3655,11 +3654,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader220:                                    ; preds = %.preheader221, %.preheader220
   %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.preheader220 ], [ 0, %.preheader221 ]
   %.4157 = phi i32 [ %37, %.preheader220 ], [ 73, %.preheader221 ]
-  %33 = getelementptr %struct._value_string, ptr @UnregRequestReason_vals, i64 %indvars.iv263
+  %33 = getelementptr [16 x i8], ptr @UnregRequestReason_vals, i64 %indvars.iv263
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %12, align 8
-  %36 = getelementptr i32, ptr @urq_reason_idx, i64 %indvars.iv263
+  %36 = getelementptr [4 x i8], ptr @urq_reason_idx, i64 %indvars.iv263
   store i32 %.4157, ptr %36, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.4157, i32 noundef 2, ptr noundef nonnull %2)
   %37 = add nuw nsw i32 %.4157, 1
@@ -3670,11 +3669,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader219:                                    ; preds = %.preheader220, %.preheader219
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %.preheader219 ], [ 0, %.preheader220 ]
   %.5158 = phi i32 [ %42, %.preheader219 ], [ 80, %.preheader220 ]
-  %38 = getelementptr %struct._value_string, ptr @UnregRejectReason_vals, i64 %indvars.iv266
+  %38 = getelementptr [16 x i8], ptr @UnregRejectReason_vals, i64 %indvars.iv266
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %12, align 8
-  %41 = getelementptr i32, ptr @urj_reason_idx, i64 %indvars.iv266
+  %41 = getelementptr [4 x i8], ptr @urj_reason_idx, i64 %indvars.iv266
   store i32 %.5158, ptr %41, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.5158, i32 noundef 2, ptr noundef nonnull %2)
   %42 = add nuw nsw i32 %.5158, 1
@@ -3685,11 +3684,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader218:                                    ; preds = %.preheader219, %.preheader218
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %.preheader218 ], [ 0, %.preheader219 ]
   %.6159 = phi i32 [ %47, %.preheader218 ], [ 86, %.preheader219 ]
-  %43 = getelementptr %struct._value_string, ptr @AdmissionRejectReason_vals, i64 %indvars.iv269
+  %43 = getelementptr [16 x i8], ptr @AdmissionRejectReason_vals, i64 %indvars.iv269
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %12, align 8
-  %46 = getelementptr i32, ptr @arj_reason_idx, i64 %indvars.iv269
+  %46 = getelementptr [4 x i8], ptr @arj_reason_idx, i64 %indvars.iv269
   store i32 %.6159, ptr %46, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.6159, i32 noundef 2, ptr noundef nonnull %2)
   %47 = add nuw nsw i32 %.6159, 1
@@ -3700,11 +3699,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader217:                                    ; preds = %.preheader218, %.preheader217
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.preheader217 ], [ 0, %.preheader218 ]
   %.7160 = phi i32 [ %52, %.preheader217 ], [ 109, %.preheader218 ]
-  %48 = getelementptr %struct._value_string, ptr @BandRejectReason_vals, i64 %indvars.iv272
+  %48 = getelementptr [16 x i8], ptr @BandRejectReason_vals, i64 %indvars.iv272
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %12, align 8
-  %51 = getelementptr i32, ptr @brj_reason_idx, i64 %indvars.iv272
+  %51 = getelementptr [4 x i8], ptr @brj_reason_idx, i64 %indvars.iv272
   store i32 %.7160, ptr %51, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.7160, i32 noundef 2, ptr noundef nonnull %2)
   %52 = add nuw nsw i32 %.7160, 1
@@ -3715,11 +3714,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader216:                                    ; preds = %.preheader217, %.preheader216
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %.preheader216 ], [ 0, %.preheader217 ]
   %.8161 = phi i32 [ %57, %.preheader216 ], [ 117, %.preheader217 ]
-  %53 = getelementptr %struct._value_string, ptr @DisengageReason_vals, i64 %indvars.iv275
+  %53 = getelementptr [16 x i8], ptr @DisengageReason_vals, i64 %indvars.iv275
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %12, align 8
-  %56 = getelementptr i32, ptr @drq_reason_idx, i64 %indvars.iv275
+  %56 = getelementptr [4 x i8], ptr @drq_reason_idx, i64 %indvars.iv275
   store i32 %.8161, ptr %56, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.8161, i32 noundef 2, ptr noundef nonnull %2)
   %57 = add nuw nsw i32 %.8161, 1
@@ -3730,11 +3729,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader215:                                    ; preds = %.preheader216, %.preheader215
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.preheader215 ], [ 0, %.preheader216 ]
   %.9162 = phi i32 [ %62, %.preheader215 ], [ 120, %.preheader216 ]
-  %58 = getelementptr %struct._value_string, ptr @DisengageRejectReason_vals, i64 %indvars.iv278
+  %58 = getelementptr [16 x i8], ptr @DisengageRejectReason_vals, i64 %indvars.iv278
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %12, align 8
-  %61 = getelementptr i32, ptr @drj_reason_idx, i64 %indvars.iv278
+  %61 = getelementptr [4 x i8], ptr @drj_reason_idx, i64 %indvars.iv278
   store i32 %.9162, ptr %61, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.9162, i32 noundef 2, ptr noundef nonnull %2)
   %62 = add nuw nsw i32 %.9162, 1
@@ -3745,11 +3744,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader214:                                    ; preds = %.preheader215, %.preheader214
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %.preheader214 ], [ 0, %.preheader215 ]
   %.10163 = phi i32 [ %67, %.preheader214 ], [ 124, %.preheader215 ]
-  %63 = getelementptr %struct._value_string, ptr @LocationRejectReason_vals, i64 %indvars.iv281
+  %63 = getelementptr [16 x i8], ptr @LocationRejectReason_vals, i64 %indvars.iv281
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %12, align 8
-  %66 = getelementptr i32, ptr @lrj_reason_idx, i64 %indvars.iv281
+  %66 = getelementptr [4 x i8], ptr @lrj_reason_idx, i64 %indvars.iv281
   store i32 %.10163, ptr %66, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.10163, i32 noundef 2, ptr noundef nonnull %2)
   %67 = add nuw nsw i32 %.10163, 1
@@ -3760,11 +3759,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader213:                                    ; preds = %.preheader214, %.preheader213
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.preheader213 ], [ 0, %.preheader214 ]
   %.11164 = phi i32 [ %72, %.preheader213 ], [ 140, %.preheader214 ]
-  %68 = getelementptr %struct._value_string, ptr @InfoRequestNakReason_vals, i64 %indvars.iv284
+  %68 = getelementptr [16 x i8], ptr @InfoRequestNakReason_vals, i64 %indvars.iv284
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %12, align 8
-  %71 = getelementptr i32, ptr @irqnak_reason_idx, i64 %indvars.iv284
+  %71 = getelementptr [4 x i8], ptr @irqnak_reason_idx, i64 %indvars.iv284
   store i32 %.11164, ptr %71, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.11164, i32 noundef 2, ptr noundef nonnull %2)
   %72 = add nuw nsw i32 %.11164, 1
@@ -3775,11 +3774,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader212:                                    ; preds = %.preheader213, %.preheader212
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.preheader212 ], [ 0, %.preheader213 ]
   %.12165 = phi i32 [ %77, %.preheader212 ], [ 144, %.preheader213 ]
-  %73 = getelementptr %struct._value_string, ptr @h225_ReleaseCompleteReason_vals, i64 %indvars.iv287
+  %73 = getelementptr [16 x i8], ptr @h225_ReleaseCompleteReason_vals, i64 %indvars.iv287
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %12, align 8
-  %76 = getelementptr i32, ptr @rel_cmp_reason_idx, i64 %indvars.iv287
+  %76 = getelementptr [4 x i8], ptr @rel_cmp_reason_idx, i64 %indvars.iv287
   store i32 %.12165, ptr %76, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.12165, i32 noundef 2, ptr noundef nonnull %2)
   %77 = add nuw nsw i32 %.12165, 1
@@ -3790,11 +3789,11 @@ define internal void @h225_stat_init(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %.preheader212, %.preheader
   %indvars.iv290 = phi i64 [ %indvars.iv.next291, %.preheader ], [ 0, %.preheader212 ]
   %.13166 = phi i32 [ %82, %.preheader ], [ 169, %.preheader212 ]
-  %78 = getelementptr %struct._value_string, ptr @FacilityReason_vals, i64 %indvars.iv290
+  %78 = getelementptr [16 x i8], ptr @FacilityReason_vals, i64 %indvars.iv290
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   store ptr %80, ptr %12, align 8
-  %81 = getelementptr i32, ptr @facility_reason_idx, i64 %indvars.iv290
+  %81 = getelementptr [4 x i8], ptr @facility_reason_idx, i64 %indvars.iv290
   store i32 %.13166, ptr %81, align 4
   call void @stat_tap_init_table_row(ptr noundef %9, i32 noundef %.13166, i32 noundef 2, ptr noundef nonnull %2)
   %82 = add nuw nsw i32 %.13166, 1
@@ -3830,7 +3829,7 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr noundef readonly captu
 11:                                               ; preds = %9
   %narrow71 = tail call i32 @llvm.umin.i32(i32 %7, i32 33)
   %spec.select = zext nneg i32 %narrow71 to i64
-  %12 = getelementptr i32, ptr @ras_msg_idx, i64 %spec.select
+  %12 = getelementptr [4 x i8], ptr @ras_msg_idx, i64 %spec.select
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %15 = load i32, ptr %14, align 4
@@ -3854,77 +3853,77 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr noundef readonly captu
 18:                                               ; preds = %17
   %narrow81 = tail call i32 @llvm.umin.i32(i32 %15, i32 8)
   %spec.select56 = zext nneg i32 %narrow81 to i64
-  %19 = getelementptr i32, ptr @grj_reason_idx, i64 %spec.select56
+  %19 = getelementptr [4 x i8], ptr @grj_reason_idx, i64 %spec.select56
   %20 = load i32, ptr %19, align 4
   br label %63
 
 21:                                               ; preds = %17
   %narrow80 = tail call i32 @llvm.umin.i32(i32 %15, i32 19)
   %spec.select57 = zext nneg i32 %narrow80 to i64
-  %22 = getelementptr i32, ptr @rrj_reason_idx, i64 %spec.select57
+  %22 = getelementptr [4 x i8], ptr @rrj_reason_idx, i64 %spec.select57
   %23 = load i32, ptr %22, align 4
   br label %63
 
 24:                                               ; preds = %17
   %narrow79 = tail call i32 @llvm.umin.i32(i32 %15, i32 7)
   %spec.select58 = zext nneg i32 %narrow79 to i64
-  %25 = getelementptr i32, ptr @urq_reason_idx, i64 %spec.select58
+  %25 = getelementptr [4 x i8], ptr @urq_reason_idx, i64 %spec.select58
   %26 = load i32, ptr %25, align 4
   br label %63
 
 27:                                               ; preds = %17
   %narrow78 = tail call i32 @llvm.umin.i32(i32 %15, i32 6)
   %spec.select59 = zext nneg i32 %narrow78 to i64
-  %28 = getelementptr i32, ptr @urj_reason_idx, i64 %spec.select59
+  %28 = getelementptr [4 x i8], ptr @urj_reason_idx, i64 %spec.select59
   %29 = load i32, ptr %28, align 4
   br label %63
 
 30:                                               ; preds = %17
   %narrow77 = tail call i32 @llvm.umin.i32(i32 %15, i32 23)
   %spec.select60 = zext nneg i32 %narrow77 to i64
-  %31 = getelementptr i32, ptr @arj_reason_idx, i64 %spec.select60
+  %31 = getelementptr [4 x i8], ptr @arj_reason_idx, i64 %spec.select60
   %32 = load i32, ptr %31, align 4
   br label %63
 
 33:                                               ; preds = %17
   %narrow76 = tail call i32 @llvm.umin.i32(i32 %15, i32 8)
   %spec.select61 = zext nneg i32 %narrow76 to i64
-  %34 = getelementptr i32, ptr @brj_reason_idx, i64 %spec.select61
+  %34 = getelementptr [4 x i8], ptr @brj_reason_idx, i64 %spec.select61
   %35 = load i32, ptr %34, align 4
   br label %63
 
 36:                                               ; preds = %17
   %narrow75 = tail call i32 @llvm.umin.i32(i32 %15, i32 3)
   %spec.select62 = zext nneg i32 %narrow75 to i64
-  %37 = getelementptr i32, ptr @drq_reason_idx, i64 %spec.select62
+  %37 = getelementptr [4 x i8], ptr @drq_reason_idx, i64 %spec.select62
   %38 = load i32, ptr %37, align 4
   br label %63
 
 39:                                               ; preds = %17
   %narrow74 = tail call i32 @llvm.umin.i32(i32 %15, i32 4)
   %spec.select63 = zext nneg i32 %narrow74 to i64
-  %40 = getelementptr i32, ptr @drj_reason_idx, i64 %spec.select63
+  %40 = getelementptr [4 x i8], ptr @drj_reason_idx, i64 %spec.select63
   %41 = load i32, ptr %40, align 4
   br label %63
 
 42:                                               ; preds = %17
   %narrow73 = tail call i32 @llvm.umin.i32(i32 %15, i32 16)
   %spec.select64 = zext nneg i32 %narrow73 to i64
-  %43 = getelementptr i32, ptr @lrj_reason_idx, i64 %spec.select64
+  %43 = getelementptr [4 x i8], ptr @lrj_reason_idx, i64 %spec.select64
   %44 = load i32, ptr %43, align 4
   br label %63
 
 45:                                               ; preds = %17
   %narrow72 = tail call i32 @llvm.umin.i32(i32 %15, i32 4)
   %spec.select65 = zext nneg i32 %narrow72 to i64
-  %46 = getelementptr i32, ptr @irqnak_reason_idx, i64 %spec.select65
+  %46 = getelementptr [4 x i8], ptr @irqnak_reason_idx, i64 %spec.select65
   %47 = load i32, ptr %46, align 4
   br label %63
 
 48:                                               ; preds = %9
   %narrow = tail call i32 @llvm.umin.i32(i32 %7, i32 13)
   %spec.select66 = zext nneg i32 %narrow to i64
-  %49 = getelementptr i32, ptr @cs_msg_idx, i64 %spec.select66
+  %49 = getelementptr [4 x i8], ptr @cs_msg_idx, i64 %spec.select66
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %52 = load i32, ptr %51, align 4
@@ -3940,14 +3939,14 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr noundef readonly captu
 55:                                               ; preds = %54
   %narrow70 = tail call i32 @llvm.umin.i32(i32 %52, i32 25)
   %spec.select67 = zext nneg i32 %narrow70 to i64
-  %56 = getelementptr i32, ptr @rel_cmp_reason_idx, i64 %spec.select67
+  %56 = getelementptr [4 x i8], ptr @rel_cmp_reason_idx, i64 %spec.select67
   %57 = load i32, ptr %56, align 4
   br label %63
 
 58:                                               ; preds = %54
   %narrow69 = tail call i32 @llvm.umin.i32(i32 %52, i32 11)
   %spec.select68 = zext nneg i32 %narrow69 to i64
-  %59 = getelementptr i32, ptr @facility_reason_idx, i64 %spec.select68
+  %59 = getelementptr [4 x i8], ptr @facility_reason_idx, i64 %spec.select68
   %60 = load i32, ptr %59, align 4
   br label %63
 
@@ -4234,7 +4233,7 @@ dissect_RasMessage_PDU.exit:                      ; preds = %4, %40, %44
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %56, ptr %59, align 8
   %60 = sext i32 %52 to i64
-  %61 = getelementptr ptr, ptr @ras_calls, i64 %60
+  %61 = getelementptr [8 x i8], ptr @ras_calls, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr @wmem_map_lookup(ptr noundef %62, ptr noundef nonnull %5)
   %.not102.i = icmp eq ptr %63, null
@@ -4384,7 +4383,7 @@ proto_item_set_hidden.exit.thread.i:              ; preds = %66, %proto_item_set
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %138, ptr %142, align 8
   %143 = sext i32 %52 to i64
-  %144 = getelementptr ptr, ptr @ras_calls, i64 %143
+  %144 = getelementptr [8 x i8], ptr @ras_calls, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = call ptr @wmem_map_lookup(ptr noundef %145, ptr noundef nonnull %5)
   %.not98.i = icmp eq ptr %146, null
@@ -4629,7 +4628,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %13 to i64
-  %22 = getelementptr %struct._rtd_timestat, ptr %20, i64 %21
+  %22 = getelementptr [32 x i8], ptr %20, i64 %21
   br i1 %18, label %23, label %27
 
 23:                                               ; preds = %15
@@ -4656,7 +4655,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %13 to i64
-  %39 = getelementptr %struct._rtd_timestat, ptr %37, i64 %38
+  %39 = getelementptr [32 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
@@ -4670,7 +4669,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %13 to i64
-  %50 = getelementptr %struct._rtd_timestat, ptr %48, i64 %49
+  %50 = getelementptr [32 x i8], ptr %48, i64 %49
   br i1 %46, label %55, label %51
 
 51:                                               ; preds = %43
@@ -4686,7 +4685,7 @@ define internal range(i32 0, 2) i32 @h225rassrt_packet(ptr noundef readonly capt
   %58 = add i32 %57, -1
   store i32 %58, ptr %56, align 8
   %59 = load ptr, ptr %47, align 8
-  %60 = getelementptr %struct._rtd_timestat, ptr %59, i64 %49
+  %60 = getelementptr [32 x i8], ptr %59, i64 %49
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 40

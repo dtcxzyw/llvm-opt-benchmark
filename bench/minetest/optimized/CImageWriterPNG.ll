@@ -298,7 +298,7 @@ sw.bb64:                                          ; preds = %sw.epilog33
 
 sw.default70:                                     ; preds = %sw.epilog33
   %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8, !tbaa !19
   call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.7, ptr noundef %13, i32 noundef 2) #13
   call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr) #13
@@ -333,7 +333,7 @@ for.body.epil:                                    ; preds = %for.cond.cleanup.lo
   %indvars.iv.epil = phi i64 [ %indvars.iv.next.epil, %for.body.epil ], [ %indvars.iv.unr, %for.cond.cleanup.loopexit.unr-lcssa ]
   %data.0192.epil = phi ptr [ %add.ptr.epil, %for.body.epil ], [ %data.0192.unr, %for.cond.cleanup.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %for.cond.cleanup.loopexit.unr-lcssa ]
-  %arrayidx89.epil = getelementptr inbounds nuw ptr, ptr %call76, i64 %indvars.iv.epil
+  %arrayidx89.epil = getelementptr inbounds nuw [8 x i8], ptr %call76, i64 %indvars.iv.epil
   store ptr %data.0192.epil, ptr %arrayidx89.epil, align 8, !tbaa !19
   %add.ptr.epil = getelementptr inbounds i8, ptr %data.0192.epil, i64 %idx.ext
   %indvars.iv.next.epil = add nuw nsw i64 %indvars.iv.epil, 1
@@ -351,7 +351,7 @@ for.cond.cleanup:                                 ; preds = %for.body.epil, %for
 for.body:                                         ; preds = %for.body, %for.body.lr.ph.new
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.new ], [ %indvars.iv.next.7, %for.body ]
   %data.0192 = phi ptr [ %call37, %for.body.lr.ph.new ], [ %add.ptr.7, %for.body ]
-  %arrayidx89 = getelementptr inbounds nuw ptr, ptr %call76, i64 %indvars.iv
+  %arrayidx89 = getelementptr inbounds nuw [8 x i8], ptr %call76, i64 %indvars.iv
   store ptr %data.0192, ptr %arrayidx89, align 8, !tbaa !19
   %add.ptr = getelementptr inbounds i8, ptr %data.0192, i64 %idx.ext
   %arrayidx89.1 = getelementptr inbounds nuw i8, ptr %arrayidx89, i64 8

@@ -139,13 +139,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 .sink.split:                                      ; preds = %7, %5
   %__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1.sink = phi ptr [ @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode, %5 ], [ @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1, %7 ]
   %38 = sext i32 %0 to i64
-  %39 = getelementptr inbounds i32, ptr %__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1.sink, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1.sink, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !20
   br label %42
 
 switch.lookup:                                    ; preds = %10
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %42
 
@@ -290,7 +290,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %18, align 4, !tbaa !34
   %19 = sext i32 %11 to i64
-  %20 = getelementptr i32, ptr %3, i64 %19
+  %20 = getelementptr [4 x i8], ptr %3, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -304,7 +304,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 5, ptr %25, align 4, !tbaa !34
   %26 = sext i32 %11 to i64
-  %27 = getelementptr i32, ptr %4, i64 %26
+  %27 = getelementptr [4 x i8], ptr %4, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i32, ptr %28, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -316,7 +316,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 5, ptr %31, align 4, !tbaa !34
   %32 = sext i32 %11 to i64
-  %33 = getelementptr i32, ptr %5, i64 %32
+  %33 = getelementptr [4 x i8], ptr %5, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -12
   %35 = load i32, ptr %34, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -328,7 +328,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %37, align 4, !tbaa !34
   %38 = sext i32 %11 to i64
-  %39 = getelementptr i32, ptr %6, i64 %38
+  %39 = getelementptr [4 x i8], ptr %6, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -12
   %41 = load i32, ptr %40, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -400,7 +400,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 12, ptr %74, align 4, !tbaa !34
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 14, ptr %75, align 4, !tbaa !34
-  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %.0
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0
   %77 = load i32, ptr %76, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %93
@@ -412,7 +412,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 11, ptr %79, align 4, !tbaa !34
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 13, ptr %80, align 4, !tbaa !34
-  %81 = getelementptr inbounds nuw i32, ptr %8, i64 %.0
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.0
   %82 = load i32, ptr %81, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %93
@@ -424,7 +424,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 16, ptr %84, align 4, !tbaa !34
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 16, ptr %85, align 4, !tbaa !34
-  %86 = getelementptr inbounds nuw i32, ptr %9, i64 %.0
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0
   %87 = load i32, ptr %86, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %93
@@ -436,7 +436,7 @@ define noundef i32 @_ZN5ZXing6QRCode18CharacterCountBitsENS0_9CodecModeERKNS0_7V
   store i32 10, ptr %89, align 4, !tbaa !34
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 12, ptr %90, align 4, !tbaa !34
-  %91 = getelementptr inbounds nuw i32, ptr %10, i64 %.0
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.0
   %92 = load i32, ptr %91, align 4, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %93

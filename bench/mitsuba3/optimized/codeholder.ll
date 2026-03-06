@@ -76,7 +76,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS
   %10 = phi i64 [ %8, %7 ], [ %11, %57 ]
   %11 = add nsw i64 %10, -1
   %12 = load ptr, ptr %3, align 8, !tbaa !39
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   %15 = icmp eq ptr %14, null
   br i1 %15, label %57, label %16, !prof !41
@@ -113,7 +113,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS
 
 36:                                               ; preds = %41, %34
   %37 = phi i64 [ 0, %34 ], [ %42, %41 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !40
   %40 = icmp eq ptr %39, %14
   br i1 %40, label %44, label %41
@@ -138,7 +138,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS
   %50 = zext i32 %46 to i64
   %51 = zext i32 %47 to i64
   %52 = sub nsw i64 %51, %50
-  %53 = getelementptr inbounds nuw ptr, ptr %31, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %50
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = shl nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %53, ptr nonnull align 8 %54, i64 %55, i1 false)
@@ -171,7 +171,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS
 67:                                               ; preds = %81, %65
   %68 = phi i64 [ 0, %65 ], [ %83, %81 ]
   %69 = load ptr, ptr %61, align 8, !tbaa !39
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %68
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %68
   %71 = load ptr, ptr %70, align 8, !tbaa !40
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load ptr, ptr %72, align 8, !tbaa !60
@@ -297,7 +297,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder4initERKNS0_11Envi
   %42 = load ptr, ptr %9, align 8, !tbaa !39
   %43 = load i32, ptr %13, align 8, !tbaa !38
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %46 = ptrtoint ptr %33 to i64
   store i64 %46, ptr %45, align 8
   %47 = load i32, ptr %13, align 8, !tbaa !38
@@ -306,7 +306,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder4initERKNS0_11Envi
   %49 = load ptr, ptr %20, align 8, !tbaa !39
   %50 = load i32, ptr %23, align 8, !tbaa !38
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   store i64 %46, ptr %52, align 8
   %53 = load i32, ptr %23, align 8, !tbaa !38
   %54 = add i32 %53, 1
@@ -396,7 +396,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder6attachEPNS0_11Bas
   %42 = load ptr, ptr %25, align 8, !tbaa !39
   %43 = load i32, ptr %28, align 8, !tbaa !38
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %46 = ptrtoint ptr %1 to i64
   store i64 %46, ptr %45, align 8
   %47 = load i32, ptr %28, align 8, !tbaa !38
@@ -448,7 +448,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder6detachEPNS0_11Bas
 
 26:                                               ; preds = %31, %24
   %27 = phi i64 [ 0, %24 ], [ %32, %31 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %20, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !40
   %30 = icmp eq ptr %29, %1
   br i1 %30, label %34, label %31
@@ -473,7 +473,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder6detachEPNS0_11Bas
   %40 = zext i32 %36 to i64
   %41 = zext i32 %37 to i64
   %42 = sub nsw i64 %41, %40
-  %43 = getelementptr inbounds nuw ptr, ptr %20, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %40
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = shl nsw i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %43, ptr nonnull align 8 %44, i64 %45, i1 false)
@@ -497,7 +497,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1010CodeHolder9setLoggerEPNS0_6LoggerE(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = icmp eq i32 %7, 0
   br i1 %10, label %.loopexit, label %.preheader
 
@@ -525,7 +525,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1010CodeHolder15setErrorHandlerEPNS0_12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = icmp eq i32 %7, 0
   br i1 %10, label %.loopexit, label %.preheader
 
@@ -615,7 +615,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %49 = load i32, ptr %48, align 8, !tbaa !38
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   %52 = icmp eq i32 %49, 0
   br i1 %52, label %.loopexit, label %53
 
@@ -776,7 +776,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %29 = load i32, ptr %28, align 8, !tbaa !38
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = icmp eq i32 %29, 0
   br i1 %32, label %.loopexit, label %33
 
@@ -969,7 +969,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10newSectionEPPNS0
   %50 = load ptr, ptr %33, align 8, !tbaa !39
   %51 = load i32, ptr %36, align 8, !tbaa !38
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   %54 = icmp eq i32 %51, 0
   br i1 %54, label %.loopexit, label %.preheader
 
@@ -977,7 +977,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10newSectionEPPNS0
   %55 = phi ptr [ %74, %72 ], [ %50, %45 ]
   %56 = phi i64 [ %73, %72 ], [ %52, %45 ]
   %57 = lshr i64 %56, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !40
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !96
@@ -1008,7 +1008,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10newSectionEPPNS0
   %77 = load ptr, ptr %20, align 8, !tbaa !39
   %78 = load i32, ptr %21, align 8, !tbaa !38
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %79
   %81 = ptrtoint ptr %43 to i64
   store i64 %81, ptr %80, align 8
   %82 = load i32, ptr %21, align 8, !tbaa !38
@@ -1063,7 +1063,7 @@ define dso_local noundef ptr @_ZNK6asmjit9_abi_1_1010CodeHolder13sectionByNameEP
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load i32, ptr %13, align 8, !tbaa !38
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %15
   %17 = icmp eq i32 %14, 0
   br i1 %17, label %.loopexit, label %.preheader
 
@@ -1130,7 +1130,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1010CodeHolder24
 11:                                               ; preds = %.preheader
   %12 = icmp ult i64 %9, %1
   %13 = zext i1 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !104
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
@@ -1243,7 +1243,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %20
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %25 = load i64, ptr %24, align 8, !tbaa !104
   %26 = and i64 %25, 1
   %27 = or i64 %26, %13
@@ -1310,7 +1310,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %67 = load i64, ptr %66, align 8, !tbaa !104
   %68 = inttoptr i64 %67 to ptr
   %69 = icmp eq ptr %16, %68
-  %70 = getelementptr inbounds nuw i64, ptr %17, i64 %21
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   %71 = load i64, ptr %70, align 8, !tbaa !104
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
@@ -1319,13 +1319,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %76 = zext i1 %75 to i64
   %77 = xor i1 %75, true
   %78 = zext i1 %77 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %16, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !104
   %81 = and i64 %80, -2
   %82 = inttoptr i64 %81 to ptr
   %83 = icmp ne i64 %81, 0
   tail call void @llvm.assume(i1 %83)
-  %84 = getelementptr inbounds nuw i64, ptr %82, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %76
   %85 = load i64, ptr %84, align 8, !tbaa !104
   %86 = and i64 %85, -2
   br i1 %74, label %87, label %90
@@ -1339,7 +1339,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %91 = inttoptr i64 %86 to ptr
   %92 = icmp ne i64 %86, 0
   tail call void @llvm.assume(i1 %92)
-  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %78
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %78
   %94 = load i64, ptr %93, align 8, !tbaa !104
   %95 = and i64 %94, -2
   %96 = and i64 %85, 1
@@ -1359,7 +1359,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %106 = and i64 %105, 1
   %107 = or disjoint i64 %106, %86
   store i64 %107, ptr %79, align 8, !tbaa !104
-  %108 = getelementptr inbounds nuw i64, ptr %91, i64 %76
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %76
   %109 = load i64, ptr %108, align 8, !tbaa !104
   %110 = and i64 %109, -2
   %111 = or disjoint i64 %110, %106
@@ -1401,7 +1401,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %135 = zext i1 %134 to i64
   %136 = icmp eq ptr %16, null
   %137 = select i1 %136, ptr %18, ptr %16
-  %138 = getelementptr inbounds nuw i64, ptr %55, i64 %135
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %135
   %139 = load i64, ptr %138, align 8, !tbaa !104
   %140 = and i64 %139, -2
   %141 = inttoptr i64 %140 to ptr
@@ -1496,7 +1496,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPP
   %23 = load ptr, ptr %4, align 8, !tbaa !39
   %24 = load i32, ptr %5, align 8, !tbaa !38
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   %27 = ptrtoint ptr %17 to i64
   store i64 %27, ptr %26, align 8
   %28 = load i32, ptr %5, align 8, !tbaa !38
@@ -1601,7 +1601,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %59 = load ptr, ptr %40, align 8, !tbaa !39
   %60 = load i32, ptr %41, align 8, !tbaa !38
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %61
   %63 = ptrtoint ptr %53 to i64
   store i64 %63, ptr %62, align 8
   %64 = load i32, ptr %41, align 8, !tbaa !38
@@ -1689,7 +1689,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %105 = load ptr, ptr %73, align 8, !tbaa !39
   %106 = load i32, ptr %74, align 8, !tbaa !38
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %107
   %109 = ptrtoint ptr %86 to i64
   store i64 %109, ptr %108, align 8
   %110 = load i32, ptr %74, align 8, !tbaa !38
@@ -1731,7 +1731,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %137 = sub i32 %121, %136
   %138 = load ptr, ptr %122, align 8, !tbaa !31
   %139 = zext i32 %137 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !40
   %142 = icmp eq ptr %141, null
   br i1 %142, label %.loopexit, label %143
@@ -1853,7 +1853,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder18newNamedLabelEnt
   %209 = load ptr, ptr %176, align 8, !tbaa !39
   %210 = load i32, ptr %177, align 8, !tbaa !38
   %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds nuw ptr, ptr %209, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %211
   %213 = ptrtoint ptr %189 to i64
   store i64 %213, ptr %212, align 8
   %214 = load i32, ptr %177, align 8, !tbaa !38
@@ -1944,7 +1944,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13labelIdByNameEPK
   %52 = sub i32 %36, %51
   %53 = load ptr, ptr %37, align 8, !tbaa !31
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !40
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit, label %58
@@ -2027,7 +2027,7 @@ define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load i32, ptr %8, align 8, !tbaa !38
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = icmp eq i32 %9, 0
   br i1 %12, label %.loopexit4, label %13
 
@@ -2087,7 +2087,7 @@ define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder2
   %50 = load i32, ptr %49, align 8, !tbaa !120
   %51 = zext i32 %50 to i64
   %52 = load ptr, ptr %14, align 8, !tbaa !39
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !40
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !122
@@ -2160,7 +2160,7 @@ define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = zext i32 %6 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %17, !prof !131
@@ -2181,7 +2181,7 @@ define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder9
 26:                                               ; preds = %22
   %27 = zext i32 %2 to i64
   %28 = load ptr, ptr %18, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !40
   store ptr %30, ptr %23, align 8, !tbaa !135
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -2212,7 +2212,7 @@ define dso_local noundef range(i32 0, 49) i32 @_ZN6asmjit9_abi_1_1010CodeHolder9
 49:                                               ; preds = %40
   %50 = zext i32 %47 to i64
   %51 = load ptr, ptr %37, align 8, !tbaa !39
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !40
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !142
@@ -2314,7 +2314,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPP
   %27 = load ptr, ptr %5, align 8, !tbaa !39
   %28 = load i32, ptr %9, align 8, !tbaa !38
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 8
   %32 = load i32, ptr %9, align 8, !tbaa !38
@@ -2335,7 +2335,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1010CodeHolder7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i32, ptr %4, align 8, !tbaa !38
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %.loopexit7, label %.preheader
 
@@ -2706,7 +2706,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %44 = load i32, ptr %43, align 8, !tbaa !38
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   %47 = icmp eq i32 %44, 0
   br i1 %47, label %.loopexit31, label %48
 
@@ -2823,7 +2823,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %122 = load i32, ptr %121, align 8, !tbaa !38
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr %120, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %123
   %125 = icmp eq i32 %122, 0
   br i1 %125, label %.loopexit29, label %126
 
@@ -2848,7 +2848,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   %140 = load i32, ptr %139, align 8, !tbaa !149
   %141 = zext i32 %140 to i64
   %142 = load ptr, ptr %127, align 8, !tbaa !39
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %141
   %144 = load ptr, ptr %143, align 8, !tbaa !40
   %145 = getelementptr inbounds nuw i8, ptr %134, i64 20
   %146 = load i32, ptr %145, align 4, !tbaa !145
@@ -2857,7 +2857,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
 
 148:                                              ; preds = %138
   %149 = zext i32 %146 to i64
-  %150 = getelementptr inbounds nuw ptr, ptr %142, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !40
   br label %152
 
@@ -2968,7 +2968,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
 219:                                              ; preds = %.preheader
   %220 = icmp ult i64 %217, %155
   %221 = zext i1 %220 to i64
-  %222 = getelementptr inbounds nuw i64, ptr %215, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %221
   %223 = load i64, ptr %222, align 8, !tbaa !104
   %224 = and i64 %223, -2
   %225 = inttoptr i64 %224 to ptr
@@ -3058,7 +3058,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder14relocateToBaseEm
   %272 = add i32 %271, -1
   %273 = zext i32 %272 to i64
   %274 = load ptr, ptr %269, align 8, !tbaa !39
-  %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %273
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %273
   %276 = load ptr, ptr %275, align 8, !tbaa !40
   %277 = icmp eq ptr %276, %11
   br i1 %277, label %278, label %284
@@ -3234,7 +3234,7 @@ define dso_local noundef range(i32 0, 20) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = zext i32 %3 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !39
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8, !tbaa !85
@@ -3271,7 +3271,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_1010CodeHolder17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load i32, ptr %7, align 8, !tbaa !38
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %.loopexit7, label %12
 

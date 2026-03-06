@@ -808,7 +808,7 @@ define void @_ZN6icu_776Format11syntaxErrorERKNS_13UnicodeStringEiR11UParseError
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %3
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #20, !srcloc !38
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   store i16 0, ptr %10, align 2, !tbaa !39
   %11 = add nsw i32 %1, 1
   %12 = add nsw i32 %1, 16
@@ -831,7 +831,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %3
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit30: ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %23) #20, !srcloc !38
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %23, i64 %24
   store i16 0, ptr %25, align 2, !tbaa !39
   ret void
 

@@ -86,7 +86,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %12, align 4, !tbaa !22
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %41
   store ptr %4, ptr %42, align 8, !tbaa !26
   ret ptr %4
 }
@@ -192,7 +192,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %15, align 4, !tbaa !22
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %2, ptr %45, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %47 = load i32, ptr %46, align 8, !tbaa !20
@@ -280,7 +280,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %14, align 4, !tbaa !22
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %40, i64 %43
   store ptr %3, ptr %44, align 8, !tbaa !26
   %45 = load i64, ptr %3, align 8
   %46 = and i64 %45, -8
@@ -611,7 +611,7 @@ Amap_ObjChoice.exit:                              ; preds = %7
   %13 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %13, align 8, !tbaa !25
   %14 = sext i32 %.0.val to i64
-  %15 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val.val.i, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !26
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %Amap_ObjChoice.exit.thread, label %7, !llvm.loop !36
@@ -926,7 +926,7 @@ Amap_ObjChoice.exit.lr.ph:                        ; preds = %2
 Amap_ObjChoice.exit:                              ; preds = %Amap_ObjChoice.exit.lr.ph, %Amap_ObjChoice.exit
   %8 = phi i32 [ %4, %Amap_ObjChoice.exit.lr.ph ], [ %13, %Amap_ObjChoice.exit ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val.val.i, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4, !tbaa !35
@@ -1035,7 +1035,7 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   %55 = phi ptr [ %61, %.lr.ph ], [ %39, %35 ]
   %56 = getelementptr i8, ptr %55, i64 8
   %.val86 = load ptr, ptr %56, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.val86, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !26
   %59 = tail call ptr @Amap_ManCreatePi(ptr noundef nonnull %0)
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 40
@@ -1051,7 +1051,7 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
 65:                                               ; preds = %.lr.ph152, %Amap_ManCreateChoice.exit136
   %indvars.iv159 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next160, %Amap_ManCreateChoice.exit136 ]
   %.073.val87 = load ptr, ptr %44, align 8, !tbaa !25
-  %66 = getelementptr inbounds nuw ptr, ptr %.073.val87, i64 %indvars.iv159
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.073.val87, i64 %indvars.iv159
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   %68 = load i32, ptr %45, align 8, !tbaa !59
   %.not78 = icmp eq i32 %68, 0
@@ -1350,7 +1350,7 @@ Amap_ObjChoice.exit.i:                            ; preds = %245
   %251 = getelementptr i8, ptr %.val.i.i, i64 8
   %.val.val.i.i = load ptr, ptr %251, align 8, !tbaa !25
   %252 = sext i32 %.0.val.i to i64
-  %253 = getelementptr inbounds ptr, ptr %.val.val.i.i, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr %.val.val.i.i, i64 %252
   %254 = load ptr, ptr %253, align 8, !tbaa !26
   %.not.i117 = icmp eq ptr %254, null
   br i1 %.not.i117, label %Amap_ObjChoice.exit.thread.i, label %245, !llvm.loop !36
@@ -1373,7 +1373,7 @@ Amap_ManCreateChoice.exit:                        ; preds = %257, %Amap_ObjChoic
   %259 = getelementptr inbounds nuw i8, ptr %67, i64 36
   %260 = load i32, ptr %259, align 4, !tbaa !65
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds ptr, ptr %.val105, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %.val105, i64 %261
   %263 = load ptr, ptr %262, align 8, !tbaa !60
   %.not4.i = icmp eq ptr %263, null
   br i1 %.not4.i, label %Amap_ManCreateChoice.exit136, label %Aig_ObjIsChoice.exit
@@ -1415,7 +1415,7 @@ Amap_ObjChoice.exit.lr.ph.i:                      ; preds = %.lr.ph149
 Amap_ObjChoice.exit.i122:                         ; preds = %Amap_ObjChoice.exit.i122, %Amap_ObjChoice.exit.lr.ph.i
   %279 = phi i32 [ %276, %Amap_ObjChoice.exit.lr.ph.i ], [ %284, %Amap_ObjChoice.exit.i122 ]
   %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds ptr, ptr %.val.val.i.i121, i64 %280
+  %281 = getelementptr inbounds [8 x i8], ptr %.val.val.i.i121, i64 %280
   %282 = load ptr, ptr %281, align 8, !tbaa !26
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 20
   %284 = load i32, ptr %283, align 4, !tbaa !35
@@ -1448,7 +1448,7 @@ Aig_ObjEquiv.exit126:                             ; preds = %Amap_ObjSetChoice.e
   %294 = getelementptr inbounds nuw i8, ptr %.075147, i64 36
   %295 = load i32, ptr %294, align 4, !tbaa !65
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %.val107, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %.val107, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !60
   %.not84 = icmp eq ptr %298, null
   br i1 %.not84, label %._crit_edge, label %.lr.ph149, !llvm.loop !67
@@ -1479,7 +1479,7 @@ Amap_ObjChoice.exit.i131:                         ; preds = %303
   %309 = getelementptr i8, ptr %.val.i.i132, i64 8
   %.val.val.i.i133 = load ptr, ptr %309, align 8, !tbaa !25
   %310 = sext i32 %.0.val.i129 to i64
-  %311 = getelementptr inbounds ptr, ptr %.val.val.i.i133, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %.val.val.i.i133, i64 %310
   %312 = load ptr, ptr %311, align 8, !tbaa !26
   %.not.i134 = icmp eq ptr %312, null
   br i1 %.not.i134, label %Amap_ObjChoice.exit.thread.i135, label %303, !llvm.loop !36
@@ -1524,7 +1524,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %320
   %325 = phi ptr [ %343, %Aig_ObjChild0Copy.exit139 ], [ %322, %Vec_PtrFree.exit ]
   %326 = getelementptr i8, ptr %325, i64 8
   %.val88 = load ptr, ptr %326, align 8, !tbaa !25
-  %327 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv162
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %.val88, i64 %indvars.iv162
   %328 = load ptr, ptr %327, align 8, !tbaa !26
   %329 = getelementptr i8, ptr %328, i64 8
   %.val98 = load ptr, ptr %329, align 8, !tbaa !62

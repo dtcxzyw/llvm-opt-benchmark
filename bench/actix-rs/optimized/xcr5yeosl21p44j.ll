@@ -12995,7 +12995,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit212
   %309 = add i64 %304, -1
   store i64 %309, ptr %82, align 8, !alias.scope !2599, !noalias !2602
   %310 = load ptr, ptr %84, align 8, !alias.scope !2599, !noalias !2602, !nonnull !7, !noundef !7
-  %311 = getelementptr inbounds { i16, [15 x i16] }, ptr %310, i64 %306
+  %311 = getelementptr inbounds [32 x i8], ptr %310, i64 %306
   %.sroa.0277.0.copyload278 = load i16, ptr %311, align 4, !noalias !2599
   %.not = icmp eq i16 %.sroa.0277.0.copyload278, 2
   br i1 %.not, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.thread", label %312
@@ -14176,7 +14176,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179
   store i64 %309, ptr %284, align 8, !alias.scope !2710, !noalias !2713
   %310 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %311 = load ptr, ptr %310, align 8, !alias.scope !2710, !noalias !2713, !nonnull !7, !noundef !7
-  %312 = getelementptr inbounds { i16, [15 x i16] }, ptr %311, i64 %305
+  %312 = getelementptr inbounds [32 x i8], ptr %311, i64 %305
   %.sroa.0252.0.copyload253 = load i16, ptr %312, align 4, !noalias !2710
   %313 = icmp eq i16 %.sroa.0252.0.copyload253, 2
   br i1 %313, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.thread", label %314

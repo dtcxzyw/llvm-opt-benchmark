@@ -410,16 +410,16 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.0138162.us.i = phi i64 [ %97, %.lr.ph.split.us.i ], [ %84, %.lr.ph.i ]
-  %86 = getelementptr inbounds double, ptr %41, i64 %.0138162.us.i
+  %86 = getelementptr inbounds [8 x i8], ptr %41, i64 %.0138162.us.i
   %87 = load double, ptr %86, align 8, !tbaa !52
   %88 = tail call double @llvm.fabs.f64(double %87)
   %89 = fmul double %57, %88
-  %90 = getelementptr inbounds double, ptr %38, i64 %.0138162.us.i
+  %90 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0138162.us.i
   %91 = load double, ptr %90, align 8, !tbaa !52
   %92 = fdiv double %73, %91
   %93 = fcmp ogt double %89, %92
   %.160.us.i = select i1 %93, double %89, double %92
-  %94 = getelementptr inbounds double, ptr %42, i64 %.0138162.us.i
+  %94 = getelementptr inbounds [8 x i8], ptr %42, i64 %.0138162.us.i
   %95 = load double, ptr %94, align 8, !tbaa !52
   %96 = fadd double %95, %.160.us.i
   store double %96, ptr %94, align 8, !tbaa !52
@@ -429,16 +429,16 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %125
   %.0138162.i = phi i64 [ %129, %125 ], [ %84, %.lr.ph.i ]
-  %99 = getelementptr inbounds double, ptr %41, i64 %.0138162.i
+  %99 = getelementptr inbounds [8 x i8], ptr %41, i64 %.0138162.i
   %100 = load double, ptr %99, align 8, !tbaa !52
   %101 = tail call double @llvm.fabs.f64(double %100)
   %102 = fmul double %57, %101
-  %103 = getelementptr inbounds double, ptr %38, i64 %.0138162.i
+  %103 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0138162.i
   %104 = load double, ptr %103, align 8, !tbaa !52
   %105 = fdiv double %73, %104
   %106 = fcmp ogt double %102, %105
   %.160.i = select i1 %106, double %102, double %105
-  %107 = getelementptr inbounds double, ptr %50, i64 %.0138162.i
+  %107 = getelementptr inbounds [8 x i8], ptr %50, i64 %.0138162.i
   %108 = load double, ptr %107, align 8, !tbaa !52
   %109 = tail call double @llvm.fabs.f64(double %108)
   %110 = fcmp oeq double %109, 1.000000e+00
@@ -470,7 +470,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 125:                                              ; preds = %123, %119, %117, %115, %111
   %.0135.i = phi double [ %116, %115 ], [ %.160.i, %111 ], [ %124, %123 ], [ %.160.i, %119 ], [ %.160.i, %117 ]
-  %126 = getelementptr inbounds double, ptr %42, i64 %.0138162.i
+  %126 = getelementptr inbounds [8 x i8], ptr %42, i64 %.0138162.i
   %127 = load double, ptr %126, align 8, !tbaa !52
   %128 = fadd double %.0135.i, %127
   store double %128, ptr %126, align 8, !tbaa !52
@@ -494,16 +494,16 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph169.i:                                      ; preds = %.preheader.i, %._crit_edge167.i
   %.1139168.i = phi i64 [ %186, %._crit_edge167.i ], [ %84, %.preheader.i ]
-  %136 = getelementptr inbounds double, ptr %41, i64 %.1139168.i
+  %136 = getelementptr inbounds [8 x i8], ptr %41, i64 %.1139168.i
   %137 = load double, ptr %136, align 8, !tbaa !52
-  %138 = getelementptr inbounds double, ptr %42, i64 %.1139168.i
+  %138 = getelementptr inbounds [8 x i8], ptr %42, i64 %.1139168.i
   store double %137, ptr %138, align 8, !tbaa !52
   %139 = load ptr, ptr %10, align 8, !tbaa !33
   %140 = tail call ptr @SUNBandMatrix_Column(ptr noundef %139, i64 noundef %.1139168.i) #8
   %141 = load double, ptr %136, align 8, !tbaa !52
   %142 = tail call double @llvm.fabs.f64(double %141)
   %143 = fmul double %57, %142
-  %144 = getelementptr inbounds double, ptr %38, i64 %.1139168.i
+  %144 = getelementptr inbounds [8 x i8], ptr %38, i64 %.1139168.i
   %145 = load double, ptr %144, align 8, !tbaa !52
   %146 = fdiv double %73, %145
   %147 = fcmp ogt double %143, %146
@@ -513,7 +513,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not157.i, label %168, label %149
 
 149:                                              ; preds = %.lr.ph169.i
-  %150 = getelementptr inbounds double, ptr %50, i64 %.1139168.i
+  %150 = getelementptr inbounds [8 x i8], ptr %50, i64 %.1139168.i
   %151 = load double, ptr %150, align 8, !tbaa !52
   %152 = tail call double @llvm.fabs.f64(double %151)
   %153 = fcmp oeq double %152, 1.000000e+00
@@ -559,14 +559,14 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph166.i:                                      ; preds = %168, %.lr.ph166.i
   %.0137164.i = phi i64 [ %185, %.lr.ph166.i ], [ %spec.select.i, %168 ]
-  %177 = getelementptr inbounds nuw double, ptr %40, i64 %.0137164.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0137164.i
   %178 = load double, ptr %177, align 8, !tbaa !52
-  %179 = getelementptr inbounds nuw double, ptr %39, i64 %.0137164.i
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0137164.i
   %180 = load double, ptr %179, align 8, !tbaa !52
   %181 = fsub double %178, %180
   %182 = fmul double %169, %181
   %183 = sub nsw i64 %.0137164.i, %.1139168.i
-  %184 = getelementptr inbounds double, ptr %140, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %140, i64 %183
   store double %182, ptr %184, align 8, !tbaa !52
   %185 = add nuw nsw i64 %.0137164.i, 1
   %.not158.not.i = icmp slt i64 %.0137164.i, %176

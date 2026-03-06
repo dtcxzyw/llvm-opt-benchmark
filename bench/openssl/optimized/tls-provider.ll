@@ -215,7 +215,7 @@ xor_newprovctx.exit:                              ; preds = %12
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4, !tbaa !11
   %27 = icmp eq i32 %26, %21
   br i1 %27, label %.loopexit.i, label %24
@@ -224,7 +224,7 @@ xor_newprovctx.exit:                              ; preds = %12
   %28 = add nsw i32 %22, 1
   store i32 %28, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %29 = sext i32 %22 to i64
-  %30 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %29
   store i32 %21, ptr %30, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit
 
@@ -262,7 +262,7 @@ randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_n
 
 .lr.ph.i46:                                       ; preds = %40, %.lr.ph.preheader.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i44 ], [ %indvars.iv.next.i48, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i47
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i47
   %42 = load i32, ptr %41, align 4, !tbaa !11
   %43 = icmp eq i32 %42, %37
   br i1 %43, label %.loopexit.i50, label %40
@@ -271,7 +271,7 @@ randomize_tls_alg_id.exit:                        ; preds = %.loopexit.i, %xor_n
   %44 = add nsw i32 %38, 1
   store i32 %44, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %45
   store i32 %37, ptr %46, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit51
 
@@ -309,7 +309,7 @@ randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %ran
 
 .lr.ph.i57:                                       ; preds = %56, %.lr.ph.preheader.i55
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i58
+  %57 = getelementptr inbounds nuw [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i58
   %58 = load i32, ptr %57, align 4, !tbaa !11
   %59 = icmp eq i32 %58, %53
   br i1 %59, label %.loopexit.i61, label %56
@@ -318,7 +318,7 @@ randomize_tls_alg_id.exit51:                      ; preds = %.loopexit.i50, %ran
   %60 = add nsw i32 %54, 1
   store i32 %60, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %61 = sext i32 %54 to i64
-  %62 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %61
   store i32 %53, ptr %62, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit62
 
@@ -356,7 +356,7 @@ randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %ran
 
 .lr.ph.i68:                                       ; preds = %72, %.lr.ph.preheader.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %72 ]
-  %73 = getelementptr inbounds nuw i32, ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i69
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %indvars.iv.i69
   %74 = load i32, ptr %73, align 4, !tbaa !11
   %75 = icmp eq i32 %74, %69
   br i1 %75, label %.loopexit.i72, label %72
@@ -365,7 +365,7 @@ randomize_tls_alg_id.exit62:                      ; preds = %.loopexit.i61, %ran
   %76 = add nsw i32 %70, 1
   store i32 %76, ptr @randomize_tls_alg_id.in_mem, align 4, !tbaa !11
   %77 = sext i32 %70 to i64
-  %78 = getelementptr inbounds i32, ptr @randomize_tls_alg_id.mem, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr @randomize_tls_alg_id.mem, i64 %77
   store i32 %69, ptr %78, align 4, !tbaa !11
   br label %randomize_tls_alg_id.exit73
 
@@ -486,7 +486,7 @@ define internal void @tls_prov_teardown(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @dummy_group_names, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @dummy_group_names, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef 3167) #16
   store ptr null, ptr %4, align 8, !tbaa !25
@@ -508,7 +508,7 @@ define internal noundef ptr @tls_prov_query(ptr readnone captures(none) %0, i32 
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tls_prov_query, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tls_prov_query, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -550,7 +550,7 @@ define internal i32 @tls_prov_get_capabilities(ptr readnone captures(none) %0, p
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(440) %5, ptr noundef nonnull align 16 dereferenceable(440) @xor_group_params, i64 440, i1 false)
-  %21 = getelementptr inbounds nuw ptr, ptr @dummy_group_names, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @dummy_group_names, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %30
@@ -2053,7 +2053,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_der_does_selec
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2592,7 +2592,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_PrivateKeyInfo_pem_does_selec
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -2885,7 +2885,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_der_d
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3104,7 +3104,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_EncryptedPrivateKeyInfo_pem_d
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3323,7 +3323,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_der_does
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3612,7 +3612,7 @@ define internal range(i32 0, 2) i32 @xorhmacsig_to_SubjectPublicKeyInfo_pem_does
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -3842,7 +3842,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_der_does_s
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4026,7 +4026,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_PrivateKeyInfo_pem_does_s
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4210,7 +4210,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_d
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4429,7 +4429,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_EncryptedPrivateKeyInfo_p
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4648,7 +4648,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_der_
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -4859,7 +4859,7 @@ define internal range(i32 0, 2) i32 @xorhmacsha2sig_to_SubjectPublicKeyInfo_pem_
 
 .preheader.i:                                     ; preds = %2, %4
   %.01117.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.01117.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.01117.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5117,7 +5117,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsig_does_selectio
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5675,7 +5675,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsig_does_se
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5827,7 +5827,7 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2xorhmacsha2sig_does_sele
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0
@@ -5880,7 +5880,7 @@ define internal range(i32 0, 2) i32 @SubjectPublicKeyInfo_der2xorhmacsha2sig_doe
 
 .preheader.i:                                     ; preds = %2, %4
   %.0103.i = phi i64 [ %5, %4 ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr @__const.der2key_check_selection.checks, i64 %.0103.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.der2key_check_selection.checks, i64 %.0103.i
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = and i32 %7, %1
   %.not.i = icmp eq i32 %8, 0

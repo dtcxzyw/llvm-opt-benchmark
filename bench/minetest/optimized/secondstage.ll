@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.irr::core::vector3d.155" = type { float, float, float }
 %"class.irr::video::SColor" = type { i32 }
 %"class.irr::core::vector2d.156" = type { float, float }
-%"class.irr::video::SMaterialLayer" = type { ptr, i16, i32, i32, i8, i8, ptr }
 %struct.ShaderInfo = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i8, i32 }
 %"class.std::unique_ptr.246" = type { %"struct.std::__uniq_ptr_data.247" }
 %"struct.std::__uniq_ptr_data.247" = type { %"class.std::__uniq_ptr_impl.248" }
@@ -41,12 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.259" = type { %"struct.std::_Tuple_impl.260" }
 %"struct.std::_Tuple_impl.260" = type { %"struct.std::_Head_base.263" }
 %"struct.std::_Head_base.263" = type { ptr }
-%"class.std::unique_ptr.223" = type { %"struct.std::__uniq_ptr_data.224" }
-%"struct.std::__uniq_ptr_data.224" = type { %"class.std::__uniq_ptr_impl.225" }
-%"class.std::__uniq_ptr_impl.225" = type { %"class.std::tuple.226" }
-%"class.std::tuple.226" = type { %"struct.std::_Tuple_impl.227" }
-%"struct.std::_Tuple_impl.227" = type { %"struct.std::_Head_base.230" }
-%"struct.std::_Head_base.230" = type { ptr }
 
 $_ZN10ShaderInfoD2Ev = comdat any
 
@@ -448,7 +441,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i:                                       ; preds = %invoke.cont4, %for.body.i
   %conv38.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %invoke.cont4 ]
   %k.037.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %invoke.cont4 ]
-  %arrayidx.i = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %conv38.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %conv38.i
   %MinFilter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %TextureWrapU.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %MinFilter.i, i8 0, i64 9, i1 false)
@@ -492,7 +485,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 for.body:                                         ; preds = %entry, %for.body
   %conv38 = phi i64 [ %conv, %for.body ], [ 0, %entry ]
   %k.037 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %conv38
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %conv38
   %MinFilter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %TextureWrapU = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %MinFilter, i8 0, i64 9, i1 false)
@@ -648,7 +641,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i:                                       ; preds = %invoke.cont3, %for.body.i
   %conv38.i = phi i64 [ %conv.i, %for.body.i ], [ 0, %invoke.cont3 ]
   %k.037.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %invoke.cont3 ]
-  %arrayidx.i = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %conv38.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %conv38.i
   %MinFilter.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %TextureWrapU.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %MinFilter.i, i8 0, i64 9, i1 false)
@@ -779,7 +772,7 @@ for.body:                                         ; preds = %for.body, %for.body
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 32
   %18 = load ptr, ptr %vfn16, align 8
   %call17 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %16, i8 noundef zeroext %17)
-  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material7, i64 %conv35
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %material7, i64 %conv35
   store ptr %call17, ptr %arrayidx, align 8, !tbaa !61
   %inc = add i32 %i.034, 1
   %conv = zext i32 %inc to i64
@@ -816,7 +809,7 @@ entry:
   %cond = zext i1 %value to i32
   %material = getelementptr inbounds nuw i8, ptr %this, i64 56
   %idxprom = zext i8 %index to i64
-  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %idxprom
   %MinFilter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   store i32 %cond, ptr %MinFilter, align 4, !tbaa !33
   %MagFilter = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
@@ -3602,7 +3595,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i1839, ptr %m_pipeline.i, align 8, !tbaa !117
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i1831, align 8, !tbaa !116
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i1839, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i1839, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i1832, align 8, !tbaa !114
   br label %invoke.cont614
 
@@ -3907,7 +3900,7 @@ if.then.i39.i.i.i1967:                            ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i1968: ; preds = %if.then.i39.i.i.i1967, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i1963
   store ptr %call5.i.i.i.i.i.i1974, ptr %m_pipeline.i1939, align 8, !tbaa !117
   store ptr %incdec.ptr.i.i.i1965, ptr %_M_finish.i.i1940, align 8, !tbaa !116
-  %add.ptr19.i.i.i1969 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i1974, i64 %cond.i.i.i.i1955
+  %add.ptr19.i.i.i1969 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i1974, i64 %cond.i.i.i.i1955
   store ptr %add.ptr19.i.i.i1969, ptr %_M_end_of_storage.i.i1941, align 8, !tbaa !114
   br label %invoke.cont665
 
@@ -4125,7 +4118,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !117
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !116
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !114
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -4252,7 +4245,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !117
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !116
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !114
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -4662,7 +4655,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !147
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !132
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.223", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !130
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -4841,7 +4834,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !147
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !132
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.223", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !130
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -5019,7 +5012,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !147
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !132
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.223", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !130
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -5197,7 +5190,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !147
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !132
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.223", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !130
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 

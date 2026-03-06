@@ -201,12 +201,12 @@ convolve_sobel.exit.thread89.thread:              ; preds = %.preheader103.lr.ph
   %70 = mul nsw i32 %42, %69
   %71 = sdiv i32 %70, %40
   %72 = and i32 %71, 65535
-  %73 = getelementptr inbounds nuw i32, ptr @X_FILTER, i64 %indvars.iv151.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @X_FILTER, i64 %indvars.iv151.i
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = mul nsw i32 %74, %72
   %76 = sitofp i32 %75 to double
   %77 = fadd nsz double %.1107.us.us.us.us.i, %76
-  %78 = getelementptr inbounds nuw i32, ptr @Y_FILTER, i64 %indvars.iv151.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @Y_FILTER, i64 %indvars.iv151.i
   %79 = load i32, ptr %78, align 4, !tbaa !50
   %80 = mul nsw i32 %79, %72
   %81 = sitofp i32 %80 to double
@@ -222,7 +222,7 @@ convolve_sobel.exit.thread89.thread:              ; preds = %.preheader103.lr.ph
   %86 = fptrunc nsz double %85 to float
   %.reass.us.us.us.i = add i32 %invariant.op.us.us.i, %52
   %87 = sext i32 %.reass.us.us.us.i to i64
-  %88 = getelementptr inbounds float, ptr %23, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %23, i64 %87
   store float %86, ptr %88, align 4, !tbaa !59
   %indvars.iv.next156.i = add nuw nsw i64 %indvars.iv155.i, 1
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next156.i, %wide.trip.count158.i
@@ -247,7 +247,7 @@ convolve_sobel.exit.thread89.thread:              ; preds = %.preheader103.lr.ph
   %95 = fptrunc nsz double %94 to float
   %.reass.us112.i = add i32 %invariant.op.us.i, %119
   %96 = sext i32 %.reass.us112.i to i64
-  %97 = getelementptr inbounds float, ptr %23, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %23, i64 %96
   store float %95, ptr %97, align 4, !tbaa !59
   %indvars.iv.next147.i = add nuw nsw i64 %indvars.iv146.i, 1
   %exitcond149.not.i = icmp eq i64 %indvars.iv.next147.i, %wide.trip.count158.i
@@ -270,12 +270,12 @@ convolve_sobel.exit.thread89.thread:              ; preds = %.preheader103.lr.ph
   %106 = getelementptr inbounds i8, ptr %21, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !56
   %108 = zext i8 %107 to i32
-  %109 = getelementptr inbounds nuw i32, ptr @X_FILTER, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr @X_FILTER, i64 %indvars.iv.i
   %110 = load i32, ptr %109, align 4, !tbaa !50
   %111 = mul nsw i32 %110, %108
   %112 = sitofp i32 %111 to double
   %113 = fadd nsz double %.1107.us.i, %112
-  %114 = getelementptr inbounds nuw i32, ptr @Y_FILTER, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr @Y_FILTER, i64 %indvars.iv.i
   %115 = load i32, ptr %114, align 4, !tbaa !50
   %116 = mul nsw i32 %115, %108
   %117 = sitofp i32 %116 to double
@@ -345,7 +345,7 @@ convolve_sobel.exit.thread.thread:                ; preds = %.preheader100.lr.ph
   %140 = add i32 %134, %.zext.us.us.us.us.i
   %141 = add nsw i32 %140, %139
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i16, ptr %21, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %21, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !62
   %145 = zext i16 %144 to i32
   %146 = add nsw i32 %145, -64
@@ -356,12 +356,12 @@ convolve_sobel.exit.thread.thread:                ; preds = %.preheader100.lr.ph
   %151 = mul nsw i32 %150, 1023
   %152 = sdiv i32 %151, 876
   %153 = and i32 %152, 65535
-  %154 = getelementptr inbounds nuw i32, ptr @X_FILTER, i64 %indvars.iv171.i
+  %154 = getelementptr inbounds nuw [4 x i8], ptr @X_FILTER, i64 %indvars.iv171.i
   %155 = load i32, ptr %154, align 4, !tbaa !50
   %156 = mul nsw i32 %153, %155
   %157 = sitofp i32 %156 to double
   %158 = fadd nsz double %.087119.us.us.us.us.i, %157
-  %159 = getelementptr inbounds nuw i32, ptr @Y_FILTER, i64 %indvars.iv171.i
+  %159 = getelementptr inbounds nuw [4 x i8], ptr @Y_FILTER, i64 %indvars.iv171.i
   %160 = load i32, ptr %159, align 4, !tbaa !50
   %161 = mul nsw i32 %153, %160
   %162 = sitofp i32 %161 to double
@@ -377,7 +377,7 @@ convolve_sobel.exit.thread.thread:                ; preds = %.preheader100.lr.ph
   %167 = fptrunc nsz double %166 to float
   %.reass.us.us.us131.i = add i32 %invariant.op.us128.us.i, %133
   %168 = sext i32 %.reass.us.us.us131.i to i64
-  %169 = getelementptr inbounds float, ptr %23, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %23, i64 %168
   store float %167, ptr %169, align 4, !tbaa !59
   %indvars.iv.next176.i = add nuw nsw i64 %indvars.iv175.i, 1
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next176.i, %wide.trip.count178.i
@@ -402,7 +402,7 @@ convolve_sobel.exit.thread.thread:                ; preds = %.preheader100.lr.ph
   %176 = fptrunc nsz double %175 to float
   %.reass.us125.i = add i32 %invariant.op.us128.i, %200
   %177 = sext i32 %.reass.us125.i to i64
-  %178 = getelementptr inbounds float, ptr %23, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %23, i64 %177
   store float %176, ptr %178, align 4, !tbaa !59
   %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
   %exitcond169.not.i = icmp eq i64 %indvars.iv.next166.i, %wide.trip.count178.i
@@ -422,15 +422,15 @@ convolve_sobel.exit.thread.thread:                ; preds = %.preheader100.lr.ph
   %184 = add i32 %201, %.zext.us.i
   %185 = add nsw i32 %184, %183
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds i16, ptr %21, i64 %186
+  %187 = getelementptr inbounds [2 x i8], ptr %21, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !62
   %189 = zext i16 %188 to i32
-  %190 = getelementptr inbounds nuw i32, ptr @X_FILTER, i64 %indvars.iv161.i
+  %190 = getelementptr inbounds nuw [4 x i8], ptr @X_FILTER, i64 %indvars.iv161.i
   %191 = load i32, ptr %190, align 4, !tbaa !50
   %192 = mul nsw i32 %191, %189
   %193 = sitofp i32 %192 to double
   %194 = fadd nsz double %.087119.us.i, %193
-  %195 = getelementptr inbounds nuw i32, ptr @Y_FILTER, i64 %indvars.iv161.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @Y_FILTER, i64 %indvars.iv161.i
   %196 = load i32, ptr %195, align 4, !tbaa !50
   %197 = mul nsw i32 %196, %189
   %198 = sitofp i32 %197 to double
@@ -511,13 +511,13 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %indvars.iv134.i = phi i64 [ %indvars.iv.next135.i, %._crit_edge80.split.us.us.us.split.us.us.i ], [ 0, %.preheader.lr.ph.split.us.split.us.i ]
   %228 = mul nsw i64 %indvars.iv134.i, %226
   %229 = mul nuw nsw i64 %indvars.iv134.i, %227
-  %invariant.gep152.i = getelementptr i16, ptr %21, i64 %228
+  %invariant.gep152.i = getelementptr [2 x i8], ptr %21, i64 %228
   br label %230
 
 230:                                              ; preds = %230, %.preheader.us.us.us.i48
   %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %230 ], [ 0, %.preheader.us.us.us.i48 ]
   %231 = add nuw nsw i64 %indvars.iv129.i, %229
-  %gep153.i = getelementptr i16, ptr %invariant.gep152.i, i64 %indvars.iv129.i
+  %gep153.i = getelementptr [2 x i8], ptr %invariant.gep152.i, i64 %indvars.iv129.i
   %232 = load i16, ptr %gep153.i, align 2, !tbaa !62
   %233 = zext i16 %232 to i32
   %234 = add nsw i32 %233, -64
@@ -529,13 +529,13 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %240 = sdiv i32 %239, 876
   %241 = trunc i32 %240 to i16
   %242 = and i32 %240, 65535
-  %243 = getelementptr inbounds nuw i16, ptr %223, i64 %231
+  %243 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %231
   %244 = load i16, ptr %243, align 2, !tbaa !62
   %245 = zext i16 %244 to i32
   %246 = sub nsw i32 %242, %245
   %247 = sitofp i32 %246 to float
   store i16 %241, ptr %243, align 2, !tbaa !62
-  %248 = getelementptr inbounds nuw float, ptr %222, i64 %231
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %231
   store float %247, ptr %248, align 4, !tbaa !59
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %227
@@ -550,13 +550,13 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %._crit_edge80.split.us.us.us.split.i ], [ 0, %.preheader.lr.ph.split.us.split.us.i ]
   %249 = mul nsw i64 %indvars.iv124.i, %226
   %250 = mul nuw nsw i64 %indvars.iv124.i, %227
-  %invariant.gep150.i = getelementptr i16, ptr %21, i64 %249
+  %invariant.gep150.i = getelementptr [2 x i8], ptr %21, i64 %249
   br label %251
 
 251:                                              ; preds = %251, %.preheader.us.us.i
   %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %251 ], [ 0, %.preheader.us.us.i ]
   %252 = add nuw nsw i64 %indvars.iv119.i, %250
-  %gep151.i = getelementptr i16, ptr %invariant.gep150.i, i64 %indvars.iv119.i
+  %gep151.i = getelementptr [2 x i8], ptr %invariant.gep150.i, i64 %indvars.iv119.i
   %253 = load i16, ptr %gep151.i, align 2, !tbaa !62
   %254 = zext i16 %253 to i32
   %255 = add nsw i32 %254, -64
@@ -567,9 +567,9 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %260 = mul nsw i32 %259, 1023
   %261 = sdiv i32 %260, 876
   %262 = trunc i32 %261 to i16
-  %263 = getelementptr inbounds nuw i16, ptr %223, i64 %252
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %252
   store i16 %262, ptr %263, align 2, !tbaa !62
-  %264 = getelementptr inbounds nuw float, ptr %222, i64 %252
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %252
   store float 0.000000e+00, ptr %264, align 4, !tbaa !59
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %227
@@ -587,22 +587,22 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %._crit_edge80.split.split.us.us.us.i ], [ 0, %.preheader.lr.ph.split.us.split.i ]
   %265 = mul nsw i64 %indvars.iv114.i, %226
   %266 = mul nuw nsw i64 %indvars.iv114.i, %227
-  %invariant.gep148.i = getelementptr i16, ptr %21, i64 %265
+  %invariant.gep148.i = getelementptr [2 x i8], ptr %21, i64 %265
   br label %267
 
 267:                                              ; preds = %267, %.preheader.us.us89.i
   %indvars.iv109.i = phi i64 [ %indvars.iv.next110.i, %267 ], [ 0, %.preheader.us.us89.i ]
   %268 = add nuw nsw i64 %indvars.iv109.i, %266
-  %gep149.i = getelementptr i16, ptr %invariant.gep148.i, i64 %indvars.iv109.i
+  %gep149.i = getelementptr [2 x i8], ptr %invariant.gep148.i, i64 %indvars.iv109.i
   %269 = load i16, ptr %gep149.i, align 2, !tbaa !62
   %270 = zext i16 %269 to i32
-  %271 = getelementptr inbounds nuw i16, ptr %223, i64 %268
+  %271 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %268
   %272 = load i16, ptr %271, align 2, !tbaa !62
   %273 = zext i16 %272 to i32
   %274 = sub nsw i32 %270, %273
   %275 = sitofp i32 %274 to float
   store i16 %269, ptr %271, align 2, !tbaa !62
-  %276 = getelementptr inbounds nuw float, ptr %222, i64 %268
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %268
   store float %275, ptr %276, align 4, !tbaa !59
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next110.i, %227
@@ -617,17 +617,17 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %._crit_edge80.split.split.us85.i ], [ 0, %.preheader.lr.ph.split.us.split.i ]
   %277 = mul nsw i64 %indvars.iv104.i, %226
   %278 = mul nuw nsw i64 %indvars.iv104.i, %227
-  %invariant.gep.i = getelementptr i16, ptr %21, i64 %277
+  %invariant.gep.i = getelementptr [2 x i8], ptr %21, i64 %277
   br label %279
 
 279:                                              ; preds = %279, %.preheader.us.i
   %indvars.iv101.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next102.i, %279 ]
   %280 = add nuw nsw i64 %indvars.iv101.i, %278
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv101.i
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv101.i
   %281 = load i16, ptr %gep.i, align 2, !tbaa !62
-  %282 = getelementptr inbounds nuw i16, ptr %223, i64 %280
+  %282 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %280
   store i16 %281, ptr %282, align 2, !tbaa !62
-  %283 = getelementptr inbounds nuw float, ptr %222, i64 %280
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %280
   store float 0.000000e+00, ptr %283, align 4, !tbaa !59
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next102.i, %227
@@ -734,8 +734,8 @@ convolve_sobel.exit:                              ; preds = %._crit_edge.split.u
   %338 = load i32, ptr %289, align 4, !tbaa !53
   %339 = sext i32 %338 to i64
   %340 = mul nsw i64 %indvars.iv98.i, %339
-  %341 = getelementptr float, ptr %287, i64 %340
-  %342 = getelementptr float, ptr %341, i64 %indvars.iv.i45
+  %341 = getelementptr [4 x i8], ptr %287, i64 %340
+  %342 = getelementptr [4 x i8], ptr %341, i64 %indvars.iv.i45
   store float %.1.i, ptr %342, align 4, !tbaa !59
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %343 = icmp slt i64 %indvars.iv.next.i46, %339
@@ -791,13 +791,13 @@ calculate_motion.exit:                            ; preds = %._crit_edge80.split
   %indvars.iv60.i = phi i64 [ 0, %.preheader40.us.preheader.i ], [ %indvars.iv.next61.i, %._crit_edge.us.i ]
   %.044.us.i = phi double [ 0.000000e+00, %.preheader40.us.preheader.i ], [ %370, %._crit_edge.us.i ]
   %366 = mul nuw nsw i64 %indvars.iv60.i, %365
-  %invariant.gep.i49 = getelementptr inbounds nuw float, ptr %350, i64 %366
+  %invariant.gep.i49 = getelementptr inbounds nuw [4 x i8], ptr %350, i64 %366
   br label %367
 
 367:                                              ; preds = %367, %.preheader40.us.i
   %indvars.iv.i50 = phi i64 [ 0, %.preheader40.us.i ], [ %indvars.iv.next.i52, %367 ]
   %.142.us.i = phi double [ %.044.us.i, %.preheader40.us.i ], [ %370, %367 ]
-  %gep.i51 = getelementptr inbounds nuw float, ptr %invariant.gep.i49, i64 %indvars.iv.i50
+  %gep.i51 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i49, i64 %indvars.iv.i50
   %368 = load float, ptr %gep.i51, align 4, !tbaa !59
   %369 = fpext nsz float %368 to double
   %370 = fadd nsz double %.142.us.i, %369
@@ -819,13 +819,13 @@ calculate_motion.exit:                            ; preds = %._crit_edge80.split
   %indvars.iv70.i = phi i64 [ 0, %._crit_edge45.i ], [ %indvars.iv.next71.i, %._crit_edge.us53.i ]
   %.03549.us.i = phi double [ 0.000000e+00, %._crit_edge45.i ], [ %381, %._crit_edge.us53.i ]
   %373 = mul nuw nsw i64 %indvars.iv70.i, %365
-  %invariant.gep81.i = getelementptr inbounds nuw float, ptr %350, i64 %373
+  %invariant.gep81.i = getelementptr inbounds nuw [4 x i8], ptr %350, i64 %373
   br label %374
 
 374:                                              ; preds = %374, %.preheader.us.i54
   %indvars.iv65.i = phi i64 [ 0, %.preheader.us.i54 ], [ %indvars.iv.next66.i, %374 ]
   %.13647.us.i = phi double [ %.03549.us.i, %.preheader.us.i54 ], [ %381, %374 ]
-  %gep82.i = getelementptr inbounds nuw float, ptr %invariant.gep81.i, i64 %indvars.iv65.i
+  %gep82.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep81.i, i64 %indvars.iv65.i
   %375 = load float, ptr %gep82.i, align 4, !tbaa !59
   %376 = fpext nsz float %375 to double
   %377 = fsub nsz double %376, %372
@@ -877,13 +877,13 @@ std_deviation.exit:                               ; preds = %._crit_edge.us53.i,
   %indvars.iv60.i62 = phi i64 [ 0, %.preheader40.us.preheader.i59 ], [ %indvars.iv.next61.i71, %._crit_edge.us.i70 ]
   %.044.us.i63 = phi double [ 0.000000e+00, %.preheader40.us.preheader.i59 ], [ %400, %._crit_edge.us.i70 ]
   %396 = mul nuw nsw i64 %indvars.iv60.i62, %395
-  %invariant.gep.i64 = getelementptr inbounds nuw float, ptr %389, i64 %396
+  %invariant.gep.i64 = getelementptr inbounds nuw [4 x i8], ptr %389, i64 %396
   br label %397
 
 397:                                              ; preds = %397, %.preheader40.us.i61
   %indvars.iv.i65 = phi i64 [ 0, %.preheader40.us.i61 ], [ %indvars.iv.next.i68, %397 ]
   %.142.us.i66 = phi double [ %.044.us.i63, %.preheader40.us.i61 ], [ %400, %397 ]
-  %gep.i67 = getelementptr inbounds nuw float, ptr %invariant.gep.i64, i64 %indvars.iv.i65
+  %gep.i67 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i64, i64 %indvars.iv.i65
   %398 = load float, ptr %gep.i67, align 4, !tbaa !59
   %399 = fpext nsz float %398 to double
   %400 = fadd nsz double %.142.us.i66, %399
@@ -905,13 +905,13 @@ std_deviation.exit:                               ; preds = %._crit_edge.us53.i,
   %indvars.iv70.i76 = phi i64 [ 0, %._crit_edge45.i73 ], [ %indvars.iv.next71.i85, %._crit_edge.us53.i84 ]
   %.03549.us.i77 = phi double [ 0.000000e+00, %._crit_edge45.i73 ], [ %411, %._crit_edge.us53.i84 ]
   %403 = mul nuw nsw i64 %indvars.iv70.i76, %395
-  %invariant.gep81.i78 = getelementptr inbounds nuw float, ptr %389, i64 %403
+  %invariant.gep81.i78 = getelementptr inbounds nuw [4 x i8], ptr %389, i64 %403
   br label %404
 
 404:                                              ; preds = %404, %.preheader.us.i75
   %indvars.iv65.i79 = phi i64 [ 0, %.preheader.us.i75 ], [ %indvars.iv.next66.i82, %404 ]
   %.13647.us.i80 = phi double [ %.03549.us.i77, %.preheader.us.i75 ], [ %411, %404 ]
-  %gep82.i81 = getelementptr inbounds nuw float, ptr %invariant.gep81.i78, i64 %indvars.iv65.i79
+  %gep82.i81 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep81.i78, i64 %indvars.iv65.i79
   %405 = load float, ptr %gep82.i81, align 4, !tbaa !59
   %406 = fpext nsz float %405 to double
   %407 = fsub nsz double %406, %402

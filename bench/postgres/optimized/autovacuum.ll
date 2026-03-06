@@ -7,16 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dlist_node = type { ptr, ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%union.ListCell = type { ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
-%struct.avl_dbase = type { i32, i64, i32, %struct.dlist_node }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%struct.AutoVacuumWorkItem = type { i32, i8, i8, i32, i32, i32 }
-%struct.WorkerInfoData = type { %struct.dlist_node, i32, i32, ptr, i64, %struct.pg_atomic_flag, i8 }
-%struct.pg_atomic_flag = type { i8 }
 
 @autovacuum_start_daemon = dso_local local_unnamed_addr global i8 0, align 1
 @autovacuum_work_mem = dso_local local_unnamed_addr global i32 -1, align 4
@@ -993,7 +988,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %.06197117 = phi i1 [ %.1, %92 ], [ false, %.lr.ph98 ]
   %indvars.iv116 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph98 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv116
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv116
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
@@ -1266,7 +1261,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph78 ]
   %.57783 = phi i32 [ %.6, %54 ], [ %.2.lcssa, %.lr.ph78 ]
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = load i32, ptr %42, align 8
@@ -1318,7 +1313,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %.088 = phi i32 [ %64, %.lr.ph89 ], [ 0, %58 ]
   %64 = add i32 %.088, 1
   %65 = sext i32 %.088 to i64
-  %66 = getelementptr inbounds %struct.avl_dbase, ptr %61, i64 %65
+  %66 = getelementptr inbounds [40 x i8], ptr %61, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
   %67 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
   %.not70 = icmp eq ptr %67, null
@@ -1343,7 +1338,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
 78:                                               ; preds = %.lr.ph93, %dlist_push_head.exit
   %indvars.iv96 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next97, %dlist_push_head.exit ]
   %.05790 = phi i64 [ %69, %.lr.ph93 ], [ %80, %dlist_push_head.exit ]
-  %79 = getelementptr inbounds nuw %struct.avl_dbase, ptr %61, i64 %indvars.iv96
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %61, i64 %indvars.iv96
   %80 = add i64 %.05790, %77
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 %80, ptr %81, align 8
@@ -1984,7 +1979,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
 .critedge:                                        ; preds = %.lr.ph257, %222
   %indvars.iv316 = phi i64 [ %indvars.iv.next, %222 ], [ 0, %.lr.ph257 ]
   %169 = load ptr, ptr %164, align 8
-  %170 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv316
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv316
   store volatile ptr %170, ptr %8, align 8
   %.0..0..0..0.129 = load volatile ptr, ptr %8, align 8
   %171 = load i32, ptr %.0..0..0..0.129, align 8
@@ -2111,7 +2106,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %.0161273318 = phi i1 [ %.1162, %536 ], [ false, %.lr.ph275 ]
   %indvars.iv285317 = phi i64 [ %indvars.iv.next286, %536 ], [ 0, %.lr.ph275 ]
   %226 = load ptr, ptr %178, align 8
-  %227 = getelementptr inbounds nuw %union.ListCell, ptr %226, i64 %indvars.iv285317
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv285317
   store volatile ptr %227, ptr %8, align 8
   %.0..0..0..0.130 = load volatile ptr, ptr %8, align 8
   %228 = load i32, ptr %.0..0..0..0.130, align 8
@@ -2714,7 +2709,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   %541 = phi ptr [ %.pre291, %._crit_edge276 ], [ %568, %567 ]
   %indvars.iv287 = phi i64 [ 0, %._crit_edge276 ], [ %indvars.iv.next288, %567 ]
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 64
-  %543 = getelementptr inbounds nuw %struct.AutoVacuumWorkItem, ptr %542, i64 %indvars.iv287
+  %543 = getelementptr inbounds nuw [20 x i8], ptr %542, i64 %indvars.iv287
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 4
   %545 = load i8, ptr %544, align 4, !range !4, !noundef !5
   %546 = trunc nuw i8 %545 to i1
@@ -2988,7 +2983,7 @@ define dso_local noundef zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 n
 
 10:                                               ; preds = %3, %9
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.AutoVacuumWorkItem, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i8, ptr %12, align 4, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -3115,7 +3110,7 @@ define dso_local void @AutoVacuumShmemInit() local_unnamed_addr #3 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %dclist_push_head.exit ], [ 0, %9 ]
   %20 = load ptr, ptr @AutoVacuumShmem, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = getelementptr inbounds nuw %struct.WorkerInfoData, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [64 x i8] }
-%"class.clang::TypeLoc" = type { ptr, ptr }
 %"class.clang::AutoTypeLoc" = type { %"class.clang::ConcreteTypeLoc.17" }
 %"class.clang::ConcreteTypeLoc.17" = type { %"class.clang::DeducedTypeLoc" }
 %"class.clang::DeducedTypeLoc" = type { %"class.clang::InheritingConcreteTypeLoc.18" }
@@ -17,6 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::TypeSpecTypeLoc" = type { %"class.clang::ConcreteTypeLoc.10" }
 %"class.clang::ConcreteTypeLoc.10" = type { %"class.clang::UnqualTypeLoc" }
 %"class.clang::UnqualTypeLoc" = type { %"class.clang::TypeLoc" }
+%"class.clang::TypeLoc" = type { ptr, ptr }
 %"class.clang::DependentNameTypeLoc" = type { %"class.clang::ConcreteTypeLoc.22" }
 %"class.clang::ConcreteTypeLoc.22" = type { %"class.clang::UnqualTypeLoc" }
 %"class.clang::DependentTemplateSpecializationTypeLoc" = type { %"class.clang::ConcreteTypeLoc.24" }
@@ -109,7 +109,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit: ; pr
   %33 = phi i32 [ %28, %.lr.ph ], [ %.pre.i, %30 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !14
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::TypeLoc", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   store ptr %.sroa.0920.01014, ptr %36, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.7.01015, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -155,7 +155,7 @@ _ZN4llvm11SmallVectorIN5clang7TypeLocELj4EED2Ev.exit: ; preds = %._crit_edge1019
   %52 = add i32 %.pre, %51
   %53 = zext i32 %52 to i64
   %54 = load ptr, ptr %4, align 8, !tbaa !14
-  %55 = getelementptr inbounds nuw %"class.clang::TypeLoc", ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %53
   %.sroa.0802.0.copyload = load ptr, ptr %55, align 8, !tbaa !21
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.63.0.copyload = load ptr, ptr %.sroa.63.0..sroa_idx, align 8, !tbaa !21
@@ -4462,7 +4462,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit: ; pr
   %56 = phi i32 [ %51, %.lr.ph ], [ %.pre.i, %53 ]
   %57 = load ptr, ptr %5, align 8, !tbaa !14
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %"class.clang::TypeLoc", ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %58
   store ptr %.sroa.01033.01127, ptr %59, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %.sroa.7.01128, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -6155,7 +6155,7 @@ _ZNK5clang15FunctionTypeLoc24getExceptionSpecRangePtrEv.exit.i.i: ; preds = %_ZN
   %815 = lshr i64 %813, 38
   %816 = and i64 %815, 65535
   %817 = getelementptr inbounds nuw i8, ptr %796, i64 16
-  %818 = getelementptr inbounds nuw ptr, ptr %817, i64 %816
+  %818 = getelementptr inbounds nuw [8 x i8], ptr %817, i64 %816
   store i64 %.sroa.0.0.insert.insert.i495, ptr %818, align 4
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
@@ -6235,7 +6235,7 @@ _ZNK5clang15FunctionTypeLoc24getExceptionSpecRangePtrEv.exit.i.i458: ; preds = %
   %851 = lshr i64 %849, 38
   %852 = and i64 %851, 65535
   %853 = getelementptr inbounds nuw i8, ptr %832, i64 16
-  %854 = getelementptr inbounds nuw ptr, ptr %853, i64 %852
+  %854 = getelementptr inbounds nuw [8 x i8], ptr %853, i64 %852
   store i64 %.sroa.0.0.insert.insert.i495, ptr %854, align 4
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 

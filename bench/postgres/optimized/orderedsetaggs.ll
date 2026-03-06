@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.NullableDatum = type { i64, i8 }
-%struct.pct_info = type { i64, i64, double, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [43 x i8] c"percentile value %g is not between 0 and 1\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"orderedsetaggs.c\00", align 1
@@ -189,30 +184,30 @@ list_length.exit.thread:                          ; preds = %24
 .lr.ph160:                                        ; preds = %.lr.ph, %.lr.ph160
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph160 ], [ 0, %.lr.ph ]
   %62 = load ptr, ptr %58, align 8
-  %63 = getelementptr inbounds nuw %union.ListCell, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %59, align 8
   %66 = call ptr @get_sortgroupclause_tle(ptr noundef %64, ptr noundef %65) #9
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i16, ptr %67, align 8
   %69 = load ptr, ptr %47, align 8
-  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %indvars.iv
   store i16 %68, ptr %70, align 2
   %71 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = load ptr, ptr %50, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   store i32 %72, ptr %74, align 4
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %76 = load i32, ptr %75, align 4
   %77 = load ptr, ptr %52, align 8
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv
   store i32 %76, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 @exprCollation(ptr noundef %80) #9
   %82 = load ptr, ptr %54, align 8
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   store i32 %81, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 17
   %85 = load i8, ptr %84, align 1, !range !4, !noundef !5
@@ -251,16 +246,16 @@ list_length.exit.thread:                          ; preds = %24
 102:                                              ; preds = %94, %93
   %103 = phi i16 [ %98, %94 ], [ 1, %93 ]
   %104 = load ptr, ptr %47, align 8
-  %105 = getelementptr inbounds i16, ptr %104, i64 %.0138.lcssa
+  %105 = getelementptr inbounds [2 x i8], ptr %104, i64 %.0138.lcssa
   store i16 %103, ptr %105, align 2
   %106 = load ptr, ptr %50, align 8
-  %107 = getelementptr inbounds i32, ptr %106, i64 %.0138.lcssa
+  %107 = getelementptr inbounds [4 x i8], ptr %106, i64 %.0138.lcssa
   store i32 97, ptr %107, align 4
   %108 = load ptr, ptr %52, align 8
-  %109 = getelementptr inbounds i32, ptr %108, i64 %.0138.lcssa
+  %109 = getelementptr inbounds [4 x i8], ptr %108, i64 %.0138.lcssa
   store i32 96, ptr %109, align 4
   %110 = load ptr, ptr %54, align 8
-  %111 = getelementptr inbounds i32, ptr %110, i64 %.0138.lcssa
+  %111 = getelementptr inbounds [4 x i8], ptr %110, i64 %.0138.lcssa
   store i32 0, ptr %111, align 4
   %112 = load ptr, ptr %56, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 %.0138.lcssa
@@ -461,10 +456,10 @@ define dso_local noundef i64 @ordered_set_transition_multi(ptr noundef %0) local
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw %struct.NullableDatum, ptr %2, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.next
   %28 = load i64, ptr %27, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store i64 %28, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i8, ptr %31, align 8, !range !4, !noundef !5
@@ -490,7 +485,7 @@ define dso_local noundef i64 @ordered_set_transition_multi(ptr noundef %0) local
 41:                                               ; preds = %._crit_edge
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.0.lcssa
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.0.lcssa
   store i64 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %46 = load ptr, ptr %45, align 8
@@ -950,18 +945,18 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
   br i1 %55, label %._crit_edge, label %.lr.ph81
 
 .lr.ph:                                           ; preds = %.lr.ph81
-  %56 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv.next
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv.next
   %57 = load i64, ptr %56, align 8
   %58 = icmp sgt i64 %57, 0
   br i1 %58, label %._crit_edge, label %.lr.ph81, !llvm.loop !10
 
 .lr.ph81:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv80 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %59 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv80
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv80
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i32, ptr %60, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i64, ptr %48, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %48, i64 %62
   store i64 0, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %51, i64 %62
   store i8 1, ptr %64, align 1
@@ -1013,7 +1008,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
   %85 = phi i64 [ 0, %.lr.ph67 ], [ %107, %105 ]
   %indvars.iv69 = phi i64 [ %82, %.lr.ph67 ], [ %indvars.iv.next70, %105 ]
   %.05465 = phi i64 [ 0, %.lr.ph67 ], [ %.1, %105 ]
-  %86 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv69
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv69
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %89 = load i32, ptr %88, align 8
@@ -1054,7 +1049,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
   %107 = phi i64 [ %85, %83 ], [ %.pre, %._crit_edge73 ]
   %.1 = phi i64 [ %.05465, %83 ], [ %87, %._crit_edge73 ]
   %108 = sext i32 %89 to i64
-  %109 = getelementptr inbounds i64, ptr %48, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %48, i64 %108
   store i64 %107, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %51, i64 %108
   store i8 %106, ptr %110, align 1
@@ -1119,7 +1114,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %37
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %37 ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds nuw %struct.pct_info, ptr %8, i64 %indvars.iv58
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv58
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = trunc nuw nsw i64 %indvars.iv58 to i32
   store i32 %15, ptr %14, align 8
@@ -1129,7 +1124,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
   br i1 %18, label %36, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
-  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv58
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv58
   %21 = load double, ptr %20, align 8
   %22 = fcmp ogt double %21, 1.000000e+00
   %23 = fcmp ult double %21, 0.000000e+00
@@ -1164,7 +1159,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %struct.pct_info, ptr %8, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %40, ptr %39, align 8
@@ -1178,7 +1173,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
   br label %60
 
 45:                                               ; preds = %.lr.ph.split
-  %46 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %47 = load double, ptr %46, align 8
   %48 = fcmp ogt double %47, 1.000000e+00
   %49 = fcmp ult double %47, 0.000000e+00
@@ -1316,18 +1311,18 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   br i1 %60, label %._crit_edge, label %.lr.ph2
 
 .lr.ph:                                           ; preds = %.lr.ph2
-  %61 = getelementptr inbounds nuw %struct.pct_info, ptr %49, i64 %indvars.iv.next
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv.next
   %62 = load i64, ptr %61, align 8
   %63 = icmp sgt i64 %62, 0
   br i1 %63, label %._crit_edge, label %.lr.ph2, !llvm.loop !13
 
 .lr.ph2:                                          ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %64 = getelementptr inbounds nuw %struct.pct_info, ptr %49, i64 %indvars.iv1
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv1
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i64, ptr %53, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %53, i64 %67
   store i64 0, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %56, i64 %67
   store i8 1, ptr %69, align 1
@@ -1377,7 +1372,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
 88:                                               ; preds = %.lr.ph87, %135
   %indvars.iv89 = phi i64 [ %87, %.lr.ph87 ], [ %indvars.iv.next90, %135 ]
   %.07385 = phi i64 [ 0, %.lr.ph87 ], [ %.2, %135 ]
-  %89 = getelementptr inbounds nuw %struct.pct_info, ptr %49, i64 %indvars.iv89
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv89
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i64, ptr %91, align 8
@@ -1466,7 +1461,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
 135:                                              ; preds = %127, %130
   %.sink = phi i64 [ %134, %130 ], [ %129, %127 ]
   %136 = sext i32 %94 to i64
-  %137 = getelementptr inbounds i64, ptr %53, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %53, i64 %136
   store i64 %.sink, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %56, i64 %136
   store i8 0, ptr %138, align 1
@@ -1787,10 +1782,10 @@ define internal fastcc i64 @hypothetical_rank_common(ptr noundef readonly captur
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.next
   %39 = load i64, ptr %38, align 8
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %39, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %43 = load i8, ptr %42, align 8, !range !4, !noundef !5
@@ -1809,7 +1804,7 @@ define internal fastcc i64 @hypothetical_rank_common(ptr noundef readonly captur
   %47 = sext i32 %1 to i64
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.044.lcssa
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.044.lcssa
   store i64 %47, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %52 = load ptr, ptr %51, align 8
@@ -1849,7 +1844,7 @@ slot_getattr.exit:                                ; preds = %64, %slot_getsomeat
   %68 = getelementptr inbounds i8, ptr %67, i64 %63
   %69 = load i8, ptr %68, align 1, !range !4, !noundef !5
   %70 = load ptr, ptr %48, align 8
-  %71 = getelementptr inbounds i64, ptr %70, i64 %63
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %63
   %72 = load i64, ptr %71, align 8
   %73 = trunc nuw i8 %69 to i1
   %74 = and i64 %72, 4294967295
@@ -2035,10 +2030,10 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr noundef readonly capture
 72:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %73 = getelementptr inbounds nuw %struct.NullableDatum, ptr %8, i64 %indvars.iv.next
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.next
   %74 = load i64, ptr %73, align 8
   %75 = load ptr, ptr %70, align 8
-  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   store i64 %74, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %78 = load i8, ptr %77, align 8, !range !4, !noundef !5
@@ -2056,7 +2051,7 @@ define dso_local i64 @hypothetical_dense_rank_final(ptr noundef readonly capture
   %.082.lcssa = phi i64 [ %81, %._crit_edge.loopexit ], [ 0, %61 ]
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %.082.lcssa
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.082.lcssa
   store i64 -1, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %86 = load ptr, ptr %85, align 8
@@ -2111,7 +2106,7 @@ slot_getattr.exit.us:                             ; preds = %slot_getsomeattrs.e
   %112 = load i8, ptr %111, align 1, !range !4, !noundef !5
   %113 = getelementptr inbounds nuw i8, ptr %.089115.us, i64 24
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i64, ptr %114, i64 %100
+  %115 = getelementptr inbounds [8 x i8], ptr %114, i64 %100
   %116 = load i64, ptr %115, align 8
   %117 = trunc nuw i8 %112 to i1
   %118 = and i64 %116, 4294967295
@@ -2182,7 +2177,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph120.split, %s
   %142 = load i8, ptr %141, align 1, !range !4, !noundef !5
   %143 = getelementptr inbounds nuw i8, ptr %.089115, i64 24
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i64, ptr %144, i64 %100
+  %145 = getelementptr inbounds [8 x i8], ptr %144, i64 %100
   %146 = load i64, ptr %145, align 8
   %147 = trunc nuw i8 %142 to i1
   %148 = and i64 %146, 4294967295
@@ -2284,7 +2279,7 @@ define internal fastcc void @hypothetical_check_argtypes(ptr noundef readonly ca
   %9 = shl nsw i64 %8, 4
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = sext i32 %1 to i64
-  %12 = getelementptr %struct.FormData_pg_attribute, ptr %10, i64 %11
+  %12 = getelementptr [100 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 92
   %14 = load i32, ptr %13, align 4
   %.not14 = icmp eq i32 %14, 23
@@ -2311,7 +2306,7 @@ define internal fastcc void @hypothetical_check_argtypes(ptr noundef readonly ca
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 4
   %22 = getelementptr i8, ptr %2, i64 %21
-  %23 = getelementptr %struct.FormData_pg_attribute, ptr %22, i64 %indvars.iv
+  %23 = getelementptr [100 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = trunc nuw nsw i64 %indvars.iv.next to i32

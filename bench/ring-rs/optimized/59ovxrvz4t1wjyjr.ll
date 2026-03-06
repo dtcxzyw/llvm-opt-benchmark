@@ -2049,7 +2049,7 @@ define void @_ZN4ring4test15parse_test_case17h56558da9db1a9fdaE(ptr noalias noun
 87:                                               ; preds = %._crit_edge.i, %76
   %88 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %79, %76 ]
   %89 = load ptr, ptr %15, align 8, !alias.scope !361, !noalias !364, !nonnull !8, !noundef !8
-  %90 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 } }, i8, [7 x i8] }, ptr %89, i64 %88
+  %90 = getelementptr inbounds [56 x i8], ptr %89, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   %91 = add i64 %88, 1
   store i64 %91, ptr %16, align 8, !alias.scope !361, !noalias !364

@@ -4,14 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.var_offset_map<expr_offset>::data" = type { %class.expr_offset, i32, [4 x i8] }
-%class.expr_offset = type <{ ptr, i32, [4 x i8] }>
-%"struct.std::pair.40" = type { i32, i32 }
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
 %class.obj_ref = type { ptr, ptr }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -82,7 +78,7 @@ define hidden noundef zeroext i1 @_ZN6spacer11sem_matcher9match_varEP3varP4expr(
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = zext i32 %7 to i64
-  %11 = getelementptr inbounds nuw %"struct.var_offset_map<expr_offset>::data", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -121,7 +117,7 @@ _ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit.i.i: ; preds = %29, %23
   %30 = phi i32 [ %.pre2.i.i.i, %29 ], [ %25, %23 ]
   %31 = phi ptr [ %.pre.i.i.i, %29 ], [ %21, %23 ]
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.std::pair.40", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   store i64 %10, ptr %33, align 4
   %34 = load ptr, ptr %20, align 8, !tbaa !43
   %35 = getelementptr inbounds i8, ptr %34, i64 -4
@@ -164,12 +160,12 @@ _ZN12substitution6insertEP3varjRK11expr_offset.exit: ; preds = %45, %51
   %53 = phi ptr [ %.pre.i.i.i.i, %51 ], [ %43, %45 ]
   %54 = getelementptr inbounds i8, ptr %53, i64 -4
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   store ptr %2, ptr %56, align 8, !tbaa !42
   %57 = add i32 %52, 1
   store i32 %57, ptr %54, align 4, !tbaa !46
   %58 = load ptr, ptr %8, align 8, !tbaa !32
-  %59 = getelementptr inbounds nuw %"struct.var_offset_map<expr_offset>::data", ptr %58, i64 %10
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %10
   store ptr %2, ptr %59, align 8, !tbaa !42
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !46
@@ -285,7 +281,7 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit.lr.ph: ; preds = %46, %40
   %47 = phi i32 [ %.pre2.i, %46 ], [ %42, %40 ]
   %48 = phi ptr [ %.pre.i, %46 ], [ %38, %40 ]
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"struct.std::pair", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   store ptr %1, ptr %50, align 8
   %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %2, ptr %.sroa.4143.0..sroa_idx, align 8
@@ -326,7 +322,7 @@ _ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit: ; preds = %_ZNK6vectorISt4pai
 _ZN6vectorISt4pairIP4exprS2_ELb0EjE4backEv.exit:  ; preds = %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE5emptyEv.exit
   %77 = add i32 %75, -1
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %73, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !69
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
@@ -1004,7 +1000,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %465 = phi ptr [ %.pre.i.i114, %.noexc115 ], [ %454, %456 ]
   %466 = getelementptr inbounds i8, ptr %465, i64 -4
   %467 = zext i32 %464 to i64
-  %468 = getelementptr inbounds nuw ptr, ptr %465, i64 %467
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %467
   store ptr %447, ptr %468, align 8, !tbaa !42
   %469 = add i32 %464, 1
   store i32 %469, ptr %466, align 4, !tbaa !46
@@ -1127,9 +1123,9 @@ _ZN8rationalD2Ev.exit118:                         ; preds = %.noexc.i117
   %512 = phi ptr [ %73, %.preheader ], [ %526, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit124 ]
   %indvars.iv = phi i64 [ %509, %.preheader ], [ %513, %_ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit124 ]
   %513 = add nsw i64 %indvars.iv, -1
-  %514 = getelementptr inbounds nuw ptr, ptr %507, i64 %513
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %513
   %515 = load ptr, ptr %514, align 8, !tbaa !42
-  %516 = getelementptr inbounds nuw ptr, ptr %508, i64 %513
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %513
   %517 = load ptr, ptr %516, align 8, !tbaa !42
   %518 = getelementptr inbounds i8, ptr %512, i64 -8
   %519 = load i32, ptr %518, align 4, !tbaa !46
@@ -1147,7 +1143,7 @@ _ZN6vectorISt4pairIP4exprS2_ELb0EjE9push_backEOS3_.exit124: ; preds = %510, %521
   %522 = phi i32 [ %.pre2.i123, %521 ], [ %511, %510 ]
   %523 = phi ptr [ %.pre.i121, %521 ], [ %512, %510 ]
   %524 = zext i32 %522 to i64
-  %525 = getelementptr inbounds nuw %"struct.std::pair", ptr %523, i64 %524
+  %525 = getelementptr inbounds nuw [16 x i8], ptr %523, i64 %524
   store ptr %515, ptr %525, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %525, i64 8
   store ptr %517, ptr %.sroa.4.0..sroa_idx, align 8

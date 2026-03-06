@@ -813,7 +813,7 @@ define internal fastcc i32 @setup_net(ptr noundef %0, ptr noundef %1) unnamed_ad
   %118 = getelementptr i8, ptr %115, i64 2488
   %119 = load volatile ptr, ptr %118, align 8
   %120 = zext i32 %117 to i64
-  %121 = getelementptr ptr, ptr %119, i64 %120
+  %121 = getelementptr [8 x i8], ptr %119, i64 %120
   %122 = load ptr, ptr %121, align 8
   call void @__rcu_read_unlock() #17
   call void @kfree(ptr noundef %122) #17
@@ -1466,7 +1466,7 @@ define internal i32 @rtnl_net_getid(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .preheader38:                                     ; preds = %36, %41
   %44 = phi i64 [ %42, %41 ], [ 0, %36 ]
-  %45 = getelementptr ptr, ptr %4, i64 %44
+  %45 = getelementptr [8 x i8], ptr %4, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %48 = trunc i64 %44 to i32
@@ -1894,7 +1894,7 @@ define internal i32 @rtnl_net_dumpid(ptr noundef %0, ptr noundef captures(none) 
   %50 = phi i8 [ 0, %45 ], [ %73, %72 ]
   %51 = phi ptr [ %9, %45 ], [ %74, %72 ]
   %52 = phi i64 [ 0, %45 ], [ %75, %72 ]
-  %53 = getelementptr ptr, ptr %3, i64 %52
+  %53 = getelementptr [8 x i8], ptr %3, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %72, label %56
@@ -2532,7 +2532,7 @@ define internal fastcc i32 @ops_init(ptr noundef readonly captures(none) %0, ptr
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
-  %25 = getelementptr ptr, ptr %21, i64 %16
+  %25 = getelementptr [8 x i8], ptr %21, i64 %16
   store ptr %11, ptr %25, align 8
   br label %.thread
 
@@ -2554,7 +2554,7 @@ define internal fastcc i32 @ops_init(ptr noundef readonly captures(none) %0, ptr
   %38 = shl nuw nsw i64 %37, 3
   %39 = add nsw i64 %38, -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %39, i1 false)
-  %40 = getelementptr ptr, ptr %30, i64 %16
+  %40 = getelementptr [8 x i8], ptr %30, i64 %16
   store ptr %11, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !45
   store volatile ptr %30, ptr %20, align 8
@@ -2594,7 +2594,7 @@ define internal fastcc i32 @ops_init(ptr noundef readonly captures(none) %0, ptr
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %52, align 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr ptr, ptr %60, i64 %62
+  %63 = getelementptr [8 x i8], ptr %60, i64 %62
   store ptr null, ptr %63, align 8
   br label %64
 
@@ -2904,7 +2904,7 @@ rtnl_net_notifyid.exit:                           ; preds = %83, %72, %85
   %151 = getelementptr i8, ptr %148, i64 2488
   %152 = load volatile ptr, ptr %151, align 8
   %153 = zext i32 %150 to i64
-  %154 = getelementptr ptr, ptr %152, i64 %153
+  %154 = getelementptr [8 x i8], ptr %152, i64 %153
   %155 = load ptr, ptr %154, align 8
   call void @__rcu_read_unlock() #17
   call void @kfree(ptr noundef %155) #17
@@ -3289,7 +3289,7 @@ define internal fastcc void @free_exit_list(ptr noundef readonly captures(none) 
   %44 = getelementptr i8, ptr %41, i64 2488
   %45 = load volatile ptr, ptr %44, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   tail call void @__rcu_read_unlock() #17
   tail call void @kfree(ptr noundef %48) #17

@@ -104,7 +104,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
 .preheader:                                       ; preds = %3, %.preheader
   %.sroa.07.0.i = phi i32 [ %29, %.preheader ], [ 0, %3 ]
   %.sroa.09.0.i = phi i64 [ %30, %.preheader ], [ 0, %3 ]
-  %27 = getelementptr inbounds nuw { { i16, [15 x i16] }, i32 }, ptr %1, i64 %.sroa.09.0.i
+  %27 = getelementptr inbounds nuw [36 x i8], ptr %1, i64 %.sroa.09.0.i
   %28 = getelementptr i8, ptr %27, i64 32
   %.val.i = load i32, ptr %28, align 4, !noundef !4
   %29 = add i32 %.val.i, %.sroa.07.0.i
@@ -518,7 +518,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
 
 162:                                              ; preds = %154, %161
   %163 = load ptr, ptr %63, align 8, !alias.scope !32, !noalias !35, !nonnull !4, !noundef !4
-  %164 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %163, i64 %158
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %163, i64 %158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %164, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.016.094, i64 32, i1 false)
   %165 = add nsw i64 %158, 1
   store i64 %165, ptr %64, align 8, !alias.scope !32, !noalias !35
@@ -573,7 +573,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
 
 182:                                              ; preds = %176, %181
   %183 = load ptr, ptr %44, align 8, !alias.scope !39, !nonnull !4, !noundef !4
-  %184 = getelementptr inbounds nuw { i32, i32 }, ptr %183, i64 %178
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %178
   store i32 %168, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store i32 %177, ptr %185, align 4
@@ -611,7 +611,7 @@ define noundef i64 @_ZN14pingora_ketama9Continuum8node_idx17h8a5cad98e6c19816E(p
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %18, %.lr.ph.i ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i
   %10 = getelementptr i8, ptr %9, i64 4
   %.val20.i = load i32, ptr %10, align 4, !alias.scope !43, !noalias !46, !noundef !4
   %11 = icmp eq i32 %.val20.i, %4
@@ -624,7 +624,7 @@ define noundef i64 @_ZN14pingora_ketama9Continuum8node_idx17h8a5cad98e6c19816E(p
   %13 = add i64 %12, %.sroa.05.023.i
   %14 = icmp ult i64 %13, %7
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %13
   %16 = getelementptr i8, ptr %15, i64 4
   %.val22.i = load i32, ptr %16, align 4, !alias.scope !43, !noalias !46, !noundef !4
   %17 = icmp ugt i32 %.val22.i, %4
@@ -665,7 +665,7 @@ define void @_ZN14pingora_ketama9Continuum4node17hda54a5a30561a691E(ptr dead_on_
   %.sroa.05.0.lcssa.i.i = phi i64 [ 0, %4 ], [ %19, %.lr.ph.i.i ]
   %9 = icmp ult i64 %.sroa.05.0.lcssa.i.i, %7
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i.i
   %11 = getelementptr i8, ptr %10, i64 4
   %.val20.i.i = load i32, ptr %11, align 4, !alias.scope !51, !noalias !54, !noundef !4
   %12 = icmp eq i32 %.val20.i.i, %8
@@ -678,7 +678,7 @@ define void @_ZN14pingora_ketama9Continuum4node17hda54a5a30561a691E(ptr dead_on_
   %14 = add i64 %13, %.sroa.05.023.i.i
   %15 = icmp ult i64 %14, %7
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %14
   %17 = getelementptr i8, ptr %16, i64 4
   %.val22.i.i = load i32, ptr %17, align 4, !alias.scope !51, !noalias !54, !noundef !4
   %18 = icmp ugt i32 %.val22.i.i, %8
@@ -709,7 +709,7 @@ _ZN14pingora_ketama9Continuum8node_idx17h8a5cad98e6c19816E.exit: ; preds = %4, %
   br label %38
 
 31:                                               ; preds = %_ZN14pingora_ketama9Continuum8node_idx17h8a5cad98e6c19816E.exit
-  %32 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.0.0.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.0.0.i
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8, !noundef !4
   %35 = load i32, ptr %32, align 4, !noundef !4
@@ -723,7 +723,7 @@ _ZN14pingora_ketama9Continuum8node_idx17h8a5cad98e6c19816E.exit: ; preds = %4, %
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !4, !align !42, !noundef !4
-  %42 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %42, i64 32, i1 false)
   br label %38
 
@@ -748,7 +748,7 @@ define { ptr, i64 } @_ZN14pingora_ketama9Continuum9node_iter17hac74292d33b2e506E
   %.sroa.05.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %18, %.lr.ph.i.i ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i.i
   %10 = getelementptr i8, ptr %9, i64 4
   %.val20.i.i = load i32, ptr %10, align 4, !alias.scope !61, !noalias !64, !noundef !4
   %11 = icmp eq i32 %.val20.i.i, %4
@@ -761,7 +761,7 @@ define { ptr, i64 } @_ZN14pingora_ketama9Continuum9node_iter17hac74292d33b2e506E
   %13 = add i64 %12, %.sroa.05.023.i.i
   %14 = icmp ult i64 %13, %7
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %13
   %16 = getelementptr i8, ptr %15, i64 4
   %.val22.i.i = load i32, ptr %16, align 4, !alias.scope !61, !noalias !64, !noundef !4
   %17 = icmp ugt i32 %.val22.i.i, %4
@@ -799,7 +799,7 @@ define noundef align 4 dereferenceable_or_null(32) ptr @_ZN14pingora_ketama9Cont
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !42, !noundef !4
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %10 = add nuw i64 %5, 1
   %11 = icmp eq i64 %10, %4
   %12 = select i1 %11, i64 0, i64 %10
@@ -818,7 +818,7 @@ define noundef align 4 dereferenceable_or_null(32) ptr @_ZN14pingora_ketama9Cont
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !42, !noundef !4
-  %21 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   br label %.thread
 
 22:                                               ; preds = %7
@@ -840,7 +840,7 @@ define noundef align 4 dereferenceable_or_null(32) ptr @"_ZN87_$LT$pingora_ketam
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8, !alias.scope !67, !noalias !70, !nonnull !4, !align !42, !noundef !4
-  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
   %11 = add nuw i64 %6, 1
   %12 = icmp eq i64 %11, %5
   %13 = select i1 %12, i64 0, i64 %11
@@ -855,7 +855,7 @@ define noundef align 4 dereferenceable_or_null(32) ptr @"_ZN87_$LT$pingora_ketam
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8, !alias.scope !67, !noalias !70, !nonnull !4, !align !42, !noundef !4
-  %22 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   br label %_ZN14pingora_ketama9Continuum8get_addr17h2d51a521f6571020E.exit
 
 23:                                               ; preds = %8

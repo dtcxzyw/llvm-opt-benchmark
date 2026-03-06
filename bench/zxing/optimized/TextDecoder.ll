@@ -299,7 +299,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i: ; 
   br i1 %.not8.i.i.i, label %37, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw i32, ptr %22, i64 %17
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %17
   %cond.i.i.i = icmp eq i64 %15, 1
   br i1 %cond.i.i.i, label %32, label %34
 
@@ -319,7 +319,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i: ; 
 37:                                               ; preds = %34, %32, %29, %36
   store i64 %21, ptr %16, align 8, !tbaa !20
   %38 = load ptr, ptr %0, align 8, !tbaa !16
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %21
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %21
   store i32 0, ptr %39, align 4, !tbaa !21
   %40 = load ptr, ptr %6, align 8, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -912,7 +912,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit: ; pre
   br i1 %or.cond, label %39, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit26
 
 39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit
-  %40 = getelementptr inbounds nuw i32, ptr %32, i64 %1
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %1
   %cond = icmp eq i64 %4, 1
   br i1 %cond, label %41, label %43
 
@@ -931,10 +931,10 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit26: ; p
   br i1 %.not25, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit27, label %45
 
 45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit26
-  %46 = getelementptr inbounds nuw i32, ptr %32, i64 %1
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %4
-  %48 = getelementptr inbounds nuw i32, ptr %.pre31, i64 %1
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %2
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %1
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %4
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.pre31, i64 %1
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %2
   %cond29 = icmp eq i64 %9, 1
   br i1 %cond29, label %50, label %52
 

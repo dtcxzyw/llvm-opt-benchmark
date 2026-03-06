@@ -52216,7 +52216,7 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %17 = load i32, ptr %6, align 4
   %18 = call i32 @llvm.umin.i32(i32 %17, i32 15)
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr i32, ptr @drx_lookup_onDurationTimer.vals, i64 %19
+  %20 = getelementptr [4 x i8], ptr @drx_lookup_onDurationTimer.vals, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   store i32 %21, ptr %22, align 4
@@ -52248,7 +52248,7 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %16 = load i32, ptr %6, align 4
   %17 = call i32 @llvm.umin.i32(i32 %16, i32 22)
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i32, ptr @drx_lookup_inactivityTimer.vals, i64 %18
+  %19 = getelementptr [4 x i8], ptr @drx_lookup_inactivityTimer.vals, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 44
   store i32 %20, ptr %21, align 4
@@ -52280,7 +52280,7 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %16 = load i32, ptr %6, align 4
   %17 = call i32 @llvm.umin.i32(i32 %16, i32 7)
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i32, ptr @drx_lookup_retransmissionTimer.vals, i64 %18
+  %19 = getelementptr [4 x i8], ptr @drx_lookup_retransmissionTimer.vals, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store i32 %20, ptr %21, align 4
@@ -52313,7 +52313,7 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %17 = load i32, ptr %6, align 4
   %18 = call i32 @llvm.umin.i32(i32 %17, i32 15)
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr i32, ptr @drx_lookup_longCycle.vals, i64 %19
+  %20 = getelementptr [4 x i8], ptr @drx_lookup_longCycle.vals, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 52
   store i32 %21, ptr %22, align 4
@@ -52802,7 +52802,7 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %17 = load i32, ptr %6, align 4
   %18 = call i32 @llvm.umin.i32(i32 %17, i32 15)
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr i32, ptr @drx_lookup_shortCycle.vals, i64 %19
+  %20 = getelementptr [4 x i8], ptr @drx_lookup_shortCycle.vals, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   store i32 %21, ptr %22, align 4
@@ -53002,7 +53002,7 @@ private_data_get_drx_config.exit:                 ; preds = %5, %9
   %17 = load i32, ptr %6, align 4
   %18 = icmp ne i32 %17, 0
   %19 = zext i1 %18 to i64
-  %20 = getelementptr i32, ptr @drx_lookup_longCycle_v1130.vals, i64 %19
+  %20 = getelementptr [4 x i8], ptr @drx_lookup_longCycle_v1130.vals, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 52
   store i32 %21, ptr %22, align 4
@@ -59313,7 +59313,7 @@ private_data_meas_capabilities_item_band_mappings.exit.i: ; preds = %11, %5
   %23 = add nuw nsw i16 %18, 1
   store i16 %23, ptr %17, align 2
   %24 = zext nneg i16 %18 to i64
-  %25 = getelementptr i16, ptr %22, i64 %24
+  %25 = getelementptr [2 x i8], ptr %22, i64 %24
   store i16 %21, ptr %25, align 2
   br label %set_freq_band_indicator.exit
 
@@ -79794,14 +79794,14 @@ private_data_meas_capabilities_item_band_mappings.exit: ; preds = %5, %10
 21:                                               ; preds = %private_data_meas_capabilities_item_band_mappings.exit
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 106
   %23 = zext i16 %18 to i64
-  %24 = getelementptr i16, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 104
   %27 = load i16, ptr %26, align 2
   %28 = add i16 %27, 1
   store i16 %28, ptr %26, align 2
   %29 = zext i16 %27 to i64
-  %30 = getelementptr i16, ptr %22, i64 %29
+  %30 = getelementptr [2 x i8], ptr %22, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %28, %19
   br i1 %32, label %33, label %35
@@ -81616,7 +81616,7 @@ private_data_meas_capabilities_item_band_mappings.exit.i.i: ; preds = %11, %5
   %23 = add nuw nsw i16 %18, 1
   store i16 %23, ptr %17, align 2
   %24 = zext nneg i16 %18 to i64
-  %25 = getelementptr i16, ptr %22, i64 %24
+  %25 = getelementptr [2 x i8], ptr %22, i64 %24
   store i16 %21, ptr %25, align 2
   %.pre = load ptr, ptr %9, align 8
   br label %dissect_lte_rrc_FreqBandIndicator.exit

@@ -25,11 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.133" = type { %"struct.std::_Vector_base<Yosys::RTLIL::Wire *, std::allocator<Yosys::RTLIL::Wire *>>::_Vector_impl" }
 %"struct.std::_Vector_base<Yosys::RTLIL::Wire *, std::allocator<Yosys::RTLIL::Wire *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Yosys::RTLIL::Wire *, std::allocator<Yosys::RTLIL::Wire *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Yosys::RTLIL::Wire *, std::allocator<Yosys::RTLIL::Wire *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Const>::entry_t" = type <{ %"struct.std::pair", i32, [4 x i8] }>
-%"struct.std::pair" = type { %"struct.Yosys::RTLIL::IdString", %"struct.Yosys::RTLIL::Const" }
-%"struct.Yosys::RTLIL::IdString" = type { i32 }
-%"struct.Yosys::RTLIL::Const" = type { i16, i8, %union.anon.113 }
-%union.anon.113 = type { %"class.std::__cxx11::basic_string" }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZNK5Yosys4Pass21replace_existing_passEv = comdat any
@@ -343,7 +338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %98
 104:                                              ; preds = %92
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %105 = load ptr, ptr %83, align 8, !tbaa !34
-  %106 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Const>::entry_t", ptr %105, i64 %indvars.iv.next
+  %106 = getelementptr inbounds nuw [56 x i8], ptr %105, i64 %indvars.iv.next
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   invoke fastcc void @_ZN12_GLOBAL__N_114PrintAttrsPass9log_constERKN5Yosys5RTLIL8IdStringERKNS2_5ConstEj(ptr noundef nonnull align 4 dereferenceable(4) %106, ptr noundef nonnull align 8 dereferenceable(40) %107, i32 noundef %82)
           to label %92 unwind label %108
@@ -475,7 +470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %14
 154:                                              ; preds = %142
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1
   %155 = load ptr, ptr %133, align 8, !tbaa !34
-  %156 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Const>::entry_t", ptr %155, i64 %indvars.iv.next204
+  %156 = getelementptr inbounds nuw [56 x i8], ptr %155, i64 %indvars.iv.next204
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   invoke fastcc void @_ZN12_GLOBAL__N_114PrintAttrsPass9log_constERKN5Yosys5RTLIL8IdStringERKNS2_5ConstEj(ptr noundef nonnull align 4 dereferenceable(4) %156, ptr noundef nonnull align 8 dereferenceable(40) %157, i32 noundef %113)
           to label %142 unwind label %158
@@ -618,7 +613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %20
 212:                                              ; preds = %200
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, -1
   %213 = load ptr, ptr %191, align 8, !tbaa !34
-  %214 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::Const>::entry_t", ptr %213, i64 %indvars.iv.next207
+  %214 = getelementptr inbounds nuw [56 x i8], ptr %213, i64 %indvars.iv.next207
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   invoke fastcc void @_ZN12_GLOBAL__N_114PrintAttrsPass9log_constERKN5Yosys5RTLIL8IdStringERKNS2_5ConstEj(ptr noundef nonnull align 4 dereferenceable(4) %214, ptr noundef nonnull align 8 dereferenceable(40) %215, i32 noundef %170)
           to label %200 unwind label %216

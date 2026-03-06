@@ -13,7 +13,7 @@ define dso_local noundef range(i32 -1, 9) i32 @_ZN3igl6opengl12gl_type_sizeEj(i3
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3igl6opengl12gl_type_sizeEj, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3igl6opengl12gl_type_sizeEj, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

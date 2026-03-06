@@ -18,14 +18,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_io: ; .as
 %struct.list_head = type { ptr, ptr }
 %struct.dpages = type { ptr, ptr, %union.anon.2, ptr, ptr, i64 }
 %union.anon.2 = type { i32, [16 x i8] }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.5, %union.anon.13, %struct.atomic_t, [8 x i8] }
-%union.anon.5 = type { %struct.anon.6 }
-%struct.anon.6 = type { %union.anon.7, ptr, %union.anon.9, i64 }
-%union.anon.7 = type { %struct.list_head }
-%union.anon.9 = type { i64 }
-%union.anon.13 = type { %struct.atomic_t }
-%struct.dm_io_region = type { ptr, i64, i64 }
 %struct.bvec_iter = type <{ i64, i32, i32, i32 }>
 
 @_dm_io_cache = internal unnamed_addr global ptr null, align 8
@@ -376,7 +368,7 @@ define internal void @bio_get_page(ptr noundef captures(none) initializes((16, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.bio_vec, ptr %6, i64 %10
+  %11 = getelementptr [16 x i8], ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %14 = load i32, ptr %13, align 4
@@ -385,7 +377,7 @@ define internal void @bio_get_page(ptr noundef captures(none) initializes((16, 2
   %17 = add i32 %16, %14
   %18 = lshr i32 %17, 12
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr %struct.page, ptr %12, i64 %19
+  %20 = getelementptr [64 x i8], ptr %12, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -450,7 +442,7 @@ define internal void @bio_next_page(ptr noundef captures(none) %0) #0 align 16 {
   %24 = phi i32 [ %31, %30 ], [ %22, %17 ]
   %25 = phi i32 [ %32, %30 ], [ %8, %17 ]
   %26 = zext i32 %25 to i64
-  %.split = getelementptr %struct.bio_vec, ptr %6, i64 %26
+  %.split = getelementptr [16 x i8], ptr %6, i64 %26
   %27 = getelementptr i8, ptr %.split, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp ult i32 %24, %28
@@ -526,7 +518,7 @@ define internal void @km_get_page(ptr noundef readonly captures(none) %0, ptr no
   %15 = select i1 %11, i64 %12, i64 %14
   %16 = add i64 %10, %15
   %17 = lshr i64 %16, 12
-  %18 = getelementptr %struct.page, ptr %6, i64 %17
+  %18 = getelementptr [64 x i8], ptr %6, i64 %17
   store ptr %18, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
@@ -607,7 +599,7 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr nou
 35:                                               ; preds = %154, %18
   %36 = phi i64 [ 0, %18 ], [ %155, %154 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
-  %37 = getelementptr %struct.dm_io_region, ptr %2, i64 %36
+  %37 = getelementptr [24 x i8], ptr %2, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0

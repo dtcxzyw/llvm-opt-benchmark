@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ClusterInfo = type { %struct.ControlData, ptr, %struct.DbInfoArr, ptr, ptr, ptr, ptr, ptr, i16, i32, [64 x i8], i32, ptr, i32 }
 %struct.ControlData = type { i32, i32, [25 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i32 }
 %struct.DbInfoArr = type { ptr, i32 }
-%struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
-%struct.RelInfoArr = type { ptr, i32 }
-%struct.LogicalSlotInfoArr = type { i32, ptr }
-%struct.FileNameMap = type { ptr, ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -46,7 +42,7 @@ define dso_local void @transfer_all_new_tablespaces(ptr noundef %0, ptr noundef 
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.transfer_all_new_tablespaces, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.transfer_all_new_tablespaces, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @prep_status_progress(ptr noundef nonnull %switch.load) #7
   br label %8
@@ -69,7 +65,7 @@ switch.lookup:                                    ; preds = %4
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @os_info, i64 24), align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   tail call void @parallel_transfer_all_new_dbs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %17) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -118,7 +114,7 @@ define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) 
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %transfer_single_new_db.exit.us ], [ 0, %.lr.ph38 ]
   %.02335.us = phi i32 [ %34, %transfer_single_new_db.exit.us ], [ 0, %.lr.ph38 ]
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw %struct.DbInfo, ptr %12, i64 %indvars.iv64
+  %13 = getelementptr inbounds nuw [1072 x i8], ptr %12, i64 %indvars.iv64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = load i32, ptr %10, align 8
   %15 = icmp slt i32 %.02335.us, %14
@@ -126,7 +122,7 @@ define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) 
 
 16:                                               ; preds = %.lr.ph.us, %22
   %indvars.iv60 = phi i64 [ %41, %.lr.ph.us ], [ %indvars.iv.next61, %22 ]
-  %17 = getelementptr inbounds %struct.DbInfo, ptr %38, i64 %indvars.iv60
+  %17 = getelementptr inbounds [1072 x i8], ptr %38, i64 %indvars.iv60
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %19) #8
@@ -160,7 +156,7 @@ define dso_local void @transfer_all_new_dbs(ptr noundef readonly captures(none) 
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %.lr.ph.split.us.i.us
   %indvars.iv20.i.us = phi i64 [ %indvars.iv.next21.i.us, %.lr.ph.split.us.i.us ], [ 0, %.lr.ph.i.us ]
-  %33 = getelementptr inbounds nuw %struct.FileNameMap, ptr %25, i64 %indvars.iv20.i.us
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv20.i.us
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.5, i1 noundef zeroext %or.cond.i.us)
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.6, i1 noundef zeroext %or.cond.i.us)
   call fastcc void @transfer_relfile(ptr noundef readonly %33, ptr noundef nonnull @.str.7, i1 noundef zeroext %or.cond.i.us)
@@ -190,7 +186,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %transfer_single_new_db.exit ], [ 0, %.lr.ph38 ]
   %.02335 = phi i32 [ %77, %transfer_single_new_db.exit ], [ 0, %.lr.ph38 ]
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds nuw %struct.DbInfo, ptr %43, i64 %indvars.iv57
+  %44 = getelementptr inbounds nuw [1072 x i8], ptr %43, i64 %indvars.iv57
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = load i32, ptr %10, align 8
   %46 = icmp slt i32 %.02335, %45
@@ -206,7 +202,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 
 52:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %50, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %53 = getelementptr inbounds %struct.DbInfo, ptr %47, i64 %indvars.iv
+  %53 = getelementptr inbounds [1072 x i8], ptr %47, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %55) #8
@@ -247,7 +243,7 @@ transfer_single_new_db.exit.us:                   ; preds = %.lr.ph.split.us.i.u
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %76
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %76 ], [ 0, %.lr.ph.i ]
-  %71 = getelementptr inbounds nuw %struct.FileNameMap, ptr %63, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [56 x i8], ptr %63, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) %4) #8
   %74 = icmp eq i32 %73, 0

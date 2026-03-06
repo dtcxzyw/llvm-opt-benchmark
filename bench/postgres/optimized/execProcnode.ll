@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/execProcnode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [27 x i8] c"unrecognized node type: %d\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"execProcnode.c\00", align 1
 @__func__.ExecInitNode = private unnamed_addr constant [13 x i8] c"ExecInitNode\00", align 1
@@ -263,7 +261,7 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph163 ], [ 0, %.lr.ph ]
   %.0149157161 = phi ptr [ %109, %.lr.ph163 ], [ null, %.lr.ph ]
   %105 = load ptr, ptr %102, align 8
-  %106 = getelementptr inbounds nuw %union.ListCell, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @ExecInitSubPlan(ptr noundef %107, ptr noundef nonnull %.0148) #5
   %109 = tail call ptr @lappend(ptr noundef %.0149157161, ptr noundef %108) #5
@@ -960,7 +958,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 24:                                               ; preds = %.lr.ph64, %24
   %indvars.iv72 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next73, %24 ]
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv72
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv72
   %27 = load ptr, ptr %26, align 8
   tail call void @ExecSetTupleBound(i64 noundef %0, ptr noundef %27)
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
@@ -972,7 +970,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   tail call void @ExecSetTupleBound(i64 noundef %0, ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

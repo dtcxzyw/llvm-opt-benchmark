@@ -266,7 +266,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_termina
 
 49:                                               ; preds = %53, %46
   %.08.i5.i.i.i = phi i64 [ 0, %46 ], [ %54, %53 ]
-  %50 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i
   %51 = load i64, ptr %50, align 8, !tbaa !18
   %52 = icmp ult i64 %48, %51
   br i1 %52, label %.loopexit.i.i.i, label %53, !prof !20
@@ -291,7 +291,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_termina
   %58 = add i64 %.014.i6.i.i.i, -2
   %59 = udiv i64 %.0.i7.i.i.i, 100
   %60 = urem i64 %.0.i7.i.i.i, 100
-  %61 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !24
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 %58
   store i16 %62, ptr %63, align 1
@@ -302,7 +302,7 @@ define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_termina
   %65 = phi i64 [ %55, %.loopexit.i.i.i ], [ %57, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %55, %.loopexit.i.i.i ], [ %58, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %48, %.loopexit.i.i.i ], [ %59, %.lr.ph.i.i.i ]
-  %66 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %67 = load i16, ptr %66, align 2, !tbaa !24
   %68 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %68, label %69, label %70, !prof !20
@@ -346,7 +346,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %70, %69
 
 81:                                               ; preds = %85, %77
   %.08.i5.i.i.i25 = phi i64 [ 0, %77 ], [ %86, %85 ]
-  %82 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i25
+  %82 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i25
   %83 = load i64, ptr %82, align 8, !tbaa !18
   %84 = icmp ugt i64 %83, %80
   br i1 %84, label %.loopexit.i.i.i34, label %85, !prof !20
@@ -371,7 +371,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %70, %69
   %90 = add i64 %.014.i6.i.i.i30, -2
   %91 = udiv i64 %.0.i7.i.i.i29, 100
   %92 = urem i64 %.0.i7.i.i.i29, 100
-  %93 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !24
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 %90
   store i16 %94, ptr %95, align 1
@@ -382,7 +382,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %70, %69
   %97 = phi i64 [ %87, %.loopexit.i.i.i34 ], [ %89, %.lr.ph.i.i.i28 ]
   %.014.i.lcssa.i.i.i32 = phi i64 [ %87, %.loopexit.i.i.i34 ], [ %90, %.lr.ph.i.i.i28 ]
   %.0.i.lcssa.i.i.i33 = phi i64 [ %80, %.loopexit.i.i.i34 ], [ %91, %.lr.ph.i.i.i28 ]
-  %98 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i33
+  %98 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i33
   %99 = load i16, ptr %98, align 2, !tbaa !24
   %100 = icmp eq i64 %.014.i.lcssa.i.i.i32, 2
   br i1 %100, label %101, label %102, !prof !20
@@ -569,7 +569,7 @@ define linkonce_odr noundef i64 @_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm(ptr
 
 3:                                                ; preds = %7, %2
   %.08.i5.i.i = phi i64 [ 0, %2 ], [ %8, %7 ]
-  %4 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ult i64 %1, %5
   br i1 %6, label %.loopexit.i.i, label %7, !prof !20
@@ -594,7 +594,7 @@ define linkonce_odr noundef i64 @_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm(ptr
   %12 = add i64 %.014.i6.i.i, -2
   %13 = udiv i64 %.0.i7.i.i, 100
   %14 = urem i64 %.0.i7.i.i, 100
-  %15 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   store i16 %16, ptr %17, align 1
@@ -605,7 +605,7 @@ define linkonce_odr noundef i64 @_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm(ptr
   %19 = phi i64 [ %9, %.loopexit.i.i ], [ %11, %.lr.ph.i.i ]
   %.014.i.lcssa.i.i = phi i64 [ %9, %.loopexit.i.i ], [ %12, %.lr.ph.i.i ]
   %.0.i.lcssa.i.i = phi i64 [ %1, %.loopexit.i.i ], [ %13, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i
   %21 = load i16, ptr %20, align 2, !tbaa !24
   %22 = icmp eq i64 %.014.i.lcssa.i.i, 2
   br i1 %22, label %23, label %24, !prof !20

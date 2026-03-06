@@ -46,7 +46,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr i16, ptr @keysym_to_unicode_1a1_1ff, i64 %11
+  %12 = getelementptr [2 x i8], ptr @keysym_to_unicode_1a1_1ff, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -834
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
@@ -59,7 +59,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 18:                                               ; preds = %16
   %19 = zext nneg i32 %0 to i64
-  %20 = getelementptr i16, ptr @keysym_to_unicode_2a1_2fe, i64 %19
+  %20 = getelementptr [2 x i8], ptr @keysym_to_unicode_2a1_2fe, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -1346
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
@@ -72,7 +72,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %0 to i64
-  %28 = getelementptr i16, ptr @keysym_to_unicode_3a2_3fe, i64 %27
+  %28 = getelementptr [2 x i8], ptr @keysym_to_unicode_3a2_3fe, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -1860
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
@@ -85,7 +85,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 34:                                               ; preds = %32
   %35 = zext nneg i32 %0 to i64
-  %36 = getelementptr i16, ptr @keysym_to_unicode_4a1_4df, i64 %35
+  %36 = getelementptr [2 x i8], ptr @keysym_to_unicode_4a1_4df, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -2370
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
@@ -99,7 +99,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 42:                                               ; preds = %40
   %43 = add nsw i32 %0, -1424
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i16, ptr @keysym_to_unicode_590_5fe, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr @keysym_to_unicode_590_5fe, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   br label %168
@@ -111,7 +111,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %0 to i64
-  %52 = getelementptr i16, ptr @keysym_to_unicode_680_6ff, i64 %51
+  %52 = getelementptr [2 x i8], ptr @keysym_to_unicode_680_6ff, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -3328
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
@@ -124,7 +124,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 58:                                               ; preds = %56
   %59 = zext nneg i32 %0 to i64
-  %60 = getelementptr i16, ptr @keysym_to_unicode_7a1_7f9, i64 %59
+  %60 = getelementptr [2 x i8], ptr @keysym_to_unicode_7a1_7f9, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -3906
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
@@ -137,7 +137,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 66:                                               ; preds = %64
   %67 = zext nneg i32 %0 to i64
-  %68 = getelementptr i16, ptr @keysym_to_unicode_8a4_8fe, i64 %67
+  %68 = getelementptr [2 x i8], ptr @keysym_to_unicode_8a4_8fe, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -4424
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
@@ -150,7 +150,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 74:                                               ; preds = %72
   %75 = zext nneg i32 %0 to i64
-  %76 = getelementptr i16, ptr @keysym_to_unicode_9df_9f8, i64 %75
+  %76 = getelementptr [2 x i8], ptr @keysym_to_unicode_9df_9f8, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -5054
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
@@ -163,7 +163,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 82:                                               ; preds = %80
   %83 = zext nneg i32 %0 to i64
-  %84 = getelementptr i16, ptr @keysym_to_unicode_aa1_afe, i64 %83
+  %84 = getelementptr [2 x i8], ptr @keysym_to_unicode_aa1_afe, i64 %83
   %85 = getelementptr i8, ptr %84, i64 -5442
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
@@ -176,7 +176,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 90:                                               ; preds = %88
   %91 = zext nneg i32 %0 to i64
-  %92 = getelementptr i16, ptr @keysym_to_unicode_cdf_cfa, i64 %91
+  %92 = getelementptr [2 x i8], ptr @keysym_to_unicode_cdf_cfa, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -6590
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
@@ -189,7 +189,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %0 to i64
-  %100 = getelementptr i16, ptr @keysym_to_unicode_da1_df9, i64 %99
+  %100 = getelementptr [2 x i8], ptr @keysym_to_unicode_da1_df9, i64 %99
   %101 = getelementptr i8, ptr %100, i64 -6978
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i32
@@ -202,7 +202,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 106:                                              ; preds = %104
   %107 = zext nneg i32 %0 to i64
-  %108 = getelementptr i16, ptr @keysym_to_unicode_ea0_eff, i64 %107
+  %108 = getelementptr [2 x i8], ptr @keysym_to_unicode_ea0_eff, i64 %107
   %109 = getelementptr i8, ptr %108, i64 -7488
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
@@ -215,7 +215,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 114:                                              ; preds = %112
   %115 = zext nneg i32 %0 to i64
-  %116 = getelementptr i16, ptr @keysym_to_unicode_12a1_12fe, i64 %115
+  %116 = getelementptr [2 x i8], ptr @keysym_to_unicode_12a1_12fe, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -9538
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %118 to i32
@@ -228,7 +228,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 122:                                              ; preds = %120
   %123 = zext nneg i32 %0 to i64
-  %124 = getelementptr i16, ptr @keysym_to_unicode_13bc_13be, i64 %123
+  %124 = getelementptr [2 x i8], ptr @keysym_to_unicode_13bc_13be, i64 %123
   %125 = getelementptr i8, ptr %124, i64 -10104
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
@@ -241,7 +241,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 130:                                              ; preds = %128
   %131 = zext nneg i32 %0 to i64
-  %132 = getelementptr i16, ptr @keysym_to_unicode_14a1_14ff, i64 %131
+  %132 = getelementptr [2 x i8], ptr @keysym_to_unicode_14a1_14ff, i64 %131
   %133 = getelementptr i8, ptr %132, i64 -10562
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
@@ -254,7 +254,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 138:                                              ; preds = %136
   %139 = zext nneg i32 %0 to i64
-  %140 = getelementptr i16, ptr @keysym_to_unicode_15d0_15f6, i64 %139
+  %140 = getelementptr [2 x i8], ptr @keysym_to_unicode_15d0_15f6, i64 %139
   %141 = getelementptr i8, ptr %140, i64 -11168
   %142 = load i16, ptr %141, align 2
   %143 = zext i16 %142 to i32
@@ -267,7 +267,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 146:                                              ; preds = %144
   %147 = zext nneg i32 %0 to i64
-  %148 = getelementptr i16, ptr @keysym_to_unicode_16a0_16f6, i64 %147
+  %148 = getelementptr [2 x i8], ptr @keysym_to_unicode_16a0_16f6, i64 %147
   %149 = getelementptr i8, ptr %148, i64 -11584
   %150 = load i16, ptr %149, align 2
   %151 = zext i16 %150 to i32
@@ -280,7 +280,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 154:                                              ; preds = %152
   %155 = zext nneg i32 %0 to i64
-  %156 = getelementptr i16, ptr @keysym_to_unicode_1e9f_1eff, i64 %155
+  %156 = getelementptr [2 x i8], ptr @keysym_to_unicode_1e9f_1eff, i64 %155
   %157 = getelementptr i8, ptr %156, i64 -15678
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
@@ -293,7 +293,7 @@ define hidden range(i32 0, 16777216) i32 @SDL_KeySymToUcs4(i32 noundef %0) local
 
 162:                                              ; preds = %160
   %163 = zext nneg i32 %0 to i64
-  %164 = getelementptr i16, ptr @keysym_to_unicode_20a0_20ac, i64 %163
+  %164 = getelementptr [2 x i8], ptr @keysym_to_unicode_20a0_20ac, i64 %163
   %165 = getelementptr i8, ptr %164, i64 -16704
   %166 = load i16, ptr %165, align 2
   %167 = zext i16 %166 to i32

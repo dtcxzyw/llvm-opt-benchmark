@@ -5,17 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
 %struct.stats_t = type { double, double, double, i32, i32, i32 }
-%struct.group_info = type { i16, ptr }
-%struct.info_t = type { ptr, i16, ptr, i32, i32, i32, i32, i32, i32, i32, %struct.side_t, %struct.side_t, i32, %struct.memBuf_t, %struct.memBuf_t, i32, %struct.stats_t, %struct.stats_t }
-%struct.side_t = type { i32, i32, i32 }
-%struct.memBuf_t = type { [16486 x i8], i32, i32, i32, i32, %struct.COND_TYPE, i32 }
-%struct.COND_TYPE = type { %union.pthread_mutex_t, %union.pthread_cond_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
 %struct.func_args = type { i32, ptr, i32, ptr, ptr }
@@ -241,7 +230,7 @@ mygetopt.exit.thread.thread:                      ; preds = %8, %.thread669
 
 24:                                               ; preds = %.thread1.i
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds ptr, ptr %11, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %11, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %34, label %29
@@ -260,7 +249,7 @@ mygetopt.exit.thread.thread:                      ; preds = %8, %.thread669
   ]
 
 34:                                               ; preds = %31, %29, %24
-  %35 = getelementptr inbounds ptr, ptr %11, i64 %25
+  %35 = getelementptr inbounds [8 x i8], ptr %11, i64 %25
   store ptr null, ptr @myoptarg, align 8, !tbaa !16
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   br label %mygetopt.exit.thread.sink.split
@@ -279,7 +268,7 @@ mygetopt.exit.thread.thread:                      ; preds = %8, %.thread669
 
 43:                                               ; preds = %40
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds ptr, ptr %11, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %11, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !16
   br label %mygetopt.exit.thread.sink.split
 
@@ -327,7 +316,7 @@ mygetopt.exit.thread.thread:                      ; preds = %8, %.thread669
 
 65:                                               ; preds = %63
   %66 = sext i32 %49 to i64
-  %67 = getelementptr inbounds ptr, ptr %11, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %11, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   store ptr %68, ptr @myoptarg, align 8, !tbaa !16
   %69 = add nsw i32 %49, 1
@@ -351,7 +340,7 @@ mygetopt.exit.thread.thread:                      ; preds = %8, %.thread669
 
 75:                                               ; preds = %73
   %76 = sext i32 %49 to i64
-  %77 = getelementptr inbounds ptr, ptr %11, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %11, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !16
   %.not47.i = icmp eq ptr %78, null
   br i1 %.not47.i, label %mygetopt.exit, label %79
@@ -566,7 +555,7 @@ mygetopt.exit.thread:                             ; preds = %mygetopt.exit, %myg
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.i, %147
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %147 ], [ 0, %.lr.ph.i ]
   %.238.us.us.i = phi i32 [ %.4.us.us.i, %147 ], [ %.1.i, %.lr.ph.i ]
-  %138 = getelementptr inbounds nuw %struct.group_info, ptr @groups, i64 %indvars.iv50.i
+  %138 = getelementptr inbounds nuw [16 x i8], ptr @groups, i64 %indvars.iv50.i
   %139 = icmp eq i32 %.238.us.us.i, 0
   br i1 %139, label %140, label %147
 
@@ -588,7 +577,7 @@ mygetopt.exit.thread:                             ; preds = %mygetopt.exit, %myg
 147:                                              ; preds = %146, %144, %140, %.lr.ph.split.us.split.us.i
   %.4.us.us.i = phi i32 [ -1, %.lr.ph.split.us.split.us.i ], [ 0, %146 ], [ -1, %144 ], [ 0, %140 ]
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %148 = getelementptr inbounds nuw %struct.group_info, ptr @groups, i64 %indvars.iv.next51.i
+  %148 = getelementptr inbounds nuw [16 x i8], ptr @groups, i64 %indvars.iv.next51.i
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !21
   %.not31.us.us.i = icmp eq ptr %150, null
@@ -598,7 +587,7 @@ mygetopt.exit.thread:                             ; preds = %mygetopt.exit, %myg
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %163 ], [ 0, %.lr.ph.i ]
   %151 = phi ptr [ %165, %163 ], [ getelementptr inbounds nuw (i8, ptr @groups, i64 8), %.lr.ph.i ]
   %.238.i = phi i32 [ %.4.i, %163 ], [ %.1.i, %.lr.ph.i ]
-  %152 = getelementptr inbounds nuw %struct.group_info, ptr @groups, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw [16 x i8], ptr @groups, i64 %indvars.iv.i
   %153 = icmp eq i32 %.238.i, 0
   br i1 %153, label %154, label %163
 
@@ -626,7 +615,7 @@ mygetopt.exit.thread:                             ; preds = %mygetopt.exit, %myg
 163:                                              ; preds = %.sink.split.i, %158, %.lr.ph.split.split.i
   %.4.i = phi i32 [ -1, %.lr.ph.split.split.i ], [ -1, %158 ], [ 0, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %164 = getelementptr inbounds nuw %struct.group_info, ptr @groups, i64 %indvars.iv.next.i
+  %164 = getelementptr inbounds nuw [16 x i8], ptr @groups, i64 %indvars.iv.next.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !21
   %.not31.i = icmp eq ptr %166, null
@@ -749,7 +738,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   %indvars.iv640 = phi i64 [ 0, %.lr.ph483 ], [ %indvars.iv.next641, %377 ]
   %220 = phi ptr [ %216, %.lr.ph483 ], [ %381, %377 ]
   %.3481 = phi i32 [ %.2490, %.lr.ph483 ], [ %.5, %377 ]
-  %221 = getelementptr inbounds nuw %struct.group_info, ptr @groups, i64 %indvars.iv640
+  %221 = getelementptr inbounds nuw [16 x i8], ptr @groups, i64 %indvars.iv640
   %222 = icmp eq i16 %219, 0
   %spec.select248 = select i1 %222, ptr @.str.5, ptr %220
   br i1 %.not230, label %226, label %223
@@ -765,7 +754,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
 .lr.ph438:                                        ; preds = %226, %282
   %indvars.iv = phi i64 [ %indvars.iv.next, %282 ], [ 0, %226 ]
   %.6436 = phi i32 [ %.7, %282 ], [ %.3481, %226 ]
-  %227 = getelementptr inbounds nuw %struct.info_t, ptr %174, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw [33368 x i8], ptr %174, i64 %indvars.iv
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33360) %228, i8 0, i64 33360, i1 false)
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 16
@@ -897,7 +886,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
 .lr.ph444.us:                                     ; preds = %._crit_edge439, %.lr.ph444.us.backedge
   %indvars.iv625 = phi i64 [ %indvars.iv625.be, %.lr.ph444.us.backedge ], [ 0, %._crit_edge439 ]
   %.0185441.us = phi i32 [ %.0185441.us.be, %.lr.ph444.us.backedge ], [ 1, %._crit_edge439 ]
-  %283 = getelementptr inbounds nuw %struct.info_t, ptr %174, i64 %indvars.iv625
+  %283 = getelementptr inbounds nuw [33368 x i8], ptr %174, i64 %indvars.iv625
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 33272
   %285 = load i32, ptr %284, align 8, !tbaa !48
   %.not239.us = icmp eq i32 %285, 0
@@ -960,7 +949,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
 
 .lr.ph450:                                        ; preds = %300, %312
   %indvars.iv630 = phi i64 [ %indvars.iv.next631, %312 ], [ 0, %300 ]
-  %301 = getelementptr inbounds nuw %struct.info_t, ptr %174, i64 %indvars.iv630
+  %301 = getelementptr inbounds nuw [33368 x i8], ptr %174, i64 %indvars.iv630
   %302 = load ptr, ptr @stderr, align 8, !tbaa !19
   %303 = trunc nuw nsw i64 %indvars.iv630 to i32
   %304 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %302, ptr noundef nonnull @.str.16, i32 noundef %303) #18
@@ -1006,7 +995,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   %322 = phi i32 [ %329, %.lr.ph455 ], [ 0, %.critedge250 ]
   %323 = phi double [ %335, %.lr.ph455 ], [ 0.000000e+00, %.critedge250 ]
   %324 = phi double [ %337, %.lr.ph455 ], [ 0.000000e+00, %.critedge250 ]
-  %325 = getelementptr inbounds nuw %struct.info_t, ptr %174, i64 %indvars.iv635
+  %325 = getelementptr inbounds nuw [33368 x i8], ptr %174, i64 %indvars.iv635
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 33328
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 33352
   %328 = load i32, ptr %327, align 8, !tbaa !52
@@ -1102,7 +1091,7 @@ SetupSupportedGroups.exit:                        ; preds = %168, %169
   %378 = phi i16 [ %375, %374 ], [ %219, %223 ]
   %.5 = phi i32 [ %.6.lcssa712721, %374 ], [ %.3481, %223 ]
   %indvars.iv.next641 = add nuw nsw i64 %indvars.iv640, 1
-  %379 = getelementptr inbounds nuw %struct.group_info, ptr @groups, i64 %indvars.iv.next641
+  %379 = getelementptr inbounds nuw [16 x i8], ptr @groups, i64 %indvars.iv.next641
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %381 = load ptr, ptr %380, align 8, !tbaa !21
   %.not237 = icmp eq ptr %381, null

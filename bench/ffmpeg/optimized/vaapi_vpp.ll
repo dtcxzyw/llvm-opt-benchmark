@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.VAAPIColourProperties = type { i32, i32, i32, i32, i8, i8, i32, i32 }
 %struct._VAProcPipelineCaps = type { i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, [14 x i32] }
-%struct._VAProcPipelineParameterBuffer = type { i32, ptr, i32, ptr, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32, %struct._VAProcColorProperties, %struct._VAProcColorProperties, i32, ptr, [16 x i32] }
-%struct._VAProcColorProperties = type { i8, i8, i8, i8, i8, [3 x i8] }
-%struct.anon = type { i32, i8 }
 
 @ff_vaapi_vpp_query_formats.pix_fmts = internal constant [2 x i32] [i32 44, i32 -1], align 4
 @.str = private unnamed_addr constant [77 x i8] c"A hardware frames reference is required to associate the processing device.\0A\00", align 1
@@ -69,7 +66,7 @@ define void @ff_vaapi_vpp_pipeline_uninit(ptr noundef readonly captures(none) %0
 9:                                                ; preds = %.lr.ph, %17
   %10 = phi i32 [ %5, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !26
   %.not25 = icmp eq i32 %12, -1
   br i1 %.not25, label %17, label %13
@@ -360,7 +357,7 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_vpp_config_output(ptr noundef ini
 
 88:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.next
   %90 = load i32, ptr %89, align 4, !tbaa !26
   %.not125 = icmp eq i32 %90, -1
   br i1 %.not125, label %._crit_edge, label %.lr.ph, !llvm.loop !78
@@ -801,7 +798,7 @@ vaapi_vpp_frame_is_rgb.exit71.i:                  ; preds = %94
 
 .preheader.i:                                     ; preds = %107, %118
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %118 ], [ 0, %107 ]
-  %119 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv.i
   %120 = load i32, ptr %119, align 4, !tbaa !123
   %121 = icmp eq i32 %117, %120
   br i1 %121, label %122, label %118
@@ -963,7 +960,7 @@ define range(i32 -5, 1) i32 @ff_vaapi_vpp_make_param_buffers(ptr noundef %0, i32
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %9, align 4, !tbaa !20
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   store i32 %24, ptr %29, align 4, !tbaa !26
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.19, i32 noundef %1, i64 noundef %3, i32 noundef %4, i32 noundef %24) #7
   br label %30
@@ -1031,8 +1028,8 @@ define range(i32 -12, 1) i32 @ff_vaapi_vpp_render_pictures(ptr noundef %0, ptr n
 
 25:                                               ; preds = %.lr.ph73, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %24 ]
-  %26 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %1, i64 %indvars.iv
-  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %28 = load ptr, ptr %6, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !27
@@ -1086,7 +1083,7 @@ vaapi_vpp_render_single_pipeline_buffer.exit:     ; preds = %25
 
 50:                                               ; preds = %.lr.ph76, %59
   %indvars.iv87 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next88, %59 ]
-  %51 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv87
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv87
   %52 = load i32, ptr %51, align 4, !tbaa !26
   %.not58 = icmp eq i32 %52, -1
   br i1 %.not58, label %.sink.split, label %53
@@ -1209,7 +1206,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !26
   %9 = icmp eq i32 %8, 13
   br i1 %9, label %vaapi_vpp_fill_colour_standard.exit, label %6
@@ -1258,7 +1255,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv121.i.us.us = phi i64 [ %indvars.iv.next122.i.us.us, %.split.i.split.us.us.split.us.us ], [ 0, %.preheader.i.us.us.preheader ]
   %.080.i.us.us = phi i32 [ %.2.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ 0, %.preheader.i.us.us.preheader ]
   %.04478.i.us.us = phi i32 [ %.246.i.us.us.us.us, %.split.i.split.us.us.split.us.us ], [ -1, %.preheader.i.us.us.preheader ]
-  %25 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i.us.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv121.i.us.us
   %26 = load i32, ptr %25, align 4, !tbaa !26
   br label %27
 
@@ -1266,7 +1263,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv117.i.us.us.us.us = phi i64 [ 0, %.preheader.i.us.us ], [ %indvars.iv.next118.i.us.us.us.us, %38 ]
   %.172.i.us.us.us.us = phi i32 [ %.080.i.us.us, %.preheader.i.us.us ], [ %.2.i.us.us.us.us, %38 ]
   %.14571.i.us.us.us.us = phi i32 [ %.04478.i.us.us, %.preheader.i.us.us ], [ %.246.i.us.us.us.us, %38 ]
-  %28 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i.us.us.us.us
+  %28 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i.us.us.us.us
   %29 = load i32, ptr %28, align 4, !tbaa !123
   %.not60.i.us.us.us.us = icmp eq i32 %29, %26
   br i1 %.not60.i.us.us.us.us, label %30, label %38
@@ -1303,7 +1300,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv121.i.us = phi i64 [ %indvars.iv.next122.i.us, %.split.i.split.us.us.split ], [ 0, %.preheader.i.preheader.split.us ]
   %.080.i.us = phi i32 [ %.2.i.us.us, %.split.i.split.us.us.split ], [ 0, %.preheader.i.preheader.split.us ]
   %.04478.i.us = phi i32 [ %.246.i.us.us, %.split.i.split.us.us.split ], [ -1, %.preheader.i.preheader.split.us ]
-  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i.us
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv121.i.us
   %40 = load i32, ptr %39, align 4, !tbaa !26
   br label %41
 
@@ -1311,7 +1308,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv117.i.us.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next118.i.us.us, %56 ]
   %.172.i.us.us = phi i32 [ %.080.i.us, %.preheader.i.us ], [ %.2.i.us.us, %56 ]
   %.14571.i.us.us = phi i32 [ %.04478.i.us, %.preheader.i.us ], [ %.246.i.us.us, %56 ]
-  %42 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i.us.us
+  %42 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i.us.us
   %43 = load i32, ptr %42, align 4, !tbaa !123
   %.not60.i.us.us = icmp eq i32 %43, %40
   br i1 %.not60.i.us.us, label %44, label %56
@@ -1362,7 +1359,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv121.i.us41 = phi i64 [ %indvars.iv.next122.i.us44, %.split.i.split.split.us.us ], [ 0, %.preheader.i.us40.preheader ]
   %.080.i.us42 = phi i32 [ %.2.i.us32.us, %.split.i.split.split.us.us ], [ 0, %.preheader.i.us40.preheader ]
   %.04478.i.us43 = phi i32 [ %.246.i.us31.us, %.split.i.split.split.us.us ], [ -1, %.preheader.i.us40.preheader ]
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i.us41
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv121.i.us41
   %58 = load i32, ptr %57, align 4, !tbaa !26
   br label %59
 
@@ -1370,7 +1367,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv117.i.us22.us = phi i64 [ 0, %.preheader.i.us40 ], [ %indvars.iv.next118.i.us33.us, %75 ]
   %.172.i.us23.us = phi i32 [ %.080.i.us42, %.preheader.i.us40 ], [ %.2.i.us32.us, %75 ]
   %.14571.i.us24.us = phi i32 [ %.04478.i.us43, %.preheader.i.us40 ], [ %.246.i.us31.us, %75 ]
-  %60 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i.us22.us
+  %60 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i.us22.us
   %61 = load i32, ptr %60, align 4, !tbaa !123
   %.not60.i.us25.us = icmp eq i32 %61, %58
   br i1 %.not60.i.us25.us, label %62, label %75
@@ -1424,7 +1421,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv130.i.us = phi i64 [ %indvars.iv.next131.i.us, %.split.us.split.us92.i.split.us.us ], [ 0, %.preheader.us.i.us.preheader ]
   %.080.us.i.us = phi i32 [ %.2.us.us91.i.us.us, %.split.us.split.us92.i.split.us.us ], [ 0, %.preheader.us.i.us.preheader ]
   %.04478.us.i.us = phi i32 [ %.246.us.us90.i.us.us, %.split.us.split.us92.i.split.us.us ], [ -1, %.preheader.us.i.us.preheader ]
-  %76 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv130.i.us
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv130.i.us
   %77 = load i32, ptr %76, align 4, !tbaa !26
   br label %78
 
@@ -1432,7 +1429,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv126.i.us.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next127.i.us.us, %90 ]
   %.172.us.us82.i.us.us = phi i32 [ %.080.us.i.us, %.preheader.us.i.us ], [ %.2.us.us91.i.us.us, %90 ]
   %.14571.us.us83.i.us.us = phi i32 [ %.04478.us.i.us, %.preheader.us.i.us ], [ %.246.us.us90.i.us.us, %90 ]
-  %79 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv126.i.us.us
+  %79 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv126.i.us.us
   %80 = load i32, ptr %79, align 4, !tbaa !123
   %.not60.us.us85.i.us.us = icmp eq i32 %80, %77
   br i1 %.not60.us.us85.i.us.us, label %81, label %90
@@ -1478,7 +1475,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %.split.us.split.us.split.us.us.us.us.i ], [ 0, %.preheader.us.us.us.i.preheader ]
   %.080.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ 0, %.preheader.us.us.us.i.preheader ]
   %.04478.us.us.us.i = phi i32 [ %.246.us.us.us.us.us.us.i, %.split.us.split.us.split.us.us.us.us.i ], [ -1, %.preheader.us.us.us.i.preheader ]
-  %91 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv139.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv139.i
   %92 = load i32, ptr %91, align 4, !tbaa !26
   br label %93
 
@@ -1486,7 +1483,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %93 ], [ 0, %.preheader.us.us.us.i ]
   %.172.us.us.us.us.us.us.i = phi i32 [ %.2.us.us.us.us.us.us.i, %93 ], [ %.080.us.us.us.i, %.preheader.us.us.us.i ]
   %.14571.us.us.us.us.us.us.i = phi i32 [ %.246.us.us.us.us.us.us.i, %93 ], [ %.04478.us.us.us.i, %.preheader.us.us.us.i ]
-  %94 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv135.i
+  %94 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv135.i
   %95 = load i32, ptr %94, align 4, !tbaa !123
   %.not60.us.us.us.us.us.us.i = icmp eq i32 %95, %92
   %96 = icmp eq i32 %.14571.us.us.us.us.us.us.i, -1
@@ -1506,7 +1503,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv148.i = phi i64 [ %indvars.iv.next149.i, %.split.us.split.us.split.us105.us.i ], [ 0, %.preheader.lr.ph.split.us.split.us.i ]
   %.080.us.us.i = phi i32 [ %.2.us.us.us104.us.i, %.split.us.split.us.split.us105.us.i ], [ 0, %.preheader.lr.ph.split.us.split.us.i ]
   %.04478.us.us.i = phi i32 [ %.246.us.us.us103.us.i, %.split.us.split.us.split.us105.us.i ], [ -1, %.preheader.lr.ph.split.us.split.us.i ]
-  %98 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv148.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv148.i
   %99 = load i32, ptr %98, align 4, !tbaa !26
   br label %100
 
@@ -1514,7 +1511,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv144.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next145.i, %111 ]
   %.172.us.us.us96.us.i = phi i32 [ %.080.us.us.i, %.preheader.us.us.i ], [ %.2.us.us.us104.us.i, %111 ]
   %.14571.us.us.us97.us.i = phi i32 [ %.04478.us.us.i, %.preheader.us.us.i ], [ %.246.us.us.us103.us.i, %111 ]
-  %101 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv144.i
+  %101 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv144.i
   %102 = load i32, ptr %101, align 4, !tbaa !123
   %.not60.us.us.us99.us.i = icmp eq i32 %102, %99
   br i1 %.not60.us.us.us99.us.i, label %103, label %111
@@ -1551,7 +1548,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv130.i = phi i64 [ %indvars.iv.next131.i, %.split.us.split.us92.i.split ], [ 0, %.preheader.us.i.preheader ]
   %.080.us.i = phi i32 [ %.2.us.us91.i, %.split.us.split.us92.i.split ], [ 0, %.preheader.us.i.preheader ]
   %.04478.us.i = phi i32 [ %.246.us.us90.i, %.split.us.split.us92.i.split ], [ -1, %.preheader.us.i.preheader ]
-  %112 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv130.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv130.i
   %113 = load i32, ptr %112, align 4, !tbaa !26
   br label %114
 
@@ -1559,7 +1556,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv126.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next127.i, %130 ]
   %.172.us.us82.i = phi i32 [ %.080.us.i, %.preheader.us.i ], [ %.2.us.us91.i, %130 ]
   %.14571.us.us83.i = phi i32 [ %.04478.us.i, %.preheader.us.i ], [ %.246.us.us90.i, %130 ]
-  %115 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv126.i
+  %115 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv126.i
   %116 = load i32, ptr %115, align 4, !tbaa !123
   %.not60.us.us85.i = icmp eq i32 %116, %113
   br i1 %.not60.us.us85.i, label %117, label %130
@@ -1601,7 +1598,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv121.i = phi i64 [ %indvars.iv.next122.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
   %.080.i = phi i32 [ %.2.i, %.split.i.split.split ], [ 0, %.preheader.i.preheader.split ]
   %.04478.i = phi i32 [ %.246.i, %.split.i.split.split ], [ -1, %.preheader.i.preheader.split ]
-  %131 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv121.i
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv121.i
   %132 = load i32, ptr %131, align 4, !tbaa !26
   br label %133
 
@@ -1609,7 +1606,7 @@ define internal fastcc void @vaapi_vpp_fill_colour_properties(ptr noundef %0, pt
   %indvars.iv117.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next118.i, %153 ]
   %.172.i = phi i32 [ %.080.i, %.preheader.i ], [ %.2.i, %153 ]
   %.14571.i = phi i32 [ %.04478.i, %.preheader.i ], [ %.246.i, %153 ]
-  %134 = getelementptr inbounds nuw %struct.VAAPIColourProperties, ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i
+  %134 = getelementptr inbounds nuw [28 x i8], ptr @vaapi_colour_standard_map, i64 %indvars.iv117.i
   %135 = load i32, ptr %134, align 4, !tbaa !123
   %.not60.i = icmp eq i32 %135, %132
   br i1 %.not60.i, label %136, label %153
@@ -1666,13 +1663,13 @@ vaapi_vpp_fill_colour_standard.exit:              ; preds = %.lr.ph.i, %.split.i
 
 157:                                              ; preds = %156, %vaapi_vpp_fill_colour_standard.exit
   %indvars.iv.i13 = phi i64 [ 0, %vaapi_vpp_fill_colour_standard.exit ], [ %indvars.iv.next.i14, %156 ]
-  %158 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 %indvars.iv.i13
+  %158 = getelementptr inbounds nuw [8 x i8], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 %indvars.iv.i13
   %159 = load i32, ptr %158, align 8, !tbaa !146
   %160 = icmp eq i32 %155, %159
   br i1 %160, label %161, label %156
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds nuw %struct.anon, ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 %indvars.iv.i13
+  %162 = getelementptr inbounds nuw [8 x i8], ptr @vaapi_vpp_fill_chroma_sample_location.csl_map, i64 %indvars.iv.i13
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %164 = load i8, ptr %163, align 4, !tbaa !148
   br label %vaapi_vpp_fill_chroma_sample_location.exit

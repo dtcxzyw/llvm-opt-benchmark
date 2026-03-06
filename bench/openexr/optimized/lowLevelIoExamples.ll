@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.C_IStream = type { %"class.Imf_3_4::IStream", ptr }
 %"class.Imf_3_4::IStream" = type { ptr, %"class.std::__cxx11::basic_string" }
 %"class.Imf_3_4::RgbaInputFile" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string" }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
 %"class.Imf_3_4::Array2D" = type { i64, i64, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -383,11 +381,11 @@ define dso_local void @_Z12readRgbaFILEP8_IO_FILEPKcRN7Imf_3_47Array2DINS3_4Rgba
   store ptr %31, ptr %32, align 8, !tbaa !29
   %39 = sext i32 %14 to i64
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %31, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %31, i64 %40
   %42 = mul nsw i32 %37, %16
   %43 = sext i32 %42 to i64
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   invoke void @_ZN7Imf_3_413RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %45, i64 noundef 1, i64 noundef %.pre-phi)
           to label %46 unwind label %50
 

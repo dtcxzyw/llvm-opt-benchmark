@@ -235,7 +235,7 @@ define internal void @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %indvars.iv = phi i64 [ %30, %.noexc.us.us.preheader ], [ %indvars.iv.next, %._crit_edge.us.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.reass.us
-  %33 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  %33 = getelementptr inbounds [4 x i8], ptr %28, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !32
   br label %35
 
@@ -266,7 +266,7 @@ define internal void @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6OptionE
   %45 = mul i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
   %47 = load ptr, ptr %4, align 8, !tbaa !23
-  %48 = getelementptr inbounds float, ptr %47, i64 %indvars.iv59
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %indvars.iv59
   %49 = load float, ptr %48, align 4, !tbaa !32
   %50 = insertelement <4 x float> poison, float %49, i64 0
   %51 = shufflevector <4 x float> %50, <4 x float> poison, <4 x i32> zeroinitializer

@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/range.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.range = type { i64, i64 }
-
 @.str = private unnamed_addr constant [33 x i8] c"\013%s: run out of slot in ranges\0A\00", align 1
 @__func__.subtract_range = private unnamed_addr constant [15 x i8] c"subtract_range\00", align 1
 
@@ -17,7 +15,7 @@ define dso_local noundef i32 @add_range(ptr noundef writeonly captures(none) %0,
 
 9:                                                ; preds = %5
   %10 = sext i32 %2 to i64
-  %11 = getelementptr %struct.range, ptr %0, i64 %10
+  %11 = getelementptr [16 x i8], ptr %0, i64 %10
   store i64 %3, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %4, ptr %12, align 8
@@ -44,7 +42,7 @@ define dso_local i32 @add_range_with_merge(ptr noundef captures(none) %0, i32 no
   %11 = phi i64 [ %38, %36 ], [ %4, %7 ]
   %12 = phi i32 [ %41, %36 ], [ 0, %7 ]
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.range, ptr %0, i64 %13
+  %14 = getelementptr [16 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
@@ -62,14 +60,14 @@ define dso_local i32 @add_range_with_merge(ptr noundef captures(none) %0, i32 no
   %25 = tail call i64 @llvm.umax.i64(i64 %16, i64 %11)
   %26 = add nsw i32 %12, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.range, ptr %0, i64 %27
+  %28 = getelementptr [16 x i8], ptr %0, i64 %27
   %29 = sub i32 %9, %26
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr align 8 %28, i64 %31, i1 false)
   %32 = add nsw i32 %9, -1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.range, ptr %0, i64 %33
+  %34 = getelementptr [16 x i8], ptr %0, i64 %33
   %35 = add i32 %12, -1
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   br label %36
@@ -94,7 +92,7 @@ define dso_local i32 @add_range_with_merge(ptr noundef captures(none) %0, i32 no
 
 49:                                               ; preds = %.loopexit
   %50 = sext i32 %45 to i64
-  %51 = getelementptr %struct.range, ptr %0, i64 %50
+  %51 = getelementptr [16 x i8], ptr %0, i64 %50
   store i64 %44, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %43, ptr %52, align 8
@@ -122,7 +120,7 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 
 10:                                               ; preds = %45, %8
   %11 = phi i64 [ 0, %8 ], [ %46, %45 ]
-  %12 = getelementptr %struct.range, ptr %0, i64 %11
+  %12 = getelementptr [16 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
@@ -173,7 +171,7 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 
 .preheader:                                       ; preds = %34, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %34 ]
-  %.split = getelementptr %struct.range, ptr %0, i64 %indvars.iv
+  %.split = getelementptr [16 x i8], ptr %0, i64 %indvars.iv
   %37 = getelementptr i8, ptr %.split, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
@@ -214,7 +212,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 .preheader9:                                      ; preds = %2, %34
   %5 = phi i64 [ %36, %34 ], [ 0, %2 ]
   %6 = phi i32 [ %35, %34 ], [ %3, %2 ]
-  %7 = getelementptr %struct.range, ptr %0, i64 %5
+  %7 = getelementptr [16 x i8], ptr %0, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
@@ -231,7 +229,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 
 16:                                               ; preds = %20, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ %12, %14 ]
-  %.split = getelementptr %struct.range, ptr %0, i64 %indvars.iv
+  %.split = getelementptr [16 x i8], ptr %0, i64 %indvars.iv
   %17 = getelementptr i8, ptr %.split, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
@@ -255,7 +253,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 
 27:                                               ; preds = %.loopexit6
   %28 = sext i32 %24 to i64
-  %29 = getelementptr %struct.range, ptr %0, i64 %28
+  %29 = getelementptr [16 x i8], ptr %0, i64 %28
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -282,7 +280,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 
 .preheader:                                       ; preds = %.preheader.preheader, %44
   %indvars.iv14 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next15, %44 ]
-  %.split5 = getelementptr %struct.range, ptr %0, i64 %indvars.iv14
+  %.split5 = getelementptr [16 x i8], ptr %0, i64 %indvars.iv14
   %41 = getelementptr i8, ptr %.split5, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0

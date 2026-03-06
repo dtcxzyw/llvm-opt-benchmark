@@ -2069,7 +2069,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %210 ], [ 0, %.lr.ph ]
   %.01693.us = phi i32 [ %.1.us, %210 ], [ 0, %.lr.ph ]
   %179 = load ptr, ptr %163, align 8, !tbaa !22
-  %180 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv98
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv98
   %181 = load double, ptr %180, align 8, !tbaa !23
   %182 = load ptr, ptr %165, align 8, !tbaa !22
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 %indvars.iv98
@@ -2096,7 +2096,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   %196 = mul i64 %194, %195
   %197 = getelementptr inbounds nuw i8, ptr %174, i64 %196
   %198 = sext i32 %.recomposed to i64
-  %199 = getelementptr inbounds double, ptr %197, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %197, i64 %198
   br label %_ZN2cv4Mat_IdEclEi.exit.us
 
 200:                                              ; preds = %188
@@ -2108,7 +2108,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
 
 205:                                              ; preds = %185
   %206 = sext i32 %.01693.us to i64
-  %207 = getelementptr inbounds double, ptr %174, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %174, i64 %206
   br label %_ZN2cv4Mat_IdEclEi.exit.us
 
 _ZN2cv4Mat_IdEclEi.exit.us:                       ; preds = %205, %200, %191
@@ -2122,7 +2122,7 @@ _ZN2cv4Mat_IdEclEi.exit.us:                       ; preds = %205, %200, %191
   %211 = phi double [ %209, %_ZN2cv4Mat_IdEclEi.exit.us ], [ 0.000000e+00, %.lr.ph.split.us ]
   %212 = fsub double %181, %211
   %213 = load ptr, ptr %178, align 8, !tbaa !22
-  %214 = getelementptr inbounds nuw double, ptr %213, i64 %indvars.iv98
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %indvars.iv98
   store double %212, ptr %214, align 8, !tbaa !23
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -2169,7 +2169,7 @@ _ZN2cv4Mat_IdEclEi.exit.us:                       ; preds = %205, %200, %191
   %indvars.iv = phi i64 [ %indvars.iv.next, %232 ], [ 0, %.lr.ph ]
   %.01693 = phi i32 [ %.1, %232 ], [ 0, %.lr.ph ]
   %222 = load ptr, ptr %163, align 8, !tbaa !22
-  %223 = getelementptr inbounds nuw double, ptr %222, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv
   %224 = load double, ptr %223, align 8, !tbaa !23
   %225 = load ptr, ptr %165, align 8, !tbaa !22
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 %indvars.iv
@@ -2179,7 +2179,7 @@ _ZN2cv4Mat_IdEclEi.exit.us:                       ; preds = %205, %200, %191
 
 _ZN2cv4Mat_IdEclEi.exit:                          ; preds = %.lr.ph.split
   %228 = sext i32 %.01693 to i64
-  %229 = getelementptr inbounds double, ptr %174, i64 %228
+  %229 = getelementptr inbounds [8 x i8], ptr %174, i64 %228
   %230 = add nsw i32 %.01693, 1
   %231 = load double, ptr %229, align 8, !tbaa !23
   br label %232
@@ -2189,7 +2189,7 @@ _ZN2cv4Mat_IdEclEi.exit:                          ; preds = %.lr.ph.split
   %233 = phi double [ %231, %_ZN2cv4Mat_IdEclEi.exit ], [ 0.000000e+00, %.lr.ph.split ]
   %234 = fsub double %224, %233
   %235 = load ptr, ptr %178, align 8, !tbaa !22
-  %236 = getelementptr inbounds nuw double, ptr %235, i64 %indvars.iv
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %indvars.iv
   store double %234, ptr %236, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count101

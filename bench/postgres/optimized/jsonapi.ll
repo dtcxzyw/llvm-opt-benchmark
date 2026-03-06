@@ -680,7 +680,7 @@ define void @freeJsonLexContext(ptr noundef captures(address) %0) local_unnamed_
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %.030 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   tail call void @free(ptr noundef %37) #16
   %38 = add i32 %.030, 1
@@ -1910,10 +1910,10 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
 
 64:                                               ; preds = %62
   %65 = sext i8 %54 to i64
-  %66 = getelementptr [13 x %struct.td_entry], ptr @td_parser_table, i64 %65
+  %66 = getelementptr [208 x i8], ptr @td_parser_table, i64 %65
   %67 = getelementptr i8, ptr %66, i64 -6656
   %68 = zext i32 %.0183325 to i64
-  %69 = getelementptr inbounds nuw %struct.td_entry, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.not229 = icmp eq ptr %.sroa.5.0.copyload, null
@@ -2056,7 +2056,7 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   %127 = getelementptr i8, ptr %.val270, i64 24
   %.val270.val = load ptr, ptr %127, align 8
   %128 = sext i32 %.val269 to i64
-  %129 = getelementptr inbounds ptr, ptr %.val270.val, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %.val270.val, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %1, align 8
   %132 = tail call i32 %121(ptr noundef %131, ptr noundef %130, i1 noundef zeroext %120) #16
@@ -2074,7 +2074,7 @@ define i32 @pg_parse_json_incremental(ptr noundef captures(address) %0, ptr noun
   %136 = getelementptr i8, ptr %.val272, i64 24
   %.val272.val = load ptr, ptr %136, align 8
   %137 = sext i32 %.val271 to i64
-  %138 = getelementptr inbounds ptr, ptr %.val272.val, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %.val272.val, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr i8, ptr %.val272, i64 32
   %.val274.val = load ptr, ptr %140, align 8
@@ -2265,7 +2265,7 @@ report_parse_error.exit:                          ; preds = %report_parse_error.
   br i1 %.not321, label %report_parse_error.exit.thread, label %50, !llvm.loop !19
 
 switch.lookup:                                    ; preds = %220
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pg_parse_json_incremental, i64 %.0186
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pg_parse_json_incremental, i64 %.0186
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %report_parse_error.exit.thread
 
@@ -2356,7 +2356,7 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %46 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr null, ptr %52, align 8
   br label %.thread
 
@@ -2381,7 +2381,7 @@ define internal fastcc void @dec_lex_level(ptr noundef captures(none) %0) unname
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #16
   br label %set_fname.exit
@@ -2394,7 +2394,7 @@ set_fname.exit:                                   ; preds = %1, %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   store ptr null, ptr %22, align 8
   %23 = load i32, ptr %19, align 8
   %24 = add i32 %23, -1
@@ -2421,7 +2421,7 @@ define internal fastcc void @set_fname(ptr noundef readonly captures(none) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #16
   br label %16
@@ -2434,7 +2434,7 @@ define internal fastcc void @set_fname(ptr noundef readonly captures(none) %0, p
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   store ptr %1, ptr %24, align 8
   ret void
 }

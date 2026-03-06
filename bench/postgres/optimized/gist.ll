@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.GISTInsertStack = type { i32, i32, ptr, i64, i8, i16, ptr }
 %struct.GISTInsertState = type { ptr, ptr, i64, i8, ptr }
-%struct.ItemIdData = type { i32 }
-%union.ListCell = type { ptr }
 %struct.SplitPageLayout = type { %struct.gistxlogPage, ptr, i32, ptr, ptr, i32, ptr }
 %struct.gistxlogPage = type { i32, i32 }
 %struct.GistSplitVector = type { %struct.GIST_SPLITVEC, [32 x i64], [32 x i8], [32 x i64], [32 x i8], ptr }
@@ -305,12 +302,12 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 47:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %48 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %30, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = trunc nuw nsw i64 %indvars.iv.next to i16
   %50 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 1) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %48, ptr noundef %50, ptr noundef %13) #7
-  %51 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %31, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %indvars.iv
   %52 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 2) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %51, ptr noundef %52, ptr noundef %13) #7
   %53 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 3) #7
@@ -318,13 +315,13 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %57, label %54
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %32, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %indvars.iv
   %56 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 3) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %55, ptr noundef %56, ptr noundef %13) #7
   br label %60
 
 57:                                               ; preds = %47
-  %58 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 3120
   store i32 0, ptr %59, align 8
   br label %60
@@ -335,25 +332,25 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   br i1 %.not109, label %65, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %33, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %indvars.iv
   %64 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 4) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %63, ptr noundef %64, ptr noundef %13) #7
   br label %68
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4656
   store i32 0, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %65, %62
-  %69 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %34, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %indvars.iv
   %70 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 5) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %69, ptr noundef %70, ptr noundef %13) #7
-  %71 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %35, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %indvars.iv
   %72 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 6) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %71, ptr noundef %72, ptr noundef %13) #7
-  %73 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %36, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %indvars.iv
   %74 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 7) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %73, ptr noundef %74, ptr noundef %13) #7
   %75 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 8) #7
@@ -361,13 +358,13 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   br i1 %.not110, label %79, label %76
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %37, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %indvars.iv
   %78 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 8) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %77, ptr noundef %78, ptr noundef %13) #7
   br label %82
 
 79:                                               ; preds = %68
-  %80 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 10800
   store i32 0, ptr %81, align 8
   br label %82
@@ -378,23 +375,23 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   br i1 %.not111, label %87, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %38, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv
   %86 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %49, i16 noundef zeroext 9) #7
   tail call void @fmgr_info_copy(ptr noundef nonnull %85, ptr noundef %86, ptr noundef %13) #7
   br label %90
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %15, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 12336
   store i32 0, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %87, %84
   %91 = load ptr, ptr %39, align 8
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
   %.not112 = icmp eq i32 %93, 0
-  %94 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %. = select i1 %.not112, i32 100, i32 %93
   store i32 %., ptr %94, align 4
   %95 = load ptr, ptr %19, align 8
@@ -406,7 +403,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 100:                                              ; preds = %.lr.ph115, %100
   %indvars.iv117 = phi i64 [ %46, %.lr.ph115 ], [ %indvars.iv.next118, %100 ]
-  %101 = getelementptr %struct.FmgrInfo, ptr %15, i64 %indvars.iv117
+  %101 = getelementptr [48 x i8], ptr %15, i64 %indvars.iv117
   %102 = getelementptr i8, ptr %101, i64 48
   store i32 0, ptr %102, align 8
   %103 = getelementptr i8, ptr %101, i64 1584
@@ -425,7 +422,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   store i32 0, ptr %109, align 8
   %110 = getelementptr i8, ptr %101, i64 12336
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv117
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv117
   store i32 0, ptr %111, align 4
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %112 = load ptr, ptr %2, align 8
@@ -549,7 +546,7 @@ define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef 
   %60 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %61 = xor i32 %57, -1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %BufferGetPage.exit
 
@@ -641,7 +638,7 @@ BufferGetPage.exit:                               ; preds = %59, %65
   %117 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %118 = xor i32 %.028.i, -1
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %119
   %121 = load ptr, ptr %120, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -676,7 +673,7 @@ BufferGetPage.exit.i.i:                           ; preds = %122, %116
 137:                                              ; preds = %147, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %147 ]
   %.03038.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.1.i.i, %147 ]
-  %138 = getelementptr %struct.ItemIdData, ptr %134, i64 %indvars.iv.i.i
+  %138 = getelementptr [4 x i8], ptr %134, i64 %indvars.iv.i.i
   %.val36.i.i = load i32, ptr %138, align 4
   %139 = and i32 %.val36.i.i, 32767
   %140 = zext nneg i32 %139 to i64
@@ -716,7 +713,7 @@ BufferGetPage.exit.i.i:                           ; preds = %122, %116
   %154 = load i16, ptr %112, align 2
   %155 = zext i16 %154 to i64
   %156 = getelementptr i8, ptr %153, i64 20
-  %157 = getelementptr %struct.ItemIdData, ptr %156, i64 %155
+  %157 = getelementptr [4 x i8], ptr %156, i64 %155
   %.val35.i.i = load i32, ptr %157, align 4
   %158 = and i32 %.val35.i.i, 32767
   %159 = zext nneg i32 %158 to i64
@@ -788,11 +785,11 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   %indvars.iv39.i = phi i64 [ %192, %.lr.ph.i ], [ %indvars.iv.next40.i, %215 ]
   %indvars.iv.i = phi i64 [ %191, %.lr.ph.i ], [ %indvars.iv.next.i, %215 ]
   %.val34.i = load ptr, ptr %190, align 8
-  %195 = getelementptr inbounds nuw %union.ListCell, ptr %.val34.i, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %.val34.i, i64 %indvars.iv.i
   %196 = load ptr, ptr %195, align 8
   %197 = add nsw i64 %indvars.iv39.i, 4294967294
   %198 = and i64 %197, 4294967295
-  %199 = getelementptr inbounds nuw %union.ListCell, ptr %.val34.i, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.val34.i, i64 %198
   %200 = load ptr, ptr %199, align 8
   call fastcc void @gistFindCorrectParent(ptr noundef %0, ptr noundef nonnull %42)
   %201 = load ptr, ptr %111, align 8
@@ -917,7 +914,7 @@ gistfinishsplit.exit:                             ; preds = %215, %gistfixsplit.
   %258 = load ptr, ptr %72, align 8
   %259 = zext i16 %257 to i64
   %260 = getelementptr i8, ptr %258, i64 20
-  %261 = getelementptr %struct.ItemIdData, ptr %260, i64 %259
+  %261 = getelementptr [4 x i8], ptr %260, i64 %259
   %.val131 = load i32, ptr %261, align 4
   %262 = and i32 %.val131, 32767
   %263 = zext nneg i32 %262 to i64
@@ -966,7 +963,7 @@ gistfinishsplit.exit:                             ; preds = %215, %gistfixsplit.
   %289 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %290 = xor i32 %286, -1
   %291 = zext nneg i32 %290 to i64
-  %292 = getelementptr inbounds nuw ptr, ptr %289, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %291
   %293 = load ptr, ptr %292, align 8
   br label %BufferGetPage.exit136
 
@@ -1052,7 +1049,7 @@ gistinserttuple.exit:                             ; preds = %302, %310
   %329 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %330 = xor i32 %326, -1
   %331 = zext nneg i32 %330 to i64
-  %332 = getelementptr inbounds nuw ptr, ptr %329, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %331
   %333 = load ptr, ptr %332, align 8
   br label %BufferGetPage.exit138
 
@@ -1172,7 +1169,7 @@ define dso_local noundef zeroext i1 @gistplacetopage(ptr noundef %0, i64 noundef
   %21 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %22 = xor i32 %3, -1
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   br label %BufferGetPage.exit
 
@@ -1243,7 +1240,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
 62:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
   %.038.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %72 ]
-  %63 = getelementptr %struct.ItemIdData, ptr %60, i64 %indvars.iv.i
+  %63 = getelementptr [4 x i8], ptr %60, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 98304
   %66 = icmp eq i32 %65, 98304
@@ -1252,7 +1249,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
 67:                                               ; preds = %62
   %68 = add i32 %.038.i, 1
   %69 = sext i32 %.038.i to i64
-  %70 = getelementptr inbounds i16, ptr %14, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr %14, i64 %69
   %71 = trunc nuw i64 %indvars.iv.i to i16
   store i16 %71, ptr %70, align 2
   br label %72
@@ -1367,7 +1364,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
 
 131:                                              ; preds = %127
   %132 = zext nneg i16 %6 to i64
-  %133 = getelementptr ptr, ptr %124, i64 %132
+  %133 = getelementptr [8 x i8], ptr %124, i64 %132
   %134 = getelementptr i8, ptr %133, i64 -8
   %135 = sub i32 %129, %128
   %136 = sext i32 %135 to i64
@@ -1426,7 +1423,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
   %162 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %163 = xor i32 %3, -1
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %164
   %166 = load ptr, ptr %165, align 8
   br label %BufferGetPage.exit305
 
@@ -1477,7 +1474,7 @@ BufferGetPage.exit305:                            ; preds = %161, %167
   %188 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %189 = xor i32 %185, -1
   %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %188, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %190
   %192 = load ptr, ptr %191, align 8
   br label %BufferGetPage.exit307
 
@@ -1538,7 +1535,7 @@ BufferGetPage.exit307:                            ; preds = %187, %193
   %220 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %221 = xor i32 %3, -1
   %222 = zext nneg i32 %221 to i64
-  %223 = getelementptr inbounds nuw ptr, ptr %220, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %222
   %224 = load ptr, ptr %223, align 8
   br label %BufferGetPage.exit309
 
@@ -1589,7 +1586,7 @@ BufferGetPage.exit309:                            ; preds = %219, %225
   %246 = load ptr, ptr %245, align 8
   %247 = add i32 %.0266347, 1
   %248 = sext i32 %.0266347 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr %244, i64 %248
   store ptr %246, ptr %249, align 8
   %250 = getelementptr inbounds nuw i8, ptr %.5346, i64 48
   %251 = load ptr, ptr %250, align 8
@@ -1847,7 +1844,7 @@ BufferGetPage.exit309:                            ; preds = %219, %225
   %390 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %391 = xor i32 %387, -1
   %392 = zext nneg i32 %391 to i64
-  %393 = getelementptr inbounds nuw ptr, ptr %390, i64 %392
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %392
   %394 = load ptr, ptr %393, align 8
   br label %BufferGetPage.exit311
 
@@ -1870,7 +1867,7 @@ BufferGetPage.exit311:                            ; preds = %389, %395
   %404 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %405 = xor i32 %401, -1
   %406 = zext nneg i32 %405 to i64
-  %407 = getelementptr inbounds nuw ptr, ptr %404, i64 %406
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 %406
   %408 = load ptr, ptr %407, align 8
   br label %BufferGetPage.exit313
 
@@ -2088,7 +2085,7 @@ BufferGetPage.exit313:                            ; preds = %403, %409
   %503 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %504 = xor i32 %8, -1
   %505 = zext nneg i32 %504 to i64
-  %506 = getelementptr inbounds nuw ptr, ptr %503, i64 %505
+  %506 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %505
   %507 = load ptr, ptr %506, align 8
   br label %BufferGetPage.exit315
 
@@ -2210,13 +2207,13 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %19 ]
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i64
-  %42 = getelementptr ptr, ptr %2, i64 %41
+  %42 = getelementptr [8 x i8], ptr %2, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store ptr %44, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %31, align 8
@@ -2227,13 +2224,13 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 49:                                               ; preds = %.lr.ph74, %49
   %indvars.iv76 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next77, %49 ]
   %50 = load ptr, ptr %37, align 8
-  %51 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv76
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %indvars.iv76
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i64
-  %54 = getelementptr ptr, ptr %2, i64 %53
+  %54 = getelementptr [8 x i8], ptr %2, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv76
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv76
   store ptr %56, ptr %57, align 8
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %58 = load i32, ptr %34, align 8
@@ -2456,11 +2453,11 @@ list_length.exit:                                 ; preds = %5
   %indvars.iv39 = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next40, %49 ]
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.val34 = load ptr, ptr %14, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %.val34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = add i64 %indvars.iv39, 4294967294
   %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %.val34, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %0, align 8
   tail call fastcc void @gistFindCorrectParent(ptr noundef %42, ptr noundef nonnull %1)
@@ -2503,7 +2500,7 @@ tailrecurse:                                      ; preds = %218, %2
   %11 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %12 = xor i32 %8, -1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %BufferGetPage.exit
 
@@ -2536,7 +2533,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
 32:                                               ; preds = %BufferGetPage.exit
   %33 = zext i16 %29 to i64
   %34 = getelementptr i8, ptr %.0.i.i, i64 20
-  %35 = getelementptr %struct.ItemIdData, ptr %34, i64 %33
+  %35 = getelementptr [4 x i8], ptr %34, i64 %33
   %.val73 = load i32, ptr %35, align 4
   %36 = and i32 %.val73, 32767
   %37 = zext nneg i32 %36 to i64
@@ -2577,7 +2574,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
 58:                                               ; preds = %.lr.ph, %70
   %.0110 = phi i16 [ 1, %.lr.ph ], [ %71, %70 ]
   %59 = zext i16 %.0110 to i64
-  %60 = getelementptr %struct.ItemIdData, ptr %56, i64 %59
+  %60 = getelementptr [4 x i8], ptr %56, i64 %59
   %.val72 = load i32, ptr %60, align 4
   %61 = and i32 %.val72, 32767
   %62 = zext nneg i32 %61 to i64
@@ -2629,7 +2626,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   %86 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %87 = xor i32 %83, -1
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %88
   %90 = load ptr, ptr %89, align 8
   br label %97
 
@@ -2692,7 +2689,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   %113 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %114 = xor i32 %110, -1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %115
   %117 = load ptr, ptr %116, align 8
   br label %BufferGetPage.exit.i
 
@@ -2796,7 +2793,7 @@ BufferGetPage.exit.i:                             ; preds = %118, %112
   %.085.i = phi i16 [ 1, %.lr.ph.i ], [ %192, %187 ]
   %.284.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %191, %187 ]
   %176 = zext i16 %.085.i to i64
-  %177 = getelementptr %struct.ItemIdData, ptr %174, i64 %176
+  %177 = getelementptr [4 x i8], ptr %174, i64 %176
   %.val73.i = load i32, ptr %177, align 4
   %178 = and i32 %.val73.i, 32767
   %179 = zext nneg i32 %178 to i64
@@ -2856,7 +2853,7 @@ gistFindPath.exit:                                ; preds = %175
   %204 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %205 = xor i32 %200, -1
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw ptr, ptr %204, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %206
   %208 = load ptr, ptr %207, align 8
   br label %BufferGetPage.exit82
 

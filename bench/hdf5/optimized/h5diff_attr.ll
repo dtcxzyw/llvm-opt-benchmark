@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.h5tools_vfd_info_t = type { i32, ptr, %union.anon.0 }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { ptr }
-%struct.table_attr_t = type { ptr, [2 x i32] }
 
 @enable_error_stack = external local_unnamed_addr global i32, align 4
 @H5tools_ERR_STACK_g = external local_unnamed_addr global i64, align 8
@@ -561,7 +560,7 @@ define i64 @diff_attr_data(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 299:                                              ; preds = %.lr.ph, %299
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %299 ]
   %300 = phi i64 [ 1, %.lr.ph ], [ %303, %299 ]
-  %301 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %302 = load i64, ptr %301, align 8, !tbaa !3
   %303 = mul i64 %300, %302
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1518,7 +1517,7 @@ define i64 @diff_attr(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nounde
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr %67, align 8, !tbaa !41
-  %187 = getelementptr inbounds nuw %struct.table_attr_t, ptr %186, i64 %182
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %182
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store i32 1, ptr %188, align 8, !tbaa !14
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 12
@@ -1566,7 +1565,7 @@ table_attr_mark_exist.exit.i:                     ; preds = %185, %181
 
 210:                                              ; preds = %206
   %211 = load ptr, ptr %67, align 8, !tbaa !41
-  %212 = getelementptr inbounds nuw %struct.table_attr_t, ptr %211, i64 %207
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %211, i64 %207
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i32 1, ptr %213, align 8, !tbaa !14
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 12
@@ -1609,7 +1608,7 @@ table_attr_mark_exist.exit128.i:                  ; preds = %210, %206
 
 231:                                              ; preds = %227
   %232 = load ptr, ptr %67, align 8, !tbaa !41
-  %233 = getelementptr inbounds nuw %struct.table_attr_t, ptr %232, i64 %228
+  %233 = getelementptr inbounds nuw [16 x i8], ptr %232, i64 %228
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store i32 0, ptr %234, align 8, !tbaa !14
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 12
@@ -1745,7 +1744,7 @@ table_attr_mark_exist.exit131.i:                  ; preds = %231, %227
 
 306:                                              ; preds = %302
   %307 = load ptr, ptr %90, align 8, !tbaa !41
-  %308 = getelementptr inbounds nuw %struct.table_attr_t, ptr %307, i64 %303
+  %308 = getelementptr inbounds nuw [16 x i8], ptr %307, i64 %303
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i32 1, ptr %309, align 8, !tbaa !14
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 12
@@ -1857,7 +1856,7 @@ table_attr_mark_exist.exit134.i:                  ; preds = %306, %302
 
 371:                                              ; preds = %367
   %372 = load ptr, ptr %252, align 8, !tbaa !41
-  %373 = getelementptr inbounds nuw %struct.table_attr_t, ptr %372, i64 %368
+  %373 = getelementptr inbounds nuw [16 x i8], ptr %372, i64 %368
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i32 0, ptr %374, align 8, !tbaa !14
   %375 = getelementptr inbounds nuw i8, ptr %373, i64 12
@@ -1900,7 +1899,7 @@ table_attr_mark_exist.exit137.i:                  ; preds = %371, %367
 392:                                              ; preds = %392, %.lr.ph199.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph199.i ], [ %indvars.iv.next.i, %392 ]
   %393 = load ptr, ptr %391, align 8, !tbaa !41
-  %394 = getelementptr inbounds nuw %struct.table_attr_t, ptr %393, i64 %indvars.iv.i
+  %394 = getelementptr inbounds nuw [16 x i8], ptr %393, i64 %indvars.iv.i
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load i32, ptr %395, align 8, !tbaa !14
   %.not.i = icmp eq i32 %396, 0
@@ -2049,7 +2048,7 @@ build_match_list_attrs.exit:                      ; preds = %433, %435
   %.142114 = phi i64 [ -1, %.lr.ph ], [ %.243, %555 ]
   %.145113 = phi i64 [ -1, %.lr.ph ], [ %.246, %555 ]
   %468 = load ptr, ptr %465, align 8, !tbaa !41
-  %469 = getelementptr inbounds nuw %struct.table_attr_t, ptr %468, i64 %indvars.iv
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %468, i64 %indvars.iv
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 8
   %471 = load i32, ptr %470, align 8, !tbaa !14
   %.not62 = icmp eq i32 %471, 0
@@ -2262,7 +2261,7 @@ build_match_list_attrs.exit:                      ; preds = %433, %435
   %586 = phi i64 [ %594, %591 ], [ 0, %.preheader.i71 ]
   %.016.i = phi i32 [ %593, %591 ], [ 0, %.preheader.i71 ]
   %587 = load ptr, ptr %581, align 8, !tbaa !41
-  %588 = getelementptr inbounds nuw %struct.table_attr_t, ptr %587, i64 %586
+  %588 = getelementptr inbounds nuw [16 x i8], ptr %587, i64 %586
   %589 = load ptr, ptr %588, align 8, !tbaa !42
   %.not15.i = icmp eq ptr %589, null
   br i1 %.not15.i, label %591, label %590

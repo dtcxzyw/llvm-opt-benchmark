@@ -230,7 +230,7 @@ define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCert
 5:                                                ; preds = %3, %4
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %.01116 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %7 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertSet", ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.01116
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.01116
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = icmp eq i64 %9, %1
@@ -245,11 +245,11 @@ define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCert
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !17
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %12
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !20
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %12
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %12
   %23 = load i64, ptr %22, align 8, !tbaa !6
   br label %.loopexit
 
@@ -282,7 +282,7 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
 12:                                               ; preds = %.lr.ph, %.thread64
   %13 = phi i1 [ true, %.lr.ph ], [ false, %.thread64 ]
   %.04175 = phi i64 [ 0, %.lr.ph ], [ 1, %.thread64 ]
-  %14 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertSet", ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.04175
+  %14 = getelementptr inbounds nuw [32 x i8], ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.04175
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !11
   %.not51 = icmp eq i64 %16, %.0.copyload
@@ -303,9 +303,9 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   %25 = sub nuw i64 %.04274, %.04573
   %26 = lshr i64 %25, 1
   %27 = add i64 %26, %.04573
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw i64, ptr %23, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %27
   %31 = load i64, ptr %30, align 8, !tbaa !6
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %31)
   %32 = tail call i32 @memcmp(ptr noundef readonly %1, ptr noundef readonly %29, i64 noundef %spec.select.i) #16

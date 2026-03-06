@@ -803,7 +803,7 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %21, %32
   %.079102.i = phi ptr [ %.079.i, %32 ], [ %.079100.i, %21 ]
   %.078101.i = phi i64 [ %40, %32 ], [ 0, %21 ]
-  %23 = getelementptr inbounds nuw %struct.uv__mmsghdr, ptr %2, i64 %.078101.i
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.078101.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %.079102.i, i64 16
   %25 = load i16, ptr %24, align 8, !tbaa !53
@@ -1322,17 +1322,17 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   %.04960.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %41 ]
   %42 = shl nuw i64 %.04960.i.i, 16
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
-  %44 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.04960.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.04960.i.i
   store ptr %43, ptr %44, align 16, !tbaa !84
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 65536, ptr %45, align 8, !tbaa !86
-  %46 = getelementptr inbounds nuw %struct.uv__mmsghdr, ptr %6, i64 %.04960.i.i
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.04960.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %46, i8 0, i64 56, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %44, ptr %47, align 16, !tbaa !60
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 1, ptr %48, align 8, !tbaa !61
-  %49 = getelementptr inbounds nuw %struct.sockaddr_in6, ptr %4, i64 %.04960.i.i
+  %49 = getelementptr inbounds nuw [28 x i8], ptr %4, i64 %.04960.i.i
   store ptr %49, ptr %46, align 16, !tbaa !55
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 28, ptr %50, align 8, !tbaa !59
@@ -1392,13 +1392,13 @@ uv_udp_using_recvmmsg.exit.i:                     ; preds = %33
   br i1 %.not.i42.i, label %uv__udp_recvmmsg.exit.i, label %74
 
 74:                                               ; preds = %.lr.ph63.i.i
-  %75 = getelementptr inbounds nuw %struct.uv__mmsghdr, ptr %6, i64 %.162.i.i
+  %75 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.162.i.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load i32, ptr %76, align 16, !tbaa !89
   %78 = and i32 %77, 32
   %.not55.i.i = icmp eq i32 %78, 0
   %spec.select.i.i = select i1 %.not55.i.i, i32 8, i32 10
-  %79 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.162.i.i
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.162.i.i
   %80 = load ptr, ptr %79, align 16, !tbaa !84
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !86

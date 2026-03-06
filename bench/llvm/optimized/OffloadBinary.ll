@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::MemoryBufferRef" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::Error" = type { ptr }
-%"struct.llvm::object::OffloadBinary::StringEntry" = type { i64, i64 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.3" }
 %"class.llvm::SmallVector.3" = type { %"class.llvm::SmallVectorImpl.4" }
 %"class.llvm::SmallVectorImpl.4" = type { %"class.llvm::SmallVectorTemplateBase.5" }
@@ -24,6 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::raw_svector_ostream" = type { %"class.llvm::raw_pwrite_stream", ptr }
 %"class.llvm::raw_pwrite_stream" = type { %"class.llvm::raw_ostream" }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
+%"struct.llvm::object::OffloadBinary::StringEntry" = type { i64, i64 }
 %"class.llvm::fallible_iterator" = type { %"class.llvm::object::Archive::ChildFallibleIterator", %"class.llvm::PointerIntPair.218" }
 %"class.llvm::object::Archive::ChildFallibleIterator" = type { %"class.llvm::object::Archive::Child" }
 %"class.llvm::object::Archive::Child" = type <{ ptr, %"class.std::unique_ptr.210", %"class.llvm::StringRef", i16, [6 x i8] }>
@@ -87,22 +87,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.35" = type { %union.anon.36, i8, [7 x i8] }
 %union.anon.36 = type { %"struct.llvm::AlignedCharArrayUnion.37" }
 %"struct.llvm::AlignedCharArrayUnion.37" = type { [8 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
-%"class.llvm::object::OffloadFile" = type { %"class.llvm::object::OwningBinary" }
-%"class.llvm::object::OwningBinary" = type { %"class.std::unique_ptr", %"class.std::unique_ptr.12" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
 %"class.llvm::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
 %"struct.std::pair.61" = type <{ %"class.llvm::StringRef", i32, [4 x i8] }>
 %"struct.std::pair.66" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
 %"struct.std::pair" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.base", [4 x i8] }
-%"struct.std::pair.base" = type <{ %"class.llvm::StringRef", i32 }>
 
 $_ZN4llvm6object13OffloadBinaryC2ENS_15MemoryBufferRefEPKNS1_6HeaderEPKNS1_5EntryE = comdat any
 
@@ -383,7 +372,7 @@ define linkonce_odr hidden void @_ZN4llvm6object13OffloadBinaryC2ENS_15MemoryBuf
   %.014 = phi i64 [ 0, %.lr.ph ], [ %37, %_ZN4llvm9StringRefC2EPKc.exit12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = load ptr, ptr %8, align 8, !tbaa !56
-  %22 = getelementptr inbounds nuw %"struct.llvm::object::OffloadBinary::StringEntry", ptr %16, i64 %.014
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.014
   %23 = load i64, ptr %22, align 8, !tbaa !72
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   store ptr %24, ptr %5, align 8, !tbaa !55
@@ -933,7 +922,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i: ; preds = %72
   %85 = lshr i64 %75, 2
   %86 = and i64 %85, 15
   %87 = sub nsw i64 0, %86
-  %88 = getelementptr inbounds %"class.llvm::MDOperand", ptr %74, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %74, i64 %87
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %84, %.thread.i
@@ -971,7 +960,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread81.i:     ; preds = %_ZN4llvmneENS_9Stri
   %102 = lshr i64 %96, 2
   %103 = and i64 %102, 15
   %104 = sub nsw i64 0, %103
-  %105 = getelementptr inbounds %"class.llvm::MDOperand", ptr %74, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %74, i64 %104
   br label %_ZNK4llvm6MDNode10getOperandEj.exit51.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit51.i:          ; preds = %101, %98
@@ -2008,7 +1997,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit22: ; pr
 _ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %78
   %83 = zext i32 %79 to i64
   %84 = load ptr, ptr %2, align 8, !tbaa !51
-  %85 = getelementptr inbounds nuw %"class.llvm::object::OffloadFile", ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %83
   %86 = load i64, ptr %11, align 8, !tbaa !47
   store ptr null, ptr %11, align 8, !tbaa !47
   %87 = load i64, ptr %9, align 8, !tbaa !86
@@ -2125,10 +2114,10 @@ define dso_local { ptr, i64 } @_ZN4llvm6object18getOffloadKindNameENS0_11Offload
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE.1, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6object18getOffloadKindNameENS0_11OffloadKindE.1, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -2194,10 +2183,10 @@ define dso_local { ptr, i64 } @_ZN4llvm6object16getImageKindNameENS0_9ImageKindE
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE.2, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6object16getImageKindNameENS0_9ImageKindE.2, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -2442,7 +2431,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3_.exit, label %21, !prof !256
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3.i, i64 %17
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %17
   %23 = icmp uge ptr %5, %.pre3.i
   %24 = icmp ult ptr %5, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -2469,7 +2458,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3
   %.016.i.i.i = phi ptr [ %5, %12 ], [ %31, %25 ], [ %5, %.critedge.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !53
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
   %37 = load i32, ptr %15, align 8, !tbaa !53
   %38 = add i32 %37, 1
@@ -2483,7 +2472,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE9push_backERKS3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = zext i32 %40 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !51
-  %44 = getelementptr inbounds nuw %"struct.std::pair", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2632,7 +2621,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.i: ; preds = %_ZN4
   %.sink13 = load ptr, ptr %1, align 8, !tbaa !281
   %.sink15 = load i32, ptr %.sink15.in, align 8, !tbaa !282
   %39 = zext i32 %.sink15 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink13, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %.sink13, i64 %39
   store ptr %.sink12, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2664,7 +2653,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.039 = phi ptr [ null, %8 ], [ %spec.select, %25 ]
   %.042 = and i32 %.pn, %10
   %12 = zext i32 %.042 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %12
   %.sroa.010.0.copyload = load ptr, ptr %1, align 8, !tbaa !17
   %.sroa.211.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !75
   %.sroa.08.0.copyload = load ptr, ptr %13, align 8, !tbaa !17
@@ -2953,7 +2942,7 @@ _ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !53
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.llvm::object::OffloadFile", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %10 = load i64, ptr %1, align 8, !tbaa !47
   store ptr null, ptr %1, align 8, !tbaa !47
   %11 = load i64, ptr %2, align 8, !tbaa !86
@@ -3039,7 +3028,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6object11OffloadFileELb0EE21takeAllocationF
   %38 = add i32 %37, 1
   store i32 %38, ptr %6, align 8, !tbaa !53
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::object::OffloadFile", ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %41

@@ -99,7 +99,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11testFStreamiPPc(i32 noundef %0
           to label %30 unwind label %.loopexit.i
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i32, ptr @_ZL12expected_bom, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12expected_bom, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !21
   %.not.i = icmp eq i32 %29, %32
   br i1 %.not.i, label %59, label %33
@@ -451,7 +451,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i14: ; preds = %.noexc39.i,
           to label %170 unwind label %.loopexit77.i
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw i32, ptr @_ZL12expected_bom, i64 %indvars.iv.i4
+  %171 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12expected_bom, i64 %indvars.iv.i4
   %172 = load i32, ptr %171, align 4, !tbaa !21
   %.not.i18 = icmp eq i32 %169, %172
   br i1 %.not.i18, label %197, label %173

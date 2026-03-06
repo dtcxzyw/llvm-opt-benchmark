@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/dynhds.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.nghttp2_nv = type { ptr, ptr, i64, i64, i8 }
-
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [13 x i8] c"%.*s: %.*s\0D\0A\00", align 1
@@ -38,7 +36,7 @@ define dso_local void @Curl_dynhds_free(ptr noundef captures(none) %0) local_unn
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi i64 [ %10, %.lr.ph ], [ 0, %3 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !15
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.012
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.012
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = load ptr, ptr @Curl_cfree, align 8, !tbaa !19
   tail call void %9(ptr noundef %8) #9
@@ -75,12 +73,12 @@ define dso_local void @Curl_dynhds_reset(ptr noundef captures(none) %0) local_un
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %4 = phi ptr [ %8, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
   %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.09
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !19
   tail call void %7(ptr noundef %6) #9
   %8 = load ptr, ptr %0, align 8, !tbaa !15
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.09
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09
   store ptr null, ptr %9, align 8, !tbaa !17
   %10 = add nuw i64 %.09, 1
   %11 = load i64, ptr %2, align 8, !tbaa !16
@@ -117,7 +115,7 @@ define dso_local ptr @Curl_dynhds_getn(ptr noundef readonly captures(none) %0, i
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   br label %10
 
@@ -137,7 +135,7 @@ define dso_local ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, pt
   %6 = phi i64 [ %21, %20 ], [ %5, %3 ]
   %.015 = phi i64 [ %22, %20 ], [ 0, %3 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.015
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.015
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !23
@@ -156,7 +154,7 @@ define dso_local ptr @Curl_dynhds_get(ptr noundef readonly captures(none) %0, pt
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.015
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.015
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   br label %.loopexit
 
@@ -185,7 +183,7 @@ define dso_local ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, p
   %6 = phi i64 [ %21, %20 ], [ %5, %2 ]
   %.015.i = phi i64 [ %22, %20 ], [ 0, %2 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.015.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.015.i
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !23
@@ -204,7 +202,7 @@ define dso_local ptr @Curl_dynhds_cget(ptr noundef readonly captures(none) %0, p
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.015.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.015.i
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   br label %Curl_dynhds_get.exit
 
@@ -327,7 +325,7 @@ define dso_local range(i32 0, 28) i32 @Curl_dynhds_add(ptr noundef captures(none
   %56 = phi i64 [ %38, %._crit_edge ], [ %.pre66, %.thread ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %47, %.thread ]
   store i64 %.pre-phi, ptr %37, align 8, !tbaa !16
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   store ptr %24, ptr %58, align 8, !tbaa !17
   %59 = load i64, ptr %12, align 8, !tbaa !4
   %60 = add i64 %14, %59
@@ -392,7 +390,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
 
 .critedge:                                        ; preds = %.preheader
   %14 = load ptr, ptr %0, align 8, !tbaa !15
-  %15 = getelementptr ptr, ptr %14, i64 %10
+  %15 = getelementptr [8 x i8], ptr %14, i64 %10
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -434,7 +432,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dynhds_h1_add_line(ptr noundef captu
   store i64 %21, ptr %43, align 8, !tbaa !29
   %44 = load ptr, ptr %0, align 8, !tbaa !15
   %45 = load i64, ptr %9, align 8, !tbaa !16
-  %46 = getelementptr ptr, ptr %44, i64 %45
+  %46 = getelementptr [8 x i8], ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -8
   store ptr %27, ptr %47, align 8, !tbaa !17
   %48 = load ptr, ptr @Curl_cfree, align 8, !tbaa !19
@@ -531,7 +529,7 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %2, %5
   %.021 = phi i64 [ %6, %5 ], [ 0, %2 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !15
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.021
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.021
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8, !tbaa !23
@@ -575,10 +573,10 @@ define dso_local ptr @Curl_dynhds_to_nva(ptr noundef readonly captures(none) %0,
 
 10:                                               ; preds = %.lr.ph, %10
   %.02528 = phi i64 [ 0, %.lr.ph ], [ %25, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02528
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.02528
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = load ptr, ptr %12, align 8, !tbaa !26
-  %14 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %7, i64 %.02528
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %.02528
   store ptr %13, ptr %14, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !23

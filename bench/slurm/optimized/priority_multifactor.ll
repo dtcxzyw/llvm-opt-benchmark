@@ -932,7 +932,7 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   %93 = load ptr, ptr %86, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 160
   %95 = load ptr, ptr %94, align 16
-  %96 = getelementptr inbounds nuw x86_fp80, ptr %95, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %indvars.iv.i
   %97 = load x86_fp80, ptr %96, align 16
   %98 = fmul x86_fp80 %97, %83
   store x86_fp80 %98, ptr %96, align 16
@@ -972,7 +972,7 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   %111 = load ptr, ptr %103, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 160
   %113 = load ptr, ptr %112, align 16
-  %114 = getelementptr inbounds nuw x86_fp80, ptr %113, i64 %indvars.iv65.i
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %indvars.iv65.i
   %115 = load x86_fp80, ptr %114, align 16
   %116 = fmul x86_fp80 %115, %83
   store x86_fp80 %116, ptr %114, align 16
@@ -1033,7 +1033,7 @@ define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %
   %140 = load ptr, ptr %133, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 112
   %142 = load ptr, ptr %141, align 16
-  %143 = getelementptr inbounds nuw x86_fp80, ptr %142, i64 %indvars.iv70.i
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %indvars.iv70.i
   %144 = load x86_fp80, ptr %143, align 16
   %145 = fmul x86_fp80 %144, %126
   store x86_fp80 %145, ptr %143, align 16
@@ -1374,9 +1374,9 @@ define internal fastcc i32 @_get_priority_internal(i64 noundef %0, ptr noundef %
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.013.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %103, %.lr.ph.i ]
   %97 = load ptr, ptr @weight_tres, align 8
-  %98 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i
   %101 = load double, ptr %100, align 8
   %102 = fmul double %99, %101
   store double %102, ptr %100, align 8
@@ -1709,7 +1709,7 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
 
 .lr.ph:                                           ; preds = %288, %307
   %indvars.iv = phi i64 [ %indvars.iv.next, %307 ], [ 0, %288 ]
-  %291 = getelementptr inbounds nuw double, ptr %213, i64 %indvars.iv
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %indvars.iv
   %292 = load double, ptr %291, align 8
   %293 = fcmp une double %292, 0.000000e+00
   br i1 %293, label %294, label %307
@@ -1721,12 +1721,12 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
 
 297:                                              ; preds = %294
   %298 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %indvars.iv
   %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds nuw double, ptr %215, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv
   %302 = load double, ptr %301, align 8
   %303 = load ptr, ptr @weight_tres, align 8
-  %304 = getelementptr inbounds nuw double, ptr %303, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %indvars.iv
   %305 = load double, ptr %304, align 8
   %306 = load double, ptr %291, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.53, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_priority_internal, ptr noundef %300, double noundef %302, double noundef %305, double noundef %306) #14
@@ -2006,7 +2006,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 
 62:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8
   %65 = icmp eq i64 %64, -3
   br i1 %65, label %71, label %66
@@ -2015,7 +2015,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
   %67 = uitofp i64 %64 to double
   %68 = fmul double %57, %67
   %69 = fptoui double %68 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %69, ptr %70, align 8
   br label %71
 
@@ -2891,7 +2891,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 .lr.ph:                                           ; preds = %.preheader183, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.preheader183 ]
   %60 = load ptr, ptr %56, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8
   switch i64 %62, label %63 [
     i64 0, label %73
@@ -2905,10 +2905,10 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %56, align 8
-  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.69, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._apply_new_usage, ptr noundef %69, i64 noundef %72) #14
   br label %73
@@ -2990,7 +2990,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 
 113:                                              ; preds = %.lr.ph187, %124
   %indvars.iv192 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next193, %124 ]
-  %114 = getelementptr inbounds nuw i64, ptr %108, i64 %indvars.iv192
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv192
   %115 = load i64, ptr %114, align 8
   switch i64 %115, label %116 [
     i64 0, label %124
@@ -2999,14 +2999,14 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 
 116:                                              ; preds = %113
   %117 = mul i64 %115, %.2
-  %118 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv192
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv192
   store i64 %117, ptr %118, align 8
   %119 = uitofp i64 %115 to x86_fp80
   %120 = fmul x86_fp80 %111, %119
-  %121 = getelementptr inbounds nuw x86_fp80, ptr %9, i64 %indvars.iv192
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv192
   store x86_fp80 %120, ptr %121, align 16
   %122 = fmul x86_fp80 %112, %119
-  %123 = getelementptr inbounds nuw x86_fp80, ptr %10, i64 %indvars.iv192
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv192
   store x86_fp80 %122, ptr %123, align 16
   br label %124
 
@@ -3933,7 +3933,7 @@ thread-pre-split:                                 ; preds = %306, %311
   br i1 %.not.us.i, label %344, label %341
 
 341:                                              ; preds = %.lr.ph.split.us.split.i
-  %342 = getelementptr inbounds nuw i64, ptr %340, i64 %indvars.iv43.i
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %indvars.iv43.i
   %343 = load i64, ptr %342, align 8
   %.not30.us.i = icmp eq i64 %343, -3
   br i1 %.not30.us.i, label %344, label %349
@@ -3944,7 +3944,7 @@ thread-pre-split:                                 ; preds = %306, %311
   br i1 %.not31.us.i, label %.thread.i, label %346
 
 346:                                              ; preds = %344
-  %347 = getelementptr inbounds nuw i64, ptr %345, i64 %indvars.iv43.i
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %indvars.iv43.i
   %348 = load i64, ptr %347, align 8
   br label %349
 
@@ -3959,7 +3959,7 @@ thread-pre-split:                                 ; preds = %306, %311
   br i1 %.not33.us.i, label %.thread.i, label %352
 
 352:                                              ; preds = %350
-  %353 = getelementptr inbounds nuw i64, ptr %351, i64 %indvars.iv43.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %indvars.iv43.i
   %354 = load i64, ptr %353, align 8
   %.not34.us.i = icmp eq i64 %354, 0
   br i1 %.not34.us.i, label %.thread.i, label %355
@@ -3968,7 +3968,7 @@ thread-pre-split:                                 ; preds = %306, %311
   %356 = uitofp i64 %.0.us.i to double
   %357 = uitofp i64 %354 to double
   %358 = fdiv double %356, %357
-  %359 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv43.i
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv43.i
   store double %358, ptr %359, align 8
   br label %.thread.i
 
@@ -3984,7 +3984,7 @@ thread-pre-split:                                 ; preds = %306, %311
   br i1 %.not.i150, label %364, label %361
 
 361:                                              ; preds = %.lr.ph.split.i
-  %362 = getelementptr inbounds nuw i64, ptr %360, i64 %indvars.iv.i
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %indvars.iv.i
   %363 = load i64, ptr %362, align 8
   %.not30.i151 = icmp eq i64 %363, -3
   br i1 %.not30.i151, label %364, label %369
@@ -3995,14 +3995,14 @@ thread-pre-split:                                 ; preds = %306, %311
   br i1 %.not31.i, label %369, label %366
 
 366:                                              ; preds = %364
-  %367 = getelementptr inbounds nuw i64, ptr %365, i64 %indvars.iv.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv.i
   %368 = load i64, ptr %367, align 8
   br label %369
 
 369:                                              ; preds = %366, %364, %361
   %.0.i152 = phi i64 [ 0, %364 ], [ %368, %366 ], [ %363, %361 ]
   %370 = uitofp i64 %.0.i152 to double
-  %371 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv.i
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv.i
   store double %370, ptr %371, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4064,7 +4064,7 @@ define internal fastcc void @_reset_usage() unnamed_addr #0 {
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %13, align 16
-  %15 = getelementptr inbounds nuw x86_fp80, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   store x86_fp80 0xK00000000000000000000, ptr %15, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4121,7 +4121,7 @@ define internal fastcc void @_reset_usage() unnamed_addr #0 {
   %34 = load ptr, ptr %29, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 16
-  %37 = getelementptr inbounds nuw x86_fp80, ptr %36, i64 %indvars.iv42
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv42
   store x86_fp80 0xK00000000000000000000, ptr %37, align 16
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
@@ -4415,10 +4415,10 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.split.preheader.i.split.us, %.lr.ph.split.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.split.i.us ], [ 0, %.lr.ph.split.preheader.i.split.us ]
-  %25 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.us
   %26 = load i64, ptr %25, align 8
   %27 = uitofp i64 %26 to double
-  %28 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i.us
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.us
   store double %27, ptr %28, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -4441,7 +4441,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
 
 .lr.ph.split.us.split.i.us:                       ; preds = %.lr.ph.split.us.split.preheader.i.split.us, %.thread.i.us
   %indvars.iv43.i.us = phi i64 [ %indvars.iv.next44.i.us, %.thread.i.us ], [ 0, %.lr.ph.split.us.split.preheader.i.split.us ]
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv43.i.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv43.i.us
   %32 = load i64, ptr %31, align 8
   %.not37.i.us = icmp eq i64 %32, 0
   br i1 %.not37.i.us, label %.thread.i.us, label %33
@@ -4452,7 +4452,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   br i1 %.not33.us.i.us, label %.thread.i.us, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv43.i.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv43.i.us
   %37 = load i64, ptr %36, align 8
   %.not34.us.i.us = icmp eq i64 %37, 0
   br i1 %.not34.us.i.us, label %.thread.i.us, label %38
@@ -4461,7 +4461,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   %39 = uitofp i64 %32 to double
   %40 = uitofp i64 %37 to double
   %41 = fdiv double %39, %40
-  %42 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv43.i.us
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv43.i.us
   store double %41, ptr %42, align 8
   br label %.thread.i.us
 
@@ -4472,7 +4472,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.preheader.i, %.thread.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.thread.i ], [ 0, %.lr.ph.split.us.split.preheader.i ]
-  %43 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv43.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv43.i
   %44 = load i64, ptr %43, align 8
   %.not30.us.i = icmp eq i64 %44, -3
   br i1 %.not30.us.i, label %45, label %50
@@ -4483,7 +4483,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   br i1 %.not31.us.i, label %.thread.i, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv43.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv43.i
   %49 = load i64, ptr %48, align 8
   br label %50
 
@@ -4498,7 +4498,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   br i1 %.not33.us.i, label %.thread.i, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv43.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv43.i
   %55 = load i64, ptr %54, align 8
   %.not34.us.i = icmp eq i64 %55, 0
   br i1 %.not34.us.i, label %.thread.i, label %56
@@ -4507,7 +4507,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   %57 = uitofp i64 %.0.us.i to double
   %58 = uitofp i64 %55 to double
   %59 = fdiv double %57, %58
-  %60 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv43.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv43.i
   store double %59, ptr %60, align 8
   br label %.thread.i
 
@@ -4518,7 +4518,7 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.preheader.i, %68
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %68 ], [ 0, %.lr.ph.split.preheader.i ]
-  %61 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %62 = load i64, ptr %61, align 8
   %.not30.i = icmp eq i64 %62, -3
   br i1 %.not30.i, label %63, label %68
@@ -4529,14 +4529,14 @@ define internal noundef i32 @_priority_each_partition(ptr noundef %0, ptr nounde
   br i1 %.not31.i, label %68, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   %67 = load i64, ptr %66, align 8
   br label %68
 
 68:                                               ; preds = %65, %63, %.lr.ph.split.i
   %.0.i = phi i64 [ 0, %63 ], [ %67, %65 ], [ %62, %.lr.ph.split.i ]
   %69 = uitofp i64 %.0.i to double
-  %70 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   store double %69, ptr %70, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4560,9 +4560,9 @@ _get_tres_factors.exit.thread25:                  ; preds = %.lr.ph.split.us.i
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i22, %.lr.ph.i20 ]
   %.013.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %79, %.lr.ph.i20 ]
-  %74 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv.i21
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i21
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i21
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i21
   %77 = load double, ptr %76, align 8
   %78 = fmul double %75, %77
   store double %78, ptr %76, align 8
@@ -4734,7 +4734,7 @@ define internal noundef i32 @_priority_each_qos(ptr noundef readonly captures(ad
 
 68:                                               ; preds = %64
   %69 = sext i32 %.pre54 to i64
-  %70 = getelementptr inbounds i32, ptr %.pre53, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %.pre53, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = fptoui double %.1 to i32
   %73 = icmp ult i32 %71, %72
@@ -4743,7 +4743,7 @@ define internal noundef i32 @_priority_each_qos(ptr noundef readonly captures(ad
 74:                                               ; preds = %._crit_edge, %68
   %.pre-phi57 = phi i64 [ %.pre56, %._crit_edge ], [ %69, %68 ]
   %.pre-phi = phi i32 [ %.pre55, %._crit_edge ], [ %72, %68 ]
-  %75 = getelementptr inbounds i32, ptr %.pre53, i64 %.pre-phi57
+  %75 = getelementptr inbounds [4 x i8], ptr %.pre53, i64 %.pre-phi57
   store i32 %.pre-phi, ptr %75, align 4
   br label %76
 
@@ -4779,7 +4779,7 @@ define internal noundef i32 @_priority_each_qos(ptr noundef readonly captures(ad
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %1, align 8
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %94, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %94, i64 %96
   %98 = load i32, ptr %97, align 4
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %80, ptr noundef nonnull @.str.56, ptr noundef %87, ptr noundef %90, i32 noundef %98) #14
   br label %108
@@ -4791,7 +4791,7 @@ define internal noundef i32 @_priority_each_qos(ptr noundef readonly captures(ad
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %1, align 8
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %103, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %103, i64 %105
   %107 = load i32, ptr %106, align 4
   tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %80, ptr noundef nonnull @.str.57, ptr noundef %87, i32 noundef %107) #14
   br label %108
@@ -4861,24 +4861,24 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   br i1 %.not101, label %41, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %34 = load x86_fp80, ptr %33, align 16
   %35 = load ptr, ptr %12, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %37 = load ptr, ptr %36, align 16
-  %38 = getelementptr inbounds nuw x86_fp80, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %39 = load x86_fp80, ptr %38, align 16
   %40 = fadd x86_fp80 %34, %39
   store x86_fp80 %40, ptr %38, align 16
   br label %41
 
 41:                                               ; preds = %32, %31
-  %42 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
   %44 = load ptr, ptr %12, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8
   %49 = icmp ugt i64 %43, %48
   br i1 %49, label %50, label %61
@@ -4887,13 +4887,13 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   %51 = load i32, ptr %25, align 8
   %52 = load ptr, ptr %26, align 8
   %53 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.60, i32 noundef %51, ptr noundef %52, ptr noundef %55, i64 noundef %43, i64 noundef %48) #14
   %57 = load ptr, ptr %12, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   store i64 0, ptr %60, align 8
   br label %63
 
@@ -4918,12 +4918,12 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   %71 = load i64, ptr %42, align 8
   %72 = load ptr, ptr %26, align 8
   %73 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %12, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load i64, ptr %79, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.61, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_qos_tres_run_secs, ptr noundef nonnull @__func__._handle_qos_tres_run_secs, i32 noundef %70, i64 noundef %71, ptr noundef %72, ptr noundef %75, i64 noundef %80) #14
   br label %81
@@ -4931,7 +4931,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
 81:                                               ; preds = %66, %69, %63
   %82 = load i64, ptr %42, align 8
   %83 = load ptr, ptr %27, align 8
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   %85 = load i64, ptr %84, align 8
   %86 = icmp ugt i64 %82, %85
   br i1 %86, label %87, label %96
@@ -4940,11 +4940,11 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   %88 = load i32, ptr %25, align 8
   %89 = load ptr, ptr %26, align 8
   %90 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.62, i32 noundef %88, ptr noundef %89, ptr noundef %92, i64 noundef %82, i64 noundef %85) #14
   %94 = load ptr, ptr %27, align 8
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   store i64 0, ptr %95, align 8
   br label %98
 
@@ -4969,10 +4969,10 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   %106 = load i64, ptr %42, align 8
   %107 = load ptr, ptr %26, align 8
   %108 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %27, align 8
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv
   %113 = load i64, ptr %112, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.63, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_qos_tres_run_secs, ptr noundef nonnull @__func__._handle_qos_tres_run_secs, i32 noundef %105, i64 noundef %106, ptr noundef %107, ptr noundef %110, i64 noundef %113) #14
   br label %114
@@ -4980,7 +4980,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
 114:                                              ; preds = %101, %104, %98
   %115 = load i64, ptr %42, align 8
   %116 = load ptr, ptr %28, align 8
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv
   %118 = load i64, ptr %117, align 8
   %119 = icmp ugt i64 %115, %118
   br i1 %119, label %120, label %129
@@ -4989,11 +4989,11 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   %121 = load i32, ptr %25, align 8
   %122 = load ptr, ptr %26, align 8
   %123 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, i32 noundef %121, ptr noundef %122, ptr noundef %125, i64 noundef %115, i64 noundef %118) #14
   %127 = load ptr, ptr %28, align 8
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv
   store i64 0, ptr %128, align 8
   br label %131
 
@@ -5018,10 +5018,10 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly capt
   %139 = load i64, ptr %42, align 8
   %140 = load ptr, ptr %26, align 8
   %141 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %27, align 8
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv
   %146 = load i64, ptr %145, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.65, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_qos_tres_run_secs, ptr noundef nonnull @__func__._handle_qos_tres_run_secs, i32 noundef %138, i64 noundef %139, ptr noundef %140, ptr noundef %143, i64 noundef %146) #14
   br label %147
@@ -5059,12 +5059,12 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly ca
   br i1 %11, label %50, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
-  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv43
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv43
   %14 = load i64, ptr %13, align 8
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv43
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv43
   %19 = load i64, ptr %18, align 8
   %20 = icmp ugt i64 %14, %19
   br i1 %20, label %23, label %21
@@ -5077,13 +5077,13 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly ca
 23:                                               ; preds = %12
   %24 = load i32, ptr %10, align 4
   %25 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv43
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv43
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.66, i32 noundef %2, i32 noundef %24, ptr noundef %27, i64 noundef %14, i64 noundef %19) #14
   %29 = load ptr, ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv43
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv43
   store i64 0, ptr %32, align 8
   br label %33
 
@@ -5102,12 +5102,12 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly ca
   %40 = load i64, ptr %13, align 8
   %41 = load i32, ptr %10, align 4
   %42 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv43
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv43
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv43
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv43
   %49 = load i64, ptr %48, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.67, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_assoc_tres_run_secs, ptr noundef nonnull @__func__._handle_assoc_tres_run_secs, i32 noundef %2, i64 noundef %40, i32 noundef %41, ptr noundef %44, i64 noundef %49) #14
   br label %50
@@ -5125,21 +5125,21 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly ca
   br i1 %54, label %101, label %55
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %57 = load x86_fp80, ptr %56, align 16
   %58 = load ptr, ptr %9, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
   %60 = load ptr, ptr %59, align 16
-  %61 = getelementptr inbounds nuw x86_fp80, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %indvars.iv
   %62 = load x86_fp80, ptr %61, align 16
   %63 = fadd x86_fp80 %57, %62
   store x86_fp80 %63, ptr %61, align 16
-  %64 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8
   %66 = load ptr, ptr %9, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = icmp ugt i64 %65, %70
   br i1 %71, label %72, label %82
@@ -5147,13 +5147,13 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly ca
 72:                                               ; preds = %55
   %73 = load i32, ptr %10, align 4
   %74 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.66, i32 noundef %2, i32 noundef %73, ptr noundef %76, i64 noundef %65, i64 noundef %70) #14
   %78 = load ptr, ptr %9, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   store i64 0, ptr %81, align 8
   br label %84
 
@@ -5177,12 +5177,12 @@ define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly ca
   %91 = load i64, ptr %64, align 8
   %92 = load i32, ptr %10, align 4
   %93 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %9, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load i64, ptr %99, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.67, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_assoc_tres_run_secs, ptr noundef nonnull @__func__._handle_assoc_tres_run_secs, i32 noundef %2, i64 noundef %91, i32 noundef %92, ptr noundef %95, i64 noundef %100) #14
   br label %101
@@ -5339,7 +5339,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br i1 %.not.us.i, label %78, label %75
 
 75:                                               ; preds = %.lr.ph.split.us.split.i
-  %76 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv43.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv43.i
   %77 = load i64, ptr %76, align 8
   %.not30.us.i = icmp eq i64 %77, -3
   br i1 %.not30.us.i, label %78, label %83
@@ -5350,7 +5350,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br i1 %.not31.us.i, label %.thread.i, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv43.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv43.i
   %82 = load i64, ptr %81, align 8
   br label %83
 
@@ -5365,7 +5365,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br i1 %.not33.us.i, label %.thread.i, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv43.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv43.i
   %88 = load i64, ptr %87, align 8
   %.not34.us.i = icmp eq i64 %88, 0
   br i1 %.not34.us.i, label %.thread.i, label %89
@@ -5374,7 +5374,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   %90 = uitofp i64 %.0.us.i to double
   %91 = uitofp i64 %88 to double
   %92 = fdiv double %90, %91
-  %93 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv43.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv43.i
   store double %92, ptr %93, align 8
   br label %.thread.i
 
@@ -5390,7 +5390,7 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br i1 %.not.i, label %98, label %95
 
 95:                                               ; preds = %.lr.ph.split.i
-  %96 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i
   %97 = load i64, ptr %96, align 8
   %.not30.i = icmp eq i64 %97, -3
   br i1 %.not30.i, label %98, label %103
@@ -5401,14 +5401,14 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br i1 %.not31.i, label %103, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i
   %102 = load i64, ptr %101, align 8
   br label %103
 
 103:                                              ; preds = %100, %98, %95
   %.0.i = phi i64 [ 0, %98 ], [ %102, %100 ], [ %97, %95 ]
   %104 = uitofp i64 %.0.i to double
-  %105 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i
   store double %104, ptr %105, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count46.i
@@ -5429,9 +5429,9 @@ _get_tres_factors.exit:                           ; preds = %103, %.thread.i
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i60, %.lr.ph.i58 ]
   %110 = load ptr, ptr @weight_tres, align 8
-  %111 = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv.i59
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i59
   %112 = load double, ptr %111, align 8
-  %113 = getelementptr inbounds nuw double, ptr %108, i64 %indvars.iv.i59
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv.i59
   %114 = load double, ptr %113, align 8
   %115 = fmul double %112, %114
   store double %115, ptr %113, align 8

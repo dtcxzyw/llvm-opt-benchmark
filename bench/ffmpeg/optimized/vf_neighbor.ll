@@ -265,27 +265,27 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 47:                                               ; preds = %.lr.ph172, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next, %.loopexit ]
   %48 = load i32, ptr %16, align 8, !tbaa !46
-  %49 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !39
-  %51 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !39
-  %53 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !39
-  %55 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !39
-  %57 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !39
   %.fr173 = freeze i32 %58
   %59 = mul nsw i32 %56, %2
   %60 = sdiv i32 %59, %3
   %61 = mul nsw i32 %56, %22
   %62 = sdiv i32 %61, %3
-  %63 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !56
   %65 = mul nsw i32 %60, %52
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %64, i64 %66
-  %68 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !56
   %70 = mul nsw i32 %60, %54
   %71 = sext i32 %70 to i64
@@ -512,7 +512,7 @@ define internal void @erosion16(ptr noundef writeonly captures(none) %0, ptr nou
   br i1 %.not, label %24, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %9
   %22 = load i16, ptr %21, align 2, !tbaa !61
@@ -530,7 +530,7 @@ define internal void @erosion16(ptr noundef writeonly captures(none) %0, ptr nou
 
 27:                                               ; preds = %24
   %28 = trunc i32 %26 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv35
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv35
   store i16 %28, ptr %29, align 2, !tbaa !63
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
@@ -567,7 +567,7 @@ define internal void @erosion(ptr noundef writeonly captures(none) %0, ptr nound
   br i1 %.not, label %23, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv34
   %21 = load i8, ptr %20, align 1, !tbaa !61
@@ -624,7 +624,7 @@ define internal void @dilation16(ptr noundef writeonly captures(none) %0, ptr no
   br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !61
@@ -641,7 +641,7 @@ define internal void @dilation16(ptr noundef writeonly captures(none) %0, ptr no
 
 27:                                               ; preds = %25
   %28 = trunc i32 %26 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv37
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv37
   store i16 %28, ptr %29, align 2, !tbaa !63
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count
@@ -678,7 +678,7 @@ define internal void @dilation(ptr noundef writeonly captures(none) %0, ptr noun
   br i1 %.not, label %23, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv34
   %21 = load i8, ptr %20, align 1, !tbaa !61
@@ -726,7 +726,7 @@ define internal void @deflate16(ptr noundef writeonly captures(none) %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.03040 = phi i32 [ 0, %.lr.ph ], [ %18, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
   %16 = load i16, ptr %15, align 2, !tbaa !61
@@ -743,7 +743,7 @@ define internal void @deflate16(ptr noundef writeonly captures(none) %0, ptr nou
   %. = tail call i32 @llvm.umin.i32(i32 %22, i32 %20)
   %spec.select38 = tail call i32 @llvm.umax.i32(i32 %., i32 %spec.select)
   %23 = trunc i32 %spec.select38 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv43
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv43
   store i16 %23, ptr %24, align 2, !tbaa !63
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
@@ -772,7 +772,7 @@ define internal void @deflate(ptr noundef writeonly captures(none) %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.02939 = phi i32 [ 0, %.lr.ph ], [ %17, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv42
   %15 = load i8, ptr %14, align 1, !tbaa !61
@@ -819,7 +819,7 @@ define internal void @inflate16(ptr noundef writeonly captures(none) %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.03243 = phi i32 [ 0, %.lr.ph ], [ %18, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %9
   %16 = load i16, ptr %15, align 2, !tbaa !61
@@ -836,7 +836,7 @@ define internal void @inflate16(ptr noundef writeonly captures(none) %0, ptr nou
   %.40 = tail call i32 @llvm.umax.i32(i32 %22, i32 %20)
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.40, i32 %.)
   %23 = trunc i32 %spec.select to i16
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv46
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv46
   store i16 %23, ptr %24, align 2, !tbaa !63
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
@@ -865,7 +865,7 @@ define internal void @inflate(ptr noundef writeonly captures(none) %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.02939 = phi i32 [ 0, %.lr.ph ], [ %17, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv42
   %15 = load i8, ptr %14, align 1, !tbaa !61

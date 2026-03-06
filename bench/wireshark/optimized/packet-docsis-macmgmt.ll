@@ -6465,7 +6465,7 @@ dissect_mdd_ds_service_group.exit:                ; preds = %.loopexit.i, %103
 
 switch.lookup:                                    ; preds = %.lr.ph.i148
   %156 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_mdd, i64 %156
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_mdd, i64 %156
   %switch.load = load ptr, ptr %switch.gep, align 8
   %157 = load i32, ptr %switch.load, align 4
   %158 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %157, ptr noundef %0, i32 noundef %151, i32 noundef 1, i32 noundef 0)
@@ -7560,7 +7560,7 @@ define internal i32 @dissect_cmstatus(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cmstatusack, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_cmstatusack, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_cmstatus_common.exit
 
@@ -7804,7 +7804,7 @@ define internal i32 @dissect_cmstatusack(ptr noundef %0, ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_cmstatusack, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_cmstatusack, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_cmstatus_common.exit
 

@@ -116,7 +116,7 @@ hex2chr.exit.i:                                   ; preds = %12, %.lr.ph.i
 
 31:                                               ; preds = %33, %.loopexit
   %.0811.i.i = phi i64 [ 0, %.loopexit ], [ %34, %33 ]
-  %32 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %32 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %2, %32
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %33
 
@@ -157,7 +157,7 @@ define dso_local range(i32 0, 3) i32 @get_oid_hex_any(ptr noundef readonly captu
 3:                                                ; preds = %2, %get_oid_hex_algop.exit
   %.016 = phi i32 [ 2, %2 ], [ %34, %get_oid_hex_algop.exit ]
   %4 = zext nneg i32 %.016 to i64
-  %5 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %4
+  %5 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 16, !tbaa !30
   %.not.i.i = icmp eq i64 %7, 0
@@ -276,7 +276,7 @@ hex2chr.exit.i.i:                                 ; preds = %14, %.lr.ph.i.i
 
 33:                                               ; preds = %35, %.loopexit.i
   %.0811.i.i.i = phi i64 [ 0, %.loopexit.i ], [ %36, %35 ]
-  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %34 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %5, %34
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %35
 
@@ -358,7 +358,7 @@ hex2chr.exit.i.i:                                 ; preds = %13, %.lr.ph.i.i
 
 32:                                               ; preds = %34, %.loopexit.i
   %.0811.i.i.i = phi i64 [ 0, %.loopexit.i ], [ %35, %34 ]
-  %33 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %33 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %3, %33
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %34
 
@@ -403,7 +403,7 @@ define dso_local range(i32 0, 3) i32 @parse_oid_hex_any(ptr noundef %0, ptr noun
 4:                                                ; preds = %get_oid_hex_algop.exit.i, %3
   %.016.i = phi i32 [ 2, %3 ], [ %36, %get_oid_hex_algop.exit.i ]
   %5 = zext nneg i32 %.016.i to i64
-  %6 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %5
+  %6 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 16, !tbaa !30
   %.not.i.i.i = icmp eq i64 %8, 0
@@ -538,7 +538,7 @@ hex2chr.exit.i.i.i:                               ; preds = %15, %.lr.ph.i.i.i
 
 34:                                               ; preds = %36, %.loopexit.i.i
   %.0811.i.i.i.i = phi i64 [ 0, %.loopexit.i.i ], [ %37, %36 ]
-  %35 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %35 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %6, %35
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %36
 

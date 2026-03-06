@@ -114,8 +114,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %34, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %34 ]
-  %40 = getelementptr inbounds nuw double, ptr %37, i64 %.05.i.i.i.i.i.i.i
-  %41 = getelementptr inbounds nuw double, ptr %17, i64 %.05.i.i.i.i.i.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.05.i.i.i.i.i.i.i
   %42 = load double, ptr %41, align 8, !tbaa !19
   %43 = tail call noundef double @llvm.floor.f64(double %42)
   store double %43, ptr %40, align 8, !tbaa !19
@@ -152,8 +152,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %2
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %.05.i.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i
   %15 = load double, ptr %14, align 8, !tbaa !19
   %16 = tail call noundef double @llvm.floor.f64(double %15)
   %17 = fptosi double %16 to i32
@@ -253,8 +253,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %35, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %35 ]
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %.05.i.i.i.i.i.i.i
-  %42 = getelementptr inbounds nuw double, ptr %18, i64 %.05.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.05.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.05.i.i.i.i.i.i.i
   %43 = load double, ptr %42, align 8, !tbaa !19
   %44 = tail call noundef double @llvm.floor.f64(double %43)
   %45 = fptosi double %44 to i32

@@ -94,8 +94,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_genl_notify:
 %struct.pernet_operations = type { %struct.list_head, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.genl_op_iter = type { ptr, %struct.genl_split_ops, %struct.genl_split_ops, i32, i32, i32, i8 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.genl_ops = type { ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8 }
-%struct.genl_small_ops = type { ptr, ptr, i8, i8, i8, i8 }
 %struct.netlink_kernel_cfg = type { i32, i32, ptr, ptr, ptr, ptr, ptr }
 %struct.genl_start_context = type { ptr, ptr, ptr, ptr, i32 }
 %struct.netlink_dump_control = type { ptr, ptr, ptr, ptr, ptr, ptr, i32 }
@@ -424,7 +422,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
 
 82:                                               ; preds = %123, %80
   %83 = phi i64 [ 1, %80 ], [ %124, %123 ]
-  %84 = getelementptr %struct.genl_split_ops, ptr %71, i64 %83
+  %84 = getelementptr [40 x i8], ptr %71, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 38
   %86 = load i8, ptr %85, align 2
   %87 = and i8 %86, 6
@@ -600,7 +598,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
 
 176:                                              ; preds = %173, %169
   %177 = phi i64 [ 0, %169 ], [ %174, %173 ]
-  %178 = getelementptr %struct.genl_multicast_group, ptr %171, i64 %177
+  %178 = getelementptr [17 x i8], ptr %171, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %181, label %182, !prof !5
@@ -772,7 +770,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
 268:                                              ; preds = %265
   store ptr %266, ptr @mc_groups, align 8
   %269 = load i64, ptr @mc_groups_longs, align 8
-  %270 = getelementptr i64, ptr %266, i64 %269
+  %270 = getelementptr [8 x i8], ptr %266, i64 %269
   call void @llvm.memset.p0.i64(ptr align 8 %270, i8 0, i64 %206, i1 false)
   br label %271
 
@@ -894,7 +892,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
 336:                                              ; preds = %336, %333
   %337 = phi i64 [ 0, %333 ], [ %343, %336 ]
   %338 = load ptr, ptr %334, align 8
-  %339 = getelementptr %struct.genl_multicast_group, ptr %338, i64 %337
+  %339 = getelementptr [17 x i8], ptr %338, i64 %337
   %340 = load i32, ptr %335, align 4
   %341 = trunc nuw nsw i64 %337 to i32
   %342 = add i32 %340, %341
@@ -1338,7 +1336,7 @@ define dso_local noundef range(i32 -2, 1) i32 @genl_unregister_family(ptr nounde
 .split:                                           ; preds = %43, %.split2
   %.sink16 = phi i32 [ %47, %.split2 ], [ 1, %43 ]
   %51 = load ptr, ptr %42, align 8
-  %52 = getelementptr %struct.genl_multicast_group, ptr %51, i64 %44
+  %52 = getelementptr [17 x i8], ptr %51, i64 %44
   tail call fastcc void @genl_ctrl_event(i32 noundef 8, ptr noundef %0, ptr noundef %52, i32 noundef %.sink16)
   %53 = add nuw nsw i64 %44, 1
   %54 = load i8, ptr %37, align 8
@@ -1641,7 +1639,7 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %4 to i64
-  %13 = getelementptr %struct.genl_ops, ptr %11, i64 %12
+  %13 = getelementptr [48 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -1693,7 +1691,7 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %51 to i64
-  %55 = getelementptr %struct.genl_small_ops, ptr %53, i64 %54
+  %55 = getelementptr [24 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8
@@ -1725,7 +1723,7 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %81 = load ptr, ptr %80, align 8
   %82 = sext i32 %79 to i64
-  %83 = getelementptr %struct.genl_split_ops, ptr %81, i64 %82
+  %83 = getelementptr [40 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 38
   %85 = load i8, ptr %84, align 2
   %86 = and i8 %85, 2
@@ -1761,7 +1759,7 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
 102:                                              ; preds = %96
   %103 = load ptr, ptr %80, align 8
   %104 = sext i32 %98 to i64
-  %105 = getelementptr %struct.genl_split_ops, ptr %103, i64 %104
+  %105 = getelementptr [40 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 38
   %107 = load i8, ptr %106, align 2
   %108 = and i8 %107, 4
@@ -2254,7 +2252,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctrl_fill_info(ptr noundef %0, i32
 .lr.ph22:                                         ; preds = %160, %186
   %164 = phi i64 [ %167, %186 ], [ 0, %160 ]
   %165 = load ptr, ptr %161, align 8
-  %166 = getelementptr %struct.genl_multicast_group, ptr %165, i64 %164
+  %166 = getelementptr [17 x i8], ptr %165, i64 %164
   %167 = add nuw nsw i64 %164, 1
   %168 = load ptr, ptr %150, align 8
   %169 = load i32, ptr %152, align 8
@@ -3153,7 +3151,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
 
 15:                                               ; preds = %12, %8
   %16 = phi i64 [ 0, %8 ], [ %13, %12 ]
-  %.split = getelementptr %struct.genl_ops, ptr %10, i64 %16
+  %.split = getelementptr [48 x i8], ptr %10, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 44
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i32
@@ -3216,7 +3214,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
 
 60:                                               ; preds = %57, %53
   %61 = phi i64 [ 0, %53 ], [ %58, %57 ]
-  %.split12 = getelementptr %struct.genl_small_ops, ptr %55, i64 %61
+  %.split12 = getelementptr [24 x i8], ptr %55, i64 %61
   %62 = getelementptr i8, ptr %.split12, i64 16
   %63 = load i8, ptr %62, align 8
   %64 = zext i8 %63 to i32
@@ -3340,7 +3338,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
 
 125:                                              ; preds = %137, %121
   %126 = phi i64 [ 0, %121 ], [ %138, %137 ]
-  %127 = getelementptr %struct.genl_split_ops, ptr %123, i64 %126
+  %127 = getelementptr [40 x i8], ptr %123, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 36
   %129 = load i8, ptr %128, align 4
   %130 = zext i8 %129 to i32
@@ -3670,7 +3668,7 @@ define internal range(i32 -1, 1) i32 @genl_bind(ptr noundef readonly captures(no
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %17 to i64
-  %.split = getelementptr %struct.genl_multicast_group, ptr %21, i64 %22
+  %.split = getelementptr [17 x i8], ptr %21, i64 %22
   %23 = getelementptr i8, ptr %.split, i64 16
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 1

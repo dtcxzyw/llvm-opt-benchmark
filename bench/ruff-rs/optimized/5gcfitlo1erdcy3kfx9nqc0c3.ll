@@ -1191,7 +1191,7 @@ default.unreachable:                              ; preds = %58
   %.sroa.74.1.i = phi i8 [ %.sroa.74.024.i, %58 ], [ %.val5.i.i, %70 ], [ %.sroa.74.024.i, %58 ], [ %.sroa.74.024.i, %61 ], [ %.val7.i.i, %63 ], [ %.sroa.74.024.i, %58 ]
   %.sroa.95.1.i = phi ptr [ %.sroa.95.027.i, %58 ], [ %74, %70 ], [ %.sroa.95.027.i, %58 ], [ %.sroa.95.027.i, %61 ], [ %67, %63 ], [ %.sroa.95.027.i, %58 ]
   %.sroa.11.1.i = phi i64 [ %.sroa.11.029.i, %58 ], [ %.sroa.52.0.i.i, %70 ], [ %.sroa.11.029.i, %58 ], [ %.sroa.11.029.i, %61 ], [ %.sroa.5.0.i.i, %63 ], [ %.sroa.11.029.i, %58 ]
-  %77 = getelementptr inbounds nuw { [3 x i64] }, ptr %53, i64 %.sroa.7.026.i
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %.sroa.7.026.i
   store i8 %60, ptr %77, align 8, !noalias !76
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %77, i64 1
   store i8 %.sroa.43.1.i, ptr %.sroa.411.0..sroa_idx.i, align 1, !noalias !76
@@ -2426,7 +2426,7 @@ define { i32, i32 } @_ZN9ruff_wasm9Workspace5check17hb1b11622ddc7e7f8E(ptr noali
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8
   %81 = icmp ult i64 %.sroa.534.0.copyload, 144115188075855872
   call void @llvm.assume(i1 %81)
-  %82 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, ptr }, ptr %.sroa.433.0.copyload, i64 %.sroa.534.0.copyload
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.433.0.copyload, i64 %.sroa.534.0.copyload
   %83 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %83)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !177

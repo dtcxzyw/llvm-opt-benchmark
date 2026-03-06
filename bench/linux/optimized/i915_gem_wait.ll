@@ -65,7 +65,7 @@ define dso_local void @i915_gem_fence_wait_priority(ptr noundef %0, ptr noundef 
   %28 = phi i32 [ 0, %25 ], [ %61, %60 ]
   %29 = load ptr, ptr %26, align 8
   %30 = sext i32 %28 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load volatile i64, ptr %33, align 8

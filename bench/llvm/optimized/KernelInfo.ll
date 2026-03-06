@@ -78,8 +78,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
 %"struct.std::pair" = type { %"class.llvm::StringRef", i64 }
-%"class.llvm::MDOperand" = type { ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::SmallString.192" = type { %"class.llvm::SmallVector.base.195", [4 x i8] }
 %"class.llvm::SmallVector.base.195" = type <{ %"class.llvm::SmallVectorImpl.145", %"struct.llvm::SmallVectorStorage.194" }>
 %"struct.llvm::SmallVectorStorage.194" = type { [100 x i8] }
@@ -315,7 +313,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %110, %108
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefElELb1EE9push_backERKS3_.exit.i, label %120, !prof !38
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3.i.i, i64 %117
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i.i, i64 %117
   %122 = icmp uge ptr %22, %.pre3.i.i
   %123 = icmp ult ptr %22, %121
   %spec.select.i.i.i.i.i.i = and i1 %122, %123
@@ -339,7 +337,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefElELb1EE9push_backERKS3_.
   %.016.i.i.i.i = phi ptr [ %22, %114 ], [ %128, %124 ], [ %22, %.critedge.i.i.i.i ]
   %130 = load i32, ptr %32, align 8, !tbaa !20
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"struct.std::pair", ptr %129, i64 %131
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %133 = load i32, ptr %32, align 8, !tbaa !20
   %134 = add i32 %133, 1
@@ -563,7 +561,7 @@ _ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i: ; pred
   %217 = lshr i64 %211, 2
   %218 = and i64 %217, 15
   %219 = sub nsw i64 0, %218
-  %220 = getelementptr inbounds %"class.llvm::MDOperand", ptr %210, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %210, i64 %219
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i.i.i: ; preds = %216, %213
@@ -1261,7 +1259,7 @@ _ZN4llvm8dyn_castINS_15AnyMemIntrinsicEKNS_8CallBaseEEEDcPT0_.exit.i.i: ; preds 
   %479 = and i32 %478, 134217727
   %480 = zext nneg i32 %479 to i64
   %481 = sub nsw i64 0, %480
-  %482 = getelementptr inbounds %"class.llvm::Use", ptr %174, i64 %481
+  %482 = getelementptr inbounds [32 x i8], ptr %174, i64 %481
   %483 = load ptr, ptr %482, align 8, !tbaa !145
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
   %485 = load ptr, ptr %484, align 8, !tbaa !165
@@ -2168,7 +2166,7 @@ define internal fastcc void @_ZL14identifyCalleeRN4llvm18OptimizationRemarkEPKNS
   %27 = lshr i64 %21, 2
   %28 = and i64 %27, 15
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.llvm::MDOperand", ptr %20, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %20, i64 %29
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %26, %23

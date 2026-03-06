@@ -221,7 +221,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %109 = add nuw nsw i32 %107, %108
   %110 = and i32 %109, 63
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %4, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !14
   %114 = icmp eq i32 %113, %.sroa.066.0.insert.insert
   br i1 %114, label %115, label %120
@@ -537,7 +537,7 @@ define noalias noundef ptr @qoi_decode(ptr noundef readonly captures(address_is_
 
 129:                                              ; preds = %127
   %130 = zext i8 %105 to i64
-  %131 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %5, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   %.sroa.0.0.copyload = load i8, ptr %131, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 1
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
@@ -608,7 +608,7 @@ default.unreachable:                              ; preds = %127
   %175 = mul nuw nsw i64 %174, 11
   %176 = add nuw nsw i64 %173, %175
   %177 = and i64 %176, 63
-  %178 = getelementptr inbounds nuw %union.qoi_rgba_t, ptr %5, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %177
   store i8 %.sroa.0.2, ptr %178, align 4
   %.sroa.13.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store i8 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx41, align 1
@@ -748,7 +748,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
   %45 = load i8, ptr %44, align 1, !tbaa !14
   %46 = uitofp i8 %45 to float
   %47 = fmul reassoc nnan nsz arcp contract afn float %46, 0x3F70101020000000
-  %48 = getelementptr inbounds nuw float, ptr %29, i64 %.059
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.059
   store float %47, ptr %48, align 4, !tbaa !39
   %49 = add nuw i64 %.059, 1
   %exitcond.not = icmp eq i64 %49, %36

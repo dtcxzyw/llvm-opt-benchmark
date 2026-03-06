@@ -6284,7 +6284,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 2249:                                             ; preds = %2246
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !697
   store <2 x i64> <i64 240, i64 8>, ptr %76, align 16, !noalias !697
-  %2250 = getelementptr inbounds nuw i64, ptr %76, i64 %2247
+  %2250 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %2247
   %2251 = load i64, ptr %2250, align 8, !noalias !697, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr nonnull align 8 %78, i64 %2251, i1 false), !noalias !697
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !697
@@ -16691,7 +16691,7 @@ common.ret:                                       ; preds = %1998, %1032, %795, 
   %842 = load ptr, ptr %824, align 8, !alias.scope !2191, !nonnull !4, !noundef !4
   %843 = getelementptr inbounds nuw i8, ptr %824, i64 16
   %844 = load i64, ptr %843, align 8, !alias.scope !2191, !noundef !4
-  %845 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %842, i64 %844
+  %845 = getelementptr inbounds [24 x i8], ptr %842, i64 %844
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h1e5048e4f6ca0d16E.llvm.15801386443151308984"(ptr noalias noundef nonnull align 8 dereferenceable(24) %839, ptr noundef nonnull %842, ptr noundef nonnull %845)
           to label %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h24f389e9ce13865dE.exit.i" unwind label %846
 

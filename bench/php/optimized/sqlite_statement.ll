@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pdo_stmt_methods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pdo_column_data = type { ptr, i64, i64 }
 %struct._zval_struct = type { %union._zend_value, %union.anon.3, %union.anon.6 }
 %union._zend_value = type { i64 }
 %union.anon.3 = type { i32 }
@@ -218,7 +217,7 @@ zend_string_alloc.exit:                           ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !40
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds %struct.pdo_column_data, ptr %24, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %24, i64 %25
   store ptr %17, ptr %26, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 -1, ptr %27, align 8, !tbaa !43
@@ -319,7 +318,7 @@ zend_string_alloc.exit.i:                         ; preds = %28
 47:                                               ; preds = %43
   %48 = load i8, ptr %30, align 1, !tbaa !36
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !45
   br label %zend_string_init_fast.exit
 
@@ -372,7 +371,7 @@ zend_string_alloc.exit.i44:                       ; preds = %57
 76:                                               ; preds = %72
   %77 = load i8, ptr %59, align 1, !tbaa !36
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !45
   br label %zend_string_init_fast.exit45
 

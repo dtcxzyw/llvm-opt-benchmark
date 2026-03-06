@@ -487,7 +487,7 @@ define hidden ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %1, pt
   store i32 %10, ptr %14, align 4
   %15 = add i32 %1, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %10, 512
   %.not = icmp eq i32 %19, 0
@@ -580,7 +580,7 @@ define hidden ptr @cmsCreateExtendedTransform(ptr noundef %0, i32 noundef %1, pt
   %.0114 = phi i32 [ %42, %.split.preheader.i ], [ %spec.select, %80 ]
   %indvars.iv.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i, %80 ]
   %.03339.i = phi i32 [ %42, %.split.preheader.i ], [ %.031.i, %80 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
   %63 = icmp ne i32 %.03339.i, 1482250784
   %64 = icmp ne i32 %.03339.i, 1281450528
@@ -745,7 +745,7 @@ IsProperColorSpace.exit106.thread:                ; preds = %IsProperColorSpace.
   %137 = call ptr @cmsReadTag(ptr noundef %136, i32 noundef 2004119668) #11
   call fastcc void @SetWhitePoint(ptr noundef %135, ptr noundef %137)
   %138 = getelementptr inbounds nuw i8, ptr %128, i64 176
-  %139 = getelementptr inbounds nuw ptr, ptr %2, i64 %16
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %16
   %140 = load ptr, ptr %139, align 8
   %141 = call ptr @cmsReadTag(ptr noundef %140, i32 noundef 2004119668) #11
   call fastcc void @SetWhitePoint(ptr noundef %138, ptr noundef %141)
@@ -1280,9 +1280,9 @@ define internal fastcc void @TransformOnePixelWithGamutCheck(ptr noundef readonl
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
-  %20 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %21, ptr %22, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %16, align 8
@@ -1327,13 +1327,13 @@ define hidden ptr @cmsCreateMultiprofileTransformTHR(ptr noundef %0, ptr noundef
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %.lobit, ptr %15, align 4
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %5, ptr %16, align 4
   %17 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 3) #11
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store double %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1374,13 +1374,13 @@ define hidden ptr @cmsCreateMultiprofileTransform(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   store i32 %.lobit.i, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   store i32 %4, ptr %17, align 4
   %18 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %13, i32 noundef 3) #11
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1422,13 +1422,13 @@ define hidden ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef %1, i32 nou
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   store i32 %.lobit.i, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   store i32 %5, ptr %17, align 4
   %18 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 3) #11
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store double %19, ptr %20, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1465,13 +1465,13 @@ define hidden ptr @cmsCreateTransform(ptr noundef %0, i32 noundef %1, ptr nounde
 
 16:                                               ; preds = %16, %6
   %indvars.iv.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i
   store i32 %.lobit.i.i, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i
   store i32 %4, ptr %18, align 4
   %19 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %11, i32 noundef 3) #11
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   store double %20, ptr %21, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1547,13 +1547,13 @@ define hidden ptr @cmsCreateProofingTransformTHR(ptr noundef %0, ptr noundef %1,
 
 38:                                               ; preds = %38, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i
   store i32 %.lobit, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.i
   store i32 %6, ptr %40, align 4
   %41 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 3) #11
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   store double %42, ptr %43, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1816,7 +1816,7 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .preheader.us:                                    ; preds = %26, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %26 ]
-  %29 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float -1.000000e+00, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1974,9 +1974,9 @@ define internal void @PrecalculatedXFORMGamutCheck(ptr noundef %0, ptr noundef %
 
 .lr.ph.i.us:                                      ; preds = %32, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %32 ]
-  %38 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv.i.us
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv.i.us
   %39 = load i16, ptr %38, align 2
-  %40 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i.us
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i.us
   store i16 %39, ptr %40, align 2
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %41 = load i32, ptr %36, align 4
@@ -2149,9 +2149,9 @@ define internal void @CachedXFORMGamutCheck(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph.i.us:                                      ; preds = %37, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %37 ]
-  %43 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv.i.us
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv.i.us
   %44 = load i16, ptr %43, align 2
-  %45 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i.us
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i.us
   store i16 %44, ptr %45, align 2
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %46 = load i32, ptr %41, align 4

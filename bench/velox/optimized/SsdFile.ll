@@ -34,19 +34,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"struct.std::pair" = type { %"struct.facebook::velox::cache::FileCacheKey", %"class.facebook::velox::cache::SsdRun" }
-%"struct.facebook::velox::cache::FileCacheKey" = type { %"class.facebook::velox::StringIdLease", i64 }
-%"class.facebook::velox::StringIdLease" = type { ptr, i64 }
-%"class.facebook::velox::cache::SsdRun" = type { i64 }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.facebook::velox::cache::SsdPin" = type { ptr, %"class.facebook::velox::cache::SsdRun" }
-%"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array", i8, i8, %"struct.std::array.212" }
-%"struct.std::array" = type { [14 x i8] }
-%"struct.std::array.212" = type { [12 x %"union.std::aligned_storage<4, 4>::type"] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
+%"class.facebook::velox::cache::SsdRun" = type { i64 }
+%"struct.facebook::velox::cache::FileCacheKey" = type { %"class.facebook::velox::StringIdLease", i64 }
+%"class.facebook::velox::StringIdLease" = type { ptr, i64 }
 %class.anon.253 = type { i8 }
 %"struct.facebook::velox::CoalesceIoStats" = type { i32, i64, i64 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
@@ -54,7 +49,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.86" = type { %"class.std::_Function_base", ptr }
-%"class.facebook::velox::cache::CachePin" = type { ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
@@ -68,8 +62,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::hash.93" = type { i8 }
 %"struct.std::equal_to.96" = type { i8 }
 %"class.std::allocator.5" = type { i8 }
-%struct.iovec = type { ptr, i64 }
-%"class.facebook::velox::memory::Allocation::PageRun" = type { i64 }
 %"struct.std::__detail::_AllocNode.326" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -86,8 +78,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
 %"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
 %"struct.std::_Head_base.148" = type { ptr }
-%"struct.std::pair.228" = type { i64, %"struct.facebook::velox::StringIdMap::Entry" }
-%"struct.facebook::velox::StringIdMap::Entry" = type <{ %"class.std::__cxx11::basic_string", i64, i32, [4 x i8] }>
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"class.std::function.157" = type { %"class.std::_Function_base", ptr }
 %"class.folly::SemiFuture" = type { %"class.folly::futures::detail::FutureBase" }
@@ -112,6 +102,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.257 = type { ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"class.facebook::velox::cache::CachePin" = type { ptr }
 %"class.folly::detail::ScopeGuardImpl" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon.284 }
 %"class.folly::detail::ScopeGuardImplBase" = type { i8 }
 %class.anon.284 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -625,7 +616,7 @@ entry:
   %regionPins_.i = getelementptr inbounds nuw i8, ptr %file, i64 192
   %0 = lshr i64 %run.coerce, 49
   %1 = load ptr, ptr %regionPins_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %0
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %0
   %2 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i = icmp slt i32 %2, 1
   br i1 %cmp.i, label %if.then.i, label %_ZNK8facebook5velox5cache7SsdFile11checkPinnedEm.exit
@@ -667,7 +658,7 @@ _ZNSt10lock_guardISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %if.then.i
   %regionPins_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2 = lshr i64 %1, 49
   %3 = load ptr, ptr %regionPins_.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %2
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %2
   %4 = load i32, ptr %add.ptr.i.i.i, align 4
   %dec.i.i = add nsw i32 %4, -1
   store i32 %dec.i.i, ptr %add.ptr.i.i.i, align 4
@@ -739,7 +730,7 @@ _ZNSt10lock_guardISt12shared_mutexEC2ERS0_.exit.i: ; preds = %if.then
   %regionPins_.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2 = lshr i64 %1, 49
   %3 = load ptr, ptr %regionPins_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %2
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %2
   %4 = load i32, ptr %add.ptr.i.i, align 4
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %add.ptr.i.i, align 4
@@ -808,7 +799,7 @@ _ZNSt10lock_guardISt12shared_mutexEC2ERS0_.exit:  ; preds = %entry
   %0 = shl i64 %offset, 6
   %conv = ashr i64 %0, 32
   %1 = load ptr, ptr %regionPins_, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %1, i64 %conv
   %2 = load i32, ptr %add.ptr.i, align 4
   %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %add.ptr.i, align 4
@@ -865,7 +856,7 @@ _ZNSt10lock_guardISt12shared_mutexEC2ERS0_.exit.i: ; preds = %if.then
   %regionPins_.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %2 = lshr i64 %1, 49
   %3 = load ptr, ptr %regionPins_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %2
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %2
   %4 = load i32, ptr %add.ptr.i.i, align 4
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %add.ptr.i.i, align 4
@@ -1240,7 +1231,7 @@ if.else.i:                                        ; preds = %if.end43
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont47
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %18, i64 %conv46.pre-phi
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %18, i64 %conv46.pre-phi
   %tobool.not.i.i = icmp eq ptr %17, %add.ptr.i
   br i1 %tobool.not.i.i, label %invoke.cont47, label %invoke.cont.i.i
 
@@ -1286,7 +1277,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt6vectorImSaImE
           to label %call5.i.i.i.i2.i.i6.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i2.i.i6.i.i.noexc:                    ; preds = %if.then.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i6.i.i20, i64 %conv.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i6.i.i20, i64 %conv.i.i
   store i64 0, ptr %call5.i.i.i.i2.i.i6.i.i20, align 8
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i6.i.i20, i64 8
   %sub.i.i.i.i.i.i.i = add nsw i64 %conv.i.i, -1
@@ -1321,9 +1312,9 @@ for.body.preheader.i.i:                           ; preds = %invoke.cont.i.i17
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i
   %24 = load i64, ptr %add.ptr.i.i.i, align 8
-  %add.ptr.i7.i.i = getelementptr inbounds nuw i64, ptr %newVector.sroa.0.0.i.i, i64 %indvars.iv.i.i
+  %add.ptr.i7.i.i = getelementptr inbounds nuw [8 x i8], ptr %newVector.sroa.0.0.i.i, i64 %indvars.iv.i.i
   store i64 %24, ptr %add.ptr.i7.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1377,7 +1368,7 @@ if.else.i27:                                      ; preds = %invoke.cont59
   br i1 %cmp4.i28, label %if.then5.i29, label %invoke.cont63
 
 if.then5.i29:                                     ; preds = %if.else.i27
-  %add.ptr.i30 = getelementptr inbounds i32, ptr %26, i64 %conv62.pre-phi
+  %add.ptr.i30 = getelementptr inbounds [4 x i8], ptr %26, i64 %conv62.pre-phi
   %tobool.not.i.i31 = icmp eq ptr %25, %add.ptr.i30
   br i1 %tobool.not.i.i31, label %invoke.cont63, label %invoke.cont.i.i32
 
@@ -1407,7 +1398,7 @@ if.else.i42:                                      ; preds = %invoke.cont63
   br i1 %cmp4.i43, label %if.then5.i44, label %invoke.cont67
 
 if.then5.i44:                                     ; preds = %if.else.i42
-  %add.ptr.i45 = getelementptr inbounds i32, ptr %28, i64 %conv66.pre-phi
+  %add.ptr.i45 = getelementptr inbounds [4 x i8], ptr %28, i64 %conv66.pre-phi
   %tobool.not.i.i46 = icmp eq ptr %27, %add.ptr.i45
   br i1 %tobool.not.i.i46, label %invoke.cont67, label %invoke.cont.i.i47
 
@@ -1731,7 +1722,7 @@ if.end.i.i.i.i.i:                                 ; preds = %entry
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i.i.i.i.i.i
   %i.04.i.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ]
   %2 = load ptr, ptr %this, align 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %i.04.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %i.04.i.i.i.i.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1800,7 +1791,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = shl i64 %offset, 6
   %conv.i = ashr i64 %0, 32
   %1 = load ptr, ptr %regionPins_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %1, i64 %conv.i
   %2 = load i32, ptr %add.ptr.i.i, align 4
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %add.ptr.i.i, align 4
@@ -1896,7 +1887,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre11 = phi i32 [ %.pre11.pre, %if.then.i18.i.i ], [ %9, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i ]
   store ptr %call5.i.i.i.i.i, ptr %writableRegions_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1905,7 +1896,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %if.then.i, %_ZNSt6v
   %regionSizes_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %conv7 = sext i32 %10 to i64
   %11 = load ptr, ptr %regionSizes_, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %11, i64 %conv7
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %11, i64 %conv7
   store i32 0, ptr %add.ptr.i, align 4
   %12 = load i32, ptr %numRegions_, align 4
   %inc = add nsw i32 %12, 1
@@ -2099,7 +2090,7 @@ call6.i.noexc:                                    ; preds = %call2.i.noexc, %if.
   %index.i.048 = phi i64 [ %add.i17, %call2.i.noexc ], [ %add.i, %if.end20.i ]
   %tries.i.047 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i, %if.end20.i ]
   %and.i = and i64 %index.i.048, %conv.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %7, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %and.i
   %9 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %9, %vecinit15.i.i
   %10 = bitcast <16 x i1> %cmp.i.i to i16
@@ -2119,10 +2110,10 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i22 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %13 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %14 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %idxprom.i
   %offset2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %15 = load i64, ptr %offset2.i.i.i, align 8
   %cmp.i.i.i23 = icmp eq i64 %key.coerce1, %15
@@ -2148,7 +2139,7 @@ cleanup:                                          ; preds = %call11.i.noexc
   %regionPins_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %19 = lshr i64 %18, 49
   %20 = load ptr, ptr %regionPins_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %21 = load i32, ptr %add.ptr.i.i, align 4
   %inc.i29 = add nsw i32 %21, 1
   store i32 %inc.i29, ptr %add.ptr.i.i, align 4
@@ -2270,7 +2261,7 @@ call6.i.noexc:                                    ; preds = %call2.i.noexc, %if.
   %index.i.0113 = phi i64 [ %add.i52, %call2.i.noexc ], [ %add.i, %if.end20.i ]
   %tries.i.0112 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i, %if.end20.i ]
   %and.i = and i64 %index.i.0113, %conv.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %3, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %and.i
   %5 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %5, %vecinit15.i.i
   %6 = bitcast <16 x i1> %cmp.i.i to i16
@@ -2290,10 +2281,10 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %sub.i57 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i58 = and i32 %sub.i57, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %9 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %idxprom.i
   %offset2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %11 = load i64, ptr %offset2.i.i.i, align 8
   %cmp.i.i.i59 = icmp eq i64 %key.coerce1, %11
@@ -2328,7 +2319,7 @@ call6.i.noexc124:                                 ; preds = %call11.i.noexc, %if
   %index.i85.0116 = phi i64 [ %add.i114, %if.end20.i113 ], [ %add.i52, %call11.i.noexc ]
   %tries.i88.0115 = phi i64 [ %inc.i115, %if.end20.i113 ], [ 0, %call11.i.noexc ]
   %and.i103 = and i64 %index.i85.0116, %conv.i
-  %add.ptr.i104 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %3, i64 %and.i103
+  %add.ptr.i104 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %and.i103
   %16 = load <16 x i8>, ptr %add.ptr.i104, align 16
   %cmp.i.i77 = icmp eq <16 x i8> %16, %vecinit15.i.i
   %17 = bitcast <16 x i1> %cmp.i.i77 to i16
@@ -2348,7 +2339,7 @@ call8.i.noexc126:                                 ; preds = %while.cond.i108
   %sub.i81 = add nsw i32 %hits.i90.sroa.0.0, -1
   %and.i82 = and i32 %sub.i81, %hits.i90.sroa.0.0
   %conv9.i118 = zext nneg i32 %20 to i64
-  %arrayidx.i.i.i.i84 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i83, i64 %conv9.i118
+  %arrayidx.i.i.i.i84 = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i83, i64 %conv9.i118
   %21 = load i32, ptr %arrayidx.i.i.i.i84, align 4
   %cmp.i85 = icmp eq i32 %10, %21
   br i1 %cmp.i85, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit.loopexit, label %while.cond.i108, !llvm.loop !16
@@ -2364,7 +2355,7 @@ if.end20.i113:                                    ; preds = %while.end.i110
   br i1 %exitcond122.not, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, label %call6.i.noexc124, !llvm.loop !17
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit.loopexit: ; preds = %call8.i.noexc126
-  %arrayidx.i.i.i.i84.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i83, i64 %conv9.i118
+  %arrayidx.i.i.i.i84.le = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i83, i64 %conv9.i118
   br label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %if.end20.i113, %while.end.i110, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit.loopexit
@@ -2439,13 +2430,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %4 = phi ptr [ %3, %for.body.lr.ph ], [ %17, %if.end20 ]
   %payloadTotal.083 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
   %5 = load ptr, ptr %ssdPins, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::velox::cache::SsdPin", ptr %5, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %run_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %run_.i, align 8
   %6 = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %7 = and i32 %6, 8388607
   %conv.i = add nuw nsw i32 %7, 1
-  %add.ptr.i33 = getelementptr inbounds nuw %"class.facebook::velox::cache::CachePin", ptr %4, i64 %indvars.iv
+  %add.ptr.i33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %add.ptr.i33, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load i32, ptr %size_.i, align 8
@@ -2465,7 +2456,7 @@ if.end20:                                         ; preds = %for.body
   %shr.i = lshr i64 %retval.sroa.0.0.copyload.i, 49
   %conv.i.i = zext nneg i32 %conv.i to i64
   %11 = load ptr, ptr %tracker_.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %11, i64 %shr.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %shr.i
   %12 = load i64, ptr %add.ptr.i.i.i, align 8
   %add.i.i = add i64 %12, %conv.i.i
   store i64 %add.i.i, ptr %add.ptr.i.i.i, align 8
@@ -2553,9 +2544,9 @@ for.body47:                                       ; preds = %_ZNSt8functionIFmiE
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %for.body47 ], [ 0, %_ZNSt8functionIFmiEED2Ev.exit ]
   %30 = phi ptr [ %34, %for.body47 ], [ %29, %_ZNSt8functionIFmiEED2Ev.exit ]
   %31 = load ptr, ptr %pins, align 8
-  %add.ptr.i58 = getelementptr inbounds nuw %"class.facebook::velox::cache::CachePin", ptr %31, i64 %indvars.iv95
+  %add.ptr.i58 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv95
   %32 = load ptr, ptr %add.ptr.i58, align 8
-  %add.ptr.i59 = getelementptr inbounds nuw %"class.facebook::velox::cache::SsdPin", ptr %30, i64 %indvars.iv95
+  %add.ptr.i59 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv95
   %run_.i60 = getelementptr inbounds nuw i8, ptr %add.ptr.i59, i64 8
   %retval.sroa.0.0.copyload.i61 = load i64, ptr %run_.i60, align 8
   %shr.i62 = lshr i64 %retval.sroa.0.0.copyload.i61, 23
@@ -2683,7 +2674,7 @@ if.end4:                                          ; preds = %invoke.cont.if.end4
   %4 = load i32, ptr %3, align 4
   %conv = sext i32 %4 to i64
   %5 = load ptr, ptr %regionSizes_, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %5, i64 %conv
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %5, i64 %conv
   %6 = load i32, ptr %add.ptr.i, align 4
   %conv8 = zext i32 %6 to i64
   %7 = load ptr, ptr %_M_finish.i, align 8
@@ -2704,7 +2695,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %conv1022, %for.body.preheader ], [ %indvars.iv.next, %if.end22 ]
   %toWrite.025 = phi i64 [ 0, %for.body.preheader ], [ %add, %if.end22 ]
   %available.024 = phi i64 [ %sub, %for.body.preheader ], [ %sub26, %if.end22 ]
-  %add.ptr.i15 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %8, i64 %indvars.iv
+  %add.ptr.i15 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %add.ptr.i15, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %9, i64 112
   %10 = load i32, ptr %size_.i, align 8
@@ -2727,7 +2718,7 @@ for.end:                                          ; preds = %if.end22, %for.body
   br i1 %cmp30, label %invoke.cont44, label %if.end46
 
 invoke.cont44:                                    ; preds = %for.end
-  %add.ptr.i.le = getelementptr inbounds i32, ptr %5, i64 %conv
+  %add.ptr.i.le = getelementptr inbounds [4 x i8], ptr %5, i64 %conv
   %11 = trunc i64 %toWrite.0.lcssa.ph to i32
   %conv37 = add i32 %6, %11
   store i32 %conv37, ptr %add.ptr.i.le, align 4
@@ -2889,7 +2880,7 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %3 = load ptr, ptr %entries_, align 8
   %conv.i.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %conv.i.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -32
   %_M_element_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %regionSet, i64 24
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %regionSet, i64 8
@@ -2925,7 +2916,7 @@ if.end15.i.i.i:                                   ; preds = %while.body
   %7 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %rem.i.i.i.i.i.i = urem i64 %shr.i, %7
   %8 = load ptr, ptr %regionSet, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %rem.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %rem.i.i.i.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i, label %if.else, label %if.end.i.i.i.i.i
@@ -2999,7 +2990,7 @@ call6.i.noexc81:                                  ; preds = %call2.i.noexc, %if.
   %index.i77.072 = phi i64 [ %add.i30, %call2.i.noexc ], [ %add.i, %if.end20.i ]
   %tries.i.071 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i, %if.end20.i ]
   %and.i = and i64 %index.i77.072, %conv.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %20, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %and.i
   %21 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i35 = icmp eq <16 x i8> %21, %vecinit15.i.i
   %22 = bitcast <16 x i1> %cmp.i.i35 to i16
@@ -3019,7 +3010,7 @@ call8.i.noexc:                                    ; preds = %while.cond.i
   %sub.i39 = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i40 = and i32 %sub.i39, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %25 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %26 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i41 = icmp eq i32 %26, %conv3.i
   br i1 %cmp.i41, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit.loopexit, label %while.cond.i, !llvm.loop !16
@@ -3035,7 +3026,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %exitcond.not, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit, label %call6.i.noexc81, !llvm.loop !17
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit.loopexit: ; preds = %call8.i.noexc
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   br label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit: ; preds = %if.end20.i, %while.end.i, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE8findImplINS1_26VectorContainerIndexSearchEEENS1_11F14ItemIterIPNS1_8F14ChunkIjEEEESt4pairImmERKT_NSC_8PrefetchE.exit.loopexit
@@ -3052,7 +3043,7 @@ cond.false.i:                                     ; preds = %.noexc
   %sub.i = add nuw nsw i64 %sub.ptr.div.i.i, 4294967295
   %27 = load ptr, ptr %entries_, align 8
   %idx.ext.i = and i64 %sub.i, 4294967295
-  %add.ptr.i44 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %idx.ext.i
+  %add.ptr.i44 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %idx.ext.i
   %.fca.0.insert.i45 = insertvalue { ptr, ptr } poison, ptr %add.ptr.i44, 0
   %.fca.1.insert.i46 = insertvalue { ptr, ptr } %.fca.0.insert.i45, ptr %27, 1
   br label %_ZN5folly3f146detail16F14VectorMapImplIN8facebook5velox5cache12FileCacheKeyENS5_6SsdRunENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaISt4pairIKS6_S7_EESt17integral_constantIbLb1EEE9eraseIntoIRZNSI_5eraseENS1_23VectorContainerIteratorIPSE_EEEUlOS6_OS7_E_EESM_NSK_IPKSE_EEOT_.exit
@@ -3096,10 +3087,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %31 = load i32, ptr %__begin2.sroa.0.076, align 4
   %conv.i51 = sext i32 %31 to i64
   %32 = load ptr, ptr %tracker_, align 8
-  %add.ptr.i.i52 = getelementptr inbounds i64, ptr %32, i64 %conv.i51
+  %add.ptr.i.i52 = getelementptr inbounds [8 x i8], ptr %32, i64 %conv.i51
   store i64 0, ptr %add.ptr.i.i52, align 8
   %33 = load ptr, ptr %regionSizes_, align 8
-  %add.ptr.i53 = getelementptr inbounds i32, ptr %33, i64 %conv.i51
+  %add.ptr.i53 = getelementptr inbounds [4 x i8], ptr %33, i64 %conv.i51
   store i32 0, ptr %add.ptr.i53, align 4
   %incdec.ptr.i54 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.076, i64 4
   %cmp.i50.not = icmp eq ptr %incdec.ptr.i54, %30
@@ -3327,7 +3318,7 @@ for.body31:                                       ; preds = %_ZNRSt8optionalISt4
   %iovecs.sroa.0.0246 = phi ptr [ %iovecs.sroa.0.6, %invoke.cont42 ], [ null, %_ZNRSt8optionalISt4pairImiEE5valueEv.exit ]
   %iovecs.sroa.23.0245 = phi ptr [ %iovecs.sroa.23.4, %invoke.cont42 ], [ null, %_ZNRSt8optionalISt4pairImiEE5valueEv.exit ]
   %iovecs.sroa.12.0244 = phi ptr [ %iovecs.sroa.12.4, %invoke.cont42 ], [ null, %_ZNRSt8optionalISt4pairImiEE5valueEv.exit ]
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %18, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv
   %19 = load ptr, ptr %add.ptr.i, align 8
   %size_.i53 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %20 = load i32, ptr %size_.i53, align 8
@@ -3438,7 +3429,7 @@ if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorI5iovec
   br label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %struct.iovec, ptr %call5.i.i.i.i.i.i.i66, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i66, i64 %cond.i.i.i.i.i
   br label %invoke.cont42
 
 if.end.i59:                                       ; preds = %_ZN8facebook5velox5cache19AsyncDataCacheEntry8tinyDataEv.exit.i, %if.end41
@@ -3489,7 +3480,7 @@ if.then.i.i27.i:                                  ; preds = %_ZNSt6vectorI5iovec
 
 _ZNSt12_Vector_baseI5iovecSaIS0_EE13_M_deallocateEPS0_m.exit.i.i: ; preds = %if.then.i.i27.i, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i68, i64 %sub.ptr.sub.i.i
-  %add.ptr21.i.i = getelementptr inbounds nuw %struct.iovec, ptr %call5.i.i.i.i.i68, i64 %add.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i68, i64 %add.i
   %.pre.i = load ptr, ptr %_M_finish.i.i20.i, align 8
   %.pre89.i = load ptr, ptr %runs_.i.i, align 8
   %.pre90.i = ptrtoint ptr %.pre.i to i64
@@ -3531,7 +3522,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %33 = phi ptr [ %26, %for.body.preheader.i ], [ %30, %for.cond.i ]
   %bytesLeft.086.i = phi i64 [ %conv9.i, %for.body.preheader.i ], [ %sub.i, %for.cond.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %33, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %add.ptr.i.i.i, align 8
   %and.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 281474976710655
   %34 = inttoptr i64 %and.i.i to ptr
@@ -3595,7 +3586,7 @@ if.then.i18.i.i.i63.i:                            ; preds = %_ZNSt6vectorI5iovec
   br label %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i64.i
 
 _ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i64.i: ; preds = %if.then.i18.i.i.i63.i, %_ZNSt6vectorI5iovecSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i60.i
-  %add.ptr19.i.i.i65.i = getelementptr inbounds nuw %struct.iovec, ptr %call5.i.i.i.i.i.i57.i70, i64 %cond.i.i.i.i54.i
+  %add.ptr19.i.i.i65.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i57.i70, i64 %cond.i.i.i.i54.i
   br label %_ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i
 
 _ZNSt6vectorI5iovecSaIS0_EE9push_backEOS0_.exit68.i: ; preds = %_ZNSt6vectorI5iovecSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i64.i, %if.then.i.i42.i
@@ -3775,7 +3766,7 @@ for.body106:                                      ; preds = %for.body106.prehead
   %indvars.iv286 = phi i64 [ %conv18, %for.body106.preheader ], [ %indvars.iv.next287, %_ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit ]
   %.sroa.0.0259 = phi i64 [ %.sroa.0.0.copyload, %for.body106.preheader ], [ %add138, %_ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit ]
   %50 = load ptr, ptr %pins, align 8
-  %add.ptr.i83 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %50, i64 %indvars.iv286
+  %add.ptr.i83 = getelementptr inbounds [8 x i8], ptr %50, i64 %indvars.iv286
   %51 = load ptr, ptr %add.ptr.i83, align 8
   %ssdFile_.i84 = getelementptr inbounds nuw i8, ptr %51, i64 152
   store ptr %this, ptr %ssdFile_.i84, align 8
@@ -3856,7 +3847,7 @@ for.body.i.i:                                     ; preds = %if.end20.i.i, %if.t
   %index.i.056.i = phi i64 [ %add.i.i.i.i, %if.then.i116 ], [ %add.i.i, %if.end20.i.i ]
   %tries.i.055.i = phi i64 [ 0, %if.then.i116 ], [ %inc.i.i, %if.end20.i.i ]
   %and.i.i118 = and i64 %index.i.056.i, %conv.i.i
-  %add.ptr.i.i119 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %.pre289, i64 %and.i.i118
+  %add.ptr.i.i119 = getelementptr inbounds nuw [64 x i8], ptr %.pre289, i64 %and.i.i118
   %60 = load <16 x i8>, ptr %add.ptr.i.i119, align 16, !noalias !29
   %cmp.i.i.i120 = icmp eq <16 x i8> %60, %vecinit15.i.i.i
   %61 = bitcast <16 x i1> %cmp.i.i.i120 to i16
@@ -3876,10 +3867,10 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %sub.i.i = add nsw i32 %hits.i.sroa.0.0.i, -1
   %and.i28.i = and i32 %sub.i.i, %hits.i.sroa.0.0.i
   %conv9.i.i = zext nneg i32 %64 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i, i64 %conv9.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i.i, i64 %conv9.i.i
   %65 = load i32, ptr %arrayidx.i.i.i.i.i, align 4, !noalias !29
   %idxprom.i.i = zext i32 %65 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %59, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %idxprom.i.i
   %offset2.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %66 = load i64, ptr %offset2.i.i.i.i, align 8, !noalias !29
   %cmp.i.i.i.i = icmp eq i64 %55, %66
@@ -3976,7 +3967,7 @@ _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache
   %74 = phi ptr [ %.pre290, %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE20reserveForInsertImplEmmmm.exit.i..noexc127_crit_edge ], [ %.pre289, %if.end9.i ]
   %conv.i121 = zext i32 %73 to i64
   %and.i = and i64 %add.i.i.i.i, %conv.i121
-  %add.ptr.i122 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %74, i64 %and.i
+  %add.ptr.i122 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %and.i
   %75 = load <16 x i8>, ptr %add.ptr.i122, align 16, !noalias !29
   %76 = icmp slt <16 x i8> %75, zeroinitializer
   %77 = bitcast <16 x i1> %76 to i16
@@ -4012,7 +4003,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %add.i126 = add i64 %add.i33.i, %index.0.i
   %conv17.i = zext i32 %82 to i64
   %and18.i = and i64 %add.i126, %conv17.i
-  %add.ptr19.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %83, i64 %and18.i
+  %add.ptr19.i = getelementptr inbounds nuw [64 x i8], ptr %83, i64 %and18.i
   %84 = load <16 x i8>, ptr %add.ptr19.i, align 16, !noalias !29
   %85 = icmp slt <16 x i8> %84, zeroinitializer
   %86 = bitcast <16 x i1> %85 to i16
@@ -4046,12 +4037,12 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i: ; preds = %if.end24.i
   %conv4.i.i = trunc nuw i64 %or.i.i.i.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i, align 1, !noalias !29
   %rawItems_.i.i.i42.i = getelementptr inbounds nuw i8, ptr %chunk.0.i, i64 16
-  %arrayidx.i.i.i.i.i43.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i42.i, i64 %conv26.i
+  %arrayidx.i.i.i.i.i43.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i.i42.i, i64 %conv26.i
   %91 = load i32, ptr %sizeAndPackedBegin_.i.i, align 4, !noalias !29
   store i32 %91, ptr %arrayidx.i.i.i.i.i43.i, align 4, !noalias !29
   %92 = load ptr, ptr %entries_, align 8, !noalias !29, !nonnull !33, !noundef !33
   %idxprom.i.i.i = zext i32 %91 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %92, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %idxprom.i.i.i
   %id_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %93 = load ptr, ptr %key, align 8, !noalias !29
   store ptr %93, ptr %arrayidx.i.i.i, align 8, !noalias !29
@@ -4075,7 +4066,7 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i: ; preds = %if.end24.i
 invoke.cont128:                                   ; preds = %while.body.i.i, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i
   %idx.ext8.i.i.i.pre-phi = phi i64 [ %.pre294, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i ], [ %idxprom.i.i, %while.body.i.i ]
   %97 = phi ptr [ %.pre292, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i ], [ %59, %while.body.i.i ]
-  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %97, i64 %idx.ext8.i.i.i.pre-phi
+  %add.ptr9.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %idx.ext8.i.i.i.pre-phi
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 24
   store i64 %or.i, ptr %second.i, align 8
   %98 = load i8, ptr @_ZN3fLB22FLAGS_ssd_verify_writeE, align 1
@@ -4317,7 +4308,7 @@ invoke.cont39:                                    ; preds = %invoke.cont39.prehe
   %indvars.iv = phi i64 [ 0, %invoke.cont39.preheader ], [ %indvars.iv.next, %for.inc ]
   %offset.048 = phi i64 [ 0, %invoke.cont39.preheader ], [ %add, %for.inc ]
   %bytesLeft.046 = phi i64 [ %conv32, %invoke.cont39.preheader ], [ %sub, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %6, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 8
   %9 = lshr i64 %retval.sroa.0.0.copyload.i, 36
   %mul.i = and i64 %9, 268431360
@@ -4604,9 +4595,9 @@ for.body.preheader.i:                             ; preds = %call5.i.i.i.i2.i.i4
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %14 = load i64, ptr %add.ptr.i.i, align 8, !noalias !46
-  %add.ptr.i10.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4.i33, i64 %indvars.iv.i
+  %add.ptr.i10.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i4.i33, i64 %indvars.iv.i
   store i64 %14, ptr %add.ptr.i10.i, align 8, !noalias !46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i9.i
@@ -4640,7 +4631,7 @@ invoke.cont42:                                    ; preds = %invoke.cont31
 
 for.body.preheader:                               ; preds = %invoke.cont42
   %conv.i.i = zext i32 %16 to i64
-  %add.ptr.i.i34 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %conv.i.i
+  %add.ptr.i.i34 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %conv.i.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -4757,7 +4748,7 @@ invoke.cont88:                                    ; preds = %for.end
 
 for.body93.preheader:                             ; preds = %invoke.cont88
   %conv.i.i37 = zext i32 %27 to i64
-  %add.ptr.i.i39 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %conv.i.i37
+  %add.ptr.i.i39 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %conv.i.i37
   br label %for.body93
 
 for.body93:                                       ; preds = %for.body93.preheader, %for.inc116
@@ -5560,7 +5551,7 @@ if.else.i:                                        ; preds = %invoke.cont
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont8
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %10, i64 %conv
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %10, i64 %conv
   %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i
   br i1 %tobool.not.i.i, label %invoke.cont8, label %invoke.cont.i.i
 
@@ -5971,7 +5962,7 @@ call6.i.noexc:                                    ; preds = %call2.i.noexc, %if.
   %index.i.053 = phi i64 [ %add.i15, %call2.i.noexc ], [ %add.i, %if.end20.i ]
   %tries.i.052 = phi i64 [ 0, %call2.i.noexc ], [ %inc.i, %if.end20.i ]
   %and.i = and i64 %index.i.053, %conv.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %and.i
   %4 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %4, %vecinit15.i.i
   %5 = bitcast <16 x i1> %cmp.i.i to i16
@@ -5991,10 +5982,10 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i20 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %8 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %9 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair.228", ptr %3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %idxprom.i
   %10 = load i64, ptr %arrayidx.i, align 8
   %cmp.i.i21 = icmp eq i64 %id, %10
   br i1 %cmp.i.i21, label %cond.false, label %while.cond.i, !llvm.loop !51
@@ -6972,7 +6963,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
   %10 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %4, %10
   %11 = load ptr, ptr %idMap, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %11, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %11, i64 %rem.i.i.i.i.i
   %12 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %if.end.i.i, label %if.end.i.i.i.i
@@ -7249,7 +7240,7 @@ if.end15.i.i:                                     ; preds = %invoke.cont74
   %34 = load i64, ptr %_M_bucket_count.i.i67, align 8
   %rem.i.i.i.i.i85 = urem i64 %shr.i, %34
   %35 = load ptr, ptr %evictedMap, align 8
-  %arrayidx.i.i.i.i86 = getelementptr inbounds nuw ptr, ptr %35, i64 %rem.i.i.i.i.i85
+  %arrayidx.i.i.i.i86 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %rem.i.i.i.i.i85
   %36 = load ptr, ptr %arrayidx.i.i.i.i86, align 8
   %tobool.not.i.i.i.i87 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i87, label %if.then92, label %if.end.i.i.i.i88
@@ -7303,7 +7294,7 @@ if.end15.i.i105:                                  ; preds = %if.then92
   %43 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i.i107 = urem i64 %29, %43
   %44 = load ptr, ptr %idMap, align 8
-  %arrayidx.i.i.i.i108 = getelementptr inbounds ptr, ptr %44, i64 %rem.i.i.i.i.i107
+  %arrayidx.i.i.i.i108 = getelementptr inbounds [8 x i8], ptr %44, i64 %rem.i.i.i.i.i107
   %45 = load ptr, ptr %arrayidx.i.i.i.i108, align 8
   %tobool.not.i.i.i.i109 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i.i109, label %if.then104, label %if.end.i.i.i.i110
@@ -7388,7 +7379,7 @@ invoke.cont111:                                   ; preds = %invoke.cont108
   %56 = load ptr, ptr %entries_, align 8, !noalias !78, !nonnull !33, !noundef !33
   %57 = load i32, ptr %55, align 4, !noalias !78
   %idx.ext8.i.i.i = zext i32 %57 to i64
-  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %56, i64 %idx.ext8.i.i.i
+  %add.ptr9.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %idx.ext8.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i.i)
@@ -7531,7 +7522,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i157, ptr %writableRegions_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i157, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i157, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc143
 
@@ -7564,10 +7555,10 @@ if.then.i160:                                     ; preds = %for.end145
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %add.ptr.i.i161 = getelementptr inbounds nuw i64, ptr %scores.sroa.0.0, i64 %indvars.iv.i
+  %add.ptr.i.i161 = getelementptr inbounds nuw [8 x i8], ptr %scores.sroa.0.0, i64 %indvars.iv.i
   %77 = load i64, ptr %add.ptr.i.i161, align 8
   %78 = load ptr, ptr %tracker_, align 8
-  %add.ptr.i16.i = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv.i
+  %add.ptr.i16.i = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i
   store i64 %77, ptr %add.ptr.i16.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %sub.ptr.div.i
@@ -8170,9 +8161,9 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -8271,9 +8262,9 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -8296,7 +8287,7 @@ entry:
   store ptr %beforeDestroy, ptr %ref.tmp.i, align 8
   call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache12FileCacheKeyENS6_6SsdRunEvvvSt17integral_constantIbLb1EEEEE13eraseIterIntoIZNS1_11F14BasicMapISB_E18tableEraseIterIntoIRZNS1_16F14VectorMapImplIS7_S8_NS_23HeterogeneousAccessHashIS7_vEENS_26HeterogeneousAccessEqualToIS7_vEESaISt4pairIKS7_S8_EESA_E5eraseENS1_23VectorContainerIteratorIPSO_EEEUlOS7_OS8_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_EUlOSO_E_EEvS12_S14_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %underlying.coerce0, i64 %underlying.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit, label %if.then.i.i.i.i.i.i
@@ -8328,7 +8319,7 @@ _ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6Ss
 
 if.then:                                          ; preds = %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit
   %7 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i64 %conv.i21
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %conv.i21
   %id_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %8 = load i64, ptr %id_.i.i.i.i.i, align 8
   %offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
@@ -8364,7 +8355,7 @@ for.cond.i:                                       ; preds = %while.end.i, %if.th
   %cmp.i.not = icmp samesign ule i64 %tries.i.0, %conv.i
   call void @llvm.assume(i1 %cmp.i.not)
   %and.i = and i64 %index.i.0, %conv.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %and.i
   %14 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %14, %vecinit15.i.i
   %15 = bitcast <16 x i1> %cmp.i.i to i16
@@ -8383,7 +8374,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i27 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %18 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i28 = icmp eq i32 %6, %18
   br i1 %cmp.i28, label %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i, label %while.cond.i, !llvm.loop !16
@@ -8394,10 +8385,10 @@ while.end.i:                                      ; preds = %while.cond.i
   br label %for.cond.i, !llvm.loop !17
 
 _ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i: ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   store i32 %1, ptr %arrayidx.i.i.i.i.le, align 4
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
-  %arrayidx13 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %conv.i21
+  %arrayidx13 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %conv.i21
   %second.i.i = getelementptr inbounds nuw i8, ptr %arrayidx13, i64 24
   store ptr null, ptr %arrayidx, align 8
   %id_.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -8437,7 +8428,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %2 = load i32, ptr %pos.coerce0, align 4
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %idxprom.i
   %id_.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %id_.i.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
@@ -8486,7 +8477,7 @@ if.then.i.i:                                      ; preds = %_ZN5folly3f146detai
   %13 = load i32, ptr %chunkMask_.i.i, align 8
   %conv23.i.i = zext i32 %13 to i64
   %and24.i.i = and i64 %hp.sroa.0.0, %conv23.i.i
-  %add.ptr25.i.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %12, i64 %and24.i.i
+  %add.ptr25.i.i = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %and24.i.i
   %cmp726.i.i = icmp eq ptr %add.ptr25.i.i, %add.ptr1.i.i
   br i1 %cmp726.i.i, label %if.then8.i.i, label %if.end.i.i
 
@@ -8522,7 +8513,7 @@ _ZN5folly3f146detail8F14ChunkIjE25decrOutboundOverflowCountEv.exit.i.i: ; preds 
   %add.i.i = add i64 %index.027.i.i, %hp.sroa.3.0
   %conv.i.i = zext i32 %18 to i64
   %and.i.i = and i64 %add.i.i, %conv.i.i
-  %add.ptr.i.i4 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %19, i64 %and.i.i
+  %add.ptr.i.i4 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %and.i.i
   %cmp7.i.i = icmp eq ptr %add.ptr.i.i4, %add.ptr1.i.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end.i.i, !llvm.loop !86
 
@@ -8540,7 +8531,7 @@ entry:
   %__args.val = load i32, ptr %__args, align 4
   %call.val.val = load ptr, ptr %call.val, align 8
   %conv.i.i.i = sext i32 %__args.val to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.facebook::velox::cache::SsdPin", ptr %call.val.val, i64 %conv.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [16 x i8], ptr %call.val.val, i64 %conv.i.i.i
   %run_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %run_.i.i.i.i, align 8
   %shr.i.i.i.i = lshr i64 %retval.sroa.0.0.copyload.i.i.i.i, 23
@@ -8734,7 +8725,7 @@ if.end13.thread:                                  ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i23, align 8
   %rem.i.i.i24 = urem i64 %conv.i.i22, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i24
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %rem.i.i.i24
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
@@ -8872,7 +8863,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 if.end:                                           ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -8881,7 +8872,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit
@@ -8902,13 +8893,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %21 = load i32, ptr %add.ptr.i, align 4
   %conv.i.i.i.i.i = sext i32 %21 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %22 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIiLb0EEE.exit
 
@@ -8970,7 +8961,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -8985,7 +8976,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -9065,7 +9056,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %div = sdiv i64 %sub.ptr.div.i, 2
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %div
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %div
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
   %add.ptr.i2 = getelementptr inbounds i8, ptr %__last.coerce, i64 -8
   %0 = load ptr, ptr %add.ptr.i1, align 8
@@ -9329,7 +9320,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZN8facebook5velox5cache8CachePinD2Ev.exit12, %if.end
   %__parent.0 = phi i64 [ %div1617, %if.end ], [ %dec, %_ZN8facebook5velox5cache8CachePinD2Ev.exit12 ]
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__parent.0
   %0 = load ptr, ptr %add.ptr.i, align 8
   store ptr null, ptr %add.ptr.i, align 8
   store ptr %0, ptr %agg.tmp6, align 8
@@ -9383,9 +9374,9 @@ while.body:                                       ; preds = %entry, %_ZN8faceboo
   %__holeIndex.addr.037 = phi i64 [ %spec.select, %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.037, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i17 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i17 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub3
   %0 = load ptr, ptr %add.ptr.i, align 8
   %id_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %id_.i.i.i, align 8
@@ -9410,8 +9401,8 @@ if.end.i.i:                                       ; preds = %while.body
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN8facebook5velox5cache8CachePinESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i1 [ %cmp10.i.i, %if.then.i.i ], [ %cmp11.i.i, %if.end.i.i ]
   %spec.select = select i1 %retval.0.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i18 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i19 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %__holeIndex.addr.037
+  %add.ptr.i18 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i19 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.037
   %6 = load ptr, ptr %add.ptr.i19, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit, label %if.then.i.i20
@@ -9450,8 +9441,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then20:                                        ; preds = %land.lhs.true
   %add21 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub24 = or disjoint i64 %add21, 1
-  %add.ptr.i21 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %sub24
-  %add.ptr.i22 = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i21 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub24
+  %add.ptr.i22 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %10 = load ptr, ptr %add.ptr.i22, align 8
   %cmp.not.i.i23 = icmp eq ptr %10, null
   br i1 %cmp.not.i.i23, label %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit26, label %if.then.i.i24
@@ -9490,7 +9481,7 @@ land.rhs.i:                                       ; preds = %land.rhs.i.preheade
   %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit.i ], [ %__holeIndex.addr.1, %land.rhs.i.preheader ]
   %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
   %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__parent.023.i
   %15 = load ptr, ptr %add.ptr.i.i, align 8
   %id_.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i64, ptr %id_.i.i.i.i, align 8
@@ -9510,7 +9501,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN8facebook5velox5
   br i1 %cmp11.i.i.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN8facebook5velox5cache8CachePinESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %if.then.i.i.i
-  %add.ptr.i8.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i8.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.022.i
   %20 = load ptr, ptr %add.ptr.i8.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i, label %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit.i, label %if.then.i.i9.i
@@ -9536,7 +9527,7 @@ _ZN8facebook5velox5cache8CachePinaSEOS2_.exit.i:  ; preds = %if.then.i.i9.i, %wh
 
 while.end.i:                                      ; preds = %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN8facebook5velox5cache8CachePinESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %if.then.i.i.i, %if.end33
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end33 ], [ %__holeIndex.addr.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN8facebook5velox5cache8CachePinESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i ], [ %__parent.023.i, %_ZN8facebook5velox5cache8CachePinaSEOS2_.exit.i ], [ %__holeIndex.addr.022.i, %if.then.i.i.i ]
-  %add.ptr.i10.i = getelementptr inbounds %"class.facebook::velox::cache::CachePin", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i10.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %24 = load ptr, ptr %add.ptr.i10.i, align 8
   %cmp.not.i.i11.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i11.i, label %_ZN8facebook5velox5cache8CachePinD2Ev.exit, label %if.then.i.i12.i
@@ -9754,7 +9745,7 @@ for.body.i:                                       ; preds = %if.then, %if.end20.
   %index.i.056 = phi i64 [ %hp.coerce0, %if.then ], [ %add.i, %if.end20.i ]
   %tries.i.055 = phi i64 [ 0, %if.then ], [ %inc.i, %if.end20.i ]
   %and.i = and i64 %index.i.056, %conv.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %and.i
   %6 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %6, %vecinit15.i.i
   %7 = bitcast <16 x i1> %cmp.i.i to i16
@@ -9774,10 +9765,10 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i28 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %10 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   %11 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %idxprom.i
   %offset2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %12 = load i64, ptr %offset2.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %4, %12
@@ -9798,7 +9789,7 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %exitcond.not, label %if.end9, label %for.body.i, !llvm.loop !15
 
 if.then8:                                         ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
   br label %return
 
 if.end9:                                          ; preds = %if.end20.i, %while.end.i, %entry
@@ -9809,7 +9800,7 @@ if.end9:                                          ; preds = %if.end20.i, %while.
   %16 = load i32, ptr %chunkMask_, align 8
   %conv = zext i32 %16 to i64
   %and = and i64 %hp.coerce0, %conv
-  %add.ptr = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %15, i64 %and
+  %add.ptr = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %and
   %17 = load <16 x i8>, ptr %add.ptr, align 16
   %18 = icmp slt <16 x i8> %17, zeroinitializer
   %19 = bitcast <16 x i1> %18 to i16
@@ -9845,7 +9836,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %d
   %add = add i64 %add.i33, %index.0
   %conv17 = zext i32 %24 to i64
   %and18 = and i64 %add, %conv17
-  %add.ptr19 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %and18
+  %add.ptr19 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %and18
   %26 = load <16 x i8>, ptr %add.ptr19, align 16
   %27 = icmp slt <16 x i8> %26, zeroinitializer
   %28 = bitcast <16 x i1> %27 to i16
@@ -9879,12 +9870,12 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.end24
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i, align 1
   %rawItems_.i.i.i42 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 16
-  %arrayidx.i.i.i.i.i43 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i42, i64 %conv26
+  %arrayidx.i.i.i.i.i43 = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i.i42, i64 %conv26
   %33 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   store i32 %33, ptr %arrayidx.i.i.i.i.i43, align 4
   %34 = load ptr, ptr %this, align 8, !nonnull !33, !noundef !33
   %idxprom.i.i = zext i32 %33 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %idxprom.i.i
   %35 = load i64, ptr %args1, align 8
   %36 = inttoptr i64 %35 to ptr
   store ptr null, ptr %arrayidx.i.i, align 8
@@ -10047,7 +10038,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %i.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %1, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds [64 x i8], ptr %1, i64 %i.06.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx.i, i8 0, i64 16, i1 false)
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %newChunkCount
@@ -10118,8 +10109,8 @@ if.then.i:                                        ; preds = %if.then15
 
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.then15
   store i8 %3, ptr %arrayidx.i.i.i35, align 1
-  %arrayidx.i.i.i37 = getelementptr inbounds %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i, i64 %dstI.0133
-  %arrayidx.i.i.i.i = getelementptr inbounds %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i, i64 %srcI.0134
+  %arrayidx.i.i.i37 = getelementptr inbounds [4 x i8], ptr %rawItems_.i, i64 %dstI.0133
+  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i8], ptr %rawItems_.i.i, i64 %srcI.0134
   %5 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %5, ptr %arrayidx.i.i.i37, align 4
   %inc = add nuw i64 %dstI.0133, 1
@@ -10160,7 +10151,7 @@ lpad31:                                           ; preds = %_ZNSt15__new_alloca
 if.end34:                                         ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %if.else23
   %fullness.0 = phi ptr [ %stackBuf, %if.else23 ], [ %call5.i.i39, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %fullness.0, i8 0, i64 %newChunkCount, i1 false)
-  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %0, i64 %origChunkCount
+  %add.ptr = getelementptr inbounds [64 x i8], ptr %0, i64 %origChunkCount
   br label %invoke.cont43
 
 while.cond39.loopexit:                            ; preds = %invoke.cont73, %invoke.cont43
@@ -10198,10 +10189,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %piter.sroa.0.1 = lshr i32 %piter.sroa.0.0123, %add5.i.pn
   %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
   %conv49 = zext i32 %piter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i49 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i48, i64 %conv49
+  %arrayidx.i.i.i.i49 = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i48, i64 %conv49
   %14 = load i32, ptr %arrayidx.i.i.i.i49, align 4
   %idxprom.i = zext i32 %14 to i64
-  %arrayidx.i50 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %idxprom.i
+  %arrayidx.i50 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %idxprom.i
   call void @llvm.prefetch.p0(ptr %arrayidx.i50, i32 0, i32 3, i32 1)
   %cmp.i41.not = icmp eq i32 %piter.sroa.0.1, 0
   br i1 %cmp.i41.not, label %while.body55, label %for.body
@@ -10221,11 +10212,11 @@ while.body55:                                     ; preds = %for.body, %invoke.c
   %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0125, %add5.i64.pn
   %conv59 = zext i32 %iter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i69 = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i48, i64 %conv59
+  %arrayidx.i.i.i.i69 = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i48, i64 %conv59
   %16 = load ptr, ptr %this, align 8
   %17 = load i32, ptr %arrayidx.i.i.i.i69, align 4
   %idxprom.i70 = zext i32 %17 to i64
-  %arrayidx.i71 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %idxprom.i70
+  %arrayidx.i71 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %idxprom.i70
   %id_.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i71, i64 8
   %18 = load i64, ptr %id_.i.i.i.i, align 8
   %offset.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i71, i64 16
@@ -10260,7 +10251,7 @@ do.end72:                                         ; preds = %while.body55
   %conv14.i = zext i32 %23 to i64
   %and15.i = and i64 %add.i73, %conv14.i
   %24 = load ptr, ptr %chunks_, align 8
-  %add.ptr16.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %24, i64 %and15.i
+  %add.ptr16.i = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %and15.i
   %arrayidx17.i = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and15.i
   %25 = load i8, ptr %arrayidx17.i, align 1
   %cmp18.i = icmp ult i8 %25, 12
@@ -10289,7 +10280,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %add.i76 = add nuw nsw i64 %add.i.i, %and19.i
   %conv.i77 = zext i32 %30 to i64
   %and.i78 = and i64 %add.i76, %conv.i77
-  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %29, i64 %and.i78
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %29, i64 %and.i78
   %arrayidx.i79 = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.i78
   %31 = load i8, ptr %arrayidx.i79, align 1
   %cmp.i80 = icmp ult i8 %31, 12
@@ -10321,7 +10312,7 @@ invoke.cont73:                                    ; preds = %while.end.i
   %add.i13.i = add i8 %33, %hostedOp.0.lcssa.i
   store i8 %add.i13.i, ptr %control_.i.i84, align 2
   %rawItems_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 16
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<4, 4>::type", ptr %rawItems_.i.i.i.i, i64 %conv6.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i.i.i, i64 %conv6.i
   %34 = load i32, ptr %arrayidx.i.i.i.i69, align 4
   store i32 %34, ptr %arrayidx.i.i.i.i.i.i, align 4
   %cmp.i52.not = icmp eq i32 %iter.sroa.0.1, 0
@@ -10634,7 +10625,7 @@ if.then5:                                         ; preds = %if.end
 for.body.i.i:                                     ; preds = %if.then5, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i
   %i.04.i.i = phi i64 [ %inc.i.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i ], [ 0, %if.then5 ]
   %4 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %i.04.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -10668,7 +10659,7 @@ if.else:                                          ; preds = %if.end
 for.body.i:                                       ; preds = %if.else, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i
   %i.04.i = phi i64 [ %inc.i, %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i ], [ 0, %if.else ]
   %9 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %i.04.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairIKN8facebook5velox5cache12FileCacheKeyENS3_6SsdRunEEEE7destroyIS7_EEvRS8_PT_.exit.i, label %if.then.i.i.i.i.i.i.i
@@ -10713,7 +10704,7 @@ if.then12:                                        ; preds = %if.then10
 for.body:                                         ; preds = %if.then12, %for.body
   %ci.027 = phi i64 [ 0, %if.then12 ], [ %inc, %for.body ]
   %15 = load ptr, ptr %chunks_, align 8
-  %arrayidx19 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %15, i64 %ci.027
+  %arrayidx19 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %ci.027
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx19, i8 0, i64 16, i1 false)
   %inc = add nuw nsw i64 %ci.027, 1
   %16 = load i32, ptr %chunkMask_, align 8
@@ -12044,7 +12035,7 @@ if.end13.thread:                                  ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i22, align 8
   %rem.i.i.i23 = urem i64 %1, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i23
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %rem.i.i.i23
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
@@ -12179,7 +12170,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 if.end:                                           ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -12188,7 +12179,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeImLb0EEE.exit
@@ -12208,13 +12199,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %20 = load i64, ptr %_M_bucket_count, align 8
   %21 = load i64, ptr %add.ptr.i, align 8
   %rem.i.i.i.i = urem i64 %21, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %22 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeImLb0EEE.exit
 
@@ -12273,7 +12264,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIm
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
   %2 = load i64, ptr %add.ptr, align 8
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -12288,7 +12279,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -13988,7 +13979,7 @@ _ZNSt10_HashtableImSt4pairIKmN8facebook5velox13StringIdLeaseEESaIS5_ENSt8__detai
 if.end:                                           ; preds = %_ZNSt10_HashtableImSt4pairIKmN8facebook5velox13StringIdLeaseEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableImSt4pairIKmN8facebook5velox13StringIdLeaseEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %__bkt, %entry ]
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -13997,7 +13988,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmN8facebook5velox13StringIdLeaseEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit
@@ -14017,13 +14008,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %20 = load i64, ptr %_M_bucket_count, align 8
   %21 = load i64, ptr %add.ptr.i, align 8
   %rem.i.i.i.i = urem i64 %21, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %22 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmN8facebook5velox13StringIdLeaseEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb0EEE.exit
 
@@ -14117,7 +14108,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIm
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
   %2 = load i64, ptr %add.ptr, align 8
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -14132,7 +14123,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -14180,7 +14171,7 @@ if.end13.thread:                                  ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i23, align 8
   %rem.i.i.i24 = urem i64 %conv.i.i22, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i24
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %rem.i.i.i24
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
@@ -14318,7 +14309,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 if.end:                                           ; preds = %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -14327,7 +14318,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIjLb0EEE.exit
@@ -14348,13 +14339,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %21 = load i32, ptr %add.ptr.i, align 4
   %conv.i.i.i.i.i = zext i32 %21 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %20
-  %arrayidx17.i = getelementptr inbounds nuw ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %22 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS1_10_Hash_nodeIjLb0EEE.exit
 
@@ -14414,7 +14405,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIj
   %2 = load i32, ptr %add.ptr, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -14429,7 +14420,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

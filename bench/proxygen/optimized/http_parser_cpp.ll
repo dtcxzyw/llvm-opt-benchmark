@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { ptr, ptr }
-%struct.anon.0 = type { i16, i16 }
 
 @_ZN8proxygenL14method_stringsE = internal unnamed_addr constant [24 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28], align 16
 @.str = private unnamed_addr constant [15 x i8] c"content-length\00", align 1
@@ -798,7 +797,7 @@ do.body550:                                       ; preds = %sw.bb546
 if.end556:                                        ; preds = %sw.bb546
   %29 = load i8, ptr %method3064, align 2
   %idxprom = zext i8 %29 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN8proxygenL14method_stringsE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN8proxygenL14method_stringsE, i64 %idxprom
   %30 = load ptr, ptr %arrayidx, align 8
   %cmp559 = icmp eq i8 %ch.0, 32
   %.pre3573 = load i8, ptr %index2896, align 1
@@ -3809,7 +3808,7 @@ return:                                           ; preds = %if.end3814, %if.end
 define noundef ptr @_ZN8proxygen15http_method_strENS_11http_methodE(i32 noundef %m) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %m to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN8proxygenL14method_stringsE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN8proxygenL14method_stringsE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }
@@ -3843,7 +3842,7 @@ entry:
 define noundef ptr @_ZN8proxygen15http_errno_nameENS_10http_errnoE(i32 noundef %err) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %err to i64
-  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   ret ptr %0
 }
@@ -3852,7 +3851,7 @@ entry:
 define noundef ptr @_ZN8proxygen22http_errno_descriptionENS_10http_errnoE(i32 noundef %err) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i32 %err to i64
-  %arrayidx = getelementptr inbounds nuw %struct.anon, ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @_ZN8proxygenL17http_strerror_tabE, i64 %idxprom
   %description = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
@@ -4062,7 +4061,7 @@ sw.epilog:                                        ; preds = %if.end214.i, %if.en
 
 if.then:                                          ; preds = %sw.epilog
   %idxprom = zext nneg i32 %old_uf.080 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.anon.0, ptr %u, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %u, i64 %idxprom
   %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
   %11 = load i16, ptr %len, align 2
   %inc = add i16 %11, 1
@@ -4074,7 +4073,7 @@ if.end:                                           ; preds = %sw.epilog
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv9 = trunc i64 %sub.ptr.sub to i16
   %idxprom11 = zext nneg i32 %uf.0 to i64
-  %arrayidx12 = getelementptr inbounds nuw %struct.anon.0, ptr %field_data10, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds nuw [4 x i8], ptr %field_data10, i64 %idxprom11
   store i16 %conv9, ptr %arrayidx12, align 2
   %len16 = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 2
   store i16 1, ptr %len16, align 2

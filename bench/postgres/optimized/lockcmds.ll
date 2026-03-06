@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/lockcmds.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.LockViewRecurse_context = type { i32, i8, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"cannot lock relation \22%s\22\00", align 1
@@ -33,7 +32,7 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph23:                                         ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
@@ -207,7 +206,7 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
 .lr.ph31:                                         ; preds = %.lr.ph.split.us.split, %21
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %21 ], [ 0, %.lr.ph.split.us.split ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv34
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv34
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %0
   br i1 %12, label %21, label %13
@@ -243,7 +242,7 @@ define internal fastcc void @LockTableRecurse(i32 noundef %0, i32 noundef %1, i1
 .lr.ph29:                                         ; preds = %.lr.ph.split.split, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph.split.split ]
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %0
   br i1 %28, label %36, label %29
@@ -344,7 +343,7 @@ define internal zeroext i1 @LockViewRecurse_walker(ptr noundef %0, ptr noundef %
 .lr.ph61:                                         ; preds = %.lr.ph, %64
   %indvars.iv60 = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv60
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv60
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = load i32, ptr %20, align 4

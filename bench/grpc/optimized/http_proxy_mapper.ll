@@ -1046,7 +1046,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit.i: ; preds = %327
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %344
   %.098.i = phi i64 [ %345, %344 ], [ 0, %.lr.ph.i.preheader ]
   %341 = load ptr, ptr %18, align 8, !tbaa !41, !noalias !8
-  %342 = getelementptr inbounds nuw ptr, ptr %341, i64 %.098.i
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %.098.i
   %343 = load ptr, ptr %342, align 8, !tbaa !45
   invoke void @gpr_free(ptr noundef %343)
           to label %344 unwind label %348
@@ -3849,7 +3849,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !106
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !104
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !107
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

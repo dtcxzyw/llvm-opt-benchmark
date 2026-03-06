@@ -90,7 +90,7 @@ Vec_PtrFree.exit17:                               ; preds = %Vec_PtrFree.exit, %
   %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %25 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %.val8.i = load ptr, ptr %17, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %.not.i18 = icmp eq ptr %20, null
   br i1 %.not.i18, label %25, label %21
@@ -145,7 +145,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %30
   %.val14.i23 = phi i32 [ %.val11.i19, %.lr.ph.i22 ], [ %.val.i30, %43 ]
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i31, %43 ]
   %.val8.i25 = load ptr, ptr %35, align 8, !tbaa !12
-  %37 = getelementptr inbounds nuw ptr, ptr %.val8.i25, i64 %indvars.iv.i24
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i25, i64 %indvars.iv.i24
   %38 = load ptr, ptr %37, align 8, !tbaa !9
   %.not.i26 = icmp eq ptr %38, null
   br i1 %.not.i26, label %43, label %39
@@ -257,7 +257,7 @@ define void @Bac_PtrFree(ptr noundef captures(address_is_null) %0) local_unnamed
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.val = load ptr, ptr %4, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   tail call void @Bac_PtrFreeNtk(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -318,7 +318,7 @@ define i32 @Bac_PtrMemoryArrayArray(ptr noundef readonly captures(none) %0) loca
 5:                                                ; preds = %.lr.ph, %Bac_PtrMemoryArray.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Bac_PtrMemoryArray.exit ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %15, %Bac_PtrMemoryArray.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %Bac_PtrMemoryArray.exit, label %8
@@ -406,7 +406,7 @@ Bac_PtrMemoryArray.exit13:                        ; preds = %Bac_PtrMemoryArray.
 33:                                               ; preds = %Bac_PtrMemoryArray.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Bac_PtrMemoryArray.exit.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.i ], [ %43, %Bac_PtrMemoryArray.exit.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %Bac_PtrMemoryArray.exit.i, label %36
@@ -444,7 +444,7 @@ Bac_PtrMemoryArrayArray.exit:                     ; preds = %Bac_PtrMemoryArray.
 49:                                               ; preds = %Bac_PtrMemoryArray.exit.i22, %.lr.ph.i16
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i23, %Bac_PtrMemoryArray.exit.i22 ]
   %.010.i20 = phi i32 [ 0, %.lr.ph.i16 ], [ %59, %Bac_PtrMemoryArray.exit.i22 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %.val.i17, i64 %indvars.iv.i19
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val.i17, i64 %indvars.iv.i19
   %51 = load ptr, ptr %50, align 8, !tbaa !9
   %.not.i.i.i21 = icmp eq ptr %51, null
   br i1 %.not.i.i.i21, label %Bac_PtrMemoryArray.exit.i22, label %52
@@ -502,7 +502,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.011 = phi i32 [ %8, %.lr.ph ], [ %16, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = tail call i32 @Bac_PtrMemoryNtk(ptr noundef %14)
   %16 = add nsw i32 %15, %.011
@@ -529,7 +529,7 @@ define void @Bac_PtrDumpSignalsBlif(ptr noundef captures(none) %0, ptr noundef r
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val = load ptr, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %9) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -560,7 +560,7 @@ define void @Bac_PtrDumpBoxBlif(ptr noundef captures(none) %0, ptr noundef reado
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %2 ]
   %.val13 = load ptr, ptr %4, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val13, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !9
@@ -590,7 +590,7 @@ define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef rea
 6:                                                ; preds = %.lr.ph, %Bac_PtrDumpBoxBlif.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Bac_PtrDumpBoxBlif.exit ]
   %.val = load ptr, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 7, i64 1, ptr %0)
   %10 = getelementptr i8, ptr %8, i64 8
@@ -605,7 +605,7 @@ define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef rea
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %6 ]
   %.val13.i = load ptr, ptr %10, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw ptr, ptr %.val13.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val13.i, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !9
@@ -650,7 +650,7 @@ define void @Bac_PtrDumpModuleBlif(ptr noundef captures(none) %0, ptr noundef re
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.val.i = load ptr, ptr %11, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %14) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -677,7 +677,7 @@ Bac_PtrDumpSignalsBlif.exit:                      ; preds = %12, %2
 24:                                               ; preds = %24, %.lr.ph.i18
   %indvars.iv.i19 = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i21, %24 ]
   %.val.i20 = load ptr, ptr %23, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw ptr, ptr %.val.i20, i64 %indvars.iv.i19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val.i20, i64 %indvars.iv.i19
   %26 = load ptr, ptr %25, align 8, !tbaa !9
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %26) #15
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
@@ -720,7 +720,7 @@ define void @Bac_PtrDumpBlif(ptr noundef %0, ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %7 ]
   %.val = load ptr, ptr %8, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   tail call void @Bac_PtrDumpModuleBlif(ptr noundef nonnull %3, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -763,7 +763,7 @@ define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.val.us = load ptr, ptr %6, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw ptr, ptr %.val.us, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val.us, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %8, ptr noundef nonnull @.str.12) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -776,7 +776,7 @@ define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr nounde
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.val1013 = phi i32 [ %.val10, %.lr.ph.split ], [ %.val1011, %.lr.ph ]
   %.val = load ptr, ptr %6, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv17
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv17
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = add nsw i32 %.val1013, -1
   %15 = sext i32 %14 to i64
@@ -812,7 +812,7 @@ define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef re
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %2 ]
   %.val2023 = phi i32 [ %.val20, %.lr.ph ], [ %.val2021, %2 ]
   %.val16 = load ptr, ptr %3, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val16, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !9
@@ -846,7 +846,7 @@ define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef 
 6:                                                ; preds = %.lr.ph, %Bac_PtrDumpBoxVerilog.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Bac_PtrDumpBoxVerilog.exit ]
   %.val = load ptr, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr i8, ptr %8, i64 8
   %.val18.i = load ptr, ptr %9, align 8, !tbaa !3
@@ -865,7 +865,7 @@ define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %6 ]
   %.val2023.i = phi i32 [ %.val20.i, %.lr.ph.i ], [ %.val2021.i, %6 ]
   %.val16.i = load ptr, ptr %9, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw ptr, ptr %.val16.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val16.i, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !9
@@ -913,7 +913,7 @@ define void @Bac_PtrDumpModuleVerilog(ptr noundef captures(none) %0, ptr noundef
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %.val.us.i = load ptr, ptr %10, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw ptr, ptr %.val.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val.us.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %12, ptr noundef nonnull @.str.12) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -943,7 +943,7 @@ Bac_PtrDumpSignalsVerilog.exit:                   ; preds = %Bac_PtrDumpSignalsV
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i24 ]
   %.val1013.i = phi i32 [ %.val10.i, %.lr.ph.split.i ], [ %.val1011.i23, %.lr.ph.i24 ]
   %.val.i = load ptr, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv17.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv17.i
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = add nsw i32 %.val1013.i, -1
   %24 = sext i32 %23 to i64
@@ -975,7 +975,7 @@ Bac_PtrDumpSignalsVerilog.exit25:                 ; preds = %.lr.ph.split.i, %Ba
   %indvars.iv17.i29 = phi i64 [ %indvars.iv.next18.i34, %.lr.ph.split.i28 ], [ 0, %.lr.ph.i27 ]
   %.val1013.i30 = phi i32 [ %.val10.i35, %.lr.ph.split.i28 ], [ %.val1011.i26, %.lr.ph.i27 ]
   %.val.i31 = load ptr, ptr %34, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw ptr, ptr %.val.i31, i64 %indvars.iv17.i29
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val.i31, i64 %indvars.iv17.i29
   %36 = load ptr, ptr %35, align 8, !tbaa !9
   %37 = add nsw i32 %.val1013.i30, -1
   %38 = sext i32 %37 to i64
@@ -1007,7 +1007,7 @@ Bac_PtrDumpSignalsVerilog.exit36:                 ; preds = %.lr.ph.split.i28, %
   %indvars.iv17.i40 = phi i64 [ %indvars.iv.next18.i45, %.lr.ph.split.i39 ], [ 0, %.lr.ph.i38 ]
   %.val1013.i41 = phi i32 [ %.val10.i46, %.lr.ph.split.i39 ], [ %.val1011.i37, %.lr.ph.i38 ]
   %.val.i42 = load ptr, ptr %48, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw ptr, ptr %.val.i42, i64 %indvars.iv17.i40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val.i42, i64 %indvars.iv17.i40
   %50 = load ptr, ptr %49, align 8, !tbaa !9
   %51 = add nsw i32 %.val1013.i41, -1
   %52 = sext i32 %51 to i64
@@ -1054,7 +1054,7 @@ define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr noundef readonly captures(no
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %7 ]
   %.val = load ptr, ptr %8, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   tail call void @Bac_PtrDumpModuleVerilog(ptr noundef nonnull %3, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1082,7 +1082,7 @@ define void @Bac_ManCollectGateNameOne(ptr noundef %0, i32 noundef %1, i64 nound
   %8 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !3
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %.val, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val, i64 %9
   store ptr %7, ptr %10, align 8, !tbaa !9
   br label %11
 
@@ -1317,7 +1317,7 @@ Abc_UtilStrsav.exit:                              ; preds = %25, %28
   %.04787 = phi ptr [ %54, %Abc_UtilStrsav.exit82 ], [ %40, %37 ]
   %41 = shl nuw nsw i64 %indvars.iv, 1
   %.val64 = load ptr, ptr %4, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val64, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !9
   %.not63 = icmp eq ptr %43, null
   br i1 %.not63, label %45, label %44
@@ -1342,7 +1342,7 @@ Abc_UtilStrsav.exit:                              ; preds = %25, %28
 Abc_UtilStrsav.exit82:                            ; preds = %45, %47
   %52 = phi ptr [ %50, %47 ], [ null, %45 ]
   %.val78 = load ptr, ptr %4, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw ptr, ptr %.val78, i64 %41
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.val78, i64 %41
   store ptr %52, ptr %53, align 8, !tbaa !9
   %54 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04787) #15
   %.not62 = icmp eq ptr %54, null
@@ -1369,7 +1369,7 @@ Abc_UtilStrsav.exit82:                            ; preds = %45, %47
 Abc_UtilStrsav.exit84:                            ; preds = %._crit_edge, %58
   %63 = phi ptr [ %61, %58 ], [ null, %._crit_edge ]
   %.val77 = load ptr, ptr %4, align 8, !tbaa !3
-  %64 = getelementptr inbounds nuw ptr, ptr %.val77, i64 %.048.lcssa
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.val77, i64 %.048.lcssa
   store ptr %63, ptr %64, align 8, !tbaa !9
   br label %65
 
@@ -1429,7 +1429,7 @@ Vec_PtrAllocExact.exit:                           ; preds = %1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
   %13 = phi i32 [ %.val9, %.lr.ph ], [ %42, %Vec_PtrPush.exit ]
   %.val = load ptr, ptr %11, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv16
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv16
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %.not.i10 = icmp eq ptr %15, null
   br i1 %.not.i10, label %Abc_UtilStrsav.exit, label %16
@@ -1496,7 +1496,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %42 = phi i32 [ %13, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %41, %39 ], [ 16, %Vec_PtrGrow.exit.i ]
   %43 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %40, %39 ], [ %32, %Vec_PtrGrow.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store ptr %21, ptr %44, align 8, !tbaa !9
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %.val8 = load i32, ptr %2, align 4, !tbaa !15
@@ -1548,7 +1548,7 @@ Vec_PtrAllocExact.exit:                           ; preds = %2
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
   %14 = phi i32 [ %.val13, %.lr.ph ], [ %43, %Vec_PtrPush.exit ]
   %.val = load ptr, ptr %12, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv20
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv20
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %.not.i14 = icmp eq ptr %16, null
   br i1 %.not.i14, label %Abc_UtilStrsav.exit, label %17
@@ -1615,7 +1615,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %43 = phi i32 [ %14, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %42, %40 ], [ 16, %Vec_PtrGrow.exit.i ]
   %44 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %41, %40 ], [ %33, %Vec_PtrGrow.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   store ptr %22, ptr %45, align 8, !tbaa !9
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %.val12 = load i32, ptr %3, align 4, !tbaa !15
@@ -1675,7 +1675,7 @@ Vec_PtrAllocExact.exit:                           ; preds = %2
   %15 = phi i32 [ 0, %.lr.ph ], [ %42, %Vec_PtrPush.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
   %.val = load ptr, ptr %12, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call ptr @Bac_PtrTransformBox(ptr noundef %17, ptr noundef %1)
   %19 = icmp eq i32 %15, %14
@@ -1736,7 +1736,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %42 = add nuw nsw i32 %15, 1
   store i32 %42, ptr %5, align 4, !tbaa !15
   %43 = zext nneg i32 %15 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   store ptr %18, ptr %44, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val9 = load i32, ptr %3, align 4, !tbaa !15
@@ -2025,7 +2025,7 @@ Vec_PtrPush.exit:                                 ; preds = %Abc_UtilStrsav.exit
   %36 = phi i32 [ %63, %Vec_PtrPush.exit30 ], [ 1, %Vec_PtrPush.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_PtrPush.exit30 ], [ 1, %Vec_PtrPush.exit ]
   %.val = load ptr, ptr %20, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !9
   %39 = tail call ptr @Bac_PtrTransformNtk(ptr noundef %38, ptr noundef %10)
   %40 = icmp eq i32 %36, %35
@@ -2086,7 +2086,7 @@ Vec_PtrPush.exit30:                               ; preds = %.Vec_PtrGrow.exit11
   %63 = add nuw nsw i32 %36, 1
   store i32 %63, ptr %13, align 4, !tbaa !15
   %64 = zext nneg i32 %36 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %64
   store ptr %39, ptr %65, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val21 = load i32, ptr %11, align 4, !tbaa !15
@@ -2138,7 +2138,7 @@ define void @Bac_PtrTransformTestTest() local_unnamed_addr #5 {
 8:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %.val.i = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   tail call void @Bac_PtrFreeNtk(ptr noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2179,7 +2179,7 @@ Bac_PtrFree.exit:                                 ; preds = %0, %Vec_PtrFree.exi
 
 20:                                               ; preds = %20, %.lr.ph.i12
   %indvars.iv.i13 = phi i64 [ 1, %.lr.ph.i12 ], [ %indvars.iv.next.i15, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val.i14, i64 %indvars.iv.i13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val.i14, i64 %indvars.iv.i13
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   tail call void @Bac_PtrFreeNtk(ptr noundef %22)
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1

@@ -572,7 +572,7 @@ define hidden void @"_ZN19brotli_decompressor5state47BrotliState$LT$AllocU8$C$Al
 
 65:                                               ; preds = %61, %65
   %66 = phi i64 [ 0, %61 ], [ %69, %65 ]
-  %67 = getelementptr inbounds nuw { i16, i8, [1 x i8] }, ptr %7, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %66
   store i16 0, ptr %67, align 2
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i8 0, ptr %68, align 2
@@ -2250,7 +2250,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit.i.i.i.i: 
   %623 = getelementptr inbounds nuw i8, ptr %.val148.i.i.i.i, i64 %615
   %624 = sub nuw i64 %.val149.i.i.i.i, %615
   %625 = sub nuw i64 %.val203.i.i.i.i, %619
-  %626 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val202.i.i.i.i, i64 %619
+  %626 = getelementptr inbounds nuw [16 x i8], ptr %.val202.i.i.i.i, i64 %619
   call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hcd43d4b1666ccb53E(ptr noalias noundef nonnull align 1 %29, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17h2b678c68c172b266E, i64 noundef %.pre-phi.i.i.i.i, i64 noundef %.pre-phi234.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %623, i64 noundef %624, i64 noundef %591, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %46, ptr noalias noundef nonnull align 8 dereferenceable(5576) %21, ptr noalias noundef nonnull align 4 %64, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull align 4 %626, i64 noundef %625, ptr noalias noundef nonnull align 8 dereferenceable(8) %58, ptr noalias noundef nonnull align 8 dereferenceable(8) %65), !noalias !117
   %627 = load i32, ptr %66, align 4, !alias.scope !85, !noalias !88, !noundef !7
   %628 = load i32, ptr %28, align 8, !alias.scope !85, !noalias !88, !noundef !7
@@ -2520,7 +2520,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit211.i.i.i.
 
 743:                                              ; preds = %741
   %.val200.i.i.i.i = load ptr, ptr %61, align 8, !alias.scope !85, !noalias !88, !nonnull !7, !align !128, !noundef !7
-  %744 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val200.i.i.i.i, i64 %.pre231.i.i.i.i
+  %744 = getelementptr inbounds nuw [16 x i8], ptr %.val200.i.i.i.i, i64 %.pre231.i.i.i.i
   call void @_ZN6brotli3enc6encode17InitInsertCommand17h0c1d1b03860d1b4aE(ptr noalias noundef nonnull align 4 dereferenceable(16) %744, i64 noundef %712), !noalias !117
   %745 = load i64, ptr %58, align 8, !alias.scope !85, !noalias !88, !noundef !7
   %746 = add i64 %745, 1
@@ -5748,7 +5748,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %39 = and i64 %.sroa.03.010, 255
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !7, !align !8, !noundef !7
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   %43 = load ptr, ptr %42, align 8, !nonnull !7, !noundef !7
   br label %44
 
@@ -6502,7 +6502,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %375 = getelementptr inbounds nuw i8, ptr %.val148, i64 %364
   %376 = sub nuw i64 %.val149, %364
   %377 = sub nuw i64 %.val203, %371
-  %378 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val202, i64 %371
+  %378 = getelementptr inbounds nuw [16 x i8], ptr %.val202, i64 %371
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hcd43d4b1666ccb53E(ptr noalias noundef nonnull align 1 %37, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17h2b678c68c172b266E, i64 noundef %.pre-phi, i64 noundef %.pre-phi235, ptr noalias noundef nonnull readonly align 1 %375, i64 noundef %376, i64 noundef %338, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %80, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %368, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %353, ptr noalias noundef nonnull align 4 %378, i64 noundef %377, ptr noalias noundef nonnull align 8 dereferenceable(8) %225, ptr noalias noundef nonnull align 8 dereferenceable(8) %379)
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 204
@@ -6619,7 +6619,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit211: ; pre
 
 442:                                              ; preds = %437
   %.val200 = load ptr, ptr %369, align 8, !nonnull !7, !align !128, !noundef !7
-  %443 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val200, i64 %.pre232
+  %443 = getelementptr inbounds nuw [16 x i8], ptr %.val200, i64 %.pre232
   call void @_ZN6brotli3enc6encode17InitInsertCommand17h0c1d1b03860d1b4aE(ptr noalias noundef nonnull align 4 dereferenceable(16) %443, i64 noundef %407)
   %444 = load i64, ptr %225, align 8, !noundef !7
   %445 = add i64 %444, 1
@@ -7854,7 +7854,7 @@ define internal fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17h414d7a18
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %.val18 = load ptr, ptr %10, align 8, !nonnull !7, !align !128, !noundef !7
-  %11 = getelementptr inbounds nuw { i32, i32, i32, i16, i16 }, ptr %.val18, i64 %7
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.val18, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %14 = load i32, ptr %13, align 4, !noundef !7
@@ -13553,7 +13553,7 @@ define { i64, ptr } @"_ZN98_$LT$pingora_core..protocols..l4..stream..Stream$u20$
 .preheader:                                       ; preds = %4, %.preheader
   %.sroa.07.0.i = phi i64 [ %9, %.preheader ], [ 0, %4 ]
   %.sroa.09.0.i = phi i64 [ %10, %.preheader ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %2, i64 %.sroa.09.0.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.sroa.09.0.i
   %8 = getelementptr i8, ptr %7, i64 8
   %.val.i = load i64, ptr %8, align 8, !noundef !7
   %9 = add i64 %.val.i, %.sroa.07.0.i

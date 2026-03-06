@@ -563,7 +563,7 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %113 = phi ptr [ %120, %119 ], [ %109, %103 ]
   %114 = phi ptr [ %121, %119 ], [ %108, %103 ]
   %.09.i.i = phi i64 [ %122, %119 ], [ 0, %103 ]
-  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %.09.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.09.i.i
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %119, label %118
@@ -867,7 +867,7 @@ define linkonce_odr hidden void @_ZN6Assimp14StackAllocatorD2Ev(ptr noundef nonn
   %10 = phi ptr [ %17, %16 ], [ %5, %1 ]
   %11 = phi ptr [ %18, %16 ], [ %4, %1 ]
   %.09.i = phi i64 [ %19, %16 ], [ 0, %1 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.09.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.09.i
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15

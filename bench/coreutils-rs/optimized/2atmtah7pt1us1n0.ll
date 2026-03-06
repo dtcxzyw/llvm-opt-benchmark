@@ -1379,7 +1379,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %123 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %115, %112 ]
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %125 = load ptr, ptr %124, align 8, !alias.scope !313, !noalias !316, !nonnull !5, !noundef !5
-  %126 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %125, i64 %123
+  %126 = getelementptr inbounds [24 x i8], ptr %125, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   %127 = load i64, ptr %114, align 8, !alias.scope !313, !noalias !316, !noundef !5
   %128 = add i64 %127, 1
@@ -2238,7 +2238,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %397 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %389, %386 ]
   %398 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %399 = load ptr, ptr %398, align 8, !alias.scope !604, !noalias !607, !nonnull !5, !noundef !5
-  %400 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %399, i64 %397
+  %400 = getelementptr inbounds [24 x i8], ptr %399, i64 %397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %400, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !566
   %401 = load i64, ptr %388, align 8, !alias.scope !604, !noalias !607, !noundef !5
   %402 = add i64 %401, 1
@@ -2306,7 +2306,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %421 = phi i64 [ %.pre.i.i84.i, %._crit_edge.i.i83.i ], [ %413, %410 ]
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %423 = load ptr, ptr %422, align 8, !alias.scope !621, !noalias !624, !nonnull !5, !noundef !5
-  %424 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %423, i64 %421
+  %424 = getelementptr inbounds [24 x i8], ptr %423, i64 %421
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %424, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !566
   %425 = load i64, ptr %412, align 8, !alias.scope !621, !noalias !624, !noundef !5
   %426 = add i64 %425, 1
@@ -2442,7 +2442,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %454 = phi i64 [ %.pre.i.i168, %._crit_edge.i.i167 ], [ %446, %443 ]
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %456 = load ptr, ptr %455, align 8, !alias.scope !640, !noalias !643, !nonnull !5, !noundef !5
-  %457 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %456, i64 %454
+  %457 = getelementptr inbounds [24 x i8], ptr %456, i64 %454
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %457, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %458 = load i64, ptr %445, align 8, !alias.scope !640, !noalias !643, !noundef !5
   %459 = add i64 %458, 1

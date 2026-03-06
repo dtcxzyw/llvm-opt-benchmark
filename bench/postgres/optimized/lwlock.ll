@@ -4,22 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.LWLockHandle = type { ptr, i32 }
-%struct.NamedLWLockTrancheRequest = type { [64 x i8], i32 }
-%union.LWLockPadded = type { %struct.LWLock, [112 x i8] }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.proclist_head = type { i32, i32 }
-%struct.NamedLWLockTranche = type { i32, ptr }
 %struct.SpinDelayStatus = type { i32, i32, i32, ptr, i32, ptr }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 
 @MainLWLockArray = dso_local local_unnamed_addr global ptr null, align 8
 @NamedLWLockTrancheRequests = dso_local local_unnamed_addr global i32 0, align 4
@@ -153,7 +138,7 @@ define dso_local i64 @LWLockShmemSize() local_unnamed_addr #0 {
 4:                                                ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %4 ]
   %.056.i = phi i32 [ 0, %.lr.ph.i ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw %struct.NamedLWLockTrancheRequest, ptr %3, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [68 x i8], ptr %3, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, %.056.i
@@ -182,7 +167,7 @@ NumLWLocksForNamedTranches.exit:                  ; preds = %NumLWLocksForNamedT
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %NumLWLocksForNamedTranches.exit ]
   %.011 = phi i64 [ %23, %.lr.ph ], [ %16, %NumLWLocksForNamedTranches.exit ]
   %19 = load ptr, ptr @NamedLWLockTrancheRequestArray, align 8
-  %20 = getelementptr inbounds nuw %struct.NamedLWLockTrancheRequest, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [68 x i8], ptr %19, i64 %indvars.iv
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #15
   %22 = add i64 %21, 1
   %23 = tail call i64 @add_size(i64 noundef %.011, i64 noundef %22) #14
@@ -237,7 +222,7 @@ define dso_local void @CreateLWLocks() local_unnamed_addr #0 {
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
   %.056.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %19, %15 ]
-  %16 = getelementptr inbounds nuw %struct.NamedLWLockTrancheRequest, ptr %14, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [68 x i8], ptr %14, i64 %indvars.iv.i.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %.056.i.i
@@ -338,7 +323,7 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
 
 .lr.ph56.preheader.i:                             ; preds = %57
   %60 = load ptr, ptr @MainLWLockArray, align 8
-  %61 = getelementptr inbounds %union.LWLockPadded, ptr %60, i64 %.05.lcssa.i.i
+  %61 = getelementptr inbounds [128 x i8], ptr %60, i64 %.05.lcssa.i.i
   store ptr %61, ptr @NamedLWLockTrancheArray, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 27264
   %63 = zext nneg i32 %58 to i64
@@ -351,9 +336,9 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   %.03753.i = phi ptr [ %65, %.lr.ph56.preheader.i ], [ %72, %._crit_edge.i ]
   %.452.i = phi ptr [ %62, %.lr.ph56.preheader.i ], [ %.5.lcssa.i, %._crit_edge.i ]
   %66 = load ptr, ptr @NamedLWLockTrancheRequestArray, align 8
-  %67 = getelementptr inbounds nuw %struct.NamedLWLockTrancheRequest, ptr %66, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [68 x i8], ptr %66, i64 %indvars.iv.i
   %68 = load ptr, ptr @NamedLWLockTrancheArray, align 8
-  %69 = getelementptr inbounds nuw %struct.NamedLWLockTranche, ptr %68, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv.i
   %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #15
   %71 = getelementptr i8, ptr %.03753.i, i64 %70
   %72 = getelementptr i8, ptr %71, i64 1
@@ -428,7 +413,7 @@ InitializeLWLocks.exit:                           ; preds = %._crit_edge.i, %.In
   %102 = phi i32 [ %100, %.lr.ph.preheader ], [ %137, %LWLockRegisterTranche.exit ]
   %103 = phi ptr [ %.pre14, %.lr.ph.preheader ], [ %138, %LWLockRegisterTranche.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %LWLockRegisterTranche.exit ]
-  %104 = getelementptr inbounds nuw %struct.NamedLWLockTranche, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %indvars.iv
   %105 = load i32, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -480,7 +465,7 @@ InitializeLWLocks.exit:                           ; preds = %._crit_edge.i, %.In
   %.pre15 = phi i32 [ %.pre15.pre, %132 ], [ %.pre1516, %109 ]
   %134 = phi ptr [ %storemerge.i, %132 ], [ %.pre.i, %109 ]
   %135 = zext nneg i32 %110 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %135
   store ptr %107, ptr %136, align 8
   %.pre13 = load ptr, ptr @NamedLWLockTrancheArray, align 8
   br label %LWLockRegisterTranche.exit
@@ -545,7 +530,7 @@ define dso_local void @LWLockRegisterTranche(i32 noundef %0, ptr noundef %1) loc
 28:                                               ; preds = %27, %4
   %29 = phi ptr [ %storemerge, %27 ], [ %.pre, %4 ]
   %30 = zext nneg i32 %5 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   store ptr %1, ptr %31, align 8
   br label %32
 
@@ -572,7 +557,7 @@ define dso_local ptr @GetNamedLWLockTranche(ptr noundef readonly captures(none) 
 5:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.010 = phi i32 [ 213, %.lr.ph ], [ %16, %13 ]
-  %6 = getelementptr inbounds nuw %struct.NamedLWLockTrancheRequest, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [68 x i8], ptr %4, i64 %indvars.iv
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #15
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %13
@@ -580,7 +565,7 @@ define dso_local ptr @GetNamedLWLockTranche(ptr noundef readonly captures(none) 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @MainLWLockArray, align 8
   %11 = sext i32 %.010 to i64
-  %12 = getelementptr inbounds %union.LWLockPadded, ptr %10, i64 %11
+  %12 = getelementptr inbounds [128 x i8], ptr %10, i64 %11
   ret ptr %12
 
 13:                                               ; preds = %5
@@ -689,7 +674,7 @@ define dso_local void @RequestNamedLWLockTranche(ptr noundef %0, i32 noundef %1)
   %29 = phi i32 [ %.pre, %18 ], [ %16, %14 ]
   %30 = phi ptr [ %27, %18 ], [ %15, %14 ]
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.NamedLWLockTrancheRequest, ptr %30, i64 %31
+  %32 = getelementptr inbounds [68 x i8], ptr %30, i64 %31
   %33 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 64) #14
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store i32 %1, ptr %34, align 4
@@ -726,7 +711,7 @@ define dso_local ptr @GetLWLockIdentifier(i32 noundef %0, i16 noundef zeroext %1
 
 4:                                                ; preds = %2
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @BuiltinTrancheNames, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @BuiltinTrancheNames, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %GetLWTrancheName.exit
 
@@ -740,7 +725,7 @@ define dso_local ptr @GetLWLockIdentifier(i32 noundef %0, i16 noundef zeroext %1
 12:                                               ; preds = %8
   %13 = load ptr, ptr @LWLockTrancheNames, align 8
   %14 = zext i16 %9 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %spec.select.i = select i1 %17, ptr @.str.5, ptr %16
@@ -758,7 +743,7 @@ define internal fastcc ptr @GetLWTrancheName(i16 noundef zeroext %0) unnamed_add
 
 3:                                                ; preds = %1
   %4 = zext nneg i16 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @BuiltinTrancheNames, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @BuiltinTrancheNames, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %17
 
@@ -772,7 +757,7 @@ define internal fastcc ptr @GetLWTrancheName(i16 noundef zeroext %0) unnamed_add
 11:                                               ; preds = %7
   %12 = load ptr, ptr @LWLockTrancheNames, align 8
   %13 = zext i16 %8 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %spec.select = select i1 %16, ptr @.str.5, ptr %15
@@ -914,7 +899,7 @@ LWLockAttemptLock.exit34:                         ; preds = %.split.us.i30
 .loopexit:                                        ; preds = %LWLockAttemptLock.exit, %.split18.i, %44
   %58 = load i32, ptr @num_held_lwlocks, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.LWLockHandle, ptr @held_lwlocks, i64 %59
+  %60 = getelementptr inbounds [16 x i8], ptr @held_lwlocks, i64 %59
   store ptr %0, ptr %60, align 16
   %61 = add i32 %58, 1
   store i32 %61, ptr @num_held_lwlocks, align 4
@@ -1020,7 +1005,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %15
   %40 = load ptr, ptr @ProcGlobal, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %struct.PGPROC, ptr %41, i64 %42
+  %43 = getelementptr inbounds [832 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 92
   %45 = load i32, ptr %38, align 4
   %46 = icmp eq i32 %45, -1
@@ -1039,7 +1024,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %15
   %51 = load ptr, ptr @ProcGlobal, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %45 to i64
-  %54 = getelementptr inbounds %struct.PGPROC, ptr %52, i64 %53
+  %54 = getelementptr inbounds [832 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
   store i32 %39, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 96
@@ -1055,7 +1040,7 @@ proclist_push_head_offset.exit:                   ; preds = %47, %50
   %59 = load ptr, ptr @ProcGlobal, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %58 to i64
-  %62 = getelementptr inbounds %struct.PGPROC, ptr %60, i64 %61
+  %62 = getelementptr inbounds [832 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 92
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %65 = load i32, ptr %64, align 4
@@ -1075,7 +1060,7 @@ proclist_push_head_offset.exit:                   ; preds = %47, %50
   %71 = load ptr, ptr @ProcGlobal, align 8
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %65 to i64
-  %74 = getelementptr inbounds %struct.PGPROC, ptr %72, i64 %73
+  %74 = getelementptr inbounds [832 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 92
   store i32 %58, ptr %75, align 4
   store i32 -1, ptr %63, align 4
@@ -1147,7 +1132,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %1
   %24 = load ptr, ptr @ProcGlobal, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %26
+  %27 = getelementptr inbounds [832 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 92
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %30 = load i32, ptr %29, align 4
@@ -1163,7 +1148,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %1
 
 35:                                               ; preds = %22
   %36 = sext i32 %30 to i64
-  %37 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %36
+  %37 = getelementptr inbounds [832 x i8], ptr %25, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 92
   store i32 %32, ptr %38, align 4
   br label %39
@@ -1182,7 +1167,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %1
   %45 = load ptr, ptr @ProcGlobal, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %32 to i64
-  %48 = getelementptr inbounds %struct.PGPROC, ptr %46, i64 %47
+  %48 = getelementptr inbounds [832 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   store i32 %40, ptr %49, align 4
   br label %proclist_delete_offset.exit
@@ -1319,7 +1304,7 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
 29:                                               ; preds = %.split18.i, %LWLockAttemptLock.exit
   %30 = load i32, ptr @num_held_lwlocks, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.LWLockHandle, ptr @held_lwlocks, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr @held_lwlocks, i64 %31
   store ptr %0, ptr %32, align 16
   %33 = add i32 %30, 1
   store i32 %33, ptr @num_held_lwlocks, align 4
@@ -1476,7 +1461,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
 ._crit_edge:                                      ; preds = %.split18.i, %LWLockAttemptLock.exit, %53
   %64 = load i32, ptr @num_held_lwlocks, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.LWLockHandle, ptr @held_lwlocks, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr @held_lwlocks, i64 %65
   store ptr %0, ptr %66, align 16
   %67 = add i32 %64, 1
   store i32 %67, ptr @num_held_lwlocks, align 4
@@ -1641,7 +1626,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %3
   %26 = load ptr, ptr @ProcGlobal, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %22 to i64
-  %29 = getelementptr inbounds %struct.PGPROC, ptr %27, i64 %28
+  %29 = getelementptr inbounds [832 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 91
   %31 = load i8, ptr %30, align 1
   %.not2766 = icmp eq i8 %31, 2
@@ -1651,7 +1636,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %3
   %32 = load ptr, ptr @ProcGlobal, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %22 to i64
-  %35 = getelementptr inbounds %struct.PGPROC, ptr %33, i64 %34
+  %35 = getelementptr inbounds [832 x i8], ptr %33, i64 %34
   br label %36
 
 36:                                               ; preds = %.lr.ph71, %76
@@ -1678,7 +1663,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %3
 
 46:                                               ; preds = %36
   %47 = sext i32 %42 to i64
-  %48 = getelementptr inbounds %struct.PGPROC, ptr %39, i64 %47
+  %48 = getelementptr inbounds [832 x i8], ptr %39, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 92
   store i32 %44, ptr %49, align 4
   br label %50
@@ -1696,7 +1681,7 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %3
   %55 = load ptr, ptr @ProcGlobal, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %44 to i64
-  %58 = getelementptr inbounds %struct.PGPROC, ptr %56, i64 %57
+  %58 = getelementptr inbounds [832 x i8], ptr %56, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
   store i32 %51, ptr %59, align 4
   br label %proclist_delete_offset.exit
@@ -1706,7 +1691,7 @@ proclist_delete_offset.exit:                      ; preds = %53, %54
   store i32 0, ptr %40, align 4
   %60 = load ptr, ptr @ProcGlobal, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds %struct.PGPROC, ptr %61, i64 %38
+  %62 = getelementptr inbounds [832 x i8], ptr %61, i64 %38
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 92
   %64 = icmp eq i32 %.sroa.6.03869, -1
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 96
@@ -1721,7 +1706,7 @@ proclist_delete_offset.exit:                      ; preds = %53, %54
   %68 = load ptr, ptr @ProcGlobal, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %.sroa.6.03869 to i64
-  %71 = getelementptr inbounds %struct.PGPROC, ptr %69, i64 %70
+  %71 = getelementptr inbounds [832 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 92
   store i32 %.sroa.0.04067, ptr %72, align 4
   br label %73
@@ -1738,9 +1723,9 @@ proclist_delete_offset.exit:                      ; preds = %53, %54
   %77 = load ptr, ptr @ProcGlobal, align 8
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %.sroa.21.04170 to i64
-  %80 = getelementptr inbounds %struct.PGPROC, ptr %78, i64 %79
+  %80 = getelementptr inbounds [832 x i8], ptr %78, i64 %79
   %81 = sext i32 %.sroa.21.04170 to i64
-  %82 = getelementptr inbounds %struct.PGPROC, ptr %78, i64 %81
+  %82 = getelementptr inbounds [832 x i8], ptr %78, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 91
   %84 = load i8, ptr %83, align 1
   %.not27 = icmp eq i8 %84, 2
@@ -1757,11 +1742,11 @@ proclist_delete_offset.exit:                      ; preds = %53, %54
   %87 = load ptr, ptr @ProcGlobal, align 8
   %88 = load ptr, ptr %87, align 8
   %89 = sext i32 %.sink62 to i64
-  %90 = getelementptr inbounds %struct.PGPROC, ptr %88, i64 %89
+  %90 = getelementptr inbounds [832 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 92
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %.sink62 to i64
-  %94 = getelementptr inbounds %struct.PGPROC, ptr %88, i64 %93
+  %94 = getelementptr inbounds [832 x i8], ptr %88, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 92
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 96
   %97 = load i32, ptr %96, align 4
@@ -1771,7 +1756,7 @@ proclist_delete_offset.exit:                      ; preds = %53, %54
 
 100:                                              ; preds = %.lr.ph48
   %101 = sext i32 %97 to i64
-  %102 = getelementptr inbounds %struct.PGPROC, ptr %88, i64 %101
+  %102 = getelementptr inbounds [832 x i8], ptr %88, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 92
   store i32 %99, ptr %103, align 4
   br label %104
@@ -1784,7 +1769,7 @@ proclist_delete_offset.exit:                      ; preds = %53, %54
   %107 = load ptr, ptr @ProcGlobal, align 8
   %108 = load ptr, ptr %107, align 8
   %109 = sext i32 %99 to i64
-  %110 = getelementptr inbounds %struct.PGPROC, ptr %108, i64 %109
+  %110 = getelementptr inbounds [832 x i8], ptr %108, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 96
   store i32 %97, ptr %111, align 4
   br label %proclist_delete_offset.exit29
@@ -1823,7 +1808,7 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %6
   %9 = and i64 %indvars.iv.next, 2147483647
-  %10 = getelementptr inbounds nuw %struct.LWLockHandle, ptr @held_lwlocks, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @held_lwlocks, i64 %9
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %0, %11
   %indvars.iv.next34 = add i32 %indvars.iv33, -1
@@ -1850,9 +1835,9 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv36 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next37, %.lr.ph ]
-  %23 = getelementptr inbounds nuw %struct.LWLockHandle, ptr @held_lwlocks, i64 %indvars.iv36
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @held_lwlocks, i64 %indvars.iv36
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %24 = getelementptr inbounds nuw %struct.LWLockHandle, ptr @held_lwlocks, i64 %indvars.iv.next37
+  %24 = getelementptr inbounds nuw [16 x i8], ptr @held_lwlocks, i64 %indvars.iv.next37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, ptr noundef nonnull align 16 dereferenceable(16) %24, i64 16, i1 false)
   %25 = trunc nuw i64 %indvars.iv.next37 to i32
   %26 = icmp sgt i32 %5, %25
@@ -1922,7 +1907,7 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
   %51 = load ptr, ptr @ProcGlobal, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %49 to i64
-  %54 = getelementptr inbounds %struct.PGPROC, ptr %52, i64 %53
+  %54 = getelementptr inbounds [832 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %56
 
@@ -1938,7 +1923,7 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
   %.sroa.21.065.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 92
   %.sroa.21.065.i = load i32, ptr %.sroa.21.065.in.i, align 4
   %59 = sext i32 %.sroa.0.064.i to i64
-  %60 = getelementptr inbounds %struct.PGPROC, ptr %57, i64 %59
+  %60 = getelementptr inbounds [832 x i8], ptr %57, i64 %59
   br i1 %.03366.i, label %61, label %65
 
 61:                                               ; preds = %56
@@ -1962,7 +1947,7 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
 
 72:                                               ; preds = %65
   %73 = sext i32 %68 to i64
-  %74 = getelementptr inbounds %struct.PGPROC, ptr %57, i64 %73
+  %74 = getelementptr inbounds [832 x i8], ptr %57, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 92
   store i32 %70, ptr %75, align 4
   br label %76
@@ -1980,7 +1965,7 @@ LWLockWaitListLock.exit.i:                        ; preds = %._crit_edge.i.i, %3
   %81 = load ptr, ptr @ProcGlobal, align 8
   %82 = load ptr, ptr %81, align 8
   %83 = sext i32 %70 to i64
-  %84 = getelementptr inbounds %struct.PGPROC, ptr %82, i64 %83
+  %84 = getelementptr inbounds [832 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
   store i32 %77, ptr %85, align 4
   br label %proclist_delete_offset.exit.i
@@ -1990,7 +1975,7 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
   store i32 0, ptr %66, align 4
   %86 = load ptr, ptr @ProcGlobal, align 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds %struct.PGPROC, ptr %87, i64 %59
+  %88 = getelementptr inbounds [832 x i8], ptr %87, i64 %59
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 92
   %90 = icmp eq i32 %.sroa.7.062.i, -1
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 96
@@ -2005,7 +1990,7 @@ proclist_delete_offset.exit.i:                    ; preds = %80, %79
   %94 = load ptr, ptr @ProcGlobal, align 8
   %95 = load ptr, ptr %94, align 8
   %96 = sext i32 %.sroa.7.062.i to i64
-  %97 = getelementptr inbounds %struct.PGPROC, ptr %95, i64 %96
+  %97 = getelementptr inbounds [832 x i8], ptr %95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 92
   store i32 %.sroa.0.064.i, ptr %98, align 4
   br label %proclist_push_tail_offset.exit.i
@@ -2036,7 +2021,7 @@ proclist_push_tail_offset.exit.i:                 ; preds = %93, %92
 106:                                              ; preds = %103
   %107 = load ptr, ptr %104, align 8
   %108 = sext i32 %.sroa.21.065.i to i64
-  %109 = getelementptr inbounds %struct.PGPROC, ptr %107, i64 %108
+  %109 = getelementptr inbounds [832 x i8], ptr %107, i64 %108
   br label %56, !llvm.loop !30
 
 proclist_push_tail_offset.exit._crit_edge.loopexit.i: ; preds = %103, %proclist_push_tail_offset.exit.i
@@ -2073,7 +2058,7 @@ proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %proclist_push_tail_
   %121 = load ptr, ptr @ProcGlobal, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = sext i32 %.sink89.i to i64
-  %124 = getelementptr inbounds %struct.PGPROC, ptr %122, i64 %123
+  %124 = getelementptr inbounds [832 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 92
   %126 = load i32, ptr %125, align 4
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 96
@@ -2083,7 +2068,7 @@ proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %proclist_push_tail_
 
 130:                                              ; preds = %.lr.ph75.i
   %131 = sext i32 %128 to i64
-  %132 = getelementptr inbounds %struct.PGPROC, ptr %122, i64 %131
+  %132 = getelementptr inbounds [832 x i8], ptr %122, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 92
   store i32 %126, ptr %133, align 4
   br label %134
@@ -2096,7 +2081,7 @@ proclist_delete_offset.exit45.i:                  ; preds = %134
   %136 = load ptr, ptr @ProcGlobal, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = sext i32 %126 to i64
-  %139 = getelementptr inbounds %struct.PGPROC, ptr %137, i64 %138
+  %139 = getelementptr inbounds [832 x i8], ptr %137, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 96
   store i32 %128, ptr %140, align 4
   store i32 0, ptr %127, align 4
@@ -2149,7 +2134,7 @@ define dso_local void @LWLockReleaseAll() local_unnamed_addr #0 {
   %5 = add i32 %4, 1
   store volatile i32 %5, ptr @InterruptHoldoffCount, align 4
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr %struct.LWLockHandle, ptr @held_lwlocks, i64 %6
+  %7 = getelementptr [16 x i8], ptr @held_lwlocks, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -16
   %9 = load ptr, ptr %8, align 16
   tail call void @LWLockRelease(ptr noundef %9)
@@ -2173,7 +2158,7 @@ define dso_local noundef zeroext i1 @LWLockHeldByMe(ptr noundef readnone capture
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.LWLockHandle, ptr @held_lwlocks, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @held_lwlocks, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2202,7 +2187,7 @@ define dso_local noundef zeroext i1 @LWLockAnyHeldByMe(ptr noundef %0, i32 nound
 
 10:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %11 = getelementptr inbounds nuw %struct.LWLockHandle, ptr @held_lwlocks, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @held_lwlocks, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 16
   %.not = icmp uge ptr %12, %0
   %13 = icmp ult ptr %12, %6
@@ -2238,7 +2223,7 @@ define dso_local noundef zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %5 = getelementptr inbounds nuw %struct.LWLockHandle, ptr @held_lwlocks, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @held_lwlocks, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16
   %7 = icmp eq ptr %6, %0
   br i1 %7, label %8, label %12

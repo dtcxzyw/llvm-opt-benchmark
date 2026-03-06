@@ -206,7 +206,7 @@ define dso_local void @Curl_conn_cf_discard_chain(ptr noundef captures(none) %0,
 define dso_local void @Curl_conn_cf_discard_all(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %Curl_conn_cf_discard_chain.exit, label %8
@@ -239,7 +239,7 @@ define dso_local void @Curl_conn_close(ptr noundef %0, i32 noundef %1) local_unn
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %9
@@ -267,7 +267,7 @@ define dso_local i32 @Curl_conn_shutdown(ptr noundef %0, i32 noundef %1, ptr nou
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %.068107 = load ptr, ptr %10, align 8, !tbaa !51
   %.not108 = icmp eq ptr %.068107, null
   br i1 %.not108, label %.critedge100, label %.lr.ph
@@ -541,7 +541,7 @@ define dso_local i64 @Curl_cf_recv(ptr noundef %0, i32 noundef %1, ptr noundef %
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %.01620 = load ptr, ptr %10, align 8, !tbaa !51
   %.not21 = icmp eq ptr %.01620, null
   br i1 %.not21, label %.critedge18, label %.lr.ph
@@ -586,7 +586,7 @@ define dso_local i64 @Curl_cf_send(ptr noundef %0, i32 noundef %1, ptr noundef %
   %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 608
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %.01721 = load ptr, ptr %11, align 8, !tbaa !51
   %.not22 = icmp eq ptr %.01721, null
   br i1 %.not22, label %.critedge19, label %.lr.ph
@@ -645,7 +645,7 @@ define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr noundef writeonly capt
 define dso_local void @Curl_conn_cf_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((8, 16), (24, 36)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !8
@@ -846,7 +846,7 @@ define dso_local i32 @Curl_conn_connect(ptr noundef %0, i32 noundef %1, i1 nound
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 608
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !51
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %17
@@ -880,7 +880,7 @@ Curl_conn_needs_flush.exit:                       ; preds = %17
 29:                                               ; preds = %Curl_conn_needs_flush.exit
   %30 = load ptr, ptr %10, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 608
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %13
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %13
   %33 = load ptr, ptr %32, align 8, !tbaa !51
   %.not1517.i.i = icmp eq ptr %33, null
   br i1 %.not1517.i.i, label %Curl_conn_flush.exit.thread, label %.lr.ph.split.i.i
@@ -927,7 +927,7 @@ Curl_conn_flush.exit.thread:                      ; preds = %38, %40, %29, %Curl
 .split.us.i.i:                                    ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i.i, %50
   %53 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.us.i.i ], [ true, %50 ]
   %.05.us.i.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.us.i.i ], [ 0, %50 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %.05.us.i.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.05.us.i.i
   %55 = load ptr, ptr %54, align 8, !tbaa !51
   %.not1517.i.us.i.i = icmp eq ptr %55, null
   br i1 %.not1517.i.us.i.i, label %Curl_conn_cf_cntrl.exit.thread.us.i.i, label %.lr.ph.split.us.i.us.i.i
@@ -1079,7 +1079,7 @@ define dso_local zeroext i1 @Curl_conn_needs_flush(ptr noundef %0, i32 noundef %
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 608
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !44
@@ -1109,7 +1109,7 @@ define dso_local i32 @Curl_conn_flush(ptr noundef %0, i32 noundef %1) local_unna
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %.not1517.i = icmp eq ptr %8, null
   br i1 %.not1517.i, label %Curl_conn_cf_cntrl.exit, label %.lr.ph.split.i
@@ -1144,7 +1144,7 @@ declare void @Curl_verboseconnect(ptr noundef, ptr noundef, i32 noundef) local_u
 define dso_local zeroext i1 @Curl_conn_is_connected(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -1166,7 +1166,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_ip_connected(ptr noundef reado
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %.09 = load ptr, ptr %7, align 8, !tbaa !51
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -1235,7 +1235,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_ssl(ptr noundef readonly captu
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not8.i = icmp eq ptr %7, null
   br i1 %.not8.i, label %Curl_conn_cf_is_ssl.exit, label %.lr.ph.i
@@ -1273,7 +1273,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_multiplex(ptr noundef readonly
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not1014 = icmp eq ptr %7, null
   br i1 %.not1014, label %._crit_edge, label %.lr.ph
@@ -1309,7 +1309,7 @@ define dso_local zeroext i1 @Curl_conn_data_pending(ptr noundef %0, i32 noundef 
   %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %.013 = load ptr, ptr %7, align 8, !tbaa !51
   %.not14 = icmp eq ptr %.013, null
   br i1 %.not14, label %.critedge11, label %.lr.ph
@@ -1436,7 +1436,7 @@ define dso_local void @Curl_conn_adjust_pollset(ptr noundef %0, ptr noundef %1) 
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %Curl_conn_cf_adjust_pollset.exit ]
   %6 = load ptr, ptr %3, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 608
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   br label %10
 
@@ -1588,10 +1588,10 @@ Curl_conn_cf_adjust_pollset.exit:                 ; preds = %.lr.ph29.i
 
 36:                                               ; preds = %30
   %.1 = zext nneg i8 %.121 to i16
-  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !44
   %39 = zext i32 %.01627 to i64
-  %40 = getelementptr inbounds nuw %struct.pollfd, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %39
   store i32 %38, ptr %40, align 8, !tbaa !145
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i16 %.1, ptr %41, align 4, !tbaa !147
@@ -1623,7 +1623,7 @@ define dso_local void @Curl_conn_get_host(ptr noundef %0, i32 noundef %1, ptr no
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !51
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %16, label %12
@@ -1759,7 +1759,7 @@ define dso_local i32 @Curl_conn_get_socket(ptr noundef %0, i32 noundef %1) local
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 608
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !51
   %.not13 = icmp eq ptr %10, null
   br i1 %.not13, label %20, label %11
@@ -1785,7 +1785,7 @@ Curl_conn_cf_get_socket.exit:                     ; preds = %11
 
 20:                                               ; preds = %11, %6
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 568
-  %22 = getelementptr inbounds i32, ptr %21, i64 %8
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %8
   %23 = load i32, ptr %22, align 4, !tbaa !44
   br label %24
 
@@ -1804,7 +1804,7 @@ define dso_local void @Curl_conn_forget_socket(ptr noundef %0, i32 noundef %1) l
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %Curl_conn_cf_cntrl.exit, label %.lr.ph.split.us.i
@@ -1834,7 +1834,7 @@ Curl_conn_cf_cntrl.exit.loopexit:                 ; preds = %16
 Curl_conn_cf_cntrl.exit:                          ; preds = %Curl_conn_cf_cntrl.exit.loopexit, %5
   %19 = phi ptr [ %.pre, %Curl_conn_cf_cntrl.exit.loopexit ], [ %4, %5 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 568
-  %21 = getelementptr inbounds i32, ptr %20, i64 %7
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %7
   store i32 -1, ptr %21, align 4, !tbaa !44
   br label %22
 
@@ -1850,7 +1850,7 @@ define dso_local void @Curl_conn_ev_data_attach(ptr noundef readonly captures(no
 .split.us.i:                                      ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i, %2
   %4 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ true, %2 ]
   %.05.us.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.05.us.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.05.us.i
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   %.not1517.i.us.i = icmp eq ptr %6, null
   br i1 %.not1517.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i
@@ -1888,7 +1888,7 @@ define dso_local void @Curl_conn_ev_data_detach(ptr noundef readonly captures(no
 .split.us.i:                                      ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i, %2
   %4 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ true, %2 ]
   %.05.us.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.05.us.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.05.us.i
   %6 = load ptr, ptr %5, align 8, !tbaa !51
   %.not1517.i.us.i = icmp eq ptr %6, null
   br i1 %.not1517.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i
@@ -1928,7 +1928,7 @@ define dso_local i32 @Curl_conn_ev_data_setup(ptr noundef %0) local_unnamed_addr
 .split.i:                                         ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %1
   %5 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.i ], [ true, %1 ]
   %.05.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.i ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.05.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05.i
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not1517.i.i = icmp eq ptr %7, null
   br i1 %.not1517.i.i, label %Curl_conn_cf_cntrl.exit.thread.i, label %.lr.ph.split.i.i
@@ -1970,7 +1970,7 @@ define dso_local i32 @Curl_conn_ev_data_idle(ptr noundef %0) local_unnamed_addr 
 .split.i:                                         ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %1
   %5 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.i ], [ true, %1 ]
   %.05.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.i ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.05.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05.i
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not1517.i.i = icmp eq ptr %7, null
   br i1 %.not1517.i.i, label %Curl_conn_cf_cntrl.exit.thread.i, label %.lr.ph.split.i.i
@@ -2012,7 +2012,7 @@ define dso_local void @Curl_conn_ev_data_done_send(ptr noundef %0) local_unnamed
 .split.us.i:                                      ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i, %1
   %5 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ true, %1 ]
   %.05.us.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.05.us.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05.us.i
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not1517.i.us.i = icmp eq ptr %7, null
   br i1 %.not1517.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i
@@ -2053,7 +2053,7 @@ define dso_local void @Curl_conn_ev_data_done(ptr noundef %0, i1 noundef zeroext
 .split.us.i:                                      ; preds = %Curl_conn_cf_cntrl.exit.thread.us.i, %2
   %7 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ true, %2 ]
   %.05.us.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.us.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.05.us.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05.us.i
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %.not1517.i.us.i = icmp eq ptr %9, null
   br i1 %.not1517.i.us.i, label %Curl_conn_cf_cntrl.exit.thread.us.i, label %.lr.ph.split.us.i.us.i
@@ -2094,7 +2094,7 @@ define dso_local i32 @Curl_conn_ev_data_pause(ptr noundef %0, i1 noundef zeroext
 .split.i:                                         ; preds = %Curl_conn_cf_cntrl.exit.thread.i, %2
   %7 = phi i1 [ false, %Curl_conn_cf_cntrl.exit.thread.i ], [ true, %2 ]
   %.05.i = phi i64 [ 1, %Curl_conn_cf_cntrl.exit.thread.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.05.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05.i
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %.not1517.i.i = icmp eq ptr %9, null
   br i1 %.not1517.i.i, label %Curl_conn_cf_cntrl.exit.thread.i, label %.lr.ph.split.i.i
@@ -2158,7 +2158,7 @@ define dso_local zeroext i1 @Curl_conn_is_alive(ptr noundef %0, ptr noundef read
 define dso_local i32 @Curl_conn_keep_alive(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !51
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -2182,7 +2182,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concu
   store i32 0, ptr %4, align 4, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %15, label %9
@@ -2214,7 +2214,7 @@ define dso_local range(i32 0, -2147483648) i32 @Curl_conn_get_stream_error(ptr n
   store i32 0, ptr %4, align 4, !tbaa !44
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.thread, label %9
@@ -2275,7 +2275,7 @@ define dso_local i32 @Curl_conn_recv(ptr noundef %0, i32 noundef %1, ptr noundef
   %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 576
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !53
   %13 = call i64 %12(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %6) #12
   %14 = call i64 @llvm.smax.i64(i64 %13, i64 0)
@@ -2294,7 +2294,7 @@ define dso_local i32 @Curl_conn_send(ptr noundef %0, i32 noundef %1, ptr noundef
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 592
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !53
   %14 = call i64 %13(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull %7) #12
   %15 = call i64 @llvm.smax.i64(i64 %14, i64 0)
@@ -2329,13 +2329,13 @@ define dso_local void @Curl_pollset_change(ptr noundef readnone captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !44
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %12, label %37
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !144
@@ -2356,7 +2356,7 @@ define dso_local void @Curl_pollset_change(ptr noundef readnone captures(none) %
 
 26:                                               ; preds = %22
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %27
   %29 = sub nuw i32 %8, %24
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 2
@@ -2386,7 +2386,7 @@ define dso_local void @Curl_pollset_change(ptr noundef readnone captures(none) %
 
 40:                                               ; preds = %._crit_edge
   %41 = zext nneg i32 %8 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %41
   store i32 %2, ptr %42, align 4, !tbaa !44
   %43 = trunc i32 %3 to i8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2431,13 +2431,13 @@ define dso_local void @Curl_pollset_set(ptr noundef readnone captures(none) %0, 
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4, !tbaa !44
   %18 = icmp eq i32 %17, %2
   br i1 %18, label %19, label %43
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !144
@@ -2457,7 +2457,7 @@ define dso_local void @Curl_pollset_set(ptr noundef readnone captures(none) %0, 
 
 32:                                               ; preds = %28
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %35 = sub nuw i32 %15, %30
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 2
@@ -2487,7 +2487,7 @@ define dso_local void @Curl_pollset_set(ptr noundef readnone captures(none) %0, 
 
 46:                                               ; preds = %._crit_edge.i
   %47 = zext nneg i32 %15 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %1, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %47
   store i32 %2, ptr %48, align 4, !tbaa !44
   %49 = trunc nuw nsw i32 %8 to i8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2529,7 +2529,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
   br i1 %.not25.i, label %ps_add.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4, !tbaa !44
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %18, label %ps_add.exit
@@ -2555,7 +2555,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !44
   %25 = icmp eq i32 %24, %16
   br i1 %25, label %26, label %30
@@ -2578,7 +2578,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
 
 ._crit_edge.i.thread.i:                           ; preds = %._crit_edge.i.i, %.preheader.i.i
   %.pre-phi12.i = phi i64 [ %wide.trip.count.i.i, %._crit_edge.i.i ], [ 0, %.preheader.i.i ]
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi12.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pre-phi12.i
   store i32 %16, ptr %32, align 4, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 %.pre-phi12.i
   store i8 3, ptr %33, align 1, !tbaa !144
@@ -2595,7 +2595,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
 
 .lr.ph.i32.i:                                     ; preds = %42, %.lr.ph.preheader.i30.i
   %indvars.iv.i33.i = phi i64 [ 0, %.lr.ph.preheader.i30.i ], [ %indvars.iv.next.i34.i, %42 ]
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i33.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i33.i
   %36 = load i32, ptr %35, align 4, !tbaa !44
   %37 = icmp eq i32 %36, %16
   br i1 %37, label %38, label %42
@@ -2618,7 +2618,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
 
 ._crit_edge.i36.thread.i:                         ; preds = %._crit_edge.i36.i, %.preheader.i28.i
   %.pre-phi10.i = phi i64 [ %wide.trip.count.i31.i, %._crit_edge.i36.i ], [ 0, %.preheader.i28.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi10.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pre-phi10.i
   store i32 %16, ptr %44, align 4, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 %.pre-phi10.i
   store i8 1, ptr %45, align 1, !tbaa !144
@@ -2637,7 +2637,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
 
 .lr.ph.i42.i:                                     ; preds = %55, %.lr.ph.preheader.i40.i
   %indvars.iv.i43.i = phi i64 [ 0, %.lr.ph.preheader.i40.i ], [ %indvars.iv.next.i44.i, %55 ]
-  %48 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i43.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i43.i
   %49 = load i32, ptr %48, align 4, !tbaa !44
   %50 = icmp eq i32 %49, %16
   br i1 %50, label %51, label %55
@@ -2660,7 +2660,7 @@ define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captur
 
 ._crit_edge.i46.thread.i:                         ; preds = %._crit_edge.i46.i, %.preheader.i38.i
   %.pre-phi.i = phi i64 [ %wide.trip.count.i41.i, %._crit_edge.i46.i ], [ 0, %.preheader.i38.i ]
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pre-phi.i
   store i32 %16, ptr %57, align 4, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 %.pre-phi.i
   store i8 2, ptr %58, align 1, !tbaa !144
@@ -2696,7 +2696,7 @@ define dso_local void @Curl_pollset_check(ptr noundef readnone captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !44
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %12, label %8

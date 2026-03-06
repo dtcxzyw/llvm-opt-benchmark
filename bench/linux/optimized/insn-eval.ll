@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.20 = type { %struct.anon.21, [16 x i8] }
 %struct.anon.21 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.desc_ptr = type <{ i16, i64 }>
-%struct.desc_struct = type { i16, i16, i32 }
 
 @pt_regoff = internal unnamed_addr constant [16 x i32] [i32 80, i32 88, i32 96, i32 40, i32 152, i32 32, i32 104, i32 112, i32 72, i32 64, i32 56, i32 48, i32 24, i32 16, i32 8, i32 0], align 16
 @__tracepoint_read_msr = external dso_local global %struct.tracepoint, align 8
@@ -59,7 +58,7 @@ define dso_local i32 @pt_regs_offset(ptr noundef readnone captures(none) %0, i32
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr i32, ptr @pt_regoff, i64 %5
+  %6 = getelementptr [4 x i8], ptr @pt_regoff, i64 %5
   %7 = load i32, ptr %6, align 4
   br label %8
 
@@ -240,7 +239,7 @@ define dso_local i64 @insn_get_seg_base(ptr noundef readonly captures(none) %0, 
 92:                                               ; preds = %75
   %93 = load ptr, ptr %73, align 8
   %94 = zext nneg i16 %65 to i64
-  %95 = getelementptr %struct.desc_struct, ptr %93, i64 %94
+  %95 = getelementptr [8 x i8], ptr %93, i64 %94
   %96 = load i64, ptr %95, align 1
   %97 = getelementptr inbounds nuw i8, ptr %71, i64 1064
   tail call void @mutex_unlock(ptr noundef nonnull %97) #7
@@ -318,7 +317,7 @@ define dso_local range(i32 -32768, 133) i32 @insn_get_code_seg_params(ptr nounde
 29:                                               ; preds = %24
   %30 = load ptr, ptr %22, align 8
   %31 = zext nneg i16 %14 to i64
-  %32 = getelementptr %struct.desc_struct, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load i64, ptr %32, align 1
   %34 = lshr i64 %33, 32
   %35 = trunc nuw i64 %34 to i32
@@ -431,7 +430,7 @@ define dso_local i32 @insn_get_modrm_rm_off(ptr noundef readonly captures(none) 
 
 22:                                               ; preds = %7
   %23 = zext nneg i32 %17 to i64
-  %24 = getelementptr i32, ptr @pt_regoff, i64 %23
+  %24 = getelementptr [4 x i8], ptr @pt_regoff, i64 %23
   %25 = load i32, ptr %24, align 4
   br label %.thread
 
@@ -506,7 +505,7 @@ define internal fastcc i32 @get_reg_offset(ptr noundef nonnull readonly captures
 
 44:                                               ; preds = %38
   %45 = zext nneg i32 %39 to i64
-  %46 = getelementptr i32, ptr @pt_regoff, i64 %45
+  %46 = getelementptr [4 x i8], ptr @pt_regoff, i64 %45
   %47 = load i32, ptr %46, align 4
   br label %.thread
 
@@ -549,7 +548,7 @@ define dso_local i32 @insn_get_modrm_reg_off(ptr noundef readonly captures(none)
 
 20:                                               ; preds = %2
   %21 = zext nneg i32 %15 to i64
-  %22 = getelementptr i32, ptr @pt_regoff, i64 %21
+  %22 = getelementptr [4 x i8], ptr @pt_regoff, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %.thread
 
@@ -592,7 +591,7 @@ define dso_local ptr @insn_get_modrm_reg_ptr(ptr noundef readonly captures(none)
 
 20:                                               ; preds = %2
   %21 = zext nneg i32 %15 to i64
-  %22 = getelementptr i32, ptr @pt_regoff, i64 %21
+  %22 = getelementptr [4 x i8], ptr @pt_regoff, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr i8, ptr %1, i64 %24
@@ -686,9 +685,9 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
 48:                                               ; preds = %44
   %49 = and i32 %45, 7
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr i32, ptr @get_reg_offset_16.regoff1, i64 %50
+  %51 = getelementptr [4 x i8], ptr @get_reg_offset_16.regoff1, i64 %50
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr i32, ptr @get_reg_offset_16.regoff2, i64 %50
+  %53 = getelementptr [4 x i8], ptr @get_reg_offset_16.regoff2, i64 %50
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %45, 199
   %56 = icmp eq i32 %55, 6
@@ -815,7 +814,7 @@ define dso_local ptr @insn_get_addr_ref(ptr noundef %0, ptr noundef %1) local_un
 
 128:                                              ; preds = %113
   %129 = zext nneg i32 %123 to i64
-  %130 = getelementptr i32, ptr @pt_regoff, i64 %129
+  %130 = getelementptr [4 x i8], ptr @pt_regoff, i64 %129
   %131 = load i32, ptr %130, align 4
   store i32 %131, ptr %8, align 4
   %132 = load i8, ptr %21, align 1
@@ -946,7 +945,7 @@ get_eff_addr_reg.exit.thread:                     ; preds = %158, %125, %127, %1
 
 197:                                              ; preds = %182
   %198 = zext nneg i32 %192 to i64
-  %199 = getelementptr i32, ptr @pt_regoff, i64 %198
+  %199 = getelementptr [4 x i8], ptr @pt_regoff, i64 %198
   %200 = load i32, ptr %199, align 4
   store i32 %200, ptr %4, align 4
   %201 = load i8, ptr %21, align 1
@@ -1299,7 +1298,7 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef nonnull %0, ptr noundef
 
 27:                                               ; preds = %12
   %28 = zext nneg i32 %22 to i64
-  %29 = getelementptr i32, ptr @pt_regoff, i64 %28
+  %29 = getelementptr [4 x i8], ptr @pt_regoff, i64 %28
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %2, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 81
@@ -1676,7 +1675,7 @@ resolve_default_seg.exit.thread:                  ; preds = %87, %82, %82, %82, 
 162:                                              ; preds = %145
   %163 = load ptr, ptr %143, align 8
   %164 = zext nneg i16 %135 to i64
-  %165 = getelementptr %struct.desc_struct, ptr %163, i64 %164
+  %165 = getelementptr [8 x i8], ptr %163, i64 %164
   %166 = load i64, ptr %165, align 1
   %167 = getelementptr inbounds nuw i8, ptr %141, i64 1064
   tail call void @mutex_unlock(ptr noundef nonnull %167) #7
@@ -1926,7 +1925,7 @@ define internal fastcc i32 @get_eff_addr_modrm(ptr noundef nonnull %0, ptr nound
 
 .thread:                                          ; preds = %24
   %39 = zext nneg i32 %34 to i64
-  %40 = getelementptr i32, ptr @pt_regoff, i64 %39
+  %40 = getelementptr [4 x i8], ptr @pt_regoff, i64 %39
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %2, align 4
   %42 = zext nneg i32 %41 to i64

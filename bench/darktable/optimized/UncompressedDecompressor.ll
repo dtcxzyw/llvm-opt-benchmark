@@ -237,7 +237,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %62 = icmp samesign ult i64 %indvars.iv67, %54
   call void @llvm.assume(i1 %62)
   %63 = mul nuw nsw i64 %indvars.iv67, %53
-  %64 = getelementptr inbounds nuw i16, ptr %26, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %63
   br label %67
 
 65:                                               ; preds = %66
@@ -257,7 +257,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %71 = zext i8 %70 to i16
   %72 = icmp samesign ult i64 %indvars.iv, %52
   call void @llvm.assume(i1 %72)
-  %73 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv
   %74 = load ptr, ptr %68, align 8, !tbaa !106
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
@@ -416,7 +416,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %61 = icmp samesign ult i64 %indvars.iv67, %53
   tail call void @llvm.assume(i1 %61)
   %62 = mul nuw nsw i64 %indvars.iv67, %52
-  %63 = getelementptr inbounds nuw i16, ptr %25, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %62
   br label %66
 
 64:                                               ; preds = %65
@@ -434,7 +434,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %69 = zext i8 %68 to i16
   %70 = icmp samesign ult i64 %indvars.iv, %51
   tail call void @llvm.assume(i1 %70)
-  %71 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv
   store i16 %69, ptr %71, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %54
@@ -559,7 +559,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %69 = icmp samesign ult i64 %indvars.iv124, %61
   tail call void @llvm.assume(i1 %69)
   %70 = mul nuw nsw i64 %indvars.iv124, %60
-  %71 = getelementptr inbounds nuw i16, ptr %32, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %70
   br label %80
 
 72:                                               ; preds = %79
@@ -605,7 +605,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %72
   %.0.i = trunc nuw nsw i32 %93 to i16
   %94 = icmp samesign ult i64 %indvars.iv, %58
   tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %indvars.iv
   store i16 %.0.i, ptr %95, align 2, !tbaa !113
   %96 = add nuw nsw i32 %.026120, 2
   %97 = icmp samesign ult i32 %96, %13
@@ -621,7 +621,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %72
   %.0.i41 = trunc nuw nsw i32 %105 to i16
   %106 = icmp samesign ult i64 %102, %58
   tail call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw i16, ptr %71, i64 %102
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %102
   store i16 %.0.i41, ptr %107, align 2, !tbaa !113
   %108 = trunc nuw nsw i64 %indvars.iv to i32
   %109 = urem i32 %108, 10
@@ -823,7 +823,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %69 = icmp samesign ult i64 %indvars.iv124, %61
   tail call void @llvm.assume(i1 %69)
   %70 = mul nuw nsw i64 %indvars.iv124, %60
-  %71 = getelementptr inbounds nuw i16, ptr %32, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %70
   br label %80
 
 72:                                               ; preds = %79
@@ -869,7 +869,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %72
   %.0.i = trunc nuw nsw i32 %93 to i16
   %94 = icmp samesign ult i64 %indvars.iv, %58
   tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds nuw i16, ptr %71, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %indvars.iv
   store i16 %.0.i, ptr %95, align 2, !tbaa !113
   %96 = add nuw nsw i32 %.026120, 2
   %97 = icmp samesign ult i32 %96, %13
@@ -885,7 +885,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %72
   %.0.i41 = trunc nuw nsw i32 %105 to i16
   %106 = icmp samesign ult i64 %102, %58
   tail call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw i16, ptr %71, i64 %102
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %102
   store i16 %.0.i41, ptr %107, align 2, !tbaa !113
   %108 = trunc nuw nsw i64 %indvars.iv to i32
   %109 = urem i32 %108, 10
@@ -1005,7 +1005,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %62 = icmp samesign ult i64 %indvars.iv96, %56
   tail call void @llvm.assume(i1 %62)
   %63 = mul nuw nsw i64 %indvars.iv96, %57
-  %64 = getelementptr inbounds nuw i16, ptr %27, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %63
   br label %65
 
 65:                                               ; preds = %.preheader.us, %65
@@ -1025,7 +1025,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %77 = lshr i16 %76, 4
   %78 = icmp samesign ult i64 %indvars.iv, %55
   tail call void @llvm.assume(i1 %78)
-  %79 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv
   store i16 %77, ptr %79, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1148,7 +1148,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %62 = icmp samesign ult i64 %indvars.iv96, %56
   tail call void @llvm.assume(i1 %62)
   %63 = mul nuw nsw i64 %indvars.iv96, %57
-  %64 = getelementptr inbounds nuw i16, ptr %27, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %63
   br label %65
 
 65:                                               ; preds = %.preheader.us, %65
@@ -1168,7 +1168,7 @@ _ZN8rawspeed10ByteStream7getDataEj.exit:          ; preds = %_ZNK8rawspeed24Unco
   %77 = lshr i16 %76, 4
   %78 = icmp samesign ult i64 %indvars.iv, %55
   tail call void @llvm.assume(i1 %78)
-  %79 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv
   store i16 %77, ptr %79, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1606,9 +1606,9 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   tail call void @llvm.assume(i1 %46)
   %47 = mul nuw nsw i32 %14, %37
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw float, ptr %31, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %48
   %50 = zext nneg i32 %42 to i64
-  %51 = getelementptr inbounds nuw float, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load i32, ptr %52, align 8, !tbaa !154
   %54 = sub nsw i64 %.sroa.speculated, %15
@@ -1792,9 +1792,9 @@ _ZN8rawspeed14copyPixelsImplENS_10Array1DRefISt4byteEENS0_IKS1_EE.exit31.i.i: ; 
   tail call void @llvm.assume(i1 %141)
   %142 = mul nuw nsw i32 %14, %132
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %126, i64 %143
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %126, i64 %143
   %145 = zext nneg i32 %137 to i64
-  %146 = getelementptr inbounds nuw i16, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %144, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %148 = load i32, ptr %147, align 8, !tbaa !154
   %149 = sub nsw i64 %.sroa.speculated, %15
@@ -1991,7 +1991,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %58 = load i32, ptr %48, align 8
   %59 = icmp samesign ult i64 %indvars.iv44, %52
   %60 = mul nuw nsw i64 %indvars.iv44, %53
-  %61 = getelementptr inbounds nuw float, ptr %8, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %60
   %62 = zext i32 %58 to i64
   br label %63
 
@@ -2103,7 +2103,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary3
   call void @llvm.assume(i1 %116)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %59)
-  %117 = getelementptr inbounds nuw float, ptr %61, i64 %113
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %113
   store i32 %112, ptr %117, align 4, !tbaa !186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2238,7 +2238,7 @@ _ZN8rawspeed14BitStreamerLSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %58 = load i32, ptr %48, align 8
   %59 = icmp samesign ult i64 %indvars.iv44, %52
   %60 = mul nuw nsw i64 %indvars.iv44, %53
-  %61 = getelementptr inbounds nuw float, ptr %8, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %60
   %62 = zext i32 %58 to i64
   br label %63
 
@@ -2347,7 +2347,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary16ENS1_8Binary3
   call void @llvm.assume(i1 %113)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %59)
-  %114 = getelementptr inbounds nuw float, ptr %61, i64 %110
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %110
   store i32 %109, ptr %114, align 4, !tbaa !186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2482,7 +2482,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %58 = load i32, ptr %48, align 8
   %59 = icmp samesign ult i64 %indvars.iv44, %52
   %60 = mul nuw nsw i64 %indvars.iv44, %53
-  %61 = getelementptr inbounds nuw float, ptr %8, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %60
   %62 = zext i32 %58 to i64
   br label %63
 
@@ -2594,7 +2594,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary3
   call void @llvm.assume(i1 %116)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %59)
-  %117 = getelementptr inbounds nuw float, ptr %61, i64 %113
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %113
   store i32 %112, ptr %117, align 4, !tbaa !186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2729,7 +2729,7 @@ _ZN8rawspeed14BitStreamerLSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %58 = load i32, ptr %48, align 8
   %59 = icmp samesign ult i64 %indvars.iv44, %52
   %60 = mul nuw nsw i64 %indvars.iv44, %53
-  %61 = getelementptr inbounds nuw float, ptr %8, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %60
   %62 = zext i32 %58 to i64
   br label %63
 
@@ -2838,7 +2838,7 @@ _ZN8rawspeed25extendBinaryFloatingPointINS_13ieee_754_20088Binary24ENS1_8Binary3
   call void @llvm.assume(i1 %113)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %59)
-  %114 = getelementptr inbounds nuw float, ptr %61, i64 %110
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %110
   store i32 %109, ptr %114, align 4, !tbaa !186
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2980,7 +2980,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %63 = zext nneg i32 %55 to i64
   %64 = icmp samesign ult i64 %indvars.iv43, %52
   %65 = mul nuw nsw i64 %indvars.iv43, %53
-  %66 = getelementptr inbounds nuw i16, ptr %8, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %65
   br label %67
 
 67:                                               ; preds = %.preheader.us, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
@@ -3054,7 +3054,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   call void @llvm.assume(i1 %99)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %64)
-  %100 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv
   store i16 %98, ptr %100, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3198,7 +3198,7 @@ _ZN8rawspeed16BitStreamerMSB16CI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequ
   %64 = zext nneg i32 %56 to i64
   %65 = icmp samesign ult i64 %indvars.iv46, %53
   %66 = mul nuw nsw i64 %indvars.iv46, %54
-  %67 = getelementptr inbounds nuw i16, ptr %9, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %66
   br label %68
 
 68:                                               ; preds = %.preheader.us, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB16ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
@@ -3291,7 +3291,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB16ENS_39BitStreamerForwardSequentia
   call void @llvm.assume(i1 %106)
   call void @llvm.assume(i1 %55)
   call void @llvm.assume(i1 %65)
-  %107 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv
   store i16 %105, ptr %107, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3433,7 +3433,7 @@ _ZN8rawspeed16BitStreamerMSB32CI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequ
   %63 = zext nneg i32 %55 to i64
   %64 = icmp samesign ult i64 %indvars.iv43, %52
   %65 = mul nuw nsw i64 %indvars.iv43, %53
-  %66 = getelementptr inbounds nuw i16, ptr %8, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %65
   br label %67
 
 67:                                               ; preds = %.preheader.us, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
@@ -3506,7 +3506,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   call void @llvm.assume(i1 %98)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %64)
-  %99 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv
   store i16 %97, ptr %99, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3648,7 +3648,7 @@ _ZN8rawspeed14BitStreamerLSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %63 = zext nneg i32 %55 to i64
   %64 = icmp samesign ult i64 %indvars.iv43, %52
   %65 = mul nuw nsw i64 %indvars.iv43, %53
-  %66 = getelementptr inbounds nuw i16, ptr %8, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %65
   br label %67
 
 67:                                               ; preds = %.preheader.us, %_ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit.us
@@ -3721,7 +3721,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   call void @llvm.assume(i1 %98)
   call void @llvm.assume(i1 %54)
   call void @llvm.assume(i1 %64)
-  %99 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv
   store i16 %97, ptr %99, align 2, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

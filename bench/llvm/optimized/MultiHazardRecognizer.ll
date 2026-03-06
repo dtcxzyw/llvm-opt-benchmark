@@ -3,13 +3,6 @@ source_filename = "bench/llvm/original/MultiHazardRecognizer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-
 $_ZN4llvm21MultiHazardRecognizerD2Ev = comdat any
 
 $_ZN4llvm21MultiHazardRecognizerD0Ev = comdat any
@@ -45,7 +38,7 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer19AddHazardRecognizerEOSt1
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE9push_backEOS5_.exit, label %15, !prof !16
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.pre3.i, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i, i64 %11
   %17 = icmp uge ptr %1, %.pre3.i
   %18 = icmp ult ptr %1, %16
   %spec.select.i.i.i.i.i = and i1 %17, %18
@@ -70,7 +63,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerES
   %.016.i.i.i = phi ptr [ %1, %2 ], [ %24, %19 ], [ %1, %.critedge.i.i.i ]
   %26 = load i32, ptr %9, align 8, !tbaa !12
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load i64, ptr %.016.i.i.i, align 8, !tbaa !3
   store i64 %29, ptr %28, align 8, !tbaa !3
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !3
@@ -86,7 +79,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21MultiHazardRecognizer12atIssueLi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !12
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = tail call noundef ptr @_ZSt9__find_ifIPKSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMS2_KFbvEEEEET_SG_SG_T0_St26random_access_iterator_tag(ptr noundef %3, ptr noundef %7, i64 17, i64 0)
   %9 = icmp ne ptr %7, %8
   ret i1 %9
@@ -272,7 +265,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val3 = load i32, ptr %4, align 8, !tbaa !12
   %5 = zext i32 %.val3 to i64
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.val, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %5
   %7 = ptrtoint ptr %6 to i64
   %8 = lshr i64 %5, 2
   %.not.i = icmp eq i64 %8, 0

@@ -423,7 +423,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_Z10search_striPPcS_(i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %6, ptr noundef %2)
   %8 = icmp eq i32 %7, 0
@@ -560,7 +560,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %40
-  %42 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   store ptr %41, ptr %42, align 8, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = load i32, ptr %4, align 4, !tbaa !24

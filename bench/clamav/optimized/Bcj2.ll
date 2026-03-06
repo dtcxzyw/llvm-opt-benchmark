@@ -11,7 +11,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %10, %12
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   store i16 1024, ptr %13, align 2, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 258
@@ -101,7 +101,7 @@ define range(i32 0, 2) i32 @Bcj2_Decode(ptr noundef readonly captures(none) %0, 
   %43 = add i64 %.1160289, 1
   %44 = icmp eq i8 %27, -24
   %45 = zext i8 %.1141290.lcssa to i64
-  %46 = getelementptr inbounds nuw i16, ptr %11, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %45
   %47 = icmp eq i8 %27, -23
   %..v.sroa.sel.v.sroa.sel.v = select i1 %47, i64 512, i64 514
   %..v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %11, i64 %..v.sroa.sel.v.sroa.sel.v

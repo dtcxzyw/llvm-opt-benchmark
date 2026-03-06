@@ -67,7 +67,7 @@ _ZSt4iotaIPhiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i
   br label %35
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.sroa.080.0
+  %32 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 %.sroa.080.0
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.0.0
   %34 = load i8, ptr %33, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -76,7 +76,7 @@ _ZSt4iotaIPhiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i
 35:                                               ; preds = %_ZSt4iotaIPhiEvT_S1_T0_.exit, %._crit_edge
   %.05794 = phi i64 [ 1, %_ZSt4iotaIPhiEvT_S1_T0_.exit ], [ %81, %._crit_edge ]
   %36 = icmp ugt i64 %.05794, %27
-  %37 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.05794
+  %37 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 %.05794
   br i1 %36, label %38, label %42
 
 38:                                               ; preds = %35
@@ -98,7 +98,7 @@ _ZSt4iotaIPhiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.05794
+  %48 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 %.05794
   %49 = getelementptr i8, ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 1
   store i8 %8, ptr %50, align 1, !tbaa !4
@@ -111,13 +111,13 @@ _ZSt4iotaIPhiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %51
   %52 = add i64 %.05794, -1
-  %53 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %52
-  %54 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %.05794
+  %53 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 %52
+  %54 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 %.05794
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %52
   %56 = icmp ugt i64 %.05794, 1
   %57 = add i64 %.05794, -2
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %57
-  %59 = getelementptr inbounds nuw %"struct.std::array.0", ptr %6, i64 %57
+  %59 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 %57
   %.pre96 = load i8, ptr %55, align 1, !tbaa !4
   br i1 %56, label %.lr.ph.split, label %.lr.ph.split.us
 

@@ -401,7 +401,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %148 = phi ptr [ %146, %138 ], [ %136, %126 ]
   %149 = load ptr, ptr %123, align 8, !tbaa !39
   %150 = sext i32 %127 to i64
-  %151 = getelementptr inbounds i32, ptr %149, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %149, i64 %150
   store i32 0, ptr %151, align 4, !tbaa !49
   %152 = icmp sgt i32 %127, 0
   br i1 %152, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -450,7 +450,7 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %.2169.i.i = add nsw i32 %.1168.i.i, %169
   %170 = load ptr, ptr %123, align 8, !tbaa !39
   %171 = add nuw nsw i64 %indvars.iv.i.i, 1
-  %172 = getelementptr inbounds nuw i32, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !49
   %174 = add nsw i32 %173, %.1179.i.i
   %.not190.i.i = icmp sgt i32 %174, %.2169.i.i
@@ -487,8 +487,8 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
 183:                                              ; preds = %180, %179, %177
   %.1185.i.i = phi i32 [ %182, %180 ], [ 0, %179 ], [ 0, %177 ]
   %184 = zext nneg i32 %.1185.i.i to i64
-  %185 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv.i.i
-  %186 = getelementptr inbounds nuw i32, ptr %185, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv.i.i
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %184
   %187 = load i32, ptr %186, align 4, !tbaa !49
   %188 = trunc nuw i32 %.1185.i.i to i8
   %189 = load ptr, ptr %124, align 8, !tbaa !38
@@ -514,8 +514,8 @@ define internal range(i32 -2147483648, 1) i32 @qtrle_encode_frame(ptr noundef %0
   %.1183.i.i = phi i32 [ %197, %195 ], [ 1, %192 ], [ 1, %183 ]
   %199 = load ptr, ptr %123, align 8, !tbaa !39
   %200 = zext nneg i32 %.1183.i.i to i64
-  %201 = getelementptr inbounds nuw i32, ptr %199, i64 %indvars.iv.i.i
-  %202 = getelementptr inbounds nuw i32, ptr %201, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %indvars.iv.i.i
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %200
   %203 = load i32, ptr %202, align 4, !tbaa !49
   %.0181.v.i.i = select i1 %.not189.i.i, i32 1, i32 2
   %.0181.i.i = add nsw i32 %187, %.0181.v.i.i

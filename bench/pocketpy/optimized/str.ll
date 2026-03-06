@@ -26,12 +26,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pkpy::SStream" = type <{ %"struct.pkpy::pod_vector", i32, [4 x i8] }>
 %"struct.pkpy::pod_vector" = type { i32, i32, ptr }
 %"struct.pkpy::pod_vector.3" = type { i32, i32, ptr }
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"class.std::tuple.22" = type { i8 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
+%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::tuple.31" = type { %"struct.std::_Tuple_impl.32" }
 %"struct.std::_Tuple_impl.32" = type { %"struct.std::_Head_base.33" }
 %"struct.std::_Head_base.33" = type { ptr }
@@ -4171,7 +4171,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIR
   %59 = phi i32 [ %12, %47 ], [ %12, %49 ], [ %50, %51 ], [ %50, %55 ]
   %60 = add nsw i32 %13, 1
   %61 = sext i32 %13 to i64
-  %62 = getelementptr inbounds %"class.std::basic_string_view", ptr %58, i64 %61
+  %62 = getelementptr inbounds [16 x i8], ptr %58, i64 %61
   store i64 %.sroa.speculated.i, ptr %62, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %45, ptr %.sroa.7.0..sroa_idx, align 8
@@ -4232,7 +4232,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIR
   %89 = add nsw i32 %13, 1
   store i32 %89, ptr %0, align 8
   %90 = sext i32 %13 to i64
-  %91 = getelementptr inbounds %"class.std::basic_string_view", ptr %88, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %88, i64 %90
   store i64 %.sroa.speculated.i20, ptr %91, align 8
   %.sroa.7.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %75, ptr %.sroa.7.0..sroa_idx35, align 8
@@ -4318,7 +4318,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE12emplace_ba
   %37 = phi i32 [ %13, %22 ], [ %12, %27 ], [ %28, %29 ], [ %28, %33 ]
   %38 = add nsw i32 %12, 1
   %39 = sext i32 %12 to i64
-  %40 = getelementptr inbounds %"class.std::basic_string_view", ptr %36, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %36, i64 %39
   %41 = sext i32 %25 to i64
   store i64 %41, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -4390,7 +4390,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE12emplace_ba
   %74 = add nsw i32 %53, 1
   store i32 %74, ptr %0, align 8
   %75 = sext i32 %53 to i64
-  %76 = getelementptr inbounds %"class.std::basic_string_view", ptr %73, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %73, i64 %75
   %77 = sext i32 %62 to i64
   store i64 %77, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8

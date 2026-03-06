@@ -30,9 +30,9 @@ switch.lookup:
   %7 = load i64, ptr %6, align 8, !range !11, !alias.scope !6, !noalias !12, !noundef !4
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE.3", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h412fae17cf47cc1bE.3", i64 %8
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !9
@@ -114,7 +114,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !27, !nonnull !4, !align !5, !noundef !4
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !noalias !27, !nonnull !4, !align !28, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !27, !noundef !4

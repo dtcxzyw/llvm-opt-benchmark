@@ -1132,7 +1132,7 @@ _ZL16skipZoneIDPrefixPPKc.exit53:                 ; preds = %40, %43
 
 76:                                               ; preds = %94, %.thread67
   %indvars.iv.i = phi i64 [ 0, %.thread67 ], [ %indvars.iv.next.i, %94 ]
-  %77 = getelementptr inbounds nuw %struct.OffsetZoneMapping, ptr @_ZL20OFFSET_ZONE_MAPPINGS, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [32 x i8], ptr @_ZL20OFFSET_ZONE_MAPPINGS, i64 %indvars.iv.i
   %78 = load i32, ptr %77, align 16, !tbaa !29
   %79 = icmp eq i32 %78, %75
   br i1 %79, label %80, label %94
@@ -1166,7 +1166,7 @@ _ZL18remapShortTimeZonePKcS0_ii.exit.thread:      ; preds = %94
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %95 = sext i32 %0 to i64
-  %96 = getelementptr inbounds ptr, ptr @tzname, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr @tzname, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !20
   br label %_ZL16skipZoneIDPrefixPPKc.exit
 

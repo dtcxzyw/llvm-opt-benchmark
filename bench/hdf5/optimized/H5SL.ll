@@ -81,7 +81,7 @@ define range(i32 0, 3) i32 @H5SL_term_package() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0812 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
   %5 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0812
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0812
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = tail call i32 @H5FL_fac_term(ptr noundef %7) #9
   %9 = add nuw i64 %.0812, 1
@@ -331,7 +331,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.07691666 = phi ptr [ %12, %.preheader.preheader ], [ %.18201144, %157 ]
   %.08181665 = phi ptr [ null, %.preheader.preheader ], [ %162, %157 ]
   %21 = getelementptr inbounds nuw i8, ptr %.07691666, i64 40
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv1748
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv1748
   %23 = load ptr, ptr %22, align 8, !tbaa !30
   %24 = icmp eq ptr %23, %.08181665
   br i1 %24, label %._crit_edge1658, label %.lr.ph1657
@@ -361,7 +361,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %34 = add nuw nsw i32 %.08231654, 1
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !27
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv1748
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv1748
   %38 = load ptr, ptr %37, align 8, !tbaa !30
   %39 = icmp eq ptr %38, %.08181665
   br i1 %39, label %._crit_edge1658, label %.lr.ph1657
@@ -428,7 +428,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %64 = tail call ptr @H5FL_fac_init(i64 noundef %63) #9
   %65 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %66 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   store ptr %64, ptr %67, align 8, !tbaa !15
   %68 = add i64 %66, 1
   store i64 %68, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -438,7 +438,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 69:                                               ; preds = %._crit_edge1880, %61
   %70 = phi i64 [ %47, %._crit_edge1880 ], [ %.pre1882, %61 ]
   %71 = phi ptr [ %.pre1881, %._crit_edge1880 ], [ %65, %61 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !15
   %74 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %73) #9
   %75 = icmp eq ptr %74, null
@@ -456,7 +456,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %81, i64 %82, i1 false)
   %83 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %84 = load i64, ptr %44, align 8, !tbaa !38
-  %85 = getelementptr ptr, ptr %83, i64 %84
+  %85 = getelementptr [8 x i8], ptr %83, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -8
   %87 = load ptr, ptr %86, align 8, !tbaa !15
   %88 = load ptr, ptr %40, align 8, !tbaa !27
@@ -528,7 +528,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %115 = tail call ptr @H5FL_fac_init(i64 noundef %114) #9
   %116 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %117 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %118 = getelementptr inbounds nuw ptr, ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %117
   store ptr %115, ptr %118, align 8, !tbaa !15
   %119 = add i64 %117, 1
   store i64 %119, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -538,7 +538,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 120:                                              ; preds = %._crit_edge1887, %112
   %121 = phi i64 [ %98, %._crit_edge1887 ], [ %.pre1889, %112 ]
   %122 = phi ptr [ %.pre1888, %._crit_edge1887 ], [ %116, %112 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !15
   %125 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %124) #9
   %126 = icmp eq ptr %125, null
@@ -556,7 +556,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 1 %132, i64 %133, i1 false)
   %134 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %135 = load i64, ptr %95, align 8, !tbaa !38
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !15
   %139 = load ptr, ptr %21, align 8, !tbaa !27
@@ -578,7 +578,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 147:                                              ; preds = %90
   %148 = load ptr, ptr %21, align 8, !tbaa !27
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %43
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %43
   %150 = load ptr, ptr %149, align 8, !tbaa !30
   br label %151
 
@@ -587,9 +587,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %152 = phi ptr [ %.pre1891, %141 ], [ %148, %147 ]
   %153 = phi i32 [ %146, %141 ], [ %91, %147 ]
   %154 = load ptr, ptr %40, align 8, !tbaa !27
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %43
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %43
   store ptr %.sink, ptr %155, align 8, !tbaa !30
-  %156 = getelementptr inbounds nuw ptr, ptr %152, i64 %43
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %43
   store ptr %.11656, ptr %156, align 8, !tbaa !30
   br label %157
 
@@ -598,7 +598,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.18201144 = phi ptr [ %spec.select1338, %151 ], [ %spec.select, %._crit_edge1658 ]
   %159 = getelementptr inbounds nuw i8, ptr %.18201144, i64 40
   %160 = load ptr, ptr %159, align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv1748
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv1748
   %162 = load ptr, ptr %161, align 8, !tbaa !30
   %indvars.iv.next1749 = add nsw i64 %indvars.iv1748, -1
   %163 = icmp sgt i64 %indvars.iv1748, 0
@@ -640,7 +640,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.41647 = phi ptr [ %12, %.preheader1346.preheader ], [ %.18831166, %316 ]
   %.08811646 = phi ptr [ null, %.preheader1346.preheader ], [ %321, %316 ]
   %180 = getelementptr inbounds nuw i8, ptr %.41647, i64 40
-  %181 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv1745
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv1745
   %182 = load ptr, ptr %181, align 8, !tbaa !30
   %183 = icmp eq ptr %182, %.08811646
   br i1 %183, label %._crit_edge1639, label %.lr.ph1638
@@ -670,7 +670,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %193 = add nuw nsw i32 %.08861635, 1
   %194 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %195 = load ptr, ptr %194, align 8, !tbaa !27
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv1745
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv1745
   %197 = load ptr, ptr %196, align 8, !tbaa !30
   %198 = icmp eq ptr %197, %.08811646
   br i1 %198, label %._crit_edge1639, label %.lr.ph1638
@@ -737,7 +737,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %223 = tail call ptr @H5FL_fac_init(i64 noundef %222) #9
   %224 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %225 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %226 = getelementptr inbounds nuw ptr, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %225
   store ptr %223, ptr %226, align 8, !tbaa !15
   %227 = add i64 %225, 1
   store i64 %227, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -747,7 +747,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 228:                                              ; preds = %._crit_edge1864, %220
   %229 = phi i64 [ %206, %._crit_edge1864 ], [ %.pre1866, %220 ]
   %230 = phi ptr [ %.pre1865, %._crit_edge1864 ], [ %224, %220 ]
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %229
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %229
   %232 = load ptr, ptr %231, align 8, !tbaa !15
   %233 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %232) #9
   %234 = icmp eq ptr %233, null
@@ -765,7 +765,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %233, ptr align 1 %240, i64 %241, i1 false)
   %242 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %243 = load i64, ptr %203, align 8, !tbaa !38
-  %244 = getelementptr ptr, ptr %242, i64 %243
+  %244 = getelementptr [8 x i8], ptr %242, i64 %243
   %245 = getelementptr i8, ptr %244, i64 -8
   %246 = load ptr, ptr %245, align 8, !tbaa !15
   %247 = load ptr, ptr %199, align 8, !tbaa !27
@@ -837,7 +837,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %274 = tail call ptr @H5FL_fac_init(i64 noundef %273) #9
   %275 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %276 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %277 = getelementptr inbounds nuw ptr, ptr %275, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %276
   store ptr %274, ptr %277, align 8, !tbaa !15
   %278 = add i64 %276, 1
   store i64 %278, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -847,7 +847,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 279:                                              ; preds = %._crit_edge1871, %271
   %280 = phi i64 [ %257, %._crit_edge1871 ], [ %.pre1873, %271 ]
   %281 = phi ptr [ %.pre1872, %._crit_edge1871 ], [ %275, %271 ]
-  %282 = getelementptr inbounds nuw ptr, ptr %281, i64 %280
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %280
   %283 = load ptr, ptr %282, align 8, !tbaa !15
   %284 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %283) #9
   %285 = icmp eq ptr %284, null
@@ -865,7 +865,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %284, ptr align 1 %291, i64 %292, i1 false)
   %293 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %294 = load i64, ptr %254, align 8, !tbaa !38
-  %295 = getelementptr ptr, ptr %293, i64 %294
+  %295 = getelementptr [8 x i8], ptr %293, i64 %294
   %296 = getelementptr i8, ptr %295, i64 -8
   %297 = load ptr, ptr %296, align 8, !tbaa !15
   %298 = load ptr, ptr %180, align 8, !tbaa !27
@@ -887,7 +887,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 306:                                              ; preds = %249
   %307 = load ptr, ptr %180, align 8, !tbaa !27
-  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %202
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %202
   %309 = load ptr, ptr %308, align 8, !tbaa !30
   br label %310
 
@@ -896,9 +896,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %311 = phi ptr [ %.pre1875, %300 ], [ %307, %306 ]
   %312 = phi i32 [ %305, %300 ], [ %250, %306 ]
   %313 = load ptr, ptr %199, align 8, !tbaa !27
-  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %202
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %202
   store ptr %.sink2105, ptr %314, align 8, !tbaa !30
-  %315 = getelementptr inbounds nuw ptr, ptr %311, i64 %202
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %202
   store ptr %.51637, ptr %315, align 8, !tbaa !30
   br label %316
 
@@ -907,7 +907,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.18831166 = phi ptr [ %spec.select1339, %310 ], [ %spec.select1112, %._crit_edge1639 ]
   %318 = getelementptr inbounds nuw i8, ptr %.18831166, i64 40
   %319 = load ptr, ptr %318, align 8, !tbaa !27
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv1745
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv1745
   %321 = load ptr, ptr %320, align 8, !tbaa !30
   %indvars.iv.next1746 = add nsw i64 %indvars.iv1745, -1
   %322 = icmp sgt i64 %indvars.iv1745, 0
@@ -950,7 +950,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.71628 = phi ptr [ %12, %.preheader1347.preheader ], [ %.19101188, %482 ]
   %.08991627 = phi ptr [ null, %.preheader1347.preheader ], [ %487, %482 ]
   %340 = getelementptr inbounds nuw i8, ptr %.71628, i64 40
-  %341 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv1742
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv1742
   %342 = load ptr, ptr %341, align 8, !tbaa !30
   %343 = icmp eq ptr %342, %.08991627
   br i1 %343, label %._crit_edge1620, label %.lr.ph1619
@@ -991,7 +991,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %359 = add nuw nsw i32 %.09131616, 1
   %360 = getelementptr inbounds nuw i8, ptr %344, i64 40
   %361 = load ptr, ptr %360, align 8, !tbaa !27
-  %362 = getelementptr inbounds nuw ptr, ptr %361, i64 %indvars.iv1742
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %indvars.iv1742
   %363 = load ptr, ptr %362, align 8, !tbaa !30
   %364 = icmp eq ptr %363, %.08991627
   br i1 %364, label %._crit_edge1620, label %.lr.ph1619
@@ -1058,7 +1058,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %389 = tail call ptr @H5FL_fac_init(i64 noundef %388) #9
   %390 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %391 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %392 = getelementptr inbounds nuw ptr, ptr %390, i64 %391
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %391
   store ptr %389, ptr %392, align 8, !tbaa !15
   %393 = add i64 %391, 1
   store i64 %393, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -1068,7 +1068,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 394:                                              ; preds = %._crit_edge1848, %386
   %395 = phi i64 [ %372, %._crit_edge1848 ], [ %.pre1850, %386 ]
   %396 = phi ptr [ %.pre1849, %._crit_edge1848 ], [ %390, %386 ]
-  %397 = getelementptr inbounds nuw ptr, ptr %396, i64 %395
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %395
   %398 = load ptr, ptr %397, align 8, !tbaa !15
   %399 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %398) #9
   %400 = icmp eq ptr %399, null
@@ -1086,7 +1086,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %399, ptr align 1 %406, i64 %407, i1 false)
   %408 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %409 = load i64, ptr %369, align 8, !tbaa !38
-  %410 = getelementptr ptr, ptr %408, i64 %409
+  %410 = getelementptr [8 x i8], ptr %408, i64 %409
   %411 = getelementptr i8, ptr %410, i64 -8
   %412 = load ptr, ptr %411, align 8, !tbaa !15
   %413 = load ptr, ptr %365, align 8, !tbaa !27
@@ -1158,7 +1158,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %440 = tail call ptr @H5FL_fac_init(i64 noundef %439) #9
   %441 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %442 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %443 = getelementptr inbounds nuw ptr, ptr %441, i64 %442
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %442
   store ptr %440, ptr %443, align 8, !tbaa !15
   %444 = add i64 %442, 1
   store i64 %444, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -1168,7 +1168,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 445:                                              ; preds = %._crit_edge1855, %437
   %446 = phi i64 [ %423, %._crit_edge1855 ], [ %.pre1857, %437 ]
   %447 = phi ptr [ %.pre1856, %._crit_edge1855 ], [ %441, %437 ]
-  %448 = getelementptr inbounds nuw ptr, ptr %447, i64 %446
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %446
   %449 = load ptr, ptr %448, align 8, !tbaa !15
   %450 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %449) #9
   %451 = icmp eq ptr %450, null
@@ -1186,7 +1186,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %450, ptr align 1 %457, i64 %458, i1 false)
   %459 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %460 = load i64, ptr %420, align 8, !tbaa !38
-  %461 = getelementptr ptr, ptr %459, i64 %460
+  %461 = getelementptr [8 x i8], ptr %459, i64 %460
   %462 = getelementptr i8, ptr %461, i64 -8
   %463 = load ptr, ptr %462, align 8, !tbaa !15
   %464 = load ptr, ptr %340, align 8, !tbaa !27
@@ -1208,7 +1208,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 472:                                              ; preds = %415
   %473 = load ptr, ptr %340, align 8, !tbaa !27
-  %474 = getelementptr inbounds nuw ptr, ptr %473, i64 %368
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %473, i64 %368
   %475 = load ptr, ptr %474, align 8, !tbaa !30
   br label %476
 
@@ -1217,9 +1217,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %477 = phi ptr [ %.pre1859, %466 ], [ %473, %472 ]
   %478 = phi i32 [ %471, %466 ], [ %416, %472 ]
   %479 = load ptr, ptr %365, align 8, !tbaa !27
-  %480 = getelementptr inbounds nuw ptr, ptr %479, i64 %368
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %368
   store ptr %.sink2108, ptr %480, align 8, !tbaa !30
-  %481 = getelementptr inbounds nuw ptr, ptr %477, i64 %368
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %368
   store ptr %.81618, ptr %481, align 8, !tbaa !30
   br label %482
 
@@ -1228,7 +1228,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.19101188 = phi ptr [ %spec.select1340, %476 ], [ %spec.select1116, %._crit_edge1620 ]
   %484 = getelementptr inbounds nuw i8, ptr %.19101188, i64 40
   %485 = load ptr, ptr %484, align 8, !tbaa !27
-  %486 = getelementptr inbounds nuw ptr, ptr %485, i64 %indvars.iv1742
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %485, i64 %indvars.iv1742
   %487 = load ptr, ptr %486, align 8, !tbaa !30
   %indvars.iv.next1743 = add nsw i64 %indvars.iv1742, -1
   %488 = icmp sgt i64 %indvars.iv1742, 0
@@ -1275,7 +1275,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.101609 = phi ptr [ %12, %.preheader1348.preheader ], [ %.19041210, %644 ]
   %.09071607 = phi ptr [ null, %.preheader1348.preheader ], [ %649, %644 ]
   %508 = getelementptr inbounds nuw i8, ptr %.101609, i64 40
-  %509 = getelementptr inbounds nuw ptr, ptr %507, i64 %indvars.iv1739
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %indvars.iv1739
   %510 = load ptr, ptr %509, align 8, !tbaa !30
   %511 = icmp eq ptr %510, %.09071607
   br i1 %511, label %._crit_edge1601, label %.lr.ph1600
@@ -1305,7 +1305,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %521 = add nuw nsw i32 %.09011598, 1
   %522 = getelementptr inbounds nuw i8, ptr %512, i64 40
   %523 = load ptr, ptr %522, align 8, !tbaa !27
-  %524 = getelementptr inbounds nuw ptr, ptr %523, i64 %indvars.iv1739
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %indvars.iv1739
   %525 = load ptr, ptr %524, align 8, !tbaa !30
   %526 = icmp eq ptr %525, %.09071607
   br i1 %526, label %._crit_edge1601, label %.lr.ph1600
@@ -1372,7 +1372,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %551 = tail call ptr @H5FL_fac_init(i64 noundef %550) #9
   %552 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %553 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %554 = getelementptr inbounds nuw ptr, ptr %552, i64 %553
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %553
   store ptr %551, ptr %554, align 8, !tbaa !15
   %555 = add i64 %553, 1
   store i64 %555, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -1382,7 +1382,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 556:                                              ; preds = %._crit_edge1832, %548
   %557 = phi i64 [ %534, %._crit_edge1832 ], [ %.pre1834, %548 ]
   %558 = phi ptr [ %.pre1833, %._crit_edge1832 ], [ %552, %548 ]
-  %559 = getelementptr inbounds nuw ptr, ptr %558, i64 %557
+  %559 = getelementptr inbounds nuw [8 x i8], ptr %558, i64 %557
   %560 = load ptr, ptr %559, align 8, !tbaa !15
   %561 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %560) #9
   %562 = icmp eq ptr %561, null
@@ -1400,7 +1400,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %561, ptr align 1 %568, i64 %569, i1 false)
   %570 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %571 = load i64, ptr %531, align 8, !tbaa !38
-  %572 = getelementptr ptr, ptr %570, i64 %571
+  %572 = getelementptr [8 x i8], ptr %570, i64 %571
   %573 = getelementptr i8, ptr %572, i64 -8
   %574 = load ptr, ptr %573, align 8, !tbaa !15
   %575 = load ptr, ptr %527, align 8, !tbaa !27
@@ -1472,7 +1472,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %602 = tail call ptr @H5FL_fac_init(i64 noundef %601) #9
   %603 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %604 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %605 = getelementptr inbounds nuw ptr, ptr %603, i64 %604
+  %605 = getelementptr inbounds nuw [8 x i8], ptr %603, i64 %604
   store ptr %602, ptr %605, align 8, !tbaa !15
   %606 = add i64 %604, 1
   store i64 %606, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -1482,7 +1482,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 607:                                              ; preds = %._crit_edge1839, %599
   %608 = phi i64 [ %585, %._crit_edge1839 ], [ %.pre1841, %599 ]
   %609 = phi ptr [ %.pre1840, %._crit_edge1839 ], [ %603, %599 ]
-  %610 = getelementptr inbounds nuw ptr, ptr %609, i64 %608
+  %610 = getelementptr inbounds nuw [8 x i8], ptr %609, i64 %608
   %611 = load ptr, ptr %610, align 8, !tbaa !15
   %612 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %611) #9
   %613 = icmp eq ptr %612, null
@@ -1500,7 +1500,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %612, ptr align 1 %619, i64 %620, i1 false)
   %621 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %622 = load i64, ptr %582, align 8, !tbaa !38
-  %623 = getelementptr ptr, ptr %621, i64 %622
+  %623 = getelementptr [8 x i8], ptr %621, i64 %622
   %624 = getelementptr i8, ptr %623, i64 -8
   %625 = load ptr, ptr %624, align 8, !tbaa !15
   %626 = load ptr, ptr %508, align 8, !tbaa !27
@@ -1522,7 +1522,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 634:                                              ; preds = %577
   %635 = load ptr, ptr %508, align 8, !tbaa !27
-  %636 = getelementptr inbounds nuw ptr, ptr %635, i64 %530
+  %636 = getelementptr inbounds nuw [8 x i8], ptr %635, i64 %530
   %637 = load ptr, ptr %636, align 8, !tbaa !30
   br label %638
 
@@ -1531,9 +1531,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %639 = phi ptr [ %.pre1843, %628 ], [ %635, %634 ]
   %640 = phi i32 [ %633, %628 ], [ %578, %634 ]
   %641 = load ptr, ptr %527, align 8, !tbaa !27
-  %642 = getelementptr inbounds nuw ptr, ptr %641, i64 %530
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %641, i64 %530
   store ptr %.sink2111, ptr %642, align 8, !tbaa !30
-  %643 = getelementptr inbounds nuw ptr, ptr %639, i64 %530
+  %643 = getelementptr inbounds nuw [8 x i8], ptr %639, i64 %530
   store ptr %.111599, ptr %643, align 8, !tbaa !30
   br label %644
 
@@ -1542,7 +1542,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.19041210 = phi ptr [ %spec.select1341, %638 ], [ %spec.select1119, %._crit_edge1601 ]
   %646 = getelementptr inbounds nuw i8, ptr %.19041210, i64 40
   %647 = load ptr, ptr %646, align 8, !tbaa !27
-  %648 = getelementptr inbounds nuw ptr, ptr %647, i64 %indvars.iv1739
+  %648 = getelementptr inbounds nuw [8 x i8], ptr %647, i64 %indvars.iv1739
   %649 = load ptr, ptr %648, align 8, !tbaa !30
   %indvars.iv.next1740 = add nsw i64 %indvars.iv1739, -1
   %650 = icmp sgt i64 %indvars.iv1739, 0
@@ -1584,7 +1584,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.131590 = phi ptr [ %12, %.preheader1349.preheader ], [ %.18921232, %803 ]
   %.08951588 = phi ptr [ null, %.preheader1349.preheader ], [ %808, %803 ]
   %667 = getelementptr inbounds nuw i8, ptr %.131590, i64 40
-  %668 = getelementptr inbounds nuw ptr, ptr %666, i64 %indvars.iv1736
+  %668 = getelementptr inbounds nuw [8 x i8], ptr %666, i64 %indvars.iv1736
   %669 = load ptr, ptr %668, align 8, !tbaa !30
   %670 = icmp eq ptr %669, %.08951588
   br i1 %670, label %._crit_edge1582, label %.lr.ph1581
@@ -1614,7 +1614,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %680 = add nuw nsw i32 %.08891579, 1
   %681 = getelementptr inbounds nuw i8, ptr %671, i64 40
   %682 = load ptr, ptr %681, align 8, !tbaa !27
-  %683 = getelementptr inbounds nuw ptr, ptr %682, i64 %indvars.iv1736
+  %683 = getelementptr inbounds nuw [8 x i8], ptr %682, i64 %indvars.iv1736
   %684 = load ptr, ptr %683, align 8, !tbaa !30
   %685 = icmp eq ptr %684, %.08951588
   br i1 %685, label %._crit_edge1582, label %.lr.ph1581
@@ -1681,7 +1681,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %710 = tail call ptr @H5FL_fac_init(i64 noundef %709) #9
   %711 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %712 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %713 = getelementptr inbounds nuw ptr, ptr %711, i64 %712
+  %713 = getelementptr inbounds nuw [8 x i8], ptr %711, i64 %712
   store ptr %710, ptr %713, align 8, !tbaa !15
   %714 = add i64 %712, 1
   store i64 %714, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -1691,7 +1691,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 715:                                              ; preds = %._crit_edge1816, %707
   %716 = phi i64 [ %693, %._crit_edge1816 ], [ %.pre1818, %707 ]
   %717 = phi ptr [ %.pre1817, %._crit_edge1816 ], [ %711, %707 ]
-  %718 = getelementptr inbounds nuw ptr, ptr %717, i64 %716
+  %718 = getelementptr inbounds nuw [8 x i8], ptr %717, i64 %716
   %719 = load ptr, ptr %718, align 8, !tbaa !15
   %720 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %719) #9
   %721 = icmp eq ptr %720, null
@@ -1709,7 +1709,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %720, ptr align 1 %727, i64 %728, i1 false)
   %729 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %730 = load i64, ptr %690, align 8, !tbaa !38
-  %731 = getelementptr ptr, ptr %729, i64 %730
+  %731 = getelementptr [8 x i8], ptr %729, i64 %730
   %732 = getelementptr i8, ptr %731, i64 -8
   %733 = load ptr, ptr %732, align 8, !tbaa !15
   %734 = load ptr, ptr %686, align 8, !tbaa !27
@@ -1781,7 +1781,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %761 = tail call ptr @H5FL_fac_init(i64 noundef %760) #9
   %762 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %763 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %764 = getelementptr inbounds nuw ptr, ptr %762, i64 %763
+  %764 = getelementptr inbounds nuw [8 x i8], ptr %762, i64 %763
   store ptr %761, ptr %764, align 8, !tbaa !15
   %765 = add i64 %763, 1
   store i64 %765, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -1791,7 +1791,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 766:                                              ; preds = %._crit_edge1823, %758
   %767 = phi i64 [ %744, %._crit_edge1823 ], [ %.pre1825, %758 ]
   %768 = phi ptr [ %.pre1824, %._crit_edge1823 ], [ %762, %758 ]
-  %769 = getelementptr inbounds nuw ptr, ptr %768, i64 %767
+  %769 = getelementptr inbounds nuw [8 x i8], ptr %768, i64 %767
   %770 = load ptr, ptr %769, align 8, !tbaa !15
   %771 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %770) #9
   %772 = icmp eq ptr %771, null
@@ -1809,7 +1809,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %771, ptr align 1 %778, i64 %779, i1 false)
   %780 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %781 = load i64, ptr %741, align 8, !tbaa !38
-  %782 = getelementptr ptr, ptr %780, i64 %781
+  %782 = getelementptr [8 x i8], ptr %780, i64 %781
   %783 = getelementptr i8, ptr %782, i64 -8
   %784 = load ptr, ptr %783, align 8, !tbaa !15
   %785 = load ptr, ptr %667, align 8, !tbaa !27
@@ -1831,7 +1831,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 793:                                              ; preds = %736
   %794 = load ptr, ptr %667, align 8, !tbaa !27
-  %795 = getelementptr inbounds nuw ptr, ptr %794, i64 %689
+  %795 = getelementptr inbounds nuw [8 x i8], ptr %794, i64 %689
   %796 = load ptr, ptr %795, align 8, !tbaa !30
   br label %797
 
@@ -1840,9 +1840,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %798 = phi ptr [ %.pre1827, %787 ], [ %794, %793 ]
   %799 = phi i32 [ %792, %787 ], [ %737, %793 ]
   %800 = load ptr, ptr %686, align 8, !tbaa !27
-  %801 = getelementptr inbounds nuw ptr, ptr %800, i64 %689
+  %801 = getelementptr inbounds nuw [8 x i8], ptr %800, i64 %689
   store ptr %.sink2114, ptr %801, align 8, !tbaa !30
-  %802 = getelementptr inbounds nuw ptr, ptr %798, i64 %689
+  %802 = getelementptr inbounds nuw [8 x i8], ptr %798, i64 %689
   store ptr %.141580, ptr %802, align 8, !tbaa !30
   br label %803
 
@@ -1851,7 +1851,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.18921232 = phi ptr [ %spec.select1342, %797 ], [ %spec.select1123, %._crit_edge1582 ]
   %805 = getelementptr inbounds nuw i8, ptr %.18921232, i64 40
   %806 = load ptr, ptr %805, align 8, !tbaa !27
-  %807 = getelementptr inbounds nuw ptr, ptr %806, i64 %indvars.iv1736
+  %807 = getelementptr inbounds nuw [8 x i8], ptr %806, i64 %indvars.iv1736
   %808 = load ptr, ptr %807, align 8, !tbaa !30
   %indvars.iv.next1737 = add nsw i64 %indvars.iv1736, -1
   %809 = icmp sgt i64 %indvars.iv1736, 0
@@ -1893,7 +1893,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.161571 = phi ptr [ %12, %.preheader1350.preheader ], [ %.18761254, %962 ]
   %.08791569 = phi ptr [ null, %.preheader1350.preheader ], [ %967, %962 ]
   %826 = getelementptr inbounds nuw i8, ptr %.161571, i64 40
-  %827 = getelementptr inbounds nuw ptr, ptr %825, i64 %indvars.iv1733
+  %827 = getelementptr inbounds nuw [8 x i8], ptr %825, i64 %indvars.iv1733
   %828 = load ptr, ptr %827, align 8, !tbaa !30
   %829 = icmp eq ptr %828, %.08791569
   br i1 %829, label %._crit_edge1563, label %.lr.ph1562
@@ -1923,7 +1923,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %839 = add nuw nsw i32 %.08731560, 1
   %840 = getelementptr inbounds nuw i8, ptr %830, i64 40
   %841 = load ptr, ptr %840, align 8, !tbaa !27
-  %842 = getelementptr inbounds nuw ptr, ptr %841, i64 %indvars.iv1733
+  %842 = getelementptr inbounds nuw [8 x i8], ptr %841, i64 %indvars.iv1733
   %843 = load ptr, ptr %842, align 8, !tbaa !30
   %844 = icmp eq ptr %843, %.08791569
   br i1 %844, label %._crit_edge1563, label %.lr.ph1562
@@ -1990,7 +1990,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %869 = tail call ptr @H5FL_fac_init(i64 noundef %868) #9
   %870 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %871 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %872 = getelementptr inbounds nuw ptr, ptr %870, i64 %871
+  %872 = getelementptr inbounds nuw [8 x i8], ptr %870, i64 %871
   store ptr %869, ptr %872, align 8, !tbaa !15
   %873 = add i64 %871, 1
   store i64 %873, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2000,7 +2000,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 874:                                              ; preds = %._crit_edge1800, %866
   %875 = phi i64 [ %852, %._crit_edge1800 ], [ %.pre1802, %866 ]
   %876 = phi ptr [ %.pre1801, %._crit_edge1800 ], [ %870, %866 ]
-  %877 = getelementptr inbounds nuw ptr, ptr %876, i64 %875
+  %877 = getelementptr inbounds nuw [8 x i8], ptr %876, i64 %875
   %878 = load ptr, ptr %877, align 8, !tbaa !15
   %879 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %878) #9
   %880 = icmp eq ptr %879, null
@@ -2018,7 +2018,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %879, ptr align 1 %886, i64 %887, i1 false)
   %888 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %889 = load i64, ptr %849, align 8, !tbaa !38
-  %890 = getelementptr ptr, ptr %888, i64 %889
+  %890 = getelementptr [8 x i8], ptr %888, i64 %889
   %891 = getelementptr i8, ptr %890, i64 -8
   %892 = load ptr, ptr %891, align 8, !tbaa !15
   %893 = load ptr, ptr %845, align 8, !tbaa !27
@@ -2090,7 +2090,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %920 = tail call ptr @H5FL_fac_init(i64 noundef %919) #9
   %921 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %922 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %923 = getelementptr inbounds nuw ptr, ptr %921, i64 %922
+  %923 = getelementptr inbounds nuw [8 x i8], ptr %921, i64 %922
   store ptr %920, ptr %923, align 8, !tbaa !15
   %924 = add i64 %922, 1
   store i64 %924, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2100,7 +2100,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 925:                                              ; preds = %._crit_edge1807, %917
   %926 = phi i64 [ %903, %._crit_edge1807 ], [ %.pre1809, %917 ]
   %927 = phi ptr [ %.pre1808, %._crit_edge1807 ], [ %921, %917 ]
-  %928 = getelementptr inbounds nuw ptr, ptr %927, i64 %926
+  %928 = getelementptr inbounds nuw [8 x i8], ptr %927, i64 %926
   %929 = load ptr, ptr %928, align 8, !tbaa !15
   %930 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %929) #9
   %931 = icmp eq ptr %930, null
@@ -2118,7 +2118,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %930, ptr align 1 %937, i64 %938, i1 false)
   %939 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %940 = load i64, ptr %900, align 8, !tbaa !38
-  %941 = getelementptr ptr, ptr %939, i64 %940
+  %941 = getelementptr [8 x i8], ptr %939, i64 %940
   %942 = getelementptr i8, ptr %941, i64 -8
   %943 = load ptr, ptr %942, align 8, !tbaa !15
   %944 = load ptr, ptr %826, align 8, !tbaa !27
@@ -2140,7 +2140,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 952:                                              ; preds = %895
   %953 = load ptr, ptr %826, align 8, !tbaa !27
-  %954 = getelementptr inbounds nuw ptr, ptr %953, i64 %848
+  %954 = getelementptr inbounds nuw [8 x i8], ptr %953, i64 %848
   %955 = load ptr, ptr %954, align 8, !tbaa !30
   br label %956
 
@@ -2149,9 +2149,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %957 = phi ptr [ %.pre1811, %946 ], [ %953, %952 ]
   %958 = phi i32 [ %951, %946 ], [ %896, %952 ]
   %959 = load ptr, ptr %845, align 8, !tbaa !27
-  %960 = getelementptr inbounds nuw ptr, ptr %959, i64 %848
+  %960 = getelementptr inbounds nuw [8 x i8], ptr %959, i64 %848
   store ptr %.sink2117, ptr %960, align 8, !tbaa !30
-  %961 = getelementptr inbounds nuw ptr, ptr %957, i64 %848
+  %961 = getelementptr inbounds nuw [8 x i8], ptr %957, i64 %848
   store ptr %.171561, ptr %961, align 8, !tbaa !30
   br label %962
 
@@ -2160,7 +2160,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.18761254 = phi ptr [ %spec.select1343, %956 ], [ %spec.select1127, %._crit_edge1563 ]
   %964 = getelementptr inbounds nuw i8, ptr %.18761254, i64 40
   %965 = load ptr, ptr %964, align 8, !tbaa !27
-  %966 = getelementptr inbounds nuw ptr, ptr %965, i64 %indvars.iv1733
+  %966 = getelementptr inbounds nuw [8 x i8], ptr %965, i64 %indvars.iv1733
   %967 = load ptr, ptr %966, align 8, !tbaa !30
   %indvars.iv.next1734 = add nsw i64 %indvars.iv1733, -1
   %968 = icmp sgt i64 %indvars.iv1733, 0
@@ -2203,7 +2203,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.191552 = phi ptr [ %12, %.preheader1351.lr.ph ], [ %.18291276, %1130 ]
   %.08321550 = phi ptr [ null, %.preheader1351.lr.ph ], [ %1135, %1130 ]
   %986 = getelementptr inbounds nuw i8, ptr %.191552, i64 40
-  %987 = getelementptr inbounds nuw ptr, ptr %985, i64 %indvars.iv1730
+  %987 = getelementptr inbounds nuw [8 x i8], ptr %985, i64 %indvars.iv1730
   %988 = load ptr, ptr %987, align 8, !tbaa !30
   %989 = icmp eq ptr %988, %.08321550
   br i1 %989, label %._crit_edge1544, label %.lr.ph1543
@@ -2246,7 +2246,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1007 = add nuw nsw i32 %.08261541, 1
   %1008 = getelementptr inbounds nuw i8, ptr %990, i64 40
   %1009 = load ptr, ptr %1008, align 8, !tbaa !27
-  %1010 = getelementptr inbounds nuw ptr, ptr %1009, i64 %indvars.iv1730
+  %1010 = getelementptr inbounds nuw [8 x i8], ptr %1009, i64 %indvars.iv1730
   %1011 = load ptr, ptr %1010, align 8, !tbaa !30
   %1012 = icmp eq ptr %1011, %.08321550
   br i1 %1012, label %._crit_edge1544, label %.lr.ph1543
@@ -2313,7 +2313,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1037 = tail call ptr @H5FL_fac_init(i64 noundef %1036) #9
   %1038 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1039 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1040 = getelementptr inbounds nuw ptr, ptr %1038, i64 %1039
+  %1040 = getelementptr inbounds nuw [8 x i8], ptr %1038, i64 %1039
   store ptr %1037, ptr %1040, align 8, !tbaa !15
   %1041 = add i64 %1039, 1
   store i64 %1041, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2323,7 +2323,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 1042:                                             ; preds = %._crit_edge1784, %1034
   %1043 = phi i64 [ %1020, %._crit_edge1784 ], [ %.pre1786, %1034 ]
   %1044 = phi ptr [ %.pre1785, %._crit_edge1784 ], [ %1038, %1034 ]
-  %1045 = getelementptr inbounds nuw ptr, ptr %1044, i64 %1043
+  %1045 = getelementptr inbounds nuw [8 x i8], ptr %1044, i64 %1043
   %1046 = load ptr, ptr %1045, align 8, !tbaa !15
   %1047 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1046) #9
   %1048 = icmp eq ptr %1047, null
@@ -2341,7 +2341,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1047, ptr align 1 %1054, i64 %1055, i1 false)
   %1056 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1057 = load i64, ptr %1017, align 8, !tbaa !38
-  %1058 = getelementptr ptr, ptr %1056, i64 %1057
+  %1058 = getelementptr [8 x i8], ptr %1056, i64 %1057
   %1059 = getelementptr i8, ptr %1058, i64 -8
   %1060 = load ptr, ptr %1059, align 8, !tbaa !15
   %1061 = load ptr, ptr %1013, align 8, !tbaa !27
@@ -2413,7 +2413,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1088 = tail call ptr @H5FL_fac_init(i64 noundef %1087) #9
   %1089 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1090 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1091 = getelementptr inbounds nuw ptr, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds nuw [8 x i8], ptr %1089, i64 %1090
   store ptr %1088, ptr %1091, align 8, !tbaa !15
   %1092 = add i64 %1090, 1
   store i64 %1092, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2423,7 +2423,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 1093:                                             ; preds = %._crit_edge1791, %1085
   %1094 = phi i64 [ %1071, %._crit_edge1791 ], [ %.pre1793, %1085 ]
   %1095 = phi ptr [ %.pre1792, %._crit_edge1791 ], [ %1089, %1085 ]
-  %1096 = getelementptr inbounds nuw ptr, ptr %1095, i64 %1094
+  %1096 = getelementptr inbounds nuw [8 x i8], ptr %1095, i64 %1094
   %1097 = load ptr, ptr %1096, align 8, !tbaa !15
   %1098 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1097) #9
   %1099 = icmp eq ptr %1098, null
@@ -2441,7 +2441,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1098, ptr align 1 %1105, i64 %1106, i1 false)
   %1107 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1108 = load i64, ptr %1068, align 8, !tbaa !38
-  %1109 = getelementptr ptr, ptr %1107, i64 %1108
+  %1109 = getelementptr [8 x i8], ptr %1107, i64 %1108
   %1110 = getelementptr i8, ptr %1109, i64 -8
   %1111 = load ptr, ptr %1110, align 8, !tbaa !15
   %1112 = load ptr, ptr %986, align 8, !tbaa !27
@@ -2463,7 +2463,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 1120:                                             ; preds = %1063
   %1121 = load ptr, ptr %986, align 8, !tbaa !27
-  %1122 = getelementptr inbounds nuw ptr, ptr %1121, i64 %1016
+  %1122 = getelementptr inbounds nuw [8 x i8], ptr %1121, i64 %1016
   %1123 = load ptr, ptr %1122, align 8, !tbaa !30
   br label %1124
 
@@ -2472,9 +2472,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1125 = phi ptr [ %.pre1795, %1114 ], [ %1121, %1120 ]
   %1126 = phi i32 [ %1119, %1114 ], [ %1064, %1120 ]
   %1127 = load ptr, ptr %1013, align 8, !tbaa !27
-  %1128 = getelementptr inbounds nuw ptr, ptr %1127, i64 %1016
+  %1128 = getelementptr inbounds nuw [8 x i8], ptr %1127, i64 %1016
   store ptr %.sink2120, ptr %1128, align 8, !tbaa !30
-  %1129 = getelementptr inbounds nuw ptr, ptr %1125, i64 %1016
+  %1129 = getelementptr inbounds nuw [8 x i8], ptr %1125, i64 %1016
   store ptr %.201542, ptr %1129, align 8, !tbaa !30
   br label %1130
 
@@ -2483,7 +2483,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.18291276 = phi ptr [ %spec.select1344, %1124 ], [ %spec.select1131, %._crit_edge1544 ]
   %1132 = getelementptr inbounds nuw i8, ptr %.18291276, i64 40
   %1133 = load ptr, ptr %1132, align 8, !tbaa !27
-  %1134 = getelementptr inbounds nuw ptr, ptr %1133, i64 %indvars.iv1730
+  %1134 = getelementptr inbounds nuw [8 x i8], ptr %1133, i64 %indvars.iv1730
   %1135 = load ptr, ptr %1134, align 8, !tbaa !30
   %indvars.iv.next1731 = add nsw i64 %indvars.iv1730, -1
   %1136 = icmp sgt i64 %indvars.iv1730, 0
@@ -2533,7 +2533,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.221533 = phi ptr [ %12, %.preheader1352.preheader ], [ %.18131298, %1295 ]
   %.08161531 = phi ptr [ null, %.preheader1352.preheader ], [ %1300, %1295 ]
   %1159 = getelementptr inbounds nuw i8, ptr %.221533, i64 40
-  %1160 = getelementptr inbounds nuw ptr, ptr %1158, i64 %indvars.iv1727
+  %1160 = getelementptr inbounds nuw [8 x i8], ptr %1158, i64 %indvars.iv1727
   %1161 = load ptr, ptr %1160, align 8, !tbaa !30
   %1162 = icmp eq ptr %1161, %.08161531
   br i1 %1162, label %._crit_edge1525, label %.lr.ph1524
@@ -2563,7 +2563,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1172 = add nuw nsw i32 %.08101522, 1
   %1173 = getelementptr inbounds nuw i8, ptr %1163, i64 40
   %1174 = load ptr, ptr %1173, align 8, !tbaa !27
-  %1175 = getelementptr inbounds nuw ptr, ptr %1174, i64 %indvars.iv1727
+  %1175 = getelementptr inbounds nuw [8 x i8], ptr %1174, i64 %indvars.iv1727
   %1176 = load ptr, ptr %1175, align 8, !tbaa !30
   %1177 = icmp eq ptr %1176, %.08161531
   br i1 %1177, label %._crit_edge1525, label %.lr.ph1524
@@ -2630,7 +2630,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1202 = tail call ptr @H5FL_fac_init(i64 noundef %1201) #9
   %1203 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1204 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1205 = getelementptr inbounds nuw ptr, ptr %1203, i64 %1204
+  %1205 = getelementptr inbounds nuw [8 x i8], ptr %1203, i64 %1204
   store ptr %1202, ptr %1205, align 8, !tbaa !15
   %1206 = add i64 %1204, 1
   store i64 %1206, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2640,7 +2640,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 1207:                                             ; preds = %._crit_edge1768, %1199
   %1208 = phi i64 [ %1185, %._crit_edge1768 ], [ %.pre1770, %1199 ]
   %1209 = phi ptr [ %.pre1769, %._crit_edge1768 ], [ %1203, %1199 ]
-  %1210 = getelementptr inbounds nuw ptr, ptr %1209, i64 %1208
+  %1210 = getelementptr inbounds nuw [8 x i8], ptr %1209, i64 %1208
   %1211 = load ptr, ptr %1210, align 8, !tbaa !15
   %1212 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1211) #9
   %1213 = icmp eq ptr %1212, null
@@ -2658,7 +2658,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1212, ptr align 1 %1219, i64 %1220, i1 false)
   %1221 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1222 = load i64, ptr %1182, align 8, !tbaa !38
-  %1223 = getelementptr ptr, ptr %1221, i64 %1222
+  %1223 = getelementptr [8 x i8], ptr %1221, i64 %1222
   %1224 = getelementptr i8, ptr %1223, i64 -8
   %1225 = load ptr, ptr %1224, align 8, !tbaa !15
   %1226 = load ptr, ptr %1178, align 8, !tbaa !27
@@ -2730,7 +2730,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1253 = tail call ptr @H5FL_fac_init(i64 noundef %1252) #9
   %1254 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1255 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1256 = getelementptr inbounds nuw ptr, ptr %1254, i64 %1255
+  %1256 = getelementptr inbounds nuw [8 x i8], ptr %1254, i64 %1255
   store ptr %1253, ptr %1256, align 8, !tbaa !15
   %1257 = add i64 %1255, 1
   store i64 %1257, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2740,7 +2740,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 1258:                                             ; preds = %._crit_edge1775, %1250
   %1259 = phi i64 [ %1236, %._crit_edge1775 ], [ %.pre1777, %1250 ]
   %1260 = phi ptr [ %.pre1776, %._crit_edge1775 ], [ %1254, %1250 ]
-  %1261 = getelementptr inbounds nuw ptr, ptr %1260, i64 %1259
+  %1261 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %1259
   %1262 = load ptr, ptr %1261, align 8, !tbaa !15
   %1263 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1262) #9
   %1264 = icmp eq ptr %1263, null
@@ -2758,7 +2758,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1263, ptr align 1 %1270, i64 %1271, i1 false)
   %1272 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1273 = load i64, ptr %1233, align 8, !tbaa !38
-  %1274 = getelementptr ptr, ptr %1272, i64 %1273
+  %1274 = getelementptr [8 x i8], ptr %1272, i64 %1273
   %1275 = getelementptr i8, ptr %1274, i64 -8
   %1276 = load ptr, ptr %1275, align 8, !tbaa !15
   %1277 = load ptr, ptr %1159, align 8, !tbaa !27
@@ -2780,7 +2780,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 1285:                                             ; preds = %1228
   %1286 = load ptr, ptr %1159, align 8, !tbaa !27
-  %1287 = getelementptr inbounds nuw ptr, ptr %1286, i64 %1181
+  %1287 = getelementptr inbounds nuw [8 x i8], ptr %1286, i64 %1181
   %1288 = load ptr, ptr %1287, align 8, !tbaa !30
   br label %1289
 
@@ -2789,9 +2789,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1290 = phi ptr [ %.pre1779, %1279 ], [ %1286, %1285 ]
   %1291 = phi i32 [ %1284, %1279 ], [ %1229, %1285 ]
   %1292 = load ptr, ptr %1178, align 8, !tbaa !27
-  %1293 = getelementptr inbounds nuw ptr, ptr %1292, i64 %1181
+  %1293 = getelementptr inbounds nuw [8 x i8], ptr %1292, i64 %1181
   store ptr %.sink2123, ptr %1293, align 8, !tbaa !30
-  %1294 = getelementptr inbounds nuw ptr, ptr %1290, i64 %1181
+  %1294 = getelementptr inbounds nuw [8 x i8], ptr %1290, i64 %1181
   store ptr %.231523, ptr %1294, align 8, !tbaa !30
   br label %1295
 
@@ -2800,7 +2800,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.18131298 = phi ptr [ %spec.select1345, %1289 ], [ %spec.select1134, %._crit_edge1525 ]
   %1297 = getelementptr inbounds nuw i8, ptr %.18131298, i64 40
   %1298 = load ptr, ptr %1297, align 8, !tbaa !27
-  %1299 = getelementptr inbounds nuw ptr, ptr %1298, i64 %indvars.iv1727
+  %1299 = getelementptr inbounds nuw [8 x i8], ptr %1298, i64 %indvars.iv1727
   %1300 = load ptr, ptr %1299, align 8, !tbaa !30
   %indvars.iv.next1728 = add nsw i64 %indvars.iv1727, -1
   %1301 = icmp sgt i64 %indvars.iv1727, 0
@@ -2842,7 +2842,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.251514 = phi ptr [ %12, %.preheader1353.lr.ph ], [ %.17751320, %1461 ]
   %.07781512 = phi ptr [ null, %.preheader1353.lr.ph ], [ %1465, %1461 ]
   %1318 = getelementptr inbounds nuw i8, ptr %.251514, i64 40
-  %1319 = getelementptr inbounds nuw ptr, ptr %1317, i64 %indvars.iv
+  %1319 = getelementptr inbounds nuw [8 x i8], ptr %1317, i64 %indvars.iv
   %1320 = load ptr, ptr %1319, align 8, !tbaa !30
   %1321 = icmp eq ptr %1320, %.07781512
   br i1 %1321, label %._crit_edge, label %.lr.ph
@@ -2875,18 +2875,18 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 1332:                                             ; preds = %1331
   %1333 = load ptr, ptr %1323, align 8, !tbaa !27
-  %1334 = getelementptr inbounds nuw ptr, ptr %1333, i64 %indvars.iv
+  %1334 = getelementptr inbounds nuw [8 x i8], ptr %1333, i64 %indvars.iv
   %1335 = load ptr, ptr %1334, align 8, !tbaa !30
   br label %.thread1317
 
 1336:                                             ; preds = %1329
   %1337 = load ptr, ptr %1323, align 8, !tbaa !27
-  %1338 = getelementptr inbounds nuw ptr, ptr %1337, i64 %indvars.iv
+  %1338 = getelementptr inbounds nuw [8 x i8], ptr %1337, i64 %indvars.iv
   %1339 = load ptr, ptr %1338, align 8, !tbaa !30
   %1340 = add nuw nsw i32 %.07721506, 1
   %1341 = getelementptr inbounds nuw i8, ptr %1339, i64 40
   %1342 = load ptr, ptr %1341, align 8, !tbaa !27
-  %1343 = getelementptr inbounds nuw ptr, ptr %1342, i64 %indvars.iv
+  %1343 = getelementptr inbounds nuw [8 x i8], ptr %1342, i64 %indvars.iv
   %1344 = load ptr, ptr %1343, align 8, !tbaa !30
   %1345 = icmp eq ptr %1344, %.07781512
   br i1 %1345, label %._crit_edge, label %.lr.ph
@@ -2951,7 +2951,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1369 = tail call ptr @H5FL_fac_init(i64 noundef %1368) #9
   %1370 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1371 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1372 = getelementptr inbounds nuw ptr, ptr %1370, i64 %1371
+  %1372 = getelementptr inbounds nuw [8 x i8], ptr %1370, i64 %1371
   store ptr %1369, ptr %1372, align 8, !tbaa !15
   %1373 = add i64 %1371, 1
   store i64 %1373, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -2961,7 +2961,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 1374:                                             ; preds = %._crit_edge1753, %1366
   %1375 = phi i64 [ %1352, %._crit_edge1753 ], [ %.pre1755, %1366 ]
   %1376 = phi ptr [ %.pre1754, %._crit_edge1753 ], [ %1370, %1366 ]
-  %1377 = getelementptr inbounds nuw ptr, ptr %1376, i64 %1375
+  %1377 = getelementptr inbounds nuw [8 x i8], ptr %1376, i64 %1375
   %1378 = load ptr, ptr %1377, align 8, !tbaa !15
   %1379 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1378) #9
   %1380 = icmp eq ptr %1379, null
@@ -2979,7 +2979,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1379, ptr align 1 %1386, i64 %1387, i1 false)
   %1388 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1389 = load i64, ptr %1349, align 8, !tbaa !38
-  %1390 = getelementptr ptr, ptr %1388, i64 %1389
+  %1390 = getelementptr [8 x i8], ptr %1388, i64 %1389
   %1391 = getelementptr i8, ptr %1390, i64 -8
   %1392 = load ptr, ptr %1391, align 8, !tbaa !15
   %1393 = load ptr, ptr %1323, align 8, !tbaa !27
@@ -3050,7 +3050,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %1420 = tail call ptr @H5FL_fac_init(i64 noundef %1419) #9
   %1421 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1422 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1423 = getelementptr inbounds nuw ptr, ptr %1421, i64 %1422
+  %1423 = getelementptr inbounds nuw [8 x i8], ptr %1421, i64 %1422
   store ptr %1420, ptr %1423, align 8, !tbaa !15
   %1424 = add i64 %1422, 1
   store i64 %1424, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -3060,7 +3060,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 1425:                                             ; preds = %._crit_edge1759, %1417
   %1426 = phi i64 [ %1403, %._crit_edge1759 ], [ %.pre1761, %1417 ]
   %1427 = phi ptr [ %.pre1760, %._crit_edge1759 ], [ %1421, %1417 ]
-  %1428 = getelementptr inbounds nuw ptr, ptr %1427, i64 %1426
+  %1428 = getelementptr inbounds nuw [8 x i8], ptr %1427, i64 %1426
   %1429 = load ptr, ptr %1428, align 8, !tbaa !15
   %1430 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1429) #9
   %1431 = icmp eq ptr %1430, null
@@ -3078,7 +3078,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1430, ptr align 1 %1437, i64 %1438, i1 false)
   %1439 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1440 = load i64, ptr %1400, align 8, !tbaa !38
-  %1441 = getelementptr ptr, ptr %1439, i64 %1440
+  %1441 = getelementptr [8 x i8], ptr %1439, i64 %1440
   %1442 = getelementptr i8, ptr %1441, i64 -8
   %1443 = load ptr, ptr %1442, align 8, !tbaa !15
   %1444 = load ptr, ptr %1318, align 8, !tbaa !27
@@ -3100,7 +3100,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
 
 1452:                                             ; preds = %1395
   %1453 = load ptr, ptr %1318, align 8, !tbaa !27
-  %1454 = getelementptr inbounds nuw ptr, ptr %1453, i64 %1348
+  %1454 = getelementptr inbounds nuw [8 x i8], ptr %1453, i64 %1348
   %1455 = load ptr, ptr %1454, align 8, !tbaa !30
   br label %1456
 
@@ -3108,9 +3108,9 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.sink2126 = phi ptr [ null, %1446 ], [ %1455, %1452 ]
   %1457 = phi ptr [ %.pre1763, %1446 ], [ %1453, %1452 ]
   %1458 = load ptr, ptr %1323, align 8, !tbaa !27
-  %1459 = getelementptr inbounds nuw ptr, ptr %1458, i64 %1348
+  %1459 = getelementptr inbounds nuw [8 x i8], ptr %1458, i64 %1348
   store ptr %.sink2126, ptr %1459, align 8, !tbaa !30
-  %1460 = getelementptr inbounds nuw ptr, ptr %1457, i64 %1348
+  %1460 = getelementptr inbounds nuw [8 x i8], ptr %1457, i64 %1348
   store ptr %.261507, ptr %1460, align 8, !tbaa !30
   br label %1461
 
@@ -3118,7 +3118,7 @@ define internal fastcc ptr @H5SL__insert_common(ptr noundef captures(none) %0, p
   %.17751320 = phi ptr [ %.17751321, %1456 ], [ %spec.select1138, %._crit_edge ]
   %1462 = getelementptr inbounds nuw i8, ptr %.17751320, i64 40
   %1463 = load ptr, ptr %1462, align 8, !tbaa !27
-  %1464 = getelementptr inbounds nuw ptr, ptr %1463, i64 %indvars.iv
+  %1464 = getelementptr inbounds nuw [8 x i8], ptr %1463, i64 %indvars.iv
   %1465 = load ptr, ptr %1464, align 8, !tbaa !30
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %1466 = icmp sgt i64 %indvars.iv, 0
@@ -3284,7 +3284,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge118:                                     ; preds = %18, %20
   %24 = getelementptr inbounds nuw i8, ptr %.025754344, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !27
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %17
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %17
   %27 = load ptr, ptr %26, align 8, !tbaa !30
   %.not3403 = icmp eq ptr %27, null
   br i1 %.not3403, label %.critedge, label %18, !llvm.loop !52
@@ -3313,7 +3313,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.026164368 = phi ptr [ %.02575.lcssa, %.preheader.lr.ph ], [ %441, %.thread3459 ]
   %33 = add nsw i64 %indvars.iv4461, -1
   %34 = getelementptr inbounds nuw i8, ptr %.126134370, i64 40
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !30
   %37 = icmp eq ptr %36, %.026164368
   br i1 %37, label %.thread3459, label %.lr.ph4357
@@ -3348,7 +3348,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %47 = add nuw nsw i32 %.026234353, 1
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !27
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %33
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %33
   %51 = load ptr, ptr %50, align 8, !tbaa !30
   %52 = icmp eq ptr %51, %.026164368
   br i1 %52, label %._crit_edge4358, label %.lr.ph4357
@@ -3366,13 +3366,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.026164368, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !27
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv4461
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv4461
   %60 = load ptr, ptr %59, align 8, !tbaa !30
   %61 = getelementptr inbounds nuw i8, ptr %.026164368, i64 16
   %62 = load i64, ptr %61, align 8, !tbaa !36
-  %63 = getelementptr inbounds nuw ptr, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !30
-  %65 = getelementptr inbounds nuw ptr, ptr %32, i64 %62
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %62
   store ptr %64, ptr %65, align 8, !tbaa !30
   %66 = getelementptr inbounds nuw i8, ptr %.026164368, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !38
@@ -3384,7 +3384,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 70:                                               ; preds = %56
   store i64 %68, ptr %66, align 8, !tbaa !38
   %71 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %68
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %68
   %73 = load ptr, ptr %72, align 8, !tbaa !15
   %74 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %73) #9
   %.not3426 = icmp eq ptr %74, null
@@ -3396,7 +3396,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %76, i64 %77, i1 false)
   %78 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %79 = load i64, ptr %66, align 8, !tbaa !38
-  %80 = getelementptr ptr, ptr %78, i64 %79
+  %80 = getelementptr [8 x i8], ptr %78, i64 %79
   %81 = getelementptr i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !15
   %83 = load ptr, ptr %57, align 8, !tbaa !27
@@ -3416,11 +3416,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %91 = phi i64 [ %62, %56 ], [ %.pre4727, %75 ]
   %92 = add i64 %91, -1
   store i64 %92, ptr %61, align 8, !tbaa !36
-  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %33
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %33
   %94 = load ptr, ptr %93, align 8, !tbaa !30
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !27
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %33
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %33
   %98 = load ptr, ptr %97, align 8, !tbaa !30
   %.not3427 = icmp eq ptr %98, %60
   br i1 %.not3427, label %216, label %99
@@ -3477,7 +3477,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %123 = tail call ptr @H5FL_fac_init(i64 noundef %122) #9
   %124 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %125 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %126 = getelementptr inbounds nuw ptr, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   store ptr %123, ptr %126, align 8, !tbaa !15
   %127 = add i64 %125, 1
   store i64 %127, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -3487,7 +3487,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 128:                                              ; preds = %._crit_edge4730, %120
   %129 = phi i64 [ %106, %._crit_edge4730 ], [ %.pre4732, %120 ]
   %130 = phi ptr [ %.pre4731, %._crit_edge4730 ], [ %124, %120 ]
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %129
   %132 = load ptr, ptr %131, align 8, !tbaa !15
   %133 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %132) #9
   %134 = icmp eq ptr %133, null
@@ -3505,7 +3505,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr align 1 %140, i64 %141, i1 false)
   %142 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %143 = load i64, ptr %103, align 8, !tbaa !38
-  %144 = getelementptr ptr, ptr %142, i64 %143
+  %144 = getelementptr [8 x i8], ptr %142, i64 %143
   %145 = getelementptr i8, ptr %144, i64 -8
   %146 = load ptr, ptr %145, align 8, !tbaa !15
   %147 = load ptr, ptr %95, align 8, !tbaa !27
@@ -3577,7 +3577,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %175 = tail call ptr @H5FL_fac_init(i64 noundef %174) #9
   %176 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %177 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %178 = getelementptr inbounds nuw ptr, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %177
   store ptr %175, ptr %178, align 8, !tbaa !15
   %179 = add i64 %177, 1
   store i64 %179, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -3587,7 +3587,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 180:                                              ; preds = %._crit_edge4736, %172
   %181 = phi i64 [ %158, %._crit_edge4736 ], [ %.pre4738, %172 ]
   %182 = phi ptr [ %.pre4737, %._crit_edge4736 ], [ %176, %172 ]
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %181
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %181
   %184 = load ptr, ptr %183, align 8, !tbaa !15
   %185 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %184) #9
   %186 = icmp eq ptr %185, null
@@ -3605,7 +3605,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %185, ptr align 1 %192, i64 %193, i1 false)
   %194 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %195 = load i64, ptr %155, align 8, !tbaa !38
-  %196 = getelementptr ptr, ptr %194, i64 %195
+  %196 = getelementptr [8 x i8], ptr %194, i64 %195
   %197 = getelementptr i8, ptr %196, i64 -8
   %198 = load ptr, ptr %197, align 8, !tbaa !15
   %199 = load ptr, ptr %34, align 8, !tbaa !27
@@ -3629,7 +3629,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 208:                                              ; preds = %149
   %209 = load ptr, ptr %34, align 8, !tbaa !27
-  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %102
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %102
   %211 = load ptr, ptr %210, align 8, !tbaa !30
   br label %212
 
@@ -3637,15 +3637,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5198 = phi ptr [ %202, %201 ], [ %150, %208 ]
   %.sink = phi ptr [ null, %201 ], [ %211, %208 ]
   %213 = phi ptr [ %.pre4741, %201 ], [ %209, %208 ]
-  %214 = getelementptr inbounds nuw ptr, ptr %.sink5198, i64 %102
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %.sink5198, i64 %102
   store ptr %.sink, ptr %214, align 8, !tbaa !30
-  %215 = getelementptr inbounds nuw ptr, ptr %213, i64 %102
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %102
   store ptr %94, ptr %215, align 8, !tbaa !30
   br label %.thread3459
 
 216:                                              ; preds = %89
   %217 = load ptr, ptr %28, align 8, !tbaa !27
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv4461
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv4461
   %219 = load ptr, ptr %218, align 8, !tbaa !30
   %.not3428 = icmp eq ptr %219, null
   br i1 %.not3428, label %220, label %.thread3459
@@ -3660,7 +3660,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 224:                                              ; preds = %220
   store i64 %222, ptr %29, align 8, !tbaa !38
   %225 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %222
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %222
   %227 = load ptr, ptr %226, align 8, !tbaa !15
   %228 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %227) #9
   %.not3430 = icmp eq ptr %228, null
@@ -3678,7 +3678,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr align 1 %233, i64 %234, i1 false)
   %235 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %236 = load i64, ptr %29, align 8, !tbaa !38
-  %237 = getelementptr ptr, ptr %235, i64 %236
+  %237 = getelementptr [8 x i8], ptr %235, i64 %236
   %238 = getelementptr i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8, !tbaa !15
   %240 = load ptr, ptr %28, align 8, !tbaa !27
@@ -3698,7 +3698,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 247:                                              ; preds = %54
   %248 = getelementptr inbounds nuw i8, ptr %.126154369, i64 40
   %249 = load ptr, ptr %248, align 8, !tbaa !27
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %33
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %33
   %251 = load ptr, ptr %250, align 8, !tbaa !30
   br label %252
 
@@ -3707,7 +3707,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4460.not = phi i1 [ false, %247 ], [ true, %252 ]
   %253 = getelementptr inbounds nuw i8, ptr %.24365, i64 40
   %254 = load ptr, ptr %253, align 8, !tbaa !27
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %33
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %33
   %256 = load ptr, ptr %255, align 8, !tbaa !30
   %.not3411 = icmp eq ptr %256, %.126134370
   %brmerge = or i1 %.not3411, %exitcond4460.not
@@ -3717,9 +3717,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.24365.mux.le = select i1 %.not3411, ptr %.24365, ptr %256
   %257 = getelementptr inbounds nuw i8, ptr %.126134370, i64 16
   %258 = load i64, ptr %257, align 8, !tbaa !36
-  %259 = getelementptr inbounds nuw ptr, ptr %32, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !30
-  %261 = getelementptr inbounds nuw ptr, ptr %249, i64 %258
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %258
   store ptr %260, ptr %261, align 8, !tbaa !30
   %262 = getelementptr inbounds nuw i8, ptr %.126134370, i64 24
   %263 = load i64, ptr %262, align 8, !tbaa !38
@@ -3731,7 +3731,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 266:                                              ; preds = %.critedge120
   store i64 %264, ptr %262, align 8, !tbaa !38
   %267 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %268 = getelementptr inbounds nuw ptr, ptr %267, i64 %264
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %264
   %269 = load ptr, ptr %268, align 8, !tbaa !15
   %270 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %269) #9
   %.not3413 = icmp eq ptr %270, null
@@ -3743,7 +3743,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %270, ptr align 1 %272, i64 %273, i1 false)
   %274 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %275 = load i64, ptr %262, align 8, !tbaa !38
-  %276 = getelementptr ptr, ptr %274, i64 %275
+  %276 = getelementptr [8 x i8], ptr %274, i64 %275
   %277 = getelementptr i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8, !tbaa !15
   %279 = load ptr, ptr %34, align 8, !tbaa !27
@@ -3818,7 +3818,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %313 = tail call ptr @H5FL_fac_init(i64 noundef %312) #9
   %314 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %315 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %316 = getelementptr inbounds nuw ptr, ptr %314, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %315
   store ptr %313, ptr %316, align 8, !tbaa !15
   %317 = add i64 %315, 1
   store i64 %317, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -3828,7 +3828,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 318:                                              ; preds = %._crit_edge4716, %310
   %319 = phi i64 [ %296, %._crit_edge4716 ], [ %.pre4718, %310 ]
   %320 = phi ptr [ %.pre4717, %._crit_edge4716 ], [ %314, %310 ]
-  %321 = getelementptr inbounds nuw ptr, ptr %320, i64 %319
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %319
   %322 = load ptr, ptr %321, align 8, !tbaa !15
   %323 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %322) #9
   %324 = icmp eq ptr %323, null
@@ -3847,7 +3847,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %323, ptr align 1 %331, i64 %332, i1 false)
   %333 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %334 = load i64, ptr %293, align 8, !tbaa !38
-  %335 = getelementptr ptr, ptr %333, i64 %334
+  %335 = getelementptr [8 x i8], ptr %333, i64 %334
   %336 = getelementptr i8, ptr %335, i64 -8
   %337 = load ptr, ptr %336, align 8, !tbaa !15
   %338 = load ptr, ptr %330, align 8, !tbaa !27
@@ -3918,7 +3918,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %365 = tail call ptr @H5FL_fac_init(i64 noundef %364) #9
   %366 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %367 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %368 = getelementptr inbounds nuw ptr, ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %367
   store ptr %365, ptr %368, align 8, !tbaa !15
   %369 = add i64 %367, 1
   store i64 %369, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -3928,7 +3928,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 370:                                              ; preds = %._crit_edge4722, %362
   %371 = phi i64 [ %348, %._crit_edge4722 ], [ %.pre4724, %362 ]
   %372 = phi ptr [ %.pre4723, %._crit_edge4722 ], [ %366, %362 ]
-  %373 = getelementptr inbounds nuw ptr, ptr %372, i64 %371
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %371
   %374 = load ptr, ptr %373, align 8, !tbaa !15
   %375 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %374) #9
   %376 = icmp eq ptr %375, null
@@ -3946,7 +3946,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %375, ptr align 1 %382, i64 %383, i1 false)
   %384 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %385 = load i64, ptr %345, align 8, !tbaa !38
-  %386 = getelementptr ptr, ptr %384, i64 %385
+  %386 = getelementptr [8 x i8], ptr %384, i64 %385
   %387 = getelementptr i8, ptr %386, i64 -8
   %388 = load ptr, ptr %387, align 8, !tbaa !15
   %389 = load ptr, ptr %248, align 8, !tbaa !27
@@ -3968,7 +3968,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 397:                                              ; preds = %340
   %398 = load ptr, ptr %248, align 8, !tbaa !27
-  %399 = getelementptr inbounds nuw ptr, ptr %398, i64 %292
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %292
   %400 = load ptr, ptr %399, align 8, !tbaa !30
   br label %401
 
@@ -3977,15 +3977,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %402 = phi ptr [ %.pre4726, %391 ], [ %398, %397 ]
   %403 = getelementptr inbounds nuw i8, ptr %.24365.mux.le, i64 40
   %404 = load ptr, ptr %403, align 8, !tbaa !27
-  %405 = getelementptr inbounds nuw ptr, ptr %404, i64 %292
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 %292
   store ptr %.sink5199, ptr %405, align 8, !tbaa !30
-  %406 = getelementptr inbounds nuw ptr, ptr %402, i64 %292
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %292
   store ptr %.24365.mux.le, ptr %406, align 8, !tbaa !30
   br label %.thread3459
 
 407:                                              ; preds = %285
   %408 = load ptr, ptr %28, align 8, !tbaa !27
-  %409 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv4461
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %indvars.iv4461
   %410 = load ptr, ptr %409, align 8, !tbaa !30
   %.not3414 = icmp eq ptr %410, null
   br i1 %.not3414, label %411, label %.thread3459
@@ -4000,7 +4000,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 415:                                              ; preds = %411
   store i64 %413, ptr %29, align 8, !tbaa !38
   %416 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %413
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %413
   %418 = load ptr, ptr %417, align 8, !tbaa !15
   %419 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %418) #9
   %.not3416 = icmp eq ptr %419, null
@@ -4018,7 +4018,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %419, ptr align 1 %424, i64 %425, i1 false)
   %426 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %427 = load i64, ptr %29, align 8, !tbaa !38
-  %428 = getelementptr ptr, ptr %426, i64 %427
+  %428 = getelementptr [8 x i8], ptr %426, i64 %427
   %429 = getelementptr i8, ptr %428, i64 8
   %430 = load ptr, ptr %429, align 8, !tbaa !15
   %431 = load ptr, ptr %28, align 8, !tbaa !27
@@ -4040,7 +4040,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.126213463 = phi ptr [ %.226223457, %._crit_edge4358 ], [ %.226223457, %216 ], [ %.226223457, %242 ], [ %.226223457, %212 ], [ %.226223457, %407 ], [ %.226223457, %433 ], [ %.226223457, %401 ], [ %.126134370, %.preheader ], [ %.026204354, %.lr.ph4357 ], [ %.14356, %45 ], [ %.026204354, %44 ]
   %438 = getelementptr inbounds nuw i8, ptr %.126183464, i64 40
   %439 = load ptr, ptr %438, align 8, !tbaa !27
-  %440 = getelementptr inbounds nuw ptr, ptr %439, i64 %33
+  %440 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %33
   %441 = load ptr, ptr %440, align 8, !tbaa !30
   %442 = trunc nuw i64 %indvars.iv4461 to i32
   %443 = icmp sgt i32 %442, 1
@@ -4148,7 +4148,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge124:                                     ; preds = %491, %493
   %497 = getelementptr inbounds nuw i8, ptr %.44311, i64 40
   %498 = load ptr, ptr %497, align 8, !tbaa !27
-  %499 = getelementptr inbounds nuw ptr, ptr %498, i64 %490
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %498, i64 %490
   %500 = load ptr, ptr %499, align 8, !tbaa !30
   %.not3367 = icmp eq ptr %500, null
   br i1 %.not3367, label %.critedge122, label %491, !llvm.loop !54
@@ -4177,7 +4177,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.027634335 = phi ptr [ %.4.lcssa, %.preheader3887.lr.ph ], [ %914, %.thread3507 ]
   %506 = add nsw i64 %indvars.iv4456, -1
   %507 = getelementptr inbounds nuw i8, ptr %.127494337, i64 40
-  %508 = getelementptr inbounds nuw ptr, ptr %505, i64 %506
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %505, i64 %506
   %509 = load ptr, ptr %508, align 8, !tbaa !30
   %510 = icmp eq ptr %509, %.027634335
   br i1 %510, label %.thread3507, label %.lr.ph4324
@@ -4212,7 +4212,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %520 = add nuw nsw i32 %.027704320, 1
   %521 = getelementptr inbounds nuw i8, ptr %511, i64 40
   %522 = load ptr, ptr %521, align 8, !tbaa !27
-  %523 = getelementptr inbounds nuw ptr, ptr %522, i64 %506
+  %523 = getelementptr inbounds nuw [8 x i8], ptr %522, i64 %506
   %524 = load ptr, ptr %523, align 8, !tbaa !30
   %525 = icmp eq ptr %524, %.027634335
   br i1 %525, label %._crit_edge4325, label %.lr.ph4324
@@ -4230,13 +4230,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 529:                                              ; preds = %527
   %530 = getelementptr inbounds nuw i8, ptr %.027634335, i64 40
   %531 = load ptr, ptr %530, align 8, !tbaa !27
-  %532 = getelementptr inbounds nuw ptr, ptr %531, i64 %indvars.iv4456
+  %532 = getelementptr inbounds nuw [8 x i8], ptr %531, i64 %indvars.iv4456
   %533 = load ptr, ptr %532, align 8, !tbaa !30
   %534 = getelementptr inbounds nuw i8, ptr %.027634335, i64 16
   %535 = load i64, ptr %534, align 8, !tbaa !36
-  %536 = getelementptr inbounds nuw ptr, ptr %531, i64 %535
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %531, i64 %535
   %537 = load ptr, ptr %536, align 8, !tbaa !30
-  %538 = getelementptr inbounds nuw ptr, ptr %505, i64 %535
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %505, i64 %535
   store ptr %537, ptr %538, align 8, !tbaa !30
   %539 = getelementptr inbounds nuw i8, ptr %.027634335, i64 24
   %540 = load i64, ptr %539, align 8, !tbaa !38
@@ -4248,7 +4248,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 543:                                              ; preds = %529
   store i64 %541, ptr %539, align 8, !tbaa !38
   %544 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %545 = getelementptr inbounds nuw ptr, ptr %544, i64 %541
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %544, i64 %541
   %546 = load ptr, ptr %545, align 8, !tbaa !15
   %547 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %546) #9
   %.not3390 = icmp eq ptr %547, null
@@ -4260,7 +4260,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %547, ptr align 1 %549, i64 %550, i1 false)
   %551 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %552 = load i64, ptr %539, align 8, !tbaa !38
-  %553 = getelementptr ptr, ptr %551, i64 %552
+  %553 = getelementptr [8 x i8], ptr %551, i64 %552
   %554 = getelementptr i8, ptr %553, i64 8
   %555 = load ptr, ptr %554, align 8, !tbaa !15
   %556 = load ptr, ptr %530, align 8, !tbaa !27
@@ -4280,11 +4280,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %564 = phi i64 [ %535, %529 ], [ %.pre4696, %548 ]
   %565 = add i64 %564, -1
   store i64 %565, ptr %534, align 8, !tbaa !36
-  %566 = getelementptr inbounds nuw ptr, ptr %563, i64 %506
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %563, i64 %506
   %567 = load ptr, ptr %566, align 8, !tbaa !30
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 40
   %569 = load ptr, ptr %568, align 8, !tbaa !27
-  %570 = getelementptr inbounds nuw ptr, ptr %569, i64 %506
+  %570 = getelementptr inbounds nuw [8 x i8], ptr %569, i64 %506
   %571 = load ptr, ptr %570, align 8, !tbaa !30
   %.not3391 = icmp eq ptr %571, %533
   br i1 %.not3391, label %689, label %572
@@ -4341,7 +4341,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %596 = tail call ptr @H5FL_fac_init(i64 noundef %595) #9
   %597 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %598 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %599 = getelementptr inbounds nuw ptr, ptr %597, i64 %598
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %597, i64 %598
   store ptr %596, ptr %599, align 8, !tbaa !15
   %600 = add i64 %598, 1
   store i64 %600, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -4351,7 +4351,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 601:                                              ; preds = %._crit_edge4699, %593
   %602 = phi i64 [ %579, %._crit_edge4699 ], [ %.pre4701, %593 ]
   %603 = phi ptr [ %.pre4700, %._crit_edge4699 ], [ %597, %593 ]
-  %604 = getelementptr inbounds nuw ptr, ptr %603, i64 %602
+  %604 = getelementptr inbounds nuw [8 x i8], ptr %603, i64 %602
   %605 = load ptr, ptr %604, align 8, !tbaa !15
   %606 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %605) #9
   %607 = icmp eq ptr %606, null
@@ -4369,7 +4369,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %606, ptr align 1 %613, i64 %614, i1 false)
   %615 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %616 = load i64, ptr %576, align 8, !tbaa !38
-  %617 = getelementptr ptr, ptr %615, i64 %616
+  %617 = getelementptr [8 x i8], ptr %615, i64 %616
   %618 = getelementptr i8, ptr %617, i64 -8
   %619 = load ptr, ptr %618, align 8, !tbaa !15
   %620 = load ptr, ptr %568, align 8, !tbaa !27
@@ -4441,7 +4441,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %648 = tail call ptr @H5FL_fac_init(i64 noundef %647) #9
   %649 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %650 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %651 = getelementptr inbounds nuw ptr, ptr %649, i64 %650
+  %651 = getelementptr inbounds nuw [8 x i8], ptr %649, i64 %650
   store ptr %648, ptr %651, align 8, !tbaa !15
   %652 = add i64 %650, 1
   store i64 %652, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -4451,7 +4451,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 653:                                              ; preds = %._crit_edge4705, %645
   %654 = phi i64 [ %631, %._crit_edge4705 ], [ %.pre4707, %645 ]
   %655 = phi ptr [ %.pre4706, %._crit_edge4705 ], [ %649, %645 ]
-  %656 = getelementptr inbounds nuw ptr, ptr %655, i64 %654
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %654
   %657 = load ptr, ptr %656, align 8, !tbaa !15
   %658 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %657) #9
   %659 = icmp eq ptr %658, null
@@ -4469,7 +4469,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %658, ptr align 1 %665, i64 %666, i1 false)
   %667 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %668 = load i64, ptr %628, align 8, !tbaa !38
-  %669 = getelementptr ptr, ptr %667, i64 %668
+  %669 = getelementptr [8 x i8], ptr %667, i64 %668
   %670 = getelementptr i8, ptr %669, i64 -8
   %671 = load ptr, ptr %670, align 8, !tbaa !15
   %672 = load ptr, ptr %507, align 8, !tbaa !27
@@ -4493,7 +4493,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 681:                                              ; preds = %622
   %682 = load ptr, ptr %507, align 8, !tbaa !27
-  %683 = getelementptr inbounds nuw ptr, ptr %682, i64 %575
+  %683 = getelementptr inbounds nuw [8 x i8], ptr %682, i64 %575
   %684 = load ptr, ptr %683, align 8, !tbaa !30
   br label %685
 
@@ -4501,15 +4501,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5205 = phi ptr [ %675, %674 ], [ %623, %681 ]
   %.sink5203 = phi ptr [ null, %674 ], [ %684, %681 ]
   %686 = phi ptr [ %.pre4710, %674 ], [ %682, %681 ]
-  %687 = getelementptr inbounds nuw ptr, ptr %.sink5205, i64 %575
+  %687 = getelementptr inbounds nuw [8 x i8], ptr %.sink5205, i64 %575
   store ptr %.sink5203, ptr %687, align 8, !tbaa !30
-  %688 = getelementptr inbounds nuw ptr, ptr %686, i64 %575
+  %688 = getelementptr inbounds nuw [8 x i8], ptr %686, i64 %575
   store ptr %567, ptr %688, align 8, !tbaa !30
   br label %.thread3507
 
 689:                                              ; preds = %562
   %690 = load ptr, ptr %501, align 8, !tbaa !27
-  %691 = getelementptr inbounds nuw ptr, ptr %690, i64 %indvars.iv4456
+  %691 = getelementptr inbounds nuw [8 x i8], ptr %690, i64 %indvars.iv4456
   %692 = load ptr, ptr %691, align 8, !tbaa !30
   %.not3392 = icmp eq ptr %692, null
   br i1 %.not3392, label %693, label %.thread3507
@@ -4524,7 +4524,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 697:                                              ; preds = %693
   store i64 %695, ptr %502, align 8, !tbaa !38
   %698 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %699 = getelementptr inbounds nuw ptr, ptr %698, i64 %695
+  %699 = getelementptr inbounds nuw [8 x i8], ptr %698, i64 %695
   %700 = load ptr, ptr %699, align 8, !tbaa !15
   %701 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %700) #9
   %.not3394 = icmp eq ptr %701, null
@@ -4542,7 +4542,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %701, ptr align 1 %706, i64 %707, i1 false)
   %708 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %709 = load i64, ptr %502, align 8, !tbaa !38
-  %710 = getelementptr ptr, ptr %708, i64 %709
+  %710 = getelementptr [8 x i8], ptr %708, i64 %709
   %711 = getelementptr i8, ptr %710, i64 8
   %712 = load ptr, ptr %711, align 8, !tbaa !15
   %713 = load ptr, ptr %501, align 8, !tbaa !27
@@ -4562,7 +4562,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 720:                                              ; preds = %527
   %721 = getelementptr inbounds nuw i8, ptr %.127624336, i64 40
   %722 = load ptr, ptr %721, align 8, !tbaa !27
-  %723 = getelementptr inbounds nuw ptr, ptr %722, i64 %506
+  %723 = getelementptr inbounds nuw [8 x i8], ptr %722, i64 %506
   %724 = load ptr, ptr %723, align 8, !tbaa !30
   br label %725
 
@@ -4571,7 +4571,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4455.not = phi i1 [ false, %720 ], [ true, %725 ]
   %726 = getelementptr inbounds nuw i8, ptr %.64332, i64 40
   %727 = load ptr, ptr %726, align 8, !tbaa !27
-  %728 = getelementptr inbounds nuw ptr, ptr %727, i64 %506
+  %728 = getelementptr inbounds nuw [8 x i8], ptr %727, i64 %506
   %729 = load ptr, ptr %728, align 8, !tbaa !30
   %.not3375 = icmp eq ptr %729, %.127494337
   %brmerge5206 = or i1 %.not3375, %exitcond4455.not
@@ -4581,9 +4581,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.64332.mux.le = select i1 %.not3375, ptr %.64332, ptr %729
   %730 = getelementptr inbounds nuw i8, ptr %.127494337, i64 16
   %731 = load i64, ptr %730, align 8, !tbaa !36
-  %732 = getelementptr inbounds nuw ptr, ptr %505, i64 %731
+  %732 = getelementptr inbounds nuw [8 x i8], ptr %505, i64 %731
   %733 = load ptr, ptr %732, align 8, !tbaa !30
-  %734 = getelementptr inbounds nuw ptr, ptr %722, i64 %731
+  %734 = getelementptr inbounds nuw [8 x i8], ptr %722, i64 %731
   store ptr %733, ptr %734, align 8, !tbaa !30
   %735 = getelementptr inbounds nuw i8, ptr %.127494337, i64 24
   %736 = load i64, ptr %735, align 8, !tbaa !38
@@ -4595,7 +4595,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 739:                                              ; preds = %.critedge126
   store i64 %737, ptr %735, align 8, !tbaa !38
   %740 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %741 = getelementptr inbounds nuw ptr, ptr %740, i64 %737
+  %741 = getelementptr inbounds nuw [8 x i8], ptr %740, i64 %737
   %742 = load ptr, ptr %741, align 8, !tbaa !15
   %743 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %742) #9
   %.not3377 = icmp eq ptr %743, null
@@ -4607,7 +4607,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %743, ptr align 1 %745, i64 %746, i1 false)
   %747 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %748 = load i64, ptr %735, align 8, !tbaa !38
-  %749 = getelementptr ptr, ptr %747, i64 %748
+  %749 = getelementptr [8 x i8], ptr %747, i64 %748
   %750 = getelementptr i8, ptr %749, i64 8
   %751 = load ptr, ptr %750, align 8, !tbaa !15
   %752 = load ptr, ptr %507, align 8, !tbaa !27
@@ -4682,7 +4682,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %786 = tail call ptr @H5FL_fac_init(i64 noundef %785) #9
   %787 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %788 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %789 = getelementptr inbounds nuw ptr, ptr %787, i64 %788
+  %789 = getelementptr inbounds nuw [8 x i8], ptr %787, i64 %788
   store ptr %786, ptr %789, align 8, !tbaa !15
   %790 = add i64 %788, 1
   store i64 %790, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -4692,7 +4692,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 791:                                              ; preds = %._crit_edge4685, %783
   %792 = phi i64 [ %769, %._crit_edge4685 ], [ %.pre4687, %783 ]
   %793 = phi ptr [ %.pre4686, %._crit_edge4685 ], [ %787, %783 ]
-  %794 = getelementptr inbounds nuw ptr, ptr %793, i64 %792
+  %794 = getelementptr inbounds nuw [8 x i8], ptr %793, i64 %792
   %795 = load ptr, ptr %794, align 8, !tbaa !15
   %796 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %795) #9
   %797 = icmp eq ptr %796, null
@@ -4711,7 +4711,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %796, ptr align 1 %804, i64 %805, i1 false)
   %806 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %807 = load i64, ptr %766, align 8, !tbaa !38
-  %808 = getelementptr ptr, ptr %806, i64 %807
+  %808 = getelementptr [8 x i8], ptr %806, i64 %807
   %809 = getelementptr i8, ptr %808, i64 -8
   %810 = load ptr, ptr %809, align 8, !tbaa !15
   %811 = load ptr, ptr %803, align 8, !tbaa !27
@@ -4782,7 +4782,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %838 = tail call ptr @H5FL_fac_init(i64 noundef %837) #9
   %839 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %840 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %841 = getelementptr inbounds nuw ptr, ptr %839, i64 %840
+  %841 = getelementptr inbounds nuw [8 x i8], ptr %839, i64 %840
   store ptr %838, ptr %841, align 8, !tbaa !15
   %842 = add i64 %840, 1
   store i64 %842, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -4792,7 +4792,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 843:                                              ; preds = %._crit_edge4691, %835
   %844 = phi i64 [ %821, %._crit_edge4691 ], [ %.pre4693, %835 ]
   %845 = phi ptr [ %.pre4692, %._crit_edge4691 ], [ %839, %835 ]
-  %846 = getelementptr inbounds nuw ptr, ptr %845, i64 %844
+  %846 = getelementptr inbounds nuw [8 x i8], ptr %845, i64 %844
   %847 = load ptr, ptr %846, align 8, !tbaa !15
   %848 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %847) #9
   %849 = icmp eq ptr %848, null
@@ -4810,7 +4810,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %848, ptr align 1 %855, i64 %856, i1 false)
   %857 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %858 = load i64, ptr %818, align 8, !tbaa !38
-  %859 = getelementptr ptr, ptr %857, i64 %858
+  %859 = getelementptr [8 x i8], ptr %857, i64 %858
   %860 = getelementptr i8, ptr %859, i64 -8
   %861 = load ptr, ptr %860, align 8, !tbaa !15
   %862 = load ptr, ptr %721, align 8, !tbaa !27
@@ -4832,7 +4832,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 870:                                              ; preds = %813
   %871 = load ptr, ptr %721, align 8, !tbaa !27
-  %872 = getelementptr inbounds nuw ptr, ptr %871, i64 %765
+  %872 = getelementptr inbounds nuw [8 x i8], ptr %871, i64 %765
   %873 = load ptr, ptr %872, align 8, !tbaa !30
   br label %874
 
@@ -4841,15 +4841,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %875 = phi ptr [ %.pre4695, %864 ], [ %871, %870 ]
   %876 = getelementptr inbounds nuw i8, ptr %.64332.mux.le, i64 40
   %877 = load ptr, ptr %876, align 8, !tbaa !27
-  %878 = getelementptr inbounds nuw ptr, ptr %877, i64 %765
+  %878 = getelementptr inbounds nuw [8 x i8], ptr %877, i64 %765
   store ptr %.sink5207, ptr %878, align 8, !tbaa !30
-  %879 = getelementptr inbounds nuw ptr, ptr %875, i64 %765
+  %879 = getelementptr inbounds nuw [8 x i8], ptr %875, i64 %765
   store ptr %.64332.mux.le, ptr %879, align 8, !tbaa !30
   br label %.thread3507
 
 880:                                              ; preds = %758
   %881 = load ptr, ptr %501, align 8, !tbaa !27
-  %882 = getelementptr inbounds nuw ptr, ptr %881, i64 %indvars.iv4456
+  %882 = getelementptr inbounds nuw [8 x i8], ptr %881, i64 %indvars.iv4456
   %883 = load ptr, ptr %882, align 8, !tbaa !30
   %.not3378 = icmp eq ptr %883, null
   br i1 %.not3378, label %884, label %.thread3507
@@ -4864,7 +4864,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 888:                                              ; preds = %884
   store i64 %886, ptr %502, align 8, !tbaa !38
   %889 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %890 = getelementptr inbounds nuw ptr, ptr %889, i64 %886
+  %890 = getelementptr inbounds nuw [8 x i8], ptr %889, i64 %886
   %891 = load ptr, ptr %890, align 8, !tbaa !15
   %892 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %891) #9
   %.not3380 = icmp eq ptr %892, null
@@ -4882,7 +4882,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %892, ptr align 1 %897, i64 %898, i1 false)
   %899 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %900 = load i64, ptr %502, align 8, !tbaa !38
-  %901 = getelementptr ptr, ptr %899, i64 %900
+  %901 = getelementptr [8 x i8], ptr %899, i64 %900
   %902 = getelementptr i8, ptr %901, i64 8
   %903 = load ptr, ptr %902, align 8, !tbaa !15
   %904 = load ptr, ptr %501, align 8, !tbaa !27
@@ -4904,7 +4904,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.127683511 = phi ptr [ %.227693504, %._crit_edge4325 ], [ %.227693504, %689 ], [ %.227693504, %715 ], [ %.227693504, %685 ], [ %.227693504, %880 ], [ %.227693504, %906 ], [ %.227693504, %874 ], [ %.127494337, %.preheader3887 ], [ %.027674321, %.lr.ph4324 ], [ %.54323, %518 ], [ %.027674321, %517 ]
   %911 = getelementptr inbounds nuw i8, ptr %.127653512, i64 40
   %912 = load ptr, ptr %911, align 8, !tbaa !27
-  %913 = getelementptr inbounds nuw ptr, ptr %912, i64 %506
+  %913 = getelementptr inbounds nuw [8 x i8], ptr %912, i64 %506
   %914 = load ptr, ptr %913, align 8, !tbaa !30
   %915 = trunc nuw i64 %indvars.iv4456 to i32
   %916 = icmp sgt i32 %915, 1
@@ -5022,7 +5022,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge130:                                     ; preds = %972, %966, %975
   %976 = getelementptr inbounds nuw i8, ptr %.84273, i64 40
   %977 = load ptr, ptr %976, align 8, !tbaa !27
-  %978 = getelementptr inbounds nuw ptr, ptr %977, i64 %965
+  %978 = getelementptr inbounds nuw [8 x i8], ptr %977, i64 %965
   %979 = load ptr, ptr %978, align 8, !tbaa !30
   %.not3330 = icmp eq ptr %979, null
   br i1 %.not3330, label %.critedge128, label %966, !llvm.loop !56
@@ -5051,7 +5051,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.027784302 = phi ptr [ %.8.lcssa, %.preheader3889.lr.ph ], [ %1398, %.thread3555 ]
   %985 = add nsw i64 %indvars.iv4451, -1
   %986 = getelementptr inbounds nuw i8, ptr %.127754304, i64 40
-  %987 = getelementptr inbounds nuw ptr, ptr %984, i64 %985
+  %987 = getelementptr inbounds nuw [8 x i8], ptr %984, i64 %985
   %988 = load ptr, ptr %987, align 8, !tbaa !30
   %989 = icmp eq ptr %988, %.027784302
   br i1 %989, label %.thread3555, label %.lr.ph4291
@@ -5095,7 +5095,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1004 = add nuw nsw i32 %.027854287, 1
   %1005 = getelementptr inbounds nuw i8, ptr %990, i64 40
   %1006 = load ptr, ptr %1005, align 8, !tbaa !27
-  %1007 = getelementptr inbounds nuw ptr, ptr %1006, i64 %985
+  %1007 = getelementptr inbounds nuw [8 x i8], ptr %1006, i64 %985
   %1008 = load ptr, ptr %1007, align 8, !tbaa !30
   %1009 = icmp eq ptr %1008, %.027784302
   br i1 %1009, label %._crit_edge4292, label %.lr.ph4291
@@ -5113,13 +5113,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1013:                                             ; preds = %1011
   %1014 = getelementptr inbounds nuw i8, ptr %.027784302, i64 40
   %1015 = load ptr, ptr %1014, align 8, !tbaa !27
-  %1016 = getelementptr inbounds nuw ptr, ptr %1015, i64 %indvars.iv4451
+  %1016 = getelementptr inbounds nuw [8 x i8], ptr %1015, i64 %indvars.iv4451
   %1017 = load ptr, ptr %1016, align 8, !tbaa !30
   %1018 = getelementptr inbounds nuw i8, ptr %.027784302, i64 16
   %1019 = load i64, ptr %1018, align 8, !tbaa !36
-  %1020 = getelementptr inbounds nuw ptr, ptr %1015, i64 %1019
+  %1020 = getelementptr inbounds nuw [8 x i8], ptr %1015, i64 %1019
   %1021 = load ptr, ptr %1020, align 8, !tbaa !30
-  %1022 = getelementptr inbounds nuw ptr, ptr %984, i64 %1019
+  %1022 = getelementptr inbounds nuw [8 x i8], ptr %984, i64 %1019
   store ptr %1021, ptr %1022, align 8, !tbaa !30
   %1023 = getelementptr inbounds nuw i8, ptr %.027784302, i64 24
   %1024 = load i64, ptr %1023, align 8, !tbaa !38
@@ -5131,7 +5131,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1027:                                             ; preds = %1013
   store i64 %1025, ptr %1023, align 8, !tbaa !38
   %1028 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1029 = getelementptr inbounds nuw ptr, ptr %1028, i64 %1025
+  %1029 = getelementptr inbounds nuw [8 x i8], ptr %1028, i64 %1025
   %1030 = load ptr, ptr %1029, align 8, !tbaa !15
   %1031 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1030) #9
   %.not3354 = icmp eq ptr %1031, null
@@ -5143,7 +5143,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1031, ptr align 1 %1033, i64 %1034, i1 false)
   %1035 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1036 = load i64, ptr %1023, align 8, !tbaa !38
-  %1037 = getelementptr ptr, ptr %1035, i64 %1036
+  %1037 = getelementptr [8 x i8], ptr %1035, i64 %1036
   %1038 = getelementptr i8, ptr %1037, i64 8
   %1039 = load ptr, ptr %1038, align 8, !tbaa !15
   %1040 = load ptr, ptr %1014, align 8, !tbaa !27
@@ -5163,11 +5163,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1048 = phi i64 [ %1019, %1013 ], [ %.pre4665, %1032 ]
   %1049 = add i64 %1048, -1
   store i64 %1049, ptr %1018, align 8, !tbaa !36
-  %1050 = getelementptr inbounds nuw ptr, ptr %1047, i64 %985
+  %1050 = getelementptr inbounds nuw [8 x i8], ptr %1047, i64 %985
   %1051 = load ptr, ptr %1050, align 8, !tbaa !30
   %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 40
   %1053 = load ptr, ptr %1052, align 8, !tbaa !27
-  %1054 = getelementptr inbounds nuw ptr, ptr %1053, i64 %985
+  %1054 = getelementptr inbounds nuw [8 x i8], ptr %1053, i64 %985
   %1055 = load ptr, ptr %1054, align 8, !tbaa !30
   %.not3355 = icmp eq ptr %1055, %1017
   br i1 %.not3355, label %1173, label %1056
@@ -5224,7 +5224,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1080 = tail call ptr @H5FL_fac_init(i64 noundef %1079) #9
   %1081 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1082 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1083 = getelementptr inbounds nuw ptr, ptr %1081, i64 %1082
+  %1083 = getelementptr inbounds nuw [8 x i8], ptr %1081, i64 %1082
   store ptr %1080, ptr %1083, align 8, !tbaa !15
   %1084 = add i64 %1082, 1
   store i64 %1084, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -5234,7 +5234,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1085:                                             ; preds = %._crit_edge4668, %1077
   %1086 = phi i64 [ %1063, %._crit_edge4668 ], [ %.pre4670, %1077 ]
   %1087 = phi ptr [ %.pre4669, %._crit_edge4668 ], [ %1081, %1077 ]
-  %1088 = getelementptr inbounds nuw ptr, ptr %1087, i64 %1086
+  %1088 = getelementptr inbounds nuw [8 x i8], ptr %1087, i64 %1086
   %1089 = load ptr, ptr %1088, align 8, !tbaa !15
   %1090 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1089) #9
   %1091 = icmp eq ptr %1090, null
@@ -5252,7 +5252,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1090, ptr align 1 %1097, i64 %1098, i1 false)
   %1099 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1100 = load i64, ptr %1060, align 8, !tbaa !38
-  %1101 = getelementptr ptr, ptr %1099, i64 %1100
+  %1101 = getelementptr [8 x i8], ptr %1099, i64 %1100
   %1102 = getelementptr i8, ptr %1101, i64 -8
   %1103 = load ptr, ptr %1102, align 8, !tbaa !15
   %1104 = load ptr, ptr %1052, align 8, !tbaa !27
@@ -5324,7 +5324,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1132 = tail call ptr @H5FL_fac_init(i64 noundef %1131) #9
   %1133 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1134 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1135 = getelementptr inbounds nuw ptr, ptr %1133, i64 %1134
+  %1135 = getelementptr inbounds nuw [8 x i8], ptr %1133, i64 %1134
   store ptr %1132, ptr %1135, align 8, !tbaa !15
   %1136 = add i64 %1134, 1
   store i64 %1136, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -5334,7 +5334,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1137:                                             ; preds = %._crit_edge4674, %1129
   %1138 = phi i64 [ %1115, %._crit_edge4674 ], [ %.pre4676, %1129 ]
   %1139 = phi ptr [ %.pre4675, %._crit_edge4674 ], [ %1133, %1129 ]
-  %1140 = getelementptr inbounds nuw ptr, ptr %1139, i64 %1138
+  %1140 = getelementptr inbounds nuw [8 x i8], ptr %1139, i64 %1138
   %1141 = load ptr, ptr %1140, align 8, !tbaa !15
   %1142 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1141) #9
   %1143 = icmp eq ptr %1142, null
@@ -5352,7 +5352,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1142, ptr align 1 %1149, i64 %1150, i1 false)
   %1151 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1152 = load i64, ptr %1112, align 8, !tbaa !38
-  %1153 = getelementptr ptr, ptr %1151, i64 %1152
+  %1153 = getelementptr [8 x i8], ptr %1151, i64 %1152
   %1154 = getelementptr i8, ptr %1153, i64 -8
   %1155 = load ptr, ptr %1154, align 8, !tbaa !15
   %1156 = load ptr, ptr %986, align 8, !tbaa !27
@@ -5376,7 +5376,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 1165:                                             ; preds = %1106
   %1166 = load ptr, ptr %986, align 8, !tbaa !27
-  %1167 = getelementptr inbounds nuw ptr, ptr %1166, i64 %1059
+  %1167 = getelementptr inbounds nuw [8 x i8], ptr %1166, i64 %1059
   %1168 = load ptr, ptr %1167, align 8, !tbaa !30
   br label %1169
 
@@ -5384,15 +5384,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5213 = phi ptr [ %1159, %1158 ], [ %1107, %1165 ]
   %.sink5211 = phi ptr [ null, %1158 ], [ %1168, %1165 ]
   %1170 = phi ptr [ %.pre4679, %1158 ], [ %1166, %1165 ]
-  %1171 = getelementptr inbounds nuw ptr, ptr %.sink5213, i64 %1059
+  %1171 = getelementptr inbounds nuw [8 x i8], ptr %.sink5213, i64 %1059
   store ptr %.sink5211, ptr %1171, align 8, !tbaa !30
-  %1172 = getelementptr inbounds nuw ptr, ptr %1170, i64 %1059
+  %1172 = getelementptr inbounds nuw [8 x i8], ptr %1170, i64 %1059
   store ptr %1051, ptr %1172, align 8, !tbaa !30
   br label %.thread3555
 
 1173:                                             ; preds = %1046
   %1174 = load ptr, ptr %980, align 8, !tbaa !27
-  %1175 = getelementptr inbounds nuw ptr, ptr %1174, i64 %indvars.iv4451
+  %1175 = getelementptr inbounds nuw [8 x i8], ptr %1174, i64 %indvars.iv4451
   %1176 = load ptr, ptr %1175, align 8, !tbaa !30
   %.not3356 = icmp eq ptr %1176, null
   br i1 %.not3356, label %1177, label %.thread3555
@@ -5407,7 +5407,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1181:                                             ; preds = %1177
   store i64 %1179, ptr %981, align 8, !tbaa !38
   %1182 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1183 = getelementptr inbounds nuw ptr, ptr %1182, i64 %1179
+  %1183 = getelementptr inbounds nuw [8 x i8], ptr %1182, i64 %1179
   %1184 = load ptr, ptr %1183, align 8, !tbaa !15
   %1185 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1184) #9
   %.not3358 = icmp eq ptr %1185, null
@@ -5425,7 +5425,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1185, ptr align 1 %1190, i64 %1191, i1 false)
   %1192 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1193 = load i64, ptr %981, align 8, !tbaa !38
-  %1194 = getelementptr ptr, ptr %1192, i64 %1193
+  %1194 = getelementptr [8 x i8], ptr %1192, i64 %1193
   %1195 = getelementptr i8, ptr %1194, i64 8
   %1196 = load ptr, ptr %1195, align 8, !tbaa !15
   %1197 = load ptr, ptr %980, align 8, !tbaa !27
@@ -5445,7 +5445,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1204:                                             ; preds = %1011
   %1205 = getelementptr inbounds nuw i8, ptr %.127774303, i64 40
   %1206 = load ptr, ptr %1205, align 8, !tbaa !27
-  %1207 = getelementptr inbounds nuw ptr, ptr %1206, i64 %985
+  %1207 = getelementptr inbounds nuw [8 x i8], ptr %1206, i64 %985
   %1208 = load ptr, ptr %1207, align 8, !tbaa !30
   br label %1209
 
@@ -5454,7 +5454,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4450.not = phi i1 [ false, %1204 ], [ true, %1209 ]
   %1210 = getelementptr inbounds nuw i8, ptr %.104299, i64 40
   %1211 = load ptr, ptr %1210, align 8, !tbaa !27
-  %1212 = getelementptr inbounds nuw ptr, ptr %1211, i64 %985
+  %1212 = getelementptr inbounds nuw [8 x i8], ptr %1211, i64 %985
   %1213 = load ptr, ptr %1212, align 8, !tbaa !30
   %.not3339 = icmp eq ptr %1213, %.127754304
   %brmerge5214 = or i1 %.not3339, %exitcond4450.not
@@ -5464,9 +5464,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.104299.mux.le = select i1 %.not3339, ptr %.104299, ptr %1213
   %1214 = getelementptr inbounds nuw i8, ptr %.127754304, i64 16
   %1215 = load i64, ptr %1214, align 8, !tbaa !36
-  %1216 = getelementptr inbounds nuw ptr, ptr %984, i64 %1215
+  %1216 = getelementptr inbounds nuw [8 x i8], ptr %984, i64 %1215
   %1217 = load ptr, ptr %1216, align 8, !tbaa !30
-  %1218 = getelementptr inbounds nuw ptr, ptr %1206, i64 %1215
+  %1218 = getelementptr inbounds nuw [8 x i8], ptr %1206, i64 %1215
   store ptr %1217, ptr %1218, align 8, !tbaa !30
   %1219 = getelementptr inbounds nuw i8, ptr %.127754304, i64 24
   %1220 = load i64, ptr %1219, align 8, !tbaa !38
@@ -5478,7 +5478,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1223:                                             ; preds = %.critedge132
   store i64 %1221, ptr %1219, align 8, !tbaa !38
   %1224 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1225 = getelementptr inbounds nuw ptr, ptr %1224, i64 %1221
+  %1225 = getelementptr inbounds nuw [8 x i8], ptr %1224, i64 %1221
   %1226 = load ptr, ptr %1225, align 8, !tbaa !15
   %1227 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1226) #9
   %.not3341 = icmp eq ptr %1227, null
@@ -5490,7 +5490,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1227, ptr align 1 %1229, i64 %1230, i1 false)
   %1231 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1232 = load i64, ptr %1219, align 8, !tbaa !38
-  %1233 = getelementptr ptr, ptr %1231, i64 %1232
+  %1233 = getelementptr [8 x i8], ptr %1231, i64 %1232
   %1234 = getelementptr i8, ptr %1233, i64 8
   %1235 = load ptr, ptr %1234, align 8, !tbaa !15
   %1236 = load ptr, ptr %986, align 8, !tbaa !27
@@ -5565,7 +5565,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1270 = tail call ptr @H5FL_fac_init(i64 noundef %1269) #9
   %1271 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1272 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1273 = getelementptr inbounds nuw ptr, ptr %1271, i64 %1272
+  %1273 = getelementptr inbounds nuw [8 x i8], ptr %1271, i64 %1272
   store ptr %1270, ptr %1273, align 8, !tbaa !15
   %1274 = add i64 %1272, 1
   store i64 %1274, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -5575,7 +5575,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1275:                                             ; preds = %._crit_edge4654, %1267
   %1276 = phi i64 [ %1253, %._crit_edge4654 ], [ %.pre4656, %1267 ]
   %1277 = phi ptr [ %.pre4655, %._crit_edge4654 ], [ %1271, %1267 ]
-  %1278 = getelementptr inbounds nuw ptr, ptr %1277, i64 %1276
+  %1278 = getelementptr inbounds nuw [8 x i8], ptr %1277, i64 %1276
   %1279 = load ptr, ptr %1278, align 8, !tbaa !15
   %1280 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1279) #9
   %1281 = icmp eq ptr %1280, null
@@ -5594,7 +5594,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1280, ptr align 1 %1288, i64 %1289, i1 false)
   %1290 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1291 = load i64, ptr %1250, align 8, !tbaa !38
-  %1292 = getelementptr ptr, ptr %1290, i64 %1291
+  %1292 = getelementptr [8 x i8], ptr %1290, i64 %1291
   %1293 = getelementptr i8, ptr %1292, i64 -8
   %1294 = load ptr, ptr %1293, align 8, !tbaa !15
   %1295 = load ptr, ptr %1287, align 8, !tbaa !27
@@ -5665,7 +5665,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1322 = tail call ptr @H5FL_fac_init(i64 noundef %1321) #9
   %1323 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1324 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1325 = getelementptr inbounds nuw ptr, ptr %1323, i64 %1324
+  %1325 = getelementptr inbounds nuw [8 x i8], ptr %1323, i64 %1324
   store ptr %1322, ptr %1325, align 8, !tbaa !15
   %1326 = add i64 %1324, 1
   store i64 %1326, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -5675,7 +5675,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1327:                                             ; preds = %._crit_edge4660, %1319
   %1328 = phi i64 [ %1305, %._crit_edge4660 ], [ %.pre4662, %1319 ]
   %1329 = phi ptr [ %.pre4661, %._crit_edge4660 ], [ %1323, %1319 ]
-  %1330 = getelementptr inbounds nuw ptr, ptr %1329, i64 %1328
+  %1330 = getelementptr inbounds nuw [8 x i8], ptr %1329, i64 %1328
   %1331 = load ptr, ptr %1330, align 8, !tbaa !15
   %1332 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1331) #9
   %1333 = icmp eq ptr %1332, null
@@ -5693,7 +5693,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1332, ptr align 1 %1339, i64 %1340, i1 false)
   %1341 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1342 = load i64, ptr %1302, align 8, !tbaa !38
-  %1343 = getelementptr ptr, ptr %1341, i64 %1342
+  %1343 = getelementptr [8 x i8], ptr %1341, i64 %1342
   %1344 = getelementptr i8, ptr %1343, i64 -8
   %1345 = load ptr, ptr %1344, align 8, !tbaa !15
   %1346 = load ptr, ptr %1205, align 8, !tbaa !27
@@ -5715,7 +5715,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 1354:                                             ; preds = %1297
   %1355 = load ptr, ptr %1205, align 8, !tbaa !27
-  %1356 = getelementptr inbounds nuw ptr, ptr %1355, i64 %1249
+  %1356 = getelementptr inbounds nuw [8 x i8], ptr %1355, i64 %1249
   %1357 = load ptr, ptr %1356, align 8, !tbaa !30
   br label %1358
 
@@ -5724,15 +5724,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1359 = phi ptr [ %.pre4664, %1348 ], [ %1355, %1354 ]
   %1360 = getelementptr inbounds nuw i8, ptr %.104299.mux.le, i64 40
   %1361 = load ptr, ptr %1360, align 8, !tbaa !27
-  %1362 = getelementptr inbounds nuw ptr, ptr %1361, i64 %1249
+  %1362 = getelementptr inbounds nuw [8 x i8], ptr %1361, i64 %1249
   store ptr %.sink5215, ptr %1362, align 8, !tbaa !30
-  %1363 = getelementptr inbounds nuw ptr, ptr %1359, i64 %1249
+  %1363 = getelementptr inbounds nuw [8 x i8], ptr %1359, i64 %1249
   store ptr %.104299.mux.le, ptr %1363, align 8, !tbaa !30
   br label %.thread3555
 
 1364:                                             ; preds = %1242
   %1365 = load ptr, ptr %980, align 8, !tbaa !27
-  %1366 = getelementptr inbounds nuw ptr, ptr %1365, i64 %indvars.iv4451
+  %1366 = getelementptr inbounds nuw [8 x i8], ptr %1365, i64 %indvars.iv4451
   %1367 = load ptr, ptr %1366, align 8, !tbaa !30
   %.not3342 = icmp eq ptr %1367, null
   br i1 %.not3342, label %1368, label %.thread3555
@@ -5747,7 +5747,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1372:                                             ; preds = %1368
   store i64 %1370, ptr %981, align 8, !tbaa !38
   %1373 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1374 = getelementptr inbounds nuw ptr, ptr %1373, i64 %1370
+  %1374 = getelementptr inbounds nuw [8 x i8], ptr %1373, i64 %1370
   %1375 = load ptr, ptr %1374, align 8, !tbaa !15
   %1376 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1375) #9
   %.not3344 = icmp eq ptr %1376, null
@@ -5765,7 +5765,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1376, ptr align 1 %1381, i64 %1382, i1 false)
   %1383 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1384 = load i64, ptr %981, align 8, !tbaa !38
-  %1385 = getelementptr ptr, ptr %1383, i64 %1384
+  %1385 = getelementptr [8 x i8], ptr %1383, i64 %1384
   %1386 = getelementptr i8, ptr %1385, i64 8
   %1387 = load ptr, ptr %1386, align 8, !tbaa !15
   %1388 = load ptr, ptr %980, align 8, !tbaa !27
@@ -5787,7 +5787,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.127833559 = phi ptr [ %.227843552, %._crit_edge4292 ], [ %.227843552, %1173 ], [ %.227843552, %1199 ], [ %.227843552, %1169 ], [ %.227843552, %1364 ], [ %.227843552, %1390 ], [ %.227843552, %1358 ], [ %.127754304, %.preheader3889 ], [ %.027824288, %.lr.ph4291 ], [ %.94290, %1002 ], [ %.027824288, %1001 ]
   %1395 = getelementptr inbounds nuw i8, ptr %.127803560, i64 40
   %1396 = load ptr, ptr %1395, align 8, !tbaa !27
-  %1397 = getelementptr inbounds nuw ptr, ptr %1396, i64 %985
+  %1397 = getelementptr inbounds nuw [8 x i8], ptr %1396, i64 %985
   %1398 = load ptr, ptr %1397, align 8, !tbaa !30
   %1399 = trunc nuw i64 %indvars.iv4451 to i32
   %1400 = icmp sgt i32 %1399, 1
@@ -5899,7 +5899,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge136:                                     ; preds = %1450, %1452
   %1456 = getelementptr inbounds nuw i8, ptr %.124240, i64 40
   %1457 = load ptr, ptr %1456, align 8, !tbaa !27
-  %1458 = getelementptr inbounds nuw ptr, ptr %1457, i64 %1449
+  %1458 = getelementptr inbounds nuw [8 x i8], ptr %1457, i64 %1449
   %1459 = load ptr, ptr %1458, align 8, !tbaa !30
   %.not3294 = icmp eq ptr %1459, null
   br i1 %.not3294, label %.critedge134, label %1450, !llvm.loop !58
@@ -5928,7 +5928,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.028084264 = phi ptr [ %.12.lcssa, %.preheader3890.lr.ph ], [ %1873, %.thread3603 ]
   %1465 = add nsw i64 %indvars.iv4446, -1
   %1466 = getelementptr inbounds nuw i8, ptr %.127944266, i64 40
-  %1467 = getelementptr inbounds nuw ptr, ptr %1464, i64 %1465
+  %1467 = getelementptr inbounds nuw [8 x i8], ptr %1464, i64 %1465
   %1468 = load ptr, ptr %1467, align 8, !tbaa !30
   %1469 = icmp eq ptr %1468, %.028084264
   br i1 %1469, label %.thread3603, label %.lr.ph4253
@@ -5963,7 +5963,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1479 = add nuw nsw i32 %.028154249, 1
   %1480 = getelementptr inbounds nuw i8, ptr %1470, i64 40
   %1481 = load ptr, ptr %1480, align 8, !tbaa !27
-  %1482 = getelementptr inbounds nuw ptr, ptr %1481, i64 %1465
+  %1482 = getelementptr inbounds nuw [8 x i8], ptr %1481, i64 %1465
   %1483 = load ptr, ptr %1482, align 8, !tbaa !30
   %1484 = icmp eq ptr %1483, %.028084264
   br i1 %1484, label %._crit_edge4254, label %.lr.ph4253
@@ -5981,13 +5981,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1488:                                             ; preds = %1486
   %1489 = getelementptr inbounds nuw i8, ptr %.028084264, i64 40
   %1490 = load ptr, ptr %1489, align 8, !tbaa !27
-  %1491 = getelementptr inbounds nuw ptr, ptr %1490, i64 %indvars.iv4446
+  %1491 = getelementptr inbounds nuw [8 x i8], ptr %1490, i64 %indvars.iv4446
   %1492 = load ptr, ptr %1491, align 8, !tbaa !30
   %1493 = getelementptr inbounds nuw i8, ptr %.028084264, i64 16
   %1494 = load i64, ptr %1493, align 8, !tbaa !36
-  %1495 = getelementptr inbounds nuw ptr, ptr %1490, i64 %1494
+  %1495 = getelementptr inbounds nuw [8 x i8], ptr %1490, i64 %1494
   %1496 = load ptr, ptr %1495, align 8, !tbaa !30
-  %1497 = getelementptr inbounds nuw ptr, ptr %1464, i64 %1494
+  %1497 = getelementptr inbounds nuw [8 x i8], ptr %1464, i64 %1494
   store ptr %1496, ptr %1497, align 8, !tbaa !30
   %1498 = getelementptr inbounds nuw i8, ptr %.028084264, i64 24
   %1499 = load i64, ptr %1498, align 8, !tbaa !38
@@ -5999,7 +5999,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1502:                                             ; preds = %1488
   store i64 %1500, ptr %1498, align 8, !tbaa !38
   %1503 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1504 = getelementptr inbounds nuw ptr, ptr %1503, i64 %1500
+  %1504 = getelementptr inbounds nuw [8 x i8], ptr %1503, i64 %1500
   %1505 = load ptr, ptr %1504, align 8, !tbaa !15
   %1506 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1505) #9
   %.not3317 = icmp eq ptr %1506, null
@@ -6011,7 +6011,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1506, ptr align 1 %1508, i64 %1509, i1 false)
   %1510 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1511 = load i64, ptr %1498, align 8, !tbaa !38
-  %1512 = getelementptr ptr, ptr %1510, i64 %1511
+  %1512 = getelementptr [8 x i8], ptr %1510, i64 %1511
   %1513 = getelementptr i8, ptr %1512, i64 8
   %1514 = load ptr, ptr %1513, align 8, !tbaa !15
   %1515 = load ptr, ptr %1489, align 8, !tbaa !27
@@ -6031,11 +6031,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1523 = phi i64 [ %1494, %1488 ], [ %.pre4634, %1507 ]
   %1524 = add i64 %1523, -1
   store i64 %1524, ptr %1493, align 8, !tbaa !36
-  %1525 = getelementptr inbounds nuw ptr, ptr %1522, i64 %1465
+  %1525 = getelementptr inbounds nuw [8 x i8], ptr %1522, i64 %1465
   %1526 = load ptr, ptr %1525, align 8, !tbaa !30
   %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 40
   %1528 = load ptr, ptr %1527, align 8, !tbaa !27
-  %1529 = getelementptr inbounds nuw ptr, ptr %1528, i64 %1465
+  %1529 = getelementptr inbounds nuw [8 x i8], ptr %1528, i64 %1465
   %1530 = load ptr, ptr %1529, align 8, !tbaa !30
   %.not3318 = icmp eq ptr %1530, %1492
   br i1 %.not3318, label %1648, label %1531
@@ -6092,7 +6092,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1555 = tail call ptr @H5FL_fac_init(i64 noundef %1554) #9
   %1556 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1557 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1558 = getelementptr inbounds nuw ptr, ptr %1556, i64 %1557
+  %1558 = getelementptr inbounds nuw [8 x i8], ptr %1556, i64 %1557
   store ptr %1555, ptr %1558, align 8, !tbaa !15
   %1559 = add i64 %1557, 1
   store i64 %1559, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -6102,7 +6102,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1560:                                             ; preds = %._crit_edge4637, %1552
   %1561 = phi i64 [ %1538, %._crit_edge4637 ], [ %.pre4639, %1552 ]
   %1562 = phi ptr [ %.pre4638, %._crit_edge4637 ], [ %1556, %1552 ]
-  %1563 = getelementptr inbounds nuw ptr, ptr %1562, i64 %1561
+  %1563 = getelementptr inbounds nuw [8 x i8], ptr %1562, i64 %1561
   %1564 = load ptr, ptr %1563, align 8, !tbaa !15
   %1565 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1564) #9
   %1566 = icmp eq ptr %1565, null
@@ -6120,7 +6120,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1565, ptr align 1 %1572, i64 %1573, i1 false)
   %1574 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1575 = load i64, ptr %1535, align 8, !tbaa !38
-  %1576 = getelementptr ptr, ptr %1574, i64 %1575
+  %1576 = getelementptr [8 x i8], ptr %1574, i64 %1575
   %1577 = getelementptr i8, ptr %1576, i64 -8
   %1578 = load ptr, ptr %1577, align 8, !tbaa !15
   %1579 = load ptr, ptr %1527, align 8, !tbaa !27
@@ -6192,7 +6192,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1607 = tail call ptr @H5FL_fac_init(i64 noundef %1606) #9
   %1608 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1609 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1610 = getelementptr inbounds nuw ptr, ptr %1608, i64 %1609
+  %1610 = getelementptr inbounds nuw [8 x i8], ptr %1608, i64 %1609
   store ptr %1607, ptr %1610, align 8, !tbaa !15
   %1611 = add i64 %1609, 1
   store i64 %1611, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -6202,7 +6202,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1612:                                             ; preds = %._crit_edge4643, %1604
   %1613 = phi i64 [ %1590, %._crit_edge4643 ], [ %.pre4645, %1604 ]
   %1614 = phi ptr [ %.pre4644, %._crit_edge4643 ], [ %1608, %1604 ]
-  %1615 = getelementptr inbounds nuw ptr, ptr %1614, i64 %1613
+  %1615 = getelementptr inbounds nuw [8 x i8], ptr %1614, i64 %1613
   %1616 = load ptr, ptr %1615, align 8, !tbaa !15
   %1617 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1616) #9
   %1618 = icmp eq ptr %1617, null
@@ -6220,7 +6220,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1617, ptr align 1 %1624, i64 %1625, i1 false)
   %1626 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1627 = load i64, ptr %1587, align 8, !tbaa !38
-  %1628 = getelementptr ptr, ptr %1626, i64 %1627
+  %1628 = getelementptr [8 x i8], ptr %1626, i64 %1627
   %1629 = getelementptr i8, ptr %1628, i64 -8
   %1630 = load ptr, ptr %1629, align 8, !tbaa !15
   %1631 = load ptr, ptr %1466, align 8, !tbaa !27
@@ -6244,7 +6244,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 1640:                                             ; preds = %1581
   %1641 = load ptr, ptr %1466, align 8, !tbaa !27
-  %1642 = getelementptr inbounds nuw ptr, ptr %1641, i64 %1534
+  %1642 = getelementptr inbounds nuw [8 x i8], ptr %1641, i64 %1534
   %1643 = load ptr, ptr %1642, align 8, !tbaa !30
   br label %1644
 
@@ -6252,15 +6252,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5221 = phi ptr [ %1634, %1633 ], [ %1582, %1640 ]
   %.sink5219 = phi ptr [ null, %1633 ], [ %1643, %1640 ]
   %1645 = phi ptr [ %.pre4648, %1633 ], [ %1641, %1640 ]
-  %1646 = getelementptr inbounds nuw ptr, ptr %.sink5221, i64 %1534
+  %1646 = getelementptr inbounds nuw [8 x i8], ptr %.sink5221, i64 %1534
   store ptr %.sink5219, ptr %1646, align 8, !tbaa !30
-  %1647 = getelementptr inbounds nuw ptr, ptr %1645, i64 %1534
+  %1647 = getelementptr inbounds nuw [8 x i8], ptr %1645, i64 %1534
   store ptr %1526, ptr %1647, align 8, !tbaa !30
   br label %.thread3603
 
 1648:                                             ; preds = %1521
   %1649 = load ptr, ptr %1460, align 8, !tbaa !27
-  %1650 = getelementptr inbounds nuw ptr, ptr %1649, i64 %indvars.iv4446
+  %1650 = getelementptr inbounds nuw [8 x i8], ptr %1649, i64 %indvars.iv4446
   %1651 = load ptr, ptr %1650, align 8, !tbaa !30
   %.not3319 = icmp eq ptr %1651, null
   br i1 %.not3319, label %1652, label %.thread3603
@@ -6275,7 +6275,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1656:                                             ; preds = %1652
   store i64 %1654, ptr %1461, align 8, !tbaa !38
   %1657 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1658 = getelementptr inbounds nuw ptr, ptr %1657, i64 %1654
+  %1658 = getelementptr inbounds nuw [8 x i8], ptr %1657, i64 %1654
   %1659 = load ptr, ptr %1658, align 8, !tbaa !15
   %1660 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1659) #9
   %.not3321 = icmp eq ptr %1660, null
@@ -6293,7 +6293,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1660, ptr align 1 %1665, i64 %1666, i1 false)
   %1667 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1668 = load i64, ptr %1461, align 8, !tbaa !38
-  %1669 = getelementptr ptr, ptr %1667, i64 %1668
+  %1669 = getelementptr [8 x i8], ptr %1667, i64 %1668
   %1670 = getelementptr i8, ptr %1669, i64 8
   %1671 = load ptr, ptr %1670, align 8, !tbaa !15
   %1672 = load ptr, ptr %1460, align 8, !tbaa !27
@@ -6313,7 +6313,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1679:                                             ; preds = %1486
   %1680 = getelementptr inbounds nuw i8, ptr %.128074265, i64 40
   %1681 = load ptr, ptr %1680, align 8, !tbaa !27
-  %1682 = getelementptr inbounds nuw ptr, ptr %1681, i64 %1465
+  %1682 = getelementptr inbounds nuw [8 x i8], ptr %1681, i64 %1465
   %1683 = load ptr, ptr %1682, align 8, !tbaa !30
   br label %1684
 
@@ -6322,7 +6322,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4445.not = phi i1 [ false, %1679 ], [ true, %1684 ]
   %1685 = getelementptr inbounds nuw i8, ptr %.144261, i64 40
   %1686 = load ptr, ptr %1685, align 8, !tbaa !27
-  %1687 = getelementptr inbounds nuw ptr, ptr %1686, i64 %1465
+  %1687 = getelementptr inbounds nuw [8 x i8], ptr %1686, i64 %1465
   %1688 = load ptr, ptr %1687, align 8, !tbaa !30
   %.not3302 = icmp eq ptr %1688, %.127944266
   %brmerge5222 = or i1 %.not3302, %exitcond4445.not
@@ -6332,9 +6332,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.144261.mux.le = select i1 %.not3302, ptr %.144261, ptr %1688
   %1689 = getelementptr inbounds nuw i8, ptr %.127944266, i64 16
   %1690 = load i64, ptr %1689, align 8, !tbaa !36
-  %1691 = getelementptr inbounds nuw ptr, ptr %1464, i64 %1690
+  %1691 = getelementptr inbounds nuw [8 x i8], ptr %1464, i64 %1690
   %1692 = load ptr, ptr %1691, align 8, !tbaa !30
-  %1693 = getelementptr inbounds nuw ptr, ptr %1681, i64 %1690
+  %1693 = getelementptr inbounds nuw [8 x i8], ptr %1681, i64 %1690
   store ptr %1692, ptr %1693, align 8, !tbaa !30
   %1694 = getelementptr inbounds nuw i8, ptr %.127944266, i64 24
   %1695 = load i64, ptr %1694, align 8, !tbaa !38
@@ -6346,7 +6346,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1698:                                             ; preds = %.critedge138
   store i64 %1696, ptr %1694, align 8, !tbaa !38
   %1699 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1700 = getelementptr inbounds nuw ptr, ptr %1699, i64 %1696
+  %1700 = getelementptr inbounds nuw [8 x i8], ptr %1699, i64 %1696
   %1701 = load ptr, ptr %1700, align 8, !tbaa !15
   %1702 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1701) #9
   %.not3304 = icmp eq ptr %1702, null
@@ -6358,7 +6358,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1702, ptr align 1 %1704, i64 %1705, i1 false)
   %1706 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1707 = load i64, ptr %1694, align 8, !tbaa !38
-  %1708 = getelementptr ptr, ptr %1706, i64 %1707
+  %1708 = getelementptr [8 x i8], ptr %1706, i64 %1707
   %1709 = getelementptr i8, ptr %1708, i64 8
   %1710 = load ptr, ptr %1709, align 8, !tbaa !15
   %1711 = load ptr, ptr %1466, align 8, !tbaa !27
@@ -6433,7 +6433,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1745 = tail call ptr @H5FL_fac_init(i64 noundef %1744) #9
   %1746 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1747 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1748 = getelementptr inbounds nuw ptr, ptr %1746, i64 %1747
+  %1748 = getelementptr inbounds nuw [8 x i8], ptr %1746, i64 %1747
   store ptr %1745, ptr %1748, align 8, !tbaa !15
   %1749 = add i64 %1747, 1
   store i64 %1749, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -6443,7 +6443,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1750:                                             ; preds = %._crit_edge4623, %1742
   %1751 = phi i64 [ %1728, %._crit_edge4623 ], [ %.pre4625, %1742 ]
   %1752 = phi ptr [ %.pre4624, %._crit_edge4623 ], [ %1746, %1742 ]
-  %1753 = getelementptr inbounds nuw ptr, ptr %1752, i64 %1751
+  %1753 = getelementptr inbounds nuw [8 x i8], ptr %1752, i64 %1751
   %1754 = load ptr, ptr %1753, align 8, !tbaa !15
   %1755 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1754) #9
   %1756 = icmp eq ptr %1755, null
@@ -6462,7 +6462,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1755, ptr align 1 %1763, i64 %1764, i1 false)
   %1765 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1766 = load i64, ptr %1725, align 8, !tbaa !38
-  %1767 = getelementptr ptr, ptr %1765, i64 %1766
+  %1767 = getelementptr [8 x i8], ptr %1765, i64 %1766
   %1768 = getelementptr i8, ptr %1767, i64 -8
   %1769 = load ptr, ptr %1768, align 8, !tbaa !15
   %1770 = load ptr, ptr %1762, align 8, !tbaa !27
@@ -6533,7 +6533,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1797 = tail call ptr @H5FL_fac_init(i64 noundef %1796) #9
   %1798 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1799 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %1800 = getelementptr inbounds nuw ptr, ptr %1798, i64 %1799
+  %1800 = getelementptr inbounds nuw [8 x i8], ptr %1798, i64 %1799
   store ptr %1797, ptr %1800, align 8, !tbaa !15
   %1801 = add i64 %1799, 1
   store i64 %1801, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -6543,7 +6543,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1802:                                             ; preds = %._crit_edge4629, %1794
   %1803 = phi i64 [ %1780, %._crit_edge4629 ], [ %.pre4631, %1794 ]
   %1804 = phi ptr [ %.pre4630, %._crit_edge4629 ], [ %1798, %1794 ]
-  %1805 = getelementptr inbounds nuw ptr, ptr %1804, i64 %1803
+  %1805 = getelementptr inbounds nuw [8 x i8], ptr %1804, i64 %1803
   %1806 = load ptr, ptr %1805, align 8, !tbaa !15
   %1807 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1806) #9
   %1808 = icmp eq ptr %1807, null
@@ -6561,7 +6561,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1807, ptr align 1 %1814, i64 %1815, i1 false)
   %1816 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1817 = load i64, ptr %1777, align 8, !tbaa !38
-  %1818 = getelementptr ptr, ptr %1816, i64 %1817
+  %1818 = getelementptr [8 x i8], ptr %1816, i64 %1817
   %1819 = getelementptr i8, ptr %1818, i64 -8
   %1820 = load ptr, ptr %1819, align 8, !tbaa !15
   %1821 = load ptr, ptr %1680, align 8, !tbaa !27
@@ -6583,7 +6583,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 1829:                                             ; preds = %1772
   %1830 = load ptr, ptr %1680, align 8, !tbaa !27
-  %1831 = getelementptr inbounds nuw ptr, ptr %1830, i64 %1724
+  %1831 = getelementptr inbounds nuw [8 x i8], ptr %1830, i64 %1724
   %1832 = load ptr, ptr %1831, align 8, !tbaa !30
   br label %1833
 
@@ -6592,15 +6592,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1834 = phi ptr [ %.pre4633, %1823 ], [ %1830, %1829 ]
   %1835 = getelementptr inbounds nuw i8, ptr %.144261.mux.le, i64 40
   %1836 = load ptr, ptr %1835, align 8, !tbaa !27
-  %1837 = getelementptr inbounds nuw ptr, ptr %1836, i64 %1724
+  %1837 = getelementptr inbounds nuw [8 x i8], ptr %1836, i64 %1724
   store ptr %.sink5223, ptr %1837, align 8, !tbaa !30
-  %1838 = getelementptr inbounds nuw ptr, ptr %1834, i64 %1724
+  %1838 = getelementptr inbounds nuw [8 x i8], ptr %1834, i64 %1724
   store ptr %.144261.mux.le, ptr %1838, align 8, !tbaa !30
   br label %.thread3603
 
 1839:                                             ; preds = %1717
   %1840 = load ptr, ptr %1460, align 8, !tbaa !27
-  %1841 = getelementptr inbounds nuw ptr, ptr %1840, i64 %indvars.iv4446
+  %1841 = getelementptr inbounds nuw [8 x i8], ptr %1840, i64 %indvars.iv4446
   %1842 = load ptr, ptr %1841, align 8, !tbaa !30
   %.not3305 = icmp eq ptr %1842, null
   br i1 %.not3305, label %1843, label %.thread3603
@@ -6615,7 +6615,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1847:                                             ; preds = %1843
   store i64 %1845, ptr %1461, align 8, !tbaa !38
   %1848 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1849 = getelementptr inbounds nuw ptr, ptr %1848, i64 %1845
+  %1849 = getelementptr inbounds nuw [8 x i8], ptr %1848, i64 %1845
   %1850 = load ptr, ptr %1849, align 8, !tbaa !15
   %1851 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1850) #9
   %.not3307 = icmp eq ptr %1851, null
@@ -6633,7 +6633,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1851, ptr align 1 %1856, i64 %1857, i1 false)
   %1858 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1859 = load i64, ptr %1461, align 8, !tbaa !38
-  %1860 = getelementptr ptr, ptr %1858, i64 %1859
+  %1860 = getelementptr [8 x i8], ptr %1858, i64 %1859
   %1861 = getelementptr i8, ptr %1860, i64 8
   %1862 = load ptr, ptr %1861, align 8, !tbaa !15
   %1863 = load ptr, ptr %1460, align 8, !tbaa !27
@@ -6655,7 +6655,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.128133607 = phi ptr [ %.228143600, %._crit_edge4254 ], [ %.228143600, %1648 ], [ %.228143600, %1674 ], [ %.228143600, %1644 ], [ %.228143600, %1839 ], [ %.228143600, %1865 ], [ %.228143600, %1833 ], [ %.127944266, %.preheader3890 ], [ %.028124250, %.lr.ph4253 ], [ %.134252, %1477 ], [ %.028124250, %1476 ]
   %1870 = getelementptr inbounds nuw i8, ptr %.128103608, i64 40
   %1871 = load ptr, ptr %1870, align 8, !tbaa !27
-  %1872 = getelementptr inbounds nuw ptr, ptr %1871, i64 %1465
+  %1872 = getelementptr inbounds nuw [8 x i8], ptr %1871, i64 %1465
   %1873 = load ptr, ptr %1872, align 8, !tbaa !30
   %1874 = trunc nuw i64 %indvars.iv4446 to i32
   %1875 = icmp sgt i32 %1874, 1
@@ -6763,7 +6763,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge142:                                     ; preds = %1923, %1925
   %1929 = getelementptr inbounds nuw i8, ptr %.164207, i64 40
   %1930 = load ptr, ptr %1929, align 8, !tbaa !27
-  %1931 = getelementptr inbounds nuw ptr, ptr %1930, i64 %1922
+  %1931 = getelementptr inbounds nuw [8 x i8], ptr %1930, i64 %1922
   %1932 = load ptr, ptr %1931, align 8, !tbaa !30
   %.not3258 = icmp eq ptr %1932, null
   br i1 %.not3258, label %.critedge140, label %1923, !llvm.loop !60
@@ -6792,7 +6792,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.028234231 = phi ptr [ %.16.lcssa, %.preheader3892.lr.ph ], [ %2346, %.thread3651 ]
   %1938 = add nsw i64 %indvars.iv4441, -1
   %1939 = getelementptr inbounds nuw i8, ptr %.128204233, i64 40
-  %1940 = getelementptr inbounds nuw ptr, ptr %1937, i64 %1938
+  %1940 = getelementptr inbounds nuw [8 x i8], ptr %1937, i64 %1938
   %1941 = load ptr, ptr %1940, align 8, !tbaa !30
   %1942 = icmp eq ptr %1941, %.028234231
   br i1 %1942, label %.thread3651, label %.lr.ph4220
@@ -6827,7 +6827,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1952 = add nuw nsw i32 %.028304216, 1
   %1953 = getelementptr inbounds nuw i8, ptr %1943, i64 40
   %1954 = load ptr, ptr %1953, align 8, !tbaa !27
-  %1955 = getelementptr inbounds nuw ptr, ptr %1954, i64 %1938
+  %1955 = getelementptr inbounds nuw [8 x i8], ptr %1954, i64 %1938
   %1956 = load ptr, ptr %1955, align 8, !tbaa !30
   %1957 = icmp eq ptr %1956, %.028234231
   br i1 %1957, label %._crit_edge4221, label %.lr.ph4220
@@ -6845,13 +6845,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1961:                                             ; preds = %1959
   %1962 = getelementptr inbounds nuw i8, ptr %.028234231, i64 40
   %1963 = load ptr, ptr %1962, align 8, !tbaa !27
-  %1964 = getelementptr inbounds nuw ptr, ptr %1963, i64 %indvars.iv4441
+  %1964 = getelementptr inbounds nuw [8 x i8], ptr %1963, i64 %indvars.iv4441
   %1965 = load ptr, ptr %1964, align 8, !tbaa !30
   %1966 = getelementptr inbounds nuw i8, ptr %.028234231, i64 16
   %1967 = load i64, ptr %1966, align 8, !tbaa !36
-  %1968 = getelementptr inbounds nuw ptr, ptr %1963, i64 %1967
+  %1968 = getelementptr inbounds nuw [8 x i8], ptr %1963, i64 %1967
   %1969 = load ptr, ptr %1968, align 8, !tbaa !30
-  %1970 = getelementptr inbounds nuw ptr, ptr %1937, i64 %1967
+  %1970 = getelementptr inbounds nuw [8 x i8], ptr %1937, i64 %1967
   store ptr %1969, ptr %1970, align 8, !tbaa !30
   %1971 = getelementptr inbounds nuw i8, ptr %.028234231, i64 24
   %1972 = load i64, ptr %1971, align 8, !tbaa !38
@@ -6863,7 +6863,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 1975:                                             ; preds = %1961
   store i64 %1973, ptr %1971, align 8, !tbaa !38
   %1976 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %1977 = getelementptr inbounds nuw ptr, ptr %1976, i64 %1973
+  %1977 = getelementptr inbounds nuw [8 x i8], ptr %1976, i64 %1973
   %1978 = load ptr, ptr %1977, align 8, !tbaa !15
   %1979 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %1978) #9
   %.not3281 = icmp eq ptr %1979, null
@@ -6875,7 +6875,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1979, ptr align 1 %1981, i64 %1982, i1 false)
   %1983 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %1984 = load i64, ptr %1971, align 8, !tbaa !38
-  %1985 = getelementptr ptr, ptr %1983, i64 %1984
+  %1985 = getelementptr [8 x i8], ptr %1983, i64 %1984
   %1986 = getelementptr i8, ptr %1985, i64 8
   %1987 = load ptr, ptr %1986, align 8, !tbaa !15
   %1988 = load ptr, ptr %1962, align 8, !tbaa !27
@@ -6895,11 +6895,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %1996 = phi i64 [ %1967, %1961 ], [ %.pre4603, %1980 ]
   %1997 = add i64 %1996, -1
   store i64 %1997, ptr %1966, align 8, !tbaa !36
-  %1998 = getelementptr inbounds nuw ptr, ptr %1995, i64 %1938
+  %1998 = getelementptr inbounds nuw [8 x i8], ptr %1995, i64 %1938
   %1999 = load ptr, ptr %1998, align 8, !tbaa !30
   %2000 = getelementptr inbounds nuw i8, ptr %1999, i64 40
   %2001 = load ptr, ptr %2000, align 8, !tbaa !27
-  %2002 = getelementptr inbounds nuw ptr, ptr %2001, i64 %1938
+  %2002 = getelementptr inbounds nuw [8 x i8], ptr %2001, i64 %1938
   %2003 = load ptr, ptr %2002, align 8, !tbaa !30
   %.not3282 = icmp eq ptr %2003, %1965
   br i1 %.not3282, label %2121, label %2004
@@ -6956,7 +6956,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2028 = tail call ptr @H5FL_fac_init(i64 noundef %2027) #9
   %2029 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2030 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2031 = getelementptr inbounds nuw ptr, ptr %2029, i64 %2030
+  %2031 = getelementptr inbounds nuw [8 x i8], ptr %2029, i64 %2030
   store ptr %2028, ptr %2031, align 8, !tbaa !15
   %2032 = add i64 %2030, 1
   store i64 %2032, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -6966,7 +6966,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2033:                                             ; preds = %._crit_edge4606, %2025
   %2034 = phi i64 [ %2011, %._crit_edge4606 ], [ %.pre4608, %2025 ]
   %2035 = phi ptr [ %.pre4607, %._crit_edge4606 ], [ %2029, %2025 ]
-  %2036 = getelementptr inbounds nuw ptr, ptr %2035, i64 %2034
+  %2036 = getelementptr inbounds nuw [8 x i8], ptr %2035, i64 %2034
   %2037 = load ptr, ptr %2036, align 8, !tbaa !15
   %2038 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2037) #9
   %2039 = icmp eq ptr %2038, null
@@ -6984,7 +6984,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2038, ptr align 1 %2045, i64 %2046, i1 false)
   %2047 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2048 = load i64, ptr %2008, align 8, !tbaa !38
-  %2049 = getelementptr ptr, ptr %2047, i64 %2048
+  %2049 = getelementptr [8 x i8], ptr %2047, i64 %2048
   %2050 = getelementptr i8, ptr %2049, i64 -8
   %2051 = load ptr, ptr %2050, align 8, !tbaa !15
   %2052 = load ptr, ptr %2000, align 8, !tbaa !27
@@ -7056,7 +7056,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2080 = tail call ptr @H5FL_fac_init(i64 noundef %2079) #9
   %2081 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2082 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2083 = getelementptr inbounds nuw ptr, ptr %2081, i64 %2082
+  %2083 = getelementptr inbounds nuw [8 x i8], ptr %2081, i64 %2082
   store ptr %2080, ptr %2083, align 8, !tbaa !15
   %2084 = add i64 %2082, 1
   store i64 %2084, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -7066,7 +7066,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2085:                                             ; preds = %._crit_edge4612, %2077
   %2086 = phi i64 [ %2063, %._crit_edge4612 ], [ %.pre4614, %2077 ]
   %2087 = phi ptr [ %.pre4613, %._crit_edge4612 ], [ %2081, %2077 ]
-  %2088 = getelementptr inbounds nuw ptr, ptr %2087, i64 %2086
+  %2088 = getelementptr inbounds nuw [8 x i8], ptr %2087, i64 %2086
   %2089 = load ptr, ptr %2088, align 8, !tbaa !15
   %2090 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2089) #9
   %2091 = icmp eq ptr %2090, null
@@ -7084,7 +7084,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2090, ptr align 1 %2097, i64 %2098, i1 false)
   %2099 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2100 = load i64, ptr %2060, align 8, !tbaa !38
-  %2101 = getelementptr ptr, ptr %2099, i64 %2100
+  %2101 = getelementptr [8 x i8], ptr %2099, i64 %2100
   %2102 = getelementptr i8, ptr %2101, i64 -8
   %2103 = load ptr, ptr %2102, align 8, !tbaa !15
   %2104 = load ptr, ptr %1939, align 8, !tbaa !27
@@ -7108,7 +7108,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 2113:                                             ; preds = %2054
   %2114 = load ptr, ptr %1939, align 8, !tbaa !27
-  %2115 = getelementptr inbounds nuw ptr, ptr %2114, i64 %2007
+  %2115 = getelementptr inbounds nuw [8 x i8], ptr %2114, i64 %2007
   %2116 = load ptr, ptr %2115, align 8, !tbaa !30
   br label %2117
 
@@ -7116,15 +7116,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5229 = phi ptr [ %2107, %2106 ], [ %2055, %2113 ]
   %.sink5227 = phi ptr [ null, %2106 ], [ %2116, %2113 ]
   %2118 = phi ptr [ %.pre4617, %2106 ], [ %2114, %2113 ]
-  %2119 = getelementptr inbounds nuw ptr, ptr %.sink5229, i64 %2007
+  %2119 = getelementptr inbounds nuw [8 x i8], ptr %.sink5229, i64 %2007
   store ptr %.sink5227, ptr %2119, align 8, !tbaa !30
-  %2120 = getelementptr inbounds nuw ptr, ptr %2118, i64 %2007
+  %2120 = getelementptr inbounds nuw [8 x i8], ptr %2118, i64 %2007
   store ptr %1999, ptr %2120, align 8, !tbaa !30
   br label %.thread3651
 
 2121:                                             ; preds = %1994
   %2122 = load ptr, ptr %1933, align 8, !tbaa !27
-  %2123 = getelementptr inbounds nuw ptr, ptr %2122, i64 %indvars.iv4441
+  %2123 = getelementptr inbounds nuw [8 x i8], ptr %2122, i64 %indvars.iv4441
   %2124 = load ptr, ptr %2123, align 8, !tbaa !30
   %.not3283 = icmp eq ptr %2124, null
   br i1 %.not3283, label %2125, label %.thread3651
@@ -7139,7 +7139,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2129:                                             ; preds = %2125
   store i64 %2127, ptr %1934, align 8, !tbaa !38
   %2130 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2131 = getelementptr inbounds nuw ptr, ptr %2130, i64 %2127
+  %2131 = getelementptr inbounds nuw [8 x i8], ptr %2130, i64 %2127
   %2132 = load ptr, ptr %2131, align 8, !tbaa !15
   %2133 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2132) #9
   %.not3285 = icmp eq ptr %2133, null
@@ -7157,7 +7157,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2133, ptr align 1 %2138, i64 %2139, i1 false)
   %2140 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2141 = load i64, ptr %1934, align 8, !tbaa !38
-  %2142 = getelementptr ptr, ptr %2140, i64 %2141
+  %2142 = getelementptr [8 x i8], ptr %2140, i64 %2141
   %2143 = getelementptr i8, ptr %2142, i64 8
   %2144 = load ptr, ptr %2143, align 8, !tbaa !15
   %2145 = load ptr, ptr %1933, align 8, !tbaa !27
@@ -7177,7 +7177,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2152:                                             ; preds = %1959
   %2153 = getelementptr inbounds nuw i8, ptr %.128224232, i64 40
   %2154 = load ptr, ptr %2153, align 8, !tbaa !27
-  %2155 = getelementptr inbounds nuw ptr, ptr %2154, i64 %1938
+  %2155 = getelementptr inbounds nuw [8 x i8], ptr %2154, i64 %1938
   %2156 = load ptr, ptr %2155, align 8, !tbaa !30
   br label %2157
 
@@ -7186,7 +7186,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4440.not = phi i1 [ false, %2152 ], [ true, %2157 ]
   %2158 = getelementptr inbounds nuw i8, ptr %.184228, i64 40
   %2159 = load ptr, ptr %2158, align 8, !tbaa !27
-  %2160 = getelementptr inbounds nuw ptr, ptr %2159, i64 %1938
+  %2160 = getelementptr inbounds nuw [8 x i8], ptr %2159, i64 %1938
   %2161 = load ptr, ptr %2160, align 8, !tbaa !30
   %.not3266 = icmp eq ptr %2161, %.128204233
   %brmerge5230 = or i1 %.not3266, %exitcond4440.not
@@ -7196,9 +7196,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.184228.mux.le = select i1 %.not3266, ptr %.184228, ptr %2161
   %2162 = getelementptr inbounds nuw i8, ptr %.128204233, i64 16
   %2163 = load i64, ptr %2162, align 8, !tbaa !36
-  %2164 = getelementptr inbounds nuw ptr, ptr %1937, i64 %2163
+  %2164 = getelementptr inbounds nuw [8 x i8], ptr %1937, i64 %2163
   %2165 = load ptr, ptr %2164, align 8, !tbaa !30
-  %2166 = getelementptr inbounds nuw ptr, ptr %2154, i64 %2163
+  %2166 = getelementptr inbounds nuw [8 x i8], ptr %2154, i64 %2163
   store ptr %2165, ptr %2166, align 8, !tbaa !30
   %2167 = getelementptr inbounds nuw i8, ptr %.128204233, i64 24
   %2168 = load i64, ptr %2167, align 8, !tbaa !38
@@ -7210,7 +7210,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2171:                                             ; preds = %.critedge144
   store i64 %2169, ptr %2167, align 8, !tbaa !38
   %2172 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2173 = getelementptr inbounds nuw ptr, ptr %2172, i64 %2169
+  %2173 = getelementptr inbounds nuw [8 x i8], ptr %2172, i64 %2169
   %2174 = load ptr, ptr %2173, align 8, !tbaa !15
   %2175 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2174) #9
   %.not3268 = icmp eq ptr %2175, null
@@ -7222,7 +7222,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2175, ptr align 1 %2177, i64 %2178, i1 false)
   %2179 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2180 = load i64, ptr %2167, align 8, !tbaa !38
-  %2181 = getelementptr ptr, ptr %2179, i64 %2180
+  %2181 = getelementptr [8 x i8], ptr %2179, i64 %2180
   %2182 = getelementptr i8, ptr %2181, i64 8
   %2183 = load ptr, ptr %2182, align 8, !tbaa !15
   %2184 = load ptr, ptr %1939, align 8, !tbaa !27
@@ -7297,7 +7297,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2218 = tail call ptr @H5FL_fac_init(i64 noundef %2217) #9
   %2219 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2220 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2221 = getelementptr inbounds nuw ptr, ptr %2219, i64 %2220
+  %2221 = getelementptr inbounds nuw [8 x i8], ptr %2219, i64 %2220
   store ptr %2218, ptr %2221, align 8, !tbaa !15
   %2222 = add i64 %2220, 1
   store i64 %2222, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -7307,7 +7307,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2223:                                             ; preds = %._crit_edge4592, %2215
   %2224 = phi i64 [ %2201, %._crit_edge4592 ], [ %.pre4594, %2215 ]
   %2225 = phi ptr [ %.pre4593, %._crit_edge4592 ], [ %2219, %2215 ]
-  %2226 = getelementptr inbounds nuw ptr, ptr %2225, i64 %2224
+  %2226 = getelementptr inbounds nuw [8 x i8], ptr %2225, i64 %2224
   %2227 = load ptr, ptr %2226, align 8, !tbaa !15
   %2228 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2227) #9
   %2229 = icmp eq ptr %2228, null
@@ -7326,7 +7326,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2228, ptr align 1 %2236, i64 %2237, i1 false)
   %2238 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2239 = load i64, ptr %2198, align 8, !tbaa !38
-  %2240 = getelementptr ptr, ptr %2238, i64 %2239
+  %2240 = getelementptr [8 x i8], ptr %2238, i64 %2239
   %2241 = getelementptr i8, ptr %2240, i64 -8
   %2242 = load ptr, ptr %2241, align 8, !tbaa !15
   %2243 = load ptr, ptr %2235, align 8, !tbaa !27
@@ -7397,7 +7397,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2270 = tail call ptr @H5FL_fac_init(i64 noundef %2269) #9
   %2271 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2272 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2273 = getelementptr inbounds nuw ptr, ptr %2271, i64 %2272
+  %2273 = getelementptr inbounds nuw [8 x i8], ptr %2271, i64 %2272
   store ptr %2270, ptr %2273, align 8, !tbaa !15
   %2274 = add i64 %2272, 1
   store i64 %2274, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -7407,7 +7407,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2275:                                             ; preds = %._crit_edge4598, %2267
   %2276 = phi i64 [ %2253, %._crit_edge4598 ], [ %.pre4600, %2267 ]
   %2277 = phi ptr [ %.pre4599, %._crit_edge4598 ], [ %2271, %2267 ]
-  %2278 = getelementptr inbounds nuw ptr, ptr %2277, i64 %2276
+  %2278 = getelementptr inbounds nuw [8 x i8], ptr %2277, i64 %2276
   %2279 = load ptr, ptr %2278, align 8, !tbaa !15
   %2280 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2279) #9
   %2281 = icmp eq ptr %2280, null
@@ -7425,7 +7425,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2280, ptr align 1 %2287, i64 %2288, i1 false)
   %2289 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2290 = load i64, ptr %2250, align 8, !tbaa !38
-  %2291 = getelementptr ptr, ptr %2289, i64 %2290
+  %2291 = getelementptr [8 x i8], ptr %2289, i64 %2290
   %2292 = getelementptr i8, ptr %2291, i64 -8
   %2293 = load ptr, ptr %2292, align 8, !tbaa !15
   %2294 = load ptr, ptr %2153, align 8, !tbaa !27
@@ -7447,7 +7447,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 2302:                                             ; preds = %2245
   %2303 = load ptr, ptr %2153, align 8, !tbaa !27
-  %2304 = getelementptr inbounds nuw ptr, ptr %2303, i64 %2197
+  %2304 = getelementptr inbounds nuw [8 x i8], ptr %2303, i64 %2197
   %2305 = load ptr, ptr %2304, align 8, !tbaa !30
   br label %2306
 
@@ -7456,15 +7456,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2307 = phi ptr [ %.pre4602, %2296 ], [ %2303, %2302 ]
   %2308 = getelementptr inbounds nuw i8, ptr %.184228.mux.le, i64 40
   %2309 = load ptr, ptr %2308, align 8, !tbaa !27
-  %2310 = getelementptr inbounds nuw ptr, ptr %2309, i64 %2197
+  %2310 = getelementptr inbounds nuw [8 x i8], ptr %2309, i64 %2197
   store ptr %.sink5231, ptr %2310, align 8, !tbaa !30
-  %2311 = getelementptr inbounds nuw ptr, ptr %2307, i64 %2197
+  %2311 = getelementptr inbounds nuw [8 x i8], ptr %2307, i64 %2197
   store ptr %.184228.mux.le, ptr %2311, align 8, !tbaa !30
   br label %.thread3651
 
 2312:                                             ; preds = %2190
   %2313 = load ptr, ptr %1933, align 8, !tbaa !27
-  %2314 = getelementptr inbounds nuw ptr, ptr %2313, i64 %indvars.iv4441
+  %2314 = getelementptr inbounds nuw [8 x i8], ptr %2313, i64 %indvars.iv4441
   %2315 = load ptr, ptr %2314, align 8, !tbaa !30
   %.not3269 = icmp eq ptr %2315, null
   br i1 %.not3269, label %2316, label %.thread3651
@@ -7479,7 +7479,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2320:                                             ; preds = %2316
   store i64 %2318, ptr %1934, align 8, !tbaa !38
   %2321 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2322 = getelementptr inbounds nuw ptr, ptr %2321, i64 %2318
+  %2322 = getelementptr inbounds nuw [8 x i8], ptr %2321, i64 %2318
   %2323 = load ptr, ptr %2322, align 8, !tbaa !15
   %2324 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2323) #9
   %.not3271 = icmp eq ptr %2324, null
@@ -7497,7 +7497,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2324, ptr align 1 %2329, i64 %2330, i1 false)
   %2331 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2332 = load i64, ptr %1934, align 8, !tbaa !38
-  %2333 = getelementptr ptr, ptr %2331, i64 %2332
+  %2333 = getelementptr [8 x i8], ptr %2331, i64 %2332
   %2334 = getelementptr i8, ptr %2333, i64 8
   %2335 = load ptr, ptr %2334, align 8, !tbaa !15
   %2336 = load ptr, ptr %1933, align 8, !tbaa !27
@@ -7519,7 +7519,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.128283655 = phi ptr [ %.228293648, %._crit_edge4221 ], [ %.228293648, %2121 ], [ %.228293648, %2147 ], [ %.228293648, %2117 ], [ %.228293648, %2312 ], [ %.228293648, %2338 ], [ %.228293648, %2306 ], [ %.128204233, %.preheader3892 ], [ %.028274217, %.lr.ph4220 ], [ %.174219, %1950 ], [ %.028274217, %1949 ]
   %2343 = getelementptr inbounds nuw i8, ptr %.128253656, i64 40
   %2344 = load ptr, ptr %2343, align 8, !tbaa !27
-  %2345 = getelementptr inbounds nuw ptr, ptr %2344, i64 %1938
+  %2345 = getelementptr inbounds nuw [8 x i8], ptr %2344, i64 %1938
   %2346 = load ptr, ptr %2345, align 8, !tbaa !30
   %2347 = trunc nuw i64 %indvars.iv4441 to i32
   %2348 = icmp sgt i32 %2347, 1
@@ -7627,7 +7627,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge148:                                     ; preds = %2396, %2398
   %2402 = getelementptr inbounds nuw i8, ptr %.204174, i64 40
   %2403 = load ptr, ptr %2402, align 8, !tbaa !27
-  %2404 = getelementptr inbounds nuw ptr, ptr %2403, i64 %2395
+  %2404 = getelementptr inbounds nuw [8 x i8], ptr %2403, i64 %2395
   %2405 = load ptr, ptr %2404, align 8, !tbaa !30
   %.not3222 = icmp eq ptr %2405, null
   br i1 %.not3222, label %.critedge146, label %2396, !llvm.loop !62
@@ -7656,7 +7656,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.028534198 = phi ptr [ %.20.lcssa, %.preheader3894.lr.ph ], [ %2819, %.thread3699 ]
   %2411 = add nsw i64 %indvars.iv4436, -1
   %2412 = getelementptr inbounds nuw i8, ptr %.128394200, i64 40
-  %2413 = getelementptr inbounds nuw ptr, ptr %2410, i64 %2411
+  %2413 = getelementptr inbounds nuw [8 x i8], ptr %2410, i64 %2411
   %2414 = load ptr, ptr %2413, align 8, !tbaa !30
   %2415 = icmp eq ptr %2414, %.028534198
   br i1 %2415, label %.thread3699, label %.lr.ph4187
@@ -7691,7 +7691,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2425 = add nuw nsw i32 %.028604183, 1
   %2426 = getelementptr inbounds nuw i8, ptr %2416, i64 40
   %2427 = load ptr, ptr %2426, align 8, !tbaa !27
-  %2428 = getelementptr inbounds nuw ptr, ptr %2427, i64 %2411
+  %2428 = getelementptr inbounds nuw [8 x i8], ptr %2427, i64 %2411
   %2429 = load ptr, ptr %2428, align 8, !tbaa !30
   %2430 = icmp eq ptr %2429, %.028534198
   br i1 %2430, label %._crit_edge4188, label %.lr.ph4187
@@ -7709,13 +7709,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2434:                                             ; preds = %2432
   %2435 = getelementptr inbounds nuw i8, ptr %.028534198, i64 40
   %2436 = load ptr, ptr %2435, align 8, !tbaa !27
-  %2437 = getelementptr inbounds nuw ptr, ptr %2436, i64 %indvars.iv4436
+  %2437 = getelementptr inbounds nuw [8 x i8], ptr %2436, i64 %indvars.iv4436
   %2438 = load ptr, ptr %2437, align 8, !tbaa !30
   %2439 = getelementptr inbounds nuw i8, ptr %.028534198, i64 16
   %2440 = load i64, ptr %2439, align 8, !tbaa !36
-  %2441 = getelementptr inbounds nuw ptr, ptr %2436, i64 %2440
+  %2441 = getelementptr inbounds nuw [8 x i8], ptr %2436, i64 %2440
   %2442 = load ptr, ptr %2441, align 8, !tbaa !30
-  %2443 = getelementptr inbounds nuw ptr, ptr %2410, i64 %2440
+  %2443 = getelementptr inbounds nuw [8 x i8], ptr %2410, i64 %2440
   store ptr %2442, ptr %2443, align 8, !tbaa !30
   %2444 = getelementptr inbounds nuw i8, ptr %.028534198, i64 24
   %2445 = load i64, ptr %2444, align 8, !tbaa !38
@@ -7727,7 +7727,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2448:                                             ; preds = %2434
   store i64 %2446, ptr %2444, align 8, !tbaa !38
   %2449 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2450 = getelementptr inbounds nuw ptr, ptr %2449, i64 %2446
+  %2450 = getelementptr inbounds nuw [8 x i8], ptr %2449, i64 %2446
   %2451 = load ptr, ptr %2450, align 8, !tbaa !15
   %2452 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2451) #9
   %.not3245 = icmp eq ptr %2452, null
@@ -7739,7 +7739,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2452, ptr align 1 %2454, i64 %2455, i1 false)
   %2456 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2457 = load i64, ptr %2444, align 8, !tbaa !38
-  %2458 = getelementptr ptr, ptr %2456, i64 %2457
+  %2458 = getelementptr [8 x i8], ptr %2456, i64 %2457
   %2459 = getelementptr i8, ptr %2458, i64 8
   %2460 = load ptr, ptr %2459, align 8, !tbaa !15
   %2461 = load ptr, ptr %2435, align 8, !tbaa !27
@@ -7759,11 +7759,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2469 = phi i64 [ %2440, %2434 ], [ %.pre4572, %2453 ]
   %2470 = add i64 %2469, -1
   store i64 %2470, ptr %2439, align 8, !tbaa !36
-  %2471 = getelementptr inbounds nuw ptr, ptr %2468, i64 %2411
+  %2471 = getelementptr inbounds nuw [8 x i8], ptr %2468, i64 %2411
   %2472 = load ptr, ptr %2471, align 8, !tbaa !30
   %2473 = getelementptr inbounds nuw i8, ptr %2472, i64 40
   %2474 = load ptr, ptr %2473, align 8, !tbaa !27
-  %2475 = getelementptr inbounds nuw ptr, ptr %2474, i64 %2411
+  %2475 = getelementptr inbounds nuw [8 x i8], ptr %2474, i64 %2411
   %2476 = load ptr, ptr %2475, align 8, !tbaa !30
   %.not3246 = icmp eq ptr %2476, %2438
   br i1 %.not3246, label %2594, label %2477
@@ -7820,7 +7820,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2501 = tail call ptr @H5FL_fac_init(i64 noundef %2500) #9
   %2502 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2503 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2504 = getelementptr inbounds nuw ptr, ptr %2502, i64 %2503
+  %2504 = getelementptr inbounds nuw [8 x i8], ptr %2502, i64 %2503
   store ptr %2501, ptr %2504, align 8, !tbaa !15
   %2505 = add i64 %2503, 1
   store i64 %2505, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -7830,7 +7830,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2506:                                             ; preds = %._crit_edge4575, %2498
   %2507 = phi i64 [ %2484, %._crit_edge4575 ], [ %.pre4577, %2498 ]
   %2508 = phi ptr [ %.pre4576, %._crit_edge4575 ], [ %2502, %2498 ]
-  %2509 = getelementptr inbounds nuw ptr, ptr %2508, i64 %2507
+  %2509 = getelementptr inbounds nuw [8 x i8], ptr %2508, i64 %2507
   %2510 = load ptr, ptr %2509, align 8, !tbaa !15
   %2511 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2510) #9
   %2512 = icmp eq ptr %2511, null
@@ -7848,7 +7848,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2511, ptr align 1 %2518, i64 %2519, i1 false)
   %2520 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2521 = load i64, ptr %2481, align 8, !tbaa !38
-  %2522 = getelementptr ptr, ptr %2520, i64 %2521
+  %2522 = getelementptr [8 x i8], ptr %2520, i64 %2521
   %2523 = getelementptr i8, ptr %2522, i64 -8
   %2524 = load ptr, ptr %2523, align 8, !tbaa !15
   %2525 = load ptr, ptr %2473, align 8, !tbaa !27
@@ -7920,7 +7920,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2553 = tail call ptr @H5FL_fac_init(i64 noundef %2552) #9
   %2554 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2555 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2556 = getelementptr inbounds nuw ptr, ptr %2554, i64 %2555
+  %2556 = getelementptr inbounds nuw [8 x i8], ptr %2554, i64 %2555
   store ptr %2553, ptr %2556, align 8, !tbaa !15
   %2557 = add i64 %2555, 1
   store i64 %2557, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -7930,7 +7930,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2558:                                             ; preds = %._crit_edge4581, %2550
   %2559 = phi i64 [ %2536, %._crit_edge4581 ], [ %.pre4583, %2550 ]
   %2560 = phi ptr [ %.pre4582, %._crit_edge4581 ], [ %2554, %2550 ]
-  %2561 = getelementptr inbounds nuw ptr, ptr %2560, i64 %2559
+  %2561 = getelementptr inbounds nuw [8 x i8], ptr %2560, i64 %2559
   %2562 = load ptr, ptr %2561, align 8, !tbaa !15
   %2563 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2562) #9
   %2564 = icmp eq ptr %2563, null
@@ -7948,7 +7948,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2563, ptr align 1 %2570, i64 %2571, i1 false)
   %2572 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2573 = load i64, ptr %2533, align 8, !tbaa !38
-  %2574 = getelementptr ptr, ptr %2572, i64 %2573
+  %2574 = getelementptr [8 x i8], ptr %2572, i64 %2573
   %2575 = getelementptr i8, ptr %2574, i64 -8
   %2576 = load ptr, ptr %2575, align 8, !tbaa !15
   %2577 = load ptr, ptr %2412, align 8, !tbaa !27
@@ -7972,7 +7972,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 2586:                                             ; preds = %2527
   %2587 = load ptr, ptr %2412, align 8, !tbaa !27
-  %2588 = getelementptr inbounds nuw ptr, ptr %2587, i64 %2480
+  %2588 = getelementptr inbounds nuw [8 x i8], ptr %2587, i64 %2480
   %2589 = load ptr, ptr %2588, align 8, !tbaa !30
   br label %2590
 
@@ -7980,15 +7980,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5237 = phi ptr [ %2580, %2579 ], [ %2528, %2586 ]
   %.sink5235 = phi ptr [ null, %2579 ], [ %2589, %2586 ]
   %2591 = phi ptr [ %.pre4586, %2579 ], [ %2587, %2586 ]
-  %2592 = getelementptr inbounds nuw ptr, ptr %.sink5237, i64 %2480
+  %2592 = getelementptr inbounds nuw [8 x i8], ptr %.sink5237, i64 %2480
   store ptr %.sink5235, ptr %2592, align 8, !tbaa !30
-  %2593 = getelementptr inbounds nuw ptr, ptr %2591, i64 %2480
+  %2593 = getelementptr inbounds nuw [8 x i8], ptr %2591, i64 %2480
   store ptr %2472, ptr %2593, align 8, !tbaa !30
   br label %.thread3699
 
 2594:                                             ; preds = %2467
   %2595 = load ptr, ptr %2406, align 8, !tbaa !27
-  %2596 = getelementptr inbounds nuw ptr, ptr %2595, i64 %indvars.iv4436
+  %2596 = getelementptr inbounds nuw [8 x i8], ptr %2595, i64 %indvars.iv4436
   %2597 = load ptr, ptr %2596, align 8, !tbaa !30
   %.not3247 = icmp eq ptr %2597, null
   br i1 %.not3247, label %2598, label %.thread3699
@@ -8003,7 +8003,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2602:                                             ; preds = %2598
   store i64 %2600, ptr %2407, align 8, !tbaa !38
   %2603 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2604 = getelementptr inbounds nuw ptr, ptr %2603, i64 %2600
+  %2604 = getelementptr inbounds nuw [8 x i8], ptr %2603, i64 %2600
   %2605 = load ptr, ptr %2604, align 8, !tbaa !15
   %2606 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2605) #9
   %.not3249 = icmp eq ptr %2606, null
@@ -8021,7 +8021,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2606, ptr align 1 %2611, i64 %2612, i1 false)
   %2613 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2614 = load i64, ptr %2407, align 8, !tbaa !38
-  %2615 = getelementptr ptr, ptr %2613, i64 %2614
+  %2615 = getelementptr [8 x i8], ptr %2613, i64 %2614
   %2616 = getelementptr i8, ptr %2615, i64 8
   %2617 = load ptr, ptr %2616, align 8, !tbaa !15
   %2618 = load ptr, ptr %2406, align 8, !tbaa !27
@@ -8041,7 +8041,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2625:                                             ; preds = %2432
   %2626 = getelementptr inbounds nuw i8, ptr %.128524199, i64 40
   %2627 = load ptr, ptr %2626, align 8, !tbaa !27
-  %2628 = getelementptr inbounds nuw ptr, ptr %2627, i64 %2411
+  %2628 = getelementptr inbounds nuw [8 x i8], ptr %2627, i64 %2411
   %2629 = load ptr, ptr %2628, align 8, !tbaa !30
   br label %2630
 
@@ -8050,7 +8050,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4435.not = phi i1 [ false, %2625 ], [ true, %2630 ]
   %2631 = getelementptr inbounds nuw i8, ptr %.224195, i64 40
   %2632 = load ptr, ptr %2631, align 8, !tbaa !27
-  %2633 = getelementptr inbounds nuw ptr, ptr %2632, i64 %2411
+  %2633 = getelementptr inbounds nuw [8 x i8], ptr %2632, i64 %2411
   %2634 = load ptr, ptr %2633, align 8, !tbaa !30
   %.not3230 = icmp eq ptr %2634, %.128394200
   %brmerge5238 = or i1 %.not3230, %exitcond4435.not
@@ -8060,9 +8060,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.224195.mux.le = select i1 %.not3230, ptr %.224195, ptr %2634
   %2635 = getelementptr inbounds nuw i8, ptr %.128394200, i64 16
   %2636 = load i64, ptr %2635, align 8, !tbaa !36
-  %2637 = getelementptr inbounds nuw ptr, ptr %2410, i64 %2636
+  %2637 = getelementptr inbounds nuw [8 x i8], ptr %2410, i64 %2636
   %2638 = load ptr, ptr %2637, align 8, !tbaa !30
-  %2639 = getelementptr inbounds nuw ptr, ptr %2627, i64 %2636
+  %2639 = getelementptr inbounds nuw [8 x i8], ptr %2627, i64 %2636
   store ptr %2638, ptr %2639, align 8, !tbaa !30
   %2640 = getelementptr inbounds nuw i8, ptr %.128394200, i64 24
   %2641 = load i64, ptr %2640, align 8, !tbaa !38
@@ -8074,7 +8074,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2644:                                             ; preds = %.critedge150
   store i64 %2642, ptr %2640, align 8, !tbaa !38
   %2645 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2646 = getelementptr inbounds nuw ptr, ptr %2645, i64 %2642
+  %2646 = getelementptr inbounds nuw [8 x i8], ptr %2645, i64 %2642
   %2647 = load ptr, ptr %2646, align 8, !tbaa !15
   %2648 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2647) #9
   %.not3232 = icmp eq ptr %2648, null
@@ -8086,7 +8086,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2648, ptr align 1 %2650, i64 %2651, i1 false)
   %2652 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2653 = load i64, ptr %2640, align 8, !tbaa !38
-  %2654 = getelementptr ptr, ptr %2652, i64 %2653
+  %2654 = getelementptr [8 x i8], ptr %2652, i64 %2653
   %2655 = getelementptr i8, ptr %2654, i64 8
   %2656 = load ptr, ptr %2655, align 8, !tbaa !15
   %2657 = load ptr, ptr %2412, align 8, !tbaa !27
@@ -8161,7 +8161,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2691 = tail call ptr @H5FL_fac_init(i64 noundef %2690) #9
   %2692 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2693 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2694 = getelementptr inbounds nuw ptr, ptr %2692, i64 %2693
+  %2694 = getelementptr inbounds nuw [8 x i8], ptr %2692, i64 %2693
   store ptr %2691, ptr %2694, align 8, !tbaa !15
   %2695 = add i64 %2693, 1
   store i64 %2695, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -8171,7 +8171,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2696:                                             ; preds = %._crit_edge4561, %2688
   %2697 = phi i64 [ %2674, %._crit_edge4561 ], [ %.pre4563, %2688 ]
   %2698 = phi ptr [ %.pre4562, %._crit_edge4561 ], [ %2692, %2688 ]
-  %2699 = getelementptr inbounds nuw ptr, ptr %2698, i64 %2697
+  %2699 = getelementptr inbounds nuw [8 x i8], ptr %2698, i64 %2697
   %2700 = load ptr, ptr %2699, align 8, !tbaa !15
   %2701 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2700) #9
   %2702 = icmp eq ptr %2701, null
@@ -8190,7 +8190,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2701, ptr align 1 %2709, i64 %2710, i1 false)
   %2711 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2712 = load i64, ptr %2671, align 8, !tbaa !38
-  %2713 = getelementptr ptr, ptr %2711, i64 %2712
+  %2713 = getelementptr [8 x i8], ptr %2711, i64 %2712
   %2714 = getelementptr i8, ptr %2713, i64 -8
   %2715 = load ptr, ptr %2714, align 8, !tbaa !15
   %2716 = load ptr, ptr %2708, align 8, !tbaa !27
@@ -8261,7 +8261,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2743 = tail call ptr @H5FL_fac_init(i64 noundef %2742) #9
   %2744 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2745 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2746 = getelementptr inbounds nuw ptr, ptr %2744, i64 %2745
+  %2746 = getelementptr inbounds nuw [8 x i8], ptr %2744, i64 %2745
   store ptr %2743, ptr %2746, align 8, !tbaa !15
   %2747 = add i64 %2745, 1
   store i64 %2747, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -8271,7 +8271,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2748:                                             ; preds = %._crit_edge4567, %2740
   %2749 = phi i64 [ %2726, %._crit_edge4567 ], [ %.pre4569, %2740 ]
   %2750 = phi ptr [ %.pre4568, %._crit_edge4567 ], [ %2744, %2740 ]
-  %2751 = getelementptr inbounds nuw ptr, ptr %2750, i64 %2749
+  %2751 = getelementptr inbounds nuw [8 x i8], ptr %2750, i64 %2749
   %2752 = load ptr, ptr %2751, align 8, !tbaa !15
   %2753 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2752) #9
   %2754 = icmp eq ptr %2753, null
@@ -8289,7 +8289,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2753, ptr align 1 %2760, i64 %2761, i1 false)
   %2762 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2763 = load i64, ptr %2723, align 8, !tbaa !38
-  %2764 = getelementptr ptr, ptr %2762, i64 %2763
+  %2764 = getelementptr [8 x i8], ptr %2762, i64 %2763
   %2765 = getelementptr i8, ptr %2764, i64 -8
   %2766 = load ptr, ptr %2765, align 8, !tbaa !15
   %2767 = load ptr, ptr %2626, align 8, !tbaa !27
@@ -8311,7 +8311,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 2775:                                             ; preds = %2718
   %2776 = load ptr, ptr %2626, align 8, !tbaa !27
-  %2777 = getelementptr inbounds nuw ptr, ptr %2776, i64 %2670
+  %2777 = getelementptr inbounds nuw [8 x i8], ptr %2776, i64 %2670
   %2778 = load ptr, ptr %2777, align 8, !tbaa !30
   br label %2779
 
@@ -8320,15 +8320,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2780 = phi ptr [ %.pre4571, %2769 ], [ %2776, %2775 ]
   %2781 = getelementptr inbounds nuw i8, ptr %.224195.mux.le, i64 40
   %2782 = load ptr, ptr %2781, align 8, !tbaa !27
-  %2783 = getelementptr inbounds nuw ptr, ptr %2782, i64 %2670
+  %2783 = getelementptr inbounds nuw [8 x i8], ptr %2782, i64 %2670
   store ptr %.sink5239, ptr %2783, align 8, !tbaa !30
-  %2784 = getelementptr inbounds nuw ptr, ptr %2780, i64 %2670
+  %2784 = getelementptr inbounds nuw [8 x i8], ptr %2780, i64 %2670
   store ptr %.224195.mux.le, ptr %2784, align 8, !tbaa !30
   br label %.thread3699
 
 2785:                                             ; preds = %2663
   %2786 = load ptr, ptr %2406, align 8, !tbaa !27
-  %2787 = getelementptr inbounds nuw ptr, ptr %2786, i64 %indvars.iv4436
+  %2787 = getelementptr inbounds nuw [8 x i8], ptr %2786, i64 %indvars.iv4436
   %2788 = load ptr, ptr %2787, align 8, !tbaa !30
   %.not3233 = icmp eq ptr %2788, null
   br i1 %.not3233, label %2789, label %.thread3699
@@ -8343,7 +8343,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2793:                                             ; preds = %2789
   store i64 %2791, ptr %2407, align 8, !tbaa !38
   %2794 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2795 = getelementptr inbounds nuw ptr, ptr %2794, i64 %2791
+  %2795 = getelementptr inbounds nuw [8 x i8], ptr %2794, i64 %2791
   %2796 = load ptr, ptr %2795, align 8, !tbaa !15
   %2797 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2796) #9
   %.not3235 = icmp eq ptr %2797, null
@@ -8361,7 +8361,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2797, ptr align 1 %2802, i64 %2803, i1 false)
   %2804 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2805 = load i64, ptr %2407, align 8, !tbaa !38
-  %2806 = getelementptr ptr, ptr %2804, i64 %2805
+  %2806 = getelementptr [8 x i8], ptr %2804, i64 %2805
   %2807 = getelementptr i8, ptr %2806, i64 8
   %2808 = load ptr, ptr %2807, align 8, !tbaa !15
   %2809 = load ptr, ptr %2406, align 8, !tbaa !27
@@ -8383,7 +8383,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.128583703 = phi ptr [ %.228593696, %._crit_edge4188 ], [ %.228593696, %2594 ], [ %.228593696, %2620 ], [ %.228593696, %2590 ], [ %.228593696, %2785 ], [ %.228593696, %2811 ], [ %.228593696, %2779 ], [ %.128394200, %.preheader3894 ], [ %.028574184, %.lr.ph4187 ], [ %.214186, %2423 ], [ %.028574184, %2422 ]
   %2816 = getelementptr inbounds nuw i8, ptr %.128553704, i64 40
   %2817 = load ptr, ptr %2816, align 8, !tbaa !27
-  %2818 = getelementptr inbounds nuw ptr, ptr %2817, i64 %2411
+  %2818 = getelementptr inbounds nuw [8 x i8], ptr %2817, i64 %2411
   %2819 = load ptr, ptr %2818, align 8, !tbaa !30
   %2820 = trunc nuw i64 %indvars.iv4436 to i32
   %2821 = icmp sgt i32 %2820, 1
@@ -8503,7 +8503,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge154:                                     ; preds = %2876, %2870, %2881
   %2883 = getelementptr inbounds nuw i8, ptr %.244137, i64 40
   %2884 = load ptr, ptr %2883, align 8, !tbaa !27
-  %2885 = getelementptr inbounds nuw ptr, ptr %2884, i64 %2869
+  %2885 = getelementptr inbounds nuw [8 x i8], ptr %2884, i64 %2869
   %2886 = load ptr, ptr %2885, align 8, !tbaa !30
   %.not3186 = icmp eq ptr %2886, null
   br i1 %.not3186, label %.critedge152, label %2870, !llvm.loop !64
@@ -8533,7 +8533,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.128504164 = phi ptr [ %.02849.lcssa, %.preheader3896.lr.ph ], [ %.128443751, %.thread3747 ]
   %2893 = add nsw i64 %indvars.iv4431, -1
   %2894 = getelementptr inbounds nuw i8, ptr %.128504164, i64 40
-  %2895 = getelementptr inbounds nuw ptr, ptr %2892, i64 %2893
+  %2895 = getelementptr inbounds nuw [8 x i8], ptr %2892, i64 %2893
   %2896 = load ptr, ptr %2895, align 8, !tbaa !30
   %2897 = icmp eq ptr %2896, %.028464166
   br i1 %2897, label %.thread3747, label %.lr.ph4154
@@ -8579,7 +8579,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2914 = add nuw nsw i32 %.028354152, 1
   %2915 = getelementptr inbounds nuw i8, ptr %2898, i64 40
   %2916 = load ptr, ptr %2915, align 8, !tbaa !27
-  %2917 = getelementptr inbounds nuw ptr, ptr %2916, i64 %2893
+  %2917 = getelementptr inbounds nuw [8 x i8], ptr %2916, i64 %2893
   %2918 = load ptr, ptr %2917, align 8, !tbaa !30
   %2919 = icmp eq ptr %2918, %.028464166
   br i1 %2919, label %._crit_edge4155, label %.lr.ph4154
@@ -8597,13 +8597,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2923:                                             ; preds = %2921
   %2924 = getelementptr inbounds nuw i8, ptr %.028464166, i64 40
   %2925 = load ptr, ptr %2924, align 8, !tbaa !27
-  %2926 = getelementptr inbounds nuw ptr, ptr %2925, i64 %indvars.iv4431
+  %2926 = getelementptr inbounds nuw [8 x i8], ptr %2925, i64 %indvars.iv4431
   %2927 = load ptr, ptr %2926, align 8, !tbaa !30
   %2928 = getelementptr inbounds nuw i8, ptr %.028464166, i64 16
   %2929 = load i64, ptr %2928, align 8, !tbaa !36
-  %2930 = getelementptr inbounds nuw ptr, ptr %2925, i64 %2929
+  %2930 = getelementptr inbounds nuw [8 x i8], ptr %2925, i64 %2929
   %2931 = load ptr, ptr %2930, align 8, !tbaa !30
-  %2932 = getelementptr inbounds nuw ptr, ptr %2892, i64 %2929
+  %2932 = getelementptr inbounds nuw [8 x i8], ptr %2892, i64 %2929
   store ptr %2931, ptr %2932, align 8, !tbaa !30
   %2933 = getelementptr inbounds nuw i8, ptr %.028464166, i64 24
   %2934 = load i64, ptr %2933, align 8, !tbaa !38
@@ -8615,7 +8615,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2937:                                             ; preds = %2923
   store i64 %2935, ptr %2933, align 8, !tbaa !38
   %2938 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %2939 = getelementptr inbounds nuw ptr, ptr %2938, i64 %2935
+  %2939 = getelementptr inbounds nuw [8 x i8], ptr %2938, i64 %2935
   %2940 = load ptr, ptr %2939, align 8, !tbaa !15
   %2941 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2940) #9
   %.not3209 = icmp eq ptr %2941, null
@@ -8627,7 +8627,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2941, ptr align 1 %2943, i64 %2944, i1 false)
   %2945 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2946 = load i64, ptr %2933, align 8, !tbaa !38
-  %2947 = getelementptr ptr, ptr %2945, i64 %2946
+  %2947 = getelementptr [8 x i8], ptr %2945, i64 %2946
   %2948 = getelementptr i8, ptr %2947, i64 8
   %2949 = load ptr, ptr %2948, align 8, !tbaa !15
   %2950 = load ptr, ptr %2924, align 8, !tbaa !27
@@ -8647,11 +8647,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2958 = phi i64 [ %2929, %2923 ], [ %.pre4541, %2942 ]
   %2959 = add i64 %2958, -1
   store i64 %2959, ptr %2928, align 8, !tbaa !36
-  %2960 = getelementptr inbounds nuw ptr, ptr %2957, i64 %2893
+  %2960 = getelementptr inbounds nuw [8 x i8], ptr %2957, i64 %2893
   %2961 = load ptr, ptr %2960, align 8, !tbaa !30
   %2962 = getelementptr inbounds nuw i8, ptr %2961, i64 40
   %2963 = load ptr, ptr %2962, align 8, !tbaa !27
-  %2964 = getelementptr inbounds nuw ptr, ptr %2963, i64 %2893
+  %2964 = getelementptr inbounds nuw [8 x i8], ptr %2963, i64 %2893
   %2965 = load ptr, ptr %2964, align 8, !tbaa !30
   %.not3210 = icmp eq ptr %2965, %2927
   br i1 %.not3210, label %3083, label %2966
@@ -8708,7 +8708,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %2990 = tail call ptr @H5FL_fac_init(i64 noundef %2989) #9
   %2991 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %2992 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %2993 = getelementptr inbounds nuw ptr, ptr %2991, i64 %2992
+  %2993 = getelementptr inbounds nuw [8 x i8], ptr %2991, i64 %2992
   store ptr %2990, ptr %2993, align 8, !tbaa !15
   %2994 = add i64 %2992, 1
   store i64 %2994, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -8718,7 +8718,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 2995:                                             ; preds = %._crit_edge4544, %2987
   %2996 = phi i64 [ %2973, %._crit_edge4544 ], [ %.pre4546, %2987 ]
   %2997 = phi ptr [ %.pre4545, %._crit_edge4544 ], [ %2991, %2987 ]
-  %2998 = getelementptr inbounds nuw ptr, ptr %2997, i64 %2996
+  %2998 = getelementptr inbounds nuw [8 x i8], ptr %2997, i64 %2996
   %2999 = load ptr, ptr %2998, align 8, !tbaa !15
   %3000 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %2999) #9
   %3001 = icmp eq ptr %3000, null
@@ -8736,7 +8736,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3000, ptr align 1 %3007, i64 %3008, i1 false)
   %3009 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3010 = load i64, ptr %2970, align 8, !tbaa !38
-  %3011 = getelementptr ptr, ptr %3009, i64 %3010
+  %3011 = getelementptr [8 x i8], ptr %3009, i64 %3010
   %3012 = getelementptr i8, ptr %3011, i64 -8
   %3013 = load ptr, ptr %3012, align 8, !tbaa !15
   %3014 = load ptr, ptr %2962, align 8, !tbaa !27
@@ -8808,7 +8808,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3042 = tail call ptr @H5FL_fac_init(i64 noundef %3041) #9
   %3043 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3044 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3045 = getelementptr inbounds nuw ptr, ptr %3043, i64 %3044
+  %3045 = getelementptr inbounds nuw [8 x i8], ptr %3043, i64 %3044
   store ptr %3042, ptr %3045, align 8, !tbaa !15
   %3046 = add i64 %3044, 1
   store i64 %3046, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -8818,7 +8818,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3047:                                             ; preds = %._crit_edge4550, %3039
   %3048 = phi i64 [ %3025, %._crit_edge4550 ], [ %.pre4552, %3039 ]
   %3049 = phi ptr [ %.pre4551, %._crit_edge4550 ], [ %3043, %3039 ]
-  %3050 = getelementptr inbounds nuw ptr, ptr %3049, i64 %3048
+  %3050 = getelementptr inbounds nuw [8 x i8], ptr %3049, i64 %3048
   %3051 = load ptr, ptr %3050, align 8, !tbaa !15
   %3052 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3051) #9
   %3053 = icmp eq ptr %3052, null
@@ -8836,7 +8836,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3052, ptr align 1 %3059, i64 %3060, i1 false)
   %3061 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3062 = load i64, ptr %3022, align 8, !tbaa !38
-  %3063 = getelementptr ptr, ptr %3061, i64 %3062
+  %3063 = getelementptr [8 x i8], ptr %3061, i64 %3062
   %3064 = getelementptr i8, ptr %3063, i64 -8
   %3065 = load ptr, ptr %3064, align 8, !tbaa !15
   %3066 = load ptr, ptr %2894, align 8, !tbaa !27
@@ -8860,7 +8860,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 3075:                                             ; preds = %3016
   %3076 = load ptr, ptr %2894, align 8, !tbaa !27
-  %3077 = getelementptr inbounds nuw ptr, ptr %3076, i64 %2969
+  %3077 = getelementptr inbounds nuw [8 x i8], ptr %3076, i64 %2969
   %3078 = load ptr, ptr %3077, align 8, !tbaa !30
   br label %3079
 
@@ -8868,15 +8868,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5245 = phi ptr [ %3069, %3068 ], [ %3017, %3075 ]
   %.sink5243 = phi ptr [ null, %3068 ], [ %3078, %3075 ]
   %3080 = phi ptr [ %.pre4555, %3068 ], [ %3076, %3075 ]
-  %3081 = getelementptr inbounds nuw ptr, ptr %.sink5245, i64 %2969
+  %3081 = getelementptr inbounds nuw [8 x i8], ptr %.sink5245, i64 %2969
   store ptr %.sink5243, ptr %3081, align 8, !tbaa !30
-  %3082 = getelementptr inbounds nuw ptr, ptr %3080, i64 %2969
+  %3082 = getelementptr inbounds nuw [8 x i8], ptr %3080, i64 %2969
   store ptr %2961, ptr %3082, align 8, !tbaa !30
   br label %.thread3747
 
 3083:                                             ; preds = %2956
   %3084 = load ptr, ptr %2888, align 8, !tbaa !27
-  %3085 = getelementptr inbounds nuw ptr, ptr %3084, i64 %indvars.iv4431
+  %3085 = getelementptr inbounds nuw [8 x i8], ptr %3084, i64 %indvars.iv4431
   %3086 = load ptr, ptr %3085, align 8, !tbaa !30
   %.not3211 = icmp eq ptr %3086, null
   br i1 %.not3211, label %3087, label %.thread3747
@@ -8891,7 +8891,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3091:                                             ; preds = %3087
   store i64 %3089, ptr %2889, align 8, !tbaa !38
   %3092 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3093 = getelementptr inbounds nuw ptr, ptr %3092, i64 %3089
+  %3093 = getelementptr inbounds nuw [8 x i8], ptr %3092, i64 %3089
   %3094 = load ptr, ptr %3093, align 8, !tbaa !15
   %3095 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3094) #9
   %.not3213 = icmp eq ptr %3095, null
@@ -8909,7 +8909,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3095, ptr align 1 %3100, i64 %3101, i1 false)
   %3102 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3103 = load i64, ptr %2889, align 8, !tbaa !38
-  %3104 = getelementptr ptr, ptr %3102, i64 %3103
+  %3104 = getelementptr [8 x i8], ptr %3102, i64 %3103
   %3105 = getelementptr i8, ptr %3104, i64 8
   %3106 = load ptr, ptr %3105, align 8, !tbaa !15
   %3107 = load ptr, ptr %2888, align 8, !tbaa !27
@@ -8929,7 +8929,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3114:                                             ; preds = %2921
   %3115 = getelementptr inbounds nuw i8, ptr %.128484165, i64 40
   %3116 = load ptr, ptr %3115, align 8, !tbaa !27
-  %3117 = getelementptr inbounds nuw ptr, ptr %3116, i64 %2893
+  %3117 = getelementptr inbounds nuw [8 x i8], ptr %3116, i64 %2893
   %3118 = load ptr, ptr %3117, align 8, !tbaa !30
   br label %3119
 
@@ -8938,7 +8938,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4430.not = phi i1 [ false, %3114 ], [ true, %3119 ]
   %3120 = getelementptr inbounds nuw i8, ptr %.264162, i64 40
   %3121 = load ptr, ptr %3120, align 8, !tbaa !27
-  %3122 = getelementptr inbounds nuw ptr, ptr %3121, i64 %2893
+  %3122 = getelementptr inbounds nuw [8 x i8], ptr %3121, i64 %2893
   %3123 = load ptr, ptr %3122, align 8, !tbaa !30
   %.not3194 = icmp eq ptr %3123, %.128504164
   %brmerge5246 = or i1 %.not3194, %exitcond4430.not
@@ -8948,9 +8948,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.264162.mux.le = select i1 %.not3194, ptr %.264162, ptr %3123
   %3124 = getelementptr inbounds nuw i8, ptr %.128504164, i64 16
   %3125 = load i64, ptr %3124, align 8, !tbaa !36
-  %3126 = getelementptr inbounds nuw ptr, ptr %2892, i64 %3125
+  %3126 = getelementptr inbounds nuw [8 x i8], ptr %2892, i64 %3125
   %3127 = load ptr, ptr %3126, align 8, !tbaa !30
-  %3128 = getelementptr inbounds nuw ptr, ptr %3116, i64 %3125
+  %3128 = getelementptr inbounds nuw [8 x i8], ptr %3116, i64 %3125
   store ptr %3127, ptr %3128, align 8, !tbaa !30
   %3129 = getelementptr inbounds nuw i8, ptr %.128504164, i64 24
   %3130 = load i64, ptr %3129, align 8, !tbaa !38
@@ -8962,7 +8962,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3133:                                             ; preds = %.critedge156
   store i64 %3131, ptr %3129, align 8, !tbaa !38
   %3134 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3135 = getelementptr inbounds nuw ptr, ptr %3134, i64 %3131
+  %3135 = getelementptr inbounds nuw [8 x i8], ptr %3134, i64 %3131
   %3136 = load ptr, ptr %3135, align 8, !tbaa !15
   %3137 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3136) #9
   %.not3196 = icmp eq ptr %3137, null
@@ -8974,7 +8974,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3137, ptr align 1 %3139, i64 %3140, i1 false)
   %3141 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3142 = load i64, ptr %3129, align 8, !tbaa !38
-  %3143 = getelementptr ptr, ptr %3141, i64 %3142
+  %3143 = getelementptr [8 x i8], ptr %3141, i64 %3142
   %3144 = getelementptr i8, ptr %3143, i64 8
   %3145 = load ptr, ptr %3144, align 8, !tbaa !15
   %3146 = load ptr, ptr %2894, align 8, !tbaa !27
@@ -9049,7 +9049,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3180 = tail call ptr @H5FL_fac_init(i64 noundef %3179) #9
   %3181 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3182 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3183 = getelementptr inbounds nuw ptr, ptr %3181, i64 %3182
+  %3183 = getelementptr inbounds nuw [8 x i8], ptr %3181, i64 %3182
   store ptr %3180, ptr %3183, align 8, !tbaa !15
   %3184 = add i64 %3182, 1
   store i64 %3184, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -9059,7 +9059,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3185:                                             ; preds = %._crit_edge4530, %3177
   %3186 = phi i64 [ %3163, %._crit_edge4530 ], [ %.pre4532, %3177 ]
   %3187 = phi ptr [ %.pre4531, %._crit_edge4530 ], [ %3181, %3177 ]
-  %3188 = getelementptr inbounds nuw ptr, ptr %3187, i64 %3186
+  %3188 = getelementptr inbounds nuw [8 x i8], ptr %3187, i64 %3186
   %3189 = load ptr, ptr %3188, align 8, !tbaa !15
   %3190 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3189) #9
   %3191 = icmp eq ptr %3190, null
@@ -9078,7 +9078,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3190, ptr align 1 %3198, i64 %3199, i1 false)
   %3200 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3201 = load i64, ptr %3160, align 8, !tbaa !38
-  %3202 = getelementptr ptr, ptr %3200, i64 %3201
+  %3202 = getelementptr [8 x i8], ptr %3200, i64 %3201
   %3203 = getelementptr i8, ptr %3202, i64 -8
   %3204 = load ptr, ptr %3203, align 8, !tbaa !15
   %3205 = load ptr, ptr %3197, align 8, !tbaa !27
@@ -9149,7 +9149,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3232 = tail call ptr @H5FL_fac_init(i64 noundef %3231) #9
   %3233 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3234 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3235 = getelementptr inbounds nuw ptr, ptr %3233, i64 %3234
+  %3235 = getelementptr inbounds nuw [8 x i8], ptr %3233, i64 %3234
   store ptr %3232, ptr %3235, align 8, !tbaa !15
   %3236 = add i64 %3234, 1
   store i64 %3236, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -9159,7 +9159,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3237:                                             ; preds = %._crit_edge4536, %3229
   %3238 = phi i64 [ %3215, %._crit_edge4536 ], [ %.pre4538, %3229 ]
   %3239 = phi ptr [ %.pre4537, %._crit_edge4536 ], [ %3233, %3229 ]
-  %3240 = getelementptr inbounds nuw ptr, ptr %3239, i64 %3238
+  %3240 = getelementptr inbounds nuw [8 x i8], ptr %3239, i64 %3238
   %3241 = load ptr, ptr %3240, align 8, !tbaa !15
   %3242 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3241) #9
   %3243 = icmp eq ptr %3242, null
@@ -9177,7 +9177,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3242, ptr align 1 %3249, i64 %3250, i1 false)
   %3251 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3252 = load i64, ptr %3212, align 8, !tbaa !38
-  %3253 = getelementptr ptr, ptr %3251, i64 %3252
+  %3253 = getelementptr [8 x i8], ptr %3251, i64 %3252
   %3254 = getelementptr i8, ptr %3253, i64 -8
   %3255 = load ptr, ptr %3254, align 8, !tbaa !15
   %3256 = load ptr, ptr %3115, align 8, !tbaa !27
@@ -9199,7 +9199,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 3264:                                             ; preds = %3207
   %3265 = load ptr, ptr %3115, align 8, !tbaa !27
-  %3266 = getelementptr inbounds nuw ptr, ptr %3265, i64 %3159
+  %3266 = getelementptr inbounds nuw [8 x i8], ptr %3265, i64 %3159
   %3267 = load ptr, ptr %3266, align 8, !tbaa !30
   br label %3268
 
@@ -9208,15 +9208,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3269 = phi ptr [ %.pre4540, %3258 ], [ %3265, %3264 ]
   %3270 = getelementptr inbounds nuw i8, ptr %.264162.mux.le, i64 40
   %3271 = load ptr, ptr %3270, align 8, !tbaa !27
-  %3272 = getelementptr inbounds nuw ptr, ptr %3271, i64 %3159
+  %3272 = getelementptr inbounds nuw [8 x i8], ptr %3271, i64 %3159
   store ptr %.sink5247, ptr %3272, align 8, !tbaa !30
-  %3273 = getelementptr inbounds nuw ptr, ptr %3269, i64 %3159
+  %3273 = getelementptr inbounds nuw [8 x i8], ptr %3269, i64 %3159
   store ptr %.264162.mux.le, ptr %3273, align 8, !tbaa !30
   br label %.thread3747
 
 3274:                                             ; preds = %3152
   %3275 = load ptr, ptr %2888, align 8, !tbaa !27
-  %3276 = getelementptr inbounds nuw ptr, ptr %3275, i64 %indvars.iv4431
+  %3276 = getelementptr inbounds nuw [8 x i8], ptr %3275, i64 %indvars.iv4431
   %3277 = load ptr, ptr %3276, align 8, !tbaa !30
   %.not3197 = icmp eq ptr %3277, null
   br i1 %.not3197, label %3278, label %.thread3747
@@ -9231,7 +9231,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3282:                                             ; preds = %3278
   store i64 %3280, ptr %2889, align 8, !tbaa !38
   %3283 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3284 = getelementptr inbounds nuw ptr, ptr %3283, i64 %3280
+  %3284 = getelementptr inbounds nuw [8 x i8], ptr %3283, i64 %3280
   %3285 = load ptr, ptr %3284, align 8, !tbaa !15
   %3286 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3285) #9
   %.not3199 = icmp eq ptr %3286, null
@@ -9249,7 +9249,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3286, ptr align 1 %3291, i64 %3292, i1 false)
   %3293 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3294 = load i64, ptr %2889, align 8, !tbaa !38
-  %3295 = getelementptr ptr, ptr %3293, i64 %3294
+  %3295 = getelementptr [8 x i8], ptr %3293, i64 %3294
   %3296 = getelementptr i8, ptr %3295, i64 8
   %3297 = load ptr, ptr %3296, align 8, !tbaa !15
   %3298 = load ptr, ptr %2888, align 8, !tbaa !27
@@ -9271,7 +9271,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.128443751 = phi ptr [ %spec.select3449, %._crit_edge4155 ], [ %spec.select3449, %3083 ], [ %spec.select3449, %3109 ], [ %spec.select3449, %3079 ], [ %spec.select3449, %3274 ], [ %spec.select3449, %3300 ], [ %spec.select3449, %3268 ], [ %.128504164, %.preheader3896 ], [ %.028434150, %.lr.ph4154 ], [ %2898, %2912 ], [ %.254153, %2911 ]
   %3305 = getelementptr inbounds nuw i8, ptr %.128443751, i64 40
   %3306 = load ptr, ptr %3305, align 8, !tbaa !27
-  %3307 = getelementptr inbounds nuw ptr, ptr %3306, i64 %2893
+  %3307 = getelementptr inbounds nuw [8 x i8], ptr %3306, i64 %2893
   %3308 = load ptr, ptr %3307, align 8, !tbaa !30
   %3309 = trunc nuw i64 %indvars.iv4431 to i32
   %3310 = icmp sgt i32 %3309, 1
@@ -9387,7 +9387,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge160:                                     ; preds = %3364, %3366
   %3370 = getelementptr inbounds nuw i8, ptr %.284104, i64 40
   %3371 = load ptr, ptr %3370, align 8, !tbaa !27
-  %3372 = getelementptr inbounds nuw ptr, ptr %3371, i64 %3363
+  %3372 = getelementptr inbounds nuw [8 x i8], ptr %3371, i64 %3363
   %3373 = load ptr, ptr %3372, align 8, !tbaa !30
   %.not3150 = icmp eq ptr %3373, null
   br i1 %.not3150, label %.critedge158, label %3364, !llvm.loop !66
@@ -9416,7 +9416,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.128054127 = phi ptr [ %.02804.lcssa, %.preheader3898.lr.ph ], [ %.127993799, %.thread3795 ]
   %3379 = add nsw i64 %indvars.iv4426, -1
   %3380 = getelementptr inbounds nuw i8, ptr %.128054127, i64 40
-  %3381 = getelementptr inbounds nuw ptr, ptr %3378, i64 %3379
+  %3381 = getelementptr inbounds nuw [8 x i8], ptr %3378, i64 %3379
   %3382 = load ptr, ptr %3381, align 8, !tbaa !30
   %3383 = icmp eq ptr %3382, %.028014129
   br i1 %3383, label %.thread3795, label %.lr.ph4117
@@ -9451,7 +9451,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3393 = add nuw nsw i32 %.027904115, 1
   %3394 = getelementptr inbounds nuw i8, ptr %3384, i64 40
   %3395 = load ptr, ptr %3394, align 8, !tbaa !27
-  %3396 = getelementptr inbounds nuw ptr, ptr %3395, i64 %3379
+  %3396 = getelementptr inbounds nuw [8 x i8], ptr %3395, i64 %3379
   %3397 = load ptr, ptr %3396, align 8, !tbaa !30
   %3398 = icmp eq ptr %3397, %.028014129
   br i1 %3398, label %._crit_edge4118, label %.lr.ph4117
@@ -9469,13 +9469,13 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3402:                                             ; preds = %3400
   %3403 = getelementptr inbounds nuw i8, ptr %.028014129, i64 40
   %3404 = load ptr, ptr %3403, align 8, !tbaa !27
-  %3405 = getelementptr inbounds nuw ptr, ptr %3404, i64 %indvars.iv4426
+  %3405 = getelementptr inbounds nuw [8 x i8], ptr %3404, i64 %indvars.iv4426
   %3406 = load ptr, ptr %3405, align 8, !tbaa !30
   %3407 = getelementptr inbounds nuw i8, ptr %.028014129, i64 16
   %3408 = load i64, ptr %3407, align 8, !tbaa !36
-  %3409 = getelementptr inbounds nuw ptr, ptr %3404, i64 %3408
+  %3409 = getelementptr inbounds nuw [8 x i8], ptr %3404, i64 %3408
   %3410 = load ptr, ptr %3409, align 8, !tbaa !30
-  %3411 = getelementptr inbounds nuw ptr, ptr %3378, i64 %3408
+  %3411 = getelementptr inbounds nuw [8 x i8], ptr %3378, i64 %3408
   store ptr %3410, ptr %3411, align 8, !tbaa !30
   %3412 = getelementptr inbounds nuw i8, ptr %.028014129, i64 24
   %3413 = load i64, ptr %3412, align 8, !tbaa !38
@@ -9487,7 +9487,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3416:                                             ; preds = %3402
   store i64 %3414, ptr %3412, align 8, !tbaa !38
   %3417 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3418 = getelementptr inbounds nuw ptr, ptr %3417, i64 %3414
+  %3418 = getelementptr inbounds nuw [8 x i8], ptr %3417, i64 %3414
   %3419 = load ptr, ptr %3418, align 8, !tbaa !15
   %3420 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3419) #9
   %.not3173 = icmp eq ptr %3420, null
@@ -9499,7 +9499,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3420, ptr align 1 %3422, i64 %3423, i1 false)
   %3424 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3425 = load i64, ptr %3412, align 8, !tbaa !38
-  %3426 = getelementptr ptr, ptr %3424, i64 %3425
+  %3426 = getelementptr [8 x i8], ptr %3424, i64 %3425
   %3427 = getelementptr i8, ptr %3426, i64 8
   %3428 = load ptr, ptr %3427, align 8, !tbaa !15
   %3429 = load ptr, ptr %3403, align 8, !tbaa !27
@@ -9519,11 +9519,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3437 = phi i64 [ %3408, %3402 ], [ %.pre4510, %3421 ]
   %3438 = add i64 %3437, -1
   store i64 %3438, ptr %3407, align 8, !tbaa !36
-  %3439 = getelementptr inbounds nuw ptr, ptr %3436, i64 %3379
+  %3439 = getelementptr inbounds nuw [8 x i8], ptr %3436, i64 %3379
   %3440 = load ptr, ptr %3439, align 8, !tbaa !30
   %3441 = getelementptr inbounds nuw i8, ptr %3440, i64 40
   %3442 = load ptr, ptr %3441, align 8, !tbaa !27
-  %3443 = getelementptr inbounds nuw ptr, ptr %3442, i64 %3379
+  %3443 = getelementptr inbounds nuw [8 x i8], ptr %3442, i64 %3379
   %3444 = load ptr, ptr %3443, align 8, !tbaa !30
   %.not3174 = icmp eq ptr %3444, %3406
   br i1 %.not3174, label %3562, label %3445
@@ -9580,7 +9580,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3469 = tail call ptr @H5FL_fac_init(i64 noundef %3468) #9
   %3470 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3471 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3472 = getelementptr inbounds nuw ptr, ptr %3470, i64 %3471
+  %3472 = getelementptr inbounds nuw [8 x i8], ptr %3470, i64 %3471
   store ptr %3469, ptr %3472, align 8, !tbaa !15
   %3473 = add i64 %3471, 1
   store i64 %3473, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -9590,7 +9590,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3474:                                             ; preds = %._crit_edge4513, %3466
   %3475 = phi i64 [ %3452, %._crit_edge4513 ], [ %.pre4515, %3466 ]
   %3476 = phi ptr [ %.pre4514, %._crit_edge4513 ], [ %3470, %3466 ]
-  %3477 = getelementptr inbounds nuw ptr, ptr %3476, i64 %3475
+  %3477 = getelementptr inbounds nuw [8 x i8], ptr %3476, i64 %3475
   %3478 = load ptr, ptr %3477, align 8, !tbaa !15
   %3479 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3478) #9
   %3480 = icmp eq ptr %3479, null
@@ -9608,7 +9608,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3479, ptr align 1 %3486, i64 %3487, i1 false)
   %3488 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3489 = load i64, ptr %3449, align 8, !tbaa !38
-  %3490 = getelementptr ptr, ptr %3488, i64 %3489
+  %3490 = getelementptr [8 x i8], ptr %3488, i64 %3489
   %3491 = getelementptr i8, ptr %3490, i64 -8
   %3492 = load ptr, ptr %3491, align 8, !tbaa !15
   %3493 = load ptr, ptr %3441, align 8, !tbaa !27
@@ -9680,7 +9680,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3521 = tail call ptr @H5FL_fac_init(i64 noundef %3520) #9
   %3522 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3523 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3524 = getelementptr inbounds nuw ptr, ptr %3522, i64 %3523
+  %3524 = getelementptr inbounds nuw [8 x i8], ptr %3522, i64 %3523
   store ptr %3521, ptr %3524, align 8, !tbaa !15
   %3525 = add i64 %3523, 1
   store i64 %3525, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -9690,7 +9690,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3526:                                             ; preds = %._crit_edge4519, %3518
   %3527 = phi i64 [ %3504, %._crit_edge4519 ], [ %.pre4521, %3518 ]
   %3528 = phi ptr [ %.pre4520, %._crit_edge4519 ], [ %3522, %3518 ]
-  %3529 = getelementptr inbounds nuw ptr, ptr %3528, i64 %3527
+  %3529 = getelementptr inbounds nuw [8 x i8], ptr %3528, i64 %3527
   %3530 = load ptr, ptr %3529, align 8, !tbaa !15
   %3531 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3530) #9
   %3532 = icmp eq ptr %3531, null
@@ -9708,7 +9708,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3531, ptr align 1 %3538, i64 %3539, i1 false)
   %3540 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3541 = load i64, ptr %3501, align 8, !tbaa !38
-  %3542 = getelementptr ptr, ptr %3540, i64 %3541
+  %3542 = getelementptr [8 x i8], ptr %3540, i64 %3541
   %3543 = getelementptr i8, ptr %3542, i64 -8
   %3544 = load ptr, ptr %3543, align 8, !tbaa !15
   %3545 = load ptr, ptr %3380, align 8, !tbaa !27
@@ -9732,7 +9732,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 3554:                                             ; preds = %3495
   %3555 = load ptr, ptr %3380, align 8, !tbaa !27
-  %3556 = getelementptr inbounds nuw ptr, ptr %3555, i64 %3448
+  %3556 = getelementptr inbounds nuw [8 x i8], ptr %3555, i64 %3448
   %3557 = load ptr, ptr %3556, align 8, !tbaa !30
   br label %3558
 
@@ -9740,15 +9740,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5253 = phi ptr [ %3548, %3547 ], [ %3496, %3554 ]
   %.sink5251 = phi ptr [ null, %3547 ], [ %3557, %3554 ]
   %3559 = phi ptr [ %.pre4524, %3547 ], [ %3555, %3554 ]
-  %3560 = getelementptr inbounds nuw ptr, ptr %.sink5253, i64 %3448
+  %3560 = getelementptr inbounds nuw [8 x i8], ptr %.sink5253, i64 %3448
   store ptr %.sink5251, ptr %3560, align 8, !tbaa !30
-  %3561 = getelementptr inbounds nuw ptr, ptr %3559, i64 %3448
+  %3561 = getelementptr inbounds nuw [8 x i8], ptr %3559, i64 %3448
   store ptr %3440, ptr %3561, align 8, !tbaa !30
   br label %.thread3795
 
 3562:                                             ; preds = %3435
   %3563 = load ptr, ptr %3374, align 8, !tbaa !27
-  %3564 = getelementptr inbounds nuw ptr, ptr %3563, i64 %indvars.iv4426
+  %3564 = getelementptr inbounds nuw [8 x i8], ptr %3563, i64 %indvars.iv4426
   %3565 = load ptr, ptr %3564, align 8, !tbaa !30
   %.not3175 = icmp eq ptr %3565, null
   br i1 %.not3175, label %3566, label %.thread3795
@@ -9763,7 +9763,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3570:                                             ; preds = %3566
   store i64 %3568, ptr %3375, align 8, !tbaa !38
   %3571 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3572 = getelementptr inbounds nuw ptr, ptr %3571, i64 %3568
+  %3572 = getelementptr inbounds nuw [8 x i8], ptr %3571, i64 %3568
   %3573 = load ptr, ptr %3572, align 8, !tbaa !15
   %3574 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3573) #9
   %.not3177 = icmp eq ptr %3574, null
@@ -9781,7 +9781,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3574, ptr align 1 %3579, i64 %3580, i1 false)
   %3581 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3582 = load i64, ptr %3375, align 8, !tbaa !38
-  %3583 = getelementptr ptr, ptr %3581, i64 %3582
+  %3583 = getelementptr [8 x i8], ptr %3581, i64 %3582
   %3584 = getelementptr i8, ptr %3583, i64 8
   %3585 = load ptr, ptr %3584, align 8, !tbaa !15
   %3586 = load ptr, ptr %3374, align 8, !tbaa !27
@@ -9801,7 +9801,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3593:                                             ; preds = %3400
   %3594 = getelementptr inbounds nuw i8, ptr %.128034128, i64 40
   %3595 = load ptr, ptr %3594, align 8, !tbaa !27
-  %3596 = getelementptr inbounds nuw ptr, ptr %3595, i64 %3379
+  %3596 = getelementptr inbounds nuw [8 x i8], ptr %3595, i64 %3379
   %3597 = load ptr, ptr %3596, align 8, !tbaa !30
   br label %3598
 
@@ -9810,7 +9810,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond4425.not = phi i1 [ false, %3593 ], [ true, %3598 ]
   %3599 = getelementptr inbounds nuw i8, ptr %.304125, i64 40
   %3600 = load ptr, ptr %3599, align 8, !tbaa !27
-  %3601 = getelementptr inbounds nuw ptr, ptr %3600, i64 %3379
+  %3601 = getelementptr inbounds nuw [8 x i8], ptr %3600, i64 %3379
   %3602 = load ptr, ptr %3601, align 8, !tbaa !30
   %.not3158 = icmp eq ptr %3602, %.128054127
   %brmerge5254 = or i1 %.not3158, %exitcond4425.not
@@ -9820,9 +9820,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.304125.mux.le = select i1 %.not3158, ptr %.304125, ptr %3602
   %3603 = getelementptr inbounds nuw i8, ptr %.128054127, i64 16
   %3604 = load i64, ptr %3603, align 8, !tbaa !36
-  %3605 = getelementptr inbounds nuw ptr, ptr %3378, i64 %3604
+  %3605 = getelementptr inbounds nuw [8 x i8], ptr %3378, i64 %3604
   %3606 = load ptr, ptr %3605, align 8, !tbaa !30
-  %3607 = getelementptr inbounds nuw ptr, ptr %3595, i64 %3604
+  %3607 = getelementptr inbounds nuw [8 x i8], ptr %3595, i64 %3604
   store ptr %3606, ptr %3607, align 8, !tbaa !30
   %3608 = getelementptr inbounds nuw i8, ptr %.128054127, i64 24
   %3609 = load i64, ptr %3608, align 8, !tbaa !38
@@ -9834,7 +9834,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3612:                                             ; preds = %.critedge162
   store i64 %3610, ptr %3608, align 8, !tbaa !38
   %3613 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3614 = getelementptr inbounds nuw ptr, ptr %3613, i64 %3610
+  %3614 = getelementptr inbounds nuw [8 x i8], ptr %3613, i64 %3610
   %3615 = load ptr, ptr %3614, align 8, !tbaa !15
   %3616 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3615) #9
   %.not3160 = icmp eq ptr %3616, null
@@ -9846,7 +9846,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3616, ptr align 1 %3618, i64 %3619, i1 false)
   %3620 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3621 = load i64, ptr %3608, align 8, !tbaa !38
-  %3622 = getelementptr ptr, ptr %3620, i64 %3621
+  %3622 = getelementptr [8 x i8], ptr %3620, i64 %3621
   %3623 = getelementptr i8, ptr %3622, i64 8
   %3624 = load ptr, ptr %3623, align 8, !tbaa !15
   %3625 = load ptr, ptr %3380, align 8, !tbaa !27
@@ -9921,7 +9921,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3659 = tail call ptr @H5FL_fac_init(i64 noundef %3658) #9
   %3660 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3661 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3662 = getelementptr inbounds nuw ptr, ptr %3660, i64 %3661
+  %3662 = getelementptr inbounds nuw [8 x i8], ptr %3660, i64 %3661
   store ptr %3659, ptr %3662, align 8, !tbaa !15
   %3663 = add i64 %3661, 1
   store i64 %3663, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -9931,7 +9931,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3664:                                             ; preds = %._crit_edge4499, %3656
   %3665 = phi i64 [ %3642, %._crit_edge4499 ], [ %.pre4501, %3656 ]
   %3666 = phi ptr [ %.pre4500, %._crit_edge4499 ], [ %3660, %3656 ]
-  %3667 = getelementptr inbounds nuw ptr, ptr %3666, i64 %3665
+  %3667 = getelementptr inbounds nuw [8 x i8], ptr %3666, i64 %3665
   %3668 = load ptr, ptr %3667, align 8, !tbaa !15
   %3669 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3668) #9
   %3670 = icmp eq ptr %3669, null
@@ -9950,7 +9950,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3669, ptr align 1 %3677, i64 %3678, i1 false)
   %3679 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3680 = load i64, ptr %3639, align 8, !tbaa !38
-  %3681 = getelementptr ptr, ptr %3679, i64 %3680
+  %3681 = getelementptr [8 x i8], ptr %3679, i64 %3680
   %3682 = getelementptr i8, ptr %3681, i64 -8
   %3683 = load ptr, ptr %3682, align 8, !tbaa !15
   %3684 = load ptr, ptr %3676, align 8, !tbaa !27
@@ -10021,7 +10021,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3711 = tail call ptr @H5FL_fac_init(i64 noundef %3710) #9
   %3712 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3713 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3714 = getelementptr inbounds nuw ptr, ptr %3712, i64 %3713
+  %3714 = getelementptr inbounds nuw [8 x i8], ptr %3712, i64 %3713
   store ptr %3711, ptr %3714, align 8, !tbaa !15
   %3715 = add i64 %3713, 1
   store i64 %3715, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -10031,7 +10031,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3716:                                             ; preds = %._crit_edge4505, %3708
   %3717 = phi i64 [ %3694, %._crit_edge4505 ], [ %.pre4507, %3708 ]
   %3718 = phi ptr [ %.pre4506, %._crit_edge4505 ], [ %3712, %3708 ]
-  %3719 = getelementptr inbounds nuw ptr, ptr %3718, i64 %3717
+  %3719 = getelementptr inbounds nuw [8 x i8], ptr %3718, i64 %3717
   %3720 = load ptr, ptr %3719, align 8, !tbaa !15
   %3721 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3720) #9
   %3722 = icmp eq ptr %3721, null
@@ -10049,7 +10049,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3721, ptr align 1 %3728, i64 %3729, i1 false)
   %3730 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3731 = load i64, ptr %3691, align 8, !tbaa !38
-  %3732 = getelementptr ptr, ptr %3730, i64 %3731
+  %3732 = getelementptr [8 x i8], ptr %3730, i64 %3731
   %3733 = getelementptr i8, ptr %3732, i64 -8
   %3734 = load ptr, ptr %3733, align 8, !tbaa !15
   %3735 = load ptr, ptr %3594, align 8, !tbaa !27
@@ -10071,7 +10071,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 3743:                                             ; preds = %3686
   %3744 = load ptr, ptr %3594, align 8, !tbaa !27
-  %3745 = getelementptr inbounds nuw ptr, ptr %3744, i64 %3638
+  %3745 = getelementptr inbounds nuw [8 x i8], ptr %3744, i64 %3638
   %3746 = load ptr, ptr %3745, align 8, !tbaa !30
   br label %3747
 
@@ -10080,15 +10080,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3748 = phi ptr [ %.pre4509, %3737 ], [ %3744, %3743 ]
   %3749 = getelementptr inbounds nuw i8, ptr %.304125.mux.le, i64 40
   %3750 = load ptr, ptr %3749, align 8, !tbaa !27
-  %3751 = getelementptr inbounds nuw ptr, ptr %3750, i64 %3638
+  %3751 = getelementptr inbounds nuw [8 x i8], ptr %3750, i64 %3638
   store ptr %.sink5255, ptr %3751, align 8, !tbaa !30
-  %3752 = getelementptr inbounds nuw ptr, ptr %3748, i64 %3638
+  %3752 = getelementptr inbounds nuw [8 x i8], ptr %3748, i64 %3638
   store ptr %.304125.mux.le, ptr %3752, align 8, !tbaa !30
   br label %.thread3795
 
 3753:                                             ; preds = %3631
   %3754 = load ptr, ptr %3374, align 8, !tbaa !27
-  %3755 = getelementptr inbounds nuw ptr, ptr %3754, i64 %indvars.iv4426
+  %3755 = getelementptr inbounds nuw [8 x i8], ptr %3754, i64 %indvars.iv4426
   %3756 = load ptr, ptr %3755, align 8, !tbaa !30
   %.not3161 = icmp eq ptr %3756, null
   br i1 %.not3161, label %3757, label %.thread3795
@@ -10103,7 +10103,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3761:                                             ; preds = %3757
   store i64 %3759, ptr %3375, align 8, !tbaa !38
   %3762 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3763 = getelementptr inbounds nuw ptr, ptr %3762, i64 %3759
+  %3763 = getelementptr inbounds nuw [8 x i8], ptr %3762, i64 %3759
   %3764 = load ptr, ptr %3763, align 8, !tbaa !15
   %3765 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3764) #9
   %.not3163 = icmp eq ptr %3765, null
@@ -10121,7 +10121,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3765, ptr align 1 %3770, i64 %3771, i1 false)
   %3772 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3773 = load i64, ptr %3375, align 8, !tbaa !38
-  %3774 = getelementptr ptr, ptr %3772, i64 %3773
+  %3774 = getelementptr [8 x i8], ptr %3772, i64 %3773
   %3775 = getelementptr i8, ptr %3774, i64 8
   %3776 = load ptr, ptr %3775, align 8, !tbaa !15
   %3777 = load ptr, ptr %3374, align 8, !tbaa !27
@@ -10143,7 +10143,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.127993799 = phi ptr [ %spec.select3451, %._crit_edge4118 ], [ %spec.select3451, %3562 ], [ %spec.select3451, %3588 ], [ %spec.select3451, %3558 ], [ %spec.select3451, %3753 ], [ %spec.select3451, %3779 ], [ %spec.select3451, %3747 ], [ %.128054127, %.preheader3898 ], [ %.027984113, %.lr.ph4117 ], [ %3384, %3391 ], [ %.294116, %3390 ]
   %3784 = getelementptr inbounds nuw i8, ptr %.127993799, i64 40
   %3785 = load ptr, ptr %3784, align 8, !tbaa !27
-  %3786 = getelementptr inbounds nuw ptr, ptr %3785, i64 %3379
+  %3786 = getelementptr inbounds nuw [8 x i8], ptr %3785, i64 %3379
   %3787 = load ptr, ptr %3786, align 8, !tbaa !30
   %3788 = trunc nuw i64 %indvars.iv4426 to i32
   %3789 = icmp sgt i32 %3788, 1
@@ -10252,7 +10252,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 .critedge166:                                     ; preds = %3838, %3840
   %3844 = getelementptr inbounds nuw i8, ptr %.324074, i64 40
   %3845 = load ptr, ptr %3844, align 8, !tbaa !27
-  %3846 = getelementptr inbounds nuw ptr, ptr %3845, i64 %3837
+  %3846 = getelementptr inbounds nuw [8 x i8], ptr %3845, i64 %3837
   %3847 = load ptr, ptr %3846, align 8, !tbaa !30
   %.not = icmp eq ptr %3847, null
   br i1 %.not, label %.critedge164, label %3838, !llvm.loop !68
@@ -10281,7 +10281,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.127604094 = phi ptr [ %.02759.lcssa, %.preheader3900.lr.ph ], [ %.127543847, %.thread3843 ]
   %3853 = add nsw i64 %indvars.iv, -1
   %3854 = getelementptr inbounds nuw i8, ptr %.127604094, i64 40
-  %3855 = getelementptr inbounds nuw ptr, ptr %3852, i64 %3853
+  %3855 = getelementptr inbounds nuw [8 x i8], ptr %3852, i64 %3853
   %3856 = load ptr, ptr %3855, align 8, !tbaa !30
   %3857 = icmp eq ptr %3856, %.027564096
   br i1 %3857, label %.thread3843, label %.lr.ph4085
@@ -10313,7 +10313,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 3868:                                             ; preds = %3866
   %3869 = load ptr, ptr %3859, align 8, !tbaa !27
-  %3870 = getelementptr inbounds nuw ptr, ptr %3869, i64 %3853
+  %3870 = getelementptr inbounds nuw [8 x i8], ptr %3869, i64 %3853
   %3871 = load ptr, ptr %3870, align 8, !tbaa !30
   br label %.thread3843
 
@@ -10321,12 +10321,12 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.227523841 = phi ptr [ %.334084, %3866 ], [ %.027504082, %3865 ]
   %.227553840 = phi ptr [ null, %3866 ], [ %.334084, %3865 ]
   %3872 = load ptr, ptr %3859, align 8, !tbaa !27
-  %3873 = getelementptr inbounds nuw ptr, ptr %3872, i64 %3853
+  %3873 = getelementptr inbounds nuw [8 x i8], ptr %3872, i64 %3853
   %3874 = load ptr, ptr %3873, align 8, !tbaa !30
   %3875 = add nuw nsw i32 %.027454083, 1
   %3876 = getelementptr inbounds nuw i8, ptr %3874, i64 40
   %3877 = load ptr, ptr %3876, align 8, !tbaa !27
-  %3878 = getelementptr inbounds nuw ptr, ptr %3877, i64 %3853
+  %3878 = getelementptr inbounds nuw [8 x i8], ptr %3877, i64 %3853
   %3879 = load ptr, ptr %3878, align 8, !tbaa !30
   %3880 = icmp eq ptr %3879, %.027564096
   br i1 %3880, label %._crit_edge, label %.lr.ph4085
@@ -10344,14 +10344,14 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3884:                                             ; preds = %3882
   %3885 = getelementptr inbounds nuw i8, ptr %.027564096, i64 40
   %3886 = load ptr, ptr %3885, align 8, !tbaa !27
-  %3887 = getelementptr inbounds nuw ptr, ptr %3886, i64 %indvars.iv
+  %3887 = getelementptr inbounds nuw [8 x i8], ptr %3886, i64 %indvars.iv
   %3888 = load ptr, ptr %3887, align 8, !tbaa !30
   %3889 = getelementptr inbounds nuw i8, ptr %.027564096, i64 16
   %3890 = load i64, ptr %3889, align 8, !tbaa !36
-  %3891 = getelementptr inbounds nuw ptr, ptr %3886, i64 %3890
+  %3891 = getelementptr inbounds nuw [8 x i8], ptr %3886, i64 %3890
   %3892 = load ptr, ptr %3891, align 8, !tbaa !30
   %3893 = load ptr, ptr %3854, align 8, !tbaa !27
-  %3894 = getelementptr inbounds nuw ptr, ptr %3893, i64 %3890
+  %3894 = getelementptr inbounds nuw [8 x i8], ptr %3893, i64 %3890
   store ptr %3892, ptr %3894, align 8, !tbaa !30
   %3895 = getelementptr inbounds nuw i8, ptr %.027564096, i64 24
   %3896 = load i64, ptr %3895, align 8, !tbaa !38
@@ -10363,7 +10363,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3899:                                             ; preds = %3884
   store i64 %3897, ptr %3895, align 8, !tbaa !38
   %3900 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %3901 = getelementptr inbounds nuw ptr, ptr %3900, i64 %3897
+  %3901 = getelementptr inbounds nuw [8 x i8], ptr %3900, i64 %3897
   %3902 = load ptr, ptr %3901, align 8, !tbaa !15
   %3903 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3902) #9
   %.not3137 = icmp eq ptr %3903, null
@@ -10375,7 +10375,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3903, ptr align 1 %3905, i64 %3906, i1 false)
   %3907 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3908 = load i64, ptr %3895, align 8, !tbaa !38
-  %3909 = getelementptr ptr, ptr %3907, i64 %3908
+  %3909 = getelementptr [8 x i8], ptr %3907, i64 %3908
   %3910 = getelementptr i8, ptr %3909, i64 8
   %3911 = load ptr, ptr %3910, align 8, !tbaa !15
   %3912 = load ptr, ptr %3885, align 8, !tbaa !27
@@ -10395,11 +10395,11 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3920 = phi i64 [ %3890, %3884 ], [ %.pre4479, %3904 ]
   %3921 = add i64 %3920, -1
   store i64 %3921, ptr %3889, align 8, !tbaa !36
-  %3922 = getelementptr inbounds nuw ptr, ptr %3919, i64 %3853
+  %3922 = getelementptr inbounds nuw [8 x i8], ptr %3919, i64 %3853
   %3923 = load ptr, ptr %3922, align 8, !tbaa !30
   %3924 = getelementptr inbounds nuw i8, ptr %3923, i64 40
   %3925 = load ptr, ptr %3924, align 8, !tbaa !27
-  %3926 = getelementptr inbounds nuw ptr, ptr %3925, i64 %3853
+  %3926 = getelementptr inbounds nuw [8 x i8], ptr %3925, i64 %3853
   %3927 = load ptr, ptr %3926, align 8, !tbaa !30
   %.not3138 = icmp eq ptr %3927, %3888
   br i1 %.not3138, label %4045, label %3928
@@ -10456,7 +10456,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3952 = tail call ptr @H5FL_fac_init(i64 noundef %3951) #9
   %3953 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3954 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %3955 = getelementptr inbounds nuw ptr, ptr %3953, i64 %3954
+  %3955 = getelementptr inbounds nuw [8 x i8], ptr %3953, i64 %3954
   store ptr %3952, ptr %3955, align 8, !tbaa !15
   %3956 = add i64 %3954, 1
   store i64 %3956, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -10466,7 +10466,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 3957:                                             ; preds = %._crit_edge4482, %3949
   %3958 = phi i64 [ %3935, %._crit_edge4482 ], [ %.pre4484, %3949 ]
   %3959 = phi ptr [ %.pre4483, %._crit_edge4482 ], [ %3953, %3949 ]
-  %3960 = getelementptr inbounds nuw ptr, ptr %3959, i64 %3958
+  %3960 = getelementptr inbounds nuw [8 x i8], ptr %3959, i64 %3958
   %3961 = load ptr, ptr %3960, align 8, !tbaa !15
   %3962 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %3961) #9
   %3963 = icmp eq ptr %3962, null
@@ -10484,7 +10484,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3962, ptr align 1 %3969, i64 %3970, i1 false)
   %3971 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %3972 = load i64, ptr %3932, align 8, !tbaa !38
-  %3973 = getelementptr ptr, ptr %3971, i64 %3972
+  %3973 = getelementptr [8 x i8], ptr %3971, i64 %3972
   %3974 = getelementptr i8, ptr %3973, i64 -8
   %3975 = load ptr, ptr %3974, align 8, !tbaa !15
   %3976 = load ptr, ptr %3924, align 8, !tbaa !27
@@ -10556,7 +10556,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4004 = tail call ptr @H5FL_fac_init(i64 noundef %4003) #9
   %4005 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4006 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %4007 = getelementptr inbounds nuw ptr, ptr %4005, i64 %4006
+  %4007 = getelementptr inbounds nuw [8 x i8], ptr %4005, i64 %4006
   store ptr %4004, ptr %4007, align 8, !tbaa !15
   %4008 = add i64 %4006, 1
   store i64 %4008, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -10566,7 +10566,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4009:                                             ; preds = %._crit_edge4488, %4001
   %4010 = phi i64 [ %3987, %._crit_edge4488 ], [ %.pre4490, %4001 ]
   %4011 = phi ptr [ %.pre4489, %._crit_edge4488 ], [ %4005, %4001 ]
-  %4012 = getelementptr inbounds nuw ptr, ptr %4011, i64 %4010
+  %4012 = getelementptr inbounds nuw [8 x i8], ptr %4011, i64 %4010
   %4013 = load ptr, ptr %4012, align 8, !tbaa !15
   %4014 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %4013) #9
   %4015 = icmp eq ptr %4014, null
@@ -10584,7 +10584,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4014, ptr align 1 %4021, i64 %4022, i1 false)
   %4023 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4024 = load i64, ptr %3984, align 8, !tbaa !38
-  %4025 = getelementptr ptr, ptr %4023, i64 %4024
+  %4025 = getelementptr [8 x i8], ptr %4023, i64 %4024
   %4026 = getelementptr i8, ptr %4025, i64 -8
   %4027 = load ptr, ptr %4026, align 8, !tbaa !15
   %4028 = load ptr, ptr %3854, align 8, !tbaa !27
@@ -10608,7 +10608,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 4037:                                             ; preds = %3978
   %4038 = load ptr, ptr %3854, align 8, !tbaa !27
-  %4039 = getelementptr inbounds nuw ptr, ptr %4038, i64 %3931
+  %4039 = getelementptr inbounds nuw [8 x i8], ptr %4038, i64 %3931
   %4040 = load ptr, ptr %4039, align 8, !tbaa !30
   br label %4041
 
@@ -10616,15 +10616,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink5261 = phi ptr [ %4031, %4030 ], [ %3979, %4037 ]
   %.sink5259 = phi ptr [ null, %4030 ], [ %4040, %4037 ]
   %4042 = phi ptr [ %.pre4493, %4030 ], [ %4038, %4037 ]
-  %4043 = getelementptr inbounds nuw ptr, ptr %.sink5261, i64 %3931
+  %4043 = getelementptr inbounds nuw [8 x i8], ptr %.sink5261, i64 %3931
   store ptr %.sink5259, ptr %4043, align 8, !tbaa !30
-  %4044 = getelementptr inbounds nuw ptr, ptr %4042, i64 %3931
+  %4044 = getelementptr inbounds nuw [8 x i8], ptr %4042, i64 %3931
   store ptr %3923, ptr %4044, align 8, !tbaa !30
   br label %.thread3843
 
 4045:                                             ; preds = %3918
   %4046 = load ptr, ptr %3848, align 8, !tbaa !27
-  %4047 = getelementptr inbounds nuw ptr, ptr %4046, i64 %indvars.iv
+  %4047 = getelementptr inbounds nuw [8 x i8], ptr %4046, i64 %indvars.iv
   %4048 = load ptr, ptr %4047, align 8, !tbaa !30
   %.not3139 = icmp eq ptr %4048, null
   br i1 %.not3139, label %4049, label %.thread3843
@@ -10639,7 +10639,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4053:                                             ; preds = %4049
   store i64 %4051, ptr %3849, align 8, !tbaa !38
   %4054 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %4055 = getelementptr inbounds nuw ptr, ptr %4054, i64 %4051
+  %4055 = getelementptr inbounds nuw [8 x i8], ptr %4054, i64 %4051
   %4056 = load ptr, ptr %4055, align 8, !tbaa !15
   %4057 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %4056) #9
   %.not3141 = icmp eq ptr %4057, null
@@ -10657,7 +10657,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4057, ptr align 1 %4062, i64 %4063, i1 false)
   %4064 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4065 = load i64, ptr %3849, align 8, !tbaa !38
-  %4066 = getelementptr ptr, ptr %4064, i64 %4065
+  %4066 = getelementptr [8 x i8], ptr %4064, i64 %4065
   %4067 = getelementptr i8, ptr %4066, i64 8
   %4068 = load ptr, ptr %4067, align 8, !tbaa !15
   %4069 = load ptr, ptr %3848, align 8, !tbaa !27
@@ -10677,7 +10677,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4076:                                             ; preds = %3882
   %4077 = getelementptr inbounds nuw i8, ptr %.127584095, i64 40
   %4078 = load ptr, ptr %4077, align 8, !tbaa !27
-  %4079 = getelementptr inbounds nuw ptr, ptr %4078, i64 %3853
+  %4079 = getelementptr inbounds nuw [8 x i8], ptr %4078, i64 %3853
   %4080 = load ptr, ptr %4079, align 8, !tbaa !30
   br label %4081
 
@@ -10686,7 +10686,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %exitcond.not = phi i1 [ false, %4076 ], [ true, %4081 ]
   %4082 = getelementptr inbounds nuw i8, ptr %.344092, i64 40
   %4083 = load ptr, ptr %4082, align 8, !tbaa !27
-  %4084 = getelementptr inbounds nuw ptr, ptr %4083, i64 %3853
+  %4084 = getelementptr inbounds nuw [8 x i8], ptr %4083, i64 %3853
   %4085 = load ptr, ptr %4084, align 8, !tbaa !30
   %.not3123 = icmp eq ptr %4085, %.127604094
   %brmerge5262 = or i1 %.not3123, %exitcond.not
@@ -10697,9 +10697,9 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4086 = getelementptr inbounds nuw i8, ptr %.127604094, i64 16
   %4087 = load i64, ptr %4086, align 8, !tbaa !36
   %4088 = load ptr, ptr %3854, align 8, !tbaa !27
-  %4089 = getelementptr inbounds nuw ptr, ptr %4088, i64 %4087
+  %4089 = getelementptr inbounds nuw [8 x i8], ptr %4088, i64 %4087
   %4090 = load ptr, ptr %4089, align 8, !tbaa !30
-  %4091 = getelementptr inbounds nuw ptr, ptr %4078, i64 %4087
+  %4091 = getelementptr inbounds nuw [8 x i8], ptr %4078, i64 %4087
   store ptr %4090, ptr %4091, align 8, !tbaa !30
   %4092 = getelementptr inbounds nuw i8, ptr %.127604094, i64 24
   %4093 = load i64, ptr %4092, align 8, !tbaa !38
@@ -10711,7 +10711,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4096:                                             ; preds = %.critedge168
   store i64 %4094, ptr %4092, align 8, !tbaa !38
   %4097 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %4098 = getelementptr inbounds nuw ptr, ptr %4097, i64 %4094
+  %4098 = getelementptr inbounds nuw [8 x i8], ptr %4097, i64 %4094
   %4099 = load ptr, ptr %4098, align 8, !tbaa !15
   %4100 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %4099) #9
   %.not3125 = icmp eq ptr %4100, null
@@ -10723,7 +10723,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4100, ptr align 1 %4102, i64 %4103, i1 false)
   %4104 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4105 = load i64, ptr %4092, align 8, !tbaa !38
-  %4106 = getelementptr ptr, ptr %4104, i64 %4105
+  %4106 = getelementptr [8 x i8], ptr %4104, i64 %4105
   %4107 = getelementptr i8, ptr %4106, i64 8
   %4108 = load ptr, ptr %4107, align 8, !tbaa !15
   %4109 = load ptr, ptr %3854, align 8, !tbaa !27
@@ -10798,7 +10798,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4143 = tail call ptr @H5FL_fac_init(i64 noundef %4142) #9
   %4144 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4145 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %4146 = getelementptr inbounds nuw ptr, ptr %4144, i64 %4145
+  %4146 = getelementptr inbounds nuw [8 x i8], ptr %4144, i64 %4145
   store ptr %4143, ptr %4146, align 8, !tbaa !15
   %4147 = add i64 %4145, 1
   store i64 %4147, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -10808,7 +10808,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4148:                                             ; preds = %._crit_edge4468, %4140
   %4149 = phi i64 [ %4126, %._crit_edge4468 ], [ %.pre4470, %4140 ]
   %4150 = phi ptr [ %.pre4469, %._crit_edge4468 ], [ %4144, %4140 ]
-  %4151 = getelementptr inbounds nuw ptr, ptr %4150, i64 %4149
+  %4151 = getelementptr inbounds nuw [8 x i8], ptr %4150, i64 %4149
   %4152 = load ptr, ptr %4151, align 8, !tbaa !15
   %4153 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %4152) #9
   %4154 = icmp eq ptr %4153, null
@@ -10827,7 +10827,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4153, ptr align 1 %4161, i64 %4162, i1 false)
   %4163 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4164 = load i64, ptr %4123, align 8, !tbaa !38
-  %4165 = getelementptr ptr, ptr %4163, i64 %4164
+  %4165 = getelementptr [8 x i8], ptr %4163, i64 %4164
   %4166 = getelementptr i8, ptr %4165, i64 -8
   %4167 = load ptr, ptr %4166, align 8, !tbaa !15
   %4168 = load ptr, ptr %4160, align 8, !tbaa !27
@@ -10898,7 +10898,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4195 = tail call ptr @H5FL_fac_init(i64 noundef %4194) #9
   %4196 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4197 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %4198 = getelementptr inbounds nuw ptr, ptr %4196, i64 %4197
+  %4198 = getelementptr inbounds nuw [8 x i8], ptr %4196, i64 %4197
   store ptr %4195, ptr %4198, align 8, !tbaa !15
   %4199 = add i64 %4197, 1
   store i64 %4199, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -10908,7 +10908,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4200:                                             ; preds = %._crit_edge4474, %4192
   %4201 = phi i64 [ %4178, %._crit_edge4474 ], [ %.pre4476, %4192 ]
   %4202 = phi ptr [ %.pre4475, %._crit_edge4474 ], [ %4196, %4192 ]
-  %4203 = getelementptr inbounds nuw ptr, ptr %4202, i64 %4201
+  %4203 = getelementptr inbounds nuw [8 x i8], ptr %4202, i64 %4201
   %4204 = load ptr, ptr %4203, align 8, !tbaa !15
   %4205 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %4204) #9
   %4206 = icmp eq ptr %4205, null
@@ -10926,7 +10926,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4205, ptr align 1 %4212, i64 %4213, i1 false)
   %4214 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4215 = load i64, ptr %4175, align 8, !tbaa !38
-  %4216 = getelementptr ptr, ptr %4214, i64 %4215
+  %4216 = getelementptr [8 x i8], ptr %4214, i64 %4215
   %4217 = getelementptr i8, ptr %4216, i64 -8
   %4218 = load ptr, ptr %4217, align 8, !tbaa !15
   %4219 = load ptr, ptr %4077, align 8, !tbaa !27
@@ -10948,7 +10948,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 4227:                                             ; preds = %4170
   %4228 = load ptr, ptr %4077, align 8, !tbaa !27
-  %4229 = getelementptr inbounds nuw ptr, ptr %4228, i64 %4122
+  %4229 = getelementptr inbounds nuw [8 x i8], ptr %4228, i64 %4122
   %4230 = load ptr, ptr %4229, align 8, !tbaa !30
   br label %4231
 
@@ -10957,15 +10957,15 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %4232 = phi ptr [ %.pre4478, %4221 ], [ %4228, %4227 ]
   %4233 = getelementptr inbounds nuw i8, ptr %.344092.mux.le, i64 40
   %4234 = load ptr, ptr %4233, align 8, !tbaa !27
-  %4235 = getelementptr inbounds nuw ptr, ptr %4234, i64 %4122
+  %4235 = getelementptr inbounds nuw [8 x i8], ptr %4234, i64 %4122
   store ptr %.sink5263, ptr %4235, align 8, !tbaa !30
-  %4236 = getelementptr inbounds nuw ptr, ptr %4232, i64 %4122
+  %4236 = getelementptr inbounds nuw [8 x i8], ptr %4232, i64 %4122
   store ptr %.344092.mux.le, ptr %4236, align 8, !tbaa !30
   br label %.thread3843
 
 4237:                                             ; preds = %4115
   %4238 = load ptr, ptr %3848, align 8, !tbaa !27
-  %4239 = getelementptr inbounds nuw ptr, ptr %4238, i64 %indvars.iv
+  %4239 = getelementptr inbounds nuw [8 x i8], ptr %4238, i64 %indvars.iv
   %4240 = load ptr, ptr %4239, align 8, !tbaa !30
   %.not3126 = icmp eq ptr %4240, null
   br i1 %.not3126, label %4241, label %.thread3843
@@ -10980,7 +10980,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 4245:                                             ; preds = %4241
   store i64 %4243, ptr %3849, align 8, !tbaa !38
   %4246 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %4247 = getelementptr inbounds nuw ptr, ptr %4246, i64 %4243
+  %4247 = getelementptr inbounds nuw [8 x i8], ptr %4246, i64 %4243
   %4248 = load ptr, ptr %4247, align 8, !tbaa !15
   %4249 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %4248) #9
   %.not3128 = icmp eq ptr %4249, null
@@ -10998,7 +10998,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4249, ptr align 1 %4254, i64 %4255, i1 false)
   %4256 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %4257 = load i64, ptr %3849, align 8, !tbaa !38
-  %4258 = getelementptr ptr, ptr %4256, i64 %4257
+  %4258 = getelementptr [8 x i8], ptr %4256, i64 %4257
   %4259 = getelementptr i8, ptr %4258, i64 8
   %4260 = load ptr, ptr %4259, align 8, !tbaa !15
   %4261 = load ptr, ptr %3848, align 8, !tbaa !27
@@ -11020,7 +11020,7 @@ define ptr @H5SL_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.127543847 = phi ptr [ %spec.select3453, %._crit_edge ], [ %spec.select3453, %4045 ], [ %spec.select3453, %4071 ], [ %spec.select3453, %4041 ], [ %spec.select3453, %4237 ], [ %spec.select3453, %4263 ], [ %spec.select3453, %4231 ], [ %3871, %3868 ], [ %.127604094, %.preheader3900 ], [ %.027534081, %.lr.ph4085 ], [ %.334084, %3865 ]
   %4268 = getelementptr inbounds nuw i8, ptr %.127543847, i64 40
   %4269 = load ptr, ptr %4268, align 8, !tbaa !27
-  %4270 = getelementptr inbounds nuw ptr, ptr %4269, i64 %3853
+  %4270 = getelementptr inbounds nuw [8 x i8], ptr %4269, i64 %3853
   %4271 = load ptr, ptr %4270, align 8, !tbaa !30
   %4272 = trunc nuw i64 %indvars.iv to i32
   %4273 = icmp sgt i32 %4272, 1
@@ -11184,9 +11184,9 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   %42 = phi ptr [ %.pre, %.lr.ph ], [ %238, %237 ]
   %.0132183 = phi i64 [ 0, %.lr.ph ], [ %43, %237 ]
   %43 = add nuw i64 %.0132183, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %.0132183
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0132183
   %47 = load ptr, ptr %46, align 8, !tbaa !30
   %48 = icmp eq ptr %47, %45
   br i1 %48, label %49, label %.thread169
@@ -11194,13 +11194,13 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !27
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %43
   %53 = load ptr, ptr %52, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %55 = load i64, ptr %54, align 8, !tbaa !36
-  %56 = getelementptr inbounds nuw ptr, ptr %51, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !30
-  %58 = getelementptr inbounds nuw ptr, ptr %42, i64 %55
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %55
   store ptr %57, ptr %58, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %60 = load i64, ptr %59, align 8, !tbaa !38
@@ -11212,7 +11212,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
 63:                                               ; preds = %49
   store i64 %61, ptr %59, align 8, !tbaa !38
   %64 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %61
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %61
   %66 = load ptr, ptr %65, align 8, !tbaa !15
   %67 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %66) #9
   %.not148 = icmp eq ptr %67, null
@@ -11224,7 +11224,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %69, i64 %70, i1 false)
   %71 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %72 = load i64, ptr %59, align 8, !tbaa !38
-  %73 = getelementptr ptr, ptr %71, i64 %72
+  %73 = getelementptr [8 x i8], ptr %71, i64 %72
   %74 = getelementptr i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !15
   %76 = load ptr, ptr %50, align 8, !tbaa !27
@@ -11244,11 +11244,11 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   %84 = phi i64 [ %55, %49 ], [ %.pre187, %68 ]
   %85 = add i64 %84, -1
   store i64 %85, ptr %54, align 8, !tbaa !36
-  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %.0132183
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0132183
   %87 = load ptr, ptr %86, align 8, !tbaa !30
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8, !tbaa !27
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0132183
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0132183
   %91 = load ptr, ptr %90, align 8, !tbaa !30
   %.not149 = icmp eq ptr %91, %53
   br i1 %.not149, label %206, label %92
@@ -11306,7 +11306,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   %117 = tail call ptr @H5FL_fac_init(i64 noundef %116) #9
   %118 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %119 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %119
   store ptr %117, ptr %120, align 8, !tbaa !15
   %121 = add i64 %119, 1
   store i64 %121, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -11316,7 +11316,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
 122:                                              ; preds = %._crit_edge189, %114
   %123 = phi i64 [ %100, %._crit_edge189 ], [ %.pre191, %114 ]
   %124 = phi ptr [ %.pre190, %._crit_edge189 ], [ %118, %114 ]
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %123
   %126 = load ptr, ptr %125, align 8, !tbaa !15
   %127 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %126) #9
   %128 = icmp eq ptr %127, null
@@ -11334,7 +11334,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr align 1 %134, i64 %135, i1 false)
   %136 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %137 = load i64, ptr %97, align 8, !tbaa !38
-  %138 = getelementptr ptr, ptr %136, i64 %137
+  %138 = getelementptr [8 x i8], ptr %136, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -8
   %140 = load ptr, ptr %139, align 8, !tbaa !15
   %141 = tail call ptr @H5FL_fac_free(ptr noundef %140, ptr noundef %134) #9
@@ -11404,7 +11404,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   %167 = tail call ptr @H5FL_fac_init(i64 noundef %166) #9
   %168 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %169 = load i64, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
-  %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %169
   store ptr %167, ptr %170, align 8, !tbaa !15
   %171 = add i64 %169, 1
   store i64 %171, ptr @H5SL_fac_nused_g, align 8, !tbaa !13
@@ -11414,7 +11414,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
 172:                                              ; preds = %._crit_edge195, %164
   %173 = phi i64 [ %150, %._crit_edge195 ], [ %.pre197, %164 ]
   %174 = phi ptr [ %.pre196, %._crit_edge195 ], [ %168, %164 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %173
   %176 = load ptr, ptr %175, align 8, !tbaa !15
   %177 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %176) #9
   %178 = icmp eq ptr %177, null
@@ -11432,7 +11432,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %177, ptr align 1 %184, i64 %185, i1 false)
   %186 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %187 = load i64, ptr %38, align 8, !tbaa !38
-  %188 = getelementptr ptr, ptr %186, i64 %187
+  %188 = getelementptr [8 x i8], ptr %186, i64 %187
   %189 = getelementptr i8, ptr %188, i64 -8
   %190 = load ptr, ptr %189, align 8, !tbaa !15
   %191 = tail call ptr @H5FL_fac_free(ptr noundef %190, ptr noundef %184) #9
@@ -11454,7 +11454,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
 
 198:                                              ; preds = %142
   %199 = load ptr, ptr %4, align 8, !tbaa !27
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %96
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %96
   %201 = load ptr, ptr %200, align 8, !tbaa !30
   br label %202
 
@@ -11462,15 +11462,15 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   %.sink224 = phi ptr [ %143, %198 ], [ %193, %192 ]
   %.sink = phi ptr [ %201, %198 ], [ null, %192 ]
   %203 = phi ptr [ %199, %198 ], [ %.pre200, %192 ]
-  %204 = getelementptr inbounds nuw ptr, ptr %.sink224, i64 %96
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %.sink224, i64 %96
   store ptr %.sink, ptr %204, align 8, !tbaa !30
-  %205 = getelementptr inbounds nuw ptr, ptr %203, i64 %96
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %96
   store ptr %87, ptr %205, align 8, !tbaa !30
   br label %.thread169
 
 206:                                              ; preds = %82
   %207 = load ptr, ptr %4, align 8, !tbaa !27
-  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %43
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %43
   %209 = load ptr, ptr %208, align 8, !tbaa !30
   %.not150 = icmp eq ptr %209, null
   br i1 %.not150, label %210, label %237
@@ -11485,7 +11485,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
 214:                                              ; preds = %210
   store i64 %212, ptr %38, align 8, !tbaa !38
   %215 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %212
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %212
   %217 = load ptr, ptr %216, align 8, !tbaa !15
   %218 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %217) #9
   %219 = icmp eq ptr %218, null
@@ -11496,7 +11496,7 @@ define ptr @H5SL_remove_first(ptr noundef captures(none) %0) local_unnamed_addr 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %218, ptr align 1 %220, i64 %39, i1 false)
   %221 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %222 = load i64, ptr %38, align 8, !tbaa !38
-  %223 = getelementptr ptr, ptr %221, i64 %222
+  %223 = getelementptr [8 x i8], ptr %221, i64 %222
   %224 = getelementptr i8, ptr %223, i64 8
   %225 = load ptr, ptr %224, align 8, !tbaa !15
   %226 = tail call ptr @H5FL_fac_free(ptr noundef %225, ptr noundef %220) #9
@@ -11580,7 +11580,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.1228384 = phi ptr [ %.0227386, %.preheader ], [ %24, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1228384, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv420
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv420
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not277 = icmp eq ptr %24, null
   br i1 %.not277, label %.critedge, label %25
@@ -11638,7 +11638,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.3230378 = phi ptr [ %.2229380, %.preheader330 ], [ %50, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.3230378, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv416
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv416
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %.not275 = icmp eq ptr %50, null
   br i1 %.not275, label %.critedge2, label %51
@@ -11692,7 +11692,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.5232372 = phi ptr [ %.4231374, %.preheader331 ], [ %75, %85 ]
   %72 = getelementptr inbounds nuw i8, ptr %.5232372, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !27
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv412
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv412
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   %.not272 = icmp eq ptr %75, null
   br i1 %.not272, label %.critedge4, label %76
@@ -11769,7 +11769,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.7234366 = phi ptr [ %.6233368, %.preheader332 ], [ %110, %104 ]
   %107 = getelementptr inbounds nuw i8, ptr %.7234366, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv408
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv408
   %110 = load ptr, ptr %109, align 8, !tbaa !30
   %.not270 = icmp eq ptr %110, null
   br i1 %.not270, label %.critedge6, label %111
@@ -11827,7 +11827,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.9236360 = phi ptr [ %.8235362, %.preheader333 ], [ %136, %130 ]
   %133 = getelementptr inbounds nuw i8, ptr %.9236360, i64 40
   %134 = load ptr, ptr %133, align 8, !tbaa !27
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv404
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv404
   %136 = load ptr, ptr %135, align 8, !tbaa !30
   %.not268 = icmp eq ptr %136, null
   br i1 %.not268, label %.critedge8, label %137
@@ -11885,7 +11885,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.11354 = phi ptr [ %.10356, %.preheader334 ], [ %162, %156 ]
   %159 = getelementptr inbounds nuw i8, ptr %.11354, i64 40
   %160 = load ptr, ptr %159, align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv400
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv400
   %162 = load ptr, ptr %161, align 8, !tbaa !30
   %.not266 = icmp eq ptr %162, null
   br i1 %.not266, label %.critedge10, label %163
@@ -11939,7 +11939,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.13348 = phi ptr [ %.12350, %.preheader335 ], [ %187, %200 ]
   %184 = getelementptr inbounds nuw i8, ptr %.13348, i64 40
   %185 = load ptr, ptr %184, align 8, !tbaa !27
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv396
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv396
   %187 = load ptr, ptr %186, align 8, !tbaa !30
   %.not264 = icmp eq ptr %187, null
   br i1 %.not264, label %.critedge12, label %188
@@ -12021,7 +12021,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.15342 = phi ptr [ %.14344, %.preheader336 ], [ %228, %222 ]
   %225 = getelementptr inbounds nuw i8, ptr %.15342, i64 40
   %226 = load ptr, ptr %225, align 8, !tbaa !27
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv392
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv392
   %228 = load ptr, ptr %227, align 8, !tbaa !30
   %.not262 = icmp eq ptr %228, null
   br i1 %.not262, label %.critedge14, label %229
@@ -12075,7 +12075,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
   %.17338 = phi ptr [ %.16340, %.preheader337 ], [ %262, %259 ]
   %250 = getelementptr inbounds nuw i8, ptr %.17338, i64 40
   %251 = load ptr, ptr %250, align 8, !tbaa !27
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !30
   %.not260 = icmp eq ptr %253, null
   br i1 %.not260, label %.critedge16, label %254
@@ -12089,7 +12089,7 @@ define ptr @H5SL_search(ptr noundef readonly captures(none) %0, ptr noundef %1) 
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %250, align 8, !tbaa !27
-  %261 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv
   %262 = load ptr, ptr %261, align 8, !tbaa !30
   %263 = add nuw nsw i32 %.0339, 1
   %exitcond.not = icmp eq i32 %263, 3
@@ -12179,7 +12179,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.1235401 = phi ptr [ %.0234403, %.preheader ], [ %24, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1235401, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv437
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv437
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not286 = icmp eq ptr %24, null
   br i1 %.not286, label %.critedge, label %25
@@ -12237,7 +12237,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.4238395 = phi ptr [ %.3237397, %.preheader347 ], [ %50, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.4238395, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv433
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv433
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %.not284 = icmp eq ptr %50, null
   br i1 %.not284, label %.critedge2, label %51
@@ -12291,7 +12291,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.6240389 = phi ptr [ %.5239391, %.preheader348 ], [ %75, %85 ]
   %72 = getelementptr inbounds nuw i8, ptr %.6240389, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !27
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv429
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv429
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   %.not281 = icmp eq ptr %75, null
   br i1 %.not281, label %.critedge4, label %76
@@ -12368,7 +12368,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.8242383 = phi ptr [ %.7241385, %.preheader349 ], [ %110, %104 ]
   %107 = getelementptr inbounds nuw i8, ptr %.8242383, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv425
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv425
   %110 = load ptr, ptr %109, align 8, !tbaa !30
   %.not279 = icmp eq ptr %110, null
   br i1 %.not279, label %.critedge6, label %111
@@ -12426,7 +12426,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.10377 = phi ptr [ %.9243379, %.preheader350 ], [ %136, %130 ]
   %133 = getelementptr inbounds nuw i8, ptr %.10377, i64 40
   %134 = load ptr, ptr %133, align 8, !tbaa !27
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv421
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv421
   %136 = load ptr, ptr %135, align 8, !tbaa !30
   %.not277 = icmp eq ptr %136, null
   br i1 %.not277, label %.critedge8, label %137
@@ -12484,7 +12484,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.12371 = phi ptr [ %.11373, %.preheader351 ], [ %162, %156 ]
   %159 = getelementptr inbounds nuw i8, ptr %.12371, i64 40
   %160 = load ptr, ptr %159, align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv417
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv417
   %162 = load ptr, ptr %161, align 8, !tbaa !30
   %.not275 = icmp eq ptr %162, null
   br i1 %.not275, label %.critedge10, label %163
@@ -12538,7 +12538,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.14365 = phi ptr [ %.13367, %.preheader352 ], [ %187, %200 ]
   %184 = getelementptr inbounds nuw i8, ptr %.14365, i64 40
   %185 = load ptr, ptr %184, align 8, !tbaa !27
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv413
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv413
   %187 = load ptr, ptr %186, align 8, !tbaa !30
   %.not273 = icmp eq ptr %187, null
   br i1 %.not273, label %.critedge12, label %188
@@ -12620,7 +12620,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.16359 = phi ptr [ %.15361, %.preheader353 ], [ %228, %222 ]
   %225 = getelementptr inbounds nuw i8, ptr %.16359, i64 40
   %226 = load ptr, ptr %225, align 8, !tbaa !27
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv409
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv409
   %228 = load ptr, ptr %227, align 8, !tbaa !30
   %.not271 = icmp eq ptr %228, null
   br i1 %.not271, label %.critedge14, label %229
@@ -12674,7 +12674,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.18355 = phi ptr [ %.17357, %.preheader354 ], [ %262, %259 ]
   %250 = getelementptr inbounds nuw i8, ptr %.18355, i64 40
   %251 = load ptr, ptr %250, align 8, !tbaa !27
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !30
   %.not269 = icmp eq ptr %253, null
   br i1 %.not269, label %.critedge16, label %254
@@ -12688,7 +12688,7 @@ define ptr @H5SL_less(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %250, align 8, !tbaa !27
-  %261 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv
   %262 = load ptr, ptr %261, align 8, !tbaa !30
   %263 = add nuw nsw i32 %.0356, 1
   %exitcond.not = icmp eq i32 %263, 3
@@ -12797,7 +12797,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.1230395 = phi ptr [ %.0229397, %.preheader ], [ %24, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1230395, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv431
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv431
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not279 = icmp eq ptr %24, null
   br i1 %.not279, label %.critedge, label %25
@@ -12848,7 +12848,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.4233389 = phi ptr [ %.3232391, %.preheader341 ], [ %45, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %.4233389, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !27
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv427
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv427
   %45 = load ptr, ptr %44, align 8, !tbaa !30
   %.not277 = icmp eq ptr %45, null
   br i1 %.not277, label %.critedge2, label %46
@@ -12895,7 +12895,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.6235383 = phi ptr [ %.5234385, %.preheader342 ], [ %65, %75 ]
   %62 = getelementptr inbounds nuw i8, ptr %.6235383, i64 40
   %63 = load ptr, ptr %62, align 8, !tbaa !27
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv423
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv423
   %65 = load ptr, ptr %64, align 8, !tbaa !30
   %.not274 = icmp eq ptr %65, null
   br i1 %.not274, label %.critedge4, label %66
@@ -12960,7 +12960,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.8237377 = phi ptr [ %.7236379, %.preheader343 ], [ %92, %86 ]
   %89 = getelementptr inbounds nuw i8, ptr %.8237377, i64 40
   %90 = load ptr, ptr %89, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv419
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv419
   %92 = load ptr, ptr %91, align 8, !tbaa !30
   %.not272 = icmp eq ptr %92, null
   br i1 %.not272, label %.critedge6, label %93
@@ -13011,7 +13011,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.10371 = phi ptr [ %.9238373, %.preheader344 ], [ %113, %107 ]
   %110 = getelementptr inbounds nuw i8, ptr %.10371, i64 40
   %111 = load ptr, ptr %110, align 8, !tbaa !27
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv415
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv415
   %113 = load ptr, ptr %112, align 8, !tbaa !30
   %.not270 = icmp eq ptr %113, null
   br i1 %.not270, label %.critedge8, label %114
@@ -13062,7 +13062,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.12365 = phi ptr [ %.11367, %.preheader345 ], [ %134, %128 ]
   %131 = getelementptr inbounds nuw i8, ptr %.12365, i64 40
   %132 = load ptr, ptr %131, align 8, !tbaa !27
-  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv411
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv411
   %134 = load ptr, ptr %133, align 8, !tbaa !30
   %.not268 = icmp eq ptr %134, null
   br i1 %.not268, label %.critedge10, label %135
@@ -13109,7 +13109,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.14359 = phi ptr [ %.13361, %.preheader346 ], [ %154, %167 ]
   %151 = getelementptr inbounds nuw i8, ptr %.14359, i64 40
   %152 = load ptr, ptr %151, align 8, !tbaa !27
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv407
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv407
   %154 = load ptr, ptr %153, align 8, !tbaa !30
   %.not266 = icmp eq ptr %154, null
   br i1 %.not266, label %.critedge12, label %155
@@ -13176,7 +13176,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.16353 = phi ptr [ %.15355, %.preheader347 ], [ %184, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %.16353, i64 40
   %182 = load ptr, ptr %181, align 8, !tbaa !27
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv403
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv403
   %184 = load ptr, ptr %183, align 8, !tbaa !30
   %.not264 = icmp eq ptr %184, null
   br i1 %.not264, label %.critedge14, label %185
@@ -13223,7 +13223,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
   %.18349 = phi ptr [ %.17351, %.preheader348 ], [ %213, %210 ]
   %201 = getelementptr inbounds nuw i8, ptr %.18349, i64 40
   %202 = load ptr, ptr %201, align 8, !tbaa !27
-  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv
   %204 = load ptr, ptr %203, align 8, !tbaa !30
   %.not262 = icmp eq ptr %204, null
   br i1 %.not262, label %.critedge16, label %205
@@ -13237,7 +13237,7 @@ define ptr @H5SL_greater(ptr noundef readonly captures(none) %0, ptr noundef %1)
 
 210:                                              ; preds = %205
   %211 = load ptr, ptr %201, align 8, !tbaa !27
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv
   %213 = load ptr, ptr %212, align 8, !tbaa !30
   %214 = add nuw nsw i32 %.0350, 1
   %exitcond.not = icmp eq i32 %214, 3
@@ -13330,7 +13330,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.1228376 = phi ptr [ %.0227378, %.preheader ], [ %24, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1228376, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv412
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv412
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not277 = icmp eq ptr %24, null
   br i1 %.not277, label %.critedge, label %25
@@ -13391,7 +13391,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.3230370 = phi ptr [ %.2229372, %.preheader322 ], [ %50, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.3230370, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv408
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv408
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %.not275 = icmp eq ptr %50, null
   br i1 %.not275, label %.critedge2, label %51
@@ -13448,7 +13448,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.5232364 = phi ptr [ %.4231366, %.preheader323 ], [ %75, %85 ]
   %72 = getelementptr inbounds nuw i8, ptr %.5232364, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !27
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv404
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv404
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   %.not272 = icmp eq ptr %75, null
   br i1 %.not272, label %.critedge4, label %76
@@ -13528,7 +13528,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.7234358 = phi ptr [ %.6233360, %.preheader324 ], [ %110, %104 ]
   %107 = getelementptr inbounds nuw i8, ptr %.7234358, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv400
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv400
   %110 = load ptr, ptr %109, align 8, !tbaa !30
   %.not270 = icmp eq ptr %110, null
   br i1 %.not270, label %.critedge6, label %111
@@ -13589,7 +13589,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.9236352 = phi ptr [ %.8235354, %.preheader325 ], [ %136, %130 ]
   %133 = getelementptr inbounds nuw i8, ptr %.9236352, i64 40
   %134 = load ptr, ptr %133, align 8, !tbaa !27
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv396
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv396
   %136 = load ptr, ptr %135, align 8, !tbaa !30
   %.not268 = icmp eq ptr %136, null
   br i1 %.not268, label %.critedge8, label %137
@@ -13650,7 +13650,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.11346 = phi ptr [ %.10348, %.preheader326 ], [ %162, %156 ]
   %159 = getelementptr inbounds nuw i8, ptr %.11346, i64 40
   %160 = load ptr, ptr %159, align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv392
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv392
   %162 = load ptr, ptr %161, align 8, !tbaa !30
   %.not266 = icmp eq ptr %162, null
   br i1 %.not266, label %.critedge10, label %163
@@ -13707,7 +13707,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.13340 = phi ptr [ %.12342, %.preheader327 ], [ %187, %200 ]
   %184 = getelementptr inbounds nuw i8, ptr %.13340, i64 40
   %185 = load ptr, ptr %184, align 8, !tbaa !27
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv388
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv388
   %187 = load ptr, ptr %186, align 8, !tbaa !30
   %.not264 = icmp eq ptr %187, null
   br i1 %.not264, label %.critedge12, label %188
@@ -13792,7 +13792,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.15334 = phi ptr [ %.14336, %.preheader328 ], [ %228, %222 ]
   %225 = getelementptr inbounds nuw i8, ptr %.15334, i64 40
   %226 = load ptr, ptr %225, align 8, !tbaa !27
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv384
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv384
   %228 = load ptr, ptr %227, align 8, !tbaa !30
   %.not262 = icmp eq ptr %228, null
   br i1 %.not262, label %.critedge14, label %229
@@ -13849,7 +13849,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %.17330 = phi ptr [ %.16332, %.preheader329 ], [ %262, %259 ]
   %250 = getelementptr inbounds nuw i8, ptr %.17330, i64 40
   %251 = load ptr, ptr %250, align 8, !tbaa !27
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !30
   %.not260 = icmp eq ptr %253, null
   br i1 %.not260, label %.critedge16, label %254
@@ -13863,7 +13863,7 @@ define ptr @H5SL_find(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %250, align 8, !tbaa !27
-  %261 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv
   %262 = load ptr, ptr %261, align 8, !tbaa !30
   %263 = add nuw nsw i32 %.0331, 1
   %exitcond.not = icmp eq i32 %263, 3
@@ -13950,7 +13950,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.1235394 = phi ptr [ %.0234396, %.preheader ], [ %24, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1235394, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv430
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv430
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not286 = icmp eq ptr %24, null
   br i1 %.not286, label %.critedge, label %25
@@ -14008,7 +14008,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.4238388 = phi ptr [ %.3237390, %.preheader340 ], [ %50, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.4238388, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv426
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv426
   %50 = load ptr, ptr %49, align 8, !tbaa !30
   %.not284 = icmp eq ptr %50, null
   br i1 %.not284, label %.critedge2, label %51
@@ -14062,7 +14062,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.6240382 = phi ptr [ %.5239384, %.preheader341 ], [ %75, %85 ]
   %72 = getelementptr inbounds nuw i8, ptr %.6240382, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !27
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv422
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv422
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   %.not281 = icmp eq ptr %75, null
   br i1 %.not281, label %.critedge4, label %76
@@ -14139,7 +14139,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.8242376 = phi ptr [ %.7241378, %.preheader342 ], [ %110, %104 ]
   %107 = getelementptr inbounds nuw i8, ptr %.8242376, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !27
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv418
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv418
   %110 = load ptr, ptr %109, align 8, !tbaa !30
   %.not279 = icmp eq ptr %110, null
   br i1 %.not279, label %.critedge6, label %111
@@ -14197,7 +14197,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.10370 = phi ptr [ %.9243372, %.preheader343 ], [ %136, %130 ]
   %133 = getelementptr inbounds nuw i8, ptr %.10370, i64 40
   %134 = load ptr, ptr %133, align 8, !tbaa !27
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv414
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv414
   %136 = load ptr, ptr %135, align 8, !tbaa !30
   %.not277 = icmp eq ptr %136, null
   br i1 %.not277, label %.critedge8, label %137
@@ -14255,7 +14255,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.12364 = phi ptr [ %.11366, %.preheader344 ], [ %162, %156 ]
   %159 = getelementptr inbounds nuw i8, ptr %.12364, i64 40
   %160 = load ptr, ptr %159, align 8, !tbaa !27
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv410
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv410
   %162 = load ptr, ptr %161, align 8, !tbaa !30
   %.not275 = icmp eq ptr %162, null
   br i1 %.not275, label %.critedge10, label %163
@@ -14309,7 +14309,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.14358 = phi ptr [ %.13360, %.preheader345 ], [ %187, %200 ]
   %184 = getelementptr inbounds nuw i8, ptr %.14358, i64 40
   %185 = load ptr, ptr %184, align 8, !tbaa !27
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv406
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv406
   %187 = load ptr, ptr %186, align 8, !tbaa !30
   %.not273 = icmp eq ptr %187, null
   br i1 %.not273, label %.critedge12, label %188
@@ -14391,7 +14391,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.16352 = phi ptr [ %.15354, %.preheader346 ], [ %228, %222 ]
   %225 = getelementptr inbounds nuw i8, ptr %.16352, i64 40
   %226 = load ptr, ptr %225, align 8, !tbaa !27
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv402
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv402
   %228 = load ptr, ptr %227, align 8, !tbaa !30
   %.not271 = icmp eq ptr %228, null
   br i1 %.not271, label %.critedge14, label %229
@@ -14445,7 +14445,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.18348 = phi ptr [ %.17350, %.preheader347 ], [ %262, %259 ]
   %250 = getelementptr inbounds nuw i8, ptr %.18348, i64 40
   %251 = load ptr, ptr %250, align 8, !tbaa !27
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !30
   %.not269 = icmp eq ptr %253, null
   br i1 %.not269, label %.critedge16, label %254
@@ -14459,7 +14459,7 @@ define ptr @H5SL_below(ptr noundef readonly captures(none) %0, ptr noundef %1) l
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %250, align 8, !tbaa !27
-  %261 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv
   %262 = load ptr, ptr %261, align 8, !tbaa !30
   %263 = add nuw nsw i32 %.0349, 1
   %exitcond.not = icmp eq i32 %263, 3
@@ -14564,7 +14564,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.1230386 = phi ptr [ %.0229388, %.preheader ], [ %24, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.1230386, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv422
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv422
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %.not279 = icmp eq ptr %24, null
   br i1 %.not279, label %.critedge, label %25
@@ -14614,7 +14614,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.4233380 = phi ptr [ %.3232382, %.preheader332 ], [ %45, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %.4233380, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !27
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv418
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv418
   %45 = load ptr, ptr %44, align 8, !tbaa !30
   %.not277 = icmp eq ptr %45, null
   br i1 %.not277, label %.critedge2, label %46
@@ -14660,7 +14660,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.6235374 = phi ptr [ %.5234376, %.preheader333 ], [ %65, %75 ]
   %62 = getelementptr inbounds nuw i8, ptr %.6235374, i64 40
   %63 = load ptr, ptr %62, align 8, !tbaa !27
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv414
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv414
   %65 = load ptr, ptr %64, align 8, !tbaa !30
   %.not274 = icmp eq ptr %65, null
   br i1 %.not274, label %.critedge4, label %66
@@ -14724,7 +14724,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.8237368 = phi ptr [ %.7236370, %.preheader334 ], [ %92, %86 ]
   %89 = getelementptr inbounds nuw i8, ptr %.8237368, i64 40
   %90 = load ptr, ptr %89, align 8, !tbaa !27
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv410
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv410
   %92 = load ptr, ptr %91, align 8, !tbaa !30
   %.not272 = icmp eq ptr %92, null
   br i1 %.not272, label %.critedge6, label %93
@@ -14774,7 +14774,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.10362 = phi ptr [ %.9238364, %.preheader335 ], [ %113, %107 ]
   %110 = getelementptr inbounds nuw i8, ptr %.10362, i64 40
   %111 = load ptr, ptr %110, align 8, !tbaa !27
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv406
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv406
   %113 = load ptr, ptr %112, align 8, !tbaa !30
   %.not270 = icmp eq ptr %113, null
   br i1 %.not270, label %.critedge8, label %114
@@ -14824,7 +14824,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.12356 = phi ptr [ %.11358, %.preheader336 ], [ %134, %128 ]
   %131 = getelementptr inbounds nuw i8, ptr %.12356, i64 40
   %132 = load ptr, ptr %131, align 8, !tbaa !27
-  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv402
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv402
   %134 = load ptr, ptr %133, align 8, !tbaa !30
   %.not268 = icmp eq ptr %134, null
   br i1 %.not268, label %.critedge10, label %135
@@ -14870,7 +14870,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.14350 = phi ptr [ %.13352, %.preheader337 ], [ %154, %167 ]
   %151 = getelementptr inbounds nuw i8, ptr %.14350, i64 40
   %152 = load ptr, ptr %151, align 8, !tbaa !27
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv398
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv398
   %154 = load ptr, ptr %153, align 8, !tbaa !30
   %.not266 = icmp eq ptr %154, null
   br i1 %.not266, label %.critedge12, label %155
@@ -14936,7 +14936,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.16344 = phi ptr [ %.15346, %.preheader338 ], [ %184, %178 ]
   %181 = getelementptr inbounds nuw i8, ptr %.16344, i64 40
   %182 = load ptr, ptr %181, align 8, !tbaa !27
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv394
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv394
   %184 = load ptr, ptr %183, align 8, !tbaa !30
   %.not264 = icmp eq ptr %184, null
   br i1 %.not264, label %.critedge14, label %185
@@ -14982,7 +14982,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
   %.18340 = phi ptr [ %.17342, %.preheader339 ], [ %213, %210 ]
   %201 = getelementptr inbounds nuw i8, ptr %.18340, i64 40
   %202 = load ptr, ptr %201, align 8, !tbaa !27
-  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv
   %204 = load ptr, ptr %203, align 8, !tbaa !30
   %.not262 = icmp eq ptr %204, null
   br i1 %.not262, label %.critedge16, label %205
@@ -14996,7 +14996,7 @@ define ptr @H5SL_above(ptr noundef readonly captures(none) %0, ptr noundef %1) l
 
 210:                                              ; preds = %205
   %211 = load ptr, ptr %201, align 8, !tbaa !27
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv
   %213 = load ptr, ptr %212, align 8, !tbaa !30
   %214 = add nuw nsw i32 %.0341, 1
   %exitcond.not = icmp eq i32 %214, 3
@@ -15185,7 +15185,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef ca
   %19 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %.02529.us, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !38
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = tail call ptr @H5FL_fac_free(ptr noundef %23, ptr noundef nonnull %17) #9
   store ptr %24, ptr %16, align 8, !tbaa !27
@@ -15205,7 +15205,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef ca
   %33 = load ptr, ptr @H5SL_fac_g, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %.02529, i64 24
   %35 = load i64, ptr %34, align 8, !tbaa !38
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !15
   %38 = load ptr, ptr %26, align 8, !tbaa !27
   %39 = tail call ptr @H5FL_fac_free(ptr noundef %37, ptr noundef %38) #9
@@ -15219,7 +15219,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__release_common(ptr noundef ca
   %42 = load ptr, ptr %11, align 8, !tbaa !32
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i64, ptr %43, align 8, !tbaa !38
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !27
@@ -15353,7 +15353,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SL__close_common(ptr noundef %0, 
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !38
-  %23 = getelementptr inbounds nuw ptr, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !27

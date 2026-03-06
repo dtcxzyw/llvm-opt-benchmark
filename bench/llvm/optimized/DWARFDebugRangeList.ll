@@ -41,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<llvm::object::SectionedAddress>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::object::SectionedAddress>::_Storage" = type { %"struct.llvm::object::SectionedAddress" }
 %"struct.llvm::object::SectionedAddress" = type { i64, i64 }
-%"struct.llvm::DWARFAddressRange" = type { i64, i64, i64 }
 
 $_ZN4llvm17createStringErrorIJmEEENS_5ErrorESt10error_codePKcDpRKT_ = comdat any
 
@@ -309,7 +308,7 @@ _ZNSt6vectorIN4llvm19DWARFDebugRangeList14RangeListEntryESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm19DWARFDebugRangeList14RangeListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorIN4llvm19DWARFDebugRangeList14RangeListEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %89, ptr %11, align 8, !tbaa !17
   store ptr %93, ptr %13, align 8, !tbaa !18
-  %95 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugRangeList::RangeListEntry", ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %87
   store ptr %95, ptr %31, align 8, !tbaa !68
   br label %_ZNSt6vectorIN4llvm19DWARFDebugRangeList14RangeListEntryESaIS2_EE9push_backERKS2_.exit
 
@@ -601,7 +600,7 @@ switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !16
   %6 = sext i8 %5 to i64
-  %7 = getelementptr ptr, ptr @switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE, i64 %6
+  %7 = getelementptr [8 x i8], ptr @switch.table._ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE, i64 %6
   %switch.gep = getelementptr i8, ptr %7, i64 -16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -803,7 +802,7 @@ _ZNSt6vectorIN4llvm17DWARFAddressRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt6vectorIN4llvm17DWARFAddressRangeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %77, %_ZNSt6vectorIN4llvm17DWARFAddressRangeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %76, ptr %18, align 8, !tbaa !112
-  %78 = getelementptr inbounds nuw %"struct.llvm::DWARFAddressRange", ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %70
   store ptr %78, ptr %19, align 8, !tbaa !115
   br label %_ZNSt8optionalIN4llvm6object16SectionedAddressEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit
 

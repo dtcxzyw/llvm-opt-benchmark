@@ -1155,7 +1155,7 @@ define dso_local void @__inet_accept(ptr noundef %0, ptr noundef %1, ptr noundef
   %22 = or i32 %20, %21
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %24 = zext i32 %17 to i64
-  %25 = getelementptr i32, ptr %23, i64 %24
+  %25 = getelementptr [4 x i8], ptr %23, i64 %24
   %26 = load volatile i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %22
   br i1 %27, label %29, label %28
@@ -1361,7 +1361,7 @@ define dso_local noundef range(i32 -11, 1) i32 @inet_send_prepare(ptr noundef %0
   %20 = or i32 %18, %19
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %22 = zext i32 %15 to i64
-  %23 = getelementptr i32, ptr %21, i64 %22
+  %23 = getelementptr [4 x i8], ptr %21, i64 %22
   %24 = load volatile i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %20
   br i1 %25, label %27, label %26
@@ -1527,7 +1527,7 @@ define dso_local i32 @inet_recvmsg(ptr noundef readonly captures(none) %0, ptr n
   %29 = or i32 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %31 = zext i32 %24 to i64
-  %32 = getelementptr i32, ptr %30, i64 %31
+  %32 = getelementptr [4 x i8], ptr %30, i64 %31
   %33 = load volatile i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %29
   br i1 %34, label %36, label %35
@@ -1987,7 +1987,7 @@ define dso_local void @inet_register_protosw(ptr noundef %0) #0 align 16 {
 
 8:                                                ; preds = %1
   %9 = zext nneg i16 %6 to i64
-  %10 = getelementptr %struct.list_head, ptr @inetsw, i64 %9
+  %10 = getelementptr [16 x i8], ptr @inetsw, i64 %9
   br label %11
 
 11:                                               ; preds = %20, %8
@@ -2659,7 +2659,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef initializes((180, 182)) %0, i
   %113 = phi i8 [ 1, %104 ], [ %103, %90 ], [ 0, %76 ]
   %114 = phi i8 [ %99, %104 ], [ %99, %90 ], [ 0, %76 ]
   %115 = zext i8 %46 to i64
-  %116 = getelementptr ptr, ptr @inet_offloads, i64 %115
+  %116 = getelementptr [8 x i8], ptr @inet_offloads, i64 %115
   %117 = load volatile ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.thread, label %119, !prof !28
@@ -3073,7 +3073,7 @@ define dso_local ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 9
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr ptr, ptr @inet_offloads, i64 %32
+  %33 = getelementptr [8 x i8], ptr @inet_offloads, i64 %32
   %34 = load volatile ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %36
@@ -3439,7 +3439,7 @@ define dso_local i32 @inet_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   %47 = xor i16 %46, -1
   store i16 %47, ptr %35, align 2
   %48 = zext i8 %10 to i64
-  %49 = getelementptr ptr, ptr @inet_offloads, i64 %48
+  %49 = getelementptr [8 x i8], ptr @inet_offloads, i64 %48
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %56, label %52
@@ -3550,11 +3550,11 @@ define dso_local i64 @snmp_fold_field(ptr noundef %0, i32 noundef %1) #5 align 1
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %4
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr i64, ptr %21, i64 %5
+  %22 = getelementptr [8 x i8], ptr %21, i64 %5
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %8
   %25 = add nuw nsw i64 %13, 1
@@ -4016,7 +4016,7 @@ define internal i32 @inet_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   tail call void @__rcu_read_lock() #15
   %9 = load i16, ptr %6, align 4
   %10 = sext i16 %9 to i64
-  %11 = getelementptr %struct.list_head, ptr @inetsw, i64 %10
+  %11 = getelementptr [16 x i8], ptr @inetsw, i64 %10
   %12 = load volatile ptr, ptr %11, align 16
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %.loopexit.split.us.us, label %.split.us.us, !prof !71
@@ -4062,7 +4062,7 @@ define internal i32 @inet_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   tail call void @__rcu_read_lock() #15
   %33 = load i16, ptr %6, align 4
   %34 = sext i16 %33 to i64
-  %35 = getelementptr %struct.list_head, ptr @inetsw, i64 %34
+  %35 = getelementptr [16 x i8], ptr @inetsw, i64 %34
   %36 = load volatile ptr, ptr %35, align 16
   %37 = icmp eq ptr %36, %35
   br i1 %37, label %.loopexit.split, label %.split, !prof !71

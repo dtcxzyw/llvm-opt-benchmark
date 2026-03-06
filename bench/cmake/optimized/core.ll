@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.20 = type { i64 }
 %struct.uv_passwd_s = type { ptr, i64, i64, ptr, ptr }
 %struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
-%struct.uv_env_item_s = type { ptr, ptr }
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
 %struct.timespec = type { i64, i64 }
 %struct.cpu_set_t = type { [16 x i64] }
@@ -1294,7 +1293,7 @@ define dso_local range(i32 -22, 1) i32 @uv_fileno(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__getsockpeername, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %7, align 8, !tbaa !26
@@ -1357,11 +1356,11 @@ define dso_local void @uv__io_start(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 15:                                               ; preds = %12
   %16 = zext i32 %11 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   %19 = add nuw i32 %11, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !53
   br label %23
 
@@ -1410,10 +1409,10 @@ define dso_local void @uv__io_start(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %42
   %52 = zext i32 %36 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %39, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %52
   store ptr %.026.i, ptr %53, align 8, !tbaa !53
   %54 = zext i32 %34 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %39, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %54
   store ptr %.027.i, ptr %55, align 8, !tbaa !53
   store ptr %39, ptr %13, align 8, !tbaa !52
   store i32 %36, ptr %10, align 8, !tbaa !51
@@ -1449,7 +1448,7 @@ maybe_resize.exit:                                ; preds = %3, %._crit_edge.i
   %71 = load ptr, ptr %70, align 8, !tbaa !52
   %72 = load i32, ptr %7, align 8, !tbaa !48
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %71, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !53
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %81
@@ -1504,7 +1503,7 @@ define dso_local void @uv__io_stop(ptr noundef %0, ptr noundef %1, i32 noundef %
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8, !tbaa !52
   %26 = sext i32 %5 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = icmp eq ptr %1, %28
   br i1 %29, label %30, label %41
@@ -1573,7 +1572,7 @@ define dso_local void @uv__io_close(ptr noundef %0, ptr noundef %1) local_unname
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8, !tbaa !52
   %24 = sext i32 %4 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !53
   %27 = icmp eq ptr %1, %26
   br i1 %27, label %28, label %45
@@ -1673,7 +1672,7 @@ define dso_local range(i32 0, 2) i32 @uv__fd_exists(ptr noundef readonly capture
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8, !tbaa !52
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = icmp ne ptr %11, null
   %13 = zext i1 %12 to i32
@@ -2236,7 +2235,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
 4:                                                ; preds = %4, %2
   %indvars.iv64 = phi i32 [ %indvars.iv.next65, %4 ], [ 0, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !103
   %.not = icmp eq ptr %6, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2261,7 +2260,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
   %indvars.iv61 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next62, %30 ]
   %.03853 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2.ph, %30 ]
   %10 = load ptr, ptr @environ, align 8, !tbaa !101
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv61
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv61
   %12 = load ptr, ptr %11, align 8, !tbaa !103
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.sink.split, label %14
@@ -2292,7 +2291,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
   store i8 0, ptr %20, align 1, !tbaa !31
   %24 = load ptr, ptr %0, align 8, !tbaa !99
   %25 = sext i32 %.03853 to i64
-  %26 = getelementptr inbounds %struct.uv_env_item_s, ptr %24, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %24, i64 %25
   store ptr %15, ptr %26, align 8, !tbaa !105
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -2309,7 +2308,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
 31:                                               ; preds = %.lr.ph57, %31
   %.156 = phi i32 [ 0, %.lr.ph57 ], [ %35, %31 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !99
-  %33 = getelementptr inbounds nuw %struct.uv_env_item_s, ptr %32, i64 %18
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %18
   %34 = load ptr, ptr %33, align 8, !tbaa !105
   tail call void @uv__free(ptr noundef %34) #23
   %35 = add nuw nsw i32 %.156, 1
@@ -2619,7 +2618,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getsockpeername(pt
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__getsockpeername, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0.i = load i32, ptr %10, align 8, !tbaa !26

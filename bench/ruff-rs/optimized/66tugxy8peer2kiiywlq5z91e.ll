@@ -368,7 +368,7 @@ define hidden void @_ZN14ruff_formatter7printer13line_suffixes12LineSuffixes6ext
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h57d2bc2b65ed686cE.exit": ; preds = %3, %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !25, !noalias !28, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw { i16, [7 x i16] }, ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %6
   store i16 1, ptr %12, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i48 %1, ptr %.sroa.4.0..sroa_idx, align 2
@@ -1043,7 +1043,7 @@ define void @_ZN14ruff_formatter7Printed8verbatim17he62fcce1dedd962fE(ptr dead_o
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i32, i32 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
@@ -1463,10 +1463,10 @@ define internal noundef zeroext i1 @"_ZN77_$LT$ruff_formatter..format_element..L
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !72, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$ruff_formatter..format_element..LineMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h549913253ac5fc59E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_formatter..format_element..LineMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h549913253ac5fc59E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN77_$LT$ruff_formatter..format_element..LineMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h549913253ac5fc59E.16", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$ruff_formatter..format_element..LineMode$u20$as$u20$core..fmt..Debug$GT$3fmt17h549913253ac5fc59E.16", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -27,7 +27,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
   %.02442 = phi i32 [ 1, %.lr.ph.preheader ], [ %.3, %36 ]
   %.02541 = phi i32 [ 0, %.lr.ph.preheader ], [ %.126, %36 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #7
   %.not = icmp eq i32 %9, 0

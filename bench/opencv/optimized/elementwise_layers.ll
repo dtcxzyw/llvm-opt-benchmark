@@ -171,10 +171,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.296" = type { %"class.std::shared_ptr.297" }
 %"class.std::shared_ptr.297" = type { %"class.std::__shared_ptr.298" }
 %"class.std::__shared_ptr.298" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.257" = type { %"struct.std::_Vector_base.258" }
-%"struct.std::_Vector_base.258" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::dnn::ElementWiseLayer<cv::dnn::ReLU6Functor>::PBody" = type <{ %"class.cv::ParallelLoopBody", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.cv::dnn::ElementWiseLayer<cv::dnn::GeluFunctor>::PBody" = type <{ %"class.cv::ParallelLoopBody", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.cv::dnn::ElementWiseLayer<cv::dnn::GeluApproximationFunctor>::PBody" = type <{ %"class.cv::ParallelLoopBody", ptr, ptr, ptr, i32, [4 x i8] }>
@@ -13232,9 +13228,9 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %19 ]
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %.06.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   %21 = load i64, ptr %20, align 8, !tbaa !329
-  %22 = getelementptr inbounds nuw i64, ptr %17, i64 %.06.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06.i
   store i64 %21, ptr %22, align 8, !tbaa !329
   %23 = add nuw i64 %.06.i, 1
   %24 = load i64, ptr %10, align 8, !tbaa !375
@@ -13275,7 +13271,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %5
 .noexc.i:                                         ; preds = %37
   store i64 %36, ptr %42, align 16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %43, i64 %36
+  %44 = getelementptr inbounds [32 x i8], ptr %43, i64 %36
   br label %45
 
 45:                                               ; preds = %45, %.noexc.i
@@ -13308,9 +13304,9 @@ _ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8all
 .lr.ph.i14:                                       ; preds = %.lr.ph.i14.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
   %.020.i = phi i64 [ %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i ], [ 0, %.lr.ph.i14.preheader ]
   %52 = load ptr, ptr %31, align 8, !tbaa !377
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %.020.i
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %.020.i
   %54 = load ptr, ptr %29, align 8, !tbaa !377
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %54, i64 %.020.i
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %.020.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %53)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %59
 
@@ -13366,9 +13362,9 @@ _ZN2cv10AutoBufferIdLm1EE8allocateEm.exit.i:      ; preds = %62
 
 76:                                               ; preds = %76, %.lr.ph.i17
   %.06.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %80, %76 ]
-  %77 = getelementptr inbounds nuw double, ptr %75, i64 %.06.i18
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.06.i18
   %78 = load double, ptr %77, align 8, !tbaa !341
-  %79 = getelementptr inbounds nuw double, ptr %74, i64 %.06.i18
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.06.i18
   store double %78, ptr %79, align 8, !tbaa !341
   %80 = add nuw i64 %.06.i18, 1
   %exitcond.not.i = icmp eq i64 %80, %69
@@ -13575,9 +13571,9 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
 
 20:                                               ; preds = %20, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %.06.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.06.i
   %22 = load i64, ptr %21, align 8, !tbaa !329
-  %23 = getelementptr inbounds nuw i64, ptr %18, i64 %.06.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.06.i
   store i64 %22, ptr %23, align 8, !tbaa !329
   %24 = add nuw i64 %.06.i, 1
   %25 = load i64, ptr %11, align 8, !tbaa !375
@@ -13618,7 +13614,7 @@ _ZN2cv10AutoBufferIlLm1EE8allocateEm.exit.i:      ; preds = %6
 .noexc.i:                                         ; preds = %38
   store i64 %37, ptr %43, align 16
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %44, i64 %37
+  %45 = getelementptr inbounds [32 x i8], ptr %44, i64 %37
   br label %46
 
 46:                                               ; preds = %46, %.noexc.i
@@ -13651,9 +13647,9 @@ _ZN2cv10AutoBufferINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm1EE8all
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i
   %.020.i = phi i64 [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i ], [ 0, %.lr.ph.i21.preheader ]
   %53 = load ptr, ptr %32, align 8, !tbaa !377
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %53, i64 %.020.i
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.020.i
   %55 = load ptr, ptr %30, align 8, !tbaa !377
-  %56 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %55, i64 %.020.i
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %.020.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %54)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i unwind label %60
 
@@ -13709,9 +13705,9 @@ _ZN2cv10AutoBufferIdLm1EE8allocateEm.exit.i:      ; preds = %63
 
 77:                                               ; preds = %77, %.lr.ph.i24
   %.06.i25 = phi i64 [ 0, %.lr.ph.i24 ], [ %81, %77 ]
-  %78 = getelementptr inbounds nuw double, ptr %76, i64 %.06.i25
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.06.i25
   %79 = load double, ptr %78, align 8, !tbaa !341
-  %80 = getelementptr inbounds nuw double, ptr %75, i64 %.06.i25
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.06.i25
   store double %79, ptr %80, align 8, !tbaa !341
   %81 = add nuw i64 %.06.i25, 1
   %exitcond.not.i = icmp eq i64 %81, %70
@@ -14225,14 +14221,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 52:                                               ; preds = %48
   %53 = zext nneg i32 %51 to i64
   %54 = load ptr, ptr %49, align 8, !tbaa !337
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load double, ptr %55, align 8, !tbaa !341
   br label %79
 
 57:                                               ; preds = %48
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %49, align 8, !tbaa !373
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8, !tbaa !329
   %62 = sitofp i64 %61 to double
   br label %79
@@ -14240,7 +14236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 63:                                               ; preds = %48
   %64 = zext nneg i32 %51 to i64
   %65 = load ptr, ptr %49, align 8, !tbaa !377
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !18
   %68 = tail call double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #25
   br label %79
@@ -14452,9 +14448,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -14683,7 +14679,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLU
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -14714,7 +14710,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLU
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -14756,12 +14752,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLUFunctor
 
 12:                                               ; preds = %12, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %.025.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.025.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !305
   %15 = fcmp oge float %14, 0.000000e+00
   %16 = fmul float %9, %14
   %17 = select i1 %15, float %14, float %16
-  %18 = getelementptr inbounds nuw float, ptr %.02123.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.02123.us.i, i64 %indvars.iv.i
   store float %17, ptr %18, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -14769,8 +14765,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLUFunctor
 
 ._crit_edge.us.i:                                 ; preds = %12
   %19 = add nsw i32 %.02024.us.i, 1
-  %20 = getelementptr inbounds nuw float, ptr %.025.us.i, i64 %4
-  %21 = getelementptr inbounds nuw float, ptr %.02123.us.i, i64 %4
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.025.us.i, i64 %4
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.02123.us.i, i64 %4
   %exitcond29.not.i = icmp eq i32 %19, %6
   br i1 %exitcond29.not.i, label %_ZNK2cv3dnn11ReLUFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !412
 
@@ -14908,11 +14904,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLUFunctor
   %43 = load ptr, ptr %42, align 8, !tbaa !297
   %44 = load ptr, ptr %41, align 8, !tbaa !414
   %45 = load i64, ptr %44, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %43, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %43, i64 %25
   %46 = load ptr, ptr %38, align 8, !tbaa !297
   %47 = load ptr, ptr %37, align 8, !tbaa !414
   %48 = load i64, ptr %47, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %46, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %46, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -14933,12 +14929,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLUFunctor
 
 52:                                               ; preds = %52, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %.025.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.025.us.i.us, i64 %indvars.iv.i.us
   %54 = load float, ptr %53, align 4, !tbaa !305
   %55 = fcmp oge float %54, 0.000000e+00
   %56 = fmul float %49, %54
   %57 = select i1 %55, float %54, float %56
-  %58 = getelementptr inbounds nuw float, ptr %.02123.us.i.us, i64 %indvars.iv.i.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.02123.us.i.us, i64 %indvars.iv.i.us
   store float %57, ptr %58, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -14946,8 +14942,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11ReLUFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %52
   %59 = add nuw nsw i32 %.02024.us.i.us, 1
-  %60 = getelementptr inbounds nuw float, ptr %.025.us.i.us, i64 %.031.lcssa59
-  %61 = getelementptr inbounds nuw float, ptr %.02123.us.i.us, i64 %.031.lcssa59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.025.us.i.us, i64 %.031.lcssa59
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.02123.us.i.us, i64 %.031.lcssa59
   %exitcond29.not.i.us = icmp eq i32 %59, %.0225357
   br i1 %exitcond29.not.i.us, label %_ZNK2cv3dnn11ReLUFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !412
 
@@ -14959,7 +14955,7 @@ _ZNK2cv3dnn11ReLUFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_ed
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %66, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !48
   %65 = sext i32 %64 to i64
   %66 = mul i64 %.03132, %65
@@ -15505,7 +15501,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !296
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !295
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !364
   ret void
 
@@ -15712,9 +15708,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -15919,7 +15915,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -15950,7 +15946,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -15993,7 +15989,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
 
 12:                                               ; preds = %19, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %19 ]
-  %13 = getelementptr inbounds nuw float, ptr %.029.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.029.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !305
   %15 = load float, ptr %8, align 4, !tbaa !438
   %16 = fcmp ult float %14, %15
@@ -16007,7 +16003,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
 
 19:                                               ; preds = %17, %12
   %..us.sink.i = phi float [ %..us.i, %17 ], [ %15, %12 ]
-  %20 = getelementptr inbounds nuw float, ptr %.02227.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.02227.us.i, i64 %indvars.iv.i
   store float %..us.sink.i, ptr %20, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -16015,8 +16011,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
 
 ._crit_edge.us.i:                                 ; preds = %19
   %21 = add nsw i32 %.02128.us.i, 1
-  %22 = getelementptr inbounds nuw float, ptr %.029.us.i, i64 %4
-  %23 = getelementptr inbounds nuw float, ptr %.02227.us.i, i64 %4
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.029.us.i, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.02227.us.i, i64 %4
   %exitcond33.not.i = icmp eq i32 %21, %6
   br i1 %exitcond33.not.i, label %_ZNK2cv3dnn12ReLU6Functor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !442
 
@@ -16081,7 +16077,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !414
   %31 = load i64, ptr %30, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %28, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !434
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -16089,7 +16085,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !414
   %38 = load i64, ptr %37, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %35, i64 %26
+  %invariant.gep38 = getelementptr [4 x i8], ptr %35, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !430
   %41 = sub i64 %.sroa.speculated, %26
@@ -16121,7 +16117,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
 
 48:                                               ; preds = %55, %.preheader.us.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.preheader.us.i.us.us ], [ %indvars.iv.next.i.us.us, %55 ]
-  %49 = getelementptr inbounds nuw float, ptr %.029.us.i.us.us, i64 %indvars.iv.i.us.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.029.us.i.us.us, i64 %indvars.iv.i.us.us
   %50 = load float, ptr %49, align 4, !tbaa !305
   %51 = load float, ptr %40, align 4, !tbaa !438
   %52 = fcmp ult float %50, %51
@@ -16135,7 +16131,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
 
 55:                                               ; preds = %53, %48
   %..us.sink.i.us.us = phi float [ %..us.i.us.us, %53 ], [ %51, %48 ]
-  %56 = getelementptr inbounds nuw float, ptr %.02227.us.i.us.us, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.02227.us.i.us.us, i64 %indvars.iv.i.us.us
   store float %..us.sink.i.us.us, ptr %56, align 4, !tbaa !305
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
@@ -16143,8 +16139,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12ReLU6Functo
 
 ._crit_edge.us.i.us.us:                           ; preds = %55
   %57 = add nuw nsw i32 %.02128.us.i.us.us, 1
-  %58 = getelementptr inbounds nuw float, ptr %.029.us.i.us.us, i64 %.031.lcssa62
-  %59 = getelementptr inbounds nuw float, ptr %.02227.us.i.us.us, i64 %.031.lcssa62
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.029.us.i.us.us, i64 %.031.lcssa62
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.02227.us.i.us.us, i64 %.031.lcssa62
   %exitcond33.not.i.us.us = icmp eq i32 %57, %.0225660
   br i1 %exitcond33.not.i.us.us, label %_ZNK2cv3dnn12ReLU6Functor5applyEPKfPfiimii.exit.loopexit.us.us, label %.preheader.us.i.us.us, !llvm.loop !442
 
@@ -16156,7 +16152,7 @@ _ZNK2cv3dnn12ReLU6Functor5applyEPKfPfiimii.exit.loopexit.us.us: ; preds = %._cri
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %64, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !48
   %63 = sext i32 %62 to i64
   %64 = mul i64 %.03132, %63
@@ -16426,9 +16422,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -16636,7 +16632,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Gelu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -16667,7 +16663,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Gelu
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -16706,7 +16702,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fmul float %12, 5.000000e-01
   %14 = fpext float %12 to double
@@ -16728,7 +16724,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
   %30 = tail call noundef float @llvm.copysign.f32(float %29, float %16)
   %31 = fadd float %30, 1.000000e+00
   %32 = fmul float %13, %31
-  %33 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %32, ptr %33, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -16736,8 +16732,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %34 = add nsw i32 %.01721.us.i, 1
-  %35 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %36 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %34, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn11GeluFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !454
 
@@ -16822,11 +16818,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -16846,7 +16842,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fmul float %51, 5.000000e-01
   %53 = fpext float %51 to double
@@ -16868,7 +16864,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
   %69 = tail call noundef float @llvm.copysign.f32(float %68, float %55)
   %70 = fadd float %69, 1.000000e+00
   %71 = fmul float %52, %70
-  %72 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %71, ptr %72, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -16876,8 +16872,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11GeluFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %73 = add nuw nsw i32 %.01721.us.i.us, 1
-  %74 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %75 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %73, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn11GeluFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !454
 
@@ -16889,7 +16885,7 @@ _ZNK2cv3dnn11GeluFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_ed
 76:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %76 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %80, %76 ]
-  %77 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !48
   %79 = sext i32 %78 to i64
   %80 = mul i64 %.03132, %79
@@ -17084,9 +17080,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -17286,7 +17282,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_24Gelu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -17317,7 +17313,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_24Gelu
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -17356,7 +17352,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fmul float %12, 5.000000e-01
   %14 = fmul float %12, 0x3FA2444F20000000
@@ -17365,7 +17361,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
   %17 = tail call noundef float @tanhf(float noundef %16) #25, !tbaa !48
   %18 = fadd float %17, 1.000000e+00
   %19 = fmul float %13, %18
-  %20 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %19, ptr %20, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -17373,8 +17369,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
 
 ._crit_edge.us.i:                                 ; preds = %10
   %21 = add nsw i32 %.01721.us.i, 1
-  %22 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %23 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %21, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_24GeluApproximationFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !466
 
@@ -17459,11 +17455,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -17483,7 +17479,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fmul float %51, 5.000000e-01
   %53 = fmul float %51, 0x3FA2444F20000000
@@ -17492,7 +17488,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
   %56 = tail call noundef float @tanhf(float noundef %55) #25, !tbaa !48
   %57 = fadd float %56, 1.000000e+00
   %58 = fmul float %52, %57
-  %59 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %58, ptr %59, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -17500,8 +17496,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_24GeluApproxi
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %60 = add nuw nsw i32 %.01721.us.i.us, 1
-  %61 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %62 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %60, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_24GeluApproximationFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !466
 
@@ -17513,7 +17509,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_24GeluApproximationFunctorEE5applyEPKfPfiimi
 63:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %67, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = sext i32 %65 to i64
   %67 = mul i64 %.03132, %66
@@ -17881,9 +17877,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -18088,7 +18084,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanH
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -18119,7 +18115,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanH
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -18157,10 +18153,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanHFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @tanhf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -18168,8 +18164,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanHFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11TanHFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !479
 
@@ -18254,11 +18250,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanHFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -18278,10 +18274,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanHFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @tanhf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -18289,8 +18285,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11TanHFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11TanHFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !479
 
@@ -18302,7 +18298,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11TanHFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -18661,9 +18657,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -18875,7 +18871,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Swis
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -18906,7 +18902,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Swis
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -18945,13 +18941,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12SwishFuncto
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fneg float %12
   %14 = tail call noundef float @expf(float noundef %13) #25, !tbaa !48
   %15 = fadd float %14, 1.000000e+00
   %16 = fdiv float %12, %15
-  %17 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %16, ptr %17, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -18959,8 +18955,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12SwishFuncto
 
 ._crit_edge.us.i:                                 ; preds = %10
   %18 = add nsw i32 %.01521.us.i, 1
-  %19 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %4
-  %20 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %4
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %4
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %4
   %exitcond25.not.i = icmp eq i32 %18, %6
   br i1 %exitcond25.not.i, label %_ZNK2cv3dnn12SwishFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !492
 
@@ -19045,11 +19041,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12SwishFuncto
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -19069,13 +19065,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12SwishFuncto
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fneg float %51
   %53 = tail call noundef float @expf(float noundef %52) #25, !tbaa !48
   %54 = fadd float %53, 1.000000e+00
   %55 = fdiv float %51, %54
-  %56 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %indvars.iv.i.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %indvars.iv.i.us
   store float %55, ptr %56, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -19083,8 +19079,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12SwishFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %57 = add nuw nsw i32 %.01521.us.i.us, 1
-  %58 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %.031.lcssa59
-  %59 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %.031.lcssa59
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %.031.lcssa59
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %.031.lcssa59
   %exitcond25.not.i.us = icmp eq i32 %57, %.0225357
   br i1 %exitcond25.not.i.us, label %_ZNK2cv3dnn12SwishFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !492
 
@@ -19096,7 +19092,7 @@ _ZNK2cv3dnn12SwishFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_e
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %64, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !48
   %63 = sext i32 %62 to i64
   %64 = mul i64 %.03132, %63
@@ -19458,9 +19454,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -19672,7 +19668,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Mish
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -19703,7 +19699,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Mish
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -19742,7 +19738,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11MishFunctor
 
 10:                                               ; preds = %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i ]
-  %11 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fcmp ogt float %12, 0xC0425D70A0000000
   br i1 %13, label %14, label %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i
@@ -19761,7 +19757,7 @@ _ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i:   ; preds = %14, %10
   %22 = fmul float %18, 2.000000e+00
   %23 = tail call float @llvm.fmuladd.f32(float %22, float %18, float %20)
   %24 = fdiv float %21, %23
-  %25 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %24, ptr %25, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -19769,8 +19765,8 @@ _ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i:   ; preds = %14, %10
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i
   %26 = add nsw i32 %.01521.us.i, 1
-  %27 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %4
-  %28 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %4
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %4
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %4
   %exitcond25.not.i = icmp eq i32 %26, %6
   br i1 %exitcond25.not.i, label %_ZNK2cv3dnn11MishFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !505
 
@@ -19855,11 +19851,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11MishFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05359 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -19879,7 +19875,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11MishFunctor
 
 49:                                               ; preds = %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i.us, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i.us ]
-  %50 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fcmp ogt float %51, 0xC0425D70A0000000
   br i1 %52, label %53, label %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i.us
@@ -19898,7 +19894,7 @@ _ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i.us: ; preds = %53, %49
   %61 = fmul float %57, 2.000000e+00
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %57, float %59)
   %63 = fdiv float %60, %62
-  %64 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %indvars.iv.i.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %indvars.iv.i.us
   store float %63, ptr %64, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -19906,8 +19902,8 @@ _ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i.us: ; preds = %53, %49
 
 ._crit_edge.us.i.us:                              ; preds = %_ZNK2cv3dnn11MishFunctor9calculateEf.exit.us.i.us
   %65 = add nuw nsw i32 %.01521.us.i.us, 1
-  %66 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %.031.lcssa60
-  %67 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %.031.lcssa60
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %.031.lcssa60
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %.031.lcssa60
   %exitcond25.not.i.us = icmp eq i32 %65, %.0225458
   br i1 %exitcond25.not.i.us, label %_ZNK2cv3dnn11MishFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !505
 
@@ -19919,7 +19915,7 @@ _ZNK2cv3dnn11MishFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_ed
 68:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %72, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !48
   %71 = sext i32 %70 to i64
   %72 = mul i64 %.03132, %71
@@ -20294,9 +20290,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -20501,7 +20497,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_14Sigm
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -20532,7 +20528,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_14Sigm
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -20571,7 +20567,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_14SigmoidFunc
 
 10:                                               ; preds = %_ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fcmp ult float %12, 0.000000e+00
   br i1 %13, label %17, label %14
@@ -20590,7 +20586,7 @@ _ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i: ; preds = %17, %14
   %.sink.i.us.i = phi float [ %18, %17 ], [ 1.000000e+00, %14 ]
   %19 = fadd float %.sink9.i.us.i, 1.000000e+00
   %20 = fdiv float %.sink.i.us.i, %19
-  %21 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %20, ptr %21, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -20598,8 +20594,8 @@ _ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i: ; preds = %17, %14
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i
   %22 = add nsw i32 %.01721.us.i, 1
-  %23 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %24 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %22, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_14SigmoidFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !518
 
@@ -20684,11 +20680,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_14SigmoidFunc
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05359 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -20708,7 +20704,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_14SigmoidFunc
 
 49:                                               ; preds = %_ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i.us, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %_ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i.us ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fcmp ult float %51, 0.000000e+00
   br i1 %52, label %56, label %53
@@ -20727,7 +20723,7 @@ _ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i.us: ; preds = %56, %53
   %.sink.i.us.i.us = phi float [ %57, %56 ], [ 1.000000e+00, %53 ]
   %58 = fadd float %.sink9.i.us.i.us, 1.000000e+00
   %59 = fdiv float %.sink.i.us.i.us, %58
-  %60 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %59, ptr %60, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -20735,8 +20731,8 @@ _ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i.us: ; preds = %56, %53
 
 ._crit_edge.us.i.us:                              ; preds = %_ZNK2cv3dnn14SigmoidFunctor9calculateEf.exit.us.i.us
   %61 = add nuw nsw i32 %.01721.us.i.us, 1
-  %62 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa60
-  %63 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa60
   %exitcond26.not.i.us = icmp eq i32 %61, %.0225458
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_14SigmoidFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !518
 
@@ -20748,7 +20744,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_14SigmoidFunctorEE5applyEPKfPfiimii.exit.loo
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %68, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !48
   %67 = sext i32 %66 to i64
   %68 = mul i64 %.03132, %67
@@ -21123,9 +21119,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -21330,7 +21326,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -21361,7 +21357,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -21401,7 +21397,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUFunctorE
 
 11:                                               ; preds = %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i ]
-  %12 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4, !tbaa !305
   %14 = fcmp ult float %13, 0.000000e+00
   br i1 %14, label %15, label %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i
@@ -21415,7 +21411,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUFunctorE
 
 _ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i:    ; preds = %15, %11
   %20 = phi float [ %19, %15 ], [ %13, %11 ]
-  %21 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %20, ptr %21, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -21423,8 +21419,8 @@ _ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i:    ; preds = %15, %11
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i
   %22 = add nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %4
-  %24 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %4
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %4
   %exitcond25.not.i = icmp eq i32 %22, %6
   br i1 %exitcond25.not.i, label %_ZNK2cv3dnn10ELUFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !533
 
@@ -21511,11 +21507,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUFunctorE
   %43 = load ptr, ptr %42, align 8, !tbaa !297
   %44 = load ptr, ptr %41, align 8, !tbaa !414
   %45 = load i64, ptr %44, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %43, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %43, i64 %25
   %46 = load ptr, ptr %38, align 8, !tbaa !297
   %47 = load ptr, ptr %37, align 8, !tbaa !414
   %48 = load i64, ptr %47, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %46, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %46, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05359 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -21535,7 +21531,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUFunctorE
 
 51:                                               ; preds = %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i.us, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i.us ]
-  %52 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %indvars.iv.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %indvars.iv.i.us
   %53 = load float, ptr %52, align 4, !tbaa !305
   %54 = fcmp ult float %53, 0.000000e+00
   br i1 %54, label %55, label %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i.us
@@ -21549,7 +21545,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ELUFunctorE
 
 _ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i.us: ; preds = %55, %51
   %60 = phi float [ %59, %55 ], [ %53, %51 ]
-  %61 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %indvars.iv.i.us
   store float %60, ptr %61, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -21557,8 +21553,8 @@ _ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i.us: ; preds = %55, %51
 
 ._crit_edge.us.i.us:                              ; preds = %_ZNK2cv3dnn10ELUFunctor9calculateEf.exit.us.i.us
   %62 = add nuw nsw i32 %.01521.us.i.us, 1
-  %63 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %.031.lcssa60
-  %64 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %.031.lcssa60
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %.031.lcssa60
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %.031.lcssa60
   %exitcond25.not.i.us = icmp eq i32 %62, %.0225458
   br i1 %exitcond25.not.i.us, label %_ZNK2cv3dnn10ELUFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !533
 
@@ -21570,7 +21566,7 @@ _ZNK2cv3dnn10ELUFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_edg
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %69, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !48
   %68 = sext i32 %67 to i64
   %69 = mul i64 %.03132, %68
@@ -21940,9 +21936,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -22147,7 +22143,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsV
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -22178,7 +22174,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsV
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -22216,10 +22212,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsValFunct
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -22227,8 +22223,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsValFunct
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_13AbsValFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !546
 
@@ -22313,11 +22309,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsValFunct
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -22337,10 +22333,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsValFunct
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @llvm.fabs.f32(float %51)
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -22348,8 +22344,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13AbsValFunct
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_13AbsValFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !546
 
@@ -22361,7 +22357,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_13AbsValFunctorEE5applyEPKfPfiimii.exit.loop
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -22720,9 +22716,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -22927,7 +22923,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLL
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -22958,7 +22954,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLL
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -22997,7 +22993,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLLFunctor
 
 10:                                               ; preds = %_ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fcmp ogt float %12, 0.000000e+00
   br i1 %13, label %18, label %14
@@ -23018,7 +23014,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLLFunctor
 
 _ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i:   ; preds = %18, %14
   %24 = phi float [ %23, %18 ], [ %17, %14 ]
-  %25 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %24, ptr %25, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -23026,8 +23022,8 @@ _ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i:   ; preds = %18, %14
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i
   %26 = add nsw i32 %.01721.us.i, 1
-  %27 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %28 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %26, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11BNLLFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !559
 
@@ -23112,11 +23108,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLLFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05359 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -23136,7 +23132,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLLFunctor
 
 49:                                               ; preds = %_ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i.us, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %_ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i.us ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fcmp ogt float %51, 0.000000e+00
   br i1 %52, label %57, label %53
@@ -23157,7 +23153,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11BNLLFunctor
 
 _ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i.us: ; preds = %57, %53
   %63 = phi float [ %62, %57 ], [ %56, %53 ]
-  %64 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %63, ptr %64, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -23165,8 +23161,8 @@ _ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i.us: ; preds = %57, %53
 
 ._crit_edge.us.i.us:                              ; preds = %_ZNK2cv3dnn11BNLLFunctor9calculateEf.exit.us.i.us
   %65 = add nuw nsw i32 %.01721.us.i.us, 1
-  %66 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa60
-  %67 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa60
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa60
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa60
   %exitcond26.not.i.us = icmp eq i32 %65, %.0225458
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11BNLLFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !559
 
@@ -23178,7 +23174,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11BNLLFunctorEE5applyEPKfPfiimii.exit.loopex
 68:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %72, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !48
   %71 = sext i32 %70 to i64
   %72 = mul i64 %.03132, %71
@@ -23555,9 +23551,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -23759,7 +23755,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Ceil
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -23790,7 +23786,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Ceil
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -23828,10 +23824,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeilFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @llvm.ceil.f32(float %12)
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -23839,8 +23835,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeilFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11CeilFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !572
 
@@ -23925,11 +23921,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeilFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -23949,10 +23945,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeilFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @llvm.ceil.f32(float %51)
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -23960,8 +23956,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeilFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11CeilFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !572
 
@@ -23973,7 +23969,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11CeilFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -24335,9 +24331,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -24542,7 +24538,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Floo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -24573,7 +24569,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Floo
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -24611,10 +24607,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12FloorFuncto
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @llvm.floor.f32(float %12)
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -24622,8 +24618,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12FloorFuncto
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12FloorFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !585
 
@@ -24708,11 +24704,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12FloorFuncto
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -24732,10 +24728,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12FloorFuncto
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @llvm.floor.f32(float %51)
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -24743,8 +24739,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12FloorFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12FloorFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !585
 
@@ -24756,7 +24752,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12FloorFunctorEE5applyEPKfPfiimii.exit.loope
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -25118,9 +25114,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -25322,7 +25318,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -25353,7 +25349,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -25391,10 +25387,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogFunctorE
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @logf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -25402,8 +25398,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10LogFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !598
 
@@ -25488,11 +25484,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogFunctorE
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -25512,10 +25508,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @logf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -25523,8 +25519,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10LogFunctorE
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10LogFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !598
 
@@ -25536,7 +25532,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10LogFunctorEE5applyEPKfPfiimii.exit.loopexi
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -25895,9 +25891,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -26099,7 +26095,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Roun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -26130,7 +26126,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Roun
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -26169,13 +26165,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12RoundFuncto
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call i32 @fegetround() #30
   %14 = tail call i32 @fesetround(i32 noundef 0) #25
   %15 = tail call noundef float @llvm.nearbyint.f32(float %12)
   %16 = tail call i32 @fesetround(i32 noundef %13) #25
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %15, ptr %17, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -26183,8 +26179,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12RoundFuncto
 
 ._crit_edge.us.i:                                 ; preds = %10
   %18 = add nsw i32 %.01721.us.i, 1
-  %19 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %20 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %18, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12RoundFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !611
 
@@ -26274,7 +26270,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12RoundFuncto
   %41 = load i64, ptr %40, align 8, !tbaa !329
   %42 = mul i64 %41, %indvars.iv40
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %25
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %25
   %45 = load ptr, ptr %5, align 8, !tbaa !605
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !297
@@ -26283,7 +26279,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12RoundFuncto
   %50 = load i64, ptr %49, align 8, !tbaa !329
   %51 = mul i64 %50, %indvars.iv40
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %51
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %25
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %25
   br label %.preheader.us.i.us
 
 .preheader.us.i.us:                               ; preds = %._crit_edge.us.i.us, %.preheader.us.preheader.i.us
@@ -26294,13 +26290,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12RoundFuncto
 
 54:                                               ; preds = %54, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %54 ]
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %56 = load float, ptr %55, align 4, !tbaa !305
   %57 = tail call i32 @fegetround() #30
   %58 = tail call i32 @fesetround(i32 noundef 0) #25
   %59 = tail call noundef float @llvm.nearbyint.f32(float %56)
   %60 = tail call i32 @fesetround(i32 noundef %57) #25
-  %61 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %59, ptr %61, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -26308,8 +26304,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12RoundFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %54
   %62 = add nuw nsw i32 %.01721.us.i.us, 1
-  %63 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa57
-  %64 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa57
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa57
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa57
   %exitcond26.not.i.us = icmp eq i32 %62, %.0225155
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12RoundFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !611
 
@@ -26321,7 +26317,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12RoundFunctorEE5applyEPKfPfiimii.exit.loope
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %69, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !48
   %68 = sext i32 %67 to i64
   %69 = mul i64 %.03132, %68
@@ -26692,9 +26688,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -26896,7 +26892,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Sqrt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -26927,7 +26923,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Sqrt
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -26965,10 +26961,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SqrtFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @sqrtf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -26976,8 +26972,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SqrtFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11SqrtFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !624
 
@@ -27062,11 +27058,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SqrtFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -27086,10 +27082,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SqrtFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @sqrtf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -27097,8 +27093,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SqrtFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11SqrtFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !624
 
@@ -27110,7 +27106,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11SqrtFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -27472,9 +27468,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -27676,7 +27672,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -27707,7 +27703,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -27746,11 +27742,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotFunctorE
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fsub float 1.000000e+00, %12
   %14 = tail call noundef float @llvm.floor.f32(float %13)
-  %15 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %14, ptr %15, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -27758,8 +27754,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %10
   %16 = add nsw i32 %.01721.us.i, 1
-  %17 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %18 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %16, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10NotFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !637
 
@@ -27844,11 +27840,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotFunctorE
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -27868,11 +27864,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fsub float 1.000000e+00, %51
   %53 = tail call noundef float @llvm.floor.f32(float %52)
-  %54 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %53, ptr %54, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -27880,8 +27876,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10NotFunctorE
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %55 = add nuw nsw i32 %.01721.us.i.us, 1
-  %56 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %57 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %55, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10NotFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !637
 
@@ -27893,7 +27889,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10NotFunctorEE5applyEPKfPfiimii.exit.loopexi
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %62, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !48
   %61 = sext i32 %60 to i64
   %62 = mul i64 %.03132, %61
@@ -28253,9 +28249,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -28457,7 +28453,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Acos
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -28488,7 +28484,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Acos
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -28526,10 +28522,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AcosFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @acosf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -28537,8 +28533,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AcosFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11AcosFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !650
 
@@ -28623,11 +28619,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AcosFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -28647,10 +28643,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AcosFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @acosf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -28658,8 +28654,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AcosFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11AcosFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !650
 
@@ -28671,7 +28667,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11AcosFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -29033,9 +29029,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -29237,7 +29233,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Acos
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -29268,7 +29264,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Acos
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -29306,10 +29302,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AcoshFuncto
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @acoshf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -29317,8 +29313,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AcoshFuncto
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12AcoshFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !663
 
@@ -29403,11 +29399,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AcoshFuncto
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -29427,10 +29423,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AcoshFuncto
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @acoshf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -29438,8 +29434,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AcoshFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12AcoshFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !663
 
@@ -29451,7 +29447,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12AcoshFunctorEE5applyEPKfPfiimii.exit.loope
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -29813,9 +29809,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -30017,7 +30013,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Asin
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -30048,7 +30044,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Asin
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -30086,10 +30082,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AsinFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @asinf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -30097,8 +30093,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AsinFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11AsinFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !676
 
@@ -30183,11 +30179,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AsinFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -30207,10 +30203,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AsinFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @asinf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -30218,8 +30214,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AsinFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11AsinFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !676
 
@@ -30231,7 +30227,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11AsinFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -30593,9 +30589,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -30797,7 +30793,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Asin
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -30828,7 +30824,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Asin
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -30866,10 +30862,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AsinhFuncto
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @asinhf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -30877,8 +30873,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AsinhFuncto
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12AsinhFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !689
 
@@ -30963,11 +30959,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AsinhFuncto
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -30987,10 +30983,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AsinhFuncto
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @asinhf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -30998,8 +30994,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AsinhFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12AsinhFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !689
 
@@ -31011,7 +31007,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12AsinhFunctorEE5applyEPKfPfiimii.exit.loope
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -31373,9 +31369,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -31577,7 +31573,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Atan
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -31608,7 +31604,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Atan
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -31646,10 +31642,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AtanFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @atanf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -31657,8 +31653,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AtanFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11AtanFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !702
 
@@ -31743,11 +31739,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AtanFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -31767,10 +31763,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AtanFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @atanf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -31778,8 +31774,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11AtanFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11AtanFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !702
 
@@ -31791,7 +31787,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11AtanFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -32153,9 +32149,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -32357,7 +32353,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Atan
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -32388,7 +32384,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Atan
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -32426,10 +32422,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AtanhFuncto
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @atanhf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -32437,8 +32433,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AtanhFuncto
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12AtanhFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !715
 
@@ -32523,11 +32519,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AtanhFuncto
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -32547,10 +32543,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AtanhFuncto
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @atanhf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -32558,8 +32554,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12AtanhFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_12AtanhFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !715
 
@@ -32571,7 +32567,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12AtanhFunctorEE5applyEPKfPfiimii.exit.loope
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -32933,9 +32929,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -33137,7 +33133,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -33168,7 +33164,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -33206,10 +33202,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosFunctorE
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @cosf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -33217,8 +33213,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10CosFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !728
 
@@ -33303,11 +33299,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosFunctorE
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -33327,10 +33323,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @cosf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -33338,8 +33334,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10CosFunctorE
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10CosFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !728
 
@@ -33351,7 +33347,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10CosFunctorEE5applyEPKfPfiimii.exit.loopexi
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -33713,9 +33709,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -33917,7 +33913,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Cosh
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -33948,7 +33944,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Cosh
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -33986,10 +33982,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CoshFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @coshf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -33997,8 +33993,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CoshFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11CoshFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !741
 
@@ -34083,11 +34079,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CoshFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -34107,10 +34103,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CoshFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @coshf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -34118,8 +34114,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CoshFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11CoshFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !741
 
@@ -34131,7 +34127,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11CoshFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -34493,9 +34489,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -34697,7 +34693,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -34728,7 +34724,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -34766,10 +34762,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfFunctorE
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @erff(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -34777,8 +34773,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10ErfFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !754
 
@@ -34863,11 +34859,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfFunctorE
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -34887,10 +34883,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @erff(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -34898,8 +34894,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ErfFunctorE
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10ErfFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !754
 
@@ -34911,7 +34907,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10ErfFunctorEE5applyEPKfPfiimii.exit.loopexi
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -35273,9 +35269,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -35480,7 +35476,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_16Hard
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -35511,7 +35507,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_16Hard
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -35549,7 +35545,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fdiv float %12, 6.000000e+00
   %14 = fadd float %13, 5.000000e-01
@@ -35558,7 +35554,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
   %17 = fcmp ogt float %16, 0.000000e+00
   %.sroa.speculated.i.us.i = select i1 %17, float %16, float 0.000000e+00
   %18 = fmul float %12, %.sroa.speculated.i.us.i
-  %19 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %18, ptr %19, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -35566,8 +35562,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
 
 ._crit_edge.us.i:                                 ; preds = %10
   %20 = add nsw i32 %.01521.us.i, 1
-  %21 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %4
-  %22 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %4
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %4
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %4
   %exitcond25.not.i = icmp eq i32 %20, %6
   br i1 %exitcond25.not.i, label %_ZNK2cv3dnn16HardSwishFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !767
 
@@ -35652,11 +35648,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -35676,7 +35672,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fdiv float %51, 6.000000e+00
   %53 = fadd float %52, 5.000000e-01
@@ -35685,7 +35681,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
   %56 = fcmp ogt float %55, 0.000000e+00
   %.sroa.speculated.i.us.i.us = select i1 %56, float %55, float 0.000000e+00
   %57 = fmul float %51, %.sroa.speculated.i.us.i.us
-  %58 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %indvars.iv.i.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %indvars.iv.i.us
   store float %57, ptr %58, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -35693,8 +35689,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_16HardSwishFu
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %59 = add nuw nsw i32 %.01521.us.i.us, 1
-  %60 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %.031.lcssa59
-  %61 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %.031.lcssa59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %.031.lcssa59
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %.031.lcssa59
   %exitcond25.not.i.us = icmp eq i32 %59, %.0225357
   br i1 %exitcond25.not.i.us, label %_ZNK2cv3dnn16HardSwishFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !767
 
@@ -35706,7 +35702,7 @@ _ZNK2cv3dnn16HardSwishFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._cr
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %66, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !48
   %65 = sext i32 %64 to i64
   %66 = mul i64 %.03132, %65
@@ -36071,9 +36067,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -36275,7 +36271,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -36306,7 +36302,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -36344,10 +36340,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinFunctorE
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @sinf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -36355,8 +36351,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10SinFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !780
 
@@ -36441,11 +36437,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinFunctorE
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -36465,10 +36461,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @sinf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -36476,8 +36472,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10SinFunctorE
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10SinFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !780
 
@@ -36489,7 +36485,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10SinFunctorEE5applyEPKfPfiimii.exit.loopexi
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -36851,9 +36847,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -37055,7 +37051,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Sinh
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -37086,7 +37082,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Sinh
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -37124,10 +37120,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SinhFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @sinhf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -37135,8 +37131,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SinhFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11SinhFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !793
 
@@ -37221,11 +37217,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SinhFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -37245,10 +37241,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SinhFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @sinhf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -37256,8 +37252,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SinhFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11SinhFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !793
 
@@ -37269,7 +37265,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11SinhFunctorEE5applyEPKfPfiimii.exit.loopex
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -37631,9 +37627,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -37835,7 +37831,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_15Soft
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -37866,7 +37862,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_15Soft
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -37904,11 +37900,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftplusFun
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @expf(float noundef %12) #25, !tbaa !48
   %14 = tail call noundef float @log1pf(float noundef %13) #25, !tbaa !48
-  %15 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %14, ptr %15, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -37916,8 +37912,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftplusFun
 
 ._crit_edge.us.i:                                 ; preds = %10
   %16 = add nsw i32 %.01721.us.i, 1
-  %17 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %18 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %16, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftplusFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !806
 
@@ -38002,11 +37998,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftplusFun
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -38026,11 +38022,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftplusFun
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @expf(float noundef %51) #25, !tbaa !48
   %53 = tail call noundef float @log1pf(float noundef %52) #25, !tbaa !48
-  %54 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %53, ptr %54, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -38038,8 +38034,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftplusFun
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %55 = add nuw nsw i32 %.01721.us.i.us, 1
-  %56 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %57 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %55, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftplusFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !806
 
@@ -38051,7 +38047,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftplusFunctorEE5applyEPKfPfiimii.exit.lo
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %62, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !48
   %61 = sext i32 %60 to i64
   %62 = mul i64 %.03132, %61
@@ -38414,9 +38410,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -38618,7 +38614,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_15Soft
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -38649,7 +38645,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_15Soft
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -38687,12 +38683,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftsignFun
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
   %14 = fadd float %13, 1.000000e+00
   %15 = fdiv float %12, %14
-  %16 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %15, ptr %16, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -38700,8 +38696,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftsignFun
 
 ._crit_edge.us.i:                                 ; preds = %10
   %17 = add nsw i32 %.01721.us.i, 1
-  %18 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %19 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %17, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftsignFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !819
 
@@ -38786,11 +38782,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftsignFun
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -38810,12 +38806,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftsignFun
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @llvm.fabs.f32(float %51)
   %53 = fadd float %52, 1.000000e+00
   %54 = fdiv float %51, %53
-  %55 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %54, ptr %55, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -38823,8 +38819,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_15SoftsignFun
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %56 = add nuw nsw i32 %.01721.us.i.us, 1
-  %57 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %58 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %56, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftsignFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !819
 
@@ -38836,7 +38832,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftsignFunctorEE5applyEPKfPfiimii.exit.lo
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %63, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !48
   %62 = sext i32 %61 to i64
   %63 = mul i64 %.03132, %62
@@ -39197,9 +39193,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -39401,7 +39397,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -39432,7 +39428,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -39470,10 +39466,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanFunctorE
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = tail call noundef float @tanf(float noundef %12) #25, !tbaa !48
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -39481,8 +39477,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10TanFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !832
 
@@ -39567,11 +39563,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanFunctorE
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -39591,10 +39587,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = tail call noundef float @tanf(float noundef %51) #25, !tbaa !48
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -39602,8 +39598,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10TanFunctorE
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10TanFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !832
 
@@ -39615,7 +39611,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10TanFunctorEE5applyEPKfPfiimii.exit.loopexi
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -39977,9 +39973,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -40181,7 +40177,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Celu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -40212,7 +40208,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Celu
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -40251,7 +40247,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
 
 11:                                               ; preds = %11, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4, !tbaa !305
   %14 = fcmp ogt float %13, 0.000000e+00
   %.sroa.speculated3.i.us.i = select i1 %14, float %13, float 0.000000e+00
@@ -40262,7 +40258,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
   %19 = fcmp olt float %18, 0.000000e+00
   %.sroa.speculated.i.us.i = select i1 %19, float %18, float 0.000000e+00
   %20 = fadd float %.sroa.speculated3.i.us.i, %.sroa.speculated.i.us.i
-  %21 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %20, ptr %21, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -40270,8 +40266,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
 
 ._crit_edge.us.i:                                 ; preds = %11
   %22 = add nsw i32 %.01521.us.i, 1
-  %23 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %4
-  %24 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %4
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %4
   %exitcond25.not.i = icmp eq i32 %22, %6
   br i1 %exitcond25.not.i, label %_ZNK2cv3dnn11CeluFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !847
 
@@ -40358,11 +40354,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
   %43 = load ptr, ptr %42, align 8, !tbaa !297
   %44 = load ptr, ptr %41, align 8, !tbaa !414
   %45 = load i64, ptr %44, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %43, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %43, i64 %25
   %46 = load ptr, ptr %38, align 8, !tbaa !297
   %47 = load ptr, ptr %37, align 8, !tbaa !414
   %48 = load i64, ptr %47, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %46, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %46, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -40382,7 +40378,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
 
 51:                                               ; preds = %51, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %indvars.iv.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %indvars.iv.i.us
   %53 = load float, ptr %52, align 4, !tbaa !305
   %54 = fcmp ogt float %53, 0.000000e+00
   %.sroa.speculated3.i.us.i.us = select i1 %54, float %53, float 0.000000e+00
@@ -40393,7 +40389,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
   %59 = fcmp olt float %58, 0.000000e+00
   %.sroa.speculated.i.us.i.us = select i1 %59, float %58, float 0.000000e+00
   %60 = fadd float %.sroa.speculated3.i.us.i.us, %.sroa.speculated.i.us.i.us
-  %61 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %indvars.iv.i.us
   store float %60, ptr %61, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -40401,8 +40397,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11CeluFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %51
   %62 = add nuw nsw i32 %.01521.us.i.us, 1
-  %63 = getelementptr inbounds nuw float, ptr %.01620.us.i.us, i64 %.031.lcssa59
-  %64 = getelementptr inbounds nuw float, ptr %.01719.us.i.us, i64 %.031.lcssa59
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us, i64 %.031.lcssa59
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us, i64 %.031.lcssa59
   %exitcond25.not.i.us = icmp eq i32 %62, %.0225357
   br i1 %exitcond25.not.i.us, label %_ZNK2cv3dnn11CeluFunctor5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !847
 
@@ -40414,7 +40410,7 @@ _ZNK2cv3dnn11CeluFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_ed
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %69, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !48
   %68 = sext i32 %67 to i64
   %69 = mul i64 %.03132, %68
@@ -40784,9 +40780,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -40988,7 +40984,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_18Hard
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -41019,7 +41015,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_18Hard
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -41061,7 +41057,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
 
 12:                                               ; preds = %12, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !305
   %15 = load float, ptr %8, align 4, !tbaa !859
   %16 = load float, ptr %11, align 8, !tbaa !861
@@ -41070,7 +41066,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
   %19 = select i1 %18, float %17, float 1.000000e+00
   %20 = fcmp ogt float %19, 0.000000e+00
   %.sroa.speculated.i.us.i = select i1 %20, float %19, float 0.000000e+00
-  %21 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %.sroa.speculated.i.us.i, ptr %21, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -41078,8 +41074,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
 
 ._crit_edge.us.i:                                 ; preds = %12
   %22 = add nsw i32 %.01721.us.i, 1
-  %23 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %24 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %22, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_18HardSigmoidFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !863
 
@@ -41144,7 +41140,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !414
   %31 = load i64, ptr %30, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %28, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !855
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -41152,7 +41148,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !414
   %38 = load i64, ptr %37, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %35, i64 %26
+  %invariant.gep38 = getelementptr [4 x i8], ptr %35, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !851
   %41 = sub i64 %.sroa.speculated, %26
@@ -41184,7 +41180,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
 
 48:                                               ; preds = %48, %.preheader.us.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.preheader.us.i.us.us ], [ %indvars.iv.next.i.us.us, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %.022.us.i.us.us, i64 %indvars.iv.i.us.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us.us, i64 %indvars.iv.i.us.us
   %50 = load float, ptr %49, align 4, !tbaa !305
   %51 = load float, ptr %40, align 4, !tbaa !859
   %52 = load float, ptr %43, align 4, !tbaa !861
@@ -41193,7 +41189,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
   %55 = select i1 %54, float %53, float 1.000000e+00
   %56 = fcmp ogt float %55, 0.000000e+00
   %.sroa.speculated.i.us.i.us.us = select i1 %56, float %55, float 0.000000e+00
-  %57 = getelementptr inbounds nuw float, ptr %.01820.us.i.us.us, i64 %indvars.iv.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us.us, i64 %indvars.iv.i.us.us
   store float %.sroa.speculated.i.us.i.us.us, ptr %57, align 4, !tbaa !305
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
@@ -41201,8 +41197,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_18HardSigmoid
 
 ._crit_edge.us.i.us.us:                           ; preds = %48
   %58 = add nuw nsw i32 %.01721.us.i.us.us, 1
-  %59 = getelementptr inbounds nuw float, ptr %.022.us.i.us.us, i64 %.031.lcssa60
-  %60 = getelementptr inbounds nuw float, ptr %.01820.us.i.us.us, i64 %.031.lcssa60
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us.us, i64 %.031.lcssa60
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us.us, i64 %.031.lcssa60
   %exitcond26.not.i.us.us = icmp eq i32 %58, %.0225458
   br i1 %exitcond26.not.i.us.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_18HardSigmoidFunctorEE5applyEPKfPfiimii.exit.loopexit.us.us, label %.preheader.us.i.us.us, !llvm.loop !863
 
@@ -41214,7 +41210,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_18HardSigmoidFunctorEE5applyEPKfPfiimii.exit
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %65, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = sext i32 %63 to i64
   %65 = mul i64 %.03132, %64
@@ -41580,9 +41576,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -41784,7 +41780,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Selu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -41815,7 +41811,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Selu
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -41857,7 +41853,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SeluFunctor
 
 12:                                               ; preds = %_ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i ]
-  %13 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !305
   %15 = load float, ptr %11, align 8, !tbaa !875
   %16 = fcmp ogt float %14, 0.000000e+00
@@ -41872,7 +41868,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SeluFunctor
 _ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i:   ; preds = %17, %12
   %21 = phi float [ %20, %17 ], [ %14, %12 ]
   %22 = fmul float %15, %21
-  %23 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %indvars.iv.i
   store float %22, ptr %23, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -41880,8 +41876,8 @@ _ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i:   ; preds = %17, %12
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i
   %24 = add nsw i32 %.01521.us.i, 1
-  %25 = getelementptr inbounds nuw float, ptr %.01620.us.i, i64 %4
-  %26 = getelementptr inbounds nuw float, ptr %.01719.us.i, i64 %4
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i, i64 %4
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i, i64 %4
   %exitcond25.not.i = icmp eq i32 %24, %6
   br i1 %exitcond25.not.i, label %_ZNK2cv3dnn11SeluFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !879
 
@@ -41946,7 +41942,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SeluFunctor
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !414
   %31 = load i64, ptr %30, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %28, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !871
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -41954,7 +41950,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SeluFunctor
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !414
   %38 = load i64, ptr %37, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %35, i64 %26
+  %invariant.gep38 = getelementptr [4 x i8], ptr %35, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !867
   %41 = sub i64 %.sroa.speculated, %26
@@ -41986,7 +41982,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SeluFunctor
 
 48:                                               ; preds = %_ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i.us.us, %.preheader.us.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.preheader.us.i.us.us ], [ %indvars.iv.next.i.us.us, %_ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i.us.us ]
-  %49 = getelementptr inbounds nuw float, ptr %.01620.us.i.us.us, i64 %indvars.iv.i.us.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us.us, i64 %indvars.iv.i.us.us
   %50 = load float, ptr %49, align 4, !tbaa !305
   %51 = load float, ptr %43, align 4, !tbaa !875
   %52 = fcmp ogt float %50, 0.000000e+00
@@ -42001,7 +41997,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SeluFunctor
 _ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i.us.us: ; preds = %53, %48
   %57 = phi float [ %56, %53 ], [ %50, %48 ]
   %58 = fmul float %51, %57
-  %59 = getelementptr inbounds nuw float, ptr %.01719.us.i.us.us, i64 %indvars.iv.i.us.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us.us, i64 %indvars.iv.i.us.us
   store float %58, ptr %59, align 4, !tbaa !305
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
@@ -42009,8 +42005,8 @@ _ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i.us.us: ; preds = %53, %48
 
 ._crit_edge.us.i.us.us:                           ; preds = %_ZNK2cv3dnn11SeluFunctor9calculateEf.exit.us.i.us.us
   %60 = add nuw nsw i32 %.01521.us.i.us.us, 1
-  %61 = getelementptr inbounds nuw float, ptr %.01620.us.i.us.us, i64 %.031.lcssa61
-  %62 = getelementptr inbounds nuw float, ptr %.01719.us.i.us.us, i64 %.031.lcssa61
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.01620.us.i.us.us, i64 %.031.lcssa61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %.01719.us.i.us.us, i64 %.031.lcssa61
   %exitcond25.not.i.us.us = icmp eq i32 %60, %.0225559
   br i1 %exitcond25.not.i.us.us, label %_ZNK2cv3dnn11SeluFunctor5applyEPKfPfiimii.exit.loopexit.us.us, label %.preheader.us.i.us.us, !llvm.loop !879
 
@@ -42022,7 +42018,7 @@ _ZNK2cv3dnn11SeluFunctor5applyEPKfPfiimii.exit.loopexit.us.us: ; preds = %._crit
 63:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %67, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = sext i32 %65 to i64
   %67 = mul i64 %.03132, %66
@@ -42394,9 +42390,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -42598,7 +42594,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thre
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -42629,7 +42625,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thre
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -42668,12 +42664,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thresholded
 
 11:                                               ; preds = %11, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4, !tbaa !305
   %14 = load float, ptr %8, align 8, !tbaa !891
   %15 = fcmp ogt float %13, %14
   %16 = select i1 %15, float %13, float 0.000000e+00
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %16, ptr %17, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -42681,8 +42677,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thresholded
 
 ._crit_edge.us.i:                                 ; preds = %11
   %18 = add nsw i32 %.01721.us.i, 1
-  %19 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %20 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %18, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_22ThresholdedReluFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !894
 
@@ -42769,11 +42765,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thresholded
   %43 = load ptr, ptr %42, align 8, !tbaa !297
   %44 = load ptr, ptr %41, align 8, !tbaa !414
   %45 = load i64, ptr %44, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %43, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %43, i64 %25
   %46 = load ptr, ptr %38, align 8, !tbaa !297
   %47 = load ptr, ptr %37, align 8, !tbaa !414
   %48 = load i64, ptr %47, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %46, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %46, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -42793,12 +42789,12 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thresholded
 
 51:                                               ; preds = %51, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %53 = load float, ptr %52, align 4, !tbaa !305
   %54 = load float, ptr %32, align 4, !tbaa !891
   %55 = fcmp ogt float %53, %54
   %56 = select i1 %55, float %53, float 0.000000e+00
-  %57 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %56, ptr %57, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -42806,8 +42802,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_22Thresholded
 
 ._crit_edge.us.i.us:                              ; preds = %51
   %58 = add nuw nsw i32 %.01721.us.i.us, 1
-  %59 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %60 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %58, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_22ThresholdedReluFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !894
 
@@ -42819,7 +42815,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_22ThresholdedReluFunctorEE5applyEPKfPfiimii.
 61:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %65, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !48
   %64 = sext i32 %63 to i64
   %65 = mul i64 %.03132, %64
@@ -43192,9 +43188,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -43402,7 +43398,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Powe
 15:                                               ; preds = %.lr.ph, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph ], [ %32, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %16 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %16, align 8, !tbaa !406
   %17 = getelementptr i8, ptr %16, i64 8
   %.val9 = load ptr, ptr %17, align 8, !tbaa !406
@@ -43433,7 +43429,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12Powe
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %29, %.lr.ph.i ]
-  %27 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4, !tbaa !48
   %29 = mul nsw i32 %28, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -43482,11 +43478,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 17:                                               ; preds = %17, %.preheader46.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader46.us.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %.152.us.i, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.152.us.i, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !305
   %20 = tail call float @llvm.fmuladd.f32(float %10, float %19, float %12)
   %21 = tail call noundef float @powf(float noundef %20, float noundef %13) #25, !tbaa !48
-  %22 = getelementptr inbounds nuw float, ptr %.14150.us.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.14150.us.i, i64 %indvars.iv.i
   store float %21, ptr %22, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -43494,8 +43490,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge.us.i:                                 ; preds = %17
   %23 = add nsw i32 %.03951.us.i, 1
-  %24 = getelementptr inbounds nuw float, ptr %.152.us.i, i64 %4
-  %25 = getelementptr inbounds nuw float, ptr %.14150.us.i, i64 %4
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.152.us.i, i64 %4
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.14150.us.i, i64 %4
   %exitcond62.not.i = icmp eq i32 %23, %6
   br i1 %exitcond62.not.i, label %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit, label %.preheader46.us.i, !llvm.loop !914
 
@@ -43514,10 +43510,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 26:                                               ; preds = %26, %.preheader.us.i
   %indvars.iv63.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next64.i, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %.056.us.i, i64 %indvars.iv63.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.056.us.i, i64 %indvars.iv63.i
   %28 = load float, ptr %27, align 4, !tbaa !305
   %29 = tail call float @llvm.fmuladd.f32(float %10, float %28, float %12)
-  %30 = getelementptr inbounds nuw float, ptr %.04055.us.i, i64 %indvars.iv63.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.04055.us.i, i64 %indvars.iv63.i
   store float %29, ptr %30, align 4, !tbaa !305
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count66.i
@@ -43525,8 +43521,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge.us57.i:                               ; preds = %26
   %31 = add nsw i32 %.04354.us.i, 1
-  %32 = getelementptr inbounds nuw float, ptr %.056.us.i, i64 %4
-  %33 = getelementptr inbounds nuw float, ptr %.04055.us.i, i64 %4
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.056.us.i, i64 %4
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.04055.us.i, i64 %4
   %exitcond68.not.i = icmp eq i32 %31, %6
   br i1 %exitcond68.not.i, label %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !916
 
@@ -43591,7 +43587,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !414
   %31 = load i64, ptr %30, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %28, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !909
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -43599,7 +43595,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !414
   %38 = load i64, ptr %37, align 8, !tbaa !329
-  %invariant.gep39 = getelementptr float, ptr %35, i64 %26
+  %invariant.gep39 = getelementptr [4 x i8], ptr %35, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !905
   %41 = sub i64 %.sroa.speculated, %26
@@ -43637,11 +43633,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 53:                                               ; preds = %53, %.preheader46.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader46.us.i.us ], [ %indvars.iv.next.i.us, %53 ]
-  %54 = getelementptr inbounds nuw float, ptr %.152.us.i.us, i64 %indvars.iv.i.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.152.us.i.us, i64 %indvars.iv.i.us
   %55 = load float, ptr %54, align 4, !tbaa !305
   %56 = tail call float @llvm.fmuladd.f32(float %49, float %55, float %50)
   %57 = tail call noundef float @powf(float noundef %56, float noundef %51) #25, !tbaa !48
-  %58 = getelementptr inbounds nuw float, ptr %.14150.us.i.us, i64 %indvars.iv.i.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.14150.us.i.us, i64 %indvars.iv.i.us
   store float %57, ptr %58, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -43649,8 +43645,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge.us.i.us:                              ; preds = %53
   %59 = add nuw nsw i32 %.03951.us.i.us, 1
-  %60 = getelementptr inbounds nuw float, ptr %.152.us.i.us, i64 %.031.lcssa67
-  %61 = getelementptr inbounds nuw float, ptr %.14150.us.i.us, i64 %.031.lcssa67
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.152.us.i.us, i64 %.031.lcssa67
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.14150.us.i.us, i64 %.031.lcssa67
   %exitcond62.not.i.us = icmp eq i32 %59, %.0226165
   br i1 %exitcond62.not.i.us, label %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us, label %.preheader46.us.i.us, !llvm.loop !914
 
@@ -43662,10 +43658,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 62:                                               ; preds = %62, %.preheader.us.i.us
   %indvars.iv63.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next64.i.us, %62 ]
-  %63 = getelementptr inbounds nuw float, ptr %.056.us.i.us, i64 %indvars.iv63.i.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.056.us.i.us, i64 %indvars.iv63.i.us
   %64 = load float, ptr %63, align 4, !tbaa !305
   %65 = tail call float @llvm.fmuladd.f32(float %49, float %64, float %50)
-  %66 = getelementptr inbounds nuw float, ptr %.04055.us.i.us, i64 %indvars.iv63.i.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.04055.us.i.us, i64 %indvars.iv63.i.us
   store float %65, ptr %66, align 4, !tbaa !305
   %indvars.iv.next64.i.us = add nuw nsw i64 %indvars.iv63.i.us, 1
   %exitcond67.not.i.us = icmp eq i64 %indvars.iv.next64.i.us, %wide.trip.count.i
@@ -43673,8 +43669,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PowerFuncto
 
 ._crit_edge.us57.i.us:                            ; preds = %62
   %67 = add nuw nsw i32 %.04354.us.i.us, 1
-  %68 = getelementptr inbounds nuw float, ptr %.056.us.i.us, i64 %.031.lcssa67
-  %69 = getelementptr inbounds nuw float, ptr %.04055.us.i.us, i64 %.031.lcssa67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.056.us.i.us, i64 %.031.lcssa67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.04055.us.i.us, i64 %.031.lcssa67
   %exitcond68.not.i.us = icmp eq i32 %67, %.0226165
   br i1 %exitcond68.not.i.us, label %_ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us, label %.preheader.us.i.us, !llvm.loop !916
 
@@ -43686,7 +43682,7 @@ _ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us: ; preds = %._crit_edge.us.i.
 70:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %.03133 = phi i64 [ 1, %.lr.ph ], [ %74, %70 ]
-  %71 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !48
   %73 = sext i32 %72 to i64
   %74 = mul i64 %.03133, %73
@@ -44077,9 +44073,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -44290,7 +44286,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpF
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %27, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -44321,7 +44317,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpF
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -44364,13 +44360,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpFunctorE
 
 12:                                               ; preds = %12, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !305
   %15 = load float, ptr %10, align 4, !tbaa !927
   %16 = load float, ptr %11, align 8, !tbaa !929
   %17 = tail call float @llvm.fmuladd.f32(float %15, float %14, float %16)
   %18 = tail call noundef float @expf(float noundef %17) #25, !tbaa !48
-  %19 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %18, ptr %19, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -44378,8 +44374,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpFunctorE
 
 ._crit_edge.us.i:                                 ; preds = %12
   %20 = add nsw i32 %.01721.us.i, 1
-  %21 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %22 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %20, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10ExpFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !931
 
@@ -44444,7 +44440,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpFunctorE
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !414
   %31 = load i64, ptr %30, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %28, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !923
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -44452,7 +44448,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpFunctorE
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !414
   %38 = load i64, ptr %37, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %35, i64 %26
+  %invariant.gep38 = getelementptr [4 x i8], ptr %35, i64 %26
   %39 = sub i64 %.sroa.speculated, %26
   %40 = icmp sgt i32 %.0225458, 0
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -44485,13 +44481,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpFunctorE
 
 49:                                               ; preds = %49, %.preheader.us.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.preheader.us.i.us.us ], [ %indvars.iv.next.i.us.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us.us, i64 %indvars.iv.i.us.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us.us, i64 %indvars.iv.i.us.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = load float, ptr %43, align 4, !tbaa !927
   %53 = load float, ptr %44, align 4, !tbaa !929
   %54 = tail call float @llvm.fmuladd.f32(float %52, float %51, float %53)
   %55 = tail call noundef float @expf(float noundef %54) #25, !tbaa !48
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us.us, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us.us, i64 %indvars.iv.i.us.us
   store float %55, ptr %56, align 4, !tbaa !305
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
@@ -44499,8 +44495,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_10ExpFunctorE
 
 ._crit_edge.us.i.us.us:                           ; preds = %49
   %57 = add nuw nsw i32 %.01721.us.i.us.us, 1
-  %58 = getelementptr inbounds nuw float, ptr %.022.us.i.us.us, i64 %.031.lcssa60
-  %59 = getelementptr inbounds nuw float, ptr %.01820.us.i.us.us, i64 %.031.lcssa60
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us.us, i64 %.031.lcssa60
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us.us, i64 %.031.lcssa60
   %exitcond26.not.i.us.us = icmp eq i32 %57, %.0225458
   br i1 %exitcond26.not.i.us.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_10ExpFunctorEE5applyEPKfPfiimii.exit.loopexit.us.us, label %.preheader.us.i.us.us, !llvm.loop !931
 
@@ -44512,7 +44508,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10ExpFunctorEE5applyEPKfPfiimii.exit.loopexi
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %64, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !48
   %63 = sext i32 %62 to i64
   %64 = mul i64 %.03132, %63
@@ -44888,9 +44884,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -45098,7 +45094,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12PReL
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -45129,7 +45125,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_12PReL
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -45227,7 +45223,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PReLUFuncto
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %40, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !48
   %39 = sext i32 %38 to i64
   %40 = mul i64 %.03132, %39
@@ -45248,7 +45244,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PReLUFuncto
   %47 = load i64, ptr %46, align 8, !tbaa !329
   %48 = mul i64 %47, %indvars.iv39
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %25
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %25
   %51 = load ptr, ptr %31, align 8, !tbaa !939
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !297
@@ -45257,7 +45253,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_12PReLUFuncto
   %56 = load i64, ptr %55, align 8, !tbaa !329
   %57 = mul i64 %56, %indvars.iv39
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %25
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %25
   %60 = load ptr, ptr %32, align 8, !tbaa !935
   tail call void @_ZNK2cv3dnn12PReLUFunctor5applyEPKfPfiimii(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef %50, ptr noundef %59, i32 noundef %33, i32 noundef %35, i64 noundef %.031.lcssa55, i32 noundef 0, i32 noundef %.0224953)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -45363,9 +45359,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %32,
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = sext i32 %6 to i64
   %43 = mul i64 %5, %42
-  %44 = getelementptr inbounds nuw float, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %43
   %45 = zext nneg i32 %3 to i64
-  %46 = getelementptr inbounds nuw float, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.preheader.us
 
@@ -45378,14 +45374,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %32,
 
 47:                                               ; preds = %.preheader.us, %47
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %.050.us, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.050.us, i64 %indvars.iv
   %49 = load float, ptr %48, align 4, !tbaa !305
-  %50 = getelementptr inbounds nuw float, ptr %.03247.us, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.03247.us, i64 %indvars.iv
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fcmp oge float %49, 0.000000e+00
   %53 = fmul float %49, %51
   %54 = select i1 %52, float %49, float %53
-  %55 = getelementptr inbounds nuw float, ptr %.02949.us, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.02949.us, i64 %indvars.iv
   store float %54, ptr %55, align 4, !tbaa !305
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -45393,9 +45389,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %32,
 
 ._crit_edge.us:                                   ; preds = %47
   %56 = add nsw i32 %.03148.us, 1
-  %57 = getelementptr inbounds nuw float, ptr %.050.us, i64 %5
-  %58 = getelementptr inbounds nuw float, ptr %.02949.us, i64 %5
-  %59 = getelementptr inbounds nuw float, ptr %.03247.us, i64 %5
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.050.us, i64 %5
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.02949.us, i64 %5
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.03247.us, i64 %5
   %exitcond54.not = icmp eq i32 %56, %7
   br i1 %exitcond54.not, label %._crit_edge51, label %.preheader.us, !llvm.loop !946
 
@@ -45587,9 +45583,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -45792,7 +45788,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_20Chan
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -45823,7 +45819,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_20Chan
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -45919,7 +45915,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_20ChannelsPRe
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %40, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !48
   %39 = sext i32 %38 to i64
   %40 = mul i64 %.03132, %39
@@ -45940,7 +45936,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_20ChannelsPRe
   %47 = load i64, ptr %46, align 8, !tbaa !329
   %48 = mul i64 %47, %indvars.iv39
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %25
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %25
   %51 = load ptr, ptr %31, align 8, !tbaa !951
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !297
@@ -45949,7 +45945,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_20ChannelsPRe
   %56 = load i64, ptr %55, align 8, !tbaa !329
   %57 = mul i64 %56, %indvars.iv39
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %25
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %25
   %60 = load ptr, ptr %32, align 8, !tbaa !947
   tail call void @_ZNK2cv3dnn20ChannelsPReLUFunctor5applyEPKfPfiimii(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef %50, ptr noundef %59, i32 noundef %33, i32 noundef %35, i64 noundef %.031.lcssa55, i32 noundef 0, i32 noundef %.0224953)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -46031,18 +46027,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   %indvars.iv53 = phi i64 [ %34, %.lr.ph.us.preheader ], [ %indvars.iv.next54, %._crit_edge.us ]
   %.048.us = phi ptr [ %1, %.lr.ph.us.preheader ], [ %44, %._crit_edge.us ]
   %.02847.us = phi ptr [ %2, %.lr.ph.us.preheader ], [ %45, %._crit_edge.us ]
-  %35 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv53
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv53
   %36 = load float, ptr %35, align 4, !tbaa !305
   br label %37
 
 37:                                               ; preds = %.lr.ph.us, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %.048.us, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.048.us, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !305
   %40 = fcmp oge float %39, 0.000000e+00
   %41 = fmul float %36, %39
   %42 = select i1 %40, float %39, float %41
-  %43 = getelementptr inbounds nuw float, ptr %.02847.us, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.02847.us, i64 %indvars.iv
   store float %42, ptr %43, align 4, !tbaa !305
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -46050,8 +46046,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
 
 ._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %44 = getelementptr inbounds nuw float, ptr %.048.us, i64 %5
-  %45 = getelementptr inbounds nuw float, ptr %.02847.us, i64 %5
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.048.us, i64 %5
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.02847.us, i64 %5
   %46 = trunc nuw i64 %indvars.iv.next54 to i32
   %47 = icmp sgt i32 %7, %46
   br i1 %47, label %.lr.ph.us, label %._crit_edge50, !llvm.loop !958
@@ -46268,9 +46264,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -46472,7 +46468,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Sign
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -46503,7 +46499,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_11Sign
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -46541,13 +46537,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SignFunctor
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fcmp ogt float %12, 0.000000e+00
   %14 = fcmp olt float %12, 0.000000e+00
   %15 = select i1 %14, float -1.000000e+00, float 0.000000e+00
   %16 = select i1 %13, float 1.000000e+00, float %15
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %16, ptr %17, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -46555,8 +46551,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SignFunctor
 
 ._crit_edge.us.i:                                 ; preds = %10
   %18 = add nsw i32 %.01721.us.i, 1
-  %19 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %20 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %18, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11SignFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !968
 
@@ -46641,11 +46637,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SignFunctor
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -46665,13 +46661,13 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SignFunctor
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fcmp ogt float %51, 0.000000e+00
   %53 = fcmp olt float %51, 0.000000e+00
   %54 = select i1 %53, float -1.000000e+00, float 0.000000e+00
   %55 = select i1 %52, float 1.000000e+00, float %54
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %55, ptr %56, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -46679,8 +46675,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_11SignFunctor
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %57 = add nuw nsw i32 %.01721.us.i.us, 1
-  %58 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %59 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %57, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_11SignFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !968
 
@@ -46692,7 +46688,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11SignFunctorEE5applyEPKfPfiimii.exit.loopex
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %64, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !48
   %63 = sext i32 %62 to i64
   %64 = mul i64 %.03132, %63
@@ -47054,9 +47050,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -47258,7 +47254,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_17Reci
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -47289,7 +47285,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_17Reci
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -47327,10 +47323,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_17ReciprocalF
 
 10:                                               ; preds = %10, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %12 = load float, ptr %11, align 4, !tbaa !305
   %13 = fdiv float 1.000000e+00, %12
-  %14 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -47338,8 +47334,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_17ReciprocalF
 
 ._crit_edge.us.i:                                 ; preds = %10
   %15 = add nsw i32 %.01721.us.i, 1
-  %16 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %17 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %15, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_17ReciprocalFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !981
 
@@ -47424,11 +47420,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_17ReciprocalF
   %41 = load ptr, ptr %40, align 8, !tbaa !297
   %42 = load ptr, ptr %39, align 8, !tbaa !414
   %43 = load i64, ptr %42, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %41, i64 %25
+  %invariant.gep = getelementptr [4 x i8], ptr %41, i64 %25
   %44 = load ptr, ptr %36, align 8, !tbaa !297
   %45 = load ptr, ptr %35, align 8, !tbaa !414
   %46 = load i64, ptr %45, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %44, i64 %25
+  %invariant.gep38 = getelementptr [4 x i8], ptr %44, i64 %25
   %wide.trip.count45 = zext nneg i32 %.05258 to i64
   br label %.preheader.us.preheader.i.us
 
@@ -47448,10 +47444,10 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_17ReciprocalF
 
 49:                                               ; preds = %49, %.preheader.us.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.us.i.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !305
   %52 = fdiv float 1.000000e+00, %51
-  %53 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %indvars.iv.i.us
   store float %52, ptr %53, align 4, !tbaa !305
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
@@ -47459,8 +47455,8 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_17ReciprocalF
 
 ._crit_edge.us.i.us:                              ; preds = %49
   %54 = add nuw nsw i32 %.01721.us.i.us, 1
-  %55 = getelementptr inbounds nuw float, ptr %.022.us.i.us, i64 %.031.lcssa59
-  %56 = getelementptr inbounds nuw float, ptr %.01820.us.i.us, i64 %.031.lcssa59
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us, i64 %.031.lcssa59
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us, i64 %.031.lcssa59
   %exitcond26.not.i.us = icmp eq i32 %54, %.0225357
   br i1 %exitcond26.not.i.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_17ReciprocalFunctorEE5applyEPKfPfiimii.exit.loopexit.us, label %.preheader.us.i.us, !llvm.loop !981
 
@@ -47472,7 +47468,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_17ReciprocalFunctorEE5applyEPKfPfiimii.exit.
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %61, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !48
   %60 = sext i32 %59 to i64
   %61 = mul i64 %.03132, %60
@@ -47834,9 +47830,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit45:        ; preds = %_ZSt8_DestroyIPN2cv
 42:                                               ; preds = %.lr.ph, %75
   %43 = phi ptr [ %22, %.lr.ph ], [ %78, %75 ]
   %.02953 = phi i64 [ 0, %.lr.ph ], [ %76, %75 ]
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %.02953
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %.02953
   %45 = load ptr, ptr %7, align 8, !tbaa !296
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.02953
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.02953
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %49 = call noundef zeroext i1 @_ZNK2cv7MatSizeeqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48) #25
@@ -48038,7 +48034,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_13Shri
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
   %.0712 = phi i64 [ 0, %.lr.ph.preheader ], [ %26, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit ]
-  %11 = getelementptr inbounds nuw %"class.std::vector.257", ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %11, align 8, !tbaa !406
   %12 = getelementptr i8, ptr %11, i64 8
   %.val9 = load ptr, ptr %12, align 8, !tbaa !406
@@ -48069,7 +48065,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn16ElementWiseLayerINS0_13Shri
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0231.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !48
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -48111,7 +48107,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13ShrinkFunct
 
 12:                                               ; preds = %_ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i ]
-  %13 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4, !tbaa !305
   %15 = load float, ptr %11, align 8, !tbaa !993
   %16 = fcmp ogt float %14, %15
@@ -48134,7 +48130,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13ShrinkFunct
 
 _ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i: ; preds = %23, %20, %17
   %26 = phi float [ %25, %23 ], [ %22, %20 ], [ 0.000000e+00, %17 ]
-  %27 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %indvars.iv.i
   store float %26, ptr %27, align 4, !tbaa !305
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -48142,8 +48138,8 @@ _ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i: ; preds = %23, %20, %17
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i
   %28 = add nsw i32 %.01721.us.i, 1
-  %29 = getelementptr inbounds nuw float, ptr %.022.us.i, i64 %4
-  %30 = getelementptr inbounds nuw float, ptr %.01820.us.i, i64 %4
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i, i64 %4
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i, i64 %4
   %exitcond26.not.i = icmp eq i32 %28, %6
   br i1 %exitcond26.not.i, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_13ShrinkFunctorEE5applyEPKfPfiimii.exit, label %.preheader.us.i, !llvm.loop !997
 
@@ -48211,7 +48207,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13ShrinkFunct
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !414
   %31 = load i64, ptr %30, align 8, !tbaa !329
-  %invariant.gep = getelementptr float, ptr %28, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !989
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -48219,7 +48215,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13ShrinkFunct
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !414
   %38 = load i64, ptr %37, align 8, !tbaa !329
-  %invariant.gep38 = getelementptr float, ptr %35, i64 %26
+  %invariant.gep38 = getelementptr [4 x i8], ptr %35, i64 %26
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !985
   %41 = sub i64 %.sroa.speculated, %26
@@ -48251,7 +48247,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13ShrinkFunct
 
 48:                                               ; preds = %_ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i.us.us, %.preheader.us.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.preheader.us.i.us.us ], [ %indvars.iv.next.i.us.us, %_ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i.us.us ]
-  %49 = getelementptr inbounds nuw float, ptr %.022.us.i.us.us, i64 %indvars.iv.i.us.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us.us, i64 %indvars.iv.i.us.us
   %50 = load float, ptr %49, align 4, !tbaa !305
   %51 = load float, ptr %43, align 4, !tbaa !993
   %52 = fcmp ogt float %50, %51
@@ -48274,7 +48270,7 @@ define linkonce_odr hidden void @_ZNK2cv3dnn16ElementWiseLayerINS0_13ShrinkFunct
 
 _ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i.us.us: ; preds = %59, %56, %53
   %62 = phi float [ %61, %59 ], [ %58, %56 ], [ 0.000000e+00, %53 ]
-  %63 = getelementptr inbounds nuw float, ptr %.01820.us.i.us.us, i64 %indvars.iv.i.us.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us.us, i64 %indvars.iv.i.us.us
   store float %62, ptr %63, align 4, !tbaa !305
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, %wide.trip.count.i
@@ -48282,8 +48278,8 @@ _ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i.us.us: ; preds = %59, %56, %53
 
 ._crit_edge.us.i.us.us:                           ; preds = %_ZNK2cv3dnn13ShrinkFunctor9calculateEf.exit.us.i.us.us
   %64 = add nuw nsw i32 %.01721.us.i.us.us, 1
-  %65 = getelementptr inbounds nuw float, ptr %.022.us.i.us.us, i64 %.031.lcssa62
-  %66 = getelementptr inbounds nuw float, ptr %.01820.us.i.us.us, i64 %.031.lcssa62
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.022.us.i.us.us, i64 %.031.lcssa62
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.01820.us.i.us.us, i64 %.031.lcssa62
   %exitcond26.not.i.us.us = icmp eq i32 %64, %.0225660
   br i1 %exitcond26.not.i.us.us, label %_ZNK2cv3dnn18BaseDefaultFunctorINS0_13ShrinkFunctorEE5applyEPKfPfiimii.exit.loopexit.us.us, label %.preheader.us.i.us.us, !llvm.loop !997
 
@@ -48295,7 +48291,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_13ShrinkFunctorEE5applyEPKfPfiimii.exit.loop
 67:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %.03132 = phi i64 [ 1, %.lr.ph ], [ %71, %67 ]
-  %68 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !48
   %70 = sext i32 %69 to i64
   %71 = mul i64 %.03132, %70

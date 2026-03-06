@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/ex_data.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ex_callbacks_st = type { ptr }
 %struct.ex_callback_entry = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [28 x i8] c"../openssl/crypto/ex_data.c\00", align 1
@@ -45,7 +44,7 @@ define void @ossl_crypto_cleanup_all_ex_data_int(ptr noundef %0) local_unnamed_a
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %7, ptr noundef nonnull @cleanup_cb) #9
   store ptr null, ptr %6, align 8, !tbaa !8
@@ -100,7 +99,7 @@ define range(i32 0, 2) i32 @ossl_crypto_free_ex_index_ex(ptr noundef %0, i32 nou
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = icmp slt i32 %2, 0
   br i1 %17, label %29, label %18
 
@@ -188,7 +187,7 @@ define range(i32 -2147483648, 2147483647) i32 @ossl_crypto_get_ex_new_index_ex(p
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %31
@@ -312,7 +311,7 @@ define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %0, i32 nound
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   store ptr %0, ptr %3, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %19, align 8, !tbaa !26
@@ -342,7 +341,7 @@ define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %0, i32 nound
   %29 = load ptr, ptr %18, align 8, !tbaa !8
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %30) #9
-  %32 = getelementptr inbounds nuw ptr, ptr %.14775, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.14775, i64 %indvars.iv
   store ptr %31, ptr %32, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -365,7 +364,7 @@ define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %0, i32 nound
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %58
   %indvars.iv62 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next63, %58 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.046, i64 %indvars.iv62
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.046, i64 %indvars.iv62
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %.not53 = icmp eq ptr %37, null
   br i1 %.not53, label %58, label %38
@@ -493,7 +492,7 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = zext nneg i32 %0 to i64
-  %23 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !8
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef %24) #9
   %26 = load ptr, ptr %7, align 8, !tbaa !26
@@ -528,7 +527,7 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
   %37 = load ptr, ptr %23, align 8, !tbaa !8
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = tail call ptr @OPENSSL_sk_value(ptr noundef %37, i32 noundef %38) #9
-  %40 = getelementptr inbounds nuw ptr, ptr %.1101, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.1101, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -591,7 +590,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %44, %51, %53
 CRYPTO_get_ex_data.exit73:                        ; preds = %.lr.ph83, %59, %62
   %.0.i72 = phi ptr [ %65, %62 ], [ null, %59 ], [ null, %.lr.ph83 ]
   store ptr %.0.i72, ptr %4, align 8, !tbaa !32
-  %66 = getelementptr inbounds nuw ptr, ptr %.1101, i64 %indvars.iv87
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.1101, i64 %indvars.iv87
   %67 = load ptr, ptr %66, align 8, !tbaa !27
   %.not66 = icmp eq ptr %67, null
   br i1 %.not66, label %77, label %68
@@ -723,7 +722,7 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   %20 = tail call i32 @OPENSSL_sk_num(ptr noundef %19) #9
   %21 = icmp sgt i32 %20, 0
@@ -750,7 +749,7 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %28 = load ptr, ptr %18, align 8, !tbaa !8
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %29) #9
-  %31 = getelementptr inbounds nuw %struct.ex_callback_entry, ptr %.14785, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.14785, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %29, ptr %32, align 8, !tbaa !37
@@ -774,7 +773,7 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 
 39:                                               ; preds = %.lr.ph68, %60
   %indvars.iv71 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next72, %60 ]
-  %40 = getelementptr inbounds nuw %struct.ex_callback_entry, ptr %.14785, i64 %indvars.iv71
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.14785, i64 %indvars.iv71
   %41 = load ptr, ptr %40, align 8, !tbaa !35
   %.not54 = icmp eq ptr %41, null
   br i1 %.not54, label %60, label %42
@@ -930,7 +929,7 @@ define range(i32 0, 2) i32 @ossl_crypto_alloc_ex_data_intern(i32 noundef %0, ptr
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr inbounds nuw %struct.ex_callbacks_st, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef %19, i32 noundef %3) #9
   %21 = load ptr, ptr %6, align 8, !tbaa !3

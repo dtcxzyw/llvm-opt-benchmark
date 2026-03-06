@@ -22939,7 +22939,7 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_seq17h3b678045
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4709, !noalias !4712, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4709, !noalias !4712
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %9 = getelementptr inbounds [32 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.sroa.4.0.copyload.i, ptr %8, align 8
   %.sroa.02.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -23102,7 +23102,7 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_seq17hbf50871e
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4747, !noalias !4750, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4747, !noalias !4750
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %8 = getelementptr inbounds [32 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.sroa.4.0.copyload.i, ptr %7, align 8
   %.sroa.02.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -23225,7 +23225,7 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_seq17hc100dfa6
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4774, !noalias !4777, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4774, !noalias !4777
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %8 = getelementptr inbounds [32 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.sroa.4.0.copyload.i, ptr %7, align 8
   %.sroa.02.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -23341,7 +23341,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23459,7 +23459,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23577,7 +23577,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23707,7 +23707,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h171a
   %12 = alloca { i8, [31 x i8] }, align 8
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8
   %14 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %15 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %15 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -23912,7 +23912,7 @@ _ZN5serde2de9MapAccess10next_value17ha6ed8d3a46f947d4E.exit.i.i: ; preds = %34
 53:                                               ; preds = %._crit_edge.i.i, %43
   %54 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %43 ]
   %55 = load ptr, ptr %19, align 8, !alias.scope !4902, !noalias !4905, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [63 x i8] }, ptr %55, i64 %54
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !4872
   %57 = add i64 %54, 1
   store i64 %57, ptr %20, align 8, !alias.scope !4902, !noalias !4905
@@ -23943,7 +23943,7 @@ _ZN5serde2de9MapAccess10next_value17ha6ed8d3a46f947d4E.exit.i.i: ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4911
   %65 = load ptr, ptr %19, align 8, !alias.scope !4914, !noalias !4917, !nonnull !5, !noundef !5
   %66 = load i64, ptr %20, align 8, !alias.scope !4914, !noalias !4917, !noundef !5
-  %67 = getelementptr inbounds { i8, [63 x i8] }, ptr %65, i64 %66
+  %67 = getelementptr inbounds [64 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %65, ptr %68, align 8, !noalias !4911
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -24114,7 +24114,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h1b82
   %.sroa.9 = alloca [4 x i64], align 8
   %12 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %13 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %14 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %14 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -24340,7 +24340,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -24459,7 +24459,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h24ee
   %5 = alloca i64, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -24650,7 +24650,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h2afd
   %5 = alloca { i64, [38 x i64] }, align 8
   %6 = alloca { { i64, [9 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, i8, i8, [5 x i8] }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -24743,7 +24743,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h2b8d
   %11 = alloca { i64, [2 x i64] }, align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %14 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %14 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -25132,7 +25132,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h2c6c
   %17 = alloca { i64, [2 x i64] }, align 8
   %18 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, align 8
   %19 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %20 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %20 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %1, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -25677,7 +25677,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h2dc4
   %5 = alloca { i64, [14 x i64] }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -25777,7 +25777,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h2e2f
   %16 = alloca { i64, [3 x i64] }, align 8
   %17 = alloca { { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] } }, align 8
   %18 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %19 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -26303,7 +26303,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h3b7e
   %14 = alloca { i64, [2 x i64] }, align 8
   %15 = alloca { { i64, [2 x i64] }, i32, i8, i8, i8, {}, [1 x i8] }, align 8
   %16 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %17 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %17 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -26926,7 +26926,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h42af
   %5 = alloca { i64, [18 x i64] }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64 }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -27012,7 +27012,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -27145,7 +27145,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h5522
   %18 = alloca { i64, [3 x i64] }, align 8
   %19 = alloca { { i64, [3 x i64] }, i8, i8, {}, [6 x i8] }, align 8
   %20 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %21 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %21 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %1, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -27753,7 +27753,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h569b
   %.sroa.9 = alloca [4 x i64], align 8
   %14 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %15 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %16 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %16 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -28010,7 +28010,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h5bb3
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { { { { i64, ptr, {} }, i64 } }, {} }, align 8
   %16 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %17 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %17 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -28216,7 +28216,7 @@ _ZN5serde2de9MapAccess10next_value17h32079c1173e836ddE.exit.i.i: ; preds = %36
 55:                                               ; preds = %._crit_edge.i.i, %45
   %56 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %46, %45 ]
   %57 = load ptr, ptr %21, align 8, !alias.scope !5943, !noalias !5946, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [63 x i8] }, ptr %57, i64 %56
+  %58 = getelementptr inbounds [64 x i8], ptr %57, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !5914
   %59 = add i64 %56, 1
   store i64 %59, ptr %22, align 8, !alias.scope !5943, !noalias !5946
@@ -28248,7 +28248,7 @@ _ZN5serde2de9MapAccess10next_value17h32079c1173e836ddE.exit.i.i: ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !5955
   %67 = load ptr, ptr %21, align 8, !alias.scope !5959, !noalias !5962, !nonnull !5, !noundef !5
   %68 = load i64, ptr %22, align 8, !alias.scope !5959, !noalias !5962, !noundef !5
-  %69 = getelementptr inbounds { i8, [63 x i8] }, ptr %67, i64 %68
+  %69 = getelementptr inbounds [64 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %67, ptr %70, align 8, !noalias !5955
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -28475,7 +28475,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h5d94
   %5 = alloca i64, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -28794,7 +28794,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h613f
   %18 = alloca { i64, [3 x i64] }, align 8
   %19 = alloca { { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, i8, i8, [6 x i8] }, align 8
   %20 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %21 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %21 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %1, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -29435,7 +29435,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -29559,7 +29559,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7128
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %12 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %13 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %13 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -29857,7 +29857,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -29984,7 +29984,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7884
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = alloca { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, align 8
   %15 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %16 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %16 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -30386,7 +30386,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h84d7
   %16 = alloca { i64, [2 x i64] }, align 8
   %17 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, align 8
   %18 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %19 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -30998,7 +30998,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -31116,7 +31116,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -31247,7 +31247,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17ha9f1
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8
   %14 = alloca { { { { i64, ptr, {} }, i64 } }, {} }, align 8
   %15 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %16 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %16 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -31453,7 +31453,7 @@ _ZN5serde2de9MapAccess10next_value17he03dfb6f52643de0E.exit.i.i: ; preds = %35
 54:                                               ; preds = %._crit_edge.i.i, %44
   %55 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %45, %44 ]
   %56 = load ptr, ptr %20, align 8, !alias.scope !6771, !noalias !6774, !nonnull !5, !noundef !5
-  %57 = getelementptr inbounds { i8, [63 x i8] }, ptr %56, i64 %55
+  %57 = getelementptr inbounds [64 x i8], ptr %56, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !6742
   %58 = add i64 %55, 1
   store i64 %58, ptr %21, align 8, !alias.scope !6771, !noalias !6774
@@ -31485,7 +31485,7 @@ _ZN5serde2de9MapAccess10next_value17he03dfb6f52643de0E.exit.i.i: ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6783
   %66 = load ptr, ptr %20, align 8, !alias.scope !6787, !noalias !6790, !nonnull !5, !noundef !5
   %67 = load i64, ptr %21, align 8, !alias.scope !6787, !noalias !6790, !noundef !5
-  %68 = getelementptr inbounds { i8, [63 x i8] }, ptr %66, i64 %67
+  %68 = getelementptr inbounds [64 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %66, ptr %69, align 8, !noalias !6783
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -31685,7 +31685,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17haacb
   %.sroa.02 = alloca { i8, i8, i8 }, align 8
   %.sroa.11 = alloca [3 x i8], align 8
   %14 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %15 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %15 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -31891,7 +31891,7 @@ _ZN5serde2de9MapAccess10next_value17heaae8f38d502292aE.exit.i.i: ; preds = %34
 53:                                               ; preds = %._crit_edge.i.i, %43
   %54 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %43 ]
   %55 = load ptr, ptr %19, align 8, !alias.scope !6852, !noalias !6855, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [63 x i8] }, ptr %55, i64 %54
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !6823
   %57 = add i64 %54, 1
   store i64 %57, ptr %20, align 8, !alias.scope !6852, !noalias !6855
@@ -31922,7 +31922,7 @@ _ZN5serde2de9MapAccess10next_value17heaae8f38d502292aE.exit.i.i: ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6861
   %65 = load ptr, ptr %19, align 8, !alias.scope !6864, !noalias !6867, !nonnull !5, !noundef !5
   %66 = load i64, ptr %20, align 8, !alias.scope !6864, !noalias !6867, !noundef !5
-  %67 = getelementptr inbounds { i8, [63 x i8] }, ptr %65, i64 %66
+  %67 = getelementptr inbounds [64 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %65, ptr %68, align 8, !noalias !6861
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -32102,7 +32102,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hb633
   %19 = alloca { i64, [2 x i64] }, align 8
   %20 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %21 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %22 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %22 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %1, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -32743,7 +32743,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -32875,7 +32875,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hc5d5
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { { { { i64, ptr, {} }, i64 } }, {} }, align 8
   %16 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %17 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %17 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -33081,7 +33081,7 @@ _ZN5serde2de9MapAccess10next_value17h33666b3a9b70c70cE.exit.i.i: ; preds = %36
 55:                                               ; preds = %._crit_edge.i.i, %45
   %56 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %46, %45 ]
   %57 = load ptr, ptr %21, align 8, !alias.scope !7077, !noalias !7080, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [63 x i8] }, ptr %57, i64 %56
+  %58 = getelementptr inbounds [64 x i8], ptr %57, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !7048
   %59 = add i64 %56, 1
   store i64 %59, ptr %22, align 8, !alias.scope !7077, !noalias !7080
@@ -33112,7 +33112,7 @@ _ZN5serde2de9MapAccess10next_value17h33666b3a9b70c70cE.exit.i.i: ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !7086
   %67 = load ptr, ptr %21, align 8, !alias.scope !7089, !noalias !7092, !nonnull !5, !noundef !5
   %68 = load i64, ptr %22, align 8, !alias.scope !7089, !noalias !7092, !noundef !5
-  %69 = getelementptr inbounds { i8, [63 x i8] }, ptr %67, i64 %68
+  %69 = getelementptr inbounds [64 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %67, ptr %70, align 8, !noalias !7086
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -33338,7 +33338,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -33456,7 +33456,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -33586,7 +33586,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd520
   %12 = alloca { i8, [31 x i8] }, align 8
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8
   %14 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %15 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %15 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -33791,7 +33791,7 @@ _ZN5serde2de9MapAccess10next_value17ha5fe2e8bc1a9517eE.exit.i.i: ; preds = %34
 53:                                               ; preds = %._crit_edge.i.i, %43
   %54 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %43 ]
   %55 = load ptr, ptr %19, align 8, !alias.scope !7216, !noalias !7219, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [63 x i8] }, ptr %55, i64 %54
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !7187
   %57 = add i64 %54, 1
   store i64 %57, ptr %20, align 8, !alias.scope !7216, !noalias !7219
@@ -33822,7 +33822,7 @@ _ZN5serde2de9MapAccess10next_value17ha5fe2e8bc1a9517eE.exit.i.i: ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7225
   %65 = load ptr, ptr %19, align 8, !alias.scope !7228, !noalias !7231, !nonnull !5, !noundef !5
   %66 = load i64, ptr %20, align 8, !alias.scope !7228, !noalias !7231, !noundef !5
-  %67 = getelementptr inbounds { i8, [63 x i8] }, ptr %65, i64 %66
+  %67 = getelementptr inbounds [64 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %65, ptr %68, align 8, !noalias !7225
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -33997,7 +33997,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd522
   %12 = alloca { i8, [31 x i8] }, align 8
   %13 = alloca { { i64, ptr, {} }, i64 }, align 8
   %14 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %15 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %15 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -34202,7 +34202,7 @@ _ZN5serde2de9MapAccess10next_value17h75f7331f1cadee1aE.exit.i.i: ; preds = %34
 53:                                               ; preds = %._crit_edge.i.i, %43
   %54 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %44, %43 ]
   %55 = load ptr, ptr %19, align 8, !alias.scope !7293, !noalias !7296, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [63 x i8] }, ptr %55, i64 %54
+  %56 = getelementptr inbounds [64 x i8], ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !7264
   %57 = add i64 %54, 1
   store i64 %57, ptr %20, align 8, !alias.scope !7293, !noalias !7296
@@ -34233,7 +34233,7 @@ _ZN5serde2de9MapAccess10next_value17h75f7331f1cadee1aE.exit.i.i: ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7302
   %65 = load ptr, ptr %19, align 8, !alias.scope !7305, !noalias !7308, !nonnull !5, !noundef !5
   %66 = load i64, ptr %20, align 8, !alias.scope !7305, !noalias !7308, !noundef !5
-  %67 = getelementptr inbounds { i8, [63 x i8] }, ptr %65, i64 %66
+  %67 = getelementptr inbounds [64 x i8], ptr %65, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %65, ptr %68, align 8, !noalias !7302
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -34402,7 +34402,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd7af
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %12 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %13 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %13 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -34702,7 +34702,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17he18b
   %6 = alloca { i32, [3 x i32] }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8
   %8 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %9 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %9 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -34982,7 +34982,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17heb04
   %5 = alloca { i64, [30 x i64] }, align 8
   %6 = alloca { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i8, [7 x i8] } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, i64 }, double, i64, i64, i8, i8, i8, [5 x i8] }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -35068,7 +35068,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   %3 = alloca i64, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %6 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %1
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -35192,7 +35192,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hfa46
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %13 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %13 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -35507,7 +35507,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hff0d
   %18 = alloca { i64, [3 x i64] }, align 8
   %19 = alloca { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %20 = alloca { { { ptr, [1 x i64] } }, ptr, i64, {}, {} }, align 8
-  %21 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %21 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %1, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -36420,7 +36420,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h0614
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, align 8
   %11 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %12 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %12 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -36634,7 +36634,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h0bd6
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %10 = alloca { { { { i64, ptr, {} }, i64 } }, double }, align 8
   %11 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %12 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %12 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -36851,7 +36851,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h1227
   %.sroa.13.sroa.5 = alloca [3 x i64], align 8
   %12 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %14 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %14 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -37209,7 +37209,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h1d48
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -37339,7 +37339,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -37393,7 +37393,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -37485,7 +37485,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h306a
   %.sroa.13 = alloca [2 x i64], align 8
   %9 = alloca { { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] } }, align 8
   %10 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %11 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %11 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -37768,7 +37768,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h3379
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, align 8
   %10 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %11 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %11 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -37982,7 +37982,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h378f
   %.sroa.13.sroa.5 = alloca [3 x i64], align 8
   %11 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, align 8
   %12 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %13 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %13 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -38288,7 +38288,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h3ecf
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = alloca { i32, [3 x i32] }, align 8
   %8 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -38409,7 +38409,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h4c1a
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -38509,7 +38509,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h5249
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -38596,7 +38596,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h54f7
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -38710,7 +38710,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h57eb
   %.sroa.13 = alloca [2 x i64], align 8
   %12 = alloca { { i64, [3 x i64] }, i8, i8, {}, [6 x i8] }, align 8
   %13 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %14 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %14 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -39049,7 +39049,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -39116,7 +39116,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h66ea
   %12 = alloca { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, align 8
   %13 = alloca { { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, i8, i8, [6 x i8] }, align 8
   %14 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %15 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %15 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -39483,7 +39483,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h68f2
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -39568,7 +39568,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -39622,7 +39622,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -39679,7 +39679,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h82ea
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -39810,7 +39810,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -39864,7 +39864,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -39922,7 +39922,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17haf20
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -40099,7 +40099,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hb558
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -40230,7 +40230,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -40291,7 +40291,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hbdbb
   %9 = alloca { i32, [3 x i32] }, align 8
   %10 = alloca { { i64, [2 x i64] }, i32, i8, i8, i8, {}, [1 x i8] }, align 8
   %11 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %12 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %12 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -40658,7 +40658,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hc98b
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
   %7 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %8 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -40743,7 +40743,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -40807,7 +40807,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hda5a
   %.sroa.14 = alloca [5 x i64], align 8
   %10 = alloca { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, align 8
   %11 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %12 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %12 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -41115,7 +41115,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -41172,7 +41172,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hdf66
   %7 = alloca { i8, [15 x i8] }, align 8
   %8 = alloca { i8, [15 x i8] }, align 8
   %9 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %10 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %10 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -41352,7 +41352,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -41406,7 +41406,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -41462,7 +41462,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hef11
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %9 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -41595,7 +41595,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hf337
   %.sroa.11 = alloca [2 x i64], align 8
   %9 = alloca { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %10 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %11 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %11 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -41856,7 +41856,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hce31cc3da7faddfbE.llvm.13080012565599917794.exit.i.i.i.i":
   %2 = alloca i64, align 8
   %3 = alloca { { { ptr, [1 x i64] } }, i64, {} }, align 8
-  %4 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -43800,7 +43800,7 @@ _ZN5alloc7raw_vec14handle_reserve17hd58f5c5c75fb60aeE.exit: ; preds = %3
 78:                                               ; preds = %._crit_edge.i, %69
   %79 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %70, %69 ]
   %80 = load ptr, ptr %29, align 8, !alias.scope !9183, !noalias !9186, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %80, i64 %79
+  %81 = getelementptr inbounds [64 x i8], ptr %80, i64 %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %82 = add i64 %79, 1
   store i64 %82, ptr %30, align 8, !alias.scope !9183, !noalias !9186
@@ -43942,7 +43942,7 @@ _ZN5serde2de9SeqAccess12next_element17h7dbc9191e3fce29dE.exit: ; preds = %27
 44:                                               ; preds = %._crit_edge.i, %35
   %45 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %36, %35 ]
   %46 = load ptr, ptr %24, align 8, !alias.scope !9191, !noalias !9194, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [31 x i8] }, ptr %46, i64 %45
+  %47 = getelementptr inbounds [32 x i8], ptr %46, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %48 = add i64 %45, 1
   store i64 %48, ptr %25, align 8, !alias.scope !9191, !noalias !9194

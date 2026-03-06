@@ -727,7 +727,7 @@ define noundef ptr @_ZN7rocksdb18GetCacheItemHelperENS_9BlockTypeENS_9CacheTierE
   %.not = icmp eq i8 %1, 0
   %3 = zext i8 %0 to i64
   %.0.in.v = select i1 %.not, ptr @_ZN7rocksdb12_GLOBAL__N_133kCacheItemBasicHelperForBlockTypeE, ptr @_ZN7rocksdb12_GLOBAL__N_132kCacheItemFullHelperForBlockTypeE
-  %.0.in = getelementptr inbounds nuw ptr, ptr %.0.in.v, i64 %3
+  %.0.in = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v, i64 %3
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !100
   ret ptr %.0
 }

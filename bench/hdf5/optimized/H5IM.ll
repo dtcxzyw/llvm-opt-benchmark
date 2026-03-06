@@ -618,7 +618,7 @@ define range(i32 -1, 1) i32 @H5IMlink_palette(i64 noundef %0, ptr noundef %1, pt
 
 74:                                               ; preds = %71
   %75 = load i64, ptr %4, align 8, !tbaa !3
-  %76 = getelementptr inbounds i64, ptr %65, i64 %62
+  %76 = getelementptr inbounds [8 x i8], ptr %65, i64 %62
   store i64 %75, ptr %76, align 8, !tbaa !3
   %77 = call i32 @H5Sclose(i64 noundef %59) #8
   %78 = icmp slt i32 %77, 0
@@ -893,7 +893,7 @@ define range(i32 -1, 1) i32 @H5IMget_palette_info(i64 noundef %0, ptr noundef %1
 
 31:                                               ; preds = %25
   %32 = sext i32 %2 to i64
-  %33 = getelementptr inbounds i64, ptr %28, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %32
   %34 = tail call i64 @H5Rdereference2(i64 noundef %8, i64 noundef 0, i32 noundef 0, ptr noundef %33) #8
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %63, label %36
@@ -1013,7 +1013,7 @@ define range(i32 -1, 1) i32 @H5IMget_palette(i64 noundef %0, ptr noundef %1, i32
 
 31:                                               ; preds = %25
   %32 = sext i32 %2 to i64
-  %33 = getelementptr inbounds i64, ptr %28, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %32
   %34 = tail call i64 @H5Rdereference2(i64 noundef %8, i64 noundef 0, i32 noundef 0, ptr noundef %33) #8
   %35 = icmp slt i64 %34, 0
   br i1 %35, label %55, label %36

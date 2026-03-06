@@ -461,7 +461,7 @@ ocb_ntz.exit:                                     ; preds = %.lr.ph.i
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %ocb_double.exit.i
   %.02835.i = phi i64 [ %51, %ocb_double.exit.i ], [ %24, %.lr.ph.i58.preheader ]
   %36 = load ptr, ptr %11, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %36, i64 %.02835.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.02835.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %37, align 8, !tbaa !17
   br label %40
@@ -502,7 +502,7 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
   br i1 %.not56, label %.critedge, label %53
 
 53:                                               ; preds = %ocb_lookup_l.exit
-  %54 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %52, i64 %.0.lcssa.i77
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.0.lcssa.i77
   %55 = load i64, ptr %12, align 8, !tbaa !17
   %56 = load i64, ptr %54, align 8, !tbaa !17
   %57 = xor i64 %56, %55
@@ -647,7 +647,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_encrypt(ptr noundef %0, ptr noundef %1
 33:                                               ; preds = %ocb_double.exit.i, %.lr.ph.i
   %.02835.i = phi i64 [ %18, %.lr.ph.i ], [ %49, %ocb_double.exit.i ]
   %34 = load ptr, ptr %32, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %34, i64 %.02835.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.02835.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i8, ptr %35, align 8, !tbaa !17
   br label %38
@@ -767,7 +767,7 @@ ocb_ntz.exit:                                     ; preds = %.lr.ph.i97
 .lr.ph.i104:                                      ; preds = %.lr.ph.i104.preheader, %ocb_double.exit.i110
   %.02835.i105 = phi i64 [ %103, %ocb_double.exit.i110 ], [ %76, %.lr.ph.i104.preheader ]
   %88 = load ptr, ptr %63, align 8, !tbaa !11
-  %89 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %88, i64 %.02835.i105
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %.02835.i105
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i8, ptr %89, align 8, !tbaa !17
   br label %92
@@ -808,7 +808,7 @@ ocb_lookup_l.exit114:                             ; preds = %70, %ocb_ntz.exit, 
   br i1 %.not90, label %.critedge95, label %105
 
 105:                                              ; preds = %ocb_lookup_l.exit114
-  %106 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %104, i64 %.0.lcssa.i147
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.0.lcssa.i147
   %107 = load i64, ptr %64, align 8, !tbaa !17
   %108 = load i64, ptr %106, align 8, !tbaa !17
   %109 = xor i64 %108, %107
@@ -978,7 +978,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_decrypt(ptr noundef %0, ptr noundef %1
 33:                                               ; preds = %ocb_double.exit.i, %.lr.ph.i
   %.02835.i = phi i64 [ %18, %.lr.ph.i ], [ %49, %ocb_double.exit.i ]
   %34 = load ptr, ptr %32, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %34, i64 %.02835.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.02835.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i8, ptr %35, align 8, !tbaa !17
   br label %38
@@ -1109,7 +1109,7 @@ ocb_ntz.exit:                                     ; preds = %.lr.ph.i100
 .lr.ph.i107:                                      ; preds = %.lr.ph.i107.preheader, %ocb_double.exit.i113
   %.02835.i108 = phi i64 [ %104, %ocb_double.exit.i113 ], [ %77, %.lr.ph.i107.preheader ]
   %89 = load ptr, ptr %62, align 8, !tbaa !11
-  %90 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %89, i64 %.02835.i108
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %.02835.i108
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i8, ptr %90, align 8, !tbaa !17
   br label %93
@@ -1157,7 +1157,7 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %71, %ocb_ntz.exit
 107:                                              ; preds = %ocb_lookup_l.exit117, %ocb_lookup_l.exit117.thread129
   %.0.lcssa.i161 = phi i64 [ %.0.lcssa.i162, %ocb_lookup_l.exit117.thread129 ], [ %76, %ocb_lookup_l.exit117 ]
   %.pn = phi ptr [ %106, %ocb_lookup_l.exit117.thread129 ], [ %105, %ocb_lookup_l.exit117 ]
-  %108 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %.pn, i64 %.0.lcssa.i161
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %.pn, i64 %.0.lcssa.i161
   %109 = load i64, ptr %64, align 8, !tbaa !17
   %110 = load i64, ptr %108, align 8, !tbaa !17
   %111 = xor i64 %110, %109

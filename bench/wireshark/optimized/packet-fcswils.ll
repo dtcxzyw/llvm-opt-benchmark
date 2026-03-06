@@ -877,7 +877,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not113.not, label %96, label %.thread128
 
 96:                                               ; preds = %92
-  %97 = getelementptr %struct._fcswils_func_table_t, ptr @fcswils_func_table, i64 %93
+  %97 = getelementptr [8 x i8], ptr @fcswils_func_table, i64 %93
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef %0, ptr noundef %1, ptr noundef %14, i8 noundef zeroext %.094120125)
   br label %108

@@ -3,9 +3,6 @@ source_filename = "bench/lief/original/ssl_ticket.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mbedtls_ssl_ticket_key = type { [4 x i8], i64, i32, %struct.mbedtls_cipher_context_t }
-%struct.mbedtls_cipher_context_t = type { ptr, i32, i32, ptr, ptr, [16 x i8], i64, [16 x i8], i64, ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ssl_ticket_init(ptr noundef writeonly captures(none) initializes((0, 264)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %0, i8 0, i64 264, i1 false)
@@ -21,7 +18,7 @@ define hidden i32 @mbedtls_ssl_ticket_rotate(ptr noundef %0, ptr noundef readonl
   %8 = load i8, ptr %7, align 8, !tbaa !3
   %9 = sub i8 1, %8
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.val = load ptr, ptr %12, align 8, !tbaa !9
   %13 = icmp eq ptr %.val, null
@@ -252,7 +249,7 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = load i8, ptr %26, align 8, !tbaa !3
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !17
   store i32 %31, ptr %5, align 4, !tbaa !21
@@ -309,7 +306,7 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i8, ptr %3, align 8, !tbaa !3
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !17
   %.not = icmp eq i32 %8, 0
@@ -336,7 +333,7 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %21
   %23 = tail call i64 @time(ptr noundef null) #8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %23, ptr %24, align 8, !tbaa !15
@@ -432,7 +429,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
 .preheader:                                       ; preds = %17, %21
   %22 = phi i1 [ false, %21 ], [ true, %17 ]
   %indvars.iv.i = phi i64 [ 1, %21 ], [ 0, %17 ]
-  %23 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [120 x i8], ptr %0, i64 %indvars.iv.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %2, ptr noundef nonnull readonly dereferenceable(4) %23, i64 4)
   %24 = icmp eq i32 %bcmp.i, 0
   br i1 %24, label %ssl_ticket_select_key.exit, label %21

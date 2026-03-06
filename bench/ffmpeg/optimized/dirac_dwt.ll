@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/dirac_dwt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DWTCompose = type { [8 x ptr], i32 }
-
 @.str = private unnamed_addr constant [28 x i8] c"Unsupported bit depth = %i\0A\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Unknown wavelet type %d\0A\00", align 1
 
@@ -62,7 +60,7 @@ define range(i32 -1094995529, 1) i32 @ff_spatial_idwt_init(ptr noundef writeonly
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %.lr.ph.split.us.i ], [ %24, %.lr.ph.i ]
   %25 = trunc nuw nsw i64 %indvars.iv106.i to i32
   %26 = shl i32 %14, %25
-  %27 = getelementptr inbounds nuw %struct.DWTCompose, ptr %23, i64 %indvars.iv106.i
+  %27 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %indvars.iv106.i
   store ptr %7, ptr %27, align 8, !tbaa !22
   %28 = sext i32 %26 to i64
   %29 = getelementptr inbounds i8, ptr %7, i64 %28
@@ -87,7 +85,7 @@ define range(i32 -1094995529, 1) i32 @ff_spatial_idwt_init(ptr noundef writeonly
   %36 = trunc nuw nsw i64 %indvars.iv103.i to i32
   %37 = ashr i32 %11, %36
   %38 = shl i32 %14, %36
-  %39 = getelementptr inbounds nuw %struct.DWTCompose, ptr %23, i64 %indvars.iv103.i
+  %39 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %indvars.iv103.i
   %40 = add nsw i32 %37, -1
   %.not.i.i.us.i = icmp eq i32 %40, 0
   br i1 %.not.i.i.us.i, label %avpriv_mirror.exit.thread.i.us.i, label %.preheader.i.us.i
@@ -157,7 +155,7 @@ spatial_compose53i_init_8bit.exit.us.i:           ; preds = %52, %avpriv_mirror.
   %61 = trunc nuw nsw i64 %indvars.iv100.i to i32
   %62 = ashr i32 %11, %61
   %63 = shl i32 %14, %61
-  %64 = getelementptr inbounds nuw %struct.DWTCompose, ptr %23, i64 %indvars.iv100.i
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %indvars.iv100.i
   store ptr %7, ptr %64, align 8, !tbaa !22
   %65 = sext i32 %63 to i64
   %66 = getelementptr inbounds i8, ptr %7, i64 %65
@@ -192,7 +190,7 @@ spatial_compose53i_init_8bit.exit.us.i:           ; preds = %52, %avpriv_mirror.
 
 .lr.ph.split.us85.i:                              ; preds = %.lr.ph.split.us85.i.preheader, %.lr.ph.split.us85.i
   %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %.lr.ph.split.us85.i ], [ %24, %.lr.ph.split.us85.i.preheader ]
-  %82 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv97.i
+  %82 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv97.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 160
   store i32 1, ptr %83, align 8, !tbaa !23
   %indvars.iv.next98.i = add nsw i64 %indvars.iv97.i, -1
@@ -205,7 +203,7 @@ spatial_compose53i_init_8bit.exit.us.i:           ; preds = %52, %avpriv_mirror.
   %86 = trunc nuw nsw i64 %indvars.iv.i to i32
   %87 = ashr i32 %11, %86
   %88 = shl i32 %14, %86
-  %89 = getelementptr inbounds nuw %struct.DWTCompose, ptr %23, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %indvars.iv.i
   %90 = add nsw i32 %87, -1
   %.not.i.i69.us.i = icmp eq i32 %90, 0
   br i1 %.not.i.i69.us.i, label %avpriv_mirror.exit.thread.i76.us.i, label %.preheader.i70.us.i
@@ -334,7 +332,7 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv109.i = phi i64 [ %indvars.iv.next110.i, %.lr.ph.split.i ], [ %24, %.lr.ph.i ]
-  %137 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv109.i
+  %137 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv109.i
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 160
   store i32 0, ptr %138, align 8, !tbaa !23
   %indvars.iv.next110.i = add nsw i64 %indvars.iv109.i, -1
@@ -445,7 +443,7 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %.lr.ph.split.us.i60 ], [ %169, %.lr.ph.i32 ]
   %170 = trunc nuw nsw i64 %indvars.iv104.i to i32
   %171 = shl i32 %14, %170
-  %172 = getelementptr inbounds nuw %struct.DWTCompose, ptr %168, i64 %indvars.iv104.i
+  %172 = getelementptr inbounds nuw [72 x i8], ptr %168, i64 %indvars.iv104.i
   store ptr %7, ptr %172, align 8, !tbaa !22
   %173 = sext i32 %171 to i64
   %174 = getelementptr inbounds i8, ptr %7, i64 %173
@@ -470,7 +468,7 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
   %181 = trunc nuw nsw i64 %indvars.iv101.i to i32
   %182 = ashr i32 %11, %181
   %183 = shl i32 %14, %181
-  %184 = getelementptr inbounds nuw %struct.DWTCompose, ptr %168, i64 %indvars.iv101.i
+  %184 = getelementptr inbounds nuw [72 x i8], ptr %168, i64 %indvars.iv101.i
   %185 = add nsw i32 %182, -1
   %.not.i8.i.us.i = icmp eq i32 %185, 0
   br i1 %.not.i8.i.us.i, label %avpriv_mirror.exit13.thread.i.us.i, label %.preheader.i.us.i51
@@ -540,7 +538,7 @@ spatial_compose53i_init_10bit.exit.us.i:          ; preds = %197, %avpriv_mirror
   %206 = trunc nuw nsw i64 %indvars.iv98.i to i32
   %207 = ashr i32 %11, %206
   %208 = shl i32 %14, %206
-  %209 = getelementptr inbounds nuw %struct.DWTCompose, ptr %168, i64 %indvars.iv98.i
+  %209 = getelementptr inbounds nuw [72 x i8], ptr %168, i64 %indvars.iv98.i
   store ptr %7, ptr %209, align 8, !tbaa !22
   %210 = sext i32 %208 to i64
   %211 = getelementptr inbounds i8, ptr %7, i64 %210
@@ -575,7 +573,7 @@ spatial_compose53i_init_10bit.exit.us.i:          ; preds = %197, %avpriv_mirror
 
 .lr.ph.split.us83.i:                              ; preds = %.lr.ph.split.us83.i.preheader, %.lr.ph.split.us83.i
   %indvars.iv95.i = phi i64 [ %indvars.iv.next96.i, %.lr.ph.split.us83.i ], [ %169, %.lr.ph.split.us83.i.preheader ]
-  %227 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv95.i
+  %227 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv95.i
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 160
   store i32 1, ptr %228, align 8, !tbaa !23
   %indvars.iv.next96.i = add nsw i64 %indvars.iv95.i, -1
@@ -588,7 +586,7 @@ spatial_compose53i_init_10bit.exit.us.i:          ; preds = %197, %avpriv_mirror
   %231 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %232 = ashr i32 %11, %231
   %233 = shl i32 %14, %231
-  %234 = getelementptr inbounds nuw %struct.DWTCompose, ptr %168, i64 %indvars.iv.i33
+  %234 = getelementptr inbounds nuw [72 x i8], ptr %168, i64 %indvars.iv.i33
   %235 = add nsw i32 %232, -1
   %.not.i28.i.us.i = icmp eq i32 %235, 0
   br i1 %.not.i28.i.us.i, label %avpriv_mirror.exit33.thread.i.us.i, label %.preheader.i69.us.i
@@ -717,7 +715,7 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
 
 .lr.ph.split.i62:                                 ; preds = %.lr.ph.i32, %.lr.ph.split.i62
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.lr.ph.split.i62 ], [ %169, %.lr.ph.i32 ]
-  %282 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv107.i
+  %282 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv107.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 160
   store i32 0, ptr %283, align 8, !tbaa !23
   %indvars.iv.next108.i = add nsw i64 %indvars.iv107.i, -1
@@ -828,7 +826,7 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
   %indvars.iv104.i134 = phi i64 [ %indvars.iv.next105.i135, %.lr.ph.split.us.i133 ], [ %314, %.lr.ph.i71 ]
   %315 = trunc nuw nsw i64 %indvars.iv104.i134 to i32
   %316 = shl i32 %14, %315
-  %317 = getelementptr inbounds nuw %struct.DWTCompose, ptr %313, i64 %indvars.iv104.i134
+  %317 = getelementptr inbounds nuw [72 x i8], ptr %313, i64 %indvars.iv104.i134
   store ptr %7, ptr %317, align 8, !tbaa !22
   %318 = sext i32 %316 to i64
   %319 = getelementptr inbounds i8, ptr %7, i64 %318
@@ -853,7 +851,7 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
   %326 = trunc nuw nsw i64 %indvars.iv101.i115 to i32
   %327 = ashr i32 %11, %326
   %328 = shl i32 %14, %326
-  %329 = getelementptr inbounds nuw %struct.DWTCompose, ptr %313, i64 %indvars.iv101.i115
+  %329 = getelementptr inbounds nuw [72 x i8], ptr %313, i64 %indvars.iv101.i115
   %330 = add nsw i32 %327, -1
   %.not.i8.i.us.i116 = icmp eq i32 %330, 0
   br i1 %.not.i8.i.us.i116, label %avpriv_mirror.exit13.thread.i.us.i132, label %.preheader.i.us.i117
@@ -923,7 +921,7 @@ spatial_compose53i_init_12bit.exit.us.i:          ; preds = %342, %avpriv_mirror
   %351 = trunc nuw nsw i64 %indvars.iv98.i109 to i32
   %352 = ashr i32 %11, %351
   %353 = shl i32 %14, %351
-  %354 = getelementptr inbounds nuw %struct.DWTCompose, ptr %313, i64 %indvars.iv98.i109
+  %354 = getelementptr inbounds nuw [72 x i8], ptr %313, i64 %indvars.iv98.i109
   store ptr %7, ptr %354, align 8, !tbaa !22
   %355 = sext i32 %353 to i64
   %356 = getelementptr inbounds i8, ptr %7, i64 %355
@@ -958,7 +956,7 @@ spatial_compose53i_init_12bit.exit.us.i:          ; preds = %342, %avpriv_mirror
 
 .lr.ph.split.us83.i105:                           ; preds = %.lr.ph.split.us83.i105.preheader, %.lr.ph.split.us83.i105
   %indvars.iv95.i106 = phi i64 [ %indvars.iv.next96.i107, %.lr.ph.split.us83.i105 ], [ %314, %.lr.ph.split.us83.i105.preheader ]
-  %372 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv95.i106
+  %372 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv95.i106
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 160
   store i32 1, ptr %373, align 8, !tbaa !23
   %indvars.iv.next96.i107 = add nsw i64 %indvars.iv95.i106, -1
@@ -971,7 +969,7 @@ spatial_compose53i_init_12bit.exit.us.i:          ; preds = %342, %avpriv_mirror
   %376 = trunc nuw nsw i64 %indvars.iv.i73 to i32
   %377 = ashr i32 %11, %376
   %378 = shl i32 %14, %376
-  %379 = getelementptr inbounds nuw %struct.DWTCompose, ptr %313, i64 %indvars.iv.i73
+  %379 = getelementptr inbounds nuw [72 x i8], ptr %313, i64 %indvars.iv.i73
   %380 = add nsw i32 %377, -1
   %.not.i28.i.us.i74 = icmp eq i32 %380, 0
   br i1 %.not.i28.i.us.i74, label %avpriv_mirror.exit33.thread.i.us.i104, label %.preheader.i69.us.i75
@@ -1100,7 +1098,7 @@ spatial_compose97i_init_12bit.exit.us.i:          ; preds = %416, %avpriv_mirror
 
 .lr.ph.split.i138:                                ; preds = %.lr.ph.i71, %.lr.ph.split.i138
   %indvars.iv107.i139 = phi i64 [ %indvars.iv.next108.i140, %.lr.ph.split.i138 ], [ %314, %.lr.ph.i71 ]
-  %427 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv107.i139
+  %427 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv107.i139
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 160
   store i32 0, ptr %428, align 8, !tbaa !23
   %indvars.iv.next108.i140 = add nsw i64 %indvars.iv107.i139, -1
@@ -1231,7 +1229,7 @@ define void @ff_spatial_idwt_slice2(ptr noundef %0, i32 noundef %1) local_unname
   %19 = ashr i32 %18, %16
   %20 = load i32, ptr %10, align 8, !tbaa !18
   %21 = shl i32 %20, %16
-  %22 = getelementptr inbounds nuw %struct.DWTCompose, ptr %0, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv.next
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   %24 = ashr i32 %1, %16
   %25 = add nsw i32 %24, %4
@@ -1257,7 +1255,7 @@ define internal void @spatial_compose_dd97i_dy_8bit(ptr noundef captures(none) %
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.DWTCompose, ptr %8, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !22
@@ -1354,16 +1352,16 @@ define internal void @vertical_compose53iL0_8bit(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !39
   %8 = sext i16 %7 to i32
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2, !tbaa !39
   %11 = sext i16 %10 to i32
   %12 = add nsw i32 %8, 2
   %13 = add nsw i32 %12, %11
   %14 = lshr i32 %13, 2
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2, !tbaa !39
   %17 = trunc i32 %14 to i16
   %18 = sub i16 %16, %17
@@ -1387,20 +1385,20 @@ define internal void @vertical_compose_dd97iH0_8bit(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !39
   %12 = sext i16 %11 to i32
-  %13 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !39
   %15 = sext i16 %14 to i32
   %16 = add nsw i32 %15, %12
   %17 = mul nsw i32 %16, 9
-  %18 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !39
   %20 = sext i16 %19 to i32
-  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !39
   %23 = sext i16 %22 to i32
   %24 = add nsw i32 %20, %23
@@ -1423,7 +1421,7 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !39
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = sext i16 %8 to i32
   %10 = shl nsw i32 %9, 1
@@ -1437,14 +1435,14 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
 
 .lr.ph.preheader:                                 ; preds = %3
   %16 = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %16
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2, !tbaa !39
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %19 = getelementptr i8, ptr %gep, i64 -2
   %20 = load i16, ptr %19, align 2, !tbaa !39
   %21 = sext i16 %20 to i32
@@ -1455,7 +1453,7 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
   %26 = lshr i32 %25, 2
   %27 = trunc i32 %26 to i16
   %28 = sub i16 %18, %27
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %28, ptr %29, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
@@ -1464,7 +1462,7 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %30 = getelementptr inbounds i8, ptr %1, i64 -2
   store i16 %14, ptr %30, align 2, !tbaa !39
-  %31 = getelementptr i16, ptr %1, i64 %6
+  %31 = getelementptr [2 x i8], ptr %1, i64 %6
   %32 = getelementptr i8, ptr %31, i64 -2
   %33 = load i16, ptr %32, align 2, !tbaa !39
   store i16 %33, ptr %31, align 2, !tbaa !39
@@ -1475,7 +1473,7 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
 ._crit_edge:                                      ; preds = %3
   %35 = getelementptr inbounds i8, ptr %1, i64 -2
   store i16 %14, ptr %35, align 2, !tbaa !39
-  %36 = getelementptr i16, ptr %1, i64 %6
+  %36 = getelementptr [2 x i8], ptr %1, i64 %6
   %37 = getelementptr i8, ptr %36, i64 -2
   %38 = load i16, ptr %37, align 2, !tbaa !39
   store i16 %38, ptr %36, align 2, !tbaa !39
@@ -1486,12 +1484,12 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
 
 .lr.ph56.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %41 = zext nneg i32 %4 to i64
-  %invariant.gep64 = getelementptr inbounds nuw i16, ptr %0, i64 %41
+  %invariant.gep64 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %41
   br label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv59 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next60, %.lr.ph56 ]
-  %42 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv59
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv59
   %43 = load i16, ptr %42, align 2, !tbaa !39
   %44 = sext i16 %43 to i32
   %45 = add nsw i32 %44, 1
@@ -1500,13 +1498,13 @@ define internal void @horizontal_compose_dd97i_8bit(ptr noundef captures(none) %
   %.idx = shl nuw nsw i64 %indvars.iv59, 2
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i16 %47, ptr %48, align 2, !tbaa !39
-  %gep65 = getelementptr inbounds nuw i16, ptr %invariant.gep64, i64 %indvars.iv59
+  %gep65 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep64, i64 %indvars.iv59
   %49 = load i16, ptr %gep65, align 2, !tbaa !39
   %50 = sext i16 %49 to i32
   %51 = load i16, ptr %42, align 2, !tbaa !39
   %52 = sext i16 %51 to i32
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next60
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next60
   %54 = load i16, ptr %53, align 2, !tbaa !39
   %55 = sext i16 %54 to i32
   %56 = add nsw i32 %55, %52
@@ -1542,7 +1540,7 @@ define internal void @spatial_compose_dirac53i_dy_8bit(ptr noundef captures(none
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.DWTCompose, ptr %10, i64 %11
+  %12 = getelementptr inbounds [72 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = load ptr, ptr %12, align 8, !tbaa !22
@@ -1656,12 +1654,12 @@ define internal void @vertical_compose_dirac53iH0_8bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !39
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
   %10 = sext i16 %9 to i32
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !39
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %10, 1
@@ -1683,7 +1681,7 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !39
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = sext i16 %8 to i32
   %10 = shl nsw i32 %9, 1
@@ -1701,14 +1699,14 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !39
   %18 = add nuw nsw i64 %indvars.iv, %6
   %19 = add nsw i64 %18, -1
-  %20 = getelementptr inbounds i16, ptr %0, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %0, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !39
   %22 = sext i16 %21 to i32
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %18
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %18
   %24 = load i16, ptr %23, align 2, !tbaa !39
   %25 = sext i16 %24 to i32
   %26 = add nsw i32 %22, 2
@@ -1716,7 +1714,7 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
   %28 = lshr i32 %27, 2
   %29 = trunc i32 %28 to i16
   %30 = sub i16 %17, %29
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %30, ptr %31, align 2, !tbaa !39
   %32 = load i16, ptr %20, align 2, !tbaa !39
   %33 = getelementptr i8, ptr %31, i64 -2
@@ -1728,7 +1726,7 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
   %39 = lshr i32 %38, 1
   %40 = trunc i32 %39 to i16
   %41 = add i16 %32, %40
-  %42 = getelementptr inbounds i16, ptr %1, i64 %19
+  %42 = getelementptr inbounds [2 x i8], ptr %1, i64 %19
   store i16 %41, ptr %42, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1737,13 +1735,13 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %43 = add nsw i32 %2, -1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %0, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %0, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !39
-  %47 = getelementptr i16, ptr %1, i64 %6
+  %47 = getelementptr [2 x i8], ptr %1, i64 %6
   %48 = getelementptr i8, ptr %47, i64 -2
   %49 = load i16, ptr %48, align 2, !tbaa !39
   %50 = add i16 %49, %46
-  %51 = getelementptr inbounds i16, ptr %1, i64 %44
+  %51 = getelementptr inbounds [2 x i8], ptr %1, i64 %44
   store i16 %50, ptr %51, align 2, !tbaa !39
   %52 = icmp sgt i32 %4, 0
   br i1 %52, label %.lr.ph48.preheader, label %interleave_8bit.exit
@@ -1754,7 +1752,7 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
   %indvars.iv50 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next51, %.lr.ph48 ]
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv50
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv50
   %54 = load i16, ptr %53, align 2, !tbaa !39
   %55 = sext i16 %54 to i32
   %56 = add nsw i32 %55, 1
@@ -1763,7 +1761,7 @@ define internal void @horizontal_compose_dirac53i_8bit(ptr noundef captures(none
   %.idx = shl nuw nsw i64 %indvars.iv50, 2
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i16 %58, ptr %59, align 2, !tbaa !39
-  %60 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv50
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv50
   %61 = load i16, ptr %60, align 2, !tbaa !39
   %62 = sext i16 %61 to i32
   %63 = add nsw i32 %62, 1
@@ -1785,7 +1783,7 @@ define internal void @spatial_compose_dd137i_dy_8bit(ptr noundef captures(none) 
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.DWTCompose, ptr %8, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !22
@@ -1889,20 +1887,20 @@ define internal void @vertical_compose_dd137iL0_8bit(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !39
   %12 = sext i16 %11 to i32
-  %13 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2, !tbaa !39
   %15 = sext i16 %14 to i32
   %16 = add nsw i32 %15, %12
   %17 = mul nsw i32 %16, 9
-  %18 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !39
   %20 = sext i16 %19 to i32
-  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !39
   %23 = sext i16 %22 to i32
   %24 = add nsw i32 %20, %23
@@ -1925,13 +1923,13 @@ define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) 
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !39
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %9, 18
   %11 = add nsw i32 %4, 1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %0, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %0, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !39
   %15 = sext i16 %14 to i32
   %16 = add nsw i32 %9, %15
@@ -1967,14 +1965,14 @@ define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) 
 .lr.ph.preheader:                                 ; preds = %3
   %40 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %38 to i64
-  %invariant.gep = getelementptr i16, ptr %0, i64 %40
+  %invariant.gep = getelementptr [2 x i8], ptr %0, i64 %40
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2, !tbaa !39
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %43 = getelementptr i8, ptr %gep, i64 -2
   %44 = load i16, ptr %43, align 2, !tbaa !39
   %45 = sext i16 %44 to i32
@@ -1994,7 +1992,7 @@ define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) 
   %58 = lshr i32 %57, 5
   %59 = trunc i32 %58 to i16
   %60 = sub i16 %42, %59
-  %61 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %60, ptr %61, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2002,10 +2000,10 @@ define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %62 = sext i32 %38 to i64
-  %63 = getelementptr inbounds i16, ptr %0, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %0, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !39
   %65 = sext i32 %2 to i64
-  %66 = getelementptr i16, ptr %0, i64 %65
+  %66 = getelementptr [2 x i8], ptr %0, i64 %65
   %67 = getelementptr i8, ptr %66, i64 -4
   %68 = load i16, ptr %67, align 2, !tbaa !39
   %69 = sext i16 %68 to i32
@@ -2023,27 +2021,27 @@ define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) 
   %80 = lshr i32 %79, 5
   %81 = trunc i32 %80 to i16
   %82 = sub i16 %64, %81
-  %83 = getelementptr inbounds i16, ptr %1, i64 %62
+  %83 = getelementptr inbounds [2 x i8], ptr %1, i64 %62
   store i16 %82, ptr %83, align 2, !tbaa !39
   %84 = load i16, ptr %1, align 2, !tbaa !39
   %85 = getelementptr inbounds i8, ptr %1, i64 -2
   store i16 %84, ptr %85, align 2, !tbaa !39
   %86 = load i16, ptr %83, align 2, !tbaa !39
-  %87 = getelementptr inbounds i16, ptr %1, i64 %6
+  %87 = getelementptr inbounds [2 x i8], ptr %1, i64 %6
   store i16 %86, ptr %87, align 2, !tbaa !39
-  %88 = getelementptr inbounds i16, ptr %1, i64 %12
+  %88 = getelementptr inbounds [2 x i8], ptr %1, i64 %12
   store i16 %86, ptr %88, align 2, !tbaa !39
   %89 = icmp sgt i32 %4, 0
   br i1 %89, label %.lr.ph100.preheader, label %._crit_edge101
 
 .lr.ph100.preheader:                              ; preds = %._crit_edge
   %90 = zext nneg i32 %4 to i64
-  %invariant.gep112 = getelementptr inbounds nuw i16, ptr %0, i64 %90
+  %invariant.gep112 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %90
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv107 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next108, %.lr.ph100 ]
-  %91 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv107
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv107
   %92 = load i16, ptr %91, align 2, !tbaa !39
   %93 = sext i16 %92 to i32
   %94 = add nsw i32 %93, 1
@@ -2052,13 +2050,13 @@ define internal void @horizontal_compose_dd137i_8bit(ptr noundef captures(none) 
   %.idx = shl nuw nsw i64 %indvars.iv107, 2
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i16 %96, ptr %97, align 2, !tbaa !39
-  %gep113 = getelementptr inbounds nuw i16, ptr %invariant.gep112, i64 %indvars.iv107
+  %gep113 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep112, i64 %indvars.iv107
   %98 = load i16, ptr %gep113, align 2, !tbaa !39
   %99 = sext i16 %98 to i32
   %100 = load i16, ptr %91, align 2, !tbaa !39
   %101 = sext i16 %100 to i32
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %102 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next108
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next108
   %103 = load i16, ptr %102, align 2, !tbaa !39
   %104 = sext i16 %103 to i32
   %105 = add nsw i32 %104, %101
@@ -2091,7 +2089,7 @@ define internal void @spatial_compose_haari_dy_8bit(ptr noundef captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = sext i32 %1 to i64
-  %9 = getelementptr %struct.DWTCompose, ptr %0, i64 %8
+  %9 = getelementptr [72 x i8], ptr %0, i64 %8
   %10 = getelementptr i8, ptr %9, i64 160
   %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = load ptr, ptr %0, align 8, !tbaa !11
@@ -2128,9 +2126,9 @@ define internal void @vertical_compose_haar_8bit(ptr noundef captures(none) %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !39
-  %7 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = sext i16 %8 to i32
   %10 = add nsw i32 %9, 1
@@ -2161,21 +2159,21 @@ define internal void @horizontal_compose_haar0i_8bit(ptr noundef captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = add nuw nsw i64 %indvars.iv, %6
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !39
   %12 = sext i16 %11 to i32
   %13 = add nsw i32 %12, 1
   %14 = lshr i32 %13, 1
   %15 = trunc i32 %14 to i16
   %16 = sub i16 %8, %15
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %16, ptr %17, align 2, !tbaa !39
   %18 = load i16, ptr %10, align 2, !tbaa !39
   %19 = add i16 %16, %18
-  %20 = getelementptr inbounds nuw i16, ptr %1, i64 %9
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %9
   store i16 %19, ptr %20, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -2183,18 +2181,18 @@ define internal void @horizontal_compose_haar0i_8bit(ptr noundef captures(none) 
 
 .lr.ph7.preheader:                                ; preds = %.lr.ph
   %21 = zext nneg i32 %4 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %21
   %wide.trip.count12 = zext nneg i32 %4 to i64
   br label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv9 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next10, %.lr.ph7 ]
-  %23 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv9
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv9
   %24 = load i16, ptr %23, align 2, !tbaa !39
   %.idx = shl nuw nsw i64 %indvars.iv9, 2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i16 %24, ptr %25, align 2, !tbaa !39
-  %26 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv9
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv9
   %27 = load i16, ptr %26, align 2, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i16 %27, ptr %28, align 2, !tbaa !39
@@ -2218,21 +2216,21 @@ define internal void @horizontal_compose_haar1i_8bit(ptr noundef captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = add nuw nsw i64 %indvars.iv, %6
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !39
   %12 = sext i16 %11 to i32
   %13 = add nsw i32 %12, 1
   %14 = lshr i32 %13, 1
   %15 = trunc i32 %14 to i16
   %16 = sub i16 %8, %15
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %16, ptr %17, align 2, !tbaa !39
   %18 = load i16, ptr %10, align 2, !tbaa !39
   %19 = add i16 %16, %18
-  %20 = getelementptr inbounds nuw i16, ptr %1, i64 %9
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %9
   store i16 %19, ptr %20, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -2240,13 +2238,13 @@ define internal void @horizontal_compose_haar1i_8bit(ptr noundef captures(none) 
 
 .lr.ph7.preheader:                                ; preds = %.lr.ph
   %21 = zext nneg i32 %4 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %21
   %wide.trip.count12 = zext nneg i32 %4 to i64
   br label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv9 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next10, %.lr.ph7 ]
-  %23 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv9
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv9
   %24 = load i16, ptr %23, align 2, !tbaa !39
   %25 = sext i16 %24 to i32
   %26 = add nsw i32 %25, 1
@@ -2255,7 +2253,7 @@ define internal void @horizontal_compose_haar1i_8bit(ptr noundef captures(none) 
   %.idx = shl nuw nsw i64 %indvars.iv9, 2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i16 %28, ptr %29, align 2, !tbaa !39
-  %30 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv9
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv9
   %31 = load i16, ptr %30, align 2, !tbaa !39
   %32 = sext i16 %31 to i32
   %33 = add nsw i32 %32, 1
@@ -2315,7 +2313,7 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
   %26 = mul nsw i32 %.0.i, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
-  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2353,7 +2351,7 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
   %44 = mul nsw i32 %.0.i50, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv63
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv63
   store ptr %46, ptr %47, align 8, !tbaa !22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -2382,7 +2380,7 @@ define internal void @spatial_compose_fidelity_8bit(ptr noundef captures(none) %
 ._crit_edge:                                      ; preds = %52, %.preheader52
   %58 = add nsw i32 %3, 1
   %59 = sext i32 %1 to i64
-  %60 = getelementptr %struct.DWTCompose, ptr %0, i64 %59
+  %60 = getelementptr [72 x i8], ptr %0, i64 %59
   %61 = getelementptr i8, ptr %60, i64 160
   store i32 %58, ptr %61, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2415,35 +2413,35 @@ define internal void @vertical_compose_fidelityiL0_8bit(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !39
-  %22 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !39
   %24 = sext i16 %23 to i32
-  %25 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !39
   %27 = sext i16 %26 to i32
   %28 = add nsw i32 %27, %24
-  %29 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !39
   %31 = sext i16 %30 to i32
-  %32 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !39
   %34 = sext i16 %33 to i32
   %35 = add nsw i32 %34, %31
   %36 = mul nsw i32 %35, 21
-  %37 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %38 = load i16, ptr %37, align 2, !tbaa !39
   %39 = sext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2, !tbaa !39
   %42 = sext i16 %41 to i32
   %43 = add nsw i32 %42, %39
   %.neg = mul i32 %43, 16777170
-  %44 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %45 = load i16, ptr %44, align 2, !tbaa !39
   %46 = sext i16 %45 to i32
-  %47 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !39
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %49, %46
@@ -2491,35 +2489,35 @@ define internal void @vertical_compose_fidelityiH0_8bit(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !39
-  %22 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !39
   %24 = sext i16 %23 to i32
-  %25 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !39
   %27 = sext i16 %26 to i32
   %28 = add nsw i32 %27, %24
-  %29 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !39
   %31 = sext i16 %30 to i32
-  %32 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   %33 = load i16, ptr %32, align 2, !tbaa !39
   %34 = sext i16 %33 to i32
   %35 = add nsw i32 %34, %31
   %36 = mul nsw i32 %35, 10
-  %37 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %38 = load i16, ptr %37, align 2, !tbaa !39
   %39 = sext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2, !tbaa !39
   %42 = sext i16 %41 to i32
   %43 = add nsw i32 %42, %39
   %.neg = mul i32 %43, 16777191
-  %44 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %45 = load i16, ptr %44, align 2, !tbaa !39
   %46 = sext i16 %45 to i32
-  %47 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !39
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %49, %46
@@ -2560,7 +2558,7 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %0, i64 %15
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %15
   br label %.preheader48
 
 .preheader48:                                     ; preds = %.preheader48.lr.ph, %35
@@ -2579,7 +2577,7 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = zext nneg i32 %5 to i64
   %wide.trip.count70 = zext nneg i32 %5 to i64
-  %invariant.gep78 = getelementptr inbounds nuw i16, ptr %1, i64 %25
+  %invariant.gep78 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %25
   br label %.preheader
 
 26:                                               ; preds = %.preheader48, %26
@@ -2590,16 +2588,16 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %..i = tail call i32 @llvm.smin.i32(i32 %29, i32 %7)
   %30 = sext i32 %..i to i64
   %31 = select i1 %28, i64 0, i64 %30
-  %32 = getelementptr inbounds i16, ptr %0, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %0, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !39
-  %34 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %33, ptr %34, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %35, label %26, !llvm.loop !60
 
 35:                                               ; preds = %26
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv59
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv59
   %36 = load i16, ptr %gep, align 2, !tbaa !39
   %37 = load i16, ptr %4, align 16, !tbaa !39
   %38 = sext i16 %37 to i32
@@ -2632,7 +2630,7 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %63 = lshr i32 %62, 8
   %64 = trunc i32 %63 to i16
   %65 = add i16 %36, %64
-  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv59
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv59
   store i16 %65, ptr %66, align 2, !tbaa !39
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
@@ -2651,16 +2649,16 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %..i42 = tail call i32 @llvm.smin.i32(i32 %71, i32 %17)
   %72 = sext i32 %..i42 to i64
   %73 = select i1 %70, i64 0, i64 %72
-  %74 = getelementptr inbounds i16, ptr %1, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %1, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !39
-  %76 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv63
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv63
   store i16 %75, ptr %76, align 2, !tbaa !39
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
   br i1 %exitcond66.not, label %77, label %68, !llvm.loop !62
 
 77:                                               ; preds = %68
-  %78 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv67
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv67
   %79 = load i16, ptr %78, align 2, !tbaa !39
   %80 = load i16, ptr %4, align 16, !tbaa !39
   %81 = sext i16 %80 to i32
@@ -2693,25 +2691,25 @@ define internal void @horizontal_compose_fidelityi_8bit(ptr noundef captures(non
   %106 = lshr i32 %105, 8
   %107 = trunc i32 %106 to i16
   %108 = sub i16 %79, %107
-  %gep79 = getelementptr inbounds nuw i16, ptr %invariant.gep78, i64 %indvars.iv67
+  %gep79 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep78, i64 %indvars.iv67
   store i16 %108, ptr %gep79, align 2, !tbaa !39
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge, label %.preheader, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %77
-  %109 = getelementptr inbounds nuw i16, ptr %1, i64 %25
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %25
   %wide.trip.count75 = zext nneg i32 %5 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
   %indvars.iv72 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next73, %.lr.ph ]
-  %110 = getelementptr inbounds nuw i16, ptr %109, i64 %indvars.iv72
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %indvars.iv72
   %111 = load i16, ptr %110, align 2, !tbaa !39
   %.idx = shl nuw nsw i64 %indvars.iv72, 2
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i16 %111, ptr %112, align 2, !tbaa !39
-  %113 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv72
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv72
   %114 = load i16, ptr %113, align 2, !tbaa !39
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 2
   store i16 %114, ptr %115, align 2, !tbaa !39
@@ -2736,7 +2734,7 @@ define internal void @spatial_compose_daub97i_dy_8bit(ptr noundef captures(none)
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.DWTCompose, ptr %14, i64 %15
+  %16 = getelementptr inbounds [72 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i32, ptr %17, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8, !tbaa !22
@@ -2874,12 +2872,12 @@ define internal void @vertical_compose_daub97iL0_8bit(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !39
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
   %10 = sext i16 %9 to i32
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !39
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %13, %10
@@ -2908,12 +2906,12 @@ define internal void @vertical_compose_daub97iH0_8bit(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !39
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
   %10 = sext i16 %9 to i32
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !39
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %13, %10
@@ -2942,12 +2940,12 @@ define internal void @vertical_compose_daub97iL1_8bit(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !39
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
   %10 = sext i16 %9 to i32
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !39
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %13, %10
@@ -2976,12 +2974,12 @@ define internal void @vertical_compose_daub97iH1_8bit(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !39
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !39
   %10 = sext i16 %9 to i32
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !39
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %13, %10
@@ -3004,7 +3002,7 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
   %4 = ashr i32 %2, 1
   %5 = load i16, ptr %0, align 2, !tbaa !39
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !39
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %9, 3634
@@ -3022,14 +3020,14 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !39
   %18 = add nuw nsw i64 %indvars.iv, %6
   %19 = add nsw i64 %18, -1
-  %20 = getelementptr inbounds i16, ptr %0, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %0, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !39
   %22 = sext i16 %21 to i32
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %18
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %18
   %24 = load i16, ptr %23, align 2, !tbaa !39
   %25 = sext i16 %24 to i32
   %26 = add nsw i32 %25, %22
@@ -3038,7 +3036,7 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
   %29 = lshr i32 %28, 12
   %30 = trunc i32 %29 to i16
   %31 = sub i16 %17, %30
-  %32 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %31, ptr %32, align 2, !tbaa !39
   %33 = load i16, ptr %20, align 2, !tbaa !39
   %34 = getelementptr i8, ptr %32, i64 -2
@@ -3051,7 +3049,7 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
   %41 = lshr i32 %40, 7
   %42 = trunc i32 %41 to i16
   %43 = sub i16 %33, %42
-  %44 = getelementptr inbounds i16, ptr %1, i64 %19
+  %44 = getelementptr inbounds [2 x i8], ptr %1, i64 %19
   store i16 %43, ptr %44, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3060,9 +3058,9 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %45 = add nsw i32 %2, -1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %0, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %0, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !39
-  %49 = getelementptr i16, ptr %1, i64 %6
+  %49 = getelementptr [2 x i8], ptr %1, i64 %6
   %50 = getelementptr i8, ptr %49, i64 -2
   %51 = load i16, ptr %50, align 2, !tbaa !39
   %52 = sext i16 %51 to i32
@@ -3071,7 +3069,7 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
   %55 = lshr i32 %54, 7
   %56 = trunc i32 %55 to i16
   %57 = sub i16 %48, %56
-  %58 = getelementptr inbounds i16, ptr %1, i64 %46
+  %58 = getelementptr inbounds [2 x i8], ptr %1, i64 %46
   store i16 %57, ptr %58, align 2, !tbaa !39
   %59 = load i16, ptr %1, align 2, !tbaa !39
   %60 = sext i16 %59 to i32
@@ -3088,16 +3086,16 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
 
 .lr.ph84.preheader:                               ; preds = %._crit_edge
   %69 = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i16, ptr %1, i64 %69
+  %invariant.gep = getelementptr [2 x i8], ptr %1, i64 %69
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv87 = phi i64 [ 1, %.lr.ph84.preheader ], [ %indvars.iv.next88, %.lr.ph84 ]
   %.07581 = phi i32 [ %66, %.lr.ph84.preheader ], [ %82, %.lr.ph84 ]
-  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv87
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv87
   %71 = load i16, ptr %70, align 2, !tbaa !39
   %72 = sext i16 %71 to i32
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv87
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv87
   %73 = getelementptr i8, ptr %gep, i64 -2
   %74 = load i16, ptr %73, align 2, !tbaa !39
   %75 = sext i16 %74 to i32
@@ -3147,7 +3145,7 @@ define internal void @spatial_compose_dd97i_dy_10bit(ptr noundef captures(none) 
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.DWTCompose, ptr %8, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !22
@@ -3244,14 +3242,14 @@ define internal void @vertical_compose53iL0_10bit(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
   %10 = add i32 %7, 2
   %11 = add i32 %10, %9
   %12 = ashr i32 %11, 2
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !70
   %15 = sub i32 %14, %12
   store i32 %15, ptr %13, align 4, !tbaa !70
@@ -3274,17 +3272,17 @@ define internal void @vertical_compose_dd97iH0_10bit(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = add i32 %13, %11
   %15 = mul i32 %14, 9
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !70
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !70
   %20 = add i32 %17, %19
   %reass.sub = sub i32 %15, %20
@@ -3305,7 +3303,7 @@ define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) 
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = shl i32 %8, 1
   %10 = add i32 %9, 2
@@ -3317,14 +3315,14 @@ define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) 
 
 .lr.ph.preheader:                                 ; preds = %3
   %14 = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %14
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !70
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %17 = getelementptr i8, ptr %gep, i64 -4
   %18 = load i32, ptr %17, align 4, !tbaa !70
   %19 = load i32, ptr %gep, align 4, !tbaa !70
@@ -3332,7 +3330,7 @@ define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) 
   %21 = add i32 %20, %19
   %22 = ashr i32 %21, 2
   %23 = sub i32 %16, %22
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -3341,7 +3339,7 @@ define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %25 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %12, ptr %25, align 4, !tbaa !70
-  %26 = getelementptr i32, ptr %1, i64 %6
+  %26 = getelementptr [4 x i8], ptr %1, i64 %6
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !70
   store i32 %28, ptr %26, align 4, !tbaa !70
@@ -3352,7 +3350,7 @@ define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) 
 ._crit_edge:                                      ; preds = %3
   %30 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %12, ptr %30, align 4, !tbaa !70
-  %31 = getelementptr i32, ptr %1, i64 %6
+  %31 = getelementptr [4 x i8], ptr %1, i64 %6
   %32 = getelementptr i8, ptr %31, i64 -4
   %33 = load i32, ptr %32, align 4, !tbaa !70
   store i32 %33, ptr %31, align 4, !tbaa !70
@@ -3363,23 +3361,23 @@ define internal void @horizontal_compose_dd97i_10bit(ptr noundef captures(none) 
 
 .lr.ph56.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %36 = zext nneg i32 %4 to i64
-  %invariant.gep64 = getelementptr inbounds nuw i32, ptr %0, i64 %36
+  %invariant.gep64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %36
   br label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv59 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next60, %.lr.ph56 ]
-  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv59
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv59
   %38 = load i32, ptr %37, align 4, !tbaa !70
   %39 = add i32 %38, 1
   %40 = ashr i32 %39, 1
   %.idx = shl nuw nsw i64 %indvars.iv59, 3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %40, ptr %41, align 4, !tbaa !70
-  %gep65 = getelementptr inbounds nuw i32, ptr %invariant.gep64, i64 %indvars.iv59
+  %gep65 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep64, i64 %indvars.iv59
   %42 = load i32, ptr %gep65, align 4, !tbaa !70
   %43 = load i32, ptr %37, align 4, !tbaa !70
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next60
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next60
   %45 = load i32, ptr %44, align 4, !tbaa !70
   %46 = add i32 %45, %43
   %47 = mul i32 %46, 9
@@ -3411,7 +3409,7 @@ define internal void @spatial_compose_dirac53i_dy_10bit(ptr noundef captures(non
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.DWTCompose, ptr %10, i64 %11
+  %12 = getelementptr inbounds [72 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = load ptr, ptr %12, align 8, !tbaa !22
@@ -3525,11 +3523,11 @@ define internal void @vertical_compose_dirac53iH0_10bit(ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %9, 1
   %13 = add i32 %12, %11
@@ -3549,7 +3547,7 @@ define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(non
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = shl i32 %8, 1
   %10 = add i32 %9, 2
@@ -3565,19 +3563,19 @@ define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !70
   %16 = add nuw nsw i64 %indvars.iv, %6
   %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !70
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   %21 = load i32, ptr %20, align 4, !tbaa !70
   %22 = add i32 %19, 2
   %23 = add i32 %22, %21
   %24 = ashr i32 %23, 2
   %25 = sub i32 %15, %24
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %25, ptr %26, align 4, !tbaa !70
   %27 = load i32, ptr %18, align 4, !tbaa !70
   %28 = getelementptr i8, ptr %26, i64 -4
@@ -3586,7 +3584,7 @@ define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(non
   %31 = add i32 %30, %29
   %32 = ashr i32 %31, 1
   %33 = add i32 %32, %27
-  %34 = getelementptr inbounds i32, ptr %1, i64 %17
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %17
   store i32 %33, ptr %34, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3595,15 +3593,15 @@ define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(non
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %35 = add nsw i32 %2, -1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %0, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %0, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !70
-  %39 = getelementptr i32, ptr %1, i64 %6
+  %39 = getelementptr [4 x i8], ptr %1, i64 %6
   %40 = getelementptr i8, ptr %39, i64 -4
   %41 = load i32, ptr %40, align 4, !tbaa !70
   %42 = shl i32 %41, 1
   %43 = ashr exact i32 %42, 1
   %44 = add i32 %43, %38
-  %45 = getelementptr inbounds i32, ptr %1, i64 %36
+  %45 = getelementptr inbounds [4 x i8], ptr %1, i64 %36
   store i32 %44, ptr %45, align 4, !tbaa !70
   %46 = icmp sgt i32 %4, 0
   br i1 %46, label %.lr.ph48.preheader, label %interleave_10bit.exit
@@ -3614,14 +3612,14 @@ define internal void @horizontal_compose_dirac53i_10bit(ptr noundef captures(non
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
   %indvars.iv50 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next51, %.lr.ph48 ]
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv50
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv50
   %48 = load i32, ptr %47, align 4, !tbaa !70
   %49 = add i32 %48, 1
   %50 = ashr i32 %49, 1
   %.idx = shl nuw nsw i64 %indvars.iv50, 3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %50, ptr %51, align 4, !tbaa !70
-  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv50
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv50
   %53 = load i32, ptr %52, align 4, !tbaa !70
   %54 = add i32 %53, 1
   %55 = ashr i32 %54, 1
@@ -3641,7 +3639,7 @@ define internal void @spatial_compose_dd137i_dy_10bit(ptr noundef captures(none)
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.DWTCompose, ptr %8, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !22
@@ -3745,17 +3743,17 @@ define internal void @vertical_compose_dd137iL0_10bit(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = add i32 %13, %11
   %15 = mul i32 %14, 9
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !70
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !70
   %20 = add i32 %17, %19
   %reass.sub = sub i32 %15, %20
@@ -3776,12 +3774,12 @@ define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none)
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = mul i32 %8, 18
   %10 = add nsw i32 %4, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = add i32 %8, %13
   %reass.sub = sub i32 %9, %14
@@ -3811,14 +3809,14 @@ define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none)
 .lr.ph.preheader:                                 ; preds = %3
   %33 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %31 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %33
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %33
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !70
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %36 = getelementptr i8, ptr %gep, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !70
   %38 = load i32, ptr %gep, align 4, !tbaa !70
@@ -3833,7 +3831,7 @@ define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none)
   %46 = add i32 %reass.sub103, 16
   %47 = ashr i32 %46, 5
   %48 = sub i32 %35, %47
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %48, ptr %49, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3841,10 +3839,10 @@ define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none)
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %50 = sext i32 %31 to i64
-  %51 = getelementptr inbounds i32, ptr %0, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !70
   %53 = sext i32 %2 to i64
-  %54 = getelementptr i32, ptr %0, i64 %53
+  %54 = getelementptr [4 x i8], ptr %0, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load i32, ptr %55, align 4, !tbaa !70
   %57 = getelementptr i8, ptr %54, i64 -4
@@ -3858,38 +3856,38 @@ define internal void @horizontal_compose_dd137i_10bit(ptr noundef captures(none)
   %64 = add i32 %reass.sub104, 16
   %65 = ashr i32 %64, 5
   %66 = sub i32 %52, %65
-  %67 = getelementptr inbounds i32, ptr %1, i64 %50
+  %67 = getelementptr inbounds [4 x i8], ptr %1, i64 %50
   store i32 %66, ptr %67, align 4, !tbaa !70
   %68 = load i32, ptr %1, align 4, !tbaa !70
   %69 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %68, ptr %69, align 4, !tbaa !70
   %70 = load i32, ptr %67, align 4, !tbaa !70
-  %71 = getelementptr inbounds i32, ptr %1, i64 %6
+  %71 = getelementptr inbounds [4 x i8], ptr %1, i64 %6
   store i32 %70, ptr %71, align 4, !tbaa !70
-  %72 = getelementptr inbounds i32, ptr %1, i64 %11
+  %72 = getelementptr inbounds [4 x i8], ptr %1, i64 %11
   store i32 %70, ptr %72, align 4, !tbaa !70
   %73 = icmp sgt i32 %4, 0
   br i1 %73, label %.lr.ph100.preheader, label %._crit_edge101
 
 .lr.ph100.preheader:                              ; preds = %._crit_edge
   %74 = zext nneg i32 %4 to i64
-  %invariant.gep112 = getelementptr inbounds nuw i32, ptr %0, i64 %74
+  %invariant.gep112 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %74
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv107 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next108, %.lr.ph100 ]
-  %75 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv107
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv107
   %76 = load i32, ptr %75, align 4, !tbaa !70
   %77 = add i32 %76, 1
   %78 = ashr i32 %77, 1
   %.idx = shl nuw nsw i64 %indvars.iv107, 3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %78, ptr %79, align 4, !tbaa !70
-  %gep113 = getelementptr inbounds nuw i32, ptr %invariant.gep112, i64 %indvars.iv107
+  %gep113 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep112, i64 %indvars.iv107
   %80 = load i32, ptr %gep113, align 4, !tbaa !70
   %81 = load i32, ptr %75, align 4, !tbaa !70
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %82 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next108
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next108
   %83 = load i32, ptr %82, align 4, !tbaa !70
   %84 = add i32 %83, %81
   %85 = mul i32 %84, 9
@@ -3918,7 +3916,7 @@ define internal void @spatial_compose_haari_dy_10bit(ptr noundef captures(none) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = sext i32 %1 to i64
-  %9 = getelementptr %struct.DWTCompose, ptr %0, i64 %8
+  %9 = getelementptr [72 x i8], ptr %0, i64 %8
   %10 = getelementptr i8, ptr %9, i64 160
   %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = load ptr, ptr %0, align 8, !tbaa !11
@@ -3955,9 +3953,9 @@ define internal void @vertical_compose_haar_10bit(ptr noundef captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !70
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = add i32 %8, 1
   %10 = ashr i32 %9, 1
@@ -3986,19 +3984,19 @@ define internal void @horizontal_compose_haar0i_10bit(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = add nuw nsw i64 %indvars.iv, %6
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, 1
   %13 = ashr i32 %12, 1
   %14 = sub i32 %8, %13
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !70
   %16 = load i32, ptr %10, align 4, !tbaa !70
   %17 = add i32 %14, %16
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   store i32 %17, ptr %18, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -4006,18 +4004,18 @@ define internal void @horizontal_compose_haar0i_10bit(ptr noundef captures(none)
 
 .lr.ph7.preheader:                                ; preds = %.lr.ph
   %19 = zext nneg i32 %4 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   %wide.trip.count12 = zext nneg i32 %4 to i64
   br label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv9 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next10, %.lr.ph7 ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv9
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv9
   %22 = load i32, ptr %21, align 4, !tbaa !70
   %.idx = shl nuw nsw i64 %indvars.iv9, 3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %22, ptr %23, align 4, !tbaa !70
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv9
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv9
   %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %25, ptr %26, align 4, !tbaa !70
@@ -4041,19 +4039,19 @@ define internal void @horizontal_compose_haar1i_10bit(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = add nuw nsw i64 %indvars.iv, %6
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, 1
   %13 = ashr i32 %12, 1
   %14 = sub i32 %8, %13
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !70
   %16 = load i32, ptr %10, align 4, !tbaa !70
   %17 = add i32 %14, %16
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   store i32 %17, ptr %18, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -4061,20 +4059,20 @@ define internal void @horizontal_compose_haar1i_10bit(ptr noundef captures(none)
 
 .lr.ph7.preheader:                                ; preds = %.lr.ph
   %19 = zext nneg i32 %4 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   %wide.trip.count12 = zext nneg i32 %4 to i64
   br label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv9 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next10, %.lr.ph7 ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv9
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv9
   %22 = load i32, ptr %21, align 4, !tbaa !70
   %23 = add i32 %22, 1
   %24 = ashr i32 %23, 1
   %.idx = shl nuw nsw i64 %indvars.iv9, 3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %24, ptr %25, align 4, !tbaa !70
-  %26 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv9
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv9
   %27 = load i32, ptr %26, align 4, !tbaa !70
   %28 = add i32 %27, 1
   %29 = ashr i32 %28, 1
@@ -4132,7 +4130,7 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
   %26 = mul nsw i32 %.0.i50, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
-  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -4170,7 +4168,7 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
   %44 = mul nsw i32 %.0.i, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv63
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv63
   store ptr %46, ptr %47, align 8, !tbaa !22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -4199,7 +4197,7 @@ define internal void @spatial_compose_fidelity_10bit(ptr noundef captures(none) 
 ._crit_edge:                                      ; preds = %52, %.preheader52
   %58 = add nsw i32 %3, 1
   %59 = sext i32 %1 to i64
-  %60 = getelementptr %struct.DWTCompose, ptr %0, i64 %59
+  %60 = getelementptr [72 x i8], ptr %0, i64 %59
   %61 = getelementptr i8, ptr %60, i64 160
   store i32 %58, ptr %61, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4232,28 +4230,28 @@ define internal void @vertical_compose_fidelityiL0_10bit(ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !70
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !70
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = add i32 %25, %23
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !70
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !70
   %31 = add i32 %30, %28
   %32 = mul i32 %31, 21
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !70
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !70
   %37 = add i32 %36, %34
   %.neg = mul i32 %37, -46
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !70
-  %40 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !70
   %42 = add i32 %41, %39
   %43 = mul i32 %42, 161
@@ -4299,28 +4297,28 @@ define internal void @vertical_compose_fidelityiH0_10bit(ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !70
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !70
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = add i32 %25, %23
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !70
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !70
   %31 = add i32 %30, %28
   %32 = mul i32 %31, 10
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !70
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !70
   %37 = add i32 %36, %34
   %.neg = mul i32 %37, -25
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !70
-  %40 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !70
   %42 = add i32 %41, %39
   %43 = mul i32 %42, 81
@@ -4359,7 +4357,7 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %15
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %15
   br label %.preheader48
 
 .preheader48:                                     ; preds = %.preheader48.lr.ph, %35
@@ -4378,7 +4376,7 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = zext nneg i32 %5 to i64
   %wide.trip.count70 = zext nneg i32 %5 to i64
-  %invariant.gep78 = getelementptr inbounds nuw i32, ptr %1, i64 %25
+  %invariant.gep78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   br label %.preheader
 
 26:                                               ; preds = %.preheader48, %26
@@ -4389,16 +4387,16 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %..i42 = tail call i32 @llvm.smin.i32(i32 %29, i32 %7)
   %30 = sext i32 %..i42 to i64
   %31 = select i1 %28, i64 0, i64 %30
-  %32 = getelementptr inbounds i32, ptr %0, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %0, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %35, label %26, !llvm.loop !90
 
 35:                                               ; preds = %26
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv59
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv59
   %36 = load i32, ptr %gep, align 4, !tbaa !70
   %37 = load i32, ptr %4, align 16, !tbaa !70
   %38 = load i32, ptr %8, align 4, !tbaa !70
@@ -4422,7 +4420,7 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %54 = add i32 %53, %50
   %55 = ashr i32 %54, 8
   %56 = add i32 %55, %36
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv59
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv59
   store i32 %56, ptr %57, align 4, !tbaa !70
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
@@ -4441,16 +4439,16 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %..i = tail call i32 @llvm.smin.i32(i32 %62, i32 %17)
   %63 = sext i32 %..i to i64
   %64 = select i1 %61, i64 0, i64 %63
-  %65 = getelementptr inbounds i32, ptr %1, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %1, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !70
-  %67 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv63
   store i32 %66, ptr %67, align 4, !tbaa !70
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
   br i1 %exitcond66.not, label %68, label %59, !llvm.loop !92
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv67
   %70 = load i32, ptr %69, align 4, !tbaa !70
   %71 = load i32, ptr %4, align 16, !tbaa !70
   %72 = load i32, ptr %18, align 4, !tbaa !70
@@ -4474,25 +4472,25 @@ define internal void @horizontal_compose_fidelityi_10bit(ptr noundef captures(no
   %88 = add i32 %87, %84
   %89 = ashr i32 %88, 8
   %90 = sub i32 %70, %89
-  %gep79 = getelementptr inbounds nuw i32, ptr %invariant.gep78, i64 %indvars.iv67
+  %gep79 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep78, i64 %indvars.iv67
   store i32 %90, ptr %gep79, align 4, !tbaa !70
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge, label %.preheader, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %68
-  %91 = getelementptr inbounds nuw i32, ptr %1, i64 %25
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   %wide.trip.count75 = zext nneg i32 %5 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
   %indvars.iv72 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next73, %.lr.ph ]
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv72
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv72
   %93 = load i32, ptr %92, align 4, !tbaa !70
   %.idx = shl nuw nsw i64 %indvars.iv72, 3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %93, ptr %94, align 4, !tbaa !70
-  %95 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv72
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv72
   %96 = load i32, ptr %95, align 4, !tbaa !70
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %96, ptr %97, align 4, !tbaa !70
@@ -4517,7 +4515,7 @@ define internal void @spatial_compose_daub97i_dy_10bit(ptr noundef captures(none
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.DWTCompose, ptr %14, i64 %15
+  %16 = getelementptr inbounds [72 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i32, ptr %17, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8, !tbaa !22
@@ -4655,11 +4653,11 @@ define internal void @vertical_compose_daub97iL0_10bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 217
@@ -4686,11 +4684,11 @@ define internal void @vertical_compose_daub97iH0_10bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 6497
@@ -4717,11 +4715,11 @@ define internal void @vertical_compose_daub97iL1_10bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 1817
@@ -4748,11 +4746,11 @@ define internal void @vertical_compose_daub97iH1_10bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 113
@@ -4773,7 +4771,7 @@ define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = mul i32 %8, 3634
   %10 = add i32 %9, 2048
@@ -4789,20 +4787,20 @@ define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !70
   %16 = add nuw nsw i64 %indvars.iv, %6
   %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !70
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   %21 = load i32, ptr %20, align 4, !tbaa !70
   %22 = add i32 %21, %19
   %23 = mul i32 %22, 1817
   %24 = add i32 %23, 2048
   %25 = ashr i32 %24, 12
   %26 = sub i32 %15, %25
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !70
   %28 = load i32, ptr %18, align 4, !tbaa !70
   %29 = getelementptr i8, ptr %27, i64 -4
@@ -4812,7 +4810,7 @@ define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none
   %33 = add i32 %32, 64
   %34 = ashr i32 %33, 7
   %35 = sub i32 %28, %34
-  %36 = getelementptr inbounds i32, ptr %1, i64 %17
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %17
   store i32 %35, ptr %36, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4821,16 +4819,16 @@ define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %37 = add nsw i32 %2, -1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !70
-  %41 = getelementptr i32, ptr %1, i64 %6
+  %41 = getelementptr [4 x i8], ptr %1, i64 %6
   %42 = getelementptr i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !70
   %44 = mul i32 %43, 226
   %45 = add i32 %44, 64
   %46 = ashr i32 %45, 7
   %47 = sub i32 %40, %46
-  %48 = getelementptr inbounds i32, ptr %1, i64 %38
+  %48 = getelementptr inbounds [4 x i8], ptr %1, i64 %38
   store i32 %47, ptr %48, align 4, !tbaa !70
   %49 = load i32, ptr %1, align 4, !tbaa !70
   %50 = load i32, ptr %41, align 4, !tbaa !70
@@ -4844,15 +4842,15 @@ define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none
 
 .lr.ph84.preheader:                               ; preds = %._crit_edge
   %56 = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i32, ptr %1, i64 %56
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %56
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv87 = phi i64 [ 1, %.lr.ph84.preheader ], [ %indvars.iv.next88, %.lr.ph84 ]
   %.07581 = phi i32 [ %54, %.lr.ph84.preheader ], [ %66, %.lr.ph84 ]
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv87
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv87
   %58 = load i32, ptr %57, align 4, !tbaa !70
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv87
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv87
   %59 = getelementptr i8, ptr %gep, i64 -4
   %60 = load i32, ptr %59, align 4, !tbaa !70
   %61 = load i32, ptr %gep, align 4, !tbaa !70
@@ -4896,7 +4894,7 @@ define internal void @spatial_compose_dd97i_dy_12bit(ptr noundef captures(none) 
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.DWTCompose, ptr %8, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !22
@@ -4993,14 +4991,14 @@ define internal void @vertical_compose53iL0_12bit(ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
   %10 = add i32 %7, 2
   %11 = add i32 %10, %9
   %12 = ashr i32 %11, 2
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !70
   %15 = sub i32 %14, %12
   store i32 %15, ptr %13, align 4, !tbaa !70
@@ -5023,17 +5021,17 @@ define internal void @vertical_compose_dd97iH0_12bit(ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = add i32 %13, %11
   %15 = mul i32 %14, 9
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !70
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !70
   %20 = add i32 %17, %19
   %reass.sub = sub i32 %15, %20
@@ -5054,7 +5052,7 @@ define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) 
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = shl i32 %8, 1
   %10 = add i32 %9, 2
@@ -5066,14 +5064,14 @@ define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) 
 
 .lr.ph.preheader:                                 ; preds = %3
   %14 = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %14
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !70
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %17 = getelementptr i8, ptr %gep, i64 -4
   %18 = load i32, ptr %17, align 4, !tbaa !70
   %19 = load i32, ptr %gep, align 4, !tbaa !70
@@ -5081,7 +5079,7 @@ define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) 
   %21 = add i32 %20, %19
   %22 = ashr i32 %21, 2
   %23 = sub i32 %16, %22
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
@@ -5090,7 +5088,7 @@ define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %25 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %12, ptr %25, align 4, !tbaa !70
-  %26 = getelementptr i32, ptr %1, i64 %6
+  %26 = getelementptr [4 x i8], ptr %1, i64 %6
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !70
   store i32 %28, ptr %26, align 4, !tbaa !70
@@ -5101,7 +5099,7 @@ define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) 
 ._crit_edge:                                      ; preds = %3
   %30 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %12, ptr %30, align 4, !tbaa !70
-  %31 = getelementptr i32, ptr %1, i64 %6
+  %31 = getelementptr [4 x i8], ptr %1, i64 %6
   %32 = getelementptr i8, ptr %31, i64 -4
   %33 = load i32, ptr %32, align 4, !tbaa !70
   store i32 %33, ptr %31, align 4, !tbaa !70
@@ -5112,23 +5110,23 @@ define internal void @horizontal_compose_dd97i_12bit(ptr noundef captures(none) 
 
 .lr.ph56.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   %36 = zext nneg i32 %4 to i64
-  %invariant.gep64 = getelementptr inbounds nuw i32, ptr %0, i64 %36
+  %invariant.gep64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %36
   br label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv59 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next60, %.lr.ph56 ]
-  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv59
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv59
   %38 = load i32, ptr %37, align 4, !tbaa !70
   %39 = add i32 %38, 1
   %40 = ashr i32 %39, 1
   %.idx = shl nuw nsw i64 %indvars.iv59, 3
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %40, ptr %41, align 4, !tbaa !70
-  %gep65 = getelementptr inbounds nuw i32, ptr %invariant.gep64, i64 %indvars.iv59
+  %gep65 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep64, i64 %indvars.iv59
   %42 = load i32, ptr %gep65, align 4, !tbaa !70
   %43 = load i32, ptr %37, align 4, !tbaa !70
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next60
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next60
   %45 = load i32, ptr %44, align 4, !tbaa !70
   %46 = add i32 %45, %43
   %47 = mul i32 %46, 9
@@ -5160,7 +5158,7 @@ define internal void @spatial_compose_dirac53i_dy_12bit(ptr noundef captures(non
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.DWTCompose, ptr %10, i64 %11
+  %12 = getelementptr inbounds [72 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load i32, ptr %13, align 8, !tbaa !23
   %15 = load ptr, ptr %12, align 8, !tbaa !22
@@ -5274,11 +5272,11 @@ define internal void @vertical_compose_dirac53iH0_12bit(ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %9, 1
   %13 = add i32 %12, %11
@@ -5298,7 +5296,7 @@ define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(non
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = shl i32 %8, 1
   %10 = add i32 %9, 2
@@ -5314,19 +5312,19 @@ define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !70
   %16 = add nuw nsw i64 %indvars.iv, %6
   %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !70
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   %21 = load i32, ptr %20, align 4, !tbaa !70
   %22 = add i32 %19, 2
   %23 = add i32 %22, %21
   %24 = ashr i32 %23, 2
   %25 = sub i32 %15, %24
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %25, ptr %26, align 4, !tbaa !70
   %27 = load i32, ptr %18, align 4, !tbaa !70
   %28 = getelementptr i8, ptr %26, i64 -4
@@ -5335,7 +5333,7 @@ define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(non
   %31 = add i32 %30, %29
   %32 = ashr i32 %31, 1
   %33 = add i32 %32, %27
-  %34 = getelementptr inbounds i32, ptr %1, i64 %17
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %17
   store i32 %33, ptr %34, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5344,15 +5342,15 @@ define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(non
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %35 = add nsw i32 %2, -1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %0, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %0, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !70
-  %39 = getelementptr i32, ptr %1, i64 %6
+  %39 = getelementptr [4 x i8], ptr %1, i64 %6
   %40 = getelementptr i8, ptr %39, i64 -4
   %41 = load i32, ptr %40, align 4, !tbaa !70
   %42 = shl i32 %41, 1
   %43 = ashr exact i32 %42, 1
   %44 = add i32 %43, %38
-  %45 = getelementptr inbounds i32, ptr %1, i64 %36
+  %45 = getelementptr inbounds [4 x i8], ptr %1, i64 %36
   store i32 %44, ptr %45, align 4, !tbaa !70
   %46 = icmp sgt i32 %4, 0
   br i1 %46, label %.lr.ph48.preheader, label %interleave_12bit.exit
@@ -5363,14 +5361,14 @@ define internal void @horizontal_compose_dirac53i_12bit(ptr noundef captures(non
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
   %indvars.iv50 = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next51, %.lr.ph48 ]
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv50
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv50
   %48 = load i32, ptr %47, align 4, !tbaa !70
   %49 = add i32 %48, 1
   %50 = ashr i32 %49, 1
   %.idx = shl nuw nsw i64 %indvars.iv50, 3
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %50, ptr %51, align 4, !tbaa !70
-  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv50
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv50
   %53 = load i32, ptr %52, align 4, !tbaa !70
   %54 = add i32 %53, 1
   %55 = ashr i32 %54, 1
@@ -5390,7 +5388,7 @@ define internal void @spatial_compose_dd137i_dy_12bit(ptr noundef captures(none)
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.DWTCompose, ptr %8, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !22
@@ -5494,17 +5492,17 @@ define internal void @vertical_compose_dd137iL0_12bit(ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = add i32 %13, %11
   %15 = mul i32 %14, 9
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !70
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !70
   %20 = add i32 %17, %19
   %reass.sub = sub i32 %15, %20
@@ -5525,12 +5523,12 @@ define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none)
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = mul i32 %8, 18
   %10 = add nsw i32 %4, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = add i32 %8, %13
   %reass.sub = sub i32 %9, %14
@@ -5560,14 +5558,14 @@ define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none)
 .lr.ph.preheader:                                 ; preds = %3
   %33 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %31 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %33
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %33
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !70
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %36 = getelementptr i8, ptr %gep, i64 -4
   %37 = load i32, ptr %36, align 4, !tbaa !70
   %38 = load i32, ptr %gep, align 4, !tbaa !70
@@ -5582,7 +5580,7 @@ define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none)
   %46 = add i32 %reass.sub103, 16
   %47 = ashr i32 %46, 5
   %48 = sub i32 %35, %47
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %48, ptr %49, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5590,10 +5588,10 @@ define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none)
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %50 = sext i32 %31 to i64
-  %51 = getelementptr inbounds i32, ptr %0, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !70
   %53 = sext i32 %2 to i64
-  %54 = getelementptr i32, ptr %0, i64 %53
+  %54 = getelementptr [4 x i8], ptr %0, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load i32, ptr %55, align 4, !tbaa !70
   %57 = getelementptr i8, ptr %54, i64 -4
@@ -5607,38 +5605,38 @@ define internal void @horizontal_compose_dd137i_12bit(ptr noundef captures(none)
   %64 = add i32 %reass.sub104, 16
   %65 = ashr i32 %64, 5
   %66 = sub i32 %52, %65
-  %67 = getelementptr inbounds i32, ptr %1, i64 %50
+  %67 = getelementptr inbounds [4 x i8], ptr %1, i64 %50
   store i32 %66, ptr %67, align 4, !tbaa !70
   %68 = load i32, ptr %1, align 4, !tbaa !70
   %69 = getelementptr inbounds i8, ptr %1, i64 -4
   store i32 %68, ptr %69, align 4, !tbaa !70
   %70 = load i32, ptr %67, align 4, !tbaa !70
-  %71 = getelementptr inbounds i32, ptr %1, i64 %6
+  %71 = getelementptr inbounds [4 x i8], ptr %1, i64 %6
   store i32 %70, ptr %71, align 4, !tbaa !70
-  %72 = getelementptr inbounds i32, ptr %1, i64 %11
+  %72 = getelementptr inbounds [4 x i8], ptr %1, i64 %11
   store i32 %70, ptr %72, align 4, !tbaa !70
   %73 = icmp sgt i32 %4, 0
   br i1 %73, label %.lr.ph100.preheader, label %._crit_edge101
 
 .lr.ph100.preheader:                              ; preds = %._crit_edge
   %74 = zext nneg i32 %4 to i64
-  %invariant.gep112 = getelementptr inbounds nuw i32, ptr %0, i64 %74
+  %invariant.gep112 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %74
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv107 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next108, %.lr.ph100 ]
-  %75 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv107
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv107
   %76 = load i32, ptr %75, align 4, !tbaa !70
   %77 = add i32 %76, 1
   %78 = ashr i32 %77, 1
   %.idx = shl nuw nsw i64 %indvars.iv107, 3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %78, ptr %79, align 4, !tbaa !70
-  %gep113 = getelementptr inbounds nuw i32, ptr %invariant.gep112, i64 %indvars.iv107
+  %gep113 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep112, i64 %indvars.iv107
   %80 = load i32, ptr %gep113, align 4, !tbaa !70
   %81 = load i32, ptr %75, align 4, !tbaa !70
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %82 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next108
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next108
   %83 = load i32, ptr %82, align 4, !tbaa !70
   %84 = add i32 %83, %81
   %85 = mul i32 %84, 9
@@ -5667,7 +5665,7 @@ define internal void @spatial_compose_haari_dy_12bit(ptr noundef captures(none) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = sext i32 %1 to i64
-  %9 = getelementptr %struct.DWTCompose, ptr %0, i64 %8
+  %9 = getelementptr [72 x i8], ptr %0, i64 %8
   %10 = getelementptr i8, ptr %9, i64 160
   %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = load ptr, ptr %0, align 8, !tbaa !11
@@ -5704,9 +5702,9 @@ define internal void @vertical_compose_haar_12bit(ptr noundef captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !70
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = add i32 %8, 1
   %10 = ashr i32 %9, 1
@@ -5735,19 +5733,19 @@ define internal void @horizontal_compose_haar0i_12bit(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = add nuw nsw i64 %indvars.iv, %6
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, 1
   %13 = ashr i32 %12, 1
   %14 = sub i32 %8, %13
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !70
   %16 = load i32, ptr %10, align 4, !tbaa !70
   %17 = add i32 %14, %16
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   store i32 %17, ptr %18, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -5755,18 +5753,18 @@ define internal void @horizontal_compose_haar0i_12bit(ptr noundef captures(none)
 
 .lr.ph7.preheader:                                ; preds = %.lr.ph
   %19 = zext nneg i32 %4 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   %wide.trip.count12 = zext nneg i32 %4 to i64
   br label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv9 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next10, %.lr.ph7 ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv9
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv9
   %22 = load i32, ptr %21, align 4, !tbaa !70
   %.idx = shl nuw nsw i64 %indvars.iv9, 3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %22, ptr %23, align 4, !tbaa !70
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv9
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv9
   %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %25, ptr %26, align 4, !tbaa !70
@@ -5790,19 +5788,19 @@ define internal void @horizontal_compose_haar1i_12bit(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = add nuw nsw i64 %indvars.iv, %6
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, 1
   %13 = ashr i32 %12, 1
   %14 = sub i32 %8, %13
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !70
   %16 = load i32, ptr %10, align 4, !tbaa !70
   %17 = add i32 %14, %16
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   store i32 %17, ptr %18, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -5810,20 +5808,20 @@ define internal void @horizontal_compose_haar1i_12bit(ptr noundef captures(none)
 
 .lr.ph7.preheader:                                ; preds = %.lr.ph
   %19 = zext nneg i32 %4 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   %wide.trip.count12 = zext nneg i32 %4 to i64
   br label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv9 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next10, %.lr.ph7 ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv9
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv9
   %22 = load i32, ptr %21, align 4, !tbaa !70
   %23 = add i32 %22, 1
   %24 = ashr i32 %23, 1
   %.idx = shl nuw nsw i64 %indvars.iv9, 3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %24, ptr %25, align 4, !tbaa !70
-  %26 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv9
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv9
   %27 = load i32, ptr %26, align 4, !tbaa !70
   %28 = add i32 %27, 1
   %29 = ashr i32 %28, 1
@@ -5881,7 +5879,7 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
   %26 = mul nsw i32 %.0.i50, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
-  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -5919,7 +5917,7 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
   %44 = mul nsw i32 %.0.i, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv63
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv63
   store ptr %46, ptr %47, align 8, !tbaa !22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
@@ -5948,7 +5946,7 @@ define internal void @spatial_compose_fidelity_12bit(ptr noundef captures(none) 
 ._crit_edge:                                      ; preds = %52, %.preheader52
   %58 = add nsw i32 %3, 1
   %59 = sext i32 %1 to i64
-  %60 = getelementptr %struct.DWTCompose, ptr %0, i64 %59
+  %60 = getelementptr [72 x i8], ptr %0, i64 %59
   %61 = getelementptr i8, ptr %60, i64 160
   store i32 %58, ptr %61, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5981,28 +5979,28 @@ define internal void @vertical_compose_fidelityiL0_12bit(ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !70
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !70
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = add i32 %25, %23
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !70
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !70
   %31 = add i32 %30, %28
   %32 = mul i32 %31, 21
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !70
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !70
   %37 = add i32 %36, %34
   %.neg = mul i32 %37, -46
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !70
-  %40 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !70
   %42 = add i32 %41, %39
   %43 = mul i32 %42, 161
@@ -6048,28 +6046,28 @@ define internal void @vertical_compose_fidelityiH0_12bit(ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !70
-  %22 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !70
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !70
   %26 = add i32 %25, %23
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !70
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !70
   %31 = add i32 %30, %28
   %32 = mul i32 %31, 10
-  %33 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !70
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !70
   %37 = add i32 %36, %34
   %.neg = mul i32 %37, -25
-  %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !70
-  %40 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !70
   %42 = add i32 %41, %39
   %43 = mul i32 %42, 81
@@ -6108,7 +6106,7 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %15
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %15
   br label %.preheader48
 
 .preheader48:                                     ; preds = %.preheader48.lr.ph, %35
@@ -6127,7 +6125,7 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = zext nneg i32 %5 to i64
   %wide.trip.count70 = zext nneg i32 %5 to i64
-  %invariant.gep78 = getelementptr inbounds nuw i32, ptr %1, i64 %25
+  %invariant.gep78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   br label %.preheader
 
 26:                                               ; preds = %.preheader48, %26
@@ -6138,16 +6136,16 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %..i42 = tail call i32 @llvm.smin.i32(i32 %29, i32 %7)
   %30 = sext i32 %..i42 to i64
   %31 = select i1 %28, i64 0, i64 %30
-  %32 = getelementptr inbounds i32, ptr %0, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %0, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !70
-  %34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %35, label %26, !llvm.loop !119
 
 35:                                               ; preds = %26
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv59
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv59
   %36 = load i32, ptr %gep, align 4, !tbaa !70
   %37 = load i32, ptr %4, align 16, !tbaa !70
   %38 = load i32, ptr %8, align 4, !tbaa !70
@@ -6171,7 +6169,7 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %54 = add i32 %53, %50
   %55 = ashr i32 %54, 8
   %56 = add i32 %55, %36
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv59
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv59
   store i32 %56, ptr %57, align 4, !tbaa !70
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
@@ -6190,16 +6188,16 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %..i = tail call i32 @llvm.smin.i32(i32 %62, i32 %17)
   %63 = sext i32 %..i to i64
   %64 = select i1 %61, i64 0, i64 %63
-  %65 = getelementptr inbounds i32, ptr %1, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %1, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !70
-  %67 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv63
   store i32 %66, ptr %67, align 4, !tbaa !70
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 8
   br i1 %exitcond66.not, label %68, label %59, !llvm.loop !121
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv67
   %70 = load i32, ptr %69, align 4, !tbaa !70
   %71 = load i32, ptr %4, align 16, !tbaa !70
   %72 = load i32, ptr %18, align 4, !tbaa !70
@@ -6223,25 +6221,25 @@ define internal void @horizontal_compose_fidelityi_12bit(ptr noundef captures(no
   %88 = add i32 %87, %84
   %89 = ashr i32 %88, 8
   %90 = sub i32 %70, %89
-  %gep79 = getelementptr inbounds nuw i32, ptr %invariant.gep78, i64 %indvars.iv67
+  %gep79 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep78, i64 %indvars.iv67
   store i32 %90, ptr %gep79, align 4, !tbaa !70
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge, label %.preheader, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %68
-  %91 = getelementptr inbounds nuw i32, ptr %1, i64 %25
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   %wide.trip.count75 = zext nneg i32 %5 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
   %indvars.iv72 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next73, %.lr.ph ]
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv72
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv72
   %93 = load i32, ptr %92, align 4, !tbaa !70
   %.idx = shl nuw nsw i64 %indvars.iv72, 3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store i32 %93, ptr %94, align 4, !tbaa !70
-  %95 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv72
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv72
   %96 = load i32, ptr %95, align 4, !tbaa !70
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %96, ptr %97, align 4, !tbaa !70
@@ -6266,7 +6264,7 @@ define internal void @spatial_compose_daub97i_dy_12bit(ptr noundef captures(none
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds %struct.DWTCompose, ptr %14, i64 %15
+  %16 = getelementptr inbounds [72 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i32, ptr %17, align 8, !tbaa !23
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8, !tbaa !22
@@ -6404,11 +6402,11 @@ define internal void @vertical_compose_daub97iL0_12bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 217
@@ -6435,11 +6433,11 @@ define internal void @vertical_compose_daub97iH0_12bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 6497
@@ -6466,11 +6464,11 @@ define internal void @vertical_compose_daub97iL1_12bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 1817
@@ -6497,11 +6495,11 @@ define internal void @vertical_compose_daub97iH1_12bit(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !70
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !70
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !70
   %12 = add i32 %11, %9
   %13 = mul i32 %12, 113
@@ -6522,7 +6520,7 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
   %4 = ashr i32 %2, 1
   %5 = load i32, ptr %0, align 4, !tbaa !70
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !70
   %9 = mul i32 %8, 3634
   %10 = add i32 %9, 2048
@@ -6538,20 +6536,20 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !70
   %16 = add nuw nsw i64 %indvars.iv, %6
   %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !70
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   %21 = load i32, ptr %20, align 4, !tbaa !70
   %22 = add i32 %21, %19
   %23 = mul i32 %22, 1817
   %24 = add i32 %23, 2048
   %25 = ashr i32 %24, 12
   %26 = sub i32 %15, %25
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !70
   %28 = load i32, ptr %18, align 4, !tbaa !70
   %29 = getelementptr i8, ptr %27, i64 -4
@@ -6561,7 +6559,7 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
   %33 = add i32 %32, 64
   %34 = ashr i32 %33, 7
   %35 = sub i32 %28, %34
-  %36 = getelementptr inbounds i32, ptr %1, i64 %17
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %17
   store i32 %35, ptr %36, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6570,16 +6568,16 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %37 = add nsw i32 %2, -1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !70
-  %41 = getelementptr i32, ptr %1, i64 %6
+  %41 = getelementptr [4 x i8], ptr %1, i64 %6
   %42 = getelementptr i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !70
   %44 = mul i32 %43, 226
   %45 = add i32 %44, 64
   %46 = ashr i32 %45, 7
   %47 = sub i32 %40, %46
-  %48 = getelementptr inbounds i32, ptr %1, i64 %38
+  %48 = getelementptr inbounds [4 x i8], ptr %1, i64 %38
   store i32 %47, ptr %48, align 4, !tbaa !70
   %49 = load i32, ptr %1, align 4, !tbaa !70
   %50 = load i32, ptr %41, align 4, !tbaa !70
@@ -6593,15 +6591,15 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
 
 .lr.ph84.preheader:                               ; preds = %._crit_edge
   %56 = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i32, ptr %1, i64 %56
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %56
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %indvars.iv87 = phi i64 [ 1, %.lr.ph84.preheader ], [ %indvars.iv.next88, %.lr.ph84 ]
   %.07581 = phi i32 [ %54, %.lr.ph84.preheader ], [ %66, %.lr.ph84 ]
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv87
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv87
   %58 = load i32, ptr %57, align 4, !tbaa !70
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv87
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv87
   %59 = getelementptr i8, ptr %gep, i64 -4
   %60 = load i32, ptr %59, align 4, !tbaa !70
   %61 = load i32, ptr %gep, align 4, !tbaa !70

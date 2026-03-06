@@ -467,7 +467,7 @@ define void @Fraig_ManFree(ptr noundef %0) local_unnamed_addr #4 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !79
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !80
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !81
@@ -479,7 +479,7 @@ define void @Fraig_ManFree(ptr noundef %0) local_unnamed_addr #4 {
   %23 = load ptr, ptr %10, align 8, !tbaa !68
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !79
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !80
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr null, ptr %28, align 8, !tbaa !81
@@ -931,8 +931,8 @@ define ptr @Fraig_UtilInfoAlloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 19:                                               ; preds = %.lr.ph, %19
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr ptr, ptr %10, i64 %indvars.iv
-  %21 = getelementptr inbounds i32, ptr %store_forwarded, i64 %18
+  %20 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds [4 x i8], ptr %store_forwarded, i64 %18
   store ptr %21, ptr %20, align 8, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -975,8 +975,8 @@ define ptr @Fraig_ManGetSimInfo(ptr noundef %0) local_unnamed_addr #4 {
 20:                                               ; preds = %20, %.lr.ph.i
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.i ], [ %22, %20 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr ptr, ptr %17, i64 %indvars.iv.i
-  %22 = getelementptr inbounds i32, ptr %store_forwarded, i64 %19
+  %21 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv.i
+  %22 = getelementptr inbounds [4 x i8], ptr %store_forwarded, i64 %19
   store ptr %22, ptr %21, align 8, !tbaa !80
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1012,9 +1012,9 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %._crit_edge.us.us
   %indvars.iv66 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us.us ]
-  %34 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv66
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv66
   %35 = load ptr, ptr %34, align 8, !tbaa !80
-  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv66
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv66
   %37 = load ptr, ptr %36, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %39 = load ptr, ptr %38, align 8, !tbaa !118
@@ -1022,9 +1022,9 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 40:                                               ; preds = %..preheader_crit_edge.us.us, %40
   %indvars.iv61 = phi i64 [ 0, %..preheader_crit_edge.us.us ], [ %indvars.iv.next62, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv61
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv61
   %42 = load i32, ptr %41, align 4, !tbaa !119
-  %gep73 = getelementptr inbounds nuw i32, ptr %invariant.gep72, i64 %indvars.iv61
+  %gep73 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep72, i64 %indvars.iv61
   store i32 %42, ptr %gep73, align 4, !tbaa !119
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
@@ -1032,9 +1032,9 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 43:                                               ; preds = %.lr.ph.us.us, %43
   %indvars.iv56 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next57, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv56
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv56
   %45 = load i32, ptr %44, align 4, !tbaa !119
-  %46 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv56
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv56
   store i32 %45, ptr %46, align 4, !tbaa !119
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %33
@@ -1043,7 +1043,7 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 ..preheader_crit_edge.us.us:                      ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %48 = load ptr, ptr %47, align 8, !tbaa !122
-  %invariant.gep72 = getelementptr inbounds nuw i32, ptr %37, i64 %33
+  %invariant.gep72 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %33
   br label %40
 
 ._crit_edge.us.us:                                ; preds = %40
@@ -1055,20 +1055,20 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv53 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next54, %._crit_edge.us ]
-  %52 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv53
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv53
   %53 = load ptr, ptr %52, align 8, !tbaa !80
-  %54 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv53
   %55 = load ptr, ptr %54, align 8, !tbaa !80
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %57 = load ptr, ptr %56, align 8, !tbaa !122
-  %invariant.gep = getelementptr i32, ptr %55, i64 %32
+  %invariant.gep = getelementptr [4 x i8], ptr %55, i64 %32
   br label %58
 
 58:                                               ; preds = %.preheader.us, %58
   %indvars.iv48 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next49, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv48
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv48
   %60 = load i32, ptr %59, align 4, !tbaa !119
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv48
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv48
   store i32 %60, ptr %gep, align 4, !tbaa !119
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count64
@@ -1090,9 +1090,9 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 .lr.ph.us39:                                      ; preds = %.lr.ph.us39.preheader, %..preheader_crit_edge.us40
   %indvars.iv45 = phi i64 [ 0, %.lr.ph.us39.preheader ], [ %indvars.iv.next46, %..preheader_crit_edge.us40 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv45
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv45
   %65 = load ptr, ptr %64, align 8, !tbaa !80
-  %66 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv45
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv45
   %67 = load ptr, ptr %66, align 8, !tbaa !80
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 104
   %69 = load ptr, ptr %68, align 8, !tbaa !118
@@ -1100,9 +1100,9 @@ Fraig_UtilInfoAlloc.exit:                         ; preds = %20, %1
 
 70:                                               ; preds = %.lr.ph.us39, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph.us39 ], [ %indvars.iv.next, %70 ]
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !119
-  %73 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv
   store i32 %72, ptr %73, align 4, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1181,9 +1181,9 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 37:                                               ; preds = %.lr.ph119, %29
   %indvars.iv161 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next162, %29 ]
-  %38 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv161
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv161
   %39 = load i32, ptr %38, align 4, !tbaa !119
-  %40 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv161
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv161
   %41 = load i32, ptr %40, align 4, !tbaa !119
   %.demorgan80 = or i32 %41, %39
   %.not81 = icmp eq i32 %.demorgan80, -1
@@ -1196,9 +1196,9 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 43:                                               ; preds = %.lr.ph121, %42
   %indvars.iv166 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next167, %42 ]
-  %44 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv166
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv166
   %45 = load i32, ptr %44, align 4, !tbaa !119
-  %46 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv166
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv166
   %47 = load i32, ptr %46, align 4, !tbaa !119
   %.demorgan = or i32 %47, %45
   %.not79 = icmp eq i32 %.demorgan, -1
@@ -1244,9 +1244,9 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 65:                                               ; preds = %.lr.ph112, %57
   %indvars.iv151 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next152, %57 ]
-  %66 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv151
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv151
   %67 = load i32, ptr %66, align 4, !tbaa !119
-  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv151
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv151
   %69 = load i32, ptr %68, align 4, !tbaa !119
   %70 = xor i32 %69, -1
   %71 = and i32 %67, %70
@@ -1260,9 +1260,9 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 73:                                               ; preds = %.lr.ph114, %72
   %indvars.iv156 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next157, %72 ]
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv156
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv156
   %75 = load i32, ptr %74, align 4, !tbaa !119
-  %76 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv156
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv156
   %77 = load i32, ptr %76, align 4, !tbaa !119
   %78 = xor i32 %77, -1
   %79 = and i32 %75, %78
@@ -1319,10 +1319,10 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 100:                                              ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %101 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4, !tbaa !119
   %103 = xor i32 %102, -1
-  %104 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !119
   %106 = and i32 %105, %103
   %.not74 = icmp eq i32 %106, 0
@@ -1335,10 +1335,10 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 108:                                              ; preds = %.lr.ph101, %107
   %indvars.iv136 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next137, %107 ]
-  %109 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv136
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv136
   %110 = load i32, ptr %109, align 4, !tbaa !119
   %111 = xor i32 %110, -1
-  %112 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv136
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv136
   %113 = load i32, ptr %112, align 4, !tbaa !119
   %114 = and i32 %113, %111
   %.not = icmp eq i32 %114, 0
@@ -1365,9 +1365,9 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 123:                                              ; preds = %.lr.ph105, %115
   %indvars.iv141 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next142, %115 ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv141
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv141
   %125 = load i32, ptr %124, align 4, !tbaa !119
-  %126 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv141
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv141
   %127 = load i32, ptr %126, align 4, !tbaa !119
   %128 = and i32 %127, %125
   %.not76 = icmp eq i32 %128, 0
@@ -1380,9 +1380,9 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
 
 130:                                              ; preds = %.lr.ph107, %129
   %indvars.iv146 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next147, %129 ]
-  %131 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv146
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv146
   %132 = load i32, ptr %131, align 4, !tbaa !119
-  %133 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv146
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv146
   %134 = load i32, ptr %133, align 4, !tbaa !119
   %135 = and i32 %134, %132
   %.not75 = icmp eq i32 %135, 0
@@ -1431,7 +1431,7 @@ define void @Fraig_ManAddClause(ptr noundef captures(none) %0, ptr noundef reado
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !80
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2

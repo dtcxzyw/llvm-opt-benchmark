@@ -47,7 +47,7 @@ define hidden noundef nonnull ptr @GLES2_GetShaderInclude(i32 noundef %0) local_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GLES2_GetShaderInclude, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GLES2_GetShaderInclude, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -96,7 +96,7 @@ define hidden noundef ptr @GLES2_GetShader(i32 noundef %0) local_unnamed_addr #0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GLES2_GetShader, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GLES2_GetShader, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

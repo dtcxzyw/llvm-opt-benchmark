@@ -29,14 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"struct.std::pair.389" = type { ptr, i64 }
-%"class.llvm::AArch64FunctionInfo::MILOHDirective" = type { i32, %"class.llvm::SmallVector.383" }
-%"class.llvm::SmallVector.383" = type { %"class.llvm::SmallVectorImpl.384", %"struct.llvm::SmallVectorStorage.387" }
-%"class.llvm::SmallVectorImpl.384" = type { %"class.llvm::SmallVectorTemplateBase.385" }
-%"class.llvm::SmallVectorTemplateBase.385" = type { %"class.llvm::SmallVectorTemplateCommon.386" }
-%"class.llvm::SmallVectorTemplateCommon.386" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.387" = type { [24 x i8] }
 
 $_ZN4llvm4yaml19MachineFunctionInfoD2Ev = comdat any
 
@@ -1572,7 +1564,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.389", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1613,7 +1605,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !59
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !60
@@ -1733,7 +1725,7 @@ _ZSt4copyIPKPKN4llvm12MachineInstrEPS3_ET0_T_S8_S7_.exit31.i.i.i.i.i.i.i.i: ; pr
   %.idx36.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i.i.i.i, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx36.i.i.i.i.i.i.i.i
   %44 = load ptr, ptr %15, align 8, !tbaa !59
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.022.i.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.022.i.i.i.i.i.i.i.i
   %46 = sub nsw i64 %40, %.022.i.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i.i = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff.i.i.i.i.i.i.i.i, i1 false)
@@ -1760,7 +1752,7 @@ _ZSt4copyIPKN4llvm19AArch64FunctionInfo14MILOHDirectiveEPS2_ET0_T_S7_S6_.exit: ;
   %.pre-phi = phi i64 [ %.pre55, %_ZSt4copyIPKN4llvm19AArch64FunctionInfo14MILOHDirectiveEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %10, %11 ]
   %51 = phi ptr [ %.pre, %_ZSt4copyIPKN4llvm19AArch64FunctionInfo14MILOHDirectiveEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %12, %11 ]
   %.0 = phi ptr [ %48, %_ZSt4copyIPKN4llvm19AArch64FunctionInfo14MILOHDirectiveEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %12, %11 ]
-  %52 = getelementptr inbounds nuw %"class.llvm::AArch64FunctionInfo::MILOHDirective", ptr %51, i64 %.pre-phi
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %52
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -1895,7 +1887,7 @@ _ZSt4copyIPKPKN4llvm12MachineInstrEPS3_ET0_T_S8_S7_.exit31.i.i.i.i.i.i.i.i43: ; 
   %.idx36.i.i.i.i.i.i.i.i46 = shl nuw nsw i64 %.022.i.i.i.i.i.i.i.i44, 3
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx36.i.i.i.i.i.i.i.i46
   %105 = load ptr, ptr %76, align 8, !tbaa !59
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.022.i.i.i.i.i.i.i.i44
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.022.i.i.i.i.i.i.i.i44
   %107 = sub nsw i64 %101, %.022.i.i.i.i.i.i.i.i44
   %gepdiff.i.i.i.i.i.i.i.i47 = shl nsw i64 %107, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 8 %104, i64 %gepdiff.i.i.i.i.i.i.i.i47, i1 false)
@@ -1917,14 +1909,14 @@ _ZSt4copyIPKN4llvm19AArch64FunctionInfo14MILOHDirectiveEPS2_ET0_T_S7_S6_.exit48:
   %112 = load ptr, ptr %1, align 8, !tbaa !59
   %113 = load i32, ptr %5, align 8, !tbaa !60
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.llvm::AArch64FunctionInfo::MILOHDirective", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [48 x i8], ptr %112, i64 %114
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %114
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN4llvm19AArch64FunctionInfo14MILOHDirectiveEPS2_ET0_T_S7_S6_.exit48
   %116 = load ptr, ptr %0, align 8, !tbaa !59
-  %117 = getelementptr inbounds nuw %"class.llvm::AArch64FunctionInfo::MILOHDirective", ptr %116, i64 %.022
-  %118 = getelementptr inbounds nuw %"class.llvm::AArch64FunctionInfo::MILOHDirective", ptr %112, i64 %.022
+  %117 = getelementptr inbounds nuw [48 x i8], ptr %116, i64 %.022
+  %118 = getelementptr inbounds nuw [48 x i8], ptr %112, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4llvm19AArch64FunctionInfo14MILOHDirectiveEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
@@ -2183,7 +2175,7 @@ _ZSt4moveIPPKN4llvm12MachineInstrES4_ET0_T_S6_S5_.exit35: ; preds = %37, %36, %3
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !59
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

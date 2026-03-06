@@ -1411,7 +1411,7 @@ define hidden void @_Z9edgetaperRKN2cv3MatERS0_dd(ptr noundef nonnull align 8 de
   %43 = fsub double %39, %42
   %44 = fmul double %43, 5.000000e-01
   %45 = fptrunc double %44 to float
-  %46 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store float %45, ptr %46, align 4, !tbaa !79
   %47 = fadd float %.03852, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1437,7 +1437,7 @@ define hidden void @_Z9edgetaperRKN2cv3MatERS0_dd(ptr noundef nonnull align 8 de
   %56 = fsub double %52, %55
   %57 = fmul double %56, 5.000000e-01
   %58 = fptrunc double %57 to float
-  %59 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv60
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv60
   store float %58, ptr %59, align 4, !tbaa !79
   %60 = fadd float %.03554, %30
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1

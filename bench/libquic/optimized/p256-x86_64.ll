@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ec_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.P256_POINT = type { [4 x i64], [4 x i64], [4 x i64] }
 %union.anon = type { %struct.P256_POINT }
-%struct.P256_POINT_AFFINE = type { [4 x i64], [4 x i64] }
 
 @EC_GFp_nistz256_method.ret = internal constant %struct.ec_method_st { ptr @ec_GFp_mont_group_init, ptr @ec_GFp_mont_group_finish, ptr @ec_GFp_mont_group_copy, ptr @ec_GFp_mont_group_set_curve, ptr @ecp_nistz256_get_affine, ptr @ecp_nistz256_points_mul, ptr null, ptr @ec_GFp_mont_field_mul, ptr @ec_GFp_mont_field_sqr, ptr @ec_GFp_mont_field_encode, ptr @ec_GFp_mont_field_decode }, align 8
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/p256-x86_64.c\00", align 1
@@ -442,7 +441,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %117 = lshr i32 %116, 1
   %118 = sub nsw i32 %116, %117
   %119 = and i32 %111, 1
-  %120 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr @ecp_nistz256_precomputed, i64 %indvars.iv140
+  %120 = getelementptr inbounds nuw [4096 x i8], ptr @ecp_nistz256_precomputed, i64 %indvars.iv140
   call void @ecp_nistz256_select_w7(ptr noundef nonnull %11, ptr noundef nonnull %120, i32 noundef %118) #7
   call void @ecp_nistz256_neg(ptr noundef nonnull %91, ptr noundef nonnull %92) #7
   %121 = zext nneg i32 %119 to i64

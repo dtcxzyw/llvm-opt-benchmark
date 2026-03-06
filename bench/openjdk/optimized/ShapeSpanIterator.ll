@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SpanIteratorFuncs = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.segmentData = type { i32, i32, i32, i32, i32, i32, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"pData\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"J\00", align 1
@@ -1655,8 +1654,8 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw %struct.segmentData, ptr %15, i64 %indvars.iv.i
-  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [28 x i8], ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1678,7 +1677,7 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(
 
 .lr.ph34.i:                                       ; preds = %28, %.lr.ph34.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph34.preheader.i ], [ %indvars.iv.next39.i, %28 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv38.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
@@ -1755,7 +1754,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 56:                                               ; preds = %.lr.ph238, %.backedge.us
   %.0148204.us237 = phi i32 [ %.0148.ph261, %.lr.ph238 ], [ %.2.us, %.backedge.us ]
   %57 = sext i32 %.0148204.us237 to i64
-  %58 = getelementptr inbounds ptr, ptr %37, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %37, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 4
   %.not183.us = icmp slt i32 %60, %54
@@ -1795,7 +1794,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 76:                                               ; preds = %75
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %77 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load i8, ptr %79, align 4
@@ -1850,7 +1849,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %indvars.iv278 = phi i64 [ %91, %.lr.ph241.preheader ], [ %indvars.iv.next279, %102 ]
   %.0163240 = phi i32 [ %.0160.ph258, %.lr.ph241.preheader ], [ %.1164, %102 ]
   %indvars.iv.next279 = add nsw i64 %indvars.iv278, -1
-  %93 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.next279
+  %93 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv.next279
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 4
@@ -1860,7 +1859,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 98:                                               ; preds = %.lr.ph241
   %99 = add nsw i32 %.0163240, -1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %37, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %37, i64 %100
   store ptr %94, ptr %101, align 8
   br label %102
 
@@ -1878,7 +1877,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 105:                                              ; preds = %._crit_edge
   %106 = sext i32 %.0160.ph258 to i64
-  %107 = getelementptr inbounds ptr, ptr %37, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %37, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
@@ -1896,7 +1895,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %118
   %indvars.iv282 = phi i64 [ %113, %.lr.ph245.preheader ], [ %indvars.iv.next283, %118 ]
-  %114 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv282
+  %114 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv282
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
@@ -1925,7 +1924,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 123:                                              ; preds = %.lr.ph257, %._crit_edge252
   %indvars.iv286 = phi i64 [ %122, %.lr.ph257 ], [ %indvars.iv.next287, %._crit_edge252 ]
-  %124 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv286
+  %124 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv286
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %125, align 4
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 4
@@ -1980,7 +1979,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 
 .lr.ph251:                                        ; preds = %159, %166
   %indvars.iv288 = phi i64 [ %indvars.iv.next289, %166 ], [ %indvars.iv286, %159 ]
-  %162 = getelementptr ptr, ptr %37, i64 %indvars.iv288
+  %162 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv288
   %163 = getelementptr i8, ptr %162, i64 -8
   %164 = load ptr, ptr %163, align 8
   %165 = load i32, ptr %164, align 4
@@ -2000,7 +1999,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
 ._crit_edge252:                                   ; preds = %166, %._crit_edge252.loopexit.split.loop.exit, %159
   %.2165.lcssa = phi i32 [ %161, %159 ], [ %168, %._crit_edge252.loopexit.split.loop.exit ], [ %.0163.lcssa, %166 ]
   %169 = sext i32 %.2165.lcssa to i64
-  %170 = getelementptr inbounds ptr, ptr %37, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %37, i64 %169
   store ptr %125, ptr %170, align 8
   %indvars.iv.next287 = add nsw i64 %indvars.iv286, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
@@ -2091,8 +2090,8 @@ define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 nound
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw %struct.segmentData, ptr %15, i64 %indvars.iv.i
-  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [28 x i8], ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   store ptr %17, ptr %18, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2114,7 +2113,7 @@ define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph34.i:                                       ; preds = %28, %.lr.ph34.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph34.preheader.i ], [ %indvars.iv.next39.i, %28 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv38.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
@@ -2385,11 +2384,11 @@ GetSpanData.exit:                                 ; preds = %17
   %102 = phi float [ %61, %.lr.ph ], [ %193, %189 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %189 ]
   %.2219 = phi i32 [ %.1167, %.lr.ph ], [ %.5, %189 ]
-  %103 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %104 = load i32, ptr %103, align 4
   %105 = sitofp i32 %104 to float
   %106 = fadd float %.0169, %105
-  %107 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = sitofp i32 %108 to float
   %110 = fadd float %.0168, %109
@@ -2738,7 +2737,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef capt
   %63 = add nsw i32 %37, 1
   store i32 %63, ptr %20, align 8
   %64 = sext i32 %37 to i64
-  %65 = getelementptr inbounds %struct.segmentData, ptr %38, i64 %64
+  %65 = getelementptr inbounds [28 x i8], ptr %38, i64 %64
   store i32 %50, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %9, ptr %66, align 4

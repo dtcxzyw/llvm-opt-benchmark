@@ -68,30 +68,30 @@ define weak_odr dso_local void @_ZN3igl12mat4_to_quatIdEEvPKT_PS1_(ptr noundef %
   %39 = fcmp ogt double %5, %3
   %.0 = zext i1 %39 to i32
   %40 = select i1 %39, i64 5, i64 0
-  %41 = getelementptr inbounds nuw double, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fcmp ogt double %8, %42
   %.1 = select i1 %43, i32 2, i32 %.0
   %44 = zext nneg i32 %.1 to i64
-  %45 = getelementptr inbounds nuw i32, ptr @_ZZN3igl12mat4_to_quatIdEEvPKT_PS1_E4next, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN3igl12mat4_to_quatIdEEvPKT_PS1_E4next, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !8
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr @_ZZN3igl12mat4_to_quatIdEEvPKT_PS1_E4next, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr @_ZZN3igl12mat4_to_quatIdEEvPKT_PS1_E4next, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !8
   %50 = shl nuw nsw i32 %.1, 2
   %51 = mul nuw nsw i32 %.1, 5
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw double, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = shl nsw i32 %46, 2
   %56 = mul nsw i32 %46, 5
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %0, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !4
   %60 = shl nsw i32 %49, 2
   %61 = mul nsw i32 %49, 5
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds double, ptr %0, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %0, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !4
   %65 = fadd double %59, %64
   %66 = fsub double %54, %65
@@ -100,15 +100,15 @@ define weak_odr dso_local void @_ZN3igl12mat4_to_quatIdEEvPKT_PS1_(ptr noundef %
   %69 = fdiv double 1.000000e+00, %68
   %70 = fmul double %69, 5.000000e-01
   %71 = fmul double %70, %67
-  %72 = getelementptr inbounds nuw double, ptr %1, i64 %44
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %44
   store double %71, ptr %72, align 8, !tbaa !4
   %73 = add nsw i32 %55, %49
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %0, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %0, i64 %74
   %76 = load double, ptr %75, align 8, !tbaa !4
   %77 = add nsw i32 %60, %46
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %0, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %0, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !4
   %81 = fsub double %76, %80
   %82 = fmul double %70, %81
@@ -116,28 +116,28 @@ define weak_odr dso_local void @_ZN3igl12mat4_to_quatIdEEvPKT_PS1_(ptr noundef %
   store double %82, ptr %83, align 8, !tbaa !4
   %84 = add nsw i32 %50, %46
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %0, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %0, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !4
   %88 = or disjoint i32 %55, %.1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %0, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %0, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !4
   %92 = fadd double %87, %91
   %93 = fmul double %70, %92
-  %94 = getelementptr inbounds double, ptr %1, i64 %47
+  %94 = getelementptr inbounds [8 x i8], ptr %1, i64 %47
   store double %93, ptr %94, align 8, !tbaa !4
   %95 = add nsw i32 %50, %49
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds double, ptr %0, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %0, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !4
   %99 = or disjoint i32 %60, %.1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds double, ptr %0, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %0, i64 %100
   %102 = load double, ptr %101, align 8, !tbaa !4
   %103 = fadd double %98, %102
   %104 = fmul double %70, %103
   %105 = sext i32 %49 to i64
-  %106 = getelementptr inbounds double, ptr %1, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %1, i64 %105
   store double %104, ptr %106, align 8, !tbaa !4
   br label %107
 
@@ -196,30 +196,30 @@ define weak_odr dso_local void @_ZN3igl12mat4_to_quatIfEEvPKT_PS1_(ptr noundef %
   %41 = fcmp ogt float %5, %3
   %.0 = zext i1 %41 to i32
   %42 = select i1 %41, i64 5, i64 0
-  %43 = getelementptr inbounds nuw float, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !10
   %45 = fcmp ogt float %8, %44
   %.1 = select i1 %45, i32 2, i32 %.0
   %46 = zext nneg i32 %.1 to i64
-  %47 = getelementptr inbounds nuw i32, ptr @_ZZN3igl12mat4_to_quatIfEEvPKT_PS1_E4next, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN3igl12mat4_to_quatIfEEvPKT_PS1_E4next, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr @_ZZN3igl12mat4_to_quatIfEEvPKT_PS1_E4next, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr @_ZZN3igl12mat4_to_quatIfEEvPKT_PS1_E4next, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !8
   %52 = shl nuw nsw i32 %.1, 2
   %53 = mul nuw nsw i32 %.1, 5
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw float, ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !10
   %57 = shl nsw i32 %48, 2
   %58 = mul nsw i32 %48, 5
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds float, ptr %0, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %0, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !10
   %62 = shl nsw i32 %51, 2
   %63 = mul nsw i32 %51, 5
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds float, ptr %0, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %0, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !10
   %67 = fadd float %61, %66
   %68 = fsub float %56, %67
@@ -230,15 +230,15 @@ define weak_odr dso_local void @_ZN3igl12mat4_to_quatIfEEvPKT_PS1_(ptr noundef %
   %73 = fptrunc double %72 to float
   %74 = fmul float %73, 5.000000e-01
   %75 = fmul float %69, %74
-  %76 = getelementptr inbounds nuw float, ptr %1, i64 %46
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   store float %75, ptr %76, align 4, !tbaa !10
   %77 = add nsw i32 %57, %51
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds float, ptr %0, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %0, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !10
   %81 = add nsw i32 %62, %48
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds float, ptr %0, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %0, i64 %82
   %84 = load float, ptr %83, align 4, !tbaa !10
   %85 = fsub float %80, %84
   %86 = fmul float %74, %85
@@ -246,28 +246,28 @@ define weak_odr dso_local void @_ZN3igl12mat4_to_quatIfEEvPKT_PS1_(ptr noundef %
   store float %86, ptr %87, align 4, !tbaa !10
   %88 = add nsw i32 %52, %48
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds float, ptr %0, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %0, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !10
   %92 = or disjoint i32 %57, %.1
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds float, ptr %0, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %0, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !10
   %96 = fadd float %91, %95
   %97 = fmul float %74, %96
-  %98 = getelementptr inbounds float, ptr %1, i64 %49
+  %98 = getelementptr inbounds [4 x i8], ptr %1, i64 %49
   store float %97, ptr %98, align 4, !tbaa !10
   %99 = add nsw i32 %52, %51
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds float, ptr %0, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %0, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !10
   %103 = or disjoint i32 %62, %.1
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds float, ptr %0, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %0, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !10
   %107 = fadd float %102, %106
   %108 = fmul float %74, %107
   %109 = sext i32 %51 to i64
-  %110 = getelementptr inbounds float, ptr %1, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %1, i64 %109
   store float %108, ptr %110, align 4, !tbaa !10
   br label %111
 
@@ -324,30 +324,30 @@ define weak_odr dso_local void @_ZN3igl12mat3_to_quatIdEEvPKT_PS1_(ptr noundef %
   %39 = fcmp ogt double %5, %3
   %.0 = zext i1 %39 to i32
   %40 = select i1 %39, i64 4, i64 0
-  %41 = getelementptr inbounds nuw double, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fcmp ogt double %8, %42
   %.1 = select i1 %43, i32 2, i32 %.0
   %44 = zext nneg i32 %.1 to i64
-  %45 = getelementptr inbounds nuw i32, ptr @_ZZN3igl12mat3_to_quatIdEEvPKT_PS1_E4next, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN3igl12mat3_to_quatIdEEvPKT_PS1_E4next, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !8
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr @_ZZN3igl12mat3_to_quatIdEEvPKT_PS1_E4next, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr @_ZZN3igl12mat3_to_quatIdEEvPKT_PS1_E4next, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !8
   %50 = mul nuw nsw i32 %.1, 3
   %51 = shl nuw nsw i32 %.1, 2
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw double, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = mul nsw i32 %46, 3
   %56 = shl nsw i32 %46, 2
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %0, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !4
   %60 = mul nsw i32 %49, 3
   %61 = shl nsw i32 %49, 2
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds double, ptr %0, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %0, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !4
   %65 = fadd double %59, %64
   %66 = fsub double %54, %65
@@ -356,15 +356,15 @@ define weak_odr dso_local void @_ZN3igl12mat3_to_quatIdEEvPKT_PS1_(ptr noundef %
   %69 = fdiv double 1.000000e+00, %68
   %70 = fmul double %69, 5.000000e-01
   %71 = fmul double %70, %67
-  %72 = getelementptr inbounds nuw double, ptr %1, i64 %44
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %44
   store double %71, ptr %72, align 8, !tbaa !4
   %73 = add nsw i32 %55, %49
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %0, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %0, i64 %74
   %76 = load double, ptr %75, align 8, !tbaa !4
   %77 = add nsw i32 %60, %46
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %0, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %0, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !4
   %81 = fsub double %76, %80
   %82 = fmul double %70, %81
@@ -372,28 +372,28 @@ define weak_odr dso_local void @_ZN3igl12mat3_to_quatIdEEvPKT_PS1_(ptr noundef %
   store double %82, ptr %83, align 8, !tbaa !4
   %84 = add nsw i32 %50, %46
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %0, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %0, i64 %85
   %87 = load double, ptr %86, align 8, !tbaa !4
   %88 = add nsw i32 %55, %.1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %0, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %0, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !4
   %92 = fadd double %87, %91
   %93 = fmul double %70, %92
-  %94 = getelementptr inbounds double, ptr %1, i64 %47
+  %94 = getelementptr inbounds [8 x i8], ptr %1, i64 %47
   store double %93, ptr %94, align 8, !tbaa !4
   %95 = add nsw i32 %50, %49
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds double, ptr %0, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %0, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !4
   %99 = add nsw i32 %60, %.1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds double, ptr %0, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %0, i64 %100
   %102 = load double, ptr %101, align 8, !tbaa !4
   %103 = fadd double %98, %102
   %104 = fmul double %70, %103
   %105 = sext i32 %49 to i64
-  %106 = getelementptr inbounds double, ptr %1, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %1, i64 %105
   store double %104, ptr %106, align 8, !tbaa !4
   br label %107
 

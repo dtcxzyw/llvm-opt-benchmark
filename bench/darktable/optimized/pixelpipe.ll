@@ -13,12 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct.dt_iop_buffer_dsc_t = type { i32, i32, i32, [6 x [6 x i8]], %struct.anon, [12 x i8], %struct.anon.0, [4 x float], i32, [12 x i8] }
-%struct.anon = type { i16, i16 }
-%struct.anon.0 = type { i32, [12 x i8], [4 x float] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.dt_iop_roi_t = type { i32, i32, i32, i32, float }
+%struct.dt_iop_buffer_dsc_t = type { i32, i32, i32, [6 x [6 x i8]], %struct.anon, [12 x i8], %struct.anon.0, [4 x float], i32, [12 x i8] }
+%struct.anon = type { i16, i16 }
+%struct.anon.0 = type { i32, [12 x i8], [4 x float] }
 %struct.dt_times_t = type { double, double }
 %struct.dt_develop_tiling_t = type { float, float, float, float, i32, i32, i32, i32 }
 %struct.rusage = type { %struct.timeval, %struct.timeval, %union.anon, %union.anon.22, %union.anon.23, %union.anon.24, %union.anon.25, %union.anon.26, %union.anon.27, %union.anon.28, %union.anon.29, %union.anon.30, %union.anon.31, %union.anon.32, %union.anon.33, %union.anon.34 }
@@ -287,9 +287,9 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_init(ptr noundef captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store i64 0, ptr %26, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %28 = trunc i64 %indvars.iv to i32
   %29 = add i32 %28, 64
   store i32 %29, ptr %27, align 4, !tbaa !26
@@ -300,14 +300,14 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_init(ptr noundef captures(non
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %40
   %indvars.iv76 = phi i64 [ 0, %.lr.ph71.preheader ], [ %indvars.iv.next77, %40 ]
   %30 = load ptr, ptr %14, align 8, !tbaa !20
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv76
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv76
   store i64 %2, ptr %31, align 8, !tbaa !25
   %32 = tail call ptr @dt_alloc_aligned(i64 noundef %2) #28
   %33 = load ptr, ptr %11, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv76
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv76
   store ptr %32, ptr %34, align 8, !tbaa !27
   %35 = load ptr, ptr %11, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv76
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv76
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %.not65 = icmp eq ptr %37, null
   br i1 %.not65, label %.preheader, label %40
@@ -332,14 +332,14 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_init(ptr noundef captures(non
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.lr.ph73 ], [ 0, %.preheader ]
   %43 = load ptr, ptr %11, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv81
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv81
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   tail call void @free(ptr noundef %45) #28
   %46 = load ptr, ptr %14, align 8, !tbaa !20
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv81
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv81
   store i64 0, ptr %47, align 8, !tbaa !25
   %48 = load ptr, ptr %11, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv81
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv81
   store ptr null, ptr %49, align 8, !tbaa !27
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %50 = load i32, ptr %0, align 8, !tbaa !6
@@ -409,11 +409,11 @@ define void @dt_dev_pixelpipe_cache_cleanup(ptr noundef captures(none) %0) local
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %29 = load ptr, ptr %25, align 8, !tbaa !19
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   tail call void @free(ptr noundef %31) #28
   %32 = load ptr, ptr %25, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   store ptr null, ptr %33, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %0, align 8, !tbaa !6
@@ -621,14 +621,14 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_available(ptr noundef capture
 
 19:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !25
   %22 = icmp eq i64 %21, %2
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %18, align 8, !tbaa !22
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !25
   %27 = icmp eq i64 %26, %1
   br i1 %27, label %28, label %32
@@ -673,7 +673,7 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_get(ptr noundef captures(addr
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !26
@@ -694,14 +694,14 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_get(ptr noundef captures(addr
   %29 = phi i32 [ %21, %.lr.ph.i ], [ %45, %44 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %30 = load ptr, ptr %24, align 8, !tbaa !22
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load i64, ptr %31, align 8, !tbaa !25
   %33 = icmp eq i64 %32, %1
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %25, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load i64, ptr %36, align 8, !tbaa !25
   %.not.i = icmp eq i64 %37, %2
   br i1 %.not.i, label %39, label %38
@@ -736,17 +736,17 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_cache_get(ptr noundef captures(addr
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !19
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   store ptr %51, ptr %3, align 8, !tbaa !27
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !21
-  %54 = getelementptr inbounds nuw %struct.dt_iop_buffer_dsc_t, ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [128 x i8], ptr %53, i64 %indvars.iv.i
   store ptr %54, ptr %4, align 8, !tbaa !123
   %55 = sub nsw i32 0, %29
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
   store i32 %55, ptr %58, align 4, !tbaa !26
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
   %60 = and i32 %59, 33554432
@@ -800,7 +800,7 @@ _get_by_hash.exit.thread.thread:                  ; preds = %7, %_get_by_hash.ex
   %indvars.iv77.i.i.i = phi i64 [ %indvars.iv.next78.i.i.i, %.critedge.us50.i.i.i ], [ 2, %.lr.ph.i.i.i ]
   %.02331.us46.i.i.i = phi i32 [ %.1.us52.i.i.i, %.critedge.us50.i.i.i ], [ 0, %.lr.ph.i.i.i ]
   %.02430.us47.i.i.i = phi i32 [ %.125.us51.i.i.i, %.critedge.us50.i.i.i ], [ 1, %.lr.ph.i.i.i ]
-  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv77.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv77.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !26
   %85 = icmp sgt i32 %84, %.02430.us47.i.i.i
   br i1 %85, label %86, label %.critedge.us50.i.i.i
@@ -813,7 +813,7 @@ _get_by_hash.exit.thread.thread:                  ; preds = %7, %_get_by_hash.ex
 
 89:                                               ; preds = %86
   %90 = load ptr, ptr %82, align 8, !tbaa !22
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv77.i.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv77.i.i.i
   %92 = load i64, ptr %91, align 8, !tbaa !25
   %93 = icmp eq i64 %92, 0
   %spec.select69.i.i.i = select i1 %93, i32 %84, i32 %.02430.us47.i.i.i
@@ -840,7 +840,7 @@ _get_oldest_cacheline.exit.i.i:                   ; preds = %.critedge.us50.i.i.
   %indvars.iv82.i.i.i = phi i64 [ %indvars.iv.next83.i.i.i, %.critedge.us39.i.i.i ], [ 2, %.lr.ph.i14.i.i ]
   %.02331.us35.i.i.i = phi i32 [ %.1.us41.i.i.i, %.critedge.us39.i.i.i ], [ 0, %.lr.ph.i14.i.i ]
   %.02430.us36.i.i.i = phi i32 [ %.125.us40.i.i.i, %.critedge.us39.i.i.i ], [ 1, %.lr.ph.i14.i.i ]
-  %97 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv82.i.i.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv82.i.i.i
   %98 = load i32, ptr %97, align 4, !tbaa !26
   %99 = icmp sgt i32 %98, %.02430.us36.i.i.i
   br i1 %99, label %100, label %.critedge.us39.i.i.i
@@ -853,7 +853,7 @@ _get_oldest_cacheline.exit.i.i:                   ; preds = %.critedge.us50.i.i.
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr %96, align 8, !tbaa !19
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv82.i.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv82.i.i.i
   %106 = load ptr, ptr %105, align 8, !tbaa !27
   %107 = icmp eq ptr %106, null
   %spec.select67.i.i.i = select i1 %107, i32 %98, i32 %.02430.us36.i.i.i
@@ -876,7 +876,7 @@ _get_oldest_cacheline.exit16.i.i:                 ; preds = %.critedge.us39.i.i.
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.critedge.us61.i.i.i ], [ 2, %_get_oldest_cacheline.exit16.i.i ]
   %.02331.us57.i.i.i = phi i32 [ %.1.us63.i.i.i, %.critedge.us61.i.i.i ], [ 0, %_get_oldest_cacheline.exit16.i.i ]
   %.02430.us58.i.i.i = phi i32 [ %.125.us62.i.i.i, %.critedge.us61.i.i.i ], [ 1, %_get_oldest_cacheline.exit16.i.i ]
-  %110 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i.i.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i.i.i
   %111 = load i32, ptr %110, align 4, !tbaa !26
   %112 = icmp sgt i32 %111, %.02430.us58.i.i.i
   br i1 %112, label %113, label %.critedge.us61.i.i.i
@@ -920,7 +920,7 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %126 = load ptr, ptr %125, align 8, !tbaa !20
   %127 = and i64 %122, 1
-  %128 = getelementptr inbounds nuw i64, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = load i64, ptr %128, align 8, !tbaa !25
   %130 = icmp ult i64 %129, %2
   br i1 %130, label %139, label %.thread
@@ -934,7 +934,7 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %135 = load ptr, ptr %134, align 8, !tbaa !20
   %136 = sext i32 %.0.i119 to i64
-  %137 = getelementptr inbounds i64, ptr %135, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %135, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !25
   %.not89 = icmp eq i64 %138, %2
   br i1 %.not89, label %.thread, label %139
@@ -944,12 +944,12 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %.pre-phi = phi i64 [ %136, %133 ], [ %127, %.thread122 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %141 = load ptr, ptr %140, align 8, !tbaa !19
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %.pre-phi
+  %142 = getelementptr inbounds [8 x i8], ptr %141, i64 %.pre-phi
   %143 = load ptr, ptr %142, align 8, !tbaa !27
   tail call void @free(ptr noundef %143) #28
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %145 = load ptr, ptr %144, align 8, !tbaa !20
-  %146 = getelementptr inbounds i64, ptr %145, i64 %.pre-phi
+  %146 = getelementptr inbounds [8 x i8], ptr %145, i64 %.pre-phi
   %147 = load i64, ptr %146, align 8, !tbaa !25
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %149 = load i64, ptr %148, align 8, !tbaa !17
@@ -957,14 +957,14 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   store i64 %150, ptr %148, align 8, !tbaa !17
   %151 = tail call ptr @dt_alloc_aligned(i64 noundef %2) #28
   %152 = load ptr, ptr %140, align 8, !tbaa !19
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %.pre-phi
+  %153 = getelementptr inbounds [8 x i8], ptr %152, i64 %.pre-phi
   store ptr %151, ptr %153, align 8, !tbaa !27
   %154 = load ptr, ptr %140, align 8, !tbaa !19
-  %155 = getelementptr inbounds ptr, ptr %154, i64 %.pre-phi
+  %155 = getelementptr inbounds [8 x i8], ptr %154, i64 %.pre-phi
   %156 = load ptr, ptr %155, align 8, !tbaa !27
   %.not90 = icmp eq ptr %156, null
   %157 = load ptr, ptr %144, align 8, !tbaa !20
-  %158 = getelementptr inbounds i64, ptr %157, i64 %.pre-phi
+  %158 = getelementptr inbounds [8 x i8], ptr %157, i64 %.pre-phi
   br i1 %.not90, label %162, label %159
 
 159:                                              ; preds = %139
@@ -983,16 +983,16 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %164 = load ptr, ptr %163, align 8, !tbaa !19
   %165 = sext i32 %.0.i120 to i64
-  %166 = getelementptr inbounds ptr, ptr %164, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %164, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !27
   store ptr %167, ptr %3, align 8, !tbaa !27
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %169 = load ptr, ptr %168, align 8, !tbaa !21
-  %170 = getelementptr inbounds %struct.dt_iop_buffer_dsc_t, ptr %169, i64 %165
+  %170 = getelementptr inbounds [128 x i8], ptr %169, i64 %165
   %171 = load ptr, ptr %4, align 8, !tbaa !123
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %170, ptr noundef nonnull align 16 dereferenceable(128) %171, i64 128, i1 false), !tbaa.struct !126
   %172 = load ptr, ptr %168, align 8, !tbaa !21
-  %173 = getelementptr inbounds %struct.dt_iop_buffer_dsc_t, ptr %172, i64 %165
+  %173 = getelementptr inbounds [128 x i8], ptr %172, i64 %165
   store ptr %173, ptr %4, align 8, !tbaa !123
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %175 = load i32, ptr %174, align 4, !tbaa !121
@@ -1000,7 +1000,7 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %176 = select i1 %.not94, i64 %1, i64 0
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %178 = load ptr, ptr %177, align 8, !tbaa !22
-  %179 = getelementptr inbounds i64, ptr %178, i64 %165
+  %179 = getelementptr inbounds [8 x i8], ptr %178, i64 %165
   store i64 %176, ptr %179, align 8, !tbaa !25
   %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
   %181 = and i32 %180, 50331648
@@ -1015,13 +1015,13 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %186 = select i1 %.not93, ptr @.str.6, ptr @.str.5
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %188 = load ptr, ptr %187, align 8, !tbaa !23
-  %189 = getelementptr inbounds i32, ptr %188, i64 %165
+  %189 = getelementptr inbounds [4 x i8], ptr %188, i64 %165
   %190 = load i32, ptr %189, align 4, !tbaa !26
   %191 = load ptr, ptr %163, align 8, !tbaa !19
-  %192 = getelementptr inbounds ptr, ptr %191, i64 %165
+  %192 = getelementptr inbounds [8 x i8], ptr %191, i64 %165
   %193 = load ptr, ptr %192, align 8, !tbaa !27
   %194 = load ptr, ptr %177, align 8, !tbaa !22
-  %195 = getelementptr inbounds i64, ptr %194, i64 %165
+  %195 = getelementptr inbounds [8 x i8], ptr %194, i64 %165
   %196 = load i64, ptr %195, align 8, !tbaa !25
   %197 = select i1 %.not94, ptr @.str.6, ptr @.str.7
   tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %5, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %185, ptr noundef nonnull %186, i32 noundef %.0.i120, i32 noundef %190, ptr noundef %193, i64 noundef %196, ptr noundef nonnull %197)
@@ -1041,7 +1041,7 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %204 = phi i32 [ %202, %200 ], [ 0, %198 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %206 = load ptr, ptr %205, align 8, !tbaa !23
-  %207 = getelementptr inbounds i32, ptr %206, i64 %165
+  %207 = getelementptr inbounds [4 x i8], ptr %206, i64 %165
   store i32 %204, ptr %207, align 4, !tbaa !26
   %.not95 = icmp eq ptr %5, null
   br i1 %.not95, label %211, label %208
@@ -1055,7 +1055,7 @@ _get_cacheline.exit:                              ; preds = %_get_oldest_cacheli
   %212 = phi i32 [ %210, %208 ], [ 0, %203 ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %214 = load ptr, ptr %213, align 8, !tbaa !24
-  %215 = getelementptr inbounds i32, ptr %214, i64 %165
+  %215 = getelementptr inbounds [4 x i8], ptr %214, i64 %165
   store i32 %212, ptr %215, align 4, !tbaa !26
   br label %216
 
@@ -1314,14 +1314,14 @@ define void @dt_dev_pixelpipe_cache_invalidate_later(ptr noundef readonly captur
   %9 = phi i32 [ %3, %.lr.ph ], [ %19, %18 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.01622 = phi i32 [ 0, %.lr.ph ], [ %.1, %18 ]
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !26
   %.not19 = icmp slt i32 %11, %1
   br i1 %.not19, label %18, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %7, align 8, !tbaa !22
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !25
   %.not20 = icmp eq i64 %15, 0
   br i1 %.not20, label %18, label %16
@@ -1377,14 +1377,14 @@ define void @dt_dev_pixelpipe_cache_flush(ptr noundef readonly captures(address_
   %8 = phi i32 [ %2, %.lr.ph.i ], [ %18, %17 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.01622.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %17 ]
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4, !tbaa !26
   %.not19.i = icmp slt i32 %10, 0
   br i1 %.not19.i, label %17, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %6, align 8, !tbaa !22
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load i64, ptr %13, align 8, !tbaa !25
   %.not20.i = icmp eq i64 %14, 0
   br i1 %.not20.i, label %17, label %15
@@ -1438,21 +1438,21 @@ define void @dt_dev_pixelpipe_important_cacheline(ptr noundef readonly captures(
 11:                                               ; preds = %.lr.ph, %29
   %12 = phi i32 [ %4, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %8, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !25
   %20 = icmp eq i64 %2, %19
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %9, align 8, !tbaa !22
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !25
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %29, label %25
@@ -1460,7 +1460,7 @@ define void @dt_dev_pixelpipe_important_cacheline(ptr noundef readonly captures(
 25:                                               ; preds = %21
   %26 = sub nsw i32 0, %12
   %27 = load ptr, ptr %10, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %26, ptr %28, align 4, !tbaa !26
   %.pre = load i32, ptr %0, align 8, !tbaa !6
   br label %29
@@ -1492,7 +1492,7 @@ define void @dt_dev_pixelpipe_invalidate_cacheline(ptr noundef readonly captures
 9:                                                ; preds = %.lr.ph, %17
   %10 = phi i32 [ %3, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %17
@@ -1500,9 +1500,9 @@ define void @dt_dev_pixelpipe_invalidate_cacheline(ptr noundef readonly captures
 14:                                               ; preds = %9
   %.val = load ptr, ptr %7, align 8, !tbaa !22
   %.val8 = load ptr, ptr %8, align 8, !tbaa !24
-  %15 = getelementptr inbounds nuw i64, ptr %.val, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   store i64 0, ptr %15, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw i32, ptr %.val8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.val8, i64 %indvars.iv
   store i32 0, ptr %16, align 4, !tbaa !26
   %.pre = load i32, ptr %0, align 8, !tbaa !6
   br label %17
@@ -1557,7 +1557,7 @@ define void @dt_dev_pixelpipe_cache_checkmem(ptr noundef captures(address_is_nul
   %21 = phi ptr [ %.pre, %.lr.ph ], [ %44, %42 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.02844 = phi i64 [ 0, %.lr.ph ], [ %.1, %42 ]
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !25
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %42
@@ -1569,25 +1569,25 @@ define void @dt_dev_pixelpipe_cache_checkmem(ptr noundef captures(address_is_nul
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %7, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8, !tbaa !25
-  %31 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !27
   tail call void @free(ptr noundef %32) #28
   %33 = load i64, ptr %8, align 8, !tbaa !17
   %34 = sub i64 %33, %30
   store i64 %34, ptr %8, align 8, !tbaa !17
   %35 = load ptr, ptr %7, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   store i64 0, ptr %36, align 8, !tbaa !25
   %37 = load ptr, ptr %6, align 8, !tbaa !19
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr null, ptr %38, align 8, !tbaa !27
   %.val.i = load ptr, ptr %5, align 8, !tbaa !22
   %.val12.i = load ptr, ptr %9, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw i64, ptr %.val.i, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv
   store i64 0, ptr %39, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw i32, ptr %.val12.i, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %.val12.i, i64 %indvars.iv
   store i32 0, ptr %40, align 4, !tbaa !26
   %41 = add i64 %30, %.02844
   %.pre55 = load i32, ptr %0, align 8, !tbaa !6
@@ -1632,7 +1632,7 @@ define void @dt_dev_pixelpipe_cache_checkmem(ptr noundef captures(address_is_nul
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.critedge.us.i ], [ 2, %.lr.ph.i ]
   %.02331.us.i = phi i32 [ %.1.us.i, %.critedge.us.i ], [ 0, %.lr.ph.i ]
   %.02430.us.i = phi i32 [ %.125.us.i, %.critedge.us.i ], [ 1, %.lr.ph.i ]
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv87.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv87.i
   %58 = load i32, ptr %57, align 4, !tbaa !26
   %59 = icmp sgt i32 %58, %.02430.us.i
   br i1 %59, label %60, label %.critedge.us.i
@@ -1645,7 +1645,7 @@ define void @dt_dev_pixelpipe_cache_checkmem(ptr noundef captures(address_is_nul
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %15, align 8, !tbaa !19
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv87.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv87.i
   %66 = load ptr, ptr %65, align 8, !tbaa !27
   %.not28.us.i = icmp eq ptr %66, null
   %spec.select.i = select i1 %.not28.us.i, i32 %.02430.us.i, i32 %58
@@ -1667,26 +1667,26 @@ _get_oldest_cacheline.exit:                       ; preds = %.critedge.us.i
 69:                                               ; preds = %_get_oldest_cacheline.exit
   %70 = load ptr, ptr %16, align 8, !tbaa !20
   %71 = sext i32 %.1.us.i to i64
-  %72 = getelementptr inbounds i64, ptr %70, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !25
   %74 = load ptr, ptr %15, align 8, !tbaa !19
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %71
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %71
   %76 = load ptr, ptr %75, align 8, !tbaa !27
   tail call void @free(ptr noundef %76) #28
   %77 = load i64, ptr %12, align 8, !tbaa !17
   %78 = sub i64 %77, %73
   store i64 %78, ptr %12, align 8, !tbaa !17
   %79 = load ptr, ptr %16, align 8, !tbaa !20
-  %80 = getelementptr inbounds i64, ptr %79, i64 %71
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %71
   store i64 0, ptr %80, align 8, !tbaa !25
   %81 = load ptr, ptr %15, align 8, !tbaa !19
-  %82 = getelementptr inbounds ptr, ptr %81, i64 %71
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %71
   store ptr null, ptr %82, align 8, !tbaa !27
   %.val.i33 = load ptr, ptr %17, align 8, !tbaa !22
   %.val12.i34 = load ptr, ptr %18, align 8, !tbaa !24
-  %83 = getelementptr inbounds i64, ptr %.val.i33, i64 %71
+  %83 = getelementptr inbounds [8 x i8], ptr %.val.i33, i64 %71
   store i64 0, ptr %83, align 8, !tbaa !25
-  %84 = getelementptr inbounds i32, ptr %.val12.i34, i64 %71
+  %84 = getelementptr inbounds [4 x i8], ptr %.val12.i34, i64 %71
   store i32 0, ptr %84, align 4, !tbaa !26
   %85 = add i64 %73, %.247
   %86 = load i64, ptr %10, align 8, !tbaa !18
@@ -1724,7 +1724,7 @@ _get_oldest_cacheline.exit:                       ; preds = %.critedge.us.i
   %99 = phi i32 [ 0, %.lr.ph.i35 ], [ %111, %118 ]
   %100 = phi i32 [ 0, %.lr.ph.i35 ], [ %112, %118 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i35 ], [ %indvars.iv.next.i, %118 ]
-  %101 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i
   %102 = load ptr, ptr %101, align 8, !tbaa !27
   %.not.i = icmp eq ptr %102, null
   br i1 %.not.i, label %.thread.i, label %103
@@ -1733,7 +1733,7 @@ _get_oldest_cacheline.exit:                       ; preds = %.critedge.us.i
   %104 = add i32 %100, 1
   store i32 %104, ptr %90, align 8, !tbaa !136
   %105 = load ptr, ptr %94, align 8, !tbaa !22
-  %106 = getelementptr inbounds nuw i64, ptr %105, i64 %indvars.iv.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i
   %107 = load i64, ptr %106, align 8, !tbaa !25
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %109, label %.thread.i
@@ -1746,7 +1746,7 @@ _get_oldest_cacheline.exit:                       ; preds = %.critedge.us.i
 .thread.i:                                        ; preds = %109, %103, %97
   %111 = phi i32 [ %99, %97 ], [ %110, %109 ], [ %99, %103 ]
   %112 = phi i32 [ %100, %97 ], [ %104, %109 ], [ %104, %103 ]
-  %113 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 4, !tbaa !26
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %116, label %118
@@ -1818,7 +1818,7 @@ define void @dt_dev_pixelpipe_cache_report(ptr noundef captures(address_is_null)
   %14 = phi i32 [ 0, %.lr.ph.i ], [ %26, %33 ]
   %15 = phi i32 [ 0, %.lr.ph.i ], [ %27, %33 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %.thread.i, label %18
@@ -1827,7 +1827,7 @@ define void @dt_dev_pixelpipe_cache_report(ptr noundef captures(address_is_null)
   %19 = add i32 %15, 1
   store i32 %19, ptr %4, align 8, !tbaa !136
   %20 = load ptr, ptr %9, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %22 = load i64, ptr %21, align 8, !tbaa !25
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %.thread.i
@@ -1840,7 +1840,7 @@ define void @dt_dev_pixelpipe_cache_report(ptr noundef captures(address_is_null)
 .thread.i:                                        ; preds = %24, %18, %12
   %26 = phi i32 [ %14, %12 ], [ %25, %24 ], [ %14, %18 ]
   %27 = phi i32 [ %15, %12 ], [ %19, %24 ], [ %19, %18 ]
-  %28 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %33
@@ -2400,9 +2400,9 @@ define noundef i32 @dt_dev_pixelpipe_init_preview(ptr noundef initializes((120, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   store i64 0, ptr %52, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   %54 = trunc i64 %indvars.iv.i to i32
   %55 = add i32 %54, 64
   store i32 %55, ptr %53, align 4, !tbaa !26
@@ -2508,9 +2508,9 @@ define noundef i32 @dt_dev_pixelpipe_init_preview2(ptr noundef initializes((120,
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %52 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   store i64 0, ptr %52, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   %54 = trunc i64 %indvars.iv.i to i32
   %55 = add i32 %54, 64
   store i32 %55, ptr %53, align 4, !tbaa !26
@@ -2621,9 +2621,9 @@ define noundef i32 @dt_dev_pixelpipe_init(ptr noundef initializes((120, 124), (1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   store i64 0, ptr %56, align 8, !tbaa !25
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %58 = trunc i64 %indvars.iv.i to i32
   %59 = add i32 %58, 64
   store i32 %59, ptr %57, align 4, !tbaa !26
@@ -2678,7 +2678,7 @@ define void @dt_dev_pixelpipe_set_input(ptr noundef initializes((136, 156), (176
 
 17:                                               ; preds = %17, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %18, align 4, !tbaa !165
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -2753,11 +2753,11 @@ define void @dt_dev_pixelpipe_cleanup(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %29 = load ptr, ptr %27, align 8, !tbaa !19
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   tail call void @free(ptr noundef %31) #28
   %32 = load ptr, ptr %27, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   store ptr null, ptr %33, align 8, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %0, align 8, !tbaa !6
@@ -3549,14 +3549,14 @@ switch.early.test:                                ; preds = %128
   %141 = phi i32 [ %137, %.lr.ph.i.i ], [ %151, %150 ]
   %indvars.iv.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %150 ]
   %.01622.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %150 ]
-  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv.i.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %indvars.iv.i.i
   %143 = load i32, ptr %142, align 4, !tbaa !26
   %.not19.i.i = icmp slt i32 %143, 0
   br i1 %.not19.i.i, label %150, label %144
 
 144:                                              ; preds = %140
   %145 = load ptr, ptr %17, align 8, !tbaa !22
-  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %indvars.iv.i.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.i.i
   %147 = load i64, ptr %146, align 8, !tbaa !25
   %.not20.i.i = icmp eq i64 %147, 0
   br i1 %.not20.i.i, label %150, label %148
@@ -3875,14 +3875,14 @@ define void @dt_dev_pixelpipe_usedetails(ptr noundef captures(address_is_null) %
   %11 = phi i32 [ %5, %.lr.ph.i ], [ %21, %20 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %.01622.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %20 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4, !tbaa !26
   %.not19.i = icmp slt i32 %13, 0
   br i1 %.not19.i, label %20, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %9, align 8, !tbaa !22
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8, !tbaa !25
   %.not20.i = icmp eq i64 %17, 0
   br i1 %.not20.i, label %20, label %18
@@ -4074,14 +4074,14 @@ define range(i32 0, 2) i32 @dt_dev_pixelpipe_process(ptr noundef initializes((57
   %75 = phi i32 [ %71, %.lr.ph.i.i ], [ %85, %84 ]
   %indvars.iv.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %84 ]
   %.01622.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %84 ]
-  %76 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i.i
   %77 = load i32, ptr %76, align 4, !tbaa !26
   %.not19.i.i = icmp slt i32 %77, 0
   br i1 %.not19.i.i, label %84, label %78
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %63, align 8, !tbaa !22
-  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i.i
   %81 = load i64, ptr %80, align 8, !tbaa !25
   %.not20.i.i = icmp eq i64 %81, 0
   br i1 %.not20.i.i, label %84, label %82
@@ -4192,14 +4192,14 @@ dt_dev_pixelpipe_cache_flush.exit:                ; preds = %91, %88, %._crit_ed
   %124 = phi i32 [ %120, %.lr.ph.i.i136 ], [ %134, %133 ]
   %indvars.iv.i.i137 = phi i64 [ 2, %.lr.ph.i.i136 ], [ %indvars.iv.next.i.i143, %133 ]
   %.01622.i.i138 = phi i32 [ 0, %.lr.ph.i.i136 ], [ %.1.i.i142, %133 ]
-  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i.i137
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i.i137
   %126 = load i32, ptr %125, align 4, !tbaa !26
   %.not19.i.i139 = icmp slt i32 %126, 0
   br i1 %.not19.i.i139, label %133, label %127
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %63, align 8, !tbaa !22
-  %129 = getelementptr inbounds nuw i64, ptr %128, i64 %indvars.iv.i.i137
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.i.i137
   %130 = load i64, ptr %129, align 8, !tbaa !25
   %.not20.i.i140 = icmp eq i64 %130, 0
   br i1 %.not20.i.i140, label %133, label %131
@@ -5478,7 +5478,7 @@ _skip_piece_on_tags.exit.thread521:               ; preds = %65, %_skip_piece_on
 
 85:                                               ; preds = %85, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %85 ]
-  %86 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %86, align 4, !tbaa !165
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -6113,7 +6113,7 @@ get_output_format.exit:                           ; preds = %85, %.split, %get_o
 434:                                              ; preds = %442, %.lr.ph.i
   %435 = phi i32 [ %428, %.lr.ph.i ], [ %443, %442 ]
   %indvars.iv.i504 = phi i64 [ 2, %.lr.ph.i ], [ %indvars.iv.next.i505, %442 ]
-  %436 = getelementptr inbounds nuw ptr, ptr %431, i64 %indvars.iv.i504
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %indvars.iv.i504
   %437 = load ptr, ptr %436, align 8, !tbaa !27
   %438 = icmp eq ptr %437, %427
   br i1 %438, label %439, label %442
@@ -6121,9 +6121,9 @@ get_output_format.exit:                           ; preds = %85, %.split, %get_o
 439:                                              ; preds = %434
   %.val.i = load ptr, ptr %432, align 8, !tbaa !22
   %.val8.i = load ptr, ptr %433, align 8, !tbaa !24
-  %440 = getelementptr inbounds nuw i64, ptr %.val.i, i64 %indvars.iv.i504
+  %440 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i504
   store i64 0, ptr %440, align 8, !tbaa !25
-  %441 = getelementptr inbounds nuw i32, ptr %.val8.i, i64 %indvars.iv.i504
+  %441 = getelementptr inbounds nuw [4 x i8], ptr %.val8.i, i64 %indvars.iv.i504
   store i32 0, ptr %441, align 4, !tbaa !26
   %.pre.i = load i32, ptr %0, align 8, !tbaa !6
   br label %442
@@ -6303,7 +6303,7 @@ dt_dev_gui_module.exit507:                        ; preds = %479
 538:                                              ; preds = %546, %.lr.ph.i508
   %539 = phi i32 [ %532, %.lr.ph.i508 ], [ %547, %546 ]
   %indvars.iv.i509 = phi i64 [ 2, %.lr.ph.i508 ], [ %indvars.iv.next.i510, %546 ]
-  %540 = getelementptr inbounds nuw ptr, ptr %535, i64 %indvars.iv.i509
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %535, i64 %indvars.iv.i509
   %541 = load ptr, ptr %540, align 8, !tbaa !27
   %542 = icmp eq ptr %541, %531
   br i1 %542, label %543, label %546
@@ -6311,9 +6311,9 @@ dt_dev_gui_module.exit507:                        ; preds = %479
 543:                                              ; preds = %538
   %.val.i511 = load ptr, ptr %536, align 8, !tbaa !22
   %.val8.i512 = load ptr, ptr %537, align 8, !tbaa !24
-  %544 = getelementptr inbounds nuw i64, ptr %.val.i511, i64 %indvars.iv.i509
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %.val.i511, i64 %indvars.iv.i509
   store i64 0, ptr %544, align 8, !tbaa !25
-  %545 = getelementptr inbounds nuw i32, ptr %.val8.i512, i64 %indvars.iv.i509
+  %545 = getelementptr inbounds nuw [4 x i8], ptr %.val8.i512, i64 %indvars.iv.i509
   store i32 0, ptr %545, align 4, !tbaa !26
   %.pre.i513 = load i32, ptr %0, align 8, !tbaa !6
   br label %546
@@ -6392,7 +6392,7 @@ dt_dev_pixelpipe_invalidate_cacheline.exit514:    ; preds = %546, %529, %516, %5
 
 574:                                              ; preds = %.lr.ph550
   %575 = load ptr, ptr %2, align 8, !tbaa !27
-  %576 = getelementptr inbounds nuw float, ptr %575, i64 %indvars.iv558
+  %576 = getelementptr inbounds nuw [4 x i8], ptr %575, i64 %indvars.iv558
   %577 = load float, ptr %576, align 4, !tbaa !165
   %578 = fcmp ord float %577, 0.000000e+00
   br i1 %578, label %579, label %.thread
@@ -6404,11 +6404,11 @@ dt_dev_pixelpipe_invalidate_cacheline.exit514:    ; preds = %546, %529, %516, %5
 
 582:                                              ; preds = %579
   %583 = and i64 %indvars.iv558, 3
-  %584 = getelementptr inbounds nuw float, ptr %22, i64 %583
+  %584 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %583
   %585 = load float, ptr %584, align 4, !tbaa !165
   %586 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %577, float %585)
   store float %586, ptr %584, align 4, !tbaa !165
-  %587 = getelementptr inbounds nuw float, ptr %23, i64 %583
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %583
   %588 = load float, ptr %587, align 4, !tbaa !165
   %589 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %577, float %588)
   store float %589, ptr %587, align 4, !tbaa !165
@@ -6492,7 +6492,7 @@ dt_dev_pixelpipe_invalidate_cacheline.exit514:    ; preds = %546, %529, %516, %5
   br i1 %626, label %653, label %646
 
 630:                                              ; preds = %.thread611
-  %631 = getelementptr inbounds nuw float, ptr %625, i64 %indvars.iv.next616
+  %631 = getelementptr inbounds nuw [4 x i8], ptr %625, i64 %indvars.iv.next616
   %632 = load float, ptr %631, align 4, !tbaa !165
   %633 = fcmp ord float %632, 0.000000e+00
   br i1 %633, label %._crit_edge656, label %.thread611
@@ -6524,7 +6524,7 @@ dt_dev_pixelpipe_invalidate_cacheline.exit514:    ; preds = %546, %529, %516, %5
   %.0370540.ph = phi float [ %.1371, %639 ], [ 0x47EFFFFFE0000000, %.lr.ph ]
   %.0372539.ph = phi i32 [ %.0372539.lcssa, %639 ], [ 0, %.lr.ph ]
   %.0374538.ph = phi i32 [ %.1375, %639 ], [ 0, %.lr.ph ]
-  %640 = getelementptr inbounds nuw float, ptr %625, i64 %indvars.iv.ph
+  %640 = getelementptr inbounds nuw [4 x i8], ptr %625, i64 %indvars.iv.ph
   %641 = load float, ptr %640, align 4, !tbaa !165
   %642 = fcmp ord float %641, 0.000000e+00
   br i1 %642, label %._crit_edge656, label %.thread611
@@ -7863,7 +7863,7 @@ define internal fastcc void @_dump_pipe_pfm_diff(ptr noundef %0, ptr noundef rea
   %70 = trunc i64 %69 to i32
   %71 = mul i32 %16, %70
   %72 = zext i32 %71 to i64
-  %73 = getelementptr float, ptr %1, i64 %68
+  %73 = getelementptr [4 x i8], ptr %1, i64 %68
   br label %.lr.ph.split.us.split.us.us.us.us.us
 
 ._crit_edge.split.us.us.us.us.us:                 ; preds = %.lr.ph.split.us.split.us.us.us.us.us, %.lr.ph.split.us.split.us90.us.us.us.preheader
@@ -7873,14 +7873,14 @@ define internal fastcc void @_dump_pipe_pfm_diff(ptr noundef %0, ptr noundef rea
 
 .lr.ph.split.us.split.us.us.us.us.us:             ; preds = %.lr.ph.split.us.split.us.us.us.us.us.preheader, %.lr.ph.split.us.split.us.us.us.us.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.split.us.us.us.us.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us.split.us.us.us.us.us ]
-  %74 = getelementptr float, ptr %73, i64 %indvars.iv
+  %74 = getelementptr [4 x i8], ptr %73, i64 %indvars.iv
   %75 = load float, ptr %74, align 4, !tbaa !165
   %76 = add nuw nsw i64 %indvars.iv, %72
-  %77 = getelementptr inbounds nuw float, ptr %4, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !165
   %79 = fsub reassoc nsz arcp contract afn float %75, %78
   %80 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %79)
-  %81 = getelementptr inbounds nuw float, ptr %26, i64 %76
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %76
   store float %80, ptr %81, align 4, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next, %wide.trip.count121
@@ -8001,17 +8001,17 @@ define internal fastcc void @_pixelpipe_picker(ptr noundef %0, ptr noundef reado
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %.035.us = phi i64 [ %60, %.split.us ], [ 0, %.split.us.preheader ]
-  %51 = getelementptr inbounds nuw float, ptr %49, i64 %.035.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.035.us
   %52 = load float, ptr %51, align 4, !tbaa !165
-  %53 = getelementptr inbounds nuw float, ptr %6, i64 %.035.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.035.us
   store float %52, ptr %53, align 4, !tbaa !165
-  %54 = getelementptr inbounds nuw float, ptr %50, i64 %.035.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.035.us
   %55 = load float, ptr %54, align 4, !tbaa !165
-  %56 = getelementptr inbounds nuw float, ptr %7, i64 %.035.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.035.us
   store float %55, ptr %56, align 4, !tbaa !165
-  %57 = getelementptr inbounds nuw float, ptr %12, i64 %.035.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.035.us
   %58 = load float, ptr %57, align 4, !tbaa !165
-  %59 = getelementptr inbounds nuw float, ptr %5, i64 %.035.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.035.us
   store float %58, ptr %59, align 4, !tbaa !165
   %60 = add nuw nsw i64 %.035.us, 1
   %exitcond39.not = icmp eq i64 %60, 4
@@ -8024,11 +8024,11 @@ define internal fastcc void @_pixelpipe_picker(ptr noundef %0, ptr noundef reado
 
 .split:                                           ; preds = %10, %.split
   %.035 = phi i64 [ %64, %.split ], [ 0, %10 ]
-  %61 = getelementptr inbounds nuw float, ptr %6, i64 %.035
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.035
   store float 0x47EFFFFFE0000000, ptr %61, align 4, !tbaa !165
-  %62 = getelementptr inbounds nuw float, ptr %7, i64 %.035
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.035
   store float 0xC7EFFFFFE0000000, ptr %62, align 4, !tbaa !165
-  %63 = getelementptr inbounds nuw float, ptr %5, i64 %.035
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.035
   store float 0.000000e+00, ptr %63, align 4, !tbaa !165
   %64 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %64, 4

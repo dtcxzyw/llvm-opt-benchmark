@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.ascend_token_t = type { i32, i32, i16, i8, [64 x i8] }
-%struct.yyStackEntry = type { i16, i8, %union.YYMINORTYPE }
-%union.YYMINORTYPE = type { %struct.ascend_token_t }
 
 @yyRuleInfoNRhs = internal unnamed_addr constant [51 x i8] c"\FF\FF\FF\FF\FF\FF\F3\F4\F4\F5\F3\F6\F4\F6\F5\FF\FE\FC\FE\FE\FE\FE\FE\FD\FE\FF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF\FE\F8\F9\FA\FB\FC\FD\FE\FF", align 16
 @yy_shift_ofst = internal unnamed_addr constant [132 x i8] c"\0B\0E\0E\10\1B\1B\1B\1B\1B\1B\1B\1B\1A\1B\18\1B,,,,,,%%%$%%%%%%$%%%%%%%$<<%%%$<%%%%$$G%%%$<%\1B\1B\1B\1B\1B\1B\1B\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18(Xoqtijk}uvwy\8E\8F\90\81\92\93\94\85\96\97\98\99\8A\9B\9C\9DI\91\9E\9F\A0\A2\A5\A6\A7\A8\A9\AA\9A\AB\AD\AE\B0\A1\B1\B3", align 16
@@ -156,12 +154,12 @@ AscendParserAlloc.exit:                           ; preds = %12, %25
   br i1 %.not.i.i, label %62, label %59
 
 59:                                               ; preds = %51
-  %60 = getelementptr i16, ptr @yy_default, i64 %52
+  %60 = getelementptr [2 x i8], ptr @yy_default, i64 %52
   %61 = load i16, ptr %60, align 2
   br label %yy_find_shift_action.exit.i
 
 62:                                               ; preds = %51
-  %63 = getelementptr i16, ptr @yy_action, i64 %56
+  %63 = getelementptr [2 x i8], ptr @yy_action, i64 %56
   %64 = load i16, ptr %63, align 2
   br label %yy_find_shift_action.exit.i
 
@@ -635,15 +633,15 @@ yy_reduce.exit.i:                                 ; preds = %356, %350, %326, %3
   %368 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %365
   %369 = load i8, ptr %368, align 1
   %370 = sext i8 %369 to i64
-  %371 = getelementptr %struct.yyStackEntry, ptr %70, i64 %370
+  %371 = getelementptr [80 x i8], ptr %70, i64 %370
   %372 = load i16, ptr %371, align 4
   %373 = zext i16 %372 to i64
   %374 = getelementptr i8, ptr @yy_reduce_ofst, i64 %373
   %375 = load i8, ptr %374, align 1
   %376 = sext i8 %375 to i64
   %377 = zext i8 %367 to i64
-  %378 = getelementptr i16, ptr @yy_action, i64 %376
-  %379 = getelementptr i16, ptr %378, i64 %377
+  %378 = getelementptr [2 x i8], ptr @yy_action, i64 %376
+  %379 = getelementptr [2 x i8], ptr %378, i64 %377
   %380 = load i16, ptr %379, align 2
   %381 = getelementptr i8, ptr %371, i64 80
   store ptr %381, ptr %24, align 8

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.ChannelParams = type { double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, [5 x double], [5 x double], [4 x [2 x double]], [2 x [2 x double]] }
 
 @.str = private unnamed_addr constant [9 x i8] c"aexciter\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"Enhance high frequency part of audio.\00", align 1
@@ -134,10 +133,10 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
 
 44:                                               ; preds = %.preheader.us, %distortion_process.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %distortion_process.exit.us ]
-  %45 = getelementptr inbounds nuw double, ptr %.04957.us, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.04957.us, i64 %indvars.iv
   %46 = load double, ptr %45, align 8, !tbaa !52
   %47 = fmul nsz double %13, %46
-  %48 = getelementptr inbounds nuw %struct.ChannelParams, ptr %42, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [312 x i8], ptr %42, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 216
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 224
@@ -300,15 +299,15 @@ distortion_process.exit.us:                       ; preds = %150, %114
   %181 = tail call nsz double @llvm.fmuladd.f64(double %.048.i.us, double %17, double %180)
   %182 = fmul nsz double %15, %181
   %.sink = select i1 %.not54.us, double %182, double %179
-  %183 = getelementptr inbounds nuw double, ptr %.04658.us, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.04658.us, i64 %indvars.iv
   store double %.sink, ptr %183, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %44, !llvm.loop !65
 
 ._crit_edge.us:                                   ; preds = %distortion_process.exit.us
-  %184 = getelementptr inbounds nuw double, ptr %.04957.us, i64 %39
-  %185 = getelementptr inbounds nuw double, ptr %.04658.us, i64 %39
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %.04957.us, i64 %39
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.04658.us, i64 %39
   %186 = add nuw nsw i32 %.04559.us, 1
   %exitcond63.not = icmp eq i32 %186, %33
   br i1 %exitcond63.not, label %._crit_edge60, label %.preheader.us, !llvm.loop !67
@@ -373,7 +372,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw %struct.ChannelParams, ptr %13, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [312 x i8], ptr %13, i64 %indvars.iv
   %29 = load double, ptr %17, align 8, !tbaa !69
   %30 = load double, ptr %18, align 8, !tbaa !70
   %31 = load double, ptr %22, align 8, !tbaa !71

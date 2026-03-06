@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5FL_reg_head_t = type { i8, i32, i32, ptr, i64, ptr }
 %struct.H5FL_seq_head_t = type { %struct.H5FL_blk_head_t, i64 }
 %struct.H5FL_blk_head_t = type { i8, i32, i32, i64, ptr, ptr }
-%struct.H5HF_indirect_ent_t = type { i64 }
-%struct.H5HF_indirect_filt_ent_t = type { i64, i32 }
 
 @.str = private unnamed_addr constant [20 x i8] c"fractal heap header\00", align 1
 @H5AC_FHEAP_HDR = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str, i32 6, i32 1, ptr @H5HF__cache_hdr_get_initial_load_size, ptr @H5HF__cache_hdr_get_final_load_size, ptr @H5HF__cache_hdr_verify_chksum, ptr @H5HF__cache_hdr_deserialize, ptr @H5HF__cache_hdr_image_len, ptr @H5HF__cache_hdr_pre_serialize, ptr @H5HF__cache_hdr_serialize, ptr null, ptr @H5HF__cache_hdr_free_icr, ptr null }], align 16
@@ -3306,7 +3304,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %162 = phi i32 [ 0, %.lr.ph186 ], [ %250, %249 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next, %249 ]
   %163 = load ptr, ptr %16, align 8, !tbaa !107
-  %164 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %134, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv
   call void @H5F_addr_decode(ptr noundef %163, ptr noundef nonnull %5, ptr noundef nonnull %164) #9
   %165 = load i32, ptr %50, align 4, !tbaa !75
   %.not166 = icmp eq i32 %165, 0
@@ -3337,7 +3335,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %176 = load ptr, ptr %5, align 8, !tbaa !19
   %177 = load i8, ptr %176, align 1, !tbaa !16
   %178 = zext i8 %177 to i64
-  %179 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %157, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %indvars.iv
   store i64 %178, ptr %179, align 8, !tbaa !129
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 1
   store ptr %180, ptr %5, align 8, !tbaa !19
@@ -3365,7 +3363,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   br label %222
 
 196:                                              ; preds = %172
-  %197 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %157, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %indvars.iv
   store i64 0, ptr %197, align 8, !tbaa !129
   %198 = load ptr, ptr %5, align 8, !tbaa !19
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
@@ -3395,7 +3393,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %212 = load ptr, ptr %5, align 8, !tbaa !19
   %213 = load i8, ptr %212, align 1, !tbaa !16
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %157, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %indvars.iv
   store i64 %214, ptr %215, align 8, !tbaa !129
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 1
   store ptr %216, ptr %5, align 8, !tbaa !19
@@ -3412,7 +3410,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %223 = phi ptr [ %.pre, %._crit_edge195 ], [ %195, %175 ], [ %210, %209 ], [ %221, %211 ]
   %224 = load i8, ptr %223, align 1, !tbaa !16
   %225 = zext i8 %224 to i32
-  %226 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %157, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %indvars.iv
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 %225, ptr %227, align 8, !tbaa !132
   %228 = getelementptr inbounds nuw i8, ptr %223, i64 1
@@ -3597,7 +3595,7 @@ define internal noundef range(i32 -1, 1) i32 @H5HF__cache_iblock_pre_serialize(p
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 344
   %52 = load ptr, ptr %51, align 8, !tbaa !127
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   store i64 %21, ptr %54, align 8, !tbaa !133
   %55 = tail call i32 @H5HF__iblock_dirty(ptr noundef nonnull %38) #9
   %56 = icmp sgt i32 %55, -1
@@ -3700,7 +3698,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
 43:                                               ; preds = %.lr.ph78, %145
   %.06976 = phi i64 [ 0, %.lr.ph78 ], [ %147, %145 ]
   %44 = load ptr, ptr %39, align 8, !tbaa !127
-  %45 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %44, i64 %.06976
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.06976
   %46 = load i64, ptr %45, align 8, !tbaa !133
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %46) #9
   %47 = load i32, ptr %40, align 4, !tbaa !75
@@ -3729,7 +3727,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %42, align 8, !tbaa !128
-  %57 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %56, i64 %.06976
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %.06976
   %58 = load i64, ptr %57, align 8, !tbaa !129
   %59 = trunc i64 %58 to i8
   %60 = load ptr, ptr %5, align 8, !tbaa !19
@@ -3738,7 +3736,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %62, ptr %5, align 8, !tbaa !19
   %63 = load ptr, ptr %42, align 8, !tbaa !128
-  %64 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %63, i64 %.06976
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %.06976
   %65 = load i64, ptr %64, align 8, !tbaa !129
   %66 = lshr i64 %65, 8
   %67 = trunc i64 %66 to i8
@@ -3747,7 +3745,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %5, align 8, !tbaa !19
   %70 = load ptr, ptr %42, align 8, !tbaa !128
-  %71 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %70, i64 %.06976
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %.06976
   %72 = load i64, ptr %71, align 8, !tbaa !129
   %73 = lshr i64 %72, 16
   %74 = trunc i64 %73 to i8
@@ -3756,7 +3754,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %76, ptr %5, align 8, !tbaa !19
   %77 = load ptr, ptr %42, align 8, !tbaa !128
-  %78 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %77, i64 %.06976
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %.06976
   %79 = load i64, ptr %78, align 8, !tbaa !129
   %80 = lshr i64 %79, 24
   %81 = trunc i64 %80 to i8
@@ -3768,7 +3766,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
 
 84:                                               ; preds = %53
   %85 = load ptr, ptr %42, align 8, !tbaa !128
-  %86 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %85, i64 %.06976
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.06976
   %87 = load i64, ptr %86, align 8, !tbaa !129
   %88 = load ptr, ptr %5, align 8, !tbaa !19
   br label %89
@@ -3793,7 +3791,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
 
 97:                                               ; preds = %53
   %98 = load ptr, ptr %42, align 8, !tbaa !128
-  %99 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %98, i64 %.06976
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %.06976
   %100 = load i64, ptr %99, align 8, !tbaa !129
   %101 = trunc i64 %100 to i8
   %102 = load ptr, ptr %5, align 8, !tbaa !19
@@ -3802,7 +3800,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1
   store ptr %104, ptr %5, align 8, !tbaa !19
   %105 = load ptr, ptr %42, align 8, !tbaa !128
-  %106 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %105, i64 %.06976
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.06976
   %107 = load i64, ptr %106, align 8, !tbaa !129
   %108 = lshr i64 %107, 8
   %109 = trunc i64 %108 to i8
@@ -3815,7 +3813,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
 112:                                              ; preds = %._crit_edge83, %55, %94, %97
   %113 = phi ptr [ %.pre84, %._crit_edge83 ], [ %83, %55 ], [ %96, %94 ], [ %111, %97 ]
   %114 = load ptr, ptr %42, align 8, !tbaa !128
-  %115 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %114, i64 %.06976
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.06976
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i32, ptr %116, align 8, !tbaa !132
   %118 = trunc i32 %117 to i8
@@ -3824,7 +3822,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store ptr %120, ptr %5, align 8, !tbaa !19
   %121 = load ptr, ptr %42, align 8, !tbaa !128
-  %122 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %121, i64 %.06976
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %.06976
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8, !tbaa !132
   %125 = lshr i32 %124, 8
@@ -3834,7 +3832,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   store ptr %128, ptr %5, align 8, !tbaa !19
   %129 = load ptr, ptr %42, align 8, !tbaa !128
-  %130 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %129, i64 %.06976
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %.06976
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i32, ptr %131, align 8, !tbaa !132
   %133 = lshr i32 %132, 16
@@ -3844,7 +3842,7 @@ define internal noundef i32 @H5HF__cache_iblock_serialize(ptr noundef %0, ptr no
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
   store ptr %136, ptr %5, align 8, !tbaa !19
   %137 = load ptr, ptr %42, align 8, !tbaa !128
-  %138 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %137, i64 %.06976
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %.06976
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i32, ptr %139, align 8, !tbaa !132
   %141 = lshr i32 %140, 24
@@ -4034,7 +4032,7 @@ define internal noundef i32 @H5HF__cache_dblock_get_initial_load_size(ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !121
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   br label %.sink.split
 
 26:                                               ; preds = %9
@@ -4549,7 +4547,7 @@ define internal noundef i32 @H5HF__cache_dblock_image_len(ptr noundef readonly c
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %24 = load i32, ptr %23, align 8, !tbaa !156
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %25
   br label %29
 
 27:                                               ; preds = %17
@@ -4818,7 +4816,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
 138:                                              ; preds = %97
   %139 = getelementptr inbounds nuw i8, ptr %24, i64 352
   %140 = load ptr, ptr %139, align 8, !tbaa !128
-  %141 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %140, i64 %.0135
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %.0135
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 8, !tbaa !132
   %144 = load i32, ptr %12, align 4, !tbaa !17
@@ -4872,11 +4870,11 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
 .thread166:                                       ; preds = %159
   %167 = getelementptr inbounds nuw i8, ptr %24, i64 344
   %168 = load ptr, ptr %167, align 8, !tbaa !127
-  %169 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %168, i64 %.0135
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %.0135
   store i64 %161, ptr %169, align 8, !tbaa !133
   %170 = load i64, ptr %9, align 8, !tbaa !14
   %171 = load ptr, ptr %139, align 8, !tbaa !128
-  %172 = getelementptr inbounds nuw %struct.H5HF_indirect_filt_ent_t, ptr %171, i64 %.0135
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.0135
   store i64 %170, ptr %172, align 8, !tbaa !129
   br label %.thread204
 
@@ -4943,7 +4941,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
 201:                                              ; preds = %190
   %202 = getelementptr inbounds nuw i8, ptr %24, i64 344
   %203 = load ptr, ptr %202, align 8, !tbaa !127
-  %204 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %203, i64 %.0135
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %.0135
   store i64 %184, ptr %204, align 8, !tbaa !133
   %205 = call i32 @H5HF__iblock_dirty(ptr noundef %24) #9
   %206 = icmp slt i32 %205, 0

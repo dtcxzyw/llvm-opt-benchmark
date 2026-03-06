@@ -87,19 +87,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.9 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.sbitmap_queue = type { %struct.sbitmap, i32, %struct.atomic_t, ptr, %struct.atomic_t, i32, %struct.atomic_t, %struct.atomic_t }
-%struct.sbitmap = type { i32, i32, i32, i8, ptr, ptr }
-%struct.kyber_ctx_queue = type { %struct.spinlock, [4 x %struct.list_head], [56 x i8] }
-%struct.spinlock = type { %union.anon.7 }
-%union.anon.7 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.4 }
-%union.anon.4 = type { %struct.atomic_t }
-%struct.sbq_wait = type { ptr, %struct.wait_queue_entry }
-%struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.sbitmap_word = type { i64, [56 x i8], i64, [56 x i8] }
-%struct.sbq_wait_state = type { %struct.wait_queue_head, [40 x i8] }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
 
 @__tpstrtab_kyber_latency = internal constant [14 x i8] c"kyber_latency\00", section "__tracepoints_strings", align 1
 @__SCK__tp_func_kyber_latency = dso_local global %struct.static_call_key { ptr @__traceiter_kyber_latency, %union.anon.0 { i64 1 } }, align 8
@@ -800,8 +787,8 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
 
 29:                                               ; preds = %51, %23
   %30 = phi i64 [ 0, %23 ], [ %52, %51 ]
-  %31 = getelementptr i32, ptr @kyber_depth, i64 %30
-  %32 = getelementptr %struct.sbitmap_queue, ptr %25, i64 %30
+  %31 = getelementptr [4 x i8], ptr @kyber_depth, i64 %30
+  %32 = getelementptr [64 x i8], ptr %25, i64 %30
   %33 = load i32, ptr %31, align 4
   %34 = load i32, ptr %6, align 8
   %35 = tail call i32 @sbitmap_queue_init_node(ptr noundef %32, i32 noundef %33, i32 noundef -1, i1 noundef zeroext false, i32 noundef 3264, i32 noundef %34) #18
@@ -817,7 +804,7 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
   %40 = phi i64 [ %41, %.preheader ], [ %30, %37 ]
   %41 = add nsw i64 %40, -1
   %42 = and i64 %41, 4294967295
-  %43 = getelementptr %struct.sbitmap_queue, ptr %25, i64 %42
+  %43 = getelementptr [64 x i8], ptr %25, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   tail call void @kfree(ptr noundef %45) #18
@@ -891,7 +878,7 @@ define internal void @kyber_exit_sched(ptr noundef readonly captures(none) %0) #
 
 8:                                                ; preds = %8, %1
   %9 = phi i64 [ 0, %1 ], [ %17, %8 ]
-  %10 = getelementptr %struct.sbitmap_queue, ptr %7, i64 %9
+  %10 = getelementptr [64 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #18
@@ -947,14 +934,14 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 .preheader4:                                      ; preds = %17, %31
   %21 = phi i64 [ %32, %31 ], [ 0, %17 ]
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr %struct.kyber_ctx_queue, ptr %22, i64 %21
+  %23 = getelementptr [128 x i8], ptr %22, i64 %21
   store i32 0, ptr %23, align 64
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br label %25
 
 25:                                               ; preds = %25, %.preheader4
   %26 = phi i64 [ 0, %.preheader4 ], [ %29, %25 ]
-  %27 = getelementptr %struct.list_head, ptr %24, i64 %26
+  %27 = getelementptr [16 x i8], ptr %24, i64 %26
   store volatile ptr %27, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store volatile ptr %27, ptr %28, align 8
@@ -971,7 +958,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 
 36:                                               ; preds = %53, %.loopexit5
   %37 = phi i64 [ 0, %.loopexit5 ], [ %54, %53 ]
-  %38 = getelementptr %struct.sbitmap, ptr %20, i64 %37
+  %38 = getelementptr [32 x i8], ptr %20, i64 %37
   %39 = load i16, ptr %9, align 2
   %40 = zext i16 %39 to i32
   %41 = load i32, ptr %3, align 16
@@ -987,7 +974,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 .preheader:                                       ; preds = %44, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %37, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %47 = getelementptr %struct.sbitmap, ptr %20, i64 %indvars.iv.next
+  %47 = getelementptr [32 x i8], ptr %20, i64 %indvars.iv.next
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   tail call void @free_percpu(ptr noundef %49) #18
@@ -1012,11 +999,11 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 
 60:                                               ; preds = %60, %56
   %61 = phi i64 [ 0, %56 ], [ %71, %60 ]
-  %62 = getelementptr %struct.list_head, ptr %57, i64 %61
+  %62 = getelementptr [16 x i8], ptr %57, i64 %61
   store volatile ptr %62, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store volatile ptr %62, ptr %63, align 8
-  %64 = getelementptr %struct.sbq_wait, ptr %58, i64 %61
+  %64 = getelementptr [48 x i8], ptr %58, i64 %61
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 0, ptr %65, align 8
@@ -1028,7 +1015,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
   store volatile ptr %68, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store volatile ptr %68, ptr %69, align 8
-  %70 = getelementptr %struct.atomic_t, ptr %59, i64 %61
+  %70 = getelementptr [4 x i8], ptr %59, i64 %61
   store volatile i32 0, ptr %70, align 4
   %71 = add nuw nsw i64 %61, 1
   %72 = icmp eq i64 %71, 4
@@ -1082,7 +1069,7 @@ define internal void @kyber_exit_hctx(ptr noundef readonly captures(none) %0, i3
 
 6:                                                ; preds = %6, %2
   %7 = phi i64 [ 0, %2 ], [ %13, %6 ]
-  %8 = getelementptr %struct.sbitmap, ptr %5, i64 %7
+  %8 = getelementptr [32 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @free_percpu(ptr noundef %10) #18
@@ -1131,7 +1118,7 @@ define internal zeroext i1 @kyber_bio_merge(ptr noundef readonly captures(none) 
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = zext i32 %4 to i64
-  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %9 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %7
   %12 = inttoptr i64 %11 to ptr
@@ -1144,7 +1131,7 @@ define internal zeroext i1 @kyber_bio_merge(ptr noundef readonly captures(none) 
   %19 = icmp eq i32 %18, 0
   %20 = zext i1 %19 to i64
   %21 = select i1 %17, i64 %20, i64 2
-  %22 = getelementptr ptr, ptr %15, i64 %21
+  %22 = getelementptr [8 x i8], ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 16
@@ -1154,7 +1141,7 @@ define internal zeroext i1 @kyber_bio_merge(ptr noundef readonly captures(none) 
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 252
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i64
-  %32 = getelementptr i16, ptr %28, i64 %31
+  %32 = getelementptr [2 x i8], ptr %28, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = trunc i32 %14 to i8
   switch i8 %34, label %37 [
@@ -1175,9 +1162,9 @@ define internal zeroext i1 @kyber_bio_merge(ptr noundef readonly captures(none) 
 38:                                               ; preds = %37, %36, %35, %3
   %39 = phi i64 [ 3, %37 ], [ 2, %36 ], [ 1, %35 ], [ 0, %3 ]
   %40 = zext i16 %33 to i64
-  %41 = getelementptr %struct.kyber_ctx_queue, ptr %27, i64 %40
+  %41 = getelementptr [128 x i8], ptr %27, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = getelementptr %struct.list_head, ptr %42, i64 %39
+  %43 = getelementptr [16 x i8], ptr %42, i64 %39
   tail call void @_raw_spin_lock(ptr noundef %41) #18
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %45 = load ptr, ptr %44, align 8
@@ -1254,7 +1241,7 @@ define internal void @kyber_finish_request(ptr noundef readonly captures(none) %
 19:                                               ; preds = %18, %17, %16, %12
   %20 = phi i64 [ 3, %18 ], [ 2, %17 ], [ 1, %16 ], [ 0, %12 ]
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %22 = getelementptr %struct.sbitmap_queue, ptr %21, i64 %20
+  %22 = getelementptr [64 x i8], ptr %21, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -1312,12 +1299,12 @@ define internal void @kyber_insert_requests(ptr noundef readonly captures(none) 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 68
   %30 = load i16, ptr %10, align 4
   %31 = zext i16 %30 to i64
-  %32 = getelementptr i16, ptr %29, i64 %31
+  %32 = getelementptr [2 x i8], ptr %29, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
-  %35 = getelementptr %struct.kyber_ctx_queue, ptr %26, i64 %34
+  %35 = getelementptr [128 x i8], ptr %26, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = getelementptr %struct.list_head, ptr %36, i64 %25
+  %37 = getelementptr [16 x i8], ptr %36, i64 %25
   tail call void @_raw_spin_lock(ptr noundef %35) #18
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_block_rq_insert, i64 8), i32 2) #18
           to label %58 [label %38], !srcloc !27
@@ -1385,21 +1372,21 @@ define internal void @kyber_insert_requests(ptr noundef readonly captures(none) 
   store ptr %71, ptr %15, align 8
   store ptr %72, ptr %59, align 8
   store volatile ptr %15, ptr %72, align 8
-  %73 = getelementptr %struct.sbitmap, ptr %13, i64 %25
+  %73 = getelementptr [32 x i8], ptr %13, i64 %25
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %27, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 68
   %78 = load i16, ptr %10, align 4
   %79 = zext i16 %78 to i64
-  %80 = getelementptr i16, ptr %77, i64 %79
+  %80 = getelementptr [2 x i8], ptr %77, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = lshr i32 %82, %84
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr %struct.sbitmap_word, ptr %75, i64 %86
+  %87 = getelementptr [128 x i8], ptr %75, i64 %86
   %88 = shl nsw i32 -1, %84
   %89 = xor i32 %88, -1
   %90 = and i32 %89, %82
@@ -1429,7 +1416,7 @@ define internal ptr @kyber_dispatch_request(ptr noundef readonly captures(none) 
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr i32, ptr @kyber_batch_size, i64 %14
+  %15 = getelementptr [4 x i8], ptr @kyber_batch_size, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %11, %16
   br i1 %17, label %18, label %21
@@ -1489,14 +1476,14 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
   br i1 %13, label %..critedge_crit_edge7, label %14, !llvm.loop !39
 
 14:                                               ; preds = %10
-  %15 = getelementptr %struct.list_head, ptr %4, i64 %11
+  %15 = getelementptr [16 x i8], ptr %4, i64 %11
   %16 = load volatile ptr, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %17 = icmp eq ptr %16, %15
   br i1 %17, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %14
-  %18 = getelementptr %struct.list_head, ptr %4, i64 %11
+  %18 = getelementptr [16 x i8], ptr %4, i64 %11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load volatile ptr, ptr %19, align 8
   %.not = icmp eq ptr %18, %20
@@ -1505,7 +1492,7 @@ define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %
 .lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi i64 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %22 = phi i1 [ %12, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %23 = getelementptr %struct.sbitmap, ptr %5, i64 %21
+  %23 = getelementptr [32 x i8], ptr %5, i64 %21
   %24 = tail call zeroext i1 @sbitmap_any_bit_set(ptr noundef %23) #18
   br i1 %24, label %.critedge, label %10
 
@@ -1551,7 +1538,7 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
   %17 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %16) #19, !srcloc !41
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 560
-  %20 = getelementptr i64, ptr %19, i64 %14
+  %20 = getelementptr [8 x i8], ptr %19, i64 %14
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i64, ptr %22, align 8
@@ -1571,8 +1558,8 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
 
 34:                                               ; preds = %25, %13
   %35 = phi i64 [ %33, %25 ], [ 0, %13 ]
-  %.split = getelementptr [2 x [8 x %struct.atomic_t]], ptr %18, i64 %14
-  %36 = getelementptr %struct.atomic_t, ptr %.split, i64 %35
+  %.split = getelementptr [64 x i8], ptr %18, i64 %14
+  %36 = getelementptr [4 x i8], ptr %.split, i64 %35
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36, ptr elementtype(i32) %36) #18, !srcloc !42
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load i64, ptr %37, align 8
@@ -1593,7 +1580,7 @@ define internal void @kyber_completed_request(ptr noundef readonly captures(none
 49:                                               ; preds = %40, %34
   %50 = phi i64 [ %48, %40 ], [ 0, %34 ]
   %.split4 = getelementptr i8, ptr %.split, i64 32
-  %51 = getelementptr %struct.atomic_t, ptr %.split4, i64 %50
+  %51 = getelementptr [4 x i8], ptr %.split4, i64 %50
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51, ptr elementtype(i32) %51) #18, !srcloc !42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !43
   %52 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #18, !srcloc !33
@@ -1665,7 +1652,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   %16 = load ptr, ptr %2, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %11, 63
-  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   %22 = inttoptr i64 %21 to ptr
@@ -1673,15 +1660,15 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 
 23:                                               ; preds = %49, %15
   %24 = phi i64 [ 0, %15 ], [ %50, %49 ]
-  %25 = getelementptr [2 x [8 x i32]], ptr %3, i64 %24
-  %26 = getelementptr [2 x [8 x %struct.atomic_t]], ptr %22, i64 %24
+  %25 = getelementptr [64 x i8], ptr %3, i64 %24
+  %26 = getelementptr [64 x i8], ptr %22, i64 %24
   br label %27
 
 27:                                               ; preds = %27, %23
   %28 = phi i64 [ 0, %23 ], [ %34, %27 ]
-  %29 = getelementptr %struct.atomic_t, ptr %26, i64 %28
+  %29 = getelementptr [4 x i8], ptr %26, i64 %28
   %30 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29, i32 0, ptr elementtype(i32) %29) #18, !srcloc !46
-  %31 = getelementptr i32, ptr %25, i64 %28
+  %31 = getelementptr [4 x i8], ptr %25, i64 %28
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %30
   store i32 %33, ptr %31, align 4
@@ -1698,9 +1685,9 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 
 40:                                               ; preds = %40, %36
   %41 = phi i64 [ 0, %36 ], [ %47, %40 ]
-  %42 = getelementptr %struct.atomic_t, ptr %39, i64 %41
+  %42 = getelementptr [4 x i8], ptr %39, i64 %41
   %43 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 0, ptr elementtype(i32) %42) #18, !srcloc !46
-  %44 = getelementptr i32, ptr %38, i64 %41
+  %44 = getelementptr [4 x i8], ptr %38, i64 %41
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, %43
   store i32 %46, ptr %44, align 4
@@ -1747,7 +1734,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %73
-  %76 = getelementptr i32, ptr %58, i64 %70
+  %76 = getelementptr [4 x i8], ptr %58, i64 %70
   %77 = load i32, ptr %76, align 4
   br label %80
 
@@ -1758,7 +1745,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 80:                                               ; preds = %73, %75, %78
   %81 = phi i32 [ -1, %75 ], [ -1, %73 ], [ %72, %78 ]
   %82 = phi i32 [ %77, %75 ], [ %72, %73 ], [ %72, %78 ]
-  %83 = getelementptr i32, ptr %58, i64 %70
+  %83 = getelementptr [4 x i8], ptr %58, i64 %70
   store i32 %81, ptr %83, align 4
   %84 = icmp sgt i32 %82, -1
   %85 = icmp sgt i32 %82, 3
@@ -1767,12 +1754,12 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %87, label %88, label %.thread8
 
 88:                                               ; preds = %80
-  %89 = getelementptr %struct.sbitmap_queue, ptr %59, i64 %70
+  %89 = getelementptr [64 x i8], ptr %59, i64 %70
   %90 = load i32, ptr %89, align 8
   %91 = add nuw i32 %82, 1
   %92 = mul i32 %90, %91
   %93 = lshr i32 %92, 2
-  %94 = getelementptr i32, ptr @kyber_depth, i64 %70
+  %94 = getelementptr [4 x i8], ptr @kyber_depth, i64 %70
   %95 = load i32, ptr %94, align 4
   %96 = icmp ugt i32 %95, %93
   %97 = tail call i32 @llvm.umax.i32(i32 %93, i32 1)
@@ -1783,7 +1770,7 @@ define internal void @kyber_timer_fn(ptr noundef %0) #1 align 16 {
 100:                                              ; preds = %88
   tail call void @sbitmap_queue_resize(ptr noundef %89, i32 noundef %98) #18
   %101 = load i32, ptr %60, align 8
-  %102 = getelementptr ptr, ptr @kyber_domain_names, i64 %70
+  %102 = getelementptr [8 x i8], ptr @kyber_domain_names, i64 %70
   %103 = load ptr, ptr %102, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_adjust, i64 8), i32 2) #18
           to label %.thread8 [label %104], !srcloc !27
@@ -1853,14 +1840,14 @@ define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = zext nneg i32 %1 to i64
   %7 = zext nneg i32 %2 to i64
-  %.split = getelementptr [2 x [8 x i32]], ptr %5, i64 %6
-  %8 = getelementptr [8 x i32], ptr %.split, i64 %7
+  %.split = getelementptr [64 x i8], ptr %5, i64 %6
+  %8 = getelementptr [32 x i8], ptr %.split, i64 %7
   br label %9
 
 9:                                                ; preds = %9, %4
   %10 = phi i64 [ 0, %4 ], [ %15, %9 ]
   %11 = phi i32 [ 0, %4 ], [ %14, %9 ]
-  %12 = getelementptr i32, ptr %8, i64 %10
+  %12 = getelementptr [4 x i8], ptr %8, i64 %10
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, %11
   %15 = add nuw nsw i64 %10, 1
@@ -1873,7 +1860,7 @@ define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, 
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %21 = getelementptr i64, ptr %20, i64 %6
+  %21 = getelementptr [8 x i8], ptr %20, i64 %6
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %28
@@ -1906,7 +1893,7 @@ define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, 
 39:                                               ; preds = %45, %35
   %40 = phi i64 [ 0, %35 ], [ %47, %45 ]
   %41 = phi i32 [ %38, %35 ], [ %46, %45 ]
-  %42 = getelementptr i32, ptr %8, i64 %40
+  %42 = getelementptr [4 x i8], ptr %8, i64 %40
   %43 = load i32, ptr %42, align 4
   %44 = icmp ult i32 %43, %41
   br i1 %44, label %45, label %49
@@ -1926,9 +1913,9 @@ define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, 
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr ptr, ptr @kyber_domain_names, i64 %6
+  %54 = getelementptr [8 x i8], ptr @kyber_domain_names, i64 %6
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr ptr, ptr @kyber_latency_type_names, i64 %7
+  %56 = getelementptr [8 x i8], ptr @kyber_latency_type_names, i64 %7
   %57 = load ptr, ptr %56, align 8
   %58 = add nuw nsw i32 %51, 1
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_latency, i64 8), i32 2) #18
@@ -2043,7 +2030,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.list_head, ptr %4, i64 %7
+  %8 = getelementptr [16 x i8], ptr %4, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   %11 = getelementptr i8, ptr %9, i64 -72
@@ -2080,7 +2067,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr %5, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr ptr, ptr @kyber_domain_names, i64 %32
+  %33 = getelementptr [8 x i8], ptr @kyber_domain_names, i64 %32
   %34 = load ptr, ptr %33, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_throttled, i64 8), i32 2) #18
           to label %180 [label %35], !srcloc !27
@@ -2123,7 +2110,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %57 = getelementptr %struct.sbitmap, ptr %56, i64 %7
+  %57 = getelementptr [32 x i8], ptr %56, i64 %7
   %58 = tail call zeroext i1 @sbitmap_any_bit_set(ptr noundef %57) #18
   br i1 %58, label %59, label %180
 
@@ -2135,7 +2122,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
 62:                                               ; preds = %59
   %63 = load i32, ptr %5, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr %struct.sbitmap, ptr %56, i64 %64
+  %65 = getelementptr [32 x i8], ptr %56, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %65, align 8
   %68 = icmp eq i32 %67, 0
@@ -2168,7 +2155,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %88 = add i32 %87, %78
   %89 = load ptr, ptr %71, align 8
   %90 = zext i32 %77 to i64
-  %91 = getelementptr %struct.sbitmap_word, ptr %89, i64 %90
+  %91 = getelementptr [128 x i8], ptr %89, i64 %90
   %92 = load i64, ptr %91, align 64
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %94 = load i64, ptr %93, align 64
@@ -2193,10 +2180,10 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %107 = add i32 %106, %103
   %108 = load ptr, ptr %72, align 8
   %109 = zext i32 %107 to i64
-  %110 = getelementptr %struct.kyber_ctx_queue, ptr %108, i64 %109
+  %110 = getelementptr [128 x i8], ptr %108, i64 %109
   call void @_raw_spin_lock(ptr noundef %110) #18
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = getelementptr %struct.list_head, ptr %111, i64 %64
+  %112 = getelementptr [16 x i8], ptr %111, i64 %64
   %113 = load volatile ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, %112
   br i1 %114, label %120, label %115
@@ -2219,7 +2206,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %122 = load i32, ptr %66, align 4
   %123 = lshr i32 %107, %122
   %124 = zext i32 %123 to i64
-  %125 = getelementptr %struct.sbitmap_word, ptr %121, i64 %124
+  %125 = getelementptr [128 x i8], ptr %121, i64 %124
   %126 = shl nsw i32 -1, %122
   %127 = xor i32 %126, -1
   %128 = and i32 %107, %127
@@ -2269,7 +2256,7 @@ define internal fastcc ptr @kyber_dispatch_cur_domain(ptr noundef %0, ptr nounde
   %155 = load i32, ptr %154, align 8
   %156 = load i32, ptr %5, align 8
   %157 = zext i32 %156 to i64
-  %158 = getelementptr ptr, ptr @kyber_domain_names, i64 %157
+  %158 = getelementptr [8 x i8], ptr @kyber_domain_names, i64 %157
   %159 = load ptr, ptr %158, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_throttled, i64 8), i32 2) #18
           to label %180 [label %160], !srcloc !27
@@ -2321,9 +2308,9 @@ define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %4 to i64
-  %7 = getelementptr %struct.sbitmap_queue, ptr %5, i64 %6
+  %7 = getelementptr [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %9 = getelementptr %struct.sbq_wait, ptr %8, i64 %6
+  %9 = getelementptr [48 x i8], ptr %8, i64 %6
   %10 = tail call i32 @__sbitmap_queue_get(ptr noundef %7) #18
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %.thread3
@@ -2343,18 +2330,18 @@ define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %22 = getelementptr %struct.atomic_t, ptr %21, i64 %6
+  %22 = getelementptr [4 x i8], ptr %21, i64 %6
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = load volatile i32, ptr %22, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.sbq_wait_state, ptr %24, i64 %26
+  %27 = getelementptr [64 x i8], ptr %24, i64 %26
   %28 = load volatile i32, ptr %22, align 4
   %29 = add i32 %28, 1
   %30 = and i32 %29, 7
   %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 %30, i32 %28, ptr elementtype(i32) %22) #18, !srcloc !70
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %33 = getelementptr ptr, ptr %32, i64 %6
+  %33 = getelementptr [8 x i8], ptr %32, i64 %6
   store ptr %27, ptr %33, align 8
   tail call void @sbitmap_add_wait_queue(ptr noundef %7, ptr noundef %27, ptr noundef %9) #18
   %34 = tail call i32 @__sbitmap_queue_get(ptr noundef %7) #18
@@ -2377,7 +2364,7 @@ define internal fastcc i32 @kyber_get_domain_token(ptr noundef %0, ptr noundef %
 
 44:                                               ; preds = %40, %.thread3
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %46 = getelementptr ptr, ptr %45, i64 %6
+  %46 = getelementptr [8 x i8], ptr %45, i64 %6
   %47 = load ptr, ptr %46, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef %47) #18
   tail call void @sbitmap_del_wait_queue(ptr noundef %9) #18
@@ -2650,7 +2637,7 @@ define internal noundef i32 @kyber_cur_domain_show(ptr noundef readonly captures
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr ptr, ptr @kyber_domain_names, i64 %7
+  %8 = getelementptr [8 x i8], ptr @kyber_domain_names, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.47, ptr noundef %9) #18
   ret i32 0

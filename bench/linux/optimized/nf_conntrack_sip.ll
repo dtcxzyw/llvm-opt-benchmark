@@ -692,7 +692,7 @@ declare i16 @llvm.bswap.i16(i16) #3
 define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) #0 align 16 {
   %8 = alloca i32, align 4
   %9 = zext i32 %4 to i64
-  %10 = getelementptr %struct.sip_header, ptr @ct_sip_hdrs, i64 %9
+  %10 = getelementptr [48 x i8], ptr @ct_sip_hdrs, i64 %9
   %11 = zext i32 %3 to i64
   %12 = getelementptr i8, ptr %1, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1221,7 +1221,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_parse_header_uri(ptr nound
 
 25:                                               ; preds = %22
   %26 = zext i32 %4 to i64
-  %27 = getelementptr %struct.sip_header, ptr @ct_sip_hdrs, i64 %26
+  %27 = getelementptr [48 x i8], ptr @ct_sip_hdrs, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = ptrtoint ptr %1 to i64
@@ -2126,9 +2126,9 @@ define dso_local noundef range(i32 -1, 2) i32 @ct_sip_get_sdp_header(ptr noundef
   %14 = icmp eq i16 %13, 2
   %15 = select i1 %14, ptr @ct_sdp_hdrs_v4, ptr @ct_sdp_hdrs_v6
   %16 = zext i32 %4 to i64
-  %17 = getelementptr %struct.sip_header, ptr %15, i64 %16
+  %17 = getelementptr [48 x i8], ptr %15, i64 %16
   %18 = zext i32 %5 to i64
-  %19 = getelementptr %struct.sip_header, ptr %15, i64 %18
+  %19 = getelementptr [48 x i8], ptr %15, i64 %18
   %20 = zext i32 %2 to i64
   %21 = getelementptr i8, ptr %1, i64 %20
   %22 = icmp ult ptr %21, %11
@@ -2351,9 +2351,9 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_sip_init() #7 sectio
   %5 = phi i32 [ %18, %4 ], [ 0, %.preheader ]
   %6 = shl i32 %5, 2
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.nf_conntrack_helper, ptr @sip, i64 %7
+  %8 = getelementptr [160 x i8], ptr @sip, i64 %7
   %9 = sext i32 %5 to i64
-  %10 = getelementptr i16, ptr @ports, i64 %9
+  %10 = getelementptr [2 x i8], ptr @ports, i64 %9
   %11 = load i16, ptr %10, align 2
   tail call void @nf_ct_helper_init(ptr noundef %8, i16 noundef zeroext 2, i16 noundef zeroext 17, ptr noundef nonnull @.str.25, i16 noundef zeroext 5060, i16 noundef zeroext %11, i32 noundef %5, ptr noundef nonnull @sip_exp_policy, i32 noundef 3, ptr noundef nonnull @sip_help_udp, ptr noundef null, ptr noundef null) #14
   %12 = getelementptr i8, ptr %8, i64 160
@@ -3162,7 +3162,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 
 68:                                               ; preds = %65, %63
   %69 = phi i64 [ %66, %65 ], [ 0, %63 ]
-  %70 = getelementptr %struct.sip_handler, ptr @sip_handlers, i64 %69
+  %70 = getelementptr [32 x i8], ptr @sip_handlers, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = add i32 %72, 2
@@ -3295,7 +3295,7 @@ define internal fastcc i32 @process_sip_msg(ptr noundef %0, ptr noundef %1, i32 
 
 154:                                              ; preds = %151, %146
   %155 = phi i64 [ 0, %146 ], [ %152, %151 ]
-  %156 = getelementptr %struct.sip_handler, ptr @sip_handlers, i64 %155
+  %156 = getelementptr [32 x i8], ptr @sip_handlers, i64 %155
   switch i64 %155, label %157 [
     i64 4, label %151
     i64 2, label %151
@@ -3712,7 +3712,7 @@ ct_sip_parse_sdp_addr.exit:                       ; preds = %30, %47
 
 .split:                                           ; preds = %74, %86
   %81 = phi i64 [ %87, %86 ], [ 0, %74 ]
-  %82 = getelementptr %struct.sdp_media_type, ptr @sdp_media_types, i64 %81
+  %82 = getelementptr [16 x i8], ptr @sdp_media_types, i64 %81
   %83 = load ptr, ptr %82, align 16
   %84 = call i32 @strncmp(ptr noundef %79, ptr noundef %83, i64 noundef 6) #14
   %85 = icmp eq i32 %84, 0

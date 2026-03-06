@@ -5939,7 +5939,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1298: ; preds = %.cr
   %2071 = phi ptr [ %2062, %.lr.ph1737 ], [ %2117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1316 ]
   %.02731736 = phi i64 [ %2060, %.lr.ph1737 ], [ %2115, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1316 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
-  %2072 = getelementptr inbounds nuw ptr, ptr %2071, i64 %.02731736
+  %2072 = getelementptr inbounds nuw [8 x i8], ptr %2071, i64 %.02731736
   %2073 = load ptr, ptr %2072, align 8, !tbaa !25
   %2074 = load ptr, ptr %2073, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
@@ -5958,7 +5958,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1298: ; preds = %.cr
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1302: ; preds = %2078
   %2080 = load ptr, ptr %1, align 8, !tbaa !45
-  %2081 = getelementptr inbounds nuw ptr, ptr %2080, i64 %.02731736
+  %2081 = getelementptr inbounds nuw [8 x i8], ptr %2080, i64 %.02731736
   %2082 = load ptr, ptr %2081, align 8, !tbaa !25
   %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 8
   %2084 = load ptr, ptr %2083, align 8, !tbaa !41
@@ -5999,7 +5999,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit1311: ; preds = %2099
   %2101 = load ptr, ptr %1, align 8, !tbaa !45
-  %2102 = getelementptr inbounds nuw ptr, ptr %2101, i64 %.02731736
+  %2102 = getelementptr inbounds nuw [8 x i8], ptr %2101, i64 %.02731736
   %2103 = load ptr, ptr %2102, align 8, !tbaa !25
   %2104 = getelementptr inbounds nuw i8, ptr %2103, i64 8
   %2105 = load ptr, ptr %2104, align 8, !tbaa !41
@@ -6526,7 +6526,7 @@ define i32 @llama_chat_builtin_templates(ptr noundef writeonly captures(none) %0
   %.sroa.0.07 = phi ptr [ %9, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !18
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %.08
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.08
   store ptr %7, ptr %8, align 8, !tbaa !69
   %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0.07) #26
   %10 = add nuw i64 %.08, 1

@@ -1119,7 +1119,7 @@ define hidden void @"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sroa.0.0.copyload.i = load ptr, ptr %68, align 8, !noalias !196, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !196
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 96
-  %195 = getelementptr inbounds { [3 x i64] }, ptr %194, i64 %.sroa.43.0.copyload.i
+  %195 = getelementptr inbounds [24 x i8], ptr %194, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %195, i64 24, i1 false), !noalias !204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !noalias !203
   %.pr = load i64, ptr %40, align 8, !alias.scope !205
@@ -12178,7 +12178,7 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %153
 
 254:                                              ; preds = %247, %243
   %255 = load ptr, ptr %66, align 8, !alias.scope !1879, !noalias !1882, !nonnull !3, !noundef !3
-  %256 = getelementptr inbounds { i8, [63 x i8] }, ptr %255, i64 %244
+  %256 = getelementptr inbounds [64 x i8], ptr %255, i64 %244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %256, ptr noundef nonnull align 8 dereferenceable(64) %53, i64 64, i1 false)
   %257 = add i64 %244, 1
   store i64 %257, ptr %67, align 8, !alias.scope !1879, !noalias !1882
@@ -12290,7 +12290,7 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %153
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1894
   %288 = load ptr, ptr %66, align 8, !alias.scope !1891, !noalias !1897, !nonnull !3, !noundef !3
   %289 = load i64, ptr %67, align 8, !alias.scope !1891, !noalias !1897, !noundef !3
-  %290 = getelementptr inbounds { i8, [63 x i8] }, ptr %288, i64 %289
+  %290 = getelementptr inbounds [64 x i8], ptr %288, i64 %289
   %291 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %288, ptr %291, align 8, !noalias !1894
   %292 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -12344,7 +12344,7 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %153
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1904
   %306 = load ptr, ptr %66, align 8, !alias.scope !1901, !noalias !1907, !nonnull !3, !noundef !3
   %307 = load i64, ptr %67, align 8, !alias.scope !1901, !noalias !1907, !noundef !3
-  %308 = getelementptr inbounds { i8, [63 x i8] }, ptr %306, i64 %307
+  %308 = getelementptr inbounds [64 x i8], ptr %306, i64 %307
   %309 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %306, ptr %309, align 8, !noalias !1904
   %310 = getelementptr inbounds nuw i8, ptr %12, i64 40

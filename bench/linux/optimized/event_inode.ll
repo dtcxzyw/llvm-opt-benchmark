@@ -30,10 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pcpu_hot = type { %union.anon.29 }
 %union.anon.29 = type { %struct.anon.30, [16 x i8] }
 %struct.anon.30 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.eventfs_entry = type { ptr, ptr }
-%struct.eventfs_attr = type { i32, %struct.kuid_t, %struct.kgid_t }
-%struct.kuid_t = type { i32 }
-%struct.kgid_t = type { i32 }
 
 @eventfs_mutex = internal global %struct.mutex { %struct.atomic64_t zeroinitializer, %struct.raw_spinlock zeroinitializer, %struct.optimistic_spin_queue zeroinitializer, %struct.list_head { ptr getelementptr (i8, ptr @eventfs_mutex, i64 16), ptr getelementptr (i8, ptr @eventfs_mutex, i64 16) } }, align 8
 @eventfs_root_dir_inode_operations = internal constant %struct.inode_operations { ptr @eventfs_root_lookup, ptr null, ptr @eventfs_permission, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @eventfs_set_attr, ptr @eventfs_get_attr, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, [56 x i8] undef }, align 64
@@ -816,7 +812,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr noundef readonly captures(n
   store i16 0, ptr %5, align 2, !annotation !22
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !annotation !22
-  %145 = getelementptr %struct.eventfs_entry, ptr %.pre38, i64 %144
+  %145 = getelementptr [16 x i8], ptr %.pre38, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %146) #7
   %148 = icmp eq i32 %147, 0
@@ -845,7 +841,7 @@ define internal noundef ptr @eventfs_root_lookup(ptr noundef readonly captures(n
   %160 = load ptr, ptr %6, align 8
   %161 = load ptr, ptr %33, align 8
   %162 = icmp eq ptr %161, null
-  %163 = getelementptr %struct.eventfs_attr, ptr %161, i64 %144
+  %163 = getelementptr [12 x i8], ptr %161, i64 %144
   %164 = select i1 %162, ptr null, ptr %163
   %165 = icmp ult i16 %158, 4096
   %166 = or disjoint i16 %158, -32768
@@ -1224,7 +1220,7 @@ define internal i32 @eventfs_set_attr(ptr noundef %0, ptr noundef %1, ptr nounde
 
 98:                                               ; preds = %95, %90
   %99 = phi i64 [ 0, %90 ], [ %96, %95 ]
-  %100 = getelementptr %struct.eventfs_entry, ptr %93, i64 %99
+  %100 = getelementptr [16 x i8], ptr %93, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = tail call i32 @strcmp(ptr noundef %87, ptr noundef %101) #7
   %103 = icmp eq i32 %102, 0
@@ -1233,7 +1229,7 @@ define internal i32 @eventfs_set_attr(ptr noundef %0, ptr noundef %1, ptr nounde
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr %struct.eventfs_attr, ptr %106, i64 %99
+  %107 = getelementptr [12 x i8], ptr %106, i64 %99
   %108 = load i32, ptr %2, align 8
   %109 = and i32 %108, 1
   %110 = icmp eq i32 %109, 0
@@ -1478,7 +1474,7 @@ define internal range(i32 -22, 2) i32 @eventfs_iterate(ptr noundef readonly capt
   %60 = load ptr, ptr %55, align 8
   store ptr %60, ptr %5, align 8
   %61 = load ptr, ptr %56, align 8
-  %62 = getelementptr %struct.eventfs_entry, ptr %61, i64 %59
+  %62 = getelementptr [16 x i8], ptr %61, i64 %59
   %63 = load ptr, ptr %62, align 8
   call void @mutex_lock(ptr noundef nonnull @eventfs_mutex) #7
   %64 = load i32, ptr %46, align 8

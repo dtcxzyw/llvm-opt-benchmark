@@ -76,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::OzzImporter::NodeProperty, ozz::StdAllocator<ozz::animation::offline::OzzImporter::NodeProperty>>::_Vector_impl" }
 %"struct.std::_Vector_base<ozz::animation::offline::OzzImporter::NodeProperty, ozz::StdAllocator<ozz::animation::offline::OzzImporter::NodeProperty>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::OzzImporter::NodeProperty, ozz::StdAllocator<ozz::animation::offline::OzzImporter::NodeProperty>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ozz::animation::offline::OzzImporter::NodeProperty, ozz::StdAllocator<ozz::animation::offline::OzzImporter::NodeProperty>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ozz::animation::offline::OzzImporter::NodeProperty" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"struct.ozz::animation::offline::RawQuaternionTrack" = type { %"struct.ozz::animation::offline::internal::RawTrack.13" }
 %"struct.ozz::animation::offline::internal::RawTrack.13" = type { %"class.std::vector.14", %"class.std::__cxx11::basic_string" }
 %"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
@@ -431,7 +430,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline18ProcessImportTra
   %indvars.iv = phi i64 [ 0, %.lr.ph2126 ], [ %indvars.iv.next, %2868 ]
   %.0672124 = phi i1 [ false, %.lr.ph2126 ], [ %.168, %2868 ]
   %176 = load ptr, ptr %113, align 8, !tbaa !4
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %indvars.iv
   %178 = load ptr, ptr %177, align 8, !tbaa !12
   %179 = call noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %178, ptr noundef %106)
   br i1 %179, label %180, label %2868
@@ -459,7 +458,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz9animation7offline18ProcessImportTra
   %.22121 = phi i1 [ true, %.lr.ph ], [ %.3, %2784 ]
   %.0862120 = phi i1 [ false, %.lr.ph ], [ %.187, %2784 ]
   %.0892119 = phi i64 [ 0, %.lr.ph ], [ %2785, %2784 ]
-  %188 = getelementptr inbounds nuw %"struct.ozz::animation::offline::OzzImporter::NodeProperty", ptr %187, i64 %.0892119
+  %188 = getelementptr inbounds nuw [40 x i8], ptr %187, i64 %.0892119
   %189 = load ptr, ptr %188, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   invoke void @_ZN3ozz3log4LogVC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %100)
@@ -614,7 +613,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc745
 
 .preheader:                                       ; preds = %246, %253
   %.0711.i = phi i64 [ %254, %253 ], [ 0, %246 ]
-  %248 = getelementptr inbounds nuw ptr, ptr @_ZZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEvE6kNames, i64 %.0711.i
+  %248 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEvE6kNames, i64 %.0711.i
   %249 = load ptr, ptr %248, align 8, !tbaa !12
   %250 = invoke noundef zeroext i1 @_ZN3ozz9animation7offline11CompareNameEPKcS3_(ptr noundef %249, ptr noundef %247)
           to label %.noexc114 unwind label %339
@@ -737,7 +736,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %290,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit133: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131
   %302 = load i32, ptr %255, align 8, !tbaa !52
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds nuw ptr, ptr @_ZZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEvE6kNames, i64 %303
+  %304 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEvE6kNames, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !12
   %.not.i134 = icmp eq ptr %305, null
   br i1 %.not.i134, label %306, label %314
@@ -914,7 +913,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152: ; preds = %362,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit154: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152
   %374 = load i32, ptr %255, align 8, !tbaa !52
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw ptr, ptr @_ZZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEvE6kNames, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3ozz9animation7offline18PropertyTypeConfig8GetNamesEvE6kNames, i64 %375
   %377 = load ptr, ptr %376, align 8, !tbaa !12
   %.not.i155 = icmp eq ptr %377, null
   br i1 %.not.i155, label %378, label %386
@@ -8727,7 +8726,7 @@ _ZNSolsEPFRSoS_E.exit102:                         ; preds = %.noexc204
 126:                                              ; preds = %.lr.ph, %159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
   %127 = load ptr, ptr %125, align 8, !tbaa !4
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !12
   %130 = call noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %129, ptr noundef nonnull %120)
   br i1 %130, label %131, label %159
@@ -8900,7 +8899,7 @@ _ZNSolsEPFRSoS_E.exit117:                         ; preds = %.noexc226
   %190 = load ptr, ptr %189, align 8, !tbaa !4
   %191 = load i32, ptr %21, align 4, !tbaa !96
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !12
   %195 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %195, ptr %24, align 8, !tbaa !55
@@ -10792,7 +10791,7 @@ define internal fastcc { i64, i32 } @_ZN3ozz9animation7offline12_GLOBAL__N_126Pr
 
 .preheader:                                       ; preds = %8, %15
   %.0711.i = phi i64 [ %16, %15 ], [ 0, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZZN3ozz9animation7offline25RootMotionReferenceConfig8GetNamesEvE6kNames, i64 %.0711.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3ozz9animation7offline25RootMotionReferenceConfig8GetNamesEvE6kNames, i64 %.0711.i
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = invoke noundef zeroext i1 @_ZN3ozz9animation7offline11CompareNameEPKcS3_(ptr noundef %11, ptr noundef %9)
           to label %.noexc unwind label %.loopexit

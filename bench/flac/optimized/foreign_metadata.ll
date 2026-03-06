@@ -3,8 +3,6 @@ source_filename = "bench/flac/original/foreign_metadata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.foreign_block_t = type { i64, i32 }
-
 @.str = private unnamed_addr constant [5 x i8] c"aiff\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"riff\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"w64 \00", align 1
@@ -264,7 +262,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
 
 34:                                               ; preds = %safe_realloc_nofree_muladd2_.exit.i.i
   %35 = load i64, ptr %28, align 8, !tbaa !15
-  %36 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %35
   store i64 %9, ptr %36, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 12, ptr %37, align 8, !tbaa !18
@@ -472,7 +470,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i125.i:  ; preds = %safe_realloc_nofree
 
 145:                                              ; preds = %safe_realloc_nofree_muladd2_.exit.i123.i
   %146 = load i64, ptr %28, align 8, !tbaa !15
-  %147 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %146
   store i64 %67, ptr %147, align 8, !tbaa !16
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i32 %137, ptr %148, align 8, !tbaa !18
@@ -649,7 +647,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
 
 43:                                               ; preds = %safe_realloc_nofree_muladd2_.exit.i.i
   %44 = load i64, ptr %36, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %44
   store i64 %10, ptr %45, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 12, ptr %46, align 8, !tbaa !18
@@ -848,7 +846,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i210.i:  ; preds = %safe_realloc_nofree
 
 118:                                              ; preds = %safe_realloc_nofree_muladd2_.exit.i208.i
   %119 = load i64, ptr %36, align 8, !tbaa !15
-  %120 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %116, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %119
   store i64 %64, ptr %120, align 8, !tbaa !16
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %108, ptr %121, align 8, !tbaa !18
@@ -1162,7 +1160,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
 
 33:                                               ; preds = %safe_realloc_nofree_muladd2_.exit.i.i
   %34 = load i64, ptr %27, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %34
   store i64 %9, ptr %35, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 40, ptr %36, align 8, !tbaa !18
@@ -1314,7 +1312,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i112.i:  ; preds = %safe_realloc_nofree
 
 96:                                               ; preds = %safe_realloc_nofree_muladd2_.exit.i110.i
   %97 = load i64, ptr %27, align 8, !tbaa !15
-  %98 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %97
   store i64 %46, ptr %98, align 8, !tbaa !16
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 %88, ptr %99, align 8, !tbaa !18
@@ -1483,7 +1481,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 44:                                               ; preds = %42
   %45 = call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef nonnull %7) #14
   %46 = load ptr, ptr %33, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %46, i64 %.057.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %.057.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !18
   %50 = add i32 %49, %30
@@ -1567,7 +1565,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 80:                                               ; preds = %75
   %81 = load i32, ptr %0, align 8, !tbaa !4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !12
   %85 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %84, i64 noundef range(i64 0, 536870912) %37, i64 noundef 4) #14, !alias.scope !26
   %86 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %37, ptr noundef nonnull %22)
@@ -1584,7 +1582,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr n
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %33, align 8, !tbaa !11
-  %92 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %91, i64 %.057.i
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %.057.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1776,7 +1774,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr 
 
 .preheader.i:                                     ; preds = %59, %.preheader.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ %indvars.iv.ph.i, %.preheader.outer.i ]
-  %56 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8, !tbaa !12
   %bcmp216.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %57, i64 4)
   %58 = icmp eq i32 %bcmp216.i, 0
@@ -1800,7 +1798,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr 
 62:                                               ; preds = %55
   %63 = load i32, ptr %0, align 8, !tbaa !4
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !12
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) %66, i64 4)
   %.not158.i = icmp eq i32 %bcmp.i, 0
@@ -2157,7 +2155,7 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
 
 append_block_.exit.i:                             ; preds = %safe_realloc_nofree_muladd2_.exit.i.i
   %181 = load i64, ptr %27, align 8, !tbaa !15
-  %182 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %181
   store i64 %.reass.i, ptr %182, align 8, !tbaa !16
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 %173, ptr %183, align 8, !tbaa !18
@@ -2294,7 +2292,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr no
 36:                                               ; preds = %.loopexit128.i, %.lr.ph.i
   %.0139.i = phi i64 [ %31, %.lr.ph.i ], [ %60, %.loopexit128.i ]
   %37 = load ptr, ptr %35, align 8, !tbaa !11
-  %38 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %37, i64 %.0139.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %.0139.i
   %39 = load i64, ptr %38, align 8, !tbaa !16
   %40 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %39, i32 noundef 0)
   %41 = icmp slt i32 %40, 0
@@ -2310,7 +2308,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr no
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %35, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %45, i64 %.0139.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %.0139.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2385,7 +2383,7 @@ copy_data_.exit.thread.i:                         ; preds = %.critedge.sink.spli
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !11
-  %73 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %72, i64 %.0.lcssa.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %.0.lcssa.i
   %74 = load i64, ptr %73, align 8, !tbaa !16
   %75 = add nsw i64 %74, 30
   %76 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %75, i32 noundef 0)
@@ -2495,7 +2493,7 @@ copy_data_.exit98.thread.i:                       ; preds = %.critedge.sink.spli
 113:                                              ; preds = %copy_data_.exit108.i, %.lr.ph143.i
   %.1141.i = phi i64 [ %.1140.i, %.lr.ph143.i ], [ %.1.i, %copy_data_.exit108.i ]
   %114 = load ptr, ptr %112, align 8, !tbaa !11
-  %115 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %114, i64 %.1141.i
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.1141.i
   %116 = load i64, ptr %115, align 8, !tbaa !16
   %117 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %116, i32 noundef 0)
   %118 = icmp slt i32 %117, 0
@@ -2511,7 +2509,7 @@ copy_data_.exit98.thread.i:                       ; preds = %.critedge.sink.spli
 
 121:                                              ; preds = %113
   %122 = load ptr, ptr %112, align 8, !tbaa !11
-  %123 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %122, i64 %.1141.i
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %.1141.i
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2591,7 +2589,7 @@ copy_data_.exit108.i:                             ; preds = %127, %121
 149:                                              ; preds = %copy_data_.exit118.i, %.lr.ph148.i
   %.2146.i = phi i64 [ %.2145.i, %.lr.ph148.i ], [ %.2.i, %copy_data_.exit118.i ]
   %150 = load ptr, ptr %148, align 8, !tbaa !11
-  %151 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %150, i64 %.2146.i
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %.2146.i
   %152 = load i64, ptr %151, align 8, !tbaa !16
   %153 = call i32 @fseeko64(ptr noundef nonnull %12, i64 noundef %152, i32 noundef 0)
   %154 = icmp slt i32 %153, 0
@@ -2607,7 +2605,7 @@ copy_data_.exit108.i:                             ; preds = %127, %121
 
 157:                                              ; preds = %149
   %158 = load ptr, ptr %148, align 8, !tbaa !11
-  %159 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %158, i64 %.2146.i
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %158, i64 %.2146.i
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2714,7 +2712,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(pt
 25:                                               ; preds = %.loopexit62.i, %21
   %.069.i = phi i64 [ 0, %21 ], [ %60, %.loopexit62.i ]
   %26 = load ptr, ptr %23, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %26, i64 %.069.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.069.i
   %28 = load i64, ptr %27, align 8, !tbaa !16
   %29 = call i32 @fseeko64(ptr noundef nonnull %10, i64 noundef %28, i32 noundef 0)
   %30 = icmp slt i32 %29, 0
@@ -2730,7 +2728,7 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(pt
 
 33:                                               ; preds = %25
   %34 = load ptr, ptr %23, align 8, !tbaa !11
-  %35 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %34, i64 %.069.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.069.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !18
   %38 = zext i32 %37 to i64
@@ -2829,7 +2827,7 @@ compare_data_.exit.thread.i:                      ; preds = %.critedge.sink.spli
 .lr.ph.i:                                         ; preds = %.preheader.i, %.loopexit.i
   %.170.i = phi i64 [ %94, %.loopexit.i ], [ %60, %.preheader.i ]
   %70 = load ptr, ptr %23, align 8, !tbaa !11
-  %71 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %70, i64 %.170.i
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %.170.i
   %72 = load i64, ptr %71, align 8, !tbaa !16
   %73 = call i32 @fseeko64(ptr noundef nonnull %10, i64 noundef %72, i32 noundef 0)
   %74 = icmp slt i32 %73, 0
@@ -2845,7 +2843,7 @@ compare_data_.exit.thread.i:                      ; preds = %.critedge.sink.spli
 
 77:                                               ; preds = %.lr.ph.i
   %78 = load ptr, ptr %23, align 8, !tbaa !11
-  %79 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %78, i64 %.170.i
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %.170.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

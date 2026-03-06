@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.Block = type { ptr, ptr, ptr, i32, ptr, i64, i8, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [9 x i8] c"flashsv2\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Flash Screen Video Version 2\00", align 1
@@ -257,7 +256,7 @@ define internal range(i32 -2147483648, 1) i32 @flashsv2_encode_frame(ptr noundef
   %indvars.iv.i.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i.i.i, %59 ]
   %.01020.i.i.i.i = phi i32 [ 2147483647, %55 ], [ %spec.select14.i.i.i.i, %59 ]
   %.01119.i.i.i.i = phi i8 [ -1, %55 ], [ %spec.select.i.i.i.i, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i.i.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.i.i.i
   %61 = load i32, ptr %60, align 4, !tbaa !56
   %62 = and i32 %61, 255
   %63 = lshr i32 %61, 8
@@ -371,12 +370,12 @@ reconfigure_at_keyframe.exit:                     ; preds = %39
   %118 = load i32, ptr %99, align 4, !tbaa !41
   %119 = sub i32 %118, %.0.in35.i.i
   %120 = load ptr, ptr %103, align 8, !tbaa !71
-  %121 = getelementptr inbounds nuw %struct.Block, ptr %120, i64 %indvars.iv.i.i
+  %121 = getelementptr inbounds nuw [56 x i8], ptr %120, i64 %indvars.iv.i.i
   %122 = load i32, ptr %104, align 4, !tbaa !53
   %123 = sdiv i32 %119, %122
   %124 = mul nsw i32 %123, %117
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.Block, ptr %121, i64 %125
+  %126 = getelementptr inbounds [56 x i8], ptr %121, i64 %125
   %127 = load i32, ptr %105, align 8, !tbaa !52
   %128 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %129 = mul nsw i32 %127, %128
@@ -490,9 +489,9 @@ mark_all_blocks.exit.i:                           ; preds = %.loopexit.i.i, %.pr
   %190 = mul nsw i32 %188, %.04494.i.i
   %191 = add nsw i32 %190, %.04593.i.i
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds %struct.Block, ptr %189, i64 %192
+  %193 = getelementptr inbounds [56 x i8], ptr %189, i64 %192
   %194 = load ptr, ptr %170, align 8, !tbaa !79
-  %195 = getelementptr inbounds %struct.Block, ptr %194, i64 %192
+  %195 = getelementptr inbounds [56 x i8], ptr %194, i64 %192
   %196 = load i32, ptr %87, align 8, !tbaa !55
   %.not.i.i = icmp eq i32 %196, 0
   %197 = select i1 %.not.i.i, i8 0, i8 16
@@ -654,7 +653,7 @@ mark_all_blocks.exit.i:                           ; preds = %.loopexit.i.i, %.pr
   %291 = getelementptr inbounds nuw i8, ptr %178, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !59
   %293 = zext i8 %292 to i64
-  %294 = getelementptr inbounds nuw i32, ptr %175, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %293
   %295 = load i32, ptr %294, align 4, !tbaa !56
   %296 = and i32 %295, 255
   %297 = lshr i32 %295, 8
@@ -803,7 +802,7 @@ encode_15_7_sl.exit.i.i.i.i:                      ; preds = %encode_15_7_sl.exit
   %384 = getelementptr inbounds nuw i8, ptr %178, i64 %383
   %385 = load i8, ptr %384, align 1, !tbaa !59
   %386 = zext i8 %385 to i64
-  %387 = getelementptr inbounds nuw i32, ptr %175, i64 %386
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %386
   %388 = load i32, ptr %387, align 4, !tbaa !56
   %389 = and i32 %388, 255
   %390 = lshr i32 %388, 8
@@ -951,7 +950,7 @@ encode_15_7_sl.exit59.i.i.i.i:                    ; preds = %encode_15_7_sl.exit
   %475 = getelementptr inbounds nuw i8, ptr %178, i64 %474
   %476 = load i8, ptr %475, align 1, !tbaa !59
   %477 = zext i8 %476 to i64
-  %478 = getelementptr inbounds nuw i32, ptr %175, i64 %477
+  %478 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %477
   %479 = load i32, ptr %478, align 4, !tbaa !56
   %480 = and i32 %479, 255
   %481 = lshr i32 %479, 8
@@ -1334,8 +1333,8 @@ write_header.exit.i:                              ; preds = %put_bits.exit26.i.i
   %683 = load ptr, ptr %676, align 8, !tbaa !71
   %684 = mul nsw i32 %682, %.02343.i.i
   %685 = sext i32 %684 to i64
-  %686 = getelementptr inbounds %struct.Block, ptr %683, i64 %685
-  %687 = getelementptr inbounds nuw %struct.Block, ptr %686, i64 %indvars.iv.i43.i
+  %686 = getelementptr inbounds [56 x i8], ptr %683, i64 %685
+  %687 = getelementptr inbounds nuw [56 x i8], ptr %686, i64 %indvars.iv.i43.i
   %688 = zext nneg i32 %.141.i.i to i64
   %689 = getelementptr inbounds nuw i8, ptr %671, i64 %688
   %690 = sub i32 %672, %.141.i.i
@@ -1516,7 +1515,7 @@ write_bitstream.exit:                             ; preds = %591, %597, %encode_
 
 790:                                              ; preds = %790, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %790 ]
-  %791 = getelementptr inbounds nuw %struct.Block, ptr %789, i64 %indvars.iv.i
+  %791 = getelementptr inbounds nuw [56 x i8], ptr %789, i64 %indvars.iv.i
   %792 = load ptr, ptr %791, align 8, !tbaa !84
   %793 = getelementptr inbounds i8, ptr %792, i64 %788
   store ptr %793, ptr %791, align 8, !tbaa !84
@@ -1705,7 +1704,7 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %.147.us55 = phi ptr [ %.053.us, %.lr.ph.split.us62 ], [ %51, %39 ]
   %.14445.us57 = phi ptr [ %.04350.us, %.lr.ph.split.us62 ], [ %55, %39 ]
   %28 = mul nuw nsw i64 %indvars.iv, %22
-  %gep = getelementptr inbounds nuw %struct.Block, ptr %invariant.gep, i64 %28
+  %gep = getelementptr inbounds nuw [56 x i8], ptr %invariant.gep, i64 %28
   %29 = getelementptr inbounds nuw i8, ptr %gep, i64 53
   store i8 %61, ptr %29, align 1, !tbaa !72
   %30 = icmp samesign ult i64 %indvars.iv, %23
@@ -1760,7 +1759,7 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %60 = sub nsw i32 %57, %59
   %61 = trunc i32 %60 to i8
   %62 = and i32 %60, 255
-  %invariant.gep = getelementptr inbounds nuw %struct.Block, ptr %1, i64 %indvars.iv74
+  %invariant.gep = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %indvars.iv74
   br label %27
 
 ._crit_edge.us:                                   ; preds = %39, %78
@@ -1774,7 +1773,7 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %63 = load i32, ptr %17, align 8, !tbaa !52
   %64 = trunc i32 %63 to i8
   %65 = and i32 %63, 255
-  %invariant.gep86 = getelementptr inbounds nuw %struct.Block, ptr %1, i64 %indvars.iv74
+  %invariant.gep86 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %indvars.iv74
   br label %66
 
 66:                                               ; preds = %78, %.lr.ph.split.us.us
@@ -1782,7 +1781,7 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %.147.us.us = phi ptr [ %90, %78 ], [ %.053.us, %.lr.ph.split.us.us ]
   %.14445.us.us = phi ptr [ %94, %78 ], [ %.04350.us, %.lr.ph.split.us.us ]
   %67 = mul nuw nsw i64 %indvars.iv69, %22
-  %gep87 = getelementptr inbounds nuw %struct.Block, ptr %invariant.gep86, i64 %67
+  %gep87 = getelementptr inbounds nuw [56 x i8], ptr %invariant.gep86, i64 %67
   %68 = getelementptr inbounds nuw i8, ptr %gep87, i64 53
   store i8 %64, ptr %68, align 1, !tbaa !72
   %69 = icmp samesign ult i64 %indvars.iv69, %23

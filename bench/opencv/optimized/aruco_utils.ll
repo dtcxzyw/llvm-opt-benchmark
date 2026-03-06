@@ -17,10 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.5" = type { i8 }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -102,7 +98,7 @@ define hidden void @_ZN2cv5aruco18_copyVector2OutputERSt6vectorIS1_INS_6Point_If
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %57 = load ptr, ptr %0, align 8, !tbaa !9
-  %58 = getelementptr inbounds nuw %"class.std::vector.0", ptr %57, i64 %55
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %55
   store i32 1124024333, ptr %7, align 8, !tbaa !10
   store i32 2, ptr %34, align 4, !tbaa !20
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -270,7 +266,7 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit: ; preds = %54, %68
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %127 = load ptr, ptr %0, align 8, !tbaa !9
-  %128 = getelementptr inbounds nuw %"class.std::vector.0", ptr %127, i64 %125
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %125
   store i32 1124024333, ptr %12, align 8, !tbaa !10
   store i32 2, ptr %104, align 4, !tbaa !20
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -455,7 +451,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %200, %202
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %203 = load ptr, ptr %0, align 8, !tbaa !9
-  %204 = getelementptr inbounds nuw %"class.std::vector.0", ptr %203, i64 %196
+  %204 = getelementptr inbounds nuw [24 x i8], ptr %203, i64 %196
   store i32 1124024333, ptr %18, align 8, !tbaa !10
   store i32 2, ptr %175, align 4, !tbaa !20
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8

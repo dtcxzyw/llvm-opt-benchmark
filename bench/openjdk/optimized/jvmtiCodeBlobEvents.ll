@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.CodeBlobCollector = type <{ ptr, i32, [4 x i8] }>
 %class.methodHandle = type { ptr, ptr }
 %class.ScopeDesc = type { ptr, i32, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.jvmtiAddrLocationMap = type { ptr, i64 }
 
 $_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
 
@@ -92,7 +91,7 @@ define hidden void @_ZN17CodeBlobCollector7do_blobEP8CodeBlob(ptr noundef %0) #0
 
 20:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
@@ -145,7 +144,7 @@ _ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE6append
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   store ptr %26, ptr %58, align 8
   br label %.loopexit
 
@@ -202,7 +201,7 @@ _ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE6append
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   store ptr %2, ptr %32, align 8
   ret void
 }
@@ -275,7 +274,7 @@ _ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE6append
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   store ptr %11, ptr %39, align 8
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, null
@@ -348,7 +347,7 @@ _ZN17CodeBlobCollector5firstEv.exit:              ; preds = %_ZN11MutexLockerD2E
 _ZN17CodeBlobCollector4nextEv.exit:               ; preds = %12
   %20 = load ptr, ptr %11, align 8
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.preheader.i, label %12, !llvm.loop !9
@@ -365,7 +364,7 @@ _ZN17CodeBlobCollector4nextEv.exit:               ; preds = %12
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %29) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -470,7 +469,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit
   %.sroa.0.223 = phi ptr [ %42, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ], [ %.sroa.0.223.ph, %.lr.ph.outer ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %19
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %.sroa.0.223, null
   br i1 %24, label %25, label %32
@@ -596,7 +595,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   store ptr %19, ptr %41, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -652,7 +651,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
 66:                                               ; preds = %._crit_edge
   %67 = call noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16) %.02834, ptr noundef nonnull %0) #10
   %68 = sext i32 %.135 to i64
-  %69 = getelementptr inbounds %struct.jvmtiAddrLocationMap, ptr %53, i64 %68
+  %69 = getelementptr inbounds [16 x i8], ptr %53, i64 %68
   store ptr %67, ptr %69, align 8
   %70 = zext nneg i32 %64 to i64
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -975,9 +974,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -994,7 +993,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -1079,9 +1078,9 @@ _ZN13GrowableArrayIP17JvmtiCodeBlobDescE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1098,7 +1097,7 @@ _ZN13GrowableArrayIP17JvmtiCodeBlobDescE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

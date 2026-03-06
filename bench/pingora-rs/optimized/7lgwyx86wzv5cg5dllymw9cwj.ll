@@ -23,8 +23,8 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17h14fa6bbfcd329268E(ptr noalia
 
 .lr.ph:                                           ; preds = %.preheader7, %14
   %.sroa.01.1.i9 = phi i64 [ %15, %14 ], [ 2, %.preheader7 ]
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.01.1.i9
-  %10 = getelementptr { i32, i32 }, ptr %0, i64 %.sroa.01.1.i9
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.01.1.i9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %.sroa.01.1.i9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11)
   %13 = icmp slt i8 %12, 0
@@ -37,8 +37,8 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17h14fa6bbfcd329268E(ptr noalia
 
 .lr.ph13:                                         ; preds = %.preheader, %21
   %.sroa.01.0.i12 = phi i64 [ %22, %21 ], [ 2, %.preheader ]
-  %16 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.01.0.i12
-  %17 = getelementptr { i32, i32 }, ptr %0, i64 %.sroa.01.0.i12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.01.0.i12
+  %17 = getelementptr [8 x i8], ptr %0, i64 %.sroa.01.0.i12
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %16, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %18)
   %20 = icmp slt i8 %19, 0
@@ -75,14 +75,14 @@ _ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread: ;
   %31 = lshr i64 %1, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %32 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %1
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.preheader.i.i
   %.sroa.0.014.i.i = phi i64 [ %42, %33 ], [ 0, %.lr.ph.preheader.i.i ]
   %34 = xor i64 %.sroa.0.014.i.i, -1
-  %35 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.0.014.i.i
-  %36 = getelementptr { i32, i32 }, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.014.i.i
+  %36 = getelementptr [8 x i8], ptr %32, i64 %34
   %37 = load i32, ptr %35, align 4, !alias.scope !8, !noalias !6, !noundef !11
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = load i32, ptr %38, align 4, !alias.scope !8, !noalias !6, !noundef !11

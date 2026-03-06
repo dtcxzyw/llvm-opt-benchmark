@@ -1152,7 +1152,7 @@ _ZN10serde_json3ser9Formatter10write_null17h328a4b2c6f358636E.exit.i.i: ; preds 
   %.val.i = load ptr, ptr %218, align 8, !alias.scope !391, !noalias !394, !nonnull !11, !noundef !11
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6.i = load i64, ptr %219, align 8, !alias.scope !391, !noalias !394, !noundef !11
-  %220 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i, i64 %.val6.i
+  %220 = getelementptr inbounds [32 x i8], ptr %.val.i, i64 %.val6.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
   %.val.i26 = load ptr, ptr %1, align 8, !alias.scope !396, !noalias !399, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401), !noalias !391
@@ -1913,7 +1913,7 @@ _ZN10serde_json3ser9Formatter10write_null17h014401fd1f18ad6cE.exit.i.i: ; preds 
   %.val.i = load ptr, ptr %218, align 8, !alias.scope !737, !noalias !740, !nonnull !11, !noundef !11
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6.i = load i64, ptr %219, align 8, !alias.scope !737, !noalias !740, !noundef !11
-  %220 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i, i64 %.val6.i
+  %220 = getelementptr inbounds [32 x i8], ptr %.val.i, i64 %.val6.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !742)
   %.val.i26 = load ptr, ptr %1, align 8, !alias.scope !742, !noalias !745, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747), !noalias !737
@@ -3765,7 +3765,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %36 = phi i64 [ %.pre.i24, %._crit_edge.i23 ], [ %22, %14 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8, !alias.scope !1118, !noalias !1121, !nonnull !11, !noundef !11
-  %39 = getelementptr inbounds { i64, [2 x i64] }, ptr %38, i64 %36
+  %39 = getelementptr inbounds [24 x i8], ptr %38, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %40 = load i64, ptr %21, align 8, !alias.scope !1118, !noalias !1121, !noundef !11
   %41 = add i64 %40, 1
@@ -3783,7 +3783,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %47 = phi i64 [ %.pre.i31, %._crit_edge.i30 ], [ %43, %35 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !alias.scope !1126, !noalias !1123, !nonnull !11, !noundef !11
-  %50 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [16 x i8], ptr %49, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %51 = load i64, ptr %42, align 8, !alias.scope !1126, !noalias !1123, !noundef !11
   %52 = add i64 %51, 1
@@ -3910,7 +3910,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %39 = phi i64 [ %.pre.i24, %._crit_edge.i23 ], [ %25, %17 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8, !alias.scope !1151, !noalias !1154, !nonnull !11, !noundef !11
-  %42 = getelementptr inbounds { i64, [2 x i64] }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %43 = load i64, ptr %24, align 8, !alias.scope !1151, !noalias !1154, !noundef !11
   %44 = add i64 %43, 1
@@ -3928,7 +3928,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %50 = phi i64 [ %.pre.i31, %._crit_edge.i30 ], [ %46, %38 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !1159, !noalias !1156, !nonnull !11, !noundef !11
-  %53 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [16 x i8], ptr %52, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %54 = load i64, ptr %45, align 8, !alias.scope !1159, !noalias !1156, !noundef !11
   %55 = add i64 %54, 1

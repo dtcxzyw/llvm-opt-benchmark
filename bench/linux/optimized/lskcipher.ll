@@ -21,13 +21,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_lskcipher_al
 %struct.anon.4 = type { ptr, i64 }
 %struct.scatter_walk = type { ptr, i32 }
 %struct.list_head = type { ptr, ptr }
-%struct.lskcipher_alg = type { ptr, ptr, ptr, ptr, ptr, %struct.skcipher_alg_common }
-%struct.skcipher_alg_common = type { i32, i32, i32, i32, i32, %struct.crypto_alg }
-%struct.crypto_alg = type { %struct.list_head, %struct.list_head, i32, i32, i32, i32, i32, %struct.refcount_struct, [128 x i8], [128 x i8], ptr, %union.anon, ptr, ptr, ptr, ptr }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%union.anon = type { %struct.cipher_alg }
-%struct.cipher_alg = type { i32, i32, ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_crypto_lskcipher_setkey438 = internal global ptr @crypto_lskcipher_setkey, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_crypto_lskcipher_encrypt442 = internal global ptr @crypto_lskcipher_encrypt, section ".discard.addressable", align 8
@@ -478,7 +471,7 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
 6:                                                ; preds = %30, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %30 ], [ -1, %4 ]
   %7 = phi i64 [ %31, %30 ], [ 0, %4 ]
-  %8 = getelementptr %struct.lskcipher_alg, ptr %0, i64 %7
+  %8 = getelementptr [448 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = tail call i32 @skcipher_prepare_alg_common(ptr noundef nonnull %9) #12
   %11 = icmp eq i32 %10, 0
@@ -522,7 +515,7 @@ define dso_local i32 @crypto_register_lskciphers(ptr noundef %0, i32 noundef %1)
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv12 = phi i64 [ %29, %.preheader.preheader ], [ %indvars.iv.next13, %.preheader ]
-  %.split = getelementptr %struct.lskcipher_alg, ptr %0, i64 %indvars.iv12
+  %.split = getelementptr [448 x i8], ptr %0, i64 %indvars.iv12
   %33 = getelementptr i8, ptr %.split, i64 64
   tail call void @crypto_unregister_alg(ptr noundef %33) #12
   %indvars.iv.next13 = add nsw i64 %indvars.iv12, -1
@@ -546,7 +539,7 @@ define dso_local void @crypto_unregister_lskciphers(ptr noundef %0, i32 noundef 
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
-  %.split = getelementptr %struct.lskcipher_alg, ptr %0, i64 %8
+  %.split = getelementptr [448 x i8], ptr %0, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 64
   tail call void @crypto_unregister_alg(ptr noundef %9) #12
   %10 = add nsw i64 %8, -1

@@ -151,7 +151,7 @@ define void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 captures(
 
 _ZN5ArrayIwE3AddEm.exit:                          ; preds = %._ZN5ArrayIwE3AddEm.exit_crit_edge, %28
   %29 = phi ptr [ %.pre, %._ZN5ArrayIwE3AddEm.exit_crit_edge ], [ %25, %28 ]
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %5
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %5
   %31 = tail call ptr @wcscpy(ptr noundef nonnull %30, ptr noundef nonnull %spec.store.select) #14
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8, !tbaa !13
@@ -208,7 +208,7 @@ _ZN5ArrayIwEC2Em.exit.thread:                     ; preds = %3
   %21 = phi ptr [ %15, %_ZN5ArrayIwEC2Em.exit.thread ], [ %7, %_ZN5ArrayIwEC2Em.exit ], [ %11, %_ZN5ArrayIwEC2Em.exit.thread29 ]
   %.sroa.0.016 = phi ptr [ null, %_ZN5ArrayIwEC2Em.exit.thread ], [ null, %_ZN5ArrayIwEC2Em.exit ], [ %malloc.i, %_ZN5ArrayIwEC2Em.exit.thread29 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !12
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %20
   %24 = tail call i64 @wcslen(ptr noundef nonnull %23) #15
   %25 = add nuw i64 %20, 1
   %26 = add i64 %25, %24
@@ -248,7 +248,7 @@ define noundef zeroext i1 @_ZN10StringList9GetStringEPwm(ptr noundef nonnull ali
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %5
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %5
   %11 = tail call i64 @wcslen(ptr noundef nonnull %10) #15
   %12 = add nuw i64 %5, 1
   %13 = add i64 %12, %11
@@ -277,7 +277,7 @@ define noundef zeroext i1 @_ZN10StringList9GetStringEPPw(ptr noundef nonnull ali
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !tbaa !12
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %4
   %11 = tail call i64 @wcslen(ptr noundef nonnull %10) #15
   %12 = add nuw i64 %4, 1
   %13 = add i64 %12, %11
@@ -307,7 +307,7 @@ define noundef zeroext i1 @_ZN10StringList9GetStringEPwmi(ptr noundef nonnull al
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %6
   store i64 %10, ptr %12, align 8, !tbaa !18
   %13 = load i64, ptr %5, align 8, !tbaa !3
   %14 = add i64 %13, 1
@@ -335,7 +335,7 @@ _ZN10StringList12SavePositionEv.exit:             ; preds = %4, %8
 _ZN10StringList9GetStringEPwm.exit:               ; preds = %19
   %22 = add nsw i32 %.045, -1
   %23 = load ptr, ptr %0, align 8, !tbaa !12
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   %25 = tail call i64 @wcslen(ptr noundef nonnull %24) #15
   %26 = add nuw i64 %20, 1
   %27 = add i64 %26, %25
@@ -358,7 +358,7 @@ _ZN10StringList9GetStringEPwm.exit.thread:        ; preds = %_ZN10StringList9Get
   %31 = add i64 %29, -1
   store i64 %31, ptr %5, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load i64, ptr %33, align 8, !tbaa !18
   store i64 %34, ptr %16, align 8, !tbaa !11
   br label %_ZN10StringList15RestorePositionEv.exit
@@ -378,7 +378,7 @@ define void @_ZN10StringList12SavePositionEv(ptr noundef nonnull align 8 capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %3
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %3
   store i64 %7, ptr %9, align 8, !tbaa !18
   %10 = load i64, ptr %2, align 8, !tbaa !3
   %11 = add i64 %10, 1
@@ -400,7 +400,7 @@ define void @_ZN10StringList15RestorePositionEv(ptr noundef nonnull align 8 capt
   %5 = add i64 %3, -1
   store i64 %5, ptr %2, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %8, ptr %9, align 8, !tbaa !11
@@ -421,7 +421,7 @@ define noundef ptr @_ZN10StringList9GetStringEv(ptr noundef nonnull align 8 capt
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %3
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %3
   %9 = tail call i64 @wcslen(ptr noundef nonnull %8) #15
   %10 = add nuw i64 %3, 1
   %11 = add i64 %10, %9
@@ -444,7 +444,7 @@ define noundef zeroext i1 @_ZN10StringList6SearchEPKwb(ptr noundef nonnull align
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %5
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %5
   store i64 %9, ptr %11, align 8, !tbaa !18
   %12 = load i64, ptr %4, align 8, !tbaa !3
   %13 = add i64 %12, 1
@@ -485,7 +485,7 @@ _ZN10StringList12SavePositionEv.exit.split.split.us: ; preds = %_ZN10StringList1
   br i1 %.not.i.us12, label %26, label %_ZN10StringList9GetStringEPPw.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %28 = tail call i64 @wcslen(ptr noundef nonnull %27) #15
   %29 = add nuw i64 %25, 1
   %30 = add i64 %29, %28
@@ -502,7 +502,7 @@ _ZN10StringList12SavePositionEv.exit.split.split: ; preds = %_ZN10StringList12Sa
 
 34:                                               ; preds = %_ZN10StringList12SavePositionEv.exit.split.split
   %35 = load ptr, ptr %0, align 8, !tbaa !12
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %32
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %32
   %37 = tail call i64 @wcslen(ptr noundef nonnull %36) #15
   %38 = add nuw i64 %32, 1
   %39 = add i64 %38, %37
@@ -525,7 +525,7 @@ _ZN10StringList9GetStringEPPw.exit:               ; preds = %26, %24, %_ZN10Stri
   %43 = add i64 %41, -1
   store i64 %43, ptr %4, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load i64, ptr %45, align 8, !tbaa !18
   store i64 %46, ptr %15, align 8, !tbaa !11
   br label %_ZN10StringList15RestorePositionEv.exit

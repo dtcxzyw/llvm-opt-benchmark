@@ -30,11 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPrimTag, 24, 8>::Handle" = type { i32 }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathNodeHandleImpl.10" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPropTag, 24, 8>::Handle" }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPropTag, 24, 8>::Handle" = type { i32 }
-%"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.9", %"class.pxrInternal_v0_24__pxrReserved__::PcpMapExpression", %"class.pxrInternal_v0_24__pxrReserved__::PcpMapExpression", %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node::_Indexes", %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node::_SmallInts", [4 x i8] }>
-%"class.pxrInternal_v0_24__pxrReserved__::PcpMapExpression" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfDelegatedCountPtr.137" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfDelegatedCountPtr.137" = type { ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node::_Indexes" = type { i16, i16, i16, i16, i16, i16 }
-%"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node::_SmallInts" = type { i16, i16, i32 }
 %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", i32, [4 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfIterator.128" = type { %"struct.pxrInternal_v0_24__pxrReserved__::TfIterator<pxrInternal_v0_24__pxrReserved__::PcpNodeRef_PrivateChildrenConstRange>::_IteratorPairAndCopy" }
 %"struct.pxrInternal_v0_24__pxrReserved__::TfIterator<pxrInternal_v0_24__pxrReserved__::PcpNodeRef_PrivateChildrenConstRange>::_IteratorPairAndCopy" = type { %"struct.pxrInternal_v0_24__pxrReserved__::TfIterator<pxrInternal_v0_24__pxrReserved__::PcpNodeRef_PrivateChildrenConstRange>::_IteratorPair", %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef_PrivateChildrenConstRange" }
@@ -336,7 +331,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %88 = load ptr, ptr %9, align 8
   %spec.select.i.i.i = select i1 %87, ptr %9, ptr %88
   %89 = zext i32 %85 to i64
-  %90 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", ptr %spec.select.i.i.i, i64 %89
+  %90 = getelementptr [16 x i8], ptr %spec.select.i.i.i, i64 %89
   %91 = getelementptr i8, ptr %90, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   %92 = add i32 %85, -1
@@ -469,7 +464,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
   %118 = load ptr, ptr %117, align 8, !noalias !8
   %119 = load ptr, ptr %118, align 8, !noalias !8
-  %120 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %119, i64 %.sroa.2.0.copyload.i
+  %120 = getelementptr inbounds [48 x i8], ptr %119, i64 %.sroa.2.0.copyload.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 30
   %.sroa.5.0.in89 = load i16, ptr %121, align 2
   %.not7791 = icmp eq i16 %.sroa.5.0.in89, -1
@@ -528,14 +523,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildre
   %140 = phi i32 [ %138, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10PcpNodeRefELj64EE12_GrowStorageEm.exit.i.i43 ], [ %124, %122 ]
   %141 = icmp ult i32 %140, 65
   %spec.select.i.i.i.i33 = select i1 %141, ptr %9, ptr %139
-  %142 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", ptr %spec.select.i.i.i.i33, i64 %126
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %spec.select.i.i.i.i33, i64 %126
   store ptr %.sroa.0.0.copyload.i, ptr %142, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i64 %.sroa.5.092, ptr %.sroa.5.0..sroa_idx, align 8
   %143 = load i32, ptr %73, align 8
   %144 = add i32 %143, 1
   store i32 %144, ptr %73, align 8
-  %145 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %119, i64 %.sroa.5.092
+  %145 = getelementptr inbounds nuw [48 x i8], ptr %119, i64 %.sroa.5.092
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %.sroa.5.0.in = load i16, ptr %146, align 2
   %.not77 = icmp eq i16 %.sroa.5.0.in, -1
@@ -637,7 +632,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36Pcp_TraverseIns
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8, !noalias !18
   %17 = load ptr, ptr %16, align 8, !noalias !18
-  %18 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %17, i64 %9
+  %18 = getelementptr inbounds [48 x i8], ptr %17, i64 %9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %20 = load i16, ptr %19, align 4, !noalias !18
   %21 = zext i16 %20 to i64
@@ -713,7 +708,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildre
 
 44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
   %45 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %46 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %45, i64 %36
+  %46 = getelementptr inbounds [48 x i8], ptr %45, i64 %36
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 34
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i64
@@ -814,7 +809,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17PcpLayerStackSi
   %5 = and i32 %3, 255
   %6 = lshr i32 %3, 8
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = mul nuw nsw i32 %6, 24
   %11 = zext nneg i32 %10 to i64
@@ -1124,7 +1119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31Pcp_FindInstanceableDataVisitor5VisitENS_
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !25
   %20 = load ptr, ptr %19, align 8, !noalias !25
-  %21 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %20, i64 %.sroa.2.0.copyload.i
+  %21 = getelementptr inbounds [48 x i8], ptr %20, i64 %.sroa.2.0.copyload.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i16, ptr %22, align 4, !noalias !25
   %24 = zext i16 %23 to i64
@@ -1200,7 +1195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildre
 
 47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_36PcpNodeRef_PrivateChildrenConstRangeELb0EEdeEv.exit
   %48 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %49 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %48, i64 %39
+  %49 = getelementptr inbounds [48 x i8], ptr %48, i64 %39
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 34
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i64

@@ -618,7 +618,7 @@ define void @_ZN10open_spiel9dou_dizhu16FormatSingleHandB5cxx11EN4absl7debian24S
   br i1 %exitcond.not, label %.preheader._crit_edge, label %_ZNK4absl7debian24SpanIKiEixEm.exit.lr.ph
 
 _ZNK4absl7debian24SpanIKiEixEm.exit.lr.ph:        ; preds = %.preheader
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader, label %.split.us
@@ -791,7 +791,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %or.cond, label %.loopexit, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.preheader, label %.loopexit
@@ -1028,7 +1028,7 @@ define void @_ZN10open_spiel9dou_dizhu12ActionToHandEi(ptr dead_on_unwind noalia
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store i32 %.sroa.24.0.extract.trunc.i, ptr %gep.i, align 4, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1081,7 +1081,7 @@ _ZN10open_spiel9dou_dizhu18SingleTrioCombHandEi.exit: ; preds = %35, %38
   %41 = icmp eq i64 %40, 1
   %42 = select i1 %41, i32 1, i32 2
   %43 = zext nneg i32 %.09.lcssa.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %43
   store i32 %42, ptr %44, align 4, !alias.scope !23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %0, ptr noundef nonnull align 4 dereferenceable(60) %5, i64 60, i1 false)
   br label %61
@@ -1236,7 +1236,7 @@ define noundef range(i32 4, 26044) i32 @_ZN10open_spiel9dou_dizhu23GetSingleRank
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1250,7 +1250,7 @@ switch.lookup:
   %4 = alloca i32, align 4
   %5 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu18GetNumCardsPerRankEi(i32 noundef %0)
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %6
+  %7 = getelementptr [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %6
   %switch.gep = getelementptr i8, ptr %7, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %0, ptr %1, align 4
@@ -1374,7 +1374,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %2, %_ZNK4absl7debia
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4absl7debian24SpanIKiEixEm.exit ], [ 0, %2 ]
   %.023 = phi i32 [ %spec.select15, %_ZNK4absl7debian24SpanIKiEixEm.exit ], [ undef, %2 ]
   %.01222 = phi i32 [ %spec.select, %_ZNK4absl7debian24SpanIKiEixEm.exit ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = zext i1 %.not to i32
@@ -1424,7 +1424,7 @@ common.resume:                                    ; preds = %34, %18
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit16:            ; preds = %20
-  %24 = getelementptr inbounds i32, ptr %0, i64 %21
+  %24 = getelementptr inbounds [4 x i8], ptr %0, i64 %21
   %25 = load i32, ptr %24, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1462,7 +1462,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit16:            ; preds = %20
 
 switch.lookup:                                    ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit16
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1585,7 +1585,7 @@ define void @_ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIl
 
 _ZNK4absl7debian24SpanIKiEixEm.exit.us:           ; preds = %.lr.ph58.split.us, %34
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %34 ], [ 0, %.lr.ph58.split.us ]
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv179
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv179
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 5
   br i1 %38, label %_ZNK4absl7debian24SpanIKiEixEm.exit28.us, label %.split60.us
@@ -1621,7 +1621,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit.i.us:         ; preds = %_ZNK4absl7debian24S
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %_ZNK4absl7debian24SpanIKiEixEm.exit.i.us ], [ 0, %44 ]
   %.023.i.us = phi i32 [ %spec.select15.i.us, %_ZNK4absl7debian24SpanIKiEixEm.exit.i.us ], [ undef, %44 ]
   %.01222.i.us = phi i32 [ %spec.select.i.us, %_ZNK4absl7debian24SpanIKiEixEm.exit.i.us ], [ 0, %44 ]
-  %47 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.us
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %48 = load i32, ptr %47, align 4
   %.not.i.us = icmp ne i32 %48, 0
   %49 = zext i1 %.not.i.us to i32
@@ -1644,7 +1644,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit.i.us:         ; preds = %_ZNK4absl7debian24S
 
 _ZNK4absl7debian24SpanIKiEixEm.exit16.i.us:       ; preds = %53
   %55 = zext nneg i32 %spec.select15.i.us to i64
-  %56 = getelementptr inbounds nuw i32, ptr %11, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %55
   %57 = load i32, ptr %56, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1654,7 +1654,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit16.i.us:       ; preds = %53
 
 switch.lookup:                                    ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit16.i.us
   %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %59
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1716,7 +1716,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i.us: ; preds = %82, %
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i.us: ; preds = %84, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i.us
   store ptr %79, ptr %0, align 8
   store ptr %83, ptr %32, align 8
-  %85 = getelementptr inbounds nuw i64, ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %77
   store ptr %85, ptr %33, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.us
 
@@ -1727,13 +1727,13 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit.us:        ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %88, label %44, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit39.loopexit.us, !llvm.loop !29
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit39.loopexit.us: ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.us, %_ZNK4absl7debian24SpanIKiEixEm.exit30.preheader.us
-  %89 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv179
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv179
   store i32 0, ptr %89, align 4
   %exitcond182.not = icmp eq i64 %indvars.iv179, 14
   br i1 %exitcond182.not, label %._crit_edge, label %34, !llvm.loop !28
 
 .lr.ph.us:                                        ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit30.preheader.us
-  %90 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv179
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv179
   %.promoted.us = load i32, ptr %90, align 4
   br label %44
 
@@ -1781,7 +1781,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit39.loopexit.us: ; preds = %_ZNSt6vectorIlS
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %.lr.ph58.split
-  %92 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %92 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %12, align 4
   store i32 4, ptr %13, align 4
@@ -1892,7 +1892,7 @@ common.resume:                                    ; preds = %96, %100, %107, %11
   br label %common.resume
 
 119:                                              ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit31
-  %120 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %120 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %.sroa.246.0.extract.trunc, ptr %120, align 4
   %121 = call noundef i32 @_ZN10open_spiel9dou_dizhu24SingleRankHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %11, i64 15)
   %122 = sext i32 %121 to i64
@@ -1952,12 +1952,12 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i36: ; preds = %144, %
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i38: ; preds = %146, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i36
   store ptr %141, ptr %0, align 8
   store ptr %145, ptr %28, align 8
-  %147 = getelementptr inbounds nuw i64, ptr %141, i64 %139
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %139
   store ptr %147, ptr %29, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit39
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit39:         ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i38, %125, %_ZNK4absl7debian24SpanIKiEixEm.exit31
-  %148 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %148 = getelementptr inbounds [4 x i8], ptr %11, i64 %indvars.iv
   store i32 0, ptr %148, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -2130,7 +2130,7 @@ define noundef range(i32 19, 472) i32 @_ZN10open_spiel9dou_dizhu22GetChainOnlyAc
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2173,7 +2173,7 @@ define noundef range(i32 2, 6) i32 @_ZN10open_spiel9dou_dizhu21GetChainOnlyMinLe
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -2227,10 +2227,10 @@ common.resume:                                    ; preds = %22, %17
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i32 %8, -1
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 %19
+  %switch.gep40 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 %19
   %switch.load41 = load i32, ptr %switch.gep40, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2306,7 +2306,7 @@ define void @_ZN10open_spiel9dou_dizhu13ChainOnlyHandEi(ptr dead_on_unwind noali
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %.sroa.24.0.extract.trunc, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2406,7 +2406,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit50:            ; preds = %_ZNK4absl7debian24S
   %.03484 = phi i32 [ %.135, %52 ], [ 0, %_ZNK4absl7debian24SpanIKiEixEm.exit49 ]
   %.03683 = phi i32 [ %.137, %52 ], [ 0, %_ZNK4absl7debian24SpanIKiEixEm.exit49 ]
   %.03882 = phi i32 [ %.139, %52 ], [ 0, %_ZNK4absl7debian24SpanIKiEixEm.exit49 ]
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %52, label %39
@@ -2526,10 +2526,10 @@ common.resume:                                    ; preds = %35, %49, %57, %90, 
 
 switch.lookup:                                    ; preds = %59
   %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 %69
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep92 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 %70
+  %switch.gep92 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 %70
   %switch.load93 = load i32, ptr %switch.gep92, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2691,7 +2691,7 @@ define void @_ZN10open_spiel9dou_dizhu22SearchChainOnlyActionsEPSt6vectorIlSaIlE
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %21
-  %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv165
+  %24 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv165
   %25 = load i32, ptr %24, align 4
   switch i32 %25, label %.lr.ph136.preheader [
     i32 0, label %_ZNSt6vectorIiSaIiEED2Ev.exit61
@@ -2700,7 +2700,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %21
 
 .lr.ph136.preheader:                              ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit
   %wide.trip.count163 = zext i32 %indvars.iv161 to i64
-  %invariant.gep = getelementptr i32, ptr %7, i64 %indvars.iv165
+  %invariant.gep = getelementptr [4 x i8], ptr %7, i64 %indvars.iv165
   br label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %_ZNK4absl7debian24SpanIKiEixEm.exit44
@@ -2716,7 +2716,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %21
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit45:            ; preds = %.lr.ph136
-  %29 = getelementptr inbounds i32, ptr %1, i64 %26
+  %29 = getelementptr inbounds [4 x i8], ptr %1, i64 %26
   %30 = load i32, ptr %29, align 4
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %30, i32 %.0100134)
   %.not39 = icmp eq i32 %.sroa.speculated, 0
@@ -2837,7 +2837,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i52: ; preds = %59, %.no
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i54
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i54: ; preds = %60, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i52
-  %61 = getelementptr inbounds nuw i32, ptr %56, i64 %54
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %54
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit57
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit57:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i54, %43
@@ -2898,7 +2898,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit57:        ; preds = %_ZNSt6vectorIiSaIiE
 
 switch.lookup:                                    ; preds = %.lr.ph133
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10open_spiel9dou_dizhu22SearchChainOnlyActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %73
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu22SearchChainOnlyActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 %73
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2911,7 +2911,7 @@ switch.lookup:                                    ; preds = %.lr.ph133
 
 75:                                               ; preds = %74, %75
   %indvars.iv = phi i64 [ 0, %74 ], [ %indvars.iv.next, %75 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %63, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next, %indvars.iv156
@@ -2985,7 +2985,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %101, %.n
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %98, ptr %0, align 8
   store ptr %102, ptr %13, align 8
-  %104 = getelementptr inbounds nuw i64, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -3229,7 +3229,7 @@ define noundef range(i32 88, 1373) i32 @_ZN10open_spiel9dou_dizhu29GetNumKickers
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.3, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.3, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3272,7 +3272,7 @@ define noundef range(i32 516, 12129) i32 @_ZN10open_spiel9dou_dizhu25GetAirplane
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3315,7 +3315,7 @@ define noundef range(i32 55, 127) i32 @_ZN10open_spiel9dou_dizhu29GetNumKickersA
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.5, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.5, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3358,7 +3358,7 @@ define noundef range(i32 23104, 24910) i32 @_ZN10open_spiel9dou_dizhu25GetAirpla
 
 switch.lookup:                                    ; preds = %1
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.4, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.4, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -3566,7 +3566,7 @@ define void @_ZN10open_spiel9dou_dizhu18SingleTrioCombHandEi(ptr dead_on_unwind 
   %17 = icmp eq i64 %16, 1
   %18 = select i1 %17, i32 1, i32 2
   %19 = zext nneg i32 %.09.lcssa to i64
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %19
   store i32 %18, ptr %20, align 4
   ret void
 }
@@ -3599,7 +3599,7 @@ define noundef i32 @_ZN10open_spiel9dou_dizhu28SingleTrioCombHandToActionIdEN4ab
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %13
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %31 [
     i32 3, label %17
@@ -3707,7 +3707,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %13
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit52:            ; preds = %44
-  %48 = getelementptr inbounds i32, ptr %0, i64 %45
+  %48 = getelementptr inbounds [4 x i8], ptr %0, i64 %45
   %49 = load i32, ptr %48, align 4
   br label %50
 
@@ -3903,13 +3903,13 @@ define void @_ZN10open_spiel9dou_dizhu27SearchSingleTrioCombActionsEPSt6vectorIl
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %16
-  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv119
+  %19 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv119
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 3
   br i1 %21, label %.loopexit86, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit
-  %22 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv119
+  %22 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv119
   %23 = and i64 %indvars.iv119, 4294967295
   br label %24
 
@@ -3923,7 +3923,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %16
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit30:            ; preds = %24
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   %28 = icmp eq i64 %indvars.iv, %23
@@ -4039,7 +4039,7 @@ _ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE11_S_relocateEPS2_S5_S5
   br label %_ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %47
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   br label %_ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %36
@@ -4061,7 +4061,7 @@ _ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE9push_backEOS2_.exit: ;
   %.sroa.054.1148 = phi ptr [ %30, %.loopexit82.thread141 ], [ %.sroa.054.4, %.loopexit82 ]
   %.sroa.8.0147 = phi ptr [ %31, %.loopexit82.thread141 ], [ %.sroa.8.3, %.loopexit82 ]
   %.sroa.17.1146 = phi ptr [ %31, %.loopexit82.thread141 ], [ %.sroa.17.4, %.loopexit82 ]
-  %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   br label %58
 
 58:                                               ; preds = %.lr.ph105, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
@@ -4137,7 +4137,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %84, %.no
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %86, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %81, ptr %0, align 8
   store ptr %85, ptr %13, align 8
-  %87 = getelementptr inbounds nuw i64, ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %79
   store ptr %87, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -4208,7 +4208,7 @@ define noundef zeroext i1 @_ZN10open_spiel9dou_dizhu19dfs_airplane_kickerEiiiRii
   br i1 %exitcond96.not, label %.split.us, label %_ZNK4absl7debian24SpanIiEixEm.exit59.us
 
 _ZNK4absl7debian24SpanIiEixEm.exit59.us:          ; preds = %.lr.ph.split.us
-  %26 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv93
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv93
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %9, align 4
   store i32 4, ptr %10, align 4
@@ -4273,9 +4273,9 @@ _ZNK4absl7debian24SpanIiEixEm.exit66.us:          ; preds = %_ZNK4absl7debian24S
 _ZNK4absl7debian24SpanIiEixEm.exit:               ; preds = %.preheader.split, %_ZNK4absl7debian24SpanIiEixEm.exit
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %_ZNK4absl7debian24SpanIiEixEm.exit ], [ 0, %.preheader.split ]
   %.04684 = phi i1 [ %50, %_ZNK4absl7debian24SpanIiEixEm.exit ], [ true, %.preheader.split ]
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv104
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv104
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv104
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv104
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %46, %48
   %50 = and i1 %.04684, %49
@@ -4322,9 +4322,9 @@ _ZNK4absl7debian24SpanIiEixEm.exit:               ; preds = %.preheader.split, %
 
 _ZNK4absl7debian24SpanIiEixEm.exit57:             ; preds = %.preheader70.split, %_ZNK4absl7debian24SpanIiEixEm.exit57
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %_ZNK4absl7debian24SpanIiEixEm.exit57 ], [ 0, %.preheader70.split ]
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv99
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv99
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv99
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv99
   store i32 %64, ptr %65, align 4
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, 15
@@ -4354,7 +4354,7 @@ _ZNK4absl7debian24SpanIiEixEm.exit57:             ; preds = %.preheader70.split,
   unreachable
 
 _ZNK4absl7debian24SpanIiEixEm.exit59:             ; preds = %.lr.ph.split
-  %71 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr %9, align 4
   store i32 4, ptr %10, align 4
@@ -4411,7 +4411,7 @@ _ZNK4absl7debian24SpanIiEixEm.exit63:             ; preds = %.thread
   unreachable
 
 _ZNK4absl7debian24SpanIiEixEm.exit64:             ; preds = %81
-  %85 = getelementptr inbounds nuw i32, ptr %20, i64 %82
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %82
   %86 = load i32, ptr %85, align 4
   %.not55 = icmp eq i32 %86, 0
   br i1 %.not55, label %_ZNK4absl7debian24SpanIiEixEm.exit65, label %92
@@ -4644,9 +4644,9 @@ define void @_ZN10open_spiel9dou_dizhu16AirplaneCombHandEi(ptr dead_on_unwind no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %34 = add nsw i64 %indvars.iv, %33
-  %35 = getelementptr inbounds i32, ptr %3, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %3, i64 %34
   store i32 3, ptr %35, align 4
-  %36 = getelementptr inbounds i32, ptr %0, i64 %34
+  %36 = getelementptr inbounds [4 x i8], ptr %0, i64 %34
   store i32 3, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.3.0.extract.shift
@@ -4784,7 +4784,7 @@ define noundef i32 @_ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %40
-  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %9, align 4
   store i32 4, ptr %10, align 4
@@ -4917,7 +4917,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %73, %.noex
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %75 = getelementptr inbounds nuw i32, ptr %70, i64 %68
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %68
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %57
@@ -5005,7 +5005,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i72: ; preds = %104, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74: ; preds = %106, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i72
-  %107 = getelementptr inbounds nuw i32, ptr %100, i64 %98
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %98
   br label %.critedge
 
 108:                                              ; preds = %50
@@ -5117,7 +5117,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i86: ; preds = %139, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88: ; preds = %140, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i86
-  %141 = getelementptr inbounds nuw i32, ptr %136, i64 %134
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %134
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit91:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i88, %123
@@ -5212,7 +5212,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i97: ; preds = %170, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99: ; preds = %172, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i97
-  %173 = getelementptr inbounds nuw i32, ptr %166, i64 %164
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %164
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit91, %_ZNK4absl7debian24SpanIKiEixEm.exit65.preheader, %_ZNK4absl7debian24SpanIKiEixEm.exit81.preheader, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i99, %152, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i74, %86, %118, %115, %_ZNK4absl7debian24SpanIKiEixEm.exit64
@@ -5298,7 +5298,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %202, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %203, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %204 = getelementptr inbounds nuw i32, ptr %199, i64 %197
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %197
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %186
@@ -5420,10 +5420,10 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 switch.lookup:                                    ; preds = %224
   %234 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE, i64 %234
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE, i64 %234
   %switch.load = load i32, ptr %switch.gep, align 4
   %235 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep470 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.3, i64 %235
+  %switch.gep470 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.3, i64 %235
   %switch.load471 = load i32, ptr %switch.gep470, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5465,10 +5465,10 @@ switch.lookup:                                    ; preds = %224
 
 switch.lookup473:                                 ; preds = %236
   %246 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep474 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.4, i64 %246
+  %switch.gep474 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.4, i64 %246
   %switch.load475 = load i32, ptr %switch.gep474, align 4
   %247 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep476 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.5, i64 %247
+  %switch.gep476 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10open_spiel9dou_dizhu26AirplaneCombHandToActionIdEN4absl7debian24SpanIKiEEiNS0_10KickerTypeE.5, i64 %247
   %switch.load477 = load i32, ptr %switch.gep476, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5481,12 +5481,12 @@ switch.lookup473:                                 ; preds = %236
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %32, i8 0, i64 60, i1 false)
   %248 = sext i32 %2 to i64
   %wide.trip.count = zext nneg i32 %.2 to i64
-  %invariant.gep = getelementptr i32, ptr %32, i64 %248
+  %invariant.gep = getelementptr [4 x i8], ptr %32, i64 %248
   br label %.lr.ph305
 
 .lr.ph305:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
   %indvars.iv346 = phi i64 [ 0, %.lr.ph305.preheader ], [ %indvars.iv.next347, %.lr.ph305 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv346
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv346
   store i32 3, ptr %gep, align 4
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count
@@ -5742,7 +5742,7 @@ define void @_ZN10open_spiel9dou_dizhu28dfs_add_all_airplane_kickersEiiiiN4absl7
   br i1 %34, label %_ZNK4absl7debian24SpanIiEixEm.exit57.us, label %.split.us
 
 _ZNK4absl7debian24SpanIiEixEm.exit57.us:          ; preds = %33
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv105
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv105
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %11, align 4
   store i32 4, ptr %12, align 4
@@ -5770,7 +5770,7 @@ _ZNK4absl7debian24SpanIiEixEm.exit59.us:          ; preds = %_ZNK4absl7debian24S
   br i1 %41, label %_ZNK4absl7debian24SpanIiEixEm.exit63.us, label %.split98.us
 
 _ZNK4absl7debian24SpanIiEixEm.exit63.us:          ; preds = %40
-  %42 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv105
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv105
   %43 = load i32, ptr %42, align 4
   %44 = add nsw i32 %36, %23
   %45 = icmp slt i32 %43, %44
@@ -5860,7 +5860,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %77, %_ZN
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %79, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %74, ptr %7, align 8
   store ptr %78, ptr %53, align 8
-  %80 = getelementptr inbounds nuw i64, ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   store ptr %80, ptr %55, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -5880,7 +5880,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   unreachable
 
 _ZNK4absl7debian24SpanIiEixEm.exit57:             ; preds = %81
-  %83 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4
   store i32 %84, ptr %11, align 4
   store i32 4, ptr %12, align 4
@@ -5937,7 +5937,7 @@ _ZNK4absl7debian24SpanIiEixEm.exit61:             ; preds = %.thread
   unreachable
 
 _ZNK4absl7debian24SpanIiEixEm.exit62:             ; preds = %93
-  %97 = getelementptr inbounds nuw i32, ptr %4, i64 %94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %94
   %98 = load i32, ptr %97, align 4
   %.not55 = icmp eq i32 %98, 0
   br i1 %.not55, label %99, label %108
@@ -5951,7 +5951,7 @@ _ZNK4absl7debian24SpanIiEixEm.exit62:             ; preds = %93
   unreachable
 
 _ZNK4absl7debian24SpanIiEixEm.exit63:             ; preds = %99
-  %101 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
   %103 = add nsw i32 %84, %23
   %104 = icmp slt i32 %102, %103
@@ -6025,14 +6025,14 @@ define void @_ZN10open_spiel9dou_dizhu25SearchAirplaneCombActionsEPSt6vectorIlSa
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %21
-  %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv142
+  %24 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv142
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 2
   br i1 %26, label %.lr.ph122.preheader, label %_ZNSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EED2Ev.exit56
 
 .lr.ph122.preheader:                              ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit
   %wide.trip.count140 = zext i32 %indvars.iv138 to i64
-  %invariant.gep = getelementptr i32, ptr %5, i64 %indvars.iv142
+  %invariant.gep = getelementptr [4 x i8], ptr %5, i64 %indvars.iv142
   %27 = trunc nsw i64 %indvars.iv142 to i32
   br label %.lr.ph122
 
@@ -6049,7 +6049,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %21
   unreachable
 
 _ZNK4absl7debian24SpanIKiEixEm.exit38:            ; preds = %.lr.ph122
-  %31 = getelementptr inbounds i32, ptr %1, i64 %28
+  %31 = getelementptr inbounds [4 x i8], ptr %1, i64 %28
   %32 = load i32, ptr %31, align 4
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %32, i32 %.090120)
   %33 = icmp slt i32 %.sroa.speculated, 3
@@ -6121,7 +6121,7 @@ _ZNKSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE12_M_check_lenEmPKc.ex
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 3, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv133
@@ -6253,7 +6253,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %40, %_ZN
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %37, ptr %0, align 8
   store ptr %41, ptr %17, align 8
-  %43 = getelementptr inbounds nuw i64, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %19, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -6284,14 +6284,14 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 
 _ZNK4absl7debian24SpanIKiEixEm.exit88:            ; preds = %.preheader.split, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit96
   %indvars.iv = phi i64 [ 0, %.preheader.split ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit96 ]
-  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 4
   br i1 %53, label %54, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit96
 
 54:                                               ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %5, i8 0, i64 60, i1 false)
-  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 4, ptr %55, align 4
   %56 = call noundef i32 @_ZN10open_spiel9dou_dizhu24SingleRankHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %5, i64 15)
   %57 = sext i32 %56 to i64
@@ -6351,7 +6351,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i93: ; preds = %79, %_
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i95: ; preds = %81, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i93
   store ptr %76, ptr %0, align 8
   store ptr %80, ptr %48, align 8
-  %82 = getelementptr inbounds nuw i64, ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %82, ptr %49, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit96
 

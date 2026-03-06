@@ -84,7 +84,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
 
 32:                                               ; preds = %32, %30
   %indvars.iv.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr %struct.prefix_code_node, ptr %31, i64 %indvars.iv.i.i
+  %33 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.i.i
   store i16 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 0, ptr %34, align 2
@@ -104,7 +104,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.preheader.i.i ], [ 0, %37 ]
   %39 = shl nuw nsw i64 %indvars.iv74.i.i, 1
   %40 = trunc i64 %39 to i16
-  %41 = getelementptr %struct.prefix_code_symbol, ptr %4, i64 %39
+  %41 = getelementptr [4 x i8], ptr %4, i64 %39
   store i16 %40, ptr %41, align 8
   %42 = trunc nuw nsw i64 %indvars.iv74.i.i to i32
   %43 = add i32 %1, %42
@@ -115,7 +115,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   store i16 %46, ptr %47, align 2
   %48 = or disjoint i64 %39, 1
   %49 = trunc i64 %48 to i16
-  %50 = getelementptr %struct.prefix_code_symbol, ptr %4, i64 %48
+  %50 = getelementptr [4 x i8], ptr %4, i64 %48
   store i16 %49, ptr %50, align 4
   %51 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %43)
   %52 = lshr i8 %51, 4
@@ -132,7 +132,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
 
 56:                                               ; preds = %61, %55
   %indvars.iv78.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next79.i.i, %61 ]
-  %57 = getelementptr %struct.prefix_code_symbol, ptr %4, i64 %indvars.iv78.i.i
+  %57 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv78.i.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %59 = load i16, ptr %58, align 2
   %60 = icmp eq i16 %59, 0
@@ -169,10 +169,10 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   br i1 %67, label %PrefixCodeTreeRebuild.exit.thread.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %66
-  %68 = getelementptr %struct.prefix_code_symbol, ptr %4, i64 %indvars.iv82.i.i
+  %68 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv82.i.i
   %69 = load i16, ptr %68, align 4
   %70 = zext nneg i32 %.05364.i.i to i64
-  %71 = getelementptr %struct.prefix_code_node, ptr %31, i64 %70
+  %71 = getelementptr [8 x i8], ptr %31, i64 %70
   store i16 %69, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 2
   store i8 1, ptr %72, align 2
@@ -197,7 +197,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %84 = and i32 %83, 1
   %85 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 4
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr i16, ptr %85, i64 %86
+  %87 = getelementptr [2 x i8], ptr %85, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = icmp slt i16 %88, 0
   br i1 %89, label %90, label %98
@@ -210,7 +210,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %93 = trunc nuw nsw i32 %.026.i.i.i to i16
   store i16 %93, ptr %87, align 2
   %94 = zext nneg i32 %.026.i.i.i to i64
-  %95 = getelementptr %struct.prefix_code_node, ptr %31, i64 %94
+  %95 = getelementptr [8 x i8], ptr %31, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
   store i8 0, ptr %96, align 2
   %97 = add nuw nsw i32 %.026.i.i.i, 1
@@ -221,7 +221,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %99 = phi i16 [ %.pre.i.i.i, %92 ], [ %88, %81 ]
   %.1.i.i.i = phi i32 [ %97, %92 ], [ %.026.i.i.i, %81 ]
   %100 = sext i16 %99 to i64
-  %101 = getelementptr %struct.prefix_code_node, ptr %31, i64 %100
+  %101 = getelementptr [8 x i8], ptr %31, i64 %100
   %.not6.i.i.i.i = icmp uge ptr %101, %31
   %102 = icmp ult ptr %101, %65
   %or.cond.i.i.i = and i1 %.not6.i.i.i.i, %102
@@ -232,7 +232,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %105 = getelementptr inbounds nuw i8, ptr %.027.i.i.i, i64 4
   %106 = and i32 %77, 1
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr i16, ptr %105, i64 %107
+  %108 = getelementptr [2 x i8], ptr %105, i64 %107
   store i16 %104, ptr %108, align 2
   %109 = add i32 %77, 1
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
@@ -293,10 +293,10 @@ bitstring_skip.exit.i.i:                          ; preds = %125, %bitstring_loo
   %.sroa.22.2.i = phi i32 [ %131, %125 ], [ %122, %bitstring_lookup.exit.i.i ]
   %.sroa.34.2.i = phi i32 [ %133, %125 ], [ %123, %bitstring_lookup.exit.i.i ]
   %134 = getelementptr inbounds nuw i8, ptr %.0.i35.i, i64 4
-  %135 = getelementptr i16, ptr %134, i64 %.0.i.i.i
+  %135 = getelementptr [2 x i8], ptr %134, i64 %.0.i.i.i
   %136 = load i16, ptr %135, align 2
   %137 = sext i16 %136 to i64
-  %138 = getelementptr %struct.prefix_code_node, ptr %31, i64 %137
+  %138 = getelementptr [8 x i8], ptr %31, i64 %137
   %.not6.i.i.i = icmp uge ptr %138, %31
   %139 = icmp ult ptr %138, %118
   %or.cond.i.i = and i1 %.not6.i.i.i, %139

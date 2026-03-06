@@ -76,7 +76,7 @@ define dso_local void @gist_redo(ptr noundef %0) local_unnamed_addr #0 {
   %34 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %35 = xor i32 %31, -1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   %38 = load ptr, ptr %37, align 8
   br label %BufferGetPage.exit.i
 
@@ -234,7 +234,7 @@ BufferGetPage.exit.i:                             ; preds = %39, %33
   %127 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %128 = xor i32 %124, -1
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr %127, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %129
   %131 = load ptr, ptr %130, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -340,7 +340,7 @@ gistRedoPageUpdateRecord.exit:                    ; preds = %160, %162
   %183 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %184 = xor i32 %180, -1
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw ptr, ptr %183, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %185
   %187 = load ptr, ptr %186, align 8
   br label %BufferGetPage.exit.i9
 
@@ -454,7 +454,7 @@ gistRedoDeleteRecord.exit:                        ; preds = %215, %217
   %250 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %251 = xor i32 %247, -1
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw ptr, ptr %250, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %252
   %254 = load ptr, ptr %253, align 8
   br label %BufferGetPage.exit.i16
 
@@ -483,7 +483,7 @@ BufferGetPage.exit.i16:                           ; preds = %255, %249
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.014.i.i = phi ptr [ %267, %.lr.ph.preheader.i.i ], [ %272, %.lr.ph.i.i ]
-  %268 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv.i.i
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv.i.i
   store ptr %.014.i.i, ptr %268, align 8
   %269 = getelementptr i8, ptr %.014.i.i, i64 6
   %.0.val.i.i = load i16, ptr %269, align 2
@@ -673,7 +673,7 @@ decodePageSplitRecord.exit.i:                     ; preds = %.lr.ph.i.i, %Buffer
   %383 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %384 = xor i32 %380, -1
   %385 = zext nneg i32 %384 to i64
-  %386 = getelementptr inbounds nuw ptr, ptr %383, i64 %385
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %385
   %387 = load ptr, ptr %386, align 8
   br label %BufferGetPage.exit.i.i21
 
@@ -751,7 +751,7 @@ gistRedoPageSplitRecord.exit:                     ; preds = %._crit_edge.i, %371
   %427 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %428 = xor i32 %424, -1
   %429 = zext nneg i32 %428 to i64
-  %430 = getelementptr inbounds nuw ptr, ptr %427, i64 %429
+  %430 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %429
   %431 = load ptr, ptr %430, align 8
   br label %BufferGetPage.exit.i24
 
@@ -802,7 +802,7 @@ BufferGetPage.exit.i24:                           ; preds = %432, %426
   %460 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %461 = xor i32 %457, -1
   %462 = zext nneg i32 %461 to i64
-  %463 = getelementptr inbounds nuw ptr, ptr %460, i64 %462
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %462
   %464 = load ptr, ptr %463, align 8
   br label %BufferGetPage.exit12.i
 
@@ -1141,7 +1141,7 @@ define dso_local i64 @gistXLogUpdate(i32 noundef %0, ptr noundef %1, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 6
   %.val = load i16, ptr %15, align 2

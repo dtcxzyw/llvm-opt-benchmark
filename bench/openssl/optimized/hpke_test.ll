@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.OSSL_HPKE_SUITE = type { i16, i16, i16 }
 %struct.TEST_EXPORTDATA = type { ptr, i64, ptr, i64 }
-%struct.TEST_AEADDATA = type { i32, ptr, i64, ptr, i64, ptr, i64 }
 
 @test_get_options.test_options = internal constant [11 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 45, ptr @.str.15 }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.16 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -643,7 +642,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 20:                                               ; preds = %0, %._crit_edge183
   %.0186 = phi i32 [ 1, %0 ], [ %.1.lcssa, %._crit_edge183 ]
   %.0137185 = phi i64 [ 0, %0 ], [ %164, %._crit_edge183 ]
-  %21 = getelementptr inbounds nuw i32, ptr @hpke_mode_list, i64 %.0137185
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @hpke_mode_list, i64 %.0137185
   %22 = load i32, ptr %21, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -698,7 +697,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
 
 .lr.ph182:                                        ; preds = %34
   %or.cond3.not = icmp samesign ult i64 %.0137185, 2
-  %36 = getelementptr inbounds nuw ptr, ptr @mode_str_list, i64 %.0137185
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @mode_str_list, i64 %.0137185
   %37 = trunc nuw nsw i64 %.0137185 to i32
   br label %38
 
@@ -706,7 +705,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.0138180 = phi i64 [ 0, %.lr.ph182 ], [ %160, %._crit_edge ]
   %.sroa.9.0179 = phi i16 [ 1, %.lr.ph182 ], [ %.sroa.9.1.lcssa, %._crit_edge ]
   %.sroa.10.0178 = phi i16 [ 1, %.lr.ph182 ], [ %.sroa.10.1.lcssa, %._crit_edge ]
-  %39 = getelementptr inbounds nuw i16, ptr @hpke_kem_list, i64 %.0138180
+  %39 = getelementptr inbounds nuw [2 x i8], ptr @hpke_kem_list, i64 %.0138180
   %40 = load i16, ptr %39, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 512, ptr %7, align 8, !tbaa !11
@@ -739,24 +738,24 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %.0143191 = phi ptr [ null, %.thread ], [ %8, %41 ]
   %.sroa.0.0.insert.ext47 = zext i16 %40 to i48
   %47 = icmp eq i64 %.0138180, 0
-  %48 = getelementptr inbounds nuw ptr, ptr @kem_str_list, i64 %.0138180
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @kem_str_list, i64 %.0138180
   %49 = zext i16 %40 to i32
   br label %50
 
 50:                                               ; preds = %.lr.ph, %155
   %.0139175 = phi i64 [ 0, %.lr.ph ], [ %156, %155 ]
-  %51 = getelementptr inbounds nuw i16, ptr @hpke_aead_list, i64 %.0139175
+  %51 = getelementptr inbounds nuw [2 x i8], ptr @hpke_aead_list, i64 %.0139175
   %52 = load i16, ptr %51, align 2, !tbaa !18
   %.sroa.9.0.insert.ext57 = zext i16 %52 to i48
   %.sroa.9.0.insert.shift58 = shl nuw nsw i48 %.sroa.9.0.insert.ext57, 16
   %.sroa.9.0.insert.insert60 = or disjoint i48 %.sroa.9.0.insert.shift58, %.sroa.0.0.insert.ext47
-  %53 = getelementptr inbounds nuw ptr, ptr @kdf_str_list, i64 %.0139175
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @kdf_str_list, i64 %.0139175
   %54 = zext i16 %52 to i32
   br label %55
 
 55:                                               ; preds = %50, %150
   %.0140174 = phi i64 [ 0, %50 ], [ %151, %150 ]
-  %56 = getelementptr inbounds nuw i16, ptr @hpke_aead_list, i64 %.0140174
+  %56 = getelementptr inbounds nuw [2 x i8], ptr @hpke_aead_list, i64 %.0140174
   %57 = load i16, ptr %56, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 512, ptr %10, align 8, !tbaa !11
@@ -924,7 +923,7 @@ define internal range(i32 0, 2) i32 @test_hpke_modes_suites() #1 {
   %144 = load ptr, ptr %36, align 8, !tbaa !20
   %145 = load ptr, ptr %48, align 8, !tbaa !20
   %146 = load ptr, ptr %53, align 8, !tbaa !20
-  %147 = getelementptr inbounds nuw ptr, ptr @aead_str_list, i64 %.0140174
+  %147 = getelementptr inbounds nuw [8 x i8], ptr @aead_str_list, i64 %.0140174
   %148 = load ptr, ptr %147, align 8, !tbaa !20
   %149 = zext i16 %57 to i32
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.101, ptr noundef nonnull %143, ptr noundef %144, i32 noundef %37, ptr noundef %145, i32 noundef %49, ptr noundef %146, i32 noundef %54, ptr noundef %148, i32 noundef %149) #7
@@ -995,21 +994,21 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
 .preheader35:                                     ; preds = %0, %20
   %indvars.iv48 = phi i64 [ 0, %0 ], [ %indvars.iv.next49, %20 ]
   %.01940 = phi i32 [ 1, %0 ], [ %.3, %20 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @kem_str_list, i64 %indvars.iv48
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @kem_str_list, i64 %indvars.iv48
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   br label %.preheader34
 
 .preheader34:                                     ; preds = %.preheader35, %19
   %indvars.iv45 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next46, %19 ]
   %.138 = phi i32 [ %.01940, %.preheader35 ], [ %.3, %19 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @kdf_str_list, i64 %indvars.iv45
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @kdf_str_list, i64 %indvars.iv45
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   br label %8
 
 8:                                                ; preds = %.preheader34, %18
   %indvars.iv = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next, %18 ]
   %.236 = phi i32 [ %.138, %.preheader34 ], [ %.3, %18 ]
-  %9 = getelementptr inbounds nuw ptr, ptr @aead_str_list, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @aead_str_list, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %1, i64 noundef 128, ptr noundef nonnull @.str.139, ptr noundef %5, ptr noundef %7, ptr noundef %10) #7
   %12 = call i32 @OSSL_HPKE_str2suite(ptr noundef nonnull %1, ptr noundef nonnull %2) #7
@@ -1046,7 +1045,7 @@ define internal range(i32 0, 2) i32 @test_hpke_suite_strs() #1 {
 .preheader:                                       ; preds = %20, %30
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %30 ], [ 0, %20 ]
   %.442 = phi i32 [ %.5, %30 ], [ %.3, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr @bogus_suite_strs, i64 %indvars.iv51
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @bogus_suite_strs, i64 %indvars.iv51
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = call i32 @OSSL_HPKE_str2suite(ptr noundef %22, ptr noundef nonnull %2) #7
   %24 = icmp ne i32 %23, 0
@@ -2410,7 +2409,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 124:                                              ; preds = %.preheader181
   store i64 256, ptr %10, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
-  %125 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %1, i64 %.0135
+  %125 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %.0135
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8, !tbaa !53
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 32
@@ -2546,7 +2545,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 202:                                              ; preds = %.preheader179
   store i64 256, ptr %8, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
-  %203 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %1, i64 %.1
+  %203 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %.1
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %205 = load ptr, ptr %204, align 8, !tbaa !53
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 32
@@ -2588,7 +2587,7 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 231:                                              ; preds = %.preheader, %262
   %.2183 = phi i64 [ 0, %.preheader ], [ %263, %262 ]
-  %232 = getelementptr inbounds nuw %struct.TEST_EXPORTDATA, ptr %3, i64 %.2183
+  %232 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %.2183
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %234 = load i64, ptr %233, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %21)

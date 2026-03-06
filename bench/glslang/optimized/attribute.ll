@@ -75,7 +75,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs6getIntERii(ptr noundef n
   %27 = sext i32 %2 to i64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -92,7 +92,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs6getIntERii(ptr noundef n
   %42 = tail call noundef nonnull align 8 dereferenceable(32) ptr %41(ptr noundef nonnull align 8 dereferenceable(364) %38) #10
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %27
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %27
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -150,7 +150,7 @@ define noundef ptr @_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeE
   %27 = sext i32 %2 to i64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -167,7 +167,7 @@ define noundef ptr @_ZNK7glslang14TAttributeArgs13getConstUnionENS_10TBasicTypeE
   %42 = tail call noundef nonnull align 8 dereferenceable(32) ptr %41(ptr noundef nonnull align 8 dereferenceable(364) %38) #10
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %27
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %27
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -221,7 +221,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs9getStringERNSt7__cxx1112
   %28 = sext i32 %2 to i64
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %28
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %28
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -238,7 +238,7 @@ define noundef zeroext i1 @_ZNK7glslang14TAttributeArgs9getStringERNSt7__cxx1112
   %43 = tail call noundef nonnull align 8 dereferenceable(32) ptr %42(ptr noundef nonnull align 8 dereferenceable(364) %39) #10
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %28
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %28
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40

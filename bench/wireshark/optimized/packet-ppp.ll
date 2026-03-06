@@ -3520,7 +3520,7 @@ define internal i32 @dissect_lcp_async_map_opt(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %24, label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader
-  %22 = getelementptr ptr, ptr @dissect_lcp_async_map_opt.ctrlchars, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr @dissect_lcp_async_map_opt.ctrlchars, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.str.1010..str.1322 = select i1 %.02124, ptr @.str.1010, ptr @.str.1322
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull %.str.1010..str.1322, ptr noundef %23)

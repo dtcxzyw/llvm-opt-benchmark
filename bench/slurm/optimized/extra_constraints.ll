@@ -3,8 +3,6 @@ source_filename = "bench/slurm/original/extra_constraints.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.op_tbl_t = type { i32, ptr }
-
 @extra_constraints_parsing = internal unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [22 x i8] c"%s: Parsing %s failed\00", align 1
 @__func__.extra_constraints_parse = private unnamed_addr constant [24 x i8] c"extra_constraints_parse\00", align 1
@@ -69,7 +67,7 @@ define internal fastcc void @_tree2str_recursive(ptr noundef readonly captures(a
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @op_table, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   br i1 %.not18, label %21, label %24
@@ -108,7 +106,7 @@ _element2str.exit21:                              ; preds = %25, %26
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %31 = load ptr, ptr %10, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   tail call fastcc void @_tree2str_recursive(ptr noundef %33, i32 noundef %29, ptr noundef %2, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -171,7 +169,7 @@ _free_null_elem.exit12:                           ; preds = %_free_null_elem.exi
   %indvars.iv = phi i64 [ %indvars.iv.next, %_free_null_elem.exit14 ], [ 0, %.preheader ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not.i13 = icmp eq ptr %21, null
   br i1 %.not.i13, label %_free_null_elem.exit14, label %22
@@ -340,7 +338,7 @@ _add_child.exit:                                  ; preds = %24, %26, %29
   %33 = phi ptr [ %.pre.i, %29 ], [ %23, %26 ], [ %25, %24 ]
   %.0.i = phi i32 [ %30, %29 ], [ %27, %26 ], [ 2, %24 ]
   %34 = sext i32 %22 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   store ptr %21, ptr %35, align 8
   %36 = load i32, ptr %9, align 8
   %37 = add nsw i32 %36, 1
@@ -418,10 +416,10 @@ _add_child.exit:                                  ; preds = %24, %26, %29
 
 65:                                               ; preds = %64, %._crit_edge.i
   %indvars.iv.i = phi i64 [ 1, %._crit_edge.i ], [ %indvars.iv.next.i, %64 ]
-  %66 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @op_table, i64 %indvars.iv.i
   %67 = load i32, ptr %66, align 16
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr @op_table, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @xstrcmp(ptr noundef nonnull %55, ptr noundef %71) #6
@@ -546,10 +544,10 @@ _find_leaf_end.exit:                              ; preds = %86, %.lr.ph.i79, %7
 
 113:                                              ; preds = %112, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ 1, %._crit_edge.i.i ], [ %indvars.iv.next.i.i, %112 ]
-  %114 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw [16 x i8], ptr @op_table, i64 %indvars.iv.i.i
   %115 = load i32, ptr %114, align 16
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %struct.op_tbl_t, ptr @op_table, i64 %116
+  %117 = getelementptr inbounds nuw [16 x i8], ptr @op_table, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = tail call i32 @xstrcmp(ptr noundef nonnull %.01541.i, ptr noundef %119) #6
@@ -654,7 +652,7 @@ _add_child.exit89:                                ; preds = %147, %149, %152
   %156 = phi ptr [ %.pre.i88, %152 ], [ %146, %149 ], [ %148, %147 ]
   %.0.i87 = phi i32 [ %153, %152 ], [ %150, %149 ], [ 2, %147 ]
   %157 = sext i32 %145 to i64
-  %158 = getelementptr inbounds ptr, ptr %156, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %156, i64 %157
   store ptr %140, ptr %158, align 8
   %159 = load i32, ptr %9, align 8
   %160 = add nsw i32 %159, 1
@@ -884,7 +882,7 @@ _compare.exit:                                    ; preds = %52, %.sink.split.i
 70:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8
   %74 = tail call fastcc zeroext i1 @_test_extra_constraints(ptr noundef %73, ptr noundef %1)
   %75 = load i32, ptr %0, align 8

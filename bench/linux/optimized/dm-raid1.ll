@@ -24,7 +24,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ratelimit_state = type { %struct.raw_spinlock, i32, i32, i32, i32, i64, i64 }
 %struct.static_call_key = type { ptr, %union.anon.5 }
 %union.anon.5 = type { i64 }
-%struct.mirror = type { ptr, %struct.atomic_t, i64, ptr, i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.dm_io_region = type { ptr, i64, i64 }
 %struct.dm_io_request = type { i32, %struct.dm_io_memory, %struct.dm_io_notify, ptr }
@@ -208,7 +207,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = zext i32 %19 to i64
-  %30 = getelementptr ptr, ptr %2, i64 %29
+  %30 = getelementptr [8 x i8], ptr %2, i64 %29
   %31 = icmp eq i32 %19, %1
   br i1 %31, label %40, label %32
 
@@ -348,7 +347,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %109 = load ptr, ptr %103, align 8
   %110 = load ptr, ptr %0, align 8
   %111 = call i32 @dm_table_get_mode(ptr noundef %110) #14
-  %112 = getelementptr %struct.mirror, ptr %98, i64 %101
+  %112 = getelementptr [40 x i8], ptr %98, i64 %101
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = call i32 @dm_get_device(ptr noundef %0, ptr noundef %109, i32 noundef %111, ptr noundef nonnull %113) #14
   %115 = icmp eq i32 %114, 0
@@ -671,7 +670,7 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %66 = load volatile i32, ptr %65, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr %struct.mirror, ptr %64, i64 %67
+  %68 = getelementptr [40 x i8], ptr %64, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 280
   br label %70
 
@@ -690,14 +689,14 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
 78:                                               ; preds = %75
   %79 = load i32, ptr %69, align 8
   %80 = zext i32 %79 to i64
-  %81 = getelementptr %struct.mirror, ptr %76, i64 %80
+  %81 = getelementptr [40 x i8], ptr %76, i64 %80
   br label %82
 
 82:                                               ; preds = %78, %75
   %83 = phi ptr [ %81, %78 ], [ %76, %75 ]
   %84 = load volatile i32, ptr %65, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr %struct.mirror, ptr %64, i64 %85
+  %86 = getelementptr [40 x i8], ptr %64, i64 %85
   %87 = icmp eq ptr %83, %86
   br i1 %87, label %.thread, label %70, !llvm.loop !12
 
@@ -1114,7 +1113,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
 40:                                               ; preds = %30, %26
   %41 = phi i32 [ %39, %30 ], [ 0, %26 ]
   %42 = add i32 %41, %28
-  %43 = getelementptr %struct.mirror, ptr %25, i64 %27
+  %43 = getelementptr [40 x i8], ptr %25, i64 %27
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load volatile i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
@@ -1232,7 +1231,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %127 = getelementptr i8, ptr %3, i64 %126
   %128 = sub nuw i32 %4, %123
   %129 = zext i32 %128 to i64
-  %130 = getelementptr %struct.mirror, ptr %119, i64 %122
+  %130 = getelementptr [40 x i8], ptr %119, i64 %122
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 28
@@ -1397,7 +1396,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %246 = getelementptr i8, ptr %3, i64 %245
   %247 = sub nuw i32 %4, %242
   %248 = zext i32 %247 to i64
-  %249 = getelementptr %struct.mirror, ptr %224, i64 %226
+  %249 = getelementptr [40 x i8], ptr %224, i64 %226
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load volatile i32, ptr %250, align 4
   %252 = icmp eq i32 %251, 0
@@ -1542,7 +1541,7 @@ define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr noundef readonly
 
 .preheader:                                       ; preds = %3, %11
   %16 = phi i64 [ %12, %11 ], [ 0, %3 ]
-  %17 = getelementptr %struct.mirror, ptr %7, i64 %16
+  %17 = getelementptr [40 x i8], ptr %7, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -1637,7 +1636,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %44 = call i64 @dm_rh_get_region_size(ptr noundef %43) #14
   %45 = load volatile i32, ptr %34, align 8
   %46 = sext i32 %45 to i64
-  %47 = getelementptr %struct.mirror, ptr %33, i64 %46
+  %47 = getelementptr [40 x i8], ptr %33, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
@@ -1680,7 +1679,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br i1 %76, label %91, label %77
 
 77:                                               ; preds = %.preheader53
-  %78 = getelementptr %struct.mirror, ptr %33, i64 %72
+  %78 = getelementptr [40 x i8], ptr %33, i64 %72
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
@@ -1762,7 +1761,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 
 129:                                              ; preds = %129, %126
   %130 = phi i64 [ 0, %126 ], [ %134, %129 ]
-  %131 = getelementptr %struct.mirror, ptr %127, i64 %130
+  %131 = getelementptr [40 x i8], ptr %127, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store volatile i32 0, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -1797,7 +1796,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %153 = call i64 @dm_rh_bio_to_region(ptr noundef %152, ptr noundef nonnull %149) #14
   %154 = load volatile i32, ptr %139, align 8
   %155 = sext i32 %154 to i64
-  %156 = getelementptr %struct.mirror, ptr %138, i64 %155
+  %156 = getelementptr [40 x i8], ptr %138, i64 %155
   %157 = load ptr, ptr %20, align 8
   %158 = call i32 @dm_rh_get_state(ptr noundef %157, i64 noundef %153, i32 noundef 1) #14
   %159 = add i32 %158, -3
@@ -1807,7 +1806,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 161:                                              ; preds = %148
   %162 = load volatile i32, ptr %139, align 4
   %163 = sext i32 %162 to i64
-  %164 = getelementptr %struct.mirror, ptr %138, i64 %163
+  %164 = getelementptr [40 x i8], ptr %138, i64 %163
   br label %165
 
 165:                                              ; preds = %177, %161
@@ -1825,14 +1824,14 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 173:                                              ; preds = %170
   %174 = load i32, ptr %140, align 8
   %175 = zext i32 %174 to i64
-  %176 = getelementptr %struct.mirror, ptr %171, i64 %175
+  %176 = getelementptr [40 x i8], ptr %171, i64 %175
   br label %177
 
 177:                                              ; preds = %173, %170
   %178 = phi ptr [ %176, %173 ], [ %171, %170 ]
   %179 = load volatile i32, ptr %139, align 4
   %180 = sext i32 %179 to i64
-  %181 = getelementptr %struct.mirror, ptr %138, i64 %180
+  %181 = getelementptr [40 x i8], ptr %138, i64 %180
   %182 = icmp eq ptr %178, %181
   br i1 %182, label %.thread, label %165, !llvm.loop !12
 
@@ -2215,7 +2214,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 .loopexit46:                                      ; preds = %.split79, %.split79.us, %342
   %385 = load volatile i32, ptr %326, align 4
   %386 = sext i32 %385 to i64
-  %387 = getelementptr %struct.mirror, ptr %324, i64 %386
+  %387 = getelementptr [40 x i8], ptr %324, i64 %386
   store ptr %387, ptr %328, align 8
   %388 = load i32, ptr %325, align 8
   %389 = call i32 @dm_io(ptr noundef nonnull %3, i32 noundef %388, ptr noundef nonnull %2, ptr noundef null) #14
@@ -2301,7 +2300,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 428:                                              ; preds = %418, %415
   %429 = load volatile i32, ptr %405, align 4
   %430 = sext i32 %429 to i64
-  %431 = getelementptr %struct.mirror, ptr %404, i64 %430
+  %431 = getelementptr [40 x i8], ptr %404, i64 %430
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 24
   %433 = load ptr, ptr %432, align 8
   %434 = load ptr, ptr %433, align 8
@@ -2383,7 +2382,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 477:                                              ; preds = %475, %469
   %478 = load i32, ptr %468, align 8
   %479 = zext i32 %478 to i64
-  %480 = getelementptr %struct.mirror, ptr %467, i64 %479
+  %480 = getelementptr [40 x i8], ptr %467, i64 %479
   %481 = icmp ult ptr %467, %480
   br i1 %481, label %.preheader, label %.thread42
 
@@ -2597,7 +2596,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr %struct.dm_io_region, ptr %3, i64 %17
+  %22 = getelementptr [24 x i8], ptr %3, i64 %17
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = add nuw nsw i64 %17, 1
@@ -2627,7 +2626,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %.preheader
-  %38 = getelementptr %struct.mirror, ptr %12, i64 %33
+  %38 = getelementptr [40 x i8], ptr %12, i64 %33
   call fastcc void @fail_mirror(ptr noundef %38, i32 noundef 1)
   br label %39
 
@@ -2679,7 +2678,7 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %19 = load volatile i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct.mirror, ptr %17, i64 %20
+  %21 = getelementptr [40 x i8], ptr %17, i64 %20
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %23, label %60
 
@@ -2703,7 +2702,7 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
-  %39 = getelementptr %struct.mirror, ptr %17, i64 %38
+  %39 = getelementptr [40 x i8], ptr %17, i64 %38
   %40 = icmp ult ptr %17, %39
   br i1 %40, label %.preheader, label %.thread
 
@@ -2927,7 +2926,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %15 = load volatile i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.mirror, ptr %13, i64 %16
+  %17 = getelementptr [40 x i8], ptr %13, i64 %16
   tail call fastcc void @fail_mirror(ptr noundef %17, i32 noundef 2)
   br label %18
 
@@ -2973,7 +2972,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr %struct.mirror, ptr %30, i64 %36
+  %45 = getelementptr [40 x i8], ptr %30, i64 %36
   call fastcc void @fail_mirror(ptr noundef %45, i32 noundef 2)
   br label %46
 
@@ -3110,7 +3109,7 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = load volatile i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.mirror, ptr %14, i64 %17
+  %18 = getelementptr [40 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br label %20
 
@@ -3129,14 +3128,14 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
 28:                                               ; preds = %25
   %29 = load i32, ptr %19, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr %struct.mirror, ptr %26, i64 %30
+  %31 = getelementptr [40 x i8], ptr %26, i64 %30
   br label %32
 
 32:                                               ; preds = %28, %25
   %33 = phi ptr [ %31, %28 ], [ %26, %25 ]
   %34 = load volatile i32, ptr %15, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.mirror, ptr %14, i64 %35
+  %36 = getelementptr [40 x i8], ptr %14, i64 %35
   %37 = icmp eq ptr %33, %36
   br i1 %37, label %38, label %20, !llvm.loop !12
 
@@ -3240,7 +3239,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr %struct.mirror, ptr %18, i64 %22
+  %27 = getelementptr [40 x i8], ptr %18, i64 %22
   call fastcc void @fail_mirror(ptr noundef %27, i32 noundef 0)
   br label %28
 

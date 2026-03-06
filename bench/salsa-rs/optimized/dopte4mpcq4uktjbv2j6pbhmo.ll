@@ -325,7 +325,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [184 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h314c3773c1045ae9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -476,7 +476,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h1736668ee18b8f
   br i1 %14, label %"_ZN4core3ptr81drop_in_place$LT$$u5b$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$u5d$$GT$17he4924daf05658ab6E.exit.i", label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %8, i64 %.sroa.0.0.i.i
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %.sroa.0.0.i.i
   %17 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr71drop_in_place$LT$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$GT$17ha7d8cc05a83c5a2fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16)
           to label %.preheader unwind label %20
@@ -492,7 +492,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h1736668ee18b8f
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %8, i64 %.sroa.0.1.i.i
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %.sroa.0.1.i.i
   %24 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr71drop_in_place$LT$boxcar..raw..Entry$LT$salsa..views..ViewCaster$GT$$GT$17ha7d8cc05a83c5a2fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %23) #24
           to label %18 unwind label %25
@@ -553,7 +553,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h2ec930aa0d966f
   br i1 %14, label %"_ZN4core3ptr90drop_in_place$LT$$u5b$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$u5d$$GT$17hd1e9e0fdbdd66e96E.exit.i", label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds nuw { { { { [4 x i64] } } }, { i8 }, [7 x i8] }, ptr %8, i64 %.sroa.0.0.i.i
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %.sroa.0.0.i.i
   %17 = add nuw nsw i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$GT$17h4f57491f86b7d2a6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16)
           to label %.preheader unwind label %20
@@ -569,7 +569,7 @@ define noundef ptr @"_ZN6boxcar3raw12Vec$LT$T$GT$12get_or_alloc17h2ec930aa0d966f
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw { { { { [4 x i64] } } }, { i8 }, [7 x i8] }, ptr %8, i64 %.sroa.0.1.i.i
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %.sroa.0.1.i.i
   %24 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$boxcar..raw..Entry$LT$salsa..table..memo..MemoEntryType$GT$$GT$17h4f57491f86b7d2a6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %23) #24
           to label %18 unwind label %25
@@ -885,7 +885,7 @@ define void @_ZN5salsa11zalsa_local10ZalsaLocal12active_query17h1ba7b9bad9d7ccb4
   br i1 %.not.i, label %_ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h7d2c34e71f5c359eE.exit, label %19
 
 19:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c906087b1602f8bE.exit.i"
-  %20 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %14, i64 %12
+  %20 = getelementptr [184 x i8], ptr %14, i64 %12
   %21 = getelementptr i8, ptr %20, i64 -184
   %22 = getelementptr i8, ptr %20, i64 -128
   %23 = load i32, ptr %22, align 8, !range !51, !noalias !52, !noundef !3
@@ -963,7 +963,7 @@ define void @_ZN5salsa11zalsa_local10ZalsaLocal10add_output17h50115cdf23c47f8bE(
   br i1 %.not.i, label %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h32d29b488366d1d7E.exit, label %18
 
 18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit.i"
-  %19 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %13, i64 %11
+  %19 = getelementptr [184 x i8], ptr %13, i64 %11
   %20 = getelementptr i8, ptr %19, i64 -184
   invoke void @_ZN5salsa12active_query11ActiveQuery10add_output17h7b886d4d64e9f654E(ptr noalias noundef nonnull align 8 dereferenceable(184) %20, i32 noundef %1, i32 noundef %2)
           to label %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h32d29b488366d1d7E.exit unwind label %22
@@ -1028,7 +1028,7 @@ define noundef zeroext i1 @_ZN5salsa11zalsa_local10ZalsaLocal25is_output_of_acti
   br i1 %.not.i, label %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17hbecf6eca05dede1dE.exit, label %18
 
 18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit.i"
-  %19 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %13, i64 %11
+  %19 = getelementptr [184 x i8], ptr %13, i64 %11
   %20 = getelementptr i8, ptr %19, i64 -184
   %21 = invoke noundef zeroext i1 @_ZN5salsa12active_query11ActiveQuery9is_output17h47afd0cc9904de70E(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %20, i32 noundef %1, i32 noundef %2)
           to label %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17hbecf6eca05dede1dE.exit unwind label %23
@@ -1079,7 +1079,7 @@ define internal fastcc void @"_ZN5salsa11zalsa_local10ZalsaLocal21report_untrack
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit"
-  %11 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %5, i64 %3
+  %11 = getelementptr [184 x i8], ptr %5, i64 %3
   %12 = getelementptr i8, ptr %11, i64 -184
   tail call void @_ZN5salsa12active_query11ActiveQuery18add_untracked_read17h640da8a33531e17eE(ptr noalias noundef align 8 dereferenceable(184) %12, i64 noundef %.0.val)
   br label %13
@@ -1132,7 +1132,7 @@ define void @_ZN5salsa11zalsa_local10ZalsaLocal12disambiguate17h64ed46a4ed7f93a2
   unreachable
 
 21:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit.i"
-  %22 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %15, i64 %13
+  %22 = getelementptr [184 x i8], ptr %15, i64 %13
   %23 = getelementptr i8, ptr %22, i64 -184
   %24 = invoke noundef i32 @_ZN5salsa12active_query11ActiveQuery12disambiguate17h649142af322521b2E(ptr noalias noundef nonnull align 8 dereferenceable(184) %23, i64 noundef %2, i32 noundef %3)
           to label %.noexc3 unwind label %27
@@ -1220,7 +1220,7 @@ define noundef i32 @_ZN5salsa11zalsa_local10ZalsaLocal17tracked_struct_id17h39a7
   unreachable
 
 21:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5c906087b1602f8bE.exit.i"
-  %22 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %15, i64 %13
+  %22 = getelementptr [184 x i8], ptr %15, i64 %13
   %23 = getelementptr i8, ptr %22, i64 -80
   %24 = invoke noundef i32 @_ZN5salsa14tracked_struct11IdentityMap3get17hb2854676239d6fc7E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
           to label %_ZN5salsa11zalsa_local10ZalsaLocal16with_query_stack17h5c15db27fccaa53cE.exit unwind label %26
@@ -1292,7 +1292,7 @@ define void @_ZN5salsa11zalsa_local10ZalsaLocal23store_tracked_struct_id17hc5ca9
   unreachable
 
 23:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit.i"
-  %24 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %17, i64 %15
+  %24 = getelementptr [184 x i8], ptr %17, i64 %15
   %25 = getelementptr i8, ptr %24, i64 -80
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !noalias !90
@@ -1479,7 +1479,7 @@ define { ptr, ptr } @_ZN5salsa11zalsa_local10QueryEdges6inputs17h2ab3033a2d976bf
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %4
   %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7
@@ -1490,7 +1490,7 @@ define { ptr, ptr } @_ZN5salsa11zalsa_local10QueryEdges7outputs17h39f1bb96cc466d
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %4
   %6 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %7 = insertvalue { ptr, ptr } %6, ptr %5, 1
   ret { ptr, ptr } %7
@@ -1539,7 +1539,7 @@ define void @_ZN5salsa11zalsa_local16ActiveQueryGuard23seed_tracked_struct_ids17
   unreachable
 
 19:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit.i"
-  %20 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %13, i64 %11
+  %20 = getelementptr [184 x i8], ptr %13, i64 %11
   %21 = getelementptr i8, ptr %20, i64 -80
   %22 = invoke noundef zeroext i1 @_ZN5salsa14tracked_struct11IdentityMap8is_empty17h17cdc1240b6e1129E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21)
           to label %.noexc2 unwind label %26
@@ -1640,7 +1640,7 @@ define void @_ZN5salsa11zalsa_local16ActiveQueryGuard14seed_iteration17h7039b226
   unreachable
 
 28:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fb6b311d63ead60E.exit.i"
-  %29 = getelementptr { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %22, i64 %20
+  %29 = getelementptr [184 x i8], ptr %22, i64 %20
   %30 = getelementptr i8, ptr %29, i64 -184
   invoke void @_ZN5salsa12active_query11ActiveQuery14seed_iteration17hb8013540c37d814fE(ptr noalias noundef nonnull align 8 dereferenceable(184) %30, i8 noundef %5, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i, i1 noundef zeroext %12)
           to label %_ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17haacaf7234c14a547E.exit unwind label %32

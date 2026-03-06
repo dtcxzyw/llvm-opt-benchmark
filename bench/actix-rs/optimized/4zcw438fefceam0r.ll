@@ -847,7 +847,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h0d586156008a
 
 20:                                               ; preds = %14, %20
   %21 = phi i64 [ 0, %14 ], [ %24, %20 ]
-  %22 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %6, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %21
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %23, align 8
@@ -1028,7 +1028,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17h82ae71698102
 
 49:                                               ; preds = %23, %49
   %50 = phi i64 [ 0, %23 ], [ %53, %49 ]
-  %51 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %10, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %50
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 0, ptr %52, align 8
@@ -1308,7 +1308,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17he36f3c8aa1d1
 
 80:                                               ; preds = %47, %80
   %81 = phi i64 [ 0, %47 ], [ %84, %80 ]
-  %82 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %11, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %81
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 0, ptr %83, align 8
@@ -1495,7 +1495,7 @@ define hidden void @_ZN10tokio_util4util8poll_buf14poll_write_buf17hf6f0f0972e79
 
 42:                                               ; preds = %29, %42
   %43 = phi i64 [ 0, %29 ], [ %46, %42 ]
-  %44 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %7, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %43
   store ptr @anon.619c29cd32d55dfa99f3e20746ec182e.4.llvm.13402347524827553107, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 0, ptr %45, align 8
@@ -4990,7 +4990,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h2b1d65e28ce
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %38, align 8, !alias.scope !479, !nonnull !4
-  %98 = getelementptr inbounds { i64, i32, i32 }, ptr %97, i64 %.069
+  %98 = getelementptr inbounds [16 x i8], ptr %97, i64 %.069
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %101 = load i32, ptr %99, align 4, !noundef !4
@@ -5554,7 +5554,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h36989e10fc0
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %8, align 8, !alias.scope !518, !nonnull !4
-  %24 = getelementptr inbounds { i64, i32, i32 }, ptr %23, i64 %.045
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %.045
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = load i32, ptr %25, align 4, !noundef !4
@@ -5641,7 +5641,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb1257
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %8, align 8, !alias.scope !527, !nonnull !4
-  %21 = getelementptr inbounds { i64, i32, i32 }, ptr %20, i64 %.017
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %.017
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %24 = load i32, ptr %22, align 4, !noundef !4
@@ -5723,7 +5723,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980ae
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %9, align 8, !alias.scope !554, !nonnull !4
-  %24 = getelementptr inbounds { i64, i32, i32 }, ptr %23, i64 %.021
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %.021
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = load i32, ptr %25, align 4, !noundef !4
@@ -5814,7 +5814,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %8, align 8, !alias.scope !583, !nonnull !4
-  %19 = getelementptr inbounds { i64, i32, i32 }, ptr %18, i64 %.017
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %.017
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %22 = load i32, ptr %20, align 4, !noundef !4
@@ -6417,7 +6417,7 @@ define hidden void @"_ZN61_$LT$$u5b$V$u5d$$u20$as$u20$alloc..slice..Concat$LT$T$
 .preheader:                                       ; preds = %3, %.preheader
   %.017.i = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %.016.i = phi i64 [ %10, %.preheader ], [ 0, %3 ]
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.016.i
+  %7 = getelementptr inbounds [16 x i8], ptr %1, i64 %.016.i
   %8 = getelementptr i8, ptr %7, i64 8
   %.val21.i = load i64, ptr %8, align 8, !noundef !4
   %9 = add i64 %.val21.i, %.017.i
@@ -7585,7 +7585,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9hashbrown11r
   store i8 %19, ptr %26, align 1, !noalias !826
   %27 = load ptr, ptr %5, align 8, !alias.scope !833, !noalias !826, !nonnull !4, !noundef !4
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { { { { ptr, ptr, i64, { ptr } } } } }, { { i64, ptr, {} }, i64, i64 } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -7649,7 +7649,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9hashbrown11r
   store i8 %19, ptr %26, align 1, !noalias !834
   %27 = load ptr, ptr %5, align 8, !alias.scope !841, !noalias !834, !nonnull !4, !noundef !4
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { { { { ptr, ptr, i64, { ptr } } } } }, { { i64, ptr, {} }, i64, i64 } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16

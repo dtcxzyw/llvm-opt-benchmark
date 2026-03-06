@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cv::Point_.0" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -374,7 +373,7 @@ _ZN2cv3RNG7uniformEii.exit93:                     ; preds = %116, %_ZN2cv3RNG7un
 
 172:                                              ; preds = %168, %165
   %173 = load ptr, ptr %67, align 8, !tbaa !44
-  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 175:                                              ; preds = %168
@@ -404,7 +403,7 @@ _ZN2cv3RNG7uniformEii.exit93:                     ; preds = %116, %_ZN2cv3RNG7un
   %194 = mul i64 %192, %193
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 %194
   %196 = sext i32 %.recomposed to i64
-  %197 = getelementptr inbounds i32, ptr %195, i64 %196
+  %197 = getelementptr inbounds [4 x i8], ptr %195, i64 %196
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
@@ -423,7 +422,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
 
 205:                                              ; preds = %201, %_ZN2cv3Mat2atIiEERT_i.exit
   %206 = load ptr, ptr %71, align 8, !tbaa !44
-  %207 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %206, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv
   br label %231
 
 208:                                              ; preds = %201
@@ -453,7 +452,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
   %227 = mul i64 %225, %226
   %228 = getelementptr inbounds nuw i8, ptr %223, i64 %227
   %229 = sext i32 %.recomposed136 to i64
-  %230 = getelementptr inbounds %"class.cv::Point_.0", ptr %228, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr %228, i64 %229
   br label %231
 
 231:                                              ; preds = %205, %212, %218
@@ -474,7 +473,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
   store i32 50397184, ptr %22, align 8, !tbaa !29
   store ptr %6, ptr %63, align 8, !tbaa !32
   %239 = sext i32 %198 to i64
-  %240 = getelementptr inbounds %"class.cv::Scalar_", ptr %5, i64 %239
+  %240 = getelementptr inbounds [32 x i8], ptr %5, i64 %239
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %22, i64 %.sroa.0.0.insert.insert.i, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %240, i32 noundef -1, i32 noundef 16, i32 noundef 0)
           to label %241 unwind label %248
 
@@ -513,7 +512,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
 .lr.ph:                                           ; preds = %.preheader, %259
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %259 ], [ 0, %.preheader ]
   %250 = phi ptr [ %261, %259 ], [ %158, %.preheader ]
-  %251 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %250, i64 %indvars.iv125
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %indvars.iv125
   %252 = load float, ptr %251, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %251, i64 4
   %253 = load float, ptr %.sroa_idx, align 4
@@ -529,7 +528,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
   %.sroa.2.0.insert.shift.i97 = shl nuw i64 %.sroa.2.0.insert.ext.i96, 32
   %.sroa.0.0.insert.ext.i98 = zext i32 %255 to i64
   %.sroa.0.0.insert.insert.i99 = or disjoint i64 %.sroa.2.0.insert.shift.i97, %.sroa.0.0.insert.ext.i98
-  %258 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr %5, i64 %indvars.iv125
+  %258 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv125
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 %.sroa.0.0.insert.insert.i99, i32 noundef 40, ptr noundef nonnull align 8 dereferenceable(32) %258, i32 noundef 1, i32 noundef 16, i32 noundef 0)
           to label %259 unwind label %267
 

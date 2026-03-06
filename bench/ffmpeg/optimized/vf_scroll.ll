@@ -262,11 +262,11 @@ define internal noundef i32 @scroll_slice(ptr noundef readonly captures(none) %0
 21:                                               ; preds = %.lr.ph67, %._crit_edge
   %22 = phi i32 [ %11, %.lr.ph67 ], [ %47, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %._crit_edge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !66
-  %25 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !51
-  %27 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !51
   %29 = load i32, ptr %15, align 4, !tbaa !53
   %30 = mul nsw i32 %29, %28
@@ -274,20 +274,20 @@ define internal noundef i32 @scroll_slice(ptr noundef readonly captures(none) %0
   %32 = sdiv i32 %31, %3
   %33 = mul nsw i32 %26, %16
   %34 = sdiv i32 %33, %3
-  %35 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %36 = icmp slt i32 %32, %34
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %21
-  %37 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !66
   %39 = load i32, ptr %35, align 4, !tbaa !51
   %40 = mul nsw i32 %39, %32
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
-  %44 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
-  %45 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %46 = sext i32 %30 to i64
   br label %50
 

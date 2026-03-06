@@ -259,7 +259,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %116 = load i32, ptr %17, align 4, !tbaa !3
   %117 = mul nsw i32 %116, %.
   %118 = sext i32 %117 to i64
-  %119 = getelementptr double, ptr %23, i64 %118
+  %119 = getelementptr [8 x i8], ptr %23, i64 %118
   %120 = getelementptr i8, ptr %119, i64 8
   br i1 %.not347, label %155, label %121
 
@@ -271,7 +271,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %123 = load i32, ptr %17, align 4, !tbaa !3
   %124 = mul nsw i32 %123, %.
   %125 = sext i32 %124 to i64
-  %126 = getelementptr double, ptr %23, i64 %125
+  %126 = getelementptr [8 x i8], ptr %23, i64 %125
   %127 = getelementptr i8, ptr %126, i64 8
   call void @dgemqrt_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %127, ptr noundef nonnull %10) #5
   call void @dtrtrs_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5
@@ -327,7 +327,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %150 = load i32, ptr %17, align 4, !tbaa !3
   %151 = mul nsw i32 %150, %.
   %152 = sext i32 %151 to i64
-  %153 = getelementptr double, ptr %23, i64 %152
+  %153 = getelementptr [8 x i8], ptr %23, i64 %152
   %154 = getelementptr i8, ptr %153, i64 8
   call void @dgemqrt_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.13, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %17, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %154, ptr noundef nonnull %10) #5
   br label %189
@@ -384,7 +384,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %176 = load i32, ptr %17, align 4, !tbaa !3
   %177 = mul nsw i32 %176, %.
   %178 = sext i32 %177 to i64
-  %179 = getelementptr double, ptr %23, i64 %178
+  %179 = getelementptr [8 x i8], ptr %23, i64 %178
   %180 = getelementptr i8, ptr %179, i64 8
   call void @dgemlqt_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %17, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %180, ptr noundef nonnull %10) #5
   br label %189
@@ -393,7 +393,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %182 = load i32, ptr %17, align 4, !tbaa !3
   %183 = mul nsw i32 %182, %.
   %184 = sext i32 %183 to i64
-  %185 = getelementptr double, ptr %23, i64 %184
+  %185 = getelementptr [8 x i8], ptr %23, i64 %184
   %186 = getelementptr i8, ptr %185, i64 8
   call void @dgemlqt_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull %17, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %186, ptr noundef nonnull %10) #5
   call void @dtrtrs_(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.14, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5

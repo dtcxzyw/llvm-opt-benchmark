@@ -645,7 +645,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !51
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -701,7 +701,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -1741,7 +1741,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNS0_8cpu_impl6Reduce
 16:                                               ; preds = %.lr.ph117, %16
   %17 = phi double [ %.promoted118, %.lr.ph117 ], [ %21, %16 ]
   %.0116 = phi i64 [ 0, %.lr.ph117 ], [ %22, %16 ]
-  %18 = getelementptr inbounds float, ptr %13, i64 %.0116
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %.0116
   %19 = load float, ptr %18, align 4, !tbaa !83
   %20 = fpext float %19 to double
   %21 = fadd double %17, %20
@@ -1879,7 +1879,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 50:                                               ; preds = %.lr.ph113, %50
   %51 = phi double [ %.promoted114, %.lr.ph113 ], [ %55, %50 ]
   %.057112 = phi i64 [ 0, %.lr.ph113 ], [ %56, %50 ]
-  %52 = getelementptr inbounds float, ptr %48, i64 %.057112
+  %52 = getelementptr inbounds [4 x i8], ptr %48, i64 %.057112
   %53 = load float, ptr %52, align 4, !tbaa !83
   %54 = fpext float %53 to double
   %55 = fadd double %51, %54
@@ -1919,7 +1919,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 63:                                               ; preds = %.lr.ph109, %63
   %64 = phi double [ %.promoted110, %.lr.ph109 ], [ %68, %63 ]
   %.059108 = phi i64 [ 0, %.lr.ph109 ], [ %69, %63 ]
-  %65 = getelementptr inbounds float, ptr %61, i64 %.059108
+  %65 = getelementptr inbounds [4 x i8], ptr %61, i64 %.059108
   %66 = load float, ptr %65, align 4, !tbaa !83
   %67 = fpext float %66 to double
   %68 = fadd double %64, %67
@@ -1930,7 +1930,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 70:                                               ; preds = %.lr.ph105, %70
   %71 = phi double [ %.promoted106, %.lr.ph105 ], [ %75, %70 ]
   %.060104 = phi i64 [ 0, %.lr.ph105 ], [ %76, %70 ]
-  %72 = getelementptr inbounds float, ptr %59, i64 %.060104
+  %72 = getelementptr inbounds [4 x i8], ptr %59, i64 %.060104
   %73 = load float, ptr %72, align 4, !tbaa !83
   %74 = fpext float %73 to double
   %75 = fadd double %71, %74
@@ -1970,7 +1970,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 83:                                               ; preds = %.lr.ph101, %83
   %84 = phi double [ %.promoted102, %.lr.ph101 ], [ %88, %83 ]
   %.061100 = phi i64 [ 0, %.lr.ph101 ], [ %89, %83 ]
-  %85 = getelementptr inbounds float, ptr %81, i64 %.061100
+  %85 = getelementptr inbounds [4 x i8], ptr %81, i64 %.061100
   %86 = load float, ptr %85, align 4, !tbaa !83
   %87 = fpext float %86 to double
   %88 = fadd double %84, %87
@@ -1981,7 +1981,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 90:                                               ; preds = %.lr.ph97, %90
   %91 = phi double [ %.promoted98, %.lr.ph97 ], [ %95, %90 ]
   %.05896 = phi i64 [ 0, %.lr.ph97 ], [ %96, %90 ]
-  %92 = getelementptr inbounds float, ptr %79, i64 %.05896
+  %92 = getelementptr inbounds [4 x i8], ptr %79, i64 %.05896
   %93 = load float, ptr %92, align 4, !tbaa !83
   %94 = fpext float %93 to double
   %95 = fadd double %91, %94
@@ -1992,7 +1992,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 97:                                               ; preds = %.lr.ph, %97
   %98 = phi double [ %.promoted, %.lr.ph ], [ %102, %97 ]
   %.05395 = phi i64 [ 0, %.lr.ph ], [ %103, %97 ]
-  %99 = getelementptr inbounds float, ptr %46, i64 %.05395
+  %99 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05395
   %100 = load float, ptr %99, align 4, !tbaa !83
   %101 = fpext float %100 to double
   %102 = fadd double %98, %101

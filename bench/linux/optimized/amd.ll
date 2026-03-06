@@ -182,17 +182,17 @@ define dso_local void @amd_set_dr_addr_mask(i64 noundef %0, i32 noundef %1) loca
 
 8:                                                ; preds = %4
   %9 = sext i32 %3 to i64
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @amd_dr_addr_mask to i64)
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr i64, ptr %13, i64 %5
+  %14 = getelementptr [8 x i8], ptr %13, i64 %5
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %0
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %8
-  %18 = getelementptr i32, ptr @amd_msr_dr_addr_masks, i64 %5
+  %18 = getelementptr [4 x i8], ptr @amd_msr_dr_addr_masks, i64 %5
   %19 = load i32, ptr %18, align 4
   %20 = trunc i64 %0 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %20, i32 0) #12, !srcloc !14
@@ -208,7 +208,7 @@ define dso_local void @amd_set_dr_addr_mask(i64 noundef %0, i32 noundef %1) loca
   %24 = load i64, ptr %10, align 8
   %25 = add i64 %24, ptrtoint (ptr @amd_dr_addr_mask to i64)
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr i64, ptr %26, i64 %5
+  %27 = getelementptr [8 x i8], ptr %26, i64 %5
   store i64 %0, ptr %27, align 8
   br label %28
 
@@ -233,11 +233,11 @@ define dso_local i64 @amd_get_dr_addr_mask(i32 noundef %0) #2 align 16 {
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr @amd_dr_addr_mask, i64 %6
+  %7 = getelementptr [8 x i8], ptr @amd_dr_addr_mask, i64 %6
   %8 = ptrtoint ptr %7 to i64
   %9 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !18
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i64, ptr @__per_cpu_offset, i64 %10
+  %11 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %8
   %14 = inttoptr i64 %13 to ptr
@@ -298,7 +298,7 @@ define dso_local void @amd_check_microcode() local_unnamed_addr #2 align 16 {
 define internal void @zenbleed_check_cpu(ptr readnone captures(none) %0) #2 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !19
   %3 = sext i32 %2 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @cpu_info to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -1912,7 +1912,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 
 357:                                              ; preds = %352
   %358 = zext i32 %353 to i64
-  %359 = getelementptr i64, ptr @__per_cpu_offset, i64 %358
+  %359 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %358
   %360 = load i64, ptr %359, align 8
   %361 = add i64 %360, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_info, i64 248) to i64)
   %362 = inttoptr i64 %361 to ptr
@@ -1940,7 +1940,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 374:                                              ; preds = %369
   %375 = load i32, ptr %272, align 4
   %376 = sext i32 %375 to i64
-  %377 = getelementptr i16, ptr @__apicid_to_node, i64 %376
+  %377 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %376
   %378 = load i16, ptr %377, align 2
   %379 = icmp eq i16 %378, -1
   %380 = sext i16 %378 to i32
@@ -1977,7 +1977,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 
 398:                                              ; preds = %408, %390
   %399 = phi i64 [ %391, %390 ], [ %409, %408 ]
-  %400 = getelementptr i16, ptr @__apicid_to_node, i64 %399
+  %400 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %399
   %401 = load i16, ptr %400, align 2
   %402 = icmp eq i16 %401, -1
   br i1 %402, label %408, label %403
@@ -1997,7 +1997,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 
 411:                                              ; preds = %421, %395
   %412 = phi i64 [ %397, %395 ], [ %422, %421 ]
-  %413 = getelementptr i16, ptr @__apicid_to_node, i64 %412
+  %413 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %412
   %414 = load i16, ptr %413, align 2
   %415 = icmp eq i16 %414, -1
   br i1 %415, label %421, label %416

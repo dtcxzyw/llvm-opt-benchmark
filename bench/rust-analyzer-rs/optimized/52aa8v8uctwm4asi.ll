@@ -5274,7 +5274,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit75.
 
 173:                                              ; preds = %168
   %174 = getelementptr inbounds nuw i8, ptr %161, i64 132
-  %175 = getelementptr inbounds nuw { { i32 } }, ptr %174, i64 %162
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %162
   br label %176
 
 176:                                              ; preds = %178, %173
@@ -35421,7 +35421,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -35466,7 +35466,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !5847, !noalias !5779, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !5847, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !5847
   %68 = icmp slt i64 %67, 0
@@ -35628,7 +35628,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -32
   %45 = invoke noundef zeroext i1 @"_ZN65_$LT$hir_def..ItemContainerId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hebeeb5b82c643699E.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -35673,7 +35673,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !5930, !noalias !5862, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !5930, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !5930
   %68 = icmp slt i64 %67, 0
@@ -35835,7 +35835,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -35880,7 +35880,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6012, !noalias !5944, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6012, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6012
   %68 = icmp slt i64 %67, 0
@@ -36042,7 +36042,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -36087,7 +36087,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6094, !noalias !6026, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6094, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6094
   %68 = icmp slt i64 %67, 0
@@ -36268,7 +36268,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %54 = add i64 %.sroa.01.0.i.i.i.i.i, %51
   %55 = and i64 %54, %.val5.i.i
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, i32 }, ptr %.val.i.i, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %59 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %58)
           to label %.noexc4 unwind label %.loopexit
@@ -36333,7 +36333,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 87:                                               ; preds = %.noexc7
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8, !alias.scope !6185, !noalias !6108, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %83
+  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 %83
   %91 = load ptr, ptr %90, align 8, !noalias !6185, !nonnull !5, !noundef !5
   %92 = atomicrmw add ptr %91, i64 1 monotonic, align 8, !noalias !6185
   %93 = icmp slt i64 %92, 0
@@ -36489,7 +36489,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %39
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, [1 x i32] }, i32 }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [16 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -16
   %45 = invoke noundef zeroext i1 @"_ZN63_$LT$hir_def..DefWithBodyId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hef9bfa452944206fE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %44)
           to label %.noexc2 unwind label %.loopexit
@@ -36524,7 +36524,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 61:                                               ; preds = %.noexc3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load ptr, ptr %62, align 8, !alias.scope !6259, !noalias !6199, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %57
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %57
   %65 = load ptr, ptr %64, align 8, !noalias !6259, !nonnull !5, !noundef !5
   %66 = atomicrmw add ptr %65, i64 1 monotonic, align 8, !noalias !6259
   %67 = icmp slt i64 %66, 0
@@ -36686,7 +36686,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %43 = add i64 %.sroa.01.0.i.i.i.i.i, %40
   %44 = and i64 %43, %.val5.i.i
   %45 = sub nsw i64 0, %44
-  %46 = getelementptr inbounds { { { i32, i32 }, { i32, i32, i32 } }, i32 }, ptr %.val.i.i, i64 %45
+  %46 = getelementptr inbounds [24 x i8], ptr %.val.i.i, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -24
   %48 = load i32, ptr %47, align 4, !alias.scope !6329, !noalias !6336, !noundef !5
   %49 = icmp eq i32 %18, %48
@@ -36731,7 +36731,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 67:                                               ; preds = %.noexc3
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8, !alias.scope !6349, !noalias !6273, !nonnull !5, !noundef !5
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %63
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %63
   %71 = load ptr, ptr %70, align 8, !noalias !6349, !nonnull !5, !noundef !5
   %72 = atomicrmw add ptr %71, i64 1 monotonic, align 8, !noalias !6349
   %73 = icmp slt i64 %72, 0
@@ -36893,7 +36893,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -36938,7 +36938,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6431, !noalias !6363, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6431, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6431
   %68 = icmp slt i64 %67, 0
@@ -37100,7 +37100,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -37145,7 +37145,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6513, !noalias !6445, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6513, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6513
   %68 = icmp slt i64 %67, 0
@@ -37307,7 +37307,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -32
   %45 = invoke noundef zeroext i1 @"_ZN65_$LT$hir_def..ItemContainerId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hebeeb5b82c643699E.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -37352,7 +37352,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6595, !noalias !6527, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6595, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6595
   %68 = icmp slt i64 %67, 0
@@ -37514,7 +37514,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -32
   %45 = invoke noundef zeroext i1 @"_ZN65_$LT$hir_def..ItemContainerId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hebeeb5b82c643699E.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -37559,7 +37559,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6677, !noalias !6609, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6677, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6677
   %68 = icmp slt i64 %67, 0
@@ -37721,7 +37721,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -37766,7 +37766,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6759, !noalias !6691, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6759, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6759
   %68 = icmp slt i64 %67, 0
@@ -37946,7 +37946,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %61 = add i64 %.sroa.01.0.i.i.i.i.i, %58
   %62 = and i64 %61, %.val5.i.i
   %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds { { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, i32 }, ptr %.val.i.i, i64 %63
+  %64 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -28
   %66 = load i32, ptr %65, align 4, !alias.scope !6831, !noalias !6838, !noundef !5
   %67 = icmp eq i32 %18, %66
@@ -38007,7 +38007,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 96:                                               ; preds = %.noexc3
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8, !alias.scope !6851, !noalias !6773, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %92
+  %99 = getelementptr inbounds [8 x i8], ptr %98, i64 %92
   %100 = load ptr, ptr %99, align 8, !noalias !6851, !nonnull !5, !noundef !5
   %101 = atomicrmw add ptr %100, i64 1 monotonic, align 8, !noalias !6851
   %102 = icmp slt i64 %101, 0
@@ -38169,7 +38169,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -38214,7 +38214,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !6933, !noalias !6865, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !6933, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !6933
   %68 = icmp slt i64 %67, 0
@@ -38383,7 +38383,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %51 = add i64 %.sroa.01.0.i.i.i.i.i, %48
   %52 = and i64 %51, %.val5.i.i
   %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds { { i32, { { i32, i32 }, i32 }, i32 }, i32 }, ptr %.val.i.i, i64 %53
+  %54 = getelementptr inbounds [24 x i8], ptr %.val.i.i, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 -20
   %56 = invoke noundef zeroext i1 @"_ZN67_$LT$hir_def..item_tree..TreeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdb775a0a7b148d58E.llvm.12542172245242916373"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %55)
           to label %.noexc2 unwind label %.loopexit
@@ -38432,7 +38432,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 78:                                               ; preds = %.noexc3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8, !alias.scope !7019, !noalias !6947, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %74
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %74
   %82 = load ptr, ptr %81, align 8, !noalias !7019, !nonnull !5, !noundef !5
   %83 = atomicrmw add ptr %82, i64 1 monotonic, align 8, !noalias !7019
   %84 = icmp slt i64 %83, 0
@@ -38594,7 +38594,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -38639,7 +38639,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7101, !noalias !7033, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7101, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7101
   %68 = icmp slt i64 %67, 0
@@ -38820,7 +38820,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %54 = add i64 %.sroa.01.0.i.i.i.i.i, %51
   %55 = and i64 %54, %.val5.i.i
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, i32 }, ptr %.val.i.i, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %59 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %58)
           to label %.noexc4 unwind label %.loopexit
@@ -38885,7 +38885,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 87:                                               ; preds = %.noexc7
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8, !alias.scope !7191, !noalias !7115, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %83
+  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 %83
   %91 = load ptr, ptr %90, align 8, !noalias !7191, !nonnull !5, !noundef !5
   %92 = atomicrmw add ptr %91, i64 1 monotonic, align 8, !noalias !7191
   %93 = icmp slt i64 %92, 0
@@ -39047,7 +39047,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -32
   %45 = invoke noundef zeroext i1 @"_ZN65_$LT$hir_def..ItemContainerId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hebeeb5b82c643699E.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -39092,7 +39092,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7273, !noalias !7205, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7273, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7273
   %68 = icmp slt i64 %67, 0
@@ -39265,7 +39265,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %50 = add i64 %.sroa.01.0.i.i.i.i.i, %47
   %51 = and i64 %50, %.val5.i.i
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }, i32, [1 x i32] }, ptr %.val.i.i, i64 %52
+  %53 = getelementptr inbounds [40 x i8], ptr %.val.i.i, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -40
   %55 = getelementptr inbounds i8, ptr %53, i64 -16
   %56 = load i32, ptr %55, align 8, !alias.scope !7345, !noalias !7352, !noundef !5
@@ -39322,7 +39322,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 81:                                               ; preds = %.noexc5
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load ptr, ptr %82, align 8, !alias.scope !7370, !noalias !7287, !nonnull !5, !noundef !5
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %77
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %77
   %85 = load ptr, ptr %84, align 8, !noalias !7370, !nonnull !5, !noundef !5
   %86 = atomicrmw add ptr %85, i64 1 monotonic, align 8, !noalias !7370
   %87 = icmp slt i64 %86, 0
@@ -39484,7 +39484,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
   %40 = add i64 %.sroa.01.0.i.i.i.i.i, %37
   %41 = and i64 %40, %.val5.i.i
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %.val.i.i, i64 %42
+  %43 = getelementptr inbounds [28 x i8], ptr %.val.i.i, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -28
   %45 = invoke noundef zeroext i1 @"_ZN58_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbdf30721b0c9f33aE.llvm.14358968814291841630"(ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %44)
           to label %.noexc3 unwind label %.loopexit
@@ -39529,7 +39529,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 62:                                               ; preds = %.noexc5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !7452, !noalias !7384, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %58
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8, !noalias !7452, !nonnull !5, !noundef !5
   %67 = atomicrmw add ptr %66, i64 1 monotonic, align 8, !noalias !7452
   %68 = icmp slt i64 %67, 0
@@ -39689,7 +39689,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -39833,7 +39833,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7470, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7470, !noundef !5
   %100 = add i64 %99, 1
@@ -39860,7 +39860,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7493
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7497, !noalias !7493, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -39982,7 +39982,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -40126,7 +40126,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7505, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7505, !noundef !5
   %100 = add i64 %99, 1
@@ -40153,7 +40153,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7528
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7532, !noalias !7528, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -40275,7 +40275,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -40419,7 +40419,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7540, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7540, !noundef !5
   %100 = add i64 %99, 1
@@ -40446,7 +40446,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7563
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7567, !noalias !7563, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [32 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -40568,7 +40568,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -40712,7 +40712,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7575, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7575, !noundef !5
   %100 = add i64 %99, 1
@@ -40739,7 +40739,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7598
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7602, !noalias !7598, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { i32, { { i32, i32 }, i32 }, i32 }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -40861,7 +40861,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41005,7 +41005,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7610, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7610, !noundef !5
   %100 = add i64 %99, 1
@@ -41032,7 +41032,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7633
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7637, !noalias !7633, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [32 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -41154,7 +41154,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41298,7 +41298,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7645, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7645, !noundef !5
   %100 = add i64 %99, 1
@@ -41325,7 +41325,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7668
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7672, !noalias !7668, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -41447,7 +41447,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41591,7 +41591,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7680, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7680, !noundef !5
   %100 = add i64 %99, 1
@@ -41618,7 +41618,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7703
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7707, !noalias !7703, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [32 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -41740,7 +41740,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -41884,7 +41884,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7715, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7715, !noundef !5
   %100 = add i64 %99, 1
@@ -41911,7 +41911,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7738
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7742, !noalias !7738, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -42040,7 +42040,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8, !nonnull !5, !noundef !5
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %40
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %40
   %55 = load ptr, ptr %54, align 8, !nonnull !5, !noundef !5
   %56 = atomicrmw add ptr %55, i64 1 monotonic, align 8
   %57 = icmp slt i64 %56, 0
@@ -42269,7 +42269,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %137 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %114, %113 ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load ptr, ptr %138, align 8, !alias.scope !7791, !nonnull !5, !noundef !5
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %137
+  %140 = getelementptr inbounds [8 x i8], ptr %139, i64 %137
   store ptr %103, ptr %140, align 8
   %141 = load i64, ptr %42, align 8, !alias.scope !7791, !noundef !5
   %142 = add i64 %141, 1
@@ -42315,7 +42315,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %154, ptr %161, align 1, !noalias !7812
   %162 = load ptr, ptr %.sroa.05.sroa.4.0.copyload, align 8, !alias.scope !7819, !noalias !7812, !nonnull !5, !noundef !5
   %163 = sub nsw i64 0, %144
-  %164 = getelementptr inbounds { { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }, i32, [1 x i32] }, ptr %162, i64 %163
+  %164 = getelementptr inbounds [40 x i8], ptr %162, i64 %163
   %165 = and i8 %152, 1
   %166 = zext nneg i8 %165 to i64
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.05.sroa.4.0.copyload, i64 16
@@ -42450,7 +42450,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -42594,7 +42594,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7826, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7826, !noundef !5
   %100 = add i64 %99, 1
@@ -42621,7 +42621,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7849
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7853, !noalias !7849, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -42743,7 +42743,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -42887,7 +42887,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7861, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7861, !noundef !5
   %100 = add i64 %99, 1
@@ -42914,7 +42914,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7884
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7888, !noalias !7884, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -43035,7 +43035,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %31
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %31
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -43186,7 +43186,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %99 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %76, %75 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load ptr, ptr %100, align 8, !alias.scope !7911, !nonnull !5, !noundef !5
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %99
+  %102 = getelementptr inbounds [8 x i8], ptr %101, i64 %99
   store ptr %68, ptr %102, align 8
   %103 = load i64, ptr %34, align 8, !alias.scope !7911, !noundef !5
   %104 = add i64 %103, 1
@@ -43213,7 +43213,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %111, ptr %118, align 1, !noalias !7934
   %119 = load ptr, ptr %.sroa.027.sroa.0.0.copyload, align 8, !alias.scope !7938, !noalias !7934, !nonnull !5, !noundef !5
   %120 = sub nsw i64 0, %105
-  %121 = getelementptr inbounds { { { i32, i32 }, { i32, i32, i32 } }, i32 }, ptr %119, i64 %120
+  %121 = getelementptr inbounds [24 x i8], ptr %119, i64 %120
   %122 = and i8 %109, 1
   %123 = zext nneg i8 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.027.sroa.0.0.copyload, i64 16
@@ -43341,7 +43341,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -43485,7 +43485,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7946, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7946, !noundef !5
   %100 = add i64 %99, 1
@@ -43512,7 +43512,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !7969
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !7973, !noalias !7969, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -43634,7 +43634,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -43778,7 +43778,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !7981, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !7981, !noundef !5
   %100 = add i64 %99, 1
@@ -43805,7 +43805,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !8004
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !8008, !noalias !8004, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [32 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -43927,7 +43927,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44071,7 +44071,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !8016, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !8016, !noundef !5
   %100 = add i64 %99, 1
@@ -44098,7 +44098,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !8039
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !8043, !noalias !8039, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [32 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -44220,7 +44220,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44364,7 +44364,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !8051, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !8051, !noundef !5
   %100 = add i64 %99, 1
@@ -44391,7 +44391,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !8074
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !8078, !noalias !8074, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -44513,7 +44513,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44657,7 +44657,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !8086, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !8086, !noundef !5
   %100 = add i64 %99, 1
@@ -44685,7 +44685,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %108, ptr %115, align 1, !noalias !8109
   %116 = load ptr, ptr %.sroa.420.sroa.0.0.copyload, align 8, !alias.scope !8113, !noalias !8109, !nonnull !5, !noundef !5
   %117 = sub nsw i64 0, %102
-  %118 = getelementptr inbounds { { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, i32 }, ptr %116, i64 %117
+  %118 = getelementptr inbounds [28 x i8], ptr %116, i64 %117
   %119 = and i8 %106, 1
   %120 = zext nneg i8 %119 to i64
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.420.sroa.0.0.copyload, i64 16
@@ -44807,7 +44807,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -44951,7 +44951,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !8121, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !8121, !noundef !5
   %100 = add i64 %99, 1
@@ -44978,7 +44978,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !8144
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !8148, !noalias !8144, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 } }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [28 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -45100,7 +45100,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -45253,7 +45253,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %100 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %77, %76 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load ptr, ptr %101, align 8, !alias.scope !8164, !nonnull !5, !noundef !5
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %100
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %100
   store ptr %70, ptr %103, align 8
   %104 = load i64, ptr %34, align 8, !alias.scope !8164, !noundef !5
   %105 = add i64 %104, 1
@@ -45280,7 +45280,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %112, ptr %119, align 1, !noalias !8187
   %120 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !8191, !noalias !8187, !nonnull !5, !noundef !5
   %121 = sub nsw i64 0, %106
-  %122 = getelementptr inbounds { { { i32, [1 x i32] }, i32 }, i32 }, ptr %120, i64 %121
+  %122 = getelementptr inbounds [16 x i8], ptr %120, i64 %121
   %123 = and i8 %110, 1
   %124 = zext nneg i8 %123 to i64
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -45402,7 +45402,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %32
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %32
   %47 = load ptr, ptr %46, align 8, !nonnull !5, !noundef !5
   %48 = atomicrmw add ptr %47, i64 1 monotonic, align 8
   %49 = icmp slt i64 %48, 0
@@ -45546,7 +45546,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   %95 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %72, %71 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8, !alias.scope !8199, !nonnull !5, !noundef !5
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %95
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %95
   store ptr %65, ptr %98, align 8
   %99 = load i64, ptr %34, align 8, !alias.scope !8199, !noundef !5
   %100 = add i64 %99, 1
@@ -45573,7 +45573,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   store i8 %107, ptr %114, align 1, !noalias !8222
   %115 = load ptr, ptr %.sroa.019.0.copyload, align 8, !alias.scope !8226, !noalias !8222, !nonnull !5, !noundef !5
   %116 = sub nsw i64 0, %101
-  %117 = getelementptr inbounds { { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, i32 }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [32 x i8], ptr %115, i64 %116
   %118 = and i8 %105, 1
   %119 = zext nneg i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
@@ -45639,7 +45639,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8228, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8228, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8228
   %23 = icmp slt i64 %22, 0
@@ -45730,7 +45730,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8241, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8241, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8241
   %23 = icmp slt i64 %22, 0
@@ -45821,7 +45821,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8254, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8254, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8254
   %23 = icmp slt i64 %22, 0
@@ -45912,7 +45912,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8267, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8267, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8267
   %23 = icmp slt i64 %22, 0
@@ -46003,7 +46003,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8280, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8280, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8280
   %23 = icmp slt i64 %22, 0
@@ -46094,7 +46094,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8293, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8293, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8293
   %23 = icmp slt i64 %22, 0
@@ -46185,7 +46185,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8306, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8306, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8306
   %23 = icmp slt i64 %22, 0
@@ -46276,7 +46276,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8319, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8319, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8319
   %23 = icmp slt i64 %22, 0
@@ -46367,7 +46367,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8332, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8332, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8332
   %23 = icmp slt i64 %22, 0
@@ -46458,7 +46458,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8345, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8345, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8345
   %23 = icmp slt i64 %22, 0
@@ -46549,7 +46549,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8358, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8358, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8358
   %23 = icmp slt i64 %22, 0
@@ -46640,7 +46640,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8371, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8371, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8371
   %23 = icmp slt i64 %22, 0
@@ -46731,7 +46731,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8384, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8384, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8384
   %23 = icmp slt i64 %22, 0
@@ -46822,7 +46822,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8397, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8397, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8397
   %23 = icmp slt i64 %22, 0
@@ -46913,7 +46913,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8410, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8410, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8410
   %23 = icmp slt i64 %22, 0
@@ -47004,7 +47004,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8423, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8423, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8423
   %23 = icmp slt i64 %22, 0
@@ -47095,7 +47095,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8436, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8436, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8436
   %23 = icmp slt i64 %22, 0
@@ -47186,7 +47186,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8449, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8449, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8449
   %23 = icmp slt i64 %22, 0
@@ -47277,7 +47277,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8462, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8462, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8462
   %23 = icmp slt i64 %22, 0
@@ -47368,7 +47368,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !8475, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %13
   %21 = load ptr, ptr %20, align 8, !noalias !8475, !nonnull !5, !noundef !5
   %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8, !noalias !8475
   %23 = icmp slt i64 %22, 0
@@ -47434,7 +47434,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47463,7 +47463,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47492,7 +47492,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47521,7 +47521,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47550,7 +47550,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47579,7 +47579,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47608,7 +47608,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47637,7 +47637,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47666,7 +47666,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47695,7 +47695,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47724,7 +47724,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47753,7 +47753,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47782,7 +47782,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47811,7 +47811,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47840,7 +47840,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47869,7 +47869,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47898,7 +47898,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47927,7 +47927,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47956,7 +47956,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -47985,7 +47985,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %13 = icmp slt i64 %12, 0
@@ -48389,10 +48389,10 @@ define internal noundef zeroext i1 @"_ZN74_$LT$hir_expand..proc_macro..ProcMacro
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.196", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.196", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -50254,7 +50254,7 @@ define { i32, i32 } @_ZN7hir_def9lang_item9LangItems6target17h84ae99765059c0ecE(
   %25 = add i64 %.sroa.01.0.i.i.i.i, %22
   %26 = and i64 %25, %.val5.i
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds { i8, [3 x i8], { i32, [1 x i32] } }, ptr %.val.i, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %.val.i, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -12
   %.val4.i.i.i.i = load i8, ptr %29, align 1, !range !8520, !alias.scope !8521, !noalias !8526, !noundef !5
   %30 = icmp eq i8 %1, %.val4.i.i.i.i
@@ -50675,7 +50675,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
   %142 = add i64 %.sroa.01.0.i.i.i.i, %139
   %143 = and i64 %142, %.val5.i
   %144 = sub nsw i64 0, %143
-  %145 = getelementptr inbounds { i32, [1 x i32], { { { { ptr, i64 } }, {} }, {} } }, ptr %.val.i, i64 %144
+  %145 = getelementptr inbounds [24 x i8], ptr %.val.i, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -24
   %.val4.i.i.i.i = load i32, ptr %146, align 4, !alias.scope !8595, !noalias !8600, !noundef !5
   %147 = icmp eq i32 %.sroa.8.0.copyload, %.val4.i.i.i.i
@@ -51030,7 +51030,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %24, %.thread,
   %66 = add i64 %.sroa.01.0.i.i.i.i.i, %63
   %67 = and i64 %66, %.val5.i.i
   %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds { i8, [3 x i8], { i32, [1 x i32] } }, ptr %.val.i.i, i64 %68
+  %69 = getelementptr inbounds [12 x i8], ptr %.val.i.i, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -12
   %.val4.i.i.i.i.i = load i8, ptr %70, align 1, !range !8520, !alias.scope !8669, !noalias !8674, !noundef !5
   %71 = icmp eq i8 %3, %.val4.i.i.i.i.i
@@ -51113,7 +51113,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %24, %.thread,
   %97 = load ptr, ptr %96, align 8, !nonnull !5, !noundef !5
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %99 = load i64, ptr %98, align 8, !noundef !5
-  %100 = getelementptr inbounds { { { { i8, [23 x i8] } } }, i32, i8, [3 x i8] }, ptr %97, i64 %99
+  %100 = getelementptr inbounds [32 x i8], ptr %97, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 1184
   br label %102
 
@@ -51218,7 +51218,7 @@ define noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item9lang_attr17h64789c5d2
 .noexc5:                                          ; preds = %3
   %15 = extractvalue { ptr, i64 } %9, 0
   %16 = extractvalue { ptr, i64 } %9, 1
-  %17 = getelementptr inbounds { ptr, ptr, i32, i32 }, ptr %15, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %15, i64 %16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   store ptr %15, ptr %4, align 8, !alias.scope !8717, !noalias !8720
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -51691,7 +51691,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %42, %.thread,
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.066.0.copyload = load i64, ptr %10, align 8
   %.sroa.467.0.copyload = load ptr, ptr %51, align 8, !nonnull !5, !noundef !5
-  %87 = getelementptr inbounds i32, ptr %.sroa.467.0.copyload, i64 %77
+  %87 = getelementptr inbounds [4 x i8], ptr %.sroa.467.0.copyload, i64 %77
   store ptr %.sroa.467.0.copyload, ptr %6, align 8, !alias.scope !8780, !noalias !8783
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.066.0.copyload, ptr %88, align 8, !alias.scope !8780, !noalias !8783
@@ -51807,7 +51807,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %42, %.thread,
 .noexc44:                                         ; preds = %126
   %128 = extractvalue { ptr, i64 } %127, 0
   %129 = extractvalue { ptr, i64 } %127, 1
-  %130 = getelementptr inbounds { ptr, ptr, i32, i32 }, ptr %128, i64 %129
+  %130 = getelementptr inbounds [24 x i8], ptr %128, i64 %129
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   store ptr %128, ptr %4, align 8, !alias.scope !8804, !noalias !8807
   store ptr %130, ptr %.sroa.4.0..sroa_idx.i.i42, align 8, !alias.scope !8804, !noalias !8807
@@ -51869,7 +51869,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %42, %.thread,
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa10fe1305b44397E.exit": ; preds = %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit50", %.noexc51
   %148 = phi i64 [ %.pre.i, %.noexc51 ], [ %144, %"_ZN4core3ptr41drop_in_place$LT$hir_def..attr..Attrs$GT$17hf9172d4fed4175a5E.exit50" ]
   %149 = load ptr, ptr %51, align 8, !alias.scope !8816, !nonnull !5, !noundef !5
-  %150 = getelementptr inbounds i32, ptr %149, i64 %148
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %148
   store i32 %.sroa.764.0.copyload, ptr %150, align 4
   %151 = load i64, ptr %52, align 8, !alias.scope !8816, !noundef !5
   %152 = add i64 %151, 1

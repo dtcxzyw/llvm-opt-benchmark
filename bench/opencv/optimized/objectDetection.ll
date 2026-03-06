@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -796,7 +795,7 @@ define hidden void @_Z16detectAndDisplayN2cv3MatE(ptr noundef %0) local_unnamed_
 65:                                               ; preds = %.lr.ph88, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
   %66 = phi ptr [ %37, %.lr.ph88 ], [ %93, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ]
   %.03986 = phi i64 [ 0, %.lr.ph88 ], [ %91, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ]
-  %67 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %66, i64 %.03986
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %.03986
   %68 = load i32, ptr %67, align 4, !tbaa !36
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i32, ptr %69, align 4, !tbaa !38
@@ -837,7 +836,7 @@ define hidden void @_Z16detectAndDisplayN2cv3MatE(ptr noundef %0) local_unnamed_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %84 = load ptr, ptr %8, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %84, i64 %.03986
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %.03986
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(16) %85)
           to label %86 unwind label %101
 
@@ -904,9 +903,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %._crit_edge, %90
   %105 = phi ptr [ %133, %130 ], [ %89, %87 ]
   %.03885 = phi i64 [ %131, %130 ], [ 0, %87 ]
   %106 = load ptr, ptr %8, align 8, !tbaa !35
-  %107 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %106, i64 %.03986
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %.03986
   %108 = load i32, ptr %107, align 4, !tbaa !36
-  %109 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %105, i64 %.03885
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.03885
   %110 = load i32, ptr %109, align 4, !tbaa !36
   %111 = add nsw i32 %110, %108
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8

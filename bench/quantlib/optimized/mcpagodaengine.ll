@@ -3,20 +3,6 @@ source_filename = "bench/quantlib/original/mcpagodaengine.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.QuantLib::Path" = type { %"class.QuantLib::TimeGrid", %"class.QuantLib::Array" }
-%"class.QuantLib::TimeGrid" = type { %"class.std::vector.25", %"class.std::vector.25", %"class.std::vector.25" }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Array" = type { %"class.std::unique_ptr", i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.31" }
-%"struct.std::_Head_base.31" = type { ptr }
-
 $_ZN8QuantLib10PathPricerINS_9MultiPathEdED2Ev = comdat any
 
 $_ZN8QuantLib21PagodaMultiPathPricerD0Ev = comdat any
@@ -79,11 +65,11 @@ for.cond3.preheader.us:                           ; preds = %entry, %for.cond3.f
 for.body6.us:                                     ; preds = %for.cond3.preheader.us, %for.body6.us
   %j.025.us = phi i64 [ 0, %for.cond3.preheader.us ], [ %inc.us, %for.body6.us ]
   %averagePerformance.124.us = phi double [ %averagePerformance.027.us, %for.cond3.preheader.us ], [ %8, %for.body6.us ]
-  %add.ptr.i.i.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %1, i64 %j.025.us
+  %add.ptr.i.i.us = getelementptr inbounds nuw [88 x i8], ptr %1, i64 %j.025.us
   %values_.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 72
   %4 = load ptr, ptr %values_.i.us, align 8, !tbaa !20
   %5 = load double, ptr %4, align 8, !tbaa !21
-  %arrayidx.i.i.us = getelementptr double, ptr %4, i64 %i.028.us
+  %arrayidx.i.i.us = getelementptr [8 x i8], ptr %4, i64 %i.028.us
   %6 = load double, ptr %arrayidx.i.i.us, align 8, !tbaa !21
   %arrayidx.i.i19.us = getelementptr i8, ptr %arrayidx.i.i.us, i64 -8
   %7 = load double, ptr %arrayidx.i.i19.us, align 8, !tbaa !21

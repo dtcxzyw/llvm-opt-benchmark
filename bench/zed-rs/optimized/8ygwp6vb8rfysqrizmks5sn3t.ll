@@ -234,7 +234,7 @@ define hidden void @_ZN4gpui4view8any_view6render17h0077462fcac9332cE(ptr dead_o
   %136 = load i64, ptr %135, align 8, !alias.scope !72, !noalias !75
   %.sink12.i.i.i = select i1 %133, ptr %134, ptr %130
   %.sink11.i.i.i = select i1 %133, i64 %136, i64 %132
-  %137 = getelementptr inbounds { { float, float, float, float }, { float, float }, float, float }, ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
+  %137 = getelementptr inbounds [32 x i8], ptr %.sink12.i.i.i, i64 %.sink11.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !77
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 0, ptr %138, align 8, !noalias !77

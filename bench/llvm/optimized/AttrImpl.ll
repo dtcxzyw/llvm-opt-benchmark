@@ -27,14 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::DeclarationNameLoc" = type { %union.anon.615 }
 %union.anon.615 = type { %"struct.clang::DeclarationNameLoc::NT" }
 %"struct.clang::DeclarationNameLoc::NT" = type { ptr }
-%"struct.clang::OMPInteropInfo" = type { i8, i8, %"class.llvm::SmallVector.1128" }
-%"class.llvm::SmallVector.1128" = type { %"class.llvm::SmallVectorImpl.1129", %"struct.llvm::SmallVectorStorage.1132" }
-%"class.llvm::SmallVectorImpl.1129" = type { %"class.llvm::SmallVectorTemplateBase.1130" }
-%"class.llvm::SmallVectorTemplateBase.1130" = type { %"class.llvm::SmallVectorTemplateCommon.1131" }
-%"class.llvm::SmallVectorTemplateCommon.1131" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.1132" = type { [32 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -2115,7 +2107,7 @@ _ZN4llvm11raw_ostreamlsEc.exit14:                 ; preds = %36, %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %41 = load i32, ptr %40, align 4, !tbaa !19
   %42 = zext nneg i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE, i64 %42
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %44 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 24
@@ -2623,7 +2615,7 @@ switch.lookup:                                    ; preds = %_ZNK5clang19Attribu
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %83 = load i32, ptr %82, align 4, !tbaa !19
   %84 = zext nneg i32 %83 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK5clang12LoopHintAttr14getValueStringB5cxx11ERKNS_14PrintingPolicyE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -2716,7 +2708,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %17, %19
   %.0.i = phi ptr [ %18, %17 ], [ %1, %19 ]
   %21 = load i32, ptr %10, align 4, !tbaa !53
   %22 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang22OMPDeclareSimdDeclAttr25ConvertBranchStateTyToStrENS0_13BranchStateTyE, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang22OMPDeclareSimdDeclAttr25ConvertBranchStateTyToStrENS0_13BranchStateTyE, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
@@ -3177,7 +3169,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit125:              ; preds = %236, %238
 define dso_local noundef nonnull ptr @_ZN5clang22OMPDeclareSimdDeclAttr25ConvertBranchStateTyToStrENS0_13BranchStateTyE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang22OMPDeclareSimdDeclAttr25ConvertBranchStateTyToStrENS0_13BranchStateTyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang22OMPDeclareSimdDeclAttr25ConvertBranchStateTyToStrENS0_13BranchStateTyE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -3221,7 +3213,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
   %.0.i.i = phi ptr [ %17, %16 ], [ %1, %18 ]
   %21 = load i32, ptr %5, align 8, !tbaa !70
   %22 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertDevTypeTyToStrENS0_9DevTypeTyE, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertDevTypeTyToStrENS0_9DevTypeTyE, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
@@ -3299,7 +3291,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %55, %57
   %.0.i19 = phi ptr [ %56, %55 ], [ %1, %57 ]
   %59 = load i32, ptr %48, align 4, !tbaa !75
   %60 = zext nneg i32 %59 to i64
-  %switch.gep39 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertMapTypeTyToStrENS0_9MapTypeTyE, i64 %60
+  %switch.gep39 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertMapTypeTyToStrENS0_9MapTypeTyE, i64 %60
   %switch.load40 = load ptr, ptr %switch.gep39, align 8
   %61 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load40) #17
   %62 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 24
@@ -3412,7 +3404,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %116, %114, %98, %96
 define dso_local noundef nonnull ptr @_ZN5clang24OMPDeclareTargetDeclAttr21ConvertDevTypeTyToStrENS0_9DevTypeTyE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertDevTypeTyToStrENS0_9DevTypeTyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertDevTypeTyToStrENS0_9DevTypeTyE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -3421,7 +3413,7 @@ switch.lookup:
 define dso_local noundef nonnull ptr @_ZN5clang24OMPDeclareTargetDeclAttr21ConvertMapTypeTyToStrENS0_9MapTypeTyE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertMapTypeTyToStrENS0_9MapTypeTyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang24OMPDeclareTargetDeclAttr21ConvertMapTypeTyToStrENS0_9MapTypeTyE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -3478,7 +3470,7 @@ _ZNK5clang4Decl19specific_attr_beginINS_24OMPDeclareTargetDeclAttrEEENS_22specif
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !84
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   br label %_ZNK5clang4Decl14specific_attrsINS_24OMPDeclareTargetDeclAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit
 
 _ZNK5clang4Decl14specific_attrsINS_24OMPDeclareTargetDeclAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit: ; preds = %select.unfold.preheader, %_ZNK5clang4Decl19specific_attr_beginINS_24OMPDeclareTargetDeclAttrEEENS_22specific_attr_iteratorIT_N4llvm11SmallVectorIPNS_4AttrELj4EEEEEv.exit.i, %16
@@ -8954,7 +8946,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang16ARMInterruptAttr13InterruptTypeEES5_
 define dso_local noundef nonnull ptr @_ZN5clang16ARMInterruptAttr25ConvertInterruptTypeToStrENS0_13InterruptTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -9107,7 +9099,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !157
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -9251,7 +9243,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !157
   %116 = zext nneg i32 %115 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %116
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %116
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load108) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -9395,7 +9387,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !157
   %186 = zext nneg i32 %185 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %186
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16ARMInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1327, i64 %186
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load110) #17
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -10778,7 +10770,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -10812,7 +10804,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !164
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -11411,7 +11403,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang21AcquireCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang21AcquireCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -11483,7 +11475,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang21AcquireCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang21AcquireCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -12415,7 +12407,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang21AcquireCapabilityAttr11getSpel
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21AcquireCapabilityAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21AcquireCapabilityAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -16976,7 +16968,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -17048,7 +17040,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang11AlignedAttr6CreateERNS_10ASTContextEbPvNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -18020,7 +18012,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang11AlignedAttr11getSpellingEv(ptr
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11AlignedAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11AlignedAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -20379,7 +20371,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang16AlwaysInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang16AlwaysInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -20451,7 +20443,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang16AlwaysInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang16AlwaysInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -25880,7 +25872,7 @@ switch.lookup:
   %7 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
@@ -25952,7 +25944,7 @@ switch.lookup:
   %7 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
@@ -26106,7 +26098,7 @@ switch.lookup:
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -26178,7 +26170,7 @@ switch.lookup:
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -27693,7 +27685,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -27727,7 +27719,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !219
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -29030,7 +29022,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -29064,7 +29056,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !225
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -29656,7 +29648,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -29690,7 +29682,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !229
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -31129,7 +31121,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -31163,7 +31155,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !233
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -31755,7 +31747,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -31789,7 +31781,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !237
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -32381,7 +32373,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -32415,7 +32407,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !241
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -34988,7 +34980,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -35060,7 +35052,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -44973,7 +44965,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang16BuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoENS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang16BuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoENS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -45045,7 +45037,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang16BuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoENS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang16BuiltinAliasAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoENS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -46066,7 +46058,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -46138,7 +46130,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -46466,7 +46458,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang9CDeclAttr11getSpellingEv(ptr no
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang9CDeclAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang9CDeclAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -47553,7 +47545,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -47625,7 +47617,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -56705,7 +56697,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -56777,7 +56769,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang17CXX11NoReturnAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -57204,7 +57196,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -57276,7 +57268,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -58138,7 +58130,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang16CallableWhenAttr13ConsumedStateEES5_
 define dso_local noundef nonnull ptr @_ZN5clang16CallableWhenAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -58318,7 +58310,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %56, %58
   %.0.i.i38 = phi ptr [ %57, %56 ], [ %1, %58 ]
   %61 = load i32, ptr %.094, align 4, !tbaa !306
   %62 = zext nneg i32 %61 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %62
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   %63 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i38, i64 24
@@ -58497,7 +58489,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66:               ; preds = %143, %145
   %.0.i.i65 = phi ptr [ %144, %143 ], [ %1, %145 ]
   %148 = load i32, ptr %.02991, align 4, !tbaa !306
   %149 = zext nneg i32 %148 to i64
-  %switch.gep112 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %149
+  %switch.gep112 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %149
   %switch.load113 = load ptr, ptr %switch.gep112, align 8
   %150 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load113) #17
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i65, i64 24
@@ -59971,7 +59963,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -60043,7 +60035,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -64502,7 +64494,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_9CodeModel5ModelEES4_E4CaseENS_13StringLit
 define dso_local noundef nonnull ptr @_ZN5clang13CodeModelAttr17ConvertModelToStrEN4llvm9CodeModel5ModelE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -64656,7 +64648,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !328
   %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %46
+  %47 = getelementptr [8 x i8], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %46
   %switch.gep = getelementptr i8, ptr %47, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
@@ -64801,7 +64793,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %110, %112
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %116 = load i32, ptr %115, align 4, !tbaa !328
   %117 = sext i32 %116 to i64
-  %118 = getelementptr ptr, ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %117
+  %118 = getelementptr [8 x i8], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %117
   %switch.gep108 = getelementptr i8, ptr %118, i64 -8
   %switch.load109 = load ptr, ptr %switch.gep108, align 8
   %119 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load109) #17
@@ -64946,7 +64938,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %181, %183
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %187 = load i32, ptr %186, align 4, !tbaa !328
   %188 = sext i32 %187 to i64
-  %189 = getelementptr ptr, ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %188
+  %189 = getelementptr [8 x i8], ptr @switch.table._ZNK5clang13CodeModelAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1330, i64 %188
   %switch.gep111 = getelementptr i8, ptr %189, i64 -8
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   %190 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load112) #17
@@ -67265,7 +67257,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13ConstInitAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13ConstInitAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -67337,7 +67329,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13ConstInitAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13ConstInitAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -68541,7 +68533,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14ConsumableAttr13ConsumedStateEES5_E4
 define dso_local noundef nonnull ptr @_ZN5clang14ConsumableAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -68688,7 +68680,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !337
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -68832,7 +68824,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !337
   %116 = zext nneg i32 %115 to i64
-  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
+  %switch.gep68 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load69) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -75198,7 +75190,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -75270,7 +75262,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -76035,7 +76027,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -76107,7 +76099,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -76883,7 +76875,7 @@ switch.lookup:
   %8 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14DeprecatedAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_NS_11SourceRangeENS0_8SpellingE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14DeprecatedAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_NS_11SourceRangeENS0_8SpellingE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
@@ -76961,7 +76953,7 @@ switch.lookup:
   %8 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14DeprecatedAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_NS_11SourceRangeENS0_8SpellingE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14DeprecatedAttr6CreateERNS_10ASTContextEN4llvm9StringRefES4_NS_11SourceRangeENS0_8SpellingE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 16, i1 false)
@@ -85506,7 +85498,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -85578,7 +85570,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -89979,7 +89971,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -90051,7 +90043,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -90572,7 +90564,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -90644,7 +90636,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -90972,7 +90964,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang12FastCallAttr11getSpellingEv(pt
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang12FastCallAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang12FastCallAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -99796,7 +99788,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang21HLSLParamModifierAttr11getSpel
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21HLSLParamModifierAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21HLSLParamModifierAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -100948,7 +100940,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_4dxil12ResourceKindEES4_E4CaseENS_13String
 define dso_local noundef nonnull ptr @_ZN5clang16HLSLResourceAttr24ConvertResourceKindToStrEN4llvm4dxil12ResourceKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table._ZN5clang16HLSLResourceAttr24ConvertResourceKindToStrEN4llvm4dxil12ResourceKindE, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table._ZN5clang16HLSLResourceAttr24ConvertResourceKindToStrEN4llvm4dxil12ResourceKindE, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -102072,7 +102064,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_4dxil13ResourceClassEES4_E4CaseENS_13Strin
 define dso_local noundef nonnull ptr @_ZN5clang21HLSLResourceClassAttr25ConvertResourceClassToStrEN4llvm4dxil13ResourceClassE(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21HLSLResourceClassAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21HLSLResourceClassAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -102209,7 +102201,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %33, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %39 = load i8, ptr %38, align 1, !tbaa !446
   %40 = zext nneg i8 %39 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21HLSLResourceClassAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %40
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21HLSLResourceClassAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 24
@@ -104132,7 +104124,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_6Triple15EnvironmentTypeEES4_E4CaseENS_13S
 define dso_local noundef nonnull ptr @_ZN5clang14HLSLShaderAttr27ConvertEnvironmentTypeToStrEN4llvm6Triple15EnvironmentTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table._ZNK5clang14HLSLShaderAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table._ZNK5clang14HLSLShaderAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -264
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -104270,7 +104262,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %33, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !450
   %40 = sext i32 %39 to i64
-  %41 = getelementptr ptr, ptr @switch.table._ZNK5clang14HLSLShaderAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %40
+  %41 = getelementptr [8 x i8], ptr @switch.table._ZNK5clang14HLSLShaderAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %40
   %switch.gep = getelementptr i8, ptr %41, i64 -264
   %switch.load = load ptr, ptr %switch.gep, align 8
   %42 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
@@ -105480,7 +105472,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -105552,7 +105544,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -115057,7 +115049,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang12LoopHintAttr10OptionTypeEES5_E4CaseE
 define dso_local noundef nonnull ptr @_ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12LoopHintAttr22ConvertOptionTypeToStrENS0_10OptionTypeE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -115122,7 +115114,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang12LoopHintAttr13LoopHintStateEES5_E4Ca
 define dso_local noundef nonnull ptr @_ZN5clang12LoopHintAttr25ConvertLoopHintStateToStrENS0_13LoopHintStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12LoopHintAttr25ConvertLoopHintStateToStrENS0_13LoopHintStateE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12LoopHintAttr25ConvertLoopHintStateToStrENS0_13LoopHintStateE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -115414,7 +115406,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang12LoopHintAttr11getSpellingEv(pt
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang12LoopHintAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang12LoopHintAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -118740,7 +118732,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang17MSInheritanceAttr11getSpelling
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang17MSInheritanceAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17MSInheritanceAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -124209,7 +124201,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang17MipsInterruptAttr13InterruptTypeEES5
 define dso_local noundef nonnull ptr @_ZN5clang17MipsInterruptAttr25ConvertInterruptTypeToStrENS0_13InterruptTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -124362,7 +124354,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !496
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -124506,7 +124498,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !496
   %116 = zext nneg i32 %115 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %116
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %116
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load108) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -124650,7 +124642,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !496
   %186 = zext nneg i32 %185 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %186
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17MipsInterruptAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1333, i64 %186
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load110) #17
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -124863,7 +124855,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -124935,7 +124927,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -125460,7 +125452,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -125532,7 +125524,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -131716,7 +131708,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -131750,7 +131742,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !506
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -135909,7 +135901,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang12NoInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang12NoInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -135981,7 +135973,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang12NoInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang12NoInlineAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -140202,7 +140194,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -140236,7 +140228,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !510
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -142702,7 +142694,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -142774,7 +142766,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang20NoStackProtectorAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -148373,7 +148365,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang19OMPAllocateDeclAttr15AllocatorTypeTy
 define dso_local noundef nonnull ptr @_ZN5clang19OMPAllocateDeclAttr27ConvertAllocatorTypeTyToStrENS0_15AllocatorTypeTyE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang19OMPAllocateDeclAttr27ConvertAllocatorTypeTyToStrENS0_15AllocatorTypeTyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang19OMPAllocateDeclAttr27ConvertAllocatorTypeTyToStrENS0_15AllocatorTypeTyE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -151252,7 +151244,7 @@ _ZnamRKN5clang10ASTContextEm.exit21:              ; preds = %73, %76
   br i1 %79, label %.loopexit, label %80
 
 80:                                               ; preds = %_ZnamRKN5clang10ASTContextEm.exit21
-  %81 = getelementptr inbounds nuw %"struct.clang::OMPInteropInfo", ptr %78, i64 %63
+  %81 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %63
   br label %82
 
 82:                                               ; preds = %82, %80
@@ -151374,7 +151366,7 @@ _ZSt4copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i.i.i: ; preds = %12
   %.idx36.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i.i.i.i, 3
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.idx36.i.i.i.i.i.i.i.i
   %133 = load ptr, ptr %104, align 8, !tbaa !82
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.022.i.i.i.i.i.i.i.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.022.i.i.i.i.i.i.i.i
   %135 = sub nsw i64 %129, %.022.i.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i.i = shl nsw i64 %135, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 8 %132, i64 %gepdiff.i.i.i.i.i.i.i.i, i1 false)
@@ -151458,7 +151450,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %37, %40
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %_ZnamRKN5clang10ASTContextEm.exit
-  %45 = getelementptr inbounds nuw %"struct.clang::OMPInteropInfo", ptr %42, i64 %20
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %42, i64 %20
   br label %46
 
 46:                                               ; preds = %46, %44
@@ -151555,7 +151547,7 @@ _ZSt4copyIPKPN5clang4ExprEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i.i.i: ; preds = %80
   %.idx36.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i.i.i.i, 3
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx36.i.i.i.i.i.i.i.i
   %88 = load ptr, ptr %59, align 8, !tbaa !82
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.022.i.i.i.i.i.i.i.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.022.i.i.i.i.i.i.i.i
   %90 = sub nsw i64 %84, %.022.i.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i.i = shl nsw i64 %90, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr align 8 %87, i64 %gepdiff.i.i.i.i.i.i.i.i, i1 false)
@@ -163856,7 +163848,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang20ObjCMethodFamilyAttr10FamilyKindEES5
 define dso_local noundef nonnull ptr @_ZN5clang20ObjCMethodFamilyAttr22ConvertFamilyKindToStrENS0_10FamilyKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -164009,7 +164001,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !554
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -164153,7 +164145,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !554
   %116 = zext nneg i32 %115 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %116
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %116
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load108) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -164297,7 +164289,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !554
   %186 = zext nneg i32 %185 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %186
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ObjCMethodFamilyAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1335, i64 %186
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load110) #17
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -170898,7 +170890,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang16OpenCLAccessAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang16OpenCLAccessAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -170970,7 +170962,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang16OpenCLAccessAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang16OpenCLAccessAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -171051,7 +171043,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang16OpenCLAccessAttr19getS
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang16OpenCLAccessAttr19getSemanticSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang16OpenCLAccessAttr19getSemanticSpellingEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -171263,7 +171255,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang16OpenCLAccessAttr11getSpellingE
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16OpenCLAccessAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16OpenCLAccessAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -171373,7 +171365,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -171445,7 +171437,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -171526,7 +171518,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang30OpenCLConstantAddressS
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -171785,7 +171777,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang30OpenCLConstantAddressSpaceAttr
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang30OpenCLConstantAddressSpaceAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang30OpenCLConstantAddressSpaceAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -171895,7 +171887,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -171967,7 +171959,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -172048,7 +172040,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang29OpenCLGenericAddressSp
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -172307,7 +172299,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang29OpenCLGenericAddressSpaceAttr1
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang29OpenCLGenericAddressSpaceAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang29OpenCLGenericAddressSpaceAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -172417,7 +172409,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -172489,7 +172481,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -172570,7 +172562,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang28OpenCLGlobalAddressSpa
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -172829,7 +172821,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang28OpenCLGlobalAddressSpaceAttr11
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang28OpenCLGlobalAddressSpaceAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang28OpenCLGlobalAddressSpaceAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -174730,7 +174722,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -174802,7 +174794,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -174883,7 +174875,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang27OpenCLLocalAddressSpac
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -175142,7 +175134,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang27OpenCLLocalAddressSpaceAttr11g
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang27OpenCLLocalAddressSpaceAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang27OpenCLLocalAddressSpaceAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -175252,7 +175244,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -175324,7 +175316,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang29OpenCLPrivateAddressSpaceAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -175405,7 +175397,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang29OpenCLPrivateAddressSp
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr19getSemanticSpellingEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -175664,7 +175656,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang29OpenCLPrivateAddressSpaceAttr1
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang29OpenCLPrivateAddressSpaceAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -178017,7 +178009,7 @@ switch.lookup:
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13OwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEPNS_8ParamIdxEjNS_11SourceRangeENS0_8SpellingE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13OwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEPNS_8ParamIdxEjNS_11SourceRangeENS0_8SpellingE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -178089,7 +178081,7 @@ switch.lookup:
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13OwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEPNS_8ParamIdxEjNS_11SourceRangeENS0_8SpellingE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13OwnershipAttr6CreateERNS_10ASTContextEPNS_14IdentifierInfoEPNS_8ParamIdxEjNS_11SourceRangeENS0_8SpellingE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -179696,7 +179688,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang13OwnershipAttr11getSpellingEv(p
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang4Attr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang4Attr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -180482,7 +180474,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang18ParamTypestateAttr13ConsumedStateEES
 define dso_local noundef nonnull ptr @_ZN5clang18ParamTypestateAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -180629,7 +180621,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !573
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -180773,7 +180765,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !573
   %116 = zext nneg i32 %115 to i64
-  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
+  %switch.gep68 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load69) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -180999,7 +180991,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -181071,7 +181063,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -181399,7 +181391,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang10PascalAttr11getSpellingEv(ptr 
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang10PascalAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang10PascalAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -181509,7 +181501,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -181581,7 +181573,7 @@ switch.lookup:
   %4 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -191832,7 +191824,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang17RISCVVectorCCAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang17RISCVVectorCCAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -191904,7 +191896,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang17RISCVVectorCCAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang17RISCVVectorCCAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -193369,7 +193361,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -193441,7 +193433,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -194298,7 +194290,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -194370,7 +194362,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -195522,7 +195514,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang21ReleaseCapabilityAttr11getSpel
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21ReleaseCapabilityAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21ReleaseCapabilityAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -196974,7 +196966,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -197046,7 +197038,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang22RequiresCapabilityAttr6CreateERNS_10ASTContextEPPNS_4ExprEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -198198,7 +198190,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang22RequiresCapabilityAttr11getSpe
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang22RequiresCapabilityAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang22RequiresCapabilityAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -198308,7 +198300,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -198380,7 +198372,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -199504,7 +199496,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang19ReturnTypestateAttr13ConsumedStateEE
 define dso_local noundef nonnull ptr @_ZN5clang19ReturnTypestateAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -199651,7 +199643,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !626
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -199795,7 +199787,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !626
   %116 = zext nneg i32 %115 to i64
-  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
+  %switch.gep68 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load69) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -204700,7 +204692,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -204772,7 +204764,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang13SelectAnyAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -206092,7 +206084,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang16SetTypestateAttr13ConsumedStateEES5_
 define dso_local noundef nonnull ptr @_ZN5clang16SetTypestateAttr25ConvertConsumedStateToStrENS0_13ConsumedStateE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -206239,7 +206231,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !639
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 24
@@ -206383,7 +206375,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !639
   %116 = zext nneg i32 %115 to i64
-  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
+  %switch.gep68 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang16SetTypestateAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1338, i64 %116
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load69) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
@@ -209482,7 +209474,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -209554,7 +209546,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -209882,7 +209874,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang11StdCallAttr11getSpellingEv(ptr
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11StdCallAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11StdCallAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -210709,7 +210701,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -210781,7 +210773,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang12SuppressAttr6CreateERNS_10ASTContextEPN4llvm9StringRefEjNS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -210906,7 +210898,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -210940,7 +210932,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !656
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -212120,7 +212112,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14SwiftAsyncAttr4KindEES5_E4CaseENS_13
 define dso_local noundef nonnull ptr @_ZN5clang14SwiftAsyncAttr16ConvertKindToStrENS0_4KindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -212276,7 +212268,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %41, %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %47 = load i32, ptr %46, align 4, !tbaa !658
   %48 = zext nneg i32 %47 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   %49 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 24
@@ -212453,7 +212445,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55:               ; preds = %129, %131
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %135 = load i32, ptr %134, align 4, !tbaa !658
   %136 = zext nneg i32 %135 to i64
-  %switch.gep155 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %136
+  %switch.gep155 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %136
   %switch.load156 = load ptr, ptr %switch.gep155, align 8
   %137 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load156) #17
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i54, i64 24
@@ -212630,7 +212622,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit86:               ; preds = %217, %219
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %223 = load i32, ptr %222, align 4, !tbaa !658
   %224 = zext nneg i32 %223 to i64
-  %switch.gep157 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %224
+  %switch.gep157 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14SwiftAsyncAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1340, i64 %224
   %switch.load158 = load ptr, ptr %switch.gep157, align 8
   %225 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load158) #17
   %226 = getelementptr inbounds nuw i8, ptr %.0.i.i85, i64 24
@@ -214060,7 +214052,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang19SwiftAsyncErrorAttr14ConventionKindE
 define dso_local noundef nonnull ptr @_ZN5clang19SwiftAsyncErrorAttr26ConvertConventionKindToStrENS0_14ConventionKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -214215,7 +214207,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !662
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i23, i64 24
@@ -214383,7 +214375,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %124, %126
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %130 = load i32, ptr %129, align 4, !tbaa !662
   %131 = zext nneg i32 %130 to i64
-  %switch.gep137 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %131
+  %switch.gep137 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %131
   %switch.load138 = load ptr, ptr %switch.gep137, align 8
   %132 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load138) #17
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i49, i64 24
@@ -214551,7 +214543,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %209, %211
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %215 = load i32, ptr %214, align 4, !tbaa !662
   %216 = zext nneg i32 %215 to i64
-  %switch.gep139 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %216
+  %switch.gep139 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang19SwiftAsyncErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1342, i64 %216
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   %217 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load140) #17
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i77, i64 24
@@ -217968,7 +217960,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14SwiftErrorAttr14ConventionKindEES5_E
 define dso_local noundef nonnull ptr @_ZN5clang14SwiftErrorAttr26ConvertConventionKindToStrENS0_14ConventionKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14SwiftErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14SwiftErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -218105,7 +218097,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %33, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !676
   %40 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14SwiftErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %40
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14SwiftErrorAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 24
@@ -225010,7 +225002,7 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %28, %31
 
 .lr.ph:                                           ; preds = %.loopexit, %54
   %.023 = phi i64 [ %55, %54 ], [ 0, %.loopexit ]
-  %36 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %3, i64 %.023
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.023
   %.sroa.017.0.copyload = load ptr, ptr %36, align 8, !tbaa !165
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.418.0.copyload = load i64, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !43
@@ -225044,7 +225036,7 @@ _ZnamRKN5clang10ASTContextEm.exit16:              ; preds = %48, %50
   %.0.i.i.i.i15 = phi ptr [ %41, %48 ], [ %51, %50 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i15, ptr align 1 %.sroa.017.0.copyload, i64 %.sroa.418.0.copyload, i1 false)
   %52 = load ptr, ptr %11, align 8, !tbaa !701
-  %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %52, i64 %.023
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.023
   store ptr %.0.i.i.i.i15, ptr %53, align 8, !tbaa !165
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.418.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !43
@@ -227382,7 +227374,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -227454,7 +227446,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -227782,7 +227774,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang12ThisCallAttr11getSpellingEv(pt
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang12ThisCallAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang12ThisCallAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -229193,7 +229185,7 @@ switch.lookup:
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -229265,7 +229257,7 @@ switch.lookup:
   %6 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang24TryAcquireCapabilityAttr6CreateERNS_10ASTContextEPNS_4ExprEPS4_jNS_11SourceRangeENS0_8SpellingE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
@@ -232792,7 +232784,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang18TypeVisibilityAttr14VisibilityTypeEE
 define dso_local noundef nonnull ptr @_ZN5clang18TypeVisibilityAttr26ConvertVisibilityTypeToStrENS0_14VisibilityTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -232945,7 +232937,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !719
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -233089,7 +233081,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !719
   %116 = zext nneg i32 %115 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %116
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %116
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load108) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -233233,7 +233225,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !719
   %186 = zext nneg i32 %185 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %186
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %186
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load110) #17
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -236349,7 +236341,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang10UnusedAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang10UnusedAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -236421,7 +236413,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang10UnusedAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang10UnusedAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -239919,7 +239911,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang31VTablePointerAuthenticationAttr15VPt
 define dso_local noundef nonnull ptr @_ZN5clang31VTablePointerAuthenticationAttr27ConvertVPtrAuthKeyTypeToStrENS0_15VPtrAuthKeyTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -239961,7 +239953,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang31VTablePointerAuthenticationAttr25Add
 define dso_local noundef nonnull ptr @_ZN5clang31VTablePointerAuthenticationAttr37ConvertAddressDiscriminationModeToStrENS0_25AddressDiscriminationModeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -240009,7 +240001,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang31VTablePointerAuthenticationAttr19Ext
 define dso_local noundef nonnull ptr @_ZN5clang31VTablePointerAuthenticationAttr31ConvertExtraDiscriminationToStrENS0_19ExtraDiscriminationE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -240168,7 +240160,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !736
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 24
@@ -240261,7 +240253,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit46:               ; preds = %86, %88
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load i32, ptr %91, align 8, !tbaa !741
   %93 = zext nneg i32 %92 to i64
-  %switch.gep267 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %93
+  %switch.gep267 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %93
   %switch.load268 = load ptr, ptr %switch.gep267, align 8
   %94 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load268) #17
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i45, i64 24
@@ -240354,7 +240346,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %133, %135
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %139 = load i32, ptr %138, align 4, !tbaa !742
   %140 = zext nneg i32 %139 to i64
-  %switch.gep269 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %140
+  %switch.gep269 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %140
   %switch.load270 = load ptr, ptr %switch.gep269, align 8
   %141 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load270) #17
   %142 = getelementptr inbounds nuw i8, ptr %.0.i.i56, i64 24
@@ -240522,7 +240514,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit84:               ; preds = %218, %220
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %224 = load i32, ptr %223, align 4, !tbaa !736
   %225 = zext nneg i32 %224 to i64
-  %switch.gep271 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %225
+  %switch.gep271 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %225
   %switch.load272 = load ptr, ptr %switch.gep271, align 8
   %226 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load272) #17
   %227 = getelementptr inbounds nuw i8, ptr %.0.i.i83, i64 24
@@ -240615,7 +240607,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit96:               ; preds = %265, %267
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %271 = load i32, ptr %270, align 8, !tbaa !741
   %272 = zext nneg i32 %271 to i64
-  %switch.gep273 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %272
+  %switch.gep273 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %272
   %switch.load274 = load ptr, ptr %switch.gep273, align 8
   %273 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load274) #17
   %274 = getelementptr inbounds nuw i8, ptr %.0.i.i95, i64 24
@@ -240708,7 +240700,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit108:              ; preds = %312, %314
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %318 = load i32, ptr %317, align 4, !tbaa !742
   %319 = zext nneg i32 %318 to i64
-  %switch.gep275 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %319
+  %switch.gep275 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %319
   %switch.load276 = load ptr, ptr %switch.gep275, align 8
   %320 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load276) #17
   %321 = getelementptr inbounds nuw i8, ptr %.0.i.i107, i64 24
@@ -240876,7 +240868,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit136:              ; preds = %397, %399
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %403 = load i32, ptr %402, align 4, !tbaa !736
   %404 = zext nneg i32 %403 to i64
-  %switch.gep277 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %404
+  %switch.gep277 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1350, i64 %404
   %switch.load278 = load ptr, ptr %switch.gep277, align 8
   %405 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load278) #17
   %406 = getelementptr inbounds nuw i8, ptr %.0.i.i135, i64 24
@@ -240969,7 +240961,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit148:              ; preds = %444, %446
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %450 = load i32, ptr %449, align 8, !tbaa !741
   %451 = zext nneg i32 %450 to i64
-  %switch.gep279 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %451
+  %switch.gep279 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1351, i64 %451
   %switch.load280 = load ptr, ptr %switch.gep279, align 8
   %452 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load280) #17
   %453 = getelementptr inbounds nuw i8, ptr %.0.i.i147, i64 24
@@ -241062,7 +241054,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit160:              ; preds = %491, %493
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %497 = load i32, ptr %496, align 4, !tbaa !742
   %498 = zext nneg i32 %497 to i64
-  %switch.gep281 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %498
+  %switch.gep281 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang31VTablePointerAuthenticationAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1352, i64 %498
   %switch.load282 = load ptr, ptr %switch.gep281, align 8
   %499 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load282) #17
   %500 = getelementptr inbounds nuw i8, ptr %.0.i.i159, i64 24
@@ -242200,7 +242192,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -242272,7 +242264,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang14VectorCallAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -242600,7 +242592,7 @@ define dso_local noundef nonnull ptr @_ZNK5clang14VectorCallAttr11getSpellingEv(
 switch.lookup:                                    ; preds = %8, %5
   %10 = phi i32 [ %7, %5 ], [ %9, %8 ]
   %11 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VectorCallAttr11getSpellingEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VectorCallAttr11getSpellingEv, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -242914,7 +242906,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang14VisibilityAttr14VisibilityTypeEES5_E
 define dso_local noundef nonnull ptr @_ZN5clang14VisibilityAttr26ConvertVisibilityTypeToStrENS0_14VisibilityTypeE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -243067,7 +243059,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !749
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -243211,7 +243203,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !749
   %116 = zext nneg i32 %115 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %116
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %116
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load108) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -243355,7 +243347,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !749
   %186 = zext nneg i32 %185 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %186
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang14VisibilityAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1354, i64 %186
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load110) #17
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -244050,7 +244042,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -244122,7 +244114,7 @@ switch.lookup:
   %5 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang20WarnUnusedResultAttr6CreateERNS_10ASTContextEN4llvm9StringRefENS_11SourceRangeENS0_8SpellingE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -251105,7 +251097,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -251177,7 +251169,7 @@ switch.lookup:
   %3 = alloca %"class.clang::AttributeCommonInfo", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5clang18XRayInstrumentAttr6CreateERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false)
@@ -252536,7 +252528,7 @@ _ZN4llvm12StringSwitchISt8optionalIN5clang20ZeroCallUsedRegsAttr20ZeroCallUsedRe
 define dso_local noundef nonnull ptr @_ZN5clang20ZeroCallUsedRegsAttr32ConvertZeroCallUsedRegsKindToStrENS0_20ZeroCallUsedRegsKindE(i32 noundef %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -252689,7 +252681,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %39, %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4, !tbaa !774
   %46 = zext nneg i32 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 24
@@ -252833,7 +252825,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %109, %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4, !tbaa !774
   %116 = zext nneg i32 %115 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %116
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %116
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   %117 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load108) #17
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i36, i64 24
@@ -252977,7 +252969,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %179, %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %185 = load i32, ptr %184, align 4, !tbaa !774
   %186 = zext nneg i32 %185 to i64
-  %switch.gep109 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %186
+  %switch.gep109 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang20ZeroCallUsedRegsAttr11printPrettyERN4llvm11raw_ostreamERKNS_14PrintingPolicyE.1356, i64 %186
   %switch.load110 = load ptr, ptr %switch.gep109, align 8
   %187 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load110) #17
   %188 = getelementptr inbounds nuw i8, ptr %.0.i.i57, i64 24
@@ -258255,7 +258247,7 @@ _ZNK5clang18XRayInstrumentAttr11getSpellingEv.exit: ; preds = %2512, %2515
 switch.lookup:                                    ; preds = %1841, %1844
   %2531 = phi i32 [ %1843, %1841 ], [ %1845, %1844 ]
   %2532 = zext nneg i32 %2531 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang4Attr11getSpellingEv, i64 %2532
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang4Attr11getSpellingEv, i64 %2532
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK5clang17AArch64SVEPcsAttr11getSpellingEv.exit
 
@@ -262545,7 +262537,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !82
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -262586,7 +262578,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !82
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !84

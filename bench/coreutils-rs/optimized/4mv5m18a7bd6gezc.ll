@@ -381,7 +381,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %28 = phi i64 [ %.pre.i.i, %27 ], [ %24, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !86, !noalias !84, !nonnull !7, !noundef !7
-  %31 = getelementptr inbounds i32, ptr %30, i64 %28
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %28
   store i32 %4, ptr %31, align 4, !noalias !84
   %32 = load i64, ptr %23, align 8, !alias.scope !86, !noalias !84, !noundef !7
   %33 = add i64 %32, 1
@@ -1002,7 +1002,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9db09e4f166235baE.ll
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
-  %12 = getelementptr inbounds i32, ptr %11, i64 %9
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   store i32 %1, ptr %12, align 4
   %13 = load i64, ptr %3, align 8, !noundef !7
   %14 = add i64 %13, 1
@@ -1450,7 +1450,7 @@ define hidden noundef zeroext i1 @"_ZN7uu_uniq30handle_extract_obs_skip_fields28
   %27 = phi i64 [ %.pre.i, %26 ], [ %23, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !233, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds i32, ptr %29, i64 %27
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %27
   store i32 %3, ptr %30, align 4
   %31 = load i64, ptr %22, align 8, !alias.scope !233, !noundef !7
   %32 = add i64 %31, 1

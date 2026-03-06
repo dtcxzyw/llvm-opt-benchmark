@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ue2::FDREngineDescription, std::allocator<ue2::FDREngineDescription>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::FDREngineDescription, std::allocator<ue2::FDREngineDescription>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::FDREngineDescription, std::allocator<ue2::FDREngineDescription>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::FDREngineDescription, std::allocator<ue2::FDREngineDescription>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::FDREngineDescription" = type { %"class.ue2::EngineDescription.base", i32, i32, i32 }
-%"class.ue2::EngineDescription.base" = type <{ ptr, i32, [4 x i8], %"struct.ue2::target_t", i32 }>
-%"struct.ue2::target_t" = type { i32, i64 }
 
 $_ZNSt6vectorIN3ue220FDREngineDescriptionESaIS1_EED2Ev = comdat any
 
@@ -518,7 +515,7 @@ _ZN3ue218getFdrDescriptionsEPSt6vectorINS_20FDREngineDescriptionESaIS1_EE.exit: 
           to label %_ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_.exit unwind label %12
 
 _ZN5boost11make_uniqueIN3ue220FDREngineDescriptionEJRS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS5_St14default_deleteIS5_EEE4typeEDpOT0_.exit: ; preds = %14
-  %16 = getelementptr inbounds nuw %"class.ue2::FDREngineDescription", ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %5
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false), !noalias !12
@@ -717,7 +714,7 @@ _ZNSt12_Vector_baseIN3ue220FDREngineDescriptionESaIS1_EE13_M_deallocateEPS1_m.ex
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8
-  %60 = getelementptr inbounds nuw %"class.ue2::FDREngineDescription", ptr %22, i64 %16
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %60, ptr %59, align 8
   ret void
 

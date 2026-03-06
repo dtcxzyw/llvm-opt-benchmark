@@ -26,13 +26,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<Assimp::D3MF::OpcPackageRelationship *, std::allocator<Assimp::D3MF::OpcPackageRelationship *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMetadataEntry = type { i32, ptr }
 %class.aiColor4t = type { float, float, float, float }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
-%class.aiVector3t = type { float, float, float }
-%struct.aiFace = type { i32, ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
 
@@ -1059,7 +1056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %66 = phi ptr [ %90, %89 ], [ %5, %1 ]
   %67 = phi ptr [ %91, %89 ], [ %4, %1 ]
   %.014 = phi i64 [ %92, %89 ], [ 0, %1 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %.014
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.014
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %89, label %71
@@ -1628,7 +1625,7 @@ _ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE11_S_relocateEPS3_S6
 _ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %141, %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %136, ptr %115, align 8
   store ptr %140, ptr %116, align 8
-  %142 = getelementptr inbounds nuw ptr, ptr %136, i64 %134
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %134
   store ptr %142, ptr %118, align 8
   br label %_ZNSt6vectorIPN6Assimp4D3MF22OpcPackageRelationshipESaIS3_EE9push_backERKS3_.exit
 
@@ -1825,7 +1822,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %44
 .lr.ph:                                           ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
   %60 = phi ptr [ %121, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36 ], [ %33, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %.01138 = phi i64 [ %119, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36 ], [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %.01138
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.01138
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %64 = load ptr, ptr %63, align 8
@@ -1843,7 +1840,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %44
 
 71:                                               ; preds = %69, %67
   %72 = load ptr, ptr %30, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.01138
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.01138
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %76 = load ptr, ptr %75, align 8
@@ -1853,7 +1850,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %44
   %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.10, i64 noundef 2)
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.12, i64 noundef 4)
   %82 = load ptr, ptr %30, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.01138
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.01138
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -1862,7 +1859,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %44
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.10, i64 noundef 2)
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.13, i64 noundef 6)
   %91 = load ptr, ptr %30, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %.01138
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.01138
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8
@@ -2424,7 +2421,7 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter13writeMetaDataEv(ptr noundef n
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw %struct.aiString, ptr %28, i64 %.0852
+  %29 = getelementptr inbounds nuw [1028 x i8], ptr %28, i64 %.0852
   br label %_ZNK10aiMetadata3GetEmRPK8aiStringRPK15aiMetadataEntry.exit
 
 _ZNK10aiMetadata3GetEmRPK8aiStringRPK15aiMetadataEntry.exit: ; preds = %20, %26
@@ -2497,7 +2494,7 @@ _ZNK10aiMetadata3GetEmRPK8aiStringRPK15aiMetadataEntry.exit: ; preds = %20, %26
 
 55:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
-  %56 = getelementptr inbounds nuw %struct.aiString, ptr %54, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw [1028 x i8], ptr %54, i64 %indvars.iv.i.i
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, %spec.select.i.i
   br i1 %58, label %_ZNK8aiStringeqERKS_.exit.i.i, label %_ZNK8aiStringeqERKS_.exit.thread.i.i
@@ -2511,7 +2508,7 @@ _ZNK8aiStringeqERKS_.exit.i.i:                    ; preds = %55
 61:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.i.i
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %63, i64 %indvars.iv.i.i
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv.i.i
   %65 = load i32, ptr %64, align 8
   %.not7.i.i.i = icmp eq i32 %65, 5
   br i1 %.not7.i.i.i, label %66, label %.loopexit
@@ -2767,7 +2764,7 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter18writeBaseMaterialsEv(ptr noun
   %.025253 = phi i64 [ 0, %.lr.ph ], [ %414, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.025253
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.025253
   %64 = load ptr, ptr %63, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %5, i8 0, i64 1028, i1 false)
@@ -4052,7 +4049,7 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter12writeObjectsEv(ptr noundef no
   %15 = phi i32 [ %8, %.lr.ph25 ], [ %116, %115 ]
   %indvars.iv28 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next29, %115 ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv28
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv28
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %115, label %20
@@ -4168,7 +4165,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %72, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %69, ptr %11, align 8
   store ptr %73, ptr %12, align 8
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %67
   store ptr %75, ptr %13, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -4222,10 +4219,10 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit19: ; preds = %88
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %50, align 8
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %102, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %111, label %110
@@ -5072,7 +5069,7 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter9writeMeshEP6aiMesh(ptr noundef
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %16, align 8
-  %29 = getelementptr inbounds nuw %class.aiVector3t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %28, i64 %indvars.iv
   tail call void @_ZN6Assimp4D3MF12D3MFExporter11writeVertexERK10aiVector3tIfE(ptr noundef nonnull align 8 dereferenceable(1224) %0, ptr noundef nonnull align 4 dereferenceable(12) %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %14, align 4
@@ -5189,7 +5186,7 @@ define hidden void @_ZN6Assimp4D3MF12D3MFExporter10writeFacesEP6aiMeshj(ptr noun
 31:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31 ]
   %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds nuw %struct.aiFace, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.18, i64 noundef 1)
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.58, i64 noundef 8)
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.59, i64 noundef 5)

@@ -58,10 +58,10 @@ define { ptr, ptr } @_RNvMNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB2_3ZipI
 _RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEBW_EINtB5_7ZipImplBW_BW_E4nextB1q_.llvm.1623512069835046043.exit.thread.split.loop.exit7: ; preds = %.lr.ph
   store i64 %10, ptr %3, align 8, !alias.scope !4
   %12 = load ptr, ptr %0, align 8, !alias.scope !8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %12, i64 %9
+  %13 = getelementptr inbounds [36 x i8], ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !11, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %15, i64 %9
+  %16 = getelementptr inbounds [36 x i8], ptr %15, i64 %9
   br label %_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEBW_EINtB5_7ZipImplBW_BW_E4nextB1q_.llvm.1623512069835046043.exit.thread
 
 _RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEBW_EINtB5_7ZipImplBW_BW_E4nextB1q_.llvm.1623512069835046043.exit.thread: ; preds = %2, %._RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEBW_EINtB5_7ZipImplBW_BW_E4nextB1q_.llvm.1623512069835046043.exit.thread.split.loop.exit_crit_edge, %_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipINtB5_3ZipINtNtNtBb_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEBW_EINtB5_7ZipImplBW_BW_E4nextB1q_.llvm.1623512069835046043.exit.thread.split.loop.exit7
@@ -179,7 +179,7 @@ define noundef i64 @_RNvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8it
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %1)
-  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.sroa.0.0.sroa.speculated.i.i
   store ptr %10, ptr %0, align 8, !alias.scope !23
   %.not = icmp ugt i64 %1, %9
   br i1 %.not, label %11, label %23
@@ -198,7 +198,7 @@ define noundef i64 @_RNvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8it
   %19 = sub nuw i64 %17, %18
   %20 = lshr exact i64 %19, 5
   %.sroa.0.0.sroa.speculated.i.i3 = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 %12)
-  %21 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %16, i64 %.sroa.0.0.sroa.speculated.i.i3
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.sroa.0.0.sroa.speculated.i.i3
   store ptr %21, ptr %0, align 8, !alias.scope !26
   %22 = sub i64 %12, %.sroa.0.0.sroa.speculated.i.i3
   br label %23
@@ -211,7 +211,7 @@ define noundef i64 @_RNvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8it
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(36) ptr @_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellENtNtNtNtBa_4iter6traits8iterator8Iterator24___iterator_get_uncheckedBT_.llvm.1623512069835046043(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
-  %4 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [36 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -225,7 +225,7 @@ define hidden noundef i64 @_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7Ite
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %1)
-  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %.sroa.0.0.sroa.speculated.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.sroa.0.0.sroa.speculated.i
   store ptr %10, ptr %0, align 8
   %11 = sub i64 %1, %.sroa.0.0.sroa.speculated.i
   ret i64 %11
@@ -289,10 +289,10 @@ define hidden { ptr, ptr } @_RNvXs3_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3zipI
   %8 = add nuw i64 %3, 1
   store i64 %8, ptr %2, align 8
   %9 = load ptr, ptr %0, align 8, !alias.scope !29, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %9, i64 %3
+  %10 = getelementptr inbounds [36 x i8], ptr %9, i64 %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !alias.scope !32, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %12, i64 %3
+  %13 = getelementptr inbounds [36 x i8], ptr %12, i64 %3
   br label %14
 
 14:                                               ; preds = %1, %7
@@ -374,11 +374,11 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = and i32 %.sroa.0.0.copyload.i, 255
   %20 = zext nneg i32 %19 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = and i32 %.sroa.0.0.copyload.i23, 255
   %22 = zext nneg i32 %21 to i64
-  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %22
+  %switch.gep30 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %22
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   call void @_RNvMs1_NtCsbYUTfhIhMOk_7ratatui5styleNtB5_5Style5reset(ptr noalias noundef nonnull sret([16 x i8]) align 2 captures(none) dereferenceable(16) %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -473,7 +473,7 @@ define range(i32 0, -224) i32 @_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_ter
 switch.lookup:
   %1 = and i32 %0, 255
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.46.0.insert.insert = and i32 %0, -256
   %.sroa.05.0.insert.insert = or disjoint i32 %switch.load, %.sroa.46.0.insert.insert

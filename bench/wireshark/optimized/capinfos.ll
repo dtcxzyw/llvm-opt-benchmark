@@ -1120,7 +1120,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %indvars.iv = phi i64 [ %122, %.lr.ph.preheader ], [ %indvars.iv.next, %127 ]
   %.150 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %127 ]
   %.01648 = phi i1 [ false, %.lr.ph.preheader ], [ %spec.select, %127 ]
-  %123 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %123 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
   %125 = call fastcc i32 @process_cap_file(ptr noundef %124, i1 noundef zeroext %.01648)
   %.not46 = icmp eq i32 %125, 0
@@ -1618,7 +1618,7 @@ calculate_hashes.exit:                            ; preds = %23, %60, %62
 154:                                              ; preds = %151
   %155 = load ptr, ptr %70, align 8
   %156 = sext i32 %.pre to i64
-  %157 = getelementptr i32, ptr %155, i64 %156
+  %157 = getelementptr [4 x i8], ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4
   %159 = add i32 %158, 1
   store i32 %159, ptr %157, align 4
@@ -1662,7 +1662,7 @@ calculate_hashes.exit:                            ; preds = %23, %60, %62
   %180 = load ptr, ptr %79, align 8
   %181 = load ptr, ptr %180, align 8
   %182 = zext i32 %179 to i64
-  %183 = getelementptr i32, ptr %181, i64 %182
+  %183 = getelementptr [4 x i8], ptr %181, i64 %182
   %184 = load i32, ptr %183, align 4
   %185 = add i32 %184, 1
   store i32 %185, ptr %183, align 4
@@ -1731,7 +1731,7 @@ calculate_hashes.exit:                            ; preds = %23, %60, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph224 ], [ 0, %._crit_edge213 ]
   %210 = load ptr, ptr %203, align 8
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr ptr, ptr %211, i64 %indvars.iv
+  %212 = getelementptr [8 x i8], ptr %211, i64 %indvars.iv
   %213 = load ptr, ptr %212, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %214 = call ptr @wtap_get_debug_if_descr(ptr noundef %213, i32 noundef 21, ptr noundef nonnull @.str.8)
@@ -1787,7 +1787,7 @@ calculate_hashes.exit:                            ; preds = %23, %60, %62
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i140 ]
   %238 = phi ptr [ %242, %.lr.ph.i ], [ %235, %.preheader.i140 ]
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr ptr, ptr %239, i64 %indvars.iv.i
+  %240 = getelementptr [8 x i8], ptr %239, i64 %indvars.iv.i
   %241 = load ptr, ptr %240, align 8
   call void @g_free(ptr noundef %241)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1841,7 +1841,7 @@ cleanup_capture_info.exit:                        ; preds = %231, %._crit_edge.i
   %indvars.iv.i145 = phi i64 [ %indvars.iv.next.i146, %.lr.ph.i144 ], [ 0, %.preheader.i142 ]
   %264 = phi ptr [ %268, %.lr.ph.i144 ], [ %261, %.preheader.i142 ]
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr ptr, ptr %265, i64 %indvars.iv.i145
+  %266 = getelementptr [8 x i8], ptr %265, i64 %indvars.iv.i145
   %267 = load ptr, ptr %266, align 8
   call void @g_free(ptr noundef %267)
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i145, 1
@@ -2798,7 +2798,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
 .lr.ph.i161:                                      ; preds = %752, %767
   %indvars.iv.i162 = phi i64 [ %indvars.iv.next.i163, %767 ], [ 0, %752 ]
   %756 = load ptr, ptr %70, align 8
-  %757 = getelementptr i32, ptr %756, i64 %indvars.iv.i162
+  %757 = getelementptr [4 x i8], ptr %756, i64 %indvars.iv.i162
   %758 = load i32, ptr %757, align 4
   %759 = icmp sgt i32 %758, 0
   br i1 %759, label %760, label %767
@@ -2807,7 +2807,7 @@ print_stats_table_header.exit:                    ; preds = %print_stats_table_h
   %761 = trunc nuw nsw i64 %indvars.iv.i162 to i32
   %762 = call ptr @wtap_encap_description(i32 noundef %761)
   %763 = load ptr, ptr %70, align 8
-  %764 = getelementptr i32, ptr %763, i64 %indvars.iv.i162
+  %764 = getelementptr [4 x i8], ptr %763, i64 %indvars.iv.i162
   %765 = load i32, ptr %764, align 4
   %766 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.99, ptr noundef %762, i32 noundef %765)
   br label %767
@@ -3131,7 +3131,7 @@ print_value.exit169.i:                            ; preds = %898, %896, %894, %8
 
 switch.lookup:                                    ; preds = %906
   %909 = zext nneg i32 %907 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.process_cap_file.2, i64 %909
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_cap_file.2, i64 %909
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %order_string.exit.i
 
@@ -3414,7 +3414,7 @@ show_option_string.exit194.i:                     ; preds = %string_replace_newl
   %indvars.iv211.i = phi i64 [ %indvars.iv.next212.i, %1012 ], [ 0, %994 ]
   %999 = phi ptr [ %1017, %1012 ], [ %996, %994 ]
   %1000 = load ptr, ptr %999, align 8
-  %1001 = getelementptr ptr, ptr %1000, i64 %indvars.iv211.i
+  %1001 = getelementptr [8 x i8], ptr %1000, i64 %indvars.iv211.i
   %1002 = load ptr, ptr %1001, align 8
   %1003 = load ptr, ptr %79, align 8
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 8
@@ -3425,7 +3425,7 @@ show_option_string.exit194.i:                     ; preds = %string_replace_newl
 
 1008:                                             ; preds = %.lr.ph207.i
   %1009 = load ptr, ptr %1003, align 8
-  %1010 = getelementptr i32, ptr %1009, i64 %indvars.iv211.i
+  %1010 = getelementptr [4 x i8], ptr %1009, i64 %indvars.iv211.i
   %1011 = load i32, ptr %1010, align 4
   br label %1012
 
@@ -4243,7 +4243,7 @@ putquote.exit167.i:                               ; preds = %1425, %1419
 
 switch.lookup395:                                 ; preds = %putquote.exit167.i
   %1431 = zext nneg i32 %1429 to i64
-  %switch.gep396 = getelementptr inbounds nuw ptr, ptr @switch.table.process_cap_file.2, i64 %1431
+  %switch.gep396 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.process_cap_file.2, i64 %1431
   %switch.load397 = load ptr, ptr %switch.gep396, align 8
   br label %order_string.exit.i169
 
@@ -4554,7 +4554,7 @@ print_stats.exit:                                 ; preds = %1033, %1030, %print
   %indvars.iv.i181 = phi i64 [ %indvars.iv.next.i182, %.lr.ph.i180 ], [ 0, %.preheader.i178 ]
   %1577 = phi ptr [ %1581, %.lr.ph.i180 ], [ %1574, %.preheader.i178 ]
   %1578 = load ptr, ptr %1577, align 8
-  %1579 = getelementptr ptr, ptr %1578, i64 %indvars.iv.i181
+  %1579 = getelementptr [8 x i8], ptr %1578, i64 %indvars.iv.i181
   %1580 = load ptr, ptr %1579, align 8
   call void @g_free(ptr noundef %1580)
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i181, 1

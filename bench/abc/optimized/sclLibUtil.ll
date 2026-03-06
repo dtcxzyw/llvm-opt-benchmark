@@ -82,7 +82,7 @@ define ptr @Abc_SclHashLookup(ptr noundef readonly captures(none) %0, ptr nounde
   %7 = sext i8 %6 to i32
   %8 = urem i32 %.01013.i, 10
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @Abc_SclHashString.s_Primes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Abc_SclHashString.s_Primes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = mul nsw i32 %7, %7
   %13 = mul i32 %12, %11
@@ -110,7 +110,7 @@ Abc_SclHashString.exit:                           ; preds = %.lr.ph.i, %2
 25:                                               ; preds = %.lr.ph, %36
   %.024 = phi i32 [ %19, %.lr.ph ], [ %38, %36 ]
   %26 = sext i32 %.024 to i64
-  %27 = getelementptr inbounds i32, ptr %23, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %23, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !14
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %.split.loop.exit18.loopexit.split.loop.exit, label %30
@@ -118,7 +118,7 @@ Abc_SclHashString.exit:                           ; preds = %.lr.ph.i, %2
 30:                                               ; preds = %25
   %.val = load ptr, ptr %20, align 8, !tbaa !18
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds ptr, ptr %.val, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %34) #29
@@ -131,11 +131,11 @@ Abc_SclHashString.exit:                           ; preds = %.lr.ph.i, %2
   br i1 %24, label %25, label %.split.loop.exit18, !llvm.loop !23
 
 .split.loop.exit18.loopexit.split.loop.exit:      ; preds = %25
-  %39 = getelementptr inbounds i32, ptr %23, i64 %26
+  %39 = getelementptr inbounds [4 x i8], ptr %23, i64 %26
   br label %.split.loop.exit18
 
 .split.loop.exit18.loopexit.split.loop.exit31:    ; preds = %30
-  %40 = getelementptr inbounds i32, ptr %23, i64 %26
+  %40 = getelementptr inbounds [4 x i8], ptr %23, i64 %26
   br label %.split.loop.exit18
 
 .split.loop.exit18:                               ; preds = %36, %.split.loop.exit18.loopexit.split.loop.exit, %.split.loop.exit18.loopexit.split.loop.exit31, %Abc_SclHashString.exit
@@ -199,7 +199,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
 19:                                               ; preds = %.lr.ph35, %Abc_SclHashLookup.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next, %Abc_SclHashLookup.exit.thread ]
   %.val = load ptr, ptr %18, align 8, !tbaa !18
-  %20 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = load i32, ptr %12, align 8, !tbaa !3
@@ -214,7 +214,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %7
   %26 = sext i8 %25 to i32
   %27 = urem i32 %.01013.i.i, 10
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @Abc_SclHashString.s_Primes, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @Abc_SclHashString.s_Primes, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !14
   %31 = mul nsw i32 %26, %26
   %32 = mul i32 %31, %30
@@ -234,14 +234,14 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %19
   %40 = load ptr, ptr %16, align 8, !tbaa !17
   %41 = icmp sgt i32 %23, -1
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds i32, ptr %40, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !14
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %Abc_SclHashLookup.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Abc_SclHashString.exit.i
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %.val, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %.val, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !19
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %49) #29
@@ -254,7 +254,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %19
 
 .lr.ph:                                           ; preds = %.lr.ph60
   %51 = sext i32 %60 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !19
   %54 = load ptr, ptr %53, align 8, !tbaa !20
   %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %54) #29
@@ -266,7 +266,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %19
   %56 = add nsw i32 %.024.i3259, 1
   %57 = srem i32 %56, %23
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %40, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %40, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !14
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %Abc_SclHashLookup.exit.thread, label %.lr.ph
@@ -278,7 +278,7 @@ Abc_SclHashLookup.exit:                           ; preds = %.lr.ph, %.lr.ph.pre
 
 Abc_SclHashLookup.exit.thread:                    ; preds = %.lr.ph60, %Abc_SclHashString.exit.i, %Abc_SclHashLookup.exit
   %.lcssa31.pn = phi i64 [ %.lcssa53, %Abc_SclHashLookup.exit ], [ %42, %Abc_SclHashString.exit.i ], [ %58, %.lr.ph60 ]
-  %63 = getelementptr inbounds i32, ptr %40, i64 %.lcssa31.pn
+  %63 = getelementptr inbounds [4 x i8], ptr %40, i64 %.lcssa31.pn
   %64 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %64, ptr %63, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -316,7 +316,7 @@ define i32 @Abc_SclCellFind(ptr noundef readonly captures(none) %0, ptr noundef 
   %7 = sext i8 %6 to i32
   %8 = urem i32 %.01013.i.i, 10
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @Abc_SclHashString.s_Primes, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @Abc_SclHashString.s_Primes, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = mul nsw i32 %7, %7
   %13 = mul i32 %12, %11
@@ -343,7 +343,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i
   %25 = zext nneg i32 %19 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !14
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %Abc_SclHashLookup.exit.thread, label %.lr.ph
@@ -356,7 +356,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
   %.pre.pre = phi i32 [ %27, %.lr.ph ], [ %40, %35 ]
   %.024.i.us9 = phi i32 [ %19, %.lr.ph ], [ %37, %35 ]
   %30 = sext i32 %.pre.pre to i64
-  %31 = getelementptr inbounds ptr, ptr %.val.i.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.val.i.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !19
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %33) #29
@@ -367,14 +367,14 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
   %36 = add nsw i32 %.024.i.us9, 1
   %37 = srem i32 %36, %.fr12
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %23, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %23, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !14
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %Abc_SclHashLookup.exit.thread, label %29
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i
   %42 = sext i32 %19 to i64
-  %43 = getelementptr inbounds i32, ptr %23, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %23, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !14
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %Abc_SclHashLookup.exit.thread, label %46
@@ -382,7 +382,7 @@ Abc_SclHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
 46:                                               ; preds = %.lr.ph.i.split
   %.val.i = load ptr, ptr %20, align 8, !tbaa !18
   %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds ptr, ptr %.val.i, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !19
   %50 = load ptr, ptr %49, align 8, !tbaa !20
   %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %50) #29
@@ -494,7 +494,7 @@ Abc_SclFindLimit.exit.preheader:                  ; preds = %.preheader
 
 28:                                               ; preds = %.lr.ph, %Abc_SclFindLimit.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_SclFindLimit.exit ]
-  %29 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   %32 = tail call i32 @strncmp(ptr noundef readonly %31, ptr noundef nonnull %.01726, i64 noundef %27) #29
@@ -553,7 +553,7 @@ Abc_Base10Log.exit:                               ; preds = %1
 11:                                               ; preds = %.lr.ph121, %182
   %indvars.iv136 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next137, %182 ]
   %.val86 = load ptr, ptr %9, align 8, !tbaa !18
-  %12 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv136
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val86, i64 %indvars.iv136
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   br label %14
 
@@ -640,7 +640,7 @@ Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_Sc
 44:                                               ; preds = %.lr.ph, %Abc_SclPinUpdate.exit
   %indvars.iv = phi i64 [ %40, %.lr.ph ], [ %indvars.iv.next, %Abc_SclPinUpdate.exit ]
   %.val85 = load ptr, ptr %39, align 8, !tbaa !18
-  %45 = getelementptr inbounds ptr, ptr %.val85, i64 %indvars.iv
+  %45 = getelementptr inbounds [8 x i8], ptr %.val85, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !19
   %47 = getelementptr i8, ptr %46, i64 68
   %.val3845.i = load i32, ptr %47, align 4, !tbaa !24
@@ -656,7 +656,7 @@ Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_Sc
   %.pre.i = phi i32 [ %.pre.pre.i, %.lr.ph47.i ], [ %.pre56.i, %.critedge2.i ]
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next52.i, %.critedge2.i ]
   %.val37.i = load ptr, ptr %49, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw ptr, ptr %.val37.i, i64 %indvars.iv51.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.val37.i, i64 %indvars.iv51.i
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   %53 = getelementptr i8, ptr %52, i64 12
   %.val78.i.i = load i32, ptr %53, align 4, !tbaa !24
@@ -674,7 +674,7 @@ Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_Sc
   %57 = phi i32 [ %83, %Abc_SclTimingUpdate.exit.i.i ], [ %.pre.i, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %Abc_SclTimingUpdate.exit.i.i ], [ 0, %.lr.ph.i.i ]
   %.val.i.i = load ptr, ptr %55, align 8, !tbaa !18
-  %58 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %indvars.iv.i.i
   %59 = load ptr, ptr %58, align 8, !tbaa !19
   %60 = icmp sgt i32 %57, 0
   br i1 %60, label %.lr.ph.i.i.i, label %Abc_SclTimingUpdate.exit.i.i
@@ -695,7 +695,7 @@ Abc_Base10Log.exit100:                            ; preds = %.lr.ph.i95, %Abc_Sc
 
 66:                                               ; preds = %.lr.ph.split.i.i.i
   %.val.i.i.i = load ptr, ptr %39, align 8, !tbaa !18
-  %67 = getelementptr inbounds nuw ptr, ptr %.val.i.i.i, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %indvars.iv.i.i.i
   %68 = load ptr, ptr %67, align 8, !tbaa !19
   %69 = load ptr, ptr %68, align 8, !tbaa !33
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %69) #29
@@ -760,7 +760,7 @@ Abc_SclTimingsUpdate.exit.i:                      ; preds = %Abc_SclTimingUpdate
 
 92:                                               ; preds = %.lr.ph.split.i
   %.val.i = load ptr, ptr %39, align 8, !tbaa !18
-  %93 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8, !tbaa !19
   %95 = load ptr, ptr %94, align 8, !tbaa !33
   %96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %95) #29
@@ -864,7 +864,7 @@ Abc_SclFindLimit.exit.preheader.i.i:              ; preds = %.preheader.i.i
 
 133:                                              ; preds = %Abc_SclFindLimit.exit.i.i, %.lr.ph.i39.i
   %indvars.iv.i41.i = phi i64 [ 0, %.lr.ph.i39.i ], [ %indvars.iv.next.i42.i, %Abc_SclFindLimit.exit.i.i ]
-  %134 = getelementptr inbounds nuw ptr, ptr %.val.i40.i, i64 %indvars.iv.i41.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.val.i40.i, i64 %indvars.iv.i41.i
   %135 = load ptr, ptr %134, align 8, !tbaa !19
   %136 = load ptr, ptr %135, align 8, !tbaa !33
   %137 = tail call i32 @strncmp(ptr noundef readonly %136, ptr noundef nonnull %.01726.i.i, i64 noundef %132) #29
@@ -922,7 +922,7 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
 152:                                              ; preds = %.lr.ph113, %.critedge2
   %indvars.iv130 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next131, %.critedge2 ]
   %.val84 = load ptr, ptr %43, align 8, !tbaa !18
-  %153 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv130
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.val84, i64 %indvars.iv130
   %154 = load ptr, ptr %153, align 8, !tbaa !19
   %155 = load ptr, ptr %154, align 8, !tbaa !33
   %.not81 = icmp eq ptr %155, null
@@ -951,7 +951,7 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
 165:                                              ; preds = %.lr.ph116, %.critedge4
   %indvars.iv133 = phi i64 [ %151, %.lr.ph116 ], [ %indvars.iv.next134, %.critedge4 ]
   %.val = load ptr, ptr %150, align 8, !tbaa !18
-  %166 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv133
+  %166 = getelementptr inbounds [8 x i8], ptr %.val, i64 %indvars.iv133
   %167 = load ptr, ptr %166, align 8, !tbaa !19
   %168 = load ptr, ptr %167, align 8, !tbaa !33
   %.not80 = icmp eq ptr %168, null
@@ -1066,7 +1066,7 @@ define void @Abc_SclLinkCells(ptr noundef captures(none) %0) local_unnamed_addr 
   %indvars.iv169 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next170, %87 ]
   %.094148 = phi ptr [ null, %.lr.ph150 ], [ %.296199, %87 ]
   %.val103 = load ptr, ptr %4, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw ptr, ptr %.val103, i64 %indvars.iv169
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val103, i64 %indvars.iv169
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = icmp sgt i32 %.val113, 0
   br i1 %11, label %.lr.ph, label %.critedge2
@@ -1083,7 +1083,7 @@ define void @Abc_SclLinkCells(ptr noundef captures(none) %0) local_unnamed_addr 
 
 17:                                               ; preds = %.lr.ph, %Vec_WrdEqual.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_WrdEqual.exit.thread ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.val102, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val102, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !32
@@ -1099,11 +1099,11 @@ define void @Abc_SclLinkCells(ptr noundef captures(none) %0) local_unnamed_addr 
 
 28:                                               ; preds = %23
   %.val115 = load ptr, ptr %15, align 8, !tbaa !18
-  %29 = getelementptr inbounds ptr, ptr %.val115, i64 %16
+  %29 = getelementptr inbounds [8 x i8], ptr %.val115, i64 %16
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr i8, ptr %19, i64 56
   %.val117 = load ptr, ptr %31, align 8, !tbaa !18
-  %32 = getelementptr inbounds ptr, ptr %.val117, i64 %16
+  %32 = getelementptr inbounds [8 x i8], ptr %.val117, i64 %16
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %35 = load i32, ptr %34, align 4, !tbaa !60
@@ -1131,9 +1131,9 @@ define void @Abc_SclLinkCells(ptr noundef captures(none) %0) local_unnamed_addr 
 
 44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %45 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %46 = load i64, ptr %45, align 8, !tbaa !63
-  %47 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %48 = load i64, ptr %47, align 8, !tbaa !63
   %.not10.i = icmp eq i64 %46, %48
   br i1 %.not10.i, label %43, label %Vec_WrdEqual.exit.thread
@@ -1218,7 +1218,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %5, align 4, !tbaa !24
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %74, i64 %77
   store ptr %10, ptr %78, align 8, !tbaa !19
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store ptr %10, ptr %79, align 8, !tbaa !67
@@ -1270,7 +1270,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.promoted153 = phi i32 [ %122, %.critedge6 ], [ 100, %.critedge ]
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.critedge6 ], [ 0, %.critedge ]
   %.val101 = load ptr, ptr %90, align 8, !tbaa !18
-  %98 = getelementptr inbounds nuw ptr, ptr %.val101, i64 %indvars.iv182
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.val101, i64 %indvars.iv182
   %99 = load ptr, ptr %98, align 8, !tbaa !19
   br label %100
 
@@ -1332,7 +1332,7 @@ Vec_PtrPush.exit128:                              ; preds = %.Vec_PtrGrow.exit11
   %122 = phi i32 [ %101, %.Vec_PtrGrow.exit11_crit_edge.i122 ], [ %121, %119 ], [ 16, %Vec_PtrGrow.exit.i127 ]
   %123 = phi ptr [ %.pre.i124, %.Vec_PtrGrow.exit11_crit_edge.i122 ], [ %120, %119 ], [ %112, %Vec_PtrGrow.exit.i127 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv172
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv172
   store ptr %.097151, ptr %124, align 8, !tbaa !19
   %125 = getelementptr inbounds nuw i8, ptr %.097151, i64 72
   %126 = load ptr, ptr %125, align 8, !tbaa !28
@@ -1355,7 +1355,7 @@ Vec_PtrPush.exit128:                              ; preds = %.Vec_PtrGrow.exit11
   store ptr %130, ptr %133, align 8, !tbaa !70
   %134 = lshr i64 %indvars.iv.next173, 1
   %135 = and i64 %134, 2147483647
-  %136 = getelementptr inbounds nuw ptr, ptr %.val120, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.val120, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !19
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 96
   store ptr %137, ptr %138, align 8, !tbaa !71
@@ -1373,7 +1373,7 @@ Vec_PtrPush.exit128:                              ; preds = %.Vec_PtrGrow.exit11
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %141 = phi ptr [ %130, %.lr.ph156.preheader ], [ %143, %.lr.ph156 ]
   %indvars.iv175 = phi i64 [ 1, %.lr.ph156.preheader ], [ %indvars.iv.next176, %.lr.ph156 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %.val120, i64 %indvars.iv175
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.val120, i64 %indvars.iv175
   %143 = load ptr, ptr %142, align 8, !tbaa !19
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 72
   store ptr %143, ptr %144, align 8, !tbaa !28
@@ -1398,7 +1398,7 @@ Vec_PtrPush.exit128:                              ; preds = %.Vec_PtrGrow.exit11
 
 .critedge6:                                       ; preds = %.lr.ph156, %127
   %.val121 = load ptr, ptr %90, align 8, !tbaa !18
-  %153 = getelementptr inbounds nuw ptr, ptr %.val121, i64 %indvars.iv182
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.val121, i64 %indvars.iv182
   store ptr %130, ptr %153, align 8, !tbaa !19
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %.val110 = load i32, ptr %91, align 4, !tbaa !24
@@ -1451,7 +1451,7 @@ define internal i32 @Abc_SclCompareCells(ptr noundef readonly captures(none) %0,
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %.010.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %27, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load float, ptr %18, align 8, !tbaa !77
@@ -1484,7 +1484,7 @@ SC_CellPinCapAve.exit:                            ; preds = %15, %12
 33:                                               ; preds = %33, %.lr.ph.i13
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i18, %33 ]
   %.010.i17 = phi float [ 0.000000e+00, %.lr.ph.i13 ], [ %45, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %.val.i14, i64 %indvars.iv.i16
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val.i14, i64 %indvars.iv.i16
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load float, ptr %36, align 8, !tbaa !77
@@ -1520,7 +1520,7 @@ SC_CellPinCapAve.exit20:                          ; preds = %33, %SC_CellPinCapA
 52:                                               ; preds = %52, %.lr.ph.i22
   %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i27, %52 ]
   %.010.i26 = phi float [ 0.000000e+00, %.lr.ph.i22 ], [ %64, %52 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.val.i23, i64 %indvars.iv.i25
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.val.i23, i64 %indvars.iv.i25
   %54 = load ptr, ptr %53, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load float, ptr %55, align 8, !tbaa !77
@@ -1550,7 +1550,7 @@ SC_CellPinCapAve.exit29:                          ; preds = %52, %50
 67:                                               ; preds = %67, %.lr.ph.i31
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i36, %67 ]
   %.010.i35 = phi float [ 0.000000e+00, %.lr.ph.i31 ], [ %79, %67 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %.val.i32, i64 %indvars.iv.i34
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val.i32, i64 %indvars.iv.i34
   %69 = load ptr, ptr %68, align 8, !tbaa !19
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load float, ptr %70, align 8, !tbaa !77
@@ -1600,7 +1600,7 @@ define ptr @Abc_SclFindInvertor(ptr noundef readonly captures(none) %0, i32 noun
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.be, %.backedge.backedge ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !32
@@ -1672,7 +1672,7 @@ define ptr @Abc_SclFindSmallestGate(ptr noundef readonly captures(none) %0, floa
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.010.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %24, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load float, ptr %15, align 8, !tbaa !77
@@ -1726,7 +1726,7 @@ define noundef ptr @Abc_SclFetchWireLoadModel(ptr noundef readonly captures(none
 
 6:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = load ptr, ptr %8, align 8, !tbaa !82
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #29
@@ -1837,7 +1837,7 @@ define noundef ptr @Abc_SclFindWireLoadModel(ptr noundef readonly captures(none)
 
 9:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val44, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = load ptr, ptr %11, align 8, !tbaa !91
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %4) #29
@@ -1879,14 +1879,14 @@ define noundef ptr @Abc_SclFindWireLoadModel(ptr noundef readonly captures(none)
 
 21:                                               ; preds = %.lr.ph69, %34
   %indvars.iv80 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next81, %34 ]
-  %22 = getelementptr inbounds nuw float, ptr %.val49, i64 %indvars.iv80
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val49, i64 %indvars.iv80
   %23 = load float, ptr %22, align 4, !tbaa !96
   %24 = fcmp ult float %1, %23
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %21
   %.val50 = load ptr, ptr %20, align 8, !tbaa !95
-  %26 = getelementptr inbounds nuw float, ptr %.val50, i64 %indvars.iv80
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.val50, i64 %indvars.iv80
   %27 = load float, ptr %26, align 4, !tbaa !96
   %28 = fcmp olt float %1, %27
   br i1 %28, label %29, label %34
@@ -1895,7 +1895,7 @@ define noundef ptr @Abc_SclFindWireLoadModel(ptr noundef readonly captures(none)
   %30 = trunc nuw nsw i64 %indvars.iv80 to i32
   %31 = getelementptr i8, ptr %.1, i64 48
   %.val = load ptr, ptr %31, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv80
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv80
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   br label %.loopexit
 
@@ -1916,7 +1916,7 @@ define noundef ptr @Abc_SclFindWireLoadModel(ptr noundef readonly captures(none)
   %37 = getelementptr i8, ptr %.1, i64 48
   %.val52 = load ptr, ptr %37, align 8, !tbaa !18
   %38 = sext i32 %.val51 to i64
-  %39 = getelementptr ptr, ptr %.val52, i64 %38
+  %39 = getelementptr [8 x i8], ptr %.val52, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -8
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   br label %46
@@ -1947,7 +1947,7 @@ define noundef ptr @Abc_SclFindWireLoadModel(ptr noundef readonly captures(none)
 
 50:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   %53 = load ptr, ptr %52, align 8, !tbaa !82
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.2) #29
@@ -1997,7 +1997,7 @@ define range(i32 0, 2) i32 @Abc_SclHasDelayInfo(ptr noundef readonly captures(no
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.i.be, %.backedge.backedge ]
-  %5 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8, !tbaa !32
@@ -2039,7 +2039,7 @@ Abc_SclFindInvertor.exit:                         ; preds = %10, %16
   %22 = getelementptr i8, ptr %18, i64 64
   %.val6 = load i32, ptr %22, align 8, !tbaa !32
   %23 = sext i32 %.val6 to i64
-  %24 = getelementptr inbounds ptr, ptr %.val, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.val, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = getelementptr i8, ptr %25, i64 72
   %.val6.i = load ptr, ptr %26, align 8, !tbaa !18
@@ -2077,7 +2077,7 @@ define float @Abc_SclComputeAverageSlew(ptr noundef readonly captures(none) %0) 
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.i.be, %.backedge.backedge ]
-  %5 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8, !tbaa !32
@@ -2119,7 +2119,7 @@ Abc_SclFindInvertor.exit:                         ; preds = %10, %16
   %22 = getelementptr i8, ptr %18, i64 64
   %.val12 = load i32, ptr %22, align 8, !tbaa !32
   %23 = sext i32 %.val12 to i64
-  %24 = getelementptr inbounds ptr, ptr %.val11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.val11, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = getelementptr i8, ptr %25, i64 72
   %.val6.i = load ptr, ptr %26, align 8, !tbaa !18
@@ -2143,7 +2143,7 @@ Scl_CellPinTime.exit:                             ; preds = %20
   %36 = getelementptr i8, ptr %31, i64 40
   %.val10 = load ptr, ptr %36, align 8, !tbaa !95
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds float, ptr %.val10, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %.val10, i64 %37
   %39 = load float, ptr %38, align 4, !tbaa !96
   br label %Abc_SclFindInvertor.exit.thread
 
@@ -2171,12 +2171,12 @@ define range(i32 0, 2) i32 @Abc_SclComputeParametersPin(ptr readnone captures(no
   %12 = getelementptr i8, ptr %1, i64 64
   %.val29 = load i32, ptr %12, align 8, !tbaa !32
   %13 = sext i32 %.val29 to i64
-  %14 = getelementptr inbounds ptr, ptr %.val28, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = getelementptr i8, ptr %15, i64 72
   %.val6.i = load ptr, ptr %16, align 8, !tbaa !18
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds ptr, ptr %.val6.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val6.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = getelementptr i8, ptr %19, i64 12
   %.val7.i = load i32, ptr %20, align 4, !tbaa !24
@@ -2211,7 +2211,7 @@ Scl_CellPinTime.exit:                             ; preds = %6
   %.val26 = load ptr, ptr %33, align 8, !tbaa !95
   %34 = load float, ptr %.val26, align 4, !tbaa !96
   %35 = sext i32 %.val24 to i64
-  %36 = getelementptr float, ptr %.val26, i64 %35
+  %36 = getelementptr [4 x i8], ptr %.val26, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load float, ptr %37, align 4, !tbaa !96
   call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %23, float 0.000000e+00, float 0.000000e+00, float %3, float %3, float 0.000000e+00, float 0.000000e+00, ptr noundef %7, ptr noundef %10)
@@ -2243,7 +2243,7 @@ Scl_CellPinTime.exit:                             ; preds = %6
   %62 = fptrunc double %61 to float
   %63 = fsub float %62, %54
   %64 = fsub float %38, %34
-  %65 = getelementptr inbounds ptr, ptr %.val28, i64 %17
+  %65 = getelementptr inbounds [8 x i8], ptr %.val28, i64 %17
   %66 = load ptr, ptr %65, align 8, !tbaa !19
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load float, ptr %67, align 8, !tbaa !77
@@ -2322,7 +2322,7 @@ define internal fastcc void @Scl_LibPinArrival(ptr noundef readonly %0, float no
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %23 = getelementptr inbounds nuw float, ptr %.val65.i, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !96
   %25 = fcmp ogt float %24, %.0.val1
   br i1 %25, label %._crit_edge.loopexit.split.loop.exit.i, label %26
@@ -2354,7 +2354,7 @@ define internal fastcc void @Scl_LibPinArrival(ptr noundef readonly %0, float no
 
 .lr.ph74.i:                                       ; preds = %36, %.lr.ph74.preheader.i
   %indvars.iv80.i = phi i64 [ 1, %.lr.ph74.preheader.i ], [ %indvars.iv.next81.i, %36 ]
-  %33 = getelementptr inbounds nuw float, ptr %.val66.i, i64 %indvars.iv80.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i, i64 %indvars.iv80.i
   %34 = load float, ptr %33, align 4, !tbaa !96
   %35 = fcmp ogt float %34, %.0.val5
   br i1 %35, label %._crit_edge75.loopexit.split.loop.exit.i, label %36
@@ -2372,42 +2372,42 @@ define internal fastcc void @Scl_LibPinArrival(ptr noundef readonly %0, float no
   %.056.lcssa.i = phi i32 [ 1, %._crit_edge.i ], [ %37, %._crit_edge75.loopexit.split.loop.exit.i ], [ %31, %36 ]
   %38 = add nsw i32 %.056.lcssa.i, -1
   %39 = sext i32 %28 to i64
-  %40 = getelementptr inbounds float, ptr %.val6586.i, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %.val6586.i, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !96
   %42 = fsub float %.0.val1, %41
   %43 = zext nneg i32 %.057.lcssa.i to i64
-  %44 = getelementptr inbounds nuw float, ptr %.val6586.i, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !96
   %46 = fsub float %45, %41
   %47 = fdiv float %42, %46
   %48 = sext i32 %38 to i64
-  %49 = getelementptr inbounds float, ptr %.val66.i, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %.val66.i, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !96
   %51 = fsub float %.0.val5, %50
   %52 = zext nneg i32 %.056.lcssa.i to i64
-  %53 = getelementptr inbounds nuw float, ptr %.val66.i, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !96
   %55 = fsub float %54, %50
   %56 = fdiv float %51, %55
   %57 = getelementptr i8, ptr %0, i64 72
   %.val58.i = load ptr, ptr %57, align 8, !tbaa !18
-  %58 = getelementptr inbounds ptr, ptr %.val58.i, i64 %39
+  %58 = getelementptr inbounds [8 x i8], ptr %.val58.i, i64 %39
   %59 = load ptr, ptr %58, align 8, !tbaa !19
   %60 = getelementptr i8, ptr %59, i64 8
   %.val67.i = load ptr, ptr %60, align 8, !tbaa !95
-  %61 = getelementptr inbounds nuw ptr, ptr %.val58.i, i64 %43
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i, i64 %43
   %62 = load ptr, ptr %61, align 8, !tbaa !19
   %63 = getelementptr i8, ptr %62, i64 8
   %.val68.i = load ptr, ptr %63, align 8, !tbaa !95
-  %64 = getelementptr inbounds float, ptr %.val67.i, i64 %48
+  %64 = getelementptr inbounds [4 x i8], ptr %.val67.i, i64 %48
   %65 = load float, ptr %64, align 4, !tbaa !96
-  %66 = getelementptr inbounds nuw float, ptr %.val67.i, i64 %52
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i, i64 %52
   %67 = load float, ptr %66, align 4, !tbaa !96
   %68 = fsub float %67, %65
   %69 = tail call float @llvm.fmuladd.f32(float %56, float %68, float %65)
-  %70 = getelementptr inbounds float, ptr %.val68.i, i64 %48
+  %70 = getelementptr inbounds [4 x i8], ptr %.val68.i, i64 %48
   %71 = load float, ptr %70, align 4, !tbaa !96
-  %72 = getelementptr inbounds nuw float, ptr %.val68.i, i64 %52
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i, i64 %52
   %73 = load float, ptr %72, align 4, !tbaa !96
   %74 = fsub float %73, %71
   %75 = tail call float @llvm.fmuladd.f32(float %56, float %74, float %71)
@@ -2461,7 +2461,7 @@ Scl_LibLookup.exit:                               ; preds = %14, %._crit_edge75.
 
 .lr.ph.i71:                                       ; preds = %101, %.lr.ph.preheader.i69
   %indvars.iv.i72 = phi i64 [ 1, %.lr.ph.preheader.i69 ], [ %indvars.iv.next.i73, %101 ]
-  %98 = getelementptr inbounds nuw float, ptr %.val65.i50, i64 %indvars.iv.i72
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i50, i64 %indvars.iv.i72
   %99 = load float, ptr %98, align 4, !tbaa !96
   %100 = fcmp ogt float %99, %.4.val3
   br i1 %100, label %._crit_edge.loopexit.split.loop.exit.i75, label %101
@@ -2493,7 +2493,7 @@ Scl_LibLookup.exit:                               ; preds = %14, %._crit_edge75.
 
 .lr.ph74.i64:                                     ; preds = %111, %.lr.ph74.preheader.i62
   %indvars.iv80.i65 = phi i64 [ 1, %.lr.ph74.preheader.i62 ], [ %indvars.iv.next81.i66, %111 ]
-  %108 = getelementptr inbounds nuw float, ptr %.val66.i54, i64 %indvars.iv80.i65
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i54, i64 %indvars.iv80.i65
   %109 = load float, ptr %108, align 4, !tbaa !96
   %110 = fcmp ogt float %109, %.4.val7
   br i1 %110, label %._crit_edge75.loopexit.split.loop.exit.i68, label %111
@@ -2511,42 +2511,42 @@ Scl_LibLookup.exit:                               ; preds = %14, %._crit_edge75.
   %.056.lcssa.i57 = phi i32 [ 1, %._crit_edge.i51 ], [ %112, %._crit_edge75.loopexit.split.loop.exit.i68 ], [ %106, %111 ]
   %113 = add nsw i32 %.056.lcssa.i57, -1
   %114 = sext i32 %103 to i64
-  %115 = getelementptr inbounds float, ptr %.val6586.i52, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.val6586.i52, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !96
   %117 = fsub float %.4.val3, %116
   %118 = zext nneg i32 %.057.lcssa.i53 to i64
-  %119 = getelementptr inbounds nuw float, ptr %.val6586.i52, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i52, i64 %118
   %120 = load float, ptr %119, align 4, !tbaa !96
   %121 = fsub float %120, %116
   %122 = fdiv float %117, %121
   %123 = sext i32 %113 to i64
-  %124 = getelementptr inbounds float, ptr %.val66.i54, i64 %123
+  %124 = getelementptr inbounds [4 x i8], ptr %.val66.i54, i64 %123
   %125 = load float, ptr %124, align 4, !tbaa !96
   %126 = fsub float %.4.val7, %125
   %127 = zext nneg i32 %.056.lcssa.i57 to i64
-  %128 = getelementptr inbounds nuw float, ptr %.val66.i54, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i54, i64 %127
   %129 = load float, ptr %128, align 4, !tbaa !96
   %130 = fsub float %129, %125
   %131 = fdiv float %126, %130
   %132 = getelementptr i8, ptr %0, i64 248
   %.val58.i58 = load ptr, ptr %132, align 8, !tbaa !18
-  %133 = getelementptr inbounds ptr, ptr %.val58.i58, i64 %114
+  %133 = getelementptr inbounds [8 x i8], ptr %.val58.i58, i64 %114
   %134 = load ptr, ptr %133, align 8, !tbaa !19
   %135 = getelementptr i8, ptr %134, i64 8
   %.val67.i59 = load ptr, ptr %135, align 8, !tbaa !95
-  %136 = getelementptr inbounds nuw ptr, ptr %.val58.i58, i64 %118
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i58, i64 %118
   %137 = load ptr, ptr %136, align 8, !tbaa !19
   %138 = getelementptr i8, ptr %137, i64 8
   %.val68.i60 = load ptr, ptr %138, align 8, !tbaa !95
-  %139 = getelementptr inbounds float, ptr %.val67.i59, i64 %123
+  %139 = getelementptr inbounds [4 x i8], ptr %.val67.i59, i64 %123
   %140 = load float, ptr %139, align 4, !tbaa !96
-  %141 = getelementptr inbounds nuw float, ptr %.val67.i59, i64 %127
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i59, i64 %127
   %142 = load float, ptr %141, align 4, !tbaa !96
   %143 = fsub float %142, %140
   %144 = tail call float @llvm.fmuladd.f32(float %131, float %143, float %140)
-  %145 = getelementptr inbounds float, ptr %.val68.i60, i64 %123
+  %145 = getelementptr inbounds [4 x i8], ptr %.val68.i60, i64 %123
   %146 = load float, ptr %145, align 4, !tbaa !96
-  %147 = getelementptr inbounds nuw float, ptr %.val68.i60, i64 %127
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i60, i64 %127
   %148 = load float, ptr %147, align 4, !tbaa !96
   %149 = fsub float %148, %146
   %150 = tail call float @llvm.fmuladd.f32(float %131, float %149, float %146)
@@ -2599,7 +2599,7 @@ Scl_LibLookup.exit81:                             ; preds = %89, %._crit_edge75.
 
 .lr.ph.i104:                                      ; preds = %175, %.lr.ph.preheader.i102
   %indvars.iv.i105 = phi i64 [ 1, %.lr.ph.preheader.i102 ], [ %indvars.iv.next.i106, %175 ]
-  %172 = getelementptr inbounds nuw float, ptr %.val65.i83, i64 %indvars.iv.i105
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i83, i64 %indvars.iv.i105
   %173 = load float, ptr %172, align 4, !tbaa !96
   %174 = fcmp ogt float %173, %.0.val1
   br i1 %174, label %._crit_edge.loopexit.split.loop.exit.i108, label %175
@@ -2631,7 +2631,7 @@ Scl_LibLookup.exit81:                             ; preds = %89, %._crit_edge75.
 
 .lr.ph74.i97:                                     ; preds = %185, %.lr.ph74.preheader.i95
   %indvars.iv80.i98 = phi i64 [ 1, %.lr.ph74.preheader.i95 ], [ %indvars.iv.next81.i99, %185 ]
-  %182 = getelementptr inbounds nuw float, ptr %.val66.i87, i64 %indvars.iv80.i98
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i87, i64 %indvars.iv80.i98
   %183 = load float, ptr %182, align 4, !tbaa !96
   %184 = fcmp ogt float %183, %.0.val5
   br i1 %184, label %._crit_edge75.loopexit.split.loop.exit.i101, label %185
@@ -2649,42 +2649,42 @@ Scl_LibLookup.exit81:                             ; preds = %89, %._crit_edge75.
   %.056.lcssa.i90 = phi i32 [ 1, %._crit_edge.i84 ], [ %186, %._crit_edge75.loopexit.split.loop.exit.i101 ], [ %180, %185 ]
   %187 = add nsw i32 %.056.lcssa.i90, -1
   %188 = sext i32 %177 to i64
-  %189 = getelementptr inbounds float, ptr %.val6586.i85, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %.val6586.i85, i64 %188
   %190 = load float, ptr %189, align 4, !tbaa !96
   %191 = fsub float %.0.val1, %190
   %192 = zext nneg i32 %.057.lcssa.i86 to i64
-  %193 = getelementptr inbounds nuw float, ptr %.val6586.i85, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i85, i64 %192
   %194 = load float, ptr %193, align 4, !tbaa !96
   %195 = fsub float %194, %190
   %196 = fdiv float %191, %195
   %197 = sext i32 %187 to i64
-  %198 = getelementptr inbounds float, ptr %.val66.i87, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr %.val66.i87, i64 %197
   %199 = load float, ptr %198, align 4, !tbaa !96
   %200 = fsub float %.0.val5, %199
   %201 = zext nneg i32 %.056.lcssa.i90 to i64
-  %202 = getelementptr inbounds nuw float, ptr %.val66.i87, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i87, i64 %201
   %203 = load float, ptr %202, align 4, !tbaa !96
   %204 = fsub float %203, %199
   %205 = fdiv float %200, %204
   %206 = getelementptr i8, ptr %0, i64 424
   %.val58.i91 = load ptr, ptr %206, align 8, !tbaa !18
-  %207 = getelementptr inbounds ptr, ptr %.val58.i91, i64 %188
+  %207 = getelementptr inbounds [8 x i8], ptr %.val58.i91, i64 %188
   %208 = load ptr, ptr %207, align 8, !tbaa !19
   %209 = getelementptr i8, ptr %208, i64 8
   %.val67.i92 = load ptr, ptr %209, align 8, !tbaa !95
-  %210 = getelementptr inbounds nuw ptr, ptr %.val58.i91, i64 %192
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i91, i64 %192
   %211 = load ptr, ptr %210, align 8, !tbaa !19
   %212 = getelementptr i8, ptr %211, i64 8
   %.val68.i93 = load ptr, ptr %212, align 8, !tbaa !95
-  %213 = getelementptr inbounds float, ptr %.val67.i92, i64 %197
+  %213 = getelementptr inbounds [4 x i8], ptr %.val67.i92, i64 %197
   %214 = load float, ptr %213, align 4, !tbaa !96
-  %215 = getelementptr inbounds nuw float, ptr %.val67.i92, i64 %201
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i92, i64 %201
   %216 = load float, ptr %215, align 4, !tbaa !96
   %217 = fsub float %216, %214
   %218 = tail call float @llvm.fmuladd.f32(float %205, float %217, float %214)
-  %219 = getelementptr inbounds float, ptr %.val68.i93, i64 %197
+  %219 = getelementptr inbounds [4 x i8], ptr %.val68.i93, i64 %197
   %220 = load float, ptr %219, align 4, !tbaa !96
-  %221 = getelementptr inbounds nuw float, ptr %.val68.i93, i64 %201
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i93, i64 %201
   %222 = load float, ptr %221, align 4, !tbaa !96
   %223 = fsub float %222, %220
   %224 = tail call float @llvm.fmuladd.f32(float %205, float %223, float %220)
@@ -2737,7 +2737,7 @@ Scl_LibLookup.exit114:                            ; preds = %163, %._crit_edge75
 
 .lr.ph.i137:                                      ; preds = %249, %.lr.ph.preheader.i135
   %indvars.iv.i138 = phi i64 [ 1, %.lr.ph.preheader.i135 ], [ %indvars.iv.next.i139, %249 ]
-  %246 = getelementptr inbounds nuw float, ptr %.val65.i116, i64 %indvars.iv.i138
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i116, i64 %indvars.iv.i138
   %247 = load float, ptr %246, align 4, !tbaa !96
   %248 = fcmp ogt float %247, %.4.val3
   br i1 %248, label %._crit_edge.loopexit.split.loop.exit.i141, label %249
@@ -2769,7 +2769,7 @@ Scl_LibLookup.exit114:                            ; preds = %163, %._crit_edge75
 
 .lr.ph74.i130:                                    ; preds = %259, %.lr.ph74.preheader.i128
   %indvars.iv80.i131 = phi i64 [ 1, %.lr.ph74.preheader.i128 ], [ %indvars.iv.next81.i132, %259 ]
-  %256 = getelementptr inbounds nuw float, ptr %.val66.i120, i64 %indvars.iv80.i131
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i120, i64 %indvars.iv80.i131
   %257 = load float, ptr %256, align 4, !tbaa !96
   %258 = fcmp ogt float %257, %.4.val7
   br i1 %258, label %._crit_edge75.loopexit.split.loop.exit.i134, label %259
@@ -2787,42 +2787,42 @@ Scl_LibLookup.exit114:                            ; preds = %163, %._crit_edge75
   %.056.lcssa.i123 = phi i32 [ 1, %._crit_edge.i117 ], [ %260, %._crit_edge75.loopexit.split.loop.exit.i134 ], [ %254, %259 ]
   %261 = add nsw i32 %.056.lcssa.i123, -1
   %262 = sext i32 %251 to i64
-  %263 = getelementptr inbounds float, ptr %.val6586.i118, i64 %262
+  %263 = getelementptr inbounds [4 x i8], ptr %.val6586.i118, i64 %262
   %264 = load float, ptr %263, align 4, !tbaa !96
   %265 = fsub float %.4.val3, %264
   %266 = zext nneg i32 %.057.lcssa.i119 to i64
-  %267 = getelementptr inbounds nuw float, ptr %.val6586.i118, i64 %266
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i118, i64 %266
   %268 = load float, ptr %267, align 4, !tbaa !96
   %269 = fsub float %268, %264
   %270 = fdiv float %265, %269
   %271 = sext i32 %261 to i64
-  %272 = getelementptr inbounds float, ptr %.val66.i120, i64 %271
+  %272 = getelementptr inbounds [4 x i8], ptr %.val66.i120, i64 %271
   %273 = load float, ptr %272, align 4, !tbaa !96
   %274 = fsub float %.4.val7, %273
   %275 = zext nneg i32 %.056.lcssa.i123 to i64
-  %276 = getelementptr inbounds nuw float, ptr %.val66.i120, i64 %275
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i120, i64 %275
   %277 = load float, ptr %276, align 4, !tbaa !96
   %278 = fsub float %277, %273
   %279 = fdiv float %274, %278
   %280 = getelementptr i8, ptr %0, i64 600
   %.val58.i124 = load ptr, ptr %280, align 8, !tbaa !18
-  %281 = getelementptr inbounds ptr, ptr %.val58.i124, i64 %262
+  %281 = getelementptr inbounds [8 x i8], ptr %.val58.i124, i64 %262
   %282 = load ptr, ptr %281, align 8, !tbaa !19
   %283 = getelementptr i8, ptr %282, i64 8
   %.val67.i125 = load ptr, ptr %283, align 8, !tbaa !95
-  %284 = getelementptr inbounds nuw ptr, ptr %.val58.i124, i64 %266
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i124, i64 %266
   %285 = load ptr, ptr %284, align 8, !tbaa !19
   %286 = getelementptr i8, ptr %285, i64 8
   %.val68.i126 = load ptr, ptr %286, align 8, !tbaa !95
-  %287 = getelementptr inbounds float, ptr %.val67.i125, i64 %271
+  %287 = getelementptr inbounds [4 x i8], ptr %.val67.i125, i64 %271
   %288 = load float, ptr %287, align 4, !tbaa !96
-  %289 = getelementptr inbounds nuw float, ptr %.val67.i125, i64 %275
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i125, i64 %275
   %290 = load float, ptr %289, align 4, !tbaa !96
   %291 = fsub float %290, %288
   %292 = tail call float @llvm.fmuladd.f32(float %279, float %291, float %288)
-  %293 = getelementptr inbounds float, ptr %.val68.i126, i64 %271
+  %293 = getelementptr inbounds [4 x i8], ptr %.val68.i126, i64 %271
   %294 = load float, ptr %293, align 4, !tbaa !96
-  %295 = getelementptr inbounds nuw float, ptr %.val68.i126, i64 %275
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i126, i64 %275
   %296 = load float, ptr %295, align 4, !tbaa !96
   %297 = fsub float %296, %294
   %298 = tail call float @llvm.fmuladd.f32(float %279, float %297, float %294)
@@ -2882,7 +2882,7 @@ Scl_LibLookup.exit147:                            ; preds = %237, %._crit_edge75
 
 .lr.ph.i170:                                      ; preds = %325, %.lr.ph.preheader.i168
   %indvars.iv.i171 = phi i64 [ 1, %.lr.ph.preheader.i168 ], [ %indvars.iv.next.i172, %325 ]
-  %322 = getelementptr inbounds nuw float, ptr %.val65.i149, i64 %indvars.iv.i171
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i149, i64 %indvars.iv.i171
   %323 = load float, ptr %322, align 4, !tbaa !96
   %324 = fcmp ogt float %323, %.4.val3
   br i1 %324, label %._crit_edge.loopexit.split.loop.exit.i174, label %325
@@ -2914,7 +2914,7 @@ Scl_LibLookup.exit147:                            ; preds = %237, %._crit_edge75
 
 .lr.ph74.i163:                                    ; preds = %335, %.lr.ph74.preheader.i161
   %indvars.iv80.i164 = phi i64 [ 1, %.lr.ph74.preheader.i161 ], [ %indvars.iv.next81.i165, %335 ]
-  %332 = getelementptr inbounds nuw float, ptr %.val66.i153, i64 %indvars.iv80.i164
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i153, i64 %indvars.iv80.i164
   %333 = load float, ptr %332, align 4, !tbaa !96
   %334 = fcmp ogt float %333, %.0.val5
   br i1 %334, label %._crit_edge75.loopexit.split.loop.exit.i167, label %335
@@ -2932,42 +2932,42 @@ Scl_LibLookup.exit147:                            ; preds = %237, %._crit_edge75
   %.056.lcssa.i156 = phi i32 [ 1, %._crit_edge.i150 ], [ %336, %._crit_edge75.loopexit.split.loop.exit.i167 ], [ %330, %335 ]
   %337 = add nsw i32 %.056.lcssa.i156, -1
   %338 = sext i32 %327 to i64
-  %339 = getelementptr inbounds float, ptr %.val6586.i151, i64 %338
+  %339 = getelementptr inbounds [4 x i8], ptr %.val6586.i151, i64 %338
   %340 = load float, ptr %339, align 4, !tbaa !96
   %341 = fsub float %.4.val3, %340
   %342 = zext nneg i32 %.057.lcssa.i152 to i64
-  %343 = getelementptr inbounds nuw float, ptr %.val6586.i151, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i151, i64 %342
   %344 = load float, ptr %343, align 4, !tbaa !96
   %345 = fsub float %344, %340
   %346 = fdiv float %341, %345
   %347 = sext i32 %337 to i64
-  %348 = getelementptr inbounds float, ptr %.val66.i153, i64 %347
+  %348 = getelementptr inbounds [4 x i8], ptr %.val66.i153, i64 %347
   %349 = load float, ptr %348, align 4, !tbaa !96
   %350 = fsub float %.0.val5, %349
   %351 = zext nneg i32 %.056.lcssa.i156 to i64
-  %352 = getelementptr inbounds nuw float, ptr %.val66.i153, i64 %351
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i153, i64 %351
   %353 = load float, ptr %352, align 4, !tbaa !96
   %354 = fsub float %353, %349
   %355 = fdiv float %350, %354
   %356 = getelementptr i8, ptr %0, i64 72
   %.val58.i157 = load ptr, ptr %356, align 8, !tbaa !18
-  %357 = getelementptr inbounds ptr, ptr %.val58.i157, i64 %338
+  %357 = getelementptr inbounds [8 x i8], ptr %.val58.i157, i64 %338
   %358 = load ptr, ptr %357, align 8, !tbaa !19
   %359 = getelementptr i8, ptr %358, i64 8
   %.val67.i158 = load ptr, ptr %359, align 8, !tbaa !95
-  %360 = getelementptr inbounds nuw ptr, ptr %.val58.i157, i64 %342
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i157, i64 %342
   %361 = load ptr, ptr %360, align 8, !tbaa !19
   %362 = getelementptr i8, ptr %361, i64 8
   %.val68.i159 = load ptr, ptr %362, align 8, !tbaa !95
-  %363 = getelementptr inbounds float, ptr %.val67.i158, i64 %347
+  %363 = getelementptr inbounds [4 x i8], ptr %.val67.i158, i64 %347
   %364 = load float, ptr %363, align 4, !tbaa !96
-  %365 = getelementptr inbounds nuw float, ptr %.val67.i158, i64 %351
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i158, i64 %351
   %366 = load float, ptr %365, align 4, !tbaa !96
   %367 = fsub float %366, %364
   %368 = tail call float @llvm.fmuladd.f32(float %355, float %367, float %364)
-  %369 = getelementptr inbounds float, ptr %.val68.i159, i64 %347
+  %369 = getelementptr inbounds [4 x i8], ptr %.val68.i159, i64 %347
   %370 = load float, ptr %369, align 4, !tbaa !96
-  %371 = getelementptr inbounds nuw float, ptr %.val68.i159, i64 %351
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i159, i64 %351
   %372 = load float, ptr %371, align 4, !tbaa !96
   %373 = fsub float %372, %370
   %374 = tail call float @llvm.fmuladd.f32(float %355, float %373, float %370)
@@ -3021,7 +3021,7 @@ Scl_LibLookup.exit180:                            ; preds = %313, %._crit_edge75
 
 .lr.ph.i203:                                      ; preds = %400, %.lr.ph.preheader.i201
   %indvars.iv.i204 = phi i64 [ 1, %.lr.ph.preheader.i201 ], [ %indvars.iv.next.i205, %400 ]
-  %397 = getelementptr inbounds nuw float, ptr %.val65.i182, i64 %indvars.iv.i204
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i182, i64 %indvars.iv.i204
   %398 = load float, ptr %397, align 4, !tbaa !96
   %399 = fcmp ogt float %398, %.0.val1
   br i1 %399, label %._crit_edge.loopexit.split.loop.exit.i207, label %400
@@ -3053,7 +3053,7 @@ Scl_LibLookup.exit180:                            ; preds = %313, %._crit_edge75
 
 .lr.ph74.i196:                                    ; preds = %410, %.lr.ph74.preheader.i194
   %indvars.iv80.i197 = phi i64 [ 1, %.lr.ph74.preheader.i194 ], [ %indvars.iv.next81.i198, %410 ]
-  %407 = getelementptr inbounds nuw float, ptr %.val66.i186, i64 %indvars.iv80.i197
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i186, i64 %indvars.iv80.i197
   %408 = load float, ptr %407, align 4, !tbaa !96
   %409 = fcmp ogt float %408, %.4.val7
   br i1 %409, label %._crit_edge75.loopexit.split.loop.exit.i200, label %410
@@ -3071,42 +3071,42 @@ Scl_LibLookup.exit180:                            ; preds = %313, %._crit_edge75
   %.056.lcssa.i189 = phi i32 [ 1, %._crit_edge.i183 ], [ %411, %._crit_edge75.loopexit.split.loop.exit.i200 ], [ %405, %410 ]
   %412 = add nsw i32 %.056.lcssa.i189, -1
   %413 = sext i32 %402 to i64
-  %414 = getelementptr inbounds float, ptr %.val6586.i184, i64 %413
+  %414 = getelementptr inbounds [4 x i8], ptr %.val6586.i184, i64 %413
   %415 = load float, ptr %414, align 4, !tbaa !96
   %416 = fsub float %.0.val1, %415
   %417 = zext nneg i32 %.057.lcssa.i185 to i64
-  %418 = getelementptr inbounds nuw float, ptr %.val6586.i184, i64 %417
+  %418 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i184, i64 %417
   %419 = load float, ptr %418, align 4, !tbaa !96
   %420 = fsub float %419, %415
   %421 = fdiv float %416, %420
   %422 = sext i32 %412 to i64
-  %423 = getelementptr inbounds float, ptr %.val66.i186, i64 %422
+  %423 = getelementptr inbounds [4 x i8], ptr %.val66.i186, i64 %422
   %424 = load float, ptr %423, align 4, !tbaa !96
   %425 = fsub float %.4.val7, %424
   %426 = zext nneg i32 %.056.lcssa.i189 to i64
-  %427 = getelementptr inbounds nuw float, ptr %.val66.i186, i64 %426
+  %427 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i186, i64 %426
   %428 = load float, ptr %427, align 4, !tbaa !96
   %429 = fsub float %428, %424
   %430 = fdiv float %425, %429
   %431 = getelementptr i8, ptr %0, i64 248
   %.val58.i190 = load ptr, ptr %431, align 8, !tbaa !18
-  %432 = getelementptr inbounds ptr, ptr %.val58.i190, i64 %413
+  %432 = getelementptr inbounds [8 x i8], ptr %.val58.i190, i64 %413
   %433 = load ptr, ptr %432, align 8, !tbaa !19
   %434 = getelementptr i8, ptr %433, i64 8
   %.val67.i191 = load ptr, ptr %434, align 8, !tbaa !95
-  %435 = getelementptr inbounds nuw ptr, ptr %.val58.i190, i64 %417
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i190, i64 %417
   %436 = load ptr, ptr %435, align 8, !tbaa !19
   %437 = getelementptr i8, ptr %436, i64 8
   %.val68.i192 = load ptr, ptr %437, align 8, !tbaa !95
-  %438 = getelementptr inbounds float, ptr %.val67.i191, i64 %422
+  %438 = getelementptr inbounds [4 x i8], ptr %.val67.i191, i64 %422
   %439 = load float, ptr %438, align 4, !tbaa !96
-  %440 = getelementptr inbounds nuw float, ptr %.val67.i191, i64 %426
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i191, i64 %426
   %441 = load float, ptr %440, align 4, !tbaa !96
   %442 = fsub float %441, %439
   %443 = tail call float @llvm.fmuladd.f32(float %430, float %442, float %439)
-  %444 = getelementptr inbounds float, ptr %.val68.i192, i64 %422
+  %444 = getelementptr inbounds [4 x i8], ptr %.val68.i192, i64 %422
   %445 = load float, ptr %444, align 4, !tbaa !96
-  %446 = getelementptr inbounds nuw float, ptr %.val68.i192, i64 %426
+  %446 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i192, i64 %426
   %447 = load float, ptr %446, align 4, !tbaa !96
   %448 = fsub float %447, %445
   %449 = tail call float @llvm.fmuladd.f32(float %430, float %448, float %445)
@@ -3159,7 +3159,7 @@ Scl_LibLookup.exit213:                            ; preds = %388, %._crit_edge75
 
 .lr.ph.i236:                                      ; preds = %474, %.lr.ph.preheader.i234
   %indvars.iv.i237 = phi i64 [ 1, %.lr.ph.preheader.i234 ], [ %indvars.iv.next.i238, %474 ]
-  %471 = getelementptr inbounds nuw float, ptr %.val65.i215, i64 %indvars.iv.i237
+  %471 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i215, i64 %indvars.iv.i237
   %472 = load float, ptr %471, align 4, !tbaa !96
   %473 = fcmp ogt float %472, %.4.val3
   br i1 %473, label %._crit_edge.loopexit.split.loop.exit.i240, label %474
@@ -3191,7 +3191,7 @@ Scl_LibLookup.exit213:                            ; preds = %388, %._crit_edge75
 
 .lr.ph74.i229:                                    ; preds = %484, %.lr.ph74.preheader.i227
   %indvars.iv80.i230 = phi i64 [ 1, %.lr.ph74.preheader.i227 ], [ %indvars.iv.next81.i231, %484 ]
-  %481 = getelementptr inbounds nuw float, ptr %.val66.i219, i64 %indvars.iv80.i230
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i219, i64 %indvars.iv80.i230
   %482 = load float, ptr %481, align 4, !tbaa !96
   %483 = fcmp ogt float %482, %.0.val5
   br i1 %483, label %._crit_edge75.loopexit.split.loop.exit.i233, label %484
@@ -3209,42 +3209,42 @@ Scl_LibLookup.exit213:                            ; preds = %388, %._crit_edge75
   %.056.lcssa.i222 = phi i32 [ 1, %._crit_edge.i216 ], [ %485, %._crit_edge75.loopexit.split.loop.exit.i233 ], [ %479, %484 ]
   %486 = add nsw i32 %.056.lcssa.i222, -1
   %487 = sext i32 %476 to i64
-  %488 = getelementptr inbounds float, ptr %.val6586.i217, i64 %487
+  %488 = getelementptr inbounds [4 x i8], ptr %.val6586.i217, i64 %487
   %489 = load float, ptr %488, align 4, !tbaa !96
   %490 = fsub float %.4.val3, %489
   %491 = zext nneg i32 %.057.lcssa.i218 to i64
-  %492 = getelementptr inbounds nuw float, ptr %.val6586.i217, i64 %491
+  %492 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i217, i64 %491
   %493 = load float, ptr %492, align 4, !tbaa !96
   %494 = fsub float %493, %489
   %495 = fdiv float %490, %494
   %496 = sext i32 %486 to i64
-  %497 = getelementptr inbounds float, ptr %.val66.i219, i64 %496
+  %497 = getelementptr inbounds [4 x i8], ptr %.val66.i219, i64 %496
   %498 = load float, ptr %497, align 4, !tbaa !96
   %499 = fsub float %.0.val5, %498
   %500 = zext nneg i32 %.056.lcssa.i222 to i64
-  %501 = getelementptr inbounds nuw float, ptr %.val66.i219, i64 %500
+  %501 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i219, i64 %500
   %502 = load float, ptr %501, align 4, !tbaa !96
   %503 = fsub float %502, %498
   %504 = fdiv float %499, %503
   %505 = getelementptr i8, ptr %0, i64 424
   %.val58.i223 = load ptr, ptr %505, align 8, !tbaa !18
-  %506 = getelementptr inbounds ptr, ptr %.val58.i223, i64 %487
+  %506 = getelementptr inbounds [8 x i8], ptr %.val58.i223, i64 %487
   %507 = load ptr, ptr %506, align 8, !tbaa !19
   %508 = getelementptr i8, ptr %507, i64 8
   %.val67.i224 = load ptr, ptr %508, align 8, !tbaa !95
-  %509 = getelementptr inbounds nuw ptr, ptr %.val58.i223, i64 %491
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i223, i64 %491
   %510 = load ptr, ptr %509, align 8, !tbaa !19
   %511 = getelementptr i8, ptr %510, i64 8
   %.val68.i225 = load ptr, ptr %511, align 8, !tbaa !95
-  %512 = getelementptr inbounds float, ptr %.val67.i224, i64 %496
+  %512 = getelementptr inbounds [4 x i8], ptr %.val67.i224, i64 %496
   %513 = load float, ptr %512, align 4, !tbaa !96
-  %514 = getelementptr inbounds nuw float, ptr %.val67.i224, i64 %500
+  %514 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i224, i64 %500
   %515 = load float, ptr %514, align 4, !tbaa !96
   %516 = fsub float %515, %513
   %517 = tail call float @llvm.fmuladd.f32(float %504, float %516, float %513)
-  %518 = getelementptr inbounds float, ptr %.val68.i225, i64 %496
+  %518 = getelementptr inbounds [4 x i8], ptr %.val68.i225, i64 %496
   %519 = load float, ptr %518, align 4, !tbaa !96
-  %520 = getelementptr inbounds nuw float, ptr %.val68.i225, i64 %500
+  %520 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i225, i64 %500
   %521 = load float, ptr %520, align 4, !tbaa !96
   %522 = fsub float %521, %519
   %523 = tail call float @llvm.fmuladd.f32(float %504, float %522, float %519)
@@ -3297,7 +3297,7 @@ Scl_LibLookup.exit246:                            ; preds = %462, %._crit_edge75
 
 .lr.ph.i269:                                      ; preds = %548, %.lr.ph.preheader.i267
   %indvars.iv.i270 = phi i64 [ 1, %.lr.ph.preheader.i267 ], [ %indvars.iv.next.i271, %548 ]
-  %545 = getelementptr inbounds nuw float, ptr %.val65.i248, i64 %indvars.iv.i270
+  %545 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i248, i64 %indvars.iv.i270
   %546 = load float, ptr %545, align 4, !tbaa !96
   %547 = fcmp ogt float %546, %.0.val1
   br i1 %547, label %._crit_edge.loopexit.split.loop.exit.i273, label %548
@@ -3329,7 +3329,7 @@ Scl_LibLookup.exit246:                            ; preds = %462, %._crit_edge75
 
 .lr.ph74.i262:                                    ; preds = %558, %.lr.ph74.preheader.i260
   %indvars.iv80.i263 = phi i64 [ 1, %.lr.ph74.preheader.i260 ], [ %indvars.iv.next81.i264, %558 ]
-  %555 = getelementptr inbounds nuw float, ptr %.val66.i252, i64 %indvars.iv80.i263
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i252, i64 %indvars.iv80.i263
   %556 = load float, ptr %555, align 4, !tbaa !96
   %557 = fcmp ogt float %556, %.4.val7
   br i1 %557, label %._crit_edge75.loopexit.split.loop.exit.i266, label %558
@@ -3347,42 +3347,42 @@ Scl_LibLookup.exit246:                            ; preds = %462, %._crit_edge75
   %.056.lcssa.i255 = phi i32 [ 1, %._crit_edge.i249 ], [ %559, %._crit_edge75.loopexit.split.loop.exit.i266 ], [ %553, %558 ]
   %560 = add nsw i32 %.056.lcssa.i255, -1
   %561 = sext i32 %550 to i64
-  %562 = getelementptr inbounds float, ptr %.val6586.i250, i64 %561
+  %562 = getelementptr inbounds [4 x i8], ptr %.val6586.i250, i64 %561
   %563 = load float, ptr %562, align 4, !tbaa !96
   %564 = fsub float %.0.val1, %563
   %565 = zext nneg i32 %.057.lcssa.i251 to i64
-  %566 = getelementptr inbounds nuw float, ptr %.val6586.i250, i64 %565
+  %566 = getelementptr inbounds nuw [4 x i8], ptr %.val6586.i250, i64 %565
   %567 = load float, ptr %566, align 4, !tbaa !96
   %568 = fsub float %567, %563
   %569 = fdiv float %564, %568
   %570 = sext i32 %560 to i64
-  %571 = getelementptr inbounds float, ptr %.val66.i252, i64 %570
+  %571 = getelementptr inbounds [4 x i8], ptr %.val66.i252, i64 %570
   %572 = load float, ptr %571, align 4, !tbaa !96
   %573 = fsub float %.4.val7, %572
   %574 = zext nneg i32 %.056.lcssa.i255 to i64
-  %575 = getelementptr inbounds nuw float, ptr %.val66.i252, i64 %574
+  %575 = getelementptr inbounds nuw [4 x i8], ptr %.val66.i252, i64 %574
   %576 = load float, ptr %575, align 4, !tbaa !96
   %577 = fsub float %576, %572
   %578 = fdiv float %573, %577
   %579 = getelementptr i8, ptr %0, i64 600
   %.val58.i256 = load ptr, ptr %579, align 8, !tbaa !18
-  %580 = getelementptr inbounds ptr, ptr %.val58.i256, i64 %561
+  %580 = getelementptr inbounds [8 x i8], ptr %.val58.i256, i64 %561
   %581 = load ptr, ptr %580, align 8, !tbaa !19
   %582 = getelementptr i8, ptr %581, i64 8
   %.val67.i257 = load ptr, ptr %582, align 8, !tbaa !95
-  %583 = getelementptr inbounds nuw ptr, ptr %.val58.i256, i64 %565
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i256, i64 %565
   %584 = load ptr, ptr %583, align 8, !tbaa !19
   %585 = getelementptr i8, ptr %584, i64 8
   %.val68.i258 = load ptr, ptr %585, align 8, !tbaa !95
-  %586 = getelementptr inbounds float, ptr %.val67.i257, i64 %570
+  %586 = getelementptr inbounds [4 x i8], ptr %.val67.i257, i64 %570
   %587 = load float, ptr %586, align 4, !tbaa !96
-  %588 = getelementptr inbounds nuw float, ptr %.val67.i257, i64 %574
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i257, i64 %574
   %589 = load float, ptr %588, align 4, !tbaa !96
   %590 = fsub float %589, %587
   %591 = tail call float @llvm.fmuladd.f32(float %578, float %590, float %587)
-  %592 = getelementptr inbounds float, ptr %.val68.i258, i64 %570
+  %592 = getelementptr inbounds [4 x i8], ptr %.val68.i258, i64 %570
   %593 = load float, ptr %592, align 4, !tbaa !96
-  %594 = getelementptr inbounds nuw float, ptr %.val68.i258, i64 %574
+  %594 = getelementptr inbounds nuw [4 x i8], ptr %.val68.i258, i64 %574
   %595 = load float, ptr %594, align 4, !tbaa !96
   %596 = fsub float %595, %593
   %597 = tail call float @llvm.fmuladd.f32(float %578, float %596, float %593)
@@ -3496,11 +3496,11 @@ define void @Abc_SclComputeParametersClass(ptr noundef readnone captures(none) %
   store i64 0, ptr %9, align 8
   %.val28.i = load ptr, ptr %17, align 8, !tbaa !18
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %.val28.i, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.val28.i, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = getelementptr i8, ptr %21, i64 72
   %.val6.i.i = load ptr, ptr %22, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw ptr, ptr %.val6.i.i, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i.i, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = getelementptr i8, ptr %24, i64 12
   %.val7.i.i = load i32, ptr %25, align 4, !tbaa !24
@@ -3534,7 +3534,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
   %.val26.i = load ptr, ptr %38, align 8, !tbaa !95
   %39 = load float, ptr %.val26.i, align 4, !tbaa !96
   %40 = sext i32 %.val24.i to i64
-  %41 = getelementptr float, ptr %.val26.i, i64 %40
+  %41 = getelementptr [4 x i8], ptr %.val26.i, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load float, ptr %42, align 4, !tbaa !96
   call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %28, float 0.000000e+00, float 0.000000e+00, float %2, float %2, float 0.000000e+00, float 0.000000e+00, ptr noundef %6, ptr noundef %9)
@@ -3563,7 +3563,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %.lr.ph.i
   %64 = fptrunc double %63 to float
   %65 = fsub float %64, %57
   %66 = fsub float %43, %39
-  %67 = getelementptr inbounds nuw ptr, ptr %.val28.i, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.val28.i, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !19
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load float, ptr %69, align 8, !tbaa !77
@@ -3824,7 +3824,7 @@ define void @Abc_SclMarkSkippedCells(ptr noundef readonly captures(none) %0) loc
 .outer:                                           ; preds = %13
   %.val = load ptr, ptr %9, align 8, !tbaa !18
   %20 = sext i32 %14 to i64
-  %21 = getelementptr inbounds ptr, ptr %.val, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 1, ptr %23, align 4, !tbaa !27
@@ -3881,7 +3881,7 @@ define void @Abc_SclPrintCells(ptr noundef readonly captures(none) %0, float nou
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.i.i.be, %.backedge.i.backedge ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %indvars.iv.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load i32, ptr %17, align 8, !tbaa !32
@@ -3923,7 +3923,7 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %26, %20
   %32 = getelementptr i8, ptr %28, i64 64
   %.val12.i = load i32, ptr %32, align 8, !tbaa !32
   %33 = sext i32 %.val12.i to i64
-  %34 = getelementptr inbounds ptr, ptr %.val11.i, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %.val11.i, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = getelementptr i8, ptr %35, i64 72
   %.val6.i.i = load ptr, ptr %36, align 8, !tbaa !18
@@ -3947,7 +3947,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %30
   %46 = getelementptr i8, ptr %41, i64 40
   %.val10.i = load ptr, ptr %46, align 8, !tbaa !95
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds float, ptr %.val10.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.val10.i, i64 %47
   %49 = load float, ptr %48, align 4, !tbaa !96
   br label %Abc_SclComputeAverageSlew.exit
 
@@ -3996,7 +3996,7 @@ Abc_SclComputeAverageSlew.exit:                   ; preds = %43, %Scl_CellPinTim
   %.val92.us182 = phi i32 [ %.val92.us, %.critedge4.us ], [ %.val93, %.lr.ph152 ]
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.critedge4.us ], [ 0, %.lr.ph152 ]
   %.val89.us = load ptr, ptr %63, align 8, !tbaa !18
-  %69 = getelementptr inbounds nuw ptr, ptr %.val89.us, i64 %indvars.iv171
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val89.us, i64 %indvars.iv171
   %70 = load ptr, ptr %69, align 8, !tbaa !19
   %.phi.trans.insert176 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %.pre177 = load i32, ptr %.phi.trans.insert176, align 8, !tbaa !32
@@ -4075,11 +4075,11 @@ Abc_SclComputeAverageSlew.exit:                   ; preds = %43, %Scl_CellPinTim
   store i64 0, ptr %9, align 8
   %.val28.i.us = load ptr, ptr %224, align 8, !tbaa !18
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds ptr, ptr %.val28.i.us, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %.val28.i.us, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !19
   %110 = getelementptr i8, ptr %109, i64 72
   %.val6.i.i101.us = load ptr, ptr %110, align 8, !tbaa !18
-  %111 = getelementptr inbounds nuw ptr, ptr %.val6.i.i101.us, i64 %indvars.iv168
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i.i101.us, i64 %indvars.iv168
   %112 = load ptr, ptr %111, align 8, !tbaa !19
   %113 = getelementptr i8, ptr %112, i64 12
   %.val7.i.i102.us = load i32, ptr %113, align 4, !tbaa !24
@@ -4104,7 +4104,7 @@ Scl_CellPinTime.exit.i103.us:                     ; preds = %.lr.ph.i.us
   %.val26.i.us = load ptr, ptr %121, align 8, !tbaa !95
   %122 = load float, ptr %.val26.i.us, align 4, !tbaa !96
   %123 = sext i32 %.val24.i.us to i64
-  %124 = getelementptr float, ptr %.val26.i.us, i64 %123
+  %124 = getelementptr [4 x i8], ptr %.val26.i.us, i64 %123
   %125 = getelementptr i8, ptr %124, i64 -8
   %126 = load float, ptr %125, align 4, !tbaa !96
   call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %116, float 0.000000e+00, float 0.000000e+00, float %50, float %50, float 0.000000e+00, float 0.000000e+00, ptr noundef %6, ptr noundef %9)
@@ -4133,7 +4133,7 @@ Scl_CellPinTime.exit.i103.us:                     ; preds = %.lr.ph.i.us
   %147 = fptrunc double %146 to float
   %148 = fsub float %147, %140
   %149 = fsub float %126, %122
-  %150 = getelementptr inbounds nuw ptr, ptr %.val28.i.us, i64 %indvars.iv168
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.val28.i.us, i64 %indvars.iv168
   %151 = load ptr, ptr %150, align 8, !tbaa !19
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load float, ptr %152, align 8, !tbaa !77
@@ -4201,7 +4201,7 @@ Scl_CellPinTime.exit.i103.us:                     ; preds = %.lr.ph.i.us
 186:                                              ; preds = %186, %.lr.ph.i99.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i99.us ], [ %indvars.iv.next.i.us, %186 ]
   %.010.i.us = phi float [ 0.000000e+00, %.lr.ph.i99.us ], [ %198, %186 ]
-  %187 = getelementptr inbounds nuw ptr, ptr %.val.i100.us, i64 %indvars.iv.i.us
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %.val.i100.us, i64 %indvars.iv.i.us
   %188 = load ptr, ptr %187, align 8, !tbaa !19
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load float, ptr %189, align 8, !tbaa !77
@@ -4228,7 +4228,7 @@ SC_CellPinCapAve.exit.us:                         ; preds = %186, %.loopexit.us
   %205 = getelementptr i8, ptr %.1147.us, i64 56
   %.1.val96.us = load ptr, ptr %205, align 8, !tbaa !18
   %206 = sext i32 %204 to i64
-  %207 = getelementptr inbounds ptr, ptr %.1.val96.us, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %.1.val96.us, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !19
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load float, ptr %209, align 8, !tbaa !115
@@ -4237,7 +4237,7 @@ SC_CellPinCapAve.exit.us:                         ; preds = %186, %.loopexit.us
   %213 = load i32, ptr %103, align 8, !tbaa !32
   %.1.val.us = load ptr, ptr %205, align 8, !tbaa !18
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds ptr, ptr %.1.val.us, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %.1.val.us, i64 %214
   %216 = load ptr, ptr %215, align 8, !tbaa !19
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 36
   %218 = load float, ptr %217, align 4, !tbaa !116
@@ -4268,7 +4268,7 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %Scl_CellPinTime.exi
   %227 = getelementptr inbounds nuw i8, ptr %70, i64 68
   %.val.us.us = load ptr, ptr %226, align 8, !tbaa !18
   %228 = sext i32 %72 to i64
-  %229 = getelementptr inbounds ptr, ptr %.val.us.us, i64 %228
+  %229 = getelementptr inbounds [8 x i8], ptr %.val.us.us, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !19
   %231 = trunc nuw nsw i64 %indvars.iv171 to i32
   %232 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %231)
@@ -4314,7 +4314,7 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %Scl_CellPinTime.exi
 250:                                              ; preds = %.lr.ph, %250
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %250 ]
   %.073142 = phi i32 [ 0, %.lr.ph ], [ %256, %250 ]
-  %251 = getelementptr inbounds nuw ptr, ptr %.val90, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %.val90, i64 %indvars.iv
   %252 = load ptr, ptr %251, align 8, !tbaa !19
   %253 = load ptr, ptr %252, align 8, !tbaa !20
   %254 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %253) #29
@@ -4328,7 +4328,7 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %Scl_CellPinTime.exi
   %.val92174 = phi i32 [ %.val92, %.critedge4 ], [ %.val93, %.lr.ph152 ]
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.critedge4 ], [ 0, %.lr.ph152 ]
   %.val89 = load ptr, ptr %63, align 8, !tbaa !18
-  %257 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv165
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %.val89, i64 %indvars.iv165
   %258 = load ptr, ptr %257, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %258, i64 64
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !32
@@ -4356,7 +4356,7 @@ Abc_SclComputeParametersCell.exit.thread.us:      ; preds = %Scl_CellPinTime.exi
 268:                                              ; preds = %.lr.ph145, %294
   %indvars.iv162 = phi i64 [ %266, %.lr.ph145 ], [ %indvars.iv.next163, %294 ]
   %.val = load ptr, ptr %264, align 8, !tbaa !18
-  %269 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv162
+  %269 = getelementptr inbounds [8 x i8], ptr %.val, i64 %indvars.iv162
   %270 = load ptr, ptr %269, align 8, !tbaa !19
   %271 = load i32, ptr %261, align 8, !tbaa !32
   %272 = trunc nsw i64 %indvars.iv162 to i32
@@ -4447,7 +4447,7 @@ define void @Abc_SclConvertLeakageIntoArea(ptr noundef readonly captures(none) %
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load float, ptr %10, align 8, !tbaa !109
@@ -4494,7 +4494,7 @@ define void @Abc_SclLibNormalizeSurface(ptr noundef readonly captures(none) %0, 
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.val44, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.val44, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !96
   %13 = fmul float %1, %12
   store float %13, ptr %11, align 4, !tbaa !96
@@ -4516,7 +4516,7 @@ define void @Abc_SclLibNormalizeSurface(ptr noundef readonly captures(none) %0, 
 
 .critedge:                                        ; preds = %.lr.ph50, %.critedge
   %indvars.iv56 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next57, %.critedge ]
-  %17 = getelementptr inbounds nuw float, ptr %.val43, i64 %indvars.iv56
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val43, i64 %indvars.iv56
   %18 = load float, ptr %17, align 4, !tbaa !96
   %19 = fmul float %2, %18
   store float %19, ptr %17, align 4, !tbaa !96
@@ -4526,7 +4526,7 @@ define void @Abc_SclLibNormalizeSurface(ptr noundef readonly captures(none) %0, 
 
 20:                                               ; preds = %.lr.ph54, %.critedge6
   %indvars.iv66 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next67, %.critedge6 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv66
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv66
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr i8, ptr %22, i64 4
   %.val39 = load i32, ptr %23, align 4, !tbaa !94
@@ -4541,7 +4541,7 @@ define void @Abc_SclLibNormalizeSurface(ptr noundef readonly captures(none) %0, 
 
 26:                                               ; preds = %.lr.ph52, %26
   %indvars.iv61 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next62, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %.val42, i64 %indvars.iv61
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val42, i64 %indvars.iv61
   %28 = load float, ptr %27, align 4, !tbaa !96
   %29 = fmul float %1, %28
   store float %29, ptr %27, align 4, !tbaa !96
@@ -4614,7 +4614,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val73, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load float, ptr %33, align 8, !tbaa !129
@@ -4626,7 +4626,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 36:                                               ; preds = %.lr.ph186, %.critedge5
   %indvars.iv203 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next204, %.critedge5 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv203
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val72, i64 %indvars.iv203
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr i8, ptr %38, i64 52
   %.val76 = load i32, ptr %39, align 4, !tbaa !24
@@ -4641,7 +4641,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 42:                                               ; preds = %.lr.ph184, %.critedge7
   %indvars.iv198 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next199, %.critedge7 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv198
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val71, i64 %indvars.iv198
   %44 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
   %46 = load float, ptr %45, align 4, !tbaa !131
@@ -4676,7 +4676,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 63:                                               ; preds = %.lr.ph182, %.critedge9
   %indvars.iv193 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next194, %.critedge9 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %.val70, i64 %indvars.iv193
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.val70, i64 %indvars.iv193
   %65 = load ptr, ptr %64, align 8, !tbaa !19
   %66 = getelementptr i8, ptr %65, i64 12
   %.val74 = load i32, ptr %66, align 4, !tbaa !24
@@ -4691,7 +4691,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 69:                                               ; preds = %.lr.ph180, %Abc_SclLibNormalizeSurface.exit177
   %indvars.iv188 = phi i64 [ 0, %.lr.ph180 ], [ %indvars.iv.next189, %Abc_SclLibNormalizeSurface.exit177 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv188
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv188
   %71 = load ptr, ptr %70, align 8, !tbaa !19
   %72 = getelementptr i8, ptr %71, i64 36
   %.val41.i = load i32, ptr %72, align 4, !tbaa !94
@@ -4718,7 +4718,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 78:                                               ; preds = %78, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %.val44.i, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.val44.i, i64 %indvars.iv.i
   %80 = load float, ptr %79, align 4, !tbaa !96
   %81 = fmul float %80, %7
   store float %81, ptr %79, align 4, !tbaa !96
@@ -4740,7 +4740,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 .critedge.i:                                      ; preds = %.critedge.i, %.lr.ph50.i
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph50.i ], [ %indvars.iv.next57.i, %.critedge.i ]
-  %85 = getelementptr inbounds nuw float, ptr %.val43.i, i64 %indvars.iv56.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.val43.i, i64 %indvars.iv56.i
   %86 = load float, ptr %85, align 4, !tbaa !96
   %87 = fmul float %86, %17
   store float %87, ptr %85, align 4, !tbaa !96
@@ -4750,7 +4750,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 88:                                               ; preds = %.critedge6.i, %.lr.ph54.i
   %indvars.iv66.i = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next67.i, %.critedge6.i ]
-  %89 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv66.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %indvars.iv66.i
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = getelementptr i8, ptr %90, i64 4
   %.val39.i = load i32, ptr %91, align 4, !tbaa !94
@@ -4765,7 +4765,7 @@ define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_ad
 
 94:                                               ; preds = %94, %.lr.ph52.i
   %indvars.iv61.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next62.i, %94 ]
-  %95 = getelementptr inbounds nuw float, ptr %.val42.i, i64 %indvars.iv61.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.val42.i, i64 %indvars.iv61.i
   %96 = load float, ptr %95, align 4, !tbaa !96
   %97 = fmul float %96, %7
   store float %97, ptr %95, align 4, !tbaa !96
@@ -4804,7 +4804,7 @@ Abc_SclLibNormalizeSurface.exit:                  ; preds = %.critedge6.i, %.cri
 
 104:                                              ; preds = %104, %.lr.ph.i105
   %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i105 ], [ %indvars.iv.next.i109, %104 ]
-  %105 = getelementptr inbounds nuw float, ptr %.val44.i106, i64 %indvars.iv.i108
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.val44.i106, i64 %indvars.iv.i108
   %106 = load float, ptr %105, align 4, !tbaa !96
   %107 = fmul float %106, %7
   store float %107, ptr %105, align 4, !tbaa !96
@@ -4826,7 +4826,7 @@ Abc_SclLibNormalizeSurface.exit:                  ; preds = %.critedge6.i, %.cri
 
 .critedge.i101:                                   ; preds = %.critedge.i101, %.lr.ph50.i98
   %indvars.iv56.i102 = phi i64 [ 0, %.lr.ph50.i98 ], [ %indvars.iv.next57.i103, %.critedge.i101 ]
-  %111 = getelementptr inbounds nuw float, ptr %.val43.i99, i64 %indvars.iv56.i102
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.val43.i99, i64 %indvars.iv56.i102
   %112 = load float, ptr %111, align 4, !tbaa !96
   %113 = fmul float %112, %17
   store float %113, ptr %111, align 4, !tbaa !96
@@ -4836,7 +4836,7 @@ Abc_SclLibNormalizeSurface.exit:                  ; preds = %.critedge6.i, %.cri
 
 114:                                              ; preds = %.critedge6.i89, %.lr.ph54.i84
   %indvars.iv66.i87 = phi i64 [ 0, %.lr.ph54.i84 ], [ %indvars.iv.next67.i90, %.critedge6.i89 ]
-  %115 = getelementptr inbounds nuw ptr, ptr %.val.i85, i64 %indvars.iv66.i87
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.val.i85, i64 %indvars.iv66.i87
   %116 = load ptr, ptr %115, align 8, !tbaa !19
   %117 = getelementptr i8, ptr %116, i64 4
   %.val39.i88 = load i32, ptr %117, align 4, !tbaa !94
@@ -4851,7 +4851,7 @@ Abc_SclLibNormalizeSurface.exit:                  ; preds = %.critedge6.i, %.cri
 
 120:                                              ; preds = %120, %.lr.ph52.i92
   %indvars.iv61.i95 = phi i64 [ 0, %.lr.ph52.i92 ], [ %indvars.iv.next62.i96, %120 ]
-  %121 = getelementptr inbounds nuw float, ptr %.val42.i93, i64 %indvars.iv61.i95
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.val42.i93, i64 %indvars.iv61.i95
   %122 = load float, ptr %121, align 4, !tbaa !96
   %123 = fmul float %122, %7
   store float %123, ptr %121, align 4, !tbaa !96
@@ -4890,7 +4890,7 @@ Abc_SclLibNormalizeSurface.exit111:               ; preds = %.critedge6.i89, %.c
 
 130:                                              ; preds = %130, %.lr.ph.i138
   %indvars.iv.i141 = phi i64 [ 0, %.lr.ph.i138 ], [ %indvars.iv.next.i142, %130 ]
-  %131 = getelementptr inbounds nuw float, ptr %.val44.i139, i64 %indvars.iv.i141
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.val44.i139, i64 %indvars.iv.i141
   %132 = load float, ptr %131, align 4, !tbaa !96
   %133 = fmul float %132, %7
   store float %133, ptr %131, align 4, !tbaa !96
@@ -4912,7 +4912,7 @@ Abc_SclLibNormalizeSurface.exit111:               ; preds = %.critedge6.i89, %.c
 
 .critedge.i134:                                   ; preds = %.critedge.i134, %.lr.ph50.i131
   %indvars.iv56.i135 = phi i64 [ 0, %.lr.ph50.i131 ], [ %indvars.iv.next57.i136, %.critedge.i134 ]
-  %137 = getelementptr inbounds nuw float, ptr %.val43.i132, i64 %indvars.iv56.i135
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.val43.i132, i64 %indvars.iv56.i135
   %138 = load float, ptr %137, align 4, !tbaa !96
   %139 = fmul float %138, %17
   store float %139, ptr %137, align 4, !tbaa !96
@@ -4922,7 +4922,7 @@ Abc_SclLibNormalizeSurface.exit111:               ; preds = %.critedge6.i89, %.c
 
 140:                                              ; preds = %.critedge6.i122, %.lr.ph54.i117
   %indvars.iv66.i120 = phi i64 [ 0, %.lr.ph54.i117 ], [ %indvars.iv.next67.i123, %.critedge6.i122 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %.val.i118, i64 %indvars.iv66.i120
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.val.i118, i64 %indvars.iv66.i120
   %142 = load ptr, ptr %141, align 8, !tbaa !19
   %143 = getelementptr i8, ptr %142, i64 4
   %.val39.i121 = load i32, ptr %143, align 4, !tbaa !94
@@ -4937,7 +4937,7 @@ Abc_SclLibNormalizeSurface.exit111:               ; preds = %.critedge6.i89, %.c
 
 146:                                              ; preds = %146, %.lr.ph52.i125
   %indvars.iv61.i128 = phi i64 [ 0, %.lr.ph52.i125 ], [ %indvars.iv.next62.i129, %146 ]
-  %147 = getelementptr inbounds nuw float, ptr %.val42.i126, i64 %indvars.iv61.i128
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.val42.i126, i64 %indvars.iv61.i128
   %148 = load float, ptr %147, align 4, !tbaa !96
   %149 = fmul float %148, %7
   store float %149, ptr %147, align 4, !tbaa !96
@@ -4976,7 +4976,7 @@ Abc_SclLibNormalizeSurface.exit144:               ; preds = %.critedge6.i122, %.
 
 156:                                              ; preds = %156, %.lr.ph.i171
   %indvars.iv.i174 = phi i64 [ 0, %.lr.ph.i171 ], [ %indvars.iv.next.i175, %156 ]
-  %157 = getelementptr inbounds nuw float, ptr %.val44.i172, i64 %indvars.iv.i174
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %.val44.i172, i64 %indvars.iv.i174
   %158 = load float, ptr %157, align 4, !tbaa !96
   %159 = fmul float %158, %7
   store float %159, ptr %157, align 4, !tbaa !96
@@ -4998,7 +4998,7 @@ Abc_SclLibNormalizeSurface.exit144:               ; preds = %.critedge6.i122, %.
 
 .critedge.i167:                                   ; preds = %.critedge.i167, %.lr.ph50.i164
   %indvars.iv56.i168 = phi i64 [ 0, %.lr.ph50.i164 ], [ %indvars.iv.next57.i169, %.critedge.i167 ]
-  %163 = getelementptr inbounds nuw float, ptr %.val43.i165, i64 %indvars.iv56.i168
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %.val43.i165, i64 %indvars.iv56.i168
   %164 = load float, ptr %163, align 4, !tbaa !96
   %165 = fmul float %164, %17
   store float %165, ptr %163, align 4, !tbaa !96
@@ -5008,7 +5008,7 @@ Abc_SclLibNormalizeSurface.exit144:               ; preds = %.critedge6.i122, %.
 
 166:                                              ; preds = %.critedge6.i155, %.lr.ph54.i150
   %indvars.iv66.i153 = phi i64 [ 0, %.lr.ph54.i150 ], [ %indvars.iv.next67.i156, %.critedge6.i155 ]
-  %167 = getelementptr inbounds nuw ptr, ptr %.val.i151, i64 %indvars.iv66.i153
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %.val.i151, i64 %indvars.iv66.i153
   %168 = load ptr, ptr %167, align 8, !tbaa !19
   %169 = getelementptr i8, ptr %168, i64 4
   %.val39.i154 = load i32, ptr %169, align 4, !tbaa !94
@@ -5023,7 +5023,7 @@ Abc_SclLibNormalizeSurface.exit144:               ; preds = %.critedge6.i122, %.
 
 172:                                              ; preds = %172, %.lr.ph52.i158
   %indvars.iv61.i161 = phi i64 [ 0, %.lr.ph52.i158 ], [ %indvars.iv.next62.i162, %172 ]
-  %173 = getelementptr inbounds nuw float, ptr %.val42.i159, i64 %indvars.iv61.i161
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.val42.i159, i64 %indvars.iv61.i161
   %174 = load float, ptr %173, align 4, !tbaa !96
   %175 = fmul float %174, %7
   store float %175, ptr %173, align 4, !tbaa !96
@@ -5233,7 +5233,7 @@ Vec_StrPrintStr.exit65.preheader:                 ; preds = %Vec_StrPush.exit.i5
   %.val52249 = phi i32 [ %.val52239, %.lr.ph ], [ %.val52, %.critedge2 ]
   %indvars.iv246 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next247, %.critedge2 ]
   %.val50 = load ptr, ptr %67, align 8, !tbaa !18
-  %69 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %indvars.iv246
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %indvars.iv246
   %70 = load ptr, ptr %69, align 8, !tbaa !19
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %72 = load i32, ptr %71, align 8, !tbaa !32
@@ -5255,7 +5255,7 @@ Vec_StrPrintStr.exit65.preheader:                 ; preds = %Vec_StrPush.exit.i5
 .lr.ph.i66:                                       ; preds = %.lr.ph.i66.lr.ph, %.critedge4
   %indvars.iv243 = phi i64 [ %78, %.lr.ph.i66.lr.ph ], [ %indvars.iv.next244, %.critedge4 ]
   %.val49 = load ptr, ptr %76, align 8, !tbaa !18
-  %79 = getelementptr inbounds ptr, ptr %.val49, i64 %indvars.iv243
+  %79 = getelementptr inbounds [8 x i8], ptr %.val49, i64 %indvars.iv243
   %80 = load ptr, ptr %79, align 8, !tbaa !19
   br label %81
 
@@ -5916,7 +5916,7 @@ Vec_StrPrintStr.exit182.preheader:                ; preds = %Vec_StrPush.exit.i1
 .lr.ph.i183:                                      ; preds = %Vec_StrPrintStr.exit182.preheader, %Vec_StrPrintStr.exit221
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_StrPrintStr.exit221 ], [ 0, %Vec_StrPrintStr.exit182.preheader ]
   %.val = load ptr, ptr %76, align 8, !tbaa !18
-  %363 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %364 = load ptr, ptr %363, align 8, !tbaa !19
   br label %365
 
@@ -6377,7 +6377,7 @@ define noundef ptr @Abc_SclProduceGenlibStr(ptr noundef readonly captures(none) 
 19:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.0125558 = phi i32 [ 0, %.lr.ph ], [ %.1, %31 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.val151, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val151, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %23 = load i32, ptr %22, align 4, !tbaa !59
@@ -6601,7 +6601,7 @@ Vec_StrPrintStr.exit178:                          ; preds = %Vec_StrPush.exit.i1
   %indvars.iv585 = phi i64 [ 0, %.lr.ph568 ], [ %indvars.iv.next586, %.critedge4 ]
   %.0126567 = phi i32 [ 2, %.lr.ph568 ], [ %.1127, %.critedge4 ]
   %.val150 = load ptr, ptr %97, align 8, !tbaa !18
-  %109 = getelementptr inbounds nuw ptr, ptr %.val150, i64 %indvars.iv585
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.val150, i64 %indvars.iv585
   %110 = load ptr, ptr %109, align 8, !tbaa !19
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %112 = load i32, ptr %111, align 8, !tbaa !32
@@ -7003,7 +7003,7 @@ Vec_StrPush.exit.i243:                            ; preds = %276, %Vec_StrGrow.e
   %282 = getelementptr inbounds i8, ptr %278, i64 %281
   store i8 32, ptr %282, align 1, !tbaa !13
   %.val156 = load ptr, ptr %125, align 8, !tbaa !18
-  %283 = getelementptr inbounds ptr, ptr %.val156, i64 %indvars.iv582
+  %283 = getelementptr inbounds [8 x i8], ptr %.val156, i64 %indvars.iv582
   %284 = load ptr, ptr %283, align 8, !tbaa !19
   %285 = load ptr, ptr %284, align 8, !tbaa !33
   %286 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %285) #29
@@ -7147,7 +7147,7 @@ Vec_StrPush.exit.i269:                            ; preds = %339, %Vec_StrGrow.e
   %345 = getelementptr inbounds i8, ptr %341, i64 %344
   store i8 61, ptr %345, align 1, !tbaa !13
   %.val158 = load ptr, ptr %125, align 8, !tbaa !18
-  %346 = getelementptr inbounds ptr, ptr %.val158, i64 %indvars.iv582
+  %346 = getelementptr inbounds [8 x i8], ptr %.val158, i64 %indvars.iv582
   %347 = load ptr, ptr %346, align 8, !tbaa !19
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 40
   %349 = load ptr, ptr %348, align 8, !tbaa !52
@@ -7310,7 +7310,7 @@ Vec_StrPrintStr.exit301.preheader:                ; preds = %Vec_StrPush.exit.i2
 .lr.ph560:                                        ; preds = %Vec_StrPrintStr.exit301.preheader, %Vec_StrPrintStr.exit341
   %indvars.iv579 = phi i64 [ %indvars.iv.next580, %Vec_StrPrintStr.exit341 ], [ 0, %Vec_StrPrintStr.exit301.preheader ]
   %.val148 = load ptr, ptr %125, align 8, !tbaa !18
-  %414 = getelementptr inbounds nuw ptr, ptr %.val148, i64 %indvars.iv579
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %.val148, i64 %indvars.iv579
   %415 = load ptr, ptr %414, align 8, !tbaa !19
   br label %416
 
@@ -7337,11 +7337,11 @@ Vec_StrPrintStr.exit301.preheader:                ; preds = %Vec_StrPush.exit.i2
   %421 = getelementptr i8, ptr %.01819.i, i64 64
   %.val29.i = load i32, ptr %421, align 8, !tbaa !32
   %422 = sext i32 %.val29.i to i64
-  %423 = getelementptr inbounds ptr, ptr %.val28.i, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %.val28.i, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !19
   %425 = getelementptr i8, ptr %424, i64 72
   %.val6.i.i = load ptr, ptr %425, align 8, !tbaa !18
-  %426 = getelementptr inbounds nuw ptr, ptr %.val6.i.i, i64 %indvars.iv579
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i.i, i64 %indvars.iv579
   %427 = load ptr, ptr %426, align 8, !tbaa !19
   %428 = getelementptr i8, ptr %427, i64 12
   %.val7.i.i = load i32, ptr %428, align 4, !tbaa !24
@@ -7375,7 +7375,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %419
   %.val26.i = load ptr, ptr %441, align 8, !tbaa !95
   %442 = load float, ptr %.val26.i, align 4, !tbaa !96
   %443 = sext i32 %.val24.i to i64
-  %444 = getelementptr float, ptr %.val26.i, i64 %443
+  %444 = getelementptr [4 x i8], ptr %.val26.i, i64 %443
   %445 = getelementptr i8, ptr %444, i64 -8
   %446 = load float, ptr %445, align 4, !tbaa !96
   call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %431, float 0.000000e+00, float 0.000000e+00, float %1, float %1, float 0.000000e+00, float 0.000000e+00, ptr noundef %11, ptr noundef %14)
@@ -7404,7 +7404,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %419
   %467 = fptrunc double %466 to float
   %468 = fsub float %467, %460
   %469 = fsub float %446, %442
-  %470 = getelementptr inbounds nuw ptr, ptr %.val28.i, i64 %indvars.iv579
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %.val28.i, i64 %indvars.iv579
   %471 = load ptr, ptr %470, align 8, !tbaa !19
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
   %473 = load float, ptr %472, align 8, !tbaa !77
@@ -7709,7 +7709,7 @@ Vec_StrPrintStr.exit341:                          ; preds = %Vec_StrPush.exit.i3
   %indvars.iv591 = phi i64 [ 0, %.lr.ph575 ], [ %indvars.iv.next592, %1096 ]
   %.4574 = phi i32 [ 2, %.lr.ph575 ], [ %.5, %1096 ]
   %.val147 = load ptr, ptr %103, align 8, !tbaa !18
-  %604 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv591
+  %604 = getelementptr inbounds nuw [8 x i8], ptr %.val147, i64 %indvars.iv591
   %605 = load ptr, ptr %604, align 8, !tbaa !19
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 64
   %607 = load i32, ptr %606, align 8, !tbaa !32
@@ -8107,7 +8107,7 @@ Vec_StrPush.exit.i406:                            ; preds = %769, %Vec_StrGrow.e
   %777 = getelementptr i8, ptr %605, i64 56
   %.val157 = load ptr, ptr %777, align 8, !tbaa !18
   %778 = sext i32 %776 to i64
-  %779 = getelementptr inbounds ptr, ptr %.val157, i64 %778
+  %779 = getelementptr inbounds [8 x i8], ptr %.val157, i64 %778
   %780 = load ptr, ptr %779, align 8, !tbaa !19
   %781 = load ptr, ptr %780, align 8, !tbaa !33
   %782 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %781) #29
@@ -8253,7 +8253,7 @@ Vec_StrPush.exit.i432:                            ; preds = %835, %Vec_StrGrow.e
   %.val162 = load ptr, ptr %777, align 8, !tbaa !18
   %.val163 = load i32, ptr %606, align 8, !tbaa !32
   %842 = sext i32 %.val163 to i64
-  %843 = getelementptr inbounds ptr, ptr %.val162, i64 %842
+  %843 = getelementptr inbounds [8 x i8], ptr %.val162, i64 %842
   %844 = load ptr, ptr %843, align 8, !tbaa !19
   %845 = getelementptr inbounds nuw i8, ptr %844, i64 40
   %846 = load ptr, ptr %845, align 8, !tbaa !52
@@ -8416,7 +8416,7 @@ Vec_StrPrintStr.exit464.preheader:                ; preds = %Vec_StrPush.exit.i4
 .lr.ph571:                                        ; preds = %Vec_StrPrintStr.exit464.preheader, %Vec_StrPrintStr.exit511
   %indvars.iv588 = phi i64 [ %indvars.iv.next589, %Vec_StrPrintStr.exit511 ], [ 0, %Vec_StrPrintStr.exit464.preheader ]
   %.val = load ptr, ptr %777, align 8, !tbaa !18
-  %911 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv588
+  %911 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv588
   %912 = load ptr, ptr %911, align 8, !tbaa !19
   br label %913
 
@@ -8443,11 +8443,11 @@ Vec_StrPrintStr.exit464.preheader:                ; preds = %Vec_StrPush.exit.i4
   %918 = getelementptr i8, ptr %.01819.i467, i64 64
   %.val29.i527 = load i32, ptr %918, align 8, !tbaa !32
   %919 = sext i32 %.val29.i527 to i64
-  %920 = getelementptr inbounds ptr, ptr %.val28.i526, i64 %919
+  %920 = getelementptr inbounds [8 x i8], ptr %.val28.i526, i64 %919
   %921 = load ptr, ptr %920, align 8, !tbaa !19
   %922 = getelementptr i8, ptr %921, i64 72
   %.val6.i.i528 = load ptr, ptr %922, align 8, !tbaa !18
-  %923 = getelementptr inbounds nuw ptr, ptr %.val6.i.i528, i64 %indvars.iv588
+  %923 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i.i528, i64 %indvars.iv588
   %924 = load ptr, ptr %923, align 8, !tbaa !19
   %925 = getelementptr i8, ptr %924, i64 12
   %.val7.i.i529 = load i32, ptr %925, align 4, !tbaa !24
@@ -8481,7 +8481,7 @@ Scl_CellPinTime.exit.i530:                        ; preds = %916
   %.val26.i534 = load ptr, ptr %938, align 8, !tbaa !95
   %939 = load float, ptr %.val26.i534, align 4, !tbaa !96
   %940 = sext i32 %.val24.i533 to i64
-  %941 = getelementptr float, ptr %.val26.i534, i64 %940
+  %941 = getelementptr [4 x i8], ptr %.val26.i534, i64 %940
   %942 = getelementptr i8, ptr %941, i64 -8
   %943 = load float, ptr %942, align 4, !tbaa !96
   call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %928, float 0.000000e+00, float 0.000000e+00, float %1, float %1, float 0.000000e+00, float 0.000000e+00, ptr noundef %7, ptr noundef %10)
@@ -8510,7 +8510,7 @@ Scl_CellPinTime.exit.i530:                        ; preds = %916
   %964 = fptrunc double %963 to float
   %965 = fsub float %964, %957
   %966 = fsub float %943, %939
-  %967 = getelementptr inbounds nuw ptr, ptr %.val28.i526, i64 %indvars.iv588
+  %967 = getelementptr inbounds nuw [8 x i8], ptr %.val28.i526, i64 %indvars.iv588
   %968 = load ptr, ptr %967, align 8, !tbaa !19
   %969 = getelementptr inbounds nuw i8, ptr %968, i64 16
   %970 = load float, ptr %969, align 8, !tbaa !77
@@ -8972,7 +8972,7 @@ define noundef ptr @Abc_SclProduceGenlibStrProfile(ptr noundef readonly captures
 15:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.073296 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val89, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %19 = load i32, ptr %18, align 4, !tbaa !59
@@ -9181,7 +9181,7 @@ Vec_StrPrintStr.exit109.preheader:                ; preds = %Vec_StrPush.exit.i1
   %indvars.iv308 = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next309, %.thread291 ]
   %.074301 = phi i32 [ 2, %.lr.ph302 ], [ %.175, %.thread291 ]
   %.val88 = load ptr, ptr %93, align 8, !tbaa !18
-  %99 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv308
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.val88, i64 %indvars.iv308
   %100 = load ptr, ptr %99, align 8, !tbaa !19
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %102 = load i32, ptr %101, align 8, !tbaa !32
@@ -9594,7 +9594,7 @@ Vec_StrPush.exit.i174:                            ; preds = %272, %Vec_StrGrow.e
   %280 = getelementptr i8, ptr %100, i64 56
   %.val92 = load ptr, ptr %280, align 8, !tbaa !18
   %281 = sext i32 %279 to i64
-  %282 = getelementptr inbounds ptr, ptr %.val92, i64 %281
+  %282 = getelementptr inbounds [8 x i8], ptr %.val92, i64 %281
   %283 = load ptr, ptr %282, align 8, !tbaa !19
   %284 = load ptr, ptr %283, align 8, !tbaa !33
   %285 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %284) #29
@@ -9740,7 +9740,7 @@ Vec_StrPush.exit.i200:                            ; preds = %338, %Vec_StrGrow.e
   %.val95 = load ptr, ptr %280, align 8, !tbaa !18
   %.val96 = load i32, ptr %101, align 8, !tbaa !32
   %345 = sext i32 %.val96 to i64
-  %346 = getelementptr inbounds ptr, ptr %.val95, i64 %345
+  %346 = getelementptr inbounds [8 x i8], ptr %.val95, i64 %345
   %347 = load ptr, ptr %346, align 8, !tbaa !19
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 40
   %349 = load ptr, ptr %348, align 8, !tbaa !52
@@ -9903,7 +9903,7 @@ Vec_StrPrintStr.exit232.preheader:                ; preds = %Vec_StrPush.exit.i2
 .lr.ph298:                                        ; preds = %Vec_StrPrintStr.exit232.preheader, %Vec_StrPrintStr.exit272
   %indvars.iv305 = phi i64 [ %indvars.iv.next306, %Vec_StrPrintStr.exit272 ], [ 0, %Vec_StrPrintStr.exit232.preheader ]
   %.val = load ptr, ptr %280, align 8, !tbaa !18
-  %414 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv305
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv305
   %415 = load ptr, ptr %414, align 8, !tbaa !19
   br label %416
 
@@ -9930,11 +9930,11 @@ Vec_StrPrintStr.exit232.preheader:                ; preds = %Vec_StrPush.exit.i2
   %421 = getelementptr i8, ptr %.01819.i, i64 64
   %.val29.i = load i32, ptr %421, align 8, !tbaa !32
   %422 = sext i32 %.val29.i to i64
-  %423 = getelementptr inbounds ptr, ptr %.val28.i, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %.val28.i, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !19
   %425 = getelementptr i8, ptr %424, i64 72
   %.val6.i.i = load ptr, ptr %425, align 8, !tbaa !18
-  %426 = getelementptr inbounds nuw ptr, ptr %.val6.i.i, i64 %indvars.iv305
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i.i, i64 %indvars.iv305
   %427 = load ptr, ptr %426, align 8, !tbaa !19
   %428 = getelementptr i8, ptr %427, i64 12
   %.val7.i.i = load i32, ptr %428, align 4, !tbaa !24
@@ -9968,7 +9968,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %419
   %.val26.i = load ptr, ptr %441, align 8, !tbaa !95
   %442 = load float, ptr %.val26.i, align 4, !tbaa !96
   %443 = sext i32 %.val24.i to i64
-  %444 = getelementptr float, ptr %.val26.i, i64 %443
+  %444 = getelementptr [4 x i8], ptr %.val26.i, i64 %443
   %445 = getelementptr i8, ptr %444, i64 -8
   %446 = load float, ptr %445, align 4, !tbaa !96
   call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %431, float 0.000000e+00, float 0.000000e+00, float %2, float %2, float 0.000000e+00, float 0.000000e+00, ptr noundef %7, ptr noundef %10)
@@ -9997,7 +9997,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %419
   %467 = fptrunc double %466 to float
   %468 = fsub float %467, %460
   %469 = fsub float %446, %442
-  %470 = getelementptr inbounds nuw ptr, ptr %.val28.i, i64 %indvars.iv305
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %.val28.i, i64 %indvars.iv305
   %471 = load ptr, ptr %470, align 8, !tbaa !19
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
   %473 = load float, ptr %472, align 8, !tbaa !77
@@ -10460,7 +10460,7 @@ define void @Abc_SclDumpGenlib(ptr noundef readonly captures(address_is_null) %0
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.i.i.be, %.backedge.i.backedge ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !32
@@ -10502,7 +10502,7 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %24, %18
   %30 = getelementptr i8, ptr %26, i64 64
   %.val12.i = load i32, ptr %30, align 8, !tbaa !32
   %31 = sext i32 %.val12.i to i64
-  %32 = getelementptr inbounds ptr, ptr %.val11.i, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val11.i, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %34 = getelementptr i8, ptr %33, i64 72
   %.val6.i.i = load ptr, ptr %34, align 8, !tbaa !18
@@ -10526,7 +10526,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %28
   %44 = getelementptr i8, ptr %39, i64 40
   %.val10.i = load ptr, ptr %44, align 8, !tbaa !95
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds float, ptr %.val10.i, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %.val10.i, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !96
   br label %Abc_SclComputeAverageSlew.exit
 
@@ -10603,7 +10603,7 @@ define ptr @Abc_SclDeriveGenlib(ptr noundef readonly captures(none) %0, ptr noun
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.i.i.be, %.backedge.i.backedge ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !32
@@ -10645,7 +10645,7 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %24, %18
   %30 = getelementptr i8, ptr %26, i64 64
   %.val12.i = load i32, ptr %30, align 8, !tbaa !32
   %31 = sext i32 %.val12.i to i64
-  %32 = getelementptr inbounds ptr, ptr %.val11.i, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val11.i, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %34 = getelementptr i8, ptr %33, i64 72
   %.val6.i.i = load ptr, ptr %34, align 8, !tbaa !18
@@ -10669,7 +10669,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %28
   %44 = getelementptr i8, ptr %39, i64 40
   %.val10.i = load ptr, ptr %44, align 8, !tbaa !95
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds float, ptr %.val10.i, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %.val10.i, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !96
   br label %Abc_SclComputeAverageSlew.exit
 
@@ -10747,7 +10747,7 @@ define void @Abc_SclInstallGenlib(ptr noundef readonly captures(none) %0, float 
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.i.i.be, %.backedge.i.backedge ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val.i.i, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load i32, ptr %14, align 8, !tbaa !32
@@ -10789,7 +10789,7 @@ Abc_SclFindInvertor.exit.i:                       ; preds = %23, %17
   %29 = getelementptr i8, ptr %25, i64 64
   %.val12.i = load i32, ptr %29, align 8, !tbaa !32
   %30 = sext i32 %.val12.i to i64
-  %31 = getelementptr inbounds ptr, ptr %.val11.i, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.val11.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !19
   %33 = getelementptr i8, ptr %32, i64 72
   %.val6.i.i = load ptr, ptr %33, align 8, !tbaa !18
@@ -10813,7 +10813,7 @@ Scl_CellPinTime.exit.i:                           ; preds = %27
   %43 = getelementptr i8, ptr %38, i64 40
   %.val10.i = load ptr, ptr %43, align 8, !tbaa !95
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds float, ptr %.val10.i, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %.val10.i, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !96
   br label %Abc_SclComputeAverageSlew.exit
 

@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.socketlist = type { ptr, i64, i64 }
 %struct.hostinfo = type { %struct.strbuf, %struct.strbuf, %struct.strbuf, %struct.strbuf, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
-%struct.pollfd = type { i32, i16, i16 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 
@@ -233,7 +231,7 @@ define dso_local i32 @cmd_main(i32 noundef %0, ptr noundef %1) local_unnamed_add
   %.097411 = phi ptr [ null, %.lr.ph.preheader ], [ %.299.ph, %.loopexit ]
   %.0100410 = phi ptr [ null, %.lr.ph.preheader ], [ %.2102.ph, %.loopexit ]
   %.0103409 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2105.ph, %.loopexit ]
-  %28 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %scevgep = getelementptr i8, ptr %29, i64 9
   br label %30
@@ -810,7 +808,7 @@ skip_prefix.exit210:                              ; preds = %193
   br label %.loopexit
 
 sub_0:                                            ; preds = %201
-  %204 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %205 = load i8, ptr %29, align 1
   %.not425 = icmp eq i8 %205, 45
   br i1 %.not425, label %sub_1, label %.loopexit331.sink.split
@@ -1281,7 +1279,7 @@ parse_extra_args.exit.i:                          ; preds = %366, %._crit_edge.i
 
 370:                                              ; preds = %.preheader726, %.loopexit.i
   %.02671.i = phi i64 [ %610, %.loopexit.i ], [ 0, %.preheader726 ]
-  %371 = getelementptr inbounds nuw %struct.daemon_service, ptr @daemon_service, i64 %.02671.i
+  %371 = getelementptr inbounds nuw [32 x i8], ptr @daemon_service, i64 %.02671.i
   br label %372
 
 372:                                              ; preds = %373, %370
@@ -1981,7 +1979,7 @@ execute.exit:                                     ; preds = %611, %.thread.i
 
 .lr.ph424:                                        ; preds = %.lr.ph424.preheader, %.lr.ph424
   %indvars.iv535 = phi i64 [ 1, %.lr.ph424.preheader ], [ %indvars.iv.next536, %.lr.ph424 ]
-  %630 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv535
+  %630 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv535
   %631 = load ptr, ptr %630, align 8, !tbaa !4
   %632 = call ptr @strvec_push(ptr noundef nonnull @cld_argv, ptr noundef %631) #21
   %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 1
@@ -2003,7 +2001,7 @@ execute.exit:                                     ; preds = %611, %.thread.i
 .lr.ph.i.i216:                                    ; preds = %._crit_edge, %646
   %.013.i.i = phi i64 [ %647, %646 ], [ 0, %._crit_edge ]
   %637 = load ptr, ptr %23, align 8, !tbaa !52
-  %638 = getelementptr inbounds nuw %struct.string_list_item, ptr %637, i64 %.013.i.i
+  %638 = getelementptr inbounds nuw [16 x i8], ptr %637, i64 %.013.i.i
   %639 = load ptr, ptr %638, align 8, !tbaa !53
   %640 = call fastcc i32 @setup_named_sock(ptr noundef %639, i32 noundef %spec.store.select318319, ptr noundef nonnull %10)
   %641 = icmp eq i32 %640, 0
@@ -2011,7 +2009,7 @@ execute.exit:                                     ; preds = %611, %.thread.i
 
 642:                                              ; preds = %.lr.ph.i.i216
   %643 = load ptr, ptr %23, align 8, !tbaa !52
-  %644 = getelementptr inbounds nuw %struct.string_list_item, ptr %643, i64 %.013.i.i
+  %644 = getelementptr inbounds nuw [16 x i8], ptr %643, i64 %.013.i.i
   %645 = load ptr, ptr %644, align 8, !tbaa !53
   call void (ptr, ...) @logerror(ptr noundef nonnull @.str.118, ptr noundef %645, i32 noundef %spec.store.select318319)
   br label %646
@@ -2080,9 +2078,9 @@ drop_privileges.exit.i:                           ; preds = %664, %654
 
 .lr.ph.i6.i:                                      ; preds = %.lr.ph.i6.i, %drop_privileges.exit.i
   %.02.i.i = phi i64 [ %682, %.lr.ph.i6.i ], [ 0, %drop_privileges.exit.i ]
-  %678 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %.02.i.i
+  %678 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %.02.i.i
   %679 = load i32, ptr %678, align 4, !tbaa !12
-  %680 = getelementptr inbounds nuw %struct.pollfd, ptr %670, i64 %.02.i.i
+  %680 = getelementptr inbounds nuw [8 x i8], ptr %670, i64 %.02.i.i
   store i32 %679, ptr %680, align 4, !tbaa !62
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 4
   store i16 1, ptr %681, align 4, !tbaa !65
@@ -2150,7 +2148,7 @@ check_dead_children.exit.i.i:                     ; preds = %696, %.backedge.i.i
 
 .lr.ph4.i.i:                                      ; preds = %check_dead_children.exit.i.i, %802
   %.0203.i.i = phi i64 [ %803, %802 ], [ 0, %check_dead_children.exit.i.i ]
-  %706 = getelementptr inbounds nuw %struct.pollfd, ptr %670, i64 %.0203.i.i
+  %706 = getelementptr inbounds nuw [8 x i8], ptr %670, i64 %.0203.i.i
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 6
   %708 = load i16, ptr %707, align 2, !tbaa !74
   %709 = and i16 %708, 1
@@ -2486,7 +2484,7 @@ define internal fastcc void @enable_service(ptr noundef %0, i32 noundef range(i3
 
 5:                                                ; preds = %2, %3
   %.079 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.daemon_service, ptr @daemon_service, i64 %.079
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @daemon_service, i64 %.079
   %7 = load ptr, ptr %6, align 16, !tbaa !29
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #22
   %.not = icmp eq i32 %8, 0
@@ -2513,7 +2511,7 @@ define internal fastcc void @make_service_overridable(ptr noundef %0, i32 nounde
 
 5:                                                ; preds = %2, %3
   %.079 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.daemon_service, ptr @daemon_service, i64 %.079
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @daemon_service, i64 %.079
   %7 = load ptr, ptr %6, align 16, !tbaa !29
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #22
   %.not = icmp eq i32 %8, 0
@@ -3340,7 +3338,7 @@ st_mult.exit:                                     ; preds = %104
   %114 = phi i64 [ %100, %._crit_edge68 ], [ %.pre69, %st_mult.exit ]
   %115 = phi ptr [ %.pre, %._crit_edge68 ], [ %112, %st_mult.exit ]
   store i64 %.pre-phi, ptr %14, align 8, !tbaa !56
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %114
   store i32 %25, ptr %116, align 4, !tbaa !12
   %117 = add nsw i32 %.05066, 1
   br label %118

@@ -55,7 +55,7 @@ bytestream2_init.exit:                            ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 4
   %20 = load i32, ptr %.sroa.0.013, align 1, !tbaa !33
   %21 = or i32 %20, -16777216
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

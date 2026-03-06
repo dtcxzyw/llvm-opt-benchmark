@@ -2114,7 +2114,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal12NodeTemplat
   %indvars.iv = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %131 = load ptr, ptr %1, align 8, !tbaa !64
-  %132 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !11
   store ptr %133, ptr %4, align 8, !tbaa !11
   %134 = load i64, ptr %133, align 8
@@ -3562,7 +3562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %219 = load i64, ptr %181, align 8, !tbaa !157
   %220 = load ptr, ptr %36, align 8, !tbaa !120
-  %221 = getelementptr %"class.std::shared_ptr", ptr %220, i64 %219
+  %221 = getelementptr [16 x i8], ptr %220, i64 %219
   %222 = getelementptr i8, ptr %221, i64 -16
   %223 = load ptr, ptr %222, align 8, !tbaa !132
   ret ptr %223
@@ -5094,7 +5094,7 @@ define linkonce_odr hidden void @_ZN4cvc57context6CDListISt10shared_ptrINS_8inte
 _ZN4cvc57context6CDListISt10shared_ptrINS_8internal7CDProofEENS0_14DefaultCleanUpIS5_EESaIS5_EE12truncateListEm.exit: ; preds = %2, %.loopexit.sink.split.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !170
-  %11 = getelementptr inbounds %"class.std::shared_ptr", ptr %10, i64 %4
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !170
   %14 = ptrtoint ptr %10 to i64
@@ -5561,7 +5561,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !64
   store ptr %42, ptr %4, align 8, !tbaa !67
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !70
   ret void
 
@@ -5843,7 +5843,7 @@ _ZNSt6vectorISt10shared_ptrIN4cvc58internal7CDProofEESaIS4_EE11_S_relocateEPS4_S
 _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal7CDProofEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4cvc58internal7CDProofEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !120
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !119
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !155
   ret void
 }

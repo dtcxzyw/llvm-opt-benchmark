@@ -102,7 +102,7 @@ define void @Inter_ManClean(ptr noundef readonly captures(none) %0) local_unname
   %6 = phi ptr [ %10, %.lr.ph ], [ %3, %.preheader ]
   %7 = getelementptr i8, ptr %6, i64 8
   %.val23 = load ptr, ptr %7, align 8, !tbaa !40
-  %8 = getelementptr inbounds nuw ptr, ptr %.val23, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val23, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   tail call void @Aig_ManStop(ptr noundef %9) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

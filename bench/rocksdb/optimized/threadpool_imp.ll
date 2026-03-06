@@ -1239,7 +1239,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 .noexc15:                                         ; preds = %132, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i
   store ptr %125, ptr %8, align 8, !tbaa !46
   store ptr %131, ptr %9, align 8, !tbaa !47
-  %133 = getelementptr inbounds nuw %"class.std::thread", ptr %125, i64 %123
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %123
   store ptr %133, ptr %28, align 8, !tbaa !117
   br label %_ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit
 
@@ -2894,7 +2894,7 @@ _ZNSt11_Deque_baseIN7rocksdb14ThreadPoolImpl4Impl6BGItemESaIS3_EE15_M_allocate_m
   store ptr %12, ptr %0, align 8, !tbaa !166
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.idx = shl nuw nsw i64 %10, 3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
@@ -2987,7 +2987,7 @@ _ZNSt11_Deque_baseIN7rocksdb14ThreadPoolImpl4Impl6BGItemESaIS3_EE15_M_create_nod
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %53, ptr %54, align 8, !tbaa !69
   store ptr %44, ptr %42, align 8, !tbaa !72
-  %55 = getelementptr inbounds nuw %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %51, i64 %4
+  %55 = getelementptr inbounds nuw [72 x i8], ptr %51, i64 %4
   store ptr %55, ptr %48, align 8, !tbaa !125
   ret void
 
@@ -3204,9 +3204,9 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb14ThreadPoolImpl4Impl6BGItemESaIS
   %19 = load ptr, ptr %0, align 8, !tbaa !166
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -3225,12 +3225,12 @@ define linkonce_odr void @_ZNSt5dequeIN7rocksdb14ThreadPoolImpl4Impl6BGItemESaIS
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit
 
@@ -3258,9 +3258,9 @@ _ZNSt11_Deque_baseIN7rocksdb14ThreadPoolImpl4Impl6BGItemESaIS3_EE15_M_allocate_m
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #30
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit26, label %53
@@ -3288,7 +3288,7 @@ _ZSt4copyIPPN7rocksdb14ThreadPoolImpl4Impl6BGItemES5_ET0_T_S7_S6_.exit: ; preds 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 504
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !69
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !67
   %64 = load ptr, ptr %63, align 8, !tbaa !76
@@ -3431,7 +3431,7 @@ _ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25: ; pre
 _ZNSt12_Vector_baseISt8functionIFvvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !153
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !139
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !142
   ret void
 }
@@ -3626,7 +3626,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit:
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %97, i64 %48
+  %113 = getelementptr inbounds [72 x i8], ptr %97, i64 %48
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit
 
 114:                                              ; preds = %110
@@ -3641,7 +3641,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit:
 
 120:                                              ; preds = %116, %114
   %121 = phi i64 [ %115, %114 ], [ %119, %116 ]
-  %122 = getelementptr inbounds ptr, ptr %100, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %100, i64 %121
   store ptr %122, ptr %103, align 8, !tbaa !67, !alias.scope !214
   %123 = load ptr, ptr %122, align 8, !tbaa !76, !noalias !214
   store ptr %123, ptr %101, align 8, !tbaa !68, !alias.scope !214
@@ -3649,7 +3649,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EppEv.exit:
   store ptr %124, ptr %102, align 8, !tbaa !69, !alias.scope !214
   %.idx.i.i = mul i64 %121, -504
   %125 = getelementptr i8, ptr %123, i64 %.idx.i.i
-  %126 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %125, i64 %108
+  %126 = getelementptr [72 x i8], ptr %125, i64 %108
   br label %_ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_El.exit: ; preds = %112, %120
@@ -3816,7 +3816,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb14ThreadPo
   %.09.i = phi ptr [ %36, %33 ], [ %.sroa.068.0, %27 ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.015.i, i64 %.01617.i)
   %38 = sub nsw i64 0, %.sroa.speculated.i
-  %39 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.018.i, i64 %38
+  %39 = getelementptr inbounds [72 x i8], ptr %.018.i, i64 %38
   %40 = tail call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_(ptr noundef %39, ptr noundef %.018.i, ptr noundef %.09.i), !noalias !218
   %41 = sub nsw i64 %32, %.sroa.speculated.i
   %42 = icmp sgt i64 %41, -1
@@ -3827,7 +3827,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb14ThreadPo
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.068.0, i64 %38
+  %46 = getelementptr inbounds [72 x i8], ptr %.sroa.068.0, i64 %38
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -3842,12 +3842,12 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EN7rocksdb14ThreadPo
 
 53:                                               ; preds = %49, %47
   %54 = phi i64 [ %48, %47 ], [ %52, %49 ]
-  %55 = getelementptr inbounds ptr, ptr %.sroa.1271.0, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.sroa.1271.0, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !76, !noalias !218
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 504
   %.idx.i.i.i = mul i64 %54, -504
   %58 = getelementptr i8, ptr %56, i64 %.idx.i.i.i
-  %59 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %58, i64 %41
+  %59 = getelementptr [72 x i8], ptr %58, i64 %41
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i: ; preds = %53, %45
@@ -3924,7 +3924,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9_
   %.09.i15 = phi ptr [ %91, %88 ], [ %.sroa.056.0, %82 ]
   %.sroa.speculated.i16 = call i64 @llvm.smin.i64(i64 %.015.i14, i64 %.01617.i12)
   %93 = sub nsw i64 0, %.sroa.speculated.i16
-  %94 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.018.i11, i64 %93
+  %94 = getelementptr inbounds [72 x i8], ptr %.018.i11, i64 %93
   %95 = call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_(ptr noundef %94, ptr noundef %.018.i11, ptr noundef %.09.i15), !noalias !222
   %96 = sub nsw i64 %87, %.sroa.speculated.i16
   %97 = icmp sgt i64 %96, -1
@@ -3935,7 +3935,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9_
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.056.0, i64 %93
+  %101 = getelementptr inbounds [72 x i8], ptr %.sroa.056.0, i64 %93
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18
 
 102:                                              ; preds = %98
@@ -3950,12 +3950,12 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9_
 
 108:                                              ; preds = %104, %102
   %109 = phi i64 [ %103, %102 ], [ %107, %104 ]
-  %110 = getelementptr inbounds ptr, ptr %.sroa.1259.0, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %.sroa.1259.0, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !76, !noalias !222
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 504
   %.idx.i.i.i17 = mul i64 %109, -504
   %113 = getelementptr i8, ptr %111, i64 %.idx.i.i.i17
-  %114 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %113, i64 %96
+  %114 = getelementptr [72 x i8], ptr %113, i64 %96
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i18: ; preds = %108, %100
@@ -4002,7 +4002,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.
   %.09.i31 = phi ptr [ %133, %130 ], [ %.sroa.062.0, %124 ]
   %.sroa.speculated.i32 = call i64 @llvm.smin.i64(i64 %.015.i30, i64 %.01617.i28)
   %135 = sub nsw i64 0, %.sroa.speculated.i32
-  %136 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.018.i27, i64 %135
+  %136 = getelementptr inbounds [72 x i8], ptr %.018.i27, i64 %135
   %137 = icmp sgt i64 %.015.i30, 0
   br i1 %137, label %.lr.ph.i53, label %_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_.exit
 
@@ -4120,7 +4120,7 @@ _ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.062.0, i64 %135
+  %180 = getelementptr inbounds [72 x i8], ptr %.sroa.062.0, i64 %135
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i34
 
 181:                                              ; preds = %177
@@ -4135,12 +4135,12 @@ _ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move
 
 187:                                              ; preds = %183, %181
   %188 = phi i64 [ %182, %181 ], [ %186, %183 ]
-  %189 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !76, !noalias !225
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 504
   %.idx.i.i.i33 = mul i64 %188, -504
   %192 = getelementptr i8, ptr %190, i64 %.idx.i.i.i33
-  %193 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %192, i64 %175
+  %193 = getelementptr [72 x i8], ptr %192, i64 %175
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i34
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i34: ; preds = %187, %179
@@ -4207,7 +4207,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9_
   %.09.i47 = phi ptr [ %221, %218 ], [ %.sroa.0.0, %212 ]
   %.sroa.speculated.i48 = tail call i64 @llvm.smin.i64(i64 %.015.i46, i64 %.01617.i44)
   %223 = sub nsw i64 0, %.sroa.speculated.i48
-  %224 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.018.i43, i64 %223
+  %224 = getelementptr inbounds [72 x i8], ptr %.018.i43, i64 %223
   %225 = tail call noundef ptr @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_(ptr noundef %224, ptr noundef %.018.i43, ptr noundef %.09.i47), !noalias !230
   %226 = sub nsw i64 %217, %.sroa.speculated.i48
   %227 = icmp sgt i64 %226, -1
@@ -4218,7 +4218,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9_
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.0.0, i64 %223
+  %231 = getelementptr inbounds [72 x i8], ptr %.sroa.0.0, i64 %223
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50
 
 232:                                              ; preds = %228
@@ -4233,12 +4233,12 @@ _ZSt23__copy_move_backward_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9_
 
 238:                                              ; preds = %234, %232
   %239 = phi i64 [ %233, %232 ], [ %237, %234 ]
-  %240 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !76, !noalias !230
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 504
   %.idx.i.i.i49 = mul i64 %239, -504
   %243 = getelementptr i8, ptr %241, i64 %.idx.i.i.i49
-  %244 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %243, i64 %226
+  %244 = getelementptr [72 x i8], ptr %243, i64 %226
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EmIEl.exit.i50: ; preds = %238, %230
@@ -4440,7 +4440,7 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1EN7rocksdb14ThreadPoolImpl4Im
   %30 = sub i64 %28, %29
   %31 = sdiv exact i64 %30, 72
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %31, i64 %storemerge12.i)
-  %32 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.013.i, i64 %.sroa.speculated.i
+  %32 = getelementptr inbounds [72 x i8], ptr %.013.i, i64 %.sroa.speculated.i
   %33 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_(ptr noundef %.013.i, ptr noundef %32, ptr noundef %.sroa.056.0), !noalias !233
   %34 = ptrtoint ptr %.sroa.457.0 to i64
   %35 = sub i64 %29, %34
@@ -4454,7 +4454,7 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1EN7rocksdb14ThreadPoolImpl4Im
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.056.0, i64 %.sroa.speculated.i
+  %42 = getelementptr inbounds [72 x i8], ptr %.sroa.056.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i
 
 43:                                               ; preds = %39
@@ -4469,12 +4469,12 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb1EN7rocksdb14ThreadPoolImpl4Im
 
 49:                                               ; preds = %45, %43
   %50 = phi i64 [ %44, %43 ], [ %48, %45 ]
-  %51 = getelementptr inbounds ptr, ptr %.sroa.1260.0, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.sroa.1260.0, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !76, !noalias !233
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 504
   %.idx.i.i = mul i64 %50, -504
   %54 = getelementptr i8, ptr %52, i64 %.idx.i.i
-  %55 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %54, i64 %37
+  %55 = getelementptr [72 x i8], ptr %54, i64 %37
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i: ; preds = %49, %41
@@ -4538,7 +4538,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx1
   %81 = sub i64 %79, %80
   %82 = sdiv exact i64 %81, 72
   %.sroa.speculated.i12 = call i64 @llvm.smin.i64(i64 %82, i64 %storemerge12.i11)
-  %83 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.013.i10, i64 %.sroa.speculated.i12
+  %83 = getelementptr inbounds [72 x i8], ptr %.013.i10, i64 %.sroa.speculated.i12
   %84 = call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_(ptr noundef %.013.i10, ptr noundef %83, ptr noundef %.sroa.044.0), !noalias !237
   %85 = ptrtoint ptr %.sroa.445.0 to i64
   %86 = sub i64 %80, %85
@@ -4552,7 +4552,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx1
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.044.0, i64 %.sroa.speculated.i12
+  %93 = getelementptr inbounds [72 x i8], ptr %.sroa.044.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14
 
 94:                                               ; preds = %90
@@ -4567,12 +4567,12 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx1
 
 100:                                              ; preds = %96, %94
   %101 = phi i64 [ %95, %94 ], [ %99, %96 ]
-  %102 = getelementptr inbounds ptr, ptr %.sroa.1248.0, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %.sroa.1248.0, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !76, !noalias !237
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 504
   %.idx.i.i13 = mul i64 %101, -504
   %105 = getelementptr i8, ptr %103, i64 %.idx.i.i13
-  %106 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %105, i64 %88
+  %106 = getelementptr [72 x i8], ptr %105, i64 %88
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i14: ; preds = %100, %92
@@ -4605,7 +4605,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.
   %118 = sub i64 %116, %117
   %119 = sdiv exact i64 %118, 72
   %.sroa.speculated.i24 = call i64 @llvm.smin.i64(i64 %119, i64 %storemerge12.i23)
-  %120 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.013.i22, i64 %.sroa.speculated.i24
+  %120 = getelementptr inbounds [72 x i8], ptr %.013.i22, i64 %.sroa.speculated.i24
   %121 = icmp sgt i64 %118, 0
   br i1 %121, label %.lr.ph.i41, label %_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_.exit
 
@@ -4726,7 +4726,7 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN7rocksdb14
   br i1 %165, label %166, label %168
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.050.0, i64 %.sroa.speculated.i24
+  %167 = getelementptr inbounds [72 x i8], ptr %.sroa.050.0, i64 %.sroa.speculated.i24
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i26
 
 168:                                              ; preds = %164
@@ -4741,12 +4741,12 @@ _ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN7rocksdb14
 
 174:                                              ; preds = %170, %168
   %175 = phi i64 [ %169, %168 ], [ %173, %170 ]
-  %176 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !76, !noalias !240
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 504
   %.idx.i.i25 = mul i64 %175, -504
   %179 = getelementptr i8, ptr %177, i64 %.idx.i.i25
-  %180 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %179, i64 %162
+  %180 = getelementptr [72 x i8], ptr %179, i64 %162
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i26
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i26: ; preds = %174, %166
@@ -4798,7 +4798,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx1
   %200 = sub i64 %198, %199
   %201 = sdiv exact i64 %200, 72
   %.sroa.speculated.i36 = tail call i64 @llvm.smin.i64(i64 %201, i64 %storemerge12.i35)
-  %202 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.013.i34, i64 %.sroa.speculated.i36
+  %202 = getelementptr inbounds [72 x i8], ptr %.013.i34, i64 %.sroa.speculated.i36
   %203 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN7rocksdb14ThreadPoolImpl4Impl6BGItemES7_EET0_T_S9_S8_(ptr noundef %.013.i34, ptr noundef %202, ptr noundef %.sroa.0.0), !noalias !245
   %204 = ptrtoint ptr %.sroa.4.0 to i64
   %205 = sub i64 %199, %204
@@ -4812,7 +4812,7 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx1
   br i1 %210, label %211, label %213
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %.sroa.0.0, i64 %.sroa.speculated.i36
+  %212 = getelementptr inbounds [72 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i36
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38
 
 213:                                              ; preds = %209
@@ -4827,12 +4827,12 @@ _ZSt14__copy_move_a1ILb1EPN7rocksdb14ThreadPoolImpl4Impl6BGItemES3_EN9__gnu_cxx1
 
 219:                                              ; preds = %215, %213
   %220 = phi i64 [ %214, %213 ], [ %218, %215 ]
-  %221 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %220
+  %221 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !76, !noalias !245
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 504
   %.idx.i.i37 = mul i64 %220, -504
   %224 = getelementptr i8, ptr %222, i64 %.idx.i.i37
-  %225 = getelementptr %"struct.rocksdb::ThreadPoolImpl::Impl::BGItem", ptr %224, i64 %207
+  %225 = getelementptr [72 x i8], ptr %224, i64 %207
   br label %_ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38
 
 _ZNSt15_Deque_iteratorIN7rocksdb14ThreadPoolImpl4Impl6BGItemERS3_PS3_EpLEl.exit.i38: ; preds = %219, %211

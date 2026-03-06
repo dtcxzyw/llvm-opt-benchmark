@@ -29,9 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.llvm::TargetRegisterClass" = type { ptr, ptr, ptr, %"struct.llvm::LaneBitmask", i8, i8, i8, i8, i8, ptr, i16, ptr }
 %"struct.llvm::LaneBitmask" = type { i64 }
-%"struct.(anonymous namespace)::VZeroUpperInserter::BlockState" = type { i32, i8, %"class.llvm::MachineInstrBundleIterator" }
-%"class.llvm::MachineInstrBundleIterator" = type { %"class.llvm::ilist_iterator" }
-%"class.llvm::ilist_iterator" = type { ptr }
 %"class.llvm::MIMetadata" = type { %"class.llvm::DebugLoc", ptr, ptr }
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
@@ -124,7 +121,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -473,7 +470,7 @@ _ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit: ; preds = %.lr.
   %.05493 = phi ptr [ %47, %.lr.ph ], [ %63, %.loopexit90 ]
   %54 = load i16, ptr %.05493, align 2, !tbaa !340
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %55
   %.0.i.i.i = load ptr, ptr %56, align 8, !tbaa !341
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit90, label %57
@@ -549,7 +546,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118VZeroUpperInserter10BlockStateEE7rese
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118VZeroUpperInserter10BlockStateEE7reserveEm.exit.i.i
   %.val11.i.i = load ptr, ptr %65, align 8, !tbaa !25
-  %89 = getelementptr %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val11.i.i, i64 %.pre-phi.i.i
+  %89 = getelementptr [16 x i8], ptr %.val11.i.i, i64 %.pre-phi.i.i
   %90 = sub nsw i64 %75, %.pre-phi.i.i
   %91 = shl nsw i64 %90, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %89, i8 0, i64 %91, i1 false)
@@ -584,7 +581,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118VZeroUpperInserter10BlockStateEE6resi
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.073.0101, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !349
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val.i, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %99, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.073.0101, i64 56
@@ -728,7 +725,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %152
   %.0114.i.i.i = phi i32 [ 191, %168 ], [ %171, %170 ]
   %173 = lshr i32 %.0114.i.i.i, 5
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %.017.val.i.i, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %.017.val.i.i, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !408
   %177 = and i32 %.0114.i.i.i, 31
   %178 = shl nuw i32 1, %177
@@ -745,7 +742,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %152
   %.05.i.i.i = phi i32 [ %181, %180 ], [ 247, %170 ]
   %182 = lshr i32 %.05.i.i.i, 5
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw i32, ptr %.017.val.i.i, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %.017.val.i.i, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !408
   %186 = and i32 %.05.i.i.i, 31
   %187 = shl nuw i32 1, %186
@@ -820,7 +817,7 @@ _ZL14callHasRegMaskRN4llvm12MachineInstrE.exit.i: ; preds = %.lr.ph.i51.i, %200
   %213 = load i32, ptr %100, align 8, !tbaa !349
   %214 = sext i32 %213 to i64
   %.val43.i = load ptr, ptr %65, align 8, !tbaa !25
-  %215 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val43.i, i64 %214
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %.val43.i, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = ptrtoint ptr %.sroa.056.073.i to i64
   store i64 %217, ptr %216, align 8
@@ -876,7 +873,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %236 = load i32, ptr %235, align 8, !tbaa !349
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val.i.i, i64 %237
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %.val.i.i, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %240 = load i8, ptr %239, align 4, !tbaa !412, !range !52, !noundef !53
   %241 = trunc nuw i8 %240 to i1
@@ -899,7 +896,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %248 = phi i32 [ %243, %242 ], [ %.pre.i.i.i, %245 ]
   %249 = load ptr, ptr %94, align 8, !tbaa !25
   %250 = zext i32 %248 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %249, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %250
   %252 = ptrtoint ptr %234 to i64
   store i64 %252, ptr %251, align 1
   %253 = load i32, ptr %95, align 8, !tbaa !26
@@ -908,7 +905,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %255 = load i32, ptr %235, align 8, !tbaa !349
   %256 = sext i32 %255 to i64
   %.val4.i.i = load ptr, ptr %65, align 8, !tbaa !25
-  %257 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val4.i.i, i64 %256
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %.val4.i.i, i64 %256
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 4
   store i8 1, ptr %258, align 4, !tbaa !412
   br label %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit.i
@@ -924,7 +921,7 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17processBasicBlockERN4llvm17MachineBasicBl
   %.0.lcssa94.i = phi i32 [ %.0.lcssa95.i, %._crit_edge..loopexit_crit_edge.i ], [ 2, %227 ], [ 2, %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit.i ]
   %260 = load i32, ptr %100, align 8, !tbaa !349
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val.i117, i64 %261
+  %262 = getelementptr inbounds nuw [16 x i8], ptr %.val.i117, i64 %261
   store i32 %.0.lcssa94.i, ptr %262, align 8, !tbaa !417
   %263 = getelementptr inbounds nuw i8, ptr %.sroa.073.0101, i64 8
   %.sroa.073.0 = load ptr, ptr %263, align 8, !tbaa !348
@@ -937,7 +934,7 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17processBasicBlockERN4llvm17MachineBasicBl
   %267 = load i32, ptr %266, align 8, !tbaa !349
   %268 = sext i32 %267 to i64
   %.val.i63 = load ptr, ptr %65, align 8, !tbaa !25
-  %269 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val.i63, i64 %268
+  %269 = getelementptr inbounds nuw [16 x i8], ptr %.val.i63, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 4
   %271 = load i8, ptr %270, align 4, !tbaa !412, !range !52, !noundef !53
   %272 = trunc nuw i8 %271 to i1
@@ -964,7 +961,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %283 = phi i32 [ %276, %273 ], [ %.pre.i.i64, %279 ]
   %284 = load ptr, ptr %274, align 8, !tbaa !25
   %285 = zext i32 %283 to i64
-  %286 = getelementptr inbounds nuw ptr, ptr %284, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %285
   %287 = ptrtoint ptr %265 to i64
   store i64 %287, ptr %286, align 1
   %288 = load i32, ptr %275, align 8, !tbaa !26
@@ -973,7 +970,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %290 = load i32, ptr %266, align 8, !tbaa !349
   %291 = sext i32 %290 to i64
   %.val4.i = load ptr, ptr %65, align 8, !tbaa !25
-  %292 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val4.i, i64 %291
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %.val4.i, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 4
   store i8 1, ptr %293, align 4, !tbaa !412
   br label %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit
@@ -994,7 +991,7 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBl
   %300 = phi i32 [ %296, %.lr.ph109 ], [ %351, %.loopexit ]
   %301 = load ptr, ptr %294, align 8, !tbaa !25
   %302 = zext i32 %300 to i64
-  %303 = getelementptr inbounds nuw ptr, ptr %301, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %302
   %304 = getelementptr inbounds i8, ptr %303, i64 -8
   %305 = load ptr, ptr %304, align 8, !tbaa !411
   %306 = add i32 %300, -1
@@ -1003,7 +1000,7 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBl
   %308 = load i32, ptr %307, align 8, !tbaa !349
   %309 = sext i32 %308 to i64
   %.val58 = load ptr, ptr %65, align 8, !tbaa !25
-  %310 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val58, i64 %309
+  %310 = getelementptr inbounds nuw [16 x i8], ptr %.val58, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = getelementptr inbounds nuw i8, ptr %305, i64 48
   %313 = load ptr, ptr %311, align 8, !tbaa !418
@@ -1041,7 +1038,7 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBl
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %327 = load i32, ptr %326, align 8, !tbaa !349
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val.i65, i64 %328
+  %329 = getelementptr inbounds nuw [16 x i8], ptr %.val.i65, i64 %328
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 4
   %331 = load i8, ptr %330, align 4, !tbaa !412, !range !52, !noundef !53
   %332 = trunc nuw i8 %331 to i1
@@ -1064,7 +1061,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %339 = phi i32 [ %334, %333 ], [ %.pre.i.i67, %336 ]
   %340 = load ptr, ptr %294, align 8, !tbaa !25
   %341 = zext i32 %339 to i64
-  %342 = getelementptr inbounds nuw ptr, ptr %340, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %341
   %343 = ptrtoint ptr %325 to i64
   store i64 %343, ptr %342, align 1
   %344 = load i32, ptr %295, align 8, !tbaa !26
@@ -1073,7 +1070,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %346 = load i32, ptr %326, align 8, !tbaa !349
   %347 = sext i32 %346 to i64
   %.val4.i69 = load ptr, ptr %65, align 8, !tbaa !25
-  %348 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val4.i69, i64 %347
+  %348 = getelementptr inbounds nuw [16 x i8], ptr %.val4.i69, i64 %347
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 4
   store i8 1, ptr %349, align 4, !tbaa !412
   br label %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit70

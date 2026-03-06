@@ -138,9 +138,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__shared_ptr.118" = type { ptr, %"class.std::__shared_count" }
 %"class.hermes::vm::RuntimeConfig::Builder" = type { %"class.hermes::vm::RuntimeConfig", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [2 x i8] }
 %"class.hermes::vm::GCConfig::Builder" = type { %"class.hermes::vm::GCConfig", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%"class.llvh::cl::parser<long>::OptionInfo" = type { %"class.llvh::cl::generic_parser_base::GenericOptionInfo", %"struct.llvh::cl::OptionValue.2" }
-%"class.llvh::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
-%"class.llvh::cl::parser<cl::MemorySize>::OptionInfo" = type { %"class.llvh::cl::generic_parser_base::GenericOptionInfo", %"struct.llvh::cl::OptionValue.12" }
 %"struct.std::array" = type { [20 x i8] }
 %"struct.llvh::cl::desc" = type { %"class.llvh::StringRef" }
 %"struct.llvh::cl::aliasopt" = type { ptr }
@@ -2375,7 +2372,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   %8 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %6, %for.body.i ]
   %9 = load ptr, ptr %OptionNames, align 8
   %conv.i3.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %9, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %conv.i3.i.i
   store ptr %4, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %5, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i, align 1
@@ -2443,7 +2440,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %conv
   %retval.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
   %retval.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.Name.sroa_idx, align 8
@@ -2458,7 +2455,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %conv
   %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
   %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
@@ -2476,7 +2473,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<long>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %conv
   %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }
@@ -2711,7 +2708,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   %8 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %6, %for.body.i ]
   %9 = load ptr, ptr %OptionNames, align 8
   %conv.i3.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %9, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %conv.i3.i.i
   store ptr %4, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %5, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i, align 1
@@ -2777,7 +2774,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %conv
   %retval.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
   %retval.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.Name.sroa_idx, align 8
@@ -2792,7 +2789,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %conv
   %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
   %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
@@ -2808,7 +2805,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<cl::MemorySize>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %conv
   %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }

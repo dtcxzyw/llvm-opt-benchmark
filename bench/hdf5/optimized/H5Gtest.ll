@@ -15,9 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5O_stab_t = type { i64, i64 }
 %struct.H5G_bt_common_t = type { ptr, ptr, i64 }
 %struct.H5O_loc_t = type { ptr, i64, i8 }
-%struct.H5G_entry_t = type { i32, %union.H5G_cache_t, i64, i64 }
-%union.H5G_cache_t = type { %struct.anon }
-%struct.anon = type { i64, i64 }
 
 @H5G_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -1376,7 +1373,7 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %29 = load ptr, ptr %21, align 8, !tbaa !50
-  %30 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i64, ptr %31, align 8, !tbaa !51
   store i64 %32, ptr %22, align 8, !tbaa !31
@@ -1418,7 +1415,7 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr %21, align 8, !tbaa !50
-  %56 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv
   %57 = load i32, ptr %56, align 8, !tbaa !32
   %.not46 = icmp eq i32 %57, 1
   br i1 %.not46, label %62, label %58
@@ -1451,7 +1448,7 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
 
 74:                                               ; preds = %46
   %75 = load ptr, ptr %21, align 8, !tbaa !50
-  %76 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %indvars.iv
   %77 = load i32, ptr %76, align 8, !tbaa !32
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %79, label %83

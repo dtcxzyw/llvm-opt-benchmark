@@ -2248,7 +2248,7 @@ define hidden void @"_ZN220_$LT$uv_distribution_types..dependency_metadata.._..$
   br i1 %122, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h0f2d8a6f1c09b66aE.exit.i", label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.0190.0, i64 %.sroa.0.0.i.i
+  %124 = getelementptr inbounds [360 x i8], ptr %.sroa.0190.0, i64 %.sroa.0.0.i.i
   %125 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h1566163a0e13416fE"(ptr noalias noundef nonnull align 8 dereferenceable(360) %124)
           to label %121 unwind label %128
@@ -2264,7 +2264,7 @@ define hidden void @"_ZN220_$LT$uv_distribution_types..dependency_metadata.._..$
   br label %126
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.0190.0, i64 %.sroa.0.1.i.i
+  %131 = getelementptr inbounds [360 x i8], ptr %.sroa.0190.0, i64 %.sroa.0.1.i.i
   %132 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h1566163a0e13416fE"(ptr noalias noundef nonnull align 8 dereferenceable(360) %131) #18
           to label %126 unwind label %133
@@ -2611,7 +2611,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$
   br i1 %2, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h0f2d8a6f1c09b66aE.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.0.val, i64 %.sroa.0.0.i
+  %4 = getelementptr inbounds [360 x i8], ptr %.0.val, i64 %.sroa.0.0.i
   %5 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h1566163a0e13416fE"(ptr noalias noundef nonnull align 8 dereferenceable(360) %4)
           to label %1 unwind label %8
@@ -2627,7 +2627,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$
   br label %6
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.0.val, i64 %.sroa.0.1.i
+  %11 = getelementptr inbounds [360 x i8], ptr %.0.val, i64 %.sroa.0.1.i
   %12 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h1566163a0e13416fE"(ptr noalias noundef nonnull align 8 dereferenceable(360) %11) #18
           to label %6 unwind label %13

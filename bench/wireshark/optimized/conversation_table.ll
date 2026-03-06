@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._stat_tap_ui = type { i32, ptr, ptr, ptr, i64, ptr }
-%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, %struct._conversation_extension_tcp_t }
+%struct._conversation_key_t = type { %struct._address, %struct._address, i32, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
+%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, %struct._conversation_extension_tcp_t }
 %struct.nstime_t = type { i64, i32 }
 %struct._conversation_extension_tcp_t = type { i64 }
-%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8 }
-%struct._conversation_key_t = type { %struct._address, %struct._address, i32, i32, i32 }
 %struct.endpoint_key_t = type { %struct._address, i32 }
+%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"conv,\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -380,7 +380,7 @@ define void @reset_conversation_table_data(ptr noundef captures(address_is_null)
   %indvars.iv = phi i64 [ %indvars.iv.next, %free_address.exit19 ], [ 0, %.preheader ]
   %7 = phi ptr [ %30, %free_address.exit19 ], [ %4, %.preheader ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct._conversation_item_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [200 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %.not.i.i = icmp eq i32 %11, 0
@@ -484,7 +484,7 @@ define void @reset_endpoint_table_data(ptr noundef captures(address_is_null) %0)
   %indvars.iv = phi i64 [ %indvars.iv.next, %free_address.exit ], [ 0, %.preheader ]
   %7 = phi ptr [ %20, %free_address.exit ], [ %4, %.preheader ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct._endpoint_item_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [112 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %.not.i.i = icmp eq i32 %11, 0
@@ -559,7 +559,7 @@ define void @reset_hostlist_table_data(ptr noundef captures(address_is_null) %0)
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %free_address.exit.i ], [ 0, %.preheader.i ]
   %7 = phi ptr [ %20, %free_address.exit.i ], [ %4, %.preheader.i ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct._endpoint_item_t, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr [112 x i8], ptr %8, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
   %.not.i.i.i = icmp eq i32 %11, 0
@@ -1825,7 +1825,7 @@ define ptr @add_conversation_table_data_with_conv_id(ptr noundef captures(none) 
   %31 = load ptr, ptr %14, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 4294967295
-  %34 = getelementptr %struct._conversation_item_t, ptr %30, i64 %33
+  %34 = getelementptr [200 x i8], ptr %30, i64 %33
   %.not136 = icmp eq ptr %34, null
   br i1 %.not136, label %.thread, label %141
 
@@ -1850,7 +1850,7 @@ define ptr @add_conversation_table_data_with_conv_id(ptr noundef captures(none) 
   %40 = load ptr, ptr %14, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, 4294967295
-  %43 = getelementptr %struct._conversation_item_t, ptr %39, i64 %42
+  %43 = getelementptr [200 x i8], ptr %39, i64 %42
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %44 = icmp eq ptr %43, null
@@ -1945,7 +1945,7 @@ copy_address.exit114:                             ; preds = %copy_address.exit, 
   %91 = add i32 %90, -1
   %92 = load ptr, ptr %88, align 8
   %93 = zext i32 %91 to i64
-  %94 = getelementptr %struct._conversation_item_t, ptr %92, i64 %93
+  %94 = getelementptr [200 x i8], ptr %92, i64 %93
   %95 = call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #17
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load i32, ptr %96, align 8
@@ -2516,7 +2516,7 @@ define void @add_endpoint_table_data(ptr noundef captures(none) %0, ptr noundef 
   %32 = load ptr, ptr %10, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 4294967295
-  %35 = getelementptr %struct._endpoint_item_t, ptr %31, i64 %34
+  %35 = getelementptr [112 x i8], ptr %31, i64 %34
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = icmp eq ptr %35, null
@@ -2566,7 +2566,7 @@ copy_address.exit:                                ; preds = %37, %45
   %61 = add i32 %60, -1
   %62 = load ptr, ptr %58, align 8
   %63 = zext i32 %61 to i64
-  %64 = getelementptr %struct._endpoint_item_t, ptr %62, i64 %63
+  %64 = getelementptr [112 x i8], ptr %62, i64 %63
   %65 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #17
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i32, ptr %66, align 8

@@ -194,7 +194,7 @@ define hidden void @jRDifast(ptr noundef readonly captures(none) %0, ptr noundef
 143:                                              ; preds = %.preheader, %283
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %283 ]
   %.2232 = phi ptr [ %6, %.preheader ], [ %.3, %283 ]
-  %144 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 %12
   %147 = getelementptr inbounds nuw i8, ptr %.2232, i64 4

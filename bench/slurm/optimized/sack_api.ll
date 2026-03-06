@@ -404,7 +404,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_sack_connect() unnamed_a
 
 1:                                                ; preds = %0, %24
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %24 ]
-  %2 = getelementptr inbounds nuw %struct.sockaddr_un, ptr @sack_addrs, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [110 x i8], ptr @sack_addrs, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
   %5 = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #8

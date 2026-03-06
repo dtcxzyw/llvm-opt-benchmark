@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
-%struct.SDL_Color = type { i8, i8, i8, i8 }
 %struct.SDL_Surface = type { i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, %struct.SDL_Rect, %struct.SDL_BlitMap }
 %struct.SDL_BlitMap = type { i32, ptr, ptr, %struct.SDL_BlitInfo, i32, i32 }
 %struct.SDL_BlitInfo = type { ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8 }
@@ -555,7 +554,7 @@ SDL_SurfaceValid.exit27:                          ; preds = %9
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   tail call void @SDL_DestroySurface_REAL(ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1284,7 +1283,7 @@ SDL_SurfaceValid.exit15.thread:                   ; preds = %7, %SDL_SurfaceVali
 21:                                               ; preds = %12
   %22 = load i32, ptr %15, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   store ptr %1, ptr %24, align 8
   store ptr %20, ptr %13, align 8
   %25 = load i32, ptr %15, align 8
@@ -1377,7 +1376,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
 
 26:                                               ; preds = %20, %17
   %27 = sext i32 %12 to i64
-  %28 = getelementptr inbounds ptr, ptr %16, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %16, i64 %27
   store ptr null, ptr %28, align 8
   br i1 %.not, label %30, label %29
 
@@ -1454,7 +1453,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
 
 28:                                               ; preds = %20, %17
   %29 = zext nneg i32 %8 to i64
-  %30 = getelementptr ptr, ptr %16, i64 %29
+  %30 = getelementptr [8 x i8], ptr %16, i64 %29
   %31 = getelementptr i8, ptr %30, i64 8
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1522,7 +1521,7 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   %.176 = phi i32 [ %61, %67 ], [ %.075104, %64 ]
   %.173 = phi ptr [ %51, %67 ], [ %.072105, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next
   %70 = load ptr, ptr %69, align 8
   %.not87 = icmp eq ptr %70, null
   br i1 %.not87, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -1804,7 +1803,7 @@ SDL_SurfaceValid.exit:                            ; preds = %1
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   tail call void @SDL_DestroySurface_REAL(ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2732,7 +2731,7 @@ SDL_SurfaceValid.exit199.thread:                  ; preds = %16, %20, %SDL_Surfa
 
 switch.lookup:                                    ; preds = %32
   %36 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_BlitSurfaceScaled_REAL, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_BlitSurfaceScaled_REAL, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not192 = icmp eq ptr %1, null
   %. = select i1 %.not192, ptr %0, ptr %1
@@ -4600,7 +4599,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %5, %SDL_SurfaceVali
 
 24:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %25 = getelementptr inbounds nuw %struct.SDL_Color, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1
   %.not319 = icmp eq i8 %26, -1
   br i1 %.not319, label %27, label %._crit_edge.loopexit
@@ -4921,7 +4920,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   %172 = load ptr, ptr %147, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds nuw %struct.SDL_Color, ptr %174, i64 %indvars.iv445
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %indvars.iv445
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 3
   %177 = load i8, ptr %176, align 1
   %178 = getelementptr inbounds nuw i8, ptr %170, i64 %indvars.iv445
@@ -4958,7 +4957,7 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw %struct.SDL_Color, ptr %186, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 3
   %192 = load i8, ptr %191, align 1
   store i8 0, ptr %191, align 1
@@ -4987,7 +4986,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
-  %206 = getelementptr inbounds nuw %struct.SDL_Color, ptr %202, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 3
   store i8 %.0280, ptr %207, align 1
   br label %208
@@ -5009,7 +5008,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %193, %195
   %212 = load ptr, ptr %147, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds nuw %struct.SDL_Color, ptr %214, i64 %indvars.iv450
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %indvars.iv450
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 3
   store i8 %211, ptr %216, align 1
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
@@ -5329,7 +5328,7 @@ SDL_SurfaceValid.exit.i391.lr.ph:                 ; preds = %SDL_SetSurfaceRLE_R
 SDL_SurfaceValid.exit.i391:                       ; preds = %SDL_SurfaceValid.exit.i391.lr.ph, %360
   %indvars.iv455 = phi i64 [ 0, %SDL_SurfaceValid.exit.i391.lr.ph ], [ %indvars.iv.next456, %360 ]
   %334 = load ptr, ptr %331, align 8
-  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %indvars.iv455
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %indvars.iv455
   %336 = load ptr, ptr %335, align 8
   %337 = load ptr, ptr %89, align 8
   %338 = icmp eq ptr %337, @SDL_surface_magic
@@ -5362,7 +5361,7 @@ SDL_SurfaceValid.exit15.i:                        ; preds = %340
 SDL_AddSurfaceAlternateImage_REAL.exit.thread:    ; preds = %344
   %351 = load i32, ptr %333, align 8
   %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds ptr, ptr %350, i64 %352
+  %353 = getelementptr inbounds [8 x i8], ptr %350, i64 %352
   store ptr %336, ptr %353, align 8
   store ptr %350, ptr %332, align 8
   %354 = load i32, ptr %333, align 8
@@ -5723,7 +5722,7 @@ SDL_LockSurface_REAL.exit:                        ; preds = %22, %25, %29
   %55 = load i32, ptr %49, align 8
   %56 = sdiv i32 %55, 2
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i16, ptr %.0108161, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %.0108161, i64 %57
   %.pr182 = load i32, ptr %48, align 8
   br label %.lr.ph163.split
 
@@ -5788,7 +5787,7 @@ SDL_LockSurface_REAL.exit:                        ; preds = %22, %25, %29
   %86 = load i32, ptr %81, align 8
   %87 = sdiv i32 %86, 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %.0100152, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.0100152, i64 %88
   %.pr183 = load i32, ptr %80, align 8
   br label %.lr.ph154.split
 

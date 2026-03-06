@@ -435,7 +435,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 
 8:                                                ; preds = %7, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7
@@ -533,7 +533,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 
 8:                                                ; preds = %7, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7
@@ -572,7 +572,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 1, %2 ]
-  %6 = getelementptr inbounds nuw i32, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = icmp slt i32 %7, 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -626,7 +626,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
 8:                                                ; preds = %8, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %8 ]
   %.068.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = icmp sgt i32 %10, 0
   %12 = zext i1 %11 to i32

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Matrix_ = type { i64, i64, i64, i64 }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
 %struct.GPData = type { i32, i32, i32, i32, i32, ptr, ptr }
-%struct.FT_Vector_ = type { i64, i64 }
 
 @.str = private unnamed_addr constant [17 x i8] c"invalidateScaler\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"()V\00", align 1
@@ -1879,7 +1878,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
 
 31:                                               ; preds = %.lr.ph, %addToGP.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %addToGP.exit ]
-  %32 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 65533
   br i1 %34, label %addToGP.exit, label %35
@@ -2180,7 +2179,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 208
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %6 to i64
-  %39 = getelementptr inbounds %struct.FT_Vector_, ptr %37, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = sitofp i64 %40 to float
   %42 = fmul nnan float %41, 1.562500e-02
@@ -2632,7 +2631,7 @@ define internal noundef i32 @moveTo(ptr noundef readonly captures(none) %0, ptr 
   %19 = add nsw i32 %13, 1
   store i32 %19, ptr %3, align 4
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds float, ptr %18, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %18, i64 %20
   store float %16, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
@@ -2643,7 +2642,7 @@ define internal noundef i32 @moveTo(ptr noundef readonly captures(none) %0, ptr 
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %3, align 4
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds float, ptr %26, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   store float %25, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
@@ -2668,7 +2667,7 @@ define internal noundef i32 @lineTo(ptr noundef readonly captures(none) %0, ptr 
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 4
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds float, ptr %7, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %7, i64 %11
   store float %5, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
@@ -2679,7 +2678,7 @@ define internal noundef i32 @lineTo(ptr noundef readonly captures(none) %0, ptr 
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %8, align 4
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds float, ptr %17, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %17, i64 %20
   store float %16, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -2704,7 +2703,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 4
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds float, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   store float %6, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
@@ -2715,7 +2714,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %9, align 4
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds float, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   store float %17, ptr %22, align 4
   %23 = load i64, ptr %1, align 8
   %24 = sitofp i64 %23 to float
@@ -2725,7 +2724,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %9, align 4
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds float, ptr %26, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   store float %25, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
@@ -2736,7 +2735,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %9, align 4
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds float, ptr %35, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %35, i64 %38
   store float %34, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %41 = load ptr, ptr %40, align 8
@@ -2761,7 +2760,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds float, ptr %9, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %9, i64 %13
   store float %7, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
@@ -2772,7 +2771,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %10, align 4
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds float, ptr %19, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %19, i64 %22
   store float %18, ptr %23, align 4
   %24 = load i64, ptr %1, align 8
   %25 = sitofp i64 %24 to float
@@ -2782,7 +2781,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %10, align 4
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds float, ptr %27, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %27, i64 %30
   store float %26, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
@@ -2793,7 +2792,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %10, align 4
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds float, ptr %36, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %36, i64 %39
   store float %35, ptr %40, align 4
   %41 = load i64, ptr %2, align 8
   %42 = sitofp i64 %41 to float
@@ -2803,7 +2802,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %10, align 4
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds float, ptr %44, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 %47
   store float %43, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
@@ -2814,7 +2813,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %10, align 4
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds float, ptr %53, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %53, i64 %56
   store float %52, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %59 = load ptr, ptr %58, align 8

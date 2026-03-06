@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.curl_trc_feat = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.trc_cft_def = type { ptr, i32 }
-%struct.trc_feat_def = type { ptr, i32 }
 
 @Curl_debug.s_infotype = internal constant [7 x [3 x i8]] [[3 x i8] c"* \00", [3 x i8] c"< \00", [3 x i8] c"> \00", [3 x i8] c"{ \00", [3 x i8] c"} \00", [3 x i8] c"{ \00", [3 x i8] c"} \00"], align 16
 @.str = private unnamed_addr constant [6 x i8] c"[%s] \00", align 1
@@ -711,7 +709,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .split.us.i.i:                                    ; preds = %13, %.split.us.i.i
   %.019.us.i.i = phi i64 [ %18, %.split.us.i.i ], [ 0, %13 ]
-  %15 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.us.i.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.us.i.i
   %16 = load ptr, ptr %15, align 16, !tbaa !94
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %.0.i, ptr %17, align 4, !tbaa !89
@@ -721,7 +719,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.split21.us.i.i:                        ; preds = %.split.us.i.i, %.preheader.split21.us.i.i
   %.120.us.i.i = phi i64 [ %22, %.preheader.split21.us.i.i ], [ 0, %.split.us.i.i ]
-  %19 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.us.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.120.us.i.i
   %20 = load ptr, ptr %19, align 16, !tbaa !98
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %.0.i, ptr %21, align 8, !tbaa !82
@@ -742,7 +740,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br i1 %.not18.i.not.i, label %27, label %31
 
 27:                                               ; preds = %.split.i.i
-  %28 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.i.i
   %29 = load ptr, ptr %28, align 16, !tbaa !94
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %.0.i, ptr %30, align 4, !tbaa !89
@@ -761,7 +759,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   ]
 
 33:                                               ; preds = %.preheader.split21.i.i, %.preheader.split21.i.i
-  %34 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.120.i.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.120.i.i
   %35 = load ptr, ptr %34, align 16, !tbaa !98
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %.0.i, ptr %36, align 8, !tbaa !82
@@ -785,7 +783,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br i1 %.not18.i29.not.i, label %43, label %47
 
 43:                                               ; preds = %.split.i27.i
-  %44 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i28.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.i28.i
   %45 = load ptr, ptr %44, align 16, !tbaa !94
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %.0.i, ptr %46, align 4, !tbaa !89
@@ -822,7 +820,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
   br i1 %.not18.i39.i, label %59, label %55
 
 55:                                               ; preds = %.split.i37.i
-  %56 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.019.i38.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.019.i38.i
   %57 = load ptr, ptr %56, align 16, !tbaa !94
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 %.0.i, ptr %58, align 4, !tbaa !89
@@ -840,7 +838,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .preheader.i:                                     ; preds = %52, %61
   %.014.i.i = phi i64 [ %62, %61 ], [ 0, %52 ]
-  %63 = getelementptr inbounds nuw %struct.trc_cft_def, ptr @trc_cfts, i64 %.014.i.i
+  %63 = getelementptr inbounds nuw [16 x i8], ptr @trc_cfts, i64 %.014.i.i
   %64 = load ptr, ptr %63, align 16, !tbaa !94
   %65 = load ptr, ptr %64, align 8, !tbaa !92
   %66 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %65) #8
@@ -862,7 +860,7 @@ define dso_local range(i32 0, 28) i32 @Curl_trc_opt(ptr noundef %0) local_unname
 
 .loopexit12.i.i:                                  ; preds = %.loopexit12.i.i.preheader, %69
   %.115.i.i = phi i64 [ %70, %69 ], [ 0, %.loopexit12.i.i.preheader ]
-  %71 = getelementptr inbounds nuw %struct.trc_feat_def, ptr @trc_feats, i64 %.115.i.i
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @trc_feats, i64 %.115.i.i
   %72 = load ptr, ptr %71, align 16, !tbaa !98
   %73 = load ptr, ptr %72, align 8, !tbaa !84
   %74 = call i32 @curl_strequal(ptr noundef nonnull %.1.i, ptr noundef %73) #8

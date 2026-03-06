@@ -93,7 +93,7 @@ define internal i32 @init(ptr noundef %0) #0 {
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %23, align 8, !tbaa !25
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store i32 %30, ptr %37, align 4, !tbaa !29
   br label %46
 
@@ -106,7 +106,7 @@ define internal i32 @init(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %38
   %42 = load ptr, ptr %23, align 8, !tbaa !25
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store i32 %40, ptr %43, align 4, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
@@ -214,7 +214,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !32
   %32 = load ptr, ptr %24, align 8, !tbaa !25
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !29
   %35 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %13, i32 noundef %34) #7
   %36 = call noalias ptr @av_mallocz(i64 noundef 32) #7
@@ -248,7 +248,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %6, align 8, !tbaa !32
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !34
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = call i32 @ff_channel_layouts_ref(ptr noundef %45, ptr noundef nonnull %48) #7
@@ -294,7 +294,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 .critedge:                                        ; preds = %.critedge.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %12 ]
   %15 = load ptr, ptr %11, align 8, !tbaa !46
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = tail call i32 @ff_outlink_get_status(ptr noundef %17) #7
   %.not = icmp eq i32 %18, 0
@@ -309,7 +309,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph95 ], [ 0, %.preheader ]
   %21 = load ptr, ptr %6, align 8, !tbaa !42
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv106
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv106
   %23 = load ptr, ptr %22, align 8, !tbaa !43
   tail call void @ff_inlink_set_status(ptr noundef %23, i32 noundef %18) #7
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
@@ -339,7 +339,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 32:                                               ; preds = %.lr.ph, %76
   %indvars.iv109 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next110, %76 ]
   %33 = load ptr, ptr %31, align 8, !tbaa !46
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv109
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv109
   %35 = load ptr, ptr %34, align 8, !tbaa !43
   %36 = call i32 @ff_outlink_get_status(ptr noundef %35) #7
   %.not66 = icmp eq i32 %36, 0
@@ -347,7 +347,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %31, align 8, !tbaa !46
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv109
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv109
   %40 = load ptr, ptr %39, align 8, !tbaa !43
   %41 = load ptr, ptr %4, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -374,10 +374,10 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %58 = load ptr, ptr %57, align 8, !tbaa !25
   %sext.i = shl i64 %54, 32
   %59 = ashr exact i64 %sext.i, 32
-  %60 = getelementptr inbounds i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !29
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %56, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %56, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !66
   store ptr %64, ptr %56, align 8, !tbaa !66
   store ptr %64, ptr %49, align 8, !tbaa !66
@@ -400,7 +400,7 @@ filter_frame.exit.thread:                         ; preds = %37, %69
 filter_frame.exit:                                ; preds = %50
   %70 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !46
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %59
+  %72 = getelementptr inbounds [8 x i8], ptr %71, i64 %59
   %73 = load ptr, ptr %72, align 8, !tbaa !43
   %74 = call i32 @ff_filter_frame(ptr noundef %73, ptr noundef nonnull %49) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -447,7 +447,7 @@ filter_frame.exit:                                ; preds = %50
 85:                                               ; preds = %.lr.ph90, %96
   %indvars.iv112 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next113, %96 ]
   %86 = load ptr, ptr %83, align 8, !tbaa !46
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv112
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv112
   %88 = load ptr, ptr %87, align 8, !tbaa !43
   %89 = call i32 @ff_outlink_get_status(ptr noundef %88) #7
   %.not71 = icmp eq i32 %89, 0
@@ -455,7 +455,7 @@ filter_frame.exit:                                ; preds = %50
 
 90:                                               ; preds = %85
   %91 = load ptr, ptr %83, align 8, !tbaa !46
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv112
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv112
   %93 = load ptr, ptr %92, align 8, !tbaa !43
   %94 = load i32, ptr %3, align 4, !tbaa !29
   %95 = load i64, ptr %5, align 8, !tbaa !68
@@ -472,7 +472,7 @@ filter_frame.exit:                                ; preds = %50
 100:                                              ; preds = %.lr.ph93, %111
   %indvars.iv115 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next116, %111 ]
   %101 = load ptr, ptr %84, align 8, !tbaa !46
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv115
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv115
   %103 = load ptr, ptr %102, align 8, !tbaa !43
   %104 = call i32 @ff_outlink_get_status(ptr noundef %103) #7
   %.not68 = icmp eq i32 %104, 0
@@ -480,7 +480,7 @@ filter_frame.exit:                                ; preds = %50
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %84, align 8, !tbaa !46
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv115
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv115
   %108 = load ptr, ptr %107, align 8, !tbaa !43
   %109 = call i32 @ff_outlink_frame_wanted(ptr noundef %108) #7
   %.not69 = icmp eq i32 %109, 0

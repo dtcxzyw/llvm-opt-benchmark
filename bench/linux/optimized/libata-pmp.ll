@@ -11,39 +11,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sata_pmp_err
 %struct.ata_taskfile = type { i64, i8, i8, i8, i8, i8, i8, i8, %union.anon.3, i8, i8, i8, i8, i8, %union.anon.4, i32 }
 %union.anon.3 = type { i8 }
 %union.anon.4 = type { i8 }
-%struct.ata_link = type { ptr, i32, %struct.device, i32, i32, i32, i32, i32, i32, i32, i32, %struct.ata_eh_info, %struct.ata_eh_context, [32 x i8], [2 x %struct.ata_device], i64, [56 x i8] }
-%struct.device = type { %struct.kobject, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.mutex, %struct.dev_links_info, %struct.dev_pm_info, ptr, %struct.dev_msi_info, ptr, ptr, i64, i64, ptr, ptr, %struct.list_head, ptr, %struct.dev_archdata, ptr, ptr, i32, i32, i32, %struct.spinlock, %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8 }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon }
-%union.anon = type { %struct.atomic_t }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.dev_links_info = type { %struct.list_head, %struct.list_head, %struct.list_head, i32 }
-%struct.dev_pm_info = type { %struct.pm_message, i16, i32, %struct.spinlock, %struct.list_head, %struct.completion, ptr, i8, %struct.hrtimer, i64, %struct.work_struct, %struct.wait_queue_head, ptr, %struct.atomic_t, %struct.atomic_t, i16, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, ptr }
-%struct.pm_message = type { i32 }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.hrtimer = type { %struct.timerqueue_node, i64, ptr, ptr, i8, i8, i8, i8 }
-%struct.timerqueue_node = type { %struct.rb_node, i64 }
-%struct.rb_node = type { i64, ptr, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.dev_msi_info = type { ptr, ptr }
-%struct.dev_archdata = type {}
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.list_head = type { ptr, ptr }
-%struct.ata_eh_info = type { ptr, i32, i32, i32, [2 x i32], i32, i32, [80 x i8], i32 }
-%struct.ata_eh_context = type { %struct.ata_eh_info, [2 x i32], [2 x [8 x i32]], [2 x i32], i32, i32, i32, [2 x i8], i64 }
-%struct.ata_device = type { ptr, i32, i32, i64, ptr, ptr, ptr, i32, %struct.device, i64, i64, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i16, i16, i16, [42 x i8], %union.anon.2, [8 x i8], [20 x i8], [64 x i8], i32, i32, i32, i32, ptr, [512 x i8], i32, %struct.ata_ering, [56 x i8] }
-%union.anon.2 = type { [128 x i32] }
-%struct.ata_ering = type { i32, [32 x %struct.ata_ering_entry] }
-%struct.ata_ering_entry = type { i32, i32, i64 }
 
 @sata_port_ops = external dso_local constant %struct.ata_port_operations, align 8
 @sata_pmp_port_ops = dso_local constant %struct.ata_port_operations { ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ata_std_prereset, ptr null, ptr @sata_std_hardreset, ptr @ata_std_postreset, ptr @sata_pmp_error_handler, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @sata_port_ops }, align 8
@@ -210,7 +177,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr i32, ptr %7, i64 %81
+  %82 = getelementptr [4 x i8], ptr %7, i64 %81
   store i32 3, ptr %82, align 4
   %83 = tail call ptr @ata_link_next(ptr noundef nonnull %78, ptr noundef %0, i32 noundef 0) #9
   %84 = icmp eq ptr %83, null
@@ -258,7 +225,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i32, ptr %108, align 8
   %110 = sext i32 %109 to i64
-  %111 = getelementptr i32, ptr %7, i64 %110
+  %111 = getelementptr [4 x i8], ptr %7, i64 %110
   store i32 3, ptr %111, align 4
   %112 = call ptr @ata_link_next(ptr noundef nonnull %107, ptr noundef %0, i32 noundef 0) #9
   store ptr %112, ptr %8, align 8
@@ -375,7 +342,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 171:                                              ; preds = %.thread28
   %172 = sext i32 %179 to i64
-  %173 = getelementptr i32, ptr %167, i64 %172
+  %173 = getelementptr [4 x i8], ptr %167, i64 %172
   %174 = load i32, ptr %75, align 8
   store i32 %174, ptr %173, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -385,7 +352,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 .thread28:                                        ; preds = %169, %171
   %177 = phi i64 [ %175, %171 ], [ 0, %169 ]
-  %178 = getelementptr i32, ptr @sata_pmp_read_gscr.gscr_to_read, i64 %177
+  %178 = getelementptr [4 x i8], ptr @sata_pmp_read_gscr.gscr_to_read, i64 %177
   %179 = load i32, ptr %178, align 4
   %180 = load ptr, ptr %13, align 64
   %181 = load ptr, ptr %180, align 64
@@ -1343,7 +1310,7 @@ define dso_local i32 @sata_pmp_attach(ptr noundef captures(none) %0) local_unnam
 
 58:                                               ; preds = %64
   %59 = sext i32 %67 to i64
-  %60 = getelementptr i32, ptr %51, i64 %59
+  %60 = getelementptr [4 x i8], ptr %51, i64 %59
   %61 = load i32, ptr %57, align 8
   store i32 %61, ptr %60, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1353,7 +1320,7 @@ define dso_local i32 @sata_pmp_attach(ptr noundef captures(none) %0) local_unnam
 
 64:                                               ; preds = %58, %50
   %65 = phi i64 [ 0, %50 ], [ %62, %58 ]
-  %66 = getelementptr i32, ptr @sata_pmp_read_gscr.gscr_to_read, i64 %65
+  %66 = getelementptr [4 x i8], ptr @sata_pmp_read_gscr.gscr_to_read, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %0, align 64
   %69 = load ptr, ptr %68, align 64
@@ -1417,7 +1384,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 .preheader40:                                     ; preds = %103, %.preheader40
   %106 = phi i64 [ %109, %.preheader40 ], [ 0, %103 ]
-  %107 = getelementptr %struct.ata_link, ptr %104, i64 %106
+  %107 = getelementptr [6464 x i8], ptr %104, i64 %106
   %108 = trunc i64 %106 to i32
   tail call void @ata_link_init(ptr noundef %4, ptr noundef %107, i32 noundef %108) #9
   %109 = add nuw nsw i64 %106, 1
@@ -1430,7 +1397,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 112:                                              ; preds = %120, %111
   %113 = phi i64 [ 0, %111 ], [ %121, %120 ]
-  %114 = getelementptr %struct.ata_link, ptr %104, i64 %113
+  %114 = getelementptr [6464 x i8], ptr %104, i64 %113
   %115 = tail call i32 @ata_tlink_add(ptr noundef %114) #9
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %120, label %117
@@ -1456,7 +1423,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 127:                                              ; preds = %127, %125
   %128 = phi i64 [ 0, %125 ], [ %137, %127 ]
-  %129 = getelementptr %struct.ata_link, ptr %123, i64 %128
+  %129 = getelementptr [6464 x i8], ptr %123, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 752
   store i32 0, ptr %130, align 16
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 928
@@ -1475,7 +1442,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %139 = phi i64 [ %140, %.preheader37 ], [ %113, %117 ]
   %140 = add nsw i64 %139, -1
   %141 = and i64 %140, 4294967295
-  %142 = getelementptr %struct.ata_link, ptr %104, i64 %141
+  %142 = getelementptr [6464 x i8], ptr %104, i64 %141
   tail call void @ata_tlink_delete(ptr noundef %142) #9
   %143 = icmp sgt i64 %139, 1
   br i1 %143, label %.preheader37, label %.loopexit38, !llvm.loop !24
@@ -1631,7 +1598,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %219 = load i32, ptr %158, align 8
   %220 = add i32 %219, -1
   %221 = sext i32 %220 to i64
-  %.split = getelementptr %struct.ata_link, ptr %218, i64 %221
+  %.split = getelementptr [6464 x i8], ptr %218, i64 %221
   %222 = getelementptr i8, ptr %.split, i64 752
   %223 = load i32, ptr %222, align 16
   %224 = or i32 %223, 32
@@ -2023,7 +1990,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr i32, ptr %1, i64 %6
+  %7 = getelementptr [4 x i8], ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10

@@ -32,13 +32,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.nodemask_t = type { [1 x i64] }
 %struct.elf64_hdr = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
 %struct.elf_prpsinfo = type { i8, i8, i8, i8, i64, i32, i32, i32, i32, i32, i32, [16 x i8], [80 x i8] }
-%struct.mem_section = type { i64, ptr }
-%struct.page = type { i64, %union.anon.12, %union.anon.20, %struct.atomic_t, [8 x i8] }
-%union.anon.12 = type { %struct.anon.13 }
-%struct.anon.13 = type { %union.anon.14, ptr, %union.anon.16, i64 }
-%union.anon.14 = type { %struct.list_head }
-%union.anon.16 = type { i64 }
-%union.anon.20 = type { %struct.atomic_t }
 
 @mem_pfn_is_ram = internal unnamed_addr global ptr null, align 8
 @kclist_head = internal global %struct.list_head { ptr @kclist_head, ptr @kclist_head }, align 8
@@ -235,7 +228,7 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
   %14 = phi i64 [ %24, %32 ], [ 0, %10 ]
   %15 = phi i32 [ %34, %32 ], [ %12, %10 ]
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr ptr, ptr @node_data, i64 %16
+  %17 = getelementptr [8 x i8], ptr @node_data, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 13096
   %20 = load i64, ptr %19, align 8
@@ -967,14 +960,14 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   br i1 %289, label %297, label %290
 
 290:                                              ; preds = %287
-  %291 = getelementptr ptr, ptr %288, i64 %282
+  %291 = getelementptr [8 x i8], ptr %288, i64 %282
   %292 = load ptr, ptr %291, align 8
   %293 = icmp eq ptr %292, null
   br i1 %293, label %297, label %294
 
 294:                                              ; preds = %290
   %295 = and i64 %276, 255
-  %296 = getelementptr %struct.mem_section, ptr %292, i64 %295
+  %296 = getelementptr [16 x i8], ptr %292, i64 %295
   br label %297
 
 297:                                              ; preds = %294, %290, %287, %284
@@ -1045,7 +1038,7 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   %336 = icmp eq i32 %335, 0
   %337 = load i64, ptr @vmemmap_base, align 8
   %338 = inttoptr i64 %337 to ptr
-  %339 = getelementptr %struct.page, ptr %338, i64 %275
+  %339 = getelementptr [64 x i8], ptr %338, i64 %275
   %340 = icmp eq ptr %339, null
   %341 = select i1 %336, i1 true, i1 %340
   br i1 %341, label %.thread52, label %342
@@ -1280,14 +1273,14 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr ptr, ptr %18, i64 %12
+  %21 = getelementptr [8 x i8], ptr %18, i64 %12
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %20
   %25 = and i64 %6, 255
-  %26 = getelementptr %struct.mem_section, ptr %22, i64 %25
+  %26 = getelementptr [16 x i8], ptr %22, i64 %25
   br label %27
 
 27:                                               ; preds = %24, %20, %17, %14
@@ -1428,10 +1421,10 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   %110 = lshr i64 %109, 12
   %111 = load i64, ptr @vmemmap_base, align 8
   %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr %struct.page, ptr %112, i64 %108
+  %113 = getelementptr [64 x i8], ptr %112, i64 %108
   %114 = ptrtoint ptr %113 to i64
   %115 = and i64 %114, -4096
-  %116 = getelementptr %struct.page, ptr %113, i64 %110
+  %116 = getelementptr [64 x i8], ptr %113, i64 %110
   %117 = ptrtoint ptr %116 to i64
   %118 = add i64 %117, 4094
   %119 = and i64 %118, -4096

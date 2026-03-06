@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { i32, %struct.iovec }
 %struct.iovec = type { ptr, i64 }
 %struct.BlockAcctCookie = type { i64, i64, i32 }
-%struct.BlockZoneDescriptor = type { i64, i64, i64, i64, i32, i32 }
 %struct.BlockDriverInfo = type { i32, i32, i64, i8, i8 }
 
 @.str = private unnamed_addr constant [70 x i8] c"ci->perm == 0 || (ci->flags & (CMD_FLAG_GLOBAL | CMD_NOFILE_OK)) == 0\00", align 1
@@ -311,7 +310,7 @@ define dso_local void @qemuio_add_command(ptr noundef readonly captures(none) %0
   %17 = load i32, ptr @ncmds, align 4
   %18 = add i32 %17, -1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.cmdinfo, ptr %16, i64 %19
+  %20 = getelementptr inbounds [72 x i8], ptr %16, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
   %21 = sext i32 %17 to i64
   tail call void @qsort(ptr noundef %16, i64 noundef %21, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -381,7 +380,7 @@ define dso_local void @qemuio_complete_command(ptr noundef readonly captures(non
   %16 = phi ptr [ %9, %.lr.ph ], [ %.pre, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %.08, i64 72
   %18 = sext i32 %15 to i64
-  %19 = getelementptr inbounds %struct.cmdinfo, ptr %16, i64 %18
+  %19 = getelementptr inbounds [72 x i8], ptr %16, i64 %18
   %20 = icmp ult ptr %17, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -435,10 +434,10 @@ breakline.exit.thread:                            ; preds = %2
   %15 = sext i32 %14 to i64
   %16 = call ptr @g_realloc_n(ptr noundef nonnull %.04046.i24, i64 noundef %15, i64 noundef 8) #26
   %17 = sext i32 %.047.i23 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   store ptr %10, ptr %18, align 8
   %19 = sext i32 %13 to i64
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   store ptr null, ptr %20, align 8
   br label %.backedge.i
 
@@ -637,7 +636,7 @@ qemuio_add_command.exit:
   %5 = load i32, ptr @ncmds, align 4
   %6 = add i32 %5, -1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.cmdinfo, ptr %4, i64 %7
+  %8 = getelementptr inbounds [72 x i8], ptr %4, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(72) @help_cmd, i64 72, i1 false)
   %9 = sext i32 %5 to i64
   tail call void @qsort(ptr noundef %4, i64 noundef %9, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -651,7 +650,7 @@ qemuio_add_command.exit:
   %15 = load i32, ptr @ncmds, align 4
   %16 = add i32 %15, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.cmdinfo, ptr %14, i64 %17
+  %18 = getelementptr inbounds [72 x i8], ptr %14, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) @read_cmd, i64 72, i1 false)
   %19 = sext i32 %15 to i64
   tail call void @qsort(ptr noundef %14, i64 noundef %19, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -665,7 +664,7 @@ qemuio_add_command.exit:
   %25 = load i32, ptr @ncmds, align 4
   %26 = add i32 %25, -1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.cmdinfo, ptr %24, i64 %27
+  %28 = getelementptr inbounds [72 x i8], ptr %24, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) @readv_cmd, i64 72, i1 false)
   %29 = sext i32 %25 to i64
   tail call void @qsort(ptr noundef %24, i64 noundef %29, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -679,7 +678,7 @@ qemuio_add_command.exit:
   %35 = load i32, ptr @ncmds, align 4
   %36 = add i32 %35, -1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.cmdinfo, ptr %34, i64 %37
+  %38 = getelementptr inbounds [72 x i8], ptr %34, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr noundef nonnull align 8 dereferenceable(72) @write_cmd, i64 72, i1 false)
   %39 = sext i32 %35 to i64
   tail call void @qsort(ptr noundef %34, i64 noundef %39, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -693,7 +692,7 @@ qemuio_add_command.exit:
   %45 = load i32, ptr @ncmds, align 4
   %46 = add i32 %45, -1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.cmdinfo, ptr %44, i64 %47
+  %48 = getelementptr inbounds [72 x i8], ptr %44, i64 %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %48, ptr noundef nonnull align 8 dereferenceable(72) @writev_cmd, i64 72, i1 false)
   %49 = sext i32 %45 to i64
   tail call void @qsort(ptr noundef %44, i64 noundef %49, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -707,7 +706,7 @@ qemuio_add_command.exit:
   %55 = load i32, ptr @ncmds, align 4
   %56 = add i32 %55, -1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.cmdinfo, ptr %54, i64 %57
+  %58 = getelementptr inbounds [72 x i8], ptr %54, i64 %57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %58, ptr noundef nonnull align 8 dereferenceable(72) @aio_read_cmd, i64 72, i1 false)
   %59 = sext i32 %55 to i64
   tail call void @qsort(ptr noundef %54, i64 noundef %59, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -721,7 +720,7 @@ qemuio_add_command.exit:
   %65 = load i32, ptr @ncmds, align 4
   %66 = add i32 %65, -1
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.cmdinfo, ptr %64, i64 %67
+  %68 = getelementptr inbounds [72 x i8], ptr %64, i64 %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %68, ptr noundef nonnull align 8 dereferenceable(72) @aio_write_cmd, i64 72, i1 false)
   %69 = sext i32 %65 to i64
   tail call void @qsort(ptr noundef %64, i64 noundef %69, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -735,7 +734,7 @@ qemuio_add_command.exit:
   %75 = load i32, ptr @ncmds, align 4
   %76 = add i32 %75, -1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %struct.cmdinfo, ptr %74, i64 %77
+  %78 = getelementptr inbounds [72 x i8], ptr %74, i64 %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %78, ptr noundef nonnull align 8 dereferenceable(72) @aio_flush_cmd, i64 72, i1 false)
   %79 = sext i32 %75 to i64
   tail call void @qsort(ptr noundef %74, i64 noundef %79, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -749,7 +748,7 @@ qemuio_add_command.exit:
   %85 = load i32, ptr @ncmds, align 4
   %86 = add i32 %85, -1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds %struct.cmdinfo, ptr %84, i64 %87
+  %88 = getelementptr inbounds [72 x i8], ptr %84, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %88, ptr noundef nonnull align 8 dereferenceable(72) @flush_cmd, i64 72, i1 false)
   %89 = sext i32 %85 to i64
   tail call void @qsort(ptr noundef %84, i64 noundef %89, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -763,7 +762,7 @@ qemuio_add_command.exit:
   %95 = load i32, ptr @ncmds, align 4
   %96 = add i32 %95, -1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.cmdinfo, ptr %94, i64 %97
+  %98 = getelementptr inbounds [72 x i8], ptr %94, i64 %97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull align 8 dereferenceable(72) @zone_report_cmd, i64 72, i1 false)
   %99 = sext i32 %95 to i64
   tail call void @qsort(ptr noundef %94, i64 noundef %99, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -777,7 +776,7 @@ qemuio_add_command.exit:
   %105 = load i32, ptr @ncmds, align 4
   %106 = add i32 %105, -1
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.cmdinfo, ptr %104, i64 %107
+  %108 = getelementptr inbounds [72 x i8], ptr %104, i64 %107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %108, ptr noundef nonnull align 8 dereferenceable(72) @zone_open_cmd, i64 72, i1 false)
   %109 = sext i32 %105 to i64
   tail call void @qsort(ptr noundef %104, i64 noundef %109, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -791,7 +790,7 @@ qemuio_add_command.exit:
   %115 = load i32, ptr @ncmds, align 4
   %116 = add i32 %115, -1
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.cmdinfo, ptr %114, i64 %117
+  %118 = getelementptr inbounds [72 x i8], ptr %114, i64 %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %118, ptr noundef nonnull align 8 dereferenceable(72) @zone_close_cmd, i64 72, i1 false)
   %119 = sext i32 %115 to i64
   tail call void @qsort(ptr noundef %114, i64 noundef %119, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -805,7 +804,7 @@ qemuio_add_command.exit:
   %125 = load i32, ptr @ncmds, align 4
   %126 = add i32 %125, -1
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %struct.cmdinfo, ptr %124, i64 %127
+  %128 = getelementptr inbounds [72 x i8], ptr %124, i64 %127
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %128, ptr noundef nonnull align 8 dereferenceable(72) @zone_finish_cmd, i64 72, i1 false)
   %129 = sext i32 %125 to i64
   tail call void @qsort(ptr noundef %124, i64 noundef %129, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -819,7 +818,7 @@ qemuio_add_command.exit:
   %135 = load i32, ptr @ncmds, align 4
   %136 = add i32 %135, -1
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds %struct.cmdinfo, ptr %134, i64 %137
+  %138 = getelementptr inbounds [72 x i8], ptr %134, i64 %137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %138, ptr noundef nonnull align 8 dereferenceable(72) @zone_reset_cmd, i64 72, i1 false)
   %139 = sext i32 %135 to i64
   tail call void @qsort(ptr noundef %134, i64 noundef %139, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -833,7 +832,7 @@ qemuio_add_command.exit:
   %145 = load i32, ptr @ncmds, align 4
   %146 = add i32 %145, -1
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct.cmdinfo, ptr %144, i64 %147
+  %148 = getelementptr inbounds [72 x i8], ptr %144, i64 %147
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %148, ptr noundef nonnull align 8 dereferenceable(72) @zone_append_cmd, i64 72, i1 false)
   %149 = sext i32 %145 to i64
   tail call void @qsort(ptr noundef %144, i64 noundef %149, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -847,7 +846,7 @@ qemuio_add_command.exit:
   %155 = load i32, ptr @ncmds, align 4
   %156 = add i32 %155, -1
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds %struct.cmdinfo, ptr %154, i64 %157
+  %158 = getelementptr inbounds [72 x i8], ptr %154, i64 %157
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %158, ptr noundef nonnull align 8 dereferenceable(72) @truncate_cmd, i64 72, i1 false)
   %159 = sext i32 %155 to i64
   tail call void @qsort(ptr noundef %154, i64 noundef %159, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -861,7 +860,7 @@ qemuio_add_command.exit:
   %165 = load i32, ptr @ncmds, align 4
   %166 = add i32 %165, -1
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds %struct.cmdinfo, ptr %164, i64 %167
+  %168 = getelementptr inbounds [72 x i8], ptr %164, i64 %167
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %168, ptr noundef nonnull align 8 dereferenceable(72) @length_cmd, i64 72, i1 false)
   %169 = sext i32 %165 to i64
   tail call void @qsort(ptr noundef %164, i64 noundef %169, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -875,7 +874,7 @@ qemuio_add_command.exit:
   %175 = load i32, ptr @ncmds, align 4
   %176 = add i32 %175, -1
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds %struct.cmdinfo, ptr %174, i64 %177
+  %178 = getelementptr inbounds [72 x i8], ptr %174, i64 %177
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %178, ptr noundef nonnull align 8 dereferenceable(72) @info_cmd, i64 72, i1 false)
   %179 = sext i32 %175 to i64
   tail call void @qsort(ptr noundef %174, i64 noundef %179, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -889,7 +888,7 @@ qemuio_add_command.exit:
   %185 = load i32, ptr @ncmds, align 4
   %186 = add i32 %185, -1
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds %struct.cmdinfo, ptr %184, i64 %187
+  %188 = getelementptr inbounds [72 x i8], ptr %184, i64 %187
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %188, ptr noundef nonnull align 8 dereferenceable(72) @discard_cmd, i64 72, i1 false)
   %189 = sext i32 %185 to i64
   tail call void @qsort(ptr noundef %184, i64 noundef %189, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -903,7 +902,7 @@ qemuio_add_command.exit:
   %195 = load i32, ptr @ncmds, align 4
   %196 = add i32 %195, -1
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds %struct.cmdinfo, ptr %194, i64 %197
+  %198 = getelementptr inbounds [72 x i8], ptr %194, i64 %197
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(72) @alloc_cmd, i64 72, i1 false)
   %199 = sext i32 %195 to i64
   tail call void @qsort(ptr noundef %194, i64 noundef %199, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -917,7 +916,7 @@ qemuio_add_command.exit:
   %205 = load i32, ptr @ncmds, align 4
   %206 = add i32 %205, -1
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds %struct.cmdinfo, ptr %204, i64 %207
+  %208 = getelementptr inbounds [72 x i8], ptr %204, i64 %207
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %208, ptr noundef nonnull align 8 dereferenceable(72) @map_cmd, i64 72, i1 false)
   %209 = sext i32 %205 to i64
   tail call void @qsort(ptr noundef %204, i64 noundef %209, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -931,7 +930,7 @@ qemuio_add_command.exit:
   %215 = load i32, ptr @ncmds, align 4
   %216 = add i32 %215, -1
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds %struct.cmdinfo, ptr %214, i64 %217
+  %218 = getelementptr inbounds [72 x i8], ptr %214, i64 %217
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %218, ptr noundef nonnull align 8 dereferenceable(72) @reopen_cmd, i64 72, i1 false)
   %219 = sext i32 %215 to i64
   tail call void @qsort(ptr noundef %214, i64 noundef %219, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -945,7 +944,7 @@ qemuio_add_command.exit:
   %225 = load i32, ptr @ncmds, align 4
   %226 = add i32 %225, -1
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds %struct.cmdinfo, ptr %224, i64 %227
+  %228 = getelementptr inbounds [72 x i8], ptr %224, i64 %227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %228, ptr noundef nonnull align 8 dereferenceable(72) @break_cmd, i64 72, i1 false)
   %229 = sext i32 %225 to i64
   tail call void @qsort(ptr noundef %224, i64 noundef %229, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -959,7 +958,7 @@ qemuio_add_command.exit:
   %235 = load i32, ptr @ncmds, align 4
   %236 = add i32 %235, -1
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds %struct.cmdinfo, ptr %234, i64 %237
+  %238 = getelementptr inbounds [72 x i8], ptr %234, i64 %237
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %238, ptr noundef nonnull align 8 dereferenceable(72) @remove_break_cmd, i64 72, i1 false)
   %239 = sext i32 %235 to i64
   tail call void @qsort(ptr noundef %234, i64 noundef %239, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -973,7 +972,7 @@ qemuio_add_command.exit:
   %245 = load i32, ptr @ncmds, align 4
   %246 = add i32 %245, -1
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds %struct.cmdinfo, ptr %244, i64 %247
+  %248 = getelementptr inbounds [72 x i8], ptr %244, i64 %247
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %248, ptr noundef nonnull align 8 dereferenceable(72) @resume_cmd, i64 72, i1 false)
   %249 = sext i32 %245 to i64
   tail call void @qsort(ptr noundef %244, i64 noundef %249, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -987,7 +986,7 @@ qemuio_add_command.exit:
   %255 = load i32, ptr @ncmds, align 4
   %256 = add i32 %255, -1
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds %struct.cmdinfo, ptr %254, i64 %257
+  %258 = getelementptr inbounds [72 x i8], ptr %254, i64 %257
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %258, ptr noundef nonnull align 8 dereferenceable(72) @wait_break_cmd, i64 72, i1 false)
   %259 = sext i32 %255 to i64
   tail call void @qsort(ptr noundef %254, i64 noundef %259, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -1001,7 +1000,7 @@ qemuio_add_command.exit:
   %265 = load i32, ptr @ncmds, align 4
   %266 = add i32 %265, -1
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds %struct.cmdinfo, ptr %264, i64 %267
+  %268 = getelementptr inbounds [72 x i8], ptr %264, i64 %267
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %268, ptr noundef nonnull align 8 dereferenceable(72) @abort_cmd, i64 72, i1 false)
   %269 = sext i32 %265 to i64
   tail call void @qsort(ptr noundef %264, i64 noundef %269, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -1015,7 +1014,7 @@ qemuio_add_command.exit:
   %275 = load i32, ptr @ncmds, align 4
   %276 = add i32 %275, -1
   %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds %struct.cmdinfo, ptr %274, i64 %277
+  %278 = getelementptr inbounds [72 x i8], ptr %274, i64 %277
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %278, ptr noundef nonnull align 8 dereferenceable(72) @sleep_cmd, i64 72, i1 false)
   %279 = sext i32 %275 to i64
   tail call void @qsort(ptr noundef %274, i64 noundef %279, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -1029,7 +1028,7 @@ qemuio_add_command.exit:
   %285 = load i32, ptr @ncmds, align 4
   %286 = add i32 %285, -1
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds %struct.cmdinfo, ptr %284, i64 %287
+  %288 = getelementptr inbounds [72 x i8], ptr %284, i64 %287
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %288, ptr noundef nonnull align 8 dereferenceable(72) @sigraise_cmd, i64 72, i1 false)
   %289 = sext i32 %285 to i64
   tail call void @qsort(ptr noundef %284, i64 noundef %289, i64 noundef 72, ptr noundef nonnull @compare_cmdname) #26
@@ -1090,7 +1089,7 @@ help_oneline.exit.i:                              ; preds = %13, %.lr.ph.i
   %19 = load ptr, ptr @cmdtab, align 8
   %20 = load i32, ptr @ncmds, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.cmdinfo, ptr %19, i64 %21
+  %22 = getelementptr inbounds [72 x i8], ptr %19, i64 %21
   %23 = icmp ult ptr %18, %22
   br i1 %23, label %.lr.ph.i, label %help_all.exit, !llvm.loop !9
 
@@ -1326,7 +1325,7 @@ parse_pattern.exit:                               ; preds = %30
 
 58:                                               ; preds = %53
   %59 = sext i32 %54 to i64
-  %60 = getelementptr inbounds ptr, ptr %2, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %2, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -1344,7 +1343,7 @@ parse_pattern.exit:                               ; preds = %30
 
 69:                                               ; preds = %58
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds ptr, ptr %2, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %2, i64 %70
   %72 = load ptr, ptr %71, align 8
   %switch.selectcmp.i135 = icmp eq i64 %.0.i134, -34
   %switch.select.i136 = select i1 %switch.selectcmp.i135, ptr @.str.31, ptr @.str.32
@@ -1358,7 +1357,7 @@ parse_pattern.exit:                               ; preds = %30
   %76 = add i32 %68, 1
   store i32 %76, ptr @optind, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %2, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %2, i64 %77
   %79 = load ptr, ptr %78, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -1376,7 +1375,7 @@ parse_pattern.exit:                               ; preds = %30
 86:                                               ; preds = %75
   %87 = load i32, ptr @optind, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %2, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %2, i64 %88
   %90 = load ptr, ptr %89, align 8
   %switch.selectcmp.i141 = icmp eq i64 %.0.i140, -34
   %switch.select.i142 = select i1 %switch.selectcmp.i141, ptr @.str.31, ptr @.str.32
@@ -1393,7 +1392,7 @@ parse_pattern.exit:                               ; preds = %30
 95:                                               ; preds = %93
   %96 = load i32, ptr @optind, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds ptr, ptr %2, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %2, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.23, i64 noundef 2147483136, ptr noundef %99) #26
   br label %167
@@ -1651,7 +1650,7 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
   %18 = load ptr, ptr %16, align 8
   %19 = load i8, ptr %.036, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %.not = icmp eq i16 %23, 0
@@ -1994,7 +1993,7 @@ parse_pattern.exit:                               ; preds = %16
 
 32:                                               ; preds = %26
   %33 = sext i32 %27 to i64
-  %34 = getelementptr inbounds ptr, ptr %2, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %33
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -2012,7 +2011,7 @@ parse_pattern.exit:                               ; preds = %16
 
 43:                                               ; preds = %32
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %2, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %2, i64 %44
   %46 = load ptr, ptr %45, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i63, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -2027,7 +2026,7 @@ parse_pattern.exit:                               ; preds = %16
   store i32 %50, ptr @optind, align 4
   %51 = sub i32 %1, %50
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds ptr, ptr %2, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %2, i64 %52
   %54 = and i32 %.044.ph130, 8
   %55 = icmp ne i32 %54, 0
   %56 = call fastcc ptr @create_iovec(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %53, i32 noundef %51, i32 noundef 171, i1 noundef zeroext %55)
@@ -2169,7 +2168,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %.05470 = phi i64 [ 0, %.lr.ph.preheader ], [ %32, %30 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !annotation !8
@@ -2210,7 +2209,7 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 %.0.i, ptr %31, align 8
   %32 = add nuw nsw i64 %.0.i, %.05470
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2247,7 +2246,7 @@ qemu_io_alloc.exit:                               ; preds = %._crit_edge, %38
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv83 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next84, %.lr.ph74 ]
   %.05272 = phi ptr [ %spec.select12.i, %.lr.ph74.preheader ], [ %45, %.lr.ph74 ]
-  %42 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv83
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv83
   %43 = load i64, ptr %42, align 8
   call void @qemu_iovec_add(ptr noundef %1, ptr noundef %.05272, i64 noundef %43) #26
   %44 = load i64, ptr %42, align 8
@@ -2456,7 +2455,7 @@ parse_pattern.exit:                               ; preds = %19
 
 62:                                               ; preds = %57
   %63 = sext i32 %35 to i64
-  %64 = getelementptr inbounds ptr, ptr %2, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %2, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = tail call fastcc i64 @cvtnum(ptr noundef %65)
   %67 = icmp slt i64 %66, 0
@@ -2465,7 +2464,7 @@ parse_pattern.exit:                               ; preds = %19
 
 69:                                               ; preds = %62
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds ptr, ptr %2, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %2, i64 %70
   %72 = load ptr, ptr %71, align 8
   %switch.selectcmp.i = icmp eq i64 %66, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -2479,7 +2478,7 @@ parse_pattern.exit:                               ; preds = %19
   %76 = add i32 %68, 1
   store i32 %76, ptr @optind, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %2, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %2, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = tail call fastcc i64 @cvtnum(ptr noundef %79)
   %81 = icmp slt i64 %80, 0
@@ -2488,7 +2487,7 @@ parse_pattern.exit:                               ; preds = %19
 82:                                               ; preds = %75
   %83 = load i32, ptr @optind, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %2, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %2, i64 %84
   %86 = load ptr, ptr %85, align 8
   %switch.selectcmp.i133 = icmp eq i64 %80, -34
   %switch.select.i134 = select i1 %switch.selectcmp.i133, ptr @.str.31, ptr @.str.32
@@ -2506,7 +2505,7 @@ parse_pattern.exit:                               ; preds = %19
 91:                                               ; preds = %89
   %92 = load i32, ptr @optind, align 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %2, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %2, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.74, i64 noundef 2147483136, ptr noundef %95) #26
   br label %163
@@ -2869,7 +2868,7 @@ parse_pattern.exit:                               ; preds = %20
 
 33:                                               ; preds = %27
   %34 = sext i32 %28 to i64
-  %35 = getelementptr inbounds ptr, ptr %2, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %2, i64 %34
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -2887,7 +2886,7 @@ parse_pattern.exit:                               ; preds = %20
 
 44:                                               ; preds = %33
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %2, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %2, i64 %45
   %47 = load ptr, ptr %46, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i49, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -2902,7 +2901,7 @@ parse_pattern.exit:                               ; preds = %20
   store i32 %51, ptr @optind, align 4
   %52 = sub i32 %1, %51
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds ptr, ptr %2, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %2, i64 %53
   %55 = and i32 %.037.ph94, 8
   %56 = icmp ne i32 %55, 0
   %57 = call fastcc ptr @create_iovec(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %54, i32 noundef %52, i32 noundef %.034.ph98, i1 noundef zeroext %56)
@@ -3100,7 +3099,7 @@ parse_pattern.exit:                               ; preds = %19
 
 40:                                               ; preds = %34
   %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds ptr, ptr %2, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %2, i64 %41
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -3122,7 +3121,7 @@ parse_pattern.exit:                               ; preds = %19
   %sext = shl i64 %.0.i61, 32
   %53 = load i32, ptr @optind, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %2, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %2, i64 %54
   %56 = load ptr, ptr %55, align 8
   %switch.selectcmp.i = icmp eq i64 %sext, -146028888064
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -3139,7 +3138,7 @@ parse_pattern.exit:                               ; preds = %19
   %61 = sub i32 %1, %60
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds ptr, ptr %2, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %2, i64 %63
   %65 = load i32, ptr %8, align 4
   %66 = and i32 %65, 8
   %67 = icmp ne i32 %66, 0
@@ -3486,7 +3485,7 @@ parse_pattern.exit:                               ; preds = %27
 
 65:                                               ; preds = %55, %61
   %66 = sext i32 %39 to i64
-  %67 = getelementptr inbounds ptr, ptr %2, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -3508,7 +3507,7 @@ parse_pattern.exit:                               ; preds = %27
   %sext = shl i64 %.0.i99, 32
   %78 = load i32, ptr @optind, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %2, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %2, i64 %79
   %81 = load ptr, ptr %80, align 8
   %switch.selectcmp.i = icmp eq i64 %sext, -146028888064
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -3528,7 +3527,7 @@ parse_pattern.exit:                               ; preds = %27
 
 88:                                               ; preds = %83
   %89 = sext i32 %85 to i64
-  %90 = getelementptr inbounds ptr, ptr %2, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %2, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = call fastcc i64 @cvtnum(ptr noundef %91)
   %93 = icmp sgt i64 %92, -1
@@ -3545,7 +3544,7 @@ parse_pattern.exit:                               ; preds = %27
 98:                                               ; preds = %88
   %99 = load i32, ptr @optind, align 4
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %2, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %2, i64 %100
   %102 = load ptr, ptr %101, align 8
   %switch.selectcmp.i100 = icmp eq i64 %92, -34
   %switch.select.i101 = select i1 %switch.selectcmp.i100, ptr @.str.31, ptr @.str.32
@@ -3560,7 +3559,7 @@ parse_pattern.exit:                               ; preds = %27
   %106 = sub i32 %1, %85
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %108 = sext i32 %85 to i64
-  %109 = getelementptr inbounds ptr, ptr %2, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %2, i64 %108
   %110 = load i32, ptr %8, align 4
   %111 = and i32 %110, 8
   %112 = icmp ne i32 %111, 0
@@ -3732,7 +3731,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %8 = add i32 %7, 1
   store i32 %8, ptr @optind, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -3750,7 +3749,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
 
 19:                                               ; preds = %3
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds ptr, ptr %2, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %2, i64 %20
   %22 = load ptr, ptr %21, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -3764,7 +3763,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %26 = add i32 %18, 1
   store i32 %26, ptr @optind, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -3782,7 +3781,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
 36:                                               ; preds = %25
   %37 = load i32, ptr @optind, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %2, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %2, i64 %38
   %40 = load ptr, ptr %39, align 8
   %switch.selectcmp.i45 = icmp eq i64 %.0.i44, -34
   %switch.select.i46 = select i1 %switch.selectcmp.i45, ptr @.str.31, ptr @.str.32
@@ -3822,7 +3821,7 @@ define internal i32 @zone_report_f(ptr noundef %0, i32 %1, ptr noundef readonly 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.053 = phi i32 [ %75, %.lr.ph ], [ 0, %.preheader ]
   %57 = sext i32 %.053 to i64
-  %58 = getelementptr inbounds %struct.BlockZoneDescriptor, ptr %49, i64 %57
+  %58 = getelementptr inbounds [40 x i8], ptr %49, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = ashr i64 %59, 9
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -3867,7 +3866,7 @@ define internal i32 @zone_open_f(ptr noundef %0, i32 %1, ptr noundef readonly ca
   %7 = add i32 %6, 1
   store i32 %7, ptr @optind, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -3885,7 +3884,7 @@ define internal i32 @zone_open_f(ptr noundef %0, i32 %1, ptr noundef readonly ca
 
 18:                                               ; preds = %3
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -3899,7 +3898,7 @@ define internal i32 @zone_open_f(ptr noundef %0, i32 %1, ptr noundef readonly ca
   %25 = add i32 %17, 1
   store i32 %25, ptr @optind, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -3917,7 +3916,7 @@ define internal i32 @zone_open_f(ptr noundef %0, i32 %1, ptr noundef readonly ca
 35:                                               ; preds = %24
   %36 = load i32, ptr @optind, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8
   %switch.selectcmp.i22 = icmp eq i64 %.0.i21, -34
   %switch.select.i23 = select i1 %switch.selectcmp.i22, ptr @.str.31, ptr @.str.32
@@ -3953,7 +3952,7 @@ define internal i32 @zone_close_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %7 = add i32 %6, 1
   store i32 %7, ptr @optind, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -3971,7 +3970,7 @@ define internal i32 @zone_close_f(ptr noundef %0, i32 %1, ptr noundef readonly c
 
 18:                                               ; preds = %3
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -3985,7 +3984,7 @@ define internal i32 @zone_close_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %25 = add i32 %17, 1
   store i32 %25, ptr @optind, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -4003,7 +4002,7 @@ define internal i32 @zone_close_f(ptr noundef %0, i32 %1, ptr noundef readonly c
 35:                                               ; preds = %24
   %36 = load i32, ptr @optind, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8
   %switch.selectcmp.i22 = icmp eq i64 %.0.i21, -34
   %switch.select.i23 = select i1 %switch.selectcmp.i22, ptr @.str.31, ptr @.str.32
@@ -4037,7 +4036,7 @@ define internal i32 @zone_finish_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %7 = add i32 %6, 1
   store i32 %7, ptr @optind, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -4055,7 +4054,7 @@ define internal i32 @zone_finish_f(ptr noundef %0, i32 %1, ptr noundef readonly 
 
 18:                                               ; preds = %3
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -4069,7 +4068,7 @@ define internal i32 @zone_finish_f(ptr noundef %0, i32 %1, ptr noundef readonly 
   %25 = add i32 %17, 1
   store i32 %25, ptr @optind, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -4087,7 +4086,7 @@ define internal i32 @zone_finish_f(ptr noundef %0, i32 %1, ptr noundef readonly 
 35:                                               ; preds = %24
   %36 = load i32, ptr @optind, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8
   %switch.selectcmp.i22 = icmp eq i64 %.0.i21, -34
   %switch.select.i23 = select i1 %switch.selectcmp.i22, ptr @.str.31, ptr @.str.32
@@ -4121,7 +4120,7 @@ define internal i32 @zone_reset_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %7 = add i32 %6, 1
   store i32 %7, ptr @optind, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -4139,7 +4138,7 @@ define internal i32 @zone_reset_f(ptr noundef %0, i32 %1, ptr noundef readonly c
 
 18:                                               ; preds = %3
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -4153,7 +4152,7 @@ define internal i32 @zone_reset_f(ptr noundef %0, i32 %1, ptr noundef readonly c
   %25 = add i32 %17, 1
   store i32 %25, ptr @optind, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -4171,7 +4170,7 @@ define internal i32 @zone_reset_f(ptr noundef %0, i32 %1, ptr noundef readonly c
 35:                                               ; preds = %24
   %36 = load i32, ptr @optind, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8
   %switch.selectcmp.i22 = icmp eq i64 %.0.i21, -34
   %switch.select.i23 = select i1 %switch.selectcmp.i22, ptr @.str.31, ptr @.str.32
@@ -4216,7 +4215,7 @@ define internal i32 @zone_append_f(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.not.not = icmp eq i32 %12, -1
   %13 = load i32, ptr @optind, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %2, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %2, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -4235,7 +4234,7 @@ define internal i32 @zone_append_f(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 24:                                               ; preds = %11
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load ptr, ptr %26, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -4250,7 +4249,7 @@ define internal i32 @zone_append_f(ptr noundef %0, i32 noundef %1, ptr noundef %
   store i32 %31, ptr @optind, align 4
   %32 = sub i32 %1, %31
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %2, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %33
   %35 = call fastcc ptr @create_iovec(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %34, i32 noundef %32, i32 noundef 205, i1 noundef zeroext false)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %57, label %37
@@ -4343,7 +4342,7 @@ define internal range(i32 -2147483648, 1) i32 @truncate_f(ptr noundef %0, i32 no
 16:                                               ; preds = %6
   %17 = load i32, ptr @optind, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %2, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -4576,7 +4575,7 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !8
   %19 = sext i32 %14 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !8
@@ -4594,7 +4593,7 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
 
 29:                                               ; preds = %18
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %2, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %2, i64 %30
   %32 = load ptr, ptr %31, align 8
   %switch.selectcmp.i = icmp eq i64 %.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -4608,7 +4607,7 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
   %36 = add i32 %28, 1
   store i32 %36, ptr @optind, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
@@ -4626,7 +4625,7 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
 46:                                               ; preds = %35
   %47 = load i32, ptr @optind, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %2, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %2, i64 %48
   %50 = load ptr, ptr %49, align 8
   %switch.selectcmp.i40 = icmp eq i64 %.0.i39, -34
   %switch.select.i41 = select i1 %switch.selectcmp.i40, ptr @.str.31, ptr @.str.32
@@ -4643,7 +4642,7 @@ define internal range(i32 -2147483648, 1) i32 @discard_f(ptr noundef %0, i32 nou
 55:                                               ; preds = %53
   %56 = load i32, ptr @optind, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %2, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %2, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.23, i64 noundef 2147483136, ptr noundef %59) #26
   br label %82

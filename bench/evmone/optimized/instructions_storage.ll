@@ -223,9 +223,9 @@ define hidden { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14Exe
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #5
   %64 = load i32, ptr %14, align 8, !tbaa !15
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"struct.std::array.33", ptr @_ZN6evmone5instr4core12_GLOBAL__N_112sstore_costsE, i64 %65
+  %66 = getelementptr inbounds nuw [36 x i8], ptr @_ZN6evmone5instr4core12_GLOBAL__N_112sstore_costsE, i64 %65
   %67 = zext i32 %63 to i64
-  %68 = getelementptr inbounds nuw %"struct.evmone::instr::core::(anonymous namespace)::StorageStoreCost", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %.sroa.0.0.copyload = load i16, ptr %68, align 2, !tbaa !97
   %69 = sext i16 %.sroa.0.0.copyload to i64
   %.neg30 = add i64 %.neg32, %1

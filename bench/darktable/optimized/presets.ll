@@ -253,7 +253,7 @@ define void @_insert_text_event(ptr noundef %0, ptr noundef readonly captures(no
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !12
   %15 = and i16 %14, 8
   %.not = icmp eq i16 %15, 0
@@ -918,7 +918,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 196:                                              ; preds = %104, %196
   %indvars.iv = phi i64 [ 0, %104 ], [ %indvars.iv.next, %196 ]
   %197 = load ptr, ptr %189, align 8, !tbaa !106
-  %198 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_exposure_value_str, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_exposure_value_str, i64 %indvars.iv
   %199 = load ptr, ptr %198, align 8, !tbaa !108
   call void @dt_bauhaus_combobox_add(ptr noundef %197, ptr noundef %199) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -958,7 +958,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 .preheader313:                                    ; preds = %196, %.preheader313
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %.preheader313 ], [ 0, %196 ]
   %220 = load ptr, ptr %191, align 8, !tbaa !107
-  %221 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_exposure_value_str, i64 %indvars.iv326
+  %221 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_exposure_value_str, i64 %indvars.iv326
   %222 = load ptr, ptr %221, align 8, !tbaa !108
   call void @dt_bauhaus_combobox_add(ptr noundef %220, ptr noundef %222) #17
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
@@ -968,7 +968,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 223:                                              ; preds = %200, %223
   %indvars.iv330 = phi i64 [ 0, %200 ], [ %indvars.iv.next331, %223 ]
   %224 = load ptr, ptr %213, align 8, !tbaa !109
-  %225 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_aperture_value_str, i64 %indvars.iv330
+  %225 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_aperture_value_str, i64 %indvars.iv330
   %226 = load ptr, ptr %225, align 8, !tbaa !108
   call void @dt_bauhaus_combobox_add(ptr noundef %224, ptr noundef %226) #17
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
@@ -1034,7 +1034,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 .preheader:                                       ; preds = %223, %.preheader
   %indvars.iv334 = phi i64 [ %indvars.iv.next335, %.preheader ], [ 0, %223 ]
   %265 = load ptr, ptr %215, align 8, !tbaa !110
-  %266 = getelementptr inbounds nuw ptr, ptr @dt_gui_presets_aperture_value_str, i64 %indvars.iv334
+  %266 = getelementptr inbounds nuw [8 x i8], ptr @dt_gui_presets_aperture_value_str, i64 %indvars.iv334
   %267 = load ptr, ptr %266, align 8, !tbaa !108
   call void @dt_bauhaus_combobox_add(ptr noundef %265, ptr noundef %267) #17
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
@@ -1086,11 +1086,11 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 298:                                              ; preds = %227, %298
   %indvars.iv338 = phi i64 [ 0, %227 ], [ %indvars.iv.next339, %298 ]
-  %299 = getelementptr inbounds nuw ptr, ptr @_gui_presets_format_value_str, i64 %indvars.iv338
+  %299 = getelementptr inbounds nuw [8 x i8], ptr @_gui_presets_format_value_str, i64 %indvars.iv338
   %300 = load ptr, ptr %299, align 8, !tbaa !108
   %301 = call ptr @dcgettext(ptr noundef null, ptr noundef %300, i32 noundef 5) #17
   %302 = call ptr @gtk_check_button_new_with_label(ptr noundef %301) #17
-  %303 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv338
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv338
   store ptr %302, ptr %303, align 8, !tbaa !113
   %304 = call i64 @g_signal_connect_data(ptr noundef %302, ptr noundef nonnull @.str.117, ptr noundef nonnull @_format_toggled, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #17
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
@@ -1226,7 +1226,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 390:                                              ; preds = %386, %394
   %indvars.iv346 = phi i64 [ 0, %386 ], [ %indvars.iv.next347, %394 ]
-  %391 = getelementptr inbounds nuw float, ptr @dt_gui_presets_exposure_value, i64 %indvars.iv346
+  %391 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_exposure_value, i64 %indvars.iv346
   %392 = load float, ptr %391, align 4, !tbaa !115
   %393 = fcmp reassoc nsz arcp contract afn olt float %392, %389
   br i1 %393, label %394, label %.critedge.split.loop.exit368
@@ -1251,7 +1251,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 400:                                              ; preds = %.critedge, %404
   %indvars.iv350 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next351, %404 ]
-  %401 = getelementptr inbounds nuw float, ptr @dt_gui_presets_exposure_value, i64 %indvars.iv350
+  %401 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_exposure_value, i64 %indvars.iv350
   %402 = load float, ptr %401, align 4, !tbaa !115
   %403 = fcmp reassoc nsz arcp contract afn olt float %402, %399
   br i1 %403, label %404, label %.critedge2.split.loop.exit370
@@ -1276,7 +1276,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 410:                                              ; preds = %.critedge2, %414
   %indvars.iv354 = phi i64 [ 0, %.critedge2 ], [ %indvars.iv.next355, %414 ]
-  %411 = getelementptr inbounds nuw float, ptr @dt_gui_presets_aperture_value, i64 %indvars.iv354
+  %411 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_aperture_value, i64 %indvars.iv354
   %412 = load float, ptr %411, align 4, !tbaa !115
   %413 = fcmp reassoc nsz arcp contract afn olt float %412, %409
   br i1 %413, label %414, label %.critedge4.split.loop.exit372
@@ -1301,7 +1301,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 420:                                              ; preds = %.critedge4, %424
   %indvars.iv358 = phi i64 [ 0, %.critedge4 ], [ %indvars.iv.next359, %424 ]
-  %421 = getelementptr inbounds nuw float, ptr @dt_gui_presets_aperture_value, i64 %indvars.iv358
+  %421 = getelementptr inbounds nuw [4 x i8], ptr @dt_gui_presets_aperture_value, i64 %indvars.iv358
   %422 = load float, ptr %421, align 4, !tbaa !115
   %423 = fcmp reassoc nsz arcp contract afn olt float %422, %419
   br i1 %423, label %424, label %.critedge6.split.loop.exit374
@@ -1347,10 +1347,10 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 447:                                              ; preds = %.critedge6, %447
   %indvars.iv362 = phi i64 [ 0, %.critedge6 ], [ %indvars.iv.next363, %447 ]
-  %448 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv362
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv362
   %449 = load ptr, ptr %448, align 8, !tbaa !113
   %450 = call ptr @g_type_check_instance_cast(ptr noundef %449, i64 noundef %436) #17
-  %451 = getelementptr inbounds nuw i32, ptr @_gui_presets_format_flag, i64 %indvars.iv362
+  %451 = getelementptr inbounds nuw [4 x i8], ptr @_gui_presets_format_flag, i64 %indvars.iv362
   %452 = load i32, ptr %451, align 4, !tbaa !117
   %453 = and i32 %452, %446
   call void @gtk_toggle_button_set_active(ptr noundef %450, i32 noundef %453) #17
@@ -1416,7 +1416,7 @@ define internal fastcc void @_presets_show_edit_dialog(ptr noundef initializes((
 
 490:                                              ; preds = %461, %490
   %indvars.iv342 = phi i64 [ 0, %461 ], [ %indvars.iv.next343, %490 ]
-  %491 = getelementptr inbounds nuw ptr, ptr %264, i64 %indvars.iv342
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv342
   %492 = load ptr, ptr %491, align 8, !tbaa !113
   %493 = call ptr @g_type_check_instance_cast(ptr noundef %492, i64 noundef %484) #17
   call void @gtk_toggle_button_set_active(ptr noundef %493, i32 noundef 1) #17
@@ -4718,7 +4718,7 @@ define internal void @_format_toggled(ptr readnone captures(none) %0, ptr nounde
 
 44:                                               ; preds = %35, %44
   %indvars.iv = phi i64 [ 2, %35 ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !113
   tail call void @gtk_widget_set_visible(ptr noundef %46, i32 noundef %19) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5131,7 +5131,7 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   %239 = load ptr, ptr %238, align 8, !tbaa !106
   %240 = call i32 @dt_bauhaus_combobox_get(ptr noundef %239) #17
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds float, ptr @dt_gui_presets_exposure_value, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr @dt_gui_presets_exposure_value, i64 %241
   %243 = load float, ptr %242, align 4, !tbaa !115
   %244 = fpext reassoc nsz arcp contract afn float %243 to double
   %245 = call i32 @sqlite3_bind_double(ptr noundef %237, i32 noundef 8, double noundef %244) #17
@@ -5152,7 +5152,7 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   %255 = load ptr, ptr %254, align 8, !tbaa !107
   %256 = call i32 @dt_bauhaus_combobox_get(ptr noundef %255) #17
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds float, ptr @dt_gui_presets_exposure_value, i64 %257
+  %258 = getelementptr inbounds [4 x i8], ptr @dt_gui_presets_exposure_value, i64 %257
   %259 = load float, ptr %258, align 4, !tbaa !115
   %260 = fpext reassoc nsz arcp contract afn float %259 to double
   %261 = call i32 @sqlite3_bind_double(ptr noundef %253, i32 noundef 9, double noundef %260) #17
@@ -5173,7 +5173,7 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   %271 = load ptr, ptr %270, align 8, !tbaa !109
   %272 = call i32 @dt_bauhaus_combobox_get(ptr noundef %271) #17
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds float, ptr @dt_gui_presets_aperture_value, i64 %273
+  %274 = getelementptr inbounds [4 x i8], ptr @dt_gui_presets_aperture_value, i64 %273
   %275 = load float, ptr %274, align 4, !tbaa !115
   %276 = fpext reassoc nsz arcp contract afn float %275 to double
   %277 = call i32 @sqlite3_bind_double(ptr noundef %269, i32 noundef 10, double noundef %276) #17
@@ -5194,7 +5194,7 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   %287 = load ptr, ptr %286, align 8, !tbaa !110
   %288 = call i32 @dt_bauhaus_combobox_get(ptr noundef %287) #17
   %289 = sext i32 %288 to i64
-  %290 = getelementptr inbounds float, ptr @dt_gui_presets_aperture_value, i64 %289
+  %290 = getelementptr inbounds [4 x i8], ptr @dt_gui_presets_aperture_value, i64 %289
   %291 = load float, ptr %290, align 4, !tbaa !115
   %292 = fpext reassoc nsz arcp contract afn float %291 to double
   %293 = call i32 @sqlite3_bind_double(ptr noundef %285, i32 noundef 11, double noundef %292) #17
@@ -5296,11 +5296,11 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
 359:                                              ; preds = %353, %359
   %indvars.iv = phi i64 [ 0, %353 ], [ %indvars.iv.next, %359 ]
   %.0153227 = phi i32 [ 0, %353 ], [ %367, %359 ]
-  %360 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %indvars.iv
   %361 = load ptr, ptr %360, align 8, !tbaa !113
   %362 = call ptr @g_type_check_instance_cast(ptr noundef %361, i64 noundef %125) #17
   %363 = call i32 @gtk_toggle_button_get_active(ptr noundef %362) #17
-  %364 = getelementptr inbounds nuw i32, ptr @_gui_presets_format_flag, i64 %indvars.iv
+  %364 = getelementptr inbounds nuw [4 x i8], ptr @_gui_presets_format_flag, i64 %indvars.iv
   %365 = load i32, ptr %364, align 4, !tbaa !117
   %366 = mul nsw i32 %365, %363
   %367 = add nsw i32 %366, %.0153227

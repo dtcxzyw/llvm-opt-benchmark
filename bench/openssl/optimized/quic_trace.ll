@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PACKET = type { ptr, i64 }
 %struct.quic_pkt_hdr_st = type { i32, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
-%struct.ossl_quic_ack_range_st = type { i64, i64 }
 %struct.ossl_quic_frame_reset_stream_st = type { i64, i64, i64 }
 %struct.ossl_quic_frame_stop_sending_st = type { i64, i64 }
 %struct.ossl_quic_frame_crypto_st = type { i64, i64, ptr }
@@ -159,7 +158,7 @@ define range(i32 0, 2) i32 @ossl_quic_trace(i32 noundef %0, i32 noundef %1, i32 
 
 switch.lookup:                                    ; preds = %28
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_trace, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_quic_trace, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %packet_type.exit
 
@@ -444,7 +443,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
 .lr.ph.i.i66:                                     ; preds = %156, %.lr.ph.i.i66
   %.01923.i.i = phi i64 [ %191, %.lr.ph.i.i66 ], [ 1, %156 ]
   %175 = load ptr, ptr %12, align 8, !tbaa !24
-  %176 = getelementptr %struct.ossl_quic_ack_range_st, ptr %175, i64 %.01923.i.i
+  %176 = getelementptr [16 x i8], ptr %175, i64 %.01923.i.i
   %177 = getelementptr i8, ptr %176, i64 -16
   %178 = load i64, ptr %177, align 8, !tbaa !31
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
@@ -453,7 +452,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   %182 = sub i64 %181, %180
   %183 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.56, i64 noundef %182) #3
   %184 = load ptr, ptr %12, align 8, !tbaa !24
-  %185 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %184, i64 %.01923.i.i
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %.01923.i.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i64, ptr %186, align 8, !tbaa !29
   %188 = load i64, ptr %185, align 8, !tbaa !31
@@ -508,7 +507,7 @@ frame_ack.exit.i:                                 ; preds = %152
 switch.lookup81:                                  ; preds = %131, %131, %131, %131, %131, %131, %131, %131
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %206 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.64) #3
-  %207 = getelementptr ptr, ptr @switch.table.ossl_quic_trace.2, i64 %132
+  %207 = getelementptr [8 x i8], ptr @switch.table.ossl_quic_trace.2, i64 %132
   %switch.gep82 = getelementptr i8, ptr %207, i64 -64
   %switch.load83 = load ptr, ptr %switch.gep82, align 8
   %208 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %switch.load83) #3

@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_keyindex_t = type { %struct.pmix_object_t, ptr, i32 }
 %struct.pmix_mca_base_framework_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, %struct.pmix_list_t, %struct.pmix_list_t }
 %struct.pmix_output_desc_t = type { i8, i8, i32, i8, i32, ptr, ptr, i32, ptr, i32, i8, i8, i8, i8, ptr, i32, i32 }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
 
 @.str = private unnamed_addr constant [7 x i8] c"syslog\00", align 1
 @pmix_plog_syslog_module = local_unnamed_addr global %struct.pmix_plog_module_t { ptr @.str, ptr null, ptr @init, ptr @finalize, ptr @mylog }, align 8
@@ -94,7 +93,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %.170 = phi i64 [ %.2, %25 ], [ 0, %10 ]
   %.15269 = phi i32 [ %.253, %25 ], [ %11, %10 ]
   %.05468 = phi i64 [ %26, %25 ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw %struct.pmix_info, ptr %3, i64 %.05468
+  %13 = getelementptr inbounds nuw [552 x i8], ptr %3, i64 %.05468
   %14 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(16) @.str.3, i64 noundef 511) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %19
@@ -128,7 +127,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %50
   %.15572 = phi i64 [ %51, %50 ], [ 0, %.lr.ph73.preheader ]
-  %27 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.15572
+  %27 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.15572
   %28 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %27, ptr noundef nonnull @.str.5) #7
   br i1 %28, label %29, label %33
 
@@ -210,7 +209,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 
 13:                                               ; preds = %6
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %14
+  %15 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !57
   %18 = icmp sgt i32 %17, 4
@@ -261,7 +260,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
   %39 = load ptr, ptr %38, align 8, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !65
-  %42 = getelementptr inbounds nuw %struct.pmix_info, ptr %4, i64 %.028
+  %42 = getelementptr inbounds nuw [552 x i8], ptr %4, i64 %.028
   %43 = call i32 %41(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %42, i16 noundef zeroext 24) #7
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %44, label %.sink.split
@@ -291,7 +290,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 
 switch.lookup:                                    ; preds = %54
   %57 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.write_local, i64 %57
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.write_local, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sev2str.exit
 

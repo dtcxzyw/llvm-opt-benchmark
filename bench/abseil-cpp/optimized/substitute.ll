@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.std::basic_string_view" = type { i64, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -62,7 +61,7 @@ define dso_local void @_ZN4absl19substitute_internal24SubstituteAndAppendArrayEP
   br i1 %.not59, label %.thread, label %.thread88
 
 .thread:                                          ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !7
   br label %27
 
@@ -212,7 +211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i: ; preds =
 
 79:                                               ; preds = %73
   %80 = zext nneg i8 %76 to i64
-  %81 = getelementptr %"class.std::basic_string_view", ptr %3, i64 %80
+  %81 = getelementptr [16 x i8], ptr %3, i64 %80
   %82 = getelementptr i8, ptr %81, i64 -768
   %.sroa.0.0.copyload = load i64, ptr %82, align 8, !tbaa !19
   %.not.i.i.i.i.i = icmp samesign eq i64 %.sroa.0.0.copyload, 0

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
-%struct.ItemIdData = type { i32 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.LogicalRewriteMappingData = type { %struct.RelFileLocator, %struct.RelFileLocator, %struct.ItemPointerData, %struct.ItemPointerData }
@@ -441,7 +440,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
 83:                                               ; preds = %70
   %84 = zext i16 %65 to i64
   %85 = getelementptr i8, ptr %.1, i64 20
-  %86 = getelementptr %struct.ItemIdData, ptr %85, i64 %84
+  %86 = getelementptr [4 x i8], ptr %85, i64 %84
   %.val55 = load i32, ptr %86, align 4
   %87 = and i32 %.val55, 32767
   %88 = zext nneg i32 %87 to i64

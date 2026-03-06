@@ -31,7 +31,7 @@ define void @softfloat_shiftRightJam256M(ptr noundef readonly captures(none) %0,
   br i1 %13, label %.thread, label %.loopexit.loopexit
 
 .thread:                                          ; preds = %11
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select
   %15 = and i64 %1, 63
   %.not47 = icmp eq i64 %15, 0
   br i1 %.not47, label %.lr.ph.preheader, label %16
@@ -57,7 +57,7 @@ define void @softfloat_shiftRightJam256M(ptr noundef readonly captures(none) %0,
 softfloat_shortShiftRightJamM.exit.thread:        ; preds = %16
   store i64 %spec.select.i, ptr %2, align 8, !tbaa !3
   %23 = sub nuw nsw i64 4, %.0385977
-  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !tbaa !3
   br i1 %.0405780, label %50, label %47
 
@@ -72,18 +72,18 @@ softfloat_shortShiftRightJamM.exit.thread:        ; preds = %16
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %.128.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %35, %29 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.next.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next.i
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = shl i64 %31, %27
   %33 = or i64 %32, %.128.i
-  %34 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   store i64 %33, ptr %34, align 8, !tbaa !3
   %35 = lshr i64 %31, %17
   %.not25.i = icmp eq i64 %indvars.iv.next.i, %28
   br i1 %.not25.i, label %softfloat_shortShiftRightJamM.exit, label %29, !llvm.loop !9
 
 softfloat_shortShiftRightJamM.exit:               ; preds = %29
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %28
   store i64 %35, ptr %36, align 8, !tbaa !3
   %.not49 = icmp eq i64 %.0385977, 0
   br i1 %.not49, label %.loopexit, label %.loopexit60
@@ -112,7 +112,7 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %29
   %.0405779 = phi i1 [ %.0405780, %softfloat_shortShiftRightJamM.exit ], [ %.040578186, %.lr.ph ]
   %.0385976 = phi i64 [ %.0385977, %softfloat_shortShiftRightJamM.exit ], [ %.038597887, %.lr.ph ]
   %44 = sub nuw nsw i64 4, %.0385976
-  %45 = getelementptr inbounds nuw i64, ptr %2, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %44
   %46 = shl nuw nsw i64 %.0385976, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %45, i8 0, i64 %46, i1 false), !tbaa !3
   br i1 %.0405779, label %50, label %47

@@ -249,7 +249,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 70:                                               ; preds = %.lr.ph
   %71 = load ptr, ptr %11, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8
   store i64 %73, ptr %15, align 8
   %74 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %16) #6
@@ -415,7 +415,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 147:                                              ; preds = %.preheader256, %150
   %indvars.iv310 = phi i64 [ 0, %.preheader256 ], [ %indvars.iv.next311, %150 ]
-  %148 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv310
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv310
   %149 = load i16, ptr %148, align 2
   %.not = icmp eq i16 %149, 0
   br i1 %.not, label %.critedge, label %150
@@ -467,7 +467,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 170:                                              ; preds = %.lr.ph287
   %171 = add i32 %.0240283, 1
   %172 = sext i32 %.0240283 to i64
-  %173 = getelementptr inbounds ptr, ptr %163, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %163, i64 %172
   store ptr %165, ptr %173, align 8
   %174 = load i32, ptr %166, align 8
   %175 = sext i32 %174 to i64
@@ -508,7 +508,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   call void @qsort_interruptible(ptr noundef %163, i64 noundef %186, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #6
   %187 = add i32 %24, -1
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %163, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %163, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load i32, ptr %191, align 8
@@ -541,7 +541,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 210:                                              ; preds = %196, %210
   %indvars.iv314 = phi i64 [ 0, %196 ], [ %indvars.iv.next315, %210 ]
-  %211 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv314
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv314
   %212 = load ptr, ptr %211, align 8
   %213 = load i64, ptr %212, align 8
   %214 = load i8, ptr %207, align 4, !range !4, !noundef !5
@@ -549,14 +549,14 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %216 = load i16, ptr %208, align 2
   %217 = sext i16 %216 to i32
   %218 = call i64 @datumCopy(i64 noundef %213, i1 noundef zeroext %215, i32 noundef %217) #6
-  %219 = getelementptr inbounds nuw i64, ptr %202, i64 %indvars.iv314
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv314
   store i64 %218, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %221 = load i32, ptr %220, align 8
   %222 = sitofp i32 %221 to double
   %223 = fdiv double %222, %209
   %224 = fptrunc double %223 to float
-  %225 = getelementptr inbounds nuw float, ptr %206, i64 %indvars.iv314
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %indvars.iv314
   store float %224, ptr %225, align 4
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next315, %197
@@ -566,7 +566,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %227 = sitofp i64 %.2237 to double
   %228 = fdiv double %227, %209
   %229 = fptrunc double %228 to float
-  %230 = getelementptr inbounds nuw float, ptr %206, i64 %197
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %197
   store float %229, ptr %230, align 4
   %231 = fdiv double %.0233.lcssa, %209
   %232 = fptrunc double %231 to float
@@ -584,37 +584,37 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   store float %237, ptr %240, align 4
   store ptr %200, ptr @CurrentMemoryContext, align 8
   %241 = and i64 %indvars.iv310, 4294967295
-  %242 = getelementptr inbounds nuw i16, ptr %46, i64 %241
+  %242 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %241
   store i16 4, ptr %242, align 2
   %243 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %244 = load i32, ptr %243, align 4
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %246 = getelementptr inbounds nuw i32, ptr %245, i64 %241
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %241
   store i32 %244, ptr %246, align 4
   %247 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %248 = load i32, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %241
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %241
   store i32 %248, ptr %250, align 4
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %241
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %241
   store ptr %206, ptr %252, align 8
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %241
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %241
   store i32 %203, ptr %254, align 4
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %241
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %241
   store ptr %202, ptr %256, align 8
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %258 = getelementptr inbounds nuw i32, ptr %257, i64 %241
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %241
   store i32 %.0, ptr %258, align 4
   %259 = load i32, ptr %18, align 8
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %241
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %241
   store i32 %259, ptr %261, align 4
   %262 = load i16, ptr %208, align 2
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %264 = getelementptr inbounds nuw i16, ptr %263, i64 %241
+  %264 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %241
   store i16 %262, ptr %264, align 2
   %265 = load i8, ptr %207, align 4, !range !4, !noundef !5
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 286
@@ -651,7 +651,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.0220294 = phi i32 [ %285, %.lr.ph296 ], [ 0, %277 ]
   %285 = add i32 %.0220294, 1
   %286 = sext i32 %.0220294 to i64
-  %287 = getelementptr inbounds ptr, ptr %282, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %282, i64 %286
   store ptr %284, ptr %287, align 8
   %288 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
   %.not254 = icmp eq ptr %288, null
@@ -670,7 +670,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %297 = fdiv double %295, %296
   %298 = fptrunc double %297 to float
   %299 = zext nneg i32 %279 to i64
-  %300 = getelementptr inbounds nuw float, ptr %294, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %294, i64 %299
   store float %298, ptr %300, align 4
   %301 = add nsw i32 %.0223.lcssa, -1
   %302 = load ptr, ptr %282, align 8
@@ -692,7 +692,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 .preheader.._crit_edge301_crit_edge:              ; preds = %.preheader
   %.phi.trans.insert = sext i32 %.1221305 to i64
-  %.phi.trans.insert323 = getelementptr inbounds ptr, ptr %282, i64 %.phi.trans.insert
+  %.phi.trans.insert323 = getelementptr inbounds [8 x i8], ptr %282, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert323, align 8
   br label %._crit_edge301
 
@@ -701,7 +701,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.2222298 = phi i32 [ %311, %.lr.ph300 ], [ %.1221305, %.preheader ]
   %311 = add i32 %.2222298, 1
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr %282, i64 %312
+  %313 = getelementptr inbounds [8 x i8], ptr %282, i64 %312
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
   %316 = load i32, ptr %315, align 4
@@ -717,7 +717,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.1.lcssa = phi i64 [ %.0217306, %.preheader.._crit_edge301_crit_edge ], [ %319, %.lr.ph300 ]
   %322 = load i32, ptr %321, align 4
   %323 = sitofp i32 %322 to float
-  %324 = getelementptr inbounds nuw float, ptr %294, i64 %indvars.iv318
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %294, i64 %indvars.iv318
   store float %323, ptr %324, align 4
   %325 = sub nsw i64 %.1.lcssa, %309
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
@@ -727,23 +727,23 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 326:                                              ; preds = %._crit_edge301
   %sext337 = shl i64 %.1239, 32
   %327 = ashr exact i64 %sext337, 32
-  %328 = getelementptr inbounds i16, ptr %46, i64 %327
+  %328 = getelementptr inbounds [2 x i8], ptr %46, i64 %327
   store i16 5, ptr %328, align 2
   %329 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %330 = load i32, ptr %329, align 4
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %332 = getelementptr inbounds i32, ptr %331, i64 %327
+  %332 = getelementptr inbounds [4 x i8], ptr %331, i64 %327
   store i32 %330, ptr %332, align 4
   %333 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %336 = getelementptr inbounds i32, ptr %335, i64 %327
+  %336 = getelementptr inbounds [4 x i8], ptr %335, i64 %327
   store i32 %334, ptr %336, align 4
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %338 = getelementptr inbounds ptr, ptr %337, i64 %327
+  %338 = getelementptr inbounds [8 x i8], ptr %337, i64 %327
   store ptr %294, ptr %338, align 8
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %340 = getelementptr inbounds i32, ptr %339, i64 %327
+  %340 = getelementptr inbounds [4 x i8], ptr %339, i64 %327
   store i32 %291, ptr %340, align 4
   br label %341
 

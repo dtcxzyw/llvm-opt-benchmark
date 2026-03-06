@@ -3877,7 +3877,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.i:         ; preds = %1388
   %indvars.iv150.i = phi i64 [ 0, %1391 ], [ %indvars.iv.next151.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i115 ]
   %1394 = load ptr, ptr %82, align 8
   %1395 = load ptr, ptr %86, align 8
-  %1396 = getelementptr inbounds nuw i64, ptr %1395, i64 %indvars.iv150.i
+  %1396 = getelementptr inbounds nuw [8 x i8], ptr %1395, i64 %indvars.iv150.i
   %1397 = load i64, ptr %1396, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %1398 = load ptr, ptr %1394, align 8, !noalias !13
@@ -3994,7 +3994,7 @@ _ZNK10open_spiel5State5ChildEl.exit.i110:         ; preds = %.noexc80.i
 
 1431:                                             ; preds = %1425
   %1432 = sext i32 %1424 to i64
-  %1433 = getelementptr inbounds i32, ptr %1389, i64 %1432
+  %1433 = getelementptr inbounds [4 x i8], ptr %1389, i64 %1432
   %1434 = load i32, ptr %1433, align 4
   %1435 = add nsw i32 %1434, 1
   store i32 %1435, ptr %1433, align 4
@@ -4009,10 +4009,10 @@ _ZNK10open_spiel5State5ChildEl.exit.i110:         ; preds = %.noexc80.i
 
 1439:                                             ; preds = %1438
   %1440 = load ptr, ptr %1436, align 8
-  %1441 = getelementptr inbounds nuw %"struct.std::pair.43", ptr %1440, i64 %indvars.iv.i
+  %1441 = getelementptr inbounds nuw [8 x i8], ptr %1440, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i112 = load i64, ptr %1441, align 4
   store i64 %.sroa.0.0.copyload.i.i112, ptr %99, align 8
-  %1442 = getelementptr inbounds nuw %"struct.std::pair.43", ptr %1386, i64 %indvars.iv.i
+  %1442 = getelementptr inbounds nuw [8 x i8], ptr %1386, i64 %indvars.iv.i
   %1443 = load i64, ptr %1442, align 4
   store i64 %1443, ptr %100, align 8
   %1444 = icmp eq i64 %.sroa.0.0.copyload.i.i112, %1443
@@ -4820,7 +4820,7 @@ _ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.i168:      ; preds = %1688
   %indvars.iv155.i = phi i64 [ 0, %1691 ], [ %indvars.iv.next156.i, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit.i196 ]
   %1694 = load ptr, ptr %37, align 8
   %1695 = load ptr, ptr %41, align 8
-  %1696 = getelementptr inbounds nuw i64, ptr %1695, i64 %indvars.iv155.i
+  %1696 = getelementptr inbounds nuw [8 x i8], ptr %1695, i64 %indvars.iv155.i
   %1697 = load i64, ptr %1696, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %1698 = load ptr, ptr %1694, align 8, !noalias !18
@@ -4937,7 +4937,7 @@ _ZNK10open_spiel5State5ChildEl.exit.i182:         ; preds = %.noexc80.i178
 
 1731:                                             ; preds = %1725
   %1732 = sext i32 %1724 to i64
-  %1733 = getelementptr inbounds i32, ptr %1689, i64 %1732
+  %1733 = getelementptr inbounds [4 x i8], ptr %1689, i64 %1732
   %1734 = load i32, ptr %1733, align 4
   %1735 = add nsw i32 %1734, 1
   store i32 %1735, ptr %1733, align 4
@@ -4952,10 +4952,10 @@ _ZNK10open_spiel5State5ChildEl.exit.i182:         ; preds = %.noexc80.i178
 
 1739:                                             ; preds = %1738
   %1740 = load ptr, ptr %1736, align 8
-  %1741 = getelementptr inbounds nuw %"struct.std::pair.43", ptr %1740, i64 %indvars.iv.i189
+  %1741 = getelementptr inbounds nuw [8 x i8], ptr %1740, i64 %indvars.iv.i189
   %.sroa.0.0.copyload.i.i191 = load i64, ptr %1741, align 4
   store i64 %.sroa.0.0.copyload.i.i191, ptr %54, align 8
-  %1742 = getelementptr inbounds nuw %"struct.std::pair.43", ptr %1686, i64 %indvars.iv.i189
+  %1742 = getelementptr inbounds nuw [8 x i8], ptr %1686, i64 %indvars.iv.i189
   %1743 = load i64, ptr %1742, align 4
   store i64 %1743, ptr %55, align 8
   %1744 = icmp eq i64 %.sroa.0.0.copyload.i.i191, %1743

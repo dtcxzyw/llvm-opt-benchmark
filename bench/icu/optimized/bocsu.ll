@@ -51,7 +51,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %.2 = select i1 %or.cond, i32 %25, i32 30292
   %26 = add nsw i32 %.13753, 1
   %27 = sext i32 %.13753 to i64
-  %28 = getelementptr inbounds i16, ptr %1, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %1, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !9
   %30 = zext i16 %29 to i32
   %31 = and i32 %30, 64512
@@ -62,7 +62,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
 
 33:                                               ; preds = %.lr.ph
   %34 = sext i32 %26 to i64
-  %35 = getelementptr inbounds i16, ptr %1, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %1, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !9
   %37 = zext i16 %36 to i32
   %38 = and i32 %37, 64512

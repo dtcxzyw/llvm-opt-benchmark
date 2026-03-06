@@ -1370,7 +1370,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   %89 = load ptr, ptr %24, align 8, !noalias !186, !nonnull !4, !align !155, !noundef !4
   %90 = load i64, ptr %25, align 8, !noalias !186, !noundef !4
-  %91 = getelementptr inbounds { i64, i64 }, ptr %89, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %89, i64 %90
   br label %92
 
 92:                                               ; preds = %.noexc71, %.noexc67
@@ -1494,7 +1494,7 @@ _ZN3std2io7BufRead10read_until17hd12b7dbb1a7cefbdE.exit: ; preds = %130
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %148) ]
   %150 = load ptr, ptr %24, align 8, !noalias !199, !nonnull !4, !align !155, !noundef !4
   %151 = load i64, ptr %25, align 8, !noalias !199, !noundef !4
-  %152 = getelementptr inbounds { i64, i64 }, ptr %150, i64 %151
+  %152 = getelementptr inbounds [16 x i8], ptr %150, i64 %151
   br label %153
 
 153:                                              ; preds = %.noexc90, %.noexc86
@@ -2491,7 +2491,7 @@ define hidden noundef ptr @_ZN4bstr2io10BufReadExt31for_byte_record_with_termina
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   %89 = load ptr, ptr %24, align 8, !noalias !353, !nonnull !4, !align !155, !noundef !4
   %90 = load i64, ptr %25, align 8, !noalias !353, !noundef !4
-  %91 = getelementptr inbounds { i64, i64 }, ptr %89, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %89, i64 %90
   br label %92
 
 92:                                               ; preds = %.noexc71, %.noexc67
@@ -2615,7 +2615,7 @@ _ZN3std2io7BufRead10read_until17hc14eea37492bd760E.exit: ; preds = %130
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %148) ]
   %150 = load ptr, ptr %24, align 8, !noalias !366, !nonnull !4, !align !155, !noundef !4
   %151 = load i64, ptr %25, align 8, !noalias !366, !noundef !4
-  %152 = getelementptr inbounds { i64, i64 }, ptr %150, i64 %151
+  %152 = getelementptr inbounds [16 x i8], ptr %150, i64 %151
   br label %153
 
 153:                                              ; preds = %.noexc90, %.noexc86

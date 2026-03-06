@@ -49,7 +49,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.0163205 = phi i32 [ 0, %.lr.ph207.preheader ], [ %.1164.lcssa, %.loopexit ]
   %.0167204 = phi i32 [ 0, %.lr.ph207.preheader ], [ %25, %.loopexit ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next262
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next262
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = icmp slt i32 %20, %22
   %24 = zext i1 %23 to i32
@@ -63,10 +63,10 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.1164203 = phi i32 [ %.0163205, %.lr.ph.preheader ], [ %35, %.lr.ph ]
-  %27 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %27 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %17, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %17, i64 %29
   store i32 1, ptr %30, align 4, !tbaa !15
   %31 = load i32, ptr %27, align 4, !tbaa !15
   %32 = zext i32 %31 to i64
@@ -111,7 +111,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.0163.lcssa335337 = phi i32 [ %.1164.lcssa, %44 ], [ 0, %._crit_edge.thread ], [ %.1164.lcssa, %.lr.ph236 ]
   %.0157.lcssa = phi i32 [ 0, %44 ], [ 0, %._crit_edge.thread ], [ %.1164.lcssa, %.lr.ph236 ]
   %47 = sext i32 %11 to i64
-  %48 = getelementptr inbounds i32, ptr %17, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %17, i64 %47
   %49 = icmp slt i32 %.0157.lcssa, %11
   br i1 %49, label %.lr.ph239.preheader, label %.preheader186
 
@@ -129,7 +129,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
   %indvars.iv293 = phi i64 [ 0, %.lr.ph236.preheader ], [ %indvars.iv.next294, %.lr.ph236 ]
-  %57 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv293
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv293
   %58 = trunc nuw nsw i64 %indvars.iv293 to i32
   store i32 %58, ptr %57, align 4, !tbaa !15
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
@@ -163,7 +163,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph241:                                        ; preds = %.lr.ph241.preheader, %.lr.ph241
   %indvars.iv301 = phi i64 [ 0, %.lr.ph241.preheader ], [ %indvars.iv.next302, %.lr.ph241 ]
-  %68 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv301
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv301
   %69 = trunc nuw nsw i64 %indvars.iv301 to i32
   store i32 %69, ptr %68, align 4, !tbaa !15
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
@@ -177,7 +177,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
   %indvars.iv264 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next265, %.lr.ph212 ]
   %.0168210 = phi i32 [ 0, %.lr.ph212.preheader ], [ %73, %.lr.ph212 ]
-  %71 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv264
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv264
   %72 = load i32, ptr %71, align 4, !tbaa !15
   %73 = add nsw i32 %72, %.0168210
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
@@ -212,10 +212,10 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %88 = load ptr, ptr %87, align 8, !tbaa !13
   %89 = sext i32 %84 to i64
   %.idx = select i1 %74, i64 %89, i64 0
-  %90 = getelementptr i32, ptr %17, i64 %.idx
+  %90 = getelementptr [4 x i8], ptr %17, i64 %.idx
   %narrow = select i1 %74, i32 0, i32 %86
   %.idx182 = sext i32 %narrow to i64
-  %91 = getelementptr i32, ptr %17, i64 %.idx182
+  %91 = getelementptr [4 x i8], ptr %17, i64 %.idx182
   %92 = mul nsw i32 %84, 5
   %93 = tail call ptr @cs_malloc(i32 noundef %92, i64 noundef 4) #4
   %.not183 = icmp eq ptr %93, null
@@ -226,16 +226,16 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %205
 
 96:                                               ; preds = %82
-  %97 = getelementptr inbounds i32, ptr %93, i64 %89
+  %97 = getelementptr inbounds [4 x i8], ptr %93, i64 %89
   %98 = shl nsw i32 %84, 1
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %93, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %93, i64 %99
   %101 = mul nsw i32 %84, 3
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %93, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %93, i64 %102
   %104 = shl nsw i32 %84, 2
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %93, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %93, i64 %105
   %107 = icmp sgt i32 %84, 0
   br i1 %107, label %.lr.ph217.preheader, label %.preheader190
 
@@ -251,9 +251,9 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph217:                                        ; preds = %.lr.ph217.preheader, %.lr.ph217
   %indvars.iv269 = phi i64 [ 0, %.lr.ph217.preheader ], [ %indvars.iv.next270, %.lr.ph217 ]
-  %110 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv269
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv269
   %111 = load i32, ptr %110, align 4, !tbaa !15
-  %112 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv269
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv269
   store i32 %111, ptr %112, align 4, !tbaa !15
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
@@ -291,7 +291,7 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not184, label %124, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv280
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv280
   %123 = load i32, ptr %122, align 4, !tbaa !15
   br label %124
 
@@ -303,24 +303,24 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 126:                                              ; preds = %.loopexit.i, %124
   %.06925.i = phi i32 [ 0, %124 ], [ %spec.select.i, %.loopexit.i ]
   %127 = zext nneg i32 %.06925.i to i64
-  %128 = getelementptr inbounds nuw i32, ptr %100, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !15
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %93, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %93, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !15
   %.not.i = icmp eq i32 %132, %125
   br i1 %.not.i, label %._crit_edge48.i, label %133
 
 ._crit_edge48.i:                                  ; preds = %126
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %106, i64 %127
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %127
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !15
   br label %155
 
 133:                                              ; preds = %126
   store i32 %125, ptr %131, align 4, !tbaa !15
-  %134 = getelementptr inbounds i32, ptr %97, i64 %130
+  %134 = getelementptr inbounds [4 x i8], ptr %97, i64 %130
   %135 = load i32, ptr %134, align 4, !tbaa !15
-  %136 = getelementptr i32, ptr %.val, i64 %130
+  %136 = getelementptr [4 x i8], ptr %.val, i64 %130
   %137 = getelementptr i8, ptr %136, i64 4
   %138 = load i32, ptr %137, align 4, !tbaa !15
   %139 = icmp slt i32 %135, %138
@@ -333,10 +333,10 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %140, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %142 = getelementptr inbounds i32, ptr %.val185, i64 %indvars.iv.i
+  %142 = getelementptr inbounds [4 x i8], ptr %.val185, i64 %indvars.iv.i
   %143 = load i32, ptr %142, align 4, !tbaa !15
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %90, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %90, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !15
   %147 = icmp ne i32 %146, -1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -350,20 +350,20 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %147, label %._crit_edge.thread.i, label %151
 
 151:                                              ; preds = %._crit_edge.i
-  %152 = getelementptr inbounds nuw i32, ptr %103, i64 %127
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %127
   store i32 %143, ptr %152, align 4, !tbaa !15
   br label %186
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %133
   %153 = load i32, ptr %136, align 4, !tbaa !15
-  %154 = getelementptr inbounds nuw i32, ptr %106, i64 %127
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %127
   store i32 %153, ptr %154, align 4, !tbaa !15
   br label %155
 
 155:                                              ; preds = %._crit_edge.thread.i, %._crit_edge48.i
   %156 = phi i32 [ %153, %._crit_edge.thread.i ], [ %.pre.i, %._crit_edge48.i ]
-  %157 = getelementptr inbounds nuw i32, ptr %106, i64 %127
-  %158 = getelementptr i32, ptr %.val, i64 %130
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %127
+  %158 = getelementptr [4 x i8], ptr %.val, i64 %130
   %159 = getelementptr i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !15
   %161 = icmp slt i32 %156, %160
@@ -375,28 +375,28 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph20.i:                                       ; preds = %181, %.lr.ph20.preheader.i
   %indvars.iv40.i = phi i64 [ %162, %.lr.ph20.preheader.i ], [ %indvars.iv.next41.i, %181 ]
-  %163 = getelementptr inbounds i32, ptr %.val185, i64 %indvars.iv40.i
+  %163 = getelementptr inbounds [4 x i8], ptr %.val185, i64 %indvars.iv40.i
   %164 = load i32, ptr %163, align 4, !tbaa !15
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i32, ptr %90, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %90, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !15
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i32, ptr %93, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %93, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !15
   %171 = icmp eq i32 %170, %125
   br i1 %171, label %181, label %172
 
 172:                                              ; preds = %.lr.ph20.i
-  %173 = getelementptr inbounds i32, ptr %90, i64 %165
+  %173 = getelementptr inbounds [4 x i8], ptr %90, i64 %165
   %174 = trunc nsw i64 %indvars.iv40.i to i32
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %157, align 4, !tbaa !15
-  %176 = getelementptr inbounds nuw i32, ptr %103, i64 %127
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %127
   store i32 %164, ptr %176, align 4, !tbaa !15
   %177 = load i32, ptr %173, align 4, !tbaa !15
   %178 = add nuw nsw i32 %.06925.i, 1
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %100, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %179
   store i32 %177, ptr %180, align 4, !tbaa !15
   %.pre49.i = load i32, ptr %159, align 4, !tbaa !15
   br label %.loopexit.i
@@ -419,12 +419,12 @@ define ptr @cs_maxtrans(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 186:                                              ; preds = %186, %151
   %indvars.iv45.i = phi i64 [ %127, %151 ], [ %indvars.iv.next46.i, %186 ]
-  %187 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv45.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv45.i
   %188 = load i32, ptr %187, align 4, !tbaa !15
-  %189 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv45.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv45.i
   %190 = load i32, ptr %189, align 4, !tbaa !15
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i32, ptr %90, i64 %191
+  %192 = getelementptr inbounds [4 x i8], ptr %90, i64 %191
   store i32 %188, ptr %192, align 4, !tbaa !15
   %indvars.iv.next46.i = add nsw i64 %indvars.iv45.i, -1
   %.not69.i = icmp eq i64 %indvars.iv45.i, 0
@@ -451,14 +451,14 @@ cs_augment.exit:                                  ; preds = %.loopexit.i, %186
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %203
   %indvars.iv288 = phi i64 [ 0, %.lr.ph232.preheader ], [ %indvars.iv.next289, %203 ]
-  %196 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv288
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv288
   %197 = load i32, ptr %196, align 4, !tbaa !15
   %198 = icmp sgt i32 %197, -1
   br i1 %198, label %199, label %203
 
 199:                                              ; preds = %.lr.ph232
   %200 = zext nneg i32 %197 to i64
-  %201 = getelementptr inbounds nuw i32, ptr %91, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %200
   %202 = trunc nuw nsw i64 %indvars.iv288 to i32
   store i32 %202, ptr %201, align 4, !tbaa !15
   br label %203

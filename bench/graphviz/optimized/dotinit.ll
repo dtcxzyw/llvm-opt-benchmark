@@ -3,7 +3,6 @@ source_filename = "bench/graphviz/original/dotinit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.rank_t = type { i32, ptr, i32, ptr, double, double, double, double, i8, i8, i64, ptr }
 %struct.pack_info = type { float, i32, i32, i8, i32, ptr, ptr, i32 }
 %struct.agxbuf = type { %union.anon.0 }
 %union.anon.0 = type { %struct.anon }
@@ -271,7 +270,7 @@ define void @dot_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %6, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 256
   %17 = load ptr, ptr %16, align 8, !tbaa !41
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.015.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.015.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !74
   tail call void @delete_fast_edge(ptr noundef %19) #15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -287,7 +286,7 @@ define void @dot_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load ptr, ptr %6, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %24 = load ptr, ptr %23, align 8, !tbaa !43
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.0.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !74
   tail call void @delete_fast_edge(ptr noundef %26) #15
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -468,7 +467,7 @@ define internal fastcc void @dot_cleanup_graph(ptr noundef %0) unnamed_addr #0 {
   %30 = phi ptr [ %21, %.lr.ph32.preheader ], [ %36, %.lr.ph32 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %32 = load ptr, ptr %31, align 8, !tbaa !99
-  %33 = getelementptr inbounds %struct.rank_t, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds [88 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !102
   tail call void @free(ptr noundef %35) #15
@@ -735,7 +734,7 @@ gv_calloc.exit.i43.i:                             ; preds = %92
 .lr.ph.i40.i:                                     ; preds = %resetCoord.exit.i, %.lr.ph.i40.i
   %.02530.i.i = phi i64 [ %113, %.lr.ph.i40.i ], [ 0, %resetCoord.exit.i ]
   %.02729.i.i = phi i32 [ %112, %.lr.ph.i40.i ], [ 0, %resetCoord.exit.i ]
-  %106 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02530.i.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02530.i.i
   %107 = load ptr, ptr %106, align 8, !tbaa !125
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !3
@@ -749,7 +748,7 @@ gv_calloc.exit.i43.i:                             ; preds = %92
 .lr.ph40.i.i:                                     ; preds = %._crit_edge36.i.i, %.lr.ph40.preheader.i.i
   %.039.i.i = phi i64 [ %141, %._crit_edge36.i.i ], [ 0, %.lr.ph40.preheader.i.i ]
   %.138.i.i = phi i32 [ %.2.lcssa.i.i, %._crit_edge36.i.i ], [ 1, %.lr.ph40.preheader.i.i ]
-  %114 = getelementptr inbounds nuw ptr, ptr %19, i64 %.039.i.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.039.i.i
   %115 = load ptr, ptr %114, align 8, !tbaa !125
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !3
@@ -768,19 +767,19 @@ gv_calloc.exit.i43.i:                             ; preds = %92
   %121 = phi ptr [ %117, %.lr.ph35.preheader.i.i ], [ %136, %.lr.ph35.i.i ]
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 240
   %123 = load ptr, ptr %122, align 8, !tbaa !96
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv.i.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv.i.i
   %125 = load ptr, ptr %124, align 8, !tbaa !125
   %126 = call ptr @mapClust(ptr noundef %125) #15
   %127 = load ptr, ptr %24, align 8, !tbaa !3
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 240
   %129 = load ptr, ptr %128, align 8, !tbaa !96
   %indvars.iv.next46.i.i = add nsw i64 %indvars.iv45.i.i, 1
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv45.i.i
+  %130 = getelementptr inbounds [8 x i8], ptr %129, i64 %indvars.iv45.i.i
   store ptr %126, ptr %130, align 8, !tbaa !125
   %131 = load ptr, ptr %116, align 8, !tbaa !3
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 240
   %133 = load ptr, ptr %132, align 8, !tbaa !96
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.i.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.i.i
   %135 = load ptr, ptr %134, align 8, !tbaa !125
   call fastcc void @copyCluster(ptr noundef %135, ptr noundef %126)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -803,7 +802,7 @@ gv_calloc.exit.i43.i:                             ; preds = %92
 
 .lr.ph.i:                                         ; preds = %31, %initSubg.exit.i
   %.03644.i = phi i64 [ %178, %initSubg.exit.i ], [ 0, %31 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %19, i64 %.03644.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.03644.i
   %143 = load ptr, ptr %142, align 8, !tbaa !125
   %144 = call ptr @agbindrec(ptr noundef %143, ptr noundef nonnull @.str.5, i32 noundef 400, i32 noundef 1) #15
   %145 = call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #16
@@ -876,7 +875,7 @@ copyClusterInfo.exit.i:                           ; preds = %._crit_edge36.i.i, 
 
 .lr.ph46.i:                                       ; preds = %copyClusterInfo.exit.i, %.lr.ph46.i
   %.045.i = phi i64 [ %192, %.lr.ph46.i ], [ 0, %copyClusterInfo.exit.i ]
-  %183 = getelementptr inbounds nuw ptr, ptr %19, i64 %.045.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.045.i
   %184 = load ptr, ptr %183, align 8, !tbaa !125
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !3
@@ -1062,7 +1061,7 @@ define internal fastcc void @dotLayout(ptr noundef %0) unnamed_addr #0 {
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 264
   %44 = load ptr, ptr %43, align 8, !tbaa !99
   %45 = sext i32 %41 to i64
-  %46 = getelementptr inbounds %struct.rank_t, ptr %44, i64 %45
+  %46 = getelementptr inbounds [88 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 8, !tbaa !141
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph.i.i, label %remove_from_rank.exit.i
@@ -1076,7 +1075,7 @@ define internal fastcc void @dotLayout(ptr noundef %0) unnamed_addr #0 {
 51:                                               ; preds = %61, %.lr.ph.i.i
   %indvars.iv37.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next38.i.i, %61 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %61 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !143
   %54 = icmp eq ptr %53, %.021.i
   br i1 %54, label %.preheader.i.i, label %61
@@ -1095,9 +1094,9 @@ define internal fastcc void @dotLayout(ptr noundef %0) unnamed_addr #0 {
 .lr.ph32.i.i:                                     ; preds = %.lr.ph32.i.i, %.lr.ph32.preheader.i.i
   %indvars.iv43.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph32.preheader.i.i ], [ %indvars.iv.next44.i.i, %.lr.ph32.i.i ]
   %indvars.iv40.i.i = phi i64 [ %indvars.iv37.i.i, %.lr.ph32.preheader.i.i ], [ %indvars.iv.next41.i.i, %.lr.ph32.i.i ]
-  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv40.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv40.i.i
   %59 = load ptr, ptr %58, align 8, !tbaa !143
-  %60 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv43.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv43.i.i
   store ptr %59, ptr %60, align 8, !tbaa !143
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
@@ -1710,18 +1709,18 @@ gv_calloc.exit:                                   ; preds = %30
   %38 = load ptr, ptr %7, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 240
   %40 = load ptr, ptr %39, align 8, !tbaa !96
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !125
   %43 = tail call ptr @mapClust(ptr noundef %42) #15
   %44 = load ptr, ptr %4, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 240
   %46 = load ptr, ptr %45, align 8, !tbaa !96
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store ptr %43, ptr %47, align 8, !tbaa !125
   %48 = load ptr, ptr %7, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 240
   %50 = load ptr, ptr %49, align 8, !tbaa !96
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !125
   tail call fastcc void @copyCluster(ptr noundef %52, ptr noundef %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

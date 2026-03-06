@@ -126,7 +126,7 @@ define noundef nonnull ptr @_ZN9grpc_core6chttp217FlowControlAction13UrgencyStri
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -145,7 +145,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core6chttp2lsERS
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load, i64 noundef %6)
@@ -473,7 +473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %99,
 
 switch.lookup:                                    ; preds = %115
   %124 = zext nneg i8 %121 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %124
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %124
   %switch.load = load ptr, ptr %switch.gep, align 8
   %125 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   store i64 %125, ptr %14, align 8
@@ -631,7 +631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %156
 
 switch.lookup150:                                 ; preds = %173
   %182 = zext nneg i8 %179 to i64
-  %switch.gep151 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %182
+  %switch.gep151 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 %182
   %switch.load152 = load ptr, ptr %switch.gep151, align 8
   %183 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load152) #28
   store i64 %183, ptr %19, align 8
@@ -2546,7 +2546,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !46
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !9
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !13
   ret void
 }

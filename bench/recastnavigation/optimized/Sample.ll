@@ -110,7 +110,7 @@ define dso_local noundef range(i32 -16776961, -255) i32 @_ZN15SampleDebugDraw9ar
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN15SampleDebugDraw9areaToColEj, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN15SampleDebugDraw9areaToColEj, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -273,7 +273,7 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 20:                                               ; preds = %18, %28
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %28 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -806,7 +806,7 @@ define dso_local void @_ZN6Sample12handleUpdateEf(ptr noundef nonnull readonly a
 
 11:                                               ; preds = %18, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %18 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %18, label %14
@@ -834,7 +834,7 @@ define dso_local void @_ZN6Sample16updateToolStatesEf(ptr noundef nonnull readon
 
 4:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -862,7 +862,7 @@ define dso_local void @_ZN6Sample14initToolStatesEPS_(ptr noundef nonnull readon
 
 4:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -890,7 +890,7 @@ define dso_local void @_ZN6Sample15resetToolStatesEv(ptr noundef nonnull readonl
 
 3:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
@@ -918,7 +918,7 @@ define dso_local void @_ZN6Sample16renderToolStatesEv(ptr noundef nonnull readon
 
 3:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
@@ -946,7 +946,7 @@ define dso_local void @_ZN6Sample23renderOverlayToolStatesEPdS0_Pi(ptr noundef n
 
 6:                                                ; preds = %4, %13
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %13 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %9

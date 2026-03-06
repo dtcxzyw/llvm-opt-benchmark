@@ -375,7 +375,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %4
   %36 = select i1 %33, ptr %28, ptr %35
   %37 = add nsw i32 %.02931, 1
   %38 = sext i32 %.02931 to i64
-  %39 = getelementptr inbounds i64, ptr %36, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %36, i64 %38
   store i64 %.02732, ptr %39, align 8
   br label %40
 
@@ -425,7 +425,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %4
   %61 = load i64, ptr %60, align 8
   %62 = inttoptr i64 %61 to ptr
   %63 = select i1 %59, ptr %60, ptr %62
-  %64 = getelementptr inbounds i64, ptr %63, i64 %.029.lcssa
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %.029.lcssa
   store i64 %.027.lcssa, ptr %64, align 8
   ret void
 }
@@ -536,7 +536,7 @@ define hidden void @_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure(ptr no
   %15 = select i1 %12, ptr %7, ptr %14
   %16 = add nsw i32 %.01315, 1
   %17 = sext i32 %.01315 to i64
-  %18 = getelementptr inbounds i64, ptr %15, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %17
   %19 = load i64, ptr %18, align 8
   br label %20
 
@@ -595,7 +595,7 @@ define hidden void @_ZNK17InterpreterOopMap5printEv(ptr noundef nonnull readonly
   %19 = select i1 %16, ptr %12, ptr %18
   %20 = lshr i32 %.08, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i32 %14, 62
   %25 = zext nneg i32 %24 to i64
@@ -667,7 +667,7 @@ define hidden noundef zeroext i1 @_ZN16OopMapCacheEntry11verify_maskEP13CellType
   %22 = select i1 %19, ptr %14, ptr %21
   %23 = add nsw i32 %.01315.i, 1
   %24 = sext i32 %.01315.i to i64
-  %25 = getelementptr inbounds i64, ptr %22, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8
   br label %27
 
@@ -728,7 +728,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   %45 = select i1 %42, ptr %40, ptr %44
   %46 = lshr i32 %.02427, 5
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %47
   %49 = load i64, ptr %48, align 8
   %50 = shl nuw nsw i32 %.02427, 1
   %51 = and i32 %50, 62
@@ -761,7 +761,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   %64 = add nsw i32 %.02528, %3
   %65 = sdiv i32 %64, 32
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i64, ptr %63, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %63, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = shl nsw i32 %64, 1
   %70 = srem i32 %69, 64
@@ -891,7 +891,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   %35 = load i16, ptr %34, align 2
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = zext i16 %35 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %28, align 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -937,7 +937,7 @@ _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit:  ; preds = %._ZN16OopMapCacheEn
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %57 = load ptr, ptr %51, align 8
   %58 = and i64 %indvars.iv.next.i, 4294967295
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   store i64 0, ptr %59, align 8
   %60 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %60, label %.lr.ph.i, label %_ZN19MaskFillerForNativeC2ERK12methodHandlePmi.exit, !llvm.loop !12
@@ -1141,7 +1141,7 @@ define hidden void @_ZN11OopMapCacheC2Ev(ptr noundef nonnull align 8 dereference
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store volatile ptr null, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1157,7 +1157,7 @@ define hidden void @_ZN11OopMapCacheD2Ev(ptr noundef nonnull align 8 dereference
 
 2:                                                ; preds = %17, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %17 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %4 = load volatile ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %17, label %5
@@ -1207,7 +1207,7 @@ define hidden void @_ZN11OopMapCache5flushEv(ptr noundef nonnull align 8 derefer
 
 2:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %17 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %4 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -1255,7 +1255,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %5, %9, %12
 define hidden noundef ptr @_ZNK11OopMapCache8entry_atEi(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 32
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   ret ptr %6
@@ -1265,7 +1265,7 @@ define hidden noundef ptr @_ZNK11OopMapCache8entry_atEi(ptr noundef nonnull alig
 define hidden noundef zeroext i1 @_ZN11OopMapCache6put_atEiP16OopMapCacheEntryS1_(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = srem i32 %1, 32
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %6
   %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %2, ptr %3, ptr nonnull %7) #17, !srcloc !16
   %9 = icmp eq ptr %8, %3
   ret i1 %9
@@ -1278,7 +1278,7 @@ define hidden void @_ZN11OopMapCache22flush_obsolete_entriesEv(ptr noundef nonnu
 
 3:                                                ; preds = %1, %70
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %70 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load volatile ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %70, label %6
@@ -1325,7 +1325,7 @@ define hidden void @_ZN11OopMapCache22flush_obsolete_entriesEv(ptr noundef nonnu
   %34 = load i16, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %36 = zext i16 %34 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %38) #17
   %40 = load ptr, ptr %5, align 8
@@ -1337,7 +1337,7 @@ define hidden void @_ZN11OopMapCache22flush_obsolete_entriesEv(ptr noundef nonnu
   %46 = load i16, ptr %45, align 2
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %48 = zext i16 %46 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %50) #17
   %52 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1508,7 +1508,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMar
   %57 = add nsw i32 %.060, %22
   %58 = srem i32 %57, 32
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %0, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %.not = icmp eq ptr %61, null
@@ -1697,7 +1697,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
   %165 = add nsw i32 %.04261, %22
   %166 = srem i32 %165, 32
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds ptr, ptr %0, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %0, i64 %167
   %169 = load volatile ptr, ptr %168, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %170 = icmp eq ptr %169, null
@@ -1725,7 +1725,7 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
 179:                                              ; preds = %176, %178
   %180 = srem i32 %22, 32
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds ptr, ptr %0, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %0, i64 %181
   %183 = load volatile ptr, ptr %182, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !15
   %184 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %116, ptr %183, ptr nonnull %182) #17, !srcloc !16
@@ -2255,7 +2255,7 @@ define linkonce_odr hidden void @_ZN13VerifyClosure9offset_doEi(ptr noundef nonn
   %12 = select i1 %8, ptr %9, ptr %11
   %13 = sdiv i32 %1, 32
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %12, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %12, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = srem i32 %5, 64
   %18 = zext nneg i32 %17 to i64
@@ -2297,7 +2297,7 @@ define linkonce_odr hidden void @_ZN19MaskFillerForNative11pass_objectEv(ptr nou
   %9 = load ptr, ptr %8, align 8
   %10 = sdiv i32 %3, 32
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = or i64 %7, %13
   store i64 %14, ptr %12, align 8
@@ -2365,7 +2365,7 @@ define linkonce_odr hidden void @_ZN23NativeSignatureIterator7iterateEv(ptr noun
   %12 = load i16, ptr %11, align 2
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %14 = zext i16 %12 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8

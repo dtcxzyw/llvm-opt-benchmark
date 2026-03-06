@@ -1626,7 +1626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51.i: 
 
 546:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit51.i
   %547 = zext i16 %545 to i64
-  %548 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %535, i64 %547
+  %548 = getelementptr inbounds nuw [6 x i8], ptr %535, i64 %547
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 4
   %550 = load i8, ptr %549, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #17
@@ -1716,7 +1716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56.i: 
 
 572:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56.i
   %573 = zext i16 %571 to i64
-  %574 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %535, i64 %573
+  %574 = getelementptr inbounds nuw [6 x i8], ptr %535, i64 %573
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 4
   %576 = load i8, ptr %575, align 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #17

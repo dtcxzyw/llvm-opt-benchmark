@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%class.default_map_entry.39 = type { %class.default_hash_entry.40 }
-%class.default_hash_entry.40 = type { i32, i32, %struct._key_data.41 }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 %class.scanner = type <{ i32, i32, %class.symbol, %class.rational, i32, i32, [256 x i8], %class.vector.36, ptr, ptr, %class.vector.37, %class.buffer, i32, i32, i8, i8, i8, i8, [4 x i8] }>
 %class.vector.36 = type { ptr }
 %class.vector.37 = type { ptr }
@@ -683,7 +679,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9
   %.idx.i.i.i = mul nuw nsw i64 %32, 24
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i.i
   %34 = zext i32 %28 to i64
-  %35 = getelementptr inbounds nuw %class.default_map_entry.39, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %34
   %.not30.i.i.i = icmp eq i32 %30, %28
   br i1 %.not30.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -850,7 +846,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %103 = phi ptr [ %.pre.i, %.noexc ], [ %64, %66 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -4
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %105
   store ptr %61, ptr %106, align 8, !tbaa !48
   %107 = add i32 %102, 1
   store i32 %107, ptr %104, align 4, !tbaa !47
@@ -867,7 +863,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %111 = phi ptr [ %.pre.i.i, %.noexc30 ], [ %90, %92 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -4
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %113
   store ptr %83, ptr %114, align 8, !tbaa !48
   %115 = add i32 %110, 1
   store i32 %115, ptr %112, align 4, !tbaa !47
@@ -932,7 +928,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9
   %.idx.i.i.i33 = mul nuw nsw i64 %144, 24
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i.i.i33
   %146 = zext i32 %140 to i64
-  %147 = getelementptr inbounds nuw %class.default_map_entry.39, ptr %143, i64 %146
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %143, i64 %146
   %.not30.i.i.i34 = icmp eq i32 %142, %140
   br i1 %.not30.i.i.i34, label %.preheader.i.i.i38, label %.lr.ph.i.i.i35
 
@@ -1036,7 +1032,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %190 = phi ptr [ %.pre.i.i48, %188 ], [ %180, %182 ]
   %191 = getelementptr inbounds i8, ptr %190, i64 -4
   %192 = zext i32 %189 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %192
   store ptr %174, ptr %193, align 8, !tbaa !48
   %194 = add i32 %189, 1
   store i32 %194, ptr %191, align 4, !tbaa !47
@@ -1073,7 +1069,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_ha
   %.idx.i.i.i53 = mul nuw nsw i64 %211, 24
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx.i.i.i53
   %213 = zext i32 %207 to i64
-  %214 = getelementptr inbounds nuw %class.default_map_entry, ptr %210, i64 %213
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %213
   %.not30.i.i.i54 = icmp eq i32 %209, %207
   br i1 %.not30.i.i.i54, label %.preheader.i.i.i58, label %.lr.ph.i.i.i55
 
@@ -1256,7 +1252,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %289 = phi ptr [ %.pre.i.i66, %287 ], [ %279, %281 ]
   %290 = getelementptr inbounds i8, ptr %289, i64 -4
   %291 = zext i32 %288 to i64
-  %292 = getelementptr inbounds nuw ptr, ptr %289, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %291
   store ptr %268, ptr %292, align 8, !tbaa !48
   %293 = add i32 %288, 1
   store i32 %293, ptr %290, align 4, !tbaa !47
@@ -1382,7 +1378,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %345 = phi ptr [ %.pre.i.i76, %343 ], [ %335, %337 ]
   %346 = getelementptr inbounds i8, ptr %345, i64 -4
   %347 = zext i32 %344 to i64
-  %348 = getelementptr inbounds nuw ptr, ptr %345, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %347
   store ptr %324, ptr %348, align 8, !tbaa !48
   %349 = add i32 %344, 1
   store i32 %349, ptr %346, align 4, !tbaa !47
@@ -2246,7 +2242,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9
   %.idx = mul nuw nsw i64 %32, 24
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   %34 = zext i32 %28 to i64
-  %35 = getelementptr inbounds nuw %class.default_map_entry.39, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %34
   %.not63 = icmp eq i32 %30, %28
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -2407,7 +2403,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9t
   %15 = zext i32 %13 to i64
   %.idx.i = mul nuw nsw i64 %15, 24
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %17 = getelementptr inbounds nuw %class.default_map_entry.39, ptr %7, i64 %5
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI17default_map_entryI6symbolN13simple_parser10builtin_opEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE10move_tableEPS4_jSC_j.exit, label %.lr.ph41.i
 
@@ -2548,7 +2544,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_ha
   %.idx = mul nuw nsw i64 %32, 24
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   %34 = zext i32 %28 to i64
-  %35 = getelementptr inbounds nuw %class.default_map_entry, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %34
   %.not63 = icmp eq i32 %30, %28
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -2705,7 +2701,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_has
   %13 = zext i32 %11 to i64
   %.idx.i = mul nuw nsw i64 %13, 24
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %15 = getelementptr inbounds nuw %class.default_map_entry, ptr %7, i64 %5
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %11, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI17default_map_entryI6symbolP3varEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE10move_tableEPS4_jSC_j.exit, label %.lr.ph41.i
 

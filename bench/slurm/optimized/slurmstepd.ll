@@ -311,7 +311,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %37)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %38 = load ptr, ptr @environ, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next.i
   %40 = load ptr, ptr %39, align 8
   %.not16.i = icmp eq ptr %40, null
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8

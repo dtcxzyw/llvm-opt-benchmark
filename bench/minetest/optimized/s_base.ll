@@ -1358,7 +1358,7 @@ declare i32 @luaopen_debug(ptr noundef) #0
 define linkonce_odr dso_local void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEESaISB_EEC2ESt16initializer_listISB_ERKSC_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__l.coerce0, i64 %__l.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__l.coerce0, i64 %__l.coerce1
+  %add.ptr.i = getelementptr inbounds [40 x i8], ptr %__l.coerce0, i64 %__l.coerce1
   %add.ptr.i.idx = mul nsw i64 %__l.coerce1, 40
   %cmp.i.i = icmp ugt i64 %__l.coerce1, 230584300921369395
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEESaISB_EE17_S_check_init_lenEmRKSC_.exit.i
@@ -1381,7 +1381,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEESaISB_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEEEE8allocateERSC_m.exit.i.i, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEESaISB_EE17_S_check_init_lenEmRKSC_.exit.i
   %cond.i.i = phi ptr [ null, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEESaISB_EE17_S_check_init_lenEmRKSC_.exit.i ], [ %call5.i.i.i.i5, %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEEEE8allocateERSC_m.exit.i.i ]
   store ptr %cond.i.i, ptr %this, align 8, !tbaa !47
-  %add.ptr.i4 = getelementptr inbounds nuw %"struct.std::pair", ptr %cond.i.i, i64 %__l.coerce1
+  %add.ptr.i4 = getelementptr inbounds nuw [40 x i8], ptr %cond.i.i, i64 %__l.coerce1
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i4, ptr %_M_end_of_storage.i, align 8, !tbaa !49
   %call.i.i.i.i6 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFiP9lua_StateEEPSB_ET0_T_SG_SF_(ptr noundef %__l.coerce0, ptr noundef %add.ptr.i, ptr noundef %cond.i.i)

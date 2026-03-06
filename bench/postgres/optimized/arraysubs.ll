@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/arraysubs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @array_subscript_handler.sbsroutines = internal constant { ptr, ptr, i8, i8, i8, [5 x i8] } { ptr @array_subscript_transform, ptr @array_exec_setup, i8 1, i8 1, i8 0, [5 x i8] zeroinitializer }, align 8
 @raw_array_subscript_handler.sbsroutines = internal constant { ptr, ptr, i8, i8, i8, [5 x i8] } { ptr @array_subscript_transform, ptr @array_exec_setup, i8 1, i8 1, i8 0, [5 x i8] zeroinitializer }, align 8
 @.str = private unnamed_addr constant [39 x i8] c"array subscript must have type integer\00", align 1
@@ -42,7 +40,7 @@ define internal void @array_subscript_transform(ptr noundef captures(none) %0, p
   %.04265.us139 = phi ptr [ %38, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
   %indvars.iv102138 = phi i64 [ %indvars.iv.next103, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv102138
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv102138
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -99,7 +97,7 @@ define internal void @array_subscript_transform(ptr noundef captures(none) %0, p
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph.split.split ]
   %.0426591 = phi ptr [ %74, %73 ], [ null, %.lr.ph.split.split ]
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds nuw %union.ListCell, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -390,10 +388,10 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
 
 38:                                               ; preds = %26
   %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %42, ptr %43, align 4
   %.pre = load i32, ptr %8, align 8
   br label %44
@@ -435,10 +433,10 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
 
 65:                                               ; preds = %53
   %66 = load ptr, ptr %18, align 8
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv43
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv43
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32
-  %70 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv43
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv43
   store i32 %69, ptr %70, align 4
   %.pre46 = load i32, ptr %14, align 8
   br label %.critedge

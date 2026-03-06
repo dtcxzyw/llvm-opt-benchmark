@@ -10,14 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ArrayRef.0" = type { %"struct.gmx::ArrayRefIter.1", %"struct.gmx::ArrayRefIter.1" }
 %"struct.gmx::ArrayRefIter.1" = type { ptr }
 %"class.gmx::AnalysisDataHandle" = type { ptr }
-%"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
-%"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
-%"class.std::__uniq_ptr_impl.23" = type { %"class.std::tuple.24" }
-%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.28" }
-%"struct.std::_Head_base.28" = type { ptr }
-%"class.gmx::AnalysisDataValue" = type { float, float, %"class.gmx::FlagsTemplate" }
-%"class.gmx::FlagsTemplate" = type { i64 }
 
 @_ZTVN3gmx12AnalysisDataE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN3gmx12AnalysisDataE, ptr @_ZN3gmx12AnalysisDataD1Ev, ptr @_ZN3gmx12AnalysisDataD0Ev, ptr @_ZNK3gmx12AnalysisData10frameCountEv, ptr @_ZNK3gmx12AnalysisData23tryGetDataFrameInternalEi, ptr @_ZN3gmx12AnalysisData22requestStorageInternalEi] }, align 8
 @_ZTIN3gmx12AnalysisDataE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3gmx12AnalysisDataE, ptr @_ZTIN3gmx20AbstractAnalysisDataE }, align 8
@@ -399,7 +391,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_d
   %.pre19 = phi ptr [ %.pre19.pre, %54 ], [ %23, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i ]
   store ptr %47, ptr %26, align 8, !tbaa !11
   store ptr %53, ptr %27, align 8, !tbaa !14
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %47, i64 %45
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %58, ptr %29, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre19, i64 16
   %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
@@ -641,7 +633,7 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull readon
   %15 = add nsw i32 %14, %1
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %12, align 8, !tbaa !49
-  %18 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %16
   store float %2, ptr %18, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !55
@@ -682,7 +674,7 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEiffb(ptr noundef nonnull reado
   %16 = add nsw i32 %15, %1
   %17 = sext i32 %16 to i64
   %18 = load ptr, ptr %13, align 8, !tbaa !49
-  %19 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %17
   store float %2, ptr %19, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float %3, ptr %20, align 4, !tbaa !57
@@ -730,12 +722,12 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv13
   %18 = load float, ptr %17, align 4, !tbaa !58
   %19 = trunc nuw nsw i64 %indvars.iv13 to i32
   %.reass.us = add i32 %invariant.op, %19
   %20 = sext i32 %.reass.us to i64
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %20
   store float %18, ptr %21, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !55
@@ -758,12 +750,12 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr noundef nonnull re
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %28 = load float, ptr %27, align 4, !tbaa !58
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %29
   %30 = sext i32 %.reass to i64
-  %31 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %15, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %30
   store float %28, ptr %31, align 8, !tbaa !50
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !55

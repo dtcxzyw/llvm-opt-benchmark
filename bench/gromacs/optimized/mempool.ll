@@ -3,7 +3,6 @@ source_filename = "bench/gromacs/original/mempool.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.gmx_sel_mempool_block_t = type { ptr, i64 }
 %"class.gmx::InternalError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
 %"class.std::exception" = type { ptr }
@@ -111,7 +110,7 @@ define void @_Z24_gmx_sel_mempool_destroyP17gmx_sel_mempool_t(ptr noundef %0) lo
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !4
-  %10 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -282,7 +281,7 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr noundef 
   %56 = phi i32 [ %46, %._crit_edge ], [ %.pre54, %49 ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %54, %49 ]
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %57, i64 %58
+  %59 = getelementptr inbounds [16 x i8], ptr %57, i64 %58
   store ptr %.039, ptr %59, align 8, !tbaa !17
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %7, ptr %60, align 8, !tbaa !29
@@ -634,7 +633,7 @@ define void @_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv(ptr noundef capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr %struct.gmx_sel_mempool_block_t, ptr %10, i64 %11
+  %12 = getelementptr [16 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -16
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = icmp eq ptr %14, %1
@@ -648,7 +647,7 @@ define void @_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv(ptr noundef capture
   %18 = add nsw i32 %6, -1
   store i32 %18, ptr %5, align 8, !tbaa !16
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %10, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !29
   %sext = shl i64 %22, 32
@@ -759,7 +758,7 @@ define void @_Z27_gmx_sel_mempool_free_groupP17gmx_sel_mempool_tP15gmx_ana_index
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr %struct.gmx_sel_mempool_block_t, ptr %12, i64 %13
+  %14 = getelementptr [16 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -16
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   %17 = icmp eq ptr %16, %4
@@ -773,7 +772,7 @@ define void @_Z27_gmx_sel_mempool_free_groupP17gmx_sel_mempool_tP15gmx_ana_index
   %20 = add nsw i32 %8, -1
   store i32 %20, ptr %7, align 8, !tbaa !16
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !29
   %sext.i = shl i64 %24, 32

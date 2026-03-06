@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/audio_frame_queue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AudioFrame = type { i64, i32 }
-
 @.str = private unnamed_addr constant [40 x i8] c"%d frames left in the queue on closing\0A\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"Queue input is backward in time\0A\00", align 1
 @.str.2 = private unnamed_addr constant [53 x i8] c"Trying to remove %d samples, but the queue is empty\0A\00", align 1
@@ -72,7 +70,7 @@ define range(i32 -12, 1) i32 @ff_af_queue_add(ptr noundef %0, ptr noundef readon
   store ptr %11, ptr %3, align 8, !tbaa !34
   %13 = load i32, ptr %6, align 8, !tbaa !33
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.AudioFrame, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %17 = load i32, ptr %16, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -219,7 +217,7 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %31, align 8, !tbaa !34
-  %35 = getelementptr inbounds nuw %struct.AudioFrame, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !40
   %.0. = tail call i32 @llvm.smin.i32(i32 %37, i32 %.093)
@@ -270,7 +268,7 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !34
   %53 = zext nneg i32 %.059.lcssa to i64
-  %54 = getelementptr %struct.AudioFrame, ptr %52, i64 %53
+  %54 = getelementptr [16 x i8], ptr %52, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -8
   %56 = load i32, ptr %55, align 8, !tbaa !40
   %57 = icmp ne i32 %56, 0
@@ -287,7 +285,7 @@ ff_samples_to_time_base.exit:                     ; preds = %19, %21
   %62 = phi i32 [ 0, %.critedge._crit_edge ], [ %58, %50 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds %struct.AudioFrame, ptr %61, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %61, i64 %64
   %66 = load i32, ptr %5, align 8, !tbaa !33
   %67 = sub i32 %66, %62
   %68 = zext i32 %67 to i64

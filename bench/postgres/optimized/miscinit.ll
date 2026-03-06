@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ClientConnectionInfo = type { ptr, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%union.ListCell = type { ptr }
 
 @Mode = dso_local local_unnamed_addr global i32 1, align 4
 @IgnoreSystemIndexes = dso_local local_unnamed_addr global i8 0, align 1
@@ -333,7 +332,7 @@ define dso_local noundef nonnull ptr @GetBackendTypeDesc(i32 noundef %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GetBackendTypeDesc, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GetBackendTypeDesc, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1435,7 +1434,7 @@ define dso_local void @TouchSocketLockFiles() local_unnamed_addr #15 {
   %6 = phi i32 [ %15, %14 ], [ %4, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(15) @.str.39) #24
   %11 = icmp eq i32 %10, 0
@@ -1833,7 +1832,7 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
 .lr.ph32:                                         ; preds = %.lr.ph.split.us.split, %36
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %36 ], [ 0, %.lr.ph.split.us.split ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv35
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv35
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @first_dir_separator(ptr noundef %25) #21
   %27 = icmp eq ptr %26, null
@@ -1876,7 +1875,7 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
 .lr.ph30:                                         ; preds = %.lr.ph.split.split, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph.split.split ]
   %40 = load ptr, ptr %20, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   call void @load_file(ptr noundef %42, i1 noundef zeroext false) #21
   %43 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #21
@@ -1976,7 +1975,7 @@ define internal void @UnlinkLockFiles(i32 %0, i64 %1) #0 {
 .lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @unlink(ptr noundef %10) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

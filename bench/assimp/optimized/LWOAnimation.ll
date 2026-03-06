@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" }
 %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
-%class.aiQuaterniont = type { float, float, float, float }
 
 $_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_ = comdat any
 
@@ -233,7 +231,7 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.022.034, i64 64
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %17, i64 %19
+  %20 = getelementptr inbounds [40 x i8], ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %.not.i.i2 = icmp eq ptr %21, %16
   br i1 %.not.i.i2, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit10, label %._crit_edge.i.i7
@@ -459,7 +457,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
   br i1 %98, label %99, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %87, i64 %94
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %87, i64 %94
   %.not.i.i = icmp eq ptr %88, %100
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit, label %101
 
@@ -469,7 +467,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
 
 _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE6resizeEm.exit: ; preds = %96, %97, %99, %101
   %102 = phi ptr [ %.pre155, %96 ], [ %87, %97 ], [ %87, %99 ], [ %87, %101 ]
-  %103 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %102, i64 %.058
+  %103 = getelementptr inbounds [40 x i8], ptr %102, i64 %.058
   %.not140 = icmp eq i32 %90, 0
   br i1 %.not140, label %._crit_edge, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit65.lr.ph
 
@@ -481,7 +479,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit65.us ], [ 0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit65.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = mul i64 %25, %indvars.iv.next
-  %106 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %103, i64 %105
+  %106 = getelementptr inbounds [40 x i8], ptr %103, i64 %105
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %106, ptr align 8 %103, i64 %.fr141, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %92
   br i1 %exitcond.not, label %._crit_edge, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit65.us, !llvm.loop !8
@@ -496,7 +494,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
 
 .lr.ph133:                                        ; preds = %._crit_edge
   %112 = load ptr, ptr %12, align 8
-  %113 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %112, i64 %107
+  %113 = getelementptr inbounds [40 x i8], ptr %112, i64 %107
   %114 = fcmp oeq double %19, %110
   br label %123
 
@@ -507,7 +505,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4_EE
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %115 = add nuw i32 %.060123, 1
   %116 = mul i64 %25, %indvars.iv.next149
-  %117 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %103, i64 %116
+  %117 = getelementptr inbounds [40 x i8], ptr %103, i64 %116
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %117, ptr align 8 %103, i64 %.fr141, i1 false)
   %118 = load i32, ptr %31, align 8
   %119 = icmp ne i32 %118, 3
@@ -547,7 +545,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN6Assimp3LWO3KeyESt6vectorIS4_SaIS4
   br label %128
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %.sroa.075.0129, i64 %107
+  %127 = getelementptr inbounds [40 x i8], ptr %.sroa.075.0129, i64 %107
   br label %128
 
 128:                                              ; preds = %126, %124
@@ -1584,7 +1582,7 @@ _ZNSt12_Vector_baseI11aiVectorKeySaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds =
   store ptr %115, ptr %1, align 8
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 %113
   store ptr %119, ptr %110, align 8
-  %120 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %115, i64 %98
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %98
   store ptr %120, ptr %102, align 8
   %.pre = load ptr, ptr %11, align 8
   %.pre204 = load ptr, ptr %12, align 8
@@ -1775,7 +1773,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; pre
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %208, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %203, ptr %1, align 8
   store ptr %207, ptr %140, align 8
-  %209 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %203, i64 %201
+  %209 = getelementptr inbounds nuw [24 x i8], ptr %203, i64 %201
   store ptr %209, ptr %102, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE9push_backERKS0_.exit
 
@@ -2244,7 +2242,7 @@ define hidden void @_ZN6Assimp3LWO12AnimResolver18ExtractAnimChannelEPP10aiNodeA
   br i1 %163, label %.loopexit131, label %164
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %161, i64 %159
+  %165 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %159
   br label %166
 
 166:                                              ; preds = %166, %164
@@ -2339,7 +2337,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit77:    ; preds = %178, %181
   br i1 %210, label %.loopexit130, label %211
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %208, i64 %206
+  %212 = getelementptr inbounds nuw [32 x i8], ptr %208, i64 %206
   br label %213
 
 213:                                              ; preds = %213, %211
@@ -2390,8 +2388,8 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit79:    ; preds = %._crit_edge, %._cri
 .lr.ph:                                           ; preds = %.loopexit130, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit130 ]
   %229 = load ptr, ptr %133, align 8
-  %230 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %229, i64 %indvars.iv
-  %231 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %199, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %229, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [24 x i8], ptr %199, i64 %indvars.iv
   %232 = load double, ptr %231, align 8
   store double %232, ptr %230, align 8
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
@@ -2513,7 +2511,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EED2Ev.exit103:   ; preds = %226, %293
   br i1 %321, label %.loopexit, label %322
 
 322:                                              ; preds = %320
-  %323 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %319, i64 %317
+  %323 = getelementptr inbounds nuw [24 x i8], ptr %319, i64 %317
   br label %324
 
 324:                                              ; preds = %324, %322
@@ -2643,7 +2641,7 @@ _ZSt22__uninitialized_move_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit.l
 
 _ZSt22__uninitialized_move_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8
   %.not.i.i.i.i.i68 = icmp eq ptr %20, %1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPN6Assimp3LWO3KeyES3_ET0_T_S5_S4_.exit, label %25
@@ -2652,7 +2650,7 @@ _ZSt22__uninitialized_move_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit: 
   %26 = ptrtoint ptr %20 to i64
   %27 = sub i64 %26, %15
   %.neg.i.i.i.i.i = sdiv exact i64 %27, -40
-  %28 = getelementptr inbounds %"struct.Assimp::LWO::Key", ptr %9, i64 %.neg.i.i.i.i.i
+  %28 = getelementptr inbounds [40 x i8], ptr %9, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN6Assimp3LWO3KeyES3_ET0_T_S5_S4_.exit
 
@@ -2783,7 +2781,7 @@ _ZSt24__uninitialized_fill_n_aIPN6Assimp3LWO3KeyEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.e
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIPN6Assimp3LWO3KeyEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %59, %_ZSt24__uninitialized_fill_n_aIPN6Assimp3LWO3KeyEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit87 ], [ %64, %.lr.ph.i.i.i.i.i89 ]
-  %65 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -2811,7 +2809,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5
 _ZNSt12_Vector_baseIN6Assimp3LWO3KeyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3LWO3KeyES3_SaIS2_EET0_T_S6_S5_RT1_.exit100, %68
   store ptr %59, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %8, align 8
-  %72 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %59, i64 %53
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %53
   store ptr %72, ptr %6, align 8
   br label %73
 
@@ -2923,9 +2921,9 @@ _ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds
 
 _ZNSt12_Vector_baseIN6Assimp3LWO3KeyESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN6Assimp3LWO3KeyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %39
   store ptr %30, ptr %0, align 8
-  %41 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %31, i64 %1
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds nuw %"struct.Assimp::LWO::Key", ptr %30, i64 %28
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %28
   store ptr %42, ptr %11, align 8
   br label %43
 

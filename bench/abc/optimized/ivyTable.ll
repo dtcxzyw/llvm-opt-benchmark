@@ -86,7 +86,7 @@ Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exi
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !20
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !21
   %.not2539 = icmp eq i32 %54, 0
   br i1 %.not2539, label %.loopexit, label %.lr.ph
@@ -102,7 +102,7 @@ Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exi
   %58 = phi i32 [ %54, %.lr.ph ], [ %79, %74 ]
   %.040 = phi i32 [ %49, %.lr.ph ], [ %76, %74 ]
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %.val33.val, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.val33.val, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !25
   %62 = getelementptr i8, ptr %61, i64 16
   %.val34 = load ptr, ptr %62, align 8, !tbaa !3
@@ -130,7 +130,7 @@ Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exi
   %75 = add nsw i32 %.040, 1
   %76 = srem i32 %75, %25
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %51, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %51, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !21
   %.not25 = icmp eq i32 %79, 0
   br i1 %.not25, label %.loopexit, label %57, !llvm.loop !26
@@ -229,7 +229,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
 
 47:                                               ; preds = %101, %.lr.ph35.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %101 ]
-  %48 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !21
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %101, label %51
@@ -239,7 +239,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
   %52 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %52, align 8, !tbaa !23
   %53 = sext i32 %49 to i64
-  %54 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.val.val.i, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %56 = getelementptr i8, ptr %55, i64 8
   %.val.i.i.i = load i32, ptr %56, align 8
@@ -292,7 +292,7 @@ Ivy_Hash.exit.i.i:                                ; preds = %69, %Ivy_ObjFaninId
   %86 = xor i32 %85, %77
   %87 = urem i32 %86, %36
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %calloc.i, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %calloc.i, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !21
   %.not13.i.i = icmp eq i32 %90, 0
   br i1 %.not13.i.i, label %Ivy_TableFind.exit.i, label %.lr.ph.i26.i
@@ -311,7 +311,7 @@ Ivy_Hash.exit.i.i:                                ; preds = %69, %Ivy_ObjFaninId
   %95 = add nsw i32 %.014.i30.i, 1
   %96 = srem i32 %95, %36
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %calloc.i, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %calloc.i, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !21
   %.not.i27.i = icmp eq i32 %99, 0
   br i1 %.not.i27.i, label %.Ivy_TableFind.exit.loopexit_crit_edge.i, label %93, !llvm.loop !29
@@ -321,7 +321,7 @@ Ivy_Hash.exit.i.i:                                ; preds = %69, %Ivy_ObjFaninId
 
 Ivy_TableFind.exit.i:                             ; preds = %93, %.Ivy_TableFind.exit.loopexit_crit_edge.i, %.lr.ph.i26.i, %Ivy_Hash.exit.i.i
   %.lcssa12.i.i = phi i64 [ %88, %Ivy_Hash.exit.i.i ], [ %97, %.Ivy_TableFind.exit.loopexit_crit_edge.i ], [ %88, %.lr.ph.i26.i ], [ %97, %93 ]
-  %100 = getelementptr inbounds i32, ptr %calloc.i, i64 %.lcssa12.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %calloc.i, i64 %.lcssa12.i.i
   store i32 %49, ptr %100, align 4, !tbaa !21
   br label %101
 
@@ -393,7 +393,7 @@ Ivy_Hash.exit.i:                                  ; preds = %117, %Ivy_ObjFaninI
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %137 = load ptr, ptr %136, align 8, !tbaa !20
   %138 = sext i32 %135 to i64
-  %139 = getelementptr inbounds i32, ptr %137, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %137, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !21
   %.not13.i = icmp eq i32 %140, 0
   %.pre = load i32, ptr %1, align 8, !tbaa !19
@@ -410,7 +410,7 @@ Ivy_Hash.exit.i:                                  ; preds = %117, %Ivy_ObjFaninI
   %144 = add nsw i32 %.014.i17, 1
   %145 = srem i32 %144, %104
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i32, ptr %137, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %137, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !21
   %.not.i11 = icmp eq i32 %148, 0
   br i1 %.not.i11, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %142, !llvm.loop !29
@@ -420,7 +420,7 @@ Ivy_Hash.exit.i:                                  ; preds = %117, %Ivy_ObjFaninI
 
 Ivy_TableFind.exit:                               ; preds = %142, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
   %.lcssa12.i = phi i64 [ %138, %Ivy_Hash.exit.i ], [ %146, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %146, %142 ]
-  %149 = getelementptr inbounds i32, ptr %137, i64 %.lcssa12.i
+  %149 = getelementptr inbounds [4 x i8], ptr %137, i64 %.lcssa12.i
   store i32 %.pre, ptr %149, align 4, !tbaa !21
   br label %150
 
@@ -490,7 +490,7 @@ Ivy_Hash.exit.i:                                  ; preds = %20, %Ivy_ObjFaninId
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !21
   %.not13.i = icmp eq i32 %43, 0
   br i1 %.not13.i, label %Ivy_TableFind.exit, label %.lr.ph.i
@@ -509,7 +509,7 @@ Ivy_Hash.exit.i:                                  ; preds = %20, %Ivy_ObjFaninId
   %48 = add nsw i32 %.014.i21, 1
   %49 = srem i32 %48, %8
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr %40, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %40, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !21
   %.not.i = icmp eq i32 %52, 0
   br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %46, !llvm.loop !29
@@ -519,14 +519,14 @@ Ivy_Hash.exit.i:                                  ; preds = %20, %Ivy_ObjFaninId
 
 Ivy_TableFind.exit:                               ; preds = %46, %.lr.ph.i, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
   %.lcssa12.i = phi i64 [ %41, %Ivy_Hash.exit.i ], [ %50, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %41, %.lr.ph.i ], [ %50, %46 ]
-  %53 = getelementptr inbounds i32, ptr %40, i64 %.lcssa12.i
+  %53 = getelementptr inbounds [4 x i8], ptr %40, i64 %.lcssa12.i
   store i32 0, ptr %53, align 4, !tbaa !21
   %54 = trunc nsw i64 %.lcssa12.i to i32
   %55 = add nsw i32 %54, 1
   %56 = load i32, ptr %7, align 8, !tbaa !12
   %57 = srem i32 %55, %56
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %40, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %40, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !21
   %.not1924 = icmp eq i32 %60, 0
   br i1 %.not1924, label %.loopexit, label %.lr.ph26
@@ -543,7 +543,7 @@ Ivy_TableFind.exit:                               ; preds = %46, %.lr.ph.i, %.Iv
   %65 = getelementptr i8, ptr %.val20, i64 8
   %.val20.val = load ptr, ptr %65, align 8, !tbaa !23
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds ptr, ptr %.val20.val, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %.val20.val, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !25
   store i32 0, ptr %64, align 4, !tbaa !21
   tail call void @Ivy_TableInsert(ptr noundef nonnull %0, ptr noundef %68)
@@ -552,7 +552,7 @@ Ivy_TableFind.exit:                               ; preds = %46, %.lr.ph.i, %.Iv
   %71 = srem i32 %69, %70
   %72 = load ptr, ptr %39, align 8, !tbaa !20
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !21
   %.not19 = icmp eq i32 %75, 0
   br i1 %.not19, label %.loopexit, label %62, !llvm.loop !31
@@ -623,7 +623,7 @@ Ivy_Hash.exit.i:                                  ; preds = %21, %Ivy_ObjFaninId
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !21
   %.not13.i = icmp eq i32 %44, 0
   br i1 %.not13.i, label %Ivy_TableFind.exit, label %.lr.ph.i
@@ -642,7 +642,7 @@ Ivy_Hash.exit.i:                                  ; preds = %21, %Ivy_ObjFaninId
   %49 = add nsw i32 %.014.i4, 1
   %50 = srem i32 %49, %9
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %41, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %41, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !21
   %.not.i = icmp eq i32 %53, 0
   br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %47, !llvm.loop !29
@@ -652,7 +652,7 @@ Ivy_Hash.exit.i:                                  ; preds = %21, %Ivy_ObjFaninId
 
 Ivy_TableFind.exit:                               ; preds = %47, %.lr.ph.i, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
   %.lcssa12.i = phi i64 [ %42, %Ivy_Hash.exit.i ], [ %51, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %42, %.lr.ph.i ], [ %51, %47 ]
-  %54 = getelementptr inbounds i32, ptr %41, i64 %.lcssa12.i
+  %54 = getelementptr inbounds [4 x i8], ptr %41, i64 %.lcssa12.i
   store i32 %2, ptr %54, align 4, !tbaa !21
   br label %55
 
@@ -676,7 +676,7 @@ define i32 @Ivy_TableCountEntries(ptr noundef readonly captures(none) %0) local_
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %12, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
@@ -706,7 +706,7 @@ define void @Ivy_TableProfile(ptr noundef readonly captures(none) %0) local_unna
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %.1, %16 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !21
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11

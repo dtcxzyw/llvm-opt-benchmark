@@ -1278,7 +1278,7 @@ _ZN5serde2de9SeqAccess12next_element17he35cd49056eebf93E.exit: ; preds = %21
   br i1 %32, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfb30980b00e06a0eE.llvm.1367251721182104800.exit.i", label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %29, i64 %.sroa.0.0.i.i.i
+  %34 = getelementptr inbounds [48 x i8], ptr %29, i64 %.sroa.0.0.i.i.i
   %35 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$settings..keymap_file..KeymapBlock$GT$17h6feca0939f9c20b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %34)
           to label %31 unwind label %38, !noalias !191
@@ -1294,7 +1294,7 @@ _ZN5serde2de9SeqAccess12next_element17he35cd49056eebf93E.exit: ; preds = %21
   br label %36
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %29, i64 %.sroa.0.1.i.i.i
+  %41 = getelementptr inbounds [48 x i8], ptr %29, i64 %.sroa.0.1.i.i.i
   %42 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$settings..keymap_file..KeymapBlock$GT$17h6feca0939f9c20b5E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %41) #26
           to label %36 unwind label %43, !noalias !191
@@ -1355,7 +1355,7 @@ _ZN5serde2de9SeqAccess12next_element17he35cd49056eebf93E.exit: ; preds = %21
 
 62:                                               ; preds = %57, %53
   %63 = load ptr, ptr %17, align 8, !alias.scope !216, !noalias !219, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %63, i64 %54
+  %64 = getelementptr inbounds [48 x i8], ptr %63, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %65 = add i64 %54, 1
   store i64 %65, ptr %18, align 8, !alias.scope !216, !noalias !219
@@ -5897,7 +5897,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %50 = add i64 %.sroa.01.0.i.i, %49
   %51 = and i64 %50, %41
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %42, i64 %52
+  %53 = getelementptr inbounds [24 x i8], ptr %42, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %.val4.i.i = load i64, ptr %54, align 8, !alias.scope !1017, !noalias !1022, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.16.val, %.val4.i.i
@@ -6042,7 +6042,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9has
   %50 = add i64 %.sroa.01.0.i.i, %49
   %51 = and i64 %50, %41
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } } }, ptr %42, i64 %52
+  %53 = getelementptr inbounds [48 x i8], ptr %42, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -32
   %.val4.i.i = load i64, ptr %54, align 8, !alias.scope !1093, !noalias !1098, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.16.val, %.val4.i.i
@@ -6192,7 +6192,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %55 = add i64 %.sroa.01.0.i.i, %54
   %56 = and i64 %55, %46
   %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %47, i64 %57
+  %58 = getelementptr inbounds [24 x i8], ptr %47, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 -24
   %60 = call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h88bd33f7125b3836E.llvm.12934424205961532001"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59), !noalias !1170
   br i1 %60, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h8a01d51644764b05E.exit", label %63
@@ -6326,7 +6326,7 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit24: ; preds = %2
   %26 = load ptr, ptr %25, align 8, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8, !noundef !5
-  %29 = getelementptr inbounds { i64, [8 x i64] }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [72 x i8], ptr %26, i64 %28
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h87e5cce154b38e52E.llvm.3723337336813566865"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull %26, ptr noundef nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7164,7 +7164,7 @@ define void @_ZN8settings11keymap_file10KeymapFile20generate_json_schema17h34872
   %71 = load ptr, ptr %70, align 8, !alias.scope !1327, !noalias !1299, !nonnull !5, !noundef !5
   %72 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %73 = load i64, ptr %72, align 8, !alias.scope !1327, !noalias !1299, !noundef !5
-  %74 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %71, i64 %73
+  %74 = getelementptr inbounds [16 x i8], ptr %71, i64 %73
   br label %75
 
 75:                                               ; preds = %87, %64
@@ -7375,7 +7375,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr45drop
 151:                                              ; preds = %142
   store i8 5, ptr %144, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %152 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %1, i64 %2
+  %152 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h66f807034da6eeacE.llvm.3723337336813566865"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noundef nonnull %1, ptr noundef nonnull %152)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hfa73e4815c2490f3E.exit" unwind label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h5b822499b2e7da0fE.exit"
 

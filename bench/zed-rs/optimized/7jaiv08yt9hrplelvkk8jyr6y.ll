@@ -760,7 +760,7 @@ define internal fastcc void @_ZN6digest11FixedOutput14finalize_fixed17h398b6c5c2
   %46 = add nuw nsw i64 %.sroa.12.034.i.i.i, 1
   %47 = shl nuw nsw i64 %.sroa.12.034.i.i.i, 2
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 %47
-  %49 = getelementptr inbounds nuw i32, ptr %15, i64 %.sroa.12.034.i.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.sroa.12.034.i.i.i
   %50 = load i32, ptr %49, align 4, !alias.scope !263, !noalias !264, !noundef !18
   %51 = call i32 @llvm.bswap.i32(i32 %50)
   store i32 %51, ptr %48, align 1, !alias.scope !292, !noalias !296

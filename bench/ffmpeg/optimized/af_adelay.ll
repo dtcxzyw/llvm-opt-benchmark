@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.ChanDelay = type { i64, i64, i64, i32, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"adelay\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"Delay one or more audio channels.\00", align 1
@@ -47,7 +46,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %9 = load ptr, ptr %4, align 8, !tbaa !20
-  %10 = getelementptr inbounds nuw %struct.ChanDelay, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @av_freep(ptr noundef nonnull %11) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -177,7 +176,7 @@ thread-pre-split.i:                               ; preds = %30
   %.03987 = phi i64 [ 0, %.lr.ph ], [ %.039., %86 ]
   %.14286 = phi ptr [ %.041, %.lr.ph ], [ %.243, %86 ]
   %57 = load ptr, ptr %53, align 8, !tbaa !20
-  %58 = getelementptr inbounds nuw %struct.ChanDelay, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %indvars.iv
   %59 = load i64, ptr %13, align 8, !tbaa !32
   %60 = icmp slt i64 %59, 0
   br i1 %60, label %61, label %._crit_edge
@@ -528,7 +527,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.091129 = phi ptr [ %25, %.lr.ph ], [ null, %50 ]
   %28 = load ptr, ptr %14, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw %struct.ChanDelay, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %26, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -607,7 +606,7 @@ thread-pre-split.i:                               ; preds = %32
 
 .lr.ph132:                                        ; preds = %.preheader121
   %60 = and i64 %.093127.in, 4294967295
-  %61 = getelementptr %struct.ChanDelay, ptr %.pre165, i64 %60
+  %61 = getelementptr [40 x i8], ptr %.pre165, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -40
   %wide.trip.count = zext i32 %58 to i64
   %.pre = load i64, ptr %62, align 8, !tbaa !46
@@ -615,7 +614,7 @@ thread-pre-split.i:                               ; preds = %32
 
 63:                                               ; preds = %.lr.ph132, %63
   %indvars.iv148 = phi i64 [ %60, %.lr.ph132 ], [ %indvars.iv.next149, %63 ]
-  %64 = getelementptr inbounds nuw %struct.ChanDelay, ptr %.pre165, i64 %indvars.iv148
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %.pre165, i64 %indvars.iv148
   store i64 %.pre, ptr %64, align 8, !tbaa !46
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count
@@ -637,7 +636,7 @@ thread-pre-split.i:                               ; preds = %32
 70:                                               ; preds = %.lr.ph134, %70
   %indvars.iv151 = phi i64 [ 1, %.lr.ph134 ], [ %indvars.iv.next152, %70 ]
   %71 = phi i64 [ %67, %.lr.ph134 ], [ %.109, %70 ]
-  %72 = getelementptr inbounds nuw %struct.ChanDelay, ptr %66, i64 %indvars.iv151
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %66, i64 %indvars.iv151
   %73 = load i64, ptr %72, align 8, !tbaa !46
   %.109 = call i64 @llvm.smin.i64(i64 %71, i64 %73)
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
@@ -663,7 +662,7 @@ thread-pre-split.i:                               ; preds = %32
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %indvars.iv156 = phi i64 [ 0, %.lr.ph137.preheader ], [ %indvars.iv.next157, %.lr.ph137 ]
-  %77 = getelementptr inbounds nuw %struct.ChanDelay, ptr %66, i64 %indvars.iv156
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %66, i64 %indvars.iv156
   %78 = load i64, ptr %77, align 8, !tbaa !46
   %79 = sub nsw i64 %78, %75
   store i64 %79, ptr %77, align 8, !tbaa !46
@@ -696,7 +695,7 @@ thread-pre-split.i:                               ; preds = %32
   %90 = phi i32 [ %65, %.lr.ph141 ], [ %107, %106 ]
   %indvars.iv161 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next162, %106 ]
   %91 = load ptr, ptr %14, align 8, !tbaa !20
-  %92 = getelementptr inbounds nuw %struct.ChanDelay, ptr %91, i64 %indvars.iv161
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %91, i64 %indvars.iv161
   %93 = load i64, ptr %92, align 8, !tbaa !46
   %.not107 = icmp eq i64 %93, 0
   br i1 %.not107, label %106, label %94
@@ -998,7 +997,7 @@ define internal void @delay_channel_s16p(ptr noundef captures(none) %0, i32 noun
   %.052.us = phi i32 [ %1, %.lr.ph.split.us ], [ %16, %12 ]
   %.03951.us = phi ptr [ %2, %.lr.ph.split.us ], [ %18, %12 ]
   %.04150.us = phi ptr [ %3, %.lr.ph.split.us ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw i16, ptr %6, i64 %spec.select.us53
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %spec.select.us53
   %14 = load i16, ptr %13, align 2, !tbaa !82
   store i16 %14, ptr %.04150.us, align 2, !tbaa !82
   %15 = load i16, ptr %.03951.us, align 2, !tbaa !82
@@ -1030,7 +1029,7 @@ define internal void @delay_channel_s16p(ptr noundef captures(none) %0, i32 noun
   %25 = sub nuw i64 %21, %20
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 %24)
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds nuw i16, ptr %6, i64 %20
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %20
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
   %30 = ashr exact i64 %sext, 31
@@ -1039,14 +1038,14 @@ define internal void @delay_channel_s16p(ptr noundef captures(none) %0, i32 noun
   %31 = load i64, ptr %7, align 8, !tbaa !79
   %32 = add i64 %31, %29
   store i64 %32, ptr %7, align 8, !tbaa !79
-  %33 = getelementptr inbounds i16, ptr %.03951, i64 %29
-  %34 = getelementptr inbounds i16, ptr %.04150, i64 %29
+  %33 = getelementptr inbounds [2 x i8], ptr %.03951, i64 %29
+  %34 = getelementptr inbounds [2 x i8], ptr %.04150, i64 %29
   %35 = sub nsw i32 %.052, %27
   br label %45
 
 36:                                               ; preds = %.lr.ph.split
   %37 = load i64, ptr %8, align 8, !tbaa !80
-  %38 = getelementptr inbounds nuw i16, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !82
   store i16 %39, ptr %.04150, align 2, !tbaa !82
   %40 = load i16, ptr %.03951, align 2, !tbaa !82
@@ -1110,7 +1109,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_s16p(ptr noundef %0, i64 n
 21:                                               ; preds = %17
   %22 = sub nuw i64 %19, %1
   store i64 %22, ptr %18, align 8, !tbaa !80
-  %23 = getelementptr inbounds i16, ptr %13, i64 %1
+  %23 = getelementptr inbounds [2 x i8], ptr %13, i64 %1
   %24 = shl i64 %22, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %13, ptr nonnull align 2 %23, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1124,9 +1123,9 @@ define internal range(i32 -12, 1) i32 @resize_samples_s16p(ptr noundef %0, i64 n
   br i1 %29, label %30, label %58
 
 30:                                               ; preds = %26
-  %31 = getelementptr i16, ptr %13, i64 %19
+  %31 = getelementptr [2 x i8], ptr %13, i64 %19
   %32 = sub nsw i64 %15, %1
-  %33 = getelementptr i16, ptr %31, i64 %32
+  %33 = getelementptr [2 x i8], ptr %31, i64 %32
   %34 = sub i64 %1, %19
   %35 = shl i64 %34, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %31, ptr align 2 %33, i64 %35, i1 false)
@@ -1149,8 +1148,8 @@ define internal range(i32 -12, 1) i32 @resize_samples_s16p(ptr noundef %0, i64 n
   %45 = sub i64 %15, %44
   %46 = shl i64 %45, 1
   %47 = sub nsw i64 %1, %15
-  %48 = getelementptr i16, ptr %13, i64 %44
-  %49 = getelementptr i16, ptr %48, i64 %47
+  %48 = getelementptr [2 x i8], ptr %13, i64 %44
+  %49 = getelementptr [2 x i8], ptr %48, i64 %47
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %49, ptr nonnull align 2 %48, i64 %46, i1 false)
   %.pre = load i64, ptr %0, align 8, !tbaa !46
   %.pre71 = sub nsw i64 %1, %.pre
@@ -1168,7 +1167,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_s16p(ptr noundef %0, i64 n
   %54 = shl i64 %.pre-phi, 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !80
-  %57 = getelementptr inbounds nuw i16, ptr %13, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %56
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %57, i8 0, i64 %54, i1 false)
   br label %58
 
@@ -1206,7 +1205,7 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
   %.052.us = phi i32 [ %1, %.lr.ph.split.us ], [ %16, %12 ]
   %.03951.us = phi ptr [ %2, %.lr.ph.split.us ], [ %18, %12 ]
   %.04150.us = phi ptr [ %3, %.lr.ph.split.us ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %spec.select.us53
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %spec.select.us53
   %14 = load i32, ptr %13, align 4, !tbaa !87
   store i32 %14, ptr %.04150.us, align 4, !tbaa !87
   %15 = load i32, ptr %.03951.us, align 4, !tbaa !87
@@ -1238,7 +1237,7 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
   %25 = sub nuw i64 %21, %20
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 %24)
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %20
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %20
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
   %30 = ashr exact i64 %sext, 30
@@ -1247,14 +1246,14 @@ define internal void @delay_channel_s32p(ptr noundef captures(none) %0, i32 noun
   %31 = load i64, ptr %7, align 8, !tbaa !79
   %32 = add i64 %31, %29
   store i64 %32, ptr %7, align 8, !tbaa !79
-  %33 = getelementptr inbounds i32, ptr %.03951, i64 %29
-  %34 = getelementptr inbounds i32, ptr %.04150, i64 %29
+  %33 = getelementptr inbounds [4 x i8], ptr %.03951, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %.04150, i64 %29
   %35 = sub nsw i32 %.052, %27
   br label %45
 
 36:                                               ; preds = %.lr.ph.split
   %37 = load i64, ptr %8, align 8, !tbaa !80
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !87
   store i32 %39, ptr %.04150, align 4, !tbaa !87
   %40 = load i32, ptr %.03951, align 4, !tbaa !87
@@ -1318,7 +1317,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_s32p(ptr noundef %0, i64 n
 21:                                               ; preds = %17
   %22 = sub nuw i64 %19, %1
   store i64 %22, ptr %18, align 8, !tbaa !80
-  %23 = getelementptr inbounds i32, ptr %13, i64 %1
+  %23 = getelementptr inbounds [4 x i8], ptr %13, i64 %1
   %24 = shl i64 %22, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %23, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1332,9 +1331,9 @@ define internal range(i32 -12, 1) i32 @resize_samples_s32p(ptr noundef %0, i64 n
   br i1 %29, label %30, label %58
 
 30:                                               ; preds = %26
-  %31 = getelementptr i32, ptr %13, i64 %19
+  %31 = getelementptr [4 x i8], ptr %13, i64 %19
   %32 = sub nsw i64 %15, %1
-  %33 = getelementptr i32, ptr %31, i64 %32
+  %33 = getelementptr [4 x i8], ptr %31, i64 %32
   %34 = sub i64 %1, %19
   %35 = shl i64 %34, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %33, i64 %35, i1 false)
@@ -1357,8 +1356,8 @@ define internal range(i32 -12, 1) i32 @resize_samples_s32p(ptr noundef %0, i64 n
   %45 = sub i64 %15, %44
   %46 = shl i64 %45, 2
   %47 = sub nsw i64 %1, %15
-  %48 = getelementptr i32, ptr %13, i64 %44
-  %49 = getelementptr i32, ptr %48, i64 %47
+  %48 = getelementptr [4 x i8], ptr %13, i64 %44
+  %49 = getelementptr [4 x i8], ptr %48, i64 %47
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %49, ptr nonnull align 4 %48, i64 %46, i1 false)
   %.pre = load i64, ptr %0, align 8, !tbaa !46
   %.pre71 = sub nsw i64 %1, %.pre
@@ -1376,7 +1375,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_s32p(ptr noundef %0, i64 n
   %54 = shl i64 %.pre-phi, 2
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !80
-  %57 = getelementptr inbounds nuw i32, ptr %13, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %56
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %57, i8 0, i64 %54, i1 false)
   br label %58
 
@@ -1414,7 +1413,7 @@ define internal void @delay_channel_fltp(ptr noundef captures(none) %0, i32 noun
   %.052.us = phi i32 [ %1, %.lr.ph.split.us ], [ %16, %12 ]
   %.03951.us = phi ptr [ %2, %.lr.ph.split.us ], [ %18, %12 ]
   %.04150.us = phi ptr [ %3, %.lr.ph.split.us ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %6, i64 %spec.select.us53
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %spec.select.us53
   %14 = load float, ptr %13, align 4, !tbaa !43
   store float %14, ptr %.04150.us, align 4, !tbaa !43
   %15 = load float, ptr %.03951.us, align 4, !tbaa !43
@@ -1446,7 +1445,7 @@ define internal void @delay_channel_fltp(ptr noundef captures(none) %0, i32 noun
   %25 = sub nuw i64 %21, %20
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 %24)
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds nuw float, ptr %6, i64 %20
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %20
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
   %30 = ashr exact i64 %sext, 30
@@ -1455,14 +1454,14 @@ define internal void @delay_channel_fltp(ptr noundef captures(none) %0, i32 noun
   %31 = load i64, ptr %7, align 8, !tbaa !79
   %32 = add i64 %31, %29
   store i64 %32, ptr %7, align 8, !tbaa !79
-  %33 = getelementptr inbounds float, ptr %.03951, i64 %29
-  %34 = getelementptr inbounds float, ptr %.04150, i64 %29
+  %33 = getelementptr inbounds [4 x i8], ptr %.03951, i64 %29
+  %34 = getelementptr inbounds [4 x i8], ptr %.04150, i64 %29
   %35 = sub nsw i32 %.052, %27
   br label %45
 
 36:                                               ; preds = %.lr.ph.split
   %37 = load i64, ptr %8, align 8, !tbaa !80
-  %38 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %39 = load float, ptr %38, align 4, !tbaa !43
   store float %39, ptr %.04150, align 4, !tbaa !43
   %40 = load float, ptr %.03951, align 4, !tbaa !43
@@ -1526,7 +1525,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_fltp(ptr noundef %0, i64 n
 21:                                               ; preds = %17
   %22 = sub nuw i64 %19, %1
   store i64 %22, ptr %18, align 8, !tbaa !80
-  %23 = getelementptr inbounds float, ptr %13, i64 %1
+  %23 = getelementptr inbounds [4 x i8], ptr %13, i64 %1
   %24 = shl i64 %22, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %23, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1540,9 +1539,9 @@ define internal range(i32 -12, 1) i32 @resize_samples_fltp(ptr noundef %0, i64 n
   br i1 %29, label %30, label %58
 
 30:                                               ; preds = %26
-  %31 = getelementptr float, ptr %13, i64 %19
+  %31 = getelementptr [4 x i8], ptr %13, i64 %19
   %32 = sub nsw i64 %15, %1
-  %33 = getelementptr float, ptr %31, i64 %32
+  %33 = getelementptr [4 x i8], ptr %31, i64 %32
   %34 = sub i64 %1, %19
   %35 = shl i64 %34, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %33, i64 %35, i1 false)
@@ -1565,8 +1564,8 @@ define internal range(i32 -12, 1) i32 @resize_samples_fltp(ptr noundef %0, i64 n
   %45 = sub i64 %15, %44
   %46 = shl i64 %45, 2
   %47 = sub nsw i64 %1, %15
-  %48 = getelementptr float, ptr %13, i64 %44
-  %49 = getelementptr float, ptr %48, i64 %47
+  %48 = getelementptr [4 x i8], ptr %13, i64 %44
+  %49 = getelementptr [4 x i8], ptr %48, i64 %47
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %49, ptr nonnull align 4 %48, i64 %46, i1 false)
   %.pre = load i64, ptr %0, align 8, !tbaa !46
   %.pre71 = sub nsw i64 %1, %.pre
@@ -1584,7 +1583,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_fltp(ptr noundef %0, i64 n
   %54 = shl i64 %.pre-phi, 2
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !80
-  %57 = getelementptr inbounds nuw float, ptr %13, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %56
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %57, i8 0, i64 %54, i1 false)
   br label %58
 
@@ -1622,7 +1621,7 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
   %.052.us = phi i32 [ %1, %.lr.ph.split.us ], [ %16, %12 ]
   %.03951.us = phi ptr [ %2, %.lr.ph.split.us ], [ %18, %12 ]
   %.04150.us = phi ptr [ %3, %.lr.ph.split.us ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw double, ptr %6, i64 %spec.select.us53
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %spec.select.us53
   %14 = load double, ptr %13, align 8, !tbaa !92
   store double %14, ptr %.04150.us, align 8, !tbaa !92
   %15 = load double, ptr %.03951.us, align 8, !tbaa !92
@@ -1654,7 +1653,7 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
   %25 = sub nuw i64 %21, %20
   %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 %24)
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds nuw double, ptr %6, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
   %30 = ashr exact i64 %sext, 29
@@ -1663,14 +1662,14 @@ define internal void @delay_channel_dblp(ptr noundef captures(none) %0, i32 noun
   %31 = load i64, ptr %7, align 8, !tbaa !79
   %32 = add i64 %31, %29
   store i64 %32, ptr %7, align 8, !tbaa !79
-  %33 = getelementptr inbounds double, ptr %.03951, i64 %29
-  %34 = getelementptr inbounds double, ptr %.04150, i64 %29
+  %33 = getelementptr inbounds [8 x i8], ptr %.03951, i64 %29
+  %34 = getelementptr inbounds [8 x i8], ptr %.04150, i64 %29
   %35 = sub nsw i32 %.052, %27
   br label %45
 
 36:                                               ; preds = %.lr.ph.split
   %37 = load i64, ptr %8, align 8, !tbaa !80
-  %38 = getelementptr inbounds nuw double, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !92
   store double %39, ptr %.04150, align 8, !tbaa !92
   %40 = load double, ptr %.03951, align 8, !tbaa !92
@@ -1734,7 +1733,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_dblp(ptr noundef %0, i64 n
 21:                                               ; preds = %17
   %22 = sub nuw i64 %19, %1
   store i64 %22, ptr %18, align 8, !tbaa !80
-  %23 = getelementptr inbounds double, ptr %13, i64 %1
+  %23 = getelementptr inbounds [8 x i8], ptr %13, i64 %1
   %24 = shl i64 %22, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 8 %23, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1748,9 +1747,9 @@ define internal range(i32 -12, 1) i32 @resize_samples_dblp(ptr noundef %0, i64 n
   br i1 %29, label %30, label %58
 
 30:                                               ; preds = %26
-  %31 = getelementptr double, ptr %13, i64 %19
+  %31 = getelementptr [8 x i8], ptr %13, i64 %19
   %32 = sub nsw i64 %15, %1
-  %33 = getelementptr double, ptr %31, i64 %32
+  %33 = getelementptr [8 x i8], ptr %31, i64 %32
   %34 = sub i64 %1, %19
   %35 = shl i64 %34, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %33, i64 %35, i1 false)
@@ -1773,8 +1772,8 @@ define internal range(i32 -12, 1) i32 @resize_samples_dblp(ptr noundef %0, i64 n
   %45 = sub i64 %15, %44
   %46 = shl i64 %45, 3
   %47 = sub nsw i64 %1, %15
-  %48 = getelementptr double, ptr %13, i64 %44
-  %49 = getelementptr double, ptr %48, i64 %47
+  %48 = getelementptr [8 x i8], ptr %13, i64 %44
+  %49 = getelementptr [8 x i8], ptr %48, i64 %47
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %49, ptr nonnull align 8 %48, i64 %46, i1 false)
   %.pre = load i64, ptr %0, align 8, !tbaa !46
   %.pre71 = sub nsw i64 %1, %.pre
@@ -1792,7 +1791,7 @@ define internal range(i32 -12, 1) i32 @resize_samples_dblp(ptr noundef %0, i64 n
   %54 = shl i64 %.pre-phi, 3
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !80
-  %57 = getelementptr inbounds nuw double, ptr %13, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %56
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %57, i8 0, i64 %54, i1 false)
   br label %58
 
@@ -1915,12 +1914,12 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
 43:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %44 = load ptr, ptr %38, align 8, !tbaa !20
-  %45 = getelementptr inbounds nuw %struct.ChanDelay, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %39, align 8, !tbaa !55
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !31
   %49 = load ptr, ptr %40, align 8, !tbaa !55
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !31
   %52 = load i64, ptr %45, align 8, !tbaa !46
   %.not46 = icmp eq i64 %52, 0

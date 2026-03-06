@@ -782,7 +782,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i7, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, align 8, !tbaa !39
   store ptr %incdec.ptr.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, i64 8), align 8, !tbaa !76
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i7, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i7, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8QuantLib30ExponentialFittingHestonEngine10moneyness_E, i64 16), align 8, !tbaa !41
   br label %invoke.cont5
 
@@ -2404,7 +2404,7 @@ while.body.i.i:                                   ; preds = %if.else, %while.bod
   %__len.08.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i, %if.else ]
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %143, %if.else ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %144 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !77
   %cmp.i.i.i301 = fcmp olt double %144, %141
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -2428,12 +2428,12 @@ invoke.cont330:                                   ; preds = %invoke.cont330.loop
   br i1 %cmp336.not, label %if.end345, label %land.lhs.true337
 
 land.lhs.true337:                                 ; preds = %invoke.cont330
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %143, i64 %.sroa.speculated
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %.sroa.speculated
   %146 = load double, ptr %add.ptr.i, align 8, !tbaa !77
   %sub339 = fsub double %141, %146
   %147 = call double @llvm.fabs.f64(double %sub339)
   %sub340 = add nsw i64 %.sroa.speculated, -1
-  %add.ptr.i304 = getelementptr inbounds nuw double, ptr %143, i64 %sub340
+  %add.ptr.i304 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %sub340
   %148 = load double, ptr %add.ptr.i304, align 8, !tbaa !77
   %sub342 = fsub double %141, %148
   %149 = call double @llvm.fabs.f64(double %sub342)
@@ -2445,7 +2445,7 @@ if.then344:                                       ; preds = %land.lhs.true337
 
 if.end345:                                        ; preds = %if.then344, %land.lhs.true337, %invoke.cont330
   %n.1 = phi i64 [ %sub340, %if.then344 ], [ %.sroa.speculated, %land.lhs.true337 ], [ 0, %invoke.cont330 ]
-  %add.ptr.i305 = getelementptr inbounds nuw double, ptr %143, i64 %n.1
+  %add.ptr.i305 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %n.1
   %150 = load double, ptr %add.ptr.i305, align 8, !tbaa !77
   %div347 = fdiv double %150, %sub172
   %151 = call double @llvm.fabs.f64(double %div347)
@@ -2454,7 +2454,7 @@ if.end345:                                        ; preds = %if.then344, %land.l
 if.end349:                                        ; preds = %cond.end300, %if.end345
   %u.0 = phi double [ %151, %if.end345 ], [ %cond301, %cond.end300 ]
   %n.0 = phi i64 [ %n.1, %if.end345 ], [ 0, %cond.end300 ]
-  %arrayidx = getelementptr inbounds nuw [129 x double], ptr @_ZN8QuantLib12_GLOBAL__N_17values4E, i64 %n.0
+  %arrayidx = getelementptr inbounds nuw [1032 x i8], ptr @_ZN8QuantLib12_GLOBAL__N_17values4E, i64 %n.0
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont359
@@ -2467,9 +2467,9 @@ for.body:                                         ; preds = %if.end349, %invoke.
   %i.0452 = phi i64 [ 0, %if.end349 ], [ %add351, %invoke.cont359 ]
   %s.0451 = phi double [ 0.000000e+00, %if.end349 ], [ %155, %invoke.cont359 ]
   %add351 = add nuw nsw i64 %i.0452, 1
-  %arrayidx352 = getelementptr inbounds nuw double, ptr %arrayidx, i64 %add351
+  %arrayidx352 = getelementptr inbounds nuw [8 x i8], ptr %arrayidx, i64 %add351
   %152 = load double, ptr %arrayidx352, align 8, !tbaa !77
-  %153 = getelementptr inbounds nuw double, ptr %arrayidx, i64 %i.0452
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %arrayidx, i64 %i.0452
   %arrayidx355 = getelementptr inbounds nuw i8, ptr %153, i64 520
   %154 = load double, ptr %arrayidx355, align 8, !tbaa !77
   %mul357 = fmul double %u.0, %152

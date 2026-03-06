@@ -12,13 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::BasicVector" = type { [3 x i32] }
 %"class.gmx::extents.11" = type { %"struct.gmx::detail::extents_analyse.12" }
 %"struct.gmx::detail::extents_analyse.12" = type { %"struct.gmx::detail::extents_analyse", i64 }
-%"class.gmx::GaussianOn1DLattice" = type { %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %"class.gmx::basic_mdspan.15" = type { [8 x i8], %"class.gmx::layout_right::mapping.16", ptr }
 %"class.gmx::layout_right::mapping.16" = type { %"class.gmx::extents.11" }
 %"class.gmx::basic_mdspan.31" = type { [8 x i8], %"class.gmx::layout_right::mapping.16", ptr }
@@ -69,7 +62,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %11 = shl nuw nsw i64 %10, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #21
   store ptr %12, ptr %6, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %14, align 8, !tbaa !18
   store float 0.000000e+00, ptr %12, align 4, !tbaa !19
@@ -184,7 +177,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %66, 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i: ; preds = %68, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %63, ptr %21, align 8, !tbaa !17
   store ptr %67, ptr %35, align 8, !tbaa !21
-  %69 = getelementptr inbounds nuw float, ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %69, ptr %36, align 8, !tbaa !18
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSEOf.exit.i
 
@@ -305,7 +298,7 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr noundef nonnull rea
   %17 = load i32, ptr %0, align 8, !tbaa !4
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %16, align 8, !tbaa !17
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %18
   store float %15, ptr %20, align 4, !tbaa !19
   %21 = fdiv double %4, %9
   %22 = tail call double @exp(double noundef %21) #22, !tbaa !23
@@ -320,21 +313,21 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr noundef nonnull rea
 .lr.ph:                                           ; preds = %3
   %29 = sext i32 %28 to i64
   %wide.trip.count = zext nneg i32 %24 to i64
-  %invariant.gep = getelementptr float, ptr %19, i64 %29
+  %invariant.gep = getelementptr [4 x i8], ptr %19, i64 %29
   br label %48
 
 ._crit_edge:                                      ; preds = %48, %3
   %.0.lcssa = phi double [ %22, %3 ], [ %59, %48 ]
   %30 = fdiv double %14, %.0.lcssa
   %31 = sext i32 %24 to i64
-  %32 = getelementptr inbounds nuw float, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !19
   %34 = fpext float %33 to double
   %35 = fmul double %30, %34
   %36 = fptrunc double %35 to float
   %37 = sub nsw i32 %28, %24
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds nuw float, ptr %19, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %38
   store float %36, ptr %39, align 4, !tbaa !19
   %40 = fmul double %14, %.0.lcssa
   %41 = load float, ptr %32, align 4, !tbaa !19
@@ -343,25 +336,25 @@ define void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr noundef nonnull rea
   %44 = fptrunc double %43 to float
   %45 = add nsw i32 %28, %24
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds nuw float, ptr %19, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %46
   store float %44, ptr %47, align 4, !tbaa !19
   ret void
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %.025 = phi double [ %22, %.lr.ph ], [ %59, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %50 = load float, ptr %49, align 4, !tbaa !19
   %51 = fpext float %50 to double
   %52 = fmul double %14, %51
   %53 = fmul double %.025, %52
   %54 = fptrunc double %53 to float
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %54, ptr %gep, align 4, !tbaa !19
   %55 = fdiv double %52, %.025
   %56 = fptrunc double %55 to float
   %57 = sub nsw i64 %29, %indvars.iv
-  %58 = getelementptr inbounds nuw float, ptr %19, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %57
   store float %56, ptr %58, align 4, !tbaa !19
   %59 = fmul double %22, %.025
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -814,7 +807,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
   br i1 %31, label %32, label %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw float, ptr %22, i64 %19
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %19
   %.not.i.i.i = icmp eq ptr %21, %33
   br i1 %.not.i.i.i, label %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit, label %34
 
@@ -851,10 +844,10 @@ _ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
 
 .lr.ph.i.preheader:                               ; preds = %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit, %"_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit"
   %.019 = phi i64 [ %48, %"_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit" ], [ 0, %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit ]
-  %40 = getelementptr inbounds nuw float, ptr %2, i64 %.019
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.019
   %41 = load float, ptr %40, align 4, !tbaa !19
   %42 = mul nsw i64 %14, %.019
-  %43 = getelementptr inbounds float, ptr %.sroa.411.0.copyload, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %.sroa.411.0.copyload, i64 %42
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -963,9 +956,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !17
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !18
   br label %41
 
@@ -1438,7 +1431,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1EEEEE18required_span_sizeEv
   br i1 %83, label %84, label %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit.i
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw float, ptr %74, i64 %70
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %70
   %.not.i.i.i.i = icmp eq ptr %73, %85
   br i1 %.not.i.i.i.i, label %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit.i, label %86
 
@@ -1466,10 +1459,10 @@ _ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit.i, %"_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit.i"
   %.019.i = phi i64 [ %96, %"_ZSt9transformIN3gmx12ArrayRefIterIKfEEPfZNS0_21OuterProductEvaluatorclENS0_8ArrayRefIS2_EES7_E3$_0ET0_T_SA_S9_T1_.exit.loopexit.i" ], [ 0, %_ZN3gmx13MultiDimArrayISt6vectorIfSaIfEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEE6resizeIJllEEEvDpT_.exit.i ]
-  %88 = getelementptr inbounds nuw float, ptr %49, i64 %.019.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.019.i
   %89 = load float, ptr %88, align 4, !tbaa !19, !noalias !63
   %90 = mul nsw i64 %.019.i, %65
-  %91 = getelementptr inbounds float, ptr %.sroa.411.0.copyload.i, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %.sroa.411.0.copyload.i, i64 %90
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
@@ -1528,9 +1521,9 @@ _ZN3gmx21OuterProductEvaluatorclENS_8ArrayRefIKfEES3_.exit: ; preds = %_ZN3gmx13
   %122 = sext i32 %107 to i64
   %wide.trip.count102 = sext i32 %109 to i64
   %wide.trip.count97 = sext i32 %112 to i64
-  %invariant.gep121 = getelementptr float, ptr %97, i64 %120
+  %invariant.gep121 = getelementptr [4 x i8], ptr %97, i64 %120
   %wide.trip.count = sext i32 %115 to i64
-  %invariant.gep = getelementptr float, ptr %100, i64 %118
+  %invariant.gep = getelementptr [4 x i8], ptr %100, i64 %118
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %._crit_edge81.split.us.us.us
@@ -1551,25 +1544,25 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.us.us: ; preds = %_ZNK3g
 
 _ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEixIiNS0_IfNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit.us.us: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.us.us
   %128 = mul nsw i64 %127, %indvars.iv99
-  %129 = getelementptr inbounds float, ptr %.sroa.650.0.copyload, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %.sroa.650.0.copyload, i64 %128
   %130 = add nsw i64 %indvars.iv99, %122
   %131 = mul nsw i64 %.sroa.360.8.copyload, %130
-  %gep122 = getelementptr float, ptr %invariant.gep121, i64 %131
+  %gep122 = getelementptr [4 x i8], ptr %invariant.gep121, i64 %131
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %_ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEixIiNS0_IfNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit.us.us
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %._crit_edge.us.us.us ], [ %119, %_ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEixIiNS0_IfNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit.us.us ]
   %132 = mul nsw i64 %.sroa.4.0.copyload, %indvars.iv94
-  %133 = getelementptr inbounds float, ptr %129, i64 %132
-  %gep120 = getelementptr float, ptr %gep122, i64 %indvars.iv94
+  %133 = getelementptr inbounds [4 x i8], ptr %129, i64 %132
+  %gep120 = getelementptr [4 x i8], ptr %gep122, i64 %indvars.iv94
   %134 = load float, ptr %gep120, align 4, !tbaa !19
   br label %135
 
 135:                                              ; preds = %135, %.lr.ph.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %135 ], [ %117, %.lr.ph.us.us.us ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv90
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv90
   %136 = load float, ptr %gep, align 4, !tbaa !19
-  %137 = getelementptr inbounds float, ptr %133, i64 %indvars.iv90
+  %137 = getelementptr inbounds [4 x i8], ptr %133, i64 %indvars.iv90
   %138 = load float, ptr %137, align 4, !tbaa !19
   %139 = call float @llvm.fmuladd.f32(float %134, float %136, float %138)
   store float %139, ptr %137, align 4, !tbaa !19
@@ -1593,11 +1586,11 @@ _ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14ac
   %141 = load float, ptr %43, align 8
   %142 = fpext float %141 to double
   %143 = select i1 %.not, double %142, double 1.000000e+00
-  %144 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %44, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %145 = load ptr, ptr %1, align 8, !tbaa !57
-  %146 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv
   %147 = load float, ptr %146, align 4, !tbaa !19
-  %148 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %149 = load i32, ptr %148, align 4, !tbaa !23
   %150 = sitofp i32 %149 to float
   %151 = fsub float %147, %150
@@ -1878,7 +1871,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %37
   %.idx.i = shl nuw nsw i64 %57, 3
   %.add10 = add nuw nsw i64 %.idx.i, 176
   %.ptr13 = getelementptr inbounds nuw i8, ptr %0, i64 %.add10
-  %58 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   invoke void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.ptr13, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %59 unwind label %62
 
@@ -1979,8 +1972,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16GaussTransform3D
 
 19:                                               ; preds = %19, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %30, %19 ]
-  %20 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %17, i64 %.05.i.i
-  %21 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %18, i64 %.05.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.05.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.05.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = load ptr, ptr %20, align 8, !tbaa !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 16, i1 false)

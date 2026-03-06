@@ -1982,7 +1982,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit87: ; preds = %19
 
 .preheader130:                                    ; preds = %32
   %34 = zext nneg i32 %.0 to i64
-  %35 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %34
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %34
   br label %36
 
 36:                                               ; preds = %.preheader130, %44
@@ -2077,7 +2077,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
 
 .lr.ph138:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread, %71
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %71 ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread ]
-  %72 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %indvars.iv150
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv150
   %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %35) #23
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %._crit_edge139, label %71
@@ -2110,7 +2110,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
 
 .lr.ph145.split.us:                               ; preds = %.lr.ph145.split.us.preheader, %102
   %indvars.iv159 = phi i64 [ 0, %.lr.ph145.split.us.preheader ], [ %indvars.iv.next160, %102 ]
-  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %indvars.iv159
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv159
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %83 = load i32, ptr %82, align 4, !tbaa !24
   %84 = load ptr, ptr %3, align 8, !tbaa !32
@@ -2146,7 +2146,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE16find_last_not_ofEcm.exit.thread:
 
 .lr.ph145.split:                                  ; preds = %.lr.ph145.split.preheader, %.lr.ph145.split
   %indvars.iv154 = phi i64 [ 0, %.lr.ph145.split.preheader ], [ %indvars.iv.next155, %.lr.ph145.split ]
-  %103 = getelementptr inbounds nuw %"struct.(anonymous namespace)::KeywordStruct", ptr %7, i64 %indvars.iv154
+  %103 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv154
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 28
   %105 = load i32, ptr %104, align 4, !tbaa !24
   %106 = load ptr, ptr %3, align 8, !tbaa !32
@@ -6860,7 +6860,7 @@ _ZN12_GLOBAL__N_111_getVariantESt17basic_string_viewIcSt11char_traitsIcEEcPN6icu
 239:                                              ; preds = %238, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307
   %indvars.iv = phi i64 [ 0, %238 ], [ %indvars.iv.next, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread307 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %240 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CanonicalizationMap", ptr @_ZN12_GLOBAL__N_116CANONICALIZE_MAPE, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_116CANONICALIZE_MAPE, i64 %indvars.iv
   %241 = load ptr, ptr %240, align 16, !tbaa !107
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef %241)
           to label %242 unwind label %.loopexit

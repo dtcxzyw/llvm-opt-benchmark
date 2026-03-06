@@ -48,7 +48,7 @@ define hidden noundef ptr @time_string_parse(ptr noundef readonly captures(addre
   %.0 = phi ptr [ %20, %14 ], [ %0, %.preheader ]
   %15 = load i8, ptr %.0, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr i16, ptr %13, i64 %16
+  %17 = getelementptr [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 256
   %.not = icmp eq i16 %19, 0

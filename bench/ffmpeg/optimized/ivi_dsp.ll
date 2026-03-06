@@ -54,15 +54,15 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %25 = load i16, ptr %.0176254, align 2, !tbaa !27
   %26 = sext i16 %25 to i32
   %.neg209 = mul nsw i32 %26, -6
-  %27 = getelementptr inbounds i16, ptr %.0176254, i64 %.0186250
+  %27 = getelementptr inbounds [2 x i8], ptr %.0176254, i64 %.0186250
   %28 = load i16, ptr %27, align 2, !tbaa !27
   %29 = sext i16 %28 to i32
   %30 = add nsw i32 %.neg209, %29
-  %31 = getelementptr inbounds i16, ptr %.0176254, i64 %spec.select
+  %31 = getelementptr inbounds [2 x i8], ptr %.0176254, i64 %spec.select
   %32 = load i16, ptr %31, align 2, !tbaa !27
   %33 = sext i16 %32 to i32
   %34 = add nsw i32 %30, %33
-  %35 = getelementptr inbounds i16, ptr %.0177253, i64 %spec.select
+  %35 = getelementptr inbounds [2 x i8], ptr %.0177253, i64 %spec.select
   %36 = load i16, ptr %35, align 2, !tbaa !27
   %37 = sext i16 %36 to i32
   %38 = load i16, ptr %.0177253, align 2, !tbaa !27
@@ -70,15 +70,15 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %40 = load i16, ptr %.0180252, align 2, !tbaa !27
   %41 = sext i16 %40 to i32
   %.neg = mul nsw i32 %41, -6
-  %42 = getelementptr inbounds i16, ptr %.0180252, i64 %.0186250
+  %42 = getelementptr inbounds [2 x i8], ptr %.0180252, i64 %.0186250
   %43 = load i16, ptr %42, align 2, !tbaa !27
   %44 = sext i16 %43 to i32
   %45 = add nsw i32 %.neg, %44
-  %46 = getelementptr inbounds i16, ptr %.0180252, i64 %spec.select
+  %46 = getelementptr inbounds [2 x i8], ptr %.0180252, i64 %spec.select
   %47 = load i16, ptr %46, align 2, !tbaa !27
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %45, %48
-  %50 = getelementptr inbounds i16, ptr %.0183251, i64 %spec.select
+  %50 = getelementptr inbounds [2 x i8], ptr %.0183251, i64 %spec.select
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %53 = load i16, ptr %.0183251, align 2, !tbaa !27
@@ -129,11 +129,11 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %.2179 = phi ptr [ %63, %60 ], [ %.1178243, %58 ]
   %.2 = phi ptr [ %64, %60 ], [ %.1244, %58 ]
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %66 = getelementptr inbounds nuw i16, ptr %.2185, i64 %indvars.iv.next262
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.2185, i64 %indvars.iv.next262
   %67 = load i16, ptr %66, align 2, !tbaa !27
   %68 = sext i16 %67 to i32
   %69 = add i64 %55, %indvars.iv261
-  %70 = getelementptr inbounds i16, ptr %.2185, i64 %69
+  %70 = getelementptr inbounds [2 x i8], ptr %.2185, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !27
   %72 = sext i16 %71 to i32
   %73 = add nsw i32 %.0200230, %68
@@ -144,11 +144,11 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %78 = add nsw i32 %73, %.0203227
   %79 = add nsw i32 %78, %72
   %80 = shl nsw i32 %79, 2
-  %81 = getelementptr inbounds nuw i16, ptr %.2182, i64 %indvars.iv.next262
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.2182, i64 %indvars.iv.next262
   %82 = load i16, ptr %81, align 2, !tbaa !27
   %83 = sext i16 %82 to i32
   %84 = add i64 %56, %indvars.iv261
-  %85 = getelementptr inbounds i16, ptr %.2182, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %.2182, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !27
   %87 = sext i16 %86 to i32
   %.neg211 = mul nsw i32 %.0205225, -6
@@ -156,15 +156,15 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %89 = add nsw i32 %88, %.0204226
   %.neg212 = mul nsw i32 %83, -6
   %90 = add nsw i32 %.neg212, %87
-  %91 = getelementptr inbounds i16, ptr %.2182, i64 %69
+  %91 = getelementptr inbounds [2 x i8], ptr %.2182, i64 %69
   %92 = load i16, ptr %91, align 2, !tbaa !27
   %93 = sext i16 %92 to i32
   %94 = add nsw i32 %90, %93
   %95 = add nsw i32 %.0205225, %.0206224
-  %96 = getelementptr inbounds nuw i16, ptr %.2179, i64 %indvars.iv.next262
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.2179, i64 %indvars.iv.next262
   %97 = load i16, ptr %96, align 2, !tbaa !27
   %98 = sext i16 %97 to i32
-  %99 = getelementptr inbounds i16, ptr %.2179, i64 %69
+  %99 = getelementptr inbounds [2 x i8], ptr %.2179, i64 %69
   %100 = load i16, ptr %99, align 2, !tbaa !27
   %101 = sext i16 %100 to i32
   %102 = add nsw i32 %.0201229, %.0202228
@@ -191,17 +191,17 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %121 = add i32 %120, %104
   %122 = add i32 %121, %101
   %123 = shl i32 %122, 1
-  %124 = getelementptr inbounds nuw i16, ptr %.2, i64 %indvars.iv.next262
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %.2, i64 %indvars.iv.next262
   %125 = load i16, ptr %124, align 2, !tbaa !27
   %126 = sext i16 %125 to i32
-  %127 = getelementptr inbounds i16, ptr %.2, i64 %84
+  %127 = getelementptr inbounds [2 x i8], ptr %.2, i64 %84
   %128 = load i16, ptr %127, align 2, !tbaa !27
   %129 = sext i16 %128 to i32
   %130 = add nsw i32 %.0193236, %.0196234
   %131 = add nsw i32 %.0192237, %.0195235
   %.neg215 = mul nsw i32 %126, -6
   %132 = add nsw i32 %.neg215, %129
-  %133 = getelementptr inbounds i16, ptr %.2, i64 %69
+  %133 = getelementptr inbounds [2 x i8], ptr %.2, i64 %69
   %134 = load i16, ptr %133, align 2, !tbaa !27
   %135 = sext i16 %134 to i32
   %136 = add nsw i32 %132, %135
@@ -277,10 +277,10 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   %.1.lcssa = phi ptr [ %.0176254, %.._crit_edge_crit_edge ], [ %.2, %._crit_edge.loopexit ]
   %181 = getelementptr inbounds i8, ptr %.0255, i64 %19
   %182 = sub nsw i64 0, %spec.select
-  %183 = getelementptr inbounds i16, ptr %.1184.lcssa, i64 %.pre-phi
-  %184 = getelementptr inbounds i16, ptr %.1181.lcssa, i64 %.pre-phi
-  %185 = getelementptr inbounds i16, ptr %.1178.lcssa, i64 %.pre-phi
-  %186 = getelementptr inbounds i16, ptr %.1.lcssa, i64 %.pre-phi
+  %183 = getelementptr inbounds [2 x i8], ptr %.1184.lcssa, i64 %.pre-phi
+  %184 = getelementptr inbounds [2 x i8], ptr %.1181.lcssa, i64 %.pre-phi
+  %185 = getelementptr inbounds [2 x i8], ptr %.1178.lcssa, i64 %.pre-phi
+  %186 = getelementptr inbounds [2 x i8], ptr %.1.lcssa, i64 %.pre-phi
   %187 = zext i16 %179 to i32
   %188 = icmp samesign ult i32 %24, %187
   br i1 %188, label %20, label %._crit_edge258, !llvm.loop !31
@@ -332,16 +332,16 @@ define void @ff_ivi_recompose_haar(ptr noundef readonly captures(none) %0, ptr n
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv84 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next85, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw i16, ptr %.06277, i64 %indvars.iv84
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.06277, i64 %indvars.iv84
   %24 = load i16, ptr %23, align 2, !tbaa !27
   %25 = sext i16 %24 to i32
-  %26 = getelementptr inbounds nuw i16, ptr %.06178, i64 %indvars.iv84
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.06178, i64 %indvars.iv84
   %27 = load i16, ptr %26, align 2, !tbaa !27
   %28 = sext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i16, ptr %.06079, i64 %indvars.iv84
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.06079, i64 %indvars.iv84
   %30 = load i16, ptr %29, align 2, !tbaa !27
   %31 = sext i16 %30 to i32
-  %32 = getelementptr inbounds nuw i16, ptr %.05980, i64 %indvars.iv84
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.05980, i64 %indvars.iv84
   %33 = load i16, ptr %32, align 2, !tbaa !27
   %34 = sext i16 %33 to i32
   %35 = add nsw i32 %28, %25
@@ -408,10 +408,10 @@ define void @ff_ivi_recompose_haar(ptr noundef readonly captures(none) %0, ptr n
   %75 = phi i16 [ %.pre89, %._crit_edge.loopexit ], [ %19, %.preheader ]
   %76 = phi i16 [ %72, %._crit_edge.loopexit ], [ 0, %.preheader ]
   %77 = getelementptr inbounds i8, ptr %.081, i64 %18
-  %78 = getelementptr inbounds i16, ptr %.06277, i64 %7
-  %79 = getelementptr inbounds i16, ptr %.06178, i64 %7
-  %80 = getelementptr inbounds i16, ptr %.06079, i64 %7
-  %81 = getelementptr inbounds i16, ptr %.05980, i64 %7
+  %78 = getelementptr inbounds [2 x i8], ptr %.06277, i64 %7
+  %79 = getelementptr inbounds [2 x i8], ptr %.06178, i64 %7
+  %80 = getelementptr inbounds [2 x i8], ptr %.06079, i64 %7
+  %81 = getelementptr inbounds [2 x i8], ptr %.05980, i64 %7
   %82 = add nuw nsw i32 %.06476, 2
   %83 = zext i16 %75 to i32
   %84 = icmp samesign ult i32 %82, %83
@@ -647,7 +647,7 @@ define void @ff_ivi_inverse_haar_8x8(ptr noundef readonly captures(none) %0, ptr
 
 150:                                              ; preds = %.preheader._crit_edge, %91
   %151 = getelementptr inbounds nuw i8, ptr %.1161, i64 32
-  %152 = getelementptr inbounds i16, ptr %.0144160, i64 %2
+  %152 = getelementptr inbounds [2 x i8], ptr %.0144160, i64 %2
   %153 = add nuw nsw i32 %.1146159, 1
   %exitcond163.not = icmp eq i32 %153, 8
   br i1 %exitcond163.not, label %154, label %.preheader, !llvm.loop !36
@@ -787,7 +787,7 @@ define void @ff_ivi_row_haar8(ptr noundef readonly captures(none) %0, ptr nounde
 
 86:                                               ; preds = %._crit_edge, %27
   %87 = getelementptr inbounds nuw i8, ptr %.077, i64 32
-  %88 = getelementptr inbounds i16, ptr %.06676, i64 %2
+  %88 = getelementptr inbounds [2 x i8], ptr %.06676, i64 %2
   %89 = add nuw nsw i32 %.06775, 1
   %exitcond.not = icmp eq i32 %89, 8
   br i1 %exitcond.not, label %90, label %5, !llvm.loop !37
@@ -864,7 +864,7 @@ define void @ff_ivi_col_haar8(ptr noundef readonly captures(none) %0, ptr nounde
   %54 = trunc i32 %35 to i16
   store i16 %54, ptr %.08296, align 2, !tbaa !27
   %55 = trunc i32 %33 to i16
-  %56 = getelementptr inbounds i16, ptr %.08296, i64 %2
+  %56 = getelementptr inbounds [2 x i8], ptr %.08296, i64 %2
   store i16 %55, ptr %56, align 2, !tbaa !27
   %57 = trunc i32 %41 to i16
   %58 = getelementptr inbounds i8, ptr %.08296, i64 %.idx89
@@ -899,7 +899,7 @@ define void @ff_ivi_col_haar8(ptr noundef readonly captures(none) %0, ptr nounde
   store i16 0, ptr %74, align 2, !tbaa !27
   %75 = getelementptr inbounds i8, ptr %.08296, i64 %.idx89
   store i16 0, ptr %75, align 2, !tbaa !27
-  %76 = getelementptr inbounds i16, ptr %.08296, i64 %2
+  %76 = getelementptr inbounds [2 x i8], ptr %.08296, i64 %2
   store i16 0, ptr %76, align 2, !tbaa !27
   store i16 0, ptr %.08296, align 2, !tbaa !27
   br label %77
@@ -1035,7 +1035,7 @@ define void @ff_ivi_inverse_haar_4x4(ptr noundef readonly captures(none) %0, ptr
 
 72:                                               ; preds = %.preheader._crit_edge, %47
   %73 = getelementptr inbounds nuw i8, ptr %.185, i64 16
-  %74 = getelementptr inbounds i16, ptr %.07284, i64 %2
+  %74 = getelementptr inbounds [2 x i8], ptr %.07284, i64 %2
   %75 = add nuw nsw i32 %.17483, 1
   %exitcond87.not = icmp eq i32 %75, 4
   br i1 %exitcond87.not, label %76, label %.preheader, !llvm.loop !40
@@ -1110,7 +1110,7 @@ define void @ff_ivi_row_haar4(ptr noundef readonly captures(none) %0, ptr nounde
 
 40:                                               ; preds = %._crit_edge, %15
   %41 = getelementptr inbounds nuw i8, ptr %.039, i64 16
-  %42 = getelementptr inbounds i16, ptr %.03238, i64 %2
+  %42 = getelementptr inbounds [2 x i8], ptr %.03238, i64 %2
   %43 = add nuw nsw i32 %.03337, 1
   %exitcond.not = icmp eq i32 %43, 4
   br i1 %exitcond.not, label %44, label %5, !llvm.loop !41
@@ -1151,7 +1151,7 @@ define void @ff_ivi_col_haar4(ptr noundef readonly captures(none) %0, ptr nounde
   %22 = trunc i32 %21 to i16
   store i16 %22, ptr %.04046, align 2, !tbaa !27
   %23 = trunc i32 %19 to i16
-  %24 = getelementptr inbounds i16, ptr %.04046, i64 %2
+  %24 = getelementptr inbounds [2 x i8], ptr %.04046, i64 %2
   store i16 %23, ptr %24, align 2, !tbaa !27
   %25 = getelementptr inbounds nuw i8, ptr %.047, i64 48
   %26 = load i32, ptr %25, align 4, !tbaa !34
@@ -1172,7 +1172,7 @@ define void @ff_ivi_col_haar4(ptr noundef readonly captures(none) %0, ptr nounde
   store i16 0, ptr %36, align 2, !tbaa !27
   %37 = getelementptr inbounds i8, ptr %.04046, i64 %.idx43
   store i16 0, ptr %37, align 2, !tbaa !27
-  %38 = getelementptr inbounds i16, ptr %.04046, i64 %2
+  %38 = getelementptr inbounds [2 x i8], ptr %.04046, i64 %2
   store i16 0, ptr %38, align 2, !tbaa !27
   store i16 0, ptr %.04046, align 2, !tbaa !27
   br label %39
@@ -1207,14 +1207,14 @@ define void @ff_ivi_dc_haar_2d(ptr noundef readonly captures(none) %0, ptr nound
 
 9:                                                ; preds = %.preheader.us, %9
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i16, ptr %.016.us, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %.016.us, i64 %indvars.iv
   store i16 %7, ptr %10, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !43
 
 ._crit_edge.us:                                   ; preds = %9
-  %11 = getelementptr inbounds i16, ptr %.016.us, i64 %2
+  %11 = getelementptr inbounds [2 x i8], ptr %.016.us, i64 %2
   %12 = add nuw nsw i32 %.01115.us, 1
   %exitcond19.not = icmp eq i32 %12, %3
   br i1 %exitcond19.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !44
@@ -1495,7 +1495,7 @@ define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, pt
 
 187:                                              ; preds = %.preheader._crit_edge, %101
   %188 = getelementptr inbounds nuw i8, ptr %.1234, i64 32
-  %189 = getelementptr inbounds i16, ptr %.0205232, i64 %2
+  %189 = getelementptr inbounds [2 x i8], ptr %.0205232, i64 %2
   %190 = add nuw nsw i32 %.1204233, 1
   %exitcond243.not = icmp eq i32 %190, 8
   br i1 %exitcond243.not, label %191, label %.preheader, !llvm.loop !46
@@ -1635,7 +1635,7 @@ define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, pt
 
 81:                                               ; preds = %.preheader._crit_edge, %47
   %82 = getelementptr inbounds nuw i8, ptr %.199, i64 16
-  %83 = getelementptr inbounds i16, ptr %.08697, i64 %2
+  %83 = getelementptr inbounds [2 x i8], ptr %.08697, i64 %2
   %84 = add nuw nsw i32 %.18598, 1
   %exitcond102.not = icmp eq i32 %84, 4
   br i1 %exitcond102.not, label %85, label %.preheader, !llvm.loop !48
@@ -1665,14 +1665,14 @@ define void @ff_ivi_dc_slant_2d(ptr noundef readonly captures(none) %0, ptr noun
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i16, ptr %.016.us, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %.016.us, i64 %indvars.iv
   store i16 %8, ptr %11, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !49
 
 ._crit_edge.us:                                   ; preds = %10
-  %12 = getelementptr inbounds i16, ptr %.016.us, i64 %2
+  %12 = getelementptr inbounds [2 x i8], ptr %.016.us, i64 %2
   %13 = add nuw nsw i32 %.01115.us, 1
   %exitcond19.not = icmp eq i32 %13, %3
   br i1 %exitcond19.not, label %._crit_edge17, label %.preheader.us, !llvm.loop !50
@@ -1840,7 +1840,7 @@ define void @ff_ivi_row_slant8(ptr noundef readonly captures(none) %0, ptr nound
 
 113:                                              ; preds = %._crit_edge, %27
   %114 = getelementptr inbounds nuw i8, ptr %.0120, i64 32
-  %115 = getelementptr inbounds i16, ptr %.0100119, i64 %2
+  %115 = getelementptr inbounds [2 x i8], ptr %.0100119, i64 %2
   %116 = add nuw nsw i32 %.0101118, 1
   %exitcond.not = icmp eq i32 %116, 8
   br i1 %exitcond.not, label %117, label %5, !llvm.loop !51
@@ -1886,7 +1886,7 @@ define void @ff_ivi_dc_row_slant(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %8, ptr %16, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1986,29 +1986,29 @@ define void @ff_ivi_col_slant8(ptr noundef readonly captures(none) %0, ptr nound
   %74 = add i32 %73, %57
   %75 = lshr i32 %74, 1
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds i16, ptr %.0125140, i64 %2
+  %77 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %2
   store i16 %76, ptr %77, align 2, !tbaa !27
   %78 = sub i32 %73, %57
   %79 = lshr i32 %78, 1
   %80 = trunc i32 %79 to i16
-  %81 = getelementptr inbounds i16, ptr %.0125140, i64 %8
+  %81 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %8
   store i16 %80, ptr %81, align 2, !tbaa !27
   %82 = sub i32 %69, %53
   %83 = lshr i32 %82, 1
   %84 = trunc i32 %83 to i16
-  %85 = getelementptr i16, ptr %77, i64 %8
+  %85 = getelementptr [2 x i8], ptr %77, i64 %8
   store i16 %84, ptr %85, align 2, !tbaa !27
   %86 = add i32 %59, 1
   %87 = add i32 %86, %64
   %88 = lshr i32 %87, 1
   %89 = trunc i32 %88 to i16
-  %90 = getelementptr inbounds i16, ptr %.0125140, i64 %9
+  %90 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %9
   store i16 %89, ptr %90, align 2, !tbaa !27
   %91 = add i32 %58, 1
   %92 = add i32 %91, %68
   %93 = lshr i32 %92, 1
   %94 = trunc i32 %93 to i16
-  %95 = getelementptr i16, ptr %77, i64 %9
+  %95 = getelementptr [2 x i8], ptr %77, i64 %9
   store i16 %94, ptr %95, align 2, !tbaa !27
   %96 = sub i32 %91, %68
   %97 = lshr i32 %96, 1
@@ -2018,23 +2018,23 @@ define void @ff_ivi_col_slant8(ptr noundef readonly captures(none) %0, ptr nound
   %100 = sub i32 %86, %64
   %101 = lshr i32 %100, 1
   %102 = trunc i32 %101 to i16
-  %103 = getelementptr inbounds i16, ptr %.0125140, i64 %12
+  %103 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %12
   store i16 %102, ptr %103, align 2, !tbaa !27
   br label %112
 
 104:                                              ; preds = %13
-  %105 = getelementptr inbounds i16, ptr %.0125140, i64 %12
+  %105 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %12
   store i16 0, ptr %105, align 2, !tbaa !27
   %106 = getelementptr inbounds i8, ptr %.0125140, i64 %10
   store i16 0, ptr %106, align 2, !tbaa !27
-  %107 = getelementptr i16, ptr %.0125140, i64 %2
-  %108 = getelementptr i16, ptr %107, i64 %9
+  %107 = getelementptr [2 x i8], ptr %.0125140, i64 %2
+  %108 = getelementptr [2 x i8], ptr %107, i64 %9
   store i16 0, ptr %108, align 2, !tbaa !27
-  %109 = getelementptr inbounds i16, ptr %.0125140, i64 %9
+  %109 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %9
   store i16 0, ptr %109, align 2, !tbaa !27
-  %110 = getelementptr i16, ptr %107, i64 %8
+  %110 = getelementptr [2 x i8], ptr %107, i64 %8
   store i16 0, ptr %110, align 2, !tbaa !27
-  %111 = getelementptr inbounds i16, ptr %.0125140, i64 %8
+  %111 = getelementptr inbounds [2 x i8], ptr %.0125140, i64 %8
   store i16 0, ptr %111, align 2, !tbaa !27
   store i16 0, ptr %107, align 2, !tbaa !27
   store i16 0, ptr %.0125140, align 2, !tbaa !27
@@ -2080,7 +2080,7 @@ define void @ff_ivi_dc_col_slant(ptr noundef readonly captures(none) %0, ptr nou
   %scevgep = getelementptr i8, ptr %15, i64 2
   store i16 %8, ptr %.017.us, align 2, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %13, i1 false), !tbaa !27
-  %16 = getelementptr inbounds i16, ptr %.017.us, i64 %2
+  %16 = getelementptr inbounds [2 x i8], ptr %.017.us, i64 %2
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph.us, !llvm.loop !55
@@ -2168,7 +2168,7 @@ define void @ff_ivi_row_slant4(ptr noundef readonly captures(none) %0, ptr nound
 
 49:                                               ; preds = %._crit_edge, %15
   %50 = getelementptr inbounds nuw i8, ptr %.048, i64 16
-  %51 = getelementptr inbounds i16, ptr %.03947, i64 %2
+  %51 = getelementptr inbounds [2 x i8], ptr %.03947, i64 %2
   %52 = add nuw nsw i32 %.04046, 1
   %exitcond.not = icmp eq i32 %52, 4
   br i1 %exitcond.not, label %53, label %5, !llvm.loop !56
@@ -2222,25 +2222,25 @@ define void @ff_ivi_col_slant4(ptr noundef readonly captures(none) %0, ptr nound
   %34 = add i32 %33, %28
   %35 = lshr i32 %34, 1
   %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds i16, ptr %.04853, i64 %2
+  %37 = getelementptr inbounds [2 x i8], ptr %.04853, i64 %2
   store i16 %36, ptr %37, align 2, !tbaa !27
   %38 = sub i32 %33, %28
   %39 = lshr i32 %38, 1
   %40 = trunc i32 %39 to i16
-  %41 = getelementptr inbounds i16, ptr %.04853, i64 %6
+  %41 = getelementptr inbounds [2 x i8], ptr %.04853, i64 %6
   store i16 %40, ptr %41, align 2, !tbaa !27
   %42 = sub i32 %29, %24
   %43 = lshr i32 %42, 1
   %44 = trunc i32 %43 to i16
-  %45 = getelementptr i16, ptr %37, i64 %6
+  %45 = getelementptr [2 x i8], ptr %37, i64 %6
   store i16 %44, ptr %45, align 2, !tbaa !27
   br label %50
 
 46:                                               ; preds = %7
-  %47 = getelementptr i16, ptr %.04853, i64 %2
-  %48 = getelementptr i16, ptr %47, i64 %6
+  %47 = getelementptr [2 x i8], ptr %.04853, i64 %2
+  %48 = getelementptr [2 x i8], ptr %47, i64 %6
   store i16 0, ptr %48, align 2, !tbaa !27
-  %49 = getelementptr inbounds i16, ptr %.04853, i64 %6
+  %49 = getelementptr inbounds [2 x i8], ptr %.04853, i64 %6
   store i16 0, ptr %49, align 2, !tbaa !27
   store i16 0, ptr %47, align 2, !tbaa !27
   store i16 0, ptr %.04853, align 2, !tbaa !27
@@ -2269,17 +2269,17 @@ define void @ff_ivi_put_pixels_8x8(ptr noundef readonly captures(none) %0, ptr n
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %.01115, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %.01115, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !34
   %8 = trunc i32 %7 to i16
-  %9 = getelementptr inbounds nuw i16, ptr %.01214, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %.01214, i64 %indvars.iv
   store i16 %8, ptr %9, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %10, label %5, !llvm.loop !58
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i16, ptr %.01214, i64 %2
+  %11 = getelementptr inbounds [2 x i8], ptr %.01214, i64 %2
   %12 = getelementptr inbounds nuw i8, ptr %.01115, i64 32
   %13 = add nuw nsw i32 %.016, 1
   %exitcond18.not = icmp eq i32 %13, 8
@@ -2301,7 +2301,7 @@ define void @ff_ivi_put_dc_pixel_8x8(ptr noundef readonly captures(none) %0, ptr
 8:                                                ; preds = %4, %8
   %.011 = phi i32 [ 1, %4 ], [ %9, %8 ]
   %.pn10 = phi ptr [ %1, %4 ], [ %.09, %8 ]
-  %.09 = getelementptr inbounds i16, ptr %.pn10, i64 %2
+  %.09 = getelementptr inbounds [2 x i8], ptr %.pn10, i64 %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.09, i8 0, i64 16, i1 false)
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 8
@@ -2328,9 +2328,9 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv127.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next128.i, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %.076108.i, i64 %indvars.iv127.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %.076108.i, i64 %indvars.iv127.i
   %7 = load i16, ptr %6, align 2, !tbaa !27
-  %8 = getelementptr inbounds nuw i16, ptr %.072109.i, i64 %indvars.iv127.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %.072109.i, i64 %indvars.iv127.i
   store i16 %7, ptr %8, align 2, !tbaa !27
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next128.i, 8
@@ -2338,8 +2338,8 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 9:                                                ; preds = %5
   %10 = add nuw nsw i32 %.068110.i, 1
-  %11 = getelementptr inbounds i16, ptr %.072109.i, i64 %2
-  %12 = getelementptr inbounds i16, ptr %.076108.i, i64 %2
+  %11 = getelementptr inbounds [2 x i8], ptr %.072109.i, i64 %2
+  %12 = getelementptr inbounds [2 x i8], ptr %.076108.i, i64 %2
   %exitcond131.not.i = icmp eq i32 %10, 8
   br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !62
 
@@ -2351,25 +2351,25 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 13:                                               ; preds = %13, %.preheader82.i
   %indvars.iv122.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next123.i, %13 ]
-  %14 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv122.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv122.i
   %15 = load i16, ptr %14, align 2, !tbaa !27
   %16 = sext i16 %15 to i32
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %17 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv.next123.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv.next123.i
   %18 = load i16, ptr %17, align 2, !tbaa !27
   %19 = sext i16 %18 to i32
   %20 = add nsw i32 %19, %16
   %21 = lshr i32 %20, 1
   %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %22, ptr %23, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 8
   br i1 %exitcond125.not.i, label %24, label %13, !llvm.loop !63
 
 24:                                               ; preds = %13
   %25 = add nuw nsw i32 %.169106.i, 1
-  %26 = getelementptr inbounds i16, ptr %.173105.i, i64 %2
-  %27 = getelementptr inbounds i16, ptr %.177104.i, i64 %2
+  %26 = getelementptr inbounds [2 x i8], ptr %.173105.i, i64 %2
+  %27 = getelementptr inbounds [2 x i8], ptr %.177104.i, i64 %2
   %exitcond126.not.i = icmp eq i32 %25, 8
   br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !64
 
@@ -2377,21 +2377,21 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %.pn111.i = phi ptr [ %.0102.i, %39 ], [ %1, %4 ]
   %.270101.i = phi i32 [ %40, %39 ], [ 0, %4 ]
   %.274100.i = phi ptr [ %41, %39 ], [ %0, %4 ]
-  %.0102.i = getelementptr i16, ptr %.pn111.i, i64 %2
+  %.0102.i = getelementptr [2 x i8], ptr %.pn111.i, i64 %2
   br label %28
 
 28:                                               ; preds = %28, %.preheader85.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader85.i ], [ %indvars.iv.next118.i, %28 ]
-  %29 = getelementptr inbounds nuw i16, ptr %.pn111.i, i64 %indvars.iv117.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.pn111.i, i64 %indvars.iv117.i
   %30 = load i16, ptr %29, align 2, !tbaa !27
   %31 = sext i16 %30 to i32
-  %32 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %indvars.iv117.i
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.0102.i, i64 %indvars.iv117.i
   %33 = load i16, ptr %32, align 2, !tbaa !27
   %34 = sext i16 %33 to i32
   %35 = add nsw i32 %34, %31
   %36 = lshr i32 %35, 1
   %37 = trunc i32 %36 to i16
-  %38 = getelementptr inbounds nuw i16, ptr %.274100.i, i64 %indvars.iv117.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.274100.i, i64 %indvars.iv117.i
   store i16 %37, ptr %38, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 8
@@ -2399,7 +2399,7 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 39:                                               ; preds = %28
   %40 = add nuw nsw i32 %.270101.i, 1
-  %41 = getelementptr inbounds i16, ptr %.274100.i, i64 %2
+  %41 = getelementptr inbounds [2 x i8], ptr %.274100.i, i64 %2
   %exitcond121.not.i = icmp eq i32 %40, 8
   br i1 %exitcond121.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader85.i, !llvm.loop !66
 
@@ -2407,37 +2407,37 @@ define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %.pn.i = phi ptr [ %.196.i, %61 ], [ %1, %4 ]
   %.37195.i = phi i32 [ %62, %61 ], [ 0, %4 ]
   %.37594.i = phi ptr [ %63, %61 ], [ %0, %4 ]
-  %.196.i = getelementptr i16, ptr %.pn.i, i64 %2
+  %.196.i = getelementptr [2 x i8], ptr %.pn.i, i64 %2
   br label %42
 
 42:                                               ; preds = %42, %.preheader88.i
   %indvars.iv.i = phi i64 [ 0, %.preheader88.i ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.i
   %44 = load i16, ptr %43, align 2, !tbaa !27
   %45 = sext i16 %44 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.next.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.next.i
   %47 = load i16, ptr %46, align 2, !tbaa !27
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %48, %45
-  %50 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.i
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %53 = add nsw i32 %49, %52
-  %54 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.next.i
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.next.i
   %55 = load i16, ptr %54, align 2, !tbaa !27
   %56 = sext i16 %55 to i32
   %57 = add nsw i32 %53, %56
   %58 = lshr i32 %57, 2
   %59 = trunc i32 %58 to i16
-  %60 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.37594.i, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %61, label %42, !llvm.loop !67
 
 61:                                               ; preds = %42
   %62 = add nuw nsw i32 %.37195.i, 1
-  %63 = getelementptr inbounds i16, ptr %.37594.i, i64 %2
+  %63 = getelementptr inbounds [2 x i8], ptr %.37594.i, i64 %2
   %exitcond116.not.i = icmp eq i32 %62, 8
   br i1 %exitcond116.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader88.i, !llvm.loop !68
 
@@ -2468,9 +2468,9 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 
 6:                                                ; preds = %.preheader, %6
   %indvars.iv127 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next128, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %.076108, i64 %indvars.iv127
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %.076108, i64 %indvars.iv127
   %8 = load i16, ptr %7, align 2, !tbaa !27
-  %9 = getelementptr inbounds nuw i16, ptr %.072109, i64 %indvars.iv127
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %.072109, i64 %indvars.iv127
   %10 = load i16, ptr %9, align 2, !tbaa !27
   %11 = add i16 %10, %8
   store i16 %11, ptr %9, align 2, !tbaa !27
@@ -2480,8 +2480,8 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 
 12:                                               ; preds = %6
   %13 = add nuw nsw i32 %.068110, 1
-  %14 = getelementptr inbounds i16, ptr %.072109, i64 %1
-  %15 = getelementptr inbounds i16, ptr %.076108, i64 %3
+  %14 = getelementptr inbounds [2 x i8], ptr %.072109, i64 %1
+  %15 = getelementptr inbounds [2 x i8], ptr %.076108, i64 %3
   %exitcond131.not = icmp eq i32 %13, 8
   br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !70
 
@@ -2493,16 +2493,16 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 
 16:                                               ; preds = %.preheader82, %16
   %indvars.iv122 = phi i64 [ 0, %.preheader82 ], [ %indvars.iv.next123, %16 ]
-  %17 = getelementptr inbounds nuw i16, ptr %.177104, i64 %indvars.iv122
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.177104, i64 %indvars.iv122
   %18 = load i16, ptr %17, align 2, !tbaa !27
   %19 = sext i16 %18 to i32
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %20 = getelementptr inbounds nuw i16, ptr %.177104, i64 %indvars.iv.next123
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.177104, i64 %indvars.iv.next123
   %21 = load i16, ptr %20, align 2, !tbaa !27
   %22 = sext i16 %21 to i32
   %23 = add nsw i32 %22, %19
   %24 = lshr i32 %23, 1
-  %25 = getelementptr inbounds nuw i16, ptr %.173105, i64 %indvars.iv122
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.173105, i64 %indvars.iv122
   %26 = load i16, ptr %25, align 2, !tbaa !27
   %27 = trunc i32 %24 to i16
   %28 = add i16 %26, %27
@@ -2512,8 +2512,8 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 
 29:                                               ; preds = %16
   %30 = add nuw nsw i32 %.169106, 1
-  %31 = getelementptr inbounds i16, ptr %.173105, i64 %1
-  %32 = getelementptr inbounds i16, ptr %.177104, i64 %3
+  %31 = getelementptr inbounds [2 x i8], ptr %.173105, i64 %1
+  %32 = getelementptr inbounds [2 x i8], ptr %.177104, i64 %3
   %exitcond126.not = icmp eq i32 %30, 8
   br i1 %exitcond126.not, label %.loopexit, label %.preheader82, !llvm.loop !72
 
@@ -2521,20 +2521,20 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
   %.pn111 = phi ptr [ %.0102, %46 ], [ %2, %5 ]
   %.270101 = phi i32 [ %47, %46 ], [ 0, %5 ]
   %.274100 = phi ptr [ %48, %46 ], [ %0, %5 ]
-  %.0102 = getelementptr i16, ptr %.pn111, i64 %3
+  %.0102 = getelementptr [2 x i8], ptr %.pn111, i64 %3
   br label %33
 
 33:                                               ; preds = %.preheader85, %33
   %indvars.iv117 = phi i64 [ 0, %.preheader85 ], [ %indvars.iv.next118, %33 ]
-  %34 = getelementptr inbounds nuw i16, ptr %.pn111, i64 %indvars.iv117
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.pn111, i64 %indvars.iv117
   %35 = load i16, ptr %34, align 2, !tbaa !27
   %36 = sext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i16, ptr %.0102, i64 %indvars.iv117
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.0102, i64 %indvars.iv117
   %38 = load i16, ptr %37, align 2, !tbaa !27
   %39 = sext i16 %38 to i32
   %40 = add nsw i32 %39, %36
   %41 = lshr i32 %40, 1
-  %42 = getelementptr inbounds nuw i16, ptr %.274100, i64 %indvars.iv117
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.274100, i64 %indvars.iv117
   %43 = load i16, ptr %42, align 2, !tbaa !27
   %44 = trunc i32 %41 to i16
   %45 = add i16 %43, %44
@@ -2545,7 +2545,7 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 
 46:                                               ; preds = %33
   %47 = add nuw nsw i32 %.270101, 1
-  %48 = getelementptr inbounds i16, ptr %.274100, i64 %1
+  %48 = getelementptr inbounds [2 x i8], ptr %.274100, i64 %1
   %exitcond121.not = icmp eq i32 %47, 8
   br i1 %exitcond121.not, label %.loopexit, label %.preheader85, !llvm.loop !74
 
@@ -2553,29 +2553,29 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
   %.pn = phi ptr [ %.196, %70 ], [ %2, %5 ]
   %.37195 = phi i32 [ %71, %70 ], [ 0, %5 ]
   %.37594 = phi ptr [ %72, %70 ], [ %0, %5 ]
-  %.196 = getelementptr i16, ptr %.pn, i64 %3
+  %.196 = getelementptr [2 x i8], ptr %.pn, i64 %3
   br label %49
 
 49:                                               ; preds = %.preheader88, %49
   %indvars.iv = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw i16, ptr %.pn, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr inbounds nuw i16, ptr %.pn, i64 %indvars.iv.next
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %indvars.iv.next
   %54 = load i16, ptr %53, align 2, !tbaa !27
   %55 = sext i16 %54 to i32
   %56 = add nsw i32 %55, %52
-  %57 = getelementptr inbounds nuw i16, ptr %.196, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %.196, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2, !tbaa !27
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %56, %59
-  %61 = getelementptr inbounds nuw i16, ptr %.196, i64 %indvars.iv.next
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.196, i64 %indvars.iv.next
   %62 = load i16, ptr %61, align 2, !tbaa !27
   %63 = sext i16 %62 to i32
   %64 = add nsw i32 %60, %63
   %65 = lshr i32 %64, 2
-  %66 = getelementptr inbounds nuw i16, ptr %.37594, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.37594, i64 %indvars.iv
   %67 = load i16, ptr %66, align 2, !tbaa !27
   %68 = trunc i32 %65 to i16
   %69 = add i16 %67, %68
@@ -2585,7 +2585,7 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 
 70:                                               ; preds = %49
   %71 = add nuw nsw i32 %.37195, 1
-  %72 = getelementptr inbounds i16, ptr %.37594, i64 %1
+  %72 = getelementptr inbounds [2 x i8], ptr %.37594, i64 %1
   %exitcond116.not = icmp eq i32 %71, 8
   br i1 %exitcond116.not, label %.loopexit, label %.preheader88, !llvm.loop !76
 
@@ -2610,9 +2610,9 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv127.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next128.i, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %.076108.i, i64 %indvars.iv127.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %.076108.i, i64 %indvars.iv127.i
   %7 = load i16, ptr %6, align 2, !tbaa !27
-  %8 = getelementptr inbounds nuw i16, ptr %.072109.i, i64 %indvars.iv127.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %.072109.i, i64 %indvars.iv127.i
   store i16 %7, ptr %8, align 2, !tbaa !27
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %exitcond130.not.i = icmp eq i64 %indvars.iv.next128.i, 4
@@ -2620,8 +2620,8 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 9:                                                ; preds = %5
   %10 = add nuw nsw i32 %.068110.i, 1
-  %11 = getelementptr inbounds i16, ptr %.072109.i, i64 %2
-  %12 = getelementptr inbounds i16, ptr %.076108.i, i64 %2
+  %11 = getelementptr inbounds [2 x i8], ptr %.072109.i, i64 %2
+  %12 = getelementptr inbounds [2 x i8], ptr %.076108.i, i64 %2
   %exitcond131.not.i = icmp eq i32 %10, 4
   br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !78
 
@@ -2633,25 +2633,25 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 13:                                               ; preds = %13, %.preheader82.i
   %indvars.iv122.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next123.i, %13 ]
-  %14 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv122.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv122.i
   %15 = load i16, ptr %14, align 2, !tbaa !27
   %16 = sext i16 %15 to i32
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %17 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv.next123.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv.next123.i
   %18 = load i16, ptr %17, align 2, !tbaa !27
   %19 = sext i16 %18 to i32
   %20 = add nsw i32 %19, %16
   %21 = lshr i32 %20, 1
   %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %22, ptr %23, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 4
   br i1 %exitcond125.not.i, label %24, label %13, !llvm.loop !79
 
 24:                                               ; preds = %13
   %25 = add nuw nsw i32 %.169106.i, 1
-  %26 = getelementptr inbounds i16, ptr %.173105.i, i64 %2
-  %27 = getelementptr inbounds i16, ptr %.177104.i, i64 %2
+  %26 = getelementptr inbounds [2 x i8], ptr %.173105.i, i64 %2
+  %27 = getelementptr inbounds [2 x i8], ptr %.177104.i, i64 %2
   %exitcond126.not.i = icmp eq i32 %25, 4
   br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !80
 
@@ -2659,21 +2659,21 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %.pn111.i = phi ptr [ %.0102.i, %39 ], [ %1, %4 ]
   %.270101.i = phi i32 [ %40, %39 ], [ 0, %4 ]
   %.274100.i = phi ptr [ %41, %39 ], [ %0, %4 ]
-  %.0102.i = getelementptr i16, ptr %.pn111.i, i64 %2
+  %.0102.i = getelementptr [2 x i8], ptr %.pn111.i, i64 %2
   br label %28
 
 28:                                               ; preds = %28, %.preheader85.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader85.i ], [ %indvars.iv.next118.i, %28 ]
-  %29 = getelementptr inbounds nuw i16, ptr %.pn111.i, i64 %indvars.iv117.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.pn111.i, i64 %indvars.iv117.i
   %30 = load i16, ptr %29, align 2, !tbaa !27
   %31 = sext i16 %30 to i32
-  %32 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %indvars.iv117.i
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %.0102.i, i64 %indvars.iv117.i
   %33 = load i16, ptr %32, align 2, !tbaa !27
   %34 = sext i16 %33 to i32
   %35 = add nsw i32 %34, %31
   %36 = lshr i32 %35, 1
   %37 = trunc i32 %36 to i16
-  %38 = getelementptr inbounds nuw i16, ptr %.274100.i, i64 %indvars.iv117.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.274100.i, i64 %indvars.iv117.i
   store i16 %37, ptr %38, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 4
@@ -2681,7 +2681,7 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
 
 39:                                               ; preds = %28
   %40 = add nuw nsw i32 %.270101.i, 1
-  %41 = getelementptr inbounds i16, ptr %.274100.i, i64 %2
+  %41 = getelementptr inbounds [2 x i8], ptr %.274100.i, i64 %2
   %exitcond121.not.i = icmp eq i32 %40, 4
   br i1 %exitcond121.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader85.i, !llvm.loop !82
 
@@ -2689,37 +2689,37 @@ define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr
   %.pn.i = phi ptr [ %.196.i, %61 ], [ %1, %4 ]
   %.37195.i = phi i32 [ %62, %61 ], [ 0, %4 ]
   %.37594.i = phi ptr [ %63, %61 ], [ %0, %4 ]
-  %.196.i = getelementptr i16, ptr %.pn.i, i64 %2
+  %.196.i = getelementptr [2 x i8], ptr %.pn.i, i64 %2
   br label %42
 
 42:                                               ; preds = %42, %.preheader88.i
   %indvars.iv.i = phi i64 [ 0, %.preheader88.i ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.i
   %44 = load i16, ptr %43, align 2, !tbaa !27
   %45 = sext i16 %44 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %46 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.next.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.next.i
   %47 = load i16, ptr %46, align 2, !tbaa !27
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %48, %45
-  %50 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.i
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %53 = add nsw i32 %49, %52
-  %54 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.next.i
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.next.i
   %55 = load i16, ptr %54, align 2, !tbaa !27
   %56 = sext i16 %55 to i32
   %57 = add nsw i32 %53, %56
   %58 = lshr i32 %57, 2
   %59 = trunc i32 %58 to i16
-  %60 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.37594.i, i64 %indvars.iv.i
   store i16 %59, ptr %60, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %61, label %42, !llvm.loop !83
 
 61:                                               ; preds = %42
   %62 = add nuw nsw i32 %.37195.i, 1
-  %63 = getelementptr inbounds i16, ptr %.37594.i, i64 %2
+  %63 = getelementptr inbounds [2 x i8], ptr %.37594.i, i64 %2
   %exitcond116.not.i = icmp eq i32 %62, 4
   br i1 %exitcond116.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader88.i, !llvm.loop !84
 
@@ -2750,9 +2750,9 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 
 6:                                                ; preds = %.preheader, %6
   %indvars.iv127 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next128, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %.076108, i64 %indvars.iv127
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %.076108, i64 %indvars.iv127
   %8 = load i16, ptr %7, align 2, !tbaa !27
-  %9 = getelementptr inbounds nuw i16, ptr %.072109, i64 %indvars.iv127
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %.072109, i64 %indvars.iv127
   %10 = load i16, ptr %9, align 2, !tbaa !27
   %11 = add i16 %10, %8
   store i16 %11, ptr %9, align 2, !tbaa !27
@@ -2762,8 +2762,8 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 
 12:                                               ; preds = %6
   %13 = add nuw nsw i32 %.068110, 1
-  %14 = getelementptr inbounds i16, ptr %.072109, i64 %1
-  %15 = getelementptr inbounds i16, ptr %.076108, i64 %3
+  %14 = getelementptr inbounds [2 x i8], ptr %.072109, i64 %1
+  %15 = getelementptr inbounds [2 x i8], ptr %.076108, i64 %3
   %exitcond131.not = icmp eq i32 %13, 4
   br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !86
 
@@ -2775,16 +2775,16 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 
 16:                                               ; preds = %.preheader82, %16
   %indvars.iv122 = phi i64 [ 0, %.preheader82 ], [ %indvars.iv.next123, %16 ]
-  %17 = getelementptr inbounds nuw i16, ptr %.177104, i64 %indvars.iv122
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %.177104, i64 %indvars.iv122
   %18 = load i16, ptr %17, align 2, !tbaa !27
   %19 = sext i16 %18 to i32
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %20 = getelementptr inbounds nuw i16, ptr %.177104, i64 %indvars.iv.next123
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.177104, i64 %indvars.iv.next123
   %21 = load i16, ptr %20, align 2, !tbaa !27
   %22 = sext i16 %21 to i32
   %23 = add nsw i32 %22, %19
   %24 = lshr i32 %23, 1
-  %25 = getelementptr inbounds nuw i16, ptr %.173105, i64 %indvars.iv122
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %.173105, i64 %indvars.iv122
   %26 = load i16, ptr %25, align 2, !tbaa !27
   %27 = trunc i32 %24 to i16
   %28 = add i16 %26, %27
@@ -2794,8 +2794,8 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 
 29:                                               ; preds = %16
   %30 = add nuw nsw i32 %.169106, 1
-  %31 = getelementptr inbounds i16, ptr %.173105, i64 %1
-  %32 = getelementptr inbounds i16, ptr %.177104, i64 %3
+  %31 = getelementptr inbounds [2 x i8], ptr %.173105, i64 %1
+  %32 = getelementptr inbounds [2 x i8], ptr %.177104, i64 %3
   %exitcond126.not = icmp eq i32 %30, 4
   br i1 %exitcond126.not, label %.loopexit, label %.preheader82, !llvm.loop !88
 
@@ -2803,20 +2803,20 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
   %.pn111 = phi ptr [ %.0102, %46 ], [ %2, %5 ]
   %.270101 = phi i32 [ %47, %46 ], [ 0, %5 ]
   %.274100 = phi ptr [ %48, %46 ], [ %0, %5 ]
-  %.0102 = getelementptr i16, ptr %.pn111, i64 %3
+  %.0102 = getelementptr [2 x i8], ptr %.pn111, i64 %3
   br label %33
 
 33:                                               ; preds = %.preheader85, %33
   %indvars.iv117 = phi i64 [ 0, %.preheader85 ], [ %indvars.iv.next118, %33 ]
-  %34 = getelementptr inbounds nuw i16, ptr %.pn111, i64 %indvars.iv117
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.pn111, i64 %indvars.iv117
   %35 = load i16, ptr %34, align 2, !tbaa !27
   %36 = sext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i16, ptr %.0102, i64 %indvars.iv117
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.0102, i64 %indvars.iv117
   %38 = load i16, ptr %37, align 2, !tbaa !27
   %39 = sext i16 %38 to i32
   %40 = add nsw i32 %39, %36
   %41 = lshr i32 %40, 1
-  %42 = getelementptr inbounds nuw i16, ptr %.274100, i64 %indvars.iv117
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.274100, i64 %indvars.iv117
   %43 = load i16, ptr %42, align 2, !tbaa !27
   %44 = trunc i32 %41 to i16
   %45 = add i16 %43, %44
@@ -2827,7 +2827,7 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 
 46:                                               ; preds = %33
   %47 = add nuw nsw i32 %.270101, 1
-  %48 = getelementptr inbounds i16, ptr %.274100, i64 %1
+  %48 = getelementptr inbounds [2 x i8], ptr %.274100, i64 %1
   %exitcond121.not = icmp eq i32 %47, 4
   br i1 %exitcond121.not, label %.loopexit, label %.preheader85, !llvm.loop !90
 
@@ -2835,29 +2835,29 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
   %.pn = phi ptr [ %.196, %70 ], [ %2, %5 ]
   %.37195 = phi i32 [ %71, %70 ], [ 0, %5 ]
   %.37594 = phi ptr [ %72, %70 ], [ %0, %5 ]
-  %.196 = getelementptr i16, ptr %.pn, i64 %3
+  %.196 = getelementptr [2 x i8], ptr %.pn, i64 %3
   br label %49
 
 49:                                               ; preds = %.preheader88, %49
   %indvars.iv = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw i16, ptr %.pn, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr inbounds nuw i16, ptr %.pn, i64 %indvars.iv.next
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pn, i64 %indvars.iv.next
   %54 = load i16, ptr %53, align 2, !tbaa !27
   %55 = sext i16 %54 to i32
   %56 = add nsw i32 %55, %52
-  %57 = getelementptr inbounds nuw i16, ptr %.196, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %.196, i64 %indvars.iv
   %58 = load i16, ptr %57, align 2, !tbaa !27
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %56, %59
-  %61 = getelementptr inbounds nuw i16, ptr %.196, i64 %indvars.iv.next
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %.196, i64 %indvars.iv.next
   %62 = load i16, ptr %61, align 2, !tbaa !27
   %63 = sext i16 %62 to i32
   %64 = add nsw i32 %60, %63
   %65 = lshr i32 %64, 2
-  %66 = getelementptr inbounds nuw i16, ptr %.37594, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.37594, i64 %indvars.iv
   %67 = load i16, ptr %66, align 2, !tbaa !27
   %68 = trunc i32 %65 to i16
   %69 = add i16 %67, %68
@@ -2867,7 +2867,7 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 
 70:                                               ; preds = %49
   %71 = add nuw nsw i32 %.37195, 1
-  %72 = getelementptr inbounds i16, ptr %.37594, i64 %1
+  %72 = getelementptr inbounds [2 x i8], ptr %.37594, i64 %1
   %exitcond116.not = icmp eq i32 %71, 4
   br i1 %exitcond116.not, label %.loopexit, label %.preheader88, !llvm.loop !92
 
@@ -2897,7 +2897,7 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.072109.i, ptr noundef nonnull align 2 dereferenceable(16) %.076108.i, i64 16, i1 false), !tbaa !27
   %8 = add nuw nsw i32 %.068110.i, 1
   %9 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 16
-  %10 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
+  %10 = getelementptr inbounds [2 x i8], ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %8, 8
   br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !62
 
@@ -2913,13 +2913,13 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %indvars.iv122.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next123.i, %11 ]
   %13 = sext i16 %12 to i32
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %14 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv.next123.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv.next123.i
   %15 = load i16, ptr %14, align 2, !tbaa !27
   %16 = sext i16 %15 to i32
   %17 = add nsw i32 %16, %13
   %18 = lshr i32 %17, 1
   %19 = trunc i32 %18 to i16
-  %20 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %19, ptr %20, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 8
   br i1 %exitcond125.not.i, label %21, label %11, !llvm.loop !63
@@ -2927,7 +2927,7 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
 21:                                               ; preds = %11
   %22 = add nuw nsw i32 %.169106.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 16
-  %24 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
+  %24 = getelementptr inbounds [2 x i8], ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %22, 8
   br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !64
 
@@ -2935,21 +2935,21 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %.pn111.i = phi ptr [ %.0102.i, %36 ], [ %1, %6 ]
   %.270101.i = phi i32 [ %37, %36 ], [ 0, %6 ]
   %.274100.i = phi ptr [ %38, %36 ], [ %7, %6 ]
-  %.0102.i = getelementptr i16, ptr %.pn111.i, i64 %3
+  %.0102.i = getelementptr [2 x i8], ptr %.pn111.i, i64 %3
   br label %25
 
 25:                                               ; preds = %25, %.preheader85.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader85.i ], [ %indvars.iv.next118.i, %25 ]
-  %26 = getelementptr inbounds nuw i16, ptr %.pn111.i, i64 %indvars.iv117.i
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.pn111.i, i64 %indvars.iv117.i
   %27 = load i16, ptr %26, align 2, !tbaa !27
   %28 = sext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %indvars.iv117.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.0102.i, i64 %indvars.iv117.i
   %30 = load i16, ptr %29, align 2, !tbaa !27
   %31 = sext i16 %30 to i32
   %32 = add nsw i32 %31, %28
   %33 = lshr i32 %32, 1
   %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw i16, ptr %.274100.i, i64 %indvars.iv117.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %.274100.i, i64 %indvars.iv117.i
   store i16 %34, ptr %35, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 8
@@ -2966,7 +2966,7 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %.pn.i = phi ptr [ %.196.i, %56 ], [ %1, %.preheader88.i.preheader ]
   %.37195.i = phi i32 [ %57, %56 ], [ 0, %.preheader88.i.preheader ]
   %.37594.i = phi ptr [ %58, %56 ], [ %7, %.preheader88.i.preheader ]
-  %.196.i = getelementptr i16, ptr %.pn.i, i64 %3
+  %.196.i = getelementptr [2 x i8], ptr %.pn.i, i64 %3
   %.pre31 = load i16, ptr %.196.i, align 2, !tbaa !27
   br label %39
 
@@ -2976,19 +2976,19 @@ define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0,
   %indvars.iv.i = phi i64 [ 0, %.preheader88.i ], [ %indvars.iv.next.i, %39 ]
   %42 = sext i16 %41 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %43 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.next.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.next.i
   %44 = load i16, ptr %43, align 2, !tbaa !27
   %45 = sext i16 %44 to i32
   %46 = add nsw i32 %45, %42
   %47 = sext i16 %40 to i32
   %48 = add nsw i32 %46, %47
-  %49 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.next.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.next.i
   %50 = load i16, ptr %49, align 2, !tbaa !27
   %51 = sext i16 %50 to i32
   %52 = add nsw i32 %48, %51
   %53 = lshr i32 %52, 2
   %54 = trunc i32 %53 to i16
-  %55 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.37594.i, i64 %indvars.iv.i
   store i16 %54, ptr %55, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %56, label %39, !llvm.loop !67
@@ -3012,10 +3012,10 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
 
 59:                                               ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %60 = load i16, ptr %gep, align 2, !tbaa !27
   %61 = ashr i16 %60, 1
-  %62 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.01621, i64 %indvars.iv
   store i16 %61, ptr %62, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -3023,7 +3023,7 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
 
 63:                                               ; preds = %59
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %64 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %64 = getelementptr inbounds [2 x i8], ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
   br i1 %exitcond30.not, label %65, label %.preheader, !llvm.loop !94
 
@@ -3054,7 +3054,7 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.072109.i, ptr noundef nonnull align 2 dereferenceable(16) %.076108.i, i64 16, i1 false), !tbaa !27
   %8 = add nuw nsw i32 %.068110.i, 1
   %9 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 16
-  %10 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
+  %10 = getelementptr inbounds [2 x i8], ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %8, 8
   br i1 %exitcond131.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader.i, !llvm.loop !62
 
@@ -3070,13 +3070,13 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %indvars.iv122.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next123.i, %11 ]
   %13 = sext i16 %12 to i32
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %14 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv.next123.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv.next123.i
   %15 = load i16, ptr %14, align 2, !tbaa !27
   %16 = sext i16 %15 to i32
   %17 = add nsw i32 %16, %13
   %18 = lshr i32 %17, 1
   %19 = trunc i32 %18 to i16
-  %20 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %19, ptr %20, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 8
   br i1 %exitcond125.not.i, label %21, label %11, !llvm.loop !63
@@ -3084,7 +3084,7 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
 21:                                               ; preds = %11
   %22 = add nuw nsw i32 %.169106.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 16
-  %24 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
+  %24 = getelementptr inbounds [2 x i8], ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %22, 8
   br i1 %exitcond126.not.i, label %ivi_mc_8x8_no_delta.exit, label %.preheader82.i, !llvm.loop !64
 
@@ -3092,21 +3092,21 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %.pn111.i = phi ptr [ %.0102.i, %36 ], [ %1, %6 ]
   %.270101.i = phi i32 [ %37, %36 ], [ 0, %6 ]
   %.274100.i = phi ptr [ %38, %36 ], [ %7, %6 ]
-  %.0102.i = getelementptr i16, ptr %.pn111.i, i64 %3
+  %.0102.i = getelementptr [2 x i8], ptr %.pn111.i, i64 %3
   br label %25
 
 25:                                               ; preds = %25, %.preheader85.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader85.i ], [ %indvars.iv.next118.i, %25 ]
-  %26 = getelementptr inbounds nuw i16, ptr %.pn111.i, i64 %indvars.iv117.i
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.pn111.i, i64 %indvars.iv117.i
   %27 = load i16, ptr %26, align 2, !tbaa !27
   %28 = sext i16 %27 to i32
-  %29 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %indvars.iv117.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %.0102.i, i64 %indvars.iv117.i
   %30 = load i16, ptr %29, align 2, !tbaa !27
   %31 = sext i16 %30 to i32
   %32 = add nsw i32 %31, %28
   %33 = lshr i32 %32, 1
   %34 = trunc i32 %33 to i16
-  %35 = getelementptr inbounds nuw i16, ptr %.274100.i, i64 %indvars.iv117.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %.274100.i, i64 %indvars.iv117.i
   store i16 %34, ptr %35, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 8
@@ -3123,7 +3123,7 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %.pn.i = phi ptr [ %.196.i, %56 ], [ %1, %.preheader88.i.preheader ]
   %.37195.i = phi i32 [ %57, %56 ], [ 0, %.preheader88.i.preheader ]
   %.37594.i = phi ptr [ %58, %56 ], [ %7, %.preheader88.i.preheader ]
-  %.196.i = getelementptr i16, ptr %.pn.i, i64 %3
+  %.196.i = getelementptr [2 x i8], ptr %.pn.i, i64 %3
   %.pre31 = load i16, ptr %.196.i, align 2, !tbaa !27
   br label %39
 
@@ -3133,19 +3133,19 @@ define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef 
   %indvars.iv.i = phi i64 [ 0, %.preheader88.i ], [ %indvars.iv.next.i, %39 ]
   %42 = sext i16 %41 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %43 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.next.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.next.i
   %44 = load i16, ptr %43, align 2, !tbaa !27
   %45 = sext i16 %44 to i32
   %46 = add nsw i32 %45, %42
   %47 = sext i16 %40 to i32
   %48 = add nsw i32 %46, %47
-  %49 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.next.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.next.i
   %50 = load i16, ptr %49, align 2, !tbaa !27
   %51 = sext i16 %50 to i32
   %52 = add nsw i32 %48, %51
   %53 = lshr i32 %52, 2
   %54 = trunc i32 %53 to i16
-  %55 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.37594.i, i64 %indvars.iv.i
   store i16 %54, ptr %55, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %56, label %39, !llvm.loop !67
@@ -3169,10 +3169,10 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
 
 59:                                               ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %60 = load i16, ptr %gep, align 2, !tbaa !27
   %61 = ashr i16 %60, 1
-  %62 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.01621, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !27
   %64 = add i16 %63, %61
   store i16 %64, ptr %62, align 2, !tbaa !27
@@ -3182,7 +3182,7 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
 
 65:                                               ; preds = %59
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %66 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %66 = getelementptr inbounds [2 x i8], ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 8
   br i1 %exitcond30.not, label %67, label %.preheader, !llvm.loop !96
 
@@ -3214,7 +3214,7 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   store i64 %8, ptr %.072109.i, align 2, !tbaa !27
   %9 = add nuw nsw i32 %.068110.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 8
-  %11 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %9, 4
   br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !78
 
@@ -3230,13 +3230,13 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %indvars.iv122.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next123.i, %12 ]
   %14 = sext i16 %13 to i32
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %15 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv.next123.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv.next123.i
   %16 = load i16, ptr %15, align 2, !tbaa !27
   %17 = sext i16 %16 to i32
   %18 = add nsw i32 %17, %14
   %19 = lshr i32 %18, 1
   %20 = trunc i32 %19 to i16
-  %21 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %20, ptr %21, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 4
   br i1 %exitcond125.not.i, label %22, label %12, !llvm.loop !79
@@ -3244,7 +3244,7 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
 22:                                               ; preds = %12
   %23 = add nuw nsw i32 %.169106.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 8
-  %25 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
+  %25 = getelementptr inbounds [2 x i8], ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %23, 4
   br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !80
 
@@ -3252,21 +3252,21 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %.pn111.i = phi ptr [ %.0102.i, %37 ], [ %1, %6 ]
   %.270101.i = phi i32 [ %38, %37 ], [ 0, %6 ]
   %.274100.i = phi ptr [ %39, %37 ], [ %7, %6 ]
-  %.0102.i = getelementptr i16, ptr %.pn111.i, i64 %3
+  %.0102.i = getelementptr [2 x i8], ptr %.pn111.i, i64 %3
   br label %26
 
 26:                                               ; preds = %26, %.preheader85.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader85.i ], [ %indvars.iv.next118.i, %26 ]
-  %27 = getelementptr inbounds nuw i16, ptr %.pn111.i, i64 %indvars.iv117.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.pn111.i, i64 %indvars.iv117.i
   %28 = load i16, ptr %27, align 2, !tbaa !27
   %29 = sext i16 %28 to i32
-  %30 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %indvars.iv117.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.0102.i, i64 %indvars.iv117.i
   %31 = load i16, ptr %30, align 2, !tbaa !27
   %32 = sext i16 %31 to i32
   %33 = add nsw i32 %32, %29
   %34 = lshr i32 %33, 1
   %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %.274100.i, i64 %indvars.iv117.i
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %.274100.i, i64 %indvars.iv117.i
   store i16 %35, ptr %36, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 4
@@ -3283,7 +3283,7 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %.pn.i = phi ptr [ %.196.i, %57 ], [ %1, %.preheader88.i.preheader ]
   %.37195.i = phi i32 [ %58, %57 ], [ 0, %.preheader88.i.preheader ]
   %.37594.i = phi ptr [ %59, %57 ], [ %7, %.preheader88.i.preheader ]
-  %.196.i = getelementptr i16, ptr %.pn.i, i64 %3
+  %.196.i = getelementptr [2 x i8], ptr %.pn.i, i64 %3
   %.pre31 = load i16, ptr %.196.i, align 2, !tbaa !27
   br label %40
 
@@ -3293,19 +3293,19 @@ define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0,
   %indvars.iv.i = phi i64 [ 0, %.preheader88.i ], [ %indvars.iv.next.i, %40 ]
   %43 = sext i16 %42 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %44 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.next.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.next.i
   %45 = load i16, ptr %44, align 2, !tbaa !27
   %46 = sext i16 %45 to i32
   %47 = add nsw i32 %46, %43
   %48 = sext i16 %41 to i32
   %49 = add nsw i32 %47, %48
-  %50 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.next.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.next.i
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %53 = add nsw i32 %49, %52
   %54 = lshr i32 %53, 2
   %55 = trunc i32 %54 to i16
-  %56 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.37594.i, i64 %indvars.iv.i
   store i16 %55, ptr %56, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %57, label %40, !llvm.loop !83
@@ -3329,10 +3329,10 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
 
 60:                                               ; preds = %.preheader, %60
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %61 = load i16, ptr %gep, align 2, !tbaa !27
   %62 = ashr i16 %61, 1
-  %63 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.01621, i64 %indvars.iv
   store i16 %62, ptr %63, align 2, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3340,7 +3340,7 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
 
 64:                                               ; preds = %60
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %65 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %65 = getelementptr inbounds [2 x i8], ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
   br i1 %exitcond30.not, label %66, label %.preheader, !llvm.loop !98
 
@@ -3372,7 +3372,7 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   store i64 %8, ptr %.072109.i, align 2, !tbaa !27
   %9 = add nuw nsw i32 %.068110.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 8
-  %11 = getelementptr inbounds i16, ptr %.076108.i, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %.076108.i, i64 %3
   %exitcond131.not.i = icmp eq i32 %9, 4
   br i1 %exitcond131.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader.i, !llvm.loop !78
 
@@ -3388,13 +3388,13 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %indvars.iv122.i = phi i64 [ 0, %.preheader82.i ], [ %indvars.iv.next123.i, %12 ]
   %14 = sext i16 %13 to i32
   %indvars.iv.next123.i = add nuw nsw i64 %indvars.iv122.i, 1
-  %15 = getelementptr inbounds nuw i16, ptr %.177104.i, i64 %indvars.iv.next123.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %.177104.i, i64 %indvars.iv.next123.i
   %16 = load i16, ptr %15, align 2, !tbaa !27
   %17 = sext i16 %16 to i32
   %18 = add nsw i32 %17, %14
   %19 = lshr i32 %18, 1
   %20 = trunc i32 %19 to i16
-  %21 = getelementptr inbounds nuw i16, ptr %.173105.i, i64 %indvars.iv122.i
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %.173105.i, i64 %indvars.iv122.i
   store i16 %20, ptr %21, align 2, !tbaa !27
   %exitcond125.not.i = icmp eq i64 %indvars.iv.next123.i, 4
   br i1 %exitcond125.not.i, label %22, label %12, !llvm.loop !79
@@ -3402,7 +3402,7 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
 22:                                               ; preds = %12
   %23 = add nuw nsw i32 %.169106.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %.173105.i, i64 8
-  %25 = getelementptr inbounds i16, ptr %.177104.i, i64 %3
+  %25 = getelementptr inbounds [2 x i8], ptr %.177104.i, i64 %3
   %exitcond126.not.i = icmp eq i32 %23, 4
   br i1 %exitcond126.not.i, label %ivi_mc_4x4_no_delta.exit, label %.preheader82.i, !llvm.loop !80
 
@@ -3410,21 +3410,21 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %.pn111.i = phi ptr [ %.0102.i, %37 ], [ %1, %6 ]
   %.270101.i = phi i32 [ %38, %37 ], [ 0, %6 ]
   %.274100.i = phi ptr [ %39, %37 ], [ %7, %6 ]
-  %.0102.i = getelementptr i16, ptr %.pn111.i, i64 %3
+  %.0102.i = getelementptr [2 x i8], ptr %.pn111.i, i64 %3
   br label %26
 
 26:                                               ; preds = %26, %.preheader85.i
   %indvars.iv117.i = phi i64 [ 0, %.preheader85.i ], [ %indvars.iv.next118.i, %26 ]
-  %27 = getelementptr inbounds nuw i16, ptr %.pn111.i, i64 %indvars.iv117.i
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %.pn111.i, i64 %indvars.iv117.i
   %28 = load i16, ptr %27, align 2, !tbaa !27
   %29 = sext i16 %28 to i32
-  %30 = getelementptr inbounds nuw i16, ptr %.0102.i, i64 %indvars.iv117.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %.0102.i, i64 %indvars.iv117.i
   %31 = load i16, ptr %30, align 2, !tbaa !27
   %32 = sext i16 %31 to i32
   %33 = add nsw i32 %32, %29
   %34 = lshr i32 %33, 1
   %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %.274100.i, i64 %indvars.iv117.i
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %.274100.i, i64 %indvars.iv117.i
   store i16 %35, ptr %36, align 2, !tbaa !27
   %indvars.iv.next118.i = add nuw nsw i64 %indvars.iv117.i, 1
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.i, 4
@@ -3441,7 +3441,7 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %.pn.i = phi ptr [ %.196.i, %57 ], [ %1, %.preheader88.i.preheader ]
   %.37195.i = phi i32 [ %58, %57 ], [ 0, %.preheader88.i.preheader ]
   %.37594.i = phi ptr [ %59, %57 ], [ %7, %.preheader88.i.preheader ]
-  %.196.i = getelementptr i16, ptr %.pn.i, i64 %3
+  %.196.i = getelementptr [2 x i8], ptr %.pn.i, i64 %3
   %.pre31 = load i16, ptr %.196.i, align 2, !tbaa !27
   br label %40
 
@@ -3451,19 +3451,19 @@ define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef 
   %indvars.iv.i = phi i64 [ 0, %.preheader88.i ], [ %indvars.iv.next.i, %40 ]
   %43 = sext i16 %42 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %44 = getelementptr inbounds nuw i16, ptr %.pn.i, i64 %indvars.iv.next.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.pn.i, i64 %indvars.iv.next.i
   %45 = load i16, ptr %44, align 2, !tbaa !27
   %46 = sext i16 %45 to i32
   %47 = add nsw i32 %46, %43
   %48 = sext i16 %41 to i32
   %49 = add nsw i32 %47, %48
-  %50 = getelementptr inbounds nuw i16, ptr %.196.i, i64 %indvars.iv.next.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.196.i, i64 %indvars.iv.next.i
   %51 = load i16, ptr %50, align 2, !tbaa !27
   %52 = sext i16 %51 to i32
   %53 = add nsw i32 %49, %52
   %54 = lshr i32 %53, 2
   %55 = trunc i32 %54 to i16
-  %56 = getelementptr inbounds nuw i16, ptr %.37594.i, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.37594.i, i64 %indvars.iv.i
   store i16 %55, ptr %56, align 2, !tbaa !27
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %57, label %40, !llvm.loop !83
@@ -3487,10 +3487,10 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
 
 60:                                               ; preds = %.preheader, %60
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %60 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %61 = load i16, ptr %gep, align 2, !tbaa !27
   %62 = ashr i16 %61, 1
-  %63 = getelementptr inbounds nuw i16, ptr %.01621, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.01621, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !27
   %65 = add i16 %64, %62
   store i16 %65, ptr %63, align 2, !tbaa !27
@@ -3500,7 +3500,7 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
 
 66:                                               ; preds = %60
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %67 = getelementptr inbounds i16, ptr %.01621, i64 %3
+  %67 = getelementptr inbounds [2 x i8], ptr %.01621, i64 %3
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
   br i1 %exitcond30.not, label %68, label %.preheader, !llvm.loop !100
 

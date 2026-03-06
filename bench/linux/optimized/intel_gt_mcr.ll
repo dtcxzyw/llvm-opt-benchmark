@@ -805,7 +805,7 @@ define dso_local i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1) local_unname
 
 .split.us:                                        ; preds = %2, %.loopexit.us
   %8 = phi i64 [ %31, %.loopexit.us ], [ 0, %2 ]
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit.us, label %12, !prof !31
@@ -843,7 +843,7 @@ define dso_local i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1) local_unname
 
 .split:                                           ; preds = %2, %.loopexit
   %33 = phi i64 [ %58, %.loopexit ], [ 0, %2 ]
-  %34 = getelementptr ptr, ptr %5, i64 %33
+  %34 = getelementptr [8 x i8], ptr %5, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37, !prof !31
@@ -910,7 +910,7 @@ define dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr noundef reado
 
 .split.us:                                        ; preds = %4, %.loopexit.us
   %8 = phi i64 [ %31, %.loopexit.us ], [ 0, %4 ]
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit.us, label %12, !prof !31
@@ -948,7 +948,7 @@ define dso_local void @intel_gt_mcr_get_nonterminated_steering(ptr noundef reado
 
 .split:                                           ; preds = %4, %.loopexit
   %33 = phi i64 [ %53, %.loopexit ], [ 0, %4 ]
-  %34 = getelementptr ptr, ptr %5, i64 %33
+  %34 = getelementptr [8 x i8], ptr %5, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37, !prof !31
@@ -1116,7 +1116,7 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr noundef readonly captures(non
 
 .split.us:                                        ; preds = %2, %.loopexit.us
   %8 = phi i64 [ %31, %.loopexit.us ], [ 0, %2 ]
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit.us, label %12, !prof !31
@@ -1154,7 +1154,7 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr noundef readonly captures(non
 
 .split:                                           ; preds = %2, %.loopexit
   %33 = phi i64 [ %58, %.loopexit ], [ 0, %2 ]
-  %34 = getelementptr ptr, ptr %5, i64 %33
+  %34 = getelementptr [8 x i8], ptr %5, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37, !prof !31
@@ -1432,7 +1432,7 @@ define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr noundef 
 
 25:                                               ; preds = %50, %.thread
   %26 = phi i64 [ 0, %.thread ], [ %51, %50 ]
-  %27 = getelementptr ptr, ptr %24, i64 %26
+  %27 = getelementptr [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %50, label %30
@@ -1442,7 +1442,7 @@ define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = trunc i64 %26 to i32
   call fastcc void @get_nonterminated_steering(ptr noundef readonly %1, i32 noundef %31, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %32 = getelementptr ptr, ptr @intel_steering_types, i64 %26
+  %32 = getelementptr [8 x i8], ptr @intel_steering_types, i64 %26
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %4, align 1
   %35 = zext i8 %34 to i32

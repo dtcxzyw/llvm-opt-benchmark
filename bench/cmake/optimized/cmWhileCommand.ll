@@ -40,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.69" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.cmExpandedCommandArgument = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::unique_ptr.297" = type { %"struct.std::__uniq_ptr_data.298" }
 %"struct.std::__uniq_ptr_data.298" = type { %"class.std::__uniq_ptr_impl.299" }
 %"class.std::__uniq_ptr_impl.299" = type { %"class.std::tuple.300" }
@@ -623,7 +622,7 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE13_M_deallocateEPS0_m.exi
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %83, ptr %11, align 8, !tbaa !73
   store ptr %83, ptr %84, align 8, !tbaa !76
-  %85 = getelementptr inbounds nuw %class.cmExpandedCommandArgument, ptr %83, i64 %77
+  %85 = getelementptr inbounds nuw [40 x i8], ptr %83, i64 %77
   store ptr %85, ptr %81, align 8, !tbaa !77
   br label %_ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EE7reserveEm.exit
 

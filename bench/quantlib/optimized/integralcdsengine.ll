@@ -33,7 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.40" = type { i8 }
 %"class.boost::shared_ptr.46" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::shared_ptr.45" = type { ptr, %"class.boost::detail::shared_count" }
 
 $__clang_call_terminate = comdat any
 
@@ -1684,7 +1683,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %if.end175
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %91 = phi ptr [ %89, %for.body.lr.ph ], [ %176, %for.inc ]
   %i.0427 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.45", ptr %91, i64 %i.0427
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %i.0427
   %92 = load ptr, ptr %add.ptr.i, align 8, !tbaa !102
   %cmp.not.i154 = icmp eq ptr %92, null
   br i1 %cmp.not.i154, label %cond.false.i155, label %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit, !prof !89
@@ -1706,7 +1705,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit: ; preds = %for.body, %con
 if.end191:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %coupon)
   %95 = load ptr, ptr %leg, align 8, !tbaa !100
-  %add.ptr.i157 = getelementptr inbounds nuw %"class.boost::shared_ptr.45", ptr %95, i64 %i.0427
+  %add.ptr.i157 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %i.0427
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %96 = load ptr, ptr %add.ptr.i157, align 8, !tbaa !102, !noalias !104
   %97 = icmp eq ptr %96, null

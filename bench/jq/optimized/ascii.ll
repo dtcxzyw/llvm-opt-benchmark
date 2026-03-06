@@ -42,7 +42,7 @@ define internal range(i32 0, 2) i32 @ascii_is_code_ctype(i32 noundef %0, i32 nou
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw i16, ptr @OnigEncAsciiCtypeTable, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @OnigEncAsciiCtypeTable, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = lshr i32 %8, %1

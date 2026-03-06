@@ -38,7 +38,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.128 = type { i64 }
 %union.tpacket_req_u = type { %struct.tpacket_req3 }
 %struct.tpacket_req3 = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.pgv = type { ptr }
 %struct.packet_mreq_max = type { i32, i16, i16, [32 x i8] }
 %struct.fanout_args = type { i16, i16, i32 }
 %union.tpacket_stats_u = type { %struct.tpacket_stats_v3 }
@@ -46,13 +45,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.tpacket_rollover_stats = type { i64, i64, i64 }
 %struct.sockcm_cookie = type { i64, i32, i32 }
 %struct.virtio_net_hdr = type { i8, i8, i16, i16, i16, i16 }
-%struct.page = type { i64, %union.anon.90, %union.anon.98, %struct.atomic_t, [8 x i8] }
-%union.anon.90 = type { %struct.anon.91 }
-%struct.anon.91 = type { %union.anon.92, ptr, %union.anon.94, i64 }
-%union.anon.92 = type { %struct.list_head }
-%union.anon.94 = type { i64 }
-%union.anon.98 = type { %struct.atomic_t }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.virtio_net_hdr_mrg_rxbuf = type { %struct.virtio_net_hdr, i16 }
 %struct.tpacket_auxdata = type { i32, i32, i32, i16, i16, i16, i16 }
 %struct.timespec64 = type { i64, i64 }
@@ -405,7 +397,7 @@ define internal fastcc void @__unregister_prot_hook(ptr noundef %0, i1 noundef z
 
 16:                                               ; preds = %.preheader
   %17 = sext i32 %22 to i64
-  %18 = getelementptr ptr, ptr %13, i64 %17
+  %18 = getelementptr [8 x i8], ptr %13, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %24, label %.preheader, !llvm.loop !12
@@ -427,10 +419,10 @@ define internal fastcc void @__unregister_prot_hook(ptr noundef %0, i1 noundef z
 
 .thread:                                          ; preds = %12, %24
   %26 = phi i64 [ %17, %24 ], [ 0, %12 ]
-  %27 = getelementptr ptr, ptr %13, i64 %26
+  %27 = getelementptr [8 x i8], ptr %13, i64 %26
   %28 = add i32 %10, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr ptr, ptr %13, i64 %29
+  %30 = getelementptr [8 x i8], ptr %13, i64 %29
   %31 = load ptr, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !16
   store volatile ptr %31, ptr %27, align 8
@@ -612,7 +604,7 @@ define internal fastcc void @__register_prot_hook(ptr noundef %0) unnamed_addr #
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr ptr, ptr %12, i64 %15
+  %16 = getelementptr [8 x i8], ptr %12, i64 %15
   store volatile ptr %0, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !20
   %17 = load i32, ptr %13, align 8
@@ -669,7 +661,7 @@ define internal fastcc void @__fanout_link(ptr noundef %0, ptr %.744.val) unname
   %4 = getelementptr inbounds nuw i8, ptr %.744.val, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   store volatile ptr %0, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !20
   %8 = load i32, ptr %4, align 8
@@ -982,7 +974,7 @@ define internal noundef range(i32 -105, 1) i32 @packet_create(ptr noundef %0, pt
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_proto, i64 208), align 8
   %80 = zext i32 %79 to i64
-  %81 = getelementptr i32, ptr %78, i64 %80
+  %81 = getelementptr [4 x i8], ptr %78, i64 %80
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, ptr elementtype(i32) %81) #19, !srcloc !30
   br label %83
 
@@ -1625,7 +1617,7 @@ define internal noundef i32 @packet_release(ptr noundef captures(none) %0) #2 al
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 208
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %37 = getelementptr i32, ptr %33, i64 %36
+  %37 = getelementptr [4 x i8], ptr %33, i64 %36
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, ptr elementtype(i32) %37) #19, !srcloc !46
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 1172
   tail call void @_raw_spin_lock(ptr noundef nonnull %38) #19
@@ -2006,7 +1998,7 @@ define internal i32 @packet_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %28 = udiv i32 %25, %27
   %29 = urem i32 %25, %27
   %30 = zext i32 %28 to i64
-  %31 = getelementptr %struct.pgv, ptr %9, i64 %30
+  %31 = getelementptr [8 x i8], ptr %9, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 784
   %34 = load i32, ptr %33, align 8
@@ -2037,7 +2029,7 @@ define internal i32 @packet_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %52 = load ptr, ptr %51, align 8
   %53 = zext i32 %50 to i64
-  %54 = getelementptr %struct.pgv, ptr %52, i64 %53
+  %54 = getelementptr [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 8
@@ -2087,7 +2079,7 @@ define internal i32 @packet_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %86 = udiv i32 %83, %85
   %87 = urem i32 %83, %85
   %88 = zext i32 %86 to i64
-  %89 = getelementptr %struct.pgv, ptr %79, i64 %88
+  %89 = getelementptr [8 x i8], ptr %79, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 984
   %92 = load i32, ptr %91, align 8
@@ -3373,7 +3365,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %148 = urem i32 %145, %146
   %149 = load ptr, ptr %11, align 8
   %150 = zext i32 %147 to i64
-  %151 = getelementptr %struct.pgv, ptr %149, i64 %150
+  %151 = getelementptr [8 x i8], ptr %149, i64 %150
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %108, align 8
   %154 = mul i32 %153, %148
@@ -3430,7 +3422,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
 
 188:                                              ; preds = %184
   %189 = and i64 %185, 63
-  %190 = getelementptr i64, ptr @__per_cpu_offset, i64 %189
+  %190 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %189
   %191 = load i64, ptr %190, align 8
   %192 = add i64 %191, %177
   %193 = inttoptr i64 %192 to ptr
@@ -3453,7 +3445,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %202 = urem i32 %199, %200
   %203 = load ptr, ptr %11, align 8
   %204 = zext i32 %201 to i64
-  %205 = getelementptr %struct.pgv, ptr %203, i64 %204
+  %205 = getelementptr [8 x i8], ptr %203, i64 %204
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %108, align 8
   %208 = mul i32 %207, %202
@@ -3879,7 +3871,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %494 = select i1 %490, i64 %491, i64 %493
   %495 = add i64 %489, %494
   %496 = lshr i64 %495, 12
-  %497 = getelementptr %struct.page, ptr %487, i64 %496
+  %497 = getelementptr [64 x i8], ptr %487, i64 %496
   br label %498
 
 498:                                              ; preds = %485, %483
@@ -3935,7 +3927,7 @@ define internal i32 @packet_sendmsg(ptr noundef readonly captures(none) %0, ptr 
   %532 = getelementptr i8, ptr %529, i64 %531
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 48
   %534 = zext nneg i8 %477 to i64
-  %535 = getelementptr %struct.bio_vec, ptr %533, i64 %534
+  %535 = getelementptr [16 x i8], ptr %533, i64 %534
   store ptr %499, ptr %535, align 8
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 12
   store i32 %470, ptr %536, align 4
@@ -5306,7 +5298,7 @@ define internal i32 @packet_mmap(ptr readnone captures(none) %0, ptr noundef rea
 56:                                               ; preds = %.split
   %57 = load ptr, ptr %40, align 8
   %58 = sext i32 %53 to i64
-  %59 = getelementptr %struct.pgv, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   br label %61
 
@@ -5333,7 +5325,7 @@ define internal i32 @packet_mmap(ptr readnone captures(none) %0, ptr noundef rea
   %77 = select i1 %73, i64 %74, i64 %76
   %78 = add i64 %72, %77
   %79 = lshr i64 %78, 12
-  %80 = getelementptr %struct.page, ptr %70, i64 %79
+  %80 = getelementptr [64 x i8], ptr %70, i64 %79
   br label %81
 
 81:                                               ; preds = %68, %66
@@ -5434,7 +5426,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
 
 35:                                               ; preds = %31
   %36 = and i64 %32, 63
-  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
+  %37 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %24
   %40 = inttoptr i64 %39 to ptr
@@ -5566,7 +5558,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
 .sink.split:                                      ; preds = %133, %.thread51
   %.sink = phi ptr [ %132, %.thread51 ], [ %134, %133 ]
   %123 = sext i32 %129 to i64
-  %124 = getelementptr %struct.pgv, ptr %113, i64 %123
+  %124 = getelementptr [8 x i8], ptr %113, i64 %123
   store ptr %.sink, ptr %124, align 8
   br label %125
 
@@ -5594,7 +5586,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
   %137 = tail call i64 @__get_free_pages(i32 noundef 273856, i32 noundef %110) #19
   %138 = inttoptr i64 %137 to ptr
   %139 = sext i32 %129 to i64
-  %140 = getelementptr %struct.pgv, ptr %113, i64 %139
+  %140 = getelementptr [8 x i8], ptr %113, i64 %139
   store ptr %138, ptr %140, align 8
   %141 = icmp eq i64 %137, 0
   br i1 %141, label %.thread20, label %125, !prof !88
@@ -5968,7 +5960,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr nounde
 .preheader:                                       ; preds = %.thread22, %370
   %358 = phi i32 [ %371, %370 ], [ 0, %.thread22 ]
   %359 = sext i32 %358 to i64
-  %360 = getelementptr %struct.pgv, ptr %.ph32, i64 %359
+  %360 = getelementptr [8 x i8], ptr %.ph32, i64 %359
   %361 = load ptr, ptr %360, align 8
   %362 = icmp eq ptr %361, null
   br i1 %362, label %370, label %363, !prof !18
@@ -6358,7 +6350,7 @@ define internal noundef i32 @tpacket_rcv(ptr noundef %0, ptr noundef readonly ca
   %238 = urem i32 %234, %236
   %239 = load ptr, ptr %232, align 8
   %240 = zext i32 %237 to i64
-  %241 = getelementptr %struct.pgv, ptr %239, i64 %240
+  %241 = getelementptr [8 x i8], ptr %239, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %17, i64 784
   %244 = load i32, ptr %243, align 8
@@ -6375,7 +6367,7 @@ define internal noundef i32 @tpacket_rcv(ptr noundef %0, ptr noundef readonly ca
   %253 = getelementptr inbounds nuw i8, ptr %17, i64 834
   %254 = load i16, ptr %253, align 2
   %255 = zext i16 %254 to i64
-  %256 = getelementptr %struct.pgv, ptr %252, i64 %255
+  %256 = getelementptr [8 x i8], ptr %252, i64 %255
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds nuw i8, ptr %17, i64 832
   %259 = load i8, ptr %258, align 8
@@ -6563,7 +6555,7 @@ define internal noundef i32 @tpacket_rcv(ptr noundef %0, ptr noundef readonly ca
   %381 = load ptr, ptr %251, align 8
   %382 = load i16, ptr %253, align 2
   %383 = zext i16 %382 to i64
-  %384 = getelementptr %struct.pgv, ptr %381, i64 %383
+  %384 = getelementptr [8 x i8], ptr %381, i64 %383
   %385 = load ptr, ptr %384, align 8
   store i32 %329, ptr %378, align 4
   %386 = getelementptr inbounds nuw i8, ptr %17, i64 880
@@ -7010,7 +7002,7 @@ define internal fastcc void @free_pg_vec(ptr noundef nonnull %0, i32 noundef %1,
 4:                                                ; preds = %3, %17
   %5 = phi i32 [ %18, %17 ], [ 0, %3 ]
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.pgv, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %17, label %10, !prof !18
@@ -7078,7 +7070,7 @@ define internal void @prb_retire_rx_blk_timer_expired(ptr noundef %0) #2 align 1
   %10 = getelementptr i8, ptr %0, i64 -94
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
-  %13 = getelementptr %struct.pgv, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %0, i64 -95
   %16 = load i8, ptr %15, align 1
@@ -7117,7 +7109,7 @@ define internal void @prb_retire_rx_blk_timer_expired(ptr noundef %0) #2 align 1
 34:                                               ; preds = %31
   %35 = load ptr, ptr %5, align 8
   %36 = zext i16 %25 to i64
-  %37 = getelementptr %struct.pgv, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
@@ -7293,7 +7285,7 @@ define internal fastcc void @prb_retire_current_block(ptr noundef %0, ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %8 = getelementptr %struct.pgv, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
@@ -7371,7 +7363,7 @@ define internal fastcc ptr @prb_dispatch_next_block(ptr noundef initializes((16,
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %8 = getelementptr %struct.pgv, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
@@ -7602,7 +7594,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %40 = load ptr, ptr %39, align 16
   %41 = zext i32 %38 to i64
-  %42 = getelementptr %struct.pgv, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
@@ -7619,7 +7611,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
   %54 = select i1 %53, i32 0, i32 %50
   %55 = sub i32 %52, %54
   %56 = zext i32 %55 to i64
-  %57 = getelementptr %struct.pgv, ptr %40, i64 %56
+  %57 = getelementptr [8 x i8], ptr %40, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8
@@ -7647,7 +7639,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
   %80 = urem i32 %75, %78
   %81 = load ptr, ptr %76, align 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr %struct.pgv, ptr %81, i64 %82
+  %83 = getelementptr [8 x i8], ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %86 = load i32, ptr %85, align 8
@@ -7672,7 +7664,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
   %103 = urem i32 %100, %101
   %104 = load ptr, ptr %76, align 8
   %105 = zext i32 %102 to i64
-  %106 = getelementptr %struct.pgv, ptr %104, i64 %105
+  %106 = getelementptr [8 x i8], ptr %104, i64 %105
   %107 = load ptr, ptr %106, align 8
   %108 = load i32, ptr %85, align 8
   %109 = mul i32 %108, %103
@@ -9210,7 +9202,7 @@ define internal i32 @packet_rcv_fanout(ptr noundef %0, ptr noundef %1, ptr nound
 57:                                               ; preds = %84, %49
   %58 = phi i32 [ %56, %49 ], [ %87, %84 ]
   %59 = zext i32 %58 to i64
-  %60 = getelementptr ptr, ptr %50, i64 %59
+  %60 = getelementptr [8 x i8], ptr %50, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %84, label %63
@@ -9347,7 +9339,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 131:                                              ; preds = %fanout_demux_rollover.exit
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %133 = zext i32 %127 to i64
-  %134 = getelementptr ptr, ptr %132, i64 %133
+  %134 = getelementptr [8 x i8], ptr %132, i64 %133
   %135 = load volatile ptr, ptr %134, align 8
   %136 = tail call fastcc i32 @__packet_rcv_has_room(ptr noundef %135, ptr noundef %24), !range !52
   %137 = icmp ne i32 %136, 2
@@ -9397,7 +9389,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 158:                                              ; preds = %158, %155
   %159 = phi i64 [ 0, %155 ], [ %166, %158 ]
   %160 = phi i32 [ 0, %155 ], [ %165, %158 ]
-  %161 = getelementptr i32, ptr %149, i64 %159
+  %161 = getelementptr [4 x i8], ptr %149, i64 %159
   %162 = load volatile i32, ptr %161, align 4
   %163 = icmp eq i32 %162, %157
   %164 = zext i1 %163 to i32
@@ -9410,7 +9402,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
   %169 = tail call zeroext i8 @get_random_u8() #19
   %170 = lshr i8 %169, 4
   %171 = zext nneg i8 %170 to i64
-  %172 = getelementptr i32, ptr %149, i64 %171
+  %172 = getelementptr [4 x i8], ptr %149, i64 %171
   %173 = load volatile i32, ptr %172, align 4
   %174 = icmp eq i32 %173, %157
   br i1 %174, label %176, label %175
@@ -9435,7 +9427,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 185:                                              ; preds = %215, %178
   %186 = phi i32 [ %184, %178 ], [ %218, %215 ]
   %187 = zext i32 %186 to i64
-  %188 = getelementptr ptr, ptr %132, i64 %187
+  %188 = getelementptr [8 x i8], ptr %132, i64 %187
   %189 = load volatile ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, %135
   br i1 %190, label %215, label %191
@@ -9508,7 +9500,7 @@ fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge: ; preds = %fan
 fanout_demux_rollover.exit7:                      ; preds = %fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge, %220, %212, %209, %176, %145, %.thread.i
   %.pre-phi = phi i64 [ %.pre, %fanout_demux_rollover.exit.fanout_demux_rollover.exit7_crit_edge ], [ %133, %220 ], [ %187, %212 ], [ %187, %209 ], [ %133, %176 ], [ %133, %145 ], [ %133, %.thread.i ]
   %223 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %224 = getelementptr ptr, ptr %223, i64 %.pre-phi
+  %224 = getelementptr [8 x i8], ptr %223, i64 %.pre-phi
   %225 = load volatile ptr, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 1344
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 1360
@@ -10111,7 +10103,7 @@ define internal void @tpacket_destruct_skb(ptr noundef %0) #2 align 16 {
 
 92:                                               ; preds = %88
   %93 = and i64 %89, 63
-  %94 = getelementptr i64, ptr @__per_cpu_offset, i64 %93
+  %94 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %81
   %97 = inttoptr i64 %96 to ptr

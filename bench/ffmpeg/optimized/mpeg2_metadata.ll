@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"mpeg2_metadata\00", align 1
 @mpeg2_metadata_codec_ids = internal constant [2 x i32] [i32 2, i32 0], align 4
@@ -110,7 +109,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg2_metadata_update_fragment(pt
   %.082106 = phi ptr [ null, %.lr.ph ], [ %.2, %32 ]
   %.084105 = phi ptr [ null, %.lr.ph ], [ %.286, %32 ]
   %.088103 = phi i32 [ undef, %.lr.ph ], [ %.290, %32 ]
-  %17 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8, !tbaa !29
   switch i32 %18, label %32 [
     i32 179, label %19

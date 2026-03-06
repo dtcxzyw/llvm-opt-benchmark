@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.hermes::vm::SymbolID" = type { i32 }
-%"class.llvh::detail::DenseSetPair" = type { %"class.hermes::vm::SymbolID" }
 
 $_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E20InsertIntoBucketImplIS4_EEPSA_RKS4_RKT_SE_ = comdat any
 
@@ -96,7 +95,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end44
   %sub.i.i.i.i = add i32 %6, -1
   %BucketNo.019.i.i.i.i = and i32 %sub.i.i.i.i, %mul.i.i.i.i.i.i.i
   %idx.ext20.i.i.i.i = zext i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %5, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %idx.ext20.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i.i = load i32, ptr %add.ptr21.i.i.i.i, align 4, !noalias !4
   %cmp.i.i23.i.i.i.i = icmp eq i32 %agg.tmp7.sroa.0.0.copyload22.i.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i23.i.i.i.i, label %return, label %if.end13.i.i.i.i
@@ -124,7 +123,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.026.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %5, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %idx.ext.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4, !noalias !4
   %cmp.i.i.i.i.i.i9 = icmp eq i32 %agg.tmp7.sroa.0.0.copyload.i.i.i.i, %conv.i.i.i
   br i1 %cmp.i.i.i.i.i.i9, label %return, label %if.end13.i.i.i.i, !llvm.loop !9
@@ -180,7 +179,7 @@ if.end.i.i:                                       ; preds = %if.then
   %sub.i.i = add i32 %3, -1
   %BucketNo.019.i.i = and i32 %mul.i.i.i.i.i, %sub.i.i
   %idx.ext20.i.i = zext i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %2, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idx.ext20.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i = load i32, ptr %add.ptr21.i.i, align 4
   %cmp.i.i23.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload22.i.i
   br i1 %cmp.i.i23.i.i, label %if.end12, label %if.end13.i.i
@@ -208,7 +207,7 @@ if.end21.i.i:                                     ; preds = %if.end13.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.026.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %idx.ext.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i.i, label %if.end12, label %if.end13.i.i, !llvm.loop !9
@@ -236,7 +235,7 @@ if.end.i.i11:                                     ; preds = %if.then10
   %sub.i.i14 = add i32 %6, -1
   %BucketNo.019.i.i15 = and i32 %mul.i.i.i.i.i13, %sub.i.i14
   %idx.ext20.i.i16 = zext i32 %BucketNo.019.i.i15 to i64
-  %add.ptr21.i.i17 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %5, i64 %idx.ext20.i.i16
+  %add.ptr21.i.i17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %idx.ext20.i.i16
   %agg.tmp7.sroa.0.0.copyload22.i.i18 = load i32, ptr %add.ptr21.i.i17, align 4
   %cmp.i.i23.i.i19 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload22.i.i18
   br i1 %cmp.i.i23.i.i19, label %if.end12, label %if.end13.i.i20
@@ -264,7 +263,7 @@ if.end21.i.i27:                                   ; preds = %if.end13.i.i20
   %add.i.i33 = add i32 %ProbeAmt.024.i.i25, %BucketNo.026.i.i23
   %BucketNo.0.i.i34 = and i32 %add.i.i33, %sub.i.i14
   %idx.ext.i.i35 = zext i32 %BucketNo.0.i.i34 to i64
-  %add.ptr.i.i36 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %5, i64 %idx.ext.i.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %idx.ext.i.i35
   %agg.tmp7.sroa.0.0.copyload.i.i37 = load i32, ptr %add.ptr.i.i36, align 4
   %cmp.i.i.i.i38 = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload.i.i37
   br i1 %cmp.i.i.i.i38, label %if.end12, label %if.end13.i.i20, !llvm.loop !9
@@ -379,7 +378,7 @@ if.then.i:                                        ; preds = %for.body.i5
   %sub.i.i.i = add i32 %7, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %mul.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %6, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load i32, ptr %add.ptr21.i.i.i, align 4
   %cmp.i.i23.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %if.end13.i.i.i
@@ -407,7 +406,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i12.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i13.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %6, i64 %idx.ext.i.i12.i
+  %add.ptr.i.i13.i = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %idx.ext.i.i12.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load i32, ptr %add.ptr.i.i13.i, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm8SymbolIDENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %if.end13.i.i.i, !llvm.loop !9

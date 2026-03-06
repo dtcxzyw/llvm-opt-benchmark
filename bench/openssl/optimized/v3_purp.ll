@@ -76,7 +76,7 @@ X509_PURPOSE_get_by_id.exit.thread:               ; preds = %10, %13
 17:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = zext nneg i32 %9 to i64
-  %19 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %18
+  %19 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %18
   br label %X509_PURPOSE_get0.exit
 
 20:                                               ; preds = %15
@@ -796,7 +796,7 @@ X509_supported_extension.exit:                    ; preds = %328
 
 switch.lookup:                                    ; preds = %333
   %337 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_x509v3_cache_extensions, i64 %337
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_x509v3_cache_extensions, i64 %337
   %switch.load = load i32, ptr %switch.gep, align 4
   %338 = load i32, ptr %17, align 8, !tbaa !13
   %339 = or i32 %338, %switch.load
@@ -875,7 +875,7 @@ define ptr @X509_PURPOSE_get0(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %6
   br label %12
 
 8:                                                ; preds = %3
@@ -1013,7 +1013,7 @@ X509_PURPOSE_get_count.exit:                      ; preds = %2, %4
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %indvars.iv
   br label %X509_PURPOSE_get0.exit
 
 13:                                               ; preds = %9
@@ -1104,7 +1104,7 @@ X509_PURPOSE_get_count.exit.i:                    ; preds = %22, %20
   br i1 %27, label %X509_PURPOSE_get0.exit.i, label %X509_PURPOSE_get0.exit.i.thread
 
 X509_PURPOSE_get0.exit.i:                         ; preds = %26
-  %28 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 16, !tbaa !80
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %5) #9
@@ -1162,7 +1162,7 @@ select.unfold:                                    ; preds = %45, %X509_PURPOSE_g
 
 52:                                               ; preds = %X509_PURPOSE_get0.exit.i
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %54 = getelementptr inbounds nuw %struct.x509_purpose_st, ptr @xstandard, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [48 x i8], ptr @xstandard, i64 %indvars.iv.i
   br label %X509_PURPOSE_get0.exit
 
 55:                                               ; preds = %X509_PURPOSE_get0.exit.i.thread

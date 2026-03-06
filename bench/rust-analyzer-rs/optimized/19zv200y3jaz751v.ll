@@ -88,7 +88,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 16:                                               ; preds = %18, %8
   %.val18.i = phi i64 [ %.sroa.6.0.copyload, %8 ], [ %20, %18 ]
   %.0.i = phi i64 [ 0, %8 ], [ %21, %18 ]
-  %17 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.0.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.i
   %.val19.i = load i64, ptr %17, align 4, !noalias !5
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !13
@@ -111,7 +111,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !13
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.9.0.copyload, i64 %.val18.i
+  %19 = getelementptr inbounds [24 x i8], ptr %.sroa.9.0.copyload, i64 %.val18.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false), !noalias !28
   %20 = add i64 %.val18.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i), !noalias !8
@@ -848,7 +848,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left1
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %1, %2
-  %7 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %2
   tail call void @_ZN4core5slice6rotate10ptr_rotate17h0dbc64fccf577ce9E(i64 noundef %2, ptr noundef nonnull %7, i64 noundef %6)
   ret void
 }
@@ -1057,7 +1057,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 23:                                               ; preds = %25, %8
   %.val18 = phi i64 [ %.promoted, %8 ], [ %27, %25 ]
   %.0 = phi i64 [ 0, %8 ], [ %28, %25 ]
-  %24 = getelementptr inbounds { i32, i16, i16 }, ptr %0, i64 %.0
+  %24 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   %.val19 = load i64, ptr %24, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
@@ -1084,7 +1084,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !220
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  %26 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %.val18
+  %26 = getelementptr inbounds [24 x i8], ptr %19, i64 %.val18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false), !noalias !241
   %27 = add i64 %.val18, 1
   store i64 %27, ptr %20, align 8, !alias.scope !241, !noalias !242
@@ -1275,7 +1275,7 @@ define hidden void @_ZN5salsa5Cycle16all_participants17h4052be58dce82651E(ptr no
   %8 = load ptr, ptr %7, align 8, !noalias !253, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8, !noalias !253, !noundef !4
-  %11 = getelementptr inbounds { i32, i16, i16 }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   store ptr %8, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
@@ -1296,7 +1296,7 @@ define hidden void @_ZN5salsa5Cycle23unexpected_participants17h3292be2ee083fcbeE
   %8 = load ptr, ptr %7, align 8, !noalias !256, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8, !noalias !256, !noundef !4
-  %11 = getelementptr inbounds { i32, i16, i16 }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   store ptr %8, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %.sroa.4.0..sroa_idx, align 8

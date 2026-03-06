@@ -24,7 +24,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds i32, ptr %12, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %12, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !15
   %20 = icmp ne i32 %2, 0
   %21 = icmp ne ptr %16, null
@@ -62,14 +62,14 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %37 = phi i32 [ %43, %.loopexit103.us ], [ %.pre159, %.lr.ph107 ]
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.loopexit103.us ], [ 0, %.lr.ph107 ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %38 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next130
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.next130
   %39 = load i32, ptr %38, align 4, !tbaa !15
   %40 = icmp slt i32 %37, %39
   br i1 %40, label %.lr.ph.us.preheader, label %.loopexit103.us
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph107.split.us
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv129
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv129
   br label %.lr.ph.us
 
 .loopexit103.us:                                  ; preds = %52, %.lr.ph107.split.us
@@ -80,7 +80,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %52
   %44 = phi i32 [ %39, %.lr.ph.us.preheader ], [ %53, %52 ]
   %indvars.iv126 = phi i64 [ %41, %.lr.ph.us.preheader ], [ %indvars.iv.next127, %52 ]
-  %45 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv126
+  %45 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv126
   %46 = load i32, ptr %45, align 4, !tbaa !15
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv129, %47
@@ -108,10 +108,10 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph107.split:                                  ; preds = %.lr.ph107, %.loopexit103
   %57 = phi i32 [ %56, %.loopexit103 ], [ %.pre159, %.lr.ph107 ]
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit103 ], [ 0, %.lr.ph107 ]
-  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv123
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv123
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %60 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next124
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.next124
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = icmp slt i32 %57, %61
   br i1 %62, label %.lr.ph.preheader, label %.loopexit103
@@ -123,18 +123,18 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %77
   %64 = phi i32 [ %61, %.lr.ph.preheader ], [ %78, %77 ]
   %indvars.iv = phi i64 [ %63, %.lr.ph.preheader ], [ %indvars.iv.next, %77 ]
-  %65 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %65 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !15
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv123, %67
   br i1 %68, label %77, label %69
 
 69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds i32, ptr %1, i64 %67
+  %70 = getelementptr inbounds [4 x i8], ptr %1, i64 %67
   %71 = load i32, ptr %70, align 4, !tbaa !15
   %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 %59)
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i32, ptr %25, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %25, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !15
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %74, align 4, !tbaa !15
@@ -163,14 +163,14 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %82 = phi i32 [ %88, %.loopexit.us.us ], [ %.pre164, %.lr.ph114.split.us ]
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.loopexit.us.us ], [ 0, %.lr.ph114.split.us ]
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %83 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next154
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.next154
   %84 = load i32, ptr %83, align 4, !tbaa !15
   %85 = icmp slt i32 %82, %84
   br i1 %85, label %.lr.ph110.us.us.preheader, label %.loopexit.us.us
 
 .lr.ph110.us.us.preheader:                        ; preds = %.lr.ph114.split.us.split.us
   %86 = sext i32 %82 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv153
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv153
   br label %.lr.ph110.us.us
 
 .loopexit.us.us:                                  ; preds = %99, %.lr.ph114.split.us.split.us
@@ -181,7 +181,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph110.us.us:                                  ; preds = %.lr.ph110.us.us.preheader, %99
   %89 = phi i32 [ %84, %.lr.ph110.us.us.preheader ], [ %100, %99 ]
   %indvars.iv150 = phi i64 [ %86, %.lr.ph110.us.us.preheader ], [ %indvars.iv.next151, %99 ]
-  %90 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv150
+  %90 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv150
   %91 = load i32, ptr %90, align 4, !tbaa !15
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv153, %92
@@ -192,7 +192,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %87, align 4, !tbaa !15
   %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds i32, ptr %32, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %32, i64 %97
   store i32 %91, ptr %98, align 4, !tbaa !15
   %.pre165 = load i32, ptr %83, align 4, !tbaa !15
   br label %99
@@ -207,10 +207,10 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph114.split.us.split:                         ; preds = %.lr.ph114.split.us, %.loopexit.us
   %103 = phi i32 [ %110, %.loopexit.us ], [ %.pre164, %.lr.ph114.split.us ]
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.loopexit.us ], [ 0, %.lr.ph114.split.us ]
-  %104 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv145
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv145
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %106 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next146
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.next146
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = icmp slt i32 %103, %107
   br i1 %108, label %.lr.ph110.us.preheader, label %.loopexit.us
@@ -227,24 +227,24 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph110.us:                                     ; preds = %.lr.ph110.us.preheader, %127
   %111 = phi i32 [ %107, %.lr.ph110.us.preheader ], [ %128, %127 ]
   %indvars.iv142 = phi i64 [ %109, %.lr.ph110.us.preheader ], [ %indvars.iv.next143, %127 ]
-  %112 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv142
+  %112 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv142
   %113 = load i32, ptr %112, align 4, !tbaa !15
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv145, %114
   br i1 %115, label %127, label %116
 
 116:                                              ; preds = %.lr.ph110.us
-  %117 = getelementptr inbounds i32, ptr %1, i64 %114
+  %117 = getelementptr inbounds [4 x i8], ptr %1, i64 %114
   %118 = load i32, ptr %117, align 4, !tbaa !15
   %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 %105)
   %120 = tail call i32 @llvm.smax.i32(i32 %118, i32 %105)
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %25, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %25, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !15
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 4, !tbaa !15
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds i32, ptr %32, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %32, i64 %125
   store i32 %119, ptr %126, align 4, !tbaa !15
   %.pre163 = load i32, ptr %106, align 4, !tbaa !15
   br label %127
@@ -266,16 +266,16 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   br i1 %.not100, label %135, label %132
 
 132:                                              ; preds = %.lr.ph114.split
-  %133 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv137
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv137
   %134 = load i32, ptr %133, align 4, !tbaa !15
   br label %135
 
 135:                                              ; preds = %.lr.ph114.split, %132
   %136 = phi i32 [ %134, %132 ], [ %131, %.lr.ph114.split ]
-  %137 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv137
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv137
   %138 = load i32, ptr %137, align 4, !tbaa !15
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %139 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.next138
   %140 = load i32, ptr %139, align 4, !tbaa !15
   %141 = icmp slt i32 %138, %140
   br i1 %141, label %.lr.ph110.preheader, label %.loopexit
@@ -287,7 +287,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %165
   %143 = phi i32 [ %140, %.lr.ph110.preheader ], [ %166, %165 ]
   %indvars.iv134 = phi i64 [ %142, %.lr.ph110.preheader ], [ %indvars.iv.next135, %165 ]
-  %144 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv134
+  %144 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv134
   %145 = load i32, ptr %144, align 4, !tbaa !15
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv137, %146
@@ -297,7 +297,7 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   br i1 %.not100, label %152, label %149
 
 149:                                              ; preds = %148
-  %150 = getelementptr inbounds i32, ptr %1, i64 %146
+  %150 = getelementptr inbounds [4 x i8], ptr %1, i64 %146
   %151 = load i32, ptr %150, align 4, !tbaa !15
   br label %152
 
@@ -306,16 +306,16 @@ define ptr @cs_symperm(ptr noundef readonly captures(address_is_null) %0, ptr no
   %154 = tail call i32 @llvm.smin.i32(i32 %153, i32 %136)
   %155 = tail call i32 @llvm.smax.i32(i32 %153, i32 %136)
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds i32, ptr %25, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %25, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !15
   %159 = add nsw i32 %158, 1
   store i32 %159, ptr %157, align 4, !tbaa !15
   %160 = sext i32 %158 to i64
-  %161 = getelementptr inbounds i32, ptr %32, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %32, i64 %160
   store i32 %154, ptr %161, align 4, !tbaa !15
-  %162 = getelementptr inbounds double, ptr %16, i64 %indvars.iv134
+  %162 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv134
   %163 = load double, ptr %162, align 8, !tbaa !21
-  %164 = getelementptr inbounds double, ptr %.fr, i64 %160
+  %164 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %160
   store double %163, ptr %164, align 8, !tbaa !21
   %.pre161 = load i32, ptr %139, align 4, !tbaa !15
   br label %165

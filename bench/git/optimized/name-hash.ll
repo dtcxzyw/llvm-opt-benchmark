@@ -6,11 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.trace_key = type { ptr, i32, i8 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.lazy_dir_thread_data = type { i64, ptr, ptr, i32, i32 }
-%struct.lazy_entry = type { ptr, i32, i32 }
 %struct.dir_entry = type { %struct.hashmap_entry, ptr, i32, i32, [0 x i8] }
 %struct.hashmap_entry = type { ptr, i32 }
 
@@ -117,7 +112,7 @@ lookup_lazy_params.exit:                          ; preds = %.lookup_lazy_params
 38:                                               ; preds = %38, %24
   %indvars.iv.i.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i.i, %38 ]
   %39 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
-  %40 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %39, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %indvars.iv.i.i
   %41 = tail call i32 @init_recursive_mutex(ptr noundef %40) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
@@ -145,7 +140,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
 .lr.ph.i:                                         ; preds = %init_dir_mutex.exit.preheader.i, %init_dir_mutex.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %init_dir_mutex.exit.i ], [ 0, %init_dir_mutex.exit.preheader.i ]
   %.060.i = phi i32 [ %spec.select.i, %init_dir_mutex.exit.i ], [ 0, %init_dir_mutex.exit.preheader.i ]
-  %51 = getelementptr inbounds nuw %struct.lazy_dir_thread_data, ptr %35, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %indvars.iv.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %0, ptr %52, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -176,7 +171,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
 
 .lr.ph62.i:                                       ; preds = %.preheader58.i, %62
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %62 ], [ 0, %.preheader58.i ]
-  %66 = getelementptr inbounds nuw %struct.lazy_dir_thread_data, ptr %35, i64 %indvars.iv65.i
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %indvars.iv65.i
   %67 = load i64, ptr %66, align 8, !tbaa !40
   %68 = tail call i32 @pthread_join(i64 noundef %67, ptr noundef null) #14
   %.not51.i = icmp eq i32 %68, 0
@@ -209,7 +204,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %76, %85
   %78 = phi i32 [ %86, %85 ], [ %77, %76 ]
   %indvars.iv.i53.i = phi i64 [ %indvars.iv.next.i54.i, %85 ], [ 0, %76 ]
-  %79 = getelementptr inbounds nuw %struct.lazy_entry, ptr %32, i64 %indvars.iv.i53.i
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv.i53.i
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i, label %85, label %81
@@ -244,7 +239,7 @@ lazy_update_dir_ref_counts.exit.i:                ; preds = %85, %76
 .preheader.i:                                     ; preds = %lazy_update_dir_ref_counts.exit.i, %.preheader.i
   %indvars.iv.i55.i = phi i64 [ %indvars.iv.next.i56.i, %.preheader.i ], [ 0, %lazy_update_dir_ref_counts.exit.i ]
   %94 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
-  %95 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %94, i64 %indvars.iv.i55.i
+  %95 = getelementptr inbounds nuw [40 x i8], ptr %94, i64 %indvars.iv.i55.i
   %96 = tail call i32 @pthread_mutex_destroy(ptr noundef %95) #14
   %indvars.iv.next.i56.i = add nuw nsw i64 %indvars.iv.i55.i, 1
   %exitcond.not.i57.i = icmp eq i64 %indvars.iv.next.i56.i, 32
@@ -288,7 +283,7 @@ hashmap_enable_item_counting.exit:                ; preds = %threaded_lazy_init_
 .lr.ph:                                           ; preds = %lookup_lazy_params.exit, %hash_index_entry.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %hash_index_entry.exit ], [ 0, %lookup_lazy_params.exit ]
   %108 = load ptr, ptr %0, align 8, !tbaa !52
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !53
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %112 = load i32, ptr %111, align 8, !tbaa !4
@@ -903,14 +898,14 @@ define internal noalias noundef ptr @lazy_name_thread_proc(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = phi ptr [ %3, %.lr.ph ], [ %21, %7 ]
   %9 = load ptr, ptr %8, align 8, !tbaa !52
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %14 = or i32 %13, 1048576
   store i32 %14, ptr %12, align 8, !tbaa !4
   %15 = load ptr, ptr %6, align 8, !tbaa !43
-  %16 = getelementptr inbounds nuw %struct.lazy_entry, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !72
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -961,7 +956,7 @@ define internal fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 n
   %.0106 = phi i32 [ %1, %.lr.ph108 ], [ %.2, %189 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !52
   %22 = sext i32 %.0106 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !53
   %25 = load i64, ptr %8, align 8, !tbaa !65
   %.not = icmp eq i64 %25, 0
@@ -1012,7 +1007,7 @@ define internal fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 n
   %53 = srem i32 %52, 32
   %54 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %union.pthread_mutex_t, ptr %54, i64 %55
+  %56 = getelementptr inbounds [40 x i8], ptr %54, i64 %55
   %57 = call i32 @pthread_mutex_lock(ptr noundef %56) #14
   %58 = load ptr, ptr %11, align 8, !tbaa !67
   %59 = load i64, ptr %8, align 8, !tbaa !65
@@ -1063,14 +1058,14 @@ st_add.exit41.i:                                  ; preds = %st_add.exit.i
 
 77:                                               ; preds = %st_add.exit41.i
   %78 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
-  %79 = getelementptr inbounds %union.pthread_mutex_t, ptr %78, i64 %55
+  %79 = getelementptr inbounds [40 x i8], ptr %78, i64 %55
   %80 = call i32 @pthread_mutex_unlock(ptr noundef %79) #14
   %81 = load i32, ptr %12, align 8, !tbaa !55
   %82 = call i32 @hashmap_bucket(ptr noundef nonnull %14, i32 noundef %81) #14
   %83 = srem i32 %82, 32
   %84 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %union.pthread_mutex_t, ptr %84, i64 %85
+  %86 = getelementptr inbounds [40 x i8], ptr %84, i64 %85
   %87 = call i32 @pthread_mutex_lock(ptr noundef %86) #14
   %88 = load i32, ptr %17, align 8, !tbaa !4
   %89 = add nsw i32 %88, 1
@@ -1081,7 +1076,7 @@ hash_dir_entry_with_parent_and_prefix.exit:       ; preds = %51, %st_add.exit41.
   %.pre-phi.i92 = phi i64 [ %55, %st_add.exit41.i ], [ %85, %77 ], [ %55, %51 ]
   %.0.i93 = phi ptr [ %69, %st_add.exit41.i ], [ %69, %77 ], [ %61, %51 ]
   %90 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
-  %91 = getelementptr inbounds %union.pthread_mutex_t, ptr %90, i64 %.pre-phi.i92
+  %91 = getelementptr inbounds [40 x i8], ptr %90, i64 %.pre-phi.i92
   %92 = call i32 @pthread_mutex_unlock(ptr noundef %91) #14
   %93 = load i64, ptr %4, align 8, !tbaa !74
   %.not.i.i81 = icmp eq i64 %93, 0
@@ -1117,7 +1112,7 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
 102:                                              ; preds = %strbuf_addch.exit90
   %103 = load ptr, ptr %0, align 8, !tbaa !52
   %104 = sext i32 %101 to i64
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !53
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 108
   %108 = load ptr, ptr %11, align 8, !tbaa !67
@@ -1127,7 +1122,7 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   br i1 %111, label %handle_range_dir.exit, label %112
 
 112:                                              ; preds = %102
-  %113 = getelementptr ptr, ptr %103, i64 %18
+  %113 = getelementptr [8 x i8], ptr %103, i64 %18
   %114 = getelementptr i8, ptr %113, i64 -8
   %115 = load ptr, ptr %114, align 8, !tbaa !53
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 108
@@ -1142,7 +1137,7 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   %120 = lshr i32 %119, 1
   %121 = add nsw i32 %120, %.044.i105
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds ptr, ptr %103, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %103, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !53
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 108
   %126 = call i32 @strncmp(ptr noundef nonnull %125, ptr noundef %108, i64 noundef %109) #16
@@ -1274,7 +1269,7 @@ strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.
   br label %189
 
 167:                                              ; preds = %30
-  %168 = getelementptr inbounds %struct.lazy_entry, ptr %5, i64 %22
+  %168 = getelementptr inbounds [16 x i8], ptr %5, i64 %22
   store ptr %3, ptr %168, align 8, !tbaa !44
   br i1 %.not.i91, label %181, label %169
 

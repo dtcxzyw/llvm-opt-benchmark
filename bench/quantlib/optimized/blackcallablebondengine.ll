@@ -28,7 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl" }
 %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.boost::shared_ptr.46" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -2496,7 +2495,7 @@ lpad:                                             ; preds = %cond.false.i, %invo
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.072 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %income.071 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %income.1, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.46", ptr %6, i64 %i.072
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %i.072
   %13 = load ptr, ptr %add.ptr.i, align 8, !tbaa !83
   %cmp.not.i10 = icmp eq ptr %13, null
   br i1 %cmp.not.i10, label %cond.false.i11, label %invoke.cont13, !prof !82

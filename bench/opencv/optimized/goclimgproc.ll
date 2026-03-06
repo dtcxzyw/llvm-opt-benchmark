@@ -1514,7 +1514,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !16
   %32 = urem i64 %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %28, ptr %33, align 8, !tbaa !61
   %.02834 = load ptr, ptr %19, align 8, !tbaa !17
   %.not3035 = icmp eq ptr %.02834, null
@@ -1537,7 +1537,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %40 = load i64, ptr %30, align 8, !tbaa !16
   %41 = urem i64 %39, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !4
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !61
   %.not32 = icmp eq ptr %44, null
   br i1 %.not32, label %45, label %50
@@ -3596,7 +3596,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %94
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %101
   %105 = load i64, ptr %13, align 8, !tbaa !135
-  %106 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !77
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 8
   invoke void %107(ptr noundef nonnull %108)
@@ -3663,7 +3663,7 @@ _ZN2cv8GMatDescD2Ev.exit69:                       ; preds = %_ZN2cv4util7variant
 
 .body66:                                          ; preds = %109, %112
   %126 = load i64, ptr %13, align 8, !tbaa !135
-  %127 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !77
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 8
   invoke void %128(ptr noundef nonnull %129)
@@ -3714,7 +3714,7 @@ define linkonce_odr hidden void @_ZN2cv6detail11get_in_metaINS_4GMatEEENSt9enabl
   unreachable
 
 _ZNKSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EE2atEm.exit: ; preds = %4
-  %15 = getelementptr inbounds nuw %"class.cv::util::variant", ptr %9, i64 %6
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %6
   %16 = load i64, ptr %15, align 8, !tbaa !135
   %.not.i = icmp eq i64 %16, 1
   br i1 %.not.i, label %_ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEERKT_RKNS0_7variantIJDpT0_EEE.exit, label %17
@@ -3982,7 +3982,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScala
   %.01215.i.i.i.i = phi ptr [ %20, %_ZSt10_ConstructIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
   %15 = load i64, ptr %.01215.i.i.i.i, align 8, !tbaa !135
   store i64 %15, ptr %.016.i.i.i.i, align 8, !tbaa !135
-  %16 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !77
   %18 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i, i64 8
@@ -4006,7 +4006,7 @@ _ZSt10_ConstructIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDe
 .lr.ph.i.i.i.i.i.i:                               ; preds = %22, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %33, %_ZSt8_DestroyIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEEEvPT_.exit.i.i.i.i.i.i ], [ %12, %22 ]
   %26 = load i64, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !135
-  %27 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 8
   invoke void %28(ptr noundef nonnull %29)
@@ -4304,7 +4304,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !16
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !61
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -4462,7 +4462,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %2, ptr %32, align 8, !tbaa !59
   %33 = load ptr, ptr %0, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !61
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4488,7 +4488,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %46 = load i64, ptr %45, align 8, !tbaa !59
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !61
   br label %49
 
@@ -4660,7 +4660,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 96
   %16 = load i64, ptr %15, align 8, !tbaa !59
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !61
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4675,7 +4675,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !61
   br label %28
 
@@ -5617,7 +5617,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %74
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %81
   %85 = load i64, ptr %10, align 8, !tbaa !135
-  %86 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !77
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void %87(ptr noundef nonnull %88)
@@ -5674,7 +5674,7 @@ _ZN2cv8GMatDescD2Ev.exit45:                       ; preds = %_ZN2cv4util7variant
 
 .body42:                                          ; preds = %89, %92
   %104 = load i64, ptr %10, align 8, !tbaa !135
-  %105 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !77
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void %106(ptr noundef nonnull %107)
@@ -7270,7 +7270,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %111
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %118
   %122 = load i64, ptr %15, align 8, !tbaa !135
-  %123 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !77
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void %124(ptr noundef nonnull %125)
@@ -7347,7 +7347,7 @@ _ZN2cv8GMatDescD2Ev.exit84:                       ; preds = %_ZN2cv4util7variant
 
 .body81:                                          ; preds = %126, %129
   %145 = load i64, ptr %15, align 8, !tbaa !135
-  %146 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !77
   %148 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void %147(ptr noundef nonnull %148)
@@ -8595,7 +8595,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %86
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %93
   %97 = load i64, ptr %12, align 8, !tbaa !135
-  %98 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !77
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke void %99(ptr noundef nonnull %100)
@@ -8652,7 +8652,7 @@ _ZN2cv8GMatDescD2Ev.exit64:                       ; preds = %_ZN2cv4util7variant
 
 .body61:                                          ; preds = %101, %104
   %116 = load i64, ptr %12, align 8, !tbaa !135
-  %117 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !77
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke void %118(ptr noundef nonnull %119)
@@ -9724,7 +9724,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %61
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %68
   %72 = load i64, ptr %9, align 8, !tbaa !135
-  %73 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !77
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void %74(ptr noundef nonnull %75)
@@ -9779,7 +9779,7 @@ _ZN2cv8GMatDescD2Ev.exit44:                       ; preds = %_ZN2cv4util7variant
 
 .body41:                                          ; preds = %76, %79
   %90 = load i64, ptr %9, align 8, !tbaa !135
-  %91 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !77
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void %92(ptr noundef nonnull %93)
@@ -10914,7 +10914,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %70
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %77
   %81 = load i64, ptr %10, align 8, !tbaa !135
-  %82 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !77
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void %83(ptr noundef nonnull %84)
@@ -10969,7 +10969,7 @@ _ZN2cv8GMatDescD2Ev.exit53:                       ; preds = %_ZN2cv4util7variant
 
 .body50:                                          ; preds = %85, %88
   %99 = load i64, ptr %10, align 8, !tbaa !135
-  %100 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !77
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 8
   invoke void %101(ptr noundef nonnull %102)
@@ -11650,7 +11650,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %34
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %41
   %45 = load i64, ptr %6, align 8, !tbaa !135
-  %46 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !77
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   invoke void %47(ptr noundef nonnull %48)
@@ -11705,7 +11705,7 @@ _ZN2cv8GMatDescD2Ev.exit17:                       ; preds = %_ZN2cv4util7variant
 
 .body14:                                          ; preds = %49, %52
   %63 = load i64, ptr %6, align 8, !tbaa !135
-  %64 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   invoke void %65(ptr noundef nonnull %66)
@@ -12770,7 +12770,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %81
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %88
   %92 = load i64, ptr %11, align 8, !tbaa !135
-  %93 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !77
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %94(ptr noundef nonnull %95)
@@ -12836,7 +12836,7 @@ _ZN2cv8GMatDescD2Ev.exit57:                       ; preds = %_ZN2cv4util7variant
 
 .body54:                                          ; preds = %96, %99
   %112 = load i64, ptr %11, align 8, !tbaa !135
-  %113 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !77
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %114(ptr noundef nonnull %115)
@@ -13900,7 +13900,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %81
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %88
   %92 = load i64, ptr %11, align 8, !tbaa !135
-  %93 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !77
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %94(ptr noundef nonnull %95)
@@ -13966,7 +13966,7 @@ _ZN2cv8GMatDescD2Ev.exit57:                       ; preds = %_ZN2cv4util7variant
 
 .body54:                                          ; preds = %96, %99
   %112 = load i64, ptr %11, align 8, !tbaa !135
-  %113 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !77
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %114(ptr noundef nonnull %115)
@@ -15343,7 +15343,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %104
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %111
   %115 = load i64, ptr %14, align 8, !tbaa !135
-  %116 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !77
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void %117(ptr noundef nonnull %118)
@@ -15400,7 +15400,7 @@ _ZN2cv8GMatDescD2Ev.exit89:                       ; preds = %_ZN2cv4util7variant
 
 .body86:                                          ; preds = %119, %122
   %134 = load i64, ptr %14, align 8, !tbaa !135
-  %135 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !77
   %137 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void %136(ptr noundef nonnull %137)
@@ -16413,7 +16413,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %77
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %84
   %88 = load i64, ptr %11, align 8, !tbaa !135
-  %89 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !77
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %90(ptr noundef nonnull %91)
@@ -16470,7 +16470,7 @@ _ZN2cv8GMatDescD2Ev.exit59:                       ; preds = %_ZN2cv4util7variant
 
 .body56:                                          ; preds = %92, %95
   %107 = load i64, ptr %11, align 8, !tbaa !135
-  %108 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !77
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 8
   invoke void %109(ptr noundef nonnull %110)
@@ -17388,7 +17388,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %61
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %68
   %72 = load i64, ptr %9, align 8, !tbaa !135
-  %73 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !77
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void %74(ptr noundef nonnull %75)
@@ -17443,7 +17443,7 @@ _ZN2cv8GMatDescD2Ev.exit47:                       ; preds = %_ZN2cv4util7variant
 
 .body44:                                          ; preds = %76, %79
   %90 = load i64, ptr %9, align 8, !tbaa !135
-  %91 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !77
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void %92(ptr noundef nonnull %93)
@@ -18410,7 +18410,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %73
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %80
   %84 = load i64, ptr %9, align 8, !tbaa !135
-  %85 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !77
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void %86(ptr noundef nonnull %87)
@@ -18466,7 +18466,7 @@ _ZN2cv8GMatDescD2Ev.exit48:                       ; preds = %_ZN2cv4util7variant
 
 .body45:                                          ; preds = %88, %91
   %102 = load i64, ptr %9, align 8, !tbaa !135
-  %103 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !77
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void %104(ptr noundef nonnull %105)
@@ -19095,7 +19095,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %29
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %36
   %40 = load i64, ptr %5, align 8, !tbaa !135
-  %41 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %42(ptr noundef nonnull %43)
@@ -19146,7 +19146,7 @@ _ZN2cv8GMatDescD2Ev.exit14:                       ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %44, %47
   %57 = load i64, ptr %5, align 8, !tbaa !135
-  %58 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !77
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %59(ptr noundef nonnull %60)
@@ -19726,7 +19726,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -19769,7 +19769,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -20343,7 +20343,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -20386,7 +20386,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -20960,7 +20960,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -21003,7 +21003,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -21577,7 +21577,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -21620,7 +21620,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -22194,7 +22194,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -22237,7 +22237,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -22811,7 +22811,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -22854,7 +22854,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -23428,7 +23428,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %24
   %28 = load i64, ptr %4, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %30(ptr noundef nonnull %31)
@@ -23471,7 +23471,7 @@ _ZN2cv8GMatDescD2Ev.exit8:                        ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %32, %35
   %42 = load i64, ptr %4, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !77
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void %44(ptr noundef nonnull %45)
@@ -24092,7 +24092,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %29
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %36
   %40 = load i64, ptr %5, align 8, !tbaa !135
-  %41 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %42(ptr noundef nonnull %43)
@@ -24143,7 +24143,7 @@ _ZN2cv8GMatDescD2Ev.exit14:                       ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %44, %47
   %57 = load i64, ptr %5, align 8, !tbaa !135
-  %58 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !77
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %59(ptr noundef nonnull %60)
@@ -24768,7 +24768,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %29
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %36
   %40 = load i64, ptr %5, align 8, !tbaa !135
-  %41 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !77
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %42(ptr noundef nonnull %43)
@@ -24819,7 +24819,7 @@ _ZN2cv8GMatDescD2Ev.exit14:                       ; preds = %_ZN2cv4util7variant
 
 .body:                                            ; preds = %44, %47
   %57 = load i64, ptr %5, align 8, !tbaa !135
-  %58 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !77
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void %59(ptr noundef nonnull %60)
@@ -25951,7 +25951,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i: ; preds = %64
 
 _ZNSt6vectorIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScalarDescENS0_10GArrayDescENS0_11GOpaqueDescENS0_10GFrameDescEEEESaIS9_EEC2ESt16initializer_listIS9_ERKSA_.exit.preheader: ; preds = %71
   %75 = load i64, ptr %8, align 8, !tbaa !135
-  %76 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !77
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void %77(ptr noundef nonnull %78)
@@ -26007,7 +26007,7 @@ _ZN2cv8GMatDescD2Ev.exit43:                       ; preds = %_ZN2cv4util7variant
 
 .body40:                                          ; preds = %79, %82
   %93 = load i64, ptr %8, align 8, !tbaa !135
-  %94 = getelementptr inbounds nuw ptr, ptr @constinit.6, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr @constinit.6, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !77
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void %95(ptr noundef nonnull %96)

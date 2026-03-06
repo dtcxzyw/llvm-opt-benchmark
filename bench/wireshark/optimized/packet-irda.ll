@@ -696,8 +696,8 @@ define hidden void @proto_register_irda() local_unnamed_addr #0 {
 
 15:                                               ; preds = %0, %15
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr i32, ptr @ett_param, i64 %indvars.iv
-  %17 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr @ett_param, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -709,8 +709,8 @@ define hidden void @proto_register_irda() local_unnamed_addr #0 {
 
 19:                                               ; preds = %18, %19
   %indvars.iv11 = phi i64 [ 0, %18 ], [ %indvars.iv.next12, %19 ]
-  %20 = getelementptr i32, ptr @ett_iap_entry, i64 %indvars.iv11
-  %21 = getelementptr ptr, ptr %2, i64 %indvars.iv11
+  %20 = getelementptr [4 x i8], ptr @ett_iap_entry, i64 %indvars.iv11
+  %21 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv11
   store ptr %20, ptr %21, align 8
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 32
@@ -1199,7 +1199,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
 
 .preheader136.i.i.i:                              ; preds = %.thread.i.i.i, %249
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %249 ], [ 0, %.thread.i.i.i ]
-  %250 = getelementptr %struct.ias_class_dissector, ptr @class_dissector, i64 %indvars.iv.i.i.i
+  %250 = getelementptr [16 x i8], ptr @class_dissector, i64 %indvars.iv.i.i.i
   %251 = load ptr, ptr %250, align 16
   %252 = call i32 @strcmp(ptr noundef %238, ptr noundef %251) #8
   %253 = icmp eq i32 %252, 0
@@ -1221,7 +1221,7 @@ dissect_log.exit:                                 ; preds = %52, %.sink.split.i
   %.0107143.i173.i.i = phi i32 [ %259, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i ]
   %259 = add i32 %.0107143.i173.i.i, 1
   %260 = sext i32 %259 to i64
-  %261 = getelementptr %struct.ias_attr_dissector, ptr %255, i64 %260
+  %261 = getelementptr [16 x i8], ptr %255, i64 %260
   %262 = load ptr, ptr %261, align 8
   %.not119.i.i.i = icmp eq ptr %262, null
   br i1 %.not119.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
@@ -1516,7 +1516,7 @@ dissect_iap_request.exit.i.i:                     ; preds = %.thread133.i.i.i, %
   %indvars.iv.next.i148.i.i = add nuw nsw i64 %indvars.iv.i147.i.i, 1
   %404 = trunc nuw nsw i64 %indvars.iv.next.i148.i.i to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %403, ptr noundef nonnull @.str.267, i32 noundef %404)
-  %405 = getelementptr i32, ptr @ett_iap_entry, i64 %indvars.iv.i147.i.i
+  %405 = getelementptr [4 x i8], ptr @ett_iap_entry, i64 %indvars.iv.i147.i.i
   %406 = load i32, ptr %405, align 4
   %407 = call ptr @proto_item_add_subtree(ptr noundef %403, i32 noundef %406)
   %408 = load i32, ptr @hf_iap_obj_id, align 4
@@ -2011,7 +2011,7 @@ define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noun
   %17 = add nuw nsw i32 %16, 2
   %18 = call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %15, ptr noundef %0, i32 noundef %.0140, i32 noundef %17, i32 noundef 0)
   %19 = zext i32 %.086139 to i64
-  %20 = getelementptr i32, ptr @ett_param, i64 %19
+  %20 = getelementptr [4 x i8], ptr @ett_param, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %21)
   %23 = add i32 %.0140, 2
@@ -2817,7 +2817,7 @@ define internal fastcc void @dissect_xid(ptr noundef %0, ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %130
   %132 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_xid, i64 %132
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_xid, i64 %132
   %switch.load = load i32, ptr %switch.gep, align 4
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %134 = load ptr, ptr %133, align 8

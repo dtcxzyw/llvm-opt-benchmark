@@ -3,8 +3,6 @@ source_filename = "bench/recastnavigation/original/NavMeshTesterTool.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.dtLink = type { i32, i32, i8, i8, i8, i8 }
-
 $_ZN17NavMeshTesterToolD2Ev = comdat any
 
 $_ZN17NavMeshTesterToolD0Ev = comdat any
@@ -332,7 +330,7 @@ define dso_local void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align
   %105 = load i32, ptr %61, align 8
   %106 = call noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104) %104, i32 noundef %105, ptr noundef nonnull %67, ptr noundef nonnull %7, ptr noundef null)
   %107 = load ptr, ptr %93, align 8
-  %108 = getelementptr i32, ptr %6, i64 %102
+  %108 = getelementptr [4 x i8], ptr %6, i64 %102
   %109 = getelementptr i8, ptr %108, i64 -4
   %110 = load i32, ptr %109, align 4
   %111 = call noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104) %107, i32 noundef %110, ptr noundef nonnull %76, ptr noundef nonnull %8, ptr noundef null)
@@ -422,14 +420,14 @@ _ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.exit.thread: ; preds 
 156:                                              ; preds = %_Z7inRangePKfS0_ff.exit.i, %140, %136
   %157 = mul i64 %indvars.iv43.i, 3
   %158 = and i64 %157, 4294967295
-  %159 = getelementptr inbounds nuw float, ptr %2, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %158
   %160 = load float, ptr %159, align 4
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %162 = load float, ptr %161, align 4
   %163 = and i64 %indvars.iv43.i, 4294967295
   %164 = getelementptr inbounds nuw i8, ptr %3, i64 %163
   %165 = load i8, ptr %164, align 1
-  %166 = getelementptr inbounds nuw i32, ptr %4, i64 %163
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %163
   %167 = load i32, ptr %166, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -507,7 +505,7 @@ _Z7inRangePKfS0_ff.exit:                          ; preds = %196
   %213 = load float, ptr %8, align 4
   %214 = mul nsw i32 %206, 3
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds float, ptr %112, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %112, i64 %215
   store float %213, ptr %216, align 4
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store float %212, ptr %217, align 4
@@ -566,7 +564,7 @@ _Z7inRangePKfS0_ff.exit98:                        ; preds = %221
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.053132 = phi i32 [ %.053130, %.lr.ph.preheader ], [ %.053, %.lr.ph ]
-  %238 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.053 = load i32, ptr %238, align 4
   %239 = icmp samesign ult i64 %indvars.iv.next, %233
@@ -576,10 +574,10 @@ _Z7inRangePKfS0_ff.exit98:                        ; preds = %221
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %indvars.iv144 = phi i64 [ %236, %.lr.ph136.preheader ], [ %indvars.iv.next145, %.lr.ph136 ]
-  %242 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv144
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv144
   %243 = load i32, ptr %242, align 4
   %244 = sub nuw nsw i64 %indvars.iv144, %237
-  %245 = getelementptr inbounds nuw i32, ptr %6, i64 %244
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %244
   store i32 %243, ptr %245, align 4
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count
@@ -601,7 +599,7 @@ _Z7inRangePKfS0_ff.exit98:                        ; preds = %221
 253:                                              ; preds = %250
   %254 = mul nsw i32 %251, 3
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds float, ptr %112, i64 %255
+  %256 = getelementptr inbounds [4 x i8], ptr %112, i64 %255
   %257 = load float, ptr %14, align 4
   store float %257, ptr %256, align 4
   %258 = load float, ptr %124, align 4
@@ -620,7 +618,7 @@ _Z7inRangePKfS0_ff.exit98:                        ; preds = %221
 265:                                              ; preds = %253
   %266 = mul nsw i32 %263, 3
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds float, ptr %112, i64 %267
+  %268 = getelementptr inbounds [4 x i8], ptr %112, i64 %267
   store float %257, ptr %268, align 4
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
   store float %258, ptr %269, align 4
@@ -655,7 +653,7 @@ _Z7inRangePKfS0_ff.exit98.thread:                 ; preds = %221, %_Z7inRangePKf
 283:                                              ; preds = %_Z7inRangePKfS0_ff.exit98.thread
   %284 = mul nsw i32 %281, 3
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds float, ptr %112, i64 %285
+  %286 = getelementptr inbounds [4 x i8], ptr %112, i64 %285
   %287 = load float, ptr %7, align 4
   store float %287, ptr %286, align 4
   %288 = load float, ptr %114, align 4
@@ -749,7 +747,7 @@ _Z7inRangePKfS0_ff.exit98.thread:                 ; preds = %221, %_Z7inRangePKf
   %350 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store float %349, ptr %350, align 4
   %351 = sext i32 %344 to i64
-  %352 = getelementptr i32, ptr %340, i64 %351
+  %352 = getelementptr [4 x i8], ptr %340, i64 %351
   %353 = getelementptr i8, ptr %352, i64 -4
   %354 = load i32, ptr %353, align 4
   %355 = load i32, ptr %307, align 4
@@ -954,7 +952,7 @@ _Z7inRangePKfS0_ff.exit98.thread:                 ; preds = %221, %_Z7inRangePKf
   store float 0.000000e+00, ptr %19, align 4
   %495 = load ptr, ptr %462, align 8
   %496 = zext nneg i32 %492 to i64
-  %497 = getelementptr i32, ptr %466, i64 %496
+  %497 = getelementptr [4 x i8], ptr %466, i64 %496
   %498 = getelementptr i8, ptr %497, i64 -4
   %499 = load i32, ptr %498, align 4
   %500 = call noundef i32 @_ZNK14dtNavMeshQuery13getPolyHeightEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104) %495, i32 noundef %499, ptr noundef nonnull %488, ptr noundef nonnull %19)
@@ -1457,7 +1455,7 @@ define dso_local void @_ZN17NavMeshTesterTool10handleMenuEv(ptr noundef nonnull 
   %115 = load i32, ptr %104, align 8
   %116 = mul nsw i32 %115, 3
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds float, ptr %107, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %107, i64 %117
   %119 = load float, ptr %2, align 4
   store float %119, ptr %118, align 4
   %120 = load float, ptr %108, align 4
@@ -1514,7 +1512,7 @@ define dso_local void @_ZN17NavMeshTesterTool10handleMenuEv(ptr noundef nonnull 
   %151 = load i32, ptr %134, align 8
   %152 = mul nsw i32 %151, 3
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds float, ptr %141, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %141, i64 %153
   %155 = load float, ptr %4, align 4
   store float %155, ptr %154, align 4
   %156 = load float, ptr %142, align 4
@@ -1798,7 +1796,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleToggleEv(ptr noundef nonnul
   %52 = load ptr, ptr %32, align 8
   %53 = load i32, ptr %42, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i32, ptr %0, i64 %54
+  %55 = getelementptr [4 x i8], ptr %0, i64 %54
   %56 = getelementptr i8, ptr %55, i64 32204
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 33272
@@ -1954,7 +1952,7 @@ _Z7inRangePKfS0_ff.exit:                          ; preds = %140
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 6732
   %159 = mul nsw i32 %155, 3
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds float, ptr %158, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %158, i64 %160
   store float %150, ptr %161, align 4
   br label %.sink.split
 
@@ -2007,7 +2005,7 @@ _Z7inRangePKfS0_ff.exit51:                        ; preds = %162
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02763 = phi i32 [ %.02761, %.lr.ph.preheader ], [ %.027, %.lr.ph ]
-  %181 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.027 = load i32, ptr %181, align 4
   %182 = icmp samesign ult i64 %indvars.iv.next, %176
@@ -2017,10 +2015,10 @@ _Z7inRangePKfS0_ff.exit51:                        ; preds = %162
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
   %indvars.iv73 = phi i64 [ %179, %.lr.ph67.preheader ], [ %indvars.iv.next74, %.lr.ph67 ]
-  %185 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv73
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv73
   %186 = load i32, ptr %185, align 4
   %187 = sub nuw nsw i64 %indvars.iv73, %180
-  %188 = getelementptr inbounds nuw i32, ptr %89, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %187
   store i32 %186, ptr %188, align 4
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %189 = load i32, ptr %79, align 8
@@ -2048,7 +2046,7 @@ _Z7inRangePKfS0_ff.exit51:                        ; preds = %162
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 6732
   %202 = mul nsw i32 %198, 3
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds float, ptr %201, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %201, i64 %203
   %205 = load float, ptr %10, align 4
   store float %205, ptr %204, align 4
   %206 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2069,7 +2067,7 @@ _Z7inRangePKfS0_ff.exit51:                        ; preds = %162
 215:                                              ; preds = %200
   %216 = mul nsw i32 %213, 3
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds float, ptr %201, i64 %217
+  %218 = getelementptr inbounds [4 x i8], ptr %201, i64 %217
   store float %205, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
   store float %207, ptr %219, align 4
@@ -2106,7 +2104,7 @@ _Z7inRangePKfS0_ff.exit51.thread:                 ; preds = %162, %_Z7inRangePKf
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 6732
   %237 = mul nsw i32 %233, 3
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds float, ptr %236, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %236, i64 %238
   %240 = load float, ptr %69, align 8
   store float %240, ptr %239, align 4
   br label %.sink.split
@@ -2165,8 +2163,8 @@ define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryP
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = mul nuw nsw i64 %indvars.iv, 3
-  %23 = getelementptr inbounds nuw float, ptr %8, i64 %22
-  %24 = getelementptr inbounds nuw float, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %22
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %22
   %25 = load float, ptr %24, align 4
   store float %25, ptr %23, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -2231,7 +2229,7 @@ _Z7inRangePKfS0_ff.exit:                          ; preds = %39
 _Z7inRangePKfS0_ff.exit.thread:                   ; preds = %39, %35, %_Z7inRangePKfS0_ff.exit
   %58 = mul i64 %indvars.iv43, 3
   %59 = and i64 %58, 4294967295
-  %60 = getelementptr inbounds nuw float, ptr %11, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %59
   %61 = load float, ptr %60, align 4
   store float %61, ptr %5, align 4
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -2248,7 +2246,7 @@ _Z7inRangePKfS0_ff.exit.thread:                   ; preds = %39, %35, %_Z7inRang
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 %69
   %71 = load i8, ptr %70, align 1
   store i8 %71, ptr %6, align 1
-  %72 = getelementptr inbounds nuw i32, ptr %13, i64 %69
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %69
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr %7, align 4
   br label %.loopexit
@@ -2295,7 +2293,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
   %.04252 = phi i32 [ %.04249, %.lr.ph ], [ %.042, %28 ]
   %.04351 = phi i32 [ 0, %.lr.ph ], [ %.144, %28 ]
   %19 = zext i32 %.04252 to i64
-  %20 = getelementptr inbounds nuw %struct.dtLink, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp ne i32 %21, 0
   %23 = icmp slt i32 %.04351, 16
@@ -2305,7 +2303,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 24:                                               ; preds = %18
   %25 = add nsw i32 %.04351, 1
   %26 = sext i32 %.04351 to i64
-  %27 = getelementptr inbounds i32, ptr %4, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %4, i64 %26
   store i32 %21, ptr %27, align 4
   br label %28
 
@@ -2329,7 +2327,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge55.us
   %indvars.iv68 = phi i64 [ %32, %.preheader.us.preheader ], [ %indvars.iv.next69, %._crit_edge55.us ]
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv68
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv68
   %34 = load i32, ptr %33, align 4
   %35 = trunc nuw i64 %indvars.iv68 to i32
   br label %37
@@ -2341,7 +2339,7 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 
 37:                                               ; preds = %.preheader.us, %36
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %36 ]
-  %38 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %34, %39
   br i1 %40, label %._crit_edge55.us, label %36
@@ -2367,14 +2365,14 @@ define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr 
 .lr.ph65.preheader:                               ; preds = %45
   %49 = zext nneg i32 %46 to i64
   %wide.trip.count74 = zext nneg i32 %47 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %49
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %49
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv71 = phi i64 [ 1, %.lr.ph65.preheader ], [ %indvars.iv.next72, %.lr.ph65 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv71
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv71
   %50 = load i32, ptr %gep, align 4
-  %51 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv71
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv71
   store i32 %50, ptr %51, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
@@ -2442,7 +2440,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleUpdateEf(ptr noundef nonnul
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %33, ptr %34, align 4
   %35 = sext i32 %25 to i64
-  %36 = getelementptr i32, ptr %21, i64 %35
+  %36 = getelementptr [4 x i8], ptr %21, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -4
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 308
@@ -2719,7 +2717,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 112:                                              ; preds = %.lr.ph471, %123
   %113 = phi i32 [ %109, %.lr.ph471 ], [ %124, %123 ]
   %indvars.iv542 = phi i64 [ 0, %.lr.ph471 ], [ %indvars.iv.next543, %123 ]
-  %114 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv542
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv542
   %115 = load i32, ptr %114, align 4
   %116 = load i32, ptr %101, align 8
   %117 = icmp eq i32 %115, %116
@@ -2966,7 +2964,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 284:                                              ; preds = %.lr.ph461, %295
   %285 = phi i32 [ %281, %.lr.ph461 ], [ %296, %295 ]
   %indvars.iv533 = phi i64 [ 0, %.lr.ph461 ], [ %indvars.iv.next534, %295 ]
-  %286 = getelementptr inbounds nuw i32, ptr %283, i64 %indvars.iv533
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %indvars.iv533
   %287 = load i32, ptr %286, align 4
   %288 = load i32, ptr %273, align 8
   %289 = icmp eq i32 %287, %288
@@ -3155,7 +3153,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 393:                                              ; preds = %.lr.ph450, %393
   %indvars.iv524 = phi i64 [ 1, %.lr.ph450 ], [ %indvars.iv.next525, %393 ]
   %394 = load ptr, ptr %74, align 8
-  %395 = getelementptr inbounds nuw i32, ptr %392, i64 %indvars.iv524
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %392, i64 %indvars.iv524
   %396 = load i32, ptr %395, align 4
   %.b605 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
   %397 = select i1 %.b605, i32 1073741824, i32 0
@@ -3369,7 +3367,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
 546:                                              ; preds = %.lr.ph447, %635
   %indvars.iv521 = phi i64 [ 0, %.lr.ph447 ], [ %indvars.iv.next522, %635 ]
   %547 = load ptr, ptr %74, align 8
-  %548 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv521
+  %548 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv521
   %549 = load i32, ptr %548, align 4
   %.b604 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
   %550 = select i1 %.b604, i32 1073741824, i32 0
@@ -3378,7 +3376,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 16
   %553 = load ptr, ptr %552, align 8
   call void %553(ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
-  %554 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv521
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv521
   %555 = load i32, ptr %554, align 4
   %.not298 = icmp eq i32 %555, 0
   br i1 %.not298, label %635, label %556
@@ -3418,7 +3416,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   %574 = phi float [ 0.000000e+00, %.lr.ph.i ], [ %584, %572 ]
   %575 = phi float [ 0.000000e+00, %.lr.ph.i ], [ %581, %572 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %572 ]
-  %576 = getelementptr inbounds nuw i16, ptr %569, i64 %indvars.iv.i
+  %576 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %indvars.iv.i
   %577 = load i16, ptr %576, align 2
   %578 = zext i16 %577 to i64
   %.idx.i = mul nuw nsw i64 %578, 12
@@ -3486,7 +3484,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit:            ; preds = %556, %._crit_edge.i
   %610 = phi float [ 0.000000e+00, %.lr.ph.i324 ], [ %620, %608 ]
   %611 = phi float [ 0.000000e+00, %.lr.ph.i324 ], [ %617, %608 ]
   %indvars.iv.i325 = phi i64 [ 0, %.lr.ph.i324 ], [ %indvars.iv.next.i327, %608 ]
-  %612 = getelementptr inbounds nuw i16, ptr %605, i64 %indvars.iv.i325
+  %612 = getelementptr inbounds nuw [2 x i8], ptr %605, i64 %indvars.iv.i325
   %613 = load i16, ptr %612, align 2
   %614 = zext i16 %613 to i64
   %.idx.i326 = mul nuw nsw i64 %614, 12
@@ -3582,7 +3580,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
 669:                                              ; preds = %.lr.ph442, %758
   %indvars.iv512 = phi i64 [ 0, %.lr.ph442 ], [ %indvars.iv.next513, %758 ]
   %670 = load ptr, ptr %74, align 8
-  %671 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv512
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv512
   %672 = load i32, ptr %671, align 4
   %.b603 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
   %673 = select i1 %.b603, i32 1073741824, i32 0
@@ -3591,7 +3589,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 16
   %676 = load ptr, ptr %675, align 8
   call void %676(ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
-  %677 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv512
+  %677 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv512
   %678 = load i32, ptr %677, align 4
   %.not297 = icmp eq i32 %678, 0
   br i1 %.not297, label %758, label %679
@@ -3631,7 +3629,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   %697 = phi float [ 0.000000e+00, %.lr.ph.i337 ], [ %707, %695 ]
   %698 = phi float [ 0.000000e+00, %.lr.ph.i337 ], [ %704, %695 ]
   %indvars.iv.i338 = phi i64 [ 0, %.lr.ph.i337 ], [ %indvars.iv.next.i340, %695 ]
-  %699 = getelementptr inbounds nuw i16, ptr %692, i64 %indvars.iv.i338
+  %699 = getelementptr inbounds nuw [2 x i8], ptr %692, i64 %indvars.iv.i338
   %700 = load i16, ptr %699, align 2
   %701 = zext i16 %700 to i64
   %.idx.i339 = mul nuw nsw i64 %701, 12
@@ -3699,7 +3697,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit344:         ; preds = %679, %._crit_edge.i
   %733 = phi float [ 0.000000e+00, %.lr.ph.i350 ], [ %743, %731 ]
   %734 = phi float [ 0.000000e+00, %.lr.ph.i350 ], [ %740, %731 ]
   %indvars.iv.i351 = phi i64 [ 0, %.lr.ph.i350 ], [ %indvars.iv.next.i353, %731 ]
-  %735 = getelementptr inbounds nuw i16, ptr %728, i64 %indvars.iv.i351
+  %735 = getelementptr inbounds nuw [2 x i8], ptr %728, i64 %indvars.iv.i351
   %736 = load i16, ptr %735, align 2
   %737 = zext i16 %736 to i64
   %.idx.i352 = mul nuw nsw i64 %737, 12
@@ -3780,7 +3778,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %.0279445 = phi i64 [ 3, %769 ], [ %indvars.iv515, %777 ]
   %778 = mul i64 %.0279445, 3
   %779 = and i64 %778, 4294967295
-  %780 = getelementptr inbounds nuw float, ptr %776, i64 %779
+  %780 = getelementptr inbounds nuw [4 x i8], ptr %776, i64 %779
   %.idx565 = mul nuw nsw i64 %indvars.iv515, 12
   %781 = getelementptr inbounds nuw i8, ptr %776, i64 %.idx565
   %782 = load ptr, ptr %20, align 8
@@ -3809,7 +3807,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
 795:                                              ; preds = %.lr.ph439, %._crit_edge
   %indvars.iv507 = phi i64 [ 0, %.lr.ph439 ], [ %indvars.iv.next508, %._crit_edge ]
   %796 = load ptr, ptr %74, align 8
-  %797 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv507
+  %797 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv507
   %798 = load i32, ptr %797, align 4
   %.b602 = load i1, ptr @_ZZN17NavMeshTesterTool12handleRenderEvE7pathCol, align 4
   %799 = select i1 %.b602, i32 1073741824, i32 0
@@ -3818,7 +3816,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 16
   %802 = load ptr, ptr %801, align 8
   call void %802(ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
-  %803 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv507
+  %803 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv507
   %804 = load i32, ptr %803, align 4
   %.not295 = icmp eq i32 %804, 0
   br i1 %.not295, label %884, label %805
@@ -3858,7 +3856,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %823 = phi float [ 0.000000e+00, %.lr.ph.i363 ], [ %833, %821 ]
   %824 = phi float [ 0.000000e+00, %.lr.ph.i363 ], [ %830, %821 ]
   %indvars.iv.i364 = phi i64 [ 0, %.lr.ph.i363 ], [ %indvars.iv.next.i366, %821 ]
-  %825 = getelementptr inbounds nuw i16, ptr %818, i64 %indvars.iv.i364
+  %825 = getelementptr inbounds nuw [2 x i8], ptr %818, i64 %indvars.iv.i364
   %826 = load i16, ptr %825, align 2
   %827 = zext i16 %826 to i64
   %.idx.i365 = mul nuw nsw i64 %827, 12
@@ -3926,7 +3924,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit370:         ; preds = %805, %._crit_edge.i
   %859 = phi float [ 0.000000e+00, %.lr.ph.i376 ], [ %869, %857 ]
   %860 = phi float [ 0.000000e+00, %.lr.ph.i376 ], [ %866, %857 ]
   %indvars.iv.i377 = phi i64 [ 0, %.lr.ph.i376 ], [ %indvars.iv.next.i379, %857 ]
-  %861 = getelementptr inbounds nuw i16, ptr %854, i64 %indvars.iv.i377
+  %861 = getelementptr inbounds nuw [2 x i8], ptr %854, i64 %indvars.iv.i377
   %862 = load i16, ptr %861, align 2
   %863 = zext i16 %862 to i64
   %.idx.i378 = mul nuw nsw i64 %863, 12
@@ -4002,7 +4000,7 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit383:         ; preds = %_ZL13getPolyCenterP
   %902 = load float, ptr %901, align 4
   %903 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %904 = load float, ptr %903, align 8
-  %905 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %905 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %906 = load i32, ptr %905, align 4
   %.not296 = icmp eq i32 %906, 0
   br i1 %.not296, label %921, label %907

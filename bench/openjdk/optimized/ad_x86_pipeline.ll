@@ -121,7 +121,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noun
 .lr.ph41.split.us:                                ; preds = %.lr.ph41.split.us.preheader, %..loopexit29_crit_edge.us
   %indvars.iv47 = phi i64 [ 0, %.lr.ph41.split.us.preheader ], [ %indvars.iv.next48, %..loopexit29_crit_edge.us ]
   %.02240.us = phi i32 [ %1, %.lr.ph41.split.us.preheader ], [ %.1.us, %..loopexit29_crit_edge.us ]
-  %18 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %13, i64 %indvars.iv47
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 %indvars.iv47
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i8, ptr %19, align 4
   %21 = trunc i8 %20 to i1
@@ -130,7 +130,7 @@ define hidden noundef i32 @_ZNK8Pipeline23functional_unit_latencyEjPKS_(ptr noun
 22:                                               ; preds = %.preheader.us, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %.loopexit.us ]
   %.235.us = phi i32 [ %.02240.us, %.preheader.us ], [ %.3.us, %.loopexit.us ]
-  %23 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %17, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %17, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
@@ -200,7 +200,7 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr noundef no
 10:                                               ; preds = %.lr.ph79, %.loopexit57
   %indvars.iv = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next, %.loopexit57 ]
   %.077 = phi i32 [ %1, %.lr.ph79 ], [ %.4, %.loopexit57 ]
-  %11 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
@@ -223,7 +223,7 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr noundef no
   %.04073 = phi i32 [ %16, %.lr.ph74 ], [ %36, %.loopexit ]
   %.04172 = phi i32 [ 7, %.lr.ph74 ], [ %spec.select, %.loopexit ]
   %23 = zext i32 %.04073 to i64
-  %24 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %9, i64 %23
+  %24 = getelementptr inbounds nuw [20 x i8], ptr %9, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, %20
   %.not45 = icmp eq i32 %26, 0
@@ -271,7 +271,7 @@ define hidden noundef i32 @_ZNK12Pipeline_Use12full_latencyEjRKS_(ptr noundef no
   %.163 = phi i32 [ %.077, %.lr.ph64 ], [ %.3, %.loopexit56 ]
   %.03662 = phi i32 [ %16, %.lr.ph64 ], [ %54, %.loopexit56 ]
   %41 = zext i32 %.03662 to i64
-  %42 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %9, i64 %41
+  %42 = getelementptr inbounds nuw [20 x i8], ptr %9, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, %38
   %.not43 = icmp eq i32 %44, 0
@@ -327,7 +327,7 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8
 7:                                                ; preds = %.lr.ph43, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %.loopexit ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
@@ -350,7 +350,7 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8
 21:                                               ; preds = %.lr.ph41, %37
   %.02940 = phi i32 [ %14, %.lr.ph41 ], [ %38, %37 ]
   %22 = zext i32 %.02940 to i64
-  %23 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %18, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, %20
@@ -388,7 +388,7 @@ define hidden void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8
   %.02837 = phi i32 [ %14, %.lr.ph ], [ %54, %41 ]
   %42 = load ptr, ptr %6, align 8
   %43 = zext i32 %.02837 to i64
-  %44 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [20 x i8], ptr %42, i64 %43
   %45 = shl nuw i32 1, %.02837
   %46 = load i32, ptr %44, align 4
   %47 = or i32 %46, %45
@@ -443,7 +443,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK8Pipeline15operand_late
   %19 = load ptr, ptr %18, align 8
   %20 = add nsw i32 %1, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i8 %17, 0
   %25 = icmp eq i32 %23, 0
@@ -482,7 +482,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZNK8Pipeline23functional_unit_latencyEjPKS_.exit, label %8
@@ -570,7 +570,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 .lr.ph41.split.us.i:                              ; preds = %..loopexit29_crit_edge.us.i, %.lr.ph41.split.us.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph41.split.us.preheader.i ], [ %indvars.iv.next48.i, %..loopexit29_crit_edge.us.i ]
   %.02240.us.i = phi i32 [ 0, %.lr.ph41.split.us.preheader.i ], [ %.1.us.i, %..loopexit29_crit_edge.us.i ]
-  %59 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %54, i64 %indvars.iv47.i
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %54, i64 %indvars.iv47.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
@@ -579,7 +579,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 63:                                               ; preds = %.preheader.us.i, %.loopexit.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
   %.235.us.i = phi i32 [ %.02240.us.i, %.preheader.us.i ], [ %.3.us.i, %.loopexit.us.i ]
-  %64 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %58, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [20 x i8], ptr %58, i64 %indvars.iv.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %66 = load i8, ptr %65, align 4
   %67 = trunc i8 %66 to i1
@@ -641,7 +641,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %.03274 = phi i32 [ %42, %.lr.ph ], [ %93, %95 ]
   %86 = load ptr, ptr %84, align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -680,7 +680,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
   %111 = load ptr, ptr %110, align 8
   %112 = add nuw nsw i64 %indvars.iv, 4294967295
   %113 = and i64 %112, 4294967295
-  %114 = getelementptr inbounds nuw i32, ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i8 %109, 0
   %117 = icmp eq i32 %115, 0
@@ -728,7 +728,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 .lr.ph41.split.us.i47:                            ; preds = %..loopexit29_crit_edge.us.i65, %.lr.ph41.split.us.preheader.i44
   %indvars.iv47.i48 = phi i64 [ 0, %.lr.ph41.split.us.preheader.i44 ], [ %indvars.iv.next48.i67, %..loopexit29_crit_edge.us.i65 ]
   %.02240.us.i49 = phi i32 [ %.030, %.lr.ph41.split.us.preheader.i44 ], [ %.1.us.i66, %..loopexit29_crit_edge.us.i65 ]
-  %135 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %130, i64 %indvars.iv47.i48
+  %135 = getelementptr inbounds nuw [20 x i8], ptr %130, i64 %indvars.iv47.i48
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 12
   %137 = load i8, ptr %136, align 4
   %138 = trunc i8 %137 to i1
@@ -737,7 +737,7 @@ define hidden noundef i32 @_ZN4Node7latencyEj(ptr noundef nonnull align 8 derefe
 139:                                              ; preds = %.preheader.us.i50, %.loopexit.us.i61
   %indvars.iv.i51 = phi i64 [ 0, %.preheader.us.i50 ], [ %indvars.iv.next.i63, %.loopexit.us.i61 ]
   %.235.us.i52 = phi i32 [ %.02240.us.i49, %.preheader.us.i50 ], [ %.3.us.i62, %.loopexit.us.i61 ]
-  %140 = getelementptr inbounds nuw %class.Pipeline_Use_Element, ptr %134, i64 %indvars.iv.i51
+  %140 = getelementptr inbounds nuw [20 x i8], ptr %134, i64 %indvars.iv.i51
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 12
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1

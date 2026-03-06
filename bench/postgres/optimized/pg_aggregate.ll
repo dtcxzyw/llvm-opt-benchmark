@@ -166,9 +166,9 @@ switch.early.test:                                ; preds = %77
 89:                                               ; preds = %86
   %90 = sub nsw i32 %5, %87
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %42, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %91
   %93 = zext nneg i32 %5 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %42, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %93
   %95 = sext i32 %87 to i64
   %96 = shl nsw i64 %95, 2
   %bcmp = tail call i32 @bcmp(ptr nonnull %92, ptr nonnull %94, i64 %96)
@@ -191,7 +191,7 @@ switch.early.test:                                ; preds = %77
   %105 = add nsw i32 %.0297, -1
   %106 = sub nsw i32 %4, %105
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i32, ptr %42, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %42, i64 %107
   %109 = sext i32 %105 to i64
   %110 = shl nsw i64 %109, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %104, ptr nonnull align 4 %108, i64 %110, i1 false)
@@ -633,7 +633,7 @@ switch.early.test:                                ; preds = %77
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %336
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %336 ]
-  %330 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %331 = load i32, ptr %330, align 4
   %332 = call i32 @GetUserId() #8
   %333 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %331, i32 noundef %332, i64 noundef 256) #8
@@ -1076,10 +1076,10 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = call zeroext i1 @IsBinaryCoercible(i32 noundef %44, i32 noundef %47) #8
   br i1 %48, label %42, label %49

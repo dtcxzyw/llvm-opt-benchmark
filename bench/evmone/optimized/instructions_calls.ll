@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.62" = type { %"union.std::_Optional_payload_base<bool>::_Storage", i8 }
 %"union.std::_Optional_payload_base<bool>::_Storage" = type { %"struct.std::_Optional_payload_base<bool>::_Empty_byte" }
 %"struct.std::_Optional_payload_base<bool>::_Empty_byte" = type { i8 }
-%struct.evmc_tx_initcode = type { %struct.evmc_bytes32, ptr, i64 }
 
 $_ZN6evmone5instr4core9call_implILNS_6OpcodeE241EEENS_6ResultENS_8StackTopElRNS_14ExecutionStateE = comdat any
 
@@ -123,9 +122,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6Opcode
 26:                                               ; preds = %26, %3
   %.09.i = phi i64 [ 0, %3 ], [ %33, %26 ]
   %.078.i = phi i64 [ 0, %3 ], [ %32, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i
   %28 = load i64, ptr %27, align 8, !tbaa !9
-  %29 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09.i
   %30 = load i64, ptr %29, align 8, !tbaa !9
   %31 = xor i64 %30, %28
   %32 = or i64 %31, %.078.i
@@ -249,9 +248,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 74:                                               ; preds = %74, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %81, %74 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %80, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %10, i64 %.09.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.09.i.i
   %76 = load i64, ptr %75, align 8, !tbaa !9
-  %77 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !9
   %79 = xor i64 %78, %76
   %80 = or i64 %79, %.078.i.i
@@ -315,9 +314,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread140:
 108:                                              ; preds = %108, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread140
   %.09.i.i56 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread140 ], [ %115, %108 ]
   %.078.i.i57 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread140 ], [ %114, %108 ]
-  %109 = getelementptr inbounds nuw i64, ptr %11, i64 %.09.i.i56
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.09.i.i56
   %110 = load i64, ptr %109, align 8, !tbaa !9
-  %111 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i56
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i56
   %112 = load i64, ptr %111, align 8, !tbaa !9
   %113 = xor i64 %112, %110
   %114 = or i64 %113, %.078.i.i57
@@ -837,9 +836,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 63:                                               ; preds = %63, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %70, %63 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %69, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !9
-  %66 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !9
   %68 = xor i64 %67, %65
   %69 = or i64 %68, %.078.i.i
@@ -903,9 +902,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread108:
 97:                                               ; preds = %97, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread108
   %.09.i.i39 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread108 ], [ %104, %97 ]
   %.078.i.i40 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread108 ], [ %103, %97 ]
-  %98 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i.i39
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09.i.i39
   %99 = load i64, ptr %98, align 8, !tbaa !9
-  %100 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i39
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i39
   %101 = load i64, ptr %100, align 8, !tbaa !9
   %102 = xor i64 %101, %99
   %103 = or i64 %102, %.078.i.i40
@@ -1296,9 +1295,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 63:                                               ; preds = %63, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %70, %63 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %69, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !9
-  %66 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !9
   %68 = xor i64 %67, %65
   %69 = or i64 %68, %.078.i.i
@@ -1362,9 +1361,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread105:
 97:                                               ; preds = %97, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread105
   %.09.i.i43 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread105 ], [ %104, %97 ]
   %.078.i.i44 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread105 ], [ %103, %97 ]
-  %98 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i.i43
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09.i.i43
   %99 = load i64, ptr %98, align 8, !tbaa !9
-  %100 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i43
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i43
   %101 = load i64, ptr %100, align 8, !tbaa !9
   %102 = xor i64 %101, %99
   %103 = or i64 %102, %.078.i.i44
@@ -1657,9 +1656,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6Opcode
 26:                                               ; preds = %26, %3
   %.09.i = phi i64 [ 0, %3 ], [ %33, %26 ]
   %.078.i = phi i64 [ 0, %3 ], [ %32, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i
   %28 = load i64, ptr %27, align 8, !tbaa !9
-  %29 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09.i
   %30 = load i64, ptr %29, align 8, !tbaa !9
   %31 = xor i64 %30, %28
   %32 = or i64 %31, %.078.i
@@ -1783,9 +1782,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 74:                                               ; preds = %74, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %81, %74 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %80, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %10, i64 %.09.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.09.i.i
   %76 = load i64, ptr %75, align 8, !tbaa !9
-  %77 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !9
   %79 = xor i64 %78, %76
   %80 = or i64 %79, %.078.i.i
@@ -1849,9 +1848,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread129:
 108:                                              ; preds = %108, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread129
   %.09.i.i47 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread129 ], [ %115, %108 ]
   %.078.i.i48 = phi i64 [ 0, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread129 ], [ %114, %108 ]
-  %109 = getelementptr inbounds nuw i64, ptr %11, i64 %.09.i.i47
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.09.i.i47
   %110 = load i64, ptr %109, align 8, !tbaa !9
-  %111 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i47
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i47
   %112 = load i64, ptr %111, align 8, !tbaa !9
   %113 = xor i64 %112, %110
   %114 = or i64 %113, %.078.i.i48
@@ -2213,9 +2212,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6Op
 17:                                               ; preds = %17, %3
   %.09.i = phi i64 [ 0, %3 ], [ %24, %17 ]
   %.078.i = phi i64 [ 0, %3 ], [ %23, %17 ]
-  %18 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.09.i
   %19 = load i64, ptr %18, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i
   %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = xor i64 %21, %19
   %23 = or i64 %22, %.078.i
@@ -2348,9 +2347,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 76:                                               ; preds = %76, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %83, %76 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %82, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !9
-  %79 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !9
   %81 = xor i64 %80, %78
   %82 = or i64 %81, %.078.i.i
@@ -2823,9 +2822,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 63:                                               ; preds = %63, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %70, %63 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %69, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %65 = load i64, ptr %64, align 8, !tbaa !9
-  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !9
   %68 = xor i64 %67, %65
   %69 = or i64 %68, %.078.i.i
@@ -3196,9 +3195,9 @@ _ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; 
 65:                                               ; preds = %65, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
   %.09.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %72, %65 ]
   %.078.i.i = phi i64 [ 0, %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit ], [ %71, %65 ]
-  %66 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %67 = load i64, ptr %66, align 8, !tbaa !9
-  %68 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !9
   %70 = xor i64 %69, %67
   %71 = or i64 %70, %.078.i.i
@@ -3493,9 +3492,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6Opc
 23:                                               ; preds = %23, %16
   %.09.i.i = phi i64 [ 0, %16 ], [ %30, %23 ]
   %.078.i.i = phi i64 [ 0, %16 ], [ %29, %23 ]
-  %24 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !9
-  %26 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !9
   %28 = xor i64 %27, %25
   %29 = or i64 %28, %.078.i.i
@@ -3588,9 +3587,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread76: 
 73:                                               ; preds = %73, %72
   %.09.i = phi i64 [ 0, %72 ], [ %80, %73 ]
   %.078.i = phi i64 [ 0, %72 ], [ %79, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i
   %75 = load i64, ptr %74, align 8, !tbaa !9
-  %76 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.09.i
   %77 = load i64, ptr %76, align 8, !tbaa !9
   %78 = xor i64 %77, %75
   %79 = or i64 %78, %.078.i
@@ -3861,9 +3860,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6Opc
 24:                                               ; preds = %24, %16
   %.09.i.i = phi i64 [ 0, %16 ], [ %31, %24 ]
   %.078.i.i = phi i64 [ 0, %16 ], [ %30, %24 ]
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !9
-  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %.09.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.09.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !9
   %29 = xor i64 %28, %26
   %30 = or i64 %29, %.078.i.i
@@ -3956,9 +3955,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread77: 
 74:                                               ; preds = %74, %73
   %.09.i = phi i64 [ 0, %73 ], [ %81, %74 ]
   %.078.i = phi i64 [ 0, %73 ], [ %80, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i
   %76 = load i64, ptr %75, align 8, !tbaa !9
-  %77 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.09.i
   %78 = load i64, ptr %77, align 8, !tbaa !9
   %79 = xor i64 %78, %76
   %80 = or i64 %79, %.078.i
@@ -4238,9 +4237,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_
 25:                                               ; preds = %25, %17
   %.09.i.i = phi i64 [ 0, %17 ], [ %32, %25 ]
   %.078.i.i = phi i64 [ 0, %17 ], [ %31, %25 ]
-  %26 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.09.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i
   %29 = load i64, ptr %28, align 8, !tbaa !9
   %30 = xor i64 %29, %27
   %31 = or i64 %30, %.078.i.i
@@ -4314,9 +4313,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread78: 
 66:                                               ; preds = %66, %65
   %.09.i = phi i64 [ 0, %65 ], [ %73, %66 ]
   %.078.i = phi i64 [ 0, %65 ], [ %72, %66 ]
-  %67 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.09.i
   %68 = load i64, ptr %67, align 8, !tbaa !9
-  %69 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i
   %70 = load i64, ptr %69, align 8, !tbaa !9
   %71 = xor i64 %70, %68
   %72 = or i64 %71, %.078.i
@@ -4405,7 +4404,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4u
   %114 = zext i8 %110 to i64
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 128
   %116 = load ptr, ptr %115, align 8, !tbaa !238
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %114
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %114
   %118 = load i32, ptr %117, align 4, !tbaa !241
   %119 = zext i32 %118 to i64
   %120 = icmp ult i64 %.sroa.0.0.copyload, %119
@@ -4420,7 +4419,7 @@ _ZNK6evmone10EOF1Header13get_containerESt17basic_string_viewIhN4evmc11byte_trait
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !98
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 104
   %123 = load ptr, ptr %122, align 8, !tbaa !238
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %114
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %114
   %125 = load i32, ptr %124, align 4, !tbaa !241
   %126 = zext i32 %125 to i64
   %127 = sub nuw i64 %.sroa.0.0.copyload, %119
@@ -4644,9 +4643,9 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_
 38:                                               ; preds = %38, %18
   %.09.i.i = phi i64 [ 0, %18 ], [ %45, %38 ]
   %.078.i.i = phi i64 [ 0, %18 ], [ %44, %38 ]
-  %39 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.09.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !9
-  %41 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.09.i.i
   %42 = load i64, ptr %41, align 8, !tbaa !9
   %43 = xor i64 %42, %40
   %44 = or i64 %43, %.078.i.i
@@ -4720,9 +4719,9 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread89: 
 79:                                               ; preds = %79, %78
   %.09.i = phi i64 [ 0, %78 ], [ %86, %79 ]
   %.078.i = phi i64 [ 0, %78 ], [ %85, %79 ]
-  %80 = getelementptr inbounds nuw i64, ptr %8, i64 %.09.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.09.i
   %81 = load i64, ptr %80, align 8, !tbaa !9
-  %82 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09.i
   %83 = load i64, ptr %82, align 8, !tbaa !9
   %84 = xor i64 %83, %81
   %85 = or i64 %84, %.078.i
@@ -5028,7 +5027,7 @@ _ZN6evmone14ExecutionState14get_tx_contextEv.exit: ; preds = %_ZNSt8optionalISt1
 29:                                               ; preds = %.lr.ph, %29
   %.024 = phi i64 [ 0, %.lr.ph ], [ %37, %29 ]
   %30 = load ptr, ptr %27, align 8, !tbaa !298
-  %31 = getelementptr inbounds nuw %struct.evmc_tx_initcode, ptr %30, i64 %.024
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %.024
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !299
@@ -5065,7 +5064,7 @@ _ZN6evmone14ExecutionState14get_tx_contextEv.exit: ; preds = %_ZNSt8optionalISt1
   %49 = load i64, ptr %48, align 8, !tbaa !286
   %50 = urem i64 %47, %49
   %51 = load ptr, ptr %5, align 8, !tbaa !279
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !303
   %.not.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIN4evmc7bytes32EN6evmone19TransactionInitcodeESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S3_EEE4findERS9_.exit.thread, label %54
@@ -5258,7 +5257,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4evmc7bytes32ESt4pair
   %21 = load i64, ptr %20, align 8, !tbaa !286
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !279
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !303
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %.critedge, label %26
@@ -5338,7 +5337,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4evmc7bytes32ESt4pairIKS2_N6evmone19Transactio
 72:                                               ; preds = %68, %.critedge
   %.0.i14 = phi i64 [ %71, %68 ], [ %22, %.critedge ]
   %73 = load ptr, ptr %0, align 8, !tbaa !279
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.0.i14
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0.i14
   %75 = load ptr, ptr %74, align 8, !tbaa !303
   %.not.i.i15 = icmp eq ptr %75, null
   br i1 %.not.i.i15, label %79, label %76
@@ -5377,7 +5376,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4evmc7bytes32ESt4pairIKS2_N6evmone19Transactio
   %98 = xor i64 %95, %97
   %99 = mul i64 %98, 1099511628211
   %100 = urem i64 %99, %83
-  %101 = getelementptr inbounds nuw ptr, ptr %73, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %100
   store ptr %3, ptr %101, align 8, !tbaa !303
   br label %102
 
@@ -5464,7 +5463,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_N6evmone19TransactionInitcodeEESaIS
   %28 = xor i64 %25, %27
   %29 = mul i64 %28, 1099511628211
   %30 = urem i64 %29, %1
-  %31 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !303
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %33, label %38
@@ -5479,7 +5478,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_N6evmone19TransactionInitcodeEESaIS
   br i1 %.not28, label %41, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %37, align 8, !tbaa !303
   br label %41
 

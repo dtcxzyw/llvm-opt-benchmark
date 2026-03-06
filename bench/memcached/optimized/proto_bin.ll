@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.settings = type { i64, i32, i32, i32, ptr, i32, i32, i32, ptr, ptr, i32, double, i32, i32, i32, i8, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i32, i32, double, double, i32, i32, i8, i32, i8, i8, ptr, i32, i32, i32, i32, double, double, i32, i8, i32, i32, i32, i32, i32, i8, i8, i8, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, double, i8, i32, i32, ptr, i32 }
-%struct.slab_stats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"Not handling substate %d\0A\00", align 1
@@ -89,7 +88,7 @@ define dso_local void @complete_nread_binary(ptr noundef %0) local_unnamed_addr 
   %15 = load i8, ptr %14, align 8, !tbaa !28
   %16 = and i8 %15, 63
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.slab_stats, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !29
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !29
@@ -1798,7 +1797,7 @@ switch.edge:
   %56 = load i8, ptr %55, align 8, !tbaa !28
   %57 = and i8 %56, 63
   %58 = zext nneg i8 %57 to i64
-  %59 = getelementptr inbounds nuw %struct.slab_stats, ptr %50, i64 %58
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 656
   %61 = load i64, ptr %60, align 8, !tbaa !93
   %62 = add i64 %61, 1
@@ -1814,7 +1813,7 @@ switch.edge:
   %68 = getelementptr inbounds nuw i8, ptr %.0107, i64 40
   %69 = load i8, ptr %68, align 8, !tbaa !28
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !36
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8, !tbaa !36
@@ -2136,7 +2135,7 @@ define internal fastcc void @process_bin_delete(ptr noundef %0) unnamed_addr #0 
   %43 = load i8, ptr %42, align 8, !tbaa !28
   %44 = and i8 %43, 63
   %45 = zext nneg i8 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.slab_stats, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 664
   %48 = load i64, ptr %47, align 8, !tbaa !98
   %49 = add i64 %48, 1

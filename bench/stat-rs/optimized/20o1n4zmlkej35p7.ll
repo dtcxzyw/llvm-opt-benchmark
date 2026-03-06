@@ -386,7 +386,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %25 = fmul double %24, %23
   %26 = fadd double %22, %25
   %27 = call noundef double @llvm.pow.f64(double 1.000000e+01, double %26)
-  %28 = getelementptr inbounds double, ptr %17, i64 %20
+  %28 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   store double %27, ptr %28, align 8, !noalias !84
   %29 = add i64 %20, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %21, %.val5
@@ -472,7 +472,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = phi i64 [ %18, %16 ], [ %23, %19 ]
   %.sroa.01.0.i.in.i.i.i.i = phi i64 [ %.val, %16 ], [ %.sroa.01.0.i.i.i.i.i, %19 ]
   %.sroa.01.0.i.i.i.i.i = add i64 %.sroa.01.0.i.in.i.i.i.i, -1
-  %21 = getelementptr inbounds { i64, i64 }, ptr %17, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %17, i64 %20
   store i64 %.sroa.05.0.copyload, ptr %21, align 8, !noalias !108
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.4.0.copyload, ptr %22, align 8, !noalias !108
@@ -555,7 +555,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = phi i64 [ %18, %16 ], [ %22, %19 ]
   %.sroa.01.0.i.in.i.i.i.i = phi i64 [ %2, %16 ], [ %.sroa.01.0.i.i.i.i.i, %19 ]
   %.sroa.01.0.i.i.i.i.i = add i64 %.sroa.01.0.i.in.i.i.i.i, -1
-  %21 = getelementptr inbounds double, ptr %17, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   store double %1, ptr %21, align 8, !noalias !127
   %22 = add i64 %20, 1
   %.not.i.not.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, 0
@@ -723,7 +723,7 @@ define hidden { ptr, ptr } @"_ZN123_$LT$alloc..collections..btree..map..Iter$LT$
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.013.015.i.i, i64 192
   %30 = icmp ult i16 %27, 12
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %32 = load ptr, ptr %31, align 8, !noalias !163, !nonnull !4, !noundef !4
   %33 = add i64 %.sroa.012.014.i.i, -1
   %34 = icmp eq i64 %33, 0
@@ -900,7 +900,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 34:                                               ; preds = %.noexc.i, %20
   %35 = phi ptr [ inttoptr (i64 8 to ptr), %20 ], [ %.pre, %.noexc.i ]
   %36 = phi i64 [ 0, %20 ], [ %.pre.i.i, %.noexc.i ]
-  %37 = getelementptr inbounds double, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull readonly align 8 %24, i64 %29, i1 false), !noalias !176
   %38 = load i64, ptr %22, align 8, !alias.scope !188, !noalias !176, !noundef !4
   %39 = add i64 %38, %30
@@ -1722,7 +1722,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.013.015, i64 192
   %14 = icmp ult i16 %11, 12
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %16 = load ptr, ptr %15, align 8, !noalias !297, !nonnull !4, !noundef !4
   %17 = add i64 %.sroa.012.014, -1
   %18 = icmp eq i64 %17, 0
@@ -1961,7 +1961,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.013.015.i, i64 192
   %20 = icmp ult i16 %17, 12
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %22 = load ptr, ptr %21, align 8, !noalias !316, !nonnull !4, !noundef !4
   %23 = add i64 %.sroa.012.014.i, -1
   %24 = icmp eq i64 %23, 0
@@ -2217,7 +2217,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf25ae27a974f
   %10 = phi i64 [ %5, %3 ], [ %.pre, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds double, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
   br i1 %14, label %.lr.ph, label %._crit_edge
 

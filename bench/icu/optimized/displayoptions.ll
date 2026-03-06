@@ -128,7 +128,7 @@ define ptr @udispopt_getGrammaticalCaseIdentifier_77(i32 noundef %0) local_unnam
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   br label %6
 
@@ -143,7 +143,7 @@ define range(i32 0, 15) i32 @udispopt_fromGrammaticalCaseIdentifier_77(ptr nound
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_118grammaticalCaseIdsE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = icmp eq i32 %5, 0
@@ -173,7 +173,7 @@ define ptr @udispopt_getPluralCategoryIdentifier_77(i32 noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   br label %6
 
@@ -188,7 +188,7 @@ define range(i32 0, 7) i32 @udispopt_fromPluralCategoryIdentifier_77(ptr noundef
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_117pluralCategoryIdsE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = icmp eq i32 %5, 0
@@ -215,7 +215,7 @@ define ptr @udispopt_getNounClassIdentifier_77(i32 noundef %0) local_unnamed_add
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   br label %6
 
@@ -230,7 +230,7 @@ define range(i32 0, 9) i32 @udispopt_fromNounClassIdentifier_77(ptr noundef read
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_112nounClassIdsE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = icmp eq i32 %5, 0

@@ -255,7 +255,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_sg_tt_init(ptr noundef captu
 29:                                               ; preds = %24
   %30 = load i32, ptr %10, align 4
   %31 = zext i32 %30 to i64
-  %32 = getelementptr ptr, ptr %27, i64 %31
+  %32 = getelementptr [8 x i8], ptr %27, i64 %31
   store ptr %32, ptr %12, align 8
   br label %35
 
@@ -304,7 +304,7 @@ define dso_local i32 @ttm_tt_swapin(ptr noundef captures(none) %0) local_unnamed
 
 21:                                               ; preds = %.preheader
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %15
+  %23 = getelementptr [8 x i8], ptr %22, i64 %15
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %26, !prof !5
@@ -427,7 +427,7 @@ define dso_local i32 @ttm_tt_swapout(ptr noundef %0, ptr noundef %1, i32 noundef
   %22 = phi i32 [ %79, %78 ], [ 0, %14 ]
   %23 = load ptr, ptr %1, align 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %78, label %28, !prof !5
@@ -900,7 +900,7 @@ define internal void @ttm_kmap_iter_tt_map_local(ptr noundef readonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %6, i64 %2
+  %7 = getelementptr [8 x i8], ptr %6, i64 %2
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr @vmemmap_base, align 8
   %10 = ptrtoint ptr %8 to i64

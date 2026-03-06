@@ -601,7 +601,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_withParams___spec_
 6:                                                ; preds = %.lr.ph, %34
   %.01830 = phi i64 [ %1, %.lr.ph ], [ %36, %34 ]
   %.02029 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01830
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01830
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1

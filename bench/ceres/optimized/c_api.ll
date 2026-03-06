@@ -1122,7 +1122,7 @@ define linkonce_odr hidden void @_ZN20CallbackCostFunctionC2EPFiPvPPdS1_S2_ES0_i
   %15 = phi ptr [ %.pre13, %.lr.ph ], [ %42, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %16 = phi ptr [ %.pre, %.lr.ph ], [ %43, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %.not.i = icmp eq ptr %16, %15
   br i1 %.not.i, label %21, label %18
 
@@ -1184,7 +1184,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %38, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %34, ptr %11, align 8, !tbaa !181
   store ptr %39, ptr %12, align 8, !tbaa !202
-  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %32
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %32
   store ptr %41, ptr %13, align 8, !tbaa !182
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 

@@ -9119,8 +9119,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17hb895c9701a521a6bE.llvm.8271119346295809160.exit.thread", label %5
 
 5:                                                ; preds = %.preheader.split
-  %6 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %0, i64 %.sroa.01.0
-  %7 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %2, i64 %.sroa.01.0
+  %6 = getelementptr inbounds [16 x i8], ptr %0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [16 x i8], ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1359)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1361)
@@ -10156,7 +10156,7 @@ common.resume:                                    ; preds = %.body, %34
   br i1 %158, label %"_ZN4core3ptr144drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$$GT$17ha64a984eccc4ec87E.exit", label %159
 
 159:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit.i.i.i"
-  %160 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %42, i64 %.sroa.0.0.i.i.i
+  %160 = getelementptr inbounds [16 x i8], ptr %42, i64 %.sroa.0.0.i.i.i
   %161 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17305d9092af68e3E.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(16) %160)
           to label %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit.i.i.i" unwind label %163, !noalias !1457
@@ -10172,7 +10172,7 @@ common.resume:                                    ; preds = %.body, %34
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit7.i.i.i"
 
 165:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit7.i.i.i"
-  %166 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %42, i64 %.sroa.0.1.i.i.i
+  %166 = getelementptr inbounds [16 x i8], ptr %42, i64 %.sroa.0.1.i.i.i
   %167 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17305d9092af68e3E.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(16) %166)
           to label %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit7.i.i.i" unwind label %168, !noalias !1457
@@ -10204,7 +10204,7 @@ common.resume:                                    ; preds = %.body, %34
   %176 = load ptr, ptr %175, align 8, !nonnull !28, !noundef !28
   %177 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %178 = load i64, ptr %177, align 8, !noundef !28
-  %179 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, i8, [7 x i8] }, i64, {} }, ptr %176, i64 %178
+  %179 = getelementptr inbounds [56 x i8], ptr %176, i64 %178
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h2e67da53f1173037E.llvm.204215390286363894"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull %176, ptr noundef nonnull %179)
           to label %185 unwind label %181
 
@@ -10240,7 +10240,7 @@ common.resume:                                    ; preds = %.body, %34
   br i1 %189, label %"_ZN4core3ptr144drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$$GT$17ha64a984eccc4ec87E.exit85", label %190
 
 190:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit.i.i.i76"
-  %191 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %42, i64 %.sroa.0.0.i.i.i77
+  %191 = getelementptr inbounds [16 x i8], ptr %42, i64 %.sroa.0.0.i.i.i77
   %192 = add i64 %.sroa.0.0.i.i.i77, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17305d9092af68e3E.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191)
           to label %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit.i.i.i76" unwind label %194, !noalias !1481
@@ -10256,7 +10256,7 @@ common.resume:                                    ; preds = %.body, %34
   br label %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit7.i.i.i78"
 
 196:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit7.i.i.i78"
-  %197 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %42, i64 %.sroa.0.1.i.i.i79
+  %197 = getelementptr inbounds [16 x i8], ptr %42, i64 %.sroa.0.1.i.i.i79
   %198 = add i64 %.sroa.0.1.i.i.i79, 1
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h17305d9092af68e3E.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(16) %197)
           to label %"_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$core..cell..RefCell$LT$dyn$u20$html_to_markdown..markdown_writer..HandleTag$GT$$GT$$GT$17h0538815990a611bdE.exit7.i.i.i78" unwind label %199, !noalias !1481

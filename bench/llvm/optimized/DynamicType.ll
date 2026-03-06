@@ -42,22 +42,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::iterator_adaptor_base.79" = type { %"class.llvm::ImutAVLTreeInOrderIterator.81" }
 %"class.llvm::ImutAVLTreeInOrderIterator.81" = type { %"class.llvm::ImutAVLTreeGenericIterator.82" }
 %"class.llvm::ImutAVLTreeGenericIterator.82" = type { %"class.llvm::SmallVector" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.29" }
-%"struct.std::pair.29" = type { i32, ptr }
 %"class.llvm::FoldingSetNodeID" = type { %"class.llvm::SmallVector.31" }
 %"class.llvm::SmallVector.31" = type { %"class.llvm::SmallVectorImpl.32", %"struct.llvm::SmallVectorStorage.35" }
 %"class.llvm::SmallVectorImpl.32" = type { %"class.llvm::SmallVectorTemplateBase.33" }
 %"class.llvm::SmallVectorTemplateBase.33" = type { %"class.llvm::SmallVectorTemplateCommon.34" }
 %"class.llvm::SmallVectorTemplateCommon.34" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.35" = type { [128 x i8] }
-%"struct.llvm::detail::DenseMapPair.41" = type { %"struct.std::pair.42" }
-%"struct.std::pair.42" = type { i32, ptr }
-%"struct.llvm::detail::DenseMapPair.64" = type { %"struct.std::pair.65" }
-%"struct.std::pair.65" = type { i32, ptr }
-%"struct.llvm::detail::DenseMapPair.92" = type { %"struct.std::pair.93" }
-%"struct.std::pair.93" = type { i32, ptr }
 %"struct.std::pair.48" = type { ptr, %"class.clang::ento::DynamicTypeInfo" }
-%"struct.std::pair.162" = type { ptr, i64 }
 %"struct.std::pair" = type { ptr, %"class.llvm::ImmutableSet" }
 %"struct.std::pair.76" = type { ptr, %"class.clang::ento::DynamicTypeInfo" }
 
@@ -628,7 +619,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5cl
 _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit.thread: ; preds = %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit.thread_crit_edge, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit
   %.pre-phi = phi i64 [ %.pre73, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit.thread_crit_edge ], [ %106, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit ]
   %108 = phi ptr [ %.pre65, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit.thread_crit_edge ], [ %107, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit ]
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %.pre-phi
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.pre-phi
   %110 = getelementptr inbounds i8, ptr %109, i64 -8
   %111 = load i64, ptr %110, align 8, !tbaa !77
   %112 = and i64 %111, -4
@@ -652,7 +643,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5cl
   %120 = phi i64 [ %171, %166 ], [ %111, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit.thread ]
   %121 = phi ptr [ %167, %166 ], [ %108, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEESt26bidirectional_iterator_tagKS5_lPSB_RSB_EneERKS9_.exit.thread ]
   %122 = zext i32 %.pr67 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds i8, ptr %123, i64 -8
   %125 = and i64 %120, -4
   %126 = inttoptr i64 %125 to ptr
@@ -686,7 +677,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5cl
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %134, %131
   %.pre-phi.i = phi i64 [ %122, %131 ], [ %.pre13.i, %134 ]
   %136 = phi ptr [ %121, %131 ], [ %.pre12.i, %134 ]
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %.pre-phi.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.pre-phi.i
   store i64 %132, ptr %137, align 1
   %138 = load i32, ptr %100, align 8, !tbaa !75
   %139 = add i32 %138, 1
@@ -721,7 +712,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %134, %13
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %148, %145
   %.pre-phi15.i = phi i64 [ %122, %145 ], [ %.pre14.i, %148 ]
   %150 = phi ptr [ %121, %145 ], [ %.pre.i, %148 ]
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %.pre-phi15.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %.pre-phi15.i
   store i64 %146, ptr %151, align 1
   %152 = load i32, ptr %100, align 8, !tbaa !75
   %153 = add i32 %152, 1
@@ -741,7 +732,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %148, %
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread: ; preds = %156
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw i64, ptr %121, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %158
   %160 = getelementptr inbounds i8, ptr %159, i64 -8
   %161 = load i64, ptr %160, align 8, !tbaa !77
   %162 = and i64 %161, 3
@@ -763,7 +754,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pr7085 = phi i32 [ %157, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread ], [ %.pr70, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %167 = load ptr, ptr %5, align 8, !tbaa !73
   %168 = zext i32 %.pr7085 to i64
-  %169 = getelementptr inbounds nuw i64, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = getelementptr inbounds i8, ptr %169, i64 -8
   %171 = load i64, ptr %170, align 8, !tbaa !77
   %172 = and i64 %171, 3
@@ -1616,7 +1607,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableSetIN5clang4ento15DynamicCas
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
   %19 = load ptr, ptr %7, align 8, !tbaa !156
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !157
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
@@ -1963,7 +1954,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.thread.i: ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.i, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.thread_crit_edge.i
   %43 = phi ptr [ %.pre18.i, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.thread_crit_edge.i ], [ %31, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.i ]
   %44 = zext i32 %28 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
   %47 = load i64, ptr %46, align 8, !tbaa !77, !noalias !188
   %48 = and i64 %47, -4
@@ -2101,7 +2092,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pre19.i = load ptr, ptr %8, align 8, !tbaa !73, !noalias !188
   %.pre20.i = load i32, ptr %23, align 8, !tbaa !75, !noalias !188
   %.phi.trans.insert.i = zext i32 %.pre20.i to i64
-  %.phi.trans.insert21.i = getelementptr inbounds nuw i64, ptr %.pre19.i, i64 %.phi.trans.insert.i
+  %.phi.trans.insert21.i = getelementptr inbounds nuw [8 x i8], ptr %.pre19.i, i64 %.phi.trans.insert.i
   %.phi.trans.insert22.i = getelementptr inbounds i8, ptr %.phi.trans.insert21.i, i64 -8
   %.pre23.i = load i64, ptr %.phi.trans.insert22.i, align 8, !tbaa !77, !noalias !188
   br label %94
@@ -2111,7 +2102,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pr26.i = phi i32 [ %.pr2443.i, %141 ], [ %.pre20.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   %96 = phi i64 [ %142, %141 ], [ %.pre23.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   %97 = zext i32 %.pr26.i to i64
-  %98 = getelementptr inbounds nuw i64, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -8
   %100 = and i64 %96, -4
   %101 = inttoptr i64 %100 to ptr
@@ -2145,7 +2136,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i: ; preds = %109, %106
   %.pre-phi.i.i = phi i64 [ %97, %106 ], [ %.pre13.i.i, %109 ]
   %111 = phi ptr [ %95, %106 ], [ %.pre12.i.i, %109 ]
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %.pre-phi.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.pre-phi.i.i
   store i64 %107, ptr %112, align 1, !noalias !188
   %113 = load i32, ptr %23, align 8, !tbaa !75, !noalias !188
   %114 = add i32 %113, 1
@@ -2180,7 +2171,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i: ; preds = %109, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i: ; preds = %123, %120
   %.pre-phi15.i.i = phi i64 [ %97, %120 ], [ %.pre14.i.i, %123 ]
   %125 = phi ptr [ %95, %120 ], [ %.pre.i.i, %123 ]
-  %126 = getelementptr inbounds nuw i64, ptr %125, i64 %.pre-phi15.i.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %.pre-phi15.i.i
   store i64 %121, ptr %126, align 1, !noalias !188
   %127 = load i32, ptr %23, align 8, !tbaa !75, !noalias !188
   %128 = add i32 %127, 1
@@ -2200,7 +2191,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i: ; preds = %123,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.thread.i: ; preds = %131
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i64, ptr %95, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %133
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   %136 = load i64, ptr %135, align 8, !tbaa !77, !noalias !188
   %137 = and i64 %136, 3
@@ -2221,7 +2212,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.i._crit_edge: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !73, !noalias !188
   %.phi.trans.insert = zext i32 %.pr24.i to i64
-  %.phi.trans.insert9 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert9 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert10 = getelementptr inbounds i8, ptr %.phi.trans.insert9, i64 -8
   %.pre11 = load i64, ptr %.phi.trans.insert10, align 8, !tbaa !77, !noalias !188
   br label %141
@@ -2361,7 +2352,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSK_RSK_EneERKSG_.exit.thread.i: ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSK_RSK_EneERKSG_.exit.i, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSK_RSK_EneERKSG_.exit.thread_crit_edge.i
   %43 = phi ptr [ %.pre18.i, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSK_RSK_EneERKSG_.exit.thread_crit_edge.i ], [ %31, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSK_RSK_EneERKSG_.exit.i ]
   %44 = zext i32 %28 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
   %47 = load i64, ptr %46, align 8, !tbaa !77, !noalias !221
   %48 = and i64 %47, -4
@@ -2499,7 +2490,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pre19.i = load ptr, ptr %8, align 8, !tbaa !73, !noalias !221
   %.pre20.i = load i32, ptr %23, align 8, !tbaa !75, !noalias !221
   %.phi.trans.insert.i = zext i32 %.pre20.i to i64
-  %.phi.trans.insert21.i = getelementptr inbounds nuw i64, ptr %.pre19.i, i64 %.phi.trans.insert.i
+  %.phi.trans.insert21.i = getelementptr inbounds nuw [8 x i8], ptr %.pre19.i, i64 %.phi.trans.insert.i
   %.phi.trans.insert22.i = getelementptr inbounds i8, ptr %.phi.trans.insert21.i, i64 -8
   %.pre23.i = load i64, ptr %.phi.trans.insert22.i, align 8, !tbaa !77, !noalias !221
   br label %94
@@ -2509,7 +2500,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pr26.i = phi i32 [ %.pr2443.i, %141 ], [ %.pre20.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   %96 = phi i64 [ %142, %141 ], [ %.pre23.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   %97 = zext i32 %.pr26.i to i64
-  %98 = getelementptr inbounds nuw i64, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -8
   %100 = and i64 %96, -4
   %101 = inttoptr i64 %100 to ptr
@@ -2543,7 +2534,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i: ; preds = %109, %106
   %.pre-phi.i.i = phi i64 [ %97, %106 ], [ %.pre13.i.i, %109 ]
   %111 = phi ptr [ %95, %106 ], [ %.pre12.i.i, %109 ]
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %.pre-phi.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.pre-phi.i.i
   store i64 %107, ptr %112, align 1, !noalias !221
   %113 = load i32, ptr %23, align 8, !tbaa !75, !noalias !221
   %114 = add i32 %113, 1
@@ -2578,7 +2569,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i: ; preds = %109, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i: ; preds = %123, %120
   %.pre-phi15.i.i = phi i64 [ %97, %120 ], [ %.pre14.i.i, %123 ]
   %125 = phi ptr [ %95, %120 ], [ %.pre.i.i, %123 ]
-  %126 = getelementptr inbounds nuw i64, ptr %125, i64 %.pre-phi15.i.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %.pre-phi15.i.i
   store i64 %121, ptr %126, align 1, !noalias !221
   %127 = load i32, ptr %23, align 8, !tbaa !75, !noalias !221
   %128 = add i32 %127, 1
@@ -2598,7 +2589,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i: ; preds = %123,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.thread.i: ; preds = %131
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i64, ptr %95, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %133
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   %136 = load i64, ptr %135, align 8, !tbaa !77, !noalias !221
   %137 = and i64 %136, 3
@@ -2619,7 +2610,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.i._crit_edge: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !73, !noalias !221
   %.phi.trans.insert = zext i32 %.pr24.i to i64
-  %.phi.trans.insert9 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert9 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert10 = getelementptr inbounds i8, ptr %.phi.trans.insert9, i64 -8
   %.pre11 = load i64, ptr %.phi.trans.insert10, align 8, !tbaa !77, !noalias !221
   br label %141
@@ -2759,7 +2750,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.thread.i: ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.i, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.thread_crit_edge.i
   %43 = phi ptr [ %.pre18.i, %._ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.thread_crit_edge.i ], [ %31, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSG_RSG_EneERKSC_.exit.i ]
   %44 = zext i32 %28 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
   %47 = load i64, ptr %46, align 8, !tbaa !77, !noalias !254
   %48 = and i64 %47, -4
@@ -2897,7 +2888,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pre19.i = load ptr, ptr %8, align 8, !tbaa !73, !noalias !254
   %.pre20.i = load i32, ptr %23, align 8, !tbaa !75, !noalias !254
   %.phi.trans.insert.i = zext i32 %.pre20.i to i64
-  %.phi.trans.insert21.i = getelementptr inbounds nuw i64, ptr %.pre19.i, i64 %.phi.trans.insert.i
+  %.phi.trans.insert21.i = getelementptr inbounds nuw [8 x i8], ptr %.pre19.i, i64 %.phi.trans.insert.i
   %.phi.trans.insert22.i = getelementptr inbounds i8, ptr %.phi.trans.insert21.i, i64 -8
   %.pre23.i = load i64, ptr %.phi.trans.insert22.i, align 8, !tbaa !77, !noalias !254
   br label %94
@@ -2907,7 +2898,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   %.pr26.i = phi i32 [ %.pr2443.i, %141 ], [ %.pre20.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   %96 = phi i64 [ %142, %141 ], [ %.pre23.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i ]
   %97 = zext i32 %.pr26.i to i64
-  %98 = getelementptr inbounds nuw i64, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -8
   %100 = and i64 %96, -4
   %101 = inttoptr i64 %100 to ptr
@@ -2941,7 +2932,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i: ; preds = %109, %106
   %.pre-phi.i.i = phi i64 [ %97, %106 ], [ %.pre13.i.i, %109 ]
   %111 = phi ptr [ %95, %106 ], [ %.pre12.i.i, %109 ]
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %.pre-phi.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.pre-phi.i.i
   store i64 %107, ptr %112, align 1, !noalias !254
   %113 = load i32, ptr %23, align 8, !tbaa !75, !noalias !254
   %114 = add i32 %113, 1
@@ -2976,7 +2967,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i: ; preds = %109, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i: ; preds = %123, %120
   %.pre-phi15.i.i = phi i64 [ %97, %120 ], [ %.pre14.i.i, %123 ]
   %125 = phi ptr [ %95, %120 ], [ %.pre.i.i, %123 ]
-  %126 = getelementptr inbounds nuw i64, ptr %125, i64 %.pre-phi15.i.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %.pre-phi15.i.i
   store i64 %121, ptr %126, align 1, !noalias !254
   %127 = load i32, ptr %23, align 8, !tbaa !75, !noalias !254
   %128 = add i32 %127, 1
@@ -2996,7 +2987,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i: ; preds = %123,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.thread.i: ; preds = %131
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i64, ptr %95, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %133
   %135 = getelementptr inbounds i8, ptr %134, i64 -8
   %136 = load i64, ptr %135, align 8, !tbaa !77, !noalias !254
   %137 = and i64 %136, 3
@@ -3017,7 +3008,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.i._crit_edge: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !73, !noalias !254
   %.phi.trans.insert = zext i32 %.pr24.i to i64
-  %.phi.trans.insert9 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert9 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert10 = getelementptr inbounds i8, ptr %.phi.trans.insert9, i64 -8
   %.pre11 = load i64, ptr %.phi.trans.insert10, align 8, !tbaa !77, !noalias !254
   br label %141
@@ -3360,7 +3351,7 @@ _ZN5clang6IndentERN4llvm11raw_ostreamEjb.exit.i.i.i: ; preds = %_ZN4llvm11raw_os
   %163 = phi i32 [ %121, %.lr.ph.i21.i.i ], [ %.pr83124.i.i.i, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEENS_26ImutAVLTreeInOrderIteratorISA_EESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSI_RSI_EppEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %164
   %166 = getelementptr inbounds i8, ptr %165, i64 -8
   %167 = load i64, ptr %166, align 8, !tbaa !77
   %168 = and i64 %167, -4
@@ -3670,7 +3661,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i:         ; preds = %287, %286, %284, %_
   %.pre78.i.i.i = load ptr, ptr %18, align 8, !tbaa !73
   %.pre79.i.i.i = load i32, ptr %120, align 8, !tbaa !75
   %.phi.trans.insert.i.i.i = zext i32 %.pre79.i.i.i to i64
-  %.phi.trans.insert80.i.i.i = getelementptr inbounds nuw i64, ptr %.pre78.i.i.i, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert80.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre78.i.i.i, i64 %.phi.trans.insert.i.i.i
   %.phi.trans.insert81.i.i.i = getelementptr inbounds i8, ptr %.phi.trans.insert80.i.i.i, i64 -8
   %.pre82.i.i.i = load i64, ptr %.phi.trans.insert81.i.i.i, align 8, !tbaa !77
   br label %290
@@ -3680,7 +3671,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i:         ; preds = %287, %286, %284, %_
   %.pr85.i.i.i = phi i32 [ %.pr83124.i.i.i, %337 ], [ %.pre79.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i ]
   %292 = phi i64 [ %338, %337 ], [ %.pre82.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i ]
   %293 = zext i32 %.pr85.i.i.i to i64
-  %294 = getelementptr inbounds nuw i64, ptr %291, i64 %293
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %293
   %295 = getelementptr inbounds i8, ptr %294, i64 -8
   %296 = and i64 %292, -4
   %297 = inttoptr i64 %296 to ptr
@@ -3714,7 +3705,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i:         ; preds = %287, %286, %284, %_
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i: ; preds = %305, %302
   %.pre-phi.i.i.i.i = phi i64 [ %293, %302 ], [ %.pre13.i.i.i.i, %305 ]
   %307 = phi ptr [ %291, %302 ], [ %.pre12.i.i.i.i, %305 ]
-  %308 = getelementptr inbounds nuw i64, ptr %307, i64 %.pre-phi.i.i.i.i
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %.pre-phi.i.i.i.i
   store i64 %303, ptr %308, align 1
   %309 = load i32, ptr %120, align 8, !tbaa !75
   %310 = add i32 %309, 1
@@ -3749,7 +3740,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i: ; preds = %30
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i: ; preds = %319, %316
   %.pre-phi15.i.i.i.i = phi i64 [ %293, %316 ], [ %.pre14.i.i.i.i, %319 ]
   %321 = phi ptr [ %291, %316 ], [ %.pre.i72.i.i.i, %319 ]
-  %322 = getelementptr inbounds nuw i64, ptr %321, i64 %.pre-phi15.i.i.i.i
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %.pre-phi15.i.i.i.i
   store i64 %317, ptr %322, align 1
   %323 = load i32, ptr %120, align 8, !tbaa !75
   %324 = add i32 %323, 1
@@ -3769,7 +3760,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i: ; preds = %
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.thread.i.i.i: ; preds = %327
   %329 = zext i32 %328 to i64
-  %330 = getelementptr inbounds nuw i64, ptr %291, i64 %329
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %329
   %331 = getelementptr inbounds i8, ptr %330, i64 -8
   %332 = load i64, ptr %331, align 8, !tbaa !77
   %333 = and i64 %332, 3
@@ -3790,7 +3781,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.i._crit_edge.i.i: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.i.i.i
   %.phi.trans.insert11.i.i = zext i32 %.pr83.i.i.i to i64
-  %.phi.trans.insert12.i.i = getelementptr inbounds nuw i64, ptr %.pre9.pre.i.i, i64 %.phi.trans.insert11.i.i
+  %.phi.trans.insert12.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre9.pre.i.i, i64 %.phi.trans.insert11.i.i
   %.phi.trans.insert13.i.i = getelementptr inbounds i8, ptr %.phi.trans.insert12.i.i, i64 -8
   %.pre14.i.i = load i64, ptr %.phi.trans.insert13.i.i, align 8, !tbaa !77
   br label %337
@@ -4197,7 +4188,7 @@ _ZN5clang6IndentERN4llvm11raw_ostreamEjb.exit.i.i.i65: ; preds = %_ZN4llvm11raw_
   %522 = phi i32 [ %468, %.lr.ph.i21.i.i41 ], [ %.pr88157.i.i.i, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEENS_26ImutAVLTreeInOrderIteratorISE_EESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSM_RSM_EppEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw i64, ptr %521, i64 %523
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %523
   %525 = getelementptr inbounds i8, ptr %524, i64 -8
   %526 = load i64, ptr %525, align 8, !tbaa !77
   %527 = and i64 %526, -4
@@ -4488,7 +4479,7 @@ _ZN5clang6IndentERN4llvm11raw_ostreamEjb.exit.i.i.i.i.i.i: ; preds = %_ZN4llvm11
   %664 = phi i32 [ %.pr85128.i.i.i.i.i.i, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEENS_26ImutAVLTreeInOrderIteratorIS7_EESt26bidirectional_iterator_tagKS5_lPSD_RSD_EppEv.exit.i.i.i.i.i.i ], [ %639, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %665 = zext i32 %664 to i64
-  %666 = getelementptr inbounds nuw i64, ptr %663, i64 %665
+  %666 = getelementptr inbounds nuw [8 x i8], ptr %663, i64 %665
   %667 = getelementptr inbounds i8, ptr %666, i64 -8
   %668 = load i64, ptr %667, align 8, !tbaa !77
   %669 = and i64 %668, -4
@@ -4854,7 +4845,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i.i.i.i:   ; preds = %818, %817, %815, %_
   %.pre79.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !73
   %.pre80.i.i.i.i.i.i = load i32, ptr %475, align 8, !tbaa !75
   %.phi.trans.insert81.i.i.i.i.i.i = zext i32 %.pre80.i.i.i.i.i.i to i64
-  %.phi.trans.insert82.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %.pre79.i.i.i.i.i.i, i64 %.phi.trans.insert81.i.i.i.i.i.i
+  %.phi.trans.insert82.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre79.i.i.i.i.i.i, i64 %.phi.trans.insert81.i.i.i.i.i.i
   %.phi.trans.insert83.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.phi.trans.insert82.i.i.i.i.i.i, i64 -8
   %.pre84.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert83.i.i.i.i.i.i, align 8, !tbaa !77
   br label %821
@@ -4864,7 +4855,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i.i.i.i:   ; preds = %818, %817, %815, %_
   %.pr87.i.i.i.i.i.i = phi i32 [ %.pr85128.i.i.i.i.i.i, %868 ], [ %.pre80.i.i.i.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i.i.i.i ]
   %823 = phi i64 [ %869, %868 ], [ %.pre84.i.i.i.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i.i.i.i ]
   %824 = zext i32 %.pr87.i.i.i.i.i.i to i64
-  %825 = getelementptr inbounds nuw i64, ptr %822, i64 %824
+  %825 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %824
   %826 = getelementptr inbounds i8, ptr %825, i64 -8
   %827 = and i64 %823, -4
   %828 = inttoptr i64 %827 to ptr
@@ -4898,7 +4889,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i.i.i.i:   ; preds = %818, %817, %815, %_
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i.i.i.i: ; preds = %836, %833
   %.pre-phi.i.i.i.i.i.i.i = phi i64 [ %824, %833 ], [ %.pre13.i.i.i.i.i.i.i, %836 ]
   %838 = phi ptr [ %822, %833 ], [ %.pre12.i.i.i.i.i.i.i, %836 ]
-  %839 = getelementptr inbounds nuw i64, ptr %838, i64 %.pre-phi.i.i.i.i.i.i.i
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %838, i64 %.pre-phi.i.i.i.i.i.i.i
   store i64 %834, ptr %839, align 1
   %840 = load i32, ptr %475, align 8, !tbaa !75
   %841 = add i32 %840, 1
@@ -4933,7 +4924,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i.i.i.i: ; preds
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i.i.i.i: ; preds = %850, %847
   %.pre-phi15.i.i.i.i.i.i.i = phi i64 [ %824, %847 ], [ %.pre14.i.i.i.i.i.i.i, %850 ]
   %852 = phi ptr [ %822, %847 ], [ %.pre.i72.i.i.i.i.i.i, %850 ]
-  %853 = getelementptr inbounds nuw i64, ptr %852, i64 %.pre-phi15.i.i.i.i.i.i.i
+  %853 = getelementptr inbounds nuw [8 x i8], ptr %852, i64 %.pre-phi15.i.i.i.i.i.i.i
   store i64 %848, ptr %853, align 1
   %854 = load i32, ptr %475, align 8, !tbaa !75
   %855 = add i32 %854, 1
@@ -4953,7 +4944,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i.i.i.i: ; pre
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread.i.i.i.i.i.i: ; preds = %858
   %860 = zext i32 %859 to i64
-  %861 = getelementptr inbounds nuw i64, ptr %822, i64 %860
+  %861 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %860
   %862 = getelementptr inbounds i8, ptr %861, i64 -8
   %863 = load i64, ptr %862, align 8, !tbaa !77
   %864 = and i64 %863, 3
@@ -4974,7 +4965,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.i._crit_edge.i.i.i.i.i: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.i.i.i.i.i.i
   %.phi.trans.insert.i.i.i.i.i = zext i32 %.pr85.i.i.i.i.i.i to i64
-  %.phi.trans.insert10.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %.pre8.pre.i.i.i.i.i, i64 %.phi.trans.insert.i.i.i.i.i
+  %.phi.trans.insert10.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre8.pre.i.i.i.i.i, i64 %.phi.trans.insert.i.i.i.i.i
   %.phi.trans.insert11.i.i.i.i.i = getelementptr inbounds i8, ptr %.phi.trans.insert10.i.i.i.i.i, i64 -8
   %.pre.i.i.i.i.i102 = load i64, ptr %.phi.trans.insert11.i.i.i.i.i, align 8, !tbaa !77
   br label %868
@@ -5187,7 +5178,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit69.i.i.i:         ; preds = %927, %926, %924, %_
   %.pre83.i.i.i = load ptr, ptr %14, align 8, !tbaa !73
   %.pre84.i.i.i = load i32, ptr %467, align 8, !tbaa !75
   %.phi.trans.insert.i.i.i57 = zext i32 %.pre84.i.i.i to i64
-  %.phi.trans.insert85.i.i.i = getelementptr inbounds nuw i64, ptr %.pre83.i.i.i, i64 %.phi.trans.insert.i.i.i57
+  %.phi.trans.insert85.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre83.i.i.i, i64 %.phi.trans.insert.i.i.i57
   %.phi.trans.insert86.i.i.i = getelementptr inbounds i8, ptr %.phi.trans.insert85.i.i.i, i64 -8
   %.pre87.i.i.i = load i64, ptr %.phi.trans.insert86.i.i.i, align 8, !tbaa !77
   br label %930
@@ -5197,7 +5188,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit69.i.i.i:         ; preds = %927, %926, %924, %_
   %.pr90.i.i.i = phi i32 [ %.pr88157.i.i.i, %977 ], [ %.pre84.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit69.i.i.i ]
   %932 = phi i64 [ %978, %977 ], [ %.pre87.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit69.i.i.i ]
   %933 = zext i32 %.pr90.i.i.i to i64
-  %934 = getelementptr inbounds nuw i64, ptr %931, i64 %933
+  %934 = getelementptr inbounds nuw [8 x i8], ptr %931, i64 %933
   %935 = getelementptr inbounds i8, ptr %934, i64 -8
   %936 = and i64 %932, -4
   %937 = inttoptr i64 %936 to ptr
@@ -5231,7 +5222,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit69.i.i.i:         ; preds = %927, %926, %924, %_
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i87: ; preds = %945, %942
   %.pre-phi.i.i.i.i88 = phi i64 [ %933, %942 ], [ %.pre13.i.i.i.i86, %945 ]
   %947 = phi ptr [ %931, %942 ], [ %.pre12.i.i.i.i85, %945 ]
-  %948 = getelementptr inbounds nuw i64, ptr %947, i64 %.pre-phi.i.i.i.i88
+  %948 = getelementptr inbounds nuw [8 x i8], ptr %947, i64 %.pre-phi.i.i.i.i88
   store i64 %943, ptr %948, align 1
   %949 = load i32, ptr %467, align 8, !tbaa !75
   %950 = add i32 %949, 1
@@ -5266,7 +5257,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i87: ; preds = %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i76: ; preds = %959, %956
   %.pre-phi15.i.i.i.i77 = phi i64 [ %933, %956 ], [ %.pre14.i.i.i.i75, %959 ]
   %961 = phi ptr [ %931, %956 ], [ %.pre.i76.i.i.i, %959 ]
-  %962 = getelementptr inbounds nuw i64, ptr %961, i64 %.pre-phi15.i.i.i.i77
+  %962 = getelementptr inbounds nuw [8 x i8], ptr %961, i64 %.pre-phi15.i.i.i.i77
   store i64 %957, ptr %962, align 1
   %963 = load i32, ptr %467, align 8, !tbaa !75
   %964 = add i32 %963, 1
@@ -5286,7 +5277,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i76: ; preds =
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.thread.i.i.i: ; preds = %967
   %969 = zext i32 %968 to i64
-  %970 = getelementptr inbounds nuw i64, ptr %931, i64 %969
+  %970 = getelementptr inbounds nuw [8 x i8], ptr %931, i64 %969
   %971 = getelementptr inbounds i8, ptr %970, i64 -8
   %972 = load i64, ptr %971, align 8, !tbaa !77
   %973 = and i64 %972, 3
@@ -5307,7 +5298,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.i._crit_edge.i.i: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.i.i.i
   %.phi.trans.insert11.i.i79 = zext i32 %.pr88.i.i.i to i64
-  %.phi.trans.insert12.i.i80 = getelementptr inbounds nuw i64, ptr %.pre9.pre.i.i78, i64 %.phi.trans.insert11.i.i79
+  %.phi.trans.insert12.i.i80 = getelementptr inbounds nuw [8 x i8], ptr %.pre9.pre.i.i78, i64 %.phi.trans.insert11.i.i79
   %.phi.trans.insert13.i.i81 = getelementptr inbounds i8, ptr %.phi.trans.insert12.i.i80, i64 -8
   %.pre14.i.i82 = load i64, ptr %.phi.trans.insert13.i.i81, align 8, !tbaa !77
   br label %977
@@ -5672,7 +5663,7 @@ _ZN5clang6IndentERN4llvm11raw_ostreamEjb.exit.i.i.i176: ; preds = %_ZN4llvm11raw
   %1138 = phi i32 [ %1096, %.lr.ph.i21.i.i137 ], [ %.pr83124.i.i.i169, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEENS_26ImutAVLTreeInOrderIteratorISA_EESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSI_RSI_EppEv.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1139 = zext i32 %1138 to i64
-  %1140 = getelementptr inbounds nuw i64, ptr %1137, i64 %1139
+  %1140 = getelementptr inbounds nuw [8 x i8], ptr %1137, i64 %1139
   %1141 = getelementptr inbounds i8, ptr %1140, i64 -8
   %1142 = load i64, ptr %1141, align 8, !tbaa !77
   %1143 = and i64 %1142, -4
@@ -5982,7 +5973,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i159:      ; preds = %1262, %1261, %1259,
   %.pre78.i.i.i160 = load ptr, ptr %6, align 8, !tbaa !73
   %.pre79.i.i.i161 = load i32, ptr %1095, align 8, !tbaa !75
   %.phi.trans.insert.i.i.i162 = zext i32 %.pre79.i.i.i161 to i64
-  %.phi.trans.insert80.i.i.i163 = getelementptr inbounds nuw i64, ptr %.pre78.i.i.i160, i64 %.phi.trans.insert.i.i.i162
+  %.phi.trans.insert80.i.i.i163 = getelementptr inbounds nuw [8 x i8], ptr %.pre78.i.i.i160, i64 %.phi.trans.insert.i.i.i162
   %.phi.trans.insert81.i.i.i164 = getelementptr inbounds i8, ptr %.phi.trans.insert80.i.i.i163, i64 -8
   %.pre82.i.i.i165 = load i64, ptr %.phi.trans.insert81.i.i.i164, align 8, !tbaa !77
   br label %1265
@@ -5992,7 +5983,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i159:      ; preds = %1262, %1261, %1259,
   %.pr85.i.i.i166 = phi i32 [ %.pr83124.i.i.i169, %1312 ], [ %.pre79.i.i.i161, %_ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i159 ]
   %1267 = phi i64 [ %1313, %1312 ], [ %.pre82.i.i.i165, %_ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i159 ]
   %1268 = zext i32 %.pr85.i.i.i166 to i64
-  %1269 = getelementptr inbounds nuw i64, ptr %1266, i64 %1268
+  %1269 = getelementptr inbounds nuw [8 x i8], ptr %1266, i64 %1268
   %1270 = getelementptr inbounds i8, ptr %1269, i64 -8
   %1271 = and i64 %1267, -4
   %1272 = inttoptr i64 %1271 to ptr
@@ -6026,7 +6017,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit66.i.i.i159:      ; preds = %1262, %1261, %1259,
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i196: ; preds = %1280, %1277
   %.pre-phi.i.i.i.i197 = phi i64 [ %1268, %1277 ], [ %.pre13.i.i.i.i195, %1280 ]
   %1282 = phi ptr [ %1266, %1277 ], [ %.pre12.i.i.i.i194, %1280 ]
-  %1283 = getelementptr inbounds nuw i64, ptr %1282, i64 %.pre-phi.i.i.i.i197
+  %1283 = getelementptr inbounds nuw [8 x i8], ptr %1282, i64 %.pre-phi.i.i.i.i197
   store i64 %1278, ptr %1283, align 1
   %1284 = load i32, ptr %1095, align 8, !tbaa !75
   %1285 = add i32 %1284, 1
@@ -6061,7 +6052,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i.i.i.i196: ; preds = 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i187: ; preds = %1294, %1291
   %.pre-phi15.i.i.i.i188 = phi i64 [ %1268, %1291 ], [ %.pre14.i.i.i.i186, %1294 ]
   %1296 = phi ptr [ %1266, %1291 ], [ %.pre.i72.i.i.i185, %1294 ]
-  %1297 = getelementptr inbounds nuw i64, ptr %1296, i64 %.pre-phi15.i.i.i.i188
+  %1297 = getelementptr inbounds nuw [8 x i8], ptr %1296, i64 %.pre-phi15.i.i.i.i188
   store i64 %1292, ptr %1297, align 1
   %1298 = load i32, ptr %1095, align 8, !tbaa !75
   %1299 = add i32 %1298, 1
@@ -6081,7 +6072,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i.i.i.i187: ; preds 
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.thread.i.i.i: ; preds = %1302
   %1304 = zext i32 %1303 to i64
-  %1305 = getelementptr inbounds nuw i64, ptr %1266, i64 %1304
+  %1305 = getelementptr inbounds nuw [8 x i8], ptr %1266, i64 %1304
   %1306 = getelementptr inbounds i8, ptr %1305, i64 -8
   %1307 = load i64, ptr %1306, align 8, !tbaa !77
   %1308 = and i64 %1307, 3
@@ -6102,7 +6093,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.i._crit_edge.i.i: ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.i.i.i
   %.phi.trans.insert18.i.i = zext i32 %.pr83.i.i.i189 to i64
-  %.phi.trans.insert19.i.i = getelementptr inbounds nuw i64, ptr %.pre16.pre.i.i, i64 %.phi.trans.insert18.i.i
+  %.phi.trans.insert19.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre16.pre.i.i, i64 %.phi.trans.insert18.i.i
   %.phi.trans.insert20.i.i = getelementptr inbounds i8, ptr %.phi.trans.insert19.i.i, i64 -8
   %.pre21.i.i = load i64, ptr %.phi.trans.insert20.i.i, align 8, !tbaa !77
   br label %1312
@@ -6338,7 +6329,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegio
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS0_12ImmutableSetINS4_15DynamicCastInfoENS0_17ImutContainerInfoIS9_EEEEEEEESaISF_EE17_M_realloc_insertIJSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS0_12ImmutableSetINS4_15DynamicCastInfoENS0_17ImutContainerInfoIS9_EEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
   store ptr %58, ptr %38, align 8, !tbaa !351
   store ptr %62, ptr %39, align 8, !tbaa !347
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %64, ptr %41, align 8, !tbaa !350
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS0_12ImmutableSetINS4_15DynamicCastInfoENS0_17ImutContainerInfoIS9_EEEEEEEESaISF_EE9push_backEOSF_.exit
 
@@ -6361,7 +6352,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %11 = add i32 %6, -1
   %.02744.i = and i32 %10, %11
   %12 = zext i32 %.02744.i to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !356
@@ -6389,7 +6380,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %25 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %25, %11
   %26 = zext i32 %.027.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !357, !llvm.loop !358
@@ -6498,7 +6489,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueI
   %21 = load ptr, ptr %2, align 8, !tbaa !73
   %22 = load i32, ptr %19, align 8, !tbaa !75
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   %25 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %21, ptr noundef %24)
   %26 = trunc i64 %25 to i32
   %27 = add i32 %.0.i, %26
@@ -6548,7 +6539,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !356
@@ -6576,7 +6567,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !357, !llvm.loop !358
@@ -6679,7 +6670,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
   %43 = mul i32 %41, 37
   %.02744.i.i = and i32 %43, %39
   %44 = zext i32 %.02744.i.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !346
   %47 = icmp eq i32 %41, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS5_15DynamicCastInfoENS_17ImutContainerInfoISA_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSG_EEEEjSG_SI_SL_E15LookupBucketForIjEEbRKT_RPSL_.exit.i, label %.lr.ph.i13.i, !prof !356
@@ -6707,7 +6698,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
   %57 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %57, %39
   %58 = zext i32 %.027.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !346
   %61 = icmp eq i32 %41, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS5_15DynamicCastInfoENS_17ImutContainerInfoISA_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSG_EEEEjSG_SI_SL_E15LookupBucketForIjEEbRKT_RPSL_.exit.i, label %.lr.ph.i13.i, !prof !357, !llvm.loop !358
@@ -6765,7 +6756,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %10, %2
   %14 = phi i32 [ %7, %2 ], [ %.pre.i.i.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !73
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %5, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !75
   %19 = add i32 %18, 1
@@ -6788,7 +6779,7 @@ _ZN4llvm15ImutProfileInfoIPKN5clang4ento9MemRegionEE7ProfileERNS_16FoldingSetNod
   %27 = trunc nuw i64 %26 to i32
   %28 = load ptr, ptr %0, align 8, !tbaa !73
   %29 = zext i32 %25 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 %27, ptr %30, align 1
   %31 = load i32, ptr %6, align 8, !tbaa !75
   %32 = add i32 %31, 1
@@ -6813,7 +6804,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %38, %_ZN
   %42 = phi i32 [ %32, %_ZN4llvm15ImutProfileInfoIPKN5clang4ento9MemRegionEE7ProfileERNS_16FoldingSetNodeIDES5_.exit ], [ %.pre.i.i.i.i.i.i.i.i.i, %38 ]
   %43 = load ptr, ptr %0, align 8, !tbaa !73
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store i32 %36, ptr %45, align 1
   %46 = load i32, ptr %6, align 8, !tbaa !75
   %47 = add i32 %46, 1
@@ -6836,7 +6827,7 @@ _ZN4llvm15ImutProfileInfoINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17I
   %55 = trunc nuw i64 %54 to i32
   %56 = load ptr, ptr %0, align 8, !tbaa !73
   %57 = zext i32 %53 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   store i32 %55, ptr %58, align 1
   %59 = load i32, ptr %6, align 8, !tbaa !75
   %60 = add i32 %59, 1
@@ -7455,7 +7446,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicC
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i
   store ptr %58, ptr %38, align 8, !tbaa !156
   store ptr %62, ptr %39, align 8, !tbaa !153
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %64, ptr %41, align 8, !tbaa !372
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEESaIS8_EE9push_backEOS8_.exit
 
@@ -7478,7 +7469,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %11 = add i32 %6, -1
   %.02744.i = and i32 %10, %11
   %12 = zext i32 %.02744.i to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.41", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !356
@@ -7506,7 +7497,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %25 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %25, %11
   %26 = zext i32 %.027.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.41", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !357, !llvm.loop !375
@@ -7615,7 +7606,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11ImutAVLTreeINS_17ImutContainer
   %21 = load ptr, ptr %2, align 8, !tbaa !73
   %22 = load i32, ptr %19, align 8, !tbaa !75
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   %25 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %21, ptr noundef %24)
   %26 = trunc i64 %25 to i32
   %27 = add i32 %.0.i, %26
@@ -7665,7 +7656,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.41", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !356
@@ -7693,7 +7684,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.41", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !357, !llvm.loop !375
@@ -7796,7 +7787,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_17ImutContainerInfoIN5
   %43 = mul i32 %41, 37
   %.02744.i.i = and i32 %43, %39
   %44 = zext i32 %.02744.i.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.41", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !346
   %47 = icmp eq i32 %41, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS9_EEEEjS9_SB_SE_E15LookupBucketForIjEEbRKT_RPSE_.exit.i, label %.lr.ph.i13.i, !prof !356
@@ -7824,7 +7815,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_17ImutContainerInfoIN5
   %57 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %57, %39
   %58 = zext i32 %.027.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.41", ptr %21, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !346
   %61 = icmp eq i32 %41, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS9_EEEEjS9_SB_SE_E15LookupBucketForIjEEbRKT_RPSE_.exit.i, label %.lr.ph.i13.i, !prof !357, !llvm.loop !375
@@ -7877,7 +7868,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %8, %2
   %12 = phi i32 [ %5, %2 ], [ %.pre.i.i.i.i.i.i.i.i, %8 ]
   %13 = load ptr, ptr %1, align 8, !tbaa !73
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 %3, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !75
   %17 = add i32 %16, 1
@@ -7900,7 +7891,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %25 = trunc nuw i64 %24 to i32
   %26 = load ptr, ptr %1, align 8, !tbaa !73
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %25, ptr %28, align 1
   %29 = load i32, ptr %4, align 8, !tbaa !75
   %30 = add i32 %29, 1
@@ -7924,7 +7915,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i7: ; preds = %34, %_ZN4
   %38 = phi i32 [ %30, %_ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit ], [ %.pre.i.i.i.i.i.i.i.i6, %34 ]
   %39 = load ptr, ptr %1, align 8, !tbaa !73
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %32, ptr %41, align 1
   %42 = load i32, ptr %4, align 8, !tbaa !75
   %43 = add i32 %42, 1
@@ -7947,7 +7938,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit10: ; preds = %_ZN4l
   %51 = trunc nuw i64 %50 to i32
   %52 = load ptr, ptr %1, align 8, !tbaa !73
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %51, ptr %54, align 1
   %55 = load i32, ptr %4, align 8, !tbaa !75
   %56 = add i32 %55, 1
@@ -7970,7 +7961,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
   %64 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit10 ], [ %.pre.i.i, %60 ]
   %65 = load ptr, ptr %1, align 8, !tbaa !73
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %58, ptr %67, align 1
   %68 = load i32, ptr %4, align 8, !tbaa !75
   %69 = add i32 %68, 1
@@ -8014,7 +8005,7 @@ define linkonce_odr hidden void @_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableMa
 12:                                               ; preds = %9
   %13 = load ptr, ptr %3, align 8, !tbaa !73
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !77
   %18 = and i64 %17, 3
@@ -8097,7 +8088,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !75
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !77
   %9 = and i64 %8, -4
@@ -8134,7 +8125,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
   %.pre-phi = phi i64 [ %5, %15 ], [ %.pre13, %19 ]
   %22 = phi ptr [ %2, %15 ], [ %.pre12, %19 ]
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.pre-phi
   store i64 %16, ptr %23, align 1
   %24 = load i32, ptr %3, align 8, !tbaa !75
   %25 = add i32 %24, 1
@@ -8171,7 +8162,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
   %.pre-phi15 = phi i64 [ %5, %31 ], [ %.pre14, %35 ]
   %38 = phi ptr [ %2, %31 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.pre-phi15
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.pre-phi15
   store i64 %32, ptr %39, align 1
   %40 = load i32, ptr %3, align 8, !tbaa !75
   %41 = add i32 %40, 1
@@ -8191,7 +8182,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
 
 .sink.split.i:                                    ; preds = %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = and i64 %49, 3
@@ -8385,7 +8376,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento9Mem
   %11 = add nsw i64 %.029, -1
   %.pre39 = load ptr, ptr %0, align 8, !tbaa !73
   %.phi.trans.insert41 = zext i32 %.pre40 to i64
-  %.phi.trans.insert42 = getelementptr inbounds nuw i64, ptr %.pre39, i64 %.phi.trans.insert41
+  %.phi.trans.insert42 = getelementptr inbounds nuw [8 x i8], ptr %.pre39, i64 %.phi.trans.insert41
   %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.phi.trans.insert42, i64 -8
   %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !77
   br label %12
@@ -8396,7 +8387,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento9Mem
   %13 = phi i64 [ %64, %59 ], [ %.pre44, %10 ]
   %14 = phi ptr [ %60, %59 ], [ %.pre39, %10 ]
   %15 = zext i32 %.pr47 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = and i64 %13, -4
   %19 = inttoptr i64 %18 to ptr
@@ -8430,7 +8421,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento9Mem
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
   %.pre-phi.i = phi i64 [ %15, %24 ], [ %.pre13.i, %27 ]
   %29 = phi ptr [ %14, %24 ], [ %.pre12.i, %27 ]
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi.i
   store i64 %25, ptr %30, align 1
   %31 = load i32, ptr %7, align 8, !tbaa !75
   %32 = add i32 %31, 1
@@ -8465,7 +8456,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %38
   %.pre-phi15.i = phi i64 [ %15, %38 ], [ %.pre14.i, %41 ]
   %43 = phi ptr [ %14, %38 ], [ %.pre.i, %41 ]
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.pre-phi15.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.pre-phi15.i
   store i64 %39, ptr %44, align 1
   %45 = load i32, ptr %7, align 8, !tbaa !75
   %46 = add i32 %45, 1
@@ -8485,7 +8476,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %3
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.thread: ; preds = %49
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %14, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
   %54 = load i64, ptr %53, align 8, !tbaa !77
   %55 = and i64 %54, 3
@@ -8509,7 +8500,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pre405569 = phi i32 [ %50, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.thread ], [ %.pre4055, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %60 = load ptr, ptr %0, align 8, !tbaa !73
   %61 = zext i32 %.pr4570 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   %64 = load i64, ptr %63, align 8, !tbaa !77
   %65 = and i64 %64, 3
@@ -8527,7 +8518,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %.128 = phi i64 [ %1, %.lr.ph ], [ %67, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEENS_26ImutAVLTreeInOrderIteratorISA_EESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSI_RSI_EmmEv.exit ]
   %67 = add nsw i64 %.128, 1
   %.phi.trans.insert = zext i32 %.pre31 to i64
-  %.phi.trans.insert32 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert33 = getelementptr inbounds i8, ptr %.phi.trans.insert32, i64 -8
   %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !77
   br label %68
@@ -8539,7 +8530,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %.pr24 = phi i32 [ %.pr2435, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre31, %66 ]
   %69 = phi i64 [ %113, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre34, %66 ]
   %70 = zext i32 %.pr24 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %.pre.i.i37, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i37, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = and i64 %69, -4
   %74 = inttoptr i64 %73 to ptr
@@ -8579,7 +8570,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %81
   %.pre-phi.i22 = phi i64 [ %70, %81 ], [ %.pre13.i20, %85 ]
   %87 = phi ptr [ %.pre.i.i37, %81 ], [ %.pre12.i19, %85 ]
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.pre-phi.i22
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pre-phi.i22
   store i64 %83, ptr %88, align 1
   %89 = load i32, ptr %4, align 8, !tbaa !75
   %90 = add i32 %89, 1
@@ -8611,7 +8602,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %8
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i14: ; preds = %99, %95
   %.pre-phi15.i15 = phi i64 [ %70, %95 ], [ %.pre14.i13, %99 ]
   %101 = phi ptr [ %.pre.i.i37, %95 ], [ %.pre.i12, %99 ]
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %.pre-phi15.i15
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.pre-phi15.i15
   store i64 %97, ptr %102, align 1
   %103 = load i32, ptr %4, align 8, !tbaa !75
   %104 = add i32 %103, 1
@@ -8642,7 +8633,7 @@ _ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
 
 _ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.thread.i.i: ; preds = %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.i.i, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEmmEv.exit
   %110 = zext i32 %.pr2435 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 -8
   %113 = load i64, ptr %112, align 8, !tbaa !77
   %114 = and i64 %113, 3
@@ -8798,7 +8789,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegio
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoEEEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoEEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit16.i.i.i
   store ptr %58, ptr %38, align 8, !tbaa !393
   store ptr %62, ptr %39, align 8, !tbaa !389
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %64, ptr %41, align 8, !tbaa !392
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoEEEEESaISB_EE9push_backEOSB_.exit
 
@@ -8821,7 +8812,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %11 = add i32 %6, -1
   %.02744.i = and i32 %10, %11
   %12 = zext i32 %.02744.i to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.64", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !356
@@ -8849,7 +8840,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %25 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %25, %11
   %26 = zext i32 %.027.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.64", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !357, !llvm.loop !398
@@ -8967,7 +8958,7 @@ _ZN4llvm16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_15DynamicTypeInfoEE7Prof
   %27 = load ptr, ptr %2, align 8, !tbaa !73
   %28 = load i32, ptr %18, align 8, !tbaa !75
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %29
   %31 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %27, ptr noundef %30)
   %32 = trunc i64 %31 to i32
   %33 = add i32 %.0.i, %32
@@ -9017,7 +9008,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.64", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !356
@@ -9045,7 +9036,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.64", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !357, !llvm.loop !398
@@ -9148,7 +9139,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
   %43 = mul i32 %41, 37
   %.02744.i.i = and i32 %43, %39
   %44 = zext i32 %.02744.i.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.64", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !346
   %47 = icmp eq i32 %41, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS5_15DynamicTypeInfoEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEEEjSC_SE_SH_E15LookupBucketForIjEEbRKT_RPSH_.exit.i, label %.lr.ph.i13.i, !prof !356
@@ -9176,7 +9167,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
   %57 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %57, %39
   %58 = zext i32 %.027.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.64", ptr %21, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !346
   %61 = icmp eq i32 %41, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS5_15DynamicTypeInfoEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEEEjSC_SE_SH_E15LookupBucketForIjEEbRKT_RPSH_.exit.i, label %.lr.ph.i13.i, !prof !357, !llvm.loop !398
@@ -9229,7 +9220,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %8, %2
   %12 = phi i32 [ %5, %2 ], [ %.pre.i.i.i.i.i.i.i.i, %8 ]
   %13 = load ptr, ptr %1, align 8, !tbaa !73
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 %3, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !75
   %17 = add i32 %16, 1
@@ -9252,7 +9243,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %25 = trunc nuw i64 %24 to i32
   %26 = load ptr, ptr %1, align 8, !tbaa !73
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %25, ptr %28, align 1
   %29 = load i32, ptr %4, align 8, !tbaa !75
   %30 = add i32 %29, 1
@@ -9276,7 +9267,7 @@ _ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %_ZN4llvm16FoldingSe
   %39 = zext nneg i8 %32 to i32
   %40 = load ptr, ptr %1, align 8, !tbaa !73
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %39, ptr %42, align 1
   %43 = load i32, ptr %4, align 8, !tbaa !75
   %44 = add i32 %43, 1
@@ -9311,7 +9302,7 @@ define linkonce_odr hidden void @_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableMa
 12:                                               ; preds = %9
   %13 = load ptr, ptr %3, align 8, !tbaa !73
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !77
   %18 = and i64 %17, 3
@@ -9394,7 +9385,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !75
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !77
   %9 = and i64 %8, -4
@@ -9431,7 +9422,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
   %.pre-phi = phi i64 [ %5, %15 ], [ %.pre13, %19 ]
   %22 = phi ptr [ %2, %15 ], [ %.pre12, %19 ]
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.pre-phi
   store i64 %16, ptr %23, align 1
   %24 = load i32, ptr %3, align 8, !tbaa !75
   %25 = add i32 %24, 1
@@ -9468,7 +9459,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
   %.pre-phi15 = phi i64 [ %5, %31 ], [ %.pre14, %35 ]
   %38 = phi ptr [ %2, %31 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.pre-phi15
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.pre-phi15
   store i64 %32, ptr %39, align 1
   %40 = load i32, ptr %3, align 8, !tbaa !75
   %41 = add i32 %40, 1
@@ -9488,7 +9479,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
 
 .sink.split.i:                                    ; preds = %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = and i64 %49, 3
@@ -9535,7 +9526,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm20ImutAVLValueIteratorINS0_12Immu
   %11 = add nsw i64 %.029, -1
   %.pre39 = load ptr, ptr %0, align 8, !tbaa !73
   %.phi.trans.insert41 = zext i32 %.pre40 to i64
-  %.phi.trans.insert42 = getelementptr inbounds nuw i64, ptr %.pre39, i64 %.phi.trans.insert41
+  %.phi.trans.insert42 = getelementptr inbounds nuw [8 x i8], ptr %.pre39, i64 %.phi.trans.insert41
   %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.phi.trans.insert42, i64 -8
   %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !77
   br label %12
@@ -9546,7 +9537,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm20ImutAVLValueIteratorINS0_12Immu
   %13 = phi i64 [ %64, %59 ], [ %.pre44, %10 ]
   %14 = phi ptr [ %60, %59 ], [ %.pre39, %10 ]
   %15 = zext i32 %.pr47 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = and i64 %13, -4
   %19 = inttoptr i64 %18 to ptr
@@ -9580,7 +9571,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm20ImutAVLValueIteratorINS0_12Immu
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
   %.pre-phi.i = phi i64 [ %15, %24 ], [ %.pre13.i, %27 ]
   %29 = phi ptr [ %14, %24 ], [ %.pre12.i, %27 ]
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi.i
   store i64 %25, ptr %30, align 1
   %31 = load i32, ptr %7, align 8, !tbaa !75
   %32 = add i32 %31, 1
@@ -9615,7 +9606,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %38
   %.pre-phi15.i = phi i64 [ %15, %38 ], [ %.pre14.i, %41 ]
   %43 = phi ptr [ %14, %38 ], [ %.pre.i, %41 ]
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.pre-phi15.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.pre-phi15.i
   store i64 %39, ptr %44, align 1
   %45 = load i32, ptr %7, align 8, !tbaa !75
   %46 = add i32 %45, 1
@@ -9635,7 +9626,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %3
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread: ; preds = %49
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %14, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
   %54 = load i64, ptr %53, align 8, !tbaa !77
   %55 = and i64 %54, 3
@@ -9659,7 +9650,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pre405569 = phi i32 [ %50, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread ], [ %.pre4055, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %60 = load ptr, ptr %0, align 8, !tbaa !73
   %61 = zext i32 %.pr4570 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   %64 = load i64, ptr %63, align 8, !tbaa !77
   %65 = and i64 %64, 3
@@ -9677,7 +9668,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5cl
   %.128 = phi i64 [ %1, %.lr.ph ], [ %67, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5clang4ento15DynamicCastInfoENS_17ImutContainerInfoIS5_EEEEEENS_26ImutAVLTreeInOrderIteratorIS7_EESt26bidirectional_iterator_tagKS5_lPSD_RSD_EmmEv.exit ]
   %67 = add nsw i64 %.128, 1
   %.phi.trans.insert = zext i32 %.pre31 to i64
-  %.phi.trans.insert32 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert33 = getelementptr inbounds i8, ptr %.phi.trans.insert32, i64 -8
   %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !77
   br label %68
@@ -9689,7 +9680,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5cl
   %.pr24 = phi i32 [ %.pr2435, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre31, %66 ]
   %69 = phi i64 [ %113, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre34, %66 ]
   %70 = zext i32 %.pr24 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %.pre.i.i37, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i37, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = and i64 %69, -4
   %74 = inttoptr i64 %73 to ptr
@@ -9729,7 +9720,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN5cl
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %81
   %.pre-phi.i22 = phi i64 [ %70, %81 ], [ %.pre13.i20, %85 ]
   %87 = phi ptr [ %.pre.i.i37, %81 ], [ %.pre12.i19, %85 ]
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.pre-phi.i22
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pre-phi.i22
   store i64 %83, ptr %88, align 1
   %89 = load i32, ptr %4, align 8, !tbaa !75
   %90 = add i32 %89, 1
@@ -9761,7 +9752,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %8
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i14: ; preds = %99, %95
   %.pre-phi15.i15 = phi i64 [ %70, %95 ], [ %.pre14.i13, %99 ]
   %101 = phi ptr [ %.pre.i.i37, %95 ], [ %.pre.i12, %99 ]
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %.pre-phi15.i15
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.pre-phi15.i15
   store i64 %97, ptr %102, align 1
   %103 = load i32, ptr %4, align 8, !tbaa !75
   %104 = add i32 %103, 1
@@ -9792,7 +9783,7 @@ _ZNK4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
 
 _ZNK4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEE11atBeginningEv.exit.thread.i.i: ; preds = %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEE11atBeginningEv.exit.i.i, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEmmEv.exit
   %110 = zext i32 %.pr2435 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 -8
   %113 = load i64, ptr %112, align 8, !tbaa !77
   %114 = and i64 %113, 3
@@ -9837,7 +9828,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento9Mem
   %11 = add nsw i64 %.029, -1
   %.pre39 = load ptr, ptr %0, align 8, !tbaa !73
   %.phi.trans.insert41 = zext i32 %.pre40 to i64
-  %.phi.trans.insert42 = getelementptr inbounds nuw i64, ptr %.pre39, i64 %.phi.trans.insert41
+  %.phi.trans.insert42 = getelementptr inbounds nuw [8 x i8], ptr %.pre39, i64 %.phi.trans.insert41
   %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.phi.trans.insert42, i64 -8
   %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !77
   br label %12
@@ -9848,7 +9839,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento9Mem
   %13 = phi i64 [ %64, %59 ], [ %.pre44, %10 ]
   %14 = phi ptr [ %60, %59 ], [ %.pre39, %10 ]
   %15 = zext i32 %.pr47 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = and i64 %13, -4
   %19 = inttoptr i64 %18 to ptr
@@ -9882,7 +9873,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento9Mem
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
   %.pre-phi.i = phi i64 [ %15, %24 ], [ %.pre13.i, %27 ]
   %29 = phi ptr [ %14, %24 ], [ %.pre12.i, %27 ]
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi.i
   store i64 %25, ptr %30, align 1
   %31 = load i32, ptr %7, align 8, !tbaa !75
   %32 = add i32 %31, 1
@@ -9917,7 +9908,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %38
   %.pre-phi15.i = phi i64 [ %15, %38 ], [ %.pre14.i, %41 ]
   %43 = phi ptr [ %14, %38 ], [ %.pre.i, %41 ]
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.pre-phi15.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.pre-phi15.i
   store i64 %39, ptr %44, align 1
   %45 = load i32, ptr %7, align 8, !tbaa !75
   %46 = add i32 %45, 1
@@ -9937,7 +9928,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %3
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.thread: ; preds = %49
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %14, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
   %54 = load i64, ptr %53, align 8, !tbaa !77
   %55 = and i64 %54, 3
@@ -9961,7 +9952,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pre405569 = phi i32 [ %50, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.thread ], [ %.pre4055, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit ]
   %60 = load ptr, ptr %0, align 8, !tbaa !73
   %61 = zext i32 %.pr4570 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   %64 = load i64, ptr %63, align 8, !tbaa !77
   %65 = and i64 %64, 3
@@ -9979,7 +9970,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %.128 = phi i64 [ %1, %.lr.ph ], [ %67, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento9MemRegionENS_12ImmutableSetINS4_15DynamicCastInfoENS_17ImutContainerInfoIS9_EEEENS_16ImutKeyValueInfoIS7_SC_EEEEEENS_26ImutAVLTreeInOrderIteratorISE_EESt26bidirectional_iterator_tagKSt4pairIS7_SC_ElPSM_RSM_EmmEv.exit ]
   %67 = add nsw i64 %.128, 1
   %.phi.trans.insert = zext i32 %.pre31 to i64
-  %.phi.trans.insert32 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert33 = getelementptr inbounds i8, ptr %.phi.trans.insert32, i64 -8
   %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !77
   br label %68
@@ -9991,7 +9982,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %.pr24 = phi i32 [ %.pr2435, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre31, %66 ]
   %69 = phi i64 [ %113, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre34, %66 ]
   %70 = zext i32 %.pr24 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %.pre.i.i37, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i37, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = and i64 %69, -4
   %74 = inttoptr i64 %73 to ptr
@@ -10031,7 +10022,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %81
   %.pre-phi.i22 = phi i64 [ %70, %81 ], [ %.pre13.i20, %85 ]
   %87 = phi ptr [ %.pre.i.i37, %81 ], [ %.pre12.i19, %85 ]
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.pre-phi.i22
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pre-phi.i22
   store i64 %83, ptr %88, align 1
   %89 = load i32, ptr %4, align 8, !tbaa !75
   %90 = add i32 %89, 1
@@ -10063,7 +10054,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %8
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i14: ; preds = %99, %95
   %.pre-phi15.i15 = phi i64 [ %70, %95 ], [ %.pre14.i13, %99 ]
   %101 = phi ptr [ %.pre.i.i37, %95 ], [ %.pre.i12, %99 ]
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %.pre-phi15.i15
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.pre-phi15.i15
   store i64 %97, ptr %102, align 1
   %103 = load i32, ptr %4, align 8, !tbaa !75
   %104 = add i32 %103, 1
@@ -10094,7 +10085,7 @@ _ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
 
 _ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEE11atBeginningEv.exit.thread.i.i: ; preds = %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEE11atBeginningEv.exit.i.i, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEmmEv.exit
   %110 = zext i32 %.pr2435 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 -8
   %113 = load i64, ptr %112, align 8, !tbaa !77
   %114 = and i64 %113, 3
@@ -10136,7 +10127,7 @@ define linkonce_odr hidden void @_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableMa
 12:                                               ; preds = %9
   %13 = load ptr, ptr %3, align 8, !tbaa !73
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !77
   %18 = and i64 %17, 3
@@ -10219,7 +10210,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !75
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !77
   %9 = and i64 %8, -4
@@ -10256,7 +10247,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
   %.pre-phi = phi i64 [ %5, %15 ], [ %.pre13, %19 ]
   %22 = phi ptr [ %2, %15 ], [ %.pre12, %19 ]
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.pre-phi
   store i64 %16, ptr %23, align 1
   %24 = load i32, ptr %3, align 8, !tbaa !75
   %25 = add i32 %24, 1
@@ -10293,7 +10284,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
   %.pre-phi15 = phi i64 [ %5, %31 ], [ %.pre14, %35 ]
   %38 = phi ptr [ %2, %31 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.pre-phi15
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.pre-phi15
   store i64 %32, ptr %39, align 1
   %40 = load i32, ptr %3, align 8, !tbaa !75
   %41 = add i32 %40, 1
@@ -10313,7 +10304,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
 
 .sink.split.i:                                    ; preds = %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = and i64 %49, 3
@@ -10360,7 +10351,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento7Sym
   %11 = add nsw i64 %.029, -1
   %.pre39 = load ptr, ptr %0, align 8, !tbaa !73
   %.phi.trans.insert41 = zext i32 %.pre40 to i64
-  %.phi.trans.insert42 = getelementptr inbounds nuw i64, ptr %.pre39, i64 %.phi.trans.insert41
+  %.phi.trans.insert42 = getelementptr inbounds nuw [8 x i8], ptr %.pre39, i64 %.phi.trans.insert41
   %.phi.trans.insert43 = getelementptr inbounds i8, ptr %.phi.trans.insert42, i64 -8
   %.pre44 = load i64, ptr %.phi.trans.insert43, align 8, !tbaa !77
   br label %12
@@ -10371,7 +10362,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento7Sym
   %13 = phi i64 [ %64, %59 ], [ %.pre44, %10 ]
   %14 = phi ptr [ %60, %59 ], [ %.pre39, %10 ]
   %15 = zext i32 %.pr47 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = and i64 %13, -4
   %19 = inttoptr i64 %18 to ptr
@@ -10405,7 +10396,7 @@ define linkonce_odr void @_ZSt9__advanceIN4llvm12ImmutableMapIPKN5clang4ento7Sym
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
   %.pre-phi.i = phi i64 [ %15, %24 ], [ %.pre13.i, %27 ]
   %29 = phi ptr [ %14, %24 ], [ %.pre12.i, %27 ]
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %.pre-phi.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre-phi.i
   store i64 %25, ptr %30, align 1
   %31 = load i32, ptr %7, align 8, !tbaa !75
   %32 = add i32 %31, 1
@@ -10440,7 +10431,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %27, %24
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %38
   %.pre-phi15.i = phi i64 [ %15, %38 ], [ %.pre14.i, %41 ]
   %43 = phi ptr [ %14, %38 ], [ %.pre.i, %41 ]
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.pre-phi15.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.pre-phi15.i
   store i64 %39, ptr %44, align 1
   %45 = load i32, ptr %7, align 8, !tbaa !75
   %46 = add i32 %45, 1
@@ -10460,7 +10451,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %41, %3
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.thread: ; preds = %49
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %14, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
   %54 = load i64, ptr %53, align 8, !tbaa !77
   %55 = and i64 %54, 3
@@ -10484,7 +10475,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
   %.pre405569 = phi i32 [ %50, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.thread ], [ %.pre4055, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %60 = load ptr, ptr %0, align 8, !tbaa !73
   %61 = zext i32 %.pr4570 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   %64 = load i64, ptr %63, align 8, !tbaa !77
   %65 = and i64 %64, 3
@@ -10502,7 +10493,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %.128 = phi i64 [ %1, %.lr.ph ], [ %67, %_ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoENS_16ImutKeyValueInfoIS7_S8_EEEEEENS_26ImutAVLTreeInOrderIteratorISA_EESt26bidirectional_iterator_tagKSt4pairIS7_S8_ElPSI_RSI_EmmEv.exit ]
   %67 = add nsw i64 %.128, 1
   %.phi.trans.insert = zext i32 %.pre31 to i64
-  %.phi.trans.insert32 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.phi.trans.insert
+  %.phi.trans.insert32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.phi.trans.insert
   %.phi.trans.insert33 = getelementptr inbounds i8, ptr %.phi.trans.insert32, i64 -8
   %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !77
   br label %68
@@ -10514,7 +10505,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %.pr24 = phi i32 [ %.pr2435, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre31, %66 ]
   %69 = phi i64 [ %113, %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.thread.i.i ], [ %.pre34, %66 ]
   %70 = zext i32 %.pr24 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %.pre.i.i37, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i37, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = and i64 %69, -4
   %74 = inttoptr i64 %73 to ptr
@@ -10554,7 +10545,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %81
   %.pre-phi.i22 = phi i64 [ %70, %81 ], [ %.pre13.i20, %85 ]
   %87 = phi ptr [ %.pre.i.i37, %81 ], [ %.pre12.i19, %85 ]
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.pre-phi.i22
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pre-phi.i22
   store i64 %83, ptr %88, align 1
   %89 = load i32, ptr %4, align 8, !tbaa !75
   %90 = add i32 %89, 1
@@ -10586,7 +10577,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i21: ; preds = %85, %8
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i14: ; preds = %99, %95
   %.pre-phi15.i15 = phi i64 [ %70, %95 ], [ %.pre14.i13, %99 ]
   %101 = phi ptr [ %.pre.i.i37, %95 ], [ %.pre.i12, %99 ]
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %.pre-phi15.i15
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.pre-phi15.i15
   store i64 %97, ptr %102, align 1
   %103 = load i32, ptr %4, align 8, !tbaa !75
   %104 = add i32 %103, 1
@@ -10617,7 +10608,7 @@ _ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymEx
 
 _ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.thread.i.i: ; preds = %_ZNK4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEE11atBeginningEv.exit.i.i, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEmmEv.exit
   %110 = zext i32 %.pr2435 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %.pre.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 -8
   %113 = load i64, ptr %112, align 8, !tbaa !77
   %114 = and i64 %113, 3
@@ -10773,7 +10764,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprE
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoEEEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoEEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit16.i.i.i
   store ptr %58, ptr %38, align 8, !tbaa !421
   store ptr %62, ptr %39, align 8, !tbaa !417
-  %64 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %64, ptr %41, align 8, !tbaa !420
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoEEEEESaISB_EE9push_backEOSB_.exit
 
@@ -10796,7 +10787,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %11 = add i32 %6, -1
   %.02744.i = and i32 %10, %11
   %12 = zext i32 %.02744.i to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.92", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !356
@@ -10824,7 +10815,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %25 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %25, %11
   %26 = zext i32 %.027.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.92", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !357, !llvm.loop !426
@@ -10942,7 +10933,7 @@ _ZN4llvm16ImutKeyValueInfoIPKN5clang4ento7SymExprENS2_15DynamicTypeInfoEE7Profil
   %27 = load ptr, ptr %2, align 8, !tbaa !73
   %28 = load i32, ptr %18, align 8, !tbaa !75
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %29
   %31 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %27, ptr noundef %30)
   %32 = trunc i64 %31 to i32
   %33 = add i32 %.0.i, %32
@@ -10992,7 +10983,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.92", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !346
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !356
@@ -11020,7 +11011,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.92", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !346
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !357, !llvm.loop !426
@@ -11123,7 +11114,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
   %43 = mul i32 %41, 37
   %.02744.i.i = and i32 %43, %39
   %44 = zext i32 %.02744.i.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.92", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !346
   %47 = icmp eq i32 %41, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS5_15DynamicTypeInfoEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEEEjSC_SE_SH_E15LookupBucketForIjEEbRKT_RPSH_.exit.i, label %.lr.ph.i13.i, !prof !356
@@ -11151,7 +11142,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
   %57 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %57, %39
   %58 = zext i32 %.027.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.92", ptr %21, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !346
   %61 = icmp eq i32 %41, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS5_15DynamicTypeInfoEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEEEjSC_SE_SH_E15LookupBucketForIjEEbRKT_RPSH_.exit.i, label %.lr.ph.i13.i, !prof !357, !llvm.loop !426
@@ -11212,7 +11203,7 @@ define linkonce_odr hidden void @_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSe
 12:                                               ; preds = %9
   %13 = load ptr, ptr %3, align 8, !tbaa !73
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !77
   %18 = and i64 %17, 3
@@ -11295,7 +11286,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !75
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !77
   %9 = and i64 %8, -4
@@ -11332,7 +11323,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
   %.pre-phi = phi i64 [ %5, %15 ], [ %.pre13, %19 ]
   %22 = phi ptr [ %2, %15 ], [ %.pre12, %19 ]
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.pre-phi
   store i64 %16, ptr %23, align 1
   %24 = load i32, ptr %3, align 8, !tbaa !75
   %25 = add i32 %24, 1
@@ -11369,7 +11360,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %15, %19
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
   %.pre-phi15 = phi i64 [ %5, %31 ], [ %.pre14, %35 ]
   %38 = phi ptr [ %2, %31 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.pre-phi15
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.pre-phi15
   store i64 %32, ptr %39, align 1
   %40 = load i32, ptr %3, align 8, !tbaa !75
   %41 = add i32 %40, 1
@@ -11389,7 +11380,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
 
 .sink.split.i:                                    ; preds = %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = and i64 %49, 3
@@ -11453,7 +11444,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegion
 .lr.ph.i.i:                                       ; preds = %34, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %34 ]
   %23 = load ptr, ptr %11, align 8, !tbaa !393
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 8
@@ -11560,7 +11551,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
 27:                                               ; preds = %24
   %28 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !440
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !77
   %33 = and i64 %32, 3
@@ -11904,7 +11895,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegio
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoEEEEESaISB_EE17_M_realloc_insertIJRKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoEEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit16.i.i
   store ptr %89, ptr %69, align 8, !tbaa !393
   store ptr %93, ptr %70, align 8, !tbaa !389
-  %95 = getelementptr inbounds nuw ptr, ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   store ptr %95, ptr %72, align 8, !tbaa !392
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS4_15DynamicTypeInfoEEEEESaISB_EE9push_backERKSB_.exit
 
@@ -12073,7 +12064,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !73
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.162", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -12114,7 +12105,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !73
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !75
@@ -12160,7 +12151,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_16Imu
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !462
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !77
   %19 = and i64 %18, 3
@@ -12230,12 +12221,12 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %40 = phi ptr [ %.pre45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEeqERKS9_.exit.thread38_crit_edge ], [ %38, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEeqERKS9_.exit ]
   %41 = load ptr, ptr %4, align 8, !tbaa !73
   %42 = zext i32 %29 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !77
   %46 = and i64 %45, -4
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.pre-phi
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = and i64 %50, -4
@@ -12266,7 +12257,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15Dyna
   %67 = phi i64 [ %118, %113 ], [ %45, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEE14isElementEqualEPKS9_.exit ]
   %68 = phi ptr [ %114, %113 ], [ %41, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEE14isElementEqualEPKS9_.exit ]
   %69 = zext i32 %.pr47 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = getelementptr inbounds i8, ptr %70, i64 -8
   %72 = and i64 %67, -4
   %73 = inttoptr i64 %72 to ptr
@@ -12300,7 +12291,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15Dyna
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %81, %78
   %.pre-phi.i = phi i64 [ %69, %78 ], [ %.pre13.i, %81 ]
   %83 = phi ptr [ %68, %78 ], [ %.pre12.i, %81 ]
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %.pre-phi.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.pre-phi.i
   store i64 %79, ptr %84, align 1
   %85 = load i32, ptr %7, align 8, !tbaa !75
   %86 = add i32 %85, 1
@@ -12335,7 +12326,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %81, %78
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %95, %92
   %.pre-phi15.i = phi i64 [ %69, %92 ], [ %.pre14.i, %95 ]
   %97 = phi ptr [ %68, %92 ], [ %.pre.i, %95 ]
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %.pre-phi15.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.pre-phi15.i
   store i64 %93, ptr %98, align 1
   %99 = load i32, ptr %7, align 8, !tbaa !75
   %100 = add i32 %99, 1
@@ -12355,7 +12346,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %95, %9
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.thread: ; preds = %103
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw i64, ptr %68, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 -8
   %108 = load i64, ptr %107, align 8, !tbaa !77
   %109 = and i64 %108, 3
@@ -12377,7 +12368,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pr4871 = phi i32 [ %104, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit.thread ], [ %.pr48, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %114 = load ptr, ptr %4, align 8, !tbaa !73
   %115 = zext i32 %.pr4871 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   %117 = getelementptr inbounds i8, ptr %116, i64 -8
   %118 = load i64, ptr %117, align 8, !tbaa !77
   %119 = and i64 %118, 3
@@ -12388,7 +12379,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pre49 = load ptr, ptr %1, align 8, !tbaa !73
   %.pre50 = load i32, ptr %23, align 8, !tbaa !75
   %.phi.trans.insert = zext i32 %.pre50 to i64
-  %.phi.trans.insert51 = getelementptr inbounds nuw i64, ptr %.pre49, i64 %.phi.trans.insert
+  %.phi.trans.insert51 = getelementptr inbounds nuw [8 x i8], ptr %.pre49, i64 %.phi.trans.insert
   %.phi.trans.insert52 = getelementptr inbounds i8, ptr %.phi.trans.insert51, i64 -8
   %.pre53 = load i64, ptr %.phi.trans.insert52, align 8, !tbaa !77
   br label %120
@@ -12398,7 +12389,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %121 = phi i64 [ %172, %167 ], [ %.pre53, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %122 = phi ptr [ %168, %167 ], [ %.pre49, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %123 = zext i32 %.pr4256 to i64
-  %124 = getelementptr inbounds nuw i64, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds i8, ptr %124, i64 -8
   %126 = and i64 %121, -4
   %127 = inttoptr i64 %126 to ptr
@@ -12432,7 +12423,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %135, %132
   %.pre-phi.i30 = phi i64 [ %123, %132 ], [ %.pre13.i28, %135 ]
   %137 = phi ptr [ %122, %132 ], [ %.pre12.i27, %135 ]
-  %138 = getelementptr inbounds nuw i64, ptr %137, i64 %.pre-phi.i30
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %.pre-phi.i30
   store i64 %133, ptr %138, align 1
   %139 = load i32, ptr %23, align 8, !tbaa !75
   %140 = add i32 %139, 1
@@ -12467,7 +12458,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %135, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %149, %146
   %.pre-phi15.i23 = phi i64 [ %123, %146 ], [ %.pre14.i21, %149 ]
   %151 = phi ptr [ %122, %146 ], [ %.pre.i20, %149 ]
-  %152 = getelementptr inbounds nuw i64, ptr %151, i64 %.pre-phi15.i23
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.pre-phi15.i23
   store i64 %147, ptr %152, align 1
   %153 = load i32, ptr %23, align 8, !tbaa !75
   %154 = add i32 %153, 1
@@ -12487,7 +12478,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %149,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit31.thread: ; preds = %157
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw i64, ptr %122, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -8
   %162 = load i64, ptr %161, align 8, !tbaa !77
   %163 = and i64 %162, 3
@@ -12509,7 +12500,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pr425474 = phi i32 [ %158, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit31.thread ], [ %.pr4254, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS3_15DynamicTypeInfoEEEEppEv.exit31 ]
   %168 = load ptr, ptr %1, align 8, !tbaa !73
   %169 = zext i32 %.pr425474 to i64
-  %170 = getelementptr inbounds nuw i64, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %169
   %171 = getelementptr inbounds i8, ptr %170, i64 -8
   %172 = load i64, ptr %171, align 8, !tbaa !77
   %173 = and i64 %172, 3
@@ -12849,7 +12840,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContai
 27:                                               ; preds = %24
   %28 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !474
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !77
   %33 = and i64 %32, 3
@@ -13201,7 +13192,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicC
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i
   store ptr %89, ptr %69, align 8, !tbaa !156
   store ptr %93, ptr %70, align 8, !tbaa !153
-  %95 = getelementptr inbounds nuw ptr, ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   store ptr %95, ptr %72, align 8, !tbaa !372
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEESaIS8_EE9push_backERKS8_.exit
 
@@ -13363,7 +13354,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_17Imu
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !484
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !77
   %19 = and i64 %18, 3
@@ -13433,12 +13424,12 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
   %40 = phi ptr [ %.pre44, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEneERKS6_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit.thread38_crit_edge ], [ %38, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit ]
   %41 = load ptr, ptr %4, align 8, !tbaa !73
   %42 = zext i32 %29 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !77
   %46 = and i64 %45, -4
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.pre-phi
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = and i64 %50, -4
@@ -13461,7 +13452,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
   %60 = phi i64 [ %111, %106 ], [ %45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit.thread38 ]
   %61 = phi ptr [ %107, %106 ], [ %41, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEeqERKS6_.exit.thread38 ]
   %62 = zext i32 %.pr46 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds i8, ptr %63, i64 -8
   %65 = and i64 %60, -4
   %66 = inttoptr i64 %65 to ptr
@@ -13495,7 +13486,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %74, %71
   %.pre-phi.i = phi i64 [ %62, %71 ], [ %.pre13.i, %74 ]
   %76 = phi ptr [ %61, %71 ], [ %.pre12.i, %74 ]
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %.pre-phi.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.pre-phi.i
   store i64 %72, ptr %77, align 1
   %78 = load i32, ptr %7, align 8, !tbaa !75
   %79 = add i32 %78, 1
@@ -13530,7 +13521,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %74, %71
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %88, %85
   %.pre-phi15.i = phi i64 [ %62, %85 ], [ %.pre14.i, %88 ]
   %90 = phi ptr [ %61, %85 ], [ %.pre.i, %88 ]
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %.pre-phi15.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.pre-phi15.i
   store i64 %86, ptr %91, align 1
   %92 = load i32, ptr %7, align 8, !tbaa !75
   %93 = add i32 %92, 1
@@ -13550,7 +13541,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %88, %8
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread: ; preds = %96
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i64, ptr %61, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 -8
   %101 = load i64, ptr %100, align 8, !tbaa !77
   %102 = and i64 %101, 3
@@ -13572,7 +13563,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pr4770 = phi i32 [ %97, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread ], [ %.pr47, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %107 = load ptr, ptr %4, align 8, !tbaa !73
   %108 = zext i32 %.pr4770 to i64
-  %109 = getelementptr inbounds nuw i64, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = getelementptr inbounds i8, ptr %109, i64 -8
   %111 = load i64, ptr %110, align 8, !tbaa !77
   %112 = and i64 %111, 3
@@ -13583,7 +13574,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pre48 = load ptr, ptr %1, align 8, !tbaa !73
   %.pre49 = load i32, ptr %23, align 8, !tbaa !75
   %.phi.trans.insert = zext i32 %.pre49 to i64
-  %.phi.trans.insert50 = getelementptr inbounds nuw i64, ptr %.pre48, i64 %.phi.trans.insert
+  %.phi.trans.insert50 = getelementptr inbounds nuw [8 x i8], ptr %.pre48, i64 %.phi.trans.insert
   %.phi.trans.insert51 = getelementptr inbounds i8, ptr %.phi.trans.insert50, i64 -8
   %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !77
   br label %113
@@ -13593,7 +13584,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %114 = phi i64 [ %165, %160 ], [ %.pre52, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %115 = phi ptr [ %161, %160 ], [ %.pre48, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %116 = zext i32 %.pr4155 to i64
-  %117 = getelementptr inbounds nuw i64, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %116
   %118 = getelementptr inbounds i8, ptr %117, i64 -8
   %119 = and i64 %114, -4
   %120 = inttoptr i64 %119 to ptr
@@ -13627,7 +13618,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %128, %125
   %.pre-phi.i30 = phi i64 [ %116, %125 ], [ %.pre13.i28, %128 ]
   %130 = phi ptr [ %115, %125 ], [ %.pre12.i27, %128 ]
-  %131 = getelementptr inbounds nuw i64, ptr %130, i64 %.pre-phi.i30
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.pre-phi.i30
   store i64 %126, ptr %131, align 1
   %132 = load i32, ptr %23, align 8, !tbaa !75
   %133 = add i32 %132, 1
@@ -13662,7 +13653,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %128, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %142, %139
   %.pre-phi15.i23 = phi i64 [ %116, %139 ], [ %.pre14.i21, %142 ]
   %144 = phi ptr [ %115, %139 ], [ %.pre.i20, %142 ]
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %.pre-phi15.i23
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %.pre-phi15.i23
   store i64 %140, ptr %145, align 1
   %146 = load i32, ptr %23, align 8, !tbaa !75
   %147 = add i32 %146, 1
@@ -13682,7 +13673,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %142,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit31.thread: ; preds = %150
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %115, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %152
   %154 = getelementptr inbounds i8, ptr %153, i64 -8
   %155 = load i64, ptr %154, align 8, !tbaa !77
   %156 = and i64 %155, 3
@@ -13704,7 +13695,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pr415373 = phi i32 [ %151, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit31.thread ], [ %.pr4153, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit31 ]
   %161 = load ptr, ptr %1, align 8, !tbaa !73
   %162 = zext i32 %.pr415373 to i64
-  %163 = getelementptr inbounds nuw i64, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %162
   %164 = getelementptr inbounds i8, ptr %163, i64 -8
   %165 = load i64, ptr %164, align 8, !tbaa !77
   %166 = and i64 %165, 3
@@ -13805,7 +13796,7 @@ _ZNSt4pairIPKN5clang4ento9MemRegionEN4llvm12ImmutableSetINS1_15DynamicCastInfoEN
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %41 ]
   %30 = load ptr, ptr %18, align 8, !tbaa !351
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !60
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8
@@ -13944,7 +13935,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
 27:                                               ; preds = %24
   %28 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !498
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !77
   %33 = and i64 %32, 3
@@ -14304,7 +14295,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegio
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS0_12ImmutableSetINS4_15DynamicCastInfoENS0_17ImutContainerInfoIS9_EEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i: ; preds = %102, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS0_12ImmutableSetINS4_15DynamicCastInfoENS0_17ImutContainerInfoIS9_EEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i
   store ptr %97, ptr %77, align 8, !tbaa !351
   store ptr %101, ptr %78, align 8, !tbaa !347
-  %103 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   store ptr %103, ptr %80, align 8, !tbaa !350
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS0_12ImmutableSetINS4_15DynamicCastInfoENS0_17ImutContainerInfoIS9_EEEEEEEESaISF_EE9push_backERKSF_.exit
 
@@ -14466,7 +14457,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_16Imu
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !507
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !77
   %19 = and i64 %18, 3
@@ -14536,12 +14527,12 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %40 = phi ptr [ %.pre45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEneERKSD_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEeqERKSD_.exit.thread38_crit_edge ], [ %38, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEeqERKSD_.exit ]
   %41 = load ptr, ptr %4, align 8, !tbaa !73
   %42 = zext i32 %29 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !77
   %46 = and i64 %45, -4
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.pre-phi
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = and i64 %50, -4
@@ -14575,7 +14566,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Immut
   %.pre46.pre = load ptr, ptr %4, align 8, !tbaa !73
   %.pre47.pre = load i32, ptr %7, align 8, !tbaa !75
   %.phi.trans.insert.phi.trans.insert = zext i32 %.pre47.pre to i64
-  %.phi.trans.insert48.phi.trans.insert = getelementptr inbounds nuw i64, ptr %.pre46.pre, i64 %.phi.trans.insert.phi.trans.insert
+  %.phi.trans.insert48.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre46.pre, i64 %.phi.trans.insert.phi.trans.insert
   %.phi.trans.insert49.phi.trans.insert = getelementptr inbounds i8, ptr %.phi.trans.insert48.phi.trans.insert, i64 -8
   %.pre50.pre = load i64, ptr %.phi.trans.insert49.phi.trans.insert, align 8, !tbaa !77
   br label %.preheader
@@ -14591,7 +14582,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Immut
   %66 = phi i64 [ %117, %112 ], [ %.ph, %.preheader ]
   %67 = phi ptr [ %113, %112 ], [ %.ph85, %.preheader ]
   %68 = zext i32 %.pr53 to i64
-  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -8
   %71 = and i64 %66, -4
   %72 = inttoptr i64 %71 to ptr
@@ -14625,7 +14616,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Immut
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %80, %77
   %.pre-phi.i = phi i64 [ %68, %77 ], [ %.pre13.i, %80 ]
   %82 = phi ptr [ %67, %77 ], [ %.pre12.i, %80 ]
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.pre-phi.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.pre-phi.i
   store i64 %78, ptr %83, align 1
   %84 = load i32, ptr %7, align 8, !tbaa !75
   %85 = add i32 %84, 1
@@ -14660,7 +14651,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %80, %77
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %94, %91
   %.pre-phi15.i = phi i64 [ %68, %91 ], [ %.pre14.i, %94 ]
   %96 = phi ptr [ %67, %91 ], [ %.pre.i, %94 ]
-  %97 = getelementptr inbounds nuw i64, ptr %96, i64 %.pre-phi15.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.pre-phi15.i
   store i64 %92, ptr %97, align 1
   %98 = load i32, ptr %7, align 8, !tbaa !75
   %99 = add i32 %98, 1
@@ -14680,7 +14671,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %94, %9
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.thread: ; preds = %102
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i64, ptr %67, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %104
   %106 = getelementptr inbounds i8, ptr %105, i64 -8
   %107 = load i64, ptr %106, align 8, !tbaa !77
   %108 = and i64 %107, 3
@@ -14702,7 +14693,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pr5181 = phi i32 [ %103, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit.thread ], [ %.pr51, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit ]
   %113 = load ptr, ptr %4, align 8, !tbaa !73
   %114 = zext i32 %.pr5181 to i64
-  %115 = getelementptr inbounds nuw i64, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -8
   %117 = load i64, ptr %116, align 8, !tbaa !77
   %118 = and i64 %117, 3
@@ -14713,7 +14704,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pre54 = load ptr, ptr %1, align 8, !tbaa !73
   %.pre55 = load i32, ptr %23, align 8, !tbaa !75
   %.phi.trans.insert56 = zext i32 %.pre55 to i64
-  %.phi.trans.insert57 = getelementptr inbounds nuw i64, ptr %.pre54, i64 %.phi.trans.insert56
+  %.phi.trans.insert57 = getelementptr inbounds nuw [8 x i8], ptr %.pre54, i64 %.phi.trans.insert56
   %.phi.trans.insert58 = getelementptr inbounds i8, ptr %.phi.trans.insert57, i64 -8
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8, !tbaa !77
   br label %119
@@ -14723,7 +14714,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %120 = phi i64 [ %171, %166 ], [ %.pre59, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit ]
   %121 = phi ptr [ %167, %166 ], [ %.pre54, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit ]
   %122 = zext i32 %.pr4262 to i64
-  %123 = getelementptr inbounds nuw i64, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds i8, ptr %123, i64 -8
   %125 = and i64 %120, -4
   %126 = inttoptr i64 %125 to ptr
@@ -14757,7 +14748,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %134, %131
   %.pre-phi.i30 = phi i64 [ %122, %131 ], [ %.pre13.i28, %134 ]
   %136 = phi ptr [ %121, %131 ], [ %.pre12.i27, %134 ]
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %.pre-phi.i30
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %.pre-phi.i30
   store i64 %132, ptr %137, align 1
   %138 = load i32, ptr %23, align 8, !tbaa !75
   %139 = add i32 %138, 1
@@ -14792,7 +14783,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %134, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %148, %145
   %.pre-phi15.i23 = phi i64 [ %122, %145 ], [ %.pre14.i21, %148 ]
   %150 = phi ptr [ %121, %145 ], [ %.pre.i20, %148 ]
-  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %.pre-phi15.i23
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %.pre-phi15.i23
   store i64 %146, ptr %151, align 1
   %152 = load i32, ptr %23, align 8, !tbaa !75
   %153 = add i32 %152, 1
@@ -14812,7 +14803,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %148,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit31.thread: ; preds = %156
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw i64, ptr %121, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %158
   %160 = getelementptr inbounds i8, ptr %159, i64 -8
   %161 = load i64, ptr %160, align 8, !tbaa !77
   %162 = and i64 %161, 3
@@ -14834,7 +14825,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %.pr426084 = phi i32 [ %157, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit31.thread ], [ %.pr4260, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableSetINS3_15DynamicCastInfoENS_17ImutContainerInfoIS8_EEEEEEEppEv.exit31 ]
   %167 = load ptr, ptr %1, align 8, !tbaa !73
   %168 = zext i32 %.pr426084 to i64
-  %169 = getelementptr inbounds nuw i64, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = getelementptr inbounds i8, ptr %169, i64 -8
   %171 = load i64, ptr %170, align 8, !tbaa !77
   %172 = and i64 %171, 3
@@ -14901,7 +14892,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11ImutAVLTreeINS_17ImutC
 16:                                               ; preds = %13
   %17 = load ptr, ptr %3, align 8, !tbaa !73, !alias.scope !514
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
   %21 = load i64, ptr %20, align 8, !tbaa !77
   %22 = and i64 %21, 3
@@ -14937,7 +14928,7 @@ _ZNK4llvm11ImutAVLTreeINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEE5
 33:                                               ; preds = %30
   %34 = load ptr, ptr %5, align 8, !tbaa !73, !alias.scope !520
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   %38 = load i64, ptr %37, align 8, !tbaa !77
   %39 = and i64 %38, 3
@@ -15003,11 +14994,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
   %56 = phi ptr [ %.pre, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEneERKS6_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEneERKS6_.exit16.thread_crit_edge ], [ %54, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEneERKS6_.exit16 ]
   %57 = load ptr, ptr %3, align 8, !tbaa !73
   %58 = zext i32 %45 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -8
   %61 = load i64, ptr %60, align 8, !tbaa !77
   %62 = and i64 %61, -4
-  %63 = getelementptr inbounds nuw i64, ptr %56, i64 %.pre-phi114
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.pre-phi114
   %64 = getelementptr inbounds i8, ptr %63, i64 -8
   %65 = load i64, ptr %64, align 8, !tbaa !77
   %66 = and i64 %65, -4
@@ -15022,7 +15013,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
 
 .lr.ph.preheader.i:                               ; preds = %68
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %57, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = load i64, ptr %72, align 8, !tbaa !77
   %74 = and i64 %73, 3
@@ -15036,7 +15027,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynam
   %77 = phi i32 [ %86, %84 ], [ %69, %.lr.ph.preheader.i ]
   %78 = load ptr, ptr %3, align 8, !tbaa !73
   %79 = zext i32 %77 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -8
   %82 = load i64, ptr %81, align 8, !tbaa !77
   %83 = and i64 %82, 3
@@ -15063,7 +15054,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
 .lr.ph.preheader.i18:                             ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEE11skipSubTreeEv.exit
   %89 = load ptr, ptr %5, align 8, !tbaa !73
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw i64, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 -8
   %93 = load i64, ptr %92, align 8, !tbaa !77
   %94 = and i64 %93, 3
@@ -15077,7 +15068,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %97 = phi i32 [ %106, %104 ], [ %88, %.lr.ph.preheader.i18 ]
   %98 = load ptr, ptr %5, align 8, !tbaa !73
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw i64, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -8
   %102 = load i64, ptr %101, align 8, !tbaa !77
   %103 = and i64 %102, 3
@@ -15115,7 +15106,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %118 = phi i64 [ %169, %164 ], [ %61, %108 ]
   %119 = phi ptr [ %165, %164 ], [ %57, %108 ]
   %120 = zext i32 %.pr98 to i64
-  %121 = getelementptr inbounds nuw i64, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %120
   %122 = getelementptr inbounds i8, ptr %121, i64 -8
   %123 = and i64 %118, -4
   %124 = inttoptr i64 %123 to ptr
@@ -15149,7 +15140,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %132, %129
   %.pre-phi.i = phi i64 [ %120, %129 ], [ %.pre13.i, %132 ]
   %134 = phi ptr [ %119, %129 ], [ %.pre12.i, %132 ]
-  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %.pre-phi.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %.pre-phi.i
   store i64 %130, ptr %135, align 1
   %136 = load i32, ptr %10, align 8, !tbaa !75
   %137 = add i32 %136, 1
@@ -15184,7 +15175,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %132, %12
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %146, %143
   %.pre-phi15.i = phi i64 [ %120, %143 ], [ %.pre14.i, %146 ]
   %148 = phi ptr [ %119, %143 ], [ %.pre.i, %146 ]
-  %149 = getelementptr inbounds nuw i64, ptr %148, i64 %.pre-phi15.i
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %.pre-phi15.i
   store i64 %144, ptr %149, align 1
   %150 = load i32, ptr %10, align 8, !tbaa !75
   %151 = add i32 %150, 1
@@ -15204,7 +15195,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %146, %
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread: ; preds = %154
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %119, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %156
   %158 = getelementptr inbounds i8, ptr %157, i64 -8
   %159 = load i64, ptr %158, align 8, !tbaa !77
   %160 = and i64 %159, 3
@@ -15226,7 +15217,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pr99140 = phi i32 [ %155, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit.thread ], [ %.pr99, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %165 = load ptr, ptr %3, align 8, !tbaa !73
   %166 = zext i32 %.pr99140 to i64
-  %167 = getelementptr inbounds nuw i64, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %166
   %168 = getelementptr inbounds i8, ptr %167, i64 -8
   %169 = load i64, ptr %168, align 8, !tbaa !77
   %170 = and i64 %169, 3
@@ -15237,7 +15228,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pre100 = load ptr, ptr %5, align 8, !tbaa !73
   %.pre101 = load i32, ptr %27, align 8, !tbaa !75
   %.phi.trans.insert = zext i32 %.pre101 to i64
-  %.phi.trans.insert102 = getelementptr inbounds nuw i64, ptr %.pre100, i64 %.phi.trans.insert
+  %.phi.trans.insert102 = getelementptr inbounds nuw [8 x i8], ptr %.pre100, i64 %.phi.trans.insert
   %.phi.trans.insert103 = getelementptr inbounds i8, ptr %.phi.trans.insert102, i64 -8
   %.pre104 = load i64, ptr %.phi.trans.insert103, align 8, !tbaa !77
   br label %171
@@ -15247,7 +15238,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %172 = phi i64 [ %223, %218 ], [ %.pre104, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %173 = phi ptr [ %219, %218 ], [ %.pre100, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit ]
   %174 = zext i32 %.pr68107 to i64
-  %175 = getelementptr inbounds nuw i64, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %174
   %176 = getelementptr inbounds i8, ptr %175, i64 -8
   %177 = and i64 %172, -4
   %178 = inttoptr i64 %177 to ptr
@@ -15281,7 +15272,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i58: ; preds = %186, %183
   %.pre-phi.i59 = phi i64 [ %174, %183 ], [ %.pre13.i57, %186 ]
   %188 = phi ptr [ %173, %183 ], [ %.pre12.i56, %186 ]
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.pre-phi.i59
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.pre-phi.i59
   store i64 %184, ptr %189, align 1
   %190 = load i32, ptr %27, align 8, !tbaa !75
   %191 = add i32 %190, 1
@@ -15316,7 +15307,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i58: ; preds = %186, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i51: ; preds = %200, %197
   %.pre-phi15.i52 = phi i64 [ %174, %197 ], [ %.pre14.i50, %200 ]
   %202 = phi ptr [ %173, %197 ], [ %.pre.i49, %200 ]
-  %203 = getelementptr inbounds nuw i64, ptr %202, i64 %.pre-phi15.i52
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %.pre-phi15.i52
   store i64 %198, ptr %203, align 1
   %204 = load i32, ptr %27, align 8, !tbaa !75
   %205 = add i32 %204, 1
@@ -15336,7 +15327,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i51: ; preds = %200,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit60.thread: ; preds = %208
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i64, ptr %173, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %210
   %212 = getelementptr inbounds i8, ptr %211, i64 -8
   %213 = load i64, ptr %212, align 8, !tbaa !77
   %214 = and i64 %213, 3
@@ -15358,7 +15349,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15Dynami
   %.pr68105143 = phi i32 [ %209, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit60.thread ], [ %.pr68105, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIN5clang4ento15DynamicCastInfoEEEEppEv.exit60 ]
   %219 = load ptr, ptr %5, align 8, !tbaa !73
   %220 = zext i32 %.pr68105143 to i64
-  %221 = getelementptr inbounds nuw i64, ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %220
   %222 = getelementptr inbounds i8, ptr %221, i64 -8
   %223 = load i64, ptr %222, align 8, !tbaa !77
   %224 = and i64 %223, 3
@@ -15585,7 +15576,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN
 .lr.ph.i.i:                                       ; preds = %34, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %34 ]
   %23 = load ptr, ptr %11, align 8, !tbaa !421
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !99
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 8
@@ -15692,7 +15683,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyVal
 27:                                               ; preds = %24
   %28 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !535
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !77
   %33 = and i64 %32, 3
@@ -16040,7 +16031,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprE
 _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoEEEEESaISB_EE17_M_realloc_insertIJRKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoEEEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit16.i.i
   store ptr %89, ptr %69, align 8, !tbaa !421
   store ptr %93, ptr %70, align 8, !tbaa !417
-  %95 = getelementptr inbounds nuw ptr, ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %87
   store ptr %95, ptr %72, align 8, !tbaa !420
   br label %_ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS4_15DynamicTypeInfoEEEEESaISB_EE9push_backERKSB_.exit
 
@@ -16202,7 +16193,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14ImutAVLFactoryINS_16Imu
 13:                                               ; preds = %10
   %14 = load ptr, ptr %4, align 8, !tbaa !73, !alias.scope !544
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !77
   %19 = and i64 %18, 3
@@ -16272,12 +16263,12 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymEx
   %40 = phi ptr [ %.pre45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEeqERKS9_.exit.thread38_crit_edge ], [ %38, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEeqERKS9_.exit ]
   %41 = load ptr, ptr %4, align 8, !tbaa !73
   %42 = zext i32 %29 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !77
   %46 = and i64 %45, -4
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw i64, ptr %40, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.pre-phi
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = and i64 %50, -4
@@ -16312,7 +16303,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15Dynami
   %71 = phi i64 [ %122, %117 ], [ %45, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEE14isElementEqualEPKS9_.exit ]
   %72 = phi ptr [ %118, %117 ], [ %41, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEE14isElementEqualEPKS9_.exit ]
   %73 = zext i32 %.pr47 to i64
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -8
   %76 = and i64 %71, -4
   %77 = inttoptr i64 %76 to ptr
@@ -16346,7 +16337,7 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15Dynami
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %85, %82
   %.pre-phi.i = phi i64 [ %73, %82 ], [ %.pre13.i, %85 ]
   %87 = phi ptr [ %72, %82 ], [ %.pre12.i, %85 ]
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %.pre-phi.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.pre-phi.i
   store i64 %83, ptr %88, align 1
   %89 = load i32, ptr %7, align 8, !tbaa !75
   %90 = add i32 %89, 1
@@ -16381,7 +16372,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %85, %82
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %99, %96
   %.pre-phi15.i = phi i64 [ %73, %96 ], [ %.pre14.i, %99 ]
   %101 = phi ptr [ %72, %96 ], [ %.pre.i, %99 ]
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %.pre-phi15.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.pre-phi15.i
   store i64 %97, ptr %102, align 1
   %103 = load i32, ptr %7, align 8, !tbaa !75
   %104 = add i32 %103, 1
@@ -16401,7 +16392,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %99, %9
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.thread: ; preds = %107
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i64, ptr %72, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %109
   %111 = getelementptr inbounds i8, ptr %110, i64 -8
   %112 = load i64, ptr %111, align 8, !tbaa !77
   %113 = and i64 %112, 3
@@ -16423,7 +16414,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
   %.pr4871 = phi i32 [ %108, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit.thread ], [ %.pr48, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %118 = load ptr, ptr %4, align 8, !tbaa !73
   %119 = zext i32 %.pr4871 to i64
-  %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 -8
   %122 = load i64, ptr %121, align 8, !tbaa !77
   %123 = and i64 %122, 3
@@ -16434,7 +16425,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
   %.pre49 = load ptr, ptr %1, align 8, !tbaa !73
   %.pre50 = load i32, ptr %23, align 8, !tbaa !75
   %.phi.trans.insert = zext i32 %.pre50 to i64
-  %.phi.trans.insert51 = getelementptr inbounds nuw i64, ptr %.pre49, i64 %.phi.trans.insert
+  %.phi.trans.insert51 = getelementptr inbounds nuw [8 x i8], ptr %.pre49, i64 %.phi.trans.insert
   %.phi.trans.insert52 = getelementptr inbounds i8, ptr %.phi.trans.insert51, i64 -8
   %.pre53 = load i64, ptr %.phi.trans.insert52, align 8, !tbaa !77
   br label %124
@@ -16444,7 +16435,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
   %125 = phi i64 [ %176, %171 ], [ %.pre53, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %126 = phi ptr [ %172, %171 ], [ %.pre49, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit ]
   %127 = zext i32 %.pr4256 to i64
-  %128 = getelementptr inbounds nuw i64, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 -8
   %130 = and i64 %125, -4
   %131 = inttoptr i64 %130 to ptr
@@ -16478,7 +16469,7 @@ _ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %139, %136
   %.pre-phi.i30 = phi i64 [ %127, %136 ], [ %.pre13.i28, %139 ]
   %141 = phi ptr [ %126, %136 ], [ %.pre12.i27, %139 ]
-  %142 = getelementptr inbounds nuw i64, ptr %141, i64 %.pre-phi.i30
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %.pre-phi.i30
   store i64 %137, ptr %142, align 1
   %143 = load i32, ptr %23, align 8, !tbaa !75
   %144 = add i32 %143, 1
@@ -16513,7 +16504,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %139, %
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %153, %150
   %.pre-phi15.i23 = phi i64 [ %127, %150 ], [ %.pre14.i21, %153 ]
   %155 = phi ptr [ %126, %150 ], [ %.pre.i20, %153 ]
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %.pre-phi15.i23
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %.pre-phi15.i23
   store i64 %151, ptr %156, align 1
   %157 = load i32, ptr %23, align 8, !tbaa !75
   %158 = add i32 %157, 1
@@ -16533,7 +16524,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %153,
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit31.thread: ; preds = %161
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw i64, ptr %126, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %163
   %165 = getelementptr inbounds i8, ptr %164, i64 -8
   %166 = load i64, ptr %165, align 8, !tbaa !77
   %167 = and i64 %166, 3
@@ -16555,7 +16546,7 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
   %.pr425474 = phi i32 [ %162, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit31.thread ], [ %.pr4254, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_15DynamicTypeInfoEEEEppEv.exit31 ]
   %172 = load ptr, ptr %1, align 8, !tbaa !73
   %173 = zext i32 %.pr425474 to i64
-  %174 = getelementptr inbounds nuw i64, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 -8
   %176 = load i64, ptr %175, align 8, !tbaa !77
   %177 = and i64 %176, 3
@@ -16716,7 +16707,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegion
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
   %19 = load ptr, ptr %7, align 8, !tbaa !393
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
@@ -16890,7 +16881,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegion
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
   %19 = load ptr, ptr %7, align 8, !tbaa !351
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
@@ -17066,7 +17057,7 @@ define linkonce_odr hidden void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
   %19 = load ptr, ptr %7, align 8, !tbaa !421
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !99
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8

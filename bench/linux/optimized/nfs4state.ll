@@ -123,7 +123,7 @@ define dso_local i32 @nfs4_init_clientid(ptr noundef %0, ptr noundef %1) local_u
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2536
   %14 = load volatile ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @__rcu_read_unlock() #17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -223,7 +223,7 @@ define dso_local i32 @nfs40_discover_server_trunking(ptr noundef %0, ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2536
   %14 = load volatile ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @__rcu_read_unlock() #17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -544,7 +544,7 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
 
 42:                                               ; preds = %38, %34
   %43 = phi i64 [ 0, %34 ], [ %41, %38 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %43
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %43
   %44 = getelementptr i8, ptr %.split, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias align 8 dereferenceable_or_null(376) ptr @kmalloc_trace(ptr noundef %45, i32 noundef %35, i64 noundef 376) #19
@@ -1958,7 +1958,7 @@ define dso_local noundef ptr @nfs_alloc_seqid(ptr noundef %0, i32 noundef %1) lo
 
 9:                                                ; preds = %5, %2
   %10 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %1, i64 noundef 32) #19

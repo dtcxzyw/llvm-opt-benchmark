@@ -2798,7 +2798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i554: ; preds = %
 
 1061:                                             ; preds = %_ZNSirsERf.exit.i, %1057
   %indvars.iv.i = phi i64 [ 0, %1057 ], [ %indvars.iv.next.i, %_ZNSirsERf.exit.i ]
-  %1062 = getelementptr inbounds nuw float, ptr %1060, i64 %indvars.iv.i
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %1060, i64 %indvars.iv.i
   %1063 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIfEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %1062)
           to label %_ZNSirsERf.exit.i unwind label %1066
 
@@ -5304,9 +5304,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %38
 
 67:                                               ; preds = %.preheader.us, %67
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !75
-  %70 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv
   store float %69, ptr %70, align 4, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5874,7 +5874,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !134
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !115
   br label %16

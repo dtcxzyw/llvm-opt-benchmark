@@ -79,7 +79,7 @@ define dso_local zeroext i1 @parse_current_is_expr(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %4
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   ret i1 %7
@@ -170,7 +170,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef cap
 46:                                               ; preds = %38
   %47 = load i32, ptr %4, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not50 = icmp eq ptr %50, null
   br i1 %.not50, label %62, label %51
@@ -270,7 +270,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp ugt i32 %2, %9
@@ -291,7 +291,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   br i1 %.not, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %14
-  %18 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %11
+  %18 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not18 = icmp eq ptr %20, null
@@ -309,7 +309,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %27 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %.01621) #8
   %28 = load i32, ptr %4, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = icmp ugt i32 %2, %32
@@ -382,7 +382,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   store i32 %32, ptr %.1.i.i, align 4
   %33 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   store ptr %11, ptr %35, align 8
   %36 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 29) #8
   br i1 %36, label %.lr.ph.i, label %._crit_edge.i
@@ -445,7 +445,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   store i32 %62, ptr %.1.i74.sink95.i, align 4
   %63 = getelementptr inbounds nuw i8, ptr %.1.i74.sink95.i, i64 8
   %64 = zext i32 %.sink96.i to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   store ptr %.sink.i, ptr %65, align 8
   %66 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 29) #8
   br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
@@ -599,7 +599,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %143 = load i32, ptr %.1.i, align 4
   %144 = add i32 %143, -1
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %145
   store ptr %.061.i125, ptr %146, align 8
   %147 = load i32, ptr %7, align 8
   %148 = icmp eq i32 %147, 8
@@ -661,7 +661,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   store i32 %179, ptr %.1.i.i103, align 4
   %180 = getelementptr inbounds nuw i8, ptr %.1.i.i103, i64 8
   %181 = zext i32 %178 to i64
-  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   store ptr %156, ptr %182, align 8
   br label %183
 
@@ -712,7 +712,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   store i32 %208, ptr %.1.i115.i, align 4
   %209 = getelementptr inbounds nuw i8, ptr %.1.i115.i, i64 8
   %210 = zext i32 %207 to i64
-  %211 = getelementptr inbounds nuw ptr, ptr %209, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %210
   store ptr %184, ptr %211, align 8
   %212 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %212, label %183, label %213, !llvm.loop !9
@@ -829,7 +829,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %273 = load i32, ptr %.1.i120.i, align 4
   %274 = add i32 %273, -1
   %275 = zext i32 %274 to i64
-  %276 = getelementptr inbounds nuw ptr, ptr %271, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %275
   store ptr %272, ptr %276, align 8
   store ptr null, ptr %237, align 8
   %277 = getelementptr inbounds nuw i8, ptr %155, i64 8
@@ -927,7 +927,7 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
   store i32 %322, ptr %.1.i128.i, align 4
   %323 = getelementptr inbounds nuw i8, ptr %.1.i128.i, i64 8
   %324 = zext i32 %321 to i64
-  %325 = getelementptr inbounds nuw ptr, ptr %323, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %324
   store ptr %291, ptr %325, align 8
   %326 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %326, label %.preheader.i, label %327, !llvm.loop !10
@@ -1039,7 +1039,7 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   %377 = load i32, ptr %.1.i112, align 4
   %378 = add i32 %377, -1
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds nuw ptr, ptr %376, i64 %379
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %379
   store ptr %.097.i128, ptr %380, align 8
   %381 = load i32, ptr %7, align 8
   %382 = icmp eq i32 %381, 8
@@ -1133,7 +1133,7 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   %430 = load i32, ptr %.1.i119, align 4
   %431 = add i32 %430, -1
   %432 = zext i32 %431 to i64
-  %433 = getelementptr inbounds nuw ptr, ptr %429, i64 %432
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %432
   store ptr %.073, ptr %433, align 8
   %434 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %434, label %8, label %.loopexit
@@ -1185,7 +1185,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
@@ -1205,7 +1205,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 .split12:                                         ; preds = %12
   %15 = load i32, ptr %3, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp ugt i32 %1, %19
@@ -1226,7 +1226,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not.i, label %.critedge, label %.critedge.i
 
 .critedge.i:                                      ; preds = %24, %.lr.ph.i
-  %28 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %21
+  %28 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %21
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not18.i = icmp eq ptr %30, null
@@ -1244,7 +1244,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %37 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %.01621.i) #8
   %38 = load i32, ptr %3, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = icmp ugt i32 %1, %42
@@ -1260,7 +1260,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
 .split:                                           ; preds = %44
   %48 = load i32, ptr %3, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i32, ptr %51, align 8
   %53 = icmp ugt i32 %1, %52
@@ -1281,7 +1281,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not.i18, label %.critedge, label %.critedge.i19
 
 .critedge.i19:                                    ; preds = %57, %.lr.ph.i16
-  %61 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %54
+  %61 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %54
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not18.i20 = icmp eq ptr %63, null
@@ -1299,7 +1299,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %70 = tail call ptr %63(ptr noundef nonnull %0, ptr noundef %.01621.i17) #8
   %71 = load i32, ptr %3, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp ugt i32 %1, %75
@@ -1586,7 +1586,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
   %93 = load i32, ptr %.1.i, align 4
   %94 = add i32 %93, -1
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %95
   store ptr %.066, ptr %96, align 8
   %97 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %97, label %98, label %.loopexit
@@ -1748,7 +1748,7 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   %62 = load i32, ptr %.1.i.sink103, align 4
   %63 = add i32 %62, -1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %64
   store ptr %.sink, ptr %65, align 8
   br label %4
 
@@ -1899,7 +1899,7 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
   %55 = load i32, ptr %.1.i, align 4
   %56 = add i32 %55, -1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %57
   store ptr %.022, ptr %58, align 8
   %59 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %59, label %8, label %.loopexit
@@ -2027,7 +2027,7 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   %64 = load i32, ptr %.1.i, align 4
   %65 = add i32 %64, -1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   store ptr %.034, ptr %67, align 8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %68, label %8, label %.loopexit
@@ -2080,7 +2080,7 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr readnone captur
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %.04158 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %35 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i16, ptr %19, align 8
@@ -3707,7 +3707,7 @@ define internal ptr @parse_binary(ptr noundef %0, ptr noundef %1) #1 {
   %4 = load i32, ptr %3, align 8
   tail call void @advance(ptr noundef %0) #8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
@@ -4065,7 +4065,7 @@ define internal ptr @parse_grouping_expr(ptr noundef %0, ptr readnone captures(n
 
 38:                                               ; preds = %32, %27
   %39 = zext i32 %30 to i64
-  %40 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not46 = icmp eq ptr %41, null
   br i1 %.not46, label %66, label %42
@@ -4477,7 +4477,7 @@ define internal ptr @parse_ternary_expr(ptr noundef %0, ptr noundef %1) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %19, label %11
@@ -4490,7 +4490,7 @@ define internal ptr @parse_ternary_expr(ptr noundef %0, ptr noundef %1) #1 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.ParseRule, ptr @rules, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @rules, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not54 = icmp eq ptr %18, null
   br i1 %.not54, label %19, label %39
@@ -5011,7 +5011,7 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   store i32 %47, ptr %.1.i, align 4
   %48 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   store ptr %14, ptr %50, align 8
   %51 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %51, label %13, label %52, !llvm.loop !19
@@ -5491,10 +5491,10 @@ define internal ptr @parse_char_lit(ptr noundef %0, ptr readnone captures(none) 
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_char_lit, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_char_lit, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds nuw i32, ptr @switch.table.parse_char_lit.2, i64 %17
+  %switch.gep19 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.parse_char_lit.2, i64 %17
   %switch.load20 = load i32, ptr %switch.gep19, align 4
   br label %18
 
@@ -6439,7 +6439,7 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr readnone captures(none)
   store i32 %51, ptr %.1.i, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   store ptr %18, ptr %54, align 8
   %55 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %55, label %17, label %56
@@ -6733,7 +6733,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr readnone captures(none
   store i32 %49, ptr %.1.i, align 4
   %50 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   store ptr %16, ptr %52, align 8
   %53 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %53, label %13, label %54, !llvm.loop !30

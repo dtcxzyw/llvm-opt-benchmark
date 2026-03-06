@@ -90,7 +90,7 @@ stream_read_bit.exit47.thread.i:                  ; preds = %25
 
 41:                                               ; preds = %47, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %47 ]
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !24
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %47
@@ -191,7 +191,7 @@ stream_read_bits.exit.i:                          ; preds = %.thread.i, %51
   %97 = add i64 %96, %87
   %98 = and i64 %97, 63
   %99 = lshr i64 %97, 6
-  %100 = getelementptr inbounds nuw i64, ptr %91, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %99
   store ptr %100, ptr %88, align 8, !tbaa !17
   %.not.i.i50.i = icmp eq i64 %98, 0
   br i1 %.not.i.i50.i, label %stream_skip.exit.i, label %101
@@ -318,7 +318,7 @@ stream_read_bits.exit.i11:                        ; preds = %134, %124
   %165 = add i64 %164, %154
   %166 = and i64 %165, 63
   %167 = lshr i64 %165, 6
-  %168 = getelementptr inbounds nuw i64, ptr %158, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %167
   store ptr %168, ptr %155, align 8, !tbaa !17
   %.not.i.i.i.i = icmp eq i64 %166, 0
   br i1 %.not.i.i.i.i, label %stream_skip.exit.i.i, label %169
@@ -353,7 +353,7 @@ stream_skip.exit.i.i:                             ; preds = %169, %152
   %180 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 1
   %181 = load i8, ptr %.03.i.i.i, align 1, !tbaa !27
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw i32, ptr %4, i64 %182
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %182
   store i32 %179, ptr %183, align 4, !tbaa !24
   %184 = add nsw i32 %.0.i.i.i16, -1
   %.not.i.i.i17 = icmp eq i32 %184, 0
@@ -367,7 +367,7 @@ stream_skip.exit.i.i:                             ; preds = %169, %152
 
 185:                                              ; preds = %185, %.preheader27.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader27.i.i.i ], [ %indvars.iv.next.i.i.i, %185 ]
-  %gep.i.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %186 = load i32, ptr %gep.i.i.i, align 4, !tbaa !24
   %187 = getelementptr inbounds nuw i8, ptr %gep.i.i.i, i64 64
   %188 = load i32, ptr %187, align 4, !tbaa !24
@@ -402,7 +402,7 @@ stream_skip.exit.i.i:                             ; preds = %169, %152
 
 .preheader25.i.i.i:                               ; preds = %205, %226
   %indvars.iv47.i.i.i = phi i64 [ %indvars.iv.next48.i.i.i, %226 ], [ 0, %205 ]
-  %invariant.gep30.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv47.i.i.i
+  %invariant.gep30.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv47.i.i.i
   br label %206
 
 206:                                              ; preds = %206, %.preheader25.i.i.i
@@ -523,7 +523,7 @@ inv_cast_float.exit.i:                            ; preds = %250
   %270 = add i64 %269, %260
   %271 = and i64 %270, 63
   %272 = lshr i64 %270, 6
-  %273 = getelementptr inbounds nuw i64, ptr %264, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %272
   store ptr %273, ptr %261, align 8, !tbaa !17
   %.not.i.i35.i = icmp eq i64 %271, 0
   br i1 %.not.i.i35.i, label %stream_skip.exit.i19, label %274
@@ -608,7 +608,7 @@ stream_read_bits.exit:                            ; preds = %10, %20
   %43 = add i64 %42, %32
   %44 = and i64 %43, 63
   %45 = lshr i64 %43, 6
-  %46 = getelementptr inbounds nuw i64, ptr %36, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %45
   store ptr %46, ptr %33, align 8, !tbaa !17
   %.not.i.i = icmp eq i64 %44, 0
   br i1 %.not.i.i, label %stream_skip.exit, label %47
@@ -643,7 +643,7 @@ stream_skip.exit:                                 ; preds = %30, %47
   %58 = getelementptr inbounds nuw i8, ptr %.03.i, i64 1
   %59 = load i8, ptr %.03.i, align 1, !tbaa !27
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %3, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %60
   store i32 %57, ptr %61, align 4, !tbaa !24
   %62 = add nsw i32 %.0.i16, -1
   %.not.i = icmp eq i32 %62, 0
@@ -657,7 +657,7 @@ stream_skip.exit:                                 ; preds = %30, %47
 
 63:                                               ; preds = %63, %.preheader27.i
   %indvars.iv.i = phi i64 [ 0, %.preheader27.i ], [ %indvars.iv.next.i, %63 ]
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %64 = load i32, ptr %gep.i, align 4, !tbaa !24
   %65 = getelementptr inbounds nuw i8, ptr %gep.i, i64 64
   %66 = load i32, ptr %65, align 4, !tbaa !24
@@ -685,7 +685,7 @@ stream_skip.exit:                                 ; preds = %30, %47
 
 .preheader25.i:                                   ; preds = %77, %92
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %92 ], [ 0, %77 ]
-  %invariant.gep30.i = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv47.i
+  %invariant.gep30.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv47.i
   br label %78
 
 78:                                               ; preds = %78, %.preheader25.i
@@ -937,7 +937,7 @@ stream_read_bit.exit._crit_edge.i:                ; preds = %stream_read_bit.exi
   %67 = trunc i64 %.1114.i to i32
   %68 = and i32 %67, 1
   %69 = shl nuw i32 %68, %9
-  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4, !tbaa !24, !alias.scope !31, !noalias !28
   %72 = add i32 %69, %71
   store i32 %72, ptr %70, align 4, !tbaa !24, !alias.scope !31, !noalias !28
@@ -1110,7 +1110,7 @@ stream_read_bit.exit45.i:                         ; preds = %110, %._crit_edge.i
   %123 = trunc i64 %.1100.i to i32
   %124 = and i32 %123, 1
   %125 = shl nuw i32 %124, %79
-  %126 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i32
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i32
   %127 = load i32, ptr %126, align 4, !tbaa !24, !alias.scope !38, !noalias !35
   %128 = add i32 %125, %127
   store i32 %128, ptr %126, align 4, !tbaa !24, !alias.scope !38, !noalias !35
@@ -1177,19 +1177,19 @@ define range(i64 0, 4294967296) i64 @zfp_decode_block_strided_float_3(ptr nounde
   %14 = load float, ptr %.223.i, align 4, !tbaa !20
   store float %14, ptr %.22022.i, align 4, !tbaa !20
   %15 = add nuw nsw i32 %.01624.i, 1
-  %16 = getelementptr inbounds float, ptr %.22022.i, i64 %2
+  %16 = getelementptr inbounds [4 x i8], ptr %.22022.i, i64 %2
   %exitcond.not.i = icmp eq i32 %15, 4
   br i1 %exitcond.not.i, label %17, label %12
 
 17:                                               ; preds = %12
   %18 = add nuw nsw i32 %.01527.i, 1
-  %19 = getelementptr inbounds float, ptr %16, i64 %9
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %9
   %exitcond33.not.i = icmp eq i32 %18, 4
   br i1 %exitcond33.not.i, label %20, label %.preheader.i
 
 20:                                               ; preds = %17
   %21 = add nuw nsw i32 %.030.i, 1
-  %22 = getelementptr inbounds float, ptr %19, i64 %11
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %11
   %exitcond34.not.i = icmp eq i32 %21, 4
   br i1 %exitcond34.not.i, label %scatter_float_3.exit, label %.preheader21.i
 
@@ -1238,22 +1238,22 @@ define range(i64 0, 4294967296) i64 @zfp_decode_partial_block_strided_float_3(pt
   %19 = load float, ptr %.235.us.us.us.i, align 4, !tbaa !20
   store float %19, ptr %.23034.us.us.us.i, align 4, !tbaa !20
   %20 = add nuw i64 %.02636.us.us.us.i, 1
-  %21 = getelementptr inbounds float, ptr %.23034.us.us.us.i, i64 %5
+  %21 = getelementptr inbounds [4 x i8], ptr %.23034.us.us.us.i, i64 %5
   %22 = getelementptr inbounds nuw i8, ptr %.235.us.us.us.i, i64 4
   %exitcond.not.i = icmp eq i64 %20, %2
   br i1 %exitcond.not.i, label %._crit_edge.us.us.us.i, label %18
 
 ._crit_edge.us.us.us.i:                           ; preds = %18
   %23 = add nuw i64 %.02540.us.us.us.i, 1
-  %24 = getelementptr inbounds float, ptr %21, i64 %12
-  %25 = getelementptr inbounds nuw float, ptr %22, i64 %13
+  %24 = getelementptr inbounds [4 x i8], ptr %21, i64 %12
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   %exitcond65.not.i = icmp eq i64 %23, %3
   br i1 %exitcond65.not.i, label %._crit_edge41.split.us.us.us.i, label %.preheader.us.us.us.i
 
 ._crit_edge41.split.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.i
   %26 = add nuw i64 %.047.us.us.i, 1
-  %27 = getelementptr inbounds float, ptr %24, i64 %15
-  %28 = getelementptr inbounds nuw float, ptr %25, i64 %17
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %15
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %17
   %exitcond66.not.i = icmp eq i64 %26, %4
   br i1 %exitcond66.not.i, label %scatter_partial_float_3.exit, label %.preheader33.us.us.i
 

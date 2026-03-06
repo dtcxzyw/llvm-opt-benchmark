@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"struct.utils::LifetimeOperation" = type { i32, i32 }
 %"class.std::allocator" = type { i8 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -2578,7 +2577,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %27, ptr %4, align 8
   store ptr %34, ptr %5, align 8
-  %36 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %27, i64 %25
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %36, ptr %7, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJRiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit
 
@@ -10462,7 +10461,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i176
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i187: ; preds = %.lr.ph.i.i.i.i.i180
   call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef %164) #26
-  %242 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %236, i64 %234
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %234
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit190
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit190: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i187, %225
@@ -20310,7 +20309,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i278
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i289: ; preds = %.lr.ph.i.i.i.i.i282, %.noexc291
   %.0.lcssa.i.i.i.i.i287 = phi ptr [ %374, %.noexc291 ], [ %379, %.lr.ph.i.i.i.i.i282 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.12, i64 noundef %291) #26
-  %380 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %372
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit292
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit292: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i289, %363
@@ -20379,7 +20378,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21Life
   %.0.lcssa.i.i.i.i.i303 = phi ptr [ %396, %.noexc307 ], [ %401, %.lr.ph.i.i.i.i.i298 ]
   %402 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i303, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.13, i64 noundef %387) #26
-  %403 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %396, i64 %394
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %394
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit308
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit308: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i305, %381
@@ -26892,7 +26891,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i217
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i228: ; preds = %.lr.ph.i.i.i.i.i221
   call void @_ZdlPvm(ptr noundef nonnull %201, i64 noundef %211) #26
-  %297 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %291, i64 %289
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %289
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit231
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit231: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i228, %280
@@ -30752,7 +30751,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i249
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i260: ; preds = %.lr.ph.i.i.i.i.i253, %.noexc262
   %.0.lcssa.i.i.i.i.i258 = phi ptr [ %313, %.noexc262 ], [ %318, %.lr.ph.i.i.i.i.i253 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.12, i64 noundef %304) #26
-  %319 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %313, i64 %311
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %311
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit263
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit263: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i260, %299
@@ -30821,7 +30820,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21Life
   %.0.lcssa.i.i.i.i.i274 = phi ptr [ %335, %.noexc278 ], [ %340, %.lr.ph.i.i.i.i.i269 ]
   %341 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i274, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.13, i64 noundef %326) #26
-  %342 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %335, i64 %333
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %333
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit279
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit279: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i276, %320
@@ -31086,7 +31085,7 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i309
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i320: ; preds = %.lr.ph.i.i.i.i.i313, %.noexc322
   %.0.lcssa.i.i.i.i.i318 = phi ptr [ %431, %.noexc322 ], [ %436, %.lr.ph.i.i.i.i.i313 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.14, i64 noundef %348) #26
-  %437 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %431, i64 %429
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %429
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit323
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit323: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i320, %420
@@ -31155,7 +31154,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21Life
   %.0.lcssa.i.i.i.i.i334 = phi ptr [ %453, %.noexc338 ], [ %458, %.lr.ph.i.i.i.i.i329 ]
   %459 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i334, i64 8
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.15, i64 noundef %444) #26
-  %460 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %453, i64 %451
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %451
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit339
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit339: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i336, %438
@@ -34828,7 +34827,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %34, ptr %10, align 8
   store ptr %40, ptr %13, align 8
-  %42 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %42, ptr %15, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJRiRNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit
 

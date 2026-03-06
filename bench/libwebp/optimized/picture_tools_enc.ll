@@ -39,7 +39,7 @@ define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly captures(a
   tail call void %16(ptr noundef %.014, i32 noundef %17, i32 noundef %10) #4
   %18 = load i32, ptr %13, align 8, !tbaa !16
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %.014, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %.014, i64 %19
   %21 = icmp samesign ugt i32 %.01013, 1
   br i1 %21, label %14, label %.loopexit, !llvm.loop !17
 
@@ -93,7 +93,7 @@ define void @WebPCleanupTransparentArea(ptr noundef readonly captures(address_is
   %19 = add nsw i32 %18, %.0273.us
   %20 = shl nsw i32 %19, 3
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %15, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %15, i64 %21
   %23 = sext i32 %17 to i64
   br label %.preheader.i.us
 
@@ -104,7 +104,7 @@ define void @WebPCleanupTransparentArea(ptr noundef readonly captures(address_is
 
 24:                                               ; preds = %27, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %27 ]
-  %25 = getelementptr inbounds nuw i32, ptr %.01216.i.us, i64 %indvars.iv.i.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.01216.i.us, i64 %indvars.iv.i.us
   %26 = load i32, ptr %25, align 4, !tbaa !19
   %.not.i.us = icmp ult i32 %26, 16777216
   br i1 %.not.i.us, label %27, label %FlattenARGB.exit.us
@@ -115,7 +115,7 @@ define void @WebPCleanupTransparentArea(ptr noundef readonly captures(address_is
   br i1 %exitcond.not.i.us, label %28, label %24, !llvm.loop !20
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i32, ptr %.01216.i.us, i64 %23
+  %29 = getelementptr inbounds [4 x i8], ptr %.01216.i.us, i64 %23
   %30 = add nuw nsw i32 %.01017.i.us, 1
   %exitcond20.not.i.us = icmp eq i32 %30, 8
   br i1 %exitcond20.not.i.us, label %IsTransparentARGBArea.exit.us, label %.preheader.i.us, !llvm.loop !21
@@ -139,14 +139,14 @@ IsTransparentARGBArea.exit.us:                    ; preds = %28
 
 34:                                               ; preds = %34, %.preheader.i152.us
   %indvars.iv.i153.us = phi i64 [ 0, %.preheader.i152.us ], [ %indvars.iv.next.i154.us, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.01114.i.us, i64 %indvars.iv.i153.us
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.01114.i.us, i64 %indvars.iv.i153.us
   store i32 %.2124.us, ptr %35, align 4, !tbaa !19
   %indvars.iv.next.i154.us = add nuw nsw i64 %indvars.iv.i153.us, 1
   %exitcond.not.i155.us = icmp eq i64 %indvars.iv.next.i154.us, 8
   br i1 %exitcond.not.i155.us, label %36, label %34, !llvm.loop !22
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i32, ptr %.01114.i.us, i64 %23
+  %37 = getelementptr inbounds [4 x i8], ptr %.01114.i.us, i64 %23
   %38 = add nuw nsw i32 %.015.i.us, 1
   %exitcond17.not.i.us = icmp eq i32 %38, 8
   br i1 %exitcond17.not.i.us, label %FlattenARGB.exit.us, label %.preheader.i152.us, !llvm.loop !23
@@ -993,7 +993,7 @@ define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i
 
 .lr.ph:                                           ; preds = %.preheader162, %227
   %indvars.iv = phi i64 [ %indvars.iv.next, %227 ], [ 0, %.preheader162 ]
-  %196 = getelementptr inbounds nuw i32, ptr %.0147165, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %.0147165, i64 %indvars.iv
   %197 = load i32, ptr %196, align 4, !tbaa !19
   %198 = lshr i32 %197, 24
   %trunc = trunc nuw i32 %198 to i8
@@ -1054,7 +1054,7 @@ define void @WebPBlendAlpha(ptr noundef readonly captures(address_is_null) %0, i
   %232 = phi i32 [ %228, %._crit_edge.loopexit ], [ %194, %.preheader162 ]
   %233 = load i32, ptr %188, align 8, !tbaa !16
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds i32, ptr %.0147165, i64 %234
+  %235 = getelementptr inbounds [4 x i8], ptr %.0147165, i64 %234
   %236 = add nuw nsw i32 %.1142166, 1
   %237 = icmp slt i32 %236, %231
   br i1 %237, label %.preheader162, label %.critedge, !llvm.loop !47

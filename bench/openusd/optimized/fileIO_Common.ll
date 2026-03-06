@@ -28,21 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression" = type { %"class.std::vector.196", %"class.std::vector.201", %"class.std::vector.206", %"class.std::__cxx11::basic_string" }
-%"class.std::vector.196" = type { %"struct.std::_Vector_base.197" }
-%"struct.std::_Vector_base.197" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op>>::_Vector_impl" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::Op>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.201" = type { %"struct.std::_Vector_base.202" }
-%"struct.std::_Vector_base.202" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference>>::_Vector_impl" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathExpression::ExpressionReference>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.206" = type { %"struct.std::_Vector_base.207" }
-%"struct.std::_Vector_base.207" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathPattern, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathPattern>>::_Vector_impl" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathPattern, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathPattern>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathPattern, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathPattern>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfPathPattern, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfPathPattern>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
 %"struct.std::_Rb_tree<double, std::pair<const double, pxrInternal_v0_24__pxrReserved__::VtValue>, std::_Select1st<std::pair<const double, pxrInternal_v0_24__pxrReserved__::VtValue>>, std::less<double>>::_Alloc_node" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.59" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
@@ -56,11 +41,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.75" = type { %"class.std::_Rb_tree.76" }
 %"class.std::_Rb_tree.76" = type { %"struct.std::_Rb_tree<const std::__cxx11::basic_string<char> *, std::pair<const std::__cxx11::basic_string<char> *const, const pxrInternal_v0_24__pxrReserved__::VtValue *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char> *const, const pxrInternal_v0_24__pxrReserved__::VtValue *>>, pxrInternal_v0_24__pxrReserved__::Sdf_FileIOUtility::_StringLessThan>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<const std::__cxx11::basic_string<char> *, std::pair<const std::__cxx11::basic_string<char> *const, const pxrInternal_v0_24__pxrReserved__::VtValue *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char> *const, const pxrInternal_v0_24__pxrReserved__::VtValue *>>, pxrInternal_v0_24__pxrReserved__::Sdf_FileIOUtility::_StringLessThan>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
+%"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
 %"class.std::tuple.153" = type { %"struct.std::_Tuple_impl.154" }
 %"struct.std::_Tuple_impl.154" = type { %"struct.std::_Head_base.155" }
 %"struct.std::_Head_base.155" = type { ptr }
 %"class.std::tuple.156" = type { i8 }
-%"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.pxrInternal_v0_24__pxrReserved__::SdfLayerOffset" = type { double, double }
 %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside" = type { %"union.std::aligned_storage<8, 8>::type", ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfAnyUniquePtr", ptr }
@@ -6033,7 +6019,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_17SdfPathEx
           to label %.noexc18 unwind label %.loopexit
 
 .noexc18:                                         ; preds = %.lr.ph.i.i
-  %81 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", ptr %72, i64 %.025.i.i
+  %81 = getelementptr inbounds [104 x i8], ptr %72, i64 %.025.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__17SdfPathExpression7GetTextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %81)
           to label %.noexc19 unwind label %.loopexit
@@ -6444,7 +6430,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33.i, %.lr.ph.i
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %54, i64 %.01841.i
+  %55 = getelementptr inbounds [32 x i8], ptr %54, i64 %.01841.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %55)
   %56 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14Sdf_TextOutput5WriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -6714,7 +6700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutp
 
 53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility4PutsERNS_14Sdf_TextOutputEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit33.i, %.lr.ph.i
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %54, i64 %.01841.i
+  %55 = getelementptr inbounds [8 x i8], ptr %54, i64 %.01841.i
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = and i64 %57, -8
@@ -9487,7 +9473,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINSt7__
 .lr.ph.i:                                         ; preds = %52, %56
   %.024.i = phi i64 [ %57, %56 ], [ 1, %52 ]
   %53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14)
-  %54 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %47, i64 %.024.i
+  %54 = getelementptr inbounds [32 x i8], ptr %47, i64 %.024.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility5QuoteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %54)
   %55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %56 unwind label %60
@@ -9682,7 +9668,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_StringFromValueB5cxx11ERKNS_7TfTokenE.e
 .lr.ph.i:                                         ; preds = %66, %78
   %.027.i = phi i64 [ %79, %78 ], [ 1, %66 ]
   %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14)
-  %68 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %53, i64 %.027.i
+  %68 = getelementptr inbounds [8 x i8], ptr %53, i64 %.027.i
   %.val.i = load ptr, ptr %68, align 8, !noalias !43
   %69 = ptrtoint ptr %.val.i to i64
   %70 = and i64 %69, -8
@@ -9887,7 +9873,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_12S
 .lr.ph.i:                                         ; preds = %61, %65
   %.024.i = phi i64 [ %66, %65 ], [ 1, %61 ]
   %62 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14)
-  %63 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", ptr %56, i64 %.024.i
+  %63 = getelementptr inbounds [64 x i8], ptr %56, i64 %.024.i
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_StringFromAssetPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %63)
   %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %65 unwind label %69
@@ -10361,7 +10347,7 @@ define noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUti
 
 switch.lookup:                                    ; preds = %1
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility9StringifyENS_12SdfSpecifierE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__17Sdf_FileIOUtility9StringifyENS_12SdfSpecifierE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -11104,7 +11090,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TfAnyUniquePtr7
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64

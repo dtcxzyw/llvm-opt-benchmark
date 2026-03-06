@@ -584,7 +584,7 @@ define internal fastcc ptr @declspec(ptr noundef nonnull writeonly captures(none
 
 .preheader6.i:                                    ; preds = %.backedge, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %.backedge ]
-  %14 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !70
   call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1809,7 +1809,7 @@ define internal fastcc void @mark_live(ptr noundef nonnull captures(none) %0) un
 14:                                               ; preds = %.lr.ph, %find_func.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %find_func.exit.thread ]
   %15 = load ptr, ptr %13, align 8, !tbaa !113
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !70
   %18 = load ptr, ptr @scope, align 8, !tbaa !41
   br label %19
@@ -27319,7 +27319,7 @@ define internal fastcc ptr @cast(ptr noundef nonnull %0, ptr noundef %1) unnamed
 
 .preheader6.i:                                    ; preds = %6, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -27410,7 +27410,7 @@ define internal fastcc zeroext i1 @is_typename(ptr noundef readonly captures(non
 
 .preheader6:                                      ; preds = %1, %.preheader6
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader6 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %5, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -28813,7 +28813,7 @@ define internal fastcc ptr @postfix(ptr noundef nonnull %0, ptr noundef %1) unna
 
 .preheader6.i:                                    ; preds = %14, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %20, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -29042,7 +29042,7 @@ is_typename.exit.thread:                          ; preds = %.preheader.i, %26, 
 
 .preheader6.i65:                                  ; preds = %137, %.preheader6.i65
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %.preheader6.i65 ], [ 0, %137 ]
-  %143 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i66
+  %143 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i66
   %144 = load ptr, ptr %143, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %144, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
@@ -29214,7 +29214,7 @@ is_typename.exit69.thread:                        ; preds = %.preheader.i59, %15
 
 .preheader6.i52:                                  ; preds = %230, %.preheader6.i52
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i54, %.preheader6.i52 ], [ 0, %230 ]
-  %236 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i53
+  %236 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i53
   %237 = load ptr, ptr %236, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %237, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
@@ -30290,7 +30290,7 @@ copy_struct_type.exit:                            ; preds = %12, %._crit_edge.lo
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %22 = load i32, ptr %21, align 8, !tbaa !170
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !171
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !172
@@ -30348,7 +30348,7 @@ tailrecurse:                                      ; preds = %106, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next, %17 ]
   %.080118 = phi ptr [ %0, %.lr.ph119 ], [ %25, %17 ]
   %18 = load ptr, ptr %16, align 8, !tbaa !166
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !171
   %21 = load ptr, ptr %9, align 8, !tbaa !123
   %22 = trunc i64 %indvars.iv to i32
@@ -30383,7 +30383,7 @@ tailrecurse:                                      ; preds = %106, %5
   %39 = getelementptr inbounds nuw i8, ptr %.083114, i64 32
   %40 = load i32, ptr %39, align 8, !tbaa !170
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !171
   br i1 %37, label %44, label %96
 
@@ -30518,7 +30518,7 @@ write_buf.exit:                                   ; preds = %94, %92, %90, %88, 
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %110 = load i32, ptr %109, align 8, !tbaa !170
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds ptr, ptr %108, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %108, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !171
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !157
@@ -30632,7 +30632,7 @@ define internal fastcc noalias noundef ptr @new_initializer(ptr noundef %0, i1 n
   %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %20, align 8, !tbaa !123
   %23 = tail call fastcc ptr @new_initializer(ptr noundef %22, i1 noundef zeroext false)
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store ptr %23, ptr %24, align 8, !tbaa !171
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %14, align 8, !tbaa !173
@@ -30697,7 +30697,7 @@ define internal fastcc noalias noundef ptr @new_initializer(ptr noundef %0, i1 n
   %52 = getelementptr inbounds nuw i8, ptr %.04150.us, i64 32
   %53 = load i32, ptr %52, align 8, !tbaa !170
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %34, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %34, i64 %54
   store ptr %.sink, ptr %55, align 8, !tbaa !171
   %.041.us = load ptr, ptr %.04150.us, align 8, !tbaa !159
   %.not45.us = icmp eq ptr %.041.us, null
@@ -30711,7 +30711,7 @@ define internal fastcc noalias noundef ptr @new_initializer(ptr noundef %0, i1 n
   %59 = getelementptr inbounds nuw i8, ptr %.04150, i64 32
   %60 = load i32, ptr %59, align 8, !tbaa !170
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %34, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %34, i64 %61
   store ptr %58, ptr %62, align 8, !tbaa !171
   %.041 = load ptr, ptr %.04150, align 8, !tbaa !159
   %.not45 = icmp eq ptr %.041, null
@@ -30806,7 +30806,7 @@ define internal fastcc void @initializer2(ptr noundef nonnull %0, ptr noundef %1
   store ptr %1, ptr %53, align 8, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 264
   store i64 %51, ptr %54, align 8, !tbaa !120
-  %55 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv56.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv56.i
   %56 = load ptr, ptr %55, align 8, !tbaa !171
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr %52, ptr %57, align 8, !tbaa !175
@@ -30828,7 +30828,7 @@ define internal fastcc void @initializer2(ptr noundef nonnull %0, ptr noundef %1
 
 64:                                               ; preds = %64, %.lr.ph45.i
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next52.i, %64 ]
-  %65 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv51.i
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv51.i
   %66 = load i16, ptr %65, align 2, !tbaa !177
   %67 = zext i16 %66 to i64
   %68 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
@@ -30837,7 +30837,7 @@ define internal fastcc void @initializer2(ptr noundef nonnull %0, ptr noundef %1
   store ptr %1, ptr %69, align 8, !tbaa !22
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 264
   store i64 %67, ptr %70, align 8, !tbaa !120
-  %71 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv51.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv51.i
   %72 = load ptr, ptr %71, align 8, !tbaa !171
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %68, ptr %73, align 8, !tbaa !175
@@ -30859,7 +30859,7 @@ define internal fastcc void @initializer2(ptr noundef nonnull %0, ptr noundef %1
 
 80:                                               ; preds = %80, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %80 ]
-  %81 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i
   %82 = load i32, ptr %81, align 4, !tbaa !97
   %83 = zext i32 %82 to i64
   %84 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #15
@@ -30868,7 +30868,7 @@ define internal fastcc void @initializer2(ptr noundef nonnull %0, ptr noundef %1
   store ptr %1, ptr %85, align 8, !tbaa !22
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 264
   store i64 %83, ptr %86, align 8, !tbaa !120
-  %87 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i
   %88 = load ptr, ptr %87, align 8, !tbaa !171
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store ptr %84, ptr %89, align 8, !tbaa !175
@@ -30996,7 +30996,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %indvars.iv = phi i64 [ %139, %.lr.ph49.preheader ], [ %indvars.iv.next, %.lr.ph49 ]
   %142 = load ptr, ptr %6, align 8, !tbaa !25
   %143 = load ptr, ptr %117, align 8, !tbaa !166
-  %144 = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv
+  %144 = getelementptr inbounds [8 x i8], ptr %143, i64 %indvars.iv
   %145 = load ptr, ptr %144, align 8, !tbaa !171
   call fastcc void @designation(ptr noundef %9, ptr noundef %142, ptr noundef %145)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -31015,7 +31015,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %117, align 8, !tbaa !166
   %154 = sext i32 %.021.i52 to i64
-  %155 = getelementptr inbounds ptr, ptr %153, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %153, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !171
   call fastcc void @initializer2(ptr noundef %6, ptr noundef %151, ptr noundef %156)
   %.pre67 = load ptr, ptr %6, align 8, !tbaa !25
@@ -31104,7 +31104,7 @@ array_initializer1.exit:                          ; preds = %159, %.thread70, %1
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %198 = load i32, ptr %197, align 8, !tbaa !170
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds ptr, ptr %196, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %196, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !171
   call fastcc void @designation(ptr noundef %5, ptr noundef %195, ptr noundef %201)
   %202 = load ptr, ptr %194, align 8, !tbaa !160
@@ -31126,7 +31126,7 @@ array_initializer1.exit:                          ; preds = %159, %.thread70, %1
   %209 = getelementptr inbounds nuw i8, ptr %.010.i45, i64 32
   %210 = load i32, ptr %209, align 8, !tbaa !170
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds ptr, ptr %208, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %208, i64 %211
   %213 = load ptr, ptr %212, align 8, !tbaa !171
   call fastcc void @initializer2(ptr noundef %5, ptr noundef %206, ptr noundef %213)
   %214 = load ptr, ptr %.010.i45, align 8, !tbaa !160
@@ -31190,7 +31190,7 @@ struct_initializer1.exit:                         ; preds = %.backedge, %168, %1
   %245 = getelementptr inbounds nuw i8, ptr %240, i64 32
   %246 = load i32, ptr %245, align 8, !tbaa !170
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds ptr, ptr %244, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %244, i64 %247
   %249 = load ptr, ptr %248, align 8, !tbaa !171
   call fastcc void @designation(ptr noundef %4, ptr noundef %242, ptr noundef %249)
   %250 = load ptr, ptr %4, align 8, !tbaa !25
@@ -31328,7 +31328,7 @@ is_end.exit.thread15:                             ; preds = %29, %is_end.exit
 44:                                               ; preds = %41
   %45 = load ptr, ptr %5, align 8, !tbaa !25
   %46 = load ptr, ptr %24, align 8, !tbaa !166
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !171
   call fastcc void @initializer2(ptr noundef %5, ptr noundef %45, ptr noundef %48)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -31632,7 +31632,7 @@ is_end.exit.thread12:                             ; preds = %10, %is_end.exit
   %27 = getelementptr inbounds nuw i8, ptr %.0815, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !170
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !171
   call fastcc void @initializer2(ptr noundef %5, ptr noundef %25, ptr noundef %31)
   %32 = load ptr, ptr %.0815, align 8, !tbaa !160
@@ -31850,7 +31850,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 20:                                               ; preds = %.lr.ph32, %20
   %indvars.iv = phi i64 [ %17, %.lr.ph32 ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %16, align 8, !tbaa !166
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !171
   call fastcc void @designation(ptr noundef %7, ptr noundef %.pre, ptr noundef %23)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -31879,7 +31879,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !170
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %35, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !171
   call fastcc void @designation(ptr noundef %4, ptr noundef %33, ptr noundef %40)
   %41 = getelementptr inbounds nuw i8, ptr %.tr2629, i64 32
@@ -31910,7 +31910,7 @@ tailrecurse:                                      ; preds = %46
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %57 = load i32, ptr %56, align 8, !tbaa !170
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !171
   %61 = tail call zeroext i1 @equal(ptr noundef %53, ptr noundef nonnull @.str.56) #14
   br i1 %61, label %tailrecurse._crit_edge, label %.lr.ph
@@ -32178,7 +32178,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   store i32 %20, ptr %15, align 8, !tbaa !210
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %16, i8 0, i64 20, i1 false)
   %21 = load ptr, ptr %17, align 8, !tbaa !166
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !171
   %24 = load ptr, ptr %18, align 8, !tbaa !123
   %25 = call fastcc ptr @create_lvar_init(ptr noundef %23, ptr noundef %24, ptr noundef %5, ptr noundef %3)
@@ -32233,7 +32233,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   %47 = getelementptr inbounds nuw i8, ptr %.05061, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !170
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !171
   %52 = getelementptr inbounds nuw i8, ptr %.05061, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !157
@@ -32279,7 +32279,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !170
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %72, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %72, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !171
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !157
@@ -32415,7 +32415,7 @@ define internal fastcc noundef ptr @compound_stmt(ptr noundef nonnull writeonly 
 
 .preheader6.i:                                    ; preds = %14, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %14 ]
-  %18 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !70
   call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %19, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -34136,7 +34136,7 @@ define internal fastcc ptr @typeof_specifier(ptr noundef nonnull writeonly captu
 
 .preheader6.i:                                    ; preds = %2, %.preheader6.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader6.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw ptr, ptr @is_typename.kw, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @is_typename.kw, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !70
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %9, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -1484,7 +1484,7 @@ _ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread273: ; preds = %.pr
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8bbdafb8ff258826E.exit.critedge": ; preds = %._crit_edge.i178, %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8772aaefb738f2feE.exit"
   %251 = phi i64 [ %.pre.i, %._crit_edge.i178 ], [ %243, %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8772aaefb738f2feE.exit" ]
   %252 = load ptr, ptr %198, align 8, !alias.scope !298, !noalias !301, !nonnull !4, !noundef !4
-  %253 = getelementptr inbounds { i64, [18 x i64] }, ptr %252, i64 %251
+  %253 = getelementptr inbounds [152 x i8], ptr %252, i64 %251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %253, ptr noundef nonnull align 8 dereferenceable(152) %19, i64 152, i1 false)
   %254 = add i64 %251, 1
   store i64 %254, ptr %199, align 8, !alias.scope !298, !noalias !301
@@ -2426,7 +2426,7 @@ _ZN4core5slice5ascii8is_ascii17h67ac2a1debfab949E.exit.thread284: ; preds = %.pr
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8bbdafb8ff258826E.exit.critedge": ; preds = %._crit_edge.i183, %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8772aaefb738f2feE.exit"
   %254 = phi i64 [ %.pre.i, %._crit_edge.i183 ], [ %246, %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h8772aaefb738f2feE.exit" ]
   %255 = load ptr, ptr %201, align 8, !alias.scope !488, !noalias !491, !nonnull !4, !noundef !4
-  %256 = getelementptr inbounds { i64, [18 x i64] }, ptr %255, i64 %254
+  %256 = getelementptr inbounds [152 x i8], ptr %255, i64 %254
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %256, ptr noundef nonnull align 8 dereferenceable(152) %21, i64 152, i1 false)
   %257 = add i64 %254, 1
   store i64 %257, ptr %202, align 8, !alias.scope !488, !noalias !491

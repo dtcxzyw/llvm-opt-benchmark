@@ -38,7 +38,7 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wr
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #9
   %.not = icmp eq i32 %5, 0
@@ -67,7 +67,7 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wr
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %0, %4
   br i1 %5, label %7, label %6
@@ -92,7 +92,7 @@ define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wr
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustringhash", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i64 %0, %4
   br i1 %5, label %7, label %6
@@ -152,7 +152,7 @@ define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr 
 
 19:                                               ; preds = %23, %.critedge
   %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %23 ]
-  %20 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %21) #9
   %.not.i = icmp eq i32 %22, 0
@@ -174,7 +174,7 @@ _ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %23, %24
 
 27:                                               ; preds = %31, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
   %indvars.iv.i26 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i28, %31 ]
-  %28 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i26
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(1) %29) #9
   %.not.i27 = icmp eq i32 %30, 0

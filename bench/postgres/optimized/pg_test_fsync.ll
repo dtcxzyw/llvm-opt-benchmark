@@ -219,7 +219,7 @@ sub_119.i:                                        ; preds = %.tail.thread.i
 
 60:                                               ; preds = %57
   %61 = sext i32 %58 to i64
-  %62 = getelementptr inbounds ptr, ptr %1, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %1, i64 %61
   %63 = load ptr, ptr %62, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %63) #14
   %64 = load ptr, ptr @progname, align 8

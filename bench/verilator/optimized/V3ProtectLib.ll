@@ -3188,7 +3188,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %2
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.147, i64 noundef 42)
   %.sroa.0.0.copyload.i14 = load i8, ptr %3, align 1, !tbaa !146
   %25 = zext i8 %.sroa.0.0.copyload.i14 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VDirection5asciiEvE5names, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10VDirection5asciiEvE5names, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !163
   %28 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #26
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %27, i64 noundef %28)
@@ -4054,7 +4054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438: ; preds = %31
   %328 = getelementptr inbounds nuw i8, ptr %2, i64 253
   %.sroa.0.0.copyload.i = load i8, ptr %328, align 1, !tbaa !196
   %329 = zext i8 %.sroa.0.0.copyload.i to i64
-  %330 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %329
+  %330 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %329
   %331 = load ptr, ptr %330, align 8, !tbaa !163
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %332 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %331) #26, !noalias !197
@@ -4209,7 +4209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit461: ; preds = %_Z
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 153
   %.sroa.0.0.copyload.i462 = load i8, ptr %386, align 1, !tbaa !196
   %387 = zext i8 %.sroa.0.0.copyload.i462 to i64
-  %388 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %387
+  %388 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %387
   %389 = load ptr, ptr %388, align 8, !tbaa !163
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %390 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %389) #26, !noalias !206
@@ -4703,7 +4703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit540: ; preds = %54
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 152
   %.sroa.0.0.copyload.i541 = load i8, ptr %558, align 8, !tbaa !196
   %559 = zext i8 %.sroa.0.0.copyload.i541 to i64
-  %560 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %559
+  %560 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %559
   %561 = load ptr, ptr %560, align 8, !tbaa !163
   call void @llvm.experimental.noalias.scope.decl(metadata !215)
   %562 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %561) #26, !noalias !215
@@ -4857,7 +4857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit564: ; preds = %_Z
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 153
   %.sroa.0.0.copyload.i565 = load i8, ptr %615, align 1, !tbaa !196
   %616 = zext i8 %.sroa.0.0.copyload.i565 to i64
-  %617 = getelementptr inbounds nuw ptr, ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %616
+  %617 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10VTimescale5asciiEvE5names, i64 %616
   %618 = load ptr, ptr %617, align 8, !tbaa !163
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %619 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %618) #26, !noalias !224
@@ -16212,7 +16212,7 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI8AstCFuncZN14Protec
 
 16:                                               ; preds = %.noexc, %16
   %indvars.iv = phi i64 [ -2, %.noexc ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %0, ptr %17, align 8, !tbaa !144
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %18 = icmp eq i64 %indvars.iv.next, 0
@@ -16285,7 +16285,7 @@ define linkonce_odr dso_local void @_ZN7AstNode11foreachImplI8AstCFuncZN14Protec
   br i1 %49, label %50, label %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw ptr, ptr %39, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %44
   %.not.i.i.i22 = icmp eq ptr %38, %51
   br i1 %.not.i.i.i22, label %_ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeModuleP12AstTextBlockP8FileLineEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit28, label %52
 
@@ -16301,7 +16301,7 @@ _ZZN7AstNode11foreachImplI8AstCFuncZN14ProtectVisitor13configSectionEP13AstNodeM
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %58 = getelementptr inbounds i8, ptr %57, i64 %56
   store ptr %58, ptr %7, align 8, !tbaa !384
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %44
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %44
   %60 = getelementptr inbounds i8, ptr %59, i64 -40
   br label %65
 
@@ -16748,9 +16748,9 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt
 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !74
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !391
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !77
   br label %41
 

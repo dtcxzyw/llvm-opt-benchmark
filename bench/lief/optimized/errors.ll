@@ -28,7 +28,7 @@ define hidden noundef nonnull ptr @_Z9to_string11lief_errors(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z9to_string11lief_errors, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z9to_string11lief_errors, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

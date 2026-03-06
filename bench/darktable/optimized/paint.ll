@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct._cairo_matrix = type { double, double, double, double, double, double }
-%struct._GdkRGBA = type { double, double, double, double }
 
 @__const.dtgtk_cairo_paint_masks_eye.dashed = private unnamed_addr constant [2 x double] [double 2.000000e-01, double 2.000000e-01], align 16
 @dtgtk_cairo_paint_clock.clock = internal unnamed_addr global i32 0, align 4
@@ -1788,7 +1787,7 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
 
 .lr.ph48:                                         ; preds = %27
   %23 = zext nneg i32 %2 to i64
-  %24 = getelementptr inbounds nuw double, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   store double %18, ptr %24, align 8, !tbaa !12
   %25 = fsub reassoc nsz arcp contract afn double %9, %8
   %wide.trip.count56 = zext nneg i32 %2 to i64
@@ -1802,7 +1801,7 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
   %30 = fmul reassoc nsz arcp contract afn double %21, %29
   %31 = fmul reassoc nsz arcp contract afn double %30, %22
   %32 = fadd reassoc nsz arcp contract afn double %17, %31
-  %33 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1820,10 +1819,10 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
   %38 = fmul reassoc nsz arcp contract afn double %37, %26
   %39 = fadd reassoc nsz arcp contract afn double %38, %8
   tail call void @cairo_set_source_rgba(ptr noundef %0, double noundef %39, double noundef %39, double noundef %39, double noundef %10) #10
-  %40 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv53
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv53
   %41 = load double, ptr %40, align 8, !tbaa !12
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %42 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.next54
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next54
   %43 = load double, ptr %42, align 8, !tbaa !12
   tail call void @cairo_arc(ptr noundef %0, double noundef %3, double noundef %4, double noundef %5, double noundef %41, double noundef %43) #10
   tail call void @cairo_stroke(ptr noundef %0) #10
@@ -3220,7 +3219,7 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !18
   %33 = fpext reassoc nsz arcp contract afn float %32 to double
   %34 = fmul reassoc nsz arcp contract afn double %33, 0x401921FB54442D18
@@ -3811,7 +3810,7 @@ define void @dtgtk_cairo_paint_label(ptr noundef %0, i32 noundef %1, i32 noundef
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 944
   %31 = zext nneg i32 %26 to i64
-  %32 = getelementptr inbounds nuw %struct._GdkRGBA, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %31
   %.sroa.0.0.copyload = load double, ptr %32, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -3888,7 +3887,7 @@ define void @dtgtk_cairo_paint_label_sel(ptr noundef %0, i32 noundef %1, i32 nou
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 944
   %32 = zext nneg i32 %27 to i64
-  %33 = getelementptr inbounds nuw %struct._GdkRGBA, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %32
   %.sroa.0.0.copyload = load double, ptr %33, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4137,9 +4136,9 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   %indvars.iv.i = phi i64 [ 1, %7 ], [ %indvars.iv.next.i, %50 ]
   %51 = and i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %51, 0
-  %52 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !18
-  %54 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !18
   %..i = select i1 %.not.i, float 5.000000e-01, float 0x3FC99999A0000000
   %56 = fmul reassoc nsz arcp contract afn float %..i, %53
@@ -4282,9 +4281,9 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   %indvars.iv.i = phi i64 [ 1, %7 ], [ %indvars.iv.next.i, %50 ]
   %51 = and i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %51, 0
-  %52 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !18
-  %54 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !18
   %..i = select i1 %.not.i, float 5.000000e-01, float 0x3FC99999A0000000
   %56 = fmul reassoc nsz arcp contract afn float %..i, %53
@@ -4964,9 +4963,9 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   %indvars.iv.i = phi i64 [ 1, %7 ], [ %indvars.iv.next.i, %47 ]
   %48 = and i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %48, 0
-  %49 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %50 = load float, ptr %49, align 4, !tbaa !18
-  %51 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %52 = load float, ptr %51, align 4, !tbaa !18
   %..i = select i1 %.not.i, float 1.000000e+00, float 0x3FD99999A0000000
   %53 = fmul reassoc nsz arcp contract afn float %..i, %50
@@ -6308,9 +6307,9 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %48 ]
   %49 = and i64 %indvars.iv, 1
   %.not = icmp eq i64 %49, 0
-  %50 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %51 = load double, ptr %50, align 8, !tbaa !12
-  %52 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %53 = load double, ptr %52, align 8, !tbaa !12
   %. = select i1 %.not, double 2.000000e-01, double 4.000000e-01
   %54 = fmul reassoc nsz arcp contract afn double %51, %.

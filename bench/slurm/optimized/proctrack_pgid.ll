@@ -299,7 +299,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr 
   %58 = load i64, ptr %9, align 8
   %59 = trunc i64 %58 to i32
   %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   store i32 %59, ptr %61, align 4
   %62 = call ptr @readdir(ptr noundef nonnull %13) #10
   %.not34 = icmp eq ptr %62, null

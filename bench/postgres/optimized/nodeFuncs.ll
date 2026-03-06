@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/nodeFuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [42 x i8] c"cannot get type for untransformed sublink\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"nodeFuncs.c\00", align 1
 @__func__.exprType = private unnamed_addr constant [9 x i8] c"exprType\00", align 1
@@ -641,7 +639,7 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
 .lr.ph339:                                        ; preds = %.lr.ph326.split, %104
   %indvars.iv376 = phi i64 [ %indvars.iv.next377, %104 ], [ 0, %.lr.ph326.split ]
   %108 = load ptr, ptr %101, align 8
-  %109 = getelementptr inbounds nuw %union.ListCell, ptr %108, i64 %indvars.iv376
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %indvars.iv376
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
@@ -702,7 +700,7 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
 .lr.ph323:                                        ; preds = %.lr.ph310.split, %138
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %138 ], [ 0, %.lr.ph310.split ]
   %142 = load ptr, ptr %135, align 8
-  %143 = getelementptr inbounds nuw %union.ListCell, ptr %142, i64 %indvars.iv373
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv373
   %144 = load ptr, ptr %143, align 8
   %145 = tail call i32 @exprType(ptr noundef %144)
   %.not183 = icmp eq i32 %145, %.0150
@@ -756,7 +754,7 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
 .lr.ph307:                                        ; preds = %.lr.ph294.split, %168
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %168 ], [ 1, %.lr.ph294.split ]
   %172 = load ptr, ptr %165, align 8
-  %173 = getelementptr inbounds nuw %union.ListCell, ptr %172, i64 %indvars.iv370
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv370
   %174 = load ptr, ptr %173, align 8
   %175 = tail call i32 @exprType(ptr noundef %174)
   %.not179 = icmp eq i32 %175, %150
@@ -810,7 +808,7 @@ tailrecurse.backedge:                             ; preds = %41, %43, %59, %71, 
 .lr.ph291:                                        ; preds = %.lr.ph280.split, %198
   %indvars.iv = phi i64 [ %indvars.iv.next, %198 ], [ 1, %.lr.ph280.split ]
   %202 = load ptr, ptr %195, align 8
-  %203 = getelementptr inbounds nuw %union.ListCell, ptr %202, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv
   %204 = load ptr, ptr %203, align 8
   %205 = tail call i32 @exprType(ptr noundef %204)
   %.not174 = icmp eq i32 %205, %180
@@ -2400,7 +2398,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph, %.
 
 241:                                              ; preds = %241, %.lr.ph247
   %indvars.iv = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next, %241 ]
-  %242 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %243 = load ptr, ptr %242, align 8
   %244 = tail call i32 @exprLocation(ptr noundef %243)
   %245 = icmp sgt i32 %244, -1
@@ -2861,7 +2859,7 @@ set_sa_opfuncid.exit:                             ; preds = %30, %34
 .lr.ph76:                                         ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
   %62 = load ptr, ptr %55, align 8
-  %63 = getelementptr inbounds nuw %union.ListCell, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 8
   %65 = tail call i32 @get_opcode(i32 noundef %64) #12
   %66 = tail call zeroext i1 %1(i32 noundef %65, ptr noundef %2) #12
@@ -3216,7 +3214,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 .lr.ph724:                                        ; preds = %.lr.ph721, %155
   %indvars.iv795 = phi i64 [ %indvars.iv.next796, %155 ], [ 0, %.lr.ph721 ]
   %159 = load ptr, ptr %152, align 8
-  %160 = getelementptr inbounds nuw %union.ListCell, ptr %159, i64 %indvars.iv795
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv795
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8
@@ -3539,7 +3537,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 371:                                              ; preds = %.lr.ph719, %368
   %indvars.iv = phi i64 [ 0, %.lr.ph719 ], [ %indvars.iv.next, %368 ]
   %372 = load ptr, ptr %8, align 8
-  %373 = getelementptr inbounds nuw %union.ListCell, ptr %372, i64 %indvars.iv
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %indvars.iv
   %374 = load ptr, ptr %373, align 8
   %375 = tail call zeroext i1 %1(ptr noundef %374, ptr noundef %2) #12
   br i1 %375, label %.critedge, label %368
@@ -3872,7 +3870,7 @@ define dso_local noundef zeroext i1 @query_tree_walker_impl(ptr noundef readonly
 .lr.ph87:                                         ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
   %77 = load ptr, ptr %70, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
@@ -3937,7 +3935,7 @@ define dso_local noundef zeroext i1 @range_table_walker_impl(ptr noundef readonl
 .lr.ph29:                                         ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @range_table_entry_walker_impl(ptr noundef %15, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   br i1 %16, label %.critedge, label %9
@@ -4832,7 +4830,7 @@ define dso_local ptr @expression_tree_mutator_impl(ptr noundef %0, ptr noundef r
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %454 ]
   %.0729734 = phi ptr [ null, %.lr.ph ], [ %459, %454 ]
   %455 = load ptr, ptr %9, align 8
-  %456 = getelementptr inbounds nuw %union.ListCell, ptr %455, i64 %indvars.iv
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %455, i64 %indvars.iv
   %457 = load ptr, ptr %456, align 8
   %458 = tail call ptr %1(ptr noundef %457, ptr noundef %2) #12
   %459 = tail call ptr @lappend(ptr noundef %.0729734, ptr noundef %458) #12
@@ -5188,7 +5186,7 @@ define dso_local noundef ptr @query_tree_mutator_impl(ptr noundef captures(ret: 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph111 ], [ 0, %.lr.ph ]
   %.097105109 = phi ptr [ %75, %.lr.ph111 ], [ null, %.lr.ph ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @palloc(i64 noundef 88) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %66, ptr noundef nonnull align 8 dereferenceable(88) %65, i64 88, i1 false)
@@ -5261,7 +5259,7 @@ define dso_local ptr @range_table_mutator_impl(ptr noundef readonly captures(add
   %.05964 = phi ptr [ %67, %62 ], [ null, %.lr.ph ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv63
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv63
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @palloc(i64 noundef 224) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %15, ptr noundef nonnull align 8 dereferenceable(224) %14, i64 224, i1 false)
@@ -5581,7 +5579,7 @@ define dso_local zeroext i1 @raw_expression_tree_walker_impl(ptr noundef readonl
 .lr.ph902:                                        ; preds = %.lr.ph899, %37
   %indvars.iv905 = phi i64 [ %indvars.iv.next906, %37 ], [ 0, %.lr.ph899 ]
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv905
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv905
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -5886,7 +5884,7 @@ define dso_local zeroext i1 @raw_expression_tree_walker_impl(ptr noundef readonl
 241:                                              ; preds = %.lr.ph, %238
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %238 ]
   %242 = load ptr, ptr %9, align 8
-  %243 = getelementptr inbounds nuw %union.ListCell, ptr %242, i64 %indvars.iv
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv
   %244 = load ptr, ptr %243, align 8
   %245 = tail call zeroext i1 %1(ptr noundef %244, ptr noundef %2) #12
   br i1 %245, label %.critedge, label %238
@@ -6653,7 +6651,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 .lr.ph28.i:                                       ; preds = %.lr.ph.i, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %.lr.ph.i ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -6710,7 +6708,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 
 .lr.ph.i53:                                       ; preds = %39, %.lr.ph.preheader.i
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i55, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i54
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i54
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 %1(ptr noundef %41, ptr noundef %2) #12
   br i1 %42, label %planstate_walk_subplans.exit, label %39
@@ -6734,7 +6732,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 
 .lr.ph.i59:                                       ; preds = %49, %.lr.ph.preheader.i57
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.preheader.i57 ], [ %indvars.iv.next.i61, %49 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i60
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i60
   %51 = load ptr, ptr %50, align 8
   %52 = tail call zeroext i1 %1(ptr noundef %51, ptr noundef %2) #12
   br i1 %52, label %planstate_walk_subplans.exit, label %49
@@ -6758,7 +6756,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 
 .lr.ph.i67:                                       ; preds = %59, %.lr.ph.preheader.i65
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.preheader.i65 ], [ %indvars.iv.next.i69, %59 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i68
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i68
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 %1(ptr noundef %61, ptr noundef %2) #12
   br i1 %62, label %planstate_walk_subplans.exit, label %59
@@ -6782,7 +6780,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 
 .lr.ph.i75:                                       ; preds = %69, %.lr.ph.preheader.i73
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %69 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i76
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i76
   %71 = load ptr, ptr %70, align 8
   %72 = tail call zeroext i1 %1(ptr noundef %71, ptr noundef %2) #12
   br i1 %72, label %planstate_walk_subplans.exit, label %69
@@ -6816,7 +6814,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 .lr.ph105:                                        ; preds = %.lr.ph, %84
   %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph ]
   %88 = load ptr, ptr %81, align 8
-  %89 = getelementptr inbounds nuw %union.ListCell, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = tail call zeroext i1 %1(ptr noundef %90, ptr noundef %2) #12
   br i1 %91, label %planstate_walk_subplans.exit, label %84
@@ -6844,7 +6842,7 @@ define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef read
 .lr.ph28.i83:                                     ; preds = %.lr.ph.i81, %98
   %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i85, %98 ], [ 0, %.lr.ph.i81 ]
   %102 = load ptr, ptr %95, align 8
-  %103 = getelementptr inbounds nuw %union.ListCell, ptr %102, i64 %indvars.iv.i84
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i84
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
@@ -7201,7 +7199,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 .lr.ph108:                                        ; preds = %.lr.ph105, %153
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %153 ], [ 0, %.lr.ph105 ]
   %157 = load ptr, ptr %150, align 8
-  %158 = getelementptr inbounds nuw %union.ListCell, ptr %157, i64 %indvars.iv179
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv179
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
@@ -7546,7 +7544,7 @@ expression_returns_set_walker.exit.thread6:       ; preds = %.lr.ph108, %173, %e
   %378 = phi i32 [ %5, %.lr.ph103 ], [ %395, %expression_returns_set_walker.exit92.thread28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next, %expression_returns_set_walker.exit92.thread28 ]
   %379 = load ptr, ptr %6, align 8
-  %380 = getelementptr inbounds nuw %union.ListCell, ptr %379, i64 %indvars.iv
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %indvars.iv
   %381 = load ptr, ptr %380, align 8
   %382 = icmp eq ptr %381, null
   br i1 %382, label %expression_returns_set_walker.exit92.thread28, label %383
@@ -8134,7 +8132,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 .lr.ph90:                                         ; preds = %.lr.ph87, %153
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %153 ], [ 0, %.lr.ph87 ]
   %157 = load ptr, ptr %150, align 8
-  %158 = getelementptr inbounds nuw %union.ListCell, ptr %157, i64 %indvars.iv161
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv161
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
@@ -8457,7 +8455,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 369:                                              ; preds = %.lr.ph85, %366
   %indvars.iv = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next, %366 ]
   %370 = load ptr, ptr %6, align 8
-  %371 = getelementptr inbounds nuw %union.ListCell, ptr %370, i64 %indvars.iv
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv
   %372 = load ptr, ptr %371, align 8
   %373 = tail call fastcc zeroext i1 @fix_opfuncids_walker(ptr noundef %372)
   br i1 %373, label %.critedge, label %366

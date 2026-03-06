@@ -2692,7 +2692,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %34 = add i64 %.sroa.01.0.i.i.i, %33
   %35 = and i64 %34, %25
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %26, i64 %36
+  %37 = getelementptr inbounds [48 x i8], ptr %26, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -40
   %.val4.i.i.i = load ptr, ptr %38, align 8, !alias.scope !469, !noalias !476, !nonnull !13, !noundef !13
   %39 = getelementptr i8, ptr %37, i64 -32
@@ -2951,7 +2951,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %.loopexit33 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %40
-  %43 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %36, i64 %38
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %38
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
   br label %.lr.ph.i.i
 
@@ -3342,7 +3342,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %53 = add i64 %.sroa.01.0.i.i.i, %52
   %54 = and i64 %53, %44
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %45, i64 %55
+  %56 = getelementptr inbounds [136 x i8], ptr %45, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -128
   %.val4.i.i.i = load ptr, ptr %57, align 8, !alias.scope !578, !noalias !585, !nonnull !13, !noundef !13
   %58 = getelementptr i8, ptr %56, i64 -120

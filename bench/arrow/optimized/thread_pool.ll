@@ -63,8 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::any" = type { ptr, %"union.std::any::_Storage" }
 %"union.std::any::_Storage" = type { ptr }
 %"union.std::any::_Arg" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 
 $__clang_call_terminate = comdat any
 
@@ -1060,7 +1058,7 @@ _ZNSt6vectorIN5arrow8internal12_GLOBAL__N_110QueuedTaskESaIS3_EE11_S_relocateEPS
 _ZNSt6vectorIN5arrow8internal12_GLOBAL__N_110QueuedTaskESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %65, %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_110QueuedTaskESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i.i
   store ptr %36, ptr %0, align 8, !tbaa !44
   store ptr %64, ptr %4, align 8, !tbaa !45
-  %66 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %36, i64 %34
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %34
   store ptr %66, ptr %6, align 8, !tbaa !84
   br label %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_110QueuedTaskESaIS3_EE9push_backEOS3_.exit
 
@@ -2177,9 +2175,9 @@ _ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit.i.i: ; preds = %_ZNKSt1
   %.050.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit.i.i.i ], [ 0, %_ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit.i.i ]
   %62 = shl i64 %.050.i.i.i, 1
   %63 = add i64 %62, 2
-  %64 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %.val, i64 %63
+  %64 = getelementptr inbounds [48 x i8], ptr %.val, i64 %63
   %65 = or disjoint i64 %62, 1
-  %66 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %.val, i64 %65
+  %66 = getelementptr inbounds [48 x i8], ptr %.val, i64 %65
   %67 = getelementptr i8, ptr %64, i64 32
   %.val2.i.i.i.i = load i32, ptr %67, align 8, !tbaa !57
   %68 = getelementptr i8, ptr %64, i64 40
@@ -2193,8 +2191,8 @@ _ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit.i.i: ; preds = %_ZNKSt1
   %73 = icmp sgt i32 %.val2.i.i.i.i, %.val4.i.i.i.i
   %.0.i.i.i.i.i.i = select i1 %71, i1 %72, i1 %73
   %spec.select.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %65, i64 %63
-  %74 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %.val, i64 %spec.select.i.i.i
-  %75 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %.val, i64 %.050.i.i.i
+  %74 = getelementptr inbounds [48 x i8], ptr %.val, i64 %spec.select.i.i.i
+  %75 = getelementptr inbounds [48 x i8], ptr %.val, i64 %.050.i.i.i
   %76 = load ptr, ptr %74, align 8, !tbaa !48
   store ptr null, ptr %74, align 8, !tbaa !48
   %77 = load ptr, ptr %75, align 8, !tbaa !48
@@ -2306,8 +2304,8 @@ _ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit.i.i.i: ; preds = %_ZNKS
 125:                                              ; preds = %121
   %126 = shl nsw i64 %.0.lcssa.i.i.i, 1
   %127 = or disjoint i64 %126, 1
-  %128 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %.val, i64 %127
-  %129 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %.val, i64 %.0.lcssa.i.i.i
+  %128 = getelementptr inbounds [48 x i8], ptr %.val, i64 %127
+  %129 = getelementptr inbounds [48 x i8], ptr %.val, i64 %.0.lcssa.i.i.i
   %130 = load ptr, ptr %128, align 8, !tbaa !48
   store ptr null, ptr %128, align 8, !tbaa !48
   %131 = load ptr, ptr %129, align 8, !tbaa !48
@@ -5889,7 +5887,7 @@ define internal fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN
   %.06 = phi i64 [ %1, %.lr.ph ], [ %.097, %_ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit ]
   %.097.in = add nsw i64 %.06, -1
   %.097 = sdiv i64 %.097.in, 2
-  %8 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %0, i64 %.097
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %.097
   %.val16 = load i32, ptr %5, align 8, !tbaa !57
   %.val17 = load i64, ptr %6, align 8
   %9 = getelementptr i8, ptr %8, i64 32
@@ -5903,7 +5901,7 @@ define internal fastcc void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN
   br i1 %.0.i.i.i, label %14, label %.critedge
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %0, i64 %.06
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %.06
   %16 = load ptr, ptr %8, align 8, !tbaa !48
   store ptr null, ptr %8, align 8, !tbaa !48
   %17 = load ptr, ptr %15, align 8, !tbaa !48
@@ -6001,7 +5999,7 @@ _ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit: ; preds = %_ZN5arrow9S
 
 .critedge:                                        ; preds = %7, %_ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit, %3
   %.0.lcssa = phi i64 [ %1, %3 ], [ %.097, %_ZN5arrow8internal12_GLOBAL__N_110QueuedTaskaSEOS2_.exit ], [ %.06, %7 ]
-  %58 = getelementptr inbounds %"struct.arrow::internal::(anonymous namespace)::QueuedTask", ptr %0, i64 %.0.lcssa
+  %58 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa
   %59 = load ptr, ptr %2, align 8, !tbaa !48
   store ptr null, ptr %2, align 8, !tbaa !48
   %60 = load ptr, ptr %58, align 8, !tbaa !48
@@ -8438,7 +8436,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !169
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !170
-  %35 = getelementptr inbounds nuw %"class.std::thread", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !259
   ret void
 }
@@ -8544,7 +8542,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow8internal8Executor8ResourceEESaIS5_EE11_S_rel
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow8internal8Executor8ResourceEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow8internal8Executor8ResourceEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !257
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !194
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !195
   ret void
 }

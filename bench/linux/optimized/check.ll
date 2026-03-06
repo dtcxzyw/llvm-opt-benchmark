@@ -211,7 +211,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %38 = load i64, ptr %1, align 8
   %39 = load i32, ptr @num_scan_areas, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr %struct.scan_area, ptr @scan_areas, i64 %40
+  %41 = getelementptr [16 x i8], ptr @scan_areas, i64 %40
   store i64 %38, ptr %41, align 16
   %42 = load i64, ptr %2, align 8
   %43 = sub i64 %42, %38
@@ -306,7 +306,7 @@ define internal void @check_corruption(ptr readnone captures(none) %0) #4 align 
   %6 = phi i32 [ %39, %.loopexit ], [ %4, %1 ]
   %7 = phi i64 [ %41, %.loopexit ], [ 0, %1 ]
   %8 = phi i32 [ %40, %.loopexit ], [ 0, %1 ]
-  %9 = getelementptr %struct.scan_area, ptr @scan_areas, i64 %7
+  %9 = getelementptr [16 x i8], ptr @scan_areas, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0

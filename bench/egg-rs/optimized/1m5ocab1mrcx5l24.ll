@@ -72,7 +72,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !10
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [56 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -94,7 +94,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN84_$LT$alloc.
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3bffe445e68c4870E.llvm.16079354848027093366.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [56 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -118,7 +118,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN8indexmap3map
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc19996dc9490530eE.llvm.16079354848027093366.exit": ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !14, !noalias !17, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %12, i64 %5
+  %13 = getelementptr inbounds [56 x i8], ptr %12, i64 %5
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   ret ptr %14
 }
@@ -212,7 +212,7 @@ define noundef zeroext i1 @"_ZN69_$LT$egg..language..SymbolLang$u20$as$u20$egg..
   %13 = load ptr, ptr %12, align 8, !alias.scope !36, !noalias !39, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !36, !noalias !39, !noundef !4
-  %16 = getelementptr inbounds i32, ptr %13, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %13, i64 %15
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8330d2ca1b0577aE.llvm.13994044477760586293"(ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 1 %3), !noalias !42
   %17 = load i64, ptr %5, align 8, !noalias !30, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !30
@@ -224,7 +224,7 @@ define noundef zeroext i1 @"_ZN69_$LT$egg..language..SymbolLang$u20$as$u20$egg..
   %19 = load ptr, ptr %18, align 8, !alias.scope !49, !noalias !52, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !alias.scope !49, !noalias !52, !noundef !4
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %21
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8330d2ca1b0577aE.llvm.13994044477760586293"(ptr noundef nonnull %19, ptr noundef nonnull %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 1 %3), !noalias !55
   %23 = load i64, ptr %4, align 8, !noalias !43, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !43

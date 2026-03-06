@@ -4,13 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%struct.ParamExternData = type { i64, i8, i16, i32 }
-%struct.NullableDatum = type { i64, i8 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [56 x i8] c"could not determine actual type of argument declared %s\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"functions.c\00", align 1
@@ -82,7 +76,7 @@ define dso_local ptr @prepare_sql_fn_parse_info(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %19, %38
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %38 ]
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %38 [
     i32 5080, label %27
@@ -225,7 +219,7 @@ list_length.exit.thread:                          ; preds = %.list_length.exit.t
   %.val51 = load ptr, ptr %13, align 8
   %14 = add i32 %.val, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %union.ListCell, ptr %.val51, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val51, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 77
@@ -278,7 +272,7 @@ list_length.exit.thread:                          ; preds = %.list_length.exit.t
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %66 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
   %.not.i55 = icmp eq ptr %44, null
   br i1 %.not.i55, label %66, label %45
@@ -299,7 +293,7 @@ list_length.exit.thread:                          ; preds = %.list_length.exit.t
   store i32 %50, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 %57, ptr %58, align 4
@@ -361,7 +355,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
 
 .lr.ph.i60:                                       ; preds = %107, %.lr.ph.preheader.i58
   %indvars.iv.i61 = phi i64 [ 0, %.lr.ph.preheader.i58 ], [ %indvars.iv.next.i63, %107 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i61
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i61
   %85 = load ptr, ptr %84, align 8
   %.not.i62 = icmp eq ptr %85, null
   br i1 %.not.i62, label %107, label %86
@@ -382,7 +376,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   store i32 %91, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.i61
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.i61
   %98 = load i32, ptr %97, align 4
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 12
   store i32 %98, ptr %99, align 4
@@ -433,7 +427,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
 
 .lr.ph.i73:                                       ; preds = %141, %.lr.ph.preheader.i71
   %indvars.iv.i74 = phi i64 [ 0, %.lr.ph.preheader.i71 ], [ %indvars.iv.next.i76, %141 ]
-  %118 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv.i74
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv.i74
   %119 = load ptr, ptr %118, align 8
   %.not.i75 = icmp eq ptr %119, null
   br i1 %.not.i75, label %141, label %120
@@ -454,7 +448,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   store i32 %125, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv.i74
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv.i74
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i32 %132, ptr %133, align 4
@@ -535,7 +529,7 @@ define internal noundef ptr @sql_fn_param_ref(ptr noundef readonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %6 to i64
-  %21 = getelementptr i32, ptr %19, i64 %20
+  %21 = getelementptr [4 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -766,7 +760,7 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph119.i ], [ 0, %.lr.ph.i ]
   %.082113117.i = phi ptr [ %121, %.lr.ph119.i ], [ null, %.lr.ph.i ]
   %117 = load ptr, ptr %114, align 8
-  %118 = getelementptr inbounds nuw %union.ListCell, ptr %117, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i
   %119 = load ptr, ptr %118, align 8
   call void @AcquireRewriteLocks(ptr noundef %119, i1 noundef zeroext true, i1 noundef zeroext false) #10
   %120 = call ptr @pg_rewrite_query(ptr noundef %119) #10
@@ -794,7 +788,7 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv151.i = phi i64 [ %indvars.iv.next152.i, %.lr.ph130.i ], [ 0, %.lr.ph122.i ]
   %.2121128.i = phi ptr [ %138, %.lr.ph130.i ], [ null, %.lr.ph122.i ]
   %132 = load ptr, ptr %129, align 8
-  %133 = getelementptr inbounds nuw %union.ListCell, ptr %132, i64 %indvars.iv151.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv151.i
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %97, align 8
   %136 = load ptr, ptr %93, align 8
@@ -891,7 +885,7 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   %.0103.i140.i = phi ptr [ %197, %.critedge77.i.i ], [ null, %.lr.ph104.i.i ]
   %indvars.iv113.i139.i = phi i64 [ %indvars.iv.next114.i.i, %.critedge77.i.i ], [ 0, %.lr.ph104.i.i ]
   %184 = load ptr, ptr %181, align 8
-  %185 = getelementptr inbounds nuw %union.ListCell, ptr %184, i64 %indvars.iv113.i139.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv113.i139.i
   %186 = load ptr, ptr %185, align 8
   %.not73.i.i = icmp eq ptr %186, null
   br i1 %.not73.i.i, label %.critedge77.i.i, label %.lr.ph.i.i
@@ -913,7 +907,7 @@ define dso_local i64 @fmgr_sql(ptr noundef %0) local_unnamed_addr #0 {
   %.196.i133.i = phi ptr [ %spec.select.i.i, %252 ], [ %.062102.i141.i, %.lr.ph.i.i ]
   %indvars.iv.i132.i = phi i64 [ %indvars.iv.next.i.i, %252 ], [ 0, %.lr.ph.i.i ]
   %191 = load ptr, ptr %188, align 8
-  %192 = getelementptr inbounds nuw %union.ListCell, ptr %191, i64 %indvars.iv.i132.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv.i132.i
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %195 = load i32, ptr %194, align 4
@@ -1127,7 +1121,7 @@ init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i
 300:                                              ; preds = %.lr.ph251, %.critedge180
   %indvars.iv = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next, %.critedge180 ]
   %.0130245249 = phi i1 [ true, %.lr.ph251 ], [ %.2, %.critedge180 ]
-  %301 = getelementptr inbounds nuw %union.ListCell, ptr %299, i64 %indvars.iv
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %indvars.iv
   br label %302
 
 302:                                              ; preds = %300, %303
@@ -1184,8 +1178,8 @@ init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i
 
 325:                                              ; preds = %341, %.lr.ph.i184
   %indvars.iv.i185 = phi i64 [ 0, %.lr.ph.i184 ], [ %indvars.iv.next.i187, %341 ]
-  %326 = getelementptr inbounds nuw %struct.ParamExternData, ptr %323, i64 %indvars.iv.i185
-  %327 = getelementptr inbounds nuw %struct.NullableDatum, ptr %324, i64 %indvars.iv.i185
+  %326 = getelementptr inbounds nuw [16 x i8], ptr %323, i64 %indvars.iv.i185
+  %327 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %indvars.iv.i185
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %329 = load i8, ptr %328, align 8, !range !6, !noundef !7
   %330 = trunc nuw i8 %329 to i1
@@ -1194,7 +1188,7 @@ init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i
   br i1 %330, label %336, label %332
 
 332:                                              ; preds = %325
-  %333 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv.i185
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %indvars.iv.i185
   %334 = load i32, ptr %333, align 4
   %335 = call signext i16 @get_typlen(i32 noundef %334) #10
   %.not.i186 = icmp eq i16 %335, -1
@@ -1214,7 +1208,7 @@ init_sql_fcache.exit:                             ; preds = %179, %.lr.ph104.i.i
   store i64 %342, ptr %326, align 8
   %343 = getelementptr inbounds nuw i8, ptr %326, i64 10
   store i16 0, ptr %343, align 2
-  %344 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv.i185
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %indvars.iv.i185
   %345 = load i32, ptr %344, align 4
   %346 = getelementptr inbounds nuw i8, ptr %326, i64 12
   store i32 %345, ptr %346, align 4
@@ -1448,7 +1442,7 @@ postquel_end.exit:                                ; preds = %postquel_getnext.ex
   %.val183 = load ptr, ptr %361, align 8
   %455 = getelementptr inbounds nuw i8, ptr %.3146253, i64 8
   %456 = sext i32 %.val to i64
-  %457 = getelementptr inbounds %union.ListCell, ptr %.val183, i64 %456
+  %457 = getelementptr inbounds [8 x i8], ptr %.val183, i64 %456
   %.not231 = icmp ult ptr %455, %457
   br i1 %.not231, label %458, label %.thread216
 
@@ -1733,7 +1727,7 @@ postquel_get_single_result.exit197:               ; preds = %566, %slot_getattr.
   %603 = phi i32 [ %607, %._crit_edge274 ], [ %601, %.lr.ph277 ]
   %indvars.iv293 = phi i64 [ %indvars.iv.next294, %._crit_edge274 ], [ 0, %.lr.ph277 ]
   %604 = load ptr, ptr %600, align 8
-  %605 = getelementptr inbounds nuw %union.ListCell, ptr %604, i64 %indvars.iv293
+  %605 = getelementptr inbounds nuw [8 x i8], ptr %604, i64 %indvars.iv293
   %.7269 = load ptr, ptr %605, align 8
   %.not177270 = icmp eq ptr %.7269, null
   br i1 %.not177270, label %._crit_edge274, label %.lr.ph273
@@ -1816,7 +1810,7 @@ define internal void @sql_exec_error_callback(ptr noundef readonly captures(none
 26:                                               ; preds = %.lr.ph, %.critedge35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge35 ]
   %.02541 = phi i32 [ 1, %.lr.ph ], [ %32, %.critedge35 ]
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   br label %28
 
 28:                                               ; preds = %26, %29
@@ -1902,7 +1896,7 @@ define internal void @ShutdownSQLFunction(i64 noundef %0) #0 {
 .lr.ph35:                                         ; preds = %.lr.ph29, %._crit_edge
   %indvars.iv34 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph29 ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv34
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv34
   %.024 = load ptr, ptr %11, align 8
   %.not2325 = icmp eq ptr %.024, null
   br i1 %.not2325, label %._crit_edge, label %.lr.ph
@@ -2013,7 +2007,7 @@ define dso_local void @check_sql_fn_statements(ptr noundef readonly captures(add
 
 7:                                                ; preds = %.lr.ph39, %.critedge27
   %indvars.iv41 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next42, %.critedge27 ]
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv41
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv41
   %9 = load ptr, ptr %8, align 8
   %.not23 = icmp eq ptr %9, null
   br i1 %.not23, label %.critedge27, label %.lr.ph
@@ -2035,7 +2029,7 @@ define dso_local void @check_sql_fn_statements(ptr noundef readonly captures(add
 
 15:                                               ; preds = %.lr.ph31, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next, %32 ]
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
@@ -2112,7 +2106,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
   %indvars.iv350 = phi i64 [ 0, %.lr.ph267 ], [ %indvars.iv.next351, %.critedge209 ]
   %.0165248265 = phi ptr [ null, %.lr.ph267 ], [ %.1166.lcssa, %.critedge209 ]
   %.0163249264 = phi ptr [ null, %.lr.ph267 ], [ %.1164.lcssa, %.critedge209 ]
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv350
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv350
   %19 = load ptr, ptr %18, align 8
   %.not206 = icmp eq ptr %19, null
   br i1 %.not206, label %.critedge209, label %.lr.ph
@@ -2137,7 +2131,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next, %25 ]
   %.1166233243 = phi ptr [ %.0165248265, %.lr.ph245 ], [ %.2167, %25 ]
   %.1164234242 = phi ptr [ %.0163249264, %.lr.ph245 ], [ %.2, %25 ]
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i8, ptr %28, align 8, !range !6, !noundef !7
@@ -2278,7 +2272,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
   %.0178284421 = phi i32 [ %.1179, %184 ], [ 0, %.lr.ph285 ]
   %indvars.iv355420 = phi i64 [ %indvars.iv.next356, %184 ], [ 0, %.lr.ph285 ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv355420
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv355420
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 42
   %97 = load i8, ptr %96, align 2, !range !6, !noundef !7
@@ -2303,7 +2297,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
   %105 = getelementptr i8, ptr %2, i64 %104
   %106 = getelementptr i8, ptr %105, i64 24
   %107 = sext i32 %.2182.us to i64
-  %108 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %106, i64 %107
+  %108 = getelementptr inbounds [100 x i8], ptr %106, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 91
   %110 = load i8, ptr %109, align 1, !range !6, !noundef !7
   %111 = trunc nuw i8 %110 to i1
@@ -2322,7 +2316,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
 
 .lr.ph299.split.us:                               ; preds = %.lr.ph299
   %112 = sext i32 %.0180.lcssa to i64
-  %113 = getelementptr %struct.CompactAttribute, ptr %2, i64 %112
+  %113 = getelementptr [16 x i8], ptr %2, i64 %112
   %114 = getelementptr i8, ptr %113, i64 33
   %115 = load i8, ptr %114, align 1, !range !6, !noundef !7
   %116 = trunc nuw i8 %115 to i1
@@ -2330,7 +2324,7 @@ define dso_local noundef zeroext i1 @check_sql_fn_retval(ptr noundef readonly ca
 
 117:                                              ; preds = %list_length.exit218.us
   %118 = sext i32 %.3298.us308 to i64
-  %119 = getelementptr %struct.CompactAttribute, ptr %2, i64 %118
+  %119 = getelementptr [16 x i8], ptr %2, i64 %118
   %120 = getelementptr i8, ptr %119, i64 33
   %121 = load i8, ptr %120, align 1, !range !6, !noundef !7
   %122 = trunc nuw i8 %121 to i1
@@ -2382,7 +2376,7 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   %146 = getelementptr i8, ptr %2, i64 %145
   %147 = getelementptr i8, ptr %146, i64 24
   %148 = sext i32 %.2182 to i64
-  %149 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %147, i64 %148
+  %149 = getelementptr inbounds [100 x i8], ptr %147, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 91
   %151 = load i8, ptr %150, align 1, !range !6, !noundef !7
   %152 = trunc nuw i8 %151 to i1
@@ -2452,7 +2446,7 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   %.3298 = phi i32 [ %.3, %198 ], [ %.3295, %.lr.ph299 ]
   %.3.in297 = phi i32 [ %.3298, %198 ], [ %.0180.lcssa, %.lr.ph299 ]
   %188 = sext i32 %.3.in297 to i64
-  %189 = getelementptr %struct.CompactAttribute, ptr %2, i64 %188
+  %189 = getelementptr [16 x i8], ptr %2, i64 %188
   %190 = getelementptr i8, ptr %189, i64 33
   %191 = load i8, ptr %190, align 1, !range !6, !noundef !7
   %192 = trunc nuw i8 %191 to i1
@@ -2524,7 +2518,7 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   %indvars.iv358 = phi i64 [ %indvars.iv.next359, %252 ], [ 0, %.lr.ph314 ]
   %.0173312321 = phi ptr [ %.1174, %252 ], [ null, %.lr.ph314 ]
   %222 = load ptr, ptr %218, align 8
-  %223 = getelementptr inbounds nuw %union.ListCell, ptr %222, i64 %indvars.iv358
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv358
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 42
   %226 = load i8, ptr %225, align 2, !range !6, !noundef !7
@@ -2761,7 +2755,7 @@ define internal fastcc noundef ptr @sql_fn_resolve_param_name(ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %33, label %12
@@ -2782,7 +2776,7 @@ define internal fastcc noundef ptr @sql_fn_resolve_param_name(ptr noundef readon
   store i32 %17, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %24, ptr %25, align 4

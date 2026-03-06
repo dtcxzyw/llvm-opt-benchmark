@@ -6772,7 +6772,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.Json::Reader::ErrorInfo", ptr %50, i64 %36
+  %56 = getelementptr inbounds [64 x i8], ptr %50, i64 %36
   br label %_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit.i
 
 57:                                               ; preds = %53
@@ -6785,12 +6785,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
 
 61:                                               ; preds = %59, %57
   %62 = phi i64 [ %58, %57 ], [ %60, %59 ]
-  %63 = getelementptr inbounds ptr, ptr %47, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %47, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !64, !noalias !242
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 512
   %66 = shl nsw i64 %62, 3
   %67 = sub nsw i64 %51, %66
-  %68 = getelementptr inbounds %"class.Json::Reader::ErrorInfo", ptr %64, i64 %67
+  %68 = getelementptr inbounds [64 x i8], ptr %64, i64 %67
   br label %_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit.i
 
 _ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit.i: ; preds = %61, %55
@@ -6851,7 +6851,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS3_
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds %"class.Json::Reader::ErrorInfo", ptr %28, i64 %1
+  %90 = getelementptr inbounds [64 x i8], ptr %28, i64 %1
   br label %_ZStplRKSt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS2_PS2_El.exit
 
 91:                                               ; preds = %87
@@ -6864,12 +6864,12 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS3_
 
 95:                                               ; preds = %93, %91
   %96 = phi i64 [ %92, %91 ], [ %94, %93 ]
-  %97 = getelementptr inbounds ptr, ptr %10, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %10, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !64, !noalias !246
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 512
   %100 = shl nsw i64 %96, 3
   %101 = sub nsw i64 %85, %100
-  %102 = getelementptr inbounds %"class.Json::Reader::ErrorInfo", ptr %98, i64 %101
+  %102 = getelementptr inbounds [64 x i8], ptr %98, i64 %101
   br label %_ZStplRKSt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN4Json6Reader9ErrorInfoERS2_PS2_El.exit: ; preds = %89, %95
@@ -15701,7 +15701,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"class.Json::OurReader::ErrorInfo", ptr %50, i64 %36
+  %56 = getelementptr inbounds [64 x i8], ptr %50, i64 %36
   br label %_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit.i
 
 57:                                               ; preds = %53
@@ -15714,12 +15714,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
 
 61:                                               ; preds = %59, %57
   %62 = phi i64 [ %58, %57 ], [ %60, %59 ]
-  %63 = getelementptr inbounds ptr, ptr %47, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %47, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !319, !noalias !505
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 512
   %66 = shl nsw i64 %62, 3
   %67 = sub nsw i64 %51, %66
-  %68 = getelementptr inbounds %"class.Json::OurReader::ErrorInfo", ptr %64, i64 %67
+  %68 = getelementptr inbounds [64 x i8], ptr %64, i64 %67
   br label %_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit.i
 
 _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE27_M_reserve_elements_at_backEm.exit.i: ; preds = %61, %55
@@ -15780,7 +15780,7 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json9OurReader9ErrorInfoER
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds %"class.Json::OurReader::ErrorInfo", ptr %28, i64 %1
+  %90 = getelementptr inbounds [64 x i8], ptr %28, i64 %1
   br label %_ZStplRKSt15_Deque_iteratorIN4Json9OurReader9ErrorInfoERS2_PS2_El.exit
 
 91:                                               ; preds = %87
@@ -15793,12 +15793,12 @@ _ZSt25__uninitialized_default_aISt15_Deque_iteratorIN4Json9OurReader9ErrorInfoER
 
 95:                                               ; preds = %93, %91
   %96 = phi i64 [ %92, %91 ], [ %94, %93 ]
-  %97 = getelementptr inbounds ptr, ptr %10, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %10, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !319, !noalias !509
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 512
   %100 = shl nsw i64 %96, 3
   %101 = sub nsw i64 %85, %100
-  %102 = getelementptr inbounds %"class.Json::OurReader::ErrorInfo", ptr %98, i64 %101
+  %102 = getelementptr inbounds [64 x i8], ptr %98, i64 %101
   br label %_ZStplRKSt15_Deque_iteratorIN4Json9OurReader9ErrorInfoERS2_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN4Json9OurReader9ErrorInfoERS2_PS2_El.exit: ; preds = %89, %95
@@ -18377,7 +18377,7 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit: ; p
   store ptr %11, ptr %0, align 8, !tbaa !587
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %.idx = shl nuw nsw i64 %9, 3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
@@ -18471,7 +18471,7 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE15_M_create_nodesEPPS2_S6_.ex
   store ptr %52, ptr %53, align 8, !tbaa !58
   store ptr %43, ptr %41, align 8, !tbaa !589
   %54 = and i64 %1, 7
-  %55 = getelementptr inbounds nuw %"class.Json::Reader::ErrorInfo", ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %54
   store ptr %55, ptr %47, align 8, !tbaa !164
   ret void
 
@@ -18539,7 +18539,7 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit: 
   store ptr %11, ptr %0, align 8, !tbaa !591
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %.idx = shl nuw nsw i64 %9, 3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
@@ -18633,7 +18633,7 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE15_M_create_nodesEPPS2_S6_
   store ptr %52, ptr %53, align 8, !tbaa !313
   store ptr %43, ptr %41, align 8, !tbaa !593
   %54 = and i64 %1, 7
-  %55 = getelementptr inbounds nuw %"class.Json::OurReader::ErrorInfo", ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %54
   store ptr %55, ptr %47, align 8, !tbaa !422
   ret void
 
@@ -19145,7 +19145,7 @@ _ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !40
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -19239,7 +19239,7 @@ _ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE15_M_create_nodesEPPS2_S6_.exit: ; pred
   store ptr %48, ptr %49, align 8, !tbaa !71
   store ptr %39, ptr %37, align 8, !tbaa !604
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !72
   ret void
 
@@ -19842,9 +19842,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIPN4Json5ValueESaIS2_EE17_M_reall
   %19 = load ptr, ptr %0, align 8, !tbaa !40
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -19863,12 +19863,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIPN4Json5ValueESaIS2_EE17_M_reall
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN4Json5ValueES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN4Json5ValueES4_ET0_T_S6_S5_.exit
 
@@ -19896,9 +19896,9 @@ _ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #32
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN4Json5ValueES4_ET0_T_S6_S5_.exit26, label %53
@@ -19926,7 +19926,7 @@ _ZSt4copyIPPPN4Json5ValueES4_ET0_T_S6_S5_.exit:   ; preds = %32, %31, %28, %27, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !71
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !69
   %64 = load ptr, ptr %63, align 8, !tbaa !43
@@ -20136,9 +20136,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   %19 = load ptr, ptr %0, align 8, !tbaa !587
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -20157,12 +20157,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4Json6Reader9ErrorInfoES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4Json6Reader9ErrorInfoES4_ET0_T_S6_S5_.exit
 
@@ -20190,9 +20190,9 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit: ; p
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #32
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4Json6Reader9ErrorInfoES4_ET0_T_S6_S5_.exit26, label %53
@@ -20220,7 +20220,7 @@ _ZSt4copyIPPN4Json6Reader9ErrorInfoES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %2
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !58
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !59
   %64 = load ptr, ptr %63, align 8, !tbaa !64
@@ -20303,7 +20303,7 @@ _ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: ; p
           to label %_ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit unwind label %51
 
 _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; preds = %47
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %.01424
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.01424
   store ptr %48, ptr %49, align 8, !tbaa !64
   %50 = add nuw nsw i64 %.01424, 1
   %exitcond = icmp eq i64 %.01424, %37
@@ -20324,7 +20324,7 @@ _ZNSt11_Deque_baseIN4Json6Reader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; 
 .lr.ph27:                                         ; preds = %51, %.lr.ph27
   %.025 = phi i64 [ %59, %.lr.ph27 ], [ 1, %51 ]
   %56 = load ptr, ptr %5, align 8, !tbaa !63
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.025
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.025
   %58 = load ptr, ptr %57, align 8, !tbaa !64
   tail call void @_ZdlPvm(ptr noundef %58, i64 noundef 512) #29
   %59 = add nuw nsw i64 %.025, 1
@@ -20546,7 +20546,7 @@ _ZNSt6vectorIN4Json6Reader15StructuredErrorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt12_Vector_baseIN4Json6Reader15StructuredErrorESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4Json6Reader15StructuredErrorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %77
   store ptr %21, ptr %0, align 8, !tbaa !289
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !285
-  %81 = getelementptr inbounds nuw %"struct.Json::Reader::StructuredError", ptr %21, i64 %17
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %17
   store ptr %81, ptr %76, align 8, !tbaa !288
   ret void
 
@@ -20757,9 +20757,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   %19 = load ptr, ptr %0, align 8, !tbaa !591
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -20778,12 +20778,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4Json9OurReader9ErrorInfoES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4Json9OurReader9ErrorInfoES4_ET0_T_S6_S5_.exit
 
@@ -20811,9 +20811,9 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE15_M_allocate_mapEm.exit: 
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #32
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4Json9OurReader9ErrorInfoES4_ET0_T_S6_S5_.exit26, label %53
@@ -20841,7 +20841,7 @@ _ZSt4copyIPPN4Json9OurReader9ErrorInfoES4_ET0_T_S6_S5_.exit: ; preds = %32, %31,
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !313
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !314
   %64 = load ptr, ptr %63, align 8, !tbaa !319
@@ -20924,7 +20924,7 @@ _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE22_M_reserve_map_at_backEm.exit: 
           to label %_ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit unwind label %51
 
 _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit: ; preds = %47
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %.01424
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.01424
   store ptr %48, ptr %49, align 8, !tbaa !319
   %50 = add nuw nsw i64 %.01424, 1
   %exitcond = icmp eq i64 %.01424, %37
@@ -20945,7 +20945,7 @@ _ZNSt11_Deque_baseIN4Json9OurReader9ErrorInfoESaIS2_EE16_M_allocate_nodeEv.exit:
 .lr.ph27:                                         ; preds = %51, %.lr.ph27
   %.025 = phi i64 [ %59, %.lr.ph27 ], [ 1, %51 ]
   %56 = load ptr, ptr %5, align 8, !tbaa !318
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.025
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.025
   %58 = load ptr, ptr %57, align 8, !tbaa !319
   tail call void @_ZdlPvm(ptr noundef %58, i64 noundef 512) #29
   %59 = add nuw nsw i64 %.025, 1
@@ -21167,7 +21167,7 @@ _ZNSt6vectorIN4Json9OurReader15StructuredErrorESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN4Json9OurReader15StructuredErrorESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4Json9OurReader15StructuredErrorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %77
   store ptr %21, ptr %0, align 8, !tbaa !552
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !548
-  %81 = getelementptr inbounds nuw %"struct.Json::OurReader::StructuredError", ptr %21, i64 %17
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %17
   store ptr %81, ptr %76, align 8, !tbaa !551
   ret void
 

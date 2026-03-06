@@ -17,14 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.absl::lts_20240116::btree_set" = type { %"class.absl::lts_20240116::container_internal::btree_set_container" }
-%"class.absl::lts_20240116::container_internal::btree_set_container" = type { %"class.absl::lts_20240116::container_internal::btree_container" }
-%"class.absl::lts_20240116::container_internal::btree_container" = type { %"class.absl::lts_20240116::container_internal::btree" }
-%"class.absl::lts_20240116::container_internal::btree" = type { ptr, %"class.absl::lts_20240116::container_internal::CompressedTuple", i64 }
-%"class.absl::lts_20240116::container_internal::CompressedTuple" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::Storage.21" }
-%"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::Storage.21" = type { ptr }
-%"struct.ceres::internal::Cell" = type { i32, i32 }
 %"class.std::unique_ptr.22" = type { %"struct.std::__uniq_ptr_data.23" }
 %"struct.std::__uniq_ptr_data.23" = type { %"class.std::__uniq_ptr_impl.24" }
 %"class.std::__uniq_ptr_impl.24" = type { %"class.std::tuple.25" }
@@ -38,24 +30,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl.34" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::Storage.35" }
 %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::Storage.35" = type { %"class.absl::lts_20240116::container_internal::CommonFields" }
 %"class.absl::lts_20240116::container_internal::CommonFields" = type { ptr, ptr, i64, i64 }
-%"union.absl::lts_20240116::container_internal::map_slot_type" = type { %"struct.std::pair.82" }
-%"struct.std::pair.82" = type { %"struct.std::pair.44", i32 }
-%"struct.std::pair.44" = type { i32, i32 }
 %"struct.std::pair.158" = type <{ %"class.absl::lts_20240116::container_internal::raw_hash_set<absl::lts_20240116::container_internal::FlatHashMapPolicy<std::pair<int, int>, double>, absl::lts_20240116::hash_internal::Hash<std::pair<int, int>>, std::equal_to<std::pair<int, int>>, std::allocator<std::pair<const std::pair<int, int>, double>>>::iterator", i8, [7 x i8] }>
 %"class.absl::lts_20240116::container_internal::raw_hash_set<absl::lts_20240116::container_internal::FlatHashMapPolicy<std::pair<int, int>, double>, absl::lts_20240116::hash_internal::Hash<std::pair<int, int>>, std::equal_to<std::pair<int, int>>, std::allocator<std::pair<const std::pair<int, int>, double>>>::iterator" = type { ptr, %union.anon.157 }
 %union.anon.157 = type { ptr }
-%"union.absl::lts_20240116::container_internal::map_slot_type.120" = type { %"struct.std::pair.121" }
-%"struct.std::pair.121" = type { i32, %"class.absl::lts_20240116::flat_hash_set" }
+%"struct.std::pair.44" = type { i32, i32 }
+%"class.absl::lts_20240116::container_internal::HashSetResizeHelper" = type <{ ptr, i64, i8, [7 x i8] }>
+%"class.std::allocator.116" = type { i8 }
 %"class.absl::lts_20240116::flat_hash_set" = type { %"class.absl::lts_20240116::container_internal::raw_hash_set.46" }
 %"class.absl::lts_20240116::container_internal::raw_hash_set.46" = type { %"class.absl::lts_20240116::container_internal::CompressedTuple.47" }
 %"class.absl::lts_20240116::container_internal::CompressedTuple.47" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl.48" }
 %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::CompressedTupleImpl.48" = type { %"struct.absl::lts_20240116::container_internal::internal_compressed_tuple::Storage.35" }
-%"class.absl::lts_20240116::container_internal::HashSetResizeHelper" = type <{ ptr, i64, i8, [7 x i8] }>
-%"class.std::allocator.116" = type { i8 }
-%"union.absl::lts_20240116::container_internal::map_slot_type.125" = type { %"struct.std::pair.126" }
-%"struct.std::pair.126" = type { i32, double }
-%"union.absl::lts_20240116::container_internal::map_slot_type.130" = type { %"struct.std::pair.131" }
-%"struct.std::pair.131" = type { %"struct.std::pair.44", double }
 
 $_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d = comdat any
 
@@ -267,7 +251,7 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE6resizeEm.
   br i1 %40, label %41, label %_ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE6resizeEm.exit33
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %21, i64 %31
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %31
   %.not.i.i27 = icmp eq ptr %22, %42
   br i1 %.not.i.i27, label %_ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE6resizeEm.exit33, label %.lr.ph.i.i.i.i.i28
 
@@ -339,12 +323,12 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE6resizeEm.
 .lr.ph:                                           ; preds = %.preheader, %_ZN4absl12lts_2024011618container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertERKi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl12lts_2024011618container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertERKi.exit ], [ 1, %.preheader ]
   %69 = phi ptr [ %210, %_ZN4absl12lts_2024011618container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertERKi.exit ], [ %61, %.preheader ]
-  %70 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !31
   %72 = sub nsw i32 %71, %1
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %2, align 8, !tbaa !10
-  %75 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %73
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !11, !noalias !35
   %78 = icmp eq i64 %77, 0
@@ -381,7 +365,7 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE6resizeEm.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %86, %94
   %.07.i.i.i.i.i.i = phi i64 [ %95, %94 ], [ 0, %86 ]
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.07.i.i.i.i.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.07.i.i.i.i.i.i
   %92 = load i32, ptr %91, align 4, !tbaa !41, !noalias !35
   %93 = icmp slt i32 %92, %62
   br i1 %93, label %94, label %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i
@@ -401,7 +385,7 @@ _ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4les
 98:                                               ; preds = %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 256
   %100 = and i64 %.0.lcssa.i.i.i.i.i.i, 255
-  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %100
   br label %86
 
 _ZNK4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERKiPSE_EELb0EEERKT_.exit.i.i: ; preds = %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i
@@ -432,7 +416,7 @@ _ZNK4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
 117:                                              ; preds = %105
   %118 = sext i32 %.sroa.7.0.i.i.i to i64
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i16.i.i, i64 12
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %118
   %121 = load i32, ptr %120, align 4, !tbaa !41, !noalias !35
   %122 = icmp slt i32 %62, %121
   br i1 %122, label %_ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERKiPSD_EEEET_SH_.exit.thread.i.i, label %_ZN4absl12lts_2024011618container_internal19btree_set_containerINS1_5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEEE6insertERKi.exit
@@ -452,7 +436,7 @@ _ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaI
 .thread.i.i.i:                                    ; preds = %_ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERKiPSD_EEEET_SH_.exit.thread.i.i
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 256
   %125 = and i64 %.0.lcssa.i.i.i.i.i.i, 255
-  %126 = getelementptr inbounds nuw ptr, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   %storemerge3.i.i.i.i = load ptr, ptr %126, align 8, !tbaa !19, !noalias !35
   store ptr %storemerge3.i.i.i.i, ptr %4, align 8, !tbaa !44, !noalias !35
   %127 = getelementptr i8, ptr %storemerge3.i.i.i.i, i64 11
@@ -466,7 +450,7 @@ _ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaI
   %130 = load i8, ptr %129, align 1, !tbaa !40, !noalias !35
   %131 = getelementptr inbounds nuw i8, ptr %storemerge5.i.i.i.i, i64 256
   %132 = zext i8 %130 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %storemerge.i.i.i.i = load ptr, ptr %133, align 8, !tbaa !19, !noalias !35
   store ptr %storemerge.i.i.i.i, ptr %4, align 8, !tbaa !44, !noalias !35
   %134 = getelementptr i8, ptr %storemerge.i.i.i.i, i64 11
@@ -567,7 +551,7 @@ _ZZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
 
 .lr.ph.preheader.i.i.i:                           ; preds = %173
   %182 = getelementptr inbounds nuw i8, ptr %174, i64 12
-  %183 = getelementptr i32, ptr %182, i64 %181
+  %183 = getelementptr [4 x i8], ptr %182, i64 %181
   %narrow.i.i = sub nuw i8 %179, %176
   %184 = zext i8 %narrow.i.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %184, 2
@@ -579,7 +563,7 @@ _ZZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardEmmmPS8_PS6_.exit.i.i: ; preds = %.lr.ph.preheader.i.i.i, %173
   %186 = phi i8 [ %.pre.i.i, %.lr.ph.preheader.i.i.i ], [ %179, %173 ]
   %187 = getelementptr inbounds nuw i8, ptr %174, i64 12
-  %188 = getelementptr inbounds nuw i32, ptr %187, i64 %181
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %181
   store i32 %62, ptr %188, align 4, !tbaa !41, !noalias !35
   %189 = add i8 %186, 1
   store i8 %189, ptr %178, align 1, !tbaa !40, !noalias !35
@@ -602,10 +586,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %.019.i.i = phi i8 [ %189, %.lr.ph.i.i ], [ %198, %197 ]
   %198 = add i8 %.019.i.i, -1
   %199 = zext i8 %198 to i64
-  %200 = getelementptr inbounds nuw ptr, ptr %196, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !19, !noalias !35
   %202 = zext i8 %.019.i.i to i64
-  %203 = getelementptr inbounds nuw ptr, ptr %196, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %202
   store ptr %201, ptr %203, align 8, !tbaa !19, !noalias !35
   %204 = getelementptr i8, ptr %201, i64 8
   store i8 %.019.i.i, ptr %204, align 1, !tbaa !40, !noalias !35
@@ -730,7 +714,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EEC2E
 .thread.i.i.i:                                    ; preds = %24
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 256
   %41 = zext i8 %28 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %storemerge3.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !19
   %43 = getelementptr i8, ptr %storemerge3.i.i.i.i, i64 11
   %44 = load i8, ptr %43, align 1, !tbaa !40
@@ -743,7 +727,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EEC2E
   %46 = load i8, ptr %45, align 1, !tbaa !40
   %47 = getelementptr inbounds nuw i8, ptr %storemerge5.i.i.i.i, i64 256
   %48 = zext i8 %46 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %storemerge.i.i.i.i = load ptr, ptr %49, align 8, !tbaa !19
   %50 = getelementptr i8, ptr %storemerge.i.i.i.i, i64 11
   %51 = load i8, ptr %50, align 1, !tbaa !40
@@ -762,7 +746,7 @@ _ZNKSt16reverse_iteratorIN4absl12lts_2024011618container_internal14btree_iterato
   %54 = add i8 %.sroa.10.1.in.i.in, -1
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i, i64 12
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %55
   %58 = load i32, ptr %57, align 4, !tbaa !41
   %59 = add nsw i32 %58, 1
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.0328, i32 %59)
@@ -775,7 +759,7 @@ _ZNKSt16reverse_iteratorIN4absl12lts_2024011618container_internal14btree_iterato
   br i1 %.not, label %_ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i, label %.lr.ph
 
 _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EEC2EmRKS7_.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
-  %62 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %16, i64 %14
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %14
   %63 = ptrtoint ptr %62 to i64
   br label %.lr.ph342
 
@@ -790,7 +774,7 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EEC2EmRKS7_.
   %66 = phi ptr [ %11, %.lr.ph342 ], [ %79, %._crit_edge340 ]
   %67 = phi ptr [ %13, %.lr.ph342 ], [ %80, %._crit_edge340 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph342 ], [ %indvars.iv.next, %._crit_edge340 ]
-  %68 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %66, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !18
   %70 = load ptr, ptr %69, align 8, !tbaa !19
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -829,10 +813,10 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EEC2EmRKS7_.
   %86 = and i32 %.sroa.11.0337, 255
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0256.0336, i64 12
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %87
   %90 = load i32, ptr %89, align 4, !tbaa !41
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %.sroa.0267.0, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0267.0, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i64, ptr %93, align 8, !tbaa !11, !noalias !62
   %95 = icmp eq i64 %94, 0
@@ -872,7 +856,7 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EEC2EmRKS7_.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %103, %112
   %.07.i.i.i.i.i.i = phi i64 [ %113, %112 ], [ 0, %103 ]
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %.07.i.i.i.i.i.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.07.i.i.i.i.i.i
   %109 = load i32, ptr %108, align 4, !tbaa !41, !noalias !62
   %110 = sext i32 %109 to i64
   %111 = icmp sgt i64 %indvars.iv, %110
@@ -893,7 +877,7 @@ _ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4les
 116:                                              ; preds = %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 256
   %118 = and i64 %.0.lcssa.i.i.i.i.i.i, 255
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   br label %103
 
 _ZNK4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE15internal_locateIiEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERKiPSE_EELb0EEERKT_.exit.i.i: ; preds = %_ZNK4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE11lower_boundIiEENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS5_iE15checked_compareE.exit.i.i.i
@@ -924,7 +908,7 @@ _ZNK4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
 135:                                              ; preds = %123
   %136 = sext i32 %.sroa.7.0.i.i.i to i64
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i16.i.i, i64 12
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %136
   %139 = load i32, ptr %138, align 4, !tbaa !41, !noalias !62
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv, %140
@@ -945,7 +929,7 @@ _ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaI
 .thread.i.i.i188:                                 ; preds = %_ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE13internal_lastINS1_14btree_iteratorINS1_10btree_nodeIS7_EERKiPSD_EEEET_SH_.exit.thread.i.i
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 256
   %144 = and i64 %.0.lcssa.i.i.i.i.i.i, 255
-  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %144
   %storemerge3.i.i.i.i189 = load ptr, ptr %145, align 8, !tbaa !19
   store ptr %storemerge3.i.i.i.i189, ptr %3, align 8, !tbaa !44
   %146 = getelementptr i8, ptr %storemerge3.i.i.i.i189, i64 11
@@ -959,7 +943,7 @@ _ZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESaI
   %149 = load i8, ptr %148, align 1, !tbaa !40
   %150 = getelementptr inbounds nuw i8, ptr %storemerge5.i.i.i.i192, i64 256
   %151 = zext i8 %149 to i64
-  %152 = getelementptr inbounds nuw ptr, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %151
   %storemerge.i.i.i.i193 = load ptr, ptr %152, align 8, !tbaa !19
   store ptr %storemerge.i.i.i.i193, ptr %3, align 8, !tbaa !44
   %153 = getelementptr i8, ptr %storemerge.i.i.i.i193, i64 11
@@ -1063,7 +1047,7 @@ _ZZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.noexc197
   %200 = getelementptr inbounds nuw i8, ptr %192, i64 12
-  %201 = getelementptr i32, ptr %200, i64 %199
+  %201 = getelementptr [4 x i8], ptr %200, i64 %199
   %narrow.i.i = sub nuw i8 %197, %194
   %202 = zext i8 %narrow.i.i to i64
   %.idx.i.i.i = shl nuw nsw i64 %202, 2
@@ -1075,7 +1059,7 @@ _ZZN4absl12lts_2024011618container_internal5btreeINS1_10set_paramsIiSt4lessIiESa
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardEmmmPS8_PS6_.exit.i.i: ; preds = %.lr.ph.preheader.i.i.i, %.noexc197
   %204 = phi i8 [ %.pre.i.i187, %.lr.ph.preheader.i.i.i ], [ %197, %.noexc197 ]
   %205 = getelementptr inbounds nuw i8, ptr %192, i64 12
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %199
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %199
   store i32 %78, ptr %206, align 4, !tbaa !41
   %207 = add i8 %204, 1
   store i8 %207, ptr %196, align 1, !tbaa !40
@@ -1098,10 +1082,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %.019.i.i = phi i8 [ %207, %.lr.ph.i.i186 ], [ %216, %215 ]
   %216 = add i8 %.019.i.i, -1
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %214, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !19
   %220 = zext i8 %.019.i.i to i64
-  %221 = getelementptr inbounds nuw ptr, ptr %214, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %220
   store ptr %219, ptr %221, align 8, !tbaa !19
   %222 = getelementptr i8, ptr %219, i64 8
   store i8 %.019.i.i, ptr %222, align 1, !tbaa !40
@@ -1151,7 +1135,7 @@ _ZN4absl12lts_2024011618container_internal19btree_set_containerINS1_5btreeINS1_1
   %246 = add i32 %.sroa.11.0337, 1
   %247 = and i32 %246, 255
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %245, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %248
   br label %250
 
 250:                                              ; preds = %250, %.thread.i.i
@@ -1262,7 +1246,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %295 = add i32 %.sroa.12.0363, 1
   %296 = and i32 %295, 255
   %297 = zext nneg i32 %296 to i64
-  %298 = getelementptr inbounds nuw ptr, ptr %294, i64 %297
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %297
   br label %299
 
 299:                                              ; preds = %299, %.thread.i.i119
@@ -1291,7 +1275,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %307 = and i32 %.sroa.12.0363, 255
   %308 = zext nneg i32 %307 to i64
   %309 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0362, i64 12
-  %310 = getelementptr inbounds nuw i32, ptr %309, i64 %308
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %309, i64 %308
   br label %311
 
 311:                                              ; preds = %.lr.ph355, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEEERKiPSB_EppEv.exit145
@@ -1301,7 +1285,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %313 = and i32 %.sroa.16.0353, 255
   %314 = zext nneg i32 %313 to i64
   %315 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0354, i64 12
-  %316 = getelementptr inbounds nuw i32, ptr %315, i64 %314
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %314
   %317 = load i32, ptr %310, align 4, !tbaa !41
   %318 = load i32, ptr %316, align 4, !tbaa !41
   %.sroa.2.0.insert.ext.i = zext i32 %318 to i64
@@ -1349,7 +1333,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %348 = zext nneg i16 %347 to i64
   %349 = add i64 %.sroa.6.0.i.i, %348
   %350 = and i64 %349, %332
-  %351 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %341, i64 %350
+  %351 = getelementptr inbounds nuw [12 x i8], ptr %341, i64 %350
   %352 = load i32, ptr %351, align 4, !tbaa !80, !noalias !72
   %353 = icmp eq i32 %352, %317
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 4
@@ -1381,7 +1365,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
 
 .noexc202:                                        ; preds = %365
   %367 = load ptr, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !tbaa !83, !noalias !72
-  %368 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %367, i64 %366
+  %368 = getelementptr inbounds nuw [12 x i8], ptr %367, i64 %366
   %.sroa.0211.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift.i, %319
   store i64 %.sroa.0211.0.insert.insert, ptr %368, align 4, !noalias !72
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
@@ -1394,7 +1378,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %370 = phi ptr [ %.pre.i201, %.noexc202 ], [ %312, %.lr.ph.i.i198 ]
   %371 = phi ptr [ %.pre19.i, %.noexc202 ], [ %341, %.lr.ph.i.i198 ]
   %.sroa.031.2.i14.i = phi i64 [ %366, %.noexc202 ], [ %350, %.lr.ph.i.i198 ]
-  %372 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %371, i64 %.sroa.031.2.i14.i
+  %372 = getelementptr inbounds nuw [12 x i8], ptr %371, i64 %.sroa.031.2.i14.i
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load i32, ptr %373, align 4, !tbaa !41
   %375 = add nsw i32 %374, 1
@@ -1433,7 +1417,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %395 = add i32 %.sroa.16.0353, 1
   %396 = and i32 %395, 255
   %397 = zext nneg i32 %396 to i64
-  %398 = getelementptr inbounds nuw ptr, ptr %394, i64 %397
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %394, i64 %397
   br label %399
 
 399:                                              ; preds = %399, %.thread.i.i141
@@ -1507,7 +1491,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %433 = add i32 %.sroa.12.0363, 1
   %434 = and i32 %433, 255
   %435 = zext nneg i32 %434 to i64
-  %436 = getelementptr inbounds nuw ptr, ptr %432, i64 %435
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %432, i64 %435
   br label %437
 
 437:                                              ; preds = %437, %.thread.i.i154
@@ -1575,7 +1559,7 @@ _ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1
   %462 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %461, i1 true)
   %463 = zext nneg i32 %462 to i64
   %464 = getelementptr inbounds nuw i8, ptr %456, i64 %463
-  %465 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %455, i64 %463
+  %465 = getelementptr inbounds nuw [12 x i8], ptr %455, i64 %463
   %466 = load i8, ptr %464, align 1, !tbaa !90
   %467 = icmp slt i8 %466, -1
   br i1 %467, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !92
@@ -1644,11 +1628,11 @@ _ZN5ceres8internal13WeightedGraphIiE9AddVertexERKi.exit: ; preds = %.lr.ph373
   %493 = sitofp i32 %492 to double
   %494 = sext i32 %488 to i64
   %495 = load ptr, ptr %1, align 8, !tbaa !10
-  %496 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %495, i64 %494
+  %496 = getelementptr inbounds nuw [24 x i8], ptr %495, i64 %494
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 16
   %498 = load i64, ptr %497, align 8, !tbaa !11
   %499 = sext i32 %490 to i64
-  %500 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %495, i64 %499
+  %500 = getelementptr inbounds nuw [24 x i8], ptr %495, i64 %499
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 16
   %502 = load i64, ptr %501, align 8, !tbaa !11
   %503 = mul i64 %502, %498
@@ -1678,7 +1662,7 @@ _ZN5ceres8internal13WeightedGraphIiE9AddVertexERKi.exit: ; preds = %.lr.ph373
   %518 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %517, i1 true)
   %519 = zext nneg i32 %518 to i64
   %520 = getelementptr inbounds nuw i8, ptr %512, i64 %519
-  %521 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %511, i64 %519
+  %521 = getelementptr inbounds nuw [12 x i8], ptr %511, i64 %519
   %522 = load i8, ptr %520, align 1, !tbaa !90
   %523 = icmp slt i8 %522, -1
   br i1 %523, label %.lr.ph.i.i163, label %._crit_edge.i.i161, !llvm.loop !92
@@ -1954,7 +1938,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERK
   %37 = zext nneg i16 %36 to i64
   %38 = add i64 %.sroa.6.0.i.i.i.i, %37
   %39 = and i64 %38, %20
-  %40 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %30, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !41, !noalias !100
   %42 = icmp eq i32 %41, %11
   br i1 %42, label %_ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEEixIiSC_EEDTclsrT0_5valueclL_ZSt9addressofISF_EPT_RSL_EclL_ZSt7declvalIRSF_EDTcl9__declvalISL_ELi0EEEvEEEEERSE_.exit, label %.critedge.i.i.i.i, !prof !82
@@ -1979,7 +1963,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERK
 50:                                               ; preds = %._crit_edge.i.i.i.i
   %51 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %18), !noalias !100
   %52 = load ptr, ptr %29, align 8, !tbaa !83, !noalias !100
-  %53 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %51
   %54 = load i32, ptr %1, align 4, !tbaa !41, !noalias !100
   store i32 %54, ptr %53, align 8, !tbaa !108, !noalias !100
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1992,7 +1976,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERK
 _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEEixIiSC_EEDTclsrT0_5valueclL_ZSt9addressofISF_EPT_RSL_EclL_ZSt7declvalIRSF_EDTcl9__declvalISL_ELi0EEEvEEEEERSE_.exit: ; preds = %.lr.ph.i.i.i.i, %50
   %56 = phi ptr [ %.pre19.i.i.i, %50 ], [ %30, %.lr.ph.i.i.i.i ]
   %.sroa.031.2.i14.i.i.i = phi i64 [ %51, %50 ], [ %39, %.lr.ph.i.i.i.i ]
-  %57 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %56, i64 %.sroa.031.2.i14.i.i.i
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %56, i64 %.sroa.031.2.i14.i.i.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !86, !noalias !115
   tail call void @llvm.prefetch.p0(ptr %59, i32 0, i32 1, i32 1), !noalias !115
@@ -2035,7 +2019,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
   %86 = zext nneg i16 %85 to i64
   %87 = add i64 %.sroa.6.0.i.i.i.i.i.i.i, %86
   %88 = and i64 %87, %69
-  %89 = getelementptr inbounds nuw i32, ptr %79, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !41, !noalias !115
   %91 = icmp eq i32 %90, %60
   br i1 %91, label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_iENSB_22SameAsElementReferenceISH_EEEE5valueEiE4typeELi0ETnNSD_IXsr14IsDecomposableISH_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbESH_.exit, label %.critedge.i.i.i.i.i.i.i, !prof !82
@@ -2064,7 +2048,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 99:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %100 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %58, i64 noundef %67), !noalias !115
   %101 = load ptr, ptr %78, align 8, !tbaa !83, !noalias !115
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %100
   %103 = load i32, ptr %2, align 4, !tbaa !41, !noalias !115
   store i32 %103, ptr %102, align 4, !tbaa !41, !noalias !115
   %.pre.i.i.i.i.i.i = load ptr, ptr %58, align 8, !tbaa !86, !noalias !115
@@ -2108,7 +2092,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %129 = zext nneg i16 %128 to i64
   %130 = add i64 %.sroa.6.0.i.i.i.i15, %129
   %131 = and i64 %130, %113
-  %132 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %122, i64 %131
+  %132 = getelementptr inbounds nuw [40 x i8], ptr %122, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !41, !noalias !131
   %134 = icmp eq i32 %133, %103
   br i1 %134, label %_ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEEixIiSC_EEDTclsrT0_5valueclL_ZSt9addressofISF_EPT_RSL_EclL_ZSt7declvalIRSF_EDTcl9__declvalISL_ELi0EEEvEEEEERSE_.exit27, label %.critedge.i.i.i.i19, !prof !82
@@ -2133,7 +2117,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 142:                                              ; preds = %._crit_edge.i.i.i.i21
   %143 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %112), !noalias !131
   %144 = load ptr, ptr %29, align 8, !tbaa !83, !noalias !131
-  %145 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [40 x i8], ptr %144, i64 %143
   %146 = load i32, ptr %2, align 4, !tbaa !41, !noalias !131
   store i32 %146, ptr %145, align 8, !tbaa !108, !noalias !131
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -2146,7 +2130,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEEixIiSC_EEDTclsrT0_5valueclL_ZSt9addressofISF_EPT_RSL_EclL_ZSt7declvalIRSF_EDTcl9__declvalISL_ELi0EEEvEEEEERSE_.exit27: ; preds = %.lr.ph.i.i.i.i17, %142
   %148 = phi ptr [ %.pre19.i.i.i25, %142 ], [ %122, %.lr.ph.i.i.i.i17 ]
   %.sroa.031.2.i14.i.i.i26 = phi i64 [ %143, %142 ], [ %131, %.lr.ph.i.i.i.i17 ]
-  %149 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %148, i64 %.sroa.031.2.i14.i.i.i26
+  %149 = getelementptr inbounds nuw [40 x i8], ptr %148, i64 %.sroa.031.2.i14.i.i.i26
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !86, !noalias !139
   tail call void @llvm.prefetch.p0(ptr %151, i32 0, i32 1, i32 1), !noalias !139
@@ -2189,7 +2173,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
   %178 = zext nneg i16 %177 to i64
   %179 = add i64 %.sroa.6.0.i.i.i.i.i.i.i30, %178
   %180 = and i64 %179, %161
-  %181 = getelementptr inbounds nuw i32, ptr %171, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !41, !noalias !139
   %183 = icmp eq i32 %182, %152
   br i1 %183, label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_iENSB_22SameAsElementReferenceISH_EEEE5valueEiE4typeELi0ETnNSD_IXsr14IsDecomposableISH_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbESH_.exit42, label %.critedge.i.i.i.i.i.i.i34, !prof !82
@@ -2214,7 +2198,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 191:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i36
   %192 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %150, i64 noundef %159), !noalias !139
   %193 = load ptr, ptr %170, align 8, !tbaa !83, !noalias !139
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %192
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %192
   %195 = load i32, ptr %1, align 4, !tbaa !41, !noalias !139
   store i32 %195, ptr %194, align 4, !tbaa !41, !noalias !139
   br label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_iENSB_22SameAsElementReferenceISH_EEEE5valueEiE4typeELi0ETnNSD_IXsr14IsDecomposableISH_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbESH_.exit42
@@ -2423,9 +2407,9 @@ _ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE11_S_reloc
 
 _ZNSt12_Vector_baseIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE13_M_deallocateEPS6_m.exit41: ; preds = %_ZNSt6vectorIN4absl12lts_202401169btree_setIiSt4lessIiESaIiEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %44
   store ptr %29, ptr %0, align 8, !tbaa !10
-  %46 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %30, i64 %1
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !4
-  %47 = getelementptr inbounds nuw %"class.absl::lts_20240116::btree_set", ptr %29, i64 %27
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %47, ptr %11, align 8, !tbaa !157
   br label %48
 
@@ -2477,7 +2461,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %.147 = phi i64 [ %20, %._crit_edge ], [ %.147.be, %.backedge ]
   %.1 = phi ptr [ %21, %._crit_edge ], [ %.1.be, %.backedge ]
   %23 = getelementptr inbounds nuw i8, ptr %.1, i64 256
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.147
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.147
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = getelementptr i8, ptr %25, i64 11
   %27 = load i8, ptr %26, align 1, !tbaa !40
@@ -2579,7 +2563,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %12 = add i8 %10, -1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = getelementptr i8, ptr %16, i64 10
   %18 = load i8, ptr %17, align 1, !tbaa !40
@@ -2628,7 +2612,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal5btre
   %44 = add nuw i8 %10, 1
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %46 = zext i8 %44 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !19
   %49 = getelementptr i8, ptr %48, i64 10
   %50 = load i8, ptr %49, align 1, !tbaa !40
@@ -2785,9 +2769,9 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %10 = zext i8 %9 to i64
   %11 = load ptr, ptr %0, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %7
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %10
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %13, align 1
   %17 = zext i8 %1 to i32
@@ -2819,8 +2803,8 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %.pre-phi = phi i64 [ %.pre61, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit.loopexit ], [ %10, %4 ]
   %24 = phi ptr [ %.pre, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit.loopexit ], [ %11, %4 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.pre-phi
-  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %19
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %19
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %26, align 1
   %29 = getelementptr i8, ptr %2, i64 10
@@ -2829,7 +2813,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %32 = sub nsw i32 %31, %17
   %33 = sext i32 %32 to i64
   %34 = zext i8 %1 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %20, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %34
   %.idx.i44 = shl nuw nsw i64 %33, 2
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i44
   %.not13.i45 = icmp eq i8 %30, %1
@@ -2875,10 +2859,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = trunc nuw i64 %indvars.iv.next to i8
   %49 = add i8 %47, %48
-  %50 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   %52 = zext i8 %49 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %43, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %52
   store ptr %51, ptr %53, align 8, !tbaa !19
   %54 = getelementptr i8, ptr %51, i64 8
   store i8 %49, ptr %54, align 1, !tbaa !40
@@ -2890,10 +2874,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %.056 = phi i8 [ 0, %.lr.ph57 ], [ %63, %55 ]
   %56 = add i8 %.056, %1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %45, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !19
   %60 = zext i8 %.056 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %60
   store ptr %59, ptr %61, align 8, !tbaa !19
   %62 = getelementptr i8, ptr %59, i64 8
   store i8 %.056, ptr %62, align 1, !tbaa !40
@@ -2929,8 +2913,8 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %9 = zext i8 %6 to i64
   %.idx.i = shl nuw nsw i64 %9, 2
   %10 = zext i8 %1 to i64
-  %11 = getelementptr i32, ptr %8, i64 %10
-  %12 = getelementptr i32, ptr %11, i64 %9
+  %11 = getelementptr [4 x i8], ptr %8, i64 %10
+  %12 = getelementptr [4 x i8], ptr %11, i64 %9
   %13 = getelementptr i8, ptr %8, i64 %.idx.i
   br label %.lr.ph.i
 
@@ -2951,9 +2935,9 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %20 = load i8, ptr %19, align 1, !tbaa !40
   %21 = zext i8 %20 to i64
   %22 = load ptr, ptr %0, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %18
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %18
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %23, align 1
   %27 = getelementptr i8, ptr %0, i64 10
@@ -2962,7 +2946,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %30 = sub nsw i32 %29, %17
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %31
   %.idx.i46 = shl nuw nsw i64 %18, 2
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i46
   %.not13.i = icmp eq i32 %17, 0
@@ -2991,8 +2975,8 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %41 = sub nsw i32 %.pre-phi, %7
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %40
-  %45 = getelementptr inbounds nuw i32, ptr %32, i64 %42
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %40
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %42
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %44, align 1
   %47 = getelementptr i8, ptr %0, i64 11
@@ -3029,10 +3013,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %59 = add i8 %58, -1
   %60 = add i8 %59, %1
   %61 = zext i8 %59 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %52, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !19
   %64 = zext i8 %60 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %52, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %64
   store ptr %63, ptr %65, align 8, !tbaa !19
   %66 = getelementptr i8, ptr %63, i64 8
   store i8 %60, ptr %66, align 1, !tbaa !40
@@ -3050,9 +3034,9 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %72 = sub i8 %71, %1
   %73 = add i8 %72, %70
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %54, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !19
-  %77 = getelementptr inbounds nuw ptr, ptr %55, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %69
   store ptr %76, ptr %77, align 8, !tbaa !19
   %78 = getelementptr i8, ptr %76, i64 8
   %79 = trunc nuw i64 %69 to i8
@@ -3104,7 +3088,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %20 = zext i8 %19 to i64
   %21 = zext i8 %18 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %21
   %.idx.i = shl nuw nsw i64 %20, 2
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %.not13.i = icmp eq i8 %19, 0
@@ -3136,7 +3120,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %32 = getelementptr i8, ptr %0, i64 8
   %33 = load i8, ptr %32, align 8, !tbaa !40
   %34 = zext i8 %30 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %22, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %34
   %36 = zext i8 %33 to i32
   %37 = getelementptr i8, ptr %31, i64 10
   %38 = load i8, ptr %37, align 1, !tbaa !40
@@ -3146,7 +3130,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %42 = getelementptr i32, ptr %41, i64 %40
+  %42 = getelementptr [4 x i8], ptr %41, i64 %40
   %narrow.i = sub nuw i8 %38, %33
   %43 = zext i8 %narrow.i to i64
   %.idx.i.i = shl nuw nsw i64 %43, 2
@@ -3158,7 +3142,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
 _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE19transfer_n_backwardEmmmPS8_PS6_.exit.i: ; preds = %.lr.ph.preheader.i.i, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit
   %45 = phi i8 [ %.pre.i, %.lr.ph.preheader.i.i ], [ %38, %_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaIiELi256ELb0EEEE10transfer_nEmmmPS8_PS6_.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %40
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %40
   %48 = load i32, ptr %35, align 4, !tbaa !41
   store i32 %48, ptr %47, align 4, !tbaa !41
   %49 = add i8 %45, 1
@@ -3182,10 +3166,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %.019.i = phi i8 [ %49, %.lr.ph.i27 ], [ %58, %57 ]
   %58 = add i8 %.019.i, -1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !19
   %62 = zext i8 %.019.i to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %62
   store ptr %61, ptr %63, align 8, !tbaa !19
   %64 = getelementptr i8, ptr %61, i64 8
   store i8 %.019.i, ptr %64, align 1, !tbaa !40
@@ -3199,7 +3183,7 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %69 = add i8 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %71 = zext i8 %69 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   store ptr %2, ptr %72, align 8, !tbaa !19
   %73 = getelementptr i8, ptr %0, i64 11
   %74 = load i8, ptr %73, align 1, !tbaa !40
@@ -3217,10 +3201,10 @@ _ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10set_paramsIiSt4less
   %.02529 = phi i8 [ 0, %75 ], [ %86, %79 ]
   %.0 = add i8 %.0.in30, 1
   %80 = zext i8 %.0 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !19
   %83 = zext i8 %.02529 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %83
   store ptr %82, ptr %84, align 8, !tbaa !19
   %85 = getelementptr i8, ptr %82, i64 8
   store i8 %.02529, ptr %85, align 1, !tbaa !40
@@ -3369,7 +3353,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %73
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %.02229
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.0.copyload.i.i32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %26, align 1
   %28 = zext i32 %.0.copyload.i.i32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
@@ -3431,7 +3415,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %70 = getelementptr i8, ptr %42, i64 %68
   %71 = getelementptr i8, ptr %70, i64 %69
   store i8 %65, ptr %71, align 1, !tbaa !90
-  %72 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type", ptr %19, i64 %63
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %72, ptr noundef nonnull align 1 dereferenceable(12) %26, i64 12, i1 false)
   %.pre = load i64, ptr %6, align 8, !tbaa !182
   br label %73
@@ -3758,7 +3742,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br i1 %27, label %28, label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEE7destroyEPNS1_13map_slot_typeIiSB_EE.exit.i.i.i
 
 28:                                               ; preds = %.lr.ph.i.i.i
-  %29 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %24, i64 %.08.i.i.i
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %.08.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8, !tbaa !75
   %32 = icmp eq i64 %31, 0
@@ -3892,7 +3876,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal13WeightedGraphIiE9AddVertexE
   %32 = zext nneg i16 %31 to i64
   %33 = add i64 %.sroa.6.0.i.i, %32
   %34 = and i64 %33, %15
-  %35 = getelementptr inbounds nuw i32, ptr %21, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = icmp eq i32 %36, %6
   br i1 %37, label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE4findIiEENSB_8iteratorERKi.exit, label %38, !prof !82
@@ -3935,7 +3919,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal13WeightedGraphIiE9AddVertexE
   %53 = zext nneg i16 %52 to i64
   %54 = add i64 %.sroa.6.0.i.i.i.i.i.i.i, %53
   %55 = and i64 %54, %15
-  %56 = getelementptr inbounds nuw i32, ptr %21, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !41, !noalias !196
   %58 = icmp eq i32 %57, %6
   br i1 %58, label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE6insertIiTnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_iENSB_22SameAsElementReferenceISH_EEEE5valueEiE4typeELi0ETnNSD_IXsr14IsDecomposableISH_EE5valueEiE4typeELi0EEESt4pairINSB_8iteratorEbESH_.exit, label %.critedge.i.i.i.i.i.i.i, !prof !82
@@ -3960,7 +3944,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal13WeightedGraphIiE9AddVertexE
 66:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %67 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %13), !noalias !196
   %68 = load ptr, ptr %20, align 8, !tbaa !83, !noalias !196
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   %70 = load i32, ptr %1, align 4, !tbaa !41, !noalias !196
   store i32 %70, ptr %69, align 4, !tbaa !41, !noalias !196
   %.pre41 = zext i32 %70 to i64
@@ -4015,7 +3999,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %87 = zext nneg i16 %86 to i64
   %88 = add i64 %.sroa.6.0.i.i.i.i, %87
   %89 = and i64 %88, %75
-  %90 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %80, i64 %89
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !41, !noalias !209
   %92 = icmp eq i32 %91, %71
   br i1 %92, label %.loopexit, label %.critedge.i.i.i.i, !prof !82
@@ -4043,7 +4027,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 
 .noexc:                                           ; preds = %100
   %102 = load ptr, ptr %79, align 8, !tbaa !83, !noalias !209
-  %103 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [40 x i8], ptr %102, i64 %101
   %104 = load i32, ptr %1, align 4, !tbaa !41, !noalias !209
   store i32 %104, ptr %103, align 8, !tbaa !108, !noalias !209
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -4056,7 +4040,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.noexc
   %106 = phi ptr [ %.pre19.i.i.i, %.noexc ], [ %80, %.lr.ph.i.i.i.i ]
   %.sroa.031.2.i14.i.i.i = phi i64 [ %101, %.noexc ], [ %89, %.lr.ph.i.i.i.i ]
-  %107 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %106, i64 %.sroa.031.2.i14.i.i.i
+  %107 = getelementptr inbounds nuw [40 x i8], ptr %106, i64 %.sroa.031.2.i14.i.i.i
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %110 = load i64, ptr %109, align 8, !tbaa !75
@@ -4137,7 +4121,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %141 = zext nneg i16 %140 to i64
   %142 = add i64 %.sroa.6.0.i.i.i.i9, %141
   %143 = and i64 %142, %129
-  %144 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.125", ptr %134, i64 %143
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !41, !noalias !217
   %146 = icmp eq i32 %145, %125
   br i1 %146, label %_ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIidEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKidEEEixIiS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit, label %.critedge.i.i.i.i13, !prof !82
@@ -4162,7 +4146,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 154:                                              ; preds = %._crit_edge.i.i.i.i15
   %155 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIidEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKidEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %126, i64 noundef %.pre-phi77), !noalias !217
   %156 = load ptr, ptr %133, align 8, !tbaa !83, !noalias !217
-  %157 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.125", ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %156, i64 %155
   %158 = load i32, ptr %1, align 4, !tbaa !41, !noalias !217
   store i32 %158, ptr %157, align 8, !tbaa !225, !noalias !217
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -4172,7 +4156,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 _ZN4absl12lts_2024011618container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIidEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKidEEEixIiS4_EEDTclsrT0_5valueclL_ZSt9addressofISC_EPT_RSI_EclL_ZSt7declvalIRSC_EDTcl9__declvalISI_ELi0EEEvEEEEERSB_.exit: ; preds = %.lr.ph.i.i.i.i11, %154
   %160 = phi ptr [ %156, %154 ], [ %134, %.lr.ph.i.i.i.i11 ]
   %.sroa.031.2.i14.i.i.i18 = phi i64 [ %155, %154 ], [ %143, %.lr.ph.i.i.i.i11 ]
-  %161 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.125", ptr %160, i64 %.sroa.031.2.i14.i.i.i18
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %.sroa.031.2.i14.i.i.i18
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store double %2, ptr %162, align 8, !tbaa !155
   ret void
@@ -4301,7 +4285,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %67
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.02229
   %27 = load i32, ptr %26, align 4, !tbaa !41
   %28 = zext i32 %27 to i64
   %29 = add i64 %28, ptrtoint (ptr @_ZN4absl12lts_2024011613hash_internal15MixingHashState5kSeedE to i64)
@@ -4354,7 +4338,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %63 = getelementptr i8, ptr %35, i64 %61
   %64 = getelementptr i8, ptr %63, i64 %62
   store i8 %58, ptr %64, align 1, !tbaa !90
-  %65 = getelementptr inbounds nuw i32, ptr %19, i64 %56
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %56
   %66 = load i32, ptr %26, align 4
   store i32 %66, ptr %65, align 1
   %.pre = load i64, ptr %6, align 8, !tbaa !182
@@ -4643,8 +4627,8 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
 
 28:                                               ; preds = %.lr.ph.i
   %29 = xor i64 %.014.i, %23
-  %30 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %20, i64 %29
-  %31 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %15, i64 %.014.i
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %29
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.014.i
   %32 = load i32, ptr %31, align 8, !tbaa !108
   store i32 %32, ptr %30, align 8, !tbaa !108
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -4685,7 +4669,7 @@ _ZN4absl12lts_2024011618container_internal20common_policy_traitsINS1_17FlatHashM
   br i1 %55, label %56, label %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiNS0_13flat_hash_setIiNS0_13hash_internal4HashIiEESt8equal_toIiESaIiEEEEES7_S9_SaISt4pairIKiSB_EEE8transferEPNS1_13map_slot_typeIiSB_EESK_.exit
 
 56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %15, i64 %.02334
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %.02334
   %58 = load i32, ptr %57, align 4, !tbaa !41
   %59 = zext i32 %58 to i64
   %60 = add i64 %59, ptrtoint (ptr @_ZN4absl12lts_2024011613hash_internal15MixingHashState5kSeedE to i64)
@@ -4738,7 +4722,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %94 = getelementptr i8, ptr %66, i64 %92
   %95 = getelementptr i8, ptr %94, i64 %93
   store i8 %89, ptr %95, align 1, !tbaa !90
-  %96 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.120", ptr %20, i64 %87
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %87
   store i32 %58, ptr %96, align 8, !tbaa !108
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -5081,7 +5065,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %66
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.125", ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02229
   %27 = load i32, ptr %26, align 4, !tbaa !41
   %28 = zext i32 %27 to i64
   %29 = add i64 %28, ptrtoint (ptr @_ZN4absl12lts_2024011613hash_internal15MixingHashState5kSeedE to i64)
@@ -5134,7 +5118,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %63 = getelementptr i8, ptr %35, i64 %61
   %64 = getelementptr i8, ptr %63, i64 %62
   store i8 %58, ptr %64, align 1, !tbaa !90
-  %65 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.125", ptr %19, i64 %56
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %65, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
   %.pre = load i64, ptr %6, align 8, !tbaa !182
   br label %66
@@ -5341,7 +5325,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   %38 = zext nneg i16 %37 to i64
   %39 = add i64 %.sroa.6.0.i, %38
   %40 = and i64 %39, %21
-  %41 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.130", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !80
   %43 = icmp eq i32 %42, %.0.copyload.i.i32.i.i.i.i.i.i.i.i.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -5370,7 +5354,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
 55:                                               ; preds = %._crit_edge.i
   %56 = tail call noundef i64 @_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiiEdEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaIS4_IKS5_dEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %19)
   %57 = load ptr, ptr %30, align 8, !tbaa !83
-  %58 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.130", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %2, align 4
   store i64 %59, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -5385,7 +5369,7 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.sroa.3.2.i15 = phi i8 [ 1, %55 ], [ 0, %.lr.ph.i ]
   %.sroa.031.2.i14 = phi i64 [ %56, %55 ], [ %40, %.lr.ph.i ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.031.2.i14
-  %64 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.130", ptr %61, i64 %.sroa.031.2.i14
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %.sroa.031.2.i14
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %63) ]
   store ptr %63, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5518,7 +5502,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal12raw
   br i1 %24, label %25, label %73
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.130", ptr %15, i64 %.02229
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02229
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.0.copyload.i.i32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %26, align 1
   %28 = zext i32 %.0.copyload.i.i32.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
@@ -5580,7 +5564,7 @@ _ZN4absl12lts_2024011618container_internal19find_first_non_fullIvEENS1_8FindInfo
   %70 = getelementptr i8, ptr %42, i64 %68
   %71 = getelementptr i8, ptr %70, i64 %69
   store i8 %65, ptr %71, align 1, !tbaa !90
-  %72 = getelementptr inbounds nuw %"union.absl::lts_20240116::container_internal::map_slot_type.130", ptr %19, i64 %63
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, ptr noundef nonnull align 1 dereferenceable(16) %26, i64 16, i1 false)
   %.pre = load i64, ptr %6, align 8, !tbaa !182
   br label %73

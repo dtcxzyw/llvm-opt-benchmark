@@ -34,9 +34,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_h
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___drm_atomic_helper_bridge_reset: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad __drm_atomic_helper_bridge_reset ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_helper_bridge_reset: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_atomic_helper_bridge_reset ; .previous"
 
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-
 @__UNIQUE_ID___addressable___drm_atomic_helper_crtc_state_reset382 = internal global ptr @__drm_atomic_helper_crtc_state_reset, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable___drm_atomic_helper_crtc_reset383 = internal global ptr @__drm_atomic_helper_crtc_reset, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_drm_atomic_helper_crtc_reset384 = internal global ptr @drm_atomic_helper_crtc_reset, section ".discard.addressable", align 8
@@ -1128,7 +1125,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11
+  %.split = getelementptr [40 x i8], ptr %10, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %.split, i64 24
@@ -1149,7 +1146,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
-  %.split4 = getelementptr %struct.__drm_crtcs_state, ptr %24, i64 %27
+  %.split4 = getelementptr [56 x i8], ptr %24, i64 %27
   %28 = getelementptr i8, ptr %.split4, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null

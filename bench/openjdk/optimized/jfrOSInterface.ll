@@ -749,7 +749,7 @@ define hidden noundef nonnull ptr @_ZN14JfrOSInterface19virtualization_nameEv() 
 
 switch.lookup:                                    ; preds = %0
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14JfrOSInterface19virtualization_nameEv, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14JfrOSInterface19virtualization_nameEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

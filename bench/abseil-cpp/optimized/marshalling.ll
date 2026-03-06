@@ -234,14 +234,14 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
 
 72:                                               ; preds = %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, %70
   %.01529 = phi i64 [ 0, %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %71, %70 ]
-  %73 = getelementptr inbounds nuw ptr, ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 %.01529
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 %.01529
   %74 = load ptr, ptr %73, align 8, !tbaa !17
   %75 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #18
   %76 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.speculated.i.i.i, ptr %7, i64 %75, ptr nonnull %74) #18
   br i1 %76, label %.critedge.sink.split, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw ptr, ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 %.01529
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 %.01529
   %79 = load ptr, ptr %78, align 8, !tbaa !17
   %80 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #18
   %81 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %.sroa.speculated.i.i.i, ptr %7, i64 %80, ptr nonnull %79) #18
@@ -3342,7 +3342,7 @@ define dso_local void @_ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE(ptr de
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !102
@@ -3698,7 +3698,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
   %17 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i ], [ %16, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ]
   store ptr %17, ptr %0, align 8, !tbaa !89
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !101
   %20 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt17basic_string_viewIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEEPNSt7__cxx1112basic_stringIcS4_SaIcEEEET0_T_SI_SH_(ptr %6, ptr %8, ptr noundef %17)
@@ -3862,7 +3862,7 @@ _ZNK4absl16strings_internal8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string
   %41 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre23, %.preheader.preheader ]
   %42 = phi ptr [ %61, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %43 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.0
   store ptr %42, ptr %43, align 8, !tbaa !230
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %41, ptr %44, align 8, !tbaa !232
@@ -3928,7 +3928,7 @@ _ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmp
 .critedge:                                        ; preds = %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.thread
   %69 = phi i64 [ %46, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.thread ], [ %67, %_ZN4absl16strings_internal13SplitIteratorINS0_8SplitterINS_6ByCharENS_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ]
   %70 = load ptr, ptr %33, align 8, !tbaa !213
-  %71 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %69
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %69
   %72 = load ptr, ptr %0, align 8, !tbaa !213
   %73 = ptrtoint ptr %70 to i64
   %74 = ptrtoint ptr %72 to i64
@@ -4028,7 +4028,7 @@ _ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3
   %30 = sub i64 %29, %18
   %31 = ashr exact i64 %30, 4
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.std::basic_string_view", ptr %13, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %13, i64 %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPSt17basic_string_viewIcSt11char_traitsIcEES4_ET0_T_S6_S5_.exit
 
@@ -4078,7 +4078,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS
 _ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit
   %49 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewPS8_S8_ET0_T_SL_SK_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewmEvRT_T0_.exit ]
   %50 = sub nuw nsw i64 %9, %20
-  %51 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %50
   store ptr %51, ptr %12, align 8, !tbaa !235
   %.not11.i.i.i.i.i57 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i57, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit63, label %.lr.ph.i.i.i.i.i58
@@ -4207,7 +4207,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt17basic_string_viewIcSt11char_traits
 _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit90, %91
   store ptr %80, ptr %0, align 8, !tbaa !215
   store ptr %.0.lcssa.i.i.i.i.i89, ptr %12, align 8, !tbaa !235
-  %95 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %80, i64 %76
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %76
   store ptr %95, ptr %10, align 8, !tbaa !217
   br label %_ZSt4copyIPZNK4absl16strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_E8raw_viewN9__gnu_cxx17__normal_iteratorIPS8_SD_EEET0_T_SO_SN_.exit
 

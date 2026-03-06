@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.boost::shared_ptr.28" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::detail::shared_count" = type { ptr }
-%"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::program_options::basic_parsed_options.29" = type <{ %"class.std::vector.30", ptr, %"class.boost::program_options::basic_parsed_options", i32, [4 x i8] }>
 %"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
 %"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<boost::program_options::basic_option<wchar_t>, std::allocator<boost::program_options::basic_option<wchar_t>>>::_Vector_impl" }
@@ -545,7 +544,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIcEENS0_20bas
   %29 = phi ptr [ %63, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ %20, %.preheader ]
   %30 = phi i64 [ %61, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ 0, %.preheader ]
   %.02033 = phi i32 [ %60, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !28
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5boost15program_options18option_description9long_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %32)
           to label %34 unwind label %42
@@ -1170,7 +1169,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIwEENS0_20bas
   %29 = phi ptr [ %63, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ %20, %.preheader ]
   %30 = phi i64 [ %61, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ 0, %.preheader ]
   %.02032 = phi i32 [ %60, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !28
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5boost15program_options18option_description9long_nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(112) %32)
           to label %34 unwind label %42
@@ -2048,7 +2047,7 @@ define void @_ZN5boost15program_options20basic_parsed_optionsIwEC2ERKNS1_IcEE(pt
   %34 = phi i64 [ 0, %.lr.ph ], [ %120, %_ZN5boost15program_options12basic_optionIwED2Ev.exit ]
   %.016 = phi i32 [ 0, %.lr.ph ], [ %119, %_ZN5boost15program_options12basic_optionIwED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %33, i64 %34
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4964,7 +4963,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit24, %72
   store ptr %22, ptr %0, align 8, !tbaa !112
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8, !tbaa !113
-  %76 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.59", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %76, ptr %71, align 8, !tbaa !114
   ret void
 }
@@ -5661,7 +5660,7 @@ _ZNSt6vectorIN5boost15program_options12basic_optionIwEESaIS3_EE11_S_relocateEPS3
 _ZNSt12_Vector_baseIN5boost15program_options12basic_optionIwEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN5boost15program_options12basic_optionIwEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26, %141
   store ptr %22, ptr %0, align 8, !tbaa !77
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !79
-  %145 = getelementptr inbounds nuw %"class.boost::program_options::basic_option.46", ptr %22, i64 %16
+  %145 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %16
   store ptr %145, ptr %140, align 8, !tbaa !81
   ret void
 }
@@ -8598,7 +8597,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !127
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !125
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !126
   ret void
 
@@ -8844,7 +8843,7 @@ _ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt12_Vector_baseIN5boost15program_options12basic_optionIcEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36, %102
   store ptr %20, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !49
-  %106 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %20, i64 %16
+  %106 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %106, ptr %101, align 8, !tbaa !51
   ret void
 

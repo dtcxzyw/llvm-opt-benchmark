@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [29 x i8] c"unable to open mailmap at %s\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"r\00", align 1
@@ -500,7 +499,7 @@ define dso_local range(i32 0, 2) i32 @map_user(ptr noundef %0, ptr noundef captu
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %0, align 8, !tbaa !38
-  %25 = getelementptr inbounds nuw %struct.string_list_item, ptr %24, i64 %indvars.iv.next.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv.next.i
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = tail call i32 @strncasecmp(ptr noundef %26, ptr noundef %6, i64 noundef %7) #14
   %28 = icmp slt i32 %27, 0
@@ -523,7 +522,7 @@ define dso_local range(i32 0, 2) i32 @map_user(ptr noundef %0, ptr noundef captu
 lookup_prefix.exit:                               ; preds = %10
   %35 = load ptr, ptr %0, align 8, !tbaa !38
   %36 = zext nneg i32 %11 to i64
-  %37 = getelementptr inbounds nuw %struct.string_list_item, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %36
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.thread, label %lookup_prefix.exit.thread50
 
@@ -554,7 +553,7 @@ lookup_prefix.exit.thread50:                      ; preds = %30, %lookup_prefix.
 52:                                               ; preds = %48
   %53 = load ptr, ptr %43, align 8, !tbaa !38
   %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds nuw %struct.string_list_item, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %54
   br label %.loopexit
 
 56:                                               ; preds = %42
@@ -582,7 +581,7 @@ lookup_prefix.exit.thread50:                      ; preds = %30, %lookup_prefix.
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr %43, align 8, !tbaa !38
-  %66 = getelementptr inbounds nuw %struct.string_list_item, ptr %65, i64 %indvars.iv.next.i42
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv.next.i42
   %67 = load ptr, ptr %66, align 8, !tbaa !39
   %68 = tail call i32 @strncasecmp(ptr noundef %67, ptr noundef %44, i64 noundef %45) #14
   %69 = icmp slt i32 %68, 0

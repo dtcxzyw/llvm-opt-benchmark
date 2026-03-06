@@ -420,7 +420,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %51, %.thread220.i
   %65 = phi i8 [ %61, %.lr.ph.i.i.i ], [ %72, %70 ]
   %.01521.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i ], [ %71, %70 ]
   %66 = sext i8 %65 to i64
-  %67 = getelementptr inbounds i16, ptr %63, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %63, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !45
   %69 = and i16 %68, 8192
   %.not18.i.i.i = icmp eq i16 %69, 0
@@ -456,7 +456,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %51, %.thread220.i
   %82 = tail call ptr @__ctype_b_loc() #22
   %83 = load ptr, ptr %82, align 8, !tbaa !43
   %84 = sext i8 %79 to i64
-  %85 = getelementptr inbounds i16, ptr %83, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %83, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !45
   %87 = and i16 %86, 8192
   %.not19.i.i.i = icmp eq i16 %87, 0
@@ -1226,7 +1226,7 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %9, ptr %8, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %.03236, ptr %10, align 8, !tbaa !66
   %11 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.03236) #18
   %.not = icmp eq ptr %11, null
@@ -1266,14 +1266,14 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !66
   br label %30
 
 30:                                               ; preds = %24, %26
   %31 = phi ptr [ %29, %26 ], [ null, %24 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv50
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
   %33 = load ptr, ptr %32, align 8, !tbaa !66
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store ptr %31, ptr %34, align 8, !tbaa !81

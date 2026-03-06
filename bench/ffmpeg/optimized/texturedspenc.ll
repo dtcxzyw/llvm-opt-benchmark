@@ -328,11 +328,11 @@ constant_color.exit:                              ; preds = %17
 70:                                               ; preds = %69
   %71 = add nsw i32 %67, 8
   %72 = ashr i32 %71, 4
-  %73 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv267.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv267.i
   store i32 %72, ptr %73, align 4, !tbaa !47
-  %74 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv267.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv267.i
   store i32 %.2166.i, ptr %74, align 4, !tbaa !47
-  %75 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv267.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv267.i
   store i32 %.2163.i, ptr %75, align 4, !tbaa !47
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next268.i, 3
@@ -408,11 +408,11 @@ constant_color.exit:                              ; preds = %17
 
 116:                                              ; preds = %116, %.preheader192.i
   %indvars.iv279.i = phi i64 [ 0, %.preheader192.i ], [ %indvars.iv.next280.i, %116 ]
-  %117 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv279.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv279.i
   %118 = load i32, ptr %117, align 4, !tbaa !47
   %119 = sitofp i32 %118 to float
   %120 = fdiv nsz float %119, 2.550000e+02
-  %121 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv279.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv279.i
   store float %120, ptr %121, align 4, !tbaa !53
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %exitcond282.not.i = icmp eq i64 %indvars.iv.next280.i, 6
@@ -729,7 +729,7 @@ optimize_colors.exit:                             ; preds = %210
   %.1150169.i = phi i32 [ %.0149178.i, %.preheader167.i ], [ %342, %323 ]
   %324 = and i32 %.1177.i, 3
   %325 = zext nneg i32 %324 to i64
-  %326 = getelementptr inbounds nuw i32, ptr @refine_colors.w1tab, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr @refine_colors.w1tab, i64 %325
   %327 = load i32, ptr %326, align 4, !tbaa !47
   %328 = shl nuw nsw i64 %indvars.iv.i34, 2
   %329 = getelementptr i8, ptr %322, i64 %328
@@ -741,7 +741,7 @@ optimize_colors.exit:                             ; preds = %210
   %335 = getelementptr i8, ptr %329, i64 2
   %336 = load i8, ptr %335, align 1, !tbaa !11
   %337 = zext i8 %336 to i32
-  %338 = getelementptr inbounds nuw i32, ptr @refine_colors.prods, i64 %325
+  %338 = getelementptr inbounds nuw [4 x i8], ptr @refine_colors.prods, i64 %325
   %339 = load i32, ptr %338, align 4, !tbaa !47
   %340 = add nsw i32 %339, %.1138175.i
   %341 = mul nsw i32 %327, %331
@@ -1002,7 +1002,7 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
   %103 = mul nsw i32 %85, %102
   %104 = add nsw i32 %99, %103
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %105 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv52
+  %105 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv52
   store i32 %104, ptr %105, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1024,7 +1024,7 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
   %119 = zext i8 %118 to i32
   %120 = mul nsw i32 %85, %119
   %121 = add nsw i32 %116, %120
-  %122 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv57
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv57
   store i32 %121, ptr %122, align 4, !tbaa !47
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
@@ -1049,7 +1049,7 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
 137:                                              ; preds = %123, %137
   %indvars.iv61 = phi i64 [ 0, %123 ], [ %indvars.iv.next62, %137 ]
   %.050 = phi i32 [ 0, %123 ], [ %151, %137 ]
-  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv61
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv61
   %139 = load i32, ptr %138, align 4, !tbaa !47
   %140 = icmp slt i32 %139, %133
   %141 = select i1 %140, i64 4, i64 0
@@ -1058,9 +1058,9 @@ define internal fastcc i32 @match_colors(ptr noundef readonly captures(none) %0,
   %144 = icmp slt i32 %139, %136
   %145 = zext i1 %144 to i64
   %146 = lshr i32 %.050, 2
-  %147 = getelementptr inbounds nuw i32, ptr @match_colors.indexMap, i64 %141
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %143
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %145
+  %147 = getelementptr inbounds nuw [4 x i8], ptr @match_colors.indexMap, i64 %141
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %143
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %145
   %150 = load i32, ptr %149, align 4, !tbaa !47
   %151 = or i32 %150, %146
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1

@@ -70,7 +70,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr noundef readonly capt
   %16 = tail call ptr @__ctype_b_loc() #10
   %17 = load ptr, ptr %16, align 8, !tbaa !7
   %18 = sext i8 %.04260 to i64
-  %19 = getelementptr inbounds i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %17, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !10
   %21 = and i16 %20, 2048
   %22 = icmp eq i16 %21, 0
@@ -80,7 +80,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr noundef readonly capt
 
 24:                                               ; preds = %15
   %25 = sext i8 %9 to i64
-  %26 = getelementptr inbounds i16, ptr %17, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %17, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !10
   %28 = and i16 %27, 2048
   %.not46 = icmp eq i16 %28, 0
@@ -92,7 +92,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr noundef readonly capt
   %30 = icmp ne i16 %21, 0
   %or.cond5 = select i1 %30, i1 %23, i1 false
   %31 = sext i8 %9 to i64
-  %32 = getelementptr inbounds i16, ptr %17, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %17, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !10
   br i1 %or.cond5, label %34, label %.thread
 
@@ -252,13 +252,13 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   %34 = load ptr, ptr %23, align 8, !tbaa !7
   %35 = load i8, ptr %.062140195, align 1, !tbaa !4
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %34, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %34, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !10
   %39 = and i16 %38, 2048
   %.not78 = icmp eq i16 %39, 0
   %40 = load i8, ptr %.060143194, align 1, !tbaa !4
   %41 = sext i8 %40 to i64
-  %42 = getelementptr inbounds i16, ptr %34, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %34, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !10
   %44 = and i16 %43, 2048
   %.not81 = icmp eq i16 %44, 0
@@ -463,7 +463,7 @@ compare_special_version_forms.exit104:            ; preds = %124, %121
   %136 = phi i64 [ %135, %.critedge.thread ], [ 0, %20 ]
   %137 = tail call ptr @__ctype_b_loc() #10
   %138 = load ptr, ptr %137, align 8, !tbaa !7
-  %139 = getelementptr inbounds i16, ptr %138, i64 %136
+  %139 = getelementptr inbounds [2 x i8], ptr %138, i64 %136
   %140 = load i16, ptr %139, align 2, !tbaa !10
   %141 = and i16 %140, 2048
   %.not88 = icmp eq i16 %141, 0
@@ -481,7 +481,7 @@ compare_special_version_forms.exit104:            ; preds = %124, %121
   %147 = load ptr, ptr %146, align 8, !tbaa !7
   %148 = load i8, ptr %.060.lcssa.ph, align 1, !tbaa !4
   %149 = sext i8 %148 to i64
-  %150 = getelementptr inbounds i16, ptr %147, i64 %149
+  %150 = getelementptr inbounds [2 x i8], ptr %147, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !10
   %152 = and i16 %151, 2048
   %.not87 = icmp eq i16 %152, 0

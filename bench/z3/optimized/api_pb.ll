@@ -658,7 +658,7 @@ define noundef ptr @Z3_mk_pble(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 51:                                               ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !177
   %54 = load i8, ptr %33, align 4
   %55 = and i8 %54, -4
@@ -705,7 +705,7 @@ define noundef ptr @Z3_mk_pble(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %72 = phi i32 [ %.pre2.i, %.noexc51 ], [ %66, %64 ]
   %73 = phi ptr [ %.pre.i, %.noexc51 ], [ %62, %64 ]
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %class.rational, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %9, align 8, !tbaa !171
   store i32 %76, ptr %75, align 8, !tbaa !171
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -1171,7 +1171,7 @@ define noundef ptr @Z3_mk_pbge(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 51:                                               ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !177
   %54 = load i8, ptr %33, align 4
   %55 = and i8 %54, -4
@@ -1218,7 +1218,7 @@ define noundef ptr @Z3_mk_pbge(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %72 = phi i32 [ %.pre2.i, %.noexc51 ], [ %66, %64 ]
   %73 = phi ptr [ %.pre.i, %.noexc51 ], [ %62, %64 ]
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %class.rational, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %9, align 8, !tbaa !171
   store i32 %76, ptr %75, align 8, !tbaa !171
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -1602,7 +1602,7 @@ define noundef ptr @Z3_mk_pbeq(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 51:                                               ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !177
   %54 = load i8, ptr %33, align 4
   %55 = and i8 %54, -4
@@ -1649,7 +1649,7 @@ define noundef ptr @Z3_mk_pbeq(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %72 = phi i32 [ %.pre2.i, %.noexc51 ], [ %66, %64 ]
   %73 = phi ptr [ %.pre.i, %.noexc51 ], [ %62, %64 ]
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %class.rational, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %9, align 8, !tbaa !171
   store i32 %76, ptr %75, align 8, !tbaa !171
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4

@@ -27,17 +27,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_rq_map_k
 %struct.pcpu_hot = type { %union.anon.32 }
 %union.anon.32 = type { %struct.anon.33, [16 x i8] }
 %struct.anon.33 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.iov_iter = type { i8, i8, i8, i8, i64, %union.anon.8, %union.anon.11 }
 %union.anon.8 = type { %struct.iovec }
 %struct.iovec = type { ptr, i64 }
 %union.anon.11 = type { i64 }
-%struct.page = type { i64, %union.anon.12, %union.anon.20, %struct.atomic_t, [8 x i8] }
-%union.anon.12 = type { %struct.anon.13 }
-%struct.anon.13 = type { %union.anon.14, ptr, %union.anon.16, i64 }
-%union.anon.14 = type { %struct.list_head }
-%union.anon.16 = type { i64 }
-%union.anon.20 = type { %struct.atomic_t }
 %struct.bvec_iter = type <{ i64, i32, i32, i32 }>
 
 @__UNIQUE_ID___addressable_blk_rq_append_bio424 = internal global ptr @blk_rq_append_bio, section ".discard.addressable", align 8
@@ -78,7 +71,7 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_rq_append_bio(ptr noundef %0
 
 .split2.us:                                       ; preds = %6, %6, %6
   %16 = zext i32 %10 to i64
-  %.split.us = getelementptr %struct.bio_vec, ptr %12, i64 %16
+  %.split.us = getelementptr [16 x i8], ptr %12, i64 %16
   %17 = getelementptr i8, ptr %.split.us, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %18, %8
@@ -98,7 +91,7 @@ define dso_local noundef range(i32 -22, 1) i32 @blk_rq_append_bio(ptr noundef %0
   %27 = phi i32 [ %38, %.split2 ], [ %10, %6 ]
   %28 = phi i32 [ %40, %.split2 ], [ %4, %6 ]
   %29 = zext i32 %27 to i64
-  %.split = getelementptr %struct.bio_vec, ptr %12, i64 %29
+  %.split = getelementptr [16 x i8], ptr %12, i64 %29
   %30 = getelementptr i8, ptr %.split, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 %31, %26
@@ -302,7 +295,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %90 = phi i64 [ 0, %86 ], [ %137, %136 ]
   %91 = phi i32 [ 0, %86 ], [ %128, %136 ]
   %92 = phi ptr [ null, %86 ], [ %93, %136 ]
-  %93 = getelementptr %struct.bio_vec, ptr %84, i64 %90
+  %93 = getelementptr [16 x i8], ptr %84, i64 %90
   %94 = icmp eq ptr %92, null
   br i1 %94, label %119, label %95
 
@@ -551,11 +544,11 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %249 = load ptr, ptr %2, align 8
   %250 = sdiv i32 %242, %235
   %251 = sext i32 %250 to i64
-  %252 = getelementptr ptr, ptr %249, i64 %251
+  %252 = getelementptr [8 x i8], ptr %249, i64 %251
   %253 = load ptr, ptr %252, align 8
   %254 = srem i32 %242, %235
   %255 = sext i32 %254 to i64
-  %256 = getelementptr %struct.page, ptr %253, i64 %255
+  %256 = getelementptr [64 x i8], ptr %253, i64 %255
   %257 = load ptr, ptr %1, align 8
   %258 = call i32 @bio_add_pc_page(ptr noundef %257, ptr noundef nonnull %225, ptr noundef %256, i32 noundef %244, i32 noundef %240) #8
   %259 = icmp ult i32 %258, %244
@@ -611,7 +604,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 287:                                              ; preds = %280
   %288 = load ptr, ptr %279, align 8
   %289 = zext nneg i32 %282 to i64
-  %290 = getelementptr %struct.bio_vec, ptr %288, i64 %289
+  %290 = getelementptr [16 x i8], ptr %288, i64 %289
   %291 = icmp eq i32 %283, 0
   br i1 %291, label %294, label %292
 
@@ -625,7 +618,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %297 = load i32, ptr %296, align 4
   %298 = lshr i32 %297, 12
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr %struct.page, ptr %295, i64 %299
+  %300 = getelementptr [64 x i8], ptr %295, i64 %299
   %301 = and i32 %297, 4095
   br label %302
 
@@ -681,7 +674,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 336:                                              ; preds = %329
   %337 = load ptr, ptr %328, align 8
   %338 = zext nneg i32 %331 to i64
-  %339 = getelementptr %struct.bio_vec, ptr %337, i64 %338
+  %339 = getelementptr [16 x i8], ptr %337, i64 %338
   %340 = icmp eq i32 %332, 0
   br i1 %340, label %343, label %341
 
@@ -695,7 +688,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %346 = load i32, ptr %345, align 4
   %347 = lshr i32 %346, 12
   %348 = zext nneg i32 %347 to i64
-  %349 = getelementptr %struct.page, ptr %344, i64 %348
+  %349 = getelementptr [64 x i8], ptr %344, i64 %348
   %350 = and i32 %346, 4095
   br label %351
 
@@ -934,7 +927,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %480 = phi i64 [ 0, %476 ], [ %504, %501 ]
   %481 = phi i64 [ %453, %476 ], [ %503, %501 ]
   %482 = load ptr, ptr %7, align 8
-  %483 = getelementptr ptr, ptr %482, i64 %480
+  %483 = getelementptr [8 x i8], ptr %482, i64 %480
   %484 = load ptr, ptr %483, align 8
   %485 = trunc i64 %479 to i32
   %486 = sub i64 4096, %479
@@ -999,7 +992,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
 
 522:                                              ; preds = %516
   %523 = load ptr, ptr %7, align 8
-  %524 = getelementptr ptr, ptr %523, i64 %517
+  %524 = getelementptr [8 x i8], ptr %523, i64 %517
   %525 = load ptr, ptr %524, align 8
   call void @unpin_user_page(ptr noundef %525) #8
   br label %526
@@ -1170,7 +1163,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
 38:                                               ; preds = %31
   %39 = load ptr, ptr %30, align 8
   %40 = zext nneg i32 %33 to i64
-  %41 = getelementptr %struct.bio_vec, ptr %39, i64 %40
+  %41 = getelementptr [16 x i8], ptr %39, i64 %40
   %42 = icmp eq i32 %34, 0
   br i1 %42, label %45, label %43
 
@@ -1184,7 +1177,7 @@ define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 12
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr %struct.page, ptr %46, i64 %50
+  %51 = getelementptr [64 x i8], ptr %46, i64 %50
   %52 = and i32 %48, 4095
   br label %53
 
@@ -1543,7 +1536,7 @@ define dso_local i32 @blk_rq_map_kern(ptr noundef %0, ptr noundef %1, ptr nounde
   %99 = select i1 %95, i64 %96, i64 %98
   %100 = add i64 %94, %99
   %101 = lshr i64 %100, 12
-  %102 = getelementptr %struct.page, ptr %92, i64 %101
+  %102 = getelementptr [64 x i8], ptr %92, i64 %101
   %103 = tail call i32 @bio_add_pc_page(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %102, i32 noundef %90, i32 noundef %84) #8
   %104 = icmp ult i32 %103, %90
   br i1 %104, label %.thread20.sink.split, label %105
@@ -1769,7 +1762,7 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %10 = phi ptr [ %26, %25 ], [ null, %.lr.ph.preheader ]
   %11 = load ptr, ptr %3, align 8
   %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr %struct.bio_vec, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = icmp eq i32 %8, 0
   br i1 %14, label %17, label %15
 
@@ -1783,7 +1776,7 @@ define internal void @bio_copy_kern_endio_read(ptr noundef %0) #0 align 16 {
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 12
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr %struct.page, ptr %18, i64 %22
+  %23 = getelementptr [64 x i8], ptr %18, i64 %22
   %24 = and i32 %20, 4095
   br label %25
 

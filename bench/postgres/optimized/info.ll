@@ -8,13 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DbInfoArr = type { ptr, i32 }
 %struct.LogOpts = type { ptr, i8, i8, ptr, ptr, ptr, ptr, i8 }
 %struct.UserOpts = type { i8, i8, i8, i32, i32, ptr, ptr }
-%struct.RelInfo = type { ptr, ptr, i32, i32, i32, i32, ptr, i8, i8 }
-%struct.FileNameMap = type { ptr, ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.DbInfo = type { i32, ptr, [1024 x i8], %struct.RelInfoArr, %struct.LogicalSlotInfoArr }
-%struct.RelInfoArr = type { ptr, i32 }
-%struct.LogicalSlotInfoArr = type { i32, ptr }
-%struct.LogicalSlotInfo = type { ptr, ptr, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [9 x i8] c"pg_toast\00", align 1
 @.str.1 = private unnamed_addr constant [92 x i8] c"Relation names for OID %u in database \22%s\22 do not match: old name \22%s.%s\22, new name \22%s.%s\22\00", align 1
@@ -122,14 +116,14 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
 .critedge:                                        ; preds = %16
   %22 = load ptr, ptr %6, align 8
   %23 = sext i32 %.0 to i64
-  %24 = getelementptr inbounds %struct.RelInfo, ptr %22, i64 %23
+  %24 = getelementptr inbounds [48 x i8], ptr %22, i64 %23
   %.pre = load i32, ptr %12, align 8
   %25 = icmp slt i32 %.060.ph89, %.pre
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %.critedge
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds %struct.RelInfo, ptr %27, i64 %15
+  %28 = getelementptr inbounds [48 x i8], ptr %27, i64 %15
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.thread, label %31
 
@@ -149,7 +143,7 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
 
 .thread85.split.loop.exit:                        ; preds = %.thread83
   %32 = sext i32 %.060.ph89 to i64
-  %33 = getelementptr inbounds %struct.RelInfo, ptr %29, i64 %32
+  %33 = getelementptr inbounds [48 x i8], ptr %29, i64 %32
   br label %.thread85
 
 .thread85:                                        ; preds = %31, %.thread85.split.loop.exit
@@ -224,7 +218,7 @@ define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, p
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %65 = sext i32 %.064.ph to i64
-  %66 = getelementptr inbounds %struct.FileNameMap, ptr %11, i64 %65
+  %66 = getelementptr inbounds [56 x i8], ptr %11, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %68 = load ptr, ptr %67, align 8
   %char0.i = load i8, ptr %68, align 1
@@ -326,7 +320,7 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
 
 18:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %19 = getelementptr inbounds nuw %struct.RelInfo, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %12
@@ -386,7 +380,7 @@ define internal fastcc void @report_unmatched_relation(ptr noundef readonly capt
 
 48:                                               ; preds = %.lr.ph62, %62
   %indvars.iv72 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next73, %62 ]
-  %49 = getelementptr inbounds nuw %struct.RelInfo, ptr %47, i64 %indvars.iv72
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %indvars.iv72
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %42
@@ -454,7 +448,7 @@ define dso_local void @get_db_rel_and_slot_infos(ptr noundef %0) local_unnamed_a
 .lr.ph.i:                                         ; preds = %7, %free_rel_infos.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %free_rel_infos.exit.i ], [ 0, %7 ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw %struct.DbInfo, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [1072 x i8], ptr %11, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1040
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1048
   %15 = load i32, ptr %14, align 8
@@ -464,7 +458,7 @@ define dso_local void @get_db_rel_and_slot_infos(ptr noundef %0) local_unnamed_a
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %37
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %37 ], [ 0, %.lr.ph.i ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw %struct.RelInfo, ptr %17, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i8, ptr %19, align 8, !range !8, !noundef !9
   %21 = trunc nuw i8 %20 to i1
@@ -478,12 +472,12 @@ define dso_local void @get_db_rel_and_slot_infos(ptr noundef %0) local_unnamed_a
 
 24:                                               ; preds = %22, %.lr.ph.i.i
   %25 = phi ptr [ %.pre.i.i, %22 ], [ %17, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds nuw %struct.RelInfo, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @pg_free(ptr noundef %28) #7
   %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds nuw %struct.RelInfo, ptr %29, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %indvars.iv.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 41
   %32 = load i8, ptr %31, align 1, !range !8, !noundef !9
   %33 = trunc nuw i8 %32 to i1
@@ -507,7 +501,7 @@ free_rel_infos.exit.i:                            ; preds = %37, %.lr.ph.i
   tail call void @pg_free(ptr noundef %41) #7
   store i32 0, ptr %14, align 8
   %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds nuw %struct.DbInfo, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [1072 x i8], ptr %42, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @pg_free(ptr noundef %45) #7
@@ -640,7 +634,7 @@ get_template0_info.exit:                          ; preds = %59, %79
   %117 = call ptr @PQgetvalue(ptr noundef %107, i32 noundef %116, i32 noundef %108) #7
   %118 = call i64 @strtoul(ptr noundef captures(none) %117, ptr noundef null, i32 noundef 10) #7
   %119 = trunc i64 %118 to i32
-  %120 = getelementptr inbounds nuw %struct.DbInfo, ptr %114, i64 %indvars.iv.i22
+  %120 = getelementptr inbounds nuw [1072 x i8], ptr %114, i64 %indvars.iv.i22
   store i32 %119, ptr %120, align 8
   %121 = call ptr @PQgetvalue(ptr noundef %107, i32 noundef %116, i32 noundef %109) #7
   %122 = call ptr @pg_strdup(ptr noundef %121) #7
@@ -710,7 +704,7 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i21, %102
 .lr.ph.i24:                                       ; preds = %142, %print_slot_infos.exit.i
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %print_slot_infos.exit.i ], [ 0, %142 ]
   %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr inbounds nuw %struct.DbInfo, ptr %145, i64 %indvars.iv.i25
+  %146 = getelementptr inbounds nuw [1072 x i8], ptr %145, i64 %indvars.iv.i25
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
   call void (i32, ptr, ...) @pg_log(i32 noundef 0, ptr noundef nonnull @.str.54, ptr noundef %148) #7
@@ -723,7 +717,7 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i21, %102
 .lr.ph.i.i27:                                     ; preds = %.lr.ph.i24, %.lr.ph.i.i27
   %indvars.iv.i.i28 = phi i64 [ %indvars.iv.next.i.i29, %.lr.ph.i.i27 ], [ 0, %.lr.ph.i24 ]
   %153 = load ptr, ptr %149, align 8
-  %154 = getelementptr inbounds nuw %struct.RelInfo, ptr %153, i64 %indvars.iv.i.i28
+  %154 = getelementptr inbounds nuw [48 x i8], ptr %153, i64 %indvars.iv.i.i28
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load ptr, ptr %156, align 8
@@ -757,7 +751,7 @@ print_rel_infos.exit.i:                           ; preds = %.lr.ph.i.i27, %.lr.
 172:                                              ; preds = %172, %.lr.ph.i7.i
   %indvars.iv.i8.i = phi i64 [ 0, %.lr.ph.i7.i ], [ %indvars.iv.next.i9.i, %172 ]
   %173 = load ptr, ptr %171, align 8
-  %174 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %173, i64 %indvars.iv.i8.i
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %173, i64 %indvars.iv.i8.i
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %177 = load ptr, ptr %176, align 8
@@ -823,7 +817,7 @@ define internal void @process_rel_infos(ptr noundef %0, ptr noundef %1, ptr read
   %.07074 = phi ptr [ null, %.lr.ph ], [ %.171, %66 ]
   %indvars80 = trunc i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw %struct.RelInfo, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv
   %22 = tail call ptr @PQgetvalue(ptr noundef %1, i32 noundef %indvars80, i32 noundef %8) #7
   %23 = tail call i64 @strtoul(ptr noundef captures(none) %22, ptr noundef null, i32 noundef 10) #7
   %24 = trunc i64 %23 to i32
@@ -937,7 +931,7 @@ sub_052.preheader:                                ; preds = %5
 
 sub_052:                                          ; preds = %sub_052.preheader, %.tail
   %indvars.iv = phi i64 [ 0, %sub_052.preheader ], [ %indvars.iv.next, %.tail ]
-  %16 = getelementptr inbounds nuw %struct.LogicalSlotInfo, ptr %8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call ptr @PQgetvalue(ptr noundef %1, i32 noundef %17, i32 noundef %9) #7
   %19 = tail call ptr @pg_strdup(ptr noundef %18) #7
@@ -1047,7 +1041,7 @@ define dso_local i32 @count_old_cluster_logical_slots() local_unnamed_addr #4 {
 4:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %.056 = phi i32 [ 0, %.lr.ph ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw %struct.DbInfo, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [1072 x i8], ptr %3, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1056
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, %.056

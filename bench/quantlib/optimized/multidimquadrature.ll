@@ -503,7 +503,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i16, ptr %varBuffer_, align 8, !tbaa !37
-  %add.ptr.i.i.i13 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i16, i64 %dimension
+  %add.ptr.i.i.i13 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i16, i64 %dimension
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %add.ptr.i.i.i13, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i16, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !39
@@ -1061,10 +1061,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sum.011 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %51, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %4 = load ptr, ptr %w_, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   %5 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %6 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i5 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.next
+  %arrayidx.i5 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %7 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
   %8 = load ptr, ptr %1, align 8, !tbaa !54
   %9 = load ptr, ptr %f, align 8, !tbaa !57
@@ -1088,10 +1088,10 @@ for.body.i.i.i:                                   ; preds = %_ZNK8QuantLib18Gaus
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %50, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %13 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next.i.i.i
   %14 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %15 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i
   %16 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %17 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -1110,10 +1110,10 @@ for.body.i:                                       ; preds = %_ZZNK8QuantLib30Gau
   %sum.09.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %49, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %20 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next.i
   %21 = load double, ptr %arrayidx.i.i, align 8, !tbaa !39
   %22 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv.next.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i
   %23 = load double, ptr %arrayidx.i5.i, align 8, !tbaa !39
   %24 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 88
@@ -1132,10 +1132,10 @@ for.body.i.i.i.i:                                 ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i ], [ %48, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i ]
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %27 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.next.i.i.i.i
   %28 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !39
   %29 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next.i.i.i.i
   %30 = load double, ptr %arrayidx.i5.i.i.i.i, align 8, !tbaa !39
   %31 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 80
@@ -1154,10 +1154,10 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZZNK8QuantLib30Gau
   %sum.07.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %47, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i, -1
   %34 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.next.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.next.i.i.i.i.i.i.i
   %35 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %36 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.next.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.next.i.i.i.i.i.i.i
   %37 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i, align 8, !tbaa !39
   %38 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 72
@@ -1176,10 +1176,10 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %sum.07.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %46, %for.body.i.i.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, -1
   %41 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
   %42 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %43 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
   %44 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %45 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 64
@@ -1253,10 +1253,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sum.09 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %35, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %4 = load ptr, ptr %w_, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   %5 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %6 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i5 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.next
+  %arrayidx.i5 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %7 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
   %8 = load ptr, ptr %1, align 8, !tbaa !66
   %9 = load ptr, ptr %f, align 8, !tbaa !68
@@ -1280,10 +1280,10 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %34, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %13 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next.i.i.i
   %14 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %15 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i
   %16 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %17 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 80
@@ -1302,10 +1302,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %sum.07.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i ], [ %33, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %20 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next.i.i.i.i.i.i
   %21 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !39
   %22 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i.i.i.i.i.i
   %23 = load double, ptr %arrayidx.i5.i.i.i.i.i.i, align 8, !tbaa !39
   %24 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 72
@@ -1324,10 +1324,10 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %sum.07.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %32, %for.body.i.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, -1
   %27 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %28 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %29 = load ptr, ptr %8, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %30 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %31 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 64
@@ -1384,10 +1384,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sum.014 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %68, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %w_, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %4 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %5 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i5 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
+  %arrayidx.i5 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next
   %6 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
   %7 = load ptr, ptr %1, align 8, !tbaa !58
   %8 = load ptr, ptr %f, align 8, !tbaa !69
@@ -1413,10 +1413,10 @@ for.body.i.i.i:                                   ; preds = %_ZNK8QuantLib18Gaus
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %67, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %12 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i.i.i
   %13 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %14 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i.i.i
   %15 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %16 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -1435,10 +1435,10 @@ for.body.i:                                       ; preds = %_ZZNK8QuantLib30Gau
   %sum.012.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %66, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %19 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i
   %20 = load double, ptr %arrayidx.i.i, align 8, !tbaa !39
   %21 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.next.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i
   %22 = load double, ptr %arrayidx.i5.i, align 8, !tbaa !39
   %23 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -1457,10 +1457,10 @@ for.body.i.i.i.i:                                 ; preds = %_ZNK8QuantLib18Gaus
   %sum.07.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i ], [ %65, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit.i ]
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %26 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.next.i.i.i.i
   %27 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !39
   %28 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next.i.i.i.i
   %29 = load double, ptr %arrayidx.i5.i.i.i.i, align 8, !tbaa !39
   %30 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -1479,10 +1479,10 @@ for.body.i.i:                                     ; preds = %_ZZNK8QuantLib30Gau
   %sum.010.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i ], [ %64, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %33 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.next.i.i
   %34 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !39
   %35 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next.i.i
+  %arrayidx.i5.i.i = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next.i.i
   %36 = load double, ptr %arrayidx.i5.i.i, align 8, !tbaa !39
   %37 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -1501,10 +1501,10 @@ for.body.i.i.i.i.i:                               ; preds = %_ZZNK8QuantLib30Gau
   %sum.09.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i ], [ %63, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i, -1
   %40 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next.i.i.i.i.i
   %41 = load double, ptr %arrayidx.i.i.i.i.i.i, align 8, !tbaa !39
   %42 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.next.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i.i
   %43 = load double, ptr %arrayidx.i5.i.i.i.i.i, align 8, !tbaa !39
   %44 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -1523,10 +1523,10 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i ], [ %62, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, -1
   %47 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv.next.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.next.i.i.i.i.i.i.i.i
   %48 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %49 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv.next.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.next.i.i.i.i.i.i.i.i
   %50 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %51 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -1545,10 +1545,10 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %61, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, -1
   %54 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i
   %55 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %56 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i
   %57 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %58 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   store double %57, ptr %58, align 8, !tbaa !39
@@ -1634,10 +1634,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sum.012 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %52, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %w_, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %4 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %5 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i5 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
+  %arrayidx.i5 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next
   %6 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
   %7 = load ptr, ptr %1, align 8, !tbaa !78
   %8 = load ptr, ptr %f, align 8, !tbaa !80
@@ -1663,10 +1663,10 @@ for.body.i.i.i:                                   ; preds = %_ZNK8QuantLib18Gaus
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %51, %_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_.exit ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %12 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i.i.i
   %13 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %14 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i.i.i
   %15 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %16 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1685,10 +1685,10 @@ for.body.i:                                       ; preds = %_ZZNK8QuantLib30Gau
   %sum.010.i = phi double [ 0.000000e+00, %for.body.lr.ph.i ], [ %50, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %19 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i
   %20 = load double, ptr %arrayidx.i.i, align 8, !tbaa !39
   %21 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.next.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i
   %22 = load double, ptr %arrayidx.i5.i, align 8, !tbaa !39
   %23 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -1707,10 +1707,10 @@ for.body.i.i.i.i:                                 ; preds = %_ZZNK8QuantLib30Gau
   %sum.09.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i ], [ %49, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i ]
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %26 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.next.i.i.i.i
   %27 = load double, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !39
   %28 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next.i.i.i.i
   %29 = load double, ptr %arrayidx.i5.i.i.i.i, align 8, !tbaa !39
   %30 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -1729,10 +1729,10 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %48, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i, -1
   %33 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv.next.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.next.i.i.i.i.i.i.i
   %34 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %35 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next.i.i.i.i.i.i.i
   %36 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i, align 8, !tbaa !39
   %37 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -1751,10 +1751,10 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %47, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, -1
   %40 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
   %41 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %42 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i
   %43 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %44 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   store double %43, ptr %44, align 8, !tbaa !39
@@ -1828,10 +1828,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sum.010 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %36, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %w_, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %4 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %5 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i5 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
+  %arrayidx.i5 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next
   %6 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
   %7 = load ptr, ptr %1, align 8, !tbaa !81
   %8 = load ptr, ptr %f, align 8, !tbaa !83
@@ -1857,10 +1857,10 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.09.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %35, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %12 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i.i.i
   %13 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %14 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i.i.i
   %15 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %16 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1879,10 +1879,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i ], [ %34, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %19 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next.i.i.i.i.i.i
   %20 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !39
   %21 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i.i.i.i.i.i
   %22 = load double, ptr %arrayidx.i5.i.i.i.i.i.i, align 8, !tbaa !39
   %23 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1901,10 +1901,10 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %33, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, -1
   %26 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %27 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %28 = load ptr, ptr %7, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %29 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %30 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   store double %29, ptr %30, align 8, !tbaa !39
@@ -2005,7 +2005,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !97, !noalias !99
@@ -2086,7 +2086,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi15EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !97, !noalias !109
   %16 = load ptr, ptr %f, align 8, !tbaa !102, !noalias !109
@@ -2141,7 +2141,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2233,7 +2233,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !106, !noalias !116
@@ -2314,7 +2314,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi14EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !106, !noalias !125
   %16 = load ptr, ptr %f, align 8, !tbaa !119, !noalias !125
@@ -2369,7 +2369,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2461,7 +2461,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !132
@@ -2542,7 +2542,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi13EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !123, !noalias !141
   %16 = load ptr, ptr %f, align 8, !tbaa !135, !noalias !141
@@ -2597,7 +2597,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2689,7 +2689,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !139, !noalias !148
@@ -2770,7 +2770,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi12EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !139, !noalias !157
   %16 = load ptr, ptr %f, align 8, !tbaa !151, !noalias !157
@@ -2825,7 +2825,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -2917,7 +2917,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !155, !noalias !164
@@ -2998,7 +2998,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi11EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !155, !noalias !173
   %16 = load ptr, ptr %f, align 8, !tbaa !167, !noalias !173
@@ -3053,7 +3053,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -3145,7 +3145,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !171, !noalias !180
@@ -3226,7 +3226,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi10EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !171, !noalias !189
   %16 = load ptr, ptr %f, align 8, !tbaa !183, !noalias !189
@@ -3281,7 +3281,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -3373,7 +3373,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !187, !noalias !196
@@ -3454,7 +3454,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi9EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !187, !noalias !205
   %16 = load ptr, ptr %f, align 8, !tbaa !199, !noalias !205
@@ -3509,7 +3509,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -3601,7 +3601,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !203, !noalias !212
@@ -3682,7 +3682,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi8EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !203, !noalias !221
   %16 = load ptr, ptr %f, align 8, !tbaa !215, !noalias !221
@@ -3737,7 +3737,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -3829,7 +3829,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !219, !noalias !228
@@ -3910,7 +3910,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi7EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !219, !noalias !237
   %16 = load ptr, ptr %f, align 8, !tbaa !231, !noalias !237
@@ -3965,7 +3965,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4057,7 +4057,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !235, !noalias !244
@@ -4138,7 +4138,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi6EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !235, !noalias !253
   %16 = load ptr, ptr %f, align 8, !tbaa !247, !noalias !253
@@ -4193,7 +4193,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4285,7 +4285,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !251, !noalias !260
@@ -4366,7 +4366,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi5EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !251, !noalias !269
   %16 = load ptr, ptr %f, align 8, !tbaa !263, !noalias !269
@@ -4421,7 +4421,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4513,7 +4513,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !267, !noalias !276
@@ -4594,7 +4594,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi4EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !267, !noalias !285
   %16 = load ptr, ptr %f, align 8, !tbaa !279, !noalias !285
@@ -4649,7 +4649,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4741,7 +4741,7 @@ invoke.cont:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !283, !noalias !292
@@ -4822,7 +4822,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi3EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i6 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !283, !noalias !301
   %16 = load ptr, ptr %f, align 8, !tbaa !295, !noalias !301
@@ -4877,7 +4877,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %26 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -4967,7 +4967,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv2
   %3 = load double, ptr %arrayidx.i, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %f, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !299, !noalias !308
@@ -5052,7 +5052,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi2EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
-  %arrayidx.i5 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i5 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
   %15 = load ptr, ptr %4, align 8, !tbaa !299, !noalias !320
   %16 = load ptr, ptr %f, align 8, !tbaa !311, !noalias !320
@@ -5116,7 +5116,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZN
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   %28 = load ptr, ptr %w_.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -5373,10 +5373,10 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %13, %call2.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %8 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %10 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i.i.i
   %11 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -5896,10 +5896,10 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %29, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %8 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %10 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i.i.i
   %11 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -5918,10 +5918,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %sum.07.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i ], [ %28, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %15 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i.i.i
   %16 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !39
   %17 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i.i.i
   %18 = load double, ptr %arrayidx.i5.i.i.i.i.i.i, align 8, !tbaa !39
   %19 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 72
@@ -5940,10 +5940,10 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call2.i.i.i.i.i.i.i
   %sum.07.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %27, %call2.i.i.i.i.i.i.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, -1
   %22 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %23 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %24 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %25 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %26 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 64
@@ -6233,10 +6233,10 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %21, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %8 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %10 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i.i.i
   %11 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -6255,10 +6255,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.i
   %sum.07.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i ], [ %20, %call2.i.i.i.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %15 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next.i.i.i.i.i.i
   %16 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !39
   %17 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next.i.i.i.i.i.i
   %18 = load double, ptr %arrayidx.i5.i.i.i.i.i.i, align 8, !tbaa !39
   %19 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 64
@@ -6542,10 +6542,10 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %13, %call2.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %8 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %10 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i.i.i
   %11 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -7065,10 +7065,10 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %13, %call2.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %8 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %10 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i.i.i
   %11 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -7588,10 +7588,10 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %sum.07.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %13, %call2.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %8 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %10 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i.i.i
   %11 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -8110,10 +8110,10 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.09.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %30, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %7 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i
   %8 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %9 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next.i.i.i
   %10 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %11 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -8132,10 +8132,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i ], [ %29, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i ]
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %14 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i.i.i.i.i.i
   %15 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !39
   %16 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i.i.i.i.i.i
   %17 = load double, ptr %arrayidx.i5.i.i.i.i.i.i, align 8, !tbaa !39
   %18 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -8154,10 +8154,10 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call2.i.i.i.i.i.i.i
   %sum.08.i.i.i.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i.i.i.i ], [ %28, %call2.i.i.i.i.i.i.i.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, -1
   %21 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %22 = load double, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %23 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %24 = load double, ptr %arrayidx.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
   %25 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   store double %24, ptr %25, align 8, !tbaa !39
@@ -8536,10 +8536,10 @@ for.body.i.i.i:                                   ; preds = %_ZZNK8QuantLib30Gau
   %sum.08.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %22, %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %7 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i
   %8 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %9 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next.i.i.i
   %10 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %11 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -8558,10 +8558,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.i
   %sum.08.i.i.i.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i.i.i.i ], [ %21, %call2.i.i.i.i.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i, -1
   %14 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i.i.i.i.i.i
   %15 = load double, ptr %arrayidx.i.i.i.i.i.i.i, align 8, !tbaa !39
   %16 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.next.i.i.i.i.i.i
+  %arrayidx.i5.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next.i.i.i.i.i.i
   %17 = load double, ptr %arrayidx.i5.i.i.i.i.i.i, align 8, !tbaa !39
   %18 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   store double %17, ptr %18, align 8, !tbaa !39
@@ -8771,10 +8771,10 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.i.n
   %sum.08.i.i.i = phi double [ 0.000000e+00, %for.body.lr.ph.i.i.i ], [ %14, %call2.i.i.i.i.i.i.noexc ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
   %7 = load ptr, ptr %w_.i.i.i, align 8, !tbaa !42
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i.i.i
   %8 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !39
   %9 = load ptr, ptr %3, align 8, !tbaa !42
-  %arrayidx.i5.i.i.i = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.next.i.i.i
+  %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next.i.i.i
   %10 = load double, ptr %arrayidx.i5.i.i.i, align 8, !tbaa !39
   %11 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   store double %10, ptr %11, align 8, !tbaa !39

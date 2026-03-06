@@ -183,7 +183,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 39:                                               ; preds = %._crit_edge.i
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %1, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !8
   %43 = tail call noalias ptr @strdup(ptr noundef %42) #11
   store ptr %43, ptr @fname_g, align 8, !tbaa !8

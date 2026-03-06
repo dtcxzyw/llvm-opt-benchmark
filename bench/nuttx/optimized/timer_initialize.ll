@@ -25,7 +25,7 @@ define void @timer_initialize() local_unnamed_addr #0 {
   %.pre = phi ptr [ null, %0 ], [ %..pre, %1 ]
   %2 = phi ptr [ null, %0 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %3 = getelementptr inbounds nuw %struct.posix_timer_s, ptr @g_prealloctimers, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [136 x i8], ptr @g_prealloctimers, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 1, ptr %4, align 4
   store ptr null, ptr %3, align 8

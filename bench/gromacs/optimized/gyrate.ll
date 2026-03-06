@@ -686,7 +686,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
   %indvars.iv150 = phi i64 [ 0, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %indvars.iv.next151, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
   %.0100116.us = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %33, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
   %23 = phi float [ 0.000000e+00, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us.preheader ], [ %32, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit.us ]
-  %24 = getelementptr inbounds nuw [3 x float], ptr %.pre164, i64 %indvars.iv150
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %.pre164, i64 %indvars.iv150
   %25 = load float, ptr %24, align 4, !tbaa !120
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !120
@@ -713,9 +713,9 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
   %indvars.iv = phi i64 [ %indvars.iv.next, %.sink.split.i.us121 ], [ 0, %.lr.ph.split.split.us118 ]
   %.0100116.us120 = phi float [ %52, %.sink.split.i.us121 ], [ 0.000000e+00, %.lr.ph.split.split.us118 ]
   %37 = phi float [ %51, %.sink.split.i.us121 ], [ 0.000000e+00, %.lr.ph.split.split.us118 ]
-  %38 = getelementptr inbounds nuw float, ptr %.pre, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !120
-  %40 = getelementptr inbounds nuw [3 x float], ptr %.pre163, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %.pre163, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !120
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %43 = load float, ptr %42, align 4, !tbaa !120
@@ -769,9 +769,9 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
   %indvars.iv155 = phi i64 [ 0, %.lr.ph.split.split ], [ %indvars.iv.next156, %.sink.split.i ]
   %.0100116 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %84, %.sink.split.i ]
   %69 = phi float [ 0.000000e+00, %.lr.ph.split.split ], [ %83, %.sink.split.i ]
-  %70 = getelementptr inbounds nuw float, ptr %.pre165, i64 %indvars.iv155
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.pre165, i64 %indvars.iv155
   %71 = load float, ptr %70, align 4, !tbaa !120
-  %72 = getelementptr inbounds nuw [3 x float], ptr %.pre166, i64 %indvars.iv155
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %.pre166, i64 %indvars.iv155
   %73 = load float, ptr %72, align 4, !tbaa !120
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load float, ptr %74, align 4, !tbaa !120
@@ -825,7 +825,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
   %.sroa.085.0129 = phi float [ 0.000000e+00, %.lr.ph135 ], [ %148, %_ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %97 = load ptr, ptr %61, align 8, !tbaa !111
-  %98 = getelementptr inbounds nuw [3 x float], ptr %97, i64 %indvars.iv160
+  %98 = getelementptr inbounds nuw [12 x i8], ptr %97, i64 %indvars.iv160
   br i1 %.not, label %100, label %99
 
 99:                                               ; preds = %96
@@ -868,7 +868,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
 
 _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPositionENS1_10GyrateModeE.exit66.thread108: ; preds = %112
   %120 = load ptr, ptr %66, align 8, !tbaa !123
-  %121 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv160
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv160
   %122 = load float, ptr %121, align 4, !tbaa !120
   %123 = call float @llvm.fmuladd.f32(float %118, float %122, float %.0133)
   %124 = fmul float %113, %113
@@ -893,7 +893,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16Gyrate14getWeighFactorENS_17SelectionPosi
 
 136:                                              ; preds = %112
   %137 = load ptr, ptr %65, align 8, !tbaa !123
-  %138 = getelementptr inbounds nuw float, ptr %137, i64 %indvars.iv160
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv160
   %139 = load float, ptr %138, align 4, !tbaa !120
   %140 = call float @llvm.fmuladd.f32(float %118, float %139, float %.0133)
   %141 = fmul float %113, %113
@@ -1081,7 +1081,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i: ; preds = %51, 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i.i: ; preds = %53, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i.i
   store ptr %48, ptr %21, align 8, !tbaa !144, !noalias !131
   store ptr %52, ptr %26, align 8, !tbaa !143, !noalias !131
-  %54 = getelementptr inbounds nuw i32, ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %46
   store ptr %54, ptr %27, align 8, !tbaa !145, !noalias !131
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i.i
 
@@ -1344,7 +1344,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %3, align 8, !tbaa !144
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %26, ptr %4, align 8, !tbaa !143
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   store ptr %27, ptr %15, align 8, !tbaa !145
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -1401,7 +1401,7 @@ _ZNSt12_Vector_baseIN3gmx15analysismodules12_GLOBAL__N_110GyrateModeESaIS3_EE13_
   store ptr %46, ptr %29, align 8, !tbaa !150
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %34
   store ptr %50, ptr %31, align 8, !tbaa !152
-  %51 = getelementptr inbounds nuw i64, ptr %46, i64 %36
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %36
   store ptr %51, ptr %40, align 8, !tbaa !153
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_110GyrateModeESaIS3_EE7reserveEm.exit
 
@@ -1471,7 +1471,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !144
   store ptr %29, ptr %4, align 8, !tbaa !143
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %11, align 8, !tbaa !145
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1484,7 +1484,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %13, %_ZNSt6vectorIi
 34:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %35 = load i32, ptr %1, align 4, !tbaa !103
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %10
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %10
   store i64 %36, ptr %37, align 8, !tbaa !15
   br label %38
 
@@ -1556,7 +1556,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_110GyrateModeESaIS3_EE11_S_reloc
 _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_110GyrateModeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_110GyrateModeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
   store ptr %64, ptr %40, align 8, !tbaa !150
   store ptr %68, ptr %44, align 8, !tbaa !152
-  %70 = getelementptr inbounds nuw i64, ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %62
   store ptr %70, ptr %46, align 8, !tbaa !153
   br label %_ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_110GyrateModeESaIS3_EE9push_backEOS3_.exit
 

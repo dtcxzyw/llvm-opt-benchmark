@@ -8,11 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurmctld_lock_t = type { i32, i32, i32, i32, i32 }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.trigger_info = type { i16, i32, i16, ptr, i32, i32, i16, i32, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.front_end_record_t = type { i32, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i32, i16, i64, ptr, i32, i8, %struct.sockaddr_storage, i16, i16, ptr, i64, i32, i64, ptr }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 
 @trigger_list = dso_local local_unnamed_addr global ptr null, align 8
 @next_trigger_id = dso_local local_unnamed_addr global i32 1, align 4
@@ -556,21 +553,21 @@ define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef reado
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds nuw %struct.trigger_info, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i16, ptr %33, align 8
   %35 = tail call ptr @trigger_res_type(i16 noundef zeroext %34) #13
   %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds nuw %struct.trigger_info, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = tail call ptr @trigger_type(i32 noundef %41) #13
   %43 = load ptr, ptr %24, align 8
-  %44 = getelementptr inbounds nuw %struct.trigger_info, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i16, ptr %45, align 8
   %47 = zext i16 %46 to i32
@@ -1397,7 +1394,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %206 ]
   %.05582 = phi i32 [ 0, %.lr.ph ], [ %.1, %206 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw %struct.trigger_info, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i16, ptr %30, align 8
   %32 = icmp eq i16 %31, 1
@@ -1449,11 +1446,11 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 54:                                               ; preds = %45, %46, %48, %40
   %.056 = phi i32 [ %37, %40 ], [ 0, %48 ], [ 0, %46 ], [ 0, %45 ]
   %55 = load ptr, ptr %26, align 8
-  %56 = getelementptr inbounds nuw %struct.trigger_info, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
   store i32 %0, ptr %57, align 4
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds nuw %struct.trigger_info, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr @trigger_list, align 8
   %61 = call ptr @list_iterator_create(ptr noundef %60) #13
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -1547,7 +1544,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   store ptr %112, ptr %5, align 8
   %113 = load i32, ptr @next_trigger_id, align 4
   %114 = load ptr, ptr %26, align 8
-  %115 = getelementptr inbounds nuw %struct.trigger_info, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [48 x i8], ptr %114, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 %113, ptr %116, align 4
   %117 = load ptr, ptr %5, align 8
@@ -1556,12 +1553,12 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %119 = add i32 %113, 1
   store i32 %119, ptr @next_trigger_id, align 4
   %120 = load ptr, ptr %26, align 8
-  %121 = getelementptr inbounds nuw %struct.trigger_info, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [48 x i8], ptr %120, i64 %indvars.iv
   %122 = load i16, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store i16 %122, ptr %123, align 4
   %124 = load ptr, ptr %26, align 8
-  %125 = getelementptr inbounds nuw %struct.trigger_info, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [48 x i8], ptr %124, i64 %indvars.iv
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load i16, ptr %126, align 8
   %128 = load ptr, ptr %5, align 8
@@ -1586,7 +1583,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   store i32 %.056, ptr %138, align 8
   %139 = load ptr, ptr %26, align 8
-  %140 = getelementptr inbounds nuw %struct.trigger_info, ptr %139, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [48 x i8], ptr %139, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load ptr, ptr %141, align 8
   %.not75 = icmp eq ptr %142, null
@@ -1600,7 +1597,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 80
   store ptr %145, ptr %147, align 8
   %148 = load ptr, ptr %26, align 8
-  %149 = getelementptr inbounds nuw %struct.trigger_info, ptr %148, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [48 x i8], ptr %148, i64 %indvars.iv
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store ptr null, ptr %150, align 8
   %.pre = load ptr, ptr %26, align 8
@@ -1610,27 +1607,27 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 151:                                              ; preds = %143, %136
   %152 = phi ptr [ %.pre86, %143 ], [ %137, %136 ]
   %153 = phi ptr [ %.pre, %143 ], [ %139, %136 ]
-  %154 = getelementptr inbounds nuw %struct.trigger_info, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [48 x i8], ptr %153, i64 %indvars.iv
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 28
   %156 = load i32, ptr %155, align 4
   %157 = getelementptr inbounds nuw i8, ptr %152, i64 36
   store i32 %156, ptr %157, align 4
   %158 = load ptr, ptr %26, align 8
-  %159 = getelementptr inbounds nuw %struct.trigger_info, ptr %158, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [48 x i8], ptr %158, i64 %indvars.iv
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load i16, ptr %160, align 8
   %162 = zext i16 %161 to i64
   %163 = getelementptr inbounds nuw i8, ptr %152, i64 40
   store i64 %162, ptr %163, align 8
   %164 = load ptr, ptr %26, align 8
-  %165 = getelementptr inbounds nuw %struct.trigger_info, ptr %164, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [48 x i8], ptr %164, i64 %indvars.iv
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %167 = load i16, ptr %166, align 8
   %168 = zext i16 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %152, i64 88
   store i64 %168, ptr %169, align 8
   %170 = load ptr, ptr %26, align 8
-  %171 = getelementptr inbounds nuw %struct.trigger_info, ptr %170, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [48 x i8], ptr %170, i64 %indvars.iv
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 36
   %173 = load i32, ptr %172, align 4
   %174 = getelementptr inbounds nuw i8, ptr %152, i64 48
@@ -1638,13 +1635,13 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   %175 = getelementptr inbounds nuw i8, ptr %152, i64 52
   store i32 %1, ptr %175, align 4
   %176 = load ptr, ptr %26, align 8
-  %177 = getelementptr inbounds nuw %struct.trigger_info, ptr %176, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw [48 x i8], ptr %176, i64 %indvars.iv
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %152, i64 56
   store ptr %179, ptr %180, align 8
   %181 = load ptr, ptr %26, align 8
-  %182 = getelementptr inbounds nuw %struct.trigger_info, ptr %181, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw [48 x i8], ptr %181, i64 %indvars.iv
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 40
   store ptr null, ptr %183, align 8
   %184 = load ptr, ptr %5, align 8
@@ -1767,7 +1764,7 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %14 = phi i8 [ %7, %.lr.ph ], [ %12, %10 ]
   %15 = sext i8 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %9, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %9, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
   %.not14 = icmp eq i16 %18, 0
@@ -4278,7 +4275,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 684:                                              ; preds = %683, %681
   %685 = load ptr, ptr @front_end_nodes, align 8
-  %686 = getelementptr inbounds nuw %struct.front_end_record_t, ptr %685, i64 %indvars.iv.i
+  %686 = getelementptr inbounds nuw [296 x i8], ptr %685, i64 %indvars.iv.i
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 104
   %688 = load ptr, ptr %687, align 8
   call void @_xstrcat(ptr noundef nonnull %677, ptr noundef %688) #13
@@ -4353,7 +4350,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 721:                                              ; preds = %720, %718
   %722 = load ptr, ptr @front_end_nodes, align 8
-  %723 = getelementptr inbounds nuw %struct.front_end_record_t, ptr %722, i64 %indvars.iv49.i
+  %723 = getelementptr inbounds nuw [296 x i8], ptr %722, i64 %indvars.iv49.i
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 104
   %725 = load ptr, ptr %724, align 8
   call void @_xstrcat(ptr noundef nonnull %714, ptr noundef %725) #13
@@ -4557,7 +4554,7 @@ _trigger_clone.exit:                              ; preds = %783, %786
 
 828:                                              ; preds = %826
   %829 = call ptr @xstrdup(ptr noundef nonnull %827) #13
-  %830 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i132
+  %830 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i132
   store ptr %829, ptr %830, align 8
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i132, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i134, 63
@@ -4568,7 +4565,7 @@ _trigger_clone.exit:                              ; preds = %783, %786
   %832 = load ptr, ptr %831, align 8
   %833 = call ptr @xstrdup(ptr noundef %832) #13
   %834 = and i64 %indvars.iv.i132, 4294967295
-  %835 = getelementptr inbounds nuw ptr, ptr %4, i64 %834
+  %835 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %834
   store ptr %833, ptr %835, align 8
   %836 = icmp samesign ult i64 %indvars.iv.i132, 63
   br i1 %836, label %.lr.ph.preheader.i, label %._crit_edge.i135
@@ -4655,7 +4652,7 @@ _trigger_clone.exit:                              ; preds = %783, %786
 
 874:                                              ; preds = %874, %873
   %indvars.iv56.i = phi i64 [ 0, %873 ], [ %indvars.iv.next57.i, %874 ]
-  %875 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv56.i
+  %875 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv56.i
   call void @slurm_xfree(ptr noundef nonnull %875) #13
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 64

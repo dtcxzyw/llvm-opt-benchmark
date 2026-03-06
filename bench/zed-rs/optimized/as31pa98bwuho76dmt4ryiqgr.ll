@@ -1266,10 +1266,10 @@ define internal noundef zeroext i1 @"_ZN53_$LT$proto..ErrorCode$u20$as$u20$core.
 switch.lookup:
   %2 = load i32, ptr %0, align 4, !range !83, !noundef !8
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN53_$LT$proto..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17hca73424d9f54fcceE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN53_$LT$proto..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17hca73424d9f54fcceE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN53_$LT$proto..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17hca73424d9f54fcceE.7", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN53_$LT$proto..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17hca73424d9f54fcceE.7", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

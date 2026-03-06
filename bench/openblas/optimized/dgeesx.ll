@@ -51,13 +51,13 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %33 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %33, -1
   %34 = sext i32 %narrow to i64
-  %35 = getelementptr inbounds double, ptr %5, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %5, i64 %34
   %36 = getelementptr inbounds i8, ptr %8, i64 -8
   %37 = getelementptr inbounds i8, ptr %9, i64 -8
   %38 = load i32, ptr %11, align 4, !tbaa !3
   %narrow430 = xor i32 %38, -1
   %39 = sext i32 %narrow430 to i64
-  %40 = getelementptr inbounds double, ptr %10, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %10, i64 %39
   %41 = getelementptr inbounds i8, ptr %14, i64 -8
   %42 = getelementptr inbounds i8, ptr %18, i64 -4
   store i32 0, ptr %19, align 4, !tbaa !3
@@ -280,9 +280,9 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %150 = sub i32 %149, %147
   store i32 %150, ptr %21, align 4, !tbaa !3
   %151 = sext i32 %146 to i64
-  %152 = getelementptr inbounds double, ptr %41, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %41, i64 %151
   %153 = sext i32 %147 to i64
-  %154 = getelementptr inbounds double, ptr %41, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %41, i64 %153
   call void @dgehrd_(ptr noundef nonnull %4, ptr noundef nonnull %31, ptr noundef nonnull %30, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %152, ptr noundef nonnull %154, ptr noundef nonnull %21, ptr noundef nonnull %24) #5
   br i1 %.not, label %155, label %158
 
@@ -333,10 +333,10 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 .lr.ph:                                           ; preds = %170, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %170 ]
-  %172 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
-  %173 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %174 = call i32 (ptr, ptr, ...) %2(ptr noundef nonnull %172, ptr noundef nonnull %173) #5
-  %175 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store i32 %174, ptr %175, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %176 = load i32, ptr %21, align 4, !tbaa !3
@@ -485,7 +485,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br label %298
 
 236:                                              ; preds = %.lr.ph481
-  %237 = getelementptr inbounds double, ptr %37, i64 %indvars.iv490
+  %237 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv490
   %238 = load double, ptr %237, align 8, !tbaa !7
   %239 = fcmp oeq double %238, 0.000000e+00
   %240 = add nsw i64 %indvars.iv490, 1
@@ -497,15 +497,15 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 243:                                              ; preds = %236
   %244 = mul nsw i64 %indvars.iv490, %231
-  %245 = getelementptr double, ptr %35, i64 %240
-  %246 = getelementptr double, ptr %245, i64 %244
+  %245 = getelementptr [8 x i8], ptr %35, i64 %240
+  %246 = getelementptr [8 x i8], ptr %245, i64 %244
   %247 = load double, ptr %246, align 8, !tbaa !7
   %248 = fcmp oeq double %247, 0.000000e+00
   br i1 %248, label %249, label %251
 
 249:                                              ; preds = %243
   store double 0.000000e+00, ptr %237, align 8, !tbaa !7
-  %250 = getelementptr double, ptr %9, i64 %indvars.iv490
+  %250 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv490
   store double 0.000000e+00, ptr %250, align 8, !tbaa !7
   br label %296
 
@@ -514,15 +514,15 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %253 = mul nsw i64 %240, %231
   %254 = mul nsw i32 %252, %33
   %255 = sext i32 %254 to i64
-  %256 = getelementptr double, ptr %35, i64 %indvars.iv490
-  %257 = getelementptr double, ptr %256, i64 %255
+  %256 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv490
+  %257 = getelementptr [8 x i8], ptr %256, i64 %255
   %258 = load double, ptr %257, align 8, !tbaa !7
   %259 = fcmp oeq double %258, 0.000000e+00
   br i1 %259, label %260, label %296
 
 260:                                              ; preds = %251
   store double 0.000000e+00, ptr %237, align 8, !tbaa !7
-  %261 = getelementptr double, ptr %9, i64 %indvars.iv490
+  %261 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv490
   store double 0.000000e+00, ptr %261, align 8, !tbaa !7
   %262 = icmp sgt i64 %indvars.iv490, 1
   br i1 %262, label %263, label %270
@@ -531,9 +531,9 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %264 = trunc i64 %indvars.iv490 to i32
   %265 = add i32 %264, -1
   store i32 %265, ptr %22, align 4, !tbaa !3
-  %266 = getelementptr double, ptr %35, i64 %244
+  %266 = getelementptr [8 x i8], ptr %35, i64 %244
   %267 = getelementptr i8, ptr %266, i64 8
-  %268 = getelementptr double, ptr %35, i64 %253
+  %268 = getelementptr [8 x i8], ptr %35, i64 %253
   %269 = getelementptr i8, ptr %268, i64 8
   call void @dswap_(ptr noundef nonnull %22, ptr noundef %267, ptr noundef nonnull @c__1, ptr noundef %269, ptr noundef nonnull @c__1) #5
   br label %270
@@ -553,10 +553,10 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %279 = mul nsw i64 %277, %231
   %280 = mul nsw i32 %278, %33
   %281 = sext i32 %280 to i64
-  %282 = getelementptr double, ptr %35, i64 %indvars.iv490
-  %283 = getelementptr double, ptr %282, i64 %281
-  %284 = getelementptr double, ptr %35, i64 %279
-  %285 = getelementptr double, ptr %284, i64 %240
+  %282 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv490
+  %283 = getelementptr [8 x i8], ptr %282, i64 %281
+  %284 = getelementptr [8 x i8], ptr %35, i64 %279
+  %285 = getelementptr [8 x i8], ptr %284, i64 %240
   call void @dswap_(ptr noundef nonnull %22, ptr noundef %283, ptr noundef nonnull %6, ptr noundef %285, ptr noundef nonnull %6) #5
   br label %286
 
@@ -565,10 +565,10 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 287:                                              ; preds = %286
   %288 = mul nsw i64 %indvars.iv490, %232
-  %289 = getelementptr double, ptr %40, i64 %288
+  %289 = getelementptr [8 x i8], ptr %40, i64 %288
   %290 = getelementptr i8, ptr %289, i64 8
   %291 = mul nsw i64 %240, %232
-  %292 = getelementptr double, ptr %40, i64 %291
+  %292 = getelementptr [8 x i8], ptr %40, i64 %291
   %293 = getelementptr i8, ptr %292, i64 8
   call void @dswap_(ptr noundef nonnull %4, ptr noundef %290, ptr noundef nonnull @c__1, ptr noundef %293, ptr noundef nonnull @c__1) #5
   br label %294
@@ -602,7 +602,7 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %304 = call i32 @llvm.smax.i32(i32 %303, i32 1)
   store i32 %304, ptr %22, align 4, !tbaa !3
   %305 = sext i32 %302 to i64
-  %306 = getelementptr double, ptr %37, i64 %305
+  %306 = getelementptr [8 x i8], ptr %37, i64 %305
   %307 = getelementptr i8, ptr %306, i64 8
   call void @dlascl_(ptr noundef nonnull @.str.11, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %27, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull @c__1, ptr noundef %307, ptr noundef nonnull %22, ptr noundef nonnull %24) #5
   br label %308
@@ -627,8 +627,8 @@ define void @dgeesx_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.0389486 = phi i32 [ %.0400, %.thread452 ], [ 1, %312 ]
   %.0393485 = phi i32 [ %.1394, %.thread452 ], [ 0, %312 ]
   %.0396484 = phi i32 [ %.1390, %.thread452 ], [ 1, %312 ]
-  %314 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv493
-  %315 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv493
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv493
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv493
   %316 = call i32 (ptr, ptr, ...) %2(ptr noundef nonnull %314, ptr noundef nonnull %315) #5
   %317 = load double, ptr %315, align 8, !tbaa !7
   %318 = fcmp oeq double %317, 0.000000e+00

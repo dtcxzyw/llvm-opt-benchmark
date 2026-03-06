@@ -155,7 +155,7 @@ define linkonce_odr void @_ZN5arg_tD2Ev(ptr noundef nonnull align 8 dereferencea
 define internal void @"_ZNK3$_09to_stringB5cxx11E6insn_t"(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = lshr i64 %2, 15
   %5 = and i64 %4, 31
-  %6 = getelementptr inbounds nuw ptr, ptr @xpr_name, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @xpr_name, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %0, align 8, !tbaa !8

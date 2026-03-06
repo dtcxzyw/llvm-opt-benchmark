@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._CLzmaProps = type { i32, i32, i32, i32 }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.swf_file_hdr = type { [3 x i8], i8, i32 }
-%struct.tag_names_s = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"in cli_scanswf()\0A\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"SWF: Can't read file header\0A\00", align 1
@@ -1213,7 +1212,7 @@ fmap_readn.exit348.thread:                        ; preds = %428, %fmap_readn.ex
 
 442:                                              ; preds = %441, %440
   %indvars.iv = phi i64 [ %indvars.iv.next, %441 ], [ 0, %440 ]
-  %443 = getelementptr inbounds nuw %struct.tag_names_s, ptr @tag_names, i64 %indvars.iv
+  %443 = getelementptr inbounds nuw [16 x i8], ptr @tag_names, i64 %indvars.iv
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %445 = load i32, ptr %444, align 8, !tbaa !67
   %446 = icmp eq i32 %445, %400

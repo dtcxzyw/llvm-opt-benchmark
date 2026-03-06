@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reserve_info_msg = type { i64, i32, ptr }
 %struct.openapi_resp_reserve_info_msg_t = type { ptr, ptr, ptr, ptr, i64 }
 %struct.data_parser_dump_cli_ctxt_t = type { i32, i32, ptr, ptr, ptr }
-%struct.reserve_info = type { ptr, ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, i32, i64, ptr, ptr }
 
 @old_res_info_ptr = external local_unnamed_addr global ptr, align 8
 @quiet_flag = external local_unnamed_addr global i32, align 4
@@ -149,8 +148,8 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.thread.us ], [ 0, %.lr.ph ]
-  %32 = getelementptr inbounds nuw %struct.reserve_info, ptr %30, i64 %indvars.iv78
-  %33 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv78
+  %32 = getelementptr inbounds nuw [160 x i8], ptr %30, i64 %indvars.iv78
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv78
   store ptr %32, ptr %33, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %34 = load i32, ptr %24, align 8
@@ -160,7 +159,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.lr.ph ]
-  %37 = getelementptr inbounds nuw %struct.reserve_info, ptr %30, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [160 x i8], ptr %30, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef %39) #7
@@ -168,7 +167,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not51, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.split
-  %42 = getelementptr inbounds nuw %struct.reserve_info, ptr %30, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [160 x i8], ptr %30, i64 %indvars.iv
   store ptr %42, ptr %28, align 8
   br label %.loopexit64
 
@@ -223,8 +222,8 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 62:                                               ; preds = %.lr.ph70, %62
   %indvars.iv83 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next84, %62 ]
-  %63 = getelementptr inbounds nuw %struct.reserve_info, ptr %60, i64 %indvars.iv83
-  %64 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv83
+  %63 = getelementptr inbounds nuw [160 x i8], ptr %60, i64 %indvars.iv83
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv83
   %65 = load ptr, ptr %64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %63, ptr noundef nonnull align 8 dereferenceable(160) %65, i64 160, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -297,7 +296,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %89 = load i32, ptr @one_liner, align 4
   call void @slurm_print_reservation_info(ptr noundef %88, ptr noundef nonnull %87, i32 noundef %89) #7
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %90 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next87
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next87
   %91 = load ptr, ptr %90, align 8
   %.not53 = icmp eq ptr %91, null
   br i1 %.not53, label %.loopexit, label %.lr.ph73, !llvm.loop !12

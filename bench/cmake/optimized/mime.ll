@@ -2144,7 +2144,7 @@ define dso_local ptr @Curl_mime_contenttype(ptr noundef %0) local_unnamed_addr #
 
 5:                                                ; preds = %2, %13
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
-  %6 = getelementptr inbounds nuw %struct.ContentType, ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16, !tbaa !74
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
   %.not21 = icmp ult i64 %3, %8
@@ -2259,7 +2259,7 @@ search_header.exit:                               ; preds = %match_header.exit.i
 
 41:                                               ; preds = %49, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %49 ]
-  %42 = getelementptr inbounds nuw %struct.ContentType, ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 16, !tbaa !74
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #19
   %.not21.i = icmp ult i64 %39, %44
@@ -2295,7 +2295,7 @@ Curl_mime_contenttype.exit.thread:                ; preds = %49, %35
 
 57:                                               ; preds = %65, %54
   %indvars.iv.i188 = phi i64 [ 0, %54 ], [ %indvars.iv.next.i192, %65 ]
-  %58 = getelementptr inbounds nuw %struct.ContentType, ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv.i188
+  %58 = getelementptr inbounds nuw [16 x i8], ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv.i188
   %59 = load ptr, ptr %58, align 16, !tbaa !74
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #19
   %.not21.i189 = icmp ult i64 %55, %60
@@ -2337,7 +2337,7 @@ Curl_mime_contenttype.exit194.thread:             ; preds = %65, %Curl_mime_cont
 
 75:                                               ; preds = %83, %72
   %indvars.iv.i196 = phi i64 [ 0, %72 ], [ %indvars.iv.next.i200, %83 ]
-  %76 = getelementptr inbounds nuw %struct.ContentType, ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv.i196
+  %76 = getelementptr inbounds nuw [16 x i8], ptr @Curl_mime_contenttype.ctts, i64 %indvars.iv.i196
   %77 = load ptr, ptr %76, align 16, !tbaa !74
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #19
   %.not21.i197 = icmp ult i64 %73, %78

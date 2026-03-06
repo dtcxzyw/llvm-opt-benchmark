@@ -3,11 +3,6 @@ source_filename = "bench/minetest/original/CNullDriver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.irr::video::CNullDriver::SMaterialRenderer" = type { %"class.irr::core::string", ptr }
-%"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.70 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.70 = type { i64, [8 x i8] }
 %"class.irr::video::SMaterial" = type <{ [4 x %"class.irr::video::SMaterialLayer"], i32, %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", float, float, float, i8, i8, i16, float, float, float, i16, [6 x i8] }>
 %"class.irr::video::SMaterialLayer" = type { ptr, i16, i32, i32, i8, i8, ptr }
 %"class.irr::video::SColor" = type { i32 }
@@ -18,6 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.irr::core::dimension2d" = type { i32, i32 }
+%"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.70 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.70 = type { i64, [8 x i8] }
 %"struct.irr::video::CNullDriver::SDummyTexture" = type { %"class.irr::video::ITexture.base", [4 x i8], %"class.irr::IReferenceCounted.base", [4 x i8] }
 %"class.irr::video::ITexture.base" = type <{ ptr, %"struct.irr::io::SNamedPath", %"class.irr::core::dimension2d", %"class.irr::core::dimension2d", i32, i32, i32, i32, i8, i8, [2 x i8], i32, i32 }>
 %"struct.irr::io::SNamedPath" = type { %"class.irr::core::string", %"class.irr::core::string" }
@@ -27,6 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.irr::core::vector2d" = type { i32, i32 }
 %"struct.irr::video::CNullDriver::SOccQuery" = type { ptr, ptr, %union.anon.110, i32, i32 }
 %union.anon.110 = type { ptr }
+%"struct.irr::video::CNullDriver::SMaterialRenderer" = type { %"class.irr::core::string", ptr }
 
 $_ZN3irr5video9SMaterialaSERKS1_ = comdat any
 
@@ -727,7 +727,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit
 
@@ -790,7 +790,7 @@ if.then.i39.i.i.i.i180:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i181: ; preds = %if.then.i39.i.i.i.i180, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i176
   store ptr %call5.i.i.i.i.i.i.i171, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i178, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i182 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i171, i64 %cond.i.i.i.i.i167
+  %add.ptr19.i.i.i.i182 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i171, i64 %cond.i.i.i.i.i167
   store ptr %add.ptr19.i.i.i.i182, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit185
 
@@ -853,7 +853,7 @@ if.then.i39.i.i.i.i215:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i216: ; preds = %if.then.i39.i.i.i.i215, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i211
   store ptr %call5.i.i.i.i.i.i.i206, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i213, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i217 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i206, i64 %cond.i.i.i.i.i202
+  %add.ptr19.i.i.i.i217 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i206, i64 %cond.i.i.i.i.i202
   store ptr %add.ptr19.i.i.i.i217, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit220
 
@@ -916,7 +916,7 @@ if.then.i39.i.i.i.i250:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i251: ; preds = %if.then.i39.i.i.i.i250, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i246
   store ptr %call5.i.i.i.i.i.i.i241, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i248, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i252 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i241, i64 %cond.i.i.i.i.i237
+  %add.ptr19.i.i.i.i252 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i241, i64 %cond.i.i.i.i.i237
   store ptr %add.ptr19.i.i.i.i252, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit255
 
@@ -981,7 +981,7 @@ if.then.i39.i.i.i.i282:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i282, %_ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i275, ptr %SurfaceWriter, align 8, !tbaa !124
   store ptr %incdec.ptr.i.i.i.i280, ptr %_M_finish.i.i.i256, align 8, !tbaa !123
-  %add.ptr19.i.i.i.i283 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i275, i64 %cond.i.i.i.i.i271
+  %add.ptr19.i.i.i.i283 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i275, i64 %cond.i.i.i.i.i271
   store ptr %add.ptr19.i.i.i.i283, ptr %_M_end_of_storage.i.i.i257, align 8, !tbaa !122
   br label %_ZN3irr4core5arrayIPNS_5video12IImageWriterEE9push_backEOS4_.exit
 
@@ -1044,7 +1044,7 @@ if.then.i39.i.i.i.i315:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i316: ; preds = %if.then.i39.i.i.i.i315, %_ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i311
   store ptr %call5.i.i.i.i.i.i.i306, ptr %SurfaceWriter, align 8, !tbaa !124
   store ptr %incdec.ptr.i.i.i.i313, ptr %_M_finish.i.i.i256, align 8, !tbaa !123
-  %add.ptr19.i.i.i.i317 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i306, i64 %cond.i.i.i.i.i302
+  %add.ptr19.i.i.i.i317 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i306, i64 %cond.i.i.i.i.i302
   store ptr %add.ptr19.i.i.i.i317, ptr %_M_end_of_storage.i.i.i257, align 8, !tbaa !122
   br label %_ZN3irr4core5arrayIPNS_5video12IImageWriterEE9push_backEOS4_.exit320
 
@@ -1888,7 +1888,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit
 
@@ -1951,7 +1951,7 @@ if.then.i39.i.i.i.i177:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i178: ; preds = %if.then.i39.i.i.i.i177, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i173
   store ptr %call5.i.i.i.i.i.i.i168, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i175, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i179 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i168, i64 %cond.i.i.i.i.i164
+  %add.ptr19.i.i.i.i179 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i168, i64 %cond.i.i.i.i.i164
   store ptr %add.ptr19.i.i.i.i179, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit182
 
@@ -2014,7 +2014,7 @@ if.then.i39.i.i.i.i212:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i213: ; preds = %if.then.i39.i.i.i.i212, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i208
   store ptr %call5.i.i.i.i.i.i.i203, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i210, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i214 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i203, i64 %cond.i.i.i.i.i199
+  %add.ptr19.i.i.i.i214 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i203, i64 %cond.i.i.i.i.i199
   store ptr %add.ptr19.i.i.i.i214, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit217
 
@@ -2077,7 +2077,7 @@ if.then.i39.i.i.i.i247:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i248: ; preds = %if.then.i39.i.i.i.i247, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i243
   store ptr %call5.i.i.i.i.i.i.i238, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i.i245, ptr %_M_finish.i.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i.i249 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i238, i64 %cond.i.i.i.i.i234
+  %add.ptr19.i.i.i.i249 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i238, i64 %cond.i.i.i.i.i234
   store ptr %add.ptr19.i.i.i.i249, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backEOS4_.exit252
 
@@ -2142,7 +2142,7 @@ if.then.i39.i.i.i.i279:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i279, %_ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i272, ptr %SurfaceWriter, align 8, !tbaa !124
   store ptr %incdec.ptr.i.i.i.i277, ptr %_M_finish.i.i.i253, align 8, !tbaa !123
-  %add.ptr19.i.i.i.i280 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i272, i64 %cond.i.i.i.i.i268
+  %add.ptr19.i.i.i.i280 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i272, i64 %cond.i.i.i.i.i268
   store ptr %add.ptr19.i.i.i.i280, ptr %_M_end_of_storage.i.i.i254, align 8, !tbaa !122
   br label %_ZN3irr4core5arrayIPNS_5video12IImageWriterEE9push_backEOS4_.exit
 
@@ -2205,7 +2205,7 @@ if.then.i39.i.i.i.i312:                           ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i313: ; preds = %if.then.i39.i.i.i.i312, %_ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i308
   store ptr %call5.i.i.i.i.i.i.i303, ptr %SurfaceWriter, align 8, !tbaa !124
   store ptr %incdec.ptr.i.i.i.i310, ptr %_M_finish.i.i.i253, align 8, !tbaa !123
-  %add.ptr19.i.i.i.i314 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i303, i64 %cond.i.i.i.i.i299
+  %add.ptr19.i.i.i.i314 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i303, i64 %cond.i.i.i.i.i299
   store ptr %add.ptr19.i.i.i.i314, ptr %_M_end_of_storage.i.i.i254, align 8, !tbaa !122
   br label %_ZN3irr4core5arrayIPNS_5video12IImageWriterEE9push_backEOS4_.exit317
 
@@ -2363,7 +2363,7 @@ for.body:                                         ; preds = %if.end26, %_ZNK3irr
   %19 = phi ptr [ %24, %_ZNK3irr17IReferenceCounted4dropEv.exit78 ], [ %14, %if.end26 ]
   %20 = phi ptr [ %25, %_ZNK3irr17IReferenceCounted4dropEv.exit78 ], [ %13, %if.end26 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit78 ], [ 0, %if.end26 ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %vtable31 = load ptr, ptr %21, align 8, !tbaa !3
   %vbase.offset.ptr32 = getelementptr i8, ptr %vtable31, i64 -24
@@ -2401,7 +2401,7 @@ for.body39:                                       ; preds = %for.cond36.preheade
   %27 = phi ptr [ %32, %_ZNK3irr17IReferenceCounted4dropEv.exit93 ], [ %17, %for.cond36.preheader ]
   %28 = phi ptr [ %33, %_ZNK3irr17IReferenceCounted4dropEv.exit93 ], [ %16, %for.cond36.preheader ]
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %_ZNK3irr17IReferenceCounted4dropEv.exit93 ], [ 0, %for.cond36.preheader ]
-  %add.ptr.i.i86 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv153
+  %add.ptr.i.i86 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv153
   %29 = load ptr, ptr %add.ptr.i.i86, align 8, !tbaa !118
   %ReferenceCounter.i87 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %30 = load i32, ptr %ReferenceCounter.i87, align 8, !tbaa !115
@@ -2479,7 +2479,7 @@ for.body.i:                                       ; preds = %for.end45, %for.inc
   %40 = phi ptr [ %45, %for.inc.i ], [ %36, %for.end45 ]
   %41 = phi ptr [ %46, %for.inc.i ], [ %35, %for.end45 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.end45 ]
-  %Renderer.i.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %40, i64 %indvars.iv.i
+  %Renderer.i.split = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %indvars.iv.i
   %Renderer.i = getelementptr inbounds nuw i8, ptr %Renderer.i.split, i64 32
   %42 = load ptr, ptr %Renderer.i, align 8, !tbaa !139
   %tobool.not.i94 = icmp eq ptr %42, null
@@ -2965,7 +2965,7 @@ for.cond5.preheader:                              ; preds = %for.body, %_ZN3irr5
 for.body:                                         ; preds = %_ZN3irr5video9SMaterialD2Ev.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZN3irr5video9SMaterialD2Ev.exit ]
   %11 = phi ptr [ %15, %for.body ], [ %6, %_ZN3irr5video9SMaterialD2Ev.exit ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %vtable2.i = load ptr, ptr %12, align 8, !tbaa !3
   %13 = load ptr, ptr %vtable2.i, align 8
@@ -3013,7 +3013,7 @@ for.body9:                                        ; preds = %for.cond5.preheader
   %18 = phi ptr [ %23, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %9, %for.cond5.preheader ]
   %19 = phi ptr [ %24, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %8, %for.cond5.preheader ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %for.cond5.preheader ]
-  %add.ptr.i.i37 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %18, i64 %indvars.iv54
+  %add.ptr.i.i37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv54
   %20 = load ptr, ptr %add.ptr.i.i37, align 8, !tbaa !157
   %vtable12 = load ptr, ptr %20, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable12, i64 -24
@@ -3103,7 +3103,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %5 = phi ptr [ %10, %for.inc ], [ %1, %entry ]
   %6 = phi ptr [ %11, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %5, i64 %indvars.iv
+  %Renderer.split = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv
   %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %7 = load ptr, ptr %Renderer, align 8, !tbaa !139
   %tobool.not = icmp eq ptr %7, null
@@ -3275,7 +3275,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5video12IImageLoaderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %SurfaceLoader, align 8, !tbaa !121
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !120
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !119
   br label %_ZN3irr4core5arrayIPNS_5video12IImageLoaderEE9push_backERKS4_.exit
 
@@ -3358,7 +3358,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5video12IImageWriterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %SurfaceWriter, align 8, !tbaa !124
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !123
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !122
   br label %_ZN3irr4core5arrayIPNS_5video12IImageWriterEE9push_backERKS4_.exit
 
@@ -3403,7 +3403,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %n to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   br label %return
 
@@ -3444,7 +3444,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %n to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i5
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   br label %return
 
@@ -3583,7 +3583,7 @@ _ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE19binary_search_multiERKS4_R
 for.body:                                         ; preds = %_ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE19binary_search_multiERKS4_Ri.exit, %for.inc
   %i.031 = phi i32 [ %inc, %for.inc ], [ %conv21.i, %_ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE19binary_search_multiERKS4_Ri.exit ]
   %conv.i24 = zext i32 %i.031 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %7, i64 %conv.i24
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %conv.i24
   %9 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !157
   %cmp8 = icmp eq ptr %9, %texture
   br i1 %cmp8, label %if.then9, label %for.inc
@@ -3886,7 +3886,7 @@ _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3
   %vtable10.pre = phi ptr [ %vtable10.pre.pre, %if.then.i39.i.i.i.i ], [ %vtable.i23, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %Textures.i, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !155
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !164
   br label %_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE.exit
 
@@ -4002,7 +4002,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %Textures, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !155
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !164
   br label %_ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE9push_backERKS4_.exit
 
@@ -4112,7 +4112,7 @@ _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3
   %vtable10.pre = phi ptr [ %vtable10.pre.pre, %if.then.i39.i.i.i.i ], [ %vtable.i, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %Textures.i, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !155
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !164
   br label %_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE.exit
 
@@ -4329,7 +4329,7 @@ _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3
   %vtable18.pre = phi ptr [ %vtable18.pre.pre, %if.then.i39.i.i.i.i ], [ %vtable.i, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %Textures.i, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i209, align 8, !tbaa !155
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i210, align 8, !tbaa !164
   br label %_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE.exit
 
@@ -4403,7 +4403,7 @@ for.cond:                                         ; preds = %lor.lhs.false
 
 for.body:                                         ; preds = %for.cond, %if.end
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.cond ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %Format.i43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i32, ptr %Format.i43, align 8, !tbaa !174
@@ -4480,7 +4480,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %7 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !118
   %Format.i43.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %Format.i43.i, align 8, !tbaa !174
@@ -4556,7 +4556,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video6IImageESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5video6IImageESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %imageArray, align 8, !tbaa !165
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !168
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !167
   br label %_ZN3irr4core5arrayIPNS_5video6IImageEE9push_backEOS4_.exit
 
@@ -4648,7 +4648,7 @@ _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3
   %vtable12.pre = phi ptr [ %vtable12.pre.pre, %if.then.i39.i.i.i.i68 ], [ %vtable.i, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i61, ptr %Textures.i, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i.i66, ptr %_M_finish.i.i.i42, align 8, !tbaa !155
-  %add.ptr19.i.i.i.i69 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i.i61, i64 %cond.i.i.i.i.i57
+  %add.ptr19.i.i.i.i69 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i61, i64 %cond.i.i.i.i.i57
   store ptr %add.ptr19.i.i.i.i69, ptr %_M_end_of_storage.i.i.i43, align 8, !tbaa !164
   br label %_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE.exit
 
@@ -5082,7 +5082,7 @@ _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3
   %vtable42.pre = phi ptr [ %vtable42.pre.pre, %if.then.i39.i.i.i.i ], [ %vtable.i89, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %Textures.i, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !155
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !164
   br label %_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE.exit
 
@@ -5375,7 +5375,7 @@ _ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE17_M_realloc_insertIJRKS3
   %vtable10.pre = phi ptr [ %vtable10.pre.pre, %if.then.i39.i.i.i.i ], [ %vtable.i34, %_ZNSt6vectorIN3irr5video11CNullDriver8SSurfaceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %Textures.i, align 8, !tbaa !153
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !155
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !164
   br label %_ZN3irr5video11CNullDriver10addTextureEPNS0_8ITextureE.exit
 
@@ -5461,7 +5461,7 @@ _ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE13binary_searchERKS4_.exit: 
 if.then:                                          ; preds = %_ZN3irr4core5arrayINS_5video11CNullDriver8SSurfaceEE13binary_searchERKS4_.exit
   %conv.i9 = zext i32 %call2.i to i64
   %6 = load ptr, ptr %Textures, align 8, !tbaa !153
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %6, i64 %conv.i9
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i9
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !157
   br label %cleanup
 
@@ -5620,7 +5620,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.cond, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %Size.i = getelementptr inbounds nuw i8, ptr %7, i64 80
   %8 = load <2 x i32>, ptr %Size.i, align 4
@@ -5738,7 +5738,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %SharedDepthTextures, align 8, !tbaa !145
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !189
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !191
   br label %_ZN3irr4core5arrayIPNS_5video8ITextureEE9push_backERKS4_.exit
 
@@ -6010,9 +6010,9 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %4 = load ptr, ptr %positions, align 8, !tbaa !198
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::core::vector2d", ptr %4, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %sourceRects, align 8, !tbaa !201
-  %add.ptr.i.i21 = getelementptr inbounds nuw %"class.irr::core::rect", ptr %5, i64 %indvars.iv
+  %add.ptr.i.i21 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 384
   %6 = load ptr, ptr %vfn, align 8
@@ -6633,7 +6633,7 @@ cleanup:                                          ; preds = %if.then8
   %mul = mul i32 %div61, %colorKeyPixelPos.sroa.3.0.extract.trunc
   %add = add i32 %mul, %colorKeyPixelPos.sroa.0.0.extract.trunc
   %idxprom = zext i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %call9, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %call9, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2, !tbaa !210
   %conv.i = zext i16 %3 to i32
   %and3.i = shl nuw nsw i32 %conv.i, 9
@@ -6673,7 +6673,7 @@ cleanup34:                                        ; preds = %if.else
   %mul28 = mul i32 %div2560, %colorKeyPixelPos.sroa.3.0.extract.trunc
   %add30 = add i32 %mul28, %colorKeyPixelPos.sroa.0.0.extract.trunc
   %idxprom31 = zext i32 %add30 to i64
-  %arrayidx32 = getelementptr inbounds nuw i32, ptr %call19, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw [4 x i8], ptr %call19, i64 %idxprom31
   %6 = load i32, ptr %arrayidx32, align 4, !tbaa !87
   %and33 = and i32 %6, 16777215
   br label %if.end37
@@ -6855,7 +6855,7 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %SurfaceLoader, align 8, !tbaa !121
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -6872,7 +6872,7 @@ if.end9:                                          ; preds = %for.body
   %7 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #26
   %8 = load ptr, ptr %SurfaceLoader, align 8, !tbaa !121
-  %add.ptr.i.i95 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %add.ptr.i.i95 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %add.ptr.i.i95, align 8, !tbaa !118
   %vtable15 = load ptr, ptr %9, align 8, !tbaa !3
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 16
@@ -6905,7 +6905,7 @@ for.body30.preheader:                             ; preds = %for.end
 for.body30:                                       ; preds = %for.inc66, %for.body30.preheader
   %indvars.iv123 = phi i64 [ %11, %for.body30.preheader ], [ %indvars.iv.next124, %for.inc66 ]
   %12 = load ptr, ptr %SurfaceLoader, align 8, !tbaa !121
-  %add.ptr.i.i103 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv123
+  %add.ptr.i.i103 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv123
   %13 = load ptr, ptr %add.ptr.i.i103, align 8, !tbaa !118
   %vtable33 = load ptr, ptr %file, align 8, !tbaa !3
   %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 32
@@ -6922,7 +6922,7 @@ if.end40:                                         ; preds = %for.body30
   %16 = load ptr, ptr %vfn42, align 8
   %call43 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #26
   %17 = load ptr, ptr %SurfaceLoader, align 8, !tbaa !121
-  %add.ptr.i.i105 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv123
+  %add.ptr.i.i105 = getelementptr inbounds [8 x i8], ptr %17, i64 %indvars.iv123
   %18 = load ptr, ptr %add.ptr.i.i105, align 8, !tbaa !118
   %vtable46 = load ptr, ptr %18, align 8, !tbaa !3
   %vfn47 = getelementptr inbounds nuw i8, ptr %vtable46, i64 8
@@ -6936,7 +6936,7 @@ if.end50:                                         ; preds = %if.end40
   %20 = load ptr, ptr %vfn52, align 8
   %call53 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef 0, i1 noundef zeroext false) #26
   %21 = load ptr, ptr %SurfaceLoader, align 8, !tbaa !121
-  %add.ptr.i.i107 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv123
+  %add.ptr.i.i107 = getelementptr inbounds [8 x i8], ptr %21, i64 %indvars.iv123
   %22 = load ptr, ptr %add.ptr.i.i107, align 8, !tbaa !118
   %vtable57 = load ptr, ptr %22, align 8, !tbaa !3
   %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 16
@@ -7022,7 +7022,7 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %SurfaceWriter, align 8, !tbaa !124
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -7036,7 +7036,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
 
 if.then8:                                         ; preds = %for.body
   %7 = load ptr, ptr %SurfaceWriter, align 8, !tbaa !124
-  %add.ptr.i.i28 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %add.ptr.i.i28 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %add.ptr.i.i28, align 8, !tbaa !118
   %vtable11 = load ptr, ptr %8, align 8, !tbaa !3
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 24
@@ -7832,7 +7832,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.then32:                                        ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i81 = zext i32 %retval.0.i to i64
   %19 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !147
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %19, i64 %conv.i81
+  %Mesh.split = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %conv.i81
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 8
   %20 = load ptr, ptr %Mesh, align 8, !tbaa !151
   %cmp35.not = icmp eq ptr %20, %mesh.addr.1
@@ -7859,7 +7859,7 @@ delete.notnull.i:                                 ; preds = %if.then36
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %if.then36
   %23 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !147
-  %Mesh44.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %23, i64 %conv.i81
+  %Mesh44.split = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %conv.i81
   %Mesh44 = getelementptr inbounds nuw i8, ptr %Mesh44.split, i64 8
   store ptr %mesh.addr.1, ptr %Mesh44, align 8, !tbaa !151
   %vtable45 = load ptr, ptr %mesh.addr.1, align 8, !tbaa !3
@@ -8202,7 +8202,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !147
-  %add.ptr.i.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SOccQuery", ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds [32 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !149
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
@@ -8366,7 +8366,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.end3:                                          ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i64 = zext i32 %retval.0.i to i64
   %13 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !147
-  %Run.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i64
+  %Run.split = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %conv.i64
   %Run = getelementptr inbounds nuw i8, ptr %Run.split, i64 28
   store i32 0, ptr %Run, align 4, !tbaa !243
   br i1 %visible, label %if.end17, label %if.then7
@@ -8489,7 +8489,7 @@ if.end17:                                         ; preds = %_ZN3irr5video9SMate
   %20 = load ptr, ptr %vfn22, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(1164) %this, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(64) %call20) #26
   %21 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !147
-  %Mesh.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %21, i64 %conv.i64
+  %Mesh.split = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %conv.i64
   %Mesh = getelementptr inbounds nuw i8, ptr %Mesh.split, i64 8
   %22 = load ptr, ptr %Mesh, align 8, !tbaa !151
   %vtable2583 = load ptr, ptr %22, align 8, !tbaa !3
@@ -8570,7 +8570,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %3 = phi ptr [ %7, %for.body ], [ %1, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !149
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
@@ -8614,7 +8614,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %entry
 for.body:                                         ; preds = %entry, %for.inc
   %3 = phi ptr [ %11, %for.inc ], [ %1, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %Run = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 28
   %4 = load i32, ptr %Run, align 4, !tbaa !243
   %cmp4 = icmp eq i32 %4, -1
@@ -8627,7 +8627,7 @@ if.end:                                           ; preds = %for.body
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %5, i1 noundef zeroext %block) #26
   %7 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !147
-  %add.ptr.i.i32 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %7, i64 %indvars.iv
+  %add.ptr.i.i32 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv
   %Run9 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i32, i64 28
   %8 = load i32, ptr %Run9, align 4, !tbaa !243
   %inc = add i32 %8, 1
@@ -8694,7 +8694,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.inc, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %3 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %cmp4 = icmp eq ptr %3, %renderTarget
   br i1 %cmp4, label %if.then5, label %for.inc
@@ -8725,7 +8725,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.rhs.cast.i.i.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i, %if.then5 ], [ %.pre30, %delete.notnull.i ]
   %6 = phi ptr [ %0, %if.then5 ], [ %.pre29, %delete.notnull.i ]
   %7 = phi ptr [ %1, %if.then5 ], [ %.pre, %delete.notnull.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.pre-phi
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i.i.i
@@ -8791,7 +8791,7 @@ for.body:                                         ; preds = %entry, %_ZNK3irr17I
   %3 = phi ptr [ %8, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %1, %entry ]
   %4 = phi ptr [ %9, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !118
   %vtable = load ptr, ptr %5, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -8993,7 +8993,7 @@ land.lhs.true:                                    ; preds = %if.then.i, %if.then
 
 if.then4:                                         ; preds = %land.lhs.true
   %idxprom = and i64 %sub.ptr.div.i.i, 7
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL25sBuiltInMaterialTypeNamesE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr5videoL25sBuiltInMaterialTypeNamesE, i64 %idxprom
   %14 = load ptr, ptr %arrayidx, align 8, !tbaa !118
   %tobool.not.i25 = icmp eq i64 %idxprom, 5
   br i1 %tobool.not.i25, label %if.then.i38, label %if.end.i26
@@ -9193,7 +9193,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %conv.i8 = zext i32 %idx to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i8
+  %add.ptr.i.i = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %conv.i8
   %tobool.not.i = icmp eq ptr %name, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -9304,10 +9304,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i27 = zext i32 %idx1 to i64
-  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i27
+  %Renderer.split = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %conv.i27
   %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %conv.i28 = zext i32 %idx2 to i64
-  %Renderer9.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i28
+  %Renderer9.split = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %conv.i28
   %Renderer9 = getelementptr inbounds nuw i8, ptr %Renderer9.split, i64 32
   %2 = load ptr, ptr %Renderer, align 8, !tbaa !118
   %3 = load ptr, ptr %Renderer9, align 8, !tbaa !118
@@ -9317,8 +9317,8 @@ if.then:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.then
   %4 = load ptr, ptr %MaterialRenderers, align 8, !tbaa !134
-  %add.ptr.i.i31 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %4, i64 %conv.i27
-  %add.ptr.i.i33 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %4, i64 %conv.i28
+  %add.ptr.i.i31 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %conv.i27
+  %add.ptr.i.i33 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %conv.i28
   call void @llvm.lifetime.start.p0(ptr nonnull %c.i)
   %5 = getelementptr inbounds nuw i8, ptr %c.i, i64 16
   store ptr %5, ptr %c.i, align 8, !tbaa !187
@@ -9395,7 +9395,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i5 = zext i32 %idx to i64
-  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i5
+  %Renderer.split = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %conv.i5
   %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %2 = load ptr, ptr %Renderer, align 8, !tbaa !139
   br label %return
@@ -9437,7 +9437,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv.i6 = zext i32 %idx to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !135
   br label %return
 
@@ -9782,7 +9782,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub = add i32 %conv.i, -1
   %cmp5 = icmp eq i32 %sub, %material
   %conv.i46 = zext i32 %material to i64
-  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %1, i64 %conv.i46
+  %Renderer.split = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %conv.i46
   %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %2 = load ptr, ptr %Renderer, align 8, !tbaa !139
   %tobool.not = icmp eq ptr %2, null
@@ -11508,7 +11508,7 @@ while.cond.i.i.split.lr.ph:                       ; preds = %while.body, %while.
   %storemerge40.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
   %sub.i.i = add nsw i64 %sub.ptr.div.i43.lcssa, -2
   %div2627.i.i = lshr i64 %sub.i.i, 1
-  %add.ptr.i.i.i1 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %div2627.i.i
+  %add.ptr.i.i.i1 = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %div2627.i.i
   %__value.sroa.0.0.copyload.i.i2 = load ptr, ptr %add.ptr.i.i.i1, align 8, !tbaa !118
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr %__first.coerce, i64 noundef %div2627.i.i, i64 noundef %sub.ptr.div.i43.lcssa, ptr %__value.sroa.0.0.copyload.i.i2)
   br label %while.cond.i.i.split, !llvm.loop !295
@@ -11516,7 +11516,7 @@ while.cond.i.i.split.lr.ph:                       ; preds = %while.body, %while.
 while.cond.i.i.split:                             ; preds = %while.cond.i.i.split.lr.ph, %while.cond.i.i.split
   %__parent.0.i.i11 = phi i64 [ %div2627.i.i, %while.cond.i.i.split.lr.ph ], [ %dec.i.i, %while.cond.i.i.split ]
   %dec.i.i = add nsw i64 %__parent.0.i.i11, -1
-  %add.ptr.i.i.i3 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %dec.i.i
+  %add.ptr.i.i.i3 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %dec.i.i
   %__value.sroa.0.0.copyload.i.i4 = load ptr, ptr %add.ptr.i.i.i3, align 8, !tbaa !118
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nonnull %__first.coerce, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i43.lcssa, ptr %__value.sroa.0.0.copyload.i.i4)
   %cmp10.not.i.i = icmp eq i64 %dec.i.i, 0
@@ -11540,7 +11540,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %__depth_limit.addr.04161 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
   %sub.ptr.div.i4360 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i38, %while.body.lr.ph ]
   %div.i2829 = lshr i64 %sub.ptr.div.i4360, 1
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %div.i2829
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.coerce, i64 %div.i2829
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4062, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
   br label %while.body.i.i23
@@ -11649,9 +11649,9 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %__holeIndex.addr.067 = phi i64 [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.067, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %mul
   %sub4 = or disjoint i64 %add, 1
-  %add.ptr.i56 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %sub4
+  %add.ptr.i56 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub4
   %0 = load ptr, ptr %add.ptr.i, align 8, !tbaa !157
   %1 = load ptr, ptr %add.ptr.i56, align 8, !tbaa !157
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11682,8 +11682,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr5video11CNu
   %__r.0.i.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %retval.0.i12.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i.i, 0
   %spec.select = select i1 %cmp.i.i.i.i.i, i64 %sub4, i64 %mul
-  %add.ptr.i57 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i58 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %__holeIndex.addr.067
+  %add.ptr.i57 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i58 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.067
   %6 = load i64, ptr %add.ptr.i57, align 8, !tbaa !118
   store i64 %6, ptr %add.ptr.i58, align 8, !tbaa !118
   %cmp = icmp slt i64 %spec.select, %div
@@ -11704,8 +11704,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i59 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i60 = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i59 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i60 = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %7 = load i64, ptr %add.ptr.i59, align 8, !tbaa !118
   store i64 %7, ptr %add.ptr.i60, align 8, !tbaa !118
   br label %if.end34
@@ -11725,7 +11725,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %__holeIndex.addr.033.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.034.i, %while.body.i ]
   %__parent.034.in.i = add nsw i64 %__holeIndex.addr.033.i, -1
   %__parent.034.i = sdiv i64 %__parent.034.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %__parent.034.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__parent.034.i
   %9 = load ptr, ptr %add.ptr.i.i, align 8
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !163
@@ -11755,14 +11755,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNul
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i
-  %add.ptr.i25.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %__holeIndex.addr.033.i
+  %add.ptr.i25.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.033.i
   store i64 %11, ptr %add.ptr.i25.i, align 8, !tbaa !118
   %cmp.i = icmp sgt i64 %__parent.034.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit, !llvm.loop !301
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_less_valEEvT_T0_SE_T1_RT2_.exit: ; preds = %while.body.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i, %if.end34
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end34 ], [ %__parent.034.i, %while.body.i ], [ %__holeIndex.addr.033.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i ]
-  %add.ptr.i26.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i26.i = getelementptr inbounds [8 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %14 = ptrtoint ptr %__value.coerce to i64
   store i64 %14, ptr %add.ptr.i26.i, align 8, !tbaa !118
   ret void
@@ -12012,7 +12012,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSu
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::video::CNullDriver::SSurface", ptr %add.ptr.i30, i64 %.pre.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %add.ptr.i30, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   store ptr %0, ptr %__first.coerce, align 8, !tbaa !118
   br label %for.inc
@@ -12158,7 +12158,7 @@ while.body.i:                                     ; preds = %if.else15, %_ZNK9__
   %__len.018.i = phi i64 [ %__len.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %shr, %if.else15 ]
   %__first.sroa.0.017.i = phi ptr [ %__first.sroa.0.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ], [ %__first.sroa.0.0132, %if.else15 ]
   %shr.i = lshr i64 %__len.018.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.sroa.0.017.i, i64 %shr.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.017.i, i64 %shr.i
   %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !157
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !163
@@ -12206,7 +12206,7 @@ while.body.i76:                                   ; preds = %_ZSt13__lower_bound
   %__len.018.i77 = phi i64 [ %__len.1.i97, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %sub.ptr.div.i.i.i.i70, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ]
   %__first.sroa.0.017.i78 = phi ptr [ %__first.sroa.0.1.i96, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3irr5video11CNullDriver8SSurfaceENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.i ], [ %incdec.ptr.i66, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit ]
   %shr.i79 = lshr i64 %__len.018.i77, 1
-  %add.ptr.i.i.i.i82 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.sroa.0.017.i78, i64 %shr.i79
+  %add.ptr.i.i.i.i82 = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.017.i78, i64 %shr.i79
   %14 = load ptr, ptr %add.ptr.i.i.i.i82, align 8, !tbaa !157
   %_M_string_length.i10.i.i.i.i.i.i.i85 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %15 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i.i85, align 8, !tbaa !163
@@ -12281,7 +12281,7 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
   %__len.018.i.i = phi i64 [ %1, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %__first.sroa.0.017.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %shr.i.i = lshr i64 %__len.018.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
   %3 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !157
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !163
@@ -12645,7 +12645,7 @@ _ZNSt12_Vector_baseIN3irr5video11CNullDriver9SOccQueryESaIS3_EE13_M_deallocateEP
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !147
   store ptr %__cur.0.lcssa.i.i.i.i.i66, ptr %_M_finish.i.i, align 8, !tbaa !148
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !244
   ret void
 }
@@ -12920,7 +12920,7 @@ _ZNSt12_Vector_baseIN3irr5video11CNullDriver17SMaterialRendererESaIS3_EE13_M_dea
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !134
   store ptr %__cur.0.lcssa.i.i.i.i.i48, ptr %_M_finish.i.i, align 8, !tbaa !133
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [40 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !273
   ret void
 }

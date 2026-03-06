@@ -51,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.189" = type { %"struct.std::_Vector_base<std::pair<int, flatbuffers::FieldDef *>, std::allocator<std::pair<int, flatbuffers::FieldDef *>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<int, flatbuffers::FieldDef *>, std::allocator<std::pair<int, flatbuffers::FieldDef *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<int, flatbuffers::FieldDef *>, std::allocator<std::pair<int, flatbuffers::FieldDef *>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<int, flatbuffers::FieldDef *>, std::allocator<std::pair<int, flatbuffers::FieldDef *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.194" = type { i32, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -19397,7 +19396,7 @@ _ZNSt6vectorISt4pairIiPN11flatbuffers8FieldDefEESaIS4_EE11_S_relocateEPS4_S7_S7_
 _ZNSt6vectorISt4pairIiPN11flatbuffers8FieldDefEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %657, %_ZNSt6vectorISt4pairIiPN11flatbuffers8FieldDefEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %652, ptr %30, align 8, !tbaa !572
   store ptr %656, ptr %566, align 8, !tbaa !571
-  %658 = getelementptr inbounds nuw %"struct.std::pair.194", ptr %652, i64 %650
+  %658 = getelementptr inbounds nuw [16 x i8], ptr %652, i64 %650
   store ptr %658, ptr %567, align 8, !tbaa !568
   br label %_ZNSt6vectorISt4pairIiPN11flatbuffers8FieldDefEESaIS4_EE9push_backEOS4_.exit
 

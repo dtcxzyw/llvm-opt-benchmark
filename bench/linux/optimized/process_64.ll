@@ -342,7 +342,7 @@ define dso_local range(i64 0, 4294967296) i64 @x86_fsgsbase_read_task(ptr nounde
 
 9:                                                ; preds = %6
   %10 = zext nneg i16 %3 to i64
-  %11 = getelementptr %struct.desc_struct, ptr %0, i64 %10
+  %11 = getelementptr [8 x i8], ptr %0, i64 %10
   %12 = getelementptr i8, ptr %11, i64 2722
   %13 = load i16, ptr %12, align 1
   %14 = zext i16 %13 to i32
@@ -377,7 +377,7 @@ define dso_local range(i64 0, 4294967296) i64 @x86_fsgsbase_read_task(ptr nounde
 36:                                               ; preds = %31
   %37 = load ptr, ptr %29, align 8
   %38 = zext nneg i16 %3 to i64
-  %39 = getelementptr %struct.desc_struct, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i16, ptr %40, align 1
   %42 = zext i16 %41 to i32
@@ -563,7 +563,7 @@ define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address
 
 33:                                               ; preds = %30
   %34 = zext nneg i16 %27 to i64
-  %35 = getelementptr %struct.desc_struct, ptr %0, i64 %34
+  %35 = getelementptr [8 x i8], ptr %0, i64 %34
   %36 = getelementptr i8, ptr %35, i64 2722
   %37 = load i16, ptr %36, align 1
   %38 = zext i16 %37 to i32
@@ -598,7 +598,7 @@ define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address
 60:                                               ; preds = %55
   %61 = load ptr, ptr %53, align 8
   %62 = zext nneg i16 %27 to i64
-  %63 = getelementptr %struct.desc_struct, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = load i16, ptr %64, align 1
   %66 = zext i16 %65 to i32
@@ -693,7 +693,7 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address
 
 38:                                               ; preds = %35
   %39 = zext nneg i16 %32 to i64
-  %40 = getelementptr %struct.desc_struct, ptr %0, i64 %39
+  %40 = getelementptr [8 x i8], ptr %0, i64 %39
   %41 = getelementptr i8, ptr %40, i64 2722
   %42 = load i16, ptr %41, align 1
   %43 = zext i16 %42 to i32
@@ -728,7 +728,7 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address
 65:                                               ; preds = %60
   %66 = load ptr, ptr %58, align 8
   %67 = zext nneg i16 %32 to i64
-  %68 = getelementptr %struct.desc_struct, ptr %66, i64 %67
+  %68 = getelementptr [8 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %70 = load i16, ptr %69, align 1
   %71 = zext i16 %70 to i32
@@ -1015,7 +1015,7 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
 
 65:                                               ; preds = %62, %59
   %66 = zext i32 %9 to i64
-  %67 = getelementptr i64, ptr @__per_cpu_offset, i64 %66
+  %67 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, ptrtoint (ptr @gdt_page to i64)
   %70 = inttoptr i64 %69 to ptr
@@ -1023,9 +1023,9 @@ define dso_local noundef ptr @__switch_to(ptr noundef returned %0, ptr noundef %
 
 71:                                               ; preds = %71, %65
   %72 = phi i64 [ 0, %65 ], [ %77, %71 ]
-  %73 = getelementptr %struct.desc_struct, ptr %70, i64 %72
+  %73 = getelementptr [8 x i8], ptr %70, i64 %72
   %74 = getelementptr i8, ptr %73, i64 96
-  %75 = getelementptr %struct.desc_struct, ptr %7, i64 %72
+  %75 = getelementptr [8 x i8], ptr %7, i64 %72
   %76 = load i64, ptr %75, align 8
   store i64 %76, ptr %74, align 1
   %77 = add nuw nsw i64 %72, 1

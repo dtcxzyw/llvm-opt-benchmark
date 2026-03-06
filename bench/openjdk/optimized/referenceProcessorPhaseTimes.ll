@@ -139,12 +139,12 @@ define hidden void @_ZN24RefProcWorkerTimeTrackerD2Ev(ptr noundef nonnull readon
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw double, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load double, ptr %11, align 8
   %13 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #11
   %14 = fcmp oeq double %12, %13
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds nuw double, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %10
   br i1 %14, label %_ZN15WorkerDataArrayIdE10set_or_addEjd.exit, label %17
 
 17:                                               ; preds = %1
@@ -162,7 +162,7 @@ _ZN15WorkerDataArrayIdE10set_or_addEjd.exit:      ; preds = %1, %17
 define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcessor16RefProcSubPhasesEP28ReferenceProcessorPhaseTimesj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 28)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -176,7 +176,7 @@ define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcess
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK28ReferenceProcessorPhaseTimes25sub_phase_worker_time_secEN18ReferenceProcessor16RefProcSubPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -343,7 +343,7 @@ _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw double, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   store double %13, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = load i64, ptr %3, align 8
@@ -382,7 +382,7 @@ _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %2
 define hidden void @_ZN28ReferenceProcessorPhaseTimes26set_balance_queues_time_msEN18ReferenceProcessor13RefProcPhasesEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   store double %2, ptr %6, align 8
   ret void
 }
@@ -390,7 +390,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes26set_balance_queues_time_m
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN29RefProcTotalPhaseTimesTrackerC2EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZL10PhaseNames, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZL10PhaseNames, i64 %4
   %6 = load ptr, ptr %5, align 8
   store ptr %2, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -438,7 +438,7 @@ _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw double, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   store double %13, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = load i64, ptr %3, align 8
@@ -477,7 +477,7 @@ _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %2
 define hidden void @_ZN28ReferenceProcessorPhaseTimes17set_phase_time_msEN18ReferenceProcessor13RefProcPhasesEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw double, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   store double %2, ptr %6, align 8
   ret void
 }
@@ -495,7 +495,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr noundef n
 8:                                                ; preds = %3, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit ]
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 112, i8 noundef zeroext 5, i32 noundef 0) #11
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZL21SubPhasesParWorkTitle, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21SubPhasesParWorkTitle, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   store ptr null, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -516,7 +516,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr noundef n
 .lr.ph.i.i.i:                                     ; preds = %8, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %8 ]
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i
   store double %17, ptr %20, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %21 = load i32, ptr %12, align 8
@@ -529,7 +529,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %27 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader ]
-  %24 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %27, label %26
@@ -544,7 +544,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArra
   br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %27
-  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %9, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -571,7 +571,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %27
 .lr.ph.i.i.i14:                                   ; preds = %29, %.lr.ph.i.i.i14
   %indvars.iv.i.i.i15 = phi i64 [ %indvars.iv.next.i.i.i16, %.lr.ph.i.i.i14 ], [ 0, %29 ]
   %38 = load ptr, ptr %30, align 8
-  %39 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.i.i.i15
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i.i.i15
   store double %36, ptr %39, align 8
   %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i15, 1
   %40 = load i32, ptr %31, align 8
@@ -584,7 +584,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17.preheader: ; preds = %.lr.ph.i.i.i1
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17:     ; preds = %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17.preheader, %46
   %indvars.iv.i.i18 = phi i64 [ %indvars.iv.next.i.i20, %46 ], [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i17.preheader ]
-  %43 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i18
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i18
   %44 = load ptr, ptr %43, align 8
   %.not.i.i19 = icmp eq ptr %44, null
   br i1 %.not.i.i19, label %46, label %45
@@ -616,7 +616,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes5resetEv(ptr noundef nonnul
 
 4:                                                ; preds = %1, %_ZN15WorkerDataArrayIdE5resetEv.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN15WorkerDataArrayIdE5resetEv.exit ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #11
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -627,7 +627,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes5resetEv(ptr noundef nonnul
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %4 ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   store double %7, ptr %11, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %12 = load i32, ptr %8, align 8
@@ -641,7 +641,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %4
 
 16:                                               ; preds = %20, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i ], [ %indvars.iv.next.i, %20 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %20, label %19
@@ -662,9 +662,9 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %20
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %21 ]
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv27
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   store double -1.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv27
   store double -1.000000e+00, ptr %23, align 8
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 3
@@ -682,7 +682,7 @@ _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %20
 .lr.ph.i.i14:                                     ; preds = %24, %.lr.ph.i.i14
   %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %.lr.ph.i.i14 ], [ 0, %24 ]
   %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.i.i15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i15
   store double %27, ptr %31, align 8
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %32 = load i32, ptr %28, align 8
@@ -696,7 +696,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i17:       ; preds = %.lr.ph.i.i14, %24
 
 36:                                               ; preds = %40, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i17
   %indvars.iv.i18 = phi i64 [ 0, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i17 ], [ %indvars.iv.next.i20, %40 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i18
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i18
   %38 = load ptr, ptr %37, align 8
   %.not.i19 = icmp eq ptr %38, null
   br i1 %.not.i19, label %40, label %39
@@ -724,7 +724,7 @@ _ZN15WorkerDataArrayIdE5resetEv.exit22.preheader: ; preds = %40
 define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes13phase_time_msEN18ReferenceProcessor13RefProcPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw double, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load double, ptr %5, align 8
   ret double %6
 }
@@ -735,7 +735,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimesD2Ev(ptr noundef nonnull re
 
 2:                                                ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %15, label %6
@@ -746,7 +746,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimesD2Ev(ptr noundef nonnull re
 
 8:                                                ; preds = %13, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %13 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %12
@@ -784,7 +784,7 @@ _ZN15WorkerDataArrayIdED2Ev.exit:                 ; preds = %13
 
 22:                                               ; preds = %27, %20
   %indvars.iv.i5 = phi i64 [ 0, %20 ], [ %indvars.iv.next.i6, %27 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i5
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -812,7 +812,7 @@ _ZN15WorkerDataArrayIdED2Ev.exit8:                ; preds = %27
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13ReferenceTypem(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr i64, ptr %0, i64 %4
+  %5 = getelementptr [8 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 96
   %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr nonnull %6) #11, !srcloc !14
   ret void
@@ -821,7 +821,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13Referen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr i64, ptr %0, i64 %4
+  %5 = getelementptr [8 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 128
   store i64 %2, ptr %6, align 8
   ret void
@@ -830,7 +830,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13Refe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr i64, ptr %0, i64 %3
+  %4 = getelementptr [8 x i8], ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 128
   %6 = load i64, ptr %5, align 8
   ret i64 %6
@@ -840,7 +840,7 @@ define hidden noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13R
 define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes22balance_queues_time_msEN18ReferenceProcessor13RefProcPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw double, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load double, ptr %5, align 8
   ret double %6
 }
@@ -866,7 +866,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZL7Indents, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7Indents, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load double, ptr %13, align 8
@@ -900,7 +900,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18Reference
   %5 = alloca %class.LogStream, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw double, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load double, ptr %8, align 8
   %10 = fcmp oeq double %9, -1.000000e+00
   br i1 %10, label %58, label %11
@@ -916,9 +916,9 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18Reference
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL7Indents, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7Indents, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr @_ZL10PhaseNames, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZL10PhaseNames, i64 %7
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq i32 %2, 0
   %20 = select i1 %19, ptr @.str.8, ptr @.str.9
@@ -944,7 +944,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18Reference
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %7
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %7
   %31 = load double, ptr %30, align 8
   %32 = fcmp une double %31, -1.000000e+00
   br i1 %32, label %33, label %_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj.exit
@@ -952,7 +952,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18Reference
 33:                                               ; preds = %28
   %34 = add i32 %2, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @_ZL7Indents, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7Indents, i64 %35
   %37 = load ptr, ptr %36, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.11, ptr noundef %37, ptr noundef nonnull @.str.12, double noundef %31) #11
   br label %_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj.exit
@@ -1043,17 +1043,17 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_referenceE13Refere
   %21 = add nsw i32 %1, -1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %27 = getelementptr inbounds i64, ptr %26, i64 %23
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %23
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %25, %28
   %30 = zext i32 %2 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @_ZL7Indents, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7Indents, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @_ZL18ReferenceTypeNames, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZL18ReferenceTypeNames, i64 %33
   %35 = load ptr, ptr %34, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.6, ptr noundef %32, ptr noundef %35, i64 noundef %25, i64 noundef %28, i64 noundef %29) #11
   %36 = load ptr, ptr %14, align 8
@@ -1088,14 +1088,14 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %38, %40
 define hidden void @_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw double, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load double, ptr %7, align 8
   %9 = fcmp une double %8, -1.000000e+00
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %4
   %11 = zext i32 %3 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZL7Indents, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7Indents, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, ptr noundef %13, ptr noundef nonnull @.str.12, double noundef %8) #11
   br label %14
@@ -1107,9 +1107,9 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9Log
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_sub_phaseEP9LogStreamN18ReferenceProcessor16RefProcSubPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZL21SubPhasesSerWorkTitle, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21SubPhasesSerWorkTitle, i64 %5
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %7, ptr noundef %9, i32 noundef %3)
   ret void
@@ -1122,7 +1122,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define hidden void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.LogStream, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZL7Indents, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZL7Indents, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, ptr noundef %9) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1185,7 +1185,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
 .lr.ph:                                           ; preds = %3, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %3 ]
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load double, ptr %9, align 8
   %11 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #11
   %12 = fcmp oeq double %10, %11
@@ -1206,7 +1206,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
 
 .lr.ph50.preheader:                               ; preds = %.critedge
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds nuw double, ptr %17, i64 %.0.lcssa.ph.in
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0.lcssa.ph.in
   %19 = load double, ptr %18, align 8
   br label %.lr.ph50
 
@@ -1217,7 +1217,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
   %.03746 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.138, %32 ]
   %.03945 = phi double [ 0.000000e+00, %.lr.ph50.preheader ], [ %.140, %32 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv56
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv56
   %22 = load double, ptr %21, align 8
   %23 = tail call noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() #11
   %24 = fcmp une double %22, %23
@@ -1332,7 +1332,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef non
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   store i64 %2, ptr %6, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i32, ptr %3, align 8
@@ -1346,7 +1346,7 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 
 11:                                               ; preds = %_ZN15WorkerDataArrayImE7set_allEm.exit, %15
   %indvars.iv = phi i64 [ 0, %_ZN15WorkerDataArrayImE7set_allEm.exit ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
@@ -1373,7 +1373,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImED2Ev(ptr noundef nonnull
 
 3:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7

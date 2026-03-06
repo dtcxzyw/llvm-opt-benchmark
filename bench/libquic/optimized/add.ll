@@ -59,8 +59,8 @@ define hidden range(i32 0, 2) i32 @BN_add(ptr noundef %0, ptr noundef %1, ptr no
   %34 = load ptr, ptr %0, align 8, !tbaa !14
   %35 = tail call i64 @bn_add_words(ptr noundef %34, ptr noundef %32, ptr noundef %33, i32 noundef %24) #4
   %36 = sext i32 %24 to i64
-  %37 = getelementptr inbounds i64, ptr %34, i64 %36
-  %38 = getelementptr inbounds i64, ptr %32, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %34, i64 %36
+  %38 = getelementptr inbounds [8 x i8], ptr %32, i64 %36
   %.not.i = icmp eq i64 %35, 0
   br i1 %.not.i, label %.loopexit77.i, label %.preheader76.i
 
@@ -264,8 +264,8 @@ define hidden range(i32 0, 2) i32 @BN_uadd(ptr noundef %0, ptr noundef readonly 
   %22 = load ptr, ptr %0, align 8, !tbaa !14
   %23 = tail call i64 @bn_add_words(ptr noundef %22, ptr noundef %20, ptr noundef %21, i32 noundef %12) #4
   %24 = sext i32 %12 to i64
-  %25 = getelementptr inbounds i64, ptr %22, i64 %24
-  %26 = getelementptr inbounds i64, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %.loopexit77, label %.preheader76
 
@@ -377,7 +377,7 @@ define hidden i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !15
   %23 = add i64 %22, %.03446
   store i64 %23, ptr %21, align 8, !tbaa !15
@@ -402,7 +402,7 @@ define hidden i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   store i32 %33, ptr %10, align 8, !tbaa !13
   %34 = load ptr, ptr %0, align 8, !tbaa !14
   %35 = zext nneg i32 %11 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   store i64 %.03446, ptr %36, align 8, !tbaa !15
   br label %.critedge42
 
@@ -471,7 +471,7 @@ define hidden i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.next
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
@@ -491,10 +491,10 @@ define hidden i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %28 = phi i64 [ %21, %.lr.ph.preheader ], [ -1, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   store i64 %28, ptr %29, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8, !tbaa !15
   %.not45 = icmp eq i64 %31, 0
   br i1 %.not45, label %.lr.ph, label %._crit_edge.loopexit
@@ -552,8 +552,8 @@ define hidden range(i32 0, 2) i32 @BN_sub(ptr noundef %0, ptr noundef %1, ptr no
   %29 = load ptr, ptr %0, align 8, !tbaa !14
   %30 = tail call i64 @bn_add_words(ptr noundef %29, ptr noundef %27, ptr noundef %28, i32 noundef %19) #4
   %31 = sext i32 %19 to i64
-  %32 = getelementptr inbounds i64, ptr %29, i64 %31
-  %33 = getelementptr inbounds i64, ptr %27, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %27, i64 %31
   %.not.i = icmp eq i64 %30, 0
   br i1 %.not.i, label %.loopexit77.i, label %.preheader76.i
 

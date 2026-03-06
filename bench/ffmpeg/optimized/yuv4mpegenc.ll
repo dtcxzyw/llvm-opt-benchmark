@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
-%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [13 x i8] c"yuv4mpegpipe\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"YUV4MPEG pipe\00", align 1
@@ -98,7 +97,7 @@ define internal range(i32 -2147483648, 1) i32 @yuv4_write_header(ptr noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.yuv4_write_header, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.yuv4_write_header, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %35
 
@@ -259,7 +258,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !47
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !4
@@ -304,7 +303,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
 39:                                               ; preds = %.lr.ph58, %._crit_edge
   %40 = phi i8 [ %33, %.lr.ph58 ], [ %62, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %._crit_edge ]
-  %41 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !53
   %43 = icmp ugt i8 %40, 2
   %44 = trunc nuw nsw i64 %indvars.iv to i32
@@ -327,7 +326,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
 55:                                               ; preds = %46, %39
   %.049 = phi i32 [ %28, %39 ], [ %54, %46 ]
   %.048 = phi i32 [ %26, %39 ], [ %50, %46 ]
-  %56 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %31, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4, !tbaa !56
   %59 = mul nsw i32 %58, %.048
@@ -335,7 +334,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   br i1 %60, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %55
-  %61 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   br label %65
 
 ._crit_edge.loopexit:                             ; preds = %65

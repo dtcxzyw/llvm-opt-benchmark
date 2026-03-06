@@ -19,8 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.39" }
 %"struct.std::_Head_base.39" = type { ptr }
-%struct.grpc_chttp2_stream_list = type { ptr, ptr }
-%struct.grpc_chttp2_stream_link = type { ptr, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -131,121 +129,111 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_addP21grpc_chttp2_tr
   %11 = shl nuw nsw i8 1, %10
   %12 = and i8 %9, %11
   %.not = icmp eq i8 %12, 0
-  br i1 %.not, label %.critedge.i, label %51
+  br i1 %.not, label %.critedge.i, label %47
 
 .critedge.i:                                      ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !137
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 512
   %16 = load ptr, ptr %15, align 8, !tbaa !138
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %18 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %13
   store ptr null, ptr %18, align 8, !tbaa !140
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %16, ptr %19, align 8, !tbaa !142
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %23, label %20
-
-20:                                               ; preds = %.critedge.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %22 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %21, i64 %13
-  store ptr %1, ptr %22, align 8, !tbaa !140
-  br label %26
-
-23:                                               ; preds = %.critedge.i
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %25 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %24, i64 %13
-  store ptr %1, ptr %25, align 8, !tbaa !143
-  br label %26
-
-26:                                               ; preds = %23, %20
+  %.sink41.i = select i1 %.not.i, ptr %20, ptr %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.sink41.i, i64 %13
+  store ptr %1, ptr %22, align 8, !tbaa !143
   store ptr %1, ptr %15, align 8, !tbaa !138
-  %27 = load i8, ptr %8, align 1, !tbaa !136
-  %28 = or i8 %27, %11
-  store i8 %28, ptr %8, align 1, !tbaa !136
-  %29 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
-  %30 = trunc i8 %29 to i1
+  %23 = load i8, ptr %8, align 1, !tbaa !136
+  %24 = or i8 %23, %11
+  store i8 %24, ptr %8, align 1, !tbaa !136
+  %25 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
+  %26 = trunc i8 %25 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %30, label %31, label %44, !prof !130
+  br i1 %26, label %27, label %40, !prof !130
 
-31:                                               ; preds = %26
+27:                                               ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.1, i32 noundef 126) #21
-  %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %33 unwind label %46
+  %28 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %29 unwind label %42
 
-33:                                               ; preds = %31
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 1, ptr nonnull @.str.6)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i unwind label %46
+29:                                               ; preds = %27
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %28, i64 1, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i unwind label %42
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i: ; preds = %33
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %35 = load i32, ptr %34, align 8, !tbaa !3
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i: ; preds = %29
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %31 = load i32, ptr %30, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 %35, ptr %4, align 4, !tbaa !144
-  %36 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIjTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %37 unwind label %46
+  store i32 %31, ptr %4, align 4, !tbaa !144
+  %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIjTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %33 unwind label %42
 
-37:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i
+33:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 2, ptr nonnull @.str.7)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i unwind label %46
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 2, ptr nonnull @.str.7)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i unwind label %42
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; preds = %37
-  %38 = load ptr, ptr %5, align 8, !tbaa !137
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 3416
-  %40 = load i8, ptr %39, align 8, !tbaa !145, !range !342, !noundef !343
-  %41 = trunc nuw i8 %40 to i1
-  %.str.8..str.9.i = select i1 %41, ptr @.str.8, ptr @.str.9
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 3, ptr nonnull align 1 dereferenceable(4) %.str.8..str.9.i)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i unwind label %46
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; preds = %33
+  %34 = load ptr, ptr %5, align 8, !tbaa !137
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 3416
+  %36 = load i8, ptr %35, align 8, !tbaa !145, !range !342, !noundef !343
+  %37 = trunc nuw i8 %36 to i1
+  %.str.8..str.9.i = select i1 %37, ptr @.str.8, ptr @.str.9
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 3, ptr nonnull align 1 dereferenceable(4) %.str.8..str.9.i)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i unwind label %42
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 10, ptr nonnull @.str.10)
-          to label %switch.lookup unwind label %46
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 10, ptr nonnull @.str.10)
+          to label %switch.lookup unwind label %42
 
 switch.lookup:                                    ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i
-  %42 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %42
+  %38 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %7, align 8, !tbaa !344
-  %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %45 unwind label %48
+  %39 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %41 unwind label %44
 
-44:                                               ; preds = %26
+40:                                               ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL20stream_list_add_tailP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-45:                                               ; preds = %switch.lookup
+41:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL20stream_list_add_tailP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-46:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i, %37, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i, %33, %31
-  %47 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i, %33, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i, %29, %27
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %46
 
-48:                                               ; preds = %switch.lookup
-  %49 = landingpad { ptr, i32 }
+44:                                               ; preds = %switch.lookup
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %50
+  br label %46
 
-50:                                               ; preds = %48, %46
-  %.pn.i = phi { ptr, i32 } [ %49, %48 ], [ %47, %46 ]
+46:                                               ; preds = %44, %42
+  %.pn.i = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.i
 
-_ZL20stream_list_add_tailP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %44, %45
+_ZL20stream_list_add_tailP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %40, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %51
+  br label %47
 
-51:                                               ; preds = %3, %_ZL20stream_list_add_tailP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
+47:                                               ; preds = %3, %_ZL20stream_list_add_tailP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
   ret i1 %.not
 }
 
@@ -265,129 +253,119 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_popP21grpc_chttp2_tr
   store ptr %0, ptr %5, align 8, !tbaa !137
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !143
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !345
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %.critedge31
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %16 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %15, i64 %10
-  %17 = load ptr, ptr %16, align 8, !tbaa !140
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 375
-  %19 = load i8, ptr %18, align 1, !tbaa !136
-  %20 = trunc nuw nsw i32 %2 to i8
-  %21 = shl nuw nsw i8 1, %20
-  %22 = and i8 %19, %21
-  %.not34 = icmp eq i8 %22, 0
-  br i1 %.not34, label %23, label %.critedge, !prof !130
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 375
+  %16 = load i8, ptr %15, align 1, !tbaa !136
+  %17 = trunc nuw nsw i32 %2 to i8
+  %18 = shl nuw nsw i8 1, %17
+  %19 = and i8 %16, %18
+  %.not34 = icmp eq i8 %19, 0
+  br i1 %.not34, label %20, label %.critedge, !prof !130
 
-23:                                               ; preds = %14
+20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.1, i32 noundef 62, i64 22, ptr nonnull @.str.17) #21
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
   unreachable
 
 .critedge:                                        ; preds = %14
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %27, label %24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %10
+  %23 = load ptr, ptr %22, align 8, !tbaa !140
+  %.not = icmp eq ptr %23, null
+  %. = select i1 %.not, ptr %0, ptr %23
+  %.38 = select i1 %.not, i64 512, i64 72
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %., i64 %10
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.38
+  store ptr null, ptr %25, align 8, !tbaa !143
+  store ptr %23, ptr %11, align 8, !tbaa !345
+  %26 = xor i8 %18, -1
+  %27 = load i8, ptr %15, align 1, !tbaa !136
+  %28 = and i8 %27, %26
+  store i8 %28, ptr %15, align 1, !tbaa !136
+  store ptr %12, ptr %1, align 8, !tbaa !143
+  %29 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %50, !prof !130
 
-24:                                               ; preds = %.critedge
-  %25 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %17, i64 %10
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  store ptr null, ptr %26, align 8, !tbaa !142
-  br label %30
-
-27:                                               ; preds = %.critedge
-  %28 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %0, i64 %10
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 512
-  store ptr null, ptr %29, align 8, !tbaa !138
-  br label %30
-
-30:                                               ; preds = %24, %27
-  store ptr %17, ptr %11, align 8, !tbaa !143
-  %31 = xor i8 %21, -1
-  %32 = load i8, ptr %18, align 1, !tbaa !136
-  %33 = and i8 %32, %31
-  store i8 %33, ptr %18, align 1, !tbaa !136
-  store ptr %12, ptr %1, align 8, !tbaa !345
-  %34 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %55, !prof !130
-
-36:                                               ; preds = %30
+31:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 74) #21
-  %37 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %38 unwind label %50
+  %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %33 unwind label %45
 
-38:                                               ; preds = %36
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 1, ptr nonnull @.str.6)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit unwind label %50
+33:                                               ; preds = %31
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 1, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit unwind label %45
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; preds = %38
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %40 = load i32, ptr %39, align 8, !tbaa !3
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; preds = %33
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  %35 = load i32, ptr %34, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 %40, ptr %4, align 4, !tbaa !144
-  %41 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIjTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %42 unwind label %50
+  store i32 %35, ptr %4, align 4, !tbaa !144
+  %36 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIjTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %37 unwind label %45
 
-42:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit
+37:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 2, ptr nonnull @.str.7)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit unwind label %50
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 2, ptr nonnull @.str.7)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit unwind label %45
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; preds = %42
-  %43 = load ptr, ptr %5, align 8, !tbaa !137
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 3416
-  %45 = load i8, ptr %44, align 8, !tbaa !145, !range !342, !noundef !343
-  %46 = trunc nuw i8 %45 to i1
-  %.str.8..str.9 = select i1 %46, ptr @.str.8, ptr @.str.9
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 3, ptr nonnull align 1 dereferenceable(4) %.str.8..str.9)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit unwind label %50
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; preds = %37
+  %38 = load ptr, ptr %5, align 8, !tbaa !137
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 3416
+  %40 = load i8, ptr %39, align 8, !tbaa !145, !range !342, !noundef !343
+  %41 = trunc nuw i8 %40 to i1
+  %.str.8..str.9 = select i1 %41, ptr @.str.8, ptr @.str.9
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 3, ptr nonnull align 1 dereferenceable(4) %.str.8..str.9)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit unwind label %45
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 12, ptr nonnull @.str.18)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit unwind label %50
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 12, ptr nonnull @.str.18)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit unwind label %45
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %47 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %47
+  %42 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %8, align 8, !tbaa !344
-  %48 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %49 unwind label %52
+  %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %44 unwind label %47
 
-49:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
+44:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %55
+  br label %50
 
-50:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit, %42, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %38, %36
-  %51 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit, %37, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit, %33, %31
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %49
 
-52:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
-  %53 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %54
+  br label %49
 
-54:                                               ; preds = %52, %50
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
+49:                                               ; preds = %47, %45
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 
 .critedge31:                                      ; preds = %3
-  store ptr null, ptr %1, align 8, !tbaa !345
-  br label %55
+  store ptr null, ptr %1, align 8, !tbaa !143
+  br label %50
 
-55:                                               ; preds = %.critedge31, %49, %30
+50:                                               ; preds = %.critedge31, %44, %.critedge
   ret i1 %13
 }
 
@@ -410,7 +388,7 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
   %12 = shl nuw nsw i8 1, %11
   %13 = and i8 %10, %12
   %14 = icmp ne i8 %13, 0
-  br i1 %14, label %.critedge.i, label %63
+  br i1 %14, label %.critedge.i, label %58
 
 .critedge.i:                                      ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -420,7 +398,7 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
   store i8 %16, ptr %9, align 1, !tbaa !136
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %18 = zext nneg i32 %2 to i64
-  %19 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !142
   %.not.i = icmp eq ptr %21, null
@@ -429,14 +407,14 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
 22:                                               ; preds = %.critedge.i
   %23 = load ptr, ptr %19, align 8, !tbaa !140
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %25 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %18
   store ptr %23, ptr %25, align 8, !tbaa !140
   br label %32
 
 26:                                               ; preds = %.critedge.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %28 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %27, i64 %18
-  %29 = load ptr, ptr %28, align 8, !tbaa !143
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %18
+  %29 = load ptr, ptr %28, align 8, !tbaa !345
   %.not46.not.i = icmp eq ptr %29, %1
   br i1 %.not46.not.i, label %.critedge50.i, label %30, !prof !346
 
@@ -448,108 +426,98 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
 
 .critedge50.i:                                    ; preds = %26
   %31 = load ptr, ptr %19, align 8, !tbaa !140
-  store ptr %31, ptr %28, align 8, !tbaa !143
+  store ptr %31, ptr %28, align 8, !tbaa !345
   br label %32
 
 32:                                               ; preds = %.critedge50.i, %22
   %33 = phi ptr [ %31, %.critedge50.i ], [ %23, %22 ]
   %.not47.i = icmp eq ptr %33, null
-  br i1 %.not47.i, label %37, label %34
-
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_link, ptr %33, i64 %18
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  store ptr %21, ptr %36, align 8, !tbaa !142
-  br label %40
-
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw %struct.grpc_chttp2_stream_list, ptr %0, i64 %18
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 512
-  store ptr %21, ptr %39, align 8, !tbaa !138
-  br label %40
-
-40:                                               ; preds = %37, %34
-  %41 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
-  %42 = trunc i8 %41 to i1
+  %..i = select i1 %.not47.i, ptr %0, ptr %33
+  %.64.i = select i1 %.not47.i, i64 512, i64 72
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %..i, i64 %18
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.64.i
+  store ptr %21, ptr %35, align 8, !tbaa !143
+  %36 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
+  %37 = trunc i8 %36 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %42, label %43, label %56, !prof !130
+  br i1 %37, label %38, label %51, !prof !130
 
-43:                                               ; preds = %40
+38:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 95) #21
-  %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %45 unwind label %58
+  %39 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIP21grpc_chttp2_transportTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %40 unwind label %53
 
-45:                                               ; preds = %43
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 1, ptr nonnull @.str.6)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i unwind label %58
+40:                                               ; preds = %38
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %39, i64 1, ptr nonnull @.str.6)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i unwind label %53
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i: ; preds = %45
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %47 = load i32, ptr %46, align 8, !tbaa !3
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i: ; preds = %40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %42 = load i32, ptr %41, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 %47, ptr %4, align 4, !tbaa !144
-  %48 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIjTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %49 unwind label %58
+  store i32 %42, ptr %4, align 4, !tbaa !144
+  %43 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIjTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %44 unwind label %53
 
-49:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i
+44:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 2, ptr nonnull @.str.7)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i unwind label %58
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 2, ptr nonnull @.str.7)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i unwind label %53
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; preds = %49
-  %50 = load ptr, ptr %5, align 8, !tbaa !137
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 3416
-  %52 = load i8, ptr %51, align 8, !tbaa !145, !range !342, !noundef !343
-  %53 = trunc nuw i8 %52 to i1
-  %.str.8..str.9.i = select i1 %53, ptr @.str.8, ptr @.str.9
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 3, ptr nonnull align 1 dereferenceable(4) %.str.8..str.9.i)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i unwind label %58
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; preds = %44
+  %45 = load ptr, ptr %5, align 8, !tbaa !137
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 3416
+  %47 = load i8, ptr %46, align 8, !tbaa !145, !range !342, !noundef !343
+  %48 = trunc nuw i8 %47 to i1
+  %.str.8..str.9.i = select i1 %48, ptr @.str.8, ptr @.str.9
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 3, ptr nonnull align 1 dereferenceable(4) %.str.8..str.9.i)
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i unwind label %53
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i: ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i
-  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 15, ptr nonnull @.str.20)
-          to label %switch.lookup unwind label %58
+  invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 15, ptr nonnull @.str.20)
+          to label %switch.lookup unwind label %53
 
 switch.lookup:                                    ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i
-  %54 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %54
+  %49 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL24stream_list_maybe_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id, i64 %49
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %8, align 8, !tbaa !344
-  %55 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %57 unwind label %60
+  %50 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %52 unwind label %55
 
-56:                                               ; preds = %40
+51:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL18stream_list_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-57:                                               ; preds = %switch.lookup
+52:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL18stream_list_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
 
-58:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i, %49, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i, %45, %43
-  %59 = landingpad { ptr, i32 }
+53:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi4EEERS2_RAT__Kc.exit.i, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i, %44, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit.i, %40, %38
+  %54 = landingpad { ptr, i32 }
           cleanup
-  br label %62
+  br label %57
 
-60:                                               ; preds = %switch.lookup
-  %61 = landingpad { ptr, i32 }
+55:                                               ; preds = %switch.lookup
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %62
+  br label %57
 
-62:                                               ; preds = %60, %58
-  %.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
+57:                                               ; preds = %55, %53
+  %.pn.i = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.i
 
-_ZL18stream_list_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %56, %57
+_ZL18stream_list_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit: ; preds = %51, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %63
+  br label %58
 
-63:                                               ; preds = %3, %_ZL18stream_list_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
+58:                                               ; preds = %3, %_ZL18stream_list_removeP21grpc_chttp2_transportP18grpc_chttp2_stream26grpc_chttp2_stream_list_id.exit
   ret i1 %14
 }
 
@@ -562,7 +530,7 @@ define noundef zeroext i1 @_Z35grpc_chttp2_list_add_writing_streamP21grpc_chttp2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z37grpc_chttp2_list_have_writing_streamsP21grpc_chttp2_transport(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 520
-  %.val = load ptr, ptr %2, align 8, !tbaa !143
+  %.val = load ptr, ptr %2, align 8, !tbaa !345
   %3 = icmp ne ptr %.val, null
   ret i1 %3
 }
@@ -732,7 +700,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !353
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !351
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !354
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1073,7 +1041,7 @@ attributes #27 = { builtin nounwind }
 !140 = !{!141, !122, i64 0}
 !141 = !{!"_ZTS23grpc_chttp2_stream_link", !122, i64 0, !122, i64 8}
 !142 = !{!141, !122, i64 8}
-!143 = !{!139, !122, i64 0}
+!143 = !{!122, !122, i64 0}
 !144 = !{!14, !14, i64 0}
 !145 = !{!146, !25, i64 3416}
 !146 = !{!"_ZTS21grpc_chttp2_transport", !147, i64 0, !154, i64 16, !155, i64 24, !162, i64 32, !163, i64 40, !167, i64 72, !168, i64 80, !173, i64 96, !174, i64 120, !182, i64 160, !185, i64 176, !186, i64 184, !189, i64 472, !13, i64 480, !13, i64 488, !27, i64 496, !8, i64 504, !190, i64 584, !17, i64 616, !12, i64 624, !12, i64 656, !12, i64 688, !109, i64 720, !197, i64 952, !7, i64 960, !7, i64 968, !7, i64 976, !199, i64 984, !206, i64 1040, !207, i64 1272, !109, i64 1616, !17, i64 1848, !27, i64 1856, !272, i64 1864, !273, i64 1868, !276, i64 1984, !14, i64 2000, !14, i64 2004, !14, i64 2008, !277, i64 2016, !279, i64 2040, !280, i64 2064, !276, i64 2160, !12, i64 2176, !17, i64 2208, !17, i64 2216, !291, i64 2224, !292, i64 2232, !8, i64 2448, !322, i64 2504, !324, i64 2536, !325, i64 2768, !17, i64 2912, !331, i64 2920, !8, i64 2924, !8, i64 2925, !8, i64 2926, !25, i64 2927, !14, i64 2928, !14, i64 2932, !14, i64 2936, !14, i64 2940, !25, i64 2944, !122, i64 2952, !332, i64 2960, !118, i64 2984, !12, i64 2992, !12, i64 3024, !12, i64 3056, !27, i64 3088, !333, i64 3096, !12, i64 3112, !12, i64 3144, !276, i64 3176, !12, i64 3192, !12, i64 3224, !276, i64 3256, !278, i64 3272, !111, i64 3280, !278, i64 3288, !334, i64 3296, !336, i64 3304, !14, i64 3308, !337, i64 3312, !338, i64 3320, !14, i64 3328, !14, i64 3332, !14, i64 3336, !278, i64 3344, !276, i64 3352, !278, i64 3368, !14, i64 3376, !340, i64 3380, !341, i64 3384, !25, i64 3408, !25, i64 3409, !8, i64 3410, !25, i64 3411, !25, i64 3412, !25, i64 3413, !25, i64 3414, !8, i64 3415, !25, i64 3416, !25, i64 3417, !25, i64 3418, !25, i64 3419, !25, i64 3420, !25, i64 3421, !8, i64 3422, !111, i64 3424}
@@ -1275,7 +1243,7 @@ attributes #27 = { builtin nounwind }
 !342 = !{i8 0, i8 2}
 !343 = !{}
 !344 = !{!134, !134, i64 0}
-!345 = !{!122, !122, i64 0}
+!345 = !{!139, !122, i64 0}
 !346 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !347 = !{!348, !348, i64 0}
 !348 = !{!"vtable pointer", !9, i64 0}

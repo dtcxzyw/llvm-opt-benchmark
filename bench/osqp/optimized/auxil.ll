@@ -1183,7 +1183,7 @@ define void @reset_info(ptr noundef initializes((32, 40), (120, 128), (136, 144)
 define void @update_status(ptr noundef initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8, !tbaa !80
-  %4 = getelementptr inbounds ptr, ptr @OSQP_STATUS_MESSAGE, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr @OSQP_STATUS_MESSAGE, i64 %1
   %5 = load ptr, ptr %4, align 8, !tbaa !100
   tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #10
   ret void
@@ -1636,7 +1636,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
   %43 = phi i64 [ %.pre, %.lr.ph72 ], [ %46, %.loopexit64 ]
   %.04371 = phi i64 [ 0, %.lr.ph72 ], [ %44, %.loopexit64 ]
   %44 = add nuw nsw i64 %.04371, 1
-  %45 = getelementptr inbounds nuw i64, ptr %37, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !116
   %47 = icmp slt i64 %43, %46
   br i1 %47, label %.lr.ph, label %.loopexit64
@@ -1652,7 +1652,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
 
 51:                                               ; preds = %.lr.ph, %49
   %.070 = phi i64 [ %43, %.lr.ph ], [ %50, %49 ]
-  %52 = getelementptr inbounds i64, ptr %48, i64 %.070
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %.070
   %53 = load i64, ptr %52, align 8, !tbaa !116
   %54 = icmp sgt i64 %53, %.04371
   br i1 %54, label %55, label %49
@@ -1686,16 +1686,16 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
 
 .lr.ph75:                                         ; preds = %.preheader, %81
   %.174 = phi i64 [ %82, %81 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds nuw double, ptr %3, i64 %.174
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.174
   %69 = load double, ptr %68, align 8, !tbaa !60
-  %70 = getelementptr inbounds nuw double, ptr %4, i64 %.174
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.174
   %71 = load double, ptr %70, align 8, !tbaa !60
   %72 = fcmp ogt double %69, %71
   br i1 %72, label %73, label %81
 
 73:                                               ; preds = %.lr.ph75
-  %74 = getelementptr inbounds nuw double, ptr %3, i64 %.174
-  %75 = getelementptr inbounds nuw double, ptr %4, i64 %.174
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.174
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.174
   %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @__func__.validate_data)
   %77 = trunc i64 %.174 to i32
   %78 = load double, ptr %74, align 8, !tbaa !60

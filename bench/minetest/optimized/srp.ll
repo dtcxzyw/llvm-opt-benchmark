@@ -190,7 +190,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %idxprom = zext i32 %ng_type to i64
-  %arrayidx = getelementptr inbounds nuw %struct.NGHex, ptr @_ZL19global_Ng_constants, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @_ZL19global_Ng_constants, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 16, !tbaa !13
   %g_hex6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %g_hex6, align 8, !tbaa !15

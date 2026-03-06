@@ -575,7 +575,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %60 = sext i32 %1 to i64
   %61 = load ptr, ptr %36, align 8, !tbaa !49
-  %62 = getelementptr inbounds nuw %"class.cv::Mat", ptr %61, i64 %60
+  %62 = getelementptr inbounds nuw [96 x i8], ptr %61, i64 %60
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -952,12 +952,12 @@ _ZN2cv4Mat_IfE6createENS_5Size_IiEE.exit140.preheader: ; preds = %144
   %247 = fmul float %245, %160
   %248 = call float @llvm.fmuladd.f32(float %166, float %225, float %247)
   %249 = fdiv float %248, %167
-  %250 = getelementptr inbounds nuw float, ptr %201, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %indvars.iv
   store float %249, ptr %250, align 4, !tbaa !78
   %251 = fmul float %246, %160
   %252 = call float @llvm.fmuladd.f32(float %166, float %226, float %251)
   %253 = fdiv float %252, %167
-  %254 = getelementptr inbounds nuw float, ptr %203, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv
   store float %253, ptr %254, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

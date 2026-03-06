@@ -119,7 +119,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !6
   store ptr %24, ptr %8, align 8, !tbaa !11
   %32 = icmp eq ptr %31, null

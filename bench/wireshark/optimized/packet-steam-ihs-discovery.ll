@@ -395,7 +395,7 @@ protobuf_verify_wiretype.exit.thread.i:           ; preds = %64
 
 71:                                               ; preds = %66
   %72 = and i64 %.1.i.i.i, 7
-  %73 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %72
+  %73 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %72
   %74 = load ptr, ptr %73, align 8
   br label %protobuf_verify_wiretype.exit.i
 
@@ -461,7 +461,7 @@ protobuf_verify_wiretype.exit27.thread.i:         ; preds = %91
 
 98:                                               ; preds = %93
   %99 = and i64 %.1.i.i.i, 7
-  %100 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %99
+  %100 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %99
   %101 = load ptr, ptr %100, align 8
   br label %protobuf_verify_wiretype.exit27.i
 
@@ -527,7 +527,7 @@ protobuf_verify_wiretype.exit34.thread.i:         ; preds = %118
 
 125:                                              ; preds = %120
   %126 = and i64 %.1.i.i.i, 7
-  %127 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %126
+  %127 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %126
   %128 = load ptr, ptr %127, align 8
   br label %protobuf_verify_wiretype.exit34.i
 
@@ -597,7 +597,7 @@ steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.
 
 151:                                              ; preds = %steamdiscover_dissect_header.exit
   %152 = load ptr, ptr %27, align 8
-  %153 = getelementptr %struct._val64_string, ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 %.0.lcssa.i
+  %153 = getelementptr [16 x i8], ptr @hf_steam_ihs_discovery_header_msgtype_strings, i64 %.0.lcssa.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   call void @col_set_str(ptr noundef %152, i32 noundef 25, ptr noundef %155)
@@ -815,7 +815,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %38
 
 45:                                               ; preds = %40
   %46 = and i64 %.1.i.i, 7
-  %47 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %46
+  %47 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %46
   %48 = load ptr, ptr %47, align 8
   br label %protobuf_verify_wiretype.exit
 
@@ -885,7 +885,7 @@ protobuf_verify_wiretype.exit22.thread:           ; preds = %68
 
 75:                                               ; preds = %70
   %76 = and i64 %.1.i.i, 7
-  %77 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %76
+  %77 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %76
   %78 = load ptr, ptr %77, align 8
   br label %protobuf_verify_wiretype.exit22
 
@@ -1079,7 +1079,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %55
 
 62:                                               ; preds = %57
   %63 = and i64 %.1.i.i, 7
-  %64 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %63
+  %64 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %63
   %65 = load ptr, ptr %64, align 8
   br label %protobuf_verify_wiretype.exit
 
@@ -1147,7 +1147,7 @@ protobuf_verify_wiretype.exit103.thread:          ; preds = %84
 
 91:                                               ; preds = %86
   %92 = and i64 %.1.i.i, 7
-  %93 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %92
+  %93 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %92
   %94 = load ptr, ptr %93, align 8
   br label %protobuf_verify_wiretype.exit103
 
@@ -1215,7 +1215,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %113
 
 120:                                              ; preds = %115
   %121 = and i64 %.1.i.i, 7
-  %122 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %121
+  %122 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %121
   %123 = load ptr, ptr %122, align 8
   br label %protobuf_verify_wiretype.exit110
 
@@ -1344,7 +1344,7 @@ protobuf_verify_wiretype.exit120.thread:          ; preds = %167
 
 174:                                              ; preds = %169
   %175 = and i64 %.1.i.i, 7
-  %176 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %175
+  %176 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %175
   %177 = load ptr, ptr %176, align 8
   br label %protobuf_verify_wiretype.exit120
 
@@ -1412,7 +1412,7 @@ protobuf_verify_wiretype.exit127.thread:          ; preds = %196
 
 203:                                              ; preds = %198
   %204 = and i64 %.1.i.i, 7
-  %205 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %204
+  %205 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %204
   %206 = load ptr, ptr %205, align 8
   br label %protobuf_verify_wiretype.exit127
 
@@ -1480,7 +1480,7 @@ protobuf_verify_wiretype.exit134.thread:          ; preds = %225
 
 232:                                              ; preds = %227
   %233 = and i64 %.1.i.i, 7
-  %234 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %233
+  %234 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %233
   %235 = load ptr, ptr %234, align 8
   br label %protobuf_verify_wiretype.exit134
 
@@ -1649,7 +1649,7 @@ protobuf_verify_wiretype.exit156.thread:          ; preds = %294
 
 301:                                              ; preds = %296
   %302 = and i64 %.1.i.i150, 7
-  %303 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %302
+  %303 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %302
   %304 = load ptr, ptr %303, align 8
   br label %protobuf_verify_wiretype.exit156
 
@@ -1687,7 +1687,7 @@ protobuf_verify_wiretype.exit160.thread:          ; preds = %311
 
 318:                                              ; preds = %313
   %319 = and i64 %.1.i.i150, 7
-  %320 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %319
+  %320 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %319
   %321 = load ptr, ptr %320, align 8
   br label %protobuf_verify_wiretype.exit160
 
@@ -1770,7 +1770,7 @@ protobuf_verify_wiretype.exit167.thread:          ; preds = %347
 
 354:                                              ; preds = %349
   %355 = and i64 %.1.i.i, 7
-  %356 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %355
+  %356 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %355
   %357 = load ptr, ptr %356, align 8
   br label %protobuf_verify_wiretype.exit167
 
@@ -1838,7 +1838,7 @@ protobuf_verify_wiretype.exit174.thread:          ; preds = %376
 
 383:                                              ; preds = %378
   %384 = and i64 %.1.i.i, 7
-  %385 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %384
+  %385 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %384
   %386 = load ptr, ptr %385, align 8
   br label %protobuf_verify_wiretype.exit174
 
@@ -1907,7 +1907,7 @@ protobuf_verify_wiretype.exit181.thread:          ; preds = %404
 
 411:                                              ; preds = %406
   %412 = and i64 %.1.i.i, 7
-  %413 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %412
+  %413 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %412
   %414 = load ptr, ptr %413, align 8
   br label %protobuf_verify_wiretype.exit181
 
@@ -1976,7 +1976,7 @@ protobuf_verify_wiretype.exit188.thread:          ; preds = %433
 
 440:                                              ; preds = %435
   %441 = and i64 %.1.i.i, 7
-  %442 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %441
+  %442 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %441
   %443 = load ptr, ptr %442, align 8
   br label %protobuf_verify_wiretype.exit188
 
@@ -2427,7 +2427,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
 
 44:                                               ; preds = %39
   %45 = and i64 %.1.i.i, 7
-  %46 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %45
+  %46 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %45
   %47 = load ptr, ptr %46, align 8
   br label %protobuf_verify_wiretype.exit
 
@@ -2605,7 +2605,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %44
 
 51:                                               ; preds = %46
   %52 = and i64 %.1.i.i, 7
-  %53 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %52
+  %53 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %52
   %54 = load ptr, ptr %53, align 8
   br label %protobuf_verify_wiretype.exit
 
@@ -2675,7 +2675,7 @@ protobuf_verify_wiretype.exit73.thread:           ; preds = %74
 
 81:                                               ; preds = %76
   %82 = and i64 %.1.i.i, 7
-  %83 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %82
+  %83 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %82
   %84 = load ptr, ptr %83, align 8
   br label %protobuf_verify_wiretype.exit73
 
@@ -2743,7 +2743,7 @@ protobuf_verify_wiretype.exit80.thread:           ; preds = %103
 
 110:                                              ; preds = %105
   %111 = and i64 %.1.i.i, 7
-  %112 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %111
+  %112 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %111
   %113 = load ptr, ptr %112, align 8
   br label %protobuf_verify_wiretype.exit80
 
@@ -2811,7 +2811,7 @@ protobuf_verify_wiretype.exit87.thread:           ; preds = %132
 
 139:                                              ; preds = %134
   %140 = and i64 %.1.i.i, 7
-  %141 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %140
+  %141 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %140
   %142 = load ptr, ptr %141, align 8
   br label %protobuf_verify_wiretype.exit87
 
@@ -2924,7 +2924,7 @@ protobuf_verify_wiretype.exit97.thread:           ; preds = %180
 
 187:                                              ; preds = %182
   %188 = and i64 %.1.i.i, 7
-  %189 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %188
+  %189 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %188
   %190 = load ptr, ptr %189, align 8
   br label %protobuf_verify_wiretype.exit97
 
@@ -3083,7 +3083,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %247
 
 254:                                              ; preds = %249
   %255 = and i64 %.1.i.i, 7
-  %256 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %255
+  %256 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %255
   %257 = load ptr, ptr %256, align 8
   br label %protobuf_verify_wiretype.exit110
 
@@ -3152,7 +3152,7 @@ protobuf_verify_wiretype.exit117.thread:          ; preds = %276
 
 283:                                              ; preds = %278
   %284 = and i64 %.1.i.i, 7
-  %285 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %284
+  %285 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %284
   %286 = load ptr, ptr %285, align 8
   br label %protobuf_verify_wiretype.exit117
 
@@ -3221,7 +3221,7 @@ protobuf_verify_wiretype.exit124.thread:          ; preds = %305
 
 312:                                              ; preds = %307
   %313 = and i64 %.1.i.i, 7
-  %314 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %313
+  %314 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %313
   %315 = load ptr, ptr %314, align 8
   br label %protobuf_verify_wiretype.exit124
 
@@ -3380,7 +3380,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
 
 44:                                               ; preds = %39
   %45 = and i64 %.1.i.i, 7
-  %46 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %45
+  %46 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %45
   %47 = load ptr, ptr %46, align 8
   br label %protobuf_verify_wiretype.exit
 
@@ -3548,7 +3548,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %40
 
 47:                                               ; preds = %42
   %48 = and i64 %.1.i.i, 7
-  %49 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %48
+  %49 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %48
   %50 = load ptr, ptr %49, align 8
   br label %protobuf_verify_wiretype.exit
 
@@ -3618,7 +3618,7 @@ protobuf_verify_wiretype.exit43.thread:           ; preds = %70
 
 77:                                               ; preds = %72
   %78 = and i64 %.1.i.i, 7
-  %79 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %78
+  %79 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %78
   %80 = load ptr, ptr %79, align 8
   br label %protobuf_verify_wiretype.exit43
 
@@ -3688,7 +3688,7 @@ protobuf_verify_wiretype.exit50.thread:           ; preds = %100
 
 107:                                              ; preds = %102
   %108 = and i64 %.1.i.i, 7
-  %109 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %108
+  %109 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %108
   %110 = load ptr, ptr %109, align 8
   br label %protobuf_verify_wiretype.exit50
 
@@ -3803,7 +3803,7 @@ protobuf_verify_wiretype.exit60.thread:           ; preds = %149
 
 156:                                              ; preds = %151
   %157 = and i64 %.1.i.i, 7
-  %158 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %157
+  %158 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %157
   %159 = load ptr, ptr %158, align 8
   br label %protobuf_verify_wiretype.exit60
 
@@ -4311,7 +4311,7 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   %61 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6)
   %62 = load ptr, ptr %6, align 8
   %63 = zext nneg i8 %4 to i64
-  %64 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %63
+  %64 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i64, ptr %66, align 8
@@ -4322,7 +4322,7 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
 
 71:                                               ; preds = %59
   %72 = zext nneg i8 %68 to i64
-  %73 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %72
+  %73 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %72
   %74 = load ptr, ptr %73, align 8
   br label %protobuf_get_wiretype_name.exit
 
@@ -4399,7 +4399,7 @@ get_varint64.exit:                                ; preds = %14, %get_varint64.e
 
 33:                                               ; preds = %get_varint64.exit
   %34 = zext nneg i8 %30 to i64
-  %35 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %34
+  %35 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %34
   %36 = load ptr, ptr %35, align 8
   br label %protobuf_get_wiretype_name.exit
 
@@ -4422,7 +4422,7 @@ protobuf_get_wiretype_name.exit:                  ; preds = %get_varint64.exit, 
 
 48:                                               ; preds = %38
   %49 = zext nneg i8 %45 to i64
-  %50 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %49
+  %50 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %49
   %51 = load ptr, ptr %50, align 8
   br label %protobuf_get_wiretype_name.exit61
 
@@ -4514,7 +4514,7 @@ get_varint64.exit64:                              ; preds = %59, %get_varint64.e
 
 103:                                              ; preds = %93
   %104 = zext nneg i8 %100 to i64
-  %105 = getelementptr ptr, ptr @protobuf_wiretype_names, i64 %104
+  %105 = getelementptr [8 x i8], ptr @protobuf_wiretype_names, i64 %104
   %106 = load ptr, ptr %105, align 8
   br label %protobuf_get_wiretype_name.exit66
 

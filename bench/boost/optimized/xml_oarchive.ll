@@ -1520,7 +1520,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = tail call i64 @wcslen(ptr noundef %1) #20
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %5
   tail call void @_ZN5boost7archive13save_iteratorIPKwEEvRSoT_S5_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1, ptr noundef %6)
   ret void
 }
@@ -1626,7 +1626,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   %5 = load ptr, ptr %1, align 8, !tbaa !131
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !134
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   tail call void @_ZN5boost7archive13save_iteratorIPKwEEvRSoT_S5_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef %8)
   ret void
 }

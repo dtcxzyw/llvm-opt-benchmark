@@ -11395,7 +11395,7 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
 
 switch.lookup:                                    ; preds = %.thread
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread.thread
 
@@ -13970,7 +13970,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_rep__(ptr noundef %0,
 
 switch.lookup:                                    ; preds = %13
   %23 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.samr_dissect_element_ValidatePassword_rep__, i64 %23
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.samr_dissect_element_ValidatePassword_rep__, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %24 = load i32, ptr %switch.load, align 4
   %25 = call i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 poison)

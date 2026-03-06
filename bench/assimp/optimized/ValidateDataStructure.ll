@@ -23,13 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
 %"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
 %"class.std::allocator" = type { i8 }
-%struct.aiFace = type { i32, ptr }
-%struct.aiVertexWeight = type { i32, float }
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
-%class.aiVector3t = type { float, float, float }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
-%class.aiQuaterniont = type { float, float, float, float }
-%struct.aiMeshMorphKey = type <{ double, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN17DeadlyImportErrorC2IJRA20_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_ = comdat any
 
@@ -624,7 +617,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess7ExecuteEP7aiScene(ptr noundef 
 
 .preheader.i:                                     ; preds = %17, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %17 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %.not19.i = icmp eq ptr %14, null
   br i1 %.not19.i, label %15, label %17
@@ -683,7 +676,7 @@ _ZN6Assimp17ValidateDSProcess12DoValidationI6aiMeshEEvPPT_jPKcS7_.exit: ; preds 
 
 .preheader.i47:                                   ; preds = %37, %.preheader.preheader.i45
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.preheader.i45 ], [ %indvars.iv.next.i50, %37 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i48
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i48
   %34 = load ptr, ptr %33, align 8
   %.not19.i49 = icmp eq ptr %34, null
   br i1 %.not19.i49, label %35, label %37
@@ -768,7 +761,7 @@ _ZN6Assimp17ValidateDSProcess12DoValidationI11aiAnimationEEvPPT_jPKcS7_.exit: ; 
 
 .preheader.i55:                                   ; preds = %66, %.preheader.preheader.i53
   %indvars.iv.i56 = phi i64 [ 0, %.preheader.preheader.i53 ], [ %indvars.iv.next.i58, %66 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i56
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv.i56
   %63 = load ptr, ptr %62, align 8
   %.not19.i57 = icmp eq ptr %63, null
   br i1 %.not19.i57, label %64, label %66
@@ -813,7 +806,7 @@ _ZN6Assimp17ValidateDSProcess12DoValidationI9aiTextureEEvPPT_jPKcS7_.exit: ; pre
 
 .preheader.i63:                                   ; preds = %79, %.preheader.preheader.i61
   %indvars.iv.i64 = phi i64 [ 0, %.preheader.preheader.i61 ], [ %indvars.iv.next.i66, %79 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i64
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i64
   %76 = load ptr, ptr %75, align 8
   %.not19.i65 = icmp eq ptr %76, null
   br i1 %.not19.i65, label %77, label %79
@@ -967,7 +960,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit._crit_edge:   ; preds = %_ZNSt6vectorIbSaIbE
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds i64, ptr %44, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %44, i64 %49
   call void @_ZdlPvm(ptr noundef %50, i64 noundef %47) #24
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -983,7 +976,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIbSaIbE
 .lr.ph:                                           ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader ]
   %53 = load ptr, ptr %30, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = load ptr, ptr %18, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -1004,7 +997,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt6vectorIbSaIbE
   %64 = load ptr, ptr %3, align 8
   %65 = lshr i32 %55, 6
   %.zext = zext nneg i32 %65 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %64, i64 %.zext
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.zext
   %67 = and i32 %55, 63
   %68 = zext nneg i32 %67 to i64
   %69 = shl nuw i64 1, %68
@@ -1049,7 +1042,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %63
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 3
   %89 = sub nsw i64 0, %88
-  %90 = getelementptr inbounds i64, ptr %84, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %84, i64 %89
   call void @_ZdlPvm(ptr noundef %90, i64 noundef %87) #24
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit80
 
@@ -1076,7 +1069,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit80:           ; preds = %81, %83
 .lr.ph94:                                         ; preds = %96, %107
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %107 ], [ 0, %96 ]
   %98 = load ptr, ptr %94, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv110
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv110
   %100 = load ptr, ptr %99, align 8
   call void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiNode(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %100)
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1096
@@ -1131,7 +1124,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWith
 
 11:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1143,7 +1136,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWith
   ]
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -1187,7 +1180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   br label %53
 
 35:                                               ; preds = %11
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -1260,7 +1253,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWith
 
 11:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1272,7 +1265,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess25DoValidationWith
   ]
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -1316,7 +1309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   br label %53
 
 35:                                               ; preds = %11
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -1586,7 +1579,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.preheader: ; preds = %._
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us
   %indvars.iv320 = phi i64 [ %indvars.iv.next321, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit.us ], [ 0, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %struct.aiFace, ptr %25, i64 %indvars.iv320
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv320
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not172.us = icmp eq ptr %37, null
@@ -1625,7 +1618,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit._crit_edge: ; preds = %_
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit ], [ 0, %.lr.ph ]
-  %45 = getelementptr inbounds nuw %struct.aiFace, ptr %25, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %58 [
     i32 0, label %47
@@ -1787,7 +1780,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader:    ; preds = %91
   %.0128257 = phi i32 [ %114, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader ]
   %103 = load ptr, ptr %86, align 8
   %104 = zext i32 %.0128257 to i64
-  %105 = getelementptr inbounds nuw %struct.aiFace, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %105, align 8
   %107 = icmp ugt i32 %106, 32767
   br i1 %107, label %109, label %.preheader219
@@ -1825,7 +1818,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIbSaIbE
 116:                                              ; preds = %.lr.ph256, %126
   %indvars.iv325 = phi i64 [ 0, %.lr.ph256 ], [ %indvars.iv.next326, %126 ]
   %117 = load ptr, ptr %108, align 8
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv325
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv325
   %119 = load i32, ptr %118, align 4
   %120 = load i32, ptr %43, align 4
   %.not165 = icmp ult i32 %119, %120
@@ -1848,7 +1841,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIbSaIbE
   %127 = load ptr, ptr %3, align 8
   %128 = lshr i32 %119, 6
   %.zext = zext nneg i32 %128 to i64
-  %129 = getelementptr inbounds nuw i64, ptr %127, i64 %.zext
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %.zext
   %130 = and i32 %119, 63
   %131 = zext nneg i32 %130 to i64
   %132 = shl nuw i64 1, %131
@@ -1871,7 +1864,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIbSaIbE
   %.0123259 = phi i1 [ %spec.select, %.lr.ph261 ], [ false, %.preheader218 ]
   %138 = lshr i32 %.0122260, 6
   %.zext214 = zext nneg i32 %138 to i64
-  %139 = getelementptr inbounds nuw i64, ptr %99, i64 %.zext214
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.zext214
   %140 = and i32 %.0122260, 63
   %141 = zext nneg i32 %140 to i64
   %142 = shl nuw i64 1, %141
@@ -1910,7 +1903,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIbSaIbE
 
 _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %149, %156
   %indvars.iv329 = phi i64 [ %indvars.iv.next330, %156 ], [ 0, %149 ]
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv329
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv329
   %153 = load ptr, ptr %152, align 8
   %.not.i.not = icmp eq ptr %153, null
   br i1 %.not.i.not, label %.split267.us, label %156
@@ -1931,7 +1924,7 @@ _ZNK6aiMesh15HasVertexColorsEj.exit:              ; preds = %149, %156
 
 _ZNK6aiMesh15HasVertexColorsEj.exit179:           ; preds = %.split267.us, %163
   %indvars.iv333 = phi i64 [ %indvars.iv.next334, %163 ], [ %indvars.iv329, %.split267.us ]
-  %158 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv333
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv333
   %159 = load ptr, ptr %158, align 8
   %.not.i177.not = icmp eq ptr %159, null
   br i1 %.not.i177.not, label %163, label %160
@@ -2000,7 +1993,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.preheader293: 
 .loopexit:                                        ; preds = %_ZNK8aiStringeqERKS_.exit.thread
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340452, 1
   %182 = load ptr, ptr %166, align 8
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv.next347
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv.next347
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 1028
   %186 = load i32, ptr %185, align 4
@@ -2051,7 +2044,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.preheader293: 
 
 .lr.ph276:                                        ; preds = %192
   %196 = load ptr, ptr %166, align 8
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv346451
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv346451
   %198 = load ptr, ptr %197, align 8
   %199 = load i32, ptr %198, align 4
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 4
@@ -2060,7 +2053,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EE5resetIPfvEEvT_.exit.preheader293: 
 
 202:                                              ; preds = %.lr.ph276, %_ZNK8aiStringeqERKS_.exit.thread
   %indvars.iv342 = phi i64 [ %indvars.iv340452, %.lr.ph276 ], [ %indvars.iv.next343, %_ZNK8aiStringeqERKS_.exit.thread ]
-  %203 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv342
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv342
   %204 = load ptr, ptr %203, align 8
   %205 = load i32, ptr %204, align 4
   %206 = icmp eq i32 %199, %205
@@ -2103,7 +2096,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 .lr.ph281:                                        ; preds = %.preheader, %226
   %215 = phi i32 [ %227, %226 ], [ %.pre353, %.preheader ]
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %226 ], [ 0, %.preheader ]
-  %216 = getelementptr inbounds nuw float, ptr %.sroa.0.0, i64 %indvars.iv349
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %indvars.iv349
   %217 = load float, ptr %216, align 4
   %218 = fcmp une float %217, 0.000000e+00
   br i1 %218, label %219, label %226
@@ -2168,7 +2161,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   %239 = sub i64 %237, %238
   %240 = ashr exact i64 %239, 3
   %241 = sub nsw i64 0, %240
-  %242 = getelementptr inbounds i64, ptr %236, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %236, i64 %241
   call void @_ZdlPvm(ptr noundef %242, i64 noundef %239) #24
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -2189,7 +2182,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit184: ; preds = %_ZNKSt14de
   %248 = sub i64 %246, %247
   %249 = ashr exact i64 %248, 3
   %250 = sub nsw i64 0, %249
-  %251 = getelementptr inbounds i64, ptr %245, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %245, i64 %250
   call void @_ZdlPvm(ptr noundef %251, i64 noundef %248) #24
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit190
 
@@ -2320,7 +2313,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 23:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %22, align 4
   %.not22 = icmp ult i32 %26, %27
@@ -2344,7 +2337,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   %37 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN6Assimp17ValidateDSProcess13ReportWarningEPKcz(ptr nonnull align 8 poison, ptr noundef nonnull @.str.54, i32 noundef %37, double noundef %36)
   %.pre28 = load ptr, ptr %21, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %.pre28, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre28, i64 %indvars.iv
   %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.pre30 = load float, ptr %.phi.trans.insert29, align 4
   %.pre31 = load i32, ptr %.phi.trans.insert, align 4
@@ -2354,7 +2347,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   %39 = phi i32 [ %26, %30 ], [ %.pre31, %35 ]
   %40 = phi float [ %32, %30 ], [ %.pre30, %35 ]
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw float, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %41
   %43 = load float, ptr %42, align 4
   %44 = fadd float %40, %43
   store float %44, ptr %42, align 4
@@ -2477,7 +2470,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 
 .lr.ph:                                           ; preds = %.lr.ph81
   %40 = load ptr, ptr %26, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next
   %42 = load ptr, ptr %41, align 8
   %.not42 = icmp eq ptr %42, null
   br i1 %.not42, label %.lr.ph._crit_edge, label %.lr.ph81, !llvm.loop !23
@@ -2507,7 +2500,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 
 .lr.ph51:                                         ; preds = %.lr.ph85
   %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.next61
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.next61
   %51 = load ptr, ptr %50, align 8
   %.not41 = icmp eq ptr %51, null
   br i1 %.not41, label %.lr.ph51._crit_edge, label %.lr.ph85, !llvm.loop !24
@@ -2629,7 +2622,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %32, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %37 = load double, ptr %36, align 8
   %38 = fadd double %33, 1.000000e-03
   %39 = fcmp ogt double %37, %38
@@ -2649,7 +2642,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %.not112, label %58, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %49 = load double, ptr %48, align 8
   %50 = fcmp ugt double %49, %.086127
   br i1 %50, label %58, label %51
@@ -2669,7 +2662,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 58:                                               ; preds = %51, %47, %46
   %59 = phi i32 [ %.pre158, %51 ], [ %31, %47 ], [ %31, %46 ]
   %60 = phi ptr [ %.pre, %51 ], [ %32, %47 ], [ %32, %46 ]
-  %61 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %indvars.iv
   %62 = load double, ptr %61, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = zext i32 %59 to i64
@@ -2706,7 +2699,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %76, label %77, label %88
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %74, i64 %indvars.iv152
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %indvars.iv152
   %79 = load double, ptr %78, align 8
   %80 = fadd double %75, 1.000000e-03
   %81 = fcmp ogt double %79, %80
@@ -2726,7 +2719,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %.not111, label %100, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %74, i64 %indvars.iv152
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %indvars.iv152
   %91 = load double, ptr %90, align 8
   %92 = fcmp ugt double %91, %.084129
   br i1 %92, label %100, label %93
@@ -2746,7 +2739,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 100:                                              ; preds = %93, %89, %88
   %101 = phi i32 [ %.pre160, %93 ], [ %73, %89 ], [ %73, %88 ]
   %102 = phi ptr [ %.pre159, %93 ], [ %74, %89 ], [ %74, %88 ]
-  %103 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %102, i64 %indvars.iv152
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %indvars.iv152
   %104 = load double, ptr %103, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %105 = zext i32 %101 to i64
@@ -2784,7 +2777,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %119, label %120, label %131
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %117, i64 %indvars.iv155
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %indvars.iv155
   %122 = load double, ptr %121, align 8
   %123 = fadd double %118, 1.000000e-03
   %124 = fcmp ogt double %122, %123
@@ -2804,7 +2797,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %.not110, label %143, label %132
 
 132:                                              ; preds = %131
-  %133 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %117, i64 %indvars.iv155
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %indvars.iv155
   %134 = load double, ptr %133, align 8
   %135 = fcmp ugt double %134, %.082132
   br i1 %135, label %143, label %136
@@ -2824,7 +2817,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 143:                                              ; preds = %136, %132, %131
   %144 = phi i32 [ %.pre162, %136 ], [ %116, %132 ], [ %116, %131 ]
   %145 = phi ptr [ %.pre161, %136 ], [ %117, %132 ], [ %117, %131 ]
-  %146 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %145, i64 %indvars.iv155
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %indvars.iv155
   %147 = load double, ptr %146, align 8
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %148 = zext i32 %144 to i64
@@ -2937,7 +2930,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw %struct.aiMeshMorphKey, ptr %26, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
   %32 = fadd double %27, 1.000000e-03
   %33 = fcmp ogt double %31, %32
@@ -2957,7 +2950,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
   br i1 %.not33, label %52, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw %struct.aiMeshMorphKey, ptr %26, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %43 = load double, ptr %42, align 8
   %44 = fcmp ugt double %43, %.02736
   br i1 %44, label %52, label %45
@@ -2977,7 +2970,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString.exit: ; preds = %._crit_edge.
 52:                                               ; preds = %45, %41, %40
   %53 = phi i32 [ %.pre43, %45 ], [ %25, %41 ], [ %25, %40 ]
   %54 = phi ptr [ %.pre, %45 ], [ %26, %41 ], [ %26, %40 ]
-  %55 = getelementptr inbounds nuw %struct.aiMeshMorphKey, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %indvars.iv
   %56 = load double, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = zext i32 %53 to i64
@@ -3010,7 +3003,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess24SearchForInvalidTexturesEPK10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.0152 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
   %.0118150 = phi i32 [ -1, %.lr.ph ], [ %.1119, %25 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.60) #26
@@ -3088,7 +3081,7 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
   %.077159 = phi i1 [ true, %.lr.ph161 ], [ %.178, %.loopexit ]
   %.2158 = phi i32 [ %.1119, %.lr.ph161 ], [ %.3, %.loopexit ]
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv197
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv197
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1028
   %45 = load i32, ptr %44, align 4
@@ -3136,7 +3129,7 @@ _ZNSt6vectorI16aiTextureMappingSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %65, align 4
   %67 = zext i32 %48 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %30, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %67
   store i32 %66, ptr %68, align 4
   br label %.loopexit
 
@@ -3204,7 +3197,7 @@ split.cont:                                       ; preds = %split.invoke
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %116 ], [ 0, %89 ]
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv194
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv194
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 232
   %102 = load i32, ptr %101, align 8
@@ -3222,7 +3215,7 @@ split.cont:                                       ; preds = %split.invoke
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.preheader122, %110
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %110 ], [ 0, %.preheader122 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv190
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv190
   %109 = load ptr, ptr %108, align 8
   %.not.i.not = icmp eq ptr %109, null
   br i1 %.not.i.not, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.thread.loopexit.split.loop.exit266, label %110
@@ -3282,7 +3275,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %110, %_ZNK6aiMesh16
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %142 ], [ 0, %.preheader ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv199
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv199
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 232
   %131 = load i32, ptr %130, align 8
@@ -3363,7 +3356,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK10aiMaterial(ptr no
 
 10:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not56 = icmp eq ptr %12, null
   br i1 %.not56, label %13, label %15
@@ -4007,7 +4000,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI8
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv48 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next49, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv48
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv48
   %11 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %12, label %14
@@ -4056,7 +4049,7 @@ _ZN6Assimp17ValidateDSProcess8ValidateEPK8aiCamera.exit: ; preds = %21, %26
 
 33:                                               ; preds = %.lr.ph, %_ZNK8aiStringeqERKS_.exit.thread
   %indvars.iv45 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next46, %_ZNK8aiStringeqERKS_.exit.thread ]
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv45
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv45
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %30, %36
@@ -4119,7 +4112,7 @@ _ZNK8aiStringeqERKS_.exit:                        ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.0910 = phi i32 [ %.0.i, %.lr.ph ], [ %20, %15 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 @_Z12HasNameMatchRK8aiStringP6aiNode(ptr noundef nonnull align 4 dereferenceable(1028) %0, ptr noundef %18)
   %20 = add nsw i32 %19, %.0910
@@ -4208,7 +4201,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI7
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv46
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv46
   %11 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %12, label %14
@@ -4233,7 +4226,7 @@ define linkonce_odr hidden void @_ZN6Assimp17ValidateDSProcess14DoValidationExI7
 
 20:                                               ; preds = %.lr.ph, %_ZNK8aiStringeqERKS_.exit.thread
   %indvars.iv43 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next44, %_ZNK8aiStringeqERKS_.exit.thread ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv43
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv43
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %17, %23
@@ -4303,7 +4296,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -4458,7 +4451,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -4719,13 +4712,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #24
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8
   store ptr %126, ptr %0, align 8
   %.sroa.5137.0..sroa_idx138 = getelementptr inbounds nuw i8, ptr %0, i64 8

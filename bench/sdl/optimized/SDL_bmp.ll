@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_bmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Color = type { i8, i8, i8, i8 }
-
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"src\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"BM\00", align 1
@@ -457,27 +455,27 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
 195:                                              ; preds = %.lr.ph230, %209
   %indvars.iv242 = phi i64 [ 0, %.lr.ph230 ], [ %indvars.iv.next243, %209 ]
   %196 = load ptr, ptr %194, align 8
-  %197 = getelementptr inbounds nuw %struct.SDL_Color, ptr %196, i64 %indvars.iv242
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv242
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 2
   %199 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %198) #4
   br i1 %199, label %200, label %.thread209
 
 200:                                              ; preds = %195
   %201 = load ptr, ptr %194, align 8
-  %202 = getelementptr inbounds nuw %struct.SDL_Color, ptr %201, i64 %indvars.iv242
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %indvars.iv242
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 1
   %204 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %203) #4
   br i1 %204, label %205, label %.thread209
 
 205:                                              ; preds = %200
   %206 = load ptr, ptr %194, align 8
-  %207 = getelementptr inbounds nuw %struct.SDL_Color, ptr %206, i64 %indvars.iv242
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %indvars.iv242
   %208 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef %207) #4
   br i1 %208, label %209, label %.thread209
 
 209:                                              ; preds = %205
   %210 = load ptr, ptr %194, align 8
-  %211 = getelementptr inbounds nuw %struct.SDL_Color, ptr %210, i64 %indvars.iv242
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv242
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 3
   store i8 -1, ptr %212, align 1
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
@@ -489,34 +487,34 @@ thread-pre-split:                                 ; preds = %56, %.thread269, %1
 216:                                              ; preds = %.lr.ph, %235
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %235 ]
   %217 = load ptr, ptr %193, align 8
-  %218 = getelementptr inbounds nuw %struct.SDL_Color, ptr %217, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 2
   %220 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %219) #4
   br i1 %220, label %221, label %.thread209
 
 221:                                              ; preds = %216
   %222 = load ptr, ptr %193, align 8
-  %223 = getelementptr inbounds nuw %struct.SDL_Color, ptr %222, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %indvars.iv
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 1
   %225 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %224) #4
   br i1 %225, label %226, label %.thread209
 
 226:                                              ; preds = %221
   %227 = load ptr, ptr %193, align 8
-  %228 = getelementptr inbounds nuw %struct.SDL_Color, ptr %227, i64 %indvars.iv
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %indvars.iv
   %229 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef %228) #4
   br i1 %229, label %230, label %.thread209
 
 230:                                              ; preds = %226
   %231 = load ptr, ptr %193, align 8
-  %232 = getelementptr inbounds nuw %struct.SDL_Color, ptr %231, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 3
   %234 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %0, ptr noundef nonnull %233) #4
   br i1 %234, label %235, label %.thread209
 
 235:                                              ; preds = %230
   %236 = load ptr, ptr %193, align 8
-  %237 = getelementptr inbounds nuw %struct.SDL_Color, ptr %236, i64 %indvars.iv
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %indvars.iv
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 3
   store i8 -1, ptr %238, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1251,7 +1249,7 @@ define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr nounde
 
 .preheader329:                                    ; preds = %124, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %124 ]
-  %127 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4
   %129 = call zeroext i1 @SDL_WriteU32LE_REAL(ptr noundef nonnull %1, i32 noundef %128) #4
   br i1 %129, label %126, label %.loopexit
@@ -1307,7 +1305,7 @@ define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %150
   %indvars.iv345 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next346, %150 ]
-  %151 = getelementptr inbounds nuw %struct.SDL_Color, ptr %148, i64 %indvars.iv345
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv345
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %153 = load i8, ptr %152, align 1
   %154 = call zeroext i1 @SDL_WriteU8_REAL(ptr noundef nonnull %1, i8 noundef zeroext %153) #4

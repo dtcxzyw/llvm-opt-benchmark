@@ -3173,7 +3173,7 @@ emitter_json_object_end.exit122:                  ; preds = %187, %emitter_inden
 
 198:                                              ; preds = %159, %emitter_json_object_end.exit134
   %indvars.iv = phi i64 [ 0, %159 ], [ %indvars.iv.next, %emitter_json_object_end.exit134 ]
-  %199 = getelementptr inbounds nuw ptr, ptr @global_mutex_names, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr @global_mutex_names, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !24
   %201 = load i64, ptr %55, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -8418,7 +8418,7 @@ emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %1158
 
 1165:                                             ; preds = %emitter_json_object_end.exit29.i, %1123
   %indvars.iv.i = phi i64 [ 0, %1123 ], [ %indvars.iv.next.i, %emitter_json_object_end.exit29.i ]
-  %1166 = getelementptr inbounds nuw ptr, ptr @arena_mutex_names, i64 %indvars.iv.i
+  %1166 = getelementptr inbounds nuw [8 x i8], ptr @arena_mutex_names, i64 %indvars.iv.i
   %1167 = load ptr, ptr %1166, align 8, !tbaa !24
   call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef %1167)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -14391,7 +14391,7 @@ emitter_indent.exit.i:                            ; preds = %.lr.ph.i.i, %341, %
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %emitter_json_object_begin.exit, %emitter_indent.exit.i
-  %348 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %indvars.iv
+  %348 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %indvars.iv
   %349 = load i64, ptr %348, align 8, !tbaa !4
   store i64 %349, ptr %259, align 8, !tbaa !8
   store i64 %indvars.iv, ptr %260, align 8, !tbaa !8
@@ -16323,7 +16323,7 @@ tsd_fetch_impl.exit114.i:                         ; preds = %622, %620
   %640 = phi i64 [ %.pre233.i, %637 ], [ %629, %626 ]
   %641 = phi i64 [ %.pre232.i, %637 ], [ %627, %626 ]
   %642 = phi i64 [ %.pre.i, %637 ], [ %633, %626 ]
-  %643 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %indvars.iv.i
+  %643 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %indvars.iv.i
   %644 = load i64, ptr %643, align 8, !tbaa !4
   store i64 %644, ptr %567, align 8, !tbaa !8
   store i64 %indvars.iv.i, ptr %568, align 8, !tbaa !8

@@ -652,7 +652,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %150, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %145, ptr %0, align 8, !tbaa !33
   store ptr %149, ptr %10, align 8, !tbaa !30
-  %151 = getelementptr inbounds nuw ptr, ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %143
   store ptr %151, ptr %128, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -5881,7 +5881,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_113daisy_extractEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %134, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_113daisy_extractEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %96, ptr %69, align 8, !tbaa !167
   store ptr %133, ptr %71, align 8, !tbaa !170
-  %143 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.13", ptr %96, i64 %94
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %94
   store ptr %143, ptr %73, align 8, !tbaa !235
   br label %146
 
@@ -6185,7 +6185,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_113daisy_extractEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %245, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_113daisy_extractEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %222, ptr %185, align 8, !tbaa !162
   store ptr %244, ptr %192, align 8, !tbaa !165
-  %246 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::daisy_extract>::InstantiationInfo", ptr %222, i64 %218
+  %246 = getelementptr inbounds nuw [64 x i8], ptr %222, i64 %218
   store ptr %246, ptr %194, align 8, !tbaa !237
   %.pre1.i.i = load ptr, ptr %1, align 8, !tbaa !17
   %247 = icmp eq ptr %.pre1.i.i, %186

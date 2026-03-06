@@ -46,7 +46,7 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   %25 = or disjoint i32 %21, %24
   %.not56 = icmp ult ptr %22, %6
   %.4 = select i1 %.not56, ptr %22, ptr %2
-  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = xor i32 %25, %27
   store i32 %28, ptr %26, align 4, !tbaa !6
@@ -64,7 +64,7 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   %indvars.iv62 = phi i64 [ 0, %29 ], [ %indvars.iv.next63, %31 ]
   call void @BF_encrypt(ptr noundef nonnull %4, ptr noundef nonnull %0) #5
   %32 = load i32, ptr %4, align 4, !tbaa !6
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv62
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv62
   store i32 %32, ptr %33, align 4, !tbaa !6
   %34 = load i32, ptr %30, align 4, !tbaa !6
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -81,7 +81,7 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   %indvars.iv65 = phi i64 [ 0, %37 ], [ %indvars.iv.next66, %39 ]
   call void @BF_encrypt(ptr noundef nonnull %4, ptr noundef nonnull %0) #5
   %40 = load i32, ptr %4, align 4, !tbaa !6
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv65
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv65
   store i32 %40, ptr %41, align 4, !tbaa !6
   %42 = load i32, ptr %30, align 4, !tbaa !6
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4

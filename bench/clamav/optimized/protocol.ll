@@ -96,7 +96,7 @@ define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef 
 30:                                               ; preds = %26
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr @scancmd, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @scancmd, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #16
   %36 = add i64 %35, %31
@@ -446,7 +446,7 @@ onas_fdpass.exit:                                 ; preds = %134, %133, %onas_se
 
 169:                                              ; preds = %168
   %170 = zext nneg i32 %1 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr @scancmd, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @scancmd, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !13
   br label %173
 

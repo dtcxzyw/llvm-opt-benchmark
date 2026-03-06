@@ -106,7 +106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %.036 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
-  %33 = getelementptr inbounds nuw %"class.cv::Mat", ptr %8, i64 %.036
+  %33 = getelementptr inbounds nuw [96 x i8], ptr %8, i64 %.036
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = icmp eq i32 %35, %23
@@ -242,7 +242,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us.us:                 ; preds = %.split.us, %_ZN2cv3
   %20 = sub i32 256, %19
   %21 = uitofp nneg i32 %20 to float
   %22 = select i1 %15, float %18, float %21
-  %23 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv24
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv24
   store float %22, ptr %23, align 4, !tbaa !27
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 256
@@ -286,7 +286,7 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %.split.us.split, %_
   %46 = mul i64 %26, %45
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
   %48 = sext i32 %.recomposed to i64
-  %49 = getelementptr inbounds float, ptr %47, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
   store float %42, ptr %49, align 4, !tbaa !27
   %50 = add nuw nsw i32 %.09.us, 1
   %exitcond19.not = icmp eq i32 %50, 256
@@ -302,7 +302,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %1, %_ZN2cv3Mat2atIf
   %56 = sub i32 256, %55
   %57 = uitofp nneg i32 %56 to float
   %58 = select i1 %51, float %54, float %57
-  %59 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store float %58, ptr %59, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -343,7 +343,7 @@ define hidden void @_ZN2cv16RobertsonWeightsEv(ptr dead_on_unwind noalias nonnul
 
 16:                                               ; preds = %16, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store float %15, ptr %17, align 4, !tbaa !27, !alias.scope !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -363,7 +363,7 @@ _ZN2cv3VecIfLi3EE3allEf.exit:                     ; preds = %16
 
 24:                                               ; preds = %20, %_ZN2cv3VecIfLi3EE3allEf.exit
   %25 = load ptr, ptr %5, align 8, !tbaa !36
-  %26 = getelementptr inbounds nuw %"class.cv::Vec", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %indvars.iv
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit
 
 27:                                               ; preds = %20
@@ -392,7 +392,7 @@ _ZN2cv3VecIfLi3EE3allEf.exit:                     ; preds = %16
   %45 = mul i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
   %47 = sext i32 %.recomposed to i64
-  %48 = getelementptr inbounds %"class.cv::Vec", ptr %46, i64 %47
+  %48 = getelementptr inbounds [12 x i8], ptr %46, i64 %47
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit:         ; preds = %24, %31, %37
@@ -499,7 +499,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %_ZN2cv3MataSERKNS_7MatExprE.exit45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = load ptr, ptr %5, align 8, !tbaa !39
-  %52 = getelementptr inbounds nuw %"class.cv::Mat", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [96 x i8], ptr %51, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cvdvEdRKNS_3MatE(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %10, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(96) %2)
@@ -515,7 +515,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %5, align 8, !tbaa !39
-  %57 = getelementptr inbounds nuw %"class.cv::Mat", ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [96 x i8], ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %8, align 8, !tbaa !50
   %59 = load ptr, ptr %58, align 8, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -535,7 +535,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %63 = load ptr, ptr %5, align 8, !tbaa !39
-  %64 = getelementptr inbounds nuw %"class.cv::Mat", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [96 x i8], ptr %63, i64 %indvars.iv
   store i32 0, ptr %36, align 8, !tbaa !44
   store i32 0, ptr %37, align 4, !tbaa !46
   store i32 16842752, ptr %11, align 8, !tbaa !47
@@ -552,7 +552,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %66 = load ptr, ptr %5, align 8, !tbaa !39
-  %67 = getelementptr inbounds nuw %"class.cv::Mat", ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [96 x i8], ptr %66, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %42, align 8, !tbaa !44
   store i32 0, ptr %43, align 4, !tbaa !46
@@ -563,7 +563,7 @@ define hidden void @_ZN2cv12mapLuminanceENS_3MatES0_S0_S0_f(ptr noundef %0, ptr 
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %5, align 8, !tbaa !39
-  %70 = getelementptr inbounds nuw %"class.cv::Mat", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [96 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %13, align 8, !tbaa !50
   %72 = load ptr, ptr %71, align 8, !tbaa !57
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -779,7 +779,7 @@ define hidden void @_ZN2cv14linearResponseEi(ptr dead_on_unwind noalias nonnull 
 
 13:                                               ; preds = %13, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store float %12, ptr %14, align 4, !tbaa !27, !alias.scope !61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -799,7 +799,7 @@ _ZN2cv3VecIfLi3EE3allEf.exit:                     ; preds = %13
 
 21:                                               ; preds = %17, %_ZN2cv3VecIfLi3EE3allEf.exit
   %22 = load ptr, ptr %8, align 8, !tbaa !36
-  %23 = getelementptr inbounds nuw %"class.cv::Vec", ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit
 
 24:                                               ; preds = %17
@@ -828,7 +828,7 @@ _ZN2cv3VecIfLi3EE3allEf.exit:                     ; preds = %13
   %42 = mul i64 %40, %41
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
   %44 = sext i32 %.recomposed to i64
-  %45 = getelementptr inbounds %"class.cv::Vec", ptr %43, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %43, i64 %44
   br label %_ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit
 
 _ZN2cv3Mat2atINS_3VecIfLi3EEEEERT_i.exit:         ; preds = %21, %28, %34

@@ -179,7 +179,7 @@ switch.lookup:
   %25 = load i8, ptr %24, align 8, !range !10, !noundef !5
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = zext nneg i8 %25 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2tt19print_debug_subtree17hc49d1511bbdf901cE, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2tt19print_debug_subtree17hc49d1511bbdf901cE, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %20, align 8
   store i64 2, ptr %26, align 8
@@ -1599,7 +1599,7 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
 33:                                               ; preds = %.noexc, %29
   %34 = phi i64 [ %.pre.i, %.noexc ], [ %26, %29 ]
   %35 = load ptr, ptr %12, align 8, !alias.scope !171, !noalias !174, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i64, [3 x i64] }, ptr %35, i64 %34
+  %36 = getelementptr inbounds [32 x i8], ptr %35, i64 %34
   store i64 1, ptr %36, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %.sroa.0.030, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1615,7 +1615,7 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
 41:                                               ; preds = %.noexc13, %31
   %42 = phi i64 [ %.pre.i12, %.noexc13 ], [ %26, %31 ]
   %43 = load ptr, ptr %12, align 8, !alias.scope !176, !noalias !179, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i64, [3 x i64] }, ptr %43, i64 %42
+  %44 = getelementptr inbounds [32 x i8], ptr %43, i64 %42
   store i64 2, ptr %44, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 0, ptr %.sroa.420.0..sroa_idx, align 8
@@ -1638,7 +1638,7 @@ define hidden void @"_ZN93_$LT$$RF$$u5b$tt..TokenTree$LT$Span$GT$$u5d$$u20$as$u2
 51:                                               ; preds = %.noexc16, %41
   %52 = phi i64 [ %.pre.i15, %.noexc16 ], [ %47, %41 ]
   %53 = load ptr, ptr %14, align 8, !alias.scope !181, !noalias !184, !nonnull !5, !noundef !5
-  %54 = getelementptr inbounds { i64, { ptr, ptr } }, ptr %53, i64 %52
+  %54 = getelementptr inbounds [24 x i8], ptr %53, i64 %52
   store i64 %.sroa.7.029, ptr %54, align 8
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %.sroa.0.030, ptr %.sroa.423.0..sroa_idx, align 8
@@ -1709,7 +1709,7 @@ define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN9hashbrown11r
   store i8 %19, ptr %26, align 1, !noalias !186
   %27 = load ptr, ptr %5, align 8, !alias.scope !193, !noalias !186, !nonnull !5, !noundef !5
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { { i8, [23 x i8] } }, { i64, [8 x i64] } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [96 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16

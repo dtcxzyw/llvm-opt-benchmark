@@ -51,15 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pagemapread = type { i32, i32, ptr, i8 }
 %struct.pagemap_scan_private = type { %struct.pm_scan_arg, i64, i64, ptr, i64, i64, i64, ptr }
 %struct.pm_scan_arg = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.page_region = type { i64, i64, i64 }
 %struct.mem_size_stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.page = type { i64, %union.anon.36, %union.anon.44, %struct.atomic_t, [8 x i8] }
-%union.anon.36 = type { %struct.anon.37 }
-%struct.anon.37 = type { %union.anon.38, ptr, %union.anon.40, i64 }
-%union.anon.38 = type { %struct.list_head }
-%union.anon.40 = type { i64 }
-%union.anon.44 = type { %struct.atomic_t }
-%struct.pagemap_entry_t = type { i64 }
 
 @.str = private unnamed_addr constant [9 x i8] c"VmPeak:\09\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c" kB\0AVmSize:\09\00", align 1
@@ -1092,7 +1084,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
 
 155:                                              ; preds = %152
   %156 = load i64, ptr %96, align 8
-  %157 = getelementptr %struct.page_region, ptr %153, i64 %156
+  %157 = getelementptr [24 x i8], ptr %153, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load i64, ptr %158, align 8
   %160 = load i64, ptr %157, align 8
@@ -1125,7 +1117,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nound
   %175 = sub i64 %174, %.fr
   store i64 %175, ptr %48, align 8
   %176 = load ptr, ptr %97, align 8
-  %177 = getelementptr %struct.page_region, ptr %176, i64 %.fr
+  %177 = getelementptr [24 x i8], ptr %176, i64 %.fr
   store ptr %177, ptr %97, align 8
   store i64 0, ptr %96, align 8
   %178 = load i64, ptr %98, align 8
@@ -2198,7 +2190,7 @@ define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64
 80:                                               ; preds = %79, %76, %76
   %81 = phi i64 [ 17179869183, %79 ], [ 1099511627775, %76 ], [ 1099511627775, %76 ]
   %82 = and i64 %81, %47
-  %83 = getelementptr %struct.page, ptr %78, i64 %82
+  %83 = getelementptr [64 x i8], ptr %78, i64 %82
   %84 = icmp ne i32 %72, 28
   %85 = icmp ne i64 %48, 30
   %86 = and i1 %85, %84
@@ -2729,7 +2721,7 @@ define internal noundef i32 @smaps_hugetlb_range(ptr noundef %0, i64 %1, i64 nou
 33:                                               ; preds = %32, %29, %29
   %34 = phi i64 [ 17179869183, %32 ], [ 1099511627775, %29 ], [ 1099511627775, %29 ]
   %35 = and i64 %34, %21
-  %36 = getelementptr %struct.page, ptr %31, i64 %35
+  %36 = getelementptr [64 x i8], ptr %31, i64 %35
   %37 = icmp ne i32 %25, 28
   %38 = icmp ne i64 %23, 30
   %39 = and i1 %38, %37
@@ -2873,7 +2865,7 @@ define internal noundef i32 @smaps_hugetlb_range(ptr noundef %0, i64 %1, i64 nou
   %129 = select i1 %125, i64 %126, i64 %128
   %130 = add i64 %124, %129
   %131 = lshr i64 %130, 12
-  %132 = getelementptr %struct.page, ptr %122, i64 %131
+  %132 = getelementptr [64 x i8], ptr %122, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load volatile i64, ptr %133, align 8
   %135 = and i64 %134, 1
@@ -3914,7 +3906,7 @@ define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 nound
 77:                                               ; preds = %76, %73, %73
   %78 = phi i64 [ 17179869183, %76 ], [ 1099511627775, %73 ], [ 1099511627775, %73 ]
   %79 = and i64 %78, %46
-  %80 = getelementptr %struct.page, ptr %75, i64 %79
+  %80 = getelementptr [64 x i8], ptr %75, i64 %79
   %81 = icmp ne i32 %68, 28
   %82 = icmp ne i64 %.pre-phi, 30
   %83 = and i1 %82, %81
@@ -4108,7 +4100,7 @@ define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 nound
   %205 = add i32 %204, 1
   store i32 %205, ptr %10, align 8
   %206 = sext i32 %204 to i64
-  %207 = getelementptr %struct.pagemap_entry_t, ptr %203, i64 %206
+  %207 = getelementptr [8 x i8], ptr %203, i64 %206
   store i64 %202, ptr %207, align 8
   %208 = load i32, ptr %10, align 8
   %209 = load i32, ptr %20, align 4
@@ -4175,7 +4167,7 @@ define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 nounde
   %24 = add i32 %21, 1
   store i32 %24, ptr %6, align 8
   %25 = sext i32 %21 to i64
-  %26 = getelementptr %struct.pagemap_entry_t, ptr %23, i64 %25
+  %26 = getelementptr [8 x i8], ptr %23, i64 %25
   store i64 0, ptr %26, align 8
   %27 = load i32, ptr %6, align 8
   %28 = load i32, ptr %9, align 4
@@ -4209,7 +4201,7 @@ define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 nounde
   %42 = add i32 %39, 1
   store i32 %42, ptr %6, align 8
   %43 = sext i32 %39 to i64
-  %44 = getelementptr %struct.pagemap_entry_t, ptr %41, i64 %43
+  %44 = getelementptr [8 x i8], ptr %41, i64 %43
   store i64 0, ptr %44, align 8
   %45 = load i32, ptr %6, align 8
   %46 = load i32, ptr %9, align 4
@@ -4254,7 +4246,7 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %16 = xor i64 %sext, %9
   %17 = lshr i64 %16, 12
   %18 = and i64 %17, 1099511627775
-  %19 = getelementptr %struct.page, ptr %14, i64 %18
+  %19 = getelementptr [64 x i8], ptr %14, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load volatile i64, ptr %20, align 8
   %22 = and i64 %21, 1
@@ -4405,7 +4397,7 @@ define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %
   %122 = add i32 %116, 1
   store i32 %122, ptr %8, align 8
   %123 = sext i32 %116 to i64
-  %124 = getelementptr %struct.pagemap_entry_t, ptr %121, i64 %123
+  %124 = getelementptr [8 x i8], ptr %121, i64 %123
   store i64 %120, ptr %124, align 8
   %125 = load i32, ptr %8, align 8
   %126 = load i32, ptr %112, align 4
@@ -4623,7 +4615,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   %116 = select i1 %or.cond, i64 %113, i64 1
   %117 = select i1 %or.cond, i32 -28, i32 0
   %118 = load i64, ptr %86, align 8
-  %119 = getelementptr %struct.page_region, ptr %99, i64 %118
+  %119 = getelementptr [24 x i8], ptr %99, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i64, ptr %120, align 8
   %122 = icmp eq i64 %121, %96
@@ -4652,7 +4644,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
 134:                                              ; preds = %130
   %135 = add nuw i64 %118, 1
   store i64 %135, ptr %86, align 8
-  %136 = getelementptr %struct.page_region, ptr %99, i64 %135
+  %136 = getelementptr [24 x i8], ptr %99, i64 %135
   br label %137
 
 137:                                              ; preds = %134, %128
@@ -4887,7 +4879,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
 267:                                              ; preds = %266, %263, %263
   %268 = phi i64 [ 17179869183, %266 ], [ 1099511627775, %263 ], [ 1099511627775, %263 ]
   %269 = and i64 %268, %255
-  %270 = getelementptr %struct.page, ptr %265, i64 %269
+  %270 = getelementptr [64 x i8], ptr %265, i64 %269
   %271 = icmp ne i32 %259, 28
   %272 = icmp ne i64 %257, 30
   %273 = and i1 %272, %271
@@ -5037,7 +5029,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
   %369 = select i1 %or.cond93, i64 %366, i64 1
   %370 = select i1 %or.cond93, i32 -28, i32 0
   %371 = load i64, ptr %180, align 8
-  %372 = getelementptr %struct.page_region, ptr %354, i64 %371
+  %372 = getelementptr [24 x i8], ptr %354, i64 %371
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load i64, ptr %373, align 8
   %375 = icmp eq i64 %374, %191
@@ -5066,7 +5058,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
 387:                                              ; preds = %383
   %388 = add nuw i64 %371, 1
   store i64 %388, ptr %180, align 8
-  %389 = getelementptr %struct.page_region, ptr %354, i64 %388
+  %389 = getelementptr [24 x i8], ptr %354, i64 %388
   br label %390
 
 390:                                              ; preds = %387, %381
@@ -5262,7 +5254,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_pte_hole(i64 noundef
   %49 = select i1 %or.cond, i32 -28, i32 0
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr %struct.page_region, ptr %29, i64 %51
+  %52 = getelementptr [24 x i8], ptr %29, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, %0
@@ -5292,7 +5284,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_pte_hole(i64 noundef
 68:                                               ; preds = %63
   %69 = add nuw i64 %51, 1
   store i64 %69, ptr %50, align 8
-  %70 = getelementptr %struct.page_region, ptr %29, i64 %69
+  %70 = getelementptr [24 x i8], ptr %29, i64 %69
   br label %71
 
 71:                                               ; preds = %68, %61
@@ -5358,7 +5350,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %29 = xor i64 %sext12, %20
   %30 = lshr i64 %29, 12
   %31 = and i64 %30, 1099511627775
-  %32 = getelementptr %struct.page, ptr %27, i64 %31
+  %32 = getelementptr [64 x i8], ptr %27, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load volatile i64, ptr %33, align 8
   %35 = and i64 %34, 1
@@ -5469,7 +5461,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %112 = select i1 %or.cond, i32 -28, i32 0
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr %struct.page_region, ptr %92, i64 %114
+  %115 = getelementptr [24 x i8], ptr %92, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, %2
@@ -5499,7 +5491,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
 131:                                              ; preds = %126
   %132 = add nuw i64 %114, 1
   store i64 %132, ptr %113, align 8
-  %133 = getelementptr %struct.page_region, ptr %92, i64 %132
+  %133 = getelementptr [24 x i8], ptr %92, i64 %132
   br label %134
 
 134:                                              ; preds = %131, %124
@@ -5559,7 +5551,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %173 = select i1 %169, i64 %170, i64 %172
   %174 = add i64 %168, %173
   %175 = lshr i64 %174, 12
-  %.split = getelementptr %struct.page, ptr %165, i64 %175
+  %.split = getelementptr [64 x i8], ptr %165, i64 %175
   %176 = getelementptr i8, ptr %.split, i64 40
   br label %180
 
@@ -5589,7 +5581,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %191 = xor i64 %sext, %182
   %192 = lshr i64 %191, 12
   %193 = and i64 %192, 1099511627775
-  %194 = getelementptr %struct.page, ptr %189, i64 %193
+  %194 = getelementptr [64 x i8], ptr %189, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load volatile i64, ptr %195, align 8
   %197 = and i64 %196, 1
@@ -5700,7 +5692,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %274 = select i1 %or.cond23, i32 -28, i32 0
   %275 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %276 = load i64, ptr %275, align 8
-  %277 = getelementptr %struct.page_region, ptr %254, i64 %276
+  %277 = getelementptr [24 x i8], ptr %254, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load i64, ptr %278, align 8
   %280 = icmp eq i64 %279, %2
@@ -5730,7 +5722,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
 293:                                              ; preds = %288
   %294 = add nuw i64 %276, 1
   store i64 %294, ptr %275, align 8
-  %295 = getelementptr %struct.page_region, ptr %254, i64 %294
+  %295 = getelementptr [24 x i8], ptr %254, i64 %294
   br label %296
 
 296:                                              ; preds = %293, %286
@@ -5773,7 +5765,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
   %317 = load ptr, ptr %253, align 8
   %318 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %319 = load i64, ptr %318, align 8
-  %320 = getelementptr %struct.page_region, ptr %317, i64 %319
+  %320 = getelementptr [24 x i8], ptr %317, i64 %319
   %321 = load i64, ptr %320, align 8
   %322 = icmp eq i64 %321, %2
   br i1 %322, label %325, label %323
@@ -6165,7 +6157,7 @@ define internal noundef i32 @show_numa_map(ptr noundef %0, ptr noundef %1) #0 al
 125:                                              ; preds = %141, %123
   %126 = phi i32 [ %121, %123 ], [ %143, %141 ]
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr i64, ptr %124, i64 %127
+  %128 = getelementptr [8 x i8], ptr %124, i64 %127
   %129 = load i64, ptr %128, align 8
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %132, label %131
@@ -6311,7 +6303,7 @@ define internal noundef i32 @gather_hugetlb_stats(ptr noundef %0, i64 %1, i64 %2
   %14 = xor i64 %sext, %7
   %15 = lshr i64 %14, 12
   %16 = and i64 %15, 1099511627775
-  %17 = getelementptr %struct.page, ptr %12, i64 %16
+  %17 = getelementptr [64 x i8], ptr %12, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = and i64 %7, 288230376151711808
@@ -6733,7 +6725,7 @@ define internal fastcc void @gather_stats(ptr noundef %0, ptr noundef captures(n
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %261 = load i64, ptr %0, align 16
   %262 = lshr i64 %261, 58
-  %263 = getelementptr i64, ptr %260, i64 %262
+  %263 = getelementptr [8 x i8], ptr %260, i64 %262
   %264 = load i64, ptr %263, align 8
   %265 = add i64 %264, 1
   store i64 %265, ptr %263, align 8

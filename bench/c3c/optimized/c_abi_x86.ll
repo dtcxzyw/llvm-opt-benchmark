@@ -485,7 +485,7 @@ tailrecurse:                                      ; preds = %8
 
 .lr.ph76:                                         ; preds = %.lr.ph76, %.lr.ph76.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next, %.lr.ph76 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
@@ -583,10 +583,10 @@ define dso_local void @c_abi_func_create_x86(ptr noundef captures(none) %0) loca
 
 39:                                               ; preds = %39, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
   %42 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %41)
-  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %36
@@ -615,10 +615,10 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
 
 54:                                               ; preds = %54, %50
   %indvars.iv.i17 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i18, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i17
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i17
   %56 = load ptr, ptr %55, align 8
   %57 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %56)
-  %58 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i17
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i17
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %51
@@ -1042,7 +1042,7 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
 
 .lr.ph.i.i:                                       ; preds = %191, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %191 ]
-  %185 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv.i.i
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv.i.i
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %188 = load ptr, ptr %187, align 8
@@ -1186,7 +1186,7 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8

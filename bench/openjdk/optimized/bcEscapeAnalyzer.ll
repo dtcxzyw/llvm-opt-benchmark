@@ -13,11 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 %class.GrowableArrayView = type { %class.GrowableArrayBase, ptr }
 %class.GrowableArrayBase = type { i32, i32 }
 %class.GrowableArrayMetadata = type { i64 }
-%"class.BCEscapeAnalyzer::ArgumentMap" = type { i32 }
 %class.ciBytecodeStream = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %class.Bytecode_tableswitch = type { %class.Bytecode.base, [4 x i8] }
 %class.Bytecode.base = type <{ ptr, i32 }>
 %"class.BCEscapeAnalyzer::StateInfo" = type { ptr, ptr, i32, i32, i8, %"class.BCEscapeAnalyzer::ArgumentMap" }
+%"class.BCEscapeAnalyzer::ArgumentMap" = type { i32 }
 %class.GrowableArray.0 = type { %class.GrowableArrayWithAllocator.1, %class.GrowableArrayMetadata }
 %class.GrowableArrayWithAllocator.1 = type { %class.GrowableArrayView.2 }
 %class.GrowableArrayView.2 = type { %class.GrowableArrayBase, ptr }
@@ -116,7 +116,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %12, %15
   %17 = shl nuw i32 1, %16
   %18 = load ptr, ptr %7, align 8
   %19 = zext nneg i32 %13 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, %17
   store i32 %22, ptr %20, align 4
@@ -212,7 +212,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %16
   %18 = and i32 %.08, 31
   %19 = shl nuw i32 1, %18
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, %19
   %.not7 = icmp eq i32 %23, 0
@@ -259,7 +259,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %13
   %15 = and i32 %.08, 31
   %16 = shl nuw i32 1, %15
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, %16
   %.not7 = icmp eq i32 %20, 0
@@ -307,7 +307,7 @@ define hidden void @_ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorS
   %18 = xor i32 %17, -1
   %19 = load ptr, ptr %7, align 8
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, %18
   store i32 %23, ptr %21, align 4
@@ -357,7 +357,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE(p
   %18 = xor i32 %17, -1
   %19 = load ptr, ptr %7, align 8
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, %18
   store i32 %23, ptr %21, align 4
@@ -416,7 +416,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb(
   %19 = xor i32 %18, -1
   %20 = load ptr, ptr %8, align 8
   %21 = zext nneg i32 %14 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, %19
   store i32 %24, ptr %22, align 4
@@ -459,7 +459,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit: ; preds = %
   %40 = xor i32 %39, -1
   %41 = load ptr, ptr %29, align 8
   %42 = zext nneg i32 %35 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, %40
   store i32 %45, ptr %43, align 4
@@ -548,7 +548,7 @@ _ZNK9VectorSet4testEj.exit.i:                     ; preds = %76
   %78 = and i32 %.08.i, 31
   %79 = shl nuw i32 1, %78
   %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %72, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, %79
   %.not7.i = icmp eq i32 %83, 0
@@ -597,7 +597,7 @@ define hidden void @_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii(ptr 
 
 18:                                               ; preds = %.lr.ph.split.us
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv16
   store i32 -1, ptr %20, align 4
   %.pre19 = load i32, ptr %5, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us
@@ -627,7 +627,7 @@ _ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us: ; preds = %18, %.lr.ph.spli
   %.015.i.us = phi i32 [ %34, %.lr.ph.i.us ], [ %spec.store.select.i, %.lr.ph.split.split.us ]
   %29 = shl nuw i32 1, %.015.i.us
   %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, %29
   store i32 %33, ptr %31, align 4
@@ -669,7 +669,7 @@ define hidden void @_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii(ptr noundef nonn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   store i32 -1, ptr %10, align 4
   br label %.loopexit
 
@@ -692,7 +692,7 @@ define hidden void @_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii(ptr noundef nonn
   %.015 = phi i32 [ %spec.store.select, %.lr.ph ], [ %25, %19 ]
   %20 = shl nuw i32 1, %.015
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %18
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %18
   %23 = load i32, ptr %22, align 4
   %24 = or i32 %23, %20
   store i32 %24, ptr %22, align 4
@@ -734,7 +734,7 @@ define hidden noundef zeroext i1 @_ZN16BCEscapeAnalyzer15is_arg_modifiedEiii(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
   br label %.loopexit
@@ -753,7 +753,7 @@ define hidden noundef zeroext i1 @_ZN16BCEscapeAnalyzer15is_arg_modifiedEiii(ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %1 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
   br label %23
 
 23:                                               ; preds = %.lr.ph, %29
@@ -899,7 +899,7 @@ _ZNK8ciMethod15is_final_methodEv.exit:            ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = zext nneg i32 %56 to i64
-  %70 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = icmp ne i32 %71, 0
   br label %_ZNK8ciMethod15is_final_methodEv.exit.thread
@@ -932,7 +932,7 @@ _ZNK8ciMethod15is_final_methodEv.exit.thread:     ; preds = %60, %59, %_ZNK8ciMe
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph.i.preheader.us.preheader, %_ZN16BCEscapeAnalyzer11is_argumentENS_11ArgumentMapE.exit.thread.us
   %indvars.iv.in = phi i64 [ %86, %.lr.ph.i.preheader.us.preheader ], [ %indvars.iv, %_ZN16BCEscapeAnalyzer11is_argumentENS_11ArgumentMapE.exit.thread.us ]
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
-  %88 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %75, i64 %indvars.iv
+  %88 = getelementptr inbounds [4 x i8], ptr %75, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   br label %.lr.ph.i.us
 
@@ -964,7 +964,7 @@ _ZNK9VectorSet4testEj.exit.i.us:                  ; preds = %94
   %96 = and i32 %.08.i.us, 31
   %97 = shl nuw i32 1, %96
   %98 = zext nneg i32 %95 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %85, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, %97
   %.not7.i.us = icmp eq i32 %101, 0
@@ -1032,7 +1032,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit:   ; preds = %121
   %127 = add nsw i32 %122, -1
   store i32 %127, ptr %53, align 8
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %126, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %128
   %.sroa.0.0.copyload.i = load i32, ptr %129, align 4
   %130 = load i32, ptr %118, align 8
   %131 = icmp sgt i32 %130, 0
@@ -1059,7 +1059,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit:   ; preds = %121
   %141 = xor i32 %140, -1
   %142 = load ptr, ptr %119, align 8
   %143 = zext nneg i32 %136 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %143
   %145 = load i32, ptr %144, align 4
   %146 = and i32 %145, %141
   store i32 %146, ptr %144, align 4
@@ -1283,7 +1283,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit131: ; preds = %236
   %242 = add nsw i32 %237, -1
   store i32 %242, ptr %53, align 8
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %241, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %243
   %.sroa.0.0.copyload.i130 = load i32, ptr %244, align 4
   %245 = trunc i32 %.sroa.0.0.copyload.i130 to i1
   %246 = load i32, ptr %221, align 8
@@ -1321,10 +1321,10 @@ _ZN16BCEscapeAnalyzer11is_argumentENS_11ArgumentMapE.exit138: ; preds = %248, %_
 
 256:                                              ; preds = %.lr.ph267
   %257 = load ptr, ptr %222, align 8
-  %258 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv.next290
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv.next290
   %259 = load i32, ptr %258, align 4
   %260 = load ptr, ptr %223, align 8
-  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv286
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %indvars.iv286
   %262 = load i32, ptr %261, align 4
   %263 = or i32 %262, %259
   store i32 %263, ptr %261, align 4
@@ -1370,7 +1370,7 @@ _ZNK9VectorSet4testEj.exit.i149:                  ; preds = %275
   %277 = and i32 %.08.i143, 31
   %278 = shl nuw i32 1, %277
   %279 = zext nneg i32 %276 to i64
-  %280 = getelementptr inbounds nuw i32, ptr %271, i64 %279
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %279
   %281 = load i32, ptr %280, align 4
   %282 = and i32 %281, %278
   %.not7.i150 = icmp eq i32 %282, 0
@@ -1401,7 +1401,7 @@ _ZNK16BCEscapeAnalyzer12is_arg_stackEi.exit:      ; preds = %286
   %291 = shl nuw i32 1, %290
   %292 = load ptr, ptr %229, align 8
   %293 = zext nneg i32 %288 to i64
-  %294 = getelementptr inbounds nuw i32, ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %293
   %295 = load i32, ptr %294, align 4
   %296 = and i32 %295, %291
   %.not259 = icmp eq i32 %296, 0
@@ -1414,7 +1414,7 @@ _ZNK16BCEscapeAnalyzer12is_arg_stackEi.exit:      ; preds = %286
 
 _ZNK16BCEscapeAnalyzer15is_arg_returnedEi.exit:   ; preds = %297
   %299 = load ptr, ptr %231, align 8
-  %300 = getelementptr inbounds nuw i32, ptr %299, i64 %293
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %299, i64 %293
   %301 = load i32, ptr %300, align 4
   %302 = and i32 %301, %291
   %.not260 = icmp eq i32 %302, 0
@@ -1445,7 +1445,7 @@ _ZNK16BCEscapeAnalyzer15is_arg_returnedEi.exit.thread: ; preds = %297, %_ZNK16BC
   %313 = xor i32 %312, -1
   %314 = load ptr, ptr %233, align 8
   %315 = zext nneg i32 %308 to i64
-  %316 = getelementptr inbounds nuw i32, ptr %314, i64 %315
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %314, i64 %315
   %317 = load i32, ptr %316, align 4
   %318 = and i32 %317, %313
   store i32 %318, ptr %316, align 4
@@ -1486,7 +1486,7 @@ _ZNK16BCEscapeAnalyzer12is_arg_stackEi.exit.thread: ; preds = %286, %_ZN16BCEsca
   %332 = xor i32 %331, -1
   %333 = load ptr, ptr %233, align 8
   %334 = zext nneg i32 %327 to i64
-  %335 = getelementptr inbounds nuw i32, ptr %333, i64 %334
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %333, i64 %334
   %336 = load i32, ptr %335, align 4
   %337 = and i32 %336, %332
   store i32 %337, ptr %335, align 4
@@ -1524,7 +1524,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i173: ; pred
   %350 = xor i32 %349, -1
   %351 = load ptr, ptr %226, align 8
   %352 = zext nneg i32 %345 to i64
-  %353 = getelementptr inbounds nuw i32, ptr %351, i64 %352
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 %352
   %354 = load i32, ptr %353, align 4
   %355 = and i32 %354, %350
   store i32 %355, ptr %353, align 4
@@ -1611,7 +1611,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE6appendERKS1_.
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %391 = load ptr, ptr %390, align 8
   %392 = sext i32 %388 to i64
-  %393 = getelementptr inbounds ptr, ptr %391, i64 %392
+  %393 = getelementptr inbounds [8 x i8], ptr %391, i64 %392
   store ptr %13, ptr %393, align 8
   %394 = load i32, ptr %375, align 8
   %395 = load i32, ptr %377, align 4
@@ -1638,7 +1638,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE6appendERKS1_.
   store i32 %406, ptr %375, align 8
   %407 = load ptr, ptr %390, align 8
   %408 = sext i32 %405 to i64
-  %409 = getelementptr inbounds ptr, ptr %407, i64 %408
+  %409 = getelementptr inbounds [8 x i8], ptr %407, i64 %408
   store ptr %.095250, ptr %409, align 8
   %410 = load i32, ptr %375, align 8
   %411 = load i32, ptr %377, align 4
@@ -1665,7 +1665,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE6appendERKS1_.
   store i32 %422, ptr %375, align 8
   %423 = load ptr, ptr %390, align 8
   %424 = sext i32 %421 to i64
-  %425 = getelementptr inbounds ptr, ptr %423, i64 %424
+  %425 = getelementptr inbounds [8 x i8], ptr %423, i64 %424
   store ptr %13, ptr %425, align 8
   %426 = load i32, ptr %375, align 8
   %427 = load i32, ptr %377, align 4
@@ -1692,7 +1692,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE6appendERKS1_.
   store i32 %438, ptr %375, align 8
   %439 = load ptr, ptr %390, align 8
   %440 = sext i32 %437 to i64
-  %441 = getelementptr inbounds ptr, ptr %439, i64 %440
+  %441 = getelementptr inbounds [8 x i8], ptr %439, i64 %440
   store ptr %3, ptr %441, align 8
   br label %_ZNK8ciMethod15is_final_methodEv.exit178.thread
 
@@ -1713,7 +1713,7 @@ _ZNK8ciMethod15is_final_methodEv.exit178.thread:  ; preds = %368, %367, %_ZN26Gr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i191 ], [ %indvars.iv.next.i, %_ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i ]
   %450 = load i32, ptr %442, align 8
   %451 = load ptr, ptr %446, align 8
-  %452 = getelementptr inbounds nuw ptr, ptr %451, i64 %indvars.iv.i
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %451, i64 %indvars.iv.i
   %453 = load i32, ptr %447, align 4
   %.not12.i.i = icmp slt i32 %450, %453
   %.pre.i192 = add nsw i32 %450, 1
@@ -1741,7 +1741,7 @@ _ZNK8ciMethod15is_final_methodEv.exit178.thread:  ; preds = %368, %367, %_ZN26Gr
 463:                                              ; preds = %463, %.lr.ph.i.i194
   %indvars.iv.i.i = phi i64 [ %462, %.lr.ph.i.i194 ], [ %indvars.iv.next.i.i, %463 ]
   %464 = load ptr, ptr %448, align 8
-  %465 = getelementptr inbounds ptr, ptr %464, i64 %indvars.iv.i.i
+  %465 = getelementptr inbounds [8 x i8], ptr %464, i64 %indvars.iv.i.i
   store ptr null, ptr %465, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1752,7 +1752,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE11at_put_growE
   %466 = load ptr, ptr %452, align 8
   %467 = load ptr, ptr %448, align 8
   %468 = sext i32 %450 to i64
-  %469 = getelementptr inbounds ptr, ptr %467, i64 %468
+  %469 = getelementptr inbounds [8 x i8], ptr %467, i64 %468
   store ptr %466, ptr %469, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %470 = load i32, ptr %443, align 8
@@ -1829,7 +1829,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit196: ; preds = %500
   %506 = add nsw i32 %501, -1
   store i32 %506, ptr %53, align 8
   %507 = zext nneg i32 %506 to i64
-  %508 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %505, i64 %507
+  %508 = getelementptr inbounds nuw [4 x i8], ptr %505, i64 %507
   %.sroa.0.0.copyload.i195 = load i32, ptr %508, align 4
   %509 = load i32, ptr %492, align 8
   %510 = icmp sgt i32 %509, 0
@@ -1860,7 +1860,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit196: ; preds = %500
 
 519:                                              ; preds = %.lr.ph.split.us.i
   %520 = load ptr, ptr %493, align 8
-  %521 = getelementptr inbounds nuw i32, ptr %520, i64 %indvars.iv16.i
+  %521 = getelementptr inbounds nuw [4 x i8], ptr %520, i64 %indvars.iv16.i
   store i32 -1, ptr %521, align 4
   %.pre19.i = load i32, ptr %492, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i
@@ -1906,7 +1906,7 @@ _ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit: ; preds = %._crit_
   %537 = xor i32 %536, -1
   %538 = load ptr, ptr %496, align 8
   %539 = zext nneg i32 %532 to i64
-  %540 = getelementptr inbounds nuw i32, ptr %538, i64 %539
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %538, i64 %539
   %541 = load i32, ptr %540, align 4
   %542 = and i32 %541, %537
   store i32 %542, ptr %540, align 4
@@ -1944,7 +1944,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i217: ; pred
   %555 = xor i32 %554, -1
   %556 = load ptr, ptr %498, align 8
   %557 = zext nneg i32 %550 to i64
-  %558 = getelementptr inbounds nuw i32, ptr %556, i64 %557
+  %558 = getelementptr inbounds nuw [4 x i8], ptr %556, i64 %557
   %559 = load i32, ptr %558, align 4
   %560 = and i32 %559, %555
   store i32 %560, ptr %558, align 4
@@ -2096,7 +2096,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %17, %_ZN8ciMethod4c
   %73 = zext i8 %72 to i32
   store i32 %73, ptr %46, align 4
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw i32, ptr @_ZN9Bytecodes10_java_codeE, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @_ZN9Bytecodes10_java_codeE, i64 %74
   %76 = load i32, ptr %75, align 4
   store i32 %76, ptr %47, align 8
   %77 = icmp ult i32 %76, 239
@@ -2367,7 +2367,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit: ; preds = %97
   %104 = add nsw i32 %98, 1
   store i32 %104, ptr %49, align 8
   %105 = sext i32 %98 to i64
-  %106 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %103, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %103, i64 %105
   store i32 2, ptr %106, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2389,7 +2389,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit:     ; preds = %107
   %114 = add nsw i32 %108, 1
   store i32 %114, ptr %49, align 8
   %115 = sext i32 %108 to i64
-  %116 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %113, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %113, i64 %115
   store i32 %.sroa.0.0.copyload.i, ptr %116, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2411,7 +2411,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i:   ; preds = %117
   %124 = add nsw i32 %118, 1
   store i32 %124, ptr %49, align 8
   %125 = sext i32 %118 to i64
-  %126 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %123, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %123, i64 %125
   store i32 %.sroa.0.0.copyload.i.i, ptr %126, align 4
   %127 = load i32, ptr %49, align 8
   %128 = load i32, ptr %50, align 4
@@ -2429,7 +2429,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit:     ; preds = %_ZN16BCEscapeAnalyz
   %133 = add nsw i32 %127, 1
   store i32 %133, ptr %49, align 8
   %134 = sext i32 %127 to i64
-  %135 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %132, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %132, i64 %134
   store i32 %.sroa.0.0.copyload.i.i, ptr %135, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2460,7 +2460,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i343: ; preds = %142
   %146 = add nsw i32 %139, 1
   store i32 %146, ptr %49, align 8
   %147 = sext i32 %139 to i64
-  %148 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %145, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %145, i64 %147
   store i32 %.sroa.0.0.copyload.i.i344, ptr %148, align 4
   %149 = load i32, ptr %49, align 8
   %150 = load i32, ptr %50, align 4
@@ -2478,7 +2478,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit345:  ; preds = %_ZN16BCEscapeAnalyz
   %155 = add nsw i32 %149, 1
   store i32 %155, ptr %49, align 8
   %156 = sext i32 %149 to i64
-  %157 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %154, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %154, i64 %156
   store i32 %.sroa.0.0.copyload.i.i344, ptr %157, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2496,7 +2496,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit346: ; preds = %158
   %162 = add nsw i32 %139, 1
   store i32 %162, ptr %49, align 8
   %163 = sext i32 %139 to i64
-  %164 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %161, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %161, i64 %163
   store i32 2, ptr %164, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2515,7 +2515,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit348:  ; preds = %165
   %169 = add nsw i32 %139, 1
   store i32 %169, ptr %49, align 8
   %170 = sext i32 %139 to i64
-  %171 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %168, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr %168, i64 %170
   store i32 %.sroa.0.0.copyload.i347, ptr %171, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2539,7 +2539,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i:    ; preds = %179, %178
   %181 = load i32, ptr %46, align 4
   %182 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %183 = sext i32 %181 to i64
-  %184 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %183
   %185 = load i16, ptr %184, align 2
   %186 = and i16 %185, 128
   %.not.i.i.i = icmp eq i16 %186, 0
@@ -2576,13 +2576,13 @@ _ZNK16ciBytecodeStream9get_indexEv.exit:          ; preds = %_ZNK16ciBytecodeStr
   unreachable
 
 _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit349: ; preds = %_ZNK16ciBytecodeStream9get_indexEv.exit
-  %201 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %173, i64 %195
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %195
   %.sroa.0144.0.copyload = load i32, ptr %201, align 4
   %202 = load ptr, ptr %51, align 8
   %203 = add nsw i32 %196, 1
   store i32 %203, ptr %49, align 8
   %204 = sext i32 %196 to i64
-  %205 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %202, i64 %204
+  %205 = getelementptr inbounds [4 x i8], ptr %202, i64 %204
   store i32 %.sroa.0144.0.copyload, ptr %205, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2604,7 +2604,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit351:  ; preds = %206
   %213 = add nsw i32 %207, 1
   store i32 %213, ptr %49, align 8
   %214 = sext i32 %207 to i64
-  %215 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %212, i64 %214
+  %215 = getelementptr inbounds [4 x i8], ptr %212, i64 %214
   store i32 %.sroa.0.0.copyload.i350, ptr %215, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2626,7 +2626,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i352: ; preds = %216
   %223 = add nsw i32 %217, 1
   store i32 %223, ptr %49, align 8
   %224 = sext i32 %217 to i64
-  %225 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %222, i64 %224
+  %225 = getelementptr inbounds [4 x i8], ptr %222, i64 %224
   store i32 %.sroa.0.0.copyload.i.i353, ptr %225, align 4
   %226 = load i32, ptr %49, align 8
   %227 = load i32, ptr %50, align 4
@@ -2644,7 +2644,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit354:  ; preds = %_ZN16BCEscapeAnalyz
   %232 = add nsw i32 %226, 1
   store i32 %232, ptr %49, align 8
   %233 = sext i32 %226 to i64
-  %234 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %231, i64 %233
+  %234 = getelementptr inbounds [4 x i8], ptr %231, i64 %233
   store i32 %.sroa.0.0.copyload.i.i353, ptr %234, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2667,7 +2667,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit355: ; preds = %235
   %243 = add nsw i32 %236, 1
   store i32 %243, ptr %49, align 8
   %244 = sext i32 %236 to i64
-  %245 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %242, i64 %244
+  %245 = getelementptr inbounds [4 x i8], ptr %242, i64 %244
   store i32 %.sroa.0143.0.copyload, ptr %245, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2691,7 +2691,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit356: ; preds = %246
   %255 = add nsw i32 %247, 1
   store i32 %255, ptr %49, align 8
   %256 = sext i32 %247 to i64
-  %257 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %254, i64 %256
+  %257 = getelementptr inbounds [4 x i8], ptr %254, i64 %256
   store i32 %.sroa.0142.0.copyload, ptr %257, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2715,7 +2715,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit357: ; preds = %258
   %267 = add nsw i32 %259, 1
   store i32 %267, ptr %49, align 8
   %268 = sext i32 %259 to i64
-  %269 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %266, i64 %268
+  %269 = getelementptr inbounds [4 x i8], ptr %266, i64 %268
   store i32 %.sroa.0141.0.copyload, ptr %269, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2739,7 +2739,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit358: ; preds = %270
   %279 = add nsw i32 %271, 1
   store i32 %279, ptr %49, align 8
   %280 = sext i32 %271 to i64
-  %281 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %278, i64 %280
+  %281 = getelementptr inbounds [4 x i8], ptr %278, i64 %280
   store i32 %.sroa.0140.0.copyload, ptr %281, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2771,7 +2771,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit:      ; preds = %_ZN16BCEscapeAnalyz
   %291 = add nsw i32 %283, -2
   store i32 %291, ptr %49, align 8
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %290, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %292
   %.sroa.0.0.copyload.i.i359 = load i32, ptr %293, align 4
   %294 = load i32, ptr %56, align 8
   %295 = icmp sgt i32 %294, 0
@@ -2798,7 +2798,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit:      ; preds = %_ZN16BCEscapeAnalyz
   %305 = xor i32 %304, -1
   %306 = load ptr, ptr %57, align 8
   %307 = zext nneg i32 %300 to i64
-  %308 = getelementptr inbounds nuw i32, ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %307
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, %305
   store i32 %310, ptr %308, align 4
@@ -2837,7 +2837,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit362:  ; preds = %_ZN16BCEscapeAnalyz
   %322 = add nsw i32 %316, 1
   store i32 %322, ptr %49, align 8
   %323 = sext i32 %316 to i64
-  %324 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %321, i64 %323
+  %324 = getelementptr inbounds [4 x i8], ptr %321, i64 %323
   store i32 %.sroa.0.0.copyload.i361, ptr %324, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2869,7 +2869,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit365:   ; preds = %_ZN16BCEscapeAnalyz
   %334 = add nsw i32 %326, -2
   store i32 %334, ptr %49, align 8
   %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %333, i64 %335
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %333, i64 %335
   %.sroa.0.0.copyload.i.i364 = load i32, ptr %336, align 4
   %337 = load i32, ptr %56, align 8
   %338 = icmp sgt i32 %337, 0
@@ -2896,7 +2896,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit365:   ; preds = %_ZN16BCEscapeAnalyz
   %348 = xor i32 %347, -1
   %349 = load ptr, ptr %57, align 8
   %350 = zext nneg i32 %343 to i64
-  %351 = getelementptr inbounds nuw i32, ptr %349, i64 %350
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %349, i64 %350
   %352 = load i32, ptr %351, align 4
   %353 = and i32 %352, %348
   store i32 %353, ptr %351, align 4
@@ -2935,7 +2935,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i375: ; preds = %_ZN16BCEscapeAnaly
   %365 = add nsw i32 %359, 1
   store i32 %365, ptr %49, align 8
   %366 = sext i32 %359 to i64
-  %367 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %364, i64 %366
+  %367 = getelementptr inbounds [4 x i8], ptr %364, i64 %366
   store i32 %.sroa.0.0.copyload.i.i376, ptr %367, align 4
   %368 = load i32, ptr %49, align 8
   %369 = load i32, ptr %50, align 4
@@ -2953,7 +2953,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit377:  ; preds = %_ZN16BCEscapeAnalyz
   %374 = add nsw i32 %368, 1
   store i32 %374, ptr %49, align 8
   %375 = sext i32 %368 to i64
-  %376 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %373, i64 %375
+  %376 = getelementptr inbounds [4 x i8], ptr %373, i64 %375
   store i32 %.sroa.0.0.copyload.i.i376, ptr %376, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -2985,7 +2985,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit380:   ; preds = %_ZN16BCEscapeAnalyz
   %386 = add nsw i32 %378, -2
   store i32 %386, ptr %49, align 8
   %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %385, i64 %387
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %385, i64 %387
   %.sroa.0.0.copyload.i.i379 = load i32, ptr %388, align 4
   %389 = load i32, ptr %56, align 8
   %390 = icmp sgt i32 %389, 0
@@ -3012,7 +3012,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit380:   ; preds = %_ZN16BCEscapeAnalyz
   %400 = xor i32 %399, -1
   %401 = load ptr, ptr %57, align 8
   %402 = zext nneg i32 %395 to i64
-  %403 = getelementptr inbounds nuw i32, ptr %401, i64 %402
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %401, i64 %402
   %404 = load i32, ptr %403, align 4
   %405 = and i32 %404, %400
   store i32 %405, ptr %403, align 4
@@ -3050,7 +3050,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit390: ; preds = %_ZN1
   %417 = add nsw i32 %411, 1
   store i32 %417, ptr %49, align 8
   %418 = sext i32 %411 to i64
-  %419 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %416, i64 %418
+  %419 = getelementptr inbounds [4 x i8], ptr %416, i64 %418
   store i32 2, ptr %419, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -3114,7 +3114,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit394:   ; preds = %435
   %441 = add nsw i32 %436, -1
   store i32 %441, ptr %49, align 8
   %442 = zext nneg i32 %441 to i64
-  %443 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %440, i64 %442
+  %443 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 %442
   %.sroa.0.0.copyload.i.i393 = load i32, ptr %443, align 4
   %444 = load ptr, ptr %2, align 8
   %445 = load ptr, ptr %41, align 8
@@ -3135,7 +3135,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit.i397: ; preds = %450, %449
   %452 = load i32, ptr %46, align 4
   %453 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %454 = sext i32 %452 to i64
-  %455 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %454
+  %455 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %454
   %456 = load i16, ptr %455, align 2
   %457 = and i16 %456, 128
   %.not.i.i.i398 = icmp eq i16 %457, 0
@@ -3160,7 +3160,7 @@ _ZNK16ciBytecodeStream12get_index_u1Ev.exit.i396: ; preds = %461, %460
 
 _ZNK16ciBytecodeStream9get_indexEv.exit401:       ; preds = %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i397, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i396
   %466 = phi i64 [ %459, %_ZNK16ciBytecodeStream12get_index_u2Eb.exit.i397 ], [ %465, %_ZNK16ciBytecodeStream12get_index_u1Ev.exit.i396 ]
-  %467 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %444, i64 %466
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %444, i64 %466
   store i32 %.sroa.0.0.copyload.i.i393, ptr %467, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -3180,7 +3180,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit403:   ; preds = %468
   %474 = add nsw i32 %469, -1
   store i32 %474, ptr %49, align 8
   %475 = zext nneg i32 %474 to i64
-  %476 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %473, i64 %475
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %473, i64 %475
   %.sroa.0.0.copyload.i.i402 = load i32, ptr %476, align 4
   %477 = load ptr, ptr %2, align 8
   store i32 %.sroa.0.0.copyload.i.i402, ptr %477, align 4
@@ -3202,7 +3202,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit405:   ; preds = %478
   %484 = add nsw i32 %479, -1
   store i32 %484, ptr %49, align 8
   %485 = zext nneg i32 %484 to i64
-  %486 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %483, i64 %485
+  %486 = getelementptr inbounds nuw [4 x i8], ptr %483, i64 %485
   %.sroa.0.0.copyload.i.i404 = load i32, ptr %486, align 4
   %487 = load ptr, ptr %2, align 8
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 4
@@ -3225,7 +3225,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit407:   ; preds = %489
   %495 = add nsw i32 %490, -1
   store i32 %495, ptr %49, align 8
   %496 = zext nneg i32 %495 to i64
-  %497 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %494, i64 %496
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %494, i64 %496
   %.sroa.0.0.copyload.i.i406 = load i32, ptr %497, align 4
   %498 = load ptr, ptr %2, align 8
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 8
@@ -3248,7 +3248,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit409:   ; preds = %500
   %506 = add nsw i32 %501, -1
   store i32 %506, ptr %49, align 8
   %507 = zext nneg i32 %506 to i64
-  %508 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %505, i64 %507
+  %508 = getelementptr inbounds nuw [4 x i8], ptr %505, i64 %507
   %.sroa.0.0.copyload.i.i408 = load i32, ptr %508, align 4
   %509 = load ptr, ptr %2, align 8
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 12
@@ -3295,7 +3295,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit413:   ; preds = %_ZN16BCEscapeAnalyz
   %523 = add nsw i32 %512, -3
   store i32 %523, ptr %49, align 8
   %524 = zext nneg i32 %523 to i64
-  %525 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %522, i64 %524
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %522, i64 %524
   %.sroa.0.0.copyload.i.i412 = load i32, ptr %525, align 4
   %526 = load i32, ptr %56, align 8
   %527 = icmp sgt i32 %526, 0
@@ -3322,7 +3322,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit413:   ; preds = %_ZN16BCEscapeAnalyz
   %537 = xor i32 %536, -1
   %538 = load ptr, ptr %57, align 8
   %539 = zext nneg i32 %532 to i64
-  %540 = getelementptr inbounds nuw i32, ptr %538, i64 %539
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %538, i64 %539
   %541 = load i32, ptr %540, align 4
   %542 = and i32 %541, %537
   store i32 %542, ptr %540, align 4
@@ -3360,7 +3360,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit422: ; preds = %_
 
 554:                                              ; preds = %.lr.ph.split.us.i
   %555 = load ptr, ptr %62, align 8
-  %556 = getelementptr inbounds nuw i32, ptr %555, i64 %indvars.iv16.i
+  %556 = getelementptr inbounds nuw [4 x i8], ptr %555, i64 %indvars.iv16.i
   store i32 -1, ptr %556, align 4
   %.pre19.i = load i32, ptr %56, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i
@@ -3433,7 +3433,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit429:   ; preds = %_ZN16BCEscapeAnalyz
   %577 = add nsw i32 %563, -4
   store i32 %577, ptr %49, align 8
   %578 = zext nneg i32 %577 to i64
-  %579 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %576, i64 %578
+  %579 = getelementptr inbounds nuw [4 x i8], ptr %576, i64 %578
   %.sroa.0.0.copyload.i.i428 = load i32, ptr %579, align 4
   %580 = load i32, ptr %56, align 8
   %581 = icmp sgt i32 %580, 0
@@ -3460,7 +3460,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit429:   ; preds = %_ZN16BCEscapeAnalyz
   %591 = xor i32 %590, -1
   %592 = load ptr, ptr %57, align 8
   %593 = zext nneg i32 %586 to i64
-  %594 = getelementptr inbounds nuw i32, ptr %592, i64 %593
+  %594 = getelementptr inbounds nuw [4 x i8], ptr %592, i64 %593
   %595 = load i32, ptr %594, align 4
   %596 = and i32 %595, %591
   store i32 %596, ptr %594, align 4
@@ -3498,7 +3498,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit438: ; preds = %_
 
 608:                                              ; preds = %.lr.ph.split.us.i443
   %609 = load ptr, ptr %62, align 8
-  %610 = getelementptr inbounds nuw i32, ptr %609, i64 %indvars.iv16.i444
+  %610 = getelementptr inbounds nuw [4 x i8], ptr %609, i64 %indvars.iv16.i444
   store i32 -1, ptr %610, align 4
   %.pre19.i447 = load i32, ptr %56, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i448
@@ -3535,7 +3535,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit452:   ; preds = %616
   %622 = add nsw i32 %617, -1
   store i32 %622, ptr %49, align 8
   %623 = zext nneg i32 %622 to i64
-  %624 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %621, i64 %623
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %621, i64 %623
   %.sroa.0.0.copyload.i.i451 = load i32, ptr %624, align 4
   %625 = load i32, ptr %56, align 8
   %626 = icmp sgt i32 %625, 0
@@ -3562,7 +3562,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit452:   ; preds = %616
   %636 = xor i32 %635, -1
   %637 = load ptr, ptr %57, align 8
   %638 = zext nneg i32 %631 to i64
-  %639 = getelementptr inbounds nuw i32, ptr %637, i64 %638
+  %639 = getelementptr inbounds nuw [4 x i8], ptr %637, i64 %638
   %640 = load i32, ptr %639, align 4
   %641 = and i32 %640, %636
   store i32 %641, ptr %639, align 4
@@ -3600,7 +3600,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i460: ; pred
   %654 = xor i32 %653, -1
   %655 = load ptr, ptr %61, align 8
   %656 = zext nneg i32 %649 to i64
-  %657 = getelementptr inbounds nuw i32, ptr %655, i64 %656
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %655, i64 %656
   %658 = load i32, ptr %657, align 4
   %659 = and i32 %658, %654
   store i32 %659, ptr %657, align 4
@@ -3649,7 +3649,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit464:   ; preds = %_ZN16BCEscapeAnalyz
   %673 = add nsw i32 %665, -2
   store i32 %673, ptr %49, align 8
   %674 = zext nneg i32 %673 to i64
-  %675 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %672, i64 %674
+  %675 = getelementptr inbounds nuw [4 x i8], ptr %672, i64 %674
   %.sroa.0.0.copyload.i.i463 = load i32, ptr %675, align 4
   %676 = load i32, ptr %56, align 8
   %677 = icmp sgt i32 %676, 0
@@ -3667,7 +3667,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit464:   ; preds = %_ZN16BCEscapeAnalyz
 
 682:                                              ; preds = %.lr.ph.split.us.i469
   %683 = load ptr, ptr %62, align 8
-  %684 = getelementptr inbounds nuw i32, ptr %683, i64 %indvars.iv16.i470
+  %684 = getelementptr inbounds nuw [4 x i8], ptr %683, i64 %indvars.iv16.i470
   store i32 -1, ptr %684, align 4
   %.pre19.i473 = load i32, ptr %56, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i474
@@ -3748,7 +3748,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit483: ; preds = %705
   %711 = add nsw i32 %706, -1
   store i32 %711, ptr %49, align 8
   %712 = zext nneg i32 %711 to i64
-  %713 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %710, i64 %712
+  %713 = getelementptr inbounds nuw [4 x i8], ptr %710, i64 %712
   %.sroa.0.0.copyload.i482 = load i32, ptr %713, align 4
   %714 = load i32, ptr %50, align 4
   %.not932 = icmp sgt i32 %706, %714
@@ -3779,7 +3779,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit484: ; preds = %_
   %723 = add nsw i32 %717, 1
   store i32 %723, ptr %49, align 8
   %724 = sext i32 %717 to i64
-  %725 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %722, i64 %724
+  %725 = getelementptr inbounds [4 x i8], ptr %722, i64 %724
   store i32 %.sroa.0.0.copyload.i482, ptr %725, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -3799,7 +3799,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit486: ; preds = %726
   %732 = add nsw i32 %727, -1
   store i32 %732, ptr %49, align 8
   %733 = zext nneg i32 %732 to i64
-  %734 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %731, i64 %733
+  %734 = getelementptr inbounds nuw [4 x i8], ptr %731, i64 %733
   %.sroa.0.0.copyload.i485 = load i32, ptr %734, align 4
   %.not931 = icmp eq i32 %732, 0
   br i1 %.not931, label %735, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit488
@@ -3814,7 +3814,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit488: ; preds = %_ZN16BCEscapeAnaly
   %737 = add nsw i32 %727, -2
   store i32 %737, ptr %49, align 8
   %738 = zext nneg i32 %737 to i64
-  %739 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %731, i64 %738
+  %739 = getelementptr inbounds nuw [4 x i8], ptr %731, i64 %738
   %.sroa.0.0.copyload.i487 = load i32, ptr %739, align 4
   %740 = load i32, ptr %50, align 4
   %741 = icmp slt i32 %737, %740
@@ -3845,7 +3845,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit490: ; preds = %_
   %750 = add nsw i32 %744, 1
   store i32 %750, ptr %49, align 8
   %751 = sext i32 %744 to i64
-  %752 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %749, i64 %751
+  %752 = getelementptr inbounds [4 x i8], ptr %749, i64 %751
   store i32 %.sroa.0.0.copyload.i487, ptr %752, align 4
   %753 = load i32, ptr %49, align 8
   %754 = load i32, ptr %50, align 4
@@ -3863,7 +3863,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit491: ; preds = %_
   %759 = add nsw i32 %753, 1
   store i32 %759, ptr %49, align 8
   %760 = sext i32 %753 to i64
-  %761 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %758, i64 %760
+  %761 = getelementptr inbounds [4 x i8], ptr %758, i64 %760
   store i32 %.sroa.0.0.copyload.i485, ptr %761, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -3883,7 +3883,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit493: ; preds = %762
   %768 = add nsw i32 %763, -1
   store i32 %768, ptr %49, align 8
   %769 = zext nneg i32 %768 to i64
-  %770 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %767, i64 %769
+  %770 = getelementptr inbounds nuw [4 x i8], ptr %767, i64 %769
   %.sroa.0.0.copyload.i492 = load i32, ptr %770, align 4
   %.not929 = icmp eq i32 %768, 0
   br i1 %.not929, label %771, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit495
@@ -3898,7 +3898,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit495: ; preds = %_ZN16BCEscapeAnaly
   %773 = add nsw i32 %763, -2
   store i32 %773, ptr %49, align 8
   %774 = zext nneg i32 %773 to i64
-  %775 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %767, i64 %774
+  %775 = getelementptr inbounds nuw [4 x i8], ptr %767, i64 %774
   %.sroa.0.0.copyload.i494 = load i32, ptr %775, align 4
   %.not930 = icmp eq i32 %773, 0
   br i1 %.not930, label %776, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit497
@@ -3913,7 +3913,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit497: ; preds = %_ZN16BCEscapeAnaly
   %778 = add nsw i32 %763, -3
   store i32 %778, ptr %49, align 8
   %779 = zext nneg i32 %778 to i64
-  %780 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %767, i64 %779
+  %780 = getelementptr inbounds nuw [4 x i8], ptr %767, i64 %779
   %.sroa.0.0.copyload.i496 = load i32, ptr %780, align 4
   %781 = load i32, ptr %50, align 4
   %782 = icmp slt i32 %778, %781
@@ -3944,7 +3944,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit499: ; preds = %_
   %791 = add nsw i32 %785, 1
   store i32 %791, ptr %49, align 8
   %792 = sext i32 %785 to i64
-  %793 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %790, i64 %792
+  %793 = getelementptr inbounds [4 x i8], ptr %790, i64 %792
   store i32 %.sroa.0.0.copyload.i496, ptr %793, align 4
   %794 = load i32, ptr %49, align 8
   %795 = load i32, ptr %50, align 4
@@ -3962,7 +3962,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit500: ; preds = %_
   %800 = add nsw i32 %794, 1
   store i32 %800, ptr %49, align 8
   %801 = sext i32 %794 to i64
-  %802 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %799, i64 %801
+  %802 = getelementptr inbounds [4 x i8], ptr %799, i64 %801
   store i32 %.sroa.0.0.copyload.i494, ptr %802, align 4
   %803 = load i32, ptr %49, align 8
   %804 = load i32, ptr %50, align 4
@@ -3980,7 +3980,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit501: ; preds = %_
   %809 = add nsw i32 %803, 1
   store i32 %809, ptr %49, align 8
   %810 = sext i32 %803 to i64
-  %811 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %808, i64 %810
+  %811 = getelementptr inbounds [4 x i8], ptr %808, i64 %810
   store i32 %.sroa.0.0.copyload.i492, ptr %811, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4000,7 +4000,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit503: ; preds = %812
   %818 = add nsw i32 %813, -1
   store i32 %818, ptr %49, align 8
   %819 = zext nneg i32 %818 to i64
-  %820 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %817, i64 %819
+  %820 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %819
   %.sroa.0.0.copyload.i502 = load i32, ptr %820, align 4
   %.not928 = icmp eq i32 %818, 0
   br i1 %.not928, label %821, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit505
@@ -4015,7 +4015,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit505: ; preds = %_ZN16BCEscapeAnaly
   %823 = add nsw i32 %813, -2
   store i32 %823, ptr %49, align 8
   %824 = zext nneg i32 %823 to i64
-  %825 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %817, i64 %824
+  %825 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %824
   %.sroa.0.0.copyload.i504 = load i32, ptr %825, align 4
   %826 = load i32, ptr %50, align 4
   %827 = icmp slt i32 %823, %826
@@ -4046,7 +4046,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit507: ; preds = %_
   %836 = add nsw i32 %830, 1
   store i32 %836, ptr %49, align 8
   %837 = sext i32 %830 to i64
-  %838 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %835, i64 %837
+  %838 = getelementptr inbounds [4 x i8], ptr %835, i64 %837
   store i32 %.sroa.0.0.copyload.i502, ptr %838, align 4
   %839 = load i32, ptr %49, align 8
   %840 = load i32, ptr %50, align 4
@@ -4064,7 +4064,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit508: ; preds = %_
   %845 = add nsw i32 %839, 1
   store i32 %845, ptr %49, align 8
   %846 = sext i32 %839 to i64
-  %847 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %844, i64 %846
+  %847 = getelementptr inbounds [4 x i8], ptr %844, i64 %846
   store i32 %.sroa.0.0.copyload.i504, ptr %847, align 4
   %848 = load i32, ptr %49, align 8
   %849 = load i32, ptr %50, align 4
@@ -4082,7 +4082,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit509: ; preds = %_
   %854 = add nsw i32 %848, 1
   store i32 %854, ptr %49, align 8
   %855 = sext i32 %848 to i64
-  %856 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %853, i64 %855
+  %856 = getelementptr inbounds [4 x i8], ptr %853, i64 %855
   store i32 %.sroa.0.0.copyload.i502, ptr %856, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4102,7 +4102,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit511: ; preds = %857
   %863 = add nsw i32 %858, -1
   store i32 %863, ptr %49, align 8
   %864 = zext nneg i32 %863 to i64
-  %865 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %862, i64 %864
+  %865 = getelementptr inbounds nuw [4 x i8], ptr %862, i64 %864
   %.sroa.0.0.copyload.i510 = load i32, ptr %865, align 4
   %.not926 = icmp eq i32 %863, 0
   br i1 %.not926, label %866, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit513
@@ -4117,7 +4117,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit513: ; preds = %_ZN16BCEscapeAnaly
   %868 = add nsw i32 %858, -2
   store i32 %868, ptr %49, align 8
   %869 = zext nneg i32 %868 to i64
-  %870 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %862, i64 %869
+  %870 = getelementptr inbounds nuw [4 x i8], ptr %862, i64 %869
   %.sroa.0.0.copyload.i512 = load i32, ptr %870, align 4
   %.not927 = icmp eq i32 %868, 0
   br i1 %.not927, label %871, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit515
@@ -4132,7 +4132,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit515: ; preds = %_ZN16BCEscapeAnaly
   %873 = add nsw i32 %858, -3
   store i32 %873, ptr %49, align 8
   %874 = zext nneg i32 %873 to i64
-  %875 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %862, i64 %874
+  %875 = getelementptr inbounds nuw [4 x i8], ptr %862, i64 %874
   %.sroa.0.0.copyload.i514 = load i32, ptr %875, align 4
   %876 = load i32, ptr %50, align 4
   %877 = icmp slt i32 %873, %876
@@ -4163,7 +4163,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit517: ; preds = %_
   %886 = add nsw i32 %880, 1
   store i32 %886, ptr %49, align 8
   %887 = sext i32 %880 to i64
-  %888 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %885, i64 %887
+  %888 = getelementptr inbounds [4 x i8], ptr %885, i64 %887
   store i32 %.sroa.0.0.copyload.i510, ptr %888, align 4
   %889 = load i32, ptr %49, align 8
   %890 = load i32, ptr %50, align 4
@@ -4181,7 +4181,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit518: ; preds = %_
   %895 = add nsw i32 %889, 1
   store i32 %895, ptr %49, align 8
   %896 = sext i32 %889 to i64
-  %897 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %894, i64 %896
+  %897 = getelementptr inbounds [4 x i8], ptr %894, i64 %896
   store i32 %.sroa.0.0.copyload.i514, ptr %897, align 4
   %898 = load i32, ptr %49, align 8
   %899 = load i32, ptr %50, align 4
@@ -4199,7 +4199,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit519: ; preds = %_
   %904 = add nsw i32 %898, 1
   store i32 %904, ptr %49, align 8
   %905 = sext i32 %898 to i64
-  %906 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %903, i64 %905
+  %906 = getelementptr inbounds [4 x i8], ptr %903, i64 %905
   store i32 %.sroa.0.0.copyload.i512, ptr %906, align 4
   %907 = load i32, ptr %49, align 8
   %908 = load i32, ptr %50, align 4
@@ -4217,7 +4217,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit520: ; preds = %_
   %913 = add nsw i32 %907, 1
   store i32 %913, ptr %49, align 8
   %914 = sext i32 %907 to i64
-  %915 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %912, i64 %914
+  %915 = getelementptr inbounds [4 x i8], ptr %912, i64 %914
   store i32 %.sroa.0.0.copyload.i510, ptr %915, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4237,7 +4237,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit522: ; preds = %916
   %922 = add nsw i32 %917, -1
   store i32 %922, ptr %49, align 8
   %923 = zext nneg i32 %922 to i64
-  %924 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %921, i64 %923
+  %924 = getelementptr inbounds nuw [4 x i8], ptr %921, i64 %923
   %.sroa.0.0.copyload.i521 = load i32, ptr %924, align 4
   %.not923 = icmp eq i32 %922, 0
   br i1 %.not923, label %925, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit524
@@ -4252,7 +4252,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit524: ; preds = %_ZN16BCEscapeAnaly
   %927 = add nsw i32 %917, -2
   store i32 %927, ptr %49, align 8
   %928 = zext nneg i32 %927 to i64
-  %929 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %921, i64 %928
+  %929 = getelementptr inbounds nuw [4 x i8], ptr %921, i64 %928
   %.sroa.0.0.copyload.i523 = load i32, ptr %929, align 4
   %.not924 = icmp eq i32 %927, 0
   br i1 %.not924, label %930, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit526
@@ -4267,7 +4267,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit526: ; preds = %_ZN16BCEscapeAnaly
   %932 = add nsw i32 %917, -3
   store i32 %932, ptr %49, align 8
   %933 = zext nneg i32 %932 to i64
-  %934 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %921, i64 %933
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %921, i64 %933
   %.sroa.0.0.copyload.i525 = load i32, ptr %934, align 4
   %.not925 = icmp eq i32 %932, 0
   br i1 %.not925, label %935, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit528
@@ -4282,7 +4282,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit528: ; preds = %_ZN16BCEscapeAnaly
   %937 = add nsw i32 %917, -4
   store i32 %937, ptr %49, align 8
   %938 = zext nneg i32 %937 to i64
-  %939 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %921, i64 %938
+  %939 = getelementptr inbounds nuw [4 x i8], ptr %921, i64 %938
   %.sroa.0.0.copyload.i527 = load i32, ptr %939, align 4
   %940 = load i32, ptr %50, align 4
   %941 = icmp slt i32 %937, %940
@@ -4313,7 +4313,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit530: ; preds = %_
   %950 = add nsw i32 %944, 1
   store i32 %950, ptr %49, align 8
   %951 = sext i32 %944 to i64
-  %952 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %949, i64 %951
+  %952 = getelementptr inbounds [4 x i8], ptr %949, i64 %951
   store i32 %.sroa.0.0.copyload.i521, ptr %952, align 4
   %953 = load i32, ptr %49, align 8
   %954 = load i32, ptr %50, align 4
@@ -4331,7 +4331,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit531: ; preds = %_
   %959 = add nsw i32 %953, 1
   store i32 %959, ptr %49, align 8
   %960 = sext i32 %953 to i64
-  %961 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %958, i64 %960
+  %961 = getelementptr inbounds [4 x i8], ptr %958, i64 %960
   store i32 %.sroa.0.0.copyload.i527, ptr %961, align 4
   %962 = load i32, ptr %49, align 8
   %963 = load i32, ptr %50, align 4
@@ -4349,7 +4349,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit532: ; preds = %_
   %968 = add nsw i32 %962, 1
   store i32 %968, ptr %49, align 8
   %969 = sext i32 %962 to i64
-  %970 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %967, i64 %969
+  %970 = getelementptr inbounds [4 x i8], ptr %967, i64 %969
   store i32 %.sroa.0.0.copyload.i525, ptr %970, align 4
   %971 = load i32, ptr %49, align 8
   %972 = load i32, ptr %50, align 4
@@ -4367,7 +4367,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit533: ; preds = %_
   %977 = add nsw i32 %971, 1
   store i32 %977, ptr %49, align 8
   %978 = sext i32 %971 to i64
-  %979 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %976, i64 %978
+  %979 = getelementptr inbounds [4 x i8], ptr %976, i64 %978
   store i32 %.sroa.0.0.copyload.i523, ptr %979, align 4
   %980 = load i32, ptr %49, align 8
   %981 = load i32, ptr %50, align 4
@@ -4385,7 +4385,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit534: ; preds = %_
   %986 = add nsw i32 %980, 1
   store i32 %986, ptr %49, align 8
   %987 = sext i32 %980 to i64
-  %988 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %985, i64 %987
+  %988 = getelementptr inbounds [4 x i8], ptr %985, i64 %987
   store i32 %.sroa.0.0.copyload.i521, ptr %988, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4405,7 +4405,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit536: ; preds = %989
   %995 = add nsw i32 %990, -1
   store i32 %995, ptr %49, align 8
   %996 = zext nneg i32 %995 to i64
-  %997 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %994, i64 %996
+  %997 = getelementptr inbounds nuw [4 x i8], ptr %994, i64 %996
   %.sroa.0.0.copyload.i535 = load i32, ptr %997, align 4
   %.not922 = icmp eq i32 %995, 0
   br i1 %.not922, label %998, label %_ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit538
@@ -4420,7 +4420,7 @@ _ZN16BCEscapeAnalyzer9StateInfo7raw_popEv.exit538: ; preds = %_ZN16BCEscapeAnaly
   %1000 = add nsw i32 %990, -2
   store i32 %1000, ptr %49, align 8
   %1001 = zext nneg i32 %1000 to i64
-  %1002 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %994, i64 %1001
+  %1002 = getelementptr inbounds nuw [4 x i8], ptr %994, i64 %1001
   %.sroa.0.0.copyload.i537 = load i32, ptr %1002, align 4
   %1003 = load i32, ptr %50, align 4
   %1004 = icmp slt i32 %1000, %1003
@@ -4451,7 +4451,7 @@ _ZN16BCEscapeAnalyzer9StateInfo8raw_pushENS_11ArgumentMapE.exit540: ; preds = %_
   %1013 = add nsw i32 %1007, 1
   store i32 %1013, ptr %49, align 8
   %1014 = sext i32 %1007 to i64
-  %1015 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1012, i64 %1014
+  %1015 = getelementptr inbounds [4 x i8], ptr %1012, i64 %1014
   store i32 %.sroa.0.0.copyload.i537, ptr %1015, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4496,7 +4496,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit544:  ; preds = %_ZN16BCEscapeAnalyz
   %1029 = load ptr, ptr %51, align 8
   store i32 %1021, ptr %49, align 8
   %1030 = zext nneg i32 %1024 to i64
-  %1031 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1029, i64 %1030
+  %1031 = getelementptr inbounds nuw [4 x i8], ptr %1029, i64 %1030
   store i32 %.sroa.0.0.copyload.i543, ptr %1031, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4565,7 +4565,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i551: ; preds = %_ZN16BCEscapeAnaly
   %1051 = load ptr, ptr %51, align 8
   store i32 %1043, ptr %49, align 8
   %1052 = zext nneg i32 %1046 to i64
-  %1053 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1051, i64 %1052
+  %1053 = getelementptr inbounds nuw [4 x i8], ptr %1051, i64 %1052
   store i32 %.sroa.0.0.copyload.i.i552, ptr %1053, align 4
   %1054 = load i32, ptr %49, align 8
   %1055 = load i32, ptr %50, align 4
@@ -4583,7 +4583,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit553:  ; preds = %_ZN16BCEscapeAnalyz
   %1060 = add nsw i32 %1054, 1
   store i32 %1060, ptr %49, align 8
   %1061 = sext i32 %1054 to i64
-  %1062 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1059, i64 %1061
+  %1062 = getelementptr inbounds [4 x i8], ptr %1059, i64 %1061
   store i32 %.sroa.0.0.copyload.i.i552, ptr %1062, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4628,7 +4628,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit557:  ; preds = %_ZN16BCEscapeAnalyz
   %1076 = load ptr, ptr %51, align 8
   store i32 %1068, ptr %49, align 8
   %1077 = zext nneg i32 %1071 to i64
-  %1078 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1076, i64 %1077
+  %1078 = getelementptr inbounds nuw [4 x i8], ptr %1076, i64 %1077
   store i32 %.sroa.0.0.copyload.i556, ptr %1078, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4685,7 +4685,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i562: ; preds = %_ZN16BCEscapeAnaly
   %1095 = load ptr, ptr %51, align 8
   store i32 %1087, ptr %49, align 8
   %1096 = zext nneg i32 %1090 to i64
-  %1097 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1095, i64 %1096
+  %1097 = getelementptr inbounds nuw [4 x i8], ptr %1095, i64 %1096
   store i32 %.sroa.0.0.copyload.i.i563, ptr %1097, align 4
   %1098 = load i32, ptr %49, align 8
   %1099 = load i32, ptr %50, align 4
@@ -4703,7 +4703,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit564:  ; preds = %_ZN16BCEscapeAnalyz
   %1104 = add nsw i32 %1098, 1
   store i32 %1104, ptr %49, align 8
   %1105 = sext i32 %1098 to i64
-  %1106 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1103, i64 %1105
+  %1106 = getelementptr inbounds [4 x i8], ptr %1103, i64 %1105
   store i32 %.sroa.0.0.copyload.i.i563, ptr %1106, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4736,7 +4736,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit567:  ; preds = %_ZN16BCEscapeAnalyz
   %1116 = load ptr, ptr %51, align 8
   store i32 %1108, ptr %49, align 8
   %1117 = zext nneg i32 %1112 to i64
-  %1118 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1116, i64 %1117
+  %1118 = getelementptr inbounds nuw [4 x i8], ptr %1116, i64 %1117
   store i32 %.sroa.0.0.copyload.i566, ptr %1118, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4781,7 +4781,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i571: ; preds = %_ZN16BCEscapeAnaly
   %1132 = load ptr, ptr %51, align 8
   store i32 %1124, ptr %49, align 8
   %1133 = zext nneg i32 %1127 to i64
-  %1134 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1132, i64 %1133
+  %1134 = getelementptr inbounds nuw [4 x i8], ptr %1132, i64 %1133
   store i32 %.sroa.0.0.copyload.i.i572, ptr %1134, align 4
   %1135 = load i32, ptr %49, align 8
   %1136 = load i32, ptr %50, align 4
@@ -4799,7 +4799,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit573:  ; preds = %_ZN16BCEscapeAnalyz
   %1141 = add nsw i32 %1135, 1
   store i32 %1141, ptr %49, align 8
   %1142 = sext i32 %1135 to i64
-  %1143 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1140, i64 %1142
+  %1143 = getelementptr inbounds [4 x i8], ptr %1140, i64 %1142
   store i32 %.sroa.0.0.copyload.i.i572, ptr %1143, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4832,7 +4832,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i575: ; preds = %_ZN16BCEscapeAnaly
   %1153 = load ptr, ptr %51, align 8
   store i32 %1145, ptr %49, align 8
   %1154 = zext nneg i32 %1149 to i64
-  %1155 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1153, i64 %1154
+  %1155 = getelementptr inbounds nuw [4 x i8], ptr %1153, i64 %1154
   store i32 %.sroa.0.0.copyload.i.i576, ptr %1155, align 4
   %1156 = load i32, ptr %49, align 8
   %1157 = load i32, ptr %50, align 4
@@ -4850,7 +4850,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit577:  ; preds = %_ZN16BCEscapeAnalyz
   %1162 = add nsw i32 %1156, 1
   store i32 %1162, ptr %49, align 8
   %1163 = sext i32 %1156 to i64
-  %1164 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1161, i64 %1163
+  %1164 = getelementptr inbounds [4 x i8], ptr %1161, i64 %1163
   store i32 %.sroa.0.0.copyload.i.i576, ptr %1164, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4883,7 +4883,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit580:  ; preds = %_ZN16BCEscapeAnalyz
   %1174 = load ptr, ptr %51, align 8
   store i32 %1166, ptr %49, align 8
   %1175 = zext nneg i32 %1170 to i64
-  %1176 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1174, i64 %1175
+  %1176 = getelementptr inbounds nuw [4 x i8], ptr %1174, i64 %1175
   store i32 %.sroa.0.0.copyload.i579, ptr %1176, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4928,7 +4928,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit585:  ; preds = %_ZN16BCEscapeAnalyz
   %1190 = load ptr, ptr %51, align 8
   store i32 %1182, ptr %49, align 8
   %1191 = zext nneg i32 %1185 to i64
-  %1192 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1190, i64 %1191
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %1190, i64 %1191
   store i32 %.sroa.0.0.copyload.i584, ptr %1192, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -4973,7 +4973,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i589: ; preds = %_ZN16BCEscapeAnaly
   %1206 = load ptr, ptr %51, align 8
   store i32 %1198, ptr %49, align 8
   %1207 = zext nneg i32 %1201 to i64
-  %1208 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1206, i64 %1207
+  %1208 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %1207
   store i32 %.sroa.0.0.copyload.i.i590, ptr %1208, align 4
   %1209 = load i32, ptr %49, align 8
   %1210 = load i32, ptr %50, align 4
@@ -4991,7 +4991,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit591:  ; preds = %_ZN16BCEscapeAnalyz
   %1215 = add nsw i32 %1209, 1
   store i32 %1215, ptr %49, align 8
   %1216 = sext i32 %1209 to i64
-  %1217 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1214, i64 %1216
+  %1217 = getelementptr inbounds [4 x i8], ptr %1214, i64 %1216
   store i32 %.sroa.0.0.copyload.i.i590, ptr %1217, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5024,7 +5024,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit594:  ; preds = %_ZN16BCEscapeAnalyz
   %1227 = load ptr, ptr %51, align 8
   store i32 %1219, ptr %49, align 8
   %1228 = zext nneg i32 %1223 to i64
-  %1229 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1227, i64 %1228
+  %1229 = getelementptr inbounds nuw [4 x i8], ptr %1227, i64 %1228
   store i32 %.sroa.0.0.copyload.i593, ptr %1229, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5093,7 +5093,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit602:  ; preds = %_ZN16BCEscapeAnalyz
   %1249 = load ptr, ptr %51, align 8
   store i32 %1241, ptr %49, align 8
   %1250 = zext nneg i32 %1244 to i64
-  %1251 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1249, i64 %1250
+  %1251 = getelementptr inbounds nuw [4 x i8], ptr %1249, i64 %1250
   store i32 %.sroa.0.0.copyload.i601, ptr %1251, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5138,7 +5138,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit606:  ; preds = %_ZN16BCEscapeAnalyz
   %1265 = load ptr, ptr %51, align 8
   store i32 %1257, ptr %49, align 8
   %1266 = zext nneg i32 %1260 to i64
-  %1267 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1265, i64 %1266
+  %1267 = getelementptr inbounds nuw [4 x i8], ptr %1265, i64 %1266
   store i32 %.sroa.0.0.copyload.i605, ptr %1267, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5197,7 +5197,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
   store i32 %1295, ptr %3, align 8
   %1296 = load ptr, ptr %54, align 8
   %1297 = sext i32 %1294 to i64
-  %1298 = getelementptr inbounds ptr, ptr %1296, i64 %1297
+  %1298 = getelementptr inbounds [8 x i8], ptr %1296, i64 %1297
   store ptr %1282, ptr %1298, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5268,7 +5268,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit61
   store i32 %1329, ptr %3, align 8
   %1330 = load ptr, ptr %54, align 8
   %1331 = sext i32 %1328 to i64
-  %1332 = getelementptr inbounds ptr, ptr %1330, i64 %1331
+  %1332 = getelementptr inbounds [8 x i8], ptr %1330, i64 %1331
   store ptr %1316, ptr %1332, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5288,7 +5288,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit620:   ; preds = %1333
   %1339 = add nsw i32 %1334, -1
   store i32 %1339, ptr %49, align 8
   %1340 = zext nneg i32 %1339 to i64
-  %1341 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1338, i64 %1340
+  %1341 = getelementptr inbounds nuw [4 x i8], ptr %1338, i64 %1340
   %.sroa.0.0.copyload.i.i619 = load i32, ptr %1341, align 4
   %1342 = load i32, ptr %56, align 8
   %1343 = icmp sgt i32 %1342, 0
@@ -5315,7 +5315,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit620:   ; preds = %1333
   %1353 = xor i32 %1352, -1
   %1354 = load ptr, ptr %57, align 8
   %1355 = zext nneg i32 %1348 to i64
-  %1356 = getelementptr inbounds nuw i32, ptr %1354, i64 %1355
+  %1356 = getelementptr inbounds nuw [4 x i8], ptr %1354, i64 %1355
   %1357 = load i32, ptr %1356, align 4
   %1358 = and i32 %1357, %1353
   store i32 %1358, ptr %1356, align 4
@@ -5352,7 +5352,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit631:   ; preds = %_ZN16BCEscapeAnalyz
   %1369 = add nsw i32 %1364, -1
   store i32 %1369, ptr %49, align 8
   %1370 = zext nneg i32 %1369 to i64
-  %1371 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1368, i64 %1370
+  %1371 = getelementptr inbounds nuw [4 x i8], ptr %1368, i64 %1370
   %.sroa.0.0.copyload.i.i630 = load i32, ptr %1371, align 4
   %1372 = load i32, ptr %56, align 8
   %1373 = icmp sgt i32 %1372, 0
@@ -5379,7 +5379,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit631:   ; preds = %_ZN16BCEscapeAnalyz
   %1383 = xor i32 %1382, -1
   %1384 = load ptr, ptr %57, align 8
   %1385 = zext nneg i32 %1378 to i64
-  %1386 = getelementptr inbounds nuw i32, ptr %1384, i64 %1385
+  %1386 = getelementptr inbounds nuw [4 x i8], ptr %1384, i64 %1385
   %1387 = load i32, ptr %1386, align 4
   %1388 = and i32 %1387, %1383
   store i32 %1388, ptr %1386, align 4
@@ -5448,7 +5448,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit64
   store i32 %1421, ptr %3, align 8
   %1422 = load ptr, ptr %54, align 8
   %1423 = sext i32 %1420 to i64
-  %1424 = getelementptr inbounds ptr, ptr %1422, i64 %1423
+  %1424 = getelementptr inbounds [8 x i8], ptr %1422, i64 %1423
   store ptr %1408, ptr %1424, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5494,7 +5494,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit65
   store i32 %1447, ptr %3, align 8
   %1448 = load ptr, ptr %54, align 8
   %1449 = sext i32 %1446 to i64
-  %1450 = getelementptr inbounds ptr, ptr %1448, i64 %1449
+  %1450 = getelementptr inbounds [8 x i8], ptr %1448, i64 %1449
   store ptr %1434, ptr %1450, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5529,7 +5529,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit658: ; preds = %_ZNK
   %1465 = add nsw i32 %1455, 1
   store i32 %1465, ptr %49, align 8
   %1466 = sext i32 %1455 to i64
-  %1467 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1464, i64 %1466
+  %1467 = getelementptr inbounds [4 x i8], ptr %1464, i64 %1466
   store i32 0, ptr %1467, align 4
   %1468 = load ptr, ptr %52, align 8
   %1469 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %1468, i32 noundef %1463) #13
@@ -5558,7 +5558,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit66
   store i32 %1482, ptr %3, align 8
   %1483 = load ptr, ptr %54, align 8
   %1484 = sext i32 %1481 to i64
-  %1485 = getelementptr inbounds ptr, ptr %1483, i64 %1484
+  %1485 = getelementptr inbounds [8 x i8], ptr %1483, i64 %1484
   store ptr %1469, ptr %1485, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5650,7 +5650,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit66
   store i32 %1536, ptr %3, align 8
   %1537 = load ptr, ptr %54, align 8
   %1538 = sext i32 %1535 to i64
-  %1539 = getelementptr inbounds ptr, ptr %1537, i64 %1538
+  %1539 = getelementptr inbounds [8 x i8], ptr %1537, i64 %1538
   store ptr %1523, ptr %1539, align 8
   %1540 = add nuw nsw i32 %.03351305, 1
   %exitcond1320.not = icmp eq i32 %1540, %1512
@@ -5703,7 +5703,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit67
   store i32 %1569, ptr %3, align 8
   %1570 = load ptr, ptr %54, align 8
   %1571 = sext i32 %1568 to i64
-  %1572 = getelementptr inbounds ptr, ptr %1570, i64 %1571
+  %1572 = getelementptr inbounds [8 x i8], ptr %1570, i64 %1571
   store ptr %1556, ptr %1572, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5792,7 +5792,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit68
   store i32 %1621, ptr %3, align 8
   %1622 = load ptr, ptr %54, align 8
   %1623 = sext i32 %1620 to i64
-  %1624 = getelementptr inbounds ptr, ptr %1622, i64 %1623
+  %1624 = getelementptr inbounds [8 x i8], ptr %1622, i64 %1623
   store ptr %1608, ptr %1624, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5840,7 +5840,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit68
   store i32 %1652, ptr %3, align 8
   %1653 = load ptr, ptr %54, align 8
   %1654 = sext i32 %1651 to i64
-  %1655 = getelementptr inbounds ptr, ptr %1653, i64 %1654
+  %1655 = getelementptr inbounds [8 x i8], ptr %1653, i64 %1654
   store ptr %1639, ptr %1655, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -5904,7 +5904,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit693:   ; preds = %1671
   %1677 = add nsw i32 %1672, -1
   store i32 %1677, ptr %49, align 8
   %1678 = zext nneg i32 %1677 to i64
-  %1679 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1676, i64 %1678
+  %1679 = getelementptr inbounds nuw [4 x i8], ptr %1676, i64 %1678
   %.sroa.0.0.copyload.i.i692 = load i32, ptr %1679, align 4
   %1680 = load i32, ptr %56, align 8
   %1681 = icmp sgt i32 %1680, 0
@@ -5934,7 +5934,7 @@ _ZN9VectorSet3setEj.exit.i:                       ; preds = %1688, %1685
   %1690 = shl nuw i32 1, %1689
   %1691 = load ptr, ptr %65, align 8
   %1692 = zext nneg i32 %1686 to i64
-  %1693 = getelementptr inbounds nuw i32, ptr %1691, i64 %1692
+  %1693 = getelementptr inbounds nuw [4 x i8], ptr %1691, i64 %1692
   %1694 = load i32, ptr %1693, align 4
   %1695 = or i32 %1694, %1690
   store i32 %1695, ptr %1693, align 4
@@ -6002,7 +6002,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit699:   ; preds = %1724
   %1730 = add nsw i32 %1725, -1
   store i32 %1730, ptr %49, align 8
   %1731 = zext nneg i32 %1730 to i64
-  %1732 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1729, i64 %1731
+  %1732 = getelementptr inbounds nuw [4 x i8], ptr %1729, i64 %1731
   %.sroa.0.0.copyload.i.i698 = load i32, ptr %1732, align 4
   %1733 = load i32, ptr %56, align 8
   %1734 = icmp sgt i32 %1733, 0
@@ -6029,7 +6029,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit699:   ; preds = %1724
   %1744 = xor i32 %1743, -1
   %1745 = load ptr, ptr %57, align 8
   %1746 = zext nneg i32 %1739 to i64
-  %1747 = getelementptr inbounds nuw i32, ptr %1745, i64 %1746
+  %1747 = getelementptr inbounds nuw [4 x i8], ptr %1745, i64 %1746
   %1748 = load i32, ptr %1747, align 4
   %1749 = and i32 %1748, %1744
   store i32 %1749, ptr %1747, align 4
@@ -6072,13 +6072,13 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit709: ; preds = %1756
   %1763 = add nsw i32 %1757, 1
   store i32 %1763, ptr %49, align 8
   %1764 = sext i32 %1757 to i64
-  %1765 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1762, i64 %1764
+  %1765 = getelementptr inbounds [4 x i8], ptr %1762, i64 %1764
   store i32 2, ptr %1765, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit708
   %1766 = zext i8 %1722 to i64
-  %1767 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1766
+  %1767 = getelementptr inbounds nuw [4 x i8], ptr @type2size, i64 %1766
   %1768 = load i32, ptr %1767, align 4
   %1769 = icmp eq i32 %1768, 1
   %1770 = load i32, ptr %49, align 8
@@ -6101,7 +6101,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit711:  ; preds = %1773
   %1777 = add nsw i32 %1770, 1
   store i32 %1777, ptr %49, align 8
   %1778 = sext i32 %1770 to i64
-  %1779 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1776, i64 %1778
+  %1779 = getelementptr inbounds [4 x i8], ptr %1776, i64 %1778
   store i32 %.sroa.0.0.copyload.i710, ptr %1779, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6120,7 +6120,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i712: ; preds = %1780
   %1784 = add nsw i32 %1770, 1
   store i32 %1784, ptr %49, align 8
   %1785 = sext i32 %1770 to i64
-  %1786 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1783, i64 %1785
+  %1786 = getelementptr inbounds [4 x i8], ptr %1783, i64 %1785
   store i32 %.sroa.0.0.copyload.i.i713, ptr %1786, align 4
   %1787 = load i32, ptr %49, align 8
   %1788 = load i32, ptr %50, align 4
@@ -6138,7 +6138,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit714:  ; preds = %_ZN16BCEscapeAnalyz
   %1793 = add nsw i32 %1787, 1
   store i32 %1793, ptr %49, align 8
   %1794 = sext i32 %1787 to i64
-  %1795 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1792, i64 %1794
+  %1795 = getelementptr inbounds [4 x i8], ptr %1792, i64 %1794
   store i32 %.sroa.0.0.copyload.i.i713, ptr %1795, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6177,7 +6177,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit719:   ; preds = %1807
   %1813 = add nsw i32 %1808, -1
   store i32 %1813, ptr %49, align 8
   %1814 = zext nneg i32 %1813 to i64
-  %1815 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1812, i64 %1814
+  %1815 = getelementptr inbounds nuw [4 x i8], ptr %1812, i64 %1814
   %.sroa.0.0.copyload.i.i718 = load i32, ptr %1815, align 4
   %1816 = load i32, ptr %56, align 8
   %1817 = icmp sgt i32 %1816, 0
@@ -6204,7 +6204,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit719:   ; preds = %1807
   %1827 = xor i32 %1826, -1
   %1828 = load ptr, ptr %57, align 8
   %1829 = zext nneg i32 %1822 to i64
-  %1830 = getelementptr inbounds nuw i32, ptr %1828, i64 %1829
+  %1830 = getelementptr inbounds nuw [4 x i8], ptr %1828, i64 %1829
   %1831 = load i32, ptr %1830, align 4
   %1832 = and i32 %1831, %1827
   store i32 %1832, ptr %1830, align 4
@@ -6242,7 +6242,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i730: ; pred
   %1845 = xor i32 %1844, -1
   %1846 = load ptr, ptr %61, align 8
   %1847 = zext nneg i32 %1840 to i64
-  %1848 = getelementptr inbounds nuw i32, ptr %1846, i64 %1847
+  %1848 = getelementptr inbounds nuw [4 x i8], ptr %1846, i64 %1847
   %1849 = load i32, ptr %1848, align 4
   %1850 = and i32 %1849, %1845
   store i32 %1850, ptr %1848, align 4
@@ -6265,7 +6265,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit10.i720: ; pr
 
 _Z17is_reference_type9BasicTypeb.exit717:         ; preds = %_ZN7ciField4typeEv.exit715
   %1856 = zext i8 %1805 to i64
-  %1857 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1856
+  %1857 = getelementptr inbounds nuw [4 x i8], ptr @type2size, i64 %1856
   %1858 = load i32, ptr %1857, align 4
   %1859 = icmp eq i32 %1858, 1
   %1860 = load i32, ptr %49, align 8
@@ -6333,7 +6333,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit745:   ; preds = %1874
   %1880 = add nsw i32 %1875, -1
   store i32 %1880, ptr %49, align 8
   %1881 = zext nneg i32 %1880 to i64
-  %1882 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1879, i64 %1881
+  %1882 = getelementptr inbounds nuw [4 x i8], ptr %1879, i64 %1881
   %.sroa.0.0.copyload.i.i744 = load i32, ptr %1882, align 4
   %1883 = load i32, ptr %56, align 8
   %1884 = icmp sgt i32 %1883, 0
@@ -6360,7 +6360,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit745:   ; preds = %1874
   %1894 = xor i32 %1893, -1
   %1895 = load ptr, ptr %57, align 8
   %1896 = zext nneg i32 %1889 to i64
-  %1897 = getelementptr inbounds nuw i32, ptr %1895, i64 %1896
+  %1897 = getelementptr inbounds nuw [4 x i8], ptr %1895, i64 %1896
   %1898 = load i32, ptr %1897, align 4
   %1899 = and i32 %1898, %1894
   store i32 %1899, ptr %1897, align 4
@@ -6399,7 +6399,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit754: ; preds = %_
 
 .lr.ph.i757:                                      ; preds = %1911
   %1914 = zext i8 %1805 to i64
-  %1915 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1914
+  %1915 = getelementptr inbounds nuw [4 x i8], ptr @type2size, i64 %1914
   %1916 = load i32, ptr %1915, align 4
   %1917 = shl nsw i32 %1916, 3
   %1918 = icmp eq i32 %1912, -1
@@ -6423,7 +6423,7 @@ _ZN16BCEscapeAnalyzer17set_method_escapeENS_11ArgumentMapE.exit754: ; preds = %_
 
 1927:                                             ; preds = %.lr.ph.split.us.i760
   %1928 = load ptr, ptr %62, align 8
-  %1929 = getelementptr inbounds nuw i32, ptr %1928, i64 %indvars.iv16.i761
+  %1929 = getelementptr inbounds nuw [4 x i8], ptr %1928, i64 %indvars.iv16.i761
   store i32 -1, ptr %1929, align 4
   %.pre19.i764 = load i32, ptr %56, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i765
@@ -6453,7 +6453,7 @@ _ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i765: ; preds = %1927, %.lr.
   %.015.i.us.i = phi i32 [ %1943, %.lr.ph.i.us.i ], [ %spec.store.select.i.i, %.lr.ph.split.split.us.i ]
   %1938 = shl nuw i32 1, %.015.i.us.i
   %1939 = load ptr, ptr %62, align 8
-  %1940 = getelementptr inbounds nuw i32, ptr %1939, i64 %indvars.iv.i
+  %1940 = getelementptr inbounds nuw [4 x i8], ptr %1939, i64 %indvars.iv.i
   %1941 = load i32, ptr %1940, align 4
   %1942 = or i32 %1941, %1938
   store i32 %1942, ptr %1940, align 4
@@ -6527,7 +6527,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit769: ; preds = %1963
   %1970 = add nsw i32 %1964, 1
   store i32 %1970, ptr %49, align 8
   %1971 = sext i32 %1964 to i64
-  %1972 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1969, i64 %1971
+  %1972 = getelementptr inbounds [4 x i8], ptr %1969, i64 %1971
   store i32 2, ptr %1972, align 4
   br label %1973
 
@@ -6560,13 +6560,13 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit770: ; preds = %1981
   %1988 = add nsw i32 %1982, 1
   store i32 %1988, ptr %49, align 8
   %1989 = sext i32 %1982 to i64
-  %1990 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %1987, i64 %1989
+  %1990 = getelementptr inbounds [4 x i8], ptr %1987, i64 %1989
   store i32 2, ptr %1990, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
 1991:                                             ; preds = %1973
   %1992 = zext i8 %1979 to i64
-  %1993 = getelementptr inbounds nuw i32, ptr @type2size, i64 %1992
+  %1993 = getelementptr inbounds nuw [4 x i8], ptr @type2size, i64 %1992
   %1994 = load i32, ptr %1993, align 4
   switch i32 %1994, label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit [
     i32 1, label %1995
@@ -6591,7 +6591,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit772:  ; preds = %1995
   %2002 = add nsw i32 %1996, 1
   store i32 %2002, ptr %49, align 8
   %2003 = sext i32 %1996 to i64
-  %2004 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2001, i64 %2003
+  %2004 = getelementptr inbounds [4 x i8], ptr %2001, i64 %2003
   store i32 %.sroa.0.0.copyload.i771, ptr %2004, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6613,7 +6613,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit.i773: ; preds = %2005
   %2012 = add nsw i32 %2006, 1
   store i32 %2012, ptr %49, align 8
   %2013 = sext i32 %2006 to i64
-  %2014 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2011, i64 %2013
+  %2014 = getelementptr inbounds [4 x i8], ptr %2011, i64 %2013
   store i32 %.sroa.0.0.copyload.i.i774, ptr %2014, align 4
   %2015 = load i32, ptr %49, align 8
   %2016 = load i32, ptr %50, align 4
@@ -6631,7 +6631,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5lpushEv.exit775:  ; preds = %_ZN16BCEscapeAnalyz
   %2021 = add nsw i32 %2015, 1
   store i32 %2021, ptr %49, align 8
   %2022 = sext i32 %2015 to i64
-  %2023 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2020, i64 %2022
+  %2023 = getelementptr inbounds [4 x i8], ptr %2020, i64 %2022
   store i32 %.sroa.0.0.copyload.i.i774, ptr %2023, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6652,7 +6652,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit776: ; preds = %2024
   %2031 = add nsw i32 %2025, 1
   store i32 %2031, ptr %49, align 8
   %2032 = sext i32 %2025 to i64
-  %2033 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2030, i64 %2032
+  %2033 = getelementptr inbounds [4 x i8], ptr %2030, i64 %2032
   store i32 1, ptr %2033, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6684,7 +6684,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit778: ; preds = %_ZN1
   %2043 = load ptr, ptr %51, align 8
   store i32 %2035, ptr %49, align 8
   %2044 = zext nneg i32 %2039 to i64
-  %2045 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2043, i64 %2044
+  %2045 = getelementptr inbounds nuw [4 x i8], ptr %2043, i64 %2044
   store i32 1, ptr %2045, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6735,7 +6735,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit780: ; preds = %._cr
   %2064 = add nsw i32 %2058, 1
   store i32 %2064, ptr %49, align 8
   %2065 = sext i32 %2058 to i64
-  %2066 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2063, i64 %2065
+  %2066 = getelementptr inbounds [4 x i8], ptr %2063, i64 %2065
   store i32 1, ptr %2066, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6755,7 +6755,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit782:   ; preds = %2067
   %2073 = add nsw i32 %2068, -1
   store i32 %2073, ptr %49, align 8
   %2074 = zext nneg i32 %2073 to i64
-  %2075 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2072, i64 %2074
+  %2075 = getelementptr inbounds nuw [4 x i8], ptr %2072, i64 %2074
   %.sroa.0.0.copyload.i.i781 = load i32, ptr %2075, align 4
   %2076 = load i32, ptr %56, align 8
   %2077 = icmp sgt i32 %2076, 0
@@ -6782,7 +6782,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit782:   ; preds = %2067
   %2087 = xor i32 %2086, -1
   %2088 = load ptr, ptr %57, align 8
   %2089 = zext nneg i32 %2082 to i64
-  %2090 = getelementptr inbounds nuw i32, ptr %2088, i64 %2089
+  %2090 = getelementptr inbounds nuw [4 x i8], ptr %2088, i64 %2089
   %2091 = load i32, ptr %2090, align 4
   %2092 = and i32 %2091, %2087
   store i32 %2092, ptr %2090, align 4
@@ -6821,7 +6821,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit793:  ; preds = %_ZN16BCEscapeAnalyz
   %2104 = add nsw i32 %2098, 1
   store i32 %2104, ptr %49, align 8
   %2105 = sext i32 %2098 to i64
-  %2106 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2103, i64 %2105
+  %2106 = getelementptr inbounds [4 x i8], ptr %2103, i64 %2105
   store i32 %.sroa.0.0.copyload.i792, ptr %2106, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -6841,7 +6841,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit795:   ; preds = %2107
   %2113 = add nsw i32 %2108, -1
   store i32 %2113, ptr %49, align 8
   %2114 = zext nneg i32 %2113 to i64
-  %2115 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2112, i64 %2114
+  %2115 = getelementptr inbounds nuw [4 x i8], ptr %2112, i64 %2114
   %.sroa.0.0.copyload.i.i794 = load i32, ptr %2115, align 4
   %2116 = load i32, ptr %56, align 8
   %2117 = icmp sgt i32 %2116, 0
@@ -6868,7 +6868,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit795:   ; preds = %2107
   %2127 = xor i32 %2126, -1
   %2128 = load ptr, ptr %57, align 8
   %2129 = zext nneg i32 %2122 to i64
-  %2130 = getelementptr inbounds nuw i32, ptr %2128, i64 %2129
+  %2130 = getelementptr inbounds nuw [4 x i8], ptr %2128, i64 %2129
   %2131 = load i32, ptr %2130, align 4
   %2132 = and i32 %2131, %2127
   store i32 %2132, ptr %2130, align 4
@@ -6906,7 +6906,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i806: ; pred
   %2145 = xor i32 %2144, -1
   %2146 = load ptr, ptr %61, align 8
   %2147 = zext nneg i32 %2140 to i64
-  %2148 = getelementptr inbounds nuw i32, ptr %2146, i64 %2147
+  %2148 = getelementptr inbounds nuw [4 x i8], ptr %2146, i64 %2147
   %2149 = load i32, ptr %2148, align 4
   %2150 = and i32 %2149, %2145
   store i32 %2150, ptr %2148, align 4
@@ -6943,7 +6943,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit817:   ; preds = %2156
   %2162 = add nsw i32 %2157, -1
   store i32 %2162, ptr %49, align 8
   %2163 = zext nneg i32 %2162 to i64
-  %2164 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2161, i64 %2163
+  %2164 = getelementptr inbounds nuw [4 x i8], ptr %2161, i64 %2163
   %.sroa.0.0.copyload.i.i816 = load i32, ptr %2164, align 4
   %2165 = load i32, ptr %56, align 8
   %2166 = icmp sgt i32 %2165, 0
@@ -6970,7 +6970,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit817:   ; preds = %2156
   %2176 = xor i32 %2175, -1
   %2177 = load ptr, ptr %57, align 8
   %2178 = zext nneg i32 %2171 to i64
-  %2179 = getelementptr inbounds nuw i32, ptr %2177, i64 %2178
+  %2179 = getelementptr inbounds nuw [4 x i8], ptr %2177, i64 %2178
   %2180 = load i32, ptr %2179, align 4
   %2181 = and i32 %2180, %2176
   store i32 %2181, ptr %2179, align 4
@@ -7008,7 +7008,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit827: ; preds = %_ZN1
   %2193 = add nsw i32 %2187, 1
   store i32 %2193, ptr %49, align 8
   %2194 = sext i32 %2187 to i64
-  %2195 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2192, i64 %2194
+  %2195 = getelementptr inbounds [4 x i8], ptr %2192, i64 %2194
   store i32 %.sroa.0.0.copyload.i.i816, ptr %2195, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -7028,7 +7028,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit829:   ; preds = %2196
   %2202 = add nsw i32 %2197, -1
   store i32 %2202, ptr %49, align 8
   %2203 = zext nneg i32 %2202 to i64
-  %2204 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2201, i64 %2203
+  %2204 = getelementptr inbounds nuw [4 x i8], ptr %2201, i64 %2203
   %.sroa.0.0.copyload.i.i828 = load i32, ptr %2204, align 4
   %2205 = load i32, ptr %56, align 8
   %2206 = icmp sgt i32 %2205, 0
@@ -7055,7 +7055,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit829:   ; preds = %2196
   %2216 = xor i32 %2215, -1
   %2217 = load ptr, ptr %57, align 8
   %2218 = zext nneg i32 %2211 to i64
-  %2219 = getelementptr inbounds nuw i32, ptr %2217, i64 %2218
+  %2219 = getelementptr inbounds nuw [4 x i8], ptr %2217, i64 %2218
   %2220 = load i32, ptr %2219, align 4
   %2221 = and i32 %2220, %2216
   store i32 %2221, ptr %2219, align 4
@@ -7094,7 +7094,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5spushEv.exit840:  ; preds = %_ZN16BCEscapeAnalyz
   %2233 = add nsw i32 %2227, 1
   store i32 %2233, ptr %49, align 8
   %2234 = sext i32 %2227 to i64
-  %2235 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2232, i64 %2234
+  %2235 = getelementptr inbounds [4 x i8], ptr %2232, i64 %2234
   store i32 %.sroa.0.0.copyload.i839, ptr %2235, align 4
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -7136,7 +7136,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit844:   ; preds = %2244
   %2250 = add nsw i32 %2245, -1
   store i32 %2250, ptr %49, align 8
   %2251 = zext nneg i32 %2250 to i64
-  %2252 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2249, i64 %2251
+  %2252 = getelementptr inbounds nuw [4 x i8], ptr %2249, i64 %2251
   %.sroa.0.0.copyload.i.i843 = load i32, ptr %2252, align 4
   %2253 = load i32, ptr %56, align 8
   %2254 = icmp sgt i32 %2253, 0
@@ -7163,7 +7163,7 @@ _ZN16BCEscapeAnalyzer9StateInfo4apopEv.exit844:   ; preds = %2244
   %2264 = xor i32 %2263, -1
   %2265 = load ptr, ptr %57, align 8
   %2266 = zext nneg i32 %2259 to i64
-  %2267 = getelementptr inbounds nuw i32, ptr %2265, i64 %2266
+  %2267 = getelementptr inbounds nuw [4 x i8], ptr %2265, i64 %2266
   %2268 = load i32, ptr %2267, align 4
   %2269 = and i32 %2268, %2264
   store i32 %2269, ptr %2267, align 4
@@ -7232,7 +7232,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit86
   store i32 %2302, ptr %3, align 8
   %2303 = load ptr, ptr %54, align 8
   %2304 = sext i32 %2301 to i64
-  %2305 = getelementptr inbounds ptr, ptr %2303, i64 %2304
+  %2305 = getelementptr inbounds [8 x i8], ptr %2303, i64 %2304
   store ptr %2289, ptr %2305, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -7277,7 +7277,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit86
   store i32 %2327, ptr %3, align 8
   %2328 = load ptr, ptr %54, align 8
   %2329 = sext i32 %2326 to i64
-  %2330 = getelementptr inbounds ptr, ptr %2328, i64 %2329
+  %2330 = getelementptr inbounds [8 x i8], ptr %2328, i64 %2329
   store ptr %2314, ptr %2330, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -7311,7 +7311,7 @@ _ZN16BCEscapeAnalyzer9StateInfo5apushENS_11ArgumentMapE.exit870: ; preds = %_ZNK
   %2344 = add nsw i32 %2335, 1
   store i32 %2344, ptr %49, align 8
   %2345 = sext i32 %2335 to i64
-  %2346 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %2343, i64 %2345
+  %2346 = getelementptr inbounds [4 x i8], ptr %2343, i64 %2345
   store i32 0, ptr %2346, align 4
   %2347 = load ptr, ptr %52, align 8
   %2348 = call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %2347, i32 noundef %2342) #13
@@ -7340,7 +7340,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit87
   store i32 %2361, ptr %3, align 8
   %2362 = load ptr, ptr %54, align 8
   %2363 = sext i32 %2360 to i64
-  %2364 = getelementptr inbounds ptr, ptr %2362, i64 %2363
+  %2364 = getelementptr inbounds [8 x i8], ptr %2362, i64 %2363
   store ptr %2348, ptr %2364, align 8
   br label %_ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit
 
@@ -7403,7 +7403,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit87
   store i32 %2395, ptr %3, align 8
   %2396 = load ptr, ptr %54, align 8
   %2397 = sext i32 %2394 to i64
-  %2398 = getelementptr inbounds ptr, ptr %2396, i64 %2397
+  %2398 = getelementptr inbounds [8 x i8], ptr %2396, i64 %2397
   store ptr %2382, ptr %2398, align 8
   br label %.critedge1316
 
@@ -7434,7 +7434,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(196) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = load i32, ptr %2, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %"class.BCEscapeAnalyzer::StateInfo", ptr %1, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %1, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -7473,9 +7473,9 @@ define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7c
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %26, align 4
   store i32 %29, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7485,9 +7485,9 @@ define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7c
 30:                                               ; preds = %.lr.ph71, %30
   %indvars.iv89 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next90, %30 ]
   %31 = load ptr, ptr %23, align 8
-  %32 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %31, i64 %indvars.iv89
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv89
   %33 = load ptr, ptr %24, align 8
-  %34 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %33, i64 %indvars.iv89
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv89
   %35 = load i32, ptr %32, align 4
   store i32 %35, ptr %34, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
@@ -7542,9 +7542,9 @@ define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7c
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv92 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next93, %.lr.ph73 ]
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %53, i64 %indvars.iv92
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv92
   %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %55, i64 %indvars.iv92
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv92
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %54, align 4
   %59 = or i32 %58, %57
@@ -7556,9 +7556,9 @@ define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7c
 60:                                               ; preds = %.lr.ph75, %60
   %indvars.iv97 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next98, %60 ]
   %61 = load ptr, ptr %51, align 8
-  %62 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %61, i64 %indvars.iv97
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv97
   %63 = load ptr, ptr %52, align 8
-  %64 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %63, i64 %indvars.iv97
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv97
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %62, align 4
   %67 = or i32 %66, %65
@@ -7587,9 +7587,9 @@ define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7c
 78:                                               ; preds = %.lr.ph78, %78
   %indvars.iv100 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next101, %78 ]
   %.sroa.061.076 = phi i32 [ 0, %.lr.ph78 ], [ %85, %78 ]
-  %79 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %46, i64 %indvars.iv100
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv100
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %47, i64 %indvars.iv100
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv100
   %82 = load i32, ptr %81, align 4
   %83 = xor i32 %82, -1
   %84 = and i32 %80, %83
@@ -7601,9 +7601,9 @@ define hidden void @_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7c
 86:                                               ; preds = %.lr.ph82, %86
   %indvars.iv105 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next106, %86 ]
   %.sroa.061.180 = phi i32 [ %.sroa.061.0.lcssa, %.lr.ph82 ], [ %93, %86 ]
-  %87 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %75, i64 %indvars.iv105
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv105
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %77, i64 %indvars.iv105
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv105
   %90 = load i32, ptr %89, align 4
   %91 = xor i32 %90, -1
   %92 = and i32 %88, %91
@@ -7700,7 +7700,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125
   store ptr %.0.i.i124, ptr %3, align 8
   %46 = sext i32 %14 to i64
-  %47 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %.0.i.i124, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %.0.i.i124, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %47, ptr %48, align 8
   %49 = sext i32 %12 to i64
@@ -7725,11 +7725,11 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
   %indvars.iv = phi i64 [ 0, %.lr.ph248.preheader ], [ %indvars.iv.next, %.lr.ph248 ]
   %55 = phi ptr [ %.0.i.i124, %.lr.ph248.preheader ], [ %.0108, %.lr.ph248 ]
-  %56 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %55, i64 %46
-  %.0108 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %56, i64 %49
-  %57 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::StateInfo", ptr %.0.i.i, i64 %indvars.iv
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %46
+  %.0108 = getelementptr inbounds [4 x i8], ptr %56, i64 %49
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i, i64 %indvars.iv
   store ptr %.0108, ptr %57, align 8
-  %58 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %.0108, i64 %46
+  %58 = getelementptr inbounds [4 x i8], ptr %.0108, i64 %46
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %58, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
@@ -7786,7 +7786,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge249.t
 
 87:                                               ; preds = %_ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit
   %88 = sext i32 %83 to i64
-  %89 = getelementptr inbounds %"class.BCEscapeAnalyzer::StateInfo", ptr %.0.i.i, i64 %88
+  %89 = getelementptr inbounds [32 x i8], ptr %.0.i.i, i64 %88
   %90 = load ptr, ptr %89, align 8
   store i32 4, ptr %90, align 4
   br label %91
@@ -7806,7 +7806,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge249.t
 .lr.ph254:                                        ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %96 = sext i32 %83 to i64
-  %97 = getelementptr inbounds %"class.BCEscapeAnalyzer::StateInfo", ptr %.0.i.i, i64 %96
+  %97 = getelementptr inbounds [32 x i8], ptr %.0.i.i, i64 %96
   br label %98
 
 98:                                               ; preds = %.lr.ph254, %112
@@ -7815,7 +7815,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge249.t
   %.1252 = phi i32 [ %.0111, %.lr.ph254 ], [ %118, %112 ]
   %.sroa.0186.1250 = phi i32 [ %.sroa.0186.0, %.lr.ph254 ], [ %.sroa.0186.2, %112 ]
   %100 = load ptr, ptr %95, align 8
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv291
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv291
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i8, ptr %103, align 8
@@ -7826,7 +7826,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge249.t
 106:                                              ; preds = %98
   %107 = load ptr, ptr %97, align 8
   %108 = sext i32 %.1252 to i64
-  %109 = getelementptr inbounds %"class.BCEscapeAnalyzer::ArgumentMap", ptr %107, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %107, i64 %108
   %spec.store.select.i.i = tail call i32 @llvm.umin.i32(i32 %.1252, i32 29)
   %110 = shl nuw i32 4, %spec.store.select.i.i
   store i32 %110, ptr %109, align 4
@@ -7840,7 +7840,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge249.t
   %114 = phi i8 [ %104, %98 ], [ %.pre317, %106 ]
   %.sroa.0186.2 = phi i32 [ %.sroa.0186.1250, %98 ], [ %111, %106 ]
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr @type2size, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr @type2size, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, %.1252
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
@@ -7851,7 +7851,7 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge249.t
 ._crit_edge255:                                   ; preds = %112, %.._crit_edge255_crit_edge
   %.pre-phi324 = phi i64 [ %.pre323, %.._crit_edge255_crit_edge ], [ %96, %112 ]
   %.sroa.0186.1.lcssa = phi i32 [ %.sroa.0186.0, %.._crit_edge255_crit_edge ], [ %.sroa.0186.2, %112 ]
-  %121 = getelementptr inbounds %"class.BCEscapeAnalyzer::StateInfo", ptr %.0.i.i, i64 %.pre-phi324
+  %121 = getelementptr inbounds [32 x i8], ptr %.0.i.i, i64 %.pre-phi324
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store i8 1, ptr %122, align 8
   %.off = add i32 %8, 3
@@ -7916,11 +7916,11 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
   %.sroa.0190.0280 = phi i32 [ 1, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.0190.1.lcssa, %.loopexit ]
   %147 = add nsw i32 %.sroa.0190.0280, -1
   %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw ptr, ptr %.sroa.26.0282, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.26.0282, i64 %148
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %150, align 4
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds %"class.BCEscapeAnalyzer::StateInfo", ptr %.0.i.i, i64 %152
+  %153 = getelementptr inbounds [32 x i8], ptr %.0.i.i, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %155 = load i32, ptr %154, align 4
   %156 = and i32 %155, 34
@@ -7936,7 +7936,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 .lr.ph257:                                        ; preds = %.preheader240, %.lr.ph257
   %indvars.iv294 = phi i64 [ %indvars.iv.next295, %.lr.ph257 ], [ 0, %.preheader240 ]
   %157 = load ptr, ptr %3, align 8
-  %158 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %157, i64 %indvars.iv294
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %indvars.iv294
   store i32 %.sroa.0186.1.lcssa, ptr %158, align 4
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
@@ -7969,7 +7969,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 .lr.ph261:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
   %indvars.iv299 = phi i64 [ %indvars.iv.next300, %.lr.ph261 ], [ 0, %.lr.ph261.preheader ]
   %165 = load ptr, ptr %48, align 8
-  %166 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %165, i64 %indvars.iv299
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %indvars.iv299
   store i32 %.sroa.0186.1.lcssa, ptr %166, align 4
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %167 = load i32, ptr %132, align 8
@@ -7990,9 +7990,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 .lr.ph263:                                        ; preds = %.preheader238, %.lr.ph263
   %indvars.iv302 = phi i64 [ %indvars.iv.next303, %.lr.ph263 ], [ 0, %.preheader238 ]
   %174 = load ptr, ptr %153, align 8
-  %175 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %174, i64 %indvars.iv302
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %indvars.iv302
   %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %176, i64 %indvars.iv302
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv302
   %178 = load i32, ptr %175, align 4
   store i32 %178, ptr %177, align 4
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
@@ -8002,9 +8002,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 179:                                              ; preds = %.lr.ph265, %179
   %indvars.iv307 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next308, %179 ]
   %180 = load ptr, ptr %173, align 8
-  %181 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %180, i64 %indvars.iv307
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %indvars.iv307
   %182 = load ptr, ptr %48, align 8
-  %183 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %182, i64 %indvars.iv307
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv307
   %184 = load i32, ptr %181, align 4
   store i32 %184, ptr %183, align 4
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
@@ -8039,7 +8039,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %indvars.iv310
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv310
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load i32, ptr %202, align 4
@@ -8129,9 +8129,9 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147: ; preds = %235, %231, %227
 
 .lr.ph.i157:                                      ; preds = %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147, %.lr.ph.i157
   %indvars.iv.i158 = phi i64 [ %indvars.iv.next.i159, %.lr.ph.i157 ], [ 0, %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147 ]
-  %244 = getelementptr inbounds nuw ptr, ptr %.0.i.i148, i64 %indvars.iv.i158
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i148, i64 %indvars.iv.i158
   %245 = load ptr, ptr %75, align 8
-  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.i158
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %indvars.iv.i158
   %247 = load ptr, ptr %246, align 8
   store ptr %247, ptr %244, align 8
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i158, 1
@@ -8150,7 +8150,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i147: ; preds = %235, %231, %227
 
 .lr.ph18.i154:                                    ; preds = %.lr.ph18.i154, %.lr.ph18.preheader.i153
   %indvars.iv20.i155 = phi i64 [ %243, %.lr.ph18.preheader.i153 ], [ %indvars.iv.next21.i156, %.lr.ph18.i154 ]
-  %254 = getelementptr inbounds nuw ptr, ptr %.0.i.i148, i64 %indvars.iv20.i155
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i148, i64 %indvars.iv20.i155
   store ptr null, ptr %254, align 8
   %indvars.iv.next21.i156 = add nuw nsw i64 %indvars.iv20.i155, 1
   %255 = load i32, ptr %74, align 4
@@ -8173,7 +8173,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %4, align 8
   %262 = sext i32 %260 to i64
-  %263 = getelementptr inbounds ptr, ptr %259, i64 %262
+  %263 = getelementptr inbounds [8 x i8], ptr %259, i64 %262
   store ptr %201, ptr %263, align 8
   br label %264
 
@@ -8196,11 +8196,11 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
   %269 = add nsw i32 %267, -1
   store i32 %269, ptr %4, align 8
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds nuw ptr, ptr %268, i64 %270
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %270
   %272 = load ptr, ptr %271, align 8
   %273 = load i32, ptr %272, align 4
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds %"class.BCEscapeAnalyzer::StateInfo", ptr %.0.i.i, i64 %274
+  %275 = getelementptr inbounds [32 x i8], ptr %.0.i.i, i64 %274
   %276 = load ptr, ptr %9, align 8
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 80
   %278 = load i32, ptr %277, align 8
@@ -8236,9 +8236,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %290 = load ptr, ptr %3, align 8
-  %291 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %290, i64 %indvars.iv.i
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %indvars.iv.i
   %292 = load ptr, ptr %275, align 8
-  %293 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %292, i64 %indvars.iv.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %indvars.iv.i
   %294 = load i32, ptr %291, align 4
   store i32 %294, ptr %293, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8248,9 +8248,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 295:                                              ; preds = %295, %.lr.ph71.i
   %indvars.iv89.i = phi i64 [ 0, %.lr.ph71.i ], [ %indvars.iv.next90.i, %295 ]
   %296 = load ptr, ptr %48, align 8
-  %297 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %296, i64 %indvars.iv89.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %296, i64 %indvars.iv89.i
   %298 = load ptr, ptr %289, align 8
-  %299 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %298, i64 %indvars.iv89.i
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %298, i64 %indvars.iv89.i
   %300 = load i32, ptr %297, align 4
   store i32 %300, ptr %299, align 4
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
@@ -8302,9 +8302,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 .lr.ph73.i:                                       ; preds = %.lr.ph73.i, %.lr.ph73.preheader.i
   %indvars.iv92.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next93.i, %.lr.ph73.i ]
   %315 = load ptr, ptr %275, align 8
-  %316 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %315, i64 %indvars.iv92.i
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv92.i
   %317 = load ptr, ptr %3, align 8
-  %318 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %317, i64 %indvars.iv92.i
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %indvars.iv92.i
   %319 = load i32, ptr %318, align 4
   %320 = load i32, ptr %316, align 4
   %321 = or i32 %320, %319
@@ -8316,9 +8316,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 322:                                              ; preds = %322, %.lr.ph75.i
   %indvars.iv97.i = phi i64 [ 0, %.lr.ph75.i ], [ %indvars.iv.next98.i, %322 ]
   %323 = load ptr, ptr %314, align 8
-  %324 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %323, i64 %indvars.iv97.i
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %indvars.iv97.i
   %325 = load ptr, ptr %48, align 8
-  %326 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %325, i64 %indvars.iv97.i
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %indvars.iv97.i
   %327 = load i32, ptr %326, align 4
   %328 = load i32, ptr %324, align 4
   %329 = or i32 %328, %327
@@ -8345,9 +8345,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 338:                                              ; preds = %338, %.lr.ph78.i
   %indvars.iv100.i = phi i64 [ 0, %.lr.ph78.i ], [ %indvars.iv.next101.i, %338 ]
   %.sroa.061.076.i = phi i32 [ 0, %.lr.ph78.i ], [ %345, %338 ]
-  %339 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %310, i64 %indvars.iv100.i
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %indvars.iv100.i
   %340 = load i32, ptr %339, align 4
-  %341 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %311, i64 %indvars.iv100.i
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %indvars.iv100.i
   %342 = load i32, ptr %341, align 4
   %343 = xor i32 %342, -1
   %344 = and i32 %340, %343
@@ -8359,9 +8359,9 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 346:                                              ; preds = %346, %.lr.ph82.i
   %indvars.iv105.i = phi i64 [ 0, %.lr.ph82.i ], [ %indvars.iv.next106.i, %346 ]
   %.sroa.061.180.i = phi i32 [ %.sroa.061.0.lcssa.i, %.lr.ph82.i ], [ %353, %346 ]
-  %347 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %335, i64 %indvars.iv105.i
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %indvars.iv105.i
   %348 = load i32, ptr %347, align 4
-  %349 = getelementptr inbounds nuw %"class.BCEscapeAnalyzer::ArgumentMap", ptr %337, i64 %indvars.iv105.i
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv105.i
   %350 = load i32, ptr %349, align 4
   %351 = xor i32 %350, -1
   %352 = and i32 %348, %351
@@ -8397,7 +8397,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
   %365 = xor i32 %364, -1
   %366 = load ptr, ptr %135, align 8
   %367 = zext nneg i32 %360 to i64
-  %368 = getelementptr inbounds nuw i32, ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %366, i64 %367
   %369 = load i32, ptr %368, align 4
   %370 = and i32 %369, %365
   store i32 %370, ptr %368, align 4
@@ -8435,7 +8435,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i: ; preds =
   %383 = xor i32 %382, -1
   %384 = load ptr, ptr %137, align 8
   %385 = zext nneg i32 %378 to i64
-  %386 = getelementptr inbounds nuw i32, ptr %384, i64 %385
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %384, i64 %385
   %387 = load i32, ptr %386, align 4
   %388 = and i32 %387, %383
   store i32 %388, ptr %386, align 4
@@ -8512,7 +8512,7 @@ _ZNK9VectorSet4testEj.exit.i.i:                   ; preds = %408
   %410 = and i32 %.08.i.i, 31
   %411 = shl nuw i32 1, %410
   %412 = zext nneg i32 %409 to i64
-  %413 = getelementptr inbounds nuw i32, ptr %404, i64 %412
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %404, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = and i32 %414, %411
   %.not7.i.i = icmp eq i32 %415, 0
@@ -8584,8 +8584,8 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i166: ; preds = %432, %430
 
 .lr.ph.i176:                                      ; preds = %.lr.ph.i176.preheader, %.lr.ph.i176
   %indvars.iv.i177 = phi i64 [ %indvars.iv.next.i178, %.lr.ph.i176 ], [ 0, %.lr.ph.i176.preheader ]
-  %444 = getelementptr inbounds nuw ptr, ptr %.0.i.i167, i64 %indvars.iv.i177
-  %445 = getelementptr inbounds nuw ptr, ptr %.sroa.26.1274, i64 %indvars.iv.i177
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i167, i64 %indvars.iv.i177
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.26.1274, i64 %indvars.iv.i177
   %446 = load ptr, ptr %445, align 8
   store ptr %446, ptr %444, align 8
   %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i177, 1
@@ -8606,7 +8606,7 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
   %.sroa.26.4 = phi ptr [ %.sroa.26.1274, %420 ], [ %.0.i.i167, %.preheader.i170 ], [ %.0.i.i167, %447 ]
   %448 = add nsw i32 %.sroa.0190.1271, 1
   %449 = sext i32 %.sroa.0190.1271 to i64
-  %450 = getelementptr inbounds ptr, ptr %.sroa.26.4, i64 %449
+  %450 = getelementptr inbounds [8 x i8], ptr %.sroa.26.4, i64 %449
   store ptr %272, ptr %450, align 8
   br label %451
 
@@ -8775,7 +8775,7 @@ _ZN9VectorSet3setEj.exit14:                       ; preds = %_ZN9VectorSet3setEj
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.120 = phi i32 [ %.012, %.lr.ph ], [ %65, %59 ]
   %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i8, ptr %39, align 8
@@ -8798,7 +8798,7 @@ _ZN9VectorSet3setEj.exit16:                       ; preds = %42, %45
   %47 = shl nuw i32 1, %46
   %48 = load ptr, ptr %31, align 8
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %47
   store i32 %52, ptr %50, align 4
@@ -8812,7 +8812,7 @@ _ZN9VectorSet3setEj.exit16:                       ; preds = %42, %45
 
 _ZN9VectorSet3setEj.exit18:                       ; preds = %_ZN9VectorSet3setEj.exit16, %54
   %55 = load ptr, ptr %33, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %49
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %49
   %57 = load i32, ptr %56, align 4
   %58 = or i32 %57, %47
   store i32 %58, ptr %56, align 4
@@ -8824,7 +8824,7 @@ _ZN9VectorSet3setEj.exit18:                       ; preds = %_ZN9VectorSet3setEj
   %60 = phi i32 [ %.pre24, %_ZN9VectorSet3setEj.exit18 ], [ %35, %34 ]
   %61 = phi i8 [ %.pre, %_ZN9VectorSet3setEj.exit18 ], [ %40, %34 ]
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr @type2size, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @type2size, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = add nsw i32 %64, %.120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8886,7 +8886,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17clear_escape_infoEv(ptr noundef nonnu
 18:                                               ; preds = %.lr.ph, %_ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN16BCEscapeAnalyzer17set_global_escapeENS_11ArgumentMapEb.exit ]
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 -1, ptr %20, align 4
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.store.select.i.i = tail call i32 @llvm.umin.i32(i32 %21, i32 29)
@@ -8907,7 +8907,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17clear_escape_infoEv(ptr noundef nonnu
 
 29:                                               ; preds = %.lr.ph.split.us.i
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv16.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv16.i
   store i32 -1, ptr %31, align 4
   %.pre19.i = load i32, ptr %13, align 8
   br label %_ZN16BCEscapeAnalyzer16set_arg_modifiedEiii.exit.us.i
@@ -8944,7 +8944,7 @@ _ZN16BCEscapeAnalyzer12set_modifiedENS_11ArgumentMapEii.exit: ; preds = %_ZN16BC
   %45 = xor i32 %44, -1
   %46 = load ptr, ptr %15, align 8
   %47 = zext nneg i32 %40 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, %45
   store i32 %50, ptr %48, align 4
@@ -8982,7 +8982,7 @@ _ZN16BCEscapeAnalyzer10clear_bitsENS_11ArgumentMapER9VectorSet.exit.i: ; preds =
   %63 = xor i32 %62, -1
   %64 = load ptr, ptr %17, align 8
   %65 = zext nneg i32 %58 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, %63
   store i32 %68, ptr %66, align 4
@@ -9320,7 +9320,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %151
   %156 = shl nuw i32 1, %155
   %157 = load ptr, ptr %145, align 8
   %158 = zext nneg i32 %153 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = and i32 %160, %156
   %.not42 = icmp eq i32 %161, 0
@@ -9341,7 +9341,7 @@ _ZNK9VectorSet4testEj.exit32:                     ; preds = %_ZNK9VectorSet4test
   %166 = shl nuw i32 1, %165
   %167 = load ptr, ptr %147, align 8
   %168 = zext nneg i32 %153 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %168
   %170 = load i32, ptr %169, align 4
   %171 = and i32 %170, %166
   %.not43 = icmp eq i32 %171, 0
@@ -9362,7 +9362,7 @@ _ZNK9VectorSet4testEj.exit35:                     ; preds = %_ZNK9VectorSet4test
   %175 = shl nuw i32 1, %174
   %176 = load ptr, ptr %149, align 8
   %177 = zext nneg i32 %153 to i64
-  %178 = getelementptr inbounds nuw i32, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %177
   %179 = load i32, ptr %178, align 4
   %180 = and i32 %179, %175
   %.not44 = icmp eq i32 %180, 0
@@ -9376,7 +9376,7 @@ _ZNK9VectorSet4testEj.exit35:                     ; preds = %_ZNK9VectorSet4test
 _ZNK9VectorSet4testEj.exit35.thread:              ; preds = %_ZNK9VectorSet4testEj.exit32.thread, %181, %_ZNK9VectorSet4testEj.exit35
   %183 = load ptr, ptr %137, align 8
   %184 = load ptr, ptr %150, align 8
-  %185 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv
   %186 = load i32, ptr %185, align 4
   tail call void @_ZN12ciMethodData16set_arg_modifiedEij(ptr noundef nonnull align 8 dereferenceable(176) %183, i32 noundef %152, i32 noundef %186) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9503,7 +9503,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %17, %20
   %22 = shl nuw i32 1, %21
   %23 = load ptr, ptr %7, align 8
   %24 = zext nneg i32 %18 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = or i32 %26, %22
   store i32 %27, ptr %25, align 4
@@ -9529,7 +9529,7 @@ _ZN9VectorSet3setEj.exit11:                       ; preds = %31, %34
   %36 = shl nuw i32 1, %35
   %37 = load ptr, ptr %9, align 8
   %38 = zext nneg i32 %32 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %40, %36
   store i32 %41, ptr %39, align 4
@@ -9555,7 +9555,7 @@ _ZN9VectorSet3setEj.exit13:                       ; preds = %45, %48
   %50 = shl nuw i32 1, %49
   %51 = load ptr, ptr %11, align 8
   %52 = zext nneg i32 %46 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, %50
   store i32 %55, ptr %53, align 4
@@ -9565,7 +9565,7 @@ _ZN9VectorSet3setEj.exit13:                       ; preds = %45, %48
   %57 = load ptr, ptr %5, align 8
   %58 = tail call noundef i32 @_ZNK12ciMethodData12arg_modifiedEi(ptr noundef nonnull align 8 dereferenceable(176) %57, i32 noundef %15) #13
   %59 = load ptr, ptr %12, align 8
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   store i32 %58, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %2, align 8
@@ -9794,7 +9794,7 @@ define hidden void @_ZN16BCEscapeAnalyzer17copy_dependenciesEP12Dependencies(ptr
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -9996,9 +9996,9 @@ _ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10015,7 +10015,7 @@ _ZN13GrowableArrayIP10ciMetadataE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -10094,9 +10094,9 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10113,7 +10113,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit:    ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

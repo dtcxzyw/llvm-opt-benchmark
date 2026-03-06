@@ -3370,7 +3370,7 @@ define internal ptr @codecctx_errors_get(ptr noundef readonly captures(none) %0,
   br label %_Py_NewRef.exit
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.codecctx_errors_get, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.codecctx_errors_get, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %switch.load) #8
   br label %_Py_NewRef.exit

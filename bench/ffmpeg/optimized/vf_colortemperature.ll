@@ -343,15 +343,15 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
   %33 = load ptr, ptr %1, align 8, !tbaa !54
   %34 = sext i32 %17 to i64
   %35 = mul nsw i64 %24, %34
-  %36 = getelementptr inbounds i16, ptr %33, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !54
   %39 = mul nsw i64 %28, %34
-  %40 = getelementptr inbounds i16, ptr %38, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !54
   %43 = mul nsw i64 %32, %34
-  %44 = getelementptr inbounds i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %42, i64 %43
   %45 = icmp slt i32 %17, %20
   br i1 %45, label %.preheader.lr.ph, label %._crit_edge152
 
@@ -381,13 +381,13 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
 
 55:                                               ; preds = %.preheader.us, %55
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw i16, ptr %.0151.us, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %.0151.us, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2, !tbaa !59
   %58 = uitofp i16 %57 to float
-  %59 = getelementptr inbounds nuw i16, ptr %.0128150.us, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.0128150.us, i64 %indvars.iv
   %60 = load i16, ptr %59, align 2, !tbaa !59
   %61 = uitofp i16 %60 to float
-  %62 = getelementptr inbounds nuw i16, ptr %.0129149.us, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.0129149.us, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !59
   %64 = uitofp i16 %63 to float
   %65 = fmul nsz float %52, %64
@@ -456,9 +456,9 @@ define internal noundef i32 @temperature_slice16(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %55
-  %113 = getelementptr inbounds nuw i16, ptr %.0151.us, i64 %24
-  %114 = getelementptr inbounds nuw i16, ptr %.0128150.us, i64 %28
-  %115 = getelementptr inbounds nuw i16, ptr %.0129149.us, i64 %32
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %.0151.us, i64 %24
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %.0128150.us, i64 %28
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %.0129149.us, i64 %32
   %116 = add nsw i32 %.0131148.us, 1
   %exitcond155.not = icmp eq i32 %116, %20
   br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !62
@@ -639,7 +639,7 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   %27 = load ptr, ptr %1, align 8, !tbaa !54
   %28 = sext i32 %19 to i64
   %29 = mul nsw i64 %26, %28
-  %30 = getelementptr inbounds i16, ptr %27, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %27, i64 %29
   %31 = icmp slt i32 %19, %22
   br i1 %31, label %.preheader.lr.ph, label %._crit_edge152
 
@@ -673,21 +673,21 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %.0151.us = phi ptr [ %30, %.preheader.lr.ph.split.us ], [ %107, %._crit_edge.us ]
   %.0132150.us = phi i32 [ %19, %.preheader.lr.ph.split.us ], [ %108, %._crit_edge.us ]
-  %invariant.gep = getelementptr i16, ptr %.0151.us, i64 %48
-  %invariant.gep159 = getelementptr i16, ptr %.0151.us, i64 %49
-  %invariant.gep161 = getelementptr i16, ptr %.0151.us, i64 %50
+  %invariant.gep = getelementptr [2 x i8], ptr %.0151.us, i64 %48
+  %invariant.gep159 = getelementptr [2 x i8], ptr %.0151.us, i64 %49
+  %invariant.gep161 = getelementptr [2 x i8], ptr %.0151.us, i64 %50
   br label %51
 
 51:                                               ; preds = %.preheader.us, %51
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %51 ]
   %52 = mul nsw i64 %indvars.iv, %47
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %52
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %52
   %53 = load i16, ptr %gep, align 2, !tbaa !59
   %54 = uitofp i16 %53 to float
-  %gep160 = getelementptr i16, ptr %invariant.gep159, i64 %52
+  %gep160 = getelementptr [2 x i8], ptr %invariant.gep159, i64 %52
   %55 = load i16, ptr %gep160, align 2, !tbaa !59
   %56 = uitofp i16 %55 to float
-  %gep162 = getelementptr i16, ptr %invariant.gep161, i64 %52
+  %gep162 = getelementptr [2 x i8], ptr %invariant.gep161, i64 %52
   %57 = load i16, ptr %gep162, align 2, !tbaa !59
   %58 = uitofp i16 %57 to float
   %59 = fmul nsz float %44, %58
@@ -756,7 +756,7 @@ define internal noundef i32 @temperature_slice16p(ptr noundef readonly captures(
   br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !66
 
 ._crit_edge.us:                                   ; preds = %51
-  %107 = getelementptr inbounds nuw i16, ptr %.0151.us, i64 %26
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %.0151.us, i64 %26
   %108 = add nsw i32 %.0132150.us, 1
   %exitcond155.not = icmp eq i32 %108, %22
   br i1 %exitcond155.not, label %._crit_edge152, label %.preheader.us, !llvm.loop !67
@@ -808,15 +808,15 @@ define internal noundef i32 @temperature_slice32(ptr noundef readonly captures(n
   %37 = load ptr, ptr %1, align 8, !tbaa !54
   %38 = sext i32 %17 to i64
   %39 = mul nsw i64 %24, %38
-  %40 = getelementptr inbounds float, ptr %37, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !54
   %43 = mul nsw i64 %28, %38
-  %44 = getelementptr inbounds float, ptr %42, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !54
   %47 = mul nsw i64 %32, %38
-  %48 = getelementptr inbounds float, ptr %46, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %46, i64 %47
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.preheader.us
 
@@ -829,11 +829,11 @@ define internal noundef i32 @temperature_slice32(ptr noundef readonly captures(n
 
 49:                                               ; preds = %.preheader.us, %49
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %.0139.us, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.0139.us, i64 %indvars.iv
   %51 = load float, ptr %50, align 4, !tbaa !32
-  %52 = getelementptr inbounds nuw float, ptr %.0124138.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.0124138.us, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !32
-  %54 = getelementptr inbounds nuw float, ptr %.0125137.us, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.0125137.us, i64 %indvars.iv
   %55 = load float, ptr %54, align 4, !tbaa !32
   %56 = load float, ptr %15, align 4, !tbaa !32
   %57 = fmul nsz float %55, %56
@@ -883,9 +883,9 @@ define internal noundef i32 @temperature_slice32(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %49
-  %95 = getelementptr inbounds nuw float, ptr %.0139.us, i64 %24
-  %96 = getelementptr inbounds nuw float, ptr %.0124138.us, i64 %28
-  %97 = getelementptr inbounds nuw float, ptr %.0125137.us, i64 %32
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.0139.us, i64 %24
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.0124138.us, i64 %28
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.0125137.us, i64 %32
   %98 = add nsw i32 %.0127136.us, 1
   %exitcond143.not = icmp eq i32 %98, %20
   br i1 %exitcond143.not, label %._crit_edge140, label %.preheader.us, !llvm.loop !69

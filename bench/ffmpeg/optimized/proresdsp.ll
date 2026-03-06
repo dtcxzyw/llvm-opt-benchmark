@@ -23,9 +23,9 @@ define internal void @prores_idct_put_10_c(ptr noundef writeonly captures(none) 
 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2, !tbaa !16, !alias.scope !14, !noalias !11
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2, !tbaa !16, !alias.scope !11, !noalias !14
   %10 = mul i16 %9, %7
   store i16 %10, ptr %8, align 2, !tbaa !16, !alias.scope !11, !noalias !14
@@ -187,7 +187,7 @@ idctRowCondDC_extrashift_10.exit.i:               ; preds = %95, %26
 
 .preheader.i:                                     ; preds = %idctRowCondDC_extrashift_10.exit.i, %idctSparseCol_extrashift_10.exit.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %idctSparseCol_extrashift_10.exit.i ], [ 0, %idctRowCondDC_extrashift_10.exit.i ]
-  %122 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28.i
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv28.i
   %123 = load i16, ptr %122, align 2, !tbaa !16, !alias.scope !11, !noalias !14
   %124 = add i16 %123, 8192
   %125 = sext i16 %124 to i32
@@ -357,11 +357,11 @@ prores_idct_10.exit:                              ; preds = %idctSparseCol_extra
 
 231:                                              ; preds = %231, %.preheader.us.i.i
   %indvars.iv32.i.i = phi i64 [ %indvars.iv.next33.i.i, %231 ], [ 0, %.preheader.us.i.i ]
-  %gep43.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep42.i.i, i64 %indvars.iv32.i.i
+  %gep43.i.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep42.i.i, i64 %indvars.iv32.i.i
   %232 = load i16, ptr %gep43.i.i, align 2, !tbaa !16
   %233 = tail call i16 @llvm.smax.i16(i16 %232, i16 4)
   %234 = tail call i16 @llvm.umin.i16(i16 %233, i16 1019)
-  %235 = getelementptr inbounds nuw i16, ptr %.022.us.i.i, i64 %indvars.iv32.i.i
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %.022.us.i.i, i64 %indvars.iv32.i.i
   store i16 %234, ptr %235, align 2, !tbaa !16
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, 8
@@ -369,7 +369,7 @@ prores_idct_10.exit:                              ; preds = %idctSparseCol_extra
 
 .split.us.us.i.i:                                 ; preds = %231
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
-  %236 = getelementptr inbounds i16, ptr %.022.us.i.i, i64 %230
+  %236 = getelementptr inbounds [2 x i8], ptr %.022.us.i.i, i64 %230
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, 8
   br i1 %exitcond39.not.i.i, label %put_pixels_10.exit, label %.preheader.us.i.i, !llvm.loop !24
 
@@ -385,9 +385,9 @@ define internal void @prores_idct_put_12_c(ptr noundef writeonly captures(none) 
 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2, !tbaa !16, !alias.scope !28, !noalias !25
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2, !tbaa !16, !alias.scope !25, !noalias !28
   %10 = mul i16 %9, %7
   store i16 %10, ptr %8, align 2, !tbaa !16, !alias.scope !25, !noalias !28
@@ -549,7 +549,7 @@ idctRowCondDC_int16_12bit.exit.i:                 ; preds = %95, %26
 
 .preheader.i:                                     ; preds = %idctRowCondDC_int16_12bit.exit.i, %idctSparseCol_int16_12bit.exit.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %idctSparseCol_int16_12bit.exit.i ], [ 0, %idctRowCondDC_int16_12bit.exit.i ]
-  %122 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv28.i
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv28.i
   %123 = load i16, ptr %122, align 2, !tbaa !16, !alias.scope !25, !noalias !28
   %124 = add i16 %123, 8192
   %125 = sext i16 %124 to i32
@@ -719,17 +719,17 @@ prores_idct_12.exit:                              ; preds = %idctSparseCol_int16
 
 .split.i.i:                                       ; preds = %232
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
-  %231 = getelementptr inbounds i16, ptr %.022.i.i, i64 %230
+  %231 = getelementptr inbounds [2 x i8], ptr %.022.i.i, i64 %230
   %exitcond31.not.i.i = icmp eq i64 %indvars.iv.next29.i.i, 8
   br i1 %exitcond31.not.i.i, label %put_pixels_12.exit, label %.preheader.i.i, !llvm.loop !24
 
 232:                                              ; preds = %232, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %232 ]
-  %gep.i.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %233 = load i16, ptr %gep.i.i, align 2, !tbaa !16
   %234 = tail call i16 @llvm.smax.i16(i16 %233, i16 4)
   %235 = tail call i16 @llvm.umin.i16(i16 %234, i16 4091)
-  %236 = getelementptr inbounds nuw i16, ptr %.022.i.i, i64 %indvars.iv.i.i
+  %236 = getelementptr inbounds nuw [2 x i8], ptr %.022.i.i, i64 %indvars.iv.i.i
   store i16 %235, ptr %236, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8

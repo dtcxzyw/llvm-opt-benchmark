@@ -71,7 +71,7 @@ gv_alloc.exit:                                    ; preds = %4
   %.05975 = phi ptr [ %spec.select, %26 ], [ null, %gv_alloc.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %17 = load ptr, ptr %16, align 8, !tbaa !40
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = tail call fastcc ptr @mkTree(ptr noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %21 = add nuw nsw i64 %.079, 1
@@ -259,7 +259,7 @@ gv_calloc.exit:                                   ; preds = %10
   %.096.in105 = phi ptr [ %17, %gv_calloc.exit ], [ %27, %25 ]
   %.097104 = phi i64 [ 0, %gv_calloc.exit ], [ %28, %25 ]
   %.096 = load ptr, ptr %.096.in105, align 8, !tbaa !59
-  %26 = getelementptr inbounds nuw ptr, ptr %11, i64 %.097104
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.097104
   store ptr %.096, ptr %26, align 8, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %.096, i64 56
   %28 = add nuw i64 %.097104, 1
@@ -275,10 +275,10 @@ gv_calloc.exit:                                   ; preds = %10
 
 gv_calloc.exit103:                                ; preds = %18, %gv_calloc.exit103
   %.098106 = phi i64 [ %38, %gv_calloc.exit103 ], [ 0, %18 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %11, i64 %.098106
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.098106
   %35 = load ptr, ptr %34, align 8, !tbaa !59
   %36 = load double, ptr %35, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw double, ptr %19, i64 %.098106
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.098106
   store double %36, ptr %37, align 8, !tbaa !61
   %38 = add nuw i64 %.098106, 1
   %exitcond114.not = icmp eq i64 %38, %4
@@ -345,10 +345,10 @@ gv_calloc.exit103:                                ; preds = %18, %gv_calloc.exit
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %.094107.us = phi i64 [ %82, %.split.us ], [ 0, %.split.us.preheader ]
-  %78 = getelementptr inbounds nuw ptr, ptr %11, i64 %.094107.us
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.094107.us
   %79 = load ptr, ptr %78, align 8, !tbaa !59
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = getelementptr inbounds nuw %struct.rectangle, ptr %.095, i64 %.094107.us
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %.095, i64 %.094107.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 32, i1 false), !tbaa.struct !63
   %82 = add nuw i64 %.094107.us, 1
   %exitcond117.not = icmp eq i64 %82, %4
@@ -363,17 +363,17 @@ gv_calloc.exit103:                                ; preds = %18, %gv_calloc.exit
 .split:                                           ; preds = %66, %107
   %83 = phi i8 [ %108, %107 ], [ 1, %66 ]
   %.094107 = phi i64 [ %109, %107 ], [ 0, %66 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %11, i64 %.094107
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.094107
   %85 = load ptr, ptr %84, align 8, !tbaa !59
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = getelementptr inbounds nuw %struct.rectangle, ptr %.095, i64 %.094107
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %.095, i64 %.094107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %87, i64 32, i1 false), !tbaa.struct !63
   %.not100 = icmp eq i8 %83, 0
   br i1 %.not100, label %107, label %88
 
 88:                                               ; preds = %.split
   %89 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %90 = getelementptr inbounds nuw double, ptr %19, i64 %.094107
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.094107
   %91 = load double, ptr %90, align 8, !tbaa !61
   %92 = load double, ptr %87, align 8, !tbaa !61
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 16

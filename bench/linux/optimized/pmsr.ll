@@ -20,10 +20,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cfg80211_pms
 %struct.static_call_key = type { ptr, %union.anon.43 }
 %union.anon.43 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.cfg80211_pmsr_request_peer = type { [6 x i8], %struct.cfg80211_chan_def, i8, %struct.cfg80211_pmsr_ftm_request_peer }
-%struct.cfg80211_chan_def = type { ptr, i32, i32, i32, %struct.ieee80211_edmg, i16 }
-%struct.ieee80211_edmg = type { i8, i32 }
-%struct.cfg80211_pmsr_ftm_request_peer = type { i32, i16, i8, i8, i8, i8, i8, i8 }
 %struct.list_head = type { ptr, ptr }
 
 @nl80211_pmsr_start.__msg = internal constant [20 x i8] c"Too many peers used\00", align 16
@@ -301,7 +297,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
 
 144:                                              ; preds = %.lr.ph76
   %145 = sext i32 %138 to i64
-  %146 = getelementptr %struct.cfg80211_pmsr_request_peer, ptr %116, i64 %145
+  %146 = getelementptr [56 x i8], ptr %116, i64 %145
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

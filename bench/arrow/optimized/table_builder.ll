@@ -12,12 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.15" }
 %"struct.std::_Head_base.15" = type { ptr }
-%"class.std::unique_ptr.78" = type { %"struct.std::__uniq_ptr_data.79" }
-%"struct.std::__uniq_ptr_data.79" = type { %"class.std::__uniq_ptr_impl.80" }
-%"class.std::__uniq_ptr_impl.80" = type { %"class.std::tuple.81" }
-%"class.std::tuple.81" = type { %"struct.std::_Tuple_impl.82" }
-%"struct.std::_Tuple_impl.82" = type { %"struct.std::_Head_base.85" }
-%"struct.std::_Head_base.85" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -41,8 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.73" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.75" = type { %"class.std::__shared_ptr.76" }
 %"class.std::__shared_ptr.76" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.33" = type { %"class.std::__shared_ptr.34" }
-%"class.std::__shared_ptr.34" = type { ptr, %"class.std::__shared_count" }
 %"class.arrow::util::ArrowLog" = type <{ %"class.arrow::util::ArrowLogBase", ptr, i8, [7 x i8] }>
 %"class.arrow::util::ArrowLogBase" = type { ptr }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr.106", ptr }
@@ -494,7 +486,7 @@ _ZN5arrow6StatusD2Ev.exit18:                      ; preds = %_ZN5arrow6StatusD2E
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !77
   %32 = load ptr, ptr %29, align 8, !tbaa !80, !noalias !77
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8, !tbaa !81, !noalias !77
   %35 = load i64, ptr %30, align 8, !tbaa !41, !noalias !77
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 112
@@ -648,7 +640,7 @@ define void @_ZN5arrow18RecordBatchBuilder14CreateBuildersEv(ptr dead_on_unwind 
   br i1 %19, label %20, label %_ZNSt6vectorISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -700,7 +692,7 @@ _ZNSt6vectorISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_EESaIS5_
   br i1 %42, label %43, label %_ZNSt6vectorIPN5arrow12ArrayBuilderESaIS2_EE6resizeEm.exit
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw ptr, ptr %33, i64 %30
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %30
   %.not.i.i11 = icmp eq ptr %32, %44
   br i1 %.not.i.i11, label %_ZNSt6vectorIPN5arrow12ArrayBuilderESaIS2_EE6resizeEm.exit, label %45
 
@@ -728,7 +720,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2E
   %54 = load ptr, ptr %53, align 8, !tbaa !112
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %4, align 8, !tbaa !109
-  %57 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   call void @_ZN5arrow11MakeBuilderEPNS_10MemoryPoolERKSt10shared_ptrINS_8DataTypeEEPSt10unique_ptrINS_12ArrayBuilderESt14default_deleteIS8_EE(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull %57)
   %58 = load ptr, ptr %3, align 8, !tbaa !61, !noalias !115
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -737,10 +729,10 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2E
 
 _ZN5arrow6StatusD2Ev.exit13:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   %60 = load ptr, ptr %4, align 8, !tbaa !109
-  %61 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !81
   %63 = load ptr, ptr %27, align 8, !tbaa !80
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   store ptr %62, ptr %64, align 8, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load ptr, ptr %1, align 8, !tbaa !32
@@ -861,7 +853,7 @@ define void @_ZN5arrow18RecordBatchBuilder12InitBuildersEv(ptr dead_on_unwind no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5arrow6StatusD2Ev.exit10 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load ptr, ptr %7, align 8, !tbaa !80
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !81
   %13 = load i64, ptr %8, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 112
@@ -951,7 +943,7 @@ _ZNKSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE12_M_check_lenEmPKc.exit.i: 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE13_M_deallocateEPS3_m.exit37.i: ; preds = %_ZNKSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE12_M_check_lenEmPKc.exit.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %25, i1 false)
   store ptr %26, ptr %5, align 8, !tbaa !127
-  %27 = getelementptr inbounds nuw %"class.std::shared_ptr.33", ptr %26, i64 %19
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %19
   store ptr %27, ptr %20, align 8, !tbaa !130
   store ptr %27, ptr %22, align 8, !tbaa !131
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE6resizeEm.exit
@@ -989,9 +981,9 @@ _ZNK5arrow18RecordBatchBuilder10num_fieldsEv.exit55: ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = load ptr, ptr %30, align 8, !tbaa !80
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !81
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.33", ptr %32, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   invoke void @_ZN5arrow12ArrayBuilder6FinishEPSt10shared_ptrINS_5ArrayEE(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull %44)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %54
 
@@ -1045,7 +1037,7 @@ _ZN5arrow6StatusD2Ev.exit59._crit_edge:           ; preds = %_ZN5arrow6StatusD2E
   br label %72
 
 56:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit59
-  %57 = getelementptr inbounds nuw %"class.std::shared_ptr.33", ptr %.pre148, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %.pre148, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !135
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !138
@@ -1204,12 +1196,12 @@ _ZNK5arrow18RecordBatchBuilder10num_fieldsEv.exit69: ; preds = %107
 
 119:                                              ; preds = %_ZNK5arrow18RecordBatchBuilder10num_fieldsEv.exit69
   %120 = load ptr, ptr %9, align 8, !tbaa !166
-  %121 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %120, i64 %indvars.iv144
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %indvars.iv144
   %122 = load ptr, ptr %121, align 8, !tbaa !112
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %124 = load ptr, ptr %123, align 8, !tbaa !170
   %125 = load ptr, ptr %5, align 8, !tbaa !127
-  %126 = getelementptr inbounds nuw %"class.std::shared_ptr.33", ptr %125, i64 %indvars.iv144
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %indvars.iv144
   %127 = load ptr, ptr %126, align 8, !tbaa !135
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !138
@@ -1222,7 +1214,7 @@ _ZNK5arrow18RecordBatchBuilder10num_fieldsEv.exit69: ; preds = %107
 132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %133 = load ptr, ptr %9, align 8, !tbaa !166
-  %134 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %133, i64 %indvars.iv144
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %indvars.iv144
   %135 = load ptr, ptr %134, align 8, !tbaa !112
   %136 = load ptr, ptr %126, align 8, !tbaa !135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
@@ -1232,7 +1224,7 @@ _ZNK5arrow18RecordBatchBuilder10num_fieldsEv.exit69: ; preds = %107
 
 139:                                              ; preds = %132
   %140 = load ptr, ptr %9, align 8, !tbaa !166
-  %141 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %140, i64 %indvars.iv144
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %indvars.iv144
   %142 = load ptr, ptr %10, align 8, !tbaa !112
   %143 = load ptr, ptr %106, align 8, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -1591,7 +1583,7 @@ _ZNSt12__shared_ptrIN5arrow6SchemaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc90 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !180
   %291 = load ptr, ptr %30, align 8, !tbaa !80, !noalias !180
-  %292 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv.i
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %indvars.iv.i
   %293 = load ptr, ptr %292, align 8, !tbaa !81, !noalias !180
   %294 = load i64, ptr %289, align 8, !tbaa !41, !noalias !180
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 112
@@ -3436,9 +3428,9 @@ _ZNSt6vectorISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_EESaIS5_
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt10unique_ptrIN5arrow12ArrayBuilderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !109
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !108
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !200
   br label %36
 
@@ -3538,9 +3530,9 @@ _ZNSt6vectorIPN5arrow12ArrayBuilderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ;
 
 _ZNSt12_Vector_baseIPN5arrow12ArrayBuilderESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIPN5arrow12ArrayBuilderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !80
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !111
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !199
   br label %41
 

@@ -225,7 +225,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %16 ]
   %.235 = phi i32 [ %.3, %39 ], [ 0, %16 ]
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %.not28 = icmp eq i32 %22, 0
   br i1 %.not28, label %39, label %23
@@ -243,7 +243,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, i32 noundef %32) #10
   br label %33
@@ -254,7 +254,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
 
 35:                                               ; preds = %23
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store i32 0, ptr %37, align 4
   br label %38
 
@@ -707,7 +707,7 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.preheader21, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader21 ]
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i32 noundef %16) #10
   %17 = load ptr, ptr %4, align 8
@@ -721,7 +721,7 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, i32 noundef %25) #10
   br label %39
@@ -737,7 +737,7 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
 30:                                               ; preds = %.lr.ph24, %30
   %indvars.iv28 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next29, %30 ]
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv28
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv28
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %13, align 8
   %35 = call i32 @kill(i32 noundef %33, i32 noundef %34) #10

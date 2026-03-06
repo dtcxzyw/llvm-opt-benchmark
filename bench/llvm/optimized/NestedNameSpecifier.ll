@@ -15,9 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::FoldingSetBase::Node" = type { ptr }
 %"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
 %"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::SourceLocation" = type { i32 }
 %"struct.clang::PrintingPolicy" = type { i64, ptr }
 %"class.clang::TemplateName" = type { %"class.llvm::PointerUnion.387" }
 %"class.llvm::PointerUnion.387" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.388" }
@@ -68,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.415" = type { %"class.llvm::SmallVectorTemplateCommon.416" }
 %"class.llvm::SmallVectorTemplateCommon.416" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.417" = type { [32 x i8] }
-%"struct.std::pair.438" = type { ptr, i64 }
 
 $_ZNK5clang19NestedNameSpecifier7ProfileERN4llvm16FoldingSetNodeIDE = comdat any
 
@@ -197,7 +193,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %9, %2
   %13 = phi i32 [ %6, %2 ], [ %.pre.i.i.i.i.i, %9 ]
   %14 = load ptr, ptr %1, align 8, !tbaa !3
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %4, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !9
   %18 = add i32 %17, 1
@@ -220,7 +216,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %26 = trunc nuw i64 %25 to i32
   %27 = load ptr, ptr %1, align 8, !tbaa !3
   %28 = zext i32 %24 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %26, ptr %29, align 1
   %30 = load i32, ptr %5, align 8, !tbaa !9
   %31 = add i32 %30, 1
@@ -245,7 +241,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i5: ; preds = %37, %_ZN4llvm16
   %41 = phi i32 [ %31, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i.i4, %37 ]
   %42 = load ptr, ptr %1, align 8, !tbaa !3
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %5, align 8, !tbaa !9
   %46 = add i32 %45, 1
@@ -268,7 +264,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit8: ; preds = %_ZN4llvm16FoldingSe
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %1, align 8, !tbaa !3
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %5, align 8, !tbaa !9
   %59 = add i32 %58, 1
@@ -648,7 +644,7 @@ _ZN5clang13CXXRecordDecl5basesEv.exit:            ; preds = %_ZNK5clang13LazyOff
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !423
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %46
   %.not45 = icmp eq ptr %.0.i.i.i, %47
   br i1 %.not45, label %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.thread, label %.lr.ph47
 
@@ -2620,7 +2616,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang19NestedNameSpecifierELb1EE9push_backE
   %23 = phi i32 [ %18, %.lr.ph ], [ %.pre.i, %20 ]
   %24 = load ptr, ptr %8, align 8, !tbaa !3
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = ptrtoint ptr %.028 to i64
   store i64 %27, ptr %26, align 1
   %28 = load i32, ptr %11, align 8, !tbaa !9
@@ -2637,7 +2633,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang19NestedNameSpecifierELb1EE9push_backE
   %34 = phi i32 [ %29, %.lr.ph30 ], [ %61, %_ZNK5clang19NestedNameSpecifier7getKindEv.exit.thread25 ]
   %35 = load ptr, ptr %8, align 8, !tbaa !3
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
   %39 = load ptr, ptr %38, align 8, !tbaa !517
   %40 = add i32 %34, -1
@@ -3057,7 +3053,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !3
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.438", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -3098,7 +3094,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !3
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !9
@@ -3144,7 +3140,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang19NestedName
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %9 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %4, ptr noundef %8)
   %10 = trunc i64 %9 to i32
   ret i32 %10

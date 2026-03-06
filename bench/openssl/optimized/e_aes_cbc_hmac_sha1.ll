@@ -1413,9 +1413,9 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %.pn320.i = phi ptr [ %9, %.lr.ph.i ], [ %.0305.i, %288 ]
   %.0305.i = getelementptr inbounds nuw i8, ptr %.pn320.i, i64 16
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 %286
-  %292 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %5, i64 %indvars.iv.i
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %291, ptr %292, align 16, !tbaa !44
-  %293 = getelementptr inbounds nuw %struct.CIPH_DESC, ptr %7, i64 %indvars.iv.i
+  %293 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv.i
   store ptr %291, ptr %293, align 8, !tbaa !46
   %294 = getelementptr inbounds nuw i8, ptr %289, i64 %287
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 8
@@ -1458,19 +1458,19 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %indvars.iv360.i = phi i64 [ 0, %.lr.ph324.i ], [ %indvars.iv.next361.i, %320 ]
   %321 = icmp eq i64 %indvars.iv360.i, %319
   %322 = select i1 %321, i32 %.0298.i, i32 %.0297.i
-  %323 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv360.i
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %259, i64 %indvars.iv360.i
   store i32 %303, ptr %323, align 4, !tbaa !3
-  %324 = getelementptr inbounds nuw i32, ptr %306, i64 %indvars.iv360.i
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %indvars.iv360.i
   store i32 %305, ptr %324, align 4, !tbaa !3
-  %325 = getelementptr inbounds nuw i32, ptr %309, i64 %indvars.iv360.i
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %309, i64 %indvars.iv360.i
   store i32 %308, ptr %325, align 4, !tbaa !3
-  %326 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv360.i
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %312, i64 %indvars.iv360.i
   store i32 %311, ptr %326, align 4, !tbaa !3
-  %327 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv360.i
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv360.i
   store i32 %314, ptr %327, align 4, !tbaa !3
   %328 = add i64 %indvars.iv360.i, %300
   %329 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %328) #8, !srcloc !51
-  %330 = getelementptr inbounds nuw %union.anon.2, ptr %9, i64 %indvars.iv360.i
+  %330 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv360.i
   store i64 %329, ptr %330, align 16, !tbaa !8
   %331 = load i8, ptr %316, align 4, !tbaa !8
   %332 = getelementptr inbounds nuw i8, ptr %330, i64 8
@@ -1489,7 +1489,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %341 = getelementptr inbounds nuw i8, ptr %330, i64 12
   store i8 %340, ptr %341, align 4, !tbaa !8
   %342 = getelementptr inbounds nuw i8, ptr %330, i64 13
-  %343 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %5, i64 %indvars.iv360.i
+  %343 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv360.i
   %344 = load ptr, ptr %343, align 16, !tbaa !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(51) %342, ptr noundef nonnull align 1 dereferenceable(51) %344, i64 51, i1 false)
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 51
@@ -1498,7 +1498,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %347 = lshr i32 %346, 6
   %348 = getelementptr inbounds nuw i8, ptr %343, i64 8
   store i32 %347, ptr %348, align 8, !tbaa !52
-  %349 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %6, i64 %indvars.iv360.i
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv360.i
   store ptr %330, ptr %349, align 16, !tbaa !44
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i32 1, ptr %350, align 8, !tbaa !52
@@ -1530,11 +1530,11 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
 
 355:                                              ; preds = %355, %.lr.ph330.us.i
   %indvars.iv370.i = phi i64 [ 0, %.lr.ph330.us.i ], [ %indvars.iv.next371.i, %355 ]
-  %356 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %5, i64 %indvars.iv370.i
+  %356 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv370.i
   %357 = load ptr, ptr %356, align 16, !tbaa !44
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 2048
   store ptr %358, ptr %356, align 16, !tbaa !44
-  %359 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %6, i64 %indvars.iv370.i
+  %359 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv370.i
   store ptr %358, ptr %359, align 16, !tbaa !44
   %360 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %361 = load i32, ptr %360, align 8, !tbaa !52
@@ -1542,7 +1542,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   store i32 %362, ptr %360, align 8, !tbaa !52
   %363 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i32 32, ptr %363, align 8, !tbaa !52
-  %364 = getelementptr inbounds nuw %struct.CIPH_DESC, ptr %7, i64 %indvars.iv370.i
+  %364 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv370.i
   %365 = load ptr, ptr %364, align 8, !tbaa !46
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 2048
   store ptr %366, ptr %364, align 8, !tbaa !46
@@ -1567,13 +1567,13 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
 
 .lr.ph327.i:                                      ; preds = %.lr.ph327.i, %.lr.ph327.preheader.i
   %indvars.iv365.i = phi i64 [ 0, %.lr.ph327.preheader.i ], [ %indvars.iv.next366.i, %.lr.ph327.i ]
-  %376 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %5, i64 %indvars.iv365.i
+  %376 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv365.i
   %377 = load ptr, ptr %376, align 16, !tbaa !44
-  %378 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %6, i64 %indvars.iv365.i
+  %378 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv365.i
   store ptr %377, ptr %378, align 16, !tbaa !44
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
   store i32 32, ptr %379, align 8, !tbaa !52
-  %380 = getelementptr inbounds nuw %struct.CIPH_DESC, ptr %7, i64 %indvars.iv365.i
+  %380 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv365.i
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   store i32 128, ptr %381, align 8, !tbaa !54
   %indvars.iv.next366.i = add nuw nsw i64 %indvars.iv365.i, 1
@@ -1609,7 +1609,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %indvars.iv375.i = phi i64 [ 0, %.lr.ph334.i ], [ %indvars.iv.next376.i, %386 ]
   %387 = icmp eq i64 %indvars.iv375.i, %385
   %388 = select i1 %387, i32 %.0298.i, i32 %.0297.i
-  %389 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %5, i64 %indvars.iv375.i
+  %389 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv375.i
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = load i32, ptr %390, align 8, !tbaa !52
   %392 = shl nsw i32 %391, 6
@@ -1619,7 +1619,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %396 = add i32 %388, -51
   %397 = add i32 %.0302.i, %392
   %398 = sub i32 %396, %397
-  %399 = getelementptr inbounds nuw %union.anon.2, ptr %9, i64 %indvars.iv375.i
+  %399 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv375.i
   %400 = zext i32 %398 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %399, ptr align 1 %395, i64 %400, i1 false)
   %401 = getelementptr inbounds nuw i8, ptr %399, i64 %400
@@ -1628,7 +1628,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %403 = add i32 %402, 616
   %404 = icmp ult i32 %398, 56
   %405 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %403) #8
-  %406 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %6, i64 %indvars.iv375.i
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv375.i
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %.405.i = select i1 %404, i32 1, i32 2
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %404, i64 60, i64 124
@@ -1662,35 +1662,35 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
 
 417:                                              ; preds = %417, %._crit_edge335.i
   %indvars.iv380.i = phi i64 [ 0, %._crit_edge335.i ], [ %indvars.iv.next381.i, %417 ]
-  %418 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv380.i
+  %418 = getelementptr inbounds nuw [4 x i8], ptr %259, i64 %indvars.iv380.i
   %419 = load i32, ptr %418, align 4, !tbaa !3
   %420 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %419) #8, !srcloc !59
-  %421 = getelementptr inbounds nuw %union.anon.2, ptr %9, i64 %indvars.iv380.i
+  %421 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv380.i
   store i32 %420, ptr %421, align 16, !tbaa !8
   %422 = load i32, ptr %408, align 4, !tbaa !60
   store i32 %422, ptr %418, align 4, !tbaa !3
-  %423 = getelementptr inbounds nuw i32, ptr %409, i64 %indvars.iv380.i
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %409, i64 %indvars.iv380.i
   %424 = load i32, ptr %423, align 4, !tbaa !3
   %425 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %424) #8, !srcloc !61
   %426 = getelementptr inbounds nuw i8, ptr %421, i64 4
   store i32 %425, ptr %426, align 4, !tbaa !8
   %427 = load i32, ptr %410, align 4, !tbaa !62
   store i32 %427, ptr %423, align 4, !tbaa !3
-  %428 = getelementptr inbounds nuw i32, ptr %411, i64 %indvars.iv380.i
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %411, i64 %indvars.iv380.i
   %429 = load i32, ptr %428, align 4, !tbaa !3
   %430 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %429) #8, !srcloc !63
   %431 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i32 %430, ptr %431, align 8, !tbaa !8
   %432 = load i32, ptr %412, align 4, !tbaa !64
   store i32 %432, ptr %428, align 4, !tbaa !3
-  %433 = getelementptr inbounds nuw i32, ptr %413, i64 %indvars.iv380.i
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %413, i64 %indvars.iv380.i
   %434 = load i32, ptr %433, align 4, !tbaa !3
   %435 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %434) #8, !srcloc !65
   %436 = getelementptr inbounds nuw i8, ptr %421, i64 12
   store i32 %435, ptr %436, align 4, !tbaa !8
   %437 = load i32, ptr %414, align 4, !tbaa !66
   store i32 %437, ptr %433, align 4, !tbaa !3
-  %438 = getelementptr inbounds nuw i32, ptr %415, i64 %indvars.iv380.i
+  %438 = getelementptr inbounds nuw [4 x i8], ptr %415, i64 %indvars.iv380.i
   %439 = load i32, ptr %438, align 4, !tbaa !3
   %440 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %439) #8, !srcloc !67
   %441 = getelementptr inbounds nuw i8, ptr %421, i64 16
@@ -1702,7 +1702,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %444 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 672) #8, !srcloc !69
   %445 = getelementptr inbounds nuw i8, ptr %421, i64 60
   store i32 %444, ptr %445, align 4, !tbaa !8
-  %446 = getelementptr inbounds nuw %struct.HASH_DESC, ptr %6, i64 %indvars.iv380.i
+  %446 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv380.i
   store ptr %421, ptr %446, align 16, !tbaa !44
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   store i32 1, ptr %447, align 8, !tbaa !52
@@ -1723,7 +1723,7 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %.0304342.i = phi i32 [ 0, %.lr.ph346.i ], [ %509, %451 ]
   %452 = icmp eq i64 %indvars.iv386.i, %385
   %453 = select i1 %452, i32 %.0298.i, i32 %.0297.i
-  %454 = getelementptr inbounds nuw %struct.CIPH_DESC, ptr %7, i64 %indvars.iv386.i
+  %454 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv386.i
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load ptr, ptr %455, align 8, !tbaa !48
   %457 = load ptr, ptr %454, align 8, !tbaa !46
@@ -1735,26 +1735,26 @@ sha1_update.exit153:                              ; preds = %151, %.thread170
   %461 = add i32 %453, 21
   %462 = zext i32 %461 to i64
   %463 = getelementptr i8, ptr %.0295344.i, i64 %462
-  %464 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv386.i
+  %464 = getelementptr inbounds nuw [4 x i8], ptr %259, i64 %indvars.iv386.i
   %465 = load i32, ptr %464, align 4, !tbaa !3
   %466 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %465) #8, !srcloc !71
   store i32 %466, ptr %463, align 4, !tbaa !3
-  %467 = getelementptr inbounds nuw i32, ptr %409, i64 %indvars.iv386.i
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %409, i64 %indvars.iv386.i
   %468 = load i32, ptr %467, align 4, !tbaa !3
   %469 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %468) #8, !srcloc !72
   %470 = getelementptr inbounds nuw i8, ptr %463, i64 4
   store i32 %469, ptr %470, align 4, !tbaa !3
-  %471 = getelementptr inbounds nuw i32, ptr %411, i64 %indvars.iv386.i
+  %471 = getelementptr inbounds nuw [4 x i8], ptr %411, i64 %indvars.iv386.i
   %472 = load i32, ptr %471, align 4, !tbaa !3
   %473 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %472) #8, !srcloc !73
   %474 = getelementptr inbounds nuw i8, ptr %463, i64 8
   store i32 %473, ptr %474, align 4, !tbaa !3
-  %475 = getelementptr inbounds nuw i32, ptr %413, i64 %indvars.iv386.i
+  %475 = getelementptr inbounds nuw [4 x i8], ptr %413, i64 %indvars.iv386.i
   %476 = load i32, ptr %475, align 4, !tbaa !3
   %477 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %476) #8, !srcloc !74
   %478 = getelementptr inbounds nuw i8, ptr %463, i64 12
   store i32 %477, ptr %478, align 4, !tbaa !3
-  %479 = getelementptr inbounds nuw i32, ptr %415, i64 %indvars.iv386.i
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %415, i64 %indvars.iv386.i
   %480 = load i32, ptr %479, align 4, !tbaa !3
   %481 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %480) #8, !srcloc !75
   %482 = getelementptr inbounds nuw i8, ptr %463, i64 16

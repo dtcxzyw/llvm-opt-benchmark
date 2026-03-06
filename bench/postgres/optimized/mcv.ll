@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SortItem = type { ptr, ptr, i32 }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.MCVItem = type { double, double, ptr, ptr }
-%struct.DimensionInfo = type { i32, i32, i32, i32, i8 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [45 x i8] c"cache lookup failed for statistics object %u\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"mcv.c\00", align 1
@@ -61,7 +57,7 @@ define dso_local noundef ptr @statext_mcv_build(ptr noundef %0, double noundef %
 11:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
@@ -110,7 +106,7 @@ build_mss.exit:                                   ; preds = %26, %3
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi i32 [ 1, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %39 = getelementptr %struct.SortItem, ptr %33, i64 %indvars.iv.i.i
+  %39 = getelementptr [24 x i8], ptr %33, i64 %indvars.iv.i.i
   %40 = getelementptr i8, ptr %39, i64 -24
   %41 = call i32 @multi_sort_compare(ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef %8) #13
   %.not.i.i = icmp ne i32 %41, 0
@@ -137,7 +133,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
 .lr.ph.i89:                                       ; preds = %56, %.lr.ph.preheader.i
   %indvars.iv.i90 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i91, %56 ]
   %.02728.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %56 ]
-  %47 = getelementptr %struct.SortItem, ptr %33, i64 %indvars.iv.i90
+  %47 = getelementptr [24 x i8], ptr %33, i64 %indvars.iv.i90
   %48 = getelementptr i8, ptr %47, i64 -24
   %49 = call i32 @multi_sort_compare(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef %8) #13
   %.not.i = icmp eq i32 %49, 0
@@ -145,7 +141,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
 
 .lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i89
   %.phi.trans.insert.i = sext i32 %.02728.i to i64
-  %.phi.trans.insert31.i = getelementptr inbounds %struct.SortItem, ptr %45, i64 %.phi.trans.insert.i
+  %.phi.trans.insert31.i = getelementptr inbounds [24 x i8], ptr %45, i64 %.phi.trans.insert.i
   %.phi.trans.insert32.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert31.i, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert32.i, align 8
   %50 = add i32 %.pre.i, 1
@@ -154,7 +150,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
 51:                                               ; preds = %.lr.ph.i89
   %52 = add i32 %.02728.i, 1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.SortItem, ptr %45, i64 %53
+  %54 = getelementptr inbounds [24 x i8], ptr %45, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 0, ptr %55, align 8
@@ -164,7 +160,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
   %.pre-phi.i = phi i64 [ %.phi.trans.insert.i, %.lr.ph._crit_edge.i ], [ %53, %51 ]
   %57 = phi i32 [ %50, %.lr.ph._crit_edge.i ], [ 1, %51 ]
   %.1.i = phi i32 [ %.02728.i, %.lr.ph._crit_edge.i ], [ %52, %51 ]
-  %58 = getelementptr inbounds %struct.SortItem, ptr %45, i64 %.pre-phi.i
+  %58 = getelementptr inbounds [24 x i8], ptr %45, i64 %.pre-phi.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 %57, ptr %59, align 8
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
@@ -193,7 +189,7 @@ build_distinct_groups.exit:                       ; preds = %56, %count_distinct
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %75 ]
-  %69 = getelementptr inbounds nuw %struct.SortItem, ptr %45, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = sitofp i32 %71 to double
@@ -241,15 +237,15 @@ thread-pre-split:                                 ; preds = %.lr.ph
 .lr.ph82.split.us.i:                              ; preds = %._crit_edge78.us.i, %.lr.ph82.split.us.preheader.i
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph82.split.us.preheader.i ], [ %indvars.iv.next109.i, %._crit_edge78.us.i ]
   %.06880.us.i = phi ptr [ %88, %.lr.ph82.split.us.preheader.i ], [ %159, %._crit_edge78.us.i ]
-  %92 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv108.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv108.i
   store ptr %.06880.us.i, ptr %92, align 8
   br label %.lr.ph.us.i
 
 .lr.ph77.us.loopexit.i:                           ; preds = %.lr.ph.us.i
-  %93 = getelementptr inbounds nuw %struct.SortSupportData, ptr %90, i64 %indvars.iv108.i
+  %93 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %indvars.iv108.i
   %.pre.i95 = load ptr, ptr %92, align 8
   call void @qsort_interruptible(ptr noundef %.pre.i95, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %93) #13
-  %94 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv108.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv108.i
   store i32 1, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 12
@@ -258,7 +254,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 97:                                               ; preds = %142, %.lr.ph77.us.loopexit.i
   %indvars.iv103.i = phi i64 [ 1, %.lr.ph77.us.loopexit.i ], [ %indvars.iv.next104.i, %142 ]
   %98 = load ptr, ptr %92, align 8
-  %99 = getelementptr %struct.SortItem, ptr %98, i64 %indvars.iv103.i
+  %99 = getelementptr [24 x i8], ptr %98, i64 %indvars.iv103.i
   %100 = getelementptr i8, ptr %99, i64 -24
   %101 = load ptr, ptr %100, align 8
   %102 = load i64, ptr %101, align 8
@@ -306,8 +302,8 @@ sort_item_compare.exit.thread.us.i:               ; preds = %123, %sort_item_com
   %124 = phi ptr [ %.pre112.i, %.sort_item_compare.exit.thread.us_crit_edge.i ], [ %98, %123 ], [ %.pre113.i, %sort_item_compare.exit.us.i ], [ %98, %113 ]
   %125 = load i32, ptr %94, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %struct.SortItem, ptr %124, i64 %126
-  %128 = getelementptr inbounds nuw %struct.SortItem, ptr %124, i64 %indvars.iv103.i
+  %127 = getelementptr inbounds [24 x i8], ptr %124, i64 %126
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %124, i64 %indvars.iv103.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
   %129 = load i32, ptr %94, align 4
   %130 = add i32 %129, 1
@@ -316,13 +312,13 @@ sort_item_compare.exit.thread.us.i:               ; preds = %123, %sort_item_com
 
 sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_compare.exit.us.i
   %131 = phi ptr [ %98, %123 ], [ %.pre113.i, %sort_item_compare.exit.us.i ]
-  %132 = getelementptr inbounds nuw %struct.SortItem, ptr %131, i64 %indvars.iv103.i
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %indvars.iv103.i
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i32, ptr %133, align 8
   %135 = load i32, ptr %94, align 4
   %136 = add i32 %135, -1
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds %struct.SortItem, ptr %131, i64 %137
+  %138 = getelementptr inbounds [24 x i8], ptr %131, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i32, ptr %139, align 8
   %141 = add i32 %140, %134
@@ -336,23 +332,23 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_com
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph82.split.us.i, %.lr.ph.us.i
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %.lr.ph.us.i ], [ 0, %.lr.ph82.split.us.i ]
-  %143 = getelementptr inbounds nuw %struct.SortItem, ptr %45, i64 %indvars.iv98.i
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv98.i
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv108.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv108.i
   %146 = load ptr, ptr %92, align 8
-  %147 = getelementptr inbounds nuw %struct.SortItem, ptr %146, i64 %indvars.iv98.i
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %indvars.iv98.i
   store ptr %145, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %indvars.iv108.i
   %151 = load ptr, ptr %92, align 8
-  %152 = getelementptr inbounds nuw %struct.SortItem, ptr %151, i64 %indvars.iv98.i
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %151, i64 %indvars.iv98.i
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %150, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %155 = load i32, ptr %154, align 8
   %156 = load ptr, ptr %92, align 8
-  %157 = getelementptr inbounds nuw %struct.SortItem, ptr %156, i64 %indvars.iv98.i
+  %157 = getelementptr inbounds nuw [24 x i8], ptr %156, i64 %indvars.iv98.i
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i32 %155, ptr %158, align 8
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
@@ -378,10 +374,10 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_com
 ._crit_edge.us88.i:                               ; preds = %._crit_edge.us88.i, %.lr.ph.us87.preheader.i
   %indvars.iv95.i = phi i64 [ 0, %.lr.ph.us87.preheader.i ], [ %indvars.iv.next96.i, %._crit_edge.us88.i ]
   %.06880.us84.i = phi ptr [ %88, %.lr.ph.us87.preheader.i ], [ %176, %._crit_edge.us88.i ]
-  %165 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv95.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv95.i
   store ptr %.06880.us84.i, ptr %165, align 8
   %166 = load ptr, ptr %45, align 8
-  %167 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv95.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv95.i
   store ptr %167, ptr %.06880.us84.i, align 8
   %168 = load ptr, ptr %164, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %indvars.iv95.i
@@ -392,11 +388,11 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_com
   %173 = load ptr, ptr %165, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store i32 %172, ptr %174, align 8
-  %175 = getelementptr inbounds nuw %struct.SortSupportData, ptr %90, i64 %indvars.iv95.i
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %indvars.iv95.i
   %176 = getelementptr inbounds nuw i8, ptr %.06880.us84.i, i64 %44
   %177 = load ptr, ptr %165, align 8
   call void @qsort_interruptible(ptr noundef %177, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %175) #13
-  %178 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv95.i
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv95.i
   store i32 1, ptr %178, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %179 = load i32, ptr %8, align 8
@@ -407,12 +403,12 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_com
 .lr.ph82.split.split.i:                           ; preds = %.lr.ph82.split.i, %.lr.ph82.split.split.i
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i94, %.lr.ph82.split.split.i ], [ 0, %.lr.ph82.split.i ]
   %.06880.i = phi ptr [ %184, %.lr.ph82.split.split.i ], [ %88, %.lr.ph82.split.i ]
-  %182 = getelementptr inbounds nuw %struct.SortSupportData, ptr %90, i64 %indvars.iv.i93
-  %183 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i93
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %indvars.iv.i93
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i93
   store ptr %.06880.i, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %.06880.i, i64 %44
   call void @qsort_interruptible(ptr noundef %.06880.i, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %182) #13
-  %185 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i93
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i93
   store i32 1, ptr %185, align 4
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
   %186 = load i32, ptr %8, align 8
@@ -465,11 +461,11 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 209:                                              ; preds = %.lr.ph104, %209
   %indvars.iv115 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next116, %209 ]
   %210 = load ptr, ptr %200, align 8
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv115
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv115
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4
-  %215 = getelementptr inbounds nuw i32, ptr %201, i64 %indvars.iv115
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %indvars.iv115
   store i32 %214, ptr %215, align 4
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -477,7 +473,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 
 216:                                              ; preds = %.lr.ph108, %._crit_edge
   %indvars.iv125 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next126, %._crit_edge ]
-  %217 = getelementptr inbounds nuw %struct.MCVItem, ptr %204, i64 %indvars.iv125
+  %217 = getelementptr inbounds nuw [32 x i8], ptr %204, i64 %indvars.iv125
   %218 = call ptr @palloc(i64 noundef %205) #13
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %218, ptr %219, align 8
@@ -485,7 +481,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
   %221 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store ptr %220, ptr %221, align 8
   %222 = load ptr, ptr %219, align 8
-  %223 = getelementptr inbounds nuw %struct.SortItem, ptr %45, i64 %indvars.iv125
+  %223 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv125
   %224 = load ptr, ptr %223, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %222, ptr align 8 %224, i64 %205, i1 false)
   %225 = load ptr, ptr %221, align 8
@@ -504,17 +500,17 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 .lr.ph106:                                        ; preds = %216, %.lr.ph106
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph106 ], [ 0, %216 ]
   store i32 1, ptr %76, align 8
-  %233 = getelementptr inbounds nuw %struct.SortSupportData, ptr %207, i64 %indvars.iv120
+  %233 = getelementptr inbounds nuw [64 x i8], ptr %207, i64 %indvars.iv120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %206, ptr noundef nonnull align 8 dereferenceable(64) %233, i64 64, i1 false)
   %234 = load ptr, ptr %223, align 8
-  %235 = getelementptr inbounds nuw i64, ptr %234, i64 %indvars.iv120
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %indvars.iv120
   store ptr %235, ptr %5, align 8
   %236 = load ptr, ptr %226, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 %indvars.iv120
   store ptr %237, ptr %208, align 8
-  %238 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv120
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv120
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv120
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv120
   %241 = load i32, ptr %240, align 4
   %242 = sext i32 %241 to i64
   %243 = call ptr @bsearch_arg(ptr noundef nonnull %5, ptr noundef %239, i64 noundef %242, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef nonnull %76) #13
@@ -889,7 +885,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0267337 = phi i64 [ %109, %.lr.ph.preheader ], [ %161, %.lr.ph ]
-  %157 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %155, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [20 x i8], ptr %155, i64 %indvars.iv
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = sext i32 %159 to i64
@@ -984,12 +980,12 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 .lr.ph342:                                        ; preds = %.lr.ph342.preheader, %.lr.ph342
   %indvars.iv404 = phi i64 [ 0, %.lr.ph342.preheader ], [ %indvars.iv.next405, %.lr.ph342 ]
   %.0275339 = phi i64 [ 0, %.lr.ph342.preheader ], [ %215, %.lr.ph342 ]
-  %206 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %155, i64 %indvars.iv404
+  %206 = getelementptr inbounds nuw [20 x i8], ptr %155, i64 %indvars.iv404
   %207 = load i32, ptr %206, align 4
   %208 = sext i32 %207 to i64
   %209 = shl nsw i64 %208, 3
   %210 = tail call ptr @palloc(i64 noundef %209) #13
-  %211 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv404
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv404
   store ptr %210, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %213 = load i32, ptr %212, align 4
@@ -1029,7 +1025,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %.0268381.us = phi ptr [ %229, %.lr.ph376.us.preheader ], [ %257, %._crit_edge377.us ]
   %.0269380.us = phi ptr [ %228, %.lr.ph376.us.preheader ], [ %256, %._crit_edge377.us ]
   %.6379.us = phi ptr [ %.2278, %.lr.ph376.us.preheader ], [ %242, %._crit_edge377.us ]
-  %232 = getelementptr inbounds nuw %struct.MCVItem, ptr %231, i64 %indvars.iv434
+  %232 = getelementptr inbounds nuw [32 x i8], ptr %231, i64 %indvars.iv434
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store ptr %.0269380.us, ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 16
@@ -1057,13 +1053,13 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 
 247:                                              ; preds = %241
   %.0.copyload.us = load i16, ptr %.7373.us, align 1
-  %248 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv428
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv428
   %249 = load ptr, ptr %248, align 8
   %250 = zext i16 %.0.copyload.us to i64
-  %251 = getelementptr inbounds nuw i64, ptr %249, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %250
   %252 = load i64, ptr %251, align 8
   %253 = load ptr, ptr %233, align 8
-  %254 = getelementptr inbounds nuw i64, ptr %253, i64 %indvars.iv428
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %indvars.iv428
   store i64 %252, ptr %254, align 8
   br label %255
 
@@ -1083,7 +1079,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %indvars.iv422 = phi i64 [ 0, %.lr.ph371.preheader ], [ %indvars.iv.next423, %.loopexit ]
   %.0270368 = phi ptr [ %230, %.lr.ph371.preheader ], [ %.1271, %.loopexit ]
   %.0276367 = phi ptr [ %156, %.lr.ph371.preheader ], [ %.2278, %.loopexit ]
-  %258 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %155, i64 %indvars.iv422
+  %258 = getelementptr inbounds nuw [20 x i8], ptr %155, i64 %indvars.iv422
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %260 = load i8, ptr %259, align 4, !range !9, !noundef !10
   %261 = trunc nuw i8 %260 to i1
@@ -1096,7 +1092,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 
 .lr.ph365:                                        ; preds = %.preheader328
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 12
-  %265 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv422
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv422
   br label %266
 
 266:                                              ; preds = %.lr.ph365, %fetch_att.exit
@@ -1149,7 +1145,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 fetch_att.exit:                                   ; preds = %273, %275, %277, %279
   %.0.i = phi i64 [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %.0..0..0.326, %279 ]
   %283 = load ptr, ptr %265, align 8
-  %284 = getelementptr inbounds nuw i64, ptr %283, i64 %indvars.iv419
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %indvars.iv419
   store i64 %.0.i, ptr %284, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
@@ -1170,7 +1166,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   br i1 %293, label %.lr.ph360, label %.loopexit
 
 .lr.ph360:                                        ; preds = %.preheader329
-  %294 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv422
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv422
   br label %295
 
 295:                                              ; preds = %.lr.ph360, %295
@@ -1185,7 +1181,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   %300 = getelementptr inbounds i8, ptr %.3279357, i64 %299
   %301 = ptrtoint ptr %.2272358 to i64
   %302 = load ptr, ptr %294, align 8
-  %303 = getelementptr inbounds nuw i64, ptr %302, i64 %indvars.iv416
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %indvars.iv416
   store i64 %301, ptr %303, align 8
   %304 = load i32, ptr %289, align 4
   %305 = sext i32 %304 to i64
@@ -1210,7 +1206,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   br i1 %314, label %.lr.ph348, label %.loopexit
 
 .lr.ph348:                                        ; preds = %.preheader333
-  %315 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv422
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv422
   br label %336
 
 .preheader331:                                    ; preds = %312
@@ -1219,7 +1215,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   br i1 %317, label %.lr.ph354, label %.loopexit
 
 .lr.ph354:                                        ; preds = %.preheader331
-  %318 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv422
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv422
   br label %319
 
 319:                                              ; preds = %.lr.ph354, %319
@@ -1237,7 +1233,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   %325 = getelementptr inbounds nuw i8, ptr %320, i64 %324
   %326 = ptrtoint ptr %.3273352 to i64
   %327 = load ptr, ptr %318, align 8
-  %328 = getelementptr inbounds nuw i64, ptr %327, i64 %indvars.iv413
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %indvars.iv413
   store i64 %326, ptr %328, align 8
   %329 = zext i32 %321 to i64
   %330 = add nuw nsw i64 %329, 7
@@ -1260,7 +1256,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 %338
   %340 = ptrtoint ptr %.4274346 to i64
   %341 = load ptr, ptr %315, align 8
-  %342 = getelementptr inbounds nuw i64, ptr %341, i64 %indvars.iv410
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %indvars.iv410
   store i64 %340, ptr %342, align 8
   %343 = add nuw nsw i64 %338, 7
   %344 = and i64 %343, 8589934584
@@ -1284,7 +1280,7 @@ fetch_att.exit:                                   ; preds = %273, %275, %277, %2
 
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %.lr.ph385
   %indvars.iv440 = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvars.iv.next441, %.lr.ph385 ]
-  %349 = getelementptr inbounds nuw ptr, ptr %205, i64 %indvars.iv440
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %indvars.iv440
   %350 = load ptr, ptr %349, align 8
   tail call void @pfree(ptr noundef %350) #13
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
@@ -1335,7 +1331,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 
 21:                                               ; preds = %.lr.ph346, %.loopexit
   %indvars.iv387 = phi i64 [ 0, %.lr.ph346 ], [ %indvars.iv.next388, %.loopexit ]
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv387
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv387
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
@@ -1346,7 +1342,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 76
   %31 = load i16, ptr %30, align 4
   %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %13, i64 %indvars.iv387
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 %indvars.iv387
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %32, ptr %34, align 4
   %35 = load ptr, ptr %22, align 8
@@ -1360,21 +1356,21 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
   %44 = tail call ptr @palloc0(i64 noundef %43) #13
-  %45 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv387
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv387
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %19, align 8
   %.not373 = icmp eq i32 %46, 0
   br i1 %.not373, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %47 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv387
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv387
   br label %48
 
 48:                                               ; preds = %.lr.ph, %68
   %49 = phi i32 [ %46, %.lr.ph ], [ %69, %68 ]
   %.0332 = phi i32 [ 0, %.lr.ph ], [ %70, %68 ]
   %50 = sext i32 %.0332 to i64
-  %51 = getelementptr inbounds %struct.MCVItem, ptr %20, i64 %50
+  %51 = getelementptr inbounds [32 x i8], ptr %20, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv387
@@ -1385,12 +1381,12 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 57:                                               ; preds = %48
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %indvars.iv387
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv387
   %61 = load i64, ptr %60, align 8
   %62 = load ptr, ptr %45, align 8
   %63 = load i32, ptr %47, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i64, ptr %62, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %62, i64 %64
   store i64 %61, ptr %65, align 8
   %66 = load i32, ptr %47, align 4
   %67 = add i32 %66, 1
@@ -1405,14 +1401,14 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   br i1 %71, label %48, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %68, %21
-  %72 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv387
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv387
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.loopexit, label %75
 
 75:                                               ; preds = %._crit_edge
   %76 = load ptr, ptr @CurrentMemoryContext, align 8
-  %77 = getelementptr inbounds nuw %struct.SortSupportData, ptr %15, i64 %indvars.iv387
+  %77 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv387
   store ptr %76, ptr %77, align 8
   %78 = load ptr, ptr %22, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -1436,7 +1432,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ 1, %75 ]
   %.0314333 = phi i32 [ %.1315, %103 ], [ 1, %75 ]
   %90 = load ptr, ptr %45, align 8
-  %91 = getelementptr i64, ptr %90, i64 %indvars.iv
+  %91 = getelementptr [8 x i8], ptr %90, i64 %indvars.iv
   %92 = getelementptr i8, ptr %91, i64 -8
   %93 = load i64, ptr %92, align 8
   %94 = load i64, ptr %91, align 8
@@ -1446,10 +1442,10 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 
 96:                                               ; preds = %.lr.ph336
   %97 = load ptr, ptr %45, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load i64, ptr %98, align 8
   %100 = sext i32 %.0314333 to i64
-  %101 = getelementptr inbounds i64, ptr %97, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %97, i64 %100
   store i64 %99, ptr %101, align 8
   %102 = add i32 %.0314333, 1
   br label %103
@@ -1506,16 +1502,16 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 .lr.ph343:                                        ; preds = %123, %158
   %indvars.iv384 = phi i64 [ %indvars.iv.next385, %158 ], [ 0, %123 ]
   %127 = load ptr, ptr %45, align 8
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv384
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv384
   %129 = load i64, ptr %128, align 8
   %130 = inttoptr i64 %129 to ptr
   %131 = tail call ptr @pg_detoast_datum(ptr noundef %130) #13
   %132 = ptrtoint ptr %131 to i64
   %133 = load ptr, ptr %45, align 8
-  %134 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv384
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv384
   store i64 %132, ptr %134, align 8
   %135 = load ptr, ptr %45, align 8
-  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %indvars.iv384
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv384
   %137 = load i64, ptr %136, align 8
   %138 = inttoptr i64 %137 to ptr
   %139 = load i8, ptr %138, align 1
@@ -1583,7 +1579,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %176 = phi i32 [ 0, %.lr.ph340.preheader ], [ %184, %.lr.ph340 ]
   %indvars.iv381 = phi i64 [ 0, %.lr.ph340.preheader ], [ %indvars.iv.next382, %.lr.ph340 ]
   %177 = load ptr, ptr %45, align 8
-  %178 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv381
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv381
   %179 = load i64, ptr %178, align 8
   %180 = inttoptr i64 %179 to ptr
   %181 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %180) #15
@@ -1622,7 +1618,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 .lr.ph352:                                        ; preds = %._crit_edge347, %.lr.ph352
   %indvars.iv390 = phi i64 [ 0, %._crit_edge347 ], [ %indvars.iv.next391, %.lr.ph352 ]
   %.0308349 = phi i64 [ %192, %._crit_edge347 ], [ %197, %.lr.ph352 ]
-  %193 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %13, i64 %indvars.iv390
+  %193 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 %indvars.iv390
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %195 = load i32, ptr %194, align 4
   %196 = sext i32 %195 to i64
@@ -1672,13 +1668,13 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 .preheader328:                                    ; preds = %.preheader328.preheader, %._crit_edge358
   %indvars.iv398 = phi i64 [ 0, %.preheader328.preheader ], [ %indvars.iv.next399, %._crit_edge358 ]
   %.0309360 = phi ptr [ %219, %.preheader328.preheader ], [ %.1310.lcssa, %._crit_edge358 ]
-  %220 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %13, i64 %indvars.iv398
+  %220 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 %indvars.iv398
   %221 = load i32, ptr %220, align 4
   %222 = icmp sgt i32 %221, 0
   br i1 %222, label %.lr.ph357, label %._crit_edge358
 
 .lr.ph357:                                        ; preds = %.preheader328
-  %223 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv398
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv398
   %224 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 12
   br label %267
@@ -1706,7 +1702,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %.6370.us = phi i32 [ %264, %._crit_edge367.us ], [ 0, %.lr.ph371 ]
   %.3312369.us = phi ptr [ %263, %._crit_edge367.us ], [ %.1310.lcssa, %.lr.ph371 ]
   %230 = sext i32 %.6370.us to i64
-  %231 = getelementptr inbounds %struct.MCVItem, ptr %229, i64 %230
+  %231 = getelementptr inbounds [32 x i8], ptr %229, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load ptr, ptr %232, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3312369.us, ptr align 1 %233, i64 %7, i1 false)
@@ -1732,13 +1728,13 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
 
 246:                                              ; preds = %241
   %247 = load ptr, ptr %240, align 8
-  %248 = getelementptr inbounds nuw i64, ptr %247, i64 %indvars.iv403
-  %249 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv403
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %indvars.iv403
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv403
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds nuw %struct.DimensionInfo, ptr %13, i64 %indvars.iv403
+  %251 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 %indvars.iv403
   %252 = load i32, ptr %251, align 4
   %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds nuw %struct.SortSupportData, ptr %15, i64 %indvars.iv403
+  %254 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv403
   %255 = tail call ptr @bsearch_arg(ptr noundef %248, ptr noundef %250, i64 noundef %253, i64 noundef 8, ptr noundef nonnull @compare_scalars_simple, ptr noundef %254) #13
   %256 = load ptr, ptr %249, align 8
   %257 = ptrtoint ptr %255 to i64
@@ -1766,7 +1762,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %indvars.iv395 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next396, %340 ]
   %.1310355 = phi ptr [ %.0309360, %.lr.ph357 ], [ %.2311, %340 ]
   %268 = load ptr, ptr %223, align 8
-  %269 = getelementptr inbounds nuw i64, ptr %268, i64 %indvars.iv395
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv395
   %270 = load i64, ptr %269, align 8
   %271 = load i8, ptr %224, align 4, !range !9, !noundef !10
   %272 = trunc nuw i8 %271 to i1
@@ -1921,7 +1917,7 @@ store_att_byval.exit:                             ; preds = %278, %280, %282, %2
   %.6370 = phi i32 [ %354, %.lr.ph371.split ], [ 0, %.lr.ph371.thread ]
   %.3312369 = phi ptr [ %353, %.lr.ph371.split ], [ %219, %.lr.ph371.thread ]
   %344 = sext i32 %.6370 to i64
-  %345 = getelementptr inbounds %struct.MCVItem, ptr %228, i64 %344
+  %345 = getelementptr inbounds [32 x i8], ptr %228, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %347 = load ptr, ptr %346, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3312369, ptr align 1 %347, i64 %7, i1 false)
@@ -2036,7 +2032,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %49 = getelementptr inbounds nuw %struct.MCVItem, ptr %48, i64 %41
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %41
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %51 = load i16, ptr %50, align 4
   %52 = icmp sgt i16 %51, 0
@@ -2068,13 +2064,13 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %68 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   call void @getTypeOutputInfo(i32 noundef %69, ptr noundef nonnull %6, ptr noundef nonnull %5) #13
   %70 = load i32, ptr %6, align 4
   call void @fmgr_info(i32 noundef %70, ptr noundef nonnull %7) #13
   %71 = load ptr, ptr %55, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8
   %74 = call i64 @FunctionCall1Coll(ptr noundef nonnull %7, i32 noundef 0, i64 noundef %73) #13
   %75 = inttoptr i64 %74 to ptr
@@ -2268,7 +2264,7 @@ define dso_local double @mcv_clauselist_selectivity(ptr noundef readonly capture
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
@@ -2296,7 +2292,7 @@ define dso_local double @mcv_clauselist_selectivity(ptr noundef readonly capture
   %.027 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
   %.02526 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %47 ]
   %32 = sext i32 %.027 to i64
-  %33 = getelementptr inbounds %struct.MCVItem, ptr %30, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr %30, i64 %32
   %34 = load double, ptr %33, align 8
   %35 = load double, ptr %8, align 8
   %36 = fadd double %34, %35
@@ -2369,7 +2365,7 @@ define internal fastcc ptr @mcv_get_match_bitmap(ptr noundef readonly captures(a
 .lr.ph87:                                         ; preds = %.lr.ph54, %.loopexit
   %indvars.iv6586 = phi i64 [ %indvars.iv.next66, %.loopexit ], [ 0, %.lr.ph54 ]
   %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv6586
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv6586
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 317
@@ -2438,7 +2434,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph87, %is_opcla
 61:                                               ; preds = %.lr.ph, %116
   %.023324 = phi i32 [ 0, %.lr.ph ], [ %117, %116 ]
   %62 = sext i32 %.023324 to i64
-  %63 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %32, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 %59
@@ -2482,7 +2478,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph87, %is_opcla
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i64, ptr %91, i64 %59
+  %92 = getelementptr inbounds [8 x i8], ptr %91, i64 %59
   %93 = load i64, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %95 = load i64, ptr %94, align 8
@@ -2494,7 +2490,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph87, %is_opcla
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i64, ptr %101, i64 %59
+  %102 = getelementptr inbounds [8 x i8], ptr %101, i64 %59
   %103 = load i64, ptr %102, align 8
   %104 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %99, i64 noundef %103) #13
   br label %105
@@ -2631,7 +2627,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %163 = load i8, ptr %159, align 4, !range !9, !noundef !10
   %164 = xor i8 %163, 1
   %165 = sext i32 %.023536 to i64
-  %166 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %165
+  %166 = getelementptr inbounds [32 x i8], ptr %32, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 %160
@@ -2682,7 +2678,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %indvars.iv = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next, %225 ]
   %.023828 = phi i8 [ %164, %.lr.ph31 ], [ %.2, %225 ]
   %196 = load ptr, ptr %20, align 8
-  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv
   %198 = load i64, ptr %197, align 8
   %199 = load ptr, ptr %21, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 %indvars.iv
@@ -2707,7 +2703,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
 
 210:                                              ; preds = %209, %208
   %211 = load ptr, ptr %192, align 8
-  %212 = getelementptr inbounds i64, ptr %211, i64 %160
+  %212 = getelementptr inbounds [8 x i8], ptr %211, i64 %160
   %213 = load i64, ptr %212, align 8
   %214 = call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %161, i64 noundef %213, i64 noundef %198) #13
   %215 = icmp ne i64 %214, 0
@@ -2776,7 +2772,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
 251:                                              ; preds = %.lr.ph27, %266
   %.023925 = phi i32 [ 0, %.lr.ph27 ], [ %274, %266 ]
   %252 = sext i32 %.023925 to i64
-  %253 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %252
+  %253 = getelementptr inbounds [32 x i8], ptr %32, i64 %252
   %254 = load i32, ptr %249, align 8
   switch i32 %254, label %266 [
     i32 0, label %255
@@ -2935,7 +2931,7 @@ is_notclause.exit:                                ; preds = %is_orclause.exit
 328:                                              ; preds = %.lr.ph51, %350
   %.023249 = phi i32 [ 0, %.lr.ph51 ], [ %353, %350 ]
   %329 = sext i32 %.023249 to i64
-  %330 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %329
+  %330 = getelementptr inbounds [32 x i8], ptr %32, i64 %329
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 16
   %332 = load ptr, ptr %331, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 %327
@@ -2946,7 +2942,7 @@ is_notclause.exit:                                ; preds = %is_orclause.exit
 336:                                              ; preds = %328
   %337 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i64, ptr %338, i64 %327
+  %339 = getelementptr inbounds [8 x i8], ptr %338, i64 %327
   %340 = load i64, ptr %339, align 8
   %341 = icmp ne i64 %340, 0
   br label %342
@@ -2989,7 +2985,7 @@ is_notclause.exit:                                ; preds = %is_orclause.exit
 359:                                              ; preds = %.lr.ph48, %382
   %.022847 = phi i32 [ 0, %.lr.ph48 ], [ %385, %382 ]
   %360 = sext i32 %.022847 to i64
-  %361 = getelementptr inbounds %struct.MCVItem, ptr %32, i64 %360
+  %361 = getelementptr inbounds [32 x i8], ptr %32, i64 %360
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 16
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds i8, ptr %363, i64 %358
@@ -3000,7 +2996,7 @@ is_notclause.exit:                                ; preds = %is_orclause.exit
 367:                                              ; preds = %359
   %368 = getelementptr inbounds nuw i8, ptr %361, i64 24
   %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds i64, ptr %369, i64 %358
+  %370 = getelementptr inbounds [8 x i8], ptr %369, i64 %358
   %371 = load i64, ptr %370, align 8
   %372 = icmp ne i64 %371, 0
   br label %373
@@ -3076,7 +3072,7 @@ define dso_local double @mcv_clause_selectivity_or(ptr noundef readnone captures
   %.043 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %61 ]
   %.04142 = phi i32 [ 0, %.lr.ph ], [ %63, %61 ]
   %28 = sext i32 %.04142 to i64
-  %29 = getelementptr inbounds %struct.MCVItem, ptr %26, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %26, i64 %28
   %30 = load double, ptr %29, align 8
   %31 = load double, ptr %8, align 8
   %32 = fadd double %30, %31
@@ -3272,7 +3268,7 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph ]
   %.14042 = phi i32 [ %34, %33 ], [ %24, %.lr.ph ]
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef nonnull %0, ptr noundef %31) #13
   br i1 %32, label %.loopexit, label %33

@@ -142,7 +142,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %.018 = phi i64 [ %49, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 0, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit ]
-  %31 = getelementptr inbounds nuw %"class.absl::lts_20240722::Status", ptr %6, i64 %.018
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.018
   %32 = load i64, ptr %31, align 8, !tbaa !10
   %33 = icmp eq i64 %32, 1
   br i1 %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %34

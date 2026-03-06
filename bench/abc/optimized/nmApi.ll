@@ -315,7 +315,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   %17 = phi ptr [ %.pre.i13, %45 ], [ %11, %Vec_IntAlloc.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %Vec_IntAlloc.exit ]
   %18 = load ptr, ptr %0, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %45, label %21
@@ -371,7 +371,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %42 = add nsw i32 %24, 1
   store i32 %42, ptr %6, align 4, !tbaa !24
   %43 = sext i32 %24 to i64
-  %44 = getelementptr inbounds i32, ptr %.pre.i14, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %.pre.i14, i64 %43
   store i32 %23, ptr %44, align 4, !tbaa !30
   %.pre = load i32, ptr %13, align 8, !tbaa !14
   br label %45

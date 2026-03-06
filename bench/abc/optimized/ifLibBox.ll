@@ -126,7 +126,7 @@ define void @If_LibBoxFree(ptr noundef captures(address_is_null) %0) local_unnam
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val12 = load ptr, ptr %8, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
@@ -192,7 +192,7 @@ define ptr @If_LibBoxReadBox(ptr noundef readonly captures(none) %0, i32 noundef
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !21
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !25
   ret ptr %8
 }
@@ -218,7 +218,7 @@ define ptr @If_LibBoxFindBox(ptr noundef readonly captures(address_is_null) %0, 
 
 9:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -334,7 +334,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %42, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
   %44 = load ptr, ptr %41, align 8, !tbaa !21
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %indvars.iv.i
   store ptr null, ptr %45, align 8, !tbaa !25
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -352,7 +352,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %._crit_edge.i, %8, 
   %48 = getelementptr i8, ptr %47, i64 8
   %.val8 = load ptr, ptr %48, align 8, !tbaa !21
   %49 = sext i32 %46 to i64
-  %50 = getelementptr inbounds ptr, ptr %.val8, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %.val8, i64 %49
   store ptr %1, ptr %50, align 8, !tbaa !25
   %51 = load i32, ptr %0, align 8, !tbaa !30
   %52 = add nsw i32 %51, 1
@@ -426,7 +426,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #10 {
 21:                                               ; preds = %18, %._crit_edge.us
   %22 = phi i32 [ %20, %18 ], [ -1, %._crit_edge.us ]
   %23 = load ptr, ptr %35, align 8, !tbaa !17
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store i32 %22, ptr %24, align 4, !tbaa !34
   %25 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -872,7 +872,7 @@ If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, 
 66:                                               ; preds = %If_LibBoxGetToken.exit, %63
   %67 = phi i32 [ %65, %63 ], [ -1000000000, %If_LibBoxGetToken.exit ]
   %68 = load ptr, ptr %51, align 8, !tbaa !17
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   store i32 %67, ptr %69, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -909,7 +909,7 @@ define void @If_LibBoxPrint(ptr noundef captures(none) %0, ptr noundef readonly 
   %10 = phi ptr [ %51, %.loopexit ], [ %7, %2 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val34 = load ptr, ptr %11, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
@@ -948,7 +948,7 @@ define void @If_LibBoxPrint(ptr noundef captures(none) %0, ptr noundef readonly 
   %34 = mul nsw i32 %32, %.02936
   %35 = add nsw i32 %34, %.035
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %33, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !34
   %39 = icmp eq i32 %38, -1000000000
   br i1 %39, label %40, label %42

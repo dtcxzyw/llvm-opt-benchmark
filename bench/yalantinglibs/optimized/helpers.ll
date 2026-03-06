@@ -486,7 +486,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %6 = phi ptr [ %1, %for.body.lr.ph ], [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %7 = xor i64 %indvars.iv, -1
   %8 = getelementptr i8, ptr %6, i64 %sub.ptr.sub.i71
-  %add.ptr.i = getelementptr %"class.std::__cxx11::basic_string", ptr %8, i64 %7
+  %add.ptr.i = getelementptr [32 x i8], ptr %8, i64 %7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ns, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %9 = load ptr, ptr %p_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
@@ -1092,7 +1092,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i32, ptr %_M_finish.i.i, align 8
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 

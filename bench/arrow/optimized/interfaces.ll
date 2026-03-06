@@ -7212,7 +7212,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vect
   %86 = sub i64 %85, %22
   %87 = ashr exact i64 %86, 4
   %88 = sub nsw i64 0, %87
-  %89 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %84, i64 %88
+  %89 = getelementptr inbounds [16 x i8], ptr %84, i64 %88
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(1) %8, i64 %86, i1 false), !noalias !312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !318, !noalias !312
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7446,7 +7446,7 @@ _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %169, %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  %170 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %164, i64 %162
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %162
   %.pre80.i = load ptr, ptr %9, align 8, !tbaa !219, !noalias !312
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE9push_backEOS2_.exit.i
 
@@ -7535,7 +7535,7 @@ _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i48.i
 
 _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i48.i: ; preds = %196, %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i46.i
-  %197 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %191, i64 %189
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %189
   br label %_ZN5arrow2io8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceESt6vectorINS0_9ReadRangeESaIS5_EE.exit
 
 198:                                              ; preds = %_ZNKSt6vectorIN5arrow2io9ReadRangeESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i43.i, %184
@@ -8084,13 +8084,13 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %25 = and i64 %.fr.i.i25.lcssa, 16
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %27
-  %29 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %22
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %22
   br label %30
 
 30:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %22, %._crit_edge ], [ %52, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i ]
-  %31 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.010.i.i.i
+  %31 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %.010.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %31, align 8, !tbaa !221
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !221
@@ -8101,15 +8101,15 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.037.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.010.i.i.i, %30 ]
   %33 = shl i64 %.037.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %34
   %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %36
   %.val.i.i.i.i.i = load i64, ptr %35, align 8, !tbaa !320
   %.val1.i.i.i.i.i = load i64, ptr %37, align 8, !tbaa !320
   %38 = icmp slt i64 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.037.i.i.i.i
+  %39 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %.037.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !318
   %41 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !328
@@ -8133,20 +8133,20 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.0911.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %.0911.i.i.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %46, align 8, !tbaa !320
   %47 = icmp slt i64 %.val.i.i.i.i.i.i, %.sroa.03.0.copyload.i.i.i
   br i1 %47, label %48, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.010.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !318
   %50 = icmp sgt i64 %.0911.i.i.i.i.i, %.010.i.i.i
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i, !llvm.loop !329
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_T0_SK_T1_T2_.exit.i.i.i: ; preds = %48, %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %51, align 8, !tbaa !221
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !221
@@ -8177,15 +8177,15 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vector
   %.037.i.i.i23.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i22.i ], [ 0, %.lr.ph.i9.i ]
   %61 = shl i64 %.037.i.i.i23.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %62
+  %63 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %62
   %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %64
   %.val.i.i.i.i24.i = load i64, ptr %63, align 8, !tbaa !320
   %.val1.i.i.i.i25.i = load i64, ptr %65, align 8, !tbaa !320
   %66 = icmp slt i64 %.val.i.i.i.i24.i, %.val1.i.i.i.i25.i
   %spec.select.i.i.i26.i = select i1 %66, i64 %64, i64 %62
-  %67 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %spec.select.i.i.i26.i
-  %68 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.037.i.i.i23.i
+  %67 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %spec.select.i.i.i26.i
+  %68 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %.037.i.i.i23.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !318
   %69 = icmp slt i64 %spec.select.i.i.i26.i, %59
   br i1 %69, label %.lr.ph.i.i.i22.i, label %._crit_edge.i.i.i13.i, !llvm.loop !328
@@ -8205,8 +8205,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vector
 .thread.i.i.i:                                    ; preds = %72
   %76 = shl nuw nsw i64 %.0.lcssa.i.i.i14.i, 1
   %77 = or disjoint i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %77
-  %79 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.0.lcssa.i.i.i14.i
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %77
+  %79 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i14.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !318
   br label %.lr.ph.i.i.i.i16.i.preheader
 
@@ -8222,20 +8222,20 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vector
   %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i56.i.i.i, %83 ], [ %.010.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
   %.0911.in.i.i.i.i18.i = add nsw i64 %.010.i.i.i.i17.i, -1
   %.0911.i.i56.i.i.i = lshr i64 %.0911.in.i.i.i.i18.i, 1
-  %81 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.0911.i.i56.i.i.i
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %.0911.i.i56.i.i.i
   %.val.i.i.i.i.i19.i = load i64, ptr %81, align 8, !tbaa !320
   %82 = icmp slt i64 %.val.i.i.i.i.i19.i, %.sroa.03.0.copyload.i.i10.i
   br i1 %82, label %83, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i
 
 83:                                               ; preds = %.lr.ph.i.i.i.i16.i
-  %84 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.010.i.i.i.i17.i
+  %84 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %.010.i.i.i.i17.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !318
   %.not7.i.i.i = icmp eq i64 %.0911.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !329
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8internal12_GLOBAL__N_117ReadRangeCombiner8CoalesceES8_EUlRKS4_SG_E_EEEvT_SJ_SJ_RT0_.exit.i.i: ; preds = %83, %.lr.ph.i.i.i.i16.i, %80
   %.0.lcssa.i.i.i.i20.i = phi i64 [ 0, %80 ], [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %83 ]
-  %85 = getelementptr inbounds %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %.0.lcssa.i.i.i.i20.i
+  %85 = getelementptr inbounds [16 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i20.i
   store i64 %.sroa.03.0.copyload.i.i10.i, ptr %85, align 8, !tbaa !221
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %.sroa.4.0.copyload.i.i12.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i.i21.i, align 8, !tbaa !221
@@ -8248,7 +8248,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorI
   %87 = phi i64 [ %116, %18 ], [ %14, %.lr.ph ]
   %88 = add nsw i64 %.02440, -1
   %89 = lshr i64 %87, 1
-  %90 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %.fr26, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.fr26, i64 %89
   %91 = getelementptr inbounds i8, ptr %storemerge2341, i64 -16
   %.val.i.i.i = load i64, ptr %16, align 8, !tbaa !320
   %.val1.i.i.i = load i64, ptr %90, align 8, !tbaa !320
@@ -8475,9 +8475,9 @@ _ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; p
 
 _ZNSt12_Vector_baseIN5arrow2io9ReadRangeESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !308
-  %44 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !310
-  %45 = getelementptr inbounds nuw %"struct.arrow::io::ReadRange", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !311
   br label %46
 
@@ -14763,7 +14763,7 @@ _ZNSt6vectorIN5arrow6FutureISt10shared_ptrINS0_6BufferEEEESaIS5_EE11_S_relocateE
 _ZNSt12_Vector_baseIN5arrow6FutureISt10shared_ptrINS0_6BufferEEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN5arrow6FutureISt10shared_ptrINS0_6BufferEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !226
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !222
-  %44 = getelementptr inbounds nuw %"class.arrow::Future.55", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !225
   ret void
 }

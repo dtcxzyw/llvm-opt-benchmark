@@ -32,13 +32,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_svc_addsock:
 %union.anon.61 = type { i64 }
 %union.anon.62 = type { ptr }
 %struct.kvec = type { ptr, i64 }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.69, %union.anon.77, %struct.atomic_t, [8 x i8] }
-%union.anon.69 = type { %struct.anon.70 }
-%struct.anon.70 = type { %union.anon.71, ptr, %union.anon.73, i64 }
-%union.anon.71 = type { %struct.list_head }
-%union.anon.73 = type { i64 }
-%union.anon.77 = type { %struct.atomic_t }
 %struct.tls_handshake_args = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, [5 x i32] }
 %union.anon.85 = type { [5 x i64] }
 %union.anon.110 = type { [5 x i64] }
@@ -1076,7 +1069,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 
 95:                                               ; preds = %137, %90
   %96 = phi i64 [ 0, %90 ], [ %138, %137 ]
-  %97 = getelementptr ptr, ptr %93, i64 %96
+  %97 = getelementptr [8 x i8], ptr %93, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %132, label %100
@@ -1135,7 +1128,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
   br label %132
 
 132:                                              ; preds = %131, %125, %95
-  %133 = getelementptr ptr, ptr %94, i64 %96
+  %133 = getelementptr [8 x i8], ptr %94, i64 %96
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %137, !prof !33
@@ -1189,8 +1182,8 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
   %163 = phi i64 [ 0, %160 ], [ %172, %162 ]
   %164 = phi i32 [ 0, %160 ], [ %171, %162 ]
   %165 = zext i32 %164 to i64
-  %166 = getelementptr %struct.bio_vec, ptr %157, i64 %165
-  %167 = getelementptr ptr, ptr %161, i64 %165
+  %166 = getelementptr [16 x i8], ptr %157, i64 %165
+  %167 = getelementptr [8 x i8], ptr %161, i64 %165
   %168 = load ptr, ptr %167, align 8
   store ptr %168, ptr %166, align 8
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -1209,7 +1202,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 176:                                              ; preds = %174, %150
   %177 = phi i64 [ 0, %150 ], [ %175, %174 ]
   %178 = getelementptr i8, ptr %0, i64 736
-  %179 = getelementptr ptr, ptr %178, i64 %177
+  %179 = getelementptr [8 x i8], ptr %178, i64 %177
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   store ptr %179, ptr %180, align 8
   %181 = getelementptr i8, ptr %179, i64 8
@@ -1476,9 +1469,9 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 
 320:                                              ; preds = %320, %315
   %321 = phi i64 [ 0, %315 ], [ %325, %320 ]
-  %322 = getelementptr ptr, ptr %178, i64 %321
+  %322 = getelementptr [8 x i8], ptr %178, i64 %321
   %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr ptr, ptr %319, i64 %321
+  %324 = getelementptr [8 x i8], ptr %319, i64 %321
   store ptr %323, ptr %324, align 8
   store ptr null, ptr %322, align 8
   %325 = add nuw nsw i64 %321, 1
@@ -1709,7 +1702,7 @@ define internal range(i32 -107, -2147483648) i32 @svc_tcp_sendto(ptr noundef ini
   %34 = select i1 %30, i64 %31, i64 %33
   %35 = add i64 %29, %34
   %36 = lshr i64 %35, 12
-  %37 = getelementptr %struct.page, ptr %27, i64 %36
+  %37 = getelementptr [64 x i8], ptr %27, i64 %36
   %38 = trunc i64 %28 to i32
   %39 = and i32 %38, 4095
   store ptr %37, ptr %25, align 8
@@ -1862,7 +1855,7 @@ define internal void @svc_tcp_sock_detach(ptr noundef %0) #0 align 16 {
 
 29:                                               ; preds = %68, %24
   %30 = phi i64 [ 0, %24 ], [ %69, %68 ]
-  %31 = getelementptr ptr, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -2025,7 +2018,7 @@ define internal void @svc_sock_free(ptr noundef %0) #0 align 16 {
   %46 = select i1 %42, i64 %43, i64 %45
   %47 = add i64 %41, %46
   %48 = lshr i64 %47, 12
-  %49 = getelementptr %struct.page, ptr %39, i64 %48
+  %49 = getelementptr [64 x i8], ptr %39, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load volatile i64, ptr %50, align 8
   %52 = and i64 %51, 1
@@ -3100,7 +3093,7 @@ define internal i32 @svc_udp_recvfrom(ptr noundef %0) #0 align 16 {
   %181 = zext i32 %179 to i64
   %182 = add nuw nsw i64 %181, 4095
   %183 = lshr i64 %182, 12
-  %184 = getelementptr ptr, ptr %180, i64 %183
+  %184 = getelementptr [8 x i8], ptr %180, i64 %183
   br label %185
 
 185:                                              ; preds = %177, %175

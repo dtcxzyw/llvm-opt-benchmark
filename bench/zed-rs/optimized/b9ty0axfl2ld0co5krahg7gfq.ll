@@ -6032,7 +6032,7 @@ _ZN3std3env6var_os17hf6c3065b0286444aE.exit.i:    ; preds = %100
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h243a900917ab7585E.llvm.6435588442613421834.exit.i.i": ; preds = %.noexc29.i, %110
   %122 = phi i64 [ %.pre.i.i.i, %.noexc29.i ], [ %115, %110 ]
   %123 = load ptr, ptr %101, align 8, !alias.scope !1847, !noalias !1850, !nonnull !5, !noundef !5
-  %124 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %123, i64 %122
+  %124 = getelementptr inbounds [24 x i8], ptr %123, i64 %122
   %125 = mul i64 %114, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %124, ptr nonnull readonly align 8 %112, i64 %125, i1 false), !noalias !1850
   %126 = load i64, ptr %102, align 8, !alias.scope !1847, !noalias !1850, !noundef !5
@@ -6082,7 +6082,7 @@ _ZN3std3env6var_os17hf6c3065b0286444aE.exit.i:    ; preds = %100
   %.sroa.614.0.copyload.i = load i64, ptr %102, align 8, !noalias !1818
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1888
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1888
-  %138 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.sroa.513.0.copyload.i, i64 %.sroa.614.0.copyload.i
+  %138 = getelementptr inbounds [24 x i8], ptr %.sroa.513.0.copyload.i, i64 %.sroa.614.0.copyload.i
   store ptr %.sroa.513.0.copyload.i, ptr %16, align 8, !alias.scope !1892, !noalias !1895
   %139 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %.sroa.012.0.copyload.i, ptr %139, align 8, !alias.scope !1892, !noalias !1895

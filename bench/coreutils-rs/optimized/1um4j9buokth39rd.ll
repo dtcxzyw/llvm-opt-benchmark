@@ -462,7 +462,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h6b3212cea4a048
   unreachable
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %.0.lcssa.i
+  %23 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0.lcssa.i
   %24 = sub nuw i64 %2, %.0.lcssa.i
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -554,7 +554,7 @@ default.unreachable:                              ; preds = %32
 
 57:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1061cc9bb037e165E.exit.thread.i14"
   %58 = sub nuw i64 %.sroa.8.040, %.0.lcssa.i16
-  %59 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.041, i64 %.0.lcssa.i16
+  %59 = getelementptr inbounds [16 x i8], ptr %.sroa.0.041, i64 %.0.lcssa.i16
   %60 = icmp eq i64 %.sroa.8.040, %.0.lcssa.i16
   br i1 %60, label %.thread.i18, label %64
 
@@ -2152,7 +2152,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit.thread: ; preds = %"_ZN84_$LT$rand
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit22.thread125
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit:    ; preds = %3
-  %44 = getelementptr inbounds nuw i32, ptr %20, i64 %22
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %22
   %45 = load i32, ptr %44, align 4, !alias.scope !370, !noalias !373, !noundef !7
   %46 = add nuw nsw i64 %22, 1
   store i64 %46, ptr %21, align 16, !alias.scope !370, !noalias !373
@@ -2204,20 +2204,20 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit:    ; preds = %3
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit22.thread125: ; preds = %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i17", %66, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit.thread
   %.ph = phi i8 [ %43, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit.thread ], [ %47, %66 ], [ %47, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i17" ]
   %.ph47 = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit.thread ], [ 0, %66 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i17" ]
-  %67 = getelementptr inbounds nuw i32, ptr %20, i64 %.ph47
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.ph47
   %68 = load i32, ptr %67, align 4, !alias.scope !390, !noalias !396, !noundef !7
   %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i32, ptr %20, i64 %.ph47
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.ph47
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4, !alias.scope !410, !noalias !413, !noundef !7
   %73 = trunc i32 %72 to i8
-  %74 = getelementptr inbounds nuw i32, ptr %20, i64 %.ph47
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.ph47
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = add nuw nsw i64 %.ph47, 3
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit18:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit
-  %77 = getelementptr inbounds nuw i32, ptr %20, i64 %46
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %46
   %78 = load i32, ptr %77, align 4, !alias.scope !390, !noalias !396, !noundef !7
   %79 = add nuw nsw i64 %22, 2
   store i64 %79, ptr %21, align 16, !alias.scope !390, !noalias !396
@@ -2272,7 +2272,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20.thread: ; preds = %"_ZN84_$LT$ra
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit22.thread
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit18
-  %102 = getelementptr inbounds nuw i32, ptr %20, i64 %79
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %79
   %103 = load i32, ptr %102, align 4, !alias.scope !410, !noalias !413, !noundef !7
   %104 = add nuw nsw i64 %22, 3
   store i64 %104, ptr %21, align 16, !alias.scope !410, !noalias !413
@@ -2324,12 +2324,12 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20:  ; preds = %_ZN4rand3rng3Rng3ge
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit22.thread: ; preds = %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i21", %124, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20.thread
   %.ph48 = phi i8 [ %101, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20.thread ], [ %105, %124 ], [ %105, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i21" ]
   %.ph51 = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20.thread ], [ 0, %124 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i21" ]
-  %125 = getelementptr inbounds nuw i32, ptr %20, i64 %.ph51
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.ph51
   %126 = add nuw nsw i64 %.ph51, 1
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit22:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit20
-  %127 = getelementptr inbounds nuw i32, ptr %20, i64 %104
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %104
   %128 = load i32, ptr %127, align 4, !alias.scope !430, !noalias !436, !noundef !7
   %129 = add nuw nsw i64 %22, 4
   store i64 %129, ptr %21, align 16, !alias.scope !430, !noalias !436
@@ -2392,7 +2392,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132: ; preds = %_ZN4rand3r
   %.ph126.in = load i32, ptr %.ph126.in.in, align 4, !alias.scope !430, !noalias !436, !noundef !7
   store i64 %storemerge202, ptr %21, align 16, !alias.scope !430, !noalias !436
   %.ph126 = trunc i32 %.ph126.in to i8
-  %152 = getelementptr inbounds nuw i32, ptr %20, i64 %storemerge202
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %storemerge202
   %153 = load i32, ptr %152, align 4, !alias.scope !450, !noalias !456, !noundef !7
   %154 = add nuw nsw i64 %storemerge202, 1
   store i64 %154, ptr %21, align 16, !alias.scope !450, !noalias !456
@@ -2401,7 +2401,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132: ; preds = %_ZN4rand3r
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit24:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit22
-  %157 = getelementptr inbounds nuw i32, ptr %20, i64 %129
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %129
   %158 = load i32, ptr %157, align 4, !alias.scope !450, !noalias !456, !noundef !7
   %159 = add nuw nsw i64 %22, 5
   store i64 %159, ptr %21, align 16, !alias.scope !450, !noalias !456
@@ -2457,7 +2457,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread: ; preds = %"_ZN84_$LT$ra
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit24
-  %181 = getelementptr inbounds nuw i32, ptr %20, i64 %159
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %159
   %182 = load i32, ptr %181, align 4, !alias.scope !470, !noalias !476, !noundef !7
   %183 = add nuw nsw i64 %22, 6
   store i64 %183, ptr %21, align 16, !alias.scope !470, !noalias !476
@@ -2519,11 +2519,11 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141: ; preds = %_ZN4rand3r
   %.ph136 = phi i8 [ %47, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread ], [ %.ph128, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132 ]
   %.ph137 = phi i8 [ %105, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread ], [ %.ph129, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132 ]
   %.ph138 = phi i8 [ %.ph52, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread ], [ %155, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26.thread132 ]
-  %.ph133.in.in = getelementptr inbounds nuw i32, ptr %20, i64 %.pn
+  %.ph133.in.in = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.pn
   %.ph133.in = load i32, ptr %.ph133.in.in, align 4, !alias.scope !470, !noalias !476, !noundef !7
   store i64 %storemerge201, ptr %21, align 16, !alias.scope !470, !noalias !476
   %.ph133 = trunc i32 %.ph133.in to i8
-  %206 = getelementptr inbounds nuw i32, ptr %20, i64 %storemerge201
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %storemerge201
   %207 = load i32, ptr %206, align 4, !alias.scope !490, !noalias !496, !noundef !7
   %208 = add nuw nsw i64 %storemerge201, 1
   store i64 %208, ptr %21, align 16, !alias.scope !490, !noalias !496
@@ -2532,7 +2532,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141: ; preds = %_ZN4rand3r
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit28:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit26
-  %211 = getelementptr inbounds nuw i32, ptr %20, i64 %183
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %183
   %212 = load i32, ptr %211, align 4, !alias.scope !490, !noalias !496, !noundef !7
   %213 = add nuw nsw i64 %22, 7
   store i64 %213, ptr %21, align 16, !alias.scope !490, !noalias !496
@@ -2588,7 +2588,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread: ; preds = %"_ZN84_$LT$ra
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit28
-  %235 = getelementptr inbounds nuw i32, ptr %20, i64 %213
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %213
   %236 = load i32, ptr %235, align 4, !alias.scope !510, !noalias !516, !noundef !7
   %237 = add nuw nsw i64 %22, 8
   store i64 %237, ptr %21, align 16, !alias.scope !510, !noalias !516
@@ -2652,11 +2652,11 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152: ; preds = %_ZN4rand3r
   %.ph147 = phi i8 [ %105, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread ], [ %.ph137, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141 ]
   %.ph148 = phi i8 [ %160, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread ], [ %.ph138, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141 ]
   %.ph149 = phi i8 [ %.ph58, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread ], [ %209, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30.thread141 ]
-  %.ph142.in.in = getelementptr inbounds nuw i32, ptr %20, i64 %.pn203
+  %.ph142.in.in = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.pn203
   %.ph142.in = load i32, ptr %.ph142.in.in, align 4, !alias.scope !510, !noalias !516, !noundef !7
   store i64 %storemerge200, ptr %21, align 16, !alias.scope !510, !noalias !516
   %.ph142 = trunc i32 %.ph142.in to i8
-  %260 = getelementptr inbounds nuw i32, ptr %20, i64 %storemerge200
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %storemerge200
   %261 = load i32, ptr %260, align 4, !alias.scope !530, !noalias !536, !noundef !7
   %262 = add nuw nsw i64 %storemerge200, 1
   store i64 %262, ptr %21, align 16, !alias.scope !530, !noalias !536
@@ -2665,7 +2665,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152: ; preds = %_ZN4rand3r
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit32:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit30
-  %265 = getelementptr inbounds nuw i32, ptr %20, i64 %237
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %237
   %266 = load i32, ptr %265, align 4, !alias.scope !530, !noalias !536, !noundef !7
   %267 = add nuw nsw i64 %22, 9
   store i64 %267, ptr %21, align 16, !alias.scope !530, !noalias !536
@@ -2721,7 +2721,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread: ; preds = %"_ZN84_$LT$ra
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit32
-  %289 = getelementptr inbounds nuw i32, ptr %20, i64 %267
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %267
   %290 = load i32, ptr %289, align 4, !alias.scope !550, !noalias !556, !noundef !7
   %291 = add nuw nsw i64 %22, 10
   store i64 %291, ptr %21, align 16, !alias.scope !550, !noalias !556
@@ -2787,11 +2787,11 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165: ; preds = %_ZN4rand3r
   %.ph160 = phi i8 [ %160, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread ], [ %.ph148, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152 ]
   %.ph161 = phi i8 [ %214, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread ], [ %.ph149, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152 ]
   %.ph162 = phi i8 [ %.ph66, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread ], [ %263, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34.thread152 ]
-  %.ph153.in.in = getelementptr inbounds nuw i32, ptr %20, i64 %.pn204
+  %.ph153.in.in = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.pn204
   %.ph153.in = load i32, ptr %.ph153.in.in, align 4, !alias.scope !550, !noalias !556, !noundef !7
   store i64 %storemerge199, ptr %21, align 16, !alias.scope !550, !noalias !556
   %.ph153 = trunc i32 %.ph153.in to i8
-  %314 = getelementptr inbounds nuw i32, ptr %20, i64 %storemerge199
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %storemerge199
   %315 = load i32, ptr %314, align 4, !alias.scope !570, !noalias !576, !noundef !7
   %316 = add nuw nsw i64 %storemerge199, 1
   store i64 %316, ptr %21, align 16, !alias.scope !570, !noalias !576
@@ -2800,7 +2800,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165: ; preds = %_ZN4rand3r
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit36:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit34
-  %319 = getelementptr inbounds nuw i32, ptr %20, i64 %291
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %291
   %320 = load i32, ptr %319, align 4, !alias.scope !570, !noalias !576, !noundef !7
   %321 = add nuw nsw i64 %22, 11
   store i64 %321, ptr %21, align 16, !alias.scope !570, !noalias !576
@@ -2856,7 +2856,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread: ; preds = %"_ZN84_$LT$ra
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit36
-  %343 = getelementptr inbounds nuw i32, ptr %20, i64 %321
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %321
   %344 = load i32, ptr %343, align 4, !alias.scope !590, !noalias !596, !noundef !7
   %345 = add nuw nsw i64 %22, 12
   store i64 %345, ptr %21, align 16, !alias.scope !590, !noalias !596
@@ -2924,11 +2924,11 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180: ; preds = %_ZN4rand3r
   %.ph175 = phi i8 [ %214, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread ], [ %.ph161, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165 ]
   %.ph176 = phi i8 [ %268, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread ], [ %.ph162, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165 ]
   %.ph177 = phi i8 [ %.ph76, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread ], [ %317, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38.thread165 ]
-  %.ph166.in.in = getelementptr inbounds nuw i32, ptr %20, i64 %.pn205
+  %.ph166.in.in = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.pn205
   %.ph166.in = load i32, ptr %.ph166.in.in, align 4, !alias.scope !590, !noalias !596, !noundef !7
   store i64 %storemerge198, ptr %21, align 16, !alias.scope !590, !noalias !596
   %.ph166 = trunc i32 %.ph166.in to i8
-  %368 = getelementptr inbounds nuw i32, ptr %20, i64 %storemerge198
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %storemerge198
   %369 = load i32, ptr %368, align 4, !alias.scope !610, !noalias !616, !noundef !7
   %370 = add nuw nsw i64 %storemerge198, 1
   store i64 %370, ptr %21, align 16, !alias.scope !610, !noalias !616
@@ -2937,7 +2937,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180: ; preds = %_ZN4rand3r
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44.thread196
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit40:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit38
-  %373 = getelementptr inbounds nuw i32, ptr %20, i64 %345
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %345
   %374 = load i32, ptr %373, align 4, !alias.scope !610, !noalias !616, !noundef !7
   %375 = add nuw nsw i64 %22, 13
   store i64 %375, ptr %21, align 16, !alias.scope !610, !noalias !616
@@ -2993,7 +2993,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread: ; preds = %"_ZN84_$LT$ra
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44.thread196
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit40
-  %397 = getelementptr inbounds nuw i32, ptr %20, i64 %375
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %375
   %398 = load i32, ptr %397, align 4, !alias.scope !630, !noalias !636, !noundef !7
   %399 = add nuw nsw i64 %22, 14
   store i64 %399, ptr %21, align 16, !alias.scope !630, !noalias !636
@@ -3062,17 +3062,17 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44.thread196: ; preds = %_ZN4rand3r
   %.ph192 = phi i8 [ %268, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread ], [ %.ph176, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180 ]
   %.ph193 = phi i8 [ %322, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread ], [ %.ph177, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180 ]
   %.ph194 = phi i8 [ %.ph88, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread ], [ %371, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42.thread180 ]
-  %.ph181.in.in = getelementptr inbounds nuw i32, ptr %20, i64 %.pn206
+  %.ph181.in.in = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.pn206
   %.ph181.in = load i32, ptr %.ph181.in.in, align 4, !alias.scope !630, !noalias !636, !noundef !7
   store i64 %storemerge, ptr %21, align 16, !alias.scope !630, !noalias !636
-  %420 = getelementptr inbounds nuw i32, ptr %20, i64 %storemerge
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %storemerge
   %421 = load i32, ptr %420, align 4, !alias.scope !650, !noalias !656, !noundef !7
   %422 = add nuw nsw i64 %storemerge, 1
   store i64 %422, ptr %21, align 16, !alias.scope !650, !noalias !656
   br label %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit46
 
 _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44:  ; preds = %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit42
-  %423 = getelementptr inbounds nuw i32, ptr %20, i64 %399
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %399
   %424 = load i32, ptr %423, align 4, !alias.scope !650, !noalias !656, !noundef !7
   %425 = add nuw nsw i64 %22, 15
   store i64 %425, ptr %21, align 16, !alias.scope !650, !noalias !656
@@ -3139,7 +3139,7 @@ _ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit46:  ; preds = %_ZN4rand3rng3Rng3ge
   %458 = phi i64 [ %425, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44 ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.7442906621139507621.exit.i.i.i.i.i45" ], [ 0, %444 ], [ 1, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44.thread ], [ %422, %_ZN4rand3rng3Rng3gen17hb4e086ffc20c4290E.exit44.thread196 ]
   %459 = trunc i32 %.in197 to i8
   %460 = trunc i32 %.in to i8
-  %461 = getelementptr inbounds nuw i32, ptr %20, i64 %458
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %458
   %462 = load i32, ptr %461, align 4, !alias.scope !670, !noalias !676, !noundef !7
   %463 = add nuw nsw i64 %458, 1
   store i64 %463, ptr %21, align 16, !alias.scope !670, !noalias !676
@@ -8999,7 +8999,7 @@ define hidden void @"_ZN7uu_sort5merge10FileMerger10write_next28_$u7b$$u7b$closu
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %12, i64 %6
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !align !130, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 132
@@ -9037,7 +9037,7 @@ define hidden void @"_ZN7uu_sort5merge10FileMerger10write_next28_$u7b$$u7b$closu
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %37, i64 %31
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !7, !noundef !7
@@ -9069,7 +9069,7 @@ define hidden void @"_ZN7uu_sort5merge10FileMerger10write_next28_$u7b$$u7b$closu
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %12, i64 %6
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !align !130, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 132
@@ -9107,7 +9107,7 @@ define hidden void @"_ZN7uu_sort5merge10FileMerger10write_next28_$u7b$$u7b$closu
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %37, i64 %31
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !7, !noundef !7
@@ -9139,7 +9139,7 @@ define hidden void @"_ZN7uu_sort5merge10FileMerger10write_next28_$u7b$$u7b$closu
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %12, i64 %6
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !7, !align !130, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 132
@@ -9177,7 +9177,7 @@ define hidden void @"_ZN7uu_sort5merge10FileMerger10write_next28_$u7b$$u7b$closu
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %37, i64 %31
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !7, !noundef !7
@@ -9228,7 +9228,7 @@ define hidden void @_ZN7uu_sort6chunks5Chunk14with_dependent17h385c2df0181aca71E
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8, !alias.scope !1700, !noalias !1697, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %12, i64 %6
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1697, !noalias !1700, !nonnull !7, !align !130, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 132
@@ -9266,7 +9266,7 @@ define hidden void @_ZN7uu_sort6chunks5Chunk14with_dependent17h385c2df0181aca71E
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !noalias !1702, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %37, i64 %31
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !noalias !1702, !nonnull !7, !noundef !7
@@ -9301,7 +9301,7 @@ define hidden void @_ZN7uu_sort6chunks5Chunk14with_dependent17h5b7b2cb8faace02cE
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8, !alias.scope !1716, !noalias !1713, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %12, i64 %6
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1713, !noalias !1716, !nonnull !7, !align !130, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 132
@@ -9339,7 +9339,7 @@ define hidden void @_ZN7uu_sort6chunks5Chunk14with_dependent17h5b7b2cb8faace02cE
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !noalias !1718, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %37, i64 %31
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !noalias !1718, !nonnull !7, !noundef !7
@@ -9374,7 +9374,7 @@ define hidden void @_ZN7uu_sort6chunks5Chunk14with_dependent17hec4ee5d828cf4e19E
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8, !alias.scope !1732, !noalias !1729, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %12, i64 %6
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1729, !noalias !1732, !nonnull !7, !align !130, !noundef !7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 132
@@ -9412,7 +9412,7 @@ define hidden void @_ZN7uu_sort6chunks5Chunk14with_dependent17hec4ee5d828cf4e19E
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load ptr, ptr %36, align 8, !noalias !1734, !nonnull !7, !noundef !7
-  %38 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %37, i64 %31
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !noalias !1734, !nonnull !7, !noundef !7

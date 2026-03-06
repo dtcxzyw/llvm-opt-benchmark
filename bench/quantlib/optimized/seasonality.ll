@@ -1341,9 +1341,9 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6ve
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %i.017
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %i.017
   %9 = load double, ptr %add.ptr.i, align 8, !tbaa !33
-  %add.ptr.i13 = getelementptr inbounds nuw double, ptr %6, i64 %i.017
+  %add.ptr.i13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.017
   store double %9, ptr %add.ptr.i13, align 8, !tbaa !33
   %inc = add nuw i64 %i.017, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i12
@@ -2078,7 +2078,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit89:                  ; preds = %_ZNSt6vectorIdSaIdE
   %54 = load ptr, ptr %vfn139, align 8
   call void %54(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %ref.tmp137, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %55 = load ptr, ptr %ref.tmp137, align 8, !tbaa !17
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %55, i64 %which.0
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %which.0
   %56 = load double, ptr %add.ptr.i, align 8, !tbaa !33
   %_M_end_of_storage.i.i85 = getelementptr inbounds nuw i8, ptr %ref.tmp137, i64 16
   %57 = load ptr, ptr %_M_end_of_storage.i.i85, align 8, !tbaa !9
@@ -2627,7 +2627,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit67:                  ; preds = %_ZNSt6vectorIdSaIdE
   %34 = load ptr, ptr %vfn59, align 8
   call void %34(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %35 = load ptr, ptr %ref.tmp57, align 8, !tbaa !17
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %35, i64 %i.089
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %i.089
   %36 = load double, ptr %add.ptr.i, align 8, !tbaa !33
   %mul = fmul double %seasonalCorrection.088, %36
   %37 = load ptr, ptr %_M_end_of_storage.i.i63, align 8, !tbaa !9

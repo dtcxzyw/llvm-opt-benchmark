@@ -15,13 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.41 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
 %struct.poll_table_struct = type { ptr, i32 }
-%struct.io_hash_bucket = type { %struct.spinlock, %struct.hlist_head, [48 x i8] }
-%struct.spinlock = type { %union.anon.9 }
-%union.anon.9 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.6 }
-%union.anon.6 = type { %struct.atomic_t }
-%struct.hlist_head = type { ptr }
 %struct.io_poll_table = type { %struct.poll_table_struct, ptr, i32, i32, i8, i32 }
 %struct.io_tw_state = type { i8 }
 
@@ -302,7 +295,7 @@ define dso_local void @io_poll_task_func(ptr noundef %0, ptr noundef %1) #0 alig
   %139 = lshr i64 %136, %138
   %140 = load ptr, ptr %131, align 8
   %141 = and i64 %139, 4294967295
-  %142 = getelementptr %struct.io_hash_bucket, ptr %140, i64 %141
+  %142 = getelementptr [64 x i8], ptr %140, i64 %141
   call void @_raw_spin_lock(ptr noundef %142) #10
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -528,7 +521,7 @@ define dso_local range(i32 0, 3) i32 @io_arm_poll_handler(ptr noundef %0, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i64
-  %7 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %6
+  %7 = getelementptr [24 x i8], ptr @io_issue_defs, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -904,7 +897,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %99 = lshr i64 %92, %98
   %100 = load ptr, ptr %94, align 8
   %101 = and i64 %99, 4294967295
-  %.split10 = getelementptr %struct.io_hash_bucket, ptr %100, i64 %101
+  %.split10 = getelementptr [64 x i8], ptr %100, i64 %101
   %102 = getelementptr i8, ptr %.split10, i64 8
   %103 = load ptr, ptr %102, align 8
   store volatile ptr %103, ptr %8, align 8
@@ -931,7 +924,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %115 = lshr i64 %92, %114
   %116 = load ptr, ptr %110, align 8
   %117 = and i64 %115, 4294967295
-  %118 = getelementptr %struct.io_hash_bucket, ptr %116, i64 %117
+  %118 = getelementptr [64 x i8], ptr %116, i64 %117
   tail call void @_raw_spin_lock(ptr noundef %118) #10
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
@@ -977,7 +970,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %143 = lshr i64 %136, %142
   %144 = load ptr, ptr %138, align 8
   %145 = and i64 %143, 4294967295
-  %.split = getelementptr %struct.io_hash_bucket, ptr %144, i64 %145
+  %.split = getelementptr [64 x i8], ptr %144, i64 %145
   %146 = getelementptr i8, ptr %.split, i64 8
   %147 = load ptr, ptr %146, align 8
   store volatile ptr %147, ptr %8, align 8
@@ -1004,7 +997,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %159 = lshr i64 %136, %158
   %160 = load ptr, ptr %154, align 8
   %161 = and i64 %159, 4294967295
-  %162 = getelementptr %struct.io_hash_bucket, ptr %160, i64 %161
+  %162 = getelementptr [64 x i8], ptr %160, i64 %161
   tail call void @_raw_spin_lock(ptr noundef %162) #10
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
@@ -1122,7 +1115,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %228 = lshr i64 %221, %227
   %229 = load ptr, ptr %223, align 8
   %230 = and i64 %228, 4294967295
-  %.split11 = getelementptr %struct.io_hash_bucket, ptr %229, i64 %230
+  %.split11 = getelementptr [64 x i8], ptr %229, i64 %230
   %231 = getelementptr i8, ptr %.split11, i64 8
   %232 = load ptr, ptr %231, align 8
   store volatile ptr %232, ptr %8, align 8
@@ -1149,7 +1142,7 @@ define internal fastcc i32 @__io_arm_poll_handler(ptr noundef initializes((120, 
   %244 = lshr i64 %221, %243
   %245 = load ptr, ptr %239, align 8
   %246 = and i64 %244, 4294967295
-  %247 = getelementptr %struct.io_hash_bucket, ptr %245, i64 %246
+  %247 = getelementptr [64 x i8], ptr %245, i64 %246
   tail call void @_raw_spin_lock(ptr noundef %247) #10
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
@@ -1259,7 +1252,7 @@ define internal fastcc zeroext i1 @io_poll_remove_all_table(ptr noundef %0, ptr 
   %8 = phi i32 [ 0, %3 ], [ %41, %.loopexit ]
   %9 = load ptr, ptr %1, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr %struct.io_hash_bucket, ptr %9, i64 %10
+  %11 = getelementptr [64 x i8], ptr %9, i64 %10
   tail call void @_raw_spin_lock(ptr noundef %11) #10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1377,7 +1370,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__io_poll_cancel(ptr nounde
   %14 = phi i32 [ 0, %7 ], [ %10, %.loopexit17 ]
   %15 = load ptr, ptr %1, align 8
   %16 = sext i32 %14 to i64
-  %17 = getelementptr %struct.io_hash_bucket, ptr %15, i64 %16
+  %17 = getelementptr [64 x i8], ptr %15, i64 %16
   tail call void @_raw_spin_lock(ptr noundef %17) #10
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -1415,7 +1408,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__io_poll_cancel(ptr nounde
   %42 = lshr i64 %39, %41
   %43 = load ptr, ptr %1, align 8
   %44 = and i64 %42, 4294967295
-  %45 = getelementptr %struct.io_hash_bucket, ptr %43, i64 %44
+  %45 = getelementptr [64 x i8], ptr %43, i64 %44
   tail call void @_raw_spin_lock(ptr noundef %45) #10
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -1692,7 +1685,7 @@ define dso_local noundef range(i32 -114, 1) i32 @io_poll_remove(ptr noundef capt
   %20 = lshr i64 %17, %19
   %21 = load ptr, ptr %14, align 8
   %22 = and i64 %20, 4294967295
-  %23 = getelementptr %struct.io_hash_bucket, ptr %21, i64 %22
+  %23 = getelementptr [64 x i8], ptr %21, i64 %22
   tail call void @_raw_spin_lock(ptr noundef %23) #10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -1734,7 +1727,7 @@ define dso_local noundef range(i32 -114, 1) i32 @io_poll_remove(ptr noundef capt
   %50 = lshr i64 %17, %49
   %51 = load ptr, ptr %45, align 8
   %52 = and i64 %50, 4294967295
-  %53 = getelementptr %struct.io_hash_bucket, ptr %51, i64 %52
+  %53 = getelementptr [64 x i8], ptr %51, i64 %52
   tail call void @_raw_spin_lock(ptr noundef %53) #10
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8

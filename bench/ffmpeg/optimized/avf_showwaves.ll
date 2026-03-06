@@ -332,11 +332,11 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0876.i = phi i32 [ %60, %.lr.ph.preheader.i ], [ %spec.store.select.i, %.lr.ph.i ]
-  %94 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv.i
   %95 = load i16, ptr %94, align 2, !tbaa !77
   %96 = add nsw i32 %.0876.i, 1
   %97 = sext i32 %.0876.i to i64
-  %98 = getelementptr inbounds i16, ptr %42, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %42, i64 %97
   store i16 %95, ptr %98, align 2, !tbaa !77
   %.not97.i = icmp slt i32 %96, %54
   %spec.store.select.i = select i1 %.not97.i, i32 %96, i32 0
@@ -427,13 +427,13 @@ av_cmp_q.exit.thread3.us.i:                       ; preds = %av_cmp_q.exit.threa
   %130 = load ptr, ptr %106, align 8, !tbaa !81
   %131 = add nsw i32 %.28.us22.i, 1
   %132 = sext i32 %.28.us22.i to i64
-  %133 = getelementptr inbounds i16, ptr %42, i64 %132
+  %133 = getelementptr inbounds [2 x i8], ptr %42, i64 %132
   %134 = load i16, ptr %133, align 2, !tbaa !77
   %135 = call i32 %130(i16 noundef signext %134, i32 noundef %52) #18
   %.not96.us23.i = icmp slt i32 %131, %54
   %spec.store.select1.us24.i = select i1 %.not96.us23.i, i32 %131, i32 0
   %136 = load ptr, ptr %107, align 8, !tbaa !82
-  %137 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv40.i
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv40.i
   %138 = shl nsw i64 %indvars.iv40.i, 2
   %139 = getelementptr inbounds nuw i8, ptr %64, i64 %138
   call void %136(ptr noundef %.083.us.i, i32 noundef %52, i32 noundef %101, ptr noundef %137, ptr noundef %139, i32 noundef %135) #18
@@ -459,13 +459,13 @@ av_cmp_q.exit.thread3.us.i:                       ; preds = %av_cmp_q.exit.threa
   %144 = load ptr, ptr %106, align 8, !tbaa !81
   %145 = add nsw i32 %.28.us.us.i, 1
   %146 = sext i32 %.28.us.us.i to i64
-  %147 = getelementptr inbounds i16, ptr %42, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr %42, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !77
   %149 = call i32 %144(i16 noundef signext %148, i32 noundef %52) #18
   %.not96.us.us.i = icmp slt i32 %145, %54
   %spec.store.select1.us.us.i = select i1 %.not96.us.us.i, i32 %145, i32 0
   %150 = load ptr, ptr %107, align 8, !tbaa !82
-  %151 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv45.i
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv45.i
   %152 = shl nsw i64 %indvars.iv45.i, 2
   %153 = getelementptr inbounds nuw i8, ptr %64, i64 %152
   call void %150(ptr noundef %111, i32 noundef %52, i32 noundef %101, ptr noundef %151, ptr noundef %153, i32 noundef %149) #18
@@ -818,7 +818,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
 
 switch.lookup:                                    ; preds = %88
   %115 = zext nneg i32 %90 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_output, i64 %115
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_output, i64 %115
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -869,7 +869,7 @@ switch.lookup:                                    ; preds = %88
   %.sink176 = phi i32 [ %131, %129 ], [ %127, %125 ], [ %123, %121 ], [ %135, %133 ]
   %switch.table.config_output.7.sink = phi ptr [ @switch.table.config_output.6, %129 ], [ @switch.table.config_output.5, %125 ], [ @switch.table.config_output.4, %121 ], [ @switch.table.config_output.7, %133 ]
   %137 = zext nneg i32 %.sink176 to i64
-  %switch.gep174 = getelementptr inbounds nuw ptr, ptr %switch.table.config_output.7.sink, i64 %137
+  %switch.gep174 = getelementptr inbounds nuw [8 x i8], ptr %switch.table.config_output.7.sink, i64 %137
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr %switch.load175, ptr %138, align 8, !tbaa !81
@@ -2081,7 +2081,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 .lr.ph.i:                                         ; preds = %.preheader120.i
   %72 = mul nuw nsw i64 %indvars.iv156.i, %58
-  %invariant.gep.i = getelementptr inbounds nuw i16, ptr %61, i64 %72
+  %invariant.gep.i = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %72
   br label %81
 
 .preheader119.i:                                  ; preds = %.lr.ph133.i
@@ -2089,16 +2089,16 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 .lr.ph126.i:                                      ; preds = %.preheader119.i
   %73 = mul nuw nsw i64 %indvars.iv156.i, %58
-  %invariant.gep168.i = getelementptr inbounds nuw i16, ptr %61, i64 %73
+  %invariant.gep168.i = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %73
   br label %74
 
 74:                                               ; preds = %74, %.lr.ph126.i
   %indvars.iv146.i = phi i64 [ 0, %.lr.ph126.i ], [ %indvars.iv.next147.i, %74 ]
-  %gep169.i = getelementptr inbounds nuw i16, ptr %invariant.gep168.i, i64 %indvars.iv146.i
+  %gep169.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep168.i, i64 %indvars.iv146.i
   %75 = load i16, ptr %gep169.i, align 2, !tbaa !77
   %76 = tail call i16 @llvm.abs.i16(i16 %75, i1 false)
   %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv146.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv146.i
   %79 = load i64, ptr %78, align 8, !tbaa !87
   %80 = add nsw i64 %79, %77
   store i64 %80, ptr %78, align 8, !tbaa !87
@@ -2108,9 +2108,9 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
 
 81:                                               ; preds = %81, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %81 ]
-  %82 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8, !tbaa !87
-  %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %84 = load i16, ptr %gep.i, align 2, !tbaa !77
   %85 = tail call i16 @llvm.abs.i16(i16 %84, i1 false)
   %86 = zext i16 %85 to i64
@@ -2154,7 +2154,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
   %narrow.i = select i1 %.not118.i, i32 0, i32 %100
   %.0100.idx.i = sext i32 %narrow.i to i64
   %.0100.i = getelementptr inbounds i8, ptr %98, i64 %.0100.idx.i
-  %101 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv151.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv151.i
   %102 = load i64, ptr %101, align 8, !tbaa !87
   %103 = load i32, ptr %51, align 4, !tbaa !111
   %104 = icmp eq i32 %103, 0
@@ -2165,7 +2165,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
   %109 = tail call i32 %108(i16 noundef signext %107, i32 noundef %38) #18
   %110 = load ptr, ptr %55, align 8, !tbaa !82
   %111 = load ptr, ptr %56, align 8, !tbaa !67
-  %112 = getelementptr inbounds nuw i16, ptr %111, i64 %indvars.iv151.i
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %indvars.iv151.i
   %113 = load ptr, ptr %57, align 8, !tbaa !70
   %114 = shl nsw i64 %indvars.iv151.i, 2
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 %114

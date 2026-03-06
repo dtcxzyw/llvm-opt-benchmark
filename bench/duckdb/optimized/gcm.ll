@@ -144,9 +144,9 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   %102 = select i1 %99, i64 -2233785415175766016, i64 0
   %103 = xor i64 %102, %101
   %104 = zext nneg i32 %.04654.i to i64
-  %105 = getelementptr inbounds nuw i64, ptr %94, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %104
   store i64 %100, ptr %105, align 8, !tbaa !13
-  %106 = getelementptr inbounds nuw i64, ptr %96, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %104
   store i64 %103, ptr %106, align 8, !tbaa !13
   %107 = lshr i32 %.04654.i, 1
   %.not51.i = icmp eq i32 %107, 0
@@ -155,23 +155,23 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.preheader.i:                               ; preds = %98, %._crit_edge.i
   %.156.i = phi i32 [ %121, %._crit_edge.i ], [ 2, %98 ]
   %108 = zext i32 %.156.i to i64
-  %109 = getelementptr inbounds nuw i64, ptr %94, i64 %108
-  %110 = getelementptr inbounds nuw i64, ptr %96, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %108
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %108
   %111 = load i64, ptr %110, align 8, !tbaa !13
   %112 = load i64, ptr %109, align 8, !tbaa !13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %113 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i
   %114 = load i64, ptr %113, align 8, !tbaa !13
   %115 = xor i64 %114, %111
-  %116 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i
   store i64 %115, ptr %116, align 8, !tbaa !13
-  %117 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i
   %118 = load i64, ptr %117, align 8, !tbaa !13
   %119 = xor i64 %118, %112
-  %120 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i
   store i64 %119, ptr %120, align 8, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %108
@@ -327,10 +327,10 @@ define internal fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef
   %6 = and i8 %5, 15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = zext nneg i8 %6 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   %13 = load i64, ptr %12, align 8, !tbaa !13
   br label %14
 
@@ -349,15 +349,15 @@ define internal fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef
   %20 = and i64 %.072, 15
   %21 = tail call i64 @llvm.fshl.i64(i64 %.06771, i64 %.072, i64 60)
   %22 = lshr i64 %.06771, 4
-  %23 = getelementptr inbounds nuw i64, ptr @_ZL5last4, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5last4, i64 %20
   %24 = load i64, ptr %23, align 8, !tbaa !13
   %25 = shl i64 %24, 48
   %26 = xor i64 %25, %22
   %27 = zext nneg i8 %19 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !13
   %30 = xor i64 %26, %29
-  %31 = getelementptr inbounds nuw i64, ptr %11, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %27
   %32 = load i64, ptr %31, align 8, !tbaa !13
   %33 = xor i64 %32, %21
   br label %34
@@ -368,15 +368,15 @@ define internal fastcc void @_ZL8gcm_multP19mbedtls_gcm_contextPKhPh(ptr noundef
   %35 = and i64 %.1, 15
   %36 = tail call i64 @llvm.fshl.i64(i64 %.168, i64 %.1, i64 60)
   %37 = lshr i64 %.168, 4
-  %38 = getelementptr inbounds nuw i64, ptr @_ZL5last4, i64 %35
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZL5last4, i64 %35
   %39 = load i64, ptr %38, align 8, !tbaa !13
   %40 = shl i64 %39, 48
   %41 = xor i64 %40, %37
   %42 = zext nneg i8 %17 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !13
   %45 = xor i64 %41, %44
-  %46 = getelementptr inbounds nuw i64, ptr %11, i64 %42
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %42
   %47 = load i64, ptr %46, align 8, !tbaa !13
   %48 = xor i64 %47, %36
   %indvars.iv.next = add nsw i64 %indvars.iv, -1

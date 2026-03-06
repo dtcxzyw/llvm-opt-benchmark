@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef captures(address_is_null) %
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !11
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %14, i64 %17
   %.pre = load i32, ptr %18, align 4, !tbaa !17
   br label %19
 

@@ -1779,11 +1779,11 @@ define noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateServerHelloER
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.022 = phi i64 [ %38, %.lr.ph ], [ 0, %22 ]
   %30 = load ptr, ptr %4, align 8, !tbaa !76
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.022
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.022
   %32 = load i32, ptr %31, align 4, !tbaa !53
   %33 = call noundef i32 @_ZN3net20QuicTagToQuicVersionEj(i32 noundef %32)
   %34 = load ptr, ptr %1, align 8, !tbaa !78
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %.022
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.022
   %36 = load i32, ptr %35, align 4, !tbaa !80
   %37 = icmp ne i32 %33, %36
   %38 = add nuw i64 %.022, 1
@@ -1865,7 +1865,7 @@ define noundef range(i32 0, 56) i32 @_ZN3net11CryptoUtils19ValidateClientHelloER
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %.021 = phi i64 [ %28, %27 ], [ 0, %.lr.ph.preheader ]
-  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %.021
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.021
   %30 = load i32, ptr %29, align 4, !tbaa !80
   %31 = icmp eq i32 %19, %30
   br i1 %31, label %32, label %27
@@ -1895,7 +1895,7 @@ define noundef nonnull ptr @_ZN3net11CryptoUtils30HandshakeFailureReasonToString
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3net11CryptoUtils30HandshakeFailureReasonToStringENS_22HandshakeFailureReasonE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3net11CryptoUtils30HandshakeFailureReasonToStringENS_22HandshakeFailureReasonE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

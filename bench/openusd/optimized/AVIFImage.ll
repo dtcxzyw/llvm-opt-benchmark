@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
 %"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half" = type { i16 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.pxrInternal_v0_24__pxrReserved__::ArResolvedPath" = type { %"class.std::__cxx11::basic_string" }
@@ -365,8 +364,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
 
 89:                                               ; preds = %.preheader.us.i, %89
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %89 ]
-  %gep.i = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %invariant.gep.i, i64 %indvars.iv.i
-  %gep66.i = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %invariant.gep65.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep66.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep65.i, i64 %indvars.iv.i
   %90 = load i16, ptr %gep.i, align 2
   store i16 %90, ptr %gep66.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -381,8 +380,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__13Hio_AVIFImage1
   %94 = add nuw nsw i64 %indvars.iv54.i, %87
   %95 = mul nuw nsw i64 %94, %81
   %96 = sext i32 %93 to i64
-  %invariant.gep.i = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %96
-  %invariant.gep65.i = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %95
+  %invariant.gep.i = getelementptr [2 x i8], ptr %71, i64 %96
+  %invariant.gep65.i = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %95
   br label %89
 
 ._crit_edge.us.i:                                 ; preds = %88
@@ -429,12 +428,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorINS_8pxr_half
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i157 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i158, %.lr.ph.i ]
-  %113 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i157
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %indvars.iv.i157
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %115
   %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i157
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i157
   store float %117, ptr %118, align 4
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i157, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, %wide.trip.count.i156
@@ -563,12 +562,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread..thread_crit_edge: ; preds = %_ZNSt6vectorI
 
 .lr.ph.i166:                                      ; preds = %.lr.ph.i166, %.lr.ph.preheader.i164
   %indvars.iv.i167 = phi i64 [ 0, %.lr.ph.preheader.i164 ], [ %indvars.iv.next.i168, %.lr.ph.i166 ]
-  %172 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %.0136188191, i64 %indvars.iv.i167
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %.0136188191, i64 %indvars.iv.i167
   %173 = load i16, ptr %172, align 2
   %174 = zext i16 %173 to i64
-  %175 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %174
   %176 = load float, ptr %175, align 4
-  %177 = getelementptr inbounds nuw float, ptr %168, i64 %indvars.iv.i167
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %indvars.iv.i167
   store float %176, ptr %177, align 4
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i167, 1
   %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, %wide.trip.count.i165
@@ -696,12 +695,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114ImageProcessorItE11HalfToFl
 
 .lr.ph.i175:                                      ; preds = %.lr.ph.i175, %.lr.ph.preheader.i173
   %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.preheader.i173 ], [ %indvars.iv.next.i177, %.lr.ph.i175 ]
-  %215 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %71, i64 %indvars.iv.i176
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %indvars.iv.i176
   %216 = load i16, ptr %215, align 2
   %217 = zext i16 %216 to i64
-  %218 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %217
   %219 = load float, ptr %218, align 4
-  %220 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv.i176
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %indvars.iv.i176
   store float %219, ptr %220, align 4
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, %wide.trip.count.i174
@@ -801,18 +800,18 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = mul i32 %7, %8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %0, i64 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = trunc nuw nsw i64 %indvars.iv.next to i32
   %13 = mul i32 %7, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %0, i64 %14
   %16 = trunc i64 %indvars.iv to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %2, %17
   %19 = mul i32 %7, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %0, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %0, i64 %20
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -857,7 +856,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIfSaIfE
   %7 = shl nuw nsw i64 %1, 2
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #24
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds nuw float, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   store float 0.000000e+00, ptr %8, align 4
@@ -903,7 +902,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE6resizeEm(ptr noundef nonnull alig
   br i1 %14, label %15, label %_ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds float, ptr %5, i64 %1
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIfSaIfEE15_M_erase_at_endEPf.exit, label %17
 
@@ -991,13 +990,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .lr.ph.preheader:                                 ; preds = %48
   %53 = zext nneg i32 %47 to i64
   %wide.trip.count = zext i32 %49 to i64
-  %invariant.gep = getelementptr inbounds nuw float, ptr %52, i64 %53
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   br label %.lr.ph
 
 .lr.ph248.preheader:                              ; preds = %.lr.ph
   %54 = zext nneg i32 %47 to i64
   %wide.trip.count318 = zext i32 %49 to i64
-  %invariant.gep408 = getelementptr inbounds nuw float, ptr %52, i64 %54
+  %invariant.gep408 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %54
   br label %.lr.ph248
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1015,7 +1014,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %64 = tail call noundef float @erff(float noundef %63) #25
   %65 = fsub float %64, %60
   %66 = fmul float %65, 5.000000e-01
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %66, ptr %gep, align 4
   %.not225 = icmp eq i64 %indvars.iv, 0
   %67 = tail call float @llvm.fmuladd.f32(float %66, float 2.000000e+00, float %.0189245)
@@ -1027,13 +1026,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .lr.ph250.preheader:                              ; preds = %.lr.ph248
   %68 = zext nneg i32 %47 to i64
   %wide.trip.count323 = zext nneg i32 %47 to i64
-  %invariant.gep410 = getelementptr float, ptr %52, i64 %68
-  %invariant.gep412 = getelementptr float, ptr %52, i64 %68
+  %invariant.gep410 = getelementptr [4 x i8], ptr %52, i64 %68
+  %invariant.gep412 = getelementptr [4 x i8], ptr %52, i64 %68
   br label %.lr.ph250
 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
   %indvars.iv315 = phi i64 [ 0, %.lr.ph248.preheader ], [ %indvars.iv.next316, %.lr.ph248 ]
-  %gep409 = getelementptr inbounds nuw float, ptr %invariant.gep408, i64 %indvars.iv315
+  %gep409 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep408, i64 %indvars.iv315
   %69 = load float, ptr %gep409, align 4
   %70 = fdiv float %69, %.1190
   store float %70, ptr %gep409, align 4
@@ -1043,11 +1042,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 .lr.ph250:                                        ; preds = %.lr.ph250.preheader, %.lr.ph250
   %indvars.iv320 = phi i64 [ 0, %.lr.ph250.preheader ], [ %indvars.iv.next321, %.lr.ph250 ]
-  %gep411 = getelementptr float, ptr %invariant.gep410, i64 %indvars.iv320
+  %gep411 = getelementptr [4 x i8], ptr %invariant.gep410, i64 %indvars.iv320
   %71 = getelementptr i8, ptr %gep411, i64 4
   %72 = load float, ptr %71, align 4
   %73 = xor i64 %indvars.iv320, -1
-  %gep413 = getelementptr float, ptr %invariant.gep412, i64 %73
+  %gep413 = getelementptr [4 x i8], ptr %invariant.gep412, i64 %73
   store float %72, ptr %gep413, align 4
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count323
@@ -1076,13 +1075,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .lr.ph255.preheader:                              ; preds = %81
   %86 = zext nneg i32 %.fr to i64
   %wide.trip.count328 = zext i32 %82 to i64
-  %invariant.gep414 = getelementptr inbounds nuw float, ptr %85, i64 %86
+  %invariant.gep414 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   br label %.lr.ph255
 
 .lr.ph259.preheader:                              ; preds = %.lr.ph255
   %87 = zext nneg i32 %.fr to i64
   %wide.trip.count333 = zext i32 %82 to i64
-  %invariant.gep416 = getelementptr inbounds nuw float, ptr %85, i64 %87
+  %invariant.gep416 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %87
   br label %.lr.ph259
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %.lr.ph255
@@ -1100,7 +1099,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %97 = tail call noundef float @erff(float noundef %96) #25
   %98 = fsub float %97, %93
   %99 = fmul float %98, 5.000000e-01
-  %gep415 = getelementptr inbounds nuw float, ptr %invariant.gep414, i64 %indvars.iv325
+  %gep415 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep414, i64 %indvars.iv325
   store float %99, ptr %gep415, align 4
   %.not224 = icmp eq i64 %indvars.iv325, 0
   %100 = tail call float @llvm.fmuladd.f32(float %99, float 2.000000e+00, float %.2253)
@@ -1112,13 +1111,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .lr.ph261.preheader:                              ; preds = %.lr.ph259
   %101 = zext nneg i32 %.fr to i64
   %wide.trip.count338 = zext nneg i32 %.fr to i64
-  %invariant.gep418 = getelementptr float, ptr %85, i64 %101
-  %102 = getelementptr float, ptr %85, i64 %101
+  %invariant.gep418 = getelementptr [4 x i8], ptr %85, i64 %101
+  %102 = getelementptr [4 x i8], ptr %85, i64 %101
   br label %.lr.ph261
 
 .lr.ph259:                                        ; preds = %.lr.ph259.preheader, %.lr.ph259
   %indvars.iv330 = phi i64 [ 0, %.lr.ph259.preheader ], [ %indvars.iv.next331, %.lr.ph259 ]
-  %gep417 = getelementptr inbounds nuw float, ptr %invariant.gep416, i64 %indvars.iv330
+  %gep417 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep416, i64 %indvars.iv330
   %103 = load float, ptr %gep417, align 4
   %104 = fdiv float %103, %.3
   store float %104, ptr %gep417, align 4
@@ -1128,11 +1127,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 .lr.ph261:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
   %indvars.iv335 = phi i64 [ 0, %.lr.ph261.preheader ], [ %indvars.iv.next336, %.lr.ph261 ]
-  %gep419 = getelementptr float, ptr %invariant.gep418, i64 %indvars.iv335
+  %gep419 = getelementptr [4 x i8], ptr %invariant.gep418, i64 %indvars.iv335
   %105 = getelementptr i8, ptr %gep419, i64 4
   %106 = load float, ptr %105, align 4
   %107 = xor i64 %indvars.iv335, -1
-  %108 = getelementptr float, ptr %102, i64 %107
+  %108 = getelementptr [4 x i8], ptr %102, i64 %107
   store float %106, ptr %108, align 4
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
@@ -1190,7 +1189,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %130 = trunc nuw nsw i64 %indvars.iv355 to i32
   %131 = mul i32 %15, %130
   %132 = mul nuw nsw i64 %indvars.iv355, %121
-  %invariant.gep420 = getelementptr inbounds nuw float, ptr %115, i64 %132
+  %invariant.gep420 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %132
   br label %.preheader237.us.us282.us
 
 .preheader237.us.us282.us:                        ; preds = %.preheader238.us.us, %._crit_edge270.split.us275.us.us
@@ -1203,7 +1202,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %138 = fptosi float %137 to i32
   %139 = sub i32 %138, %47
   %140 = mul nuw nsw i64 %indvars.iv350, %120
-  %gep421 = getelementptr inbounds nuw float, ptr %invariant.gep420, i64 %140
+  %gep421 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep420, i64 %140
   br label %.preheader236.us273.us.us
 
 141:                                              ; preds = %.preheader236.us273.us.us, %153
@@ -1221,9 +1220,9 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %reass.mul232.us.us.us = mul i32 %reass.add231.us.us.us, %110
   %146 = add i32 %reass.mul232.us.us.us, %154
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds float, ptr %32, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %32, i64 %147
   %149 = load float, ptr %148, align 4
-  %150 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv340
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv340
   %151 = load float, ptr %150, align 4
   %152 = tail call float @llvm.fmuladd.f32(float %149, float %151, float %.0194264.us.us.us)
   br label %153
@@ -1240,7 +1239,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %141
 
 ._crit_edge267.us.us.us:                          ; preds = %153
-  %155 = getelementptr inbounds nuw float, ptr %gep421, i64 %indvars.iv345
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %gep421, i64 %indvars.iv345
   store float %.1195.us.us.us, ptr %155, align 4
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %120
@@ -1306,9 +1305,9 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %reass.mul.us = mul i32 %reass.add.us, %187
   %179 = add i32 %reass.mul.us, %.0186292.us300
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds float, ptr %115, i64 %180
+  %181 = getelementptr inbounds [4 x i8], ptr %115, i64 %180
   %182 = load float, ptr %181, align 4
-  %183 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv370
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv370
   %184 = load float, ptr %183, align 4
   %185 = tail call float @llvm.fmuladd.f32(float %182, float %184, float %.0185287.us)
   br label %186
@@ -1336,7 +1335,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %reass.mul229.us303 = mul i32 %reass.add228.us, %191
   %192 = add i32 %reass.mul229.us303, %.0186292.us300
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds float, ptr %33, i64 %193
+  %194 = getelementptr inbounds [4 x i8], ptr %33, i64 %193
   store float %.1.us, ptr %194, align 4
   %195 = add nuw nsw i32 %.0186292.us300, 1
   %196 = load i32, ptr %9, align 4
@@ -1372,7 +1371,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %reass.mul229.us.us.us = mul i32 %reass.add228.us.us, %202
   %203 = add i32 %reass.mul229.us.us.us, %.0186292.us.us.us
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds float, ptr %33, i64 %204
+  %205 = getelementptr inbounds [4 x i8], ptr %33, i64 %204
   store float 0.000000e+00, ptr %205, align 4
   %206 = add nuw nsw i32 %.0186292.us.us.us, 1
   %207 = load i32, ptr %9, align 4
@@ -1540,9 +1539,9 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfaSEf.exit ]
-  %11 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = load float, ptr %11, align 4
-  %13 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %14 = bitcast float %12 to i32
   %15 = fcmp oeq float %12, 0.000000e+00
   br i1 %15, label %16, label %19
@@ -1555,7 +1554,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 19:                                               ; preds = %.lr.ph
   %20 = lshr i32 %14, 23
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 %21
   %23 = load i16, ptr %22, align 2
   %.not.i.i = icmp eq i16 %23, 0
   br i1 %.not.i.i, label %33, label %24
@@ -2464,9 +2463,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 

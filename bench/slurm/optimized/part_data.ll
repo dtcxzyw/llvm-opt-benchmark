@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.part_row_data_t = type { ptr, i32, i32, ptr, i32 }
-%struct.sort_support_t = type { i32, ptr }
 
 @select_part_record = dso_local local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [12 x i8] c"part_data.c\00", align 1
@@ -79,7 +78,7 @@ define dso_local void @part_data_add_job_to_row(ptr noundef %0, ptr noundef %1) 
   %24 = add i32 %22, 1
   store i32 %24, ptr %12, align 4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %0, ptr %26, align 8
   ret void
 }
@@ -153,7 +152,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
 .lr.ph191:                                        ; preds = %27, %.lr.ph191
   %indvars.iv246 = phi i64 [ %indvars.iv.next247, %.lr.ph191 ], [ 0, %27 ]
   %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv246
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv246
   %34 = load ptr, ptr %33, align 8
   tail call void @job_res_add_cores(ptr noundef %34, ptr noundef nonnull %11) #8
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
@@ -165,7 +164,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0115164 = phi i32 [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %11, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, %.0115164
@@ -180,7 +179,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
 .lr.ph188:                                        ; preds = %._crit_edge, %.lr.ph188
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.lr.ph188 ], [ 0, %._crit_edge ]
   %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %43, i64 %indvars.iv243
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %indvars.iv243
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   tail call void @clear_core_array(ptr noundef %46) #8
@@ -239,7 +238,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %._crit_edge170 ], [ 0, %68 ]
   %.0113174 = phi i32 [ %.1114.lcssa, %._crit_edge170 ], [ 0, %68 ]
   %72 = load ptr, ptr %10, align 8
-  %73 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %72, i64 %indvars.iv215
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %indvars.iv215
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4
   %.not194 = icmp eq i32 %75, 0
@@ -254,15 +253,15 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %indvars.iv208 = phi i64 [ %76, %.lr.ph169.preheader ], [ %indvars.iv.next209, %.lr.ph169 ]
   %77 = phi ptr [ %73, %.lr.ph169.preheader ], [ %100, %.lr.ph169 ]
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv210
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv210
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds %struct.sort_support_t, ptr %70, i64 %indvars.iv208
+  %81 = getelementptr inbounds [16 x i8], ptr %70, i64 %indvars.iv208
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %80, ptr %82, align 8
   %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %83, i64 %indvars.iv215
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %indvars.iv215
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv210
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv210
   store ptr null, ptr %86, align 8
   %87 = load ptr, ptr %82, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
@@ -282,7 +281,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, 1
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %99, i64 %indvars.iv215
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %99, i64 %indvars.iv215
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
@@ -296,11 +295,11 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
 ._crit_edge170:                                   ; preds = %._crit_edge170.loopexit, %.preheader158
   %106 = phi ptr [ %72, %.preheader158 ], [ %99, %._crit_edge170.loopexit ]
   %.1114.lcssa = phi i32 [ %.0113174, %.preheader158 ], [ %105, %._crit_edge170.loopexit ]
-  %107 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %106, i64 %indvars.iv215
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %indvars.iv215
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 12
   store i32 0, ptr %108, align 4
   %109 = load ptr, ptr %10, align 8
-  %110 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %109, i64 %indvars.iv215
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %109, i64 %indvars.iv215
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   tail call void @clear_core_array(ptr noundef %112) #8
@@ -323,7 +322,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %139 ], [ 0, %._crit_edge176 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %119 = getelementptr inbounds nuw %struct.sort_support_t, ptr %70, i64 %indvars.iv218
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv218
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
@@ -359,7 +358,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw %struct.sort_support_t, ptr %70, i64 %indvars.iv218
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv218
   %138 = load i32, ptr %137, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.part_data_build_row_bitmaps, i32 noundef %138, ptr noundef nonnull %8, ptr noundef nonnull %7) #8
   br label %139
@@ -381,7 +380,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   br i1 %.not195, label %.loopexit155, label %.lr.ph179
 
 .lr.ph179:                                        ; preds = %.preheader154
-  %141 = getelementptr inbounds nuw %struct.sort_support_t, ptr %70, i64 %indvars.iv226
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv226
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   br label %147
 
@@ -396,7 +395,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %indvars.iv223 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next224, %143 ]
   %148 = load ptr, ptr %142, align 8
   %149 = load ptr, ptr %10, align 8
-  %150 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %149, i64 %indvars.iv223
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %indvars.iv223
   %151 = call i32 @job_res_fit_in_row(ptr noundef %148, ptr noundef %150) #8
   %.not132 = icmp eq i32 %151, 0
   br i1 %.not132, label %143, label %152
@@ -405,7 +404,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   %153 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %10, align 8
-  %156 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %155, i64 %indvars.iv223
+  %156 = getelementptr inbounds nuw [32 x i8], ptr %155, i64 %indvars.iv223
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8
   %.not.i = icmp eq ptr %158, null
@@ -447,9 +446,9 @@ part_data_add_job_to_row.exit:                    ; preds = %165, %170
   %177 = add i32 %175, 1
   store i32 %177, ptr %166, align 4
   %178 = zext i32 %175 to i64
-  %179 = getelementptr inbounds nuw ptr, ptr %176, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %178
   store ptr %154, ptr %179, align 8
-  %180 = getelementptr inbounds nuw %struct.sort_support_t, ptr %70, i64 %indvars.iv226
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv226
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr null, ptr %181, align 8
   br label %.loopexit155
@@ -484,10 +483,10 @@ part_data_add_job_to_row.exit:                    ; preds = %165, %170
   %189 = phi i16 [ %201, %199 ], [ %185, %.lr.ph19.i ]
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %199 ], [ %indvars.iv.i, %.lr.ph19.i ]
   %190 = load ptr, ptr %10, align 8
-  %191 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %190, i64 %indvars.iv21.i
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %indvars.iv21.i
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = load i32, ptr %192, align 8
-  %194 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %190, i64 %indvars.iv24.i
+  %194 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %indvars.iv24.i
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %196 = load i32, ptr %195, align 8
   %197 = icmp ugt i32 %193, %196
@@ -522,7 +521,7 @@ part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.lr.p
 
 .preheader152:                                    ; preds = %part_data_sort_res.exit, %204
   %indvars.iv232 = phi i64 [ %indvars.iv.next233, %204 ], [ 0, %part_data_sort_res.exit ]
-  %205 = getelementptr inbounds nuw %struct.sort_support_t, ptr %70, i64 %indvars.iv232
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv232
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8
   %.not128 = icmp eq ptr %207, null
@@ -570,7 +569,7 @@ part_data_sort_res.exit:                          ; preds = %.loopexit.i, %.lr.p
 
 223:                                              ; preds = %223, %.lr.ph.i139
   %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.i139 ], [ %indvars.iv.next.i141, %223 ]
-  %224 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %221, i64 %indvars.iv.i140
+  %224 = getelementptr inbounds nuw [32 x i8], ptr %221, i64 %indvars.iv.i140
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   call void @free_core_array(ptr noundef nonnull %225) #8
   call void @slurm_xfree(ptr noundef %224) #8
@@ -589,14 +588,14 @@ part_data_destroy_row.exit:                       ; preds = %223, %220
 .lr.ph186:                                        ; preds = %part_data_destroy_row.exit, %.loopexit151
   %227 = phi ptr [ %247, %.loopexit151 ], [ %66, %part_data_destroy_row.exit ]
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.loopexit151 ], [ 0, %part_data_destroy_row.exit ]
-  %228 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %227, i64 %indvars.iv240
+  %228 = getelementptr inbounds nuw [32 x i8], ptr %227, i64 %indvars.iv240
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load ptr, ptr %229, align 8
   call void @clear_core_array(ptr noundef %230) #8
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 24
   store i32 0, ptr %231, align 8
   %232 = load ptr, ptr %10, align 8
-  %233 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %232, i64 %indvars.iv240
+  %233 = getelementptr inbounds nuw [32 x i8], ptr %232, i64 %indvars.iv240
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %235 = load i32, ptr %234, align 4
   %236 = icmp eq i32 %235, 0
@@ -606,12 +605,12 @@ part_data_destroy_row.exit:                       ; preds = %223, %220
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.lr.ph184 ], [ 0, %.lr.ph186 ]
   %237 = phi ptr [ %242, %.lr.ph184 ], [ %233, %.lr.ph186 ]
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds nuw ptr, ptr %238, i64 %indvars.iv237
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv237
   %240 = load ptr, ptr %239, align 8
   call void @job_res_add_cores(ptr noundef %240, ptr noundef nonnull %237) #8
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %241 = load ptr, ptr %10, align 8
-  %242 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %241, i64 %indvars.iv240
+  %242 = getelementptr inbounds nuw [32 x i8], ptr %241, i64 %indvars.iv240
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 12
   %244 = load i32, ptr %243, align 4
   %245 = zext i32 %244 to i64
@@ -663,7 +662,7 @@ part_data_destroy_row.exit:                       ; preds = %223, %220
 
 261:                                              ; preds = %261, %.lr.ph.i143
   %indvars.iv.i145 = phi i64 [ 0, %.lr.ph.i143 ], [ %indvars.iv.next.i146, %261 ]
-  %262 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %.0, i64 %indvars.iv.i145
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %.0, i64 %indvars.iv.i145
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
   call void @free_core_array(ptr noundef nonnull %263) #8
   call void @slurm_xfree(ptr noundef nonnull %262) #8
@@ -732,7 +731,7 @@ define dso_local void @part_data_dump_res(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %23, i64 %indvars.iv46
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv46
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not32 = icmp eq ptr %26, null
@@ -748,10 +747,10 @@ define dso_local void @part_data_dump_res(ptr noundef readonly captures(none) %0
   %.038 = phi i32 [ %.1, %51 ], [ 4, %.preheader ]
   %.02637 = phi ptr [ %.127, %51 ], [ @.str.11, %.preheader ]
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %28, i64 %indvars.iv46
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %.not33 = icmp eq ptr %33, null
   br i1 %.not33, label %51, label %34
@@ -763,13 +762,13 @@ define dso_local void @part_data_dump_res(ptr noundef readonly captures(none) %0
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr @node_record_table_ptr, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %18, align 8
-  %41 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %40, i64 %indvars.iv46
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %indvars.iv46
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @bit_fmt(ptr noundef nonnull %2, i32 noundef 64, ptr noundef %45) #8
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 272
@@ -795,7 +794,7 @@ define dso_local void @part_data_dump_res(ptr noundef readonly captures(none) %0
 
 57:                                               ; preds = %._crit_edge
   %58 = load ptr, ptr %18, align 8
-  %59 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %58, i64 %indvars.iv46
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %indvars.iv46
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = load ptr, ptr %3, align 8
@@ -836,10 +835,10 @@ define dso_local ptr @part_data_dup_row(ptr noundef readonly captures(address_is
 
 8:                                                ; preds = %5, %49
   %indvars.iv57 = phi i64 [ 0, %5 ], [ %indvars.iv.next58, %49 ]
-  %9 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %0, i64 %indvars.iv57
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv57
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %7, i64 %indvars.iv57
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv57
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %11, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -863,7 +862,7 @@ define dso_local ptr @part_data_dup_row(ptr noundef readonly captures(address_is
   %24 = phi i32 [ %33, %32 ], [ %22, %19 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %19 ]
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not53 = icmp eq ptr %27, null
   br i1 %.not53, label %32, label %28
@@ -871,7 +870,7 @@ define dso_local ptr @part_data_dup_row(ptr noundef readonly captures(address_is
 28:                                               ; preds = %.lr.ph
   %29 = tail call ptr @bit_copy(ptr noundef nonnull %27) #8
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store ptr %29, ptr %31, align 8
   %.pre = load i32, ptr @node_record_count, align 4
   br label %32
@@ -985,10 +984,10 @@ define dso_local void @part_data_sort_res(ptr noundef readonly captures(none) %0
   %12 = phi i16 [ %24, %22 ], [ %8, %.lr.ph19 ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %22 ], [ %indvars.iv, %.lr.ph19 ]
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %13, i64 %indvars.iv21
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv21
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %13, i64 %indvars.iv24
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv24
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp ugt i32 %16, %19
@@ -1028,7 +1027,7 @@ define dso_local void @part_data_destroy_row(ptr noundef %0, i16 noundef zeroext
 
 4:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @free_core_array(ptr noundef nonnull %6) #8
   tail call void @slurm_xfree(ptr noundef %5) #8
@@ -1077,7 +1076,7 @@ define dso_local void @part_data_create_array() local_unnamed_addr #0 {
 
 11:                                               ; preds = %11, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %7, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @free_core_array(ptr noundef nonnull %13) #8
   call void @slurm_xfree(ptr noundef nonnull %12) #8
@@ -1224,7 +1223,7 @@ define dso_local void @part_data_destroy_res(ptr noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %7, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @free_core_array(ptr noundef nonnull %13) #8
   call void @slurm_xfree(ptr noundef nonnull %12) #8

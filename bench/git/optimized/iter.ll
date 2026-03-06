@@ -93,7 +93,7 @@ define dso_local range(i32 -2147483648, 1) i32 @indexed_table_ref_iter_new(ptr n
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %17, align 8, !tbaa !31
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i64, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !33
   %31 = load ptr, ptr %7, align 8, !tbaa !14
   %32 = tail call i32 @reader_init_block_reader(ptr noundef %31, ptr noundef nonnull %23, i64 noundef %30, i8 noundef zeroext 114) #10
@@ -440,7 +440,7 @@ indexed_table_ref_iter_next_block.exit.thread45:  ; preds = %18
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %10, align 8, !tbaa !31
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds i64, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !33
   %29 = load ptr, ptr %0, align 8, !tbaa !14
   %30 = tail call i32 @reader_init_block_reader(ptr noundef %29, ptr noundef nonnull %3, i64 noundef %28, i8 noundef zeroext 114) #10

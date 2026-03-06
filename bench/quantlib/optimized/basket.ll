@@ -47,13 +47,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.boost::shared_ptr.122" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.QuantLib::DefaultProbKey" = type <{ %"class.std::vector.71", %"class.QuantLib::Currency", i32, [4 x i8] }>
-%"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
-%"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Currency" = type { %"class.boost::shared_ptr.76" }
-%"class.boost::shared_ptr.76" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.80" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::map.89" = type { %"class.std::_Rb_tree.90" }
 %"class.std::_Rb_tree.90" = type { %"struct.std::_Rb_tree<double, std::pair<const double, double>, std::_Select1st<std::pair<const double, double>>, std::less<double>>::_Rb_tree_impl" }
@@ -4544,7 +4537,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %call2.i, 3
   %call5.i.i.i.i2.i.i7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #35
   store ptr %call5.i.i.i.i2.i.i7, ptr %agg.result, align 8, !tbaa !46
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i7, i64 %call2.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i7, i64 %call2.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !49
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i7, align 8, !tbaa !84
@@ -4679,13 +4672,13 @@ invoke.cont10:                                    ; preds = %for.body, %.noexc27
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   %19 = load ptr, ptr %call13, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %j.0
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %j.0
   %call16 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %17, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %invoke.cont15 unwind label %lpad4
 
 invoke.cont15:                                    ; preds = %invoke.cont12
   %20 = load ptr, ptr %defKeys, align 8, !tbaa !91
-  %add.ptr.i29 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %20, i64 %j.0
+  %add.ptr.i29 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %j.0
   %call19 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6Issuer18defaultProbabilityERKNS_14DefaultProbKeyE(ptr noundef nonnull align 8 dereferenceable(72) %call16, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i29)
           to label %invoke.cont18 unwind label %lpad4
 
@@ -4717,7 +4710,7 @@ call.i.i.noexc:                                   ; preds = %invoke.cont22
 
 invoke.cont24:                                    ; preds = %call.i.i.noexc
   %sub.i = fsub double 1.000000e+00, %call2.i.i35
-  %add.ptr.i36 = getelementptr inbounds nuw double, ptr %3, i64 %j.0
+  %add.ptr.i36 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %j.0
   store double %sub.i, ptr %add.ptr.i36, align 8, !tbaa !84
   %inc = add nuw i64 %j.0, 1
   br label %for.cond, !llvm.loop !131
@@ -5113,7 +5106,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit37: ; preds = %for.body, %_ZNK5
   %23 = phi ptr [ %.pre.i, %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit ], [ %.pre.i36, %cond.false.i35 ], [ %21, %for.body ]
   %call30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib4Pool5namesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(168) %23)
   %24 = load ptr, ptr %call30, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %i.0
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %i.0
   %call32 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %22, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34)
   %25 = load ptr, ptr %pool_.i, align 8, !tbaa !50
@@ -5129,7 +5122,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit41: ; preds = %_ZNK5boost10shar
   %26 = phi ptr [ %25, %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit37 ], [ %.pre.i40, %cond.false.i39 ]
   call void @_ZNK8QuantLib4Pool11defaultKeysEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.37") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(168) %26)
   %27 = load ptr, ptr %ref.tmp34, align 8, !tbaa !91
-  %add.ptr.i42 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %27, i64 %i.0
+  %add.ptr.i42 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %i.0
   invoke void @_ZNK8QuantLib6Issuer16defaultedBetweenERKNS_4DateES3_RKNS_14DefaultProbKeyEb(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.80") align 8 %credEvent, ptr noundef nonnull align 8 dereferenceable(72) %call32, ptr noundef nonnull align 8 dereferenceable(8) %refDate_, ptr noundef nonnull align 8 dereferenceable(8) %endDate, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i42, i1 noundef zeroext false)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -5238,7 +5231,7 @@ invoke.cont59:                                    ; preds = %.noexc61, %invoke.c
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %43 = load ptr, ptr %call62, align 8, !tbaa !96
-  %add.ptr.i63 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %i.0
+  %add.ptr.i63 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %i.0
   %44 = load ptr, ptr %credEvent, align 8, !tbaa !134
   %cmp.not.i64 = icmp eq ptr %44, null
   br i1 %cmp.not.i64, label %cond.false.i65, label %invoke.cont66, !prof !123
@@ -5299,7 +5292,7 @@ invoke.cont82:                                    ; preds = %.noexc78, %invoke.c
 
 invoke.cont84:                                    ; preds = %invoke.cont82
   %51 = load ptr, ptr %ref.tmp79, align 8, !tbaa !91
-  %add.ptr.i80 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %51, i64 %i.0
+  %add.ptr.i80 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %i.0
   %seniority_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i80, i64 40
   %52 = load i32, ptr %seniority_.i, align 8, !tbaa !136
   %call90 = invoke noundef double @_ZNK8QuantLib12DefaultEvent17DefaultSettlement12recoveryRateENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(64) %defSettlement_.i74, i32 noundef %52)
@@ -5958,7 +5951,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit37: ; preds = %for.body, %_ZNK5
   %23 = phi ptr [ %.pre.i, %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit ], [ %.pre.i36, %cond.false.i35 ], [ %21, %for.body ]
   %call30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib4Pool5namesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(168) %23)
   %24 = load ptr, ptr %call30, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %i.0
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %i.0
   %call32 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %22, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34)
   %25 = load ptr, ptr %pool_.i, align 8, !tbaa !50
@@ -5974,7 +5967,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit41: ; preds = %_ZNK5boost10shar
   %26 = phi ptr [ %25, %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit37 ], [ %.pre.i40, %cond.false.i39 ]
   call void @_ZNK8QuantLib4Pool11defaultKeysEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.37") align 8 %ref.tmp34, ptr noundef nonnull align 8 dereferenceable(168) %26)
   %27 = load ptr, ptr %ref.tmp34, align 8, !tbaa !91
-  %add.ptr.i42 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %27, i64 %i.0
+  %add.ptr.i42 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %i.0
   invoke void @_ZNK8QuantLib6Issuer16defaultedBetweenERKNS_4DateES3_RKNS_14DefaultProbKeyEb(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.80") align 8 %credEvent, ptr noundef nonnull align 8 dereferenceable(72) %call32, ptr noundef nonnull align 8 dereferenceable(8) %refDate_, ptr noundef nonnull align 8 dereferenceable(8) %endDate, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i42, i1 noundef zeroext false)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -6083,7 +6076,7 @@ invoke.cont59:                                    ; preds = %.noexc61, %invoke.c
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %43 = load ptr, ptr %call62, align 8, !tbaa !96
-  %add.ptr.i63 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %i.0
+  %add.ptr.i63 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %i.0
   %44 = load ptr, ptr %credEvent, align 8, !tbaa !134
   %cmp.not.i64 = icmp eq ptr %44, null
   br i1 %cmp.not.i64, label %cond.false.i65, label %invoke.cont66, !prof !123
@@ -6144,7 +6137,7 @@ invoke.cont82:                                    ; preds = %.noexc78, %invoke.c
 
 invoke.cont84:                                    ; preds = %invoke.cont82
   %51 = load ptr, ptr %ref.tmp79, align 8, !tbaa !91
-  %add.ptr.i80 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %51, i64 %i.0
+  %add.ptr.i80 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %i.0
   %seniority_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i80, i64 40
   %52 = load i32, ptr %seniority_.i, align 8, !tbaa !136
   %call90 = invoke noundef double @_ZNK8QuantLib12DefaultEvent17DefaultSettlement12recoveryRateENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(64) %defSettlement_.i74, i32 noundef %52)
@@ -6384,7 +6377,7 @@ invoke.cont6:                                     ; preds = %for.body, %.noexc10
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %5 = load ptr, ptr %call9, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %storemerge
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %storemerge
   %call12 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %invoke.cont11 unwind label %lpad2
 
@@ -6409,7 +6402,7 @@ invoke.cont16:                                    ; preds = %.noexc15, %invoke.c
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   %8 = load ptr, ptr %ref.tmp13, align 8, !tbaa !91
-  %add.ptr.i17 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %8, i64 %storemerge
+  %add.ptr.i17 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %storemerge
   invoke void @_ZNK8QuantLib6Issuer16defaultedBetweenERKNS_4DateES3_RKNS_14DefaultProbKeyEb(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.80") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %call12, ptr noundef nonnull align 8 dereferenceable(8) %refDate_, ptr noundef nonnull align 8 dereferenceable(8) %endDate, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i17, i1 noundef zeroext false)
           to label %invoke.cont21 unwind label %lpad20
 
@@ -6546,7 +6539,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorImSaImE
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i26, ptr %agg.result, align 8, !tbaa !88
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i20, align 8, !tbaa !102
-  %add.ptr19.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i26, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i26, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !89
   br label %for.inc
 
@@ -6714,13 +6707,13 @@ invoke.cont6:                                     ; preds = %for.body, %.noexc16
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %14 = load ptr, ptr %call9, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %14, i64 %i.0
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %i.0
   %call12 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %12, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %invoke.cont11 unwind label %lpad2
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   %15 = load ptr, ptr %defKeys, align 8, !tbaa !91
-  %add.ptr.i18 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %15, i64 %i.0
+  %add.ptr.i18 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %i.0
   invoke void @_ZNK8QuantLib6Issuer16defaultedBetweenERKNS_4DateES3_RKNS_14DefaultProbKeyEb(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.80") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %call12, ptr noundef nonnull align 8 dereferenceable(8) %refDate_, ptr noundef nonnull align 8 dereferenceable(8) %endDate, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i18, i1 noundef zeroext false)
           to label %invoke.cont14 unwind label %lpad2
 
@@ -6770,7 +6763,7 @@ _ZN5boost10shared_ptrIN8QuantLib12DefaultEventEED2Ev.exit: ; preds = %invoke.con
 
 if.then:                                          ; preds = %_ZN5boost10shared_ptrIN8QuantLib12DefaultEventEED2Ev.exit
   %24 = load ptr, ptr %notionals_, align 8, !tbaa !46
-  %add.ptr.i21 = getelementptr inbounds nuw double, ptr %24, i64 %i.0
+  %add.ptr.i21 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %i.0
   %25 = load double, ptr %add.ptr.i21, align 8, !tbaa !84
   %add = fadd double %notional.0, %25
   br label %for.inc
@@ -7002,7 +6995,7 @@ invoke.cont32:                                    ; preds = %.noexc, %for.body
 
 invoke.cont34:                                    ; preds = %invoke.cont32
   %26 = load ptr, ptr %call35, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %i.074
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %i.074
   %call38 = invoke noundef double @_ZNK8QuantLib6Basket8exposureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr nonnull align 8 poison)
           to label %invoke.cont37 unwind label %lpad31.loopexit
 
@@ -7065,7 +7058,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i30, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i30, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i27, align 8, !tbaa !49
   br label %invoke.cont39
 
@@ -7319,7 +7312,7 @@ invoke.cont35:                                    ; preds = %for.body, %.noexc31
 
 invoke.cont37:                                    ; preds = %invoke.cont35
   %26 = load ptr, ptr %call38, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %i.090
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %i.090
   %call41 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %24, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %invoke.cont40 unwind label %lpad31
 
@@ -7344,7 +7337,7 @@ invoke.cont45:                                    ; preds = %.noexc36, %invoke.c
 
 invoke.cont47:                                    ; preds = %invoke.cont45
   %29 = load ptr, ptr %ref.tmp42, align 8, !tbaa !91
-  %add.ptr.i38 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %29, i64 %i.090
+  %add.ptr.i38 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %i.090
   %call51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6Issuer18defaultProbabilityERKNS_14DefaultProbKeyE(ptr noundef nonnull align 8 dereferenceable(72) %call41, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i38)
           to label %invoke.cont50 unwind label %lpad49.loopexit
 
@@ -7434,7 +7427,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i48, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i48, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !49
   br label %invoke.cont58
 
@@ -7753,7 +7746,7 @@ invoke.cont36:                                    ; preds = %.noexc, %for.body
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   %26 = load ptr, ptr %call39, align 8, !tbaa !96
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %27 = load ptr, ptr %_M_finish.i28, align 8, !tbaa !97
   %28 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !98
   %cmp.not.i29 = icmp eq ptr %27, %28
@@ -7943,7 +7936,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !96
   %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !97
-  %add.ptr21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %__n
+  %add.ptr21 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8, !tbaa !98
   br label %if.end24
 
@@ -8167,7 +8160,7 @@ invoke.cont37:                                    ; preds = %.noexc, %for.body
 
 invoke.cont39:                                    ; preds = %invoke.cont37
   %26 = load ptr, ptr %ref.tmp35, align 8, !tbaa !91
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %26, i64 %23
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %23
   invoke void @_ZNSt6vectorIN8QuantLib14DefaultProbKeyESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -8332,7 +8325,7 @@ _ZNSt12_Vector_baseIN8QuantLib14DefaultProbKeyESaIS1_EE13_M_deallocateEPS1_m.exi
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !91
   %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !92
-  %add.ptr21 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %call5.i.i.i, i64 %__n
+  %add.ptr21 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8, !tbaa !93
   br label %if.end24
 
@@ -9053,7 +9046,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 2
   %call5.i.i.i.i2.i.i9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #35
   store ptr %call5.i.i.i.i2.i.i9, ptr %agg.result, align 8, !tbaa !46
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i9, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i9, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !49
   %4 = and i64 %mul.i.i.i.i.i.i, -8
@@ -9182,7 +9175,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit: ; preds = %_ZNK5boost10shared
   %4 = phi ptr [ %3, %_ZNK5boost10shared_ptrIN8QuantLib16DefaultLossModelEEptEv.exit ], [ %.pre.i4, %cond.false.i3 ]
   call void @_ZNK8QuantLib4Pool11defaultKeysEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.37") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(168) %4)
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !91
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %5, i64 %iName
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %iName
   %vtable4 = load ptr, ptr %2, align 8, !tbaa !32
   %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 104
   %6 = load ptr, ptr %vfn5, align 8
@@ -11700,7 +11693,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorINSt7__
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %if.then.i39
   store ptr %cond.i17, ptr %this, align 8, !tbaa !96
   store ptr %__cur.0.lcssa.i.i.i33, ptr %_M_finish.i.i, align 8, !tbaa !97
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !98
   ret void
 
@@ -12064,7 +12057,7 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib14DefaultProbKeyESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib14DefaultProbKeyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %if.then.i38
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !91
   store ptr %__cur.0.lcssa.i.i.i36, ptr %_M_finish.i.i, align 8, !tbaa !92
-  %add.ptr26 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !93
   ret void
 

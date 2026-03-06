@@ -691,13 +691,13 @@ define internal noundef i32 @manhattan_slice16(ptr noundef readonly captures(non
   %134 = add i32 %29, %133
   %.199.us = tail call i32 @llvm.smin.i32(i32 %101, i32 %134)
   %135 = mul nsw i64 %indvars.iv251, %108
-  %136 = getelementptr inbounds i16, ptr %118, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %118, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !73
   %138 = zext i16 %137 to i32
-  %139 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv251
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %120, i64 %indvars.iv251
   %140 = load i16, ptr %139, align 2, !tbaa !73
   %141 = zext i16 %140 to i32
-  %142 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv251
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %indvars.iv251
   %143 = load i16, ptr %142, align 2, !tbaa !73
   %144 = zext i16 %143 to i32
   %.not198200.us = icmp sgt i32 %132, %.199.us
@@ -728,13 +728,13 @@ define internal noundef i32 @manhattan_slice16(ptr noundef readonly captures(non
   %.1181202.us = phi i32 [ %.2182.us, %154 ], [ %.0180210.us, %.lr.ph.us ]
   %.1184201.us = phi i32 [ %.2185.us, %154 ], [ %.0183209.us, %.lr.ph.us ]
   %155 = mul nsw i64 %indvars.iv242, %108
-  %156 = getelementptr inbounds i16, ptr %149, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %149, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !73
   %158 = zext i16 %157 to i32
-  %159 = getelementptr inbounds i16, ptr %151, i64 %indvars.iv242
+  %159 = getelementptr inbounds [2 x i8], ptr %151, i64 %indvars.iv242
   %160 = load i16, ptr %159, align 2, !tbaa !73
   %161 = zext i16 %160 to i32
-  %162 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv242
+  %162 = getelementptr inbounds [2 x i8], ptr %153, i64 %indvars.iv242
   %163 = load i16, ptr %162, align 2, !tbaa !73
   %164 = zext i16 %163 to i32
   %165 = sub nsw i32 %138, %158
@@ -769,12 +769,12 @@ define internal noundef i32 @manhattan_slice16(ptr noundef readonly captures(non
   %178 = add nsw i32 %.us-phi219.us, %177
   %179 = sdiv i32 %178, %.us-phi.us
   %180 = trunc i32 %179 to i16
-  %181 = getelementptr inbounds nuw i16, ptr %.0227.us, i64 %indvars.iv251
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %.0227.us, i64 %indvars.iv251
   store i16 %180, ptr %181, align 2, !tbaa !73
   %182 = add nsw i32 %.us-phi218.us, %177
   %183 = sdiv i32 %182, %.us-phi.us
   %184 = trunc i32 %183 to i16
-  %185 = getelementptr inbounds nuw i16, ptr %.0175225.us, i64 %indvars.iv251
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %.0175225.us, i64 %indvars.iv251
   store i16 %184, ptr %185, align 2, !tbaa !73
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
@@ -782,8 +782,8 @@ define internal noundef i32 @manhattan_slice16(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge223.us, label %.lr.ph213.us, !llvm.loop !77
 
 ._crit_edge223.us:                                ; preds = %._crit_edge214.us, %.lr.ph222.split.us.us
-  %186 = getelementptr inbounds nuw i16, ptr %.0227.us, i64 %103
-  %187 = getelementptr inbounds nuw i16, ptr %.0175225.us, i64 %105
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %.0227.us, i64 %103
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.0175225.us, i64 %105
   %indvars.iv.next260 = add nsw i64 %indvars.iv259, 1
   %indvars.iv.next246 = add i32 %indvars.iv245, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
@@ -791,13 +791,13 @@ define internal noundef i32 @manhattan_slice16(ptr noundef readonly captures(non
 
 .lr.ph222.split.us.us:                            ; preds = %.lr.ph222.us, %.lr.ph222.split.us.us
   %indvars.iv254 = phi i64 [ %indvars.iv.next255, %.lr.ph222.split.us.us ], [ 0, %.lr.ph222.us ]
-  %188 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv254
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %120, i64 %indvars.iv254
   %189 = load i16, ptr %188, align 2, !tbaa !73
-  %190 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv254
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %indvars.iv254
   %191 = load i16, ptr %190, align 2, !tbaa !73
-  %192 = getelementptr inbounds nuw i16, ptr %.0227.us, i64 %indvars.iv254
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %.0227.us, i64 %indvars.iv254
   store i16 %189, ptr %192, align 2, !tbaa !73
-  %193 = getelementptr inbounds nuw i16, ptr %.0175225.us, i64 %indvars.iv254
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %.0175225.us, i64 %indvars.iv254
   store i16 %191, ptr %193, align 2, !tbaa !73
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
@@ -1264,12 +1264,12 @@ define internal noundef i32 @euclidean_slice16(ptr noundef readonly captures(non
   %135 = add i32 %29, %134
   %.202.us = tail call i32 @llvm.smin.i32(i32 %101, i32 %135)
   %136 = mul nsw i64 %indvars.iv254, %109
-  %137 = getelementptr inbounds i16, ptr %119, i64 %136
+  %137 = getelementptr inbounds [2 x i8], ptr %119, i64 %136
   %138 = load i16, ptr %137, align 2, !tbaa !73
-  %139 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv254
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %121, i64 %indvars.iv254
   %140 = load i16, ptr %139, align 2, !tbaa !73
   %141 = zext i16 %140 to i32
-  %142 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv254
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv254
   %143 = load i16, ptr %142, align 2, !tbaa !73
   %144 = zext i16 %143 to i32
   %.not201203.us = icmp sgt i32 %133, %.202.us
@@ -1303,13 +1303,13 @@ define internal noundef i32 @euclidean_slice16(ptr noundef readonly captures(non
   %.1184205.us = phi i32 [ %.2185.us, %157 ], [ %.0183213.us, %.lr.ph.us ]
   %.1187204.us = phi i32 [ %.2188.us, %157 ], [ %.0186212.us, %.lr.ph.us ]
   %158 = mul nsw i64 %indvars.iv245, %109
-  %159 = getelementptr inbounds i16, ptr %152, i64 %158
+  %159 = getelementptr inbounds [2 x i8], ptr %152, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !73
   %161 = zext i16 %160 to i64
-  %162 = getelementptr inbounds i16, ptr %154, i64 %indvars.iv245
+  %162 = getelementptr inbounds [2 x i8], ptr %154, i64 %indvars.iv245
   %163 = load i16, ptr %162, align 2, !tbaa !73
   %164 = zext i16 %163 to i64
-  %165 = getelementptr inbounds i16, ptr %156, i64 %indvars.iv245
+  %165 = getelementptr inbounds [2 x i8], ptr %156, i64 %indvars.iv245
   %166 = load i16, ptr %165, align 2, !tbaa !73
   %167 = zext i16 %166 to i64
   %168 = sub nsw i64 %145, %161
@@ -1348,12 +1348,12 @@ define internal noundef i32 @euclidean_slice16(ptr noundef readonly captures(non
   %185 = add nsw i32 %.us-phi222.us, %184
   %186 = sdiv i32 %185, %.us-phi.us
   %187 = trunc i32 %186 to i16
-  %188 = getelementptr inbounds nuw i16, ptr %.0230.us, i64 %indvars.iv254
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %.0230.us, i64 %indvars.iv254
   store i16 %187, ptr %188, align 2, !tbaa !73
   %189 = add nsw i32 %.us-phi221.us, %184
   %190 = sdiv i32 %189, %.us-phi.us
   %191 = trunc i32 %190 to i16
-  %192 = getelementptr inbounds nuw i16, ptr %.0178228.us, i64 %indvars.iv254
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %.0178228.us, i64 %indvars.iv254
   store i16 %191, ptr %192, align 2, !tbaa !73
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
@@ -1361,8 +1361,8 @@ define internal noundef i32 @euclidean_slice16(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge226.us, label %.lr.ph216.us, !llvm.loop !85
 
 ._crit_edge226.us:                                ; preds = %._crit_edge217.us, %.lr.ph225.split.us.us
-  %193 = getelementptr inbounds nuw i16, ptr %.0230.us, i64 %104
-  %194 = getelementptr inbounds nuw i16, ptr %.0178228.us, i64 %106
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %.0230.us, i64 %104
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %.0178228.us, i64 %106
   %indvars.iv.next263 = add nsw i64 %indvars.iv262, 1
   %indvars.iv.next249 = add i32 %indvars.iv248, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
@@ -1370,13 +1370,13 @@ define internal noundef i32 @euclidean_slice16(ptr noundef readonly captures(non
 
 .lr.ph225.split.us.us:                            ; preds = %.lr.ph225.us, %.lr.ph225.split.us.us
   %indvars.iv257 = phi i64 [ %indvars.iv.next258, %.lr.ph225.split.us.us ], [ 0, %.lr.ph225.us ]
-  %195 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv257
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %121, i64 %indvars.iv257
   %196 = load i16, ptr %195, align 2, !tbaa !73
-  %197 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv257
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv257
   %198 = load i16, ptr %197, align 2, !tbaa !73
-  %199 = getelementptr inbounds nuw i16, ptr %.0230.us, i64 %indvars.iv257
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %.0230.us, i64 %indvars.iv257
   store i16 %196, ptr %199, align 2, !tbaa !73
-  %200 = getelementptr inbounds nuw i16, ptr %.0178228.us, i64 %indvars.iv257
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %.0178228.us, i64 %indvars.iv257
   store i16 %198, ptr %200, align 2, !tbaa !73
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 1
   %exitcond261.not = icmp eq i64 %indvars.iv.next258, %wide.trip.count260
@@ -1857,13 +1857,13 @@ define internal noundef i32 @manhattan_e_slice16(ptr noundef readonly captures(n
   %140 = add i32 %29, %139
   %.205.us = tail call i32 @llvm.smin.i32(i32 %107, i32 %140)
   %141 = mul nsw i64 %indvars.iv259, %114
-  %142 = getelementptr inbounds i16, ptr %124, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %124, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !73
   %144 = zext i16 %143 to i32
-  %145 = getelementptr inbounds nuw i16, ptr %126, i64 %indvars.iv259
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %126, i64 %indvars.iv259
   %146 = load i16, ptr %145, align 2, !tbaa !73
   %147 = zext i16 %146 to i32
-  %148 = getelementptr inbounds nuw i16, ptr %128, i64 %indvars.iv259
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %128, i64 %indvars.iv259
   %149 = load i16, ptr %148, align 2, !tbaa !73
   %150 = zext i16 %149 to i32
   %.not204208.us = icmp sgt i32 %138, %.205.us
@@ -1894,13 +1894,13 @@ define internal noundef i32 @manhattan_e_slice16(ptr noundef readonly captures(n
   %.1187210.us = phi i32 [ %.2188.us, %160 ], [ %.0186218.us, %.lr.ph.us ]
   %.1190209.us = phi i32 [ %.2191.us, %160 ], [ %.0189217.us, %.lr.ph.us ]
   %161 = mul nsw i64 %indvars.iv250, %114
-  %162 = getelementptr inbounds i16, ptr %155, i64 %161
+  %162 = getelementptr inbounds [2 x i8], ptr %155, i64 %161
   %163 = load i16, ptr %162, align 2, !tbaa !73
   %164 = zext i16 %163 to i32
-  %165 = getelementptr inbounds i16, ptr %157, i64 %indvars.iv250
+  %165 = getelementptr inbounds [2 x i8], ptr %157, i64 %indvars.iv250
   %166 = load i16, ptr %165, align 2, !tbaa !73
   %167 = zext i16 %166 to i32
-  %168 = getelementptr inbounds i16, ptr %159, i64 %indvars.iv250
+  %168 = getelementptr inbounds [2 x i8], ptr %159, i64 %indvars.iv250
   %169 = load i16, ptr %168, align 2, !tbaa !73
   %170 = zext i16 %169 to i32
   %171 = sub nsw i32 %144, %164
@@ -1941,12 +1941,12 @@ define internal noundef i32 @manhattan_e_slice16(ptr noundef readonly captures(n
   %187 = add nsw i32 %.us-phi227.us, %186
   %188 = sdiv i32 %187, %.us-phi.us
   %189 = trunc i32 %188 to i16
-  %190 = getelementptr inbounds nuw i16, ptr %.0235.us, i64 %indvars.iv259
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %.0235.us, i64 %indvars.iv259
   store i16 %189, ptr %190, align 2, !tbaa !73
   %191 = add nsw i32 %.us-phi226.us, %186
   %192 = sdiv i32 %191, %.us-phi.us
   %193 = trunc i32 %192 to i16
-  %194 = getelementptr inbounds nuw i16, ptr %.0181233.us, i64 %indvars.iv259
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %.0181233.us, i64 %indvars.iv259
   store i16 %193, ptr %194, align 2, !tbaa !73
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
@@ -1954,8 +1954,8 @@ define internal noundef i32 @manhattan_e_slice16(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge231.us, label %.lr.ph221.us, !llvm.loop !93
 
 ._crit_edge231.us:                                ; preds = %._crit_edge222.us, %.lr.ph230.split.us.us
-  %195 = getelementptr inbounds nuw i16, ptr %.0235.us, i64 %109
-  %196 = getelementptr inbounds nuw i16, ptr %.0181233.us, i64 %111
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %.0235.us, i64 %109
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %.0181233.us, i64 %111
   %indvars.iv.next268 = add nsw i64 %indvars.iv267, 1
   %indvars.iv.next254 = add i32 %indvars.iv253, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
@@ -1963,13 +1963,13 @@ define internal noundef i32 @manhattan_e_slice16(ptr noundef readonly captures(n
 
 .lr.ph230.split.us.us:                            ; preds = %.lr.ph230.us, %.lr.ph230.split.us.us
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.lr.ph230.split.us.us ], [ 0, %.lr.ph230.us ]
-  %197 = getelementptr inbounds nuw i16, ptr %126, i64 %indvars.iv262
+  %197 = getelementptr inbounds nuw [2 x i8], ptr %126, i64 %indvars.iv262
   %198 = load i16, ptr %197, align 2, !tbaa !73
-  %199 = getelementptr inbounds nuw i16, ptr %128, i64 %indvars.iv262
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %128, i64 %indvars.iv262
   %200 = load i16, ptr %199, align 2, !tbaa !73
-  %201 = getelementptr inbounds nuw i16, ptr %.0235.us, i64 %indvars.iv262
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %.0235.us, i64 %indvars.iv262
   store i16 %198, ptr %201, align 2, !tbaa !73
-  %202 = getelementptr inbounds nuw i16, ptr %.0181233.us, i64 %indvars.iv262
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %.0181233.us, i64 %indvars.iv262
   store i16 %200, ptr %202, align 2, !tbaa !73
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
@@ -2460,12 +2460,12 @@ define internal noundef i32 @euclidean_e_slice16(ptr noundef readonly captures(n
   %144 = add i32 %29, %143
   %.208.us = tail call i32 @llvm.smin.i32(i32 %107, i32 %144)
   %145 = mul nsw i64 %indvars.iv265, %118
-  %146 = getelementptr inbounds i16, ptr %128, i64 %145
+  %146 = getelementptr inbounds [2 x i8], ptr %128, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !73
-  %148 = getelementptr inbounds nuw i16, ptr %130, i64 %indvars.iv265
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %130, i64 %indvars.iv265
   %149 = load i16, ptr %148, align 2, !tbaa !73
   %150 = zext i16 %149 to i32
-  %151 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv265
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv265
   %152 = load i16, ptr %151, align 2, !tbaa !73
   %153 = zext i16 %152 to i32
   %.not207214.us = icmp sgt i32 %142, %.208.us
@@ -2499,13 +2499,13 @@ define internal noundef i32 @euclidean_e_slice16(ptr noundef readonly captures(n
   %.1190216.us = phi i32 [ %.2191.us, %166 ], [ %.0189224.us, %.lr.ph.us ]
   %.1193215.us = phi i32 [ %.2194.us, %166 ], [ %.0192223.us, %.lr.ph.us ]
   %167 = mul nsw i64 %indvars.iv256, %118
-  %168 = getelementptr inbounds i16, ptr %161, i64 %167
+  %168 = getelementptr inbounds [2 x i8], ptr %161, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !73
   %170 = zext i16 %169 to i64
-  %171 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv256
+  %171 = getelementptr inbounds [2 x i8], ptr %163, i64 %indvars.iv256
   %172 = load i16, ptr %171, align 2, !tbaa !73
   %173 = zext i16 %172 to i64
-  %174 = getelementptr inbounds i16, ptr %165, i64 %indvars.iv256
+  %174 = getelementptr inbounds [2 x i8], ptr %165, i64 %indvars.iv256
   %175 = load i16, ptr %174, align 2, !tbaa !73
   %176 = zext i16 %175 to i64
   %177 = sub nsw i64 %154, %170
@@ -2553,12 +2553,12 @@ define internal noundef i32 @euclidean_e_slice16(ptr noundef readonly captures(n
   %200 = add nsw i32 %.us-phi233.us, %199
   %201 = sdiv i32 %200, %.us-phi.us
   %202 = trunc i32 %201 to i16
-  %203 = getelementptr inbounds nuw i16, ptr %.0241.us, i64 %indvars.iv265
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %.0241.us, i64 %indvars.iv265
   store i16 %202, ptr %203, align 2, !tbaa !73
   %204 = add nsw i32 %.us-phi232.us, %199
   %205 = sdiv i32 %204, %.us-phi.us
   %206 = trunc i32 %205 to i16
-  %207 = getelementptr inbounds nuw i16, ptr %.0184239.us, i64 %indvars.iv265
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %.0184239.us, i64 %indvars.iv265
   store i16 %206, ptr %207, align 2, !tbaa !73
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
@@ -2566,8 +2566,8 @@ define internal noundef i32 @euclidean_e_slice16(ptr noundef readonly captures(n
   br i1 %exitcond.not, label %._crit_edge237.us, label %.lr.ph227.us, !llvm.loop !101
 
 ._crit_edge237.us:                                ; preds = %._crit_edge228.us, %.lr.ph236.split.us.us
-  %208 = getelementptr inbounds nuw i16, ptr %.0241.us, i64 %113
-  %209 = getelementptr inbounds nuw i16, ptr %.0184239.us, i64 %115
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %.0241.us, i64 %113
+  %209 = getelementptr inbounds nuw [2 x i8], ptr %.0184239.us, i64 %115
   %indvars.iv.next274 = add nsw i64 %indvars.iv273, 1
   %indvars.iv.next260 = add i32 %indvars.iv259, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next274, %wide.trip.count276
@@ -2575,13 +2575,13 @@ define internal noundef i32 @euclidean_e_slice16(ptr noundef readonly captures(n
 
 .lr.ph236.split.us.us:                            ; preds = %.lr.ph236.us, %.lr.ph236.split.us.us
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.lr.ph236.split.us.us ], [ 0, %.lr.ph236.us ]
-  %210 = getelementptr inbounds nuw i16, ptr %130, i64 %indvars.iv268
+  %210 = getelementptr inbounds nuw [2 x i8], ptr %130, i64 %indvars.iv268
   %211 = load i16, ptr %210, align 2, !tbaa !73
-  %212 = getelementptr inbounds nuw i16, ptr %132, i64 %indvars.iv268
+  %212 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %indvars.iv268
   %213 = load i16, ptr %212, align 2, !tbaa !73
-  %214 = getelementptr inbounds nuw i16, ptr %.0241.us, i64 %indvars.iv268
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %.0241.us, i64 %indvars.iv268
   store i16 %211, ptr %214, align 2, !tbaa !73
-  %215 = getelementptr inbounds nuw i16, ptr %.0184239.us, i64 %indvars.iv268
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %.0184239.us, i64 %indvars.iv268
   store i16 %213, ptr %215, align 2, !tbaa !73
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271

@@ -113,7 +113,7 @@ _ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit: ; p
 17:                                               ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i ]
   %18 = load ptr, ptr %16, align 8, !tbaa !12
-  %19 = getelementptr inbounds nuw %struct.grpc_slice, ptr %18, i64 %.05.i
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %.05.i
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %21 = icmp ugt ptr %20, inttoptr (i64 1 to ptr)
   br i1 %21, label %22, label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i
@@ -158,7 +158,7 @@ define noundef range(i32 0, 2) i32 @_Z19grpc_msg_decompress26grpc_compression_al
 10:                                               ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i ]
   %11 = load ptr, ptr %9, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw %struct.grpc_slice, ptr %11, i64 %.05.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.05.i
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %14 = icmp ugt ptr %13, inttoptr (i64 1 to ptr)
   br i1 %14, label %15, label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i
@@ -252,7 +252,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_
 19:                                               ; preds = %.lr.ph, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
   %.02024 = phi i64 [ %7, %.lr.ph ], [ %30, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ]
   %20 = load ptr, ptr %18, align 8, !tbaa !12
-  %21 = getelementptr inbounds nuw %struct.grpc_slice, ptr %20, i64 %.02024
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.02024
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = icmp ugt ptr %22, inttoptr (i64 1 to ptr)
   br i1 %23, label %24, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -371,7 +371,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_sl
 24:                                               ; preds = %.lr.ph, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
   %.02226 = phi i64 [ %7, %.lr.ph ], [ %35, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ]
   %25 = load ptr, ptr %23, align 8, !tbaa !12
-  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %25, i64 %.02226
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %.02226
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = icmp ugt ptr %27, inttoptr (i64 1 to ptr)
   br i1 %28, label %29, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -497,7 +497,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %41 = icmp eq i64 %.083149, %40
   %spec.select = select i1 %41, i32 4, i32 %.074150
   %42 = load ptr, ptr %31, align 8, !tbaa !12
-  %43 = getelementptr inbounds nuw %struct.grpc_slice, ptr %42, i64 %.083149
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %.083149
   %44 = load ptr, ptr %43, align 8, !tbaa !13
   %.not92 = icmp eq ptr %44, null
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8

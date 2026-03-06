@@ -174,7 +174,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hced2f16d6eea46a0E.exit.i: ;
   %81 = add i64 %80, 1
   store i64 %81, ptr %4, align 8, !alias.scope !11
   %82 = sub nsw i64 0, %.sroa.04.0.i
-  %83 = getelementptr inbounds i64, ptr %68, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %68, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -8
   store i64 %15, ptr %84, align 8, !noalias !8
   %85 = icmp eq ptr %13, %9
@@ -237,14 +237,14 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %31 = add i64 %.sroa.0.09.i.i, %29
   %32 = and i64 %31, %.val6.i
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds i64, ptr %.val.i, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %.val.i.i.i = load i64, ptr %35, align 8, !noalias !21, !noundef !3
   %36 = icmp ult i64 %.val.i.i.i, %7
   br i1 %36, label %37, label %49
 
 37:                                               ; preds = %.lr.ph.i.i
-  %38 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %5, i64 %.val.i.i.i
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.val.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 4, !range !19, !alias.scope !24, !noalias !29, !noundef !3
   %41 = icmp eq i32 %20, %40
@@ -343,7 +343,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   %89 = add i64 %88, 1
   store i64 %89, ptr %87, align 8, !alias.scope !35
   %90 = sub nsw i64 0, %.sroa.3.0.i.ph.i
-  %91 = getelementptr inbounds i64, ptr %.val.i, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 -8
   store i64 %76, ptr %92, align 8, !noalias !35
   %93 = load i64, ptr %6, align 8, !alias.scope !38, !noalias !41, !noundef !3
@@ -387,7 +387,7 @@ _ZN8indexmap3map4core15reserve_entries17h7bcd52c56d72982aE.exit.i: ; preds = %10
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17ha49a04168b0fbf1eE.exit": ; preds = %_ZN8indexmap3map4core15reserve_entries17h7bcd52c56d72982aE.exit.i, %111
   %112 = load ptr, ptr %4, align 8, !alias.scope !44, !noalias !47, !nonnull !3, !noundef !3
-  %113 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %112, i64 %108
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %108
   store i64 %1, ptr %113, align 8, !noalias !41
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %113, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
@@ -455,14 +455,14 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12g
   %27 = add i64 %.sroa.04.0.i.i, %25
   %28 = and i64 %27, %12
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i64, ptr %13, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %13, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %.val.i.i = load i64, ptr %31, align 8, !noalias !60, !noundef !3
   %32 = icmp ult i64 %.val.i.i, %7
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %5, i64 %.val.i.i
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.val.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4, !range !19, !alias.scope !63, !noalias !68, !noundef !3
   %37 = icmp eq i32 %16, %36
@@ -612,7 +612,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$5drain17h37
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !77, !nonnull !3, !noundef !3
-  %21 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %20, i64 %12
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %12
   %22 = sub nuw nsw i64 %8, %12
   %.not6.i = icmp ugt i64 %11, %12
   br i1 %.not6.i, label %23, label %28, !prof !4
@@ -632,7 +632,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$5drain17h37
   unreachable
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %20, i64 %11
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %11
   %30 = sub nuw nsw i64 %12, %11
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -778,7 +778,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$5drain17h37
   %98 = add i64 %.sroa.04.0.i.i.i.i, %96
   %99 = and i64 %98, %79
   %100 = sub nsw i64 0, %99
-  %101 = getelementptr inbounds i64, ptr %80, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %80, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
   %.val2.i.i.i.i = load i64, ptr %102, align 8, !noalias !96, !noundef !3
   %103 = icmp eq i64 %.val2.i.i.i.i, %.sroa.7.050.i
@@ -839,7 +839,7 @@ _ZN8indexmap3map4core11erase_index17h6836b814953d0cd9E.exit.i: ; preds = %104, %
   br i1 %131, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hd4f2e5e90a878558E.exit.thread.i", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hd4f2e5e90a878558E.exit.i"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hd4f2e5e90a878558E.exit.thread.i": ; preds = %_ZN8indexmap3map4core11erase_index17h6836b814953d0cd9E.exit.i
-  %132 = getelementptr inbounds nuw { i64, { i32, [2 x i32] }, {}, [4 x i8] }, ptr %20, i64 %8
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %8
   %133 = icmp samesign eq i64 %12, %8
   br i1 %133, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13erase_indices17h999f416283b0e7bfE.exit", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf12c7780bf59330dE.exit.i"
 
@@ -880,7 +880,7 @@ _ZN8indexmap3map4core11erase_index17h6836b814953d0cd9E.exit.i: ; preds = %104, %
   %150 = add i64 %.sroa.04.0.i.i.i14.i, %148
   %151 = and i64 %150, %79
   %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds i64, ptr %80, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %80, i64 %152
   %154 = getelementptr inbounds i8, ptr %153, i64 -8
   %.val2.i.i.i18.i = load i64, ptr %154, align 8, !noalias !115, !noundef !3
   %155 = icmp eq i64 %.val2.i.i.i18.i, %.sroa.1030.056.i

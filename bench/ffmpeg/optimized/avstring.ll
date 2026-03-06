@@ -1081,7 +1081,7 @@ define range(i32 -84, 1) i32 @av_utf8_decode(ptr noundef writeonly captures(none
   %.056.lcssa124 = phi i32 [ 0, %._crit_edge.thread ], [ %22, %._crit_edge ]
   %.165.lcssa123 = phi ptr [ %7, %._crit_edge.thread ], [ %28, %._crit_edge ]
   %43 = zext nneg i32 %.056.lcssa124 to i64
-  %44 = getelementptr inbounds nuw i32, ptr @__const.av_utf8_decode.overlong_encoding_mins, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @__const.av_utf8_decode.overlong_encoding_mins, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !28
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %42, %46

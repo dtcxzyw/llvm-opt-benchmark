@@ -58,7 +58,7 @@ define void @dlarfgp_(ptr noundef readonly captures(none) %0, ptr noundef %1, pt
   %indvars.iv109 = phi i64 [ 1, %.lr.ph104 ], [ %indvars.iv.next110, %26 ]
   %27 = add nsw i64 %indvars.iv109, -1
   %28 = mul nsw i64 %27, %25
-  %29 = getelementptr double, ptr %10, i64 %28
+  %29 = getelementptr [8 x i8], ptr %10, i64 %28
   %30 = getelementptr i8, ptr %29, i64 8
   store double 0.000000e+00, ptr %30, align 8, !tbaa !7
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -194,7 +194,7 @@ define void @dlarfgp_(ptr noundef readonly captures(none) %0, ptr noundef %1, pt
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %96 = add nsw i64 %indvars.iv, -1
   %97 = mul nsw i64 %96, %94
-  %98 = getelementptr double, ptr %10, i64 %97
+  %98 = getelementptr [8 x i8], ptr %10, i64 %97
   %99 = getelementptr i8, ptr %98, i64 8
   store double 0.000000e+00, ptr %99, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

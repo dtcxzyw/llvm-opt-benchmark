@@ -323,7 +323,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerE5resetEv.exit.thread3.i: ; preds = %
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %58 = load ptr, ptr %55, align 8, !tbaa !33
   %59 = load ptr, ptr %6, align 8, !tbaa !29
-  %60 = getelementptr inbounds nuw %class.mpz, ptr %59, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv.i.i
   %61 = load ptr, ptr %58, align 8, !tbaa !37
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %61, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %.noexc.i unwind label %66
@@ -488,7 +488,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerE5resetEv.exit.thread3.i135: ; preds 
   %indvars.iv.i.i128 = phi i64 [ 0, %.lr.ph.i.i126 ], [ %indvars.iv.next.i.i130, %.noexc.i129 ]
   %112 = load ptr, ptr %109, align 8, !tbaa !33
   %113 = load ptr, ptr %7, align 8, !tbaa !29
-  %114 = getelementptr inbounds nuw %class.mpz, ptr %113, i64 %indvars.iv.i.i128
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %indvars.iv.i.i128
   %115 = load ptr, ptr %112, align 8, !tbaa !37
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %115, ptr noundef nonnull align 8 dereferenceable(16) %114)
           to label %.noexc.i129 unwind label %120
@@ -635,7 +635,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerE5resetEv.exit.thread3.i155: ; preds 
   %indvars.iv.i.i148 = phi i64 [ 0, %.lr.ph.i.i146 ], [ %indvars.iv.next.i.i150, %.noexc.i149 ]
   %160 = load ptr, ptr %157, align 8, !tbaa !33
   %161 = load ptr, ptr %8, align 8, !tbaa !29
-  %162 = getelementptr inbounds nuw %class.mpz, ptr %161, i64 %indvars.iv.i.i148
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %indvars.iv.i.i148
   %163 = load ptr, ptr %160, align 8, !tbaa !37
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %163, ptr noundef nonnull align 8 dereferenceable(16) %162)
           to label %.noexc.i149 unwind label %168
@@ -1242,7 +1242,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerE5resetEv.exit.thread3: ; preds = %._
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
   %9 = load ptr, ptr %6, align 8, !tbaa !33
   %10 = load ptr, ptr %0, align 8, !tbaa !29
-  %11 = getelementptr inbounds nuw %class.mpz, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %9, align 8, !tbaa !37
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %12, ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %.noexc unwind label %17

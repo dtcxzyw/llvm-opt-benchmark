@@ -6,20 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor" = type { i32 }
 %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray" = type { %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", i32, i32, i32, i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchArray, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchArray>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchArray, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchArray>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchArray, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchArray>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchArray, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchArray>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchParam>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchParam>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchParam>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Osd::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Osd::PatchParam>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.OpenSubdiv::v3_6_0::Osd::PatchParam" = type <{ %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", float }>
-%"struct.OpenSubdiv::v3_6_0::Far::PatchParam" = type { i64 }
 
 $_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EESaIS5_EE17_M_default_appendEm = comdat any
 
@@ -95,7 +81,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE
 
 switch.lookup:                                    ; preds = %22
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %25
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -412,7 +398,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE13_M_deallocate
   store ptr %135, ptr %0, align 8
   %145 = getelementptr inbounds i8, ptr %135, i64 %133
   store ptr %145, ptr %130, align 8
-  %146 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray", ptr %135, i64 %119
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %135, i64 %119
   store ptr %146, ptr %122, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit
 
@@ -461,7 +447,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %166, %_ZNSt6ve
   store ptr %163, ptr %11, align 8
   %167 = getelementptr inbounds i8, ptr %163, i64 %161
   store ptr %167, ptr %158, align 8
-  %168 = getelementptr inbounds nuw i32, ptr %163, i64 %147
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %147
   store ptr %168, ptr %150, align 8
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -518,7 +504,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE13_M_deallocate
   store ptr %182, ptr %13, align 8
   %192 = getelementptr inbounds i8, ptr %182, i64 %180
   store ptr %192, ptr %177, align 8
-  %193 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray", ptr %182, i64 %119
+  %193 = getelementptr inbounds nuw [24 x i8], ptr %182, i64 %119
   store ptr %193, ptr %169, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit155
 
@@ -534,7 +520,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit155: ; 
 
 switch.lookup444:                                 ; preds = %194
   %197 = zext nneg i32 %switch.tableidx443 to i64
-  %switch.gep445 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %197
+  %switch.gep445 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %197
   %switch.load446 = load i32, ptr %switch.gep445, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit157
 
@@ -585,7 +571,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i161: ; preds = %218, %_ZNSt
   store ptr %215, ptr %14, align 8
   %219 = getelementptr inbounds i8, ptr %215, i64 %213
   store ptr %219, ptr %210, align 8
-  %220 = getelementptr inbounds nuw i32, ptr %215, i64 %199
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %199
   store ptr %220, ptr %202, align 8
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit164
 
@@ -615,7 +601,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit164:           ; preds = %_ZNSt12_Vector_base
   br i1 %235, label %236, label %_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EESaIS5_EE6resizeEm.exit
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds %"class.std::vector", ptr %226, i64 %223
+  %237 = getelementptr inbounds [24 x i8], ptr %226, i64 %223
   %.not.i.i165 = icmp eq ptr %225, %237
   br i1 %.not.i.i165, label %_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -669,7 +655,7 @@ _ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EESaIS5_EE6resizeEm.e
   br i1 %260, label %261, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit
 
 261:                                              ; preds = %259
-  %262 = getelementptr inbounds %"class.std::vector.0", ptr %251, i64 %248
+  %262 = getelementptr inbounds [24 x i8], ptr %251, i64 %248
   %.not.i.i167 = icmp eq ptr %250, %262
   br i1 %.not.i.i167, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i168
 
@@ -723,7 +709,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %285, label %286, label %_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EESaIS5_EE6resizeEm.exit
 
 286:                                              ; preds = %284
-  %287 = getelementptr inbounds %"class.std::vector.5", ptr %276, i64 %273
+  %287 = getelementptr inbounds [24 x i8], ptr %276, i64 %273
   %.not.i.i173 = icmp eq ptr %275, %287
   br i1 %.not.i.i173, label %_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i174
 
@@ -770,7 +756,7 @@ _ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EESaIS5_EE6resizeEm.e
 
 305:                                              ; preds = %302
   %306 = load ptr, ptr %15, align 8
-  %307 = getelementptr inbounds nuw %"class.std::vector", ptr %306, i64 %indvars.iv
+  %307 = getelementptr inbounds nuw [24 x i8], ptr %306, i64 %indvars.iv
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %309 = load ptr, ptr %308, align 8
   %310 = load ptr, ptr %307, align 8
@@ -822,13 +808,13 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE13_M_deallocate
   store ptr %320, ptr %307, align 8
   %330 = getelementptr inbounds i8, ptr %320, i64 %319
   store ptr %330, ptr %316, align 8
-  %331 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray", ptr %320, i64 %119
+  %331 = getelementptr inbounds nuw [24 x i8], ptr %320, i64 %119
   store ptr %331, ptr %308, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit190
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE7reserveEm.exit190: ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE13_M_deallocateEPS3_m.exit.i187, %305
   %332 = load ptr, ptr %16, align 8
-  %333 = getelementptr inbounds nuw %"class.std::vector.0", ptr %332, i64 %indvars.iv
+  %333 = getelementptr inbounds nuw [24 x i8], ptr %332, i64 %indvars.iv
   %334 = trunc nuw nsw i64 %indvars.iv to i32
   %335 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarValueStrideEi(ptr noundef nonnull align 8 dereferenceable(273) %1, i32 noundef %334)
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -879,13 +865,13 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i194: ; preds = %357, %_ZNSt
   store ptr %354, ptr %333, align 8
   %358 = getelementptr inbounds i8, ptr %354, i64 %352
   store ptr %358, ptr %349, align 8
-  %359 = getelementptr inbounds nuw i32, ptr %354, i64 %338
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %354, i64 %338
   store ptr %359, ptr %341, align 8
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit197
 
 _ZNSt6vectorIiSaIiEE7reserveEm.exit197:           ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i194, %340
   %360 = load ptr, ptr %17, align 8
-  %361 = getelementptr inbounds nuw %"class.std::vector.5", ptr %360, i64 %indvars.iv
+  %361 = getelementptr inbounds nuw [24 x i8], ptr %360, i64 %indvars.iv
   br i1 %298, label %.invoke, label %362
 
 362:                                              ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit197
@@ -927,7 +913,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE13_M_deallocate
   store ptr %375, ptr %361, align 8
   %379 = getelementptr inbounds i8, ptr %375, i64 %374
   store ptr %379, ptr %371, align 8
-  %380 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchParam", ptr %375, i64 %297
+  %380 = getelementptr inbounds nuw [12 x i8], ptr %375, i64 %297
   store ptr %380, ptr %363, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit
 
@@ -977,7 +963,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE13_M_deallocate
   store ptr %395, ptr %12, align 8
   %399 = getelementptr inbounds i8, ptr %395, i64 %394
   store ptr %399, ptr %391, align 8
-  %400 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchParam", ptr %395, i64 %297
+  %400 = getelementptr inbounds nuw [12 x i8], ptr %395, i64 %297
   store ptr %400, ptr %383, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207
 
@@ -1042,7 +1028,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE7reserveEm.exit207: ; 
 
 switch.lookup448:                                 ; preds = %423
   %440 = zext nneg i32 %switch.tableidx447 to i64
-  %switch.gep449 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %440
+  %switch.gep449 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %440
   %switch.load450 = load i32, ptr %switch.gep449, align 4
   br label %441
 
@@ -1080,7 +1066,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit:
   %.fca.1.extract41 = extractvalue { ptr, i32 } %451, 1
   %453 = load ptr, ptr %401, align 8
   %454 = sext i32 %.fca.1.extract41 to i64
-  %455 = getelementptr inbounds i32, ptr %.fca.0.extract40, i64 %454
+  %455 = getelementptr inbounds [4 x i8], ptr %.fca.0.extract40, i64 %454
   %456 = load ptr, ptr %11, align 8
   %457 = ptrtoint ptr %453 to i64
   %458 = ptrtoint ptr %456 to i64
@@ -1119,7 +1105,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit:
 
 switch.lookup452:                                 ; preds = %462
   %479 = zext nneg i32 %switch.tableidx451 to i64
-  %switch.gep453 = getelementptr inbounds nuw i32, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %479
+  %switch.gep453 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.3, i64 %479
   %switch.load454 = load i32, ptr %switch.gep453, align 4
   br label %480
 
@@ -1157,7 +1143,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit2
   %.fca.1.extract36 = extractvalue { ptr, i32 } %490, 1
   %492 = load ptr, ptr %409, align 8
   %493 = sext i32 %.fca.1.extract36 to i64
-  %494 = getelementptr inbounds i32, ptr %.fca.0.extract35, i64 %493
+  %494 = getelementptr inbounds [4 x i8], ptr %.fca.0.extract35, i64 %493
   %495 = load ptr, ptr %14, align 8
   %496 = ptrtoint ptr %492 to i64
   %497 = ptrtoint ptr %495 to i64
@@ -1192,7 +1178,7 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
 
 508:                                              ; preds = %507
   %509 = load ptr, ptr %16, align 8
-  %510 = getelementptr inbounds nuw %"class.std::vector.0", ptr %509, i64 %indvars.iv331
+  %510 = getelementptr inbounds nuw [24 x i8], ptr %509, i64 %indvars.iv331
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %512 = load ptr, ptr %511, align 8
   %513 = load ptr, ptr %510, align 8
@@ -1202,7 +1188,7 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
   %517 = lshr exact i64 %516, 2
   %518 = trunc i64 %517 to i32
   %519 = load ptr, ptr %17, align 8
-  %520 = getelementptr inbounds nuw %"class.std::vector.5", ptr %519, i64 %indvars.iv331
+  %520 = getelementptr inbounds nuw [24 x i8], ptr %519, i64 %indvars.iv331
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
   %522 = load ptr, ptr %521, align 8
   %523 = load ptr, ptr %520, align 8
@@ -1219,7 +1205,7 @@ _ZNSt6vectorIiSaIiEE6insertIPKivEEN9__gnu_cxx17__normal_iteratorIPiS1_EENS6_IS4_
 
 switch.lookup456:                                 ; preds = %508
   %532 = zext nneg i32 %switch.tableidx455 to i64
-  %switch.gep457 = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 %532
+  %switch.gep457 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 %532
   %switch.load458 = load i16, ptr %switch.gep457, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
 
@@ -1231,7 +1217,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i: ; 
 
 switch.lookup460:                                 ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.i
   %534 = zext nneg i32 %switch.tableidx459 to i64
-  %switch.gep461 = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 %534
+  %switch.gep461 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Osd13CpuPatchTableC2EPKNS0_3Far10PatchTableE.5, i64 %534
   %switch.load462 = load i16, ptr %switch.gep461, align 2
   br label %535
 
@@ -1240,7 +1226,7 @@ switch.lookup460:                                 ; preds = %_ZNK10OpenSubdiv6v3
   %.sroa.speculated.i = call i16 @llvm.smax.i16(i16 %.0.i.i.i217, i16 %.0.i.i3.i)
   %536 = sext i16 %.sroa.speculated.i to i32
   %537 = load ptr, ptr %15, align 8
-  %538 = getelementptr inbounds nuw %"class.std::vector", ptr %537, i64 %indvars.iv331
+  %538 = getelementptr inbounds nuw [24 x i8], ptr %537, i64 %indvars.iv331
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
   %540 = load ptr, ptr %539, align 8
   %541 = getelementptr inbounds nuw i8, ptr %538, i64 16
@@ -1335,7 +1321,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Osd10PatchArrayES
 .noexc219:                                        ; preds = %573, %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Osd10PatchArrayES4_SaIS3_EET0_T_S7_S6_RT1_.exit34.i
   store ptr %560, ptr %538, align 8
   store ptr %572, ptr %539, align 8
-  %577 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray", ptr %560, i64 %558
+  %577 = getelementptr inbounds nuw [24 x i8], ptr %560, i64 %558
   store ptr %577, ptr %541, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit220
 
@@ -1347,7 +1333,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit2
   %.fca.0.extract18 = extractvalue { ptr, i32 } %578, 0
   %.fca.1.extract19 = extractvalue { ptr, i32 } %578, 1
   %580 = load ptr, ptr %16, align 8
-  %581 = getelementptr inbounds nuw %"class.std::vector.0", ptr %580, i64 %indvars.iv331
+  %581 = getelementptr inbounds nuw [24 x i8], ptr %580, i64 %indvars.iv331
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 8
   %583 = load ptr, ptr %582, align 8
   %584 = sext i32 %.fca.1.extract19 to i64
@@ -1370,7 +1356,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE9push_backERKS3_.exit2
 _ZSt7advanceIPKimEvRT_T0_.exit.i:                 ; preds = %589
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %583, ptr align 4 %.fca.0.extract18, i64 %.idx, i1 false)
   %.pre.i = load ptr, ptr %582, align 8
-  %594 = getelementptr inbounds i32, ptr %.pre.i, i64 %584
+  %594 = getelementptr inbounds [4 x i8], ptr %.pre.i, i64 %584
   store ptr %594, ptr %582, align 8
   br label %615
 
@@ -1426,7 +1412,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i251: ; preds = %604, %_ZNKSt6ve
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i252: ; preds = %612, %609
   store ptr %607, ptr %581, align 8
   store ptr %611, ptr %582, align 8
-  %614 = getelementptr inbounds nuw i32, ptr %607, i64 %603
+  %614 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %603
   store ptr %614, ptr %590, align 8
   br label %615
 
@@ -1440,10 +1426,10 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i252: ; preds = %612, %609
 
 .lr.ph316:                                        ; preds = %617, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit
   %indvars.iv327 = phi i64 [ %indvars.iv.next328, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit ], [ 0, %617 ]
-  %618 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %.fca.0.extract, i64 %indvars.iv327
+  %618 = getelementptr inbounds nuw [8 x i8], ptr %.fca.0.extract, i64 %indvars.iv327
   %619 = load i64, ptr %618, align 4
   %620 = load ptr, ptr %17, align 8
-  %621 = getelementptr inbounds nuw %"class.std::vector.5", ptr %620, i64 %indvars.iv331
+  %621 = getelementptr inbounds nuw [24 x i8], ptr %620, i64 %indvars.iv331
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 8
   %623 = load ptr, ptr %622, align 8
   %624 = getelementptr inbounds nuw i8, ptr %621, i64 16
@@ -1505,7 +1491,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %646, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %641, ptr %621, align 8
   store ptr %645, ptr %622, align 8
-  %647 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchParam", ptr %641, i64 %639
+  %647 = getelementptr inbounds nuw [12 x i8], ptr %641, i64 %639
   store ptr %647, ptr %624, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit
 
@@ -1560,7 +1546,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit:
 671:                                              ; preds = %666
   %672 = zext nneg i32 %669 to i64
   %673 = load ptr, ptr %419, align 8
-  %674 = getelementptr inbounds nuw float, ptr %673, i64 %672
+  %674 = getelementptr inbounds nuw [4 x i8], ptr %673, i64 %672
   %675 = load float, ptr %674, align 4
   br label %.lr.ph319._crit_edge
 
@@ -1623,7 +1609,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i233: ; preds = %696, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i231
   store ptr %691, ptr %12, align 8
   store ptr %695, ptr %402, align 8
-  %697 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchParam", ptr %691, i64 %689
+  %697 = getelementptr inbounds nuw [12 x i8], ptr %691, i64 %689
   store ptr %697, ptr %383, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EE9push_backERKS3_.exit236
 
@@ -1770,9 +1756,9 @@ _ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EESaIS5_EE11_S_reloca
 
 _ZNSt12_Vector_baseISt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS4_EESaIS6_EE13_M_deallocateEPS6_m.exit36: ; preds = %_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %38
   store ptr %26, ptr %0, align 8
-  %42 = getelementptr inbounds nuw %"class.std::vector", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw %"class.std::vector", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -1870,9 +1856,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8
-  %42 = getelementptr inbounds nuw %"class.std::vector.0", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw %"class.std::vector.0", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -1967,9 +1953,9 @@ _ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EESaIS5_EE11_S_reloca
 
 _ZNSt12_Vector_baseISt6vectorIN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS4_EESaIS6_EE13_M_deallocateEPS6_m.exit36: ; preds = %_ZNSt6vectorIS_IN10OpenSubdiv6v3_6_03Osd10PatchParamESaIS3_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %38
   store ptr %26, ptr %0, align 8
-  %42 = getelementptr inbounds nuw %"class.std::vector.5", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw %"class.std::vector.5", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -2074,7 +2060,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Osd10PatchArrayES
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Osd10PatchArrayESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Osd10PatchArrayES4_SaIS3_EET0_T_S7_S6_RT1_.exit34, %46
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8
-  %50 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Osd::PatchArray", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %50, ptr %45, align 8
   ret void
 }
@@ -2121,7 +2107,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %13, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit
 
@@ -2144,7 +2130,7 @@ _ZSt7advanceIPKimEvRT_T0_.exit:                   ; preds = %17
 _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKimEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIPKimEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i56 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit57, label %38
@@ -2228,7 +2214,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIiSaIi
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8
   store ptr %67, ptr %12, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8
   br label %_ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.exit59
 

@@ -47,8 +47,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span", %"class.absl::lts_20230802::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -1751,7 +1749,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   %conv.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %add.i.i.i.i, %2
-  %add.ptr19.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %4, i64 %and.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds [16 x i8], ptr %4, i64 %and.i.i.i.i
   %10 = load ptr, ptr %add.ptr19.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %type
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -1884,7 +1882,7 @@ for.body.us.us.i.i.i:                             ; preds = %for.inc.us.us.i.i.i
   %conv.us.us.i.i.i = zext nneg i32 %32 to i64
   %add.i.us.us.i.i.i = add i64 %seq.sroa.4.0.us.i.i.i, %conv.us.us.i.i.i
   %and.i.us.us.i.i.i = and i64 %add.i.us.us.i.i.i, %24
-  %add.ptr19.us.us.i.i.i = getelementptr inbounds ptr, ptr %this.val5.i.i.i, i64 %and.i.us.us.i.i.i
+  %add.ptr19.us.us.i.i.i = getelementptr inbounds [8 x i8], ptr %this.val5.i.i.i, i64 %and.i.us.us.i.i.i
   %call20.val.us.us.i.i.i = load ptr, ptr %add.ptr19.us.us.i.i.i, align 8
   %33 = getelementptr i8, ptr %call20.val.us.us.i.i.i, i64 16
   %call20.val.val.us.us.i.i.i = load ptr, ptr %33, align 8
@@ -1918,7 +1916,7 @@ for.body.i.i.i23:                                 ; preds = %for.inc.i.i.i28, %f
   %conv.i.i.i24 = zext nneg i32 %37 to i64
   %add.i.i.i.i25 = add i64 %seq.sroa.4.0.i.i.i18, %conv.i.i.i24
   %and.i.i.i.i26 = and i64 %add.i.i.i.i25, %24
-  %add.ptr19.i.i.i27 = getelementptr inbounds ptr, ptr %this.val5.i.i.i, i64 %and.i.i.i.i26
+  %add.ptr19.i.i.i27 = getelementptr inbounds [8 x i8], ptr %this.val5.i.i.i, i64 %and.i.i.i.i26
   %call20.val.i.i.i = load ptr, ptr %add.ptr19.i.i.i27, align 8
   %38 = getelementptr i8, ptr %call20.val.i.i.i, i64 16
   %call20.val.val.i.i.i = load ptr, ptr %38, align 8
@@ -1933,7 +1931,7 @@ land.rhs.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i23
 
 if.then.i.i.i37:                                  ; preds = %land.rhs.i.i.i.i.i.i.i.i.i.i, %for.body.us.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %and.i.us.us.i.i.i, %for.body.us.us.i.i.i ], [ %and.i.i.i.i26, %land.rhs.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr19.le.i.i.i = getelementptr inbounds ptr, ptr %this.val5.i.i.i, i64 %.us-phi.i.i.i
+  %add.ptr19.le.i.i.i = getelementptr inbounds [8 x i8], ptr %this.val5.i.i.i, i64 %.us-phi.i.i.i
   %add.ptr.i.i.i.i38 = getelementptr inbounds i8, ptr %23, i64 %.us-phi.i.i.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i.i38) ]
   %.fca.0.insert.i.i.i.i39 = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i38, 0
@@ -2002,7 +2000,7 @@ for.body.i.i.i70:                                 ; preds = %for.inc.i.i.i77, %f
   %conv.i.i.i72 = zext nneg i32 %50 to i64
   %add.i.i.i.i73 = add i64 %seq.sroa.4.0.i.i.i65, %conv.i.i.i72
   %and.i.i.i.i74 = and i64 %add.i.i.i.i73, %44
-  %add.ptr19.i.i.i75 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %46, i64 %and.i.i.i.i74
+  %add.ptr19.i.i.i75 = getelementptr inbounds [16 x i8], ptr %46, i64 %and.i.i.i.i74
   %51 = load ptr, ptr %add.ptr19.i.i.i75, align 8
   %cmp.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %51, %type
   br i1 %cmp.i.i.i.i.i.i.i.i.i76, label %if.then.i.i.i96, label %for.inc.i.i.i77
@@ -2072,7 +2070,7 @@ for.body.i.i.i132:                                ; preds = %for.inc.i.i.i139, %
   %conv.i.i.i134 = zext nneg i32 %61 to i64
   %add.i.i.i.i135 = add i64 %seq.sroa.4.0.i.i.i127, %conv.i.i.i134
   %and.i.i.i.i136 = and i64 %add.i.i.i.i135, %55
-  %add.ptr19.i.i.i137 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %57, i64 %and.i.i.i.i136
+  %add.ptr19.i.i.i137 = getelementptr inbounds [16 x i8], ptr %57, i64 %and.i.i.i.i136
   %62 = load ptr, ptr %add.ptr19.i.i.i137, align 8
   %cmp.i.i.i.i.i.i.i.i.i138 = icmp eq ptr %62, %type
   br i1 %cmp.i.i.i.i.i.i.i.i.i138, label %if.then.i.i.i158, label %for.inc.i.i.i139
@@ -2211,7 +2209,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.inc.i.i.i.i.i.i
   %conv.i.i.i.i.i.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i.i.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i
   %and.i.i.i.i.i.i.i.i.i = and i64 %add.i.i.i.i.i.i.i.i.i, %2
-  %add.ptr21.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %this.val6.i.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i
+  %add.ptr21.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %this.val6.i.i.i.i.i.i.i.i, i64 %and.i.i.i.i.i.i.i.i.i
   %call22.val.i.i.i.i.i.i.i.i = load ptr, ptr %add.ptr21.i.i.i.i.i.i.i.i, align 8, !noalias !42
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %call22.val.i.i.i.i.i.i.i.i, %table
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i, label %lor.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2345,7 +2343,7 @@ for.body.i:                                       ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.i, label %if.then.i1, label %for.inc.i
 
 if.then.i1:                                       ; preds = %for.body.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %this.val15.i, i64 %i.022.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %this.val15.i, i64 %i.022.i
   %call9.val.i = load ptr, ptr %add.ptr.i, align 8, !noalias !42
   %21 = getelementptr i8, ptr %call9.val.i, i64 16
   %call9.val.val.i = load ptr, ptr %21, align 8, !noalias !42
@@ -2371,7 +2369,7 @@ if.then.i1:                                       ; preds = %for.body.i
   %26 = getelementptr i8, ptr %25, i64 %and.i.i.i
   %arrayidx7.i.i.i = getelementptr i8, ptr %26, i64 %and6.i.i.i
   store i8 %conv.i.i, ptr %arrayidx7.i.i.i, align 1, !noalias !42
-  %add.ptr16.i = getelementptr inbounds ptr, ptr %this.val14.i, i64 %22
+  %add.ptr16.i = getelementptr inbounds [8 x i8], ptr %this.val14.i, i64 %22
   %27 = load i64, ptr %add.ptr.i, align 8, !noalias !42
   store i64 %27, ptr %add.ptr16.i, align 1, !noalias !42
   br label %for.inc.i
@@ -2436,7 +2434,7 @@ _ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory12RegisterFileEPKNS0_8
   %arrayidx7.i.i.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %35, i64 %and6.i.i.i.i.i.i.i.i.i.i.i
   store i8 %conv.i.i.i.i.i.i.i.i.i, ptr %arrayidx7.i.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !42
   %.val2.i.i.i.i.i.i.i = load ptr, ptr %5, align 8, !noalias !42
-  %add.ptr.i4.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %.val2.i.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i.i
+  %add.ptr.i4.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.val2.i.i.i.i.i.i.i, i64 %target.sroa.0.0.i.i.i.i.i.i.i.i.i
   store ptr %table, ptr %add.ptr.i4.i.i.i.i.i.i.i, align 8, !noalias !42
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   ret void
@@ -2499,7 +2497,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   %conv.i.i.i = zext nneg i32 %9 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
   %and.i.i.i.i = and i64 %add.i.i.i.i, %2
-  %add.ptr21.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds [16 x i8], ptr %5, i64 %and.i.i.i.i
   %10 = load ptr, ptr %add.ptr21.i.i.i, align 8, !noalias !60
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %descriptor
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory12RegisterTypeEPKNS0_10DescriptorEPKNS0_7MessageE.exit, label %for.inc.i.i.i
@@ -2524,7 +2522,7 @@ if.end36.i.i.i:                                   ; preds = %for.end.i.i.i
 if.then.i.i:                                      ; preds = %for.end.i.i.i
   %call38.i.i.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %type_map_.i, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i), !noalias !60
   %12 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !60
-  %add.ptr.i3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %12, i64 %call38.i.i.i
+  %add.ptr.i3.i.i = getelementptr inbounds [16 x i8], ptr %12, i64 %call38.i.i.i
   store ptr %descriptor, ptr %add.ptr.i3.i.i, align 8, !noalias !60
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i.i, i64 8
   store ptr %prototype, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !60
@@ -2585,7 +2583,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %cleanup.done, 
   %type_.i.i = getelementptr inbounds nuw i8, ptr %field, i64 2
   %6 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   switch i32 %7, label %sw.epilog [
     i32 1, label %sw.bb
@@ -3157,7 +3155,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %conv.i.i = zext nneg i32 %11 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %4
-  %add.ptr21.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %7, i64 %and.i.i.i
+  %add.ptr21.i.i = getelementptr inbounds [16 x i8], ptr %7, i64 %and.i.i.i
   %12 = load ptr, ptr %add.ptr21.i.i, align 8, !noalias !67
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %12, %type
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.inc.i.i
@@ -3185,7 +3183,7 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 call38.i.i.noexc:                                 ; preds = %if.then.i
   %14 = load ptr, ptr %slots_.i.i.i.i, align 8, !noalias !67
-  %add.ptr.i3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %14, i64 %call38.i.i6
+  %add.ptr.i3.i = getelementptr inbounds [16 x i8], ptr %14, i64 %call38.i.i6
   store ptr %type, ptr %add.ptr.i3.i, align 8, !noalias !67
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i, i64 8
   store ptr null, ptr %second.i.i.i.i.i.i.i.i.i, align 8, !noalias !67
@@ -3195,7 +3193,7 @@ call38.i.i.noexc:                                 ; preds = %if.then.i
 invoke.cont:                                      ; preds = %for.body.i.i, %call38.i.i.noexc
   %15 = phi ptr [ %.pre20.i, %call38.i.i.noexc ], [ %7, %for.body.i.i ]
   %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i6, %call38.i.i.noexc ], [ %and.i.i.i, %for.body.i.i ]
-  %add.ptr3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i
+  %add.ptr3.i.i = getelementptr inbounds [16 x i8], ptr %15, i64 %retval.sroa.0.0.i15.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 8
   store ptr %call6, ptr %second.i.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
@@ -3494,7 +3492,7 @@ for.body:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %1, i64 %i.021
+  %add.ptr = getelementptr inbounds [16 x i8], ptr %1, i64 %i.021
   %8 = load ptr, ptr %add.ptr, align 8
   %9 = ptrtoint ptr %8 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %9, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
@@ -3523,7 +3521,7 @@ if.then:                                          ; preds = %for.body
   %14 = getelementptr i8, ptr %13, i64 %and.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %14, i64 %and6.i.i
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
-  %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %10
+  %add.ptr16 = getelementptr inbounds [16 x i8], ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr16, ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, i64 16, i1 false)
   br label %for.inc
 
@@ -3864,7 +3862,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
@@ -3889,7 +3887,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %1, i64 %idxprom.i
   store i32 %call2, ptr %arrayidx.i, align 4
   ret void
 }
@@ -3920,7 +3918,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %entry, %if.then.i
   %add7.i = add nsw i32 %3, 1
   store i32 %add7.i, ptr %data, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %elem.0.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %elem.0.i, i64 %idx.ext.i
   store i32 %call2, ptr %add.ptr.i, align 4
   %4 = load i32, ptr %data, align 8
   %cmp10.i = icmp eq i32 %add7.i, %4
@@ -3963,9 +3961,9 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index1 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom.i
   %idxprom3.i = sext i32 %index2 to i64
-  %arrayidx4.i = getelementptr inbounds i32, ptr %0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom3.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %2 = load i32, ptr %arrayidx4.i, align 4
   store i32 %2, ptr %arrayidx.i, align 4
@@ -4193,7 +4191,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i22, align 8
   store ptr %add.ptr.i.i22, ptr %arrayidx.i.i.i.i, align 8
@@ -4280,7 +4278,7 @@ _ZN6google8protobuf13RepeatedFieldIiE18UninitializedCopyNEPKiiPi.exit.i: ; preds
   %add5.pre-phi.i = phi i32 [ %4, %if.then.i ], [ %.pre6.i, %.noexc ]
   %idx.ext.i = phi i64 [ 0, %if.then.i ], [ %5, %.noexc ]
   store i32 %add5.pre-phi.i, ptr %temp, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.idx.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr align 4 %6, i64 %add.ptr.idx.i.i.i.i, i1 false), !alias.scope !76
@@ -4312,7 +4310,7 @@ _ZN6google8protobuf13RepeatedFieldIiE18UninitializedCopyNEPKiiPi.exit.i.i: ; pre
   %idx.ext.i.i = phi i64 [ 0, %if.then.i.i21 ], [ %10, %.noexc23 ]
   %11 = load ptr, ptr %arena_or_elements_.i, align 8
   store i32 %add5.pre-phi.i.i, ptr %this, align 8
-  %add.ptr.i.i22 = getelementptr inbounds i32, ptr %11, i64 %idx.ext.i.i
+  %add.ptr.i.i22 = getelementptr inbounds [4 x i8], ptr %11, i64 %idx.ext.i.i
   %12 = load ptr, ptr %arena_or_elements_.i8, align 8
   %idx.ext.i.i.i.i.i = sext i32 %8 to i64
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i.i, 2
@@ -4391,7 +4389,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
@@ -4416,7 +4414,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %1, i64 %idxprom.i
   store i32 %call2, ptr %arrayidx.i, align 4
   ret void
 }
@@ -4447,7 +4445,7 @@ _ZN6google8protobuf13RepeatedFieldIjE3AddEj.exit: ; preds = %entry, %if.then.i
   %add7.i = add nsw i32 %3, 1
   store i32 %add7.i, ptr %data, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %elem.0.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %elem.0.i, i64 %idx.ext.i
   store i32 %call2, ptr %add.ptr.i, align 4
   %4 = load i32, ptr %data, align 8
   %cmp10.i = icmp eq i32 %add7.i, %4
@@ -4490,9 +4488,9 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index1 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom.i
   %idxprom3.i = sext i32 %index2 to i64
-  %arrayidx4.i = getelementptr inbounds i32, ptr %0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom3.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %2 = load i32, ptr %arrayidx4.i, align 4
   store i32 %2, ptr %arrayidx.i, align 4
@@ -4662,7 +4660,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i22, align 8
   store ptr %add.ptr.i.i22, ptr %arrayidx.i.i.i.i, align 8
@@ -4738,7 +4736,7 @@ _ZN6google8protobuf13RepeatedFieldIjE18UninitializedCopyNEPKjiPj.exit.i: ; preds
   %add5.pre-phi.i = phi i32 [ %4, %if.then.i ], [ %.pre6.i, %.noexc ]
   %idx.ext.i = phi i64 [ 0, %if.then.i ], [ %5, %.noexc ]
   store i32 %add5.pre-phi.i, ptr %temp, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.idx.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr align 4 %6, i64 %add.ptr.idx.i.i.i.i, i1 false), !alias.scope !84
@@ -4770,7 +4768,7 @@ _ZN6google8protobuf13RepeatedFieldIjE18UninitializedCopyNEPKjiPj.exit.i.i: ; pre
   %idx.ext.i.i = phi i64 [ 0, %if.then.i.i21 ], [ %10, %.noexc23 ]
   %11 = load ptr, ptr %arena_or_elements_.i, align 8
   store i32 %add5.pre-phi.i.i, ptr %this, align 8
-  %add.ptr.i.i22 = getelementptr inbounds i32, ptr %11, i64 %idx.ext.i.i
+  %add.ptr.i.i22 = getelementptr inbounds [4 x i8], ptr %11, i64 %idx.ext.i.i
   %12 = load ptr, ptr %arena_or_elements_.i8, align 8
   %idx.ext.i.i.i.i.i = sext i32 %8 to i64
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i.i, 2
@@ -4847,7 +4845,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
@@ -4872,7 +4870,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idxprom.i
   store i64 %call2, ptr %arrayidx.i, align 8
   ret void
 }
@@ -4903,7 +4901,7 @@ _ZN6google8protobuf13RepeatedFieldIlE3AddEl.exit: ; preds = %entry, %if.then.i
   %add7.i = add nsw i32 %3, 1
   store i32 %add7.i, ptr %data, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %elem.0.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %elem.0.i, i64 %idx.ext.i
   store i64 %call2, ptr %add.ptr.i, align 8
   %4 = load i32, ptr %data, align 8
   %cmp10.i = icmp eq i32 %add7.i, %4
@@ -4946,9 +4944,9 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index1 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom.i
   %idxprom3.i = sext i32 %index2 to i64
-  %arrayidx4.i = getelementptr inbounds i64, ptr %0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom3.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %arrayidx4.i, align 8
   store i64 %2, ptr %arrayidx.i, align 8
@@ -5115,7 +5113,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
@@ -5191,7 +5189,7 @@ _ZN6google8protobuf13RepeatedFieldIlE18UninitializedCopyNEPKliPl.exit.i: ; preds
   %add5.pre-phi.i = phi i32 [ %4, %if.then.i ], [ %.pre6.i, %.noexc ]
   %idx.ext.i = phi i64 [ 0, %if.then.i ], [ %5, %.noexc ]
   store i32 %add5.pre-phi.i, ptr %temp, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %7, i64 %idx.ext.i
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.idx.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %6, i64 %add.ptr.idx.i.i.i.i, i1 false), !alias.scope !92
@@ -5223,7 +5221,7 @@ _ZN6google8protobuf13RepeatedFieldIlE18UninitializedCopyNEPKliPl.exit.i.i: ; pre
   %idx.ext.i.i = phi i64 [ 0, %if.then.i.i21 ], [ %10, %.noexc23 ]
   %11 = load ptr, ptr %arena_or_elements_.i, align 8
   store i32 %add5.pre-phi.i.i, ptr %this, align 8
-  %add.ptr.i.i22 = getelementptr inbounds i64, ptr %11, i64 %idx.ext.i.i
+  %add.ptr.i.i22 = getelementptr inbounds [8 x i8], ptr %11, i64 %idx.ext.i.i
   %12 = load ptr, ptr %arena_or_elements_.i8, align 8
   %idx.ext.i.i.i.i.i = sext i32 %8 to i64
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i.i, 3
@@ -5300,7 +5298,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
@@ -5325,7 +5323,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idxprom.i
   store i64 %call2, ptr %arrayidx.i, align 8
   ret void
 }
@@ -5356,7 +5354,7 @@ _ZN6google8protobuf13RepeatedFieldImE3AddEm.exit: ; preds = %entry, %if.then.i
   %add7.i = add nsw i32 %3, 1
   store i32 %add7.i, ptr %data, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %elem.0.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %elem.0.i, i64 %idx.ext.i
   store i64 %call2, ptr %add.ptr.i, align 8
   %4 = load i32, ptr %data, align 8
   %cmp10.i = icmp eq i32 %add7.i, %4
@@ -5399,9 +5397,9 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index1 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom.i
   %idxprom3.i = sext i32 %index2 to i64
-  %arrayidx4.i = getelementptr inbounds i64, ptr %0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom3.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = load i64, ptr %arrayidx4.i, align 8
   store i64 %2, ptr %arrayidx.i, align 8
@@ -5568,7 +5566,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
@@ -5644,7 +5642,7 @@ _ZN6google8protobuf13RepeatedFieldImE18UninitializedCopyNEPKmiPm.exit.i: ; preds
   %add5.pre-phi.i = phi i32 [ %4, %if.then.i ], [ %.pre6.i, %.noexc ]
   %idx.ext.i = phi i64 [ 0, %if.then.i ], [ %5, %.noexc ]
   store i32 %add5.pre-phi.i, ptr %temp, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %7, i64 %idx.ext.i
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.idx.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %6, i64 %add.ptr.idx.i.i.i.i, i1 false), !alias.scope !100
@@ -5676,7 +5674,7 @@ _ZN6google8protobuf13RepeatedFieldImE18UninitializedCopyNEPKmiPm.exit.i.i: ; pre
   %idx.ext.i.i = phi i64 [ 0, %if.then.i.i21 ], [ %10, %.noexc23 ]
   %11 = load ptr, ptr %arena_or_elements_.i, align 8
   store i32 %add5.pre-phi.i.i, ptr %this, align 8
-  %add.ptr.i.i22 = getelementptr inbounds i64, ptr %11, i64 %idx.ext.i.i
+  %add.ptr.i.i22 = getelementptr inbounds [8 x i8], ptr %11, i64 %idx.ext.i.i
   %12 = load ptr, ptr %arena_or_elements_.i8, align 8
   %idx.ext.i.i.i.i.i = sext i32 %8 to i64
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i.i, 3
@@ -5753,7 +5751,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
@@ -5778,7 +5776,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds float, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %1, i64 %idxprom.i
   store float %call2, ptr %arrayidx.i, align 4
   ret void
 }
@@ -5809,7 +5807,7 @@ _ZN6google8protobuf13RepeatedFieldIfE3AddEf.exit: ; preds = %entry, %if.then.i
   %add7.i = add nsw i32 %3, 1
   store i32 %add7.i, ptr %data, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %elem.0.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %elem.0.i, i64 %idx.ext.i
   store float %call2, ptr %add.ptr.i, align 4
   %4 = load i32, ptr %data, align 8
   %cmp10.i = icmp eq i32 %add7.i, %4
@@ -5852,9 +5850,9 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index1 to i64
-  %arrayidx.i = getelementptr inbounds float, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom.i
   %idxprom3.i = sext i32 %index2 to i64
-  %arrayidx4.i = getelementptr inbounds float, ptr %0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom3.i
   %1 = load float, ptr %arrayidx.i, align 4
   %2 = load float, ptr %arrayidx4.i, align 4
   store float %2, ptr %arrayidx.i, align 4
@@ -6024,7 +6022,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i22, align 8
   store ptr %add.ptr.i.i22, ptr %arrayidx.i.i.i.i, align 8
@@ -6100,7 +6098,7 @@ _ZN6google8protobuf13RepeatedFieldIfE18UninitializedCopyNEPKfiPf.exit.i: ; preds
   %add5.pre-phi.i = phi i32 [ %4, %if.then.i ], [ %.pre6.i, %.noexc ]
   %idx.ext.i = phi i64 [ 0, %if.then.i ], [ %5, %.noexc ]
   store i32 %add5.pre-phi.i, ptr %temp, align 8
-  %add.ptr.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %7, i64 %idx.ext.i
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.idx.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr align 4 %6, i64 %add.ptr.idx.i.i.i.i, i1 false), !alias.scope !108
@@ -6132,7 +6130,7 @@ _ZN6google8protobuf13RepeatedFieldIfE18UninitializedCopyNEPKfiPf.exit.i.i: ; pre
   %idx.ext.i.i = phi i64 [ 0, %if.then.i.i21 ], [ %10, %.noexc23 ]
   %11 = load ptr, ptr %arena_or_elements_.i, align 8
   store i32 %add5.pre-phi.i.i, ptr %this, align 8
-  %add.ptr.i.i22 = getelementptr inbounds float, ptr %11, i64 %idx.ext.i.i
+  %add.ptr.i.i22 = getelementptr inbounds [4 x i8], ptr %11, i64 %idx.ext.i.i
   %12 = load ptr, ptr %arena_or_elements_.i8, align 8
   %idx.ext.i.i.i.i.i = sext i32 %8 to i64
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i.i, 2
@@ -6209,7 +6207,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds double, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom.i
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
@@ -6234,7 +6232,7 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds double, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idxprom.i
   store double %call2, ptr %arrayidx.i, align 8
   ret void
 }
@@ -6265,7 +6263,7 @@ _ZN6google8protobuf13RepeatedFieldIdE3AddEd.exit: ; preds = %entry, %if.then.i
   %add7.i = add nsw i32 %3, 1
   store i32 %add7.i, ptr %data, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds double, ptr %elem.0.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %elem.0.i, i64 %idx.ext.i
   store double %call2, ptr %add.ptr.i, align 8
   %4 = load i32, ptr %data, align 8
   %cmp10.i = icmp eq i32 %add7.i, %4
@@ -6308,9 +6306,9 @@ entry:
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %idxprom.i = sext i32 %index1 to i64
-  %arrayidx.i = getelementptr inbounds double, ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom.i
   %idxprom3.i = sext i32 %index2 to i64
-  %arrayidx4.i = getelementptr inbounds double, ptr %0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [8 x i8], ptr %0, i64 %idxprom3.i
   %1 = load double, ptr %arrayidx.i, align 8
   %2 = load double, ptr %arrayidx4.i, align 8
   store double %2, ptr %arrayidx.i, align 8
@@ -6477,7 +6475,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
@@ -6553,7 +6551,7 @@ _ZN6google8protobuf13RepeatedFieldIdE18UninitializedCopyNEPKdiPd.exit.i: ; preds
   %add5.pre-phi.i = phi i32 [ %4, %if.then.i ], [ %.pre6.i, %.noexc ]
   %idx.ext.i = phi i64 [ 0, %if.then.i ], [ %5, %.noexc ]
   store i32 %add5.pre-phi.i, ptr %temp, align 8
-  %add.ptr.i = getelementptr inbounds double, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %7, i64 %idx.ext.i
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.idx.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 8 %6, i64 %add.ptr.idx.i.i.i.i, i1 false), !alias.scope !116
@@ -6585,7 +6583,7 @@ _ZN6google8protobuf13RepeatedFieldIdE18UninitializedCopyNEPKdiPd.exit.i.i: ; pre
   %idx.ext.i.i = phi i64 [ 0, %if.then.i.i21 ], [ %10, %.noexc23 ]
   %11 = load ptr, ptr %arena_or_elements_.i, align 8
   store i32 %add5.pre-phi.i.i, ptr %this, align 8
-  %add.ptr.i.i22 = getelementptr inbounds double, ptr %11, i64 %idx.ext.i.i
+  %add.ptr.i.i22 = getelementptr inbounds [8 x i8], ptr %11, i64 %idx.ext.i.i
   %12 = load ptr, ptr %arena_or_elements_.i8, align 8
   %idx.ext.i.i.i.i.i = sext i32 %8 to i64
   %add.ptr.idx.i.i.i.i.i = shl nsw i64 %idx.ext.i.i.i.i.i, 3
@@ -6935,7 +6933,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i20, align 8
   store ptr %add.ptr.i.i20, ptr %arrayidx.i.i.i.i, align 8
@@ -7125,7 +7123,7 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i.i = sext i32 %index to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i.i
   %3 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -7158,7 +7156,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -7183,7 +7181,7 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %index to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i
   %3 = load ptr, ptr %retval.0.i.i.i, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -7248,12 +7246,12 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.threa
 
 cond.true.i21.i.i:                                ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
   %idxprom.i.i = sext i32 %8 to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %data, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %data, i64 %idxprom.i.i
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit24.i.i
 
 cond.false.i18.i.i:                               ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread.i.i
   %idxprom44.i.i = sext i32 %9 to i64
-  %arrayidx45.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom44.i.i
+  %arrayidx45.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom44.i.i
   %10 = sext i32 %6 to i64
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit24.i.i
 
@@ -7263,7 +7261,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit24.i.i
   %cond.i9304046.i.i = phi ptr [ %data, %cond.true.i21.i.i ], [ %elements.i.i.i, %cond.false.i18.i.i ]
   %cond3.i20.i.i = phi i64 [ 0, %cond.true.i21.i.i ], [ %10, %cond.false.i18.i.i ]
   %11 = load ptr, ptr %.in.i.i, align 8
-  %arrayidx12.i.i = getelementptr inbounds ptr, ptr %cond.i9304046.i.i, i64 %cond3.i20.i.i
+  %arrayidx12.i.i = getelementptr inbounds [8 x i8], ptr %cond.i9304046.i.i, i64 %cond3.i20.i.i
   store ptr %11, ptr %arrayidx12.i.i, align 8
   %.pre.i.i = load i32, ptr %current_size_323948.i.i, align 8
   br label %if.end13.i.i
@@ -7275,7 +7273,7 @@ if.end13.i.i:                                     ; preds = %_ZNK6google8protobu
   %add.i.i = add nsw i32 %12, 1
   store i32 %add.i.i, ptr %current_size_3238.i.i, align 4
   %idxprom16.i.i = sext i32 %12 to i64
-  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %cond.i93041.i.i, i64 %idxprom16.i.i
+  %arrayidx17.i.i = getelementptr inbounds [8 x i8], ptr %cond.i93041.i.i, i64 %idxprom16.i.i
   store ptr %call, ptr %arrayidx17.i.i, align 8
   %13 = load ptr, ptr %data, align 8
   %14 = ptrtoint ptr %13 to i64
@@ -7310,7 +7308,7 @@ entry:
   %3 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %idxprom.i.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
@@ -7335,10 +7333,10 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %index1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i
   %idxprom.i5.i.i = sext i32 %index2 to i64
-  %arrayidx.i6.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i5.i.i
+  %arrayidx.i6.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i5.i.i
   %retval.0.i7.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i6.i.i
   %3 = load ptr, ptr %retval.0.i.i.i, align 8
   %4 = load ptr, ptr %retval.0.i7.i.i, align 8
@@ -7502,7 +7500,7 @@ invoke.cont19:                                    ; preds = %invoke.cont19.prehe
   %sub.i.i.i.i.i = add i64 %12, -1
   %13 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %elements.i.i.i.i, i64 %indvars.iv
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %elements.i.i.i.i, i64 %indvars.iv
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %tmp, ptr %arrayidx.i.i.i.i
   %14 = load ptr, ptr %retval.0.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i32)
@@ -7560,7 +7558,7 @@ for.body.preheader.i.i:                           ; preds = %_ZNK6google8protobu
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %cond.i5.i7.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i5.i7.i, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %arrayidx.i.i, align 8
   %isnull.i.i.i.i = icmp eq ptr %22, null
   br i1 %isnull.i.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i.i, label %delete.notnull.i.i.i.i
@@ -7722,7 +7720,7 @@ if.then6:                                         ; preds = %cond.true.i.if.then
   %.pre-phi = phi ptr [ %.pre56, %cond.true.i.if.then6_crit_edge ], [ %8, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit ]
   %elements.i = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %idxprom.i
   %retval.0.i = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i
   %10 = load ptr, ptr %retval.0.i, align 8
   %arena_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7748,7 +7746,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.threa
 cond.false.i21:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
   %elements.i1549 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %idxprom.i1650 = sext i32 %0 to i64
-  %arrayidx.i1751 = getelementptr inbounds ptr, ptr %elements.i1549, i64 %idxprom.i1650
+  %arrayidx.i1751 = getelementptr inbounds [8 x i8], ptr %elements.i1549, i64 %idxprom.i1650
   %12 = sext i32 %9 to i64
   %.pre = load ptr, ptr %arrayidx.i1751, align 8
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit27
@@ -7757,7 +7755,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit27: ; 
   %13 = phi ptr [ %.pre, %cond.false.i21 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
   %elements.i1553 = phi ptr [ %elements.i1549, %cond.false.i21 ], [ inttoptr (i64 7 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
   %cond3.i23 = phi i64 [ %12, %cond.false.i21 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %arrayidx.i33 = getelementptr inbounds ptr, ptr %elements.i1553, i64 %cond3.i23
+  %arrayidx.i33 = getelementptr inbounds [8 x i8], ptr %elements.i1553, i64 %cond3.i23
   %retval.0.i34 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i33
   store ptr %13, ptr %retval.0.i34, align 8
   %14 = load ptr, ptr %this, align 8
@@ -7786,7 +7784,7 @@ if.end27:                                         ; preds = %_ZNK6google8protobu
   %21 = inttoptr i64 %sub.i.i41 to ptr
   %elements.i42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %idxprom.i43 = sext i32 %18 to i64
-  %arrayidx.i44 = getelementptr inbounds ptr, ptr %elements.i42, i64 %idxprom.i43
+  %arrayidx.i44 = getelementptr inbounds [8 x i8], ptr %elements.i42, i64 %idxprom.i43
   %retval.0.i45 = select i1 %cmp.i.i40, ptr %this, ptr %arrayidx.i44
   store ptr %value, ptr %retval.0.i45, align 8
   ret void
@@ -7850,7 +7848,7 @@ for.body.preheader.i:                             ; preds = %if.end.i, %_ZNK6goo
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %cond.i5.i7, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i5.i7, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i, label %delete.notnull.i.i.i
@@ -7928,7 +7926,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -7979,7 +7977,7 @@ for.body.preheader.i:                             ; preds = %if.end.i8, %_ZNK6go
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %cond.i5.i16, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i5.i16, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i.i = icmp eq ptr %13, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPvPNS0_5ArenaE.exit.i, label %delete.notnull.i.i.i
@@ -8054,7 +8052,7 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i.i = sext i32 %index to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %call.i, ptr %arrayidx.i.i.i.i
   %3 = load ptr, ptr %retval.0.i.i.i.i, align 8
   ret ptr %3
@@ -8084,7 +8082,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
@@ -8113,7 +8111,7 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %index to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %call.i, ptr %arrayidx.i.i.i
   %3 = load ptr, ptr %retval.0.i.i.i, align 8
   tail call void @_ZN6google8protobuf7Message8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %value)
@@ -8149,7 +8147,7 @@ entry:
   %3 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %idxprom.i.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %call.i, ptr %arrayidx.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %4, align 8
@@ -8179,10 +8177,10 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %index1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %call.i, ptr %arrayidx.i.i.i
   %idxprom.i5.i.i = sext i32 %index2 to i64
-  %arrayidx.i6.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i5.i.i
+  %arrayidx.i6.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i5.i.i
   %retval.0.i7.i.i = select i1 %cmp.i.i.i.i, ptr %call.i, ptr %arrayidx.i6.i.i
   %3 = load ptr, ptr %retval.0.i.i.i, align 8
   %4 = load ptr, ptr %retval.0.i7.i.i, align 8
@@ -8351,12 +8349,12 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.threa
 
 cond.true.i22:                                    ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
   %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %this, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %this, i64 %idxprom
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25
 
 cond.false.i19:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
   %idxprom51 = sext i32 %12 to i64
-  %arrayidx52 = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %idxprom51
   %13 = sext i32 %8 to i64
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25
 
@@ -8366,7 +8364,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25: ; 
   %cond.i10374753 = phi ptr [ %this, %cond.true.i22 ], [ %elements.i, %cond.false.i19 ]
   %cond3.i21 = phi i64 [ 0, %cond.true.i22 ], [ %13, %cond.false.i19 ]
   %14 = load ptr, ptr %.in, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %cond.i10374753, i64 %cond3.i21
+  %arrayidx12 = getelementptr inbounds [8 x i8], ptr %cond.i10374753, i64 %cond3.i21
   store ptr %14, ptr %arrayidx12, align 8
   %.pre = load i32, ptr %current_size_394655, align 8
   br label %if.end13
@@ -8378,7 +8376,7 @@ if.end13:                                         ; preds = %_ZNK6google8protobu
   %add = add nsw i32 %15, 1
   store i32 %add, ptr %current_size_3945, align 4
   %idxprom16 = sext i32 %15 to i64
-  %arrayidx17 = getelementptr inbounds ptr, ptr %cond.i103748, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [8 x i8], ptr %cond.i103748, i64 %idxprom16
   store ptr %value, ptr %arrayidx17, align 8
   %16 = load ptr, ptr %this, align 8
   %17 = ptrtoint ptr %16 to i64
@@ -8450,7 +8448,7 @@ if.end.i.i:                                       ; preds = %if.then6
   %11 = inttoptr i64 %sub.i.i to ptr
   %elements.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %elements.i, i64 %idxprom.i
   %retval.0.i = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i
   %12 = load ptr, ptr %retval.0.i, align 8
   tail call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %12)
@@ -8467,7 +8465,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.threa
 cond.false.i20:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
   %elements.i1448 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %idxprom.i1549 = sext i32 %0 to i64
-  %arrayidx.i1650 = getelementptr inbounds ptr, ptr %elements.i1448, i64 %idxprom.i1549
+  %arrayidx.i1650 = getelementptr inbounds [8 x i8], ptr %elements.i1448, i64 %idxprom.i1549
   %13 = sext i32 %9 to i64
   %.pre = load ptr, ptr %arrayidx.i1650, align 8
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26
@@ -8476,7 +8474,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26: ; 
   %14 = phi ptr [ %.pre, %cond.false.i20 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
   %elements.i1452 = phi ptr [ %elements.i1448, %cond.false.i20 ], [ inttoptr (i64 7 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
   %cond3.i22 = phi i64 [ %13, %cond.false.i20 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %arrayidx.i32 = getelementptr inbounds ptr, ptr %elements.i1452, i64 %cond3.i22
+  %arrayidx.i32 = getelementptr inbounds [8 x i8], ptr %elements.i1452, i64 %cond3.i22
   %retval.0.i33 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i32
   store ptr %14, ptr %retval.0.i33, align 8
   %15 = load ptr, ptr %this, align 8
@@ -8505,7 +8503,7 @@ if.end27:                                         ; preds = %_ZNK6google8protobu
   %22 = inttoptr i64 %sub.i.i40 to ptr
   %elements.i41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %idxprom.i42 = sext i32 %19 to i64
-  %arrayidx.i43 = getelementptr inbounds ptr, ptr %elements.i41, i64 %idxprom.i42
+  %arrayidx.i43 = getelementptr inbounds [8 x i8], ptr %elements.i41, i64 %idxprom.i42
   %retval.0.i44 = select i1 %cmp.i.i39, ptr %this, ptr %arrayidx.i43
   store ptr %value, ptr %retval.0.i44, align 8
   ret void
@@ -8572,7 +8570,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
   %6 = load ptr, ptr %arrayidx.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
@@ -8626,7 +8624,7 @@ for.body.preheader.i:                             ; preds = %if.end.i9, %_ZNK6go
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %cond.i5.i18, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i5.i18, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8684,7 +8682,7 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i.i = sext i32 %index to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i.i, i64 %idxprom.i.i.i.i
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i.i
   %3 = load ptr, ptr %retval.0.i.i.i.i, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -8717,7 +8715,7 @@ if.then.i.i:                                      ; preds = %entry
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %do.body.i.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i.i.i, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
@@ -8745,7 +8743,7 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %index to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i
   %3 = load ptr, ptr %retval.0.i.i.i, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -8785,7 +8783,7 @@ entry:
   %3 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %idxprom.i.i.i = sext i32 %sub.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i
   %4 = load ptr, ptr %retval.0.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %4, align 8
@@ -8813,10 +8811,10 @@ entry:
   %2 = inttoptr i64 %sub.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %idxprom.i.i.i = sext i32 %index1 to i64
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i.i.i
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i.i.i
   %idxprom.i5.i.i = sext i32 %index2 to i64
-  %arrayidx.i6.i.i = getelementptr inbounds ptr, ptr %elements.i.i.i, i64 %idxprom.i5.i.i
+  %arrayidx.i6.i.i = getelementptr inbounds [8 x i8], ptr %elements.i.i.i, i64 %idxprom.i5.i.i
   %retval.0.i7.i.i = select i1 %cmp.i.i.i.i, ptr %data, ptr %arrayidx.i6.i.i
   %3 = load ptr, ptr %retval.0.i.i.i, align 8
   %4 = load ptr, ptr %retval.0.i7.i.i, align 8

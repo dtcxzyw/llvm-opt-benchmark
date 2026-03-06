@@ -233,17 +233,17 @@ define internal i32 @dissect_fp_mux(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i32 0, ptr %26, align 4
   %86 = call ptr @wmem_file_scope()
   %87 = load i32, ptr @proto_fp, align 4
-  %88 = getelementptr ptr, ptr %27, i64 %indvars.iv
+  %88 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
   call void @p_add_proto_data(ptr noundef %86, ptr noundef %1, i32 noundef %87, i32 noundef 0, ptr noundef %89)
   %90 = call ptr @wmem_file_scope()
   %91 = load i32, ptr @proto_umts_mac, align 4
-  %92 = getelementptr ptr, ptr %28, i64 %indvars.iv
+  %92 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   call void @p_add_proto_data(ptr noundef %90, ptr noundef %1, i32 noundef %91, i32 noundef 0, ptr noundef %93)
   %94 = call ptr @wmem_file_scope()
   %95 = load i32, ptr @proto_umts_rlc, align 4
-  %96 = getelementptr ptr, ptr %29, i64 %indvars.iv
+  %96 = getelementptr [8 x i8], ptr %29, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   call void @p_add_proto_data(ptr noundef %94, ptr noundef %1, i32 noundef %95, i32 noundef 0, ptr noundef %97)
   %98 = load i32, ptr %25, align 8

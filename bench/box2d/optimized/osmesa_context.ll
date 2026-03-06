@@ -93,7 +93,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitOSMesa() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %2
   %.not16 = phi i1 [ true, %2 ], [ false, %0 ]
   %indvars.iv = phi i64 [ 1, %2 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._glfwInitOSMesa.sonames, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._glfwInitOSMesa.sonames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = tail call ptr @_glfwPlatformLoadModule(ptr noundef %4) #4
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133736), align 8, !tbaa !3
@@ -273,7 +273,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
 
 ._crit_edge:                                      ; preds = %44
   %49 = zext nneg i32 %.0 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %4, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %49
   store i32 54, ptr %50, align 8, !tbaa !141
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %46, ptr %51, align 4, !tbaa !141
@@ -293,7 +293,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
 
 .thread:                                          ; preds = %55
   %58 = zext nneg i32 %.1 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %58
   store i32 0, ptr %59, align 4, !tbaa !141
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %60, align 4, !tbaa !141

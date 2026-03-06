@@ -814,7 +814,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 switch.lookup:                                    ; preds = %"_ZN4core3ptr180drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$foundations..telemetry..log..internal..LoggerWithKvNestingTracking$GT$$GT$$GT$17h0ee5dd5d010a4bb9E.exit22.i"
   %84 = zext nneg i8 %81 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hd35333da812371a4E", i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closure$u7d$$u7d$17hd35333da812371a4E", i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
   %85 = invoke noundef zeroext i1 @_ZN11slog_stdlog15init_with_level17hb940b4ec61a31457E(i64 noundef %switch.load)
           to label %86 unwind label %82
@@ -1123,7 +1123,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17hc00c3a6db74c0ff
   br i1 %34, label %.loopexit101, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.7374cd21b91d9246b4a7cc38cadcd57a.248, i64 %33
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @anon.7374cd21b91d9246b4a7cc38cadcd57a.248, i64 %33
   %37 = load ptr, ptr %36, align 8, !noalias !76, !nonnull !3, !align !20, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !76, !noundef !3
@@ -1963,7 +1963,7 @@ _ZN12tokio_quiche8settings6config22quiche_config_with_tls17hcd958f043f058b0cE.ex
   %130 = load ptr, ptr %129, align 8, !alias.scope !126, !noalias !131, !nonnull !3, !noundef !3
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %132 = load i64, ptr %131, align 16, !alias.scope !126, !noalias !131, !noundef !3
-  %133 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %132
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdbf1335a7b65f920E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noundef nonnull %130, ptr noundef nonnull %133, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7374cd21b91d9246b4a7cc38cadcd57a.5)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17h24ec2a10c76e1c86E.exit.i unwind label %.thread154.i, !noalias !131
 
@@ -3648,7 +3648,7 @@ define void @"_ZN94_$LT$tokio_quiche..settings..quic..QuicSettings$u20$as$u20$fo
   %287 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %285, ptr %287, align 8, !noalias !215
   %288 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %289 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1, i64 %2
+  %289 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %2
   %290 = icmp eq i64 %281, 0
   br i1 %290, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc55fb6cd4c6844aeE.exit", label %.lr.ph.i
 
@@ -3667,7 +3667,7 @@ define void @"_ZN94_$LT$tokio_quiche..settings..quic..QuicSettings$u20$as$u20$fo
 294:                                              ; preds = %293
   %295 = add nuw nsw i64 %.sroa.7.020.i, 1
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i, i64 24
-  %297 = getelementptr inbounds nuw { [3 x i64] }, ptr %285, i64 %.sroa.7.020.i
+  %297 = getelementptr inbounds nuw [24 x i8], ptr %285, i64 %.sroa.7.020.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %297, ptr noundef nonnull align 8 dereferenceable(24) %159, i64 24, i1 false), !noalias !222
   %298 = icmp eq i64 %291, 0
   br i1 %298, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc55fb6cd4c6844aeE.exit", label %.lr.ph.i
@@ -3756,7 +3756,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 321:                                              ; preds = %316, %309
   %322 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %323 = load ptr, ptr %322, align 8, !alias.scope !231, !noalias !234, !nonnull !3, !noundef !3
-  %324 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %323, i64 %313
+  %324 = getelementptr inbounds nuw [24 x i8], ptr %323, i64 %313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %324, ptr noundef nonnull align 8 dereferenceable(24) %276, i64 24, i1 false)
   %325 = add i64 %313, 1
   store i64 %325, ptr %312, align 8, !alias.scope !231, !noalias !234
@@ -3815,7 +3815,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 343:                                              ; preds = %342
   %344 = add nuw nsw i64 %.sroa.7.020.i84, 1
   %345 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i83, i64 24
-  %346 = getelementptr inbounds nuw { [3 x i64] }, ptr %335, i64 %.sroa.7.020.i84
+  %346 = getelementptr inbounds nuw [24 x i8], ptr %335, i64 %.sroa.7.020.i84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 8 dereferenceable(24) %155, i64 24, i1 false), !noalias !246
   %347 = icmp eq i64 %340, 0
   br i1 %347, label %.loopexit1754, label %.lr.ph.i81
@@ -3900,7 +3900,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc107:                                        ; preds = %366, %359
   %371 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %372 = load ptr, ptr %371, align 8, !alias.scope !255, !noalias !258, !nonnull !3, !noundef !3
-  %373 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %372, i64 %363
+  %373 = getelementptr inbounds nuw [24 x i8], ptr %372, i64 %363
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %373, ptr noundef nonnull align 8 dereferenceable(24) %273, i64 24, i1 false)
   %374 = add i64 %363, 1
   store i64 %374, ptr %362, align 8, !alias.scope !255, !noalias !258
@@ -3953,7 +3953,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 390:                                              ; preds = %389
   %391 = add nuw nsw i64 %.sroa.7.020.i105, 1
   %392 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i104, i64 24
-  %393 = getelementptr inbounds nuw { [3 x i64] }, ptr %382, i64 %.sroa.7.020.i105
+  %393 = getelementptr inbounds nuw [24 x i8], ptr %382, i64 %.sroa.7.020.i105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %393, ptr noundef nonnull align 8 dereferenceable(24) %151, i64 24, i1 false), !noalias !269
   %394 = icmp eq i64 %387, 0
   br i1 %394, label %.loopexit1753, label %.lr.ph.i102
@@ -4038,7 +4038,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc128:                                        ; preds = %413, %406
   %418 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %419 = load ptr, ptr %418, align 8, !alias.scope !278, !noalias !281, !nonnull !3, !noundef !3
-  %420 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %419, i64 %410
+  %420 = getelementptr inbounds nuw [24 x i8], ptr %419, i64 %410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %420, ptr noundef nonnull align 8 dereferenceable(24) %270, i64 24, i1 false)
   %421 = add i64 %410, 1
   store i64 %421, ptr %409, align 8, !alias.scope !278, !noalias !281
@@ -4091,7 +4091,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 437:                                              ; preds = %436
   %438 = add nuw nsw i64 %.sroa.7.020.i126, 1
   %439 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i125, i64 24
-  %440 = getelementptr inbounds nuw { [3 x i64] }, ptr %429, i64 %.sroa.7.020.i126
+  %440 = getelementptr inbounds nuw [24 x i8], ptr %429, i64 %.sroa.7.020.i126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %440, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false), !noalias !292
   %441 = icmp eq i64 %434, 0
   br i1 %441, label %.loopexit1752, label %.lr.ph.i123
@@ -4176,7 +4176,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc149:                                        ; preds = %460, %453
   %465 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %466 = load ptr, ptr %465, align 8, !alias.scope !301, !noalias !304, !nonnull !3, !noundef !3
-  %467 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %466, i64 %457
+  %467 = getelementptr inbounds nuw [24 x i8], ptr %466, i64 %457
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %467, ptr noundef nonnull align 8 dereferenceable(24) %267, i64 24, i1 false)
   %468 = add i64 %457, 1
   store i64 %468, ptr %456, align 8, !alias.scope !301, !noalias !304
@@ -4229,7 +4229,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 484:                                              ; preds = %483
   %485 = add nuw nsw i64 %.sroa.7.020.i147, 1
   %486 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i146, i64 24
-  %487 = getelementptr inbounds nuw { [3 x i64] }, ptr %476, i64 %.sroa.7.020.i147
+  %487 = getelementptr inbounds nuw [24 x i8], ptr %476, i64 %.sroa.7.020.i147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, ptr noundef nonnull align 8 dereferenceable(24) %143, i64 24, i1 false), !noalias !315
   %488 = icmp eq i64 %481, 0
   br i1 %488, label %.loopexit1751, label %.lr.ph.i144
@@ -4314,7 +4314,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc170:                                        ; preds = %507, %500
   %512 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %513 = load ptr, ptr %512, align 8, !alias.scope !324, !noalias !327, !nonnull !3, !noundef !3
-  %514 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %513, i64 %504
+  %514 = getelementptr inbounds nuw [24 x i8], ptr %513, i64 %504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %514, ptr noundef nonnull align 8 dereferenceable(24) %264, i64 24, i1 false)
   %515 = add i64 %504, 1
   store i64 %515, ptr %503, align 8, !alias.scope !324, !noalias !327
@@ -4367,7 +4367,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 531:                                              ; preds = %530
   %532 = add nuw nsw i64 %.sroa.7.020.i168, 1
   %533 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i167, i64 24
-  %534 = getelementptr inbounds nuw { [3 x i64] }, ptr %523, i64 %.sroa.7.020.i168
+  %534 = getelementptr inbounds nuw [24 x i8], ptr %523, i64 %.sroa.7.020.i168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %534, ptr noundef nonnull align 8 dereferenceable(24) %139, i64 24, i1 false), !noalias !338
   %535 = icmp eq i64 %528, 0
   br i1 %535, label %.loopexit1750, label %.lr.ph.i165
@@ -4452,7 +4452,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc191:                                        ; preds = %554, %547
   %559 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %560 = load ptr, ptr %559, align 8, !alias.scope !347, !noalias !350, !nonnull !3, !noundef !3
-  %561 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %560, i64 %551
+  %561 = getelementptr inbounds nuw [24 x i8], ptr %560, i64 %551
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %561, ptr noundef nonnull align 8 dereferenceable(24) %261, i64 24, i1 false)
   %562 = add i64 %551, 1
   store i64 %562, ptr %550, align 8, !alias.scope !347, !noalias !350
@@ -4505,7 +4505,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 578:                                              ; preds = %577
   %579 = add nuw nsw i64 %.sroa.7.020.i189, 1
   %580 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i188, i64 24
-  %581 = getelementptr inbounds nuw { [3 x i64] }, ptr %570, i64 %.sroa.7.020.i189
+  %581 = getelementptr inbounds nuw [24 x i8], ptr %570, i64 %.sroa.7.020.i189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %581, ptr noundef nonnull align 8 dereferenceable(24) %135, i64 24, i1 false), !noalias !361
   %582 = icmp eq i64 %575, 0
   br i1 %582, label %.loopexit1749, label %.lr.ph.i186
@@ -4590,7 +4590,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc212:                                        ; preds = %601, %594
   %606 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %607 = load ptr, ptr %606, align 8, !alias.scope !370, !noalias !373, !nonnull !3, !noundef !3
-  %608 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %607, i64 %598
+  %608 = getelementptr inbounds nuw [24 x i8], ptr %607, i64 %598
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %608, ptr noundef nonnull align 8 dereferenceable(24) %258, i64 24, i1 false)
   %609 = add i64 %598, 1
   store i64 %609, ptr %597, align 8, !alias.scope !370, !noalias !373
@@ -4643,7 +4643,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 625:                                              ; preds = %624
   %626 = add nuw nsw i64 %.sroa.7.020.i210, 1
   %627 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i209, i64 24
-  %628 = getelementptr inbounds nuw { [3 x i64] }, ptr %617, i64 %.sroa.7.020.i210
+  %628 = getelementptr inbounds nuw [24 x i8], ptr %617, i64 %.sroa.7.020.i210
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %628, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false), !noalias !384
   %629 = icmp eq i64 %622, 0
   br i1 %629, label %.loopexit1748, label %.lr.ph.i207
@@ -4728,7 +4728,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc233:                                        ; preds = %648, %641
   %653 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %654 = load ptr, ptr %653, align 8, !alias.scope !393, !noalias !396, !nonnull !3, !noundef !3
-  %655 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %654, i64 %645
+  %655 = getelementptr inbounds nuw [24 x i8], ptr %654, i64 %645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %655, ptr noundef nonnull align 8 dereferenceable(24) %255, i64 24, i1 false)
   %656 = add i64 %645, 1
   store i64 %656, ptr %644, align 8, !alias.scope !393, !noalias !396
@@ -4781,7 +4781,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 672:                                              ; preds = %671
   %673 = add nuw nsw i64 %.sroa.7.020.i231, 1
   %674 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i230, i64 24
-  %675 = getelementptr inbounds nuw { [3 x i64] }, ptr %664, i64 %.sroa.7.020.i231
+  %675 = getelementptr inbounds nuw [24 x i8], ptr %664, i64 %.sroa.7.020.i231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %675, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false), !noalias !407
   %676 = icmp eq i64 %669, 0
   br i1 %676, label %.loopexit1747, label %.lr.ph.i228
@@ -4866,7 +4866,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc254:                                        ; preds = %695, %688
   %700 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %701 = load ptr, ptr %700, align 8, !alias.scope !416, !noalias !419, !nonnull !3, !noundef !3
-  %702 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %701, i64 %692
+  %702 = getelementptr inbounds nuw [24 x i8], ptr %701, i64 %692
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %702, ptr noundef nonnull align 8 dereferenceable(24) %252, i64 24, i1 false)
   %703 = add i64 %692, 1
   store i64 %703, ptr %691, align 8, !alias.scope !416, !noalias !419
@@ -4919,7 +4919,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 719:                                              ; preds = %718
   %720 = add nuw nsw i64 %.sroa.7.020.i252, 1
   %721 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i251, i64 24
-  %722 = getelementptr inbounds nuw { [3 x i64] }, ptr %711, i64 %.sroa.7.020.i252
+  %722 = getelementptr inbounds nuw [24 x i8], ptr %711, i64 %.sroa.7.020.i252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %722, ptr noundef nonnull align 8 dereferenceable(24) %123, i64 24, i1 false), !noalias !430
   %723 = icmp eq i64 %716, 0
   br i1 %723, label %.loopexit1746, label %.lr.ph.i249
@@ -5004,7 +5004,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc275:                                        ; preds = %742, %735
   %747 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %748 = load ptr, ptr %747, align 8, !alias.scope !439, !noalias !442, !nonnull !3, !noundef !3
-  %749 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %748, i64 %739
+  %749 = getelementptr inbounds nuw [24 x i8], ptr %748, i64 %739
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %749, ptr noundef nonnull align 8 dereferenceable(24) %249, i64 24, i1 false)
   %750 = add i64 %739, 1
   store i64 %750, ptr %738, align 8, !alias.scope !439, !noalias !442
@@ -5057,7 +5057,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 766:                                              ; preds = %765
   %767 = add nuw nsw i64 %.sroa.7.020.i273, 1
   %768 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i272, i64 24
-  %769 = getelementptr inbounds nuw { [3 x i64] }, ptr %758, i64 %.sroa.7.020.i273
+  %769 = getelementptr inbounds nuw [24 x i8], ptr %758, i64 %.sroa.7.020.i273
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %769, ptr noundef nonnull align 8 dereferenceable(24) %119, i64 24, i1 false), !noalias !453
   %770 = icmp eq i64 %763, 0
   br i1 %770, label %.loopexit1745, label %.lr.ph.i270
@@ -5142,7 +5142,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc296:                                        ; preds = %789, %782
   %794 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %795 = load ptr, ptr %794, align 8, !alias.scope !462, !noalias !465, !nonnull !3, !noundef !3
-  %796 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %795, i64 %786
+  %796 = getelementptr inbounds nuw [24 x i8], ptr %795, i64 %786
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %796, ptr noundef nonnull align 8 dereferenceable(24) %246, i64 24, i1 false)
   %797 = add i64 %786, 1
   store i64 %797, ptr %785, align 8, !alias.scope !462, !noalias !465
@@ -5195,7 +5195,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 813:                                              ; preds = %812
   %814 = add nuw nsw i64 %.sroa.7.020.i294, 1
   %815 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i293, i64 24
-  %816 = getelementptr inbounds nuw { [3 x i64] }, ptr %805, i64 %.sroa.7.020.i294
+  %816 = getelementptr inbounds nuw [24 x i8], ptr %805, i64 %.sroa.7.020.i294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %816, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false), !noalias !476
   %817 = icmp eq i64 %810, 0
   br i1 %817, label %.loopexit1744, label %.lr.ph.i291
@@ -5280,7 +5280,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc317:                                        ; preds = %836, %829
   %841 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %842 = load ptr, ptr %841, align 8, !alias.scope !485, !noalias !488, !nonnull !3, !noundef !3
-  %843 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %842, i64 %833
+  %843 = getelementptr inbounds nuw [24 x i8], ptr %842, i64 %833
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %843, ptr noundef nonnull align 8 dereferenceable(24) %243, i64 24, i1 false)
   %844 = add i64 %833, 1
   store i64 %844, ptr %832, align 8, !alias.scope !485, !noalias !488
@@ -5333,7 +5333,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 860:                                              ; preds = %859
   %861 = add nuw nsw i64 %.sroa.7.020.i315, 1
   %862 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i314, i64 24
-  %863 = getelementptr inbounds nuw { [3 x i64] }, ptr %852, i64 %.sroa.7.020.i315
+  %863 = getelementptr inbounds nuw [24 x i8], ptr %852, i64 %.sroa.7.020.i315
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %863, ptr noundef nonnull align 8 dereferenceable(24) %111, i64 24, i1 false), !noalias !499
   %864 = icmp eq i64 %857, 0
   br i1 %864, label %.loopexit1743, label %.lr.ph.i312
@@ -5418,7 +5418,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc338:                                        ; preds = %883, %876
   %888 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %889 = load ptr, ptr %888, align 8, !alias.scope !508, !noalias !511, !nonnull !3, !noundef !3
-  %890 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %889, i64 %880
+  %890 = getelementptr inbounds nuw [24 x i8], ptr %889, i64 %880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %890, ptr noundef nonnull align 8 dereferenceable(24) %240, i64 24, i1 false)
   %891 = add i64 %880, 1
   store i64 %891, ptr %879, align 8, !alias.scope !508, !noalias !511
@@ -5471,7 +5471,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 907:                                              ; preds = %906
   %908 = add nuw nsw i64 %.sroa.7.020.i336, 1
   %909 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i335, i64 24
-  %910 = getelementptr inbounds nuw { [3 x i64] }, ptr %899, i64 %.sroa.7.020.i336
+  %910 = getelementptr inbounds nuw [24 x i8], ptr %899, i64 %.sroa.7.020.i336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %910, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false), !noalias !522
   %911 = icmp eq i64 %904, 0
   br i1 %911, label %.loopexit1742, label %.lr.ph.i333
@@ -5556,7 +5556,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc359:                                        ; preds = %930, %923
   %935 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %936 = load ptr, ptr %935, align 8, !alias.scope !531, !noalias !534, !nonnull !3, !noundef !3
-  %937 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %936, i64 %927
+  %937 = getelementptr inbounds nuw [24 x i8], ptr %936, i64 %927
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %937, ptr noundef nonnull align 8 dereferenceable(24) %237, i64 24, i1 false)
   %938 = add i64 %927, 1
   store i64 %938, ptr %926, align 8, !alias.scope !531, !noalias !534
@@ -5609,7 +5609,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 954:                                              ; preds = %953
   %955 = add nuw nsw i64 %.sroa.7.020.i357, 1
   %956 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i356, i64 24
-  %957 = getelementptr inbounds nuw { [3 x i64] }, ptr %946, i64 %.sroa.7.020.i357
+  %957 = getelementptr inbounds nuw [24 x i8], ptr %946, i64 %.sroa.7.020.i357
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %957, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false), !noalias !545
   %958 = icmp eq i64 %951, 0
   br i1 %958, label %.loopexit1741, label %.lr.ph.i354
@@ -5694,7 +5694,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc380:                                        ; preds = %977, %970
   %982 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %983 = load ptr, ptr %982, align 8, !alias.scope !554, !noalias !557, !nonnull !3, !noundef !3
-  %984 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %983, i64 %974
+  %984 = getelementptr inbounds nuw [24 x i8], ptr %983, i64 %974
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %984, ptr noundef nonnull align 8 dereferenceable(24) %234, i64 24, i1 false)
   %985 = add i64 %974, 1
   store i64 %985, ptr %973, align 8, !alias.scope !554, !noalias !557
@@ -5747,7 +5747,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1001:                                             ; preds = %1000
   %1002 = add nuw nsw i64 %.sroa.7.020.i378, 1
   %1003 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i377, i64 24
-  %1004 = getelementptr inbounds nuw { [3 x i64] }, ptr %993, i64 %.sroa.7.020.i378
+  %1004 = getelementptr inbounds nuw [24 x i8], ptr %993, i64 %.sroa.7.020.i378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1004, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false), !noalias !568
   %1005 = icmp eq i64 %998, 0
   br i1 %1005, label %.loopexit1740, label %.lr.ph.i375
@@ -5832,7 +5832,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc401:                                        ; preds = %1024, %1017
   %1029 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %1030 = load ptr, ptr %1029, align 8, !alias.scope !577, !noalias !580, !nonnull !3, !noundef !3
-  %1031 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1030, i64 %1021
+  %1031 = getelementptr inbounds nuw [24 x i8], ptr %1030, i64 %1021
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1031, ptr noundef nonnull align 8 dereferenceable(24) %231, i64 24, i1 false)
   %1032 = add i64 %1021, 1
   store i64 %1032, ptr %1020, align 8, !alias.scope !577, !noalias !580
@@ -5885,7 +5885,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1048:                                             ; preds = %1047
   %1049 = add nuw nsw i64 %.sroa.7.020.i399, 1
   %1050 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i398, i64 24
-  %1051 = getelementptr inbounds nuw { [3 x i64] }, ptr %1040, i64 %.sroa.7.020.i399
+  %1051 = getelementptr inbounds nuw [24 x i8], ptr %1040, i64 %.sroa.7.020.i399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1051, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !noalias !591
   %1052 = icmp eq i64 %1045, 0
   br i1 %1052, label %.loopexit1739, label %.lr.ph.i396
@@ -5970,7 +5970,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc422:                                        ; preds = %1071, %1064
   %1076 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %1077 = load ptr, ptr %1076, align 8, !alias.scope !600, !noalias !603, !nonnull !3, !noundef !3
-  %1078 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1077, i64 %1068
+  %1078 = getelementptr inbounds nuw [24 x i8], ptr %1077, i64 %1068
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1078, ptr noundef nonnull align 8 dereferenceable(24) %228, i64 24, i1 false)
   %1079 = add i64 %1068, 1
   store i64 %1079, ptr %1067, align 8, !alias.scope !600, !noalias !603
@@ -6023,7 +6023,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1095:                                             ; preds = %1094
   %1096 = add nuw nsw i64 %.sroa.7.020.i420, 1
   %1097 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i419, i64 24
-  %1098 = getelementptr inbounds nuw { [3 x i64] }, ptr %1087, i64 %.sroa.7.020.i420
+  %1098 = getelementptr inbounds nuw [24 x i8], ptr %1087, i64 %.sroa.7.020.i420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1098, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false), !noalias !614
   %1099 = icmp eq i64 %1092, 0
   br i1 %1099, label %.loopexit1738, label %.lr.ph.i417
@@ -6108,7 +6108,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc443:                                        ; preds = %1118, %1111
   %1123 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %1124 = load ptr, ptr %1123, align 8, !alias.scope !623, !noalias !626, !nonnull !3, !noundef !3
-  %1125 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1124, i64 %1115
+  %1125 = getelementptr inbounds nuw [24 x i8], ptr %1124, i64 %1115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1125, ptr noundef nonnull align 8 dereferenceable(24) %225, i64 24, i1 false)
   %1126 = add i64 %1115, 1
   store i64 %1126, ptr %1114, align 8, !alias.scope !623, !noalias !626
@@ -6161,7 +6161,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1142:                                             ; preds = %1141
   %1143 = add nuw nsw i64 %.sroa.7.020.i441, 1
   %1144 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i440, i64 24
-  %1145 = getelementptr inbounds nuw { [3 x i64] }, ptr %1134, i64 %.sroa.7.020.i441
+  %1145 = getelementptr inbounds nuw [24 x i8], ptr %1134, i64 %.sroa.7.020.i441
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1145, ptr noundef nonnull align 8 dereferenceable(24) %87, i64 24, i1 false), !noalias !637
   %1146 = icmp eq i64 %1139, 0
   br i1 %1146, label %.loopexit1737, label %.lr.ph.i438
@@ -6246,7 +6246,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc464:                                        ; preds = %1165, %1158
   %1170 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %1171 = load ptr, ptr %1170, align 8, !alias.scope !646, !noalias !649, !nonnull !3, !noundef !3
-  %1172 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1171, i64 %1162
+  %1172 = getelementptr inbounds nuw [24 x i8], ptr %1171, i64 %1162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1172, ptr noundef nonnull align 8 dereferenceable(24) %222, i64 24, i1 false)
   %1173 = add i64 %1162, 1
   store i64 %1173, ptr %1161, align 8, !alias.scope !646, !noalias !649
@@ -6299,7 +6299,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1189:                                             ; preds = %1188
   %1190 = add nuw nsw i64 %.sroa.7.020.i462, 1
   %1191 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i461, i64 24
-  %1192 = getelementptr inbounds nuw { [3 x i64] }, ptr %1181, i64 %.sroa.7.020.i462
+  %1192 = getelementptr inbounds nuw [24 x i8], ptr %1181, i64 %.sroa.7.020.i462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1192, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !noalias !660
   %1193 = icmp eq i64 %1186, 0
   br i1 %1193, label %.loopexit1736, label %.lr.ph.i459
@@ -6384,7 +6384,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc485:                                        ; preds = %1212, %1205
   %1217 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %1218 = load ptr, ptr %1217, align 8, !alias.scope !669, !noalias !672, !nonnull !3, !noundef !3
-  %1219 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1218, i64 %1209
+  %1219 = getelementptr inbounds nuw [24 x i8], ptr %1218, i64 %1209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1219, ptr noundef nonnull align 8 dereferenceable(24) %219, i64 24, i1 false)
   %1220 = add i64 %1209, 1
   store i64 %1220, ptr %1208, align 8, !alias.scope !669, !noalias !672
@@ -6437,7 +6437,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1236:                                             ; preds = %1235
   %1237 = add nuw nsw i64 %.sroa.7.020.i483, 1
   %1238 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i482, i64 24
-  %1239 = getelementptr inbounds nuw { [3 x i64] }, ptr %1228, i64 %.sroa.7.020.i483
+  %1239 = getelementptr inbounds nuw [24 x i8], ptr %1228, i64 %.sroa.7.020.i483
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1239, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false), !noalias !683
   %1240 = icmp eq i64 %1233, 0
   br i1 %1240, label %.loopexit1735, label %.lr.ph.i480
@@ -6522,7 +6522,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc506:                                        ; preds = %1259, %1252
   %1264 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %1265 = load ptr, ptr %1264, align 8, !alias.scope !692, !noalias !695, !nonnull !3, !noundef !3
-  %1266 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1265, i64 %1256
+  %1266 = getelementptr inbounds nuw [24 x i8], ptr %1265, i64 %1256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1266, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
   %1267 = add i64 %1256, 1
   store i64 %1267, ptr %1255, align 8, !alias.scope !692, !noalias !695
@@ -6575,7 +6575,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1283:                                             ; preds = %1282
   %1284 = add nuw nsw i64 %.sroa.7.020.i504, 1
   %1285 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i503, i64 24
-  %1286 = getelementptr inbounds nuw { [3 x i64] }, ptr %1275, i64 %.sroa.7.020.i504
+  %1286 = getelementptr inbounds nuw [24 x i8], ptr %1275, i64 %.sroa.7.020.i504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1286, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !noalias !706
   %1287 = icmp eq i64 %1280, 0
   br i1 %1287, label %.loopexit1734, label %.lr.ph.i501
@@ -6660,7 +6660,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc527:                                        ; preds = %1306, %1299
   %1311 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %1312 = load ptr, ptr %1311, align 8, !alias.scope !715, !noalias !718, !nonnull !3, !noundef !3
-  %1313 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1312, i64 %1303
+  %1313 = getelementptr inbounds nuw [24 x i8], ptr %1312, i64 %1303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1313, ptr noundef nonnull align 8 dereferenceable(24) %213, i64 24, i1 false)
   %1314 = add i64 %1303, 1
   store i64 %1314, ptr %1302, align 8, !alias.scope !715, !noalias !718
@@ -6713,7 +6713,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1330:                                             ; preds = %1329
   %1331 = add nuw nsw i64 %.sroa.7.020.i525, 1
   %1332 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i524, i64 24
-  %1333 = getelementptr inbounds nuw { [3 x i64] }, ptr %1322, i64 %.sroa.7.020.i525
+  %1333 = getelementptr inbounds nuw [24 x i8], ptr %1322, i64 %.sroa.7.020.i525
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1333, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false), !noalias !729
   %1334 = icmp eq i64 %1327, 0
   br i1 %1334, label %.loopexit1733, label %.lr.ph.i522
@@ -6798,7 +6798,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc548:                                        ; preds = %1353, %1346
   %1358 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %1359 = load ptr, ptr %1358, align 8, !alias.scope !738, !noalias !741, !nonnull !3, !noundef !3
-  %1360 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1359, i64 %1350
+  %1360 = getelementptr inbounds nuw [24 x i8], ptr %1359, i64 %1350
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1360, ptr noundef nonnull align 8 dereferenceable(24) %210, i64 24, i1 false)
   %1361 = add i64 %1350, 1
   store i64 %1361, ptr %1349, align 8, !alias.scope !738, !noalias !741
@@ -6851,7 +6851,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1377:                                             ; preds = %1376
   %1378 = add nuw nsw i64 %.sroa.7.020.i546, 1
   %1379 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i545, i64 24
-  %1380 = getelementptr inbounds nuw { [3 x i64] }, ptr %1369, i64 %.sroa.7.020.i546
+  %1380 = getelementptr inbounds nuw [24 x i8], ptr %1369, i64 %.sroa.7.020.i546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1380, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false), !noalias !752
   %1381 = icmp eq i64 %1374, 0
   br i1 %1381, label %.loopexit1732, label %.lr.ph.i543
@@ -6936,7 +6936,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc569:                                        ; preds = %1400, %1393
   %1405 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %1406 = load ptr, ptr %1405, align 8, !alias.scope !761, !noalias !764, !nonnull !3, !noundef !3
-  %1407 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1406, i64 %1397
+  %1407 = getelementptr inbounds nuw [24 x i8], ptr %1406, i64 %1397
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1407, ptr noundef nonnull align 8 dereferenceable(24) %207, i64 24, i1 false)
   %1408 = add i64 %1397, 1
   store i64 %1408, ptr %1396, align 8, !alias.scope !761, !noalias !764
@@ -6989,7 +6989,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1424:                                             ; preds = %1423
   %1425 = add nuw nsw i64 %.sroa.7.020.i567, 1
   %1426 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i566, i64 24
-  %1427 = getelementptr inbounds nuw { [3 x i64] }, ptr %1416, i64 %.sroa.7.020.i567
+  %1427 = getelementptr inbounds nuw [24 x i8], ptr %1416, i64 %.sroa.7.020.i567
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1427, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !noalias !775
   %1428 = icmp eq i64 %1421, 0
   br i1 %1428, label %.loopexit1731, label %.lr.ph.i564
@@ -7074,7 +7074,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc590:                                        ; preds = %1447, %1440
   %1452 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %1453 = load ptr, ptr %1452, align 8, !alias.scope !784, !noalias !787, !nonnull !3, !noundef !3
-  %1454 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1453, i64 %1444
+  %1454 = getelementptr inbounds nuw [24 x i8], ptr %1453, i64 %1444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1454, ptr noundef nonnull align 8 dereferenceable(24) %204, i64 24, i1 false)
   %1455 = add i64 %1444, 1
   store i64 %1455, ptr %1443, align 8, !alias.scope !784, !noalias !787
@@ -7127,7 +7127,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1471:                                             ; preds = %1470
   %1472 = add nuw nsw i64 %.sroa.7.020.i588, 1
   %1473 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i587, i64 24
-  %1474 = getelementptr inbounds nuw { [3 x i64] }, ptr %1463, i64 %.sroa.7.020.i588
+  %1474 = getelementptr inbounds nuw [24 x i8], ptr %1463, i64 %.sroa.7.020.i588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1474, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !798
   %1475 = icmp eq i64 %1468, 0
   br i1 %1475, label %.loopexit1730, label %.lr.ph.i585
@@ -7212,7 +7212,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc611:                                        ; preds = %1494, %1487
   %1499 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %1500 = load ptr, ptr %1499, align 8, !alias.scope !807, !noalias !810, !nonnull !3, !noundef !3
-  %1501 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1500, i64 %1491
+  %1501 = getelementptr inbounds nuw [24 x i8], ptr %1500, i64 %1491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1501, ptr noundef nonnull align 8 dereferenceable(24) %201, i64 24, i1 false)
   %1502 = add i64 %1491, 1
   store i64 %1502, ptr %1490, align 8, !alias.scope !807, !noalias !810
@@ -7265,7 +7265,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1518:                                             ; preds = %1517
   %1519 = add nuw nsw i64 %.sroa.7.020.i609, 1
   %1520 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i608, i64 24
-  %1521 = getelementptr inbounds nuw { [3 x i64] }, ptr %1510, i64 %.sroa.7.020.i609
+  %1521 = getelementptr inbounds nuw [24 x i8], ptr %1510, i64 %.sroa.7.020.i609
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1521, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false), !noalias !821
   %1522 = icmp eq i64 %1515, 0
   br i1 %1522, label %.loopexit1729, label %.lr.ph.i606
@@ -7350,7 +7350,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc632:                                        ; preds = %1541, %1534
   %1546 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %1547 = load ptr, ptr %1546, align 8, !alias.scope !830, !noalias !833, !nonnull !3, !noundef !3
-  %1548 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1547, i64 %1538
+  %1548 = getelementptr inbounds nuw [24 x i8], ptr %1547, i64 %1538
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1548, ptr noundef nonnull align 8 dereferenceable(24) %198, i64 24, i1 false)
   %1549 = add i64 %1538, 1
   store i64 %1549, ptr %1537, align 8, !alias.scope !830, !noalias !833
@@ -7403,7 +7403,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1565:                                             ; preds = %1564
   %1566 = add nuw nsw i64 %.sroa.7.020.i630, 1
   %1567 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i629, i64 24
-  %1568 = getelementptr inbounds nuw { [3 x i64] }, ptr %1557, i64 %.sroa.7.020.i630
+  %1568 = getelementptr inbounds nuw [24 x i8], ptr %1557, i64 %.sroa.7.020.i630
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1568, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !noalias !844
   %1569 = icmp eq i64 %1562, 0
   br i1 %1569, label %.loopexit1728, label %.lr.ph.i627
@@ -7488,7 +7488,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc653:                                        ; preds = %1588, %1581
   %1593 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %1594 = load ptr, ptr %1593, align 8, !alias.scope !853, !noalias !856, !nonnull !3, !noundef !3
-  %1595 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1594, i64 %1585
+  %1595 = getelementptr inbounds nuw [24 x i8], ptr %1594, i64 %1585
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1595, ptr noundef nonnull align 8 dereferenceable(24) %195, i64 24, i1 false)
   %1596 = add i64 %1585, 1
   store i64 %1596, ptr %1584, align 8, !alias.scope !853, !noalias !856
@@ -7541,7 +7541,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1612:                                             ; preds = %1611
   %1613 = add nuw nsw i64 %.sroa.7.020.i651, 1
   %1614 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i650, i64 24
-  %1615 = getelementptr inbounds nuw { [3 x i64] }, ptr %1604, i64 %.sroa.7.020.i651
+  %1615 = getelementptr inbounds nuw [24 x i8], ptr %1604, i64 %.sroa.7.020.i651
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1615, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false), !noalias !867
   %1616 = icmp eq i64 %1609, 0
   br i1 %1616, label %.loopexit1727, label %.lr.ph.i648
@@ -7626,7 +7626,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc674:                                        ; preds = %1635, %1628
   %1640 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %1641 = load ptr, ptr %1640, align 8, !alias.scope !876, !noalias !879, !nonnull !3, !noundef !3
-  %1642 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1641, i64 %1632
+  %1642 = getelementptr inbounds nuw [24 x i8], ptr %1641, i64 %1632
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1642, ptr noundef nonnull align 8 dereferenceable(24) %192, i64 24, i1 false)
   %1643 = add i64 %1632, 1
   store i64 %1643, ptr %1631, align 8, !alias.scope !876, !noalias !879
@@ -7679,7 +7679,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1659:                                             ; preds = %1658
   %1660 = add nuw nsw i64 %.sroa.7.020.i672, 1
   %1661 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i671, i64 24
-  %1662 = getelementptr inbounds nuw { [3 x i64] }, ptr %1651, i64 %.sroa.7.020.i672
+  %1662 = getelementptr inbounds nuw [24 x i8], ptr %1651, i64 %.sroa.7.020.i672
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1662, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false), !noalias !890
   %1663 = icmp eq i64 %1656, 0
   br i1 %1663, label %.loopexit1726, label %.lr.ph.i669
@@ -7764,7 +7764,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc695:                                        ; preds = %1682, %1675
   %1687 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %1688 = load ptr, ptr %1687, align 8, !alias.scope !899, !noalias !902, !nonnull !3, !noundef !3
-  %1689 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1688, i64 %1679
+  %1689 = getelementptr inbounds nuw [24 x i8], ptr %1688, i64 %1679
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1689, ptr noundef nonnull align 8 dereferenceable(24) %189, i64 24, i1 false)
   %1690 = add i64 %1679, 1
   store i64 %1690, ptr %1678, align 8, !alias.scope !899, !noalias !902
@@ -7817,7 +7817,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1706:                                             ; preds = %1705
   %1707 = add nuw nsw i64 %.sroa.7.020.i693, 1
   %1708 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i692, i64 24
-  %1709 = getelementptr inbounds nuw { [3 x i64] }, ptr %1698, i64 %.sroa.7.020.i693
+  %1709 = getelementptr inbounds nuw [24 x i8], ptr %1698, i64 %.sroa.7.020.i693
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1709, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !noalias !913
   %1710 = icmp eq i64 %1703, 0
   br i1 %1710, label %.loopexit1725, label %.lr.ph.i690
@@ -7902,7 +7902,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc716:                                        ; preds = %1729, %1722
   %1734 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %1735 = load ptr, ptr %1734, align 8, !alias.scope !922, !noalias !925, !nonnull !3, !noundef !3
-  %1736 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1735, i64 %1726
+  %1736 = getelementptr inbounds nuw [24 x i8], ptr %1735, i64 %1726
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1736, ptr noundef nonnull align 8 dereferenceable(24) %186, i64 24, i1 false)
   %1737 = add i64 %1726, 1
   store i64 %1737, ptr %1725, align 8, !alias.scope !922, !noalias !925
@@ -7955,7 +7955,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1753:                                             ; preds = %1752
   %1754 = add nuw nsw i64 %.sroa.7.020.i714, 1
   %1755 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i713, i64 24
-  %1756 = getelementptr inbounds nuw { [3 x i64] }, ptr %1745, i64 %.sroa.7.020.i714
+  %1756 = getelementptr inbounds nuw [24 x i8], ptr %1745, i64 %.sroa.7.020.i714
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1756, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !noalias !936
   %1757 = icmp eq i64 %1750, 0
   br i1 %1757, label %.loopexit1724, label %.lr.ph.i711
@@ -8040,7 +8040,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc737:                                        ; preds = %1776, %1769
   %1781 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %1782 = load ptr, ptr %1781, align 8, !alias.scope !945, !noalias !948, !nonnull !3, !noundef !3
-  %1783 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1782, i64 %1773
+  %1783 = getelementptr inbounds nuw [24 x i8], ptr %1782, i64 %1773
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1783, ptr noundef nonnull align 8 dereferenceable(24) %183, i64 24, i1 false)
   %1784 = add i64 %1773, 1
   store i64 %1784, ptr %1772, align 8, !alias.scope !945, !noalias !948
@@ -8093,7 +8093,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1800:                                             ; preds = %1799
   %1801 = add nuw nsw i64 %.sroa.7.020.i735, 1
   %1802 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i734, i64 24
-  %1803 = getelementptr inbounds nuw { [3 x i64] }, ptr %1792, i64 %.sroa.7.020.i735
+  %1803 = getelementptr inbounds nuw [24 x i8], ptr %1792, i64 %.sroa.7.020.i735
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1803, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !959
   %1804 = icmp eq i64 %1797, 0
   br i1 %1804, label %.loopexit1723, label %.lr.ph.i732
@@ -8178,7 +8178,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc758:                                        ; preds = %1823, %1816
   %1828 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %1829 = load ptr, ptr %1828, align 8, !alias.scope !968, !noalias !971, !nonnull !3, !noundef !3
-  %1830 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1829, i64 %1820
+  %1830 = getelementptr inbounds nuw [24 x i8], ptr %1829, i64 %1820
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1830, ptr noundef nonnull align 8 dereferenceable(24) %180, i64 24, i1 false)
   %1831 = add i64 %1820, 1
   store i64 %1831, ptr %1819, align 8, !alias.scope !968, !noalias !971
@@ -8231,7 +8231,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1847:                                             ; preds = %1846
   %1848 = add nuw nsw i64 %.sroa.7.020.i756, 1
   %1849 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i755, i64 24
-  %1850 = getelementptr inbounds nuw { [3 x i64] }, ptr %1839, i64 %.sroa.7.020.i756
+  %1850 = getelementptr inbounds nuw [24 x i8], ptr %1839, i64 %.sroa.7.020.i756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1850, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !982
   %1851 = icmp eq i64 %1844, 0
   br i1 %1851, label %.loopexit1722, label %.lr.ph.i753
@@ -8316,7 +8316,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc779:                                        ; preds = %1870, %1863
   %1875 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %1876 = load ptr, ptr %1875, align 8, !alias.scope !991, !noalias !994, !nonnull !3, !noundef !3
-  %1877 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1876, i64 %1867
+  %1877 = getelementptr inbounds nuw [24 x i8], ptr %1876, i64 %1867
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1877, ptr noundef nonnull align 8 dereferenceable(24) %177, i64 24, i1 false)
   %1878 = add i64 %1867, 1
   store i64 %1878, ptr %1866, align 8, !alias.scope !991, !noalias !994
@@ -8369,7 +8369,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1894:                                             ; preds = %1893
   %1895 = add nuw nsw i64 %.sroa.7.020.i777, 1
   %1896 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i776, i64 24
-  %1897 = getelementptr inbounds nuw { [3 x i64] }, ptr %1886, i64 %.sroa.7.020.i777
+  %1897 = getelementptr inbounds nuw [24 x i8], ptr %1886, i64 %.sroa.7.020.i777
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1897, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !1005
   %1898 = icmp eq i64 %1891, 0
   br i1 %1898, label %.loopexit1721, label %.lr.ph.i774
@@ -8454,7 +8454,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc800:                                        ; preds = %1917, %1910
   %1922 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %1923 = load ptr, ptr %1922, align 8, !alias.scope !1014, !noalias !1017, !nonnull !3, !noundef !3
-  %1924 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1923, i64 %1914
+  %1924 = getelementptr inbounds nuw [24 x i8], ptr %1923, i64 %1914
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1924, ptr noundef nonnull align 8 dereferenceable(24) %174, i64 24, i1 false)
   %1925 = add i64 %1914, 1
   store i64 %1925, ptr %1913, align 8, !alias.scope !1014, !noalias !1017
@@ -8507,7 +8507,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1941:                                             ; preds = %1940
   %1942 = add nuw nsw i64 %.sroa.7.020.i798, 1
   %1943 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i797, i64 24
-  %1944 = getelementptr inbounds nuw { [3 x i64] }, ptr %1933, i64 %.sroa.7.020.i798
+  %1944 = getelementptr inbounds nuw [24 x i8], ptr %1933, i64 %.sroa.7.020.i798
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1944, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !1028
   %1945 = icmp eq i64 %1938, 0
   br i1 %1945, label %.loopexit1720, label %.lr.ph.i795
@@ -8592,7 +8592,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc821:                                        ; preds = %1964, %1957
   %1969 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %1970 = load ptr, ptr %1969, align 8, !alias.scope !1037, !noalias !1040, !nonnull !3, !noundef !3
-  %1971 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %1970, i64 %1961
+  %1971 = getelementptr inbounds nuw [24 x i8], ptr %1970, i64 %1961
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1971, ptr noundef nonnull align 8 dereferenceable(24) %171, i64 24, i1 false)
   %1972 = add i64 %1961, 1
   store i64 %1972, ptr %1960, align 8, !alias.scope !1037, !noalias !1040
@@ -8645,7 +8645,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 1988:                                             ; preds = %1987
   %1989 = add nuw nsw i64 %.sroa.7.020.i819, 1
   %1990 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i818, i64 24
-  %1991 = getelementptr inbounds nuw { [3 x i64] }, ptr %1980, i64 %.sroa.7.020.i819
+  %1991 = getelementptr inbounds nuw [24 x i8], ptr %1980, i64 %.sroa.7.020.i819
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1991, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !1051
   %1992 = icmp eq i64 %1985, 0
   br i1 %1992, label %.loopexit1719, label %.lr.ph.i816
@@ -8730,7 +8730,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc842:                                        ; preds = %2011, %2004
   %2016 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %2017 = load ptr, ptr %2016, align 8, !alias.scope !1060, !noalias !1063, !nonnull !3, !noundef !3
-  %2018 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %2017, i64 %2008
+  %2018 = getelementptr inbounds nuw [24 x i8], ptr %2017, i64 %2008
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2018, ptr noundef nonnull align 8 dereferenceable(24) %168, i64 24, i1 false)
   %2019 = add i64 %2008, 1
   store i64 %2019, ptr %2007, align 8, !alias.scope !1060, !noalias !1063
@@ -8783,7 +8783,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 2035:                                             ; preds = %2034
   %2036 = add nuw nsw i64 %.sroa.7.020.i840, 1
   %2037 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i839, i64 24
-  %2038 = getelementptr inbounds nuw { [3 x i64] }, ptr %2027, i64 %.sroa.7.020.i840
+  %2038 = getelementptr inbounds nuw [24 x i8], ptr %2027, i64 %.sroa.7.020.i840
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2038, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !1074
   %2039 = icmp eq i64 %2032, 0
   br i1 %2039, label %.loopexit1718, label %.lr.ph.i837
@@ -8868,7 +8868,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 .noexc863:                                        ; preds = %2058, %2051
   %2063 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %2064 = load ptr, ptr %2063, align 8, !alias.scope !1083, !noalias !1086, !nonnull !3, !noundef !3
-  %2065 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %2064, i64 %2055
+  %2065 = getelementptr inbounds nuw [24 x i8], ptr %2064, i64 %2055
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2065, ptr noundef nonnull align 8 dereferenceable(24) %165, i64 24, i1 false)
   %2066 = add i64 %2055, 1
   store i64 %2066, ptr %2054, align 8, !alias.scope !1083, !noalias !1086
@@ -8921,7 +8921,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 2082:                                             ; preds = %2081
   %2083 = add nuw nsw i64 %.sroa.7.020.i861, 1
   %2084 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i860, i64 24
-  %2085 = getelementptr inbounds nuw { [3 x i64] }, ptr %2074, i64 %.sroa.7.020.i861
+  %2085 = getelementptr inbounds nuw [24 x i8], ptr %2074, i64 %.sroa.7.020.i861
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2085, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !1097
   %2086 = icmp eq i64 %2079, 0
   br i1 %2086, label %.loopexit, label %.lr.ph.i858
@@ -9006,7 +9006,7 @@ common.resume:                                    ; preds = %.thread995, %350, %
 2109:                                             ; preds = %2104, %2097
   %2110 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %2111 = load ptr, ptr %2110, align 8, !alias.scope !1106, !noalias !1109, !nonnull !3, !noundef !3
-  %2112 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %2111, i64 %2101
+  %2112 = getelementptr inbounds nuw [24 x i8], ptr %2111, i64 %2101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2112, ptr noundef nonnull align 8 dereferenceable(24) %162, i64 24, i1 false)
   %2113 = add i64 %2101, 1
   store i64 %2113, ptr %2100, align 8, !alias.scope !1106, !noalias !1109

@@ -288,7 +288,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !21
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %49, ptr noundef nonnull dereferenceable(12) @.str.6, i64 12)
   %50 = icmp eq i32 %bcmp, 0
@@ -1378,7 +1378,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %670 = load ptr, ptr %7, align 8, !tbaa !8
   %671 = load i32, ptr %8, align 4, !tbaa !4
   %672 = zext i32 %671 to i64
-  %673 = getelementptr inbounds nuw i32, ptr %670, i64 %672
+  %673 = getelementptr inbounds nuw [4 x i8], ptr %670, i64 %672
   store i32 %669, ptr %673, align 4, !tbaa !4
   %674 = icmp eq i32 %669, -1
   %675 = call i32 @umask(i32 noundef %660) #15
@@ -1512,11 +1512,11 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %748 = load ptr, ptr %7, align 8, !tbaa !8
   %749 = load i32, ptr %8, align 4, !tbaa !4
   %750 = zext i32 %749 to i64
-  %751 = getelementptr inbounds nuw i32, ptr %748, i64 %750
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %748, i64 %750
   store i32 %747, ptr %751, align 4, !tbaa !4
   %752 = load i32, ptr %8, align 4, !tbaa !4
   %753 = zext i32 %752 to i64
-  %754 = getelementptr inbounds nuw i32, ptr %748, i64 %753
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %748, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !4
   %756 = icmp eq i32 %755, -1
   br i1 %756, label %.critedge.thread454, label %757
@@ -1595,7 +1595,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 .lr.ph481:                                        ; preds = %.critedge.thread447, %.lr.ph481
   %indvars.iv493 = phi i64 [ %indvars.iv.next494, %.lr.ph481 ], [ 0, %.critedge.thread447 ]
   %788 = load ptr, ptr %7, align 8, !tbaa !8
-  %789 = getelementptr inbounds nuw i32, ptr %788, i64 %indvars.iv493
+  %789 = getelementptr inbounds nuw [4 x i8], ptr %788, i64 %indvars.iv493
   %790 = load i32, ptr %789, align 4, !tbaa !4
   %791 = call i32 @close(i32 noundef %790) #15
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1

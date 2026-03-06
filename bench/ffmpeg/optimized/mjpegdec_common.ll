@@ -55,7 +55,7 @@ build_huffman_codes.exit.us:                      ; preds = %.lr.ph, %build_huff
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv21
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i16
-  %25 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv21
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv21
   store i16 %24, ptr %25, align 2
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
@@ -74,7 +74,7 @@ build_huffman_codes.exit:                         ; preds = %.lr.ph, %build_huff
   %29 = zext i8 %28 to i32
   %30 = add nsw i32 %21, %29
   %31 = trunc i32 %30 to i16
-  %32 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   %.not15 = icmp eq i8 %28, 0
   %spec.select = select i1 %.not15, i16 4096, i16 %31
   store i16 %spec.select, ptr %32, align 2

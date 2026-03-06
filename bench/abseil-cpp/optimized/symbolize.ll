@@ -18,11 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::debugging_internal::ElfMemImage" = type { ptr, ptr, ptr, ptr, ptr, i32, i64, i64, i64 }
 %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo" = type { ptr, ptr, ptr, ptr }
 %"struct.absl::debugging_internal::SymbolDecoratorArgs" = type { ptr, i64, i32, ptr, i64, ptr, i64, ptr }
-%"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine" = type { [4 x ptr], [4 x ptr], [4 x i32] }
-%"struct.absl::debugging_internal::(anonymous namespace)::ObjFile" = type { ptr, ptr, ptr, i64, i32, i32, %struct.Elf64_Ehdr, %"struct.std::array" }
-%"struct.std::array" = type { [4 x %struct.Elf64_Phdr] }
 %struct.rlimit = type { i64, i64 }
-%struct.Elf64_Sym = type { i32, i8, i8, i16, i64, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -867,7 +863,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %10 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !29
   %13 = icmp eq i32 %12, %0
@@ -886,8 +882,8 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %.lr.ph17
   %indvars.iv23 = phi i64 [ %indvars.iv, %.lr.ph17.preheader ], [ %indvars.iv.next24, %.lr.ph17 ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %17 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv.next24
-  %18 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv23
+  %17 = getelementptr inbounds nuw [24 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv.next24
+  %18 = getelementptr inbounds nuw [24 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !31
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph17, !llvm.loop !33
@@ -943,7 +939,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %2
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr @_ZZN4absl18debugging_internal22InstallSymbolDecoratorEPFvPKNS0_19SymbolDecoratorArgsEEPvE6ticket, align 4, !tbaa !10
   %15 = sext i32 %10 to i64
-  %16 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %15
   store ptr %0, ptr %16, align 8, !tbaa !32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !32
@@ -1041,7 +1037,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %_ZN4absl18debugging
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4, !tbaa !10
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %36
   store ptr %0, ptr %37, align 16, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %1, ptr %38, align 8, !tbaa !38
@@ -1102,7 +1098,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %4
 
 14:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %15 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 16, !tbaa !36
   %.not = icmp ugt ptr %16, %13
   br i1 %.not, label %26, label %17
@@ -1221,9 +1217,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_116InitSigSafeArenaEv.exit.i: ; preds =
 
 41:                                               ; preds = %41, %.preheader.i.i
   %.016.i.i = phi i64 [ 0, %.preheader.i.i ], [ %44, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %.016.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.016.i.i
   store ptr null, ptr %42, align 8, !tbaa !4
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %.016.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.016.i.i
   store i32 0, ptr %43, align 4, !tbaa !10
   %44 = add nuw nsw i64 %.016.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %44, 4
@@ -1245,12 +1241,12 @@ _ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit: ; preds = %40, %_ZN4ab
   %54 = xor i64 %53, %48
   %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12320
   %56 = and i64 %54, 127
-  %57 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [80 x i8], ptr %55, i64 %56
   br label %58
 
 58:                                               ; preds = %64, %46
   %.01418.i.i = phi i64 [ 0, %46 ], [ %65, %64 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %.01418.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.01418.i.i
   %60 = load ptr, ptr %59, align 8, !tbaa !32
   %61 = icmp eq ptr %60, %0
   br i1 %61, label %.preheader.i.i25, label %64
@@ -1272,10 +1268,10 @@ _ZN4absl18debugging_internalL18AllocateSymbolizerEv.exit: ; preds = %40, %_ZN4ab
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.i: ; preds = %.preheader.i.i25
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %.01418.i.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.01418.i.i
   store i32 0, ptr %67, align 4, !tbaa !10
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.01418.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.01418.i.i
   %70 = load ptr, ptr %69, align 8, !tbaa !4
   %.not.i26 = icmp eq ptr %70, null
   br i1 %.not.i26, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer17FindSymbolInCacheEPKv.exit.thread.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit
@@ -1645,7 +1641,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 201:                                              ; preds = %199
   %202 = add nuw nsw i64 %.046175.i.i.i, 1
-  %203 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %170, i64 %.046175.i.i.i
+  %203 = getelementptr inbounds nuw [56 x i8], ptr %170, i64 %.046175.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %203, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
   br label %205
 
@@ -1712,7 +1708,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
 
 226:                                              ; preds = %224, %221
   %.051111.i.i = phi i64 [ 0, %221 ], [ %225, %224 ]
-  %227 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %223, i64 %.051111.i.i
+  %227 = getelementptr inbounds nuw [56 x i8], ptr %223, i64 %.051111.i.i
   %228 = load i32, ptr %227, align 8, !tbaa !61
   switch i32 %228, label %229 [
     i32 1, label %230
@@ -1968,7 +1964,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i.i: ; preds = %_ZN4absl18debugg
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %329 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::InstalledSymbolDecorator", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv.i.i
+  %329 = getelementptr inbounds nuw [24 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_112g_decoratorsE, i64 %indvars.iv.i.i
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %331 = load ptr, ptr %330, align 8, !tbaa !93
   store ptr %331, ptr %328, align 8, !tbaa !94
@@ -2016,7 +2012,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %340, %336, %_ZN4a
   %354 = xor i64 %353, %348
   %355 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12320
   %356 = and i64 %354, 127
-  %357 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::SymbolCacheLine", ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [80 x i8], ptr %355, i64 %356
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 64
   br label %359
 
@@ -2025,13 +2021,13 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %340, %336, %_ZN4a
   %.04166.i.i.i = phi i1 [ false, %346 ], [ %.142.i.i.i, %371 ]
   %.04365.i.i.i = phi i64 [ 0, %346 ], [ %.144.i.i.i, %371 ]
   %.04564.i.i.i = phi i32 [ 0, %346 ], [ %.146.i.i.i, %371 ]
-  %360 = getelementptr inbounds nuw ptr, ptr %357, i64 %.04067.i.i.i
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %.04067.i.i.i
   %361 = load ptr, ptr %360, align 8, !tbaa !32
   %362 = icmp eq ptr %361, null
   br i1 %362, label %.preheader60.i.i.i.preheader, label %371
 
 .preheader60.i.i.i.preheader:                     ; preds = %359
-  %363 = getelementptr inbounds nuw ptr, ptr %357, i64 %.04067.i.i.i
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %.04067.i.i.i
   br label %.preheader60.i.i.i
 
 .preheader60.i.i.i:                               ; preds = %.preheader60.i.i.i.preheader, %.preheader60.i.i.i
@@ -2059,7 +2055,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   unreachable
 
 371:                                              ; preds = %359
-  %372 = getelementptr inbounds nuw i32, ptr %358, i64 %.04067.i.i.i
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %358, i64 %.04067.i.i.i
   %373 = load i32, ptr %372, align 4, !tbaa !10
   %.not49.i.i.i = icmp uge i32 %373, %.04564.i.i.i
   %.146.i.i.i = call i32 @llvm.umax.i32(i32 %373, i32 %.04564.i.i.i)
@@ -2072,7 +2068,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
 375:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %369, ptr nonnull readonly align 2 %71, i64 %367, i1 false)
   %376 = getelementptr inbounds nuw i8, ptr %357, i64 32
-  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %.04067.i.i.i
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %.04067.i.i.i
   store ptr %369, ptr %377, align 8, !tbaa !4
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i
 
@@ -2095,10 +2091,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
 
 381:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i
   %382 = getelementptr inbounds nuw i8, ptr %357, i64 32
-  %383 = getelementptr inbounds nuw ptr, ptr %382, i64 %.144.i.i.i
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %.144.i.i.i
   %384 = load ptr, ptr %383, align 8, !tbaa !4
   call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %384)
-  %385 = getelementptr inbounds nuw ptr, ptr %357, i64 %.144.i.i.i
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %.144.i.i.i
   store ptr %0, ptr %385, align 8, !tbaa !32
   %386 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #26
   %387 = add i64 %386, 1
@@ -2120,7 +2116,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i, %375
   %.04067.lcssa74.sink.i.i.i = phi i64 [ %.04067.i.i.i, %375 ], [ %.144.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
   %.1.i.i.i = phi ptr [ %369, %375 ], [ %389, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
-  %391 = getelementptr inbounds nuw i32, ptr %358, i64 %.04067.lcssa74.sink.i.i.i
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %358, i64 %.04067.lcssa74.sink.i.i.i
   store i32 0, ptr %391, align 4, !tbaa !10
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit
 
@@ -2172,7 +2168,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit.thread
 409:                                              ; preds = %.noexc19.i.i, %.lr.ph.i.i.i29
   %.010.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i29 ], [ %417, %.noexc19.i.i ]
   %.val7.i.i.i = load ptr, ptr %408, align 8, !tbaa !100
-  %410 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i.i.i, i64 %.010.i.i.i
+  %410 = getelementptr inbounds nuw [328 x i8], ptr %.val7.i.i.i, i64 %.010.i.i.i
   %411 = load ptr, ptr %410, align 8, !tbaa !54
   invoke void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %411)
           to label %.noexc.i.i unwind label %.loopexit.i.i
@@ -2280,7 +2276,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %4
 
 14:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %15 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 16, !tbaa !36
   %.not.i = icmp ugt ptr %16, %13
   br i1 %.not.i, label %26, label %17
@@ -2397,7 +2393,7 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
   %.02849 = phi i64 [ 0, %.lr.ph ], [ %.129, %18 ]
   %19 = add i64 %.02650, %.02849
   %20 = lshr i64 %19, 1
-  %21 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val40, i64 %20
+  %21 = getelementptr inbounds nuw [328 x i8], ptr %.val40, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !104
   %24 = icmp ult ptr %1, %23
@@ -2414,7 +2410,7 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
 
 27:                                               ; preds = %._crit_edge
   %.val41 = load ptr, ptr %6, align 16, !tbaa !100
-  %28 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val41, i64 %.028.lcssa
+  %28 = getelementptr inbounds nuw [328 x i8], ptr %.val41, i64 %.028.lcssa
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !104
   %31 = icmp ugt ptr %30, %1
@@ -2436,7 +2432,7 @@ define internal fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_110
 .lr.ph.i:                                         ; preds = %36, %44
   %.010.i = phi i64 [ %45, %44 ], [ 0, %36 ]
   %.val7.i = load ptr, ptr %6, align 16, !tbaa !100
-  %37 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val7.i, i64 %.010.i
+  %37 = getelementptr inbounds nuw [328 x i8], ptr %.val7.i, i64 %.010.i
   %38 = load ptr, ptr %37, align 8, !tbaa !54
   tail call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef %38)
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -2923,7 +2919,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %._crit_edge
 
 140:                                              ; preds = %151, %.lr.ph.i76
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i76 ], [ %indvars.iv.next.i, %151 ]
-  %141 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv.i
   %142 = load ptr, ptr %141, align 16, !tbaa !36
   %.not.i77 = icmp ugt ptr %142, %.025.lcssa.i.i
   br i1 %.not.i77, label %151, label %143
@@ -3030,7 +3026,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL
 6:                                                ; preds = %5
   %7 = getelementptr i8, ptr %4, i64 16
   %.val51 = load ptr, ptr %7, align 8, !tbaa !100
-  %8 = getelementptr %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %.val51, i64 %.val
+  %8 = getelementptr [328 x i8], ptr %.val51, i64 %.val
   %9 = getelementptr i8, ptr %8, i64 -328
   %10 = getelementptr i8, ptr %8, i64 -312
   %11 = load ptr, ptr %10, align 8, !tbaa !104
@@ -3133,7 +3129,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_17AddrMap3AddEv.exit: ; preds = %._crit
   %61 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %52, %59 ]
   %62 = add i64 %60, 1
   store i64 %62, ptr %4, align 8, !tbaa !99
-  %63 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::ObjFile", ptr %61, i64 %60
+  %63 = getelementptr inbounds nuw [328 x i8], ptr %61, i64 %60
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %63, i8 0, i64 32, i1 false)
   store i32 -1, ptr %64, align 8, !tbaa !51
@@ -3511,7 +3507,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
 
 .preheader:                                       ; preds = %51, %55
   %.092 = phi i64 [ %56, %55 ], [ 0, %51 ]
-  %57 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %5, i64 %.092
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.092
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !116
   %60 = icmp eq i32 %59, %3
@@ -3681,7 +3677,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %.06947 = phi i64 [ %88, %87 ], [ 0, %.preheader ]
   %.sroa.0.146 = phi i32 [ %.sroa.0.2, %87 ], [ %.sroa.0.054, %.preheader ]
   %.sroa.52.145 = phi i64 [ %.sroa.52.2, %87 ], [ %.sroa.52.053, %.preheader ]
-  %61 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %5, i64 %.06947
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.06947
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !122
   %64 = add nsw i64 %63, %3

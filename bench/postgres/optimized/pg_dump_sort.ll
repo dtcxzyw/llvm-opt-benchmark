@@ -85,11 +85,11 @@ define internal i32 @DOTypeNameCompare(ptr noundef readonly captures(none) %0, p
   %4 = load ptr, ptr %1, align 8
   %5 = load i32, ptr %3, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw i32, ptr @dbObjectTypePriority, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @dbObjectTypePriority, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %4, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr @dbObjectTypePriority, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @dbObjectTypePriority, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %8, %12
   %.not = icmp eq i32 %13, 0
@@ -160,11 +160,11 @@ define internal i32 @DOTypeNameCompare(ptr noundef readonly captures(none) %0, p
 43:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = tail call ptr @findTypeByOid(i32 noundef %46) #9
   %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = tail call ptr @findTypeByOid(i32 noundef %50) #9
   %52 = icmp ne ptr %47, null
@@ -306,7 +306,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 
 19:                                               ; preds = %._crit_edge.i, %11
   %indvars.iv113.i = phi i64 [ 0, %11 ], [ %indvars.iv.next114.i, %._crit_edge.i ]
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv113.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv113.i
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
@@ -322,7 +322,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 
 27:                                               ; preds = %19
   %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %28
   %30 = trunc nuw nsw i64 %indvars.iv113.i to i32
   store i32 %30, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -337,7 +337,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 35:                                               ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 1
   %40 = icmp sgt i32 %38, %12
@@ -351,7 +351,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 
 42:                                               ; preds = %35
   %43 = zext nneg i32 %38 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %17, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -369,12 +369,12 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 .preheader88.i:                                   ; preds = %._crit_edge.i, %60
   %indvars.iv116.i = phi i64 [ %indvars.iv.next117.i, %60 ], [ %8, %._crit_edge.i ]
   %indvars.iv.next117.i = add nsw i64 %indvars.iv116.i, -1
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next117.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next117.i
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %17, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %17, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
@@ -409,7 +409,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
   %69 = load ptr, ptr %68, align 8
   %70 = add i32 %.27897.i, -1
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %10, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %10, i64 %71
   store ptr %69, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %74 = load i32, ptr %73, align 8
@@ -423,10 +423,10 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 77:                                               ; preds = %91, %.lr.ph95.i
   %indvars.iv119.i = phi i64 [ 0, %.lr.ph95.i ], [ %indvars.iv.next120.i, %91 ]
   %78 = load ptr, ptr %76, align 8
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv119.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv119.i
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %17, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %17, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, -1
   store i32 %84, ptr %82, align 4
@@ -434,7 +434,7 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %77
-  %87 = getelementptr inbounds i32, ptr %18, i64 %81
+  %87 = getelementptr inbounds [4 x i8], ptr %18, i64 %81
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = inttoptr i64 %89 to ptr
@@ -460,20 +460,20 @@ define dso_local void @sortDumpableObjects(ptr noundef captures(none) %0, i32 no
 .lr.ph104.i:                                      ; preds = %107, %.preheader.i
   %indvars.iv122.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next123.i, %107 ]
   %.1103.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %107 ]
-  %96 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv122.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv122.i
   %97 = load i32, ptr %96, align 4
   %.not86.i = icmp eq i32 %97, 0
   br i1 %.not86.i, label %107, label %98
 
 98:                                               ; preds = %.lr.ph104.i
-  %99 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv122.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv122.i
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %0, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %0, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = add i32 %.1103.i, 1
   %105 = sext i32 %.1103.i to i64
-  %106 = getelementptr inbounds ptr, ptr %10, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %10, i64 %105
   store ptr %103, ptr %106, align 8
   br label %107
 
@@ -512,7 +512,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 120:                                              ; preds = %.loopexit.i12, %.outer.i
   %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %.loopexit.i12 ], [ %indvars.iv92.ph.i, %.outer.i ]
-  %121 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv92.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv92.i
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %124 = load i32, ptr %123, align 4
@@ -680,7 +680,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader325.i.i:                                ; preds = %.loopexit324.i.i, %.preheader325.preheader.i.i
   %indvars.iv383.i.i = phi i64 [ 0, %.preheader325.preheader.i.i ], [ %indvars.iv.next384.i.i, %.loopexit324.i.i ]
-  %205 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv383.i.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv383.i.i
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %206, align 8
   %208 = icmp eq i32 %207, 12
@@ -694,7 +694,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader323.i.i:                                ; preds = %209, %237
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %237 ], [ 0, %209 ]
-  %213 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i.i
   %214 = load ptr, ptr %213, align 8
   %215 = load i32, ptr %214, align 8
   %216 = icmp eq i32 %215, 18
@@ -745,7 +745,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader322.i.i:                                ; preds = %.loopexit324.i.i, %.loopexit321.i.i
   %indvars.iv393.i.i = phi i64 [ %indvars.iv.next394.i.i, %.loopexit321.i.i ], [ 0, %.loopexit324.i.i ]
-  %238 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv393.i.i
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv393.i.i
   %239 = load ptr, ptr %238, align 8
   %240 = load i32, ptr %239, align 8
   %241 = icmp eq i32 %240, 12
@@ -759,14 +759,14 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader320.i.i:                                ; preds = %242, %267
   %indvars.iv388.i.i = phi i64 [ %indvars.iv.next389.i.i, %267 ], [ 0, %242 ]
-  %246 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv388.i.i
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv388.i.i
   %247 = load ptr, ptr %246, align 8
   %248 = load i32, ptr %247, align 8
   %249 = icmp eq i32 %248, 37
   br i1 %249, label %250, label %267
 
 250:                                              ; preds = %.preheader320.i.i
-  %251 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv388.i.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv388.i.i
   %252 = trunc nuw nsw i64 %indvars.iv388.i.i to i32
   %253 = add nsw i32 %125, -1
   %254 = icmp sgt i32 %253, %252
@@ -803,7 +803,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .critedge275.preheader.i.i:                       ; preds = %.loopexit321.i.i, %.critedge275.i.i
   %indvars.iv403.i.i = phi i64 [ %indvars.iv.next404.i.i, %.critedge275.i.i ], [ 0, %.loopexit321.i.i ]
-  %268 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv403.i.i
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv403.i.i
   %269 = load ptr, ptr %268, align 8
   %270 = load i32, ptr %269, align 8
   %271 = icmp eq i32 %270, 4
@@ -811,14 +811,14 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader318.i.i:                                ; preds = %.critedge275.preheader.i.i, %289
   %indvars.iv398.i.i = phi i64 [ %indvars.iv.next399.i.i, %289 ], [ 0, %.critedge275.preheader.i.i ]
-  %272 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv398.i.i
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv398.i.i
   %273 = load ptr, ptr %272, align 8
   %274 = load i32, ptr %273, align 8
   %275 = icmp eq i32 %274, 37
   br i1 %275, label %276, label %289
 
 276:                                              ; preds = %.preheader318.i.i
-  %277 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv398.i.i
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv398.i.i
   %278 = trunc nuw nsw i64 %indvars.iv398.i.i to i32
   %279 = add nsw i32 %125, -1
   %280 = icmp sgt i32 %279, %278
@@ -899,7 +899,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader316.i.i:                                ; preds = %.critedge275.i.i, %.loopexit315.i.i
   %indvars.iv413.i.i = phi i64 [ %indvars.iv.next414.i.i, %.loopexit315.i.i ], [ 0, %.critedge275.i.i ]
-  %313 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv413.i.i
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv413.i.i
   %314 = load ptr, ptr %313, align 8
   %315 = load i32, ptr %314, align 8
   %316 = icmp eq i32 %315, 12
@@ -907,7 +907,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader314.i.i:                                ; preds = %.preheader316.i.i, %336
   %indvars.iv408.i.i = phi i64 [ %indvars.iv.next409.i.i, %336 ], [ 0, %.preheader316.i.i ]
-  %317 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv408.i.i
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv408.i.i
   %318 = load ptr, ptr %317, align 8
   %319 = load i32, ptr %318, align 8
   %320 = icmp eq i32 %319, 20
@@ -1015,7 +1015,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .loopexit317.i.i:                                 ; preds = %.loopexit315.i.i, %.loopexit311.i.i
   %indvars.iv423.i.i = phi i64 [ %indvars.iv.next424.i.i, %.loopexit311.i.i ], [ 0, %.loopexit315.i.i ]
-  %367 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv423.i.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv423.i.i
   %368 = load ptr, ptr %367, align 8
   %369 = load i32, ptr %368, align 8
   %370 = icmp eq i32 %369, 12
@@ -1023,7 +1023,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader310.i.i:                                ; preds = %.loopexit317.i.i, %385
   %indvars.iv418.i.i = phi i64 [ %indvars.iv.next419.i.i, %385 ], [ 0, %.loopexit317.i.i ]
-  %371 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv418.i.i
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv418.i.i
   %372 = load ptr, ptr %371, align 8
   %373 = load i32, ptr %372, align 8
   %374 = icmp eq i32 %373, 14
@@ -1098,7 +1098,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader309.i.i:                                ; preds = %.loopexit311.i.i, %.loopexit.i.i
   %indvars.iv433.i.i = phi i64 [ %indvars.iv.next434.i.i, %.loopexit.i.i ], [ 0, %.loopexit311.i.i ]
-  %406 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv433.i.i
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv433.i.i
   %407 = load ptr, ptr %406, align 8
   %408 = load i32, ptr %407, align 8
   %409 = icmp eq i32 %408, 2
@@ -1106,7 +1106,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 .preheader.i.i:                                   ; preds = %.preheader309.i.i, %429
   %indvars.iv428.i.i = phi i64 [ %indvars.iv.next429.i.i, %429 ], [ 0, %.preheader309.i.i ]
-  %410 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv428.i.i
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv428.i.i
   %411 = load ptr, ptr %410, align 8
   %412 = load i32, ptr %411, align 8
   %413 = icmp eq i32 %412, 20
@@ -1175,7 +1175,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 440:                                              ; preds = %439, %.critedge283.thread.thread.i.i
   %indvars.iv438.i.i = phi i64 [ 0, %.critedge283.thread.thread.i.i ], [ %indvars.iv.next439.i.i, %439 ]
-  %441 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv438.i.i
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv438.i.i
   %442 = load ptr, ptr %441, align 8
   %443 = load i32, ptr %442, align 8
   %.not.i.i = icmp eq i32 %443, 24
@@ -1187,7 +1187,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 
 445:                                              ; preds = %445, %444
   %indvars.iv448.i.i = phi i64 [ 0, %444 ], [ %indvars.iv.next449.i.i, %445 ]
-  %446 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv448.i.i
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv448.i.i
   %447 = load ptr, ptr %446, align 8
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 16
   %449 = load ptr, ptr %448, align 8
@@ -1223,7 +1223,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
 460:                                              ; preds = %describeDumpableObject.exit.i.i, %459
   %indvars.iv443.i.i = phi i64 [ 0, %459 ], [ %indvars.iv.next444.i.i, %describeDumpableObject.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %461 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv443.i.i
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv443.i.i
   %462 = load ptr, ptr %461, align 8
   %463 = load i32, ptr %462, align 8
   switch i32 %463, label %824 [
@@ -1425,7 +1425,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
   %582 = load i32, ptr %581, align 8
   %583 = add i32 %582, -1
   %584 = sext i32 %583 to i64
-  %585 = getelementptr inbounds ptr, ptr %580, i64 %584
+  %585 = getelementptr inbounds [8 x i8], ptr %580, i64 %584
   %586 = load ptr, ptr %585, align 8
   %587 = getelementptr inbounds nuw i8, ptr %462, i64 12
   %588 = load i32, ptr %587, align 4
@@ -1769,7 +1769,7 @@ describeDumpableObject.exit.i.i:                  ; preds = %824, %820, %816, %8
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i18, %.lr.ph.i16 ]
-  %839 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i17
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i17
   %840 = load ptr, ptr %839, align 8
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 12
   %842 = load i32, ptr %841, align 4
@@ -1875,7 +1875,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i32, ptr %3, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 %9
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %.loopexit, label %.preheader51
@@ -1895,7 +1895,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.loopexit, label %18
@@ -1903,7 +1903,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %18, %.preheader51
   %22 = add i32 %5, 1
   %23 = sext i32 %5 to i64
-  %24 = getelementptr inbounds ptr, ptr %4, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %4, i64 %23
   store ptr %0, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i32, ptr %25, align 8
@@ -1927,7 +1927,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
 
 32:                                               ; preds = %.lr.ph58, %30
   %indvars.iv65 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next66, %30 ]
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv65
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv65
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %.loopexit, label %30
@@ -1935,7 +1935,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
 36:                                               ; preds = %.lr.ph60, %44
   %indvars.iv70 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next71, %44 ]
   %37 = load ptr, ptr %31, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv70
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv70
   %39 = load i32, ptr %38, align 4
   %40 = tail call ptr @findObjectByDumpId(i32 noundef %39) #9
   %.not = icmp eq ptr %40, null
@@ -1956,7 +1956,7 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge61:                                    ; preds = %44, %._crit_edge
   %48 = load i32, ptr %7, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %3, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %3, i64 %49
   store i32 %1, ptr %50, align 4
   br label %.loopexit
 

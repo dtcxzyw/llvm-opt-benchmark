@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { i32, ptr }
 %struct.libraw_custom_camera_t = type { i32, i16, i16, i8, i8, i8, i8, i16, i8, i8, i8, [10 x i8], [20 x i8], i16 }
 %struct.jhead = type { i32, i32, i32, i32, i32, i32, i32, i32, [6 x i32], [64 x i16], [64 x i16], [20 x ptr], [20 x ptr], ptr }
-%struct.tiff_ifd_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i64, i64, i32, [2 x %struct.libraw_dng_color_t], %struct.libraw_dng_levels_t, i32 }
-%struct.libraw_dng_color_t = type { i32, i16, [4 x [4 x float]], [4 x [3 x float]], [3 x [4 x float]] }
-%struct.libraw_dng_levels_t = type { i32, [4104 x i32], i32, [4104 x float], float, [4 x i32], [4 x i16], [4 x float], i32, [4 x float], [4 x float], float, float }
 
 $_ZTI17LibRaw_exceptions = comdat any
 
@@ -242,7 +239,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw16setMakeFromIndexEj(ptr noundef n
 
 .preheader:                                       ; preds = %2, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @_ZL9CorpTable, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL9CorpTable, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16, !tbaa !8
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %4
@@ -275,7 +272,7 @@ define noundef ptr @_ZN6LibRaw20cameramakeridx2makerEj(i32 noundef %0) local_unn
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @_ZL9CorpTable, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @_ZL9CorpTable, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16, !tbaa !8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
@@ -398,8 +395,8 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %58 = trunc nuw nsw i64 %indvars.iv to i32
   %59 = add i32 %12, %58
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.libraw_custom_camera_t, ptr %2, i64 %60
-  %62 = getelementptr inbounds nuw %struct.libraw_custom_camera_t, ptr @_ZZN6LibRaw8identifyEvE11const_table, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [52 x i8], ptr %2, i64 %60
+  %62 = getelementptr inbounds nuw [52 x i8], ptr @_ZZN6LibRaw8identifyEvE11const_table, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %61, ptr noundef nonnull align 4 dereferenceable(52) %62, i64 52, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 147
@@ -407,7 +404,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 63:                                               ; preds = %13, %68
   %indvars.iv664 = phi i64 [ 0, %13 ], [ %indvars.iv.next665, %68 ]
-  %64 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %41, i64 %indvars.iv664
+  %64 = getelementptr inbounds nuw [33408 x i8], ptr %41, i64 %indvars.iv664
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 312
   store i16 -1, ptr %65, align 8, !tbaa !104
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 144
@@ -422,7 +419,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 69:                                               ; preds = %63, %69
   %indvars.iv660 = phi i64 [ 0, %63 ], [ %indvars.iv.next661, %69 ]
-  %70 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv660
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv660
   store float 1.000000e+00, ptr %70, align 4, !tbaa !107
   %indvars.iv.next661 = add nuw nsw i64 %indvars.iv660, 1
   %exitcond663.not = icmp eq i64 %indvars.iv.next661, 4
@@ -504,22 +501,22 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %indvars.iv676 = phi i64 [ 0, %71 ], [ %indvars.iv.next677, %120 ]
   %110 = icmp eq i64 %indvars.iv676, 1
   %111 = uitofp i1 %110 to float
-  %112 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv676
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv676
   store float %111, ptr %112, align 4, !tbaa !107
   %113 = icmp ne i64 %indvars.iv676, 3
   %114 = uitofp i1 %113 to float
-  %115 = getelementptr inbounds nuw float, ptr %106, i64 %indvars.iv676
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv676
   store float %114, ptr %115, align 4, !tbaa !107
-  %invariant.gep = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv676
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv676
   br label %116
 
 .preheader601:                                    ; preds = %116
-  %invariant.gep609 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv676
+  %invariant.gep609 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv676
   br label %117
 
 116:                                              ; preds = %109, %116
   %indvars.iv668 = phi i64 [ 0, %109 ], [ %indvars.iv.next669, %116 ]
-  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv668
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv668
   store float 0.000000e+00, ptr %gep, align 4, !tbaa !107
   %indvars.iv.next669 = add nuw nsw i64 %indvars.iv668, 1
   %exitcond671.not = icmp eq i64 %indvars.iv.next669, 3
@@ -529,7 +526,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %indvars.iv672 = phi i64 [ 0, %.preheader601 ], [ %indvars.iv.next673, %117 ]
   %118 = icmp eq i64 %indvars.iv672, %indvars.iv676
   %119 = uitofp i1 %118 to float
-  %gep610 = getelementptr inbounds nuw [4 x float], ptr %invariant.gep609, i64 %indvars.iv672
+  %gep610 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep609, i64 %indvars.iv672
   store float %119, ptr %gep610, align 4, !tbaa !107
   %indvars.iv.next673 = add nuw nsw i64 %indvars.iv672, 1
   %exitcond675.not = icmp eq i64 %indvars.iv.next673, 3
@@ -549,7 +546,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 124:                                              ; preds = %121, %124
   %indvars.iv680 = phi i64 [ 0, %121 ], [ %indvars.iv.next681, %124 ]
   %125 = trunc i64 %indvars.iv680 to i16
-  %126 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv680
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %indvars.iv680
   store i16 %125, ptr %126, align 2, !tbaa !81
   %indvars.iv.next681 = add nuw nsw i64 %indvars.iv680, 1
   %exitcond683.not = icmp eq i64 %indvars.iv.next681, 65536
@@ -1153,7 +1150,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 .lr.ph621:                                        ; preds = %.lr.ph621.preheader, %415
   %indvars.iv686 = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next687, %415 ]
-  %416 = getelementptr inbounds nuw %struct.libraw_custom_camera_t, ptr %2, i64 %indvars.iv686
+  %416 = getelementptr inbounds nuw [52 x i8], ptr %2, i64 %indvars.iv686
   %417 = load i32, ptr %416, align 4, !tbaa !157
   %418 = icmp eq i32 %417, %168
   br i1 %418, label %419, label %415
@@ -1507,7 +1504,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 591:                                              ; preds = %.thread773, %590
   %indvars.iv690 = phi i64 [ 0, %.thread773 ], [ %indvars.iv.next691, %590 ]
-  %592 = getelementptr inbounds nuw %struct.anon, ptr @_ZL9CorpTable, i64 %indvars.iv690
+  %592 = getelementptr inbounds nuw [16 x i8], ptr @_ZL9CorpTable, i64 %indvars.iv690
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   %594 = load ptr, ptr %593, align 8, !tbaa !15
   %595 = call noundef ptr @_ZN6LibRaw10strcasestrEPcPKc(ptr noundef nonnull %29, ptr noundef %594)
@@ -1562,7 +1559,7 @@ thread-pre-split:                                 ; preds = %590
 
 608:                                              ; preds = %.thread561, %607
   %indvars.iv694 = phi i64 [ 0, %.thread561 ], [ %indvars.iv.next695, %607 ]
-  %609 = getelementptr inbounds nuw %struct.anon, ptr @_ZL9CorpTable, i64 %indvars.iv694
+  %609 = getelementptr inbounds nuw [16 x i8], ptr @_ZL9CorpTable, i64 %indvars.iv694
   %610 = load i32, ptr %609, align 16, !tbaa !8
   %611 = icmp eq i32 %606, %610
   br i1 %611, label %612, label %607
@@ -1876,7 +1873,7 @@ thread-pre-split:                                 ; preds = %590
 731:                                              ; preds = %724, %773
   %indvars.iv698 = phi i64 [ 0, %724 ], [ %indvars.iv.next699, %773 ]
   %.0190625 = phi i1 [ false, %724 ], [ %.1191, %773 ]
-  %732 = getelementptr inbounds nuw [11 x i16], ptr @_ZZN6LibRaw8identifyEvE5canon, i64 %indvars.iv698
+  %732 = getelementptr inbounds nuw [22 x i8], ptr @_ZZN6LibRaw8identifyEvE5canon, i64 %indvars.iv698
   %733 = load i16, ptr %732, align 2, !tbaa !81
   %734 = icmp eq i16 %725, %733
   br i1 %734, label %735, label %773
@@ -1965,9 +1962,9 @@ thread-pre-split:                                 ; preds = %590
 
 783:                                              ; preds = %.preheader598, %783
   %indvars.iv701 = phi i64 [ 0, %.preheader598 ], [ %indvars.iv.next702, %783 ]
-  %784 = getelementptr inbounds nuw i32, ptr %782, i64 %indvars.iv701
+  %784 = getelementptr inbounds nuw [4 x i8], ptr %782, i64 %indvars.iv701
   %785 = load i32, ptr %784, align 4, !tbaa !92
-  %786 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv701
+  %786 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv701
   store i32 %785, ptr %786, align 4, !tbaa !92
   %indvars.iv.next702 = add nuw nsw i64 %indvars.iv701, 1
   %exitcond704.not = icmp eq i64 %indvars.iv.next702, 4
@@ -2270,7 +2267,7 @@ thread-pre-split:                                 ; preds = %590
 933:                                              ; preds = %.lr.ph629, %933
   %indvars.iv705 = phi i64 [ 0, %.lr.ph629 ], [ %indvars.iv.next706, %933 ]
   %.0186628 = phi i32 [ 1, %.lr.ph629 ], [ %.1187, %933 ]
-  %934 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv705
+  %934 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv705
   %935 = load float, ptr %934, align 4, !tbaa !107
   %936 = fcmp reassoc nsz arcp contract afn ugt float %935, 0x3F50624DE0000000
   %.1187 = select i1 %936, i32 %.0186628, i32 0
@@ -2297,7 +2294,7 @@ thread-pre-split:                                 ; preds = %590
 .lr.ph636:                                        ; preds = %.lr.ph636.preheader, %.lr.ph636
   %indvars.iv710 = phi i64 [ 0, %.lr.ph636.preheader ], [ %indvars.iv.next711, %.lr.ph636 ]
   %.0184634 = phi double [ %938, %.lr.ph636.preheader ], [ %.0184., %.lr.ph636 ]
-  %940 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv710
+  %940 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv710
   %941 = load float, ptr %940, align 4, !tbaa !107
   %942 = fpext reassoc nsz arcp contract afn float %941 to double
   %943 = fcmp reassoc nsz arcp contract afn olt double %.0184634, %942
@@ -2308,11 +2305,11 @@ thread-pre-split:                                 ; preds = %590
 
 .lr.ph641:                                        ; preds = %.lr.ph641.preheader, %.lr.ph641
   %indvars.iv715 = phi i64 [ 0, %.lr.ph641.preheader ], [ %indvars.iv.next716, %.lr.ph641 ]
-  %944 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv715
+  %944 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv715
   %945 = load float, ptr %944, align 4, !tbaa !107
   %946 = fpext reassoc nsz arcp contract afn float %945 to double
   %947 = fmul reassoc nsz arcp contract afn double %946, %939
-  %948 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv715
+  %948 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv715
   store double %947, ptr %948, align 8, !tbaa !193
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
   %exitcond719.not = icmp eq i64 %indvars.iv.next716, %wide.trip.count718
@@ -2327,7 +2324,7 @@ thread-pre-split:                                 ; preds = %590
   %indvars.iv720 = phi i64 [ 0, %.lr.ph649.preheader ], [ %indvars.iv.next721, %.lr.ph649 ]
   %.0183647 = phi double [ %.pre726, %.lr.ph649.preheader ], [ %953, %.lr.ph649 ]
   %.1185646 = phi double [ %.pre726, %.lr.ph649.preheader ], [ %.1185., %.lr.ph649 ]
-  %949 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv720
+  %949 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv720
   %950 = load double, ptr %949, align 8, !tbaa !193
   %951 = fcmp reassoc nsz arcp contract afn olt double %.1185646, %950
   %.1185. = select reassoc nsz arcp contract afn i1 %951, double %.1185646, double %950
@@ -2554,7 +2551,7 @@ thread-pre-split569:                              ; preds = %1001
 
 1055:                                             ; preds = %1052
   %1056 = zext nneg i32 %1053 to i64
-  %1057 = getelementptr inbounds nuw i16, ptr %122, i64 %1056
+  %1057 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %1056
   %1058 = load i16, ptr %1057, align 2, !tbaa !81
   %.not426 = icmp eq i16 %1058, 0
   br i1 %.not426, label %thread-pre-split573, label %1059
@@ -2937,7 +2934,7 @@ define void @_ZN6LibRaw24identify_finetune_pentaxEv(ptr noundef nonnull align 8 
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [33408 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !204
   %16 = sext i32 %15 to i64
@@ -5890,7 +5887,7 @@ switch.early.test:                                ; preds = %233
   %indvars.iv573 = phi i64 [ 0, %1138 ], [ %indvars.iv.next574, %1172 ]
   %1150 = phi i16 [ %.promoted568, %1138 ], [ %1173, %1172 ]
   %1151 = phi i16 [ %spec.store.select515, %1138 ], [ %1174, %1172 ]
-  %1152 = getelementptr inbounds nuw [6 x i16], ptr @_ZZN6LibRaw21identify_finetune_dcrEPciiE4pana, i64 %indvars.iv573
+  %1152 = getelementptr inbounds nuw [12 x i8], ptr @_ZZN6LibRaw21identify_finetune_dcrEPciiE4pana, i64 %indvars.iv573
   %1153 = load i16, ptr %1152, align 4, !tbaa !81
   %1154 = sext i16 %1153 to i32
   %1155 = icmp eq i32 %1144, %1154
@@ -6687,7 +6684,7 @@ switch.early.test:                                ; preds = %233
 
 1503:                                             ; preds = %1497, %1503
   %indvars.iv580 = phi i64 [ 0, %1497 ], [ %indvars.iv.next581, %1503 ]
-  %1504 = getelementptr inbounds nuw float, ptr %1502, i64 %indvars.iv580
+  %1504 = getelementptr inbounds nuw [4 x i8], ptr %1502, i64 %indvars.iv580
   store float 1.000000e+00, ptr %1504, align 4, !tbaa !107
   %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
   %exitcond583.not = icmp eq i64 %indvars.iv.next581, 4
@@ -6714,7 +6711,7 @@ switch.early.test:                                ; preds = %233
 
 1512:                                             ; preds = %1506, %1512
   %indvars.iv576 = phi i64 [ 0, %1506 ], [ %indvars.iv.next577, %1512 ]
-  %1513 = getelementptr inbounds nuw float, ptr %1511, i64 %indvars.iv576
+  %1513 = getelementptr inbounds nuw [4 x i8], ptr %1511, i64 %indvars.iv576
   store float 1.000000e+00, ptr %1513, align 4, !tbaa !107
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond579.not = icmp eq i64 %indvars.iv.next577, 4
@@ -7056,14 +7053,14 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %40 = zext nneg i32 %26 to i64
-  %41 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [33408 x i8], ptr %0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 433476
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 433476
   br label %60
 
 44:                                               ; preds = %86
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 433336
-  %46 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %45, i64 %40
+  %46 = getelementptr inbounds nuw [33408 x i8], ptr %45, i64 %40
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 476
   %48 = load i32, ptr %47, align 4, !tbaa !226
   %49 = and i32 %48, 16
@@ -7095,14 +7092,14 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %indvars.iv.sroa.phi827 = phi ptr [ %.sroa.0, %39 ], [ %.sroa.4, %86 ]
   %indvars.iv.sroa.phi830 = phi ptr [ %.sroa.0833, %39 ], [ %.sroa.4834, %86 ]
   %indvars.iv = phi i64 [ 0, %39 ], [ 1, %86 ]
-  %62 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %42, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [168 x i8], ptr %42, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4, !tbaa !227
   %64 = and i32 %63, 2
   %.not401 = icmp eq i32 %64, 0
   br i1 %.not401, label %65, label %70
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %43, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [168 x i8], ptr %43, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !227
   %68 = lshr i32 %67, 1
   %69 = and i32 %68, 1
@@ -7117,7 +7114,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not404, label %73, label %78
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %43, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [168 x i8], ptr %43, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !227
   %76 = lshr i32 %75, 2
   %77 = and i32 %76, 1
@@ -7132,7 +7129,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not407, label %81, label %86
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %43, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [168 x i8], ptr %43, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !227
   %84 = lshr i32 %83, 3
   %85 = and i32 %84, 1
@@ -7146,7 +7143,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 88:                                               ; preds = %44
   %89 = zext nneg i32 %.sroa.0833.0..sroa.0833.0. to i64
-  %90 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %45, i64 %89
+  %90 = getelementptr inbounds nuw [33408 x i8], ptr %45, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 140
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 144
   %93 = load i16, ptr %92, align 8, !tbaa !104
@@ -7167,7 +7164,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .preheader541:                                    ; preds = %97, %99
   %indvars.iv649 = phi i64 [ 0, %97 ], [ %indvars.iv.next650, %99 ]
-  %98 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv649
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv649
   br label %100
 
 99:                                               ; preds = %100
@@ -7179,7 +7176,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %indvars.iv646 = phi i64 [ 0, %.preheader541 ], [ %indvars.iv.next647, %100 ]
   %101 = icmp eq i64 %indvars.iv646, %indvars.iv649
   %102 = uitofp i1 %101 to double
-  %103 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv646
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv646
   store double %102, ptr %103, align 8, !tbaa !193
   %indvars.iv.next647 = add nuw nsw i64 %indvars.iv646, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next647, 4
@@ -7188,7 +7185,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 .preheader539:                                    ; preds = %99, %109
   %104 = phi i1 [ false, %109 ], [ true, %99 ]
   %indvars.iv653 = phi i64 [ 1, %109 ], [ 0, %99 ]
-  %105 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %91, i64 %indvars.iv653
+  %105 = getelementptr inbounds nuw [168 x i8], ptr %91, i64 %indvars.iv653
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i16, ptr %106, align 8, !tbaa !104
   %108 = icmp eq i16 %107, 21
@@ -7201,7 +7198,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %110 = phi i1 [ false, %117 ], [ true, %109 ]
   %indvars.iv656 = phi i64 [ 1, %117 ], [ 0, %109 ]
   %.2345549 = phi i32 [ %.4347, %117 ], [ -1, %109 ]
-  %111 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %91, i64 %indvars.iv656
+  %111 = getelementptr inbounds nuw [168 x i8], ptr %91, i64 %indvars.iv656
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i16, ptr %112, align 8, !tbaa !104
   %114 = trunc nuw nsw i64 %indvars.iv656 to i32
@@ -7247,15 +7244,15 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .preheader536.lr.ph:                              ; preds = %.preheader537
   %123 = zext nneg i32 %.1344804 to i64
-  %124 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %91, i64 %123
+  %124 = getelementptr inbounds nuw [168 x i8], ptr %91, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
   %wide.trip.count = zext nneg i32 %invariant.smin to i64
   br label %.preheader536
 
 .preheader536:                                    ; preds = %.preheader536.lr.ph, %128
   %indvars.iv663 = phi i64 [ 0, %.preheader536.lr.ph ], [ %indvars.iv.next664, %128 ]
-  %126 = getelementptr inbounds nuw [3 x float], ptr %125, i64 %indvars.iv663
-  %127 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv663
+  %126 = getelementptr inbounds nuw [12 x i8], ptr %125, i64 %indvars.iv663
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv663
   br label %129
 
 128:                                              ; preds = %129
@@ -7265,39 +7262,39 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 129:                                              ; preds = %.preheader536, %129
   %indvars.iv659 = phi i64 [ 0, %.preheader536 ], [ %indvars.iv.next660, %129 ]
-  %130 = getelementptr inbounds nuw float, ptr %126, i64 %indvars.iv659
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv659
   %131 = load float, ptr %130, align 4, !tbaa !107
   %132 = fpext reassoc nsz arcp contract afn float %131 to double
-  %133 = getelementptr inbounds nuw double, ptr %127, i64 %indvars.iv659
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv659
   store double %132, ptr %133, align 8, !tbaa !193
   %indvars.iv.next660 = add nuw nsw i64 %indvars.iv659, 1
   %exitcond662.not = icmp eq i64 %indvars.iv.next660, 3
   br i1 %exitcond662.not, label %128, label %129, !llvm.loop !234
 
 ._crit_edge:                                      ; preds = %128
-  %134 = getelementptr inbounds nuw i32, ptr %2, i64 %123
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %123
   %135 = load i32, ptr %134, align 4, !tbaa !92
   %.not817 = icmp eq i32 %135, %.sroa.0833.0..sroa.0833.0.
   br i1 %.not817, label %.preheader533.us.preheader, label %.loopexit535
 
 .preheader533.us.preheader:                       ; preds = %._crit_edge
-  %136 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %91, i64 %123
+  %136 = getelementptr inbounds nuw [168 x i8], ptr %91, i64 %123
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %wide.trip.count675 = zext nneg i32 %invariant.smin to i64
   br label %.preheader533.us
 
 .preheader533.us:                                 ; preds = %.preheader533.us.preheader, %._crit_edge555.us
   %indvars.iv672 = phi i64 [ 0, %.preheader533.us.preheader ], [ %indvars.iv.next673, %._crit_edge555.us ]
-  %138 = getelementptr inbounds nuw [4 x float], ptr %137, i64 %indvars.iv672
-  %139 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv672
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %indvars.iv672
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv672
   br label %140
 
 140:                                              ; preds = %.preheader533.us, %140
   %indvars.iv667 = phi i64 [ 0, %.preheader533.us ], [ %indvars.iv.next668, %140 ]
-  %141 = getelementptr inbounds nuw float, ptr %138, i64 %indvars.iv667
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv667
   %142 = load float, ptr %141, align 4, !tbaa !107
   %143 = fpext reassoc nsz arcp contract afn float %142 to double
-  %144 = getelementptr inbounds nuw double, ptr %139, i64 %indvars.iv667
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv667
   store double %143, ptr %144, align 8, !tbaa !193
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   %exitcond671.not = icmp eq i64 %indvars.iv.next668, %wide.trip.count675
@@ -7322,15 +7319,15 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .preheader530.us:                                 ; preds = %.preheader530.us.preheader, %._crit_edge562.us
   %indvars.iv682 = phi i64 [ 0, %.preheader530.us.preheader ], [ %indvars.iv.next683, %._crit_edge562.us ]
-  %147 = getelementptr inbounds nuw float, ptr %146, i64 %indvars.iv682
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv682
   %148 = load float, ptr %147, align 4, !tbaa !107
   %149 = fpext reassoc nsz arcp contract afn float %148 to double
-  %150 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv682
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv682
   br label %151
 
 151:                                              ; preds = %.preheader530.us, %151
   %indvars.iv677 = phi i64 [ 0, %.preheader530.us ], [ %indvars.iv.next678, %151 ]
-  %152 = getelementptr inbounds nuw double, ptr %150, i64 %indvars.iv677
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv677
   %153 = load double, ptr %152, align 8, !tbaa !193
   %154 = fmul reassoc nsz arcp contract afn double %153, %149
   store double %154, ptr %152, align 8, !tbaa !193
@@ -7352,22 +7349,22 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .lr.ph.us.preheader:                              ; preds = %.split.us, %.preheader529.lr.ph
   %indvars.iv696 = phi i64 [ 0, %.preheader529.lr.ph ], [ %indvars.iv.next697, %.split.us ]
-  %155 = getelementptr inbounds nuw [3 x double], ptr %5, i64 %indvars.iv696
-  %156 = getelementptr inbounds nuw [4 x double], ptr %3, i64 %indvars.iv696
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv696
+  %156 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv696
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge570.us
   %indvars.iv692 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next693, %._crit_edge570.us ]
-  %157 = getelementptr inbounds nuw double, ptr %155, i64 %indvars.iv692
-  %invariant.gep.us = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv692
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv692
+  %invariant.gep.us = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv692
   br label %158
 
 158:                                              ; preds = %.lr.ph.us, %158
   %indvars.iv687 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next688, %158 ]
   %159 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %164, %158 ]
-  %160 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv687
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv687
   %161 = load double, ptr %160, align 8, !tbaa !193
-  %gep.us = getelementptr inbounds nuw [3 x double], ptr %invariant.gep.us, i64 %indvars.iv687
+  %gep.us = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep.us, i64 %indvars.iv687
   %162 = load double, ptr %gep.us, align 8, !tbaa !193
   %163 = fmul reassoc nsz arcp contract afn double %162, %161
   %164 = fadd reassoc nsz arcp contract afn double %159, %163
@@ -7430,7 +7427,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 .critedge491:                                     ; preds = %168, %175
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %177 = zext nneg i32 %26 to i64
-  %178 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [33408 x i8], ptr %176, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 476
   %180 = load i32, ptr %179, align 4, !tbaa !226
   %181 = and i32 %180, 512
@@ -7454,7 +7451,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 193:                                              ; preds = %.critedge491
   %194 = zext nneg i32 %186 to i64
-  %195 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %176, i64 %194
+  %195 = getelementptr inbounds nuw [33408 x i8], ptr %176, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 33336
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 33340
   %198 = load i16, ptr %197, align 4, !tbaa !81
@@ -7566,7 +7563,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 271:                                              ; preds = %.critedge493
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %273 = zext nneg i32 %26 to i64
-  %274 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %272, i64 %273
+  %274 = getelementptr inbounds nuw [33408 x i8], ptr %272, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 140
   %276 = load i32, ptr %275, align 4, !tbaa !227
   %277 = and i32 %276, 1
@@ -7582,7 +7579,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 283:                                              ; preds = %271
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 153948
   %285 = zext nneg i32 %281 to i64
-  %286 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %272, i64 %285
+  %286 = getelementptr inbounds nuw [33408 x i8], ptr %272, i64 %285
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %284, ptr noundef nonnull align 4 dereferenceable(48) %287, i64 48, i1 false)
   br label %288
@@ -7601,7 +7598,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 292:                                              ; preds = %288
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %294 = zext nneg i32 %26 to i64
-  %295 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %293, i64 %294
+  %295 = getelementptr inbounds nuw [33408 x i8], ptr %293, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 308
   %297 = load i32, ptr %296, align 4, !tbaa !227
   %298 = and i32 %297, 1
@@ -7617,7 +7614,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 304:                                              ; preds = %292
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 154116
   %306 = zext nneg i32 %302 to i64
-  %307 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %293, i64 %306
+  %307 = getelementptr inbounds nuw [33408 x i8], ptr %293, i64 %306
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %305, ptr noundef nonnull align 4 dereferenceable(48) %308, i64 48, i1 false)
   br label %309
@@ -7625,7 +7622,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 309:                                              ; preds = %._crit_edge759, %292, %304
   %.pre-phi = phi i64 [ %.pre760, %._crit_edge759 ], [ %294, %292 ], [ %294, %304 ]
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 433336
-  %311 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %.pre-phi
+  %311 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %.pre-phi
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 140
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 433476
   br label %324
@@ -7647,14 +7644,14 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 324:                                              ; preds = %309, %379
   %325 = phi i1 [ true, %309 ], [ false, %379 ]
   %indvars.iv701 = phi i64 [ 0, %309 ], [ 1, %379 ]
-  %326 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %312, i64 %indvars.iv701
+  %326 = getelementptr inbounds nuw [168 x i8], ptr %312, i64 %indvars.iv701
   %327 = load i32, ptr %326, align 4, !tbaa !227
   %328 = and i32 %327, 4
   %.not471 = icmp eq i32 %328, 0
   br i1 %.not471, label %329, label %334
 
 329:                                              ; preds = %324
-  %330 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %313, i64 %indvars.iv701
+  %330 = getelementptr inbounds nuw [168 x i8], ptr %313, i64 %indvars.iv701
   %331 = load i32, ptr %330, align 4, !tbaa !227
   %332 = lshr i32 %331, 2
   %333 = and i32 %332, 1
@@ -7667,11 +7664,11 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %336, label %337, label %344
 
 337:                                              ; preds = %334
-  %338 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %268, i64 %indvars.iv701
+  %338 = getelementptr inbounds nuw [168 x i8], ptr %268, i64 %indvars.iv701
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 72
   %340 = zext nneg i32 %335 to i64
-  %341 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %340
-  %342 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %341, i64 %indvars.iv701
+  %341 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %340
+  %342 = getelementptr inbounds nuw [168 x i8], ptr %341, i64 %indvars.iv701
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %339, ptr noundef nonnull align 4 dereferenceable(48) %343, i64 48, i1 false)
   br label %344
@@ -7682,7 +7679,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not474, label %346, label %351
 
 346:                                              ; preds = %344
-  %347 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %313, i64 %indvars.iv701
+  %347 = getelementptr inbounds nuw [168 x i8], ptr %313, i64 %indvars.iv701
   %348 = load i32, ptr %347, align 4, !tbaa !227
   %349 = lshr i32 %348, 3
   %350 = and i32 %349, 1
@@ -7695,11 +7692,11 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %353, label %354, label %361
 
 354:                                              ; preds = %351
-  %355 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %268, i64 %indvars.iv701
+  %355 = getelementptr inbounds nuw [168 x i8], ptr %268, i64 %indvars.iv701
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %357 = zext nneg i32 %352 to i64
-  %358 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %357
-  %359 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %358, i64 %indvars.iv701
+  %358 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %357
+  %359 = getelementptr inbounds nuw [168 x i8], ptr %358, i64 %indvars.iv701
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %356, ptr noundef nonnull align 4 dereferenceable(64) %360, i64 64, i1 false)
   br label %361
@@ -7710,7 +7707,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   br i1 %.not477, label %363, label %368
 
 363:                                              ; preds = %361
-  %364 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %313, i64 %indvars.iv701
+  %364 = getelementptr inbounds nuw [168 x i8], ptr %313, i64 %indvars.iv701
   %365 = load i32, ptr %364, align 4, !tbaa !227
   %366 = lshr i32 %365, 1
   %367 = and i32 %366, 1
@@ -7724,11 +7721,11 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 371:                                              ; preds = %368
   %372 = zext nneg i32 %369 to i64
-  %373 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %372
-  %374 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %373, i64 %indvars.iv701
+  %373 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %372
+  %374 = getelementptr inbounds nuw [168 x i8], ptr %373, i64 %indvars.iv701
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 144
   %376 = load i16, ptr %375, align 8, !tbaa !104
-  %377 = getelementptr inbounds nuw %struct.libraw_dng_color_t, ptr %268, i64 %indvars.iv701
+  %377 = getelementptr inbounds nuw [168 x i8], ptr %268, i64 %indvars.iv701
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 4
   store i16 %376, ptr %378, align 8, !tbaa !104
   br label %379
@@ -7739,7 +7736,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 380:                                              ; preds = %314
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 187052
   %382 = zext nneg i32 %322 to i64
-  %383 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %382
+  %383 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %382
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 33364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %381, ptr noundef nonnull align 4 dereferenceable(16) %384, i64 16, i1 false)
   br label %385
@@ -7756,7 +7753,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 391:                                              ; preds = %385
   %392 = zext nneg i32 %389 to i64
-  %393 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %392
+  %393 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %392
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 33396
   %395 = load float, ptr %394, align 4, !tbaa !243
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 187084
@@ -7775,7 +7772,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 403:                                              ; preds = %397
   %404 = zext nneg i32 %401 to i64
-  %405 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %404
+  %405 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %404
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 33320
   %407 = load i32, ptr %406, align 8, !tbaa !92
   %.not443 = icmp eq i32 %407, 0
@@ -7808,7 +7805,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %420 = load i32, ptr %415, align 8, !tbaa !246
   %notmask = shl nsw i32 -1, %420
   %421 = xor i32 %notmask, -1
-  %422 = getelementptr inbounds nuw i32, ptr %418, i64 %indvars.iv704
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %418, i64 %indvars.iv704
   store i32 %421, ptr %422, align 4, !tbaa !92
   %indvars.iv.next705 = add nuw nsw i64 %indvars.iv704, 1
   %exitcond707.not = icmp eq i64 %indvars.iv.next705, 4
@@ -7834,7 +7831,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 430:                                              ; preds = %.loopexit528
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 187068
   %432 = zext nneg i32 %428 to i64
-  %433 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %432
+  %433 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %432
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 33380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %431, ptr noundef nonnull align 4 dereferenceable(16) %434, i64 16, i1 false)
   %435 = load float, ptr %431, align 4, !tbaa !107
@@ -7857,7 +7854,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %452
   %indvars.iv708 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next709, %452 ]
-  %444 = getelementptr inbounds nuw float, ptr %431, i64 %indvars.iv708
+  %444 = getelementptr inbounds nuw [4 x i8], ptr %431, i64 %indvars.iv708
   %445 = load float, ptr %444, align 4, !tbaa !107
   %446 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %445)
   %447 = fpext reassoc nsz arcp contract afn float %446 to double
@@ -7866,7 +7863,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 449:                                              ; preds = %.lr.ph
   %450 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %445
-  %451 = getelementptr inbounds nuw float, ptr %438, i64 %indvars.iv708
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %indvars.iv708
   store float %450, ptr %451, align 4, !tbaa !107
   br label %452
 
@@ -7892,7 +7889,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 459:                                              ; preds = %.loopexit526
   %460 = zext nneg i32 %457 to i64
-  %461 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %460
+  %461 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %460
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 33316
   %463 = load float, ptr %462, align 4, !tbaa !249
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 187004
@@ -7915,7 +7912,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 474:                                              ; preds = %472
   %475 = zext nneg i32 %30 to i64
-  %476 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %475
+  %476 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 476
   %478 = load i32, ptr %477, align 4, !tbaa !226
   %479 = and i32 %478, 2048
@@ -7929,7 +7926,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 484:                                              ; preds = %474
   %485 = zext nneg i32 %482 to i64
-  %486 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %485
+  %486 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %485
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 33360
   %488 = load i32, ptr %487, align 8, !tbaa !253
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 187048
@@ -7948,7 +7945,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 496:                                              ; preds = %490
   %497 = zext nneg i32 %494 to i64
-  %498 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %497
+  %498 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %497
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 120
   %500 = load i64, ptr %499, align 8, !tbaa !255
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 381592
@@ -7967,7 +7964,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 508:                                              ; preds = %502
   %509 = zext nneg i32 %506 to i64
-  %510 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %310, i64 %509
+  %510 = getelementptr inbounds nuw [33408 x i8], ptr %310, i64 %509
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 128
   %512 = load i64, ptr %511, align 8, !tbaa !257
   %513 = getelementptr inbounds nuw i8, ptr %510, i64 136
@@ -8015,9 +8012,9 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 541:                                              ; preds = %537, %541
   %indvars.iv713 = phi i64 [ 0, %537 ], [ %indvars.iv.next714, %541 ]
-  %542 = getelementptr inbounds nuw i32, ptr %539, i64 %indvars.iv713
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv713
   store i32 65535, ptr %542, align 4, !tbaa !92
-  %543 = getelementptr inbounds nuw i64, ptr %540, i64 %indvars.iv713
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %540, i64 %indvars.iv713
   store i64 65535, ptr %543, align 8, !tbaa !259
   %indvars.iv.next714 = add nuw nsw i64 %indvars.iv713, 1
   %exitcond716.not = icmp eq i64 %indvars.iv.next714, 4
@@ -8070,7 +8067,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %573 = load i32, ptr %572, align 4, !tbaa !150
   %574 = zext i32 %573 to i64
-  %575 = getelementptr inbounds nuw i32, ptr %556, i64 %574
+  %575 = getelementptr inbounds nuw [4 x i8], ptr %556, i64 %574
   %576 = load i32, ptr %575, align 4, !tbaa !92
   store i32 %576, ptr %551, align 8, !tbaa !119
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 154172
@@ -8153,7 +8150,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %.0332602.us = phi i32 [ 0, %.preheader522.us ], [ %631, %614 ]
   %.1335601.us = phi i32 [ %.0334606.us, %.preheader522.us ], [ %630, %614 ]
   %615 = sext i32 %.1335601.us to i64
-  %616 = getelementptr inbounds i32, ptr %556, i64 %615
+  %616 = getelementptr inbounds [4 x i8], ptr %556, i64 %615
   %617 = load i32, ptr %616, align 4, !tbaa !92
   %618 = and i32 %.0332602.us, 1
   %619 = or disjoint i32 %618, %613
@@ -8161,11 +8158,11 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %621 = lshr i32 %608, %620
   %622 = and i32 %621, 3
   %623 = zext nneg i32 %622 to i64
-  %624 = getelementptr inbounds nuw i32, ptr %6, i64 %623
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %623
   %625 = load i32, ptr %624, align 4, !tbaa !92
   %626 = add i32 %625, %617
   store i32 %626, ptr %624, align 4, !tbaa !92
-  %627 = getelementptr inbounds nuw i32, ptr %7, i64 %623
+  %627 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %623
   %628 = load i32, ptr %627, align 4, !tbaa !92
   %629 = add nsw i32 %628, 1
   store i32 %629, ptr %627, align 4, !tbaa !92
@@ -8189,16 +8186,16 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .preheader521:                                    ; preds = %.preheader521.preheader, %643
   %indvars.iv734 = phi i64 [ %indvars.iv.next735, %643 ], [ 0, %.preheader521.preheader ]
-  %634 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv734
+  %634 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv734
   %635 = load i32, ptr %634, align 4, !tbaa !92
   %.not470 = icmp eq i32 %635, 0
   br i1 %.not470, label %643, label %636
 
 636:                                              ; preds = %.preheader521
-  %637 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv734
+  %637 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv734
   %638 = load i32, ptr %637, align 4, !tbaa !92
   %639 = sdiv i32 %638, %635
-  %640 = getelementptr inbounds nuw i32, ptr %556, i64 %indvars.iv734
+  %640 = getelementptr inbounds nuw [4 x i8], ptr %556, i64 %indvars.iv734
   %641 = load i32, ptr %640, align 4, !tbaa !92
   %642 = add i32 %641, %639
   store i32 %642, ptr %640, align 4, !tbaa !92
@@ -8259,13 +8256,13 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 659:                                              ; preds = %659, %.preheader524.us.us.us
   %indvars.iv719 = phi i64 [ %indvars.iv.next720, %659 ], [ %658, %.preheader524.us.us.us ]
   %indvars.iv717 = phi i64 [ %indvars.iv.next718, %659 ], [ 0, %.preheader524.us.us.us ]
-  %660 = getelementptr inbounds i32, ptr %647, i64 %indvars.iv719
+  %660 = getelementptr inbounds [4 x i8], ptr %647, i64 %indvars.iv719
   %661 = load i32, ptr %660, align 4, !tbaa !92
-  %662 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv717
+  %662 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv717
   %663 = load i32, ptr %662, align 4, !tbaa !92
   %664 = add i32 %663, %661
   store i32 %664, ptr %662, align 4, !tbaa !92
-  %665 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv717
+  %665 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv717
   %666 = load i32, ptr %665, align 4, !tbaa !92
   %667 = add nsw i32 %666, 1
   store i32 %667, ptr %665, align 4, !tbaa !92
@@ -8293,16 +8290,16 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 .preheader523:                                    ; preds = %.preheader523.preheader, %680
   %indvars.iv728 = phi i64 [ %indvars.iv.next729, %680 ], [ 0, %.preheader523.preheader ]
-  %671 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv728
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv728
   %672 = load i32, ptr %671, align 4, !tbaa !92
   %.not463 = icmp eq i32 %672, 0
   br i1 %.not463, label %680, label %673
 
 673:                                              ; preds = %.preheader523
-  %674 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv728
+  %674 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv728
   %675 = load i32, ptr %674, align 4, !tbaa !92
   %676 = sdiv i32 %675, %672
-  %677 = getelementptr inbounds nuw i32, ptr %647, i64 %indvars.iv728
+  %677 = getelementptr inbounds nuw [4 x i8], ptr %647, i64 %indvars.iv728
   %678 = load i32, ptr %677, align 4, !tbaa !92
   %679 = add i32 %678, %676
   store i32 %679, ptr %677, align 4, !tbaa !92
@@ -8326,7 +8323,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 686:                                              ; preds = %.thread517
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 433336
   %688 = zext nneg i32 %26 to i64
-  %689 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %687, i64 %688
+  %689 = getelementptr inbounds nuw [33408 x i8], ptr %687, i64 %688
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 476
   %691 = load i32, ptr %690, align 4, !tbaa !226
   %692 = and i32 %691, 16384
@@ -8342,7 +8339,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 699:                                              ; preds = %686
   %700 = zext nneg i32 %697 to i64
-  %701 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %687, i64 %700
+  %701 = getelementptr inbounds nuw [33408 x i8], ptr %687, i64 %700
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 33400
   %703 = load float, ptr %702, align 8, !tbaa !268
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 187088
@@ -8385,7 +8382,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 .lr.ph613:                                        ; preds = %.lr.ph613.preheader, %.lr.ph613
   %indvars.iv738 = phi i64 [ 0, %.lr.ph613.preheader ], [ %indvars.iv.next739, %.lr.ph613 ]
   %.0323611 = phi i32 [ 0, %.lr.ph613.preheader ], [ %721, %.lr.ph613 ]
-  %719 = getelementptr inbounds nuw i32, ptr %682, i64 %indvars.iv738
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %682, i64 %indvars.iv738
   %720 = load i32, ptr %719, align 4, !tbaa !92
   %721 = add i32 %720, %.0323611
   %indvars.iv.next739 = add nuw nsw i64 %indvars.iv738, 1
@@ -8399,7 +8396,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 723:                                              ; preds = %.preheader, %723
   %indvars.iv743 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next744, %723 ]
   %.1322618 = phi i32 [ 0, %.preheader ], [ %727, %723 ]
-  %724 = getelementptr inbounds nuw i32, ptr %682, i64 %indvars.iv743
+  %724 = getelementptr inbounds nuw [4 x i8], ptr %682, i64 %indvars.iv743
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 24
   %726 = load i32, ptr %725, align 4, !tbaa !92
   %727 = add i32 %726, %.1322618
@@ -8432,7 +8429,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
 
 740:                                              ; preds = %.lr.ph625, %740
   %indvars.iv750 = phi i64 [ 0, %.lr.ph625 ], [ %indvars.iv.next751, %740 ]
-  %741 = getelementptr inbounds nuw i64, ptr %737, i64 %indvars.iv750
+  %741 = getelementptr inbounds nuw [8 x i8], ptr %737, i64 %indvars.iv750
   store i64 %736, ptr %741, align 8, !tbaa !259
   %indvars.iv.next751 = add nuw nsw i64 %indvars.iv750, 1
   %exitcond754.not = icmp eq i64 %indvars.iv.next751, %wide.trip.count753

@@ -379,7 +379,7 @@ define hidden void @"_ZN6uucore8features10ringbuffer19RingBuffer$LT$T$GT$9push_b
   store i64 %20, ptr %11, align 8, !alias.scope !80, !noalias !83
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !80, !noalias !83, !nonnull !9, !noundef !9
-  %23 = getelementptr inbounds { i64, [2 x i64] }, ptr %22, i64 %16
+  %23 = getelementptr inbounds [24 x i8], ptr %22, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !noalias !80
   br label %24
 
@@ -427,7 +427,7 @@ define hidden void @"_ZN6uucore8features10ringbuffer19RingBuffer$LT$T$GT$9push_b
   %.0.i.i3 = sub nuw i64 %38, %39
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !75, !noalias !78, !nonnull !9, !noundef !9
-  %42 = getelementptr inbounds { i64, [2 x i64] }, ptr %41, i64 %.0.i.i3
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %.0.i.i3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %43 = load i64, ptr %11, align 8, !alias.scope !75, !noalias !78, !noundef !9
   %44 = add i64 %43, 1

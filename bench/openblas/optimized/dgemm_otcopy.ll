@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = and i64 %1, -2
   %7 = mul nsw i64 %6, %0
-  %8 = getelementptr inbounds double, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = ashr i64 %0, 1
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.preheader76, label %.loopexit77
@@ -28,7 +28,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.065.us.us = phi i64 [ %32, %.loopexit75.us.us ], [ %9, %.preheader76.split.us ]
   %.161.us.us = phi ptr [ %30, %.loopexit75.us.us ], [ %2, %.preheader76.split.us ]
   %.154.us.us = phi ptr [ %31, %.loopexit75.us.us ], [ %4, %.preheader76.split.us ]
-  %14 = getelementptr inbounds double, ptr %.161.us.us, i64 %3
+  %14 = getelementptr inbounds [8 x i8], ptr %.161.us.us, i64 %3
   br label %15
 
 15:                                               ; preds = %15, %.preheader74.us.us
@@ -68,7 +68,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.161.us = phi ptr [ %50, %.loopexit75.us ], [ %2, %.preheader76.split.us ]
   %.154.us = phi ptr [ %51, %.loopexit75.us ], [ %4, %.preheader76.split.us ]
   %.1.us = phi ptr [ %55, %.loopexit75.us ], [ %8, %.preheader76.split.us ]
-  %34 = getelementptr inbounds double, ptr %.161.us, i64 %3
+  %34 = getelementptr inbounds [8 x i8], ptr %.161.us, i64 %3
   br label %35
 
 35:                                               ; preds = %.preheader74.us, %35
@@ -124,7 +124,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.065 = phi i64 [ %67, %.preheader76.split.split ], [ %9, %.preheader76.split ]
   %.161 = phi ptr [ %62, %.preheader76.split.split ], [ %2, %.preheader76.split ]
   %.1 = phi ptr [ %66, %.preheader76.split.split ], [ %8, %.preheader76.split ]
-  %61 = getelementptr inbounds double, ptr %.161, i64 %3
+  %61 = getelementptr inbounds [8 x i8], ptr %.161, i64 %3
   %62 = getelementptr inbounds i8, ptr %.161, i64 %.idx
   %63 = load double, ptr %.161, align 8, !tbaa !3
   store double %63, ptr %.1, align 8, !tbaa !3

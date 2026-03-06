@@ -131,7 +131,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   %23 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr %struct.list_head, ptr %24, i64 %25
+  %26 = getelementptr [16 x i8], ptr %24, i64 %25
   %27 = load volatile ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %26
   br i1 %28, label %.thread, label %.preheader24
@@ -205,7 +205,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   %68 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr %struct.list_head, ptr %69, i64 %70
+  %71 = getelementptr [16 x i8], ptr %69, i64 %70
   %72 = load volatile ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %71
   br i1 %73, label %.loopexit, label %.preheader
@@ -257,7 +257,7 @@ define dso_local i32 @netlbl_unlhsh_add(ptr noundef %0, ptr noundef %1, ptr noun
   %95 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = zext nneg i32 %62 to i64
-  %98 = getelementptr %struct.list_head, ptr %96, i64 %97
+  %98 = getelementptr [16 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   store ptr %98, ptr %94, align 8
@@ -478,7 +478,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
   %24 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr %struct.list_head, ptr %25, i64 %26
+  %27 = getelementptr [16 x i8], ptr %25, i64 %26
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %27
   br i1 %29, label %.thread, label %.preheader25
@@ -798,7 +798,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlabel_init(i32 noundef 
 .preheader:                                       ; preds = %7, %.preheader
   %15 = phi i64 [ %19, %.preheader ], [ 0, %7 ]
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr %struct.list_head, ptr %16, i64 %15
+  %17 = getelementptr [16 x i8], ptr %16, i64 %15
   store volatile ptr %17, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store volatile ptr %17, ptr %18, align 8
@@ -840,7 +840,7 @@ define dso_local noundef range(i32 -42, 1) i32 @netlbl_unlabel_getattr(ptr nound
   %11 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr %struct.list_head, ptr %12, i64 %13
+  %14 = getelementptr [16 x i8], ptr %12, i64 %13
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
   br i1 %16, label %.thread, label %.preheader
@@ -1492,7 +1492,7 @@ define internal i32 @netlbl_unlabel_staticlist(ptr noundef %0, ptr noundef %1) #
   %33 = phi i32 [ %25, %24 ], [ %124, %.loopexit40 ]
   %34 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr %struct.list_head, ptr %35, i64 %30
+  %36 = getelementptr [16 x i8], ptr %35, i64 %30
   %37 = load volatile ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %36
   br i1 %38, label %.loopexit40, label %.preheader39
@@ -2408,7 +2408,7 @@ define internal noundef i32 @netlbl_unlhsh_netdev_handler(ptr readnone captures(
   %17 = load volatile ptr, ptr @netlbl_unlhsh, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %16 to i64
-  %20 = getelementptr %struct.list_head, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %20
   br i1 %22, label %.thread6, label %.preheader

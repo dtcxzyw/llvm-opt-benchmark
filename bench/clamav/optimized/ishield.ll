@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.IS_FB = type <{ [260 x i8], i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32 }>
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.CABARRAY = type { i32, i64, i64 }
 
 @.str = private unnamed_addr constant [16 x i8] c"in ishield-msi\0A\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"ishield-msi: short read for header\0A\00", align 1
@@ -672,7 +671,7 @@ define i32 @cli_scanishield(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
 
 .lr.ph:                                           ; preds = %.preheader, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %.preheader ]
-  %78 = getelementptr inbounds nuw %struct.CABARRAY, ptr %.sroa.0.0.ph, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph, i64 %indvars.iv
   %79 = load i32, ptr %78, align 8, !tbaa !70
   %80 = zext i32 %79 to i64
   %.not143 = icmp eq i64 %indvars.iv, %80
@@ -700,7 +699,7 @@ define i32 @cli_scanishield(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, i64 noundef %68) #13
   %89 = trunc nuw nsw i64 %68 to i32
   %90 = zext i32 %.sroa.25.0.ph to i64
-  %91 = getelementptr inbounds nuw %struct.CABARRAY, ptr %87, i64 %90
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %90
   store i32 %89, ptr %91, align 8, !tbaa !70
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %37, ptr %92, align 8, !tbaa !72
@@ -985,7 +984,7 @@ md5str.exit.i:                                    ; preds = %170
 
 .lr.ph.i:                                         ; preds = %241, %249
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %249 ], [ 0, %241 ]
-  %247 = getelementptr inbounds nuw %struct.CABARRAY, ptr %.sroa.0.0.ph, i64 %indvars.iv.i
+  %247 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph, i64 %indvars.iv.i
   %248 = load i32, ptr %247, align 8, !tbaa !70
   %.not238.i = icmp eq i32 %248, %229
   br i1 %.not238.i, label %.critedge.i, label %249
@@ -1002,7 +1001,7 @@ md5str.exit.i:                                    ; preds = %170
 
 251:                                              ; preds = %.critedge.i
   %252 = and i64 %indvars.iv.i, 4294967295
-  %253 = getelementptr inbounds nuw %struct.CABARRAY, ptr %.sroa.0.0.ph, i64 %252
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load i64, ptr %254, align 8, !tbaa !73
   %256 = icmp eq i64 %255, 0
@@ -1216,7 +1215,7 @@ is_parse_hdr.exit:                                ; preds = %315
 
 .lr.ph304:                                        ; preds = %.lr.ph304.preheader, %.lr.ph304
   %indvars.iv336 = phi i64 [ 0, %.lr.ph304.preheader ], [ %indvars.iv.next337, %.lr.ph304 ]
-  %339 = getelementptr inbounds nuw %struct.CABARRAY, ptr %.sroa.0.0.ph, i64 %indvars.iv336
+  %339 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph, i64 %indvars.iv336
   %340 = load i32, ptr %339, align 8, !tbaa !70
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i32 noundef %340) #13
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 8

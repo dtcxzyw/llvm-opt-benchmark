@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5EA_sblk_info_t = type { i64, i64, i64, i64 }
 
 @H5EA_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -96,7 +95,7 @@ define ptr @H5EA__iblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %28 = mul nuw nsw i64 %27, 125613361
   %29 = lshr i64 %28, 27
   %30 = and i64 %29, 31
-  %31 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !37
   %33 = shl i32 %32, 1
   %34 = zext i32 %33 to i64
@@ -635,14 +634,14 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %.04574 = phi i64 [ 0, %.lr.ph ], [ %37, %._crit_edge ]
   %.04673 = phi i32 [ 0, %.lr.ph ], [ %spec.select62, %._crit_edge ]
   %.04872 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %._crit_edge ]
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %.04574
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.04574
   %20 = load i64, ptr %19, align 8, !tbaa !10
   %.not57 = icmp eq i64 %20, -1
   %.pre86 = zext i32 %.04872 to i64
   br i1 %.not57, label %._crit_edge, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre80, i64 %.pre86
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %.pre80, i64 %.pre86
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !62
   %25 = tail call i32 @H5EA__dblock_delete(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %20, i64 noundef %24) #3
@@ -651,7 +650,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %14, align 8, !tbaa !48
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %.04574
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.04574
   store i64 -1, ptr %29, align 8, !tbaa !10
   %.pre79 = load ptr, ptr %15, align 8, !tbaa !61
   %.pre81 = load i64, ptr %12, align 8, !tbaa !39
@@ -663,7 +662,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %31 = phi ptr [ %28, %27 ], [ %18, %16 ]
   %32 = add i32 %.04673, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre8084, i64 %.pre86
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %.pre8084, i64 %.pre86
   %35 = load i64, ptr %34, align 8, !tbaa !64
   %.not58 = icmp ule i64 %35, %33
   %36 = zext i1 %.not58 to i32
@@ -695,7 +694,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %48 = phi i64 [ %44, %.lr.ph76 ], [ %66, %65 ]
   %49 = phi ptr [ %.pre82, %.lr.ph76 ], [ %67, %65 ]
   %.075 = phi i64 [ 0, %.lr.ph76 ], [ %68, %65 ]
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.075
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.075
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %.not60 = icmp eq i64 %51, -1
   br i1 %.not60, label %65, label %52
@@ -716,7 +715,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
 
 62:                                               ; preds = %52
   %63 = load ptr, ptr %45, align 8, !tbaa !49
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %.075
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.075
   store i64 -1, ptr %64, align 8, !tbaa !10
   %.pre83 = load i64, ptr %43, align 8, !tbaa !41
   br label %65

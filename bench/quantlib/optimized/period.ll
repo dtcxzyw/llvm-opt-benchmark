@@ -737,7 +737,7 @@ ehcleanup54:                                      ; preds = %if.then.i.i27, %ehc
 
 switch.lookup:                                    ; preds = %sw.bb14
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr i32, ptr @switch.table._ZNK8QuantLib6Period9frequencyEv, i64 %23
+  %24 = getelementptr [4 x i8], ptr @switch.table._ZNK8QuantLib6Period9frequencyEv, i64 %23
   %switch.gep = getelementptr i8, ptr %24, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %cleanup
@@ -5318,7 +5318,7 @@ ehcleanup43:                                      ; preds = %if.then.i.i35, %ehc
 switch.lookup:                                    ; preds = %entry
   %20 = load i32, ptr %holder, align 4, !tbaa !3
   %21 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_19short_period_holderE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_19short_period_holderE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %20)
   %call1.i18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull %switch.load, i64 noundef 1)

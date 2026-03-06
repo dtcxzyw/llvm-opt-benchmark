@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.BLOCK = type { [128 x i64] }
-%struct.ARGON2_THREAD_DATA = type { %struct.ARGON2_POS, ptr }
-%struct.ARGON2_POS = type { i32, i32, i8, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @ossl_kdf_argon2i_functions = local_unnamed_addr constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @kdf_argon2i_new }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @kdf_argon2_free }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @kdf_argon2_reset }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @kdf_argon2_derive }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @kdf_argon2_settable_ctx_params }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @kdf_argon2_set_ctx_params }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @kdf_argon2_gettable_ctx_params }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @kdf_argon2_get_ctx_params }, { i32, [4 x i8], ptr } zeroinitializer], align 16
@@ -1134,7 +1132,7 @@ define internal fastcc range(i32 0, 2) i32 @initialize(ptr noundef captures(addr
 
 49:                                               ; preds = %53, %.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader.i ]
-  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !41
   store i32 %51, ptr %3, align 4
   %52 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %43, ptr noundef nonnull %3, i64 noundef 4) #10
@@ -1285,7 +1283,7 @@ initial_hash.exit:                                ; preds = %49, %23, %45, %58, 
   %119 = load i32, ptr %115, align 4, !tbaa !35
   %120 = mul i32 %119, %.022.i
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %struct.BLOCK, ptr %118, i64 %121
+  %122 = getelementptr inbounds nuw [1024 x i8], ptr %118, i64 %121
   br label %123
 
 123:                                              ; preds = %123, %116
@@ -1293,7 +1291,7 @@ initial_hash.exit:                                ; preds = %49, %23, %45, %58, 
   %124 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 %124
   %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv.i.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.i.i
   store i64 %126, ptr %127, align 8, !tbaa !40
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
@@ -1308,7 +1306,7 @@ load_block.exit.i:                                ; preds = %123
   %131 = mul i32 %130, %.022.i
   %132 = add i32 %131, 1
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %struct.BLOCK, ptr %129, i64 %133
+  %134 = getelementptr inbounds nuw [1024 x i8], ptr %129, i64 %133
   br label %135
 
 135:                                              ; preds = %135, %load_block.exit.i
@@ -1316,7 +1314,7 @@ load_block.exit.i:                                ; preds = %123
   %136 = shl nuw nsw i64 %indvars.iv.i18.i, 3
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 %136
   %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i18.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i18.i
   store i64 %138, ptr %139, align 8, !tbaa !40
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i18.i, 1
   %exitcond.not.i20.i = icmp eq i64 %indvars.iv.next.i19.i, 128
@@ -1455,7 +1453,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
 
 46:                                               ; preds = %43
   %47 = sub nuw nsw i64 %indvars.iv.i, %45
-  %48 = getelementptr inbounds nuw ptr, ptr %31, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !52
   %50 = tail call i32 @ossl_crypto_thread_join(ptr noundef %49, ptr noundef null) #10
   %51 = icmp eq i32 %50, 0
@@ -1465,14 +1463,14 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   %53 = load i32, ptr %2, align 8, !tbaa !17
   %54 = sub i32 %indvars25, %53
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %31, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %58 = tail call i32 @ossl_crypto_thread_clean(ptr noundef %57) #10
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.thread.i, label %._crit_edge126.i
 
 ._crit_edge126.i:                                 ; preds = %52, %43
-  %60 = getelementptr inbounds nuw %struct.ARGON2_THREAD_DATA, ptr %35, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %0, ptr %61, align 8, !tbaa !53
   store i32 %.06796.i, ptr %60, align 8
@@ -1484,7 +1482,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   store i32 0, ptr %.sroa.62.0..sroa_idx.i, align 4
   %62 = load ptr, ptr %40, align 8, !tbaa !3
   %63 = tail call ptr @ossl_crypto_thread_start(ptr noundef %62, ptr noundef nonnull @fill_segment_thr, ptr noundef nonnull %60) #10
-  %64 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   store ptr %63, ptr %64, align 8, !tbaa !52
   %65 = icmp eq ptr %63, null
   br i1 %65, label %.preheader.i8, label %74
@@ -1499,7 +1497,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
 
 .lr.ph99.i:                                       ; preds = %73, %.lr.ph99.preheader.i
   %indvars.iv114.i = phi i64 [ 0, %.lr.ph99.preheader.i ], [ %indvars.iv.next115.i, %73 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv114.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv114.i
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   %68 = tail call i32 @ossl_crypto_thread_join(ptr noundef %67, ptr noundef null) #10
   %69 = icmp eq i32 %68, 0
@@ -1535,7 +1533,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
 
 .lr.ph93.i:                                       ; preds = %89, %.lr.ph93.preheader.i
   %indvars.iv111.i = phi i64 [ %81, %.lr.ph93.preheader.i ], [ %indvars.iv.next112.i, %89 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv111.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv111.i
   %83 = load ptr, ptr %82, align 8, !tbaa !52
   %84 = tail call i32 @ossl_crypto_thread_join(ptr noundef %83, ptr noundef null) #10
   %85 = icmp eq i32 %84, 0
@@ -1607,7 +1605,7 @@ define internal fastcc void @finalize(ptr noundef readonly captures(address_is_n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %10 = load i32, ptr %9, align 4, !tbaa !35
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.BLOCK, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds i8, ptr %12, i64 -1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %3, ptr noundef nonnull readonly align 8 dereferenceable(1024) %13, i64 1024, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1646,14 +1644,14 @@ define internal fastcc void @finalize(ptr noundef readonly captures(address_is_n
   %32 = mul i32 %10, %31
   %33 = add i32 %17, %32
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %struct.BLOCK, ptr %8, i64 %34
+  %35 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 %34
   br label %36
 
 36:                                               ; preds = %36, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8, !tbaa !40
   %41 = xor i64 %40, %38
   store i64 %41, ptr %39, align 8, !tbaa !40
@@ -2000,13 +1998,13 @@ data_indep_addressing.exit88.thread102:           ; preds = %54, %data_indep_add
 65:                                               ; preds = %63, %data_indep_addressing.exit88.thread102
   %66 = phi i64 [ %64, %63 ], [ %55, %data_indep_addressing.exit88.thread102 ]
   %67 = zext nneg i32 %61 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %5, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %67
   br label %72
 
 data_indep_addressing.exit88.thread:              ; preds = %54, %data_indep_addressing.exit88
   %69 = load ptr, ptr %49, align 8, !tbaa !31
   %70 = zext i32 %spec.select to i64
-  %71 = getelementptr inbounds nuw %struct.BLOCK, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [1024 x i8], ptr %69, i64 %70
   br label %72
 
 72:                                               ; preds = %data_indep_addressing.exit88.thread, %65
@@ -2085,14 +2083,14 @@ index_alpha.exit:                                 ; preds = %78, %82, %85, %97, 
   %113 = urem i64 %111, %112
   %114 = load ptr, ptr %49, align 8, !tbaa !31
   %115 = mul nuw i64 %spec.select82, %112
-  %116 = getelementptr inbounds nuw %struct.BLOCK, ptr %114, i64 %115
-  %117 = getelementptr inbounds nuw %struct.BLOCK, ptr %116, i64 %113
+  %116 = getelementptr inbounds nuw [1024 x i8], ptr %114, i64 %115
+  %117 = getelementptr inbounds nuw [1024 x i8], ptr %116, i64 %113
   %118 = zext i32 %.0111 to i64
-  %119 = getelementptr inbounds nuw %struct.BLOCK, ptr %114, i64 %118
+  %119 = getelementptr inbounds nuw [1024 x i8], ptr %114, i64 %118
   %120 = load i32, ptr %53, align 4, !tbaa !18
   %121 = icmp ne i32 %120, 16
   %122 = zext i32 %spec.select to i64
-  %123 = getelementptr inbounds nuw %struct.BLOCK, ptr %114, i64 %122
+  %123 = getelementptr inbounds nuw [1024 x i8], ptr %114, i64 %122
   %narrow = and i1 %121, %not.
   %. = zext i1 %narrow to i32
   tail call fastcc void @fill_block(ptr noundef %123, ptr noundef %117, ptr noundef %119, i32 noundef %.)
@@ -2121,9 +2119,9 @@ define internal fastcc void @fill_block(ptr noundef readonly captures(none) %0, 
 
 7:                                                ; preds = %7, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8, !tbaa !40
-  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %11 = load i64, ptr %10, align 8, !tbaa !40
   %12 = xor i64 %11, %9
   store i64 %12, ptr %10, align 8, !tbaa !40
@@ -2138,9 +2136,9 @@ xor_block.exit:                                   ; preds = %7
 
 .preheader531:                                    ; preds = %xor_block.exit, %.preheader531
   %indvars.iv.i523 = phi i64 [ %indvars.iv.next.i524, %.preheader531 ], [ 0, %xor_block.exit ]
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i523
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i523
   %14 = load i64, ptr %13, align 8, !tbaa !40
-  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i523
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i523
   %16 = load i64, ptr %15, align 8, !tbaa !40
   %17 = xor i64 %16, %14
   store i64 %17, ptr %15, align 8, !tbaa !40
@@ -2779,9 +2777,9 @@ xor_block.exit526:                                ; preds = %xor_block.exit526.p
 
 595:                                              ; preds = %595, %594
   %indvars.iv.i527 = phi i64 [ 0, %594 ], [ %indvars.iv.next.i528, %595 ]
-  %596 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i527
+  %596 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i527
   %597 = load i64, ptr %596, align 8, !tbaa !40
-  %598 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i527
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i527
   %599 = load i64, ptr %598, align 8, !tbaa !40
   %600 = xor i64 %599, %597
   store i64 %600, ptr %598, align 8, !tbaa !40

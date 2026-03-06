@@ -866,7 +866,7 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 .lr.ph513.split.us:                               ; preds = %.lr.ph513, %308
   %indvars.iv590 = phi i64 [ %indvars.iv.next591, %308 ], [ 0, %.lr.ph513 ]
   %.1219512.us = phi i32 [ %.2220.us, %308 ], [ 0, %.lr.ph513 ]
-  %298 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv590
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv590
   %299 = load ptr, ptr %298, align 8, !tbaa !4
   %300 = call i64 @BIO_ctrl(ptr noundef %102, i32 noundef 108, i64 noundef 3, ptr noundef %299) #8
   %301 = trunc i64 %300 to i32
@@ -894,7 +894,7 @@ define dso_local range(i32 0, 2) i32 @dgst_main(i32 noundef %0, ptr noundef %1) 
 .lr.ph513.split:                                  ; preds = %.lr.ph513, %319
   %indvars.iv = phi i64 [ %indvars.iv.next, %319 ], [ 0, %.lr.ph513 ]
   %.1219512 = phi i32 [ %.2220, %319 ], [ 0, %.lr.ph513 ]
-  %309 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   %310 = load ptr, ptr %309, align 8, !tbaa !4
   %311 = call i64 @BIO_ctrl(ptr noundef %102, i32 noundef 108, i64 noundef 3, ptr noundef %310) #8
   %312 = trunc i64 %311 to i32
@@ -1002,7 +1002,7 @@ define internal void @show_digests(ptr noundef readonly captures(none) %0, ptr n
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = load i8, ptr %4, align 1, !tbaa !33
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !34
   %15 = and i16 %14, 512
   %.not15 = icmp eq i16 %15, 0

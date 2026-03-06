@@ -43,15 +43,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::shared_ptr.26" = type { %"class.std::__shared_ptr.27" }
 %"class.std::__shared_ptr.27" = type { ptr, %"class.std::__shared_count" }
-%"class.arrow::compute::InputType" = type { i32, %"class.std::shared_ptr.71", %"class.std::shared_ptr.32" }
-%"class.std::shared_ptr.71" = type { %"class.std::__shared_ptr.72" }
-%"class.std::__shared_ptr.72" = type { ptr, %"class.std::__shared_count" }
-%"struct.arrow::TypeHolder" = type { ptr, %"class.std::shared_ptr.71" }
 %"class.std::vector.111" = type { %"struct.std::_Vector_base.112" }
 %"struct.std::_Vector_base.112" = type { %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl" }
 %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<arrow::compute::InputType, std::allocator<arrow::compute::InputType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.arrow::compute::OutputType" = type { i32, %"class.std::shared_ptr.71", %"class.std::function.103" }
+%"class.std::shared_ptr.71" = type { %"class.std::__shared_ptr.72" }
+%"class.std::__shared_ptr.72" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEED2Ev = comdat any
 
@@ -2569,9 +2567,9 @@ define noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature6EqualsERKS1_(ptr 
 .lr.ph:                                           ; preds = %.preheader, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread
   %21 = phi ptr [ %46, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread ], [ %10, %.preheader ]
   %.0916 = phi i64 [ %44, %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %21, i64 %.0916
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %.0916
   %23 = load ptr, ptr %1, align 8, !tbaa !226
-  %24 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %23, i64 %.0916
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %.0916
   %25 = icmp eq ptr %21, %23
   br i1 %25, label %_ZNK5arrow7compute9InputType6EqualsERKS1_.exit.thread, label %26
 
@@ -2652,8 +2650,8 @@ define noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERK
   %17 = sdiv exact i64 %16, 40
   %18 = add nsw i64 %17, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %18, i64 %storemerge41)
-  %19 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %13, i64 %.sroa.speculated
-  %20 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %11, i64 %storemerge41
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %.sroa.speculated
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %storemerge41
   %21 = load ptr, ptr %20, align 8, !tbaa !219
   %22 = load i32, ptr %19, align 8, !tbaa !189
   switch i32 %22, label %.thread [
@@ -2710,9 +2708,9 @@ _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread: ; preds = %10,
 .lr.ph:                                           ; preds = %.preheader32, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread
   %53 = phi ptr [ %71, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ %48, %.preheader32 ]
   %.035 = phi i64 [ %69, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ 0, %.preheader32 ]
-  %54 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %53, i64 %.035
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %.035
   %55 = load ptr, ptr %1, align 8, !tbaa !251
-  %56 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %55, i64 %.035
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %.035
   %57 = load ptr, ptr %56, align 8, !tbaa !219
   %58 = load i32, ptr %54, align 8, !tbaa !189
   switch i32 %58, label %.thread [
@@ -2871,7 +2869,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.invoke
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17_crit_edge, %24
   %30 = phi ptr [ %.pre, %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17_crit_edge ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %31 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %30, i64 %.032
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %.032
   invoke void @_ZNK5arrow7compute9InputType8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %31)
           to label %32 unwind label %48
 

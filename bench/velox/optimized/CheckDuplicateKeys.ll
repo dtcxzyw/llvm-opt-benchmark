@@ -158,7 +158,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   %sh_prom.i37.i.i.i.i.i = zext nneg i32 %sub28.i.i.i.i.i to i64
   %notmask.i38.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i
   %idxprom.i40.i.i.i.i.i = zext nneg i32 %div27.i.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %13, i64 %idxprom.i40.i.i.i.i.i
+  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %idxprom.i40.i.i.i.i.i
   %18 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
   %.demorgan.i.i.i = or i64 %18, %notmask.i38.i.i.i.i.i
   %cmp.i42.i.i.i.i.i = icmp eq i64 %.demorgan.i.i.i, -1
@@ -206,11 +206,11 @@ call2.i.noexc.i.i:                                ; preds = %for.body.i.i
 if.end.i8.i.i:                                    ; preds = %call2.i.noexc.i.i
   %29 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp6.sroa_idx, align 8
   %30 = load ptr, ptr %29, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv.i.i
   %31 = load i32, ptr %arrayidx.i.i.i, align 4
   %32 = load ptr, ptr %agg.tmp.sroa.3.0.agg.tmp6.sroa_idx, align 8
   %33 = load ptr, ptr %32, align 8
-  %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv.i.i
   %34 = load i32, ptr %arrayidx4.i.i.i, align 4
   %cmp9.i.i.i = icmp sgt i32 %34, 1
   br i1 %cmp9.i.i.i, label %for.body.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit.i.i"
@@ -470,7 +470,7 @@ for.body.i.i.i28.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %61, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %61, i64 %idxprom.i.i.i.i.i.i
   %68 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   switch i64 %68, label %while.body.lr.ph.i.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i.i
@@ -511,11 +511,11 @@ call2.i.noexc.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
 if.end.i22.i.i.i.i.i.i:                           ; preds = %call2.i.noexc.i.i.i.i.i.i
   %72 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp6.sroa_idx, align 8
   %73 = load ptr, ptr %72, align 8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %73, i64 %row.0104.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %73, i64 %row.0104.i.i.i.i.i.i
   %74 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
   %75 = load ptr, ptr %agg.tmp.sroa.3.0.agg.tmp6.sroa_idx, align 8
   %76 = load ptr, ptr %75, align 8
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %76, i64 %row.0104.i.i.i.i.i.i
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %76, i64 %row.0104.i.i.i.i.i.i
   %77 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %cmp9.i.i.i.i.i.i.i = icmp sgt i32 %77, 1
   br i1 %cmp9.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clImEEDaT_.exit.i.i.i.i.i.i"
@@ -719,11 +719,11 @@ if.end.i45.i.i.i.i.i.i:                           ; preds = %call2.i.noexc56.i.i
   %106 = load ptr, ptr %agg.tmp.sroa.2.0.agg.tmp6.sroa_idx, align 8
   %107 = load ptr, ptr %106, align 8
   %idxprom.i.i.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
-  %arrayidx.i46.i.i.i.i.i.i = getelementptr inbounds i32, ptr %107, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i46.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %107, i64 %idxprom.i.i.i.i.i.i.i
   %108 = load i32, ptr %arrayidx.i46.i.i.i.i.i.i, align 4
   %109 = load ptr, ptr %agg.tmp.sroa.3.0.agg.tmp6.sroa_idx, align 8
   %110 = load ptr, ptr %109, align 8
-  %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %110, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %110, i64 %idxprom.i.i.i.i.i.i.i
   %111 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i, align 4
   %cmp9.i47.i.i.i.i.i.i = icmp sgt i32 %111, 1
   br i1 %cmp9.i47.i.i.i.i.i.i, label %for.body.i49.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit.i.i.i.i.i.i"
@@ -1193,7 +1193,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %1, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds i64, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %2, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8
   %4 = and i8 %0, 1
   %5 = xor i8 %4, 1
@@ -1234,12 +1234,12 @@ if.end.i12:                                       ; preds = %call2.i.noexc
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %idxprom.i = sext i32 %add to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %17, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %17, i64 %idxprom.i
   %18 = load i32, ptr %arrayidx.i, align 4
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %arrayidx4.i = getelementptr inbounds i32, ptr %21, i64 %idxprom.i
+  %arrayidx4.i = getelementptr inbounds [4 x i8], ptr %21, i64 %idxprom.i
   %22 = load i32, ptr %arrayidx4.i, align 4
   %cmp9.i = icmp sgt i32 %22, 1
   br i1 %cmp9.i, label %for.body.lr.ph.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit"

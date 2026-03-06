@@ -1233,10 +1233,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$indicatif..style..State$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !244, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E.23", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$indicatif..style..State$u20$as$u20$core..fmt..Debug$GT$3fmt17hd8841f0af9e7dd15E.23", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2697,7 +2697,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %115
   %378 = phi i64 [ %.pre.i.i, %.noexc.i171 ], [ %369, %366 ]
   %379 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %380 = load ptr, ptr %379, align 8, !alias.scope !724, !noalias !728, !nonnull !5, !noundef !5
-  %381 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %380, i64 %378
+  %381 = getelementptr inbounds [16 x i8], ptr %380, i64 %378
   store ptr @anon.399233d4c3e9ec6627e8cefe8af5f295.77, ptr %381, align 8, !noalias !728
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store i64 19, ptr %382, align 8, !noalias !721
@@ -3471,7 +3471,7 @@ define { ptr, ptr } @_ZN5uu_mv2mv17hff609e1376e88336E(ptr noalias noundef nonnul
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %.val = load i8, ptr %94, align 2, !range !954, !noundef !5
-  %95 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %1
+  %95 = getelementptr inbounds [24 x i8], ptr %0, i64 %1
   %96 = trunc nuw i8 %.val to i1
   br i1 %96, label %98, label %97
 
@@ -5279,7 +5279,7 @@ _ZN5uu_mv16handle_two_paths17h2d74ecf5bb6cadf3E.exit: ; preds = %.noexc43, %"_ZN
 
 626:                                              ; preds = %622
   %.not.i = icmp eq i64 %112, 0
-  %627 = getelementptr { { { { { i64, ptr, {} }, i64 } } } }, ptr %115, i64 %112
+  %627 = getelementptr [24 x i8], ptr %115, i64 %112
   %628 = getelementptr i8, ptr %627, i64 -24
   %629 = icmp eq ptr %628, null
   %630 = or i1 %.not.i, %629

@@ -3,7 +3,6 @@ source_filename = "bench/sdl/original/SDL_touch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Finger = type { i64, float, float, float }
 %union.SDL_Event = type { %struct.SDL_MouseWheelEvent, [72 x i8] }
 %struct.SDL_MouseWheelEvent = type { i32, i32, i64, i32, i32, float, float, i32, float, float, i32, i32 }
 
@@ -57,16 +56,16 @@ define hidden noalias ptr @SDL_GetTouchDevices_REAL(ptr noundef writeonly captur
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds i64, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   store i64 0, ptr %12, align 8
   br i1 %.not, label %20, label %18
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store i64 %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -96,7 +95,7 @@ define hidden ptr @SDL_GetTouch(i64 noundef %0) local_unnamed_addr #2 {
 
 5:                                                ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, %0
@@ -139,7 +138,7 @@ SDL_GetTouchIndex.exit.thread:                    ; preds = %10, %1, %SDL_GetTou
 
 25:                                               ; preds = %SDL_GetTouchIndex.exit
   %26 = and i64 %indvars.iv.i, 4294967295
-  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %26
   %28 = load ptr, ptr %27, align 8
   br label %29
 
@@ -217,7 +216,7 @@ define hidden ptr @SDL_GetTouchFingers_REAL(i64 noundef %0, ptr noundef writeonl
 16:                                               ; preds = %6
   %17 = load i32, ptr %7, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = icmp sgt i32 %17, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -233,10 +232,10 @@ define hidden ptr @SDL_GetTouchFingers_REAL(i64 noundef %0, ptr noundef writeonl
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw %struct.SDL_Finger, ptr %20, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -268,7 +267,7 @@ define hidden i32 @SDL_AddTouch(i64 noundef %0, i32 noundef %1, ptr noundef %2) 
 
 6:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, %0
@@ -297,7 +296,7 @@ SDL_GetTouchIndex.exit.thread:                    ; preds = %11, %3
   %19 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 40) #7
   %20 = load ptr, ptr @SDL_touchDevices, align 8
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   store ptr %19, ptr %22, align 8
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %36, label %23
@@ -319,7 +318,7 @@ SDL_GetTouchIndex.exit.thread:                    ; preds = %11, %3
   %30 = select i1 %.not21, ptr @.str.2, ptr %2
   %31 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %30) #7
   %32 = load ptr, ptr @SDL_touchDevices, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %21
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %21
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %31, ptr %35, align 8
@@ -483,7 +482,7 @@ define hidden void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2
 
 67:                                               ; preds = %72, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %72 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i
   %69 = load ptr, ptr %68, align 8
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, %2
@@ -501,7 +500,7 @@ SDL_GetFingerIndex.exit.i:                        ; preds = %67
 
 74:                                               ; preds = %SDL_GetFingerIndex.exit.i
   %75 = and i64 %indvars.iv.i.i, 4294967295
-  %76 = getelementptr inbounds nuw ptr, ptr %66, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %75
   %77 = load ptr, ptr %76, align 8
   br label %SDL_GetFinger.exit
 
@@ -541,12 +540,12 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread125, %S
   %94 = load ptr, ptr %85, align 8
   %95 = load i32, ptr %82, align 8
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %94, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %94, i64 %96
   store ptr %93, ptr %97, align 8
   %98 = load ptr, ptr %85, align 8
   %99 = load i32, ptr %82, align 8
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %98, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %98, i64 %100
   %102 = load ptr, ptr %101, align 8
   %.not26.i = icmp eq ptr %102, null
   br i1 %.not26.i, label %SDL_DelFinger.exit, label %.critedge.i
@@ -563,7 +562,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread125, %S
   %107 = add nsw i32 %105, 1
   store i32 %107, ptr %62, align 4
   %108 = sext i32 %105 to i64
-  %109 = getelementptr inbounds ptr, ptr %106, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %106, i64 %108
   %110 = load ptr, ptr %109, align 8
   store i64 %2, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -667,7 +666,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread125, %S
 
 157:                                              ; preds = %162, %.lr.ph.i.i114
   %indvars.iv.i.i116 = phi i64 [ 0, %.lr.ph.i.i114 ], [ %indvars.iv.next.i.i117, %162 ]
-  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i.i116
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.i.i116
   %159 = load ptr, ptr %158, align 8
   %160 = load i64, ptr %159, align 8
   %161 = icmp eq i64 %160, %2
@@ -687,7 +686,7 @@ SDL_GetFingerIndex.exit.i119:                     ; preds = %157
 
 166:                                              ; preds = %SDL_GetFingerIndex.exit.i119
   %167 = and i64 %indvars.iv.i.i116, 4294967295
-  %168 = getelementptr inbounds nuw ptr, ptr %156, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %171 = sub nsw i32 %164, %163
@@ -697,7 +696,7 @@ SDL_GetFingerIndex.exit.i119:                     ; preds = %157
   %174 = load ptr, ptr %155, align 8
   %175 = load i32, ptr %62, align 4
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %174, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %174, i64 %176
   store ptr %169, ptr %177, align 8
   br label %SDL_DelFinger.exit
 
@@ -793,7 +792,7 @@ define hidden void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef %1, i64 noun
 
 49:                                               ; preds = %54, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i.i
   %51 = load ptr, ptr %50, align 8
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, %2
@@ -811,7 +810,7 @@ SDL_GetFingerIndex.exit.i:                        ; preds = %49
 
 SDL_GetFinger.exit:                               ; preds = %SDL_GetFingerIndex.exit.i
   %56 = and i64 %indvars.iv.i.i, 4294967295
-  %57 = getelementptr inbounds nuw ptr, ptr %48, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not80 = icmp eq ptr %58, null
   br i1 %.not80, label %SDL_GetFinger.exit.thread, label %59
@@ -899,7 +898,7 @@ define hidden void @SDL_DelTouch(i64 noundef %0) local_unnamed_addr #2 {
 
 7:                                                ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %0
@@ -934,7 +933,7 @@ SDL_GetTouchIndex.exit:                           ; preds = %12, %4, %._crit_edg
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   tail call void @SDL_free_REAL(ptr noundef %22) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -956,9 +955,9 @@ SDL_GetTouchIndex.exit:                           ; preds = %12, %4, %._crit_edg
   store i32 %31, ptr @SDL_num_touch, align 4
   %32 = load ptr, ptr @SDL_touchDevices, align 8
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %.0.i
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0.i
   store ptr %35, ptr %36, align 8
   br label %37
 
@@ -980,7 +979,7 @@ define hidden void @SDL_QuitTouch() local_unnamed_addr #2 {
   %indvars.iv = phi i64 [ %2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr @SDL_touchDevices, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.next
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv.next
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   tail call void @SDL_DelTouch(i64 noundef %6)

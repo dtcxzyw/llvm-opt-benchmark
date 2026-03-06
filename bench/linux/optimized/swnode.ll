@@ -34,9 +34,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.atomic_t = type { i32 }
 %struct.kobj_type = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.sysfs_ops = type { ptr, ptr }
-%struct.property_entry = type { ptr, i64, i8, i32, %union.anon.2 }
-%union.anon.2 = type { ptr }
-%struct.software_node_ref_args = type { ptr, i32, [8 x i64] }
 
 @software_node_ops = internal constant %struct.fwnode_operations { ptr @software_node_get, ptr @software_node_put, ptr null, ptr null, ptr null, ptr null, ptr @software_node_property_present, ptr @software_node_read_int_array, ptr @software_node_read_string_array, ptr @software_node_get_name, ptr @software_node_get_name_prefix, ptr @software_node_get_parent, ptr @software_node_get_next_child, ptr @software_node_get_named_child_node, ptr @software_node_get_reference_args, ptr @software_node_graph_get_next_endpoint, ptr @software_node_graph_get_remote_endpoint, ptr @software_node_graph_get_port_parent, ptr @software_node_graph_parse_endpoint, ptr null, ptr null, ptr null }, align 8
 @__UNIQUE_ID___addressable_is_software_node311 = internal global ptr @is_software_node, section ".discard.addressable", align 8
@@ -167,7 +164,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 .preheader25:                                     ; preds = %1, %.preheader25
   %3 = phi i32 [ %8, %.preheader25 ], [ 0, %1 ]
   %4 = sext i32 %3 to i64
-  %5 = getelementptr %struct.property_entry, ptr %0, i64 %4
+  %5 = getelementptr [32 x i8], ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = add i32 %3, 1
@@ -194,8 +191,8 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 20:                                               ; preds = %.critedge, %18
   %21 = phi i64 [ 0, %18 ], [ %171, %.critedge ]
-  %22 = getelementptr %struct.property_entry, ptr %14, i64 %21
-  %23 = getelementptr %struct.property_entry, ptr %0, i64 %21
+  %22 = getelementptr [32 x i8], ptr %14, i64 %21
+  %23 = getelementptr [32 x i8], ptr %0, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
@@ -275,10 +272,10 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
   %65 = phi i32 [ %91, %88 ], [ -1, %62 ]
   %66 = phi i64 [ %90, %88 ], [ 0, %62 ]
   %67 = phi i32 [ %89, %88 ], [ 0, %62 ]
-  %68 = getelementptr ptr, ptr %58, i64 %66
+  %68 = getelementptr [8 x i8], ptr %58, i64 %66
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noalias ptr @kstrdup(ptr noundef %69, i32 noundef 3264) #12
-  %71 = getelementptr ptr, ptr %60, i64 %66
+  %71 = getelementptr [8 x i8], ptr %60, i64 %66
   store ptr %70, ptr %71, align 8
   %72 = icmp eq ptr %70, null
   br i1 %72, label %73, label %88
@@ -299,7 +296,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 81:                                               ; preds = %81, %79
   %82 = phi i64 [ %80, %79 ], [ %85, %81 ]
-  %83 = getelementptr ptr, ptr %60, i64 %82
+  %83 = getelementptr [8 x i8], ptr %60, i64 %82
   %84 = load ptr, ptr %83, align 8
   tail call void @kfree(ptr noundef %84) #12
   %85 = add nsw i64 %82, -1
@@ -371,7 +368,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 .preheader20:                                     ; preds = %115, %.preheader20
   %119 = phi i64 [ %122, %.preheader20 ], [ 0, %115 ]
-  %120 = getelementptr ptr, ptr %116, i64 %119
+  %120 = getelementptr [8 x i8], ptr %116, i64 %119
   %121 = load ptr, ptr %120, align 8
   tail call void @kfree(ptr noundef %121) #12
   %122 = add nuw nsw i64 %119, 1
@@ -408,7 +405,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 .preheader19:                                     ; preds = %.preheader19.preheader, %167
   %indvars.iv = phi i64 [ %136, %.preheader19.preheader ], [ %indvars.iv.next, %167 ]
-  %137 = getelementptr %struct.property_entry, ptr %14, i64 %indvars.iv
+  %137 = getelementptr [32 x i8], ptr %14, i64 %indvars.iv
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 4
@@ -439,7 +436,7 @@ define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address
 
 .preheader:                                       ; preds = %152, %.preheader
   %156 = phi i64 [ %159, %.preheader ], [ 0, %152 ]
-  %157 = getelementptr ptr, ptr %153, i64 %156
+  %157 = getelementptr [8 x i8], ptr %153, i64 %156
   %158 = load ptr, ptr %157, align 8
   tail call void @kfree(ptr noundef %158) #12
   %159 = add nuw nsw i64 %156, 1
@@ -525,7 +522,7 @@ define dso_local void @property_entries_free(ptr noundef %0) #1 align 16 {
 
 .preheader:                                       ; preds = %21, %.preheader
   %25 = phi i64 [ %28, %.preheader ], [ 0, %21 ]
-  %26 = getelementptr ptr, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void @kfree(ptr noundef %27) #12
   %28 = add nuw nsw i64 %25, 1
@@ -641,7 +638,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
 6:                                                ; preds = %.preheader11
   %7 = add i32 %13, 1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit9, label %.preheader11, !llvm.loop !19
@@ -656,7 +653,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
 .preheader10:                                     ; preds = %.preheader11, %.preheader10
   %16 = phi i32 [ %21, %.preheader10 ], [ 0, %.preheader11 ]
   %17 = zext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %0, i64 %17
+  %18 = getelementptr [8 x i8], ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = add i32 %16, 1
@@ -669,7 +666,7 @@ define dso_local i32 @software_node_register_node_group(ptr noundef readonly cap
 .preheader:                                       ; preds = %22, %.thread
   %24 = phi i64 [ %25, %.thread ], [ %17, %22 ]
   %25 = add nsw i64 %24, -1
-  %26 = getelementptr ptr, ptr %0, i64 %25
+  %26 = getelementptr [8 x i8], ptr %0, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
@@ -826,7 +823,7 @@ define dso_local void @software_node_unregister_node_group(ptr noundef readonly 
 .preheader7:                                      ; preds = %1, %.preheader7
   %3 = phi i32 [ %8, %.preheader7 ], [ 0, %1 ]
   %4 = zext i32 %3 to i64
-  %5 = getelementptr ptr, ptr %0, i64 %4
+  %5 = getelementptr [8 x i8], ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = add i32 %3, 1
@@ -839,7 +836,7 @@ define dso_local void @software_node_unregister_node_group(ptr noundef readonly 
 .preheader:                                       ; preds = %9, %.thread
   %11 = phi i64 [ %12, %.thread ], [ %4, %9 ]
   %12 = add nsw i64 %11, -1
-  %13 = getelementptr ptr, ptr %0, i64 %12
+  %13 = getelementptr [8 x i8], ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -2250,7 +2247,7 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr %struct.software_node_ref_args, ptr %50, i64 %43
+  %51 = getelementptr [80 x i8], ptr %50, i64 %43
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread20, label %54
@@ -2397,9 +2394,9 @@ define internal i32 @software_node_get_reference_args(ptr noundef readonly captu
 
 135:                                              ; preds = %135, %131
   %136 = phi i64 [ 0, %131 ], [ %140, %135 ]
-  %137 = getelementptr i64, ptr %132, i64 %136
+  %137 = getelementptr [8 x i8], ptr %132, i64 %136
   %138 = load i64, ptr %137, align 8
-  %139 = getelementptr i64, ptr %133, i64 %136
+  %139 = getelementptr [8 x i8], ptr %133, i64 %136
   store i64 %138, ptr %139, align 8
   %140 = add nuw nsw i64 %136, 1
   %141 = icmp eq i64 %140, %134

@@ -194,7 +194,7 @@ mmbit_get_flat_block.exit63:                      ; preds = %74, %77, %80, %88
 
 106:                                              ; preds = %.backedge116
   %107 = zext i32 %.1.i46 to i64
-  %108 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
   %111 = shl nuw nsw i64 %110, 3
@@ -274,7 +274,7 @@ mmbit_iterate.exit:                               ; preds = %119, %58
   %153 = zext i32 %152 to i64
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 %153
   %155 = zext i32 %.0126 to i64
-  %156 = getelementptr inbounds nuw i64, ptr %18, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %155
   %157 = load i64, ptr %156, align 8
   %158 = icmp eq i64 %157, -1
   br i1 %158, label %159, label %163
@@ -556,7 +556,7 @@ mmbit_get_flat_block.exit71:                      ; preds = %261, %264, %267, %2
 
 292:                                              ; preds = %.backedge
   %293 = zext i32 %.1.i40 to i64
-  %294 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %293
   %295 = load i32, ptr %294, align 4
   %296 = zext i32 %295 to i64
   %297 = shl nuw nsw i64 %296, 3
@@ -792,7 +792,7 @@ mmbit_get_flat_block.exit73:                      ; preds = %74, %77, %80, %88
 
 106:                                              ; preds = %.backedge114
   %107 = zext i32 %.1.i37 to i64
-  %108 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %107
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
   %111 = shl nuw nsw i64 %110, 3
@@ -896,7 +896,7 @@ mmbit_iterate.exit25:                             ; preds = %119, %58
 loadSomValue.exit.us129:                          ; preds = %162, %158, %154
   %.08.i.us130 = phi i64 [ %163, %162 ], [ -1, %158 ], [ -1, %154 ]
   %164 = zext i32 %.0124.us127 to i64
-  %165 = getelementptr inbounds nuw i64, ptr %18, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %164
   store i64 %.08.i.us130, ptr %165, align 8
   %166 = icmp eq i32 %.0124.us127, %21
   br i1 %166, label %._crit_edge126, label %167
@@ -918,7 +918,7 @@ loadSomValue.exit.us129:                          ; preds = %162, %158, %154
 
 173:                                              ; preds = %.backedge.us
   %174 = zext i32 %.1.i44.us to i64
-  %175 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = zext i32 %176 to i64
   %178 = shl nuw nsw i64 %177, 3
@@ -1006,7 +1006,7 @@ mmbit_iterate.exit.us131:                         ; preds = %186
 loadSomValue.exit.us136:                          ; preds = %213, %209, %205
   %.08.i.us137 = phi i64 [ %214, %213 ], [ -1, %209 ], [ -1, %205 ]
   %215 = zext i32 %.0124.us134 to i64
-  %216 = getelementptr inbounds nuw i64, ptr %18, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %215
   store i64 %.08.i.us137, ptr %216, align 8
   %217 = icmp eq i32 %.0124.us134, %21
   br i1 %217, label %._crit_edge126, label %218
@@ -1094,7 +1094,7 @@ mmbit_iterate.exit.us138:                         ; preds = %mmbit_get_flat_bloc
 loadSomValue.exit:                                ; preds = %240, %244, %250
   %.08.i = phi i64 [ %251, %250 ], [ -1, %240 ], [ -1, %244 ]
   %252 = zext i32 %.0124 to i64
-  %253 = getelementptr inbounds nuw i64, ptr %18, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %252
   store i64 %.08.i, ptr %253, align 8
   %254 = icmp eq i32 %.0124, %21
   br i1 %254, label %._crit_edge126, label %255

@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic_t = type { i32 }
 %union.anon.29 = type { i64 }
 %struct.rock_state = type { ptr, ptr, i32, i32, i32, i32, i32, ptr }
-%struct.stamp = type { [7 x i8] }
 
 @.str = private unnamed_addr constant [35 x i8] c"Unsupported NM flag settings (%d)\0A\00", align 1
 @isofs_symlink_aops = dso_local local_unnamed_addr constant %struct.address_space_operations { ptr null, ptr @rock_ridge_symlink_read_folio, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -811,7 +810,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %199 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %200 = add nuw nsw i32 %195, 1
   %201 = zext nneg i32 %195 to i64
-  %202 = getelementptr %struct.stamp, ptr %199, i64 %201
+  %202 = getelementptr [7 x i8], ptr %199, i64 %201
   %203 = tail call i32 @iso_date(ptr noundef %202, i32 noundef 0) #11
   %204 = sext i32 %203 to i64
   store i64 %204, ptr %65, align 8
@@ -830,7 +829,7 @@ rock_check_overflow.exit:                         ; preds = %92
   %211 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %212 = add nuw nsw i32 %207, 1
   %213 = zext nneg i32 %207 to i64
-  %214 = getelementptr %struct.stamp, ptr %211, i64 %213
+  %214 = getelementptr [7 x i8], ptr %211, i64 %213
   %215 = tail call i32 @iso_date(ptr noundef %214, i32 noundef 0) #11
   %216 = sext i32 %215 to i64
   store i64 %216, ptr %61, align 8
@@ -848,7 +847,7 @@ rock_check_overflow.exit:                         ; preds = %92
 222:                                              ; preds = %217
   %223 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %224 = zext nneg i32 %219 to i64
-  %225 = getelementptr %struct.stamp, ptr %223, i64 %224
+  %225 = getelementptr [7 x i8], ptr %223, i64 %224
   %226 = tail call i32 @iso_date(ptr noundef %225, i32 noundef 0) #11
   %227 = sext i32 %226 to i64
   store i64 %227, ptr %63, align 8

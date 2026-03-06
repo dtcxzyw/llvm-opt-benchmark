@@ -285,7 +285,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
 98:                                               ; preds = %._crit_edge.i, %86
   %99 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %90, %86 ]
   %100 = load ptr, ptr %51, align 8, !alias.scope !7, !noalias !10, !nonnull !5, !noundef !5
-  %101 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %100, i64 %99
+  %101 = getelementptr inbounds [24 x i8], ptr %100, i64 %99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %102 = load i64, ptr %52, align 8, !alias.scope !7, !noalias !10, !noundef !5
   %103 = add i64 %102, 1
@@ -322,7 +322,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
 112:                                              ; preds = %._crit_edge.i56, %98
   %113 = phi i64 [ %.pre.i57, %._crit_edge.i56 ], [ %104, %98 ]
   %114 = load ptr, ptr %53, align 8, !alias.scope !12, !noalias !15, !nonnull !5, !noundef !5
-  %115 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %114, i64 %113
+  %115 = getelementptr inbounds [56 x i8], ptr %114, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %115, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   %116 = add i64 %113, 1
   store i64 %116, ptr %54, align 8, !alias.scope !12, !noalias !15

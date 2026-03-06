@@ -29,7 +29,7 @@ define hidden noundef range(i32 1, 17) i32 @_ZN7RegMask13num_registersEj(i32 nou
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7RegMask13num_registersEjR3LRG, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN7RegMask13num_registersEjR3LRG, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -46,7 +46,7 @@ define hidden noundef range(i32 1, 17) i32 @_ZN7RegMask13num_registersEjR3LRG(i3
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7RegMask13num_registersEjR3LRG, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN7RegMask13num_registersEjR3LRG, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -67,7 +67,7 @@ define hidden void @_ZN7RegMask14clear_to_pairsEv(ptr noundef nonnull align 8 ca
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.010 = phi i32 [ %14, %.lr.ph ], [ %3, %1 ]
   %6 = zext i32 %.010 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = shl i64 %8, 1
   %10 = and i64 %8, -6148914691236517206
@@ -97,7 +97,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask18is_misaligned_pairEv(ptr noundef
   %.08.i = phi i32 [ %12, %.lr.ph.i ], [ %3, %1 ]
   %.057.i = phi i32 [ %11, %.lr.ph.i ], [ 0, %1 ]
   %6 = zext i32 %.08.i to i64
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %10 = trunc nuw nsw i64 %9 to i32
@@ -113,7 +113,7 @@ _ZNK7RegMask4SizeEv.exit:                         ; preds = %.lr.ph.i
 .lr.ph25.i:                                       ; preds = %_ZNK7RegMask4SizeEv.exit, %._crit_edge.i
   %.01422.i = phi i32 [ %28, %._crit_edge.i ], [ %3, %_ZNK7RegMask4SizeEv.exit ]
   %14 = zext i32 %.01422.i to i64
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8
   %.not1519.i = icmp eq i64 %16, 0
   br i1 %.not1519.i, label %._crit_edge.i, label %.lr.ph.i1
@@ -161,7 +161,7 @@ define hidden noundef i32 @_ZNK7RegMask4SizeEv(ptr noundef nonnull readonly alig
   %.08 = phi i32 [ %12, %.lr.ph ], [ %3, %1 ]
   %.057 = phi i32 [ %11, %.lr.ph ], [ 0, %1 ]
   %6 = zext i32 %.08 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %10 = trunc nuw nsw i64 %9 to i32
@@ -187,7 +187,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef n
 .lr.ph25:                                         ; preds = %1, %._crit_edge
   %.01422 = phi i32 [ %20, %._crit_edge ], [ %3, %1 ]
   %6 = zext i32 %.01422 to i64
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   %.not1519 = icmp eq i64 %8, 0
   br i1 %.not1519, label %._crit_edge, label %.lr.ph
@@ -240,7 +240,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask9is_bound1Ev(ptr noundef nonnull r
 .lr.ph:                                           ; preds = %5, %19
   %.01020 = phi i32 [ %20, %19 ], [ %7, %5 ]
   %10 = zext i32 %.01020 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %.not12 = icmp eq i64 %12, 0
   br i1 %.not12, label %19, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit
@@ -258,7 +258,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 15:                                               ; preds = %.preheader
   %16 = zext i32 %.1 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
   %.not14 = icmp eq i64 %18, 0
   br i1 %.not14, label %.preheader, label %.loopexit, !llvm.loop !11
@@ -291,7 +291,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonn
 .lr.ph:                                           ; preds = %5, %29
   %.01732 = phi i32 [ %30, %29 ], [ %7, %5 ]
   %10 = zext i32 %.01732 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %.not21 = icmp eq i64 %12, 0
   br i1 %.not21, label %29, label %13
@@ -313,7 +313,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonn
 
 20:                                               ; preds = %17
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8
   %.not23 = icmp eq i64 %23, 1
   br i1 %.not23, label %.preheader, label %.loopexit
@@ -330,7 +330,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonn
 
 25:                                               ; preds = %24
   %26 = zext i32 %.2 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %26
   %28 = load i64, ptr %27, align 8
   %.not26 = icmp eq i64 %28, 0
   br i1 %.not26, label %24, label %.loopexit, !llvm.loop !13
@@ -358,7 +358,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask8is_boundEj(ptr noundef nonnull re
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7RegMask8is_boundEj, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK7RegMask8is_boundEj, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN7RegMask13num_registersEj.exit
 
@@ -380,7 +380,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %4, %switch.lookup
 .lr.ph.i:                                         ; preds = %10, %50
   %.02741.i = phi i32 [ %51, %50 ], [ %12, %10 ]
   %15 = zext i32 %.02741.i to i64
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8
   %.not30.i = icmp eq i64 %17, 0
   br i1 %.not30.i, label %50, label %18
@@ -420,7 +420,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %4, %switch.lookup
   %40 = lshr i64 %21, %39
   %41 = add nsw i64 %40, -1
   %42 = zext i32 %35 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %42
   %44 = load i64, ptr %43, align 8
   %.not32.i = icmp eq i64 %44, %41
   br i1 %.not32.i, label %.preheader, label %_ZNK7RegMask12is_bound_setEj.exit
@@ -437,7 +437,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %4, %switch.lookup
 
 46:                                               ; preds = %45
   %47 = zext i32 %.2.i to i64
-  %48 = getelementptr inbounds nuw i64, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %47
   %49 = load i64, ptr %48, align 8
   %.not35.i = icmp eq i64 %49, 0
   br i1 %.not35.i, label %45, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !15
@@ -464,7 +464,7 @@ _ZN7RegMask13num_registersEj.exit:                ; preds = %4, %switch.lookup
 .lr.ph.i4:                                        ; preds = %56, %70
   %.01020.i = phi i32 [ %71, %70 ], [ %58, %56 ]
   %61 = zext i32 %.01020.i to i64
-  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %61
   %63 = load i64, ptr %62, align 8
   %.not12.i = icmp eq i64 %63, 0
   br i1 %.not12.i, label %70, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
@@ -482,7 +482,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 66:                                               ; preds = %.preheader.i
   %67 = zext i32 %.1.i6 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %67
   %69 = load i64, ptr %68, align 8
   %.not14.i = icmp eq i64 %69, 0
   br i1 %.not14.i, label %.preheader.i, label %.lr.ph.i9.preheader, !llvm.loop !11
@@ -498,7 +498,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %91
   %.01732.i = phi i32 [ %92, %91 ], [ %58, %.lr.ph.i9.preheader ]
   %72 = zext i32 %.01732.i to i64
-  %73 = getelementptr inbounds nuw i64, ptr %0, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %72
   %74 = load i64, ptr %73, align 8
   %.not21.i = icmp eq i64 %74, 0
   br i1 %.not21.i, label %91, label %75
@@ -520,7 +520,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 82:                                               ; preds = %79
   %83 = zext i32 %80 to i64
-  %84 = getelementptr inbounds nuw i64, ptr %0, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not23.i = icmp eq i64 %85, 1
   br i1 %.not23.i, label %.preheader92, label %_ZNK7RegMask12is_bound_setEj.exit
@@ -537,7 +537,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 87:                                               ; preds = %86
   %88 = zext i32 %.2.i13 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %0, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %88
   %90 = load i64, ptr %89, align 8
   %.not26.i = icmp eq i64 %90, 0
   br i1 %.not26.i, label %86, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !13
@@ -570,7 +570,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr noundef nonnu
 .lr.ph:                                           ; preds = %6, %46
   %.02741 = phi i32 [ %47, %46 ], [ %8, %6 ]
   %11 = zext i32 %.02741 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %11
   %13 = load i64, ptr %12, align 8
   %.not30 = icmp eq i64 %13, 0
   br i1 %.not30, label %46, label %14
@@ -610,7 +610,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr noundef nonnu
   %36 = lshr i64 %17, %35
   %37 = add i64 %36, -1
   %38 = zext i32 %31 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %38
   %40 = load i64, ptr %39, align 8
   %.not32 = icmp eq i64 %40, %37
   br i1 %.not32, label %.preheader, label %.loopexit
@@ -627,7 +627,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_bound_setEj(ptr noundef nonnu
 
 42:                                               ; preds = %41
   %43 = zext i32 %.2 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8
   %.not35 = icmp eq i64 %45, 0
   br i1 %.not35, label %41, label %.loopexit, !llvm.loop !15
@@ -652,7 +652,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask12is_valid_regEii(ptr noundef nonn
   %5 = sub nsw i32 %1, %.07
   %6 = lshr i32 %5, 6
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i32 %5, 63
   %11 = zext nneg i32 %10 to i64
@@ -681,7 +681,7 @@ define hidden noundef i32 @_ZNK7RegMask14find_first_setER3LRGi(ptr noundef nonnu
 .lr.ph:                                           ; preds = %3, %18
   %.013 = phi i32 [ %19, %18 ], [ %5, %3 ]
   %8 = zext i32 %.013 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8
   %.not10 = icmp eq i64 %10, 0
   br i1 %.not10, label %18, label %11
@@ -713,7 +713,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
 4:                                                ; preds = %2
   %5 = lshr i32 %1, 2
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr @_ZL8low_bits, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZL8low_bits, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8
@@ -731,7 +731,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
 .lr.ph.us.us:                                     ; preds = %.lr.ph34, %25
   %.02632.us.us = phi i32 [ %26, %25 ], [ %10, %.lr.ph34 ]
   %16 = zext i32 %.02632.us.us to i64
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
   %.02528.us.us = and i64 %8, %18
   br label %28
@@ -777,7 +777,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
 .lr.ph.us42:                                      ; preds = %.lr.ph34.split, %._crit_edge.us43
   %.02632.us35 = phi i32 [ %43, %._crit_edge.us43 ], [ %10, %.lr.ph34.split ]
   %35 = zext i32 %.02632.us35 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %35
   %37 = load i64, ptr %36, align 8
   %.02528.us36 = and i64 %8, %37
   br label %38
@@ -803,7 +803,7 @@ define hidden void @_ZN7RegMask13clear_to_setsEj(ptr noundef nonnull align 8 cap
 .lr.ph34.split.split:                             ; preds = %.lr.ph34.split, %.lr.ph34.split.split
   %.02632 = phi i32 [ %50, %.lr.ph34.split.split ], [ %10, %.lr.ph34.split ]
   %45 = zext i32 %.02632 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %45
   %47 = load i64, ptr %46, align 8
   %.02528 = and i64 %8, %47
   %48 = lshr i64 %.02528, 1
@@ -826,7 +826,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
 4:                                                ; preds = %2
   %5 = lshr i32 %1, 2
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr @_ZL8low_bits, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZL8low_bits, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8
@@ -844,7 +844,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
 .lr.ph.us.us:                                     ; preds = %.lr.ph35, %25
   %.02733.us.us = phi i32 [ %26, %25 ], [ %10, %.lr.ph35 ]
   %16 = zext i32 %.02733.us.us to i64
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
   br label %28
 
@@ -891,7 +891,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
 .lr.ph.us42:                                      ; preds = %.lr.ph35.split, %._crit_edge.us43
   %.02733.us36 = phi i32 [ %47, %._crit_edge.us43 ], [ %10, %.lr.ph35.split ]
   %37 = zext i32 %.02733.us36 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %37
   %39 = load i64, ptr %38, align 8
   br label %40
 
@@ -918,7 +918,7 @@ define hidden void @_ZN7RegMask13smear_to_setsEj(ptr noundef nonnull align 8 cap
 .lr.ph35.split.split:                             ; preds = %.lr.ph35.split, %.lr.ph35.split.split
   %.02733 = phi i32 [ %51, %.lr.ph35.split.split ], [ %10, %.lr.ph35.split ]
   %49 = zext i32 %.02733 to i64
-  %50 = getelementptr inbounds nuw i64, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %49
   store i64 0, ptr %50, align 8
   %51 = add i32 %.02733, 1
   %52 = load i32, ptr %11, align 4
@@ -937,7 +937,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
 4:                                                ; preds = %2
   %5 = lshr i32 %1, 2
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw i64, ptr @_ZL8low_bits, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZL8low_bits, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8
@@ -954,7 +954,7 @@ define hidden noundef zeroext i1 @_ZNK7RegMask15is_aligned_setsEj(ptr noundef no
 15:                                               ; preds = %.lr.ph32, %._crit_edge
   %.02030 = phi i32 [ %10, %.lr.ph32 ], [ %31, %._crit_edge ]
   %16 = zext i32 %.02030 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8
   %.not2427 = icmp eq i64 %18, 0
   br i1 %.not2427, label %._crit_edge, label %.lr.ph
@@ -1015,9 +1015,9 @@ define hidden noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull reado
   %.014.i = phi i32 [ %21, %.lr.ph.i ], [ %13, %5 ]
   %.01113.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %5 ]
   %14 = zext i32 %.014.i to i64
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i64, ptr @_ZN7Matcher15STACK_ONLY_maskE, i64 %14
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7Matcher15STACK_ONLY_maskE, i64 %14
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %16
   %.fr4 = freeze i64 %19
@@ -1054,7 +1054,7 @@ define internal void @_GLOBAL__sub_I_regmask.cpp() #6 section ".text.startup" {
 1:                                                ; preds = %6, %0
   %storemerge25.i.i = phi i32 [ 10, %0 ], [ %7, %6 ]
   %2 = zext i32 %storemerge25.i.i to i64
-  %3 = getelementptr inbounds nuw i64, ptr @_ZN7RegMask3AllE, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7RegMask3AllE, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %.lr.ph.i.i
@@ -1067,7 +1067,7 @@ define internal void @_GLOBAL__sub_I_regmask.cpp() #6 section ".text.startup" {
 
 .lr.ph.i.i:                                       ; preds = %1, %11
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %11 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i64, ptr @_ZN7RegMask3AllE, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7RegMask3AllE, i64 %indvars.iv.i.i
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %__cxx_global_var_init.5.exit

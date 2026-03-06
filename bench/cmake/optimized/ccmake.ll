@@ -741,7 +741,7 @@ _ZNSt6vectorI20cmDocumentationEntrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %157
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %157 ]
   %.051237 = phi i1 [ false, %.lr.ph.preheader ], [ %.152, %157 ]
-  %149 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %150 = load ptr, ptr %149, align 8, !tbaa !15
   %151 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %150, ptr noundef nonnull dereferenceable(7) @.str.16) #27
   %152 = icmp eq i32 %151, 0
@@ -832,7 +832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %186 = phi ptr [ %176, %.lr.ph240 ], [ %237, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread ]
   %187 = phi i64 [ 1, %.lr.ph240 ], [ %239, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread ]
   %.050239 = phi i32 [ 1, %.lr.ph240 ], [ %238, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread ]
-  %188 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %185, i64 %187
+  %188 = getelementptr inbounds nuw [32 x i8], ptr %185, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i64, ptr %189, align 8, !tbaa !17
   %191 = icmp eq i64 %190, 0
@@ -3171,7 +3171,7 @@ _ZNSt6vectorI20cmDocumentationEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit40: 
 _ZNSt12_Vector_baseI20cmDocumentationEntrySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI20cmDocumentationEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i39, ptr %4, align 8, !tbaa !18
-  %94 = getelementptr inbounds nuw %struct.cmDocumentationEntry, ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !21
   ret void
 
@@ -3540,7 +3540,7 @@ _ZSt22__uninitialized_copy_aIPK20cmDocumentationEntryPS0_S0_ET0_T_S5_S4_RSaIT1_E
 _ZSt22__uninitialized_copy_aIPK20cmDocumentationEntryPS0_S0_ET0_T_S5_S4_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPK20cmDocumentationEntryPS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPK20cmDocumentationEntrymEvRT_T0_.exit
   %93 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPK20cmDocumentationEntryPS0_S0_ET0_T_S5_S4_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPK20cmDocumentationEntrymEvRT_T0_.exit ]
   %94 = sub nuw nsw i64 %9, %20
-  %95 = getelementptr inbounds nuw %struct.cmDocumentationEntry, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [72 x i8], ptr %93, i64 %94
   store ptr %95, ptr %12, align 8, !tbaa !18
   %.not11.i.i.i.i.i58 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIP20cmDocumentationEntryS1_SaIS0_EET0_T_S4_S3_RT1_.exit68, label %.lr.ph.i.i.i.i.i59
@@ -3930,7 +3930,7 @@ _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_D
 _ZNSt12_Vector_baseI20cmDocumentationEntrySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit, %249
   store ptr %157, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %12, align 8, !tbaa !18
-  %253 = getelementptr inbounds nuw %struct.cmDocumentationEntry, ptr %157, i64 %153
+  %253 = getelementptr inbounds nuw [72 x i8], ptr %157, i64 %153
   store ptr %253, ptr %10, align 8, !tbaa !21
   br label %_ZSt4copyIPK20cmDocumentationEntryN9__gnu_cxx17__normal_iteratorIPS0_St6vectorIS0_SaIS0_EEEEET0_T_SB_SA_.exit
 
@@ -4366,7 +4366,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationE
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit
   %93 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit ]
   %94 = sub nuw nsw i64 %9, %20
-  %95 = getelementptr inbounds nuw %struct.cmDocumentationEntry, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [72 x i8], ptr %93, i64 %94
   store ptr %95, ptr %12, align 8, !tbaa !18
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIP20cmDocumentationEntryS1_SaIS0_EET0_T_S4_S3_RT1_.exit64, label %.lr.ph.i.i.i.i.i55
@@ -4756,7 +4756,7 @@ _ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_D
 _ZNSt12_Vector_baseI20cmDocumentationEntrySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP20cmDocumentationEntryS0_EvT_S2_RSaIT0_E.exit, %249
   store ptr %157, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %12, align 8, !tbaa !18
-  %253 = getelementptr inbounds nuw %struct.cmDocumentationEntry, ptr %157, i64 %153
+  %253 = getelementptr inbounds nuw [72 x i8], ptr %157, i64 %153
   store ptr %253, ptr %10, align 8, !tbaa !21
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK20cmDocumentationEntrySt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit
 
@@ -4998,7 +4998,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !31
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !74
   ret void
 

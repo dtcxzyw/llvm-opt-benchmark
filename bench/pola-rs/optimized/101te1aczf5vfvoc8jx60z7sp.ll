@@ -78,7 +78,7 @@ define hidden void @_ZN12polars_arrow5array13specification24try_check_offsets_bo
   unreachable
 
 8:                                                ; preds = %4
-  %9 = getelementptr i64, ptr %1, i64 %2
+  %9 = getelementptr [8 x i8], ptr %1, i64 %2
   %10 = getelementptr i8, ptr %9, i64 -8
   %.val = load i64, ptr %10, align 8, !noundef !4
   %11 = icmp ugt i64 %.val, %3
@@ -1156,7 +1156,7 @@ define hidden noundef zeroext i1 @"_ZN12polars_arrow5array7binview7mutable31Muta
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6589752ebadc9d06E.exit": ; preds = %8, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8, !alias.scope !60, !noalias !63, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %23, i64 %13
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %25 = add i64 %13, 1
   store i64 %25, ptr %12, align 8, !alias.scope !60, !noalias !63
@@ -3846,7 +3846,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i: ;
   %83 = add i64 %82, 1
   store i64 %83, ptr %9, align 8, !alias.scope !310, !noalias !304
   %84 = sub nsw i64 0, %.sroa.04.0.i
-  %85 = getelementptr inbounds i64, ptr %70, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %70, i64 %84
   %86 = getelementptr inbounds i8, ptr %85, i64 -8
   store i64 %10, ptr %86, align 8, !noalias !307
   %87 = icmp ult i64 %14, 144115188075855872
@@ -3913,7 +3913,7 @@ _ZN8indexmap3map4core15reserve_entries17h2d558ddadbd5c8adE.exit: ; preds = %._ZN
 
 110:                                              ; preds = %105, %_ZN8indexmap3map4core15reserve_entries17h2d558ddadbd5c8adE.exit
   %111 = load ptr, ptr %11, align 8, !alias.scope !311, !noalias !314, !nonnull !4, !noundef !4
-  %112 = getelementptr inbounds nuw { { ptr, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, i64 } }, i64 }, ptr %111, i64 %99
+  %112 = getelementptr inbounds nuw [64 x i8], ptr %111, i64 %99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %112, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   %113 = add i64 %99, 1
   store i64 %113, ptr %13, align 8, !alias.scope !311, !noalias !314
@@ -3983,7 +3983,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
   %24 = add i64 %.sroa.04.0.i.i, %23
   %25 = and i64 %24, %14
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i64, ptr %15, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %15, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   %.val.i.i = load i64, ptr %28, align 8, !noalias !326, !noundef !4
   %29 = icmp ult i64 %.val.i.i, %9
@@ -3996,7 +3996,7 @@ define hidden void @"_ZN8indexmap3map4core5entry64_$LT$impl$u20$indexmap..map..c
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4a879c63a660a8e6E.exit.i": ; preds = %21
   %31 = add i16 %.sroa.010.0.i.i, -1
   %32 = and i16 %31, %.sroa.010.0.i.i
-  %33 = getelementptr inbounds nuw { { ptr, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, i64 } }, i64 }, ptr %7, i64 %.val.i.i
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %.val.i.i
   %.val3.i.i.i = load ptr, ptr %33, align 8, !noalias !329, !nonnull !4, !align !332, !noundef !4
   %34 = getelementptr i8, ptr %33, i64 8
   %.val4.i.i.i = load i64, ptr %34, align 8, !noalias !329, !noundef !4
@@ -4096,7 +4096,7 @@ switch.lookup:                                    ; preds = %2
   %28 = load i64, ptr %27, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !334
-  %29 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   call void @_ZN4core4iter8adapters11try_process17hbd91a003c259264cE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %11, ptr noundef nonnull readonly align 8 %26, ptr noundef nonnull readonly %29), !noalias !338
   %30 = load i64, ptr %11, align 8, !range !339, !noalias !334, !noundef !4
   %.not.i = icmp eq i64 %30, 17

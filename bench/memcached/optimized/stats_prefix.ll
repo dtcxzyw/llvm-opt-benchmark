@@ -30,7 +30,7 @@ define dso_local void @stats_prefix_clear() local_unnamed_addr #2 {
 
 1:                                                ; preds = %0, %._crit_edge
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %._crit_edge ]
-  %2 = getelementptr inbounds nuw ptr, ptr @prefix_stats, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @prefix_stats, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %.not9 = icmp eq ptr %3, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -90,7 +90,7 @@ define dso_local noundef ptr @stats_prefix_find(ptr noundef %0, i64 noundef %1) 
   %12 = tail call i32 %11(ptr noundef nonnull %0, i64 noundef %.03546) #12
   %13 = and i32 %12, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @prefix_stats, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @prefix_stats, i64 %14
   %.03748 = load ptr, ptr %15, align 8, !tbaa !7
   %.not4149 = icmp eq ptr %.03748, null
   br i1 %.not4149, label %._crit_edge, label %.lr.ph51
@@ -257,7 +257,7 @@ define dso_local noalias noundef ptr @stats_prefix_dump(ptr noundef writeonly ca
 .preheader:                                       ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %1 ]
   %.035 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %1 ]
-  %12 = getelementptr inbounds nuw ptr, ptr @prefix_stats, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @prefix_stats, i64 %indvars.iv
   %.02830 = load ptr, ptr %12, align 8, !tbaa !7
   %.not31 = icmp eq ptr %.02830, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph

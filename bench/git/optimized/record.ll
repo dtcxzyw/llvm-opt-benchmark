@@ -3228,7 +3228,7 @@ put_var_int.exit39:                               ; preds = %._crit_edge.i36
   %.sroa.0.170 = phi ptr [ %62, %.lr.ph ], [ %87, %85 ]
   %.sroa.10.169 = phi i64 [ %58, %.lr.ph ], [ %88, %85 ]
   %.024 = load i64, ptr %.024.in72, align 8, !tbaa !15
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8, !tbaa !15
   %68 = sub i64 %67, %.024
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3276,7 +3276,7 @@ put_var_int.exit48:                               ; preds = %._crit_edge.i45
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.170, i64 %86
   %88 = sub i64 %.sroa.10.169, %86
   %89 = load ptr, ptr %37, align 8, !tbaa !54
-  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i32, ptr %8, align 8, !tbaa !55
   %92 = sext i32 %91 to i64
@@ -3513,7 +3513,7 @@ get_var_int.exit80:                               ; preds = %83, %77
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 %96
   %98 = sub i64 %.sroa.10.1128, %96
   %99 = add i64 %.0.lcssa.i78, %.036130
-  %100 = getelementptr inbounds nuw i64, ptr %51, i64 %.033131
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.033131
   store i64 %99, ptr %100, align 8, !tbaa !15
   %101 = add nuw i64 %.033131, 1
   %exitcond.not = icmp eq i64 %101, %.097107150

@@ -414,7 +414,7 @@ define internal ptr @H5B__cache_deserialize(ptr noundef %0, i64 noundef %1, ptr 
 229:                                              ; preds = %213, %200
   %230 = load ptr, ptr %2, align 8, !tbaa !46
   %231 = load ptr, ptr %49, align 8, !tbaa !38
-  %232 = getelementptr inbounds nuw i64, ptr %231, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv
   call void @H5F_addr_decode(ptr noundef %230, ptr noundef nonnull %5, ptr noundef %232) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %233 = load i32, ptr %116, align 4, !tbaa !45
@@ -578,7 +578,7 @@ define internal range(i32 -1, 1) i32 @H5B__cache_serialize(ptr noundef %0, ptr n
   %65 = load i64, ptr %64, align 8, !tbaa !49
   %66 = getelementptr inbounds nuw i8, ptr %.03641, i64 %65
   %67 = load ptr, ptr %47, align 8, !tbaa !38
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = load i64, ptr %68, align 8, !tbaa !24
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %69) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

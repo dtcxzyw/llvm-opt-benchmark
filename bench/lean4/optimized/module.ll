@@ -47,7 +47,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.lean::sstream" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.lean::pair_ref" = type { %"class.lean::object_ref" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -1216,7 +1215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %.l
   %.0287 = phi i32 [ 0, %.lr.ph288 ], [ %420, %419 ]
   %.4286 = phi ptr [ %.2, %.lr.ph288 ], [ %.6, %419 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %424 = getelementptr inbounds nuw %"class.lean::pair_ref", ptr %56, i64 %423
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %423
   %425 = load ptr, ptr %424, align 8, !tbaa !12
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
@@ -1265,7 +1264,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %.l
   store i8 0, ptr %441, align 1, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !79
   %442 = load ptr, ptr %9, align 8, !tbaa !82
-  %443 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %442, i64 %423
+  %443 = getelementptr inbounds nuw [32 x i8], ptr %442, i64 %423
   %444 = load ptr, ptr %443, align 8, !tbaa !21
   %445 = load ptr, ptr %21, align 8, !tbaa !21
   %446 = call i32 @rename(ptr noundef %444, ptr noundef %445) #27
@@ -3812,7 +3811,7 @@ _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %_ZNSt14basic
 
 _ZN4lean3incEP11lean_object.exit.i:               ; preds = %.noexc411, %787, %785, %779
   %789 = phi ptr [ %780, %779 ], [ %780, %785 ], [ %780, %787 ], [ %.pre.i, %.noexc411 ]
-  %790 = getelementptr inbounds nuw ptr, ptr %778, i64 %.015.i
+  %790 = getelementptr inbounds nuw [8 x i8], ptr %778, i64 %.015.i
   store ptr %789, ptr %790, align 8, !tbaa !97
   %791 = add i64 %.015.i, 1
   %792 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i, i64 8
@@ -4731,7 +4730,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !40
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !43
   ret void
 
@@ -5142,7 +5141,7 @@ _ZSt8_DestroyIPN4lean11module_fileEEvT_S3_.exit:  ; preds = %_ZSt8_DestroyIN4lea
 _ZNSt12_Vector_baseIN4lean11module_fileESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4lean11module_fileEEvT_S3_.exit, %90
   store ptr %22, ptr %0, align 8, !tbaa !174
   store ptr %59, ptr %4, align 8, !tbaa !172
-  %94 = getelementptr inbounds nuw %"struct.lean::module_file", ptr %22, i64 %16
+  %94 = getelementptr inbounds nuw [608 x i8], ptr %22, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !194
   ret void
 
@@ -5566,7 +5565,7 @@ _ZSt8_DestroyIPN4lean10object_refEEvT_S3_.exit:   ; preds = %_ZSt8_DestroyIN4lea
 _ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4lean10object_refEEvT_S3_.exit, %44
   store ptr %23, ptr %0, align 8, !tbaa !189
   store ptr %28, ptr %4, align 8, !tbaa !186
-  %48 = getelementptr inbounds nuw %"class.lean::object_ref", ptr %23, i64 %16
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %16
   store ptr %48, ptr %43, align 8, !tbaa !191
   ret void
 

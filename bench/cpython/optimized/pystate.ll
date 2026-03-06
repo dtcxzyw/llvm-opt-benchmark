@@ -915,7 +915,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.anon.42 = type { i32, i32 }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
-%union._Py_CODEUNIT = type { i16 }
 
 @_Py_tss_tstate = hidden thread_local local_unnamed_addr global ptr null, align 8
 @__func__._PyRuntimeState_Init = private unnamed_addr constant [21 x i8] c"_PyRuntimeState_Init\00", align 1
@@ -1349,7 +1348,7 @@ define hidden void @_PyRuntimeState_ReInitThreads(ptr dead_on_unwind noalias wri
 
 36:                                               ; preds = %2, %36
   %.026 = phi i64 [ 0, %2 ], [ %39, %36 ]
-  %37 = getelementptr ptr, ptr %3, i64 %.026
+  %37 = getelementptr [8 x i8], ptr %3, i64 %.026
   %38 = load ptr, ptr %37, align 8, !tbaa !186
   store i8 0, ptr %38, align 1
   %39 = add nuw nsw i64 %.026, 1
@@ -1783,7 +1782,7 @@ Py_DECREF.exit:                                   ; preds = %46, %43, %41, %38
 
 .preheader184:                                    ; preds = %Py_DECREF.exit, %55
   %indvars.iv200 = phi i64 [ 0, %Py_DECREF.exit ], [ %indvars.iv.next201, %55 ]
-  %50 = getelementptr [19 x ptr], ptr %49, i64 %indvars.iv200
+  %50 = getelementptr [152 x i8], ptr %49, i64 %indvars.iv200
   br label %56
 
 51:                                               ; preds = %55
@@ -1801,7 +1800,7 @@ Py_DECREF.exit:                                   ; preds = %46, %43, %41, %38
 
 56:                                               ; preds = %.preheader184, %Py_DECREF.exit152
   %indvars.iv = phi i64 [ 0, %.preheader184 ], [ %indvars.iv.next, %Py_DECREF.exit152 ]
-  %57 = getelementptr ptr, ptr %50, i64 %indvars.iv
+  %57 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !211
   %.not150 = icmp eq ptr %58, null
   br i1 %.not150, label %Py_DECREF.exit152, label %59
@@ -1838,7 +1837,7 @@ Py_DECREF.exit152:                                ; preds = %64, %61, %59, %56
 
 69:                                               ; preds = %51, %Py_DECREF.exit154
   %indvars.iv204 = phi i64 [ 0, %51 ], [ %indvars.iv.next205, %Py_DECREF.exit154 ]
-  %70 = getelementptr ptr, ptr %54, i64 %indvars.iv204
+  %70 = getelementptr [8 x i8], ptr %54, i64 %indvars.iv204
   %71 = load ptr, ptr %70, align 8, !tbaa !211
   %.not149 = icmp eq ptr %71, null
   br i1 %.not149, label %Py_DECREF.exit154, label %72
@@ -4209,7 +4208,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %12 = load i32, ptr %11, align 8, !tbaa !293
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %union._Py_CODEUNIT, ptr %10, i64 %13
+  %14 = getelementptr [2 x i8], ptr %10, i64 %13
   %15 = icmp ult ptr %8, %14
   br i1 %15, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -4788,7 +4787,7 @@ _PyFrame_IsIncomplete.exit.i:                     ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %25 = load i32, ptr %24, align 8, !tbaa !293
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %union._Py_CODEUNIT, ptr %23, i64 %26
+  %27 = getelementptr [2 x i8], ptr %23, i64 %26
   %28 = icmp ult ptr %21, %27
   br i1 %28, label %_PyFrame_IsIncomplete.exit.thread.i, label %_PyFrame_GetFirstComplete.exit
 
@@ -5368,7 +5367,7 @@ _PyThreadState_HasStackSpace.exit:                ; preds = %2
   br i1 %13, label %14, label %_PyThreadState_HasStackSpace.exit.thread
 
 14:                                               ; preds = %_PyThreadState_HasStackSpace.exit
-  %15 = getelementptr ptr, ptr %5, i64 %1
+  %15 = getelementptr [8 x i8], ptr %5, i64 %1
   br label %push_chunk.exit.sink.split
 
 _PyThreadState_HasStackSpace.exit.thread:         ; preds = %2, %_PyThreadState_HasStackSpace.exit
@@ -5419,7 +5418,7 @@ _PyThreadState_HasStackSpace.exit.thread:         ; preds = %2, %_PyThreadState_
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %43 = icmp eq ptr %23, null
   %44 = zext i1 %43 to i64
-  %45 = getelementptr ptr, ptr %42, i64 %44
+  %45 = getelementptr [8 x i8], ptr %42, i64 %44
   %sext9 = shl i64 %1, 32
   %46 = ashr exact i64 %sext9, 29
   %47 = getelementptr i8, ptr %45, i64 %46
@@ -5449,7 +5448,7 @@ define dso_local void @_PyThreadState_PopFrame(ptr noundef captures(none) %0, pt
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !314
-  %12 = getelementptr ptr, ptr %9, i64 %11
+  %12 = getelementptr [8 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %12, ptr %13, align 8, !tbaa !311
   store ptr %8, ptr %3, align 8, !tbaa !281

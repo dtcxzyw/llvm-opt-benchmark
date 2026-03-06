@@ -7,17 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pairingheap_node = type { ptr, ptr, ptr }
 %struct.BTWriteState = type { ptr, ptr, ptr, ptr, i32 }
 %struct.BTBuildState = type { i8, i8, i8, ptr, ptr, ptr, double, ptr }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.BufferUsage = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
-%struct.instr_time = type { i64 }
-%struct.WalUsage = type { i64, i64, i64, i64 }
 %struct.IndexTupleData = type { %struct.ItemPointerData, i16 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.ItemIdData = type { i32 }
 
 @.str = private unnamed_addr constant [33 x i8] c"index \22%s\22 already contains data\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"nbtsort.c\00", align 1
@@ -645,8 +637,8 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %353 = getelementptr inbounds nuw %struct.SortSupportData, ptr %348, i64 %indvars.iv.i.i
-  %354 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %350, i64 %indvars.iv.i.i
+  %353 = getelementptr inbounds nuw [64 x i8], ptr %348, i64 %indvars.iv.i.i
+  %354 = getelementptr inbounds nuw [72 x i8], ptr %350, i64 %indvars.iv.i.i
   %355 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %355, ptr %353, align 8
   %356 = getelementptr inbounds nuw i8, ptr %354, i64 12
@@ -701,7 +693,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
 
 380:                                              ; preds = %.thread189.thread204.i.i, %.lr.ph222.i.i
   %indvars.iv249.i.i = phi i64 [ 1, %.lr.ph222.i.i ], [ %indvars.iv.next250.i.i, %.thread189.thread204.i.i ]
-  %381 = getelementptr inbounds nuw %struct.SortSupportData, ptr %348, i64 %indvars.iv249.i.i
+  %381 = getelementptr inbounds nuw [64 x i8], ptr %348, i64 %indvars.iv249.i.i
   %382 = getelementptr inbounds i8, ptr %381, i64 -64
   %.val.i.i.i = load i16, ptr %376, align 2
   %383 = icmp slt i16 %.val.i.i.i, 0
@@ -709,7 +701,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   br i1 %383, label %421, label %385
 
 385:                                              ; preds = %380
-  %386 = getelementptr inbounds %struct.CompactAttribute, ptr %351, i64 %384
+  %386 = getelementptr inbounds [16 x i8], ptr %351, i64 %384
   %387 = load i32, ptr %386, align 4
   %388 = icmp sgt i32 %387, -1
   br i1 %388, label %389, label %418
@@ -799,7 +791,7 @@ index_getattr.exit.i.i:                           ; preds = %431, %421, %418, %4
   br i1 %434, label %471, label %435
 
 435:                                              ; preds = %index_getattr.exit.i.i
-  %436 = getelementptr inbounds %struct.CompactAttribute, ptr %351, i64 %384
+  %436 = getelementptr inbounds [16 x i8], ptr %351, i64 %384
   %437 = load i32, ptr %436, align 4
   %438 = icmp sgt i32 %437, -1
   br i1 %438, label %439, label %468
@@ -1464,9 +1456,9 @@ define internal fastcc void @_bt_end_parallel(ptr noundef readonly captures(none
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %struct.BufferUsage, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %struct.WalUsage, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   tail call void @InstrAccumParallelQuery(ptr noundef %11, ptr noundef %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load ptr, ptr %0, align 8
@@ -1565,8 +1557,8 @@ define dso_local void @_bt_parallel_build_main(ptr noundef %0, ptr noundef %1) l
   %41 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -6917529027641081851, i1 noundef zeroext false) #10
   %42 = load i32, ptr @ParallelWorkerNumber, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.BufferUsage, ptr %40, i64 %43
-  %45 = getelementptr inbounds %struct.WalUsage, ptr %41, i64 %43
+  %44 = getelementptr inbounds [128 x i8], ptr %40, i64 %43
+  %45 = getelementptr inbounds [32 x i8], ptr %41, i64 %43
   tail call void @InstrEndParallelQuery(ptr noundef %44, ptr noundef %45) #10
   tail call void @index_close(ptr noundef %14, i32 noundef %.) #10
   tail call void @table_close(ptr noundef %11, i32 noundef %.46) #10
@@ -1961,7 +1953,7 @@ define internal fastcc void @_bt_buildadd(ptr noundef nonnull captures(none) %0,
   store i32 %65, ptr %63, align 8
   %66 = zext i16 %14 to i64
   %67 = getelementptr i8, ptr %10, i64 20
-  %68 = getelementptr %struct.ItemIdData, ptr %67, i64 %66
+  %68 = getelementptr [4 x i8], ptr %67, i64 %66
   %.val115 = load i32, ptr %68, align 4
   %69 = and i32 %.val115, 32767
   %70 = zext nneg i32 %69 to i64
@@ -2008,7 +2000,7 @@ _bt_sortaddtup.exit:                              ; preds = %78
 89:                                               ; preds = %_bt_sortaddtup.exit
   %90 = add i16 %14, -1
   %91 = zext i16 %90 to i64
-  %92 = getelementptr %struct.ItemIdData, ptr %67, i64 %91
+  %92 = getelementptr [4 x i8], ptr %67, i64 %91
   %.val116 = load i32, ptr %92, align 4
   %93 = and i32 %.val116, 32767
   %94 = zext nneg i32 %93 to i64

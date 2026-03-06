@@ -208,7 +208,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr rea
   %80 = trunc i64 %79 to i32
   %81 = and i32 %77, %80
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr ptr, ptr @lookup_dev_ioctl._ioctls, i64 %82
+  %83 = getelementptr [8 x i8], ptr @lookup_dev_ioctl._ioctls, i64 %82
   %84 = load ptr, ptr %83, align 8
   switch i32 %6, label %85 [
     i32 117, label %.thread24

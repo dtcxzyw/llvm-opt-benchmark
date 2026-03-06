@@ -4,16 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.obj_map<func_decl, expr *>::obj_map_entry" = type { %"struct.obj_map<func_decl, expr *>::key_data" }
-%"struct.obj_map<func_decl, expr *>::key_data" = type { ptr, ptr }
-%"struct.std::pair" = type { ptr, ptr }
 %class.arith_util = type { ptr, ptr }
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry" = type { %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" }
-%"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" = type { ptr, %"struct.std::pair.80" }
-%"struct.std::pair.80" = type { i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -127,7 +121,7 @@ define hidden void @_ZN21pb2bv_model_converterC2ER11ast_managerRK7obj_mapI9func_
 
 .loopexit62:                                      ; preds = %.lr.ph.i.i.i.i, %17, %4
   %.sroa.0.1.i.i = phi ptr [ %10, %4 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %14, %17 ]
-  %19 = getelementptr inbounds nuw %"class.obj_map<func_decl, expr *>::obj_map_entry", ptr %10, i64 %13
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %.not5963 = icmp eq ptr %.sroa.0.1.i.i, %19
   br i1 %.not5963, label %._crit_edge, label %.lr.ph
 
@@ -164,7 +158,7 @@ define hidden void @_ZN21pb2bv_model_converterC2ER11ast_managerRK7obj_mapI9func_
   %35 = phi i32 [ %.pre2.i, %.noexc ], [ %29, %27 ]
   %36 = phi ptr [ %.pre.i, %.noexc ], [ %20, %27 ]
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.std::pair", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   store ptr %25, ptr %38, align 8
   %.sroa.552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %24, ptr %.sroa.552.0..sroa_idx, align 8
@@ -259,7 +253,7 @@ _ZNK13bound_manager3endEv.exit:                   ; preds = %._crit_edge
   %.idx.i.i.i = shl nuw nsw i64 %81, 4
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i.i.i
   %83 = zext i32 %77 to i64
-  %84 = getelementptr inbounds nuw %"class.obj_map<func_decl, expr *>::obj_map_entry", ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %83
   %.not34.i.i.i = icmp eq i32 %79, %77
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -357,7 +351,7 @@ _ZN11ast_manager7inc_refEP3ast.exit42:            ; preds = %106, %.loopexit
   %119 = phi i32 [ %.pre2.i45, %.noexc46 ], [ %113, %111 ]
   %120 = phi ptr [ %.pre.i43, %.noexc46 ], [ %71, %111 ]
   %121 = zext i32 %119 to i64
-  %122 = getelementptr inbounds nuw %"struct.std::pair", ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %121
   store ptr %74, ptr %122, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
@@ -702,7 +696,7 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE3endEv.exit: ; preds = %2
   %.idx.i.i.i.i = mul nuw nsw i64 %46, 24
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i.i.i
   %48 = zext i32 %42 to i64
-  %49 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %48
   %.not34.i.i.i.i = icmp eq i32 %44, %42
   br i1 %.not34.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -1201,7 +1195,7 @@ _ZN6vectorISt4pairIP9func_declS2_ELb0EjE9push_backEOS3_.exit: ; preds = %33, %39
   %40 = phi i32 [ %.pre2.i, %39 ], [ %35, %33 ]
   %41 = phi ptr [ %.pre.i, %39 ], [ %31, %33 ]
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"struct.std::pair", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   store ptr %.0.i.i1735, ptr %43, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %.0.i.i18, ptr %.sroa.4.0..sroa_idx, align 8

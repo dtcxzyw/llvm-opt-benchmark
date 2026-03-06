@@ -204,7 +204,7 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %25 ]
-  %9 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %indvars.iv
+  %9 = getelementptr [40 x i8], ptr @aRegisters, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -218,7 +218,7 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %20 = getelementptr [80 x i8], ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
   %21 = getelementptr i8, ptr %20, i64 1760
   store ptr %12, ptr %21, align 16
   %.sroa.42.0..sroa_idx = getelementptr i8, ptr %20, i64 1768
@@ -238,7 +238,7 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
   br label %25
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %23 = getelementptr [80 x i8], ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
   %24 = getelementptr i8, ptr %23, i64 1760
   store ptr %12, ptr %24, align 16
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %23, i64 1768
@@ -252,10 +252,10 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %17, %22
-  %26 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
-  %27 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
-  %28 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
-  %29 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %26 = getelementptr [80 x i8], ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %27 = getelementptr [80 x i8], ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %28 = getelementptr [80 x i8], ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %29 = getelementptr [80 x i8], ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
   %.sroa.1210.0..sroa_idx = getelementptr i8, ptr %29, i64 1820
   store i32 0, ptr %.sroa.1210.0..sroa_idx, align 4
   %.sroa.1311.0..sroa_idx = getelementptr i8, ptr %28, i64 1824
@@ -716,7 +716,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 225:                                              ; preds = %.preheader491
   %226 = zext nneg i8 %223 to i64
-  %227 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %226
+  %227 = getelementptr [40 x i8], ptr @aRegisters, i64 %226
   %228 = load i32, ptr %227, align 8
   %229 = zext nneg i8 %223 to i32
   %230 = icmp eq i32 %228, %229
@@ -758,7 +758,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 245:                                              ; preds = %.lr.ph519
   %246 = zext nneg i8 %243 to i64
-  %247 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %246
+  %247 = getelementptr [40 x i8], ptr @aRegisters, i64 %246
   %248 = load i32, ptr %247, align 8
   %249 = zext nneg i8 %243 to i32
   %250 = icmp eq i32 %248, %249
@@ -987,7 +987,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 373:                                              ; preds = %370
   %374 = zext nneg i8 %371 to i64
-  %375 = getelementptr %struct.FCOSRegisterDef, ptr @aRegisters, i64 %374
+  %375 = getelementptr [40 x i8], ptr @aRegisters, i64 %374
   %376 = load i32, ptr %375, align 8
   %377 = zext nneg i8 %371 to i32
   %378 = icmp eq i32 %376, %377

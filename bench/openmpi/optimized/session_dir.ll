@@ -85,7 +85,7 @@ define i32 @prte_session_dir(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
   %26 = tail call i32 @strncmp(ptr noundef %20, ptr noundef nonnull %24, i64 noundef %25) #10

@@ -3,8 +3,6 @@ source_filename = "bench/proj/original/datum_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PJ_DATUMS = type { ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [7 x i8] c"sdatum\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"Unknown value for datum\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"ellps=\00", align 1
@@ -39,7 +37,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw %struct.PJ_DATUMS, ptr %10, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %.not100 = icmp eq ptr %14, null
   br i1 %.not100, label %.critedge114, label %.lr.ph, !llvm.loop !41
@@ -57,7 +55,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   br label %.critedge113.thread
 
 .critedge4:                                       ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw %struct.PJ_DATUMS, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   %.not102 = icmp eq ptr %19, null
@@ -147,7 +145,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %.0125 = phi ptr [ %spec.select, %.critedge6 ], [ %41, %40 ]
   %45 = call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %.0125)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %46 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv132
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv132
   store double %45, ptr %46, align 8, !tbaa !45
   br label %47
 

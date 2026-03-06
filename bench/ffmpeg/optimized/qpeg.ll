@@ -542,7 +542,7 @@ define internal void @decode_flush(ptr noundef readonly captures(none) %0) #1 {
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %18
   %20 = load i32, ptr %19, align 1, !tbaa !41
   %21 = or i32 %20, -16777216
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

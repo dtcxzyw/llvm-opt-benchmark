@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.ItemIdData = type { i32 }
 %struct.xl_heap_prune = type { i8, i8 }
 %struct.xlhp_freeze_plan = type { i32, i16, i16, i8, i16 }
 %struct.xlhp_freeze_plans = type { i16, [0 x %struct.xlhp_freeze_plan] }
@@ -44,7 +43,7 @@ define dso_local void @heap_page_prune_opt(ptr noundef %0, i32 noundef %1) local
   %7 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %8 = xor i32 %1, -1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %BufferGetPage.exit
 
@@ -167,7 +166,7 @@ define dso_local void @heap_page_prune_and_freeze(ptr noundef %0, i32 noundef %1
   %17 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %18 = xor i32 %1, -1
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %BufferGetPage.exit
 
@@ -298,7 +297,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
 
 103:                                              ; preds = %.lr.ph, %163
   %indvars.iv = phi i64 [ %102, %.lr.ph ], [ %indvars.iv.next, %163 ]
-  %104 = getelementptr %struct.ItemIdData, ptr %89, i64 %indvars.iv
+  %104 = getelementptr [4 x i8], ptr %89, i64 %indvars.iv
   %105 = trunc nuw i64 %indvars.iv to i16
   store i16 %105, ptr %7, align 2
   %106 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv
@@ -328,7 +327,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
 115:                                              ; preds = %112
   %116 = load i32, ptr %40, align 8
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i16, ptr %101, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %101, i64 %117
   store i16 %105, ptr %118, align 2
   %119 = load i32, ptr %40, align 8
   %120 = add i32 %119, 1
@@ -341,7 +340,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
   %124 = add i32 %123, 1
   store i32 %124, ptr %72, align 8
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds i16, ptr %122, i64 %125
+  %126 = getelementptr inbounds [2 x i8], ptr %122, i64 %125
   store i16 %105, ptr %126, align 2
   br label %163
 
@@ -350,7 +349,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
   %129 = add i32 %128, 1
   store i32 %129, ptr %43, align 4
   %130 = sext i32 %128 to i64
-  %131 = getelementptr inbounds i16, ptr %99, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %99, i64 %130
   store i16 %105, ptr %131, align 2
   br label %163
 
@@ -414,7 +413,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
   %155 = add i32 %154, 1
   store i32 %155, ptr %43, align 4
   %156 = sext i32 %154 to i64
-  %157 = getelementptr inbounds i16, ptr %99, i64 %156
+  %157 = getelementptr inbounds [2 x i8], ptr %99, i64 %156
   store i16 %105, ptr %157, align 2
   br label %163
 
@@ -423,7 +422,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
   %160 = add i32 %159, 1
   store i32 %160, ptr %44, align 8
   %161 = sext i32 %159 to i64
-  %162 = getelementptr inbounds i16, ptr %100, i64 %161
+  %162 = getelementptr inbounds [2 x i8], ptr %100, i64 %161
   store i16 %105, ptr %162, align 2
   br label %163
 
@@ -470,7 +469,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
 
 184:                                              ; preds = %.lr.ph193, %364
   %indvars.iv207 = phi i64 [ %175, %.lr.ph193 ], [ %indvars.iv.next208, %364 ]
-  %185 = getelementptr inbounds nuw i16, ptr %168, i64 %indvars.iv207
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %168, i64 %indvars.iv207
   %186 = load i16, ptr %185, align 2
   %187 = zext i16 %186 to i64
   %188 = getelementptr inbounds nuw i8, ptr %169, i64 %187
@@ -481,7 +480,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
 191:                                              ; preds = %184
   store i16 %186, ptr %7, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %192 = getelementptr %struct.ItemIdData, ptr %170, i64 %187
+  %192 = getelementptr [4 x i8], ptr %170, i64 %187
   %193 = add i16 %186, -1
   %or.cond85.not114.i = icmp ult i16 %193, %85
   br i1 %or.cond85.not114.i, label %.lr.ph.i, label %._crit_edge.i165
@@ -498,7 +497,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
   br i1 %197, label %._crit_edge.i165, label %198
 
 198:                                              ; preds = %.lr.ph.i
-  %199 = getelementptr %struct.ItemIdData, ptr %170, i64 %194
+  %199 = getelementptr [4 x i8], ptr %170, i64 %194
   %200 = load i32, ptr %199, align 4
   %201 = and i32 %200, 98304
   %202 = icmp eq i32 %201, 65536
@@ -511,7 +510,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %132, %141, %146
 205:                                              ; preds = %203
   %206 = add nsw i32 %.080116.i, 1
   %207 = sext i32 %.080116.i to i64
-  %208 = getelementptr inbounds i16, ptr %11, i64 %207
+  %208 = getelementptr inbounds [2 x i8], ptr %11, i64 %207
   store i16 %.078117.i, ptr %208, align 2
   %209 = load i32, ptr %192, align 4
   %210 = trunc i32 %209 to i16
@@ -544,7 +543,7 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %220, %216
 223:                                              ; preds = %HeapTupleHeaderGetXmin.exit.i, %212
   %224 = add i32 %.080116.i, 1
   %225 = sext i32 %.080116.i to i64
-  %226 = getelementptr inbounds i16, ptr %11, i64 %225
+  %226 = getelementptr inbounds [2 x i8], ptr %11, i64 %225
   store i16 %.078117.i, ptr %226, align 2
   %227 = getelementptr inbounds nuw i8, ptr %171, i64 %194
   %228 = load i8, ptr %227, align 1
@@ -628,7 +627,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
 259:                                              ; preds = %256
   %260 = load i32, ptr %40, align 8
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds i16, ptr %173, i64 %261
+  %262 = getelementptr inbounds [2 x i8], ptr %173, i64 %261
   store i16 %186, ptr %262, align 2
   %263 = load i32, ptr %40, align 8
   %264 = add i32 %263, 1
@@ -638,7 +637,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
 265:                                              ; preds = %256
   %266 = load i32, ptr %41, align 4
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds i16, ptr %174, i64 %267
+  %268 = getelementptr inbounds [2 x i8], ptr %174, i64 %267
   store i16 %186, ptr %268, align 2
   %269 = load i32, ptr %41, align 4
   %270 = add i32 %269, 1
@@ -648,7 +647,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
   %273 = add i32 %272, 1
   store i32 %273, ptr %72, align 8
   %274 = sext i32 %272 to i64
-  %275 = getelementptr inbounds i16, ptr %271, i64 %274
+  %275 = getelementptr inbounds [2 x i8], ptr %271, i64 %274
   store i16 %186, ptr %275, align 2
   br label %heap_prune_chain.exit
 
@@ -680,7 +679,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %237, %233, %223, %2
 
 .lr.ph136.i:                                      ; preds = %.lr.ph136.i, %.lr.ph136.preheader.i
   %indvars.iv150.i = phi i64 [ %284, %.lr.ph136.preheader.i ], [ %indvars.iv.next151.i, %.lr.ph136.i ]
-  %285 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv150.i
+  %285 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv150.i
   %286 = load i16, ptr %285, align 2
   call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %286)
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
@@ -703,7 +702,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %237, %233, %223, %2
 295:                                              ; preds = %289
   %296 = load i32, ptr %40, align 8
   %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds i16, ptr %173, i64 %297
+  %298 = getelementptr inbounds [2 x i8], ptr %173, i64 %297
   store i16 %186, ptr %298, align 2
   %299 = load i32, ptr %40, align 8
   %300 = add i32 %299, 1
@@ -713,7 +712,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %237, %233, %223, %2
 301:                                              ; preds = %289
   %302 = load i32, ptr %41, align 4
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds i16, ptr %174, i64 %303
+  %304 = getelementptr inbounds [2 x i8], ptr %174, i64 %303
   store i16 %186, ptr %304, align 2
   %305 = load i32, ptr %41, align 4
   %306 = add i32 %305, 1
@@ -723,7 +722,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %237, %233, %223, %2
   %309 = add i32 %308, 1
   store i32 %309, ptr %72, align 8
   %310 = sext i32 %308 to i64
-  %311 = getelementptr inbounds i16, ptr %307, i64 %310
+  %311 = getelementptr inbounds [2 x i8], ptr %307, i64 %310
   store i16 %186, ptr %311, align 2
   br i1 %292, label %heap_prune_record_unused.exit.sink.split.i.i, label %heap_prune_record_dead_or_unused.exit88.i
 
@@ -745,13 +744,13 @@ heap_prune_record_dead_or_unused.exit88.i:        ; preds = %heap_prune_record_u
 315:                                              ; preds = %315, %.lr.ph133.i
   %316 = phi i32 [ %.pre155.i, %.lr.ph133.i ], [ %324, %315 ]
   %indvars.iv145.i = phi i64 [ 1, %.lr.ph133.i ], [ %indvars.iv.next146.i, %315 ]
-  %317 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv145.i
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv145.i
   %318 = load i16, ptr %317, align 2
   %319 = zext i16 %318 to i64
   %320 = getelementptr inbounds nuw i8, ptr %169, i64 %319
   store i8 1, ptr %320, align 1
   %321 = sext i32 %316 to i64
-  %322 = getelementptr inbounds i16, ptr %173, i64 %321
+  %322 = getelementptr inbounds [2 x i8], ptr %173, i64 %321
   store i16 %318, ptr %322, align 2
   %323 = load i32, ptr %40, align 8
   %324 = add i32 %323, 1
@@ -765,7 +764,7 @@ heap_prune_record_dead_or_unused.exit88.i:        ; preds = %heap_prune_record_u
 
 327:                                              ; preds = %287
   %328 = sext i32 %.18394.i to i64
-  %329 = getelementptr inbounds i16, ptr %11, i64 %328
+  %329 = getelementptr inbounds [2 x i8], ptr %11, i64 %328
   %330 = load i16, ptr %329, align 2
   %331 = load i32, ptr %192, align 4
   %332 = and i32 %331, 98304
@@ -774,12 +773,12 @@ heap_prune_record_dead_or_unused.exit88.i:        ; preds = %heap_prune_record_u
   %334 = load i32, ptr %42, align 8
   %335 = shl i32 %334, 1
   %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds i16, ptr %172, i64 %336
+  %337 = getelementptr inbounds [2 x i8], ptr %172, i64 %336
   store i16 %186, ptr %337, align 4
   %338 = load i32, ptr %42, align 8
   %339 = shl i32 %338, 1
   %340 = sext i32 %339 to i64
-  %341 = getelementptr i16, ptr %172, i64 %340
+  %341 = getelementptr [2 x i8], ptr %172, i64 %340
   %342 = getelementptr i8, ptr %341, i64 2
   store i16 %330, ptr %342, align 2
   %343 = load i32, ptr %42, align 8
@@ -810,13 +809,13 @@ heap_prune_record_redirect.exit.i:                ; preds = %345, %327
 350:                                              ; preds = %350, %.lr.ph129.i
   %351 = phi i32 [ %.pre.i167, %.lr.ph129.i ], [ %359, %350 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph129.i ], [ %indvars.iv.next.i, %350 ]
-  %352 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
+  %352 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i
   %353 = load i16, ptr %352, align 2
   %354 = zext i16 %353 to i64
   %355 = getelementptr inbounds nuw i8, ptr %169, i64 %354
   store i8 1, ptr %355, align 1
   %356 = sext i32 %351 to i64
-  %357 = getelementptr inbounds i16, ptr %173, i64 %356
+  %357 = getelementptr inbounds [2 x i8], ptr %173, i64 %356
   store i16 %353, ptr %357, align 2
   %358 = load i32, ptr %40, align 8
   %359 = add i32 %358, 1
@@ -830,7 +829,7 @@ heap_prune_record_redirect.exit.i:                ; preds = %345, %327
 
 .lr.ph131.i:                                      ; preds = %.preheader.i, %.lr.ph131.i
   %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %.lr.ph131.i ], [ %328, %.preheader.i ]
-  %362 = getelementptr inbounds i16, ptr %11, i64 %indvars.iv141.i
+  %362 = getelementptr inbounds [2 x i8], ptr %11, i64 %indvars.iv141.i
   %363 = load i16, ptr %362, align 2
   call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %363)
   %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, 1
@@ -858,7 +857,7 @@ heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %315, 
 
 370:                                              ; preds = %.lr.ph198, %408
   %indvars.iv211 = phi i64 [ %183, %.lr.ph198 ], [ %indvars.iv.next212, %408 ]
-  %371 = getelementptr inbounds nuw i16, ptr %178, i64 %indvars.iv211
+  %371 = getelementptr inbounds nuw [2 x i8], ptr %178, i64 %indvars.iv211
   %372 = load i16, ptr %371, align 2
   %373 = zext i16 %372 to i64
   %374 = getelementptr inbounds nuw i8, ptr %179, i64 %373
@@ -874,7 +873,7 @@ heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %315, 
   br i1 %380, label %381, label %407
 
 381:                                              ; preds = %377
-  %382 = getelementptr %struct.ItemIdData, ptr %181, i64 %373
+  %382 = getelementptr [4 x i8], ptr %181, i64 %373
   %.val162 = load i32, ptr %382, align 4
   %383 = and i32 %.val162, 32767
   %384 = zext nneg i32 %383 to i64
@@ -900,7 +899,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   store i8 1, ptr %374, align 1
   %396 = load i32, ptr %40, align 8
   %397 = sext i32 %396 to i64
-  %398 = getelementptr inbounds i16, ptr %182, i64 %397
+  %398 = getelementptr inbounds [2 x i8], ptr %182, i64 %397
   store i16 %372, ptr %398, align 2
   %399 = load i32, ptr %40, align 8
   %400 = add i32 %399, 1
@@ -1082,7 +1081,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   %489 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %490 = xor i32 %1, -1
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds nuw ptr, ptr %489, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %489, i64 %491
   %493 = load ptr, ptr %492, align 8
   br label %BufferGetPage.exit.i
 
@@ -1119,7 +1118,7 @@ BufferGetPage.exit.i:                             ; preds = %494, %488
   %507 = getelementptr inbounds nuw i8, ptr %.041.i, i64 4
   %508 = load i16, ptr %505, align 2
   %509 = zext i16 %506 to i64
-  %510 = getelementptr %struct.ItemIdData, ptr %501, i64 %509
+  %510 = getelementptr [4 x i8], ptr %501, i64 %509
   %511 = and i16 %508, 32767
   %512 = zext nneg i16 %511 to i32
   %513 = or disjoint i32 %512, 65536
@@ -1142,7 +1141,7 @@ BufferGetPage.exit.i:                             ; preds = %494, %488
   %518 = getelementptr inbounds nuw i8, ptr %.143.i, i64 2
   %519 = load i16, ptr %.143.i, align 2
   %520 = zext i16 %519 to i64
-  %521 = getelementptr %struct.ItemIdData, ptr %503, i64 %520
+  %521 = getelementptr [4 x i8], ptr %503, i64 %520
   store i32 98304, ptr %521, align 4
   %522 = add nuw nsw i32 %.03842.i, 1
   %exitcond48.not.i = icmp eq i32 %522, %485
@@ -1154,7 +1153,7 @@ BufferGetPage.exit.i:                             ; preds = %494, %488
   %524 = getelementptr inbounds nuw i8, ptr %.246.i, i64 2
   %525 = load i16, ptr %.246.i, align 2
   %526 = zext i16 %525 to i64
-  %527 = getelementptr %struct.ItemIdData, ptr %516, i64 %526
+  %527 = getelementptr [4 x i8], ptr %516, i64 %526
   store i32 0, ptr %527, align 4
   %528 = add nuw nsw i32 %.03745.i, 1
   %exitcond49.not.i = icmp eq i32 %528, %487
@@ -1347,7 +1346,7 @@ define internal fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 7660
   store i8 1, ptr %8, align 4
   %9 = getelementptr i8, ptr %0, i64 20
-  %10 = getelementptr %struct.ItemIdData, ptr %9, i64 %6
+  %10 = getelementptr [4 x i8], ptr %9, i64 %6
   %.val = load i32, ptr %10, align 4
   %11 = and i32 %.val, 32767
   %12 = zext nneg i32 %11 to i64
@@ -1519,7 +1518,7 @@ heap_prune_record_prunable.exit:                  ; preds = %80, %78, %61, %59, 
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.HeapTupleFreeze, ptr %93, i64 %96
+  %97 = getelementptr inbounds [12 x i8], ptr %93, i64 %96
   %98 = call zeroext i1 @heap_prepare_freeze_tuple(ptr noundef nonnull %13, ptr noundef %91, ptr noundef nonnull %92, ptr noundef nonnull %97, ptr noundef nonnull %4) #7
   br i1 %98, label %99, label %105
 
@@ -1528,7 +1527,7 @@ heap_prune_record_prunable.exit:                  ; preds = %80, %78, %61, %59, 
   %101 = add i32 %100, 1
   store i32 %101, ptr %94, align 4
   %102 = sext i32 %100 to i64
-  %103 = getelementptr inbounds %struct.HeapTupleFreeze, ptr %93, i64 %102
+  %103 = getelementptr inbounds [12 x i8], ptr %93, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 10
   store i16 %2, ptr %104, align 2
   br label %105
@@ -1568,7 +1567,7 @@ define dso_local void @heap_page_prune_execute(i32 noundef %0, i1 noundef zeroex
   %11 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %12 = xor i32 %0, -1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %BufferGetPage.exit
 
@@ -1605,7 +1604,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   %29 = getelementptr inbounds nuw i8, ptr %.041, i64 4
   %30 = load i16, ptr %27, align 2
   %31 = zext i16 %28 to i64
-  %32 = getelementptr %struct.ItemIdData, ptr %23, i64 %31
+  %32 = getelementptr [4 x i8], ptr %23, i64 %31
   %33 = and i16 %30, 32767
   %34 = zext nneg i16 %33 to i32
   %35 = or disjoint i32 %34, 65536
@@ -1628,7 +1627,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   %40 = getelementptr inbounds nuw i8, ptr %.143, i64 2
   %41 = load i16, ptr %.143, align 2
   %42 = zext i16 %41 to i64
-  %43 = getelementptr %struct.ItemIdData, ptr %25, i64 %42
+  %43 = getelementptr [4 x i8], ptr %25, i64 %42
   store i32 98304, ptr %43, align 4
   %44 = add nuw nsw i32 %.03842, 1
   %exitcond48.not = icmp eq i32 %44, %5
@@ -1643,7 +1642,7 @@ BufferGetPage.exit:                               ; preds = %10, %16
   %46 = getelementptr inbounds nuw i8, ptr %.246, i64 2
   %47 = load i16, ptr %.246, align 2
   %48 = zext i16 %47 to i64
-  %49 = getelementptr %struct.ItemIdData, ptr %38, i64 %48
+  %49 = getelementptr [4 x i8], ptr %38, i64 %48
   store i32 0, ptr %49, align 4
   %50 = add nuw nsw i32 %.03745, 1
   %exitcond49.not = icmp eq i32 %50, %7
@@ -1702,7 +1701,7 @@ define dso_local void @log_heap_prune_and_freeze(ptr noundef %0, i32 noundef %1,
   %indvars.iv.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i, %80 ]
   %.027.i = phi ptr [ %16, %24 ], [ %.1.i, %80 ]
   %.02225.i = phi i32 [ 0, %24 ], [ %.123.i, %80 ]
-  %27 = getelementptr inbounds nuw %struct.HeapTupleFreeze, ptr %5, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %indvars.iv.i
   %28 = icmp eq i64 %indvars.iv.i, 0
   br i1 %28, label %29, label %42
 
@@ -1788,7 +1787,7 @@ heap_log_freeze_eq.exit.i:                        ; preds = %58, %52, %46, %42
   %.1.i = phi ptr [ %.027.i, %29 ], [ %.027.i, %64 ], [ %68, %heap_log_freeze_eq.exit.i ]
   %81 = getelementptr inbounds nuw i8, ptr %27, i64 10
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv.i
   store i16 %82, ptr %83, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %25
@@ -1944,7 +1943,7 @@ switch.lookup:                                    ; preds = %145
   %153 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %154 = xor i32 %1, -1
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %155
   %157 = load ptr, ptr %156, align 8
   br label %BufferGetPage.exit
 
@@ -1999,7 +1998,7 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
 10:                                               ; preds = %.lr.ph82, %HeapTupleHeaderIsHotUpdated.exit.thread
   %.05481 = phi i16 [ 1, %.lr.ph82 ], [ %86, %HeapTupleHeaderIsHotUpdated.exit.thread ]
   %11 = zext i16 %.05481 to i64
-  %12 = getelementptr %struct.ItemIdData, ptr %9, i64 %11
+  %12 = getelementptr [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %13, 15
   %15 = and i32 %14, 3
@@ -2020,7 +2019,7 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
   br i1 %21, label %HeapTupleHeaderIsHotUpdated.exit.thread, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr i16, ptr %1, i64 %11
+  %23 = getelementptr [2 x i8], ptr %1, i64 %11
   %24 = getelementptr i8, ptr %23, i64 -2
   store i16 %.05481, ptr %24, align 2
   %25 = load i16, ptr %20, align 2
@@ -2066,7 +2065,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %39, %37, %41
   %.052 = phi i16 [ %43, %41 ], [ %.val64, %37 ], [ %.val64, %39 ]
   %.0 = phi i32 [ 0, %41 ], [ %38, %37 ], [ %.val.i, %39 ]
   %44 = zext i16 %.052 to i64
-  %45 = getelementptr %struct.ItemIdData, ptr %9, i64 %44
+  %45 = getelementptr [4 x i8], ptr %9, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 98304
   %48 = icmp eq i32 %47, 32768
@@ -2099,7 +2098,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %54, %58
   br i1 %60, label %61, label %HeapTupleHeaderIsHotUpdated.exit.thread
 
 61:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %.lr.ph
-  %62 = getelementptr i16, ptr %1, i64 %50
+  %62 = getelementptr [2 x i8], ptr %1, i64 %50
   %63 = getelementptr i8, ptr %62, i64 -2
   store i16 %.05481, ptr %63, align 2
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 18
@@ -2137,7 +2136,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %54, %58
 HeapTupleHeaderGetUpdateXid.exit73:               ; preds = %77, %79
   %.0.i72 = phi i32 [ %.val.i71, %79 ], [ %78, %77 ]
   %81 = zext i16 %.val65 to i64
-  %82 = getelementptr %struct.ItemIdData, ptr %9, i64 %81
+  %82 = getelementptr [4 x i8], ptr %9, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 98304
   %85 = icmp eq i32 %84, 32768

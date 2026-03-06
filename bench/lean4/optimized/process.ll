@@ -1448,7 +1448,7 @@ _ZN4lean6bufferIPcLm16EE6expandEv.exit.i99.i:     ; preds = %230, %_ZSt18uniniti
   %.pre.i103141.i = phi ptr [ %223, %_ZN4lean6bufferIPcLm16EE6expandEv.exit.i99.i ], [ %.pre.i103.i, %.lr.ph133.i ]
   %233 = phi i64 [ %232, %_ZN4lean6bufferIPcLm16EE6expandEv.exit.i99.i ], [ %216, %.lr.ph133.i ]
   %234 = phi i64 [ %.pre2.i100.i, %_ZN4lean6bufferIPcLm16EE6expandEv.exit.i99.i ], [ %217, %.lr.ph133.i ]
-  %235 = getelementptr inbounds nuw ptr, ptr %.pre.i103141.i, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i103141.i, i64 %234
   store ptr %220, ptr %235, align 8, !tbaa !58
   %236 = add i64 %234, 1
   store i64 %236, ptr %195, align 8, !tbaa !56
@@ -1466,7 +1466,7 @@ _ZN4lean6bufferIPcLm16EE6expandEv.exit.i99.i:     ; preds = %230, %_ZSt18uniniti
 ._crit_edge.i91.i:                                ; preds = %_ZN4lean6bufferIPcLm16EE6expandEv.exit.i88.i, %._crit_edge134.i, %193
   %240 = phi i64 [ %.pre2.i89.i, %_ZN4lean6bufferIPcLm16EE6expandEv.exit.i88.i ], [ %236, %._crit_edge134.i ], [ 1, %193 ]
   %241 = phi ptr [ %206, %_ZN4lean6bufferIPcLm16EE6expandEv.exit.i88.i ], [ %.pre.i103141.i, %._crit_edge134.i ], [ %194, %193 ]
-  %242 = getelementptr inbounds nuw ptr, ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %240
   store ptr null, ptr %242, align 8, !tbaa !58
   %243 = add i64 %240, 1
   store i64 %243, ptr %195, align 8, !tbaa !56

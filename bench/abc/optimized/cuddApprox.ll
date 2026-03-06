@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/cuddApprox.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.NodeData = type { double, double, i32, i8, i8, i16, ptr, ptr }
-
 @.str = private unnamed_addr constant [27 x i8] c"Cannot subset, nil object\0A\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Out-of-memory; Cannot subset\0A\00", align 1
 @.str.2 = private unnamed_addr constant [39 x i8] c"Wrong prediction: %d versus actual %d\0A\00", align 1
@@ -90,7 +88,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8, !tbaa !35
   %47 = zext i32 %42 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !36
   br label %50
 
@@ -156,7 +154,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %61, align 8, !tbaa !35
   %83 = zext i32 %79 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !36
   br label %86
 
@@ -197,7 +195,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %61, align 8, !tbaa !35
   %107 = zext i32 %103 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !36
   br label %110
 
@@ -237,7 +235,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 132:                                              ; preds = %127
   %133 = load ptr, ptr %61, align 8, !tbaa !35
   %134 = zext i32 %130 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !36
   %137 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %32, ptr noundef nonnull %129, i32 noundef %136) #10
   %138 = fmul double %91, 5.000000e-01
@@ -265,7 +263,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 154:                                              ; preds = %146
   %155 = load ptr, ptr %61, align 8, !tbaa !35
   %156 = zext i32 %152 to i64
-  %157 = getelementptr inbounds nuw i32, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !36
   %159 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %32, ptr noundef nonnull %151, i32 noundef %158) #10
   %160 = load ptr, ptr %147, align 8, !tbaa !56
@@ -477,7 +475,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %49 = load ptr, ptr %48, align 8, !tbaa !35
   %50 = zext i32 %45 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !36
   br label %53
 
@@ -545,7 +543,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 83:                                               ; preds = %80
   %84 = load ptr, ptr %64, align 8, !tbaa !35
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !36
   br label %88
 
@@ -832,7 +830,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 265:                                              ; preds = %262
   %266 = load ptr, ptr %64, align 8, !tbaa !35
   %267 = zext i32 %263 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !36
   br label %270
 
@@ -899,7 +897,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .thread317.i:                                     ; preds = %.thread310.thread.i.thread
   %300 = load ptr, ptr %64, align 8, !tbaa !35
   %301 = zext i32 %298 to i64
-  %302 = getelementptr inbounds nuw i32, ptr %300, i64 %301
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %300, i64 %301
   %303 = load i32, ptr %302, align 4, !tbaa !36
   %304 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %297, i32 noundef %303) #10
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
@@ -915,7 +913,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .thread313.i:                                     ; preds = %.thread310.thread.i
   %311 = load ptr, ptr %64, align 8, !tbaa !35
   %312 = zext i32 %295 to i64
-  %313 = getelementptr inbounds nuw i32, ptr %311, i64 %312
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %312
   %314 = load i32, ptr %313, align 4, !tbaa !36
   %315 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %294, i32 noundef %314) #10
   %316 = fmul double %97, 5.000000e-01
@@ -942,7 +940,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 330:                                              ; preds = %.thread310.i
   %331 = load ptr, ptr %64, align 8, !tbaa !35
   %332 = zext i32 %328 to i64
-  %333 = getelementptr inbounds nuw i32, ptr %331, i64 %332
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %332
   %334 = load i32, ptr %333, align 4, !tbaa !36
   %335 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %327, i32 noundef %334) #10
   %336 = load ptr, ptr %94, align 8, !tbaa !56
@@ -1008,7 +1006,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 373:                                              ; preds = %288
   %374 = load ptr, ptr %64, align 8, !tbaa !35
   %375 = zext i32 %292 to i64
-  %376 = getelementptr inbounds nuw i32, ptr %374, i64 %375
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %374, i64 %375
   %377 = load i32, ptr %376, align 4, !tbaa !36
   %378 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %291, i32 noundef %377) #10
   %379 = and i64 %289, 1
@@ -1249,7 +1247,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %66 = load ptr, ptr %65, align 8, !tbaa !35
   %67 = zext i32 %62 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !36
   br label %70
 
@@ -1321,7 +1319,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 103:                                              ; preds = %100
   %104 = load ptr, ptr %81, align 8, !tbaa !35
   %105 = zext i32 %101 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !36
   br label %108
 
@@ -1608,7 +1606,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 285:                                              ; preds = %282
   %286 = load ptr, ptr %81, align 8, !tbaa !35
   %287 = zext i32 %283 to i64
-  %288 = getelementptr inbounds nuw i32, ptr %286, i64 %287
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %287
   %289 = load i32, ptr %288, align 4, !tbaa !36
   br label %290
 
@@ -1675,7 +1673,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .thread330.i:                                     ; preds = %.thread323.thread.i.thread
   %320 = load ptr, ptr %81, align 8, !tbaa !35
   %321 = zext i32 %318 to i64
-  %322 = getelementptr inbounds nuw i32, ptr %320, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %321
   %323 = load i32, ptr %322, align 4, !tbaa !36
   %324 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %317, i32 noundef %323) #10
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 24
@@ -1691,7 +1689,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .thread326.i:                                     ; preds = %.thread323.thread.i
   %331 = load ptr, ptr %81, align 8, !tbaa !35
   %332 = zext i32 %315 to i64
-  %333 = getelementptr inbounds nuw i32, ptr %331, i64 %332
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %332
   %334 = load i32, ptr %333, align 4, !tbaa !36
   %335 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %314, i32 noundef %334) #10
   %336 = fmul double %117, 5.000000e-01
@@ -1718,7 +1716,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 350:                                              ; preds = %.thread323.i
   %351 = load ptr, ptr %81, align 8, !tbaa !35
   %352 = zext i32 %348 to i64
-  %353 = getelementptr inbounds nuw i32, ptr %351, i64 %352
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 %352
   %354 = load i32, ptr %353, align 4, !tbaa !36
   %355 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %347, i32 noundef %354) #10
   %356 = load ptr, ptr %114, align 8, !tbaa !56
@@ -1784,7 +1782,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 393:                                              ; preds = %308
   %394 = load ptr, ptr %81, align 8, !tbaa !35
   %395 = zext i32 %312 to i64
-  %396 = getelementptr inbounds nuw i32, ptr %394, i64 %395
+  %396 = getelementptr inbounds nuw [4 x i8], ptr %394, i64 %395
   %397 = load i32, ptr %396, align 4, !tbaa !36
   %398 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %311, i32 noundef %397) #10
   %399 = and i64 %309, 1
@@ -2600,7 +2598,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %57 = load ptr, ptr %56, align 8, !tbaa !35
   %58 = load i32, ptr %1, align 8, !tbaa !27
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !36
   %62 = load i32, ptr %.pre-phi90, align 8, !tbaa !27
   %63 = icmp eq i32 %62, 2147483647
@@ -2608,7 +2606,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 64:                                               ; preds = %55
   %65 = zext i32 %62 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %57, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !36
   br label %68
 
@@ -2784,7 +2782,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %45, align 8, !tbaa !72
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds %struct.NodeData, ptr %44, i64 %48
+  %49 = getelementptr inbounds [40 x i8], ptr %44, i64 %48
   store ptr %49, ptr %4, align 8, !tbaa !47
   %50 = trunc i64 %5 to i16
   %51 = and i16 %50, 1
@@ -2916,7 +2914,7 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = zext i32 %13 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !36
   br label %21
 
@@ -2959,7 +2957,7 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
 42:                                               ; preds = %36
   %43 = load ptr, ptr %34, align 8, !tbaa !35
   %44 = zext i32 %40 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !36
   br label %47
 
@@ -2996,7 +2994,7 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
 65:                                               ; preds = %59
   %66 = load ptr, ptr %34, align 8, !tbaa !35
   %67 = zext i32 %63 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !36
   %70 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %69) #10
   %71 = icmp eq ptr %70, null
@@ -3022,7 +3020,7 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
 84:                                               ; preds = %76
   %85 = load ptr, ptr %34, align 8, !tbaa !35
   %86 = zext i32 %82 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !36
   %89 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %81, i32 noundef %88) #10
   %90 = icmp eq ptr %89, null
@@ -3061,7 +3059,7 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = zext i32 %10 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !36
   br label %18
 
@@ -3113,7 +3111,7 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %39, align 8, !tbaa !35
   %48 = zext i32 %44 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !36
   br label %51
 
@@ -3141,7 +3139,7 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %39, align 8, !tbaa !35
   %65 = zext i32 %61 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !36
   %68 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %60, i32 noundef %67) #10
   %69 = icmp eq ptr %68, null
@@ -3171,7 +3169,7 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
 86:                                               ; preds = %78
   %87 = load ptr, ptr %39, align 8, !tbaa !35
   %88 = zext i32 %84 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !36
   %91 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %83, i32 noundef %90) #10
   %92 = icmp eq ptr %91, null

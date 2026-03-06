@@ -48,8 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.27" = type { %"class.std::shared_ptr.28" }
 %"class.std::shared_ptr.28" = type { %"class.std::__shared_ptr.29" }
 %"class.std::__shared_ptr.29" = type { ptr, %"class.std::__shared_count" }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [2 x float] }
 %"class.testing::internal::ParamGenerator.34" = type { %"class.testing::internal::linked_ptr.35" }
 %"class.testing::internal::linked_ptr.35" = type { ptr, %"class.testing::internal::linked_ptr_internal" }
 %"class.testing::internal::ParamGenerator.36" = type { %"class.testing::internal::linked_ptr.37" }
@@ -806,7 +804,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %154, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %149, ptr %0, align 8, !tbaa !33
   store ptr %153, ptr %11, align 8, !tbaa !30
-  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %147
   store ptr %155, ptr %132, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1887,7 +1885,7 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv5Size_IiEEE
 
 _ZN2cvpLIffLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.us.i.critedge: ; preds = %_ZN2cvpLIffLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.us.i.critedge, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %_ZN2cvpLIffLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.us.i.critedge ]
-  %158 = getelementptr inbounds nuw %"class.cv::Vec", ptr %157, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv.i
   %indvars.iv.i.sroa.phi.sroa.speculated.in.us.i = trunc i64 %indvars.iv.i to i32
   %indvars.iv.i.sroa.phi.sroa.speculated.us.i = uitofp nneg i32 %indvars.iv.i.sroa.phi.sroa.speculated.in.us.i to float
   %159 = load float, ptr %158, align 4, !tbaa !104
@@ -8587,7 +8585,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_125DenseOpticalFlow_DIS_perfEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %139, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_125DenseOpticalFlow_DIS_perfEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %101, ptr %74, align 8, !tbaa !243
   store ptr %138, ptr %76, align 8, !tbaa !246
-  %148 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.13", ptr %101, i64 %99
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %99
   store ptr %148, ptr %78, align 8, !tbaa !306
   br label %154
 
@@ -8901,7 +8899,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_125DenseOpticalFlow_DIS_perfEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %253, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_125DenseOpticalFlow_DIS_perfEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %230, ptr %193, align 8, !tbaa !238
   store ptr %252, ptr %200, align 8, !tbaa !241
-  %254 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::DenseOpticalFlow_DIS_perf>::InstantiationInfo", ptr %230, i64 %226
+  %254 = getelementptr inbounds nuw [64 x i8], ptr %230, i64 %226
   store ptr %254, ptr %202, align 8, !tbaa !308
   %.pre1.i.i = load ptr, ptr %1, align 8, !tbaa !17
   %255 = icmp eq ptr %.pre1.i.i, %194

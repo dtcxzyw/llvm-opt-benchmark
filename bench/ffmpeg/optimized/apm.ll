@@ -435,7 +435,7 @@ define internal fastcc void @apm_parse_extradata(ptr noundef nonnull writeonly c
   %44 = shl nuw nsw i64 %indvars.iv, 2
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 %44
   %46 = load i32, ptr %45, align 1, !tbaa !11
-  %47 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store i32 %46, ptr %47, align 4, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7

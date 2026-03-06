@@ -12,14 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.107 }
 %union.anon.107 = type { i64 }
 %struct.intel_uc_fw_ver = type { i32, i32, i32, i32 }
-%struct.page = type { i64, %union.anon.78, %union.anon.86, %struct.atomic_t, [8 x i8] }
-%union.anon.78 = type { %struct.anon.79 }
-%struct.anon.79 = type { %union.anon.80, ptr, %union.anon.82, i64 }
-%union.anon.80 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.82 = type { i64 }
-%union.anon.86 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @__UNIQUE_ID_firmware565 = internal constant [34 x i8] c"i915.firmware=i915/mtl_guc_70.bin\00", section ".modinfo", align 1
 @__UNIQUE_ID_firmware566 = internal constant [34 x i8] c"i915.firmware=i915/dg2_guc_70.bin\00", section ".modinfo", align 1
@@ -238,7 +230,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
 
 30:                                               ; preds = %21
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr %struct.fw_blobs_by_type, ptr @blobs_all, i64 %31
+  %32 = getelementptr [16 x i8], ptr @blobs_all, i64 %31
   %33 = load ptr, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8
@@ -262,7 +254,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
   br i1 %44, label %46, label %.loopexit
 
 46:                                               ; preds = %41
-  %47 = getelementptr %struct.uc_fw_platform_requirement, ptr %33, i64 %45
+  %47 = getelementptr [18 x i8], ptr %33, i64 %45
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 5
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 13
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 14
@@ -274,7 +266,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
   %53 = phi i32 [ %94, %93 ], [ %43, %46 ]
   %54 = load i32, ptr %47, align 1
   %55 = sext i32 %53 to i64
-  %56 = getelementptr %struct.uc_fw_platform_requirement, ptr %33, i64 %55
+  %56 = getelementptr [18 x i8], ptr %33, i64 %55
   %57 = load i32, ptr %56, align 1
   %58 = icmp eq i32 %54, %57
   br i1 %58, label %59, label %93
@@ -327,7 +319,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
   %96 = phi i32 [ %138, %137 ], [ %43, %46 ]
   %97 = load i32, ptr %47, align 1
   %98 = sext i32 %96 to i64
-  %99 = getelementptr %struct.uc_fw_platform_requirement, ptr %33, i64 %98
+  %99 = getelementptr [18 x i8], ptr %33, i64 %98
   %100 = load i32, ptr %99, align 1
   %101 = icmp eq i32 %97, %100
   br i1 %101, label %102, label %137
@@ -378,11 +370,11 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
   br i1 %139, label %.loopexit, label %.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %137, %93, %41
-  %140 = getelementptr %struct.uc_fw_platform_requirement, ptr %33, i64 %45
+  %140 = getelementptr [18 x i8], ptr %33, i64 %45
   %141 = load i32, ptr %140, align 1
   %142 = add i32 %42, -1
   %143 = sext i32 %142 to i64
-  %144 = getelementptr %struct.uc_fw_platform_requirement, ptr %33, i64 %143
+  %144 = getelementptr [18 x i8], ptr %33, i64 %143
   %145 = load i32, ptr %144, align 1
   %146 = icmp ult i32 %141, %145
   br i1 %146, label %235, label %147
@@ -521,7 +513,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
   %.pre = load ptr, ptr %15, align 8
   %.pre40 = load i32, ptr %0, align 8
   %.phi.trans.insert = zext i32 %.pre40 to i64
-  %.phi.trans.insert41 = getelementptr %struct.fw_blobs_by_type, ptr @blobs_all, i64 %.phi.trans.insert
+  %.phi.trans.insert41 = getelementptr [16 x i8], ptr @blobs_all, i64 %.phi.trans.insert
   %.pre42 = load ptr, ptr %.phi.trans.insert41, align 16
   %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert41, i64 8
   %.pre44 = load i32, ptr %.phi.trans.insert43, align 8
@@ -555,7 +547,7 @@ define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32
 261:                                              ; preds = %293, %.loopexit18
   %262 = phi i32 [ 0, %.loopexit18 ], [ %294, %293 ]
   %263 = sext i32 %262 to i64
-  %264 = getelementptr %struct.uc_fw_platform_requirement, ptr %240, i64 %263
+  %264 = getelementptr [18 x i8], ptr %240, i64 %263
   %265 = load i32, ptr %264, align 1
   %266 = icmp ugt i32 %254, %265
   br i1 %266, label %296, label %267
@@ -965,7 +957,7 @@ define dso_local noundef i32 @intel_uc_fw_fetch(ptr noundef %0) local_unnamed_ad
   %46 = select i1 %45, i32 34, i32 %37
   %47 = load i32, ptr %0, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.fw_blobs_by_type, ptr @blobs_all, i64 %48
+  %49 = getelementptr [16 x i8], ptr @blobs_all, i64 %48
   %50 = load ptr, ptr %49, align 16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i32, ptr %51, align 8
@@ -974,7 +966,7 @@ define dso_local noundef i32 @intel_uc_fw_fetch(ptr noundef %0) local_unnamed_ad
 53:                                               ; preds = %73, %35
   %54 = phi i32 [ 0, %35 ], [ %74, %73 ]
   %55 = sext i32 %54 to i64
-  %56 = getelementptr %struct.uc_fw_platform_requirement, ptr %50, i64 %55
+  %56 = getelementptr [18 x i8], ptr %50, i64 %55
   %57 = load i32, ptr %56, align 1
   %58 = icmp ugt i32 %46, %57
   br i1 %58, label %.thread22, label %59
@@ -2343,7 +2335,7 @@ define dso_local i64 @intel_uc_fw_copy_rsa(ptr noundef readonly captures(none) %
   %34 = lshr i32 %28, 12
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %31
-  %37 = getelementptr %struct.page, ptr %36, i64 %35
+  %37 = getelementptr [64 x i8], ptr %36, i64 %35
   %38 = icmp eq ptr %37, null
   %39 = select i1 %32, i1 true, i1 %38
   br i1 %39, label %.thread20, label %.preheader.preheader
@@ -2449,8 +2441,8 @@ define dso_local i64 @intel_uc_fw_copy_rsa(ptr noundef readonly captures(none) %
   %113 = inttoptr i64 %112 to ptr
   %114 = lshr i32 %107, 12
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr %struct.page, ptr %113, i64 %109
-  %117 = getelementptr %struct.page, ptr %116, i64 %115
+  %116 = getelementptr [64 x i8], ptr %113, i64 %109
+  %117 = getelementptr [64 x i8], ptr %116, i64 %115
   %118 = icmp eq ptr %117, null
   %119 = select i1 %111, i1 true, i1 %118
   br i1 %119, label %.thread20, label %.preheader, !llvm.loop !33

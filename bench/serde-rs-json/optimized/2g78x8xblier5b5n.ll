@@ -764,7 +764,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN57_$LT$usize$u20$as$
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i8, [31 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [32 x i8], ptr %12, i64 %8
   br label %14
 
 14:                                               ; preds = %5, %2, %10
@@ -788,7 +788,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN57_$LT$usize$u20$as$
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { i8, [31 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [32 x i8], ptr %12, i64 %8
   br label %14
 
 14:                                               ; preds = %5, %2, %10
@@ -868,7 +868,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN57_$LT$usize$u20$as$
 32:                                               ; preds = %12
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8, !nonnull !4
-  %35 = getelementptr inbounds { i8, [31 x i8] }, ptr %34, i64 %15
+  %35 = getelementptr inbounds [32 x i8], ptr %34, i64 %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %35
 }
@@ -903,7 +903,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN55_$LT$str$u20$as$u2
   %.sroa.28.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !210
   %17 = icmp ult i64 %.sroa.28.0.copyload.i, 11
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.28.0.copyload.i
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.28.0.copyload.i
   br label %19
 
 19:                                               ; preds = %15, %11
@@ -941,7 +941,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN55_$LT$str$u20$as$u2
   %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8, !noalias !217, !nonnull !4
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !217
-  %16 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.27.0.copyload.i
+  %16 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.27.0.copyload.i
   %.1.i = select i1 %trunc.i, ptr null, ptr %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !217
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hc871f1687b8ff7adE.exit"
@@ -1037,7 +1037,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN55_$LT$str$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 8
-  %26 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.6.8.copyload, i64 %.sroa.826.8.copyload
+  %26 = getelementptr inbounds [32 x i8], ptr %.sroa.6.8.copyload, i64 %.sroa.826.8.copyload
   call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h2104f8452adb367aE.llvm.12841644863924027351"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11), !noalias !244
   br label %_ZN10serde_json3map5Entry9or_insert17hc50b8275d310848dE.exit
 

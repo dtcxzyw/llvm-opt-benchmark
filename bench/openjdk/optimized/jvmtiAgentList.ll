@@ -125,7 +125,7 @@ define hidden noundef ptr @_ZNK14JvmtiAgentList8Iterator4nextEv(ptr noundef nonn
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr %2, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
@@ -139,7 +139,7 @@ define hidden noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr noundef nonnu
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr %2, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   ret ptr %9
 }
@@ -252,7 +252,7 @@ define hidden void @_ZN14JvmtiAgentList10initializeEv() local_unnamed_addr #0 al
   %8 = add nsw i32 %6, -1
   store i32 %8, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 @_ZNK10JvmtiAgent14is_initializedEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
   br i1 %12, label %14, label %13
@@ -316,7 +316,7 @@ define hidden void @_ZN14JvmtiAgentList19convert_xrun_agentsEv() local_unnamed_a
   %8 = add nsw i32 %6, -1
   store i32 %8, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
   %12 = load i32, ptr %2, align 8
@@ -373,7 +373,7 @@ define hidden void @_ZN14JvmtiAgentList11load_agentsEv() local_unnamed_addr #0 a
   %9 = add nsw i32 %7, -1
   store i32 %9, ptr %3, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %12) #10
   %13 = load i32, ptr %3, align 8
@@ -422,7 +422,7 @@ _ZN14JvmtiAgentList19convert_xrun_agentsEv.exit:  ; preds = %._crit_edge.i, %19
   %25 = add nsw i32 %23, -1
   store i32 %25, ptr %20, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr noundef nonnull align 8 dereferenceable(86) %28, ptr noundef null) #10
   %30 = load i32, ptr %20, align 8
@@ -476,7 +476,7 @@ define hidden void @_ZN14JvmtiAgentList16load_xrun_agentsEv() local_unnamed_addr
   %7 = add nsw i32 %5, -1
   store i32 %7, ptr %2, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr noundef nonnull align 8 dereferenceable(86) %10, ptr noundef null) #10
   %12 = load i32, ptr %2, align 8
@@ -554,7 +554,7 @@ define hidden void @_ZN14JvmtiAgentList13unload_agentsEv() local_unnamed_addr #0
   %8 = add nsw i32 %6, -1
   store i32 %8, ptr %2, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN10JvmtiAgent6unloadEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
   %12 = load i32, ptr %2, align 8
@@ -609,7 +609,7 @@ define hidden noundef zeroext i1 @_ZN14JvmtiAgentList20is_static_lib_loadedEPKc(
   %9 = add nsw i32 %7, -1
   store i32 %9, ptr %3, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 @_ZNK10JvmtiAgent13is_static_libEv(ptr noundef nonnull align 8 dereferenceable(86) %12) #10
   br i1 %13, label %14, label %18
@@ -679,7 +679,7 @@ define hidden noundef zeroext i1 @_ZN14JvmtiAgentList21is_dynamic_lib_loadedEPv(
   %9 = add nsw i32 %7, -1
   store i32 %9, ptr %3, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 @_ZNK10JvmtiAgent13is_static_libEv(ptr noundef nonnull align 8 dereferenceable(86) %12) #10
   br i1 %13, label %17, label %14
@@ -752,7 +752,7 @@ define hidden noundef ptr @_ZN14JvmtiAgentList6lookupEP8JvmtiEnvPv(ptr noundef %
   %17 = add nsw i32 %15, -1
   store i32 %17, ptr %11, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 @_ZNK10JvmtiAgent13is_static_libEv(ptr noundef nonnull align 8 dereferenceable(86) %20) #10
   br i1 %21, label %22, label %26
@@ -889,9 +889,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP10Jvmti
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -908,7 +908,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP10Jvmti
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -932,7 +932,7 @@ _ZN26GrowableArrayWithAllocatorIP10JvmtiAgent18GrowableArrayCHeapIS1_L8MEMFLAGS2
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }

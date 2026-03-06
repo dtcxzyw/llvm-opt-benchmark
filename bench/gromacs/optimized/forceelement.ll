@@ -32,12 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.410" = type { %"struct.std::_Tuple_impl.411" }
 %"struct.std::_Tuple_impl.411" = type { %"struct.std::_Head_base.414" }
 %"struct.std::_Head_base.414" = type { ptr }
-%"class.std::unique_ptr.562" = type { %"struct.std::__uniq_ptr_data.563" }
-%"struct.std::__uniq_ptr_data.563" = type { %"class.std::__uniq_ptr_impl.564" }
-%"class.std::__uniq_ptr_impl.564" = type { %"class.std::tuple.565" }
-%"class.std::tuple.565" = type { %"struct.std::_Tuple_impl.566" }
-%"struct.std::_Tuple_impl.566" = type { %"struct.std::_Head_base.569" }
-%"struct.std::_Head_base.569" = type { ptr }
 %"class.gmx::ElementNotFoundError" = type { %"class.gmx::ModularSimulatorError" }
 %"class.gmx::ModularSimulatorError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
@@ -379,10 +373,10 @@ define void @_ZN3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerE
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %2 to i64
-  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 %6
+  %switch.gep12 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 %6
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -477,10 +471,10 @@ define void @_ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySign
 switch.lookup:                                    ; preds = %3
   %5 = getelementptr inbounds i8, ptr %1, i64 -24
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZThn24_N3gmx12ForceElement22registerEnergyCallbackENS_20EnergySignallerEventE.68, i64 %7
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1640,7 +1634,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %32, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %26, ptr %13, align 8, !tbaa !330
   store ptr %31, ptr %6, align 8, !tbaa !323
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.562", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %8, align 8, !tbaa !326
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_12ForceElementES3_IS9_EEEEERS5_DpOT_.exit.i
 
@@ -1791,7 +1785,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_12ForceElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !344
   store ptr %43, ptr %20, align 8, !tbaa !340
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !343
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_12ForceElementEEEERS2_DpOT_.exit
 
@@ -2248,7 +2242,7 @@ _ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !382
   store ptr %41, ptr %18, align 8, !tbaa !378
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !379
   br label %_ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -2372,7 +2366,7 @@ _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !394
   store ptr %41, ptr %18, align 8, !tbaa !390
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !391
   br label %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 

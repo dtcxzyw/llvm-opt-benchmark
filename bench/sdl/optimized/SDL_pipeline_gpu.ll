@@ -107,7 +107,7 @@ define hidden ptr @GPU_GetPipeline(ptr noundef readonly captures(none) %0, ptr n
 
 switch.lookup:                                    ; preds = %14
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GPU_GetPipeline.3, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GPU_ConvertBlendFactor.exit.i
 
@@ -122,7 +122,7 @@ GPU_ConvertBlendFactor.exit.i:                    ; preds = %14, %switch.lookup
 
 switch.lookup23:                                  ; preds = %GPU_ConvertBlendFactor.exit.i
   %32 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep24 = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %32
+  %switch.gep24 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GPU_GetPipeline.3, i64 %32
   %switch.load25 = load i32, ptr %switch.gep24, align 4
   br label %GPU_ConvertBlendFactor.exit38.i
 
@@ -143,7 +143,7 @@ GPU_ConvertBlendFactor.exit38.i:                  ; preds = %GPU_ConvertBlendFac
 
 switch.lookup27:                                  ; preds = %GPU_ConvertBlendFactor.exit38.i
   %39 = zext nneg i32 %switch.tableidx26 to i64
-  %switch.gep28 = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %39
+  %switch.gep28 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GPU_GetPipeline.3, i64 %39
   %switch.load29 = load i32, ptr %switch.gep28, align 4
   br label %GPU_ConvertBlendFactor.exit42.i
 
@@ -158,7 +158,7 @@ GPU_ConvertBlendFactor.exit42.i:                  ; preds = %GPU_ConvertBlendFac
 
 switch.lookup31:                                  ; preds = %GPU_ConvertBlendFactor.exit42.i
   %43 = zext nneg i32 %switch.tableidx30 to i64
-  %switch.gep32 = getelementptr inbounds nuw i32, ptr @switch.table.GPU_GetPipeline.3, i64 %43
+  %switch.gep32 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GPU_GetPipeline.3, i64 %43
   %switch.load33 = load i32, ptr %switch.gep32, align 4
   br label %GPU_ConvertBlendFactor.exit44.i
 

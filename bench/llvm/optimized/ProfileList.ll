@@ -300,10 +300,10 @@ switch.lookup:
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = zext nneg i32 %1 to i64
-  %switch.gep52 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 %9
+  %switch.gep52 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 %9
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   store ptr @.str.1, ptr %2, align 8, !tbaa !153
@@ -355,7 +355,7 @@ switch.lookup:
 _ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i: ; preds = %.preheader.i.i.i.i, %21
   %.sroa.0.1.i.i = phi ptr [ %23, %21 ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
   %29 = zext i32 %25 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %29
   %.not1418.not.i = icmp eq ptr %.sroa.0.1.i.i, %30
   br i1 %.not1418.not.i, label %.loopexit, label %.lr.ph.preheader.i
 
@@ -424,7 +424,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7Sec
 _ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit.i13: ; preds = %.preheader.i.i.i.i9, %.loopexit
   %.sroa.0.1.i.i14 = phi ptr [ %43, %.loopexit ], [ %.sroa.0.0.i.i10, %.preheader.i.i.i.i9 ]
   %47 = zext i32 %42 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %47
   %.not1418.not.i15 = icmp eq ptr %.sroa.0.1.i.i14, %48
   br i1 %.not1418.not.i15, label %_ZNK5clang22ProfileSpecialCaseList9hasPrefixEN4llvm9StringRefE.exit, label %.lr.ph.preheader.i16
 
@@ -527,10 +527,10 @@ switch.lookup:
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 %10
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 %10
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   store ptr %1, ptr %4, align 8, !tbaa !161
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -596,10 +596,10 @@ switch.lookup:
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 %10
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 %10
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   store ptr %1, ptr %4, align 8, !tbaa !161
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8

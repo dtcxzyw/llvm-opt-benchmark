@@ -10780,7 +10780,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN2cv4impl24TrackbarCallbackWithDataEESaIS4_EE
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !187
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !130
-  %49 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !132
   ret void
 }

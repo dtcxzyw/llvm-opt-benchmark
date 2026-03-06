@@ -5406,7 +5406,7 @@ common.ret.sink.split.i.i:                        ; preds = %"_ZN4core3ptr50drop
 829:                                              ; preds = %820, %814
   %830 = getelementptr inbounds nuw i8, ptr %1, i64 2448
   %831 = load ptr, ptr %830, align 8, !alias.scope !1494, !noalias !1497, !nonnull !5, !noundef !5
-  %832 = getelementptr inbounds { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [512 x i8] }, i64, i64, i64, i8, i8, i8, [5 x i8] }, {} }, ptr %831, i64 %817
+  %832 = getelementptr inbounds [664 x i8], ptr %831, i64 %817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %832, ptr noundef nonnull align 8 dereferenceable(664) %52, i64 664, i1 false)
   %833 = add i64 %817, 1
   store i64 %833, ptr %816, align 8, !alias.scope !1494, !noalias !1497
@@ -5452,7 +5452,7 @@ common.ret.sink.split.i.i:                        ; preds = %"_ZN4core3ptr50drop
   %.sroa.5239.0.copyload.i = load ptr, ptr %.sroa.5239.0..sroa_idx.i, align 8, !noalias !1366, !nonnull !5, !noundef !5
   %.sroa.6240.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 2456
   %.sroa.6240.0.copyload.i = load i64, ptr %.sroa.6240.0..sroa_idx.i, align 8, !noalias !1366
-  %848 = getelementptr inbounds { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [512 x i8] }, i64, i64, i64, i8, i8, i8, [5 x i8] }, {} }, ptr %.sroa.5239.0.copyload.i, i64 %.sroa.6240.0.copyload.i
+  %848 = getelementptr inbounds [664 x i8], ptr %.sroa.5239.0.copyload.i, i64 %.sroa.6240.0.copyload.i
   %849 = getelementptr inbounds nuw i8, ptr %1, i64 5064
   store ptr %.sroa.5239.0.copyload.i, ptr %849, align 8, !noalias !1366
   %.sroa.8235.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 5072
@@ -7160,7 +7160,7 @@ _ZN3std4path4Path12canonicalize17hdb0295b9d3983fefE.exit.i: ; preds = %979
 
 .lr.ph.i.i.i.i:                                   ; preds = %1382, %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17h037fbc68b40bc68bE.llvm.148755494358810581.exit.i.i.i.i"
   %.sroa.0.07.i.i.i.i = phi i64 [ %1385, %"_ZN4core3ptr56drop_in_place$LT$async_zip..spec..header..ExtraField$GT$17h037fbc68b40bc68bE.llvm.148755494358810581.exit.i.i.i.i" ], [ 0, %1382 ]
-  %1384 = getelementptr inbounds { i64, [7 x i64] }, ptr %.val.cast.i.i.i, i64 %.sroa.0.07.i.i.i.i
+  %1384 = getelementptr inbounds [64 x i8], ptr %.val.cast.i.i.i, i64 %.sroa.0.07.i.i.i.i
   %1385 = add nuw i64 %.sroa.0.07.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1726), !noalias !1659
   %1386 = load i64, ptr %1384, align 8, !range !1305, !alias.scope !1729, !noalias !1730, !noundef !5
@@ -11130,7 +11130,7 @@ define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$gpui..executor..Ta
 
 .lr.ph.i.i.i.i:                                   ; preds = %5, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %12, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i" ], [ 0, %5 ]
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %7, i64 %.sroa.0.09.i.i.i.i
+  %11 = getelementptr inbounds [56 x i8], ptr %7, i64 %.sroa.0.09.i.i.i.i
   %12 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2931)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2934)
@@ -12354,7 +12354,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %36, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i = phi i64 [ %43, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i" ], [ 0, %36 ]
-  %42 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %38, i64 %.sroa.0.09.i.i.i.i.i
+  %42 = getelementptr inbounds [56 x i8], ptr %38, i64 %.sroa.0.09.i.i.i.i.i
   %43 = add nuw i64 %.sroa.0.09.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3518)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3521)
@@ -13078,7 +13078,7 @@ define internal fastcc void @"_ZN4core3ptr135drop_in_place$LT$gpui..executor..Ta
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %7, %"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE.exit.i.i.i.i.i"
   %.sroa.0.07.i.i.i.i.i = phi i64 [ %14, %"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE.exit.i.i.i.i.i" ], [ 0, %7 ]
-  %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %9, i64 %.sroa.0.07.i.i.i.i.i
+  %13 = getelementptr inbounds [112 x i8], ptr %9, i64 %.sroa.0.07.i.i.i.i.i
   %14 = add nuw i64 %.sroa.0.07.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3787)
@@ -25508,7 +25508,7 @@ default.unreachable52:                            ; preds = %139, %46, %3
 205:                                              ; preds = %202, %192
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %207 = load ptr, ptr %206, align 8, !alias.scope !7287, !noalias !7290, !nonnull !5, !noundef !5
-  %208 = getelementptr inbounds { ptr, i64 }, ptr %207, i64 %199
+  %208 = getelementptr inbounds [16 x i8], ptr %207, i64 %199
   store ptr %195, ptr %208, align 8, !noalias !7292
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i64 %197, ptr %209, align 8, !noalias !7160
@@ -25559,7 +25559,7 @@ default.unreachable52:                            ; preds = %139, %46, %3
   %.sroa.590.0.copyload.i.i = load ptr, ptr %.sroa.590.0..sroa_idx.i.i, align 8, !noalias !7271, !nonnull !5, !noundef !5
   %.sroa.691.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.sroa.691.0.copyload.i.i = load i64, ptr %.sroa.691.0..sroa_idx.i.i, align 8, !noalias !7271
-  %231 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.590.0.copyload.i.i, i64 %.sroa.691.0.copyload.i.i
+  %231 = getelementptr inbounds [16 x i8], ptr %.sroa.590.0.copyload.i.i, i64 %.sroa.691.0.copyload.i.i
   store ptr %.sroa.590.0.copyload.i.i, ptr %166, align 8, !noalias !7271
   %.sroa.1087.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %.sroa.590.0.copyload.i.i, ptr %.sroa.1087.0..sroa_idx.i.i, align 8, !noalias !7271
@@ -30478,9 +30478,9 @@ _ZN8blocking8Executor5spawn17h32c55cb922da62abE.exit.i.i.i: ; preds = %.noexc.i.
   store i64 %971, ptr %964, align 8, !alias.scope !8444, !noalias !8447
   %973 = getelementptr inbounds nuw i8, ptr %963, i64 32
   %974 = load ptr, ptr %973, align 8, !alias.scope !8444, !noalias !8447, !nonnull !5, !noundef !5
-  %975 = getelementptr inbounds { i64, [2 x i64] }, ptr %974, i64 %971
+  %975 = getelementptr inbounds [24 x i8], ptr %974, i64 %971
   %976 = sub i64 %965, %972
-  %977 = getelementptr inbounds { i64, [2 x i64] }, ptr %974, i64 %972
+  %977 = getelementptr inbounds [24 x i8], ptr %974, i64 %972
   %978 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %975, ptr %978, align 8, !noalias !8305
   %.sroa.12180.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -35567,7 +35567,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN4core3
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %150, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i = phi i64 [ %156, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i.i.i" ], [ 0, %150 ]
-  %155 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %151, i64 %.sroa.0.09.i.i.i.i.i
+  %155 = getelementptr inbounds [56 x i8], ptr %151, i64 %.sroa.0.09.i.i.i.i.i
   %156 = add nuw i64 %.sroa.0.09.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !9211)
   call void @llvm.experimental.noalias.scope.decl(metadata !9214)
@@ -45786,7 +45786,7 @@ common.ret:                                       ; preds = %1576, %"_ZN4core3pt
 1087:                                             ; preds = %1078, %1072
   %1088 = getelementptr inbounds nuw i8, ptr %1, i64 2280
   %1089 = load ptr, ptr %1088, align 8, !alias.scope !11536, !noalias !11539, !nonnull !5, !noundef !5
-  %1090 = getelementptr inbounds { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [512 x i8] }, i64, i64, i64, i8, i8, i8, [5 x i8] }, {} }, ptr %1089, i64 %1075
+  %1090 = getelementptr inbounds [664 x i8], ptr %1089, i64 %1075
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %1090, ptr noundef nonnull align 8 dereferenceable(664) %33, i64 664, i1 false)
   %1091 = add i64 %1075, 1
   store i64 %1091, ptr %1074, align 8, !alias.scope !11536, !noalias !11539
@@ -45828,7 +45828,7 @@ common.ret:                                       ; preds = %1576, %"_ZN4core3pt
   %.sroa.5247.0.copyload.i = load ptr, ptr %.sroa.5247.0..sroa_idx.i, align 8, !noalias !11371, !nonnull !5, !noundef !5
   %.sroa.6248.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %.sroa.6248.0.copyload.i = load i64, ptr %.sroa.6248.0..sroa_idx.i, align 8, !noalias !11371
-  %1106 = getelementptr inbounds { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [512 x i8] }, i64, i64, i64, i8, i8, i8, [5 x i8] }, {} }, ptr %.sroa.5247.0.copyload.i, i64 %.sroa.6248.0.copyload.i
+  %1106 = getelementptr inbounds [664 x i8], ptr %.sroa.5247.0.copyload.i, i64 %.sroa.6248.0.copyload.i
   %1107 = getelementptr inbounds nuw i8, ptr %1, i64 4880
   store ptr %.sroa.5247.0.copyload.i, ptr %1107, align 8, !noalias !11371
   %.sroa.8243.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4888

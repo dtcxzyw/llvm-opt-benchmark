@@ -458,7 +458,7 @@ define internal i64 @vmware_sched_clock() #5 section ".noinstr.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, target_mem0: none, target_mem1: none)
 define internal i64 @vmware_steal_clock(i32 noundef %0) #6 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @vmw_steal_time to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -491,7 +491,7 @@ define internal void @vmware_smp_prepare_boot_cpu() #1 section ".init.text" alig
 2:                                                ; preds = %0
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %4 = sext i32 %3 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @vmw_steal_time to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -527,7 +527,7 @@ define internal noundef i32 @vmware_cpu_online(i32 %0) #7 align 16 {
 3:                                                ; preds = %1
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %5 = sext i32 %4 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @vmw_steal_time to i64)
   %9 = inttoptr i64 %8 to ptr

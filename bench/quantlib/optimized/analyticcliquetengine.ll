@@ -1690,7 +1690,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN8Quan
   br label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i.i.i187, i64 %cond.i.i.i.i182
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i187, i64 %cond.i.i.i.i182
   br label %invoke.cont188
 
 invoke.cont188:                                   ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i181
@@ -2125,7 +2125,7 @@ cond.false.i270:                                  ; preds = %invoke.cont280
 
 invoke.cont282:                                   ; preds = %.noexc272, %invoke.cont280
   %143 = phi ptr [ %142, %invoke.cont280 ], [ %.pre.i271, %.noexc272 ]
-  %144 = getelementptr %"class.QuantLib::Date", ptr %resetDates.sroa.0.1, i64 %i.0617
+  %144 = getelementptr [8 x i8], ptr %resetDates.sroa.0.1, i64 %i.0617
   %add.ptr.i = getelementptr i8, ptr %144, i64 -8
   %call.i273 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %143, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
           to label %call.i.noexc unwind label %lpad275

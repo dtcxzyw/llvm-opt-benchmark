@@ -301,10 +301,10 @@ define hidden ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %1, ptr n
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %31 ], [ 0, %.lr.ph ]
   %24 = tail call ptr @cmsBuildGamma(ptr noundef %0, double noundef 1.000000e+00) #18
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv43
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv43
   store ptr %24, ptr %26, align 8
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv43
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv43
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.split.us, label %31
@@ -326,14 +326,14 @@ define hidden ptr @cmsStageAllocToneCurves(ptr noundef %0, i32 noundef %1, ptr n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.lr.ph ]
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @cmsDupToneCurve(ptr noundef %36) #18
   %38 = load ptr, ptr %21, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store ptr %37, ptr %39, align 8
   %40 = load ptr, ptr %21, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.split.us, label %34
@@ -379,12 +379,12 @@ define internal void @EvaluateCurves(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load float, ptr %15, align 4
   %17 = tail call float @cmsEvalToneCurveFloat(ptr noundef %14, float noundef %16) #18
-  %18 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %5, align 8
@@ -434,14 +434,14 @@ define internal ptr @CurveSetDup(ptr noundef readonly captures(none) %0) #0 {
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @cmsDupToneCurve(ptr noundef %22) #18
   %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %23, ptr %25, align 8
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.preheader, label %15
@@ -455,7 +455,7 @@ define internal ptr @CurveSetDup(ptr noundef readonly captures(none) %0) #0 {
   %31 = phi i32 [ %37, %36 ], [ %30, %.preheader ]
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %36 ], [ 0, %.preheader ]
   %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv44
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv44
   %34 = load ptr, ptr %33, align 8
   %.not34 = icmp eq ptr %34, null
   br i1 %.not34, label %36, label %35
@@ -511,7 +511,7 @@ define internal void @CurveSetElemTypeFree(ptr noundef readonly captures(none) %
   %9 = phi i32 [ %15, %14 ], [ %8, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %14, label %13
@@ -644,10 +644,10 @@ define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 nound
 
 .preheader53:                                     ; preds = %.preheader53.preheader, %.preheader53
   %indvars.iv = phi i64 [ 0, %.preheader53.preheader ], [ %indvars.iv.next, %.preheader53 ]
-  %32 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %33 = load double, ptr %32, align 8
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store double %33, ptr %35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -670,10 +670,10 @@ define hidden ptr @cmsStageAllocMatrix(ptr noundef %0, i32 noundef %1, i32 nound
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv57 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next58, %.preheader ]
-  %41 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv57
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv57
   %42 = load double, ptr %41, align 8
   %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv57
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv57
   store double %42, ptr %44, align 8
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
@@ -728,13 +728,13 @@ define internal void @EvaluateMatrix(ptr noundef readonly captures(none) %0, ptr
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.025 = phi double [ 0.000000e+00, %.lr.ph ], [ %23, %14 ]
-  %15 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load float, ptr %15, align 4
   %17 = fpext float %16 to double
   %18 = trunc nuw i64 %indvars.iv to i32
   %19 = add i32 %13, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw double, ptr %11, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %20
   %22 = load double, ptr %21, align 8
   %23 = tail call double @llvm.fmuladd.f64(double %17, double %22, double %.025)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -748,7 +748,7 @@ define internal void @EvaluateMatrix(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv31
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv31
   %27 = load double, ptr %26, align 8
   %28 = fadd double %.0.lcssa, %27
   br label %29
@@ -756,7 +756,7 @@ define internal void @EvaluateMatrix(ptr noundef readonly captures(none) %0, ptr
 29:                                               ; preds = %25, %._crit_edge
   %.1 = phi double [ %28, %25 ], [ %.0.lcssa, %._crit_edge ]
   %30 = fptrunc double %.1 to float
-  %31 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv31
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv31
   store float %30, ptr %31, align 4
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %32 = load i32, ptr %6, align 4
@@ -911,7 +911,7 @@ cmsStageFree.exit:                                ; preds = %22, %24
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %27, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %28 ]
   %.01118.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %35, %28 ]
-  %30 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %30 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv.i
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
   %.fr24.i = freeze i32 %32
@@ -990,10 +990,10 @@ cmsStageFree.exit50:                              ; preds = %50, %52
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %55 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2
   %57 = load ptr, ptr %20, align 8
-  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %indvars.iv
   store i16 %56, ptr %58, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1049,7 +1049,7 @@ define internal void @EvaluateCLUTfloatIn16(ptr noundef readonly captures(none) 
 
 .lr.ph.i:                                         ; preds = %_cmsQuickSaturateWord.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_cmsQuickSaturateWord.exit.i ]
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
   %13 = fmul double %12, 6.553500e+04
@@ -1071,7 +1071,7 @@ define internal void @EvaluateCLUTfloatIn16(ptr noundef readonly captures(none) 
 
 _cmsQuickSaturateWord.exit.i:                     ; preds = %18, %16, %.lr.ph.i
   %.0.i.i = phi i16 [ %23, %18 ], [ 0, %.lr.ph.i ], [ -1, %16 ]
-  %24 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i
   store i16 %.0.i.i, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1094,11 +1094,11 @@ FromFloatTo16.exit:                               ; preds = %_cmsQuickSaturateWo
 
 .lr.ph.i10:                                       ; preds = %.lr.ph.i10, %.lr.ph.preheader.i8
   %indvars.iv.i11 = phi i64 [ 0, %.lr.ph.preheader.i8 ], [ %indvars.iv.next.i12, %.lr.ph.i10 ]
-  %31 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i11
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i11
   %32 = load i16, ptr %31, align 2
   %33 = uitofp i16 %32 to float
   %34 = fdiv float %33, 6.553500e+04
-  %35 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i11
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i11
   store float %34, ptr %35, align 4
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, %wide.trip.count.i9
@@ -1231,7 +1231,7 @@ define hidden ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %1, i32 no
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1249,7 +1249,7 @@ define hidden ptr @cmsStageAllocCLutFloat(ptr noundef %0, i32 noundef %1, i32 no
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1327,7 +1327,7 @@ cmsStageFree.exit:                                ; preds = %22, %24
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %27, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %28 ]
   %.01118.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %35, %28 ]
-  %30 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %30 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv.i
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4
   %.fr24.i = freeze i32 %32
@@ -1406,10 +1406,10 @@ cmsStageFree.exit50:                              ; preds = %50, %52
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %55 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %56 = load float, ptr %55, align 4
   %57 = load ptr, ptr %20, align 8
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   store float %56, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1467,7 +1467,7 @@ define hidden ptr @_cmsStageAllocIdentityCLut(ptr noundef %0, i32 noundef %1) lo
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 2, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -1551,7 +1551,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %24, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
   %.01118.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %32, %25 ]
-  %27 = getelementptr i32, ptr %15, i64 %indvars.iv.i
+  %27 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4
   %.fr24.i = freeze i32 %29
@@ -1589,10 +1589,10 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
 .lr.ph75.us:                                      ; preds = %.lr.ph75.us.preheader, %.lr.ph75.us
   %indvars.iv150 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv.next151, %.lr.ph75.us ]
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr i16, ptr %37, i64 %indvars.iv150
-  %39 = getelementptr i16, ptr %38, i64 %75
+  %38 = getelementptr [2 x i8], ptr %37, i64 %indvars.iv150
+  %39 = getelementptr [2 x i8], ptr %38, i64 %75
   %40 = load i16, ptr %39, align 2
-  %41 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv150
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv150
   store i16 %40, ptr %41, align 2
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
@@ -1618,11 +1618,11 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
 
 .lr.ph77.us:                                      ; preds = %.lr.ph77.us.preheader, %.lr.ph77.us
   %indvars.iv155 = phi i64 [ 0, %.lr.ph77.us.preheader ], [ %indvars.iv.next156, %.lr.ph77.us ]
-  %47 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv155
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv155
   %48 = load i16, ptr %47, align 2
   %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr i16, ptr %49, i64 %indvars.iv155
-  %51 = getelementptr i16, ptr %50, i64 %46
+  %50 = getelementptr [2 x i8], ptr %49, i64 %indvars.iv155
+  %51 = getelementptr [2 x i8], ptr %50, i64 %46
   store i16 %48, ptr %51, align 2
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
@@ -1638,7 +1638,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   %indvars.iv147 = phi i64 [ %24, %.preheader69.us ], [ %indvars.iv.next148, %_cmsQuantizeVal.exit.us ]
   %.05472.us = phi i32 [ %.05180.us, %.preheader69.us ], [ %58, %_cmsQuantizeVal.exit.us ]
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, -1
-  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next148
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next148
   %56 = load i32, ptr %55, align 4
   %57 = urem i32 %.05472.us, %56
   %58 = udiv i32 %.05472.us, %56
@@ -1661,7 +1661,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
 
 _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
   %.0.i.i.us = phi i16 [ %71, %66 ], [ -1, %54 ]
-  %72 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.next148
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.next148
   store i16 %.0.i.i.us, ptr %72, align 2
   %73 = icmp sgt i64 %indvars.iv147, 1
   br i1 %73, label %54, label %._crit_edge.us, !llvm.loop !30
@@ -1699,10 +1699,10 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
 .lr.ph75.us96:                                    ; preds = %.lr.ph75.us96.preheader, %.lr.ph75.us96
   %indvars.iv136 = phi i64 [ 0, %.lr.ph75.us96.preheader ], [ %indvars.iv.next137, %.lr.ph75.us96 ]
   %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr i16, ptr %78, i64 %indvars.iv136
-  %80 = getelementptr i16, ptr %79, i64 %77
+  %79 = getelementptr [2 x i8], ptr %78, i64 %indvars.iv136
+  %80 = getelementptr [2 x i8], ptr %79, i64 %77
   %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv136
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv136
   store i16 %81, ptr %82, align 2
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
@@ -1725,11 +1725,11 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
 
 .lr.ph77.us98:                                    ; preds = %.lr.ph77.us98.preheader, %.lr.ph77.us98
   %indvars.iv141 = phi i64 [ 0, %.lr.ph77.us98.preheader ], [ %indvars.iv.next142, %.lr.ph77.us98 ]
-  %87 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv141
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv141
   %88 = load i16, ptr %87, align 2
   %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr i16, ptr %89, i64 %indvars.iv141
-  %91 = getelementptr i16, ptr %90, i64 %86
+  %90 = getelementptr [2 x i8], ptr %89, i64 %indvars.iv141
+  %91 = getelementptr [2 x i8], ptr %90, i64 %86
   store i16 %88, ptr %91, align 2
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
@@ -1762,10 +1762,10 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
 .preheader67.us110:                               ; preds = %.preheader67.us110.preheader, %.preheader67.us110
   %indvars.iv = phi i64 [ 0, %.preheader67.us110.preheader ], [ %indvars.iv.next, %.preheader67.us110 ]
   %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr i16, ptr %96, i64 %indvars.iv
-  %98 = getelementptr i16, ptr %97, i64 %95
+  %97 = getelementptr [2 x i8], ptr %96, i64 %indvars.iv
+  %98 = getelementptr [2 x i8], ptr %97, i64 %95
   %99 = load i16, ptr %98, align 2
-  %100 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %99, ptr %100, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1810,9 +1810,9 @@ define internal noundef i32 @IdentitySampler(ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %7, ptr %8, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1893,7 +1893,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %24, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
   %.01118.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %32, %25 ]
-  %27 = getelementptr i32, ptr %15, i64 %indvars.iv.i
+  %27 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4
   %.fr24.i = freeze i32 %29
@@ -1931,10 +1931,10 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
 .lr.ph75.us:                                      ; preds = %.lr.ph75.us.preheader, %.lr.ph75.us
   %indvars.iv150 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv.next151, %.lr.ph75.us ]
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr float, ptr %37, i64 %indvars.iv150
-  %39 = getelementptr float, ptr %38, i64 %78
+  %38 = getelementptr [4 x i8], ptr %37, i64 %indvars.iv150
+  %39 = getelementptr [4 x i8], ptr %38, i64 %78
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv150
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv150
   store float %40, ptr %41, align 4
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
@@ -1960,11 +1960,11 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
 
 .lr.ph77.us:                                      ; preds = %.lr.ph77.us.preheader, %.lr.ph77.us
   %indvars.iv155 = phi i64 [ 0, %.lr.ph77.us.preheader ], [ %indvars.iv.next156, %.lr.ph77.us ]
-  %47 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv155
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv155
   %48 = load float, ptr %47, align 4
   %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr float, ptr %49, i64 %indvars.iv155
-  %51 = getelementptr float, ptr %50, i64 %46
+  %50 = getelementptr [4 x i8], ptr %49, i64 %indvars.iv155
+  %51 = getelementptr [4 x i8], ptr %50, i64 %46
   store float %48, ptr %51, align 4
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
@@ -1980,7 +1980,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   %indvars.iv147 = phi i64 [ %24, %.preheader69.us ], [ %indvars.iv.next148, %_cmsQuantizeVal.exit.us ]
   %.05472.us = phi i32 [ %.05180.us, %.preheader69.us ], [ %58, %_cmsQuantizeVal.exit.us ]
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, -1
-  %55 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next148
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next148
   %56 = load i32, ptr %55, align 4
   %57 = urem i32 %.05472.us, %56
   %58 = udiv i32 %.05472.us, %56
@@ -2006,7 +2006,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
   %.0.i.i.us = phi double [ %72, %66 ], [ 6.553500e+04, %54 ]
   %73 = fdiv double %.0.i.i.us, 6.553500e+04
   %74 = fptrunc double %73 to float
-  %75 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.next148
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next148
   store float %74, ptr %75, align 4
   %76 = icmp sgt i64 %indvars.iv147, 1
   br i1 %76, label %54, label %._crit_edge.us, !llvm.loop !35
@@ -2044,10 +2044,10 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
 .lr.ph75.us96:                                    ; preds = %.lr.ph75.us96.preheader, %.lr.ph75.us96
   %indvars.iv136 = phi i64 [ 0, %.lr.ph75.us96.preheader ], [ %indvars.iv.next137, %.lr.ph75.us96 ]
   %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr float, ptr %81, i64 %indvars.iv136
-  %83 = getelementptr float, ptr %82, i64 %80
+  %82 = getelementptr [4 x i8], ptr %81, i64 %indvars.iv136
+  %83 = getelementptr [4 x i8], ptr %82, i64 %80
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv136
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv136
   store float %84, ptr %85, align 4
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
@@ -2070,11 +2070,11 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
 
 .lr.ph77.us98:                                    ; preds = %.lr.ph77.us98.preheader, %.lr.ph77.us98
   %indvars.iv141 = phi i64 [ 0, %.lr.ph77.us98.preheader ], [ %indvars.iv.next142, %.lr.ph77.us98 ]
-  %90 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv141
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv141
   %91 = load float, ptr %90, align 4
   %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr float, ptr %92, i64 %indvars.iv141
-  %94 = getelementptr float, ptr %93, i64 %89
+  %93 = getelementptr [4 x i8], ptr %92, i64 %indvars.iv141
+  %94 = getelementptr [4 x i8], ptr %93, i64 %89
   store float %91, ptr %94, align 4
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
@@ -2107,10 +2107,10 @@ _cmsQuantizeVal.exit.us:                          ; preds = %66, %54
 .preheader67.us110:                               ; preds = %.preheader67.us110.preheader, %.preheader67.us110
   %indvars.iv = phi i64 [ 0, %.preheader67.us110.preheader ], [ %indvars.iv.next, %.preheader67.us110 ]
   %99 = load ptr, ptr %10, align 8
-  %100 = getelementptr float, ptr %99, i64 %indvars.iv
-  %101 = getelementptr float, ptr %100, i64 %98
+  %100 = getelementptr [4 x i8], ptr %99, i64 %indvars.iv
+  %101 = getelementptr [4 x i8], ptr %100, i64 %98
   %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %102, ptr %103, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2165,7 +2165,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %.01118.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %16, %9 ]
-  %11 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %11 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
   %.fr24.i = freeze i32 %13
@@ -2195,7 +2195,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
   %indvars.iv = phi i64 [ %18, %.preheader.us ], [ %20, %_cmsQuantizeVal.exit.us ]
   %.02432.us = phi i32 [ %.02333.us, %.preheader.us ], [ %24, %_cmsQuantizeVal.exit.us ]
   %20 = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = urem i32 %.02432.us, %22
   %24 = udiv i32 %.02432.us, %22
@@ -2218,7 +2218,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
 
 _cmsQuantizeVal.exit.us:                          ; preds = %32, %19
   %.0.i.i.us = phi i16 [ %37, %32 ], [ -1, %19 ]
-  %38 = getelementptr inbounds nuw i16, ptr %5, i64 %20
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %20
   store i16 %.0.i.i.us, ptr %38, align 2
   %39 = trunc nuw i64 %indvars.iv to i32
   %40 = icmp sgt i32 %39, 1
@@ -2267,7 +2267,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nounde
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %.01118.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %16, %9 ]
-  %11 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %11 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv.i
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4
   %.fr24.i = freeze i32 %13
@@ -2297,7 +2297,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nounde
   %indvars.iv = phi i64 [ %18, %.preheader.us ], [ %20, %_cmsQuantizeVal.exit.us ]
   %.02432.us = phi i32 [ %.02333.us, %.preheader.us ], [ %24, %_cmsQuantizeVal.exit.us ]
   %20 = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = urem i32 %.02432.us, %22
   %24 = udiv i32 %.02432.us, %22
@@ -2323,7 +2323,7 @@ _cmsQuantizeVal.exit.us:                          ; preds = %32, %19
   %.0.i.i.us = phi double [ %38, %32 ], [ 6.553500e+04, %19 ]
   %39 = fdiv double %.0.i.i.us, 6.553500e+04
   %40 = fptrunc double %39 to float
-  %41 = getelementptr inbounds nuw float, ptr %5, i64 %20
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %20
   store float %40, ptr %41, align 4
   %42 = trunc nuw i64 %indvars.iv to i32
   %43 = icmp sgt i32 %42, 1
@@ -2431,7 +2431,7 @@ define hidden ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %0) local_unnamed_a
 
 8:                                                ; preds = %1, %22
   %indvars.iv22 = phi i64 [ 0, %1 ], [ %indvars.iv.next23, %22 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv22
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv22
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.preheader
@@ -2450,7 +2450,7 @@ define hidden ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %0) local_unnamed_a
   %18 = load ptr, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   store i16 %17, ptr %21, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
@@ -2611,11 +2611,11 @@ define internal void @Clipper(ptr noundef readonly captures(none) %0, ptr nounde
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load float, ptr %6, align 4
   %8 = fcmp olt float %7, 0.000000e+00
   %9 = select i1 %8, float 0.000000e+00, float %7
-  %10 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %4, align 8
@@ -2927,11 +2927,11 @@ define internal void @_LUTeval16(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = uitofp i16 %8 to float
   %10 = fdiv float %9, 6.553500e+04
-  %11 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store float %10, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2949,9 +2949,9 @@ From16ToFloat.exit:                               ; preds = %.lr.ph.i, %3
   %13 = getelementptr inbounds nuw i8, ptr %.026, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %.01525 to i64
-  %16 = getelementptr inbounds nuw [128 x float], ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %15
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr inbounds nuw [128 x float], ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %17
   call void %14(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %.026) #18
   %19 = getelementptr inbounds nuw i8, ptr %.026, i64 56
   %.0 = load ptr, ptr %19, align 8
@@ -2964,7 +2964,7 @@ From16ToFloat.exit:                               ; preds = %.lr.ph.i, %3
 
 ._crit_edge:                                      ; preds = %From16ToFloat.exit, %._crit_edge.loopexit
   %.015.lcssa = phi i64 [ %20, %._crit_edge.loopexit ], [ 0, %From16ToFloat.exit ]
-  %21 = getelementptr inbounds nuw [128 x float], ptr %4, i64 %.015.lcssa
+  %21 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %.015.lcssa
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %23 = load i32, ptr %22, align 4
   %.not.i16 = icmp eq i32 %23, 0
@@ -2976,7 +2976,7 @@ From16ToFloat.exit:                               ; preds = %.lr.ph.i, %3
 
 .lr.ph.i19:                                       ; preds = %_cmsQuickSaturateWord.exit.i, %.lr.ph.preheader.i17
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.preheader.i17 ], [ %indvars.iv.next.i21, %_cmsQuickSaturateWord.exit.i ]
-  %24 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i20
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
   %27 = fmul double %26, 6.553500e+04
@@ -2998,7 +2998,7 @@ From16ToFloat.exit:                               ; preds = %.lr.ph.i, %3
 
 _cmsQuickSaturateWord.exit.i:                     ; preds = %32, %30, %.lr.ph.i19
   %.0.i.i = phi i16 [ %37, %32 ], [ 0, %.lr.ph.i19 ], [ -1, %30 ]
-  %38 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i20
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i20
   store i16 %.0.i.i, ptr %38, align 2
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i18
@@ -3027,9 +3027,9 @@ define internal void @_LUTevalFloat(ptr noundef readonly captures(none) %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %.01518 to i64
-  %13 = getelementptr inbounds nuw [128 x float], ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %12
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr inbounds nuw [128 x float], ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %14
   call void %11(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %.019) #18
   %16 = getelementptr inbounds nuw i8, ptr %.019, i64 56
   %.0 = load ptr, ptr %16, align 8
@@ -3042,7 +3042,7 @@ define internal void @_LUTevalFloat(ptr noundef readonly captures(none) %0, ptr 
 
 ._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit
   %.015.lcssa = phi i64 [ %17, %._crit_edge.loopexit ], [ 0, %3 ]
-  %18 = getelementptr inbounds nuw [128 x float], ptr %4, i64 %.015.lcssa
+  %18 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %.015.lcssa
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
@@ -3981,9 +3981,9 @@ define hidden range(i32 0, 2) i32 @cmsPipelineEvalReverseFloat(ptr noundef reado
 48:                                               ; preds = %48, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %48 ]
   %.012.i = phi float [ 0.000000e+00, %46 ], [ %54, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %50 = load float, ptr %49, align 4
-  %51 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %52 = load float, ptr %51, align 4
   %53 = fsub float %50, %52
   %54 = call float @llvm.fmuladd.f32(float %53, float %53, float %.012.i)
@@ -4004,9 +4004,9 @@ EuclideanDistance.exit:                           ; preds = %48
 
 .lr.ph:                                           ; preds = %.preheader51, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader51 ]
-  %59 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %60, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %12, align 8
@@ -4028,7 +4028,7 @@ EuclideanDistance.exit:                           ; preds = %48
   store float %68, ptr %32, align 8
   %69 = load float, ptr %27, align 4
   store float %69, ptr %33, align 4
-  %70 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv62
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv62
   %71 = load float, ptr %70, align 4
   %72 = fpext float %71 to double
   %73 = fcmp olt double %72, 0x3FEFF7CED9100000
@@ -4042,21 +4042,21 @@ EuclideanDistance.exit:                           ; preds = %48
   %77 = fsub float %75, %76
   %78 = fdiv float %77, 0x3F50624DE0000000
   %79 = fpext float %78 to double
-  %80 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv62
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv62
   store double %79, ptr %80, align 8
   %81 = load float, ptr %34, align 4
   %82 = load float, ptr %35, align 4
   %83 = fsub float %81, %82
   %84 = fdiv float %83, 0x3F50624DE0000000
   %85 = fpext float %84 to double
-  %86 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv62
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv62
   store double %85, ptr %86, align 8
   %87 = load float, ptr %37, align 8
   %88 = load float, ptr %38, align 8
   %89 = fsub float %87, %88
   %90 = fdiv float %89, 0x3F50624DE0000000
   %91 = fpext float %90 to double
-  %92 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv62
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv62
   store double %91, ptr %92, align 8
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, 3
@@ -4099,7 +4099,7 @@ EuclideanDistance.exit:                           ; preds = %48
 
 117:                                              ; preds = %104, %123
   %indvars.iv65 = phi i64 [ 0, %104 ], [ %indvars.iv.next66, %123 ]
-  %118 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv65
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv65
   %119 = load float, ptr %118, align 4
   %120 = fcmp olt float %119, 0.000000e+00
   br i1 %120, label %.sink.split, label %121

@@ -40,7 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.boost::shared_ptr.20" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.std::complex" = type { { double, double } }
 
 $__clang_call_terminate = comdat any
 
@@ -1526,7 +1525,7 @@ for.body.i:                                       ; preds = %arrayctor.loop.preh
   %sub73.i = sitofp i32 %94 to double
   %mul74.i = fmul nnan double %sub73.i, 0x3F840D931FF62705
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %call.i137, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i137, i64 %indvars.iv.next.i
   store double %mul74.i, ptr %arrayidx.i.i, align 8, !tbaa !90
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65536
   br i1 %exitcond.not.i, label %for.cond80.preheader.i, label %for.body.i, !llvm.loop !91
@@ -1534,7 +1533,7 @@ for.body.i:                                       ; preds = %arrayctor.loop.preh
 for.body83.i:                                     ; preds = %invoke.cont355.i, %for.cond80.preheader.i
   %indvars.iv712.i = phi i64 [ 0, %for.cond80.preheader.i ], [ %indvars.iv.next713.i, %invoke.cont355.i ]
   %indvars.iv.next713.i = add nuw nsw i64 %indvars.iv712.i, 1
-  %arrayidx.i88.i = getelementptr inbounds nuw double, ptr %call.i137, i64 %indvars.iv.next713.i
+  %arrayidx.i88.i = getelementptr inbounds nuw [8 x i8], ptr %call.i137, i64 %indvars.iv.next713.i
   %95 = load double, ptr %arrayidx.i88.i, align 8, !tbaa !90
   %mul_ac.i.i.i = fmul double %mul94.i, %95
   %mul_bc.i.i.i = fmul double %95, 0.000000e+00
@@ -1699,7 +1698,7 @@ invoke.cont256.i:                                 ; preds = %complex_mul_libcall
   %call.i.i320.i = call noundef { double, double } @cexp(double noundef %add.r.i.i313.i, double noundef %add.i.i.i314.i) #26
   %119 = extractvalue { double, double } %call.i.i320.i, 0
   %120 = extractvalue { double, double } %call.i.i320.i, 1
-  %arrayidx.i321.i = getelementptr inbounds nuw %"class.std::complex", ptr %call1.i, i64 %indvars.iv.next713.i
+  %arrayidx.i321.i = getelementptr inbounds nuw [16 x i8], ptr %call1.i, i64 %indvars.iv.next713.i
   store double %119, ptr %arrayidx.i321.i, align 8
   %ref.tmp254.sroa.5.0.call262.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i321.i, i64 8
   store double %120, ptr %ref.tmp254.sroa.5.0.call262.sroa_idx.i, align 8, !tbaa !33
@@ -1858,7 +1857,7 @@ for.body371.i:                                    ; preds = %invoke.cont355.i, %
   %mul_ac.i.i506.i = fmul double %div383.i, 0.000000e+00
   %mul_i.i.i511.i = fadd double %div383.i, 0.000000e+00
   %indvars.iv.next717.i = add nuw nsw i64 %indvars.iv716.i, 1
-  %arrayidx.i522.i = getelementptr inbounds nuw %"class.std::complex", ptr %call1.i, i64 %indvars.iv.next717.i
+  %arrayidx.i522.i = getelementptr inbounds nuw [16 x i8], ptr %call1.i, i64 %indvars.iv.next717.i
   %retval.sroa.0.0.copyload.i523.i = load double, ptr %arrayidx.i522.i, align 8
   %retval.sroa.4.0.__x.sroa_idx.i524.i = getelementptr inbounds nuw i8, ptr %arrayidx.i522.i, i64 8
   %retval.sroa.4.0.copyload.i525.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i524.i, align 8, !tbaa !33
@@ -2410,11 +2409,11 @@ for.body.i169:                                    ; preds = %arrayctor.loop.preh
   %sub76.i = sitofp i32 %202 to double
   %mul77.i = fmul nnan double %sub76.i, 0x3FA40D931FF62705
   %indvars.iv.next.i171 = add nuw nsw i64 %indvars.iv.i170, 1
-  %arrayidx.i.i172 = getelementptr inbounds nuw double, ptr %call.i197, i64 %indvars.iv.next.i171
+  %arrayidx.i.i172 = getelementptr inbounds nuw [8 x i8], ptr %call.i197, i64 %indvars.iv.next.i171
   store double %mul77.i, ptr %arrayidx.i.i172, align 8, !tbaa !90
   %mul85.i = fmul nnan double %sub76.i, 0x401921FB54442D18
   %div88.i = fdiv double %mul85.i, 0x40640D931FF62705
-  %arrayidx.i82.i = getelementptr inbounds nuw double, ptr %call1.i147, i64 %indvars.iv.next.i171
+  %arrayidx.i82.i = getelementptr inbounds nuw [8 x i8], ptr %call1.i147, i64 %indvars.iv.next.i171
   store double %div88.i, ptr %arrayidx.i82.i, align 8, !tbaa !90
   %exitcond.not.i173 = icmp eq i64 %indvars.iv.next.i171, 4096
   br i1 %exitcond.not.i173, label %for.cond92.preheader.i, label %for.body.i169, !llvm.loop !112
@@ -2422,7 +2421,7 @@ for.body.i169:                                    ; preds = %arrayctor.loop.preh
 for.body95.i:                                     ; preds = %invoke.cont263.i, %for.cond92.preheader.i
   %indvars.iv476.i = phi i64 [ 0, %for.cond92.preheader.i ], [ %indvars.iv.next477.i, %invoke.cont263.i ]
   %indvars.iv.next477.i = add nuw nsw i64 %indvars.iv476.i, 1
-  %arrayidx.i83.i = getelementptr inbounds nuw double, ptr %call.i197, i64 %indvars.iv.next477.i
+  %arrayidx.i83.i = getelementptr inbounds nuw [8 x i8], ptr %call.i197, i64 %indvars.iv.next477.i
   %203 = load double, ptr %arrayidx.i83.i, align 8, !tbaa !90
   %mul_ac.i.i.i177 = fmul double %mul103.i, %203
   %mul_bc.i.i.i178 = fmul double %203, 0.000000e+00
@@ -2587,7 +2586,7 @@ invoke.cont263.i:                                 ; preds = %complex_mul_libcall
   %call.i.i315.i = call noundef { double, double } @cexp(double noundef %add.r.i.i308.i, double noundef %add.i.i.i309.i) #26
   %227 = extractvalue { double, double } %call.i.i315.i, 0
   %228 = extractvalue { double, double } %call.i.i315.i, 1
-  %arrayidx.i316.i = getelementptr inbounds nuw %"class.std::complex", ptr %call8.i, i64 %indvars.iv.next477.i
+  %arrayidx.i316.i = getelementptr inbounds nuw [16 x i8], ptr %call8.i, i64 %indvars.iv.next477.i
   store double %227, ptr %arrayidx.i316.i, align 8
   %ref.tmp261.sroa.5.0.call268.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i316.i, i64 8
   store double %228, ptr %ref.tmp261.sroa.5.0.call268.sroa_idx.i, align 8, !tbaa !33
@@ -2598,7 +2597,7 @@ for.body276.i:                                    ; preds = %invoke.cont263.i, %
   %indvars.iv484.i = phi i64 [ %indvars.iv.next485.i, %invoke.cont352.i ], [ 0, %invoke.cont263.i ]
   %sumr.0473.i = phi double [ %241, %invoke.cont352.i ], [ 0.000000e+00, %invoke.cont263.i ]
   %indvars.iv.next485.i = add nuw nsw i64 %indvars.iv484.i, 1
-  %arrayidx.i317.i = getelementptr inbounds nuw double, ptr %call1.i147, i64 %indvars.iv.next485.i
+  %arrayidx.i317.i = getelementptr inbounds nuw [8 x i8], ptr %call1.i147, i64 %indvars.iv.next485.i
   %229 = load double, ptr %arrayidx.i317.i, align 8, !tbaa !90
   %sub280.i = fsub double 0.000000e+00, %229
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i.i)
@@ -2639,7 +2638,7 @@ invoke.cont307.i:                                 ; preds = %invoke.cont332.i, %
   %mul.il.i.i331.i = fmul double %div290.i, %fneg305.i
   %call.i.i190 = call noundef double @pow(double noundef -1.000000e+00, double noundef %conv304.i) #26, !tbaa !93
   %indvars.iv.next481.i = add nuw nsw i64 %indvars.iv480.i, 1
-  %arrayidx.i335.i = getelementptr inbounds nuw %"class.std::complex", ptr %call8.i, i64 %indvars.iv.next481.i
+  %arrayidx.i335.i = getelementptr inbounds nuw [16 x i8], ptr %call8.i, i64 %indvars.iv.next481.i
   %retval.sroa.0.0.copyload.i336.i = load double, ptr %arrayidx.i335.i, align 8
   %retval.sroa.4.0.__x.sroa_idx.i337.i = getelementptr inbounds nuw i8, ptr %arrayidx.i335.i, i64 8
   %retval.sroa.4.0.copyload.i338.i = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i337.i, align 8, !tbaa !33

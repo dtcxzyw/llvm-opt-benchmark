@@ -1838,7 +1838,7 @@ zend_string_release.exit:                         ; preds = %31, %30, %23, %17, 
 .thread:                                          ; preds = %zend_string_release.exit, %32
   %.013 = phi i64 [ %15, %zend_string_release.exit ], [ %33, %32 ]
   %34 = zext nneg i32 %1 to i64
-  %35 = getelementptr inbounds nuw %struct.anon.14, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 568), i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 568), i64 %34
   store i8 1, ptr %35, align 8, !tbaa !80
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.013, ptr %36, align 8, !tbaa !82
@@ -1851,7 +1851,7 @@ zend_string_release.exit:                         ; preds = %31, %30, %23, %17, 
 
 39:                                               ; preds = %2
   %40 = zext nneg i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.anon.14, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 568), i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 568), i64 %40
   store i8 0, ptr %41, align 8, !tbaa !80
   br label %42
 

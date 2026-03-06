@@ -1671,7 +1671,7 @@ define dso_local void @subscribeCommand(ptr noundef %0) local_unnamed_addr #2 {
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !96
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = tail call i32 @pubsubSubscribeChannel(ptr noundef nonnull %0, ptr noundef %13, ptr noundef nonnull byval(%struct.pubsubtype) align 8 @pubSubType)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1726,7 +1726,7 @@ define dso_local void @unsubscribeCommand(ptr noundef %0) local_unnamed_addr #2 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !96
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = tail call i32 @pubsubUnsubscribeChannel(ptr noundef nonnull %0, ptr noundef %12, i32 noundef 1, ptr noundef nonnull byval(%struct.pubsubtype) align 8 @pubSubType)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1808,7 +1808,7 @@ define dso_local void @psubscribeCommand(ptr noundef %0) local_unnamed_addr #2 {
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !96
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = tail call i32 @pubsubSubscribePattern(ptr noundef nonnull %0, ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1861,7 +1861,7 @@ define dso_local void @punsubscribeCommand(ptr noundef %0) local_unnamed_addr #2
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !96
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = tail call i32 @pubsubUnsubscribePattern(ptr noundef nonnull %0, ptr noundef %12, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2066,11 +2066,11 @@ define dso_local void @pubsubCommand(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %44 ], [ 2, %24 ]
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !43
   %31 = load ptr, ptr %9, align 8, !tbaa !96
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv81
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv81
   %33 = load ptr, ptr %32, align 8, !tbaa !33
   %34 = tail call ptr @kvstoreDictFetchValue(ptr noundef %30, i32 noundef 0, ptr noundef %33) #9
   %35 = load ptr, ptr %9, align 8, !tbaa !96
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv81
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv81
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   tail call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %37) #9
   %.not64 = icmp eq ptr %34, null
@@ -2149,18 +2149,18 @@ define dso_local void @pubsubCommand(ptr noundef %0) local_unnamed_addr #2 {
 .lr.ph:                                           ; preds = %71, %97
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 2, %71 ]
   %77 = load ptr, ptr %9, align 8, !tbaa !96
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !33
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !69
   %82 = tail call i32 @calculateKeySlot(ptr noundef %81) #9
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !65
   %84 = load ptr, ptr %9, align 8, !tbaa !96
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !33
   %87 = tail call ptr @kvstoreDictFetchValue(ptr noundef %83, i32 noundef %82, ptr noundef %86) #9
   %88 = load ptr, ptr %9, align 8, !tbaa !96
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !33
   tail call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %90) #9
   %.not68 = icmp eq ptr %87, null
@@ -2466,7 +2466,7 @@ define dso_local void @ssubscribeCommand(ptr noundef %0) local_unnamed_addr #2 {
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %8, align 8, !tbaa !96
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = tail call i32 @pubsubSubscribeChannel(ptr noundef nonnull %0, ptr noundef %19, ptr noundef nonnull byval(%struct.pubsubtype) align 8 @pubSubShardType)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2501,7 +2501,7 @@ define dso_local void @sunsubscribeCommand(ptr noundef %0) local_unnamed_addr #2
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !96
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = tail call i32 @pubsubUnsubscribeChannel(ptr noundef nonnull %0, ptr noundef %12, i32 noundef 1, ptr noundef nonnull byval(%struct.pubsubtype) align 8 @pubSubShardType)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

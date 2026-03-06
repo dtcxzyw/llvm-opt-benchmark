@@ -40,10 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
 %"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.grpc_core::FilterArgs::ChannelStackBased" }
 %"struct.grpc_core::FilterArgs::ChannelStackBased" = type { ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::ChannelDataDestructor" = type { ptr, ptr }
-%"struct.grpc_core::filters_detail::Operator" = type { ptr, i64, ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::Operator.271" = type { ptr, i64, ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::FilterConstructor" = type { ptr, i64, ptr }
 %"class.grpc_core::Poll" = type { i8, %union.anon.161 }
 %union.anon.161 = type { %"struct.grpc_core::filters_detail::ResultOr" }
 %"struct.grpc_core::filters_detail::ResultOr" = type { %"class.std::unique_ptr.162", %"class.std::unique_ptr.162" }
@@ -66,10 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.214" = type { %"struct.std::_Tuple_impl.215" }
 %"struct.std::_Tuple_impl.215" = type { %"struct.std::_Head_base.218" }
 %"struct.std::_Head_base.218" = type { ptr }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %class.anon.269 = type { i8 }
 %"class.grpc_core::Poll.275" = type { i8, %union.anon.276 }
 %union.anon.276 = type { %"struct.grpc_core::filters_detail::ResultOr.277" }
@@ -110,7 +102,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.339" = type { %"struct.std::_Tuple_impl.340" }
 %"struct.std::_Tuple_impl.340" = type { %"struct.std::_Head_base.343" }
 %"struct.std::_Head_base.343" = type { ptr }
-%"struct.grpc_core::filters_detail::ServerTrailingMetadataOperator" = type { ptr, i64, ptr }
 %class.anon.348 = type { i8 }
 %class.anon.350 = type { i8 }
 %"class.absl::lts_20240722::StatusOr.362" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.363" }
@@ -1347,7 +1338,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !34
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !31
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !35
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1699,7 +1690,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %111, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !134
   store ptr %110, ptr %86, align 8, !tbaa !132
-  %112 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %104
   store ptr %112, ptr %88, align 8, !tbaa !133
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
@@ -1840,7 +1831,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !137
   store ptr %29, ptr %5, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_23ClientCompressionFilterEEEvPT_m.exit
 
@@ -1916,7 +1907,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i27: ; preds = %58, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i25
   store ptr %53, ptr %32, align 8, !tbaa !137
   store ptr %57, ptr %33, align 8, !tbaa !135
-  %59 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %51
   store ptr %59, ptr %35, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerInitialMetadataOpINS_23ClientCompressionFilterEEEvPT_m.exit
 
@@ -1992,7 +1983,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %86, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %81, ptr %60, align 8, !tbaa !140
   store ptr %85, ptr %61, align 8, !tbaa !138
-  %87 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.271", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8, !tbaa !139
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientToServerMessageOpINS_23ClientCompressionFilterEEEvPT_m.exit
 
@@ -2068,7 +2059,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i50: ; preds = %114, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i48
   store ptr %109, ptr %88, align 8, !tbaa !140
   store ptr %113, ptr %89, align 8, !tbaa !138
-  %115 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.271", ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %107
   store ptr %115, ptr %91, align 8, !tbaa !139
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerToClientMessageOpINS_23ClientCompressionFilterEEEvPT_m.exit
 
@@ -2503,7 +2494,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE11_S_relocat
 _ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %29, ptr %8, align 8, !tbaa !154
   store ptr %33, ptr %9, align 8, !tbaa !152
-  %35 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::FilterConstructor", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8, !tbaa !153
   br label %_ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE9push_backEOS2_.exit
 
@@ -3168,7 +3159,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -3220,7 +3211,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -4131,7 +4122,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %111, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !134
   store ptr %110, ptr %86, align 8, !tbaa !132
-  %112 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %104
   store ptr %112, ptr %88, align 8, !tbaa !133
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
@@ -4272,7 +4263,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !137
   store ptr %29, ptr %5, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_23ServerCompressionFilterEEEvPT_m.exit
 
@@ -4348,7 +4339,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i27: ; preds = %58, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i25
   store ptr %53, ptr %32, align 8, !tbaa !137
   store ptr %57, ptr %33, align 8, !tbaa !135
-  %59 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %51
   store ptr %59, ptr %35, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerInitialMetadataOpINS_23ServerCompressionFilterEEEvPT_m.exit
 
@@ -4424,7 +4415,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %86, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %81, ptr %60, align 8, !tbaa !140
   store ptr %85, ptr %61, align 8, !tbaa !138
-  %87 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.271", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8, !tbaa !139
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientToServerMessageOpINS_23ServerCompressionFilterEEEvPT_m.exit
 
@@ -4500,7 +4491,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i50: ; preds = %114, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i48
   store ptr %109, ptr %88, align 8, !tbaa !140
   store ptr %113, ptr %89, align 8, !tbaa !138
-  %115 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator.271", ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %107
   store ptr %115, ptr %91, align 8, !tbaa !139
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerToClientMessageOpINS_23ServerCompressionFilterEEEvPT_m.exit
 
@@ -4626,7 +4617,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE11_S_relocat
 _ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %29, ptr %8, align 8, !tbaa !154
   store ptr %33, ptr %9, align 8, !tbaa !152
-  %35 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::FilterConstructor", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8, !tbaa !153
   br label %_ZNSt6vectorIN9grpc_core14filters_detail17FilterConstructorESaIS2_EE9push_backEOS2_.exit
 
@@ -5457,7 +5448,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %111, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !134
   store ptr %110, ptr %86, align 8, !tbaa !132
-  %112 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %104
   store ptr %112, ptr %88, align 8, !tbaa !133
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
@@ -5603,7 +5594,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !137
   store ptr %29, ptr %5, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_16HttpClientFilterEEEvPT_m.exit
 
@@ -5679,7 +5670,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i27: ; preds = %58, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i25
   store ptr %53, ptr %32, align 8, !tbaa !137
   store ptr %57, ptr %33, align 8, !tbaa !135
-  %59 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %51
   store ptr %59, ptr %35, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerInitialMetadataOpINS_16HttpClientFilterEEEvPT_m.exit
 
@@ -5751,7 +5742,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_E
 _ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %86, %_ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %81, ptr %60, align 8, !tbaa !195
   store ptr %85, ptr %61, align 8, !tbaa !193
-  %87 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ServerTrailingMetadataOperator", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8, !tbaa !194
   br label %_ZN9grpc_core14filters_detail9StackData27AddServerTrailingMetadataOpINS_16HttpClientFilterEEEvPT_m.exit
 
@@ -6389,7 +6380,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %111, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %106, ptr %85, align 8, !tbaa !134
   store ptr %110, ptr %86, align 8, !tbaa !132
-  %112 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %104
   store ptr %112, ptr %88, align 8, !tbaa !133
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
@@ -6535,7 +6526,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %30, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !137
   store ptr %29, ptr %5, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_16HttpServerFilterEEEvPT_m.exit
 
@@ -6611,7 +6602,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i27: ; preds = %58, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i25
   store ptr %53, ptr %32, align 8, !tbaa !137
   store ptr %57, ptr %33, align 8, !tbaa !135
-  %59 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %51
   store ptr %59, ptr %35, align 8, !tbaa !136
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerInitialMetadataOpINS_16HttpServerFilterEEEvPT_m.exit
 
@@ -6683,7 +6674,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_E
 _ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %86, %_ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %81, ptr %60, align 8, !tbaa !195
   store ptr %85, ptr %61, align 8, !tbaa !193
-  %87 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ServerTrailingMetadataOperator", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %79
   store ptr %87, ptr %63, align 8, !tbaa !194
   br label %_ZN9grpc_core14filters_detail9StackData27AddServerTrailingMetadataOpINS_16HttpServerFilterEEEvPT_m.exit
 

@@ -121,8 +121,8 @@ define void @b2MakePolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv
-  %23 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load i64, ptr %23, align 4
   store i64 %24, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -163,7 +163,7 @@ define void @b2MakePolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %foldExtExtBinop43 = fsub <2 x float> %33, %.sroa.013.0.copyload.i
   %35 = extractelement <2 x float> %foldExtExtBinop43, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next.i
   %37 = load <2 x float>, ptr %36, align 4
   %foldExtExtBinop45 = fsub <2 x float> %37, %.sroa.013.0.copyload.i
   %38 = extractelement <2 x float> %foldExtExtBinop45, i64 0
@@ -215,14 +215,14 @@ b2ComputePolygonCentroid.exit:                    ; preds = %32, %.._crit_edge_c
   %61 = icmp slt i64 %indvars.iv.next35, %60
   %62 = and i64 %indvars.iv.next35, 4294967295
   %63 = select i1 %61, i64 %62, i64 0
-  %64 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %63
-  %65 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv34
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv34
   %66 = load <2 x float>, ptr %64, align 4
   %67 = load <2 x float>, ptr %65, align 4
   %foldExtExtBinop51 = fsub <2 x float> %66, %67
   %foldExtExtBinop53 = fsub <2 x float> %66, %67
   %68 = extractelement <2 x float> %foldExtExtBinop53, i64 1
-  %69 = getelementptr inbounds nuw %struct.b2Vec2, ptr %21, i64 %indvars.iv34
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv34
   %70 = fmul float %68, %68
   %foldExtExtBinop55 = fmul <2 x float> %foldExtExtBinop51, %foldExtExtBinop51
   %71 = extractelement <2 x float> %foldExtExtBinop55, i64 0
@@ -370,8 +370,8 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load <2 x float>, ptr %26, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %27, i64 0
   %foldExtExtBinop = fmul <2 x float> %3, %27
@@ -425,7 +425,7 @@ define void @b2MakeOffsetRoundedPolygon(ptr dead_on_unwind noalias writable sret
   %foldExtExtBinop51 = fsub <2 x float> %44, %.sroa.013.0.copyload.i
   %46 = extractelement <2 x float> %foldExtExtBinop51, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %47 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv.next.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next.i
   %48 = load <2 x float>, ptr %47, align 4
   %foldExtExtBinop53 = fsub <2 x float> %48, %.sroa.013.0.copyload.i
   %49 = extractelement <2 x float> %foldExtExtBinop53, i64 0
@@ -477,14 +477,14 @@ b2ComputePolygonCentroid.exit:                    ; preds = %43, %.._crit_edge_c
   %72 = icmp slt i64 %indvars.iv.next41, %71
   %73 = and i64 %indvars.iv.next41, 4294967295
   %74 = select i1 %72, i64 %73, i64 0
-  %75 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %74
-  %76 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv40
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv40
   %77 = load <2 x float>, ptr %75, align 4
   %78 = load <2 x float>, ptr %76, align 4
   %foldExtExtBinop59 = fsub <2 x float> %77, %78
   %foldExtExtBinop61 = fsub <2 x float> %77, %78
   %79 = extractelement <2 x float> %foldExtExtBinop61, i64 1
-  %80 = getelementptr inbounds nuw %struct.b2Vec2, ptr %23, i64 %indvars.iv40
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv40
   %81 = fmul float %79, %79
   %foldExtExtBinop63 = fmul <2 x float> %foldExtExtBinop59, %foldExtExtBinop59
   %82 = extractelement <2 x float> %foldExtExtBinop63, i64 0
@@ -796,7 +796,7 @@ define void @b2TransformPolygon(ptr dead_on_unwind noalias writable sret(%struct
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %21 = load <2 x float>, ptr %20, align 4
   %.sroa.0.0.vec.extract.i13 = extractelement <2 x float> %21, i64 0
   %foldExtExtBinop28 = fmul <2 x float> %2, %21
@@ -812,7 +812,7 @@ define void @b2TransformPolygon(ptr dead_on_unwind noalias writable sret(%struct
   %.sroa.011.0.vec.insert.i18 = insertelement <2 x float> poison, float %25, i64 0
   %.sroa.011.4.vec.insert.i19 = insertelement <2 x float> %.sroa.011.0.vec.insert.i18, float %29, i64 1
   store <2 x float> %.sroa.011.4.vec.insert.i19, ptr %20, align 4
-  %30 = getelementptr inbounds nuw %struct.b2Vec2, ptr %8, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %31 = load <2 x float>, ptr %30, align 4
   %.sroa.0.0.vec.extract.i20 = extractelement <2 x float> %31, i64 0
   %foldExtExtBinop30 = fmul <2 x float> %2, %31
@@ -1065,10 +1065,10 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef readonly c
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   %.v = select i1 %72, i32 %7, i32 %73
   %74 = zext nneg i32 %.v to i64
-  %75 = getelementptr %struct.b2Vec2, ptr %69, i64 %74
+  %75 = getelementptr [8 x i8], ptr %69, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -8
   %.sroa.054.0.copyload = load <2 x float>, ptr %76, align 4
-  %77 = getelementptr inbounds nuw %struct.b2Vec2, ptr %69, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %.sroa.053.0.copyload = load <2 x float>, ptr %77, align 4
   %foldExtExtBinop210 = fadd <2 x float> %.sroa.054.0.copyload, %.sroa.053.0.copyload
   %foldExtExtBinop212 = fadd <2 x float> %.sroa.054.0.copyload, %.sroa.053.0.copyload
@@ -1092,8 +1092,8 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef readonly c
 
 b2Normalize.exit:                                 ; preds = %71, %83
   %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %83 ], [ zeroinitializer, %71 ]
-  %88 = getelementptr inbounds nuw %struct.b2Vec2, ptr %5, i64 %indvars.iv
-  %89 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %90 = load <2 x float>, ptr %89, align 4
   %.sroa.02.0.vec.extract.i = extractelement <2 x float> %90, i64 0
   %.sroa.0.0.vec.extract.i107 = extractelement <2 x float> %.sroa.012.0.i, i64 0
@@ -1183,7 +1183,7 @@ b2Normalize.exit:                                 ; preds = %71, %83
   %foldExtExtBinop218 = fsub <2 x float> %114, %.sroa.031.0.copyload194
   %116 = extractelement <2 x float> %foldExtExtBinop218, i64 1
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %117 = getelementptr inbounds nuw %struct.b2Vec2, ptr %5, i64 %indvars.iv.next178
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next178
   %118 = load <2 x float>, ptr %117, align 8
   %foldExtExtBinop220 = fsub <2 x float> %118, %.sroa.031.0.copyload194
   %119 = extractelement <2 x float> %foldExtExtBinop220, i64 0
@@ -1373,7 +1373,7 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef readonly c
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.sroa.014.055 = phi <2 x float> [ %.sroa.011.4.vec.insert.i, %.lr.ph.preheader ], [ %.sroa.02.4.vec.insert.i46, %.lr.ph ]
   %.sroa.011.054 = phi <2 x float> [ %.sroa.011.4.vec.insert.i, %.lr.ph.preheader ], [ %.sroa.02.4.vec.insert.i52, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %23 = load <2 x float>, ptr %22, align 4
   %.sroa.0.0.vec.extract.i34 = extractelement <2 x float> %23, i64 0
   %foldExtExtBinop59 = fmul <2 x float> %2, %23
@@ -2371,8 +2371,8 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
   %.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3, %16 ]
   %.04889 = phi float [ %12, %.lr.ph ], [ %.250, %16 ]
   %.05188 = phi i32 [ -1, %.lr.ph ], [ %.354, %16 ]
-  %18 = getelementptr inbounds nuw %struct.b2Vec2, ptr %15, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw %struct.b2Vec2, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %20 = load <2 x float>, ptr %19, align 4
   %foldExtExtBinop = fsub <2 x float> %20, %.sroa.031.0.copyload
   %foldExtExtBinop99 = fsub <2 x float> %20, %.sroa.031.0.copyload
@@ -2433,7 +2433,7 @@ define void @b2RayCastPolygon(ptr dead_on_unwind noalias writable sret(%struct.b
   store float %.3, ptr %44, align 4, !tbaa !58
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %46 = zext nneg i32 %.354 to i64
-  %47 = getelementptr inbounds nuw %struct.b2Vec2, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load i64, ptr %47, align 4
   store i64 %48, ptr %0, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8

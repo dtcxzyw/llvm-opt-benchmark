@@ -284,17 +284,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %47 = add i32 %46, 40
   %48 = and i32 %47, 63
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %33, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !50
   %52 = add i32 %46, 9
   %53 = and i32 %52, 63
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %33, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %57 = add i32 %56, %51
   %58 = and i32 %46, 63
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %33, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %59
   store i32 %57, ptr %60, align 4, !tbaa !50
   %61 = add i32 %46, 1
   store i32 %61, ptr %45, align 4, !tbaa !66
@@ -317,17 +317,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %70 = add i32 %69, 40
   %71 = and i32 %70, 63
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %33, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = add i32 %69, 9
   %76 = and i32 %75, 63
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %33, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !50
   %80 = add i32 %79, %74
   %81 = and i32 %69, 63
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %33, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %82
   store i32 %80, ptr %83, align 4, !tbaa !50
   %84 = add i32 %69, 1
   store i32 %84, ptr %68, align 4, !tbaa !66
@@ -349,17 +349,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %93 = add i32 %92, 40
   %94 = and i32 %93, 63
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %33, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !50
   %98 = add i32 %92, 9
   %99 = and i32 %98, 63
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %33, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !50
   %103 = add i32 %102, %97
   %104 = and i32 %92, 63
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %33, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %105
   store i32 %103, ptr %106, align 4, !tbaa !50
   %107 = add i32 %92, 1
   store i32 %107, ptr %91, align 4, !tbaa !66
@@ -381,17 +381,17 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %116 = add i32 %115, 40
   %117 = and i32 %116, 63
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %33, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !50
   %121 = add i32 %115, 9
   %122 = and i32 %121, 63
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %33, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !50
   %126 = add i32 %125, %120
   %127 = and i32 %115, 63
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %33, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %128
   store i32 %126, ptr %129, align 4, !tbaa !50
   %130 = add i32 %115, 1
   store i32 %130, ptr %114, align 4, !tbaa !66
@@ -407,7 +407,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
 .preheader:                                       ; preds = %132, %137
   %indvars.iv71 = phi i64 [ 0, %132 ], [ %indvars.iv.next72, %137 ]
   %135 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv71
-  %136 = getelementptr inbounds nuw [4 x float], ptr %134, i64 %indvars.iv71
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %indvars.iv71
   br label %138
 
 137:                                              ; preds = %138
@@ -421,7 +421,7 @@ define internal range(i32 -558323010, 1) i32 @config_output(ptr noundef captures
   %140 = load i8, ptr %139, align 1, !tbaa !69
   %141 = uitofp i8 %140 to float
   %142 = fdiv nsz float %141, 2.550000e+02
-  %143 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv
   store float %142, ptr %143, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -460,7 +460,7 @@ define internal noundef i32 @draw_gradients_slice(ptr noundef readonly captures(
   %20 = load ptr, ptr %1, align 8, !tbaa !74
   %21 = sext i32 %12 to i64
   %22 = mul nsw i64 %19, %21
-  %23 = getelementptr inbounds i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !75
   %26 = icmp slt i32 %12, %15
@@ -643,14 +643,14 @@ project.exit.us:                                  ; preds = %.thread.i.us, %.thr
 
 lerp_colors.exit.us:                              ; preds = %93, %88, %84
   %.030.i.us = phi i32 [ %85, %84 ], [ %92, %88 ], [ %147, %93 ]
-  %148 = getelementptr inbounds nuw i32, ptr %.042.us, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %.042.us, i64 %indvars.iv
   store i32 %.030.i.us, ptr %148, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %lerp_colors.exit.us
-  %149 = getelementptr inbounds i32, ptr %.042.us, i64 %19
+  %149 = getelementptr inbounds [4 x i8], ptr %.042.us, i64 %19
   %150 = add nsw i32 %.03941.us, 1
   %exitcond46.not = icmp eq i32 %150, %15
   br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !78
@@ -679,7 +679,7 @@ define internal noundef i32 @draw_gradients_slice16(ptr noundef readonly capture
   %20 = load ptr, ptr %1, align 8, !tbaa !74
   %21 = sext i32 %12 to i64
   %22 = mul nsw i64 %19, %21
-  %23 = getelementptr inbounds i64, ptr %20, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !75
   %26 = icmp slt i32 %12, %15
@@ -899,14 +899,14 @@ project.exit.us:                                  ; preds = %.thread.i.us, %.thr
 
 lerp_colors16.exit.us:                            ; preds = %129, %113, %95
   %.030.i.us = phi i64 [ %110, %95 ], [ %128, %113 ], [ %184, %129 ]
-  %185 = getelementptr inbounds nuw i64, ptr %.042.us, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.042.us, i64 %indvars.iv
   store i64 %.030.i.us, ptr %185, align 8, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %67, !llvm.loop !80
 
 ._crit_edge.us:                                   ; preds = %lerp_colors16.exit.us
-  %186 = getelementptr inbounds i64, ptr %.042.us, i64 %19
+  %186 = getelementptr inbounds [8 x i8], ptr %.042.us, i64 %19
   %187 = add nsw i32 %.03941.us, 1
   %exitcond46.not = icmp eq i32 %187, %15
   br i1 %exitcond46.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !81
@@ -947,19 +947,19 @@ define internal noundef i32 @draw_gradients_slice32_planar(ptr noundef readonly 
   %32 = load ptr, ptr %1, align 8, !tbaa !74
   %33 = sext i32 %12 to i64
   %34 = mul nsw i64 %19, %33
-  %35 = getelementptr inbounds float, ptr %32, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !74
   %38 = mul nsw i64 %23, %33
-  %39 = getelementptr inbounds float, ptr %37, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !74
   %42 = mul nsw i64 %27, %33
-  %43 = getelementptr inbounds float, ptr %41, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !74
   %46 = mul nsw i64 %31, %33
-  %47 = getelementptr inbounds float, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %49 = load i32, ptr %48, align 8, !tbaa !75
   %50 = icmp slt i32 %12, %15
@@ -985,7 +985,7 @@ define internal noundef i32 @draw_gradients_slice32_planar(ptr noundef readonly 
   %63 = load i32, ptr %62, align 8, !tbaa !76
   %64 = icmp ne i32 %63, 1
   %65 = sext i32 %63 to i64
-  %66 = getelementptr [4 x float], ptr %56, i64 %65
+  %66 = getelementptr [16 x i8], ptr %56, i64 %65
   %67 = getelementptr i8, ptr %66, i64 -16
   %68 = getelementptr i8, ptr %66, i64 -12
   %69 = getelementptr i8, ptr %66, i64 -8
@@ -1077,10 +1077,10 @@ project.exit.us:                                  ; preds = %.thread.i.us, %.thr
   %118 = select nsz i1 %117, float %116, float 0.000000e+00
   %119 = fcmp nsz ogt float %118, 1.000000e+00
   %..i.i.us = select nsz i1 %119, float 1.000000e+00, float %118
-  %120 = getelementptr inbounds nuw float, ptr %.06668.us, i64 %indvars.iv
-  %121 = getelementptr inbounds nuw float, ptr %.072.us, i64 %indvars.iv
-  %122 = getelementptr inbounds nuw float, ptr %.06470.us, i64 %indvars.iv
-  %123 = getelementptr inbounds nuw float, ptr %.06569.us, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %.06668.us, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.072.us, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.06470.us, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.06569.us, i64 %indvars.iv
   %124 = fcmp nsz ugt float %..i.i.us, 0.000000e+00
   %or.cond.i.us = and i1 %64, %124
   br i1 %or.cond.i.us, label %130, label %125
@@ -1120,10 +1120,10 @@ project.exit.us:                                  ; preds = %.thread.i.us, %.thr
   %142 = sitofp i32 %spec.select.i.us to float
   %143 = fsub nsz float %138, %142
   %144 = sext i32 %spec.select.i.us to i64
-  %145 = getelementptr inbounds [4 x float], ptr %56, i64 %144
+  %145 = getelementptr inbounds [16 x i8], ptr %56, i64 %144
   %146 = load float, ptr %145, align 4, !tbaa !70
   %147 = sext i32 %spec.select61.i.us to i64
-  %148 = getelementptr inbounds [4 x float], ptr %56, i64 %147
+  %148 = getelementptr inbounds [16 x i8], ptr %56, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !70
   %150 = fsub nsz float 1.000000e+00, %143
   %151 = fmul nsz float %143, %149
@@ -1159,10 +1159,10 @@ lerp_colors32.exit.us:                            ; preds = %137, %132, %125
   br i1 %exitcond.not, label %._crit_edge.us, label %74, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %lerp_colors32.exit.us
-  %171 = getelementptr inbounds float, ptr %.072.us, i64 %19
-  %172 = getelementptr inbounds float, ptr %.06470.us, i64 %23
-  %173 = getelementptr inbounds float, ptr %.06668.us, i64 %27
-  %174 = getelementptr inbounds float, ptr %.06569.us, i64 %31
+  %171 = getelementptr inbounds [4 x i8], ptr %.072.us, i64 %19
+  %172 = getelementptr inbounds [4 x i8], ptr %.06470.us, i64 %23
+  %173 = getelementptr inbounds [4 x i8], ptr %.06668.us, i64 %27
+  %174 = getelementptr inbounds [4 x i8], ptr %.06569.us, i64 %31
   %175 = add nsw i32 %.06371.us, 1
   %exitcond76.not = icmp eq i32 %175, %15
   br i1 %exitcond76.not, label %._crit_edge73, label %.preheader.us, !llvm.loop !83

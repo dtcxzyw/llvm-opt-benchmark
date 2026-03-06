@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.hermes::SerializedScope::Declaration" = type <{ %"class.hermes::Identifier", i8, i8, [6 x i8] }>
-%"class.hermes::Identifier" = type { ptr }
 %"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
 %"class.llvh::SMLoc" = type { ptr }
 %"class.std::tuple.167" = type { %"struct.std::_Tuple_impl.168" }
@@ -40,8 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<hermes::irgen::EnterBlockScope>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<hermes::irgen::EnterBlockScope>::_Storage" = type { %"class.hermes::irgen::EnterBlockScope" }
-%"struct.llvh::detail::DenseMapPair.315" = type { %"struct.std::pair.316" }
-%"struct.std::pair.316" = type { %"class.hermes::Identifier", ptr }
+%"class.hermes::Identifier" = type { ptr }
 %"struct.hermes::irgen::(anonymous namespace)::DeclHoisting" = type { %"class.llvh::SmallVector.183", %"class.llvh::SmallVector.189" }
 %"class.llvh::SmallVector.183" = type { %"class.llvh::SmallVectorImpl.184", %"struct.llvh::SmallVectorStorage.187" }
 %"class.llvh::SmallVectorImpl.184" = type { %"class.llvh::SmallVectorTemplateBase.185" }
@@ -58,16 +55,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArrayUnion.194" = type { %"struct.llvh::AlignedCharArray" }
 %"class.llvh::StringRef" = type { ptr, i64 }
 %"struct.hermes::Module::CJSModule" = type { i32, %"class.hermes::Identifier", ptr }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair.base.302", [4 x i8] }
-%"struct.std::pair.base.302" = type <{ %"class.hermes::Identifier", i32 }>
-%"struct.llvh::detail::DenseMapPair.303" = type { %"struct.std::pair.304" }
-%"struct.std::pair.304" = type { ptr, ptr }
-%"struct.llvh::detail::DenseMapPair.306" = type { %"struct.std::pair.307" }
-%"struct.std::pair.307" = type { i32, %"class.std::vector.292" }
-%"class.std::vector.292" = type { %"struct.std::_Vector_base.293" }
-%"struct.std::_Vector_base.293" = type { %"struct.std::_Vector_base<hermes::Function *, std::allocator<hermes::Function *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::Function *, std::allocator<hermes::Function *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::Function *, std::allocator<hermes::Function *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::Function *, std::allocator<hermes::Function *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.228 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.228 = type { i64, [8 x i8] }
@@ -102,7 +89,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallVectorTemplateCommon.265" = type { %"class.llvh::SmallVectorBase" }
 %"struct.llvh::SmallVectorStorage.266" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.267"] }
 %"struct.llvh::AlignedCharArrayUnion.267" = type { %"struct.llvh::AlignedCharArray" }
-%"class.llvh::detail::DenseSetPair" = type { ptr }
 
 $_ZN6hermes6Module12addCJSModuleEjjNS_10IdentifierEPNS_8FunctionE = comdat any
 
@@ -833,7 +819,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes15SerializedScope11DeclarationELb1EE9p
   %8 = phi i32 [ %.pre.i, %if.then.i7 ], [ %6, %for.body14 ]
   %9 = load ptr, ptr %variables.i.i.i.i.i.i.i.i, align 8
   %conv.i3.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::SerializedScope::Declaration", ptr %9, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %conv.i3.i
   store ptr %call18, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i8 2, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1227,7 +1213,7 @@ _ZN6hermes9ScopeDesc16createInnerScopeEv.exit:    ; preds = %if.then8, %if.then.
   %9 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %7, %if.then8 ]
   %10 = load ptr, ptr %innerScopes_.i, align 8
   %conv.i3.i.i = zext i32 %9 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i.i
   store ptr %call.i, ptr %add.ptr.i.i.i, align 8
   %11 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i = add i32 %11, 1
@@ -1300,7 +1286,7 @@ _ZN6hermes5irgenL28materializeScopeChainForEvalERNS_9IRBuilderEPNS_6ESTree11Prog
   %17 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %15, %if.else ]
   %18 = load ptr, ptr %innerScopes_.i.i28, align 8, !noalias !18
   %conv.i3.i.i.i = zext i32 %17 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %18, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %conv.i3.i.i.i
   store ptr %call.i.i, ptr %add.ptr.i.i.i.i, align 8, !noalias !18
   %19 = load i32, ptr %Size.i.i.i.i, align 8, !noalias !18
   %add.i.i.i = add i32 %19, 1
@@ -1388,7 +1374,7 @@ _ZN6hermes9ScopeDesc16createInnerScopeEv.exit59:  ; preds = %_ZN4llvh8OptionalIN
   %27 = phi i32 [ %.pre.i.i55, %if.then.i.i53 ], [ %25, %_ZN4llvh8OptionalIN6hermes5irgen15FunctionContextEE7emplaceIJPNS2_11ESTreeIRGenERPNS1_8FunctionEDnEEEvDpOT_.exit ]
   %28 = load ptr, ptr %innerScopes_.i49, align 8
   %conv.i3.i.i56 = zext i32 %27 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds nuw ptr, ptr %28, i64 %conv.i3.i.i56
+  %add.ptr.i.i.i57 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %conv.i3.i.i56
   store ptr %call.i31, ptr %add.ptr.i.i.i57, align 8
   %29 = load i32, ptr %Size.i.i.i50, align 8
   %add.i.i58 = add i32 %29, 1
@@ -1565,7 +1551,7 @@ if.end.i.i.i:                                     ; preds = %if.then5
   %sub.i.i.i = add i32 %8, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %7, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %6, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
@@ -1582,20 +1568,20 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %7, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %6, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %if.then5
   %idx.ext.i.i.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %7, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %8 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %7, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit, label %if.end.i
 
@@ -1947,7 +1933,7 @@ if.end.i.i.i:                                     ; preds = %_ZNSt5dequeIN6herme
   %sub.i.i.i = add i32 %9, -1
   %BucketNo.019.i.i.i = and i32 %xor.i.i.i.i.i.i, %sub.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %8, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8, !noalias !34
   %cmp.i.i23.i.i.i = icmp eq ptr %name.coerce, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit, label %if.end13.i.i.i
@@ -1975,7 +1961,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i3 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %8, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i3 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i3, align 8, !noalias !34
   %cmp.i.i.i.i.i = icmp eq ptr %name.coerce, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E11try_emplaceIJRjEEESt4pairINS_16DenseMapIteratorIS3_jS5_S8_Lb0EEEbERKS3_DpOT_.exit, label %if.end13.i.i.i, !llvm.loop !37
@@ -2006,7 +1992,7 @@ if.end.i.i.i7:                                    ; preds = %_ZN4llvh12DenseMapB
   %sub.i.i.i8 = add i32 %12, -1
   %BucketNo.019.i.i.i9 = and i32 %xor.i.i.i.i.i, %sub.i.i.i8
   %idx.ext20.i.i.i10 = zext nneg i32 %BucketNo.019.i.i.i9 to i64
-  %add.ptr21.i.i.i11 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %11, i64 %idx.ext20.i.i.i10
+  %add.ptr21.i.i.i11 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %idx.ext20.i.i.i10
   %14 = load ptr, ptr %add.ptr21.i.i.i11, align 8, !noalias !38
   %cmp.i22.i.i.i = icmp eq ptr %function, %14
   br i1 %cmp.i22.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit, label %if.end9.i.i.i
@@ -2034,7 +2020,7 @@ if.end13.i.i.i13:                                 ; preds = %if.end9.i.i.i
   %add.i.i.i17 = add i32 %ProbeAmt.024.i.i.i12, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i18 = and i32 %add.i.i.i17, %sub.i.i.i8
   %idx.ext.i.i.i19 = zext i32 %BucketNo.0.i.i.i18 to i64
-  %add.ptr.i.i.i20 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %11, i64 %idx.ext.i.i.i19
+  %add.ptr.i.i.i20 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %idx.ext.i.i.i19
   %16 = load ptr, ptr %add.ptr.i.i.i20, align 8, !noalias !38
   %cmp.i.i.i.i = icmp eq ptr %function, %16
   br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_.exit, label %if.end9.i.i.i, !llvm.loop !41
@@ -2061,7 +2047,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh12DenseMapB
   %sub.i.i.i.i = add i32 %19, -1
   %BucketNo.019.i.i.i.i = and i32 %mul.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %18, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %idx.ext20.i.i.i.i
   %20 = load i32, ptr %add.ptr21.i.i.i.i, align 4
   %cmp.i22.i.i.i.i = icmp eq i32 %segmentID, %20
   br i1 %cmp.i22.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit, label %if.end9.i.i.i.i
@@ -2089,7 +2075,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.025.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i34 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %18, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i34 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %idx.ext.i.i.i.i
   %22 = load i32, ptr %add.ptr.i.i.i.i34, align 4
   %cmp.i.i.i.i.i35 = icmp eq i32 %segmentID, %22
   br i1 %cmp.i.i.i.i.i35, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_EixERKj.exit, label %if.end9.i.i.i.i, !llvm.loop !42
@@ -2166,7 +2152,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6her
 _ZNSt6vectorIPN6hermes8FunctionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %second.i, align 8
   store ptr %incdec.ptr.i.i47, ptr %_M_finish.i36, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i44
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i44
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIPN6hermes8FunctionESaIS2_EE9push_backERKS2_.exit
 
@@ -2348,7 +2334,7 @@ _ZN6hermes5irgenL36materializeScopeChainForLazyFunctionERNS_9IRBuilderEPNS_3hbc1
   %20 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i19 ], [ %18, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEEaSERKS3_.exit ]
   %21 = load ptr, ptr %innerScopes_.i.i, align 8, !noalias !43
   %conv.i3.i.i.i = zext i32 %20 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %21, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %conv.i3.i.i.i
   store ptr %call.i.i, ptr %add.ptr.i.i.i.i, align 8, !noalias !43
   %22 = load i32, ptr %Size.i.i.i.i, align 8, !noalias !43
   %add.i.i.i = add i32 %22, 1
@@ -2391,7 +2377,7 @@ if.end.i.i.i20:                                   ; preds = %if.then
   %sub.i.i.i = add i32 %29, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %27, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
@@ -2408,20 +2394,20 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i21 = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i21, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i22 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i22 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i22, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %27, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %if.then
   %idx.ext.i.i.i.i = zext i32 %29 to i64
-  %add.ptr.i.i.i.i23 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i23 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i20
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i23, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i20 ], [ %add.ptr.i.i.i22, %if.end21.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %29 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %28, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit, label %if.end.i
 
@@ -2518,7 +2504,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %sub.i.i.i = add i32 %1, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %name.coerce, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
@@ -2535,20 +2521,20 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %name.coerce, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %entry
   %idx.ext.i.i.i.i = zext i32 %1 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %1 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %if.end16, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
 
@@ -2664,7 +2650,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %sub.i.i.i.i = add i32 %1, -1
   %BucketNo.019.i.i.i.i = and i32 %xor.i.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext20.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i.i = load ptr, ptr %add.ptr21.i.i.i.i, align 8
   %cmp.i.i23.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, %agg.tmp7.sroa.0.0.copyload22.i.i.i.i
   br i1 %cmp.i.i23.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_EixERKS3_.exit, label %if.end13.i.i.i.i
@@ -2692,7 +2678,7 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.026.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, %agg.tmp7.sroa.0.0.copyload.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_EixERKS3_.exit, label %if.end13.i.i.i.i, !llvm.loop !27
@@ -2753,7 +2739,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %sub.i.i.i = add i32 %1, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %name.coerce, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
@@ -2770,20 +2756,20 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %name.coerce, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %entry
   %idx.ext.i.i.i.i = zext i32 %1 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %1 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %0, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %do.end, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
 
@@ -2844,7 +2830,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -2871,7 +2857,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -2938,7 +2924,7 @@ if.end.i.i.i:                                     ; preds = %entry
   %sub.i.i.i = add i32 %2, -1
   %BucketNo.019.i.i.i = and i32 %xor.i.i.i.i.i.i, %sub.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %1, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %0, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
@@ -2955,20 +2941,20 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %1, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %0, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %entry
   %idx.ext.i.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %1, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %2 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %1, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %if.end, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
 
@@ -3153,7 +3139,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %sub.i.i.i = add i32 %3, -1
   %BucketNo.019.i.i.i = and i32 %xor.i.i.i.i.i.i, %sub.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %2, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %1, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i
@@ -3170,20 +3156,20 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %2, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %1, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
 
 if.end.i.i:                                       ; preds = %if.end13.i.i.i, %if.then
   %idx.ext.i.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %2, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i: ; preds = %if.end21.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end21.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %3 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %2, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %return, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit
 
@@ -3739,7 +3725,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i
   %sub.i.i.i.i = add i32 %19, -1
   %BucketNo.019.i.i.i.i = and i32 %xor.i.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %18, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %idx.ext20.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i.i = load ptr, ptr %add.ptr21.i.i.i.i, align 8
   %cmp.i.i23.i.i.i.i = icmp eq ptr %17, %agg.tmp7.sroa.0.0.copyload22.i.i.i.i
   br i1 %cmp.i.i23.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i, label %if.end13.i.i.i.i
@@ -3756,20 +3742,20 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.026.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %18, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %idx.ext.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %17, %agg.tmp7.sroa.0.0.copyload.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i, label %if.end13.i.i.i.i, !llvm.loop !27
 
 if.end.i.i.i:                                     ; preds = %if.end13.i.i.i.i, %if.then.i
   %idx.ext.i.i.i.i.i = zext i32 %19 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %18, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %idx.ext.i.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i: ; preds = %if.end21.i.i.i.i, %if.end.i.i.i, %if.end.i.i.i.i
   %cond.sink.i.ph.pn.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end21.i.i.i.i ]
   %idx.ext.i.i2.i.i = zext i32 %19 to i64
-  %add.ptr.i.i3.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %18, i64 %idx.ext.i.i2.i.i
+  %add.ptr.i.i3.i.i = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %idx.ext.i.i2.i.i
   %cmp.i.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i.i, %add.ptr.i.i3.i.i
   br i1 %cmp.i.i.i, label %if.else, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit.i
 
@@ -4337,7 +4323,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   %23 = phi i32 [ %.pre.i, %if.then.i ], [ %21, %if.then49 ]
   %24 = load ptr, ptr %excludedItems, align 8
   %conv.i3.i = zext i32 %23 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %24, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %conv.i3.i
   %25 = ptrtoint ptr %call57 to i64
   store i64 %25, ptr %add.ptr.i.i, align 1
   %26 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -4437,7 +4423,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit45: 
   %42 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %40, %if.else ]
   %43 = load ptr, ptr %excludedItems, align 8
   %conv.i3.i42 = zext i32 %42 to i64
-  %add.ptr.i.i43 = getelementptr inbounds nuw ptr, ptr %43, i64 %conv.i3.i42
+  %add.ptr.i.i43 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %conv.i3.i42
   %44 = ptrtoint ptr %call74 to i64
   store i64 %44, ptr %add.ptr.i.i43, align 1
   %45 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -4833,7 +4819,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i
   %sub.i.i.i.i = add i32 %10, -1
   %BucketNo.019.i.i.i.i = and i32 %xor.i.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %9, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %idx.ext20.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i.i = load ptr, ptr %add.ptr21.i.i.i.i, align 8
   %cmp.i.i23.i.i.i.i = icmp eq ptr %8, %agg.tmp7.sroa.0.0.copyload22.i.i.i.i
   br i1 %cmp.i.i23.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i, label %if.end13.i.i.i.i
@@ -4850,20 +4836,20 @@ if.end21.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.026.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %9, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %idx.ext.i.i.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %8, %agg.tmp7.sroa.0.0.copyload.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i, label %if.end13.i.i.i.i, !llvm.loop !27
 
 if.end.i.i.i:                                     ; preds = %if.end13.i.i.i.i, %if.then.i
   %idx.ext.i.i.i.i.i = zext i32 %10 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %9, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %idx.ext.i.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4findERKS3_.exit.i.i: ; preds = %if.end21.i.i.i.i, %if.end.i.i.i, %if.end.i.i.i.i
   %cond.sink.i.ph.pn.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %if.end.i.i.i ], [ %add.ptr21.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end21.i.i.i.i ]
   %idx.ext.i.i2.i.i = zext i32 %10 to i64
-  %add.ptr.i.i3.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %9, i64 %idx.ext.i.i2.i.i
+  %add.ptr.i.i3.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %idx.ext.i.i2.i.i
   %cmp.i.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i.i, %add.ptr.i.i3.i.i
   br i1 %cmp.i.i.i, label %if.else, label %_ZNK6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE6lookupERKS1_.exit.i
 
@@ -5217,7 +5203,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   %7 = phi i32 [ %.pre.i, %if.then.i ], [ %5, %if.else ]
   %8 = load ptr, ptr %computedExcludedItems, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i3.i
   %9 = ptrtoint ptr %3 to i64
   store i64 %9, ptr %add.ptr.i.i, align 1
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
@@ -5501,7 +5487,7 @@ if.end.i.i.i.i:                                   ; preds = %entry
   %sub.i.i.i.i = add i32 %1, -1
   %BucketNo.019.i.i.i.i = and i32 %xor.i.i.i.i.i.i, %sub.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
-  %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %0, i64 %idx.ext20.i.i.i.i
+  %add.ptr21.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idx.ext20.i.i.i.i
   %4 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !79
   %cmp.i22.i.i.i.i = icmp eq ptr %2, %4
   br i1 %cmp.i22.i.i.i.i, label %if.end, label %if.end9.i.i.i.i
@@ -5529,7 +5515,7 @@ if.end13.i.i.i.i:                                 ; preds = %if.end9.i.i.i.i
   %add.i.i.i.i = add i32 %ProbeAmt.024.i.i.i.i, %BucketNo.025.i.i.i.i
   %BucketNo.0.i.i.i.i = and i32 %add.i.i.i.i, %sub.i.i.i.i
   %idx.ext.i.i.i.i = zext i32 %BucketNo.0.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %0, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idx.ext.i.i.i.i
   %6 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !noalias !79
   %cmp.i.i.i.i.i = icmp eq ptr %2, %6
   br i1 %cmp.i.i.i.i.i, label %if.end, label %if.end9.i.i.i.i, !llvm.loop !84
@@ -5598,7 +5584,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6her
 _ZNSt6vectorIPN6hermes7LiteralESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6hermes7LiteralESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %vector_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end
 
@@ -5826,7 +5812,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes15SerializedScope11DeclarationELb1EE9p
   %31 = phi i32 [ %.pre.i, %if.then.i ], [ %26, %for.body ]
   %32 = load ptr, ptr %variables.i.i.i.i.i.i.i.i, align 8
   %conv.i3.i = zext i32 %31 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::SerializedScope::Declaration", ptr %32, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %conv.i3.i
   store ptr %retval.sroa.0.0.copyload.i31, ptr %add.ptr.i.i, align 1
   %ref.tmp23.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i8 %28, ptr %ref.tmp23.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -6091,7 +6077,7 @@ _ZN6hermes9ScopeDesc16createInnerScopeEv.exit:    ; preds = %entry, %if.then.i.i
   %3 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %1, %entry ]
   %4 = load ptr, ptr %innerScopes_.i, align 8
   %conv.i3.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i
   store ptr %call.i, ptr %add.ptr.i.i.i, align 8
   %5 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i = add i32 %5, 1
@@ -6461,7 +6447,7 @@ _ZN6hermes9ScopeDesc16createInnerScopeEv.exit:    ; preds = %if.end9, %if.then.i
   %46 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %44, %if.end9 ]
   %47 = load ptr, ptr %innerScopes_.i, align 8
   %conv.i3.i.i = zext i32 %46 to i64
-  %add.ptr.i.i.i116 = getelementptr inbounds nuw ptr, ptr %47, i64 %conv.i3.i.i
+  %add.ptr.i.i.i116 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %conv.i3.i.i
   store ptr %call.i, ptr %add.ptr.i.i.i116, align 8
   %48 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i = add i32 %48, 1
@@ -6760,9 +6746,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -6781,12 +6767,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -6814,9 +6800,9 @@ _ZNSt11_Deque_baseIN6hermes6Module9CJSModuleESaIS2_EE15_M_allocate_mapEm.exit: ;
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN6hermes6Module9CJSModuleES4_ET0_T_S6_S5_.exit30, label %if.then.i.i.i.i.i28
@@ -6843,7 +6829,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 504
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
@@ -6898,7 +6884,7 @@ if.end.i.i:                                       ; preds = %if.then
   %sub.i.i = add i32 %3, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i.i, %sub.i.i
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext20.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i = load ptr, ptr %add.ptr21.i.i, align 8
   %cmp.i.i23.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload22.i.i
   br i1 %cmp.i.i23.i.i, label %if.end12, label %if.end13.i.i
@@ -6926,7 +6912,7 @@ if.end21.i.i:                                     ; preds = %if.end13.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.026.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i.i, label %if.end12, label %if.end13.i.i, !llvm.loop !37
@@ -6958,7 +6944,7 @@ if.end.i.i11:                                     ; preds = %if.then10
   %sub.i.i17 = add i32 %7, -1
   %BucketNo.019.i.i18 = and i32 %xor.i.i.i.i.i16, %sub.i.i17
   %idx.ext20.i.i19 = zext nneg i32 %BucketNo.019.i.i18 to i64
-  %add.ptr21.i.i20 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %6, i64 %idx.ext20.i.i19
+  %add.ptr21.i.i20 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext20.i.i19
   %agg.tmp7.sroa.0.0.copyload22.i.i21 = load ptr, ptr %add.ptr21.i.i20, align 8
   %cmp.i.i23.i.i22 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload22.i.i21
   br i1 %cmp.i.i23.i.i22, label %if.end12, label %if.end13.i.i23
@@ -6986,7 +6972,7 @@ if.end21.i.i30:                                   ; preds = %if.end13.i.i23
   %add.i.i36 = add i32 %ProbeAmt.024.i.i28, %BucketNo.026.i.i26
   %BucketNo.0.i.i37 = and i32 %add.i.i36, %sub.i.i17
   %idx.ext.i.i38 = zext i32 %BucketNo.0.i.i37 to i64
-  %add.ptr.i.i39 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %6, i64 %idx.ext.i.i38
+  %add.ptr.i.i39 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext.i.i38
   %agg.tmp7.sroa.0.0.copyload.i.i40 = load ptr, ptr %add.ptr.i.i39, align 8
   %cmp.i.i.i.i41 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload.i.i40
   br i1 %cmp.i.i.i.i41, label %if.end12, label %if.end13.i.i23, !llvm.loop !37
@@ -7106,7 +7092,7 @@ if.then.i:                                        ; preds = %for.body.i5
   %sub.i.i.i = add i32 %6, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %5, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %if.end13.i.i.i
@@ -7134,7 +7120,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i12.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i13.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %5, i64 %idx.ext.i.i12.i
+  %add.ptr.i.i13.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %idx.ext.i.i12.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i13.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %if.end13.i.i.i, !llvm.loop !37
@@ -7195,7 +7181,7 @@ if.end.i.i:                                       ; preds = %if.then
   %sub.i.i = add i32 %3, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i, %sub.i.i
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %2, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext20.i.i
   %6 = load ptr, ptr %add.ptr21.i.i, align 8
   %cmp.i22.i.i = icmp eq ptr %4, %6
   br i1 %cmp.i22.i.i, label %if.end12, label %if.end9.i.i
@@ -7223,7 +7209,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.025.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %8
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !41
@@ -7255,7 +7241,7 @@ if.end.i.i11:                                     ; preds = %if.then10
   %sub.i.i16 = add i32 %11, -1
   %BucketNo.019.i.i17 = and i32 %xor.i.i.i.i15, %sub.i.i16
   %idx.ext20.i.i18 = zext nneg i32 %BucketNo.019.i.i17 to i64
-  %add.ptr21.i.i19 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %10, i64 %idx.ext20.i.i18
+  %add.ptr21.i.i19 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext20.i.i18
   %14 = load ptr, ptr %add.ptr21.i.i19, align 8
   %cmp.i22.i.i20 = icmp eq ptr %12, %14
   br i1 %cmp.i22.i.i20, label %if.end12, label %if.end9.i.i21
@@ -7283,7 +7269,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   %add.i.i33 = add i32 %ProbeAmt.024.i.i24, %BucketNo.025.i.i23
   %BucketNo.0.i.i34 = and i32 %add.i.i33, %sub.i.i16
   %idx.ext.i.i35 = zext i32 %BucketNo.0.i.i34 to i64
-  %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %10, i64 %idx.ext.i.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext.i.i35
   %16 = load ptr, ptr %add.ptr.i.i36, align 8
   %cmp.i.i.i37 = icmp eq ptr %12, %16
   br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !41
@@ -7403,7 +7389,7 @@ if.then.i:                                        ; preds = %for.body.i5
   %sub.i.i.i = add i32 %7, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %6, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext20.i.i.i
   %8 = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i22.i.i.i = icmp eq ptr %5, %8
   br i1 %cmp.i22.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, label %if.end9.i.i.i
@@ -7431,7 +7417,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i11.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i12.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.303", ptr %6, i64 %idx.ext.i.i11.i
+  %add.ptr.i.i12.i = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext.i.i11.i
   %10 = load ptr, ptr %add.ptr.i.i12.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %10
   br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, label %if.end9.i.i.i, !llvm.loop !41
@@ -7520,7 +7506,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit: ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %idx.ext.i.i
   tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #15
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
@@ -7536,7 +7522,7 @@ if.end.i.i9:                                      ; preds = %for.body.i.i.i, %_Z
   %sub.i.i10 = add i32 %.pr111, -1
   %BucketNo.019.i.i = and i32 %mul.i.i.i.i, %sub.i.i10
   %idx.ext20.i.i = zext i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %5, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %idx.ext20.i.i
   %7 = load i32, ptr %add.ptr21.i.i, align 4
   %cmp.i22.i.i = icmp eq i32 %6, %7
   br i1 %cmp.i22.i.i, label %if.end12, label %if.end9.i.i
@@ -7564,7 +7550,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.025.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i10
   %idx.ext.i.i11 = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i12 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %5, i64 %idx.ext.i.i11
+  %add.ptr.i.i12 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %idx.ext.i.i11
   %9 = load i32, ptr %add.ptr.i.i12, align 4
   %cmp.i.i.i = icmp eq i32 %6, %9
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !42
@@ -7623,7 +7609,7 @@ for.body.i.i.i44:                                 ; preds = %if.then.i.i37, %for
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E4growEj.exit48: ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
-  %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %11, i64 %idx.ext.i.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %idx.ext.i.i35
   tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %11, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %11) #15
   %.pr83.pre = load i32, ptr %NumBuckets.i.i, align 8
@@ -7639,7 +7625,7 @@ if.end.i.i51:                                     ; preds = %for.body.i.i.i44, %
   %sub.i.i53 = add i32 %.pr83114, -1
   %BucketNo.019.i.i54 = and i32 %mul.i.i.i.i52, %sub.i.i53
   %idx.ext20.i.i55 = zext i32 %BucketNo.019.i.i54 to i64
-  %add.ptr21.i.i56 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %14, i64 %idx.ext20.i.i55
+  %add.ptr21.i.i56 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %idx.ext20.i.i55
   %16 = load i32, ptr %add.ptr21.i.i56, align 4
   %cmp.i22.i.i57 = icmp eq i32 %15, %16
   br i1 %cmp.i22.i.i57, label %if.end12, label %if.end9.i.i58
@@ -7667,7 +7653,7 @@ if.end13.i.i64:                                   ; preds = %if.end9.i.i58
   %add.i.i70 = add i32 %ProbeAmt.024.i.i61, %BucketNo.025.i.i60
   %BucketNo.0.i.i71 = and i32 %add.i.i70, %sub.i.i53
   %idx.ext.i.i72 = zext i32 %BucketNo.0.i.i71 to i64
-  %add.ptr.i.i73 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %14, i64 %idx.ext.i.i72
+  %add.ptr.i.i73 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %idx.ext.i.i72
   %18 = load i32, ptr %add.ptr.i.i73, align 4
   %cmp.i.i.i74 = icmp eq i32 %15, %18
   br i1 %cmp.i.i.i74, label %if.end12, label %if.end9.i.i58, !llvm.loop !42
@@ -7734,7 +7720,7 @@ if.then:                                          ; preds = %for.body
   %sub.i.i = add i32 %4, -1
   %BucketNo.019.i.i = and i32 %sub.i.i, %mul.i.i.i.i
   %idx.ext20.i.i = zext i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %3, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %idx.ext20.i.i
   %5 = load i32, ptr %add.ptr21.i.i, align 4
   %cmp.i22.i.i = icmp eq i32 %2, %5
   br i1 %cmp.i22.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E15LookupBucketForIjEEbRKT_RPSC_.exit, label %if.end9.i.i
@@ -7762,7 +7748,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.025.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i11 = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i12 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.306", ptr %3, i64 %idx.ext.i.i11
+  %add.ptr.i.i12 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %idx.ext.i.i11
   %7 = load i32, ptr %add.ptr.i.i12, align 4
   %cmp.i.i.i = icmp eq i32 %2, %7
   br i1 %cmp.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIjSt6vectorIPN6hermes8FunctionESaIS5_EENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E15LookupBucketForIjEEbRKT_RPSC_.exit, label %if.end9.i.i, !llvm.loop !42
@@ -7851,7 +7837,7 @@ if.end.i.i:                                       ; preds = %if.then
   %sub.i.i = add i32 %3, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i.i, %sub.i.i
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %2, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext20.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i = load ptr, ptr %add.ptr21.i.i, align 8
   %cmp.i.i23.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload22.i.i
   br i1 %cmp.i.i23.i.i, label %if.end12, label %if.end13.i.i
@@ -7879,7 +7865,7 @@ if.end21.i.i:                                     ; preds = %if.end13.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.026.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %idx.ext.i.i
   %agg.tmp7.sroa.0.0.copyload.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i, %agg.tmp7.sroa.0.0.copyload.i.i
   br i1 %cmp.i.i.i.i, label %if.end12, label %if.end13.i.i, !llvm.loop !27
@@ -7911,7 +7897,7 @@ if.end.i.i11:                                     ; preds = %if.then10
   %sub.i.i17 = add i32 %7, -1
   %BucketNo.019.i.i18 = and i32 %xor.i.i.i.i.i16, %sub.i.i17
   %idx.ext20.i.i19 = zext nneg i32 %BucketNo.019.i.i18 to i64
-  %add.ptr21.i.i20 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %6, i64 %idx.ext20.i.i19
+  %add.ptr21.i.i20 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext20.i.i19
   %agg.tmp7.sroa.0.0.copyload22.i.i21 = load ptr, ptr %add.ptr21.i.i20, align 8
   %cmp.i.i23.i.i22 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload22.i.i21
   br i1 %cmp.i.i23.i.i22, label %if.end12, label %if.end13.i.i23
@@ -7939,7 +7925,7 @@ if.end21.i.i30:                                   ; preds = %if.end13.i.i23
   %add.i.i36 = add i32 %ProbeAmt.024.i.i28, %BucketNo.026.i.i26
   %BucketNo.0.i.i37 = and i32 %add.i.i36, %sub.i.i17
   %idx.ext.i.i38 = zext i32 %BucketNo.0.i.i37 to i64
-  %add.ptr.i.i39 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %6, i64 %idx.ext.i.i38
+  %add.ptr.i.i39 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %idx.ext.i.i38
   %agg.tmp7.sroa.0.0.copyload.i.i40 = load ptr, ptr %add.ptr.i.i39, align 8
   %cmp.i.i.i.i41 = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i.i12, %agg.tmp7.sroa.0.0.copyload.i.i40
   br i1 %cmp.i.i.i.i41, label %if.end12, label %if.end13.i.i23, !llvm.loop !27
@@ -8059,7 +8045,7 @@ if.then.i:                                        ; preds = %for.body.i5
   %sub.i.i.i = add i32 %6, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %5, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %idx.ext20.i.i.i
   %agg.tmp7.sroa.0.0.copyload22.i.i.i = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i.i23.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload22.i.i.i
   br i1 %cmp.i.i23.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i, label %if.end13.i.i.i
@@ -8087,7 +8073,7 @@ if.end21.i.i.i:                                   ; preds = %if.end13.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.026.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i12.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i13.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.315", ptr %5, i64 %idx.ext.i.i12.i
+  %add.ptr.i.i13.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %idx.ext.i.i12.i
   %agg.tmp7.sroa.0.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i13.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %agg.tmp7.sroa.0.0.copyload.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEPNS2_19ScopedHashTableNodeIS3_PNS2_5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E15LookupBucketForIS3_EEbRKT_RPSD_.exit.i, label %if.end13.i.i.i, !llvm.loop !27
@@ -9324,7 +9310,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9351,7 +9337,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9391,7 +9377,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9418,7 +9404,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9458,7 +9444,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9485,7 +9471,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9569,7 +9555,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9596,7 +9582,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9680,7 +9666,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9707,7 +9693,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9791,7 +9777,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9818,7 +9804,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9899,7 +9885,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -9926,7 +9912,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -9986,7 +9972,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10013,7 +9999,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10073,7 +10059,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10100,7 +10086,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10163,7 +10149,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10190,7 +10176,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10253,7 +10239,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10280,7 +10266,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10346,7 +10332,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10373,7 +10359,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10413,7 +10399,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10440,7 +10426,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10480,7 +10466,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10507,7 +10493,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10573,7 +10559,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10600,7 +10586,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10657,7 +10643,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10684,7 +10670,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10741,7 +10727,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10768,7 +10754,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10825,7 +10811,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10852,7 +10838,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10909,7 +10895,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -10936,7 +10922,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -10996,7 +10982,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11023,7 +11009,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11092,7 +11078,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11119,7 +11105,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11179,7 +11165,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11206,7 +11192,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11263,7 +11249,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11290,7 +11276,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11353,7 +11339,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11380,7 +11366,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11443,7 +11429,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11470,7 +11456,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11510,7 +11496,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11537,7 +11523,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11577,7 +11563,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11604,7 +11590,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11644,7 +11630,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11671,7 +11657,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11711,7 +11697,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11738,7 +11724,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11778,7 +11764,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11805,7 +11791,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11845,7 +11831,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11872,7 +11858,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11912,7 +11898,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -11939,7 +11925,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -11979,7 +11965,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12006,7 +11992,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12072,7 +12058,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12099,7 +12085,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12165,7 +12151,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12192,7 +12178,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12258,7 +12244,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12285,7 +12271,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12342,7 +12328,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12369,7 +12355,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12441,7 +12427,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12468,7 +12454,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12525,7 +12511,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12552,7 +12538,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12609,7 +12595,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12636,7 +12622,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12696,7 +12682,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12723,7 +12709,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12795,7 +12781,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12822,7 +12808,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12894,7 +12880,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -12921,7 +12907,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -12981,7 +12967,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13008,7 +12994,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13065,7 +13051,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13092,7 +13078,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13149,7 +13135,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13176,7 +13162,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13236,7 +13222,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13263,7 +13249,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13323,7 +13309,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13350,7 +13336,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13410,7 +13396,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13437,7 +13423,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13500,7 +13486,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13527,7 +13513,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13587,7 +13573,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13614,7 +13600,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13671,7 +13657,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13698,7 +13684,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13738,7 +13724,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13765,7 +13751,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13822,7 +13808,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13849,7 +13835,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13906,7 +13892,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -13933,7 +13919,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -13993,7 +13979,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14020,7 +14006,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14089,7 +14075,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14116,7 +14102,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14176,7 +14162,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14203,7 +14189,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14263,7 +14249,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14290,7 +14276,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14356,7 +14342,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14383,7 +14369,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14464,7 +14450,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14491,7 +14477,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14551,7 +14537,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14578,7 +14564,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14618,7 +14604,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14645,7 +14631,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14705,7 +14691,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14732,7 +14718,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14831,7 +14817,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14858,7 +14844,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -14957,7 +14943,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -14984,7 +14970,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15050,7 +15036,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15077,7 +15063,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15146,7 +15132,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15173,7 +15159,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15242,7 +15228,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15269,7 +15255,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15329,7 +15315,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15356,7 +15342,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15440,7 +15426,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15467,7 +15453,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15527,7 +15513,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15554,7 +15540,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15611,7 +15597,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15638,7 +15624,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15695,7 +15681,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15722,7 +15708,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15782,7 +15768,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15809,7 +15795,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15884,7 +15870,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15911,7 +15897,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -15971,7 +15957,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -15998,7 +15984,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16055,7 +16041,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16082,7 +16068,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16139,7 +16125,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16166,7 +16152,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16223,7 +16209,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16250,7 +16236,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16322,7 +16308,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16349,7 +16335,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16421,7 +16407,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16448,7 +16434,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16505,7 +16491,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16532,7 +16518,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16592,7 +16578,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16619,7 +16605,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16659,7 +16645,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16686,7 +16672,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16746,7 +16732,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16773,7 +16759,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16833,7 +16819,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16860,7 +16846,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16900,7 +16886,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -16927,7 +16913,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -16984,7 +16970,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17011,7 +16997,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17068,7 +17054,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17095,7 +17081,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17170,7 +17156,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17197,7 +17183,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17254,7 +17240,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17281,7 +17267,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17341,7 +17327,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17368,7 +17354,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17425,7 +17411,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17452,7 +17438,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17492,7 +17478,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17519,7 +17505,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17559,7 +17545,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17586,7 +17572,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17661,7 +17647,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17688,7 +17674,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17763,7 +17749,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17790,7 +17776,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17830,7 +17816,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17857,7 +17843,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17897,7 +17883,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17924,7 +17910,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -17964,7 +17950,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -17991,7 +17977,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18031,7 +18017,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18058,7 +18044,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18098,7 +18084,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18125,7 +18111,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18165,7 +18151,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18192,7 +18178,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18232,7 +18218,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18259,7 +18245,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18299,7 +18285,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18326,7 +18312,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18366,7 +18352,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18393,7 +18379,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18433,7 +18419,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18460,7 +18446,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18500,7 +18486,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18527,7 +18513,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18567,7 +18553,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18594,7 +18580,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18634,7 +18620,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18661,7 +18647,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18701,7 +18687,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18728,7 +18714,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18768,7 +18754,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18795,7 +18781,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18835,7 +18821,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18862,7 +18848,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -18902,7 +18888,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -18929,7 +18915,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19010,7 +18996,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19037,7 +19023,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19097,7 +19083,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19124,7 +19110,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19202,7 +19188,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19229,7 +19215,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19289,7 +19275,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19316,7 +19302,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19373,7 +19359,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19400,7 +19386,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19460,7 +19446,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19487,7 +19473,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19544,7 +19530,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19571,7 +19557,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19628,7 +19614,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19655,7 +19641,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19712,7 +19698,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19739,7 +19725,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19799,7 +19785,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19826,7 +19812,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19892,7 +19878,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -19919,7 +19905,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -19979,7 +19965,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20006,7 +19992,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20069,7 +20055,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20096,7 +20082,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20153,7 +20139,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20180,7 +20166,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20237,7 +20223,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20264,7 +20250,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20330,7 +20316,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20357,7 +20343,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20423,7 +20409,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20450,7 +20436,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20510,7 +20496,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20537,7 +20523,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20597,7 +20583,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20624,7 +20610,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20684,7 +20670,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20711,7 +20697,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20777,7 +20763,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20804,7 +20790,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20864,7 +20850,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20891,7 +20877,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -20963,7 +20949,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -20990,7 +20976,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21053,7 +21039,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21080,7 +21066,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21146,7 +21132,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21173,7 +21159,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21251,7 +21237,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21278,7 +21264,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21341,7 +21327,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21368,7 +21354,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21434,7 +21420,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21461,7 +21447,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21539,7 +21525,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21566,7 +21552,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21674,7 +21660,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21701,7 +21687,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21761,7 +21747,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21788,7 +21774,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21869,7 +21855,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21896,7 +21882,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -21953,7 +21939,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -21980,7 +21966,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22040,7 +22026,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22067,7 +22053,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22142,7 +22128,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22169,7 +22155,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22226,7 +22212,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22253,7 +22239,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22313,7 +22299,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22340,7 +22326,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22397,7 +22383,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22424,7 +22410,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22484,7 +22470,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22511,7 +22497,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22571,7 +22557,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22598,7 +22584,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22655,7 +22641,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22682,7 +22668,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22793,7 +22779,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22820,7 +22806,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22883,7 +22869,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22910,7 +22896,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -22967,7 +22953,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -22994,7 +22980,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23054,7 +23040,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23081,7 +23067,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23138,7 +23124,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23165,7 +23151,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23231,7 +23217,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23258,7 +23244,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23324,7 +23310,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23351,7 +23337,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23391,7 +23377,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23418,7 +23404,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23484,7 +23470,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23511,7 +23497,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23574,7 +23560,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23601,7 +23587,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23667,7 +23653,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23694,7 +23680,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23754,7 +23740,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23781,7 +23767,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23841,7 +23827,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23868,7 +23854,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23908,7 +23894,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -23935,7 +23921,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -23992,7 +23978,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24019,7 +24005,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24079,7 +24065,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24106,7 +24092,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24172,7 +24158,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24199,7 +24185,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24265,7 +24251,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24292,7 +24278,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24358,7 +24344,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24385,7 +24371,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24451,7 +24437,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24478,7 +24464,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24535,7 +24521,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24562,7 +24548,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24622,7 +24608,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24649,7 +24635,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24709,7 +24695,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24736,7 +24722,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24796,7 +24782,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24823,7 +24809,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24883,7 +24869,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24910,7 +24896,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -24967,7 +24953,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -24994,7 +24980,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25034,7 +25020,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25061,7 +25047,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25101,7 +25087,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25128,7 +25114,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25168,7 +25154,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25195,7 +25181,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25235,7 +25221,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25262,7 +25248,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25302,7 +25288,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25329,7 +25315,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25369,7 +25355,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25396,7 +25382,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25436,7 +25422,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25463,7 +25449,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25503,7 +25489,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25530,7 +25516,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25570,7 +25556,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25597,7 +25583,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25637,7 +25623,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25664,7 +25650,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25704,7 +25690,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25731,7 +25717,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25788,7 +25774,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25815,7 +25801,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25875,7 +25861,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25902,7 +25888,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -25959,7 +25945,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -25986,7 +25972,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26046,7 +26032,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26073,7 +26059,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26133,7 +26119,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26160,7 +26146,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26235,7 +26221,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26262,7 +26248,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26337,7 +26323,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26364,7 +26350,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26424,7 +26410,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26451,7 +26437,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26517,7 +26503,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26544,7 +26530,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26604,7 +26590,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26631,7 +26617,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26691,7 +26677,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26718,7 +26704,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26775,7 +26761,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26802,7 +26788,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26865,7 +26851,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26892,7 +26878,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -26970,7 +26956,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -26997,7 +26983,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27057,7 +27043,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27084,7 +27070,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27150,7 +27136,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27177,7 +27163,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27246,7 +27232,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27273,7 +27259,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27333,7 +27319,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27360,7 +27346,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27420,7 +27406,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27447,7 +27433,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27513,7 +27499,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27540,7 +27526,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27600,7 +27586,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27627,7 +27613,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27693,7 +27679,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27720,7 +27706,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27783,7 +27769,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27810,7 +27796,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27876,7 +27862,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27903,7 +27889,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -27969,7 +27955,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -27996,7 +27982,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28062,7 +28048,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28089,7 +28075,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28146,7 +28132,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28173,7 +28159,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28239,7 +28225,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28266,7 +28252,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28332,7 +28318,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28359,7 +28345,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28422,7 +28408,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28449,7 +28435,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28524,7 +28510,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28551,7 +28537,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28623,7 +28609,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28650,7 +28636,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28722,7 +28708,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28749,7 +28735,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28789,7 +28775,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28816,7 +28802,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28856,7 +28842,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28883,7 +28869,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -28923,7 +28909,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -28950,7 +28936,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -29007,7 +28993,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -29034,7 +29020,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -29091,7 +29077,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree22VariableDeclaratorNodeELb1EE
   %3 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %1, %if.then.i.i ]
   %4 = load ptr, ptr %V, align 8
   %conv.i3.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i3.i.i.i
   %5 = ptrtoint ptr %this to i64
   store i64 %5, ptr %add.ptr.i.i.i.i, align 1
   %6 = load i32, ptr %Size.i.i.i.i, align 8
@@ -29118,7 +29104,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree23FunctionDeclarationNodeELb1E
   %9 = phi i32 [ %.pre.i10.i.i, %if.then.i8.i.i ], [ %7, %if.then4.i.i ]
   %10 = load ptr, ptr %closures.i.i, align 8
   %conv.i3.i11.i.i = zext i32 %9 to i64
-  %add.ptr.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %conv.i3.i11.i.i
+  %add.ptr.i.i12.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv.i3.i11.i.i
   %11 = ptrtoint ptr %this to i64
   store i64 %11, ptr %add.ptr.i.i12.i.i, align 1
   %12 = load i32, ptr %Size.i.i5.i.i, align 8
@@ -29181,7 +29167,7 @@ if.end.i.i:                                       ; preds = %if.then
   %sub.i.i = add i32 %3, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i, %sub.i.i
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
-  %add.ptr21.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %2, i64 %idx.ext20.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext20.i.i
   %6 = load ptr, ptr %add.ptr21.i.i, align 8
   %cmp.i22.i.i = icmp eq ptr %4, %6
   br i1 %cmp.i22.i.i, label %if.end12, label %if.end9.i.i
@@ -29209,7 +29195,7 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %add.i.i = add i32 %ProbeAmt.024.i.i, %BucketNo.025.i.i
   %BucketNo.0.i.i = and i32 %add.i.i, %sub.i.i
   %idx.ext.i.i = zext i32 %BucketNo.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idx.ext.i.i
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %8
   br i1 %cmp.i.i.i, label %if.end12, label %if.end9.i.i, !llvm.loop !84
@@ -29241,7 +29227,7 @@ if.end.i.i11:                                     ; preds = %if.then10
   %sub.i.i16 = add i32 %11, -1
   %BucketNo.019.i.i17 = and i32 %xor.i.i.i.i15, %sub.i.i16
   %idx.ext20.i.i18 = zext nneg i32 %BucketNo.019.i.i17 to i64
-  %add.ptr21.i.i19 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %10, i64 %idx.ext20.i.i18
+  %add.ptr21.i.i19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %idx.ext20.i.i18
   %14 = load ptr, ptr %add.ptr21.i.i19, align 8
   %cmp.i22.i.i20 = icmp eq ptr %12, %14
   br i1 %cmp.i22.i.i20, label %if.end12, label %if.end9.i.i21
@@ -29269,7 +29255,7 @@ if.end13.i.i27:                                   ; preds = %if.end9.i.i21
   %add.i.i33 = add i32 %ProbeAmt.024.i.i24, %BucketNo.025.i.i23
   %BucketNo.0.i.i34 = and i32 %add.i.i33, %sub.i.i16
   %idx.ext.i.i35 = zext i32 %BucketNo.0.i.i34 to i64
-  %add.ptr.i.i36 = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %10, i64 %idx.ext.i.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %idx.ext.i.i35
   %16 = load ptr, ptr %add.ptr.i.i36, align 8
   %cmp.i.i.i37 = icmp eq ptr %12, %16
   br i1 %cmp.i.i.i37, label %if.end12, label %if.end9.i.i21, !llvm.loop !84
@@ -29389,7 +29375,7 @@ if.then.i:                                        ; preds = %for.body.i5
   %sub.i.i.i = add i32 %7, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %6, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idx.ext20.i.i.i
   %8 = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i22.i.i.i = icmp eq ptr %5, %8
   br i1 %cmp.i22.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes7LiteralENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %if.end9.i.i.i
@@ -29417,7 +29403,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i11.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i12.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %6, i64 %idx.ext.i.i11.i
+  %add.ptr.i.i12.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idx.ext.i.i11.i
   %10 = load ptr, ptr %add.ptr.i.i12.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %10
   br i1 %cmp.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes7LiteralENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_EENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E15LookupBucketForIS4_EEbRKT_RPSA_.exit.i, label %if.end9.i.i.i, !llvm.loop !84

@@ -9595,7 +9595,7 @@ define hidden void @dissect_nas_5gs_updp(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = load i32, ptr @hf_nas_5gs_updp_msg_type, align 4
   %13 = load i32, ptr %4, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr ptr, ptr @nas_5gs_updp_msg_fcn, i64 %14
+  %15 = getelementptr [8 x i8], ptr @nas_5gs_updp_msg_fcn, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9805,8 +9805,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 60:                                               ; preds = %0, %60
   %indvars.iv76 = phi i64 [ 59, %0 ], [ %indvars.iv.next77, %60 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr i32, ptr @ett_nas_5gs_common_elem, i64 %indvars.iv
-  %62 = getelementptr ptr, ptr %1, i64 %indvars.iv76
+  %61 = getelementptr [4 x i8], ptr @ett_nas_5gs_common_elem, i64 %indvars.iv
+  %62 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv76
   store ptr %61, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
@@ -9816,8 +9816,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 .preheader56:                                     ; preds = %60, %.preheader56
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.preheader56 ], [ 72, %60 ]
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.preheader56 ], [ 0, %60 ]
-  %63 = getelementptr i32, ptr @ett_nas_5gs_mm_msg, i64 %indvars.iv81
-  %64 = getelementptr ptr, ptr %1, i64 %indvars.iv83
+  %63 = getelementptr [4 x i8], ptr @ett_nas_5gs_mm_msg, i64 %indvars.iv81
+  %64 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv83
   store ptr %63, ptr %64, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -9827,8 +9827,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 .preheader55:                                     ; preds = %.preheader56, %.preheader55
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.preheader55 ], [ 118, %.preheader56 ]
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.preheader55 ], [ 0, %.preheader56 ]
-  %65 = getelementptr i32, ptr @ett_nas_5gs_mm_elem, i64 %indvars.iv89
-  %66 = getelementptr ptr, ptr %1, i64 %indvars.iv91
+  %65 = getelementptr [4 x i8], ptr @ett_nas_5gs_mm_elem, i64 %indvars.iv89
+  %66 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv91
   store ptr %65, ptr %66, align 8
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
@@ -9838,8 +9838,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 .preheader54:                                     ; preds = %.preheader55, %.preheader54
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.preheader54 ], [ 233, %.preheader55 ]
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader54 ], [ 0, %.preheader55 ]
-  %67 = getelementptr i32, ptr @ett_nas_5gs_sm_msg, i64 %indvars.iv97
-  %68 = getelementptr ptr, ptr %1, i64 %indvars.iv99
+  %67 = getelementptr [4 x i8], ptr @ett_nas_5gs_sm_msg, i64 %indvars.iv97
+  %68 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv99
   store ptr %67, ptr %68, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
@@ -9849,8 +9849,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 .preheader53:                                     ; preds = %.preheader54, %.preheader53
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.preheader53 ], [ 261, %.preheader54 ]
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.preheader53 ], [ 0, %.preheader54 ]
-  %69 = getelementptr i32, ptr @ett_nas_5gs_sm_elem, i64 %indvars.iv105
-  %70 = getelementptr ptr, ptr %1, i64 %indvars.iv107
+  %69 = getelementptr [4 x i8], ptr @ett_nas_5gs_sm_elem, i64 %indvars.iv105
+  %70 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv107
   store ptr %69, ptr %70, align 8
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
@@ -9860,8 +9860,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 .preheader52:                                     ; preds = %.preheader53, %.preheader52
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.preheader52 ], [ 298, %.preheader53 ]
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.preheader52 ], [ 0, %.preheader53 ]
-  %71 = getelementptr i32, ptr @ett_nas_5gs_updp_msg, i64 %indvars.iv113
-  %72 = getelementptr ptr, ptr %1, i64 %indvars.iv115
+  %71 = getelementptr [4 x i8], ptr @ett_nas_5gs_updp_msg, i64 %indvars.iv113
+  %72 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv115
   store ptr %71, ptr %72, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -9871,8 +9871,8 @@ define hidden void @proto_register_nas_5gs() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %.preheader52, %.preheader
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader ], [ 306, %.preheader52 ]
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.preheader ], [ 0, %.preheader52 ]
-  %73 = getelementptr i32, ptr @ett_nas_5gs_updp_elem, i64 %indvars.iv121
-  %74 = getelementptr ptr, ptr %1, i64 %indvars.iv123
+  %73 = getelementptr [4 x i8], ptr @ett_nas_5gs_updp_elem, i64 %indvars.iv121
+  %74 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv123
   store ptr %73, ptr %74, align 8
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
@@ -10866,7 +10866,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %44 = load i32, ptr @hf_nas_5gs_mm_msg_type, align 4
   %45 = load i32, ptr %7, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr @nas_5gs_mm_msg_fcn, i64 %46
+  %47 = getelementptr [8 x i8], ptr @nas_5gs_mm_msg_fcn, i64 %46
   %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10914,7 +10914,7 @@ define internal fastcc i32 @dissect_nas_5gs_common(ptr noundef %0, ptr noundef %
   %72 = load i32, ptr @hf_nas_5gs_sm_msg_type, align 4
   %73 = load i32, ptr %6, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr ptr, ptr @nas_5gs_sm_msg_fcn, i64 %74
+  %75 = getelementptr [8 x i8], ptr @nas_5gs_sm_msg_fcn, i64 %74
   %76 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8

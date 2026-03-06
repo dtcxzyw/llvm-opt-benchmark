@@ -4,20 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
+%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor" = type { i32 }
 %"struct.OpenSubdiv::v3_6_0::Far::PatchParam" = type { i64 }
 %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray" = type { %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", i32, i32, i32, i32 }
-%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor" = type { i32 }
-%"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel" = type { i32, %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor", i32, %"class.std::vector.0", %"class.std::vector.5" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Far::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Far::PatchParam>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Far::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Far::PatchParam>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Far::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Far::PatchParam>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenSubdiv::v3_6_0::Far::PatchParam, std::allocator<OpenSubdiv::v3_6_0::Far::PatchParam>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr" = type { %union.anon }
-%union.anon = type { ptr }
 
 $_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13EvaluateBasisIfEEvRKNS2_11PatchHandleET_S7_PS7_S8_S8_S8_S8_S8_ = comdat any
 
@@ -116,12 +105,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13EvaluateBasisIfEE
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %1, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !noalias !5
-  %21 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %20, i64 %19
+  %21 = getelementptr inbounds [20 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !noalias !5
   %23 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal18EvaluatePatchBasisIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(8) %16, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret void
@@ -132,7 +121,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4
   store i32 %8, ptr %0, align 4
   ret void
@@ -147,7 +136,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable20EvaluateBasisVary
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load i32, ptr %17, align 8, !noalias !8
   %19 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal18EvaluatePatchBasisIfEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %18, ptr noundef nonnull align 4 dereferenceable(8) %16, float noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
@@ -170,11 +159,11 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24EvaluateBasisFace
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = sext i32 %10 to i64
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %17, i64 %16
+  %18 = getelementptr inbounds [64 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = sext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %21, i64 %20
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %20
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 4
   store i64 %.sroa.0.0.copyload.i, ptr %12, align 8
   %23 = and i64 %.sroa.0.0.copyload.i, 137438953472
@@ -191,11 +180,11 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22getPatchFVarPatchParamEii(p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %10, i64 %9
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %9
   %.sroa.0.0.copyload = load i64, ptr %11, align 4
   ret i64 %.sroa.0.0.copyload
 }
@@ -205,7 +194,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable29GetFVarPatchDescriptorRegu
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %0, align 4
@@ -217,7 +206,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable31GetFVarPatchDescriptorIrre
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %0, align 4
@@ -231,12 +220,12 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13EvaluateBasisIdEE
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %1, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr %18, align 8, !noalias !12
-  %21 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %20, i64 %19
+  %21 = getelementptr inbounds [20 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4, !noalias !12
   %23 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal18EvaluatePatchBasisIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(8) %16, double noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret void
@@ -251,7 +240,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable20EvaluateBasisVary
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load i32, ptr %17, align 8, !noalias !15
   %19 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal18EvaluatePatchBasisIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %18, ptr noundef nonnull align 4 dereferenceable(8) %16, double noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
@@ -266,11 +255,11 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24EvaluateBasisFace
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = sext i32 %10 to i64
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %17, i64 %16
+  %18 = getelementptr inbounds [64 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = sext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %21, i64 %20
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %20
   %.sroa.0.0.copyload.i = load i64, ptr %22, align 4
   store i64 %.sroa.0.0.copyload.i, ptr %12, align 8
   %23 = and i64 %.sroa.0.0.copyload.i, 137438953472
@@ -886,7 +875,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
   %indvars.iv = phi i64 [ %indvars.iv.next, %285 ], [ 0, %.preheader ]
   %265 = phi ptr [ %287, %285 ], [ %258, %.preheader ]
   %266 = load ptr, ptr %246, align 8
-  %267 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %266, i64 %indvars.iv
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv
   %268 = load ptr, ptr %267, align 8
   %.not104 = icmp eq ptr %268, null
   br i1 %.not104, label %285, label %269
@@ -895,7 +884,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %168
   %270 = load i8, ptr %184, align 8
   %271 = and i8 %270, 8
   %.not50 = icmp eq i8 %271, 0
-  %272 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %265, i64 %indvars.iv
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv
   br i1 %.not50, label %279, label %273
 
 273:                                              ; preds = %269
@@ -1791,9 +1780,9 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE13_M_deallocateEPS4_m.exit36.i: ; preds = %34, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %28, ptr %0, align 8
-  %36 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %29, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %12
   store ptr %36, ptr %3, align 8
-  %37 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE17_M_default_appendEm.exit
 
@@ -1802,7 +1791,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_
   br i1 %39, label %40, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %5, i64 %1
+  %41 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable15StencilTablePtrESaIS4_EE17_M_default_appendEm.exit, label %42
 
@@ -2426,7 +2415,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableD2Ev(ptr noundef nonnull read
 .lr.ph:                                           ; preds = %15, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %15 ]
   %26 = phi ptr [ %35, %33 ], [ %19, %15 ]
-  %27 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %33, label %.sink.split52
@@ -2727,7 +2716,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE13_
   store ptr %21, ptr %3, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 %19
   store ptr %28, ptr %16, align 8
-  %29 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %21, i64 %4
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %21, i64 %4
   store ptr %29, ptr %8, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE7reserveEm.exit
 
@@ -2747,7 +2736,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23allocateVaryingVerticesENS1
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -2775,7 +2764,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   br i1 %22, label %23, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i32, ptr %13, i64 %10
+  %24 = getelementptr inbounds [4 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %25
 
@@ -2876,9 +2865,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -2910,7 +2899,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable25allocateFVarPatchChannelsEi
   br i1 %16, label %17, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %7, i64 %4
+  %18 = getelementptr inbounds [64 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -3054,7 +3043,7 @@ _ZSt10_ConstructIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEJRKS4_EE
 .body:                                            ; preds = %36
   %42 = extractvalue { ptr, i32 } %37, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #23
-  %44 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
+  %44 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %1
   invoke void @_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E(ptr noundef nonnull %27, ptr noundef nonnull %44, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %.thread unwind label %45
 
@@ -3118,9 +3107,9 @@ _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EE13_M_deallocateEPS4_m.exit46: ; preds = %_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelES4_EvT_S6_RSaIT0_E.exit, %64
   store ptr %26, ptr %0, align 8
-  %68 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %27, i64 %1
+  %68 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %1
   store ptr %68, ptr %4, align 8
-  %69 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %26, i64 %24
+  %69 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %24
   store ptr %69, ptr %11, align 8
   br label %70
 
@@ -3149,7 +3138,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelVal
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = sext i32 %4 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %8, i64 %7
+  %9 = getelementptr inbounds [64 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %1, align 4
   store i32 %11, ptr %10, align 4
@@ -3163,7 +3152,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelVal
 
 switch.lookup:                                    ; preds = %5
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 %16
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 %16
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -3175,7 +3164,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 
 switch.lookup24:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
   %18 = zext nneg i32 %switch.tableidx23 to i64
-  %switch.gep25 = getelementptr inbounds nuw i16, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 %18
+  %switch.gep25 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii.1, i64 %18
   %switch.load26 = load i16, ptr %switch.gep25, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10
 
@@ -3208,7 +3197,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit10: ; 
   br i1 %35, label %36, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i32, ptr %26, i64 %23
+  %37 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %.not.i.i = icmp eq ptr %25, %37
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %38
 
@@ -3239,7 +3228,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %32, %34, %36, %38
   br i1 %52, label %53, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %43, i64 %40
+  %54 = getelementptr inbounds [8 x i8], ptr %43, i64 %40
   %.not.i.i11 = icmp eq ptr %42, %54
   br i1 %.not.i.i11, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE6resizeEm.exit, label %55
 
@@ -3355,9 +3344,9 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE13_M_deallocateEPS3_m.exit38: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %44
   store ptr %33, ptr %0, align 8
-  %46 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8
-  %47 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8
   br label %48
 
@@ -3370,7 +3359,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable38setFVarPatchChannelLinearIn
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   store i32 %1, ptr %7, align 8
   ret void
 }
@@ -3432,7 +3421,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE9push_back
 
 switch.lookup:                                    ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE9push_backEOS4_.exit
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3545,7 +3534,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %37
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [20 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8
   ret void
 }
@@ -3555,7 +3544,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13getPatchIndexEii(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, %2
@@ -3568,12 +3557,12 @@ define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable19getSharpness
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i32, ptr %11, i64 %10
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %10
   ret ptr %12
 }
 
@@ -3583,12 +3572,12 @@ define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getSharpness
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds float, ptr %11, i64 %10
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %10
   ret ptr %12
 }
 
@@ -3598,7 +3587,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchDescriptorERKNS2_1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = sext i32 %4 to i64
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %7, i64 %6
+  %8 = getelementptr inbounds [20 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %0, align 4
   ret void
@@ -3623,7 +3612,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %5, i64 %4
+  %6 = getelementptr inbounds [20 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   ret i32 %8
@@ -3648,7 +3637,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetNumControlVertic
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %5, i64 %4
+  %6 = getelementptr inbounds [20 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %6, align 4
@@ -3658,7 +3647,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetNumControlVertic
 
 switch.lookup:                                    ; preds = %2
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3689,7 +3678,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10OpenSubdiv6v3_6_03Fa
 
 14:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %15 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [20 x i8], ptr %6, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %13
   br i1 %17, label %._crit_edge.loopexit.split.loop.exit10, label %18
@@ -3713,7 +3702,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable21getPatchArrayVertic
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %5, i64 %4
+  %6 = getelementptr inbounds [20 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4
   %switch.tableidx = add i32 %7, -1
   %8 = icmp ult i32 %switch.tableidx, 10
@@ -3721,7 +3710,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable21getPatchArrayVertic
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3732,7 +3721,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = mul nsw i32 %17, %.0.i.i.i
@@ -3746,7 +3735,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerti
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %5, i64 %4
+  %6 = getelementptr inbounds [20 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4
   %switch.tableidx = add i32 %7, -1
   %8 = icmp ult i32 %switch.tableidx, 10
@@ -3754,7 +3743,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerti
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3765,7 +3754,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = mul nsw i32 %17, %.0.i.i.i
@@ -3780,7 +3769,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesER
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %3 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3794,7 +3783,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesER
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3802,7 +3791,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
   %.0.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %2 ]
   %17 = add nsw i32 %11, %9
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %13, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %13, i64 %18
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %19, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.0.i.i.i, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -3813,7 +3802,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4
   %switch.tableidx = add i32 %8, -1
   %9 = icmp ult i32 %switch.tableidx, 10
@@ -3821,7 +3810,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEi
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit
 
@@ -3834,7 +3823,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
   %15 = add nsw i32 %13, %14
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %16
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %18, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.0.i.i.i, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -3847,7 +3836,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamERKNS2_11Patch
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %7, i64 %6
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %6
   %.sroa.0.0.copyload = load i64, ptr %8, align 4
   ret i64 %.sroa.0.0.copyload
 }
@@ -3857,14 +3846,14 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamEii(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, %2
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %13, i64 %12
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %12
   %.sroa.0.0.copyload = load i64, ptr %14, align 4
   ret i64 %.sroa.0.0.copyload
 }
@@ -3874,13 +3863,13 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14getPatchParamsEi(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %5, i64 %4
+  %6 = getelementptr inbounds [20 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %11, i64 %10
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %14 = load i32, ptr %13, align 4
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %12, 0
@@ -3893,13 +3882,13 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable14GetPatchParamsEi(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %5, i64 %4
+  %6 = getelementptr inbounds [20 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %11, i64 %10
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %14 = load i32, ptr %13, align 4
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %12, 0
@@ -3914,7 +3903,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePa
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %17, label %11
@@ -3923,7 +3912,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePa
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = sext i32 %9 to i64
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds float, ptr %14, i64 %13
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %13
   %16 = load float, ptr %15, align 4
   br label %17
 
@@ -3937,14 +3926,14 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, %2
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i32, ptr %13, i64 %12
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %23, label %17
@@ -3953,7 +3942,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePa
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %19 = sext i32 %15 to i64
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds float, ptr %20, i64 %19
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %19
   %22 = load float, ptr %21, align 4
   br label %23
 
@@ -4030,7 +4019,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetNumLocalPointsFa
 
 15:                                               ; preds = %4
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::StencilTablePtr", ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not7 = icmp eq ptr %18, null
   br i1 %.not7, label %29, label %19
@@ -4058,7 +4047,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable19GetPatchQuadOffset
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %3 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 4
@@ -4067,7 +4056,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable19GetPatchQuadOffset
   %13 = add nsw i32 %12, %10
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %14
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %14
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %16, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 4, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4100,7 +4089,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVer
 
 switch.lookup:                                    ; preds = %8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4110,7 +4099,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %14 = load i32, ptr %13, align 4
   %15 = mul nsw i32 %14, %.0.i.i
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %4, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %4, i64 %16
   br label %18
 
 18:                                               ; preds = %2, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
@@ -4134,7 +4123,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVer
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = sext i32 %1 to i64
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %12, i64 %11
+  %13 = getelementptr inbounds [20 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %15 = load i32, ptr %14, align 8
   %switch.tableidx = add i32 %15, -1
@@ -4143,7 +4132,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVer
 
 switch.lookup:                                    ; preds = %9
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4154,7 +4143,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %20 = add nsw i32 %19, %2
   %21 = mul nsw i32 %20, %.0.i.i
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %5, i64 %22
   br label %24
 
 24:                                               ; preds = %3, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
@@ -4178,7 +4167,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryi
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = sext i32 %1 to i64
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %11, i64 %10
+  %12 = getelementptr inbounds [20 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %14 = load i32, ptr %13, align 8
   %switch.tableidx = add i32 %14, -1
@@ -4187,7 +4176,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryi
 
 switch.lookup:                                    ; preds = %8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4200,7 +4189,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %21 = load i32, ptr %20, align 4
   %22 = mul nsw i32 %21, %.0.i.i
   %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds i32, ptr %4, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %4, i64 %23
   br label %25
 
 25:                                               ; preds = %2, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
@@ -4242,21 +4231,21 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable28getPatchArrayVaryin
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %2, %switch.lookup
   %.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ -1, %2 ]
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %4, i64 %9
+  %10 = getelementptr inbounds [20 x i8], ptr %4, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = mul nsw i32 %12, %.0.i.i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = sext i32 %13 to i64
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = mul nsw i32 %19, %.0.i.i
@@ -4275,7 +4264,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23populateVaryingVerticesEv(p
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4302,7 +4291,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %19 = phi ptr [ %9, %.lr.ph49 ], [ %93, %._crit_edge ]
   %20 = phi ptr [ %8, %.lr.ph49 ], [ %94, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %._crit_edge ]
-  %21 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [20 x i8], ptr %19, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
@@ -4316,7 +4305,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 27:                                               ; preds = %.lr.ph, %89
   %.03147 = phi i32 [ 0, %.lr.ph ], [ %90, %89 ]
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %switch.tableidx67 = add i32 %30, -1
   %31 = icmp ult i32 %switch.tableidx67, 10
@@ -4324,7 +4313,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 
 switch.lookup68:                                  ; preds = %27
   %32 = zext nneg i32 %switch.tableidx67 to i64
-  %switch.gep69 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %32
+  %switch.gep69 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, i64 %32
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit
 
@@ -4336,7 +4325,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %36 = add nsw i32 %34, %35
   %37 = sext i32 %36 to i64
   %38 = load ptr, ptr %16, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %37
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %37
   %40 = load i32, ptr %26, align 4
   %41 = add nsw i32 %40, %.03147
   %42 = mul nsw i32 %41, %.0.i.i
@@ -4352,12 +4341,12 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %42 to i64
   %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds i32, ptr %47, i64 %46
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %46
   store i32 %45, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %17, align 8
-  %52 = getelementptr i32, ptr %51, i64 %46
+  %52 = getelementptr [4 x i8], ptr %51, i64 %46
   %53 = getelementptr i8, ptr %52, i64 4
   store i32 %50, ptr %53, align 4
   br label %.sink.split
@@ -4366,12 +4355,12 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %55 = load i32, ptr %39, align 4
   %56 = sext i32 %42 to i64
   %57 = load ptr, ptr %17, align 8
-  %58 = getelementptr inbounds i32, ptr %57, i64 %56
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %56
   store i32 %55, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = load ptr, ptr %17, align 8
-  %62 = getelementptr i32, ptr %61, i64 %56
+  %62 = getelementptr [4 x i8], ptr %61, i64 %56
   %63 = getelementptr i8, ptr %62, i64 4
   store i32 %60, ptr %63, align 4
   br label %.sink.split
@@ -4380,12 +4369,12 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %65 = load i32, ptr %39, align 4
   %66 = sext i32 %42 to i64
   %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds i32, ptr %67, i64 %66
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %66
   store i32 %65, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = load ptr, ptr %17, align 8
-  %72 = getelementptr i32, ptr %71, i64 %66
+  %72 = getelementptr [4 x i8], ptr %71, i64 %66
   %73 = getelementptr i8, ptr %72, i64 4
   store i32 %70, ptr %73, align 4
   br label %.sink.split
@@ -4394,7 +4383,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %75 = load i32, ptr %39, align 4
   %76 = sext i32 %42 to i64
   %77 = load ptr, ptr %17, align 8
-  %78 = getelementptr inbounds i32, ptr %77, i64 %76
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %76
   store i32 %75, ptr %78, align 4
   br label %.sink.split
 
@@ -4407,13 +4396,13 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
   %79 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink66
   %80 = load i32, ptr %79, align 4
   %81 = load ptr, ptr %17, align 8
-  %82 = getelementptr i32, ptr %81, i64 %.sink64
+  %82 = getelementptr [4 x i8], ptr %81, i64 %.sink64
   %83 = getelementptr i8, ptr %82, i64 %.sink62
   store i32 %80, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink
   %85 = load i32, ptr %84, align 4
   %86 = load ptr, ptr %17, align 8
-  %87 = getelementptr i32, ptr %86, i64 %.sink64
+  %87 = getelementptr [4 x i8], ptr %86, i64 %.sink64
   %88 = getelementptr i8, ptr %87, i64 %.sink55
   store i32 %85, ptr %88, align 4
   br label %89
@@ -4465,7 +4454,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable33GetFVarChannelLinea
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %5, i64 %4
+  %6 = getelementptr inbounds [64 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 8
   ret i32 %7
 }
@@ -4475,7 +4464,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetFVarPatchDescriptorEi(p
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %0, align 4
@@ -4487,7 +4476,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetFVarValuesEi(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %5, i64 %4
+  %6 = getelementptr inbounds [64 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -4507,7 +4496,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarValueStrideE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %5, i64 %4
+  %6 = getelementptr inbounds [64 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   ret i32 %8
@@ -4518,7 +4507,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable13getFVarValuesEi(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %5, i64 %4
+  %6 = getelementptr inbounds [64 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -4538,11 +4527,11 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValues
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %6, i64 %5
+  %7 = getelementptr inbounds [64 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %10, i64 %9
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %9
   %12 = load i64, ptr %11, align 4
   %13 = and i64 %12, 137438953472
   %.not = icmp eq i64 %13, 0
@@ -4566,7 +4555,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit.sink.
   %switch.tableidx11.sink = phi i32 [ %switch.tableidx, %14 ], [ %switch.tableidx11, %18 ]
   %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.3.sink = phi ptr [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %14 ], [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %18 ]
   %22 = zext nneg i32 %switch.tableidx11.sink to i64
-  %switch.gep13 = getelementptr inbounds nuw i32, ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.3.sink, i64 %22
+  %switch.gep13 = getelementptr inbounds nuw [4 x i8], ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.3.sink, i64 %22
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -4578,7 +4567,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %27 = mul nsw i32 %26, %1
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %28
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %28
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %30, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %23, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4591,11 +4580,11 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValues
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %8, i64 %7
+  %9 = getelementptr inbounds [64 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = sext i32 %5 to i64
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %12, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %11
   %14 = load i64, ptr %13, align 4
   %15 = and i64 %14, 137438953472
   %.not.i = icmp eq i64 %15, 0
@@ -4619,7 +4608,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: 
   %switch.tableidx4.sink = phi i32 [ %switch.tableidx, %16 ], [ %switch.tableidx4, %20 ]
   %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi.4.sink = phi ptr [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %16 ], [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %20 ]
   %24 = zext nneg i32 %switch.tableidx4.sink to i64
-  %switch.gep6 = getelementptr inbounds nuw i32, ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi.4.sink, i64 %24
+  %switch.gep6 = getelementptr inbounds nuw [4 x i8], ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi.4.sink, i64 %24
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
@@ -4631,7 +4620,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %
   %29 = mul nsw i32 %28, %5
   %30 = sext i32 %29 to i64
   %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %30
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %30
   %.fca.0.insert.i = insertvalue { ptr, i32 } poison, ptr %32, 0
   %.fca.1.insert.i = insertvalue { ptr, i32 } %.fca.0.insert.i, i32 %25, 1
   ret { ptr, i32 } %.fca.1.insert.i
@@ -4642,18 +4631,18 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValues
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %7, i64 %6
+  %8 = getelementptr inbounds [20 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = sext i32 %3 to i64
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %14, i64 %13
+  %15 = getelementptr inbounds [64 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = sext i32 %11 to i64
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   %20 = load i64, ptr %19, align 4
   %21 = and i64 %20, 137438953472
   %.not.i = icmp eq i64 %21, 0
@@ -4677,7 +4666,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit.sink.split: 
   %switch.tableidx5.sink = phi i32 [ %switch.tableidx, %22 ], [ %switch.tableidx5, %26 ]
   %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5.sink = phi ptr [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %22 ], [ @switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5, %26 ]
   %30 = zext nneg i32 %switch.tableidx5.sink to i64
-  %switch.gep7 = getelementptr inbounds nuw i32, ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5.sink, i64 %30
+  %switch.gep7 = getelementptr inbounds nuw [4 x i8], ptr %switch.table._ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii.5.sink, i64 %30
   %switch.load8 = load i32, ptr %switch.gep7, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit
 
@@ -4689,7 +4678,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %
   %35 = mul nsw i32 %34, %11
   %36 = sext i32 %35 to i64
   %37 = load ptr, ptr %32, align 8
-  %38 = getelementptr inbounds i32, ptr %37, i64 %36
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %36
   %.fca.0.insert.i = insertvalue { ptr, i32 } poison, ptr %38, 0
   %.fca.1.insert.i = insertvalue { ptr, i32 } %.fca.0.insert.i, i32 %31, 1
   ret { ptr, i32 } %.fca.1.insert.i
@@ -4700,11 +4689,11 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarV
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = sext i32 %2 to i64
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %10, i64 %9
+  %11 = getelementptr inbounds [64 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -4716,7 +4705,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarV
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = sext i32 %16 to i64
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %21
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %23, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %19, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -4729,11 +4718,11 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamERKNS
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %8, i64 %7
+  %9 = getelementptr inbounds [64 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = sext i32 %5 to i64
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %12, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %11
   %.sroa.0.0.copyload.i = load i64, ptr %13, align 4
   ret i64 %.sroa.0.0.copyload.i
 }
@@ -4743,18 +4732,18 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamEiii(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %7, i64 %6
+  %8 = getelementptr inbounds [20 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = sext i32 %3 to i64
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %14, i64 %13
+  %15 = getelementptr inbounds [64 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = sext i32 %11 to i64
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   %.sroa.0.0.copyload.i = load i64, ptr %19, align 4
   ret i64 %.sroa.0.0.copyload.i
 }
@@ -4764,17 +4753,17 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayFVarP
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %6, i64 %5
+  %7 = getelementptr inbounds [20 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = sext i32 %2 to i64
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %10, i64 %9
+  %11 = getelementptr inbounds [64 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %16, i64 %15
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = load i32, ptr %18, align 4
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %17, 0
@@ -4787,7 +4776,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarPatchParams
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %5, i64 %4
+  %6 = getelementptr inbounds [64 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -4807,7 +4796,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getFVarPatchParamsE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::FVarPatchChannel", ptr %5, i64 %4
+  %6 = getelementptr inbounds [64 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -4852,7 +4841,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable5printEv(ptr noundef nonnull
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %23)
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [20 x i8], ptr %25, i64 %indvars.iv
   tail call void @_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEv(ptr noundef nonnull align 4 dereferenceable(20) %26)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4

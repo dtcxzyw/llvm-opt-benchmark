@@ -1069,7 +1069,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %350
           to label %.noexc46.i unwind label %.loopexit73.i
 
 .noexc46.i:                                       ; preds = %354
-  %357 = getelementptr inbounds nuw float, ptr %356, i64 %351
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %356, i64 %351
   store float 0.000000e+00, ptr %356, align 4
   %358 = getelementptr i8, ptr %356, i64 4
   %359 = add nsw i64 %351, -1
@@ -1156,7 +1156,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph111.i:                                      ; preds = %.preheader.i, %381
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %381 ], [ 0, %.preheader.i ]
-  %382 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i, i64 %indvars.iv.i
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %indvars.iv.i
   %383 = load float, ptr %382, align 4
   %384 = fcmp oeq float %383, 1.000000e+00
   %385 = zext i1 %384 to i8

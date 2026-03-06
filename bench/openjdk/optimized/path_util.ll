@@ -85,7 +85,7 @@ collapsible.exit:                                 ; preds = %.loopexit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i48 ], [ 0, %23 ]
   %.0814.i = phi ptr [ %31, %.loopexit.i48 ], [ %4, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   store ptr %.0814.i, ptr %28, align 8
   br label %29
 
@@ -116,7 +116,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 35:                                               ; preds = %.preheader66, %47
   %indvars.iv = phi i64 [ %34, %.preheader66 ], [ %indvars.iv.next, %47 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 46
@@ -163,7 +163,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 55:                                               ; preds = %.preheader
   %56 = add nsw i64 %indvars.iv80, -1
-  %57 = getelementptr inbounds nuw ptr, ptr %26, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not46 = icmp eq ptr %58, null
   br i1 %.not46, label %.preheader, label %62, !llvm.loop !12
@@ -175,14 +175,14 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 
 62:                                               ; preds = %55
   %63 = and i64 %56, 4294967295
-  %64 = getelementptr inbounds nuw ptr, ptr %26, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %63
   store ptr null, ptr %64, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %59, %.thread, %62
   %.26063.ph = phi i32 [ %52, %.thread ], [ %50, %62 ], [ %50, %59 ]
   %.sink101 = and i64 %indvars.iv, 4294967295
-  %65 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sink101
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sink101
   store ptr null, ptr %65, align 8
   br label %66
 
@@ -198,7 +198,7 @@ splitNames.exit:                                  ; preds = %.loopexit.i48, %29,
 .thread88:                                        ; preds = %.thread88.preheader, %.loopexit.i55
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i57, %.loopexit.i55 ], [ 0, %.thread88.preheader ]
   %.01723.i = phi ptr [ %.1.i56, %.loopexit.i55 ], [ %4, %.thread88.preheader ]
-  %69 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i50
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i50
   %70 = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %.loopexit.i55, label %71

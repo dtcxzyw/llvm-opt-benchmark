@@ -191,7 +191,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
   %29 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !noalias !67
   br i1 %29, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb3783c2E.exit, label %33, !prof !70
@@ -280,7 +280,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
   %29 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !noalias !95
   br i1 %29, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit, label %33, !prof !70
@@ -369,7 +369,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
   %29 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !noalias !121
   br i1 %29, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit, label %33, !prof !70
@@ -458,7 +458,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %24 = add i64 %.sroa.01.0.i.i.i.i, %23
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %17, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
   %29 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %28), !noalias !147
   br i1 %29, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit, label %33, !prof !70
@@ -573,7 +573,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %16 = and i64 %15, %.val6.i
   %17 = load ptr, ptr %0, align 8, !alias.scope !153, !noalias !157, !nonnull !7, !noundef !7
   %18 = sub nsw i64 0, %16
-  %19 = getelementptr inbounds { { i32, { i32, i32 }, { i32, i32 } }, {} }, ptr %17, i64 %18
+  %19 = getelementptr inbounds [20 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -20
   %21 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h997ed4232e8d312bE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %20), !noalias !160
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E.exit", label %22, !prof !70
@@ -656,7 +656,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8, !alias.scope !161, !noalias !164
   %67 = sub nsw i64 0, %.sroa.3.0.i.ph.i
-  %68 = getelementptr inbounds { { i32, { i32, i32 }, { i32, i32 } }, {} }, ptr %51, i64 %67
+  %68 = getelementptr inbounds [20 x i8], ptr %51, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %69, ptr noundef nonnull readonly align 4 dereferenceable(20) %3, i64 20, i1 false), !noalias !161
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

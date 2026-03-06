@@ -793,7 +793,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !40
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr i32, ptr %19, i64 %20
+  %21 = getelementptr [4 x i8], ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = load ptr, ptr %0, align 8, !tbaa !15
@@ -805,7 +805,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !40
   %29 = zext nneg i32 %26 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = sext i32 %31 to i64
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit70
@@ -1083,7 +1083,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !40
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %41, i64 %42
   store i32 %31, ptr %43, align 4, !tbaa !12
   %44 = load i32, ptr %32, align 8, !tbaa !36
   %45 = add nsw i32 %44, 1
@@ -1123,7 +1123,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i31: ; preds = %
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !40
   %64 = sext i32 %61 to i64
-  %65 = getelementptr inbounds i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %63, i64 %64
   store i32 %53, ptr %65, align 4, !tbaa !12
   %66 = load i32, ptr %54, align 8, !tbaa !36
   %67 = add nsw i32 %66, 1
@@ -1205,7 +1205,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i40: ; preds = %
   %107 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %108 = load ptr, ptr %107, align 8, !tbaa !40
   %109 = sext i32 %106 to i64
-  %110 = getelementptr inbounds i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %108, i64 %109
   store i32 %98, ptr %110, align 4, !tbaa !12
   %111 = load i32, ptr %99, align 8, !tbaa !36
   %112 = add nsw i32 %111, 1
@@ -1245,7 +1245,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i48: ; preds = %
   %129 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %130 = load ptr, ptr %129, align 8, !tbaa !40
   %131 = sext i32 %128 to i64
-  %132 = getelementptr inbounds i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %130, i64 %131
   store i32 %120, ptr %132, align 4, !tbaa !12
   %133 = load i32, ptr %121, align 8, !tbaa !36
   %134 = add nsw i32 %133, 1

@@ -26,8 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.3" }
 %"class.cv::Vec.3" = type { %"class.cv::Matx.4" }
 %"class.cv::Matx.4" = type { [4 x double] }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [3 x float] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -345,7 +343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %64,
 .lr.ph.i:                                         ; preds = %.preheader.i, %134
   %120 = phi ptr [ %137, %134 ], [ %115, %.preheader.i ]
   %.02346.i = phi i64 [ %135, %134 ], [ 0, %.preheader.i ]
-  %121 = getelementptr inbounds nuw %"class.cv::Vec", ptr %120, i64 %.02346.i
+  %121 = getelementptr inbounds nuw [12 x i8], ptr %120, i64 %.02346.i
   %122 = load float, ptr %121, align 4, !tbaa !47
   %123 = insertelement <4 x float> poison, float %122, i64 0
   %124 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %123)

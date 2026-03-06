@@ -3462,7 +3462,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %22 = zext nneg i32 %21 to i128
   %23 = shl i128 %.sroa.01.0.insert.ext.i.i.i.i.i.i, %22
   %24 = trunc i128 %23 to i32
-  %25 = getelementptr i32, ptr %1, i64 %14
+  %25 = getelementptr [4 x i8], ptr %1, i64 %14
   %26 = getelementptr i8, ptr %25, i64 -4
   store i32 %24, ptr %26, align 4, !tbaa !16
   %27 = sub nsw i32 32, %21
@@ -3485,7 +3485,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   br i1 %.not53.i.i.i.i.i, label %.preheader46._crit_edge.i.i.i.i.i, label %.preheader.i.i.i.i.i
 
 .preheader46._crit_edge.i.i.i.i.i:                ; preds = %.preheader46.i.i.i.i.i
-  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %19
+  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %19
   %.pre.i.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i.i, align 4, !tbaa !16
   %32 = add nsw i64 %19, 1
   br label %._crit_edge.i.i.i.i.i
@@ -3496,7 +3496,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %.sroa.037.048.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i34.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
   %33 = trunc i64 %.sroa.037.048.i.i.i.i.i to i32
   %34 = add i64 %.02250.i.i.i.i.i, 1
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %.02250.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.02250.i.i.i.i.i
   store i32 %33, ptr %35, align 4, !tbaa !16
   %.sroa.22.0.insert.ext.i.i30.i.i.i.i.i = zext nneg i64 %.sroa.8.049.i.i.i.i.i to i128
   %.sroa.22.0.insert.shift.i.i31.i.i.i.i.i = shl nuw nsw i128 %.sroa.22.0.insert.ext.i.i30.i.i.i.i.i, 64
@@ -3517,12 +3517,12 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
 39:                                               ; preds = %47
   %40 = trunc nuw nsw i64 %56 to i32
   %41 = add i64 %.154.i.i.i.i.i, -1
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = icmp eq i32 %43, 0
   %spec.select.i.i.i.i.i = select i1 %44, i64 %41, i64 %.154.i.i.i.i.i
   %45 = add i64 %38, -1
-  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   store i32 %40, ptr %46, align 4, !tbaa !16
   %.not.i.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.preheader.i.i.i.i.i, !llvm.loop !101
@@ -3531,7 +3531,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %.02352.i.i.i.i.i = phi i64 [ %.154.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %48, %47 ]
   %.02451.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %56, %47 ]
   %48 = add i64 %.02352.i.i.i.i.i, -1
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !16
   %51 = zext i32 %50 to i64
   %52 = shl nuw nsw i64 %.02451.i.i.i.i.i, 32
@@ -3862,7 +3862,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
   %152 = add nuw i64 %149, 1
   store i64 %152, ptr %3, align 8, !tbaa !103
   %153 = load ptr, ptr %118, align 8, !tbaa !97
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %149
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %149
   %155 = load i32, ptr %154, align 4, !tbaa !16
   br label %156
 
@@ -4085,7 +4085,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %14 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i.i.i.i.i, %13
   %15 = trunc i128 %14 to i32
   %16 = add nsw i64 %10, -1
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   store i32 %15, ptr %17, align 4, !tbaa !16
   %18 = zext nneg i32 %11 to i128
   %19 = lshr i128 %.sroa.01.0.insert.insert.i.i.i.i.i.i, %18
@@ -4115,7 +4115,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %.011.i.i.i.i.i.i = phi i64 [ %26, %.preheader.i.i.i.i.i.i ], [ %10, %._crit_edge.i.i.i.i.i ]
   %.0610.i.i.i.i.i.i = phi i64 [ %33, %.preheader.i.i.i.i.i.i ], [ 0, %._crit_edge.i.i.i.i.i ]
   %26 = add i64 %.011.i.i.i.i.i.i, -1
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !16
   %29 = zext i32 %28 to i64
   %30 = mul nuw nsw i64 %29, 10
@@ -4132,7 +4132,7 @@ define internal void @_ZN4absl19functional_internal12InvokeObjectIZNS_19str_form
   %.sroa.016.026.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i13.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
   %34 = trunc i64 %.sroa.016.026.i.i.i.i.i to i32
   %35 = add i64 %.028.i.i.i.i.i, -1
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %35
   store i32 %34, ptr %36, align 4, !tbaa !16
   %.sroa.22.0.insert.ext.i.i9.i.i.i.i.i = zext i64 %.sroa.8.027.i.i.i.i.i to i128
   %.sroa.22.0.insert.shift.i.i10.i.i.i.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i9.i.i.i.i.i, 64
@@ -4203,7 +4203,7 @@ define internal void @"_ZN4absl19functional_internal12InvokeObjectIZNS_19str_for
 _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator11GetOneDigitEv.exit.i.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i
   %14 = trunc nuw nsw i64 %27 to i8
   %15 = add i64 %.lcssa7378.i.i.i.i, -1
-  %16 = getelementptr inbounds nuw i32, ptr %.sroa.44.0.copyload.i.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.44.0.copyload.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = icmp eq i32 %17, 0
   %spec.select.i.i.i.i = select i1 %18, i64 %15, i64 %.lcssa7378.i.i.i.i
@@ -4214,7 +4214,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator11GetOneDig
   %.011.i.i.i.i.i.i = phi i64 [ %20, %.preheader.i.i.i.i.i.i ], [ %.lcssa7378.i.i.i.i, %13 ]
   %.0610.i.i.i.i.i.i = phi i64 [ %27, %.preheader.i.i.i.i.i.i ], [ 0, %13 ]
   %20 = add i64 %.011.i.i.i.i.i.i, -1
-  %21 = getelementptr inbounds nuw i32, ptr %.sroa.44.0.copyload.i.i.i, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.44.0.copyload.i.i.i, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !16
   %23 = zext i32 %22 to i64
   %24 = mul nuw nsw i64 %23, 10
@@ -4235,7 +4235,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator11GetOneDig
 
 _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator11GetOneDigitEv.exit8.i.i.i.i.i: ; preds = %.preheader.i3.i.i.i.i.i
   %31 = add i64 %29, -1
-  %32 = getelementptr inbounds nuw i32, ptr %.sroa.44.0.copyload.i.i.i, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.44.0.copyload.i.i.i, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !16
   %34 = icmp eq i32 %33, 0
   %spec.select83.i.i.i.i = select i1 %34, i64 %31, i64 %28
@@ -4247,7 +4247,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_124FractionalDigitGenerator11GetOneDig
   %.011.i4.i.i.i.i.i = phi i64 [ %36, %.preheader.i3.i.i.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i ]
   %.0610.i5.i.i.i.i.i = phi i64 [ %43, %.preheader.i3.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
   %36 = add i64 %.011.i4.i.i.i.i.i, -1
-  %37 = getelementptr inbounds nuw i32, ptr %.sroa.44.0.copyload.i.i.i, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.44.0.copyload.i.i.i, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = zext i32 %38 to i64
   %40 = mul nuw nsw i64 %39, 10

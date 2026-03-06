@@ -13,6 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.71" = type { i8 }
+%"class.duckdb::vector.24" = type { %"class.std::vector.25" }
+%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
+%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.duckdb::Vector" = type { i8, %"struct.duckdb::LogicalType", ptr, %"struct.duckdb::ValidityMask", %"class.duckdb::shared_ptr.16", %"class.duckdb::shared_ptr.16" }
 %"struct.duckdb::LogicalType" = type { i8, i8, %"class.duckdb::shared_ptr" }
 %"class.duckdb::shared_ptr" = type { %"class.std::shared_ptr" }
@@ -27,24 +32,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.duckdb::shared_ptr.16" = type { %"class.std::shared_ptr.17" }
 %"class.std::shared_ptr.17" = type { %"class.std::__shared_ptr.18" }
 %"class.std::__shared_ptr.18" = type { ptr, %"class.std::__shared_count" }
-%"class.duckdb::vector.24" = type { %"class.std::vector.25" }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>, std::allocator<std::reference_wrapper<duckdb::LambdaFunctions::ColumnInfo>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::reference_wrapper.30" = type { ptr }
 %"class.duckdb::vector.0" = type { %"class.std::vector.1" }
 %"class.std::vector.1" = type { %"struct.std::_Vector_base.2" }
 %"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<duckdb::Vector, std::allocator<duckdb::Vector>>::_Vector_impl" }
 %"struct.std::_Vector_base<duckdb::Vector, std::allocator<duckdb::Vector>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::Vector, std::allocator<duckdb::Vector>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<duckdb::Vector, std::allocator<duckdb::Vector>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.duckdb::LambdaFunctions::ColumnInfo" = type { %"class.std::reference_wrapper", %"struct.duckdb::SelectionVector", %"struct.duckdb::UnifiedVectorFormat" }
-%"class.std::reference_wrapper" = type { ptr }
-%"struct.duckdb::SelectionVector" = type { ptr, %"class.duckdb::shared_ptr.20" }
-%"class.duckdb::shared_ptr.20" = type { %"class.std::shared_ptr.21" }
-%"class.std::shared_ptr.21" = type { %"class.std::__shared_ptr.22" }
-%"class.std::__shared_ptr.22" = type { ptr, %"class.std::__shared_count" }
-%"struct.duckdb::UnifiedVectorFormat" = type { ptr, ptr, %"struct.duckdb::ValidityMask", %"struct.duckdb::SelectionVector" }
 %"class.duckdb::unique_ptr.53" = type { %"class.std::unique_ptr.54" }
 %"class.std::unique_ptr.54" = type { %"struct.std::__uniq_ptr_data.55" }
 %"struct.std::__uniq_ptr_data.55" = type { %"class.std::__uniq_ptr_impl.56" }
@@ -61,9 +53,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.70" = type { ptr }
 %"class.duckdb::optional_ptr.92" = type { ptr }
 %"struct.duckdb::LambdaFunctions::LambdaInfo" = type <{ ptr, %"struct.duckdb::UnifiedVectorFormat", %"class.duckdb::optional_ptr.285", ptr, %"class.duckdb::optional_ptr.286", %"class.duckdb::vector", %"class.duckdb::optional_ptr.287", i64, i8, i8, i8, [5 x i8] }>
+%"struct.duckdb::UnifiedVectorFormat" = type { ptr, ptr, %"struct.duckdb::ValidityMask", %"struct.duckdb::SelectionVector" }
+%"struct.duckdb::SelectionVector" = type { ptr, %"class.duckdb::shared_ptr.20" }
+%"class.duckdb::shared_ptr.20" = type { %"class.std::shared_ptr.21" }
+%"class.std::shared_ptr.21" = type { %"class.std::__shared_ptr.22" }
+%"class.std::__shared_ptr.22" = type { ptr, %"class.std::__shared_count" }
 %"class.duckdb::optional_ptr.285" = type { ptr }
 %"class.duckdb::optional_ptr.286" = type { ptr }
 %"class.duckdb::optional_ptr.287" = type { ptr }
+%"struct.duckdb::LambdaFunctions::ColumnInfo" = type { %"class.std::reference_wrapper", %"struct.duckdb::SelectionVector", %"struct.duckdb::UnifiedVectorFormat" }
+%"class.std::reference_wrapper" = type { ptr }
 %"struct.duckdb::LambdaExecuteInfo" = type <{ %"class.duckdb::unique_ptr", %"class.duckdb::DataChunk", %"class.duckdb::DataChunk", i8, [7 x i8] }>
 %"class.duckdb::unique_ptr" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -84,7 +83,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.duckdb::shared_ptr.291" = type { %"class.std::shared_ptr.292" }
 %"class.std::shared_ptr.292" = type { %"class.std::__shared_ptr.293" }
 %"class.std::__shared_ptr.293" = type { ptr, %"class.std::__shared_count" }
-%"struct.duckdb::list_entry_t" = type { i64, i64 }
 %"struct.duckdb::ListFilterInfo" = type { %"class.duckdb::vector.288", i64, i64, i64, i64 }
 %"class.duckdb::vector.288" = type { %"class.std::vector.289" }
 %"class.std::vector.289" = type { %"struct.std::_Vector_base.290" }
@@ -502,7 +500,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -680,7 +678,7 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb15LambdaFunctions10ColumnInfoEESaIS4_
 
 _ZNSt6vectorISt17reference_wrapperIN6duckdb15LambdaFunctions10ColumnInfoEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorISt17reference_wrapperIN6duckdb15LambdaFunctions10ColumnInfoEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %36, ptr %6, align 8, !tbaa !51
-  %38 = getelementptr inbounds nuw %"class.std::reference_wrapper.30", ptr %30, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %38, ptr %7, align 8, !tbaa !48
   br label %_ZNSt6vectorISt17reference_wrapperIN6duckdb15LambdaFunctions10ColumnInfoEESaIS4_EE9push_backEOS4_.exit
 
@@ -993,7 +991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorINS_15LambdaFunctions10ColumnInfoELb1EE3getILb1EEERKS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::LambdaFunctions::ColumnInfo", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -2434,7 +2432,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EE3getILb1EEERS5_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::unique_ptr.62", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -2507,7 +2505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_11LogicalTypeELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -2850,7 +2848,7 @@ _ZN6duckdb15LambdaFunctions10ColumnInfoC2ERNS_6VectorE.exit: ; preds = %_ZN6duck
   br i1 %.not.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %.063145
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.063145
   %83 = load i32, ptr %82, align 4, !tbaa !99
   %84 = zext i32 %83 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
@@ -2858,14 +2856,14 @@ _ZN6duckdb15LambdaFunctions10ColumnInfoC2ERNS_6VectorE.exit: ; preds = %_ZN6duck
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %78, %81
   %85 = phi i64 [ %84, %81 ], [ %.063145, %78 ]
   %86 = load ptr, ptr %9, align 8, !tbaa !253
-  %87 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %56, align 8, !tbaa !254
   %.not.i77 = icmp eq ptr %88, null
   br i1 %.not.i77, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %89 = lshr i64 %85, 6
-  %90 = getelementptr inbounds nuw i64, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %89
   %91 = load i64, ptr %90, align 8, !tbaa !58
   %92 = and i64 %85, 63
   %93 = shl nuw i64 1, %92
@@ -2899,7 +2897,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb
   %105 = and i64 %.063145, 63
   %106 = shl nuw i64 1, %105
   %107 = xor i64 %106, -1
-  %108 = getelementptr inbounds nuw i64, ptr %103, i64 %104
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
   %109 = load i64, ptr %108, align 8, !tbaa !58
   %110 = and i64 %109, %107
   store i64 %110, ptr %108, align 8, !tbaa !58
@@ -2911,7 +2909,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb
   br label %.body79
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
-  %113 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %20, i64 %.063145
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.063145
   store i64 %.0144, ptr %113, align 8, !tbaa !257
   %114 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %115 = load i64, ptr %114, align 8, !tbaa !259
@@ -2955,7 +2953,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit.us:   ; preds = %123
   %128 = add i64 %127, %.062126.us
   %129 = trunc i64 %128 to i32
   %130 = load ptr, ptr %30, align 8, !tbaa !252
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %.361.us
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.361.us
   store i32 %129, ptr %131, align 4, !tbaa !99
   %132 = load i8, ptr %45, align 8, !tbaa !233, !range !82, !noundef !83
   %133 = trunc nuw i8 %132 to i1
@@ -3109,7 +3107,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit:      ; preds = %150
   %170 = add i64 %169, %.062126
   %171 = trunc i64 %170 to i32
   %172 = load ptr, ptr %30, align 8, !tbaa !252
-  %173 = getelementptr inbounds nuw i32, ptr %172, i64 %.361
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %.361
   store i32 %171, ptr %173, align 4, !tbaa !99
   br label %176
 
@@ -3127,7 +3125,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit:      ; preds = %150
   %177 = load ptr, ptr %.sroa.093.0121, align 8, !tbaa !263
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !252
-  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %.361
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %.361
   store i32 %119, ptr %180, align 4, !tbaa !99
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.093.0121, i64 8
   %.not102 = icmp eq ptr %181, %62
@@ -3560,7 +3558,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i: ; preds = %_ZNSt12_Vect
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %59, ptr %13, align 8, !tbaa !280
   store ptr %59, ptr %60, align 8, !tbaa !282
-  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %53
   store ptr %61, ptr %57, align 8, !tbaa !283
   br label %_ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit
 
@@ -3649,7 +3647,7 @@ _ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit: ; pr
   br i1 %.not.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %.064157
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %.064157
   %96 = load i32, ptr %95, align 4, !tbaa !99
   %97 = zext i32 %96 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
@@ -3657,14 +3655,14 @@ _ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit: ; pr
 _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %91, %94
   %98 = phi i64 [ %97, %94 ], [ %.064157, %91 ]
   %99 = load ptr, ptr %9, align 8, !tbaa !253
-  %100 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %99, i64 %98
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %98
   %101 = load ptr, ptr %66, align 8, !tbaa !254
   %.not.i80 = icmp eq ptr %101, null
   br i1 %.not.i80, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit
   %102 = lshr i64 %98, 6
-  %103 = getelementptr inbounds nuw i64, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !58
   %105 = and i64 %98, 63
   %106 = shl nuw i64 1, %105
@@ -3698,7 +3696,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %_ZNK6duckdb
   %118 = and i64 %.064157, 63
   %119 = shl nuw i64 1, %118
   %120 = xor i64 %119, -1
-  %121 = getelementptr inbounds nuw i64, ptr %116, i64 %117
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %117
   %122 = load i64, ptr %121, align 8, !tbaa !58
   %123 = and i64 %122, %120
   store i64 %123, ptr %121, align 8, !tbaa !58
@@ -3763,7 +3761,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %143, %.n
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %145, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %140, ptr %13, align 8, !tbaa !280
   store ptr %144, ptr %68, align 8, !tbaa !282
-  %146 = getelementptr inbounds nuw i64, ptr %140, i64 %138
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %138
   store ptr %146, ptr %57, align 8, !tbaa !283
   br label %_ZN6duckdb17ListFilterFunctor13PushEmptyListERNS_6vectorImLb1EEE.exit
 
@@ -3835,7 +3833,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i90: ; preds = %169, %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %171, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i90
   store ptr %165, ptr %13, align 8, !tbaa !280
   store ptr %170, ptr %68, align 8, !tbaa !282
-  %172 = getelementptr inbounds nuw i64, ptr %165, i64 %163
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %163
   store ptr %172, ptr %57, align 8, !tbaa !283
   br label %_ZN6duckdb17ListFilterFunctor14SetResultEntryEPNS_12list_entry_tERmRKS1_mRNS_6vectorImLb1EEE.exit
 
@@ -3878,7 +3876,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit.us:   ; preds = %179
   %184 = add i64 %183, %.063139.us
   %185 = trunc i64 %184 to i32
   %186 = load ptr, ptr %31, align 8, !tbaa !252
-  %187 = getelementptr inbounds nuw i32, ptr %186, i64 %.362.us
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %.362.us
   store i32 %185, ptr %187, align 4, !tbaa !99
   %188 = load i8, ptr %46, align 8, !tbaa !233, !range !82, !noundef !83
   %189 = trunc nuw i8 %188 to i1
@@ -4032,7 +4030,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit:      ; preds = %206
   %226 = add i64 %225, %.063139
   %227 = trunc i64 %226 to i32
   %228 = load ptr, ptr %31, align 8, !tbaa !252
-  %229 = getelementptr inbounds nuw i32, ptr %228, i64 %.362
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %.362
   store i32 %227, ptr %229, align 4, !tbaa !99
   br label %232
 
@@ -4050,7 +4048,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EEixEm.exit:      ; preds = %206
   %233 = load ptr, ptr %.sroa.0107.0134, align 8, !tbaa !263
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !252
-  %236 = getelementptr inbounds nuw i32, ptr %235, i64 %.362
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %.362
   store i32 %175, ptr %236, align 4, !tbaa !99
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0134, i64 8
   %.not113 = icmp eq ptr %237, %73
@@ -5346,7 +5344,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !289
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !292
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !294
   ret void
 }
@@ -5446,7 +5444,7 @@ _ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocat
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !84
   store ptr %31, ptr %4, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw %"struct.duckdb::LambdaFunctions::ColumnInfo", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %35, ptr %34, align 8, !tbaa !13
   ret void
 
@@ -5971,7 +5969,7 @@ _ZNSt12_Vector_baseIN6duckdb6VectorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !9
   store ptr %.0.lcssa.i.i.i.i33, ptr %6, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %22, i64 %18
+  %33 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %18
   store ptr %33, ptr %32, align 8, !tbaa !85
   ret void
 
@@ -7466,7 +7464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorINS_6VectorELb1EE3getILb1EEERKS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [104 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -7585,7 +7583,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !218
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !215
-  %29 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !348
   ret void
 }
@@ -7668,7 +7666,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !218
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !215
-  %29 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !348
   ret void
 
@@ -8567,7 +8565,7 @@ _ZN6duckdb15SelectionVectorC2Em.exit:             ; preds = %6
   br i1 %.not.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %.06081
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.06081
   %43 = load i32, ptr %42, align 4, !tbaa !99
   %44 = zext i32 %43 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit
@@ -8590,13 +8588,13 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %38, %41
 
 54:                                               ; preds = %.lr.ph, %58
   %55 = phi i64 [ %.promoted, %.lr.ph ], [ %61, %58 ]
-  %56 = getelementptr inbounds nuw i64, ptr %47, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !58
   %.not66 = icmp eq i64 %57, 0
   br i1 %.not66, label %58, label %.critedge
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %55
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %55
   store i64 %53, ptr %59, align 8, !tbaa !257
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 0, ptr %60, align 8, !tbaa !259
@@ -8618,7 +8616,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit:    ; preds = %38, %41
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.critedge
   %64 = lshr i64 %45, 6
-  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !58
   %67 = and i64 %45, 63
   %68 = shl nuw i64 1, %67
@@ -8635,7 +8633,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
 73:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread
   %74 = trunc i64 %.06081 to i32
   %75 = load ptr, ptr %7, align 8, !tbaa !252
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.082
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.082
   store i32 %74, ptr %76, align 4, !tbaa !99
   %77 = add i64 %.082, 1
   %78 = load i64, ptr %21, align 8, !tbaa !374
@@ -8660,7 +8658,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
 88:                                               ; preds = %84
   %89 = load i64, ptr %20, align 8, !tbaa !376
   %90 = load i64, ptr %18, align 8, !tbaa !366
-  %91 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %90
   store i64 %89, ptr %91, align 8, !tbaa !257
   %92 = load i64, ptr %21, align 8, !tbaa !374
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -8691,7 +8689,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %.cri
 103:                                              ; preds = %101
   %104 = load i64, ptr %33, align 8, !tbaa !376
   %105 = load i64, ptr %23, align 8, !tbaa !366
-  %106 = getelementptr inbounds nuw %"struct.duckdb::list_entry_t", ptr %3, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %105
   store i64 %104, ptr %106, align 8, !tbaa !257
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 0, ptr %107, align 8, !tbaa !259
@@ -8986,7 +8984,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorImLb1EE3getILb1EEERmm.exit:      ; preds = %2
-  %25 = getelementptr inbounds nuw i64, ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 

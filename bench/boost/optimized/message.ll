@@ -12,28 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.boost::locale::gnu_gettext::messages_info::domain" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type" = type { %"class.std::unique_ptr", %"class.std::unordered_map", %"class.boost::locale::gnu_gettext::lambda::plural_expr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.boost::locale::gnu_gettext::lambda::plural_expr" = type { %"class.std::unique_ptr.40" }
-%"class.std::unique_ptr.40" = type { %"struct.std::__uniq_ptr_data.41" }
-%"struct.std::__uniq_ptr_data.41" = type { %"class.std::__uniq_ptr_impl.42" }
-%"class.std::__uniq_ptr_impl.42" = type { %"class.std::tuple.43" }
-%"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.44" }
-%"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.47" }
-%"struct.std::_Head_base.47" = type { ptr }
-%"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type" = type { %"class.std::unique_ptr", %"class.std::unordered_map.81", %"class.boost::locale::gnu_gettext::lambda::plural_expr" }
-%"class.std::unordered_map.81" = type { %"class.std::_Hashtable.82" }
-%"class.std::_Hashtable.82" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
@@ -52,6 +30,19 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.57" = type { %"struct.std::_Head_base.58" }
 %"struct.std::_Head_base.58" = type { ptr }
 %"class.std::tuple.59" = type { i8 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.33" }
+%"struct.std::_Head_base.33" = type { ptr }
+%"class.boost::locale::gnu_gettext::lambda::plural_expr" = type { %"class.std::unique_ptr.40" }
+%"class.std::unique_ptr.40" = type { %"struct.std::__uniq_ptr_data.41" }
+%"struct.std::__uniq_ptr_data.41" = type { %"class.std::__uniq_ptr_impl.42" }
+%"class.std::__uniq_ptr_impl.42" = type { %"class.std::tuple.43" }
+%"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.44" }
+%"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.47" }
+%"struct.std::_Head_base.47" = type { ptr }
 %"class.boost::locale::gnu_gettext::converter" = type { %"class.boost::locale::conv::narrow_converter" }
 %"class.boost::locale::conv::narrow_converter" = type { %"class.std::unique_ptr.63" }
 %"class.std::unique_ptr.63" = type { %"struct.std::__uniq_ptr_data.64" }
@@ -471,7 +462,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %65 = phi ptr [ %34, %.lr.ph122 ], [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
   %66 = phi i64 [ 0, %.lr.ph122 ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
   %.028121 = phi i32 [ 0, %.lr.ph122 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
-  %67 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::messages_info::domain", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %65, i64 %66
   %68 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %67)
           to label %69 unwind label %96
 
@@ -711,7 +702,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %141 = load ptr, ptr %16, align 8, !tbaa !56
-  %142 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %141, i64 %66
+  %142 = getelementptr inbounds nuw [72 x i8], ptr %141, i64 %66
   %143 = invoke noundef zeroext i1 @_ZN5boost6locale11gnu_gettext10mo_messageIcE9load_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_RNS3_16domain_data_typeERKSt8functionIFSt6vectorIcS8_ESB_SB_EE(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(72) %142, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %153 unwind label %151
 
@@ -1023,7 +1014,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %65 = phi ptr [ %34, %.lr.ph122 ], [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
   %66 = phi i64 [ 0, %.lr.ph122 ], [ %173, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
   %.028121 = phi i32 [ 0, %.lr.ph122 ], [ %172, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63 ]
-  %67 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::messages_info::domain", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %65, i64 %66
   %68 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSt4lessIS5_ESaISt4pairIKS5_jEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %67)
           to label %69 unwind label %96
 
@@ -1263,7 +1254,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %141 = load ptr, ptr %16, align 8, !tbaa !71
-  %142 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %141, i64 %66
+  %142 = getelementptr inbounds nuw [72 x i8], ptr %141, i64 %66
   %143 = invoke noundef zeroext i1 @_ZN5boost6locale11gnu_gettext10mo_messageIwE9load_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_RNS3_16domain_data_typeERKSt8functionIFSt6vectorIcS8_ESB_SB_EE(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(72) %142, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %153 unwind label %151
 
@@ -2988,7 +2979,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %199
   store ptr %171, ptr %0, align 8, !tbaa !40
   store ptr %198, ptr %38, align 8, !tbaa !42
-  %203 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %171, i64 %167
+  %203 = getelementptr inbounds nuw [32 x i8], ptr %171, i64 %167
   store ptr %203, ptr %39, align 8, !tbaa !46
   %.pre144 = load ptr, ptr %5, align 8, !tbaa !43
   %204 = icmp eq ptr %.pre144, %36
@@ -3244,7 +3235,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !40
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !42
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !46
   br label %43
 
@@ -4544,7 +4535,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !40
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !42
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !46
   ret void
 }
@@ -4744,7 +4735,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !40
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !42
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !46
   ret void
 
@@ -6034,7 +6025,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6locale11gnu_gettext10mo_messa
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !56
-  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !52
   %.not32 = icmp eq ptr %16, null
@@ -6303,9 +6294,9 @@ _ZNSt6vectorIN5boost6locale11gnu_gettext10mo_messageIcE16domain_data_typeESaIS5_
 
 _ZNSt12_Vector_baseIN5boost6locale11gnu_gettext10mo_messageIcE16domain_data_typeESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorIN5boost6locale11gnu_gettext10mo_messageIcE16domain_data_typeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %45
   store ptr %33, ptr %0, align 8, !tbaa !56
-  %49 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %34, i64 %1
+  %49 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %1
   store ptr %49, ptr %4, align 8, !tbaa !202
-  %50 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %33, i64 %31
+  %50 = getelementptr inbounds nuw [72 x i8], ptr %33, i64 %31
   store ptr %50, ptr %11, align 8, !tbaa !210
   br label %51
 
@@ -6481,7 +6472,7 @@ define linkonce_odr hidden void @_ZSt19__relocate_object_aIN5boost6locale11gnu_g
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %28 = load i64, ptr %27, align 8, !tbaa !226
   %29 = urem i64 %28, %10
-  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %29
   store ptr %11, ptr %30, align 8, !tbaa !52
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i.i.i
 
@@ -8190,7 +8181,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4
   %40 = load i64, ptr %39, align 8, !tbaa !208
   %41 = urem i64 %38, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !203
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %.not.i.i21 = icmp eq ptr %44, null
   br i1 %.not.i.i21, label %.loopexit29, label %45
@@ -8394,7 +8385,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %2, ptr %32, align 8, !tbaa !226
   %33 = load ptr, ptr %0, align 8, !tbaa !203
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !52
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -8420,14 +8411,14 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %46 = load i64, ptr %45, align 8, !tbaa !226
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !52
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !203
   br label %49
 
 49:                                               ; preds = %43, %39
   %50 = phi ptr [ %.pre.i, %43 ], [ %33, %39 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.0
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.0
   store ptr %40, ptr %51, align 8, !tbaa !52
   br label %_ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIcEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSF_10_Hash_nodeISD_Lb1EEE.exit
 
@@ -8654,7 +8645,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 120
   %16 = load i64, ptr %15, align 8, !tbaa !226
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !52
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -8669,7 +8660,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !52
   br label %28
 
@@ -8758,7 +8749,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   br i1 %.not, label %17, label %51
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<char>::domain_data_type", ptr %12, i64 %8
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %12, i64 %8
   %19 = load ptr, ptr %18, align 8, !tbaa !52
   %.not18 = icmp eq ptr %19, null
   br i1 %.not18, label %24, label %20
@@ -9226,7 +9217,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIcEESt4
   %76 = load i64, ptr %75, align 8, !tbaa !208
   %77 = urem i64 %74, %76
   %78 = load ptr, ptr %0, align 8, !tbaa !203
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8, !tbaa !52
   %.not.i.i6 = icmp eq ptr %80, null
   br i1 %.not.i.i6, label %_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIcEESt4pairIKS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIcEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS6_m.exit, label %81
@@ -10218,7 +10209,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i: ; p
   %372 = phi i64 [ %.pre.i, %369 ], [ 1, %367 ], [ %364, %366 ]
   %373 = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i64 %372, ptr %373, align 8, !tbaa !286
-  %374 = getelementptr inbounds nuw i32, ptr %371, i64 %372
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %371, i64 %372
   store i32 0, ptr %374, align 4, !tbaa !287
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit
 
@@ -10695,7 +10686,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6locale11gnu_gettext10mo_messa
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !71
-  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !52
   %.not32 = icmp eq ptr %16, null
@@ -10738,7 +10729,7 @@ _ZNK5boost17basic_string_viewIwSt11char_traitsIwEE4findEwm.exit: ; preds = %.lr.
   %31 = ashr exact i64 %29, 2
   %32 = add nuw nsw i64 %31, 1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %32, i64 %.sroa.7.037)
-  %33 = getelementptr inbounds nuw i32, ptr %.sroa.0.038, i64 %spec.select.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.038, i64 %spec.select.i
   %34 = sub i64 %.sroa.7.037, %spec.select.i
   %35 = add nuw nsw i64 %.01639, 1
   %exitcond.not = icmp eq i64 %35, %.017
@@ -10962,9 +10953,9 @@ _ZNSt6vectorIN5boost6locale11gnu_gettext10mo_messageIwE16domain_data_typeESaIS5_
 
 _ZNSt12_Vector_baseIN5boost6locale11gnu_gettext10mo_messageIwE16domain_data_typeESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorIN5boost6locale11gnu_gettext10mo_messageIwE16domain_data_typeESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %45
   store ptr %33, ptr %0, align 8, !tbaa !71
-  %49 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %34, i64 %1
+  %49 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %1
   store ptr %49, ptr %4, align 8, !tbaa !290
-  %50 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %33, i64 %31
+  %50 = getelementptr inbounds nuw [72 x i8], ptr %33, i64 %31
   store ptr %50, ptr %11, align 8, !tbaa !295
   br label %51
 
@@ -11115,7 +11106,7 @@ define linkonce_odr hidden void @_ZSt19__relocate_object_aIN5boost6locale11gnu_g
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %28 = load i64, ptr %27, align 8, !tbaa !226
   %29 = urem i64 %28, %10
-  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %29
   store ptr %11, ptr %30, align 8, !tbaa !52
   br label %_ZN5boost6locale11gnu_gettext6lambda11plural_exprD2Ev.exit.i.i.i
 
@@ -11402,7 +11393,7 @@ define linkonce_odr hidden void @_ZN5boost6locale11gnu_gettext11message_keyIwEC2
   %34 = phi i64 [ %26, %._crit_edge.i.i.i ], [ %26, %28 ], [ %.pre6.i.i.i, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %34, ptr %35, align 8, !tbaa !286, !alias.scope !307
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 0, ptr %36, align 4, !tbaa !287
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !307
   %37 = load ptr, ptr %0, align 8, !tbaa !275
@@ -11445,7 +11436,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i: ; p
   %47 = phi ptr [ %.pre29.i, %45 ], [ %37, %43 ], [ %37, %42 ]
   %48 = phi i64 [ %.pre.i, %45 ], [ 1, %43 ], [ %34, %42 ]
   store i64 %48, ptr %8, align 8, !tbaa !286
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 0, ptr %49, align 4, !tbaa !287
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit
 
@@ -11504,7 +11495,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_checkEmPKc.exit.i.i: ;
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %62, ptr %6, align 8, !tbaa !306, !alias.scope !310
   %63 = load ptr, ptr %1, align 8, !tbaa !275, !noalias !310
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %59
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %59
   %65 = sub nuw i64 %60, %59
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !310
   store i64 %65, ptr %3, align 8, !tbaa !51, !noalias !310
@@ -11545,7 +11536,7 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8_M_checkEmPKc.exit.i.i: ;
   %77 = phi i64 [ %69, %._crit_edge.i.i.i13 ], [ %69, %71 ], [ %.pre6.i.i.i14, %73 ]
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %77, ptr %78, align 8, !tbaa !286, !alias.scope !310
-  %79 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   store i32 0, ptr %79, align 4, !tbaa !287
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !310
   %80 = load ptr, ptr %9, align 8, !tbaa !275
@@ -11588,7 +11579,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i24: ;
   %90 = phi ptr [ %.pre29.i27, %88 ], [ %80, %86 ], [ %80, %85 ]
   %91 = phi i64 [ %.pre.i26, %88 ], [ 1, %86 ], [ %77, %85 ]
   store i64 %91, ptr %11, align 8, !tbaa !286
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 0, ptr %92, align 4, !tbaa !287
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit31
 
@@ -11767,7 +11758,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4
   %42 = load i64, ptr %41, align 8, !tbaa !293
   %43 = urem i64 %40, %42
   %44 = load ptr, ptr %0, align 8, !tbaa !291
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !52
   %.not.i.i21 = icmp eq ptr %46, null
   br i1 %.not.i.i21, label %.loopexit29, label %47
@@ -11971,7 +11962,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %2, ptr %32, align 8, !tbaa !226
   %33 = load ptr, ptr %0, align 8, !tbaa !291
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !52
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -11997,14 +11988,14 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %46 = load i64, ptr %45, align 8, !tbaa !226
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !52
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !291
   br label %49
 
 49:                                               ; preds = %43, %39
   %50 = phi ptr [ %.pre.i, %43 ], [ %33, %39 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.0
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.0
   store ptr %40, ptr %51, align 8, !tbaa !52
   br label %_ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSF_10_Hash_nodeISD_Lb1EEE.exit
 
@@ -12117,7 +12108,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
   %19 = phi i64 [ %12, %._crit_edge.i.i ], [ %12, %14 ], [ %.pre6.i.i, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %19, ptr %20, align 8, !tbaa !286
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 0, ptr %21, align 4, !tbaa !287
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12166,7 +12157,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
   %39 = phi i64 [ %31, %._crit_edge.i.i5 ], [ %31, %33 ], [ %.pre6.i.i6, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %39, ptr %40, align 8, !tbaa !286
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 0, ptr %41, align 4, !tbaa !287
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -12239,7 +12230,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 120
   %16 = load i64, ptr %15, align 8, !tbaa !226
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !52
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -12254,7 +12245,7 @@ _ZNSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !52
   br label %28
 
@@ -12310,7 +12301,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK5boost6locale11gnu_gettext10mo_mess
   br i1 %.not, label %17, label %47
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::mo_message<wchar_t>::domain_data_type", ptr %12, i64 %8
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %12, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %19, ptr %5, align 8, !tbaa !306
@@ -12551,7 +12542,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5boost6locale11gnu_gettext11message_keyIwEESt4
   %78 = load i64, ptr %77, align 8, !tbaa !293
   %79 = urem i64 %76, %78
   %80 = load ptr, ptr %0, align 8, !tbaa !291
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %79
   %82 = load ptr, ptr %81, align 8, !tbaa !52
   %.not.i.i6 = icmp eq ptr %82, null
   br i1 %.not.i.i6, label %_ZNKSt10_HashtableIN5boost6locale11gnu_gettext11message_keyIwEESt4pairIKS4_NSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS4_ENS2_13hash_functionIwEENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS6_m.exit, label %83
@@ -12658,7 +12649,7 @@ _ZNSt6vectorIN5boost6locale11gnu_gettext13messages_info6domainESaIS4_EE17_S_chec
 
 _ZNSt12_Vector_baseIN5boost6locale11gnu_gettext13messages_info6domainESaIS4_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN5boost6locale11gnu_gettext13messages_info6domainESaIS4_EE17_S_check_init_lenEmRKS5_.exit
   store ptr null, ptr %0, align 8, !tbaa !39
-  %10 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::messages_info::domain", ptr null, i64 %7
+  %10 = getelementptr inbounds nuw [64 x i8], ptr null, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !133
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPN5boost6locale11gnu_gettext13messages_info6domainESI_ET0_T_SL_SK_RSaIT1_E.exit
@@ -12667,7 +12658,7 @@ _ZNSt12_Vector_baseIN5boost6locale11gnu_gettext13messages_info6domainESaIS4_EE11
   %12 = shl nuw nsw i64 %6, 1
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #22
   store ptr %13, ptr %0, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw %"struct.boost::locale::gnu_gettext::messages_info::domain", ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !133
   br label %.lr.ph.i.i.i.i

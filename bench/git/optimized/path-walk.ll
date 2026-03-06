@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 %struct.prio_queue = type { ptr, i64, ptr, i64, i64, ptr }
 %struct.strset = type { %struct.strmap }
-%struct.object_array_entry = type { ptr, ptr, ptr, i32 }
 %struct.tree_desc = type { ptr, ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
 %struct.object_id = type { [32 x i8], i32 }
@@ -220,7 +219,7 @@ push_to_stack.exit:                               ; preds = %31, %36
   %.088135.i = phi i64 [ 0, %.lr.ph136.i ], [ %191, %190 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !89
-  %103 = getelementptr inbounds nuw %struct.object_array_entry, ptr %102, i64 %.088135.i
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %.088135.i
   %104 = load ptr, ptr %103, align 8, !tbaa !90
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 14
@@ -924,7 +923,7 @@ define internal fastcc i32 @walk_path(ptr noundef nonnull %0, ptr noundef %1) un
 27:                                               ; preds = %25
   %28 = load ptr, ptr %0, align 8, !tbaa !61
   %29 = load ptr, ptr %10, align 8, !tbaa !116
-  %30 = getelementptr inbounds nuw %struct.object_id, ptr %29, i64 %.05473
+  %30 = getelementptr inbounds nuw [36 x i8], ptr %29, i64 %.05473
   %31 = tail call ptr @lookup_tree(ptr noundef %28, ptr noundef %30) #13
   %.not65 = icmp eq ptr %31, null
   br i1 %.not65, label %44, label %32
@@ -938,7 +937,7 @@ define internal fastcc i32 @walk_path(ptr noundef nonnull %0, ptr noundef %1) un
 35:                                               ; preds = %25
   %36 = load ptr, ptr %0, align 8, !tbaa !61
   %37 = load ptr, ptr %10, align 8, !tbaa !116
-  %38 = getelementptr inbounds nuw %struct.object_id, ptr %37, i64 %.05473
+  %38 = getelementptr inbounds nuw [36 x i8], ptr %37, i64 %.05473
   %39 = tail call ptr @lookup_blob(ptr noundef %36, ptr noundef %38) #13
   %.not63 = icmp eq ptr %39, null
   br i1 %.not63, label %44, label %40
@@ -1027,7 +1026,7 @@ define internal fastcc i32 @walk_path(ptr noundef nonnull %0, ptr noundef %1) un
   %.075 = phi i64 [ 0, %.lr.ph ], [ %167, %add_tree_entries.exit ]
   %.274 = phi i32 [ %.05390, %.lr.ph ], [ %.0.i, %add_tree_entries.exit ]
   %75 = load ptr, ptr %10, align 8, !tbaa !116
-  %76 = getelementptr inbounds nuw %struct.object_id, ptr %75, i64 %.075
+  %76 = getelementptr inbounds nuw [36 x i8], ptr %75, i64 %.075
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

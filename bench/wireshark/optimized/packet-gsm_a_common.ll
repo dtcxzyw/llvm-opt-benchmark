@@ -2147,7 +2147,7 @@ define zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 
 53:                                               ; preds = %37
   %54 = sext i32 %5 to i64
-  %55 = getelementptr i32, ptr %.074, i64 %54
+  %55 = getelementptr [4 x i8], ptr %.074, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq ptr %8, null
   br i1 %57, label %61, label %58
@@ -2173,7 +2173,7 @@ define zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 
 switch.lookup:                                    ; preds = %61
   %66 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %66
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.elem_t, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %67 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %35)
@@ -2183,7 +2183,7 @@ switch.lookup:                                    ; preds = %61
   br i1 %.not, label %88, label %70
 
 70:                                               ; preds = %switch.lookup
-  %71 = getelementptr ptr, ptr %.072, i64 %54
+  %71 = getelementptr [8 x i8], ptr %.072, i64 %54
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %78
@@ -2399,7 +2399,7 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
 
 60:                                               ; preds = %46
   %61 = sext i32 %5 to i64
-  %62 = getelementptr i32, ptr %.082, i64 %61
+  %62 = getelementptr [4 x i8], ptr %.082, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq ptr %8, null
   br i1 %64, label %68, label %65
@@ -2425,7 +2425,7 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %68
   %73 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %73
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.elem_t, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %74 = call ptr @proto_tree_add_uint(ptr noundef %70, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %35)
@@ -2437,7 +2437,7 @@ switch.lookup:                                    ; preds = %68
   br i1 %.not, label %97, label %79
 
 79:                                               ; preds = %switch.lookup
-  %80 = getelementptr ptr, ptr %.080, i64 %61
+  %80 = getelementptr [8 x i8], ptr %.080, i64 %61
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %87
@@ -2624,7 +2624,7 @@ define hidden zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr nounde
 
 52:                                               ; preds = %37
   %53 = sext i32 %5 to i64
-  %54 = getelementptr i32, ptr %.069, i64 %53
+  %54 = getelementptr [4 x i8], ptr %.069, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq ptr %8, null
   br i1 %56, label %60, label %57
@@ -2650,7 +2650,7 @@ define hidden zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %60
   %65 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %65
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.elem_t, i64 %65
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %66 = call ptr @proto_tree_add_uint(ptr noundef %62, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %35)
@@ -2660,7 +2660,7 @@ switch.lookup:                                    ; preds = %60
   br i1 %.not, label %87, label %69
 
 69:                                               ; preds = %switch.lookup
-  %70 = getelementptr ptr, ptr %.067, i64 %53
+  %70 = getelementptr [8 x i8], ptr %.067, i64 %53
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %77
@@ -2838,7 +2838,7 @@ define zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 n
 
 47:                                               ; preds = %36
   %48 = sext i32 %5 to i64
-  %49 = getelementptr i32, ptr %.056, i64 %48
+  %49 = getelementptr [4 x i8], ptr %.056, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq ptr %7, null
   br i1 %51, label %55, label %52
@@ -2864,11 +2864,11 @@ define zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 n
 
 switch.lookup:                                    ; preds = %55
   %60 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.elem_t, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %61 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %34)
-  %62 = getelementptr ptr, ptr %.054, i64 %48
+  %62 = getelementptr [8 x i8], ptr %.054, i64 %48
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %68
@@ -3060,7 +3060,7 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 50:                                               ; preds = %39
   %51 = sext i32 %5 to i64
-  %52 = getelementptr i32, ptr %.056, i64 %51
+  %52 = getelementptr [4 x i8], ptr %.056, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq ptr %7, null
   br i1 %54, label %58, label %55
@@ -3077,7 +3077,7 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %61 = load i32, ptr @hf_gsm_a_common_elem_id_f0, align 4
   %62 = lshr i32 %34, 4
   %63 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %60, i32 noundef %61, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %34, ptr noundef nonnull @.str.67, i32 noundef %62)
-  %64 = getelementptr ptr, ptr %.054, i64 %51
+  %64 = getelementptr [8 x i8], ptr %.054, i64 %51
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
@@ -3245,7 +3245,7 @@ define zeroext range(i16 0, 2) i16 @elem_t(ptr noundef %0, ptr noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %35
   %38 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.elem_t, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.elem_t, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %39 = call ptr @val_to_str_ext(i32 noundef %5, ptr noundef nonnull %9, ptr noundef nonnull @.str.68)
@@ -3407,7 +3407,7 @@ define zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 
 46:                                               ; preds = %32
   %47 = sext i32 %4 to i64
-  %48 = getelementptr i32, ptr %.059, i64 %47
+  %48 = getelementptr [4 x i8], ptr %.059, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq ptr %7, null
   br i1 %50, label %54, label %51
@@ -3427,7 +3427,7 @@ define zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not, label %78, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr ptr, ptr %.057, i64 %47
+  %60 = getelementptr [8 x i8], ptr %.057, i64 %47
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %68
@@ -3603,7 +3603,7 @@ define hidden zeroext i16 @elem_lv_e(ptr noundef %0, ptr noundef %1, ptr noundef
 
 46:                                               ; preds = %32
   %47 = sext i32 %4 to i64
-  %48 = getelementptr i32, ptr %.059, i64 %47
+  %48 = getelementptr [4 x i8], ptr %.059, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq ptr %7, null
   br i1 %50, label %54, label %51
@@ -3623,7 +3623,7 @@ define hidden zeroext i16 @elem_lv_e(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %77, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr ptr, ptr %.057, i64 %47
+  %60 = getelementptr [8 x i8], ptr %.057, i64 %47
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %67
@@ -3780,7 +3780,7 @@ define zeroext i16 @elem_v(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 
 34:                                               ; preds = %31
   %35 = sext i32 %4 to i64
-  %36 = getelementptr ptr, ptr %.038, i64 %35
+  %36 = getelementptr [8 x i8], ptr %.038, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -3790,7 +3790,7 @@ define zeroext i16 @elem_v(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %62
 
 41:                                               ; preds = %34
-  %42 = getelementptr i32, ptr %.040, i64 %35
+  %42 = getelementptr [4 x i8], ptr %.040, i64 %35
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq ptr %6, null
   br i1 %44, label %48, label %45
@@ -3956,14 +3956,14 @@ define noundef zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr nou
 
 36:                                               ; preds = %31
   %37 = sext i32 %4 to i64
-  %38 = getelementptr i32, ptr %.043, i64 %37
+  %38 = getelementptr [4 x i8], ptr %.043, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef %39, ptr noundef nonnull %8, ptr noundef nonnull %32)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = call noalias dereferenceable_or_null(1024) ptr @wmem_alloc(ptr noundef %42, i64 noundef 1024) #10
   store i8 0, ptr %43, align 1
-  %44 = getelementptr ptr, ptr %.044, i64 %37
+  %44 = getelementptr [8 x i8], ptr %.044, i64 %37
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %53
@@ -4506,7 +4506,7 @@ define noundef zeroext i16 @de_ms_cm_3(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond, label %switch.lookup, label %73
 
 switch.lookup:                                    ; preds = %7
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.de_ms_cm_3, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_ms_cm_3, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %67 = load i32, ptr %switch.load, align 4
   %68 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %67, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0)
@@ -6087,8 +6087,8 @@ define hidden void @proto_register_gsm_a_common() local_unnamed_addr #1 {
 1:                                                ; preds = %0, %1
   %indvars.iv9 = phi i64 [ 2, %0 ], [ %indvars.iv.next10, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @ett_gsm_common_elem, i64 %indvars.iv
-  %3 = getelementptr ptr, ptr @proto_register_gsm_a_common.ett, i64 %indvars.iv9
+  %2 = getelementptr [4 x i8], ptr @ett_gsm_common_elem, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @proto_register_gsm_a_common.ett, i64 %indvars.iv9
   store ptr %2, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1

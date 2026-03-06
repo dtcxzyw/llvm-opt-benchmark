@@ -202,7 +202,7 @@ define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef 
 
 switch.lookup:                                    ; preds = %35
   %61 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Curl_getinfo, i64 %61
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_getinfo, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split.i
 

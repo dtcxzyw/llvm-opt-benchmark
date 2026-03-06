@@ -6943,7 +6943,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSa
   %25 = getelementptr inbounds i8, ptr %15, i64 %17
   store ptr %10, ptr %0, align 8, !tbaa !8
   store ptr %25, ptr %5, align 8, !tbaa !200
-  %26 = getelementptr inbounds nuw i32, ptr %10, i64 %3
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %3
   store ptr %26, ptr %20, align 8, !tbaa !11
   ret void
 }
@@ -14851,7 +14851,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   %13 = zext i32 %11 to i64
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !299
-  %16 = getelementptr ptr, ptr %15, i64 %13
+  %16 = getelementptr [8 x i8], ptr %15, i64 %13
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   store ptr %18, ptr %1, align 8, !tbaa !23
@@ -15749,7 +15749,7 @@ define linkonce_odr hidden noundef ptr @_ZZN8nanobind6detail11func_createILb0ELb
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !299
-  %24 = getelementptr ptr, ptr %23, i64 %21
+  %24 = getelementptr [8 x i8], ptr %23, i64 %21
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   store ptr %26, ptr %13, align 8, !tbaa !23
@@ -16491,7 +16491,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4new
   %25 = zext i32 %23 to i64
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !299
-  %28 = getelementptr ptr, ptr %27, i64 %25
+  %28 = getelementptr [8 x i8], ptr %27, i64 %25
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   store ptr %30, ptr %17, align 8, !tbaa !23
@@ -16889,7 +16889,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4new
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !299
-  %24 = getelementptr ptr, ptr %23, i64 %21
+  %24 = getelementptr [8 x i8], ptr %23, i64 %21
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   store ptr %26, ptr %13, align 8, !tbaa !23
@@ -17056,7 +17056,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4new
   %26 = zext i32 %24 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !299
-  %29 = getelementptr ptr, ptr %28, i64 %26
+  %29 = getelementptr [8 x i8], ptr %28, i64 %26
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   store ptr %31, ptr %18, align 8, !tbaa !23
@@ -17080,7 +17080,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4new
   %42 = zext i32 %40 to i64
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !299
-  %45 = getelementptr ptr, ptr %44, i64 %42
+  %45 = getelementptr [8 x i8], ptr %44, i64 %42
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !23
   store ptr %47, ptr %34, align 8, !tbaa !23
@@ -17103,7 +17103,7 @@ _ZN8nanobind6detail5tupleIJNS0_11type_casterINS_6handleEiEENS2_INS_4argsEiEENS2_
   %56 = zext i32 %54 to i64
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !299
-  %59 = getelementptr ptr, ptr %58, i64 %56
+  %59 = getelementptr [8 x i8], ptr %58, i64 %56
   %60 = getelementptr i8, ptr %59, i64 -8
   %61 = load ptr, ptr %60, align 8, !tbaa !23
   store ptr %61, ptr %48, align 8, !tbaa !23

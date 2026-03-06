@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.cv::datasets::join" = type { double, double, double, double, double, double, double, double, double }
 
 $_ZNSt12__shared_ptrIN2cv8datasets11GR_chalearnELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -388,7 +387,7 @@ _ZNSt12__shared_ptrIN2cv8datasets11GR_chalearnELN9__gnu_cxx12_Lock_policyE2EED2E
 
 163:                                              ; preds = %._crit_edge, %163
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %163 ]
-  %164 = getelementptr inbounds nuw %"struct.cv::datasets::join", ptr %124, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [72 x i8], ptr %124, i64 %indvars.iv
   %165 = load double, ptr %164, align 8, !tbaa !64
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %167 = load double, ptr %166, align 8, !tbaa !67

@@ -44,7 +44,7 @@ define void @_ZN6icu_776BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none)
 
 13:                                               ; preds = %12
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr i32, ptr %1, i64 %14
+  %15 = getelementptr [4 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4, !tbaa !13
   %.not28.i = icmp slt i32 %17, 2049
@@ -58,7 +58,7 @@ define void @_ZN6icu_776BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none)
   %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %9, %13 ]
   %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ 0, %13 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %1, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %1, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp sgt i32 %23, 2048
   %.021..i = select i1 %24, i32 %.02132.i, i32 %20
@@ -77,13 +77,13 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %3, %12, 
 29:                                               ; preds = %_ZNK6icu_776BMPSet13findCodePointEiii.exit, %_ZNK6icu_776BMPSet13findCodePointEiii.exit16
   %indvars.iv = phi i64 [ 1, %_ZNK6icu_776BMPSet13findCodePointEiii.exit ], [ %indvars.iv.next, %_ZNK6icu_776BMPSet13findCodePointEiii.exit16 ]
   %30 = shl nuw nsw i64 %indvars.iv, 12
-  %31 = getelementptr i32, ptr %28, i64 %indvars.iv
+  %31 = getelementptr [4 x i8], ptr %28, i64 %indvars.iv
   %32 = getelementptr i8, ptr %31, i64 -4
   %33 = load i32, ptr %32, align 4, !tbaa !13
   %34 = load i32, ptr %5, align 8, !tbaa !12
   %35 = add nsw i32 %34, -1
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds i32, ptr %1, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %1, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !13
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %30, %39
@@ -95,7 +95,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %3, %12, 
 
 42:                                               ; preds = %41
   %43 = sext i32 %35 to i64
-  %44 = getelementptr i32, ptr %1, i64 %43
+  %44 = getelementptr [4 x i8], ptr %1, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -4
   %46 = load i32, ptr %45, align 4, !tbaa !13
   %47 = sext i32 %46 to i64
@@ -113,7 +113,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %3, %12, 
   %.02033.i12 = phi i32 [ %..020.i15, %.lr.ph.i11 ], [ %35, %.preheader.i10 ]
   %.02132.i13 = phi i32 [ %.021..i14, %.lr.ph.i11 ], [ %33, %.preheader.i10 ]
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %1, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %30, %55
@@ -141,7 +141,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 844
   %67 = load i32, ptr %66, align 4, !tbaa !13
   %68 = sext i32 %65 to i64
-  %69 = getelementptr inbounds i32, ptr %1, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %1, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !13
   %71 = icmp sgt i32 %70, 65533
   br i1 %71, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %72
@@ -152,7 +152,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %4
 
 73:                                               ; preds = %72
   %74 = sext i32 %67 to i64
-  %75 = getelementptr i32, ptr %1, i64 %74
+  %75 = getelementptr [4 x i8], ptr %1, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !13
   %.not28.i.i = icmp sgt i32 %77, 65533
@@ -169,7 +169,7 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %4
   %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %67, %.preheader.i.i ]
   %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %65, %.preheader.i.i ]
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %1, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %1, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !13
   %85 = icmp sgt i32 %84, 65533
   %.021..i.i = select i1 %85, i32 %.02132.i.i, i32 %81
@@ -192,7 +192,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %60, %7
 
 .preheader21.i:                                   ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %.preheader21.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader21.i ], [ 0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
-  %93 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %94 = load i32, ptr %93, align 4, !tbaa !13
   %95 = or i32 %94, 3
   store i32 %95, ptr %93, align 4, !tbaa !13
@@ -202,7 +202,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %60, %7
 
 .preheader20.i:                                   ; preds = %.preheader21.i, %.preheader20.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader20.i ], [ 0, %.preheader21.i ]
-  %96 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv28.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv28.i
   %97 = load i32, ptr %96, align 4, !tbaa !13
   %98 = or i32 %97, 1
   store i32 %98, ptr %96, align 4, !tbaa !13
@@ -212,7 +212,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %60, %7
 
 .preheader18.i:                                   ; preds = %.preheader20.i, %.preheader18.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %.preheader18.i ], [ 32, %.preheader20.i ]
-  %99 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv32.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv32.i
   %100 = load i32, ptr %99, align 4, !tbaa !13
   %101 = and i32 %100, -536879105
   %102 = or disjoint i32 %101, 8192
@@ -223,7 +223,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %60, %7
 
 .preheader.i18:                                   ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %.preheader.i18
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.preheader.i18 ], [ 32, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
-  %103 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv36.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv36.i
   %104 = load i32, ptr %103, align 4, !tbaa !13
   %105 = and i32 %104, -536879105
   store i32 %105, ptr %103, align 4, !tbaa !13
@@ -243,7 +243,7 @@ define noundef i32 @_ZNK6icu_776BMPSet13findCodePointEiii(ptr noundef nonnull re
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = icmp slt i32 %1, %9
   br i1 %10, label %.thread, label %11
@@ -254,7 +254,7 @@ define noundef i32 @_ZNK6icu_776BMPSet13findCodePointEiii(ptr noundef nonnull re
 
 12:                                               ; preds = %11
   %13 = sext i32 %3 to i64
-  %14 = getelementptr i32, ptr %6, i64 %13
+  %14 = getelementptr [4 x i8], ptr %6, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %.not28 = icmp slt i32 %1, %16
@@ -271,7 +271,7 @@ define noundef i32 @_ZNK6icu_776BMPSet13findCodePointEiii(ptr noundef nonnull re
   %.02033 = phi i32 [ %..020, %.lr.ph ], [ %3, %.preheader ]
   %.02132 = phi i32 [ %.021., %.lr.ph ], [ %2, %.preheader ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %6, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %6, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp slt i32 %1, %23
   %.021. = select i1 %24, i32 %.02132, i32 %20
@@ -291,7 +291,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_776BMPSet12containsSlowEiii(ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = icmp slt i32 %1, %9
   br i1 %10, label %_ZNK6icu_776BMPSet13findCodePointEiii.exit, label %11
@@ -302,7 +302,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_776BMPSet12containsSlowEiii(ptr
 
 12:                                               ; preds = %11
   %13 = sext i32 %3 to i64
-  %14 = getelementptr i32, ptr %6, i64 %13
+  %14 = getelementptr [4 x i8], ptr %6, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %.not28.i = icmp slt i32 %1, %16
@@ -319,7 +319,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_776BMPSet12containsSlowEiii(ptr
   %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %3, %.preheader.i ]
   %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ %2, %.preheader.i ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %6, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %6, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp slt i32 %1, %23
   %.021..i = select i1 %24, i32 %.02132.i, i32 %20
@@ -348,7 +348,7 @@ define void @_ZN6icu_776BMPSet8initBitsEv(ptr noundef nonnull align 8 captures(n
   %5 = load ptr, ptr %2, align 8, !tbaa !6
   %6 = add nsw i32 %.052, 1
   %7 = sext i32 %.052 to i64
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = load i32, ptr %3, align 8, !tbaa !12
   %11 = icmp slt i32 %6, %10
@@ -357,7 +357,7 @@ define void @_ZN6icu_776BMPSet8initBitsEv(ptr noundef nonnull align 8 captures(n
 12:                                               ; preds = %4
   %13 = add nsw i32 %.052, 2
   %14 = sext i32 %6 to i64
-  %15 = getelementptr inbounds i32, ptr %5, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %5, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   br label %17
 
@@ -401,7 +401,7 @@ split:                                            ; preds = %17, %.preheader.pre
 
 33:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %34 = getelementptr inbounds nuw i32, ptr %28, i64 %31
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %31
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = icmp sgt i32 %35, 128
   br i1 %36, label %.thread.split.loop.exit179, label %30, !llvm.loop !23
@@ -419,7 +419,7 @@ split:                                            ; preds = %17, %.preheader.pre
   %.3110 = phi i32 [ %37, %.thread.split.loop.exit ], [ %38, %.thread.split.loop.exit179 ]
   %.156109 = phi i32 [ 1114112, %.thread.split.loop.exit ], [ %35, %.thread.split.loop.exit179 ]
   %39 = and i64 %indvars.iv, 4294967294
-  %40 = getelementptr inbounds nuw i32, ptr %28, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %41, i32 128)
   %42 = icmp slt i32 %41, 2048
@@ -443,7 +443,7 @@ split:                                            ; preds = %17, %.preheader.pre
 
 51:                                               ; preds = %44
   %52 = zext nneg i32 %47 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %43, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
   %55 = or i32 %54, %48
   store i32 %55, ptr %53, align 4, !tbaa !13
@@ -467,7 +467,7 @@ split:                                            ; preds = %17, %.preheader.pre
 .lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.lr.ph55.preheader.i
   %indvars.iv67.i = phi i64 [ %61, %.lr.ph55.preheader.i ], [ %indvars.iv.next68.i, %.lr.ph55.i ]
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %62 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv67.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv67.i
   %63 = load i32, ptr %62, align 4, !tbaa !13
   %64 = or i32 %63, %48
   store i32 %64, ptr %62, align 4, !tbaa !13
@@ -485,7 +485,7 @@ split:                                            ; preds = %17, %.preheader.pre
 .preheader51.i:                                   ; preds = %.preheader51.i, %.preheader51.preheader.i
   %indvars.iv.i = phi i64 [ %66, %.preheader51.preheader.i ], [ %indvars.iv.next.i, %.preheader51.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %67 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %68 = load i32, ptr %67, align 4, !tbaa !13
   %69 = or i32 %68, %48
   store i32 %69, ptr %67, align 4, !tbaa !13
@@ -512,7 +512,7 @@ split:                                            ; preds = %17, %.preheader.pre
 
 78:                                               ; preds = %78, %74
   %indvars.iv59.i = phi i64 [ 0, %74 ], [ %indvars.iv.next60.i, %78 ]
-  %79 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv59.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv59.i
   %80 = load i32, ptr %79, align 4, !tbaa !13
   %81 = or i32 %80, %.043.i
   store i32 %81, ptr %79, align 4, !tbaa !13
@@ -533,7 +533,7 @@ split:                                            ; preds = %17, %.preheader.pre
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next64.i, %.lr.ph.i ]
-  %85 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv63.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv63.i
   %86 = load i32, ptr %85, align 4, !tbaa !13
   %87 = or i32 %86, %84
   store i32 %87, ptr %85, align 4, !tbaa !13
@@ -548,7 +548,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit:              ; preds = %.lr.ph.i, %.lr.ph55
 89:                                               ; preds = %_ZN6icu_77L12set32x64BitsEPjii.exit
   %90 = add nsw i32 %.4120, 1
   %91 = sext i32 %.4120 to i64
-  %92 = getelementptr inbounds i32, ptr %28, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %28, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !13
   %94 = load i32, ptr %3, align 8, !tbaa !12
   %95 = icmp slt i32 %90, %94
@@ -557,7 +557,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit:              ; preds = %.lr.ph.i, %.lr.ph55
 96:                                               ; preds = %89
   %97 = add nsw i32 %.4120, 2
   %98 = sext i32 %90 to i64
-  %99 = getelementptr inbounds i32, ptr %28, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %28, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !13
   br label %101
 
@@ -602,7 +602,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
   %112 = shl nuw i32 65537, %111
   %113 = and i32 %110, 63
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %104, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !13
   %117 = or i32 %116, %112
   store i32 %117, ptr %115, align 4, !tbaa !13
@@ -633,7 +633,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
 
 133:                                              ; preds = %125
   %134 = zext nneg i32 %129 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %104, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !13
   %137 = or i32 %136, %130
   store i32 %137, ptr %135, align 4, !tbaa !13
@@ -657,7 +657,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
 .lr.ph55.i102:                                    ; preds = %.lr.ph55.i102, %.lr.ph55.preheader.i100
   %indvars.iv67.i103 = phi i64 [ %143, %.lr.ph55.preheader.i100 ], [ %indvars.iv.next68.i104, %.lr.ph55.i102 ]
   %indvars.iv.next68.i104 = add nuw nsw i64 %indvars.iv67.i103, 1
-  %144 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv67.i103
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv67.i103
   %145 = load i32, ptr %144, align 4, !tbaa !13
   %146 = or i32 %145, %130
   store i32 %146, ptr %144, align 4, !tbaa !13
@@ -675,7 +675,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
 .preheader51.i80:                                 ; preds = %.preheader51.i80, %.preheader51.preheader.i79
   %indvars.iv.i81 = phi i64 [ %148, %.preheader51.preheader.i79 ], [ %indvars.iv.next.i82, %.preheader51.i80 ]
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
-  %149 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i81
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv.i81
   %150 = load i32, ptr %149, align 4, !tbaa !13
   %151 = or i32 %150, %130
   store i32 %151, ptr %149, align 4, !tbaa !13
@@ -700,7 +700,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
 
 158:                                              ; preds = %158, %156
   %indvars.iv59.i96 = phi i64 [ 0, %156 ], [ %indvars.iv.next60.i97, %158 ]
-  %159 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv59.i96
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv59.i96
   %160 = load i32, ptr %159, align 4, !tbaa !13
   %161 = or i32 %160, %.043.i95
   store i32 %161, ptr %159, align 4, !tbaa !13
@@ -719,7 +719,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit._crit_edge:   ; preds = %101, %.thread
 
 .lr.ph.i89:                                       ; preds = %.lr.ph.i89, %.lr.ph.preheader.i87
   %indvars.iv63.i90 = phi i64 [ 0, %.lr.ph.preheader.i87 ], [ %indvars.iv.next64.i91, %.lr.ph.i89 ]
-  %163 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv63.i90
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv63.i90
   %164 = load i32, ptr %163, align 4, !tbaa !13
   %165 = or i32 %164, %162
   store i32 %165, ptr %163, align 4, !tbaa !13
@@ -738,7 +738,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit106:           ; preds = %.lr.ph.i89, %.lr.ph
   %170 = shl i32 65537, %169
   %171 = and i32 %168, 63
   %172 = zext nneg i32 %171 to i64
-  %173 = getelementptr inbounds nuw i32, ptr %104, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !13
   %175 = or i32 %174, %170
   store i32 %175, ptr %173, align 4, !tbaa !13
@@ -754,7 +754,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit106:           ; preds = %.lr.ph.i89, %.lr.ph
 179:                                              ; preds = %177
   %180 = add nsw i32 %.6128, 1
   %181 = sext i32 %.6128 to i64
-  %182 = getelementptr inbounds i32, ptr %28, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %28, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !13
   %184 = load i32, ptr %3, align 8, !tbaa !12
   %185 = icmp slt i32 %180, %184
@@ -763,7 +763,7 @@ _ZN6icu_77L12set32x64BitsEPjii.exit106:           ; preds = %.lr.ph.i89, %.lr.ph
 186:                                              ; preds = %179
   %187 = add nsw i32 %.6128, 2
   %188 = sext i32 %180 to i64
-  %189 = getelementptr inbounds i32, ptr %28, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %28, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !13
   br label %191
 
@@ -798,7 +798,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
 
 7:                                                ; preds = %.preheader21, %7
   %indvars.iv = phi i64 [ 0, %.preheader21 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = or i32 %9, 3
   store i32 %10, ptr %8, align 4, !tbaa !13
@@ -808,7 +808,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
 
 11:                                               ; preds = %.preheader20, %11
   %indvars.iv28 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next29, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv28
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv28
   %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = or i32 %13, 1
   store i32 %14, ptr %12, align 4, !tbaa !13
@@ -818,7 +818,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
 
 .preheader18:                                     ; preds = %11, %.preheader18
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.preheader18 ], [ 32, %11 ]
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv32
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv32
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = and i32 %16, -536879105
   %18 = or disjoint i32 %17, 8192
@@ -829,7 +829,7 @@ define void @_ZN6icu_776BMPSet15overrideIllegalEv(ptr noundef nonnull align 8 ca
 
 19:                                               ; preds = %.preheader, %19
   %indvars.iv36 = phi i64 [ 32, %.preheader ], [ %indvars.iv.next37, %19 ]
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv36
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv36
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %22 = and i32 %21, -536879105
   store i32 %22, ptr %20, align 4, !tbaa !13
@@ -905,7 +905,7 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %13 = and i32 %1, 63
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = lshr i32 %1, 6
   %18 = lshr i32 %16, %17
@@ -926,7 +926,7 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
   %27 = lshr i32 %1, 6
   %28 = and i32 %27, 63
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !13
   %32 = lshr i32 %31, %25
   %33 = and i32 %32, 65537
@@ -940,14 +940,14 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
 37:                                               ; preds = %24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %39 = zext nneg i32 %25 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = getelementptr i8, ptr %40, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %45 = load ptr, ptr %44, align 8, !tbaa !6
   %46 = sext i32 %41 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !13
   %49 = icmp slt i32 %1, %48
   br i1 %49, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %50
@@ -958,7 +958,7 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
 
 51:                                               ; preds = %50
   %52 = sext i32 %43 to i64
-  %53 = getelementptr i32, ptr %45, i64 %52
+  %53 = getelementptr [4 x i8], ptr %45, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -4
   %55 = load i32, ptr %54, align 4, !tbaa !13
   %.not28.i.i = icmp slt i32 %1, %55
@@ -975,7 +975,7 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
   %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %43, %.preheader.i.i ]
   %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %41, %.preheader.i.i ]
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %45, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %45, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !13
   %63 = icmp slt i32 %1, %62
   %.021..i.i = select i1 %63, i32 %.02132.i.i, i32 %59
@@ -1003,7 +1003,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %37, %5
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %77 = load ptr, ptr %76, align 8, !tbaa !6
   %78 = sext i32 %73 to i64
-  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %77, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !13
   %81 = icmp slt i32 %1, %80
   br i1 %81, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit33, label %82
@@ -1014,7 +1014,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %37, %5
 
 83:                                               ; preds = %82
   %84 = sext i32 %75 to i64
-  %85 = getelementptr i32, ptr %77, i64 %84
+  %85 = getelementptr [4 x i8], ptr %77, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -4
   %87 = load i32, ptr %86, align 4, !tbaa !13
   %.not28.i.i26 = icmp slt i32 %1, %87
@@ -1031,7 +1031,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %37, %5
   %.02033.i.i29 = phi i32 [ %..020.i.i32, %.lr.ph.i.i28 ], [ %75, %.preheader.i.i27 ]
   %.02132.i.i30 = phi i32 [ %.021..i.i31, %.lr.ph.i.i28 ], [ %73, %.preheader.i.i27 ]
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %77, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %77, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !13
   %95 = icmp slt i32 %1, %94
   %.021..i.i31 = select i1 %95, i32 %.02132.i.i30, i32 %91
@@ -1064,10 +1064,10 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %.not.i.i134 = icmp sge i32 %8, %10
   %15 = sext i32 %10 to i64
-  %16 = getelementptr i32, ptr %12, i64 %15
+  %16 = getelementptr [4 x i8], ptr %12, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = add nsw i32 %10, %8
   %19 = ashr i32 %18, 1
@@ -1077,10 +1077,10 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds i32, ptr %12, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %12, i64 %25
   %.not.i.i124 = icmp sge i32 %22, %24
   %27 = sext i32 %24 to i64
-  %28 = getelementptr i32, ptr %12, i64 %27
+  %28 = getelementptr [4 x i8], ptr %12, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -4
   %30 = add nsw i32 %24, %22
   %31 = ashr i32 %30, 1
@@ -1110,7 +1110,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
 44:                                               ; preds = %42
   %45 = and i32 %36, 63
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !13
   %49 = lshr i32 %36, 6
   %50 = shl nuw i32 1, %49
@@ -1128,7 +1128,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %57 = lshr i32 %36, 6
   %58 = and i32 %57, 63
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %33, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !13
   %62 = lshr i32 %61, %56
   %63 = and i32 %62, 65537
@@ -1141,12 +1141,12 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
 
 67:                                               ; preds = %55
   %68 = zext nneg i32 %56 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %34, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !13
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !13
   %73 = sext i32 %70 to i64
-  %74 = getelementptr inbounds i32, ptr %12, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %12, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !13
   %76 = icmp sgt i32 %75, %36
   br i1 %76, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %77
@@ -1157,7 +1157,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
 
 78:                                               ; preds = %77
   %79 = sext i32 %72 to i64
-  %80 = getelementptr i32, ptr %12, i64 %79
+  %80 = getelementptr [4 x i8], ptr %12, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -4
   %82 = load i32, ptr %81, align 4, !tbaa !13
   %.not28.i.i = icmp sgt i32 %82, %36
@@ -1174,7 +1174,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %72, %.preheader.i.i ]
   %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %70, %.preheader.i.i ]
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %12, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %12, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !13
   %90 = icmp sgt i32 %89, %36
   %.021..i.i = select i1 %90, i32 %.02132.i.i, i32 %86
@@ -1223,7 +1223,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %67, %7
   %.02033.i.i99 = phi i32 [ %..020.i.i102, %.lr.ph.i.i98 ], [ %24, %106 ]
   %.02132.i.i100 = phi i32 [ %.021..i.i101, %.lr.ph.i.i98 ], [ %22, %106 ]
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %12, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %12, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = icmp sgt i32 %111, %36
   %.021..i.i101 = select i1 %112, i32 %.02132.i.i100, i32 %108
@@ -1261,7 +1261,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit103:     ; preds = %.lr.ph.i.i98, %106,
   %.02033.i.i109 = phi i32 [ %..020.i.i112, %.lr.ph.i.i108 ], [ %10, %124 ]
   %.02132.i.i110 = phi i32 [ %.021..i.i111, %.lr.ph.i.i108 ], [ %8, %124 ]
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %12, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %12, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !13
   %130 = icmp slt i32 %121, %129
   %.021..i.i111 = select i1 %130, i32 %.02132.i.i110, i32 %126
@@ -1304,7 +1304,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit113:     ; preds = %.lr.ph.i.i108, %124
 147:                                              ; preds = %145
   %148 = and i32 %139, 63
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %5, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !13
   %152 = lshr i32 %139, 6
   %153 = shl nuw i32 1, %152
@@ -1322,7 +1322,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit113:     ; preds = %.lr.ph.i.i108, %124
   %159 = lshr i32 %139, 6
   %160 = and i32 %159, 63
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %33, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !13
   %164 = lshr i32 %163, %158
   %165 = and i32 %164, 65537
@@ -1335,12 +1335,12 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit113:     ; preds = %.lr.ph.i.i108, %124
 
 168:                                              ; preds = %157
   %169 = zext nneg i32 %158 to i64
-  %170 = getelementptr inbounds nuw i32, ptr %34, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !13
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %173 = load i32, ptr %172, align 4, !tbaa !13
   %174 = sext i32 %171 to i64
-  %175 = getelementptr inbounds i32, ptr %12, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %12, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !13
   %177 = icmp sgt i32 %176, %139
   br i1 %177, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit123, label %178
@@ -1351,7 +1351,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit113:     ; preds = %.lr.ph.i.i108, %124
 
 179:                                              ; preds = %178
   %180 = sext i32 %173 to i64
-  %181 = getelementptr i32, ptr %12, i64 %180
+  %181 = getelementptr [4 x i8], ptr %12, i64 %180
   %182 = getelementptr i8, ptr %181, i64 -4
   %183 = load i32, ptr %182, align 4, !tbaa !13
   %.not28.i.i116 = icmp sgt i32 %183, %139
@@ -1368,7 +1368,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit113:     ; preds = %.lr.ph.i.i108, %124
   %.02033.i.i119 = phi i32 [ %..020.i.i122, %.lr.ph.i.i118 ], [ %173, %.preheader.i.i117 ]
   %.02132.i.i120 = phi i32 [ %.021..i.i121, %.lr.ph.i.i118 ], [ %171, %.preheader.i.i117 ]
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %12, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %12, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !13
   %191 = icmp sgt i32 %190, %139
   %.021..i.i121 = select i1 %191, i32 %.02132.i.i120, i32 %187
@@ -1417,7 +1417,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit123:     ; preds = %.lr.ph.i.i118, %168
   %.02033.i.i129 = phi i32 [ %..020.i.i132, %.lr.ph.i.i128 ], [ %24, %207 ]
   %.02132.i.i130 = phi i32 [ %.021..i.i131, %.lr.ph.i.i128 ], [ %22, %207 ]
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %12, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %12, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !13
   %213 = icmp sgt i32 %212, %139
   %.021..i.i131 = select i1 %213, i32 %.02132.i.i130, i32 %209
@@ -1455,7 +1455,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit133:     ; preds = %.lr.ph.i.i128, %207
   %.02033.i.i139 = phi i32 [ %..020.i.i142, %.lr.ph.i.i138 ], [ %10, %225 ]
   %.02132.i.i140 = phi i32 [ %.021..i.i141, %.lr.ph.i.i138 ], [ %8, %225 ]
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds i32, ptr %12, i64 %228
+  %229 = getelementptr inbounds [4 x i8], ptr %12, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !13
   %231 = icmp slt i32 %222, %230
   %.021..i.i141 = select i1 %231, i32 %.02132.i.i140, i32 %227
@@ -1492,10 +1492,10 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %6 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %.not.i.i138 = icmp sge i32 %6, %8
   %13 = sext i32 %8 to i64
-  %14 = getelementptr i32, ptr %10, i64 %13
+  %14 = getelementptr [4 x i8], ptr %10, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = add nsw i32 %8, %6
   %17 = ashr i32 %16, 1
@@ -1505,10 +1505,10 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i32, ptr %10, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %10, i64 %23
   %.not.i.i128 = icmp sge i32 %20, %22
   %25 = sext i32 %22 to i64
-  %26 = getelementptr i32, ptr %10, i64 %25
+  %26 = getelementptr [4 x i8], ptr %10, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = add nsw i32 %22, %20
   %29 = ashr i32 %28, 1
@@ -1541,7 +1541,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
 45:                                               ; preds = %43
   %46 = and i32 %37, 63
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !13
   %50 = lshr i32 %37, 6
   %51 = shl nuw i32 1, %50
@@ -1559,7 +1559,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %58 = lshr i32 %37, 6
   %59 = and i32 %58, 63
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %31, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !13
   %63 = lshr i32 %62, %57
   %64 = and i32 %63, 65537
@@ -1572,12 +1572,12 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
 
 68:                                               ; preds = %56
   %69 = zext nneg i32 %57 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %32, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !13
   %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds i32, ptr %10, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %10, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !13
   %77 = icmp sgt i32 %76, %37
   br i1 %77, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %78
@@ -1588,7 +1588,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
 
 79:                                               ; preds = %78
   %80 = sext i32 %73 to i64
-  %81 = getelementptr i32, ptr %10, i64 %80
+  %81 = getelementptr [4 x i8], ptr %10, i64 %80
   %82 = getelementptr i8, ptr %81, i64 -4
   %83 = load i32, ptr %82, align 4, !tbaa !13
   %.not28.i.i = icmp sgt i32 %83, %37
@@ -1605,7 +1605,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %73, %.preheader.i.i ]
   %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %71, %.preheader.i.i ]
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %10, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %10, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !13
   %91 = icmp sgt i32 %90, %37
   %.021..i.i = select i1 %91, i32 %.02132.i.i, i32 %87
@@ -1652,7 +1652,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %68, %7
   %.02033.i.i103 = phi i32 [ %..020.i.i106, %.lr.ph.i.i102 ], [ %22, %106 ]
   %.02132.i.i104 = phi i32 [ %.021..i.i105, %.lr.ph.i.i102 ], [ %20, %106 ]
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %10, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %10, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = icmp sgt i32 %111, %37
   %.021..i.i105 = select i1 %112, i32 %.02132.i.i104, i32 %108
@@ -1690,7 +1690,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit107:     ; preds = %.lr.ph.i.i102, %106
   %.02033.i.i113 = phi i32 [ %..020.i.i116, %.lr.ph.i.i112 ], [ %8, %124 ]
   %.02132.i.i114 = phi i32 [ %.021..i.i115, %.lr.ph.i.i112 ], [ %6, %124 ]
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %10, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %10, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !13
   %130 = icmp slt i32 %121, %129
   %.021..i.i115 = select i1 %130, i32 %.02132.i.i114, i32 %126
@@ -1733,7 +1733,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit117:     ; preds = %.lr.ph.i.i112, %124
 147:                                              ; preds = %145
   %148 = and i32 %139, 63
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %33, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !13
   %152 = lshr i32 %139, 6
   %153 = shl nuw i32 1, %152
@@ -1751,7 +1751,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit117:     ; preds = %.lr.ph.i.i112, %124
   %159 = lshr i32 %139, 6
   %160 = and i32 %159, 63
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %31, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !13
   %164 = lshr i32 %163, %158
   %165 = and i32 %164, 65537
@@ -1764,12 +1764,12 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit117:     ; preds = %.lr.ph.i.i112, %124
 
 168:                                              ; preds = %157
   %169 = zext nneg i32 %158 to i64
-  %170 = getelementptr inbounds nuw i32, ptr %32, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !13
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %173 = load i32, ptr %172, align 4, !tbaa !13
   %174 = sext i32 %171 to i64
-  %175 = getelementptr inbounds i32, ptr %10, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %10, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !13
   %177 = icmp sgt i32 %176, %139
   br i1 %177, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit127, label %178
@@ -1780,7 +1780,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit117:     ; preds = %.lr.ph.i.i112, %124
 
 179:                                              ; preds = %178
   %180 = sext i32 %173 to i64
-  %181 = getelementptr i32, ptr %10, i64 %180
+  %181 = getelementptr [4 x i8], ptr %10, i64 %180
   %182 = getelementptr i8, ptr %181, i64 -4
   %183 = load i32, ptr %182, align 4, !tbaa !13
   %.not28.i.i120 = icmp sgt i32 %183, %139
@@ -1797,7 +1797,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit117:     ; preds = %.lr.ph.i.i112, %124
   %.02033.i.i123 = phi i32 [ %..020.i.i126, %.lr.ph.i.i122 ], [ %173, %.preheader.i.i121 ]
   %.02132.i.i124 = phi i32 [ %.021..i.i125, %.lr.ph.i.i122 ], [ %171, %.preheader.i.i121 ]
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %10, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %10, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !13
   %191 = icmp sgt i32 %190, %139
   %.021..i.i125 = select i1 %191, i32 %.02132.i.i124, i32 %187
@@ -1844,7 +1844,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit127:     ; preds = %.lr.ph.i.i122, %168
   %.02033.i.i133 = phi i32 [ %..020.i.i136, %.lr.ph.i.i132 ], [ %22, %206 ]
   %.02132.i.i134 = phi i32 [ %.021..i.i135, %.lr.ph.i.i132 ], [ %20, %206 ]
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds i32, ptr %10, i64 %209
+  %210 = getelementptr inbounds [4 x i8], ptr %10, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !13
   %212 = icmp sgt i32 %211, %139
   %.021..i.i135 = select i1 %212, i32 %.02132.i.i134, i32 %208
@@ -1882,7 +1882,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit137:     ; preds = %.lr.ph.i.i132, %206
   %.02033.i.i143 = phi i32 [ %..020.i.i146, %.lr.ph.i.i142 ], [ %8, %224 ]
   %.02132.i.i144 = phi i32 [ %.021..i.i145, %.lr.ph.i.i142 ], [ %6, %224 ]
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds i32, ptr %10, i64 %227
+  %228 = getelementptr inbounds [4 x i8], ptr %10, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !13
   %230 = icmp slt i32 %221, %229
   %.021..i.i145 = select i1 %230, i32 %.02132.i.i144, i32 %226
@@ -2121,7 +2121,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 110:                                              ; preds = %104
   %111 = and i8 %.3129, 15
   %112 = zext nneg i8 %100 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %69, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !13
   %115 = zext nneg i8 %111 to i32
   %116 = lshr i32 %114, %115
@@ -2139,13 +2139,13 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   %123 = or disjoint i32 %122, %121
   %124 = or disjoint i32 %123, %108
   %125 = zext nneg i8 %111 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %70, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !13
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %129 = load i32, ptr %128, align 4, !tbaa !13
   %130 = load ptr, ptr %71, align 8, !tbaa !6
   %131 = sext i32 %127 to i64
-  %132 = getelementptr inbounds i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %130, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !13
   %134 = icmp slt i32 %124, %133
   br i1 %134, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %135
@@ -2156,7 +2156,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 136:                                              ; preds = %135
   %137 = sext i32 %129 to i64
-  %138 = getelementptr i32, ptr %130, i64 %137
+  %138 = getelementptr [4 x i8], ptr %130, i64 %137
   %139 = getelementptr i8, ptr %138, i64 -4
   %140 = load i32, ptr %139, align 4, !tbaa !13
   %.not28.i.i = icmp slt i32 %124, %140
@@ -2173,7 +2173,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
   %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %129, %.preheader.i.i ]
   %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %127, %.preheader.i.i ]
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i32, ptr %130, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %130, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !13
   %148 = icmp slt i32 %124, %147
   %.021..i.i = select i1 %148, i32 %.02132.i.i, i32 %144
@@ -2253,7 +2253,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %120, %
 
 194:                                              ; preds = %190
   %195 = zext nneg i8 %192 to i64
-  %196 = getelementptr inbounds nuw i32, ptr %65, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !13
   %198 = and i32 %95, 31
   %199 = lshr i32 %197, %198
@@ -2385,7 +2385,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   %52 = lshr i32 %46, 6
   %53 = and i32 %52, 63
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %10, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !13
   %57 = lshr i32 %56, %51
   %58 = and i32 %57, 65537
@@ -2398,13 +2398,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
 
 61:                                               ; preds = %50
   %62 = zext nneg i32 %51 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %11, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !13
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !13
   %67 = load ptr, ptr %9, align 8, !tbaa !6
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %67, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !13
   %71 = icmp slt i32 %46, %70
   br i1 %71, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit, label %72
@@ -2415,7 +2415,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
 
 73:                                               ; preds = %72
   %74 = sext i32 %66 to i64
-  %75 = getelementptr i32, ptr %67, i64 %74
+  %75 = getelementptr [4 x i8], ptr %67, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -4
   %77 = load i32, ptr %76, align 4, !tbaa !13
   %.not28.i.i = icmp slt i32 %46, %77
@@ -2432,7 +2432,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
   %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %66, %.preheader.i.i ]
   %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %64, %.preheader.i.i ]
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %67, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %67, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !13
   %85 = icmp slt i32 %46, %84
   %.021..i.i = select i1 %85, i32 %.02132.i.i, i32 %81
@@ -2453,7 +2453,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %61, %7
   %93 = load i32, ptr %8, align 8, !tbaa !13
   %94 = load ptr, ptr %9, align 8, !tbaa !6
   %95 = sext i32 %92 to i64
-  %96 = getelementptr inbounds i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !13
   %98 = icmp slt i32 %46, %97
   br i1 %98, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit70, label %99
@@ -2464,7 +2464,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %61, %7
 
 100:                                              ; preds = %99
   %101 = sext i32 %93 to i64
-  %102 = getelementptr i32, ptr %94, i64 %101
+  %102 = getelementptr [4 x i8], ptr %94, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -4
   %104 = load i32, ptr %103, align 4, !tbaa !13
   %.not28.i.i63 = icmp slt i32 %46, %104
@@ -2481,7 +2481,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %61, %7
   %.02033.i.i66 = phi i32 [ %..020.i.i69, %.lr.ph.i.i65 ], [ %93, %.preheader.i.i64 ]
   %.02132.i.i67 = phi i32 [ %.021..i.i68, %.lr.ph.i.i65 ], [ %92, %.preheader.i.i64 ]
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %94, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %94, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = icmp slt i32 %46, %111
   %.021..i.i68 = select i1 %112, i32 %.02132.i.i67, i32 %108
@@ -2500,7 +2500,7 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit70:      ; preds = %.lr.ph.i.i65, %91, 
 118:                                              ; preds = %.loopexit72
   %119 = and i32 %46, 63
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %12, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !13
   %123 = ashr i32 %46, 6
   %124 = lshr i32 %122, %123

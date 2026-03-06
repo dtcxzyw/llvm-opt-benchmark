@@ -12,17 +12,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_poll_freewai
 %struct.static_call_key = type { ptr, %union.anon.18 }
 %union.anon.18 = type { i64 }
 %struct.timespec64 = type { i64, i64 }
-%struct.poll_table_entry = type { ptr, i32, %struct.wait_queue_entry, ptr }
-%struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.list_head = type { ptr, ptr }
 %struct.fd_set_bits = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.poll_wqueues = type { %struct.poll_table_struct, ptr, ptr, i32, i32, i32, [8 x %struct.poll_table_entry] }
 %struct.poll_table_struct = type { ptr, i32 }
+%struct.poll_table_entry = type { ptr, i32, %struct.wait_queue_entry, ptr }
+%struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
+%struct.list_head = type { ptr, ptr }
 %struct.__kernel_old_timeval = type { i64, i64 }
 %struct.__large_struct = type { [100 x i64] }
 %struct.compat_sel_arg_struct = type { i32, i32, i32, i32, i32 }
 %struct.old_timeval32 = type { i32, i32 }
-%struct.pollfd = type { i32, i16, i16 }
 
 @__UNIQUE_ID___addressable_poll_initwait876 = internal global ptr @poll_initwait, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_poll_freewait877 = internal global ptr @poll_freewait, section ".discard.addressable", align 8
@@ -138,7 +137,7 @@ define internal void @__pollwait(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %12 = add nuw nsw i32 %7, 1
   store i32 %12, ptr %6, align 8
-  %13 = getelementptr %struct.poll_table_entry, ptr %11, i64 %10
+  %13 = getelementptr [64 x i8], ptr %11, i64 %10
   br label %37
 
 14:                                               ; preds = %3
@@ -230,7 +229,7 @@ define dso_local void @poll_freewait(ptr noundef %0) #0 align 16 {
 
 10:                                               ; preds = %10, %7
   %11 = phi i64 [ 0, %7 ], [ %17, %10 ]
-  %12 = getelementptr %struct.poll_table_entry, ptr %8, i64 %11
+  %12 = getelementptr [64 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -545,7 +544,7 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   %18 = load volatile ptr, ptr %17, align 32
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr i64, ptr %20, i64 %12
+  %21 = getelementptr [8 x i8], ptr %20, i64 %12
   %22 = and i32 %0, 63
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %48, label %24
@@ -555,16 +554,16 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   %26 = shl nsw i64 -1, %25
   %27 = xor i64 %26, -1
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr i64, ptr %28, i64 %12
+  %29 = getelementptr [8 x i8], ptr %28, i64 %12
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i64, ptr %32, i64 %12
+  %33 = getelementptr [8 x i8], ptr %32, i64 %12
   %34 = load i64, ptr %33, align 8
   %35 = or i64 %34, %30
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr i64, ptr %37, i64 %12
+  %38 = getelementptr [8 x i8], ptr %37, i64 %12
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %35, %39
   %41 = and i64 %40, %27
@@ -600,12 +599,12 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   %61 = phi ptr [ %62, %78 ], [ %50, %53 ]
   %62 = getelementptr i8, ptr %61, i64 -8
   %63 = add nsw i64 %60, -1
-  %64 = getelementptr i64, ptr %54, i64 %63
+  %64 = getelementptr [8 x i8], ptr %54, i64 %63
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr i64, ptr %56, i64 %63
+  %66 = getelementptr [8 x i8], ptr %56, i64 %63
   %67 = load i64, ptr %66, align 8
   %68 = or i64 %67, %65
-  %69 = getelementptr i64, ptr %58, i64 %63
+  %69 = getelementptr [8 x i8], ptr %58, i64 %63
   %70 = load i64, ptr %69, align 8
   %71 = or i64 %68, %70
   %72 = icmp eq i64 %71, 0
@@ -627,12 +626,12 @@ define internal fastcc i32 @do_select(i32 noundef %0, ptr noundef readonly captu
   %81 = phi ptr [ %82, %93 ], [ %50, %53 ]
   %82 = getelementptr i8, ptr %81, i64 -8
   %83 = add nsw i64 %80, -1
-  %84 = getelementptr i64, ptr %54, i64 %83
+  %84 = getelementptr [8 x i8], ptr %54, i64 %83
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr i64, ptr %56, i64 %83
+  %86 = getelementptr [8 x i8], ptr %56, i64 %83
   %87 = load i64, ptr %86, align 8
   %88 = or i64 %87, %85
-  %89 = getelementptr i64, ptr %58, i64 %83
+  %89 = getelementptr [8 x i8], ptr %58, i64 %83
   %90 = load i64, ptr %89, align 8
   %91 = or i64 %88, %90
   %92 = icmp eq i64 %91, 0
@@ -2295,7 +2294,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
 
 19:                                               ; preds = %3
   %20 = tail call i32 @llvm.umin.i32(i32 %1, i32 30)
-  %21 = getelementptr %struct.pollfd, ptr %0, i64 %11
+  %21 = getelementptr [8 x i8], ptr %0, i64 %11
   br label %22
 
 22:                                               ; preds = %41, %19
@@ -2313,7 +2312,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   %30 = shl nuw nsw i64 %29, 3
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %32 = sub i64 0, %23
-  %33 = getelementptr %struct.pollfd, ptr %21, i64 %32
+  %33 = getelementptr [8 x i8], ptr %21, i64 %32
   %34 = call i64 @_copy_from_user(ptr noundef nonnull %31, ptr noundef %33, i64 noundef %30) #10
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %.loopexit26
@@ -2466,7 +2465,7 @@ define internal fastcc i32 @do_sys_poll(ptr noundef %0, i32 noundef %1, ptr noun
   %120 = phi ptr [ %177, %.loopexit25 ], [ %9, %111 ]
   %121 = load i32, ptr %120, align 8
   %122 = sext i32 %121 to i64
-  %123 = getelementptr %struct.pollfd, ptr %119, i64 %122
+  %123 = getelementptr [8 x i8], ptr %119, i64 %122
   %124 = icmp eq i32 %121, 0
   br i1 %124, label %.loopexit25, label %.preheader24
 

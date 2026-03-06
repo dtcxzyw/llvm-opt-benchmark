@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.quic_pkt_hdr_st = type { i32, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
 %struct.quic_conn_id_st = type { i8, [20 x i8] }
 %struct.PACKET = type { ptr, i64 }
-%struct.bio_msg_st = type { ptr, i64, ptr, ptr, i64 }
 
 @method_pkt_split_dgram = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [33 x i8] c"Packet splitting datagram filter\00", align 1
@@ -126,7 +125,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br label %24
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.05582
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.05582
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !9
   %23 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %22, i64 noundef %.06181) #4
@@ -193,7 +192,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
 
 .lr.ph84:                                         ; preds = %.preheader, %41
   %.06383 = phi i64 [ %42, %41 ], [ %.05886, %.preheader ]
-  %44 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.06383
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.06383
   %45 = getelementptr i8, ptr %44, i64 -40
   %46 = call i32 @bio_msg_copy(ptr noundef nonnull %44, ptr noundef %45) #4
   %.not72 = icmp eq i32 %46, 0
@@ -203,7 +202,7 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   %47 = load i64, ptr %32, align 8, !tbaa !9
   %48 = sub i64 %47, %.val
   store i64 %48, ptr %32, align 8, !tbaa !9
-  %49 = getelementptr %struct.bio_msg_st, ptr %1, i64 %.15688
+  %49 = getelementptr [40 x i8], ptr %1, i64 %.15688
   %50 = getelementptr i8, ptr %49, i64 40
   %51 = getelementptr i8, ptr %49, i64 48
   store i64 %.val, ptr %51, align 8, !tbaa !9

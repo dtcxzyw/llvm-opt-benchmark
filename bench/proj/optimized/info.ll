@@ -9,10 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.PJ_PROJ_INFO = type { ptr, ptr, ptr, i32, double }
-%struct.PJCoordOperation = type <{ i32, [4 x i8], double, double, double, double, double, double, double, double, ptr, %"class.std::__cxx11::basic_string", double, double, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 @_ZL4info = internal unnamed_addr global %struct.PJ_INFO zeroinitializer, align 8
 @_ZL7version = internal global [64 x i8] zeroinitializer, align 16
@@ -270,7 +266,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable writeonly sret(%st
 
 16:                                               ; preds = %12
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [192 x i8], ptr %8, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !85
   br label %31

@@ -129,7 +129,7 @@ define void @blobArrayDestroy(ptr noundef captures(address_is_null) %0, i32 noun
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %6 = trunc nuw nsw i64 %indvars.iv.next to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i32 noundef %6) #17
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %16, label %9

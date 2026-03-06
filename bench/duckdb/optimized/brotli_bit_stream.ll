@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.duckdb_brotli::BrotliPrefixCodeRange" = type { i16, i8 }
-%"struct.duckdb_brotli::HuffmanTree" = type { i32, i16, i16 }
-%"struct.duckdb_brotli::HistogramLiteral" = type { [256 x i32], i64, double }
-%"struct.duckdb_brotli::HistogramCommand" = type { [704 x i32], i64, double }
-%"struct.duckdb_brotli::HistogramDistance" = type { [544 x i32], i64, double }
-%"struct.duckdb_brotli::Command" = type { i32, i32, i32, i16, i16 }
 
 @_ZN13duckdb_brotliL14kZeroRepsDepthE = internal unnamed_addr constant [704 x i32] [i32 0, i32 4, i32 8, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 11, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 21, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28, i32 28], align 16
 @_ZN13duckdb_brotliL13kZeroRepsBitsE = internal unnamed_addr constant [704 x i64] [i64 0, i64 0, i64 0, i64 7, i64 23, i64 39, i64 55, i64 71, i64 87, i64 103, i64 119, i64 1904, i64 2951, i64 4999, i64 7047, i64 9095, i64 11143, i64 13191, i64 15239, i64 919, i64 2967, i64 5015, i64 7063, i64 9111, i64 11159, i64 13207, i64 15255, i64 935, i64 2983, i64 5031, i64 7079, i64 9127, i64 11175, i64 13223, i64 15271, i64 951, i64 2999, i64 5047, i64 7095, i64 9143, i64 11191, i64 13239, i64 15287, i64 967, i64 3015, i64 5063, i64 7111, i64 9159, i64 11207, i64 13255, i64 15303, i64 983, i64 3031, i64 5079, i64 7127, i64 9175, i64 11223, i64 13271, i64 15319, i64 999, i64 3047, i64 5095, i64 7143, i64 9191, i64 11239, i64 13287, i64 15335, i64 1015, i64 3063, i64 5111, i64 7159, i64 9207, i64 11255, i64 13303, i64 15351, i64 115591, i64 377735, i64 639879, i64 902023, i64 1164167, i64 1426311, i64 1688455, i64 1950599, i64 117639, i64 379783, i64 641927, i64 904071, i64 1166215, i64 1428359, i64 1690503, i64 1952647, i64 119687, i64 381831, i64 643975, i64 906119, i64 1168263, i64 1430407, i64 1692551, i64 1954695, i64 121735, i64 383879, i64 646023, i64 908167, i64 1170311, i64 1432455, i64 1694599, i64 1956743, i64 123783, i64 385927, i64 648071, i64 910215, i64 1172359, i64 1434503, i64 1696647, i64 1958791, i64 125831, i64 387975, i64 650119, i64 912263, i64 1174407, i64 1436551, i64 1698695, i64 1960839, i64 127879, i64 390023, i64 652167, i64 914311, i64 1176455, i64 1438599, i64 1700743, i64 1962887, i64 129927, i64 392071, i64 654215, i64 916359, i64 1178503, i64 1440647, i64 1702791, i64 1964935, i64 115607, i64 377751, i64 639895, i64 902039, i64 1164183, i64 1426327, i64 1688471, i64 1950615, i64 117655, i64 379799, i64 641943, i64 904087, i64 1166231, i64 1428375, i64 1690519, i64 1952663, i64 119703, i64 381847, i64 643991, i64 906135, i64 1168279, i64 1430423, i64 1692567, i64 1954711, i64 121751, i64 383895, i64 646039, i64 908183, i64 1170327, i64 1432471, i64 1694615, i64 1956759, i64 123799, i64 385943, i64 648087, i64 910231, i64 1172375, i64 1434519, i64 1696663, i64 1958807, i64 125847, i64 387991, i64 650135, i64 912279, i64 1174423, i64 1436567, i64 1698711, i64 1960855, i64 127895, i64 390039, i64 652183, i64 914327, i64 1176471, i64 1438615, i64 1700759, i64 1962903, i64 129943, i64 392087, i64 654231, i64 916375, i64 1178519, i64 1440663, i64 1702807, i64 1964951, i64 115623, i64 377767, i64 639911, i64 902055, i64 1164199, i64 1426343, i64 1688487, i64 1950631, i64 117671, i64 379815, i64 641959, i64 904103, i64 1166247, i64 1428391, i64 1690535, i64 1952679, i64 119719, i64 381863, i64 644007, i64 906151, i64 1168295, i64 1430439, i64 1692583, i64 1954727, i64 121767, i64 383911, i64 646055, i64 908199, i64 1170343, i64 1432487, i64 1694631, i64 1956775, i64 123815, i64 385959, i64 648103, i64 910247, i64 1172391, i64 1434535, i64 1696679, i64 1958823, i64 125863, i64 388007, i64 650151, i64 912295, i64 1174439, i64 1436583, i64 1698727, i64 1960871, i64 127911, i64 390055, i64 652199, i64 914343, i64 1176487, i64 1438631, i64 1700775, i64 1962919, i64 129959, i64 392103, i64 654247, i64 916391, i64 1178535, i64 1440679, i64 1702823, i64 1964967, i64 115639, i64 377783, i64 639927, i64 902071, i64 1164215, i64 1426359, i64 1688503, i64 1950647, i64 117687, i64 379831, i64 641975, i64 904119, i64 1166263, i64 1428407, i64 1690551, i64 1952695, i64 119735, i64 381879, i64 644023, i64 906167, i64 1168311, i64 1430455, i64 1692599, i64 1954743, i64 121783, i64 383927, i64 646071, i64 908215, i64 1170359, i64 1432503, i64 1694647, i64 1956791, i64 123831, i64 385975, i64 648119, i64 910263, i64 1172407, i64 1434551, i64 1696695, i64 1958839, i64 125879, i64 388023, i64 650167, i64 912311, i64 1174455, i64 1436599, i64 1698743, i64 1960887, i64 127927, i64 390071, i64 652215, i64 914359, i64 1176503, i64 1438647, i64 1700791, i64 1962935, i64 129975, i64 392119, i64 654263, i64 916407, i64 1178551, i64 1440695, i64 1702839, i64 1964983, i64 115655, i64 377799, i64 639943, i64 902087, i64 1164231, i64 1426375, i64 1688519, i64 1950663, i64 117703, i64 379847, i64 641991, i64 904135, i64 1166279, i64 1428423, i64 1690567, i64 1952711, i64 119751, i64 381895, i64 644039, i64 906183, i64 1168327, i64 1430471, i64 1692615, i64 1954759, i64 121799, i64 383943, i64 646087, i64 908231, i64 1170375, i64 1432519, i64 1694663, i64 1956807, i64 123847, i64 385991, i64 648135, i64 910279, i64 1172423, i64 1434567, i64 1696711, i64 1958855, i64 125895, i64 388039, i64 650183, i64 912327, i64 1174471, i64 1436615, i64 1698759, i64 1960903, i64 127943, i64 390087, i64 652231, i64 914375, i64 1176519, i64 1438663, i64 1700807, i64 1962951, i64 129991, i64 392135, i64 654279, i64 916423, i64 1178567, i64 1440711, i64 1702855, i64 1964999, i64 115671, i64 377815, i64 639959, i64 902103, i64 1164247, i64 1426391, i64 1688535, i64 1950679, i64 117719, i64 379863, i64 642007, i64 904151, i64 1166295, i64 1428439, i64 1690583, i64 1952727, i64 119767, i64 381911, i64 644055, i64 906199, i64 1168343, i64 1430487, i64 1692631, i64 1954775, i64 121815, i64 383959, i64 646103, i64 908247, i64 1170391, i64 1432535, i64 1694679, i64 1956823, i64 123863, i64 386007, i64 648151, i64 910295, i64 1172439, i64 1434583, i64 1696727, i64 1958871, i64 125911, i64 388055, i64 650199, i64 912343, i64 1174487, i64 1436631, i64 1698775, i64 1960919, i64 127959, i64 390103, i64 652247, i64 914391, i64 1176535, i64 1438679, i64 1700823, i64 1962967, i64 130007, i64 392151, i64 654295, i64 916439, i64 1178583, i64 1440727, i64 1702871, i64 1965015, i64 115687, i64 377831, i64 639975, i64 902119, i64 1164263, i64 1426407, i64 1688551, i64 1950695, i64 117735, i64 379879, i64 642023, i64 904167, i64 1166311, i64 1428455, i64 1690599, i64 1952743, i64 119783, i64 381927, i64 644071, i64 906215, i64 1168359, i64 1430503, i64 1692647, i64 1954791, i64 121831, i64 383975, i64 646119, i64 908263, i64 1170407, i64 1432551, i64 1694695, i64 1956839, i64 123879, i64 386023, i64 648167, i64 910311, i64 1172455, i64 1434599, i64 1696743, i64 1958887, i64 125927, i64 388071, i64 650215, i64 912359, i64 1174503, i64 1436647, i64 1698791, i64 1960935, i64 127975, i64 390119, i64 652263, i64 914407, i64 1176551, i64 1438695, i64 1700839, i64 1962983, i64 130023, i64 392167, i64 654311, i64 916455, i64 1178599, i64 1440743, i64 1702887, i64 1965031, i64 115703, i64 377847, i64 639991, i64 902135, i64 1164279, i64 1426423, i64 1688567, i64 1950711, i64 117751, i64 379895, i64 642039, i64 904183, i64 1166327, i64 1428471, i64 1690615, i64 1952759, i64 119799, i64 381943, i64 644087, i64 906231, i64 1168375, i64 1430519, i64 1692663, i64 1954807, i64 121847, i64 383991, i64 646135, i64 908279, i64 1170423, i64 1432567, i64 1694711, i64 1956855, i64 123895, i64 386039, i64 648183, i64 910327, i64 1172471, i64 1434615, i64 1696759, i64 1958903, i64 125943, i64 388087, i64 650231, i64 912375, i64 1174519, i64 1436663, i64 1698807, i64 1960951, i64 127991, i64 390135, i64 652279, i64 914423, i64 1176567, i64 1438711, i64 1700855, i64 1962999, i64 130039, i64 392183, i64 654327, i64 916471, i64 1178615, i64 1440759, i64 1702903, i64 1965047, i64 14795655, i64 48350087, i64 81904519, i64 115458951, i64 149013383, i64 182567815, i64 216122247, i64 249676679, i64 15057799, i64 48612231, i64 82166663, i64 115721095, i64 149275527, i64 182829959, i64 216384391, i64 249938823, i64 15319943, i64 48874375, i64 82428807, i64 115983239, i64 149537671, i64 183092103, i64 216646535, i64 250200967, i64 15582087, i64 49136519, i64 82690951, i64 116245383, i64 149799815, i64 183354247, i64 216908679, i64 250463111, i64 15844231, i64 49398663, i64 82953095, i64 116507527, i64 150061959, i64 183616391, i64 217170823, i64 250725255, i64 16106375, i64 49660807, i64 83215239, i64 116769671, i64 150324103, i64 183878535, i64 217432967, i64 250987399, i64 16368519, i64 49922951, i64 83477383, i64 117031815, i64 150586247, i64 184140679, i64 217695111, i64 251249543, i64 16630663, i64 50185095, i64 83739527, i64 117293959, i64 150848391, i64 184402823, i64 217957255, i64 251511687, i64 14797703, i64 48352135, i64 81906567, i64 115460999, i64 149015431, i64 182569863, i64 216124295, i64 249678727, i64 15059847, i64 48614279, i64 82168711, i64 115723143, i64 149277575, i64 182832007, i64 216386439, i64 249940871, i64 15321991, i64 48876423, i64 82430855, i64 115985287, i64 149539719, i64 183094151, i64 216648583, i64 250203015, i64 15584135, i64 49138567, i64 82692999, i64 116247431, i64 149801863, i64 183356295, i64 216910727, i64 250465159, i64 15846279, i64 49400711, i64 82955143, i64 116509575, i64 150064007, i64 183618439, i64 217172871, i64 250727303, i64 16108423, i64 49662855, i64 83217287, i64 116771719, i64 150326151, i64 183880583, i64 217435015, i64 250989447, i64 16370567, i64 49924999, i64 83479431, i64 117033863, i64 150588295], align 16
@@ -58,7 +53,7 @@ define void @_ZN13duckdb_brotli22BrotliStoreHuffmanTreeEPKhmPNS_11HuffmanTreeEPm
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.02027
   %14 = load i8, ptr %13, align 1, !tbaa !7
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !8
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4, !tbaa !8
@@ -73,7 +68,7 @@ define void @_ZN13duckdb_brotli22BrotliStoreHuffmanTreeEPKhmPNS_11HuffmanTreeEPm
   %.030 = phi i64 [ %.1, %24 ], [ 0, %.preheader.preheader ]
   %.01829 = phi i32 [ %.2, %24 ], [ 0, %.preheader.preheader ]
   %.12128 = phi i64 [ %25, %24 ], [ 0, %.preheader.preheader ]
-  %20 = getelementptr inbounds nuw i32, ptr %11, i64 %.12128
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.12128
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %24, label %22
@@ -203,7 +198,7 @@ _ZL44BrotliStoreHuffmanTreeOfHuffmanTreeToBitMaskiPKhPmPh.exit: ; preds = %_ZL44
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !7, !noalias !29
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %10, i64 %85
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %85
   %90 = load i16, ptr %89, align 2, !tbaa !30, !noalias !29
   %91 = zext i16 %90 to i64
   %92 = lshr i64 %82, 3
@@ -280,7 +275,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
   %.0179263 = phi i64 [ %.1180, %20 ], [ 0, %8 ]
   %.0184262 = phi i64 [ %21, %20 ], [ 0, %8 ]
   %.0196261 = phi i64 [ %.1197, %20 ], [ %2, %8 ]
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %.0184262
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0184262
   %11 = load i32, ptr %10, align 4, !tbaa !8
   %.not214 = icmp eq i32 %11, 0
   br i1 %.not214, label %20, label %12
@@ -290,7 +285,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i64, ptr %9, i64 %.0179263
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0179263
   store i64 %.0184262, ptr %15, align 8, !tbaa !3
   br label %16
 
@@ -340,7 +335,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
   store i64 %40, ptr %6, align 8, !tbaa !3, !alias.scope !44, !noalias !47
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   store i8 0, ptr %41, align 1, !tbaa !7
-  %42 = getelementptr inbounds nuw i16, ptr %5, i64 %32
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %32
   store i16 0, ptr %42, align 2, !tbaa !30
   br label %.loopexit257
 
@@ -358,7 +353,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
   %.0198267 = phi i64 [ %46, %55 ], [ %21, %45 ]
   %.0199266 = phi ptr [ %.1200, %55 ], [ %0, %45 ]
   %46 = add i64 %.0198267, -1
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !8
   %.not212 = icmp eq i32 %48, 0
   br i1 %.not212, label %55, label %49
@@ -408,7 +403,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
 
 .lr.ph285:                                        ; preds = %.preheader258, %71
   %.045.i284 = phi i64 [ %73, %71 ], [ 1, %.preheader258 ]
-  %63 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.045.i284
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.045.i284
   %64 = load i64, ptr %63, align 4
   %.sroa.0245.0.extract.trunc = trunc i64 %64 to i32
   br label %65
@@ -416,13 +411,13 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
 65:                                               ; preds = %68, %.lr.ph285
   %.048.i = phi i64 [ %.045.i284, %.lr.ph285 ], [ %.047.i, %68 ]
   %.047.i = add nsw i64 %.048.i, -1
-  %66 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.047.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.047.i
   %67 = load i32, ptr %66, align 4, !tbaa !50
   %.not255 = icmp ugt i32 %67, %.sroa.0245.0.extract.trunc
   br i1 %.not255, label %68, label %71
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.048.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.048.i
   %70 = load i64, ptr %66, align 4
   store i64 %70, ptr %69, align 4
   %.not54.i = icmp eq i64 %.047.i, 0
@@ -430,7 +425,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
 
 71:                                               ; preds = %68, %65
   %.1.i = phi i64 [ 0, %68 ], [ %.048.i, %65 ]
-  %72 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.1.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.1.i
   store i64 %64, ptr %72, align 4
   %73 = add nuw nsw i64 %.045.i284, 1
   %exitcond316.not = icmp eq i64 %73, %60
@@ -443,14 +438,14 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
 
 77:                                               ; preds = %74, %._crit_edge282
   %indvars.iv = phi i64 [ %76, %74 ], [ %indvars.iv.next, %._crit_edge282 ]
-  %78 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_brotli16kBrotliShellGapsE, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotli16kBrotliShellGapsE, i64 %indvars.iv
   %79 = load i64, ptr %78, align 8, !tbaa !3
   %80 = icmp ult i64 %79, %60
   br i1 %80, label %.lr.ph281, label %._crit_edge282
 
 .lr.ph281:                                        ; preds = %77, %.critedge.i
   %.044.i279 = phi i64 [ %90, %.critedge.i ], [ %79, %77 ]
-  %81 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.044.i279
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.044.i279
   %82 = load i64, ptr %81, align 4
   %.sroa.0243.0.extract.trunc = trunc i64 %82 to i32
   %.not.i272 = icmp ult i64 %.044.i279, %79
@@ -459,13 +454,13 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
 .lr.ph275:                                        ; preds = %.lr.ph281, %86
   %.0.i273 = phi i64 [ %83, %86 ], [ %.044.i279, %.lr.ph281 ]
   %83 = sub nuw i64 %.0.i273, %79
-  %84 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !50
   %.not254 = icmp ugt i32 %85, %.sroa.0243.0.extract.trunc
   br i1 %.not254, label %86, label %.critedge.i
 
 86:                                               ; preds = %.lr.ph275
-  %87 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.0.i273
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i273
   %88 = load i64, ptr %84, align 4
   store i64 %88, ptr %87, align 4
   %.not.i = icmp ult i64 %83, %79
@@ -473,7 +468,7 @@ define void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11Huffma
 
 .critedge.i:                                      ; preds = %86, %.lr.ph275, %.lr.ph281
   %.0.i.lcssa = phi i64 [ %.044.i279, %.lr.ph281 ], [ %.0.i273, %.lr.ph275 ], [ %83, %86 ]
-  %89 = getelementptr inbounds nuw %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %.0.i.lcssa
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.lcssa
   store i64 %82, ptr %89, align 4
   %90 = add nuw i64 %.044.i279, 1
   %exitcond.not = icmp eq i64 %90, %60
@@ -500,10 +495,10 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   %.2201286 = phi ptr [ %121, %.lr.ph290 ], [ %92, %.lr.ph290.preheader ]
   %.0189 = add nsw i32 %.0189.in289, -1
   %93 = sext i32 %.0193287 to i64
-  %94 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %0, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !50
   %96 = sext i32 %.0190288 to i64
-  %97 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %0, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !50
   %.not210 = icmp ule i32 %95, %98
   %99 = zext i1 %.not210 to i32
@@ -513,10 +508,10 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   %.1191 = add nsw i32 %.0190288, %100
   %.0188 = select i1 %.not210, i32 %.0193287, i32 %.0190288
   %101 = sext i32 %.1194 to i64
-  %102 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %0, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !50
   %104 = sext i32 %.1191 to i64
-  %105 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %0, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !50
   %.not211 = icmp ule i32 %103, %106
   %107 = zext i1 %.not211 to i32
@@ -526,10 +521,10 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   %.2192 = add nsw i32 %.1191, %108
   %.0187 = select i1 %.not211, i32 %.1194, i32 %.1191
   %109 = sext i32 %.0188 to i64
-  %110 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %0, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !50
   %112 = sext i32 %.0187 to i64
-  %113 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanTree", ptr %0, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %0, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !50
   %115 = add i32 %114, %111
   %116 = getelementptr inbounds i8, ptr %.2201286, i64 -8
@@ -598,14 +593,14 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   br i1 %150, label %.lr.ph309, label %.loopexit
 
 .lr.ph309:                                        ; preds = %148
-  %151 = getelementptr inbounds nuw i64, ptr %9, i64 %.0186310
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0186310
   %.pre = load i64, ptr %151, align 8, !tbaa !3
   br label %152
 
 152:                                              ; preds = %.lr.ph309, %162
   %153 = phi i64 [ %.pre, %.lr.ph309 ], [ %163, %162 ]
   %.0185307 = phi i64 [ %149, %.lr.ph309 ], [ %164, %162 ]
-  %154 = getelementptr inbounds nuw i64, ptr %9, i64 %.0185307
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0185307
   %155 = load i64, ptr %154, align 8, !tbaa !3
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !7
@@ -813,10 +808,10 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   br i1 %266, label %267, label %281
 
 267:                                              ; preds = %.critedge
-  %268 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotliL14kZeroRepsDepthE, i64 %.0178.lcssa
+  %268 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotliL14kZeroRepsDepthE, i64 %.0178.lcssa
   %269 = load i32, ptr %268, align 4, !tbaa !8
   %270 = zext i32 %269 to i64
-  %271 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_brotliL13kZeroRepsBitsE, i64 %.0178.lcssa
+  %271 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotliL13kZeroRepsBitsE, i64 %.0178.lcssa
   %272 = load i64, ptr %271, align 8, !tbaa !3
   %273 = lshr i64 %256, 3
   %274 = getelementptr inbounds nuw i8, ptr %7, i64 %273
@@ -838,7 +833,7 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   %284 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_brotliL16kCodeLengthDepthE, i64 %283
   %285 = load i8, ptr %284, align 1, !tbaa !7
   %286 = zext i8 %285 to i64
-  %287 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotliL15kCodeLengthBitsE, i64 %283
+  %287 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotliL15kCodeLengthBitsE, i64 %283
   %288 = load i32, ptr %287, align 4, !tbaa !8
   %289 = zext i32 %288 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
@@ -871,7 +866,7 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   %302 = getelementptr inbounds nuw i8, ptr @_ZN13duckdb_brotliL16kCodeLengthDepthE, i64 %301
   %303 = load i8, ptr %302, align 1, !tbaa !7
   %304 = zext i8 %303 to i64
-  %305 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotliL15kCodeLengthBitsE, i64 %301
+  %305 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotliL15kCodeLengthBitsE, i64 %301
   %306 = load i32, ptr %305, align 4, !tbaa !8
   %307 = zext i32 %306 to i64
   br label %308
@@ -894,10 +889,10 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
 
 319:                                              ; preds = %299
   %320 = add i64 %.1, -3
-  %321 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotliL17kNonZeroRepsDepthE, i64 %320
+  %321 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotliL17kNonZeroRepsDepthE, i64 %320
   %322 = load i32, ptr %321, align 4, !tbaa !8
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_brotliL16kNonZeroRepsBitsE, i64 %320
+  %324 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_brotliL16kNonZeroRepsBitsE, i64 %320
   %325 = load i64, ptr %324, align 8, !tbaa !3
   %326 = lshr i64 %.promoted, 3
   %327 = getelementptr inbounds nuw i8, ptr %7, i64 %326
@@ -1198,11 +1193,11 @@ _ZL16InitBlockEncoderP12BlockEncodermmPKhPKjm.exit198: ; preds = %_ZL16InitBlock
   %.026.i = phi i64 [ %182, %.lr.ph.i ], [ 0, %171 ]
   %175 = load i64, ptr %25, align 8, !tbaa !183
   %176 = mul i64 %175, %.026.i
-  %177 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %160, i64 %.026.i
+  %177 = getelementptr inbounds nuw [1040 x i8], ptr %160, i64 %.026.i
   %178 = load ptr, ptr %172, align 8, !tbaa !228
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 %176
   %180 = load ptr, ptr %174, align 8, !tbaa !229
-  %181 = getelementptr inbounds nuw i16, ptr %180, i64 %176
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %180, i64 %176
   tail call fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli11HuffmanTreeEPhPtPmS4_(ptr noundef %177, i64 noundef %175, i64 noundef 256, ptr noundef %24, ptr noundef %179, ptr noundef %181, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %182 = add nuw i64 %.026.i, 1
   %exitcond.not.i = icmp eq i64 %182, %162
@@ -1243,11 +1238,11 @@ _ZL32BuildAndStoreEntropyCodesLiteralPN13duckdb_brotli13MemoryManagerEP12BlockEn
   %.026.i202 = phi i64 [ %206, %.lr.ph.i201 ], [ 0, %195 ]
   %199 = load i64, ptr %26, align 8, !tbaa !183
   %200 = mul i64 %199, %.026.i202
-  %201 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %184, i64 %.026.i202
+  %201 = getelementptr inbounds nuw [2832 x i8], ptr %184, i64 %.026.i202
   %202 = load ptr, ptr %196, align 8, !tbaa !228
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %200
   %204 = load ptr, ptr %198, align 8, !tbaa !229
-  %205 = getelementptr inbounds nuw i16, ptr %204, i64 %200
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %204, i64 %200
   tail call fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli11HuffmanTreeEPhPtPmS4_(ptr noundef %201, i64 noundef %199, i64 noundef 704, ptr noundef %24, ptr noundef %203, ptr noundef %205, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %206 = add nuw i64 %.026.i202, 1
   %exitcond.not.i203 = icmp eq i64 %206, %186
@@ -1289,11 +1284,11 @@ _ZL32BuildAndStoreEntropyCodesCommandPN13duckdb_brotli13MemoryManagerEP12BlockEn
   %.026.i208 = phi i64 [ %231, %.lr.ph.i207 ], [ 0, %220 ]
   %224 = load i64, ptr %27, align 8, !tbaa !183
   %225 = mul i64 %224, %.026.i208
-  %226 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %208, i64 %.026.i208
+  %226 = getelementptr inbounds nuw [2192 x i8], ptr %208, i64 %.026.i208
   %227 = load ptr, ptr %221, align 8, !tbaa !228
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 %225
   %229 = load ptr, ptr %223, align 8, !tbaa !229
-  %230 = getelementptr inbounds nuw i16, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [2 x i8], ptr %229, i64 %225
   tail call fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli11HuffmanTreeEPhPtPmS4_(ptr noundef %226, i64 noundef %224, i64 noundef range(i64 0, 4294967296) %211, ptr noundef %24, ptr noundef %228, ptr noundef %230, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %231 = add nuw i64 %.026.i208, 1
   %exitcond.not.i209 = icmp eq i64 %231, %210
@@ -1325,7 +1320,7 @@ _ZL33BuildAndStoreEntropyCodesDistancePN13duckdb_brotli13MemoryManagerEP12BlockE
   %.0178254 = phi i8 [ %6, %.lr.ph256 ], [ %.3181, %710 ]
   %.0182253 = phi i64 [ %2, %.lr.ph256 ], [ %561, %710 ]
   %.1187252 = phi i64 [ 0, %.lr.ph256 ], [ %711, %710 ]
-  %246 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %10, i64 %.1187252
+  %246 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.1187252
   %.sroa.0.0.copyload = load i32, ptr %246, align 4, !tbaa !8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !8
@@ -1427,21 +1422,21 @@ _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %245, %259, %271, %2
 
 _ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit:    ; preds = %281, %285, %295, %297
   %.0.i196 = phi i64 [ %282, %281 ], [ %294, %285 ], [ %300, %297 ], [ 23, %295 ]
-  %301 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli15kBrotliInsExtraE, i64 %.0.i
+  %301 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli15kBrotliInsExtraE, i64 %.0.i
   %302 = load i32, ptr %301, align 4, !tbaa !8
-  %303 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli14kBrotliInsBaseE, i64 %.0.i
+  %303 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli14kBrotliInsBaseE, i64 %.0.i
   %304 = load i32, ptr %303, align 4, !tbaa !8
   %305 = sub i32 %.sroa.0.0.copyload, %304
   %306 = zext i32 %305 to i64
   %307 = and i64 %.0.i196, 65535
-  %308 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli15kBrotliCopyBaseE, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli15kBrotliCopyBaseE, i64 %307
   %309 = load i32, ptr %308, align 4, !tbaa !8
   %310 = sub i32 %254, %309
   %311 = zext i32 %310 to i64
   %312 = zext nneg i32 %302 to i64
   %313 = shl i64 %311, %312
   %314 = or i64 %313, %306
-  %315 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli16kBrotliCopyExtraE, i64 %307
+  %315 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli16kBrotliCopyExtraE, i64 %307
   %316 = load i32, ptr %315, align 4, !tbaa !8
   %317 = add i32 %316, %302
   %318 = zext i32 %317 to i64
@@ -1485,7 +1480,7 @@ _ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit:    ; preds = %281, %285, %295, %2
   %338 = add i64 %337, 1
   store i64 %338, ptr %41, align 8, !tbaa !193
   %339 = load ptr, ptr %37, align 8, !tbaa !189
-  %340 = getelementptr inbounds nuw i32, ptr %339, i64 %338
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %338
   %341 = load i32, ptr %340, align 4, !tbaa !8
   %342 = load ptr, ptr %36, align 8, !tbaa !188
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 %338
@@ -1515,7 +1510,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i: ; preds = %352, %336
   %358 = getelementptr inbounds nuw i8, ptr %234, i64 %357
   %359 = load i8, ptr %358, align 1, !tbaa !7
   %360 = zext i8 %359 to i64
-  %361 = getelementptr inbounds nuw i16, ptr %235, i64 %357
+  %361 = getelementptr inbounds nuw [2 x i8], ptr %235, i64 %357
   %362 = load i16, ptr %361, align 2, !tbaa !30
   %363 = zext i16 %362 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
@@ -1546,7 +1541,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i: ; preds = %352, %336
 
 380:                                              ; preds = %379
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %381 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i
+  %381 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i
   %382 = load i16, ptr %381, align 4, !tbaa !247
   %383 = zext i16 %382 to i32
   %.not.i.i.i = icmp ult i32 %341, %383
@@ -1554,7 +1549,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i: ; preds = %352, %336
 
 _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i:     ; preds = %380, %379
   %384 = and i64 %indvars.iv.i, 4294967295
-  %385 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %384
+  %385 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %384
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 2
   %387 = load i8, ptr %386, align 2, !tbaa !250
   %388 = load i16, ptr %385, align 4, !tbaa !247
@@ -1563,7 +1558,7 @@ _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i:     ; preds = %380, %379
   %391 = getelementptr inbounds nuw i8, ptr %236, i64 %384
   %392 = load i8, ptr %391, align 1, !tbaa !7
   %393 = zext i8 %392 to i64
-  %394 = getelementptr inbounds nuw i16, ptr %237, i64 %384
+  %394 = getelementptr inbounds nuw [2 x i8], ptr %237, i64 %384
   %395 = load i16, ptr %394, align 2, !tbaa !30
   %396 = zext i16 %395 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
@@ -1606,7 +1601,7 @@ _ZL11StoreSymbolP12BlockEncodermPmPh.exit:        ; preds = %.lr.ph250, %_ZL24Ge
   %421 = load i8, ptr %420, align 1, !tbaa !7
   %422 = zext i8 %421 to i64
   %423 = load ptr, ptr %174, align 8, !tbaa !229
-  %424 = getelementptr inbounds nuw i16, ptr %423, i64 %418
+  %424 = getelementptr inbounds nuw [2 x i8], ptr %423, i64 %418
   %425 = load i16, ptr %424, align 2, !tbaa !30
   %426 = zext i16 %425 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
@@ -1654,7 +1649,7 @@ _ZL11StoreSymbolP12BlockEncodermPmPh.exit:        ; preds = %.lr.ph250, %_ZL24Ge
   %455 = add i64 %454, 1
   store i64 %455, ptr %41, align 8, !tbaa !193
   %456 = load ptr, ptr %37, align 8, !tbaa !189
-  %457 = getelementptr inbounds nuw i32, ptr %456, i64 %455
+  %457 = getelementptr inbounds nuw [4 x i8], ptr %456, i64 %455
   %458 = load i32, ptr %457, align 4, !tbaa !8
   %459 = load ptr, ptr %36, align 8, !tbaa !188
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 %455
@@ -1683,7 +1678,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i212: ; preds = %468, %453
   %474 = getelementptr inbounds nuw i8, ptr %234, i64 %473
   %475 = load i8, ptr %474, align 1, !tbaa !7
   %476 = zext i8 %475 to i64
-  %477 = getelementptr inbounds nuw i16, ptr %235, i64 %473
+  %477 = getelementptr inbounds nuw [2 x i8], ptr %235, i64 %473
   %478 = load i16, ptr %477, align 2, !tbaa !30
   %479 = zext i16 %478 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
@@ -1714,7 +1709,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i212: ; preds = %468, %453
 
 496:                                              ; preds = %495
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i213, 1
-  %497 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i215
+  %497 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i215
   %498 = load i16, ptr %497, align 4, !tbaa !247
   %499 = zext i16 %498 to i32
   %.not.i.i.i216 = icmp ult i32 %458, %499
@@ -1722,7 +1717,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i212: ; preds = %468, %453
 
 _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i217:  ; preds = %496, %495
   %500 = and i64 %indvars.iv.i213, 4294967295
-  %501 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %500
+  %501 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 2
   %503 = load i8, ptr %502, align 2, !tbaa !250
   %504 = load i16, ptr %501, align 4, !tbaa !247
@@ -1731,7 +1726,7 @@ _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i217:  ; preds = %496, %495
   %507 = getelementptr inbounds nuw i8, ptr %236, i64 %500
   %508 = load i8, ptr %507, align 1, !tbaa !7
   %509 = zext i8 %508 to i64
-  %510 = getelementptr inbounds nuw i16, ptr %237, i64 %500
+  %510 = getelementptr inbounds nuw [2 x i8], ptr %237, i64 %500
   %511 = load i16, ptr %510, align 2, !tbaa !30
   %512 = zext i16 %511 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
@@ -1768,8 +1763,8 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit: ; preds = %.lr.ph244,
   %532 = add i64 %531, -1
   store i64 %532, ptr %47, align 8, !tbaa !194
   %533 = load i64, ptr %48, align 8, !tbaa !241
-  %534 = getelementptr i32, ptr %450, i64 %533
-  %535 = getelementptr i32, ptr %534, i64 %445
+  %534 = getelementptr [4 x i8], ptr %450, i64 %533
+  %535 = getelementptr [4 x i8], ptr %534, i64 %445
   %536 = load i32, ptr %535, align 4, !tbaa !8
   %537 = zext i32 %536 to i64
   %538 = load i64, ptr %25, align 8, !tbaa !183
@@ -1780,7 +1775,7 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit: ; preds = %.lr.ph244,
   %543 = load i8, ptr %542, align 1, !tbaa !7
   %544 = zext i8 %543 to i64
   %545 = load ptr, ptr %174, align 8, !tbaa !229
-  %546 = getelementptr inbounds nuw i16, ptr %545, i64 %540
+  %546 = getelementptr inbounds nuw [2 x i8], ptr %545, i64 %540
   %547 = load i16, ptr %546, align 2, !tbaa !30
   %548 = zext i16 %547 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
@@ -1860,7 +1855,7 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit: ; preds = %.lr.ph244,
   %596 = add i64 %595, 1
   store i64 %596, ptr %86, align 8, !tbaa !193
   %597 = load ptr, ptr %82, align 8, !tbaa !189
-  %598 = getelementptr inbounds nuw i32, ptr %597, i64 %596
+  %598 = getelementptr inbounds nuw [4 x i8], ptr %597, i64 %596
   %599 = load i32, ptr %598, align 4, !tbaa !8
   %600 = load ptr, ptr %81, align 8, !tbaa !188
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 %596
@@ -1889,7 +1884,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i219: ; preds = %609, %594
   %615 = getelementptr inbounds nuw i8, ptr %240, i64 %614
   %616 = load i8, ptr %615, align 1, !tbaa !7
   %617 = zext i8 %616 to i64
-  %618 = getelementptr inbounds nuw i16, ptr %241, i64 %614
+  %618 = getelementptr inbounds nuw [2 x i8], ptr %241, i64 %614
   %619 = load i16, ptr %618, align 2, !tbaa !30
   %620 = zext i16 %619 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
@@ -1920,7 +1915,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i219: ; preds = %609, %594
 
 637:                                              ; preds = %636
   %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i220, 1
-  %638 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i222
+  %638 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i222
   %639 = load i16, ptr %638, align 4, !tbaa !247
   %640 = zext i16 %639 to i32
   %.not.i.i.i223 = icmp ult i32 %599, %640
@@ -1928,7 +1923,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i219: ; preds = %609, %594
 
 _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i224:  ; preds = %637, %636
   %641 = and i64 %indvars.iv.i220, 4294967295
-  %642 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %641
+  %642 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %641
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 2
   %644 = load i8, ptr %643, align 2, !tbaa !250
   %645 = load i16, ptr %642, align 4, !tbaa !247
@@ -1937,7 +1932,7 @@ _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i224:  ; preds = %637, %636
   %648 = getelementptr inbounds nuw i8, ptr %242, i64 %641
   %649 = load i8, ptr %648, align 1, !tbaa !7
   %650 = zext i8 %649 to i64
-  %651 = getelementptr inbounds nuw i16, ptr %243, i64 %641
+  %651 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %641
   %652 = load i16, ptr %651, align 2, !tbaa !30
   %653 = zext i16 %652 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
@@ -1974,8 +1969,8 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit226: ; preds = %581, %_
   %673 = add i64 %672, -1
   store i64 %673, ptr %92, align 8, !tbaa !194
   %674 = load i64, ptr %93, align 8, !tbaa !241
-  %675 = getelementptr i32, ptr %591, i64 %674
-  %676 = getelementptr i32, ptr %675, i64 %590
+  %675 = getelementptr [4 x i8], ptr %591, i64 %674
+  %676 = getelementptr [4 x i8], ptr %675, i64 %590
   %677 = load i32, ptr %676, align 4, !tbaa !8
   %678 = zext i32 %677 to i64
   %679 = load i64, ptr %27, align 8, !tbaa !183
@@ -1986,7 +1981,7 @@ _ZL22StoreSymbolWithContextP12BlockEncodermmPKjPmPhm.exit226: ; preds = %581, %_
   %684 = load i8, ptr %683, align 1, !tbaa !7
   %685 = zext i8 %684 to i64
   %686 = load ptr, ptr %223, align 8, !tbaa !229
-  %687 = getelementptr inbounds nuw i16, ptr %686, i64 %681
+  %687 = getelementptr inbounds nuw [2 x i8], ptr %686, i64 %681
   %688 = load i16, ptr %687, align 2, !tbaa !30
   %689 = zext i16 %688 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
@@ -2242,14 +2237,14 @@ _ZL17NextBlockTypeCodeP23BlockTypeCodeCalculatorh.exit.i: ; preds = %4, %_ZL21Bl
   %25 = add nuw nsw i64 %20, 2
   %26 = select i1 %24, i64 0, i64 %25
   %27 = select i1 %23, i64 1, i64 %26
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !8
   br label %31
 
 31:                                               ; preds = %21, %_ZL17NextBlockTypeCodeP23BlockTypeCodeCalculatorh.exit.i
-  %32 = getelementptr inbounds nuw i32, ptr %10, i64 %.036.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.036.i
   %33 = load i32, ptr %32, align 4, !tbaa !8
   %34 = icmp ugt i32 %33, 176
   %35 = icmp ugt i32 %33, 752
@@ -2266,7 +2261,7 @@ _ZL17NextBlockTypeCodeP23BlockTypeCodeCalculatorh.exit.i: ; preds = %4, %_ZL21Bl
 
 41:                                               ; preds = %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %42 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next.i
   %43 = load i16, ptr %42, align 4, !tbaa !247
   %44 = zext i16 %43 to i32
   %.not.i.i = icmp ult i32 %33, %44
@@ -2274,7 +2269,7 @@ _ZL17NextBlockTypeCodeP23BlockTypeCodeCalculatorh.exit.i: ; preds = %4, %_ZL21Bl
 
 _ZL21BlockLengthPrefixCodej.exit.i:               ; preds = %41, %40
   %45 = and i64 %indvars.iv.i, 4294967295
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !8
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !8
@@ -2373,7 +2368,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i: ; preds = %_ZL16StoreVarLe
 
 105:                                              ; preds = %104
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %106 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next41.i
+  %106 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next41.i
   %107 = load i16, ptr %106, align 4, !tbaa !247
   %108 = zext i16 %107 to i32
   %.not.i.i.i = icmp ult i32 %93, %108
@@ -2381,7 +2376,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit.i: ; preds = %_ZL16StoreVarLe
 
 _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i:     ; preds = %105, %104
   %109 = and i64 %indvars.iv40.i, 4294967295
-  %110 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 2
   %112 = load i8, ptr %111, align 2, !tbaa !250
   %113 = load i16, ptr %110, align 4, !tbaa !247
@@ -2390,7 +2385,7 @@ _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit.i:     ; preds = %105, %104
   %116 = getelementptr inbounds nuw i8, ptr %91, i64 %109
   %117 = load i8, ptr %116, align 1, !tbaa !7
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %92, i64 %109
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %109
   %120 = load i16, ptr %119, align 2, !tbaa !30
   %121 = zext i16 %120 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !370)
@@ -2531,7 +2526,7 @@ _ZL16StoreVarLenUint8mPmPh.exit:                  ; preds = %6
   %72 = add i64 %55, 5
   store i64 %72, ptr %4, align 8, !tbaa !3, !alias.scope !405, !noalias !408
   %73 = trunc i64 %1 to i32
-  %74 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %47
   store i32 %73, ptr %74, align 4, !tbaa !8
   store i32 1, ptr %0, align 4, !tbaa !8
   %75 = icmp ult i64 %2, %51
@@ -2539,7 +2534,7 @@ _ZL16StoreVarLenUint8mPmPh.exit:                  ; preds = %6
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
   %.062 = phi i64 [ %77, %.lr.ph ], [ %2, %46 ]
-  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %.062
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.062
   store i32 1, ptr %76, align 4, !tbaa !8
   %77 = add nuw i64 %.062, 1
   %exitcond.not = icmp eq i64 %77, %51
@@ -2548,7 +2543,7 @@ _ZL16StoreVarLenUint8mPmPh.exit:                  ; preds = %6
 ._crit_edge:                                      ; preds = %.lr.ph, %46
   tail call fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli11HuffmanTreeEPhPtPmS4_(ptr noundef nonnull %0, i64 noundef %51, i64 noundef %51, ptr noundef %3, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %78 = getelementptr inbounds nuw i8, ptr %52, i64 %47
-  %79 = getelementptr inbounds nuw i16, ptr %53, i64 %47
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %47
   %.pre = load i64, ptr %4, align 8, !tbaa !3, !alias.scope !411, !noalias !414
   br label %80
 
@@ -2561,7 +2556,7 @@ _ZL16StoreVarLenUint8mPmPh.exit:                  ; preds = %6
   %85 = getelementptr inbounds nuw i8, ptr %52, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !7
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %53, i64 %84
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %84
   %89 = load i16, ptr %88, align 2, !tbaa !30
   %90 = zext i16 %89 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
@@ -2709,7 +2704,7 @@ _ZL16StoreVarLenUint8mPmPh.exit.thread:           ; preds = %8
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %.037.i = phi i64 [ %58, %.lr.ph.i ], [ 1, %20 ]
   %.02536.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %53, %20 ]
-  %56 = getelementptr inbounds nuw i32, ptr %2, i64 %.037.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.037.i
   %57 = load i32, ptr %56, align 4, !tbaa !8, !alias.scope !452
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %57, i32 %.02536.i)
   %58 = add nuw i64 %.037.i, 1
@@ -2739,7 +2734,7 @@ _ZL16StoreVarLenUint8mPmPh.exit.thread:           ; preds = %8
 
 .lr.ph.i.preheader.i:                             ; preds = %63, %_ZL11MoveToFrontPhm.exit.i
   %.239.i = phi i64 [ %81, %_ZL11MoveToFrontPhm.exit.i ], [ 0, %63 ]
-  %67 = getelementptr inbounds nuw i32, ptr %2, i64 %.239.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.239.i
   %68 = load i32, ptr %67, align 4, !tbaa !8, !alias.scope !452
   %69 = trunc i32 %68 to i8
   br label %.lr.ph.i.i
@@ -2757,14 +2752,14 @@ _ZL16StoreVarLenUint8mPmPh.exit.thread:           ; preds = %8
   br i1 %exitcond.not.i.i, label %_ZL7IndexOfPKhmh.exit.thread31.i, label %.lr.ph.i.i, !llvm.loop !457
 
 _ZL7IndexOfPKhmh.exit.thread31.i:                 ; preds = %73
-  %75 = getelementptr inbounds nuw i32, ptr %52, i64 %.239.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.239.i
   store i32 %64, ptr %75, align 4, !tbaa !8, !noalias !452
   %76 = load i8, ptr %66, align 1, !tbaa !7, !noalias !452
   br label %.lr.ph.preheader.i.i
 
 _ZL7IndexOfPKhmh.exit.i:                          ; preds = %.lr.ph.i.i
   %77 = trunc i64 %.09.i.i to i32
-  %78 = getelementptr inbounds nuw i32, ptr %52, i64 %.239.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.239.i
   store i32 %77, ptr %78, align 4, !tbaa !8, !noalias !452
   %.not10.i.i = icmp eq i64 %.09.i.i, 0
   br i1 %.not10.i.i, label %_ZL11MoveToFrontPhm.exit.i, label %.lr.ph.preheader.i.i
@@ -2796,7 +2791,7 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
 
 84:                                               ; preds = %87, %.preheader78.i
   %.180.i = phi i64 [ %.06487.i, %.preheader78.i ], [ %88, %87 ]
-  %85 = getelementptr inbounds nuw i32, ptr %52, i64 %.180.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.180.i
   %86 = load i32, ptr %85, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   %.not75.i = icmp eq i32 %86, 0
   br i1 %.not75.i, label %.critedge.i, label %87
@@ -2818,7 +2813,7 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
 .lr.ph.i64:                                       ; preds = %95, %.lr.ph.preheader.i
   %.282.i = phi i64 [ %97, %95 ], [ %.180.i, %.lr.ph.preheader.i ]
   %.06881.i = phi i32 [ %96, %95 ], [ 0, %.lr.ph.preheader.i ]
-  %92 = getelementptr inbounds nuw i32, ptr %52, i64 %.282.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.282.i
   %93 = load i32, ptr %92, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %.critedge2.loopexit.i
@@ -2860,7 +2855,7 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
   %.071 = phi i64 [ 0, %.critedge2.thread.i ], [ %.172, %.loopexit.i ]
   %110 = phi i64 [ 0, %.critedge2.thread.i ], [ %141, %.loopexit.i ]
   %.399.i = phi i64 [ 0, %.critedge2.thread.i ], [ %.4.i, %.loopexit.i ]
-  %111 = getelementptr inbounds nuw i32, ptr %52, i64 %.399.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.399.i
   %112 = load i32, ptr %111, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   %.not73.i = icmp eq i32 %112, 0
   br i1 %.not73.i, label %.preheader.i62, label %116
@@ -2877,7 +2872,7 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
 
 116:                                              ; preds = %109
   %117 = add i32 %112, %104
-  %118 = getelementptr inbounds nuw i32, ptr %52, i64 %110
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %110
   store i32 %117, ptr %118, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   %119 = add nuw i64 %.399.i, 1
   br label %.loopexit.sink.split.i
@@ -2885,7 +2880,7 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
 .lr.ph92.i:                                       ; preds = %123, %.lr.ph92.preheader.i
   %.06591.i = phi i64 [ %.065.i, %123 ], [ %.06589.i, %.lr.ph92.preheader.i ]
   %.06690.i = phi i32 [ %124, %123 ], [ 1, %.lr.ph92.preheader.i ]
-  %120 = getelementptr inbounds nuw i32, ptr %52, i64 %.06591.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.06591.i
   %121 = load i32, ptr %120, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %.critedge4.i
@@ -2918,14 +2913,14 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
   %131 = add nsw i32 %.neg.i63, %.16797.i.lcssa
   %132 = shl i32 %131, 9
   %133 = or disjoint i32 %132, %130
-  %134 = getelementptr inbounds nuw i32, ptr %52, i64 %.lcssa118
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.lcssa118
   store i32 %133, ptr %134, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   br label %.loopexit.sink.split.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.preheader.i, %.lr.ph98.i
   %.16797.i122 = phi i32 [ %137, %.lr.ph98.i ], [ %.066.lcssa114.i, %.lr.ph98.preheader.i ]
   %135 = phi i64 [ %138, %.lr.ph98.i ], [ %110, %.lr.ph98.preheader.i ]
-  %136 = getelementptr inbounds nuw i32, ptr %52, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %135
   store i32 %108, ptr %136, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   %reass.sub.i = sub nuw i32 %.16797.i122, %105
   %137 = add nuw i32 %reass.sub.i, 1
@@ -2953,11 +2948,11 @@ _ZL18RunLengthCodeZerosmPjPmS_.exit:              ; preds = %.loopexit.i
 
 .lr.ph:                                           ; preds = %_ZL18RunLengthCodeZerosmPjPmS_.exit, %.lr.ph
   %.081 = phi i64 [ %150, %.lr.ph ], [ 0, %_ZL18RunLengthCodeZerosmPjPmS_.exit ]
-  %143 = getelementptr inbounds nuw i32, ptr %52, i64 %.081
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.081
   %144 = load i32, ptr %143, align 4, !tbaa !8
   %145 = and i32 %144, 511
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr %1, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !8
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 4, !tbaa !8
@@ -3010,14 +3005,14 @@ _ZL18RunLengthCodeZerosmPjPmS_.exit:              ; preds = %.loopexit.i
 .lr.ph84:                                         ; preds = %172, %206
   %175 = phi i64 [ %207, %206 ], [ %.pre98, %172 ]
   %.182 = phi i64 [ %208, %206 ], [ 0, %172 ]
-  %176 = getelementptr inbounds nuw i32, ptr %52, i64 %.182
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.182
   %177 = load i32, ptr %176, align 4, !tbaa !8
   %178 = and i32 %177, 511
   %179 = zext nneg i32 %178 to i64
   %180 = getelementptr inbounds nuw i8, ptr %10, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !7
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw i16, ptr %11, i64 %179
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %179
   %184 = load i16, ptr %183, align 2, !tbaa !30
   %185 = zext i16 %184 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
@@ -3096,7 +3091,7 @@ define internal fastcc void @_ZL11StoreSymbolP12BlockEncodermPmPh(ptr noundef ca
   store i64 %11, ptr %9, align 8, !tbaa !193
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !189
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %11
   %15 = load i32, ptr %14, align 4, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !188
@@ -3133,7 +3128,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit: ; preds = %8, %29
   %39 = load i8, ptr %38, align 1, !tbaa !7
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 314
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %35
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %35
   %43 = load i16, ptr %42, align 2, !tbaa !30
   %44 = zext i16 %43 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
@@ -3164,7 +3159,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit: ; preds = %8, %29
 
 61:                                               ; preds = %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %indvars.iv.next
   %63 = load i16, ptr %62, align 4, !tbaa !247
   %64 = zext i16 %63 to i32
   %.not.i.i = icmp ult i32 %15, %64
@@ -3172,7 +3167,7 @@ _ZL16StoreBlockSwitchP14BlockSplitCodejhiPmPh.exit: ; preds = %8, %29
 
 _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit:       ; preds = %60, %61
   %65 = and i64 %indvars.iv, 4294967295
-  %66 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliPrefixCodeRange", ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli24_kBrotliPrefixCodeRangesE, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %68 = load i8, ptr %67, align 2, !tbaa !250
   %69 = load i16, ptr %66, align 4, !tbaa !247
@@ -3183,7 +3178,7 @@ _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit:       ; preds = %60, %61
   %74 = load i8, ptr %73, align 1, !tbaa !7
   %75 = zext i8 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %77 = getelementptr inbounds nuw i16, ptr %76, i64 %65
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %65
   %78 = load i16, ptr %77, align 2, !tbaa !30
   %79 = zext i16 %78 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !502)
@@ -3229,7 +3224,7 @@ _ZL24GetBlockLengthPrefixCodejPmPjS0_.exit:       ; preds = %60, %61
   %108 = zext i8 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %110 = load ptr, ptr %109, align 8, !tbaa !229
-  %111 = getelementptr inbounds nuw i16, ptr %110, i64 %103
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %103
   %112 = load i16, ptr %111, align 2, !tbaa !30
   %113 = zext i16 %112 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !512)
@@ -3276,7 +3271,7 @@ define void @_ZN13duckdb_brotli27BrotliStoreMetaBlockTrivialEPNS_13MemoryManager
   %.promoted.i = phi i64 [ %.promoted.i55, %56 ], [ 0, %11 ]
   %24 = phi i64 [ %30, %56 ], [ 0, %11 ]
   %.01926.i = phi i64 [ %46, %56 ], [ %2, %11 ]
-  %25 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %24
   %.sroa.0.0.copyload.i = load i32, ptr %25, align 4, !tbaa !8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !8
@@ -3285,7 +3280,7 @@ define void @_ZN13duckdb_brotli27BrotliStoreMetaBlockTrivialEPNS_13MemoryManager
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 14
   %.sroa.8.0.copyload.i = load i16, ptr %.sroa.8.0..sroa_idx.i, align 2, !tbaa !30
   %26 = zext i16 %.sroa.621.0.copyload.i to i64
-  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 4, !tbaa !8
@@ -3306,7 +3301,7 @@ define void @_ZN13duckdb_brotli27BrotliStoreMetaBlockTrivialEPNS_13MemoryManager
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !7
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %12, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !8
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !8
@@ -3331,7 +3326,7 @@ define void @_ZN13duckdb_brotli27BrotliStoreMetaBlockTrivialEPNS_13MemoryManager
 49:                                               ; preds = %._crit_edge.i
   %50 = and i16 %.sroa.8.0.copyload.i, 1023
   %51 = zext nneg i16 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %20, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !8
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4, !tbaa !8
@@ -3396,7 +3391,7 @@ define internal fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli
 .lr.ph:                                           ; preds = %8, %19
   %.04247 = phi i64 [ %20, %19 ], [ 0, %8 ]
   %.04346 = phi i64 [ %.1, %19 ], [ 0, %8 ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %.04247
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.04247
   %11 = load i32, ptr %10, align 4, !tbaa !8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
@@ -3406,7 +3401,7 @@ define internal fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i64, ptr %9, i64 %.04346
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.04346
   store i64 %.04247, ptr %15, align 8, !tbaa !3
   br label %17
 
@@ -3461,7 +3456,7 @@ define internal fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli
   store i64 %43, ptr %6, align 8, !tbaa !3, !alias.scope !540, !noalias !543
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   store i8 0, ptr %44, align 1, !tbaa !7
-  %45 = getelementptr inbounds nuw i16, ptr %5, i64 %35
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %35
   store i16 0, ptr %45, align 2, !tbaa !30
   br label %174
 
@@ -3512,14 +3507,14 @@ define internal fastcc void @_ZL24BuildAndStoreHuffmanTreePKjmmPN13duckdb_brotli
   br i1 %69, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %67
-  %70 = getelementptr inbounds nuw i64, ptr %9, i64 %.071.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.071.i
   %.pre.i = load i64, ptr %70, align 8, !tbaa !3
   br label %71
 
 71:                                               ; preds = %81, %.lr.ph.i
   %72 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %82, %81 ]
   %.06870.i = phi i64 [ %68, %.lr.ph.i ], [ %83, %81 ]
-  %73 = getelementptr inbounds nuw i64, ptr %9, i64 %.06870.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.06870.i
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !7
@@ -3697,7 +3692,7 @@ define internal fastcc void @_ZL25StoreDataWithHuffmanCodesPKhmmPKN13duckdb_brot
   %14 = phi i64 [ %166, %165 ], [ %.pre, %.lr.ph55.preheader ]
   %.053 = phi i64 [ %133, %165 ], [ %1, %.lr.ph55.preheader ]
   %.03952 = phi i64 [ %167, %165 ], [ 0, %.lr.ph55.preheader ]
-  %15 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %3, i64 %.03952
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.03952
   %.sroa.0.0.copyload = load i32, ptr %15, align 4, !tbaa !8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !8
@@ -3711,7 +3706,7 @@ define internal fastcc void @_ZL25StoreDataWithHuffmanCodesPKhmmPKN13duckdb_brot
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !7
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %16
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %16
   %21 = load i16, ptr %20, align 2, !tbaa !30
   %22 = zext i16 %21 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !607)
@@ -3816,21 +3811,21 @@ _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %.lr.ph55, %42, %54,
 
 _ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit:    ; preds = %64, %68, %78, %80
   %.0.i41 = phi i64 [ %65, %64 ], [ %77, %68 ], [ %83, %80 ], [ 23, %78 ]
-  %84 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli15kBrotliInsExtraE, i64 %.0.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli15kBrotliInsExtraE, i64 %.0.i
   %85 = load i32, ptr %84, align 4, !tbaa !8
-  %86 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli14kBrotliInsBaseE, i64 %.0.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli14kBrotliInsBaseE, i64 %.0.i
   %87 = load i32, ptr %86, align 4, !tbaa !8
   %88 = sub i32 %.sroa.0.0.copyload, %87
   %89 = zext i32 %88 to i64
   %90 = and i64 %.0.i41, 65535
-  %91 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli15kBrotliCopyBaseE, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli15kBrotliCopyBaseE, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !8
   %93 = sub i32 %37, %92
   %94 = zext i32 %93 to i64
   %95 = zext nneg i32 %85 to i64
   %96 = shl i64 %94, %95
   %97 = or i64 %96, %89
-  %98 = getelementptr inbounds nuw i32, ptr @_ZN13duckdb_brotli16kBrotliCopyExtraE, i64 %90
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @_ZN13duckdb_brotli16kBrotliCopyExtraE, i64 %90
   %99 = load i32, ptr %98, align 4, !tbaa !8
   %100 = add i32 %99, %85
   %101 = zext i32 %100 to i64
@@ -3860,7 +3855,7 @@ _ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit:    ; preds = %64, %68, %78, %80
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !7
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw i16, ptr %6, i64 %114
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %114
   %119 = load i16, ptr %118, align 2, !tbaa !30
   %120 = zext i16 %119 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !617)
@@ -3898,7 +3893,7 @@ _ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit:    ; preds = %64, %68, %78, %80
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 %139
   %142 = load i8, ptr %141, align 1, !tbaa !7
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %10, i64 %139
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %139
   %145 = load i16, ptr %144, align 2, !tbaa !30
   %146 = zext i16 %145 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
@@ -3969,7 +3964,7 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
   %.093104 = phi i64 [ %39, %._crit_edge ], [ 0, %23 ]
   %.094103 = phi i64 [ %35, %._crit_edge ], [ 0, %23 ]
   %.095102 = phi i64 [ %38, %._crit_edge ], [ %2, %23 ]
-  %24 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.093104
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %.093104
   %.sroa.0.0.copyload = load i32, ptr %24, align 4, !tbaa !8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !8
@@ -3984,7 +3979,7 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4, !tbaa !8
@@ -4069,7 +4064,7 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
   %.promoted.i = phi i64 [ 0, %.lr.ph29.i ], [ %95, %108 ]
   %75 = phi i64 [ 0, %.lr.ph29.i ], [ %81, %108 ]
   %.01926.i = phi i64 [ %2, %.lr.ph29.i ], [ %98, %108 ]
-  %76 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %75
   %.sroa.0.0.copyload.i = load i32, ptr %76, align 4, !tbaa !8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !8
@@ -4078,7 +4073,7 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 14
   %.sroa.8.0.copyload.i = load i16, ptr %.sroa.8.0..sroa_idx.i, align 2, !tbaa !30
   %77 = zext i16 %.sroa.621.0.copyload.i to i64
-  %78 = getelementptr inbounds nuw i32, ptr %67, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !8
   %80 = add i32 %79, 1
   store i32 %80, ptr %78, align 4, !tbaa !8
@@ -4099,7 +4094,7 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !7
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %13, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !8
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4, !tbaa !8
@@ -4124,7 +4119,7 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
 101:                                              ; preds = %._crit_edge.i
   %102 = and i16 %.sroa.8.0.copyload.i, 1023
   %103 = zext nneg i16 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %70, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !8
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 4, !tbaa !8

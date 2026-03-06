@@ -1499,7 +1499,7 @@ define internal fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %1, i3
 16:                                               ; preds = %15, %8
   %nm_att_tlvdev_bs11.sink.i = phi ptr [ @nm_att_tlvdev_bs11, %15 ], [ @nm_att_tlvdef_ipa, %8 ]
   %17 = zext i8 %9 to i64
-  %18 = getelementptr %struct.tlv_def, ptr %nm_att_tlvdev_bs11.sink.i, i64 %17
+  %18 = getelementptr [8 x i8], ptr %nm_att_tlvdev_bs11.sink.i, i64 %17
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %.thread.i, label %19
 
@@ -1510,7 +1510,7 @@ define internal fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %1, i3
 
 .thread.i:                                        ; preds = %..thread.i_crit_edge, %19, %16
   %.pre-phi = phi i64 [ %.pre, %..thread.i_crit_edge ], [ %17, %19 ], [ %17, %16 ]
-  %21 = getelementptr %struct.tlv_def, ptr @nm_att_tlvdef_base, i64 %.pre-phi
+  %21 = getelementptr [8 x i8], ptr @nm_att_tlvdef_base, i64 %.pre-phi
   %.pr = load i32, ptr %21, align 4
   br label %find_tlv_tag.exit
 
@@ -2117,7 +2117,7 @@ dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph379, %ipacc_t
 
 .preheader367:                                    ; preds = %259, %.preheader367
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader367 ], [ 0, %259 ]
-  %401 = getelementptr i32, ptr @hf_attr_ipa_cs, i64 %indvars.iv
+  %401 = getelementptr [4 x i8], ptr @hf_attr_ipa_cs, i64 %indvars.iv
   %402 = load i32, ptr %401, align 4
   %403 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %402, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2126,7 +2126,7 @@ dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph379, %ipacc_t
 
 .preheader:                                       ; preds = %.preheader367, %.preheader
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.preheader ], [ 0, %.preheader367 ]
-  %404 = getelementptr i32, ptr @hf_attr_ipa_mcs, i64 %indvars.iv396
+  %404 = getelementptr [4 x i8], ptr @hf_attr_ipa_mcs, i64 %indvars.iv396
   %405 = load i32, ptr %404, align 4
   %406 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %405, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef -2147483648)
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1

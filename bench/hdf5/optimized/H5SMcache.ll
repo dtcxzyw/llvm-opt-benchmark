@@ -5,11 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5FL_reg_head_t = type { i8, i32, i32, ptr, i64, ptr }
 %struct.H5FL_arr_head_t = type { i8, i32, i64, ptr, i32, i64, i64, ptr }
-%struct.H5SM_index_header_t = type { i32, i64, i64, i64, i64, i32, i64, i64, i64 }
 %struct.H5SM_bt2_ctx_t = type { i8 }
-%struct.H5SM_sohm_t = type { i32, i32, i32, %union.anon }
-%union.anon = type { %struct.H5O_mesg_loc_t }
-%struct.H5O_mesg_loc_t = type { i32, i64 }
 
 @.str = private unnamed_addr constant [21 x i8] c"shared message table\00", align 1
 @H5AC_SOHM_TABLE = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str, i32 6, i32 0, ptr @H5SM__cache_table_get_initial_load_size, ptr null, ptr @H5SM__cache_table_verify_chksum, ptr @H5SM__cache_table_deserialize, ptr @H5SM__cache_table_image_len, ptr null, ptr @H5SM__cache_table_serialize, ptr null, ptr @H5SM__cache_table_free_icr, ptr null }], align 16
@@ -213,7 +209,7 @@ define internal ptr @H5SM__cache_table_deserialize(ptr noundef %0, i64 %1, ptr n
   store ptr %56, ptr %5, align 8, !tbaa !18
   %57 = load i8, ptr %49, align 1, !tbaa !31
   %58 = zext i8 %57 to i32
-  %59 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %41, i64 %.06571
+  %59 = getelementptr inbounds nuw [72 x i8], ptr %41, i64 %.06571
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store i32 %58, ptr %60, align 8, !tbaa !32
   %61 = load i8, ptr %56, align 1, !tbaa !31
@@ -382,7 +378,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   store ptr %19, ptr %5, align 8, !tbaa !18
   store i8 0, ptr %18, align 1, !tbaa !31
   %20 = load ptr, ptr %16, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %20, i64 %.042
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %.042
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8, !tbaa !32
   %24 = trunc i32 %23 to i8
@@ -391,7 +387,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   store ptr %26, ptr %5, align 8, !tbaa !18
   store i8 %24, ptr %25, align 1, !tbaa !31
   %27 = load ptr, ptr %16, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %27, i64 %.042
+  %28 = getelementptr inbounds nuw [72 x i8], ptr %27, i64 %.042
   %29 = load i32, ptr %28, align 8, !tbaa !34
   %30 = trunc i32 %29 to i8
   %31 = load ptr, ptr %5, align 8, !tbaa !18
@@ -400,7 +396,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %33, ptr %5, align 8, !tbaa !18
   %34 = load ptr, ptr %16, align 8, !tbaa !30
-  %35 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %34, i64 %.042
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %.042
   %36 = load i32, ptr %35, align 8, !tbaa !34
   %37 = lshr i32 %36, 8
   %38 = trunc i32 %37 to i8
@@ -409,7 +405,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %40, ptr %5, align 8, !tbaa !18
   %41 = load ptr, ptr %16, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %41, i64 %.042
+  %42 = getelementptr inbounds nuw [72 x i8], ptr %41, i64 %.042
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !35
   %45 = trunc i64 %44 to i8
@@ -418,7 +414,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %47, ptr %5, align 8, !tbaa !18
   %48 = load ptr, ptr %16, align 8, !tbaa !30
-  %49 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %48, i64 %.042
+  %49 = getelementptr inbounds nuw [72 x i8], ptr %48, i64 %.042
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !35
   %52 = lshr i64 %51, 8
@@ -428,7 +424,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %5, align 8, !tbaa !18
   %56 = load ptr, ptr %16, align 8, !tbaa !30
-  %57 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %56, i64 %.042
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %56, i64 %.042
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !35
   %60 = lshr i64 %59, 16
@@ -438,7 +434,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store ptr %63, ptr %5, align 8, !tbaa !18
   %64 = load ptr, ptr %16, align 8, !tbaa !30
-  %65 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %64, i64 %.042
+  %65 = getelementptr inbounds nuw [72 x i8], ptr %64, i64 %.042
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !35
   %68 = lshr i64 %67, 24
@@ -448,7 +444,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store ptr %71, ptr %5, align 8, !tbaa !18
   %72 = load ptr, ptr %16, align 8, !tbaa !30
-  %73 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %72, i64 %.042
+  %73 = getelementptr inbounds nuw [72 x i8], ptr %72, i64 %.042
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !36
   %76 = trunc i64 %75 to i8
@@ -457,7 +453,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   store ptr %78, ptr %5, align 8, !tbaa !18
   %79 = load ptr, ptr %16, align 8, !tbaa !30
-  %80 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %79, i64 %.042
+  %80 = getelementptr inbounds nuw [72 x i8], ptr %79, i64 %.042
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !36
   %83 = lshr i64 %82, 8
@@ -467,7 +463,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   store ptr %86, ptr %5, align 8, !tbaa !18
   %87 = load ptr, ptr %16, align 8, !tbaa !30
-  %88 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %87, i64 %.042
+  %88 = getelementptr inbounds nuw [72 x i8], ptr %87, i64 %.042
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load i64, ptr %89, align 8, !tbaa !37
   %91 = trunc i64 %90 to i8
@@ -476,7 +472,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store ptr %93, ptr %5, align 8, !tbaa !18
   %94 = load ptr, ptr %16, align 8, !tbaa !30
-  %95 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %94, i64 %.042
+  %95 = getelementptr inbounds nuw [72 x i8], ptr %94, i64 %.042
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load i64, ptr %96, align 8, !tbaa !37
   %98 = lshr i64 %97, 8
@@ -486,7 +482,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %101, ptr %5, align 8, !tbaa !18
   %102 = load ptr, ptr %16, align 8, !tbaa !30
-  %103 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %102, i64 %.042
+  %103 = getelementptr inbounds nuw [72 x i8], ptr %102, i64 %.042
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load i64, ptr %104, align 8, !tbaa !38
   %106 = trunc i64 %105 to i8
@@ -495,7 +491,7 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 1
   store ptr %108, ptr %5, align 8, !tbaa !18
   %109 = load ptr, ptr %16, align 8, !tbaa !30
-  %110 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %109, i64 %.042
+  %110 = getelementptr inbounds nuw [72 x i8], ptr %109, i64 %.042
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load i64, ptr %111, align 8, !tbaa !38
   %113 = lshr i64 %112, 8
@@ -505,12 +501,12 @@ define internal noundef i32 @H5SM__cache_table_serialize(ptr noundef %0, ptr nou
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
   store ptr %116, ptr %5, align 8, !tbaa !18
   %117 = load ptr, ptr %16, align 8, !tbaa !30
-  %118 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %117, i64 %.042
+  %118 = getelementptr inbounds nuw [72 x i8], ptr %117, i64 %.042
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %120 = load i64, ptr %119, align 8, !tbaa !42
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %120) #6
   %121 = load ptr, ptr %16, align 8, !tbaa !30
-  %122 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %121, i64 %.042
+  %122 = getelementptr inbounds nuw [72 x i8], ptr %121, i64 %.042
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %124 = load i64, ptr %123, align 8, !tbaa !43
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %124) #6
@@ -733,7 +729,7 @@ define internal ptr @H5SM__cache_list_deserialize(ptr noundef %0, i64 %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %.04862 = phi i64 [ %63, %60 ], [ 0, %.lr.ph.preheader ]
   %.05061 = phi ptr [ %62, %60 ], [ %40, %.lr.ph.preheader ]
-  %44 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %24, i64 %.04862
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %.04862
   %45 = call i32 @H5SM__message_decode(ptr noundef nonnull %.05061, ptr noundef nonnull %44, ptr noundef nonnull %5) #6
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %51
@@ -769,7 +765,7 @@ define internal ptr @H5SM__cache_list_deserialize(ptr noundef %0, i64 %1, ptr no
 
 .lr.ph65:                                         ; preds = %.preheader, %.lr.ph65
   %.14964 = phi i64 [ %69, %.lr.ph65 ], [ %.lcssa, %.preheader ]
-  %68 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %24, i64 %.14964
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %.14964
   store i32 -1, ptr %68, align 8, !tbaa !54
   %69 = add nuw i64 %.14964, 1
   %exitcond.not = icmp eq i64 %69, %42
@@ -858,7 +854,7 @@ define internal range(i32 -1, 1) i32 @H5SM__cache_list_serialize(ptr noundef %0,
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %19, align 8, !tbaa !48
-  %27 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %26, i64 %.03948
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %.03948
   %28 = load i32, ptr %27, align 8, !tbaa !54
   %.not = icmp eq i32 %28, -1
   br i1 %.not, label %47, label %29

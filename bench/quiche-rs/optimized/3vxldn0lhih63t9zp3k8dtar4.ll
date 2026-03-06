@@ -272,7 +272,7 @@ define hidden void @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u2
   %28 = add i64 %.sroa.01.0.i.i.i.i.i, %27
   %29 = and i64 %28, %20
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds { i64, i64 }, ptr %21, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %21, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   %.val3.i.i.i.i.i = load i64, ptr %32, align 8, !alias.scope !30, !noalias !33, !noundef !4
   %33 = icmp eq i64 %5, %.val3.i.i.i.i.i
@@ -310,7 +310,7 @@ define hidden void @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u2
 "_ZN10tokio_util4time11delay_queue20SlabStorage$LT$T$GT$8contains17h0c4552acdb46af41E.exit": ; preds = %"_ZN10tokio_util4time11delay_queue20SlabStorage$LT$T$GT$9remap_key17hecb95f7e1c843eebE.exit.i"
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !39, !noalias !40, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %48, i64 %.sroa.4.0.i.i
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %.sroa.4.0.i.i
   %50 = load i64, ptr %49, align 8, !range !42, !noundef !4
   %.not = icmp eq i64 %50, 2
   br i1 %.not, label %"_ZN10tokio_util4time11delay_queue20SlabStorage$LT$T$GT$8contains17h0c4552acdb46af41E.exit.thread", label %51, !prof !43
@@ -1801,7 +1801,7 @@ common.resume:                                    ; preds = %101, %109, %29
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %130 = load ptr, ptr %129, align 8, !alias.scope !127, !noalias !128, !nonnull !4, !noundef !4
-  %131 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %130, i64 %.sroa.01.0.i.i
+  %131 = getelementptr inbounds nuw [48 x i8], ptr %130, i64 %.sroa.01.0.i.i
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %133 = load i64, ptr %132, align 8, !alias.scope !127, !noalias !128, !noundef !4
   %.sroa.01.0.copyload.i.i.i.i = load i64, ptr %131, align 8, !noalias !131
@@ -2110,7 +2110,7 @@ define hidden noundef i64 @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$G
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08a4d65b5d138942E.exit.i.i.i": ; preds = %65, %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8, !alias.scope !166, !noalias !169, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %67, i64 %54
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %67, i64 %54
   store i64 0, ptr %68, align 8, !noalias !145
   %.sroa.519.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 0, ptr %.sroa.519.0..sroa_idx20.i, align 8, !noalias !145
@@ -2126,7 +2126,7 @@ define hidden noundef i64 @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$G
 70:                                               ; preds = %60
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8, !alias.scope !153, !noalias !158, !nonnull !4, !noundef !4
-  %73 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %72, i64 %54
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %72, i64 %54
   %74 = load i64, ptr %73, align 8, !range !42, !noalias !171, !noundef !4
   %.not.i.i.i = icmp eq i64 %74, 2
   br i1 %.not.i.i.i, label %76, label %75, !prof !37
@@ -2193,7 +2193,7 @@ define hidden noundef i64 @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$G
   %97 = add i64 %.sroa.01.0.i.i.i.i.i, %96
   %98 = and i64 %97, %89
   %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds { i64, i64 }, ptr %90, i64 %99
+  %100 = getelementptr inbounds [16 x i8], ptr %90, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -16
   %.val3.i.i.i.i.i = load i64, ptr %101, align 8, !alias.scope !194, !noalias !197, !noundef !4
   %102 = icmp eq i64 %.val.i.i.i.i.i.i.i, %.val3.i.i.i.i.i
@@ -2261,7 +2261,7 @@ define hidden noundef i64 @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$G
   %128 = add i64 %.sroa.01.0.i.i.i.i.i.i, %127
   %129 = and i64 %128, %120
   %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds { i64, i64 }, ptr %121, i64 %130
+  %131 = getelementptr inbounds [16 x i8], ptr %121, i64 %130
   %132 = getelementptr inbounds i8, ptr %131, i64 -16
   %.val3.i.i.i.i.i.i = load i64, ptr %132, align 8, !alias.scope !228, !noalias !231, !noundef !4
   %133 = icmp eq i64 %.val.i.i.i.i.i.i.i.i, %.val3.i.i.i.i.i.i
@@ -2339,7 +2339,7 @@ define hidden noundef i64 @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$G
   %160 = add i64 %.sroa.01.0.i.i.i12.i.i, %159
   %161 = and i64 %160, %152
   %162 = sub nsw i64 0, %161
-  %163 = getelementptr inbounds { i64, i64 }, ptr %153, i64 %162
+  %163 = getelementptr inbounds [16 x i8], ptr %153, i64 %162
   %164 = getelementptr inbounds i8, ptr %163, i64 -16
   %.val3.i.i.i17.i.i = load i64, ptr %164, align 8, !alias.scope !254, !noalias !257, !noundef !4
   %165 = icmp eq i64 %.pre.i.i.i, %.val3.i.i.i17.i.i
@@ -2659,7 +2659,7 @@ define hidden void @"_ZN10tokio_util4time11delay_queue19DelayQueue$LT$T$GT$6remo
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load ptr, ptr %48, align 8, !alias.scope !307, !noalias !308, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %49, i64 %.sroa.01.0.i
+  %50 = getelementptr inbounds nuw [48 x i8], ptr %49, i64 %.sroa.01.0.i
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load i64, ptr %51, align 8, !alias.scope !307, !noalias !308, !noundef !4
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %50, align 8, !noalias !311
@@ -2945,7 +2945,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @"_ZN137_
   %29 = add i64 %.sroa.01.0.i.i.i.i, %28
   %30 = and i64 %29, %21
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { i64, i64 }, ptr %22, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %22, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -16
   %.val3.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !350, !noalias !353, !noundef !4
   %34 = icmp eq i64 %.val.i.i.i.i.i.i, %.val3.i.i.i.i
@@ -2983,7 +2983,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @"_ZN137_
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.val, i64 %.sroa.4.0.i.ph
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %.sroa.4.0.i.ph
   %52 = load i64, ptr %51, align 8, !range !42, !noalias !357, !noundef !4
   %.not.i = icmp eq i64 %52, 2
   br i1 %.not.i, label %53, label %"_ZN76_$LT$slab..Slab$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h92e0d37b258bc2e0E.exit", !prof !38
@@ -3070,7 +3070,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @"_ZN140_
   %29 = add i64 %.sroa.01.0.i.i.i.i, %28
   %30 = and i64 %29, %21
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { i64, i64 }, ptr %22, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %22, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -16
   %.val3.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !384, !noalias !387, !noundef !4
   %34 = icmp eq i64 %.val.i.i.i.i.i.i, %.val3.i.i.i.i
@@ -3108,7 +3108,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @"_ZN140_
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
-  %51 = getelementptr inbounds nuw { i64, [5 x i64] }, ptr %.val, i64 %.sroa.4.0.i.ph
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %.sroa.4.0.i.ph
   %52 = load i64, ptr %51, align 8, !range !42, !noalias !391, !noundef !4
   %.not.i = icmp eq i64 %52, 2
   br i1 %.not.i, label %53, label %"_ZN79_$LT$slab..Slab$LT$T$GT$$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17h7ed6f36f9c6caf7eE.exit", !prof !38
@@ -4573,9 +4573,9 @@ define hidden noundef ptr @"_ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u
   br label %8
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE.36", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN82_$LT$tokio_quiche..metrics..labels..QuicError$u20$as$u20$serde..ser..Serialize$GT$9serialize17h2fbb896b8e83cebbE.36", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %8
 
@@ -4860,7 +4860,7 @@ define void @_ZN12tokio_quiche4quic2io21utilization_estimator29MaxUtilizedBandwi
   %.sroa.01.0.i = sub nuw i64 %35, %37
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !492, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw { i64, i64, i64, { { { i64, i32, [1 x i32] } } } }, ptr %39, i64 %.sroa.01.0.i
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %.sroa.01.0.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 32

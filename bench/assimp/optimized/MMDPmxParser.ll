@@ -16,82 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pmx::PmxIkLink" = type { i32, i8, [3 x float], [3 x float] }
-%"class.pmx::PmxMorphGroupOffset" = type { %"class.pmx::PmxMorphOffset", i32, float }
-%"class.pmx::PmxMorphOffset" = type { ptr }
-%"class.pmx::PmxMorphVertexOffset" = type { %"class.pmx::PmxMorphOffset", i32, [3 x float] }
-%"class.pmx::PmxMorphBoneOffset" = type { %"class.pmx::PmxMorphOffset", i32, [3 x float], [4 x float] }
-%"class.pmx::PmxMorphMaterialOffset" = type { %"class.pmx::PmxMorphOffset", i32, i8, [4 x float], [3 x float], float, [3 x float], [4 x float], float, [4 x float], [4 x float], [4 x float] }
-%"class.pmx::PmxMorphUVOffset" = type <{ %"class.pmx::PmxMorphOffset", i32, [4 x float], [4 x i8] }>
-%"class.pmx::PmxFrameElement" = type { i8, i32 }
-%"class.pmx::PmxVertex" = type <{ [3 x float], [3 x float], [2 x float], [4 x [4 x float]], i8, [7 x i8], %"class.std::unique_ptr", float, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
-%"class.pmx::PmxMaterial" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [4 x float], [3 x float], float, [3 x float], i8, [3 x i8], [4 x float], float, i32, i32, i8, i8, [2 x i8], i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.pmx::PmxBone" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [3 x float], i32, i32, i16, [3 x float], i32, i32, float, [3 x float], [3 x float], [3 x float], i32, i32, i32, float, i32, %"class.std::unique_ptr.43" }
-%"class.std::unique_ptr.43" = type { %"struct.std::__uniq_ptr_data.44" }
-%"struct.std::__uniq_ptr_data.44" = type { %"class.std::__uniq_ptr_impl.45" }
-%"class.std::__uniq_ptr_impl.45" = type { %"class.std::tuple.46" }
-%"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
-%"struct.std::_Tuple_impl.47" = type { %"struct.std::_Head_base.50" }
-%"struct.std::_Head_base.50" = type { ptr }
-%"class.pmx::PmxMorph" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i32, %"class.std::unique_ptr.51", %"class.std::unique_ptr.59", %"class.std::unique_ptr.67", %"class.std::unique_ptr.75", %"class.std::unique_ptr.83", %"class.std::unique_ptr.91", %"class.std::unique_ptr.99" }
-%"class.std::unique_ptr.51" = type { %"struct.std::__uniq_ptr_data.52" }
-%"struct.std::__uniq_ptr_data.52" = type { %"class.std::__uniq_ptr_impl.53" }
-%"class.std::__uniq_ptr_impl.53" = type { %"class.std::tuple.54" }
-%"class.std::tuple.54" = type { %"struct.std::_Tuple_impl.55" }
-%"struct.std::_Tuple_impl.55" = type { %"struct.std::_Head_base.58" }
-%"struct.std::_Head_base.58" = type { ptr }
-%"class.std::unique_ptr.59" = type { %"struct.std::__uniq_ptr_data.60" }
-%"struct.std::__uniq_ptr_data.60" = type { %"class.std::__uniq_ptr_impl.61" }
-%"class.std::__uniq_ptr_impl.61" = type { %"class.std::tuple.62" }
-%"class.std::tuple.62" = type { %"struct.std::_Tuple_impl.63" }
-%"struct.std::_Tuple_impl.63" = type { %"struct.std::_Head_base.66" }
-%"struct.std::_Head_base.66" = type { ptr }
-%"class.std::unique_ptr.67" = type { %"struct.std::__uniq_ptr_data.68" }
-%"struct.std::__uniq_ptr_data.68" = type { %"class.std::__uniq_ptr_impl.69" }
-%"class.std::__uniq_ptr_impl.69" = type { %"class.std::tuple.70" }
-%"class.std::tuple.70" = type { %"struct.std::_Tuple_impl.71" }
-%"struct.std::_Tuple_impl.71" = type { %"struct.std::_Head_base.74" }
-%"struct.std::_Head_base.74" = type { ptr }
-%"class.std::unique_ptr.75" = type { %"struct.std::__uniq_ptr_data.76" }
-%"struct.std::__uniq_ptr_data.76" = type { %"class.std::__uniq_ptr_impl.77" }
-%"class.std::__uniq_ptr_impl.77" = type { %"class.std::tuple.78" }
-%"class.std::tuple.78" = type { %"struct.std::_Tuple_impl.79" }
-%"struct.std::_Tuple_impl.79" = type { %"struct.std::_Head_base.82" }
-%"struct.std::_Head_base.82" = type { ptr }
-%"class.std::unique_ptr.83" = type { %"struct.std::__uniq_ptr_data.84" }
-%"struct.std::__uniq_ptr_data.84" = type { %"class.std::__uniq_ptr_impl.85" }
-%"class.std::__uniq_ptr_impl.85" = type { %"class.std::tuple.86" }
-%"class.std::tuple.86" = type { %"struct.std::_Tuple_impl.87" }
-%"struct.std::_Tuple_impl.87" = type { %"struct.std::_Head_base.90" }
-%"struct.std::_Head_base.90" = type { ptr }
-%"class.std::unique_ptr.91" = type { %"struct.std::__uniq_ptr_data.92" }
-%"struct.std::__uniq_ptr_data.92" = type { %"class.std::__uniq_ptr_impl.93" }
-%"class.std::__uniq_ptr_impl.93" = type { %"class.std::tuple.94" }
-%"class.std::tuple.94" = type { %"struct.std::_Tuple_impl.95" }
-%"struct.std::_Tuple_impl.95" = type { %"struct.std::_Head_base.98" }
-%"struct.std::_Head_base.98" = type { ptr }
-%"class.std::unique_ptr.99" = type { %"struct.std::__uniq_ptr_data.100" }
-%"struct.std::__uniq_ptr_data.100" = type { %"class.std::__uniq_ptr_impl.101" }
-%"class.std::__uniq_ptr_impl.101" = type { %"class.std::tuple.102" }
-%"class.std::tuple.102" = type { %"struct.std::_Tuple_impl.103" }
-%"struct.std::_Tuple_impl.103" = type { %"struct.std::_Head_base.106" }
-%"struct.std::_Head_base.106" = type { ptr }
-%"class.pmx::PmxFrame" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i32, %"class.std::unique_ptr.107" }
-%"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
-%"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
-%"class.std::__uniq_ptr_impl.109" = type { %"class.std::tuple.110" }
-%"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
-%"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.114" }
-%"struct.std::_Head_base.114" = type { ptr }
-%"class.pmx::PmxRigidBody" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i8, i8, i16, i8, [3 x i8], [3 x float], [3 x float], [3 x float], float, float, float, float, float, i8, [3 x i8] }>
-%"class.pmx::PmxJoint" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [3 x i8], %"class.pmx::PmxJointParam", [4 x i8] }>
-%"class.pmx::PmxJointParam" = type { i32, i32, [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float], [3 x float] }
 
 $_ZN4utf88utf16to8IPKtPcEET0_T_S5_S4_ = comdat any
 
@@ -363,7 +287,7 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i.i: ; preds = %10
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %26, i8 0, i64 %25, i1 false)
   %28 = sdiv i32 %22, 2
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i16, ptr %13, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %13, i64 %29
   %31 = invoke noundef ptr @_ZN4utf88utf16to8IPKtPcEET0_T_S5_S4_(ptr noundef nonnull %13, ptr noundef nonnull %30, ptr noundef nonnull %26)
           to label %32 unwind label %47
 
@@ -1321,7 +1245,7 @@ define hidden void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonn
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [4 x float], ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %17 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %16, i64 noundef 16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i8, ptr %9, align 1
@@ -2397,7 +2321,7 @@ _ZN3pmx9ReadIndexEPSii.exit57:                    ; preds = %180, %182, %187, %1
   br i1 %208, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxIkLinkEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %209
 
 209:                                              ; preds = %_ZN3pmx9ReadIndexEPSii.exit57
-  %210 = getelementptr inbounds %"class.pmx::PmxIkLink", ptr %207, i64 %203
+  %210 = getelementptr inbounds [32 x i8], ptr %207, i64 %203
   br label %211
 
 211:                                              ; preds = %211, %209
@@ -2431,7 +2355,7 @@ _ZNSt10unique_ptrIA_N3pmx9PmxIkLinkESt14default_deleteIS2_EED2Ev.exit: ; preds =
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxIkLinkESt14default_deleteIS2_EED2Ev.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIA_N3pmx9PmxIkLinkESt14default_deleteIS2_EED2Ev.exit ]
   %221 = load ptr, ptr %217, align 8
-  %222 = getelementptr inbounds nuw %"class.pmx::PmxIkLink", ptr %221, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %221, i64 %indvars.iv
   call void @_ZN3pmx9PmxIkLink4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(32) %222, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %223 = load i32, ptr %200, align 4
@@ -3046,7 +2970,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
   br i1 %97, label %_ZN3mmd11make_uniqueIA_N3pmx19PmxMorphGroupOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %98
 
 98:                                               ; preds = %88
-  %99 = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %96, i64 %90
+  %99 = getelementptr inbounds [16 x i8], ptr %96, i64 %90
   br label %100
 
 100:                                              ; preds = %100, %98
@@ -3084,7 +3008,7 @@ _ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit
 .lr.ph88:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit, %.lr.ph88
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph88 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %113 = load ptr, ptr %106, align 8
-  %114 = getelementptr inbounds nuw %"class.pmx::PmxMorphGroupOffset", ptr %113, i64 %indvars.iv103
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %indvars.iv103
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull %1, ptr noundef nonnull %2)
@@ -3112,7 +3036,7 @@ _ZNSt10unique_ptrIA_N3pmx19PmxMorphGroupOffsetESt14default_deleteIS2_EED2Ev.exit
   br i1 %133, label %_ZN3mmd11make_uniqueIA_N3pmx20PmxMorphVertexOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %134
 
 134:                                              ; preds = %120
-  %135 = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %132, i64 %122
+  %135 = getelementptr inbounds [24 x i8], ptr %132, i64 %122
   br label %136
 
 136:                                              ; preds = %136, %134
@@ -3148,7 +3072,7 @@ _ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exi
 .lr.ph86:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit, %.lr.ph86
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %.lr.ph86 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %148 = load ptr, ptr %141, align 8
-  %149 = getelementptr inbounds nuw %"class.pmx::PmxMorphVertexOffset", ptr %148, i64 %indvars.iv100
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %148, i64 %indvars.iv100
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %150, align 8
   call void %151(ptr noundef nonnull align 8 dereferenceable(24) %149, ptr noundef nonnull %1, ptr noundef nonnull %2)
@@ -3176,7 +3100,7 @@ _ZNSt10unique_ptrIA_N3pmx20PmxMorphVertexOffsetESt14default_deleteIS2_EED2Ev.exi
   br i1 %168, label %_ZN3mmd11make_uniqueIA_N3pmx18PmxMorphBoneOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %169
 
 169:                                              ; preds = %155
-  %170 = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %167, i64 %157
+  %170 = getelementptr inbounds [40 x i8], ptr %167, i64 %157
   br label %171
 
 171:                                              ; preds = %171, %169
@@ -3212,7 +3136,7 @@ _ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit:
 .lr.ph84:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit, %.lr.ph84
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.lr.ph84 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %183 = load ptr, ptr %176, align 8
-  %184 = getelementptr inbounds nuw %"class.pmx::PmxMorphBoneOffset", ptr %183, i64 %indvars.iv97
+  %184 = getelementptr inbounds nuw [40 x i8], ptr %183, i64 %indvars.iv97
   %185 = load ptr, ptr %184, align 8
   %186 = load ptr, ptr %185, align 8
   call void %186(ptr noundef nonnull align 8 dereferenceable(40) %184, ptr noundef nonnull %1, ptr noundef nonnull %2)
@@ -3236,7 +3160,7 @@ _ZNSt10unique_ptrIA_N3pmx18PmxMorphBoneOffsetESt14default_deleteIS2_EED2Ev.exit:
   br i1 %199, label %_ZN3mmd11make_uniqueIA_N3pmx22PmxMorphMaterialOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %200
 
 200:                                              ; preds = %190
-  %201 = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %198, i64 %192
+  %201 = getelementptr inbounds [128 x i8], ptr %198, i64 %192
   br label %202
 
 202:                                              ; preds = %202, %200
@@ -3272,7 +3196,7 @@ _ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.e
 .lr.ph82:                                         ; preds = %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit, %.lr.ph82
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.lr.ph82 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %214 = load ptr, ptr %207, align 8
-  %215 = getelementptr inbounds nuw %"class.pmx::PmxMorphMaterialOffset", ptr %214, i64 %indvars.iv94
+  %215 = getelementptr inbounds nuw [128 x i8], ptr %214, i64 %indvars.iv94
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %216, align 8
   call void %217(ptr noundef nonnull align 8 dereferenceable(128) %215, ptr noundef nonnull %1, ptr noundef nonnull %2)
@@ -3296,7 +3220,7 @@ _ZNSt10unique_ptrIA_N3pmx22PmxMorphMaterialOffsetESt14default_deleteIS2_EED2Ev.e
   br i1 %230, label %_ZN3mmd11make_uniqueIA_N3pmx16PmxMorphUVOffsetEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %231
 
 231:                                              ; preds = %221
-  %232 = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %229, i64 %223
+  %232 = getelementptr inbounds [32 x i8], ptr %229, i64 %223
   br label %233
 
 233:                                              ; preds = %233, %231
@@ -3332,7 +3256,7 @@ _ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit: ;
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIA_N3pmx16PmxMorphUVOffsetESt14default_deleteIS2_EED2Ev.exit ]
   %245 = load ptr, ptr %238, align 8
-  %246 = getelementptr inbounds nuw %"class.pmx::PmxMorphUVOffset", ptr %245, i64 %indvars.iv
+  %246 = getelementptr inbounds nuw [32 x i8], ptr %245, i64 %indvars.iv
   %247 = load ptr, ptr %246, align 8
   %248 = load ptr, ptr %247, align 8
   call void %248(ptr noundef nonnull align 8 dereferenceable(28) %246, ptr noundef nonnull %1, ptr noundef nonnull %2)
@@ -3678,7 +3602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   br i1 %91, label %_ZN3mmd11make_uniqueIA_N3pmx15PmxFrameElementEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %92
 
 92:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %93 = getelementptr inbounds %"class.pmx::PmxFrameElement", ptr %90, i64 %86
+  %93 = getelementptr inbounds [8 x i8], ptr %90, i64 %86
   br label %94
 
 94:                                               ; preds = %94, %92
@@ -3713,7 +3637,7 @@ _ZNSt10unique_ptrIA_N3pmx15PmxFrameElementESt14default_deleteIS2_EED2Ev.exit: ; 
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N3pmx15PmxFrameElementESt14default_deleteIS2_EED2Ev.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIA_N3pmx15PmxFrameElementESt14default_deleteIS2_EED2Ev.exit ]
   %103 = load ptr, ptr %99, align 8
-  %104 = getelementptr inbounds nuw %"class.pmx::PmxFrameElement", ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   call void @_ZN3pmx15PmxFrameElement4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 4 dereferenceable(8) %104, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %83, align 4
@@ -5351,7 +5275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
   br i1 %216, label %_ZN3mmd11make_uniqueIA_N3pmx9PmxVertexEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %217
 
 217:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122
-  %218 = getelementptr inbounds %"class.pmx::PmxVertex", ptr %215, i64 %205
+  %218 = getelementptr inbounds [120 x i8], ptr %215, i64 %205
   br label %219
 
 219:                                              ; preds = %219, %217
@@ -5447,7 +5371,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt10unique_ptrIA_N3pmx9PmxVertexESt14default_deleteIS2_EED2Ev.exit ]
   %256 = load ptr, ptr %225, align 8
-  %257 = getelementptr inbounds nuw %"class.pmx::PmxVertex", ptr %256, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw [120 x i8], ptr %256, i64 %indvars.iv
   call void @_ZN3pmx9PmxVertex4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(116) %257, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %258 = load i32, ptr %202, align 8
@@ -5471,7 +5395,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
   br i1 %271, label %_ZN3mmd11make_uniqueIA_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %272
 
 272:                                              ; preds = %._crit_edge243
-  %273 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %270, i64 %264
+  %273 = getelementptr inbounds [32 x i8], ptr %270, i64 %264
   br label %274
 
 274:                                              ; preds = %274, %272
@@ -5576,7 +5500,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %300, %302, %307, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %315 = load ptr, ptr %251, align 8
-  %316 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv266
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv266
   store i32 %.0.i, ptr %316, align 4
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %317 = load i32, ptr %243, align 8
@@ -5601,7 +5525,7 @@ _ZN3pmx9ReadIndexEPSii.exit:                      ; preds = %300, %302, %307, %3
   br i1 %331, label %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit, label %332
 
 332:                                              ; preds = %._crit_edge246
-  %333 = getelementptr inbounds %"class.pmx::PmxMaterial", ptr %330, i64 %323
+  %333 = getelementptr inbounds [192 x i8], ptr %330, i64 %323
   br label %334
 
 334:                                              ; preds = %334, %332
@@ -5656,7 +5580,7 @@ _ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit: ; pred
   %358 = load i8, ptr %49, align 4
   call void @_ZN3pmx10ReadStringB5cxx11EPSih(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull %1, i8 noundef zeroext %358)
   %359 = load ptr, ptr %280, align 8
-  %360 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %359, i64 %indvars.iv269
+  %360 = getelementptr inbounds nuw [32 x i8], ptr %359, i64 %indvars.iv269
   %361 = load ptr, ptr %360, align 8
   %362 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %363 = icmp eq ptr %361, %362
@@ -5770,7 +5694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150: ; preds = %_Z
   br i1 %405, label %_ZN3mmd11make_uniqueIA_N3pmx7PmxBoneEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %406
 
 406:                                              ; preds = %._crit_edge249
-  %407 = getelementptr inbounds %"class.pmx::PmxBone", ptr %404, i64 %397
+  %407 = getelementptr inbounds [176 x i8], ptr %404, i64 %397
   br label %408
 
 408:                                              ; preds = %408, %406
@@ -5868,7 +5792,7 @@ _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit: ; preds = %
 .lr.ph248:                                        ; preds = %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit, %.lr.ph248
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %.lr.ph248 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx11PmxMaterialESt14default_deleteIS2_EED2Ev.exit ]
   %445 = load ptr, ptr %354, align 8
-  %446 = getelementptr inbounds nuw %"class.pmx::PmxMaterial", ptr %445, i64 %indvars.iv272
+  %446 = getelementptr inbounds nuw [192 x i8], ptr %445, i64 %indvars.iv272
   call void @_ZN3pmx11PmxMaterial4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(188) %446, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %447 = load i32, ptr %320, align 8
@@ -5892,7 +5816,7 @@ _ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit: ; preds = %
   br i1 %460, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxMorphEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %461
 
 461:                                              ; preds = %._crit_edge252
-  %462 = getelementptr inbounds %"class.pmx::PmxMorph", ptr %459, i64 %453
+  %462 = getelementptr inbounds [128 x i8], ptr %459, i64 %453
   br label %463
 
 463:                                              ; preds = %463, %461
@@ -5953,7 +5877,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 .lr.ph251:                                        ; preds = %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit, %.lr.ph251
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %.lr.ph251 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx7PmxBoneESt14default_deleteIS2_EED2Ev.exit ]
   %486 = load ptr, ptr %419, align 8
-  %487 = getelementptr inbounds nuw %"class.pmx::PmxBone", ptr %486, i64 %indvars.iv275
+  %487 = getelementptr inbounds nuw [176 x i8], ptr %486, i64 %indvars.iv275
   call void @_ZN3pmx7PmxBone4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(176) %487, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %488 = load i32, ptr %394, align 8
@@ -5978,7 +5902,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit: ; preds = 
   br i1 %502, label %_ZN3mmd11make_uniqueIA_N3pmx8PmxFrameEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %503
 
 503:                                              ; preds = %._crit_edge255
-  %504 = getelementptr inbounds %"class.pmx::PmxFrame", ptr %501, i64 %494
+  %504 = getelementptr inbounds [80 x i8], ptr %501, i64 %494
   br label %505
 
 505:                                              ; preds = %505, %503
@@ -6078,7 +6002,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 .lr.ph254:                                        ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit, %.lr.ph254
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.lr.ph254 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxMorphESt14default_deleteIS2_EED2Ev.exit ]
   %543 = load ptr, ptr %473, align 8
-  %544 = getelementptr inbounds nuw %"class.pmx::PmxMorph", ptr %543, i64 %indvars.iv278
+  %544 = getelementptr inbounds nuw [128 x i8], ptr %543, i64 %indvars.iv278
   call void @_ZN3pmx8PmxMorph4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(128) %544, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %545 = load i32, ptr %450, align 8
@@ -6106,7 +6030,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit: ; preds = 
   br i1 %562, label %_ZN3mmd11make_uniqueIA_N3pmx12PmxRigidBodyEEENS_10_Unique_ifIT_E14_Unknown_boundEm.exit, label %563
 
 563:                                              ; preds = %._crit_edge258
-  %564 = getelementptr inbounds %"class.pmx::PmxRigidBody", ptr %561, i64 %551
+  %564 = getelementptr inbounds [136 x i8], ptr %561, i64 %551
   br label %565
 
 565:                                              ; preds = %565, %563
@@ -6199,7 +6123,7 @@ _ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit: ; pre
 .lr.ph257:                                        ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit, %.lr.ph257
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %.lr.ph257 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxFrameESt14default_deleteIS2_EED2Ev.exit ]
   %603 = load ptr, ptr %517, align 8
-  %604 = getelementptr inbounds nuw %"class.pmx::PmxFrame", ptr %603, i64 %indvars.iv281
+  %604 = getelementptr inbounds nuw [80 x i8], ptr %603, i64 %indvars.iv281
   call void @_ZN3pmx8PmxFrame4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(80) %604, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %605 = load i32, ptr %491, align 8
@@ -6304,7 +6228,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 .lr.ph260:                                        ; preds = %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit, %.lr.ph260
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.lr.ph260 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx12PmxRigidBodyESt14default_deleteIS2_EED2Ev.exit ]
   %650 = load ptr, ptr %579, align 8
-  %651 = getelementptr inbounds nuw %"class.pmx::PmxRigidBody", ptr %650, i64 %indvars.iv284
+  %651 = getelementptr inbounds nuw [136 x i8], ptr %650, i64 %indvars.iv284
   call void @_ZN3pmx12PmxRigidBody4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(133) %651, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %652 = load i32, ptr %548, align 8
@@ -6319,7 +6243,7 @@ _ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit: ; preds = 
 .lr.ph263:                                        ; preds = %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit, %.lr.ph263
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %.lr.ph263 ], [ 0, %_ZNSt10unique_ptrIA_N3pmx8PmxJointESt14default_deleteIS2_EED2Ev.exit ]
   %655 = load ptr, ptr %626, align 8
-  %656 = getelementptr inbounds nuw %"class.pmx::PmxJoint", ptr %655, i64 %indvars.iv287
+  %656 = getelementptr inbounds nuw [176 x i8], ptr %655, i64 %indvars.iv287
   call void @_ZN3pmx8PmxJoint4ReadEPSiPNS_10PmxSettingE(ptr noundef nonnull align 8 dereferenceable(172) %656, ptr noundef nonnull %1, ptr noundef nonnull %49)
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %657 = load i32, ptr %608, align 8

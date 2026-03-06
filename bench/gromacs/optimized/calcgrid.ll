@@ -84,14 +84,14 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 
 27:                                               ; preds = %.preheader130, %35
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %35 ], [ 0, %.preheader130 ]
-  %28 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv114
-  %29 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv114
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv114
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv114
   br label %30
 
 30:                                               ; preds = %27, %30
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %30 ]
   %31 = phi float [ 0.000000e+00, %27 ], [ %34, %30 ]
-  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !8
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -145,10 +145,10 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 57:                                               ; preds = %.preheader129, %.loopexit
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.loopexit ], [ 0, %.preheader129 ]
   %.099111 = phi float [ %.sroa.speculated, %.loopexit ], [ 0.000000e+00, %.preheader129 ]
-  %58 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv121
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv121
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = icmp slt i32 %59, 1
-  %61 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv121
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv121
   %62 = load float, ptr %61, align 4, !tbaa !8
   br i1 %60, label %63, label %.loopexit
 
@@ -164,7 +164,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 .preheader:                                       ; preds = %63, %73
   %.178110 = phi i32 [ %74, %73 ], [ 14, %63 ]
   %69 = zext nneg i32 %.178110 to i64
-  %70 = getelementptr i32, ptr @_ZL9grid_init.const, i64 %69
+  %70 = getelementptr [4 x i8], ptr @_ZL9grid_init.const, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -4
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %.not84 = icmp slt i32 %72, %.sroa.speculated92
@@ -178,7 +178,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 .critedge:                                        ; preds = %73, %.preheader
   %.178.lcssa = phi i32 [ 0, %73 ], [ %.178110, %.preheader ]
   %76 = sext i32 %.178.lcssa to i64
-  %77 = getelementptr inbounds i32, ptr @_ZL9grid_init.const, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr @_ZL9grid_init.const, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !4
   store i32 %78, ptr %58, align 4, !tbaa !4
   br label %.loopexit
@@ -193,7 +193,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 .preheader106:                                    ; preds = %.preheader107, %91
   %82 = phi i32 [ %92, %91 ], [ %59, %.preheader107 ]
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %91 ], [ 13, %.preheader107 ]
-  %83 = getelementptr inbounds nuw i32, ptr @_ZL9grid_base.const, i64 %indvars.iv118
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9grid_base.const, i64 %indvars.iv118
   %84 = load i32, ptr %83, align 4, !tbaa !4
   %85 = mul nsw i32 %84, %.079
   %86 = and i32 %85, 3
@@ -220,7 +220,7 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   %94 = phi i32 [ %59, %57 ], [ %78, %.critedge ], [ %92, %91 ]
   %95 = sitofp i32 %94 to float
   %96 = fdiv float %62, %95
-  %97 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv121
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv121
   store float %96, ptr %97, align 4, !tbaa !8
   %98 = fcmp olt float %.099111, %96
   %.sroa.speculated = select i1 %98, float %96, float %.099111

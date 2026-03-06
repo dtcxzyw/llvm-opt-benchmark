@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { float, i32, [5 x float] }
-%struct.SilkFrame = type { i32, i32, [16 x i16], [16 x float], [644 x float], [644 x float], i32, i32 }
 
 @.str = private unnamed_addr constant [48 x i8] c"Invalid parameters passed to the SILK decoder.\0A\00", align 1
 @ff_silk_model_lbrr_flags_40 = external hidden constant [0 x i16], align 2
@@ -142,7 +141,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 
 .preheader125:                                    ; preds = %.preheader125.preheader, %46
   %indvars.iv143 = phi i64 [ 0, %.preheader125.preheader ], [ %indvars.iv.next144, %46 ]
-  %40 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 %indvars.iv143
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv143
   br label %43
 
 .lr.ph:                                           ; preds = %46
@@ -157,7 +156,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 43:                                               ; preds = %.preheader125, %43
   %indvars.iv = phi i64 [ 0, %.preheader125 ], [ %indvars.iv.next, %43 ]
   %44 = tail call i32 @ff_opus_rc_dec_log(ptr noundef %1, i32 noundef 1) #10
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -165,7 +164,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 
 46:                                               ; preds = %43
   %47 = tail call i32 @ff_opus_rc_dec_log(ptr noundef %1, i32 noundef 1) #10
-  %48 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv143
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv143
   store i32 %47, ptr %48, align 4, !tbaa !18
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
@@ -187,7 +186,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 
 55:                                               ; preds = %.preheader122.us, %61
   %indvars.iv153 = phi i64 [ 0, %.preheader122.us ], [ %indvars.iv.next154, %61 ]
-  %56 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv153
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv153
   %57 = load i32, ptr %56, align 4, !tbaa !18
   %58 = and i32 %57, %52
   %.not117.us = icmp eq i32 %58, 0
@@ -223,7 +222,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %68
   %indvars.iv148 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next149, %68 ]
-  %64 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv148
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv148
   %65 = load i32, ptr %64, align 4, !tbaa !18
   %.not139 = icmp eq i32 %65, 0
   br i1 %.not139, label %68, label %66
@@ -264,8 +263,8 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   br label %92
 
 .lr.ph133:                                        ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv168
-  %81 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv168
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv168
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv168
   %82 = trunc nuw nsw i64 %indvars.iv168 to i32
   br label %83
 
@@ -276,7 +275,7 @@ silk_flush_frame.exit:                            ; preds = %38, %35, %14
   br i1 %.not, label %85, label %.critedge.thread185
 
 85:                                               ; preds = %83
-  %gep = getelementptr inbounds nuw [6 x i32], ptr %invariant.gep, i64 %indvars.iv160
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv160
   %86 = load i32, ptr %gep, align 4, !tbaa !18
   %87 = load i32, ptr %81, align 4, !tbaa !18
   %88 = trunc nuw nsw i64 %indvars.iv160 to i32
@@ -318,15 +317,15 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %indvars.iv165 = phi i64 [ 0, %.lr.ph136.preheader ], [ %indvars.iv.next166, %.lr.ph136 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv165
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv165
   %98 = load ptr, ptr %97, align 8, !tbaa !28
   %99 = load i32, ptr %27, align 8, !tbaa !12
   %100 = mul nsw i32 %99, %96
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds float, ptr %98, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %98, i64 %101
   %103 = sext i32 %99 to i64
   %104 = sub nsw i64 0, %103
-  %105 = getelementptr float, ptr %0, i64 %104
+  %105 = getelementptr [4 x i8], ptr %0, i64 %104
   %106 = getelementptr i8, ptr %105, i64 1424
   %107 = shl nsw i64 %103, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %102, ptr align 4 %106, i64 %107, i1 false)
@@ -342,20 +341,20 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %114 = trunc nuw nsw i64 %indvars.iv168 to i32
   %115 = mul nsw i32 %113, %114
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds float, ptr %112, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %112, i64 %116
   %118 = load ptr, ptr %74, align 8, !tbaa !28
-  %119 = getelementptr inbounds float, ptr %118, i64 %116
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %116
   %120 = sext i32 %113 to i64
   %121 = sub nsw i64 0, %120
-  %122 = getelementptr inbounds float, ptr %75, i64 %121
-  %123 = getelementptr inbounds float, ptr %76, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %75, i64 %121
+  %123 = getelementptr inbounds [4 x i8], ptr %76, i64 %121
   %124 = load float, ptr %77, align 8, !tbaa !31
   %125 = load float, ptr %78, align 4, !tbaa !31
   %126 = load float, ptr %79, align 8, !tbaa !31
   %127 = load float, ptr %80, align 4, !tbaa !31
   %128 = load i32, ptr %28, align 8, !tbaa !13
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr @ff_silk_stereo_interp_len, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr @ff_silk_stereo_interp_len, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !18
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %.lr.ph.i, label %.preheader.i
@@ -390,18 +389,18 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %147 = fmul nsz float %135, %143
   %148 = fdiv nsz float %147, %134
   %149 = fadd nsz float %125, %148
-  %150 = getelementptr float, ptr %122, i64 %indvars.iv.i
+  %150 = getelementptr [4 x i8], ptr %122, i64 %indvars.iv.i
   %151 = getelementptr i8, ptr %150, i64 -8
   %152 = load float, ptr %151, align 4, !tbaa !31
   %153 = add nsw i64 %indvars.iv.i, -1
-  %154 = getelementptr inbounds float, ptr %122, i64 %153
+  %154 = getelementptr inbounds [4 x i8], ptr %122, i64 %153
   %155 = load float, ptr %154, align 4, !tbaa !31
   %156 = tail call nsz float @llvm.fmuladd.f32(float %155, float 2.000000e+00, float %152)
   %157 = load float, ptr %150, align 4, !tbaa !31
   %158 = fadd nsz float %156, %157
   %159 = fmul nsz float %158, 2.500000e-01
   %160 = fadd nsz float %149, 1.000000e+00
-  %161 = getelementptr inbounds float, ptr %123, i64 %153
+  %161 = getelementptr inbounds [4 x i8], ptr %123, i64 %153
   %162 = load float, ptr %161, align 4, !tbaa !31
   %163 = tail call nsz float @llvm.fmuladd.f32(float %160, float %155, float %162)
   %164 = tail call nsz float @llvm.fmuladd.f32(float %146, float %159, float %163)
@@ -409,7 +408,7 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %166 = select nsz i1 %165, float %164, float -1.000000e+00
   %167 = fcmp nsz ogt float %166, 1.000000e+00
   %..i.i = select nsz i1 %167, float 1.000000e+00, float %166
-  %168 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv.i
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
   store float %..i.i, ptr %168, align 4, !tbaa !31
   %169 = fsub nsz float 1.000000e+00, %149
   %170 = load float, ptr %154, align 4, !tbaa !31
@@ -422,7 +421,7 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %177 = select nsz i1 %176, float %175, float -1.000000e+00
   %178 = fcmp nsz ogt float %177, 1.000000e+00
   %..i75.i = select nsz i1 %178, float 1.000000e+00, float %177
-  %179 = getelementptr inbounds nuw float, ptr %119, i64 %indvars.iv.i
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv.i
   store float %..i75.i, ptr %179, align 4, !tbaa !31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -430,17 +429,17 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
 
 180:                                              ; preds = %180, %.lr.ph80.i
   %indvars.iv82.i = phi i64 [ %140, %.lr.ph80.i ], [ %indvars.iv.next83.i, %180 ]
-  %181 = getelementptr float, ptr %122, i64 %indvars.iv82.i
+  %181 = getelementptr [4 x i8], ptr %122, i64 %indvars.iv82.i
   %182 = getelementptr i8, ptr %181, i64 -8
   %183 = load float, ptr %182, align 4, !tbaa !31
   %184 = add nsw i64 %indvars.iv82.i, -1
-  %185 = getelementptr inbounds float, ptr %122, i64 %184
+  %185 = getelementptr inbounds [4 x i8], ptr %122, i64 %184
   %186 = load float, ptr %185, align 4, !tbaa !31
   %187 = tail call nsz float @llvm.fmuladd.f32(float %186, float 2.000000e+00, float %183)
   %188 = load float, ptr %181, align 4, !tbaa !31
   %189 = fadd nsz float %187, %188
   %190 = fmul nsz float %189, 2.500000e-01
-  %191 = getelementptr inbounds float, ptr %123, i64 %184
+  %191 = getelementptr inbounds [4 x i8], ptr %123, i64 %184
   %192 = load float, ptr %191, align 4, !tbaa !31
   %193 = tail call nsz float @llvm.fmuladd.f32(float %137, float %186, float %192)
   %194 = tail call nsz float @llvm.fmuladd.f32(float %126, float %190, float %193)
@@ -448,7 +447,7 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %196 = select nsz i1 %195, float %194, float -1.000000e+00
   %197 = fcmp nsz ogt float %196, 1.000000e+00
   %..i76.i = select nsz i1 %197, float 1.000000e+00, float %196
-  %198 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv82.i
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv82.i
   store float %..i76.i, ptr %198, align 4, !tbaa !31
   %199 = load float, ptr %185, align 4, !tbaa !31
   %200 = load float, ptr %191, align 4, !tbaa !31
@@ -459,7 +458,7 @@ silk_flush_frame.exit120:                         ; preds = %.critedge.thread185
   %205 = select nsz i1 %204, float %203, float -1.000000e+00
   %206 = fcmp nsz ogt float %205, 1.000000e+00
   %..i77.i = select nsz i1 %206, float 1.000000e+00, float %205
-  %207 = getelementptr inbounds nuw float, ptr %119, i64 %indvars.iv82.i
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv82.i
   store float %..i77.i, ptr %207, align 4, !tbaa !31
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
@@ -516,7 +515,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = zext nneg i32 %3 to i64
-  %23 = getelementptr inbounds nuw %struct.SilkFrame, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [5264 x i8], ptr %21, i64 %22
   %24 = icmp eq i32 %4, 2
   %25 = icmp eq i32 %3, 0
   %or.cond = and i1 %25, %24
@@ -544,7 +543,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %indvars.iv.sroa.phi443.sroa.speculated = phi i32 [ %32, %26 ], [ %37, %38 ]
   %indvars.iv.sroa.phi448.sroa.speculated = phi i32 [ %31, %26 ], [ %36, %38 ]
   %40 = sext i32 %indvars.iv.sroa.phi448.sroa.speculated to i64
-  %41 = getelementptr inbounds i16, ptr @ff_silk_stereo_weights, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr @ff_silk_stereo_weights, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !36
   %43 = sext i16 %42 to i32
   %44 = getelementptr i8, ptr %41, i64 2
@@ -616,7 +615,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %81 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %82 = add nsw i32 %.0, %5
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [9 x i16], ptr @ff_silk_model_gain_highbits, i64 %83
+  %84 = getelementptr inbounds [18 x i8], ptr @ff_silk_model_gain_highbits, i64 %83
   br label %85
 
 85:                                               ; preds = %.lr.ph, %108
@@ -678,7 +677,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %122 = add nsw i32 %121, %114
   %123 = sitofp i32 %122 to float
   %124 = fmul nnan nsz float %123, 0x3EF0000000000000
-  %125 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv344
+  %125 = getelementptr inbounds nuw [28 x i8], ptr %20, i64 %indvars.iv344
   store float %124, ptr %125, align 4, !tbaa !40
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %126 = load i32, ptr %77, align 8, !tbaa !10
@@ -695,9 +694,9 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %.not.i267 = icmp eq i32 %130, 0
   %131 = select i1 %.not.i267, i32 10, i32 16
   %132 = sext i32 %130 to i64
-  %133 = getelementptr inbounds [2 x [33 x i16]], ptr @ff_silk_model_lsf_s1, i64 %132
+  %133 = getelementptr inbounds [132 x i8], ptr @ff_silk_model_lsf_s1, i64 %132
   %134 = sext i32 %.0 to i64
-  %135 = getelementptr inbounds [33 x i16], ptr %133, i64 %134
+  %135 = getelementptr inbounds [66 x i8], ptr %133, i64 %134
   %136 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %135) #10
   %137 = zext i32 %136 to i64
   %sext.i = shl i64 %137, 56
@@ -723,7 +722,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %.in132.in.i = getelementptr inbounds nuw i8, ptr %.in132.in.v.i, i64 %indvars.iv.i
   %.in132.i = load i8, ptr %.in132.in.i, align 1, !tbaa !43
   %147 = zext i8 %.in132.i to i64
-  %148 = getelementptr inbounds nuw [10 x i16], ptr @ff_silk_model_lsf_s2, i64 %147
+  %148 = getelementptr inbounds nuw [20 x i8], ptr @ff_silk_model_lsf_s2, i64 %147
   %149 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %148) #10
   %150 = trunc i32 %149 to i8
   %151 = add i8 %150, -4
@@ -771,7 +770,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %170 = load i8, ptr %169, align 1, !tbaa !43
   %171 = zext i8 %170 to i16
   %172 = shl i16 %171, 10
-  %173 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv.next153.i
+  %173 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv.next153.i
   %174 = icmp slt i8 %170, 0
   %.not129.i = icmp eq i8 %170, 0
   %175 = add i16 %172, -102
@@ -808,7 +807,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %indvars.iv.next153.i
   %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !43
   %195 = zext i8 %.in.i to i32
-  %196 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv152.i
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv152.i
   %197 = load i16, ptr %196, align 2, !tbaa !36
   %198 = sext i16 %197 to i32
   %199 = mul nsw i32 %198, %195
@@ -889,7 +888,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %249 = lshr i32 %248, 16
   %250 = add nuw nsw i32 %249, %246
   %251 = shl nuw nsw i32 %208, 7
-  %252 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv155.i
+  %252 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv155.i
   %253 = load i16, ptr %252, align 2, !tbaa !36
   %254 = sext i16 %253 to i32
   %255 = shl nsw i32 %254, 14
@@ -898,15 +897,15 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %258 = tail call i32 @llvm.smax.i32(i32 %257, i32 0)
   %259 = tail call i32 @llvm.umin.i32(i32 %258, i32 32767)
   %260 = trunc nuw nsw i32 %259 to i16
-  %261 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv155.i
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv155.i
   store i16 %260, ptr %261, align 2, !tbaa !36
   %exitcond159.not.i = icmp eq i64 %indvars.iv.next156.i, %wide.trip.count.i
   br i1 %exitcond159.not.i, label %262, label %205, !llvm.loop !46
 
 262:                                              ; preds = %220
   %263 = select i1 %.not128.i, ptr @ff_silk_lsf_min_spacing_nbmb, ptr @ff_silk_lsf_min_spacing_wb
-  %264 = getelementptr inbounds nuw i16, ptr %263, i64 %wide.trip.count.i
-  %265 = getelementptr i16, ptr %15, i64 %wide.trip.count.i
+  %264 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %wide.trip.count.i
+  %265 = getelementptr [2 x i8], ptr %15, i64 %wide.trip.count.i
   %266 = getelementptr i8, ptr %265, i64 -2
   %267 = or disjoint i32 %131, 1
   %wide.trip.count.i.i = zext nneg i32 %267 to i64
@@ -925,7 +924,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %.not174.i.i, label %274, label %269
 
 269:                                              ; preds = %268
-  %270 = getelementptr i16, ptr %15, i64 %indvars.iv.i.i
+  %270 = getelementptr [2 x i8], ptr %15, i64 %indvars.iv.i.i
   %271 = getelementptr i8, ptr %270, i64 -2
   %272 = load i16, ptr %271, align 2, !tbaa !36
   %273 = sext i16 %272 to i32
@@ -937,14 +936,14 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   br i1 %.not175.i.i, label %280, label %276
 
 276:                                              ; preds = %274
-  %277 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.i.i
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.i.i
   %278 = load i16, ptr %277, align 2, !tbaa !36
   %279 = sext i16 %278 to i32
   br label %280
 
 280:                                              ; preds = %276, %274
   %281 = phi i32 [ %279, %276 ], [ 32768, %274 ]
-  %282 = getelementptr inbounds nuw i16, ptr %263, i64 %indvars.iv.i.i
+  %282 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %indvars.iv.i.i
   %283 = load i16, ptr %282, align 2, !tbaa !36
   %284 = zext i16 %283 to i32
   %285 = add nsw i32 %275, %284
@@ -991,7 +990,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv212.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next213.i.i, %.lr.ph.i.i ]
   %.0150192.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %303, %.lr.ph.i.i ]
-  %300 = getelementptr inbounds nuw i16, ptr %263, i64 %indvars.iv212.i.i
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %indvars.iv212.i.i
   %301 = load i16, ptr %300, align 2, !tbaa !36
   %302 = zext i16 %301 to i32
   %303 = add nuw nsw i32 %.0150192.i.i, %302
@@ -1002,7 +1001,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader185.i.i
   %.0150.lcssa.i.i = phi i32 [ 0, %.preheader185.i.i ], [ %303, %.lr.ph.i.i ]
   %304 = sext i32 %spec.select176.i.i to i64
-  %305 = getelementptr inbounds i16, ptr %263, i64 %304
+  %305 = getelementptr inbounds [2 x i8], ptr %263, i64 %304
   %306 = load i16, ptr %305, align 2, !tbaa !36
   %307 = lshr i16 %306, 1
   %308 = zext nneg i16 %307 to i32
@@ -1013,7 +1012,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 .lr.ph196.i.i:                                    ; preds = %._crit_edge.i.i, %.lr.ph196.i.i
   %indvars.iv218.i.i = phi i64 [ %indvars.iv.next219.i.i, %.lr.ph196.i.i ], [ %wide.trip.count.i, %._crit_edge.i.i ]
   %.0149194.i.i = phi i32 [ %314, %.lr.ph196.i.i ], [ 32768, %._crit_edge.i.i ]
-  %311 = getelementptr inbounds i16, ptr %263, i64 %indvars.iv218.i.i
+  %311 = getelementptr inbounds [2 x i8], ptr %263, i64 %indvars.iv218.i.i
   %312 = load i16, ptr %311, align 2, !tbaa !36
   %313 = zext i16 %312 to i32
   %314 = sub nsw i32 %.0149194.i.i, %313
@@ -1024,7 +1023,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 ._crit_edge197.i.i:                               ; preds = %.lr.ph196.i.i, %._crit_edge.i.i
   %.0149.lcssa.i.i = phi i32 [ 32768, %._crit_edge.i.i ], [ %314, %.lr.ph196.i.i ]
   %316 = sub nsw i32 %.0149.lcssa.i.i, %308
-  %317 = getelementptr i16, ptr %15, i64 %304
+  %317 = getelementptr [2 x i8], ptr %15, i64 %304
   %318 = getelementptr i8, ptr %317, i64 -2
   %319 = load i16, ptr %318, align 2, !tbaa !36
   %320 = sext i16 %319 to i32
@@ -1050,20 +1049,20 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 
 .preheader.i.i:                                   ; preds = %331, %.critedge.i.i
   %indvars.iv222.i.i = phi i64 [ %indvars.iv.next223.i.i, %.critedge.i.i ], [ 1, %331 ]
-  %333 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv222.i.i
+  %333 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv222.i.i
   %334 = load i16, ptr %333, align 2, !tbaa !36
   br label %335
 
 335:                                              ; preds = %339, %.preheader.i.i
   %indvars.iv224.i.i = phi i64 [ %indvars.iv222.i.i, %.preheader.i.i ], [ %indvars.iv.next225.i.i, %339 ]
   %indvars.iv.next225.i.i = add nsw i64 %indvars.iv224.i.i, -1
-  %336 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next225.i.i
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.next225.i.i
   %337 = load i16, ptr %336, align 2, !tbaa !36
   %338 = icmp sgt i16 %337, %334
   br i1 %338, label %339, label %.critedge.i.i
 
 339:                                              ; preds = %335
-  %340 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv224.i.i
+  %340 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv224.i.i
   store i16 %337, ptr %340, align 2, !tbaa !36
   %341 = icmp sgt i64 %indvars.iv224.i.i, 1
   br i1 %341, label %335, label %.critedge.i.i, !llvm.loop !51
@@ -1091,9 +1090,9 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 350:                                              ; preds = %362, %344
   %store_forwarded = phi i16 [ %spec.store.select.i, %344 ], [ %363, %362 ]
   %indvars.iv230.i.i = phi i64 [ 1, %344 ], [ %indvars.iv.next231.i.i, %362 ]
-  %351 = getelementptr i16, ptr %15, i64 %indvars.iv230.i.i
+  %351 = getelementptr [2 x i8], ptr %15, i64 %indvars.iv230.i.i
   %352 = sext i16 %store_forwarded to i32
-  %353 = getelementptr inbounds nuw i16, ptr %263, i64 %indvars.iv230.i.i
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %indvars.iv230.i.i
   %354 = load i16, ptr %353, align 2, !tbaa !36
   %355 = zext i16 %354 to i32
   %356 = add nsw i32 %355, %352
@@ -1139,14 +1138,14 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
 
 .lr.ph208.i.i:                                    ; preds = %389, %.lr.ph208.preheader.i.i
   %indvars.iv235.i.i = phi i64 [ %374, %.lr.ph208.preheader.i.i ], [ %indvars.iv.next236.i.i, %389 ]
-  %375 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv235.i.i
+  %375 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv235.i.i
   %376 = load i16, ptr %375, align 2, !tbaa !36
   %377 = sext i16 %376 to i32
   %378 = add nuw nsw i64 %indvars.iv235.i.i, 1
-  %379 = getelementptr inbounds nuw i16, ptr %15, i64 %378
+  %379 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %378
   %380 = load i16, ptr %379, align 2, !tbaa !36
   %381 = sext i16 %380 to i32
-  %382 = getelementptr inbounds nuw i16, ptr %263, i64 %378
+  %382 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %378
   %383 = load i16, ptr %382, align 2, !tbaa !36
   %384 = zext i16 %383 to i32
   %385 = sub nsw i32 %381, %384
@@ -1189,10 +1188,10 @@ silk_stabilize_lsf.exit.i:                        ; preds = %289, %389
 
 400:                                              ; preds = %400, %398
   %indvars.iv160.i = phi i64 [ 0, %398 ], [ %indvars.iv.next161.i, %400 ]
-  %401 = getelementptr inbounds nuw i16, ptr %399, i64 %indvars.iv160.i
+  %401 = getelementptr inbounds nuw [2 x i8], ptr %399, i64 %indvars.iv160.i
   %402 = load i16, ptr %401, align 2, !tbaa !36
   %403 = sext i16 %402 to i32
-  %404 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv160.i
+  %404 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv160.i
   %405 = load i16, ptr %404, align 2, !tbaa !36
   %406 = sext i16 %405 to i32
   %407 = sub nsw i32 %406, %403
@@ -1200,7 +1199,7 @@ silk_stabilize_lsf.exit.i:                        ; preds = %289, %389
   %409 = lshr i32 %408, 2
   %410 = trunc i32 %409 to i16
   %411 = add i16 %402, %410
-  %412 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv160.i
+  %412 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv160.i
   store i16 %411, ptr %412, align 2, !tbaa !36
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %exitcond164.not.i = icmp eq i64 %indvars.iv.next161.i, %wide.trip.count.i
@@ -1261,15 +1260,15 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %435 = load i32, ptr %434, align 8, !tbaa !13
   %436 = zext i32 %435 to i64
-  %437 = getelementptr inbounds nuw ptr, ptr @silk_decode_frame.model, i64 %436
+  %437 = getelementptr inbounds nuw [8 x i8], ptr @silk_decode_frame.model, i64 %436
   %438 = load ptr, ptr %437, align 8, !tbaa !59
   %439 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef %438) #10
   %440 = load i32, ptr %434, align 8, !tbaa !13
   %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw i16, ptr @ff_silk_pitch_min_lag, i64 %441
+  %442 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_pitch_min_lag, i64 %441
   %443 = load i16, ptr %442, align 2, !tbaa !36
   %444 = zext i16 %443 to i32
-  %445 = getelementptr inbounds nuw i16, ptr @ff_silk_pitch_scale, i64 %441
+  %445 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_pitch_scale, i64 %441
   %446 = load i16, ptr %445, align 2, !tbaa !36
   %447 = zext i16 %446 to i32
   %448 = mul nsw i32 %433, %447
@@ -1328,10 +1327,10 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %480 = load i32, ptr %479, align 8, !tbaa !13
   %481 = zext i32 %480 to i64
-  %482 = getelementptr inbounds nuw i16, ptr @ff_silk_pitch_min_lag, i64 %481
+  %482 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_pitch_min_lag, i64 %481
   %483 = load i16, ptr %482, align 2, !tbaa !36
   %484 = zext i16 %483 to i32
-  %485 = getelementptr inbounds nuw i16, ptr @ff_silk_pitch_max_lag, i64 %481
+  %485 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_pitch_max_lag, i64 %481
   %486 = load i16, ptr %485, align 2, !tbaa !36
   %487 = zext i16 %486 to i32
   %wide.trip.count = zext nneg i32 %477 to i64
@@ -1346,7 +1345,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %493 = icmp slt i32 %492, %484
   %..i = tail call i32 @llvm.smin.i32(i32 %492, i32 %487)
   %.0.i264 = select i1 %493, i32 %484, i32 %..i
-  %494 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv347
+  %494 = getelementptr inbounds nuw [28 x i8], ptr %20, i64 %indvars.iv347
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 4
   store i32 %.0.i264, ptr %495, align 4, !tbaa !61
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
@@ -1361,9 +1360,9 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
 
 .lr.ph309:                                        ; preds = %._crit_edge305
   %499 = sext i32 %496 to i64
-  %500 = getelementptr inbounds ptr, ptr @silk_decode_frame.filter_sel, i64 %499
+  %500 = getelementptr inbounds [8 x i8], ptr @silk_decode_frame.filter_sel, i64 %499
   %501 = load ptr, ptr %500, align 8, !tbaa !59
-  %502 = getelementptr inbounds ptr, ptr @silk_decode_frame.filter_taps, i64 %499
+  %502 = getelementptr inbounds [8 x i8], ptr @silk_decode_frame.filter_taps, i64 %499
   br label %503
 
 503:                                              ; preds = %.lr.ph309, %516
@@ -1372,7 +1371,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %505 = load ptr, ptr %502, align 8, !tbaa !63
   %506 = sext i32 %504 to i64
   %507 = getelementptr inbounds [5 x i8], ptr %505, i64 %506
-  %508 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv354
+  %508 = getelementptr inbounds nuw [28 x i8], ptr %20, i64 %indvars.iv354
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   br label %510
 
@@ -1382,7 +1381,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %512 = load i8, ptr %511, align 1, !tbaa !43
   %513 = sitofp i8 %512 to float
   %514 = fmul nnan nsz float %513, 7.812500e-03
-  %515 = getelementptr inbounds nuw float, ptr %509, i64 %indvars.iv350
+  %515 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %indvars.iv350
   store float %514, ptr %515, align 4, !tbaa !31
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, 5
@@ -1401,7 +1400,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
 520:                                              ; preds = %._crit_edge310
   %521 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull @ff_silk_model_ltp_scale_index) #10
   %522 = zext i32 %521 to i64
-  %523 = getelementptr inbounds nuw i16, ptr @ff_silk_ltp_scale_factor, i64 %522
+  %523 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_ltp_scale_factor, i64 %522
   %524 = load i16, ptr %523, align 2, !tbaa !36
   %525 = uitofp i16 %524 to float
   %526 = fmul nnan nsz float %525, 0x3F10000000000000
@@ -1425,14 +1424,14 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %536 = getelementptr inbounds i8, ptr %532, i64 %535
   %537 = load i8, ptr %536, align 1, !tbaa !43
   %538 = zext i8 %537 to i64
-  %539 = getelementptr inbounds [10 x i16], ptr @ff_silk_model_exc_rate, i64 %134
+  %539 = getelementptr inbounds [20 x i8], ptr @ff_silk_model_exc_rate, i64 %134
   %540 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %539) #10
   %.not144.i = icmp eq i8 %537, 0
   br i1 %.not144.i, label %silk_decode_excitation.exit, label %.lr.ph123.i
 
 .lr.ph123.i:                                      ; preds = %.thread285
   %541 = sext i32 %540 to i64
-  %542 = getelementptr inbounds [19 x i16], ptr @ff_silk_model_pulse_count, i64 %541
+  %542 = getelementptr inbounds [38 x i8], ptr @ff_silk_model_pulse_count, i64 %541
   br label %549
 
 .preheader117.i:                                  ; preds = %567
@@ -1517,7 +1516,7 @@ silk_count_children.exit.i:                       ; preds = %568
   %575 = mul nuw nsw i32 %574, %573
   %576 = lshr i32 %575, 1
   %577 = zext nneg i32 %576 to i64
-  %578 = getelementptr inbounds nuw i16, ptr @ff_silk_model_pulse_location, i64 %577
+  %578 = getelementptr inbounds nuw [2 x i8], ptr @ff_silk_model_pulse_location, i64 %577
   %579 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %578) #10
   %580 = sub nsw i32 %572, %579
   store i32 %579, ptr %543, align 8, !tbaa !18
@@ -1532,7 +1531,7 @@ silk_count_children.exit.i:                       ; preds = %568
   %582 = phi i1 [ true, %silk_count_children.exit.i ], [ false, %623 ]
   %indvars.iv160.i272 = phi i64 [ 0, %silk_count_children.exit.i ], [ 1, %623 ]
   %.187129.i = phi ptr [ %571, %silk_count_children.exit.i ], [ %621, %623 ]
-  %583 = getelementptr inbounds nuw i32, ptr %543, i64 %indvars.iv160.i272
+  %583 = getelementptr inbounds nuw [4 x i8], ptr %543, i64 %indvars.iv160.i272
   %584 = load i32, ptr %583, align 4, !tbaa !18
   %.not.i102.i = icmp eq i32 %584, 0
   br i1 %.not.i102.i, label %silk_count_children.exit105.i, label %585
@@ -1543,7 +1542,7 @@ silk_count_children.exit.i:                       ; preds = %568
   %588 = mul nsw i32 %587, %586
   %589 = ashr i32 %588, 1
   %590 = sext i32 %589 to i64
-  %591 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 336), i64 %590
+  %591 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 336), i64 %590
   %592 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %591) #10
   %593 = sub nsw i32 %584, %592
   br label %silk_count_children.exit105.i
@@ -1559,7 +1558,7 @@ silk_count_children.exit105.i:                    ; preds = %585, %581
   %595 = phi i1 [ true, %silk_count_children.exit105.i ], [ false, %622 ]
   %indvars.iv157.i = phi i64 [ 0, %silk_count_children.exit105.i ], [ 1, %622 ]
   %.288127.i = phi ptr [ %.187129.i, %silk_count_children.exit105.i ], [ %621, %622 ]
-  %596 = getelementptr inbounds nuw i32, ptr %545, i64 %indvars.iv157.i
+  %596 = getelementptr inbounds nuw [4 x i8], ptr %545, i64 %indvars.iv157.i
   %597 = load i32, ptr %596, align 4, !tbaa !18
   %.not.i106.i = icmp eq i32 %597, 0
   br i1 %.not.i106.i, label %silk_count_children.exit109.i, label %598
@@ -1570,7 +1569,7 @@ silk_count_children.exit105.i:                    ; preds = %585, %581
   %601 = mul nsw i32 %600, %599
   %602 = ashr i32 %601, 1
   %603 = sext i32 %602 to i64
-  %604 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 672), i64 %603
+  %604 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 672), i64 %603
   %605 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %604) #10
   %606 = sub nsw i32 %597, %605
   br label %silk_count_children.exit109.i
@@ -1586,7 +1585,7 @@ silk_count_children.exit109.i:                    ; preds = %598, %594
   %608 = phi i1 [ true, %silk_count_children.exit109.i ], [ false, %silk_count_children.exit113.i ]
   %indvars.iv154.i = phi i64 [ 0, %silk_count_children.exit109.i ], [ 1, %silk_count_children.exit113.i ]
   %.389125.i = phi ptr [ %.288127.i, %silk_count_children.exit109.i ], [ %621, %silk_count_children.exit113.i ]
-  %609 = getelementptr inbounds nuw i32, ptr %547, i64 %indvars.iv154.i
+  %609 = getelementptr inbounds nuw [4 x i8], ptr %547, i64 %indvars.iv154.i
   %610 = load i32, ptr %609, align 4, !tbaa !18
   %.not.i110.i = icmp eq i32 %610, 0
   br i1 %.not.i110.i, label %silk_count_children.exit113.i, label %611
@@ -1597,7 +1596,7 @@ silk_count_children.exit109.i:                    ; preds = %598, %594
   %614 = mul nsw i32 %613, %612
   %615 = ashr i32 %614, 1
   %616 = sext i32 %615 to i64
-  %617 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 1008), i64 %616
+  %617 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_silk_model_pulse_location, i64 1008), i64 %616
   %618 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %617) #10
   %619 = sub nsw i32 %610, %618
   br label %silk_count_children.exit113.i
@@ -1637,16 +1636,16 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
   br i1 %.not147.i, label %643, label %.lr.ph134.i
 
 .lr.ph134.i:                                      ; preds = %.preheader115.i
-  %631 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv169.i
+  %631 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv169.i
   %.promoted135.i = load i32, ptr %631, align 4, !tbaa !18
   br label %637
 
 .preheader114.i:                                  ; preds = %643
   %632 = add nsw i32 %.0, %5
   %633 = sext i32 %632 to i64
-  %634 = getelementptr inbounds [2 x [7 x [3 x i16]]], ptr @ff_silk_model_excitation_sign, i64 %633
+  %634 = getelementptr inbounds [84 x i8], ptr @ff_silk_model_excitation_sign, i64 %633
   %635 = sext i32 %.0234 to i64
-  %636 = getelementptr inbounds [7 x [3 x i16]], ptr %634, i64 %635
+  %636 = getelementptr inbounds [42 x i8], ptr %634, i64 %635
   br label %648
 
 637:                                              ; preds = %637, %.lr.ph134.i
@@ -1677,7 +1676,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
 
 648:                                              ; preds = %661, %.preheader114.i
   %indvars.iv174.i = phi i64 [ 0, %.preheader114.i ], [ %indvars.iv.next175.i, %661 ]
-  %649 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv174.i
+  %649 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv174.i
   %650 = load i32, ptr %649, align 4, !tbaa !18
   %.not99.i = icmp eq i32 %650, 0
   br i1 %.not99.i, label %661, label %651
@@ -1689,7 +1688,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
   %655 = load i8, ptr %654, align 1, !tbaa !43
   %narrow.i273 = tail call i8 @llvm.umin.i8(i8 %655, i8 6)
   %spec.select.i274 = zext nneg i8 %narrow.i273 to i64
-  %656 = getelementptr inbounds nuw [3 x i16], ptr %636, i64 %spec.select.i274
+  %656 = getelementptr inbounds nuw [6 x i8], ptr %636, i64 %spec.select.i274
   %657 = tail call i32 @ff_opus_rc_dec_cdf(ptr noundef %1, ptr noundef nonnull %656) #10
   %658 = icmp eq i32 %657, 0
   br i1 %658, label %659, label %661
@@ -1707,7 +1706,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
 662:                                              ; preds = %676, %.preheader.i275
   %indvars.iv179.i = phi i64 [ 0, %.preheader.i275 ], [ %indvars.iv.next180.i, %676 ]
   %.084140.i = phi i32 [ %528, %.preheader.i275 ], [ %678, %676 ]
-  %663 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv179.i
+  %663 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv179.i
   %664 = load i32, ptr %663, align 4, !tbaa !18
   %665 = shl nsw i32 %664, 8
   %666 = or disjoint i32 %665, %647
@@ -1742,7 +1741,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
   %678 = add i32 %673, %664
   %679 = sitofp i32 %677 to float
   %680 = fmul nnan nsz float %679, 0x3E80000000000000
-  %681 = getelementptr inbounds nuw float, ptr %527, i64 %indvars.iv179.i
+  %681 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %indvars.iv179.i
   store float %680, ptr %681, align 4, !tbaa !31
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count172.i
@@ -1785,9 +1784,9 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
   %697 = trunc nuw nsw i64 %indvars.iv390 to i32
   %698 = mul i32 %690, %697
   %699 = sext i32 %698 to i64
-  %700 = getelementptr inbounds float, ptr %688, i64 %699
-  %701 = getelementptr inbounds float, ptr %527, i64 %699
-  %702 = getelementptr inbounds float, ptr %691, i64 %699
+  %700 = getelementptr inbounds [4 x i8], ptr %688, i64 %699
+  %701 = getelementptr inbounds [4 x i8], ptr %527, i64 %699
+  %702 = getelementptr inbounds [4 x i8], ptr %691, i64 %699
   br i1 %.not287, label %.loopexit, label %703
 
 703:                                              ; preds = %694
@@ -1811,7 +1810,7 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
 713:                                              ; preds = %709, %707
   %.0226 = phi i32 [ %708, %707 ], [ %712, %709 ]
   %.0225 = phi nsz float [ %.0235, %707 ], [ 1.000000e+00, %709 ]
-  %714 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv390
+  %714 = getelementptr inbounds nuw [28 x i8], ptr %20, i64 %indvars.iv390
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 4
   %716 = load i32, ptr %715, align 4, !tbaa !61
   %717 = sub i32 -2, %716
@@ -1825,14 +1824,14 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
 
 721:                                              ; preds = %.lr.ph315, %734
   %indvars.iv362 = phi i64 [ %720, %.lr.ph315 ], [ %indvars.iv.next363, %734 ]
-  %722 = getelementptr inbounds float, ptr %700, i64 %indvars.iv362
+  %722 = getelementptr inbounds [4 x i8], ptr %700, i64 %indvars.iv362
   %723 = load float, ptr %722, align 4, !tbaa !31
   br label %724
 
 724:                                              ; preds = %721, %724
   %indvars.iv357 = phi i64 [ 0, %721 ], [ %indvars.iv.next358, %724 ]
   %.0231311 = phi float [ %723, %721 ], [ %733, %724 ]
-  %725 = getelementptr inbounds nuw float, ptr %696, i64 %indvars.iv357
+  %725 = getelementptr inbounds nuw [4 x i8], ptr %696, i64 %indvars.iv357
   %726 = load float, ptr %725, align 4, !tbaa !31
   %727 = xor i64 %indvars.iv357, -1
   %728 = add i64 %indvars.iv362, %727
@@ -1853,7 +1852,7 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
   %..i265 = select nsz i1 %737, float 1.000000e+00, float %736
   %738 = fmul nsz float %.0225, %..i265
   %739 = fdiv nsz float %738, %719
-  %740 = getelementptr inbounds float, ptr %701, i64 %indvars.iv362
+  %740 = getelementptr inbounds [4 x i8], ptr %701, i64 %indvars.iv362
   store float %739, ptr %740, align 4, !tbaa !31
   %indvars.iv.next363 = add nsw i64 %indvars.iv362, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next363 to i32
@@ -1878,7 +1877,7 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
 
 .lr.ph319:                                        ; preds = %.lr.ph319.preheader, %.lr.ph319
   %indvars.iv366 = phi i64 [ %747, %.lr.ph319.preheader ], [ %indvars.iv.next367, %.lr.ph319 ]
-  %748 = getelementptr inbounds float, ptr %701, i64 %indvars.iv366
+  %748 = getelementptr inbounds [4 x i8], ptr %701, i64 %indvars.iv366
   %749 = load float, ptr %748, align 4, !tbaa !31
   %750 = fmul nsz float %745, %749
   store float %750, ptr %748, align 4, !tbaa !31
@@ -1896,7 +1895,7 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
 
 753:                                              ; preds = %.lr.ph324, %768
   %indvars.iv375 = phi i64 [ 0, %.lr.ph324 ], [ %indvars.iv.next376, %768 ]
-  %754 = getelementptr inbounds nuw float, ptr %701, i64 %indvars.iv375
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %701, i64 %indvars.iv375
   %755 = load float, ptr %754, align 4, !tbaa !31
   %756 = trunc i64 %indvars.iv375 to i32
   %757 = add i32 %756, 2
@@ -1905,13 +1904,13 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
 758:                                              ; preds = %753, %758
   %indvars.iv371 = phi i64 [ 0, %753 ], [ %indvars.iv.next372, %758 ]
   %.1232320 = phi float [ %755, %753 ], [ %767, %758 ]
-  %759 = getelementptr inbounds nuw float, ptr %752, i64 %indvars.iv371
+  %759 = getelementptr inbounds nuw [4 x i8], ptr %752, i64 %indvars.iv371
   %760 = load float, ptr %759, align 4, !tbaa !31
   %761 = trunc nuw nsw i64 %indvars.iv371 to i32
   %762 = add i32 %716, %761
   %763 = sub i32 %757, %762
   %764 = sext i32 %763 to i64
-  %765 = getelementptr inbounds float, ptr %701, i64 %764
+  %765 = getelementptr inbounds [4 x i8], ptr %701, i64 %764
   %766 = load float, ptr %765, align 4, !tbaa !31
   %767 = tail call nsz float @llvm.fmuladd.f32(float %760, float %766, float %.1232320)
   %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
@@ -1928,13 +1927,13 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
   br i1 %692, label %.lr.ph329, label %._crit_edge330
 
 .lr.ph329:                                        ; preds = %.loopexit
-  %769 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv390
+  %769 = getelementptr inbounds nuw [28 x i8], ptr %20, i64 %indvars.iv390
   %770 = load float, ptr %769, align 4, !tbaa !40
   br label %771
 
 771:                                              ; preds = %.lr.ph329, %783
   %indvars.iv385 = phi i64 [ 0, %.lr.ph329 ], [ %indvars.iv.next386, %783 ]
-  %772 = getelementptr inbounds nuw float, ptr %701, i64 %indvars.iv385
+  %772 = getelementptr inbounds nuw [4 x i8], ptr %701, i64 %indvars.iv385
   %773 = load float, ptr %772, align 4, !tbaa !31
   %774 = fmul nsz float %773, %770
   br label %775
@@ -1942,11 +1941,11 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
 775:                                              ; preds = %771, %775
   %indvars.iv380 = phi i64 [ 1, %771 ], [ %indvars.iv.next381, %775 ]
   %.2233325 = phi float [ %774, %771 ], [ %782, %775 ]
-  %776 = getelementptr float, ptr %696, i64 %indvars.iv380
+  %776 = getelementptr [4 x i8], ptr %696, i64 %indvars.iv380
   %777 = getelementptr i8, ptr %776, i64 -4
   %778 = load float, ptr %777, align 4, !tbaa !31
   %779 = sub nsw i64 %indvars.iv385, %indvars.iv380
-  %780 = getelementptr inbounds float, ptr %702, i64 %779
+  %780 = getelementptr inbounds [4 x i8], ptr %702, i64 %779
   %781 = load float, ptr %780, align 4, !tbaa !31
   %782 = tail call nsz float @llvm.fmuladd.f32(float %778, float %781, float %.2233325)
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
@@ -1954,13 +1953,13 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
   br i1 %exitcond384.not, label %783, label %775, !llvm.loop !82
 
 783:                                              ; preds = %775
-  %784 = getelementptr inbounds nuw float, ptr %702, i64 %indvars.iv385
+  %784 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %indvars.iv385
   store float %782, ptr %784, align 4, !tbaa !31
   %785 = fcmp nsz ogt float %782, -1.000000e+00
   %786 = select nsz i1 %785, float %782, float -1.000000e+00
   %787 = fcmp nsz ogt float %786, 1.000000e+00
   %..i266 = select nsz i1 %787, float 1.000000e+00, float %786
-  %788 = getelementptr inbounds nuw float, ptr %700, i64 %indvars.iv385
+  %788 = getelementptr inbounds nuw [4 x i8], ptr %700, i64 %indvars.iv385
   store float %..i266, ptr %788, align 4, !tbaa !31
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
@@ -1978,10 +1977,10 @@ silk_decode_excitation.exit:                      ; preds = %676, %.thread285
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %792 = load i32, ptr %791, align 8, !tbaa !12
   %793 = sext i32 %792 to i64
-  %794 = getelementptr inbounds float, ptr %790, i64 %793
+  %794 = getelementptr inbounds [4 x i8], ptr %790, i64 %793
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1288) %790, ptr noundef nonnull align 4 dereferenceable(1288) %794, i64 1288, i1 false)
   %795 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  %796 = getelementptr inbounds float, ptr %795, i64 %793
+  %796 = getelementptr inbounds [4 x i8], ptr %795, i64 %793
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1288) %795, ptr noundef nonnull align 4 dereferenceable(1288) %796, i64 1288, i1 false)
   store i32 1, ptr %23, align 4, !tbaa !16
   br label %797
@@ -2112,7 +2111,7 @@ define internal fastcc void @silk_lsf2lpc(ptr noundef nonnull readonly captures(
 
 11:                                               ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !36
   %14 = sext i16 %13 to i32
   %15 = ashr i32 %14, 8
@@ -2120,12 +2119,12 @@ define internal fastcc void @silk_lsf2lpc(ptr noundef nonnull readonly captures(
   %.in.in = getelementptr inbounds nuw i8, ptr %.in.in.v, i64 %indvars.iv
   %.in = load i8, ptr %.in.in, align 1, !tbaa !43
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds i16, ptr @ff_silk_cosine, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr @ff_silk_cosine, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !36
   %20 = sext i16 %19 to i32
   %21 = shl nsw i32 %20, 8
   %22 = zext i8 %.in to i64
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %22
   %24 = getelementptr i8, ptr %18, i64 2
   %25 = load i16, ptr %24, align 2, !tbaa !36
   %26 = sext i16 %25 to i32
@@ -2151,7 +2150,7 @@ define internal fastcc void @silk_lsf2lpc(ptr noundef nonnull readonly captures(
 
 37:                                               ; preds = %._crit_edge.i, %32
   %indvars.iv.i = phi i64 [ 1, %32 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %38 = getelementptr i32, ptr %6, i64 %indvars.iv.i
+  %38 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv.i
   %39 = getelementptr i8, ptr %38, i64 -4
   %40 = load i32, ptr %39, align 4, !tbaa !18
   %41 = shl nsw i32 %40, 1
@@ -2168,14 +2167,14 @@ define internal fastcc void @silk_lsf2lpc(ptr noundef nonnull readonly captures(
   %51 = trunc i64 %50 to i32
   %52 = sub i32 %41, %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next.i
   store i32 %52, ptr %53, align 4, !tbaa !18
   %54 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %54, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.i ], [ %indvars.iv.i, %37 ]
-  %55 = getelementptr i32, ptr %6, i64 %indvars.iv30.i
+  %55 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv30.i
   %56 = getelementptr i8, ptr %55, i64 -8
   %57 = load i32, ptr %56, align 4, !tbaa !18
   %58 = getelementptr i8, ptr %55, i64 -4
@@ -2212,7 +2211,7 @@ silk_lsp2poly.exit:                               ; preds = %._crit_edge.i
 
 76:                                               ; preds = %._crit_edge.i114, %silk_lsp2poly.exit
   %indvars.iv.i111 = phi i64 [ 1, %silk_lsp2poly.exit ], [ %indvars.iv.next.i113, %._crit_edge.i114 ]
-  %77 = getelementptr i32, ptr %7, i64 %indvars.iv.i111
+  %77 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv.i111
   %78 = getelementptr i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 4, !tbaa !18
   %80 = shl nsw i32 %79, 1
@@ -2229,14 +2228,14 @@ silk_lsp2poly.exit:                               ; preds = %._crit_edge.i
   %90 = trunc i64 %89 to i32
   %91 = sub i32 %80, %90
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i111, 1
-  %92 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next.i113
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next.i113
   store i32 %91, ptr %92, align 4, !tbaa !18
   %93 = icmp samesign ugt i64 %indvars.iv.i111, 1
   br i1 %93, label %.lr.ph.i116, label %._crit_edge.i114
 
 .lr.ph.i116:                                      ; preds = %76, %.lr.ph.i116
   %indvars.iv30.i117 = phi i64 [ %indvars.iv.next31.i118, %.lr.ph.i116 ], [ %indvars.iv.i111, %76 ]
-  %94 = getelementptr i32, ptr %7, i64 %indvars.iv30.i117
+  %94 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv30.i117
   %95 = getelementptr i8, ptr %94, i64 -8
   %96 = load i32, ptr %95, align 4, !tbaa !18
   %97 = getelementptr i8, ptr %94, i64 -4
@@ -2272,22 +2271,22 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
   %112 = phi i32 [ %.pre, %silk_lsp2poly.exit119.preheader155 ], [ %114, %silk_lsp2poly.exit119 ]
   %indvars.iv160 = phi i64 [ 0, %silk_lsp2poly.exit119.preheader155 ], [ %indvars.iv.next161, %silk_lsp2poly.exit119 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next161
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next161
   %114 = load i32, ptr %113, align 4, !tbaa !18
   %115 = add nsw i32 %112, %114
-  %116 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next161
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next161
   %117 = load i32, ptr %116, align 4, !tbaa !18
   %118 = sub nsw i32 %117, %111
   %119 = add i32 %115, %118
   %120 = sub i32 0, %119
-  %121 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv160
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv160
   store i32 %120, ptr %121, align 4, !tbaa !18
   %122 = sub nsw i32 %118, %115
   %123 = trunc nuw nsw i64 %indvars.iv160 to i32
   %124 = xor i32 %123, -1
   %125 = add nsw i32 %2, %124
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %8, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %126
   store i32 %122, ptr %127, align 4, !tbaa !18
   %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count.i
   br i1 %exitcond164.not, label %.preheader134, label %silk_lsp2poly.exit119, !llvm.loop !90
@@ -2301,7 +2300,7 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
   %.0100142 = phi i32 [ 0, %.preheader134 ], [ %134, %128 ]
   %.0102141 = phi i32 [ 0, %.preheader134 ], [ %.1103, %128 ]
   %129 = zext nneg i32 %.298143 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %8, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !18
   %132 = tail call i32 @llvm.abs.i32(i32 %131, i1 true)
   %133 = icmp samesign ugt i32 %132, %.0102141
@@ -2331,7 +2330,7 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 148:                                              ; preds = %137, %148
   %indvars.iv166 = phi i64 [ 0, %137 ], [ %indvars.iv.next167, %148 ]
   %.0101144 = phi i32 [ %147, %137 ], [ %160, %148 ]
-  %149 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv166
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv166
   %150 = load i32, ptr %149, align 4, !tbaa !18
   %151 = sext i32 %150 to i64
   %152 = zext i32 %.0101144 to i64
@@ -2362,14 +2361,14 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.preheader ], [ 0, %.preheader.preheader ]
-  %165 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv177
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv177
   %166 = load i32, ptr %165, align 4, !tbaa !18
   %167 = add nsw i32 %166, 16
   %168 = ashr i32 %167, 5
   %169 = tail call i32 @llvm.smax.i32(i32 %168, i32 -32768)
   %170 = tail call i32 @llvm.smin.i32(i32 %169, i32 32767)
   %.0.i = trunc nsw i32 %170 to i16
-  %171 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv177
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv177
   store i16 %.0.i, ptr %171, align 2, !tbaa !36
   %172 = shl nsw i32 %170, 5
   store i32 %172, ptr %165, align 4, !tbaa !18
@@ -2379,19 +2378,19 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 
 .preheader132:                                    ; preds = %163, %.preheader132
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader132 ], [ 0, %163 ]
-  %173 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv172
   %174 = load i32, ptr %173, align 4, !tbaa !18
   %175 = add nsw i32 %174, 16
   %176 = lshr i32 %175, 5
   %177 = trunc i32 %176 to i16
-  %178 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv172
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv172
   store i16 %177, ptr %178, align 2, !tbaa !36
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count
   br i1 %exitcond176.not, label %.loopexit, label %.preheader132, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.preheader132, %.preheader
-  %179 = getelementptr i32, ptr %4, i64 %wide.trip.count
+  %179 = getelementptr [4 x i8], ptr %4, i64 %wide.trip.count
   %180 = getelementptr i8, ptr %179, i64 -4
   %181 = add nsw i64 %wide.trip.count, -1
   br label %182
@@ -2404,12 +2403,12 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 183:                                              ; preds = %183, %182
   %indvars.iv.i121 = phi i64 [ 0, %182 ], [ %indvars.iv.next.i122, %183 ]
   %.06383.i = phi i32 [ 0, %182 ], [ %187, %183 ]
-  %184 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i121
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i121
   %185 = load i16, ptr %184, align 2, !tbaa !36
   %186 = sext i16 %185 to i32
   %187 = add nsw i32 %.06383.i, %186
   %188 = shl nsw i32 %186, 12
-  %189 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i121
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i121
   store i32 %188, ptr %189, align 4, !tbaa !18
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count
@@ -2427,7 +2426,7 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 
 .loopexit.i.loopexit:                             ; preds = %258
   %indvars.iv.next102.i = add nsw i64 %indvars.iv101.i, -1
-  %195 = getelementptr inbounds i32, ptr %211, i64 %indvars.iv.next102.i
+  %195 = getelementptr inbounds [4 x i8], ptr %211, i64 %indvars.iv.next102.i
   %196 = load i32, ptr %195, align 4, !tbaa !18
   %197 = add i32 %196, -16773023
   %198 = icmp ult i32 %197, -33546045
@@ -2455,7 +2454,7 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 
 .lr.ph.i125:                                      ; preds = %.lr.ph90.i
   %210 = and i64 %indvars.iv101.i, 1
-  %211 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 %210
+  %211 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %210
   %212 = icmp ugt i32 %204, 65535
   %213 = lshr i32 %204, 16
   %spec.select.i.i = select i1 %212, i32 %213, i32 %204
@@ -2489,15 +2488,15 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
   %237 = sext i32 %235 to i64
   %238 = zext nneg i32 %220 to i64
   %wide.trip.count99.i = and i64 %indvars.iv101.i, 4294967295
-  %239 = getelementptr i32, ptr %.06687.i, i64 %indvars.iv101.i
+  %239 = getelementptr [4 x i8], ptr %.06687.i, i64 %indvars.iv101.i
   br label %240
 
 240:                                              ; preds = %258, %.lr.ph.i125
   %indvars.iv96.i = phi i64 [ 0, %.lr.ph.i125 ], [ %indvars.iv.next97.i, %258 ]
-  %241 = getelementptr inbounds nuw i32, ptr %.06687.i, i64 %indvars.iv96.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %.06687.i, i64 %indvars.iv96.i
   %242 = load i32, ptr %241, align 4, !tbaa !18
   %243 = xor i64 %indvars.iv96.i, -1
-  %244 = getelementptr i32, ptr %239, i64 %243
+  %244 = getelementptr [4 x i8], ptr %239, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !18
   %246 = sext i32 %245 to i64
   %247 = mul i64 %236, %246
@@ -2516,7 +2515,7 @@ silk_lsp2poly.exit119:                            ; preds = %silk_lsp2poly.exit1
 
 258:                                              ; preds = %240
   %259 = trunc nsw i64 %256 to i32
-  %260 = getelementptr inbounds nuw i32, ptr %211, i64 %indvars.iv96.i
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %indvars.iv96.i
   store i32 %259, ptr %260, align 4, !tbaa !18
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
@@ -2539,7 +2538,7 @@ silk_is_lpc_stable.exit:                          ; preds = %.lr.ph90.i
 264:                                              ; preds = %262, %264
   %indvars.iv182 = phi i64 [ 0, %262 ], [ %indvars.iv.next183, %264 ]
   %.095150 = phi i32 [ %263, %262 ], [ %280, %264 ]
-  %265 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv182
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv182
   %266 = load i32, ptr %265, align 4, !tbaa !18
   %267 = sext i32 %266 to i64
   %268 = zext i32 %.095150 to i64
@@ -2552,7 +2551,7 @@ silk_is_lpc_stable.exit:                          ; preds = %.lr.ph90.i
   %274 = add nsw i32 %273, 16
   %275 = lshr i32 %274, 5
   %276 = trunc i32 %275 to i16
-  %277 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv182
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv182
   store i16 %276, ptr %277, align 2, !tbaa !36
   %278 = mul i32 %.095150, %263
   %279 = add i32 %278, 32768
@@ -2571,11 +2570,11 @@ silk_is_lpc_stable.exit:                          ; preds = %.lr.ph90.i
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %.critedge ], [ 0, %.critedge.preheader ]
-  %283 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv188
+  %283 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv188
   %284 = load i16, ptr %283, align 2, !tbaa !36
   %285 = sitofp i16 %284 to float
   %286 = fmul nnan nsz float %285, 0x3F30000000000000
-  %287 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv188
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv188
   store float %286, ptr %287, align 4, !tbaa !31
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count

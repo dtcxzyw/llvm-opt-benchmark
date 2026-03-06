@@ -527,7 +527,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.critedge.us ], [ 0, %.lr.ph ]
   %98 = load ptr, ptr %97, align 8, !tbaa !109
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv17
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv17
   %100 = load ptr, ptr %99, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -548,7 +548,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
   %109 = load ptr, ptr %97, align 8, !tbaa !109
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8

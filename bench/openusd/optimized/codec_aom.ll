@@ -309,17 +309,17 @@ define internal range(i32 0, 2) i32 @aomCodecGetNextImage(ptr noundef readonly c
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 72
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 64
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv
   store ptr %158, ptr %159, align 8
   %160 = load ptr, ptr %8, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 72
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 88
-  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %indvars.iv
   store i32 %165, ptr %166, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %167 = icmp samesign ult i64 %indvars.iv, 2

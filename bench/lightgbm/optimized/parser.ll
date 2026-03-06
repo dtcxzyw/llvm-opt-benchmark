@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::allocator" = type { i8 }
-%"struct.std::pair.34" = type { i32, double }
 %"class.json11_internal_lightgbm::Json" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -1387,7 +1386,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !20
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !28
   ret void
 }
@@ -2889,7 +2888,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !20
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !28
   ret void
 
@@ -3888,7 +3887,7 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42:    ; preds = %39
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %67
   %.03275.us = phi i64 [ %68, %67 ], [ 2, %.lr.ph.split.us.split.preheader ]
-  %58 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275.us
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.03275.us
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   store i32 0, ptr %8, align 4, !tbaa !4
   store i32 0, ptr %9, align 4, !tbaa !4
@@ -3939,7 +3938,7 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us: ; preds = %60
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %79
   %.03275.us76 = phi i64 [ %80, %79 ], [ 2, %.lr.ph.split ]
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275.us76
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.03275.us76
   %71 = load ptr, ptr %70, align 8, !tbaa !15
   store i32 0, ptr %8, align 4, !tbaa !4
   store i32 0, ptr %9, align 4, !tbaa !4
@@ -3986,7 +3985,7 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us80: ; preds = %72
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47
   %.03275 = phi i64 [ %92, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47 ], [ 2, %.lr.ph.split ]
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %.03275
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.03275
   %83 = load ptr, ptr %82, align 8, !tbaa !15
   store i32 0, ptr %8, align 4, !tbaa !4
   store i32 0, ptr %9, align 4, !tbaa !4
@@ -5256,13 +5255,13 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit: ; preds = %121, %124, %
 
 139:                                              ; preds = %136
   %140 = sub nsw i64 0, %.1107.i
-  %141 = getelementptr inbounds nuw double, ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12power_of_ten, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12power_of_ten, i64 %140
   %142 = load double, ptr %141, align 8, !tbaa !145
   %143 = fdiv double %137, %142
   br label %148
 
 144:                                              ; preds = %136
-  %145 = getelementptr inbounds nuw double, ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12power_of_ten, i64 %.1107.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12power_of_ten, i64 %.1107.i
   %146 = load double, ptr %145, align 8, !tbaa !145
   %147 = fmul double %146, %137
   br label %148
@@ -5283,7 +5282,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit: ; preds = %121, %124, %
 
 154:                                              ; preds = %150
   %155 = add nsw i64 %.1107.i, 325
-  %156 = getelementptr inbounds i64, ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE11mantissa_64, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE11mantissa_64, i64 %155
   %157 = load i64, ptr %156, align 8, !tbaa !19
   %158 = mul nsw i64 %.1107.i, 217706
   %159 = ashr i64 %158, 16
@@ -5306,7 +5305,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit: ; preds = %121, %124, %
   br i1 %173, label %174, label %190
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i64, ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12mantissa_128, i64 %155
+  %175 = getelementptr inbounds [8 x i8], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12mantissa_128, i64 %155
   %176 = load i64, ptr %175, align 8, !tbaa !19
   %177 = zext i64 %176 to i128
   %178 = mul nuw i128 %177, %163
@@ -6354,7 +6353,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJRiRdEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %64, ptr %2, align 8, !tbaa !168
   store ptr %70, ptr %17, align 8, !tbaa !161
-  %72 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %64, i64 %62
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %62
   store ptr %72, ptr %18, align 8, !tbaa !164
   br label %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.preheader
 
@@ -6502,7 +6501,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJiRdEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %42, ptr %2, align 8, !tbaa !168
   store ptr %47, ptr %9, align 8, !tbaa !161
-  %49 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %49, ptr %10, align 8, !tbaa !164
   br label %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJiRdEEEvDpOT_.exit
 
@@ -6666,7 +6665,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairIidESaIS1_EE17_M_realloc_insertIJiRdEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorISt4pairIidESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %42, ptr %2, align 8, !tbaa !168
   store ptr %47, ptr %9, align 8, !tbaa !161
-  %49 = getelementptr inbounds nuw %"struct.std::pair.34", ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %49, ptr %10, align 8, !tbaa !164
   br label %_ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJiRdEEEvDpOT_.exit
 
@@ -10764,7 +10763,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i37, ptr %6, align 8, !tbaa !20
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %77, ptr %76, align 8, !tbaa !28
   ret void
 

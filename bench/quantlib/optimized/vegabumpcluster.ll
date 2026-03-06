@@ -782,7 +782,7 @@ _ZNK5boost10shared_ptrIN8QuantLib11MarketModelEEptEv.exit15: ; preds = %if.end16
   %call21 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14firstAliveRateEv(ptr noundef nonnull align 8 dereferenceable(128) %call20)
   %15 = load i64, ptr %stepEnd_, align 8, !tbaa !12
   %16 = load ptr, ptr %call21, align 8, !tbaa !28
-  %17 = getelementptr i64, ptr %16, i64 %15
+  %17 = getelementptr [8 x i8], ptr %16, i64 %15
   %add.ptr.i = getelementptr i8, ptr %17, i64 -8
   %18 = load i64, ptr %add.ptr.i, align 8, !tbaa !19
   %rateBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -923,7 +923,7 @@ invoke.cont23.us.us:                              ; preds = %invoke.cont19.us.us
 
 invoke.cont25.us.us:                              ; preds = %invoke.cont23.us.us
   %15 = load ptr, ptr %call26.us.us, align 8, !tbaa !28
-  %add.ptr.i.us.us = getelementptr inbounds nuw i64, ptr %15, i64 %s.097.us.us
+  %add.ptr.i.us.us = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %s.097.us.us
   %16 = load i64, ptr %add.ptr.i.us.us, align 8, !tbaa !19
   %cmp2993.us.us = icmp ult i64 %16, %call10
   %add37.us.us = add nuw i64 %s.097.us.us, 1
@@ -1007,7 +1007,7 @@ if.then.i20.i.i.us.us.us.us:                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.us.us.us.us: ; preds = %if.then.i20.i.i.us.us.us.us, %_ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.us.us.us.us
   store ptr %call5.i.i.i.i.i41.us.us.us.us, ptr %this, align 8, !tbaa !36
   store ptr %incdec.ptr.i.i.us.us.us.us, ptr %_M_finish.i42, align 8, !tbaa !32
-  %add.ptr19.i.i.us.us.us.us = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %call5.i.i.i.i.i41.us.us.us.us, i64 %cond.i.i.i.us.us.us.us
+  %add.ptr19.i.i.us.us.us.us = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i.i.i41.us.us.us.us, i64 %cond.i.i.i.us.us.us.us
   store ptr %add.ptr19.i.i.us.us.us.us, ptr %_M_end_of_storage.i43, align 8, !tbaa !34
   br label %invoke.cont41.us.us.us.us
 
@@ -1118,7 +1118,7 @@ invoke.cont23:                                    ; preds = %invoke.cont19
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %33 = load ptr, ptr %call26, align 8, !tbaa !28
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %33, i64 %s.097
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %s.097
   %34 = load i64, ptr %add.ptr.i, align 8, !tbaa !19
   %cmp2993 = icmp ult i64 %34, %call10
   %add44 = add nuw i64 %s.097, 1
@@ -1226,7 +1226,7 @@ if.then.i20.i.i72:                                ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i73: ; preds = %if.then.i20.i.i72, %_ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i68
   store ptr %call5.i.i.i.i.i78, ptr %this, align 8, !tbaa !36
   store ptr %incdec.ptr.i.i70, ptr %_M_finish.i42, align 8, !tbaa !32
-  %add.ptr19.i.i74 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %call5.i.i.i.i.i78, i64 %cond.i.i.i57
+  %add.ptr19.i.i74 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i.i.i78, i64 %cond.i.i.i57
   store ptr %add.ptr19.i.i74, ptr %_M_end_of_storage.i43, align 8, !tbaa !34
   br label %invoke.cont48
 
@@ -1803,9 +1803,9 @@ for.body57.us.us.us:                              ; preds = %for.cond61.for.cond
 
 for.body66.us.us.us:                              ; preds = %for.body66.us.us.us, %for.body57.us.us.us
   %s.0151.us.us.us = phi i64 [ %27, %for.body57.us.us.us ], [ %inc71.us.us.us, %for.body66.us.us.us ]
-  %add.ptr.i.us.us.us = getelementptr inbounds nuw %"class.std::vector.39", ptr %29, i64 %s.0151.us.us.us
+  %add.ptr.i.us.us.us = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %s.0151.us.us.us
   %30 = load ptr, ptr %add.ptr.i.us.us.us, align 8, !tbaa !68
-  %add.ptr.i45.us.us.us = getelementptr inbounds nuw %"class.std::valarray", ptr %30, i64 %r.0153.us.us.us
+  %add.ptr.i45.us.us.us = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %r.0153.us.us.us
   %_M_data.i46.us.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i45.us.us.us, i64 8
   %31 = load ptr, ptr %_M_data.i46.us.us.us, align 8, !tbaa !61
   %arrayidx.i.us.us.us = getelementptr inbounds nuw i8, ptr %31, i64 %f.0155.us.us
@@ -2033,7 +2033,7 @@ invoke.cont120:                                   ; preds = %invoke.cont116
 
 invoke.cont122:                                   ; preds = %invoke.cont120
   %58 = load ptr, ptr %call123, align 8, !tbaa !28
-  %add.ptr.i79 = getelementptr inbounds nuw i64, ptr %58, i64 %s87.0
+  %add.ptr.i79 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %s87.0
   %59 = load i64, ptr %add.ptr.i79, align 8, !tbaa !19
   br label %for.cond125
 
@@ -2080,9 +2080,9 @@ lpad115.loopexit.split-lp:                        ; preds = %invoke.cont116, %in
 
 for.body135:                                      ; preds = %invoke.cont131
   %63 = load ptr, ptr %v, align 8, !tbaa !73
-  %add.ptr.i85 = getelementptr inbounds nuw %"class.std::vector.39", ptr %63, i64 %s87.0
+  %add.ptr.i85 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %s87.0
   %64 = load ptr, ptr %add.ptr.i85, align 8, !tbaa !68
-  %add.ptr.i86 = getelementptr inbounds nuw %"class.std::valarray", ptr %64, i64 %r113.0
+  %add.ptr.i86 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %r113.0
   %_M_data.i87 = getelementptr inbounds nuw i8, ptr %add.ptr.i86, i64 8
   %65 = load ptr, ptr %_M_data.i87, align 8, !tbaa !61
   %arrayidx.i88 = getelementptr inbounds nuw i8, ptr %65, i64 %f100.0
@@ -2740,9 +2740,9 @@ for.body57.us.us.us:                              ; preds = %for.cond61.for.cond
 for.body66.us.us.us:                              ; preds = %for.body66.us.us.us, %for.body57.us.us.us
   %s.066.us.us.us = phi i64 [ %43, %for.body57.us.us.us ], [ %inc78.us.us.us, %for.body66.us.us.us ]
   %numberFailures.365.us.us.us = phi i64 [ %numberFailures.268.us.us.us, %for.body57.us.us.us ], [ %spec.select.us.us.us, %for.body66.us.us.us ]
-  %add.ptr.i.us.us.us = getelementptr inbounds nuw %"class.std::vector.39", ptr %45, i64 %s.066.us.us.us
+  %add.ptr.i.us.us.us = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %s.066.us.us.us
   %46 = load ptr, ptr %add.ptr.i.us.us.us, align 8, !tbaa !68
-  %add.ptr.i55.us.us.us = getelementptr inbounds nuw %"class.std::valarray", ptr %46, i64 %r.069.us.us.us
+  %add.ptr.i55.us.us.us = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %r.069.us.us.us
   %_M_data.i56.us.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i55.us.us.us, i64 8
   %47 = load ptr, ptr %_M_data.i56.us.us.us, align 8, !tbaa !61
   %arrayidx.i.us.us.us = getelementptr inbounds nuw i8, ptr %47, i64 %f.073.us.us
@@ -2970,7 +2970,7 @@ if.then.i30:                                      ; preds = %_ZNSt6vectorISt8val
 _ZNSt12_Vector_baseISt8valarrayIbESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt8valarrayIbESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit29, %if.then.i30
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !68
   store ptr %__cur.0.lcssa.i.i.i28, ptr %_M_finish.i.i, align 8, !tbaa !63
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::valarray", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !65
   ret void
 
@@ -3157,7 +3157,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIS_ISt8
 _ZNSt12_Vector_baseISt6vectorISt8valarrayIbESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_ISt8valarrayIbESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit31, %if.then.i32
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !73
   store ptr %__cur.0.lcssa.i.i.i30, ptr %_M_finish.i.i, align 8, !tbaa !75
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::vector.39", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !77
   ret void
 

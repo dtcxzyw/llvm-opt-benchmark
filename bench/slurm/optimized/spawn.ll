@@ -111,7 +111,7 @@ define dso_local void @spawn_subcmd_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader14, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader14 ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %6, align 4
@@ -138,7 +138,7 @@ define dso_local void @spawn_subcmd_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph19:                                         ; preds = %.preheader13, %.lr.ph19
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph19 ], [ 0, %.preheader13 ]
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv30
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv30
   tail call void @slurm_xfree(ptr noundef %19) #10
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %20 = load i32, ptr %16, align 8
@@ -165,7 +165,7 @@ define dso_local void @spawn_subcmd_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph23 ], [ 0, %.preheader ]
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv33
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv33
   tail call void @slurm_xfree(ptr noundef %29) #10
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %30 = load i32, ptr %26, align 8
@@ -224,7 +224,7 @@ define dso_local void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader14, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader14 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %10) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %7, align 4
@@ -251,7 +251,7 @@ define dso_local void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph19:                                         ; preds = %.preheader13, %.lr.ph19
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph19 ], [ 0, %.preheader13 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv30
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv30
   tail call void @slurm_xfree(ptr noundef %20) #10
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %21 = load i32, ptr %17, align 4
@@ -278,7 +278,7 @@ define dso_local void @spawn_req_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph23:                                         ; preds = %.preheader, %.lr.ph23
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph23 ], [ 0, %.preheader ]
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv33
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv33
   %31 = load ptr, ptr %30, align 8
   tail call void @spawn_subcmd_free(ptr noundef %31)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -357,7 +357,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
 28:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %.not100 = icmp eq ptr %31, null
   br i1 %.not100, label %36, label %32
@@ -372,7 +372,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
   %.083 = phi i32 [ %35, %32 ], [ 0, %28 ]
   tail call void @slurm_packmem(ptr noundef %31, i32 noundef %.083, ptr noundef %1) #10
   %37 = load ptr, ptr %25, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %.not101 = icmp eq ptr %39, null
   br i1 %.not101, label %44, label %40
@@ -395,7 +395,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
 48:                                               ; preds = %.lr.ph110, %._crit_edge108
   %indvars.iv122 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next123, %._crit_edge108 ]
   %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv122
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv122
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %.not96 = icmp eq ptr %52, null
@@ -427,7 +427,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
 64:                                               ; preds = %.lr.ph104, %72
   %indvars.iv116 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next117, %72 ]
   %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv116
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv116
   %67 = load ptr, ptr %66, align 8
   %.not99 = icmp eq ptr %67, null
   br i1 %.not99, label %72, label %68
@@ -463,7 +463,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
 81:                                               ; preds = %.lr.ph107, %97
   %indvars.iv119 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next120, %97 ]
   %82 = load ptr, ptr %79, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv119
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv119
   %84 = load ptr, ptr %83, align 8
   %.not97 = icmp eq ptr %84, null
   br i1 %.not97, label %89, label %85
@@ -478,7 +478,7 @@ define dso_local void @spawn_req_pack(ptr noundef readonly captures(none) %0, pt
   %.079 = phi i32 [ %88, %85 ], [ 0, %81 ]
   tail call void @slurm_packmem(ptr noundef %84, i32 noundef %.079, ptr noundef %1) #10
   %90 = load ptr, ptr %80, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv119
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv119
   %92 = load ptr, ptr %91, align 8
   %.not98 = icmp eq ptr %92, null
   br i1 %.not98, label %97, label %93
@@ -660,7 +660,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %65 = load ptr, ptr %49, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %66, ptr noundef nonnull %4, ptr noundef %1) #10
   %.not167 = icmp eq i32 %67, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -669,7 +669,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = load ptr, ptr %59, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %71 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %70, ptr noundef nonnull %5, ptr noundef %1) #10
   %.not168 = icmp eq i32 %71, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -688,10 +688,10 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %indvars.iv214 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next215, %.loopexit ]
   %75 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @__func__.spawn_subcmd_new) #10
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv214
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv214
   store ptr %75, ptr %77, align 8
   %78 = load ptr, ptr %73, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv214
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv214
   %80 = load ptr, ptr %79, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %81 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %80, ptr noundef nonnull %6, ptr noundef %1) #10
@@ -740,7 +740,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %95 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %99 = load ptr, ptr %93, align 8
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv208
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv208
   %101 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %100, ptr noundef nonnull %7, ptr noundef %1) #10
   %.not166 = icmp eq i32 %101, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -803,7 +803,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %indvars.iv211 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next212, %120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = load ptr, ptr %109, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv211
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv211
   %127 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %126, ptr noundef nonnull %8, ptr noundef %1) #10
   %.not164 = icmp eq i32 %127, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -812,7 +812,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
 128:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %129 = load ptr, ptr %119, align 8
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv211
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv211
   %131 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %130, ptr noundef nonnull %9, ptr noundef %1) #10
   %.not165 = icmp eq i32 %131, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -956,7 +956,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_resp_unpack(ptr noundef writeonly c
 .lr.ph:                                           ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader ]
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = call i32 @slurm_unpack32(ptr noundef %31, ptr noundef %1) #10
   %.not39 = icmp eq i32 %32, 0
   br i1 %.not39, label %26, label %.thread
@@ -1056,7 +1056,7 @@ define dso_local void @spawn_resp_pack(ptr noundef readonly captures(none) %0, p
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   tail call void @slurm_pack32(i32 noundef %22, ptr noundef %1) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1266,12 +1266,12 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %41) #10
   %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef %45) #10
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.17, i32 noundef %41) #10
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef %50) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1343,7 +1343,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %.047.i.i = phi i32 [ 4, %83 ], [ 2, %77 ], [ 2, %63 ]
   %91 = or disjoint i32 %.047.i.i, 1
   %92 = zext nneg i32 %.047.i.i to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %95 = load i32, ptr %94, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %93, ptr noundef nonnull @.str.24, i32 noundef %95) #10
@@ -1361,7 +1361,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %162 ]
   %.14857.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %.249.i.i, %162 ]
   %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i.i
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 @slurm_xstrcmp(ptr noundef %103, ptr noundef nonnull @.str.25) #10
   %.not51.i.i = icmp eq i32 %104, 0
@@ -1371,16 +1371,16 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %106 = load ptr, ptr %6, align 8
   %107 = add nsw i32 %.14857.i.i, 1
   %108 = sext i32 %.14857.i.i to i64
-  %109 = getelementptr inbounds ptr, ptr %106, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %106, i64 %108
   %110 = load ptr, ptr %99, align 8
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i.i
   %112 = load ptr, ptr %111, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %109, ptr noundef nonnull @.str.23, ptr noundef %112) #10
   br label %162
 
 113:                                              ; preds = %100
   %114 = load ptr, ptr %98, align 8
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i.i
   %116 = load ptr, ptr %115, align 8
   %117 = call i32 @slurm_xstrcmp(ptr noundef %116, ptr noundef nonnull @.str.26) #10
   %.not52.i.i = icmp eq i32 %117, 0
@@ -1392,7 +1392,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
 
 120:                                              ; preds = %113
   %121 = load ptr, ptr %98, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i.i
   %123 = load ptr, ptr %122, align 8
   %124 = call i32 @slurm_xstrcmp(ptr noundef %123, ptr noundef nonnull @.str.28) #10
   %.not53.i.i = icmp eq i32 %124, 0
@@ -1402,16 +1402,16 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %126 = load ptr, ptr %6, align 8
   %127 = add nsw i32 %.14857.i.i, 1
   %128 = sext i32 %.14857.i.i to i64
-  %129 = getelementptr inbounds ptr, ptr %126, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %126, i64 %128
   %130 = load ptr, ptr %99, align 8
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i.i
   %132 = load ptr, ptr %131, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %129, ptr noundef nonnull @.str.29, ptr noundef %132) #10
   br label %162
 
 133:                                              ; preds = %120
   %134 = load ptr, ptr %98, align 8
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i.i
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @slurm_xstrcmp(ptr noundef %136, ptr noundef nonnull @.str.30) #10
   %.not54.i.i = icmp eq i32 %137, 0
@@ -1419,14 +1419,14 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %99, align 8
-  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv.i.i
   %141 = load ptr, ptr %140, align 8
   %142 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %5, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.8, ptr noundef %141) #10
   br label %162
 
 143:                                              ; preds = %133
   %144 = load ptr, ptr %98, align 8
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 @slurm_xstrcmp(ptr noundef %146, ptr noundef nonnull @.str.32) #10
   %.not55.i.i = icmp eq i32 %147, 0
@@ -1438,7 +1438,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
 
 150:                                              ; preds = %143
   %151 = load ptr, ptr %98, align 8
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i.i
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i.i
   %153 = load ptr, ptr %152, align 8
   %154 = call i32 @slurm_xstrcmp(ptr noundef %153, ptr noundef nonnull @.str.34) #10
   %.not56.i.i = icmp eq i32 %154, 0
@@ -1450,7 +1450,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
 
 157:                                              ; preds = %150
   %158 = load ptr, ptr %98, align 8
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv.i.i
   %160 = load ptr, ptr %159, align 8
   %161 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.36, ptr noundef %160) #10
   br label %162
@@ -1468,7 +1468,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %166 = load ptr, ptr %66, align 8
   %167 = load ptr, ptr %6, align 8
   %168 = sext i32 %.148.lcssa.i.i to i64
-  %169 = getelementptr inbounds ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %167, i64 %168
   store ptr %166, ptr %169, align 8
   %.359.i.i = add i32 %.148.lcssa.i.i, 1
   %170 = load i32, ptr %67, align 4
@@ -1484,10 +1484,10 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %indvars.iv78.i.i = phi i64 [ 0, %.lr.ph63.i.i ], [ %indvars.iv.next79.i.i, %173 ]
   %indvars.iv76.i.i = phi i64 [ %172, %.lr.ph63.i.i ], [ %indvars.iv.next77.i.i, %173 ]
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv78.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv78.i.i
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv76.i.i
+  %178 = getelementptr inbounds [8 x i8], ptr %177, i64 %indvars.iv76.i.i
   store ptr %176, ptr %178, align 8
   %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
   %indvars.iv.next77.i.i = add nsw i64 %indvars.iv76.i.i, 1
@@ -1506,7 +1506,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
   %.3.lcssa.i.i = phi i32 [ %.359.i.i, %._crit_edge.i.i ], [ %183, %._crit_edge64.loopexit.i.i ]
   %184 = load ptr, ptr %6, align 8
   %185 = sext i32 %.3.lcssa.i.i to i64
-  %186 = getelementptr inbounds ptr, ptr %184, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %184, i64 %185
   store ptr null, ptr %186, align 8
   %187 = call i32 @slurm_get_log_level() #10
   %188 = icmp sgt i32 %187, 6
@@ -1533,7 +1533,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr noundef readonly c
 
 195:                                              ; preds = %.lr.ph69.i.i
   %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv83.i.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv83.i.i
   %198 = load ptr, ptr %197, align 8
   %199 = trunc nuw nsw i64 %indvars.iv83.i.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_single, i32 noundef %199, ptr noundef %198) #10
@@ -1591,7 +1591,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %indvars.iv97.i.i = phi i64 [ 0, %.lr.ph71.i.i ], [ %indvars.iv.next98.i.i, %._crit_edge.i27.i ]
   %.04970.i.i = phi i32 [ 0, %.lr.ph71.i.i ], [ %248, %._crit_edge.i27.i ]
   %219 = load ptr, ptr %215, align 8
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv97.i.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv97.i.i
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %223 = load i32, ptr %222, align 8
@@ -1633,7 +1633,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 240:                                              ; preds = %240, %.lr.ph.i24.i
   %indvars.iv.i25.i = phi i64 [ 0, %.lr.ph.i24.i ], [ %indvars.iv.next.i26.i, %240 ]
   %241 = load ptr, ptr %239, align 8
-  %242 = getelementptr inbounds nuw ptr, ptr %241, i64 %indvars.iv.i25.i
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %indvars.iv.i25.i
   %243 = load ptr, ptr %242, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.47, ptr noundef %243) #10
   %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i25.i, 1
@@ -1763,14 +1763,14 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 300:                                              ; preds = %293, %287, %279
   %.051.i.i = phi i64 [ 5, %293 ], [ 3, %287 ], [ 3, %279 ]
   %301 = load ptr, ptr %2, align 8
-  %302 = getelementptr inbounds nuw ptr, ptr %301, i64 %.051.i.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %.051.i.i
   store ptr @.str.51, ptr %302, align 8
   %303 = load ptr, ptr %2, align 8
-  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %.051.i.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %.051.i.i
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store ptr %4, ptr %305, align 8
   %306 = load ptr, ptr %2, align 8
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %.051.i.i
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %.051.i.i
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   store ptr null, ptr %308, align 8
   %309 = call i32 @slurm_get_log_level() #10
@@ -1827,7 +1827,7 @@ _exec_srun_multiple.exit.i:                       ; preds = %316, %312, %216
   %335 = load ptr, ptr @spawned_srun_pids, align 8
   %336 = load i32, ptr %0, align 8
   %337 = zext i32 %336 to i64
-  %338 = getelementptr inbounds nuw i32, ptr %335, i64 %337
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %337
   store i32 %9, ptr %338, align 4
   br label %339
 
@@ -1876,7 +1876,7 @@ define dso_local void @spawn_job_wait() local_unnamed_addr #0 {
   %14 = phi ptr [ %.pre14.i, %.lr.ph.preheader.i ], [ %26, %25 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
   %.012.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %25 ]
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %25, label %17
@@ -1884,7 +1884,7 @@ define dso_local void @spawn_job_wait() local_unnamed_addr #0 {
 17:                                               ; preds = %.lr.ph.i
   %18 = call i32 @waitpid(i32 noundef %16, ptr noundef nonnull %2, i32 noundef 1) #10
   %19 = load ptr, ptr @spawned_srun_pids, align 8
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %18, %21
   br i1 %22, label %23, label %25
@@ -1940,7 +1940,7 @@ _wait_for_all.exit:                               ; preds = %25, %10
   %40 = phi ptr [ %.pre14.i16, %.lr.ph.preheader.i15 ], [ %52, %51 ]
   %indvars.iv.i18 = phi i64 [ 1, %.lr.ph.preheader.i15 ], [ %indvars.iv.next.i22, %51 ]
   %.012.i19 = phi i32 [ 0, %.lr.ph.preheader.i15 ], [ %.1.i21, %51 ]
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i18
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i18
   %42 = load i32, ptr %41, align 4
   %.not.i20 = icmp eq i32 %42, 0
   br i1 %.not.i20, label %51, label %43
@@ -1948,7 +1948,7 @@ _wait_for_all.exit:                               ; preds = %25, %10
 43:                                               ; preds = %.lr.ph.i17
   %44 = call i32 @waitpid(i32 noundef %42, ptr noundef nonnull %1, i32 noundef 1) #10
   %45 = load ptr, ptr @spawned_srun_pids, align 8
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i18
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i18
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %44, %47
   br i1 %48, label %49, label %51
@@ -1984,7 +1984,7 @@ _wait_for_all.exit24:                             ; preds = %51, %.lr.ph
   %63 = phi i32 [ %35, %.lr.ph30.preheader ], [ %70, %69 ]
   %64 = phi ptr [ %.pre32, %.lr.ph30.preheader ], [ %71, %69 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph30.preheader ], [ %indvars.iv.next, %69 ]
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   %.not13 = icmp eq i32 %66, 0
   br i1 %.not13, label %69, label %67

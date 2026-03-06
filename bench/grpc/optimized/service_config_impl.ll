@@ -80,28 +80,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%"class.std::map.108" = type { %"class.std::_Rb_tree.109" }
-%"class.std::_Rb_tree.109" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.grpc_core::(anonymous namespace)::MethodConfig::Name" = type { %"class.std::optional.118", %"class.std::optional.118" }
-%"class.std::optional.118" = type { %"struct.std::_Optional_base.119" }
-%"struct.std::_Optional_base.119" = type { %"struct.std::_Optional_payload.121" }
-%"struct.std::_Optional_payload.121" = type { %"struct.std::_Optional_payload.base.125", [7 x i8] }
-%"struct.std::_Optional_payload.base.125" = type { %"struct.std::_Optional_payload_base.base.124" }
-%"struct.std::_Optional_payload_base.base.124" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.129" }
 %"struct.std::_Head_base.129" = type { ptr }
-%"class.std::unique_ptr.172" = type { %"struct.std::__uniq_ptr_data.173" }
-%"struct.std::__uniq_ptr_data.173" = type { %"class.std::__uniq_ptr_impl.174" }
-%"class.std::__uniq_ptr_impl.174" = type { %"class.std::tuple.175" }
-%"class.std::tuple.175" = type { %"struct.std::_Tuple_impl.176" }
-%"struct.std::_Tuple_impl.176" = type { %"struct.std::_Head_base.179" }
-%"struct.std::_Head_base.179" = type { ptr }
 
 $_ZN4absl12lts_202407226StatusD2Ev = comdat any
 
@@ -1080,7 +1064,7 @@ _ZNSt12_Vector_baseISt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12P
   store ptr %169, ptr %145, align 8, !tbaa !91
   %185 = getelementptr inbounds nuw i8, ptr %169, i64 %167
   store ptr %185, ptr %164, align 8, !tbaa !92
-  %186 = getelementptr inbounds nuw %"class.std::vector.32", ptr %169, i64 %152
+  %186 = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %152
   store ptr %186, ptr %156, align 8, !tbaa !88
   %.pre = load ptr, ptr %146, align 8, !tbaa !84
   %.pre296 = load ptr, ptr %17, align 8, !tbaa !87
@@ -1165,7 +1149,7 @@ _ZNSt6vectorIS_ISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt
   %237 = phi ptr [ %187, %.lr.ph290 ], [ %320, %_ZN9grpc_core12experimental4JsonD2Ev.exit ]
   %.053289 = phi i64 [ 0, %.lr.ph290 ], [ %318, %_ZN9grpc_core12experimental4JsonD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %238 = getelementptr inbounds nuw %"class.std::map.108", ptr %237, i64 %.053289
+  %238 = getelementptr inbounds nuw [48 x i8], ptr %237, i64 %.053289
   store i8 0, ptr %189, align 8, !tbaa !47, !alias.scope !99
   %239 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %19, ptr noundef nonnull align 8 dereferenceable(48) %238) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1534,7 +1518,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %.val82 = load ptr, ptr %26, align 8, !tbaa !112
-  %352 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::MethodConfig::Name", ptr %.val82, i64 %.054287
+  %352 = getelementptr inbounds nuw [80 x i8], ptr %.val82, i64 %.054287
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 32
   %354 = load i8, ptr %353, align 8, !tbaa !116, !range !82, !noalias !121, !noundef !83
@@ -1880,7 +1864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144: ; preds = %42
   %497 = load i64, ptr %54, align 8, !tbaa !67
   %498 = urem i64 %496, %497
   %499 = load ptr, ptr %52, align 8, !tbaa !59
-  %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %498
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 %498
   %501 = load ptr, ptr %500, align 8, !tbaa !148
   %.not.i.i.i175 = icmp eq ptr %501, null
   br i1 %.not.i.i.i175, label %_ZNKSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS7_EESaISA_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS0_ENS5_9SliceHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit.thread.i, label %502
@@ -3256,7 +3240,7 @@ define linkonce_odr { i64, ptr } @_ZNK9grpc_core17ServiceConfigImpl11json_string
 define linkonce_odr noundef ptr @_ZN9grpc_core17ServiceConfigImpl21GetGlobalParsedConfigEm(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !tbaa !70
-  %5 = getelementptr inbounds nuw %"class.std::unique_ptr.172", ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !75
   ret ptr %6
 }
@@ -3366,7 +3350,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !174
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !172
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !175
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4287,7 +4271,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_112MethodConfig4NameESaIS3_EE11_S_relocateE
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_112MethodConfig4NameESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %72, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112MethodConfig4NameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i
   store ptr %23, ptr %1, align 8, !tbaa !112
   store ptr %71, ptr %3, align 8, !tbaa !115
-  %76 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::MethodConfig::Name", ptr %23, i64 %21
+  %76 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %21
   store ptr %76, ptr %5, align 8, !tbaa !119
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_112MethodConfig4NameESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit
 
@@ -4508,7 +4492,7 @@ _ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_c
 _ZNSt12_Vector_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS6_ESaISt4pairIKS6_S9_EEESaISG_EE13_M_deallocateEPSG_m.exit: ; preds = %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS6_ESaISt4pairIKS6_S9_EEESaISG_EE11_S_relocateEPSG_SJ_SJ_RSH_.exit27, %67
   store ptr %21, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i26, ptr %3, align 8, !tbaa !84
-  %71 = getelementptr inbounds nuw %"class.std::map.108", ptr %21, i64 %15
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %15
   store ptr %71, ptr %66, align 8, !tbaa !164
   ret void
 }
@@ -4620,7 +4604,7 @@ _ZNSt6vectorIS_ISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt
 _ZNSt12_Vector_baseISt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS4_EESaIS7_EESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIS_ISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !92
-  %53 = getelementptr inbounds nuw %"class.std::vector.32", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !88
   ret void
 }
@@ -4734,7 +4718,7 @@ _ZNSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorISt10unique_ptrIN9grpc_core
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !150
   %33 = load ptr, ptr %0, align 8, !tbaa !59
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !148
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4760,7 +4744,7 @@ _ZNSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorISt10unique_ptrIN9grpc_core
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !150
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !148
   br label %49
 
@@ -4930,7 +4914,7 @@ _ZNSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorISt10unique_ptrIN9grpc_core
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !150
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !148
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4945,7 +4929,7 @@ _ZNSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorISt10unique_ptrIN9grpc_core
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !148
   br label %28
 
@@ -5027,7 +5011,7 @@ define linkonce_odr ptr @_ZNKSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorI
   %30 = load i64, ptr %29, align 8, !tbaa !67
   %31 = urem i64 %28, %30
   %32 = load ptr, ptr %0, align 8, !tbaa !59
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !148
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableI10grpc_sliceSt4pairIKS0_PKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS7_EESaISA_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS0_ENS5_9SliceHashENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS2_m.exit, label %35

@@ -121,7 +121,7 @@ define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type7messa
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost4urls7grammar6detail14error_cat_type7messageEiPcm, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5boost4urls7grammar6detail14error_cat_type7messageEiPcm, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 

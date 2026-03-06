@@ -6030,7 +6030,7 @@ common.resume.i:                                  ; preds = %70, %46, %38, %25
   %75 = add nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 1
   %76 = shl nuw nsw i64 %.sroa.12.041.i.i.i.i.i, 2
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 %76
-  %78 = getelementptr inbounds nuw i32, ptr %16, i64 %.sroa.12.041.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.sroa.12.041.i.i.i.i.i
   %79 = load i32, ptr %78, align 4, !alias.scope !933, !noalias !934, !noundef !5
   %80 = call i32 @llvm.bswap.i32(i32 %79)
   store i32 %80, ptr %77, align 1, !alias.scope !971, !noalias !975
@@ -14641,7 +14641,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cbbb7802e5cc8ecE.exit": ; preds = %457, %._crit_edge.i
   %466 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %458, %457 ]
   %467 = load ptr, ptr %57, align 8, !alias.scope !2018, !noalias !2021, !nonnull !5, !noundef !5
-  %468 = getelementptr inbounds { i64, [3 x i64] }, ptr %467, i64 %466
+  %468 = getelementptr inbounds [32 x i8], ptr %467, i64 %466
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %468, ptr noundef nonnull align 8 dereferenceable(32) %56, i64 32, i1 false)
   %469 = add i64 %466, 1
   store i64 %469, ptr %436, align 8, !alias.scope !2018, !noalias !2021

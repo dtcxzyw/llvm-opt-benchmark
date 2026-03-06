@@ -11,7 +11,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_debugfs_
 
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.drm_debugfs_info = type { ptr, ptr, i32, ptr }
-%struct.drm_info_list = type { ptr, ptr, i32, ptr }
 %struct.drm_printer = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [45 x i8] c"DRM GPU VA space (%s) [0x%016llx;0x%016llx]\0A\00", align 1
@@ -156,7 +155,7 @@ define dso_local void @drm_debugfs_create_files(ptr noundef %0, i32 noundef %1, 
 
 12:                                               ; preds = %34, %8
   %13 = phi i64 [ 0, %8 ], [ %35, %34 ]
-  %14 = getelementptr %struct.drm_info_list, ptr %0, i64 %13
+  %14 = getelementptr [32 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
@@ -211,7 +210,7 @@ define dso_local noundef i32 @drm_debugfs_remove_files(ptr noundef readonly capt
 
 9:                                                ; preds = %21, %6
   %10 = phi i64 [ 0, %6 ], [ %22, %21 ]
-  %11 = getelementptr %struct.drm_info_list, ptr %0, i64 %10
+  %11 = getelementptr [32 x i8], ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @debugfs_lookup(ptr noundef %12, ptr noundef %2) #6
   %14 = icmp eq ptr %13, null
@@ -274,7 +273,7 @@ define dso_local void @drm_debugfs_dev_register(ptr noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %17, %1
   %4 = phi i64 [ 0, %1 ], [ %18, %17 ]
-  %5 = getelementptr %struct.drm_debugfs_info, ptr @drm_debugfs_list, i64 %4
+  %5 = getelementptr [32 x i8], ptr @drm_debugfs_list, i64 %4
   %6 = load ptr, ptr %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -360,7 +359,7 @@ define dso_local void @drm_debugfs_add_files(ptr noundef %0, ptr noundef readonl
 
 8:                                                ; preds = %24, %5
   %9 = phi i64 [ 0, %5 ], [ %25, %24 ]
-  %10 = getelementptr %struct.drm_debugfs_info, ptr %1, i64 %9
+  %10 = getelementptr [32 x i8], ptr %1, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8

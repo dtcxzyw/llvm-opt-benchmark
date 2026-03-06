@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
 %struct.expireScanData = type { ptr, i64, i64, i64, i64, i32 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 
 @server = external global %struct.redisServer, align 8
 @activeExpireCycle.current_db = internal unnamed_addr global i32 0, align 4
@@ -258,13 +257,13 @@ define dso_local void @activeExpireCycle(i32 noundef %0) local_unnamed_addr #0 {
   %51 = load i32, ptr @activeExpireCycle.current_db, align 4, !tbaa !10
   %52 = urem i32 %51, %49
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.redisDb, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [88 x i8], ptr %50, i64 %53
   store ptr %54, ptr %2, align 8, !tbaa !19
   %55 = add i32 %51, 1
   store i32 %55, ptr @activeExpireCycle.current_db, align 4, !tbaa !10
   %56 = load i32, ptr @activeExpireHashFieldCycle.currentDb, align 4, !tbaa !10
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.redisDb, ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [88 x i8], ptr %50, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !57
   %.not.i = icmp eq ptr %60, null
@@ -438,7 +437,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %145 = sub nsw i64 %141, %140
   %146 = sitofp i64 %145 to double
   %147 = sext i32 %spec.select116 to i64
-  %148 = getelementptr double, ptr @avg_ttl_factor, i64 %147
+  %148 = getelementptr [8 x i8], ptr @avg_ttl_factor, i64 %147
   %149 = getelementptr i8, ptr %148, i64 -8
   %150 = load double, ptr %149, align 8, !tbaa !64
   %151 = call double @llvm.fmuladd.f64(double %146, double %150, double %144)
@@ -624,14 +623,14 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !56
-  %25 = getelementptr inbounds nuw %struct.redisDb, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [88 x i8], ptr %24, i64 %indvars.iv
   %26 = tail call ptr @dbFindExpires(ptr noundef %25, ptr noundef %15) #10
   %.not38 = icmp eq ptr %26, null
   br i1 %.not38, label %58, label %27
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !56
-  %29 = getelementptr inbounds nuw %struct.redisDb, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %indvars.iv
   %30 = tail call i64 @dictGetSignedIntegerVal(ptr noundef nonnull %26) #10
   %.not45 = icmp slt i64 %11, %30
   br i1 %.not45, label %activeExpireCycleTryExpire.exit, label %31
@@ -906,7 +905,7 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedExpireArgumentsOrReply(ptr n
   %.03957 = phi i32 [ 0, %.lr.ph ], [ %.140, %20 ]
   %.04256 = phi i32 [ 0, %.lr.ph ], [ %.143, %20 ]
   %.04555 = phi i32 [ 0, %.lr.ph ], [ %.146, %20 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !89
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !73
@@ -1520,7 +1519,7 @@ define dso_local void @touchCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.089 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !91
   %10 = load ptr, ptr %6, align 8, !tbaa !88
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !89
   %13 = tail call ptr @lookupKeyRead(ptr noundef %9, ptr noundef %12) #10
   %.not = icmp ne ptr %13, null

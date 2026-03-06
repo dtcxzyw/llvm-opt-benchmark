@@ -50,7 +50,7 @@ define void @Ivy_ManHaigStart(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %20 = phi ptr [ %56, %53 ], [ %15, %8 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val17 = load ptr, ptr %21, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw ptr, ptr %.val17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val17, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = icmp eq ptr %23, null
   br i1 %24, label %53, label %25
@@ -115,7 +115,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %11, align 4, !tbaa !16
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i32, ptr %.pre.i26, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %.pre.i26, i64 %51
   store i32 %30, ptr %52, align 4, !tbaa !26
   %.pre27 = load ptr, ptr %4, align 8, !tbaa !3
   br label %53
@@ -173,9 +173,9 @@ define void @Ivy_ManHaigTrasfer(ptr noundef readonly captures(none) %0, ptr noun
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw ptr, ptr %.val14.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val14.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !31
@@ -228,7 +228,7 @@ Vec_IntFree.exit:                                 ; preds = %1, %8
 
 15:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -730,7 +730,7 @@ define i32 @Ivy_ManHaigCountChoices(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.01725 = phi i32 [ 0, %.lr.ph ], [ %.1, %37 ]
   %.01824 = phi i32 [ 0, %.lr.ph ], [ %.119, %37 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val21, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = icmp eq ptr %12, null
   br i1 %13, label %37, label %14
@@ -824,7 +824,7 @@ define void @Ivy_ManHaigPostprocess(ptr noundef %0, i32 noundef %1) local_unname
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
   %.01725.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %41 ]
   %.01824.i = phi i32 [ 0, %.lr.ph.i ], [ %.119.i, %41 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.val21.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val21.i, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = icmp eq ptr %16, null
   br i1 %17, label %41, label %18
@@ -951,7 +951,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %20 = getelementptr i8, ptr %.val154259, i64 8
   %.val154.val260 = load ptr, ptr %20, align 8, !tbaa !23
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds ptr, ptr %.val154.val260, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.val154.val260, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %.not261 = icmp eq ptr %23, null
   br i1 %.not261, label %.critedge6, label %.critedge4
@@ -961,7 +961,7 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   %24 = phi ptr [ %32, %.lr.ph ], [ %11, %.critedge ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val134 = load ptr, ptr %25, align 8, !tbaa !23
-  %26 = getelementptr inbounds nuw ptr, ptr %.val134, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val134, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
@@ -978,13 +978,13 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
 
 36:                                               ; preds = %.critedge4
   %.val148 = load ptr, ptr %17, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw i32, ptr %.val148, i64 %indvars.iv.next216
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.val148, i64 %indvars.iv.next216
   %38 = load i32, ptr %37, align 4, !tbaa !26
   %.val154 = load ptr, ptr %18, align 8, !tbaa !20
   %39 = getelementptr i8, ptr %.val154, i64 8
   %.val154.val = load ptr, ptr %39, align 8, !tbaa !23
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %.val154.val, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.val154.val, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !24
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %.critedge6, label %.critedge4, !llvm.loop !44
@@ -1022,13 +1022,13 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
 55:                                               ; preds = %.lr.ph184, %62
   %indvars.iv218 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next219, %62 ]
   %.val149 = load ptr, ptr %51, align 8, !tbaa !19
-  %56 = getelementptr inbounds nuw i32, ptr %.val149, i64 %indvars.iv218
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.val149, i64 %indvars.iv218
   %57 = load i32, ptr %56, align 4, !tbaa !26
   %.val155 = load ptr, ptr %54, align 8, !tbaa !20
   %58 = getelementptr i8, ptr %.val155, i64 8
   %.val155.val = load ptr, ptr %58, align 8, !tbaa !23
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds ptr, ptr %.val155.val, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.val155.val, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !24
   %.not127 = icmp eq ptr %61, null
   br i1 %.not127, label %.critedge8.loopexit, label %62
@@ -1075,10 +1075,10 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
 76:                                               ; preds = %.lr.ph188, %82
   %indvars.iv221 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next222, %82 ]
   %.0187 = phi i32 [ 0, %.lr.ph188 ], [ %88, %82 ]
-  %77 = getelementptr inbounds nuw i32, ptr %.val150, i64 %indvars.iv221
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.val150, i64 %indvars.iv221
   %78 = load i32, ptr %77, align 4, !tbaa !26
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %.val156.val, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %.val156.val, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !24
   %.not128 = icmp eq ptr %81, null
   br i1 %.not128, label %.critedge10, label %82
@@ -1104,13 +1104,13 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph198:                                        ; preds = %.critedge10, %156
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %156 ], [ 0, %.critedge10 ]
   %.val151 = load ptr, ptr %70, align 8, !tbaa !19
-  %91 = getelementptr inbounds nuw i32, ptr %.val151, i64 %indvars.iv224
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.val151, i64 %indvars.iv224
   %92 = load i32, ptr %91, align 4, !tbaa !26
   %.val157 = load ptr, ptr %69, align 8, !tbaa !20
   %93 = getelementptr i8, ptr %.val157, i64 8
   %.val157.val = load ptr, ptr %93, align 8, !tbaa !23
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds ptr, ptr %.val157.val, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %.val157.val, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !24
   %.not129 = icmp eq ptr %96, null
   br i1 %.not129, label %.critedge12, label %97
@@ -1262,20 +1262,20 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %164 = getelementptr i8, ptr %.val158265, i64 8
   %.val158.val266 = load ptr, ptr %164, align 8, !tbaa !23
   %165 = sext i32 %163 to i64
-  %166 = getelementptr inbounds ptr, ptr %.val158.val266, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %.val158.val266, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !24
   %.not130267 = icmp eq ptr %167, null
   br i1 %.not130267, label %.critedge14, label %.lr.ph269
 
 168:                                              ; preds = %.lr.ph269
   %.val152 = load ptr, ptr %162, align 8, !tbaa !19
-  %169 = getelementptr inbounds nuw i32, ptr %.val152, i64 %indvars.iv.next228
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %.val152, i64 %indvars.iv.next228
   %170 = load i32, ptr %169, align 4, !tbaa !26
   %.val158 = load ptr, ptr %69, align 8, !tbaa !20
   %171 = getelementptr i8, ptr %.val158, i64 8
   %.val158.val = load ptr, ptr %171, align 8, !tbaa !23
   %172 = sext i32 %170 to i64
-  %173 = getelementptr inbounds ptr, ptr %.val158.val, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %.val158.val, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !24
   %.not130 = icmp eq ptr %174, null
   br i1 %.not130, label %.critedge14, label %.lr.ph269, !llvm.loop !49
@@ -1319,20 +1319,20 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
   %193 = getelementptr i8, ptr %.val159274, i64 8
   %.val159.val275 = load ptr, ptr %193, align 8, !tbaa !23
   %194 = sext i32 %192 to i64
-  %195 = getelementptr inbounds ptr, ptr %.val159.val275, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %.val159.val275, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !24
   %.not131276 = icmp eq ptr %196, null
   br i1 %.not131276, label %.critedge16, label %.lr.ph278
 
 .lr.ph211:                                        ; preds = %.lr.ph278
   %.val153 = load ptr, ptr %190, align 8, !tbaa !19
-  %197 = getelementptr inbounds nuw i32, ptr %.val153, i64 %indvars.iv.next231
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %.val153, i64 %indvars.iv.next231
   %198 = load i32, ptr %197, align 4, !tbaa !26
   %.val159 = load ptr, ptr %69, align 8, !tbaa !20
   %199 = getelementptr i8, ptr %.val159, i64 8
   %.val159.val = load ptr, ptr %199, align 8, !tbaa !23
   %200 = sext i32 %198 to i64
-  %201 = getelementptr inbounds ptr, ptr %.val159.val, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %.val159.val, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !24
   %.not131 = icmp eq ptr %202, null
   br i1 %.not131, label %.critedge16, label %.lr.ph278, !llvm.loop !50

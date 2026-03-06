@@ -448,7 +448,7 @@ define dso_local void @override_max_devs(i32 noundef %0, i32 noundef %1) local_u
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr @stderr, align 8
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds ptr, ptr @if_name, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @if_name, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %13, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %16) #14
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 129, ptr noundef nonnull @__func__.override_max_devs, ptr noundef null) #15
@@ -461,7 +461,7 @@ define dso_local void @override_max_devs(i32 noundef %0, i32 noundef %1) local_u
 
 ._crit_edge:                                      ; preds = %18, %7
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds i32, ptr @if_max_devs, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr @if_max_devs, i64 %20
   store i32 %1, ptr %21, align 4
   br label %22
 
@@ -605,7 +605,7 @@ define dso_local ptr @drive_add(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 
 11:                                               ; preds = %10
   %12 = sext i32 %0 to i64
-  %13 = getelementptr inbounds ptr, ptr @if_name, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @if_name, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @qemu_opt_set(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %14, ptr noundef nonnull @error_abort) #14
   br label %16
@@ -744,7 +744,7 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   call void @qemu_opts_loc_restore(ptr noundef %18) #14
   %19 = load i32, ptr %6, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr @if_name, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr @if_name, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %24 = load i32, ptr %23, align 4
@@ -795,7 +795,7 @@ define dso_local ptr @drive_get_by_index(i32 noundef %0, i32 noundef %1) local_u
 
 5:                                                ; preds = %2
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds i32, ptr @if_max_devs, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr @if_max_devs, i64 %6
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %drive_index_to_unit_id.exit, label %9
@@ -979,7 +979,7 @@ define dso_local noundef ptr @drive_new(ptr noundef %0, i32 noundef %1, ptr noun
 
 .preheader262:                                    ; preds = %3, %.loopexit261
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit261 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw %struct.anon.16, ptr @drive_new.opt_renames, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @drive_new.opt_renames, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -1135,7 +1135,7 @@ qemu_opt_rename.exit:                             ; preds = %13
 
 .preheader260:                                    ; preds = %70, %76
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %76 ], [ 0, %70 ]
-  %73 = getelementptr inbounds nuw ptr, ptr @if_name, i64 %indvars.iv284
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @if_name, i64 %indvars.iv284
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %74) #17
   %.not205 = icmp eq i32 %75, 0
@@ -1163,7 +1163,7 @@ qemu_opt_rename.exit:                             ; preds = %13
   %82 = call i64 @qemu_opt_get_number(ptr noundef %51, ptr noundef nonnull @.str.5, i64 noundef -1) #14
   %83 = trunc i64 %82 to i32
   %84 = sext i32 %.1184 to i64
-  %85 = getelementptr inbounds i32, ptr @if_max_devs, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr @if_max_devs, i64 %84
   %86 = load i32, ptr %85, align 4
   %.not206 = icmp eq i32 %83, -1
   br i1 %.not206, label %drive_index_to_unit_id.exit, label %87
@@ -1321,7 +1321,7 @@ drive_get.exit230:                                ; preds = %131
   %140 = add i32 %.1184, -1
   %or.cond5 = icmp ult i32 %140, 2
   %spec.select = select i1 %or.cond5, ptr %61, ptr @.str.70
-  %141 = getelementptr inbounds ptr, ptr @if_name, i64 %84
+  %141 = getelementptr inbounds [8 x i8], ptr @if_name, i64 %84
   %142 = load ptr, ptr %141, align 8
   br i1 %.not208250, label %145, label %143
 

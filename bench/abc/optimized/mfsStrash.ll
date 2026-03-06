@@ -105,7 +105,7 @@ define ptr @Abc_MfsConvertAigToHop(ptr noundef %0, ptr noundef %1) local_unnamed
   %19 = phi ptr [ %26, %.lr.ph ], [ %16, %14 ]
   %20 = getelementptr i8, ptr %19, i64 8
   %.val22 = load ptr, ptr %20, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val22, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr @Hop_IthVar(ptr noundef %1, i32 noundef %23) #4
@@ -262,17 +262,17 @@ define void @Abc_MfsConvertHopToAig(ptr noundef captures(none) %0, ptr noundef %
   %.val40.val = load ptr, ptr %25, align 8, !tbaa !54
   %26 = getelementptr i8, ptr %.val40.val, i64 8
   %.val40.val.val = load ptr, ptr %26, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.val41, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !55
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %.val40.val.val, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.val40.val.val, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !26
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %.val44 = load ptr, ptr %5, align 8, !tbaa !56
   %34 = getelementptr i8, ptr %.val44, i64 8
   %.val44.val = load ptr, ptr %34, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw ptr, ptr %.val44.val, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val44.val, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   store ptr %33, ptr %36, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -307,17 +307,17 @@ define void @Abc_MfsConvertHopToAig(ptr noundef captures(none) %0, ptr noundef %
   %.val42.val = load ptr, ptr %48, align 8, !tbaa !54
   %49 = getelementptr i8, ptr %.val42.val, i64 8
   %.val42.val.val = load ptr, ptr %49, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw i32, ptr %.val43, i64 %indvars.iv52
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.val43, i64 %indvars.iv52
   %51 = load i32, ptr %50, align 4, !tbaa !55
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %.val42.val.val, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.val42.val.val, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !52
   %.val45 = load ptr, ptr %5, align 8, !tbaa !56
   %57 = getelementptr i8, ptr %.val45, i64 8
   %.val45.val = load ptr, ptr %57, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw ptr, ptr %.val45.val, i64 %indvars.iv52
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val45.val, i64 %indvars.iv52
   %59 = load ptr, ptr %58, align 8, !tbaa !26
   store ptr %56, ptr %59, align 8, !tbaa !3
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -357,7 +357,7 @@ define ptr @Abc_NtkConstructAig_rec(ptr noundef readonly captures(none) %0, ptr 
   %8 = phi ptr [ %15, %.lr.ph ], [ %5, %3 ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val39 = load ptr, ptr %9, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val39, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = tail call ptr @Aig_ObjCreateCi(ptr noundef %2) #4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -431,7 +431,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %44 = phi ptr [ %56, %55 ], [ %41, %Abc_NtkIncrementTravId.exit ]
   %45 = getelementptr i8, ptr %44, i64 8
   %.val38 = load ptr, ptr %45, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv54
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val38, i64 %indvars.iv54
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   tail call void @Abc_MfsConvertHopToAig(ptr noundef %47, ptr noundef %2)
   %48 = icmp eq ptr %47, %1
@@ -474,7 +474,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %.03650 = phi ptr [ %77, %.lr.ph52 ], [ %63, %.critedge2 ]
   %69 = getelementptr i8, ptr %68, i64 8
   %.val = load ptr, ptr %69, align 8, !tbaa !24
-  %70 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv57
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv57
   %71 = load ptr, ptr %70, align 8, !tbaa !26
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %73 = load ptr, ptr %72, align 8, !tbaa !3
@@ -613,7 +613,7 @@ define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, 
   %15 = phi ptr [ %33, %.lr.ph ], [ %10, %8 ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val85 = load ptr, ptr %16, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val85, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = load ptr, ptr %6, align 8, !tbaa !80
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -648,7 +648,7 @@ define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, 
   %indvars.iv123 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next124, %.critedge4 ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val84 = load ptr, ptr %39, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv123
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val84, i64 %indvars.iv123
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   %42 = load ptr, ptr %14, align 8, !tbaa !82
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
@@ -672,7 +672,7 @@ define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, 
 53:                                               ; preds = %.lr.ph108, %81
   %indvars.iv120 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next121, %81 ]
   %.val100 = load ptr, ptr %52, align 8, !tbaa !71
-  %54 = getelementptr inbounds nuw i32, ptr %.val100, i64 %indvars.iv120
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.val100, i64 %indvars.iv120
   %55 = load i32, ptr %54, align 4, !tbaa !55
   %56 = load ptr, ptr %6, align 8, !tbaa !80
   %57 = getelementptr i8, ptr %56, i64 24
@@ -680,7 +680,7 @@ define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, 
   %58 = getelementptr i8, ptr %.val86, i64 8
   %.val86.val = load ptr, ptr %58, align 8, !tbaa !24
   %59 = sext i32 %55 to i64
-  %60 = getelementptr inbounds ptr, ptr %.val86.val, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.val86.val, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = getelementptr i8, ptr %56, i64 312
   %.val94 = load i32, ptr %62, align 8, !tbaa !78
@@ -769,7 +769,7 @@ define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, 
   %102 = phi ptr [ %109, %.lr.ph114 ], [ %99, %94 ]
   %103 = getelementptr i8, ptr %102, i64 8
   %.val82 = load ptr, ptr %103, align 8, !tbaa !24
-  %104 = getelementptr inbounds nuw ptr, ptr %.val82, i64 %indvars.iv126
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %.val82, i64 %indvars.iv126
   %105 = load ptr, ptr %104, align 8, !tbaa !26
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %107 = load ptr, ptr %106, align 8, !tbaa !3
@@ -790,10 +790,10 @@ define noundef ptr @Abc_NtkConstructAig(ptr noundef readonly captures(none) %0, 
   %.val92.val = load ptr, ptr %114, align 8, !tbaa !54
   %115 = getelementptr i8, ptr %.val92.val, i64 8
   %.val92.val.val = load ptr, ptr %115, align 8, !tbaa !24
-  %116 = getelementptr inbounds nuw i32, ptr %.val93, i64 %indvars.iv129
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.val93, i64 %indvars.iv129
   %117 = load i32, ptr %116, align 4, !tbaa !55
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr %.val92.val.val, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %.val92.val.val, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !26
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
   %122 = load ptr, ptr %121, align 8, !tbaa !3
@@ -845,7 +845,7 @@ define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr
   %14 = phi ptr [ %31, %.lr.ph ], [ %10, %6 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val60 = load ptr, ptr %15, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val60, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = load ptr, ptr %3, align 8, !tbaa !80
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -890,7 +890,7 @@ define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr
   %.05381 = phi ptr [ %.val65, %.lr.ph83 ], [ %.154.lcssa, %.critedge4 ]
   %40 = getelementptr i8, ptr %39, i64 8
   %.val59 = load ptr, ptr %40, align 8, !tbaa !24
-  %41 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv89
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val59, i64 %indvars.iv89
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %43 = load ptr, ptr %37, align 8, !tbaa !82
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 56
@@ -915,7 +915,7 @@ define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv86 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next87, %82 ]
   %.15477 = phi ptr [ %.05381, %.lr.ph79 ], [ %.2, %82 ]
   %.val72 = load ptr, ptr %53, align 8, !tbaa !71
-  %55 = getelementptr inbounds nuw i32, ptr %.val72, i64 %indvars.iv86
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.val72, i64 %indvars.iv86
   %56 = load i32, ptr %55, align 4, !tbaa !55
   %57 = load ptr, ptr %3, align 8, !tbaa !80
   %58 = getelementptr i8, ptr %57, i64 24
@@ -923,7 +923,7 @@ define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr
   %59 = getelementptr i8, ptr %.val61, i64 8
   %.val61.val = load ptr, ptr %59, align 8, !tbaa !24
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %.val61.val, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.val61.val, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %63 = getelementptr i8, ptr %57, i64 312
   %.val66 = load i32, ptr %63, align 8, !tbaa !78

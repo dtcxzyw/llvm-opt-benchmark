@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.NMTUtil::S" = type { ptr, ptr }
 %"struct.VMATree::SummaryDiff" = type { [28 x %"struct.VMATree::SingleDiff"] }
 %"struct.VMATree::SingleDiff" = type { i64, i64 }
-%class.VirtualMemory = type { i64, i64, i64 }
-%class.NativeCallStack = type { [4 x ptr] }
 
 $_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE10remove_allEv = comdat any
 
@@ -66,8 +64,8 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit: ; preds = %6, %12
 
 18:                                               ; preds = %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit, %18
   %indvars.iv = phi i64 [ 0, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %19, align 8
@@ -97,8 +95,8 @@ define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr 
 
 9:                                                ; preds = %4, %9
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %class.VirtualMemory, ptr %8, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %10, align 8
@@ -196,8 +194,8 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %17, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %17 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i.i.i.i
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.16.127.i.i, i64 %indvars.iv.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.16.127.i.i, i64 %indvars.iv.i.i.i.i.i
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %36, align 8
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -215,7 +213,7 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
 _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i.i: ; preds = %39, %.preheader.i.i.i.i.i, %.lr.ph.i.i
   %.sroa.10.2.i.i = phi i32 [ %.0.i.i.i.i.i.i, %39 ], [ %.0.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ %.sroa.10.126.i.i, %.lr.ph.i.i ]
   %.sroa.16.2.i.i = phi ptr [ %25, %39 ], [ %25, %.preheader.i.i.i.i.i ], [ %.sroa.16.127.i.i, %.lr.ph.i.i ]
-  %40 = getelementptr inbounds ptr, ptr %.sroa.16.2.i.i, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds [8 x i8], ptr %.sroa.16.2.i.i, i64 %indvars.iv.i.i
   store ptr %.028.i.i, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -232,7 +230,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %.sroa.16.1.lcssa.i.i = phi ptr [ %.sroa.16.033.i.i, %.preheader.i.i ], [ %.sroa.16.2.i.i, %._crit_edge.loopexit.i.i ]
   %44 = add nsw i32 %.sroa.0.1.lcssa.i.i, -1
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %.sroa.16.1.lcssa.i.i, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.16.1.lcssa.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %.0, null
   br i1 %48, label %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i", label %49
@@ -255,7 +253,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %62 = getelementptr inbounds nuw i8, ptr %.0, i64 25
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i64 noundef %56, i64 noundef %57, i64 noundef %60, ptr noundef %61, ptr noundef %67) #10
@@ -267,7 +265,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %71 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
   %72 = load ptr, ptr %9, align 8
   %73 = sext i32 %.sroa.0.0.copyload.i.i.i.i to i64
-  %74 = getelementptr inbounds %class.NativeCallStack, ptr %72, i64 %73
+  %74 = getelementptr inbounds [32 x i8], ptr %72, i64 %73
   %.0.i.i.i.i = select i1 %71, ptr %8, ptr %74
   tail call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i, ptr noundef nonnull %2) #10
   %75 = load i32, ptr %11, align 8
@@ -351,7 +349,7 @@ define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nound
 
 10:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %27
@@ -371,9 +369,9 @@ define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nound
   %indvars.iv10.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i ], [ %indvars.iv.next11.i.i.i, %19 ]
   %indvars.iv.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv10.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv10.i.i.i
   store ptr %22, ptr %23, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %24 = load i32, ptr %5, align 8
@@ -471,8 +469,8 @@ _ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i: ; preds = %12, %5
 
 18:                                               ; preds = %18, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZN22NativeCallStackStorage4pushERK15NativeCallStack.exit.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %7, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %19, align 8
@@ -505,8 +503,8 @@ define hidden void @_ZN17MemoryFileTracker8Instance11free_memoryEPNS_10MemoryFil
 
 8:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw %class.VirtualMemory, ptr %7, i64 %indvars.iv.i
-  %10 = getelementptr inbounds nuw %"struct.VMATree::SingleDiff", ptr %4, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %9, align 8
@@ -581,7 +579,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance9free_fileEPNS_10MemoryFileE(
 
 10:                                               ; preds = %27, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %27 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
   br i1 %13, label %14, label %27
@@ -601,9 +599,9 @@ define hidden void @_ZN17MemoryFileTracker8Instance9free_fileEPNS_10MemoryFileE(
   %indvars.iv10.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i ], [ %indvars.iv.next11.i.i.i.i, %19 ]
   %indvars.iv.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %19 ]
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv10.i.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv10.i.i.i.i
   store ptr %22, ptr %23, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %24 = load i32, ptr %5, align 8
@@ -661,7 +659,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance20print_all_reports_onEP12out
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @_ZN17MemoryFileTracker8Instance8_trackerE, align 8
   tail call void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef readonly %11, ptr noundef nonnull %0, i64 noundef %1)
@@ -696,14 +694,14 @@ define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySn
 7:                                                ; preds = %.lr.ph, %19
   %indvars.iv15 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next16, %19 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv15
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv15
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %class.VirtualMemory, ptr %1, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -741,14 +739,14 @@ define hidden void @_ZN17MemoryFileTracker8Instance16summary_snapshotEP21Virtual
 7:                                                ; preds = %19, %.lr.ph.i
   %indvars.iv15.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next16.i, %19 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv15.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv15.i
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %11, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw %class.VirtualMemory, ptr %0, i64 %indvars.iv.i
-  %13 = getelementptr inbounds nuw %class.VirtualMemory, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -821,7 +819,7 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
 9:                                                ; preds = %7
   %indvars.iv105 = add nsw i64 %indvars.iv105.in, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %10 = getelementptr inbounds ptr, ptr %.sroa.34.0.ph, i64 %indvars.iv.next
+  %10 = getelementptr inbounds [8 x i8], ptr %.sroa.34.0.ph, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
@@ -870,8 +868,8 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
 
 .lr.ph.i.i.i21:                                   ; preds = %18, %.lr.ph.i.i.i21
   %indvars.iv.i.i.i22 = phi i64 [ %indvars.iv.next.i.i.i23, %.lr.ph.i.i.i21 ], [ 0, %18 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i.i22
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.34.0.ph, i64 %indvars.iv.i.i.i22
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i.i22
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.34.0.ph, i64 %indvars.iv.i.i.i22
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %36, align 8
   %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
@@ -886,7 +884,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %.sroa.20.2 = phi i32 [ %.0.i.i.i.i10, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE4growEi.exit.i15 ], [ %.sroa.20.0.ph, %13 ]
   %.sroa.34.2 = phi ptr [ %25, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE4growEi.exit.i15 ], [ %.sroa.34.0.ph, %13 ]
   %39 = load ptr, ptr %16, align 8
-  %40 = getelementptr inbounds ptr, ptr %.sroa.34.2, i64 %indvars.iv.next
+  %40 = getelementptr inbounds [8 x i8], ptr %.sroa.34.2, i64 %indvars.iv.next
   store ptr %39, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %42 = icmp eq i32 %.sroa.20.2, %14
@@ -933,8 +931,8 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
 
 .lr.ph.i.i.i41:                                   ; preds = %.lr.ph.i.i.i41.preheader, %.lr.ph.i.i.i41
   %indvars.iv.i.i.i42 = phi i64 [ %indvars.iv.next.i.i.i43, %.lr.ph.i.i.i41 ], [ 0, %.lr.ph.i.i.i41.preheader ]
-  %62 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i.i.i42
-  %63 = getelementptr inbounds nuw ptr, ptr %.sroa.34.2, i64 %indvars.iv.i.i.i42
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i.i.i42
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.34.2, i64 %indvars.iv.i.i.i42
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %62, align 8
   %indvars.iv.next.i.i.i43 = add nuw nsw i64 %indvars.iv.i.i.i42, 1
@@ -1039,9 +1037,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN17Memo
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1058,7 +1056,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN17Memo
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -1082,7 +1080,7 @@ _ZN26GrowableArrayWithAllocatorIPN17MemoryFileTracker10MemoryFileE18GrowableArra
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }

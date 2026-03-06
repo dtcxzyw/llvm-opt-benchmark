@@ -608,7 +608,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   %.184 = phi ptr [ %.0, %.preheader ], [ %26, %25 ]
   %12 = phi i8 [ %8, %.preheader ], [ %.pr, %25 ]
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8192
   %.not66 = icmp eq i16 %16, 0
@@ -623,7 +623,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   %.15994.us = phi ptr [ %23, %.critedge.us ], [ %.058, %.lr.ph96 ]
   %18 = load ptr, ptr %9, align 8
   %19 = zext i8 %17 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 8192
   %.not68.us = icmp eq i16 %22, 0
@@ -649,7 +649,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
   %.15994 = phi ptr [ %.361, %.critedge ], [ %.058, %.lr.ph96 ]
   %28 = load ptr, ptr %9, align 8
   %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8192
   %.not68 = icmp eq i16 %32, 0
@@ -748,7 +748,7 @@ define internal fastcc void @expand(ptr noundef %0, ptr noundef readonly capture
 .lr.ph105:                                        ; preds = %53, %64
   %.057104 = phi i64 [ %65, %64 ], [ 0, %53 ]
   %56 = load ptr, ptr %44, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.057104
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %.057104
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @isTerminalOpt(ptr noundef %58)
   %.not69 = icmp eq i32 %59, 0

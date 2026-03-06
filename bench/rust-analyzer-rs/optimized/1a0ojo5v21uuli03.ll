@@ -349,10 +349,10 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_ea
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf0163032aec056f7E.exit.thread": ; preds = %._crit_edge, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf0163032aec056f7E.exit"
   %.1.i.i71 = phi i64 [ %.1.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf0163032aec056f7E.exit" ], [ 0, %._crit_edge ]
-  %48 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %20, i64 %.1.i.i71
+  %48 = getelementptr inbounds [80 x i8], ptr %20, i64 %.1.i.i71
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %49 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %20, i64 %22
+  %49 = getelementptr inbounds [80 x i8], ptr %20, i64 %22
   %50 = load ptr, ptr %5, align 8, !alias.scope !72, !noalias !75, !nonnull !11, !align !34, !noundef !11
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !72, !noalias !75, !nonnull !11, !align !12, !noundef !11
@@ -398,7 +398,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_ea
 
 72:                                               ; preds = %72, %67
   %.0.i5.i.i = phi i64 [ 0, %67 ], [ %74, %72 ]
-  %73 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %61, i64 %.0.i5.i.i
+  %73 = getelementptr inbounds [80 x i8], ptr %61, i64 %.0.i5.i.i
   call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef align 8 dereferenceable(80) %73), !noalias !87
   %74 = add nuw i64 %.0.i5.i.i, 1
   %75 = icmp eq i64 %74, %71
@@ -460,9 +460,9 @@ select.unfold:                                    ; preds = %43, %39
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd7d5ea79e08ae6d3E.exit.thread": ; preds = %77, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd7d5ea79e08ae6d3E.exit"
   %.1.i.i5375 = phi i64 [ %.1.i.i53, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd7d5ea79e08ae6d3E.exit" ], [ 0, %77 ]
-  %98 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %79, i64 %.1.i.i5375
+  %98 = getelementptr inbounds [80 x i8], ptr %79, i64 %.1.i.i5375
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %99 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %79, i64 %81
+  %99 = getelementptr inbounds [80 x i8], ptr %79, i64 %81
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !103
   store ptr %11, ptr %7, align 8, !noalias !103
   store ptr %13, ptr %.sroa.44.0..sroa_idx.i55, align 8, !noalias !103
@@ -497,7 +497,7 @@ select.unfold:                                    ; preds = %43, %39
 
 114:                                              ; preds = %114, %109
   %.0.i5.i.i60 = phi i64 [ 0, %109 ], [ %116, %114 ]
-  %115 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %103, i64 %.0.i5.i.i60
+  %115 = getelementptr inbounds [80 x i8], ptr %103, i64 %.0.i5.i.i60
   call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef align 8 dereferenceable(80) %115), !noalias !114
   %116 = add nuw i64 %.0.i5.i.i60, 1
   %117 = icmp eq i64 %116, %113
@@ -606,7 +606,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_ea
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0b07c969768843abE.exit.thread": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0b07c969768843abE.exit"
   %43 = sub nuw i64 %17, %.1.i.i
-  %44 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %.1.i.i
+  %44 = getelementptr inbounds [80 x i8], ptr %15, i64 %.1.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %.idx.i = mul nsw i64 %43, 80
   %45 = getelementptr inbounds i8, ptr %44, i64 %.idx.i
@@ -659,7 +659,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_ea
   %67 = load ptr, ptr %66, align 8, !alias.scope !152, !noalias !151, !nonnull !11, !noundef !11
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 16
   %69 = load i64, ptr %68, align 8, !alias.scope !152, !noalias !151, !noundef !11
-  %70 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %67, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %67, i64 %69
   call void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17hb3d5eb21914bccebE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %67, ptr noundef nonnull %70), !noalias !150
   br label %_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i
 
@@ -693,7 +693,7 @@ _ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i: ; preds 
 "_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2621bf0df313b202E.exit.i.i": ; preds = %77, %_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i
   %78 = phi i64 [ %.pre.i.i.i.i, %77 ], [ %74, %_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i ]
   %79 = load ptr, ptr %50, align 8, !alias.scope !157, !noalias !160, !nonnull !11, !noundef !11
-  %80 = getelementptr inbounds { i32, i16, i16 }, ptr %79, i64 %78
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %78
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %80, align 4, !noalias !155
   %81 = load i64, ptr %49, align 8, !alias.scope !157, !noalias !160, !noundef !11
   %82 = add i64 %81, 1
@@ -756,7 +756,7 @@ select.unfold:                                    ; preds = %38, %34
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98421890a5cf79b6E.exit.thread": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98421890a5cf79b6E.exit"
   %106 = sub nuw i64 %89, %.1.i.i57
-  %107 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %87, i64 %.1.i.i57
+  %107 = getelementptr inbounds [80 x i8], ptr %87, i64 %.1.i.i57
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %.idx.i59 = mul nsw i64 %106, 80
   %108 = getelementptr inbounds i8, ptr %107, i64 %.idx.i59
@@ -802,7 +802,7 @@ select.unfold:                                    ; preds = %38, %34
   %125 = load ptr, ptr %124, align 8, !alias.scope !193, !noalias !192, !nonnull !11, !noundef !11
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i61, i64 16
   %127 = load i64, ptr %126, align 8, !alias.scope !193, !noalias !192, !noundef !11
-  %128 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %125, i64 %127
+  %128 = getelementptr inbounds [16 x i8], ptr %125, i64 %127
   call void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17hb3d5eb21914bccebE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %125, ptr noundef nonnull %128), !noalias !191
   br label %_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i65
 
@@ -831,7 +831,7 @@ _ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i65: ; pred
 "_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2621bf0df313b202E.exit.i.i67": ; preds = %135, %_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i65
   %136 = phi i64 [ %.pre.i.i.i.i68, %135 ], [ %132, %_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE.exit.i.i.i65 ]
   %137 = load ptr, ptr %13, align 8, !alias.scope !198, !noalias !201, !nonnull !11, !noundef !11
-  %138 = getelementptr inbounds { i32, i16, i16 }, ptr %137, i64 %136
+  %138 = getelementptr inbounds [8 x i8], ptr %137, i64 %136
   store i64 %.sroa.0.0.copyload.i.i.i66, ptr %138, align 4, !noalias !196
   %139 = load i64, ptr %12, align 8, !alias.scope !198, !noalias !201, !noundef !11
   %140 = add i64 %139, 1

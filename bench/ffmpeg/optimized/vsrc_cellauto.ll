@@ -172,17 +172,17 @@ init_pattern_from_file.exit:                      ; preds = %29
   %69 = add i32 %68, 40
   %70 = and i32 %69, 63
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %60, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !35
   %74 = add i32 %68, 9
   %75 = and i32 %74, 63
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %60, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !35
   %79 = add i32 %78, %73
   %80 = and i32 %68, 63
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %60, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %81
   store i32 %79, ptr %82, align 4, !tbaa !35
   %83 = add i32 %68, 1
   store i32 %83, ptr %64, align 4, !tbaa !34

@@ -247,7 +247,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_register_type(ptr noundef %
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
+  %6 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -401,7 +401,7 @@ define dso_local ptr @xfrm_state_get_afinfo(i32 noundef %0) local_unnamed_addr #
 3:                                                ; preds = %1
   tail call void @__rcu_read_lock() #15
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %4
+  %5 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9, !prof !6
@@ -423,7 +423,7 @@ define dso_local void @xfrm_unregister_type(ptr noundef readonly captures(addres
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
+  %6 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -575,7 +575,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_register_type_offload(ptr n
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
+  %6 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -626,7 +626,7 @@ define dso_local void @xfrm_unregister_type_offload(ptr noundef readonly capture
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #15
   %5 = zext nneg i16 %1 to i64
-  %6 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %5
+  %6 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %5
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.sink.split, label %9, !prof !6
@@ -1397,7 +1397,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 nound
   %11 = phi i32 [ -3, %4 ], [ %119, %.loopexit ]
   %12 = phi i32 [ 0, %4 ], [ %118, %.loopexit ]
   %13 = sext i32 %10 to i64
-  %14 = getelementptr %struct.hlist_head, ptr %9, i64 %13
+  %14 = getelementptr [8 x i8], ptr %9, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %17 = getelementptr i8, ptr %15, i64 -8
@@ -1580,7 +1580,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_state_flush(ptr noundef %0, i8 nound
   %102 = add i32 %23, %70
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %5) #15
   %103 = load ptr, ptr %7, align 16
-  %104 = getelementptr %struct.hlist_head, ptr %103, i64 %13
+  %104 = getelementptr [8 x i8], ptr %103, i64 %13
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   %107 = getelementptr i8, ptr %105, i64 -8
@@ -1727,7 +1727,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_dev_state_flush(ptr noundef %0, ptr 
   %10 = phi i32 [ -3, %3 ], [ %84, %.loopexit ]
   %11 = phi i32 [ 0, %3 ], [ %83, %.loopexit ]
   %12 = sext i32 %9 to i64
-  %13 = getelementptr %struct.hlist_head, ptr %8, i64 %12
+  %13 = getelementptr [8 x i8], ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = getelementptr i8, ptr %14, i64 -8
@@ -1832,7 +1832,7 @@ define dso_local range(i32 -3, 1) i32 @xfrm_dev_state_flush(ptr noundef %0, ptr 
   %67 = add i32 %22, %46
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %4) #15
   %68 = load ptr, ptr %6, align 16
-  %69 = getelementptr %struct.hlist_head, ptr %68, i64 %12
+  %69 = getelementptr [8 x i8], ptr %68, i64 %12
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   %72 = getelementptr i8, ptr %70, i64 -8
@@ -1922,7 +1922,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 2640
   %33 = load ptr, ptr %32, align 16
   %34 = zext i32 %31 to i64
-  %35 = getelementptr %struct.hlist_head, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   %38 = getelementptr i8, ptr %36, i64 -8
@@ -2154,7 +2154,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %193 = tail call fastcc i32 @__xfrm_dst_hash(ptr noundef %0, ptr noundef nonnull @xfrm_state_find.saddr_wildcard, i32 noundef %191, i16 noundef zeroext %17, i32 noundef %192)
   %194 = load ptr, ptr %32, align 16
   %195 = zext i32 %193 to i64
-  %196 = getelementptr %struct.hlist_head, ptr %194, i64 %195
+  %196 = getelementptr [8 x i8], ptr %194, i64 %195
   %197 = load volatile ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, null
   %199 = getelementptr i8, ptr %197, i64 -8
@@ -2441,7 +2441,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %405 = getelementptr inbounds nuw i8, ptr %10, i64 2656
   %406 = load ptr, ptr %405, align 32
   %407 = zext i32 %404 to i64
-  %408 = getelementptr %struct.hlist_head, ptr %406, i64 %407
+  %408 = getelementptr [8 x i8], ptr %406, i64 %407
   %409 = load volatile ptr, ptr %408, align 8
   %410 = icmp eq ptr %409, null
   %411 = getelementptr i8, ptr %409, i64 -40
@@ -2927,7 +2927,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %664 = and i8 %663, 12
   %665 = icmp eq i8 %664, 8
   %.pre139 = load ptr, ptr %32, align 16
-  %.phi.trans.insert = getelementptr %struct.hlist_head, ptr %.pre139, i64 %34
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %.pre139, i64 %34
   br i1 %665, label %..thread72_crit_edge140, label %666
 
 ..thread72_crit_edge140:                          ; preds = %657
@@ -2961,7 +2961,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
 
 .thread72:                                        ; preds = %678, %..thread72_crit_edge140, %666
   %684 = phi ptr [ %.pre141, %..thread72_crit_edge140 ], [ %667, %666 ], [ %667, %678 ]
-  %685 = getelementptr %struct.hlist_head, ptr %.pre139, i64 %34
+  %685 = getelementptr [8 x i8], ptr %.pre139, i64 %34
   store ptr %684, ptr %497, align 8
   %686 = getelementptr inbounds nuw i8, ptr %490, i64 16
   store volatile ptr %685, ptr %686, align 8
@@ -2996,7 +2996,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %.phi.trans.insert143 = getelementptr inbounds nuw i8, ptr %10, i64 2648
   %.pre144 = load ptr, ptr %.phi.trans.insert143, align 8
   %.pre145 = zext i32 %697 to i64
-  %.phi.trans.insert156 = getelementptr %struct.hlist_head, ptr %.pre144, i64 %.pre145
+  %.phi.trans.insert156 = getelementptr [8 x i8], ptr %.pre144, i64 %.pre145
   br i1 %700, label %..thread74_crit_edge142, label %701
 
 ..thread74_crit_edge142:                          ; preds = %695
@@ -3031,7 +3031,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
 .thread74:                                        ; preds = %712, %..thread74_crit_edge142, %701
   %719 = phi ptr [ %.pre157, %..thread74_crit_edge142 ], [ %702, %701 ], [ %702, %712 ]
   %720 = getelementptr inbounds nuw i8, ptr %490, i64 24
-  %721 = getelementptr %struct.hlist_head, ptr %.pre144, i64 %.pre145
+  %721 = getelementptr [8 x i8], ptr %.pre144, i64 %.pre145
   store ptr %719, ptr %720, align 8
   %722 = getelementptr inbounds nuw i8, ptr %490, i64 32
   store volatile ptr %721, ptr %722, align 8
@@ -3154,7 +3154,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %.phi.trans.insert147 = getelementptr inbounds nuw i8, ptr %10, i64 2656
   %.pre148 = load ptr, ptr %.phi.trans.insert147, align 32
   %.pre149 = zext i32 %810 to i64
-  %.phi.trans.insert158 = getelementptr %struct.hlist_head, ptr %.pre148, i64 %.pre149
+  %.phi.trans.insert158 = getelementptr [8 x i8], ptr %.pre148, i64 %.pre149
   br i1 %813, label %..thread76_crit_edge146, label %814
 
 ..thread76_crit_edge146:                          ; preds = %804
@@ -3189,7 +3189,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
 .thread76:                                        ; preds = %825, %..thread76_crit_edge146, %814
   %832 = phi ptr [ %.pre159, %..thread76_crit_edge146 ], [ %815, %814 ], [ %815, %825 ]
   %833 = getelementptr inbounds nuw i8, ptr %490, i64 40
-  %834 = getelementptr %struct.hlist_head, ptr %.pre148, i64 %.pre149
+  %834 = getelementptr [8 x i8], ptr %.pre148, i64 %.pre149
   store ptr %832, ptr %833, align 8
   %835 = getelementptr inbounds nuw i8, ptr %490, i64 48
   store volatile ptr %834, ptr %835, align 8
@@ -3236,7 +3236,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %.phi.trans.insert152 = getelementptr inbounds nuw i8, ptr %10, i64 2664
   %.pre153 = load ptr, ptr %.phi.trans.insert152, align 8
   %.pre154 = zext i32 %856 to i64
-  %.phi.trans.insert160 = getelementptr %struct.hlist_head, ptr %.pre153, i64 %.pre154
+  %.phi.trans.insert160 = getelementptr [8 x i8], ptr %.pre153, i64 %.pre154
   br i1 %859, label %..thread78_crit_edge151, label %860
 
 ..thread78_crit_edge151:                          ; preds = %850
@@ -3271,7 +3271,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
 .thread78:                                        ; preds = %871, %..thread78_crit_edge151, %860
   %878 = phi ptr [ %.pre161, %..thread78_crit_edge151 ], [ %861, %860 ], [ %861, %871 ]
   %879 = getelementptr inbounds nuw i8, ptr %490, i64 56
-  %880 = getelementptr %struct.hlist_head, ptr %.pre153, i64 %.pre154
+  %880 = getelementptr [8 x i8], ptr %.pre153, i64 %.pre154
   store ptr %878, ptr %879, align 8
   %881 = getelementptr inbounds nuw i8, ptr %490, i64 64
   store volatile ptr %880, ptr %881, align 8
@@ -3559,7 +3559,7 @@ define dso_local ptr @xfrm_stateonly_find(ptr noundef %0, i32 noundef %1, i32 no
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %15 = load ptr, ptr %14, align 16
   %16 = zext i32 %13 to i64
-  %17 = getelementptr %struct.hlist_head, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = getelementptr i8, ptr %18, i64 -8
@@ -3795,7 +3795,7 @@ define internal fastcc void @__xfrm_state_bump_genids(ptr noundef readonly captu
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2640
   %20 = load ptr, ptr %19, align 16
   %21 = zext i32 %18 to i64
-  %22 = getelementptr %struct.hlist_head, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   %25 = getelementptr i8, ptr %23, i64 -8
@@ -3967,7 +3967,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 2640
   %.pre = load ptr, ptr %.phi.trans.insert, align 16
   %.pre43 = zext i32 %16 to i64
-  %.phi.trans.insert59 = getelementptr %struct.hlist_head, ptr %.pre, i64 %.pre43
+  %.phi.trans.insert59 = getelementptr [8 x i8], ptr %.pre, i64 %.pre43
   br i1 %20, label %..thread_crit_edge42, label %21
 
 ..thread_crit_edge42:                             ; preds = %1
@@ -4002,7 +4002,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
 .thread:                                          ; preds = %32, %..thread_crit_edge42, %21
   %39 = phi ptr [ %.pre60, %..thread_crit_edge42 ], [ %22, %21 ], [ %22, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = getelementptr %struct.hlist_head, ptr %.pre, i64 %.pre43
+  %41 = getelementptr [8 x i8], ptr %.pre, i64 %.pre43
   store ptr %39, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %41, ptr %42, align 8
@@ -4040,7 +4040,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
   %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %2, i64 2648
   %.pre46 = load ptr, ptr %.phi.trans.insert45, align 8
   %.pre47 = zext i32 %56 to i64
-  %.phi.trans.insert61 = getelementptr %struct.hlist_head, ptr %.pre46, i64 %.pre47
+  %.phi.trans.insert61 = getelementptr [8 x i8], ptr %.pre46, i64 %.pre47
   br i1 %59, label %..thread20_crit_edge44, label %60
 
 ..thread20_crit_edge44:                           ; preds = %53
@@ -4075,7 +4075,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
 .thread20:                                        ; preds = %71, %..thread20_crit_edge44, %60
   %78 = phi ptr [ %.pre62, %..thread20_crit_edge44 ], [ %61, %60 ], [ %61, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = getelementptr %struct.hlist_head, ptr %.pre46, i64 %.pre47
+  %80 = getelementptr [8 x i8], ptr %.pre46, i64 %.pre47
   store ptr %78, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr %80, ptr %81, align 8
@@ -4199,7 +4199,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
   %.phi.trans.insert50 = getelementptr inbounds nuw i8, ptr %2, i64 2656
   %.pre51 = load ptr, ptr %.phi.trans.insert50, align 32
   %.pre52 = zext i32 %170 to i64
-  %.phi.trans.insert63 = getelementptr %struct.hlist_head, ptr %.pre51, i64 %.pre52
+  %.phi.trans.insert63 = getelementptr [8 x i8], ptr %.pre51, i64 %.pre52
   br i1 %173, label %..thread22_crit_edge49, label %174
 
 ..thread22_crit_edge49:                           ; preds = %164
@@ -4234,7 +4234,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
 .thread22:                                        ; preds = %185, %..thread22_crit_edge49, %174
   %192 = phi ptr [ %.pre64, %..thread22_crit_edge49 ], [ %175, %174 ], [ %175, %185 ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %194 = getelementptr %struct.hlist_head, ptr %.pre51, i64 %.pre52
+  %194 = getelementptr [8 x i8], ptr %.pre51, i64 %.pre52
   store ptr %192, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile ptr %194, ptr %195, align 8
@@ -4281,7 +4281,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
   %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %2, i64 2664
   %.pre56 = load ptr, ptr %.phi.trans.insert55, align 8
   %.pre57 = zext i32 %216 to i64
-  %.phi.trans.insert65 = getelementptr %struct.hlist_head, ptr %.pre56, i64 %.pre57
+  %.phi.trans.insert65 = getelementptr [8 x i8], ptr %.pre56, i64 %.pre57
   br i1 %219, label %..thread24_crit_edge54, label %220
 
 ..thread24_crit_edge54:                           ; preds = %210
@@ -4316,7 +4316,7 @@ define internal fastcc void @__xfrm_state_insert(ptr noundef %0) unnamed_addr #0
 .thread24:                                        ; preds = %231, %..thread24_crit_edge54, %220
   %238 = phi ptr [ %.pre66, %..thread24_crit_edge54 ], [ %221, %220 ], [ %221, %231 ]
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %240 = getelementptr %struct.hlist_head, ptr %.pre56, i64 %.pre57
+  %240 = getelementptr [8 x i8], ptr %.pre56, i64 %.pre57
   store ptr %238, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store volatile ptr %240, ptr %241, align 8
@@ -4462,7 +4462,7 @@ define dso_local noundef range(i32 -17, 1) i32 @xfrm_state_add(ptr noundef %0) #
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 2664
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr %struct.hlist_head, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = load volatile ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   %50 = getelementptr i8, ptr %48, i64 -56
@@ -4703,7 +4703,7 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %20 = load ptr, ptr %19, align 16
   %21 = zext i32 %13 to i64
-  %22 = getelementptr %struct.hlist_head, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   %25 = getelementptr i8, ptr %23, i64 -8
@@ -5002,7 +5002,7 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr noundef readonly
   %205 = and i8 %204, 12
   %206 = icmp eq i8 %205, 8
   %.pre = load ptr, ptr %19, align 16
-  %.phi.trans.insert = getelementptr %struct.hlist_head, ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %.pre, i64 %21
   br i1 %206, label %..thread12_crit_edge34, label %207
 
 ..thread12_crit_edge34:                           ; preds = %197
@@ -5036,7 +5036,7 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr noundef readonly
 
 .thread12:                                        ; preds = %219, %..thread12_crit_edge34, %207
   %225 = phi ptr [ %.pre35, %..thread12_crit_edge34 ], [ %208, %207 ], [ %208, %219 ]
-  %226 = getelementptr %struct.hlist_head, ptr %.pre, i64 %21
+  %226 = getelementptr [8 x i8], ptr %.pre, i64 %21
   store ptr %225, ptr %148, align 8
   %227 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store volatile ptr %226, ptr %227, align 8
@@ -5071,7 +5071,7 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr noundef readonly
   %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8
   %.pre39 = zext i32 %238 to i64
-  %.phi.trans.insert40 = getelementptr %struct.hlist_head, ptr %.pre38, i64 %.pre39
+  %.phi.trans.insert40 = getelementptr [8 x i8], ptr %.pre38, i64 %.pre39
   br i1 %241, label %..thread14_crit_edge36, label %242
 
 ..thread14_crit_edge36:                           ; preds = %236
@@ -5106,7 +5106,7 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr noundef readonly
 .thread14:                                        ; preds = %253, %..thread14_crit_edge36, %242
   %260 = phi ptr [ %.pre41, %..thread14_crit_edge36 ], [ %243, %242 ], [ %243, %253 ]
   %261 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %262 = getelementptr %struct.hlist_head, ptr %.pre38, i64 %.pre39
+  %262 = getelementptr [8 x i8], ptr %.pre38, i64 %.pre39
   store ptr %260, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %141, i64 32
   store volatile ptr %262, ptr %263, align 8
@@ -5744,7 +5744,7 @@ define internal fastcc ptr @__xfrm_state_lookup(ptr noundef readonly captures(no
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 2656
   %80 = load ptr, ptr %79, align 32
   %81 = zext i32 %78 to i64
-  %82 = getelementptr %struct.hlist_head, ptr %80, i64 %81
+  %82 = getelementptr [8 x i8], ptr %80, i64 %81
   %83 = load volatile ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   %85 = getelementptr i8, ptr %83, i64 -40
@@ -5944,7 +5944,7 @@ define internal fastcc ptr @__xfrm_state_lookup_byaddr(ptr noundef readonly capt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr %struct.hlist_head, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = getelementptr i8, ptr %14, i64 -24
@@ -6158,7 +6158,7 @@ define dso_local ptr @xfrm_find_acq_byseq(ptr noundef %0, i32 noundef %1, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr %struct.hlist_head, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = getelementptr i8, ptr %16, i64 -56
@@ -6562,7 +6562,7 @@ define dso_local noundef range(i32 -2, 1) i32 @xfrm_alloc_spi(ptr noundef %0, i3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 2656
   %.pre = load ptr, ptr %.phi.trans.insert, align 32
   %.pre28 = zext i32 %177 to i64
-  %.phi.trans.insert29 = getelementptr %struct.hlist_head, ptr %.pre, i64 %.pre28
+  %.phi.trans.insert29 = getelementptr [8 x i8], ptr %.pre, i64 %.pre28
   br i1 %181, label %..thread20_crit_edge27, label %182
 
 ..thread20_crit_edge27:                           ; preds = %171
@@ -6597,7 +6597,7 @@ define dso_local noundef range(i32 -2, 1) i32 @xfrm_alloc_spi(ptr noundef %0, i3
 .thread20:                                        ; preds = %193, %..thread20_crit_edge27, %182
   %200 = phi ptr [ %.pre30, %..thread20_crit_edge27 ], [ %183, %182 ], [ %183, %193 ]
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %202 = getelementptr %struct.hlist_head, ptr %.pre, i64 %.pre28
+  %202 = getelementptr [8 x i8], ptr %.pre, i64 %.pre28
   store ptr %200, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile ptr %202, ptr %203, align 8
@@ -6748,9 +6748,9 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nounde
   %64 = shl nsw i32 -1, %63
   %65 = tail call i32 @llvm.bswap.i32(i32 %64)
   %66 = zext nneg i32 %52 to i64
-  %67 = getelementptr i32, ptr %48, i64 %66
+  %67 = getelementptr [4 x i8], ptr %48, i64 %66
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr i32, ptr %38, i64 %66
+  %69 = getelementptr [4 x i8], ptr %38, i64 %66
   %70 = load i32, ptr %69, align 4
   %71 = xor i32 %70, %68
   %72 = and i32 %71, %65
@@ -6784,9 +6784,9 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nounde
   %92 = shl nsw i32 -1, %91
   %93 = tail call i32 @llvm.bswap.i32(i32 %92)
   %94 = zext nneg i32 %80 to i64
-  %95 = getelementptr i32, ptr %75, i64 %94
+  %95 = getelementptr [4 x i8], ptr %75, i64 %94
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr i32, ptr %76, i64 %94
+  %97 = getelementptr [4 x i8], ptr %76, i64 %94
   %98 = load i32, ptr %97, align 4
   %99 = xor i32 %98, %96
   %100 = and i32 %99, %93
@@ -7317,7 +7317,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_register_afinfo(ptr n
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_state_afinfo_lock) #15
   %6 = load i8, ptr %0, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %7
+  %8 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15, !prof !7
@@ -7326,7 +7326,7 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_register_afinfo(ptr n
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !132
   %12 = load i8, ptr %0, align 8
   %13 = zext i8 %12 to i64
-  %14 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %13
+  %14 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %13
   store volatile ptr %0, ptr %14, align 8
   br label %15
 
@@ -7356,14 +7356,14 @@ define dso_local noundef range(i32 -97, 1) i32 @xfrm_state_unregister_afinfo(ptr
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @xfrm_state_afinfo_lock) #15
   %6 = load i8, ptr %0, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %7
+  %8 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %17, label %11, !prof !6
 
 11:                                               ; preds = %5
   %12 = zext nneg i8 %2 to i64
-  %13 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %12
+  %13 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %16, label %17
@@ -7390,7 +7390,7 @@ define dso_local ptr @xfrm_state_afinfo_get_rcu(i32 noundef %0) #8 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %4
+  %5 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   br label %7
 
@@ -7585,14 +7585,14 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 27:                                               ; preds = %26
   %28 = zext nneg i8 %23 to i64
-  %29 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %28
+  %29 = getelementptr [3 x i8], ptr @xfrm4_mode_map, i64 %28
   %30 = add nsw i8 %23, -4
   %31 = icmp ult i8 %30, -2
   br i1 %31, label %35, label %.thread
 
 32:                                               ; preds = %26
   %33 = zext nneg i8 %23 to i64
-  %34 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %33
+  %34 = getelementptr [3 x i8], ptr @xfrm6_mode_map, i64 %33
   %.not = icmp eq i8 %23, 3
   br i1 %.not, label %.thread, label %35
 
@@ -7638,14 +7638,14 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 51:                                               ; preds = %50
   %52 = zext nneg i8 %23 to i64
-  %53 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %52
+  %53 = getelementptr [3 x i8], ptr @xfrm4_mode_map, i64 %52
   %54 = add nsw i8 %23, -4
   %55 = icmp ult i8 %54, -2
   br i1 %55, label %59, label %.thread24
 
 56:                                               ; preds = %50
   %57 = zext nneg i8 %23 to i64
-  %58 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %57
+  %58 = getelementptr [3 x i8], ptr @xfrm6_mode_map, i64 %57
   %.not20 = icmp eq i8 %23, 3
   br i1 %.not20, label %.thread24, label %59
 
@@ -7670,13 +7670,13 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %8, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %66
+  %68 = getelementptr [3 x i8], ptr @xfrm4_mode_map, i64 %66
   %69 = add nsw i8 %23, -4
   %70 = icmp ult i8 %69, -2
   br i1 %70, label %73, label %.lr.ph.split
 
 71:                                               ; preds = %64
-  %72 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %66
+  %72 = getelementptr [3 x i8], ptr @xfrm6_mode_map, i64 %66
   %.not21 = icmp eq i8 %23, 3
   br i1 %.not21, label %.lr.ph.split, label %73
 
@@ -7707,7 +7707,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %86 = load i8, ptr %85, align 4
   %.pn = zext i16 %6 to i64
-  %87 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %.pn
+  %87 = getelementptr [8 x i8], ptr @xfrm_state_afinfo, i64 %.pn
   %88 = zext i8 %86 to i32
   tail call void @__rcu_read_lock() #15
   %89 = load volatile ptr, ptr %87, align 8
@@ -7868,14 +7868,14 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 
 151:                                              ; preds = %150
   %152 = zext nneg i8 %148 to i64
-  %153 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %152
+  %153 = getelementptr [3 x i8], ptr @xfrm4_mode_map, i64 %152
   %154 = add nsw i8 %148, -4
   %155 = icmp ult i8 %154, -2
   br i1 %155, label %159, label %.thread38
 
 156:                                              ; preds = %150
   %157 = zext nneg i8 %148 to i64
-  %158 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %157
+  %158 = getelementptr [3 x i8], ptr @xfrm6_mode_map, i64 %157
   %.not22 = icmp eq i8 %148, 3
   br i1 %.not22, label %.thread38, label %159
 
@@ -8074,7 +8074,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
 
 33:                                               ; preds = %.loopexit, %31
   %34 = phi i64 [ %32, %31 ], [ %287, %.loopexit ]
-  %35 = getelementptr %struct.hlist_head, ptr %28, i64 %34
+  %35 = getelementptr [8 x i8], ptr %28, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   %38 = getelementptr i8, ptr %36, i64 -8
@@ -8098,7 +8098,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
   %53 = and i8 %52, 12
   %54 = icmp eq i8 %53, 8
   %.phi.trans.insert = zext i32 %50 to i64
-  %.phi.trans.insert50 = getelementptr %struct.hlist_head, ptr %7, i64 %.phi.trans.insert
+  %.phi.trans.insert50 = getelementptr [8 x i8], ptr %7, i64 %.phi.trans.insert
   br i1 %54, label %.preheader34..thread_crit_edge, label %55
 
 .preheader34..thread_crit_edge:                   ; preds = %.preheader34
@@ -8132,7 +8132,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
 
 .thread:                                          ; preds = %67, %.preheader34..thread_crit_edge, %55
   %73 = phi ptr [ %.pre, %.preheader34..thread_crit_edge ], [ %56, %55 ], [ %56, %67 ]
-  %74 = getelementptr %struct.hlist_head, ptr %7, i64 %.phi.trans.insert
+  %74 = getelementptr [8 x i8], ptr %7, i64 %.phi.trans.insert
   store ptr %73, ptr %42, align 8
   %75 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store volatile ptr %74, ptr %75, align 8
@@ -8168,7 +8168,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
   %90 = and i8 %89, 12
   %91 = icmp eq i8 %90, 8
   %.phi.trans.insert52 = zext i32 %88 to i64
-  %.phi.trans.insert53 = getelementptr %struct.hlist_head, ptr %10, i64 %.phi.trans.insert52
+  %.phi.trans.insert53 = getelementptr [8 x i8], ptr %10, i64 %.phi.trans.insert52
   br i1 %91, label %..thread26_crit_edge51, label %92
 
 ..thread26_crit_edge51:                           ; preds = %86
@@ -8203,7 +8203,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
 .thread26:                                        ; preds = %103, %..thread26_crit_edge51, %92
   %110 = phi ptr [ %.pre54, %..thread26_crit_edge51 ], [ %93, %92 ], [ %93, %103 ]
   %111 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %112 = getelementptr %struct.hlist_head, ptr %10, i64 %.phi.trans.insert52
+  %112 = getelementptr [8 x i8], ptr %10, i64 %.phi.trans.insert52
   store ptr %110, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store volatile ptr %112, ptr %113, align 8
@@ -8324,7 +8324,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
   %203 = and i8 %202, 12
   %204 = icmp eq i8 %203, 8
   %.phi.trans.insert56 = zext i32 %201 to i64
-  %.phi.trans.insert57 = getelementptr %struct.hlist_head, ptr %14, i64 %.phi.trans.insert56
+  %.phi.trans.insert57 = getelementptr [8 x i8], ptr %14, i64 %.phi.trans.insert56
   br i1 %204, label %..thread28_crit_edge55, label %205
 
 ..thread28_crit_edge55:                           ; preds = %195
@@ -8359,7 +8359,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
 .thread28:                                        ; preds = %216, %..thread28_crit_edge55, %205
   %223 = phi ptr [ %.pre58, %..thread28_crit_edge55 ], [ %206, %205 ], [ %206, %216 ]
   %224 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %225 = getelementptr %struct.hlist_head, ptr %14, i64 %.phi.trans.insert56
+  %225 = getelementptr [8 x i8], ptr %14, i64 %.phi.trans.insert56
   store ptr %223, ptr %224, align 8
   %226 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store volatile ptr %225, ptr %226, align 8
@@ -8403,7 +8403,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
   %248 = and i8 %247, 12
   %249 = icmp eq i8 %248, 8
   %.phi.trans.insert60 = zext i32 %246 to i64
-  %.phi.trans.insert61 = getelementptr %struct.hlist_head, ptr %18, i64 %.phi.trans.insert60
+  %.phi.trans.insert61 = getelementptr [8 x i8], ptr %18, i64 %.phi.trans.insert60
   br i1 %249, label %..thread30_crit_edge59, label %250
 
 ..thread30_crit_edge59:                           ; preds = %241
@@ -8438,7 +8438,7 @@ define internal void @xfrm_hash_resize(ptr noundef %0) #0 align 16 {
 .thread30:                                        ; preds = %261, %..thread30_crit_edge59, %250
   %268 = phi ptr [ %.pre62, %..thread30_crit_edge59 ], [ %251, %250 ], [ %251, %261 ]
   %269 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %270 = getelementptr %struct.hlist_head, ptr %18, i64 %.phi.trans.insert60
+  %270 = getelementptr [8 x i8], ptr %18, i64 %.phi.trans.insert60
   store ptr %268, ptr %269, align 8
   %271 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store volatile ptr %270, ptr %271, align 8

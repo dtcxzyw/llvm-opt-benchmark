@@ -3,9 +3,7 @@ source_filename = "bench/proj/original/chamb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { double, double, double, double, %struct.VECT, %struct.PJ_XY }
 %struct.VECT = type { double, double }
-%struct.PJ_XY = type { double, double }
 
 @_ZL9des_chamb = internal constant [82 x i8] c"Chamberlin Trimetric\0A\09Misc Sph, no inv\0A\09lat_1= lon_1= lat_2= lon_2= lat_3= lon_3=\00", align 16
 @pj_s_chamb = hidden local_unnamed_addr constant ptr @_ZL9des_chamb, align 8
@@ -73,7 +71,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %14 = load ptr, ptr %0, align 8, !tbaa !41
   %15 = load ptr, ptr %9, align 8, !tbaa !42
   %16 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %14, ptr noundef %15, ptr noundef nonnull %2)
-  %17 = getelementptr inbounds nuw %struct.anon, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %indvars.iv
   store i64 %16, ptr %17, align 8, !tbaa !43
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 10, ptr noundef nonnull @.str.2, i32 noundef %12) #9
   %19 = load ptr, ptr %0, align 8, !tbaa !41
@@ -103,9 +101,9 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_chambP8PJconsts(ptr 
   %33 = load ptr, ptr %0, align 8, !tbaa !41
   %34 = and i64 %indvars.iv.next103, 4294967295
   %35 = select i1 %32, i64 0, i64 %34
-  %36 = getelementptr inbounds nuw %struct.anon, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %35
   %37 = load double, ptr %36, align 8, !tbaa !43
-  %38 = getelementptr inbounds nuw %struct.anon, ptr %3, i64 %indvars.iv102
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %indvars.iv102
   %39 = load double, ptr %38, align 8, !tbaa !43
   %40 = fsub double %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -289,7 +287,7 @@ define internal { double, double } @_ZL15chamb_s_forward5PJ_LPP8PJconsts(double 
 9:                                                ; preds = %3, %_ZL4vectP6pj_ctxdddddd.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZL4vectP6pj_ctxdddddd.exit ]
   %10 = load ptr, ptr %2, align 8, !tbaa !41
-  %11 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
   %12 = load double, ptr %11, align 8, !tbaa !43
   %13 = fsub double %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -349,7 +347,7 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %51 = fmul double %49, %50
   %52 = tail call double @llvm.fmuladd.f64(double %15, double %7, double %51)
   %53 = tail call double @atan2(double noundef %48, double noundef %52) #9, !tbaa !49
-  %54 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   store double %.sroa.0.0.i, ptr %54, align 16, !tbaa !54
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -377,14 +375,14 @@ _ZL4vectP6pj_ctxdddddd.exit:                      ; preds = %43
   %63 = icmp eq i64 %indvars.iv80, 2
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %64 = load ptr, ptr %2, align 8, !tbaa !41
-  %65 = getelementptr inbounds nuw %struct.anon, ptr %6, i64 %indvars.iv80
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv80
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load double, ptr %66, align 8, !tbaa !56
-  %68 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %indvars.iv80
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv80
   %69 = load double, ptr %68, align 16, !tbaa !70
   %70 = and i64 %indvars.iv.next81, 4294967295
   %71 = select i1 %63, i64 0, i64 %70
-  %72 = getelementptr inbounds nuw %struct.VECT, ptr %4, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %71
   %73 = load double, ptr %72, align 16, !tbaa !70
   %74 = fmul double %69, %69
   %75 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %74)

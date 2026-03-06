@@ -3,8 +3,6 @@ source_filename = "bench/gromacs/original/tgroup.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.t_grp_tcstat = type { float, float, [3 x [3 x float]], [3 x [3 x float]], [3 x [3 x float]], float, double, double, double }
-
 ; Function Attrs: mustprogress uwtable
 define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((80, 116)) %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %0, align 8, !tbaa !4
@@ -32,10 +30,10 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
   %indvars.iv78 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next79, %137 ]
   %.06069 = phi float [ 0.000000e+00, %.lr.ph ], [ %140, %137 ]
   %.06268 = phi float [ 0.000000e+00, %.lr.ph ], [ %139, %137 ]
-  %21 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv78
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv78
   %22 = load float, ptr %21, align 4, !tbaa !15
   %23 = load ptr, ptr %11, align 8, !tbaa !17
-  %24 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %23, i64 %indvars.iv78
+  %24 = getelementptr inbounds nuw [144 x i8], ptr %23, i64 %indvars.iv78
   %25 = fcmp ogt float %22, 0.000000e+00
   br i1 %25, label %26, label %135
 
@@ -97,23 +95,23 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr noundef r
 
 .preheader:                                       ; preds = %.preheader65, %78
   %indvars.iv74 = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next75, %78 ]
-  %64 = getelementptr inbounds nuw [3 x float], ptr %27, i64 %indvars.iv74
-  %65 = getelementptr inbounds nuw [3 x float], ptr %30, i64 %indvars.iv74
-  %66 = getelementptr inbounds nuw [3 x float], ptr %31, i64 %indvars.iv74
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %indvars.iv74
+  %65 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %indvars.iv74
+  %66 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %indvars.iv74
   br label %67
 
 67:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !15
   %70 = fpext float %69 to double
-  %71 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %72 = load float, ptr %71, align 4, !tbaa !15
   %73 = fpext float %72 to double
   %74 = tail call double @llvm.fmuladd.f64(double %70, double %29, double %73)
   %75 = fmul double %74, 5.000000e-01
   %76 = fptrunc double %75 to float
-  %77 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv
   store float %76, ptr %77, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

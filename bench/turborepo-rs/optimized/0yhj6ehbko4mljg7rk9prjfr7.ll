@@ -82,7 +82,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5ns
 
 32:                                               ; preds = %28, %40
   %33 = load ptr, ptr %18, align 8, !nonnull !13, !noundef !13
-  %34 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %33, i64 %29
+  %34 = getelementptr inbounds [24 x i8], ptr %33, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %35 = add i64 %29, 1
   store i64 %35, ptr %17, align 8
@@ -157,7 +157,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5ns
 
 24:                                               ; preds = %20, %32
   %25 = load ptr, ptr %10, align 8, !nonnull !13, !noundef !13
-  %26 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %25, i64 %21
+  %26 = getelementptr inbounds [24 x i8], ptr %25, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %27 = add i64 %21, 1
   store i64 %27, ptr %9, align 8
@@ -230,7 +230,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5ns
 
 22:                                               ; preds = %18, %30
   %23 = load ptr, ptr %9, align 8, !nonnull !13, !noundef !13
-  %24 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [24 x i8], ptr %23, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %25 = add i64 %19, 1
   store i64 %25, ptr %8, align 8
@@ -689,7 +689,7 @@ define { ptr, i64 } @_RNvXs8_NtCs68wO5nsWeTG_5alloc5sliceINtNtB7_3vec3VecNtNtB7_
   %3 = load ptr, ptr %2, align 8, !nonnull !13, !noundef !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !13
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %3, i64 %5
   %7 = load i64, ptr %0, align 8, !noundef !13
   %8 = sub i64 %7, %5
   %9 = insertvalue { ptr, i64 } poison, ptr %6, 0

@@ -42,22 +42,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.0" = type { %"class.std::shared_ptr.1" }
 %"class.std::shared_ptr.1" = type { %"class.std::__shared_ptr.2" }
 %"class.std::__shared_ptr.2" = type { ptr, %"class.std::__shared_count" }
-%"struct.cv::VideoBackendInfo" = type { i32, i32, i32, ptr, %"struct.cv::Ptr.21" }
-%"struct.cv::Ptr.21" = type { %"class.std::shared_ptr.22" }
-%"class.std::shared_ptr.22" = type { %"class.std::__shared_ptr.23" }
-%"class.std::__shared_ptr.23" = type { ptr, %"class.std::__shared_count" }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::VideoCapture" = type <{ ptr, %"struct.cv::Ptr", %"struct.cv::Ptr.0", i8, [7 x i8] }>
-%"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.cv::VideoWriterParameters" = type { %"class.cv::VideoParameters" }
 %"struct.cv::Ptr.38" = type { %"class.std::shared_ptr.39" }
 %"class.std::shared_ptr.39" = type { %"class.std::__shared_ptr.40" }
 %"class.std::__shared_ptr.40" = type { ptr, %"class.std::__shared_count" }
-%"struct.cv::VideoParameters::VideoParameter" = type <{ i32, i32, i8, [3 x i8] }>
 
 $_ZN2cv5utils5trace7details6RegionD2Ev = comdat any
 
@@ -1101,7 +1092,7 @@ _ZN2cv22VideoCaptureParametersCI2NS_15VideoParametersEERKSt6vectorIiSaIiEE.exit:
 159:                                              ; preds = %.lr.ph, %841
   %160 = phi ptr [ %60, %.lr.ph ], [ %844, %841 ]
   %.0212723 = phi i64 [ 0, %.lr.ph ], [ %842, %841 ]
-  %161 = getelementptr inbounds nuw %"struct.cv::VideoBackendInfo", ptr %160, i64 %.0212723
+  %161 = getelementptr inbounds nuw [40 x i8], ptr %160, i64 %.0212723
   br i1 %61, label %165, label %162
 
 162:                                              ; preds = %159
@@ -4294,7 +4285,7 @@ _ZN2cv22VideoCaptureParametersCI2NS_15VideoParametersEERKSt6vectorIiSaIiEE.exit:
 170:                                              ; preds = %.lr.ph, %.thread
   %171 = phi ptr [ %73, %.lr.ph ], [ %828, %.thread ]
   %.0198706 = phi i64 [ 0, %.lr.ph ], [ %826, %.thread ]
-  %172 = getelementptr inbounds nuw %"struct.cv::VideoBackendInfo", ptr %171, i64 %.0198706
+  %172 = getelementptr inbounds nuw [40 x i8], ptr %171, i64 %.0198706
   %173 = load i32, ptr %172, align 8, !tbaa !34
   %.not = icmp eq i32 %2, %173
   br i1 %.not, label %174, label %.thread
@@ -7265,7 +7256,7 @@ _ZN2cv22VideoCaptureParametersCI2NS_15VideoParametersEERKSt6vectorIiSaIiEE.exit:
 164:                                              ; preds = %.lr.ph, %845
   %165 = phi ptr [ %65, %.lr.ph ], [ %848, %845 ]
   %.0223734 = phi i64 [ 0, %.lr.ph ], [ %846, %845 ]
-  %166 = getelementptr inbounds nuw %"struct.cv::VideoBackendInfo", ptr %165, i64 %.0223734
+  %166 = getelementptr inbounds nuw [40 x i8], ptr %165, i64 %.0223734
   br i1 %66, label %170, label %167
 
 167:                                              ; preds = %164
@@ -10723,7 +10714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
 .lr.ph:                                           ; preds = %22, %36
   %46 = phi ptr [ %39, %36 ], [ %30, %22 ]
   %.01629 = phi i64 [ %37, %36 ], [ 1, %22 ]
-  %47 = getelementptr inbounds nuw %"class.cv::VideoCapture", ptr %46, i64 %.01629
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %.01629
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !90
   %50 = load ptr, ptr %49, align 8, !tbaa !10
@@ -14356,7 +14347,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %35, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %36, ptr %6, align 8, !tbaa !272
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %29
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %29
   store ptr %38, ptr %7, align 8, !tbaa !271
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -14793,7 +14784,7 @@ _ZNSt12_Vector_baseIN2cv15VideoParameters14VideoParameterESaIS2_EE13_M_deallocat
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %0, align 8, !tbaa !144
   store ptr %29, ptr %30, align 8, !tbaa !336
-  %31 = getelementptr inbounds nuw %"struct.cv::VideoParameters::VideoParameter", ptr %29, i64 %23
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %23
   store ptr %31, ptr %27, align 8, !tbaa !337
   br label %_ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE7reserveEm.exit
 
@@ -14821,7 +14812,7 @@ _ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE7reserveEm.exit: ; pr
   %40 = phi ptr [ %33, %.lr.ph ], [ %73, %_ZN2cv15VideoParameters3addEii.exit ]
   %.020 = phi i64 [ 0, %.lr.ph ], [ %74, %_ZN2cv15VideoParameters3addEii.exit ]
   %41 = load ptr, ptr %1, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.020
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.020
   %43 = load i32, ptr %42, align 4, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !23
@@ -14897,7 +14888,7 @@ _ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE17_M_realloc_insertIJRiS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIN2cv15VideoParameters14VideoParameterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i.i
   store ptr %62, ptr %0, align 8, !tbaa !144
   store ptr %68, ptr %34, align 8, !tbaa !336
-  %70 = getelementptr inbounds nuw %"struct.cv::VideoParameters::VideoParameter", ptr %62, i64 %60
+  %70 = getelementptr inbounds nuw [12 x i8], ptr %62, i64 %60
   store ptr %70, ptr %27, align 8, !tbaa !337
   br label %_ZN2cv15VideoParameters3addEii.exit
 

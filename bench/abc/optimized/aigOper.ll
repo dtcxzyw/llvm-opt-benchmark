@@ -26,7 +26,7 @@ define ptr @Aig_IthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %.val7, i64 8
   %.val7.val = load ptr, ptr %7, align 8, !tbaa !24
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %.val7.val, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %.val7.val, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   ret ptr %10
 }
@@ -830,7 +830,7 @@ define ptr @Aig_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   %9 = sdiv i32 %2, 2
   %10 = tail call ptr @Aig_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef %3)
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
   %13 = sub nsw i32 %2, %9
   %14 = tail call ptr @Aig_Multi_rec(ptr noundef %0, ptr noundef %12, i32 noundef %13, i32 noundef %3)
   switch i32 %3, label %Aig_Oper.exit [
@@ -871,7 +871,7 @@ define ptr @Aig_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnam
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !24
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !26
@@ -881,7 +881,7 @@ define ptr @Aig_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnam
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %6, align 8, !tbaa !24
   %18 = lshr exact i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   store ptr %16, ptr %19, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %20 = load i32, ptr %3, align 4, !tbaa !34
@@ -917,17 +917,17 @@ define ptr @Aig_MiterTwo(ptr noundef %0, ptr noundef readonly captures(none) %1,
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = load ptr, ptr %8, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call ptr @Aig_Exor(ptr noundef %0, ptr noundef %12, ptr noundef %15)
   %17 = ptrtoint ptr %16 to i64
   %18 = xor i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
   %20 = load ptr, ptr %7, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %19, ptr %21, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr %4, align 4, !tbaa !34
@@ -979,7 +979,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %7
   %.val7.i = load ptr, ptr %6, align 8, !tbaa !9
   %12 = getelementptr i8, ptr %.val7.i, i64 8
   %.val7.val.i = load ptr, ptr %12, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val7.val.i, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.089, ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1024,7 +1024,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %7
   %.val7.i = load ptr, ptr %6, align 8, !tbaa !9
   %12 = getelementptr i8, ptr %.val7.i, i64 8
   %.val7.val.i = load ptr, ptr %12, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.val7.val.i, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
@@ -1078,7 +1078,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %.val7.i = load ptr, ptr %9, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %.val7.i, i64 8
   %.val7.val.i = load ptr, ptr %15, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val7.val.i, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.089, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1185,7 +1185,7 @@ Aig_IthVar.exit82:                                ; preds = %.lr.ph.i77, %34
   %38 = getelementptr i8, ptr %.val7.i80, i64 8
   %.val7.val.i81 = load ptr, ptr %38, align 8, !tbaa !24
   %39 = sext i32 %35 to i64
-  %40 = getelementptr inbounds ptr, ptr %.val7.val.i81, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.val7.val.i81, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   br label %47
 
@@ -1193,7 +1193,7 @@ Aig_IthVar.exit82:                                ; preds = %.lr.ph.i77, %34
   %43 = srem i32 %33, %.1101
   %.val = load ptr, ptr %4, align 8, !tbaa !24
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   br label %47
 
@@ -1255,7 +1255,7 @@ Aig_IthVar.exit90:                                ; preds = %.lr.ph.i85, %72
   %76 = getelementptr i8, ptr %.val7.i88, i64 8
   %.val7.val.i89 = load ptr, ptr %76, align 8, !tbaa !24
   %77 = sext i32 %73 to i64
-  %78 = getelementptr inbounds ptr, ptr %.val7.val.i89, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %.val7.val.i89, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !26
   br label %85
 
@@ -1263,7 +1263,7 @@ Aig_IthVar.exit90:                                ; preds = %.lr.ph.i85, %72
   %81 = srem i32 %71, %.1101
   %.val61 = load ptr, ptr %4, align 8, !tbaa !24
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %.val61, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %.val61, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !26
   br label %85
 
@@ -1325,7 +1325,7 @@ Aig_IthVar.exit98:                                ; preds = %.lr.ph.i93, %110
   %114 = getelementptr i8, ptr %.val7.i96, i64 8
   %.val7.val.i97 = load ptr, ptr %114, align 8, !tbaa !24
   %115 = sext i32 %111 to i64
-  %116 = getelementptr inbounds ptr, ptr %.val7.val.i97, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %.val7.val.i97, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !26
   br label %123
 
@@ -1333,7 +1333,7 @@ Aig_IthVar.exit98:                                ; preds = %.lr.ph.i93, %110
   %119 = srem i32 %109, %.1101
   %.val62 = load ptr, ptr %4, align 8, !tbaa !24
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr %.val62, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %.val62, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !26
   br label %123
 
@@ -1418,7 +1418,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %167 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %165, %164 ], [ %154, %Vec_PtrGrow.exit.i ]
   %168 = add nuw nsw i32 %15, 1
   %169 = zext nneg i32 %15 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %169
   store ptr %144, ptr %170, align 8, !tbaa !26
   %171 = add nuw nsw i32 %.1101, 1
   %exitcond103.not = icmp eq i32 %171, 2000
@@ -1426,7 +1426,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 172:                                              ; preds = %.lr.ph, %172
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %172 ]
-  %173 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %.val63, i64 %indvars.iv
   %174 = load ptr, ptr %173, align 8, !tbaa !26
   %175 = tail call ptr @Aig_ObjCreateCo(ptr noundef %5, ptr noundef %174) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

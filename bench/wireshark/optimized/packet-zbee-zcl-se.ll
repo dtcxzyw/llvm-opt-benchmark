@@ -6376,8 +6376,8 @@ define hidden void @proto_register_zbee_zcl_pp() local_unnamed_addr #0 {
 4:                                                ; preds = %0, %4
   %indvars.iv16 = phi i64 [ 3, %0 ], [ %indvars.iv.next17, %4 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr i32, ptr @ett_zbee_zcl_pp_publish_top_up_entry, i64 %indvars.iv
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv16
+  %5 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pp_publish_top_up_entry, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv16
   store ptr %5, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
@@ -6397,8 +6397,8 @@ define hidden void @proto_register_zbee_zcl_pp() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 33, %4 ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %4 ]
-  %11 = getelementptr i32, ptr @ett_zbee_zcl_pp_publish_debt_log_entry, i64 %indvars.iv21
-  %12 = getelementptr ptr, ptr %1, i64 %indvars.iv23
+  %11 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pp_publish_debt_log_entry, i64 %indvars.iv21
+  %12 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv23
   store ptr %11, ptr %12, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -6584,7 +6584,7 @@ define internal i32 @dissect_zbee_zcl_pp(ptr noundef %0, ptr noundef readonly ca
 .lr.ph.i:                                         ; preds = %91, %.lr.ph.i
   %98 = phi i32 [ %113, %.lr.ph.i ], [ 3, %91 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %91 ]
-  %99 = getelementptr i32, ptr @ett_zbee_zcl_pp_publish_top_up_entry, i64 %indvars.iv.i
+  %99 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pp_publish_top_up_entry, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %101 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -6625,7 +6625,7 @@ dissect_zcl_pp_publish_top_up_log.exit:           ; preds = %.lr.ph.i, %91
 .lr.ph.i66:                                       ; preds = %119, %.lr.ph.i66
   %126 = phi i32 [ %142, %.lr.ph.i66 ], [ 3, %119 ]
   %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i68, %.lr.ph.i66 ], [ 0, %119 ]
-  %127 = getelementptr i32, ptr @ett_zbee_zcl_pp_publish_debt_log_entry, i64 %indvars.iv.i67
+  %127 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pp_publish_debt_log_entry, i64 %indvars.iv.i67
   %128 = load i32, ptr %127, align 4
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %129 = trunc nuw nsw i64 %indvars.iv.next.i68 to i32
@@ -7038,7 +7038,7 @@ define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr noundef reado
 .lr.ph.i.preheader:                               ; preds = %109
   %133 = icmp ult i8 %125, 5
   %134 = zext nneg i8 %125 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_zbee_zcl_calendar, i64 %134
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_zbee_zcl_calendar, i64 %134
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %141
@@ -7757,8 +7757,8 @@ define hidden void @proto_register_zbee_zcl_events() local_unnamed_addr #0 {
 6:                                                ; preds = %0, %6
   %indvars.iv8 = phi i64 [ 1, %0 ], [ %indvars.iv.next9, %6 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr i32, ptr @ett_zbee_zcl_events_publish_event_log_entry, i64 %indvars.iv
-  %8 = getelementptr ptr, ptr %1, i64 %indvars.iv8
+  %7 = getelementptr [4 x i8], ptr @ett_zbee_zcl_events_publish_event_log_entry, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv8
   store ptr %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
@@ -7888,7 +7888,7 @@ dissect_zcl_events_publish_event.exit:            ; preds = %56, %59
 .lr.ph.i:                                         ; preds = %73, %94
   %.1 = phi i32 [ %106, %94 ], [ 6, %73 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %73 ]
-  %84 = getelementptr i32, ptr @ett_zbee_zcl_events_publish_event_log_entry, i64 %indvars.iv.i
+  %84 = getelementptr [4 x i8], ptr @ett_zbee_zcl_events_publish_event_log_entry, i64 %indvars.iv.i
   %85 = load i32, ptr %84, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %86 = trunc nuw nsw i64 %indvars.iv.next.i to i32

@@ -264,7 +264,7 @@ define range(i32 -1, 2) i32 @H5Itype_exists(i32 noundef %0) local_unnamed_addr #
 
 44:                                               ; preds = %36
   %45 = zext nneg i32 %0 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @H5I_type_info_array_g, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !15
   %48 = icmp ne ptr %47, null
   %spec.select = zext i1 %48 to i32
@@ -358,7 +358,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly c
 
 44:                                               ; preds = %37
   %45 = zext nneg i32 %0 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @H5I_type_info_array_g, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !15
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %53, !prof !13

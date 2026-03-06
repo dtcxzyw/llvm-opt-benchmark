@@ -477,7 +477,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @drm_ioctl(ptr noundef r
   %.sink = phi ptr [ %34, %.thread ], [ @drm_ioctls, %37 ]
   %43 = phi i32 [ %8, %.thread ], [ %41, %37 ]
   %44 = zext nneg i32 %.sink25 to i64
-  %45 = getelementptr %struct.drm_ioctl_desc, ptr %.sink, i64 %44
+  %45 = getelementptr [24 x i8], ptr %.sink, i64 %44
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 16
   %48 = and i32 %47, 16383
@@ -686,7 +686,7 @@ define dso_local noundef zeroext i1 @drm_ioctl_flags(i32 noundef %0, ptr noundef
   %10 = trunc i64 %9 to i32
   %11 = and i32 %0, %10
   %12 = zext nneg i32 %11 to i64
-  %.split = getelementptr %struct.drm_ioctl_desc, ptr @drm_ioctls, i64 %12
+  %.split = getelementptr [24 x i8], ptr @drm_ioctls, i64 %12
   %13 = getelementptr i8, ptr %.split, i64 4
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %1, align 4

@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %struct.DTS2PTSFrame = type { ptr, i32, i32, i32 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
-%struct.anon.2 = type { i8, i32, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [8 x i8] c"dts2pts\00", align 1
 @dts2pts_codec_ids = internal constant [2 x i32] [i32 27, i32 0], align 4
@@ -577,7 +575,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
   %.1227 = phi i32 [ %17, %.lr.ph228 ], [ %.5.ph, %.thread178 ]
   %.1159225 = phi i32 [ 0, %.lr.ph228 ], [ %.4.ph, %.thread178 ]
   %49 = load ptr, ptr %22, align 8, !tbaa !81
-  %50 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %49, i64 %indvars.iv240
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %indvars.iv240
   %51 = load i32, ptr %50, align 8, !tbaa !82
   switch i32 %51, label %.thread178 [
     i32 5, label %52
@@ -649,9 +647,9 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
 
 86:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !78
-  %89 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store i32 %88, ptr %89, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %90 = icmp samesign ult i64 %indvars.iv.next, %85
@@ -727,7 +725,7 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
 
 128:                                              ; preds = %131, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %131 ]
-  %129 = getelementptr inbounds nuw %struct.anon.2, ptr %127, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [12 x i8], ptr %127, i64 %indvars.iv.i
   %130 = load i8, ptr %129, align 4, !tbaa !130
   switch i8 %130, label %131 [
     i8 0, label %.thread213

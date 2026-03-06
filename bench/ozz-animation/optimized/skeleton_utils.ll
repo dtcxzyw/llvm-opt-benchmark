@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
 %"struct.ozz::math::Quaternion" = type { float, float, float, float }
 %"struct.ozz::math::Float3" = type { float, float, float }
-%"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
-%"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i32 @_ZN3ozz9animation9FindJointERKNS0_8SkeletonEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -21,7 +18,7 @@ define dso_local noundef i32 @_ZN3ozz9animation9FindJointERKNS0_8SkeletonEPKc(pt
 
 .lr.ph:                                           ; preds = %2, %13
   %.0913 = phi i64 [ %14, %13 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0913
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0913
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1) #4
   %10 = icmp eq i32 %9, 0
@@ -53,7 +50,7 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = sdiv i32 %2, 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %8, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load <4 x float>, ptr %11, align 16, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -123,7 +120,7 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   store <4 x float> %62, ptr %63, align 16, !tbaa !20
   %64 = srem i32 %2, 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds <4 x float>, ptr %4, i64 %65
+  %66 = getelementptr inbounds [16 x i8], ptr %4, i64 %65
   %67 = load <4 x float>, ptr %66, align 16, !tbaa !20
   %68 = extractelement <4 x float> %67, i64 0
   store float %68, ptr %0, align 4, !tbaa !20
@@ -133,11 +130,11 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = extractelement <4 x float> %67, i64 2
   store float %72, ptr %71, align 4, !tbaa !20
-  %73 = getelementptr inbounds <4 x float>, ptr %5, i64 %65
+  %73 = getelementptr inbounds [16 x i8], ptr %5, i64 %65
   %74 = load <4 x float>, ptr %73, align 16, !tbaa !20
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store <4 x float> %74, ptr %75, align 4, !tbaa !20
-  %76 = getelementptr inbounds <4 x float>, ptr %6, i64 %65
+  %76 = getelementptr inbounds [16 x i8], ptr %6, i64 %65
   %77 = load <4 x float>, ptr %76, align 16, !tbaa !20
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %79 = extractelement <4 x float> %77, i64 0

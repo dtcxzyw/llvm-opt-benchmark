@@ -290,9 +290,9 @@ scantag.exit:                                     ; preds = %63
 94:                                               ; preds = %92
   %95 = add nsw i32 %.0135290, -1
   %96 = zext nneg i32 %.0135290 to i64
-  %97 = getelementptr inbounds nuw %struct.font_tag, ptr %6, i64 %96
+  %97 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %96
   %98 = zext nneg i32 %95 to i64
-  %99 = getelementptr inbounds nuw %struct.font_tag, ptr %6, i64 %98
+  %99 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 128
   %101 = load i32, ptr %100, align 8, !tbaa !20
   %.not182 = icmp eq i32 %101, 0
@@ -373,8 +373,8 @@ scantag.exit:                                     ; preds = %63
   %129 = zext nneg i32 %.0135290 to i64
   %130 = add nuw nsw i32 %.0135290, 1
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw %struct.font_tag, ptr %6, i64 %131
-  %133 = getelementptr inbounds nuw %struct.font_tag, ptr %6, i64 %129
+  %132 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %131
+  %133 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %132, ptr noundef nonnull align 8 dereferenceable(136) %133, i64 136, i1 false), !tbaa.struct !23
   %.not177282 = icmp eq ptr %.0134, null
   br i1 %.not177282, label %.loopexit, label %.lr.ph285

@@ -4,9 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
 %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value" = type { %"struct.std::pair", ptr }
-%"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell" = type { ptr, %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value" }
+%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -86,8 +85,8 @@ _ZN6vectorISt4pairIP4exprjELb0EjE6shrinkEj.exit:  ; preds = %._crit_edge, %.loop
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv10 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next11, %.lr.ph ]
   %indvars.iv = phi i64 [ %10, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %indvars.iv
-  %16 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %indvars.iv10
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv10
   %17 = load ptr, ptr %15, align 8, !tbaa !18
   store ptr %17, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -438,7 +437,7 @@ _ZN11ast_manager7dec_refEP3ast.exit12:            ; preds = %_ZNK4cmapISt4pairIP
   br i1 %exitcond.not, label %_ZN11ast_manager7dec_refEP3ast.exit12.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN11ast_manager7dec_refEP3ast.exit12
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %18, ptr %9, align 8, !tbaa !11
@@ -450,7 +449,7 @@ _ZN11ast_manager7dec_refEP3ast.exit12:            ; preds = %_ZNK4cmapISt4pairIP
   %21 = add i32 %20, %.sroa.4.0.copyload.i
   %22 = and i32 %21, %13
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %14, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = icmp eq ptr %26, %.sroa.0.0.copyload.i
@@ -575,8 +574,8 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE4sizeEv.exit.i: ; preds = %76
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv10.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next11.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %82, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %84 = getelementptr inbounds nuw %"struct.std::pair", ptr %77, i64 %indvars.iv.i
-  %85 = getelementptr inbounds nuw %"struct.std::pair", ptr %77, i64 %indvars.iv10.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv10.i
   %86 = load ptr, ptr %84, align 8, !tbaa !18
   store ptr %86, ptr %85, align 8, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -673,7 +672,7 @@ _ZN6vectorISt4pairIP4exprjELb0EjE9push_backERKS3_.exit: ; preds = %30, %36
   %37 = phi i32 [ %.pre2.i, %36 ], [ %32, %30 ]
   %38 = phi ptr [ %.pre.i, %36 ], [ %28, %30 ]
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   store ptr %1, ptr %40, align 8
   %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %2, ptr %.sroa.5.0..sroa_idx19, align 8
@@ -742,7 +741,7 @@ define hidden noundef ptr @_ZN9act_cache4findEP4exprj(ptr noundef nonnull align 
   %11 = and i32 %10, %7
   %12 = load ptr, ptr %4, align 8, !tbaa !26
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, 7
@@ -855,7 +854,7 @@ _ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS
   store i32 0, ptr %24, align 8, !tbaa !47
   store i32 0, ptr %3, align 4, !tbaa !48
   %25 = zext i32 %11 to i64
-  %26 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %18, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %26, ptr %27, align 8, !tbaa !49
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -929,7 +928,7 @@ _ZN4cmapISt4pairIP4exprjES2_N9act_cache10entry_hashE10default_eqIS3_EE8finalizeE
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %21, align 4, !tbaa !48
   %22 = zext i32 %7 to i64
-  %23 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %14, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %23, ptr %24, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -977,7 +976,7 @@ define linkonce_odr hidden void @_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act
   %12 = and i32 %11, %5
   %13 = load ptr, ptr %0, align 8, !tbaa !26
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, 7
@@ -1088,7 +1087,7 @@ _ZNK10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqI
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !45
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %.pre28, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %.pre28, i64 %9
   %11 = icmp ult ptr %6, %10
   br i1 %11, label %_ZNK10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE14has_free_cellsEv.exit.thread, label %12
 
@@ -1110,7 +1109,7 @@ _ZNK10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqI
   %22 = add i32 %21, %19
   %23 = and i32 %22, %16
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %13, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 7
@@ -1419,8 +1418,8 @@ _ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS
   %83 = zext i32 %82 to i64
   %.idx.i = shl nuw nsw i64 %83, 5
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i
-  %85 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %76, i64 %19
-  %86 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %76, i64 %74
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %19
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %74
   %.not63.i = icmp eq i32 %82, 0
   br i1 %.not63.i, label %_ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS4_EE9key_valueENS9_19key_value_hash_procENS9_17key_value_eq_procEE10copy_tableEPNSD_4cellEjjSF_jjRj.exit, label %.lr.ph.i
 
@@ -1445,7 +1444,7 @@ _ZN10chashtableIN4cmapISt4pairIP4exprjES3_N9act_cache10entry_hashE10default_eqIS
   %97 = add i32 %96, %94
   %98 = and i32 %97, %18
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %76, i64 %99
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !33
   %102 = ptrtoint ptr %101 to i64
   %103 = and i64 %102, 7

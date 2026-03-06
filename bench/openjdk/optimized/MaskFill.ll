@@ -882,7 +882,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %162 = fmul double %67, %.0504
   %163 = fptrunc double %162 to float
   %164 = sext i32 %.0505 to i64
-  %165 = getelementptr inbounds float, ptr %46, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %46, i64 %164
   %166 = load float, ptr %165, align 4
   %167 = fadd float %166, %163
   store float %167, ptr %165, align 4
@@ -938,7 +938,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %193 = fmul double %67, %.0506
   %194 = fptrunc double %193 to float
   %195 = sext i32 %.0507 to i64
-  %196 = getelementptr inbounds float, ptr %46, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %46, i64 %195
   %197 = load float, ptr %196, align 4
   %198 = fadd float %197, %194
   store float %198, ptr %196, align 4
@@ -1017,7 +1017,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %235 = fmul double %87, %.0521
   %236 = fptrunc double %235 to float
   %237 = sext i32 %.0520 to i64
-  %238 = getelementptr inbounds float, ptr %46, i64 %237
+  %238 = getelementptr inbounds [4 x i8], ptr %46, i64 %237
   %239 = load float, ptr %238, align 4
   %240 = fadd float %239, %236
   store float %240, ptr %238, align 4
@@ -1073,7 +1073,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %266 = fmul double %87, %.0516
   %267 = fptrunc double %266 to float
   %268 = sext i32 %.0515 to i64
-  %269 = getelementptr inbounds float, ptr %46, i64 %268
+  %269 = getelementptr inbounds [4 x i8], ptr %46, i64 %268
   %270 = load float, ptr %269, align 4
   %271 = fadd float %270, %267
   store float %271, ptr %269, align 4
@@ -1152,7 +1152,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %305 = fmul double %105, %.0502
   %306 = fptrunc double %305 to float
   %307 = sext i32 %.0501 to i64
-  %308 = getelementptr inbounds float, ptr %46, i64 %307
+  %308 = getelementptr inbounds [4 x i8], ptr %46, i64 %307
   %309 = load float, ptr %308, align 4
   %310 = fadd float %309, %306
   store float %310, ptr %308, align 4
@@ -1208,7 +1208,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %336 = fmul double %105, %.0497
   %337 = fptrunc double %336 to float
   %338 = sext i32 %.0496 to i64
-  %339 = getelementptr inbounds float, ptr %46, i64 %338
+  %339 = getelementptr inbounds [4 x i8], ptr %46, i64 %338
   %340 = load float, ptr %339, align 4
   %341 = fadd float %340, %337
   store float %341, ptr %339, align 4
@@ -1287,7 +1287,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %376 = fmul double %123, %.0477
   %377 = fptrunc double %376 to float
   %378 = sext i32 %.0476 to i64
-  %379 = getelementptr inbounds float, ptr %46, i64 %378
+  %379 = getelementptr inbounds [4 x i8], ptr %46, i64 %378
   %380 = load float, ptr %379, align 4
   %381 = fadd float %380, %377
   store float %381, ptr %379, align 4
@@ -1343,7 +1343,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %407 = fmul double %123, %.0443
   %408 = fptrunc double %407 to float
   %409 = sext i32 %.0442 to i64
-  %410 = getelementptr inbounds float, ptr %46, i64 %409
+  %410 = getelementptr inbounds [4 x i8], ptr %46, i64 %409
   %411 = load float, ptr %410, align 4
   %412 = fadd float %411, %408
   store float %412, ptr %410, align 4
@@ -1389,7 +1389,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %indvars.iv730 = phi i64 [ %426, %.lr.ph656.preheader ], [ %indvars.iv.next731, %.lr.ph656 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph656.preheader ], [ %indvars.iv.next, %.lr.ph656 ]
   %.0485652 = phi double [ 0.000000e+00, %.lr.ph656.preheader ], [ %431, %.lr.ph656 ]
-  %428 = getelementptr inbounds float, ptr %46, i64 %indvars.iv730
+  %428 = getelementptr inbounds [4 x i8], ptr %46, i64 %indvars.iv730
   %429 = load float, ptr %428, align 4
   %430 = fpext float %429 to double
   %431 = fadd double %.0485652, %430
@@ -1468,7 +1468,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %indvars.iv737 = phi i64 [ %462, %.lr.ph666.preheader ], [ %indvars.iv.next738, %.lr.ph666 ]
   %indvars.iv735 = phi i64 [ %461, %.lr.ph666.preheader ], [ %indvars.iv.next736, %.lr.ph666 ]
   %.1486662 = phi double [ %.0485.lcssa786, %.lr.ph666.preheader ], [ %466, %.lr.ph666 ]
-  %463 = getelementptr inbounds float, ptr %46, i64 %indvars.iv737
+  %463 = getelementptr inbounds [4 x i8], ptr %46, i64 %indvars.iv737
   %464 = load float, ptr %463, align 4
   %465 = fpext float %464 to double
   %466 = fadd double %.1486662, %465
@@ -2138,7 +2138,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %267 = fmul double %95, %.0905
   %268 = fptrunc double %267 to float
   %269 = sext i32 %.0906 to i64
-  %270 = getelementptr inbounds float, ptr %74, i64 %269
+  %270 = getelementptr inbounds [4 x i8], ptr %74, i64 %269
   %271 = load float, ptr %270, align 4
   %272 = fadd float %271, %268
   store float %272, ptr %270, align 4
@@ -2196,7 +2196,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %298 = fmul double %95, %.0907
   %299 = fptrunc double %298 to float
   %300 = sext i32 %.0908 to i64
-  %301 = getelementptr inbounds float, ptr %74, i64 %300
+  %301 = getelementptr inbounds [4 x i8], ptr %74, i64 %300
   %302 = load float, ptr %301, align 4
   %303 = fadd float %302, %299
   store float %303, ptr %301, align 4
@@ -2278,7 +2278,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %340 = fmul double %115, %.0925
   %341 = fptrunc double %340 to float
   %342 = sext i32 %.0926 to i64
-  %343 = getelementptr inbounds float, ptr %74, i64 %342
+  %343 = getelementptr inbounds [4 x i8], ptr %74, i64 %342
   %344 = load float, ptr %343, align 4
   %345 = fadd float %344, %341
   store float %345, ptr %343, align 4
@@ -2336,7 +2336,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %371 = fmul double %115, %.0927
   %372 = fptrunc double %371 to float
   %373 = sext i32 %.0928 to i64
-  %374 = getelementptr inbounds float, ptr %74, i64 %373
+  %374 = getelementptr inbounds [4 x i8], ptr %74, i64 %373
   %375 = load float, ptr %374, align 4
   %376 = fadd float %375, %372
   store float %376, ptr %374, align 4
@@ -2418,7 +2418,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %410 = fmul double %133, %.0945
   %411 = fptrunc double %410 to float
   %412 = sext i32 %.0946 to i64
-  %413 = getelementptr inbounds float, ptr %74, i64 %412
+  %413 = getelementptr inbounds [4 x i8], ptr %74, i64 %412
   %414 = load float, ptr %413, align 4
   %415 = fadd float %414, %411
   store float %415, ptr %413, align 4
@@ -2476,7 +2476,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %441 = fmul double %133, %.0947
   %442 = fptrunc double %441 to float
   %443 = sext i32 %.0954 to i64
-  %444 = getelementptr inbounds float, ptr %74, i64 %443
+  %444 = getelementptr inbounds [4 x i8], ptr %74, i64 %443
   %445 = load float, ptr %444, align 4
   %446 = fadd float %445, %442
   store float %446, ptr %444, align 4
@@ -2558,7 +2558,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %481 = fmul double %151, %.0961
   %482 = fptrunc double %481 to float
   %483 = sext i32 %.0960 to i64
-  %484 = getelementptr inbounds float, ptr %74, i64 %483
+  %484 = getelementptr inbounds [4 x i8], ptr %74, i64 %483
   %485 = load float, ptr %484, align 4
   %486 = fadd float %485, %482
   store float %486, ptr %484, align 4
@@ -2616,7 +2616,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %512 = fmul double %151, %.0956
   %513 = fptrunc double %512 to float
   %514 = sext i32 %.0955 to i64
-  %515 = getelementptr inbounds float, ptr %74, i64 %514
+  %515 = getelementptr inbounds [4 x i8], ptr %74, i64 %514
   %516 = load float, ptr %515, align 4
   %517 = fadd float %516, %513
   store float %517, ptr %515, align 4
@@ -2698,7 +2698,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %551 = fmul double %169, %.0942
   %552 = fptrunc double %551 to float
   %553 = sext i32 %.0941 to i64
-  %554 = getelementptr inbounds float, ptr %74, i64 %553
+  %554 = getelementptr inbounds [4 x i8], ptr %74, i64 %553
   %555 = load float, ptr %554, align 4
   %556 = fadd float %555, %552
   store float %556, ptr %554, align 4
@@ -2756,7 +2756,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %582 = fmul double %169, %.0937
   %583 = fptrunc double %582 to float
   %584 = sext i32 %.0936 to i64
-  %585 = getelementptr inbounds float, ptr %74, i64 %584
+  %585 = getelementptr inbounds [4 x i8], ptr %74, i64 %584
   %586 = load float, ptr %585, align 4
   %587 = fadd float %586, %583
   store float %587, ptr %585, align 4
@@ -2838,7 +2838,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %622 = fmul double %187, %.0923
   %623 = fptrunc double %622 to float
   %624 = sext i32 %.0922 to i64
-  %625 = getelementptr inbounds float, ptr %74, i64 %624
+  %625 = getelementptr inbounds [4 x i8], ptr %74, i64 %624
   %626 = load float, ptr %625, align 4
   %627 = fadd float %626, %623
   store float %627, ptr %625, align 4
@@ -2896,7 +2896,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %653 = fmul double %187, %.0918
   %654 = fptrunc double %653 to float
   %655 = sext i32 %.0917 to i64
-  %656 = getelementptr inbounds float, ptr %74, i64 %655
+  %656 = getelementptr inbounds [4 x i8], ptr %74, i64 %655
   %657 = load float, ptr %656, align 4
   %658 = fadd float %657, %654
   store float %658, ptr %656, align 4
@@ -2978,7 +2978,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %692 = fmul double %205, %.0904
   %693 = fptrunc double %692 to float
   %694 = sext i32 %.0903 to i64
-  %695 = getelementptr inbounds float, ptr %74, i64 %694
+  %695 = getelementptr inbounds [4 x i8], ptr %74, i64 %694
   %696 = load float, ptr %695, align 4
   %697 = fadd float %696, %693
   store float %697, ptr %695, align 4
@@ -3036,7 +3036,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %723 = fmul double %205, %.0899
   %724 = fptrunc double %723 to float
   %725 = sext i32 %.0898 to i64
-  %726 = getelementptr inbounds float, ptr %74, i64 %725
+  %726 = getelementptr inbounds [4 x i8], ptr %74, i64 %725
   %727 = load float, ptr %726, align 4
   %728 = fadd float %727, %724
   store float %728, ptr %726, align 4
@@ -3118,7 +3118,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %763 = fmul double %223, %.0881
   %764 = fptrunc double %763 to float
   %765 = sext i32 %.0880 to i64
-  %766 = getelementptr inbounds float, ptr %74, i64 %765
+  %766 = getelementptr inbounds [4 x i8], ptr %74, i64 %765
   %767 = load float, ptr %766, align 4
   %768 = fadd float %767, %764
   store float %768, ptr %766, align 4
@@ -3176,7 +3176,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %794 = fmul double %223, %.0833
   %795 = fptrunc double %794 to float
   %796 = sext i32 %.0832 to i64
-  %797 = getelementptr inbounds float, ptr %74, i64 %796
+  %797 = getelementptr inbounds [4 x i8], ptr %74, i64 %796
   %798 = load float, ptr %797, align 4
   %799 = fadd float %798, %795
   store float %799, ptr %797, align 4
@@ -3231,7 +3231,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %indvars.iv1252 = phi i64 [ %814, %.lr.ph1211.preheader ], [ %indvars.iv.next1253, %.lr.ph1211 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph1211.preheader ], [ %indvars.iv.next, %.lr.ph1211 ]
   %.08851207 = phi double [ 0.000000e+00, %.lr.ph1211.preheader ], [ %819, %.lr.ph1211 ]
-  %816 = getelementptr inbounds float, ptr %74, i64 %indvars.iv1252
+  %816 = getelementptr inbounds [4 x i8], ptr %74, i64 %indvars.iv1252
   %817 = load float, ptr %816, align 4
   %818 = fpext float %817 to double
   %819 = fadd double %.08851207, %818
@@ -3313,7 +3313,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %indvars.iv1259 = phi i64 [ %853, %.lr.ph1221.preheader ], [ %indvars.iv.next1260, %.lr.ph1221 ]
   %indvars.iv1257 = phi i64 [ %852, %.lr.ph1221.preheader ], [ %indvars.iv.next1258, %.lr.ph1221 ]
   %.18861217 = phi double [ %.0885.lcssa1362, %.lr.ph1221.preheader ], [ %857, %.lr.ph1221 ]
-  %854 = getelementptr inbounds float, ptr %74, i64 %indvars.iv1259
+  %854 = getelementptr inbounds [4 x i8], ptr %74, i64 %indvars.iv1259
   %855 = load float, ptr %854, align 4
   %856 = fpext float %855 to double
   %857 = fadd double %.18861217, %856

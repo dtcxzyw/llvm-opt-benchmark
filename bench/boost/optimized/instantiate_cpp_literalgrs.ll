@@ -1091,10 +1091,10 @@ define linkonce_odr hidden void @_ZN5boost4wave4util6throw_INS0_20preprocess_exc
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds i32, ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr @_ZZN5boost4wave4util12get_severityEiE13severity_text, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr @_ZZN5boost4wave4util12get_severityEiE13severity_text, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %14, label %22
@@ -1120,7 +1120,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14, %22
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17 unwind label %44
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %26 = getelementptr inbounds ptr, ptr @_ZZN5boost4wave20preprocess_exception10error_textEiE27preprocess_exception_errors, i64 %8
+  %26 = getelementptr inbounds [8 x i8], ptr @_ZZN5boost4wave20preprocess_exception10error_textEiE27preprocess_exception_errors, i64 %8
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   %.not.i18 = icmp eq ptr %27, null
   br i1 %.not.i18, label %28, label %36
@@ -2805,7 +2805,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %30, %_ZNSt6vec
   %.pre = phi i64 [ %.pre.pre, %30 ], [ %20, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i ]
   store ptr %29, ptr %4, align 8, !tbaa !163
   store ptr %29, ptr %6, align 8, !tbaa !155
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %24
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   store ptr %31, ptr %13, align 8, !tbaa !157
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
@@ -5377,7 +5377,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %34, %.noex
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %31, ptr %11, align 8, !tbaa !163
   store ptr %35, ptr %12, align 8, !tbaa !155
-  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !157
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -6063,7 +6063,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN5
   br i1 %23, label %24, label %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   %.not.i.i = icmp eq ptr %10, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit, label %26
 
@@ -6073,7 +6073,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN5
 
 _ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit: ; preds = %26, %24, %22, %20, %2
   %27 = phi ptr [ %11, %26 ], [ %11, %24 ], [ %11, %22 ], [ %.pre, %20 ], [ %11, %2 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %.not17 = icmp eq ptr %29, null
   br i1 %.not17, label %30, label %99
@@ -6223,7 +6223,7 @@ _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_
 _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %71, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
   store ptr %66, ptr %5, align 8, !tbaa !78
   store ptr %70, ptr %46, align 8, !tbaa !246
-  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %72, ptr %48, align 8, !tbaa !80
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
@@ -6233,7 +6233,7 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   %75 = add i64 %74, 1
   store i64 %75, ptr %73, align 8, !tbaa !247
   %76 = load ptr, ptr %8, align 8, !tbaa !220
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %7
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %7
   store ptr %31, ptr %77, align 8, !tbaa !17
   %78 = load i8, ptr %45, align 8, !tbaa !148, !range !109, !noundef !110
   %79 = trunc nuw i8 %78 to i1
@@ -6417,7 +6417,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
   br i1 %.not, label %13, label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEES8_NS2_7scannerIPKcNS2_16scanner_policiesINS2_16iteration_policyENS2_12match_policyENS2_13action_policyEEEEEEEE5resetEv.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %24, label %17
@@ -6441,7 +6441,7 @@ _ZN5boost4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIP
 
 24:                                               ; preds = %_ZN5boost4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13action_policyEEEEEED2Ev.exit, %13
   %25 = phi ptr [ %.pre, %_ZN5boost4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13action_policyEEEEEED2Ev.exit ], [ %8, %13 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %4
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %4
   store ptr null, ptr %26, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !247
@@ -6771,9 +6771,9 @@ _ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7clas
 
 _ZNSt12_Vector_baseIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE13_M_deallocateEPSH_m.exit36: ; preds = %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE11_S_relocateEPSH_SK_SK_RSI_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !220
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !225
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !224
   br label %41
 
@@ -7722,7 +7722,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost4wave20preprocess_exception12g
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %3 = load i32, ptr %2, align 8, !tbaa !60
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !38
   ret i32 %6
 }
@@ -8257,7 +8257,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
   br i1 %23, label %24, label %_ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   %.not.i.i = icmp eq ptr %10, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit, label %26
 
@@ -8267,7 +8267,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN5
 
 _ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit: ; preds = %26, %24, %22, %20, %2
   %27 = phi ptr [ %11, %26 ], [ %11, %24 ], [ %11, %22 ], [ %.pre, %20 ], [ %11, %2 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %.not17 = icmp eq ptr %29, null
   br i1 %.not17, label %30, label %88
@@ -8353,7 +8353,7 @@ _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_
 _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars13chlit_grammarENS2_15closure_contextINS7_8closures13chlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars13chlit_grammarENS2_15closure_contextINS7_8closures13chlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
   store ptr %55, ptr %5, align 8, !tbaa !124
   store ptr %59, ptr %35, align 8, !tbaa !330
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !125
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars13chlit_grammarENS1_15closure_contextINS6_8closures13chlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
@@ -8363,7 +8363,7 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   %64 = add i64 %63, 1
   store i64 %64, ptr %62, align 8, !tbaa !331
   %65 = load ptr, ptr %8, align 8, !tbaa !322
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %7
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %7
   store ptr %31, ptr %66, align 8, !tbaa !17
   %67 = load i8, ptr %34, align 8, !tbaa !148, !range !109, !noundef !110
   %68 = trunc nuw i8 %67 to i1
@@ -8547,7 +8547,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
   br i1 %.not, label %13, label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars13chlit_grammarENS2_15closure_contextINS7_8closures13chlit_closureEEEEES8_NS2_7scannerIPKcNS2_16scanner_policiesINS2_16iteration_policyENS2_12match_policyENS2_13action_policyEEEEEEEE5resetEv.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %28, label %17
@@ -8583,7 +8583,7 @@ _ZN5boost4wave8grammars13chlit_grammar10definitionINS_6spirit7classic7scannerIPK
 
 28:                                               ; preds = %_ZN5boost4wave8grammars13chlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13action_policyEEEEEED2Ev.exit, %13
   %29 = phi ptr [ %.pre, %_ZN5boost4wave8grammars13chlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS5_16scanner_policiesINS5_16iteration_policyENS5_12match_policyENS5_13action_policyEEEEEED2Ev.exit ], [ %8, %13 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %4
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %4
   store ptr null, ptr %30, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8, !tbaa !331
@@ -9231,9 +9231,9 @@ _ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7class
 
 _ZNSt12_Vector_baseIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE13_M_deallocateEPSH_m.exit36: ; preds = %_ZNSt6vectorIPN5boost4wave8grammars13chlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE11_S_relocateEPSH_SK_SK_RSI_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !322
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !327
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !326
   br label %41
 

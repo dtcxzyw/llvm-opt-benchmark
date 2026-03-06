@@ -303,7 +303,7 @@ mpeg_get_pixelformat.exit.i:                      ; preds = %51, %46
 
 66:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8, !tbaa !58
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1464
   store i32 2147483647, ptr %69, align 8, !tbaa !75
@@ -323,18 +323,18 @@ mpeg_get_pixelformat.exit.i:                      ; preds = %51, %46
   %indvars.iv62.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next63.i, %75 ]
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv62.i
   %77 = load i8, ptr %76, align 1, !tbaa !58
-  %78 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv62.i
+  %78 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv62.i
   %79 = load i16, ptr %78, align 2, !tbaa !78
   %80 = zext i8 %77 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %71, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %80
   store i16 %79, ptr %81, align 2, !tbaa !78
-  %82 = getelementptr inbounds nuw i16, ptr %72, i64 %80
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %80
   store i16 %79, ptr %82, align 2, !tbaa !78
-  %83 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_non_intra_matrix, i64 %indvars.iv62.i
+  %83 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpeg1_default_non_intra_matrix, i64 %indvars.iv62.i
   %84 = load i16, ptr %83, align 2, !tbaa !78
-  %85 = getelementptr inbounds nuw i16, ptr %73, i64 %80
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %80
   store i16 %84, ptr %85, align 2, !tbaa !78
-  %86 = getelementptr inbounds nuw i16, ptr %74, i64 %80
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %80
   store i16 %84, ptr %86, align 2, !tbaa !78
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, 64
@@ -513,12 +513,12 @@ define internal noundef i32 @ipu_decode_init(ptr noundef initializes((136, 140))
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !58
-  %14 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !78
   %16 = zext i8 %13 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %16
   store i16 %15, ptr %17, align 2, !tbaa !78
-  %18 = getelementptr inbounds nuw i16, ptr %9, i64 %16
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %16
   store i16 %15, ptr %18, align 2, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -765,7 +765,7 @@ mpeg_get_qscale.exit:                             ; preds = %138, %143
   %148 = load i32, ptr %45, align 8, !tbaa !110
   %149 = and i32 %148, 128
   %.not138 = icmp eq i32 %149, 0
-  %150 = getelementptr inbounds nuw [64 x i16], ptr %66, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [128 x i8], ptr %66, i64 %indvars.iv
   br i1 %.not138, label %155, label %151
 
 151:                                              ; preds = %147
@@ -1044,7 +1044,7 @@ define internal fastcc i32 @decode_chunks(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph.i:                                         ; preds = %128, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %128 ]
   %.027.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %129, %128 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i
   %124 = load ptr, ptr %123, align 8, !tbaa !58
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4400
   %126 = load atomic i32, ptr %125 monotonic, align 8
@@ -1443,9 +1443,9 @@ check_marker.exit.i:                              ; preds = %267
   %.023.i.i = phi i32 [ 8, %339 ], [ %334, %336 ]
   %342 = trunc nuw nsw i32 %.023.i.i to i16
   %343 = zext i8 %324 to i64
-  %344 = getelementptr inbounds nuw i16, ptr %318, i64 %343
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %318, i64 %343
   store i16 %342, ptr %344, align 2, !tbaa !78
-  %345 = getelementptr inbounds nuw i16, ptr %314, i64 %343
+  %345 = getelementptr inbounds nuw [2 x i8], ptr %314, i64 %343
   store i16 %342, ptr %345, align 2, !tbaa !78
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
@@ -1460,12 +1460,12 @@ check_marker.exit.i:                              ; preds = %267
   %indvars.iv.i308 = phi i64 [ 0, %.preheader102.i ], [ %indvars.iv.next.i309, %347 ]
   %348 = getelementptr inbounds nuw i8, ptr %315, i64 %indvars.iv.i308
   %349 = load i8, ptr %348, align 1, !tbaa !58
-  %350 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv.i308
+  %350 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpeg1_default_intra_matrix, i64 %indvars.iv.i308
   %351 = load i16, ptr %350, align 2, !tbaa !78
   %352 = zext i8 %349 to i64
-  %353 = getelementptr inbounds nuw i16, ptr %314, i64 %352
+  %353 = getelementptr inbounds nuw [2 x i8], ptr %314, i64 %352
   store i16 %351, ptr %353, align 2, !tbaa !78
-  %354 = getelementptr inbounds nuw i16, ptr %316, i64 %352
+  %354 = getelementptr inbounds nuw [2 x i8], ptr %316, i64 %352
   store i16 %351, ptr %354, align 2, !tbaa !78
   %indvars.iv.next.i309 = add nuw nsw i64 %indvars.iv.i308, 1
   %exitcond.not.i310 = icmp eq i64 %indvars.iv.next.i309, 64
@@ -1522,9 +1522,9 @@ load_matrix.exit.i:                               ; preds = %341, %347, %.split3
 387:                                              ; preds = %.split.us.split.i.i
   %388 = trunc nuw nsw i32 %385 to i16
   %389 = zext i8 %378 to i64
-  %390 = getelementptr inbounds nuw i16, ptr %370, i64 %389
+  %390 = getelementptr inbounds nuw [2 x i8], ptr %370, i64 %389
   store i16 %388, ptr %390, align 2, !tbaa !78
-  %391 = getelementptr inbounds nuw i16, ptr %366, i64 %389
+  %391 = getelementptr inbounds nuw [2 x i8], ptr %366, i64 %389
   store i16 %388, ptr %391, align 2, !tbaa !78
   %indvars.iv.next48.i.i = add nuw nsw i64 %indvars.iv47.i.i, 1
   %exitcond50.not.i.i = icmp eq i64 %indvars.iv.next48.i.i, 64
@@ -1541,12 +1541,12 @@ load_matrix.exit.i:                               ; preds = %341, %347, %.split3
   %indvars.iv109.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next110.i, %393 ]
   %394 = getelementptr inbounds nuw i8, ptr %367, i64 %indvars.iv109.i
   %395 = load i8, ptr %394, align 1, !tbaa !58
-  %396 = getelementptr inbounds nuw i16, ptr @ff_mpeg1_default_non_intra_matrix, i64 %indvars.iv109.i
+  %396 = getelementptr inbounds nuw [2 x i8], ptr @ff_mpeg1_default_non_intra_matrix, i64 %indvars.iv109.i
   %397 = load i16, ptr %396, align 2, !tbaa !78
   %398 = zext i8 %395 to i64
-  %399 = getelementptr inbounds nuw i16, ptr %366, i64 %398
+  %399 = getelementptr inbounds nuw [2 x i8], ptr %366, i64 %398
   store i16 %397, ptr %399, align 2, !tbaa !78
-  %400 = getelementptr inbounds nuw i16, ptr %368, i64 %398
+  %400 = getelementptr inbounds nuw [2 x i8], ptr %368, i64 %398
   store i16 %397, ptr %400, align 2, !tbaa !78
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond112.not.i = icmp eq i64 %indvars.iv.next110.i, 64
@@ -1713,7 +1713,7 @@ mpeg1_decode_sequence.exit:                       ; preds = %206, %231, %248, %c
 .lr.ph.i319:                                      ; preds = %478, %.lr.ph.preheader.i317
   %indvars.iv.i320 = phi i64 [ 0, %.lr.ph.preheader.i317 ], [ %indvars.iv.next.i323, %478 ]
   %.027.i321 = phi i32 [ 0, %.lr.ph.preheader.i317 ], [ %479, %478 ]
-  %473 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i320
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i320
   %474 = load ptr, ptr %473, align 8, !tbaa !58
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 4400
   %476 = load atomic i32, ptr %475 monotonic, align 8
@@ -1752,7 +1752,7 @@ mpeg12_execute_slice_threads.exit325:             ; preds = %463, %466, %._crit_
 
 487:                                              ; preds = %481
   %488 = zext i32 %486 to i64
-  %489 = getelementptr inbounds nuw float, ptr @ff_mpeg1_aspect, i64 %488
+  %489 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_aspect, i64 %488
   %490 = load float, ptr %489, align 4, !tbaa !147
   %491 = fpext nsz float %490 to double
   %492 = call i64 @av_d2q(double noundef %491, i32 noundef 255) #13
@@ -1769,7 +1769,7 @@ mpeg12_execute_slice_threads.exit325:             ; preds = %463, %466, %._crit_
 
 495:                                              ; preds = %493
   %496 = zext i32 %486 to i64
-  %497 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg2_aspect, i64 %496
+  %497 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg2_aspect, i64 %496
   %498 = getelementptr inbounds nuw i8, ptr %482, i64 4812
   %499 = load i64, ptr %498, align 4
   %500 = load i64, ptr %497, align 8
@@ -1831,7 +1831,7 @@ av_cmp_q.exit.thread149.i:                        ; preds = %517, %513
   %528 = load ptr, ptr %527, align 8, !tbaa !72
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 128
   %530 = zext nneg i32 %486 to i64
-  %531 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg2_aspect, i64 %530
+  %531 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg2_aspect, i64 %530
   %532 = load i64, ptr %531, align 8
   store i64 %532, ptr %529, align 8
   br label %533
@@ -1982,7 +1982,7 @@ av_cmp_q.exit.thread149.i:                        ; preds = %517, %513
   %607 = getelementptr inbounds nuw i8, ptr %482, i64 4892
   %608 = load i32, ptr %607, align 4, !tbaa !139
   %609 = zext i32 %608 to i64
-  %610 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %609
+  %610 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %609
   %611 = load i64, ptr %610, align 4
   store i64 %611, ptr %85, align 4
   br label %637
@@ -1995,7 +1995,7 @@ av_cmp_q.exit.thread149.i:                        ; preds = %517, %513
   %617 = getelementptr inbounds nuw i8, ptr %482, i64 4892
   %618 = load i32, ptr %617, align 4, !tbaa !139
   %619 = zext i32 %618 to i64
-  %620 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %619
+  %620 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %619
   %621 = load i32, ptr %620, align 4, !tbaa !153
   %622 = getelementptr inbounds nuw i8, ptr %482, i64 4884
   %623 = load i32, ptr %622, align 4, !tbaa !154
@@ -2020,7 +2020,7 @@ av_cmp_q.exit.thread149.i:                        ; preds = %517, %513
 
 switch.lookup:                                    ; preds = %612
   %636 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decode_chunks, i64 %636
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decode_chunks, i64 %636
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %637
 
@@ -2073,7 +2073,7 @@ mpeg_get_pixelformat.exit.i:                      ; preds = %646, %642
 
 660:                                              ; preds = %660, %.lr.ph.i327
   %indvars.iv.i329 = phi i64 [ 0, %.lr.ph.i327 ], [ %indvars.iv.next.i330, %660 ]
-  %661 = getelementptr inbounds nuw ptr, ptr %659, i64 %indvars.iv.i329
+  %661 = getelementptr inbounds nuw [8 x i8], ptr %659, i64 %indvars.iv.i329
   %662 = load ptr, ptr %661, align 8, !tbaa !58
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 1464
   store i32 2147483647, ptr %663, align 8, !tbaa !75
@@ -2582,9 +2582,9 @@ check_marker.exit.i347:                           ; preds = %835, %785
   %.023.i.i357 = phi i32 [ 8, %963 ], [ %958, %960 ]
   %966 = trunc nuw nsw i32 %.023.i.i357 to i16
   %967 = zext i8 %948 to i64
-  %968 = getelementptr inbounds nuw i16, ptr %57, i64 %967
+  %968 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %967
   store i16 %966, ptr %968, align 2, !tbaa !78
-  %969 = getelementptr inbounds nuw i16, ptr %58, i64 %967
+  %969 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %967
   store i16 %966, ptr %969, align 2, !tbaa !78
   %indvars.iv.next.i.i358 = add nuw nsw i64 %indvars.iv.i.i354, 1
   %exitcond.not.i.i359 = icmp eq i64 %indvars.iv.next.i.i358, 64
@@ -2638,9 +2638,9 @@ load_matrix.exit.i360:                            ; preds = %965, %.split31.us.i
 998:                                              ; preds = %.split.us.split.i.i361
   %999 = trunc nuw nsw i32 %996 to i16
   %1000 = zext i8 %989 to i64
-  %1001 = getelementptr inbounds nuw i16, ptr %59, i64 %1000
+  %1001 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %1000
   store i16 %999, ptr %1001, align 2, !tbaa !78
-  %1002 = getelementptr inbounds nuw i16, ptr %60, i64 %1000
+  %1002 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %1000
   store i16 %999, ptr %1002, align 2, !tbaa !78
   %indvars.iv.next48.i.i364 = add nuw nsw i64 %indvars.iv47.i.i362, 1
   %exitcond50.not.i.i365 = icmp eq i64 %indvars.iv.next48.i.i364, 64
@@ -2706,7 +2706,7 @@ load_matrix.exit19.i:                             ; preds = %998, %.split31.us.i
   %.023.us34.i.i = phi i32 [ 8, %1034 ], [ %1029, %1031 ]
   %1037 = trunc nuw nsw i32 %.023.us34.i.i to i16
   %1038 = zext i8 %1019 to i64
-  %1039 = getelementptr inbounds nuw i16, ptr %57, i64 %1038
+  %1039 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %1038
   store i16 %1037, ptr %1039, align 2, !tbaa !78
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond46.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, 64
@@ -2760,7 +2760,7 @@ load_matrix.exit22.i:                             ; preds = %1036, %.split31.us.
 1068:                                             ; preds = %.split.us.split.us.i.i
   %1069 = trunc nuw nsw i32 %1066 to i16
   %1070 = zext i8 %1059 to i64
-  %1071 = getelementptr inbounds nuw i16, ptr %59, i64 %1070
+  %1071 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %1070
   store i16 %1069, ptr %1071, align 2, !tbaa !78
   %indvars.iv.next52.i.i = add nuw nsw i64 %indvars.iv51.i.i, 1
   %exitcond54.not.i.i = icmp eq i64 %indvars.iv.next52.i.i, 64
@@ -2814,7 +2814,7 @@ load_matrix.exit22.i:                             ; preds = %1036, %.split31.us.
   %1093 = shl i32 %1091, %1092
   %1094 = lshr i32 %1093, 16
   %1095 = trunc nuw i32 %1094 to i16
-  %1096 = getelementptr inbounds nuw [2 x i16], ptr %51, i64 %indvars.iv.i370
+  %1096 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i370
   store i16 %1095, ptr %1096, align 4, !tbaa !78
   %1097 = add i32 %1086, 17
   store i32 %1097, ptr %27, align 8, !tbaa !109
@@ -4219,7 +4219,7 @@ mpeg_set_cc_format.exit260.i.i:                   ; preds = %1677, %1673
 
 1857:                                             ; preds = %1849
   %1858 = sext i32 %1851 to i64
-  %1859 = getelementptr inbounds ptr, ptr %78, i64 %1858
+  %1859 = getelementptr inbounds [8 x i8], ptr %78, i64 %1858
   %1860 = load ptr, ptr %1859, align 8, !tbaa !58
   %1861 = getelementptr inbounds nuw i8, ptr %1860, i64 648
   store i32 %spec.select, ptr %1861, align 8, !tbaa !195
@@ -4417,12 +4417,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mpeg_field_start(ptr nound
 
 .split.us:                                        ; preds = %32, %.split.us
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.split.us ], [ 0, %32 ]
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv184
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv184
   %45 = load i64, ptr %44, align 8, !tbaa !152
-  %46 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv184
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv184
   %47 = load ptr, ptr %46, align 8, !tbaa !119
   %48 = getelementptr inbounds i8, ptr %47, i64 %45
-  %49 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv184
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv184
   store ptr %48, ptr %49, align 8, !tbaa !119
   %50 = shl nsw i64 %45, 1
   store i64 %50, ptr %44, align 8, !tbaa !152
@@ -4432,7 +4432,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mpeg_field_start(ptr nound
 
 .split:                                           ; preds = %32, %.split
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.split ], [ 0, %32 ]
-  %51 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv180
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv180
   %52 = load i64, ptr %51, align 8, !tbaa !152
   %53 = shl nsw i64 %52, 1
   store i64 %53, ptr %51, align 8, !tbaa !152
@@ -4614,10 +4614,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mpeg_field_start(ptr nound
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.preheader.split.us ], [ 0, %.preheader ]
-  %136 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv176
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv176
   %137 = load ptr, ptr %136, align 8, !tbaa !119
-  %138 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv176
-  %139 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv176
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv176
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv176
   %140 = load i32, ptr %139, align 4, !tbaa !64
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i8, ptr %137, i64 %141
@@ -4628,9 +4628,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mpeg_field_start(ptr nound
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split ], [ 0, %.preheader ]
-  %143 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv
   %144 = load ptr, ptr %143, align 8, !tbaa !119
-  %145 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv
   store ptr %144, ptr %145, align 8, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4878,7 +4878,7 @@ skip_1stop_8data_bits.exit:                       ; preds = %.preheader.i
   %95 = shl i32 %93, %94
   %96 = lshr i32 %95, 23
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mbincr_vlc, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @ff_mbincr_vlc, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !58
   %100 = sext i16 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 2
@@ -4900,7 +4900,7 @@ skip_1stop_8data_bits.exit:                       ; preds = %.preheader.i
   %115 = lshr i32 %113, %114
   %116 = add i32 %115, %100
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mbincr_vlc, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr @ff_mbincr_vlc, i64 %117
   %119 = load i16, ptr %118, align 2, !tbaa !58
   %120 = sext i16 %119 to i32
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 2
@@ -5053,7 +5053,7 @@ get_vlc2.exit:                                    ; preds = %.lr.ph, %105
 
 switch.lookup:                                    ; preds = %186
   %199 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mpeg_decode_slice, i64 %199
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mpeg_decode_slice, i64 %199
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %200
 
@@ -5171,7 +5171,7 @@ switch.lookup:                                    ; preds = %186
   %293 = mul nsw i32 %292, %291
   %294 = add nsw i32 %293, %290
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds i32, ptr %289, i64 %295
+  %296 = getelementptr inbounds [4 x i8], ptr %289, i64 %295
   store i32 135176, ptr %296, align 4, !tbaa !64
   br label %mpeg_decode_mb.exit
 
@@ -5202,7 +5202,7 @@ switch.lookup:                                    ; preds = %186
   %313 = phi i32 [ %309, %305 ], [ %302, %300 ]
   %314 = phi i32 [ %307, %305 ], [ %301, %300 ]
   %315 = sext i32 %.sink136.i to i64
-  %316 = getelementptr i32, ptr %299, i64 %315
+  %316 = getelementptr [4 x i8], ptr %299, i64 %315
   %.0440.in.i = getelementptr i8, ptr %316, i64 -4
   %.0440.i = load i32, ptr %.0440.in.i, align 4, !tbaa !64
   %317 = and i32 %.0440.i, 7
@@ -5214,7 +5214,7 @@ switch.lookup:                                    ; preds = %186
   %320 = mul nsw i32 %314, %313
   %321 = add nsw i32 %320, %298
   %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds i32, ptr %299, i64 %322
+  %323 = getelementptr inbounds [4 x i8], ptr %299, i64 %322
   store i32 %319, ptr %323, align 4, !tbaa !64
   %324 = load i32, ptr %235, align 8, !tbaa !64
   %325 = load i32, ptr %236, align 4, !tbaa !64
@@ -5285,7 +5285,7 @@ switch.lookup:                                    ; preds = %186
   %368 = shl i32 %366, %367
   %369 = lshr i32 %368, 26
   %370 = zext nneg i32 %369 to i64
-  %371 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mb_ptype_vlc, i64 %370
+  %371 = getelementptr inbounds nuw [4 x i8], ptr @ff_mb_ptype_vlc, i64 %370
   %372 = load i16, ptr %371, align 2, !tbaa !58
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 2
   %374 = load i16, ptr %373, align 2, !tbaa !58
@@ -5309,7 +5309,7 @@ switch.lookup:                                    ; preds = %186
   %386 = shl i32 %384, %385
   %387 = lshr i32 %386, 26
   %388 = zext nneg i32 %387 to i64
-  %389 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mb_btype_vlc, i64 %388
+  %389 = getelementptr inbounds nuw [4 x i8], ptr @ff_mb_btype_vlc, i64 %388
   %390 = load i16, ptr %389, align 2, !tbaa !58
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 2
   %392 = load i16, ptr %391, align 2, !tbaa !58
@@ -5490,7 +5490,7 @@ check_marker.exit.i:                              ; preds = %477, %475, %456
 .lr.ph44.i:                                       ; preds = %480, %.lr.ph44.preheader.i
   %indvars.iv97.i = phi i64 [ 0, %.lr.ph44.preheader.i ], [ %indvars.iv.next98.i, %480 ]
   %481 = load ptr, ptr %230, align 8, !tbaa !221
-  %482 = getelementptr inbounds nuw [64 x i16], ptr %481, i64 %indvars.iv97.i
+  %482 = getelementptr inbounds nuw [128 x i8], ptr %481, i64 %indvars.iv97.i
   %483 = trunc nuw nsw i64 %indvars.iv97.i to i32
   %484 = tail call fastcc i32 @mpeg2_decode_block_intra(ptr noundef nonnull %0, ptr noundef %482, i32 noundef %483)
   %485 = icmp slt i32 %484, 0
@@ -5499,7 +5499,7 @@ check_marker.exit.i:                              ; preds = %477, %475, %456
 .preheader8.i:                                    ; preds = %check_marker.exit.i, %496
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %496 ], [ 0, %check_marker.exit.i ]
   %486 = load ptr, ptr %230, align 8, !tbaa !221
-  %487 = getelementptr inbounds nuw [64 x i16], ptr %486, i64 %indvars.iv93.i
+  %487 = getelementptr inbounds nuw [128 x i8], ptr %486, i64 %indvars.iv93.i
   %488 = load i32, ptr %61, align 8, !tbaa !116
   %489 = trunc nuw nsw i64 %indvars.iv93.i to i32
   %490 = tail call i32 @ff_mpeg1_decode_block_intra(ptr noundef nonnull %21, ptr noundef nonnull %264, ptr noundef nonnull %255, ptr noundef nonnull %251, ptr noundef %487, i32 noundef %489, i32 noundef %488) #12
@@ -5514,7 +5514,7 @@ check_marker.exit.i:                              ; preds = %477, %475, %456
   br label %skip_1stop_8data_bits.exit.thread
 
 496:                                              ; preds = %.preheader8.i
-  %497 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv93.i
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv93.i
   store i32 %490, ptr %497, align 4, !tbaa !64
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next94.i, 6
@@ -5716,15 +5716,15 @@ mpeg_get_qscale.exit489.i:                        ; preds = %590, %585
   br i1 %.not469.i, label %623, label %602
 
 602:                                              ; preds = %597
-  %603 = getelementptr inbounds nuw [2 x i32], ptr %246, i64 %indvars.iv80.i
+  %603 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv80.i
   %604 = load i32, ptr %603, align 4, !tbaa !64
-  %605 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %244, i64 %indvars.iv80.i
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %indvars.iv80.i
   %606 = load i32, ptr %605, align 8, !tbaa !64
   %607 = tail call fastcc i32 @mpeg_decode_motion(ptr noundef %0, i32 noundef %604, i32 noundef %606)
   %608 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store i32 %607, ptr %608, align 8, !tbaa !64
   store i32 %607, ptr %605, align 8, !tbaa !64
-  %609 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %235, i64 %indvars.iv80.i
+  %609 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %indvars.iv80.i
   store i32 %607, ptr %609, align 8, !tbaa !64
   %610 = getelementptr inbounds nuw i8, ptr %603, i64 4
   %611 = load i32, ptr %610, align 4, !tbaa !64
@@ -5736,7 +5736,7 @@ mpeg_get_qscale.exit489.i:                        ; preds = %590, %585
   store i32 %614, ptr %612, align 4, !tbaa !64
   %616 = getelementptr inbounds nuw i8, ptr %609, i64 4
   store i32 %614, ptr %616, align 4, !tbaa !64
-  %617 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv80.i
+  %617 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %indvars.iv80.i
   %618 = load i32, ptr %617, align 4, !tbaa !64
   %.not470.i = icmp eq i32 %618, 0
   br i1 %.not470.i, label %623, label %619
@@ -5767,10 +5767,10 @@ mpeg_get_qscale.exit489.i:                        ; preds = %590, %585
   br i1 %.not468.i, label %.loopexit17.i, label %.preheader16.i
 
 .preheader16.i:                                   ; preds = %625
-  %630 = getelementptr inbounds nuw [2 x i32], ptr %242, i64 %indvars.iv77.i
-  %631 = getelementptr inbounds nuw [2 x i32], ptr %246, i64 %indvars.iv77.i
-  %632 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %244, i64 %indvars.iv77.i
-  %633 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %235, i64 %indvars.iv77.i
+  %630 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv77.i
+  %631 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv77.i
+  %632 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %indvars.iv77.i
+  %633 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %indvars.iv77.i
   br label %634
 
 634:                                              ; preds = %729, %.preheader16.i
@@ -5788,19 +5788,19 @@ mpeg_get_qscale.exit489.i:                        ; preds = %590, %585
   %644 = add i32 %.promoted134.i, 1
   store i32 %644, ptr %33, align 8, !tbaa !109
   %645 = and i32 %643, 1
-  %646 = getelementptr inbounds nuw i32, ptr %630, i64 %indvars.iv74.i
+  %646 = getelementptr inbounds nuw [4 x i8], ptr %630, i64 %indvars.iv74.i
   store i32 %645, ptr %646, align 4, !tbaa !64
-  %647 = getelementptr inbounds nuw [2 x i32], ptr %632, i64 %indvars.iv74.i
-  %648 = getelementptr inbounds nuw [2 x i32], ptr %633, i64 %indvars.iv74.i
+  %647 = getelementptr inbounds nuw [8 x i8], ptr %632, i64 %indvars.iv74.i
+  %648 = getelementptr inbounds nuw [8 x i8], ptr %633, i64 %indvars.iv74.i
   br label %649
 
 649:                                              ; preds = %mpeg_decode_motion.exit.i, %634
   %650 = phi i32 [ %644, %634 ], [ %727, %mpeg_decode_motion.exit.i ]
   %651 = phi i1 [ true, %634 ], [ false, %mpeg_decode_motion.exit.i ]
   %indvars.iv71.i = phi i64 [ 0, %634 ], [ 1, %mpeg_decode_motion.exit.i ]
-  %652 = getelementptr inbounds nuw i32, ptr %631, i64 %indvars.iv71.i
+  %652 = getelementptr inbounds nuw [4 x i8], ptr %631, i64 %indvars.iv71.i
   %653 = load i32, ptr %652, align 4, !tbaa !64
-  %654 = getelementptr inbounds nuw i32, ptr %647, i64 %indvars.iv71.i
+  %654 = getelementptr inbounds nuw [4 x i8], ptr %647, i64 %indvars.iv71.i
   %655 = load i32, ptr %654, align 4, !tbaa !64
   %656 = lshr i32 %650, 3
   %657 = zext nneg i32 %656 to i64
@@ -5811,7 +5811,7 @@ mpeg_get_qscale.exit489.i:                        ; preds = %590, %585
   %662 = shl i32 %660, %661
   %663 = lshr i32 %662, 24
   %664 = zext nneg i32 %663 to i64
-  %665 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mv_vlc, i64 %664
+  %665 = getelementptr inbounds nuw [4 x i8], ptr @ff_mv_vlc, i64 %664
   %666 = load i16, ptr %665, align 2, !tbaa !58
   %667 = sext i16 %666 to i32
   %668 = getelementptr inbounds nuw i8, ptr %665, i64 2
@@ -5832,7 +5832,7 @@ mpeg_get_qscale.exit489.i:                        ; preds = %590, %585
   %681 = lshr i32 %679, %680
   %682 = add i32 %681, %667
   %683 = zext i32 %682 to i64
-  %684 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mv_vlc, i64 %683
+  %684 = getelementptr inbounds nuw [4 x i8], ptr @ff_mv_vlc, i64 %683
   %685 = load i16, ptr %684, align 2, !tbaa !58
   %686 = sext i16 %685 to i32
   %687 = getelementptr inbounds nuw i8, ptr %684, i64 2
@@ -5902,7 +5902,7 @@ mpeg_decode_motion.exit.i:                        ; preds = %718, %692, %get_vlc
   %727 = phi i32 [ %719, %718 ], [ %690, %get_vlc2.exit.i.i ], [ %690, %692 ]
   %.0.i491.i = phi i32 [ %726, %718 ], [ %655, %get_vlc2.exit.i.i ], [ 65535, %692 ]
   store i32 %.0.i491.i, ptr %654, align 4, !tbaa !64
-  %728 = getelementptr inbounds nuw i32, ptr %648, i64 %indvars.iv71.i
+  %728 = getelementptr inbounds nuw [4 x i8], ptr %648, i64 %indvars.iv71.i
   store i32 %.0.i491.i, ptr %728, align 4, !tbaa !64
   br i1 %651, label %649, label %729, !llvm.loop !229
 
@@ -5927,10 +5927,10 @@ mpeg_decode_motion.exit.i:                        ; preds = %718, %692, %get_vlc
   br i1 %.not467.i, label %.loopexit20.i, label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %.preheader479
-  %735 = getelementptr inbounds nuw [2 x i32], ptr %242, i64 %indvars.iv68.i
-  %736 = getelementptr inbounds nuw [2 x i32], ptr %246, i64 %indvars.iv68.i
-  %737 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %244, i64 %indvars.iv68.i
-  %738 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %235, i64 %indvars.iv68.i
+  %735 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv68.i
+  %736 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv68.i
+  %737 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %indvars.iv68.i
+  %738 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %indvars.iv68.i
   %739 = getelementptr inbounds nuw i8, ptr %736, i64 4
   br label %740
 
@@ -5950,14 +5950,14 @@ mpeg_decode_motion.exit.i:                        ; preds = %718, %692, %get_vlc
   %752 = add i32 %742, 1
   store i32 %752, ptr %33, align 8, !tbaa !109
   %753 = and i32 %751, 1
-  %754 = getelementptr inbounds nuw i32, ptr %735, i64 %indvars.iv65.i
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %735, i64 %indvars.iv65.i
   store i32 %753, ptr %754, align 4, !tbaa !64
   %755 = load i32, ptr %736, align 4, !tbaa !64
-  %756 = getelementptr inbounds nuw [2 x i32], ptr %737, i64 %indvars.iv65.i
+  %756 = getelementptr inbounds nuw [8 x i8], ptr %737, i64 %indvars.iv65.i
   %757 = load i32, ptr %756, align 8, !tbaa !64
   %758 = tail call fastcc i32 @mpeg_decode_motion(ptr noundef %0, i32 noundef %755, i32 noundef %757)
   store i32 %758, ptr %756, align 8, !tbaa !64
-  %759 = getelementptr inbounds nuw [2 x i32], ptr %738, i64 %indvars.iv65.i
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %738, i64 %indvars.iv65.i
   store i32 %758, ptr %759, align 8, !tbaa !64
   %760 = load i32, ptr %739, align 4, !tbaa !64
   %761 = getelementptr inbounds nuw i8, ptr %756, i64 4
@@ -6006,12 +6006,12 @@ mpeg_decode_motion.exit.i:                        ; preds = %718, %692, %get_vlc
   %784 = add i32 %774, 1
   store i32 %784, ptr %33, align 8, !tbaa !109
   %785 = and i32 %783, 1
-  %786 = getelementptr inbounds nuw [2 x i32], ptr %242, i64 %indvars.iv62.i
+  %786 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %indvars.iv62.i
   store i32 %785, ptr %786, align 8, !tbaa !64
-  %787 = getelementptr inbounds nuw [2 x i32], ptr %246, i64 %indvars.iv62.i
-  %788 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %244, i64 %indvars.iv62.i
+  %787 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv62.i
+  %788 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %indvars.iv62.i
   %789 = getelementptr inbounds nuw i8, ptr %788, i64 8
-  %790 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %235, i64 %indvars.iv62.i
+  %790 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %indvars.iv62.i
   %791 = load i32, ptr %787, align 4, !tbaa !64
   %792 = load i32, ptr %788, align 4, !tbaa !64
   %793 = tail call fastcc i32 @mpeg_decode_motion(ptr noundef nonnull %0, i32 noundef %791, i32 noundef %792)
@@ -6061,9 +6061,9 @@ mpeg_decode_motion.exit.i:                        ; preds = %718, %692, %get_vlc
 812:                                              ; preds = %806
   %813 = icmp eq i32 %807, 3
   %814 = zext i1 %813 to i32
-  %815 = getelementptr inbounds nuw [2 x i32], ptr %246, i64 %indvars.iv.i
+  %815 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv.i
   %816 = load i32, ptr %815, align 4, !tbaa !64
-  %817 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %244, i64 %indvars.iv.i
+  %817 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %indvars.iv.i
   %818 = load i32, ptr %817, align 8, !tbaa !64
   %819 = tail call fastcc i32 @mpeg_decode_motion(ptr noundef %0, i32 noundef %816, i32 noundef %818)
   store i32 %819, ptr %817, align 8, !tbaa !64
@@ -6143,7 +6143,7 @@ get_dmv.exit496.i:                                ; preds = %861, %get_dmv.exit.
   store i32 %873, ptr %846, align 4, !tbaa !64
   %874 = getelementptr inbounds nuw i8, ptr %817, i64 12
   store i32 %873, ptr %874, align 4, !tbaa !64
-  %875 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %235, i64 %indvars.iv.i
+  %875 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %indvars.iv.i
   store i32 %819, ptr %875, align 8, !tbaa !64
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 4
   store i32 %849, ptr %876, align 4, !tbaa !64
@@ -6283,7 +6283,7 @@ default.unreachable:                              ; preds = %592
   %955 = shl i32 %953, %954
   %956 = lshr i32 %955, 23
   %957 = zext nneg i32 %956 to i64
-  %958 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mb_pat_vlc, i64 %957
+  %958 = getelementptr inbounds nuw [4 x i8], ptr @ff_mb_pat_vlc, i64 %957
   %959 = load i16, ptr %958, align 2, !tbaa !58
   %960 = sext i16 %959 to i32
   %961 = getelementptr inbounds nuw i8, ptr %958, i64 2
@@ -6352,7 +6352,7 @@ default.unreachable:                              ; preds = %592
 
 997:                                              ; preds = %995
   %998 = load ptr, ptr %230, align 8, !tbaa !221
-  %999 = getelementptr inbounds nuw [64 x i16], ptr %998, i64 %indvars.iv86.i
+  %999 = getelementptr inbounds nuw [128 x i8], ptr %998, i64 %indvars.iv86.i
   %1000 = load i32, ptr %61, align 8, !tbaa !116
   %1001 = load i32, ptr %33, align 8, !tbaa !236
   %1002 = icmp samesign ult i64 %indvars.iv86.i, 4
@@ -6401,7 +6401,7 @@ default.unreachable:                              ; preds = %592
   %.1.i.i = phi i32 [ %1126, %1119 ], [ %.1.i.i.ph, %.preheader626 ]
   %1026 = lshr i32 %.1.i.i, 23
   %1027 = zext nneg i32 %1026 to i64
-  %1028 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %1027
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %1027
   %1029 = load i16, ptr %1028, align 2, !tbaa !58
   %1030 = sext i16 %1029 to i32
   %1031 = getelementptr inbounds nuw i8, ptr %1028, i64 2
@@ -6417,7 +6417,7 @@ default.unreachable:                              ; preds = %592
   %1039 = lshr i32 %1036, %1038
   %1040 = add i32 %1039, %1030
   %1041 = zext i32 %1040 to i64
-  %1042 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %1041
+  %1042 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %1041
   %1043 = load i16, ptr %1042, align 2, !tbaa !58
   %1044 = sext i16 %1043 to i32
   %1045 = getelementptr inbounds nuw i8, ptr %1042, i64 2
@@ -6438,7 +6438,7 @@ default.unreachable:                              ; preds = %592
 
 1051:                                             ; preds = %1048
   %1052 = zext i32 %.0.i497.i to i64
-  %1053 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %1052
+  %1053 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %1052
   %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 3
   %1055 = load i8, ptr %1054, align 1, !tbaa !58
   %1056 = zext i8 %1055 to i32
@@ -6454,7 +6454,7 @@ default.unreachable:                              ; preds = %592
   %1064 = or disjoint i32 %1063, 1
   %1065 = mul nsw i32 %1064, %1000
   %1066 = zext i8 %1062 to i64
-  %1067 = getelementptr inbounds nuw i16, ptr %.0111.i.i, i64 %1066
+  %1067 = getelementptr inbounds nuw [2 x i8], ptr %.0111.i.i, i64 %1066
   %1068 = load i16, ptr %1067, align 2, !tbaa !78
   %1069 = zext i16 %1068 to i32
   %1070 = mul nsw i32 %1065, %1069
@@ -6490,7 +6490,7 @@ default.unreachable:                              ; preds = %592
   %1096 = load i8, ptr %1095, align 1, !tbaa !58
   %1097 = icmp slt i32 %1087, 0
   %1098 = zext i8 %1096 to i64
-  %1099 = getelementptr inbounds nuw i16, ptr %.0111.i.i, i64 %1098
+  %1099 = getelementptr inbounds nuw [2 x i8], ptr %.0111.i.i, i64 %1098
   %1100 = load i16, ptr %1099, align 2, !tbaa !78
   %1101 = zext i16 %1100 to i32
   br i1 %1097, label %1102, label %1108
@@ -6520,7 +6520,7 @@ default.unreachable:                              ; preds = %592
   %.3.i.i = phi i32 [ %1088, %1102 ], [ %1088, %1108 ], [ %1075, %1059 ]
   %1115 = xor i32 %.2110.i.i, %.2107.i.i
   %1116 = trunc i32 %.2110.i.i to i16
-  %1117 = getelementptr inbounds nuw i16, ptr %999, i64 %.pre-phi.i.i
+  %1117 = getelementptr inbounds nuw [2 x i8], ptr %999, i64 %.pre-phi.i.i
   store i16 %1116, ptr %1117, align 2, !tbaa !78
   %1118 = icmp slt i32 %.3.i.i, -1073741824
   br i1 %1118, label %.loopexit.i.i, label %1119
@@ -6559,7 +6559,7 @@ mpeg2_decode_block_non_intra.exit.thread.i:       ; preds = %.loopexit.i.i
 
 mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
   %.1113.i.sink.i = phi i32 [ %.1113.i.i, %.loopexit.i.i ], [ -1, %995 ]
-  %1137 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv86.i
+  %1137 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv86.i
   store i32 %.1113.i.sink.i, ptr %1137, align 4, !tbaa !64
   %1138 = shl nsw i32 %.143739.i, 1
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
@@ -6575,7 +6575,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
 
 1140:                                             ; preds = %.preheader13.i
   %1141 = load ptr, ptr %230, align 8, !tbaa !221
-  %1142 = getelementptr inbounds nuw [64 x i16], ptr %1141, i64 %indvars.iv83.i
+  %1142 = getelementptr inbounds nuw [128 x i8], ptr %1141, i64 %indvars.iv83.i
   %1143 = load i32, ptr %61, align 8, !tbaa !116
   %1144 = load i32, ptr %33, align 8, !tbaa !236
   %1145 = load ptr, ptr %21, align 8, !tbaa !237
@@ -6620,7 +6620,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
   %.1.i501.i = phi i32 [ %1287, %1280 ], [ %.1.i501.i.ph, %.preheader627 ]
   %1169 = lshr i32 %.1.i501.i, 23
   %1170 = zext nneg i32 %1169 to i64
-  %1171 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %1170
+  %1171 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %1170
   %1172 = load i16, ptr %1171, align 2, !tbaa !58
   %1173 = sext i16 %1172 to i32
   %1174 = getelementptr inbounds nuw i8, ptr %1171, i64 2
@@ -6636,7 +6636,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
   %1182 = lshr i32 %1179, %1181
   %1183 = add i32 %1182, %1173
   %1184 = zext i32 %1183 to i64
-  %1185 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %1184
+  %1185 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %1184
   %1186 = load i16, ptr %1185, align 2, !tbaa !58
   %1187 = sext i16 %1186 to i32
   %1188 = getelementptr inbounds nuw i8, ptr %1185, i64 2
@@ -6657,7 +6657,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
 
 1194:                                             ; preds = %1191
   %1195 = zext i32 %.0.i503.i to i64
-  %1196 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mpeg1_rl_vlc, i64 %1195
+  %1196 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg1_rl_vlc, i64 %1195
   %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 3
   %1198 = load i8, ptr %1197, align 1, !tbaa !58
   %1199 = zext i8 %1198 to i32
@@ -6673,7 +6673,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
   %1207 = or disjoint i32 %1206, 1
   %1208 = mul nsw i32 %1207, %1143
   %1209 = zext i8 %1205 to i64
-  %1210 = getelementptr inbounds nuw i16, ptr %256, i64 %1209
+  %1210 = getelementptr inbounds nuw [2 x i8], ptr %256, i64 %1209
   %1211 = load i16, ptr %1210, align 2, !tbaa !78
   %1212 = zext i16 %1211 to i32
   %1213 = mul nsw i32 %1208, %1212
@@ -6735,7 +6735,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
   %1254 = load i8, ptr %1253, align 1, !tbaa !58
   %1255 = icmp slt i32 %.3114.i.i, 0
   %1256 = zext i8 %1254 to i64
-  %1257 = getelementptr inbounds nuw i16, ptr %256, i64 %1256
+  %1257 = getelementptr inbounds nuw [2 x i8], ptr %256, i64 %1256
   %1258 = load i16, ptr %1257, align 2, !tbaa !78
   %1259 = zext i16 %1258 to i32
   br i1 %1255, label %1260, label %1268
@@ -6768,7 +6768,7 @@ mpeg2_decode_block_non_intra.exit.i:              ; preds = %.loopexit.i.i, %995
   %.4110.i.i = phi i32 [ %.5.i.i, %1260 ], [ %.5.i.i, %1268 ], [ %1221, %1202 ]
   %.3.i505.i = phi i32 [ %.4.i507.i, %1260 ], [ %.4.i507.i, %1268 ], [ %1220, %1202 ]
   %1277 = trunc i32 %.2113.i.i to i16
-  %1278 = getelementptr inbounds nuw i16, ptr %1142, i64 %.pre-phi.i504.i
+  %1278 = getelementptr inbounds nuw [2 x i8], ptr %1142, i64 %.pre-phi.i504.i
   store i16 %1277, ptr %1278, align 2, !tbaa !78
   %1279 = icmp slt i32 %.3.i505.i, -1073741824
   br i1 %1279, label %mpeg1_decode_block_inter.exit.i, label %1280
@@ -6802,7 +6802,7 @@ mpeg1_decode_block_inter.exit.i:                  ; preds = %1276, %1154
 
 1293:                                             ; preds = %mpeg1_decode_block_inter.exit.i, %.preheader13.i
   %.1116.i.sink.i = phi i32 [ %.1116.i.i, %mpeg1_decode_block_inter.exit.i ], [ -1, %.preheader13.i ]
-  %1294 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv83.i
+  %1294 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv83.i
   store i32 %.1116.i.sink.i, ptr %1294, align 4, !tbaa !64
   %1295 = shl nuw nsw i32 %.243837.i, 1
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
@@ -6818,7 +6818,7 @@ mpeg1_decode_block_inter.exit.i:                  ; preds = %1276, %1154
   %1300 = mul nsw i32 %1299, %1298
   %1301 = add nsw i32 %1300, %1297
   %1302 = sext i32 %1301 to i64
-  %1303 = getelementptr inbounds i32, ptr %1296, i64 %1302
+  %1303 = getelementptr inbounds [4 x i8], ptr %1296, i64 %1302
   store i32 %.1442.i, ptr %1303, align 4, !tbaa !64
   br label %mpeg_decode_mb.exit
 
@@ -6848,7 +6848,7 @@ mpeg_decode_mb.exit:                              ; preds = %.loopexit.i, %332, 
   %indvars.iv501 = phi i64 [ %1314, %1305 ], [ %indvars.iv.next502, %1349 ]
   %1317 = phi i1 [ true, %1305 ], [ false, %1349 ]
   %indvars.iv499 = phi i64 [ 0, %1305 ], [ 1, %1349 ]
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv499
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %indvars.iv499
   br label %1318
 
 1318:                                             ; preds = %.preheader, %1334
@@ -6874,8 +6874,8 @@ mpeg_decode_mb.exit:                              ; preds = %.loopexit.i, %332, 
   %or.cond = select i1 %1327, i1 %12, i1 false
   %or.cond339 = select i1 %1326, i1 true, i1 %or.cond
   %.invariant.gep469.idx = select i1 %or.cond339, i64 0, i64 %indvars.iv499
-  %.invariant.gep469 = getelementptr inbounds nuw [2 x i32], ptr %235, i64 %.invariant.gep469.idx
-  %1328 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %.invariant.gep469, i64 %indvars.iv
+  %.invariant.gep469 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %.invariant.gep469.idx
+  %1328 = getelementptr inbounds nuw [32 x i8], ptr %.invariant.gep469, i64 %indvars.iv
   %1329 = load i32, ptr %1328, align 8, !tbaa !64
   %1330 = getelementptr inbounds nuw i8, ptr %1328, i64 4
   %1331 = load i32, ptr %1330, align 4, !tbaa !64
@@ -6886,9 +6886,9 @@ mpeg_decode_mb.exit:                              ; preds = %.loopexit.i, %332, 
 1334:                                             ; preds = %.sink.split, %1318, %1323
   %.0301 = phi i16 [ 0, %1323 ], [ 0, %1318 ], [ %1332, %.sink.split ]
   %.0300 = phi i16 [ 0, %1323 ], [ 0, %1318 ], [ %1333, %.sink.split ]
-  %1335 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv
+  %1335 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv
   %1336 = load ptr, ptr %1335, align 8, !tbaa !240
-  %1337 = getelementptr [2 x i16], ptr %1336, i64 %indvars.iv503
+  %1337 = getelementptr [4 x i8], ptr %1336, i64 %indvars.iv503
   store i16 %.0301, ptr %1337, align 2, !tbaa !78
   %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 2
   store i16 %.0300, ptr %1338, align 2, !tbaa !78
@@ -6896,10 +6896,10 @@ mpeg_decode_mb.exit:                              ; preds = %.loopexit.i, %332, 
   store i16 %.0301, ptr %1339, align 2, !tbaa !78
   %1340 = getelementptr i8, ptr %1337, i64 6
   store i16 %.0300, ptr %1340, align 2, !tbaa !78
-  %gep = getelementptr inbounds nuw [2 x i32], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %1341 = load i32, ptr %gep, align 4, !tbaa !64
   %1342 = trunc i32 %1341 to i8
-  %1343 = getelementptr inbounds nuw ptr, ptr %267, i64 %indvars.iv
+  %1343 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %indvars.iv
   %1344 = load ptr, ptr %1343, align 8, !tbaa !119
   %1345 = getelementptr i8, ptr %1344, i64 %indvars.iv501
   %1346 = getelementptr i8, ptr %1345, i64 1
@@ -7167,7 +7167,7 @@ align_get_bits.exit:                              ; preds = %1403
   %1497 = shl i32 %1495, %1496
   %1498 = lshr i32 %1497, 23
   %1499 = zext nneg i32 %1498 to i64
-  %1500 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mbincr_vlc, i64 %1499
+  %1500 = getelementptr inbounds nuw [4 x i8], ptr @ff_mbincr_vlc, i64 %1499
   %1501 = load i16, ptr %1500, align 2, !tbaa !58
   %1502 = sext i16 %1501 to i32
   %1503 = getelementptr inbounds nuw i8, ptr %1500, i64 2
@@ -7189,7 +7189,7 @@ align_get_bits.exit:                              ; preds = %1403
   %1517 = lshr i32 %1515, %1516
   %1518 = add i32 %1517, %1502
   %1519 = zext i32 %1518 to i64
-  %1520 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mbincr_vlc, i64 %1519
+  %1520 = getelementptr inbounds nuw [4 x i8], ptr @ff_mbincr_vlc, i64 %1519
   %1521 = load i16, ptr %1520, align 2, !tbaa !58
   %1522 = sext i16 %1521 to i32
   %1523 = getelementptr inbounds nuw i8, ptr %1520, i64 2
@@ -7563,7 +7563,7 @@ define internal fastcc i32 @mpeg_decode_motion(ptr noundef captures(none) %0, i3
   %14 = shl i32 %12, %13
   %15 = lshr i32 %14, 24
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mv_vlc, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @ff_mv_vlc, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !58
   %19 = sext i16 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 2
@@ -7584,7 +7584,7 @@ define internal fastcc i32 @mpeg_decode_motion(ptr noundef captures(none) %0, i3
   %33 = lshr i32 %31, %32
   %34 = add i32 %33, %19
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_mv_vlc, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @ff_mv_vlc, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !58
   %38 = sext i16 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
@@ -7681,7 +7681,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mpeg2_decode_block_intra(p
   br i1 %7, label %23, label %51
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_lum_vlc, i64 %22
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_lum_vlc, i64 %22
   %25 = load i16, ptr %24, align 2, !tbaa !58
   %26 = sext i16 %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 2
@@ -7703,7 +7703,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @mpeg2_decode_block_intra(p
   %41 = lshr i32 %39, %40
   %42 = add i32 %41, %26
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_lum_vlc, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_lum_vlc, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !58
   %46 = sext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 2
@@ -7719,7 +7719,7 @@ get_vlc2.exit10.i:                                ; preds = %31, %23
   br label %79
 
 51:                                               ; preds = %3
-  %52 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_chroma_vlc, i64 %22
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_chroma_vlc, i64 %22
   %53 = load i16, ptr %52, align 2, !tbaa !58
   %54 = sext i16 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -7741,7 +7741,7 @@ get_vlc2.exit10.i:                                ; preds = %31, %23
   %69 = lshr i32 %67, %68
   %70 = add i32 %69, %54
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_dc_chroma_vlc, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @ff_dc_chroma_vlc, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !58
   %74 = sext i16 %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 2
@@ -7787,7 +7787,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %.0.i = phi i32 [ %95, %81 ], [ 0, %79 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %98 = zext nneg i32 %.0109 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !64
   %101 = add nsw i32 %100, %.0.i
   store i32 %101, ptr %99, align 4, !tbaa !64
@@ -7819,7 +7819,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %118 = shl i32 %116, %117
   %119 = lshr i32 %118, 23
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw %struct.VLCElem, ptr %.0108, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %.0108, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !58
   %123 = sext i16 %122 to i32
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 2
@@ -7835,7 +7835,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %132 = lshr i32 %129, %131
   %133 = add i32 %132, %123
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %struct.VLCElem, ptr %.0108, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.0108, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !58
   %137 = sext i16 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 2
@@ -7858,7 +7858,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 
 144:                                              ; preds = %141
   %145 = zext i32 %.0 to i64
-  %146 = getelementptr inbounds nuw %struct.VLCElem, ptr %.0108, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %.0108, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 3
   %148 = load i8, ptr %147, align 1, !tbaa !58
   %149 = zext i8 %148 to i32
@@ -7872,7 +7872,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %155 = load i8, ptr %154, align 1, !tbaa !58
   %156 = mul nsw i32 %.0102, %6
   %157 = zext i8 %155 to i64
-  %158 = getelementptr inbounds nuw i16, ptr %.0104, i64 %157
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %.0104, i64 %157
   %159 = load i16, ptr %158, align 2, !tbaa !78
   %160 = zext i16 %159 to i32
   %161 = mul nsw i32 %156, %160
@@ -7902,7 +7902,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 
 180:                                              ; preds = %175
   %181 = zext i8 %178 to i64
-  %182 = getelementptr inbounds nuw i16, ptr %.0104, i64 %181
+  %182 = getelementptr inbounds nuw [2 x i8], ptr %.0104, i64 %181
   %183 = load i16, ptr %182, align 2, !tbaa !78
   %184 = zext i16 %183 to i32
   %185 = mul i32 %6, %170
@@ -7915,7 +7915,7 @@ decode_dc.exit:                                   ; preds = %79, %81
 190:                                              ; preds = %175
   %191 = mul nsw i32 %170, %6
   %192 = zext i8 %178 to i64
-  %193 = getelementptr inbounds nuw i16, ptr %.0104, i64 %192
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %.0104, i64 %192
   %194 = load i16, ptr %193, align 2, !tbaa !78
   %195 = zext i16 %194 to i32
   %196 = mul nsw i32 %191, %195
@@ -7929,7 +7929,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   %.3 = phi i32 [ %166, %152 ], [ %171, %190 ], [ %171, %180 ]
   %199 = xor i32 %.1103, %.0101
   %200 = trunc i32 %.1103 to i16
-  %201 = getelementptr inbounds nuw i16, ptr %1, i64 %.pre-phi
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.pre-phi
   store i16 %200, ptr %201, align 2, !tbaa !78
   br label %111
 
@@ -7961,7 +7961,7 @@ decode_dc.exit:                                   ; preds = %79, %81
   store i16 %219, ptr %215, align 2, !tbaa !78
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %221 = sext i32 %2 to i64
-  %222 = getelementptr inbounds i32, ptr %220, i64 %221
+  %222 = getelementptr inbounds [4 x i8], ptr %220, i64 %221
   store i32 %.0105, ptr %222, align 4, !tbaa !64
   br label %223
 

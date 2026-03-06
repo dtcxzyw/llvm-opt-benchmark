@@ -617,7 +617,7 @@ define dso_local ptr @GetMemoryChunkContext(ptr noundef %0) local_unnamed_addr #
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0) #15
@@ -629,7 +629,7 @@ define dso_local i64 @GetMemoryChunkSpace(ptr noundef %0) local_unnamed_addr #0 
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 %6(ptr noundef %0) #15
@@ -1004,7 +1004,7 @@ define dso_local void @MemoryContextCreate(ptr noundef initializes((0, 5), (8, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 1, ptr %6, align 4
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1407,7 +1407,7 @@ define dso_local void @pfree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %2, align 8
   %3 = and i64 %.val, 15
-  %4 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0) #15
@@ -1419,7 +1419,7 @@ define dso_local ptr @repalloc(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %3 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 15
-  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i32 noundef 0) #15
@@ -1431,7 +1431,7 @@ define dso_local ptr @repalloc_extended(ptr noundef %0, i64 noundef %1, i32 noun
   %4 = getelementptr i8, ptr %0, i64 -8
   %.val = load i64, ptr %4, align 8
   %5 = and i64 %.val, 15
-  %6 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1, i32 noundef %2) #15
@@ -1453,7 +1453,7 @@ define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %9 = getelementptr i8, ptr %0, i64 -8
   %.val.i = load i64, ptr %9, align 8
   %10 = and i64 %.val.i, 15
-  %11 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef %0, i64 noundef %2, i32 noundef 0) #15
@@ -1479,7 +1479,7 @@ define dso_local ptr @repalloc_huge(ptr noundef %0, i64 noundef %1) local_unname
   %3 = getelementptr i8, ptr %0, i64 -8
   %.val.i = load i64, ptr %3, align 8
   %4 = and i64 %.val.i, 15
-  %5 = getelementptr inbounds nuw %struct.MemoryContextMethods, ptr @mcxt_methods, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr @mcxt_methods, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1, i32 noundef 1) #15

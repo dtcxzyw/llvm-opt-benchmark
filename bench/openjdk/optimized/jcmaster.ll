@@ -3,9 +3,6 @@ source_filename = "bench/openjdk/original/jcmaster.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jpeg_scan_info = type { i32, [4 x i32], i32, i32, i32, i32 }
-%struct.jpeg_component_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @jICMaster(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [10 x i32], align 16
@@ -397,7 +394,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 228:                                              ; preds = %252, %.lr.ph219.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph219.i ], [ %indvars.iv.next.i, %252 ]
-  %229 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %indvars.iv.i
   %230 = load i32, ptr %229, align 4
   %231 = icmp slt i32 %230, 0
   br i1 %231, label %234, label %232
@@ -528,10 +525,10 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 291:                                              ; preds = %._crit_edge224.i, %.lr.ph227.i
   %indvars.iv265.i = phi i64 [ 0, %.lr.ph227.i ], [ %indvars.iv.next266.i, %._crit_edge224.i ]
-  %292 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv265.i
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv265.i
   %293 = load i32, ptr %292, align 4
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds [64 x i32], ptr %4, i64 %294
+  %295 = getelementptr inbounds [256 x i8], ptr %4, i64 %294
   br i1 %277, label %306, label %296
 
 296:                                              ; preds = %291
@@ -562,7 +559,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 .lr.ph223.split.us.split.us.i:                    ; preds = %.lr.ph223.split.us.i, %317
   %indvars.iv255.i = phi i64 [ %indvars.iv.next256.i, %317 ], [ %289, %.lr.ph223.split.us.i ]
-  %307 = getelementptr inbounds i32, ptr %295, i64 %indvars.iv255.i
+  %307 = getelementptr inbounds [4 x i8], ptr %295, i64 %indvars.iv255.i
   %308 = load i32, ptr %307, align 4
   %309 = icmp slt i32 %308, 0
   br i1 %309, label %317, label %310
@@ -588,7 +585,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 .lr.ph223.split.us.split.i:                       ; preds = %.lr.ph223.split.us.i, %327
   %indvars.iv260.i = phi i64 [ %indvars.iv.next261.i, %327 ], [ %289, %.lr.ph223.split.us.i ]
-  %318 = getelementptr inbounds i32, ptr %295, i64 %indvars.iv260.i
+  %318 = getelementptr inbounds [4 x i8], ptr %295, i64 %indvars.iv260.i
   %319 = load i32, ptr %318, align 4
   %or.cond243.i = icmp slt i32 %319, 1
   br i1 %or.cond243.i, label %327, label %320
@@ -614,7 +611,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 .lr.ph223.split.i:                                ; preds = %.lr.ph223.i, %338
   %indvars.iv251.i = phi i64 [ %indvars.iv.next252.i, %338 ], [ %289, %.lr.ph223.i ]
-  %328 = getelementptr inbounds i32, ptr %295, i64 %indvars.iv251.i
+  %328 = getelementptr inbounds [4 x i8], ptr %295, i64 %indvars.iv251.i
   %329 = load i32, ptr %328, align 4
   %330 = icmp sgt i32 %329, -1
   %.not199.i = icmp eq i32 %.fr.i, %329
@@ -677,10 +674,10 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 
 353:                                              ; preds = %366, %.lr.ph230.i
   %indvars.iv270.i = phi i64 [ 0, %.lr.ph230.i ], [ %indvars.iv.next271.i, %366 ]
-  %354 = getelementptr inbounds nuw i32, ptr %352, i64 %indvars.iv270.i
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %indvars.iv270.i
   %355 = load i32, ptr %354, align 4
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds i32, ptr %3, i64 %356
+  %357 = getelementptr inbounds [4 x i8], ptr %3, i64 %356
   %358 = load i32, ptr %357, align 4
   %.not194.i = icmp eq i32 %358, 0
   br i1 %.not194.i, label %366, label %359
@@ -731,7 +728,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 .lr.ph240.i:                                      ; preds = %.preheader206.i, %382
   %373 = phi i32 [ %383, %382 ], [ %370, %.preheader206.i ]
   %indvars.iv275.i = phi i64 [ %indvars.iv.next276.i, %382 ], [ 0, %.preheader206.i ]
-  %374 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 %indvars.iv275.i
+  %374 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %indvars.iv275.i
   %375 = load i32, ptr %374, align 16
   %376 = icmp slt i32 %375, 0
   br i1 %376, label %377, label %382
@@ -756,7 +753,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
 .lr.ph242.i:                                      ; preds = %.preheader.i, %394
   %386 = phi i32 [ %395, %394 ], [ %370, %.preheader.i ]
   %indvars.iv278.i = phi i64 [ %indvars.iv.next279.i, %394 ], [ 0, %.preheader.i ]
-  %387 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv278.i
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv278.i
   %388 = load i32, ptr %387, align 4
   %.not192.i = icmp eq i32 %388, 0
   br i1 %.not192.i, label %389, label %394
@@ -860,7 +857,7 @@ define internal void @prepare_for_pass(ptr noundef %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.jpeg_scan_info, ptr %8, i64 %12
+  %13 = getelementptr inbounds [36 x i8], ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %14, ptr %15, align 4
@@ -876,11 +873,11 @@ define internal void @prepare_for_pass(ptr noundef %0) #0 {
 
 21:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.jpeg_component_info, ptr %18, i64 %24
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %25 = getelementptr inbounds [96 x i8], ptr %18, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   store ptr %25, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %13, align 4
@@ -944,8 +941,8 @@ define internal void @prepare_for_pass(ptr noundef %0) #0 {
 
 62:                                               ; preds = %62, %.lr.ph45.i
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next49.i, %62 ]
-  %63 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %60, i64 %indvars.iv48.i
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv48.i
+  %63 = getelementptr inbounds nuw [96 x i8], ptr %60, i64 %indvars.iv48.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv48.i
   store ptr %63, ptr %64, align 8
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count.i
@@ -1031,7 +1028,7 @@ select_scan_parameters.exit:                      ; preds = %._crit_edge.i, %._c
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.jpeg_scan_info, ptr %106, i64 %110
+  %111 = getelementptr inbounds [36 x i8], ptr %106, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %112, ptr %113, align 4
@@ -1047,11 +1044,11 @@ select_scan_parameters.exit:                      ; preds = %._crit_edge.i, %._c
 
 119:                                              ; preds = %119, %.lr.ph.i68
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.i68 ], [ %indvars.iv.next.i70, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv.i69
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i69
   %121 = load i32, ptr %120, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds %struct.jpeg_component_info, ptr %116, i64 %122
-  %124 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i69
+  %123 = getelementptr inbounds [96 x i8], ptr %116, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv.i69
   store ptr %123, ptr %124, align 8
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
   %125 = load i32, ptr %111, align 4
@@ -1115,8 +1112,8 @@ select_scan_parameters.exit:                      ; preds = %._crit_edge.i, %._c
 
 160:                                              ; preds = %160, %.lr.ph45.i72
   %indvars.iv48.i74 = phi i64 [ 0, %.lr.ph45.i72 ], [ %indvars.iv.next49.i75, %160 ]
-  %161 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %158, i64 %indvars.iv48.i74
-  %162 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv48.i74
+  %161 = getelementptr inbounds nuw [96 x i8], ptr %158, i64 %indvars.iv48.i74
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv48.i74
   store ptr %161, ptr %162, align 8
   %indvars.iv.next49.i75 = add nuw nsw i64 %indvars.iv48.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next49.i75, %wide.trip.count.i73
@@ -1191,7 +1188,7 @@ select_scan_parameters.exit78:                    ; preds = %._crit_edge.i66, %.
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 44
   %197 = load i32, ptr %196, align 4
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds %struct.jpeg_scan_info, ptr %193, i64 %198
+  %199 = getelementptr inbounds [36 x i8], ptr %193, i64 %198
   %200 = load i32, ptr %199, align 4
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %200, ptr %201, align 4
@@ -1207,11 +1204,11 @@ select_scan_parameters.exit78:                    ; preds = %._crit_edge.i66, %.
 
 207:                                              ; preds = %207, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next.i84, %207 ]
-  %208 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv.i83
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %indvars.iv.i83
   %209 = load i32, ptr %208, align 4
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds %struct.jpeg_component_info, ptr %204, i64 %210
-  %212 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv.i83
+  %211 = getelementptr inbounds [96 x i8], ptr %204, i64 %210
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv.i83
   store ptr %211, ptr %212, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %213 = load i32, ptr %199, align 4
@@ -1275,8 +1272,8 @@ select_scan_parameters.exit78:                    ; preds = %._crit_edge.i66, %.
 
 248:                                              ; preds = %248, %.lr.ph45.i86
   %indvars.iv48.i88 = phi i64 [ 0, %.lr.ph45.i86 ], [ %indvars.iv.next49.i89, %248 ]
-  %249 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %246, i64 %indvars.iv48.i88
-  %250 = getelementptr inbounds nuw ptr, ptr %247, i64 %indvars.iv48.i88
+  %249 = getelementptr inbounds nuw [96 x i8], ptr %246, i64 %indvars.iv48.i88
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %indvars.iv48.i88
   store ptr %249, ptr %250, align 8
   %indvars.iv.next49.i89 = add nuw nsw i64 %indvars.iv48.i88, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next49.i89, %wide.trip.count.i87
@@ -1543,7 +1540,7 @@ define internal fastcc void @per_scan_setup(ptr noundef %0) unnamed_addr #0 {
 
 64:                                               ; preds = %.lr.ph86, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next, %._crit_edge ]
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
@@ -1602,7 +1599,7 @@ define internal fastcc void @per_scan_setup(ptr noundef %0) unnamed_addr #0 {
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %59, align 8
   %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds i32, ptr %63, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %63, i64 %101
   store i32 %97, ptr %102, align 4
   %103 = icmp samesign ugt i32 %.07683, 1
   br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !18

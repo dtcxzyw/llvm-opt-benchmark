@@ -80,17 +80,17 @@ define dso_local noundef double @_ZN3igl21bounding_box_diagonalERKN5Eigen6Matrix
   %.054.in79.i.i.i = phi i64 [ %.05480.i.i.i, %.lr.ph.i.i.i ], [ 0, %24 ]
   %.17378.i.i.i = phi <2 x double> [ %40, %.lr.ph.i.i.i ], [ %22, %24 ]
   %.07577.i.i.i = phi <2 x double> [ %48, %.lr.ph.i.i.i ], [ %30, %24 ]
-  %34 = getelementptr inbounds nuw double, ptr %12, i64 %.05480.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.05480.i.i.i
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !12
-  %36 = getelementptr inbounds nuw double, ptr %13, i64 %.05480.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.05480.i.i.i
   %37 = load <2 x double>, ptr %36, align 16, !tbaa !12
   %38 = fsub <2 x double> %35, %37
   %39 = fmul <2 x double> %38, %38
   %40 = fadd <2 x double> %.17378.i.i.i, %39
   %41 = add nuw nsw i64 %.054.in79.i.i.i, 6
-  %42 = getelementptr inbounds nuw double, ptr %12, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %41
   %43 = load <2 x double>, ptr %42, align 16, !tbaa !12
-  %44 = getelementptr inbounds nuw double, ptr %13, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %41
   %45 = load <2 x double>, ptr %44, align 16, !tbaa !12
   %46 = fsub <2 x double> %43, %45
   %47 = fmul <2 x double> %46, %46
@@ -100,9 +100,9 @@ define dso_local noundef double @_ZN3igl21bounding_box_diagonalERKN5Eigen6Matrix
   br i1 %49, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !13
 
 50:                                               ; preds = %._crit_edge.i.i.i
-  %51 = getelementptr inbounds nuw double, ptr %12, i64 %15
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %15
   %52 = load <2 x double>, ptr %51, align 16, !tbaa !12
-  %53 = getelementptr inbounds nuw double, ptr %13, i64 %15
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %54 = load <2 x double>, ptr %53, align 16, !tbaa !12
   %55 = fsub <2 x double> %52, %54
   %56 = fmul <2 x double> %55, %55
@@ -120,8 +120,8 @@ define dso_local noundef double @_ZN3igl21bounding_box_diagonalERKN5Eigen6Matrix
 .lr.ph85.i.i.i:                                   ; preds = %58, %.lr.ph85.i.i.i
   %.05283.i.i.i = phi i64 [ %68, %.lr.ph85.i.i.i ], [ %17, %58 ]
   %.182.i.i.i = phi double [ %67, %.lr.ph85.i.i.i ], [ %59, %58 ]
-  %61 = getelementptr inbounds double, ptr %12, i64 %.05283.i.i.i
-  %62 = getelementptr inbounds double, ptr %13, i64 %.05283.i.i.i
+  %61 = getelementptr inbounds [8 x i8], ptr %12, i64 %.05283.i.i.i
+  %62 = getelementptr inbounds [8 x i8], ptr %13, i64 %.05283.i.i.i
   %63 = load double, ptr %61, align 8, !tbaa !15
   %64 = load double, ptr %62, align 8, !tbaa !15
   %65 = fsub double %63, %64

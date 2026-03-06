@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVRational = type { i32, i32 }
 %struct.anon.0 = type { i32, i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.dirac_source_params = type { i32, i32, i8, i8, i8, i8, i8, i16, i16, i16, i16, i8, i8 }
-%struct.anon = type { i8, i32 }
 
 @.str = private unnamed_addr constant [32 x i8] c"Stream is old and may not work\0A\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"Stream may have unhandled features\0A\00", align 1
@@ -470,7 +468,7 @@ get_interleaved_ue_golomb.exit95:                 ; preds = %230, %.loopexit.i93
 
 278:                                              ; preds = %276
   %279 = zext nneg i32 %.043.i84 to i64
-  %280 = getelementptr inbounds nuw %struct.dirac_source_params, ptr @dirac_source_parameters_defaults, i64 %279
+  %280 = getelementptr inbounds nuw [24 x i8], ptr @dirac_source_parameters_defaults, i64 %279
   %281 = load i32, ptr %280, align 8, !tbaa !28
   store i32 %281, ptr %9, align 4, !tbaa !30
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 4
@@ -1177,7 +1175,7 @@ get_interleaved_ue_golomb.exit246.i:              ; preds = %561
   br i1 %733, label %734, label %736
 
 734:                                              ; preds = %729
-  %735 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %731
+  %735 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %731
   %.sroa.0.0.copyload.i = load i32, ptr %735, align 4, !tbaa !54
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %735, i64 4
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !54
@@ -1186,7 +1184,7 @@ get_interleaved_ue_golomb.exit246.i:              ; preds = %561
 736:                                              ; preds = %729
   %737 = add nuw nsw i64 %731, 4294967287
   %738 = and i64 %737, 4294967295
-  %739 = getelementptr inbounds nuw %struct.AVRational, ptr @dirac_frame_rate, i64 %738
+  %739 = getelementptr inbounds nuw [8 x i8], ptr @dirac_frame_rate, i64 %738
   %.sroa.0.0.copyload16.i = load i32, ptr %739, align 8, !tbaa !54
   %.sroa.7.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %739, i64 4
   %.sroa.7.0.copyload19.i = load i32, ptr %.sroa.7.0..sroa_idx18.i, align 4, !tbaa !54
@@ -1469,7 +1467,7 @@ get_interleaved_ue_golomb.exit275.i:              ; preds = %.loopexit.i273.i, %
   %912 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %913 = add nuw nsw i64 %911, 4294967295
   %914 = and i64 %913, 4294967295
-  %915 = getelementptr inbounds nuw %struct.AVRational, ptr @dirac_preset_aspect_ratios, i64 %914
+  %915 = getelementptr inbounds nuw [8 x i8], ptr @dirac_preset_aspect_ratios, i64 %914
   %916 = load i64, ptr %915, align 8
   store i64 %916, ptr %912, align 4
   br label %917
@@ -1947,7 +1945,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %1218 = zext i8 %.fr to i64
   %1219 = add nuw nsw i64 %1218, 4294967295
   %1220 = and i64 %1219, 4294967295
-  %1221 = getelementptr inbounds nuw %struct.anon, ptr @pixel_range_presets, i64 %1220
+  %1221 = getelementptr inbounds nuw [8 x i8], ptr @pixel_range_presets, i64 %1220
   %1222 = load i8, ptr %1221, align 8, !tbaa !59
   %1223 = zext i8 %1222 to i32
   %1224 = getelementptr inbounds nuw i8, ptr %1221, i64 4
@@ -1972,10 +1970,10 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
   %1232 = phi i8 [ 2, %.thread500 ], [ %.fr, %1229 ]
   %1233 = zext i8 %1232 to i64
   %1234 = zext nneg i8 %491 to i64
-  %1235 = getelementptr inbounds nuw [3 x i32], ptr @dirac_pix_fmt, i64 %1234
+  %1235 = getelementptr inbounds nuw [12 x i8], ptr @dirac_pix_fmt, i64 %1234
   %1236 = add nuw nsw i64 %1233, 4294967294
   %1237 = and i64 %1236, 4294967295
-  %1238 = getelementptr inbounds nuw i32, ptr %1235, i64 %1237
+  %1238 = getelementptr inbounds nuw [4 x i8], ptr %1235, i64 %1237
   %1239 = load i32, ptr %1238, align 4, !tbaa !54
   %1240 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %1239, ptr %1240, align 4, !tbaa !62
@@ -2038,7 +2036,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 
 1273:                                             ; preds = %1268
   %1274 = zext nneg i32 %1271 to i64
-  %1275 = getelementptr inbounds nuw %struct.anon.0, ptr @dirac_color_presets, i64 %1274
+  %1275 = getelementptr inbounds nuw [12 x i8], ptr @dirac_color_presets, i64 %1274
   %1276 = load i32, ptr %1275, align 4, !tbaa !63
   %1277 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %1276, ptr %1277, align 4, !tbaa !65
@@ -2079,7 +2077,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 
 1301:                                             ; preds = %1298
   %1302 = zext nneg i32 %1299 to i64
-  %1303 = getelementptr inbounds nuw i32, ptr @dirac_primaries, i64 %1302
+  %1303 = getelementptr inbounds nuw [4 x i8], ptr @dirac_primaries, i64 %1302
   %1304 = load i32, ptr %1303, align 4, !tbaa !54
   store i32 %1304, ptr %1277, align 4, !tbaa !65
   br label %1305
@@ -2149,7 +2147,7 @@ get_interleaved_ue_golomb.exit361.i:              ; preds = %.loopexit.i359.i, %
 1339:                                             ; preds = %1254
   %1340 = load i8, ptr %315, align 1, !tbaa !53
   %1341 = zext i8 %1340 to i64
-  %1342 = getelementptr inbounds nuw %struct.anon.0, ptr @dirac_color_presets, i64 %1341
+  %1342 = getelementptr inbounds nuw [12 x i8], ptr @dirac_color_presets, i64 %1341
   %1343 = load i32, ptr %1342, align 4, !tbaa !63
   %1344 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %1343, ptr %1344, align 4, !tbaa !65

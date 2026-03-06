@@ -156,7 +156,7 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString9Directive(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -510,7 +510,7 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(131) @.str.42, i8 noundef zeroext 2)
   %97 = sext i32 %0 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 249, ptr noundef nonnull @.str.54, ptr noundef %99, ptr noundef nonnull @.str.42, i32 noundef 249) #19
           to label %100 unwind label %101
@@ -531,13 +531,13 @@ switch.lookup36:                                  ; preds = %57
 
 switch.lookup39:                                  ; preds = %21
   %103 = zext nneg i32 %switch.tableidx37 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei, i64 %103
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._Z11ifunc_index9Directivei, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
 switch.lookup43:                                  ; preds = %36
   %104 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep47 = getelementptr inbounds nuw i32, ptr @switch.table._Z11ifunc_index9Directivei.7, i64 %104
+  %switch.gep47 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._Z11ifunc_index9Directivei.7, i64 %104
   %switch.load48 = load i32, ptr %switch.gep47, align 4
   br label %switch.lookup
 
@@ -1083,7 +1083,7 @@ define linkonce_odr void @_ZN3gmx26StringToEnumValueConverterI9DirectiveXadL_Z17
 15:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   store ptr %12, ptr %6, align 8, !tbaa !9
   %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #20
@@ -1349,7 +1349,7 @@ define internal fastcc void @_ZN3gmx26StringToEnumValueConverterI20DeprecatedDir
 9:                                                ; preds = %0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZZL17enumValueToString20DeprecatedDirectivesE14directiveNames, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL17enumValueToString20DeprecatedDirectivesE14directiveNames, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   store ptr %6, ptr %5, align 8, !tbaa !9
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #20
@@ -2621,7 +2621,7 @@ define internal void @_ZL7set_necPP9Directivez(ptr noundef nonnull captures(none
   %19 = load ptr, ptr %0, align 8, !tbaa !65
   %20 = call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.42, i32 noundef 310, ptr noundef %19, i64 noundef range(i64 -2147483647, 2147483648) %indvars.iv.next, i64 noundef 4)
   store ptr %20, ptr %0, align 8, !tbaa !65
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %18, ptr %21, align 4, !tbaa !28
   %.not = icmp eq i32 %18, 41
   br i1 %.not, label %22, label %5, !llvm.loop !70
@@ -2718,7 +2718,7 @@ define noundef range(i32 0, 2) i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr n
 
 _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZL9necessary, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9necessary, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !65
   %11 = load i32, ptr %10, align 4, !tbaa !28
   %12 = icmp eq i32 %11, 41
@@ -2728,7 +2728,7 @@ _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
 
 .lr.ph.i12.preheader:                             ; preds = %_Z9DS_SearchP8DirStack9Directive.exit.thread, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %_Z9DS_SearchP8DirStack9Directive.exit.thread ]
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !28
   br label %.lr.ph.i12
 

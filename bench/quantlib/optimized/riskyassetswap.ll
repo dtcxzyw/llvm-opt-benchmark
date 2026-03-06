@@ -1541,7 +1541,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %idx.neg.i.i = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i) #31
   store ptr null, ptr %isRegular_, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -2782,7 +2782,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %9, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
   %annuity.017 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %7, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
   %i.016 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
-  %3 = getelementptr %"class.QuantLib::Date", ptr %2, i64 %i.016
+  %3 = getelementptr [8 x i8], ptr %2, i64 %i.016
   %add.ptr.i.i = getelementptr i8, ptr %3, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -2804,7 +2804,7 @@ cond.false.i:                                     ; preds = %for.body
 _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %for.body, %cond.false.i
   %5 = phi ptr [ %4, %for.body ], [ %.pre.i, %cond.false.i ]
   %6 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i10 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %6, i64 %i.016
+  %add.ptr.i.i10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.016
   %call.i = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i10)
   %call2.i = call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %5, double noundef %call.i, i1 noundef zeroext false)
   %7 = call double @llvm.fmuladd.f64(double %call7, double %call2.i, double %annuity.017)
@@ -2847,7 +2847,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %9, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
   %annuity.017 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %7, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
   %i.016 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
-  %3 = getelementptr %"class.QuantLib::Date", ptr %2, i64 %i.016
+  %3 = getelementptr [8 x i8], ptr %2, i64 %i.016
   %add.ptr.i.i = getelementptr i8, ptr %3, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -2869,7 +2869,7 @@ cond.false.i:                                     ; preds = %for.body
 _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %for.body, %cond.false.i
   %5 = phi ptr [ %4, %for.body ], [ %.pre.i, %cond.false.i ]
   %6 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i10 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %6, i64 %i.016
+  %add.ptr.i.i10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.016
   %call.i = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i10)
   %call2.i = call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %5, double noundef %call.i, i1 noundef zeroext false)
   %7 = call double @llvm.fmuladd.f64(double %call7, double %call2.i, double %annuity.017)
@@ -2978,7 +2978,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %do
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d)
   %sub = add i64 %i.0123, -1
   %3 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %3, i64 %sub
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %sub
   %call4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_31DefaultProbabilityTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %defaultTS_)
   %4 = load ptr, ptr %call4, align 8, !tbaa !127
   %cmp.not.i = icmp eq ptr %4, null
@@ -3002,7 +3002,7 @@ _ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit: ;
 
 if.then:                                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit
   %9 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i12 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %9, i64 %sub
+  %add.ptr.i.i12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %sub
   br label %if.end
 
 if.else:                                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit
@@ -3461,7 +3461,7 @@ terminate.lpad.i.i.i39:                           ; preds = %if.then.i.i.i.i.i43
 _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %invoke.cont41, %if.then.i.i.i33, %.noexc.i.i.i40, %if.then.i.i.i.i.i43
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp39)
   %69 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i47 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %69, i64 %i.0123
+  %add.ptr.i.i47 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %i.0123
   %70 = load i64, ptr %d, align 8, !tbaa !129
   %71 = load i64, ptr %add.ptr.i.i47, align 8, !tbaa !129
   %cmp.i48 = icmp slt i64 %70, %71
@@ -3581,7 +3581,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %11 = phi ptr [ %1, %for.body.lr.ph ], [ %21, %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit34 ]
   %value.045 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %19, %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit34 ]
   %i.044 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit34 ]
-  %12 = getelementptr %"class.QuantLib::Date", ptr %11, i64 %i.044
+  %12 = getelementptr [8 x i8], ptr %11, i64 %i.044
   %add.ptr.i.i20 = getelementptr i8, ptr %12, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -3603,7 +3603,7 @@ cond.false.i24:                                   ; preds = %for.body
 _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit26: ; preds = %for.body, %cond.false.i24
   %14 = phi ptr [ %13, %for.body ], [ %.pre.i25, %cond.false.i24 ]
   %15 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i28 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %15, i64 %i.044
+  %add.ptr.i.i28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %i.044
   %call.i29 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i28)
   %call2.i30 = call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %14, double noundef %call.i29, i1 noundef zeroext false)
   %mul = fmul double %call7, %call2.i30
@@ -3620,7 +3620,7 @@ cond.false.i32:                                   ; preds = %_ZNK5boost10shared_
 _ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit34: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit26, %cond.false.i32
   %17 = phi ptr [ %16, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit26 ], [ %.pre.i33, %cond.false.i32 ]
   %18 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i36 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %18, i64 %i.044
+  %add.ptr.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %i.044
   %call.i37 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %17, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i36)
   %call2.i38 = call noundef double @_ZNK8QuantLib31DefaultProbabilityTermStructure19survivalProbabilityEdb(ptr noundef nonnull align 8 dereferenceable(152) %17, double noundef %call.i37, i1 noundef zeroext true)
   %19 = call double @llvm.fmuladd.f64(double %mul, double %call2.i38, double %value.045)
@@ -4059,7 +4059,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %16 = phi ptr [ %2, %for.body.lr.ph ], [ %26, %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit40 ]
   %value.052 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %24, %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit40 ]
   %i.051 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit40 ]
-  %17 = getelementptr %"class.QuantLib::Date", ptr %16, i64 %i.051
+  %17 = getelementptr [8 x i8], ptr %16, i64 %i.051
   %add.ptr.i.i26 = getelementptr i8, ptr %17, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -4081,7 +4081,7 @@ cond.false.i30:                                   ; preds = %for.body
 _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit32: ; preds = %for.body, %cond.false.i30
   %19 = phi ptr [ %18, %for.body ], [ %.pre.i31, %cond.false.i30 ]
   %20 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i34 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %20, i64 %i.051
+  %add.ptr.i.i34 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %i.051
   %call.i35 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %19, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i34)
   %call2.i36 = call noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152) %19, double noundef %call.i35, i1 noundef zeroext false)
   %mul = fmul double %call7, %call2.i36
@@ -4098,7 +4098,7 @@ cond.false.i38:                                   ; preds = %_ZNK5boost10shared_
 _ZNK5boost10shared_ptrIN8QuantLib31DefaultProbabilityTermStructureEEptEv.exit40: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit32, %cond.false.i38
   %22 = phi ptr [ %21, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit32 ], [ %.pre.i39, %cond.false.i38 ]
   %23 = load ptr, ptr %dates_.i, align 8, !tbaa !88
-  %add.ptr.i.i42 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %23, i64 %i.051
+  %add.ptr.i.i42 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %i.051
   %call.i.i43 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i42)
   %call2.i.i44 = call noundef double @_ZNK8QuantLib31DefaultProbabilityTermStructure19survivalProbabilityEdb(ptr noundef nonnull align 8 dereferenceable(152) %22, double noundef %call.i.i43, i1 noundef zeroext true)
   %sub.i45 = fsub double 1.000000e+00, %call2.i.i44
@@ -5490,7 +5490,7 @@ if.then.i.i.i54:                                  ; preds = %_ZN5boost10shared_p
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %49, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %49, i64 %idx.neg.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %floatSchedule, i64 104
@@ -5571,7 +5571,7 @@ if.then.i.i.i62:                                  ; preds = %_ZN8QuantLib8Calend
   %sub.ptr.sub.i.i.i66 = sub i64 %sub.ptr.lhs.cast.i.i.i64, %sub.ptr.rhs.cast.i.i.i65
   %sub.ptr.div.i.i.i67 = ashr exact i64 %sub.ptr.sub.i.i.i66, 3
   %idx.neg.i.i.i68 = sub nsw i64 0, %sub.ptr.div.i.i.i67
-  %add.ptr.i.i.i69 = getelementptr inbounds i64, ptr %60, i64 %idx.neg.i.i.i68
+  %add.ptr.i.i.i69 = getelementptr inbounds [8 x i8], ptr %60, i64 %idx.neg.i.i.i68
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i69, i64 noundef %sub.ptr.sub.i.i.i66) #31
   store ptr null, ptr %isRegular_.i60, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %fixedSchedule, i64 104
@@ -6859,7 +6859,7 @@ if.then.i.i.i77:                                  ; preds = %_ZN8QuantLib10DayCo
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %51, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %51, i64 %idx.neg.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp24, i64 104
@@ -6948,7 +6948,7 @@ if.then.i.i.i85:                                  ; preds = %_ZN8QuantLib8Schedu
   %sub.ptr.sub.i.i.i89 = sub i64 %sub.ptr.lhs.cast.i.i.i87, %sub.ptr.rhs.cast.i.i.i88
   %sub.ptr.div.i.i.i90 = ashr exact i64 %sub.ptr.sub.i.i.i89, 3
   %idx.neg.i.i.i91 = sub nsw i64 0, %sub.ptr.div.i.i.i90
-  %add.ptr.i.i.i92 = getelementptr inbounds i64, ptr %63, i64 %idx.neg.i.i.i91
+  %add.ptr.i.i.i92 = getelementptr inbounds [8 x i8], ptr %63, i64 %idx.neg.i.i.i91
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i92, i64 noundef %sub.ptr.sub.i.i.i89) #31
   store ptr null, ptr %isRegular_.i83, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 104
@@ -8705,7 +8705,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i) #31
   store ptr null, ptr %this, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -10038,7 +10038,7 @@ if.then.i.i.i47:                                  ; preds = %_ZN8QuantLib10DayCo
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %34, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %34, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #31
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 400
@@ -10128,7 +10128,7 @@ if.then.i.i.i55:                                  ; preds = %_ZN8QuantLib8Schedu
   %sub.ptr.sub.i.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i.i57, %sub.ptr.rhs.cast.i.i.i58
   %sub.ptr.div.i.i.i60 = ashr exact i64 %sub.ptr.sub.i.i.i59, 3
   %idx.neg.i.i.i61 = sub nsw i64 0, %sub.ptr.div.i.i.i60
-  %add.ptr.i.i.i62 = getelementptr inbounds i64, ptr %46, i64 %idx.neg.i.i.i61
+  %add.ptr.i.i.i62 = getelementptr inbounds [8 x i8], ptr %46, i64 %idx.neg.i.i.i61
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i62, i64 noundef %sub.ptr.sub.i.i.i59) #31
   store ptr null, ptr %isRegular_.i53, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -11570,12 +11570,12 @@ if.then.i:                                        ; preds = %entry
 
 call5.i.i.i.i.noexc:                              ; preds = %if.then.i
   %div1.i.i = lshr i64 %sub.i.i.i, 6
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i4, i64 %div1.i.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i4, i64 %div1.i.i
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !109
   store ptr %call5.i.i.i.i4, ptr %this, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
   %div.i.i.i.i = sdiv i64 %add.i.i, 64
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
   %4 = and i64 %add.i.i, -9223372036854775745
   %cmp.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0

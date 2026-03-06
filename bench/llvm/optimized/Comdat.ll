@@ -142,7 +142,7 @@ define dso_local void @_ZN4llvm6Comdat10removeUserEPNS_12GlobalObjectE(ptr nound
   %18 = add i32 %10, -1
   store i32 %18, ptr %9, align 4, !tbaa !18
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !29
   store ptr %21, ptr %.01217.i.i, align 8, !tbaa !29
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12GlobalObjectEE5eraseES2_.exit

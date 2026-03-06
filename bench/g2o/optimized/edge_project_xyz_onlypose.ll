@@ -138,7 +138,7 @@ define noundef zeroext i1 @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose4readERSi(ptr nound
   br i1 %12, label %13, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %15 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %14)
   br i1 %5, label %4, label %..critedge_crit_edge.i, !llvm.loop !19
 
@@ -162,7 +162,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   br i1 %25, label %.lr.ph.i, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
 
 .lr.ph.i:                                         ; preds = %17
-  %26 = getelementptr double, ptr %16, i64 %indvars.iv.i3
+  %26 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv.i3
   %.idx.i.i.i24.i = shl nuw nsw i64 %indvars.iv.i3, 4
   %invariant.gep.i = getelementptr i8, ptr %16, i64 %.idx.i.i.i24.i
   br label %27
@@ -199,7 +199,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
 
 38:                                               ; preds = %35
   %39 = load double, ptr %36, align 8, !tbaa !22
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv28.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv28.i
   store double %39, ptr %gep.i, align 8, !tbaa !22
   br label %40
 
@@ -233,7 +233,7 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_
 .preheader.i:                                     ; preds = %13, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge
   %11 = phi i1 [ true, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge ], [ false, %13 ]
   %indvars.iv.i3 = phi i64 [ 0, %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit.critedge ], [ 1, %13 ]
-  %12 = getelementptr double, ptr %10, i64 %indvars.iv.i3
+  %12 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i3
   br label %14
 
 13:                                               ; preds = %14

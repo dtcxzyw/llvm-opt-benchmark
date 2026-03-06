@@ -3,7 +3,6 @@ source_filename = "bench/luajit/original/lj_meta.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GCRef = type { i64 }
 %union.TValue = type { i64 }
 
 @.str = private unnamed_addr constant [135 x i8] c"__index__newindex__gc__mode__eq__len__lt__le__concat__call__add__sub__mul__div__mod__pow__unm__metatable__tostring__new__pairs__ipairs\00", align 1
@@ -43,7 +42,7 @@ define hidden void @lj_meta_init(ptr noundef %0) local_unnamed_addr #0 {
   %15 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %.021, i64 noundef %14) #7
   %16 = ptrtoint ptr %15 to i64
   %17 = zext i32 %.01520 to i64
-  %18 = getelementptr inbounds nuw %struct.GCRef, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   store i64 %16, ptr %18, align 8, !tbaa !17
   %19 = add i32 %.01520, 1
   %.not = icmp eq i8 %9, 0
@@ -111,7 +110,7 @@ define hidden nonnull ptr @lj_meta_lookup(ptr noundef readonly captures(none) %0
   %19 = icmp ult i64 %5, -13
   %20 = sub nsw i64 21, %5
   %spec.select = select i1 %19, i64 35, i64 %20
-  %21 = getelementptr inbounds nuw %struct.GCRef, ptr %18, i64 %spec.select
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %spec.select
   br label %22
 
 22:                                               ; preds = %10, %14, %6
@@ -127,7 +126,7 @@ define hidden nonnull ptr @lj_meta_lookup(ptr noundef readonly captures(none) %0
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 424
   %28 = zext i32 %2 to i64
-  %29 = getelementptr inbounds nuw %struct.GCRef, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !17
   %31 = inttoptr i64 %30 to ptr
   %32 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016, ptr noundef %31) #7
@@ -277,7 +276,7 @@ lj_meta_cache.exit:                               ; preds = %32, %39
   %60 = getelementptr inbounds i8, ptr %59, i64 -93
   %61 = load i8, ptr %60, align 1, !tbaa !26
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %62
   br label %mmcall.exit
 
 mmcall.exit:                                      ; preds = %46, %56
@@ -489,7 +488,7 @@ lj_meta_cache.exit:                               ; preds = %42, %75
   %96 = getelementptr inbounds i8, ptr %95, i64 -93
   %97 = load i8, ptr %96, align 1, !tbaa !26
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %98
   br label %mmcall.exit
 
 mmcall.exit:                                      ; preds = %82, %92
@@ -536,7 +535,7 @@ define hidden noundef ptr @lj_meta_arith(ptr noundef %0, ptr noundef writeonly c
   %6 = alloca %union.TValue, align 8
   %7 = alloca %union.TValue, align 8
   %8 = zext i32 %4 to i64
-  %9 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !43
   %11 = lshr i16 %10, 11
   %12 = zext nneg i16 %11 to i32
@@ -617,7 +616,7 @@ str2num.exit:                                     ; preds = %29, %27, %18, %16
   %53 = icmp ult i64 %39, -13
   %54 = sub nsw i64 21, %39
   %spec.select.i = select i1 %53, i64 35, i64 %54
-  %55 = getelementptr inbounds nuw %struct.GCRef, ptr %52, i64 %spec.select.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %spec.select.i
   br label %56
 
 56:                                               ; preds = %48, %44, %40
@@ -633,7 +632,7 @@ str2num.exit:                                     ; preds = %29, %27, %18, %16
   %60 = inttoptr i64 %59 to ptr
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 424
   %62 = zext nneg i16 %11 to i64
-  %63 = getelementptr inbounds nuw %struct.GCRef, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !17
   %65 = inttoptr i64 %64 to ptr
   %66 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %65) #7
@@ -681,7 +680,7 @@ lj_meta_lookup.exit:                              ; preds = %57, %67
   %90 = icmp ult i64 %76, -13
   %91 = sub nsw i64 21, %76
   %spec.select.i39 = select i1 %90, i64 35, i64 %91
-  %92 = getelementptr inbounds nuw %struct.GCRef, ptr %89, i64 %spec.select.i39
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %spec.select.i39
   br label %93
 
 93:                                               ; preds = %85, %81, %77
@@ -697,7 +696,7 @@ lj_meta_lookup.exit:                              ; preds = %57, %67
   %97 = inttoptr i64 %96 to ptr
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 424
   %99 = zext nneg i16 %11 to i64
-  %100 = getelementptr inbounds nuw %struct.GCRef, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !17
   %102 = inttoptr i64 %101 to ptr
   %103 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i36, ptr noundef %102) #7
@@ -746,7 +745,7 @@ lj_meta_lookup.exit40:                            ; preds = %94, %104
   %128 = getelementptr inbounds i8, ptr %127, i64 -93
   %129 = load i8, ptr %128, align 1, !tbaa !26
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %130
   br label %mmcall.exit
 
 mmcall.exit:                                      ; preds = %114, %124
@@ -882,7 +881,7 @@ define hidden noundef ptr @lj_meta_cat(ptr noundef %0, ptr noundef %1, i32 nound
   %50 = icmp ult i64 %37, -13
   %51 = sub nsw i64 21, %37
   %spec.select.i = select i1 %50, i64 35, i64 %51
-  %52 = getelementptr inbounds nuw %struct.GCRef, ptr %49, i64 %spec.select.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %spec.select.i
   br label %53
 
 53:                                               ; preds = %46, %42, %38
@@ -945,7 +944,7 @@ lj_meta_lookup.exit:                              ; preds = %54, %60
   %80 = icmp ult i64 %67, -13
   %81 = sub nsw i64 21, %67
   %spec.select.i123 = select i1 %80, i64 35, i64 %81
-  %82 = getelementptr inbounds nuw %struct.GCRef, ptr %79, i64 %spec.select.i123
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %spec.select.i123
   br label %83
 
 83:                                               ; preds = %76, %72, %68
@@ -1230,7 +1229,7 @@ lj_buf_more.exit:                                 ; preds = %173, %188
   %247 = getelementptr inbounds i8, ptr %246, i64 -93
   %248 = load i8, ptr %247, align 1, !tbaa !26
   %249 = zext i8 %248 to i64
-  %250 = getelementptr inbounds nuw %union.TValue, ptr %239, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %249
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %250, ptr %251, align 8, !tbaa !22
   br label %252
@@ -1281,7 +1280,7 @@ define hidden noundef nonnull ptr @lj_meta_len(ptr noundef %0, ptr noundef %1) l
   %18 = icmp ult i64 %4, -13
   %19 = sub nsw i64 21, %4
   %spec.select.i = select i1 %18, i64 35, i64 %19
-  %20 = getelementptr inbounds nuw %struct.GCRef, ptr %17, i64 %spec.select.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %spec.select.i
   br label %21
 
 21:                                               ; preds = %13, %9, %5
@@ -1342,7 +1341,7 @@ lj_meta_lookup.exit:                              ; preds = %22, %30
   %54 = getelementptr inbounds i8, ptr %53, i64 -93
   %55 = load i8, ptr %54, align 1, !tbaa !26
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %56
   br label %mmcall.exit
 
 mmcall.exit:                                      ; preds = %38, %50
@@ -1472,7 +1471,7 @@ lj_meta_cache.exit50.thread:                      ; preds = %47, %33, %31, %lj_m
   %66 = getelementptr inbounds i8, ptr %65, i64 -93
   %67 = load i8, ptr %66, align 1, !tbaa !26
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw %union.TValue, ptr %54, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %68
   br label %73
 
 70:                                               ; preds = %.thread
@@ -1534,7 +1533,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %6 = lshr i32 %1, 8
   %7 = and i32 %6, 255
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw %union.TValue, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = trunc i32 %1 to i8
   %trunc = and i8 %10, -2
   switch i8 %trunc, label %48 [
@@ -1546,7 +1545,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
 11:                                               ; preds = %2
   %12 = lshr i32 %1, 16
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %union.TValue, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %13
   %15 = load i64, ptr %9, align 8, !tbaa !14
   %.mask = and i64 %15, -140737488355328
   %16 = icmp eq i64 %.mask, -1548112371908608
@@ -1567,7 +1566,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %28 = lshr i32 %1, 16
   %29 = xor i32 %28, -1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.GCRef, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !17
   %33 = or i64 %32, -703687441776640
   store i64 %33, ptr %.sroa.0, align 8, !tbaa !14
@@ -1586,7 +1585,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %44 = inttoptr i64 %43 to ptr
   %45 = lshr i32 %1, 16
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw %union.TValue, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   br label %53
 
 48:                                               ; preds = %2
@@ -1627,7 +1626,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %69 = icmp ult i64 %55, -13
   %70 = sub nsw i64 21, %55
   %spec.select.i = select i1 %69, i64 35, i64 %70
-  %71 = getelementptr inbounds nuw %struct.GCRef, ptr %68, i64 %spec.select.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %spec.select.i
   br label %72
 
 72:                                               ; preds = %64, %60, %56
@@ -1681,7 +1680,7 @@ lj_meta_lookup.exit:                              ; preds = %73, %81
   %100 = getelementptr inbounds i8, ptr %99, i64 -93
   %101 = load i8, ptr %100, align 1, !tbaa !26
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %102
   br label %mmcall.exit
 
 mmcall.exit:                                      ; preds = %87, %96
@@ -1761,7 +1760,7 @@ define hidden ptr @lj_meta_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %32 = icmp ult i64 %18, -13
   %33 = sub nsw i64 21, %18
   %spec.select.i = select i1 %32, i64 35, i64 %33
-  %34 = getelementptr inbounds nuw %struct.GCRef, ptr %31, i64 %spec.select.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %spec.select.i
   br label %35
 
 35:                                               ; preds = %27, %23, %19
@@ -1776,7 +1775,7 @@ define hidden ptr @lj_meta_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 424
-  %41 = getelementptr inbounds nuw %struct.GCRef, ptr %40, i64 %14
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %14
   %42 = load i64, ptr %41, align 8, !tbaa !17
   %43 = inttoptr i64 %42 to ptr
   %44 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %43) #7
@@ -1819,7 +1818,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %67 = getelementptr inbounds i8, ptr %66, i64 -93
   %68 = load i8, ptr %67, align 1, !tbaa !26
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw %union.TValue, ptr %.val76, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val76, i64 %69
   br label %.thread
 
 .thread:                                          ; preds = %63, %52
@@ -1904,7 +1903,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %117 = icmp ult i64 %104, -13
   %118 = sub nsw i64 21, %104
   %spec.select.i84 = select i1 %117, i64 35, i64 %118
-  %119 = getelementptr inbounds nuw %struct.GCRef, ptr %116, i64 %spec.select.i84
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %spec.select.i84
   br label %120
 
 120:                                              ; preds = %113, %109, %105
@@ -1919,7 +1918,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %122 = inttoptr i64 %.pre120 to ptr
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 424
   %124 = zext nneg i32 %103 to i64
-  %125 = getelementptr inbounds nuw %struct.GCRef, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !17
   %127 = inttoptr i64 %126 to ptr
   %128 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i81, ptr noundef %127) #7
@@ -1964,7 +1963,7 @@ lj_meta_lookup.exit85:                            ; preds = %121, %129
   %147 = icmp ult i64 %134, -13
   %148 = sub nsw i64 21, %134
   %spec.select.i92 = select i1 %147, i64 35, i64 %148
-  %149 = getelementptr inbounds nuw %struct.GCRef, ptr %146, i64 %spec.select.i92
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %spec.select.i92
   br label %150
 
 150:                                              ; preds = %143, %139, %135
@@ -1979,7 +1978,7 @@ lj_meta_lookup.exit85:                            ; preds = %121, %129
   %152 = inttoptr i64 %.pre123 to ptr
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
   %154 = zext nneg i32 %103 to i64
-  %155 = getelementptr inbounds nuw %struct.GCRef, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !17
   %157 = inttoptr i64 %156 to ptr
   %158 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i89, ptr noundef %157) #7
@@ -2033,7 +2032,7 @@ lj_meta_lookup.exit93:                            ; preds = %151, %159
   %183 = getelementptr inbounds i8, ptr %182, i64 -93
   %184 = load i8, ptr %183, align 1, !tbaa !26
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %185
   br label %.thread98
 
 .thread98:                                        ; preds = %179, %168
@@ -2098,7 +2097,7 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
   %13 = getelementptr inbounds i8, ptr %12, i64 -93
   %14 = load i8, ptr %13, align 1, !tbaa !26
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw %union.TValue, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %16, ptr %17, align 8, !tbaa !22
   %18 = add i32 %1, 1
@@ -2118,7 +2117,7 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
 
 24:                                               ; preds = %3
   %25 = zext i32 %19 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !58
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %27) #8
   unreachable
@@ -2163,7 +2162,7 @@ define hidden void @lj_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef cap
   %19 = icmp ult i64 %5, -13
   %20 = sub nsw i64 21, %5
   %spec.select.i = select i1 %19, i64 35, i64 %20
-  %21 = getelementptr inbounds nuw %struct.GCRef, ptr %18, i64 %spec.select.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %spec.select.i
   br label %22
 
 22:                                               ; preds = %14, %10, %6

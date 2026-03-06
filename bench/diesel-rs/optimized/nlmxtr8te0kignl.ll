@@ -121,7 +121,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %40 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %35, %32 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !34, !noalias !37, !nonnull !10, !noundef !10
-  %43 = getelementptr inbounds { { i32, [5 x i32] }, i8, [7 x i8] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [32 x i8], ptr %42, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %44 = load i64, ptr %34, align 8, !alias.scope !34, !noalias !37, !noundef !10
   %45 = add i64 %44, 1

@@ -180,7 +180,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   %.0128 = phi ptr [ %45, %51 ], [ %59, %53 ]
   %54 = load i8, ptr %.0128, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr i16, ptr %52, i64 %55
+  %56 = getelementptr [2 x i8], ptr %52, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 256
   %.not169 = icmp eq i16 %58, 0

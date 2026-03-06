@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
 %struct.RedisModuleIO = type { i64, ptr, ptr, i32, ptr, ptr, i32, ptr }
 %struct.redisObject = type { i32, i32, ptr }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"ai != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"aof.c\00", align 1
@@ -897,7 +896,7 @@ sdslen.exit:                                      ; preds = %47, %50, %54, %58, 
 
 80:                                               ; preds = %.lr.ph, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !66
   %83 = call i32 @strcasecmp(ptr noundef %82, ptr noundef nonnull @.str.4) #24
   %.not90 = icmp eq i32 %83, 0
@@ -4182,7 +4181,7 @@ define dso_local ptr @catAppendOnlyGenericCommand(ptr noundef %0, i32 noundef %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %sdslen.exit22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %sdslen.exit22 ]
   %.024 = phi ptr [ %14, %.lr.ph.preheader ], [ %75, %sdslen.exit22 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !116
   %18 = call ptr @getDecodedObject(ptr noundef %17) #20
   store i8 36, ptr %4, align 16, !tbaa !18
@@ -4814,7 +4813,7 @@ define dso_local range(i32 0, 6) i32 @loadSingleAppendOnlyFile(ptr noundef %0) l
 
 120:                                              ; preds = %115, %111
   %121 = call ptr @createObject(i32 noundef 0, ptr noundef %114) #20
-  %122 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv
   store ptr %121, ptr %122, align 8, !tbaa !116
   %123 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %9)
   %124 = icmp eq i64 %123, 0
@@ -7618,7 +7617,7 @@ rewriteFunctions.exit:                            ; preds = %151, %77
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %4, ptr noundef nonnull align 16 dereferenceable(17) @__const.rewriteAppendOnlyFileRio.selectcmd, i64 17, i1 false)
   %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !224
-  %171 = getelementptr inbounds nuw %struct.redisDb, ptr %170, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [88 x i8], ptr %170, i64 %indvars.iv
   %172 = load ptr, ptr %171, align 8, !tbaa !225
   %173 = call i64 @kvstoreSize(ptr noundef %172) #20
   %174 = icmp eq i64 %173, 0

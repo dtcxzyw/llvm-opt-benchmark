@@ -185,7 +185,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %error_number to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4absl17ErrnoToStatusCodeEi, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4absl17ErrnoToStatusCodeEi, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

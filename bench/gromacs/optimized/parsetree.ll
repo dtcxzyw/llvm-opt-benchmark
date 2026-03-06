@@ -33,9 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.21" = type { %"struct.std::_Head_base.24" }
 %"struct.std::_Head_base.24" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%struct.gmx_ana_selparam_t = type { ptr, %struct.gmx_ana_selvalue_t, ptr, i32 }
-%struct.gmx_ana_selvalue_t = type { i32, i32, %union.anon.5, i32 }
-%union.anon.5 = type { ptr }
 %"class.std::__cxx11::list.56" = type { %"class.std::__cxx11::_List_base.57" }
 %"class.std::__cxx11::_List_base.57" = type { %"struct.std::__cxx11::_List_base<gmx::SelectionParserParameter, std::allocator<gmx::SelectionParserParameter>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<gmx::SelectionParserParameter, std::allocator<gmx::SelectionParserParameter>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
@@ -1485,7 +1482,7 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv54 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next55, %39 ]
-  %14 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %11, i64 %indvars.iv54
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !85
   %17 = and i32 %16, -2
@@ -1508,7 +1505,7 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
   br i1 %.not41, label %39, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %9, i64 %indvars.iv54
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %indvars.iv54
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %.not42 = icmp eq ptr %28, null
@@ -1516,7 +1513,7 @@ define void @_Z31_gmx_selelem_init_method_paramsRKSt10shared_ptrIN3gmx20Selectio
 
 .preheader:                                       ; preds = %25, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %25 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !61
   %.not43 = icmp eq ptr %30, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3288,7 +3285,7 @@ _Z23_gmx_selelem_set_methodRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP19gmx_
 
 switch.lookup:                                    ; preds = %67
   %85 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv, i64 %85
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv, i64 %85
   %switch.load = load ptr, ptr %switch.gep, align 8
   %86 = invoke noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #28
           to label %.noexc58 unwind label %132
@@ -6826,7 +6823,7 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZNSt6vectorINSt15_
   %182 = load ptr, ptr %172, align 8, !tbaa !175
   %183 = load i32, ptr %173, align 8, !tbaa !173
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds ptr, ptr %182, i64 %184
+  %185 = getelementptr inbounds [8 x i8], ptr %182, i64 %184
   store ptr %180, ptr %185, align 8, !tbaa !61
   %186 = add nsw i32 %183, 1
   store i32 %186, ptr %173, align 8, !tbaa !173
@@ -7543,7 +7540,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %274
   store ptr %268, ptr %248, align 8, !tbaa !181
   store ptr %273, ptr %249, align 8, !tbaa !179
-  %275 = getelementptr inbounds nuw %"class.std::unique_ptr.100", ptr %268, i64 %266
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %266
   store ptr %275, ptr %251, align 8, !tbaa !180
   br label %_ZNSt10unique_ptrIN3gmx8internal13SelectionDataESt14default_deleteIS2_EED2Ev.exit
 

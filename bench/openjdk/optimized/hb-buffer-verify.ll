@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.hb_segment_properties_t = type { i32, i32, ptr, ptr, ptr }
-%struct.hb_glyph_info_t = type { i32, i32, i32, %union._hb_var_int_t, %union._hb_var_int_t }
-%union._hb_var_int_t = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"buffer verify error: text was: %s.\00", align 1
@@ -55,7 +53,7 @@ define hidden noundef zeroext i1 @_ZN11hb_buffer_t6verifyEPS_P9hb_font_tPK12hb_f
 27:                                               ; preds = %34, %.lr.ph.i
   %28 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %31, %34 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %29 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %22, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4
   %.not.i = icmp eq i32 %28, %31
@@ -119,7 +117,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
   br i1 %57, label %58, label %72
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %42, i64 %indvars.iv115.i
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %42, i64 %indvars.iv115.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr i8, ptr %59, i64 -12
@@ -130,7 +128,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
 65:                                               ; preds = %58
   %66 = add nsw i64 %indvars.iv115.i, %.neg.i
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %42, i64 %67
+  %68 = getelementptr inbounds nuw [20 x i8], ptr %42, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 1
@@ -148,7 +146,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
   br label %.critedge.i
 
 76:                                               ; preds = %72
-  %77 = getelementptr %struct.hb_glyph_info_t, ptr %42, i64 %indvars.iv115.i
+  %77 = getelementptr [20 x i8], ptr %42, i64 %indvars.iv115.i
   br i1 %46, label %90, label %78
 
 78:                                               ; preds = %76
@@ -165,7 +163,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
 
 .lr.ph.i20:                                       ; preds = %89, %.lr.ph.preheader.i
   %indvars.iv.i21 = phi i64 [ %83, %.lr.ph.preheader.i ], [ %indvars.iv.next.i22, %89 ]
-  %85 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %43, i64 %indvars.iv.i21
+  %85 = getelementptr inbounds nuw [20 x i8], ptr %43, i64 %indvars.iv.i21
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = icmp ult i32 %87, %80
@@ -189,7 +187,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %34, %20, %
 
 95:                                               ; preds = %94
   %96 = add nsw i64 %indvars.iv112.i, -1
-  %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %43, i64 %96
+  %97 = getelementptr inbounds nuw [20 x i8], ptr %43, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 4
   %.not95.i = icmp ult i32 %99, %92
@@ -350,7 +348,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   br i1 %158, label %159, label %170
 
 159:                                              ; preds = %.lr.ph112.i
-  %160 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %146, i64 %indvars.iv126.i
+  %160 = getelementptr inbounds nuw [20 x i8], ptr %146, i64 %indvars.iv126.i
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i32, ptr %161, align 4
   %163 = getelementptr i8, ptr %160, i64 -12
@@ -374,7 +372,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   br label %.critedge.i26
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %146, i64 %indvars.iv126.i
+  %175 = getelementptr inbounds nuw [20 x i8], ptr %146, i64 %indvars.iv126.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load i32, ptr %176, align 4
   %178 = load i32, ptr %10, align 4
@@ -388,7 +386,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 
 .lr.ph.i31:                                       ; preds = %186, %.lr.ph.preheader.i30
   %indvars.iv.i32 = phi i64 [ %180, %.lr.ph.preheader.i30 ], [ %indvars.iv.next.i34, %186 ]
-  %182 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %147, i64 %indvars.iv.i32
+  %182 = getelementptr inbounds nuw [20 x i8], ptr %147, i64 %indvars.iv.i32
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load i32, ptr %183, align 4
   %185 = icmp ult i32 %184, %177
@@ -406,7 +404,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 .critedge.i26:                                    ; preds = %186, %.critedge.loopexit.split.loop.exit.i33, %174, %172
   %.2.i27 = phi i32 [ %173, %172 ], [ %.093108.i, %174 ], [ %187, %.critedge.loopexit.split.loop.exit.i33 ], [ %178, %186 ]
   %188 = zext nneg i32 %.091111.i to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %7, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %188
   %190 = load ptr, ptr %189, align 8
   call void @hb_buffer_append(ptr noundef %190, ptr noundef %1, i32 noundef %.095107.i, i32 noundef %.2.i27)
   %191 = sub nuw nsw i32 1, %.091111.i
@@ -483,16 +481,16 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 .lr.ph123.i:                                      ; preds = %.preheader.i.critedge, %.critedge2.i
   %.088122.i = phi i32 [ %251, %.critedge2.i ], [ 0, %.preheader.i.critedge ]
   %226 = zext nneg i32 %.088122.i to i64
-  %227 = getelementptr inbounds nuw i32, ptr %11, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %226
   %228 = load i32, ptr %227, align 4
-  %229 = getelementptr inbounds nuw i32, ptr %12, i64 %226
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %226
   %230 = load i32, ptr %229, align 4
   %.0114.i = add i32 %228, 1
   %231 = icmp ult i32 %.0114.i, %230
   br i1 %231, label %.lr.ph118.i, label %.critedge2.i
 
 .lr.ph118.i:                                      ; preds = %.lr.ph123.i
-  %232 = getelementptr inbounds nuw ptr, ptr %13, i64 %226
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %226
   %233 = load ptr, ptr %232, align 8
   %234 = zext i32 %.0114.i to i64
   br label %235
@@ -500,11 +498,11 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 235:                                              ; preds = %.critedge4.i, %.lr.ph118.i
   %indvars.iv132.i = phi i64 [ %234, %.lr.ph118.i ], [ %indvars.iv.next133.i, %.critedge4.i ]
   %.0.in115.i = phi i32 [ %228, %.lr.ph118.i ], [ %.pre-phi.i, %.critedge4.i ]
-  %236 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %233, i64 %indvars.iv132.i
+  %236 = getelementptr inbounds nuw [20 x i8], ptr %233, i64 %indvars.iv132.i
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load i32, ptr %237, align 4
   %239 = zext i32 %.0.in115.i to i64
-  %240 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %233, i64 %239
+  %240 = getelementptr inbounds nuw [20 x i8], ptr %233, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load i32, ptr %241, align 4
   %243 = icmp eq i32 %238, %242
@@ -531,7 +529,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 
 .critedge2.i:                                     ; preds = %.critedge4.i, %244, %.lr.ph123.i
   %.0.lcssa.i = phi i32 [ %.0114.i, %.lr.ph123.i ], [ %248, %244 ], [ %230, %.critedge4.i ]
-  %249 = getelementptr inbounds nuw ptr, ptr %7, i64 %226
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %226
   %250 = load ptr, ptr %249, align 8
   call void @hb_buffer_append(ptr noundef %143, ptr noundef %250, i32 noundef %228, i32 noundef %.0.lcssa.i)
   store i32 %.0.lcssa.i, ptr %227, align 4

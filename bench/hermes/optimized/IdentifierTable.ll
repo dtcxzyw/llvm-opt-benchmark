@@ -13,8 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [32 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [2 x i8] }
-%"class.hermes::vm::IdentifierTable::LookupEntry" = type { %union.anon, i32, i32 }
-%union.anon = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.28 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.28 = type { i64, [8 x i8] }
@@ -210,13 +208,13 @@ sw.bb.i.i.i:                                      ; preds = %entry
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb2.i.i.i:                                     ; preds = %entry
-  %arrayidx.i4.i.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %3 = load i16, ptr %arrayidx.i4.i.i.i, align 2
   %conv.i5.i.i.i = zext i16 %3 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb5.i.i.i:                                     ; preds = %entry
-  %arrayidx.i7.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i7.i.i.i, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
@@ -242,13 +240,13 @@ sw.bb.i.i.i15:                                    ; preds = %if.then
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb2.i.i.i12:                                   ; preds = %if.then
-  %arrayidx.i4.i.i.i13 = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %6 = load i16, ptr %arrayidx.i4.i.i.i13, align 2
   %conv.i5.i.i.i14 = zext i16 %6 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb5.i.i.i9:                                    ; preds = %if.then
-  %arrayidx.i7.i.i.i10 = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i7.i.i.i10, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
@@ -265,7 +263,7 @@ _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i15,
   %div2.i.i = lshr i32 %sub.i.i, 6
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %8 = load ptr, ptr %markedSymbols_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i.i
   %9 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %9
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -349,13 +347,13 @@ sw.bb.i.i.i:                                      ; preds = %entry
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb2.i.i.i:                                     ; preds = %entry
-  %arrayidx.i4.i.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %3 = load i16, ptr %arrayidx.i4.i.i.i, align 2
   %conv.i5.i.i.i = zext i16 %3 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb5.i.i.i:                                     ; preds = %entry
-  %arrayidx.i7.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i7.i.i.i, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
@@ -381,13 +379,13 @@ sw.bb.i.i.i15:                                    ; preds = %if.then
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb2.i.i.i12:                                   ; preds = %if.then
-  %arrayidx.i4.i.i.i13 = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %6 = load i16, ptr %arrayidx.i4.i.i.i13, align 2
   %conv.i5.i.i.i14 = zext i16 %6 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb5.i.i.i9:                                    ; preds = %if.then
-  %arrayidx.i7.i.i.i10 = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i7.i.i.i10, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
@@ -404,7 +402,7 @@ _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i15,
   %div2.i.i = lshr i32 %sub.i.i, 6
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %8 = load ptr, ptr %markedSymbols_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i.i
   %9 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %9
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -476,13 +474,13 @@ sw.bb.i.i.i:                                      ; preds = %entry
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb2.i.i.i:                                     ; preds = %entry
-  %arrayidx.i4.i.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %3 = load i16, ptr %arrayidx.i4.i.i.i, align 2
   %conv.i5.i.i.i = zext i16 %3 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb5.i.i.i:                                     ; preds = %entry
-  %arrayidx.i7.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i7.i.i.i, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
@@ -508,13 +506,13 @@ sw.bb.i.i.i17:                                    ; preds = %if.then
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb2.i.i.i14:                                   ; preds = %if.then
-  %arrayidx.i4.i.i.i15 = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %6 = load i16, ptr %arrayidx.i4.i.i.i15, align 2
   %conv.i5.i.i.i16 = zext i16 %6 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb5.i.i.i11:                                   ; preds = %if.then
-  %arrayidx.i7.i.i.i12 = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i7.i.i.i12, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
@@ -531,7 +529,7 @@ _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i17,
   %div2.i.i = lshr i32 %sub.i.i, 6
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %8 = load ptr, ptr %markedSymbols_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i.i
   %9 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %9
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -541,7 +539,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm6deta
   %call7 = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable11allocNextIDEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %conv = zext i32 %call7 to i64
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %10, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %conv
   store ptr %str.coerce0, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %conv.i = trunc i64 %str.coerce1 to i32
@@ -614,13 +612,13 @@ sw.bb.i.i.i:                                      ; preds = %entry
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb2.i.i.i:                                     ; preds = %entry
-  %arrayidx.i4.i.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %3 = load i16, ptr %arrayidx.i4.i.i.i, align 2
   %conv.i5.i.i.i = zext i16 %3 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb5.i.i.i:                                     ; preds = %entry
-  %arrayidx.i7.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i7.i.i.i, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
@@ -646,13 +644,13 @@ sw.bb.i.i.i17:                                    ; preds = %if.then
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb2.i.i.i14:                                   ; preds = %if.then
-  %arrayidx.i4.i.i.i15 = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %6 = load i16, ptr %arrayidx.i4.i.i.i15, align 2
   %conv.i5.i.i.i16 = zext i16 %6 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb5.i.i.i11:                                   ; preds = %if.then
-  %arrayidx.i7.i.i.i12 = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i7.i.i.i12, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
@@ -669,7 +667,7 @@ _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i17,
   %div2.i.i = lshr i32 %sub.i.i, 6
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %8 = load ptr, ptr %markedSymbols_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i.i
   %9 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %9
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -679,7 +677,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm6deta
   %call7 = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable11allocNextIDEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %conv = zext i32 %call7 to i64
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %10, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %conv
   store ptr %str.coerce0, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %conv.i = trunc i64 %str.coerce1 to i32
@@ -722,7 +720,7 @@ if.then:                                          ; preds = %entry
   %div2.i.i = and i32 %and.i, 4194303
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %1 = load ptr, ptr %markedSymbols_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i.i
   %2 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %2
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -942,7 +940,7 @@ entry:
   %div2.i = lshr i32 %id, 6
   %conv.i = zext nneg i32 %div2.i to i64
   %0 = load ptr, ptr %markedSymbols_, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i
   %1 = load i64, ptr %arrayidx.i.i, align 8
   %or.i = or i64 %1, %shl.i
   store i64 %or.i, ptr %arrayidx.i.i, align 8
@@ -955,7 +953,7 @@ entry:
   %and.i.i = and i32 %id.coerce, 268435455
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i, align 8
   %tobool.not.i = icmp ne ptr %1, null
   %num_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -1021,7 +1019,7 @@ entry:
   %and.i.i = and i32 %id.coerce, 268435455
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -1077,7 +1075,7 @@ entry:
   %and.i.i = and i32 %id.coerce, 268435455
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i, align 8
   %tobool.not.i = icmp ne ptr %1, null
   %num_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -1159,7 +1157,7 @@ if.end14:                                         ; preds = %if.end11
   %and.i.i.i = and i32 %id.coerce, 268435455
   %conv.i.i.i = zext nneg i32 %and.i.i.i to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv.i.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %tobool.not.i.i = icmp ne ptr %1, null
   %num_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -1233,7 +1231,7 @@ entry:
   %and.i.i = and i32 %id.coerce, 268435455
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i, align 8
   %tobool.not.i = icmp ne ptr %1, null
   %num_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -1370,7 +1368,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = phi ptr [ %1, %for.body.lr.ph ], [ %9, %for.inc ]
   %4 = phi ptr [ %0, %for.body.lr.ph ], [ %10, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %for.inc, label %if.then
@@ -1431,7 +1429,7 @@ entry:
   store i32 %call, ptr %weakUniqueID_.i.i, align 4
   %conv = zext i32 %call to i64
   %1 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %conv
   call void @llvm.lifetime.start.p0(ptr nonnull %storage.i)
   store ptr %strPrim, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -1557,7 +1555,7 @@ _ZNSt12_Vector_baseIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE13_M_deall
   store ptr %call5.i.i.i.i.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr21.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %call5.i.i.i.i.i, i64 %add.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %add.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZN6hermes2vm15IdentifierTable18ConservativeVectorINS1_11LookupEntryEE12emplace_backEv.exit
 
@@ -1589,7 +1587,7 @@ _ZN4llvh9BitVector9push_backEb.exit:              ; preds = %if.then.i6, %if.els
   %div2.i.i = lshr i32 %4, 6
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %6 = load ptr, ptr %markedSymbols_, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %6, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i.i
   %7 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %7, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1598,7 +1596,7 @@ _ZN4llvh9BitVector9push_backEb.exit:              ; preds = %if.then.i6, %if.els
 if.end6:                                          ; preds = %entry
   %conv.i7 = zext i32 %0 to i64
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i.i8 = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %8, i64 %conv.i7
+  %add.ptr.i.i8 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %conv.i7
   %num_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i8, i64 8
   %bf.load.i = load i32, ptr %num_.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
@@ -1610,7 +1608,7 @@ if.end6:                                          ; preds = %entry
   %div2.i = lshr i32 %0, 6
   %conv.i9 = zext nneg i32 %div2.i to i64
   %9 = load ptr, ptr %markedSymbols_12, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %conv.i9
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv.i9
   %10 = load i64, ptr %arrayidx.i.i, align 8
   %or.i = or i64 %10, %shl.i
   store i64 %or.i, ptr %arrayidx.i.i, align 8
@@ -1673,13 +1671,13 @@ sw.bb.i.i.i:                                      ; preds = %entry
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb2.i.i.i:                                     ; preds = %entry
-  %arrayidx.i4.i.i.i = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %3 = load i16, ptr %arrayidx.i4.i.i.i, align 2
   %conv.i5.i.i.i = zext i16 %3 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
 sw.bb5.i.i.i:                                     ; preds = %entry
-  %arrayidx.i7.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %4 = load i32, ptr %arrayidx.i7.i.i.i, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable7isValidEj.exit
 
@@ -1705,13 +1703,13 @@ sw.bb.i.i.i13:                                    ; preds = %if.end
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb2.i.i.i10:                                   ; preds = %if.end
-  %arrayidx.i4.i.i.i11 = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i4.i.i.i11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %6 = load i16, ptr %arrayidx.i4.i.i.i11, align 2
   %conv.i5.i.i.i12 = zext i16 %6 to i32
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
 sw.bb5.i.i.i7:                                    ; preds = %if.end
-  %arrayidx.i7.i.i.i8 = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i.i.i
+  %arrayidx.i7.i.i.i8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %idxprom.i.i.i.i
   %7 = load i32, ptr %arrayidx.i7.i.i.i8, align 4
   br label %_ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit
 
@@ -1728,7 +1726,7 @@ _ZNK6hermes2vm6detail19IdentifierHashTable3getEj.exit: ; preds = %sw.bb.i.i.i13,
   %div2.i.i = lshr i32 %sub.i.i, 6
   %conv.i.i = zext nneg i32 %div2.i.i to i64
   %8 = load ptr, ptr %markedSymbols_.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %conv.i.i
   %9 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i.i, %9
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1759,7 +1757,7 @@ _ZN6hermes2vm6HandleINS0_8SymbolIDEEC2ERNS0_15HandleRootOwnerES2_.exit: ; preds 
   %conv.i.i.i.i17 = trunc i64 %retval.sroa.0.0.copyload.i.i.i to i32
   %and.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 268435455
   %13 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %13, i64 %and.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %and.i.i.i
   %14 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %tobool.not.i.i = icmp ne ptr %14, null
   %num_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
@@ -2148,7 +2146,7 @@ define hidden void @_ZN6hermes2vm15IdentifierTable10freeSymbolEj(ptr noundef non
 entry:
   %conv = zext i32 %index to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv
   %isNotUniqued_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %bf.load.i = load i32, ptr %isNotUniqued_.i, align 8
   %1 = and i32 %bf.load.i, 2
@@ -2164,7 +2162,7 @@ if.then:                                          ; preds = %entry
   %hashTable_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN6hermes2vm6detail19IdentifierHashTable6removeEPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_, ptr noundef nonnull %2) #16
   %.pre = load ptr, ptr %this, align 8
-  %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv
+  %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %conv
   %num_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert, i64 8
   %bf.load.i.i.pre = load i32, ptr %num_.i.i.phi.trans.insert, align 8
   br label %if.end
@@ -2172,7 +2170,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %bf.load.i.i = phi i32 [ %bf.load.i.i.pre, %if.then ], [ %bf.load.i, %entry ]
   %4 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %4, i64 %conv
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %conv
   %firstFreeID_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %5 = load i32, ptr %firstFreeID_.i, align 8
   store ptr null, ptr %add.ptr.i.i, align 8
@@ -2192,7 +2190,7 @@ define hidden void @_ZN6hermes2vm15IdentifierTable6freeIDEj(ptr noundef nonnull 
 entry:
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv
   %firstFreeID_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load i32, ptr %firstFreeID_, align 8
   store ptr null, ptr %add.ptr.i, align 8
@@ -2255,10 +2253,10 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %i.012.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end.i ]
   %3 = load ptr, ptr %markedSymbols, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %3, i64 %i.012.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %i.012.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
   %5 = load ptr, ptr %markedSymbols_, align 8
-  %arrayidx.i10.i = getelementptr inbounds nuw i64, ptr %5, i64 %i.012.i
+  %arrayidx.i10.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %i.012.i
   %6 = load i64, ptr %arrayidx.i10.i, align 8
   %or.i = or i64 %6, %4
   store i64 %or.i, ptr %arrayidx.i10.i, align 8
@@ -2275,7 +2273,7 @@ _ZN4llvh9BitVectoroRERKS0_.exit:                  ; preds = %for.body.i, %if.end
 for.body.i8:                                      ; preds = %_ZN4llvh9BitVectoroRERKS0_.exit, %for.body.i8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i8 ], [ 0, %_ZN4llvh9BitVectoroRERKS0_.exit ]
   %8 = load ptr, ptr %markedSymbols_, align 8
-  %arrayidx.i.i9 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %arrayidx.i.i9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %9 = load i64, ptr %arrayidx.i.i9, align 8
   %not.i = xor i64 %9, -1
   store i64 %not.i, ptr %arrayidx.i.i9, align 8
@@ -2299,7 +2297,7 @@ for.end.i:                                        ; preds = %for.body.i8, %_ZN4l
 if.then.i.i.i.i:                                  ; preds = %for.end.i
   %sub.i7.i.i.i = sub nuw i64 %12, %conv.i.i.i
   %13 = load ptr, ptr %markedSymbols_, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %13, i64 %conv.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %conv.i.i.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
   %.pre.i.i.i = load i32, ptr %Size.i.i, align 8
@@ -2318,7 +2316,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   %sub15.i.i.i = add nsw i32 %div1.i.lcssa.i, -1
   %conv16.i.i.i = zext i32 %sub15.i.i.i to i64
   %15 = load ptr, ptr %markedSymbols_, align 8
-  %arrayidx.i8.i.i.i = getelementptr inbounds nuw i64, ptr %15, i64 %conv16.i.i.i
+  %arrayidx.i8.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %conv16.i.i.i
   %16 = load i64, ptr %arrayidx.i8.i.i.i, align 8
   %and.i.i.i = and i64 %16, %not.i.i.i
   store i64 %and.i.i.i, ptr %arrayidx.i8.i.i.i, align 8
@@ -2346,7 +2344,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN4llvh9BitVector4
 
 for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %if.end.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %if.end.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i.i.i
   %22 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !13
   %cmp8.i.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i.i, %20
   %and13.i.i.i.i.i = select i1 %cmp8.i.i.i.i.i, i64 %shr.i.i.i.i.i.i, i64 -1
@@ -2380,7 +2378,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %_ZN4
   %__begin2.sroa.2.039 = phi i32 [ %conv20.i.i.i.i.i, %if.end.lr.ph ], [ %conv20.i.i.i.i, %_ZN4llvh28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
   %conv = zext i32 %__begin2.sroa.2.039 to i64
   %27 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %27, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %conv
   %28 = load ptr, ptr %add.ptr.i, align 8
   %tobool.not.i = icmp ne ptr %28, null
   %num_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -2396,7 +2394,7 @@ if.then13:                                        ; preds = %if.end
 if.then14:                                        ; preds = %if.then13
   tail call void @_ZN6hermes2vm6GCBase9IDTracker13untrackSymbolEj(ptr noundef nonnull align 8 dereferenceable(192) %tracker, i32 noundef %__begin2.sroa.2.039) #16
   %.pre = load ptr, ptr %this, align 8
-  %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre, i64 %conv
+  %add.ptr.i.i.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %conv
   %isNotUniqued_.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert, i64 8
   %bf.load.i.i.pre = load i32, ptr %isNotUniqued_.i.i.phi.trans.insert, align 8
   br label %if.end15
@@ -2409,7 +2407,7 @@ if.end15:                                         ; preds = %if.then14, %if.then
   br i1 %bf.cast.i.not.i, label %if.then.i22, label %_ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit
 
 if.then.i22:                                      ; preds = %if.end15
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %30, i64 %conv
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %conv
   %32 = load ptr, ptr %add.ptr.i.i, align 8
   %lengthAndUniquedFlag_.i.i = getelementptr inbounds nuw i8, ptr %32, i64 4
   %33 = load i32, ptr %lengthAndUniquedFlag_.i.i, align 4
@@ -2417,7 +2415,7 @@ if.then.i22:                                      ; preds = %if.end15
   store i32 %and.i.i, ptr %lengthAndUniquedFlag_.i.i, align 4
   tail call void @_ZN6hermes2vm6detail19IdentifierHashTable6removeEPKNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(32) %hashTable_.i, ptr noundef nonnull %32) #16
   %.pre.i23 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.phi.trans.insert.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %.pre.i23, i64 %conv
+  %add.ptr.i.i.phi.trans.insert.i = getelementptr inbounds nuw [16 x i8], ptr %.pre.i23, i64 %conv
   %num_.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.phi.trans.insert.i, i64 8
   %bf.load.i.i.pre.i = load i32, ptr %num_.i.i.phi.trans.insert.i, align 8
   br label %_ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit
@@ -2425,7 +2423,7 @@ if.then.i22:                                      ; preds = %if.end15
 _ZN6hermes2vm15IdentifierTable10freeSymbolEj.exit: ; preds = %if.end15, %if.then.i22
   %bf.load.i.i.i = phi i32 [ %bf.load.i.i.pre.i, %if.then.i22 ], [ %bf.load.i.i, %if.end15 ]
   %34 = phi ptr [ %.pre.i23, %if.then.i22 ], [ %30, %if.end15 ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %34, i64 %conv
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %conv
   %35 = load i32, ptr %firstFreeID_.i.i, align 8
   store ptr null, ptr %add.ptr.i.i.i, align 8
   %num_.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -2470,7 +2468,7 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
 
 for.body.i.us.i.i.i:                              ; preds = %for.body.lr.ph.i.i.i.i, %for.inc.i.us.i.i.i
   %indvars.iv.i.us.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %for.inc.i.us.i.i.i ], [ %39, %for.body.lr.ph.i.i.i.i ]
-  %arrayidx.i.i.us.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.us.i.i.i
+  %arrayidx.i.i.us.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.us.i.i.i
   %42 = load i64, ptr %arrayidx.i.i.us.i.i.i, align 8
   %cmp8.i.us.i.i.i = icmp eq i64 %indvars.iv.i.us.i.i.i, %40
   %and13.i.us.i.i.i = select i1 %cmp8.i.us.i.i.i, i64 %shr.i.i.i.i.i, i64 -1
@@ -2485,7 +2483,7 @@ for.inc.i.us.i.i.i:                               ; preds = %for.body.i.us.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.lr.ph.i.i.i.i, %for.inc.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ %39, %for.body.lr.ph.i.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i.i.i
   %43 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %cmp4.i.i.i.i = icmp eq i64 %indvars.iv.i.i.i.i, %39
   %spec.select.i.i.i = select i1 %cmp4.i.i.i.i, i64 %38, i64 -1
@@ -2539,7 +2537,7 @@ entry:
   %call = tail call noundef i32 @_ZN6hermes2vm15IdentifierTable11allocNextIDEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %conv = zext i32 %call to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %conv
   store ptr %desc.coerce0, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %conv.i = trunc i64 %desc.coerce1 to i32
@@ -2663,7 +2661,7 @@ cond.end:                                         ; preds = %_ZNK6hermes2vm15Str
 if.end:                                           ; preds = %cond.end
   %conv = zext i32 %call to i64
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %9, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %conv
   call void @llvm.lifetime.start.p0(ptr nonnull %storage.i)
   store ptr %storemerge, ptr %add.ptr.i, align 8
   %isUTF16_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -2715,7 +2713,7 @@ _ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit: ; p
 if.else:                                          ; preds = %entry
   %conv31 = zext i32 %call to i64
   %13 = load ptr, ptr %this, align 8
-  %add.ptr.i37 = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %13, i64 %conv31
+  %add.ptr.i37 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %conv31
   %14 = inttoptr i64 %and.i.i.i.i to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %storage.i39)
   store ptr %14, ptr %add.ptr.i37, align 8
@@ -3241,7 +3239,7 @@ _ZN4llvh12safe_reallocEPvm.exit.i:                ; preds = %if.then.i.i, %if.th
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh12safe_reallocEPvm.exit.i
   %sub.i7.i.i.i = sub nuw i64 %.sroa.speculated.i, %conv.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call.i.i, i64 %conv.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %conv.i.i.i
   %mul.i.i.i.i = shl i64 %sub.i7.i.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, i8 0, i64 %mul.i.i.i.i, i1 false)
   br label %if.end.i.i.i
@@ -3257,7 +3255,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
   %not.i.i.i = xor i64 %shl.i.i.i, -1
   %sub15.i.i.i = add nsw i32 %div1.i.i.i.i, -1
   %conv16.i.i.i = zext i32 %sub15.i.i.i to i64
-  %arrayidx.i8.i.i.i = getelementptr inbounds nuw i64, ptr %call.i.i, i64 %conv16.i.i.i
+  %arrayidx.i8.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %conv16.i.i.i
   %3 = load i64, ptr %arrayidx.i8.i.i.i, align 8
   %and.i.i.i = and i64 %3, %not.i.i.i
   store i64 %and.i.i.i, ptr %arrayidx.i8.i.i.i, align 8
@@ -3270,7 +3268,7 @@ _ZN4llvh9BitVector4growEj.exit:                   ; preds = %if.end.i.i.i, %if.t
 
 if.then.i:                                        ; preds = %_ZN4llvh9BitVector4growEj.exit
   %sub.i = sub i64 %.sroa.speculated.i, %conv5
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %call.i.i, i64 %conv5
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %conv5
   %4 = sext i1 %t to i8
   %mul.i10 = shl i64 %sub.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %4, i64 %mul.i10, i1 false)
@@ -3293,7 +3291,7 @@ if.then8:                                         ; preds = %if.end
 if.then.i.i16:                                    ; preds = %if.then8
   %sub.i7.i = sub nuw i64 %5, %conv.i14
   %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %conv.i14
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %conv.i14
   %8 = sext i1 %t to i8
   %mul.i.i = shl i64 %sub.i7.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i, i8 %8, i64 %mul.i.i, i1 false)
@@ -3315,7 +3313,7 @@ if.end10.thread:                                  ; preds = %if.then8.i
   %sub.i15 = add nsw i32 %div1.i.i12, -1
   %conv12.i = zext i32 %sub.i15 to i64
   %10 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %10, i64 %conv12.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %conv12.i
   %11 = load i64, ptr %arrayidx.i.i, align 8
   %or.i = or i64 %11, %shl.i
   store i64 %or.i, ptr %arrayidx.i.i, align 8
@@ -3327,7 +3325,7 @@ if.else.i:                                        ; preds = %if.then8.i
   %sub15.i = add nsw i32 %div1.i.i12, -1
   %conv16.i = zext i32 %sub15.i to i64
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i8.i = getelementptr inbounds nuw i64, ptr %12, i64 %conv16.i
+  %arrayidx.i8.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %conv16.i
   %13 = load i64, ptr %arrayidx.i8.i, align 8
   %and.i = and i64 %13, %not.i
   store i64 %and.i, ptr %arrayidx.i8.i, align 8
@@ -3352,7 +3350,7 @@ if.then15:                                        ; preds = %if.end10.thread, %i
 if.then.i.i.i:                                    ; preds = %if.then15
   %sub.i7.i.i = sub nuw i64 %15, %conv.i.i
   %16 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i64, ptr %16, i64 %conv.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %conv.i.i
   %mul.i.i.i = shl i64 %sub.i7.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i.i, i8 0, i64 %mul.i.i.i, i1 false)
   %.pre.i.i = load i32, ptr %Size, align 8
@@ -3371,7 +3369,7 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
   %sub15.i.i = add nsw i32 %div1.i.i.i, -1
   %conv16.i.i = zext i32 %sub15.i.i to i64
   %18 = load ptr, ptr %this, align 8
-  %arrayidx.i8.i.i = getelementptr inbounds nuw i64, ptr %18, i64 %conv16.i.i
+  %arrayidx.i8.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %conv16.i.i
   %19 = load i64, ptr %arrayidx.i8.i.i, align 8
   %and.i.i = and i64 %19, %not.i.i
   store i64 %and.i.i, ptr %arrayidx.i8.i.i, align 8
@@ -3558,7 +3556,7 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6hermes2vm15IdentifierTable11LookupEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i, %if.then.i20.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr19.i = getelementptr inbounds nuw %"class.hermes::vm::IdentifierTable::LookupEntry", ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage, align 8
   br label %if.end
 

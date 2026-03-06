@@ -1794,7 +1794,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h2c55ee4b98ed348bE.exit.thre
 97:                                               ; preds = %.noexc7, %87
   %.pn39 = phi ptr [ %86, %.noexc7 ], [ %89, %87 ]
   %.pn37 = phi i64 [ %83, %.noexc7 ], [ %91, %87 ]
-  %98 = getelementptr inbounds i32, ptr %.pn39, i64 %.pn37
+  %98 = getelementptr inbounds [4 x i8], ptr %.pn39, i64 %.pn37
   br label %99
 
 99:                                               ; preds = %101, %97

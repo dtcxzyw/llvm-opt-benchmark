@@ -6,17 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Vmem = type { ptr, i64, i64 }
 %struct.Int = type { %struct.Int128_, i32 }
 %struct.Int128_ = type { i64, i64 }
-%struct.Expr_ = type { ptr, %union.SourceSpan, i16, %union.anon.61 }
-%union.SourceSpan = type { i64 }
-%union.anon.61 = type { %struct.ExprAnySwitch }
-%struct.ExprAnySwitch = type { i8, %union.anon.63 }
-%union.anon.63 = type { %struct.anon.64 }
-%struct.anon.64 = type { ptr, %union.SourceSpan, ptr }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.27 }
-%union.anon.27 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.30 }
-%union.anon.30 = type { %struct.anon.31 }
-%struct.anon.31 = type { ptr, %union.SourceSpan, i8 }
 
 @.str = private unnamed_addr constant [36 x i8] c"FATAL ERROR %s -> in %s @ in %s:%d \00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Should be unreachable\00", align 1
@@ -461,7 +450,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 12:                                               ; preds = %9
   %13 = load ptr, ptr @expr_arena, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw %struct.Expr_, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %14
   %16 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %15, i32 noundef %1)
   br i1 %16, label %.critedge, label %expr_list_is_constant_eval.exit.loopexit285
 
@@ -475,7 +464,7 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
   %.sink245 = phi i32 [ %31, %29 ], [ %18, %.critedge ]
   %19 = load ptr, ptr @expr_arena, align 8
   %20 = zext i32 %.sink245 to i64
-  %21 = getelementptr inbounds nuw %struct.Expr_, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %20
   br label %tailrecurse.backedge286
 
 tailrecurse.backedge286:                          ; preds = %tailrecurse.backedge, %.critedge89, %126, %6, %22, %45, %59, %71, %77, %.critedge87, %148, %150
@@ -527,7 +516,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
 
 .lr.ph151:                                        ; preds = %.lr.ph151, %.lr.ph151.preheader
   %indvars.iv191 = phi i64 [ 0, %.lr.ph151.preheader ], [ %indvars.iv.next192, %.lr.ph151 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv191
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv191
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %43, i32 noundef %1)
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
@@ -589,7 +578,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
 
 .lr.ph145:                                        ; preds = %.lr.ph145, %.lr.ph145.preheader
   %indvars.iv186 = phi i64 [ 0, %.lr.ph145.preheader ], [ %indvars.iv.next187, %.lr.ph145 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv186
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv186
   %69 = load ptr, ptr %68, align 8
   %70 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %69, i32 noundef %1)
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
@@ -602,7 +591,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
   %73 = load i32, ptr %72, align 8
   %74 = load ptr, ptr @expr_arena, align 8
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw %struct.Expr_, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [56 x i8], ptr %74, i64 %75
   br label %tailrecurse.backedge286
 
 77:                                               ; preds = %tailrecurse, %tailrecurse
@@ -628,7 +617,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
 
 .lr.ph139:                                        ; preds = %.lr.ph139, %.lr.ph139.preheader
   %indvars.iv181 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next182, %.lr.ph139 ]
-  %86 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv181
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv181
   %87 = load ptr, ptr %86, align 8
   %88 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %87, i32 noundef %1)
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
@@ -654,7 +643,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %96, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -672,7 +661,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
 
 102:                                              ; preds = %98
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds nuw %struct.Expr_, ptr %.pre198, i64 %103
+  %104 = getelementptr inbounds nuw [56 x i8], ptr %.pre198, i64 %103
   %105 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %104, i32 noundef %1)
   br i1 %105, label %..critedge87_crit_edge, label %expr_list_is_constant_eval.exit.loopexit285
 
@@ -684,7 +673,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
   %106 = phi ptr [ %.pre197, %..critedge87_crit_edge ], [ %.pre198, %98 ]
   %107 = load i32, ptr %99, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %struct.Expr_, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [56 x i8], ptr %106, i64 %108
   br label %tailrecurse.backedge286
 
 110:                                              ; preds = %tailrecurse
@@ -697,7 +686,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
 
 114:                                              ; preds = %110
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds nuw %struct.Expr_, ptr %.pre196, i64 %115
+  %116 = getelementptr inbounds nuw [56 x i8], ptr %.pre196, i64 %115
   %117 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %116, i32 noundef %1)
   br i1 %117, label %..critedge89_crit_edge, label %expr_list_is_constant_eval.exit.loopexit285
 
@@ -709,7 +698,7 @@ tailrecurse.backedge286:                          ; preds = %tailrecurse.backedg
   %118 = phi ptr [ %.pre, %..critedge89_crit_edge ], [ %.pre196, %110 ]
   %119 = load i32, ptr %111, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %struct.Expr_, ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [56 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load i16, ptr %122, align 8
   %124 = and i16 %123, 255
@@ -814,7 +803,7 @@ define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr noundef read
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.Expr_, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %12, i32 noundef %1)
@@ -822,7 +811,7 @@ define internal fastcc zeroext i1 @expr_binary_is_constant_eval(ptr noundef read
 
 16:                                               ; preds = %7
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw %struct.Expr_, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %17
   %19 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %18, i32 noundef %1)
   br label %20
 
@@ -929,7 +918,7 @@ define internal fastcc zeroext i1 @expr_cast_is_constant_eval(ptr noundef readon
   %.sink40 = phi i32 [ %1, %15 ], [ %1, %10 ], [ 0, %7 ], [ %1, %20 ]
   %24 = load ptr, ptr @expr_arena, align 8
   %25 = zext i32 %.sink to i64
-  %26 = getelementptr inbounds nuw %struct.Expr_, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %25
   %27 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %26, i32 noundef %.sink40)
   br label %28
 
@@ -1237,7 +1226,7 @@ define dso_local noundef zeroext i1 @expr_is_compile_time(ptr noundef readonly c
 8:                                                ; preds = %7
   %9 = load ptr, ptr @ast_arena, align 8
   %10 = zext i32 %.08 to i64
-  %11 = getelementptr inbounds nuw %struct.Ast_, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = tail call zeroext i1 @ast_is_compile_time(ptr noundef nonnull %11) #12
@@ -1527,7 +1516,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
 18:                                               ; preds = %16, %13
   %.042.i = phi i32 [ %17, %16 ], [ %3, %13 ]
   %19 = zext i32 %.042.i to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   br label %initializer_for_index.exit
 
 21:                                               ; preds = %5
@@ -1570,7 +1559,7 @@ define dso_local noundef zeroext i1 @expr_rewrite_to_const_initializer_index(ptr
 
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i32, ptr %39, align 8
@@ -1740,7 +1729,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 10:                                               ; preds = %7
   %11 = load ptr, ptr @expr_arena, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %struct.Expr_, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %12
   br label %tailrecurse.backedge
 
 14:                                               ; preds = %.lr.ph
@@ -1752,7 +1741,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 17:                                               ; preds = %14
   %18 = load ptr, ptr @expr_arena, align 8
   %19 = zext i32 %16 to i64
-  %20 = getelementptr inbounds nuw %struct.Expr_, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %19
   br label %tailrecurse.backedge
 
 21:                                               ; preds = %.lr.ph
@@ -1764,7 +1753,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 24:                                               ; preds = %21
   %25 = load ptr, ptr @expr_arena, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw %struct.Expr_, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %26
   %28 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %27)
   br i1 %28, label %29, label %.critedge.loopexit293
 
@@ -1777,7 +1766,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 32:                                               ; preds = %29
   %33 = load ptr, ptr @expr_arena, align 8
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw %struct.Expr_, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %34
   br label %tailrecurse.backedge
 
 36:                                               ; preds = %.lr.ph
@@ -1796,7 +1785,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 44:                                               ; preds = %41
   %45 = load ptr, ptr @expr_arena, align 8
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %struct.Expr_, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %46
   %48 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %47)
   br i1 %48, label %49, label %.critedge.loopexit293
 
@@ -1808,7 +1797,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 51:                                               ; preds = %49
   %52 = load ptr, ptr @expr_arena, align 8
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %struct.Expr_, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %52, i64 %53
   br label %tailrecurse.backedge
 
 55:                                               ; preds = %.lr.ph
@@ -1845,7 +1834,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 65:                                               ; preds = %62
   %66 = load ptr, ptr @expr_arena, align 8
   %67 = zext i32 %64 to i64
-  %68 = getelementptr inbounds nuw %struct.Expr_, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %66, i64 %67
   br label %tailrecurse.backedge
 
 69:                                               ; preds = %.lr.ph, %.lr.ph
@@ -1866,7 +1855,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 76:                                               ; preds = %73
   %77 = load ptr, ptr @expr_arena, align 8
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw %struct.Expr_, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %77, i64 %78
   br label %tailrecurse.backedge
 
 80:                                               ; preds = %.lr.ph
@@ -1888,7 +1877,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 .lr.ph246:                                        ; preds = %.lr.ph246, %.lr.ph246.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph246.preheader ], [ %indvars.iv.next, %.lr.ph246 ]
   %86 = load ptr, ptr %81, align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i1 @expr_is_pure(ptr noundef %88)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1905,7 +1894,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 93:                                               ; preds = %90
   %94 = load ptr, ptr @expr_arena, align 8
   %95 = zext i32 %92 to i64
-  %96 = getelementptr inbounds nuw %struct.Expr_, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [56 x i8], ptr %94, i64 %95
   br label %tailrecurse.backedge
 
 97:                                               ; preds = %.lr.ph
@@ -1917,7 +1906,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 100:                                              ; preds = %97
   %101 = load ptr, ptr @expr_arena, align 8
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw %struct.Expr_, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [56 x i8], ptr %101, i64 %102
   %104 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %103)
   br i1 %104, label %105, label %.critedge.loopexit293
 
@@ -1930,7 +1919,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 108:                                              ; preds = %105
   %109 = load ptr, ptr @expr_arena, align 8
   %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw %struct.Expr_, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [56 x i8], ptr %109, i64 %110
   %112 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %111)
   br i1 %112, label %113, label %.critedge.loopexit293
 
@@ -1943,7 +1932,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 116:                                              ; preds = %113
   %117 = load ptr, ptr @expr_arena, align 8
   %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds nuw %struct.Expr_, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [56 x i8], ptr %117, i64 %118
   br label %tailrecurse.backedge
 
 120:                                              ; preds = %.lr.ph, %.lr.ph
@@ -1955,7 +1944,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 123:                                              ; preds = %120
   %124 = load ptr, ptr @expr_arena, align 8
   %125 = zext i32 %122 to i64
-  %126 = getelementptr inbounds nuw %struct.Expr_, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [56 x i8], ptr %124, i64 %125
   %127 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %126)
   br i1 %127, label %128, label %.critedge.loopexit293
 
@@ -1968,7 +1957,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 131:                                              ; preds = %128
   %132 = load ptr, ptr @expr_arena, align 8
   %133 = zext i32 %130 to i64
-  %134 = getelementptr inbounds nuw %struct.Expr_, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [56 x i8], ptr %132, i64 %133
   br label %tailrecurse.backedge
 
 135:                                              ; preds = %.lr.ph
@@ -1980,7 +1969,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 138:                                              ; preds = %135
   %139 = load ptr, ptr @expr_arena, align 8
   %140 = zext i32 %137 to i64
-  %141 = getelementptr inbounds nuw %struct.Expr_, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw [56 x i8], ptr %139, i64 %140
   %142 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %141)
   br i1 %142, label %143, label %.critedge.loopexit293
 
@@ -1993,7 +1982,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 146:                                              ; preds = %143
   %147 = load ptr, ptr @expr_arena, align 8
   %148 = zext i32 %145 to i64
-  %149 = getelementptr inbounds nuw %struct.Expr_, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [56 x i8], ptr %147, i64 %148
   %150 = tail call zeroext i1 @expr_is_pure(ptr noundef nonnull %149)
   br i1 %150, label %151, label %.critedge.loopexit293
 
@@ -2006,7 +1995,7 @@ tailrecurse.backedge:                             ; preds = %4, %10, %17, %32, %
 154:                                              ; preds = %151
   %155 = load ptr, ptr @expr_arena, align 8
   %156 = zext i32 %153 to i64
-  %157 = getelementptr inbounds nuw %struct.Expr_, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [56 x i8], ptr %155, i64 %156
   br label %tailrecurse.backedge
 
 158:                                              ; preds = %.lr.ph
@@ -2078,7 +2067,7 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
   %10 = getelementptr inbounds nuw i8, ptr %.024.us, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %12
   %14 = tail call zeroext i1 @expr_is_simple(ptr noundef %13, i1 noundef zeroext true)
   br i1 %14, label %tailrecurse.backedge.us, label %.split36.us
 
@@ -2086,7 +2075,7 @@ tailrecurse.us:                                   ; preds = %2, %tailrecurse.us.
   %16 = getelementptr inbounds nuw i8, ptr %.024.us, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %18
   %20 = tail call zeroext i1 @expr_is_simple(ptr noundef %19, i1 noundef zeroext true)
   br i1 %20, label %tailrecurse.backedge.us, label %.split36.us
 
@@ -2103,7 +2092,7 @@ tailrecurse.backedge.us:                          ; preds = %15, %9
   %.pn37.in.in = getelementptr inbounds nuw i8, ptr %.024.us, i64 28
   %.pn37.in = load i32, ptr %.pn37.in.in, align 4
   %.pn37 = zext i32 %.pn37.in to i64
-  %.tr.be.us = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %.pn37
+  %.tr.be.us = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.pn37
   br label %tailrecurse.us.backedge
 
 tailrecurse:                                      ; preds = %2, %tailrecurse.backedge82
@@ -2132,7 +2121,7 @@ tailrecurse.backedge82:                           ; preds = %.backedge, %tailrec
   %24 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %26
   %28 = tail call zeroext i1 @expr_is_simple(ptr noundef %27, i1 noundef zeroext false)
   br i1 %28, label %tailrecurse.backedge, label %.split36.us.loopexit80
 
@@ -2140,7 +2129,7 @@ tailrecurse.backedge:                             ; preds = %32, %23
   %.pn.in.in = getelementptr inbounds nuw i8, ptr %.024, i64 28
   %.pn.in = load i32, ptr %.pn.in.in, align 4
   %.pn = zext i32 %.pn.in to i64
-  %.tr.be = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %.pn
+  %.tr.be = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %.pn
   br label %tailrecurse.backedge82
 
 29:                                               ; preds = %tailrecurse
@@ -2175,7 +2164,7 @@ tailrecurse.backedge:                             ; preds = %32, %23
   %33 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.Expr_, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %35
   %37 = tail call zeroext i1 @expr_is_simple(ptr noundef %36, i1 noundef zeroext false)
   br i1 %37, label %tailrecurse.backedge, label %.split36.us.loopexit80
 

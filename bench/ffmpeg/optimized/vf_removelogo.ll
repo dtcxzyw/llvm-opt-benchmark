@@ -220,7 +220,7 @@ generate_half_size_image.exit:                    ; preds = %._crit_edge.us.i, %
   %86 = shl nuw nsw i64 %indvars.iv115, 1
   %87 = or disjoint i64 %86, 1
   %88 = call ptr @av_malloc_array(i64 noundef %87, i64 noundef 8) #6
-  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv115
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv115
   store ptr %88, ptr %89, align 8, !tbaa !36
   %.not87 = icmp eq ptr %88, null
   br i1 %.not87, label %90, label %.lr.ph99
@@ -237,15 +237,15 @@ generate_half_size_image.exit:                    ; preds = %._crit_edge.us.i, %
   %indvars.iv110 = phi i64 [ %indvars.iv, %.lr.ph99 ], [ %indvars.iv.next111, %._crit_edge ]
   %93 = call ptr @av_malloc_array(i64 noundef %87, i64 noundef 4) #6
   %94 = load ptr, ptr %89, align 8, !tbaa !36
-  %95 = getelementptr ptr, ptr %94, i64 %indvars.iv110
-  %96 = getelementptr ptr, ptr %95, i64 %indvars.iv115
+  %95 = getelementptr [8 x i8], ptr %94, i64 %indvars.iv110
+  %96 = getelementptr [8 x i8], ptr %95, i64 %indvars.iv115
   store ptr %93, ptr %96, align 8, !tbaa !38
   %.not89 = icmp eq ptr %93, null
   br i1 %.not89, label %98, label %.lr.ph
 
 .lr.ph:                                           ; preds = %92
   %97 = mul nsw i64 %indvars.iv110, %indvars.iv110
-  %invariant.gep124.invariant.gep = getelementptr i32, ptr %93, i64 %indvars.iv115
+  %invariant.gep124.invariant.gep = getelementptr [4 x i8], ptr %93, i64 %indvars.iv115
   br label %99
 
 98:                                               ; preds = %92
@@ -258,7 +258,7 @@ generate_half_size_image.exit:                    ; preds = %._crit_edge.us.i, %
   %101 = add nuw nsw i64 %100, %97
   %.not91 = icmp samesign ule i64 %101, %91
   %. = zext i1 %.not91 to i32
-  %gep = getelementptr i32, ptr %invariant.gep124.invariant.gep, i64 %indvars.iv105
+  %gep = getelementptr [4 x i8], ptr %invariant.gep124.invariant.gep, i64 %indvars.iv105
   store i32 %., ptr %gep, align 4, !tbaa !25
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next106 to i32
@@ -350,10 +350,10 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv26 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next27, %10 ]
   %11 = load ptr, ptr %6, align 8, !tbaa !43
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv31
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv31
   %13 = load ptr, ptr %12, align 8, !tbaa !36
-  %14 = getelementptr ptr, ptr %13, i64 %indvars.iv26
-  %15 = getelementptr ptr, ptr %14, i64 %indvars.iv31
+  %14 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv26
+  %15 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv31
   tail call void @av_freep(ptr noundef %15) #6
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27 to i32
@@ -362,7 +362,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 ._crit_edge:                                      ; preds = %10
   %16 = load ptr, ptr %6, align 8, !tbaa !43
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv31
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv31
   tail call void @av_freep(ptr noundef %17) #6
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %18 = load i32, ptr %8, align 8, !tbaa !35
@@ -602,7 +602,7 @@ define internal fastcc void @blur_image(ptr noundef readonly captures(none) %0, 
   %50 = zext nneg i32 %44 to i64
   %.not7780.i = icmp sgt i32 %44, %..i
   %51 = zext i8 %39 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %53 = add i32 %..i, 1
   %54 = sub i32 %53, %44
   %55 = sub nsw i32 %4, %54
@@ -650,9 +650,9 @@ define internal fastcc void @blur_image(ptr noundef readonly captures(none) %0, 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %52, align 8, !tbaa !36
   %75 = sub nuw nsw i64 %indvars.iv.i, %50
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !38
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %70
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %70
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not79.i = icmp eq i32 %79, 0
   br i1 %.not79.i, label %85, label %80

@@ -434,7 +434,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds
 _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %24, ptr %0, align 8, !tbaa !17
   store ptr %28, ptr %5, align 8, !tbaa !16
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !19
   br label %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
 
@@ -710,7 +710,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 13:                                               ; preds = %11, %tailrecurse.us.i
   %.012.us.i = phi i64 [ 0, %tailrecurse.us.i ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.012.us.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.012.us.i
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %16 = icmp eq ptr %15, %.tr10.us.i
   br i1 %16, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %11
@@ -776,7 +776,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds
 _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %35, ptr %3, align 8, !tbaa !17
   store ptr %39, ptr %4, align 8, !tbaa !16
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %41, ptr %19, align 8, !tbaa !19
   br label %_ZNK6Effect10is_writtenEPK8Variable.exit
 
@@ -826,7 +826,7 @@ tailrecurse.us:                                   ; preds = %tailrecurse.us.preh
 
 13:                                               ; preds = %tailrecurse.us, %11
   %.012.us = phi i64 [ 0, %tailrecurse.us ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.012.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.012.us
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %16 = icmp eq ptr %15, %.tr10.us
   br i1 %16, label %.loopexit, label %11
@@ -856,7 +856,7 @@ define dso_local void @_ZN6Effect13write_var_setERKSt6vectorIPK8VariableSaIS3_EE
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %6 = phi ptr [ %11, %.lr.ph ], [ %5, %2 ]
   %.05 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.05
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   tail call void @_ZN6Effect9write_varEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %8)
   %9 = add nuw i64 %.05, 1
@@ -894,7 +894,7 @@ define dso_local void @_ZN6Effect10add_effectERKS_b(ptr noundef nonnull align 8 
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
   %.032 = phi i64 [ 0, %.lr.ph ], [ %46, %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit ]
   %16 = load ptr, ptr %1, align 8, !tbaa !17
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.032
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.032
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = tail call noundef zeroext i1 @_ZNK6Effect7is_readEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %18)
   br i1 %19, label %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit, label %20
@@ -956,7 +956,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds
 _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %38, ptr %0, align 8, !tbaa !17
   store ptr %43, ptr %13, align 8, !tbaa !16
-  %45 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %45, ptr %14, align 8, !tbaa !19
   br label %_ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit
 
@@ -990,7 +990,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
   %60 = phi ptr [ %.pre, %.lr.ph35 ], [ %100, %_ZNK6Effect10is_writtenEPK8Variable.exit ]
   %.133 = phi i64 [ 0, %.lr.ph35 ], [ %101, %_ZNK6Effect10is_writtenEPK8Variable.exit ]
   %61 = load ptr, ptr %47, align 8, !tbaa !17
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.133
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.133
   %63 = load ptr, ptr %62, align 8, !tbaa !23
   %.not13.i = icmp eq ptr %60, %59
   br i1 %.not13.i, label %.loopexit, label %tailrecurse.us.preheader.i
@@ -1013,7 +1013,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 70:                                               ; preds = %68, %tailrecurse.us.i
   %.012.us.i = phi i64 [ 0, %tailrecurse.us.i ], [ %69, %68 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %59, i64 %.012.us.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.012.us.i
   %72 = load ptr, ptr %71, align 8, !tbaa !23
   %73 = icmp eq ptr %72, %.tr10.us.i
   br i1 %73, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %68
@@ -1079,7 +1079,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i27: ; pre
 _ZNSt6vectorIPK8VariableSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i29: ; preds = %97, %_ZNSt6vectorIPK8VariableSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i27
   store ptr %91, ptr %55, align 8, !tbaa !17
   store ptr %96, ptr %56, align 8, !tbaa !16
-  %98 = getelementptr inbounds nuw ptr, ptr %91, i64 %89
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %98, ptr %57, align 8, !tbaa !19
   br label %_ZNK6Effect10is_writtenEPK8Variable.exit
 
@@ -1142,7 +1142,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %.020 = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader ]
   %12 = load ptr, ptr %1, align 8, !tbaa !17
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.020
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.020
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1152,7 +1152,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %1, align 8, !tbaa !17
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.020
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.020
   %22 = load ptr, ptr %21, align 8, !tbaa !23
   tail call void @_ZN6Effect8read_varEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %22)
   br label %23
@@ -1181,7 +1181,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 34:                                               ; preds = %.lr.ph23, %46
   %.121 = phi i64 [ 0, %.lr.ph23 ], [ %47, %46 ]
   %35 = load ptr, ptr %25, align 8, !tbaa !17
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.121
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.121
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = load ptr, ptr %37, align 8, !tbaa !77
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -1191,7 +1191,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_(ptr noundef nonnull 
 
 42:                                               ; preds = %34
   %43 = load ptr, ptr %25, align 8, !tbaa !17
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.121
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.121
   %45 = load ptr, ptr %44, align 8, !tbaa !23
   tail call void @_ZN6Effect9write_varEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %45)
   store i8 0, ptr %33, align 8, !tbaa !4
@@ -1238,7 +1238,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
 14:                                               ; preds = %.lr.ph48, %42
   %.046 = phi i64 [ 0, %.lr.ph48 ], [ %43, %42 ]
   %15 = load ptr, ptr %1, align 8, !tbaa !17
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.046
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.046
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = load ptr, ptr %17, align 8, !tbaa !77
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1255,7 +1255,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
 .lr.ph:                                           ; preds = %.preheader41, %28
   %24 = phi ptr [ %.pre65.pre, %28 ], [ %23, %.preheader41 ]
   %.03643 = phi i64 [ %29, %28 ], [ 0, %.preheader41 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.03643
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.03643
   %26 = load ptr, ptr %25, align 8, !tbaa !85
   %27 = tail call noundef zeroext i1 @_ZNK5Block15is_var_on_stackEPK8Variable(ptr noundef nonnull align 8 dereferenceable(192) %26, ptr noundef nonnull %17)
   %.pre.pre = load ptr, ptr %13, align 8, !tbaa !81
@@ -1311,7 +1311,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
 54:                                               ; preds = %.lr.ph58, %82
   %.156 = phi i64 [ 0, %.lr.ph58 ], [ %83, %82 ]
   %55 = load ptr, ptr %44, align 8, !tbaa !17
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.156
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.156
   %57 = load ptr, ptr %56, align 8, !tbaa !23
   %58 = load ptr, ptr %57, align 8, !tbaa !77
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -1328,7 +1328,7 @@ define dso_local void @_ZN6Effect19add_external_effectERKS_St6vectorIPK5BlockSaI
 .lr.ph51:                                         ; preds = %.preheader, %68
   %64 = phi ptr [ %.pre67.pre, %68 ], [ %63, %.preheader ]
   %.13750 = phi i64 [ %69, %68 ], [ 0, %.preheader ]
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.13750
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.13750
   %66 = load ptr, ptr %65, align 8, !tbaa !85
   %67 = tail call noundef zeroext i1 @_ZNK5Block15is_var_on_stackEPK8Variable(ptr noundef nonnull align 8 dereferenceable(192) %66, ptr noundef nonnull %57)
   %.pre66.pre = load ptr, ptr %52, align 8, !tbaa !81
@@ -1415,7 +1415,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect7is_readENSt7__cxx1112basic_stri
 27:                                               ; preds = %.lr.ph, %186
   %.02594 = phi i64 [ 0, %.lr.ph ], [ %187, %186 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.02594
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.02594
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
@@ -1969,7 +1969,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect10is_writtenENSt7__cxx1112basic_
 28:                                               ; preds = %.lr.ph, %187
   %.02594 = phi i64 [ 0, %.lr.ph ], [ %188, %187 ]
   %29 = load ptr, ptr %11, align 8, !tbaa !17
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.02594
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.02594
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
@@ -2522,7 +2522,7 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %.01112 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01112
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01112
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = tail call noundef zeroext i1 @_ZNK6Effect7is_readEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %18)
   br i1 %19, label %_ZNK8Variable12is_aggregateEv.exit.thread, label %.critedge
@@ -2575,7 +2575,7 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
 
 .critedge.us:                                     ; preds = %.lr.ph, %.critedge.us
   %.01114.us = phi i64 [ %26, %.critedge.us ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01114.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01114.us
   %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = tail call noundef zeroext i1 @_ZNK6Effect16field_is_writtenEPK8Variable(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %24)
   %26 = add nuw i64 %.01114.us, 1
@@ -2585,7 +2585,7 @@ _ZNK8Variable12is_aggregateEv.exit:               ; preds = %2
 
 tailrecurse.us.preheader.i:                       ; preds = %.lr.ph, %.loopexit
   %.01114 = phi i64 [ %38, %.loopexit ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01114
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01114
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   br label %tailrecurse.us.i
 
@@ -2600,7 +2600,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 31:                                               ; preds = %29, %tailrecurse.us.i
   %.012.us.i = phi i64 [ 0, %tailrecurse.us.i ], [ %30, %29 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %.012.us.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.012.us.i
   %33 = load ptr, ptr %32, align 8, !tbaa !23
   %34 = icmp eq ptr %33, %.tr10.us.i
   br i1 %34, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %29
@@ -2654,7 +2654,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect27sibling_union_field_is_readEPK
 .lr.ph:                                           ; preds = %.preheader, %11
   %19 = phi ptr [ %14, %11 ], [ %10, %.preheader ]
   %.01318 = phi i64 [ %12, %11 ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01318
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01318
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = load ptr, ptr %21, align 8, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
@@ -2703,7 +2703,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect30sibling_union_field_is_written
 .lr.ph:                                           ; preds = %.preheader, %12
   %20 = phi ptr [ %15, %12 ], [ %11, %.preheader ]
   %.01318 = phi i64 [ %13, %12 ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01318
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.01318
   %22 = load ptr, ptr %21, align 8, !tbaa !23
   %23 = load ptr, ptr %22, align 8, !tbaa !77
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -2757,7 +2757,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect17is_read_partiallyEPK8Variable(
 .lr.ph.i:                                         ; preds = %.preheader.i, %15
   %23 = phi ptr [ %18, %15 ], [ %14, %.preheader.i ]
   %.01318.i = phi i64 [ %16, %15 ], [ 0, %.preheader.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.01318.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01318.i
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = load ptr, ptr %25, align 8, !tbaa !77
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
@@ -2799,7 +2799,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 13:                                               ; preds = %11, %tailrecurse.us.i
   %.012.us.i = phi i64 [ 0, %tailrecurse.us.i ], [ %12, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.012.us.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.012.us.i
   %15 = load ptr, ptr %14, align 8, !tbaa !23
   %16 = icmp eq ptr %15, %.tr10.us.i
   br i1 %16, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %11
@@ -2843,7 +2843,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
   %36 = phi ptr [ %31, %28 ], [ %27, %.preheader.i ]
   %.01318.i = phi i64 [ %29, %28 ], [ 0, %.preheader.i ]
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.01318.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.01318.i
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = load ptr, ptr %38, align 8, !tbaa !77
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
@@ -2878,7 +2878,7 @@ define dso_local void @_ZN6Effect11consolidateEv(ptr noundef nonnull align 8 cap
   %.035 = phi i64 [ %28, %26 ], [ 0, %.lr.ph.preheader ]
   %.01934 = phi i64 [ %.120, %26 ], [ %8, %.lr.ph.preheader ]
   %10 = load ptr, ptr %0, align 8, !tbaa !17
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.035
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.035
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8, !tbaa !48
@@ -2939,7 +2939,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE
   %.237 = phi i64 [ 0, %.lr.ph39 ], [ %68, %_ZNK6Effect10is_writtenEPK8Variable.exit.thread ]
   %.22136 = phi i64 [ %37, %.lr.ph39 ], [ %.322, %_ZNK6Effect10is_writtenEPK8Variable.exit.thread ]
   %41 = load ptr, ptr %30, align 8, !tbaa !17
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.237
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.237
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8, !tbaa !48
@@ -2966,7 +2966,7 @@ tailrecurse.us.i:                                 ; preds = %._crit_edge.us.i, %
 
 52:                                               ; preds = %50, %tailrecurse.us.i
   %.012.us.i = phi i64 [ 0, %tailrecurse.us.i ], [ %51, %50 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %41, i64 %.012.us.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.012.us.i
   %54 = load ptr, ptr %53, align 8, !tbaa !23
   %55 = icmp eq ptr %54, %.tr10.us.i
   br i1 %55, label %_ZNK6Effect10is_writtenEPK8Variable.exit, label %50
@@ -3045,20 +3045,20 @@ define dso_local noundef zeroext i1 @_ZNK6Effect13has_race_withERKS_(ptr noundef
 20:                                               ; preds = %18, %.preheader.us.i
   %.020.us.i = phi i64 [ 0, %.preheader.us.i ], [ %19, %18 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.01621.us.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.01621.us.i
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = load ptr, ptr %3, align 8, !tbaa !17
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.020.us.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.020.us.i
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %23, ptr noundef %26)
   br i1 %27, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %28
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %3, align 8, !tbaa !17
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.020.us.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.020.us.i
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = load ptr, ptr %0, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.01621.us.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.01621.us.i
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   %35 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %31, ptr noundef %34)
   br i1 %35, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %18
@@ -3101,20 +3101,20 @@ _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit: ; preds = %.
 54:                                               ; preds = %52, %.preheader.us.i7
   %.020.us.i9 = phi i64 [ 0, %.preheader.us.i7 ], [ %53, %52 ]
   %55 = load ptr, ptr %37, align 8, !tbaa !17
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.01621.us.i8
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.01621.us.i8
   %57 = load ptr, ptr %56, align 8, !tbaa !23
   %58 = load ptr, ptr %1, align 8, !tbaa !17
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.020.us.i9
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.020.us.i9
   %60 = load ptr, ptr %59, align 8, !tbaa !23
   %61 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %57, ptr noundef %60)
   br i1 %61, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %62
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %1, align 8, !tbaa !17
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.020.us.i9
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.020.us.i9
   %65 = load ptr, ptr %64, align 8, !tbaa !23
   %66 = load ptr, ptr %37, align 8, !tbaa !17
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.01621.us.i8
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.01621.us.i8
   %68 = load ptr, ptr %67, align 8, !tbaa !23
   %69 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %65, ptr noundef %68)
   br i1 %69, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %52
@@ -3160,20 +3160,20 @@ _ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit13: ; preds = 
 81:                                               ; preds = %79, %.preheader.us.i17
   %.020.us.i19 = phi i64 [ 0, %.preheader.us.i17 ], [ %80, %79 ]
   %82 = load ptr, ptr %37, align 8, !tbaa !17
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.01621.us.i18
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.01621.us.i18
   %84 = load ptr, ptr %83, align 8, !tbaa !23
   %85 = load ptr, ptr %3, align 8, !tbaa !17
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.020.us.i19
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.020.us.i19
   %87 = load ptr, ptr %86, align 8, !tbaa !23
   %88 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %84, ptr noundef %87)
   br i1 %88, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %89
 
 89:                                               ; preds = %81
   %90 = load ptr, ptr %3, align 8, !tbaa !17
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %.020.us.i19
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.020.us.i19
   %92 = load ptr, ptr %91, align 8, !tbaa !23
   %93 = load ptr, ptr %37, align 8, !tbaa !17
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %.01621.us.i18
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.01621.us.i18
   %95 = load ptr, ptr %94, align 8, !tbaa !23
   %96 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %92, ptr noundef %95)
   br i1 %96, label %_ZL22non_empty_intersectionRKSt6vectorIPK8VariableSaIS2_EES6_.exit23, label %79
@@ -3306,7 +3306,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSols
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %.lr.ph
   %32 = load ptr, ptr %0, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.01355
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.01355
   %34 = load ptr, ptr %33, align 8, !tbaa !23
   invoke void @_ZNK8Variable16OutputForCommentERSo(ptr noundef nonnull align 8 dereferenceable(200) %34, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %35 unwind label %.loopexit.split-lp.loopexit
@@ -3398,7 +3398,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20: ; preds = %_ZNSo
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21: ; preds = %.lr.ph57
   %65 = load ptr, ptr %56, align 8, !tbaa !17
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %.11456
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.11456
   %67 = load ptr, ptr %66, align 8, !tbaa !23
   invoke void @_ZNK8Variable16OutputForCommentERSo(ptr noundef nonnull align 8 dereferenceable(200) %67, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %68 unwind label %.loopexit
@@ -3604,7 +3604,7 @@ define dso_local void @_ZN6Effect13update_purityEv(ptr noundef nonnull align 8 c
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %.011.i = phi i64 [ %10, %9 ], [ 0, %.lr.ph.preheader.i ]
   %11 = load ptr, ptr %0, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.011.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.011.i
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3635,7 +3635,7 @@ define dso_local void @_ZN6Effect13update_purityEv(ptr noundef nonnull align 8 c
 .lr.ph14.i:                                       ; preds = %26, %.lr.ph14.preheader.i
   %.112.i = phi i64 [ %27, %26 ], [ 0, %.lr.ph14.preheader.i ]
   %28 = load ptr, ptr %18, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.112.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.112.i
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = load ptr, ptr %30, align 8, !tbaa !77
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -3675,7 +3675,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect17has_global_effectEv(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %.011 = phi i64 [ %10, %9 ], [ 0, %.lr.ph.preheader ]
   %11 = load ptr, ptr %0, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.011
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.011
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = load ptr, ptr %13, align 8, !tbaa !77
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3701,7 +3701,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect17has_global_effectEv(ptr nounde
 .lr.ph14:                                         ; preds = %.lr.ph14, %.lr.ph14.preheader
   %.112 = phi i64 [ %33, %.lr.ph14 ], [ 0, %.lr.ph14.preheader ]
   %26 = load ptr, ptr %18, align 8, !tbaa !17
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.112
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.112
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = load ptr, ptr %28, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -3734,7 +3734,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect19union_field_is_readEv(ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK8Variable21is_inside_union_fieldEv.exit
   %.0510 = phi i64 [ %17, %_ZNK8Variable21is_inside_union_fieldEv.exit ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0510
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0510
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   br label %tailrecurse.i
 

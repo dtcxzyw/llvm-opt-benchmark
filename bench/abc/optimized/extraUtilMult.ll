@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/extraUtilMult.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
-
 @.str = private unnamed_addr constant [65 x i8] c"BDD stats: Var = %d  Obj = %d  Alloc = %d  Hit = %d  Miss = %d  \00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Mem = %.2f MB\0A\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"%c%d\00", align 1
@@ -70,7 +68,7 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %36 = add nuw nsw i32 %35, 4256249
   %37 = and i32 %36, %9
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %14, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !23
   %.not41.i.i = icmp eq i32 %40, 0
   br i1 %.not41.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -87,7 +85,7 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
 47:                                               ; preds = %.lr.ph.i.i
   %48 = shl nsw i32 %41, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %26, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %26, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !23
   %52 = icmp eq i32 %51, 1
   br i1 %52, label %53, label %57
@@ -99,13 +97,13 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   br i1 %56, label %Abc_BddUniqueCreate.exit, label %57
 
 57:                                               ; preds = %53, %47, %.lr.ph.i.i
-  %58 = getelementptr inbounds i32, ptr %17, i64 %42
+  %58 = getelementptr inbounds [4 x i8], ptr %17, i64 %42
   %59 = load i32, ptr %58, align 4, !tbaa !23
   %.not.i.i = icmp eq i32 %59, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !24
 
 ._crit_edge.i.i.loopexit:                         ; preds = %57
-  %60 = getelementptr inbounds i32, ptr %17, i64 %42
+  %60 = getelementptr inbounds [4 x i8], ptr %17, i64 %42
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %.lr.ph
@@ -129,7 +127,7 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   store i8 %68, ptr %70, align 1, !tbaa !21
   %71 = shl nsw i32 %34, 1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr i32, ptr %26, i64 %72
+  %73 = getelementptr [4 x i8], ptr %26, i64 %72
   store i32 1, ptr %73, align 4, !tbaa !23
   %74 = getelementptr i8, ptr %73, i64 4
   store i32 0, ptr %74, align 4, !tbaa !23
@@ -277,7 +275,7 @@ tailrecurse:                                      ; preds = %11, %3
   %21 = and i32 %20, %18
   %22 = mul i32 %21, 3
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i32, ptr %25, align 8, !tbaa !30
   %27 = add nsw i32 %26, 1
@@ -317,14 +315,14 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %.val74 = load ptr, ptr %48, align 8, !tbaa !18
   %49 = and i32 %.tr82, -2
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %.val74, i64 %50
+  %51 = getelementptr [4 x i8], ptr %.val74, i64 %50
   %52 = getelementptr i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = and i32 %.tr82, 1
   %55 = xor i32 %53, %54
   %56 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %55, i32 noundef %.tr83)
   %.val78 = load ptr, ptr %48, align 8, !tbaa !18
-  %57 = getelementptr inbounds i32, ptr %.val78, i64 %50
+  %57 = getelementptr inbounds [4 x i8], ptr %.val78, i64 %50
   %58 = load i32, ptr %57, align 4, !tbaa !23
   %59 = xor i32 %58, %54
   %60 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %59, i32 noundef %.tr83)
@@ -339,14 +337,14 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
 64:                                               ; preds = %61
   %65 = and i32 %.tr83, -2
   %66 = sext i32 %65 to i64
-  %67 = getelementptr i32, ptr %.val75, i64 %66
+  %67 = getelementptr [4 x i8], ptr %.val75, i64 %66
   %68 = getelementptr i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !23
   %70 = and i32 %.tr83, 1
   %71 = xor i32 %69, %70
   %72 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %.tr82, i32 noundef %71)
   %.val79 = load ptr, ptr %63, align 8, !tbaa !18
-  %73 = getelementptr inbounds i32, ptr %.val79, i64 %66
+  %73 = getelementptr inbounds [4 x i8], ptr %.val79, i64 %66
   %74 = load i32, ptr %73, align 4, !tbaa !23
   %75 = xor i32 %74, %70
   %76 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %.tr82, i32 noundef %75)
@@ -355,24 +353,24 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
 77:                                               ; preds = %61
   %78 = and i32 %.tr82, -2
   %79 = sext i32 %78 to i64
-  %80 = getelementptr i32, ptr %.val75, i64 %79
+  %80 = getelementptr [4 x i8], ptr %.val75, i64 %79
   %81 = getelementptr i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !23
   %83 = and i32 %.tr82, 1
   %84 = xor i32 %82, %83
   %85 = and i32 %.tr83, -2
   %86 = sext i32 %85 to i64
-  %87 = getelementptr i32, ptr %.val75, i64 %86
+  %87 = getelementptr [4 x i8], ptr %.val75, i64 %86
   %88 = getelementptr i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !23
   %90 = and i32 %.tr83, 1
   %91 = xor i32 %89, %90
   %92 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %84, i32 noundef %91)
   %.val80 = load ptr, ptr %63, align 8, !tbaa !18
-  %93 = getelementptr inbounds i32, ptr %.val80, i64 %79
+  %93 = getelementptr inbounds [4 x i8], ptr %.val80, i64 %79
   %94 = load i32, ptr %93, align 4, !tbaa !23
   %95 = xor i32 %94, %83
-  %96 = getelementptr inbounds i32, ptr %.val80, i64 %86
+  %96 = getelementptr inbounds [4 x i8], ptr %.val80, i64 %86
   %97 = load i32, ptr %96, align 4, !tbaa !23
   %98 = xor i32 %97, %90
   %99 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %95, i32 noundef %98)
@@ -408,7 +406,7 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %119 = load i32, ptr %118, align 8, !tbaa !13
   %120 = and i32 %119, %117
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %112, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !23
   %.not41.i.i = icmp eq i32 %123, 0
   br i1 %.not41.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -430,7 +428,7 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %133 = load ptr, ptr %124, align 8, !tbaa !18
   %134 = shl nsw i32 %127, 1
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %133, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %133, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !23
   %138 = icmp eq i32 %137, %.0
   br i1 %138, label %139, label %143
@@ -443,13 +441,13 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
 
 143:                                              ; preds = %139, %132, %126
   %144 = load ptr, ptr %125, align 8, !tbaa !16
-  %145 = getelementptr inbounds i32, ptr %144, i64 %128
+  %145 = getelementptr inbounds [4 x i8], ptr %144, i64 %128
   %146 = load i32, ptr %145, align 4, !tbaa !23
   %.not.i.i = icmp eq i32 %146, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.loopexit, label %126, !llvm.loop !24
 
 ._crit_edge.i.i.loopexit:                         ; preds = %143
-  %147 = getelementptr inbounds i32, ptr %144, i64 %128
+  %147 = getelementptr inbounds [4 x i8], ptr %144, i64 %128
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %110
@@ -483,12 +481,12 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %165 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
   %166 = shl nsw i32 %165, 1
   %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds i32, ptr %164, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %164, i64 %167
   store i32 %.0, ptr %168, align 4, !tbaa !23
   %169 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
   %170 = shl nsw i32 %169, 1
   %171 = sext i32 %170 to i64
-  %172 = getelementptr i32, ptr %164, i64 %171
+  %172 = getelementptr [4 x i8], ptr %164, i64 %171
   %173 = getelementptr i8, ptr %172, i64 4
   store i32 %.063, ptr %173, align 4, !tbaa !23
   %174 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
@@ -509,7 +507,7 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %187 = load i32, ptr %186, align 8, !tbaa !13
   %188 = and i32 %187, %185
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw i32, ptr %180, i64 %189
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %189
   %191 = load i32, ptr %190, align 4, !tbaa !23
   %.not41.i14.i = icmp eq i32 %191, 0
   br i1 %.not41.i14.i, label %._crit_edge.i18.i, label %.lr.ph.i15.i
@@ -531,7 +529,7 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %201 = load ptr, ptr %192, align 8, !tbaa !18
   %202 = shl nsw i32 %195, 1
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i32, ptr %201, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %201, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !23
   %206 = icmp eq i32 %205, %177
   br i1 %206, label %207, label %211
@@ -544,13 +542,13 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
 
 211:                                              ; preds = %207, %200, %194
   %212 = load ptr, ptr %193, align 8, !tbaa !16
-  %213 = getelementptr inbounds i32, ptr %212, i64 %196
+  %213 = getelementptr inbounds [4 x i8], ptr %212, i64 %196
   %214 = load i32, ptr %213, align 4, !tbaa !23
   %.not.i16.i = icmp eq i32 %214, 0
   br i1 %.not.i16.i, label %._crit_edge.i18.i.loopexit, label %194, !llvm.loop !24
 
 ._crit_edge.i18.i.loopexit:                       ; preds = %211
-  %215 = getelementptr inbounds i32, ptr %212, i64 %196
+  %215 = getelementptr inbounds [4 x i8], ptr %212, i64 %196
   br label %._crit_edge.i18.i
 
 ._crit_edge.i18.i:                                ; preds = %._crit_edge.i18.i.loopexit, %176
@@ -584,12 +582,12 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %233 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
   %234 = shl nsw i32 %233, 1
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i32, ptr %232, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %232, i64 %235
   store i32 %177, ptr %236, align 4, !tbaa !23
   %237 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
   %238 = shl nsw i32 %237, 1
   %239 = sext i32 %238 to i64
-  %240 = getelementptr i32, ptr %232, i64 %239
+  %240 = getelementptr [4 x i8], ptr %232, i64 %239
   %241 = getelementptr i8, ptr %240, i64 4
   store i32 %178, ptr %241, align 4, !tbaa !23
   %242 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
@@ -608,7 +606,7 @@ Abc_BddUniqueCreate.exit:                         ; preds = %139, %100, %157, %A
   %247 = and i32 %246, %18
   %248 = mul i32 %247, 3
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw i32, ptr %245, i64 %249
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %249
   store i32 %.tr82, ptr %250, align 4, !tbaa !23
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
   store i32 %.tr83, ptr %251, align 4, !tbaa !23
@@ -660,14 +658,14 @@ tailrecurse:                                      ; preds = %6
   %.val = load ptr, ptr %5, align 8, !tbaa !18
   %11 = and i32 %.tr1517, 2147483646
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i32, ptr %.val, i64 %12
+  %13 = getelementptr [4 x i8], ptr %.val, i64 %12
   %14 = getelementptr i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !23
   %16 = and i32 %.tr1517, 1
   %17 = xor i32 %15, %16
   %18 = tail call i32 @Abc_BddCount_rec(ptr noundef nonnull %0, i32 noundef %17)
   %.val12 = load ptr, ptr %5, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i32, ptr %.val12, i64 %12
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %12
   %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = xor i32 %20, %16
   %22 = add i32 %accumulator.tr16, 1
@@ -705,14 +703,14 @@ tailrecurse:                                      ; preds = %6
   %.val = load ptr, ptr %5, align 8, !tbaa !18
   %11 = and i32 %.tr1314, 2147483646
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i32, ptr %.val, i64 %12
+  %13 = getelementptr [4 x i8], ptr %.val, i64 %12
   %14 = getelementptr i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !23
   %16 = and i32 %.tr1314, 1
   %17 = xor i32 %15, %16
   tail call void @Abc_BddUnmark_rec(ptr noundef nonnull %0, i32 noundef %17)
   %.val10 = load ptr, ptr %5, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw i32, ptr %.val10, i64 %12
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.val10, i64 %12
   %19 = load i32, ptr %18, align 4, !tbaa !23
   %20 = xor i32 %19, %16
   %21 = icmp slt i32 %20, 2
@@ -752,7 +750,7 @@ define i32 @Abc_BddCountNodesArray(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.023 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
   %.val19 = load ptr, ptr %5, align 8, !tbaa !34
-  %9 = getelementptr inbounds nuw i32, ptr %.val19, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val19, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !23
   %11 = tail call i32 @Abc_BddCount_rec(ptr noundef %0, i32 noundef %10)
   %12 = add nsw i32 %11, %.023
@@ -765,7 +763,7 @@ define i32 @Abc_BddCountNodesArray(ptr noundef readonly captures(none) %0, ptr n
 .critedge:                                        ; preds = %.lr.ph26, %.critedge
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %.critedge ]
   %.val20 = load ptr, ptr %7, align 8, !tbaa !34
-  %15 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv28
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.val20, i64 %indvars.iv28
   %16 = load i32, ptr %15, align 4, !tbaa !23
   tail call void @Abc_BddUnmark_rec(ptr noundef %0, i32 noundef %16)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -794,7 +792,7 @@ define i32 @Abc_BddCountNodesArray2(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.014 = phi i32 [ 0, %.lr.ph ], [ %10, %6 ]
   %.val11 = load ptr, ptr %5, align 8, !tbaa !34
-  %7 = getelementptr inbounds nuw i32, ptr %.val11, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %.val11, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = tail call i32 @Abc_BddCount_rec(ptr noundef %0, i32 noundef %8)
   %10 = add nsw i32 %9, %.014
@@ -825,7 +823,7 @@ define void @Abc_BddPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 .lr.ph:                                           ; preds = %.preheader, %13
   %6 = phi i32 [ %14, %13 ], [ %4, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %9, label %13
@@ -860,13 +858,13 @@ common.ret37:                                     ; preds = %3, %._crit_edge, %1
   %21 = getelementptr inbounds i8, ptr %.val31, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !21
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !23
   %25 = getelementptr i8, ptr %0, i64 40
   %.val32 = load ptr, ptr %25, align 8, !tbaa !18
   %26 = and i32 %1, -2
   %27 = sext i32 %26 to i64
-  %28 = getelementptr i32, ptr %.val32, i64 %27
+  %28 = getelementptr [4 x i8], ptr %.val32, i64 %27
   %29 = getelementptr i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !23
   %31 = and i32 %1, 1
@@ -876,10 +874,10 @@ common.ret37:                                     ; preds = %3, %._crit_edge, %1
   %33 = getelementptr inbounds i8, ptr %.val30, i64 %20
   %34 = load i8, ptr %33, align 1, !tbaa !21
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %35
   store i32 1, ptr %36, align 4, !tbaa !23
   %.val33 = load ptr, ptr %25, align 8, !tbaa !18
-  %37 = getelementptr inbounds i32, ptr %.val33, i64 %27
+  %37 = getelementptr inbounds [4 x i8], ptr %.val33, i64 %27
   %38 = load i32, ptr %37, align 4, !tbaa !23
   %39 = xor i32 %38, %31
   tail call void @Abc_BddPrint_rec(ptr noundef %0, i32 noundef %39, ptr noundef %2)
@@ -887,7 +885,7 @@ common.ret37:                                     ; preds = %3, %._crit_edge, %1
   %40 = getelementptr inbounds i8, ptr %.val, i64 %20
   %41 = load i8, ptr %40, align 1, !tbaa !21
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %42
   store i32 -1, ptr %43, align 4, !tbaa !23
   br label %common.ret37
 }
@@ -986,10 +984,10 @@ define void @Abc_BddGiaTest(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %12 = getelementptr inbounds nuw i32, ptr %.val67.val, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val67.val, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !23
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val64.fr, i64 %14
+  %15 = getelementptr inbounds [12 x i8], ptr %.val64.fr, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %17 = shl i32 %indvars.iv.tr, 1
@@ -1036,7 +1034,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
   %37 = phi i32 [ %65, %64 ], [ %20, %Vec_IntAlloc.exit ]
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %64 ], [ 0, %Vec_IntAlloc.exit ]
   %.val65 = load ptr, ptr %6, align 8, !tbaa !56
-  %38 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val65, i64 %indvars.iv95
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %.val65, i64 %indvars.iv95
   %.not56 = icmp eq ptr %.val65, null
   br i1 %.not56, label %.critedge2.loopexit, label %39
 
@@ -1051,7 +1049,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
 
 43:                                               ; preds = %39
   %44 = sub nsw i64 0, %41
-  %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %38, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %38, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 4, !tbaa !57
   %48 = trunc i64 %.val68 to i32
@@ -1061,7 +1059,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
   %52 = lshr i64 %.val68, 32
   %53 = and i64 %52, 536870911
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %38, i64 %54
+  %55 = getelementptr inbounds [12 x i8], ptr %38, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i32, ptr %56, align 4, !tbaa !57
   %58 = lshr i64 %.val68, 61
@@ -1106,14 +1104,14 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
 
 71:                                               ; preds = %.lr.ph87.split, %71
   %indvars.iv98 = phi i64 [ 0, %.lr.ph87.split ], [ %indvars.iv.next99, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %.val73.val, i64 %indvars.iv98
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.val73.val, i64 %indvars.iv98
   %73 = load i32, ptr %72, align 4, !tbaa !23
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val72, i64 %74
+  %75 = getelementptr inbounds [12 x i8], ptr %.val72, i64 %74
   %76 = load i64, ptr %75, align 4
   %77 = and i64 %76, 536870911
   %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %75, i64 %78
+  %79 = getelementptr inbounds [12 x i8], ptr %75, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 4, !tbaa !57
   %82 = trunc i64 %76 to i32
@@ -1137,10 +1135,10 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %30
   %.val74 = load ptr, ptr %6, align 8, !tbaa !56
   %90 = getelementptr i8, ptr %89, i64 8
   %.val75.val = load ptr, ptr %90, align 8, !tbaa !34
-  %91 = getelementptr inbounds nuw i32, ptr %.val75.val, i64 %indvars.iv103
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.val75.val, i64 %indvars.iv103
   %92 = load i32, ptr %91, align 4, !tbaa !23
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val74, i64 %93
+  %94 = getelementptr inbounds [12 x i8], ptr %.val74, i64 %93
   %.not58 = icmp eq ptr %.val74, null
   br i1 %.not58, label %.critedge6, label %95
 
@@ -1219,7 +1217,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %126 = add nsw i32 %108, 1
   store i32 %126, ptr %29, align 4, !tbaa !32
   %127 = sext i32 %108 to i64
-  %128 = getelementptr inbounds i32, ptr %.pre.i110, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %.pre.i110, i64 %127
   store i32 %107, ptr %128, align 4, !tbaa !23
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %129 = load ptr, ptr %21, align 8, !tbaa !61
@@ -1242,7 +1240,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.014.i = phi i32 [ %138, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %135 = getelementptr inbounds nuw i32, ptr %.val11.i113, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.val11.i113, i64 %indvars.iv.i
   %136 = load i32, ptr %135, align 4, !tbaa !23
   %137 = tail call i32 @Abc_BddCount_rec(ptr noundef readonly %5, i32 noundef %136)
   %138 = add nsw i32 %137, %.014.i

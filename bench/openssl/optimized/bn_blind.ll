@@ -589,7 +589,7 @@ define i32 @BN_BLINDING_invert_ex(ptr noundef %0, ptr noundef %1, ptr noundef re
 25:                                               ; preds = %.lr.ph, %25
   %.03744 = phi i64 [ 0, %.lr.ph ], [ %30, %25 ]
   %26 = sub i64 %.03744, %23
-  %27 = getelementptr inbounds nuw i64, ptr %24, i64 %.03744
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.03744
   %28 = load i64, ptr %27, align 8, !tbaa !27
   %isneg = icmp slt i64 %26, 0
   %29 = select i1 %isneg, i64 %28, i64 0

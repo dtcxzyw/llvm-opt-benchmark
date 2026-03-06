@@ -27,7 +27,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2440:                                   ; preds = %.preheader2440.lr.ph, %._crit_edge2597
   %.02598 = phi i64 [ 0, %.preheader2440.lr.ph ], [ %434, %._crit_edge2597 ]
-  %invariant.gep2473 = getelementptr float, ptr %8, i64 %.02598
+  %invariant.gep2473 = getelementptr [4 x i8], ptr %8, i64 %.02598
   br i1 %20, label %.preheader2438.lr.ph, label %.preheader2439
 
 .preheader2438.lr.ph:                             ; preds = %.preheader2440
@@ -83,7 +83,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2438:                                   ; preds = %.preheader2438.lr.ph, %._crit_edge
   %.023092537 = phi i64 [ 0, %.preheader2438.lr.ph ], [ %277, %._crit_edge ]
-  %invariant.gep = getelementptr float, ptr %6, i64 %.023092537
+  %invariant.gep = getelementptr [4 x i8], ptr %6, i64 %.023092537
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader2438, %.lr.ph
@@ -104,41 +104,41 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023502443 = phi <16 x float> [ %106, %.lr.ph ], [ zeroinitializer, %.preheader2438 ]
   %.023552442 = phi <16 x float> [ %107, %.lr.ph ], [ zeroinitializer, %.preheader2438 ]
   %.023562441 = phi <16 x float> [ %108, %.lr.ph ], [ zeroinitializer, %.preheader2438 ]
-  %56 = getelementptr float, ptr %3, i64 %.023162457
-  %57 = getelementptr float, ptr %56, i64 %22
+  %56 = getelementptr [4 x i8], ptr %3, i64 %.023162457
+  %57 = getelementptr [4 x i8], ptr %56, i64 %22
   %58 = load float, ptr %57, align 1, !tbaa !3
   %59 = insertelement <4 x float> poison, float %58, i64 0
   %60 = shufflevector <4 x float> %59, <4 x float> poison, <16 x i32> zeroinitializer
-  %61 = getelementptr float, ptr %56, i64 %24
+  %61 = getelementptr [4 x i8], ptr %56, i64 %24
   %62 = load float, ptr %61, align 1, !tbaa !3
   %63 = insertelement <4 x float> poison, float %62, i64 0
   %64 = shufflevector <4 x float> %63, <4 x float> poison, <16 x i32> zeroinitializer
-  %65 = getelementptr float, ptr %56, i64 %26
+  %65 = getelementptr [4 x i8], ptr %56, i64 %26
   %66 = load float, ptr %65, align 1, !tbaa !3
   %67 = insertelement <4 x float> poison, float %66, i64 0
   %68 = shufflevector <4 x float> %67, <4 x float> poison, <16 x i32> zeroinitializer
-  %69 = getelementptr float, ptr %56, i64 %28
+  %69 = getelementptr [4 x i8], ptr %56, i64 %28
   %70 = load float, ptr %69, align 1, !tbaa !3
   %71 = insertelement <4 x float> poison, float %70, i64 0
   %72 = shufflevector <4 x float> %71, <4 x float> poison, <16 x i32> zeroinitializer
-  %73 = getelementptr float, ptr %56, i64 %30
+  %73 = getelementptr [4 x i8], ptr %56, i64 %30
   %74 = load float, ptr %73, align 1, !tbaa !3
   %75 = insertelement <4 x float> poison, float %74, i64 0
   %76 = shufflevector <4 x float> %75, <4 x float> poison, <16 x i32> zeroinitializer
-  %77 = getelementptr float, ptr %56, i64 %32
+  %77 = getelementptr [4 x i8], ptr %56, i64 %32
   %78 = load float, ptr %77, align 1, !tbaa !3
   %79 = insertelement <4 x float> poison, float %78, i64 0
   %80 = shufflevector <4 x float> %79, <4 x float> poison, <16 x i32> zeroinitializer
-  %81 = getelementptr float, ptr %56, i64 %34
+  %81 = getelementptr [4 x i8], ptr %56, i64 %34
   %82 = load float, ptr %81, align 1, !tbaa !3
   %83 = insertelement <4 x float> poison, float %82, i64 0
   %84 = shufflevector <4 x float> %83, <4 x float> poison, <16 x i32> zeroinitializer
-  %85 = getelementptr float, ptr %56, i64 %36
+  %85 = getelementptr [4 x i8], ptr %56, i64 %36
   %86 = load float, ptr %85, align 1, !tbaa !3
   %87 = insertelement <4 x float> poison, float %86, i64 0
   %88 = shufflevector <4 x float> %87, <4 x float> poison, <16 x i32> zeroinitializer
   %89 = mul nsw i64 %.023162457, %7
-  %gep = getelementptr float, ptr %invariant.gep, i64 %89
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %89
   %90 = load <16 x float>, ptr %gep, align 1, !tbaa !3
   %91 = getelementptr i8, ptr %gep, i64 64
   %92 = load <16 x float>, ptr %91, align 1, !tbaa !3
@@ -217,82 +217,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %145 = fmul <16 x float> %18, %137
   %146 = shufflevector <16 x float> %138, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %147 = mul nsw i64 %.023092537, %9
-  %gep2474 = getelementptr float, ptr %invariant.gep2473, i64 %147
+  %gep2474 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %147
   store <8 x float> %146, ptr %gep2474, align 1, !tbaa !3
   %148 = shufflevector <16 x float> %139, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %149 = or disjoint i64 %.023092537, 1
   %150 = mul nsw i64 %149, %9
-  %gep2476 = getelementptr float, ptr %invariant.gep2473, i64 %150
+  %gep2476 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %150
   store <8 x float> %148, ptr %gep2476, align 1, !tbaa !3
   %151 = shufflevector <16 x float> %140, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %152 = or disjoint i64 %.023092537, 2
   %153 = mul nsw i64 %152, %9
-  %gep2478 = getelementptr float, ptr %invariant.gep2473, i64 %153
+  %gep2478 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %153
   store <8 x float> %151, ptr %gep2478, align 1, !tbaa !3
   %154 = shufflevector <16 x float> %141, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %155 = or disjoint i64 %.023092537, 3
   %156 = mul nsw i64 %155, %9
-  %gep2480 = getelementptr float, ptr %invariant.gep2473, i64 %156
+  %gep2480 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %156
   store <8 x float> %154, ptr %gep2480, align 1, !tbaa !3
   %157 = shufflevector <16 x float> %142, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %158 = or disjoint i64 %.023092537, 4
   %159 = mul nsw i64 %158, %9
-  %gep2482 = getelementptr float, ptr %invariant.gep2473, i64 %159
+  %gep2482 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %159
   store <8 x float> %157, ptr %gep2482, align 1, !tbaa !3
   %160 = shufflevector <16 x float> %143, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %161 = or disjoint i64 %.023092537, 5
   %162 = mul nsw i64 %161, %9
-  %gep2484 = getelementptr float, ptr %invariant.gep2473, i64 %162
+  %gep2484 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %162
   store <8 x float> %160, ptr %gep2484, align 1, !tbaa !3
   %163 = shufflevector <16 x float> %144, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %164 = or disjoint i64 %.023092537, 6
   %165 = mul nsw i64 %164, %9
-  %gep2486 = getelementptr float, ptr %invariant.gep2473, i64 %165
+  %gep2486 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %165
   store <8 x float> %163, ptr %gep2486, align 1, !tbaa !3
   %166 = shufflevector <16 x float> %145, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %167 = or disjoint i64 %.023092537, 7
   %168 = mul nsw i64 %167, %9
-  %gep2488 = getelementptr float, ptr %invariant.gep2473, i64 %168
+  %gep2488 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %168
   store <8 x float> %166, ptr %gep2488, align 1, !tbaa !3
   %169 = shufflevector <16 x float> %138, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %170 = or disjoint i64 %.023092537, 8
   %171 = mul nsw i64 %170, %9
-  %gep2490 = getelementptr float, ptr %invariant.gep2473, i64 %171
+  %gep2490 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %171
   store <8 x float> %169, ptr %gep2490, align 1, !tbaa !3
   %172 = shufflevector <16 x float> %139, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %173 = or disjoint i64 %.023092537, 9
   %174 = mul nsw i64 %173, %9
-  %gep2492 = getelementptr float, ptr %invariant.gep2473, i64 %174
+  %gep2492 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %174
   store <8 x float> %172, ptr %gep2492, align 1, !tbaa !3
   %175 = shufflevector <16 x float> %140, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %176 = or disjoint i64 %.023092537, 10
   %177 = mul nsw i64 %176, %9
-  %gep2494 = getelementptr float, ptr %invariant.gep2473, i64 %177
+  %gep2494 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %177
   store <8 x float> %175, ptr %gep2494, align 1, !tbaa !3
   %178 = shufflevector <16 x float> %141, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %179 = or disjoint i64 %.023092537, 11
   %180 = mul nsw i64 %179, %9
-  %gep2496 = getelementptr float, ptr %invariant.gep2473, i64 %180
+  %gep2496 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %180
   store <8 x float> %178, ptr %gep2496, align 1, !tbaa !3
   %181 = shufflevector <16 x float> %142, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %182 = or disjoint i64 %.023092537, 12
   %183 = mul nsw i64 %182, %9
-  %gep2498 = getelementptr float, ptr %invariant.gep2473, i64 %183
+  %gep2498 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %183
   store <8 x float> %181, ptr %gep2498, align 1, !tbaa !3
   %184 = shufflevector <16 x float> %143, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %185 = or disjoint i64 %.023092537, 13
   %186 = mul nsw i64 %185, %9
-  %gep2500 = getelementptr float, ptr %invariant.gep2473, i64 %186
+  %gep2500 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %186
   store <8 x float> %184, ptr %gep2500, align 1, !tbaa !3
   %187 = shufflevector <16 x float> %144, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %188 = or disjoint i64 %.023092537, 14
   %189 = mul nsw i64 %188, %9
-  %gep2502 = getelementptr float, ptr %invariant.gep2473, i64 %189
+  %gep2502 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %189
   store <8 x float> %187, ptr %gep2502, align 1, !tbaa !3
   %190 = shufflevector <16 x float> %145, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %191 = or disjoint i64 %.023092537, 15
   %192 = mul nsw i64 %191, %9
-  %gep2504 = getelementptr float, ptr %invariant.gep2473, i64 %192
+  %gep2504 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %192
   store <8 x float> %190, ptr %gep2504, align 1, !tbaa !3
   %193 = shufflevector <16 x float> %.02341.lcssa, <16 x float> %.02342.lcssa, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %194 = shufflevector <16 x float> %.02341.lcssa, <16 x float> %.02342.lcssa, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -333,82 +333,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %229 = shufflevector <16 x float> %221, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %230 = or disjoint i64 %.023092537, 16
   %231 = mul nsw i64 %230, %9
-  %gep2506 = getelementptr float, ptr %invariant.gep2473, i64 %231
+  %gep2506 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %231
   store <8 x float> %229, ptr %gep2506, align 1, !tbaa !3
   %232 = shufflevector <16 x float> %222, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %233 = or disjoint i64 %.023092537, 17
   %234 = mul nsw i64 %233, %9
-  %gep2508 = getelementptr float, ptr %invariant.gep2473, i64 %234
+  %gep2508 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %234
   store <8 x float> %232, ptr %gep2508, align 1, !tbaa !3
   %235 = shufflevector <16 x float> %223, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %236 = or disjoint i64 %.023092537, 18
   %237 = mul nsw i64 %236, %9
-  %gep2510 = getelementptr float, ptr %invariant.gep2473, i64 %237
+  %gep2510 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %237
   store <8 x float> %235, ptr %gep2510, align 1, !tbaa !3
   %238 = shufflevector <16 x float> %224, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %239 = or disjoint i64 %.023092537, 19
   %240 = mul nsw i64 %239, %9
-  %gep2512 = getelementptr float, ptr %invariant.gep2473, i64 %240
+  %gep2512 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %240
   store <8 x float> %238, ptr %gep2512, align 1, !tbaa !3
   %241 = shufflevector <16 x float> %225, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %242 = or disjoint i64 %.023092537, 20
   %243 = mul nsw i64 %242, %9
-  %gep2514 = getelementptr float, ptr %invariant.gep2473, i64 %243
+  %gep2514 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %243
   store <8 x float> %241, ptr %gep2514, align 1, !tbaa !3
   %244 = shufflevector <16 x float> %226, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %245 = or disjoint i64 %.023092537, 21
   %246 = mul nsw i64 %245, %9
-  %gep2516 = getelementptr float, ptr %invariant.gep2473, i64 %246
+  %gep2516 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %246
   store <8 x float> %244, ptr %gep2516, align 1, !tbaa !3
   %247 = shufflevector <16 x float> %227, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %248 = or disjoint i64 %.023092537, 22
   %249 = mul nsw i64 %248, %9
-  %gep2518 = getelementptr float, ptr %invariant.gep2473, i64 %249
+  %gep2518 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %249
   store <8 x float> %247, ptr %gep2518, align 1, !tbaa !3
   %250 = shufflevector <16 x float> %228, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %251 = or disjoint i64 %.023092537, 23
   %252 = mul nsw i64 %251, %9
-  %gep2520 = getelementptr float, ptr %invariant.gep2473, i64 %252
+  %gep2520 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %252
   store <8 x float> %250, ptr %gep2520, align 1, !tbaa !3
   %253 = shufflevector <16 x float> %221, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %254 = or disjoint i64 %.023092537, 24
   %255 = mul nsw i64 %254, %9
-  %gep2522 = getelementptr float, ptr %invariant.gep2473, i64 %255
+  %gep2522 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %255
   store <8 x float> %253, ptr %gep2522, align 1, !tbaa !3
   %256 = shufflevector <16 x float> %222, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %257 = or disjoint i64 %.023092537, 25
   %258 = mul nsw i64 %257, %9
-  %gep2524 = getelementptr float, ptr %invariant.gep2473, i64 %258
+  %gep2524 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %258
   store <8 x float> %256, ptr %gep2524, align 1, !tbaa !3
   %259 = shufflevector <16 x float> %223, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %260 = or disjoint i64 %.023092537, 26
   %261 = mul nsw i64 %260, %9
-  %gep2526 = getelementptr float, ptr %invariant.gep2473, i64 %261
+  %gep2526 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %261
   store <8 x float> %259, ptr %gep2526, align 1, !tbaa !3
   %262 = shufflevector <16 x float> %224, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %263 = or disjoint i64 %.023092537, 27
   %264 = mul nsw i64 %263, %9
-  %gep2528 = getelementptr float, ptr %invariant.gep2473, i64 %264
+  %gep2528 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %264
   store <8 x float> %262, ptr %gep2528, align 1, !tbaa !3
   %265 = shufflevector <16 x float> %225, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %266 = or disjoint i64 %.023092537, 28
   %267 = mul nsw i64 %266, %9
-  %gep2530 = getelementptr float, ptr %invariant.gep2473, i64 %267
+  %gep2530 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %267
   store <8 x float> %265, ptr %gep2530, align 1, !tbaa !3
   %268 = shufflevector <16 x float> %226, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %269 = or disjoint i64 %.023092537, 29
   %270 = mul nsw i64 %269, %9
-  %gep2532 = getelementptr float, ptr %invariant.gep2473, i64 %270
+  %gep2532 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %270
   store <8 x float> %268, ptr %gep2532, align 1, !tbaa !3
   %271 = shufflevector <16 x float> %227, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %272 = or disjoint i64 %.023092537, 30
   %273 = mul nsw i64 %272, %9
-  %gep2534 = getelementptr float, ptr %invariant.gep2473, i64 %273
+  %gep2534 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %273
   store <8 x float> %271, ptr %gep2534, align 1, !tbaa !3
   %274 = shufflevector <16 x float> %228, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %275 = or disjoint i64 %.023092537, 31
   %276 = mul nsw i64 %275, %9
-  %gep2536 = getelementptr float, ptr %invariant.gep2473, i64 %276
+  %gep2536 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %276
   store <8 x float> %274, ptr %gep2536, align 1, !tbaa !3
   %277 = add nuw nsw i64 %.023092537, 32
   %278 = icmp slt i64 %277, %16
@@ -427,7 +427,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %285 = xor i16 %284, -1
   %.12360 = select i1 %281, i32 %282, i32 %.023592593
   %.12358 = select i1 %281, i16 %285, i16 %.023572594
-  %invariant.gep2539 = getelementptr float, ptr %6, i64 %.123102595
+  %invariant.gep2539 = getelementptr [4 x i8], ptr %6, i64 %.123102595
   br i1 %21, label %.lr.ph2551, label %._crit_edge2552
 
 .lr.ph2551:                                       ; preds = %279
@@ -444,41 +444,41 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023752543 = phi <16 x float> [ zeroinitializer, %.lr.ph2551 ], [ %328, %287 ]
   %.023762542 = phi <16 x float> [ zeroinitializer, %.lr.ph2551 ], [ %329, %287 ]
   %.023772541 = phi <16 x float> [ zeroinitializer, %.lr.ph2551 ], [ %330, %287 ]
-  %288 = getelementptr float, ptr %3, i64 %.123172549
-  %289 = getelementptr float, ptr %288, i64 %41
+  %288 = getelementptr [4 x i8], ptr %3, i64 %.123172549
+  %289 = getelementptr [4 x i8], ptr %288, i64 %41
   %290 = load float, ptr %289, align 1, !tbaa !3
   %291 = insertelement <4 x float> poison, float %290, i64 0
   %292 = shufflevector <4 x float> %291, <4 x float> poison, <16 x i32> zeroinitializer
-  %293 = getelementptr float, ptr %288, i64 %43
+  %293 = getelementptr [4 x i8], ptr %288, i64 %43
   %294 = load float, ptr %293, align 1, !tbaa !3
   %295 = insertelement <4 x float> poison, float %294, i64 0
   %296 = shufflevector <4 x float> %295, <4 x float> poison, <16 x i32> zeroinitializer
-  %297 = getelementptr float, ptr %288, i64 %45
+  %297 = getelementptr [4 x i8], ptr %288, i64 %45
   %298 = load float, ptr %297, align 1, !tbaa !3
   %299 = insertelement <4 x float> poison, float %298, i64 0
   %300 = shufflevector <4 x float> %299, <4 x float> poison, <16 x i32> zeroinitializer
-  %301 = getelementptr float, ptr %288, i64 %47
+  %301 = getelementptr [4 x i8], ptr %288, i64 %47
   %302 = load float, ptr %301, align 1, !tbaa !3
   %303 = insertelement <4 x float> poison, float %302, i64 0
   %304 = shufflevector <4 x float> %303, <4 x float> poison, <16 x i32> zeroinitializer
-  %305 = getelementptr float, ptr %288, i64 %49
+  %305 = getelementptr [4 x i8], ptr %288, i64 %49
   %306 = load float, ptr %305, align 1, !tbaa !3
   %307 = insertelement <4 x float> poison, float %306, i64 0
   %308 = shufflevector <4 x float> %307, <4 x float> poison, <16 x i32> zeroinitializer
-  %309 = getelementptr float, ptr %288, i64 %51
+  %309 = getelementptr [4 x i8], ptr %288, i64 %51
   %310 = load float, ptr %309, align 1, !tbaa !3
   %311 = insertelement <4 x float> poison, float %310, i64 0
   %312 = shufflevector <4 x float> %311, <4 x float> poison, <16 x i32> zeroinitializer
-  %313 = getelementptr float, ptr %288, i64 %53
+  %313 = getelementptr [4 x i8], ptr %288, i64 %53
   %314 = load float, ptr %313, align 1, !tbaa !3
   %315 = insertelement <4 x float> poison, float %314, i64 0
   %316 = shufflevector <4 x float> %315, <4 x float> poison, <16 x i32> zeroinitializer
-  %317 = getelementptr float, ptr %288, i64 %55
+  %317 = getelementptr [4 x i8], ptr %288, i64 %55
   %318 = load float, ptr %317, align 1, !tbaa !3
   %319 = insertelement <4 x float> poison, float %318, i64 0
   %320 = shufflevector <4 x float> %319, <4 x float> poison, <16 x i32> zeroinitializer
   %321 = mul nsw i64 %.123172549, %7
-  %gep2540 = getelementptr float, ptr %invariant.gep2539, i64 %321
+  %gep2540 = getelementptr [4 x i8], ptr %invariant.gep2539, i64 %321
   %322 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep2540, <16 x i1> %286, <16 x float> zeroinitializer)
   %323 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %292, <16 x float> %322, <16 x float> %.023612548)
   %324 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %296, <16 x float> %322, <16 x float> %.023622547)
@@ -560,7 +560,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %369 = shufflevector <16 x float> %367, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %370 = add nuw nsw i64 %.123102595, 15
   %371 = mul nsw i64 %370, %9
-  %gep2562 = getelementptr float, ptr %invariant.gep2473, i64 %371
+  %gep2562 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %371
   store <8 x float> %369, ptr %gep2562, align 1, !tbaa !3
   br label %372
 
@@ -568,7 +568,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %373 = shufflevector <16 x float> %366, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %374 = add nuw nsw i64 %.123102595, 14
   %375 = mul nsw i64 %374, %9
-  %gep2564 = getelementptr float, ptr %invariant.gep2473, i64 %375
+  %gep2564 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %375
   store <8 x float> %373, ptr %gep2564, align 1, !tbaa !3
   br label %376
 
@@ -576,7 +576,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %377 = shufflevector <16 x float> %365, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %378 = add nuw nsw i64 %.123102595, 13
   %379 = mul nsw i64 %378, %9
-  %gep2566 = getelementptr float, ptr %invariant.gep2473, i64 %379
+  %gep2566 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %379
   store <8 x float> %377, ptr %gep2566, align 1, !tbaa !3
   br label %380
 
@@ -584,7 +584,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %381 = shufflevector <16 x float> %364, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %382 = add nuw nsw i64 %.123102595, 12
   %383 = mul nsw i64 %382, %9
-  %gep2568 = getelementptr float, ptr %invariant.gep2473, i64 %383
+  %gep2568 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %383
   store <8 x float> %381, ptr %gep2568, align 1, !tbaa !3
   br label %384
 
@@ -592,7 +592,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %385 = shufflevector <16 x float> %363, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %386 = add nuw nsw i64 %.123102595, 11
   %387 = mul nsw i64 %386, %9
-  %gep2570 = getelementptr float, ptr %invariant.gep2473, i64 %387
+  %gep2570 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %387
   store <8 x float> %385, ptr %gep2570, align 1, !tbaa !3
   br label %388
 
@@ -600,7 +600,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %389 = shufflevector <16 x float> %362, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %390 = add nuw nsw i64 %.123102595, 10
   %391 = mul nsw i64 %390, %9
-  %gep2572 = getelementptr float, ptr %invariant.gep2473, i64 %391
+  %gep2572 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %391
   store <8 x float> %389, ptr %gep2572, align 1, !tbaa !3
   br label %392
 
@@ -608,7 +608,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %393 = shufflevector <16 x float> %361, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %394 = add nuw nsw i64 %.123102595, 9
   %395 = mul nsw i64 %394, %9
-  %gep2574 = getelementptr float, ptr %invariant.gep2473, i64 %395
+  %gep2574 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %395
   store <8 x float> %393, ptr %gep2574, align 1, !tbaa !3
   br label %396
 
@@ -616,7 +616,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %397 = shufflevector <16 x float> %360, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %398 = add nuw nsw i64 %.123102595, 8
   %399 = mul nsw i64 %398, %9
-  %gep2576 = getelementptr float, ptr %invariant.gep2473, i64 %399
+  %gep2576 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %399
   store <8 x float> %397, ptr %gep2576, align 1, !tbaa !3
   br label %400
 
@@ -624,7 +624,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %401 = shufflevector <16 x float> %367, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %402 = add nuw nsw i64 %.123102595, 7
   %403 = mul nsw i64 %402, %9
-  %gep2578 = getelementptr float, ptr %invariant.gep2473, i64 %403
+  %gep2578 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %403
   store <8 x float> %401, ptr %gep2578, align 1, !tbaa !3
   br label %404
 
@@ -632,7 +632,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %405 = shufflevector <16 x float> %366, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %406 = add nuw nsw i64 %.123102595, 6
   %407 = mul nsw i64 %406, %9
-  %gep2580 = getelementptr float, ptr %invariant.gep2473, i64 %407
+  %gep2580 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %407
   store <8 x float> %405, ptr %gep2580, align 1, !tbaa !3
   br label %408
 
@@ -640,7 +640,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %409 = shufflevector <16 x float> %365, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %410 = add nuw nsw i64 %.123102595, 5
   %411 = mul nsw i64 %410, %9
-  %gep2582 = getelementptr float, ptr %invariant.gep2473, i64 %411
+  %gep2582 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %411
   store <8 x float> %409, ptr %gep2582, align 1, !tbaa !3
   br label %412
 
@@ -648,7 +648,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %413 = shufflevector <16 x float> %364, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %414 = add nuw nsw i64 %.123102595, 4
   %415 = mul nsw i64 %414, %9
-  %gep2584 = getelementptr float, ptr %invariant.gep2473, i64 %415
+  %gep2584 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %415
   store <8 x float> %413, ptr %gep2584, align 1, !tbaa !3
   br label %416
 
@@ -656,7 +656,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %417 = shufflevector <16 x float> %363, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %418 = add nuw nsw i64 %.123102595, 3
   %419 = mul nsw i64 %418, %9
-  %gep2586 = getelementptr float, ptr %invariant.gep2473, i64 %419
+  %gep2586 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %419
   store <8 x float> %417, ptr %gep2586, align 1, !tbaa !3
   br label %420
 
@@ -664,7 +664,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %421 = shufflevector <16 x float> %362, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %422 = add nuw nsw i64 %.123102595, 2
   %423 = mul nsw i64 %422, %9
-  %gep2588 = getelementptr float, ptr %invariant.gep2473, i64 %423
+  %gep2588 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %423
   store <8 x float> %421, ptr %gep2588, align 1, !tbaa !3
   br label %424
 
@@ -672,14 +672,14 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %425 = shufflevector <16 x float> %361, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %426 = add nuw nsw i64 %.123102595, 1
   %427 = mul nsw i64 %426, %9
-  %gep2590 = getelementptr float, ptr %invariant.gep2473, i64 %427
+  %gep2590 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %427
   store <8 x float> %425, ptr %gep2590, align 1, !tbaa !3
   br label %428
 
 428:                                              ; preds = %424, %._crit_edge2552
   %429 = shufflevector <16 x float> %360, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %430 = mul nsw i64 %.123102595, %9
-  %gep2592 = getelementptr float, ptr %invariant.gep2473, i64 %430
+  %gep2592 = getelementptr [4 x i8], ptr %invariant.gep2473, i64 %430
   store <8 x float> %429, ptr %gep2592, align 1, !tbaa !3
   br label %431
 
@@ -695,7 +695,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2436:                                   ; preds = %.preheader2436.lr.ph, %._crit_edge2904
   %.12905 = phi i64 [ %.0.lcssa, %.preheader2436.lr.ph ], [ %1018, %._crit_edge2904 ]
-  %invariant.gep2637 = getelementptr float, ptr %8, i64 %.12905
+  %invariant.gep2637 = getelementptr [4 x i8], ptr %8, i64 %.12905
   br i1 %38, label %.preheader2433.lr.ph, label %.preheader2435
 
 .preheader2433.lr.ph:                             ; preds = %.preheader2436
@@ -725,7 +725,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2433:                                   ; preds = %.preheader2433.lr.ph, %._crit_edge2620
   %.223112765 = phi i64 [ 0, %.preheader2433.lr.ph ], [ %740, %._crit_edge2620 ]
-  %invariant.gep2600 = getelementptr float, ptr %6, i64 %.223112765
+  %invariant.gep2600 = getelementptr [4 x i8], ptr %6, i64 %.223112765
   br i1 %39, label %.lr.ph2619, label %._crit_edge2620
 
 .lr.ph2619:                                       ; preds = %.preheader2433, %.lr.ph2619
@@ -746,25 +746,25 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023992604 = phi <16 x float> [ %489, %.lr.ph2619 ], [ zeroinitializer, %.preheader2433 ]
   %.024002603 = phi <16 x float> [ %490, %.lr.ph2619 ], [ zeroinitializer, %.preheader2433 ]
   %.024012602 = phi <16 x float> [ %491, %.lr.ph2619 ], [ zeroinitializer, %.preheader2433 ]
-  %451 = getelementptr float, ptr %3, i64 %.223182618
-  %452 = getelementptr float, ptr %451, i64 %436
+  %451 = getelementptr [4 x i8], ptr %3, i64 %.223182618
+  %452 = getelementptr [4 x i8], ptr %451, i64 %436
   %453 = load float, ptr %452, align 1, !tbaa !3
   %454 = insertelement <4 x float> poison, float %453, i64 0
   %455 = shufflevector <4 x float> %454, <4 x float> poison, <16 x i32> zeroinitializer
-  %456 = getelementptr float, ptr %451, i64 %438
+  %456 = getelementptr [4 x i8], ptr %451, i64 %438
   %457 = load float, ptr %456, align 1, !tbaa !3
   %458 = insertelement <4 x float> poison, float %457, i64 0
   %459 = shufflevector <4 x float> %458, <4 x float> poison, <16 x i32> zeroinitializer
-  %460 = getelementptr float, ptr %451, i64 %440
+  %460 = getelementptr [4 x i8], ptr %451, i64 %440
   %461 = load float, ptr %460, align 1, !tbaa !3
   %462 = insertelement <4 x float> poison, float %461, i64 0
   %463 = shufflevector <4 x float> %462, <4 x float> poison, <16 x i32> zeroinitializer
-  %464 = getelementptr float, ptr %451, i64 %442
+  %464 = getelementptr [4 x i8], ptr %451, i64 %442
   %465 = load float, ptr %464, align 1, !tbaa !3
   %466 = insertelement <4 x float> poison, float %465, i64 0
   %467 = shufflevector <4 x float> %466, <4 x float> poison, <16 x i32> zeroinitializer
   %468 = mul nsw i64 %.223182618, %7
-  %gep2601 = getelementptr float, ptr %invariant.gep2600, i64 %468
+  %gep2601 = getelementptr [4 x i8], ptr %invariant.gep2600, i64 %468
   %469 = load <16 x float>, ptr %gep2601, align 1, !tbaa !3
   %470 = getelementptr i8, ptr %gep2601, i64 64
   %471 = load <16 x float>, ptr %470, align 1, !tbaa !3
@@ -825,82 +825,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %506 = fmul <16 x float> %18, %502
   %507 = shufflevector <16 x float> %503, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %508 = mul nsw i64 %.223112765, %9
-  %gep2638 = getelementptr float, ptr %invariant.gep2637, i64 %508
+  %gep2638 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %508
   store <4 x float> %507, ptr %gep2638, align 1
   %509 = shufflevector <16 x float> %504, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %510 = or disjoint i64 %.223112765, 1
   %511 = mul nsw i64 %510, %9
-  %gep2640 = getelementptr float, ptr %invariant.gep2637, i64 %511
+  %gep2640 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %511
   store <4 x float> %509, ptr %gep2640, align 1
   %512 = shufflevector <16 x float> %505, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %513 = or disjoint i64 %.223112765, 2
   %514 = mul nsw i64 %513, %9
-  %gep2642 = getelementptr float, ptr %invariant.gep2637, i64 %514
+  %gep2642 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %514
   store <4 x float> %512, ptr %gep2642, align 1
   %515 = shufflevector <16 x float> %506, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %516 = or disjoint i64 %.223112765, 3
   %517 = mul nsw i64 %516, %9
-  %gep2644 = getelementptr float, ptr %invariant.gep2637, i64 %517
+  %gep2644 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %517
   store <4 x float> %515, ptr %gep2644, align 1
   %518 = shufflevector <16 x float> %503, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %519 = or disjoint i64 %.223112765, 4
   %520 = mul nsw i64 %519, %9
-  %gep2646 = getelementptr float, ptr %invariant.gep2637, i64 %520
+  %gep2646 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %520
   store <4 x float> %518, ptr %gep2646, align 1
   %521 = shufflevector <16 x float> %504, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %522 = or disjoint i64 %.223112765, 5
   %523 = mul nsw i64 %522, %9
-  %gep2648 = getelementptr float, ptr %invariant.gep2637, i64 %523
+  %gep2648 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %523
   store <4 x float> %521, ptr %gep2648, align 1
   %524 = shufflevector <16 x float> %505, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %525 = or disjoint i64 %.223112765, 6
   %526 = mul nsw i64 %525, %9
-  %gep2650 = getelementptr float, ptr %invariant.gep2637, i64 %526
+  %gep2650 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %526
   store <4 x float> %524, ptr %gep2650, align 1
   %527 = shufflevector <16 x float> %506, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %528 = or disjoint i64 %.223112765, 7
   %529 = mul nsw i64 %528, %9
-  %gep2652 = getelementptr float, ptr %invariant.gep2637, i64 %529
+  %gep2652 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %529
   store <4 x float> %527, ptr %gep2652, align 1
   %530 = shufflevector <16 x float> %503, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %531 = or disjoint i64 %.223112765, 8
   %532 = mul nsw i64 %531, %9
-  %gep2654 = getelementptr float, ptr %invariant.gep2637, i64 %532
+  %gep2654 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %532
   store <4 x float> %530, ptr %gep2654, align 1
   %533 = shufflevector <16 x float> %504, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %534 = or disjoint i64 %.223112765, 9
   %535 = mul nsw i64 %534, %9
-  %gep2656 = getelementptr float, ptr %invariant.gep2637, i64 %535
+  %gep2656 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %535
   store <4 x float> %533, ptr %gep2656, align 1
   %536 = shufflevector <16 x float> %505, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %537 = or disjoint i64 %.223112765, 10
   %538 = mul nsw i64 %537, %9
-  %gep2658 = getelementptr float, ptr %invariant.gep2637, i64 %538
+  %gep2658 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %538
   store <4 x float> %536, ptr %gep2658, align 1
   %539 = shufflevector <16 x float> %506, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %540 = or disjoint i64 %.223112765, 11
   %541 = mul nsw i64 %540, %9
-  %gep2660 = getelementptr float, ptr %invariant.gep2637, i64 %541
+  %gep2660 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %541
   store <4 x float> %539, ptr %gep2660, align 1
   %542 = shufflevector <16 x float> %503, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %543 = or disjoint i64 %.223112765, 12
   %544 = mul nsw i64 %543, %9
-  %gep2662 = getelementptr float, ptr %invariant.gep2637, i64 %544
+  %gep2662 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %544
   store <4 x float> %542, ptr %gep2662, align 1
   %545 = shufflevector <16 x float> %504, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %546 = or disjoint i64 %.223112765, 13
   %547 = mul nsw i64 %546, %9
-  %gep2664 = getelementptr float, ptr %invariant.gep2637, i64 %547
+  %gep2664 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %547
   store <4 x float> %545, ptr %gep2664, align 1
   %548 = shufflevector <16 x float> %505, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %549 = or disjoint i64 %.223112765, 14
   %550 = mul nsw i64 %549, %9
-  %gep2666 = getelementptr float, ptr %invariant.gep2637, i64 %550
+  %gep2666 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %550
   store <4 x float> %548, ptr %gep2666, align 1
   %551 = shufflevector <16 x float> %506, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %552 = or disjoint i64 %.223112765, 15
   %553 = mul nsw i64 %552, %9
-  %gep2668 = getelementptr float, ptr %invariant.gep2637, i64 %553
+  %gep2668 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %553
   store <4 x float> %551, ptr %gep2668, align 1
   %554 = shufflevector <16 x float> %.02382.lcssa, <16 x float> %.02383.lcssa, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %555 = shufflevector <16 x float> %.02382.lcssa, <16 x float> %.02383.lcssa, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -919,82 +919,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %568 = shufflevector <16 x float> %564, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %569 = or disjoint i64 %.223112765, 16
   %570 = mul nsw i64 %569, %9
-  %gep2670 = getelementptr float, ptr %invariant.gep2637, i64 %570
+  %gep2670 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %570
   store <4 x float> %568, ptr %gep2670, align 1
   %571 = shufflevector <16 x float> %565, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %572 = or disjoint i64 %.223112765, 17
   %573 = mul nsw i64 %572, %9
-  %gep2672 = getelementptr float, ptr %invariant.gep2637, i64 %573
+  %gep2672 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %573
   store <4 x float> %571, ptr %gep2672, align 1
   %574 = shufflevector <16 x float> %566, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %575 = or disjoint i64 %.223112765, 18
   %576 = mul nsw i64 %575, %9
-  %gep2674 = getelementptr float, ptr %invariant.gep2637, i64 %576
+  %gep2674 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %576
   store <4 x float> %574, ptr %gep2674, align 1
   %577 = shufflevector <16 x float> %567, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %578 = or disjoint i64 %.223112765, 19
   %579 = mul nsw i64 %578, %9
-  %gep2676 = getelementptr float, ptr %invariant.gep2637, i64 %579
+  %gep2676 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %579
   store <4 x float> %577, ptr %gep2676, align 1
   %580 = shufflevector <16 x float> %564, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %581 = or disjoint i64 %.223112765, 20
   %582 = mul nsw i64 %581, %9
-  %gep2678 = getelementptr float, ptr %invariant.gep2637, i64 %582
+  %gep2678 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %582
   store <4 x float> %580, ptr %gep2678, align 1
   %583 = shufflevector <16 x float> %565, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %584 = or disjoint i64 %.223112765, 21
   %585 = mul nsw i64 %584, %9
-  %gep2680 = getelementptr float, ptr %invariant.gep2637, i64 %585
+  %gep2680 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %585
   store <4 x float> %583, ptr %gep2680, align 1
   %586 = shufflevector <16 x float> %566, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %587 = or disjoint i64 %.223112765, 22
   %588 = mul nsw i64 %587, %9
-  %gep2682 = getelementptr float, ptr %invariant.gep2637, i64 %588
+  %gep2682 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %588
   store <4 x float> %586, ptr %gep2682, align 1
   %589 = shufflevector <16 x float> %567, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %590 = or disjoint i64 %.223112765, 23
   %591 = mul nsw i64 %590, %9
-  %gep2684 = getelementptr float, ptr %invariant.gep2637, i64 %591
+  %gep2684 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %591
   store <4 x float> %589, ptr %gep2684, align 1
   %592 = shufflevector <16 x float> %564, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %593 = or disjoint i64 %.223112765, 24
   %594 = mul nsw i64 %593, %9
-  %gep2686 = getelementptr float, ptr %invariant.gep2637, i64 %594
+  %gep2686 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %594
   store <4 x float> %592, ptr %gep2686, align 1
   %595 = shufflevector <16 x float> %565, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %596 = or disjoint i64 %.223112765, 25
   %597 = mul nsw i64 %596, %9
-  %gep2688 = getelementptr float, ptr %invariant.gep2637, i64 %597
+  %gep2688 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %597
   store <4 x float> %595, ptr %gep2688, align 1
   %598 = shufflevector <16 x float> %566, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %599 = or disjoint i64 %.223112765, 26
   %600 = mul nsw i64 %599, %9
-  %gep2690 = getelementptr float, ptr %invariant.gep2637, i64 %600
+  %gep2690 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %600
   store <4 x float> %598, ptr %gep2690, align 1
   %601 = shufflevector <16 x float> %567, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %602 = or disjoint i64 %.223112765, 27
   %603 = mul nsw i64 %602, %9
-  %gep2692 = getelementptr float, ptr %invariant.gep2637, i64 %603
+  %gep2692 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %603
   store <4 x float> %601, ptr %gep2692, align 1
   %604 = shufflevector <16 x float> %564, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %605 = or disjoint i64 %.223112765, 28
   %606 = mul nsw i64 %605, %9
-  %gep2694 = getelementptr float, ptr %invariant.gep2637, i64 %606
+  %gep2694 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %606
   store <4 x float> %604, ptr %gep2694, align 1
   %607 = shufflevector <16 x float> %565, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %608 = or disjoint i64 %.223112765, 29
   %609 = mul nsw i64 %608, %9
-  %gep2696 = getelementptr float, ptr %invariant.gep2637, i64 %609
+  %gep2696 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %609
   store <4 x float> %607, ptr %gep2696, align 1
   %610 = shufflevector <16 x float> %566, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %611 = or disjoint i64 %.223112765, 30
   %612 = mul nsw i64 %611, %9
-  %gep2698 = getelementptr float, ptr %invariant.gep2637, i64 %612
+  %gep2698 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %612
   store <4 x float> %610, ptr %gep2698, align 1
   %613 = shufflevector <16 x float> %567, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %614 = or disjoint i64 %.223112765, 31
   %615 = mul nsw i64 %614, %9
-  %gep2700 = getelementptr float, ptr %invariant.gep2637, i64 %615
+  %gep2700 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %615
   store <4 x float> %613, ptr %gep2700, align 1
   %616 = shufflevector <16 x float> %.02386.lcssa, <16 x float> %.02395.lcssa, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %617 = shufflevector <16 x float> %.02386.lcssa, <16 x float> %.02395.lcssa, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1013,82 +1013,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %630 = shufflevector <16 x float> %626, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %631 = or disjoint i64 %.223112765, 32
   %632 = mul nsw i64 %631, %9
-  %gep2702 = getelementptr float, ptr %invariant.gep2637, i64 %632
+  %gep2702 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %632
   store <4 x float> %630, ptr %gep2702, align 1
   %633 = shufflevector <16 x float> %627, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %634 = or disjoint i64 %.223112765, 33
   %635 = mul nsw i64 %634, %9
-  %gep2704 = getelementptr float, ptr %invariant.gep2637, i64 %635
+  %gep2704 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %635
   store <4 x float> %633, ptr %gep2704, align 1
   %636 = shufflevector <16 x float> %628, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %637 = or disjoint i64 %.223112765, 34
   %638 = mul nsw i64 %637, %9
-  %gep2706 = getelementptr float, ptr %invariant.gep2637, i64 %638
+  %gep2706 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %638
   store <4 x float> %636, ptr %gep2706, align 1
   %639 = shufflevector <16 x float> %629, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %640 = or disjoint i64 %.223112765, 35
   %641 = mul nsw i64 %640, %9
-  %gep2708 = getelementptr float, ptr %invariant.gep2637, i64 %641
+  %gep2708 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %641
   store <4 x float> %639, ptr %gep2708, align 1
   %642 = shufflevector <16 x float> %626, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %643 = or disjoint i64 %.223112765, 36
   %644 = mul nsw i64 %643, %9
-  %gep2710 = getelementptr float, ptr %invariant.gep2637, i64 %644
+  %gep2710 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %644
   store <4 x float> %642, ptr %gep2710, align 1
   %645 = shufflevector <16 x float> %627, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %646 = or disjoint i64 %.223112765, 37
   %647 = mul nsw i64 %646, %9
-  %gep2712 = getelementptr float, ptr %invariant.gep2637, i64 %647
+  %gep2712 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %647
   store <4 x float> %645, ptr %gep2712, align 1
   %648 = shufflevector <16 x float> %628, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %649 = or disjoint i64 %.223112765, 38
   %650 = mul nsw i64 %649, %9
-  %gep2714 = getelementptr float, ptr %invariant.gep2637, i64 %650
+  %gep2714 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %650
   store <4 x float> %648, ptr %gep2714, align 1
   %651 = shufflevector <16 x float> %629, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %652 = or disjoint i64 %.223112765, 39
   %653 = mul nsw i64 %652, %9
-  %gep2716 = getelementptr float, ptr %invariant.gep2637, i64 %653
+  %gep2716 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %653
   store <4 x float> %651, ptr %gep2716, align 1
   %654 = shufflevector <16 x float> %626, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %655 = or disjoint i64 %.223112765, 40
   %656 = mul nsw i64 %655, %9
-  %gep2718 = getelementptr float, ptr %invariant.gep2637, i64 %656
+  %gep2718 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %656
   store <4 x float> %654, ptr %gep2718, align 1
   %657 = shufflevector <16 x float> %627, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %658 = or disjoint i64 %.223112765, 41
   %659 = mul nsw i64 %658, %9
-  %gep2720 = getelementptr float, ptr %invariant.gep2637, i64 %659
+  %gep2720 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %659
   store <4 x float> %657, ptr %gep2720, align 1
   %660 = shufflevector <16 x float> %628, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %661 = or disjoint i64 %.223112765, 42
   %662 = mul nsw i64 %661, %9
-  %gep2722 = getelementptr float, ptr %invariant.gep2637, i64 %662
+  %gep2722 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %662
   store <4 x float> %660, ptr %gep2722, align 1
   %663 = shufflevector <16 x float> %629, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %664 = or disjoint i64 %.223112765, 43
   %665 = mul nsw i64 %664, %9
-  %gep2724 = getelementptr float, ptr %invariant.gep2637, i64 %665
+  %gep2724 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %665
   store <4 x float> %663, ptr %gep2724, align 1
   %666 = shufflevector <16 x float> %626, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %667 = or disjoint i64 %.223112765, 44
   %668 = mul nsw i64 %667, %9
-  %gep2726 = getelementptr float, ptr %invariant.gep2637, i64 %668
+  %gep2726 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %668
   store <4 x float> %666, ptr %gep2726, align 1
   %669 = shufflevector <16 x float> %627, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %670 = or disjoint i64 %.223112765, 45
   %671 = mul nsw i64 %670, %9
-  %gep2728 = getelementptr float, ptr %invariant.gep2637, i64 %671
+  %gep2728 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %671
   store <4 x float> %669, ptr %gep2728, align 1
   %672 = shufflevector <16 x float> %628, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %673 = or disjoint i64 %.223112765, 46
   %674 = mul nsw i64 %673, %9
-  %gep2730 = getelementptr float, ptr %invariant.gep2637, i64 %674
+  %gep2730 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %674
   store <4 x float> %672, ptr %gep2730, align 1
   %675 = shufflevector <16 x float> %629, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %676 = or disjoint i64 %.223112765, 47
   %677 = mul nsw i64 %676, %9
-  %gep2732 = getelementptr float, ptr %invariant.gep2637, i64 %677
+  %gep2732 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %677
   store <4 x float> %675, ptr %gep2732, align 1
   %678 = shufflevector <16 x float> %.02398.lcssa, <16 x float> %.02399.lcssa, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %679 = shufflevector <16 x float> %.02398.lcssa, <16 x float> %.02399.lcssa, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1107,82 +1107,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %692 = shufflevector <16 x float> %688, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %693 = or disjoint i64 %.223112765, 48
   %694 = mul nsw i64 %693, %9
-  %gep2734 = getelementptr float, ptr %invariant.gep2637, i64 %694
+  %gep2734 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %694
   store <4 x float> %692, ptr %gep2734, align 1
   %695 = shufflevector <16 x float> %689, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %696 = or disjoint i64 %.223112765, 49
   %697 = mul nsw i64 %696, %9
-  %gep2736 = getelementptr float, ptr %invariant.gep2637, i64 %697
+  %gep2736 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %697
   store <4 x float> %695, ptr %gep2736, align 1
   %698 = shufflevector <16 x float> %690, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %699 = or disjoint i64 %.223112765, 50
   %700 = mul nsw i64 %699, %9
-  %gep2738 = getelementptr float, ptr %invariant.gep2637, i64 %700
+  %gep2738 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %700
   store <4 x float> %698, ptr %gep2738, align 1
   %701 = shufflevector <16 x float> %691, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %702 = or disjoint i64 %.223112765, 51
   %703 = mul nsw i64 %702, %9
-  %gep2740 = getelementptr float, ptr %invariant.gep2637, i64 %703
+  %gep2740 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %703
   store <4 x float> %701, ptr %gep2740, align 1
   %704 = shufflevector <16 x float> %688, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %705 = or disjoint i64 %.223112765, 52
   %706 = mul nsw i64 %705, %9
-  %gep2742 = getelementptr float, ptr %invariant.gep2637, i64 %706
+  %gep2742 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %706
   store <4 x float> %704, ptr %gep2742, align 1
   %707 = shufflevector <16 x float> %689, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %708 = or disjoint i64 %.223112765, 53
   %709 = mul nsw i64 %708, %9
-  %gep2744 = getelementptr float, ptr %invariant.gep2637, i64 %709
+  %gep2744 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %709
   store <4 x float> %707, ptr %gep2744, align 1
   %710 = shufflevector <16 x float> %690, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %711 = or disjoint i64 %.223112765, 54
   %712 = mul nsw i64 %711, %9
-  %gep2746 = getelementptr float, ptr %invariant.gep2637, i64 %712
+  %gep2746 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %712
   store <4 x float> %710, ptr %gep2746, align 1
   %713 = shufflevector <16 x float> %691, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %714 = or disjoint i64 %.223112765, 55
   %715 = mul nsw i64 %714, %9
-  %gep2748 = getelementptr float, ptr %invariant.gep2637, i64 %715
+  %gep2748 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %715
   store <4 x float> %713, ptr %gep2748, align 1
   %716 = shufflevector <16 x float> %688, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %717 = or disjoint i64 %.223112765, 56
   %718 = mul nsw i64 %717, %9
-  %gep2750 = getelementptr float, ptr %invariant.gep2637, i64 %718
+  %gep2750 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %718
   store <4 x float> %716, ptr %gep2750, align 1
   %719 = shufflevector <16 x float> %689, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %720 = or disjoint i64 %.223112765, 57
   %721 = mul nsw i64 %720, %9
-  %gep2752 = getelementptr float, ptr %invariant.gep2637, i64 %721
+  %gep2752 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %721
   store <4 x float> %719, ptr %gep2752, align 1
   %722 = shufflevector <16 x float> %690, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %723 = or disjoint i64 %.223112765, 58
   %724 = mul nsw i64 %723, %9
-  %gep2754 = getelementptr float, ptr %invariant.gep2637, i64 %724
+  %gep2754 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %724
   store <4 x float> %722, ptr %gep2754, align 1
   %725 = shufflevector <16 x float> %691, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %726 = or disjoint i64 %.223112765, 59
   %727 = mul nsw i64 %726, %9
-  %gep2756 = getelementptr float, ptr %invariant.gep2637, i64 %727
+  %gep2756 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %727
   store <4 x float> %725, ptr %gep2756, align 1
   %728 = shufflevector <16 x float> %688, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %729 = or disjoint i64 %.223112765, 60
   %730 = mul nsw i64 %729, %9
-  %gep2758 = getelementptr float, ptr %invariant.gep2637, i64 %730
+  %gep2758 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %730
   store <4 x float> %728, ptr %gep2758, align 1
   %731 = shufflevector <16 x float> %689, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %732 = or disjoint i64 %.223112765, 61
   %733 = mul nsw i64 %732, %9
-  %gep2760 = getelementptr float, ptr %invariant.gep2637, i64 %733
+  %gep2760 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %733
   store <4 x float> %731, ptr %gep2760, align 1
   %734 = shufflevector <16 x float> %690, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %735 = or disjoint i64 %.223112765, 62
   %736 = mul nsw i64 %735, %9
-  %gep2762 = getelementptr float, ptr %invariant.gep2637, i64 %736
+  %gep2762 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %736
   store <4 x float> %734, ptr %gep2762, align 1
   %737 = shufflevector <16 x float> %691, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %738 = or disjoint i64 %.223112765, 63
   %739 = mul nsw i64 %738, %9
-  %gep2764 = getelementptr float, ptr %invariant.gep2637, i64 %739
+  %gep2764 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %739
   store <4 x float> %737, ptr %gep2764, align 1
   %740 = add nuw nsw i64 %.223112765, 64
   %741 = icmp slt i64 %740, %15
@@ -1205,7 +1205,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2432:                                   ; preds = %.preheader2432.lr.ph, %._crit_edge2779
   %.323122852 = phi i64 [ %.22311.lcssa, %.preheader2432.lr.ph ], [ %903, %._crit_edge2779 ]
-  %invariant.gep2767 = getelementptr float, ptr %6, i64 %.323122852
+  %invariant.gep2767 = getelementptr [4 x i8], ptr %6, i64 %.323122852
   br i1 %39, label %.lr.ph2778, label %._crit_edge2779
 
 .lr.ph2778:                                       ; preds = %.preheader2432, %.lr.ph2778
@@ -1218,25 +1218,25 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.024072771 = phi <16 x float> [ %776, %.lr.ph2778 ], [ zeroinitializer, %.preheader2432 ]
   %.024082770 = phi <16 x float> [ %777, %.lr.ph2778 ], [ zeroinitializer, %.preheader2432 ]
   %.024092769 = phi <16 x float> [ %778, %.lr.ph2778 ], [ zeroinitializer, %.preheader2432 ]
-  %750 = getelementptr float, ptr %3, i64 %.323192777
-  %751 = getelementptr float, ptr %750, i64 %444
+  %750 = getelementptr [4 x i8], ptr %3, i64 %.323192777
+  %751 = getelementptr [4 x i8], ptr %750, i64 %444
   %752 = load float, ptr %751, align 1, !tbaa !3
   %753 = insertelement <4 x float> poison, float %752, i64 0
   %754 = shufflevector <4 x float> %753, <4 x float> poison, <16 x i32> zeroinitializer
-  %755 = getelementptr float, ptr %750, i64 %446
+  %755 = getelementptr [4 x i8], ptr %750, i64 %446
   %756 = load float, ptr %755, align 1, !tbaa !3
   %757 = insertelement <4 x float> poison, float %756, i64 0
   %758 = shufflevector <4 x float> %757, <4 x float> poison, <16 x i32> zeroinitializer
-  %759 = getelementptr float, ptr %750, i64 %448
+  %759 = getelementptr [4 x i8], ptr %750, i64 %448
   %760 = load float, ptr %759, align 1, !tbaa !3
   %761 = insertelement <4 x float> poison, float %760, i64 0
   %762 = shufflevector <4 x float> %761, <4 x float> poison, <16 x i32> zeroinitializer
-  %763 = getelementptr float, ptr %750, i64 %450
+  %763 = getelementptr [4 x i8], ptr %750, i64 %450
   %764 = load float, ptr %763, align 1, !tbaa !3
   %765 = insertelement <4 x float> poison, float %764, i64 0
   %766 = shufflevector <4 x float> %765, <4 x float> poison, <16 x i32> zeroinitializer
   %767 = mul nsw i64 %.323192777, %7
-  %gep2768 = getelementptr float, ptr %invariant.gep2767, i64 %767
+  %gep2768 = getelementptr [4 x i8], ptr %invariant.gep2767, i64 %767
   %768 = load <16 x float>, ptr %gep2768, align 1, !tbaa !3
   %769 = getelementptr i8, ptr %gep2768, i64 64
   %770 = load <16 x float>, ptr %769, align 1, !tbaa !3
@@ -1277,82 +1277,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %793 = fmul <16 x float> %18, %789
   %794 = shufflevector <16 x float> %790, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %795 = mul nsw i64 %.323122852, %9
-  %gep2789 = getelementptr float, ptr %invariant.gep2637, i64 %795
+  %gep2789 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %795
   store <4 x float> %794, ptr %gep2789, align 1
   %796 = shufflevector <16 x float> %791, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %797 = add nuw nsw i64 %.323122852, 1
   %798 = mul nsw i64 %797, %9
-  %gep2791 = getelementptr float, ptr %invariant.gep2637, i64 %798
+  %gep2791 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %798
   store <4 x float> %796, ptr %gep2791, align 1
   %799 = shufflevector <16 x float> %792, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %800 = add nuw nsw i64 %.323122852, 2
   %801 = mul nsw i64 %800, %9
-  %gep2793 = getelementptr float, ptr %invariant.gep2637, i64 %801
+  %gep2793 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %801
   store <4 x float> %799, ptr %gep2793, align 1
   %802 = shufflevector <16 x float> %793, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %803 = add nuw nsw i64 %.323122852, 3
   %804 = mul nsw i64 %803, %9
-  %gep2795 = getelementptr float, ptr %invariant.gep2637, i64 %804
+  %gep2795 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %804
   store <4 x float> %802, ptr %gep2795, align 1
   %805 = shufflevector <16 x float> %790, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %806 = add nuw nsw i64 %.323122852, 4
   %807 = mul nsw i64 %806, %9
-  %gep2797 = getelementptr float, ptr %invariant.gep2637, i64 %807
+  %gep2797 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %807
   store <4 x float> %805, ptr %gep2797, align 1
   %808 = shufflevector <16 x float> %791, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %809 = add nuw nsw i64 %.323122852, 5
   %810 = mul nsw i64 %809, %9
-  %gep2799 = getelementptr float, ptr %invariant.gep2637, i64 %810
+  %gep2799 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %810
   store <4 x float> %808, ptr %gep2799, align 1
   %811 = shufflevector <16 x float> %792, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %812 = add nuw nsw i64 %.323122852, 6
   %813 = mul nsw i64 %812, %9
-  %gep2801 = getelementptr float, ptr %invariant.gep2637, i64 %813
+  %gep2801 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %813
   store <4 x float> %811, ptr %gep2801, align 1
   %814 = shufflevector <16 x float> %793, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %815 = add nuw nsw i64 %.323122852, 7
   %816 = mul nsw i64 %815, %9
-  %gep2803 = getelementptr float, ptr %invariant.gep2637, i64 %816
+  %gep2803 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %816
   store <4 x float> %814, ptr %gep2803, align 1
   %817 = shufflevector <16 x float> %790, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %818 = add nuw nsw i64 %.323122852, 8
   %819 = mul nsw i64 %818, %9
-  %gep2805 = getelementptr float, ptr %invariant.gep2637, i64 %819
+  %gep2805 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %819
   store <4 x float> %817, ptr %gep2805, align 1
   %820 = shufflevector <16 x float> %791, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %821 = add nuw nsw i64 %.323122852, 9
   %822 = mul nsw i64 %821, %9
-  %gep2807 = getelementptr float, ptr %invariant.gep2637, i64 %822
+  %gep2807 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %822
   store <4 x float> %820, ptr %gep2807, align 1
   %823 = shufflevector <16 x float> %792, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %824 = add nuw nsw i64 %.323122852, 10
   %825 = mul nsw i64 %824, %9
-  %gep2809 = getelementptr float, ptr %invariant.gep2637, i64 %825
+  %gep2809 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %825
   store <4 x float> %823, ptr %gep2809, align 1
   %826 = shufflevector <16 x float> %793, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %827 = add nuw nsw i64 %.323122852, 11
   %828 = mul nsw i64 %827, %9
-  %gep2811 = getelementptr float, ptr %invariant.gep2637, i64 %828
+  %gep2811 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %828
   store <4 x float> %826, ptr %gep2811, align 1
   %829 = shufflevector <16 x float> %790, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %830 = add nuw nsw i64 %.323122852, 12
   %831 = mul nsw i64 %830, %9
-  %gep2813 = getelementptr float, ptr %invariant.gep2637, i64 %831
+  %gep2813 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %831
   store <4 x float> %829, ptr %gep2813, align 1
   %832 = shufflevector <16 x float> %791, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %833 = add nuw nsw i64 %.323122852, 13
   %834 = mul nsw i64 %833, %9
-  %gep2815 = getelementptr float, ptr %invariant.gep2637, i64 %834
+  %gep2815 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %834
   store <4 x float> %832, ptr %gep2815, align 1
   %835 = shufflevector <16 x float> %792, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %836 = add nuw nsw i64 %.323122852, 14
   %837 = mul nsw i64 %836, %9
-  %gep2817 = getelementptr float, ptr %invariant.gep2637, i64 %837
+  %gep2817 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %837
   store <4 x float> %835, ptr %gep2817, align 1
   %838 = shufflevector <16 x float> %793, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %839 = add nuw nsw i64 %.323122852, 15
   %840 = mul nsw i64 %839, %9
-  %gep2819 = getelementptr float, ptr %invariant.gep2637, i64 %840
+  %gep2819 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %840
   store <4 x float> %838, ptr %gep2819, align 1
   %841 = shufflevector <16 x float> %.02406.lcssa, <16 x float> %.02407.lcssa, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %842 = shufflevector <16 x float> %.02406.lcssa, <16 x float> %.02407.lcssa, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1371,82 +1371,82 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %855 = shufflevector <16 x float> %851, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %856 = add nuw nsw i64 %.323122852, 16
   %857 = mul nsw i64 %856, %9
-  %gep2821 = getelementptr float, ptr %invariant.gep2637, i64 %857
+  %gep2821 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %857
   store <4 x float> %855, ptr %gep2821, align 1
   %858 = shufflevector <16 x float> %852, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %859 = add nuw nsw i64 %.323122852, 17
   %860 = mul nsw i64 %859, %9
-  %gep2823 = getelementptr float, ptr %invariant.gep2637, i64 %860
+  %gep2823 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %860
   store <4 x float> %858, ptr %gep2823, align 1
   %861 = shufflevector <16 x float> %853, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %862 = add nuw nsw i64 %.323122852, 18
   %863 = mul nsw i64 %862, %9
-  %gep2825 = getelementptr float, ptr %invariant.gep2637, i64 %863
+  %gep2825 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %863
   store <4 x float> %861, ptr %gep2825, align 1
   %864 = shufflevector <16 x float> %854, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %865 = add nuw nsw i64 %.323122852, 19
   %866 = mul nsw i64 %865, %9
-  %gep2827 = getelementptr float, ptr %invariant.gep2637, i64 %866
+  %gep2827 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %866
   store <4 x float> %864, ptr %gep2827, align 1
   %867 = shufflevector <16 x float> %851, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %868 = add nuw nsw i64 %.323122852, 20
   %869 = mul nsw i64 %868, %9
-  %gep2829 = getelementptr float, ptr %invariant.gep2637, i64 %869
+  %gep2829 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %869
   store <4 x float> %867, ptr %gep2829, align 1
   %870 = shufflevector <16 x float> %852, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %871 = add nuw nsw i64 %.323122852, 21
   %872 = mul nsw i64 %871, %9
-  %gep2831 = getelementptr float, ptr %invariant.gep2637, i64 %872
+  %gep2831 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %872
   store <4 x float> %870, ptr %gep2831, align 1
   %873 = shufflevector <16 x float> %853, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %874 = add nuw nsw i64 %.323122852, 22
   %875 = mul nsw i64 %874, %9
-  %gep2833 = getelementptr float, ptr %invariant.gep2637, i64 %875
+  %gep2833 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %875
   store <4 x float> %873, ptr %gep2833, align 1
   %876 = shufflevector <16 x float> %854, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %877 = add nuw nsw i64 %.323122852, 23
   %878 = mul nsw i64 %877, %9
-  %gep2835 = getelementptr float, ptr %invariant.gep2637, i64 %878
+  %gep2835 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %878
   store <4 x float> %876, ptr %gep2835, align 1
   %879 = shufflevector <16 x float> %851, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %880 = add nuw nsw i64 %.323122852, 24
   %881 = mul nsw i64 %880, %9
-  %gep2837 = getelementptr float, ptr %invariant.gep2637, i64 %881
+  %gep2837 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %881
   store <4 x float> %879, ptr %gep2837, align 1
   %882 = shufflevector <16 x float> %852, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %883 = add nuw nsw i64 %.323122852, 25
   %884 = mul nsw i64 %883, %9
-  %gep2839 = getelementptr float, ptr %invariant.gep2637, i64 %884
+  %gep2839 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %884
   store <4 x float> %882, ptr %gep2839, align 1
   %885 = shufflevector <16 x float> %853, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %886 = add nuw nsw i64 %.323122852, 26
   %887 = mul nsw i64 %886, %9
-  %gep2841 = getelementptr float, ptr %invariant.gep2637, i64 %887
+  %gep2841 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %887
   store <4 x float> %885, ptr %gep2841, align 1
   %888 = shufflevector <16 x float> %854, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %889 = add nuw nsw i64 %.323122852, 27
   %890 = mul nsw i64 %889, %9
-  %gep2843 = getelementptr float, ptr %invariant.gep2637, i64 %890
+  %gep2843 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %890
   store <4 x float> %888, ptr %gep2843, align 1
   %891 = shufflevector <16 x float> %851, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %892 = add nuw nsw i64 %.323122852, 28
   %893 = mul nsw i64 %892, %9
-  %gep2845 = getelementptr float, ptr %invariant.gep2637, i64 %893
+  %gep2845 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %893
   store <4 x float> %891, ptr %gep2845, align 1
   %894 = shufflevector <16 x float> %852, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %895 = add nuw nsw i64 %.323122852, 29
   %896 = mul nsw i64 %895, %9
-  %gep2847 = getelementptr float, ptr %invariant.gep2637, i64 %896
+  %gep2847 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %896
   store <4 x float> %894, ptr %gep2847, align 1
   %897 = shufflevector <16 x float> %853, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %898 = add nuw nsw i64 %.323122852, 30
   %899 = mul nsw i64 %898, %9
-  %gep2849 = getelementptr float, ptr %invariant.gep2637, i64 %899
+  %gep2849 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %899
   store <4 x float> %897, ptr %gep2849, align 1
   %900 = shufflevector <16 x float> %854, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %901 = add nuw nsw i64 %.323122852, 31
   %902 = mul nsw i64 %901, %9
-  %gep2851 = getelementptr float, ptr %invariant.gep2637, i64 %902
+  %gep2851 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %902
   store <4 x float> %900, ptr %gep2851, align 1
   %903 = add nuw nsw i64 %.323122852, 32
   %904 = icmp slt i64 %903, %16
@@ -1465,7 +1465,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %911 = xor i16 %910, -1
   %.12394 = select i1 %907, i16 %911, i16 %.023932900
   %.12392 = select i1 %907, i32 %908, i32 %.023912901
-  %invariant.gep2854 = getelementptr float, ptr %6, i64 %.42902
+  %invariant.gep2854 = getelementptr [4 x i8], ptr %6, i64 %.42902
   br i1 %39, label %.lr.ph2862, label %._crit_edge2863
 
 .lr.ph2862:                                       ; preds = %905
@@ -1478,25 +1478,25 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023882858 = phi <16 x float> [ zeroinitializer, %.lr.ph2862 ], [ %935, %913 ]
   %.023892857 = phi <16 x float> [ zeroinitializer, %.lr.ph2862 ], [ %934, %913 ]
   %.023902856 = phi <16 x float> [ zeroinitializer, %.lr.ph2862 ], [ %933, %913 ]
-  %914 = getelementptr float, ptr %3, i64 %.423202860
-  %915 = getelementptr float, ptr %914, i64 %743
+  %914 = getelementptr [4 x i8], ptr %3, i64 %.423202860
+  %915 = getelementptr [4 x i8], ptr %914, i64 %743
   %916 = load float, ptr %915, align 1, !tbaa !3
   %917 = insertelement <4 x float> poison, float %916, i64 0
   %918 = shufflevector <4 x float> %917, <4 x float> poison, <16 x i32> zeroinitializer
-  %919 = getelementptr float, ptr %914, i64 %745
+  %919 = getelementptr [4 x i8], ptr %914, i64 %745
   %920 = load float, ptr %919, align 1, !tbaa !3
   %921 = insertelement <4 x float> poison, float %920, i64 0
   %922 = shufflevector <4 x float> %921, <4 x float> poison, <16 x i32> zeroinitializer
-  %923 = getelementptr float, ptr %914, i64 %747
+  %923 = getelementptr [4 x i8], ptr %914, i64 %747
   %924 = load float, ptr %923, align 1, !tbaa !3
   %925 = insertelement <4 x float> poison, float %924, i64 0
   %926 = shufflevector <4 x float> %925, <4 x float> poison, <16 x i32> zeroinitializer
-  %927 = getelementptr float, ptr %914, i64 %749
+  %927 = getelementptr [4 x i8], ptr %914, i64 %749
   %928 = load float, ptr %927, align 1, !tbaa !3
   %929 = insertelement <4 x float> poison, float %928, i64 0
   %930 = shufflevector <4 x float> %929, <4 x float> poison, <16 x i32> zeroinitializer
   %931 = mul nsw i64 %.423202860, %7
-  %gep2855 = getelementptr float, ptr %invariant.gep2854, i64 %931
+  %gep2855 = getelementptr [4 x i8], ptr %invariant.gep2854, i64 %931
   %932 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep2855, <16 x i1> %912, <16 x float> zeroinitializer)
   %933 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %918, <16 x float> %932, <16 x float> %.023902856)
   %934 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %922, <16 x float> %932, <16 x float> %.023892857)
@@ -1548,7 +1548,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %953 = shufflevector <16 x float> %951, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %954 = add nuw nsw i64 %.42902, 15
   %955 = mul nsw i64 %954, %9
-  %gep2869 = getelementptr float, ptr %invariant.gep2637, i64 %955
+  %gep2869 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %955
   store <4 x float> %953, ptr %gep2869, align 1
   br label %956
 
@@ -1556,7 +1556,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %957 = shufflevector <16 x float> %950, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %958 = add nuw nsw i64 %.42902, 14
   %959 = mul nsw i64 %958, %9
-  %gep2871 = getelementptr float, ptr %invariant.gep2637, i64 %959
+  %gep2871 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %959
   store <4 x float> %957, ptr %gep2871, align 1
   br label %960
 
@@ -1564,7 +1564,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %961 = shufflevector <16 x float> %949, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %962 = add nuw nsw i64 %.42902, 13
   %963 = mul nsw i64 %962, %9
-  %gep2873 = getelementptr float, ptr %invariant.gep2637, i64 %963
+  %gep2873 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %963
   store <4 x float> %961, ptr %gep2873, align 1
   br label %964
 
@@ -1572,7 +1572,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %965 = shufflevector <16 x float> %948, <16 x float> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   %966 = add nuw nsw i64 %.42902, 12
   %967 = mul nsw i64 %966, %9
-  %gep2875 = getelementptr float, ptr %invariant.gep2637, i64 %967
+  %gep2875 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %967
   store <4 x float> %965, ptr %gep2875, align 1
   br label %968
 
@@ -1580,7 +1580,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %969 = shufflevector <16 x float> %951, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %970 = add nuw nsw i64 %.42902, 11
   %971 = mul nsw i64 %970, %9
-  %gep2877 = getelementptr float, ptr %invariant.gep2637, i64 %971
+  %gep2877 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %971
   store <4 x float> %969, ptr %gep2877, align 1
   br label %972
 
@@ -1588,7 +1588,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %973 = shufflevector <16 x float> %950, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %974 = add nuw nsw i64 %.42902, 10
   %975 = mul nsw i64 %974, %9
-  %gep2879 = getelementptr float, ptr %invariant.gep2637, i64 %975
+  %gep2879 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %975
   store <4 x float> %973, ptr %gep2879, align 1
   br label %976
 
@@ -1596,7 +1596,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %977 = shufflevector <16 x float> %949, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %978 = add nuw nsw i64 %.42902, 9
   %979 = mul nsw i64 %978, %9
-  %gep2881 = getelementptr float, ptr %invariant.gep2637, i64 %979
+  %gep2881 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %979
   store <4 x float> %977, ptr %gep2881, align 1
   br label %980
 
@@ -1604,7 +1604,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %981 = shufflevector <16 x float> %948, <16 x float> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
   %982 = add nuw nsw i64 %.42902, 8
   %983 = mul nsw i64 %982, %9
-  %gep2883 = getelementptr float, ptr %invariant.gep2637, i64 %983
+  %gep2883 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %983
   store <4 x float> %981, ptr %gep2883, align 1
   br label %984
 
@@ -1612,7 +1612,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %985 = shufflevector <16 x float> %951, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %986 = add nuw nsw i64 %.42902, 7
   %987 = mul nsw i64 %986, %9
-  %gep2885 = getelementptr float, ptr %invariant.gep2637, i64 %987
+  %gep2885 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %987
   store <4 x float> %985, ptr %gep2885, align 1
   br label %988
 
@@ -1620,7 +1620,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %989 = shufflevector <16 x float> %950, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %990 = add nuw nsw i64 %.42902, 6
   %991 = mul nsw i64 %990, %9
-  %gep2887 = getelementptr float, ptr %invariant.gep2637, i64 %991
+  %gep2887 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %991
   store <4 x float> %989, ptr %gep2887, align 1
   br label %992
 
@@ -1628,7 +1628,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %993 = shufflevector <16 x float> %949, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %994 = add nuw nsw i64 %.42902, 5
   %995 = mul nsw i64 %994, %9
-  %gep2889 = getelementptr float, ptr %invariant.gep2637, i64 %995
+  %gep2889 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %995
   store <4 x float> %993, ptr %gep2889, align 1
   br label %996
 
@@ -1636,7 +1636,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %997 = shufflevector <16 x float> %948, <16 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %998 = add nuw nsw i64 %.42902, 4
   %999 = mul nsw i64 %998, %9
-  %gep2891 = getelementptr float, ptr %invariant.gep2637, i64 %999
+  %gep2891 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %999
   store <4 x float> %997, ptr %gep2891, align 1
   br label %1000
 
@@ -1644,7 +1644,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1001 = shufflevector <16 x float> %951, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %1002 = add nuw nsw i64 %.42902, 3
   %1003 = mul nsw i64 %1002, %9
-  %gep2893 = getelementptr float, ptr %invariant.gep2637, i64 %1003
+  %gep2893 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %1003
   store <4 x float> %1001, ptr %gep2893, align 1
   br label %1004
 
@@ -1652,7 +1652,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1005 = shufflevector <16 x float> %950, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %1006 = add nuw nsw i64 %.42902, 2
   %1007 = mul nsw i64 %1006, %9
-  %gep2895 = getelementptr float, ptr %invariant.gep2637, i64 %1007
+  %gep2895 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %1007
   store <4 x float> %1005, ptr %gep2895, align 1
   br label %1008
 
@@ -1660,14 +1660,14 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1009 = shufflevector <16 x float> %949, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %1010 = add nuw nsw i64 %.42902, 1
   %1011 = mul nsw i64 %1010, %9
-  %gep2897 = getelementptr float, ptr %invariant.gep2637, i64 %1011
+  %gep2897 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %1011
   store <4 x float> %1009, ptr %gep2897, align 1
   br label %1012
 
 1012:                                             ; preds = %1008, %._crit_edge2863
   %1013 = shufflevector <16 x float> %948, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %1014 = mul nsw i64 %.42902, %9
-  %gep2899 = getelementptr float, ptr %invariant.gep2637, i64 %1014
+  %gep2899 = getelementptr [4 x i8], ptr %invariant.gep2637, i64 %1014
   store <4 x float> %1013, ptr %gep2899, align 1
   br label %1015
 
@@ -1706,7 +1706,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %indvars.iv = phi i64 [ 0, %1021 ], [ %indvars.iv.next, %1029 ]
   %1030 = trunc nuw nsw i64 %indvars.iv to i32
   %1031 = mul i32 %1030, %1022
-  %1032 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %1031, ptr %1032, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond3126.not = icmp eq i64 %indvars.iv.next, 16
@@ -1714,7 +1714,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2431:                                   ; preds = %.preheader2431.lr.ph, %._crit_edge2974
   %.22975 = phi i64 [ %.1.lcssa, %.preheader2431.lr.ph ], [ %1152, %._crit_edge2974 ]
-  %invariant.gep2930 = getelementptr float, ptr %8, i64 %.22975
+  %invariant.gep2930 = getelementptr [4 x i8], ptr %8, i64 %.22975
   br i1 %1026, label %.preheader2428.lr.ph, label %.preheader2430
 
 .preheader2428.lr.ph:                             ; preds = %.preheader2431
@@ -1748,7 +1748,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2428:                                   ; preds = %.preheader2428.lr.ph, %._crit_edge2921
   %.52938 = phi i64 [ 0, %.preheader2428.lr.ph ], [ %1090, %._crit_edge2921 ]
-  %invariant.gep2909 = getelementptr float, ptr %6, i64 %.52938
+  %invariant.gep2909 = getelementptr [4 x i8], ptr %6, i64 %.52938
   br i1 %1027, label %.lr.ph2920, label %._crit_edge2921
 
 .lr.ph2920:                                       ; preds = %.preheader2428, %.lr.ph2920
@@ -1761,17 +1761,17 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023682913 = phi <16 x float> [ %1064, %.lr.ph2920 ], [ zeroinitializer, %.preheader2428 ]
   %.023692912 = phi <16 x float> [ %1063, %.lr.ph2920 ], [ zeroinitializer, %.preheader2428 ]
   %.023702911 = phi <16 x float> [ %1062, %.lr.ph2920 ], [ zeroinitializer, %.preheader2428 ]
-  %1045 = getelementptr float, ptr %3, i64 %.523212919
-  %1046 = getelementptr float, ptr %1045, i64 %1033
+  %1045 = getelementptr [4 x i8], ptr %3, i64 %.523212919
+  %1046 = getelementptr [4 x i8], ptr %1045, i64 %1033
   %1047 = load float, ptr %1046, align 1, !tbaa !3
   %1048 = insertelement <4 x float> poison, float %1047, i64 0
   %1049 = shufflevector <4 x float> %1048, <4 x float> poison, <16 x i32> zeroinitializer
-  %1050 = getelementptr float, ptr %1045, i64 %1035
+  %1050 = getelementptr [4 x i8], ptr %1045, i64 %1035
   %1051 = load float, ptr %1050, align 1, !tbaa !3
   %1052 = insertelement <4 x float> poison, float %1051, i64 0
   %1053 = shufflevector <4 x float> %1052, <4 x float> poison, <16 x i32> zeroinitializer
   %1054 = mul nsw i64 %.523212919, %7
-  %gep2910 = getelementptr float, ptr %invariant.gep2909, i64 %1054
+  %gep2910 = getelementptr [4 x i8], ptr %invariant.gep2909, i64 %1054
   %1055 = load <16 x float>, ptr %gep2910, align 1, !tbaa !3
   %1056 = getelementptr i8, ptr %gep2910, i64 64
   %1057 = load <16 x float>, ptr %1056, align 1, !tbaa !3
@@ -1802,7 +1802,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.02363.lcssa = phi <16 x float> [ zeroinitializer, %.preheader2428 ], [ %1069, %.lr.ph2920 ]
   %1071 = fmul <16 x float> %18, %.02370.lcssa
   %1072 = mul nsw i64 %.52938, %9
-  %gep2931 = getelementptr float, ptr %invariant.gep2930, i64 %1072
+  %gep2931 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1072
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2931, <16 x i1> splat (i1 true), <16 x i32> %1028, <16 x float> %1071, i32 4)
   %1073 = fmul <16 x float> %18, %.02369.lcssa
   %1074 = getelementptr i8, ptr %gep2931, i64 4
@@ -1810,7 +1810,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1075 = fmul <16 x float> %18, %.02368.lcssa
   %1076 = or disjoint i64 %.52938, 16
   %1077 = mul nsw i64 %1076, %9
-  %gep2933 = getelementptr float, ptr %invariant.gep2930, i64 %1077
+  %gep2933 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1077
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2933, <16 x i1> splat (i1 true), <16 x i32> %1028, <16 x float> %1075, i32 4)
   %1078 = fmul <16 x float> %18, %.02367.lcssa
   %1079 = getelementptr i8, ptr %gep2933, i64 4
@@ -1818,7 +1818,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1080 = fmul <16 x float> %18, %.02366.lcssa
   %1081 = or disjoint i64 %.52938, 32
   %1082 = mul nsw i64 %1081, %9
-  %gep2935 = getelementptr float, ptr %invariant.gep2930, i64 %1082
+  %gep2935 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1082
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2935, <16 x i1> splat (i1 true), <16 x i32> %1028, <16 x float> %1080, i32 4)
   %1083 = fmul <16 x float> %18, %.02365.lcssa
   %1084 = getelementptr i8, ptr %gep2935, i64 4
@@ -1826,7 +1826,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1085 = fmul <16 x float> %18, %.02364.lcssa
   %1086 = or disjoint i64 %.52938, 48
   %1087 = mul nsw i64 %1086, %9
-  %gep2937 = getelementptr float, ptr %invariant.gep2930, i64 %1087
+  %gep2937 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1087
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2937, <16 x i1> splat (i1 true), <16 x i32> %1028, <16 x float> %1085, i32 4)
   %1088 = fmul <16 x float> %18, %.02363.lcssa
   %1089 = getelementptr i8, ptr %gep2937, i64 4
@@ -1848,7 +1848,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2427:                                   ; preds = %.preheader2427.lr.ph, %._crit_edge2948
   %.62957 = phi i64 [ %.5.lcssa, %.preheader2427.lr.ph ], [ %1123, %._crit_edge2948 ]
-  %invariant.gep2940 = getelementptr float, ptr %6, i64 %.62957
+  %invariant.gep2940 = getelementptr [4 x i8], ptr %6, i64 %.62957
   br i1 %1027, label %.lr.ph2947, label %._crit_edge2948
 
 .lr.ph2947:                                       ; preds = %.preheader2427, %.lr.ph2947
@@ -1857,17 +1857,17 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023522944 = phi <16 x float> [ %1111, %.lr.ph2947 ], [ zeroinitializer, %.preheader2427 ]
   %.023532943 = phi <16 x float> [ %1110, %.lr.ph2947 ], [ zeroinitializer, %.preheader2427 ]
   %.023542942 = phi <16 x float> [ %1109, %.lr.ph2947 ], [ zeroinitializer, %.preheader2427 ]
-  %1096 = getelementptr float, ptr %3, i64 %.623222946
-  %1097 = getelementptr float, ptr %1096, i64 %1042
+  %1096 = getelementptr [4 x i8], ptr %3, i64 %.623222946
+  %1097 = getelementptr [4 x i8], ptr %1096, i64 %1042
   %1098 = load float, ptr %1097, align 1, !tbaa !3
   %1099 = insertelement <4 x float> poison, float %1098, i64 0
   %1100 = shufflevector <4 x float> %1099, <4 x float> poison, <16 x i32> zeroinitializer
-  %1101 = getelementptr float, ptr %1096, i64 %1044
+  %1101 = getelementptr [4 x i8], ptr %1096, i64 %1044
   %1102 = load float, ptr %1101, align 1, !tbaa !3
   %1103 = insertelement <4 x float> poison, float %1102, i64 0
   %1104 = shufflevector <4 x float> %1103, <4 x float> poison, <16 x i32> zeroinitializer
   %1105 = mul nsw i64 %.623222946, %7
-  %gep2941 = getelementptr float, ptr %invariant.gep2940, i64 %1105
+  %gep2941 = getelementptr [4 x i8], ptr %invariant.gep2940, i64 %1105
   %1106 = load <16 x float>, ptr %gep2941, align 1, !tbaa !3
   %1107 = getelementptr i8, ptr %gep2941, i64 64
   %1108 = load <16 x float>, ptr %1107, align 1, !tbaa !3
@@ -1886,7 +1886,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.02351.lcssa = phi <16 x float> [ zeroinitializer, %.preheader2427 ], [ %1112, %.lr.ph2947 ]
   %1114 = fmul <16 x float> %18, %.02354.lcssa
   %1115 = mul nsw i64 %.62957, %9
-  %gep2954 = getelementptr float, ptr %invariant.gep2930, i64 %1115
+  %gep2954 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1115
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2954, <16 x i1> splat (i1 true), <16 x i32> %1028, <16 x float> %1114, i32 4)
   %1116 = fmul <16 x float> %18, %.02353.lcssa
   %1117 = getelementptr i8, ptr %gep2954, i64 4
@@ -1894,7 +1894,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1118 = fmul <16 x float> %18, %.02352.lcssa
   %1119 = add nuw nsw i64 %.62957, 16
   %1120 = mul nsw i64 %1119, %9
-  %gep2956 = getelementptr float, ptr %invariant.gep2930, i64 %1120
+  %gep2956 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1120
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2956, <16 x i1> splat (i1 true), <16 x i32> %1028, <16 x float> %1118, i32 4)
   %1121 = fmul <16 x float> %18, %.02351.lcssa
   %1122 = getelementptr i8, ptr %gep2956, i64 4
@@ -1913,7 +1913,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1129 = trunc i64 %notmask2419 to i16
   %1130 = xor i16 %1129, -1
   %.12346 = select i1 %1127, i16 %1130, i16 %.023452971
-  %invariant.gep2959 = getelementptr float, ptr %6, i64 %.72972
+  %invariant.gep2959 = getelementptr [4 x i8], ptr %6, i64 %.72972
   %1131 = bitcast i16 %.12346 to <16 x i1>
   br i1 %1027, label %.lr.ph2965, label %._crit_edge2966
 
@@ -1921,17 +1921,17 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.723232963 = phi i64 [ %1145, %.lr.ph2965 ], [ 0, %1125 ]
   %.023432962 = phi <16 x float> [ %1144, %.lr.ph2965 ], [ zeroinitializer, %1125 ]
   %.023442961 = phi <16 x float> [ %1143, %.lr.ph2965 ], [ zeroinitializer, %1125 ]
-  %1132 = getelementptr float, ptr %3, i64 %.723232963
-  %1133 = getelementptr float, ptr %1132, i64 %1093
+  %1132 = getelementptr [4 x i8], ptr %3, i64 %.723232963
+  %1133 = getelementptr [4 x i8], ptr %1132, i64 %1093
   %1134 = load float, ptr %1133, align 1, !tbaa !3
   %1135 = insertelement <4 x float> poison, float %1134, i64 0
   %1136 = shufflevector <4 x float> %1135, <4 x float> poison, <16 x i32> zeroinitializer
-  %1137 = getelementptr float, ptr %1132, i64 %1095
+  %1137 = getelementptr [4 x i8], ptr %1132, i64 %1095
   %1138 = load float, ptr %1137, align 1, !tbaa !3
   %1139 = insertelement <4 x float> poison, float %1138, i64 0
   %1140 = shufflevector <4 x float> %1139, <4 x float> poison, <16 x i32> zeroinitializer
   %1141 = mul nsw i64 %.723232963, %7
-  %gep2960 = getelementptr float, ptr %invariant.gep2959, i64 %1141
+  %gep2960 = getelementptr [4 x i8], ptr %invariant.gep2959, i64 %1141
   %1142 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep2960, <16 x i1> %1131, <16 x float> zeroinitializer)
   %1143 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1136, <16 x float> %1142, <16 x float> %.023442961)
   %1144 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1140, <16 x float> %1142, <16 x float> %.023432962)
@@ -1944,7 +1944,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.02343.lcssa = phi <16 x float> [ zeroinitializer, %1125 ], [ %1144, %.lr.ph2965 ]
   %1146 = fmul <16 x float> %18, %.02344.lcssa
   %1147 = mul nsw i64 %.72972, %9
-  %gep2970 = getelementptr float, ptr %invariant.gep2930, i64 %1147
+  %gep2970 = getelementptr [4 x i8], ptr %invariant.gep2930, i64 %1147
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2970, <16 x i1> %1131, <16 x i32> %1028, <16 x float> %1146, i32 4)
   %1148 = fmul <16 x float> %18, %.02343.lcssa
   %1149 = getelementptr i8, ptr %gep2970, i64 4
@@ -1960,12 +1960,12 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2425:                                   ; preds = %.preheader2425.lr.ph, %._crit_edge3034
   %.33035 = phi i64 [ %.2.lcssa, %.preheader2425.lr.ph ], [ %1224, %._crit_edge3034 ]
-  %invariant.gep2992 = getelementptr float, ptr %8, i64 %.33035
+  %invariant.gep2992 = getelementptr [4 x i8], ptr %8, i64 %.33035
   br i1 %1037, label %.preheader2422.lr.ph, label %.preheader2424
 
 .preheader2422.lr.ph:                             ; preds = %.preheader2425
   %1154 = mul nsw i64 %.33035, %4
-  %invariant.gep2990 = getelementptr float, ptr %3, i64 %1154
+  %invariant.gep2990 = getelementptr [4 x i8], ptr %3, i64 %1154
   br label %.preheader2422
 
 .preheader2424:                                   ; preds = %._crit_edge2985, %.preheader2425
@@ -1975,24 +1975,24 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader.lr.ph:                                 ; preds = %.preheader2424
   %1156 = mul nsw i64 %.33035, %4
-  %invariant.gep3011 = getelementptr float, ptr %3, i64 %1156
+  %invariant.gep3011 = getelementptr [4 x i8], ptr %3, i64 %1156
   br i1 %1038, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge3008.us
   %.93017.us = phi i64 [ %1173, %._crit_edge3008.us ], [ %.8.lcssa, %.preheader.lr.ph ]
-  %invariant.gep3002.us = getelementptr float, ptr %6, i64 %.93017.us
+  %invariant.gep3002.us = getelementptr [4 x i8], ptr %6, i64 %.93017.us
   br label %1157
 
 1157:                                             ; preds = %.preheader.us, %1157
   %.923253006.us = phi i64 [ 0, %.preheader.us ], [ %1167, %1157 ]
   %.023293005.us = phi <16 x float> [ zeroinitializer, %.preheader.us ], [ %1166, %1157 ]
   %.023303004.us = phi <16 x float> [ zeroinitializer, %.preheader.us ], [ %1165, %1157 ]
-  %gep3012.us = getelementptr float, ptr %invariant.gep3011, i64 %.923253006.us
+  %gep3012.us = getelementptr [4 x i8], ptr %invariant.gep3011, i64 %.923253006.us
   %1158 = load float, ptr %gep3012.us, align 1, !tbaa !3
   %1159 = insertelement <4 x float> poison, float %1158, i64 0
   %1160 = shufflevector <4 x float> %1159, <4 x float> poison, <16 x i32> zeroinitializer
   %1161 = mul nsw i64 %.923253006.us, %7
-  %gep3003.us = getelementptr float, ptr %invariant.gep3002.us, i64 %1161
+  %gep3003.us = getelementptr [4 x i8], ptr %invariant.gep3002.us, i64 %1161
   %1162 = load <16 x float>, ptr %gep3003.us, align 1, !tbaa !3
   %1163 = getelementptr i8, ptr %gep3003.us, i64 64
   %1164 = load <16 x float>, ptr %1163, align 1, !tbaa !3
@@ -2005,12 +2005,12 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 ._crit_edge3008.us:                               ; preds = %1157
   %1168 = fmul <16 x float> %18, %1165
   %1169 = mul nsw i64 %.93017.us, %9
-  %gep3014.us = getelementptr float, ptr %invariant.gep2992, i64 %1169
+  %gep3014.us = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1169
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep3014.us, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %1168, i32 4)
   %1170 = fmul <16 x float> %18, %1166
   %1171 = add nuw nsw i64 %.93017.us, 16
   %1172 = mul nsw i64 %1171, %9
-  %gep3016.us = getelementptr float, ptr %invariant.gep2992, i64 %1172
+  %gep3016.us = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1172
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep3016.us, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %1170, i32 4)
   %1173 = add nuw nsw i64 %.93017.us, 32
   %1174 = icmp slt i64 %1173, %16
@@ -2018,7 +2018,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .preheader2422:                                   ; preds = %.preheader2422.lr.ph, %._crit_edge2985
   %.83000 = phi i64 [ 0, %.preheader2422.lr.ph ], [ %1198, %._crit_edge2985 ]
-  %invariant.gep2977 = getelementptr float, ptr %6, i64 %.83000
+  %invariant.gep2977 = getelementptr [4 x i8], ptr %6, i64 %.83000
   br i1 %1038, label %.lr.ph2984, label %._crit_edge2985
 
 .lr.ph2984:                                       ; preds = %.preheader2422, %.lr.ph2984
@@ -2027,12 +2027,12 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.023372981 = phi <16 x float> [ %1188, %.lr.ph2984 ], [ zeroinitializer, %.preheader2422 ]
   %.023382980 = phi <16 x float> [ %1187, %.lr.ph2984 ], [ zeroinitializer, %.preheader2422 ]
   %.023392979 = phi <16 x float> [ %1186, %.lr.ph2984 ], [ zeroinitializer, %.preheader2422 ]
-  %gep2991 = getelementptr float, ptr %invariant.gep2990, i64 %.823242983
+  %gep2991 = getelementptr [4 x i8], ptr %invariant.gep2990, i64 %.823242983
   %1175 = load float, ptr %gep2991, align 1, !tbaa !3
   %1176 = insertelement <4 x float> poison, float %1175, i64 0
   %1177 = shufflevector <4 x float> %1176, <4 x float> poison, <16 x i32> zeroinitializer
   %1178 = mul nsw i64 %.823242983, %7
-  %gep2978 = getelementptr float, ptr %invariant.gep2977, i64 %1178
+  %gep2978 = getelementptr [4 x i8], ptr %invariant.gep2977, i64 %1178
   %1179 = load <16 x float>, ptr %gep2978, align 1, !tbaa !3
   %1180 = getelementptr i8, ptr %gep2978, i64 64
   %1181 = load <16 x float>, ptr %1180, align 1, !tbaa !3
@@ -2061,19 +2061,19 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.pre-phi3135 = phi <16 x float> [ %.pre3134, %._crit_edge2985.loopexit ], [ %1040, %.preheader2422 ]
   %.pre-phi = phi <16 x float> [ %.pre, %._crit_edge2985.loopexit ], [ %1040, %.preheader2422 ]
   %1191 = mul nsw i64 %.83000, %9
-  %gep2993 = getelementptr float, ptr %invariant.gep2992, i64 %1191
+  %gep2993 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1191
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2993, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %.pre-phi, i32 4)
   %1192 = or disjoint i64 %.83000, 16
   %1193 = mul nsw i64 %1192, %9
-  %gep2995 = getelementptr float, ptr %invariant.gep2992, i64 %1193
+  %gep2995 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1193
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2995, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %.pre-phi3135, i32 4)
   %1194 = or disjoint i64 %.83000, 32
   %1195 = mul nsw i64 %1194, %9
-  %gep2997 = getelementptr float, ptr %invariant.gep2992, i64 %1195
+  %gep2997 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1195
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2997, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %.pre-phi3137, i32 4)
   %1196 = or disjoint i64 %.83000, 48
   %1197 = mul nsw i64 %1196, %9
-  %gep2999 = getelementptr float, ptr %invariant.gep2992, i64 %1197
+  %gep2999 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1197
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep2999, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %.pre-phi3139, i32 4)
   %1198 = add nuw nsw i64 %.83000, 64
   %1199 = icmp slt i64 %1198, %15
@@ -2086,17 +2086,17 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 
 .lr.ph3033:                                       ; preds = %.preheader2423
   %1201 = mul nsw i64 %.33035, %4
-  %invariant.gep3027 = getelementptr float, ptr %3, i64 %1201
+  %invariant.gep3027 = getelementptr [4 x i8], ptr %3, i64 %1201
   br label %1207
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.93017 = phi i64 [ %1205, %.preheader ], [ %.8.lcssa, %.preheader.lr.ph ]
   %1202 = mul nsw i64 %.93017, %9
-  %gep3014 = getelementptr float, ptr %invariant.gep2992, i64 %1202
+  %gep3014 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1202
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep3014, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %1040, i32 4)
   %1203 = add nuw nsw i64 %.93017, 16
   %1204 = mul nsw i64 %1203, %9
-  %gep3016 = getelementptr float, ptr %invariant.gep2992, i64 %1204
+  %gep3016 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1204
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep3016, <16 x i1> splat (i1 true), <16 x i32> %1039, <16 x float> %1040, i32 4)
   %1205 = add nuw nsw i64 %.93017, 32
   %1206 = icmp slt i64 %1205, %16
@@ -2112,19 +2112,19 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1211 = trunc i64 %notmask to i16
   %1212 = xor i16 %1211, -1
   %.12315 = select i1 %1209, i16 %1212, i16 %.023143031
-  %invariant.gep3019 = getelementptr float, ptr %6, i64 %.103032
+  %invariant.gep3019 = getelementptr [4 x i8], ptr %6, i64 %.103032
   %1213 = bitcast i16 %.12315 to <16 x i1>
   br i1 %1038, label %.lr.ph3024, label %._crit_edge3025
 
 .lr.ph3024:                                       ; preds = %1207, %.lr.ph3024
   %.023133022 = phi <16 x float> [ %1219, %.lr.ph3024 ], [ zeroinitializer, %1207 ]
   %.1023263021 = phi i64 [ %1220, %.lr.ph3024 ], [ 0, %1207 ]
-  %gep3028 = getelementptr float, ptr %invariant.gep3027, i64 %.1023263021
+  %gep3028 = getelementptr [4 x i8], ptr %invariant.gep3027, i64 %.1023263021
   %1214 = load float, ptr %gep3028, align 1, !tbaa !3
   %1215 = insertelement <4 x float> poison, float %1214, i64 0
   %1216 = shufflevector <4 x float> %1215, <4 x float> poison, <16 x i32> zeroinitializer
   %1217 = mul nsw i64 %.1023263021, %7
-  %gep3020 = getelementptr float, ptr %invariant.gep3019, i64 %1217
+  %gep3020 = getelementptr [4 x i8], ptr %invariant.gep3019, i64 %1217
   %1218 = tail call <16 x float> @llvm.masked.load.v16f32.p0(ptr align 1 %gep3020, <16 x i1> %1213, <16 x float> zeroinitializer)
   %1219 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1216, <16 x float> %1218, <16 x float> %.023133022)
   %1220 = add nuw nsw i64 %.1023263021, 1
@@ -2138,7 +2138,7 @@ define noundef i32 @sgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
 ._crit_edge3025:                                  ; preds = %1207, %._crit_edge3025.loopexit
   %.pre-phi3141 = phi <16 x float> [ %.pre3140, %._crit_edge3025.loopexit ], [ %1040, %1207 ]
   %1221 = mul nsw i64 %.103032, %9
-  %gep3030 = getelementptr float, ptr %invariant.gep2992, i64 %1221
+  %gep3030 = getelementptr [4 x i8], ptr %invariant.gep2992, i64 %1221
   tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %gep3030, <16 x i1> %1213, <16 x i32> %1039, <16 x float> %.pre-phi3141, i32 4)
   %1222 = add nuw nsw i64 %.103032, 16
   %1223 = icmp slt i64 %1222, %1

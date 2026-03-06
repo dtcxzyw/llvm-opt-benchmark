@@ -99,7 +99,7 @@ define void @Abc_NtkWriteLogFile(ptr noundef %0, ptr noundef readonly captures(a
   %.060 = phi i32 [ 0, %.lr.ph ], [ %45, %36 ]
   %37 = lshr i32 %.060, 5
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !10
   %41 = and i32 %.060, 31
   %42 = lshr i32 %40, %41
@@ -133,7 +133,7 @@ define void @Abc_NtkWriteLogFile(ptr noundef %0, ptr noundef readonly captures(a
   %.161 = phi i32 [ %51, %.lr.ph63 ], [ %65, %56 ]
   %57 = ashr i32 %.161, 5
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %55, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !10
   %61 = and i32 %.161, 31
   %62 = lshr i32 %60, %61
@@ -311,7 +311,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %65 = add nsw i32 %47, 1
   store i32 %65, ptr %38, align 4, !tbaa !15
   %66 = sext i32 %47 to i64
-  %67 = getelementptr inbounds i32, ptr %.pre.i141, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.pre.i141, i64 %66
   store i32 %46, ptr %67, align 4, !tbaa !10
   br label %.outer, !llvm.loop !21
 
@@ -378,7 +378,7 @@ Vec_IntPush.exit120:                              ; preds = %Vec_IntPush.exit120
   %93 = add nsw i32 %75, 1
   store i32 %93, ptr %38, align 4, !tbaa !15
   %94 = sext i32 %75 to i64
-  %95 = getelementptr inbounds i32, ptr %.pre.i116136, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %.pre.i116136, i64 %94
   store i32 %74, ptr %95, align 4, !tbaa !10
   br label %96
 
@@ -469,7 +469,7 @@ Vec_IntFree.exit124:                              ; preds = %115, %116
 
 125:                                              ; preds = %.lr.ph132, %136
   %indvars.iv = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next, %136 ]
-  %126 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4, !tbaa !10
   %.not104 = icmp eq i32 %127, 0
   br i1 %.not104, label %136, label %128
@@ -479,7 +479,7 @@ Vec_IntFree.exit124:                              ; preds = %115, %116
   %130 = and i32 %129, 31
   %131 = shl nuw i32 1, %130
   %132 = lshr i64 %indvars.iv, 5
-  %133 = getelementptr inbounds nuw i32, ptr %123, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !10
   %135 = or i32 %134, %131
   store i32 %135, ptr %133, align 4, !tbaa !10

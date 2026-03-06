@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
 %class.cmValue = type { ptr }
-%class.BT = type { %"class.std::__cxx11::basic_string", %class.cmListFileBacktrace }
 
 $_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EED2Ev = comdat any
 
@@ -4792,7 +4791,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %46 = load i64, ptr %45, align 8, !tbaa !189
   %47 = urem i64 %46, %37
-  %48 = getelementptr inbounds nuw ptr, ptr %35, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %47
   store ptr %5, ptr %48, align 8, !tbaa !191
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 
@@ -5391,7 +5390,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %69
   store ptr %23, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !50
-  %73 = getelementptr inbounds nuw %class.BT, ptr %23, i64 %17
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %73, ptr %68, align 8, !tbaa !64
   ret void
 
@@ -5877,7 +5876,7 @@ _ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11
 _ZNSt12_Vector_baseI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %110
   store ptr %25, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i36, ptr %7, align 8, !tbaa !50
-  %114 = getelementptr inbounds nuw %class.BT, ptr %25, i64 %19
+  %114 = getelementptr inbounds nuw [48 x i8], ptr %25, i64 %19
   store ptr %114, ptr %109, align 8, !tbaa !64
   ret void
 

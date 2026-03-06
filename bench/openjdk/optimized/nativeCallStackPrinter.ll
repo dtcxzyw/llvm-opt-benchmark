@@ -37,7 +37,7 @@ define hidden void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStac
 
 11:                                               ; preds = %2, %60
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %60 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %65, label %15
@@ -49,7 +49,7 @@ define hidden void @_ZNK22NativeCallStackPrinter11print_stackEPK15NativeCallStac
   %19 = xor i32 %18, %17
   %20 = urem i32 %19, 293
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %23, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj293EPhPKcES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS12EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i, label %.lr.ph.i.i

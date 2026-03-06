@@ -154,9 +154,9 @@ FullTransactionIdFromAllowableAt.exit27:          ; preds = %36, %45
 
 56:                                               ; preds = %.lr.ph, %FullTransactionIdFromAllowableAt.exit30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %FullTransactionIdFromAllowableAt.exit30 ]
-  %57 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %50, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %58 = load ptr, ptr %51, align 8
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = icmp ugt i32 %60, 2
   br i1 %61, label %64, label %62
@@ -415,7 +415,7 @@ define dso_local i64 @pg_snapshot_out(ptr noundef readonly captures(none) %0) lo
   br label %16
 
 16:                                               ; preds = %15, %14
-  %17 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef %18) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -498,7 +498,7 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
 
 31:                                               ; preds = %27
   %32 = sext i32 %.04565 to i64
-  %33 = getelementptr inbounds %struct.FullTransactionId, ptr %21, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %21, i64 %32
   store i64 %23, ptr %33, align 8
   %34 = add nsw i32 %.04565, 1
   br label %35
@@ -592,7 +592,7 @@ define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) l
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
@@ -691,7 +691,7 @@ define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr noundef readonl
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %19, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8
   %.not.i = icmp eq i64 %3, %34
   br i1 %.not.i, label %is_visible_fxid.exit, label %32
@@ -764,7 +764,7 @@ define dso_local i64 @pg_snapshot_xip(ptr noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %33 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %32, i64 %26
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %26
   %.sroa.0.0.copyload = load i64, ptr %33, align 8
   %34 = add nuw nsw i64 %26, 1
   store i64 %34, ptr %23, align 8

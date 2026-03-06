@@ -15,9 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5G_bt2_ud_common_t = type { ptr, ptr, ptr, i32, i64, ptr, ptr }
 %struct.H5G_link_table_t = type { i64, ptr }
 %struct.H5G_bt2_ud_lbi_t = type { ptr, ptr, ptr }
-%struct.H5O_link_t = type { i32, i8, i64, i32, ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.H5O_link_ud_t }
-%struct.H5O_link_ud_t = type { ptr, i64 }
 %struct.H5G_fh_ud_lbi_t = type { ptr, ptr }
 %struct.H5G_dense_bt_ud_t = type { ptr, i64 }
 %struct.H5G_bt2_ud_it_t = type { ptr, ptr, i64, i64, ptr, ptr, i32 }
@@ -821,7 +818,7 @@ define range(i32 -1, 1) i32 @H5G__dense_lookup_by_idx(ptr noundef %0, ptr nounde
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !70
-  %64 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %63, i64 %4
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %63, i64 %4
   %65 = call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef %64, ptr noundef %5) #9
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %.thread67
@@ -1197,7 +1194,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_build_table_cb(ptr noundef %0, 
   %12 = load ptr, ptr %11, align 8, !tbaa !70
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !77
-  %15 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %14
   %16 = tail call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef %0, ptr noundef %15) #9
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %22
@@ -1405,7 +1402,7 @@ define range(i32 -1, 1) i32 @H5G__dense_get_name_by_idx(ptr noundef %0, ptr noun
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !70
-  %70 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %69, i64 %4
+  %70 = getelementptr inbounds nuw [48 x i8], ptr %69, i64 %4
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !50
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #10
@@ -1812,7 +1809,7 @@ define range(i32 -1, 1) i32 @H5G__dense_remove_by_idx(ptr noundef %0, ptr nounde
 64:                                               ; preds = %58
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !70
-  %67 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %66, i64 %5
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %66, i64 %5
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !50
   %70 = call i32 @H5G__dense_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %69)

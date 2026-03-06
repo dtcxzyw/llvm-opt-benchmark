@@ -3209,7 +3209,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %__len.08.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %while.body.i.i ]
   %__first.sroa.0.07.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %while.body.i.i ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %3 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !52
   %cmp.i.i.i = fcmp olt double %2, %3
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -3235,7 +3235,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
   %spec.select383 = select i1 %cmp18, ptr %0, ptr %expiryTime_
   %spec.select384 = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   %expiryTimeTmp.0 = load double, ptr %spec.select383, align 8, !tbaa !52
-  %5 = getelementptr double, ptr %0, i64 %spec.select384
+  %5 = getelementptr [8 x i8], ptr %0, i64 %spec.select384
   %add.ptr.i = getelementptr i8, ptr %5, i64 -8
   %6 = load double, ptr %add.ptr.i, align 8, !tbaa !52
   %sub25 = fsub double %expiryTimeTmp.0, %6
@@ -3262,7 +3262,7 @@ while.body.i.i76:                                 ; preds = %_ZSt11upper_boundIN
   %shr.i.i78 = lshr i64 %__len.08.i.i77, 1
   %12 = inttoptr i64 %11 to ptr
   %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %shr.i.i78
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds double, ptr %12, i64 %idx.neg.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %12, i64 %idx.neg.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 -8
   %13 = load double, ptr %incdec.ptr.i.i.i.i.i81, align 8, !tbaa !52, !noalias !60
   %cmp.i.i.i82 = fcmp olt double %.pre, %13
@@ -3282,7 +3282,7 @@ _ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vect
   %sub41 = sub nsw i64 %sub.ptr.div.i75, %sub.ptr.div.i.i
   %cmp42 = icmp eq i64 %sub.ptr.div.i75, %sub.ptr.div.i.i
   %spec.select63 = select i1 %cmp42, i64 1, i64 %sub41
-  %19 = getelementptr double, ptr %9, i64 %spec.select63
+  %19 = getelementptr [8 x i8], ptr %9, i64 %spec.select63
   %add.ptr.i86 = getelementptr i8, ptr %19, i64 -8
   %20 = load double, ptr %add.ptr.i86, align 8, !tbaa !52
   %sub50 = fsub double %.pre, %20
@@ -3309,7 +3309,7 @@ while.body.i.i99:                                 ; preds = %_ZSt11upper_boundIS
   %shr.i.i101 = lshr i64 %__len.08.i.i100, 1
   %26 = inttoptr i64 %25 to ptr
   %idx.neg.i.i.i.i.i.i105 = sub nsw i64 0, %shr.i.i101
-  %add.ptr.i.i.i.i.i.i106 = getelementptr inbounds double, ptr %26, i64 %idx.neg.i.i.i.i.i.i105
+  %add.ptr.i.i.i.i.i.i106 = getelementptr inbounds [8 x i8], ptr %26, i64 %idx.neg.i.i.i.i.i.i105
   %incdec.ptr.i.i.i.i.i108 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i106, i64 -8
   %27 = load double, ptr %incdec.ptr.i.i.i.i.i108, align 8, !tbaa !52, !noalias !67
   %cmp.i.i.i109 = fcmp olt double %.pre417, %27
@@ -3332,7 +3332,7 @@ _ZSt11upper_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKdSt6vect
   %cmp74 = icmp eq i64 %rhoInd.0, %sub.ptr.div.i93
   %dec76 = sext i1 %cmp74 to i64
   %rhoInd.1 = add nsw i64 %rhoInd.0, %dec76
-  %33 = getelementptr double, ptr %23, i64 %rhoInd.1
+  %33 = getelementptr [8 x i8], ptr %23, i64 %rhoInd.1
   %add.ptr.i126 = getelementptr i8, ptr %33, i64 -8
   %34 = load double, ptr %add.ptr.i126, align 8, !tbaa !52
   %sub82 = fsub double %.pre417, %34
@@ -3359,7 +3359,7 @@ while.body.i.i137:                                ; preds = %while.body.i.i137, 
   %__len.08.i.i138 = phi i64 [ %sub.ptr.div.i.i.i.i.i133, %while.body.lr.ph.i.i136 ], [ %__len.1.i.i150, %while.body.i.i137 ]
   %__first.sroa.0.07.i.i139 = phi ptr [ %36, %while.body.lr.ph.i.i136 ], [ %__first.sroa.0.1.i.i149, %while.body.i.i137 ]
   %shr.i.i140 = lshr i64 %__len.08.i.i138, 1
-  %add.ptr.i.i.i.i.i144 = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i139, i64 %shr.i.i140
+  %add.ptr.i.i.i.i.i144 = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i139, i64 %shr.i.i140
   %39 = load double, ptr %add.ptr.i.i.i.i.i144, align 8, !tbaa !52
   %cmp.i.i.i146 = fcmp olt double %38, %39
   %incdec.ptr.i.i.i147 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i144, i64 8
@@ -3385,7 +3385,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
   br i1 %cmp113.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit152
-  %41 = getelementptr double, ptr %36, i64 %nuInd.0
+  %41 = getelementptr [8 x i8], ptr %36, i64 %nuInd.0
   %add.ptr.i162 = getelementptr i8, ptr %41, i64 -8
   %42 = load double, ptr %add.ptr.i162, align 8, !tbaa !52
   br label %cond.end
@@ -3394,7 +3394,7 @@ cond.end:                                         ; preds = %_ZSt11upper_boundIN
   %cond = phi double [ %42, %cond.true ], [ 0.000000e+00, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit152 ]
   %43 = load double, ptr %nu_, align 8, !tbaa !72
   %sub118 = fsub double %43, %cond
-  %add.ptr.i163 = getelementptr inbounds nuw double, ptr %36, i64 %nuInd.0
+  %add.ptr.i163 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %nuInd.0
   %44 = load double, ptr %add.ptr.i163, align 8, !tbaa !52
   %sub121 = fsub double %44, %cond
   %div122 = fdiv double %sub118, %sub121
@@ -3418,7 +3418,7 @@ while.body.i.i172:                                ; preds = %while.body.i.i172, 
   %__len.08.i.i173 = phi i64 [ %sub.ptr.div.i.i.i.i.i168, %while.body.lr.ph.i.i171 ], [ %__len.1.i.i185, %while.body.i.i172 ]
   %__first.sroa.0.07.i.i174 = phi ptr [ %45, %while.body.lr.ph.i.i171 ], [ %__first.sroa.0.1.i.i184, %while.body.i.i172 ]
   %shr.i.i175 = lshr i64 %__len.08.i.i173, 1
-  %add.ptr.i.i.i.i.i179 = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i174, i64 %shr.i.i175
+  %add.ptr.i.i.i.i.i179 = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i174, i64 %shr.i.i175
   %48 = load double, ptr %add.ptr.i.i.i.i.i179, align 8, !tbaa !52
   %cmp.i.i.i181 = fcmp olt double %47, %48
   %incdec.ptr.i.i.i182 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i179, i64 8
@@ -3962,7 +3962,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 do.end:                                           ; preds = %if.else194
   %idxprom = and i64 %add218, 2097151
-  %arrayidx = getelementptr inbounds nuw i64, ptr @sabrabsprob, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @sabrabsprob, i64 %idxprom
   %110 = load i64, ptr %arrayidx, align 8, !tbaa !42
   %conv254 = uitofp i64 %110 to double
   %div255 = fdiv double %conv254, 2.500000e+06
@@ -7579,7 +7579,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %14 = add nsw i32 %conv.i, -1
   %15 = zext i32 %14 to i64
   %conv.i24 = select i1 %or.cond.not.i, i64 %15, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
   %16 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !135
   %mul43 = fmul x86_fp80 %result.0, %16
   br label %cleanup110
@@ -12686,7 +12686,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %conv.i = fptosi x86_fp80 %retval.0.i.i.i to i32
   %4 = zext i32 %conv.i to i64
   %conv.i15 = select i1 %or.cond.not.i, i64 %4, i64 0
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !135
   %div8 = fdiv x86_fp80 %mul5, %5
   store x86_fp80 %div8, ptr %pderivative, align 16, !tbaa !135

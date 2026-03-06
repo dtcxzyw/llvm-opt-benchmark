@@ -294,7 +294,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 88
   %98 = load i64, ptr %97, align 8, !tbaa !33
   %99 = urem i64 %98, %90
-  %100 = getelementptr inbounds nuw ptr, ptr %88, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %99
   store ptr %52, ptr %100, align 8, !tbaa !35
   br label %_ZN5folly9LogConfigaSEOS0_.exit
 
@@ -499,7 +499,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 88
   %171 = load i64, ptr %170, align 8, !tbaa !33
   %172 = urem i64 %171, %166
-  %173 = getelementptr inbounds nuw ptr, ptr %165, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %172
   store ptr %52, ptr %173, align 8, !tbaa !35
   br label %_ZN5folly9LogConfigaSEOS0_.exit46
 
@@ -835,7 +835,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %51 = load i64, ptr %50, align 8, !tbaa !33
   %52 = urem i64 %51, %42
-  %53 = getelementptr inbounds nuw ptr, ptr %40, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %52
   store ptr %5, ptr %53, align 8, !tbaa !35
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5folly16LogHandlerConfigEESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 

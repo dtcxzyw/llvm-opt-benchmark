@@ -214,7 +214,7 @@ define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$
   br i1 %6, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc3380e19bf1c138aE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit", %5
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.0
+  %7 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0
   %8 = sub nuw i64 %2, %.0
   store ptr %7, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -261,8 +261,8 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %.lr.ph
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h9ae89d5b73953682E.exit": ; preds = %21
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %12
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %.09
+  %25 = getelementptr inbounds [16 x i8], ptr %1, i64 %12
+  %26 = getelementptr inbounds [16 x i8], ptr %1, i64 %.09
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !alias.scope !49
@@ -279,7 +279,7 @@ define hidden void @"_ZN54_$LT$$u5b$T$u5d$$u20$as$u20$rand..seq..SliceRandom$GT$
   br i1 %6, label %.lr.ph, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hddabf08f12502a53E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hddabf08f12502a53E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit", %5
-  %7 = getelementptr inbounds i64, ptr %1, i64 %.0
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %.0
   %8 = sub nuw i64 %2, %.0
   store ptr %7, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -326,8 +326,8 @@ _ZN4rand3rng3Rng9gen_range17h838312ed0416d6e2E.exit: ; preds = %.lr.ph
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hfae7b84152b4f29bE.exit": ; preds = %21
-  %25 = getelementptr inbounds i64, ptr %1, i64 %12
-  %26 = getelementptr inbounds i64, ptr %1, i64 %.09
+  %25 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %.09
   %.0.copyload.i = load i64, ptr %25, align 8, !alias.scope !53
   %27 = load i64, ptr %26, align 8, !alias.scope !53
   store i64 %27, ptr %25, align 8, !alias.scope !53
@@ -367,7 +367,7 @@ _ZN4rand3rng3Rng9gen_range17hf3ed10bc4adf180aE.exit: ; preds = %5
   br i1 %15, label %16, label %18, !prof !52
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.05
+  %17 = getelementptr inbounds [16 x i8], ptr %0, i64 %.05
   br label %7
 
 18:                                               ; preds = %14

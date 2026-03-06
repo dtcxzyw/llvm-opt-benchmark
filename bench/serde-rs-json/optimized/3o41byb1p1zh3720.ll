@@ -150,7 +150,7 @@ define void @_ZN10serde_json5value2de15SeqDeserializer3new17ha730137d8cbd987dE(p
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !19, !noalias !22, !nonnull !13, !noundef !13
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !19, !noalias !22
-  %3 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %3 = getelementptr inbounds [32 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   store ptr %.sroa.4.0.copyload.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -239,7 +239,7 @@ define noundef align 8 ptr @"_ZN90_$LT$serde_json..value..de..VariantRefDeserial
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @_ZN10serde_json5value2de18SeqRefDeserializer3new17ha6092248bbe4e546E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #7 {
-  %3 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %1
+  %3 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr %3, 1
   ret { ptr, ptr } %5
@@ -400,7 +400,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   %.sroa.0.0.copyload.i.i = load ptr, ptr %18, align 8, !noalias !62, !nonnull !13
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.27.0.copyload.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !noalias !62
-  %19 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.27.0.copyload.i.i
+  %19 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.27.0.copyload.i.i
   %.1.i.i = select i1 %trunc.i.i, ptr null, ptr %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !62
   br label %"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT$14index_into_mut17h5705f0ed611e6abeE.exit"

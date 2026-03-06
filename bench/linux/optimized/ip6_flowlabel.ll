@@ -705,7 +705,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   call void @__rcu_read_lock() #13
   %155 = lshr i32 %154, 24
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr ptr, ptr @fl_ht, i64 %156
+  %157 = getelementptr [8 x i8], ptr @fl_ht, i64 %156
   %158 = load volatile ptr, ptr %157, align 8
   %159 = icmp eq ptr %158, null
   br i1 %159, label %.thread31, label %.preheader
@@ -1376,7 +1376,7 @@ define internal fastcc ptr @fl_lookup(ptr noundef readnone captures(address) %0,
   tail call void @__rcu_read_lock() #13
   %3 = lshr i32 %1, 24
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr ptr, ptr @fl_ht, i64 %4
+  %5 = getelementptr [8 x i8], ptr @fl_ht, i64 %4
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %.preheader
@@ -1565,7 +1565,7 @@ define internal fastcc ptr @fl_intern(ptr noundef readnone captures(address) %0,
 11:                                               ; preds = %.preheader5
   %12 = lshr i32 %9, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr ptr, ptr @fl_ht, i64 %13
+  %14 = getelementptr [8 x i8], ptr @fl_ht, i64 %13
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %.preheader
@@ -1592,7 +1592,7 @@ define internal fastcc ptr @fl_intern(ptr noundef readnone captures(address) %0,
   %29 = load i32, ptr %5, align 8
   %30 = lshr i32 %29, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr ptr, ptr @fl_ht, i64 %31
+  %32 = getelementptr [8 x i8], ptr @fl_ht, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread, label %.preheader7
@@ -1625,14 +1625,14 @@ define internal fastcc ptr @fl_intern(ptr noundef readnone captures(address) %0,
   %48 = load volatile i64, ptr @jiffies, align 64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr ptr, ptr @fl_ht, i64 %.pre-phi13
+  %50 = getelementptr [8 x i8], ptr @fl_ht, i64 %.pre-phi13
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !30
   %52 = load i32, ptr %5, align 8
   %53 = lshr i32 %52, 24
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr ptr, ptr @fl_ht, i64 %54
+  %55 = getelementptr [8 x i8], ptr @fl_ht, i64 %54
   store volatile ptr %1, ptr %55, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @fl_size, ptr nonnull elementtype(i32) @fl_size) #13, !srcloc !29
   br label %56
@@ -1716,7 +1716,7 @@ define internal void @ip6_flowlabel_net_exit(ptr noundef readonly captures(addre
 
 2:                                                ; preds = %.loopexit, %1
   %3 = phi i64 [ 0, %1 ], [ %37, %.loopexit ]
-  %4 = getelementptr ptr, ptr @fl_ht, i64 %3
+  %4 = getelementptr [8 x i8], ptr @fl_ht, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1819,7 +1819,7 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
 
 22:                                               ; preds = %33, %17
   %23 = phi i64 [ 0, %17 ], [ %34, %33 ]
-  %24 = getelementptr ptr, ptr @fl_ht, i64 %23
+  %24 = getelementptr [8 x i8], ptr @fl_ht, i64 %23
   br label %25
 
 25:                                               ; preds = %29, %22
@@ -1886,7 +1886,7 @@ define internal ptr @ip6fl_seq_start(ptr noundef readonly captures(none) %0, ptr
 
 62:                                               ; preds = %57, %51
   %63 = phi i64 [ %52, %51 ], [ %58, %57 ]
-  %64 = getelementptr ptr, ptr @fl_ht, i64 %63
+  %64 = getelementptr [8 x i8], ptr @fl_ht, i64 %63
   br label %65
 
 65:                                               ; preds = %69, %62
@@ -1933,7 +1933,7 @@ define internal ptr @ip6fl_seq_next(ptr noundef readonly captures(none) %0, ptr 
 
 10:                                               ; preds = %21, %8
   %11 = phi i64 [ 0, %8 ], [ %22, %21 ]
-  %12 = getelementptr ptr, ptr @fl_ht, i64 %11
+  %12 = getelementptr [8 x i8], ptr @fl_ht, i64 %11
   br label %13
 
 13:                                               ; preds = %17, %10
@@ -1989,7 +1989,7 @@ define internal ptr @ip6fl_seq_next(ptr noundef readonly captures(none) %0, ptr 
 
 44:                                               ; preds = %39, %33
   %45 = phi i64 [ %34, %33 ], [ %40, %39 ]
-  %46 = getelementptr ptr, ptr @fl_ht, i64 %45
+  %46 = getelementptr [8 x i8], ptr @fl_ht, i64 %45
   br label %47
 
 47:                                               ; preds = %51, %44
@@ -2108,7 +2108,7 @@ define internal void @ip6_fl_gc(ptr readnone captures(none) %0) #1 align 16 {
 3:                                                ; preds = %._crit_edge, %1
   %4 = phi i64 [ 0, %1 ], [ %56, %._crit_edge ]
   %5 = phi i64 [ 0, %1 ], [ %.lcssa, %._crit_edge ]
-  %6 = getelementptr ptr, ptr @fl_ht, i64 %4
+  %6 = getelementptr [8 x i8], ptr @fl_ht, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %._crit_edge, label %.lr.ph

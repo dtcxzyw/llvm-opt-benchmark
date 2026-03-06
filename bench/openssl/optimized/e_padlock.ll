@@ -1225,9 +1225,9 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv96.i = phi i64 [ %54, %.lr.ph.preheader.i ], [ %indvars.iv.next97.i, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !12
-  %58 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv96.i
+  %58 = getelementptr inbounds [4 x i8], ptr %46, i64 %indvars.iv96.i
   %59 = load i32, ptr %58, align 4, !tbaa !12
   store i32 %59, ptr %56, align 4, !tbaa !12
   store i32 %57, ptr %58, align 4, !tbaa !12
@@ -1262,7 +1262,7 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
 
 74:                                               ; preds = %74, %.lr.ph95.i
   %indvars.iv101.i = phi i64 [ 0, %.lr.ph95.i ], [ %indvars.iv.next102.i, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv101.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv101.i
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = and i32 %76, -2139062144
   %78 = shl i32 %76, 1
@@ -1519,7 +1519,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %118 = load i8, ptr %117, align 1, !tbaa !24
   %119 = zext i8 %118 to i32
   %120 = xor i32 %114, %119
-  %121 = getelementptr inbounds nuw i32, ptr @rcon, i64 %indvars.iv159
+  %121 = getelementptr inbounds nuw [4 x i8], ptr @rcon, i64 %indvars.iv159
   %122 = load i32, ptr %121, align 4, !tbaa !12
   %123 = xor i32 %120, %122
   %124 = getelementptr inbounds nuw i8, ptr %.0138, i64 16
@@ -1622,7 +1622,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %207 = load i8, ptr %206, align 1, !tbaa !24
   %208 = zext i8 %207 to i32
   %209 = xor i32 %203, %208
-  %210 = getelementptr inbounds nuw i32, ptr @rcon, i64 %indvars.iv156
+  %210 = getelementptr inbounds nuw [4 x i8], ptr @rcon, i64 %indvars.iv156
   %211 = load i32, ptr %210, align 4, !tbaa !12
   %212 = xor i32 %209, %211
   %213 = getelementptr inbounds nuw i8, ptr %.1139, i64 24
@@ -1732,7 +1732,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %299 = load i8, ptr %298, align 1, !tbaa !24
   %300 = zext i8 %299 to i32
   %301 = xor i32 %295, %300
-  %302 = getelementptr inbounds nuw i32, ptr @rcon, i64 %indvars.iv
+  %302 = getelementptr inbounds nuw [4 x i8], ptr @rcon, i64 %indvars.iv
   %303 = load i32, ptr %302, align 4, !tbaa !12
   %304 = xor i32 %301, %303
   %305 = getelementptr inbounds nuw i8, ptr %.2140, i64 32

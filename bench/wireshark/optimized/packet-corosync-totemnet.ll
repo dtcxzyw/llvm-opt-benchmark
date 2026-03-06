@@ -131,7 +131,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   %14 = sext i32 %7 to i64
-  %15 = getelementptr ptr, ptr %5, i64 %14
+  %15 = getelementptr [8 x i8], ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %13, ptr noundef %16)
   %18 = icmp slt i32 %17, 1
@@ -159,7 +159,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   %28 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
-  %29 = getelementptr ptr, ptr %28, i64 %23
+  %29 = getelementptr [8 x i8], ptr %28, i64 %23
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %27, ptr noundef %30)
   %32 = icmp sgt i32 %31, 0
@@ -182,7 +182,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   %38 = add i32 %.02846, 1
   %39 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
   %40 = sext i32 %38 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not33 = icmp eq ptr %42, null
   br i1 %.not33, label %.critedge, label %.preheader, !llvm.loop !10

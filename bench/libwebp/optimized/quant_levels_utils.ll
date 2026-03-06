@@ -45,7 +45,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.0113141
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %6, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !6
   %26 = icmp eq i32 %25, 0
   %27 = zext i1 %26 to i32
@@ -79,7 +79,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %41 = fmul nnan double %35, %40
   %42 = fdiv double %41, %37
   %43 = fadd double %42, %33
-  %44 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store double %43, ptr %44, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -87,10 +87,10 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 
 ._crit_edge148:                                   ; preds = %38
   %45 = zext nneg i32 %spec.select to i64
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %45
   store i32 0, ptr %46, align 4, !tbaa !6
   %47 = zext nneg i32 %.1108 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %7, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %47
   store i32 %36, ptr %48, align 4, !tbaa !6
   %49 = icmp samesign ult i32 %3, 3
   %50 = zext nneg i32 %36 to i64
@@ -125,10 +125,10 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   br i1 %57, label %58, label %.critedge
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds double, ptr %8, i64 %indvars.iv178
+  %59 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv178
   %60 = load double, ptr %59, align 8, !tbaa !10
   %indvars.iv.next179 = add nsw i64 %indvars.iv178, 1
-  %61 = getelementptr inbounds double, ptr %8, i64 %indvars.iv.next179
+  %61 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv.next179
   %62 = load double, ptr %61, align 8, !tbaa !10
   %63 = fadd double %60, %62
   %64 = fcmp olt double %63, %54
@@ -140,7 +140,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 
 .critedge:                                        ; preds = %56, %.critedge.split.loop.exit214
   %.1110.lcssa = phi i32 [ %65, %.critedge.split.loop.exit214 ], [ %smax, %56 ]
-  %66 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv181
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv181
   %67 = load i32, ptr %66, align 4, !tbaa !6
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %81
@@ -150,19 +150,19 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %71 = mul nuw nsw i32 %67, %70
   %72 = sitofp i32 %71 to double
   %73 = sext i32 %.1110.lcssa to i64
-  %74 = getelementptr inbounds double, ptr %9, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %9, i64 %73
   %75 = load double, ptr %74, align 8, !tbaa !10
   %76 = fadd double %75, %72
   store double %76, ptr %74, align 8, !tbaa !10
   %77 = uitofp nneg i32 %67 to double
-  %78 = getelementptr inbounds double, ptr %10, i64 %73
+  %78 = getelementptr inbounds [8 x i8], ptr %10, i64 %73
   %79 = load double, ptr %78, align 8, !tbaa !10
   %80 = fadd double %79, %77
   store double %80, ptr %78, align 8, !tbaa !10
   br label %81
 
 81:                                               ; preds = %69, %.critedge
-  %82 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv181
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv181
   store i32 %.1110.lcssa, ptr %82, align 4, !tbaa !6
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
@@ -173,16 +173,16 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 
 .lr.ph154:                                        ; preds = %._crit_edge152, %91
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %91 ], [ 1, %._crit_edge152 ]
-  %83 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv186
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv186
   %84 = load double, ptr %83, align 8, !tbaa !10
   %85 = fcmp ogt double %84, 0.000000e+00
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %.lr.ph154
-  %87 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv186
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv186
   %88 = load double, ptr %87, align 8, !tbaa !10
   %89 = fdiv double %88, %84
-  %90 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv186
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv186
   store double %89, ptr %90, align 8, !tbaa !10
   br label %91
 
@@ -199,13 +199,13 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %.3156 = phi double [ %104, %.lr.ph159 ], [ 0.000000e+00, %.lr.ph159.preheader ]
   %92 = trunc nuw nsw i64 %indvars.iv191 to i32
   %93 = uitofp nneg i32 %92 to double
-  %94 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv191
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv191
   %95 = load i32, ptr %94, align 4, !tbaa !6
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds double, ptr %8, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %8, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !10
   %99 = fsub double %93, %98
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv191
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv191
   %101 = load i32, ptr %100, align 4, !tbaa !6
   %102 = sitofp i32 %101 to double
   %103 = fmul double %99, %102
@@ -231,10 +231,10 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %.lr.ph167
   %indvars.iv197 = phi i64 [ %45, %.lr.ph167.preheader ], [ %indvars.iv.next198, %.lr.ph167 ]
-  %108 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv197
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv197
   %109 = load i32, ptr %108, align 4, !tbaa !6
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds double, ptr %8, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %8, i64 %110
   %112 = load double, ptr %111, align 8, !tbaa !10
   %113 = fadd double %112, 5.000000e-01
   %114 = fptoui double %113 to i8

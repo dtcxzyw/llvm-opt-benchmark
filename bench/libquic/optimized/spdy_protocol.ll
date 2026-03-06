@@ -487,13 +487,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
 switch.lookup41:                                  ; preds = %16
   %35 = zext nneg i32 %1 to i64
-  %switch.gep42 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 %35
+  %switch.gep42 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE.1, i64 %35
   %switch.load43 = load i32, ptr %switch.gep42, align 4
   br label %.critedge29
 
@@ -556,13 +556,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 
 switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
 switch.lookup13:                                  ; preds = %6
   %17 = zext nneg i32 %1 to i64
-  %switch.gep14 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 %17
+  %switch.gep14 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants14ParseFrameTypeENS_16SpdyMajorVersionEi.2, i64 %17
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %.critedge12
 
@@ -791,7 +791,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup42:                                  ; preds = %16
   %34 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
@@ -851,7 +851,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 
 switch.lookup14:                                  ; preds = %6
   %16 = zext nneg i32 %switch.tableidx13 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants14ParseSettingIdENS_16SpdyMajorVersionEi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
@@ -1021,13 +1021,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 
 switch.lookup43:                                  ; preds = %16
   %35 = zext nneg i32 %switch.tableidx40 to i64
-  %switch.gep47 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 %35
+  %switch.gep47 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants24SerializeRstStreamStatusENS_16SpdyMajorVersionENS_19SpdyRstStreamStatusE.3, i64 %35
   %switch.load48 = load i32, ptr %switch.gep47, align 4
   br label %.critedge29
 
@@ -1095,13 +1095,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
 
 switch.lookup:                                    ; preds = %4
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge12
 
 switch.lookup16:                                  ; preds = %6
   %17 = zext nneg i32 %switch.tableidx13 to i64
-  %switch.gep20 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 %17
+  %switch.gep20 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants20ParseRstStreamStatusENS_16SpdyMajorVersionEi.4, i64 %17
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   br label %.critedge12
 
@@ -1259,7 +1259,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %28
 
 switch.lookup:                                    ; preds = %6
   %34 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3net13SpdyConstants21SerializeGoAwayStatusENS_16SpdyMajorVersionENS_16SpdyGoAwayStatusE, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge29
 

@@ -854,7 +854,7 @@ define hidden void @_ZN6Thread19metadata_handles_doEPFvP8MetadataE(ptr noundef n
   %7 = phi ptr [ %12, %.lr.ph ], [ %4, %.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   tail call void %1(ptr noundef %11) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

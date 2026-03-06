@@ -102,10 +102,10 @@ evc_get_nalu_type.exit:                           ; preds = %33
 
 switch.lookup:                                    ; preds = %39
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ff_isom_write_evcc, i64 %41
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_isom_write_evcc, i64 %41
   %switch.load = load i64, ptr %switch.gep, align 8
   %42 = trunc nuw nsw i32 %37 to i8
-  %43 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %12, i64 %switch.load
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %switch.load
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   %45 = load i16, ptr %44, align 2, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -123,11 +123,11 @@ switch.lookup:                                    ; preds = %39
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %46, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %47
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %47
   store ptr %29, ptr %57, align 8, !tbaa !19
   %58 = trunc i32 %25 to i16
   %59 = load ptr, ptr %52, align 8, !tbaa !21
-  %60 = getelementptr inbounds nuw i16, ptr %59, i64 %47
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %47
   store i16 %58, ptr %60, align 2, !tbaa !22
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store i8 %42, ptr %61, align 1, !tbaa !23
@@ -826,7 +826,7 @@ get_ue_golomb_long.exit106.i:                     ; preds = %504, %502
 
 564:                                              ; preds = %.loopexit85.i, %._crit_edge
   %indvars.iv95.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next96.i, %.loopexit85.i ]
-  %565 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %559, i64 %indvars.iv95.i
+  %565 = getelementptr inbounds nuw [24 x i8], ptr %559, i64 %indvars.iv95.i
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 2
   %567 = load i16, ptr %566, align 2, !tbaa !12
   %568 = icmp eq i16 %567, 0
@@ -855,7 +855,7 @@ get_ue_golomb_long.exit106.i:                     ; preds = %504, %502
 580:                                              ; preds = %580, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %580 ]
   %581 = load ptr, ptr %579, align 8, !tbaa !21
-  %582 = getelementptr inbounds nuw i16, ptr %581, i64 %indvars.iv.i
+  %582 = getelementptr inbounds nuw [2 x i8], ptr %581, i64 %indvars.iv.i
   %583 = load i16, ptr %582, align 2, !tbaa !22
   %584 = zext i16 %583 to i32
   %585 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -913,7 +913,7 @@ get_ue_golomb_long.exit106.i:                     ; preds = %504, %502
 
 617:                                              ; preds = %.loopexit.i, %589
   %indvars.iv101.i = phi i64 [ 0, %589 ], [ %indvars.iv.next102.i, %.loopexit.i ]
-  %618 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %559, i64 %indvars.iv101.i
+  %618 = getelementptr inbounds nuw [24 x i8], ptr %559, i64 %indvars.iv101.i
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 2
   %620 = load i16, ptr %619, align 2, !tbaa !12
   %.not.i60 = icmp eq i16 %620, 0
@@ -944,15 +944,15 @@ get_ue_golomb_long.exit106.i:                     ; preds = %504, %502
 635:                                              ; preds = %635, %.lr.ph90.i
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph90.i ], [ %indvars.iv.next99.i, %635 ]
   %636 = load ptr, ptr %633, align 8, !tbaa !21
-  %637 = getelementptr inbounds nuw i16, ptr %636, i64 %indvars.iv98.i
+  %637 = getelementptr inbounds nuw [2 x i8], ptr %636, i64 %indvars.iv98.i
   %638 = load i16, ptr %637, align 2, !tbaa !22
   %639 = zext i16 %638 to i32
   call void @avio_wb16(ptr noundef %0, i32 noundef %639) #5
   %640 = load ptr, ptr %634, align 8, !tbaa !18
-  %641 = getelementptr inbounds nuw ptr, ptr %640, i64 %indvars.iv98.i
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %640, i64 %indvars.iv98.i
   %642 = load ptr, ptr %641, align 8, !tbaa !19
   %643 = load ptr, ptr %633, align 8, !tbaa !21
-  %644 = getelementptr inbounds nuw i16, ptr %643, i64 %indvars.iv98.i
+  %644 = getelementptr inbounds nuw [2 x i8], ptr %643, i64 %indvars.iv98.i
   %645 = load i16, ptr %644, align 2, !tbaa !22
   %646 = zext i16 %645 to i32
   call void @avio_write(ptr noundef %0, ptr noundef %642, i32 noundef %646) #5
@@ -974,7 +974,7 @@ evcc_write.exit:                                  ; preds = %get_ue_golomb_long.
 
 651:                                              ; preds = %651, %evcc_write.exit
   %indvars.iv.i61 = phi i64 [ 0, %evcc_write.exit ], [ %indvars.iv.next.i62, %651 ]
-  %652 = getelementptr inbounds nuw %struct.EVCNALUnitArray, ptr %650, i64 %indvars.iv.i61
+  %652 = getelementptr inbounds nuw [24 x i8], ptr %650, i64 %indvars.iv.i61
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 2
   store i16 0, ptr %653, align 2, !tbaa !12
   %654 = getelementptr inbounds nuw i8, ptr %652, i64 16

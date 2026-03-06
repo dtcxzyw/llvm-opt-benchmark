@@ -51,7 +51,7 @@ define dso_local noundef zeroext i1 @visibilitymap_clear(ptr noundef readnone ca
   %20 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %21 = xor i32 %2, -1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   br label %BufferGetPage.exit
 
@@ -221,7 +221,7 @@ BufferGetPage.exit:                               ; preds = %39
   %41 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %42 = xor i32 %.018, -1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 14
   %.val = load i16, ptr %46, align 2
@@ -242,7 +242,7 @@ BufferGetPage.exit.thread:                        ; preds = %39
 BufferGetPage.exit22:                             ; preds = %BufferGetPage.exit
   tail call void @LockBuffer(i32 noundef %.018, i32 noundef 2) #6
   %55 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %43
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %43
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 14
   %.val20 = load i16, ptr %58, align 2
@@ -332,7 +332,7 @@ define dso_local zeroext range(i8 0, 4) i8 @visibilitymap_set(ptr noundef %0, i3
   %27 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %28 = xor i32 %4, -1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
   br label %BufferGetPage.exit
 
@@ -412,7 +412,7 @@ BufferGetPage.exit:                               ; preds = %26, %32
   %79 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %80 = xor i32 %2, -1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %81
   %83 = load ptr, ptr %82, align 8
   br label %BufferGetPage.exit43
 
@@ -502,7 +502,7 @@ define dso_local zeroext range(i8 0, 4) i8 @visibilitymap_get_status(ptr noundef
   %19 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %20 = xor i32 %16, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %BufferGetPage.exit
 
@@ -560,7 +560,7 @@ define dso_local void @visibilitymap_count(ptr noundef %0, ptr noundef writeonly
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %5, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %BufferGetPage.exit.us
 
@@ -589,7 +589,7 @@ BufferGetPage.exit.us:                            ; preds = %13, %7
   %29 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %30 = xor i32 %26, -1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8
   br label %BufferGetPage.exit
 
@@ -682,7 +682,7 @@ RelationGetSmgr.exit:                             ; preds = %2, %10
   %26 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %27 = xor i32 %22, -1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8
   br label %BufferGetPage.exit
 

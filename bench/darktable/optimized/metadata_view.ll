@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_sys_resources_t = type { i64, i64, ptr, ptr, i32 }
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
-%struct.anon.14 = type { ptr, i8 }
 %struct._GtkTreeIter = type { i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"image information\00", align 1
@@ -384,7 +383,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %105 = call i32 @sqlite3_column_int(ptr noundef %98, i32 noundef %104) #13
   %106 = icmp sgt i32 %105, 1
   %107 = zext i1 %106 to i32
-  %108 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %107, ptr %108, align 4, !tbaa !84
   br label %109
 
@@ -507,7 +506,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 
 179:                                              ; preds = %.preheader348, %622
   %indvars.iv372 = phi i64 [ 0, %.preheader348 ], [ %indvars.iv.next373, %622 ]
-  %180 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv372
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv372
   %181 = load i32, ptr %180, align 4, !tbaa !84
   %182 = icmp eq i32 %181, 1
   br i1 %182, label %183, label %206
@@ -852,7 +851,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %286 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #13
   %287 = add nuw nsw i32 %.1.i, 1
   %288 = zext nneg i32 %.1.i to i64
-  %289 = getelementptr inbounds nuw ptr, ptr %2, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %288
   store ptr %286, ptr %289, align 8, !tbaa !107
   %.pre73.i = load i32, ptr %164, align 4, !tbaa !101
   br label %291
@@ -874,7 +873,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %296 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #13
   %297 = add nuw nsw i32 %.2.i, 1
   %298 = zext nneg i32 %.2.i to i64
-  %299 = getelementptr inbounds nuw ptr, ptr %2, i64 %298
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %298
   store ptr %296, ptr %299, align 8, !tbaa !107
   %.pre74.i = load i32, ptr %164, align 4, !tbaa !101
   br label %300
@@ -892,7 +891,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %305 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #13
   %306 = add nuw nsw i32 %.3.i, 1
   %307 = zext nneg i32 %.3.i to i64
-  %308 = getelementptr inbounds nuw ptr, ptr %2, i64 %307
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %307
   store ptr %305, ptr %308, align 8, !tbaa !107
   %.pre75.i = load i32, ptr %164, align 4, !tbaa !101
   br label %309
@@ -910,7 +909,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #13
   %315 = add nuw nsw i32 %.4.i, 1
   %316 = zext nneg i32 %.4.i to i64
-  %317 = getelementptr inbounds nuw ptr, ptr %2, i64 %316
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %316
   store ptr %314, ptr %317, align 8, !tbaa !107
   %.pre76.i = load i32, ptr %164, align 4, !tbaa !101
   br label %318
@@ -928,7 +927,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %323 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #13
   %324 = add nuw nsw i32 %.5.i, 1
   %325 = zext nneg i32 %.5.i to i64
-  %326 = getelementptr inbounds nuw ptr, ptr %2, i64 %325
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %325
   store ptr %323, ptr %326, align 8, !tbaa !107
   %.pre77.i = load i32, ptr %164, align 4, !tbaa !101
   br label %327
@@ -946,7 +945,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %332 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #13
   %333 = add nuw nsw i32 %.6.i, 1
   %334 = zext nneg i32 %.6.i to i64
-  %335 = getelementptr inbounds nuw ptr, ptr %2, i64 %334
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %334
   store ptr %332, ptr %335, align 8, !tbaa !107
   %.pre78.i = load i32, ptr %164, align 4, !tbaa !101
   br label %336
@@ -964,7 +963,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %341 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #13
   %342 = add nuw nsw i32 %.7.i, 1
   %343 = zext nneg i32 %.7.i to i64
-  %344 = getelementptr inbounds nuw ptr, ptr %2, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %343
   store ptr %341, ptr %344, align 8, !tbaa !107
   %.pre79.i = load i32, ptr %164, align 4, !tbaa !101
   br label %345
@@ -982,7 +981,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %350 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #13
   %351 = add nuw nsw i32 %.8.i, 1
   %352 = zext nneg i32 %.8.i to i64
-  %353 = getelementptr inbounds nuw ptr, ptr %2, i64 %352
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %352
   store ptr %350, ptr %353, align 8, !tbaa !107
   %.pre80.i = load i32, ptr %164, align 4, !tbaa !101
   br label %354
@@ -1000,7 +999,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %359 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #13
   %360 = add nuw nsw i32 %.9.i, 1
   %361 = zext nneg i32 %.9.i to i64
-  %362 = getelementptr inbounds nuw ptr, ptr %2, i64 %361
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %361
   store ptr %359, ptr %362, align 8, !tbaa !107
   br label %363
 
@@ -1016,7 +1015,7 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   %367 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #13
   %368 = add nuw nsw i32 %.10.i, 1
   %369 = zext nneg i32 %.10.i to i64
-  %370 = getelementptr inbounds nuw ptr, ptr %2, i64 %369
+  %370 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %369
   store ptr %367, ptr %370, align 8, !tbaa !107
   br label %_metadata_get_flags.exit
 
@@ -1026,7 +1025,7 @@ _metadata_get_flags.exit:                         ; preds = %363, %365
   %372 = icmp ult i32 %371, 18
   %narrow.i = select i1 %372, i32 %371, i32 0
   %spec.select.i = zext i32 %narrow.i to i64
-  %373 = getelementptr inbounds nuw %struct.anon.14, ptr @loaders_info, i64 %spec.select.i
+  %373 = getelementptr inbounds nuw [16 x i8], ptr @loaders_info, i64 %spec.select.i
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load i8, ptr %374, align 8, !tbaa !109
   %376 = getelementptr inbounds nuw i8, ptr %262, i64 12
@@ -1036,7 +1035,7 @@ _metadata_get_flags.exit:                         ; preds = %363, %365
   %379 = call ptr @dcgettext(ptr noundef null, ptr noundef %378, i32 noundef 5) #13
   %380 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %377, ptr noundef %379) #13
   %381 = zext nneg i32 %.11.i to i64
-  %382 = getelementptr inbounds nuw ptr, ptr %2, i64 %381
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %381
   store ptr %380, ptr %382, align 8, !tbaa !107
   %383 = getelementptr inbounds nuw i8, ptr %262, i64 13
   store i8 0, ptr %383, align 1, !tbaa !106
@@ -2475,7 +2474,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   br label %_get_label.exit.i
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw ptr, ptr @_labels, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_labels, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !107
   br label %_get_label.exit.i
 

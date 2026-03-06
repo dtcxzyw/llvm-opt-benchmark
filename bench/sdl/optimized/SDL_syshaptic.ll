@@ -14,10 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ff_envelope = type { i16, i16, i16, i16 }
 %struct.input_event = type { %struct.timeval, i16, i16, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.haptic_effect = type { %union.SDL_HapticEffect, ptr }
-%union.SDL_HapticEffect = type { %struct.SDL_HapticCustom, [16 x i8] }
-%struct.SDL_HapticCustom = type { i16, %struct.SDL_HapticDirection, i32, i16, i16, i16, i8, i16, i16, ptr, i16, i16, i16, i16 }
-%struct.SDL_HapticDirection = type { i8, [3 x i32] }
 
 @__const.SDL_SYS_HapticInit.joydev_pattern = private unnamed_addr constant [19 x i8] c"/dev/input/event%d\00", align 16
 @.str = private unnamed_addr constant [26 x i8] c"Could not initialize UDEV\00", align 1
@@ -978,7 +974,7 @@ define internal fastcc zeroext i1 @SDL_SYS_ToFFEffect(ptr noundef nonnull writeo
 
 switch.lookup:                                    ; preds = %.split215
   %74 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.SDL_SYS_ToFFEffect, i64 %74
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table.SDL_SYS_ToFFEffect, i64 %74
   %switch.load = load i16, ptr %switch.gep, align 2
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %switch.load, ptr %75, align 8
@@ -1479,7 +1475,7 @@ define hidden noundef zeroext i1 @SDL_SYS_HapticStopAll(ptr noundef readonly cap
   %12 = phi i32 [ %4, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %struct.haptic_effect, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null

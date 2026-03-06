@@ -282,7 +282,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIlS
 
 .noexc2:                                          ; preds = %.noexc6.i
   store ptr %14, ptr %0, align 8, !tbaa !40, !alias.scope !37
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !43, !alias.scope !37
   store i64 0, ptr %14, align 8, !tbaa !44, !noalias !37
@@ -325,7 +325,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc2
 .loopexit:                                        ; preds = %.lr.ph.i.i, %20
   %26 = phi ptr [ %14, %20 ], [ %.ph.i, %.lr.ph.i.i ]
   %.1.i = phi i64 [ 0, %20 ], [ %23, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %9
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %9
   store i64 %.1.i, ptr %27, align 8, !tbaa !44, !noalias !37
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %28, align 8, !tbaa !77
@@ -385,7 +385,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIlS
 
 .noexc1:                                          ; preds = %.noexc6.i
   store ptr %8, ptr %0, align 8, !tbaa !40, !alias.scope !79
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %4
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !43, !alias.scope !79
   store i64 0, ptr %8, align 8, !tbaa !44, !noalias !79
@@ -430,7 +430,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc1
 .loopexit:                                        ; preds = %.lr.ph.i.i, %14
   %21 = phi ptr [ %8, %14 ], [ %.ph.i, %.lr.ph.i.i ]
   %.1.i = phi i64 [ 0, %14 ], [ %18, %.lr.ph.i.i ]
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %2
   store i64 %.1.i, ptr %22, align 8, !tbaa !44, !noalias !79
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %23, align 8, !tbaa !77
@@ -482,7 +482,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIlS
 
 .noexc2:                                          ; preds = %.noexc6.i
   store ptr %14, ptr %0, align 8, !tbaa !40, !alias.scope !88
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !43, !alias.scope !88
   store i64 0, ptr %14, align 8, !tbaa !44, !noalias !88
@@ -523,7 +523,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc2
 .loopexit:                                        ; preds = %.lr.ph.i.i, %20
   %25 = phi ptr [ %14, %20 ], [ %.ph.i, %.lr.ph.i.i ]
   %.1.i = phi i64 [ 0, %20 ], [ %22, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %9
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %9
   store i64 %.1.i, ptr %26, align 8, !tbaa !44, !noalias !88
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %27, align 8, !tbaa !77
@@ -803,7 +803,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKhPNS_18TypedChunkLoca
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext i8 %18 to i64
   %20 = sext i32 %.015.i to i64
-  %21 = getelementptr inbounds i64, ptr %9, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %9, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !44
   %.not.i.i = icmp ugt i64 %22, %19
   br i1 %.not.i.i, label %.preheader, label %23
@@ -827,7 +827,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKhPNS_18TypedChunkLoca
   %30 = lshr i32 %.013.i.i.i, 1
   %31 = add i32 %.0.i.i.i, %30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %.not.i.i.i = icmp ugt i64 %34, %19
   %35 = sub i32 %.013.i.i.i, %30
@@ -838,7 +838,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKhPNS_18TypedChunkLoca
 
 _ZN5arrow13ChunkResolver6BisectEmPKmjj.exit.loopexit.i.i: ; preds = %29
   %.pre.i.i = sext i32 %.1.i.i.i to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds i64, ptr %9, i64 %.pre.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds [8 x i8], ptr %9, i64 %.pre.i.i
   %.pre18.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !44
   br label %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIhEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i
 
@@ -851,7 +851,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineIhEENS_18TypedChunkLocationIT_EEjPKmS3_
   call void @_ZN5arrow18TypedChunkLocationIhEC1Ehh(ptr noundef nonnull align 1 dereferenceable(2) %6, i8 noundef zeroext %38, i8 noundef zeroext %40)
   %41 = load i16, ptr %6, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %42 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.2", ptr %3, i64 %.01314.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.01314.i
   store i16 %41, ptr %42, align 1
   %.sroa.0.0.extract.trunc.mask.i = and i16 %41, 255
   %43 = zext nneg i16 %.sroa.0.0.extract.trunc.mask.i to i32
@@ -881,12 +881,12 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKtPNS_18TypedChunkLoca
 .lr.ph.i:                                         ; preds = %5, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i
   %.015.i = phi i32 [ %43, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ %4, %5 ]
   %.01314.i = phi i64 [ %44, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ 0, %5 ]
-  %17 = getelementptr inbounds nuw i16, ptr %2, i64 %.01314.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.01314.i
   %18 = load i16, ptr %17, align 2, !tbaa !105
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext i16 %18 to i64
   %20 = sext i32 %.015.i to i64
-  %21 = getelementptr inbounds i64, ptr %9, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %9, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !44
   %.not.i.i = icmp ugt i64 %22, %19
   br i1 %.not.i.i, label %.preheader, label %23
@@ -910,7 +910,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKtPNS_18TypedChunkLoca
   %30 = lshr i32 %.013.i.i.i, 1
   %31 = add i32 %.0.i.i.i, %30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %.not.i.i.i = icmp ugt i64 %34, %19
   %35 = sub i32 %.013.i.i.i, %30
@@ -921,7 +921,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKtPNS_18TypedChunkLoca
 
 _ZN5arrow13ChunkResolver6BisectEmPKmjj.exit.loopexit.i.i: ; preds = %29
   %.pre.i.i = sext i32 %.1.i.i.i to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds i64, ptr %9, i64 %.pre.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds [8 x i8], ptr %9, i64 %.pre.i.i
   %.pre18.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !44
   br label %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i
 
@@ -934,7 +934,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_
   call void @_ZN5arrow18TypedChunkLocationItEC1Ett(ptr noundef nonnull align 2 dereferenceable(4) %6, i16 noundef zeroext %38, i16 noundef zeroext %40)
   %41 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %42 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.3", ptr %3, i64 %.01314.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.01314.i
   store i32 %41, ptr %42, align 2
   %43 = and i32 %41, 65535
   %44 = add nuw nsw i64 %.01314.i, 1
@@ -963,12 +963,12 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKjPNS_18TypedChunkLoca
 .lr.ph.i:                                         ; preds = %5, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i
   %.015.i = phi i32 [ %.sroa.0.0.extract.trunc.i, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ %4, %5 ]
   %.01314.i = phi i64 [ %42, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ 0, %5 ]
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %.01314.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.01314.i
   %18 = load i32, ptr %17, align 4, !tbaa !107
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext i32 %18 to i64
   %20 = sext i32 %.015.i to i64
-  %21 = getelementptr inbounds i64, ptr %9, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %9, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !44
   %.not.i.i = icmp ugt i64 %22, %19
   br i1 %.not.i.i, label %.preheader, label %23
@@ -992,7 +992,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKjPNS_18TypedChunkLoca
   %30 = lshr i32 %.013.i.i.i, 1
   %31 = add i32 %.0.i.i.i, %30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %.not.i.i.i = icmp ugt i64 %34, %19
   %35 = sub i32 %.013.i.i.i, %30
@@ -1003,7 +1003,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKjPNS_18TypedChunkLoca
 
 _ZN5arrow13ChunkResolver6BisectEmPKmjj.exit.loopexit.i.i: ; preds = %29
   %.pre.i.i = sext i32 %.1.i.i.i to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds i64, ptr %9, i64 %.pre.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds [8 x i8], ptr %9, i64 %.pre.i.i
   %.pre18.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !44
   br label %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i
 
@@ -1016,7 +1016,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_
   %40 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i = trunc i64 %40 to i32
-  %41 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.4", ptr %3, i64 %.01314.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01314.i
   store i64 %40, ptr %41, align 4
   %42 = add nuw nsw i64 %.01314.i, 1
   %exitcond.not.i = icmp eq i64 %42, %1
@@ -1048,11 +1048,11 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKmPNS_18TypedChunkLoca
 17:                                               ; preds = %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i, %.lr.ph.i
   %.015.i = phi i32 [ %4, %.lr.ph.i ], [ %40, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ]
   %.01314.i = phi i64 [ 0, %.lr.ph.i ], [ %41, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ]
-  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %.01314.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01314.i
   %19 = load i64, ptr %18, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = sext i32 %.015.i to i64
-  %21 = getelementptr inbounds i64, ptr %9, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %9, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !44
   %.not.i.i = icmp ult i64 %19, %22
   br i1 %.not.i.i, label %.preheader, label %23
@@ -1076,7 +1076,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKmPNS_18TypedChunkLoca
   %30 = lshr i32 %.013.i.i.i, 1
   %31 = add i32 %.0.i.i.i, %30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !44
   %.not.i.i.i = icmp ult i64 %19, %34
   %35 = sub i32 %.013.i.i.i, %30
@@ -1087,7 +1087,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKmPNS_18TypedChunkLoca
 
 _ZN5arrow13ChunkResolver6BisectEmPKmjj.exit.loopexit.i.i: ; preds = %29
   %.pre.i.i = sext i32 %.1.i.i.i to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds i64, ptr %9, i64 %.pre.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds [8 x i8], ptr %9, i64 %.pre.i.i
   %.pre18.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !44
   br label %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i
 
@@ -1099,7 +1099,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_
   %.fca.0.load.i.i = load i64, ptr %6, align 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %39 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.6", ptr %3, i64 %.01314.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.01314.i
   store i64 %.fca.0.load.i.i, ptr %39, align 8, !tbaa !44
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %.fca.1.load.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !44

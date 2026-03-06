@@ -37,12 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.4" = type { %"class.std::shared_ptr.5" }
 %"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
 %"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
-%"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.21" = type { %"class.cv::Matx.22" }
-%"class.cv::Matx.22" = type { [4 x i32] }
 
 $_ZN2cv7samples14findFileOrKeepERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb = comdat any
 
@@ -803,7 +797,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %256
   %.04283.i = phi i32 [ %300, %295 ], [ 0, %_ZN2cv3MataSERKNS_7MatExprE.exit.i ]
   %277 = zext nneg i32 %.04283.i to i64
   %278 = load ptr, ptr %2, align 8, !tbaa !69
-  %279 = getelementptr inbounds nuw %"class.std::vector.16", ptr %278, i64 %277
+  %279 = getelementptr inbounds nuw [24 x i8], ptr %278, i64 %277
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 1124024332, ptr %25, align 8, !tbaa !70
@@ -855,7 +849,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit.i:               ; preds = %256
   %.141.i = select i1 %297, i32 %.04283.i, i32 %.04084.i
   %.139.i = select i1 %297, double %296, double %.03885.i
   %298 = load ptr, ptr %3, align 8, !tbaa !83
-  %299 = getelementptr inbounds nuw %"class.cv::Vec.21", ptr %298, i64 %277
+  %299 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %277
   %300 = load i32, ptr %299, align 4, !tbaa !54
   %301 = icmp sgt i32 %300, -1
   br i1 %301, label %.preheader.i, label %304, !llvm.loop !86

@@ -480,7 +480,7 @@ define hidden noundef i32 @_ZN5salsa14tracked_struct11IdentityMap6insert17h1c8ac
   %23 = add i64 %.sroa.04.0.i.i.i, %21
   %24 = and i64 %23, %9
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { { i64, i32, i32 }, i32, [1 x i32] }, ptr %10, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %10, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
   %28 = load i32, ptr %27, align 8, !alias.scope !52, !noalias !57, !noundef !3
   %29 = icmp eq i32 %28, %13
@@ -643,7 +643,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hced2f16d6eea46a0E.exit.i.i:
   %110 = add i64 %109, 1
   store i64 %110, ptr %108, align 8, !alias.scope !78, !noalias !79
   %111 = sub nsw i64 0, %.sroa.04.0.i.i
-  %112 = getelementptr inbounds { { i64, i32, i32 }, i32, [1 x i32] }, ptr %98, i64 %111
+  %112 = getelementptr inbounds [24 x i8], ptr %98, i64 %111
   %113 = getelementptr inbounds i8, ptr %112, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !noalias !77
   %.sroa.4.0..sroa_idx.i1 = getelementptr inbounds i8, ptr %112, i64 -8
@@ -698,7 +698,7 @@ define hidden noundef i32 @_ZN5salsa14tracked_struct11IdentityMap3get17hb2854676
   %19 = add i64 %.sroa.04.0.i.i.i, %17
   %20 = and i64 %19, %.val2
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds { { i64, i32, i32 }, i32, [1 x i32] }, ptr %.val, i64 %21
+  %22 = getelementptr inbounds [24 x i8], ptr %.val, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   %24 = load i32, ptr %23, align 8, !alias.scope !100, !noalias !105, !noundef !3
   %25 = icmp eq i32 %24, %9
@@ -853,7 +853,7 @@ define hidden noundef i32 @_ZN5salsa14tracked_struct16DisambiguatorMap12disambig
   %18 = add i64 %.sroa.04.0.i.i.i, %16
   %19 = and i64 %18, %8
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds { { i64, i32, [1 x i32] }, i32, [1 x i32] }, ptr %9, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %9, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -16
   %.val3.i.i.i = load i32, ptr %22, align 8, !noalias !127, !noundef !3
   %23 = icmp eq i32 %.val3.i.i.i, %2
@@ -1010,7 +1010,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hced2f16d6eea46a0E.exit.i.i:
   %99 = add i64 %98, 1
   store i64 %99, ptr %97, align 8, !alias.scope !147, !noalias !148
   %100 = sub nsw i64 0, %.sroa.04.0.i.i
-  %101 = getelementptr inbounds { { i64, i32, [1 x i32] }, i32, [1 x i32] }, ptr %87, i64 %100
+  %101 = getelementptr inbounds [24 x i8], ptr %87, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -24
   store i64 %1, ptr %102, align 8, !noalias !146
   %.sroa.4.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %101, i64 -16

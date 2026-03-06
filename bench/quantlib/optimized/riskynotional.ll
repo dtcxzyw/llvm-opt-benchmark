@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.QuantLib::Date" = type { i64 }
-%"struct.std::pair" = type { %"class.QuantLib::Date", double }
 
 $_ZN8QuantLib19DigitalNotionalRiskD0Ev = comdat any
 
@@ -123,7 +122,7 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE17_M_realloc_insertIJS2_RdEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
   store ptr %call5.i.i.i.i.i1, ptr %this, align 8, !tbaa !15
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !3
-  %add.ptr28.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i1, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i1, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !8
   br label %invoke.cont3
 
@@ -175,7 +174,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %i.06 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %i.06
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %i.06
   %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !22
   %cmp.i.not = icmp sgt i64 %3, %2
   br i1 %cmp.i.not, label %for.end, label %for.inc
@@ -187,7 +186,7 @@ for.inc:                                          ; preds = %land.rhs
 
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %sub.ptr.div.i, %for.inc ], [ %i.06, %land.rhs ]
-  %4 = getelementptr %"struct.std::pair", ptr %1, i64 %i.0.lcssa
+  %4 = getelementptr [16 x i8], ptr %1, i64 %i.0.lcssa
   %second = getelementptr i8, ptr %4, i64 -8
   %5 = load double, ptr %second, align 8, !tbaa !11
   ret double %5
@@ -300,7 +299,7 @@ if.then.i27.i.i:                                  ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE17_M_realloc_insertIJRKS2_RdEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i27.i.i, %_ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8, !tbaa !15
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !3
-  %add.ptr28.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !8
   br label %_ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE12emplace_backIJRKS2_RdEEERS3_DpOT_.exit
 
@@ -455,7 +454,7 @@ if.then.i27.i.i.i:                                ; preds = %_ZNSt6vectorISt4pai
 _ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE17_M_realloc_insertIJRKS2_RdEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i27.i.i.i, %_ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %path, align 8, !tbaa !15
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !3
-  %add.ptr28.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr28.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr28.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !8
   br label %if.end
 
@@ -767,9 +766,9 @@ if.then.i43:                                      ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairIN8QuantLib4DateEdESaIS3_EE13_M_deallocateEPS3_m.exit45: ; preds = %_ZNSt6vectorISt4pairIN8QuantLib4DateEdESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i43
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !15
-  %add.ptr37 = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [16 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !3
-  %add.ptr40 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i, i64 %9
+  %add.ptr40 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %9
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !8
   br label %if.end44
 

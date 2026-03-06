@@ -1396,7 +1396,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.i.i: ; preds = %609, %_ZNSt14_Fun
 .lr.ph167.i.i:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit136.i.i, %.lr.ph167.preheader.i.i
   %.054165.i.i = phi i64 [ %698, %_ZN4llvm11raw_ostreamlsEPKc.exit136.i.i ], [ 0, %.lr.ph167.preheader.i.i ]
   %614 = load ptr, ptr %7, align 8, !tbaa !83
-  %615 = getelementptr inbounds nuw ptr, ptr %614, i64 %.054165.i.i
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %.054165.i.i
   %616 = load ptr, ptr %615, align 8, !tbaa !11
   %617 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %616, ptr nonnull @.str.16, i64 5) #10
   %618 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %616, ptr nonnull @.str.2, i64 4) #10
@@ -1826,7 +1826,7 @@ _ZNKSt8functionIFvN4llvm8ArrayRefIPKNS0_6RecordEEENS0_5TwineEEEclES5_S6_.exit.i.
 
 29:                                               ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.val3
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.val3
   %32 = load ptr, ptr %31, align 8, !tbaa !113
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i8, ptr %33, align 8, !tbaa !114
@@ -1907,7 +1907,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i: ;
   %67 = phi i32 [ %57, %56 ], [ %.pre.i.i.i.i, %63 ]
   %68 = load ptr, ptr %58, align 8, !tbaa !97
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = ptrtoint ptr %59 to i64
   store i64 %71, ptr %70, align 1
   %72 = load i32, ptr %60, align 8, !tbaa !98
@@ -2326,7 +2326,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38.i.i.i:         ; preds = %104, %102
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit56.i.i.i, %.lr.ph.preheader.i.i.i
   %.098.i.i.i = phi i64 [ %200, %_ZN4llvm11raw_ostreamlsEPKc.exit56.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   %115 = load ptr, ptr %4, align 8, !tbaa !83
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %.098.i.i.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.098.i.i.i
   %117 = load ptr, ptr %116, align 8, !tbaa !11
   %118 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %117, ptr nonnull @.str.16, i64 5) #10
   %119 = load ptr, ptr %12, align 8, !tbaa !136
@@ -2906,7 +2906,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %37, %39
 
 _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %48, %50
   %.0.i.i20 = phi ptr [ %49, %48 ], [ %0, %50 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %1, i64 %.03
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %33, %31, %_ZN4llvm11raw_ostreamlsEPKc.exit21
@@ -3371,7 +3371,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13.i.i.i:         ; preds = %25, %23
   %.03.i.i.i = phi i64 [ %128, %_ZN4llvm11raw_ostreamlsEPKc.exit28.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   %51 = load ptr, ptr %28, align 8, !tbaa !148
   %52 = load ptr, ptr %51, align 8, !tbaa !83
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.03.i.i.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.03.i.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !11
   %55 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %54, ptr nonnull @.str.16, i64 5) #10
   %56 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %54, ptr nonnull @.str.2, i64 4) #10
@@ -3896,7 +3896,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit54.i.i.i:         ; preds = %195, %193
 
 208:                                              ; preds = %3
   %209 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %.val3
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %.val3
   %211 = load ptr, ptr %210, align 8, !tbaa !113
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load i8, ptr %212, align 8, !tbaa !114
@@ -4101,7 +4101,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6RecordELb1EE9push_backES3_.exit.i.i.i: ;
   %322 = phi i32 [ %315, %_ZN4llvm11raw_ostreamlsEPKc.exit69.i.i.i ], [ %.pre.i.i.i.i, %318 ]
   %323 = load ptr, ptr %313, align 8, !tbaa !97
   %324 = zext i32 %322 to i64
-  %325 = getelementptr inbounds nuw ptr, ptr %323, i64 %324
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %324
   %326 = ptrtoint ptr %269 to i64
   store i64 %326, ptr %325, align 1
   %327 = load i32, ptr %314, align 8, !tbaa !98
@@ -4462,7 +4462,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41.i.i.i:         ; preds = %63, %61
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit56.i.i.i, %.lr.ph.preheader.i.i.i
   %.07.i.i.i = phi i64 [ %159, %_ZN4llvm11raw_ostreamlsEPKc.exit56.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   %72 = load ptr, ptr %4, align 8, !tbaa !83
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.07.i.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.07.i.i.i
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %74, ptr nonnull @.str.16, i64 5) #10
   %76 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %74, ptr nonnull @.str.2, i64 4) #10
@@ -4696,7 +4696,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit59.i.i.i:         ; preds = %171, %169
 
 _ZN4llvm11raw_ostreamlsEPKc.exit62.i.i.i:         ; preds = %192, %190
   %195 = load ptr, ptr %4, align 8, !tbaa !83
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0308.i.i.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %.0308.i.i.i
   br label %197
 
 197:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit62.i.i.i, %.split.i.i.i
@@ -5092,7 +5092,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39.i.i.i:         ; preds = %124, %122
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit57.i.i.i, %.lr.ph.preheader.i.i.i
   %.071.i.i.i = phi i64 [ %220, %_ZN4llvm11raw_ostreamlsEPKc.exit57.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   %133 = load ptr, ptr %4, align 8, !tbaa !83
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.071.i.i.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.071.i.i.i
   %135 = load ptr, ptr %134, align 8, !tbaa !11
   %136 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %135, ptr nonnull @.str.16, i64 5) #10
   %137 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %135, ptr nonnull @.str.2, i64 4) #10

@@ -329,7 +329,7 @@ define internal fastcc noundef zeroext i1 @parse_netscreen_packet(ptr noundef %0
   %.057 = phi ptr [ %48, %42 ], [ %2, %.preheader79 ]
   %43 = load i8, ptr %.057, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr i16, ptr %41, i64 %44
+  %45 = getelementptr [2 x i8], ptr %41, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 256
   %.not = icmp eq i16 %47, 0
@@ -456,7 +456,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %80, %85, %86, %67, 
   %.035.i = phi ptr [ %99, %.preheader ], [ %2, %parse_single_hex_dump_line.exit ]
   %94 = load i8, ptr %.035.i, align 1
   %95 = zext i8 %94 to i64
-  %96 = getelementptr i16, ptr %41, i64 %95
+  %96 = getelementptr [2 x i8], ptr %41, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = and i16 %97, 256
   %.not.not.i = icmp ne i16 %98, 0

@@ -200,7 +200,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
 .lr.ph:                                           ; preds = %32, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 1, %32 ]
   %48 = load ptr, ptr %34, align 8, !tbaa !43
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !44
   %51 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %50) #13
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -386,7 +386,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 82:                                               ; preds = %66, %94
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %94 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !75
   %.not59 = icmp eq ptr %84, null
   br i1 %.not59, label %94, label %85
@@ -394,7 +394,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 85:                                               ; preds = %82
   %86 = load i32, ptr %13, align 4, !tbaa !57
   %87 = add nsw i32 %86, -1
-  %88 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !44
   %90 = mul nsw i32 %87, %89
   %91 = sext i32 %90 to i64
@@ -684,41 +684,41 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4, !tbaa !38
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8, !tbaa !42
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %5, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %5, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !44
   %16 = sext i32 %3 to i64
-  %17 = getelementptr inbounds i32, ptr %5, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %5, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %20 = load i32, ptr %19, align 8, !tbaa !44
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !62
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %24 = getelementptr inbounds i32, ptr %23, i64 %13
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %13
   %25 = load i32, ptr %24, align 4, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %27 = getelementptr inbounds i32, ptr %26, i64 %8
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %8
   %28 = load i32, ptr %27, align 4, !tbaa !44
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %30 = load ptr, ptr %29, align 8, !tbaa !75
-  %31 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %31 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %32 = load ptr, ptr %31, align 8, !tbaa !75
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %16
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
   %34 = load ptr, ptr %33, align 8, !tbaa !75
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %36 = load i32, ptr %35, align 4, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load i32, ptr %37, align 8, !tbaa !89
-  %39 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %39 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %40 = load ptr, ptr %39, align 8, !tbaa !75
-  %41 = getelementptr inbounds ptr, ptr %2, i64 %13
+  %41 = getelementptr inbounds [8 x i8], ptr %2, i64 %13
   %42 = load ptr, ptr %41, align 8, !tbaa !75
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %16
+  %43 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   %44 = load ptr, ptr %43, align 8, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !75
@@ -737,7 +737,7 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
 
 58:                                               ; preds = %4, %._crit_edge
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %._crit_edge ]
-  %59 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !75
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %.critedge, label %.preheader460
@@ -748,8 +748,8 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %62, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader460
-  %63 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
-  %64 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv
   br label %65
 
 65:                                               ; preds = %.lr.ph, %79
@@ -1208,7 +1208,7 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
 269:                                              ; preds = %266, %262
   %270 = load i32, ptr %55, align 4, !tbaa !73
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds ptr, ptr %2, i64 %271
+  %272 = getelementptr inbounds [8 x i8], ptr %2, i64 %271
   br label %273
 
 273:                                              ; preds = %269, %266
@@ -1251,7 +1251,7 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
 
 289:                                              ; preds = %286
   %290 = load ptr, ptr %277, align 8, !tbaa !106
-  %291 = getelementptr inbounds nuw ptr, ptr %290, i64 %indvars.iv83.i.i
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %indvars.iv83.i.i
   %292 = load ptr, ptr %291, align 8, !tbaa !75
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 %indvars.iv.i.i
   store i8 1, ptr %293, align 1, !tbaa !94
@@ -1354,7 +1354,7 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv86.i.i = phi i64 [ 0, %.lr.ph72.split.preheader.i.i ], [ %indvars.iv.next87.i.i, %364 ]
   %332 = phi i32 [ %316, %.lr.ph72.split.preheader.i.i ], [ %366, %364 ]
   %333 = load ptr, ptr %310, align 8, !tbaa !106
-  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %indvars.iv92.i.i
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv92.i.i
   %335 = load ptr, ptr %334, align 8, !tbaa !75
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 %indvars.iv86.i.i
   %337 = load i8, ptr %336, align 1, !tbaa !94
@@ -1506,9 +1506,9 @@ envelope.exit:                                    ; preds = %._crit_edge73.i.i, 
   br i1 %404, label %.preheader445.lr.ph, label %.thread436
 
 .preheader445.lr.ph:                              ; preds = %.preheader446
-  %405 = getelementptr inbounds i32, ptr %19, i64 %16
-  %406 = getelementptr inbounds i32, ptr %19, i64 %8
-  %407 = getelementptr inbounds i32, ptr %19, i64 %13
+  %405 = getelementptr inbounds [4 x i8], ptr %19, i64 %16
+  %406 = getelementptr inbounds [4 x i8], ptr %19, i64 %8
+  %407 = getelementptr inbounds [4 x i8], ptr %19, i64 %13
   %.pre602 = load i32, ptr %57, align 8, !tbaa !91
   br label %.preheader445
 
@@ -1518,9 +1518,9 @@ envelope.exit:                                    ; preds = %._crit_edge73.i.i, 
   br i1 %409, label %.preheader442.lr.ph, label %.thread436
 
 .preheader442.lr.ph:                              ; preds = %.preheader443
-  %410 = getelementptr inbounds i32, ptr %19, i64 %16
-  %411 = getelementptr inbounds i32, ptr %19, i64 %8
-  %412 = getelementptr inbounds i32, ptr %19, i64 %13
+  %410 = getelementptr inbounds [4 x i8], ptr %19, i64 %16
+  %411 = getelementptr inbounds [4 x i8], ptr %19, i64 %8
+  %412 = getelementptr inbounds [4 x i8], ptr %19, i64 %13
   %.pre605 = load i32, ptr %57, align 8, !tbaa !91
   br label %.preheader442
 
@@ -1833,17 +1833,17 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4, !tbaa !38
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !44
   %11 = sdiv i32 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8, !tbaa !42
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %5, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %5, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !44
   %17 = sdiv i32 %16, 2
   %18 = sext i32 %3 to i64
-  %19 = getelementptr inbounds i32, ptr %5, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %5, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !44
   %21 = sdiv i32 %20, 2
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -1852,26 +1852,26 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !62
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %28 = getelementptr inbounds i32, ptr %27, i64 %14
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %14
   %29 = load i32, ptr %28, align 4, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %31 = getelementptr inbounds i32, ptr %30, i64 %8
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %8
   %32 = load i32, ptr %31, align 4, !tbaa !44
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %33 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %34 = load ptr, ptr %33, align 8, !tbaa !122
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %36 = load ptr, ptr %35, align 8, !tbaa !122
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %18
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %38 = load ptr, ptr %37, align 8, !tbaa !122
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %40 = load i32, ptr %39, align 4, !tbaa !87
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %42 = load i32, ptr %41, align 8, !tbaa !89
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %43 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %44 = load ptr, ptr %43, align 8, !tbaa !122
-  %45 = getelementptr inbounds ptr, ptr %2, i64 %14
+  %45 = getelementptr inbounds [8 x i8], ptr %2, i64 %14
   %46 = load ptr, ptr %45, align 8, !tbaa !122
-  %47 = getelementptr inbounds ptr, ptr %2, i64 %18
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %18
   %48 = load ptr, ptr %47, align 8, !tbaa !122
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !122
@@ -1894,7 +1894,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 
 66:                                               ; preds = %4, %._crit_edge572
   %indvars.iv646 = phi i64 [ 0, %4 ], [ %indvars.iv.next647, %._crit_edge572 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv646
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv646
   %68 = load ptr, ptr %67, align 8, !tbaa !122
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %.critedge, label %.preheader568
@@ -1905,8 +1905,8 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %70, label %.preheader567.lr.ph, label %._crit_edge572
 
 .preheader567.lr.ph:                              ; preds = %.preheader568
-  %71 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv646
-  %72 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv646
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv646
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv646
   %73 = load i32, ptr %62, align 8, !tbaa !91
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.preheader567, label %._crit_edge572
@@ -2004,12 +2004,12 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %111 = mul nsw i32 %110, %11
   %112 = mul nsw i32 %110, %17
   %113 = mul nsw i64 %indvars.iv653, %108
-  %invariant.gep = getelementptr i16, ptr %38, i64 %113
+  %invariant.gep = getelementptr [2 x i8], ptr %38, i64 %113
   br label %114
 
 114:                                              ; preds = %.lr.ph577.us, %142
   %indvars.iv649 = phi i64 [ 0, %.lr.ph577.us ], [ %indvars.iv.next650, %142 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv649
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv649
   %115 = load i16, ptr %gep, align 2, !tbaa !58
   %116 = zext i16 %115 to i32
   %117 = icmp sgt i32 %58, %116
@@ -2022,28 +2022,28 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %121 = lshr i32 %120, %40
   %122 = add nsw i32 %121, %112
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds i16, ptr %36, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %36, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !58
   %126 = zext i16 %125 to i32
   %127 = tail call i32 @llvm.smin.i32(i32 %126, i32 %55)
   %128 = mul nsw i32 %127, %24
   %129 = add nsw i32 %121, %111
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i16, ptr %34, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %34, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !58
   %133 = zext i16 %132 to i32
   %.539.us = tail call i32 @llvm.smin.i32(i32 %133, i32 %55)
   %134 = add nsw i32 %128, %.539.us
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %48, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %48, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !58
   %.541.us = tail call i16 @llvm.umax.i16(i16 %115, i16 %137)
   store i16 %.541.us, ptr %136, align 2, !tbaa !58
   %138 = trunc i32 %.539.us to i16
-  %139 = getelementptr inbounds i16, ptr %44, i64 %135
+  %139 = getelementptr inbounds [2 x i8], ptr %44, i64 %135
   store i16 %138, ptr %139, align 2, !tbaa !58
   %140 = trunc i32 %127 to i16
-  %141 = getelementptr inbounds i16, ptr %46, i64 %135
+  %141 = getelementptr inbounds [2 x i8], ptr %46, i64 %135
   store i16 %140, ptr %141, align 2, !tbaa !58
   br label %142
 
@@ -2076,14 +2076,14 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %148 = mul nsw i64 %indvars.iv663, %145
   %149 = mul nsw i64 %indvars.iv663, %146
   %150 = mul nsw i64 %indvars.iv663, %147
-  %invariant.gep789 = getelementptr i16, ptr %38, i64 %150
-  %invariant.gep791 = getelementptr i16, ptr %36, i64 %149
-  %invariant.gep793 = getelementptr i16, ptr %34, i64 %148
+  %invariant.gep789 = getelementptr [2 x i8], ptr %38, i64 %150
+  %invariant.gep791 = getelementptr [2 x i8], ptr %36, i64 %149
+  %invariant.gep793 = getelementptr [2 x i8], ptr %34, i64 %148
   br label %151
 
 151:                                              ; preds = %.lr.ph583.us, %174
   %indvars.iv658 = phi i64 [ 0, %.lr.ph583.us ], [ %indvars.iv.next659, %174 ]
-  %gep790 = getelementptr i16, ptr %invariant.gep789, i64 %indvars.iv658
+  %gep790 = getelementptr [2 x i8], ptr %invariant.gep789, i64 %indvars.iv658
   %152 = load i16, ptr %gep790, align 2, !tbaa !58
   %153 = zext i16 %152 to i32
   %154 = icmp sgt i32 %58, %153
@@ -2092,18 +2092,18 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %or.cond537.us, label %174, label %156
 
 156:                                              ; preds = %151
-  %gep792 = getelementptr i16, ptr %invariant.gep791, i64 %indvars.iv658
+  %gep792 = getelementptr [2 x i8], ptr %invariant.gep791, i64 %indvars.iv658
   %157 = load i16, ptr %gep792, align 2, !tbaa !58
   %158 = zext i16 %157 to i32
   %159 = tail call i32 @llvm.smin.i32(i32 %158, i32 %55)
   %160 = mul nsw i32 %159, %24
-  %gep794 = getelementptr i16, ptr %invariant.gep793, i64 %indvars.iv658
+  %gep794 = getelementptr [2 x i8], ptr %invariant.gep793, i64 %indvars.iv658
   %161 = load i16, ptr %gep794, align 2, !tbaa !58
   %162 = zext i16 %161 to i32
   %.536.us = tail call i32 @llvm.smin.i32(i32 %162, i32 %55)
   %163 = add nsw i32 %160, %.536.us
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds i16, ptr %48, i64 %164
+  %165 = getelementptr inbounds [2 x i8], ptr %48, i64 %164
   %166 = load i16, ptr %165, align 2, !tbaa !58
   %167 = zext i16 %166 to i32
   %168 = add nsw i32 %26, %167
@@ -2111,10 +2111,10 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %169 = trunc i32 %.538.us to i16
   store i16 %169, ptr %165, align 2, !tbaa !58
   %170 = trunc i32 %.536.us to i16
-  %171 = getelementptr inbounds i16, ptr %44, i64 %164
+  %171 = getelementptr inbounds [2 x i8], ptr %44, i64 %164
   store i16 %170, ptr %171, align 2, !tbaa !58
   %172 = trunc i32 %159 to i16
-  %173 = getelementptr inbounds i16, ptr %46, i64 %164
+  %173 = getelementptr inbounds [2 x i8], ptr %46, i64 %164
   store i16 %172, ptr %173, align 2, !tbaa !58
   br label %174
 
@@ -2149,14 +2149,14 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %182 = mul nsw i64 %indvars.iv693, %180
   %183 = mul nsw i64 %indvars.iv693, %179
   %184 = mul nsw i64 %indvars.iv693, %178
-  %invariant.gep807 = getelementptr i16, ptr %38, i64 %182
-  %invariant.gep809 = getelementptr i16, ptr %36, i64 %183
-  %invariant.gep811 = getelementptr i16, ptr %34, i64 %184
+  %invariant.gep807 = getelementptr [2 x i8], ptr %38, i64 %182
+  %invariant.gep809 = getelementptr [2 x i8], ptr %36, i64 %183
+  %invariant.gep811 = getelementptr [2 x i8], ptr %34, i64 %184
   br label %.lr.ph601
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %203
   %indvars.iv688 = phi i64 [ 0, %.lr.ph601.preheader ], [ %indvars.iv.next689, %203 ]
-  %gep808 = getelementptr i16, ptr %invariant.gep807, i64 %indvars.iv688
+  %gep808 = getelementptr [2 x i8], ptr %invariant.gep807, i64 %indvars.iv688
   %185 = load i16, ptr %gep808, align 2, !tbaa !58
   %186 = zext i16 %185 to i32
   %187 = icmp sgt i32 %58, %186
@@ -2165,18 +2165,18 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %or.cond, label %203, label %189
 
 189:                                              ; preds = %.lr.ph601
-  %gep810 = getelementptr i16, ptr %invariant.gep809, i64 %indvars.iv688
+  %gep810 = getelementptr [2 x i8], ptr %invariant.gep809, i64 %indvars.iv688
   %190 = load i16, ptr %gep810, align 2, !tbaa !58
   %191 = zext i16 %190 to i32
   %192 = tail call i32 @llvm.smin.i32(i32 %191, i32 %55)
   %193 = mul nsw i32 %192, %24
-  %gep812 = getelementptr i16, ptr %invariant.gep811, i64 %indvars.iv688
+  %gep812 = getelementptr [2 x i8], ptr %invariant.gep811, i64 %indvars.iv688
   %194 = load i16, ptr %gep812, align 2, !tbaa !58
   %195 = zext i16 %194 to i32
   %. = tail call i32 @llvm.smin.i32(i32 %195, i32 %55)
   %196 = add nsw i32 %193, %.
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i16, ptr %48, i64 %197
+  %198 = getelementptr inbounds [2 x i8], ptr %48, i64 %197
   %199 = load i16, ptr %198, align 2, !tbaa !58
   %200 = zext i16 %199 to i32
   %201 = add nsw i32 %26, %200
@@ -2220,22 +2220,22 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %212 = mul nsw i64 %indvars.iv673, %209
   %213 = mul nsw i64 %indvars.iv673, %210
   %214 = mul nsw i64 %indvars.iv673, %211
-  %invariant.gep795 = getelementptr i16, ptr %34, i64 %212
-  %invariant.gep797 = getelementptr i16, ptr %36, i64 %213
-  %invariant.gep799 = getelementptr i16, ptr %38, i64 %214
+  %invariant.gep795 = getelementptr [2 x i8], ptr %34, i64 %212
+  %invariant.gep797 = getelementptr [2 x i8], ptr %36, i64 %213
+  %invariant.gep799 = getelementptr [2 x i8], ptr %38, i64 %214
   br label %215
 
 215:                                              ; preds = %.lr.ph589.us, %243
   %indvars.iv668 = phi i64 [ 0, %.lr.ph589.us ], [ %indvars.iv.next669, %243 ]
-  %gep796 = getelementptr i16, ptr %invariant.gep795, i64 %indvars.iv668
+  %gep796 = getelementptr [2 x i8], ptr %invariant.gep795, i64 %indvars.iv668
   %216 = load i16, ptr %gep796, align 2, !tbaa !58
   %217 = zext i16 %216 to i32
   %.532.us = tail call i32 @llvm.smin.i32(i32 %217, i32 %55)
-  %gep798 = getelementptr i16, ptr %invariant.gep797, i64 %indvars.iv668
+  %gep798 = getelementptr [2 x i8], ptr %invariant.gep797, i64 %indvars.iv668
   %218 = load i16, ptr %gep798, align 2, !tbaa !58
   %219 = zext i16 %218 to i32
   %220 = tail call i32 @llvm.smin.i32(i32 %219, i32 %55)
-  %gep800 = getelementptr i16, ptr %invariant.gep799, i64 %indvars.iv668
+  %gep800 = getelementptr [2 x i8], ptr %invariant.gep799, i64 %indvars.iv668
   %221 = load i16, ptr %gep800, align 2, !tbaa !58
   %222 = zext i16 %221 to i32
   %223 = icmp sgt i32 %58, %222
@@ -2247,7 +2247,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %226 = mul nsw i32 %220, %24
   %227 = add nsw i32 %226, %.532.us
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds i16, ptr %48, i64 %228
+  %229 = getelementptr inbounds [2 x i8], ptr %48, i64 %228
   %230 = load i16, ptr %229, align 2, !tbaa !58
   %.not517.us = icmp eq i16 %230, 0
   br i1 %.not517.us, label %231, label %238
@@ -2264,10 +2264,10 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 
 238:                                              ; preds = %231, %225
   %239 = trunc i32 %.532.us to i16
-  %240 = getelementptr inbounds i16, ptr %44, i64 %228
+  %240 = getelementptr inbounds [2 x i8], ptr %44, i64 %228
   store i16 %239, ptr %240, align 2, !tbaa !58
   %241 = trunc i32 %220 to i16
-  %242 = getelementptr inbounds i16, ptr %46, i64 %228
+  %242 = getelementptr inbounds [2 x i8], ptr %46, i64 %228
   store i16 %241, ptr %242, align 2, !tbaa !58
   br label %243
 
@@ -2301,22 +2301,22 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %249 = mul nsw i64 %indvars.iv683, %247
   %250 = mul nsw i64 %indvars.iv683, %246
   %251 = mul nsw i64 %indvars.iv683, %245
-  %invariant.gep801 = getelementptr i16, ptr %34, i64 %251
-  %invariant.gep803 = getelementptr i16, ptr %36, i64 %250
-  %invariant.gep805 = getelementptr i16, ptr %38, i64 %249
+  %invariant.gep801 = getelementptr [2 x i8], ptr %34, i64 %251
+  %invariant.gep803 = getelementptr [2 x i8], ptr %36, i64 %250
+  %invariant.gep805 = getelementptr [2 x i8], ptr %38, i64 %249
   br label %.lr.ph595
 
 .lr.ph595:                                        ; preds = %.lr.ph595.preheader, %276
   %indvars.iv678 = phi i64 [ 0, %.lr.ph595.preheader ], [ %indvars.iv.next679, %276 ]
-  %gep802 = getelementptr i16, ptr %invariant.gep801, i64 %indvars.iv678
+  %gep802 = getelementptr [2 x i8], ptr %invariant.gep801, i64 %indvars.iv678
   %252 = load i16, ptr %gep802, align 2, !tbaa !58
   %253 = zext i16 %252 to i32
   %.534 = tail call i32 @llvm.smin.i32(i32 %253, i32 %55)
-  %gep804 = getelementptr i16, ptr %invariant.gep803, i64 %indvars.iv678
+  %gep804 = getelementptr [2 x i8], ptr %invariant.gep803, i64 %indvars.iv678
   %254 = load i16, ptr %gep804, align 2, !tbaa !58
   %255 = zext i16 %254 to i32
   %256 = tail call i32 @llvm.smin.i32(i32 %255, i32 %55)
-  %gep806 = getelementptr i16, ptr %invariant.gep805, i64 %indvars.iv678
+  %gep806 = getelementptr [2 x i8], ptr %invariant.gep805, i64 %indvars.iv678
   %257 = load i16, ptr %gep806, align 2, !tbaa !58
   %258 = zext i16 %257 to i32
   %259 = icmp sgt i32 %58, %258
@@ -2328,7 +2328,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %262 = mul nsw i32 %256, %24
   %263 = add nsw i32 %262, %.534
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds i16, ptr %48, i64 %264
+  %265 = getelementptr inbounds [2 x i8], ptr %48, i64 %264
   %266 = load i16, ptr %265, align 2, !tbaa !58
   %.not514 = icmp eq i16 %266, 0
   br i1 %.not514, label %267, label %271
@@ -2342,10 +2342,10 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 
 271:                                              ; preds = %267, %261
   %272 = trunc i32 %.534 to i16
-  %273 = getelementptr inbounds i16, ptr %44, i64 %264
+  %273 = getelementptr inbounds [2 x i8], ptr %44, i64 %264
   store i16 %272, ptr %273, align 2, !tbaa !58
   %274 = trunc i32 %256 to i16
-  %275 = getelementptr inbounds i16, ptr %46, i64 %264
+  %275 = getelementptr inbounds [2 x i8], ptr %46, i64 %264
   store i16 %274, ptr %275, align 2, !tbaa !58
   br label %276
 
@@ -2391,7 +2391,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 288:                                              ; preds = %285, %281
   %289 = load i32, ptr %64, align 4, !tbaa !73
   %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds ptr, ptr %2, i64 %290
+  %291 = getelementptr inbounds [8 x i8], ptr %2, i64 %290
   br label %292
 
 292:                                              ; preds = %288, %285
@@ -2422,20 +2422,20 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph.i.i:                                       ; preds = %.preheader70.i.i
   %305 = mul nsw i64 %indvars.iv93.i.i, %300
-  %invariant.gep.i.i = getelementptr i16, ptr %293, i64 %305
+  %invariant.gep.i.i = getelementptr [2 x i8], ptr %293, i64 %305
   br label %306
 
 306:                                              ; preds = %314, %.lr.ph.i.i
   %307 = phi i32 [ %302, %.lr.ph.i.i ], [ %315, %314 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %314 ]
-  %gep.i.i = getelementptr i16, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr [2 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %308 = load i16, ptr %gep.i.i, align 2, !tbaa !58
   %.not65.i.i = icmp eq i16 %308, 0
   br i1 %.not65.i.i, label %314, label %309
 
 309:                                              ; preds = %306
   %310 = load ptr, ptr %297, align 8, !tbaa !106
-  %311 = getelementptr inbounds nuw ptr, ptr %310, i64 %indvars.iv93.i.i
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %indvars.iv93.i.i
   %312 = load ptr, ptr %311, align 8, !tbaa !75
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 %indvars.iv.i.i
   store i8 1, ptr %313, align 1, !tbaa !94
@@ -2503,7 +2503,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 
 .preheader.us.i.i:                                ; preds = %._crit_edge77.us.i.i, %.preheader.lr.ph.split.us.i.i
   %indvars.iv104.i.i = phi i64 [ %indvars.iv.next105.i.i, %._crit_edge77.us.i.i ], [ 0, %.preheader.lr.ph.split.us.i.i ]
-  %341 = getelementptr inbounds nuw ptr, ptr %337, i64 %indvars.iv104.i.i
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %indvars.iv104.i.i
   %342 = load ptr, ptr %341, align 8, !tbaa !75
   %.not87.i.i = icmp eq i64 %indvars.iv104.i.i, 0
   %343 = getelementptr i8, ptr %341, i64 -8
@@ -2513,7 +2513,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph76.split.us86.preheader.i.i:                ; preds = %.preheader.us.i.i
   %345 = icmp eq i64 %indvars.iv104.i.i, %340
   %346 = mul nsw i64 %indvars.iv104.i.i, %339
-  %invariant.gep117.i.i = getelementptr i16, ptr %293, i64 %346
+  %invariant.gep117.i.i = getelementptr [2 x i8], ptr %293, i64 %346
   %.fr.i = freeze i1 %345
   br i1 %.fr.i, label %.lr.ph76.split.us86.i.us.i, label %.lr.ph76.split.us86.i.i
 
@@ -2525,7 +2525,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not60.us81.i.us.i, label %350, label %349
 
 349:                                              ; preds = %.lr.ph76.split.us86.i.us.i
-  %gep118.i.us.i = getelementptr i16, ptr %invariant.gep117.i.i, i64 %indvars.iv96.i.us.i
+  %gep118.i.us.i = getelementptr [2 x i8], ptr %invariant.gep117.i.i, i64 %indvars.iv96.i.us.i
   store i16 %333, ptr %gep118.i.us.i, align 2, !tbaa !58
   br label %350
 
@@ -2574,7 +2574,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not64.us.i.i, label %369, label %370
 
 369:                                              ; preds = %365, %361, %358, %354, %353
-  %gep118.i.i = getelementptr i16, ptr %invariant.gep117.i.i, i64 %indvars.iv96.i.i
+  %gep118.i.i = getelementptr [2 x i8], ptr %invariant.gep117.i.i, i64 %indvars.iv96.i.i
   store i16 %333, ptr %gep118.i.i, align 2, !tbaa !58
   br label %370
 
@@ -2596,7 +2596,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not60.us.us.i.i, label %375, label %373
 
 373:                                              ; preds = %.lr.ph76.split.us.us.i.i
-  %374 = getelementptr inbounds nuw i16, ptr %293, i64 %indvars.iv99.i.i
+  %374 = getelementptr inbounds nuw [2 x i8], ptr %293, i64 %indvars.iv99.i.i
   store i16 %333, ptr %374, align 2, !tbaa !58
   br label %375
 
@@ -2636,13 +2636,13 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
 385:                                              ; preds = %.preheader554.us, %391
   %indvars.iv698 = phi i64 [ 0, %.preheader554.us ], [ %indvars.iv.next699, %391 ]
   %386 = add nsw i64 %indvars.iv698, %384
-  %387 = getelementptr inbounds i16, ptr %48, i64 %386
+  %387 = getelementptr inbounds [2 x i8], ptr %48, i64 %386
   %388 = load i16, ptr %387, align 2, !tbaa !58
   %.not527.us = icmp eq i16 %388, 0
   br i1 %.not527.us, label %391, label %389
 
 389:                                              ; preds = %385
-  %390 = getelementptr inbounds i16, ptr %377, i64 %386
+  %390 = getelementptr inbounds [2 x i8], ptr %377, i64 %386
   store i16 %382, ptr %390, align 2, !tbaa !58
   br label %391
 
@@ -2693,16 +2693,16 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
 404:                                              ; preds = %.preheader551.us, %419
   %indvars.iv708 = phi i64 [ 0, %.preheader551.us ], [ %indvars.iv.next709, %419 ]
   %405 = add nsw i64 %indvars.iv708, %399
-  %406 = getelementptr inbounds i16, ptr %48, i64 %405
+  %406 = getelementptr inbounds [2 x i8], ptr %48, i64 %405
   %407 = load i16, ptr %406, align 2, !tbaa !58
   %.not524.us = icmp eq i16 %407, 0
   br i1 %.not524.us, label %408, label %419
 
 408:                                              ; preds = %404
   %409 = trunc i64 %indvars.iv708 to i16
-  %410 = getelementptr inbounds i16, ptr %44, i64 %405
+  %410 = getelementptr inbounds [2 x i8], ptr %44, i64 %405
   store i16 %409, ptr %410, align 2, !tbaa !58
-  %411 = getelementptr inbounds i16, ptr %46, i64 %405
+  %411 = getelementptr inbounds [2 x i8], ptr %46, i64 %405
   store i16 %400, ptr %411, align 2, !tbaa !58
   %412 = trunc i64 %indvars.iv708 to i32
   %413 = sub i32 %412, %56
@@ -2750,16 +2750,16 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
 428:                                              ; preds = %.preheader548.us, %436
   %indvars.iv718 = phi i64 [ 0, %.preheader548.us ], [ %indvars.iv.next719, %436 ]
   %429 = add nsw i64 %indvars.iv718, %426
-  %430 = getelementptr inbounds i16, ptr %48, i64 %429
+  %430 = getelementptr inbounds [2 x i8], ptr %48, i64 %429
   %431 = load i16, ptr %430, align 2, !tbaa !58
   %.not525.us = icmp eq i16 %431, 0
   br i1 %.not525.us, label %432, label %436
 
 432:                                              ; preds = %428
   %433 = trunc i64 %indvars.iv718 to i16
-  %434 = getelementptr inbounds i16, ptr %44, i64 %429
+  %434 = getelementptr inbounds [2 x i8], ptr %44, i64 %429
   store i16 %433, ptr %434, align 2, !tbaa !58
-  %435 = getelementptr inbounds i16, ptr %46, i64 %429
+  %435 = getelementptr inbounds [2 x i8], ptr %46, i64 %429
   store i16 %427, ptr %435, align 2, !tbaa !58
   store i16 %424, ptr %430, align 2, !tbaa !58
   br label %436
@@ -2818,17 +2818,17 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
 455:                                              ; preds = %.preheader546.us, %464
   %indvars.iv728 = phi i64 [ 0, %.preheader546.us ], [ %indvars.iv.next729, %464 ]
   %456 = add nsw i64 %indvars.iv728, %454
-  %457 = getelementptr inbounds i16, ptr %48, i64 %456
+  %457 = getelementptr inbounds [2 x i8], ptr %48, i64 %456
   %458 = load i16, ptr %457, align 2, !tbaa !58
   %.not526.us = icmp eq i16 %458, 0
   br i1 %.not526.us, label %464, label %459
 
 459:                                              ; preds = %455
-  %460 = getelementptr inbounds i16, ptr %50, i64 %456
+  %460 = getelementptr inbounds [2 x i8], ptr %50, i64 %456
   store i16 %451, ptr %460, align 2, !tbaa !58
   %461 = load i32, ptr %452, align 4, !tbaa !44
   %462 = trunc i32 %461 to i16
-  %463 = getelementptr inbounds i16, ptr %52, i64 %456
+  %463 = getelementptr inbounds [2 x i8], ptr %52, i64 %456
   store i16 %462, ptr %463, align 2, !tbaa !58
   br label %464
 
@@ -2868,7 +2868,7 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
 473:                                              ; preds = %.preheader.us, %495
   %indvars.iv738 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next739, %495 ]
   %474 = add nsw i64 %indvars.iv738, %472
-  %475 = getelementptr inbounds i16, ptr %48, i64 %474
+  %475 = getelementptr inbounds [2 x i8], ptr %48, i64 %474
   %476 = load i16, ptr %475, align 2, !tbaa !58
   %.not523.us = icmp eq i16 %476, 0
   br i1 %.not523.us, label %495, label %477
@@ -2882,7 +2882,7 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
   %..i.us = tail call i32 @llvm.smin.i32(i32 %55, i32 %481)
   %483 = trunc i32 %..i.us to i16
   %484 = select i1 %482, i16 0, i16 %483
-  %485 = getelementptr inbounds i16, ptr %44, i64 %474
+  %485 = getelementptr inbounds [2 x i8], ptr %44, i64 %474
   store i16 %484, ptr %485, align 2, !tbaa !58
   %486 = load i16, ptr %475, align 2, !tbaa !58
   %487 = uitofp i16 %486 to float
@@ -2893,7 +2893,7 @@ envelope16.exit:                                  ; preds = %._crit_edge77.us.i.
   %..i542.us = tail call i32 @llvm.smin.i32(i32 %55, i32 %490)
   %492 = trunc i32 %..i542.us to i16
   %493 = select i1 %491, i16 0, i16 %492
-  %494 = getelementptr inbounds i16, ptr %46, i64 %474
+  %494 = getelementptr inbounds [2 x i8], ptr %46, i64 %474
   store i16 %493, ptr %494, align 2, !tbaa !58
   br label %495
 
@@ -2922,7 +2922,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load float, ptr %8, align 8, !tbaa !151
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %10
+  %11 = getelementptr inbounds [84 x i8], ptr @positions, i64 %10
   %12 = sext i32 %2 to i64
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2940,10 +2940,10 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
 
 25:                                               ; preds = %6, %370
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %370 ]
-  %26 = getelementptr inbounds nuw [3 x i16], ptr %11, i64 %indvars.iv
-  %27 = getelementptr inbounds i16, ptr %26, i64 %12
+  %26 = getelementptr inbounds nuw [6 x i8], ptr %11, i64 %indvars.iv
+  %27 = getelementptr inbounds [2 x i8], ptr %26, i64 %12
   %28 = load i16, ptr %27, align 2, !tbaa !58
-  %29 = getelementptr inbounds i16, ptr %26, i64 %13
+  %29 = getelementptr inbounds [2 x i8], ptr %26, i64 %13
   %30 = load i16, ptr %29, align 2, !tbaa !58
   %31 = zext i16 %30 to i32
   %32 = load ptr, ptr %1, align 8, !tbaa !75
@@ -3351,9 +3351,9 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
 
 375:                                              ; preds = %371
   %376 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %377 = getelementptr inbounds i16, ptr %376, i64 %12
+  %377 = getelementptr inbounds [2 x i8], ptr %376, i64 %12
   %378 = load i16, ptr %377, align 2, !tbaa !58
-  %379 = getelementptr inbounds i16, ptr %376, i64 %13
+  %379 = getelementptr inbounds [2 x i8], ptr %376, i64 %13
   %380 = load i16, ptr %379, align 2, !tbaa !58
   %381 = zext i16 %380 to i32
   %382 = load ptr, ptr %1, align 8, !tbaa !75
@@ -3755,9 +3755,9 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
 
 723:                                              ; preds = %720
   %724 = getelementptr inbounds nuw i8, ptr %11, i64 78
-  %725 = getelementptr inbounds i16, ptr %724, i64 %12
+  %725 = getelementptr inbounds [2 x i8], ptr %724, i64 %12
   %726 = load i16, ptr %725, align 2, !tbaa !58
-  %727 = getelementptr inbounds i16, ptr %724, i64 %13
+  %727 = getelementptr inbounds [2 x i8], ptr %724, i64 %13
   %728 = load i16, ptr %727, align 2, !tbaa !58
   %729 = zext i16 %728 to i32
   %730 = load ptr, ptr %1, align 8, !tbaa !75
@@ -4166,11 +4166,11 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
 1074:                                             ; preds = %1071
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -16777088, ptr %7, align 4
-  %1075 = getelementptr inbounds nuw [3 x i16], ptr %11, i64 %indvars.iv139
-  %1076 = getelementptr inbounds i16, ptr %1075, i64 %12
+  %1075 = getelementptr inbounds nuw [6 x i8], ptr %11, i64 %indvars.iv139
+  %1076 = getelementptr inbounds [2 x i8], ptr %1075, i64 %12
   %1077 = load i16, ptr %1076, align 2, !tbaa !58
   %1078 = zext i16 %1077 to i32
-  %1079 = getelementptr inbounds i16, ptr %1075, i64 %13
+  %1079 = getelementptr inbounds [2 x i8], ptr %1075, i64 %13
   %1080 = load i16, ptr %1079, align 2, !tbaa !58
   %1081 = zext i16 %1080 to i32
   %1082 = icmp ugt i16 %1077, 128
@@ -4189,14 +4189,14 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
   %1089 = icmp slt i32 %.0, 0
   %..i132 = tail call i32 @llvm.smin.i32(i32 %.0, i32 %1088)
   %.0.i133 = select i1 %1089, i32 0, i32 %..i132
-  %1090 = getelementptr inbounds nuw ptr, ptr @positions_name, i64 %indvars.iv139
+  %1090 = getelementptr inbounds nuw [8 x i8], ptr @positions_name, i64 %indvars.iv139
   %1091 = load ptr, ptr %1090, align 8, !tbaa !75
   %1092 = sext i32 %.0.i to i64
   br label %1093
 
 1093:                                             ; preds = %._crit_edge.i, %1074
   %indvars.iv51.i = phi i64 [ 0, %1074 ], [ %indvars.iv.next52.i, %._crit_edge.i ]
-  %1094 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51.i
+  %1094 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv51.i
   %1095 = load ptr, ptr %1094, align 8, !tbaa !75
   %.not.i = icmp eq ptr %1095, null
   br i1 %.not.i, label %draw_htext.exit, label %.preheader42.i
@@ -4208,7 +4208,7 @@ define internal void @green_graticule(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.i:                                         ; preds = %.preheader42.i
   %1097 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv51.i
-  %1098 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv51.i
+  %1098 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv51.i
   %.pre.i = load i32, ptr %1098, align 4, !tbaa !44
   br label %1099
 
@@ -4299,18 +4299,18 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load float, ptr %8, align 8, !tbaa !151
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %10
+  %11 = getelementptr inbounds [84 x i8], ptr @positions, i64 %10
   %12 = sext i32 %2 to i64
   %13 = sext i32 %3 to i64
   %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = getelementptr inbounds i32, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   %18 = fsub nsz float 1.000000e+00, %9
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %12
-  %20 = getelementptr inbounds i32, ptr %16, i64 %12
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %13
-  %22 = getelementptr inbounds i32, ptr %16, i64 %13
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
+  %22 = getelementptr inbounds [4 x i8], ptr %16, i64 %13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %25 = fmul nsz float %9, 2.550000e+02
@@ -4318,13 +4318,13 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
 
 26:                                               ; preds = %6, %379
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %379 ]
-  %27 = getelementptr inbounds nuw [3 x i16], ptr %11, i64 %indvars.iv
-  %28 = getelementptr inbounds i16, ptr %27, i64 %12
+  %27 = getelementptr inbounds nuw [6 x i8], ptr %11, i64 %indvars.iv
+  %28 = getelementptr inbounds [2 x i8], ptr %27, i64 %12
   %29 = load i16, ptr %28, align 2, !tbaa !58
-  %30 = getelementptr inbounds i16, ptr %27, i64 %13
+  %30 = getelementptr inbounds [2 x i8], ptr %27, i64 %13
   %31 = load i16, ptr %30, align 2, !tbaa !58
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i16, ptr %27, i64 %14
+  %33 = getelementptr inbounds [2 x i8], ptr %27, i64 %14
   %34 = load i16, ptr %33, align 2, !tbaa !58
   %35 = load ptr, ptr %15, align 8, !tbaa !75
   %36 = load i32, ptr %17, align 4, !tbaa !44
@@ -4737,12 +4737,12 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
 
 384:                                              ; preds = %380
   %385 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %386 = getelementptr inbounds i16, ptr %385, i64 %12
+  %386 = getelementptr inbounds [2 x i8], ptr %385, i64 %12
   %387 = load i16, ptr %386, align 2, !tbaa !58
-  %388 = getelementptr inbounds i16, ptr %385, i64 %13
+  %388 = getelementptr inbounds [2 x i8], ptr %385, i64 %13
   %389 = load i16, ptr %388, align 2, !tbaa !58
   %390 = zext i16 %389 to i32
-  %391 = getelementptr inbounds i16, ptr %385, i64 %14
+  %391 = getelementptr inbounds [2 x i8], ptr %385, i64 %14
   %392 = load i16, ptr %391, align 2, !tbaa !58
   %393 = load ptr, ptr %15, align 8, !tbaa !75
   %394 = load i32, ptr %17, align 4, !tbaa !44
@@ -5149,13 +5149,13 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
 
 740:                                              ; preds = %737
   %741 = getelementptr inbounds nuw i8, ptr %11, i64 78
-  %742 = getelementptr inbounds i16, ptr %741, i64 %12
+  %742 = getelementptr inbounds [2 x i8], ptr %741, i64 %12
   %743 = load i16, ptr %742, align 2, !tbaa !58
-  %744 = getelementptr inbounds i16, ptr %741, i64 %13
+  %744 = getelementptr inbounds [2 x i8], ptr %741, i64 %13
   %745 = load i16, ptr %744, align 2, !tbaa !58
   %746 = zext i16 %745 to i32
   %747 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %748 = getelementptr inbounds i16, ptr %747, i64 %14
+  %748 = getelementptr inbounds [2 x i8], ptr %747, i64 %14
   %749 = load i16, ptr %748, align 2, !tbaa !58
   %750 = load ptr, ptr %15, align 8, !tbaa !75
   %751 = load i32, ptr %17, align 4, !tbaa !44
@@ -5572,14 +5572,14 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
 1103:                                             ; preds = %1100
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -16777216, ptr %7, align 4
-  %1104 = getelementptr inbounds nuw [3 x i16], ptr %11, i64 %indvars.iv191
-  %1105 = getelementptr inbounds i16, ptr %1104, i64 %12
+  %1104 = getelementptr inbounds nuw [6 x i8], ptr %11, i64 %indvars.iv191
+  %1105 = getelementptr inbounds [2 x i8], ptr %1104, i64 %12
   %1106 = load i16, ptr %1105, align 2, !tbaa !58
   %1107 = zext i16 %1106 to i32
-  %1108 = getelementptr inbounds i16, ptr %1104, i64 %13
+  %1108 = getelementptr inbounds [2 x i8], ptr %1104, i64 %13
   %1109 = load i16, ptr %1108, align 2, !tbaa !58
   %1110 = zext i16 %1109 to i32
-  %1111 = getelementptr inbounds i16, ptr %1104, i64 %14
+  %1111 = getelementptr inbounds [2 x i8], ptr %1104, i64 %14
   %1112 = load i16, ptr %1111, align 2, !tbaa !58
   %1113 = trunc i16 %1112 to i8
   store i8 %1113, ptr %1095, align 1, !tbaa !94
@@ -5603,14 +5603,14 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
   %1123 = icmp slt i32 %.0170, 0
   %..i184 = tail call i32 @llvm.smin.i32(i32 %.0170, i32 %1122)
   %.0.i185 = select i1 %1123, i32 0, i32 %..i184
-  %1124 = getelementptr inbounds nuw ptr, ptr @positions_name, i64 %indvars.iv191
+  %1124 = getelementptr inbounds nuw [8 x i8], ptr @positions_name, i64 %indvars.iv191
   %1125 = load ptr, ptr %1124, align 8, !tbaa !75
   %1126 = sext i32 %.0.i to i64
   br label %1127
 
 1127:                                             ; preds = %._crit_edge.i, %1103
   %indvars.iv51.i = phi i64 [ 0, %1103 ], [ %indvars.iv.next52.i, %._crit_edge.i ]
-  %1128 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51.i
+  %1128 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv51.i
   %1129 = load ptr, ptr %1128, align 8, !tbaa !75
   %.not.i = icmp eq ptr %1129, null
   br i1 %.not.i, label %draw_htext.exit, label %.preheader42.i
@@ -5622,7 +5622,7 @@ define internal void @color_graticule(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.i:                                         ; preds = %.preheader42.i
   %1131 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv51.i
-  %1132 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv51.i
+  %1132 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv51.i
   %.pre.i = load i32, ptr %1132, align 4, !tbaa !44
   br label %1133
 
@@ -5712,27 +5712,27 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load float, ptr %7, align 8, !tbaa !151
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %9
+  %10 = getelementptr inbounds [84 x i8], ptr @positions, i64 %9
   %11 = sext i32 %2 to i64
   %12 = sext i32 %3 to i64
   %13 = sext i32 %4 to i64
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = getelementptr inbounds i32, ptr %15, i64 %13
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %11
-  %18 = getelementptr inbounds i32, ptr %15, i64 %11
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %12
-  %20 = getelementptr inbounds i32, ptr %15, i64 %12
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %13
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %11
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
+  %20 = getelementptr inbounds [4 x i8], ptr %15, i64 %12
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 76
   br label %23
 
 23:                                               ; preds = %6, %56
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %56 ]
-  %24 = getelementptr inbounds nuw [3 x i16], ptr %10, i64 %indvars.iv
-  %25 = getelementptr inbounds i16, ptr %24, i64 %11
+  %24 = getelementptr inbounds nuw [6 x i8], ptr %10, i64 %indvars.iv
+  %25 = getelementptr inbounds [2 x i8], ptr %24, i64 %11
   %26 = load i16, ptr %25, align 2, !tbaa !58
-  %27 = getelementptr inbounds i16, ptr %24, i64 %12
+  %27 = getelementptr inbounds [2 x i8], ptr %24, i64 %12
   %28 = load i16, ptr %27, align 2, !tbaa !58
   %29 = zext i16 %28 to i32
   %30 = load ptr, ptr %14, align 8, !tbaa !75
@@ -5784,9 +5784,9 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %63 = getelementptr inbounds i16, ptr %62, i64 %11
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %11
   %64 = load i16, ptr %63, align 2, !tbaa !58
-  %65 = getelementptr inbounds i16, ptr %62, i64 %12
+  %65 = getelementptr inbounds [2 x i8], ptr %62, i64 %12
   %66 = load i16, ptr %65, align 2, !tbaa !58
   %67 = zext i16 %66 to i32
   %68 = load ptr, ptr %14, align 8, !tbaa !75
@@ -5832,9 +5832,9 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 78
-  %99 = getelementptr inbounds i16, ptr %98, i64 %11
+  %99 = getelementptr inbounds [2 x i8], ptr %98, i64 %11
   %100 = load i16, ptr %99, align 2, !tbaa !58
-  %101 = getelementptr inbounds i16, ptr %98, i64 %12
+  %101 = getelementptr inbounds [2 x i8], ptr %98, i64 %12
   %102 = load i16, ptr %101, align 2, !tbaa !58
   %103 = zext i16 %102 to i32
   %104 = load ptr, ptr %14, align 8, !tbaa !75
@@ -5886,11 +5886,11 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
   br i1 %.not157, label %.critedge, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds nuw [3 x i16], ptr %10, i64 %indvars.iv166
-  %139 = getelementptr inbounds i16, ptr %138, i64 %11
+  %138 = getelementptr inbounds nuw [6 x i8], ptr %10, i64 %indvars.iv166
+  %139 = getelementptr inbounds [2 x i8], ptr %138, i64 %11
   %140 = load i16, ptr %139, align 2, !tbaa !58
   %141 = zext i16 %140 to i32
-  %142 = getelementptr inbounds i16, ptr %138, i64 %12
+  %142 = getelementptr inbounds [2 x i8], ptr %138, i64 %12
   %143 = load i16, ptr %142, align 2, !tbaa !58
   %144 = zext i16 %143 to i32
   %145 = icmp ugt i16 %140, 128
@@ -5909,14 +5909,14 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
   %152 = icmp slt i32 %.0, 0
   %..i159 = tail call i32 @llvm.smin.i32(i32 %.0, i32 %151)
   %.0.i160 = select i1 %152, i32 0, i32 %..i159
-  %153 = getelementptr inbounds nuw ptr, ptr @positions_name, i64 %indvars.iv166
+  %153 = getelementptr inbounds nuw [8 x i8], ptr @positions_name, i64 %indvars.iv166
   %154 = load ptr, ptr %153, align 8, !tbaa !75
   %155 = sext i32 %.0.i to i64
   br label %156
 
 156:                                              ; preds = %._crit_edge.i, %137
   %indvars.iv10.i = phi i64 [ 0, %137 ], [ %indvars.iv.next11.i, %._crit_edge.i ]
-  %157 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv10.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv10.i
   %158 = load ptr, ptr %157, align 8, !tbaa !75
   %.not.i = icmp eq ptr %158, null
   br i1 %.not.i, label %draw_ihtext.exit, label %.preheader1.i
@@ -5927,7 +5927,7 @@ define internal void @invert_graticule(ptr noundef readonly captures(none) %0, p
   br i1 %.not376.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader1.i
-  %160 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv10.i
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv10.i
   %.pre.i = load i32, ptr %160, align 4, !tbaa !44
   br label %161
 
@@ -6022,7 +6022,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %14 = load i32, ptr %13, align 4, !tbaa !79
   %15 = sext i32 %5 to i64
-  %16 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %15
+  %16 = getelementptr inbounds [84 x i8], ptr @positions, i64 %15
   %17 = sext i32 %2 to i64
   %18 = sext i32 %3 to i64
   %19 = load ptr, ptr %1, align 8, !tbaa !75
@@ -6102,11 +6102,11 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
 
 91:                                               ; preds = %6, %383
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %383 ]
-  %92 = getelementptr inbounds nuw [3 x i16], ptr %16, i64 %indvars.iv
-  %93 = getelementptr inbounds i16, ptr %92, i64 %17
+  %92 = getelementptr inbounds nuw [6 x i8], ptr %16, i64 %indvars.iv
+  %93 = getelementptr inbounds [2 x i8], ptr %92, i64 %17
   %94 = load i16, ptr %93, align 2, !tbaa !58
   %95 = zext i16 %94 to i64
-  %96 = getelementptr inbounds i16, ptr %92, i64 %18
+  %96 = getelementptr inbounds [2 x i8], ptr %92, i64 %18
   %97 = load i16, ptr %96, align 2, !tbaa !58
   %98 = zext i16 %97 to i32
   %99 = mul nsw i32 %21, %98
@@ -6114,7 +6114,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %101 = getelementptr inbounds i8, ptr %19, i64 %100
   %102 = shl nuw nsw i64 %95, 1
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
-  %104 = getelementptr i16, ptr %103, i64 %28
+  %104 = getelementptr [2 x i8], ptr %103, i64 %28
   %105 = getelementptr i8, ptr %104, i64 -6
   %106 = load i16, ptr %105, align 2, !tbaa !58
   %107 = uitofp i16 %106 to float
@@ -6127,19 +6127,19 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %113 = tail call nsz float @llvm.fmuladd.f32(float %112, float %24, float %26)
   %114 = fptoui float %113 to i16
   store i16 %114, ptr %110, align 2, !tbaa !58
-  %115 = getelementptr inbounds i16, ptr %103, i64 %30
+  %115 = getelementptr inbounds [2 x i8], ptr %103, i64 %30
   %116 = load i16, ptr %115, align 2, !tbaa !58
   %117 = uitofp i16 %116 to float
   %118 = tail call nsz float @llvm.fmuladd.f32(float %117, float %24, float %26)
   %119 = fptoui float %118 to i16
   store i16 %119, ptr %115, align 2, !tbaa !58
-  %120 = getelementptr inbounds i16, ptr %103, i64 %32
+  %120 = getelementptr inbounds [2 x i8], ptr %103, i64 %32
   %121 = load i16, ptr %120, align 2, !tbaa !58
   %122 = uitofp i16 %121 to float
   %123 = tail call nsz float @llvm.fmuladd.f32(float %122, float %24, float %26)
   %124 = fptoui float %123 to i16
   store i16 %124, ptr %120, align 2, !tbaa !58
-  %125 = getelementptr i16, ptr %103, i64 %34
+  %125 = getelementptr [2 x i8], ptr %103, i64 %34
   %126 = getelementptr i8, ptr %125, i64 -6
   %127 = load i16, ptr %126, align 2, !tbaa !58
   %128 = uitofp i16 %127 to float
@@ -6164,25 +6164,25 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %144 = tail call nsz float @llvm.fmuladd.f32(float %143, float %24, float %26)
   %145 = fptoui float %144 to i16
   store i16 %145, ptr %141, align 2, !tbaa !58
-  %146 = getelementptr inbounds i16, ptr %103, i64 %36
+  %146 = getelementptr inbounds [2 x i8], ptr %103, i64 %36
   %147 = load i16, ptr %146, align 2, !tbaa !58
   %148 = uitofp i16 %147 to float
   %149 = tail call nsz float @llvm.fmuladd.f32(float %148, float %24, float %26)
   %150 = fptoui float %149 to i16
   store i16 %150, ptr %146, align 2, !tbaa !58
-  %151 = getelementptr inbounds i16, ptr %103, i64 %38
+  %151 = getelementptr inbounds [2 x i8], ptr %103, i64 %38
   %152 = load i16, ptr %151, align 2, !tbaa !58
   %153 = uitofp i16 %152 to float
   %154 = tail call nsz float @llvm.fmuladd.f32(float %153, float %24, float %26)
   %155 = fptoui float %154 to i16
   store i16 %155, ptr %151, align 2, !tbaa !58
-  %156 = getelementptr inbounds i16, ptr %103, i64 %40
+  %156 = getelementptr inbounds [2 x i8], ptr %103, i64 %40
   %157 = load i16, ptr %156, align 2, !tbaa !58
   %158 = uitofp i16 %157 to float
   %159 = tail call nsz float @llvm.fmuladd.f32(float %158, float %24, float %26)
   %160 = fptoui float %159 to i16
   store i16 %160, ptr %156, align 2, !tbaa !58
-  %161 = getelementptr inbounds i16, ptr %103, i64 %42
+  %161 = getelementptr inbounds [2 x i8], ptr %103, i64 %42
   %162 = load i16, ptr %161, align 2, !tbaa !58
   %163 = uitofp i16 %162 to float
   %164 = tail call nsz float @llvm.fmuladd.f32(float %163, float %24, float %26)
@@ -6192,7 +6192,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds i8, ptr %44, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %102
-  %170 = getelementptr i16, ptr %169, i64 %50
+  %170 = getelementptr [2 x i8], ptr %169, i64 %50
   %171 = getelementptr i8, ptr %170, i64 -6
   %172 = load i16, ptr %171, align 2, !tbaa !58
   %173 = uitofp i16 %172 to float
@@ -6205,19 +6205,19 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %179 = tail call nsz float @llvm.fmuladd.f32(float %178, float %24, float %48)
   %180 = fptoui float %179 to i16
   store i16 %180, ptr %176, align 2, !tbaa !58
-  %181 = getelementptr inbounds i16, ptr %169, i64 %52
+  %181 = getelementptr inbounds [2 x i8], ptr %169, i64 %52
   %182 = load i16, ptr %181, align 2, !tbaa !58
   %183 = uitofp i16 %182 to float
   %184 = tail call nsz float @llvm.fmuladd.f32(float %183, float %24, float %48)
   %185 = fptoui float %184 to i16
   store i16 %185, ptr %181, align 2, !tbaa !58
-  %186 = getelementptr inbounds i16, ptr %169, i64 %54
+  %186 = getelementptr inbounds [2 x i8], ptr %169, i64 %54
   %187 = load i16, ptr %186, align 2, !tbaa !58
   %188 = uitofp i16 %187 to float
   %189 = tail call nsz float @llvm.fmuladd.f32(float %188, float %24, float %48)
   %190 = fptoui float %189 to i16
   store i16 %190, ptr %186, align 2, !tbaa !58
-  %191 = getelementptr i16, ptr %169, i64 %56
+  %191 = getelementptr [2 x i8], ptr %169, i64 %56
   %192 = getelementptr i8, ptr %191, i64 -6
   %193 = load i16, ptr %192, align 2, !tbaa !58
   %194 = uitofp i16 %193 to float
@@ -6242,25 +6242,25 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %210 = tail call nsz float @llvm.fmuladd.f32(float %209, float %24, float %48)
   %211 = fptoui float %210 to i16
   store i16 %211, ptr %207, align 2, !tbaa !58
-  %212 = getelementptr inbounds i16, ptr %169, i64 %58
+  %212 = getelementptr inbounds [2 x i8], ptr %169, i64 %58
   %213 = load i16, ptr %212, align 2, !tbaa !58
   %214 = uitofp i16 %213 to float
   %215 = tail call nsz float @llvm.fmuladd.f32(float %214, float %24, float %48)
   %216 = fptoui float %215 to i16
   store i16 %216, ptr %212, align 2, !tbaa !58
-  %217 = getelementptr inbounds i16, ptr %169, i64 %60
+  %217 = getelementptr inbounds [2 x i8], ptr %169, i64 %60
   %218 = load i16, ptr %217, align 2, !tbaa !58
   %219 = uitofp i16 %218 to float
   %220 = tail call nsz float @llvm.fmuladd.f32(float %219, float %24, float %48)
   %221 = fptoui float %220 to i16
   store i16 %221, ptr %217, align 2, !tbaa !58
-  %222 = getelementptr inbounds i16, ptr %169, i64 %62
+  %222 = getelementptr inbounds [2 x i8], ptr %169, i64 %62
   %223 = load i16, ptr %222, align 2, !tbaa !58
   %224 = uitofp i16 %223 to float
   %225 = tail call nsz float @llvm.fmuladd.f32(float %224, float %24, float %48)
   %226 = fptoui float %225 to i16
   store i16 %226, ptr %222, align 2, !tbaa !58
-  %227 = getelementptr inbounds i16, ptr %169, i64 %64
+  %227 = getelementptr inbounds [2 x i8], ptr %169, i64 %64
   %228 = load i16, ptr %227, align 2, !tbaa !58
   %229 = uitofp i16 %228 to float
   %230 = tail call nsz float @llvm.fmuladd.f32(float %229, float %24, float %48)
@@ -6270,7 +6270,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds i8, ptr %68, i64 %233
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 %102
-  %236 = getelementptr i16, ptr %235, i64 %72
+  %236 = getelementptr [2 x i8], ptr %235, i64 %72
   %237 = getelementptr i8, ptr %236, i64 -6
   %238 = load i16, ptr %237, align 2, !tbaa !58
   %239 = uitofp i16 %238 to float
@@ -6283,19 +6283,19 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %245 = tail call nsz float @llvm.fmuladd.f32(float %244, float %24, float %48)
   %246 = fptoui float %245 to i16
   store i16 %246, ptr %242, align 2, !tbaa !58
-  %247 = getelementptr inbounds i16, ptr %235, i64 %74
+  %247 = getelementptr inbounds [2 x i8], ptr %235, i64 %74
   %248 = load i16, ptr %247, align 2, !tbaa !58
   %249 = uitofp i16 %248 to float
   %250 = tail call nsz float @llvm.fmuladd.f32(float %249, float %24, float %48)
   %251 = fptoui float %250 to i16
   store i16 %251, ptr %247, align 2, !tbaa !58
-  %252 = getelementptr inbounds i16, ptr %235, i64 %76
+  %252 = getelementptr inbounds [2 x i8], ptr %235, i64 %76
   %253 = load i16, ptr %252, align 2, !tbaa !58
   %254 = uitofp i16 %253 to float
   %255 = tail call nsz float @llvm.fmuladd.f32(float %254, float %24, float %48)
   %256 = fptoui float %255 to i16
   store i16 %256, ptr %252, align 2, !tbaa !58
-  %257 = getelementptr i16, ptr %235, i64 %78
+  %257 = getelementptr [2 x i8], ptr %235, i64 %78
   %258 = getelementptr i8, ptr %257, i64 -6
   %259 = load i16, ptr %258, align 2, !tbaa !58
   %260 = uitofp i16 %259 to float
@@ -6320,25 +6320,25 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %276 = tail call nsz float @llvm.fmuladd.f32(float %275, float %24, float %48)
   %277 = fptoui float %276 to i16
   store i16 %277, ptr %273, align 2, !tbaa !58
-  %278 = getelementptr inbounds i16, ptr %235, i64 %80
+  %278 = getelementptr inbounds [2 x i8], ptr %235, i64 %80
   %279 = load i16, ptr %278, align 2, !tbaa !58
   %280 = uitofp i16 %279 to float
   %281 = tail call nsz float @llvm.fmuladd.f32(float %280, float %24, float %48)
   %282 = fptoui float %281 to i16
   store i16 %282, ptr %278, align 2, !tbaa !58
-  %283 = getelementptr inbounds i16, ptr %235, i64 %82
+  %283 = getelementptr inbounds [2 x i8], ptr %235, i64 %82
   %284 = load i16, ptr %283, align 2, !tbaa !58
   %285 = uitofp i16 %284 to float
   %286 = tail call nsz float @llvm.fmuladd.f32(float %285, float %24, float %48)
   %287 = fptoui float %286 to i16
   store i16 %287, ptr %283, align 2, !tbaa !58
-  %288 = getelementptr inbounds i16, ptr %235, i64 %84
+  %288 = getelementptr inbounds [2 x i8], ptr %235, i64 %84
   %289 = load i16, ptr %288, align 2, !tbaa !58
   %290 = uitofp i16 %289 to float
   %291 = tail call nsz float @llvm.fmuladd.f32(float %290, float %24, float %48)
   %292 = fptoui float %291 to i16
   store i16 %292, ptr %288, align 2, !tbaa !58
-  %293 = getelementptr inbounds i16, ptr %235, i64 %86
+  %293 = getelementptr inbounds [2 x i8], ptr %235, i64 %86
   %294 = load i16, ptr %293, align 2, !tbaa !58
   %295 = uitofp i16 %294 to float
   %296 = tail call nsz float @llvm.fmuladd.f32(float %295, float %24, float %48)
@@ -6355,7 +6355,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %304 = sdiv i32 %299, 2
   %305 = shl nsw i32 %304, 1
   %306 = sext i32 %305 to i64
-  %307 = getelementptr i16, ptr %303, i64 %306
+  %307 = getelementptr [2 x i8], ptr %303, i64 %306
   %308 = getelementptr i8, ptr %307, i64 -6
   %309 = load i16, ptr %308, align 2, !tbaa !58
   %310 = uitofp i16 %309 to float
@@ -6370,7 +6370,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %317, ptr %313, align 2, !tbaa !58
   %318 = sub i32 -3, %305
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds i16, ptr %303, i64 %319
+  %320 = getelementptr inbounds [2 x i8], ptr %303, i64 %319
   %321 = load i16, ptr %320, align 2, !tbaa !58
   %322 = uitofp i16 %321 to float
   %323 = tail call nsz float @llvm.fmuladd.f32(float %322, float %24, float %90)
@@ -6378,7 +6378,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %324, ptr %320, align 2, !tbaa !58
   %325 = sub i32 3, %305
   %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds i16, ptr %303, i64 %326
+  %327 = getelementptr inbounds [2 x i8], ptr %303, i64 %326
   %328 = load i16, ptr %327, align 2, !tbaa !58
   %329 = uitofp i16 %328 to float
   %330 = tail call nsz float @llvm.fmuladd.f32(float %329, float %24, float %90)
@@ -6386,7 +6386,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %331, ptr %327, align 2, !tbaa !58
   %332 = mul nsw i32 %304, 3
   %333 = sext i32 %332 to i64
-  %334 = getelementptr i16, ptr %303, i64 %333
+  %334 = getelementptr [2 x i8], ptr %303, i64 %333
   %335 = getelementptr i8, ptr %334, i64 -6
   %336 = load i16, ptr %335, align 2, !tbaa !58
   %337 = uitofp i16 %336 to float
@@ -6413,7 +6413,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %354, ptr %350, align 2, !tbaa !58
   %355 = sub i32 -3, %332
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds i16, ptr %303, i64 %356
+  %357 = getelementptr inbounds [2 x i8], ptr %303, i64 %356
   %358 = load i16, ptr %357, align 2, !tbaa !58
   %359 = uitofp i16 %358 to float
   %360 = tail call nsz float @llvm.fmuladd.f32(float %359, float %24, float %90)
@@ -6421,7 +6421,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %361, ptr %357, align 2, !tbaa !58
   %362 = sub i32 3, %332
   %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds i16, ptr %303, i64 %363
+  %364 = getelementptr inbounds [2 x i8], ptr %303, i64 %363
   %365 = load i16, ptr %364, align 2, !tbaa !58
   %366 = uitofp i16 %365 to float
   %367 = tail call nsz float @llvm.fmuladd.f32(float %366, float %24, float %90)
@@ -6429,7 +6429,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %368, ptr %364, align 2, !tbaa !58
   %369 = sub i32 -2, %332
   %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds i16, ptr %303, i64 %370
+  %371 = getelementptr inbounds [2 x i8], ptr %303, i64 %370
   %372 = load i16, ptr %371, align 2, !tbaa !58
   %373 = uitofp i16 %372 to float
   %374 = tail call nsz float @llvm.fmuladd.f32(float %373, float %24, float %90)
@@ -6437,7 +6437,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %375, ptr %371, align 2, !tbaa !58
   %376 = sub i32 2, %332
   %377 = sext i32 %376 to i64
-  %378 = getelementptr inbounds i16, ptr %303, i64 %377
+  %378 = getelementptr inbounds [2 x i8], ptr %303, i64 %377
   %379 = load i16, ptr %378, align 2, !tbaa !58
   %380 = uitofp i16 %379 to float
   %381 = tail call nsz float @llvm.fmuladd.f32(float %380, float %24, float %90)
@@ -6459,10 +6459,10 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %390 = getelementptr inbounds i16, ptr %389, i64 %17
+  %390 = getelementptr inbounds [2 x i8], ptr %389, i64 %17
   %391 = load i16, ptr %390, align 2, !tbaa !58
   %392 = zext i16 %391 to i64
-  %393 = getelementptr inbounds i16, ptr %389, i64 %18
+  %393 = getelementptr inbounds [2 x i8], ptr %389, i64 %18
   %394 = load i16, ptr %393, align 2, !tbaa !58
   %395 = zext i16 %394 to i32
   %396 = load ptr, ptr %1, align 8, !tbaa !75
@@ -6475,7 +6475,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %403 = sdiv i32 %397, 2
   %404 = shl nsw i32 %403, 1
   %405 = sext i32 %404 to i64
-  %406 = getelementptr i16, ptr %402, i64 %405
+  %406 = getelementptr [2 x i8], ptr %402, i64 %405
   %407 = getelementptr i8, ptr %406, i64 -6
   %408 = load i16, ptr %407, align 2, !tbaa !58
   %409 = uitofp i16 %408 to float
@@ -6490,7 +6490,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %416, ptr %412, align 2, !tbaa !58
   %417 = sub i32 -3, %404
   %418 = sext i32 %417 to i64
-  %419 = getelementptr inbounds i16, ptr %402, i64 %418
+  %419 = getelementptr inbounds [2 x i8], ptr %402, i64 %418
   %420 = load i16, ptr %419, align 2, !tbaa !58
   %421 = uitofp i16 %420 to float
   %422 = tail call nsz float @llvm.fmuladd.f32(float %421, float %24, float %26)
@@ -6498,7 +6498,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %423, ptr %419, align 2, !tbaa !58
   %424 = sub i32 3, %404
   %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds i16, ptr %402, i64 %425
+  %426 = getelementptr inbounds [2 x i8], ptr %402, i64 %425
   %427 = load i16, ptr %426, align 2, !tbaa !58
   %428 = uitofp i16 %427 to float
   %429 = tail call nsz float @llvm.fmuladd.f32(float %428, float %24, float %26)
@@ -6506,7 +6506,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %430, ptr %426, align 2, !tbaa !58
   %431 = mul nsw i32 %403, 3
   %432 = sext i32 %431 to i64
-  %433 = getelementptr i16, ptr %402, i64 %432
+  %433 = getelementptr [2 x i8], ptr %402, i64 %432
   %434 = getelementptr i8, ptr %433, i64 -6
   %435 = load i16, ptr %434, align 2, !tbaa !58
   %436 = uitofp i16 %435 to float
@@ -6533,7 +6533,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %453, ptr %449, align 2, !tbaa !58
   %454 = sub i32 -3, %431
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds i16, ptr %402, i64 %455
+  %456 = getelementptr inbounds [2 x i8], ptr %402, i64 %455
   %457 = load i16, ptr %456, align 2, !tbaa !58
   %458 = uitofp i16 %457 to float
   %459 = tail call nsz float @llvm.fmuladd.f32(float %458, float %24, float %26)
@@ -6541,7 +6541,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %460, ptr %456, align 2, !tbaa !58
   %461 = sub i32 3, %431
   %462 = sext i32 %461 to i64
-  %463 = getelementptr inbounds i16, ptr %402, i64 %462
+  %463 = getelementptr inbounds [2 x i8], ptr %402, i64 %462
   %464 = load i16, ptr %463, align 2, !tbaa !58
   %465 = uitofp i16 %464 to float
   %466 = tail call nsz float @llvm.fmuladd.f32(float %465, float %24, float %26)
@@ -6549,7 +6549,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %467, ptr %463, align 2, !tbaa !58
   %468 = sub i32 -2, %431
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds i16, ptr %402, i64 %469
+  %470 = getelementptr inbounds [2 x i8], ptr %402, i64 %469
   %471 = load i16, ptr %470, align 2, !tbaa !58
   %472 = uitofp i16 %471 to float
   %473 = tail call nsz float @llvm.fmuladd.f32(float %472, float %24, float %26)
@@ -6557,7 +6557,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %474, ptr %470, align 2, !tbaa !58
   %475 = sub i32 2, %431
   %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds i16, ptr %402, i64 %476
+  %477 = getelementptr inbounds [2 x i8], ptr %402, i64 %476
   %478 = load i16, ptr %477, align 2, !tbaa !58
   %479 = uitofp i16 %478 to float
   %480 = tail call nsz float @llvm.fmuladd.f32(float %479, float %24, float %26)
@@ -6572,7 +6572,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %488 = sdiv i32 %483, 2
   %489 = shl nsw i32 %488, 1
   %490 = sext i32 %489 to i64
-  %491 = getelementptr i16, ptr %487, i64 %490
+  %491 = getelementptr [2 x i8], ptr %487, i64 %490
   %492 = getelementptr i8, ptr %491, i64 -6
   %493 = load i16, ptr %492, align 2, !tbaa !58
   %494 = uitofp i16 %493 to float
@@ -6587,7 +6587,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %501, ptr %497, align 2, !tbaa !58
   %502 = sub i32 -3, %489
   %503 = sext i32 %502 to i64
-  %504 = getelementptr inbounds i16, ptr %487, i64 %503
+  %504 = getelementptr inbounds [2 x i8], ptr %487, i64 %503
   %505 = load i16, ptr %504, align 2, !tbaa !58
   %506 = uitofp i16 %505 to float
   %507 = tail call nsz float @llvm.fmuladd.f32(float %506, float %24, float %48)
@@ -6595,7 +6595,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %508, ptr %504, align 2, !tbaa !58
   %509 = sub i32 3, %489
   %510 = sext i32 %509 to i64
-  %511 = getelementptr inbounds i16, ptr %487, i64 %510
+  %511 = getelementptr inbounds [2 x i8], ptr %487, i64 %510
   %512 = load i16, ptr %511, align 2, !tbaa !58
   %513 = uitofp i16 %512 to float
   %514 = tail call nsz float @llvm.fmuladd.f32(float %513, float %24, float %48)
@@ -6603,7 +6603,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %515, ptr %511, align 2, !tbaa !58
   %516 = mul nsw i32 %488, 3
   %517 = sext i32 %516 to i64
-  %518 = getelementptr i16, ptr %487, i64 %517
+  %518 = getelementptr [2 x i8], ptr %487, i64 %517
   %519 = getelementptr i8, ptr %518, i64 -6
   %520 = load i16, ptr %519, align 2, !tbaa !58
   %521 = uitofp i16 %520 to float
@@ -6630,7 +6630,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %538, ptr %534, align 2, !tbaa !58
   %539 = sub i32 -3, %516
   %540 = sext i32 %539 to i64
-  %541 = getelementptr inbounds i16, ptr %487, i64 %540
+  %541 = getelementptr inbounds [2 x i8], ptr %487, i64 %540
   %542 = load i16, ptr %541, align 2, !tbaa !58
   %543 = uitofp i16 %542 to float
   %544 = tail call nsz float @llvm.fmuladd.f32(float %543, float %24, float %48)
@@ -6638,7 +6638,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %545, ptr %541, align 2, !tbaa !58
   %546 = sub i32 3, %516
   %547 = sext i32 %546 to i64
-  %548 = getelementptr inbounds i16, ptr %487, i64 %547
+  %548 = getelementptr inbounds [2 x i8], ptr %487, i64 %547
   %549 = load i16, ptr %548, align 2, !tbaa !58
   %550 = uitofp i16 %549 to float
   %551 = tail call nsz float @llvm.fmuladd.f32(float %550, float %24, float %48)
@@ -6646,7 +6646,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %552, ptr %548, align 2, !tbaa !58
   %553 = sub i32 -2, %516
   %554 = sext i32 %553 to i64
-  %555 = getelementptr inbounds i16, ptr %487, i64 %554
+  %555 = getelementptr inbounds [2 x i8], ptr %487, i64 %554
   %556 = load i16, ptr %555, align 2, !tbaa !58
   %557 = uitofp i16 %556 to float
   %558 = tail call nsz float @llvm.fmuladd.f32(float %557, float %24, float %48)
@@ -6654,7 +6654,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %559, ptr %555, align 2, !tbaa !58
   %560 = sub i32 2, %516
   %561 = sext i32 %560 to i64
-  %562 = getelementptr inbounds i16, ptr %487, i64 %561
+  %562 = getelementptr inbounds [2 x i8], ptr %487, i64 %561
   %563 = load i16, ptr %562, align 2, !tbaa !58
   %564 = uitofp i16 %563 to float
   %565 = tail call nsz float @llvm.fmuladd.f32(float %564, float %24, float %48)
@@ -6669,7 +6669,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %573 = sdiv i32 %568, 2
   %574 = shl nsw i32 %573, 1
   %575 = sext i32 %574 to i64
-  %576 = getelementptr i16, ptr %572, i64 %575
+  %576 = getelementptr [2 x i8], ptr %572, i64 %575
   %577 = getelementptr i8, ptr %576, i64 -6
   %578 = load i16, ptr %577, align 2, !tbaa !58
   %579 = uitofp i16 %578 to float
@@ -6684,7 +6684,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %586, ptr %582, align 2, !tbaa !58
   %587 = sub i32 -3, %574
   %588 = sext i32 %587 to i64
-  %589 = getelementptr inbounds i16, ptr %572, i64 %588
+  %589 = getelementptr inbounds [2 x i8], ptr %572, i64 %588
   %590 = load i16, ptr %589, align 2, !tbaa !58
   %591 = uitofp i16 %590 to float
   %592 = tail call nsz float @llvm.fmuladd.f32(float %591, float %24, float %48)
@@ -6692,7 +6692,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %593, ptr %589, align 2, !tbaa !58
   %594 = sub i32 3, %574
   %595 = sext i32 %594 to i64
-  %596 = getelementptr inbounds i16, ptr %572, i64 %595
+  %596 = getelementptr inbounds [2 x i8], ptr %572, i64 %595
   %597 = load i16, ptr %596, align 2, !tbaa !58
   %598 = uitofp i16 %597 to float
   %599 = tail call nsz float @llvm.fmuladd.f32(float %598, float %24, float %48)
@@ -6700,7 +6700,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %600, ptr %596, align 2, !tbaa !58
   %601 = mul nsw i32 %573, 3
   %602 = sext i32 %601 to i64
-  %603 = getelementptr i16, ptr %572, i64 %602
+  %603 = getelementptr [2 x i8], ptr %572, i64 %602
   %604 = getelementptr i8, ptr %603, i64 -6
   %605 = load i16, ptr %604, align 2, !tbaa !58
   %606 = uitofp i16 %605 to float
@@ -6727,7 +6727,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %623, ptr %619, align 2, !tbaa !58
   %624 = sub i32 -3, %601
   %625 = sext i32 %624 to i64
-  %626 = getelementptr inbounds i16, ptr %572, i64 %625
+  %626 = getelementptr inbounds [2 x i8], ptr %572, i64 %625
   %627 = load i16, ptr %626, align 2, !tbaa !58
   %628 = uitofp i16 %627 to float
   %629 = tail call nsz float @llvm.fmuladd.f32(float %628, float %24, float %48)
@@ -6735,7 +6735,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %630, ptr %626, align 2, !tbaa !58
   %631 = sub i32 3, %601
   %632 = sext i32 %631 to i64
-  %633 = getelementptr inbounds i16, ptr %572, i64 %632
+  %633 = getelementptr inbounds [2 x i8], ptr %572, i64 %632
   %634 = load i16, ptr %633, align 2, !tbaa !58
   %635 = uitofp i16 %634 to float
   %636 = tail call nsz float @llvm.fmuladd.f32(float %635, float %24, float %48)
@@ -6743,7 +6743,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %637, ptr %633, align 2, !tbaa !58
   %638 = sub i32 -2, %601
   %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds i16, ptr %572, i64 %639
+  %640 = getelementptr inbounds [2 x i8], ptr %572, i64 %639
   %641 = load i16, ptr %640, align 2, !tbaa !58
   %642 = uitofp i16 %641 to float
   %643 = tail call nsz float @llvm.fmuladd.f32(float %642, float %24, float %48)
@@ -6751,7 +6751,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %644, ptr %640, align 2, !tbaa !58
   %645 = sub i32 2, %601
   %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds i16, ptr %572, i64 %646
+  %647 = getelementptr inbounds [2 x i8], ptr %572, i64 %646
   %648 = load i16, ptr %647, align 2, !tbaa !58
   %649 = uitofp i16 %648 to float
   %650 = tail call nsz float @llvm.fmuladd.f32(float %649, float %24, float %48)
@@ -6770,7 +6770,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %659 = sdiv i32 %654, 2
   %660 = shl nsw i32 %659, 1
   %661 = sext i32 %660 to i64
-  %662 = getelementptr i16, ptr %658, i64 %661
+  %662 = getelementptr [2 x i8], ptr %658, i64 %661
   %663 = getelementptr i8, ptr %662, i64 -6
   %664 = load i16, ptr %663, align 2, !tbaa !58
   %665 = uitofp i16 %664 to float
@@ -6785,7 +6785,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %672, ptr %668, align 2, !tbaa !58
   %673 = sub i32 -3, %660
   %674 = sext i32 %673 to i64
-  %675 = getelementptr inbounds i16, ptr %658, i64 %674
+  %675 = getelementptr inbounds [2 x i8], ptr %658, i64 %674
   %676 = load i16, ptr %675, align 2, !tbaa !58
   %677 = uitofp i16 %676 to float
   %678 = tail call nsz float @llvm.fmuladd.f32(float %677, float %24, float %90)
@@ -6793,7 +6793,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %679, ptr %675, align 2, !tbaa !58
   %680 = sub i32 3, %660
   %681 = sext i32 %680 to i64
-  %682 = getelementptr inbounds i16, ptr %658, i64 %681
+  %682 = getelementptr inbounds [2 x i8], ptr %658, i64 %681
   %683 = load i16, ptr %682, align 2, !tbaa !58
   %684 = uitofp i16 %683 to float
   %685 = tail call nsz float @llvm.fmuladd.f32(float %684, float %24, float %90)
@@ -6801,7 +6801,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %686, ptr %682, align 2, !tbaa !58
   %687 = mul nsw i32 %659, 3
   %688 = sext i32 %687 to i64
-  %689 = getelementptr i16, ptr %658, i64 %688
+  %689 = getelementptr [2 x i8], ptr %658, i64 %688
   %690 = getelementptr i8, ptr %689, i64 -6
   %691 = load i16, ptr %690, align 2, !tbaa !58
   %692 = uitofp i16 %691 to float
@@ -6828,7 +6828,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %709, ptr %705, align 2, !tbaa !58
   %710 = sub i32 -3, %687
   %711 = sext i32 %710 to i64
-  %712 = getelementptr inbounds i16, ptr %658, i64 %711
+  %712 = getelementptr inbounds [2 x i8], ptr %658, i64 %711
   %713 = load i16, ptr %712, align 2, !tbaa !58
   %714 = uitofp i16 %713 to float
   %715 = tail call nsz float @llvm.fmuladd.f32(float %714, float %24, float %90)
@@ -6836,7 +6836,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %716, ptr %712, align 2, !tbaa !58
   %717 = sub i32 3, %687
   %718 = sext i32 %717 to i64
-  %719 = getelementptr inbounds i16, ptr %658, i64 %718
+  %719 = getelementptr inbounds [2 x i8], ptr %658, i64 %718
   %720 = load i16, ptr %719, align 2, !tbaa !58
   %721 = uitofp i16 %720 to float
   %722 = tail call nsz float @llvm.fmuladd.f32(float %721, float %24, float %90)
@@ -6844,7 +6844,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %723, ptr %719, align 2, !tbaa !58
   %724 = sub i32 -2, %687
   %725 = sext i32 %724 to i64
-  %726 = getelementptr inbounds i16, ptr %658, i64 %725
+  %726 = getelementptr inbounds [2 x i8], ptr %658, i64 %725
   %727 = load i16, ptr %726, align 2, !tbaa !58
   %728 = uitofp i16 %727 to float
   %729 = tail call nsz float @llvm.fmuladd.f32(float %728, float %24, float %90)
@@ -6852,7 +6852,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %730, ptr %726, align 2, !tbaa !58
   %731 = sub i32 2, %687
   %732 = sext i32 %731 to i64
-  %733 = getelementptr inbounds i16, ptr %658, i64 %732
+  %733 = getelementptr inbounds [2 x i8], ptr %658, i64 %732
   %734 = load i16, ptr %733, align 2, !tbaa !58
   %735 = uitofp i16 %734 to float
   %736 = tail call nsz float @llvm.fmuladd.f32(float %735, float %24, float %90)
@@ -6867,10 +6867,10 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
 
 740:                                              ; preds = %738
   %741 = getelementptr inbounds nuw i8, ptr %16, i64 78
-  %742 = getelementptr inbounds i16, ptr %741, i64 %17
+  %742 = getelementptr inbounds [2 x i8], ptr %741, i64 %17
   %743 = load i16, ptr %742, align 2, !tbaa !58
   %744 = zext i16 %743 to i64
-  %745 = getelementptr inbounds i16, ptr %741, i64 %18
+  %745 = getelementptr inbounds [2 x i8], ptr %741, i64 %18
   %746 = load i16, ptr %745, align 2, !tbaa !58
   %747 = zext i16 %746 to i32
   %748 = load ptr, ptr %1, align 8, !tbaa !75
@@ -6883,7 +6883,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %755 = sdiv i32 %749, 2
   %756 = shl nsw i32 %755, 1
   %757 = sext i32 %756 to i64
-  %758 = getelementptr i16, ptr %754, i64 %757
+  %758 = getelementptr [2 x i8], ptr %754, i64 %757
   %759 = getelementptr i8, ptr %758, i64 -6
   %760 = load i16, ptr %759, align 2, !tbaa !58
   %761 = uitofp i16 %760 to float
@@ -6898,7 +6898,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %768, ptr %764, align 2, !tbaa !58
   %769 = sub i32 -3, %756
   %770 = sext i32 %769 to i64
-  %771 = getelementptr inbounds i16, ptr %754, i64 %770
+  %771 = getelementptr inbounds [2 x i8], ptr %754, i64 %770
   %772 = load i16, ptr %771, align 2, !tbaa !58
   %773 = uitofp i16 %772 to float
   %774 = tail call nsz float @llvm.fmuladd.f32(float %773, float %24, float %26)
@@ -6906,7 +6906,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %775, ptr %771, align 2, !tbaa !58
   %776 = sub i32 3, %756
   %777 = sext i32 %776 to i64
-  %778 = getelementptr inbounds i16, ptr %754, i64 %777
+  %778 = getelementptr inbounds [2 x i8], ptr %754, i64 %777
   %779 = load i16, ptr %778, align 2, !tbaa !58
   %780 = uitofp i16 %779 to float
   %781 = tail call nsz float @llvm.fmuladd.f32(float %780, float %24, float %26)
@@ -6914,7 +6914,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %782, ptr %778, align 2, !tbaa !58
   %783 = mul nsw i32 %755, 3
   %784 = sext i32 %783 to i64
-  %785 = getelementptr i16, ptr %754, i64 %784
+  %785 = getelementptr [2 x i8], ptr %754, i64 %784
   %786 = getelementptr i8, ptr %785, i64 -6
   %787 = load i16, ptr %786, align 2, !tbaa !58
   %788 = uitofp i16 %787 to float
@@ -6941,7 +6941,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %805, ptr %801, align 2, !tbaa !58
   %806 = sub i32 -3, %783
   %807 = sext i32 %806 to i64
-  %808 = getelementptr inbounds i16, ptr %754, i64 %807
+  %808 = getelementptr inbounds [2 x i8], ptr %754, i64 %807
   %809 = load i16, ptr %808, align 2, !tbaa !58
   %810 = uitofp i16 %809 to float
   %811 = tail call nsz float @llvm.fmuladd.f32(float %810, float %24, float %26)
@@ -6949,7 +6949,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %812, ptr %808, align 2, !tbaa !58
   %813 = sub i32 3, %783
   %814 = sext i32 %813 to i64
-  %815 = getelementptr inbounds i16, ptr %754, i64 %814
+  %815 = getelementptr inbounds [2 x i8], ptr %754, i64 %814
   %816 = load i16, ptr %815, align 2, !tbaa !58
   %817 = uitofp i16 %816 to float
   %818 = tail call nsz float @llvm.fmuladd.f32(float %817, float %24, float %26)
@@ -6957,7 +6957,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %819, ptr %815, align 2, !tbaa !58
   %820 = sub i32 -2, %783
   %821 = sext i32 %820 to i64
-  %822 = getelementptr inbounds i16, ptr %754, i64 %821
+  %822 = getelementptr inbounds [2 x i8], ptr %754, i64 %821
   %823 = load i16, ptr %822, align 2, !tbaa !58
   %824 = uitofp i16 %823 to float
   %825 = tail call nsz float @llvm.fmuladd.f32(float %824, float %24, float %26)
@@ -6965,7 +6965,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %826, ptr %822, align 2, !tbaa !58
   %827 = sub i32 2, %783
   %828 = sext i32 %827 to i64
-  %829 = getelementptr inbounds i16, ptr %754, i64 %828
+  %829 = getelementptr inbounds [2 x i8], ptr %754, i64 %828
   %830 = load i16, ptr %829, align 2, !tbaa !58
   %831 = uitofp i16 %830 to float
   %832 = tail call nsz float @llvm.fmuladd.f32(float %831, float %24, float %26)
@@ -6980,7 +6980,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %840 = sdiv i32 %835, 2
   %841 = shl nsw i32 %840, 1
   %842 = sext i32 %841 to i64
-  %843 = getelementptr i16, ptr %839, i64 %842
+  %843 = getelementptr [2 x i8], ptr %839, i64 %842
   %844 = getelementptr i8, ptr %843, i64 -6
   %845 = load i16, ptr %844, align 2, !tbaa !58
   %846 = uitofp i16 %845 to float
@@ -6995,7 +6995,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %853, ptr %849, align 2, !tbaa !58
   %854 = sub i32 -3, %841
   %855 = sext i32 %854 to i64
-  %856 = getelementptr inbounds i16, ptr %839, i64 %855
+  %856 = getelementptr inbounds [2 x i8], ptr %839, i64 %855
   %857 = load i16, ptr %856, align 2, !tbaa !58
   %858 = uitofp i16 %857 to float
   %859 = tail call nsz float @llvm.fmuladd.f32(float %858, float %24, float %48)
@@ -7003,7 +7003,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %860, ptr %856, align 2, !tbaa !58
   %861 = sub i32 3, %841
   %862 = sext i32 %861 to i64
-  %863 = getelementptr inbounds i16, ptr %839, i64 %862
+  %863 = getelementptr inbounds [2 x i8], ptr %839, i64 %862
   %864 = load i16, ptr %863, align 2, !tbaa !58
   %865 = uitofp i16 %864 to float
   %866 = tail call nsz float @llvm.fmuladd.f32(float %865, float %24, float %48)
@@ -7011,7 +7011,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %867, ptr %863, align 2, !tbaa !58
   %868 = mul nsw i32 %840, 3
   %869 = sext i32 %868 to i64
-  %870 = getelementptr i16, ptr %839, i64 %869
+  %870 = getelementptr [2 x i8], ptr %839, i64 %869
   %871 = getelementptr i8, ptr %870, i64 -6
   %872 = load i16, ptr %871, align 2, !tbaa !58
   %873 = uitofp i16 %872 to float
@@ -7038,7 +7038,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %890, ptr %886, align 2, !tbaa !58
   %891 = sub i32 -3, %868
   %892 = sext i32 %891 to i64
-  %893 = getelementptr inbounds i16, ptr %839, i64 %892
+  %893 = getelementptr inbounds [2 x i8], ptr %839, i64 %892
   %894 = load i16, ptr %893, align 2, !tbaa !58
   %895 = uitofp i16 %894 to float
   %896 = tail call nsz float @llvm.fmuladd.f32(float %895, float %24, float %48)
@@ -7046,7 +7046,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %897, ptr %893, align 2, !tbaa !58
   %898 = sub i32 3, %868
   %899 = sext i32 %898 to i64
-  %900 = getelementptr inbounds i16, ptr %839, i64 %899
+  %900 = getelementptr inbounds [2 x i8], ptr %839, i64 %899
   %901 = load i16, ptr %900, align 2, !tbaa !58
   %902 = uitofp i16 %901 to float
   %903 = tail call nsz float @llvm.fmuladd.f32(float %902, float %24, float %48)
@@ -7054,7 +7054,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %904, ptr %900, align 2, !tbaa !58
   %905 = sub i32 -2, %868
   %906 = sext i32 %905 to i64
-  %907 = getelementptr inbounds i16, ptr %839, i64 %906
+  %907 = getelementptr inbounds [2 x i8], ptr %839, i64 %906
   %908 = load i16, ptr %907, align 2, !tbaa !58
   %909 = uitofp i16 %908 to float
   %910 = tail call nsz float @llvm.fmuladd.f32(float %909, float %24, float %48)
@@ -7062,7 +7062,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %911, ptr %907, align 2, !tbaa !58
   %912 = sub i32 2, %868
   %913 = sext i32 %912 to i64
-  %914 = getelementptr inbounds i16, ptr %839, i64 %913
+  %914 = getelementptr inbounds [2 x i8], ptr %839, i64 %913
   %915 = load i16, ptr %914, align 2, !tbaa !58
   %916 = uitofp i16 %915 to float
   %917 = tail call nsz float @llvm.fmuladd.f32(float %916, float %24, float %48)
@@ -7077,7 +7077,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %925 = sdiv i32 %920, 2
   %926 = shl nsw i32 %925, 1
   %927 = sext i32 %926 to i64
-  %928 = getelementptr i16, ptr %924, i64 %927
+  %928 = getelementptr [2 x i8], ptr %924, i64 %927
   %929 = getelementptr i8, ptr %928, i64 -6
   %930 = load i16, ptr %929, align 2, !tbaa !58
   %931 = uitofp i16 %930 to float
@@ -7092,7 +7092,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %938, ptr %934, align 2, !tbaa !58
   %939 = sub i32 -3, %926
   %940 = sext i32 %939 to i64
-  %941 = getelementptr inbounds i16, ptr %924, i64 %940
+  %941 = getelementptr inbounds [2 x i8], ptr %924, i64 %940
   %942 = load i16, ptr %941, align 2, !tbaa !58
   %943 = uitofp i16 %942 to float
   %944 = tail call nsz float @llvm.fmuladd.f32(float %943, float %24, float %48)
@@ -7100,7 +7100,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %945, ptr %941, align 2, !tbaa !58
   %946 = sub i32 3, %926
   %947 = sext i32 %946 to i64
-  %948 = getelementptr inbounds i16, ptr %924, i64 %947
+  %948 = getelementptr inbounds [2 x i8], ptr %924, i64 %947
   %949 = load i16, ptr %948, align 2, !tbaa !58
   %950 = uitofp i16 %949 to float
   %951 = tail call nsz float @llvm.fmuladd.f32(float %950, float %24, float %48)
@@ -7108,7 +7108,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %952, ptr %948, align 2, !tbaa !58
   %953 = mul nsw i32 %925, 3
   %954 = sext i32 %953 to i64
-  %955 = getelementptr i16, ptr %924, i64 %954
+  %955 = getelementptr [2 x i8], ptr %924, i64 %954
   %956 = getelementptr i8, ptr %955, i64 -6
   %957 = load i16, ptr %956, align 2, !tbaa !58
   %958 = uitofp i16 %957 to float
@@ -7135,7 +7135,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %975, ptr %971, align 2, !tbaa !58
   %976 = sub i32 -3, %953
   %977 = sext i32 %976 to i64
-  %978 = getelementptr inbounds i16, ptr %924, i64 %977
+  %978 = getelementptr inbounds [2 x i8], ptr %924, i64 %977
   %979 = load i16, ptr %978, align 2, !tbaa !58
   %980 = uitofp i16 %979 to float
   %981 = tail call nsz float @llvm.fmuladd.f32(float %980, float %24, float %48)
@@ -7143,7 +7143,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %982, ptr %978, align 2, !tbaa !58
   %983 = sub i32 3, %953
   %984 = sext i32 %983 to i64
-  %985 = getelementptr inbounds i16, ptr %924, i64 %984
+  %985 = getelementptr inbounds [2 x i8], ptr %924, i64 %984
   %986 = load i16, ptr %985, align 2, !tbaa !58
   %987 = uitofp i16 %986 to float
   %988 = tail call nsz float @llvm.fmuladd.f32(float %987, float %24, float %48)
@@ -7151,7 +7151,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %989, ptr %985, align 2, !tbaa !58
   %990 = sub i32 -2, %953
   %991 = sext i32 %990 to i64
-  %992 = getelementptr inbounds i16, ptr %924, i64 %991
+  %992 = getelementptr inbounds [2 x i8], ptr %924, i64 %991
   %993 = load i16, ptr %992, align 2, !tbaa !58
   %994 = uitofp i16 %993 to float
   %995 = tail call nsz float @llvm.fmuladd.f32(float %994, float %24, float %48)
@@ -7159,7 +7159,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %996, ptr %992, align 2, !tbaa !58
   %997 = sub i32 2, %953
   %998 = sext i32 %997 to i64
-  %999 = getelementptr inbounds i16, ptr %924, i64 %998
+  %999 = getelementptr inbounds [2 x i8], ptr %924, i64 %998
   %1000 = load i16, ptr %999, align 2, !tbaa !58
   %1001 = uitofp i16 %1000 to float
   %1002 = tail call nsz float @llvm.fmuladd.f32(float %1001, float %24, float %48)
@@ -7178,7 +7178,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %1011 = sdiv i32 %1006, 2
   %1012 = shl nsw i32 %1011, 1
   %1013 = sext i32 %1012 to i64
-  %1014 = getelementptr i16, ptr %1010, i64 %1013
+  %1014 = getelementptr [2 x i8], ptr %1010, i64 %1013
   %1015 = getelementptr i8, ptr %1014, i64 -6
   %1016 = load i16, ptr %1015, align 2, !tbaa !58
   %1017 = uitofp i16 %1016 to float
@@ -7193,7 +7193,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1024, ptr %1020, align 2, !tbaa !58
   %1025 = sub i32 -3, %1012
   %1026 = sext i32 %1025 to i64
-  %1027 = getelementptr inbounds i16, ptr %1010, i64 %1026
+  %1027 = getelementptr inbounds [2 x i8], ptr %1010, i64 %1026
   %1028 = load i16, ptr %1027, align 2, !tbaa !58
   %1029 = uitofp i16 %1028 to float
   %1030 = tail call nsz float @llvm.fmuladd.f32(float %1029, float %24, float %90)
@@ -7201,7 +7201,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1031, ptr %1027, align 2, !tbaa !58
   %1032 = sub i32 3, %1012
   %1033 = sext i32 %1032 to i64
-  %1034 = getelementptr inbounds i16, ptr %1010, i64 %1033
+  %1034 = getelementptr inbounds [2 x i8], ptr %1010, i64 %1033
   %1035 = load i16, ptr %1034, align 2, !tbaa !58
   %1036 = uitofp i16 %1035 to float
   %1037 = tail call nsz float @llvm.fmuladd.f32(float %1036, float %24, float %90)
@@ -7209,7 +7209,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1038, ptr %1034, align 2, !tbaa !58
   %1039 = mul nsw i32 %1011, 3
   %1040 = sext i32 %1039 to i64
-  %1041 = getelementptr i16, ptr %1010, i64 %1040
+  %1041 = getelementptr [2 x i8], ptr %1010, i64 %1040
   %1042 = getelementptr i8, ptr %1041, i64 -6
   %1043 = load i16, ptr %1042, align 2, !tbaa !58
   %1044 = uitofp i16 %1043 to float
@@ -7236,7 +7236,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1061, ptr %1057, align 2, !tbaa !58
   %1062 = sub i32 -3, %1039
   %1063 = sext i32 %1062 to i64
-  %1064 = getelementptr inbounds i16, ptr %1010, i64 %1063
+  %1064 = getelementptr inbounds [2 x i8], ptr %1010, i64 %1063
   %1065 = load i16, ptr %1064, align 2, !tbaa !58
   %1066 = uitofp i16 %1065 to float
   %1067 = tail call nsz float @llvm.fmuladd.f32(float %1066, float %24, float %90)
@@ -7244,7 +7244,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1068, ptr %1064, align 2, !tbaa !58
   %1069 = sub i32 3, %1039
   %1070 = sext i32 %1069 to i64
-  %1071 = getelementptr inbounds i16, ptr %1010, i64 %1070
+  %1071 = getelementptr inbounds [2 x i8], ptr %1010, i64 %1070
   %1072 = load i16, ptr %1071, align 2, !tbaa !58
   %1073 = uitofp i16 %1072 to float
   %1074 = tail call nsz float @llvm.fmuladd.f32(float %1073, float %24, float %90)
@@ -7252,7 +7252,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1075, ptr %1071, align 2, !tbaa !58
   %1076 = sub i32 -2, %1039
   %1077 = sext i32 %1076 to i64
-  %1078 = getelementptr inbounds i16, ptr %1010, i64 %1077
+  %1078 = getelementptr inbounds [2 x i8], ptr %1010, i64 %1077
   %1079 = load i16, ptr %1078, align 2, !tbaa !58
   %1080 = uitofp i16 %1079 to float
   %1081 = tail call nsz float @llvm.fmuladd.f32(float %1080, float %24, float %90)
@@ -7260,7 +7260,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1082, ptr %1078, align 2, !tbaa !58
   %1083 = sub i32 2, %1039
   %1084 = sext i32 %1083 to i64
-  %1085 = getelementptr inbounds i16, ptr %1010, i64 %1084
+  %1085 = getelementptr inbounds [2 x i8], ptr %1010, i64 %1084
   %1086 = load i16, ptr %1085, align 2, !tbaa !58
   %1087 = uitofp i16 %1086 to float
   %1088 = tail call nsz float @llvm.fmuladd.f32(float %1087, float %24, float %90)
@@ -7297,11 +7297,11 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 0, ptr %1094, align 2, !tbaa !58
   store i16 0, ptr %1095, align 2, !tbaa !58
   store i16 %1097, ptr %1096, align 2, !tbaa !58
-  %1106 = getelementptr inbounds nuw [3 x i16], ptr %16, i64 %indvars.iv149
-  %1107 = getelementptr inbounds i16, ptr %1106, i64 %17
+  %1106 = getelementptr inbounds nuw [6 x i8], ptr %16, i64 %indvars.iv149
+  %1107 = getelementptr inbounds [2 x i8], ptr %1106, i64 %17
   %1108 = load i16, ptr %1107, align 2, !tbaa !58
   %1109 = zext i16 %1108 to i32
-  %1110 = getelementptr inbounds i16, ptr %1106, i64 %18
+  %1110 = getelementptr inbounds [2 x i8], ptr %1106, i64 %18
   %1111 = load i16, ptr %1110, align 2, !tbaa !58
   %1112 = zext i16 %1111 to i32
   %1113 = icmp slt i32 %1098, %1109
@@ -7316,14 +7316,14 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   %1116 = icmp slt i32 %.0, 0
   %..i144 = tail call i32 @llvm.smin.i32(i32 %.0, i32 %1104)
   %.0.i145 = select i1 %1116, i32 0, i32 %..i144
-  %1117 = getelementptr inbounds nuw ptr, ptr @positions_name, i64 %indvars.iv149
+  %1117 = getelementptr inbounds nuw [8 x i8], ptr @positions_name, i64 %indvars.iv149
   %1118 = load ptr, ptr %1117, align 8, !tbaa !75
   %1119 = sext i32 %.0.i to i64
   br label %1120
 
 1120:                                             ; preds = %._crit_edge.i, %1105
   %indvars.iv51.i = phi i64 [ 0, %1105 ], [ %indvars.iv.next52.i, %._crit_edge.i ]
-  %1121 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51.i
+  %1121 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv51.i
   %1122 = load ptr, ptr %1121, align 8, !tbaa !75
   %.not.i = icmp eq ptr %1122, null
   br i1 %.not.i, label %draw_htext16.exit, label %.preheader42.i
@@ -7334,15 +7334,15 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not3947.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader42.i
-  %1124 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv51.i
-  %1125 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv51.i
+  %1124 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv51.i
+  %1125 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv51.i
   %1126 = load i32, ptr %1125, align 4, !tbaa !44
   %1127 = mul nsw i32 %1126, %.0.i145
   %1128 = sext i32 %1127 to i64
   %1129 = getelementptr inbounds i8, ptr %1122, i64 %1128
   %1130 = sdiv i32 %1126, 2
   %1131 = sext i32 %1130 to i64
-  %invariant.gep.i = getelementptr i16, ptr %1129, i64 %1119
+  %invariant.gep.i = getelementptr [2 x i8], ptr %1129, i64 %1119
   br label %1132
 
 1132:                                             ; preds = %1159, %.lr.ph.i
@@ -7390,7 +7390,7 @@ define internal void @green_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not40.i, label %1155, label %1137, !llvm.loop !168
 
 1155:                                             ; preds = %1152
-  %1156 = getelementptr i16, ptr %1153, i64 %1131
+  %1156 = getelementptr [2 x i8], ptr %1153, i64 %1131
   %1157 = getelementptr i8, ptr %1156, i64 -16
   %1158 = add nsw i32 %.03745.i, -1
   %.not55.i = icmp eq i32 %.03745.i, 0
@@ -7427,14 +7427,14 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load float, ptr %11, align 8, !tbaa !151
   %13 = sext i32 %5 to i64
-  %14 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %13
+  %14 = getelementptr inbounds [84 x i8], ptr @positions, i64 %13
   %15 = sext i32 %2 to i64
   %16 = sext i32 %3 to i64
   %17 = sext i32 %4 to i64
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !75
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %21 = getelementptr inbounds i32, ptr %20, i64 %17
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %17
   %22 = load i32, ptr %21, align 4, !tbaa !44
   %23 = sdiv i32 %22, 2
   %24 = fsub nsz float 1.000000e+00, %12
@@ -7454,9 +7454,9 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %38 = sext i32 %37 to i64
   %39 = sub i32 2, %31
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %1, i64 %15
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   %42 = load ptr, ptr %41, align 8, !tbaa !75
-  %43 = getelementptr inbounds i32, ptr %20, i64 %15
+  %43 = getelementptr inbounds [4 x i8], ptr %20, i64 %15
   %44 = load i32, ptr %43, align 4, !tbaa !44
   %45 = sdiv i32 %44, 2
   %46 = shl nsw i32 %45, 1
@@ -7475,8 +7475,8 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %59 = sext i32 %58 to i64
   %60 = sub i32 2, %52
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %1, i64 %16
-  %63 = getelementptr inbounds i32, ptr %20, i64 %16
+  %62 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
+  %63 = getelementptr inbounds [4 x i8], ptr %20, i64 %16
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %65 = load ptr, ptr %62, align 8, !tbaa !75
   %66 = load i32, ptr %63, align 4, !tbaa !44
@@ -7506,14 +7506,14 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
 
 88:                                               ; preds = %6, %388
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %388 ]
-  %89 = getelementptr inbounds nuw [3 x i16], ptr %14, i64 %indvars.iv
-  %90 = getelementptr inbounds i16, ptr %89, i64 %15
+  %89 = getelementptr inbounds nuw [6 x i8], ptr %14, i64 %indvars.iv
+  %90 = getelementptr inbounds [2 x i8], ptr %89, i64 %15
   %91 = load i16, ptr %90, align 2, !tbaa !58
   %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds i16, ptr %89, i64 %16
+  %93 = getelementptr inbounds [2 x i8], ptr %89, i64 %16
   %94 = load i16, ptr %93, align 2, !tbaa !58
   %95 = zext i16 %94 to i32
-  %96 = getelementptr inbounds i16, ptr %89, i64 %17
+  %96 = getelementptr inbounds [2 x i8], ptr %89, i64 %17
   %97 = load i16, ptr %96, align 2, !tbaa !58
   %98 = mul nsw i32 %22, %95
   %99 = sext i32 %98 to i64
@@ -7522,7 +7522,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 %101
   %103 = uitofp i16 %97 to float
   %104 = fmul nsz float %12, %103
-  %105 = getelementptr i16, ptr %102, i64 %26
+  %105 = getelementptr [2 x i8], ptr %102, i64 %26
   %106 = getelementptr i8, ptr %105, i64 -6
   %107 = load i16, ptr %106, align 2, !tbaa !58
   %108 = uitofp i16 %107 to float
@@ -7535,19 +7535,19 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %114 = tail call nsz float @llvm.fmuladd.f32(float %113, float %24, float %104)
   %115 = fptoui float %114 to i16
   store i16 %115, ptr %111, align 2, !tbaa !58
-  %116 = getelementptr inbounds i16, ptr %102, i64 %28
+  %116 = getelementptr inbounds [2 x i8], ptr %102, i64 %28
   %117 = load i16, ptr %116, align 2, !tbaa !58
   %118 = uitofp i16 %117 to float
   %119 = tail call nsz float @llvm.fmuladd.f32(float %118, float %24, float %104)
   %120 = fptoui float %119 to i16
   store i16 %120, ptr %116, align 2, !tbaa !58
-  %121 = getelementptr inbounds i16, ptr %102, i64 %30
+  %121 = getelementptr inbounds [2 x i8], ptr %102, i64 %30
   %122 = load i16, ptr %121, align 2, !tbaa !58
   %123 = uitofp i16 %122 to float
   %124 = tail call nsz float @llvm.fmuladd.f32(float %123, float %24, float %104)
   %125 = fptoui float %124 to i16
   store i16 %125, ptr %121, align 2, !tbaa !58
-  %126 = getelementptr i16, ptr %102, i64 %32
+  %126 = getelementptr [2 x i8], ptr %102, i64 %32
   %127 = getelementptr i8, ptr %126, i64 -6
   %128 = load i16, ptr %127, align 2, !tbaa !58
   %129 = uitofp i16 %128 to float
@@ -7572,25 +7572,25 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %145 = tail call nsz float @llvm.fmuladd.f32(float %144, float %24, float %104)
   %146 = fptoui float %145 to i16
   store i16 %146, ptr %142, align 2, !tbaa !58
-  %147 = getelementptr inbounds i16, ptr %102, i64 %34
+  %147 = getelementptr inbounds [2 x i8], ptr %102, i64 %34
   %148 = load i16, ptr %147, align 2, !tbaa !58
   %149 = uitofp i16 %148 to float
   %150 = tail call nsz float @llvm.fmuladd.f32(float %149, float %24, float %104)
   %151 = fptoui float %150 to i16
   store i16 %151, ptr %147, align 2, !tbaa !58
-  %152 = getelementptr inbounds i16, ptr %102, i64 %36
+  %152 = getelementptr inbounds [2 x i8], ptr %102, i64 %36
   %153 = load i16, ptr %152, align 2, !tbaa !58
   %154 = uitofp i16 %153 to float
   %155 = tail call nsz float @llvm.fmuladd.f32(float %154, float %24, float %104)
   %156 = fptoui float %155 to i16
   store i16 %156, ptr %152, align 2, !tbaa !58
-  %157 = getelementptr inbounds i16, ptr %102, i64 %38
+  %157 = getelementptr inbounds [2 x i8], ptr %102, i64 %38
   %158 = load i16, ptr %157, align 2, !tbaa !58
   %159 = uitofp i16 %158 to float
   %160 = tail call nsz float @llvm.fmuladd.f32(float %159, float %24, float %104)
   %161 = fptoui float %160 to i16
   store i16 %161, ptr %157, align 2, !tbaa !58
-  %162 = getelementptr inbounds i16, ptr %102, i64 %40
+  %162 = getelementptr inbounds [2 x i8], ptr %102, i64 %40
   %163 = load i16, ptr %162, align 2, !tbaa !58
   %164 = uitofp i16 %163 to float
   %165 = tail call nsz float @llvm.fmuladd.f32(float %164, float %24, float %104)
@@ -7602,7 +7602,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %101
   %171 = uitofp i16 %91 to float
   %172 = fmul nsz float %12, %171
-  %173 = getelementptr i16, ptr %170, i64 %47
+  %173 = getelementptr [2 x i8], ptr %170, i64 %47
   %174 = getelementptr i8, ptr %173, i64 -6
   %175 = load i16, ptr %174, align 2, !tbaa !58
   %176 = uitofp i16 %175 to float
@@ -7615,19 +7615,19 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %182 = tail call nsz float @llvm.fmuladd.f32(float %181, float %24, float %172)
   %183 = fptoui float %182 to i16
   store i16 %183, ptr %179, align 2, !tbaa !58
-  %184 = getelementptr inbounds i16, ptr %170, i64 %49
+  %184 = getelementptr inbounds [2 x i8], ptr %170, i64 %49
   %185 = load i16, ptr %184, align 2, !tbaa !58
   %186 = uitofp i16 %185 to float
   %187 = tail call nsz float @llvm.fmuladd.f32(float %186, float %24, float %172)
   %188 = fptoui float %187 to i16
   store i16 %188, ptr %184, align 2, !tbaa !58
-  %189 = getelementptr inbounds i16, ptr %170, i64 %51
+  %189 = getelementptr inbounds [2 x i8], ptr %170, i64 %51
   %190 = load i16, ptr %189, align 2, !tbaa !58
   %191 = uitofp i16 %190 to float
   %192 = tail call nsz float @llvm.fmuladd.f32(float %191, float %24, float %172)
   %193 = fptoui float %192 to i16
   store i16 %193, ptr %189, align 2, !tbaa !58
-  %194 = getelementptr i16, ptr %170, i64 %53
+  %194 = getelementptr [2 x i8], ptr %170, i64 %53
   %195 = getelementptr i8, ptr %194, i64 -6
   %196 = load i16, ptr %195, align 2, !tbaa !58
   %197 = uitofp i16 %196 to float
@@ -7652,25 +7652,25 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %213 = tail call nsz float @llvm.fmuladd.f32(float %212, float %24, float %172)
   %214 = fptoui float %213 to i16
   store i16 %214, ptr %210, align 2, !tbaa !58
-  %215 = getelementptr inbounds i16, ptr %170, i64 %55
+  %215 = getelementptr inbounds [2 x i8], ptr %170, i64 %55
   %216 = load i16, ptr %215, align 2, !tbaa !58
   %217 = uitofp i16 %216 to float
   %218 = tail call nsz float @llvm.fmuladd.f32(float %217, float %24, float %172)
   %219 = fptoui float %218 to i16
   store i16 %219, ptr %215, align 2, !tbaa !58
-  %220 = getelementptr inbounds i16, ptr %170, i64 %57
+  %220 = getelementptr inbounds [2 x i8], ptr %170, i64 %57
   %221 = load i16, ptr %220, align 2, !tbaa !58
   %222 = uitofp i16 %221 to float
   %223 = tail call nsz float @llvm.fmuladd.f32(float %222, float %24, float %172)
   %224 = fptoui float %223 to i16
   store i16 %224, ptr %220, align 2, !tbaa !58
-  %225 = getelementptr inbounds i16, ptr %170, i64 %59
+  %225 = getelementptr inbounds [2 x i8], ptr %170, i64 %59
   %226 = load i16, ptr %225, align 2, !tbaa !58
   %227 = uitofp i16 %226 to float
   %228 = tail call nsz float @llvm.fmuladd.f32(float %227, float %24, float %172)
   %229 = fptoui float %228 to i16
   store i16 %229, ptr %225, align 2, !tbaa !58
-  %230 = getelementptr inbounds i16, ptr %170, i64 %61
+  %230 = getelementptr inbounds [2 x i8], ptr %170, i64 %61
   %231 = load i16, ptr %230, align 2, !tbaa !58
   %232 = uitofp i16 %231 to float
   %233 = tail call nsz float @llvm.fmuladd.f32(float %232, float %24, float %172)
@@ -7682,7 +7682,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 %101
   %239 = uitofp i16 %94 to float
   %240 = fmul nsz float %12, %239
-  %241 = getelementptr i16, ptr %238, i64 %69
+  %241 = getelementptr [2 x i8], ptr %238, i64 %69
   %242 = getelementptr i8, ptr %241, i64 -6
   %243 = load i16, ptr %242, align 2, !tbaa !58
   %244 = uitofp i16 %243 to float
@@ -7695,19 +7695,19 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %250 = tail call nsz float @llvm.fmuladd.f32(float %249, float %24, float %240)
   %251 = fptoui float %250 to i16
   store i16 %251, ptr %247, align 2, !tbaa !58
-  %252 = getelementptr inbounds i16, ptr %238, i64 %71
+  %252 = getelementptr inbounds [2 x i8], ptr %238, i64 %71
   %253 = load i16, ptr %252, align 2, !tbaa !58
   %254 = uitofp i16 %253 to float
   %255 = tail call nsz float @llvm.fmuladd.f32(float %254, float %24, float %240)
   %256 = fptoui float %255 to i16
   store i16 %256, ptr %252, align 2, !tbaa !58
-  %257 = getelementptr inbounds i16, ptr %238, i64 %73
+  %257 = getelementptr inbounds [2 x i8], ptr %238, i64 %73
   %258 = load i16, ptr %257, align 2, !tbaa !58
   %259 = uitofp i16 %258 to float
   %260 = tail call nsz float @llvm.fmuladd.f32(float %259, float %24, float %240)
   %261 = fptoui float %260 to i16
   store i16 %261, ptr %257, align 2, !tbaa !58
-  %262 = getelementptr i16, ptr %238, i64 %75
+  %262 = getelementptr [2 x i8], ptr %238, i64 %75
   %263 = getelementptr i8, ptr %262, i64 -6
   %264 = load i16, ptr %263, align 2, !tbaa !58
   %265 = uitofp i16 %264 to float
@@ -7732,25 +7732,25 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %281 = tail call nsz float @llvm.fmuladd.f32(float %280, float %24, float %240)
   %282 = fptoui float %281 to i16
   store i16 %282, ptr %278, align 2, !tbaa !58
-  %283 = getelementptr inbounds i16, ptr %238, i64 %77
+  %283 = getelementptr inbounds [2 x i8], ptr %238, i64 %77
   %284 = load i16, ptr %283, align 2, !tbaa !58
   %285 = uitofp i16 %284 to float
   %286 = tail call nsz float @llvm.fmuladd.f32(float %285, float %24, float %240)
   %287 = fptoui float %286 to i16
   store i16 %287, ptr %283, align 2, !tbaa !58
-  %288 = getelementptr inbounds i16, ptr %238, i64 %79
+  %288 = getelementptr inbounds [2 x i8], ptr %238, i64 %79
   %289 = load i16, ptr %288, align 2, !tbaa !58
   %290 = uitofp i16 %289 to float
   %291 = tail call nsz float @llvm.fmuladd.f32(float %290, float %24, float %240)
   %292 = fptoui float %291 to i16
   store i16 %292, ptr %288, align 2, !tbaa !58
-  %293 = getelementptr inbounds i16, ptr %238, i64 %81
+  %293 = getelementptr inbounds [2 x i8], ptr %238, i64 %81
   %294 = load i16, ptr %293, align 2, !tbaa !58
   %295 = uitofp i16 %294 to float
   %296 = tail call nsz float @llvm.fmuladd.f32(float %295, float %24, float %240)
   %297 = fptoui float %296 to i16
   store i16 %297, ptr %293, align 2, !tbaa !58
-  %298 = getelementptr inbounds i16, ptr %238, i64 %83
+  %298 = getelementptr inbounds [2 x i8], ptr %238, i64 %83
   %299 = load i16, ptr %298, align 2, !tbaa !58
   %300 = uitofp i16 %299 to float
   %301 = tail call nsz float @llvm.fmuladd.f32(float %300, float %24, float %240)
@@ -7767,7 +7767,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %309 = sdiv i32 %304, 2
   %310 = shl nsw i32 %309, 1
   %311 = sext i32 %310 to i64
-  %312 = getelementptr i16, ptr %308, i64 %311
+  %312 = getelementptr [2 x i8], ptr %308, i64 %311
   %313 = getelementptr i8, ptr %312, i64 -6
   %314 = load i16, ptr %313, align 2, !tbaa !58
   %315 = uitofp i16 %314 to float
@@ -7782,7 +7782,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %322, ptr %318, align 2, !tbaa !58
   %323 = sub i32 -3, %310
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i16, ptr %308, i64 %324
+  %325 = getelementptr inbounds [2 x i8], ptr %308, i64 %324
   %326 = load i16, ptr %325, align 2, !tbaa !58
   %327 = uitofp i16 %326 to float
   %328 = tail call nsz float @llvm.fmuladd.f32(float %327, float %24, float %87)
@@ -7790,7 +7790,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %329, ptr %325, align 2, !tbaa !58
   %330 = sub i32 3, %310
   %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds i16, ptr %308, i64 %331
+  %332 = getelementptr inbounds [2 x i8], ptr %308, i64 %331
   %333 = load i16, ptr %332, align 2, !tbaa !58
   %334 = uitofp i16 %333 to float
   %335 = tail call nsz float @llvm.fmuladd.f32(float %334, float %24, float %87)
@@ -7798,7 +7798,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %336, ptr %332, align 2, !tbaa !58
   %337 = mul nsw i32 %309, 3
   %338 = sext i32 %337 to i64
-  %339 = getelementptr i16, ptr %308, i64 %338
+  %339 = getelementptr [2 x i8], ptr %308, i64 %338
   %340 = getelementptr i8, ptr %339, i64 -6
   %341 = load i16, ptr %340, align 2, !tbaa !58
   %342 = uitofp i16 %341 to float
@@ -7825,7 +7825,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %359, ptr %355, align 2, !tbaa !58
   %360 = sub i32 -3, %337
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds i16, ptr %308, i64 %361
+  %362 = getelementptr inbounds [2 x i8], ptr %308, i64 %361
   %363 = load i16, ptr %362, align 2, !tbaa !58
   %364 = uitofp i16 %363 to float
   %365 = tail call nsz float @llvm.fmuladd.f32(float %364, float %24, float %87)
@@ -7833,7 +7833,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %366, ptr %362, align 2, !tbaa !58
   %367 = sub i32 3, %337
   %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds i16, ptr %308, i64 %368
+  %369 = getelementptr inbounds [2 x i8], ptr %308, i64 %368
   %370 = load i16, ptr %369, align 2, !tbaa !58
   %371 = uitofp i16 %370 to float
   %372 = tail call nsz float @llvm.fmuladd.f32(float %371, float %24, float %87)
@@ -7841,7 +7841,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %373, ptr %369, align 2, !tbaa !58
   %374 = sub i32 -2, %337
   %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds i16, ptr %308, i64 %375
+  %376 = getelementptr inbounds [2 x i8], ptr %308, i64 %375
   %377 = load i16, ptr %376, align 2, !tbaa !58
   %378 = uitofp i16 %377 to float
   %379 = tail call nsz float @llvm.fmuladd.f32(float %378, float %24, float %87)
@@ -7849,7 +7849,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %380, ptr %376, align 2, !tbaa !58
   %381 = sub i32 2, %337
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds i16, ptr %308, i64 %382
+  %383 = getelementptr inbounds [2 x i8], ptr %308, i64 %382
   %384 = load i16, ptr %383, align 2, !tbaa !58
   %385 = uitofp i16 %384 to float
   %386 = tail call nsz float @llvm.fmuladd.f32(float %385, float %24, float %87)
@@ -7871,13 +7871,13 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
 
 393:                                              ; preds = %389
   %394 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %395 = getelementptr inbounds i16, ptr %394, i64 %15
+  %395 = getelementptr inbounds [2 x i8], ptr %394, i64 %15
   %396 = load i16, ptr %395, align 2, !tbaa !58
   %397 = zext i16 %396 to i64
-  %398 = getelementptr inbounds i16, ptr %394, i64 %16
+  %398 = getelementptr inbounds [2 x i8], ptr %394, i64 %16
   %399 = load i16, ptr %398, align 2, !tbaa !58
   %400 = zext i16 %399 to i32
-  %401 = getelementptr inbounds i16, ptr %394, i64 %17
+  %401 = getelementptr inbounds [2 x i8], ptr %394, i64 %17
   %402 = load i16, ptr %401, align 2, !tbaa !58
   %403 = load ptr, ptr %18, align 8, !tbaa !75
   %404 = load i32, ptr %21, align 4, !tbaa !44
@@ -7891,7 +7891,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %412 = fmul nsz float %12, %411
   %413 = shl nsw i32 %410, 1
   %414 = sext i32 %413 to i64
-  %415 = getelementptr i16, ptr %409, i64 %414
+  %415 = getelementptr [2 x i8], ptr %409, i64 %414
   %416 = getelementptr i8, ptr %415, i64 -6
   %417 = load i16, ptr %416, align 2, !tbaa !58
   %418 = uitofp i16 %417 to float
@@ -7906,7 +7906,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %425, ptr %421, align 2, !tbaa !58
   %426 = sub i32 -3, %413
   %427 = sext i32 %426 to i64
-  %428 = getelementptr inbounds i16, ptr %409, i64 %427
+  %428 = getelementptr inbounds [2 x i8], ptr %409, i64 %427
   %429 = load i16, ptr %428, align 2, !tbaa !58
   %430 = uitofp i16 %429 to float
   %431 = tail call nsz float @llvm.fmuladd.f32(float %430, float %24, float %412)
@@ -7914,7 +7914,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %432, ptr %428, align 2, !tbaa !58
   %433 = sub i32 3, %413
   %434 = sext i32 %433 to i64
-  %435 = getelementptr inbounds i16, ptr %409, i64 %434
+  %435 = getelementptr inbounds [2 x i8], ptr %409, i64 %434
   %436 = load i16, ptr %435, align 2, !tbaa !58
   %437 = uitofp i16 %436 to float
   %438 = tail call nsz float @llvm.fmuladd.f32(float %437, float %24, float %412)
@@ -7922,7 +7922,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %439, ptr %435, align 2, !tbaa !58
   %440 = mul nsw i32 %410, 3
   %441 = sext i32 %440 to i64
-  %442 = getelementptr i16, ptr %409, i64 %441
+  %442 = getelementptr [2 x i8], ptr %409, i64 %441
   %443 = getelementptr i8, ptr %442, i64 -6
   %444 = load i16, ptr %443, align 2, !tbaa !58
   %445 = uitofp i16 %444 to float
@@ -7949,7 +7949,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %462, ptr %458, align 2, !tbaa !58
   %463 = sub i32 -3, %440
   %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds i16, ptr %409, i64 %464
+  %465 = getelementptr inbounds [2 x i8], ptr %409, i64 %464
   %466 = load i16, ptr %465, align 2, !tbaa !58
   %467 = uitofp i16 %466 to float
   %468 = tail call nsz float @llvm.fmuladd.f32(float %467, float %24, float %412)
@@ -7957,7 +7957,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %469, ptr %465, align 2, !tbaa !58
   %470 = sub i32 3, %440
   %471 = sext i32 %470 to i64
-  %472 = getelementptr inbounds i16, ptr %409, i64 %471
+  %472 = getelementptr inbounds [2 x i8], ptr %409, i64 %471
   %473 = load i16, ptr %472, align 2, !tbaa !58
   %474 = uitofp i16 %473 to float
   %475 = tail call nsz float @llvm.fmuladd.f32(float %474, float %24, float %412)
@@ -7965,7 +7965,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %476, ptr %472, align 2, !tbaa !58
   %477 = sub i32 -2, %440
   %478 = sext i32 %477 to i64
-  %479 = getelementptr inbounds i16, ptr %409, i64 %478
+  %479 = getelementptr inbounds [2 x i8], ptr %409, i64 %478
   %480 = load i16, ptr %479, align 2, !tbaa !58
   %481 = uitofp i16 %480 to float
   %482 = tail call nsz float @llvm.fmuladd.f32(float %481, float %24, float %412)
@@ -7973,7 +7973,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %483, ptr %479, align 2, !tbaa !58
   %484 = sub i32 2, %440
   %485 = sext i32 %484 to i64
-  %486 = getelementptr inbounds i16, ptr %409, i64 %485
+  %486 = getelementptr inbounds [2 x i8], ptr %409, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !58
   %488 = uitofp i16 %487 to float
   %489 = tail call nsz float @llvm.fmuladd.f32(float %488, float %24, float %412)
@@ -7990,7 +7990,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %499 = fmul nsz float %12, %498
   %500 = shl nsw i32 %497, 1
   %501 = sext i32 %500 to i64
-  %502 = getelementptr i16, ptr %496, i64 %501
+  %502 = getelementptr [2 x i8], ptr %496, i64 %501
   %503 = getelementptr i8, ptr %502, i64 -6
   %504 = load i16, ptr %503, align 2, !tbaa !58
   %505 = uitofp i16 %504 to float
@@ -8005,7 +8005,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %512, ptr %508, align 2, !tbaa !58
   %513 = sub i32 -3, %500
   %514 = sext i32 %513 to i64
-  %515 = getelementptr inbounds i16, ptr %496, i64 %514
+  %515 = getelementptr inbounds [2 x i8], ptr %496, i64 %514
   %516 = load i16, ptr %515, align 2, !tbaa !58
   %517 = uitofp i16 %516 to float
   %518 = tail call nsz float @llvm.fmuladd.f32(float %517, float %24, float %499)
@@ -8013,7 +8013,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %519, ptr %515, align 2, !tbaa !58
   %520 = sub i32 3, %500
   %521 = sext i32 %520 to i64
-  %522 = getelementptr inbounds i16, ptr %496, i64 %521
+  %522 = getelementptr inbounds [2 x i8], ptr %496, i64 %521
   %523 = load i16, ptr %522, align 2, !tbaa !58
   %524 = uitofp i16 %523 to float
   %525 = tail call nsz float @llvm.fmuladd.f32(float %524, float %24, float %499)
@@ -8021,7 +8021,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %526, ptr %522, align 2, !tbaa !58
   %527 = mul nsw i32 %497, 3
   %528 = sext i32 %527 to i64
-  %529 = getelementptr i16, ptr %496, i64 %528
+  %529 = getelementptr [2 x i8], ptr %496, i64 %528
   %530 = getelementptr i8, ptr %529, i64 -6
   %531 = load i16, ptr %530, align 2, !tbaa !58
   %532 = uitofp i16 %531 to float
@@ -8048,7 +8048,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %549, ptr %545, align 2, !tbaa !58
   %550 = sub i32 -3, %527
   %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds i16, ptr %496, i64 %551
+  %552 = getelementptr inbounds [2 x i8], ptr %496, i64 %551
   %553 = load i16, ptr %552, align 2, !tbaa !58
   %554 = uitofp i16 %553 to float
   %555 = tail call nsz float @llvm.fmuladd.f32(float %554, float %24, float %499)
@@ -8056,7 +8056,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %556, ptr %552, align 2, !tbaa !58
   %557 = sub i32 3, %527
   %558 = sext i32 %557 to i64
-  %559 = getelementptr inbounds i16, ptr %496, i64 %558
+  %559 = getelementptr inbounds [2 x i8], ptr %496, i64 %558
   %560 = load i16, ptr %559, align 2, !tbaa !58
   %561 = uitofp i16 %560 to float
   %562 = tail call nsz float @llvm.fmuladd.f32(float %561, float %24, float %499)
@@ -8064,7 +8064,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %563, ptr %559, align 2, !tbaa !58
   %564 = sub i32 -2, %527
   %565 = sext i32 %564 to i64
-  %566 = getelementptr inbounds i16, ptr %496, i64 %565
+  %566 = getelementptr inbounds [2 x i8], ptr %496, i64 %565
   %567 = load i16, ptr %566, align 2, !tbaa !58
   %568 = uitofp i16 %567 to float
   %569 = tail call nsz float @llvm.fmuladd.f32(float %568, float %24, float %499)
@@ -8072,7 +8072,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %570, ptr %566, align 2, !tbaa !58
   %571 = sub i32 2, %527
   %572 = sext i32 %571 to i64
-  %573 = getelementptr inbounds i16, ptr %496, i64 %572
+  %573 = getelementptr inbounds [2 x i8], ptr %496, i64 %572
   %574 = load i16, ptr %573, align 2, !tbaa !58
   %575 = uitofp i16 %574 to float
   %576 = tail call nsz float @llvm.fmuladd.f32(float %575, float %24, float %499)
@@ -8089,7 +8089,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %586 = fmul nsz float %12, %585
   %587 = shl nsw i32 %584, 1
   %588 = sext i32 %587 to i64
-  %589 = getelementptr i16, ptr %583, i64 %588
+  %589 = getelementptr [2 x i8], ptr %583, i64 %588
   %590 = getelementptr i8, ptr %589, i64 -6
   %591 = load i16, ptr %590, align 2, !tbaa !58
   %592 = uitofp i16 %591 to float
@@ -8104,7 +8104,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %599, ptr %595, align 2, !tbaa !58
   %600 = sub i32 -3, %587
   %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds i16, ptr %583, i64 %601
+  %602 = getelementptr inbounds [2 x i8], ptr %583, i64 %601
   %603 = load i16, ptr %602, align 2, !tbaa !58
   %604 = uitofp i16 %603 to float
   %605 = tail call nsz float @llvm.fmuladd.f32(float %604, float %24, float %586)
@@ -8112,7 +8112,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %606, ptr %602, align 2, !tbaa !58
   %607 = sub i32 3, %587
   %608 = sext i32 %607 to i64
-  %609 = getelementptr inbounds i16, ptr %583, i64 %608
+  %609 = getelementptr inbounds [2 x i8], ptr %583, i64 %608
   %610 = load i16, ptr %609, align 2, !tbaa !58
   %611 = uitofp i16 %610 to float
   %612 = tail call nsz float @llvm.fmuladd.f32(float %611, float %24, float %586)
@@ -8120,7 +8120,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %613, ptr %609, align 2, !tbaa !58
   %614 = mul nsw i32 %584, 3
   %615 = sext i32 %614 to i64
-  %616 = getelementptr i16, ptr %583, i64 %615
+  %616 = getelementptr [2 x i8], ptr %583, i64 %615
   %617 = getelementptr i8, ptr %616, i64 -6
   %618 = load i16, ptr %617, align 2, !tbaa !58
   %619 = uitofp i16 %618 to float
@@ -8147,7 +8147,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %636, ptr %632, align 2, !tbaa !58
   %637 = sub i32 -3, %614
   %638 = sext i32 %637 to i64
-  %639 = getelementptr inbounds i16, ptr %583, i64 %638
+  %639 = getelementptr inbounds [2 x i8], ptr %583, i64 %638
   %640 = load i16, ptr %639, align 2, !tbaa !58
   %641 = uitofp i16 %640 to float
   %642 = tail call nsz float @llvm.fmuladd.f32(float %641, float %24, float %586)
@@ -8155,7 +8155,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %643, ptr %639, align 2, !tbaa !58
   %644 = sub i32 3, %614
   %645 = sext i32 %644 to i64
-  %646 = getelementptr inbounds i16, ptr %583, i64 %645
+  %646 = getelementptr inbounds [2 x i8], ptr %583, i64 %645
   %647 = load i16, ptr %646, align 2, !tbaa !58
   %648 = uitofp i16 %647 to float
   %649 = tail call nsz float @llvm.fmuladd.f32(float %648, float %24, float %586)
@@ -8163,7 +8163,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %650, ptr %646, align 2, !tbaa !58
   %651 = sub i32 -2, %614
   %652 = sext i32 %651 to i64
-  %653 = getelementptr inbounds i16, ptr %583, i64 %652
+  %653 = getelementptr inbounds [2 x i8], ptr %583, i64 %652
   %654 = load i16, ptr %653, align 2, !tbaa !58
   %655 = uitofp i16 %654 to float
   %656 = tail call nsz float @llvm.fmuladd.f32(float %655, float %24, float %586)
@@ -8171,7 +8171,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %657, ptr %653, align 2, !tbaa !58
   %658 = sub i32 2, %614
   %659 = sext i32 %658 to i64
-  %660 = getelementptr inbounds i16, ptr %583, i64 %659
+  %660 = getelementptr inbounds [2 x i8], ptr %583, i64 %659
   %661 = load i16, ptr %660, align 2, !tbaa !58
   %662 = uitofp i16 %661 to float
   %663 = tail call nsz float @llvm.fmuladd.f32(float %662, float %24, float %586)
@@ -8190,7 +8190,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %672 = sdiv i32 %667, 2
   %673 = shl nsw i32 %672, 1
   %674 = sext i32 %673 to i64
-  %675 = getelementptr i16, ptr %671, i64 %674
+  %675 = getelementptr [2 x i8], ptr %671, i64 %674
   %676 = getelementptr i8, ptr %675, i64 -6
   %677 = load i16, ptr %676, align 2, !tbaa !58
   %678 = uitofp i16 %677 to float
@@ -8205,7 +8205,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %685, ptr %681, align 2, !tbaa !58
   %686 = sub i32 -3, %673
   %687 = sext i32 %686 to i64
-  %688 = getelementptr inbounds i16, ptr %671, i64 %687
+  %688 = getelementptr inbounds [2 x i8], ptr %671, i64 %687
   %689 = load i16, ptr %688, align 2, !tbaa !58
   %690 = uitofp i16 %689 to float
   %691 = tail call nsz float @llvm.fmuladd.f32(float %690, float %24, float %87)
@@ -8213,7 +8213,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %692, ptr %688, align 2, !tbaa !58
   %693 = sub i32 3, %673
   %694 = sext i32 %693 to i64
-  %695 = getelementptr inbounds i16, ptr %671, i64 %694
+  %695 = getelementptr inbounds [2 x i8], ptr %671, i64 %694
   %696 = load i16, ptr %695, align 2, !tbaa !58
   %697 = uitofp i16 %696 to float
   %698 = tail call nsz float @llvm.fmuladd.f32(float %697, float %24, float %87)
@@ -8221,7 +8221,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %699, ptr %695, align 2, !tbaa !58
   %700 = mul nsw i32 %672, 3
   %701 = sext i32 %700 to i64
-  %702 = getelementptr i16, ptr %671, i64 %701
+  %702 = getelementptr [2 x i8], ptr %671, i64 %701
   %703 = getelementptr i8, ptr %702, i64 -6
   %704 = load i16, ptr %703, align 2, !tbaa !58
   %705 = uitofp i16 %704 to float
@@ -8248,7 +8248,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %722, ptr %718, align 2, !tbaa !58
   %723 = sub i32 -3, %700
   %724 = sext i32 %723 to i64
-  %725 = getelementptr inbounds i16, ptr %671, i64 %724
+  %725 = getelementptr inbounds [2 x i8], ptr %671, i64 %724
   %726 = load i16, ptr %725, align 2, !tbaa !58
   %727 = uitofp i16 %726 to float
   %728 = tail call nsz float @llvm.fmuladd.f32(float %727, float %24, float %87)
@@ -8256,7 +8256,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %729, ptr %725, align 2, !tbaa !58
   %730 = sub i32 3, %700
   %731 = sext i32 %730 to i64
-  %732 = getelementptr inbounds i16, ptr %671, i64 %731
+  %732 = getelementptr inbounds [2 x i8], ptr %671, i64 %731
   %733 = load i16, ptr %732, align 2, !tbaa !58
   %734 = uitofp i16 %733 to float
   %735 = tail call nsz float @llvm.fmuladd.f32(float %734, float %24, float %87)
@@ -8264,7 +8264,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %736, ptr %732, align 2, !tbaa !58
   %737 = sub i32 -2, %700
   %738 = sext i32 %737 to i64
-  %739 = getelementptr inbounds i16, ptr %671, i64 %738
+  %739 = getelementptr inbounds [2 x i8], ptr %671, i64 %738
   %740 = load i16, ptr %739, align 2, !tbaa !58
   %741 = uitofp i16 %740 to float
   %742 = tail call nsz float @llvm.fmuladd.f32(float %741, float %24, float %87)
@@ -8272,7 +8272,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %743, ptr %739, align 2, !tbaa !58
   %744 = sub i32 2, %700
   %745 = sext i32 %744 to i64
-  %746 = getelementptr inbounds i16, ptr %671, i64 %745
+  %746 = getelementptr inbounds [2 x i8], ptr %671, i64 %745
   %747 = load i16, ptr %746, align 2, !tbaa !58
   %748 = uitofp i16 %747 to float
   %749 = tail call nsz float @llvm.fmuladd.f32(float %748, float %24, float %87)
@@ -8287,13 +8287,13 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
 
 753:                                              ; preds = %751
   %754 = getelementptr inbounds nuw i8, ptr %14, i64 78
-  %755 = getelementptr inbounds i16, ptr %754, i64 %15
+  %755 = getelementptr inbounds [2 x i8], ptr %754, i64 %15
   %756 = load i16, ptr %755, align 2, !tbaa !58
   %757 = zext i16 %756 to i64
-  %758 = getelementptr inbounds i16, ptr %754, i64 %16
+  %758 = getelementptr inbounds [2 x i8], ptr %754, i64 %16
   %759 = load i16, ptr %758, align 2, !tbaa !58
   %760 = zext i16 %759 to i32
-  %761 = getelementptr inbounds i16, ptr %754, i64 %17
+  %761 = getelementptr inbounds [2 x i8], ptr %754, i64 %17
   %762 = load i16, ptr %761, align 2, !tbaa !58
   %763 = load ptr, ptr %18, align 8, !tbaa !75
   %764 = load i32, ptr %21, align 4, !tbaa !44
@@ -8307,7 +8307,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %772 = fmul nsz float %12, %771
   %773 = shl nsw i32 %770, 1
   %774 = sext i32 %773 to i64
-  %775 = getelementptr i16, ptr %769, i64 %774
+  %775 = getelementptr [2 x i8], ptr %769, i64 %774
   %776 = getelementptr i8, ptr %775, i64 -6
   %777 = load i16, ptr %776, align 2, !tbaa !58
   %778 = uitofp i16 %777 to float
@@ -8322,7 +8322,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %785, ptr %781, align 2, !tbaa !58
   %786 = sub i32 -3, %773
   %787 = sext i32 %786 to i64
-  %788 = getelementptr inbounds i16, ptr %769, i64 %787
+  %788 = getelementptr inbounds [2 x i8], ptr %769, i64 %787
   %789 = load i16, ptr %788, align 2, !tbaa !58
   %790 = uitofp i16 %789 to float
   %791 = tail call nsz float @llvm.fmuladd.f32(float %790, float %24, float %772)
@@ -8330,7 +8330,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %792, ptr %788, align 2, !tbaa !58
   %793 = sub i32 3, %773
   %794 = sext i32 %793 to i64
-  %795 = getelementptr inbounds i16, ptr %769, i64 %794
+  %795 = getelementptr inbounds [2 x i8], ptr %769, i64 %794
   %796 = load i16, ptr %795, align 2, !tbaa !58
   %797 = uitofp i16 %796 to float
   %798 = tail call nsz float @llvm.fmuladd.f32(float %797, float %24, float %772)
@@ -8338,7 +8338,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %799, ptr %795, align 2, !tbaa !58
   %800 = mul nsw i32 %770, 3
   %801 = sext i32 %800 to i64
-  %802 = getelementptr i16, ptr %769, i64 %801
+  %802 = getelementptr [2 x i8], ptr %769, i64 %801
   %803 = getelementptr i8, ptr %802, i64 -6
   %804 = load i16, ptr %803, align 2, !tbaa !58
   %805 = uitofp i16 %804 to float
@@ -8365,7 +8365,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %822, ptr %818, align 2, !tbaa !58
   %823 = sub i32 -3, %800
   %824 = sext i32 %823 to i64
-  %825 = getelementptr inbounds i16, ptr %769, i64 %824
+  %825 = getelementptr inbounds [2 x i8], ptr %769, i64 %824
   %826 = load i16, ptr %825, align 2, !tbaa !58
   %827 = uitofp i16 %826 to float
   %828 = tail call nsz float @llvm.fmuladd.f32(float %827, float %24, float %772)
@@ -8373,7 +8373,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %829, ptr %825, align 2, !tbaa !58
   %830 = sub i32 3, %800
   %831 = sext i32 %830 to i64
-  %832 = getelementptr inbounds i16, ptr %769, i64 %831
+  %832 = getelementptr inbounds [2 x i8], ptr %769, i64 %831
   %833 = load i16, ptr %832, align 2, !tbaa !58
   %834 = uitofp i16 %833 to float
   %835 = tail call nsz float @llvm.fmuladd.f32(float %834, float %24, float %772)
@@ -8381,7 +8381,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %836, ptr %832, align 2, !tbaa !58
   %837 = sub i32 -2, %800
   %838 = sext i32 %837 to i64
-  %839 = getelementptr inbounds i16, ptr %769, i64 %838
+  %839 = getelementptr inbounds [2 x i8], ptr %769, i64 %838
   %840 = load i16, ptr %839, align 2, !tbaa !58
   %841 = uitofp i16 %840 to float
   %842 = tail call nsz float @llvm.fmuladd.f32(float %841, float %24, float %772)
@@ -8389,7 +8389,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %843, ptr %839, align 2, !tbaa !58
   %844 = sub i32 2, %800
   %845 = sext i32 %844 to i64
-  %846 = getelementptr inbounds i16, ptr %769, i64 %845
+  %846 = getelementptr inbounds [2 x i8], ptr %769, i64 %845
   %847 = load i16, ptr %846, align 2, !tbaa !58
   %848 = uitofp i16 %847 to float
   %849 = tail call nsz float @llvm.fmuladd.f32(float %848, float %24, float %772)
@@ -8406,7 +8406,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %859 = fmul nsz float %12, %858
   %860 = shl nsw i32 %857, 1
   %861 = sext i32 %860 to i64
-  %862 = getelementptr i16, ptr %856, i64 %861
+  %862 = getelementptr [2 x i8], ptr %856, i64 %861
   %863 = getelementptr i8, ptr %862, i64 -6
   %864 = load i16, ptr %863, align 2, !tbaa !58
   %865 = uitofp i16 %864 to float
@@ -8421,7 +8421,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %872, ptr %868, align 2, !tbaa !58
   %873 = sub i32 -3, %860
   %874 = sext i32 %873 to i64
-  %875 = getelementptr inbounds i16, ptr %856, i64 %874
+  %875 = getelementptr inbounds [2 x i8], ptr %856, i64 %874
   %876 = load i16, ptr %875, align 2, !tbaa !58
   %877 = uitofp i16 %876 to float
   %878 = tail call nsz float @llvm.fmuladd.f32(float %877, float %24, float %859)
@@ -8429,7 +8429,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %879, ptr %875, align 2, !tbaa !58
   %880 = sub i32 3, %860
   %881 = sext i32 %880 to i64
-  %882 = getelementptr inbounds i16, ptr %856, i64 %881
+  %882 = getelementptr inbounds [2 x i8], ptr %856, i64 %881
   %883 = load i16, ptr %882, align 2, !tbaa !58
   %884 = uitofp i16 %883 to float
   %885 = tail call nsz float @llvm.fmuladd.f32(float %884, float %24, float %859)
@@ -8437,7 +8437,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %886, ptr %882, align 2, !tbaa !58
   %887 = mul nsw i32 %857, 3
   %888 = sext i32 %887 to i64
-  %889 = getelementptr i16, ptr %856, i64 %888
+  %889 = getelementptr [2 x i8], ptr %856, i64 %888
   %890 = getelementptr i8, ptr %889, i64 -6
   %891 = load i16, ptr %890, align 2, !tbaa !58
   %892 = uitofp i16 %891 to float
@@ -8464,7 +8464,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %909, ptr %905, align 2, !tbaa !58
   %910 = sub i32 -3, %887
   %911 = sext i32 %910 to i64
-  %912 = getelementptr inbounds i16, ptr %856, i64 %911
+  %912 = getelementptr inbounds [2 x i8], ptr %856, i64 %911
   %913 = load i16, ptr %912, align 2, !tbaa !58
   %914 = uitofp i16 %913 to float
   %915 = tail call nsz float @llvm.fmuladd.f32(float %914, float %24, float %859)
@@ -8472,7 +8472,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %916, ptr %912, align 2, !tbaa !58
   %917 = sub i32 3, %887
   %918 = sext i32 %917 to i64
-  %919 = getelementptr inbounds i16, ptr %856, i64 %918
+  %919 = getelementptr inbounds [2 x i8], ptr %856, i64 %918
   %920 = load i16, ptr %919, align 2, !tbaa !58
   %921 = uitofp i16 %920 to float
   %922 = tail call nsz float @llvm.fmuladd.f32(float %921, float %24, float %859)
@@ -8480,7 +8480,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %923, ptr %919, align 2, !tbaa !58
   %924 = sub i32 -2, %887
   %925 = sext i32 %924 to i64
-  %926 = getelementptr inbounds i16, ptr %856, i64 %925
+  %926 = getelementptr inbounds [2 x i8], ptr %856, i64 %925
   %927 = load i16, ptr %926, align 2, !tbaa !58
   %928 = uitofp i16 %927 to float
   %929 = tail call nsz float @llvm.fmuladd.f32(float %928, float %24, float %859)
@@ -8488,7 +8488,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %930, ptr %926, align 2, !tbaa !58
   %931 = sub i32 2, %887
   %932 = sext i32 %931 to i64
-  %933 = getelementptr inbounds i16, ptr %856, i64 %932
+  %933 = getelementptr inbounds [2 x i8], ptr %856, i64 %932
   %934 = load i16, ptr %933, align 2, !tbaa !58
   %935 = uitofp i16 %934 to float
   %936 = tail call nsz float @llvm.fmuladd.f32(float %935, float %24, float %859)
@@ -8505,7 +8505,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %946 = fmul nsz float %12, %945
   %947 = shl nsw i32 %944, 1
   %948 = sext i32 %947 to i64
-  %949 = getelementptr i16, ptr %943, i64 %948
+  %949 = getelementptr [2 x i8], ptr %943, i64 %948
   %950 = getelementptr i8, ptr %949, i64 -6
   %951 = load i16, ptr %950, align 2, !tbaa !58
   %952 = uitofp i16 %951 to float
@@ -8520,7 +8520,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %959, ptr %955, align 2, !tbaa !58
   %960 = sub i32 -3, %947
   %961 = sext i32 %960 to i64
-  %962 = getelementptr inbounds i16, ptr %943, i64 %961
+  %962 = getelementptr inbounds [2 x i8], ptr %943, i64 %961
   %963 = load i16, ptr %962, align 2, !tbaa !58
   %964 = uitofp i16 %963 to float
   %965 = tail call nsz float @llvm.fmuladd.f32(float %964, float %24, float %946)
@@ -8528,7 +8528,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %966, ptr %962, align 2, !tbaa !58
   %967 = sub i32 3, %947
   %968 = sext i32 %967 to i64
-  %969 = getelementptr inbounds i16, ptr %943, i64 %968
+  %969 = getelementptr inbounds [2 x i8], ptr %943, i64 %968
   %970 = load i16, ptr %969, align 2, !tbaa !58
   %971 = uitofp i16 %970 to float
   %972 = tail call nsz float @llvm.fmuladd.f32(float %971, float %24, float %946)
@@ -8536,7 +8536,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %973, ptr %969, align 2, !tbaa !58
   %974 = mul nsw i32 %944, 3
   %975 = sext i32 %974 to i64
-  %976 = getelementptr i16, ptr %943, i64 %975
+  %976 = getelementptr [2 x i8], ptr %943, i64 %975
   %977 = getelementptr i8, ptr %976, i64 -6
   %978 = load i16, ptr %977, align 2, !tbaa !58
   %979 = uitofp i16 %978 to float
@@ -8563,7 +8563,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %996, ptr %992, align 2, !tbaa !58
   %997 = sub i32 -3, %974
   %998 = sext i32 %997 to i64
-  %999 = getelementptr inbounds i16, ptr %943, i64 %998
+  %999 = getelementptr inbounds [2 x i8], ptr %943, i64 %998
   %1000 = load i16, ptr %999, align 2, !tbaa !58
   %1001 = uitofp i16 %1000 to float
   %1002 = tail call nsz float @llvm.fmuladd.f32(float %1001, float %24, float %946)
@@ -8571,7 +8571,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1003, ptr %999, align 2, !tbaa !58
   %1004 = sub i32 3, %974
   %1005 = sext i32 %1004 to i64
-  %1006 = getelementptr inbounds i16, ptr %943, i64 %1005
+  %1006 = getelementptr inbounds [2 x i8], ptr %943, i64 %1005
   %1007 = load i16, ptr %1006, align 2, !tbaa !58
   %1008 = uitofp i16 %1007 to float
   %1009 = tail call nsz float @llvm.fmuladd.f32(float %1008, float %24, float %946)
@@ -8579,7 +8579,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1010, ptr %1006, align 2, !tbaa !58
   %1011 = sub i32 -2, %974
   %1012 = sext i32 %1011 to i64
-  %1013 = getelementptr inbounds i16, ptr %943, i64 %1012
+  %1013 = getelementptr inbounds [2 x i8], ptr %943, i64 %1012
   %1014 = load i16, ptr %1013, align 2, !tbaa !58
   %1015 = uitofp i16 %1014 to float
   %1016 = tail call nsz float @llvm.fmuladd.f32(float %1015, float %24, float %946)
@@ -8587,7 +8587,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1017, ptr %1013, align 2, !tbaa !58
   %1018 = sub i32 2, %974
   %1019 = sext i32 %1018 to i64
-  %1020 = getelementptr inbounds i16, ptr %943, i64 %1019
+  %1020 = getelementptr inbounds [2 x i8], ptr %943, i64 %1019
   %1021 = load i16, ptr %1020, align 2, !tbaa !58
   %1022 = uitofp i16 %1021 to float
   %1023 = tail call nsz float @llvm.fmuladd.f32(float %1022, float %24, float %946)
@@ -8606,7 +8606,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %1032 = sdiv i32 %1027, 2
   %1033 = shl nsw i32 %1032, 1
   %1034 = sext i32 %1033 to i64
-  %1035 = getelementptr i16, ptr %1031, i64 %1034
+  %1035 = getelementptr [2 x i8], ptr %1031, i64 %1034
   %1036 = getelementptr i8, ptr %1035, i64 -6
   %1037 = load i16, ptr %1036, align 2, !tbaa !58
   %1038 = uitofp i16 %1037 to float
@@ -8621,7 +8621,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1045, ptr %1041, align 2, !tbaa !58
   %1046 = sub i32 -3, %1033
   %1047 = sext i32 %1046 to i64
-  %1048 = getelementptr inbounds i16, ptr %1031, i64 %1047
+  %1048 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1047
   %1049 = load i16, ptr %1048, align 2, !tbaa !58
   %1050 = uitofp i16 %1049 to float
   %1051 = tail call nsz float @llvm.fmuladd.f32(float %1050, float %24, float %87)
@@ -8629,7 +8629,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1052, ptr %1048, align 2, !tbaa !58
   %1053 = sub i32 3, %1033
   %1054 = sext i32 %1053 to i64
-  %1055 = getelementptr inbounds i16, ptr %1031, i64 %1054
+  %1055 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1054
   %1056 = load i16, ptr %1055, align 2, !tbaa !58
   %1057 = uitofp i16 %1056 to float
   %1058 = tail call nsz float @llvm.fmuladd.f32(float %1057, float %24, float %87)
@@ -8637,7 +8637,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1059, ptr %1055, align 2, !tbaa !58
   %1060 = mul nsw i32 %1032, 3
   %1061 = sext i32 %1060 to i64
-  %1062 = getelementptr i16, ptr %1031, i64 %1061
+  %1062 = getelementptr [2 x i8], ptr %1031, i64 %1061
   %1063 = getelementptr i8, ptr %1062, i64 -6
   %1064 = load i16, ptr %1063, align 2, !tbaa !58
   %1065 = uitofp i16 %1064 to float
@@ -8664,7 +8664,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1082, ptr %1078, align 2, !tbaa !58
   %1083 = sub i32 -3, %1060
   %1084 = sext i32 %1083 to i64
-  %1085 = getelementptr inbounds i16, ptr %1031, i64 %1084
+  %1085 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1084
   %1086 = load i16, ptr %1085, align 2, !tbaa !58
   %1087 = uitofp i16 %1086 to float
   %1088 = tail call nsz float @llvm.fmuladd.f32(float %1087, float %24, float %87)
@@ -8672,7 +8672,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1089, ptr %1085, align 2, !tbaa !58
   %1090 = sub i32 3, %1060
   %1091 = sext i32 %1090 to i64
-  %1092 = getelementptr inbounds i16, ptr %1031, i64 %1091
+  %1092 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1091
   %1093 = load i16, ptr %1092, align 2, !tbaa !58
   %1094 = uitofp i16 %1093 to float
   %1095 = tail call nsz float @llvm.fmuladd.f32(float %1094, float %24, float %87)
@@ -8680,7 +8680,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1096, ptr %1092, align 2, !tbaa !58
   %1097 = sub i32 -2, %1060
   %1098 = sext i32 %1097 to i64
-  %1099 = getelementptr inbounds i16, ptr %1031, i64 %1098
+  %1099 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1098
   %1100 = load i16, ptr %1099, align 2, !tbaa !58
   %1101 = uitofp i16 %1100 to float
   %1102 = tail call nsz float @llvm.fmuladd.f32(float %1101, float %24, float %87)
@@ -8688,7 +8688,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   store i16 %1103, ptr %1099, align 2, !tbaa !58
   %1104 = sub i32 2, %1060
   %1105 = sext i32 %1104 to i64
-  %1106 = getelementptr inbounds i16, ptr %1031, i64 %1105
+  %1106 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1105
   %1107 = load i16, ptr %1106, align 2, !tbaa !58
   %1108 = uitofp i16 %1107 to float
   %1109 = tail call nsz float @llvm.fmuladd.f32(float %1108, float %24, float %87)
@@ -8700,9 +8700,9 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %1112 = load i32, ptr %390, align 8, !tbaa !153
   %1113 = and i32 %1112, 4
   %.not189 = icmp eq i32 %1113, 0
-  %1114 = getelementptr inbounds i16, ptr %7, i64 %17
-  %1115 = getelementptr inbounds i16, ptr %7, i64 %15
-  %1116 = getelementptr inbounds i16, ptr %7, i64 %16
+  %1114 = getelementptr inbounds [2 x i8], ptr %7, i64 %17
+  %1115 = getelementptr inbounds [2 x i8], ptr %7, i64 %15
+  %1116 = getelementptr inbounds [2 x i8], ptr %7, i64 %16
   %1117 = trunc i32 %10 to i16
   %1118 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %1119 = sdiv i32 %10, 2
@@ -8721,14 +8721,14 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %indvars.iv196 = phi i64 [ 0, %.split ], [ %indvars.iv.next197, %draw_htext16.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
-  %1127 = getelementptr inbounds nuw [3 x i16], ptr %14, i64 %indvars.iv196
-  %1128 = getelementptr inbounds i16, ptr %1127, i64 %15
+  %1127 = getelementptr inbounds nuw [6 x i8], ptr %14, i64 %indvars.iv196
+  %1128 = getelementptr inbounds [2 x i8], ptr %1127, i64 %15
   %1129 = load i16, ptr %1128, align 2, !tbaa !58
   %1130 = zext i16 %1129 to i32
-  %1131 = getelementptr inbounds i16, ptr %1127, i64 %16
+  %1131 = getelementptr inbounds [2 x i8], ptr %1127, i64 %16
   %1132 = load i16, ptr %1131, align 2, !tbaa !58
   %1133 = zext i16 %1132 to i32
-  %1134 = getelementptr inbounds i16, ptr %1127, i64 %17
+  %1134 = getelementptr inbounds [2 x i8], ptr %1127, i64 %17
   %1135 = load i16, ptr %1134, align 2, !tbaa !58
   store i16 %1135, ptr %1114, align 2, !tbaa !58
   store i16 %1129, ptr %1115, align 2, !tbaa !58
@@ -8746,14 +8746,14 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   %1139 = icmp slt i32 %.0177, 0
   %..i191 = tail call i32 @llvm.smin.i32(i32 %.0177, i32 %1125)
   %.0.i192 = select i1 %1139, i32 0, i32 %..i191
-  %1140 = getelementptr inbounds nuw ptr, ptr @positions_name, i64 %indvars.iv196
+  %1140 = getelementptr inbounds nuw [8 x i8], ptr @positions_name, i64 %indvars.iv196
   %1141 = load ptr, ptr %1140, align 8, !tbaa !75
   %1142 = sext i32 %.0.i to i64
   br label %1143
 
 1143:                                             ; preds = %._crit_edge.i, %1126
   %indvars.iv51.i = phi i64 [ 0, %1126 ], [ %indvars.iv.next52.i, %._crit_edge.i ]
-  %1144 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51.i
+  %1144 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv51.i
   %1145 = load ptr, ptr %1144, align 8, !tbaa !75
   %.not.i = icmp eq ptr %1145, null
   br i1 %.not.i, label %draw_htext16.exit, label %.preheader42.i
@@ -8764,15 +8764,15 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not3947.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader42.i
-  %1147 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv51.i
-  %1148 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv51.i
+  %1147 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv51.i
+  %1148 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv51.i
   %1149 = load i32, ptr %1148, align 4, !tbaa !44
   %1150 = mul nsw i32 %1149, %.0.i192
   %1151 = sext i32 %1150 to i64
   %1152 = getelementptr inbounds i8, ptr %1145, i64 %1151
   %1153 = sdiv i32 %1149, 2
   %1154 = sext i32 %1153 to i64
-  %invariant.gep.i = getelementptr i16, ptr %1152, i64 %1142
+  %invariant.gep.i = getelementptr [2 x i8], ptr %1152, i64 %1142
   br label %1155
 
 1155:                                             ; preds = %1182, %.lr.ph.i
@@ -8820,7 +8820,7 @@ define internal void @color_graticule16(ptr noundef readonly captures(none) %0, 
   br i1 %.not40.i, label %1178, label %1160, !llvm.loop !168
 
 1178:                                             ; preds = %1175
-  %1179 = getelementptr i16, ptr %1176, i64 %1154
+  %1179 = getelementptr [2 x i8], ptr %1176, i64 %1154
   %1180 = getelementptr i8, ptr %1179, i64 -16
   %1181 = add nsw i32 %.03745.i, -1
   %.not55.i = icmp eq i32 %.03745.i, 0
@@ -8857,17 +8857,17 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load float, ptr %11, align 8, !tbaa !151
   %13 = sext i32 %5 to i64
-  %14 = getelementptr inbounds [14 x [3 x i16]], ptr @positions, i64 %13
+  %14 = getelementptr inbounds [84 x i8], ptr @positions, i64 %13
   %15 = sext i32 %2 to i64
   %16 = sext i32 %3 to i64
   %17 = sext i32 %4 to i64
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %20 = getelementptr inbounds i32, ptr %19, i64 %17
-  %21 = getelementptr inbounds ptr, ptr %1, i64 %15
-  %22 = getelementptr inbounds i32, ptr %19, i64 %15
-  %23 = getelementptr inbounds ptr, ptr %1, i64 %16
-  %24 = getelementptr inbounds i32, ptr %19, i64 %16
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %17
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %15
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
+  %24 = getelementptr inbounds [4 x i8], ptr %19, i64 %16
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %27 = fsub nsz float 1.000000e+00, %12
@@ -8877,11 +8877,11 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
 
 30:                                               ; preds = %6, %146
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %146 ]
-  %31 = getelementptr inbounds nuw [3 x i16], ptr %14, i64 %indvars.iv
-  %32 = getelementptr inbounds i16, ptr %31, i64 %15
+  %31 = getelementptr inbounds nuw [6 x i8], ptr %14, i64 %indvars.iv
+  %32 = getelementptr inbounds [2 x i8], ptr %31, i64 %15
   %33 = load i16, ptr %32, align 2, !tbaa !58
   %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %31, i64 %16
+  %35 = getelementptr inbounds [2 x i8], ptr %31, i64 %16
   %36 = load i16, ptr %35, align 2, !tbaa !58
   %37 = zext i16 %36 to i32
   %38 = load ptr, ptr %18, align 8, !tbaa !75
@@ -8922,7 +8922,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   %67 = sdiv i32 %62, 2
   %68 = shl nsw i32 %67, 1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr i16, ptr %66, i64 %69
+  %70 = getelementptr [2 x i8], ptr %66, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -6
   %72 = load i16, ptr %71, align 2, !tbaa !58
   %73 = uitofp i16 %72 to float
@@ -8937,7 +8937,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %80, ptr %76, align 2, !tbaa !58
   %81 = sub i32 -3, %68
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i16, ptr %66, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %66, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !58
   %85 = uitofp i16 %84 to float
   %86 = tail call nsz float @llvm.fmuladd.f32(float %85, float %27, float %29)
@@ -8945,7 +8945,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %87, ptr %83, align 2, !tbaa !58
   %88 = sub i32 3, %68
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i16, ptr %66, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %66, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !58
   %92 = uitofp i16 %91 to float
   %93 = tail call nsz float @llvm.fmuladd.f32(float %92, float %27, float %29)
@@ -8953,7 +8953,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %94, ptr %90, align 2, !tbaa !58
   %95 = mul nsw i32 %67, 3
   %96 = sext i32 %95 to i64
-  %97 = getelementptr i16, ptr %66, i64 %96
+  %97 = getelementptr [2 x i8], ptr %66, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -6
   %99 = load i16, ptr %98, align 2, !tbaa !58
   %100 = uitofp i16 %99 to float
@@ -8980,7 +8980,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %117, ptr %113, align 2, !tbaa !58
   %118 = sub i32 -3, %95
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i16, ptr %66, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %66, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !58
   %122 = uitofp i16 %121 to float
   %123 = tail call nsz float @llvm.fmuladd.f32(float %122, float %27, float %29)
@@ -8988,7 +8988,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %124, ptr %120, align 2, !tbaa !58
   %125 = sub i32 3, %95
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i16, ptr %66, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %66, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !58
   %129 = uitofp i16 %128 to float
   %130 = tail call nsz float @llvm.fmuladd.f32(float %129, float %27, float %29)
@@ -8996,7 +8996,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %131, ptr %127, align 2, !tbaa !58
   %132 = sub i32 -2, %95
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i16, ptr %66, i64 %133
+  %134 = getelementptr inbounds [2 x i8], ptr %66, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !58
   %136 = uitofp i16 %135 to float
   %137 = tail call nsz float @llvm.fmuladd.f32(float %136, float %27, float %29)
@@ -9004,7 +9004,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %138, ptr %134, align 2, !tbaa !58
   %139 = sub i32 2, %95
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i16, ptr %66, i64 %140
+  %141 = getelementptr inbounds [2 x i8], ptr %66, i64 %140
   %142 = load i16, ptr %141, align 2, !tbaa !58
   %143 = uitofp i16 %142 to float
   %144 = tail call nsz float @llvm.fmuladd.f32(float %143, float %27, float %29)
@@ -9026,10 +9026,10 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %153 = getelementptr inbounds i16, ptr %152, i64 %15
+  %153 = getelementptr inbounds [2 x i8], ptr %152, i64 %15
   %154 = load i16, ptr %153, align 2, !tbaa !58
   %155 = zext i16 %154 to i64
-  %156 = getelementptr inbounds i16, ptr %152, i64 %16
+  %156 = getelementptr inbounds [2 x i8], ptr %152, i64 %16
   %157 = load i16, ptr %156, align 2, !tbaa !58
   %158 = zext i16 %157 to i32
   %159 = load ptr, ptr %18, align 8, !tbaa !75
@@ -9070,7 +9070,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   %188 = sdiv i32 %183, 2
   %189 = shl nsw i32 %188, 1
   %190 = sext i32 %189 to i64
-  %191 = getelementptr i16, ptr %187, i64 %190
+  %191 = getelementptr [2 x i8], ptr %187, i64 %190
   %192 = getelementptr i8, ptr %191, i64 -6
   %193 = load i16, ptr %192, align 2, !tbaa !58
   %194 = uitofp i16 %193 to float
@@ -9085,7 +9085,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %201, ptr %197, align 2, !tbaa !58
   %202 = sub i32 -3, %189
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i16, ptr %187, i64 %203
+  %204 = getelementptr inbounds [2 x i8], ptr %187, i64 %203
   %205 = load i16, ptr %204, align 2, !tbaa !58
   %206 = uitofp i16 %205 to float
   %207 = tail call nsz float @llvm.fmuladd.f32(float %206, float %27, float %29)
@@ -9093,7 +9093,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %208, ptr %204, align 2, !tbaa !58
   %209 = sub i32 3, %189
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i16, ptr %187, i64 %210
+  %211 = getelementptr inbounds [2 x i8], ptr %187, i64 %210
   %212 = load i16, ptr %211, align 2, !tbaa !58
   %213 = uitofp i16 %212 to float
   %214 = tail call nsz float @llvm.fmuladd.f32(float %213, float %27, float %29)
@@ -9101,7 +9101,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %215, ptr %211, align 2, !tbaa !58
   %216 = mul nsw i32 %188, 3
   %217 = sext i32 %216 to i64
-  %218 = getelementptr i16, ptr %187, i64 %217
+  %218 = getelementptr [2 x i8], ptr %187, i64 %217
   %219 = getelementptr i8, ptr %218, i64 -6
   %220 = load i16, ptr %219, align 2, !tbaa !58
   %221 = uitofp i16 %220 to float
@@ -9128,7 +9128,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %238, ptr %234, align 2, !tbaa !58
   %239 = sub i32 -3, %216
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds i16, ptr %187, i64 %240
+  %241 = getelementptr inbounds [2 x i8], ptr %187, i64 %240
   %242 = load i16, ptr %241, align 2, !tbaa !58
   %243 = uitofp i16 %242 to float
   %244 = tail call nsz float @llvm.fmuladd.f32(float %243, float %27, float %29)
@@ -9136,7 +9136,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %245, ptr %241, align 2, !tbaa !58
   %246 = sub i32 3, %216
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i16, ptr %187, i64 %247
+  %248 = getelementptr inbounds [2 x i8], ptr %187, i64 %247
   %249 = load i16, ptr %248, align 2, !tbaa !58
   %250 = uitofp i16 %249 to float
   %251 = tail call nsz float @llvm.fmuladd.f32(float %250, float %27, float %29)
@@ -9144,7 +9144,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %252, ptr %248, align 2, !tbaa !58
   %253 = sub i32 -2, %216
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds i16, ptr %187, i64 %254
+  %255 = getelementptr inbounds [2 x i8], ptr %187, i64 %254
   %256 = load i16, ptr %255, align 2, !tbaa !58
   %257 = uitofp i16 %256 to float
   %258 = tail call nsz float @llvm.fmuladd.f32(float %257, float %27, float %29)
@@ -9152,7 +9152,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %259, ptr %255, align 2, !tbaa !58
   %260 = sub i32 2, %216
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds i16, ptr %187, i64 %261
+  %262 = getelementptr inbounds [2 x i8], ptr %187, i64 %261
   %263 = load i16, ptr %262, align 2, !tbaa !58
   %264 = uitofp i16 %263 to float
   %265 = tail call nsz float @llvm.fmuladd.f32(float %264, float %27, float %29)
@@ -9168,10 +9168,10 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
 
 270:                                              ; preds = %267
   %271 = getelementptr inbounds nuw i8, ptr %14, i64 78
-  %272 = getelementptr inbounds i16, ptr %271, i64 %15
+  %272 = getelementptr inbounds [2 x i8], ptr %271, i64 %15
   %273 = load i16, ptr %272, align 2, !tbaa !58
   %274 = zext i16 %273 to i64
-  %275 = getelementptr inbounds i16, ptr %271, i64 %16
+  %275 = getelementptr inbounds [2 x i8], ptr %271, i64 %16
   %276 = load i16, ptr %275, align 2, !tbaa !58
   %277 = zext i16 %276 to i32
   %278 = load ptr, ptr %18, align 8, !tbaa !75
@@ -9212,7 +9212,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   %307 = sdiv i32 %302, 2
   %308 = shl nsw i32 %307, 1
   %309 = sext i32 %308 to i64
-  %310 = getelementptr i16, ptr %306, i64 %309
+  %310 = getelementptr [2 x i8], ptr %306, i64 %309
   %311 = getelementptr i8, ptr %310, i64 -6
   %312 = load i16, ptr %311, align 2, !tbaa !58
   %313 = uitofp i16 %312 to float
@@ -9227,7 +9227,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %320, ptr %316, align 2, !tbaa !58
   %321 = sub i32 -3, %308
   %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds i16, ptr %306, i64 %322
+  %323 = getelementptr inbounds [2 x i8], ptr %306, i64 %322
   %324 = load i16, ptr %323, align 2, !tbaa !58
   %325 = uitofp i16 %324 to float
   %326 = tail call nsz float @llvm.fmuladd.f32(float %325, float %27, float %29)
@@ -9235,7 +9235,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %327, ptr %323, align 2, !tbaa !58
   %328 = sub i32 3, %308
   %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds i16, ptr %306, i64 %329
+  %330 = getelementptr inbounds [2 x i8], ptr %306, i64 %329
   %331 = load i16, ptr %330, align 2, !tbaa !58
   %332 = uitofp i16 %331 to float
   %333 = tail call nsz float @llvm.fmuladd.f32(float %332, float %27, float %29)
@@ -9243,7 +9243,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %334, ptr %330, align 2, !tbaa !58
   %335 = mul nsw i32 %307, 3
   %336 = sext i32 %335 to i64
-  %337 = getelementptr i16, ptr %306, i64 %336
+  %337 = getelementptr [2 x i8], ptr %306, i64 %336
   %338 = getelementptr i8, ptr %337, i64 -6
   %339 = load i16, ptr %338, align 2, !tbaa !58
   %340 = uitofp i16 %339 to float
@@ -9270,7 +9270,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %357, ptr %353, align 2, !tbaa !58
   %358 = sub i32 -3, %335
   %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds i16, ptr %306, i64 %359
+  %360 = getelementptr inbounds [2 x i8], ptr %306, i64 %359
   %361 = load i16, ptr %360, align 2, !tbaa !58
   %362 = uitofp i16 %361 to float
   %363 = tail call nsz float @llvm.fmuladd.f32(float %362, float %27, float %29)
@@ -9278,7 +9278,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %364, ptr %360, align 2, !tbaa !58
   %365 = sub i32 3, %335
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds i16, ptr %306, i64 %366
+  %367 = getelementptr inbounds [2 x i8], ptr %306, i64 %366
   %368 = load i16, ptr %367, align 2, !tbaa !58
   %369 = uitofp i16 %368 to float
   %370 = tail call nsz float @llvm.fmuladd.f32(float %369, float %27, float %29)
@@ -9286,7 +9286,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %371, ptr %367, align 2, !tbaa !58
   %372 = sub i32 -2, %335
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds i16, ptr %306, i64 %373
+  %374 = getelementptr inbounds [2 x i8], ptr %306, i64 %373
   %375 = load i16, ptr %374, align 2, !tbaa !58
   %376 = uitofp i16 %375 to float
   %377 = tail call nsz float @llvm.fmuladd.f32(float %376, float %27, float %29)
@@ -9294,7 +9294,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %378, ptr %374, align 2, !tbaa !58
   %379 = sub i32 2, %335
   %380 = sext i32 %379 to i64
-  %381 = getelementptr inbounds i16, ptr %306, i64 %380
+  %381 = getelementptr inbounds [2 x i8], ptr %306, i64 %380
   %382 = load i16, ptr %381, align 2, !tbaa !58
   %383 = uitofp i16 %382 to float
   %384 = tail call nsz float @llvm.fmuladd.f32(float %383, float %27, float %29)
@@ -9329,11 +9329,11 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   store i16 %389, ptr %390, align 2, !tbaa !58
   store i16 %389, ptr %391, align 2, !tbaa !58
   store i16 %389, ptr %392, align 2, !tbaa !58
-  %401 = getelementptr inbounds nuw [3 x i16], ptr %14, i64 %indvars.iv183
-  %402 = getelementptr inbounds i16, ptr %401, i64 %15
+  %401 = getelementptr inbounds nuw [6 x i8], ptr %14, i64 %indvars.iv183
+  %402 = getelementptr inbounds [2 x i8], ptr %401, i64 %15
   %403 = load i16, ptr %402, align 2, !tbaa !58
   %404 = zext i16 %403 to i32
-  %405 = getelementptr inbounds i16, ptr %401, i64 %16
+  %405 = getelementptr inbounds [2 x i8], ptr %401, i64 %16
   %406 = load i16, ptr %405, align 2, !tbaa !58
   %407 = zext i16 %406 to i32
   %408 = icmp slt i32 %393, %404
@@ -9348,14 +9348,14 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   %411 = icmp slt i32 %.0, 0
   %..i178 = tail call i32 @llvm.smin.i32(i32 %.0, i32 %399)
   %.0.i179 = select i1 %411, i32 0, i32 %..i178
-  %412 = getelementptr inbounds nuw ptr, ptr @positions_name, i64 %indvars.iv183
+  %412 = getelementptr inbounds nuw [8 x i8], ptr @positions_name, i64 %indvars.iv183
   %413 = load ptr, ptr %412, align 8, !tbaa !75
   %414 = sext i32 %.0.i to i64
   br label %415
 
 415:                                              ; preds = %._crit_edge.i, %400
   %indvars.iv52.i = phi i64 [ 0, %400 ], [ %indvars.iv.next53.i, %._crit_edge.i ]
-  %416 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv52.i
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv52.i
   %417 = load ptr, ptr %416, align 8, !tbaa !75
   %.not.i = icmp eq ptr %417, null
   br i1 %.not.i, label %draw_ihtext16.exit, label %.preheader43.i
@@ -9366,15 +9366,15 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   br i1 %.not4048.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader43.i
-  %419 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv52.i
-  %420 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv52.i
+  %419 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv52.i
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv52.i
   %421 = load i32, ptr %420, align 4, !tbaa !44
   %422 = mul nsw i32 %421, %.0.i179
   %423 = sext i32 %422 to i64
   %424 = getelementptr inbounds i8, ptr %417, i64 %423
   %425 = sdiv i32 %421, 2
   %426 = sext i32 %425 to i64
-  %invariant.gep.i = getelementptr i16, ptr %424, i64 %414
+  %invariant.gep.i = getelementptr [2 x i8], ptr %424, i64 %414
   br label %427
 
 427:                                              ; preds = %457, %.lr.ph.i
@@ -9425,7 +9425,7 @@ define internal void @invert_graticule16(ptr noundef readonly captures(none) %0,
   br i1 %.not41.i, label %453, label %431, !llvm.loop !176
 
 453:                                              ; preds = %450
-  %454 = getelementptr i16, ptr %451, i64 %426
+  %454 = getelementptr [2 x i8], ptr %451, i64 %426
   %455 = getelementptr i8, ptr %454, i64 -16
   %456 = add nsw i32 %.03846.i, -1
   %.not56.i = icmp eq i32 %.03846.i, 0
@@ -9484,7 +9484,7 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %13 = load i32, ptr %12, align 4, !tbaa !73
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   br label %16
 
 16:                                               ; preds = %8, %11
@@ -9646,7 +9646,7 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %14 = load i32, ptr %13, align 4, !tbaa !73
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   br label %17
 
 17:                                               ; preds = %9, %12
@@ -9690,14 +9690,14 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
   %36 = add nsw i64 %indvars.iv73, -1
   %37 = mul nsw i64 %36, %32
   %38 = mul nsw i64 %indvars.iv73, %32
-  %invariant.gep = getelementptr i16, ptr %18, i64 %38
-  %invariant.gep80 = getelementptr i16, ptr %18, i64 %37
-  %invariant.gep82 = getelementptr i16, ptr %18, i64 %35
+  %invariant.gep = getelementptr [2 x i8], ptr %18, i64 %38
+  %invariant.gep80 = getelementptr [2 x i8], ptr %18, i64 %37
+  %invariant.gep82 = getelementptr [2 x i8], ptr %18, i64 %35
   br label %.lr.ph.split.us62
 
 .lr.ph.split.us62:                                ; preds = %.lr.ph.split.us62.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us62.preheader ], [ %indvars.iv.next, %53 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %39 = load i16, ptr %gep, align 2, !tbaa !58
   %.not43.us57 = icmp eq i16 %39, 0
   br i1 %.not43.us57, label %53, label %40
@@ -9721,14 +9721,14 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
   br i1 %.not64, label %52, label %48
 
 48:                                               ; preds = %45
-  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %indvars.iv
+  %gep81 = getelementptr [2 x i8], ptr %invariant.gep80, i64 %indvars.iv
   %49 = load i16, ptr %gep81, align 2, !tbaa !58
   %.not46.us = icmp eq i16 %49, 0
   %or.cond51.us = select i1 %.not46.us, i1 true, i1 %34
   br i1 %or.cond51.us, label %52, label %50
 
 50:                                               ; preds = %48
-  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %indvars.iv
+  %gep83 = getelementptr [2 x i8], ptr %invariant.gep82, i64 %indvars.iv
   %51 = load i16, ptr %gep83, align 2, !tbaa !58
   %.not47.us = icmp eq i16 %51, 0
   br i1 %.not47.us, label %52, label %53
@@ -9748,7 +9748,7 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %57
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %57 ], [ 0, %.preheader.us ]
-  %54 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv68
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv68
   %55 = load i16, ptr %54, align 2, !tbaa !58
   %.not43.us.us = icmp eq i16 %55, 0
   br i1 %.not43.us.us, label %57, label %56
@@ -9903,7 +9903,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   %5 = fsub nsz float 1.000000e+00, %3
   %6 = shl nsw i32 %1, 1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr i16, ptr %0, i64 %7
+  %8 = getelementptr [2 x i8], ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -6
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = zext i16 %10 to i32
@@ -9926,7 +9926,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %26, ptr %18, align 2, !tbaa !58
   %27 = sub i32 -3, %6
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %0, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %0, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !58
   %31 = zext i16 %30 to i32
   %32 = uitofp i16 %30 to float
@@ -9938,7 +9938,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %37, ptr %29, align 2, !tbaa !58
   %38 = sub i32 3, %6
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i16, ptr %0, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %0, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !58
   %42 = zext i16 %41 to i32
   %43 = uitofp i16 %41 to float
@@ -9950,7 +9950,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %48, ptr %40, align 2, !tbaa !58
   %49 = mul nsw i32 %1, 3
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i16, ptr %0, i64 %50
+  %51 = getelementptr [2 x i8], ptr %0, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -6
   %53 = load i16, ptr %52, align 2, !tbaa !58
   %54 = zext i16 %53 to i32
@@ -9993,7 +9993,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %87, ptr %79, align 2, !tbaa !58
   %88 = sub i32 -3, %49
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i16, ptr %0, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %0, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !58
   %92 = zext i16 %91 to i32
   %93 = uitofp i16 %91 to float
@@ -10005,7 +10005,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %98, ptr %90, align 2, !tbaa !58
   %99 = sub i32 3, %49
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i16, ptr %0, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %0, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !58
   %103 = zext i16 %102 to i32
   %104 = uitofp i16 %102 to float
@@ -10017,7 +10017,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %109, ptr %101, align 2, !tbaa !58
   %110 = sub i32 -2, %49
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i16, ptr %0, i64 %111
+  %112 = getelementptr inbounds [2 x i8], ptr %0, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !58
   %114 = zext i16 %113 to i32
   %115 = uitofp i16 %113 to float
@@ -10029,7 +10029,7 @@ define internal fastcc void @draw_idots16(ptr noundef captures(none) %0, i32 nou
   store i16 %120, ptr %112, align 2, !tbaa !58
   %121 = sub i32 2, %49
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %0, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %0, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !58
   %125 = zext i16 %124 to i32
   %126 = uitofp i16 %124 to float
@@ -10088,7 +10088,7 @@ define internal range(i32 -12, 1) i32 @config_output(ptr noundef captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = mul nuw nsw i64 %indvars.iv, %21
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 %22
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store ptr %23, ptr %24, align 8, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %21

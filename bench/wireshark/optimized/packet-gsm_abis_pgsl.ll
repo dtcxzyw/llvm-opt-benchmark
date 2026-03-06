@@ -342,7 +342,7 @@ define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noun
 75:                                               ; preds = %69
   %.mask146 = and i32 %73, 7
   %76 = zext nneg i32 %.mask146 to i64
-  %77 = getelementptr i32, ptr @pgsl_cs_to_rlcmac_cs.tbl, i64 %76
+  %77 = getelementptr [4 x i8], ptr @pgsl_cs_to_rlcmac_cs.tbl, i64 %76
   %78 = load i32, ptr %77, align 4
   br label %pgsl_cs_to_rlcmac_cs.exit
 
@@ -402,7 +402,7 @@ pgsl_cs_to_rlcmac_cs.exit:                        ; preds = %69, %75
 115:                                              ; preds = %106
   %.mask = and i32 %113, 7
   %116 = zext nneg i32 %.mask to i64
-  %117 = getelementptr i32, ptr @pgsl_cs_to_rlcmac_cs.tbl, i64 %116
+  %117 = getelementptr [4 x i8], ptr @pgsl_cs_to_rlcmac_cs.tbl, i64 %116
   %118 = load i32, ptr %117, align 4
   br label %pgsl_cs_to_rlcmac_cs.exit144
 
@@ -516,7 +516,7 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %9
   %16 = zext nneg i8 %12 to i64
-  %17 = getelementptr i32, ptr @data_block_len_by_mcs, i64 %16
+  %17 = getelementptr [4 x i8], ptr @data_block_len_by_mcs, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %6, align 4
   switch i32 %19, label %.thread [

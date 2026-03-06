@@ -6,14 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair.34" = type { %struct.StringPiece, %"class.std::unique_ptr" }
-%struct.StringPiece = type { ptr, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.37" }
-%"struct.std::_Head_base.37" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -1431,7 +1423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %123
   %131 = load i32, ptr %77, align 8, !tbaa !96
   %132 = load ptr, ptr %76, align 8, !tbaa !102
   %133 = sext i32 %131 to i64
-  %134 = getelementptr inbounds %"struct.std::pair.34", ptr %132, i64 %133
+  %134 = getelementptr inbounds [24 x i8], ptr %132, i64 %133
   %.not15 = icmp eq ptr %130, %134
   br i1 %.not15, label %._crit_edge, label %89, !llvm.loop !112
 }
@@ -2024,7 +2016,7 @@ _ZN7Cleaner11PrintFooterEv.exit:                  ; preds = %._crit_edge, %84
 88:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %89 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !103
   store ptr %79, ptr %6, align 8, !tbaa !45
   %91 = icmp eq ptr %90, null
@@ -2906,7 +2898,7 @@ _ZN7Cleaner11PrintFooterEv.exit:                  ; preds = %._crit_edge, %83
 
 87:                                               ; preds = %.lr.ph, %127
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !103
   %90 = load ptr, ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

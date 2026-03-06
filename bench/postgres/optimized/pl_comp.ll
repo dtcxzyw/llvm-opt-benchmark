@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.compile_error_callback_arg = type { ptr, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.PLpgSQL_func_hashkey = type { i32, i8, i8, i32, i32, [100 x i32] }
-%union.ListCell = type { ptr }
-%struct.ExceptionLabelMap = type { ptr, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @plpgsql_DumpExecTree = hidden local_unnamed_addr global i8 0, align 1
@@ -746,7 +744,7 @@ compute_function_hashkey.exit45:                  ; preds = %compute_function_ha
   %.0284356.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1285.i, %263 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %202 = load ptr, ptr %6, align 8
-  %203 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv.i
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv.i
   %204 = load i32, ptr %203, align 4
   %205 = load ptr, ptr %8, align 8
   %.not304.i = icmp eq ptr %205, null
@@ -799,7 +797,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   br i1 %.not305.i, label %236, label %232
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv.i
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv.i
   %234 = load ptr, ptr %233, align 8
   %235 = load i8, ptr %234, align 1
   %.not306.i = icmp eq i8 %235, 0
@@ -825,7 +823,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   %244 = load i32, ptr %243, align 4
   %245 = add i32 %.0282357.i, 1
   %246 = sext i32 %.0282357.i to i64
-  %247 = getelementptr inbounds i32, ptr %198, i64 %246
+  %247 = getelementptr inbounds [4 x i8], ptr %198, i64 %246
   store i32 %244, ptr %247, align 4
   br label %248
 
@@ -840,7 +838,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
 249:                                              ; preds = %248, %248, %248
   %250 = add i32 %.0284356.i, 1
   %251 = sext i32 %.0284356.i to i64
-  %252 = getelementptr inbounds ptr, ptr %200, i64 %251
+  %252 = getelementptr inbounds [8 x i8], ptr %200, i64 %251
   store ptr %239, ptr %252, align 8
   br label %253
 
@@ -854,7 +852,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   br i1 %.not307.i, label %263, label %257
 
 257:                                              ; preds = %253
-  %258 = getelementptr inbounds nuw ptr, ptr %256, i64 %indvars.iv.i
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %indvars.iv.i
   %259 = load ptr, ptr %258, align 8
   %260 = load i8, ptr %259, align 1
   %.not308.i = icmp eq i8 %260, 0
@@ -908,7 +906,7 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
 
 283:                                              ; preds = %301, %.split.i
   %indvars.iv.i48 = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i50, %301 ]
-  %284 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv.i48
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv.i48
   %285 = load ptr, ptr %284, align 8
   %286 = load i32, ptr %285, align 8
   switch i32 %286, label %297 [
@@ -946,12 +944,12 @@ plpgsql_build_datatype.exit.i:                    ; preds = %210
   %302 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %303 = load ptr, ptr %302, align 8
   %304 = load ptr, ptr %279, align 8
-  %305 = getelementptr inbounds nuw ptr, ptr %304, i64 %indvars.iv.i48
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %indvars.iv.i48
   store ptr %303, ptr %305, align 8
   %306 = getelementptr inbounds nuw i8, ptr %285, i64 4
   %307 = load i32, ptr %306, align 4
   %308 = load ptr, ptr %282, align 8
-  %309 = getelementptr inbounds nuw i32, ptr %308, i64 %indvars.iv.i48
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %308, i64 %indvars.iv.i48
   store i32 %307, ptr %309, align 4
   %310 = load ptr, ptr %274, align 8
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -988,7 +986,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
   %326 = add i32 %323, 1
   store i32 %326, ptr @plpgsql_nDatums, align 4
   %327 = sext i32 %323 to i64
-  %328 = getelementptr inbounds ptr, ptr %325, i64 %327
+  %328 = getelementptr inbounds [8 x i8], ptr %325, i64 %327
   store ptr %270, ptr %328, align 8
   br label %.critedge.sink.split.i
 
@@ -1229,7 +1227,7 @@ plpgsql_build_record.exit.i:                      ; preds = %426, %414
   %435 = add i32 %432, 1
   store i32 %435, ptr @plpgsql_nDatums, align 4
   %436 = sext i32 %432 to i64
-  %437 = getelementptr inbounds ptr, ptr %434, i64 %436
+  %437 = getelementptr inbounds [8 x i8], ptr %434, i64 %436
   store ptr %415, ptr %437, align 8
   %438 = load i32, ptr %433, align 4
   %439 = load ptr, ptr %417, align 8
@@ -1276,7 +1274,7 @@ plpgsql_build_record.exit313.i:                   ; preds = %453, %plpgsql_build
   %462 = add i32 %459, 1
   store i32 %462, ptr @plpgsql_nDatums, align 4
   %463 = sext i32 %459 to i64
-  %464 = getelementptr inbounds ptr, ptr %461, i64 %463
+  %464 = getelementptr inbounds [8 x i8], ptr %461, i64 %463
   store ptr %442, ptr %464, align 8
   %465 = load i32, ptr %460, align 4
   %466 = load ptr, ptr %444, align 8
@@ -1634,9 +1632,9 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
 
 631:                                              ; preds = %631, %.lr.ph361.i
   %indvars.iv366.i = phi i64 [ 0, %.lr.ph361.i ], [ %indvars.iv.next367.i, %631 ]
-  %632 = getelementptr inbounds nuw i32, ptr %.0286.i, i64 %indvars.iv366.i
+  %632 = getelementptr inbounds nuw [4 x i8], ptr %.0286.i, i64 %indvars.iv366.i
   %633 = load i32, ptr %632, align 4
-  %634 = getelementptr inbounds nuw i32, ptr %629, i64 %indvars.iv366.i
+  %634 = getelementptr inbounds nuw [4 x i8], ptr %629, i64 %indvars.iv366.i
   store i32 %633, ptr %634, align 4
   %indvars.iv.next367.i = add nuw nsw i64 %indvars.iv366.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next367.i, %630
@@ -1664,12 +1662,12 @@ plpgsql_build_datatype.exit352.i:                 ; preds = %592
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %656 ]
   %.01213.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %656 ]
   %644 = load ptr, ptr @plpgsql_Datums, align 8
-  %645 = getelementptr inbounds nuw ptr, ptr %644, i64 %indvars.iv.i.i
+  %645 = getelementptr inbounds nuw [8 x i8], ptr %644, i64 %indvars.iv.i.i
   %646 = load ptr, ptr %645, align 8
-  %647 = getelementptr inbounds nuw ptr, ptr %643, i64 %indvars.iv.i.i
+  %647 = getelementptr inbounds nuw [8 x i8], ptr %643, i64 %indvars.iv.i.i
   store ptr %646, ptr %647, align 8
   %648 = load ptr, ptr %640, align 8
-  %649 = getelementptr inbounds nuw ptr, ptr %648, i64 %indvars.iv.i.i
+  %649 = getelementptr inbounds nuw [8 x i8], ptr %648, i64 %indvars.iv.i.i
   %650 = load ptr, ptr %649, align 8
   %651 = load i32, ptr %650, align 4
   switch i32 %651, label %656 [
@@ -1918,12 +1916,12 @@ plpgsql_build_datatype.exit:                      ; preds = %1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %80 ]
   %.01213.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %80 ]
   %68 = load ptr, ptr @plpgsql_Datums, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %64, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %74, align 4
   switch i32 %75, label %80 [
@@ -2073,7 +2071,7 @@ plpgsql_adddatum.exit:                            ; preds = %7, %19
   %28 = add i32 %25, 1
   store i32 %28, ptr @plpgsql_nDatums, align 4
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %8, ptr %30, align 8
   br i1 %3, label %31, label %plpgsql_build_record.exit
 
@@ -2124,7 +2122,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %47, %33
   %56 = add i32 %53, 1
   store i32 %56, ptr @plpgsql_nDatums, align 4
   %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %55, i64 %57
   store ptr %36, ptr %58, align 8
   br i1 %3, label %59, label %plpgsql_build_record.exit
 
@@ -2226,7 +2224,7 @@ define internal fastcc void @add_dummy_return(ptr noundef captures(none) %0) unn
   %.val22 = load ptr, ptr %25, align 8
   %26 = add i32 %.val, -1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %union.ListCell, ptr %.val22, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.val22, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %.not21 = icmp eq i32 %30, 11
@@ -2367,7 +2365,7 @@ define internal noundef ptr @plpgsql_param_ref(ptr noundef readonly captures(non
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %15 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %28 = load ptr, ptr %27, align 8
@@ -2423,7 +2421,7 @@ define hidden noundef zeroext i1 @plpgsql_parse_word(ptr noundef %0, ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2491,7 +2489,7 @@ define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %2, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2509,7 +2507,7 @@ define hidden noundef zeroext i1 @plpgsql_parse_dblword(ptr noundef %0, ptr noun
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
   br i1 %27, label %34, label %36
 
@@ -2556,7 +2554,7 @@ define hidden ptr @plpgsql_build_recfield(ptr noundef captures(none) %0, ptr nou
 6:                                                ; preds = %.lr.ph, %13
   %.02126 = phi i32 [ %.02125, %.lr.ph ], [ %.021, %13 ]
   %7 = zext nneg i32 %.02126 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -2606,7 +2604,7 @@ plpgsql_adddatum.exit:                            ; preds = %._crit_edge, %26
   %35 = add i32 %32, 1
   store i32 %35, ptr @plpgsql_nDatums, align 4
   %36 = sext i32 %32 to i64
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %34, i64 %36
   store ptr %16, ptr %37, align 8
   %38 = load i32, ptr %3, align 4
   %39 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -2644,7 +2642,7 @@ define hidden noundef zeroext i1 @plpgsql_parse_tripword(ptr noundef %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %6, align 4
   %21 = icmp eq i32 %20, 1
@@ -2718,7 +2716,7 @@ define hidden ptr @plpgsql_parse_wordtype(ptr noundef %0) local_unnamed_addr #0 
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %.pn = load ptr, ptr %15, align 8
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
@@ -2770,7 +2768,7 @@ list_length.exit:                                 ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
@@ -2788,7 +2786,7 @@ list_length.exit:                                 ; preds = %1
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
@@ -2814,7 +2812,7 @@ list_length.exit.thread:                          ; preds = %1, %list_length.exi
   %.val47 = load ptr, ptr %53, align 8
   %54 = add i32 %.val46, -1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %union.ListCell, ptr %.val47, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.val47, i64 %55
   br label %57
 
 57:                                               ; preds = %list_length.exit.thread, %.critedge
@@ -3229,7 +3227,7 @@ define hidden void @plpgsql_adddatum(ptr noundef initializes((4, 8)) %0) local_u
   %15 = add i32 %12, 1
   store i32 %15, ptr @plpgsql_nDatums, align 4
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   store ptr %0, ptr %17, align 8
   ret void
 }
@@ -3277,7 +3275,7 @@ plpgsql_adddatum.exit:                            ; preds = %5, %17
   %26 = add i32 %23, 1
   store i32 %26, ptr @plpgsql_nDatums, align 4
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   store ptr %6, ptr %28, align 8
   br i1 %4, label %29, label %32
 
@@ -3408,7 +3406,7 @@ define i32 @plpgsql_recognize_err_condition(ptr noundef %0, i1 noundef zeroext %
 
 43:                                               ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
-  %44 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr @exception_label_map, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 16
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %45) #10
   %47 = icmp eq i32 %46, 0
@@ -3455,7 +3453,7 @@ define hidden ptr @plpgsql_parse_err_condition(ptr noundef %0) local_unnamed_add
 .preheader:                                       ; preds = %1, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
   %.025 = phi ptr [ %.1, %18 ], [ null, %1 ]
-  %8 = getelementptr inbounds nuw %struct.ExceptionLabelMap, ptr @exception_label_map, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @exception_label_map, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #10
   %11 = icmp eq i32 %10, 0
@@ -3514,7 +3512,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
 7:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.019 = phi i32 [ 0, %.lr.ph ], [ %.1, %13 ]
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %13 [
@@ -3564,7 +3562,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   %25 = phi ptr [ %.pre29, %.lr.ph23.preheader ], [ %38, %36 ]
   %indvars.iv26 = phi i64 [ %23, %.lr.ph23.preheader ], [ %indvars.iv.next27, %36 ]
   %.321 = phi i32 [ 0, %.lr.ph23.preheader ], [ %.4, %36 ]
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv26
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv26
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %36 [
@@ -3578,7 +3576,7 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   %32 = load ptr, ptr %0, align 8
   %33 = add i32 %.321, 1
   %34 = sext i32 %.321 to i64
-  %35 = getelementptr inbounds i32, ptr %32, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
   store i32 %31, ptr %35, align 4
   %.pre = load ptr, ptr @plpgsql_Datums, align 8
   %.pre30 = load i32, ptr @plpgsql_nDatums, align 4
@@ -3666,7 +3664,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
 
 .thread.us:                                       ; preds = %.lr.ph, %16
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %16 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv54
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv54
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %16 [
     i32 2249, label %13
@@ -3706,7 +3704,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
   ]
 
 .thread:                                          ; preds = %.lr.ph.split
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %28 [
     i32 2249, label %25
@@ -3734,7 +3732,7 @@ define internal fastcc void @plpgsql_resolve_polymorphic_argtypes(i32 noundef %0
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %36
   %indvars.iv61 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next62, %36 ]
-  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv61
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv61
   %32 = load i32, ptr %31, align 4
   switch i32 %32, label %36 [
     i32 2283, label %.sink.split
@@ -3931,7 +3929,7 @@ list_length.exit:                                 ; preds = %4
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 112
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %60 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %72 = load ptr, ptr %71, align 8
@@ -3971,7 +3969,7 @@ list_length.exit:                                 ; preds = %4
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
   %96 = load ptr, ptr %95, align 8
   %97 = sext i32 %89 to i64
-  %98 = getelementptr inbounds ptr, ptr %96, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %101 = load ptr, ptr %100, align 8
@@ -4005,7 +4003,7 @@ list_length.exit:                                 ; preds = %4
   %118 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds ptr, ptr %117, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %117, i64 %120
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 44
   %.05688 = load i32, ptr %123, align 4
@@ -4021,7 +4019,7 @@ list_length.exit:                                 ; preds = %4
 .lr.ph:                                           ; preds = %115, %125
   %.05689 = phi i32 [ %.056, %125 ], [ %.05688, %115 ]
   %128 = zext nneg i32 %.05689 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %117, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
@@ -4050,7 +4048,7 @@ list_length.exit:                                 ; preds = %4
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 112
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %128
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %128
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %144, i64 40
   %152 = load ptr, ptr %151, align 8

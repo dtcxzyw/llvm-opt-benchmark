@@ -525,7 +525,7 @@ for.body.epil:                                    ; preds = %while.cond.preheade
   %mul46.epil = mul i32 %mul, %17
   %idxprom.epil = zext i32 %mul46.epil to i64
   %arrayidx.epil = getelementptr inbounds nuw i8, ptr %call42, i64 %idxprom.epil
-  %arrayidx48.epil = getelementptr inbounds nuw ptr, ptr %call44, i64 %indvars.iv.epil
+  %arrayidx48.epil = getelementptr inbounds nuw [8 x i8], ptr %call44, i64 %indvars.iv.epil
   store ptr %arrayidx.epil, ptr %arrayidx48.epil, align 8, !tbaa !49
   %indvars.iv.next.epil = add nuw nsw i64 %indvars.iv.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -546,28 +546,28 @@ for.body:                                         ; preds = %for.body, %for.body
   %mul46 = mul i32 %mul, %20
   %idxprom = zext i32 %mul46 to i64
   %arrayidx = getelementptr inbounds nuw i8, ptr %call42, i64 %idxprom
-  %arrayidx48 = getelementptr inbounds nuw ptr, ptr %call44, i64 %indvars.iv
+  %arrayidx48 = getelementptr inbounds nuw [8 x i8], ptr %call44, i64 %indvars.iv
   store ptr %arrayidx, ptr %arrayidx48, align 8, !tbaa !49
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
   %21 = trunc i64 %indvars.iv.next to i32
   %mul46.1 = mul i32 %mul, %21
   %idxprom.1 = zext i32 %mul46.1 to i64
   %arrayidx.1 = getelementptr inbounds nuw i8, ptr %call42, i64 %idxprom.1
-  %arrayidx48.1 = getelementptr inbounds nuw ptr, ptr %call44, i64 %indvars.iv.next
+  %arrayidx48.1 = getelementptr inbounds nuw [8 x i8], ptr %call44, i64 %indvars.iv.next
   store ptr %arrayidx.1, ptr %arrayidx48.1, align 8, !tbaa !49
   %indvars.iv.next.1 = or disjoint i64 %indvars.iv, 2
   %22 = trunc i64 %indvars.iv.next.1 to i32
   %mul46.2 = mul i32 %mul, %22
   %idxprom.2 = zext i32 %mul46.2 to i64
   %arrayidx.2 = getelementptr inbounds nuw i8, ptr %call42, i64 %idxprom.2
-  %arrayidx48.2 = getelementptr inbounds nuw ptr, ptr %call44, i64 %indvars.iv.next.1
+  %arrayidx48.2 = getelementptr inbounds nuw [8 x i8], ptr %call44, i64 %indvars.iv.next.1
   store ptr %arrayidx.2, ptr %arrayidx48.2, align 8, !tbaa !49
   %indvars.iv.next.2 = or disjoint i64 %indvars.iv, 3
   %23 = trunc i64 %indvars.iv.next.2 to i32
   %mul46.3 = mul i32 %mul, %23
   %idxprom.3 = zext i32 %mul46.3 to i64
   %arrayidx.3 = getelementptr inbounds nuw i8, ptr %call42, i64 %idxprom.3
-  %arrayidx48.3 = getelementptr inbounds nuw ptr, ptr %call44, i64 %indvars.iv.next.2
+  %arrayidx48.3 = getelementptr inbounds nuw [8 x i8], ptr %call44, i64 %indvars.iv.next.2
   store ptr %arrayidx.3, ptr %arrayidx48.3, align 8, !tbaa !49
   %indvars.iv.next.3 = add nuw nsw i64 %indvars.iv, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.3, %unroll_iter
@@ -577,7 +577,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %24 = phi i32 [ %26, %while.body ], [ %19, %while.cond.preheader ]
   %rowsRead.0187 = phi i32 [ %add, %while.body ], [ 0, %while.cond.preheader ]
   %idxprom50 = zext i32 %rowsRead.0187 to i64
-  %arrayidx51 = getelementptr inbounds nuw ptr, ptr %call44, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [8 x i8], ptr %call44, i64 %idxprom50
   %sub = sub i32 %24, %rowsRead.0187
   %call53 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %cinfo, ptr noundef nonnull %arrayidx51, i32 noundef %sub) #20
   %add = add i32 %call53, %rowsRead.0187

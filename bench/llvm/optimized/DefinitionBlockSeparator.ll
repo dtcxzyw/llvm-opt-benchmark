@@ -24,12 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.171 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.175 = type { ptr, ptr, ptr, ptr }
 %"class.llvm::Error" = type { ptr }
-%"struct.clang::format::UnwrappedLine" = type <{ %"class.std::__cxx11::list", i32, i32, i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8], i64, i64, i32, [4 x i8] }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 
 $_ZN5clang6format13TokenAnalyzerD2Ev = comdat any
 
@@ -249,7 +243,7 @@ define dso_local void @_ZN5clang6format24DefinitionBlockSeparator14separateBlock
   %71 = phi i64 [ 0, %.lr.ph192 ], [ %427, %424 ]
   %storemerge189 = phi i32 [ 0, %.lr.ph192 ], [ %426, %424 ]
   %72 = load ptr, ptr %1, align 8, !tbaa !192
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %71
   %74 = load ptr, ptr %73, align 8, !tbaa !205
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %76 = load i8, ptr %75, align 8, !tbaa !207, !range !215, !noundef !216
@@ -339,7 +333,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
 
 "_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_6clEv.exit": ; preds = %94
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %72, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !205
   %100 = load ptr, ptr %99, align 8, !tbaa !237
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -443,7 +437,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
 
 switch.lookup:                                    ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.us.i
   %135 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %135
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %135
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.us.i"
 
@@ -487,7 +481,7 @@ switch.hole_check:                                ; preds = %129
 
 .critedge:                                        ; preds = %.lr.ph
   %145 = load ptr, ptr %1, align 8, !tbaa !192
-  %146 = getelementptr ptr, ptr %145, i64 %142
+  %146 = getelementptr [8 x i8], ptr %145, i64 %142
   %147 = load ptr, ptr %146, align 8, !tbaa !205
   store ptr %147, ptr %9, align 8, !tbaa !205
   %148 = load ptr, ptr %147, align 8, !tbaa !237
@@ -608,7 +602,7 @@ _ZNK5clang6format11FormatToken10opensScopeEv.exit.i: ; preds = %.thread.i.i
 
 198:                                              ; preds = %.lr.ph181, %.critedge3
   %indvars.iv = phi i64 [ %194, %.lr.ph181 ], [ %indvars.iv.next, %.critedge3 ]
-  %199 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !205
   %201 = load ptr, ptr %200, align 8, !tbaa !237
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
@@ -677,7 +671,7 @@ _ZNK5clang6format11FormatToken11closesScopeEv.exit.thread: ; preds = %.thread.i,
   br i1 %.not62, label %244, label %228
 
 228:                                              ; preds = %227
-  %229 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %223
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %223
   %230 = load ptr, ptr %229, align 8, !tbaa !205
   %231 = load ptr, ptr %230, align 8, !tbaa !237
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
@@ -687,7 +681,7 @@ _ZNK5clang6format11FormatToken11closesScopeEv.exit.thread: ; preds = %.thread.i,
 
 235:                                              ; preds = %228
   %236 = add nsw i64 %223, -1
-  %237 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %236
   %238 = load ptr, ptr %237, align 8, !tbaa !205
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8, !tbaa !239
@@ -702,7 +696,7 @@ _ZNK5clang6format11FormatToken11closesScopeEv.exit.thread: ; preds = %.thread.i,
 
 244:                                              ; preds = %243, %235, %228, %227
   %245 = phi i64 [ %236, %243 ], [ %223, %235 ], [ %223, %228 ], [ 0, %227 ]
-  %246 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !205
   %248 = load ptr, ptr %6, align 8, !tbaa !173
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 68
@@ -825,7 +819,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
 
 switch.lookup271:                                 ; preds = %.lr.ph.split._crit_edge.i
   %280 = zext nneg i16 %switch.tableidx269 to i64
-  %switch.gep275 = getelementptr inbounds nuw i32, ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %280
+  %switch.gep275 = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %280
   %switch.load276 = load i32, ptr %switch.gep275, align 4
   br label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i76"
 
@@ -863,7 +857,7 @@ switch.lookup271:                                 ; preds = %.lr.ph.split._crit_
 
 .critedge7:                                       ; preds = %.lr.ph185
   %289 = load ptr, ptr %1, align 8, !tbaa !192
-  %290 = getelementptr ptr, ptr %289, i64 %.pre206.pre
+  %290 = getelementptr [8 x i8], ptr %289, i64 %.pre206.pre
   %291 = load ptr, ptr %290, align 8, !tbaa !205
   store ptr %291, ptr %9, align 8, !tbaa !205
   %292 = load ptr, ptr %291, align 8, !tbaa !237
@@ -975,7 +969,7 @@ _ZNK5clang6format11FormatToken10opensScopeEv.exit.i89: ; preds = %.thread.i.i88
 340:                                              ; preds = %.critedge64
   store i64 %337, ptr %10, align 8, !tbaa !219
   %341 = load ptr, ptr %1, align 8, !tbaa !192
-  %342 = getelementptr inbounds nuw ptr, ptr %341, i64 %337
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %337
   %343 = load ptr, ptr %342, align 8, !tbaa !205
   store ptr %343, ptr %9, align 8, !tbaa !205
   %344 = load ptr, ptr %343, align 8, !tbaa !237
@@ -1064,7 +1058,7 @@ _ZNK5clang6format11FormatToken11closesScopeEv.exit102: ; preds = %.thread.i97
 .critedge9:                                       ; preds = %.lr.ph187, %375, %.preheader
   %381 = phi i64 [ %370, %.preheader ], [ %.pre210.pre, %.lr.ph187 ], [ %376, %375 ]
   %382 = load ptr, ptr %1, align 8, !tbaa !192
-  %383 = getelementptr inbounds nuw ptr, ptr %382, i64 %381
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %381
   %384 = load ptr, ptr %383, align 8, !tbaa !205
   store ptr %384, ptr %9, align 8, !tbaa !205
   %385 = load ptr, ptr %6, align 8, !tbaa !173
@@ -1188,7 +1182,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
 
 switch.lookup280:                                 ; preds = %.lr.ph.split._crit_edge.i112
   %417 = zext nneg i16 %switch.tableidx278 to i64
-  %switch.gep284 = getelementptr inbounds nuw i32, ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %417
+  %switch.gep284 = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %417
   %switch.load285 = load i32, ptr %switch.gep284, align 4
   br label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114"
 
@@ -1203,7 +1197,7 @@ switch.lookup280:                                 ; preds = %.lr.ph.split._crit_
 "_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_1clEPKS4_b.exit131": ; preds = %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i114", %.preheader.i105
   store i64 %337, ptr %10, align 8, !tbaa !219
   %420 = load ptr, ptr %1, align 8, !tbaa !192
-  %421 = getelementptr inbounds nuw ptr, ptr %420, i64 %337
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %337
   %422 = load ptr, ptr %421, align 8, !tbaa !205
   store ptr %422, ptr %9, align 8, !tbaa !205
   %423 = load ptr, ptr %422, align 8, !tbaa !237
@@ -1342,7 +1336,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang6format24DefinitionBlockSe
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !294
   %11 = load ptr, ptr %10, align 8, !tbaa !192
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !295
   %15 = load ptr, ptr %12, align 8, !tbaa !205
@@ -1468,7 +1462,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.e
 
 switch.lookup:                                    ; preds = %.lr.ph.split._crit_edge.i
   %49 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %49
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @"switch.table._ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_7clEi", i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %"_ZZN5clang6format24DefinitionBlockSeparator14separateBlocksERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsERNS0_16FormatTokenLexerEENK3$_0clEPKNS0_11FormatTokenE.exit.i"
 
@@ -1527,7 +1521,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split._crit_
 
 75:                                               ; preds = %68
   %76 = load ptr, ptr %70, align 8, !tbaa !192
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %69
   %78 = load ptr, ptr %77, align 8, !tbaa !205
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 68
   %80 = load i8, ptr %79, align 4, !tbaa !238, !range !215, !noundef !216
@@ -1657,7 +1651,7 @@ _ZNK5clang6format11FormatToken17isAccessSpecifierEb.exit.thread.i: ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !301
   %34 = load ptr, ptr %33, align 8, !tbaa !192
-  %35 = getelementptr ptr, ptr %34, i64 %30
+  %35 = getelementptr [8 x i8], ptr %34, i64 %30
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !205
   %38 = load ptr, ptr %37, align 8, !tbaa !237
@@ -1761,7 +1755,7 @@ define linkonce_odr hidden void @_ZN5clang6format13TokenAnalyzerD2Ev(ptr noundef
   %10 = getelementptr inbounds i8, ptr %.05.i.i, i64 -1160
   %11 = load i32, ptr %10, align 8, !tbaa !193
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %12
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %9, ptr noundef %13)
   %14 = load ptr, ptr %8, align 8, !tbaa !192
   %15 = getelementptr inbounds i8, ptr %.05.i.i, i64 -1152
@@ -1832,7 +1826,7 @@ define linkonce_odr hidden void @_ZN5clang6format24DefinitionBlockSeparatorD0Ev(
   %10 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1160
   %11 = load i32, ptr %10, align 8, !tbaa !193
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %9, i64 %12
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %9, ptr noundef %13)
   %14 = load ptr, ptr %8, align 8, !tbaa !192
   %15 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1152
@@ -2262,7 +2256,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %17 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %17
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %17
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
 
@@ -2295,7 +2289,7 @@ switch.hole_check13:                              ; preds = %_ZNK5clang6format11
 
 switch.lookup14:                                  ; preds = %switch.hole_check13
   %24 = zext nneg i16 %switch.tableidx11 to i64
-  %switch.gep18 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %24
+  %switch.gep18 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %24
   %switch.load19 = load i16, ptr %switch.gep18, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 
@@ -2328,7 +2322,7 @@ switch.hole_check22:                              ; preds = %_ZNK5clang6format11
 
 switch.lookup23:                                  ; preds = %switch.hole_check22
   %31 = zext nneg i16 %switch.tableidx20 to i64
-  %switch.gep27 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %31
+  %switch.gep27 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %31
   %switch.load28 = load i16, ptr %switch.gep27, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
 
@@ -2404,7 +2398,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %13
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %13
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread
 
@@ -2437,7 +2431,7 @@ switch.hole_check9:                               ; preds = %_ZNK5clang6format11
 
 switch.lookup10:                                  ; preds = %switch.hole_check9
   %20 = zext nneg i16 %switch.tableidx7 to i64
-  %switch.gep14 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %20
+  %switch.gep14 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %20
   %switch.load15 = load i16, ptr %switch.gep14, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i
 
@@ -2470,7 +2464,7 @@ switch.hole_check18:                              ; preds = %_ZNK5clang6format11
 
 switch.lookup19:                                  ; preds = %switch.hole_check18
   %27 = zext nneg i16 %switch.tableidx16 to i64
-  %switch.gep23 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %27
+  %switch.gep23 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.10, i64 %27
   %switch.load24 = load i16, ptr %switch.gep23, align 2
   br label %_ZNK5clang6format11FormatToken2isENS_3tok13PPKeywordKindE.exit.thread.i.i
 
@@ -3983,7 +3977,7 @@ _ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit.lo
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !193
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %7, ptr noundef %11)
   %12 = load ptr, ptr %6, align 8, !tbaa !192
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 40

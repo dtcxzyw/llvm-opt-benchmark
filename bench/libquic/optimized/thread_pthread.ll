@@ -174,7 +174,7 @@ CRYPTO_once.exit:                                 ; preds = %1
 
 9:                                                ; preds = %5
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   br label %13
 
@@ -252,10 +252,10 @@ CRYPTO_once.exit:                                 ; preds = %3
 
 22:                                               ; preds = %19
   %23 = zext i32 %0 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @g_destructors, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @g_destructors, i64 %23
   store ptr %2, ptr %24, align 8, !tbaa !10
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_destructors_lock) #8
-  %26 = getelementptr inbounds nuw ptr, ptr %.0, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %23
   store ptr %1, ptr %26, align 8, !tbaa !10
   br label %27
 
@@ -298,13 +298,13 @@ define internal void @thread_local_destructor(ptr noundef captures(address_is_nu
 
 8:                                                ; preds = %6, %14
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %14 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   tail call void %10(ptr noundef %13) #8
   br label %14

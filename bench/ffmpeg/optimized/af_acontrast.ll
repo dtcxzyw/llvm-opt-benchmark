@@ -101,7 +101,7 @@ switch.lookup:                                    ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_input, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_input, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %switch.load, ptr %10, align 8, !tbaa !40
@@ -142,7 +142,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
 
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %.024.us, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.024.us, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !48
   %13 = fpext nsz float %12 to double
   %14 = fmul nsz double %13, 0x3FF921FB54442D18
@@ -151,15 +151,15 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
   %17 = tail call nsz float @llvm.sin.f32(float %16)
   %18 = tail call nsz float @llvm.fmuladd.f32(float %4, float %17, float %15)
   %19 = tail call nsz float @llvm.sin.f32(float %18)
-  %20 = getelementptr inbounds nuw float, ptr %.02022.us, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.02022.us, i64 %indvars.iv
   store float %19, ptr %20, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !49
 
 ._crit_edge.us:                                   ; preds = %10
-  %21 = getelementptr inbounds nuw float, ptr %.02022.us, i64 %wide.trip.count
-  %22 = getelementptr inbounds nuw float, ptr %.024.us, i64 %wide.trip.count
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.02022.us, i64 %wide.trip.count
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.024.us, i64 %wide.trip.count
   %23 = add nuw nsw i32 %.01923.us, 1
   %exitcond28.not = icmp eq i32 %23, %2
   br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !51
@@ -192,22 +192,22 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
 
 11:                                               ; preds = %.preheader.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw double, ptr %.024.us, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.024.us, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !52
   %14 = fmul nsz double %13, 0x3FF921FB54442D18
   %15 = fmul nsz double %14, 4.000000e+00
   %16 = tail call nsz double @llvm.sin.f64(double %15)
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %14)
   %18 = tail call nsz double @llvm.sin.f64(double %17)
-  %19 = getelementptr inbounds nuw double, ptr %.02022.us, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.02022.us, i64 %indvars.iv
   store double %18, ptr %19, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !54
 
 ._crit_edge.us:                                   ; preds = %11
-  %20 = getelementptr inbounds nuw double, ptr %.02022.us, i64 %wide.trip.count
-  %21 = getelementptr inbounds nuw double, ptr %.024.us, i64 %wide.trip.count
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.02022.us, i64 %wide.trip.count
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.024.us, i64 %wide.trip.count
   %22 = add nuw nsw i32 %.01923.us, 1
   %exitcond28.not = icmp eq i32 %22, %2
   br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !55
@@ -230,15 +230,15 @@ define internal void @filter_fltp(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv24 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next25, %._crit_edge.us ]
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv24
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv24
   %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv24
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv24
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   br label %12
 
 12:                                               ; preds = %.lr.ph.us, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !48
   %15 = fpext nsz float %14 to double
   %16 = fmul nsz double %15, 0x3FF921FB54442D18
@@ -247,7 +247,7 @@ define internal void @filter_fltp(ptr noundef readonly captures(none) %0, ptr no
   %19 = tail call nsz float @llvm.sin.f32(float %18)
   %20 = tail call nsz float @llvm.fmuladd.f32(float %4, float %19, float %17)
   %21 = tail call nsz float @llvm.sin.f32(float %20)
-  %22 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store float %21, ptr %22, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -279,22 +279,22 @@ define internal void @filter_dblp(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv24 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next25, %._crit_edge.us ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv24
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv24
   %10 = load ptr, ptr %9, align 8, !tbaa !47
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv24
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv24
   %12 = load ptr, ptr %11, align 8, !tbaa !47
   br label %13
 
 13:                                               ; preds = %.lr.ph.us, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !52
   %16 = fmul nsz double %15, 0x3FF921FB54442D18
   %17 = fmul nsz double %16, 4.000000e+00
   %18 = tail call nsz double @llvm.sin.f64(double %17)
   %19 = tail call nsz double @llvm.fmuladd.f64(double %8, double %18, double %16)
   %20 = tail call nsz double @llvm.sin.f64(double %19)
-  %21 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

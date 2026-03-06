@@ -20,11 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2DistanceInput = type { %struct.b2ShapeProxy, %struct.b2ShapeProxy, %struct.b2Transform, %struct.b2Transform, i8 }
 %struct.b2ShapeProxy = type { [8 x %struct.b2Vec2], i32, float }
 %struct.b2DistanceOutput = type { %struct.b2Vec2, %struct.b2Vec2, float, i32, i32 }
-%struct.b2Simplex = type { %struct.b2SimplexVertex, %struct.b2SimplexVertex, %struct.b2SimplexVertex, i32 }
-%struct.b2SimplexVertex = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, i32, i32 }
 %struct.ImVec2 = type { float, float }
 %struct.b2DynamicTree = type { ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32 }
-%struct.Proxy = type { %struct.b2AABB, %struct.b2AABB, %struct.b2Vec2, %struct.b2Vec2, i32, i32, i32, i8 }
 %struct.b2RayCastInput = type { %struct.b2Vec2, %struct.b2Vec2, float }
 %struct.b2CastOutput = type { %struct.b2Vec2, %struct.b2Vec2, float, i32, i8 }
 %struct.b2BodyDef = type { i32, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, float, float, float, float, float, ptr, ptr, i8, i8, i8, i8, i8, i8, i32 }
@@ -33,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2RayResult = type { %struct.b2ShapeId, %struct.b2Vec2, %struct.b2Vec2, float, i32, i32, i8 }
 %struct.b2ShapeId = type { i32, i16, i16 }
 %struct.RayCastContext = type { [3 x %struct.b2Vec2], [3 x %struct.b2Vec2], [3 x float], i32 }
-%struct.b2BodyId = type { i32, i16, i16 }
-%struct.ShapeUserData = type { i32, i8 }
 %struct.b2Manifold = type { %struct.b2Vec2, float, [2 x %struct.b2ManifoldPoint], i32 }
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i16, i8 }
 %struct.b2SimplexCache = type { i16, [3 x i8], [3 x i8] }
@@ -1025,7 +1020,7 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance4StepER8Settings(ptr nound
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2972
   %42 = load i32, ptr %41, align 4, !tbaa !101
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.b2Simplex, ptr %27, i64 %43
+  %44 = getelementptr inbounds [112 x i8], ptr %27, i64 %43
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %44, ptr %5, align 16, !tbaa !102
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1139,10 +1134,10 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
 
 .lr.ph:                                           ; preds = %93, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %93 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8, !tbaa !102
   %.sroa.018.0.copyload = load <2 x float>, ptr %98, align 4
-  %99 = getelementptr inbounds nuw i32, ptr @__const._ZN12RayCastWorld4StepER8Settings.colors, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12RayCastWorld4StepER8Settings.colors, i64 %indvars.iv
   %100 = load i32, ptr %99, align 4, !tbaa !110
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.018.0.copyload, float noundef 5.000000e+00, i32 noundef %100)
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -1185,7 +1180,7 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
 
 .lr.ph50:                                         ; preds = %.preheader47, %.lr.ph50
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph50 ], [ 0, %.preheader47 ]
-  %117 = getelementptr inbounds nuw %struct.b2Vec2, ptr %6, i64 %indvars.iv54
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv54
   %.sroa.08.0.copyload = load <2 x float>, ptr %117, align 8
   %118 = trunc nuw nsw i64 %indvars.iv54 to i32
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.08.0.copyload, ptr noundef nonnull @.str.18, i32 noundef %118)
@@ -1199,7 +1194,7 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph52 ], [ 0, %.preheader ]
   %.sroa.02.0.copyload = load <2 x float>, ptr %10, align 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.235.0..sroa_idx, align 8
-  %122 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv57
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv57
   %.sroa.01.0.copyload = load <2 x float>, ptr %122, align 8
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %.sroa.2.0.copyload, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
@@ -1983,7 +1978,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %53 = load ptr, ptr %4, align 8, !tbaa !39
   %54 = load i32, ptr %17, align 8, !tbaa !40
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.Proxy, ptr %53, i64 %55
+  %56 = getelementptr inbounds [64 x i8], ptr %53, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store float %.05158, ptr %57, align 4, !tbaa !15
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 36
@@ -2257,7 +2252,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
 55:                                               ; preds = %.lr.ph, %135
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %135 ]
   %56 = load ptr, ptr %42, align 8, !tbaa !39
-  %57 = getelementptr inbounds nuw %struct.Proxy, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load i32, ptr %58, align 4, !tbaa !158
   %60 = load i32, ptr %43, align 4, !tbaa !48
@@ -2416,7 +2411,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %155 = phi i32 [ %142, %.lr.ph141 ], [ %166, %165 ]
   %indvars.iv150 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next151, %165 ]
   %156 = load ptr, ptr %144, align 8, !tbaa !39
-  %157 = getelementptr inbounds nuw %struct.Proxy, ptr %156, i64 %indvars.iv150
+  %157 = getelementptr inbounds nuw [64 x i8], ptr %156, i64 %indvars.iv150
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 60
   %159 = load i8, ptr %158, align 4, !tbaa !159, !range !13, !noundef !14
   %160 = trunc nuw i8 %159 to i1
@@ -2460,7 +2455,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %181 = phi i32 [ %46, %.lr.ph137 ], [ %192, %191 ]
   %indvars.iv147 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next148, %191 ]
   %182 = load ptr, ptr %53, align 8, !tbaa !39
-  %183 = getelementptr inbounds nuw %struct.Proxy, ptr %182, i64 %indvars.iv147
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %182, i64 %indvars.iv147
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 60
   %185 = load i8, ptr %184, align 4, !tbaa !159, !range !13, !noundef !14
   %186 = trunc nuw i8 %185 to i1
@@ -2504,7 +2499,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %207 = phi i32 [ %46, %.lr.ph134 ], [ %218, %217 ]
   %indvars.iv144 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next145, %217 ]
   %208 = load ptr, ptr %50, align 8, !tbaa !39
-  %209 = getelementptr inbounds nuw %struct.Proxy, ptr %208, i64 %indvars.iv144
+  %209 = getelementptr inbounds nuw [64 x i8], ptr %208, i64 %indvars.iv144
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 60
   %211 = load i8, ptr %210, align 4, !tbaa !159, !range !13, !noundef !14
   %212 = trunc nuw i8 %211 to i1
@@ -2759,7 +2754,7 @@ define internal noundef zeroext i1 @_ZL13QueryCallbackiiPv(i32 %0, i32 noundef %
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Proxy, ptr %5, i64 %6
+  %7 = getelementptr inbounds [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 356
   %9 = load i32, ptr %8, align 4, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -2776,7 +2771,7 @@ define internal noundef float @_ZL11RayCallbackPK14b2RayCastInputiiPv(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.Proxy, ptr %6, i64 %7
+  %8 = getelementptr inbounds [64 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 356
   %10 = load i32, ptr %9, align 4, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 52
@@ -4185,7 +4180,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld4StepER8Settings(ptr nounde
 
 switch.lookup:                                    ; preds = %50
   %54 = zext nneg i32 %52 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12RayCastWorld4StepER8Settings, i64 %54
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12RayCastWorld4StepER8Settings, i64 %54
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %16, ptr noundef nonnull %switch.load)
   br label %55
@@ -4197,7 +4192,7 @@ switch.lookup:                                    ; preds = %50
   store i32 %58, ptr %8, align 8, !tbaa !119
   %59 = load i32, ptr %51, align 8, !tbaa !203
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr @__const._ZN12RayCastWorld4StepER8Settings.fcns, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr @__const._ZN12RayCastWorld4StepER8Settings.fcns, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !215
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 64, i1 false)
@@ -4296,7 +4291,7 @@ switch.lookup:                                    ; preds = %50
 110:                                              ; preds = %.lr.ph, %158
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
   %.sroa.073.0.copyload = load <2 x float>, ptr %18, align 4
-  %111 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %112 = load float, ptr %111, align 4, !tbaa !15
   %.sroa.02.0.vec.extract.i178 = extractelement <2 x float> %.sroa.073.0.copyload, i64 0
   %113 = fmul float %19, %112
@@ -4306,11 +4301,11 @@ switch.lookup:                                    ; preds = %50
   %115 = fmul float %20, %112
   %116 = fadd float %.sroa.02.4.vec.extract.i181, %115
   %.sroa.03.4.vec.insert.i183 = insertelement <2 x float> %.sroa.03.0.vec.insert.i180, float %116, i64 1
-  %117 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %.sroa.069.0.copyload = load <2 x float>, ptr %117, align 4
-  %118 = getelementptr inbounds nuw %struct.b2Vec2, ptr %107, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   %.sroa.068.0.copyload = load <2 x float>, ptr %118, align 4
-  %119 = getelementptr inbounds nuw i32, ptr @__const._ZN12RayCastWorld4StepER8Settings.colors, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12RayCastWorld4StepER8Settings.colors, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4, !tbaa !110
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.069.0.copyload, float noundef 5.000000e+00, i32 noundef %120)
   %.sroa.066.0.copyload = load <2 x float>, ptr %18, align 4
@@ -4477,7 +4472,7 @@ switch.lookup:                                    ; preds = %50
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1908
   %197 = load i32, ptr %196, align 4, !tbaa !206
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds %struct.b2BodyId, ptr %195, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %195, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !223
   %.not = icmp eq i32 %200, 0
   br i1 %.not, label %204, label %201
@@ -4828,13 +4823,13 @@ _ZN12RayCastWorld7CreateNEii.exit26:              ; preds = %.lr.ph.i23, %100
 
 109:                                              ; preds = %108, %106
   %indvars.iv.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i, %108 ]
-  %110 = getelementptr inbounds nuw %struct.b2BodyId, ptr %107, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.i
   %111 = load i32, ptr %110, align 4, !tbaa !223
   %.not.i = icmp eq i32 %111, 0
   br i1 %.not.i, label %108, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw %struct.b2BodyId, ptr %107, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i64, ptr %113, align 4
   call void @b2DestroyBody(i64 %.sroa.0.0.copyload.i)
   store i64 0, ptr %113, align 4
@@ -5015,13 +5010,13 @@ define internal noundef float @_ZL23RayCastMultipleCallback9b2ShapeId6b2Vec2S0_f
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %13 = load i32, ptr %12, align 4, !tbaa !219
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.b2Vec2, ptr %4, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %4, i64 %14
   store <2 x float> %1, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %17 = getelementptr inbounds %struct.b2Vec2, ptr %16, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %14
   store <2 x float> %2, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %19 = getelementptr inbounds float, ptr %18, i64 %14
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %14
   store float %3, ptr %19, align 4, !tbaa !15
   %20 = add nsw i32 %13, 1
   store i32 %20, ptr %12, align 4, !tbaa !219
@@ -5055,7 +5050,7 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 15:                                               ; preds = %19, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 3, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %16 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next
   %17 = load float, ptr %16, align 4, !tbaa !15
   %18 = fcmp olt float %3, %17
   br i1 %18, label %19, label %21
@@ -5082,12 +5077,12 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 ._crit_edge:                                      ; preds = %35, %.preheader
   %.15355 = phi i32 [ %23, %.preheader ], [ %.15356, %35 ]
   %27 = zext nneg i32 %.15355 to i64
-  %28 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %27
   store <2 x float> %1, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %30 = getelementptr inbounds nuw %struct.b2Vec2, ptr %29, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store <2 x float> %2, ptr %30, align 4
-  %31 = getelementptr inbounds nuw float, ptr %14, i64 %27
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %27
   store float %3, ptr %31, align 4, !tbaa !15
   %32 = tail call i32 @llvm.smin.i32(i32 %13, i32 2)
   %33 = add nsw i32 %32, 1
@@ -5098,17 +5093,17 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv49 = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next50, %35 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %36 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv.next50
-  %37 = getelementptr inbounds nuw %struct.b2Vec2, ptr %4, i64 %indvars.iv49
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next50
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv49
   %38 = load i64, ptr %36, align 4
   store i64 %38, ptr %37, align 4
-  %39 = getelementptr inbounds nuw %struct.b2Vec2, ptr %25, i64 %indvars.iv.next50
-  %40 = getelementptr inbounds nuw %struct.b2Vec2, ptr %25, i64 %indvars.iv49
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.next50
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv49
   %41 = load i64, ptr %39, align 4
   store i64 %41, ptr %40, align 4
-  %42 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.next50
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next50
   %43 = load float, ptr %42, align 4, !tbaa !15
-  %44 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv49
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv49
   store float %43, ptr %44, align 4, !tbaa !15
   %45 = icmp samesign ugt i64 %indvars.iv.next50, %26
   br i1 %45, label %35, label %._crit_edge, !llvm.loop !230
@@ -5145,7 +5140,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load i32, ptr %6, align 8, !tbaa !231
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !223
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
@@ -5155,7 +5150,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   tail call void @b2DestroyBody(i64 %.sroa.015.0.copyload)
   %12 = load i32, ptr %6, align 8, !tbaa !231
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %5, i64 %13
   store i64 0, ptr %14, align 4
   br label %15
 
@@ -5233,14 +5228,14 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %61 = call i64 @b2CreateBody(i32 %.sroa.08.0.copyload, ptr noundef nonnull %3)
   %62 = load i32, ptr %6, align 8, !tbaa !231
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %5, i64 %63
   store i64 %61, ptr %64, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %66 = load i32, ptr %6, align 8, !tbaa !231
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.ShapeUserData, ptr %65, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %65, i64 %67
   store ptr %68, ptr %4, align 8, !tbaa !237
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1908
@@ -5249,14 +5244,14 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %spec.store.select = zext i1 %72 to i8
   store i8 %spec.store.select, ptr %69, align 8
   %73 = icmp slt i32 %1, 4
-  %74 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %67
+  %74 = getelementptr inbounds [8 x i8], ptr %5, i64 %67
   %.sroa.07.0.copyload = load i64, ptr %74, align 4
   br i1 %73, label %75, label %80
 
 75:                                               ; preds = %59
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1276
   %77 = sext i32 %1 to i64
-  %78 = getelementptr inbounds %struct.b2Polygon, ptr %76, i64 %77
+  %78 = getelementptr inbounds [144 x i8], ptr %76, i64 %77
   %79 = call i64 @b2CreatePolygonShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %78)
   br label %90
 
@@ -5700,7 +5695,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %57, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %.sroa.013.0.copyload = load <2 x float>, ptr %66, align 4
   %.sroa.0.0.vec.extract.i79 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
   %foldExtExtBinop99 = fmul <2 x float> %17, %.sroa.013.0.copyload
@@ -5715,7 +5710,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %74 = fadd float %.sroa.06.4.vec.extract.i83, %73
   %.sroa.011.0.vec.insert.i84 = insertelement <2 x float> poison, float %70, i64 0
   %.sroa.011.4.vec.insert.i85 = insertelement <2 x float> %.sroa.011.0.vec.insert.i84, float %74, i64 1
-  %75 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store <2 x float> %.sroa.011.4.vec.insert.i85, ptr %75, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5726,7 +5721,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1900
   %79 = load i32, ptr %78, align 4, !tbaa !241
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.b2BodyId, ptr %77, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %77, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !223
   %.not = icmp eq i32 %82, 0
   br i1 %.not, label %86, label %83
@@ -5754,7 +5749,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
 
 90:                                               ; preds = %.lr.ph89, %98
   %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %98 ]
-  %91 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %89, i64 %indvars.iv92
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv92
   %.sroa.04.0.copyload = load i64, ptr %91, align 8
   %92 = call ptr @b2Shape_GetUserData(i64 %.sroa.04.0.copyload)
   %93 = icmp eq ptr %92, null
@@ -5763,7 +5758,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
 94:                                               ; preds = %90
   %95 = load i32, ptr %92, align 4, !tbaa !199
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.b2BodyId, ptr %77, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %77, i64 %96
   %.sroa.0.0.copyload = load i64, ptr %97, align 4
   call void @b2DestroyBody(i64 %.sroa.0.0.copyload)
   store i64 0, ptr %97, align 4
@@ -6048,13 +6043,13 @@ _ZN12OverlapWorld7CreateNEii.exit26:              ; preds = %.lr.ph.i23, %73
 
 82:                                               ; preds = %81, %79
   %indvars.iv.i = phi i64 [ 0, %79 ], [ %indvars.iv.next.i, %81 ]
-  %83 = getelementptr inbounds nuw %struct.b2BodyId, ptr %80, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   %84 = load i32, ptr %83, align 4, !tbaa !223
   %.not.i = icmp eq i32 %84, 0
   br i1 %.not.i, label %81, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw %struct.b2BodyId, ptr %80, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i64, ptr %86, align 4
   call void @b2DestroyBody(i64 %.sroa.0.0.copyload.i)
   store i64 0, ptr %86, align 4
@@ -6171,7 +6166,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load i32, ptr %6, align 8, !tbaa !257
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !223
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
@@ -6181,7 +6176,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   tail call void @b2DestroyBody(i64 %.sroa.013.0.copyload)
   %12 = load i32, ptr %6, align 8, !tbaa !257
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %5, i64 %13
   store i64 0, ptr %14, align 4
   br label %15
 
@@ -6236,14 +6231,14 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   %54 = call i64 @b2CreateBody(i32 %.sroa.08.0.copyload, ptr noundef nonnull %3)
   %55 = load i32, ptr %6, align 8, !tbaa !257
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %5, i64 %56
   store i64 %54, ptr %57, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %59 = load i32, ptr %6, align 8, !tbaa !257
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.ShapeUserData, ptr %58, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %58, i64 %60
   store ptr %61, ptr %4, align 8, !tbaa !237
   store i32 %59, ptr %61, align 4, !tbaa !199
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
@@ -6253,14 +6248,14 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   %spec.store.select = zext i1 %65 to i8
   store i8 %spec.store.select, ptr %62, align 8
   %66 = icmp slt i32 %1, 4
-  %67 = getelementptr inbounds %struct.b2BodyId, ptr %5, i64 %60
+  %67 = getelementptr inbounds [8 x i8], ptr %5, i64 %60
   %.sroa.07.0.copyload = load i64, ptr %67, align 4
   br i1 %66, label %68, label %73
 
 68:                                               ; preds = %15
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1276
   %70 = sext i32 %1 to i64
-  %71 = getelementptr inbounds %struct.b2Polygon, ptr %69, i64 %70
+  %71 = getelementptr inbounds [144 x i8], ptr %69, i64 %70
   %72 = call i64 @b2CreatePolygonShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %71)
   br label %83
 
@@ -6318,7 +6313,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12OverlapWorld16OverlapResu
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds %struct.b2ShapeId, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   store i64 %0, ptr %15, align 8
   %16 = load i32, ptr %9, align 8, !tbaa !247
   %17 = add nsw i32 %16, 1
@@ -7618,7 +7613,7 @@ define linkonce_odr dso_local void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2
 
 12:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %13 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %.sroa.018.0.copyload = load <2 x float>, ptr %13, align 4
   %.sroa.015.0.copyload = load <2 x float>, ptr %1, align 4
   %.sroa.02.0.vec.extract.i = extractelement <2 x float> %.sroa.018.0.copyload, i64 0
@@ -7917,19 +7912,19 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldC2ER8Settings(ptr noundef
   %60 = add nuw nsw i32 %58, 1
   %61 = select i1 %59, i32 %60, i32 0
   %62 = sext i32 %..0 to i64
-  %63 = getelementptr %struct.b2Vec2, ptr %3, i64 %62
+  %63 = getelementptr [8 x i8], ptr %3, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8
   %68 = zext nneg i32 %58 to i64
-  %69 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = zext nneg i32 %61 to i64
-  %72 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = load ptr, ptr %49, align 8, !tbaa !279
-  %75 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [36 x i8], ptr %74, i64 %indvars.iv
   store i64 %65, ptr %75, align 4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 %67, ptr %.sroa.0.sroa.4.0..sroa_idx, align 4
@@ -7997,7 +7992,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %12, align 8, !tbaa !279
-  %17 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [36 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.027.0.copyload = load <2 x float>, ptr %18, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.027.0.copyload, i64 0
@@ -8053,7 +8048,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
 43:                                               ; preds = %.lr.ph87, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit
   %indvars.iv93 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next94, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit ]
   %44 = load ptr, ptr %38, align 8, !tbaa !279
-  %45 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %44, i64 %indvars.iv93
+  %45 = getelementptr inbounds nuw [36 x i8], ptr %44, i64 %indvars.iv93
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2CollideChainSegmentAndCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %4, ptr noundef %45, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %3, <2 x float> %.sroa.037.0.copyload, <2 x float> %.sroa.7.0.copyload)
   %46 = load i32, ptr %39, align 4, !tbaa !265
@@ -8062,7 +8057,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
 
 .lr.ph.i:                                         ; preds = %43, %70
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %70 ], [ 0, %43 ]
-  %48 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %40, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %40, i64 %indvars.iv.i
   %.sroa.013.0.copyload.i = load <2 x float>, ptr %48, align 4
   %.sroa.010.0.copyload.i = load <2 x float>, ptr %4, align 8
   %.sroa.02.0.vec.extract.i.i = extractelement <2 x float> %.sroa.013.0.copyload.i, i64 0
@@ -8153,7 +8148,7 @@ _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %70, %43
 92:                                               ; preds = %.lr.ph83, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79
   %indvars.iv90 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next91, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79 ]
   %93 = load ptr, ptr %87, align 8, !tbaa !279
-  %94 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %93, i64 %indvars.iv90
+  %94 = getelementptr inbounds nuw [36 x i8], ptr %93, i64 %indvars.iv90
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8164,7 +8159,7 @@ _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %70, %43
 
 .lr.ph.i64:                                       ; preds = %92, %119
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i74, %119 ], [ 0, %92 ]
-  %97 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %89, i64 %indvars.iv.i65
+  %97 = getelementptr inbounds nuw [48 x i8], ptr %89, i64 %indvars.iv.i65
   %.sroa.013.0.copyload.i66 = load <2 x float>, ptr %97, align 4
   %.sroa.010.0.copyload.i67 = load <2 x float>, ptr %7, align 8
   %.sroa.02.0.vec.extract.i.i68 = extractelement <2 x float> %.sroa.013.0.copyload.i66, i64 0
@@ -8566,7 +8561,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %11, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %.sroa.045.0.copyload = load <2 x float>, ptr %66, align 8
   %.sroa.0.0.vec.extract.i66 = extractelement <2 x float> %.sroa.045.0.copyload, i64 0
   %foldExtExtBinop = fmul <2 x float> %.sroa.247.0.copyload, %.sroa.045.0.copyload
@@ -8581,7 +8576,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %74 = fadd float %.sroa.06.4.vec.extract.i, %73
   %.sroa.011.0.vec.insert.i = insertelement <2 x float> poison, float %70, i64 0
   %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %74, i64 1
-  %75 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %75, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8627,7 +8622,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
 
 86:                                               ; preds = %.lr.ph97, %86
   %indvars.iv106 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next107, %86 ]
-  %87 = getelementptr inbounds nuw %struct.b2Vec2, ptr %16, i64 %indvars.iv106
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv106
   %.sroa.031.0.copyload = load <2 x float>, ptr %87, align 8
   %.sroa.0.0.vec.extract.i69 = extractelement <2 x float> %.sroa.031.0.copyload, i64 0
   %foldExtExtBinop124 = fmul <2 x float> %.sroa.233.0.copyload, %.sroa.031.0.copyload
@@ -8642,7 +8637,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %95 = fadd float %.sroa.06.4.vec.extract.i73, %94
   %.sroa.011.0.vec.insert.i74 = insertelement <2 x float> poison, float %91, i64 0
   %.sroa.011.4.vec.insert.i75 = insertelement <2 x float> %.sroa.011.0.vec.insert.i74, float %95, i64 1
-  %96 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv106
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv106
   store <2 x float> %.sroa.011.4.vec.insert.i75, ptr %96, align 8
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -8684,7 +8679,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
 
 107:                                              ; preds = %.lr.ph102, %107
   %indvars.iv111 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next112, %107 ]
-  %108 = getelementptr inbounds nuw %struct.b2Vec2, ptr %16, i64 %indvars.iv111
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv111
   %.sroa.018.0.copyload = load <2 x float>, ptr %108, align 8
   %.sroa.0.0.vec.extract.i77 = extractelement <2 x float> %.sroa.018.0.copyload, i64 0
   %foldExtExtBinop126 = fmul <2 x float> %.sroa.5.8.copyload, %.sroa.018.0.copyload
@@ -8699,7 +8694,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %116 = fadd float %36, %115
   %.sroa.011.0.vec.insert.i82 = insertelement <2 x float> poison, float %112, i64 0
   %.sroa.011.4.vec.insert.i83 = insertelement <2 x float> %.sroa.011.0.vec.insert.i82, float %116, i64 1
-  %117 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv111
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv111
   store <2 x float> %.sroa.011.4.vec.insert.i83, ptr %117, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
@@ -8911,7 +8906,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
 
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw %struct.b2Vec2, ptr %13, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %.sroa.038.0.copyload = load <2 x float>, ptr %47, align 8
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.038.0.copyload, i64 0
   %foldExtExtBinop = fmul <2 x float> %39, %.sroa.038.0.copyload
@@ -8926,7 +8921,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %55 = fadd float %.sroa.06.4.vec.extract.i, %54
   %.sroa.011.0.vec.insert.i = insertelement <2 x float> poison, float %51, i64 0
   %.sroa.011.4.vec.insert.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i, float %55, i64 1
-  %56 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %56, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8955,7 +8950,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
 
 64:                                               ; preds = %.lr.ph87, %64
   %indvars.iv99 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next100, %64 ]
-  %65 = getelementptr inbounds nuw %struct.b2Vec2, ptr %18, i64 %indvars.iv99
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv99
   %.sroa.025.0.copyload = load <2 x float>, ptr %65, align 8
   %.sroa.0.0.vec.extract.i60 = extractelement <2 x float> %.sroa.025.0.copyload, i64 0
   %foldExtExtBinop118 = fmul <2 x float> %44, %.sroa.025.0.copyload
@@ -8970,7 +8965,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %73 = fadd float %.sroa.06.4.vec.extract.i64, %72
   %.sroa.011.0.vec.insert.i65 = insertelement <2 x float> poison, float %69, i64 0
   %.sroa.011.4.vec.insert.i66 = insertelement <2 x float> %.sroa.011.0.vec.insert.i65, float %73, i64 1
-  %74 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv99
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv99
   store <2 x float> %.sroa.011.4.vec.insert.i66, ptr %74, align 8
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
@@ -8995,7 +8990,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
 
 80:                                               ; preds = %.lr.ph91, %80
   %indvars.iv104 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next105, %80 ]
-  %81 = getelementptr inbounds nuw %struct.b2Vec2, ptr %18, i64 %indvars.iv104
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv104
   %.sroa.013.0.copyload = load <2 x float>, ptr %81, align 8
   %.sroa.0.0.vec.extract.i68 = extractelement <2 x float> %.sroa.013.0.copyload, i64 0
   %foldExtExtBinop120 = fmul <2 x float> %62, %.sroa.013.0.copyload
@@ -9010,7 +9005,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %89 = fadd float %.sroa.06.4.vec.extract.i72, %88
   %.sroa.011.0.vec.insert.i73 = insertelement <2 x float> poison, float %85, i64 0
   %.sroa.011.4.vec.insert.i74 = insertelement <2 x float> %.sroa.011.0.vec.insert.i73, float %89, i64 1
-  %90 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv104
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv104
   store <2 x float> %.sroa.011.4.vec.insert.i74, ptr %90, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
@@ -9027,7 +9022,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
 
 94:                                               ; preds = %.lr.ph96, %94
   %indvars.iv109 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next110, %94 ]
-  %95 = getelementptr inbounds nuw %struct.b2Vec2, ptr %18, i64 %indvars.iv109
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv109
   %.sroa.05.0.copyload = load <2 x float>, ptr %95, align 8
   %.sroa.0.0.vec.extract.i76 = extractelement <2 x float> %.sroa.05.0.copyload, i64 0
   %foldExtExtBinop122 = fmul <2 x float> %78, %.sroa.05.0.copyload
@@ -9042,7 +9037,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   %103 = fadd float %.sroa.06.4.vec.extract.i80, %102
   %.sroa.011.0.vec.insert.i81 = insertelement <2 x float> poison, float %99, i64 0
   %.sroa.011.4.vec.insert.i82 = insertelement <2 x float> %.sroa.011.0.vec.insert.i81, float %103, i64 1
-  %104 = getelementptr inbounds nuw %struct.b2Vec2, ptr %7, i64 %indvars.iv109
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv109
   store <2 x float> %.sroa.011.4.vec.insert.i82, ptr %104, align 8
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112

@@ -74,7 +74,7 @@ gv_calloc.exit77:                                 ; preds = %23
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %30 = tail call double @drand() #14
-  %31 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store double %30, ptr %31, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -120,9 +120,9 @@ gv_calloc.exit77:                                 ; preds = %23
 
 47:                                               ; preds = %.lr.ph84.us, %47
   %indvars.iv101 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next102, %47 ]
-  %48 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv101
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv101
   %49 = load double, ptr %48, align 8, !tbaa !11
-  %50 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv101
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv101
   store double %49, ptr %50, align 8, !tbaa !11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
@@ -140,12 +140,12 @@ gv_calloc.exit77:                                 ; preds = %23
 54:                                               ; preds = %.lr.ph89.us, %54
   %indvars.iv107 = phi i64 [ 0, %.lr.ph89.us ], [ %indvars.iv.next108, %54 ]
   %.16486.us = phi double [ 0.000000e+00, %.lr.ph89.us ], [ %61, %54 ]
-  %55 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv107
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv107
   %56 = load double, ptr %55, align 8, !tbaa !11
   %57 = fmul double %.062.us, %56
-  %58 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv107
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv107
   store double %57, ptr %58, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv107
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv107
   %60 = load double, ptr %59, align 8, !tbaa !11
   %61 = call double @llvm.fmuladd.f64(double %57, double %60, double %.16486.us)
   store double %57, ptr %59, align 8, !tbaa !11
@@ -166,11 +166,11 @@ gv_calloc.exit77:                                 ; preds = %23
 
 .lr.ph82:                                         ; preds = %._crit_edge, %.lr.ph82
   %indvars.iv96 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next97, %.lr.ph82 ]
-  %66 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv96
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv96
   %67 = load double, ptr %66, align 8, !tbaa !11
   %68 = fmul double %.063, %67
   store double %68, ptr %66, align 8, !tbaa !11
-  %69 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv96
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv96
   store double %68, ptr %69, align 8, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99

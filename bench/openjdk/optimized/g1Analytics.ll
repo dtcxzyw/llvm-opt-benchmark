@@ -201,19 +201,19 @@ define hidden void @_ZN11G1AnalyticsC2EPK13G1Predictions(ptr noundef nonnull ali
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %9, double noundef 0.000000e+00) #7
   %39 = zext nneg i32 %38 to i64
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 1.000000e+00) #7
-  %40 = getelementptr inbounds nuw double, ptr @_ZL41young_only_cost_per_card_scan_ms_defaults, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZL41young_only_cost_per_card_scan_ms_defaults, i64 %39
   %41 = load double, ptr %40, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %13, double noundef %41) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %23, double noundef 0.000000e+00) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %25, double noundef 0.000000e+00) #7
-  %42 = getelementptr inbounds nuw double, ptr @_ZL25cost_per_byte_ms_defaults, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZL25cost_per_byte_ms_defaults, i64 %39
   %43 = load double, ptr %42, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %19, double noundef %43) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %27, double noundef 5.000000e+00) #7
-  %44 = getelementptr inbounds nuw double, ptr @_ZL39young_other_cost_per_region_ms_defaults, i64 %39
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @_ZL39young_other_cost_per_region_ms_defaults, i64 %39
   %45 = load double, ptr %44, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %28, double noundef %45) #7
-  %46 = getelementptr inbounds nuw double, ptr @_ZL43non_young_other_cost_per_region_ms_defaults, i64 %39
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ZL43non_young_other_cost_per_region_ms_defaults, i64 %39
   %47 = load double, ptr %46, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %29, double noundef %47) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef 5.000000e-02) #7

@@ -730,7 +730,7 @@ define void @_ZN7uu_test4eval17h6028ce91bb5637b2E(ptr noalias noundef writeonly 
   tail call void @llvm.assume(i1 %99)
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %101 = load ptr, ptr %100, align 8, !alias.scope !163, !noalias !160, !nonnull !5, !noundef !5
-  %102 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %97
+  %102 = getelementptr inbounds [40 x i8], ptr %101, i64 %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %93, ptr noundef nonnull align 8 dereferenceable(40) %102, i64 40, i1 false), !noalias !163
   %.pr = load i64, ptr %93, align 8
   switch i64 %.pr, label %.unreachabledefault403 [
@@ -1040,7 +1040,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %188, ptr %94, align 8, !alias.scope !206, !noalias !203
   %189 = icmp ult i64 %188, %98
   tail call void @llvm.assume(i1 %189)
-  %190 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %188
+  %190 = getelementptr inbounds [40 x i8], ptr %101, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull align 8 dereferenceable(40) %190, i64 40, i1 false), !noalias !206
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
@@ -1057,7 +1057,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %194, ptr %94, align 8, !alias.scope !221, !noalias !218
   %195 = icmp ult i64 %194, %98
   tail call void @llvm.assume(i1 %195)
-  %196 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %194
+  %196 = getelementptr inbounds [40 x i8], ptr %101, i64 %194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(40) %196, i64 40, i1 false), !noalias !221
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h7380ebc8c6be5739E.exit420"
 
@@ -1202,7 +1202,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %240, ptr %94, align 8, !alias.scope !211, !noalias !208
   %241 = icmp ult i64 %240, %98
   tail call void @llvm.assume(i1 %241)
-  %242 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %240
+  %242 = getelementptr inbounds [40 x i8], ptr %101, i64 %240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(40) %242, i64 40, i1 false), !noalias !211
   %.pr660 = load i64, ptr %86, align 8
   %243 = icmp eq i64 %.pr660, 3
@@ -1238,7 +1238,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %249, ptr %94, align 8, !alias.scope !247, !noalias !244
   %250 = icmp ult i64 %249, %98
   tail call void @llvm.assume(i1 %250)
-  %251 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %249
+  %251 = getelementptr inbounds [40 x i8], ptr %101, i64 %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(40) %251, i64 40, i1 false), !noalias !247
   %.pr661 = load i64, ptr %84, align 8
   %252 = icmp eq i64 %.pr661, 3
@@ -1764,7 +1764,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %417, ptr %94, align 8, !alias.scope !216, !noalias !213
   %418 = icmp ult i64 %417, %98
   tail call void @llvm.assume(i1 %418)
-  %419 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %417
+  %419 = getelementptr inbounds [40 x i8], ptr %101, i64 %417
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %81, ptr noundef nonnull align 8 dereferenceable(40) %419, i64 40, i1 false), !noalias !216
   %.pr680 = load i64, ptr %81, align 8
   %420 = icmp eq i64 %.pr680, 3
@@ -1800,7 +1800,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %426, ptr %94, align 8, !alias.scope !368, !noalias !365
   %427 = icmp ult i64 %426, %98
   tail call void @llvm.assume(i1 %427)
-  %428 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %426
+  %428 = getelementptr inbounds [40 x i8], ptr %101, i64 %426
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %79, ptr noundef nonnull align 8 dereferenceable(40) %428, i64 40, i1 false), !noalias !368
   %.pr681 = load i64, ptr %79, align 8
   %429 = icmp eq i64 %.pr681, 3
@@ -2390,7 +2390,7 @@ default.unreachable797:                           ; preds = %126
   store i64 %618, ptr %94, align 8, !alias.scope !533, !noalias !536
   %619 = icmp ult i64 %618, %98
   tail call void @llvm.assume(i1 %619)
-  %620 = getelementptr inbounds { i64, [4 x i64] }, ptr %101, i64 %618
+  %620 = getelementptr inbounds [40 x i8], ptr %101, i64 %618
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %620, i64 40, i1 false), !noalias !533
   %.pr692 = load i64, ptr %76, align 8
   switch i64 %.pr692, label %623 [
@@ -2630,7 +2630,7 @@ default.unreachable797:                           ; preds = %126
   %696 = icmp ult i64 %694, %695
   tail call void @llvm.assume(i1 %696)
   %697 = load ptr, ptr %100, align 8, !alias.scope !583, !noalias !580, !nonnull !5, !noundef !5
-  %698 = getelementptr inbounds { i64, [4 x i64] }, ptr %697, i64 %694
+  %698 = getelementptr inbounds [40 x i8], ptr %697, i64 %694
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %698, i64 40, i1 false), !noalias !583
   %.pr696 = load i64, ptr %71, align 8
   %699 = icmp eq i64 %.pr696, 3

@@ -3,10 +3,6 @@ source_filename = "bench/redis/original/print.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lua_TValue = type { %union.Value, i32 }
-%union.Value = type { ptr }
-%struct.LocVar = type { ptr, i32, i32 }
-
 @.str.1 = private unnamed_addr constant [10 x i8] c"(bstring)\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"(string)\00", align 1
 @.str.3 = private unnamed_addr constant [51 x i8] c"\0A%s <%s:%d,%d> (%d instruction%s, %d bytes at %p)\0A\00", align 1
@@ -138,7 +134,7 @@ PrintHeader.exit:                                 ; preds = %2, %9, %11
 64:                                               ; preds = %192, %.lr.ph.i
   %.084.i = phi i32 [ 0, %.lr.ph.i ], [ %195, %192 ]
   %65 = sext i32 %.084.i to i64
-  %66 = getelementptr inbounds i32, ptr %56, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %56, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !29
   %68 = and i32 %67, 63
   %69 = lshr i32 %67, 6
@@ -157,7 +153,7 @@ PrintHeader.exit:                                 ; preds = %2, %9, %11
   br label %86
 
 78:                                               ; preds = %64
-  %79 = getelementptr inbounds i32, ptr %75, i64 %65
+  %79 = getelementptr inbounds [4 x i8], ptr %75, i64 %65
   %80 = load i32, ptr %79, align 4, !tbaa !29
   %81 = add nsw i32 %.084.i, 1
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %81)
@@ -176,7 +172,7 @@ PrintHeader.exit:                                 ; preds = %2, %9, %11
 89:                                               ; preds = %86, %84
   %90 = phi i32 [ %87, %86 ], [ %81, %84 ]
   %91 = zext nneg i32 %68 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr @luaP_opnames, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @luaP_opnames, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !31
   %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %93)
   %95 = getelementptr inbounds nuw i8, ptr @luaP_opmodes, i64 %91
@@ -286,7 +282,7 @@ default.unreachable:                              ; preds = %89
 134:                                              ; preds = %131
   %135 = load ptr, ptr %63, align 8, !tbaa !35
   %136 = zext nneg i32 %71 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !36
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   br label %140
@@ -299,7 +295,7 @@ default.unreachable:                              ; preds = %89
 143:                                              ; preds = %128, %128
   %144 = load ptr, ptr %61, align 8, !tbaa !33
   %145 = zext nneg i32 %72 to i64
-  %146 = getelementptr inbounds nuw %struct.lua_TValue, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !18
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %148)
@@ -365,7 +361,7 @@ default.unreachable:                              ; preds = %89
 177:                                              ; preds = %128
   %178 = load ptr, ptr %60, align 8, !tbaa !39
   %179 = zext nneg i32 %72 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !40
   %182 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %181)
   br label %192
@@ -376,7 +372,7 @@ default.unreachable:                              ; preds = %89
 
 185:                                              ; preds = %183
   %186 = sext i32 %90 to i64
-  %187 = getelementptr inbounds i32, ptr %56, i64 %186
+  %187 = getelementptr inbounds [4 x i8], ptr %56, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !29
   %189 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %188)
   br label %192
@@ -432,7 +428,7 @@ PrintConstants.exit:                              ; preds = %202, %197
 211:                                              ; preds = %211, %.lr.ph.i15
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i, %211 ]
   %212 = load ptr, ptr %210, align 8, !tbaa !45
-  %213 = getelementptr inbounds nuw %struct.LocVar, ptr %212, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %212, i64 %indvars.iv.i
   %214 = load ptr, ptr %213, align 8, !tbaa !46
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
@@ -465,7 +461,7 @@ PrintLocals.exit:                                 ; preds = %211, %PrintConstant
 .lr.ph.i19:                                       ; preds = %.lr.ph.i19, %.lr.ph.preheader.i
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i21, %.lr.ph.i19 ]
   %231 = load ptr, ptr %227, align 8, !tbaa !35
-  %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv.i20
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv.i20
   %233 = load ptr, ptr %232, align 8, !tbaa !36
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = trunc nuw nsw i64 %indvars.iv.i20 to i32
@@ -486,7 +482,7 @@ PrintUpvalues.exit:                               ; preds = %.lr.ph.i19, %PrintL
 239:                                              ; preds = %.lr.ph, %239
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %239 ]
   %240 = load ptr, ptr %238, align 8, !tbaa !39
-  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv
   %242 = load ptr, ptr %241, align 8, !tbaa !40
   tail call void @luaU_print(ptr noundef %242, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -503,7 +499,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @PrintConstant(ptr readonly captures(none) %.16.val, i32 noundef %0) unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.lua_TValue, ptr %.16.val, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr %.16.val, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !53
   switch i32 %5, label %60 [
@@ -596,7 +592,7 @@ define internal fastcc void @PrintConstant(ptr readonly captures(none) %.16.val,
   %44 = tail call ptr @__ctype_b_loc() #3
   %45 = load ptr, ptr %44, align 8, !tbaa !55
   %46 = zext i8 %23 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !57
   %49 = and i16 %48, 16384
   %.not.i = icmp eq i16 %49, 0

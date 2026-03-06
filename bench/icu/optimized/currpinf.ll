@@ -1333,7 +1333,7 @@ thread-pre-split:                                 ; preds = %62, %68
   %.174185 = phi i32 [ 0, %.lr.ph.preheader ], [ %.275, %91 ]
   %.177184 = phi ptr [ null, %.lr.ph.preheader ], [ %.278, %91 ]
   %.180183 = phi i32 [ %80, %.lr.ph.preheader ], [ %.281, %91 ]
-  %83 = getelementptr inbounds nuw i16, ptr %.068, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %.068, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2, !tbaa !44
   %85 = icmp eq i16 %84, 59
   br i1 %85, label %86, label %91

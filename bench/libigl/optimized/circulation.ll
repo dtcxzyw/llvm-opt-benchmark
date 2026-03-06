@@ -35,7 +35,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %14 = sext i32 %1 to i64
   %15 = load ptr, ptr %4, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = getelementptr i32, ptr %15, i64 %14
+  %17 = getelementptr [4 x i8], ptr %15, i64 %14
   %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = select i1 %2, i32 2, i32 4
@@ -49,18 +49,18 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %.0 = phi i32 [ %1, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i ], [ %47, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %25 = sext i32 %.0 to i64
   %26 = load ptr, ptr %4, align 8, !tbaa !15
-  %27 = getelementptr i32, ptr %26, i64 %25
+  %27 = getelementptr [4 x i8], ptr %26, i64 %25
   %28 = load i32, ptr %27, align 4, !tbaa !17
   %29 = icmp eq i32 %28, %.023
   %30 = load ptr, ptr %5, align 8, !tbaa !15
   %31 = load i64, ptr %19, align 8, !tbaa !19
   %32 = select i1 %29, i64 %31, i64 0
-  %33 = getelementptr i32, ptr %30, i64 %25
-  %34 = getelementptr i32, ptr %33, i64 %32
+  %33 = getelementptr [4 x i8], ptr %30, i64 %25
+  %34 = getelementptr [4 x i8], ptr %33, i64 %32
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = load i64, ptr %16, align 8, !tbaa !19
   %37 = select i1 %29, i64 %36, i64 0
-  %38 = getelementptr i32, ptr %27, i64 %37
+  %38 = getelementptr [4 x i8], ptr %27, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !17
   %40 = add i32 %20, %35
   %41 = srem i32 %40, 3
@@ -68,7 +68,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i:
   %43 = add nsw i32 %42, %39
   %44 = sext i32 %43 to i64
   %45 = load ptr, ptr %3, align 8, !tbaa !20
-  %46 = getelementptr inbounds i32, ptr %45, i64 %44
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %44
   %47 = load i32, ptr %46, align 4, !tbaa !17
   %.not.i = icmp eq ptr %24, %23
   br i1 %.not.i, label %49, label %48
@@ -119,7 +119,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %49
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %64, %.noexc17
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %52) #12
-  %65 = getelementptr inbounds nuw i32, ptr %61, i64 %59
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %59
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %48
@@ -297,7 +297,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit24:            ; preds = %_ZNSt6vectorIiSaIiE
   %37 = sext i32 %0 to i64
   %38 = load ptr, ptr %4, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr i32, ptr %38, i64 %37
+  %40 = getelementptr [4 x i8], ptr %38, i64 %37
   %41 = load i32, ptr %40, align 4, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -309,26 +309,26 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit24:            ; preds = %_ZNSt6vectorIiSaIiE
   %.0 = phi i32 [ %41, %_ZNSt6vectorIiSaIiEE7reserveEm.exit24 ], [ %60, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit32 ]
   %46 = sext i32 %.040 to i64
   %47 = load ptr, ptr %4, align 8, !tbaa !15
-  %48 = getelementptr i32, ptr %47, i64 %46
+  %48 = getelementptr [4 x i8], ptr %47, i64 %46
   %49 = load i32, ptr %48, align 4, !tbaa !17
   %50 = icmp eq i32 %49, %.0
   %51 = load ptr, ptr %5, align 8, !tbaa !15
   %52 = load i64, ptr %42, align 8, !tbaa !19
   %53 = select i1 %50, i64 %52, i64 0
-  %54 = getelementptr i32, ptr %51, i64 %46
-  %55 = getelementptr i32, ptr %54, i64 %53
+  %54 = getelementptr [4 x i8], ptr %51, i64 %46
+  %55 = getelementptr [4 x i8], ptr %54, i64 %53
   %56 = load i32, ptr %55, align 4, !tbaa !17
   %57 = load i64, ptr %39, align 8, !tbaa !19
   %58 = select i1 %50, i64 %57, i64 0
-  %59 = getelementptr i32, ptr %48, i64 %58
+  %59 = getelementptr [4 x i8], ptr %48, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !17
   %61 = sext i32 %60 to i64
   %62 = sext i32 %56 to i64
   %63 = load ptr, ptr %2, align 8, !tbaa !15
   %64 = load i64, ptr %43, align 8, !tbaa !19
   %65 = mul nsw i64 %64, %62
-  %66 = getelementptr i32, ptr %63, i64 %61
-  %67 = getelementptr i32, ptr %66, i64 %65
+  %66 = getelementptr [4 x i8], ptr %63, i64 %61
+  %67 = getelementptr [4 x i8], ptr %66, i64 %65
   %68 = load i32, ptr %67, align 4, !tbaa !17
   %69 = add i32 %44, %56
   %70 = srem i32 %69, 3
@@ -336,7 +336,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit24:            ; preds = %_ZNSt6vectorIiSaIiE
   %72 = add nsw i32 %71, %60
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %3, align 8, !tbaa !20
-  %75 = getelementptr inbounds i32, ptr %74, i64 %73
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4, !tbaa !17
   %77 = load ptr, ptr %22, align 8, !tbaa !10
   %78 = load ptr, ptr %24, align 8, !tbaa !11
@@ -393,7 +393,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %97, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %94, ptr %7, align 8, !tbaa !4
   store ptr %98, ptr %22, align 8, !tbaa !10
-  %100 = getelementptr inbounds nuw i32, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %92
   store ptr %100, ptr %24, align 8, !tbaa !11
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -453,7 +453,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i29: ; preds = %121, %_Z
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i31: ; preds = %123, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i29
   store ptr %118, ptr %6, align 8, !tbaa !4
   store ptr %122, ptr %10, align 8, !tbaa !10
-  %124 = getelementptr inbounds nuw i32, ptr %118, i64 %116
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %116
   store ptr %124, ptr %12, align 8, !tbaa !11
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit32
 

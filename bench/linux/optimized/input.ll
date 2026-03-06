@@ -66,9 +66,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
 %struct.proc_ops = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
-%struct.input_value = type { i16, i16, i32 }
-%struct.input_absinfo = type { i32, i32, i32, i32, i32, i32 }
-%struct.input_mt_slot = type { [14 x i32], i32, i32 }
 
 @__UNIQUE_ID_author313 = internal constant [51 x i8] c"input_core.author=Vojtech Pavlik <vojtech@suse.cz>\00", section ".modinfo", align 1
 @__UNIQUE_ID_description314 = internal constant [34 x i8] c"input_core.description=Input core\00", section ".modinfo", align 1
@@ -468,7 +465,7 @@ define dso_local void @input_handle_event(ptr noundef %0, i32 noundef %1, i32 no
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %116 = zext nneg i32 %2 to i64
-  %117 = getelementptr i32, ptr %115, i64 %116
+  %117 = getelementptr [4 x i8], ptr %115, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, %3
   br i1 %119, label %.thread8, label %120
@@ -555,7 +552,7 @@ define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef ran
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 8
   %28 = zext i32 %26 to i64
-  %29 = getelementptr %struct.input_value, ptr %16, i64 %28
+  %29 = getelementptr [8 x i8], ptr %16, i64 %28
   store i16 3, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store i16 47, ptr %30, align 2
@@ -575,7 +572,7 @@ define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef ran
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 8
   %41 = zext i32 %39 to i64
-  %42 = getelementptr %struct.input_value, ptr %37, i64 %41
+  %42 = getelementptr [8 x i8], ptr %37, i64 %41
   %43 = trunc i32 %2 to i16
   store i16 %43, ptr %42, align 4
   %44 = trunc i32 %3 to i16
@@ -618,7 +615,7 @@ define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef ran
   %64 = add i32 %50, 1
   store i32 %64, ptr %49, align 8
   %65 = zext i32 %50 to i64
-  %66 = getelementptr %struct.input_value, ptr %63, i64 %65
+  %66 = getelementptr [8 x i8], ptr %63, i64 %65
   store i64 4294967296, ptr %66, align 4
   %67 = load ptr, ptr %15, align 8
   %68 = load i32, ptr %49, align 8
@@ -760,7 +757,7 @@ define dso_local void @input_set_abs_params(ptr noundef %0, i32 noundef %1, i32 
 
 .thread:                                          ; preds = %6, %13, %17
   %24 = phi ptr [ %.pr, %17 ], [ %11, %6 ], [ %15, %13 ]
-  %25 = getelementptr %struct.input_absinfo, ptr %24, i64 %8
+  %25 = getelementptr [24 x i8], ptr %24, i64 %8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %2, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -851,9 +848,9 @@ input_set_capability.exit:                        ; preds = %22, %38
 
 45:                                               ; preds = %input_set_capability.exit
   %46 = zext i32 %1 to i64
-  %47 = getelementptr %struct.input_absinfo, ptr %43, i64 %46
+  %47 = getelementptr [24 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %17, align 8
-  %49 = getelementptr %struct.input_absinfo, ptr %48, i64 %11
+  %49 = getelementptr [24 x i8], ptr %48, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(24) %47, ptr noundef align 4 dereferenceable(24) %49, i64 24, i1 false)
   br label %50
 
@@ -868,7 +865,7 @@ define dso_local void @input_set_capability(ptr noundef %0, i32 noundef %1, i32 
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr i32, ptr @input_max_code, i64 %6
+  %7 = getelementptr [4 x i8], ptr @input_max_code, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = lshr i64 2490430, %6
   %10 = trunc i64 %9 to i1
@@ -1400,7 +1397,7 @@ define dso_local i32 @input_set_keycode(ptr noundef %0, ptr noundef %1) #0 align
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
   %50 = zext i32 %48 to i64
-  %51 = getelementptr %struct.input_value, ptr %43, i64 %50
+  %51 = getelementptr [8 x i8], ptr %43, i64 %50
   store i16 1, ptr %51, align 4
   %52 = trunc i32 %46 to i16
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
@@ -1419,7 +1416,7 @@ define dso_local i32 @input_set_keycode(ptr noundef %0, ptr noundef %1) #0 align
   %62 = add i32 %55, 1
   store i32 %62, ptr %47, align 8
   %63 = zext i32 %55 to i64
-  %64 = getelementptr %struct.input_value, ptr %61, i64 %63
+  %64 = getelementptr [8 x i8], ptr %61, i64 %63
   store i64 4294967296, ptr %64, align 4
   %65 = load ptr, ptr %42, align 8
   %66 = load i32, ptr %47, align 8
@@ -1437,7 +1434,7 @@ define dso_local i32 @input_set_keycode(ptr noundef %0, ptr noundef %1) #0 align
   %71 = add nuw i32 %68, 1
   store i32 %71, ptr %47, align 8
   %72 = zext i32 %68 to i64
-  %73 = getelementptr %struct.input_value, ptr %.pr, i64 %72
+  %73 = getelementptr [8 x i8], ptr %.pr, i64 %72
   store i16 0, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store i16 0, ptr %74, align 2
@@ -1658,7 +1655,7 @@ define dso_local void @input_reset_device(ptr noundef %0) #0 align 16 {
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
   %18 = zext i32 %16 to i64
-  %19 = getelementptr %struct.input_value, ptr %12, i64 %18
+  %19 = getelementptr [8 x i8], ptr %12, i64 %18
   store i16 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 0, ptr %20, align 2
@@ -1926,7 +1923,7 @@ define internal fastcc noundef zeroext i1 @input_dev_release_keys(ptr noundef %0
   %38 = add i32 %37, 1
   store i32 %38, ptr %15, align 8
   %39 = zext i32 %37 to i64
-  %40 = getelementptr %struct.input_value, ptr %34, i64 %39
+  %40 = getelementptr [8 x i8], ptr %34, i64 %39
   store i16 1, ptr %40, align 4
   %41 = trunc nuw nsw i32 %18 to i16
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 2
@@ -1944,7 +1941,7 @@ define internal fastcc noundef zeroext i1 @input_dev_release_keys(ptr noundef %0
   %50 = add i32 %44, 1
   store i32 %50, ptr %15, align 8
   %51 = zext i32 %44 to i64
-  %52 = getelementptr %struct.input_value, ptr %49, i64 %51
+  %52 = getelementptr [8 x i8], ptr %49, i64 %51
   store i64 4294967296, ptr %52, align 4
   %53 = load ptr, ptr %14, align 8
   %54 = load i32, ptr %15, align 8
@@ -2266,7 +2263,7 @@ define internal void @input_repeat_key(ptr noundef %0) #0 align 16 {
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
   %50 = zext i32 %48 to i64
-  %51 = getelementptr %struct.input_value, ptr %44, i64 %50
+  %51 = getelementptr [8 x i8], ptr %44, i64 %50
   store i16 1, ptr %51, align 4
   %52 = trunc nuw nsw i32 %32 to i16
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
@@ -2285,7 +2282,7 @@ define internal void @input_repeat_key(ptr noundef %0) #0 align 16 {
   %62 = add i32 %55, 1
   store i32 %62, ptr %47, align 8
   %63 = zext i32 %55 to i64
-  %64 = getelementptr %struct.input_value, ptr %61, i64 %63
+  %64 = getelementptr [8 x i8], ptr %61, i64 %63
   store i64 4294967296, ptr %64, align 4
   %65 = load ptr, ptr %43, align 8
   %66 = load i32, ptr %47, align 8
@@ -2314,7 +2311,7 @@ define internal void @input_repeat_key(ptr noundef %0) #0 align 16 {
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8
   %77 = zext i32 %75 to i64
-  %78 = getelementptr %struct.input_value, ptr %71, i64 %77
+  %78 = getelementptr [8 x i8], ptr %71, i64 %77
   store i16 0, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 2
   store i16 0, ptr %79, align 2
@@ -2866,13 +2863,13 @@ define internal noundef range(i32 -22, 1) i32 @input_default_getkeycode(ptr noun
   br label %47
 
 40:                                               ; preds = %32
-  %41 = getelementptr i16, ptr %34, i64 %35
+  %41 = getelementptr [2 x i8], ptr %34, i64 %35
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   br label %47
 
 44:                                               ; preds = %32
-  %45 = getelementptr i32, ptr %34, i64 %35
+  %45 = getelementptr [4 x i8], ptr %34, i64 %35
   %46 = load i32, ptr %45, align 4
   br label %47
 
@@ -2979,7 +2976,7 @@ define internal noundef range(i32 -22, 1) i32 @input_default_setkeycode(ptr noun
   br label %64
 
 52:                                               ; preds = %41
-  %53 = getelementptr i16, ptr %43, i64 %44
+  %53 = getelementptr [2 x i8], ptr %43, i64 %44
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   store i32 %55, ptr %2, align 4
@@ -2990,7 +2987,7 @@ define internal noundef range(i32 -22, 1) i32 @input_default_setkeycode(ptr noun
   br label %64
 
 59:                                               ; preds = %41
-  %60 = getelementptr i32, ptr %43, i64 %44
+  %60 = getelementptr [4 x i8], ptr %43, i64 %44
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %2, align 4
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3036,7 +3033,7 @@ define internal noundef range(i32 -22, 1) i32 @input_default_setkeycode(ptr noun
 
 .split.us8:                                       ; preds = %72, %90
   %85 = phi i64 [ %91, %90 ], [ 0, %72 ]
-  %86 = getelementptr i16, ptr %76, i64 %85
+  %86 = getelementptr [2 x i8], ptr %76, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = icmp eq i32 %74, %88
@@ -3054,7 +3051,7 @@ define internal noundef range(i32 -22, 1) i32 @input_default_setkeycode(ptr noun
 
 .split:                                           ; preds = %72, %93
   %96 = phi i64 [ %94, %93 ], [ 0, %72 ]
-  %97 = getelementptr i32, ptr %76, i64 %96
+  %97 = getelementptr [4 x i8], ptr %76, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, %74
   br i1 %99, label %.split7.us, label %93
@@ -3160,7 +3157,7 @@ define internal fastcc void @__input_unregister_device(ptr noundef %0) unnamed_a
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
   %18 = zext i32 %16 to i64
-  %19 = getelementptr %struct.input_value, ptr %12, i64 %18
+  %19 = getelementptr [8 x i8], ptr %12, i64 %18
   store i16 0, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   store i16 0, ptr %20, align 2
@@ -3797,9 +3794,9 @@ define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr n
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.input_mt_slot, ptr %24, i64 %27
+  %28 = getelementptr [64 x i8], ptr %24, i64 %27
   %29 = zext nneg i32 %19 to i64
-  %30 = getelementptr i32, ptr %28, i64 %29
+  %30 = getelementptr [4 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 1128
@@ -3812,7 +3809,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr n
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %38 = load ptr, ptr %37, align 8
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr %struct.input_absinfo, ptr %38, i64 %39
+  %40 = getelementptr [24 x i8], ptr %38, i64 %39
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread8, label %42
 
@@ -3824,7 +3821,7 @@ define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr n
   %47 = load i32, ptr %43, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %49 = zext nneg i32 %1 to i64
-  %.split = getelementptr %struct.input_absinfo, ptr %45, i64 %49
+  %.split = getelementptr [24 x i8], ptr %45, i64 %49
   %50 = getelementptr i8, ptr %.split, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
@@ -3920,7 +3917,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 
 15:                                               ; preds = %9
   %16 = zext i32 %2 to i64
-  %17 = getelementptr %struct.input_value, ptr %1, i64 %16
+  %17 = getelementptr [8 x i8], ptr %1, i64 %16
   br label %18
 
 18:                                               ; preds = %36, %15
@@ -3984,7 +3981,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 
 56:                                               ; preds = %52
   %57 = zext i32 %47 to i64
-  %58 = getelementptr %struct.input_value, ptr %1, i64 %57
+  %58 = getelementptr [8 x i8], ptr %1, i64 %57
   br label %59
 
 59:                                               ; preds = %59, %56
@@ -4031,7 +4028,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 
 90:                                               ; preds = %84
   %91 = zext i32 %79 to i64
-  %92 = getelementptr %struct.input_value, ptr %1, i64 %91
+  %92 = getelementptr [8 x i8], ptr %1, i64 %91
   br label %93
 
 93:                                               ; preds = %90, %111
@@ -4097,7 +4094,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 
 132:                                              ; preds = %128
   %133 = zext i32 %121 to i64
-  %134 = getelementptr %struct.input_value, ptr %1, i64 %133
+  %134 = getelementptr [8 x i8], ptr %1, i64 %133
   br label %135
 
 135:                                              ; preds = %135, %132
@@ -4138,7 +4135,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 
 159:                                              ; preds = %155
   %160 = zext i32 %150 to i64
-  %161 = getelementptr %struct.input_value, ptr %1, i64 %160
+  %161 = getelementptr [8 x i8], ptr %1, i64 %160
   %162 = icmp eq i32 %150, 0
   br i1 %162, label %.loopexit, label %163
 
@@ -4542,7 +4539,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %29 = phi i32 [ %47, %46 ], [ %26, %4 ]
   %30 = lshr i64 %28, 6
   %31 = and i64 %30, 67108863
-  %32 = getelementptr i64, ptr %23, i64 %31
+  %32 = getelementptr [8 x i8], ptr %23, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = shl nuw i64 1, %28
   %35 = and i64 %33, %34
@@ -4582,7 +4579,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %61 = phi i32 [ %81, %79 ], [ 113, %50 ]
   %62 = lshr i32 %61, 6
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr i64, ptr %55, i64 %63
+  %64 = getelementptr [8 x i8], ptr %55, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = and i32 %61, 63
   %67 = zext nneg i32 %66 to i64
@@ -4623,7 +4620,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %94 = phi i32 [ %112, %111 ], [ %91, %83 ]
   %95 = lshr i64 %93, 6
   %96 = and i64 %95, 67108863
-  %97 = getelementptr i64, ptr %88, i64 %96
+  %97 = getelementptr [8 x i8], ptr %88, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = shl nuw i64 1, %93
   %100 = and i64 %98, %99
@@ -4663,7 +4660,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %126 = phi i32 [ %144, %143 ], [ %123, %115 ]
   %127 = lshr i64 %125, 6
   %128 = and i64 %127, 67108863
-  %129 = getelementptr i64, ptr %120, i64 %128
+  %129 = getelementptr [8 x i8], ptr %120, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = shl nuw i64 1, %125
   %132 = and i64 %130, %131
@@ -4703,7 +4700,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %158 = phi i32 [ %176, %175 ], [ %155, %147 ]
   %159 = lshr i64 %157, 6
   %160 = and i64 %159, 67108863
-  %161 = getelementptr i64, ptr %152, i64 %160
+  %161 = getelementptr [8 x i8], ptr %152, i64 %160
   %162 = load i64, ptr %161, align 8
   %163 = shl nuw i64 1, %157
   %164 = and i64 %162, %163
@@ -4743,7 +4740,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %190 = phi i32 [ %208, %207 ], [ %187, %179 ]
   %191 = lshr i64 %189, 6
   %192 = and i64 %191, 67108863
-  %193 = getelementptr i64, ptr %184, i64 %192
+  %193 = getelementptr [8 x i8], ptr %184, i64 %192
   %194 = load i64, ptr %193, align 8
   %195 = shl nuw i64 1, %189
   %196 = and i64 %194, %195
@@ -4783,7 +4780,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %222 = phi i32 [ %240, %239 ], [ %219, %211 ]
   %223 = lshr i64 %221, 6
   %224 = and i64 %223, 67108863
-  %225 = getelementptr i64, ptr %216, i64 %224
+  %225 = getelementptr [8 x i8], ptr %216, i64 %224
   %226 = load i64, ptr %225, align 8
   %227 = shl nuw i64 1, %221
   %228 = and i64 %226, %227
@@ -4823,7 +4820,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %254 = phi i32 [ %274, %272 ], [ 0, %243 ]
   %255 = lshr i32 %254, 6
   %256 = zext nneg i32 %255 to i64
-  %257 = getelementptr i64, ptr %248, i64 %256
+  %257 = getelementptr [8 x i8], ptr %248, i64 %256
   %258 = load i64, ptr %257, align 8
   %259 = and i32 %254, 63
   %260 = zext nneg i32 %259 to i64
@@ -4864,7 +4861,7 @@ define internal fastcc i32 @input_print_modalias(ptr noundef writeonly captures(
   %287 = phi i32 [ %305, %304 ], [ %284, %276 ]
   %288 = lshr i64 %286, 6
   %289 = and i64 %288, 67108863
-  %290 = getelementptr i64, ptr %281, i64 %289
+  %290 = getelementptr [8 x i8], ptr %281, i64 %289
   %291 = load i64, ptr %290, align 8
   %292 = shl nuw i64 1, %286
   %293 = and i64 %291, %292
@@ -4944,7 +4941,7 @@ define internal fastcc i32 @input_print_bitmap(ptr noundef writeonly captures(no
   %18 = getelementptr i8, ptr %0, i64 %17
   %19 = sub i32 %1, %15
   %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
-  %21 = getelementptr i64, ptr %2, i64 %16
+  %21 = getelementptr [8 x i8], ptr %2, i64 %16
   %22 = load i64, ptr %21, align 8
   %23 = load i32, ptr %9, align 8
   %24 = and i32 %23, 2
@@ -5120,7 +5117,7 @@ define internal i64 @inhibited_store(ptr noundef %0, ptr readnone captures(none)
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 8
   %44 = zext i32 %42 to i64
-  %45 = getelementptr %struct.input_value, ptr %38, i64 %44
+  %45 = getelementptr [8 x i8], ptr %38, i64 %44
   store i16 0, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i16 0, ptr %46, align 2
@@ -5439,7 +5436,7 @@ define internal noundef i32 @input_dev_suspend(ptr noundef %0) #0 align 16 {
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr %struct.input_value, ptr %11, i64 %17
+  %18 = getelementptr [8 x i8], ptr %11, i64 %17
   store i16 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 0, ptr %19, align 2
@@ -5502,7 +5499,7 @@ define internal noundef i32 @input_dev_freeze(ptr noundef %0) #0 align 16 {
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr %struct.input_value, ptr %11, i64 %17
+  %18 = getelementptr [8 x i8], ptr %11, i64 %17
   store i16 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 0, ptr %19, align 2
@@ -5877,7 +5874,7 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
 .outer.split.us:                                  ; preds = %.outer, %.thread.us
   %12 = phi i64 [ %13, %.thread.us ], [ %.ph, %.outer ]
   %13 = add nsw i64 %12, -1
-  %14 = getelementptr i64, ptr %2, i64 %13
+  %14 = getelementptr [8 x i8], ptr %2, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = load i32, ptr %9, align 8
   %17 = and i32 %16, 2
@@ -5914,7 +5911,7 @@ define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef 
 .outer.split:                                     ; preds = %.outer, %.thread
   %37 = phi i64 [ %38, %.thread ], [ %.ph, %.outer ]
   %38 = add nsw i64 %37, -1
-  %39 = getelementptr i64, ptr %2, i64 %38
+  %39 = getelementptr [8 x i8], ptr %2, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = load i32, ptr %9, align 8
   %42 = and i32 %41, 2

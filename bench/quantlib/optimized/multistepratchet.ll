@@ -441,7 +441,7 @@ entry:
   %12 = load double, ptr %multiplier_, align 8, !tbaa !35
   %accruals_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %13 = load ptr, ptr %accruals_, align 8, !tbaa !8
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %13, i64 %9
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %9
   %14 = load double, ptr %add.ptr.i, align 8, !tbaa !50
   %mul = fmul double %12, %14
   %mul9 = fmul double %.sroa.speculated, %mul

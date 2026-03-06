@@ -3,7 +3,6 @@ source_filename = "bench/luajit/original/lj_strfmt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
 %struct.FormatState = type { ptr, ptr, ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -1523,7 +1522,7 @@ lj_strfmt_parse.exit.thread145:                   ; preds = %.thread88.i, %lj_st
   %113 = load ptr, ptr %7, align 8, !tbaa !46
   %114 = add nsw i32 %.0, 1
   %115 = sext i32 %.0 to i64
-  %116 = getelementptr inbounds %union.TValue, ptr %113, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %113, i64 %115
   %.not112 = icmp slt i32 %.0, %13
   br i1 %.not112, label %118, label %117
 
@@ -1682,7 +1681,7 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   store i64 %189, ptr %187, align 8, !tbaa !13
   tail call void @lua_call(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1) #13
   %190 = load ptr, ptr %7, align 8, !tbaa !46
-  %191 = getelementptr inbounds %union.TValue, ptr %190, i64 %115
+  %191 = getelementptr inbounds [8 x i8], ptr %190, i64 %115
   %192 = load ptr, ptr %5, align 8, !tbaa !45
   %193 = getelementptr inbounds i8, ptr %192, i64 -8
   store ptr %193, ptr %5, align 8, !tbaa !45
@@ -2023,7 +2022,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 23:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = xor i64 %5, -1
-  %25 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !53
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
   %28 = and i64 %27, 4294967295

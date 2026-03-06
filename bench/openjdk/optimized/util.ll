@@ -3,7 +3,6 @@ source_filename = "bench/openjdk/original/util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.jvalue = type { i64 }
 %struct.jvmtiCapabilities = type { i64, i64 }
 %struct.jvmtiThreadInfo = type { ptr, i32, i8, ptr, ptr }
 %struct.ClassInstancesData = type { i32, i32, i64, i32 }
@@ -2489,7 +2488,7 @@ define hidden zeroext range(i8 0, 2) i8 @sharedInvoke(ptr noundef %0, ptr nounde
   br i1 %.not60, label %25, label %.critedge
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw %union.jvalue, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %27 = tail call i64 @inStream_readValue(ptr noundef %0) #14
   store i64 %27, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2899,7 +2898,7 @@ define hidden i32 @filterDebugThreads(ptr noundef captures(none) %0, i32 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
   %.01213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %14 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 @threadControl_isDebugThread(ptr noundef %5) #14
   %.not = icmp eq i8 %6, 0
@@ -2911,7 +2910,7 @@ define hidden i32 @filterDebugThreads(ptr noundef captures(none) %0, i32 noundef
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %8
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %8
   store ptr %5, ptr %11, align 8
   br label %12
 
@@ -4693,7 +4692,7 @@ allClassLoaderClasses.exit:                       ; preds = %33, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %is_a_nested_class.exit63.thread ]
   %.02885 = phi i32 [ 0, %.lr.ph ], [ %.1, %is_a_nested_class.exit63.thread ]
   %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -4750,7 +4749,7 @@ classSignature.exit48:                            ; preds = %53, %61
   %80 = phi i8 [ %76, %.lr.ph.i ], [ %87, %85 ]
   %.025.i = phi ptr [ %75, %.lr.ph.i ], [ %86, %85 ]
   %81 = sext i8 %80 to i64
-  %82 = getelementptr inbounds i16, ptr %78, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %78, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 2048
   %.not19.i = icmp eq i16 %84, 0
@@ -4791,7 +4790,7 @@ is_a_nested_class.exit.thread.thread:             ; preds = %is_a_nested_class.e
   %96 = phi i8 [ %92, %.lr.ph.i54 ], [ %103, %101 ]
   %.025.i55 = phi ptr [ %91, %.lr.ph.i54 ], [ %102, %101 ]
   %97 = sext i8 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, 2048
   %.not19.i56 = icmp eq i16 %100, 0
@@ -4816,13 +4815,13 @@ is_a_nested_class.exit63:                         ; preds = %101, %90, %.critedg
 106:                                              ; preds = %is_a_nested_class.exit63, %is_a_nested_class.exit
   %107 = load ptr, ptr %7, align 8
   %108 = sext i32 %.02885 to i64
-  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   store ptr %110, ptr %111, align 8
   %112 = load ptr, ptr %7, align 8
   %113 = add nsw i32 %.02885, 1
-  %114 = getelementptr inbounds ptr, ptr %112, i64 %108
+  %114 = getelementptr inbounds [8 x i8], ptr %112, i64 %108
   store ptr %56, ptr %114, align 8
   br label %is_a_nested_class.exit63.thread
 
@@ -5690,7 +5689,7 @@ define hidden i32 @eventIndex2jvmti(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr i32, ptr @index2jvmti, i64 %4
+  %5 = getelementptr [4 x i8], ptr @index2jvmti, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -5818,7 +5817,7 @@ define hidden range(i32 0, 23) i32 @jvmti2EventIndex(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.jvmti2EventIndex, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.jvmti2EventIndex, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 
@@ -6285,7 +6284,7 @@ define hidden i32 @classInstanceCounts(i32 noundef %0, ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %.pre64, %.lr.ph._crit_edge ]
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   %.pre64 = add nuw nsw i64 %indvars.iv, 1
@@ -6478,7 +6477,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounterFromRef(i32 %0, ptr re
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = and i64 %27, 4294967295
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add nsw i64 %38, 1
   store i64 %39, ptr %37, align 8
@@ -6523,7 +6522,7 @@ define internal range(i32 256, 32769) i32 @cbObjectCounter(i64 noundef %0, i64 %
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = and i64 %13, 4294967295
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 1
   store i64 %25, ptr %23, align 8

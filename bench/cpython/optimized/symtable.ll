@@ -1315,7 +1315,7 @@ _Py_NewRef.exit:                                  ; preds = %22, %25
 
 .lr.ph94:                                         ; preds = %.lr.ph91, %57
   %.0529093 = phi i64 [ %58, %57 ], [ 0, %.lr.ph91 ]
-  %61 = getelementptr ptr, ptr %54, i64 %.0529093
+  %61 = getelementptr [8 x i8], ptr %54, i64 %.0529093
   %62 = load ptr, ptr %61, align 8, !tbaa !53
   %63 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %4, ptr noundef %62)
   %.not65 = icmp eq i32 %63, 0
@@ -1348,7 +1348,7 @@ _Py_NewRef.exit:                                  ; preds = %22, %25
 
 .lr.ph89:                                         ; preds = %.lr.ph, %75
   %.1538688 = phi i64 [ %76, %75 ], [ 0, %.lr.ph ]
-  %79 = getelementptr ptr, ptr %72, i64 %.1538688
+  %79 = getelementptr [8 x i8], ptr %72, i64 %.1538688
   %80 = load ptr, ptr %79, align 8, !tbaa !53
   %81 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %4, ptr noundef %80)
   %.not62 = icmp eq i32 %81, 0
@@ -1381,7 +1381,7 @@ _Py_NewRef.exit:                                  ; preds = %22, %25
   %92 = load ptr, ptr %11, align 8, !tbaa !30
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !58
-  %95 = getelementptr ptr, ptr %94, i64 %.val.i
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.val.i
   %96 = getelementptr i8, ptr %95, i64 -16
   %97 = load ptr, ptr %96, align 8, !tbaa !55
   store ptr %97, ptr %18, align 8, !tbaa !31
@@ -1532,7 +1532,7 @@ symtable_analyze.exit.thread:                     ; preds = %121, %Py_DECREF.exi
   %148 = load ptr, ptr %11, align 8, !tbaa !30
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8, !tbaa !58
-  %151 = getelementptr ptr, ptr %150, i64 %.val.i72
+  %151 = getelementptr [8 x i8], ptr %150, i64 %.val.i72
   %152 = getelementptr i8, ptr %151, i64 -16
   %153 = load ptr, ptr %152, align 8, !tbaa !55
   store ptr %153, ptr %18, align 8, !tbaa !31
@@ -1862,7 +1862,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_stmt(ptr noun
 
 37:                                               ; preds = %.lr.ph1927, %33
   %.010111926 = phi i64 [ 0, %.lr.ph1927 ], [ %34, %33 ]
-  %38 = getelementptr ptr, ptr %32, i64 %.010111926
+  %38 = getelementptr [8 x i8], ptr %32, i64 %.010111926
   %39 = load ptr, ptr %38, align 8, !tbaa !76
   %40 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %39)
   %.not1363.not = icmp eq i32 %40, 0
@@ -1892,7 +1892,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_stmt(ptr noun
   %48 = phi i64 [ %44, %.lr.ph1929 ], [ %55, %54 ]
   %49 = phi i64 [ 0, %.lr.ph1929 ], [ %57, %54 ]
   %.011041928 = phi i32 [ 0, %.lr.ph1929 ], [ %56, %54 ]
-  %50 = getelementptr ptr, ptr %46, i64 %49
+  %50 = getelementptr [8 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !76
   %.not1366 = icmp eq ptr %51, null
   br i1 %.not1366, label %54, label %52
@@ -1936,7 +1936,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_stmt(ptr noun
 
 68:                                               ; preds = %.lr.ph1931, %64
   %.011061930 = phi i64 [ 0, %.lr.ph1931 ], [ %65, %64 ]
-  %69 = getelementptr ptr, ptr %63, i64 %.011061930
+  %69 = getelementptr [8 x i8], ptr %63, i64 %.011061930
   %70 = load ptr, ptr %69, align 8, !tbaa !76
   %71 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %70)
   %.not1369.not = icmp eq i32 %71, 0
@@ -1979,7 +1979,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_stmt(ptr noun
   br i1 %94, label %95, label %has_kwonlydefaults.exit
 
 95:                                               ; preds = %92
-  %96 = getelementptr ptr, ptr %89, i64 %93
+  %96 = getelementptr [8 x i8], ptr %89, i64 %93
   %97 = load ptr, ptr %96, align 8, !tbaa !76
   %.not.i1484 = icmp eq ptr %97, null
   %98 = add i32 %.011.i, 1
@@ -2023,7 +2023,7 @@ has_kwonlydefaults.exit:                          ; preds = %92, %95, %78
 
 .lr.ph1936:                                       ; preds = %.lr.ph1933, %111
   %.0110719321935 = phi i64 [ %112, %111 ], [ 0, %.lr.ph1933 ]
-  %115 = getelementptr ptr, ptr %108, i64 %.0110719321935
+  %115 = getelementptr [8 x i8], ptr %108, i64 %.0110719321935
   %116 = load ptr, ptr %115, align 8, !tbaa !83
   %117 = tail call fastcc i32 @symtable_visit_type_param(ptr noundef %0, ptr noundef %116)
   %.not1372.not = icmp eq i32 %117, 0
@@ -2142,7 +2142,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1941:                                       ; preds = %.lr.ph1938, %164
   %.0110819371940 = phi i64 [ %165, %164 ], [ 0, %.lr.ph1938 ]
-  %168 = getelementptr ptr, ptr %161, i64 %.0110819371940
+  %168 = getelementptr [8 x i8], ptr %161, i64 %.0110819371940
   %169 = load ptr, ptr %168, align 8, !tbaa !53
   %170 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %169)
   %.not1379.not = icmp eq i32 %170, 0
@@ -2214,7 +2214,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 200:                                              ; preds = %.lr.ph1905, %197
   %.011091904 = phi i64 [ 0, %.lr.ph1905 ], [ %198, %197 ]
-  %201 = getelementptr ptr, ptr %196, i64 %.011091904
+  %201 = getelementptr [8 x i8], ptr %196, i64 %.011091904
   %202 = load ptr, ptr %201, align 8, !tbaa !76
   %203 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %202)
   %.not1342.not = icmp eq i32 %203, 0
@@ -2282,7 +2282,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1910:                                       ; preds = %.lr.ph1907, %232
   %.0111019061909 = phi i64 [ %233, %232 ], [ 0, %.lr.ph1907 ]
-  %236 = getelementptr ptr, ptr %229, i64 %.0111019061909
+  %236 = getelementptr [8 x i8], ptr %229, i64 %.0111019061909
   %237 = load ptr, ptr %236, align 8, !tbaa !83
   %238 = tail call fastcc i32 @symtable_visit_type_param(ptr noundef %0, ptr noundef %237)
   %.not1346.not = icmp eq i32 %238, 0
@@ -2308,7 +2308,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1915:                                       ; preds = %.lr.ph1912, %245
   %.0111119111914 = phi i64 [ %246, %245 ], [ 0, %.lr.ph1912 ]
-  %249 = getelementptr ptr, ptr %242, i64 %.0111119111914
+  %249 = getelementptr [8 x i8], ptr %242, i64 %.0111119111914
   %250 = load ptr, ptr %249, align 8, !tbaa !76
   %251 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %250)
   %.not1348.not = icmp eq i32 %251, 0
@@ -2340,7 +2340,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1920:                                       ; preds = %.lr.ph1917, %261
   %.0111319161919 = phi i64 [ %262, %261 ], [ 0, %.lr.ph1917 ]
-  %265 = getelementptr ptr, ptr %258, i64 %.0111319161919
+  %265 = getelementptr [8 x i8], ptr %258, i64 %.0111319161919
   %266 = load ptr, ptr %265, align 8, !tbaa !86
   %267 = getelementptr i8, ptr %266, i64 8
   %.val = load ptr, ptr %267, align 8, !tbaa !88
@@ -2449,7 +2449,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1925:                                       ; preds = %.lr.ph1922, %311
   %.0111419211924 = phi i64 [ %312, %311 ], [ 0, %.lr.ph1922 ]
-  %315 = getelementptr ptr, ptr %308, i64 %.0111419211924
+  %315 = getelementptr [8 x i8], ptr %308, i64 %.0111419211924
   %316 = load ptr, ptr %315, align 8, !tbaa !53
   %317 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %316)
   %.not1357.not = icmp eq i32 %317, 0
@@ -2546,7 +2546,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1902:                                       ; preds = %.lr.ph1899, %364
   %.0111618981901 = phi i64 [ %365, %364 ], [ 0, %.lr.ph1899 ]
-  %368 = getelementptr ptr, ptr %361, i64 %.0111618981901
+  %368 = getelementptr [8 x i8], ptr %361, i64 %.0111618981901
   %369 = load ptr, ptr %368, align 8, !tbaa !83
   %370 = tail call fastcc i32 @symtable_visit_type_param(ptr noundef %0, ptr noundef %369)
   %.not1333.not = icmp eq i32 %370, 0
@@ -2668,7 +2668,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1897:                                       ; preds = %.lr.ph1894, %428
   %.0111718931896 = phi i64 [ %429, %428 ], [ 0, %.lr.ph1894 ]
-  %432 = getelementptr ptr, ptr %425, i64 %.0111718931896
+  %432 = getelementptr [8 x i8], ptr %425, i64 %.0111718931896
   %433 = load ptr, ptr %432, align 8, !tbaa !76
   %434 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %433)
   %.not1327.not = icmp eq i32 %434, 0
@@ -2694,7 +2694,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1892:                                       ; preds = %.lr.ph1889, %442
   %.0111818881891 = phi i64 [ %443, %442 ], [ 0, %.lr.ph1889 ]
-  %446 = getelementptr ptr, ptr %439, i64 %.0111818881891
+  %446 = getelementptr [8 x i8], ptr %439, i64 %.0111818881891
   %447 = load ptr, ptr %446, align 8, !tbaa !76
   %448 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %447)
   %.not1324.not = icmp eq i32 %448, 0
@@ -2904,7 +2904,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1885:                                       ; preds = %.lr.ph1882, %564
   %.0111918811884 = phi i64 [ %565, %564 ], [ 0, %.lr.ph1882 ]
-  %568 = getelementptr ptr, ptr %561, i64 %.0111918811884
+  %568 = getelementptr [8 x i8], ptr %561, i64 %.0111918811884
   %569 = load ptr, ptr %568, align 8, !tbaa !53
   %570 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %569)
   %.not1304.not = icmp eq i32 %570, 0
@@ -2933,7 +2933,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 580:                                              ; preds = %.lr.ph1887, %576
   %.011201886 = phi i64 [ 0, %.lr.ph1887 ], [ %577, %576 ]
-  %581 = getelementptr ptr, ptr %575, i64 %.011201886
+  %581 = getelementptr [8 x i8], ptr %575, i64 %.011201886
   %582 = load ptr, ptr %581, align 8, !tbaa !53
   %583 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %582)
   %.not1307.not = icmp eq i32 %583, 0
@@ -2966,7 +2966,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1878:                                       ; preds = %.lr.ph1875, %595
   %.0112118741877 = phi i64 [ %596, %595 ], [ 0, %.lr.ph1875 ]
-  %599 = getelementptr ptr, ptr %592, i64 %.0112118741877
+  %599 = getelementptr [8 x i8], ptr %592, i64 %.0112118741877
   %600 = load ptr, ptr %599, align 8, !tbaa !53
   %601 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %600)
   %.not1297.not = icmp eq i32 %601, 0
@@ -2995,7 +2995,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 611:                                              ; preds = %.lr.ph1880, %607
   %.011231879 = phi i64 [ 0, %.lr.ph1880 ], [ %608, %607 ]
-  %612 = getelementptr ptr, ptr %606, i64 %.011231879
+  %612 = getelementptr [8 x i8], ptr %606, i64 %.011231879
   %613 = load ptr, ptr %612, align 8, !tbaa !53
   %614 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %613)
   %.not1300.not = icmp eq i32 %614, 0
@@ -3028,7 +3028,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1871:                                       ; preds = %.lr.ph1868, %626
   %.0112418671870 = phi i64 [ %627, %626 ], [ 0, %.lr.ph1868 ]
-  %630 = getelementptr ptr, ptr %623, i64 %.0112418671870
+  %630 = getelementptr [8 x i8], ptr %623, i64 %.0112418671870
   %631 = load ptr, ptr %630, align 8, !tbaa !53
   %632 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %631)
   %.not1291.not = icmp eq i32 %632, 0
@@ -3057,7 +3057,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 642:                                              ; preds = %.lr.ph1873, %638
   %.011251872 = phi i64 [ 0, %.lr.ph1873 ], [ %639, %638 ]
-  %643 = getelementptr ptr, ptr %637, i64 %.011251872
+  %643 = getelementptr [8 x i8], ptr %637, i64 %.011251872
   %644 = load ptr, ptr %643, align 8, !tbaa !53
   %645 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %644)
   %.not1294.not = icmp eq i32 %645, 0
@@ -3091,7 +3091,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
   br i1 %660, label %661, label %Py_DECREF.exit
 
 661:                                              ; preds = %658
-  %662 = getelementptr ptr, ptr %654, i64 %.01126
+  %662 = getelementptr [8 x i8], ptr %654, i64 %.01126
   %663 = load ptr, ptr %662, align 8, !tbaa !99
   %664 = load ptr, ptr %663, align 8, !tbaa !101
   %665 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef nonnull %0, ptr noundef %664)
@@ -3129,7 +3129,7 @@ Py_DECREF.exit1458:                               ; preds = %151, %152, %155
 
 .lr.ph1866:                                       ; preds = %.lr.ph1863, %678
   %.018.i18621865 = phi i64 [ %679, %678 ], [ 0, %.lr.ph1863 ]
-  %682 = getelementptr ptr, ptr %675, i64 %.018.i18621865
+  %682 = getelementptr [8 x i8], ptr %675, i64 %.018.i18621865
   %683 = load ptr, ptr %682, align 8, !tbaa !53
   %684 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef nonnull %0, ptr noundef %683)
   %.not23.not.i = icmp eq i32 %684, 0
@@ -3181,7 +3181,7 @@ symtable_visit_match_case.exit:                   ; preds = %678, %.lr.ph1863, %
 
 .lr.ph1846:                                       ; preds = %.lr.ph1843, %703
   %.0112718421845 = phi i64 [ %704, %703 ], [ 0, %.lr.ph1843 ]
-  %707 = getelementptr ptr, ptr %700, i64 %.0112718421845
+  %707 = getelementptr [8 x i8], ptr %700, i64 %.0112718421845
   %708 = load ptr, ptr %707, align 8, !tbaa !53
   %709 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %708)
   %.not1275.not = icmp eq i32 %709, 0
@@ -3209,7 +3209,7 @@ symtable_visit_match_case.exit:                   ; preds = %678, %.lr.ph1863, %
   br i1 %720, label %721, label %.thread1589
 
 721:                                              ; preds = %718
-  %722 = getelementptr ptr, ptr %713, i64 %.01128
+  %722 = getelementptr [8 x i8], ptr %713, i64 %.01128
   %723 = load ptr, ptr %722, align 8, !tbaa !107
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 8
   %725 = load ptr, ptr %724, align 8, !tbaa !18
@@ -3283,7 +3283,7 @@ symtable_add_def_ctx.exit:                        ; preds = %731
 
 .lr.ph1851:                                       ; preds = %.lr.ph1848, %754
   %.023.i18471850 = phi i64 [ %755, %754 ], [ 0, %.lr.ph1848 ]
-  %758 = getelementptr ptr, ptr %751, i64 %.023.i18471850
+  %758 = getelementptr [8 x i8], ptr %751, i64 %.023.i18471850
   %759 = load ptr, ptr %758, align 8, !tbaa !53
   %760 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef nonnull %0, ptr noundef %759)
   %.not30.not.i = icmp eq i32 %760, 0
@@ -3313,7 +3313,7 @@ symtable_visit_excepthandler.exit:                ; preds = %754, %.lr.ph1848, %
 
 .lr.ph1856:                                       ; preds = %.lr.ph1853, %768
   %.0112918521855 = phi i64 [ %769, %768 ], [ 0, %.lr.ph1853 ]
-  %772 = getelementptr ptr, ptr %765, i64 %.0112918521855
+  %772 = getelementptr [8 x i8], ptr %765, i64 %.0112918521855
   %773 = load ptr, ptr %772, align 8, !tbaa !53
   %774 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %773)
   %.not1279.not = icmp eq i32 %774, 0
@@ -3339,7 +3339,7 @@ symtable_visit_excepthandler.exit:                ; preds = %754, %.lr.ph1848, %
 
 .lr.ph1861:                                       ; preds = %.lr.ph1858, %781
   %.0113118571860 = phi i64 [ %782, %781 ], [ 0, %.lr.ph1858 ]
-  %785 = getelementptr ptr, ptr %778, i64 %.0113118571860
+  %785 = getelementptr [8 x i8], ptr %778, i64 %.0113118571860
   %786 = load ptr, ptr %785, align 8, !tbaa !53
   %787 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %786)
   %.not1281.not = icmp eq i32 %787, 0
@@ -3365,7 +3365,7 @@ symtable_visit_excepthandler.exit:                ; preds = %754, %.lr.ph1848, %
 
 .lr.ph1826:                                       ; preds = %.lr.ph1823, %795
   %.0113218221825 = phi i64 [ %796, %795 ], [ 0, %.lr.ph1823 ]
-  %799 = getelementptr ptr, ptr %792, i64 %.0113218221825
+  %799 = getelementptr [8 x i8], ptr %792, i64 %.0113218221825
   %800 = load ptr, ptr %799, align 8, !tbaa !53
   %801 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %800)
   %.not1267.not = icmp eq i32 %801, 0
@@ -3393,7 +3393,7 @@ symtable_visit_excepthandler.exit:                ; preds = %754, %.lr.ph1848, %
   br i1 %812, label %813, label %.thread1600
 
 813:                                              ; preds = %810
-  %814 = getelementptr ptr, ptr %805, i64 %.01134
+  %814 = getelementptr [8 x i8], ptr %805, i64 %.01134
   %815 = load ptr, ptr %814, align 8, !tbaa !107
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
   %817 = load ptr, ptr %816, align 8, !tbaa !18
@@ -3467,7 +3467,7 @@ symtable_add_def_ctx.exit1531:                    ; preds = %823
 
 .lr.ph1831:                                       ; preds = %.lr.ph1828, %846
   %.023.i150018271830 = phi i64 [ %847, %846 ], [ 0, %.lr.ph1828 ]
-  %850 = getelementptr ptr, ptr %843, i64 %.023.i150018271830
+  %850 = getelementptr [8 x i8], ptr %843, i64 %.023.i150018271830
   %851 = load ptr, ptr %850, align 8, !tbaa !53
   %852 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef nonnull %0, ptr noundef %851)
   %.not30.not.i1503 = icmp eq i32 %852, 0
@@ -3497,7 +3497,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph1836:                                       ; preds = %.lr.ph1833, %860
   %.0113518321835 = phi i64 [ %861, %860 ], [ 0, %.lr.ph1833 ]
-  %864 = getelementptr ptr, ptr %857, i64 %.0113518321835
+  %864 = getelementptr [8 x i8], ptr %857, i64 %.0113518321835
   %865 = load ptr, ptr %864, align 8, !tbaa !53
   %866 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %865)
   %.not1271.not = icmp eq i32 %866, 0
@@ -3523,7 +3523,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph1841:                                       ; preds = %.lr.ph1838, %873
   %.0113718371840 = phi i64 [ %874, %873 ], [ 0, %.lr.ph1838 ]
-  %877 = getelementptr ptr, ptr %870, i64 %.0113718371840
+  %877 = getelementptr [8 x i8], ptr %870, i64 %.0113718371840
   %878 = load ptr, ptr %877, align 8, !tbaa !53
   %879 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %878)
   %.not1273.not = icmp eq i32 %879, 0
@@ -3567,7 +3567,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph1821:                                       ; preds = %.lr.ph1818, %896
   %.0113818171820 = phi i64 [ %897, %896 ], [ 0, %.lr.ph1818 ]
-  %900 = getelementptr ptr, ptr %893, i64 %.0113818171820
+  %900 = getelementptr [8 x i8], ptr %893, i64 %.0113818171820
   %901 = load ptr, ptr %900, align 8, !tbaa !116
   %902 = tail call fastcc i32 @symtable_visit_alias(ptr noundef %0, ptr noundef %901)
   %.not1262.not = icmp eq i32 %902, 0
@@ -3593,7 +3593,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph1816:                                       ; preds = %.lr.ph1813, %910
   %.0114018121815 = phi i64 [ %911, %910 ], [ 0, %.lr.ph1813 ]
-  %914 = getelementptr ptr, ptr %907, i64 %.0114018121815
+  %914 = getelementptr [8 x i8], ptr %907, i64 %.0114018121815
   %915 = load ptr, ptr %914, align 8, !tbaa !116
   %916 = tail call fastcc i32 @symtable_visit_alias(ptr noundef %0, ptr noundef %915)
   %.not1259.not = icmp eq i32 %916, 0
@@ -3630,7 +3630,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph2292:                                       ; preds = %.lr.ph1810, %931
   %.0114118092291 = phi i64 [ %932, %931 ], [ 0, %.lr.ph1810 ]
-  %935 = getelementptr ptr, ptr %922, i64 %.0114118092291
+  %935 = getelementptr [8 x i8], ptr %922, i64 %.0114118092291
   %936 = load ptr, ptr %935, align 8, !tbaa !55
   %.val1480 = load ptr, ptr %923, align 8, !tbaa !31
   %.val1481 = load ptr, ptr %924, align 8, !tbaa !32
@@ -3734,7 +3734,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph2290:                                       ; preds = %.lr.ph1807, %983
   %.0114318062289 = phi i64 [ %984, %983 ], [ 0, %.lr.ph1807 ]
-  %987 = getelementptr ptr, ptr %974, i64 %.0114318062289
+  %987 = getelementptr [8 x i8], ptr %974, i64 %.0114318062289
   %988 = load ptr, ptr %987, align 8, !tbaa !55
   %.val1482 = load ptr, ptr %975, align 8, !tbaa !31
   %.val1483 = load ptr, ptr %976, align 8, !tbaa !32
@@ -3833,7 +3833,7 @@ symtable_visit_excepthandler.exit1504:            ; preds = %846, %.lr.ph1828, %
 
 .lr.ph1767:                                       ; preds = %.lr.ph, %symtable_visit_withitem.exit
   %.0114517641766 = phi i64 [ %1042, %symtable_visit_withitem.exit ], [ 0, %.lr.ph ]
-  %1033 = getelementptr ptr, ptr %1030, i64 %.0114517641766
+  %1033 = getelementptr [8 x i8], ptr %1030, i64 %.0114517641766
   %1034 = load ptr, ptr %1033, align 8, !tbaa !118
   %1035 = load ptr, ptr %1034, align 8, !tbaa !120
   %1036 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %0, ptr noundef %1035)
@@ -3877,7 +3877,7 @@ symtable_visit_withitem.exit:                     ; preds = %1040, %1037
 
 .lr.ph1772:                                       ; preds = %.lr.ph1769, %1051
   %.0114617681771 = phi i64 [ %1052, %1051 ], [ 0, %.lr.ph1769 ]
-  %1055 = getelementptr ptr, ptr %1048, i64 %.0114617681771
+  %1055 = getelementptr [8 x i8], ptr %1048, i64 %.0114617681771
   %1056 = load ptr, ptr %1055, align 8, !tbaa !53
   %1057 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %1056)
   %.not.not1212 = icmp eq i32 %1057, 0
@@ -3931,7 +3931,7 @@ symtable_visit_withitem.exit:                     ; preds = %1040, %1037
 
 1082:                                             ; preds = %.lr.ph1774, %1078
   %.011391773 = phi i64 [ 0, %.lr.ph1774 ], [ %1079, %1078 ]
-  %1083 = getelementptr ptr, ptr %1077, i64 %.011391773
+  %1083 = getelementptr [8 x i8], ptr %1077, i64 %.011391773
   %1084 = load ptr, ptr %1083, align 8, !tbaa !76
   %1085 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %1084)
   %.not1214.not = icmp eq i32 %1085, 0
@@ -3961,7 +3961,7 @@ symtable_visit_withitem.exit:                     ; preds = %1040, %1037
   %1093 = phi i64 [ %1089, %.lr.ph1776 ], [ %1099, %.thread1614 ]
   %1094 = phi i64 [ 0, %.lr.ph1776 ], [ %1101, %.thread1614 ]
   %.011361775 = phi i32 [ 0, %.lr.ph1776 ], [ %1100, %.thread1614 ]
-  %1095 = getelementptr ptr, ptr %1091, i64 %1094
+  %1095 = getelementptr [8 x i8], ptr %1091, i64 %1094
   %1096 = load ptr, ptr %1095, align 8, !tbaa !76
   %.not1216 = icmp eq ptr %1096, null
   br i1 %.not1216, label %.thread1614, label %1097
@@ -4005,7 +4005,7 @@ symtable_visit_withitem.exit:                     ; preds = %1040, %1037
 
 1112:                                             ; preds = %.lr.ph1778, %1108
   %.011331777 = phi i64 [ 0, %.lr.ph1778 ], [ %1109, %1108 ]
-  %1113 = getelementptr ptr, ptr %1107, i64 %.011331777
+  %1113 = getelementptr [8 x i8], ptr %1107, i64 %.011331777
   %1114 = load ptr, ptr %1113, align 8, !tbaa !76
   %1115 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %1114)
   %.not1219.not = icmp eq i32 %1115, 0
@@ -4048,7 +4048,7 @@ symtable_visit_withitem.exit:                     ; preds = %1040, %1037
   br i1 %1138, label %1139, label %has_kwonlydefaults.exit1510
 
 1139:                                             ; preds = %1136
-  %1140 = getelementptr ptr, ptr %1133, i64 %1137
+  %1140 = getelementptr [8 x i8], ptr %1133, i64 %1137
   %1141 = load ptr, ptr %1140, align 8, !tbaa !76
   %.not.i1509 = icmp eq ptr %1141, null
   %1142 = add i32 %.011.i1507, 1
@@ -4092,7 +4092,7 @@ has_kwonlydefaults.exit1510:                      ; preds = %1136, %1139, %1122
 
 .lr.ph1783:                                       ; preds = %.lr.ph1780, %1155
   %.0113017791782 = phi i64 [ %1156, %1155 ], [ 0, %.lr.ph1780 ]
-  %1159 = getelementptr ptr, ptr %1152, i64 %.0113017791782
+  %1159 = getelementptr [8 x i8], ptr %1152, i64 %.0113017791782
   %1160 = load ptr, ptr %1159, align 8, !tbaa !83
   %1161 = tail call fastcc i32 @symtable_visit_type_param(ptr noundef %0, ptr noundef %1160)
   %.not1222.not = icmp eq i32 %1161, 0
@@ -4217,7 +4217,7 @@ Py_DECREF.exit1464:                               ; preds = %1195, %1196, %1199
 
 .lr.ph1788:                                       ; preds = %.lr.ph1785, %1213
   %.0112217841787 = phi i64 [ %1214, %1213 ], [ 0, %.lr.ph1785 ]
-  %1217 = getelementptr ptr, ptr %1210, i64 %.0112217841787
+  %1217 = getelementptr [8 x i8], ptr %1210, i64 %.0112217841787
   %1218 = load ptr, ptr %1217, align 8, !tbaa !53
   %1219 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %1218)
   %.not1229.not = icmp eq i32 %1219, 0
@@ -4301,7 +4301,7 @@ maybe_set_ste_coroutine_for_module.exit:          ; preds = %1229, %allows_top_l
 
 .lr.ph1793:                                       ; preds = %.lr.ph1790, %symtable_visit_withitem.exit1515
   %.0111517891792 = phi i64 [ %1268, %symtable_visit_withitem.exit1515 ], [ 0, %.lr.ph1790 ]
-  %1259 = getelementptr ptr, ptr %1256, i64 %.0111517891792
+  %1259 = getelementptr [8 x i8], ptr %1256, i64 %.0111517891792
   %1260 = load ptr, ptr %1259, align 8, !tbaa !118
   %1261 = load ptr, ptr %1260, align 8, !tbaa !120
   %1262 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %0, ptr noundef %1261)
@@ -4345,7 +4345,7 @@ symtable_visit_withitem.exit1515:                 ; preds = %1266, %1263
 
 .lr.ph1798:                                       ; preds = %.lr.ph1795, %1277
   %.0111217941797 = phi i64 [ %1278, %1277 ], [ 0, %.lr.ph1795 ]
-  %1281 = getelementptr ptr, ptr %1274, i64 %.0111217941797
+  %1281 = getelementptr [8 x i8], ptr %1274, i64 %.0111217941797
   %1282 = load ptr, ptr %1281, align 8, !tbaa !53
   %1283 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %1282)
   %.not1236.not = icmp eq i32 %1283, 0
@@ -4429,7 +4429,7 @@ maybe_set_ste_coroutine_for_module.exit1518:      ; preds = %1284, %allows_top_l
 
 .lr.ph1803:                                       ; preds = %.lr.ph1800, %1322
   %.0110517991802 = phi i64 [ %1323, %1322 ], [ 0, %.lr.ph1800 ]
-  %1326 = getelementptr ptr, ptr %1319, i64 %.0110517991802
+  %1326 = getelementptr [8 x i8], ptr %1319, i64 %.0110517991802
   %1327 = load ptr, ptr %1326, align 8, !tbaa !53
   %1328 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %1327)
   %.not1241.not = icmp eq i32 %1328, 0
@@ -4458,7 +4458,7 @@ maybe_set_ste_coroutine_for_module.exit1518:      ; preds = %1284, %allows_top_l
 
 1338:                                             ; preds = %.lr.ph1805, %1334
   %.010121804 = phi i64 [ 0, %.lr.ph1805 ], [ %1335, %1334 ]
-  %1339 = getelementptr ptr, ptr %1333, i64 %.010121804
+  %1339 = getelementptr [8 x i8], ptr %1333, i64 %.010121804
   %1340 = load ptr, ptr %1339, align 8, !tbaa !53
   %1341 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %0, ptr noundef %1340)
   %.not1244.not = icmp eq i32 %1341, 0
@@ -4552,7 +4552,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_expr(ptr noun
 
 .lr.ph573:                                        ; preds = %.lr.ph570, %24
   %.0338569572 = phi i64 [ %25, %24 ], [ 0, %.lr.ph570 ]
-  %28 = getelementptr ptr, ptr %21, i64 %.0338569572
+  %28 = getelementptr [8 x i8], ptr %21, i64 %.0338569572
   %29 = load ptr, ptr %28, align 8, !tbaa !76
   %30 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %29)
   %.not457.not = icmp eq i32 %30, 0
@@ -4604,7 +4604,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_expr(ptr noun
 
 55:                                               ; preds = %.lr.ph566, %51
   %.0364565 = phi i64 [ 0, %.lr.ph566 ], [ %52, %51 ]
-  %56 = getelementptr ptr, ptr %50, i64 %.0364565
+  %56 = getelementptr [8 x i8], ptr %50, i64 %.0364565
   %57 = load ptr, ptr %56, align 8, !tbaa !76
   %58 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %57)
   %.not446.not = icmp eq i32 %58, 0
@@ -4634,7 +4634,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_expr(ptr noun
   %66 = phi i64 [ %62, %.lr.ph568 ], [ %73, %72 ]
   %67 = phi i64 [ 0, %.lr.ph568 ], [ %75, %72 ]
   %.0366567 = phi i32 [ 0, %.lr.ph568 ], [ %74, %72 ]
-  %68 = getelementptr ptr, ptr %64, i64 %67
+  %68 = getelementptr [8 x i8], ptr %64, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !76
   %.not448 = icmp eq ptr %69, null
   br i1 %.not448, label %72, label %70
@@ -4737,7 +4737,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_expr(ptr noun
   br i1 %118, label %119, label %126
 
 119:                                              ; preds = %116
-  %120 = getelementptr ptr, ptr %111, i64 %113
+  %120 = getelementptr [8 x i8], ptr %111, i64 %113
   %121 = load ptr, ptr %120, align 8, !tbaa !76
   %.not439 = icmp eq ptr %121, null
   br i1 %.not439, label %124, label %122
@@ -4771,7 +4771,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_expr(ptr noun
 
 .lr.ph564:                                        ; preds = %.lr.ph561, %133
   %.0368560563 = phi i64 [ %134, %133 ], [ 0, %.lr.ph561 ]
-  %137 = getelementptr ptr, ptr %130, i64 %.0368560563
+  %137 = getelementptr [8 x i8], ptr %130, i64 %.0368560563
   %138 = load ptr, ptr %137, align 8, !tbaa !76
   %139 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %138)
   %.not441.not = icmp eq i32 %139, 0
@@ -4797,7 +4797,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_expr(ptr noun
 
 .lr.ph559:                                        ; preds = %.lr.ph556, %147
   %.0369555558 = phi i64 [ %148, %147 ], [ 0, %.lr.ph556 ]
-  %151 = getelementptr ptr, ptr %144, i64 %.0369555558
+  %151 = getelementptr [8 x i8], ptr %144, i64 %.0369555558
   %152 = load ptr, ptr %151, align 8, !tbaa !76
   %153 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %152)
   %.not438.not = icmp eq i32 %153, 0
@@ -5021,7 +5021,7 @@ _PyST_IsFunctionLike.exit.thread:                 ; preds = %allows_top_level_aw
 
 .lr.ph554:                                        ; preds = %.lr.ph551, %275
   %.0370550553 = phi i64 [ %276, %275 ], [ 0, %.lr.ph551 ]
-  %279 = getelementptr ptr, ptr %272, i64 %.0370550553
+  %279 = getelementptr [8 x i8], ptr %272, i64 %.0370550553
   %280 = load ptr, ptr %279, align 8, !tbaa !76
   %281 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %280)
   %.not422.not = icmp eq i32 %281, 0
@@ -5054,7 +5054,7 @@ _PyST_IsFunctionLike.exit.thread:                 ; preds = %allows_top_level_aw
 
 .lr.ph549:                                        ; preds = %.lr.ph546, %293
   %.0371545548 = phi i64 [ %294, %293 ], [ 0, %.lr.ph546 ]
-  %297 = getelementptr ptr, ptr %290, i64 %.0371545548
+  %297 = getelementptr [8 x i8], ptr %290, i64 %.0371545548
   %298 = load ptr, ptr %297, align 8, !tbaa !76
   %299 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %298)
   %.not417.not = icmp eq i32 %299, 0
@@ -5088,7 +5088,7 @@ _PyST_IsFunctionLike.exit.thread:                 ; preds = %allows_top_level_aw
   br i1 %313, label %314, label %.thread
 
 314:                                              ; preds = %311
-  %315 = getelementptr ptr, ptr %306, i64 %308
+  %315 = getelementptr [8 x i8], ptr %306, i64 %308
   %316 = load ptr, ptr %315, align 8, !tbaa !86
   %.not419 = icmp eq ptr %316, null
   br i1 %.not419, label %321, label %317
@@ -5142,7 +5142,7 @@ _PyST_IsFunctionLike.exit.thread:                 ; preds = %allows_top_level_aw
 
 .lr.ph544:                                        ; preds = %.lr.ph541, %339
   %.0373540543 = phi i64 [ %340, %339 ], [ 0, %.lr.ph541 ]
-  %343 = getelementptr ptr, ptr %336, i64 %.0373540543
+  %343 = getelementptr [8 x i8], ptr %336, i64 %.0373540543
   %344 = load ptr, ptr %343, align 8, !tbaa !76
   %345 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %344)
   %.not412.not = icmp eq i32 %345, 0
@@ -5323,7 +5323,7 @@ _PyST_IsFunctionLike.exit474.thread:              ; preds = %410, %410, %410, %4
 
 .lr.ph534:                                        ; preds = %.lr.ph, %431
   %.0365531533 = phi i64 [ %432, %431 ], [ 0, %.lr.ph ]
-  %435 = getelementptr ptr, ptr %428, i64 %.0365531533
+  %435 = getelementptr [8 x i8], ptr %428, i64 %.0365531533
   %436 = load ptr, ptr %435, align 8, !tbaa !76
   %437 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %436)
   %.not.not = icmp eq i32 %437, 0
@@ -5349,7 +5349,7 @@ _PyST_IsFunctionLike.exit474.thread:              ; preds = %410, %410, %410, %4
 
 .lr.ph539:                                        ; preds = %.lr.ph536, %445
   %.0339535538 = phi i64 [ %446, %445 ], [ 0, %.lr.ph536 ]
-  %449 = getelementptr ptr, ptr %442, i64 %.0339535538
+  %449 = getelementptr [8 x i8], ptr %442, i64 %.0339535538
   %450 = load ptr, ptr %449, align 8, !tbaa !76
   %451 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %450)
   %.not411.not = icmp eq i32 %451, 0
@@ -5393,7 +5393,7 @@ define internal fastcc range(i32 0, 2) i32 @symtable_exit_block(ptr noundef nonn
   %12 = load ptr, ptr %3, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !58
-  %15 = getelementptr ptr, ptr %14, i64 %.val
+  %15 = getelementptr [8 x i8], ptr %14, i64 %.val
   %16 = getelementptr i8, ptr %15, i64 -16
   %17 = load ptr, ptr %16, align 8, !tbaa !55
   store ptr %17, ptr %2, align 8, !tbaa !31
@@ -5939,7 +5939,7 @@ _PyUnicode_DATA.exit.i79:                         ; preds = %69, %67
 
 _PyUnicode_DATA.exit17.i72:                       ; preds = %77, %75
   %.0.i15.i73 = phi ptr [ %.0.i.i14.i71, %75 ], [ %.val4.i16.i75, %77 ]
-  %79 = getelementptr i16, ptr %.0.i15.i73, i64 %65
+  %79 = getelementptr [2 x i8], ptr %.0.i15.i73, i64 %65
   %80 = load i16, ptr %79, align 2, !tbaa !142
   %81 = zext i16 %80 to i32
   br label %PyUnicode_READ_CHAR.exit88
@@ -5961,7 +5961,7 @@ _PyUnicode_DATA.exit17.i72:                       ; preds = %77, %75
 
 _PyUnicode_DATA.exit25.i85:                       ; preds = %85, %83
   %.0.i23.i86 = phi ptr [ %.0.i.i22.i84, %83 ], [ %.val4.i24.i87, %85 ]
-  %87 = getelementptr i32, ptr %.0.i23.i86, i64 %65
+  %87 = getelementptr [4 x i8], ptr %.0.i23.i86, i64 %65
   %88 = load i32, ptr %87, align 4, !tbaa !143
   br label %PyUnicode_READ_CHAR.exit88
 
@@ -6016,7 +6016,7 @@ _PyUnicode_DATA.exit.i100:                        ; preds = %95, %93
 
 _PyUnicode_DATA.exit17.i93:                       ; preds = %103, %101
   %.0.i15.i94 = phi ptr [ %.0.i.i14.i92, %101 ], [ %.val4.i16.i96, %103 ]
-  %105 = getelementptr i16, ptr %.0.i15.i94, i64 %91
+  %105 = getelementptr [2 x i8], ptr %.0.i15.i94, i64 %91
   %106 = load i16, ptr %105, align 2, !tbaa !142
   %107 = zext i16 %106 to i32
   br label %PyUnicode_READ_CHAR.exit109
@@ -6038,7 +6038,7 @@ _PyUnicode_DATA.exit17.i93:                       ; preds = %103, %101
 
 _PyUnicode_DATA.exit25.i106:                      ; preds = %111, %109
   %.0.i23.i107 = phi ptr [ %.0.i.i22.i105, %109 ], [ %.val4.i24.i108, %111 ]
-  %113 = getelementptr i32, ptr %.0.i23.i107, i64 %91
+  %113 = getelementptr [4 x i8], ptr %.0.i23.i107, i64 %91
   %114 = load i32, ptr %113, align 4, !tbaa !143
   br label %PyUnicode_READ_CHAR.exit109
 
@@ -6100,7 +6100,7 @@ _PyUnicode_DATA.exit.i122.us:                     ; preds = %.preheader.split.us
 
 _PyUnicode_DATA.exit17.i115.us.us:                ; preds = %_PyUnicode_DATA.exit17.i115.us.us, %.preheader.split.us133.split.us
   %.036.us134.us = phi i64 [ %135, %_PyUnicode_DATA.exit17.i115.us.us ], [ 0, %.preheader.split.us133.split.us ]
-  %132 = getelementptr i16, ptr %.val4.i16.i118.us.us, i64 %.036.us134.us
+  %132 = getelementptr [2 x i8], ptr %.val4.i16.i118.us.us, i64 %.036.us134.us
   %133 = load i16, ptr %132, align 2, !tbaa !142
   %134 = icmp eq i16 %133, 95
   %135 = add i64 %.036.us134.us, 1
@@ -6108,7 +6108,7 @@ _PyUnicode_DATA.exit17.i115.us.us:                ; preds = %_PyUnicode_DATA.exi
 
 _PyUnicode_DATA.exit17.i115.us:                   ; preds = %.preheader.split.us133, %_PyUnicode_DATA.exit17.i115.us
   %.036.us134 = phi i64 [ %139, %_PyUnicode_DATA.exit17.i115.us ], [ 0, %.preheader.split.us133 ]
-  %136 = getelementptr i16, ptr %.0.i.i14.i114, i64 %.036.us134
+  %136 = getelementptr [2 x i8], ptr %.0.i.i14.i114, i64 %.036.us134
   %137 = load i16, ptr %136, align 2, !tbaa !142
   %138 = icmp eq i16 %137, 95
   %139 = add i64 %.036.us134, 1
@@ -6123,7 +6123,7 @@ _PyUnicode_DATA.exit17.i115.us:                   ; preds = %.preheader.split.us
 
 _PyUnicode_DATA.exit25.i128.us:                   ; preds = %_PyUnicode_DATA.exit25.i128.us, %.preheader.split.split.us
   %.036.us139 = phi i64 [ %143, %_PyUnicode_DATA.exit25.i128.us ], [ 0, %.preheader.split.split.us ]
-  %140 = getelementptr i32, ptr %.val4.i24.i130.us, i64 %.036.us139
+  %140 = getelementptr [4 x i8], ptr %.val4.i24.i130.us, i64 %.036.us139
   %141 = load i32, ptr %140, align 4, !tbaa !143
   %142 = icmp eq i32 %141, 95
   %143 = add i64 %.036.us139, 1
@@ -6141,7 +6141,7 @@ _PyUnicode_DATA.exit25.i128.us:                   ; preds = %_PyUnicode_DATA.exi
 
 _PyUnicode_DATA.exit25.i128:                      ; preds = %.preheader.split, %_PyUnicode_DATA.exit25.i128
   %.036 = phi i64 [ %152, %_PyUnicode_DATA.exit25.i128 ], [ 0, %.preheader.split ]
-  %149 = getelementptr i32, ptr %.0.i.i14.i114, i64 %.036
+  %149 = getelementptr [4 x i8], ptr %.0.i.i14.i114, i64 %.036
   %150 = load i32, ptr %149, align 4, !tbaa !143
   %151 = icmp eq i32 %150, 95
   %152 = add i64 %.036, 1
@@ -6871,7 +6871,7 @@ Py_DECREF.exit189:                                ; preds = %251, %248, %246, %2
   %.0119400 = phi i64 [ 0, %.lr.ph ], [ %463, %Py_DECREF.exit187 ]
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %267 = load ptr, ptr %266, align 8, !tbaa !58
-  %268 = getelementptr ptr, ptr %267, i64 %.0119400
+  %268 = getelementptr [8 x i8], ptr %267, i64 %.0119400
   %269 = load ptr, ptr %268, align 8, !tbaa !55
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 100
   %271 = load i16, ptr %270, align 4
@@ -7234,7 +7234,7 @@ Py_DECREF.exit.i210:                              ; preds = %405, %402, %397
   %.01121.i.i = phi i64 [ %420, %419 ], [ 0, %414 ]
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 24
   %426 = load ptr, ptr %425, align 8, !tbaa !58
-  %427 = getelementptr ptr, ptr %426, i64 %.01121.i.i
+  %427 = getelementptr [8 x i8], ptr %426, i64 %.01121.i.i
   %428 = load ptr, ptr %427, align 8, !tbaa !55
   %429 = call i32 @_PyST_GetScope(ptr noundef %428, ptr noundef %415)
   %430 = icmp slt i32 %429, 0
@@ -7347,7 +7347,7 @@ Py_DECREF.exit187:                                ; preds = %457, %459, %462
   %467 = load ptr, ptr %258, align 8, !tbaa !22
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 24
   %469 = load ptr, ptr %468, align 8, !tbaa !58
-  %470 = getelementptr ptr, ptr %469, i64 %.1120403
+  %470 = getelementptr [8 x i8], ptr %469, i64 %.1120403
   %471 = load ptr, ptr %470, align 8, !tbaa !55
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 100
   %473 = load i16, ptr %472, align 4
@@ -8091,7 +8091,7 @@ define internal fastcc void @error_at_directive(ptr noundef readonly captures(no
   %.01214 = phi i64 [ %8, %7 ], [ 0, %2 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !58
-  %15 = getelementptr ptr, ptr %14, i64 %.01214
+  %15 = getelementptr [8 x i8], ptr %14, i64 %.01214
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !55
@@ -9177,7 +9177,7 @@ define internal fastcc range(i32 0, 2) i32 @symtable_visit_annotations(ptr nound
 41:                                               ; preds = %.critedge.i, %.lr.ph.i
   %42 = phi i64 [ %38, %.lr.ph.i ], [ %54, %.critedge.i ]
   %.01215.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %.critedge.i ]
-  %43 = getelementptr ptr, ptr %40, i64 %.01215.i
+  %43 = getelementptr [8 x i8], ptr %40, i64 %.01215.i
   %44 = load ptr, ptr %43, align 8, !tbaa !166
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !167
@@ -9223,7 +9223,7 @@ symtable_visit_argannotations.exit.thread:        ; preds = %.critedge.i, %37, %
 63:                                               ; preds = %.critedge.i74, %.lr.ph.i68
   %64 = phi i64 [ %60, %.lr.ph.i68 ], [ %76, %.critedge.i74 ]
   %.01215.i69 = phi i64 [ 0, %.lr.ph.i68 ], [ %77, %.critedge.i74 ]
-  %65 = getelementptr ptr, ptr %62, i64 %.01215.i69
+  %65 = getelementptr [8 x i8], ptr %62, i64 %.01215.i69
   %66 = load ptr, ptr %65, align 8, !tbaa !166
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !167
@@ -9319,7 +9319,7 @@ symtable_visit_argannotations.exit75.thread:      ; preds = %.critedge.i74, %59,
 115:                                              ; preds = %.critedge.i83, %.lr.ph.i77
   %116 = phi i64 [ %112, %.lr.ph.i77 ], [ %128, %.critedge.i83 ]
   %.01215.i78 = phi i64 [ 0, %.lr.ph.i77 ], [ %129, %.critedge.i83 ]
-  %117 = getelementptr ptr, ptr %114, i64 %.01215.i78
+  %117 = getelementptr [8 x i8], ptr %114, i64 %.01215.i78
   %118 = load ptr, ptr %117, align 8, !tbaa !166
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !167
@@ -9384,7 +9384,7 @@ symtable_visit_argannotations.exit84.thread:      ; preds = %.critedge.i83, %111
   %147 = load ptr, ptr %138, align 8, !tbaa !30
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8, !tbaa !58
-  %150 = getelementptr ptr, ptr %149, i64 %.val.i
+  %150 = getelementptr [8 x i8], ptr %149, i64 %.val.i
   %151 = getelementptr i8, ptr %150, i64 -16
   %152 = load ptr, ptr %151, align 8, !tbaa !55
   store ptr %152, ptr %5, align 8, !tbaa !31
@@ -9551,7 +9551,7 @@ define internal fastcc range(i32 0, 2) i32 @check_keywords(ptr noundef nonnull r
 .lr.ph35:                                         ; preds = %.lr.ph, %.critedge
   %7 = phi i64 [ %21, %.critedge ], [ %5, %.lr.ph ]
   %.0152934 = phi i64 [ %22, %.critedge ], [ 0, %.lr.ph ]
-  %8 = getelementptr ptr, ptr %4, i64 %.0152934
+  %8 = getelementptr [8 x i8], ptr %4, i64 %.0152934
   %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = load ptr, ptr %9, align 8, !tbaa !178
   %.not = icmp eq ptr %10, null
@@ -9776,7 +9776,7 @@ symtable_enter_existing_block.exit:               ; preds = %76, %77, %.critedge
   %93 = load ptr, ptr %84, align 8, !tbaa !30
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !58
-  %96 = getelementptr ptr, ptr %95, i64 %.val.i
+  %96 = getelementptr [8 x i8], ptr %95, i64 %.val.i
   %97 = getelementptr i8, ptr %96, i64 -16
   %98 = load ptr, ptr %97, align 8, !tbaa !55
   store ptr %98, ptr %4, align 8, !tbaa !31
@@ -10205,7 +10205,7 @@ define internal fastcc range(i32 0, 2) i32 @symtable_visit_type_param_bound_or_d
   %50 = load ptr, ptr %41, align 8, !tbaa !30
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !58
-  %53 = getelementptr ptr, ptr %52, i64 %.val.i
+  %53 = getelementptr [8 x i8], ptr %52, i64 %.val.i
   %54 = getelementptr i8, ptr %53, i64 -16
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   store ptr %55, ptr %7, align 8, !tbaa !31
@@ -10235,7 +10235,7 @@ define internal fastcc range(i32 0, 2) i32 @symtable_visit_params(ptr noundef no
 
 11:                                               ; preds = %.lr.ph, %7
   %.01421 = phi i64 [ 0, %.lr.ph ], [ %8, %7 ]
-  %12 = getelementptr ptr, ptr %5, i64 %.01421
+  %12 = getelementptr [8 x i8], ptr %5, i64 %.01421
   %13 = load ptr, ptr %12, align 8, !tbaa !166
   %14 = load ptr, ptr %13, align 8, !tbaa !173
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -10432,7 +10432,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_visit_pattern(ptr n
 
 .lr.ph217:                                        ; preds = %.lr.ph214, %24
   %.0113213216 = phi i64 [ %25, %24 ], [ 0, %.lr.ph214 ]
-  %28 = getelementptr ptr, ptr %21, i64 %.0113213216
+  %28 = getelementptr [8 x i8], ptr %21, i64 %.0113213216
   %29 = load ptr, ptr %28, align 8, !tbaa !193
   %30 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef %0, ptr noundef %29)
   %.not154.not = icmp eq i32 %30, 0
@@ -10501,7 +10501,7 @@ symtable_add_def_ctx.exit:                        ; preds = %34
 
 .lr.ph207:                                        ; preds = %.lr.ph204, %58
   %.0127203206 = phi i64 [ %59, %58 ], [ 0, %.lr.ph204 ]
-  %62 = getelementptr ptr, ptr %55, i64 %.0127203206
+  %62 = getelementptr [8 x i8], ptr %55, i64 %.0127203206
   %63 = load ptr, ptr %62, align 8, !tbaa !76
   %64 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %63)
   %.not148.not = icmp eq i32 %64, 0
@@ -10527,7 +10527,7 @@ symtable_add_def_ctx.exit:                        ; preds = %34
 
 .lr.ph212:                                        ; preds = %.lr.ph209, %71
   %.0128208211 = phi i64 [ %72, %71 ], [ 0, %.lr.ph209 ]
-  %75 = getelementptr ptr, ptr %68, i64 %.0128208211
+  %75 = getelementptr [8 x i8], ptr %68, i64 %.0128208211
   %76 = load ptr, ptr %75, align 8, !tbaa !193
   %77 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef %0, ptr noundef %76)
   %.not149.not = icmp eq i32 %77, 0
@@ -10587,7 +10587,7 @@ symtable_add_def_ctx.exit:                        ; preds = %34
 
 .lr.ph197:                                        ; preds = %.lr.ph, %101
   %.0129194196 = phi i64 [ %102, %101 ], [ 0, %.lr.ph ]
-  %105 = getelementptr ptr, ptr %98, i64 %.0129194196
+  %105 = getelementptr [8 x i8], ptr %98, i64 %.0129194196
   %106 = load ptr, ptr %105, align 8, !tbaa !193
   %107 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef %0, ptr noundef %106)
   %.not145.not = icmp eq i32 %107, 0
@@ -10621,7 +10621,7 @@ symtable_add_def_ctx.exit:                        ; preds = %34
 
 .lr.ph202:                                        ; preds = %.lr.ph199, %117
   %.0130198201 = phi i64 [ %118, %117 ], [ 0, %.lr.ph199 ]
-  %121 = getelementptr ptr, ptr %114, i64 %.0130198201
+  %121 = getelementptr [8 x i8], ptr %114, i64 %.0130198201
   %122 = load ptr, ptr %121, align 8, !tbaa !193
   %123 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef %0, ptr noundef %122)
   %.not147.not = icmp eq i32 %123, 0
@@ -10701,7 +10701,7 @@ symtable_add_def_ctx.exit169:                     ; preds = %132
 
 .lr.ph222:                                        ; preds = %.lr.ph219, %156
   %.0114218221 = phi i64 [ %157, %156 ], [ 0, %.lr.ph219 ]
-  %160 = getelementptr ptr, ptr %153, i64 %.0114218221
+  %160 = getelementptr [8 x i8], ptr %153, i64 %.0114218221
   %161 = load ptr, ptr %160, align 8, !tbaa !193
   %162 = tail call fastcc i32 @symtable_visit_pattern(ptr noundef %0, ptr noundef %161)
   %.not155.not = icmp eq i32 %162, 0
@@ -10732,7 +10732,7 @@ define internal fastcc range(i32 0, 2) i32 @check_kwd_patterns(ptr noundef nonnu
   br i1 %6, label %check_name.exit, label %.loopexit
 
 check_name.exit:                                  ; preds = %.split
-  %7 = getelementptr ptr, ptr %3, i64 %.020
+  %7 = getelementptr [8 x i8], ptr %3, i64 %.020
   %8 = load ptr, ptr %7, align 8, !tbaa !193
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !194
@@ -10742,7 +10742,7 @@ check_name.exit:                                  ; preds = %.split
   %14 = load i32, ptr %13, align 4, !tbaa !196
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %16 = load i32, ptr %15, align 4, !tbaa !197
-  %17 = getelementptr ptr, ptr %4, i64 %.020
+  %17 = getelementptr [8 x i8], ptr %4, i64 %.020
   %18 = load ptr, ptr %17, align 8, !tbaa !55
   %19 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %18, ptr noundef nonnull @.str.22) #6
   %.not.i = icmp eq i32 %19, 0
@@ -10876,7 +10876,7 @@ define internal fastcc range(i32 0, 2) i32 @symtable_handle_namedexpr(ptr nounde
 36:                                               ; preds = %.outer, %60
   %.0160.in.i = phi i64 [ %.0160.i, %60 ], [ %.0160.in.i.ph, %.outer ]
   %.0160.i = add i64 %.0160.in.i, -1
-  %37 = getelementptr ptr, ptr %35, i64 %.0160.i
+  %37 = getelementptr [8 x i8], ptr %35, i64 %.0160.i
   %38 = load ptr, ptr %37, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8, !tbaa !130
@@ -11175,7 +11175,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @symtable_handle_comprehensio
 
 switch.lookup:                                    ; preds = %34
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.symtable_handle_comprehension, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.symtable_handle_comprehension, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %40
 
@@ -11270,7 +11270,7 @@ symtable_implicit_arg.exit.thread:                ; preds = %47, %symtable_impli
   %77 = load ptr, ptr %69, align 8, !tbaa !30
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !58
-  %80 = getelementptr ptr, ptr %79, i64 %.val.i
+  %80 = getelementptr [8 x i8], ptr %79, i64 %.val.i
   %81 = getelementptr i8, ptr %80, i64 -16
   %82 = load ptr, ptr %81, align 8, !tbaa !55
   store ptr %82, ptr %11, align 8, !tbaa !31
@@ -11316,7 +11316,7 @@ symtable_implicit_arg.exit.thread:                ; preds = %47, %symtable_impli
 
 .lr.ph155:                                        ; preds = %.lr.ph, %102
   %.0104152154 = phi i64 [ %103, %102 ], [ 0, %.lr.ph ]
-  %106 = getelementptr ptr, ptr %98, i64 %.0104152154
+  %106 = getelementptr [8 x i8], ptr %98, i64 %.0104152154
   %107 = load ptr, ptr %106, align 8, !tbaa !76
   %108 = tail call fastcc i32 @symtable_visit_expr(ptr noundef %0, ptr noundef %107)
   %.not115.not = icmp eq i32 %108, 0
@@ -11336,7 +11336,7 @@ symtable_implicit_arg.exit.thread:                ; preds = %47, %symtable_impli
   br i1 %.not118, label %113, label %.critedge127
 
 113:                                              ; preds = %111
-  %114 = getelementptr ptr, ptr %9, i64 %.0105
+  %114 = getelementptr [8 x i8], ptr %9, i64 %.0105
   %115 = load ptr, ptr %114, align 8, !tbaa !200
   %116 = load ptr, ptr %11, align 8, !tbaa !31
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 100
@@ -11390,7 +11390,7 @@ symtable_implicit_arg.exit.thread:                ; preds = %47, %symtable_impli
 
 .lr.ph160:                                        ; preds = %.lr.ph157, %145
   %.023.i156159 = phi i64 [ %146, %145 ], [ 0, %.lr.ph157 ]
-  %149 = getelementptr ptr, ptr %142, i64 %.023.i156159
+  %149 = getelementptr [8 x i8], ptr %142, i64 %.023.i156159
   %150 = load ptr, ptr %149, align 8, !tbaa !76
   %151 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %0, ptr noundef %150)
   %.not26.not.i = icmp eq i32 %151, 0
@@ -11464,7 +11464,7 @@ symtable_visit_comprehension.exit:                ; preds = %154, %.critedge149
   %185 = load ptr, ptr %176, align 8, !tbaa !30
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8, !tbaa !58
-  %188 = getelementptr ptr, ptr %187, i64 %.val.i132
+  %188 = getelementptr [8 x i8], ptr %187, i64 %.val.i132
   %189 = getelementptr i8, ptr %188, i64 -16
   %190 = load ptr, ptr %189, align 8, !tbaa !55
   store ptr %190, ptr %11, align 8, !tbaa !31

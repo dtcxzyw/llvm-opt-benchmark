@@ -7951,7 +7951,7 @@ define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVe
   %26 = phi ptr [ %15, %.lr.ph ], [ %20, %17 ]
   %.01725 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %.01725
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %.01725
   %28 = load ptr, ptr %27, align 8, !tbaa !300
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !297
@@ -7979,7 +7979,7 @@ define internal fastcc void @_ZN5arrow2io8internal12_GLOBAL__N_118MakeFilenameVe
 
 _ZNO5arrow6ResultINS_8internal16PlatformFilenameEE11ValueUnsafeEv.exit: ; preds = %37
   %38 = load ptr, ptr %3, align 8, !tbaa !308
-  %39 = getelementptr inbounds nuw %"class.arrow::internal::PlatformFilename", ptr %38, i64 %.01725
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.01725
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow8internal16PlatformFilenameaSEOS1_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %41 unwind label %52
 
@@ -8350,7 +8350,7 @@ _ZNSt12_Vector_baseIN5arrow8internal16PlatformFilenameESaIS2_EEC2EmRKS3_.exit: ;
   store ptr %8, ptr %0, align 8, !tbaa !308
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !316
-  %10 = getelementptr inbounds nuw %"class.arrow::internal::PlatformFilename", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !317
   br label %.lr.ph.i.i.i.i
@@ -8974,7 +8974,7 @@ _ZSt8_DestroyIPN5arrow8internal16PlatformFilenameES2_EvT_S4_RSaIT0_E.exit: ; pre
 _ZNSt12_Vector_baseIN5arrow8internal16PlatformFilenameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5arrow8internal16PlatformFilenameES2_EvT_S4_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8, !tbaa !308
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !316
-  %53 = getelementptr inbounds nuw %"class.arrow::internal::PlatformFilename", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !317
   ret void
 
@@ -9455,7 +9455,7 @@ _ZSt8_DestroyIPN5arrow8internal16PlatformFilenameES2_EvT_S4_RSaIT0_E.exit: ; pre
 _ZNSt12_Vector_baseIN5arrow8internal16PlatformFilenameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5arrow8internal16PlatformFilenameES2_EvT_S4_RSaIT0_E.exit, %76
   store ptr %23, ptr %0, align 8, !tbaa !308
   store ptr %.0.lcssa.i.i.i.i.i42, ptr %5, align 8, !tbaa !316
-  %80 = getelementptr inbounds nuw %"class.arrow::internal::PlatformFilename", ptr %23, i64 %17
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %17
   store ptr %80, ptr %75, align 8, !tbaa !317
   ret void
 

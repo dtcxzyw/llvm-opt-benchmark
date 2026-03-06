@@ -12153,7 +12153,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %4
   %138 = load i64, ptr %137, align 8, !tbaa !63, !noalias !375
   %139 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %140 = load ptr, ptr %139, align 8, !tbaa !59, !noalias !375
-  %141 = getelementptr inbounds i32, ptr %140, i64 %138
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %138
   store ptr %141, ptr %78, align 8, !tbaa !378, !noalias !375
   call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !375
   %142 = getelementptr inbounds nuw i8, ptr %100, i64 80
@@ -12223,7 +12223,7 @@ _ZN5arrow6StatusD2Ev.exit76.i:                    ; preds = %_ZN5arrow6StatusD2E
 
 161:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit76.i
   %162 = load ptr, ptr %78, align 8, !tbaa !378, !noalias !375
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %159
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %159
   %164 = load i32, ptr %163, align 4, !tbaa !365, !noalias !375
   %165 = load i32, ptr %162, align 4, !tbaa !365, !noalias !375
   %166 = sub nsw i32 %164, %165
@@ -12386,7 +12386,7 @@ _ZN5arrow6StatusD2Ev.exit89.i:                    ; preds = %212, %208, %_ZNSt14
 
 219:                                              ; preds = %213
   %220 = load ptr, ptr %78, align 8, !tbaa !378, !noalias !428
-  %221 = getelementptr i32, ptr %220, i64 %217
+  %221 = getelementptr [4 x i8], ptr %220, i64 %217
   %222 = load i32, ptr %221, align 4, !tbaa !365, !noalias !428
   %223 = load i32, ptr %220, align 4, !tbaa !365, !noalias !428
   %224 = sub nsw i32 %222, %223
@@ -12452,7 +12452,7 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i:                ; preds = %.noexc94.i
   %250 = add nsw i64 %249, 4
   store i64 %250, ptr %153, align 8, !tbaa !395, !noalias !428
   %251 = load ptr, ptr %78, align 8, !tbaa !378, !noalias !428
-  %252 = getelementptr i32, ptr %251, i64 %.022.i.i.i
+  %252 = getelementptr [4 x i8], ptr %251, i64 %.022.i.i.i
   %253 = getelementptr i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4, !tbaa !365, !noalias !428
   %255 = load i32, ptr %252, align 4, !tbaa !365, !noalias !428
@@ -12485,8 +12485,8 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i:                ; preds = %.noexc94.i
   %267 = phi { i64, i64 } [ %312, %.noexc98.i ], [ %263, %.noexc96.i ]
   %268 = extractvalue { i64, i64 } %267, 0
   %269 = load ptr, ptr %78, align 8, !tbaa !378, !noalias !438
-  %270 = getelementptr i32, ptr %269, i64 %268
-  %271 = getelementptr i32, ptr %270, i64 %266
+  %270 = getelementptr [4 x i8], ptr %269, i64 %268
+  %271 = getelementptr [4 x i8], ptr %270, i64 %266
   %272 = load i32, ptr %271, align 4, !tbaa !365, !noalias !438
   %273 = load i32, ptr %270, align 4, !tbaa !365, !noalias !438
   %274 = sub nsw i32 %272, %273
@@ -12516,7 +12516,7 @@ _ZN5arrow6StatusD2Ev.exit21.i23.i.i:              ; preds = %.noexc97.i
   %282 = sub nsw i64 %280, %281
   store i64 %282, ptr %84, align 8, !tbaa !72, !noalias !438
   %.pre24.i25.i.i = load ptr, ptr %78, align 8, !tbaa !378, !noalias !438
-  %.phi.trans.insert25.i.i.i = getelementptr inbounds i32, ptr %.pre24.i25.i.i, i64 %268
+  %.phi.trans.insert25.i.i.i = getelementptr inbounds [4 x i8], ptr %.pre24.i25.i.i, i64 %268
   %.pre26.i26.i.i = load i32, ptr %.phi.trans.insert25.i.i.i, align 4, !tbaa !365, !noalias !438
   br label %._crit_edge.i13.i.i
 
@@ -12554,8 +12554,8 @@ _ZN5arrow6StatusD2Ev.exit21.i23.i.i:              ; preds = %.noexc97.i
   %301 = add nsw i64 %300, 4
   store i64 %301, ptr %153, align 8, !tbaa !395, !noalias !438
   %302 = load ptr, ptr %78, align 8, !tbaa !378, !noalias !438
-  %303 = getelementptr i32, ptr %302, i64 %.022.i20.i.i
-  %304 = getelementptr i32, ptr %303, i64 %268
+  %303 = getelementptr [4 x i8], ptr %302, i64 %.022.i20.i.i
+  %304 = getelementptr [4 x i8], ptr %303, i64 %268
   %305 = getelementptr i8, ptr %304, i64 4
   %306 = load i32, ptr %305, align 4, !tbaa !365, !noalias !438
   %307 = load i32, ptr %304, align 4, !tbaa !365, !noalias !438
@@ -12802,7 +12802,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %379, %_ZN9__gnu_cxx
   %391 = load i64, ptr %390, align 8, !tbaa !63, !noalias !454
   %392 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %393 = load ptr, ptr %392, align 8, !tbaa !59, !noalias !454
-  %394 = getelementptr inbounds i64, ptr %393, i64 %391
+  %394 = getelementptr inbounds [8 x i8], ptr %393, i64 %391
   store ptr %394, ptr %64, align 8, !tbaa !73, !noalias !454
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !454
   %395 = getelementptr inbounds nuw i8, ptr %100, i64 80
@@ -12872,7 +12872,7 @@ _ZN5arrow6StatusD2Ev.exit76.i91:                  ; preds = %_ZN5arrow6StatusD2E
 
 414:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit76.i91
   %415 = load ptr, ptr %64, align 8, !tbaa !73, !noalias !454
-  %416 = getelementptr inbounds nuw i64, ptr %415, i64 %412
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %415, i64 %412
   %417 = load i64, ptr %416, align 8, !tbaa !72, !noalias !454
   %418 = load i64, ptr %415, align 8, !tbaa !72, !noalias !454
   %419 = sub nsw i64 %417, %418
@@ -13035,7 +13035,7 @@ _ZN5arrow6StatusD2Ev.exit89.i153:                 ; preds = %465, %461, %_ZNSt14
 
 472:                                              ; preds = %466
   %473 = load ptr, ptr %64, align 8, !tbaa !73, !noalias !482
-  %474 = getelementptr i64, ptr %473, i64 %470
+  %474 = getelementptr [8 x i8], ptr %473, i64 %470
   %475 = load i64, ptr %474, align 8, !tbaa !72, !noalias !482
   %476 = load i64, ptr %473, align 8, !tbaa !72, !noalias !482
   %477 = sub nsw i64 %475, %476
@@ -13099,7 +13099,7 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i147:             ; preds = %.noexc94.i146
   %501 = add nsw i64 %500, 8
   store i64 %501, ptr %406, align 8, !tbaa !395, !noalias !482
   %502 = load ptr, ptr %64, align 8, !tbaa !73, !noalias !482
-  %503 = getelementptr i64, ptr %502, i64 %.022.i.i.i143
+  %503 = getelementptr [8 x i8], ptr %502, i64 %.022.i.i.i143
   %504 = getelementptr i8, ptr %503, i64 8
   %505 = load i64, ptr %504, align 8, !tbaa !72, !noalias !482
   %506 = load i64, ptr %503, align 8, !tbaa !72, !noalias !482
@@ -13132,8 +13132,8 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i147:             ; preds = %.noexc94.i146
   %518 = phi { i64, i64 } [ %561, %.noexc98.i106 ], [ %514, %.noexc96.i98 ]
   %519 = extractvalue { i64, i64 } %518, 0
   %520 = load ptr, ptr %64, align 8, !tbaa !73, !noalias !492
-  %521 = getelementptr i64, ptr %520, i64 %519
-  %522 = getelementptr i64, ptr %521, i64 %517
+  %521 = getelementptr [8 x i8], ptr %520, i64 %519
+  %522 = getelementptr [8 x i8], ptr %521, i64 %517
   %523 = load i64, ptr %522, align 8, !tbaa !72, !noalias !492
   %524 = load i64, ptr %521, align 8, !tbaa !72, !noalias !492
   %525 = sub nsw i64 %523, %524
@@ -13162,7 +13162,7 @@ _ZN5arrow6StatusD2Ev.exit21.i23.i.i133:           ; preds = %.noexc97.i129
   %532 = sub nsw i64 %530, %531
   store i64 %532, ptr %70, align 8, !tbaa !72, !noalias !492
   %.pre24.i25.i.i134 = load ptr, ptr %64, align 8, !tbaa !73, !noalias !492
-  %.phi.trans.insert25.i.i.i135 = getelementptr inbounds i64, ptr %.pre24.i25.i.i134, i64 %519
+  %.phi.trans.insert25.i.i.i135 = getelementptr inbounds [8 x i8], ptr %.pre24.i25.i.i134, i64 %519
   %.pre26.i26.i.i136 = load i64, ptr %.phi.trans.insert25.i.i.i135, align 8, !tbaa !72, !noalias !492
   br label %._crit_edge.i13.i.i102
 
@@ -13199,8 +13199,8 @@ _ZN5arrow6StatusD2Ev.exit21.i23.i.i133:           ; preds = %.noexc97.i129
   %550 = add nsw i64 %549, 8
   store i64 %550, ptr %406, align 8, !tbaa !395, !noalias !492
   %551 = load ptr, ptr %64, align 8, !tbaa !73, !noalias !492
-  %552 = getelementptr i64, ptr %551, i64 %.022.i20.i.i126
-  %553 = getelementptr i64, ptr %552, i64 %519
+  %552 = getelementptr [8 x i8], ptr %551, i64 %.022.i20.i.i126
+  %553 = getelementptr [8 x i8], ptr %552, i64 %519
   %554 = getelementptr i8, ptr %553, i64 8
   %555 = load i64, ptr %554, align 8, !tbaa !72, !noalias !492
   %556 = load i64, ptr %553, align 8, !tbaa !72, !noalias !492
@@ -13617,7 +13617,7 @@ _ZN5arrow6StatusD2Ev.exit191:                     ; preds = %_ZN5arrow6ResultISt
   %709 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %710 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %711 = load ptr, ptr %710, align 8, !tbaa !59, !noalias !524
-  %712 = getelementptr inbounds i32, ptr %711, i64 %708
+  %712 = getelementptr inbounds [4 x i8], ptr %711, i64 %708
   store ptr %712, ptr %33, align 8, !tbaa !378, !noalias !524
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !524
   %713 = getelementptr inbounds nuw i8, ptr %100, i64 80
@@ -13686,7 +13686,7 @@ _ZN5arrow6StatusD2Ev.exit345.i:                   ; preds = %_ZN5arrow6StatusD2E
 
 733:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit345.i
   %734 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
-  %735 = getelementptr inbounds nuw i32, ptr %734, i64 %731
+  %735 = getelementptr inbounds nuw [4 x i8], ptr %734, i64 %731
   %736 = load i32, ptr %735, align 4, !tbaa !365, !noalias !524
   %737 = load i32, ptr %734, align 4, !tbaa !365, !noalias !524
   %738 = sub nsw i32 %736, %737
@@ -14073,8 +14073,8 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i: ; preds = %856, %831
 886:                                              ; preds = %880
   %887 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %888 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %889 = getelementptr i32, ptr %887, i64 %888
-  %890 = getelementptr i32, ptr %889, i64 %885
+  %889 = getelementptr [4 x i8], ptr %887, i64 %888
+  %890 = getelementptr [4 x i8], ptr %889, i64 %885
   %891 = load i32, ptr %890, align 4, !tbaa !365, !noalias !524
   %892 = load i32, ptr %889, align 4, !tbaa !365, !noalias !524
   %893 = sub nsw i32 %891, %892
@@ -14113,7 +14113,7 @@ _ZN5arrow6StatusD2Ev.exit366.i:                   ; preds = %897
   store i64 %905, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre143.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre144.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert145.i = getelementptr inbounds i32, ptr %.pre143.i, i64 %.pre144.i
+  %.phi.trans.insert145.i = getelementptr inbounds [4 x i8], ptr %.pre143.i, i64 %.pre144.i
   %.pre146.i = load i32, ptr %.phi.trans.insert145.i, align 4, !tbaa !365, !noalias !524
   br label %906
 
@@ -14152,7 +14152,7 @@ _ZN5arrow6StatusD2Ev.exit366.i:                   ; preds = %897
   store i64 %924, ptr %725, align 8, !tbaa !395, !noalias !524
   %925 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %926 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %927 = getelementptr i32, ptr %925, i64 %926
+  %927 = getelementptr [4 x i8], ptr %925, i64 %926
   %928 = getelementptr i8, ptr %927, i64 4
   %929 = load i32, ptr %928, align 4, !tbaa !365, !noalias !524
   %930 = load i32, ptr %927, align 4, !tbaa !365, !noalias !524
@@ -14204,7 +14204,7 @@ _ZN5arrow6StatusD2Ev.exit366.i:                   ; preds = %897
   store i8 %964, ptr %962, align 1, !tbaa !66, !noalias !524
   %965 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %966 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %967 = getelementptr i32, ptr %965, i64 %966
+  %967 = getelementptr [4 x i8], ptr %965, i64 %966
   %968 = getelementptr i8, ptr %967, i64 4
   %969 = load i32, ptr %968, align 4, !tbaa !365, !noalias !524
   %970 = load i32, ptr %967, align 4, !tbaa !365, !noalias !524
@@ -14243,7 +14243,7 @@ _ZN5arrow6StatusD2Ev.exit370.i:                   ; preds = %975
   store i64 %983, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre137.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre138.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert139.i = getelementptr inbounds i32, ptr %.pre137.i, i64 %.pre138.i
+  %.phi.trans.insert139.i = getelementptr inbounds [4 x i8], ptr %.pre137.i, i64 %.pre138.i
   %.pre140.i = load i32, ptr %.phi.trans.insert139.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge307.i
 
@@ -14336,7 +14336,7 @@ _ZN5arrow6StatusD2Ev.exit370.i:                   ; preds = %975
   store i8 %1032, ptr %1030, align 1, !tbaa !66, !noalias !524
   %1033 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %1034 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %1035 = getelementptr i32, ptr %1033, i64 %1034
+  %1035 = getelementptr [4 x i8], ptr %1033, i64 %1034
   %1036 = getelementptr i8, ptr %1035, i64 4
   %1037 = load i32, ptr %1036, align 4, !tbaa !365, !noalias !524
   %1038 = load i32, ptr %1035, align 4, !tbaa !365, !noalias !524
@@ -14375,7 +14375,7 @@ _ZN5arrow6StatusD2Ev.exit374.i:                   ; preds = %1043
   store i64 %1051, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre131.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre132.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert133.i = getelementptr inbounds i32, ptr %.pre131.i, i64 %.pre132.i
+  %.phi.trans.insert133.i = getelementptr inbounds [4 x i8], ptr %.pre131.i, i64 %.pre132.i
   %.pre134.i = load i32, ptr %.phi.trans.insert133.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge311.i
 
@@ -14458,7 +14458,7 @@ _ZN5arrow6StatusD2Ev.exit374.i:                   ; preds = %1043
   store i8 %1107, ptr %1105, align 1, !tbaa !66, !noalias !524
   %1108 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %1109 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %1110 = getelementptr i32, ptr %1108, i64 %1109
+  %1110 = getelementptr [4 x i8], ptr %1108, i64 %1109
   %1111 = getelementptr i8, ptr %1110, i64 4
   %1112 = load i32, ptr %1111, align 4, !tbaa !365, !noalias !524
   %1113 = load i32, ptr %1110, align 4, !tbaa !365, !noalias !524
@@ -14497,7 +14497,7 @@ _ZN5arrow6StatusD2Ev.exit378.i:                   ; preds = %1118
   store i64 %1126, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre124.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre125.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert126.i = getelementptr inbounds i32, ptr %.pre124.i, i64 %.pre125.i
+  %.phi.trans.insert126.i = getelementptr inbounds [4 x i8], ptr %.pre124.i, i64 %.pre125.i
   %.pre127.i = load i32, ptr %.phi.trans.insert126.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge315.i
 
@@ -14605,7 +14605,7 @@ _ZN5arrow6StatusD2Ev.exit378.i:                   ; preds = %1118
   store i8 %1183, ptr %1181, align 1, !tbaa !66, !noalias !524
   %1184 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %1185 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %1186 = getelementptr i32, ptr %1184, i64 %1185
+  %1186 = getelementptr [4 x i8], ptr %1184, i64 %1185
   %1187 = getelementptr i8, ptr %1186, i64 4
   %1188 = load i32, ptr %1187, align 4, !tbaa !365, !noalias !524
   %1189 = load i32, ptr %1186, align 4, !tbaa !365, !noalias !524
@@ -14644,7 +14644,7 @@ _ZN5arrow6StatusD2Ev.exit382.i:                   ; preds = %1194
   store i64 %1202, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre117.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre118.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert119.i = getelementptr inbounds i32, ptr %.pre117.i, i64 %.pre118.i
+  %.phi.trans.insert119.i = getelementptr inbounds [4 x i8], ptr %.pre117.i, i64 %.pre118.i
   %.pre120.i = load i32, ptr %.phi.trans.insert119.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge319.i
 
@@ -14734,7 +14734,7 @@ _ZN5arrow6StatusD2Ev.exit382.i:                   ; preds = %1194
   store i8 %1263, ptr %1261, align 1, !tbaa !66, !noalias !524
   %1264 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %1265 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %1266 = getelementptr i32, ptr %1264, i64 %1265
+  %1266 = getelementptr [4 x i8], ptr %1264, i64 %1265
   %1267 = getelementptr i8, ptr %1266, i64 4
   %1268 = load i32, ptr %1267, align 4, !tbaa !365, !noalias !524
   %1269 = load i32, ptr %1266, align 4, !tbaa !365, !noalias !524
@@ -14773,7 +14773,7 @@ _ZN5arrow6StatusD2Ev.exit386.i:                   ; preds = %1274
   store i64 %1282, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre110.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre111.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert112.i = getelementptr inbounds i32, ptr %.pre110.i, i64 %.pre111.i
+  %.phi.trans.insert112.i = getelementptr inbounds [4 x i8], ptr %.pre110.i, i64 %.pre111.i
   %.pre113.i = load i32, ptr %.phi.trans.insert112.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge323.i
 
@@ -14875,7 +14875,7 @@ _ZN5arrow6StatusD2Ev.exit386.i:                   ; preds = %1274
   store i8 %1336, ptr %1334, align 1, !tbaa !66, !noalias !524
   %1337 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %1338 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %1339 = getelementptr i32, ptr %1337, i64 %1338
+  %1339 = getelementptr [4 x i8], ptr %1337, i64 %1338
   %1340 = getelementptr i8, ptr %1339, i64 4
   %1341 = load i32, ptr %1340, align 4, !tbaa !365, !noalias !524
   %1342 = load i32, ptr %1339, align 4, !tbaa !365, !noalias !524
@@ -14914,7 +14914,7 @@ _ZN5arrow6StatusD2Ev.exit390.i:                   ; preds = %1347
   store i64 %1355, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre104.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre105.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert106.i = getelementptr inbounds i32, ptr %.pre104.i, i64 %.pre105.i
+  %.phi.trans.insert106.i = getelementptr inbounds [4 x i8], ptr %.pre104.i, i64 %.pre105.i
   %.pre107.i = load i32, ptr %.phi.trans.insert106.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge327.i
 
@@ -15017,7 +15017,7 @@ _ZN5arrow6StatusD2Ev.exit390.i:                   ; preds = %1347
   store i8 %1423, ptr %1421, align 1, !tbaa !66, !noalias !524
   %1424 = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %1425 = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %1426 = getelementptr i32, ptr %1424, i64 %1425
+  %1426 = getelementptr [4 x i8], ptr %1424, i64 %1425
   %1427 = getelementptr i8, ptr %1426, i64 4
   %1428 = load i32, ptr %1427, align 4, !tbaa !365, !noalias !524
   %1429 = load i32, ptr %1426, align 4, !tbaa !365, !noalias !524
@@ -15056,7 +15056,7 @@ _ZN5arrow6StatusD2Ev.exit394.i:                   ; preds = %1434
   store i64 %1442, ptr %39, align 8, !tbaa !72, !noalias !524
   %.pre99.i = load ptr, ptr %33, align 8, !tbaa !378, !noalias !524
   %.pre100.i = load i64, ptr %45, align 8, !tbaa !72, !noalias !524
-  %.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre99.i, i64 %.pre100.i
+  %.phi.trans.insert.i = getelementptr inbounds [4 x i8], ptr %.pre99.i, i64 %.pre100.i
   %.pre101.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !365, !noalias !524
   br label %.critedge334.i
 
@@ -15391,7 +15391,7 @@ _ZN5arrow6StatusD2Ev.exit207:                     ; preds = %1538, %_ZN9__gnu_cx
   %1551 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %1552 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %1553 = load ptr, ptr %1552, align 8, !tbaa !59, !noalias !589
-  %1554 = getelementptr inbounds i64, ptr %1553, i64 %1550
+  %1554 = getelementptr inbounds [8 x i8], ptr %1553, i64 %1550
   store ptr %1554, ptr %5, align 8, !tbaa !73, !noalias !589
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !589
   %1555 = getelementptr inbounds nuw i8, ptr %100, i64 80
@@ -15460,7 +15460,7 @@ _ZN5arrow6StatusD2Ev.exit345.i213:                ; preds = %_ZN5arrow6StatusD2E
 
 1575:                                             ; preds = %_ZN5arrow6StatusD2Ev.exit345.i213
   %1576 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
-  %1577 = getelementptr inbounds nuw i64, ptr %1576, i64 %1573
+  %1577 = getelementptr inbounds nuw [8 x i8], ptr %1576, i64 %1573
   %1578 = load i64, ptr %1577, align 8, !tbaa !72, !noalias !589
   %1579 = load i64, ptr %1576, align 8, !tbaa !72, !noalias !589
   %1580 = sub nsw i64 %1578, %1579
@@ -15847,8 +15847,8 @@ _ZN5arrow8internal15BitBlockCounter8NextWordEv.exit.i253: ; preds = %1698, %1673
 1728:                                             ; preds = %1722
   %1729 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %1730 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %1731 = getelementptr i64, ptr %1729, i64 %1730
-  %1732 = getelementptr i64, ptr %1731, i64 %1727
+  %1731 = getelementptr [8 x i8], ptr %1729, i64 %1730
+  %1732 = getelementptr [8 x i8], ptr %1731, i64 %1727
   %1733 = load i64, ptr %1732, align 8, !tbaa !72, !noalias !589
   %1734 = load i64, ptr %1731, align 8, !tbaa !72, !noalias !589
   %1735 = sub nsw i64 %1733, %1734
@@ -15886,7 +15886,7 @@ _ZN5arrow6StatusD2Ev.exit366.i383:                ; preds = %1738
   store i64 %1746, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre143.i384 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre144.i385 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert145.i386 = getelementptr inbounds i64, ptr %.pre143.i384, i64 %.pre144.i385
+  %.phi.trans.insert145.i386 = getelementptr inbounds [8 x i8], ptr %.pre143.i384, i64 %.pre144.i385
   %.pre146.i387 = load i64, ptr %.phi.trans.insert145.i386, align 8, !tbaa !72, !noalias !589
   br label %1747
 
@@ -15924,7 +15924,7 @@ _ZN5arrow6StatusD2Ev.exit366.i383:                ; preds = %1738
   store i64 %1764, ptr %1567, align 8, !tbaa !395, !noalias !589
   %1765 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %1766 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %1767 = getelementptr i64, ptr %1765, i64 %1766
+  %1767 = getelementptr [8 x i8], ptr %1765, i64 %1766
   %1768 = getelementptr i8, ptr %1767, i64 8
   %1769 = load i64, ptr %1768, align 8, !tbaa !72, !noalias !589
   %1770 = load i64, ptr %1767, align 8, !tbaa !72, !noalias !589
@@ -15976,7 +15976,7 @@ _ZN5arrow6StatusD2Ev.exit366.i383:                ; preds = %1738
   store i8 %1804, ptr %1802, align 1, !tbaa !66, !noalias !589
   %1805 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %1806 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %1807 = getelementptr i64, ptr %1805, i64 %1806
+  %1807 = getelementptr [8 x i8], ptr %1805, i64 %1806
   %1808 = getelementptr i8, ptr %1807, i64 8
   %1809 = load i64, ptr %1808, align 8, !tbaa !72, !noalias !589
   %1810 = load i64, ptr %1807, align 8, !tbaa !72, !noalias !589
@@ -16014,7 +16014,7 @@ _ZN5arrow6StatusD2Ev.exit370.i369:                ; preds = %1814
   store i64 %1822, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre137.i370 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre138.i371 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert139.i372 = getelementptr inbounds i64, ptr %.pre137.i370, i64 %.pre138.i371
+  %.phi.trans.insert139.i372 = getelementptr inbounds [8 x i8], ptr %.pre137.i370, i64 %.pre138.i371
   %.pre140.i373 = load i64, ptr %.phi.trans.insert139.i372, align 8, !tbaa !72, !noalias !589
   br label %.critedge307.i367
 
@@ -16106,7 +16106,7 @@ _ZN5arrow6StatusD2Ev.exit370.i369:                ; preds = %1814
   store i8 %1870, ptr %1868, align 1, !tbaa !66, !noalias !589
   %1871 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %1872 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %1873 = getelementptr i64, ptr %1871, i64 %1872
+  %1873 = getelementptr [8 x i8], ptr %1871, i64 %1872
   %1874 = getelementptr i8, ptr %1873, i64 8
   %1875 = load i64, ptr %1874, align 8, !tbaa !72, !noalias !589
   %1876 = load i64, ptr %1873, align 8, !tbaa !72, !noalias !589
@@ -16144,7 +16144,7 @@ _ZN5arrow6StatusD2Ev.exit374.i355:                ; preds = %1880
   store i64 %1888, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre131.i356 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre132.i357 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert133.i358 = getelementptr inbounds i64, ptr %.pre131.i356, i64 %.pre132.i357
+  %.phi.trans.insert133.i358 = getelementptr inbounds [8 x i8], ptr %.pre131.i356, i64 %.pre132.i357
   %.pre134.i359 = load i64, ptr %.phi.trans.insert133.i358, align 8, !tbaa !72, !noalias !589
   br label %.critedge311.i353
 
@@ -16226,7 +16226,7 @@ _ZN5arrow6StatusD2Ev.exit374.i355:                ; preds = %1880
   store i8 %1943, ptr %1941, align 1, !tbaa !66, !noalias !589
   %1944 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %1945 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %1946 = getelementptr i64, ptr %1944, i64 %1945
+  %1946 = getelementptr [8 x i8], ptr %1944, i64 %1945
   %1947 = getelementptr i8, ptr %1946, i64 8
   %1948 = load i64, ptr %1947, align 8, !tbaa !72, !noalias !589
   %1949 = load i64, ptr %1946, align 8, !tbaa !72, !noalias !589
@@ -16264,7 +16264,7 @@ _ZN5arrow6StatusD2Ev.exit378.i340:                ; preds = %1953
   store i64 %1961, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre124.i341 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre125.i342 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert126.i343 = getelementptr inbounds i64, ptr %.pre124.i341, i64 %.pre125.i342
+  %.phi.trans.insert126.i343 = getelementptr inbounds [8 x i8], ptr %.pre124.i341, i64 %.pre125.i342
   %.pre127.i344 = load i64, ptr %.phi.trans.insert126.i343, align 8, !tbaa !72, !noalias !589
   br label %.critedge315.i338
 
@@ -16371,7 +16371,7 @@ _ZN5arrow6StatusD2Ev.exit378.i340:                ; preds = %1953
   store i8 %2017, ptr %2015, align 1, !tbaa !66, !noalias !589
   %2018 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %2019 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %2020 = getelementptr i64, ptr %2018, i64 %2019
+  %2020 = getelementptr [8 x i8], ptr %2018, i64 %2019
   %2021 = getelementptr i8, ptr %2020, i64 8
   %2022 = load i64, ptr %2021, align 8, !tbaa !72, !noalias !589
   %2023 = load i64, ptr %2020, align 8, !tbaa !72, !noalias !589
@@ -16409,7 +16409,7 @@ _ZN5arrow6StatusD2Ev.exit382.i323:                ; preds = %2027
   store i64 %2035, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre117.i324 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre118.i325 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert119.i326 = getelementptr inbounds i64, ptr %.pre117.i324, i64 %.pre118.i325
+  %.phi.trans.insert119.i326 = getelementptr inbounds [8 x i8], ptr %.pre117.i324, i64 %.pre118.i325
   %.pre120.i327 = load i64, ptr %.phi.trans.insert119.i326, align 8, !tbaa !72, !noalias !589
   br label %.critedge319.i321
 
@@ -16498,7 +16498,7 @@ _ZN5arrow6StatusD2Ev.exit382.i323:                ; preds = %2027
   store i8 %2095, ptr %2093, align 1, !tbaa !66, !noalias !589
   %2096 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %2097 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %2098 = getelementptr i64, ptr %2096, i64 %2097
+  %2098 = getelementptr [8 x i8], ptr %2096, i64 %2097
   %2099 = getelementptr i8, ptr %2098, i64 8
   %2100 = load i64, ptr %2099, align 8, !tbaa !72, !noalias !589
   %2101 = load i64, ptr %2098, align 8, !tbaa !72, !noalias !589
@@ -16536,7 +16536,7 @@ _ZN5arrow6StatusD2Ev.exit386.i308:                ; preds = %2105
   store i64 %2113, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre110.i309 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre111.i310 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert112.i311 = getelementptr inbounds i64, ptr %.pre110.i309, i64 %.pre111.i310
+  %.phi.trans.insert112.i311 = getelementptr inbounds [8 x i8], ptr %.pre110.i309, i64 %.pre111.i310
   %.pre113.i312 = load i64, ptr %.phi.trans.insert112.i311, align 8, !tbaa !72, !noalias !589
   br label %.critedge323.i306
 
@@ -16637,7 +16637,7 @@ _ZN5arrow6StatusD2Ev.exit386.i308:                ; preds = %2105
   store i8 %2166, ptr %2164, align 1, !tbaa !66, !noalias !589
   %2167 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %2168 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %2169 = getelementptr i64, ptr %2167, i64 %2168
+  %2169 = getelementptr [8 x i8], ptr %2167, i64 %2168
   %2170 = getelementptr i8, ptr %2169, i64 8
   %2171 = load i64, ptr %2170, align 8, !tbaa !72, !noalias !589
   %2172 = load i64, ptr %2169, align 8, !tbaa !72, !noalias !589
@@ -16675,7 +16675,7 @@ _ZN5arrow6StatusD2Ev.exit390.i292:                ; preds = %2176
   store i64 %2184, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre104.i293 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre105.i294 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert106.i295 = getelementptr inbounds i64, ptr %.pre104.i293, i64 %.pre105.i294
+  %.phi.trans.insert106.i295 = getelementptr inbounds [8 x i8], ptr %.pre104.i293, i64 %.pre105.i294
   %.pre107.i296 = load i64, ptr %.phi.trans.insert106.i295, align 8, !tbaa !72, !noalias !589
   br label %.critedge327.i291
 
@@ -16780,7 +16780,7 @@ _ZN5arrow6StatusD2Ev.exit390.i292:                ; preds = %2176
   store i8 %2249, ptr %2247, align 1, !tbaa !66, !noalias !589
   %2250 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %2251 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %2252 = getelementptr i64, ptr %2250, i64 %2251
+  %2252 = getelementptr [8 x i8], ptr %2250, i64 %2251
   %2253 = getelementptr i8, ptr %2252, i64 8
   %2254 = load i64, ptr %2253, align 8, !tbaa !72, !noalias !589
   %2255 = load i64, ptr %2252, align 8, !tbaa !72, !noalias !589
@@ -16818,7 +16818,7 @@ _ZN5arrow6StatusD2Ev.exit394.i274:                ; preds = %2259
   store i64 %2267, ptr %11, align 8, !tbaa !72, !noalias !589
   %.pre99.i276 = load ptr, ptr %5, align 8, !tbaa !73, !noalias !589
   %.pre100.i277 = load i64, ptr %17, align 8, !tbaa !72, !noalias !589
-  %.phi.trans.insert.i278 = getelementptr inbounds i64, ptr %.pre99.i276, i64 %.pre100.i277
+  %.phi.trans.insert.i278 = getelementptr inbounds [8 x i8], ptr %.pre99.i276, i64 %.pre100.i277
   %.pre101.i279 = load i64, ptr %.phi.trans.insert.i278, align 8, !tbaa !72, !noalias !589
   br label %.critedge334.i273
 
@@ -19784,8 +19784,8 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7comp
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !732, !noalias !734
   %8 = load ptr, ptr %7, align 8, !tbaa !378, !noalias !734
-  %9 = getelementptr i32, ptr %8, i64 %.val4
-  %10 = getelementptr i32, ptr %9, i64 %.val5
+  %9 = getelementptr [4 x i8], ptr %8, i64 %.val4
+  %10 = getelementptr [4 x i8], ptr %9, i64 %.val5
   %11 = load i32, ptr %10, align 4, !tbaa !365, !noalias !734
   %12 = load i32, ptr %9, align 4, !tbaa !365, !noalias !734
   %13 = sub nsw i32 %11, %12
@@ -19822,7 +19822,7 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   store i64 %28, ptr %29, align 8, !tbaa !72, !noalias !734
   %.pre23.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !732, !noalias !734
   %.pre24.i.i.i.i = load ptr, ptr %.pre23.i.i.i.i, align 8, !tbaa !378, !noalias !734
-  %.phi.trans.insert25.i.i.i.i = getelementptr inbounds i32, ptr %.pre24.i.i.i.i, i64 %.val4
+  %.phi.trans.insert25.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.pre24.i.i.i.i, i64 %.val4
   %.pre26.i.i.i.i = load i32, ptr %.phi.trans.insert25.i.i.i.i, align 4, !tbaa !365, !noalias !734
   br label %30
 
@@ -19872,8 +19872,8 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   store i64 %60, ptr %56, align 8, !tbaa !395, !noalias !734
   %61 = load ptr, ptr %6, align 8, !tbaa !732, !noalias !734
   %62 = load ptr, ptr %61, align 8, !tbaa !378, !noalias !734
-  %63 = getelementptr i32, ptr %62, i64 %.022.i.i.i.i
-  %64 = getelementptr i32, ptr %63, i64 %.val4
+  %63 = getelementptr [4 x i8], ptr %62, i64 %.022.i.i.i.i
+  %64 = getelementptr [4 x i8], ptr %63, i64 %.val4
   %65 = getelementptr i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !365, !noalias !734
   %67 = load i32, ptr %64, align 4, !tbaa !365, !noalias !734
@@ -20973,8 +20973,8 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7comp
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !775, !noalias !777
   %8 = load ptr, ptr %7, align 8, !tbaa !73, !noalias !777
-  %9 = getelementptr i64, ptr %8, i64 %.val4
-  %10 = getelementptr i64, ptr %9, i64 %.val5
+  %9 = getelementptr [8 x i8], ptr %8, i64 %.val4
+  %10 = getelementptr [8 x i8], ptr %9, i64 %.val5
   %11 = load i64, ptr %10, align 8, !tbaa !72, !noalias !777
   %12 = load i64, ptr %9, align 8, !tbaa !72, !noalias !777
   %13 = sub nsw i64 %11, %12
@@ -21010,7 +21010,7 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   store i64 %27, ptr %28, align 8, !tbaa !72, !noalias !777
   %.pre23.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !775, !noalias !777
   %.pre24.i.i.i.i = load ptr, ptr %.pre23.i.i.i.i, align 8, !tbaa !73, !noalias !777
-  %.phi.trans.insert25.i.i.i.i = getelementptr inbounds i64, ptr %.pre24.i.i.i.i, i64 %.val4
+  %.phi.trans.insert25.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre24.i.i.i.i, i64 %.val4
   %.pre26.i.i.i.i = load i64, ptr %.phi.trans.insert25.i.i.i.i, align 8, !tbaa !72, !noalias !777
   br label %29
 
@@ -21059,8 +21059,8 @@ _ZN5arrow6StatusD2Ev.exit21.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   store i64 %58, ptr %54, align 8, !tbaa !395, !noalias !777
   %59 = load ptr, ptr %6, align 8, !tbaa !775, !noalias !777
   %60 = load ptr, ptr %59, align 8, !tbaa !73, !noalias !777
-  %61 = getelementptr i64, ptr %60, i64 %.022.i.i.i.i
-  %62 = getelementptr i64, ptr %61, i64 %.val4
+  %61 = getelementptr [8 x i8], ptr %60, i64 %.022.i.i.i.i
+  %62 = getelementptr [8 x i8], ptr %61, i64 %.val4
   %63 = getelementptr i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !72, !noalias !777
   %65 = load i64, ptr %62, align 8, !tbaa !72, !noalias !777
@@ -21330,7 +21330,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7comp
   %62 = load ptr, ptr %61, align 8, !tbaa !378, !noalias !798
   %63 = load ptr, ptr %7, align 8, !tbaa !796, !noalias !798
   %64 = load i64, ptr %63, align 8, !tbaa !72, !noalias !798
-  %65 = getelementptr i32, ptr %62, i64 %64
+  %65 = getelementptr [4 x i8], ptr %62, i64 %64
   %66 = getelementptr i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !365, !noalias !798
   %68 = load i32, ptr %65, align 4, !tbaa !365, !noalias !798
@@ -21363,7 +21363,7 @@ _ZN5arrow6StatusD2Ev.exit23.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   %.pre28.i.i.i.i = load ptr, ptr %.pre27.i.i.i.i, align 8, !tbaa !378, !noalias !798
   %.pre29.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !796, !noalias !798
   %.pre30.i.i.i.i = load i64, ptr %.pre29.i.i.i.i, align 8, !tbaa !72, !noalias !798
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds i32, ptr %.pre28.i.i.i.i, i64 %.pre30.i.i.i.i
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.pre28.i.i.i.i, i64 %.pre30.i.i.i.i
   %.pre31.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i, align 4, !tbaa !365, !noalias !798
   br label %.critedge19.i.i.i.i
 
@@ -21419,7 +21419,7 @@ _ZN5arrow6StatusD2Ev.exit23.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %119 = load i64, ptr %118, align 8, !tbaa !395, !noalias !798
   %120 = lshr i64 %119, 2
-  %121 = getelementptr inbounds nuw i32, ptr %117, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %120
   %122 = shl i64 %.val5, 2
   %123 = add nsw i64 %119, %122
   store i64 %123, ptr %118, align 8, !tbaa !395, !noalias !798
@@ -21590,7 +21590,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbllbEZN5arrow7comp
   %62 = load ptr, ptr %61, align 8, !tbaa !73, !noalias !822
   %63 = load ptr, ptr %7, align 8, !tbaa !820, !noalias !822
   %64 = load i64, ptr %63, align 8, !tbaa !72, !noalias !822
-  %65 = getelementptr i64, ptr %62, i64 %64
+  %65 = getelementptr [8 x i8], ptr %62, i64 %64
   %66 = getelementptr i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !72, !noalias !822
   %68 = load i64, ptr %65, align 8, !tbaa !72, !noalias !822
@@ -21622,7 +21622,7 @@ _ZN5arrow6StatusD2Ev.exit23.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   %.pre28.i.i.i.i = load ptr, ptr %.pre27.i.i.i.i, align 8, !tbaa !73, !noalias !822
   %.pre29.i.i.i.i = load ptr, ptr %7, align 8, !tbaa !820, !noalias !822
   %.pre30.i.i.i.i = load i64, ptr %.pre29.i.i.i.i, align 8, !tbaa !72, !noalias !822
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds i64, ptr %.pre28.i.i.i.i, i64 %.pre30.i.i.i.i
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre28.i.i.i.i, i64 %.pre30.i.i.i.i
   %.pre31.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !72, !noalias !822
   br label %.critedge19.i.i.i.i
 
@@ -21677,7 +21677,7 @@ _ZN5arrow6StatusD2Ev.exit23.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %117 = load i64, ptr %116, align 8, !tbaa !395, !noalias !822
   %118 = lshr i64 %117, 3
-  %119 = getelementptr inbounds nuw i64, ptr %115, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %118
   %120 = shl i64 %.val5, 3
   %121 = add nsw i64 %117, %120
   store i64 %121, ptr %116, align 8, !tbaa !395, !noalias !822
@@ -27486,7 +27486,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.ex
 
 .noexc73.i:                                       ; preds = %.lr.ph.preheader.i.i.i.i.i.i
   store ptr %267, ptr %49, align 8, !tbaa !995, !noalias !968
-  %268 = getelementptr inbounds nuw %"class.std::shared_ptr.158", ptr %267, i64 %263
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %263
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %267, i8 0, i64 %266, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %267, i64 %266
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i.i
@@ -27823,7 +27823,7 @@ _ZNO5arrow6ResultINS_5DatumEE11ValueUnsafeEv.exit.i: ; preds = %.sink.split.i.i.
 
 394:                                              ; preds = %_ZNO5arrow6ResultINS_5DatumEE11ValueUnsafeEv.exit.i
   %395 = load ptr, ptr %49, align 8, !tbaa !995, !noalias !968
-  %396 = getelementptr inbounds nuw %"class.std::shared_ptr.158", ptr %395, i64 %indvars.iv.i
+  %396 = getelementptr inbounds nuw [16 x i8], ptr %395, i64 %indvars.iv.i
   %397 = load ptr, ptr %58, align 8, !tbaa !982, !noalias !968
   %398 = load ptr, ptr %283, align 8, !tbaa !361, !noalias !968
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false), !noalias !968
@@ -29122,7 +29122,7 @@ _ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_le
 
 908:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i76
   store ptr %907, ptr %16, align 8, !tbaa !1032, !noalias !1019
-  %909 = getelementptr inbounds nuw %"class.std::vector.315", ptr %907, i64 %901
+  %909 = getelementptr inbounds nuw [24 x i8], ptr %907, i64 %901
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %907, i8 0, i64 %906, i1 false)
   %scevgep.i.i.i.i.i.i77 = getelementptr i8, ptr %907, i64 %906
   %910 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -29170,7 +29170,7 @@ _ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_le
 925:                                              ; preds = %920
   %926 = load ptr, ptr %17, align 8, !tbaa !853, !noalias !1019
   %927 = load ptr, ptr %16, align 8, !tbaa !1032, !noalias !1019
-  %928 = getelementptr inbounds nuw %"class.std::vector.315", ptr %927, i64 %indvars.iv.i78
+  %928 = getelementptr inbounds nuw [24 x i8], ptr %927, i64 %indvars.iv.i78
   %929 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %928, ptr noundef nonnull align 8 dereferenceable(24) %926)
           to label %930 unwind label %955
 
@@ -29467,7 +29467,7 @@ _ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_le
 
 .noexc158.i:                                      ; preds = %.lr.ph.preheader.i.i.i.i.i152.i
   store ptr %1045, ptr %21, align 8, !tbaa !1032, !noalias !1019
-  %1046 = getelementptr inbounds nuw %"class.std::vector.315", ptr %1045, i64 %1041
+  %1046 = getelementptr inbounds nuw [24 x i8], ptr %1045, i64 %1041
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1045, i8 0, i64 %1044, i1 false)
   %scevgep.i.i.i.i.i153.i = getelementptr i8, ptr %1045, i64 %1044
   br label %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i156.i
@@ -29526,7 +29526,7 @@ _ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2Em
   %1074 = load ptr, ptr %914, align 8, !tbaa !1038, !noalias !1019
   %1075 = getelementptr inbounds i8, ptr %1074, i64 -24
   %1076 = load ptr, ptr %1075, align 8, !tbaa !995
-  %1077 = getelementptr inbounds nuw %"class.std::shared_ptr.158", ptr %1076, i64 %.087291.i
+  %1077 = getelementptr inbounds nuw [16 x i8], ptr %1076, i64 %.087291.i
   %1078 = load ptr, ptr %1077, align 8, !tbaa !982
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 8
   %1080 = load ptr, ptr %1079, align 8, !tbaa !100
@@ -29651,9 +29651,9 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i1
 .lr.ph288.i:                                      ; preds = %_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i103, %1115
   %indvars.iv307.i = phi i64 [ %indvars.iv.next308.i, %1115 ], [ 0, %_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i103 ]
   %1116 = load ptr, ptr %16, align 8, !tbaa !1032, !noalias !1019
-  %1117 = getelementptr inbounds nuw %"class.std::vector.315", ptr %1116, i64 %indvars.iv307.i
+  %1117 = getelementptr inbounds nuw [24 x i8], ptr %1116, i64 %indvars.iv307.i
   %1118 = load ptr, ptr %1117, align 8, !tbaa !995
-  %1119 = getelementptr inbounds nuw %"class.std::shared_ptr.158", ptr %1118, i64 %.087291.i
+  %1119 = getelementptr inbounds nuw [16 x i8], ptr %1118, i64 %.087291.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1019
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !1019
   invoke void @_ZN5arrow5DatumC1ERKSt10shared_ptrINS_5ArrayEE(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(16) %1119)
@@ -29738,7 +29738,7 @@ _ZN5arrow5DatumD2Ev.exit.i:                       ; preds = %1121
 _ZNO5arrow6ResultINS_5DatumEE11ValueUnsafeEv.exit.i111: ; preds = %.sink.split.i.i.i.i.i.i.i.i.i.i.i110, %1136
   store i8 %1137, ptr %1064, align 8, !tbaa !662, !alias.scope !1056, !noalias !1019
   %1141 = load ptr, ptr %21, align 8, !tbaa !1032, !noalias !1019
-  %1142 = getelementptr inbounds nuw %"class.std::vector.315", ptr %1141, i64 %indvars.iv307.i
+  %1142 = getelementptr inbounds nuw [24 x i8], ptr %1141, i64 %indvars.iv307.i
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !1019
   invoke void @_ZNK5arrow5Datum10make_arrayEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.158") align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %1143 unwind label %1191
@@ -30080,7 +30080,7 @@ _ZN5arrow6ResultISt10shared_ptrINS_9ArrayDataEEED2Ev.exit.i98: ; preds = %1257, 
 
 .lr.ph300.i:                                      ; preds = %.lr.ph.preheader.i.i.i.i.i189.i
   store ptr %1261, ptr %31, align 8, !tbaa !1027, !noalias !1019
-  %1262 = getelementptr inbounds nuw %"class.std::shared_ptr.206", ptr %1261, i64 %1041
+  %1262 = getelementptr inbounds nuw [16 x i8], ptr %1261, i64 %1041
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1261, i8 0, i64 %1260, i1 false)
   %scevgep.i.i.i.i.i190.i = getelementptr i8, ptr %1261, i64 %1260
   %1263 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -30141,7 +30141,7 @@ _ZNSt10shared_ptrIN5arrow6SchemaEEC2ERKS2_.exit197.i: ; preds = %1278, %1275, %.
 1287:                                             ; preds = %_ZNSt12__shared_ptrIN5arrow12ChunkedArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212.i, %.lr.ph300.i
   %indvars.iv313.i = phi i64 [ 0, %.lr.ph300.i ], [ %indvars.iv.next314.i, %_ZNSt12__shared_ptrIN5arrow12ChunkedArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212.i ]
   %1288 = load ptr, ptr %21, align 8, !tbaa !1032, !noalias !1019
-  %1289 = getelementptr inbounds nuw %"class.std::vector.315", ptr %1288, i64 %indvars.iv313.i
+  %1289 = getelementptr inbounds nuw [24 x i8], ptr %1288, i64 %indvars.iv313.i
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !1019
   %1290 = load ptr, ptr %769, align 8, !tbaa !95, !noalias !1019
   %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 16
@@ -30174,7 +30174,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIv
 
 _ZSt11make_sharedIN5arrow12ChunkedArrayEJSt6vectorISt10shared_ptrINS0_5ArrayEESaIS5_EERKS3_INS0_8DataTypeEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESD_E4typeEEDpOT0_.exit.i: ; preds = %.noexc198.i
   %1302 = load ptr, ptr %31, align 8, !tbaa !1027, !noalias !1019
-  %1303 = getelementptr inbounds nuw %"class.std::shared_ptr.206", ptr %1302, i64 %indvars.iv313.i
+  %1303 = getelementptr inbounds nuw [16 x i8], ptr %1302, i64 %indvars.iv313.i
   store ptr %1300, ptr %1303, align 8, !tbaa !856
   %1304 = getelementptr inbounds nuw i8, ptr %1303, i64 8
   %1305 = load ptr, ptr %1304, align 8, !tbaa !361
@@ -34512,7 +34512,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !995
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !999
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.158", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !998
   ret void
 }

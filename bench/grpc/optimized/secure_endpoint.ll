@@ -318,7 +318,7 @@ define void @_Z27grpc_secure_endpoint_createP19tsi_frame_protectorP28tsi_zero_co
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %45
   %.043.i.i = phi i64 [ %46, %45 ], [ 0, %.preheader.i.i ]
-  %40 = getelementptr inbounds nuw %struct.grpc_slice, ptr %4, i64 %.043.i.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.043.i.i
   %41 = load ptr, ptr %40, align 8, !tbaa !53, !noalias !3
   %42 = icmp ugt ptr %41, inttoptr (i64 1 to ptr)
   br i1 %42, label %43, label %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i.i
@@ -932,7 +932,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !96
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !93
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !97
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1113,7 +1113,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %49
   %.0177 = phi i32 [ 0, %.lr.ph ], [ %73, %72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %56 = load ptr, ptr %53, align 8, !tbaa !115
-  %57 = getelementptr inbounds nuw %struct.grpc_slice, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %55
   %58 = invoke noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %57, i32 noundef 3)
           to label %59 unwind label %79
 
@@ -1286,7 +1286,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit: ; pre
   %.1182 = phi i32 [ 0, %.lr.ph183 ], [ %164, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %120 = load ptr, ptr %96, align 8, !tbaa !115
-  %121 = getelementptr inbounds nuw %struct.grpc_slice, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %121, i64 32, i1 false), !tbaa.struct !80
   %122 = load ptr, ptr %10, align 8, !tbaa !53
   %.not78 = icmp eq ptr %122, null
@@ -2105,7 +2105,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %32, %_ZN4absl12lts_
   %.0130162 = phi ptr [ %72, %.lr.ph165 ], [ %.1131.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %102 = load ptr, ptr %77, align 8, !tbaa !131
-  %103 = getelementptr inbounds nuw %struct.grpc_slice, ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %103, i64 32, i1 false), !tbaa.struct !80
   %104 = load ptr, ptr %6, align 8, !tbaa !53
   %.not84 = icmp eq ptr %104, null
@@ -2803,7 +2803,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !115
-  %20 = getelementptr inbounds nuw %struct.grpc_slice, ptr %19, i64 %.01128
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %.01128
   %21 = call noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 3)
   store ptr %21, ptr %3, align 8, !tbaa !113
   %22 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZZZL12call_read_cbPN12_GLOBAL__N_115secure_endpointEN4absl12lts_202407226StatusEENK3$_1clEvE4site", i64 8) monotonic, align 8

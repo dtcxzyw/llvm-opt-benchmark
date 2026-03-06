@@ -80,7 +80,7 @@ define void @Mem_FixedStop(ptr noundef captures(address_is_null) %0, i32 noundef
   %26 = phi i32 [ %34, %33 ], [ %23, %21 ]
   %27 = phi ptr [ %35, %33 ], [ %.pre, %21 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %21 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %33, label %30
@@ -88,7 +88,7 @@ define void @Mem_FixedStop(ptr noundef captures(address_is_null) %0, i32 noundef
 30:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %29) #16
   %31 = load ptr, ptr %25, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store ptr null, ptr %32, align 8, !tbaa !19
   %.pre30 = load i32, ptr %22, align 8, !tbaa !12
   br label %33
@@ -141,7 +141,7 @@ define void @Mem_FlexStop2(ptr noundef captures(address_is_null) %0) local_unnam
   %8 = phi i32 [ %16, %15 ], [ %5, %3 ]
   %9 = phi ptr [ %17, %15 ], [ %.pre.i, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %.not24.i = icmp eq ptr %11, null
   br i1 %.not24.i, label %15, label %12
@@ -149,7 +149,7 @@ define void @Mem_FlexStop2(ptr noundef captures(address_is_null) %0) local_unnam
 12:                                               ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %11) #16
   %13 = load ptr, ptr %7, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8, !tbaa !19
   %.pre27.i = load i32, ptr %4, align 8, !tbaa !22
   br label %15
@@ -214,7 +214,7 @@ define void @Mem_FlexStop(ptr noundef captures(address_is_null) %0, i32 noundef 
   %22 = phi i32 [ %30, %29 ], [ %19, %17 ]
   %23 = phi ptr [ %31, %29 ], [ %.pre, %17 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %17 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !19
   %.not24 = icmp eq ptr %25, null
   br i1 %.not24, label %29, label %26
@@ -222,7 +222,7 @@ define void @Mem_FlexStop(ptr noundef captures(address_is_null) %0, i32 noundef 
 26:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %25) #16
   %27 = load ptr, ptr %21, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr null, ptr %28, align 8, !tbaa !19
   %.pre27 = load i32, ptr %18, align 8, !tbaa !22
   br label %29
@@ -330,7 +330,7 @@ define noundef ptr @Mem_FixedEntryFetch(ptr noundef captures(none) %0) local_unn
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %8, align 8, !tbaa !12
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   store ptr %31, ptr %46, align 8, !tbaa !19
   %47 = load i32, ptr %4, align 4, !tbaa !30
   %48 = add nsw i32 %47, %28
@@ -388,7 +388,7 @@ define void @Mem_FixedRestart(ptr noundef captures(none) %0) local_unnamed_addr 
   %6 = phi i32 [ %14, %13 ], [ %3, %1 ]
   %7 = phi ptr [ %15, %13 ], [ %.pre, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 1, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
@@ -396,7 +396,7 @@ define void @Mem_FixedRestart(ptr noundef captures(none) %0) local_unnamed_addr 
 10:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %9) #16
   %11 = load ptr, ptr %5, align 8, !tbaa !13
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr null, ptr %12, align 8, !tbaa !19
   %.pre39 = load i32, ptr %2, align 8, !tbaa !12
   br label %13
@@ -552,7 +552,7 @@ define ptr @Mem_FlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) lo
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %13, align 8, !tbaa !22
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %39, ptr %50, align 8, !tbaa !19
   %.pre = load ptr, ptr %3, align 8, !tbaa !36
   %.pre35 = sext i32 %1 to i64
@@ -590,7 +590,7 @@ define void @Mem_FlexRestart(ptr noundef captures(none) %0) local_unnamed_addr #
   %7 = phi i32 [ %15, %14 ], [ %3, %.preheader ]
   %8 = phi ptr [ %16, %14 ], [ %.pre, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 1, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
@@ -598,7 +598,7 @@ define void @Mem_FlexRestart(ptr noundef captures(none) %0) local_unnamed_addr #
 11:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %10) #16
   %12 = load ptr, ptr %6, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr null, ptr %13, align 8, !tbaa !19
   %.pre22 = load i32, ptr %2, align 8, !tbaa !22
   br label %14
@@ -680,7 +680,7 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
   store i32 0, ptr %17, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 52
   store i32 0, ptr %18, align 4, !tbaa !15
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %calloc.i, ptr %19, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -713,7 +713,7 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
 
 28:                                               ; preds = %._crit_edge, %28
   %indvars.iv45 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next46, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv45
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv45
   store ptr %20, ptr %29, align 8, !tbaa !43
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 5
@@ -728,7 +728,7 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
   br i1 %.not37.not, label %.lr.ph, label %._crit_edge40
 
 .lr.ph:                                           ; preds = %.lr.ph42
-  %33 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv53
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv53
   %34 = load ptr, ptr %33, align 8, !tbaa !43
   %35 = or disjoint i32 %31, 1
   %36 = sext i32 %35 to i64
@@ -737,7 +737,7 @@ Mem_FixedStart.exit:                              ; preds = %Mem_FixedStart.exit
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv49 = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next50, %38 ]
-  %39 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv49
+  %39 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv49
   store ptr %34, ptr %39, align 8, !tbaa !43
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next50 to i32
@@ -766,7 +766,7 @@ define void @Mem_StepStop(ptr noundef captures(none) %0, i32 noundef %1) local_u
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !42
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   tail call void @Mem_FixedStop(ptr noundef %9, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -791,7 +791,7 @@ define void @Mem_StepStop(ptr noundef captures(none) %0, i32 noundef %1) local_u
   %18 = phi i32 [ %26, %25 ], [ %16, %.preheader ]
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %25 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %13, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv39
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv39
   %21 = load ptr, ptr %20, align 8, !tbaa !54
   %.not33 = icmp eq ptr %21, null
   br i1 %.not33, label %25, label %22
@@ -799,7 +799,7 @@ define void @Mem_StepStop(ptr noundef captures(none) %0, i32 noundef %1) local_u
 22:                                               ; preds = %.lr.ph36
   tail call void @free(ptr noundef nonnull %21) #16
   %23 = load ptr, ptr %13, align 8, !tbaa !52
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv39
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv39
   store ptr null, ptr %24, align 8, !tbaa !54
   %.pre = load i32, ptr %15, align 4, !tbaa !53
   br label %25
@@ -908,10 +908,10 @@ define ptr @Mem_StepEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) lo
   %34 = add nsw i32 %29, 1
   store i32 %34, ptr %9, align 4, !tbaa !53
   %35 = sext i32 %29 to i64
-  %36 = getelementptr inbounds ptr, ptr %30, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %30, i64 %35
   store ptr %32, ptr %36, align 8, !tbaa !54
   %37 = load ptr, ptr %33, align 8, !tbaa !52
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %35
   %39 = load ptr, ptr %38, align 8, !tbaa !54
   br label %47
 
@@ -919,7 +919,7 @@ define ptr @Mem_StepEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) lo
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !47
   %43 = sext i32 %1 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !43
   %46 = tail call ptr @Mem_FixedEntryFetch(ptr noundef %45)
   br label %47
@@ -944,7 +944,7 @@ define void @Mem_StepEntryRecycle(ptr noundef readonly captures(none) %0, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !47
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !17
@@ -975,7 +975,7 @@ define i32 @Mem_StepReadMemUsage(ptr noundef readonly captures(none) %0) local_u
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %10 = load i32, ptr %9, align 4, !tbaa !15

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.tjregion = type { i32, i32, i32, i32 }
-%struct.tjscalingfactor = type { i32, i32 }
 
 @numScalingFactors = internal global i32 0, align 4
 @scalingFactors = internal unnamed_addr global ptr null, align 8
@@ -144,7 +143,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %.sroa.0.0655 = phi i32 [ 1, %.lr.ph665 ], [ %.sroa.0.2, %141 ]
   %.0421654 = phi ptr [ null, %.lr.ph665 ], [ %.1422, %141 ]
   %25 = sext i32 %.0405663 to i64
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
   %spec.select = call i64 @llvm.umax.i64(i64 %28, i64 2)
@@ -159,7 +158,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i8 -1, ptr %6, align 1, !tbaa !10
   %32 = add nsw i32 %.0405663, 1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %35, ptr noundef nonnull @.str.5, ptr noundef nonnull %21, ptr noundef nonnull %6, ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef nonnull %23) #16
   %37 = icmp ne i32 %36, 5
@@ -201,7 +200,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 54:                                               ; preds = %52
   %55 = add nsw i32 %.0405663, 1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #17
   %spec.select506 = call i64 @llvm.umax.i64(i64 %59, i64 1)
@@ -238,7 +237,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 71:                                               ; preds = %69
   %72 = add nsw i32 %.0405663, 1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %1, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %1, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !4
   br label %141
 
@@ -252,7 +251,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 78:                                               ; preds = %76
   %79 = add nsw i32 %.0405663, 1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %1, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %1, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !4
   %83 = call i64 @strtol(ptr noundef nonnull captures(none) %82, ptr noundef null, i32 noundef 10) #16
   %84 = trunc i64 %83 to i32
@@ -273,7 +272,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 90:                                               ; preds = %88
   %91 = add nsw i32 %.0405663, 1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %1, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %1, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !4
   %95 = call i64 @strtol(ptr noundef nonnull captures(none) %94, ptr noundef null, i32 noundef 10) #16
   %96 = trunc i64 %95 to i32
@@ -314,7 +313,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i32 0, ptr %8, align 4, !tbaa !11
   %109 = add nsw i32 %.0405663, 1
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %1, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %1, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !4
   %113 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %112, ptr noundef nonnull @.str.18, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %114 = icmp slt i32 %113, 2
@@ -358,7 +357,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 131:                                              ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %132 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %127, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv
   %133 = load i32, ptr %132, align 4, !tbaa !15
   %134 = sitofp i32 %133 to double
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
@@ -532,7 +531,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 223:                                              ; preds = %215, %212, %210
   %224 = add nsw i32 %.0405.lcssa, 1
   %225 = sext i32 %.0405.lcssa to i64
-  %226 = getelementptr inbounds ptr, ptr %1, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %1, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !4
   %228 = call noalias ptr @fopen(ptr noundef %227, ptr noundef nonnull @.str.25)
   %229 = icmp eq ptr %228, null
@@ -749,7 +748,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 361:                                              ; preds = %358
   %362 = sext i32 %282 to i64
-  %363 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %362
+  %363 = getelementptr inbounds [4 x i8], ptr @tjMCUWidth, i64 %362
   %364 = load i32, ptr %363, align 4, !tbaa !11
   %365 = mul nsw i32 %364, %.sroa.0.0.lcssa
   %366 = add i32 %341, %365
@@ -788,7 +787,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %387 = sext i32 %.0431 to i64
   %388 = mul nsw i64 %386, %387
   %389 = zext nneg i32 %.2418 to i64
-  %390 = getelementptr inbounds nuw i32, ptr @tjPixelSize, i64 %389
+  %390 = getelementptr inbounds nuw [4 x i8], ptr @tjPixelSize, i64 %389
   %391 = load i32, ptr %390, align 4, !tbaa !11
   %392 = sext i32 %391 to i64
   %393 = mul i64 %388, %392
@@ -863,7 +862,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 439:                                              ; preds = %404, %407
   call void @tj3Free(ptr noundef nonnull %254) #16
   %440 = sext i32 %224 to i64
-  %441 = getelementptr inbounds ptr, ptr %1, i64 %440
+  %441 = getelementptr inbounds [8 x i8], ptr %1, i64 %440
   %442 = load ptr, ptr %441, align 8, !tbaa !4
   %443 = call i32 @tj3SaveImage8(ptr noundef %148, ptr noundef %442, ptr noundef nonnull %396, i32 noundef %.0427, i32 noundef 0, i32 noundef %.0431, i32 noundef %.2418) #16
   %444 = icmp slt i32 %443, 0
@@ -884,7 +883,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 453:                                              ; preds = %420, %417
   call void @tj3Free(ptr noundef nonnull %254) #16
   %454 = sext i32 %224 to i64
-  %455 = getelementptr inbounds ptr, ptr %1, i64 %454
+  %455 = getelementptr inbounds [8 x i8], ptr %1, i64 %454
   %456 = load ptr, ptr %455, align 8, !tbaa !4
   %457 = call i32 @tj3SaveImage12(ptr noundef %148, ptr noundef %456, ptr noundef nonnull %396, i32 noundef %.0427, i32 noundef 0, i32 noundef %.0431, i32 noundef %.2418) #16
   %458 = icmp slt i32 %457, 0
@@ -905,7 +904,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 467:                                              ; preds = %428, %431
   call void @tj3Free(ptr noundef nonnull %254) #16
   %468 = sext i32 %224 to i64
-  %469 = getelementptr inbounds ptr, ptr %1, i64 %468
+  %469 = getelementptr inbounds [8 x i8], ptr %1, i64 %468
   %470 = load ptr, ptr %469, align 8, !tbaa !4
   %471 = call i32 @tj3SaveImage16(ptr noundef %148, ptr noundef %470, ptr noundef nonnull %396, i32 noundef %.0427, i32 noundef 0, i32 noundef %.0431, i32 noundef %.2418) #16
   %472 = icmp slt i32 %471, 0
@@ -1029,7 +1028,7 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #6 {
 .lr.ph:                                           ; preds = %1, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %1 ]
   %6 = load ptr, ptr @scalingFactors, align 8, !tbaa !9
-  %7 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !17

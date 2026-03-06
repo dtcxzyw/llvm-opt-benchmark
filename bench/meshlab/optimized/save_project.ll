@@ -791,7 +791,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i63:  ; preds = %_ZN9QtPrivate8RefCo
           to label %97 unwind label %126
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw %class.QString, ptr %11, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %12, align 8
   store ptr %100, ptr %98, align 8
@@ -3674,8 +3674,8 @@ _ZN7QStringD2Ev.exit35:                           ; preds = %_ZN7QStringD2Ev.exi
   %57 = phi ptr [ %65, %64 ], [ %50, %48 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   invoke void @_ZN3mlp10planeToXMLEPK11RasterPlaneRK7QStringR12QDomDocument(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %14, ptr noundef %62, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %63 unwind label %.loopexit
@@ -3751,7 +3751,7 @@ define linkonce_odr void @_ZNK11RasterModel5labelEv(ptr dead_on_unwind noalias w
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -6933,7 +6933,7 @@ _ZN12MeshDocument22ConstMeshRangeIterator3endEv.exit.preheader: ; preds = %_ZN12
 74:                                               ; preds = %73
   %75 = zext i32 %.033104 to i64
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds nuw %class.MLRenderingData, ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %75
   invoke void @_ZN3mlp14meshModelToXMLERK9MeshModelR12QDomDocumentRK7QStringbbRK15MLRenderingData(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %13, ptr noundef nonnull align 8 dereferenceable(1288) %56, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %14, i1 noundef zeroext %3, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(40) %77)
           to label %78 unwind label %96
 
@@ -7912,7 +7912,7 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: 
 _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %73, ptr %6, align 8
   store ptr %77, ptr %20, align 8
-  %79 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [64 x i8], ptr %73, i64 %71
   store ptr %79, ptr %21, align 8
   br label %_ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -8144,12 +8144,12 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %25 = phi ptr [ %90, %.lr.ph ], [ %18, %7 ]
-  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv
   %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #24
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.52, ptr noundef %27) #24
   %29 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 2, i64 1, ptr nonnull %4)
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %indvars.iv
   %32 = load float, ptr %31, align 4
   %33 = fpext float %32 to double
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -8163,7 +8163,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
   %42 = fpext float %41 to double
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %33, double noundef %36, double noundef %39, double noundef %42) #24
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load float, ptr %46, align 4
   %48 = fpext float %47 to double
@@ -8178,7 +8178,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
   %57 = fpext float %56 to double
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %48, double noundef %51, double noundef %54, double noundef %57) #24
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load float, ptr %61, align 4
   %63 = fpext float %62 to double
@@ -8193,7 +8193,7 @@ define linkonce_odr noundef zeroext i1 @_ZN9ALNParser7SaveALNIfEEbPKcRSt6vectorI
   %72 = fpext float %71 to double
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.54, double noundef %63, double noundef %66, double noundef %69, double noundef %72) #24
   %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds nuw %"class.vcg::Matrix44", ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [64 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load float, ptr %76, align 4
   %78 = fpext float %77 to double
@@ -8465,7 +8465,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8
   ret void
 }

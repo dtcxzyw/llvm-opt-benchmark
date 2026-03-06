@@ -1590,7 +1590,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %26, %58, %66
   %86 = phi i32 [ %.pre2.i, %.noexc ], [ %80, %78 ]
   %87 = phi ptr [ %.pre.i, %.noexc ], [ %76, %78 ]
   %88 = zext i32 %86 to i64
-  %89 = getelementptr inbounds nuw %class.parameter, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %90 = load i8, ptr %75, align 8, !tbaa !61
   %91 = icmp eq i8 %90, 0
@@ -1648,7 +1648,7 @@ _ZN7scanner9read_charEv.exit:                     ; preds = %26, %58, %66
   %111 = phi i32 [ %.pre2.i28, %.noexc29 ], [ %105, %103 ]
   %112 = phi ptr [ %.pre.i26, %.noexc29 ], [ %101, %103 ]
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds nuw %class.parameter, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %115 = load i8, ptr %19, align 8, !tbaa !61
   %116 = icmp eq i8 %115, 0
@@ -1852,7 +1852,7 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit42:           ; preds = %188, %194
   %214 = phi i32 [ %.pre2.i45, %.noexc46 ], [ %208, %206 ]
   %215 = phi ptr [ %.pre.i43, %.noexc46 ], [ %204, %206 ]
   %216 = zext i32 %214 to i64
-  %217 = getelementptr inbounds nuw %class.parameter, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %215, i64 %216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %218 = load i8, ptr %22, align 8, !tbaa !61
   %219 = icmp eq i8 %218, 0

@@ -3203,7 +3203,7 @@ define i32 @ossl_hmac2mdnid(i32 noundef %0) local_unnamed_addr #6 {
 
 4:                                                ; preds = %1, %2
   %.07 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw %struct.ossl_hmacmd_pair, ptr @ossl_hmacmd_pairs, i64 %.07
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @ossl_hmacmd_pairs, i64 %.07
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !96
   %8 = icmp eq i32 %7, %0
@@ -3224,13 +3224,13 @@ define i32 @ossl_md2hmacnid(i32 noundef %0) local_unnamed_addr #6 {
 
 2:                                                ; preds = %1, %10
   %.07 = phi i64 [ 0, %1 ], [ %11, %10 ]
-  %3 = getelementptr inbounds nuw %struct.ossl_hmacmd_pair, ptr @ossl_hmacmd_pairs, i64 %.07
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @ossl_hmacmd_pairs, i64 %.07
   %4 = load i32, ptr %3, align 8, !tbaa !98
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.ossl_hmacmd_pair, ptr @ossl_hmacmd_pairs, i64 %.07
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @ossl_hmacmd_pairs, i64 %.07
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !96
   br label %.loopexit

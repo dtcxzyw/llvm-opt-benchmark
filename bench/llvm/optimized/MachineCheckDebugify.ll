@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"class.llvm::MDOperand" = type { ptr }
 
 $_ZN4llvm4Pass16doInitializationERNS_6ModuleE = comdat any
 
@@ -262,7 +261,7 @@ _ZNK4llvm4Pass11getAnalysisINS_28MachineModuleInfoWrapperPassEEERT_v.exit: ; pre
   %47 = lshr i64 %41, 2
   %48 = and i64 %47, 15
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %"class.llvm::MDOperand", ptr %40, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %40, i64 %49
   br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit
 
 _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit: ; preds = %43, %46
@@ -294,7 +293,7 @@ _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_
   %68 = lshr i64 %62, 2
   %69 = and i64 %68, 15
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %"class.llvm::MDOperand", ptr %61, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %61, i64 %70
   br label %_ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit64
 
 _ZZN12_GLOBAL__N_123CheckDebugMachineModule11runOnModuleERN4llvm6ModuleEENKUljE_clEj.exit64: ; preds = %64, %67
@@ -351,7 +350,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i:       ; preds = %_ZN4llvm11SmallVect
   %93 = and i64 %.0.i.i.i, 63
   %94 = shl nsw i64 -1, %93
   %95 = xor i64 %94, -1
-  %96 = getelementptr inbounds nuw i64, ptr %89, i64 %83
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %83
   %97 = getelementptr inbounds i8, ptr %96, i64 -8
   %98 = load i64, ptr %97, align 8, !tbaa !11
   %99 = and i64 %98, %95
@@ -400,7 +399,7 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72:     ; preds = %_ZN4llvm11SmallVect
   %112 = and i64 %.0.i.i.i63, 63
   %113 = shl nsw i64 -1, %112
   %114 = xor i64 %113, -1
-  %115 = getelementptr inbounds nuw i64, ptr %108, i64 %102
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %102
   %116 = getelementptr inbounds i8, ptr %115, i64 -8
   %117 = load i64, ptr %116, align 8, !tbaa !11
   %118 = and i64 %117, %114
@@ -434,7 +433,7 @@ _ZN4llvm9BitVectorC2Ejb.exit78:                   ; preds = %_ZN4llvm11SmallVect
 
 133:                                              ; preds = %138, %123
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i.i.i.i, %138 ]
-  %134 = getelementptr inbounds nuw i64, ptr %126, i64 %indvars.iv.i.i.i.i.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i.i.i.i.i
   %135 = load i64, ptr %134, align 8, !tbaa !11, !noalias !78
   %136 = icmp eq i64 %indvars.iv.i.i.i.i.i, %131
   %137 = select i1 %136, i64 %130, i64 -1
@@ -524,7 +523,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %154
   %167 = lshr i32 %162, 6
   %168 = zext nneg i32 %167 to i64
   %169 = load ptr, ptr %4, align 8, !tbaa !50
-  %170 = getelementptr inbounds nuw i64, ptr %169, i64 %168
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %168
   %171 = load i64, ptr %170, align 8, !tbaa !11
   %172 = and i64 %171, %166
   store i64 %172, ptr %170, align 8, !tbaa !11
@@ -694,7 +693,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %246 = lshr i64 %240, 2
   %247 = and i64 %246, 15
   %248 = sub nsw i64 0, %247
-  %249 = getelementptr inbounds %"class.llvm::MDOperand", ptr %239, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr %239, i64 %248
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %245, %242
@@ -729,7 +728,7 @@ _ZNK4llvm10DIVariable7getNameEv.exit:             ; preds = %_ZNK4llvm6DINode12g
   %266 = lshr i32 %261, 6
   %267 = zext nneg i32 %266 to i64
   %268 = load ptr, ptr %5, align 8, !tbaa !50
-  %269 = getelementptr inbounds nuw i64, ptr %268, i64 %267
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %267
   %270 = load i64, ptr %269, align 8, !tbaa !11
   %271 = and i64 %270, %265
   store i64 %271, ptr %269, align 8, !tbaa !11
@@ -793,7 +792,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit108: ; pred
 
 296:                                              ; preds = %301, %286
   %indvars.iv.i.i.i.i.i110 = phi i64 [ 0, %286 ], [ %indvars.iv.next.i.i.i.i.i116, %301 ]
-  %297 = getelementptr inbounds nuw i64, ptr %289, i64 %indvars.iv.i.i.i.i.i110
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %indvars.iv.i.i.i.i.i110
   %298 = load i64, ptr %297, align 8, !tbaa !11, !noalias !104
   %299 = icmp eq i64 %indvars.iv.i.i.i.i.i110, %294
   %300 = select i1 %299, i64 %293, i64 -1
@@ -894,7 +893,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit134:              ; preds = %329, %331
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %357
   %indvars.iv.i.us.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %357 ], [ %350, %.lr.ph.i.i.i.i ]
-  %353 = getelementptr inbounds nuw i64, ptr %340, i64 %indvars.iv.i.us.i.i.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %indvars.iv.i.us.i.i.i
   %354 = load i64, ptr %353, align 8, !tbaa !11
   %355 = icmp eq i64 %indvars.iv.i.us.i.i.i, %351
   %356 = select i1 %355, i64 %349, i64 -1
@@ -909,7 +908,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit134:              ; preds = %329, %331
 
 .lr.ph.i.split.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %363
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %363 ], [ %350, %.lr.ph.i.i.i.i ]
-  %358 = getelementptr inbounds nuw i64, ptr %340, i64 %indvars.iv.i.i.i.i
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %indvars.iv.i.i.i.i
   %359 = load i64, ptr %358, align 8, !tbaa !11
   %360 = icmp eq i64 %indvars.iv.i.i.i.i, %350
   %spec.select.i.i.i = select i1 %360, i64 %345, i64 -1
@@ -1108,7 +1107,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit152:              ; preds = %436, %438
 
 .lr.ph.i.split.us.i.i.i169:                       ; preds = %.lr.ph.i.i.i.i154, %464
   %indvars.iv.i.us.i.i.i170 = phi i64 [ %indvars.iv.next.i.us.i.i.i173, %464 ], [ %457, %.lr.ph.i.i.i.i154 ]
-  %460 = getelementptr inbounds nuw i64, ptr %447, i64 %indvars.iv.i.us.i.i.i170
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %indvars.iv.i.us.i.i.i170
   %461 = load i64, ptr %460, align 8, !tbaa !11
   %462 = icmp eq i64 %indvars.iv.i.us.i.i.i170, %458
   %463 = select i1 %462, i64 %456, i64 -1
@@ -1123,7 +1122,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit152:              ; preds = %436, %438
 
 .lr.ph.i.split.i.i.i157:                          ; preds = %.lr.ph.i.i.i.i154, %470
   %indvars.iv.i.i.i.i158 = phi i64 [ %indvars.iv.next.i.i.i.i167, %470 ], [ %457, %.lr.ph.i.i.i.i154 ]
-  %465 = getelementptr inbounds nuw i64, ptr %447, i64 %indvars.iv.i.i.i.i158
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %indvars.iv.i.i.i.i158
   %466 = load i64, ptr %465, align 8, !tbaa !11
   %467 = icmp eq i64 %indvars.iv.i.i.i.i158, %457
   %spec.select.i.i.i159 = select i1 %467, i64 %452, i64 -1

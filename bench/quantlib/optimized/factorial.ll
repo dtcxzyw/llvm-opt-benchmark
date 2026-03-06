@@ -16,7 +16,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw double, ptr @_ZN8QuantLib12_GLOBAL__N_115firstFactorialsE, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN8QuantLib12_GLOBAL__N_115firstFactorialsE, i64 %conv
   %0 = load double, ptr %arrayidx, align 8, !tbaa !3
   br label %return
 
@@ -48,7 +48,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw double, ptr @_ZN8QuantLib12_GLOBAL__N_115firstFactorialsE, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN8QuantLib12_GLOBAL__N_115firstFactorialsE, i64 %conv
   %0 = load double, ptr %arrayidx, align 8, !tbaa !3
   %call = tail call double @log(double noundef %0) #4, !tbaa !7
   br label %return

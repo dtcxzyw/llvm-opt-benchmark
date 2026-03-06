@@ -1793,7 +1793,7 @@ define noundef zeroext i1 @_ZNK3net14QuicSpdyStream21ParseHeaderStatusCodeERKNS_
   %10 = load i64, ptr %9, align 8, !tbaa !163
   %11 = urem i64 297597985739944, %10
   %12 = load ptr, ptr %1, align 8, !tbaa !164
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !165
   %.not.i.i6.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, label %21

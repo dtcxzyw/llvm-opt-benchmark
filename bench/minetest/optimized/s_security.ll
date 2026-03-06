@@ -2649,7 +2649,7 @@ _ZN17ScriptApiSecurity9getThreadEP9lua_State.exit: ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN17ScriptApiSecurity9getThreadEP9lua_State.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN17ScriptApiSecurity9getThreadEP9lua_State.exit ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZZN17ScriptApiSecurity24initializeSecurityClientEvE9whitelist, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZZN17ScriptApiSecurity24initializeSecurityClientEvE9whitelist, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8, !tbaa !30
   tail call void @lua_getfield(ptr noundef %0, i32 noundef %add1.i, ptr noundef %1)
   tail call void @lua_setfield(ptr noundef %0, i32 noundef %call4.i, ptr noundef %1)
@@ -5977,7 +5977,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i47, ptr %this, align 8, !tbaa !51
   store ptr %__cur.0.lcssa.i.i.i63, ptr %_M_finish.i.i, align 8, !tbaa !61
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i47, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i47, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !60
   ret void
 

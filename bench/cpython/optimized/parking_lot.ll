@@ -158,7 +158,7 @@ define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %0, ptr no
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8, !tbaa !19
   %11 = urem i64 %10, 257
-  %12 = getelementptr %struct.Bucket, ptr @buckets, i64 %11
+  %12 = getelementptr [32 x i8], ptr @buckets, i64 %11
   %13 = cmpxchg ptr %12, i64 0, i64 1 seq_cst seq_cst, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   br i1 %14, label %_PyRawMutex_Lock.exit, label %15
@@ -380,7 +380,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local void @_PyParkingLot_Unpark(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = urem i64 %4, 257
-  %6 = getelementptr %struct.Bucket, ptr @buckets, i64 %5
+  %6 = getelementptr [32 x i8], ptr @buckets, i64 %5
   %7 = cmpxchg ptr %6, i64 0, i64 1 seq_cst seq_cst, align 8
   %8 = extractvalue { i64, i1 } %7, 1
   br i1 %8, label %_PyRawMutex_Lock.exit, label %9
@@ -471,7 +471,7 @@ define dso_local void @_PyParkingLot_UnparkAll(ptr noundef %0) local_unnamed_add
   store ptr %2, ptr %3, align 8, !tbaa !23
   %4 = ptrtoint ptr %0 to i64
   %5 = urem i64 %4, 257
-  %6 = getelementptr %struct.Bucket, ptr @buckets, i64 %5
+  %6 = getelementptr [32 x i8], ptr @buckets, i64 %5
   %7 = cmpxchg ptr %6, i64 0, i64 1 seq_cst seq_cst, align 8
   %8 = extractvalue { i64, i1 } %7, 1
   br i1 %8, label %_PyRawMutex_Lock.exit, label %9
@@ -571,7 +571,7 @@ define dso_local void @_PyParkingLot_AfterFork() local_unnamed_addr #5 {
 
 2:                                                ; preds = %0, %2
   %.03 = phi i64 [ 0, %0 ], [ %6, %2 ]
-  %3 = getelementptr %struct.Bucket, ptr @buckets, i64 %.03
+  %3 = getelementptr [32 x i8], ptr @buckets, i64 %.03
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %4, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16

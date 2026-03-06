@@ -14,13 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::basic_mdspan.10" = type { [8 x i8], %"class.gmx::layout_right::mapping", ptr }
 %"class.gmx::layout_right::mapping" = type { %"class.gmx::extents" }
 %"class.gmx::extents" = type { %"struct.gmx::detail::extents_analyse" }
-%"class.gmx::GaussianOn1DLattice" = type { %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
 
 $_ZNSt6vectorIfSaIfEEaSERKS1_ = comdat any
 
@@ -240,7 +233,7 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %99 = sext i32 %84 to i64
   %100 = sext i32 %77 to i64
   %101 = sext i32 %83 to i64
-  %invariant.gep = getelementptr float, ptr %82, i64 %98
+  %invariant.gep = getelementptr [4 x i8], ptr %82, i64 %98
   br label %121
 
 102:                                              ; preds = %.preheader, %102
@@ -249,11 +242,11 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %103 = load float, ptr %24, align 8
   %104 = fpext float %103 to double
   %105 = select i1 %.not, double %104, double 1.000000e+00
-  %106 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %25, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %107 = load ptr, ptr %1, align 8, !tbaa !12
-  %108 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv
   %109 = load float, ptr %108, align 4, !tbaa !17
-  %110 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4, !tbaa !8
   %112 = sitofp i32 %111 to float
   %113 = fsub float %109, %112
@@ -303,7 +296,7 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7ext
 
 _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
   %127 = mul nsw i64 %126, %indvars.iv128
-  %128 = getelementptr inbounds float, ptr %91, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %91, i64 %127
   %129 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox5beginEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !8
@@ -338,13 +331,13 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %.sroa.654.198 = phi double [ %.sroa.654.0108, %.lr.ph102 ], [ %.sroa.654.2.lcssa, %._crit_edge ]
   %.sroa.052.197 = phi double [ %.sroa.052.0107, %.lr.ph102 ], [ %.sroa.052.2.lcssa, %._crit_edge ]
   %145 = mul nsw i64 %95, %indvars.iv125
-  %146 = getelementptr inbounds float, ptr %128, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %128, i64 %145
   %147 = load ptr, ptr %96, align 8, !tbaa !42
   %148 = load i64, ptr %97, align 8
   %149 = mul nsw i64 %148, %136
-  %150 = getelementptr float, ptr %147, i64 %149
-  %151 = getelementptr float, ptr %150, i64 %indvars.iv125
-  %152 = getelementptr float, ptr %151, i64 %99
+  %150 = getelementptr [4 x i8], ptr %147, i64 %149
+  %151 = getelementptr [4 x i8], ptr %150, i64 %indvars.iv125
+  %152 = getelementptr [4 x i8], ptr %151, i64 %99
   %153 = load float, ptr %152, align 4, !tbaa !17
   %154 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox5beginEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
   %155 = load i32, ptr %154, align 4, !tbaa !8
@@ -376,10 +369,10 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %.sroa.10.293 = phi double [ %.sroa.10.199, %.lr.ph.preheader ], [ %177, %.lr.ph ]
   %.sroa.654.291 = phi double [ %.sroa.654.198, %.lr.ph.preheader ], [ %176, %.lr.ph ]
   %.sroa.052.290 = phi double [ %.sroa.052.197, %.lr.ph.preheader ], [ %175, %.lr.ph ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv122
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv122
   %166 = load float, ptr %gep, align 4, !tbaa !17
   %167 = fmul float %153, %166
-  %168 = getelementptr inbounds float, ptr %146, i64 %indvars.iv122
+  %168 = getelementptr inbounds [4 x i8], ptr %146, i64 %indvars.iv122
   %169 = load float, ptr %168, align 4, !tbaa !17
   %170 = fmul float %167, %169
   %171 = fpext float %170 to double
@@ -502,7 +495,7 @@ define void @_ZN3gmx19DensityFittingForceC2ERKS0_(ptr noundef nonnull writeonly 
   %.idx.i.i = shl nuw nsw i64 %7, 3
   %.add6.i = add nuw nsw i64 %.idx.i.i, 40
   %.ptr9.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add6.i
-  %8 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   invoke void @_ZN3gmx19GaussianOn1DLatticeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %.ptr9.i, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %9 unwind label %12
 
@@ -617,8 +610,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19DensityFittingFo
 
 7:                                                ; preds = %7, %2
   %.05.i.i = phi i64 [ 0, %2 ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %5, i64 %.05.i.i
-  %9 = getelementptr inbounds nuw %"class.gmx::GaussianOn1DLattice", ptr %6, i64 %.05.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05.i.i
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx19GaussianOn1DLatticeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %11 = add nuw nsw i64 %.05.i.i, 1
   %.not.i.i = icmp eq i64 %11, 3

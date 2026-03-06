@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/prepqual.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"can't negate an empty subexpression\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"prepqual.c\00", align 1
 @__func__.negate_clause = private unnamed_addr constant [14 x i8] c"negate_clause\00", align 1
@@ -154,7 +152,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.lr.ph141 ], [ 0, %.lr.ph133 ]
   %.098132139 = phi ptr [ %81, %.lr.ph141 ], [ null, %.lr.ph133 ]
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv145
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv145
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr @negate_clause(ptr noundef %79)
   %81 = tail call ptr @lappend(ptr noundef %.098132139, ptr noundef %80) #4
@@ -186,7 +184,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph130 ], [ 0, %.lr.ph ]
   %.0100123129 = phi ptr [ %97, %.lr.ph130 ], [ null, %.lr.ph ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8
   %96 = tail call ptr @negate_clause(ptr noundef %95)
   %97 = tail call ptr @lappend(ptr noundef %.0100123129, ptr noundef %96) #4
@@ -265,7 +263,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %130
   %142 = zext nneg i32 %136 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.negate_clause, i64 %142
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.negate_clause, i64 %142
   %switch.load = load i32, ptr %switch.gep, align 4
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store i32 %switch.load, ptr %143, align 8
@@ -352,7 +350,7 @@ is_orclause.exit:                                 ; preds = %3
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %37 ], [ 0, %.lr.ph156 ]
   %.056154166 = phi ptr [ %.258.ph, %37 ], [ null, %.lr.ph156 ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv183
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv183
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @find_duplicate_ors(ptr noundef %17, i1 noundef zeroext %1)
   %.not79 = icmp eq ptr %18, null
@@ -439,7 +437,7 @@ list_length.exit.i:                               ; preds = %._crit_edge159
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %69 ]
   %.087185.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %69 ]
   %.088184.i = phi i32 [ 0, %.lr.ph.i ], [ %.189.i, %69 ]
-  %54 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8
   %.not.i127.i = icmp eq ptr %55, null
   br i1 %.not.i127.i, label %is_andclause.exit.thread.i, label %56
@@ -499,7 +497,7 @@ is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i
   %indvars.iv210.i = phi i64 [ %indvars.iv.next211.i, %.critedge123.thread.i ], [ 0, %.lr.ph191.i ]
   %.091190196.i = phi ptr [ %.192.i, %.critedge123.thread.i ], [ null, %.lr.ph191.i ]
   %79 = load ptr, ptr %75, align 8
-  %80 = getelementptr inbounds nuw %union.ListCell, ptr %79, i64 %indvars.iv210.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv210.i
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %45, align 4
   %.not119186.i = icmp sgt i32 %82, 0
@@ -517,7 +515,7 @@ is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i
 .lr.ph188.i:                                      ; preds = %.lr.ph198.i, %99
   %indvars.iv207.i = phi i64 [ %indvars.iv.next208.i, %99 ], [ 0, %.lr.ph198.i ]
   %85 = load ptr, ptr %76, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv207.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv207.i
   %87 = load ptr, ptr %86, align 8
   %.not.i130.i = icmp eq ptr %87, null
   br i1 %.not.i130.i, label %is_andclause.exit131.thread.i, label %88
@@ -570,7 +568,7 @@ is_andclause.exit131.thread.i:                    ; preds = %is_andclause.exit13
   %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %.thread149.i ], [ 0, %.preheader.i ]
   %.094201.i = phi ptr [ %129, %.thread149.i ], [ null, %.preheader.i ]
   %107 = load ptr, ptr %76, align 8
-  %108 = getelementptr inbounds nuw %union.ListCell, ptr %107, i64 %indvars.iv213.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv213.i
   %109 = load ptr, ptr %108, align 8
   %.not.i132.i = icmp eq ptr %109, null
   br i1 %.not.i132.i, label %is_andclause.exit133.thread.i, label %110
@@ -688,7 +686,7 @@ list_length.exit139.thread.i:                     ; preds = %list_length.exit139
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %select.unfold108.us147 ], [ 0, %.lr.ph144 ]
   %.061136143.us = phi ptr [ %.263.ph.us148, %select.unfold108.us147 ], [ null, %.lr.ph144 ]
   %158 = load ptr, ptr %155, align 8
-  %159 = getelementptr inbounds nuw %union.ListCell, ptr %158, i64 %indvars.iv180
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv180
   %160 = load ptr, ptr %159, align 8
   %161 = tail call fastcc ptr @find_duplicate_ors(ptr noundef %160, i1 noundef zeroext true)
   %.not76.us145 = icmp eq ptr %161, null
@@ -727,7 +725,7 @@ select.unfold108.us147:                           ; preds = %172, %169, %165
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold108 ], [ 0, %.lr.ph144 ]
   %.061136143 = phi ptr [ %.263.ph, %select.unfold108 ], [ null, %.lr.ph144 ]
   %177 = load ptr, ptr %155, align 8
-  %178 = getelementptr inbounds nuw %union.ListCell, ptr %177, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv
   %179 = load ptr, ptr %178, align 8
   %180 = tail call fastcc ptr @find_duplicate_ors(ptr noundef %179, i1 noundef zeroext false)
   %.not76 = icmp eq ptr %180, null
@@ -815,7 +813,7 @@ define internal fastcc ptr @pull_ors(ptr noundef readonly captures(address_is_nu
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
   %.01620 = phi ptr [ %.1, %21 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %is_orclause.exit.thread, label %9
@@ -871,7 +869,7 @@ define internal fastcc ptr @pull_ands(ptr noundef readonly captures(address_is_n
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.lr.ph ]
   %.01620 = phi ptr [ %.1, %21 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %is_andclause.exit.thread, label %9

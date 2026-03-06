@@ -1561,12 +1561,12 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %145 = load ptr, ptr %25, align 8, !tbaa !133
   %146 = load i64, ptr %145, align 8, !tbaa !76
   %147 = mul i64 %146, %indvars.iv128.i.i.i
-  %148 = getelementptr inbounds nuw float, ptr %144, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %147
   %149 = mul nsw i32 %142, %123
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds float, ptr %148, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %148, i64 %150
   %152 = sext i32 %127 to i64
-  %153 = getelementptr inbounds float, ptr %151, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %151, i64 %152
   br i1 %141, label %154, label %.loopexit.i.i.i
 
 154:                                              ; preds = %139
@@ -1598,17 +1598,17 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %170 = add nsw i32 %169, %127
   %171 = sext i32 %170 to i64
   %172 = sub nsw i64 0, %171
-  %173 = getelementptr inbounds float, ptr %153, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %153, i64 %172
   %174 = add nsw i32 %.089.i.i.i, %127
   %175 = sext i32 %174 to i64
-  %invariant.gep.i.i.i = getelementptr float, ptr %173, i64 %175
+  %invariant.gep.i.i.i = getelementptr [4 x i8], ptr %173, i64 %175
   %176 = sub nsw i32 %.088.i.i.i, %.089.i.i.i
   %177 = zext nneg i32 %176 to i64
   %178 = shl nuw nsw i64 %177, 2
   %179 = zext nneg i32 %.087.i.i.i to i64
   %180 = zext nneg i32 %.089.i.i.i to i64
   %wide.trip.count.i.i.i = zext nneg i32 %.086.i.i.i to i64
-  %invariant.gep162.i.i.i = getelementptr inbounds nuw float, ptr %3, i64 %180
+  %invariant.gep162.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %180
   br label %181
 
 181:                                              ; preds = %181, %.preheader.i.i.i
@@ -1620,7 +1620,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %184 = load i32, ptr %140, align 4, !tbaa !3
   %185 = mul nsw i32 %183, %184
   %186 = sext i32 %185 to i64
-  %gep.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i, i64 %186
+  %gep.i.i.i = getelementptr [4 x i8], ptr %invariant.gep.i.i.i, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep163.i.i.i, ptr align 4 %gep.i.i.i, i64 %178, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1931,7 +1931,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %159 = add nsw i32 %158, %.0122166.us.i.i.i
   %160 = sext i32 %159 to i64
   %161 = load ptr, ptr %155, align 8, !tbaa !163
-  %162 = getelementptr inbounds nuw float, ptr %161, i64 %160
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %160
   %163 = load float, ptr %162, align 4, !tbaa !7
   %164 = sub nsw i32 %.0122166.us.i.i.i, %102
   br label %165
@@ -1979,11 +1979,11 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %199 = add i64 %198, %194
   %200 = load ptr, ptr %38, align 8, !tbaa !170
   %201 = load ptr, ptr %200, align 8, !tbaa !82
-  %202 = getelementptr inbounds nuw float, ptr %201, i64 %199
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %199
   %203 = load ptr, ptr %39, align 8, !tbaa !171
   %204 = load ptr, ptr %203, align 8, !tbaa !82
   %.not131.us.i.i.i = icmp eq ptr %204, null
-  %205 = getelementptr inbounds nuw float, ptr %204, i64 %199
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %199
   %206 = select i1 %.not131.us.i.i.i, ptr null, ptr %205
   br i1 %spec.select.us.i.i.i, label %207, label %.loopexit150.us.i.i.i
 
@@ -2000,7 +2000,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %212 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %213 = mul nsw i32 %211, %212
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds float, ptr %205, i64 %214
+  %215 = getelementptr inbounds [4 x i8], ptr %205, i64 %214
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %209, ptr nonnull align 4 %215, i64 %263, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -2071,7 +2071,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %256 = trunc nuw nsw i64 %indvars.iv186.i.i.i to i32
   %257 = mul nsw i32 %255, %256
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds float, ptr %202, i64 %258
+  %259 = getelementptr inbounds [4 x i8], ptr %202, i64 %258
   %.idx223.i.i.i = shl nsw i64 %indvars.iv186.i.i.i, 5
   %260 = getelementptr inbounds nuw i8, ptr %.0113.us.i.i.i, i64 %.idx223.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %259, ptr align 4 %260, i64 %265, i1 false)

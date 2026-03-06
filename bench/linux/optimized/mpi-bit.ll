@@ -34,7 +34,7 @@ define dso_local void @mpi_normalize(ptr noundef captures(none) %0) #0 align 16 
   %9 = phi i32 [ %3, %5 ], [ %10, %15 ]
   %10 = add i32 %9, -1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i64, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %.loopexit
@@ -64,7 +64,7 @@ define dso_local i32 @mpi_get_nbits(ptr noundef captures(none) %0) #1 align 16 {
   %.pr = phi i32 [ %3, %5 ], [ %9, %14 ]
   %9 = add i32 %.pr, -1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i64, ptr %7, i64 %10
+  %11 = getelementptr [8 x i8], ptr %7, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
@@ -99,7 +99,7 @@ define dso_local range(i32 0, 2) i32 @mpi_test_bit(ptr noundef readonly captures
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr i64, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = zext nneg i32 %8 to i64
   %15 = lshr i64 %13, %14
@@ -133,7 +133,7 @@ define dso_local void @mpi_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed
 13:                                               ; preds = %13, %10
   %14 = phi i64 [ %12, %10 ], [ %17, %13 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr i64, ptr %15, i64 %14
+  %16 = getelementptr [8 x i8], ptr %15, i64 %14
   store i64 0, ptr %16, align 8
   %17 = add nuw nsw i64 %14, 1
   %18 = load i32, ptr %0, align 8
@@ -154,7 +154,7 @@ define dso_local void @mpi_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %3 to i64
-  %30 = getelementptr i64, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %26
   store i64 %32, ptr %30, align 8
@@ -186,7 +186,7 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
 14:                                               ; preds = %14, %11
   %15 = phi i64 [ %13, %11 ], [ %18, %14 ]
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr i64, ptr %16, i64 %15
+  %17 = getelementptr [8 x i8], ptr %16, i64 %15
   store i64 0, ptr %17, align 8
   %18 = add nuw nsw i64 %15, 1
   %19 = load i32, ptr %0, align 8
@@ -206,7 +206,7 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %3 to i64
-  %30 = getelementptr i64, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, %26
   store i64 %32, ptr %30, align 8
@@ -219,7 +219,7 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
   %36 = shl nuw i64 2, %34
   %37 = xor i64 %36, -1
   %38 = load ptr, ptr %27, align 8
-  %39 = getelementptr i64, ptr %38, i64 %29
+  %39 = getelementptr [8 x i8], ptr %38, i64 %29
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, %37
   store i64 %41, ptr %39, align 8
@@ -252,7 +252,7 @@ define dso_local void @mpi_clear_highbit(ptr noundef captures(none) %0, i32 noun
   %14 = shl nuw i64 1, %13
   %15 = xor i64 %14, -1
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr i64, ptr %16, i64 %9
+  %17 = getelementptr [8 x i8], ptr %16, i64 %9
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %15
   store i64 %19, ptr %17, align 8
@@ -285,7 +285,7 @@ define dso_local void @mpi_clear_bit(ptr noundef readonly captures(none) %0, i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr i64, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %11
   store i64 %17, ptr %15, align 8
@@ -314,16 +314,16 @@ define dso_local void @mpi_rshift_limbs(ptr noundef captures(none) %0, i32 nound
   %13 = trunc i64 %12 to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr i64, ptr %4, i64 %15
+  %16 = getelementptr [8 x i8], ptr %4, i64 %15
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr i64, ptr %4, i64 %12
+  %18 = getelementptr [8 x i8], ptr %4, i64 %12
   store i64 %17, ptr %18, align 8
   %19 = add nuw nsw i64 %12, 1
   %20 = icmp eq i64 %19, %10
   br i1 %20, label %21, label %11, !llvm.loop !13
 
 21:                                               ; preds = %11
-  %22 = getelementptr i64, ptr %4, i64 %10
+  %22 = getelementptr [8 x i8], ptr %4, i64 %10
   store i64 0, ptr %22, align 8
   %23 = load i32, ptr %5, align 4
   %24 = sub i32 %23, %1
@@ -362,9 +362,9 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
   %18 = trunc nuw i64 %16 to i32
   %19 = add i32 %4, %18
   %20 = zext i32 %19 to i64
-  %21 = getelementptr i64, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr i64, ptr %17, i64 %16
+  %23 = getelementptr [8 x i8], ptr %17, i64 %16
   store i64 %22, ptr %23, align 8
   %24 = add nuw nsw i64 %16, 1
   %25 = load i32, ptr %8, align 4
@@ -375,7 +375,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 
 29:                                               ; preds = %15
   %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr i64, ptr %30, i64 %24
+  %31 = getelementptr [8 x i8], ptr %30, i64 %24
   store i64 0, ptr %31, align 8
   %32 = load i32, ptr %8, align 4
   %33 = sub i32 %32, %4
@@ -429,10 +429,10 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 62:                                               ; preds = %62, %59
   %63 = phi i64 [ 0, %59 ], [ %69, %62 ]
   %64 = load ptr, ptr %60, align 8
-  %65 = getelementptr i64, ptr %64, i64 %63
+  %65 = getelementptr [8 x i8], ptr %64, i64 %63
   %66 = load i64, ptr %65, align 8
   %67 = load ptr, ptr %61, align 8
-  %68 = getelementptr i64, ptr %67, i64 %63
+  %68 = getelementptr [8 x i8], ptr %67, i64 %63
   store i64 %66, ptr %68, align 8
   %69 = add nuw nsw i64 %63, 1
   %70 = load i32, ptr %45, align 4
@@ -452,9 +452,9 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
   %78 = trunc nuw i64 %76 to i32
   %79 = add i32 %4, %78
   %80 = zext i32 %79 to i64
-  %81 = getelementptr i64, ptr %77, i64 %80
+  %81 = getelementptr [8 x i8], ptr %77, i64 %80
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr i64, ptr %77, i64 %76
+  %83 = getelementptr [8 x i8], ptr %77, i64 %76
   store i64 %82, ptr %83, align 8
   %84 = add nuw nsw i64 %76, 1
   %85 = load i32, ptr %56, align 4
@@ -465,7 +465,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 
 89:                                               ; preds = %.preheader
   %90 = load ptr, ptr %61, align 8
-  %91 = getelementptr i64, ptr %90, i64 %84
+  %91 = getelementptr [8 x i8], ptr %90, i64 %84
   store i64 0, ptr %91, align 8
   %92 = load i32, ptr %56, align 4
   %93 = sub i32 %92, %4
@@ -513,10 +513,10 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 117:                                              ; preds = %117, %108
   %118 = phi i64 [ 0, %108 ], [ %124, %117 ]
   %119 = load ptr, ptr %109, align 8
-  %120 = getelementptr i64, ptr %119, i64 %118
+  %120 = getelementptr [8 x i8], ptr %119, i64 %118
   %121 = load i64, ptr %120, align 8
   %122 = load ptr, ptr %110, align 8
-  %123 = getelementptr i64, ptr %122, i64 %118
+  %123 = getelementptr [8 x i8], ptr %122, i64 %118
   store i64 %121, ptr %123, align 8
   %124 = add nuw nsw i64 %118, 1
   %125 = load i32, ptr %104, align 4
@@ -539,7 +539,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 135:                                              ; preds = %141, %131
   %136 = phi i32 [ %129, %131 ], [ %142, %141 ]
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr i64, ptr %134, i64 %137
+  %138 = getelementptr [8 x i8], ptr %134, i64 %137
   %139 = load i64, ptr %138, align 8
   %140 = icmp eq i64 %139, 0
   br i1 %140, label %141, label %.loopexit
@@ -594,12 +594,12 @@ define dso_local void @mpi_lshift_limbs(ptr noundef %0, i32 noundef %1) local_un
 
 21:                                               ; preds = %21, %19
   %22 = phi i64 [ %20, %19 ], [ %29, %21 ]
-  %23 = getelementptr i64, ptr %16, i64 %22
+  %23 = getelementptr [8 x i8], ptr %16, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %22 to i32
   %26 = add i32 %1, %25
   %27 = zext i32 %26 to i64
-  %28 = getelementptr i64, ptr %16, i64 %27
+  %28 = getelementptr [8 x i8], ptr %16, i64 %27
   store i64 %24, ptr %28, align 8
   %29 = add nsw i64 %22, -1
   %.not = icmp eq i64 %22, 0
@@ -611,7 +611,7 @@ define dso_local void @mpi_lshift_limbs(ptr noundef %0, i32 noundef %1) local_un
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %30 = phi i32 [ %33, %.loopexit ], [ 0, %.loopexit.preheader ]
   %31 = sext i32 %30 to i64
-  %32 = getelementptr i64, ptr %16, i64 %31
+  %32 = getelementptr [8 x i8], ptr %16, i64 %31
   store i64 0, ptr %32, align 8
   %33 = add nuw i32 %30, 1
   %34 = icmp eq i32 %33, %1
@@ -665,9 +665,9 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 .preheader:                                       ; preds = %21, %.preheader
   %27 = phi i32 [ %32, %.preheader ], [ 0, %21 ]
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i64, ptr %25, i64 %28
+  %29 = getelementptr [8 x i8], ptr %25, i64 %28
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr i64, ptr %23, i64 %28
+  %31 = getelementptr [8 x i8], ptr %23, i64 %28
   store i64 %30, ptr %31, align 8
   %32 = add nuw i32 %27, 1
   %33 = icmp eq i32 %32, %12
@@ -729,12 +729,12 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 
 65:                                               ; preds = %65, %58
   %66 = phi i64 [ %59, %58 ], [ %73, %65 ]
-  %67 = getelementptr i64, ptr %55, i64 %66
+  %67 = getelementptr [8 x i8], ptr %55, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %66 to i32
   %70 = add i32 %4, %69
   %71 = zext i32 %70 to i64
-  %72 = getelementptr i64, ptr %55, i64 %71
+  %72 = getelementptr [8 x i8], ptr %55, i64 %71
   store i64 %68, ptr %72, align 8
   %73 = add nsw i64 %66, -1
   %.not = icmp eq i64 %66, 0
@@ -778,12 +778,12 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 
 93:                                               ; preds = %93, %91
   %94 = phi i64 [ %92, %91 ], [ %101, %93 ]
-  %95 = getelementptr i64, ptr %88, i64 %94
+  %95 = getelementptr [8 x i8], ptr %88, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = trunc i64 %94 to i32
   %98 = add i32 %76, %97
   %99 = zext i32 %98 to i64
-  %100 = getelementptr i64, ptr %88, i64 %99
+  %100 = getelementptr [8 x i8], ptr %88, i64 %99
   store i64 %96, ptr %100, align 8
   %101 = add nsw i64 %94, -1
   %.not17 = icmp eq i64 %94, 0
@@ -822,9 +822,9 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
   %119 = trunc nuw i64 %117 to i32
   %120 = add nuw i32 %109, %119
   %121 = zext i32 %120 to i64
-  %122 = getelementptr i64, ptr %118, i64 %121
+  %122 = getelementptr [8 x i8], ptr %118, i64 %121
   %123 = load i64, ptr %122, align 8
-  %124 = getelementptr i64, ptr %118, i64 %117
+  %124 = getelementptr [8 x i8], ptr %118, i64 %117
   store i64 %123, ptr %124, align 8
   %125 = add nuw nsw i64 %117, 1
   %126 = load i32, ptr %77, align 4
@@ -835,7 +835,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 
 130:                                              ; preds = %116
   %131 = load ptr, ptr %115, align 8
-  %132 = getelementptr i64, ptr %131, i64 %125
+  %132 = getelementptr [8 x i8], ptr %131, i64 %125
   store i64 0, ptr %132, align 8
   %133 = load i32, ptr %77, align 4
   %134 = sub i32 %133, %109
@@ -870,7 +870,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 151:                                              ; preds = %157, %147
   %152 = phi i32 [ %145, %147 ], [ %158, %157 ]
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr i64, ptr %150, i64 %153
+  %154 = getelementptr [8 x i8], ptr %150, i64 %153
   %155 = load i64, ptr %154, align 8
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %157, label %.loopexit18.thread39
@@ -897,7 +897,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 167:                                              ; preds = %173, %.loopexit18.thread39
   %168 = phi i32 [ %162, %.loopexit18.thread39 ], [ %174, %173 ]
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr i64, ptr %166, i64 %169
+  %170 = getelementptr [8 x i8], ptr %166, i64 %169
   %171 = load i64, ptr %170, align 8
   %172 = icmp eq i64 %171, 0
   br i1 %172, label %173, label %.loopexit

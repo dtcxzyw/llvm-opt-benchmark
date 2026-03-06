@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64 }
 %struct.pairingheap_node = type { ptr, ptr, ptr }
 %union.anon = type { i32, [1996 x i8] }
-%union.ListCell = type { ptr }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
@@ -193,7 +192,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %45 = load i32, ptr %44, align 8
   %46 = load ptr, ptr %5, align 8
   %47 = sext i32 %19 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load i32, ptr %50, align 8
@@ -227,7 +226,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %.pre.pre98 = phi ptr [ %.pre.pre96, %.thread ], [ %.pre.pre, %56 ]
   %.297 = phi i32 [ %.066, %.thread ], [ %spec.select, %56 ]
   %59 = sext i32 %19 to i64
-  %60 = getelementptr inbounds ptr, ptr %.pre.pre98, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.pre.pre98, i64 %59
   br label %61
 
 61:                                               ; preds = %.preheader, %61
@@ -299,7 +298,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
 
 87:                                               ; preds = %.lr.ph.us, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %100 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 328
   %91 = load ptr, ptr %90, align 8
@@ -368,7 +367,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %119 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i
   %120 = load ptr, ptr %119, align 8
   call void @index_close(ptr noundef %120, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -425,12 +424,12 @@ list_length.exit:                                 ; preds = %4
 .lr.ph42:                                         ; preds = %list_length.exit, %.lr.ph42
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph42 ], [ 0, %list_length.exit ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
   %17 = tail call ptr @index_open(i32 noundef %16, i32 noundef %1) #6
   %18 = load ptr, ptr %2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store ptr %17, ptr %19, align 8
   %20 = load i32, ptr %6, align 4
   %21 = sext i32 %20 to i64
@@ -455,7 +454,7 @@ list_length.exit:                                 ; preds = %4
 
 27:                                               ; preds = %.lr.ph44, %35
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %35 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv49
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv49
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 328
   %31 = load ptr, ptr %30, align 8
@@ -502,7 +501,7 @@ define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 n
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
   %8 = load ptr, ptr %5, align 8
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i32, ptr %12, align 8
@@ -519,7 +518,7 @@ define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   call void @index_close(ptr noundef %19, i32 noundef 3) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -556,7 +555,7 @@ define dso_local void @toast_close_indexes(ptr noundef %0, i32 noundef %1, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void @index_close(ptr noundef %6, i32 noundef %2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -602,7 +601,7 @@ define dso_local void @toast_delete_datum(ptr noundef readnone captures(none) %0
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #6
   %18 = load ptr, ptr %4, align 8
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = call zeroext i1 @HaveRegisteredOrActiveSnapshot() #6
   br i1 %22, label %get_toast_snapshot.exit, label %23
@@ -650,7 +649,7 @@ get_toast_snapshot.exit:                          ; preds = %14
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   call void @index_close(ptr noundef %37, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -706,7 +705,7 @@ define dso_local i32 @toast_get_valid_index(i32 noundef %0, i32 noundef %1) loca
   %6 = call i32 @toast_open_indexes(ptr noundef %5, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %7 = load ptr, ptr %4, align 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
@@ -720,7 +719,7 @@ define dso_local i32 @toast_get_valid_index(i32 noundef %0, i32 noundef %1) loca
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   tail call void @index_close(ptr noundef %16, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

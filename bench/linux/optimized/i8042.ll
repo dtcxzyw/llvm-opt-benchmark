@@ -1224,7 +1224,7 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
 
 253:                                              ; preds = %253, %i8042_create_aux_port.exit
   %254 = phi i64 [ 1, %i8042_create_aux_port.exit ], [ %257, %253 ]
-  %255 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %254
+  %255 = getelementptr [16 x i8], ptr @i8042_ports, i64 %254
   %256 = load ptr, ptr %255, align 16
   call void @kfree(ptr noundef %256) #10
   store ptr null, ptr %255, align 16
@@ -1336,7 +1336,7 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
 
 315:                                              ; preds = %.preheader, %329
   %316 = phi i64 [ %330, %329 ], [ 0, %.preheader ]
-  %317 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %316
+  %317 = getelementptr [16 x i8], ptr @i8042_ports, i64 %316
   %318 = load ptr, ptr %317, align 16
   %319 = icmp eq ptr %318, null
   br i1 %319, label %329, label %320
@@ -1364,7 +1364,7 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
 
 333:                                              ; preds = %333, %.thread32
   %334 = phi i64 [ 1, %.thread32 ], [ %337, %333 ]
-  %335 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %334
+  %335 = getelementptr [16 x i8], ptr @i8042_ports, i64 %334
   %336 = load ptr, ptr %335, align 16
   call void @kfree(ptr noundef %336) #10
   store ptr null, ptr %335, align 16
@@ -1409,7 +1409,7 @@ define internal void @i8042_remove(ptr readnone captures(none) %0) #0 align 16 {
 
 2:                                                ; preds = %8, %1
   %3 = phi i64 [ 0, %1 ], [ %9, %8 ]
-  %4 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %3
+  %4 = getelementptr [16 x i8], ptr @i8042_ports, i64 %3
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -1636,7 +1636,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @i8042_flush() unnamed_addr 
 define internal fastcc noundef range(i32 -12, 1) i32 @i8042_create_aux_port(i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @llvm.smax.i32(i32 %0, i32 -1)
   %3 = sext i32 %2 to i64
-  %4 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %3
+  %4 = getelementptr [16 x i8], ptr @i8042_ports, i64 %3
   %5 = getelementptr i8, ptr %4, i64 32
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 88), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 1096) #13
@@ -1968,7 +1968,7 @@ define internal range(i32 0, 2) i32 @i8042_interrupt(i32 noundef %0, ptr readnon
   %76 = phi i8 [ %54, %52 ], [ %24, %60 ]
   %77 = phi i8 [ %55, %52 ], [ %6, %60 ]
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %78
+  %79 = getelementptr [16 x i8], ptr @i8042_ports, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = load i8, ptr %80, align 4, !range !5, !noundef !6
   %82 = icmp eq i8 %81, 0
@@ -2489,7 +2489,7 @@ define internal noundef i32 @i8042_pm_suspend(ptr readnone captures(none) %0) #0
 
 6:                                                ; preds = %.preheader, %24
   %7 = phi i64 [ %25, %24 ], [ 0, %.preheader ]
-  %8 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %7
+  %8 = getelementptr [16 x i8], ptr @i8042_ports, i64 %7
   %9 = load ptr, ptr %8, align 16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %24, label %11
@@ -2528,7 +2528,7 @@ define internal noundef range(i32 -19, 1) i32 @i8042_pm_resume(ptr readnone capt
 
 2:                                                ; preds = %20, %1
   %3 = phi i64 [ 0, %1 ], [ %21, %20 ]
-  %4 = getelementptr %struct.i8042_port, ptr @i8042_ports, i64 %3
+  %4 = getelementptr [16 x i8], ptr @i8042_ports, i64 %3
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %20, label %7

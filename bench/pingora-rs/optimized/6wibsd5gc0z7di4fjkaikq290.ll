@@ -1146,7 +1146,7 @@ common.resume:                                    ; preds = %33, %25, %96
   %43 = urem i64 %2, %16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !16, !noundef !16
-  %46 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %43
   call void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$8try_lock17h0fe21bfcb225424aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %46)
   %47 = load i64, ptr %7, align 8, !range !107, !noundef !16
   %48 = trunc nuw i64 %47 to i1
@@ -1172,7 +1172,7 @@ common.resume:                                    ; preds = %33, %25, %96
   %61 = load ptr, ptr %60, align 8, !nonnull !16, !noundef !16
   %62 = icmp ult i64 %53, 1152921504606846977
   tail call void @llvm.assume(i1 %62)
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %57
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %57
   %64 = load ptr, ptr %63, align 8, !nonnull !16, !align !68, !noundef !16
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %65, align 8
@@ -1355,7 +1355,7 @@ common.resume:                                    ; preds = %65, %.body, %18
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %12, align 8, !nonnull !16, !noundef !16
-  %26 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %25, i64 %11
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %11
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$8try_lock17h0fe21bfcb225424aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %26)
           to label %28 unwind label %.loopexit
 
@@ -1402,7 +1402,7 @@ common.resume:                                    ; preds = %65, %.body, %18
 44:                                               ; preds = %39, %31
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %46 = load ptr, ptr %45, align 8, !alias.scope !121, !noalias !124, !nonnull !16, !noundef !16
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %36
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %36
   store ptr %1, ptr %47, align 8, !noalias !124
   %48 = add i64 %36, 1
   store i64 %48, ptr %35, align 8, !alias.scope !121, !noalias !124
@@ -3373,10 +3373,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !16, !align !227, !noundef !16
   %.val = load i8, ptr %2, align 1, !range !228, !noundef !16
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE.118", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ac97a7886a9047bE.118", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4276,7 +4276,7 @@ define hidden noundef align 4 dereferenceable_or_null(32) ptr @"_ZN54_$LT$$u5b$T
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %0, i64 %.sroa.01.0
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.sroa.01.0
   br label %7
 
 18:                                               ; preds = %14
@@ -7506,7 +7506,7 @@ define { ptr, ptr } @"_ZN135_$LT$pingora_core..modules..http..compression..Respo
 
 5:                                                ; preds = %5, %1
   %6 = phi i64 [ 0, %1 ], [ %8, %5 ]
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %6
   store i32 %4, ptr %7, align 4
   %8 = add nuw nsw i64 %6, 1
   %exitcond.not.i = icmp eq i64 %8, 5
@@ -7597,7 +7597,7 @@ define void @_ZN12pingora_core9protocols4http11compression22ResponseCompressionC
 
 6:                                                ; preds = %4, %6
   %7 = phi i64 [ 0, %4 ], [ %9, %6 ]
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4
   %9 = add nuw nsw i64 %7, 1
   %exitcond.not = icmp eq i64 %9, 5
@@ -7722,7 +7722,7 @@ define void @_ZN12pingora_core9protocols4http11compression22ResponseCompressionC
 
 13:                                               ; preds = %11, %13
   %14 = phi i64 [ 0, %11 ], [ %16, %13 ]
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   store i32 %1, ptr %15, align 4
   %16 = add nuw nsw i64 %14, 1
   %exitcond.not = icmp eq i64 %16, 5
@@ -7756,7 +7756,7 @@ define void @_ZN12pingora_core9protocols4http11compression22ResponseCompressionC
 12:                                               ; preds = %3
   %13 = zext nneg i8 %1 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %13
   store i32 %2, ptr %15, align 4
   ret void
 }
@@ -8775,7 +8775,7 @@ default.unreachable158:                           ; preds = %236, %202
   %215 = load i8, ptr %198, align 1, !range !277, !noundef !16
   store i8 %215, ptr %22, align 1
   %216 = zext nneg i8 %215 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %.ptr113, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %.ptr113, i64 %216
   %218 = load i32, ptr %217, align 4, !noundef !16
   %219 = call { ptr, ptr } @_ZN12pingora_core9protocols4http11compression9Algorithm10compressor17h5d3f663e2aca38b1E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %22, i32 noundef %218)
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 49
@@ -8827,10 +8827,10 @@ default.unreachable158:                           ; preds = %236, %202
 switch.lookup:                                    ; preds = %236
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !773
   %238 = zext nneg i8 %.val47 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 %238
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 %238
   %switch.load = load i64, ptr %switch.gep, align 8
   %239 = zext nneg i8 %.val47 to i64
-  %switch.gep183 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 %239
+  %switch.gep183 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 %239
   %switch.load184 = load ptr, ptr %switch.gep183, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !776)
   call void @llvm.experimental.noalias.scope.decl(metadata !779)
@@ -9507,10 +9507,10 @@ define { ptr, i64 } @_ZN12pingora_core9protocols4http11compression9Algorithm6as_
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !277, !noundef !16
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12pingora_core9protocols4http11compression9Algorithm6as_str17h593879390733f89aE.120, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -10118,7 +10118,7 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
   %103 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 122)
   %104 = icmp eq <16 x i8> %.val.i.i.i, splat (i8 112)
   %narrow.i.i.i = select <16 x i1> %103, <16 x i1> %104, <16 x i1> zeroinitializer
-  %105 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.023.044.i.i
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.023.044.i.i
   store <16 x i1> %narrow.i.i.i, ptr %105, align 2, !noalias !902
   %exitcond.not.i.i = icmp eq i64 %99, 4
   br i1 %exitcond.not.i.i, label %.preheader42.i.i, label %98
@@ -10136,7 +10136,7 @@ define internal fastcc noundef zeroext i1 @_ZN12pingora_core9protocols4http11com
   %111 = phi i64 [ %116, %115 ], [ 1, %98 ]
   %.sroa.028.046.i.i = phi i64 [ %111, %115 ], [ 0, %98 ]
   %.sroa.014.245.i.i = phi i8 [ %.sroa.014.3.i.i, %115 ], [ 0, %98 ]
-  %112 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.046.i.i
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.028.046.i.i
   %113 = load i16, ptr %112, align 2, !noalias !902, !noundef !16
   %114 = icmp eq i16 %113, 0
   br i1 %114, label %115, label %117

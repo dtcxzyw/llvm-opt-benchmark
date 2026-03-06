@@ -45,7 +45,7 @@ define dso_local void @read_color_map(ptr noundef %0, ptr noundef captures(none)
 22:                                               ; preds = %30, %21
   %indvars.iv.i = phi i64 [ 1, %21 ], [ %indvars.iv.next.i, %30 ]
   %23 = tail call i32 @getc(ptr noundef %1)
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %23, ptr %24, align 4, !tbaa !42
   %25 = icmp eq i32 %23, -1
   br i1 %25, label %26, label %30

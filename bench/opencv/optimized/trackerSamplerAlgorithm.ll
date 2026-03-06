@@ -28,8 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.1" = type { %"class.std::__shared_ptr.2" }
 %"class.std::__shared_ptr.2" = type { ptr, %"class.std::__shared_count" }
 %"class.cv::TermCriteria" = type { i32, i32, double }
-%"class.cv::Vec.4" = type { %"class.cv::Matx.5" }
-%"class.cv::Matx.5" = type { [3 x float] }
 %"class.cv::Rect_" = type { i32, i32, i32, i32 }
 %"class.cv::TrackingFunctionPF::TrackingHistogram" = type { %"class.cv::Mat_", %"class.cv::Mat_" }
 %"struct.cv::Ptr.9" = type { %"class.std::shared_ptr.10" }
@@ -504,7 +502,7 @@ define hidden void @_ZNK2cv8PFSolver11getOptParamERKNS_12_OutputArrayE(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !51
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !51
   %41 = load ptr, ptr %24, align 8, !tbaa !50
-  %42 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load double, ptr %42, align 8, !tbaa !45
   %44 = fneg double %43
   %45 = call double @exp(double noundef %44) #30, !tbaa !42
@@ -699,7 +697,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN2cv8PFSolver9i
   %62 = phi i32 [ %68, %._crit_edge ], [ %48, %.lr.ph93 ]
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %._crit_edge ], [ 0, %.lr.ph93 ]
   %63 = load ptr, ptr %43, align 8, !tbaa !50
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv118
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv118
   %65 = load double, ptr %64, align 8, !tbaa !45
   %66 = icmp sgt i32 %62, 0
   br i1 %66, label %.lr.ph, label %._crit_edge
@@ -724,7 +722,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN2cv8PFSolver9i
   %74 = load i64, ptr %73, align 8, !tbaa !36
   %75 = mul i64 %74, %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 %75
-  %77 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv118
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv118
   %78 = load double, ptr %77, align 8, !tbaa !45
   %79 = fadd double %71, %78
   store double %79, ptr %77, align 8, !tbaa !45
@@ -804,7 +802,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN2cv8PFSolver9i
 114:                                              ; preds = %107
   %115 = fneg double %113
   %116 = load ptr, ptr %60, align 8, !tbaa !50
-  %117 = getelementptr inbounds nuw double, ptr %116, i64 %indvars.iv121
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv121
   store double %115, ptr %117, align 8, !tbaa !45
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -833,7 +831,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN2cv8PFSolver9i
   %126 = load i32, ptr %93, align 8, !tbaa !44
   %127 = sitofp i32 %126 to double
   %128 = load ptr, ptr %94, align 8, !tbaa !50
-  %129 = getelementptr inbounds nuw double, ptr %128, i64 %indvars.iv124
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv124
   %130 = load double, ptr %129, align 8, !tbaa !45
   %131 = fneg double %130
   %132 = call double @exp(double noundef %131) #30, !tbaa !42
@@ -1253,7 +1251,7 @@ define linkonce_odr hidden void @_ZN2cv8PFSolver9normalizeERNS_4Mat_IdEE(ptr nou
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.01213 = phi double [ 0.000000e+00, %.lr.ph ], [ %46, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !45
   %45 = call double @exp(double noundef %44) #30, !tbaa !42
   %46 = fadd double %.01213, %45
@@ -2752,7 +2750,7 @@ _ZN2cv4Mat_IdEaSEOS1_.exit75:                     ; preds = %44
 
 71:                                               ; preds = %.preheader.us, %96
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %96 ]
-  %72 = getelementptr inbounds nuw %"class.cv::Vec.4", ptr %67, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load float, ptr %73, align 4, !tbaa !122
   %75 = fpext float %74 to double
@@ -2790,7 +2788,7 @@ _ZN2cv4Mat_IdEaSEOS1_.exit75:                     ; preds = %44
   %.sink = phi i32 [ %91, %83 ], [ %.67.us, %._crit_edge ]
   %.sink94 = phi ptr [ %95, %83 ], [ %68, %._crit_edge ]
   %97 = sext i32 %.sink to i64
-  %98 = getelementptr inbounds double, ptr %.sink94, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %.sink94, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !45
   %100 = fadd double %99, 1.000000e+00
   store double %100, ptr %98, align 8, !tbaa !45
@@ -3018,9 +3016,9 @@ define hidden noundef double @_ZNK2cv18TrackingFunctionPF17TrackingHistogram4dis
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.121 = phi double [ %.01923, %.lr.ph ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %39 = load double, ptr %38, align 8, !tbaa !45
-  %40 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !45
   %42 = fmul double %39, %41
   %43 = tail call double @sqrt(double noundef %42) #30, !tbaa !42
@@ -3039,9 +3037,9 @@ define hidden noundef double @_ZNK2cv18TrackingFunctionPF17TrackingHistogram4dis
 49:                                               ; preds = %.lr.ph28, %49
   %indvars.iv37 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next38, %49 ]
   %.226 = phi double [ %.019.lcssa, %.lr.ph28 ], [ %56, %49 ]
-  %50 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv37
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv37
   %51 = load double, ptr %50, align 8, !tbaa !45
-  %52 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv37
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv37
   %53 = load double, ptr %52, align 8, !tbaa !45
   %54 = fmul double %51, %53
   %55 = tail call double @sqrt(double noundef %54) #30, !tbaa !42
@@ -3176,9 +3174,9 @@ define hidden noundef double @_ZNK2cv18TrackingFunctionPF4calcEPKd(ptr noundef n
 70:                                               ; preds = %70, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
   %.121.i = phi double [ %.01923.i, %.lr.ph.i ], [ %77, %70 ]
-  %71 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   %72 = load double, ptr %71, align 8, !tbaa !45
-  %73 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   %74 = load double, ptr %73, align 8, !tbaa !45
   %75 = fmul double %72, %74
   %76 = call double @sqrt(double noundef %75) #30, !tbaa !42
@@ -3192,9 +3190,9 @@ define hidden noundef double @_ZNK2cv18TrackingFunctionPF4calcEPKd(ptr noundef n
 81:                                               ; preds = %81, %.lr.ph28.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph28.i ], [ %indvars.iv.next38.i, %81 ]
   %.226.i = phi double [ %.019.lcssa.i, %.lr.ph28.i ], [ %88, %81 ]
-  %82 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv37.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv37.i
   %83 = load double, ptr %82, align 8, !tbaa !45
-  %84 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv37.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv37.i
   %85 = load double, ptr %84, align 8, !tbaa !45
   %86 = fmul double %83, %85
   %87 = call double @sqrt(double noundef %86) #30, !tbaa !42
@@ -4226,7 +4224,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %10, %._ZNSt6vectorI
   br i1 %54, label %55, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit73
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw %"class.cv::Mat", ptr %47, i64 %49
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %47, i64 %49
   %.not.i.i67 = icmp eq ptr %48, %56
   br i1 %.not.i.i67, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit73, label %.lr.ph.i.i.i.i.i68
 
@@ -4289,7 +4287,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i71: ; preds = %.lr.ph.i.i.i.i
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %78
   %79 = sext i32 %.1113 to i64
   %80 = load ptr, ptr %0, align 8, !tbaa !165
-  %81 = getelementptr inbounds nuw %"class.cv::Mat", ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [96 x i8], ptr %80, i64 %79
   %82 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %83 unwind label %87
 
@@ -4719,7 +4717,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %53
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit.preheader:     ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ]
   %60 = load ptr, ptr %0, align 8, !tbaa !165
-  %61 = getelementptr inbounds nuw %"class.cv::Mat", ptr %60, i64 %indvars.iv145
+  %61 = getelementptr inbounds nuw [96 x i8], ptr %60, i64 %indvars.iv145
   %62 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %61, ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit unwind label %63
 
@@ -5046,7 +5044,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit106:            ; preds = %138
 _ZNK2cv3MatclERKNS_5Rect_IiEE.exit108:            ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %180 = load ptr, ptr %0, align 8, !tbaa !165
-  %181 = getelementptr inbounds nuw %"class.cv::Mat", ptr %180, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [96 x i8], ptr %180, i64 %indvars.iv
   %182 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %181, ptr noundef nonnull align 8 dereferenceable(96) %16)
           to label %183 unwind label %189
 
@@ -7004,9 +7002,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %33
   store ptr %27, ptr %0, align 8, !tbaa !165
-  %34 = getelementptr inbounds nuw %"class.cv::Mat", ptr %28, i64 %1
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !168
-  %35 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %25
   store ptr %35, ptr %11, align 8, !tbaa !169
   br label %36
 
@@ -7032,7 +7030,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !36
   br label %16
@@ -7401,7 +7399,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !165
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !168
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !169
   ret void
 }

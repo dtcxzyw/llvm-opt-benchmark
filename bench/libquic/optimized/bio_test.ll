@@ -330,7 +330,7 @@ _ZL17TestSocketConnectv.exit:                     ; preds = %100
 .preheader.i:                                     ; preds = %108, %149
   %.01738.i = phi i64 [ %150, %149 ], [ 0, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %111 = getelementptr inbounds nuw i64, ptr @_ZZL10TestPrintfvE8kLengths, i64 %.01738.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL10TestPrintfvE8kLengths, i64 %.01738.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %20, i8 97, i64 1024, i1 false)
   %112 = load i64, ptr %111, align 8, !tbaa !20
   %113 = getelementptr inbounds nuw i8, ptr %20, i64 %112
@@ -481,7 +481,7 @@ _ZL10TestPrintfv.exit:                            ; preds = %.loopexit54.i
 
 .preheader.i5:                                    ; preds = %158, %.critedge68.i
   %.058141.i = phi i64 [ %283, %.critedge68.i ], [ 0, %158 ]
-  %163 = getelementptr inbounds nuw i64, ptr @__const._ZL20TestZeroCopyBioPairsv.kLengths, i64 %.058141.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL20TestZeroCopyBioPairsv.kLengths, i64 %.058141.i
   br label %164
 
 164:                                              ; preds = %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit89.i, %.preheader.i5
@@ -564,7 +564,7 @@ _ZL10TestPrintfv.exit:                            ; preds = %.loopexit54.i
 
 194:                                              ; preds = %189
   %195 = load ptr, ptr %13, align 8, !tbaa !15
-  %196 = getelementptr inbounds nuw i64, ptr @__const._ZL20TestZeroCopyBioPairsv.kPartialLengths, i64 %.052140.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL20TestZeroCopyBioPairsv.kPartialLengths, i64 %.052140.i
   %197 = load i64, ptr %196, align 8, !tbaa !20
   %198 = trunc i64 %197 to i32
   %199 = invoke i32 @BIO_read(ptr noundef %195, ptr noundef nonnull %11, i32 noundef %198)

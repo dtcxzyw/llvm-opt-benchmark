@@ -504,7 +504,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %72 unwind label %93
 
 72:                                               ; preds = %.preheader
-  %73 = getelementptr inbounds nuw %"class.cv::Mat", ptr %4, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [96 x i8], ptr %4, i64 %indvars.iv
   %74 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %73, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %75 unwind label %95
 
@@ -522,7 +522,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %78 unwind label %98
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %indvars.iv
   %80 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %79, ptr noundef nonnull align 8 dereferenceable(96) %13)
           to label %81 unwind label %100
 
@@ -726,7 +726,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
 
 141:                                              ; preds = %140, %150
   %indvars.iv101 = phi i64 [ 0, %140 ], [ %indvars.iv.next102, %150 ]
-  %142 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS_3MatES2_.neighborhoods, i64 %indvars.iv101
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN2cv8saliency25StaticSaliencyFineGrained20calcIntensityChannelENS_3MatES2_.neighborhoods, i64 %indvars.iv101
   %143 = load i32, ptr %142, align 4, !tbaa !53
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %23, ptr noundef nonnull align 8 dereferenceable(96) %8)
           to label %144 unwind label %.loopexit
@@ -736,12 +736,12 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %48
           to label %145 unwind label %157
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw %"class.cv::Mat", ptr %4, i64 %indvars.iv101
+  %146 = getelementptr inbounds nuw [96 x i8], ptr %4, i64 %indvars.iv101
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %25, ptr noundef nonnull align 8 dereferenceable(96) %146)
           to label %147 unwind label %159
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw %"class.cv::Mat", ptr %5, i64 %indvars.iv101
+  %148 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %indvars.iv101
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(96) %148)
           to label %149 unwind label %161
 
@@ -1195,19 +1195,19 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %84 = mul i64 %82, %83
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 %84
   %86 = sext i32 %.sroa.0.0.i to i64
-  %87 = getelementptr inbounds float, ptr %85, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %85, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !58
   %89 = sext i32 %.sroa.1028.0.i to i64
   %90 = mul i64 %82, %89
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 %90
   %92 = sext i32 %.sroa.024.0.i to i64
-  %93 = getelementptr inbounds float, ptr %91, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %91, i64 %92
   %94 = load float, ptr %93, align 4, !tbaa !58
   %95 = fadd float %88, %94
-  %96 = getelementptr inbounds float, ptr %85, i64 %92
+  %96 = getelementptr inbounds [4 x i8], ptr %85, i64 %92
   %97 = load float, ptr %96, align 4, !tbaa !58
   %98 = fsub float %95, %97
-  %99 = getelementptr inbounds float, ptr %91, i64 %86
+  %99 = getelementptr inbounds [4 x i8], ptr %91, i64 %86
   %100 = load float, ptr %99, align 4, !tbaa !58
   %101 = fsub float %98, %100
   %102 = uitofp i8 %55 to float
@@ -1349,10 +1349,10 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
 
 .preheader108.us.us:                              ; preds = %.preheader108.us.us.preheader, %._crit_edge116.split.us.us.us
   %indvars.iv149 = phi i64 [ 0, %.preheader108.us.us.preheader ], [ %indvars.iv.next150, %._crit_edge116.split.us.us.us ]
-  %37 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1, i64 %indvars.iv149
+  %37 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %indvars.iv149
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %40 = getelementptr inbounds nuw %"class.cv::Mat", ptr %3, i64 %indvars.iv149
+  %40 = getelementptr inbounds nuw [96 x i8], ptr %3, i64 %indvars.iv149
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %43 = load ptr, ptr %32, align 8
@@ -1389,11 +1389,11 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
   %68 = load i8, ptr %67, align 1, !tbaa !14
   %69 = zext i8 %68 to i16
-  %70 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv
   %71 = load i16, ptr %70, align 2, !tbaa !63
   %72 = add i16 %71, %66
   store i16 %72, ptr %70, align 2, !tbaa !63
-  %73 = getelementptr inbounds nuw i16, ptr %62, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %indvars.iv
   %74 = load i16, ptr %73, align 2, !tbaa !63
   %75 = add i16 %74, %69
   store i16 %75, ptr %73, align 2, !tbaa !63
@@ -1446,9 +1446,9 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %indvars.iv153 = phi i64 [ 0, %.preheader105.us ], [ %indvars.iv.next154, %92 ]
   %.173129.us = phi i32 [ %.072133.us, %.preheader105.us ], [ %.274.us, %92 ]
   %.176128.us = phi i32 [ %.075132.us, %.preheader105.us ], [ %spec.select101.us, %92 ]
-  %93 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv153
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %indvars.iv153
   %94 = load i16, ptr %93, align 2, !tbaa !63
-  %95 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv153
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv153
   %96 = load i16, ptr %95, align 2, !tbaa !63
   %97 = sext i16 %96 to i32
   %spec.select101.us = call i32 @llvm.smax.i32(i32 %.176128.us, i32 %97)
@@ -1506,7 +1506,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %118 = load i64, ptr %117, align 8, !tbaa !57
   %119 = mul i64 %118, %indvars.iv168
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
-  %121 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv163
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %120, i64 %indvars.iv163
   %122 = load i16, ptr %121, align 2, !tbaa !63
   %123 = uitofp i16 %122 to float
   %124 = fdiv float %123, %105
@@ -1525,7 +1525,7 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained9mixScalesEPNS_3MatES2_S3
   %136 = load i64, ptr %135, align 8, !tbaa !57
   %137 = mul i64 %136, %indvars.iv168
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 %137
-  %139 = getelementptr inbounds nuw i16, ptr %138, i64 %indvars.iv163
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %138, i64 %indvars.iv163
   %140 = load i16, ptr %139, align 2, !tbaa !63
   %141 = uitofp i16 %140 to float
   %142 = fdiv float %141, %106
@@ -1788,19 +1788,19 @@ define noundef float @_ZN2cv8saliency25StaticSaliencyFineGrained7getMeanENS_3Mat
   %44 = mul i64 %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
   %46 = sext i32 %.sroa.0.0 to i64
-  %47 = getelementptr inbounds float, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !58
   %49 = sext i32 %.sroa.1028.0 to i64
   %50 = mul i64 %42, %49
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 %50
   %52 = sext i32 %.sroa.024.0 to i64
-  %53 = getelementptr inbounds float, ptr %51, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %51, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !58
   %55 = fadd float %48, %54
-  %56 = getelementptr inbounds float, ptr %45, i64 %52
+  %56 = getelementptr inbounds [4 x i8], ptr %45, i64 %52
   %57 = load float, ptr %56, align 4, !tbaa !58
   %58 = fsub float %55, %57
-  %59 = getelementptr inbounds float, ptr %51, i64 %46
+  %59 = getelementptr inbounds [4 x i8], ptr %51, i64 %46
   %60 = load float, ptr %59, align 4, !tbaa !58
   %61 = fsub float %58, %60
   %62 = sitofp i32 %4 to float

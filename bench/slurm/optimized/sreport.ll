@@ -696,7 +696,7 @@ _build_tres_list.exit:                            ; preds = %182, %.loopexit.i
 219:                                              ; preds = %_build_tres_list.exit
   %220 = sub nsw i32 %0, %217
   %221 = sext i32 %217 to i64
-  %222 = getelementptr inbounds ptr, ptr %1, i64 %221
+  %222 = getelementptr inbounds [8 x i8], ptr %1, i64 %221
   call fastcc void @_process_command(i32 noundef %220, ptr noundef nonnull %222)
   br label %292
 
@@ -775,7 +775,7 @@ _get_command.exit.thread85:                       ; preds = %225
   %252 = tail call ptr @__ctype_b_loc() #23
   %253 = load ptr, ptr %252, align 8
   %254 = sext i8 %249 to i64
-  %255 = getelementptr inbounds i16, ptr %253, i64 %254
+  %255 = getelementptr inbounds [2 x i8], ptr %253, i64 %254
   %256 = load i16, ptr %255, align 2
   %257 = and i16 %256, 8192
   %.not56.i = icmp eq i16 %257, 0
@@ -795,7 +795,7 @@ _get_command.exit.thread:                         ; preds = %258
 263:                                              ; preds = %258
   %264 = add nsw i32 %.0, 1
   %265 = sext i32 %.0 to i64
-  %266 = getelementptr inbounds ptr, ptr %224, i64 %265
+  %266 = getelementptr inbounds [8 x i8], ptr %224, i64 %265
   store ptr %248, ptr %266, align 8
   %.267.i = add nsw i32 %.04573.i, 1
   %267 = icmp slt i32 %.267.i, %.044.i
@@ -832,7 +832,7 @@ _get_command.exit.thread:                         ; preds = %258
 276:                                              ; preds = %275
   %277 = load ptr, ptr %252, align 8
   %278 = sext i8 %270 to i64
-  %279 = getelementptr inbounds i16, ptr %277, i64 %278
+  %279 = getelementptr inbounds [2 x i8], ptr %277, i64 %278
   %280 = load i16, ptr %279, align 2
   %281 = and i16 %280, 8192
   %.not57.i = icmp eq i16 %281, 0

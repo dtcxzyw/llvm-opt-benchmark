@@ -40,7 +40,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %24 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %24, -1
   %25 = sext i32 %narrow to i64
-  %26 = getelementptr inbounds double, ptr %5, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %5, i64 %25
   %27 = getelementptr inbounds i8, ptr %7, i64 -8
   store i32 0, ptr %12, align 4, !tbaa !3
   %28 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
@@ -148,7 +148,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %67 ]
   %.0196294 = phi ptr [ %.1197.lcssa, %._crit_edge ], [ %18, %67 ]
   %.0200293 = phi i32 [ %77, %._crit_edge ], [ 2, %67 ]
-  %75 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !3
   %spec.select241 = tail call i32 @llvm.smin.i32(i32 %76, i32 %.0200293)
   %77 = sub nsw i32 %.0200293, %spec.select241
@@ -156,7 +156,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph296
-  %79 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !7
   %81 = zext nneg i32 %spec.select241 to i64
   %82 = getelementptr i8, ptr %.0196294, i64 %81
@@ -273,7 +273,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %._crit_edge308 ], [ 0, %114 ]
   %.0312 = phi ptr [ %.1.lcssa, %._crit_edge308 ], [ %18, %114 ]
   %.0191311 = phi i32 [ %126, %._crit_edge308 ], [ 2, %114 ]
-  %124 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv331
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv331
   %125 = load i32, ptr %124, align 4, !tbaa !3
   %spec.select242 = call i32 @llvm.smin.i32(i32 %125, i32 %.0191311)
   %126 = sub nsw i32 %.0191311, %spec.select242
@@ -281,7 +281,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %127, label %.lr.ph307.preheader, label %._crit_edge308
 
 .lr.ph307.preheader:                              ; preds = %.lr.ph314
-  %128 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv331
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv331
   %129 = load ptr, ptr %128, align 8, !tbaa !7
   %130 = zext nneg i32 %spec.select242 to i64
   %131 = getelementptr i8, ptr %.0312, i64 %130
@@ -361,7 +361,7 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph324:                                        ; preds = %150
   %156 = add i32 %.0208247, -1
   %157 = zext nneg i32 %143 to i64
-  %158 = getelementptr double, ptr %10, i64 %157
+  %158 = getelementptr [8 x i8], ptr %10, i64 %157
   %159 = sext i32 %.0214 to i64
   %160 = sext i32 %.0212 to i64
   %161 = sext i32 %24 to i64
@@ -383,9 +383,9 @@ define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %170 = add i32 %169, %167
   store i32 %170, ptr %17, align 4, !tbaa !3
   %171 = mul nsw i64 %indvars.iv334, %161
-  %172 = getelementptr double, ptr %26, i64 %171
+  %172 = getelementptr [8 x i8], ptr %26, i64 %171
   %173 = getelementptr i8, ptr %172, i64 8
-  %174 = getelementptr inbounds double, ptr %27, i64 %indvars.iv334
+  %174 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv334
   call void @dlarft_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %17, ptr noundef nonnull %20, ptr noundef %173, ptr noundef nonnull %6, ptr noundef nonnull %174, ptr noundef %158, ptr noundef nonnull @c__65) #5
   %175 = load i32, ptr %4, align 4, !tbaa !3
   %176 = load i32, ptr %20, align 4, !tbaa !3

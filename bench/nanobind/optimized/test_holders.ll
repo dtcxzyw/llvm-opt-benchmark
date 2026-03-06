@@ -8066,7 +8066,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11list_casterI
 
 20:                                               ; preds = %.lr.ph, %_ZNSt4pairISt10unique_ptrI7ExampleSt14default_deleteIS1_EES4_ED2Ev.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %35, %_ZNSt4pairISt10unique_ptrI7ExampleSt14default_deleteIS1_EES4_ED2Ev.exit ]
-  %21 = getelementptr inbounds nuw ptr, ptr %9, i64 %.012
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.012
   %22 = load ptr, ptr %21, align 8, !tbaa !115
   %23 = call noundef zeroext i1 @_ZN8nanobind6detail11type_casterISt4pairISt10unique_ptrI7ExampleSt14default_deleteIS4_EES7_EiE11from_pythonENS_6handleEhPNS0_12cleanup_listE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr %22, i8 noundef zeroext %2, ptr noundef %3) #26
   br i1 %23, label %24, label %._crit_edge
@@ -8214,7 +8214,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11list_casterISt6vectorISt4pa
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !350
   %23 = add nuw nsw i64 %.01428, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %.01428
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.01428
   store ptr %16, ptr %24, align 8, !tbaa !115
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 16
   %.not24 = icmp eq ptr %25, %15
@@ -8339,7 +8339,7 @@ _ZNSt12_Vector_baseISt4pairISt10unique_ptrI7ExampleSt14default_deleteIS2_EES5_ES
   store ptr %18, ptr %0, align 8, !tbaa !339
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 %17
   store ptr %33, ptr %14, align 8, !tbaa !342
-  %34 = getelementptr inbounds nuw %"struct.std::pair.427", ptr %18, i64 %1
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %1
   store ptr %34, ptr %6, align 8, !tbaa !343
   br label %35
 
@@ -8734,7 +8734,7 @@ _ZNSt6vectorISt4pairISt10unique_ptrI7ExampleSt14default_deleteIS2_EES5_ESaIS6_EE
 _ZNSt12_Vector_baseISt4pairISt10unique_ptrI7ExampleSt14default_deleteIS2_EES5_ESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt4pairISt10unique_ptrI7ExampleSt14default_deleteIS2_EES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %30
   store ptr %10, ptr %0, align 8, !tbaa !339
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !342
-  %34 = getelementptr inbounds nuw %"struct.std::pair.427", ptr %10, i64 %3
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %3
   store ptr %34, ptr %29, align 8, !tbaa !343
   ret void
 }

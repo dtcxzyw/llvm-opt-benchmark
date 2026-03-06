@@ -913,7 +913,7 @@ define internal noundef i32 @dissect_iso7816_atr(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %76
   %78 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_iso7816_atr, i64 %78
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_iso7816_atr, i64 %78
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %79
 

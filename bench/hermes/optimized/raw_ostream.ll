@@ -2261,7 +2261,7 @@ if.then4.i26:                                     ; preds = %if.end.i24
   br label %for.inc
 
 if.end17:                                         ; preds = %if.end10
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %8, i64 %6
+  %add.ptr.i31 = getelementptr inbounds [8 x i8], ptr %8, i64 %6
   %12 = load ptr, ptr %add.ptr.i31, align 8
   %Where = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.035, i64 40
   %13 = load i32, ptr %Where, align 8

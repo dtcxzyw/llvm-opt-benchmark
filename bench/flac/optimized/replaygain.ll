@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DecoderInstance = type { i32, i32, i32, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
 
 @GRABBAG__REPLAYGAIN_MAX_TAG_SPACE_REQUIRED = dso_local local_unnamed_addr constant i32 190, align 4
 @.str = private unnamed_addr constant [30 x i8] c"REPLAYGAIN_REFERENCE_LOUDNESS\00", align 1
@@ -87,17 +86,17 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %.1127191 = phi i32 [ %.0126, %9 ], [ %26, %13 ]
   %.1142189 = phi i32 [ %.0141, %9 ], [ %27, %13 ]
   %14 = zext i32 %.1142189 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !11
   %17 = sitofp i32 %16 to float
-  %18 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv218
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv218
   store float %17, ptr %18, align 4, !tbaa !13
   %19 = tail call i32 @llvm.abs.i32(i32 %16, i1 true)
   %20 = tail call i32 @llvm.smax.i32(i32 %.1127191, i32 %19)
-  %21 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sitofp i32 %22 to float
-  %24 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.rbuffer, i64 %indvars.iv218
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @grabbag__replaygain_analyze.rbuffer, i64 %indvars.iv218
   store float %23, ptr %24, align 4, !tbaa !13
   %25 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
   %26 = tail call i32 @llvm.umax.i32(i32 %20, i32 %25)
@@ -130,10 +129,10 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %.3129194 = phi i32 [ %.2128, %31 ], [ %41, %34 ]
   %.3144192 = phi i32 [ %.2143, %31 ], [ %42, %34 ]
   %35 = zext i32 %.3144192 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !11
   %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv223
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv223
   store float %38, ptr %39, align 4, !tbaa !13
   %40 = tail call i32 @llvm.abs.i32(i32 %37, i1 true)
   %41 = tail call i32 @llvm.umax.i32(i32 %.3129194, i32 %40)
@@ -193,22 +192,22 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %.6132185 = phi i32 [ %.5131, %61 ], [ %86, %65 ]
   %.5146183 = phi i32 [ %.4145, %61 ], [ %87, %65 ]
   %66 = zext i32 %.5146183 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !11
   %69 = sitofp i32 %68 to double
   %70 = fmul double %58, %69
   %71 = fptrunc double %70 to float
-  %72 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv
   store float %71, ptr %72, align 4, !tbaa !13
   %73 = icmp eq i32 %68, -2147483648
   %74 = tail call i32 @llvm.abs.i32(i32 %68, i1 true)
   %75 = tail call i32 @llvm.smax.i32(i32 %.6132185, i32 %74)
-  %76 = getelementptr inbounds nuw i32, ptr %64, i64 %66
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %66
   %77 = load i32, ptr %76, align 4, !tbaa !11
   %78 = sitofp i32 %77 to double
   %79 = fmul double %58, %78
   %80 = fptrunc double %79 to float
-  %81 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.rbuffer, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr @grabbag__replaygain_analyze.rbuffer, i64 %indvars.iv
   store float %80, ptr %81, align 4, !tbaa !13
   %82 = icmp eq i32 %77, -2147483648
   %83 = tail call i32 @llvm.abs.i32(i32 %77, i1 true)
@@ -244,12 +243,12 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   %.10136188 = phi i32 [ %.9135, %91 ], [ %105, %94 ]
   %.7148186 = phi i32 [ %.6147, %91 ], [ %106, %94 ]
   %95 = zext i32 %.7148186 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !11
   %98 = sitofp i32 %97 to double
   %99 = fmul double %58, %98
   %100 = fptrunc double %99 to float
-  %101 = getelementptr inbounds nuw float, ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv213
+  %101 = getelementptr inbounds nuw [4 x i8], ptr @grabbag__replaygain_analyze.lbuffer, i64 %indvars.iv213
   store float %100, ptr %101, align 4, !tbaa !13
   %102 = icmp eq i32 %97, -2147483648
   %103 = tail call i32 @llvm.abs.i32(i32 %97, i1 true)
@@ -695,7 +694,7 @@ define internal fastcc ptr @store_to_file_pre_(ptr noundef %0, ptr noundef nonnu
   %9 = load ptr, ptr %1, align 8, !tbaa !42
   %10 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %9) #14
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__Metadata_ChainStatusString, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = load ptr, ptr %1, align 8, !tbaa !42
   tail call void @FLAC__metadata_chain_delete(ptr noundef %14) #14
@@ -754,7 +753,7 @@ define internal fastcc ptr @store_to_file_pre_(ptr noundef %0, ptr noundef nonnu
   %35 = load ptr, ptr %1, align 8, !tbaa !42
   %36 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %35) #14
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__Metadata_ChainStatusString, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !44
   %40 = load ptr, ptr %1, align 8, !tbaa !42
   tail call void @FLAC__metadata_chain_delete(ptr noundef %40) #14
@@ -786,7 +785,7 @@ define internal fastcc ptr @store_to_file_post_(ptr noundef %0, ptr noundef %1, 
 8:                                                ; preds = %3
   %9 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %1) #14
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @FLAC__Metadata_ChainStatusString, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @FLAC__Metadata_ChainStatusString, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #14
   br label %17
@@ -972,7 +971,7 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_load_from_vorbiscommen
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !39
   %25 = zext nneg i32 %20 to i64
-  %26 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1030,7 +1029,7 @@ parse_double_.exit:                               ; preds = %22, %safe_strncpy.e
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !39
   %57 = zext nneg i32 %49 to i64
-  %58 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -1075,7 +1074,7 @@ parse_double_.exit46.thread:                      ; preds = %54, %safe_strncpy.e
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %78 = load ptr, ptr %55, align 8, !tbaa !39
   %79 = zext nneg i32 %52 to i64
-  %80 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8

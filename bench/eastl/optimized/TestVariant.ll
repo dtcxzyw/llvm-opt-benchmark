@@ -1997,7 +1997,7 @@ if.end7.i.i.i.i:                                  ; preds = %for.body.i.i
   br i1 %cmp10.i.i.i.i, label %for.cond.backedge.i.i, label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %8
   %10 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i43 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %current.012.i.i, ptr noundef nonnull align 8 dereferenceable(40) %first.addr.011.i.i)
           to label %call1.i.i.i.i.i.i.i.noexc unwind label %lpad37.loopexit
@@ -2289,7 +2289,7 @@ entry:
   store i8 0, ptr %bVisited, align 1
   store ptr %bVisited, ptr %ref.tmp, align 8
   %0 = load i64, ptr %v, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl18visitor_caller_one10call_indexIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_JLm0ELm1ELm2EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers, i64 %0
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl18visitor_caller_one10call_indexIZ24TestVariantVisitNoInlineRKNS_7variantIJibjEEEE9MyVisitorS5_JLm0ELm1ELm2EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %v)
   %2 = load i8, ptr %bVisited, align 1
@@ -2309,7 +2309,7 @@ entry:
   store i8 0, ptr %bVisited, align 1
   store ptr %bVisited, ptr %ref.tmp, align 8
   %0 = load i64, ptr %v0, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE4callINS1_ImJEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE4callINS1_ImJEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %v0, ptr noundef nonnull align 8 dereferenceable(24) %v1)
   %2 = load i8, ptr %bVisited, align 1
@@ -2329,7 +2329,7 @@ entry:
   store i8 0, ptr %bVisited, align 1
   store ptr %bVisited, ptr %ref.tmp, align 8
   %0 = load i64, ptr %v0, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %v0, ptr noundef nonnull align 8 dereferenceable(24) %v1, ptr noundef nonnull align 8 dereferenceable(24) %v2)
   %2 = load i8, ptr %bVisited, align 1
@@ -2397,7 +2397,7 @@ invoke.cont14:                                    ; preds = %invoke.cont, %for.i
   store i64 %0, ptr %2, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr %__begin1.0.ptr, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %4
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %4
   %5 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(40) %__begin1.0.ptr)
           to label %for.inc unwind label %lpad13.loopexit.split-lp.loopexit
@@ -2473,7 +2473,7 @@ invoke.cont23:                                    ; preds = %for.end
   %14 = ptrtoint ptr %visitedValue to i64
   store i64 %14, ptr %ref.tmp18, align 8
   %15 = load i64, ptr %v, align 8
-  %arrayidx.i.i.i.i.i21 = getelementptr inbounds ptr, ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %15
+  %arrayidx.i.i.i.i.i21 = getelementptr inbounds [8 x i8], ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %15
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i21, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(40) %v)
           to label %invoke.cont24 unwind label %lpad13.loopexit.split-lp.loopexit.split-lp
@@ -2500,7 +2500,7 @@ invoke.cont44:                                    ; preds = %invoke.cont26, %for
   store i64 %18, ptr %20, align 8, !alias.scope !10
   store i64 %18, ptr %21, align 8, !alias.scope !10
   %22 = load i64, ptr %__begin130.0.ptr, align 8
-  %arrayidx.i.i.i.i.i22 = getelementptr inbounds ptr, ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %22
+  %arrayidx.i.i.i.i.i22 = getelementptr inbounds [8 x i8], ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %22
   %23 = load ptr, ptr %arrayidx.i.i.i.i.i22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(40) %__begin130.0.ptr)
           to label %for.inc46 unwind label %lpad13.loopexit
@@ -2520,7 +2520,7 @@ invoke.cont59:                                    ; preds = %for.end48
   store double 0.000000e+00, ptr %visitedValue53, align 8
   store ptr %visitedValue53, ptr %ref.tmp54, align 8
   %25 = load i64, ptr %v, align 8
-  %arrayidx.i.i.i.i.i23 = getelementptr inbounds ptr, ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %25
+  %arrayidx.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr @"__const._ZN5eastl18visitor_caller_one10call_indexINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEERNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %25
   %26 = load ptr, ptr %arrayidx.i.i.i.i.i23, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(40) %v)
           to label %invoke.cont64 unwind label %lpad13.loopexit.split-lp.loopexit.split-lp
@@ -2741,7 +2741,7 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr %arr, i64 %__begin1.0.idx207
   store ptr %count, ptr %ref.tmp7, align 8
   %0 = load i64, ptr %__begin1.0.ptr, align 8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr @"__const._ZN5eastl18visitor_caller_one10call_indexIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %0
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @"__const._ZN5eastl18visitor_caller_one10call_indexIZ18TestVariantVisitorvE3$_0RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT_OT0_NS_16integer_sequenceImJXspT1_EEEE.callers", i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(40) %__begin1.0.ptr)
           to label %for.inc unwind label %lpad8.loopexit.split-lp.loopexit
@@ -2803,7 +2803,7 @@ for.body20:                                       ; preds = %invoke.cont11, %for
   %__begin113.0.ptr = getelementptr inbounds nuw i8, ptr %arr, i64 %__begin113.0.idx208
   store ptr %count, ptr %ref.tmp22, align 8
   %7 = load i64, ptr %__begin113.0.ptr, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @"__const._ZN5eastl20visitor_caller_one_r12call_index_rIvZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT0_OT1_NS_16integer_sequenceImJXspT2_EEEE.callers", i64 %7
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @"__const._ZN5eastl20visitor_caller_one_r12call_index_rIvZ18TestVariantVisitorvE3$_1RNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEdlEEEJLm0ELm1ELm2ELm3EEEEDcOT0_OT1_NS_16integer_sequenceImJXspT2_EEEE.callers", i64 %7
   %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(40) %__begin113.0.ptr)
           to label %for.inc24 unwind label %lpad8.loopexit
@@ -2960,7 +2960,7 @@ _ZN5eastl7variantIJilNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %
 
 invoke.cont145:                                   ; preds = %_ZN5eastl7variantIJilNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit
   %19 = load i64, ptr %s, align 8
-  %arrayidx.i.i.i.i.i243 = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ18TestVariantVisitorvE15MultipleVisitorJRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES9_EE4callINS1_ImJLm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSE_OS3_S9_S9_.callers, i64 %19
+  %arrayidx.i.i.i.i.i243 = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ18TestVariantVisitorvE15MultipleVisitorJRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES9_EE4callINS1_ImJLm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSE_OS3_S9_S9_.callers, i64 %19
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i243, align 8
   %call6.i.i.i.i244 = invoke noundef nonnull align 1 dereferenceable(1) ptr %20(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147, ptr noundef nonnull align 8 dereferenceable(40) %i, ptr noundef nonnull align 8 dereferenceable(40) %s)
           to label %invoke.cont149 unwind label %lpad148
@@ -2972,7 +2972,7 @@ invoke.cont149:                                   ; preds = %invoke.cont145
 
 invoke.cont152:                                   ; preds = %invoke.cont149
   %21 = load i64, ptr %i, align 8
-  %arrayidx.i.i.i.i.i.i129 = getelementptr inbounds ptr, ptr @__const._ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE6call_rINS3_ImJEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT2_EiE4typeELi0EEEDcSF_OS1_SA_SA_.callers, i64 %21
+  %arrayidx.i.i.i.i.i.i129 = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE6call_rINS3_ImJEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT2_EiE4typeELi0EEEDcSF_OS1_SA_SA_.callers, i64 %21
   %22 = load ptr, ptr %arrayidx.i.i.i.i.i.i129, align 8
   %call6.i.i.i.i.i130 = invoke noundef nonnull align 1 dereferenceable(1) ptr %22(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef nonnull align 8 dereferenceable(40) %i, ptr noundef nonnull align 8 dereferenceable(40) %s)
           to label %invoke.cont156 unwind label %lpad148
@@ -4568,7 +4568,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE22invoke_visitor_recurseIJLm0EEEEvOS7_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants1, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE4callINS1_ImJLm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE4callINS1_ImJLm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1)
   ret void
@@ -4578,7 +4578,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE22invoke_visitor_recurseIJLm1EEEEvOS7_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants1, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE4callINS1_ImJLm1EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ25TestVariantVisit2NoInlineRKNS_7variantIJibEEES6_E9MyVisitorJS6_S6_EE4callINS1_ImJLm1EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1)
   ret void
@@ -4620,7 +4620,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE22invoke_visitor_recurseIJLm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants1, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm0EEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm0EEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3)
   ret void
@@ -4630,7 +4630,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE22invoke_visitor_recurseIJLm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants1, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm1EEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm1EEEETnNS_9enable_ifIXneplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3)
   ret void
@@ -4640,7 +4640,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE22invoke_visitor_recurseIJLm0ELm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants3, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm0ELm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm0ELm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3)
   ret void
@@ -4650,7 +4650,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE22invoke_visitor_recurseIJLm0ELm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants3, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callIS2_TnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSB_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callIS2_TnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSB_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3)
   ret void
@@ -4692,7 +4692,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE22invoke_visitor_recurseIJLm1ELm0EEEEvOS7_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants3, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm1ELm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm1ELm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3)
   ret void
@@ -4702,7 +4702,7 @@ entry:
 define internal void @_ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE22invoke_visitor_recurseIJLm1ELm1EEEEvOS7_S6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants3, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm1ELm1EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl16visitor_caller_nINS_16integer_sequenceImJLm0ELm1EEEEZ26TestVariantVisit3tNoInlineRKNS_7variantIJibEEES6_S6_E9MyVisitorJS6_S6_S6_EE4callINS1_ImJLm1ELm1EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT0_EiE4typeELi0EEEDcSC_OS7_S6_S6_S6_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %visitor, ptr noundef nonnull align 8 dereferenceable(24) %variants, ptr noundef nonnull align 8 dereferenceable(24) %variants1, ptr noundef nonnull align 8 dereferenceable(24) %variants3)
   ret void
@@ -5819,7 +5819,7 @@ _ZN5eastl11invoke_implIZ18TestVariantVisitorvE15MultipleVisitorJRNS_12basic_stri
 define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE17visitor_recurse_rIS2_JLm0EEE24invoke_visitor_recurse_rEOS1_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %visitor, ptr noundef nonnull align 8 dereferenceable(40) %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants1, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE6call_rINS3_ImJLm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT2_EiE4typeELi0EEEDcSF_OS1_SA_SA_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE6call_rINS3_ImJLm0EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT2_EiE4typeELi0EEEDcSF_OS1_SA_SA_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call6.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %1(ptr noundef nonnull align 1 dereferenceable(1) %visitor, ptr noundef nonnull align 8 dereferenceable(40) %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1)
   ret ptr %call6.i.i.i
@@ -5829,7 +5829,7 @@ entry:
 define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE17visitor_recurse_rIS2_JLm1EEE24invoke_visitor_recurse_rEOS1_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %visitor, ptr noundef nonnull align 8 dereferenceable(40) %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1) #1 align 2 {
 entry:
   %0 = load i64, ptr %variants1, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE6call_rINS3_ImJLm1EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT2_EiE4typeELi0EEEDcSF_OS1_SA_SA_.callers, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl18visitor_caller_n_rIRZ18TestVariantVisitorvE15MultipleVisitorNS_16integer_sequenceImJLm0ELm1EEEES1_JRNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEESA_EE6call_rINS3_ImJLm1EEEETnNS_9enable_ifIXeqplsr8internalE21index_sequence_size_vIT_ELi1EsZT2_EiE4typeELi0EEEDcSF_OS1_SA_SA_.callers, i64 %0
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call6.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %1(ptr noundef nonnull align 1 dereferenceable(1) %visitor, ptr noundef nonnull align 8 dereferenceable(40) %variants, ptr noundef nonnull align 8 dereferenceable(40) %variants1)
   ret ptr %call6.i.i.i
@@ -6317,7 +6317,7 @@ if.end7.i:                                        ; preds = %for.cond1
   br i1 %cmp10.i, label %for.end, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %4
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %4
   %6 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call1.i.i.i.i10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(40) %value, ptr noundef nonnull align 8 dereferenceable(40) %prev.0)
           to label %invoke.cont unwind label %lpad.loopexit
@@ -6470,7 +6470,7 @@ while.body:                                       ; preds = %entry, %_ZN5eastl6m
   %kRecursionCount.addr.021 = phi i64 [ %dec, %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit ], [ %kRecursionCount, %entry ]
   %sub.ptr.div = udiv exact i64 %sub.ptr.sub23, 40
   %div15 = lshr i64 %sub.ptr.div, 1
-  %add.ptr = getelementptr inbounds nuw %"class.eastl::variant.30", ptr %first, i64 %div15
+  %add.ptr = getelementptr inbounds nuw [40 x i8], ptr %first, i64 %div15
   %add.ptr7 = getelementptr inbounds i8, ptr %last.addr.022, i64 -40
   %1 = load i64, ptr %first, align 8
   %2 = load i64, ptr %add.ptr, align 8
@@ -6482,7 +6482,7 @@ if.end7.i.i.i:                                    ; preds = %while.body
   br i1 %cmp10.i.i.i, label %if.else9.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.i.i: ; preds = %if.end7.i.i.i
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %1
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %1
   %3 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %first, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
   br i1 %call1.i.i.i.i.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.then_crit_edge.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.if.else9_crit_edge.i.i
@@ -6506,7 +6506,7 @@ if.end7.i15.i.i:                                  ; preds = %if.then.i.i
   br i1 %cmp10.i16.i.i, label %if.else.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.i.i: ; preds = %if.end7.i15.i.i
-  %arrayidx.i.i.i.i18.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %4
+  %arrayidx.i.i.i.i18.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %4
   %6 = load ptr, ptr %arrayidx.i.i.i.i18.i.i, align 8
   %call1.i.i.i.i19.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
   br i1 %call1.i.i.i.i19.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit21.if.else_crit_edge.i.i
@@ -6526,7 +6526,7 @@ if.end7.i23.i.i:                                  ; preds = %if.else.i.i
   br i1 %cmp10.i24.i.i, label %if.else7.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit29.i.i: ; preds = %if.end7.i23.i.i
-  %arrayidx.i.i.i.i26.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %8
+  %arrayidx.i.i.i.i26.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %8
   %9 = load ptr, ptr %arrayidx.i.i.i.i26.i.i, align 8
   %call1.i.i.i.i27.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(40) %first, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
   br i1 %call1.i.i.i.i27.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.else7.i.i
@@ -6545,7 +6545,7 @@ if.end7.i31.i.i:                                  ; preds = %if.else9.i.i
   br i1 %cmp10.i32.i.i, label %if.else13.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.i.i: ; preds = %if.end7.i31.i.i
-  %arrayidx.i.i.i.i34.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %10
+  %arrayidx.i.i.i.i34.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %10
   %12 = load ptr, ptr %arrayidx.i.i.i.i34.i.i, align 8
   %call1.i.i.i.i35.i.i = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %first, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
   br i1 %call1.i.i.i.i35.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit37.if.else13_crit_edge.i.i
@@ -6565,7 +6565,7 @@ if.end7.i39.i.i:                                  ; preds = %if.else13.i.i
   br i1 %cmp10.i40.i.i, label %if.end18.i.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit45.i.i: ; preds = %if.end7.i39.i.i
-  %arrayidx.i.i.i.i42.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %14
+  %arrayidx.i.i.i.i42.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %14
   %15 = load ptr, ptr %arrayidx.i.i.i.i42.i.i, align 8
   %call1.i.i.i.i43.i.i = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr7)
   br i1 %call1.i.i.i.i43.i.i, label %_ZN5eastl6medianINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEEEOT_S7_S7_S7_.exit, label %if.end18.i.i
@@ -6653,7 +6653,7 @@ while.cond2.i.preheader:                          ; preds = %call1.i.i.i.i.i.noe
   br label %while.cond2.i
 
 if.end12.i.i:                                     ; preds = %if.end7.i.i
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %2
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %2
   %4 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %call1.i.i.i.i.i1 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(40) %first.addr.1.i, ptr noundef nonnull align 8 dereferenceable(40) %pivotCopy)
           to label %call1.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
@@ -6678,7 +6678,7 @@ if.end7.i12.i:                                    ; preds = %while.cond2.i
   br i1 %cmp10.i13.i, label %while.end6.i, label %if.end12.i14.i
 
 if.end12.i14.i:                                   ; preds = %if.end7.i12.i
-  %arrayidx.i.i.i.i15.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %5
+  %arrayidx.i.i.i.i15.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %5
   %7 = load ptr, ptr %arrayidx.i.i.i.i15.i, align 8
   %call1.i.i.i.i16.i2 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(40) %pivotCopy, ptr noundef nonnull align 8 dereferenceable(40) %last.addr.1.i)
           to label %call1.i.i.i.i16.i.noexc unwind label %lpad.loopexit
@@ -6965,7 +6965,7 @@ if.then:                                          ; preds = %entry
 do.body:                                          ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, %if.then
   %parentPosition.0 = phi i64 [ %add, %if.then ], [ %dec, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit ]
   %dec = add nsw i64 %parentPosition.0, -1
-  %add.ptr = getelementptr inbounds nuw %"class.eastl::variant.30", ptr %first, i64 %dec
+  %add.ptr = getelementptr inbounds nuw [40 x i8], ptr %first, i64 %dec
   store i64 -1, ptr %temp, align 8
   store ptr null, ptr %mpHandler.i.i, align 8
   %cmp.not.i = icmp eq ptr %temp, %add.ptr
@@ -7053,8 +7053,8 @@ for.body:                                         ; preds = %entry, %_ZN5eastl7v
   %childPosition.047 = phi i64 [ %childPosition.0, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.043, %entry ]
   %childPosition.0.in46 = phi i64 [ %childPosition.0.in, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %childPosition.0.in42, %entry ]
   %position.addr.045 = phi i64 [ %4, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position, %entry ]
-  %add.ptr = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %childPosition.047
-  %0 = getelementptr %"class.eastl::variant.30", ptr %first, i64 %childPosition.0.in46
+  %add.ptr = getelementptr inbounds [40 x i8], ptr %first, i64 %childPosition.047
+  %0 = getelementptr [40 x i8], ptr %first, i64 %childPosition.0.in46
   %add.ptr1 = getelementptr i8, ptr %0, i64 40
   %1 = load i64, ptr %add.ptr, align 8
   %2 = load i64, ptr %add.ptr1, align 8
@@ -7070,7 +7070,7 @@ if.end7.i:                                        ; preds = %for.body
   br i1 %cmp10.i, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit: ; preds = %if.end7.i
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %1
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %1
   %3 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call1.i.i.i.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr1)
   %dec = or disjoint i64 %childPosition.0.in46, 1
@@ -7079,12 +7079,12 @@ _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.e
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39: ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit, %if.end7.i, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread
   %4 = phi i64 [ %childPosition.047, %if.end7.i ], [ %spec.select, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ], [ %dec37, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread ]
-  %add.ptr2 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %4
+  %add.ptr2 = getelementptr inbounds [40 x i8], ptr %first, i64 %4
   %cmp.not.i = icmp eq i64 %position.addr.045, %4
   br i1 %cmp.not.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit.thread39
-  %add.ptr4 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.045
+  %add.ptr4 = getelementptr inbounds [40 x i8], ptr %first, i64 %position.addr.045
   %5 = load i64, ptr %add.ptr2, align 8
   store i64 %5, ptr %add.ptr4, align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 8
@@ -7133,12 +7133,12 @@ for.end:                                          ; preds = %_ZN5eastl7variantIJ
 
 if.then9:                                         ; preds = %for.end
   %sub10 = or disjoint i64 %childPosition.0.in.lcssa, 1
-  %add.ptr11 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %sub10
+  %add.ptr11 = getelementptr inbounds [40 x i8], ptr %first, i64 %sub10
   %cmp.not.i20 = icmp eq i64 %position.addr.0.lcssa, %sub10
   br i1 %cmp.not.i20, label %if.end16, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then9
-  %add.ptr13 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.0.lcssa
+  %add.ptr13 = getelementptr inbounds [40 x i8], ptr %first, i64 %position.addr.0.lcssa
   %9 = load i64, ptr %add.ptr11, align 8
   store i64 %9, ptr %add.ptr13, align 8
   %mStorage.i22 = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 8
@@ -7188,7 +7188,7 @@ land.rhs:                                         ; preds = %entry, %_ZN5eastl7v
   %position.addr.033 = phi i64 [ %parentPosition.034, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position, %entry ]
   %parentPosition.034.in = add nsw i64 %position.addr.033, -1
   %parentPosition.034 = ashr i64 %parentPosition.034.in, 1
-  %add.ptr = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %parentPosition.034
+  %add.ptr = getelementptr inbounds [40 x i8], ptr %first, i64 %parentPosition.034
   %0 = load i64, ptr %add.ptr, align 8
   %1 = load i64, ptr %value, align 8
   %cmp.i = icmp ult i64 %0, %1
@@ -7199,7 +7199,7 @@ if.end7.i:                                        ; preds = %land.rhs
   br i1 %cmp10.i, label %for.end, label %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit
 
 _ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit: ; preds = %if.end7.i
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %0
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %0
   %2 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call1.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, ptr noundef nonnull align 8 dereferenceable(40) %value)
   br i1 %call1.i.i.i.i, label %for.body, label %for.end
@@ -7209,7 +7209,7 @@ for.body:                                         ; preds = %land.rhs, %_ZN5east
   br i1 %cmp.not.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr3 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.033
+  %add.ptr3 = getelementptr inbounds [40 x i8], ptr %first, i64 %position.addr.033
   %3 = load i64, ptr %add.ptr, align 8
   store i64 %3, ptr %add.ptr3, align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
@@ -7249,7 +7249,7 @@ _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit
 
 for.end:                                          ; preds = %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit, %if.end7.i, %entry
   %position.addr.0.lcssa = phi i64 [ %position, %entry ], [ %position.addr.033, %if.end7.i ], [ %parentPosition.034, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit ], [ %position.addr.033, %_ZN5eastlltIJiNS_12basic_stringIcNS_9allocatorEEEEEEbRKNS_7variantIJDpT_EEES9_.exit ]
-  %add.ptr8 = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %position.addr.0.lcssa
+  %add.ptr8 = getelementptr inbounds [40 x i8], ptr %first, i64 %position.addr.0.lcssa
   %cmp.not.i11 = icmp eq ptr %add.ptr8, %value
   br i1 %cmp.not.i11, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEaSILb1EvEERS4_OS4_.exit26, label %if.then.i12
 
@@ -7474,7 +7474,7 @@ if.end7.i.i:                                      ; preds = %land.rhs
   br i1 %cmp10.i.i, label %for.end, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end7.i.i
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %4
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 %4
   %6 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %call1.i.i.i.i.i13 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(40) %insertValue, ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr10)
           to label %land.end unwind label %lpad.loopexit

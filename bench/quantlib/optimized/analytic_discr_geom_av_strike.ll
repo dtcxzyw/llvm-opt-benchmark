@@ -1952,7 +1952,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i276, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i276, i64 %cond.i.i.i
   br label %if.end270
 
 lpad258:                                          ; preds = %if.then253
@@ -2531,7 +2531,7 @@ lpad417:                                          ; preds = %cond.false.i354, %c
 for.body438:                                      ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit373, %for.body438
   %i.0634 = phi i64 [ %inc, %for.body438 ], [ 1, %_ZN8QuantLib12InterestRateD2Ev.exit373 ]
   %temp.0633 = phi double [ %196, %for.body438 ], [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ]
-  %194 = getelementptr double, ptr %fixingTimes.sroa.0.0.lcssa747, i64 %i.0634
+  %194 = getelementptr [8 x i8], ptr %fixingTimes.sroa.0.0.lcssa747, i64 %i.0634
   %add.ptr.i = getelementptr i8, ptr %194, i64 -8
   %195 = load double, ptr %add.ptr.i, align 8, !tbaa !98
   %conv442 = uitofp i64 %i.0634 to double

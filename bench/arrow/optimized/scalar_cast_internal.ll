@@ -503,7 +503,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i = load ptr, ptr %31, align 8, !tbaa !41
   %32 = getelementptr i8, ptr %3, i64 24
   %.val23.i = load i64, ptr %32, align 8, !tbaa !32
-  %33 = getelementptr inbounds i16, ptr %.val24.i, i64 %.val23.i
+  %33 = getelementptr inbounds [2 x i8], ptr %.val24.i, i64 %.val23.i
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -535,7 +535,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i = load ptr, ptr %48, align 8, !tbaa !41
   %49 = getelementptr i8, ptr %3, i64 24
   %.val25.i = load i64, ptr %49, align 8, !tbaa !32
-  %50 = getelementptr inbounds i32, ptr %.val26.i, i64 %.val25.i
+  %50 = getelementptr inbounds [4 x i8], ptr %.val26.i, i64 %.val25.i
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %52 = load ptr, ptr %51, align 8, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -567,7 +567,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i = load ptr, ptr %65, align 8, !tbaa !41
   %66 = getelementptr i8, ptr %3, i64 24
   %.val27.i = load i64, ptr %66, align 8, !tbaa !32
-  %67 = getelementptr inbounds i64, ptr %.val28.i, i64 %.val27.i
+  %67 = getelementptr inbounds [8 x i8], ptr %.val28.i, i64 %.val27.i
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !41
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -632,7 +632,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i = load ptr, ptr %102, align 8, !tbaa !41
   %103 = getelementptr i8, ptr %3, i64 24
   %.val31.i = load i64, ptr %103, align 8, !tbaa !32
-  %104 = getelementptr inbounds i16, ptr %.val32.i, i64 %.val31.i
+  %104 = getelementptr inbounds [2 x i8], ptr %.val32.i, i64 %.val31.i
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %106 = load ptr, ptr %105, align 8, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -664,7 +664,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i = load ptr, ptr %119, align 8, !tbaa !41
   %120 = getelementptr i8, ptr %3, i64 24
   %.val33.i = load i64, ptr %120, align 8, !tbaa !32
-  %121 = getelementptr inbounds i32, ptr %.val34.i, i64 %.val33.i
+  %121 = getelementptr inbounds [4 x i8], ptr %.val34.i, i64 %.val33.i
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %123 = load ptr, ptr %122, align 8, !tbaa !41
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -696,7 +696,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i = load ptr, ptr %136, align 8, !tbaa !41
   %137 = getelementptr i8, ptr %3, i64 24
   %.val35.i = load i64, ptr %137, align 8, !tbaa !32
-  %138 = getelementptr inbounds i64, ptr %.val36.i, i64 %.val35.i
+  %138 = getelementptr inbounds [8 x i8], ptr %.val36.i, i64 %.val35.i
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %140 = load ptr, ptr %139, align 8, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -729,7 +729,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i = load ptr, ptr %155, align 8, !tbaa !41
   %156 = getelementptr i8, ptr %3, i64 24
   %.val37.i = load i64, ptr %156, align 8, !tbaa !32
-  %157 = getelementptr inbounds float, ptr %.val38.i, i64 %.val37.i
+  %157 = getelementptr inbounds [4 x i8], ptr %.val38.i, i64 %.val37.i
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %159 = load ptr, ptr %158, align 8, !tbaa !41
   %160 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -761,7 +761,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i = load ptr, ptr %172, align 8, !tbaa !41
   %173 = getelementptr i8, ptr %3, i64 24
   %.val39.i = load i64, ptr %173, align 8, !tbaa !32
-  %174 = getelementptr inbounds double, ptr %.val40.i, i64 %.val39.i
+  %174 = getelementptr inbounds [8 x i8], ptr %.val40.i, i64 %.val39.i
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %176 = load ptr, ptr %175, align 8, !tbaa !41
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -793,7 +793,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i = load ptr, ptr %189, align 8, !tbaa !41
   %190 = getelementptr i8, ptr %3, i64 24
   %.val41.i = load i64, ptr %190, align 8, !tbaa !32
-  %191 = getelementptr inbounds i16, ptr %.val42.i, i64 %.val41.i
+  %191 = getelementptr inbounds [2 x i8], ptr %.val42.i, i64 %.val41.i
   %192 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %193 = load ptr, ptr %192, align 8, !tbaa !41
   %194 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -847,7 +847,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %214 = load ptr, ptr %213, align 8, !tbaa !41
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %216 = load i64, ptr %215, align 8, !tbaa !32
-  %217 = getelementptr inbounds i16, ptr %214, i64 %216
+  %217 = getelementptr inbounds [2 x i8], ptr %214, i64 %216
   br label %.lr.ph.i.i64
 
 .lr.ph.i.i64:                                     ; preds = %.lr.ph.i.i64, %.lr.ph.preheader.i.i61
@@ -869,12 +869,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val23.i59 = load i64, ptr %226, align 8, !tbaa !32
   %227 = getelementptr i8, ptr %3, i64 56
   %.val24.i60 = load ptr, ptr %227, align 8, !tbaa !41
-  %228 = getelementptr inbounds i16, ptr %.val24.i60, i64 %.val23.i59
+  %228 = getelementptr inbounds [2 x i8], ptr %.val24.i60, i64 %.val23.i59
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %230 = load i64, ptr %229, align 8, !tbaa !32
   %231 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %232 = load ptr, ptr %231, align 8, !tbaa !41
-  %233 = getelementptr inbounds i16, ptr %232, i64 %230
+  %233 = getelementptr inbounds [2 x i8], ptr %232, i64 %230
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %235 = load i64, ptr %234, align 8, !tbaa !45
   %236 = shl i64 %235, 1
@@ -892,12 +892,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i52 = load ptr, ptr %241, align 8, !tbaa !41
   %242 = getelementptr i8, ptr %3, i64 24
   %.val25.i53 = load i64, ptr %242, align 8, !tbaa !32
-  %243 = getelementptr inbounds i32, ptr %.val26.i52, i64 %.val25.i53
+  %243 = getelementptr inbounds [4 x i8], ptr %.val26.i52, i64 %.val25.i53
   %244 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %245 = load ptr, ptr %244, align 8, !tbaa !41
   %246 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %247 = load i64, ptr %246, align 8, !tbaa !32
-  %248 = getelementptr inbounds i16, ptr %245, i64 %247
+  %248 = getelementptr inbounds [2 x i8], ptr %245, i64 %247
   br label %.lr.ph.i44.i54
 
 .lr.ph.i44.i54:                                   ; preds = %.lr.ph.i44.i54, %.lr.ph.preheader.i43.i51
@@ -924,12 +924,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i49 = load ptr, ptr %258, align 8, !tbaa !41
   %259 = getelementptr i8, ptr %3, i64 24
   %.val27.i50 = load i64, ptr %259, align 8, !tbaa !32
-  %260 = getelementptr inbounds i64, ptr %.val28.i49, i64 %.val27.i50
+  %260 = getelementptr inbounds [8 x i8], ptr %.val28.i49, i64 %.val27.i50
   %261 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %262 = load ptr, ptr %261, align 8, !tbaa !41
   %263 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %264 = load i64, ptr %263, align 8, !tbaa !32
-  %265 = getelementptr inbounds i16, ptr %262, i64 %264
+  %265 = getelementptr inbounds [2 x i8], ptr %262, i64 %264
   br label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %.lr.ph.i49.i, %.lr.ph.preheader.i48.i
@@ -962,7 +962,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %281 = load ptr, ptr %280, align 8, !tbaa !41
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %283 = load i64, ptr %282, align 8, !tbaa !32
-  %284 = getelementptr inbounds i16, ptr %281, i64 %283
+  %284 = getelementptr inbounds [2 x i8], ptr %281, i64 %283
   br label %.lr.ph.i54.i
 
 .lr.ph.i54.i:                                     ; preds = %.lr.ph.i54.i, %.lr.ph.preheader.i53.i
@@ -990,12 +990,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i45 = load ptr, ptr %296, align 8, !tbaa !41
   %297 = getelementptr i8, ptr %3, i64 24
   %.val31.i46 = load i64, ptr %297, align 8, !tbaa !32
-  %298 = getelementptr inbounds i16, ptr %.val32.i45, i64 %.val31.i46
+  %298 = getelementptr inbounds [2 x i8], ptr %.val32.i45, i64 %.val31.i46
   %299 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %300 = load ptr, ptr %299, align 8, !tbaa !41
   %301 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %302 = load i64, ptr %301, align 8, !tbaa !32
-  %303 = getelementptr inbounds i16, ptr %300, i64 %302
+  %303 = getelementptr inbounds [2 x i8], ptr %300, i64 %302
   br label %.lr.ph.i59.i
 
 .lr.ph.i59.i:                                     ; preds = %.lr.ph.i59.i, %.lr.ph.preheader.i58.i
@@ -1021,12 +1021,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i43 = load ptr, ptr %312, align 8, !tbaa !41
   %313 = getelementptr i8, ptr %3, i64 24
   %.val33.i44 = load i64, ptr %313, align 8, !tbaa !32
-  %314 = getelementptr inbounds i32, ptr %.val34.i43, i64 %.val33.i44
+  %314 = getelementptr inbounds [4 x i8], ptr %.val34.i43, i64 %.val33.i44
   %315 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %316 = load ptr, ptr %315, align 8, !tbaa !41
   %317 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %318 = load i64, ptr %317, align 8, !tbaa !32
-  %319 = getelementptr inbounds i16, ptr %316, i64 %318
+  %319 = getelementptr inbounds [2 x i8], ptr %316, i64 %318
   br label %.lr.ph.i65.i
 
 .lr.ph.i65.i:                                     ; preds = %.lr.ph.i65.i, %.lr.ph.preheader.i64.i
@@ -1053,12 +1053,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i41 = load ptr, ptr %329, align 8, !tbaa !41
   %330 = getelementptr i8, ptr %3, i64 24
   %.val35.i42 = load i64, ptr %330, align 8, !tbaa !32
-  %331 = getelementptr inbounds i64, ptr %.val36.i41, i64 %.val35.i42
+  %331 = getelementptr inbounds [8 x i8], ptr %.val36.i41, i64 %.val35.i42
   %332 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %333 = load ptr, ptr %332, align 8, !tbaa !41
   %334 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %335 = load i64, ptr %334, align 8, !tbaa !32
-  %336 = getelementptr inbounds i16, ptr %333, i64 %335
+  %336 = getelementptr inbounds [2 x i8], ptr %333, i64 %335
   br label %.lr.ph.i71.i
 
 .lr.ph.i71.i:                                     ; preds = %.lr.ph.i71.i, %.lr.ph.preheader.i70.i
@@ -1086,12 +1086,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i39 = load ptr, ptr %348, align 8, !tbaa !41
   %349 = getelementptr i8, ptr %3, i64 24
   %.val37.i40 = load i64, ptr %349, align 8, !tbaa !32
-  %350 = getelementptr inbounds float, ptr %.val38.i39, i64 %.val37.i40
+  %350 = getelementptr inbounds [4 x i8], ptr %.val38.i39, i64 %.val37.i40
   %351 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %352 = load ptr, ptr %351, align 8, !tbaa !41
   %353 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %354 = load i64, ptr %353, align 8, !tbaa !32
-  %355 = getelementptr inbounds i16, ptr %352, i64 %354
+  %355 = getelementptr inbounds [2 x i8], ptr %352, i64 %354
   br label %.lr.ph.i76.i
 
 .lr.ph.i76.i:                                     ; preds = %.lr.ph.i76.i, %.lr.ph.preheader.i75.i
@@ -1118,12 +1118,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i37 = load ptr, ptr %365, align 8, !tbaa !41
   %366 = getelementptr i8, ptr %3, i64 24
   %.val39.i38 = load i64, ptr %366, align 8, !tbaa !32
-  %367 = getelementptr inbounds double, ptr %.val40.i37, i64 %.val39.i38
+  %367 = getelementptr inbounds [8 x i8], ptr %.val40.i37, i64 %.val39.i38
   %368 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %369 = load ptr, ptr %368, align 8, !tbaa !41
   %370 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %371 = load i64, ptr %370, align 8, !tbaa !32
-  %372 = getelementptr inbounds i16, ptr %369, i64 %371
+  %372 = getelementptr inbounds [2 x i8], ptr %369, i64 %371
   br label %.lr.ph.i82.i
 
 .lr.ph.i82.i:                                     ; preds = %.lr.ph.i82.i, %.lr.ph.preheader.i81.i
@@ -1150,12 +1150,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i33 = load ptr, ptr %382, align 8, !tbaa !41
   %383 = getelementptr i8, ptr %3, i64 24
   %.val41.i34 = load i64, ptr %383, align 8, !tbaa !32
-  %384 = getelementptr inbounds i16, ptr %.val42.i33, i64 %.val41.i34
+  %384 = getelementptr inbounds [2 x i8], ptr %.val42.i33, i64 %.val41.i34
   %385 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %386 = load ptr, ptr %385, align 8, !tbaa !41
   %387 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %388 = load i64, ptr %387, align 8, !tbaa !32
-  %389 = getelementptr inbounds i16, ptr %386, i64 %388
+  %389 = getelementptr inbounds [2 x i8], ptr %386, i64 %388
   br label %.lr.ph.i88.i
 
 .lr.ph.i88.i:                                     ; preds = %.lr.ph.i88.i, %.lr.ph.preheader.i87.i
@@ -1204,7 +1204,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %407 = load ptr, ptr %406, align 8, !tbaa !41
   %408 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %409 = load i64, ptr %408, align 8, !tbaa !32
-  %410 = getelementptr inbounds i32, ptr %407, i64 %409
+  %410 = getelementptr inbounds [4 x i8], ptr %407, i64 %409
   br label %.lr.ph.i.i141
 
 .lr.ph.i.i141:                                    ; preds = %.lr.ph.i.i141, %.lr.ph.preheader.i.i138
@@ -1232,12 +1232,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i131 = load ptr, ptr %422, align 8, !tbaa !41
   %423 = getelementptr i8, ptr %3, i64 24
   %.val23.i132 = load i64, ptr %423, align 8, !tbaa !32
-  %424 = getelementptr inbounds i16, ptr %.val24.i131, i64 %.val23.i132
+  %424 = getelementptr inbounds [2 x i8], ptr %.val24.i131, i64 %.val23.i132
   %425 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %426 = load ptr, ptr %425, align 8, !tbaa !41
   %427 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %428 = load i64, ptr %427, align 8, !tbaa !32
-  %429 = getelementptr inbounds i32, ptr %426, i64 %428
+  %429 = getelementptr inbounds [4 x i8], ptr %426, i64 %428
   br label %.lr.ph.i44.i133
 
 .lr.ph.i44.i133:                                  ; preds = %.lr.ph.i44.i133, %.lr.ph.preheader.i43.i130
@@ -1258,12 +1258,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val25.i128 = load i64, ptr %436, align 8, !tbaa !32
   %437 = getelementptr i8, ptr %3, i64 56
   %.val26.i129 = load ptr, ptr %437, align 8, !tbaa !41
-  %438 = getelementptr inbounds i32, ptr %.val26.i129, i64 %.val25.i128
+  %438 = getelementptr inbounds [4 x i8], ptr %.val26.i129, i64 %.val25.i128
   %439 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %440 = load i64, ptr %439, align 8, !tbaa !32
   %441 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %442 = load ptr, ptr %441, align 8, !tbaa !41
-  %443 = getelementptr inbounds i32, ptr %442, i64 %440
+  %443 = getelementptr inbounds [4 x i8], ptr %442, i64 %440
   %444 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %445 = load i64, ptr %444, align 8, !tbaa !45
   %446 = shl i64 %445, 2
@@ -1281,12 +1281,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i122 = load ptr, ptr %451, align 8, !tbaa !41
   %452 = getelementptr i8, ptr %3, i64 24
   %.val27.i123 = load i64, ptr %452, align 8, !tbaa !32
-  %453 = getelementptr inbounds i64, ptr %.val28.i122, i64 %.val27.i123
+  %453 = getelementptr inbounds [8 x i8], ptr %.val28.i122, i64 %.val27.i123
   %454 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %455 = load ptr, ptr %454, align 8, !tbaa !41
   %456 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %457 = load i64, ptr %456, align 8, !tbaa !32
-  %458 = getelementptr inbounds i32, ptr %455, i64 %457
+  %458 = getelementptr inbounds [4 x i8], ptr %455, i64 %457
   br label %.lr.ph.i49.i124
 
 .lr.ph.i49.i124:                                  ; preds = %.lr.ph.i49.i124, %.lr.ph.preheader.i48.i121
@@ -1319,7 +1319,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %474 = load ptr, ptr %473, align 8, !tbaa !41
   %475 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %476 = load i64, ptr %475, align 8, !tbaa !32
-  %477 = getelementptr inbounds i32, ptr %474, i64 %476
+  %477 = getelementptr inbounds [4 x i8], ptr %474, i64 %476
   br label %.lr.ph.i54.i117
 
 .lr.ph.i54.i117:                                  ; preds = %.lr.ph.i54.i117, %.lr.ph.preheader.i53.i114
@@ -1347,12 +1347,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i107 = load ptr, ptr %489, align 8, !tbaa !41
   %490 = getelementptr i8, ptr %3, i64 24
   %.val31.i108 = load i64, ptr %490, align 8, !tbaa !32
-  %491 = getelementptr inbounds i16, ptr %.val32.i107, i64 %.val31.i108
+  %491 = getelementptr inbounds [2 x i8], ptr %.val32.i107, i64 %.val31.i108
   %492 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %493 = load ptr, ptr %492, align 8, !tbaa !41
   %494 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %495 = load i64, ptr %494, align 8, !tbaa !32
-  %496 = getelementptr inbounds i32, ptr %493, i64 %495
+  %496 = getelementptr inbounds [4 x i8], ptr %493, i64 %495
   br label %.lr.ph.i59.i109
 
 .lr.ph.i59.i109:                                  ; preds = %.lr.ph.i59.i109, %.lr.ph.preheader.i58.i106
@@ -1379,12 +1379,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i99 = load ptr, ptr %506, align 8, !tbaa !41
   %507 = getelementptr i8, ptr %3, i64 24
   %.val33.i100 = load i64, ptr %507, align 8, !tbaa !32
-  %508 = getelementptr inbounds i32, ptr %.val34.i99, i64 %.val33.i100
+  %508 = getelementptr inbounds [4 x i8], ptr %.val34.i99, i64 %.val33.i100
   %509 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %510 = load ptr, ptr %509, align 8, !tbaa !41
   %511 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %512 = load i64, ptr %511, align 8, !tbaa !32
-  %513 = getelementptr inbounds i32, ptr %510, i64 %512
+  %513 = getelementptr inbounds [4 x i8], ptr %510, i64 %512
   br label %.lr.ph.i65.i101
 
 .lr.ph.i65.i101:                                  ; preds = %.lr.ph.i65.i101, %.lr.ph.preheader.i64.i98
@@ -1410,12 +1410,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i92 = load ptr, ptr %522, align 8, !tbaa !41
   %523 = getelementptr i8, ptr %3, i64 24
   %.val35.i93 = load i64, ptr %523, align 8, !tbaa !32
-  %524 = getelementptr inbounds i64, ptr %.val36.i92, i64 %.val35.i93
+  %524 = getelementptr inbounds [8 x i8], ptr %.val36.i92, i64 %.val35.i93
   %525 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %526 = load ptr, ptr %525, align 8, !tbaa !41
   %527 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %528 = load i64, ptr %527, align 8, !tbaa !32
-  %529 = getelementptr inbounds i32, ptr %526, i64 %528
+  %529 = getelementptr inbounds [4 x i8], ptr %526, i64 %528
   br label %.lr.ph.i71.i94
 
 .lr.ph.i71.i94:                                   ; preds = %.lr.ph.i71.i94, %.lr.ph.preheader.i70.i91
@@ -1443,12 +1443,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i84 = load ptr, ptr %541, align 8, !tbaa !41
   %542 = getelementptr i8, ptr %3, i64 24
   %.val37.i85 = load i64, ptr %542, align 8, !tbaa !32
-  %543 = getelementptr inbounds float, ptr %.val38.i84, i64 %.val37.i85
+  %543 = getelementptr inbounds [4 x i8], ptr %.val38.i84, i64 %.val37.i85
   %544 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %545 = load ptr, ptr %544, align 8, !tbaa !41
   %546 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %547 = load i64, ptr %546, align 8, !tbaa !32
-  %548 = getelementptr inbounds i32, ptr %545, i64 %547
+  %548 = getelementptr inbounds [4 x i8], ptr %545, i64 %547
   br label %.lr.ph.i76.i86
 
 .lr.ph.i76.i86:                                   ; preds = %.lr.ph.i76.i86, %.lr.ph.preheader.i75.i83
@@ -1475,12 +1475,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i76 = load ptr, ptr %558, align 8, !tbaa !41
   %559 = getelementptr i8, ptr %3, i64 24
   %.val39.i77 = load i64, ptr %559, align 8, !tbaa !32
-  %560 = getelementptr inbounds double, ptr %.val40.i76, i64 %.val39.i77
+  %560 = getelementptr inbounds [8 x i8], ptr %.val40.i76, i64 %.val39.i77
   %561 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %562 = load ptr, ptr %561, align 8, !tbaa !41
   %563 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %564 = load i64, ptr %563, align 8, !tbaa !32
-  %565 = getelementptr inbounds i32, ptr %562, i64 %564
+  %565 = getelementptr inbounds [4 x i8], ptr %562, i64 %564
   br label %.lr.ph.i82.i78
 
 .lr.ph.i82.i78:                                   ; preds = %.lr.ph.i82.i78, %.lr.ph.preheader.i81.i75
@@ -1507,12 +1507,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i69 = load ptr, ptr %575, align 8, !tbaa !41
   %576 = getelementptr i8, ptr %3, i64 24
   %.val41.i70 = load i64, ptr %576, align 8, !tbaa !32
-  %577 = getelementptr inbounds i16, ptr %.val42.i69, i64 %.val41.i70
+  %577 = getelementptr inbounds [2 x i8], ptr %.val42.i69, i64 %.val41.i70
   %578 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %579 = load ptr, ptr %578, align 8, !tbaa !41
   %580 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %581 = load i64, ptr %580, align 8, !tbaa !32
-  %582 = getelementptr inbounds i32, ptr %579, i64 %581
+  %582 = getelementptr inbounds [4 x i8], ptr %579, i64 %581
   br label %.lr.ph.i88.i71
 
 .lr.ph.i88.i71:                                   ; preds = %.lr.ph.i88.i71, %.lr.ph.preheader.i87.i68
@@ -1561,7 +1561,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %600 = load ptr, ptr %599, align 8, !tbaa !41
   %601 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %602 = load i64, ptr %601, align 8, !tbaa !32
-  %603 = getelementptr inbounds i64, ptr %600, i64 %602
+  %603 = getelementptr inbounds [8 x i8], ptr %600, i64 %602
   br label %.lr.ph.i.i218
 
 .lr.ph.i.i218:                                    ; preds = %.lr.ph.i.i218, %.lr.ph.preheader.i.i215
@@ -1589,12 +1589,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i208 = load ptr, ptr %615, align 8, !tbaa !41
   %616 = getelementptr i8, ptr %3, i64 24
   %.val23.i209 = load i64, ptr %616, align 8, !tbaa !32
-  %617 = getelementptr inbounds i16, ptr %.val24.i208, i64 %.val23.i209
+  %617 = getelementptr inbounds [2 x i8], ptr %.val24.i208, i64 %.val23.i209
   %618 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %619 = load ptr, ptr %618, align 8, !tbaa !41
   %620 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %621 = load i64, ptr %620, align 8, !tbaa !32
-  %622 = getelementptr inbounds i64, ptr %619, i64 %621
+  %622 = getelementptr inbounds [8 x i8], ptr %619, i64 %621
   br label %.lr.ph.i44.i210
 
 .lr.ph.i44.i210:                                  ; preds = %.lr.ph.i44.i210, %.lr.ph.preheader.i43.i207
@@ -1621,12 +1621,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i201 = load ptr, ptr %632, align 8, !tbaa !41
   %633 = getelementptr i8, ptr %3, i64 24
   %.val25.i202 = load i64, ptr %633, align 8, !tbaa !32
-  %634 = getelementptr inbounds i32, ptr %.val26.i201, i64 %.val25.i202
+  %634 = getelementptr inbounds [4 x i8], ptr %.val26.i201, i64 %.val25.i202
   %635 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %636 = load ptr, ptr %635, align 8, !tbaa !41
   %637 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %638 = load i64, ptr %637, align 8, !tbaa !32
-  %639 = getelementptr inbounds i64, ptr %636, i64 %638
+  %639 = getelementptr inbounds [8 x i8], ptr %636, i64 %638
   br label %.lr.ph.i49.i203
 
 .lr.ph.i49.i203:                                  ; preds = %.lr.ph.i49.i203, %.lr.ph.preheader.i48.i200
@@ -1647,12 +1647,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val27.i198 = load i64, ptr %646, align 8, !tbaa !32
   %647 = getelementptr i8, ptr %3, i64 56
   %.val28.i199 = load ptr, ptr %647, align 8, !tbaa !41
-  %648 = getelementptr inbounds i64, ptr %.val28.i199, i64 %.val27.i198
+  %648 = getelementptr inbounds [8 x i8], ptr %.val28.i199, i64 %.val27.i198
   %649 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %650 = load i64, ptr %649, align 8, !tbaa !32
   %651 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %652 = load ptr, ptr %651, align 8, !tbaa !41
-  %653 = getelementptr inbounds i64, ptr %652, i64 %650
+  %653 = getelementptr inbounds [8 x i8], ptr %652, i64 %650
   %654 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %655 = load i64, ptr %654, align 8, !tbaa !45
   %656 = shl i64 %655, 3
@@ -1675,7 +1675,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %665 = load ptr, ptr %664, align 8, !tbaa !41
   %666 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %667 = load i64, ptr %666, align 8, !tbaa !32
-  %668 = getelementptr inbounds i64, ptr %665, i64 %667
+  %668 = getelementptr inbounds [8 x i8], ptr %665, i64 %667
   br label %.lr.ph.i55.i194
 
 .lr.ph.i55.i194:                                  ; preds = %.lr.ph.i55.i194, %.lr.ph.preheader.i54.i191
@@ -1703,12 +1703,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i184 = load ptr, ptr %680, align 8, !tbaa !41
   %681 = getelementptr i8, ptr %3, i64 24
   %.val31.i185 = load i64, ptr %681, align 8, !tbaa !32
-  %682 = getelementptr inbounds i16, ptr %.val32.i184, i64 %.val31.i185
+  %682 = getelementptr inbounds [2 x i8], ptr %.val32.i184, i64 %.val31.i185
   %683 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %684 = load ptr, ptr %683, align 8, !tbaa !41
   %685 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %686 = load i64, ptr %685, align 8, !tbaa !32
-  %687 = getelementptr inbounds i64, ptr %684, i64 %686
+  %687 = getelementptr inbounds [8 x i8], ptr %684, i64 %686
   br label %.lr.ph.i60.i186
 
 .lr.ph.i60.i186:                                  ; preds = %.lr.ph.i60.i186, %.lr.ph.preheader.i59.i183
@@ -1735,12 +1735,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i176 = load ptr, ptr %697, align 8, !tbaa !41
   %698 = getelementptr i8, ptr %3, i64 24
   %.val33.i177 = load i64, ptr %698, align 8, !tbaa !32
-  %699 = getelementptr inbounds i32, ptr %.val34.i176, i64 %.val33.i177
+  %699 = getelementptr inbounds [4 x i8], ptr %.val34.i176, i64 %.val33.i177
   %700 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %701 = load ptr, ptr %700, align 8, !tbaa !41
   %702 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %703 = load i64, ptr %702, align 8, !tbaa !32
-  %704 = getelementptr inbounds i64, ptr %701, i64 %703
+  %704 = getelementptr inbounds [8 x i8], ptr %701, i64 %703
   br label %.lr.ph.i66.i178
 
 .lr.ph.i66.i178:                                  ; preds = %.lr.ph.i66.i178, %.lr.ph.preheader.i65.i175
@@ -1767,12 +1767,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i169 = load ptr, ptr %714, align 8, !tbaa !41
   %715 = getelementptr i8, ptr %3, i64 24
   %.val35.i170 = load i64, ptr %715, align 8, !tbaa !32
-  %716 = getelementptr inbounds i64, ptr %.val36.i169, i64 %.val35.i170
+  %716 = getelementptr inbounds [8 x i8], ptr %.val36.i169, i64 %.val35.i170
   %717 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %718 = load ptr, ptr %717, align 8, !tbaa !41
   %719 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %720 = load i64, ptr %719, align 8, !tbaa !32
-  %721 = getelementptr inbounds i64, ptr %718, i64 %720
+  %721 = getelementptr inbounds [8 x i8], ptr %718, i64 %720
   br label %.lr.ph.i72.i171
 
 .lr.ph.i72.i171:                                  ; preds = %.lr.ph.i72.i171, %.lr.ph.preheader.i71.i168
@@ -1799,12 +1799,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i161 = load ptr, ptr %732, align 8, !tbaa !41
   %733 = getelementptr i8, ptr %3, i64 24
   %.val37.i162 = load i64, ptr %733, align 8, !tbaa !32
-  %734 = getelementptr inbounds float, ptr %.val38.i161, i64 %.val37.i162
+  %734 = getelementptr inbounds [4 x i8], ptr %.val38.i161, i64 %.val37.i162
   %735 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %736 = load ptr, ptr %735, align 8, !tbaa !41
   %737 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %738 = load i64, ptr %737, align 8, !tbaa !32
-  %739 = getelementptr inbounds i64, ptr %736, i64 %738
+  %739 = getelementptr inbounds [8 x i8], ptr %736, i64 %738
   br label %.lr.ph.i77.i163
 
 .lr.ph.i77.i163:                                  ; preds = %.lr.ph.i77.i163, %.lr.ph.preheader.i76.i160
@@ -1831,12 +1831,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i153 = load ptr, ptr %749, align 8, !tbaa !41
   %750 = getelementptr i8, ptr %3, i64 24
   %.val39.i154 = load i64, ptr %750, align 8, !tbaa !32
-  %751 = getelementptr inbounds double, ptr %.val40.i153, i64 %.val39.i154
+  %751 = getelementptr inbounds [8 x i8], ptr %.val40.i153, i64 %.val39.i154
   %752 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %753 = load ptr, ptr %752, align 8, !tbaa !41
   %754 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %755 = load i64, ptr %754, align 8, !tbaa !32
-  %756 = getelementptr inbounds i64, ptr %753, i64 %755
+  %756 = getelementptr inbounds [8 x i8], ptr %753, i64 %755
   br label %.lr.ph.i83.i155
 
 .lr.ph.i83.i155:                                  ; preds = %.lr.ph.i83.i155, %.lr.ph.preheader.i82.i152
@@ -1863,12 +1863,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i146 = load ptr, ptr %766, align 8, !tbaa !41
   %767 = getelementptr i8, ptr %3, i64 24
   %.val41.i147 = load i64, ptr %767, align 8, !tbaa !32
-  %768 = getelementptr inbounds i16, ptr %.val42.i146, i64 %.val41.i147
+  %768 = getelementptr inbounds [2 x i8], ptr %.val42.i146, i64 %.val41.i147
   %769 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %770 = load ptr, ptr %769, align 8, !tbaa !41
   %771 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %772 = load i64, ptr %771, align 8, !tbaa !32
-  %773 = getelementptr inbounds i64, ptr %770, i64 %772
+  %773 = getelementptr inbounds [8 x i8], ptr %770, i64 %772
   br label %.lr.ph.i89.i148
 
 .lr.ph.i89.i148:                                  ; preds = %.lr.ph.i89.i148, %.lr.ph.preheader.i88.i145
@@ -1944,7 +1944,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i286 = load ptr, ptr %805, align 8, !tbaa !41
   %806 = getelementptr i8, ptr %3, i64 24
   %.val23.i287 = load i64, ptr %806, align 8, !tbaa !32
-  %807 = getelementptr inbounds i16, ptr %.val24.i286, i64 %.val23.i287
+  %807 = getelementptr inbounds [2 x i8], ptr %.val24.i286, i64 %.val23.i287
   %808 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %809 = load ptr, ptr %808, align 8, !tbaa !41
   %810 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1976,7 +1976,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i278 = load ptr, ptr %822, align 8, !tbaa !41
   %823 = getelementptr i8, ptr %3, i64 24
   %.val25.i279 = load i64, ptr %823, align 8, !tbaa !32
-  %824 = getelementptr inbounds i32, ptr %.val26.i278, i64 %.val25.i279
+  %824 = getelementptr inbounds [4 x i8], ptr %.val26.i278, i64 %.val25.i279
   %825 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %826 = load ptr, ptr %825, align 8, !tbaa !41
   %827 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2008,7 +2008,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i271 = load ptr, ptr %839, align 8, !tbaa !41
   %840 = getelementptr i8, ptr %3, i64 24
   %.val27.i272 = load i64, ptr %840, align 8, !tbaa !32
-  %841 = getelementptr inbounds i64, ptr %.val28.i271, i64 %.val27.i272
+  %841 = getelementptr inbounds [8 x i8], ptr %.val28.i271, i64 %.val27.i272
   %842 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %843 = load ptr, ptr %842, align 8, !tbaa !41
   %844 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2057,7 +2057,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i261 = load ptr, ptr %869, align 8, !tbaa !41
   %870 = getelementptr i8, ptr %3, i64 24
   %.val31.i262 = load i64, ptr %870, align 8, !tbaa !32
-  %871 = getelementptr inbounds i16, ptr %.val32.i261, i64 %.val31.i262
+  %871 = getelementptr inbounds [2 x i8], ptr %.val32.i261, i64 %.val31.i262
   %872 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %873 = load ptr, ptr %872, align 8, !tbaa !41
   %874 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2089,7 +2089,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i253 = load ptr, ptr %886, align 8, !tbaa !41
   %887 = getelementptr i8, ptr %3, i64 24
   %.val33.i254 = load i64, ptr %887, align 8, !tbaa !32
-  %888 = getelementptr inbounds i32, ptr %.val34.i253, i64 %.val33.i254
+  %888 = getelementptr inbounds [4 x i8], ptr %.val34.i253, i64 %.val33.i254
   %889 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %890 = load ptr, ptr %889, align 8, !tbaa !41
   %891 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2121,7 +2121,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i246 = load ptr, ptr %903, align 8, !tbaa !41
   %904 = getelementptr i8, ptr %3, i64 24
   %.val35.i247 = load i64, ptr %904, align 8, !tbaa !32
-  %905 = getelementptr inbounds i64, ptr %.val36.i246, i64 %.val35.i247
+  %905 = getelementptr inbounds [8 x i8], ptr %.val36.i246, i64 %.val35.i247
   %906 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %907 = load ptr, ptr %906, align 8, !tbaa !41
   %908 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2154,7 +2154,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i238 = load ptr, ptr %922, align 8, !tbaa !41
   %923 = getelementptr i8, ptr %3, i64 24
   %.val37.i239 = load i64, ptr %923, align 8, !tbaa !32
-  %924 = getelementptr inbounds float, ptr %.val38.i238, i64 %.val37.i239
+  %924 = getelementptr inbounds [4 x i8], ptr %.val38.i238, i64 %.val37.i239
   %925 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %926 = load ptr, ptr %925, align 8, !tbaa !41
   %927 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2186,7 +2186,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i230 = load ptr, ptr %939, align 8, !tbaa !41
   %940 = getelementptr i8, ptr %3, i64 24
   %.val39.i231 = load i64, ptr %940, align 8, !tbaa !32
-  %941 = getelementptr inbounds double, ptr %.val40.i230, i64 %.val39.i231
+  %941 = getelementptr inbounds [8 x i8], ptr %.val40.i230, i64 %.val39.i231
   %942 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %943 = load ptr, ptr %942, align 8, !tbaa !41
   %944 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2218,7 +2218,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i223 = load ptr, ptr %956, align 8, !tbaa !41
   %957 = getelementptr i8, ptr %3, i64 24
   %.val41.i224 = load i64, ptr %957, align 8, !tbaa !32
-  %958 = getelementptr inbounds i16, ptr %.val42.i223, i64 %.val41.i224
+  %958 = getelementptr inbounds [2 x i8], ptr %.val42.i223, i64 %.val41.i224
   %959 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %960 = load ptr, ptr %959, align 8, !tbaa !41
   %961 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2272,7 +2272,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %981 = load ptr, ptr %980, align 8, !tbaa !41
   %982 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %983 = load i64, ptr %982, align 8, !tbaa !32
-  %984 = getelementptr inbounds i16, ptr %981, i64 %983
+  %984 = getelementptr inbounds [2 x i8], ptr %981, i64 %983
   br label %.lr.ph.i.i373
 
 .lr.ph.i.i373:                                    ; preds = %.lr.ph.i.i373, %.lr.ph.preheader.i.i370
@@ -2300,12 +2300,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i363 = load ptr, ptr %996, align 8, !tbaa !41
   %997 = getelementptr i8, ptr %3, i64 24
   %.val23.i364 = load i64, ptr %997, align 8, !tbaa !32
-  %998 = getelementptr inbounds i16, ptr %.val24.i363, i64 %.val23.i364
+  %998 = getelementptr inbounds [2 x i8], ptr %.val24.i363, i64 %.val23.i364
   %999 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1000 = load ptr, ptr %999, align 8, !tbaa !41
   %1001 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1002 = load i64, ptr %1001, align 8, !tbaa !32
-  %1003 = getelementptr inbounds i16, ptr %1000, i64 %1002
+  %1003 = getelementptr inbounds [2 x i8], ptr %1000, i64 %1002
   br label %.lr.ph.i44.i365
 
 .lr.ph.i44.i365:                                  ; preds = %.lr.ph.i44.i365, %.lr.ph.preheader.i43.i362
@@ -2331,12 +2331,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i355 = load ptr, ptr %1012, align 8, !tbaa !41
   %1013 = getelementptr i8, ptr %3, i64 24
   %.val25.i356 = load i64, ptr %1013, align 8, !tbaa !32
-  %1014 = getelementptr inbounds i32, ptr %.val26.i355, i64 %.val25.i356
+  %1014 = getelementptr inbounds [4 x i8], ptr %.val26.i355, i64 %.val25.i356
   %1015 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1016 = load ptr, ptr %1015, align 8, !tbaa !41
   %1017 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1018 = load i64, ptr %1017, align 8, !tbaa !32
-  %1019 = getelementptr inbounds i16, ptr %1016, i64 %1018
+  %1019 = getelementptr inbounds [2 x i8], ptr %1016, i64 %1018
   br label %.lr.ph.i49.i357
 
 .lr.ph.i49.i357:                                  ; preds = %.lr.ph.i49.i357, %.lr.ph.preheader.i48.i354
@@ -2363,12 +2363,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i348 = load ptr, ptr %1029, align 8, !tbaa !41
   %1030 = getelementptr i8, ptr %3, i64 24
   %.val27.i349 = load i64, ptr %1030, align 8, !tbaa !32
-  %1031 = getelementptr inbounds i64, ptr %.val28.i348, i64 %.val27.i349
+  %1031 = getelementptr inbounds [8 x i8], ptr %.val28.i348, i64 %.val27.i349
   %1032 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1033 = load ptr, ptr %1032, align 8, !tbaa !41
   %1034 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1035 = load i64, ptr %1034, align 8, !tbaa !32
-  %1036 = getelementptr inbounds i16, ptr %1033, i64 %1035
+  %1036 = getelementptr inbounds [2 x i8], ptr %1033, i64 %1035
   br label %.lr.ph.i55.i350
 
 .lr.ph.i55.i350:                                  ; preds = %.lr.ph.i55.i350, %.lr.ph.preheader.i54.i347
@@ -2401,7 +2401,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1052 = load ptr, ptr %1051, align 8, !tbaa !41
   %1053 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1054 = load i64, ptr %1053, align 8, !tbaa !32
-  %1055 = getelementptr inbounds i16, ptr %1052, i64 %1054
+  %1055 = getelementptr inbounds [2 x i8], ptr %1052, i64 %1054
   br label %.lr.ph.i60.i343
 
 .lr.ph.i60.i343:                                  ; preds = %.lr.ph.i60.i343, %.lr.ph.preheader.i59.i340
@@ -2423,12 +2423,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val31.i338 = load i64, ptr %1064, align 8, !tbaa !32
   %1065 = getelementptr i8, ptr %3, i64 56
   %.val32.i339 = load ptr, ptr %1065, align 8, !tbaa !41
-  %1066 = getelementptr inbounds i16, ptr %.val32.i339, i64 %.val31.i338
+  %1066 = getelementptr inbounds [2 x i8], ptr %.val32.i339, i64 %.val31.i338
   %1067 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1068 = load i64, ptr %1067, align 8, !tbaa !32
   %1069 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1070 = load ptr, ptr %1069, align 8, !tbaa !41
-  %1071 = getelementptr inbounds i16, ptr %1070, i64 %1068
+  %1071 = getelementptr inbounds [2 x i8], ptr %1070, i64 %1068
   %1072 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1073 = load i64, ptr %1072, align 8, !tbaa !45
   %1074 = shl i64 %1073, 1
@@ -2446,12 +2446,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i331 = load ptr, ptr %1079, align 8, !tbaa !41
   %1080 = getelementptr i8, ptr %3, i64 24
   %.val33.i332 = load i64, ptr %1080, align 8, !tbaa !32
-  %1081 = getelementptr inbounds i32, ptr %.val34.i331, i64 %.val33.i332
+  %1081 = getelementptr inbounds [4 x i8], ptr %.val34.i331, i64 %.val33.i332
   %1082 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1083 = load ptr, ptr %1082, align 8, !tbaa !41
   %1084 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1085 = load i64, ptr %1084, align 8, !tbaa !32
-  %1086 = getelementptr inbounds i16, ptr %1083, i64 %1085
+  %1086 = getelementptr inbounds [2 x i8], ptr %1083, i64 %1085
   br label %.lr.ph.i65.i333
 
 .lr.ph.i65.i333:                                  ; preds = %.lr.ph.i65.i333, %.lr.ph.preheader.i64.i330
@@ -2478,12 +2478,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i324 = load ptr, ptr %1096, align 8, !tbaa !41
   %1097 = getelementptr i8, ptr %3, i64 24
   %.val35.i325 = load i64, ptr %1097, align 8, !tbaa !32
-  %1098 = getelementptr inbounds i64, ptr %.val36.i324, i64 %.val35.i325
+  %1098 = getelementptr inbounds [8 x i8], ptr %.val36.i324, i64 %.val35.i325
   %1099 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1100 = load ptr, ptr %1099, align 8, !tbaa !41
   %1101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1102 = load i64, ptr %1101, align 8, !tbaa !32
-  %1103 = getelementptr inbounds i16, ptr %1100, i64 %1102
+  %1103 = getelementptr inbounds [2 x i8], ptr %1100, i64 %1102
   br label %.lr.ph.i71.i326
 
 .lr.ph.i71.i326:                                  ; preds = %.lr.ph.i71.i326, %.lr.ph.preheader.i70.i323
@@ -2511,12 +2511,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i316 = load ptr, ptr %1115, align 8, !tbaa !41
   %1116 = getelementptr i8, ptr %3, i64 24
   %.val37.i317 = load i64, ptr %1116, align 8, !tbaa !32
-  %1117 = getelementptr inbounds float, ptr %.val38.i316, i64 %.val37.i317
+  %1117 = getelementptr inbounds [4 x i8], ptr %.val38.i316, i64 %.val37.i317
   %1118 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1119 = load ptr, ptr %1118, align 8, !tbaa !41
   %1120 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1121 = load i64, ptr %1120, align 8, !tbaa !32
-  %1122 = getelementptr inbounds i16, ptr %1119, i64 %1121
+  %1122 = getelementptr inbounds [2 x i8], ptr %1119, i64 %1121
   br label %.lr.ph.i76.i318
 
 .lr.ph.i76.i318:                                  ; preds = %.lr.ph.i76.i318, %.lr.ph.preheader.i75.i315
@@ -2543,12 +2543,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i308 = load ptr, ptr %1132, align 8, !tbaa !41
   %1133 = getelementptr i8, ptr %3, i64 24
   %.val39.i309 = load i64, ptr %1133, align 8, !tbaa !32
-  %1134 = getelementptr inbounds double, ptr %.val40.i308, i64 %.val39.i309
+  %1134 = getelementptr inbounds [8 x i8], ptr %.val40.i308, i64 %.val39.i309
   %1135 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1136 = load ptr, ptr %1135, align 8, !tbaa !41
   %1137 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1138 = load i64, ptr %1137, align 8, !tbaa !32
-  %1139 = getelementptr inbounds i16, ptr %1136, i64 %1138
+  %1139 = getelementptr inbounds [2 x i8], ptr %1136, i64 %1138
   br label %.lr.ph.i82.i310
 
 .lr.ph.i82.i310:                                  ; preds = %.lr.ph.i82.i310, %.lr.ph.preheader.i81.i307
@@ -2575,12 +2575,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i301 = load ptr, ptr %1149, align 8, !tbaa !41
   %1150 = getelementptr i8, ptr %3, i64 24
   %.val41.i302 = load i64, ptr %1150, align 8, !tbaa !32
-  %1151 = getelementptr inbounds i16, ptr %.val42.i301, i64 %.val41.i302
+  %1151 = getelementptr inbounds [2 x i8], ptr %.val42.i301, i64 %.val41.i302
   %1152 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1153 = load ptr, ptr %1152, align 8, !tbaa !41
   %1154 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1155 = load i64, ptr %1154, align 8, !tbaa !32
-  %1156 = getelementptr inbounds i16, ptr %1153, i64 %1155
+  %1156 = getelementptr inbounds [2 x i8], ptr %1153, i64 %1155
   br label %.lr.ph.i88.i303
 
 .lr.ph.i88.i303:                                  ; preds = %.lr.ph.i88.i303, %.lr.ph.preheader.i87.i300
@@ -2629,7 +2629,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1174 = load ptr, ptr %1173, align 8, !tbaa !41
   %1175 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1176 = load i64, ptr %1175, align 8, !tbaa !32
-  %1177 = getelementptr inbounds i32, ptr %1174, i64 %1176
+  %1177 = getelementptr inbounds [4 x i8], ptr %1174, i64 %1176
   br label %.lr.ph.i.i450
 
 .lr.ph.i.i450:                                    ; preds = %.lr.ph.i.i450, %.lr.ph.preheader.i.i447
@@ -2657,12 +2657,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i440 = load ptr, ptr %1189, align 8, !tbaa !41
   %1190 = getelementptr i8, ptr %3, i64 24
   %.val23.i441 = load i64, ptr %1190, align 8, !tbaa !32
-  %1191 = getelementptr inbounds i16, ptr %.val24.i440, i64 %.val23.i441
+  %1191 = getelementptr inbounds [2 x i8], ptr %.val24.i440, i64 %.val23.i441
   %1192 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1193 = load ptr, ptr %1192, align 8, !tbaa !41
   %1194 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1195 = load i64, ptr %1194, align 8, !tbaa !32
-  %1196 = getelementptr inbounds i32, ptr %1193, i64 %1195
+  %1196 = getelementptr inbounds [4 x i8], ptr %1193, i64 %1195
   br label %.lr.ph.i44.i442
 
 .lr.ph.i44.i442:                                  ; preds = %.lr.ph.i44.i442, %.lr.ph.preheader.i43.i439
@@ -2689,12 +2689,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i432 = load ptr, ptr %1206, align 8, !tbaa !41
   %1207 = getelementptr i8, ptr %3, i64 24
   %.val25.i433 = load i64, ptr %1207, align 8, !tbaa !32
-  %1208 = getelementptr inbounds i32, ptr %.val26.i432, i64 %.val25.i433
+  %1208 = getelementptr inbounds [4 x i8], ptr %.val26.i432, i64 %.val25.i433
   %1209 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1210 = load ptr, ptr %1209, align 8, !tbaa !41
   %1211 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1212 = load i64, ptr %1211, align 8, !tbaa !32
-  %1213 = getelementptr inbounds i32, ptr %1210, i64 %1212
+  %1213 = getelementptr inbounds [4 x i8], ptr %1210, i64 %1212
   br label %.lr.ph.i49.i434
 
 .lr.ph.i49.i434:                                  ; preds = %.lr.ph.i49.i434, %.lr.ph.preheader.i48.i431
@@ -2720,12 +2720,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i425 = load ptr, ptr %1222, align 8, !tbaa !41
   %1223 = getelementptr i8, ptr %3, i64 24
   %.val27.i426 = load i64, ptr %1223, align 8, !tbaa !32
-  %1224 = getelementptr inbounds i64, ptr %.val28.i425, i64 %.val27.i426
+  %1224 = getelementptr inbounds [8 x i8], ptr %.val28.i425, i64 %.val27.i426
   %1225 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1226 = load ptr, ptr %1225, align 8, !tbaa !41
   %1227 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1228 = load i64, ptr %1227, align 8, !tbaa !32
-  %1229 = getelementptr inbounds i32, ptr %1226, i64 %1228
+  %1229 = getelementptr inbounds [4 x i8], ptr %1226, i64 %1228
   br label %.lr.ph.i55.i427
 
 .lr.ph.i55.i427:                                  ; preds = %.lr.ph.i55.i427, %.lr.ph.preheader.i54.i424
@@ -2758,7 +2758,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1245 = load ptr, ptr %1244, align 8, !tbaa !41
   %1246 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1247 = load i64, ptr %1246, align 8, !tbaa !32
-  %1248 = getelementptr inbounds i32, ptr %1245, i64 %1247
+  %1248 = getelementptr inbounds [4 x i8], ptr %1245, i64 %1247
   br label %.lr.ph.i60.i420
 
 .lr.ph.i60.i420:                                  ; preds = %.lr.ph.i60.i420, %.lr.ph.preheader.i59.i417
@@ -2786,12 +2786,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i410 = load ptr, ptr %1260, align 8, !tbaa !41
   %1261 = getelementptr i8, ptr %3, i64 24
   %.val31.i411 = load i64, ptr %1261, align 8, !tbaa !32
-  %1262 = getelementptr inbounds i16, ptr %.val32.i410, i64 %.val31.i411
+  %1262 = getelementptr inbounds [2 x i8], ptr %.val32.i410, i64 %.val31.i411
   %1263 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1264 = load ptr, ptr %1263, align 8, !tbaa !41
   %1265 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1266 = load i64, ptr %1265, align 8, !tbaa !32
-  %1267 = getelementptr inbounds i32, ptr %1264, i64 %1266
+  %1267 = getelementptr inbounds [4 x i8], ptr %1264, i64 %1266
   br label %.lr.ph.i65.i412
 
 .lr.ph.i65.i412:                                  ; preds = %.lr.ph.i65.i412, %.lr.ph.preheader.i64.i409
@@ -2812,12 +2812,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val33.i407 = load i64, ptr %1274, align 8, !tbaa !32
   %1275 = getelementptr i8, ptr %3, i64 56
   %.val34.i408 = load ptr, ptr %1275, align 8, !tbaa !41
-  %1276 = getelementptr inbounds i32, ptr %.val34.i408, i64 %.val33.i407
+  %1276 = getelementptr inbounds [4 x i8], ptr %.val34.i408, i64 %.val33.i407
   %1277 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1278 = load i64, ptr %1277, align 8, !tbaa !32
   %1279 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1280 = load ptr, ptr %1279, align 8, !tbaa !41
-  %1281 = getelementptr inbounds i32, ptr %1280, i64 %1278
+  %1281 = getelementptr inbounds [4 x i8], ptr %1280, i64 %1278
   %1282 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1283 = load i64, ptr %1282, align 8, !tbaa !45
   %1284 = shl i64 %1283, 2
@@ -2835,12 +2835,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i401 = load ptr, ptr %1289, align 8, !tbaa !41
   %1290 = getelementptr i8, ptr %3, i64 24
   %.val35.i402 = load i64, ptr %1290, align 8, !tbaa !32
-  %1291 = getelementptr inbounds i64, ptr %.val36.i401, i64 %.val35.i402
+  %1291 = getelementptr inbounds [8 x i8], ptr %.val36.i401, i64 %.val35.i402
   %1292 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1293 = load ptr, ptr %1292, align 8, !tbaa !41
   %1294 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1295 = load i64, ptr %1294, align 8, !tbaa !32
-  %1296 = getelementptr inbounds i32, ptr %1293, i64 %1295
+  %1296 = getelementptr inbounds [4 x i8], ptr %1293, i64 %1295
   br label %.lr.ph.i71.i403
 
 .lr.ph.i71.i403:                                  ; preds = %.lr.ph.i71.i403, %.lr.ph.preheader.i70.i400
@@ -2868,12 +2868,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i393 = load ptr, ptr %1308, align 8, !tbaa !41
   %1309 = getelementptr i8, ptr %3, i64 24
   %.val37.i394 = load i64, ptr %1309, align 8, !tbaa !32
-  %1310 = getelementptr inbounds float, ptr %.val38.i393, i64 %.val37.i394
+  %1310 = getelementptr inbounds [4 x i8], ptr %.val38.i393, i64 %.val37.i394
   %1311 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1312 = load ptr, ptr %1311, align 8, !tbaa !41
   %1313 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1314 = load i64, ptr %1313, align 8, !tbaa !32
-  %1315 = getelementptr inbounds i32, ptr %1312, i64 %1314
+  %1315 = getelementptr inbounds [4 x i8], ptr %1312, i64 %1314
   br label %.lr.ph.i76.i395
 
 .lr.ph.i76.i395:                                  ; preds = %.lr.ph.i76.i395, %.lr.ph.preheader.i75.i392
@@ -2900,12 +2900,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i385 = load ptr, ptr %1325, align 8, !tbaa !41
   %1326 = getelementptr i8, ptr %3, i64 24
   %.val39.i386 = load i64, ptr %1326, align 8, !tbaa !32
-  %1327 = getelementptr inbounds double, ptr %.val40.i385, i64 %.val39.i386
+  %1327 = getelementptr inbounds [8 x i8], ptr %.val40.i385, i64 %.val39.i386
   %1328 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1329 = load ptr, ptr %1328, align 8, !tbaa !41
   %1330 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1331 = load i64, ptr %1330, align 8, !tbaa !32
-  %1332 = getelementptr inbounds i32, ptr %1329, i64 %1331
+  %1332 = getelementptr inbounds [4 x i8], ptr %1329, i64 %1331
   br label %.lr.ph.i82.i387
 
 .lr.ph.i82.i387:                                  ; preds = %.lr.ph.i82.i387, %.lr.ph.preheader.i81.i384
@@ -2932,12 +2932,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i378 = load ptr, ptr %1342, align 8, !tbaa !41
   %1343 = getelementptr i8, ptr %3, i64 24
   %.val41.i379 = load i64, ptr %1343, align 8, !tbaa !32
-  %1344 = getelementptr inbounds i16, ptr %.val42.i378, i64 %.val41.i379
+  %1344 = getelementptr inbounds [2 x i8], ptr %.val42.i378, i64 %.val41.i379
   %1345 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1346 = load ptr, ptr %1345, align 8, !tbaa !41
   %1347 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1348 = load i64, ptr %1347, align 8, !tbaa !32
-  %1349 = getelementptr inbounds i32, ptr %1346, i64 %1348
+  %1349 = getelementptr inbounds [4 x i8], ptr %1346, i64 %1348
   br label %.lr.ph.i88.i380
 
 .lr.ph.i88.i380:                                  ; preds = %.lr.ph.i88.i380, %.lr.ph.preheader.i87.i377
@@ -2986,7 +2986,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1367 = load ptr, ptr %1366, align 8, !tbaa !41
   %1368 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1369 = load i64, ptr %1368, align 8, !tbaa !32
-  %1370 = getelementptr inbounds i64, ptr %1367, i64 %1369
+  %1370 = getelementptr inbounds [8 x i8], ptr %1367, i64 %1369
   br label %.lr.ph.i.i527
 
 .lr.ph.i.i527:                                    ; preds = %.lr.ph.i.i527, %.lr.ph.preheader.i.i524
@@ -3014,12 +3014,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i517 = load ptr, ptr %1382, align 8, !tbaa !41
   %1383 = getelementptr i8, ptr %3, i64 24
   %.val23.i518 = load i64, ptr %1383, align 8, !tbaa !32
-  %1384 = getelementptr inbounds i16, ptr %.val24.i517, i64 %.val23.i518
+  %1384 = getelementptr inbounds [2 x i8], ptr %.val24.i517, i64 %.val23.i518
   %1385 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1386 = load ptr, ptr %1385, align 8, !tbaa !41
   %1387 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1388 = load i64, ptr %1387, align 8, !tbaa !32
-  %1389 = getelementptr inbounds i64, ptr %1386, i64 %1388
+  %1389 = getelementptr inbounds [8 x i8], ptr %1386, i64 %1388
   br label %.lr.ph.i44.i519
 
 .lr.ph.i44.i519:                                  ; preds = %.lr.ph.i44.i519, %.lr.ph.preheader.i43.i516
@@ -3046,12 +3046,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i509 = load ptr, ptr %1399, align 8, !tbaa !41
   %1400 = getelementptr i8, ptr %3, i64 24
   %.val25.i510 = load i64, ptr %1400, align 8, !tbaa !32
-  %1401 = getelementptr inbounds i32, ptr %.val26.i509, i64 %.val25.i510
+  %1401 = getelementptr inbounds [4 x i8], ptr %.val26.i509, i64 %.val25.i510
   %1402 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1403 = load ptr, ptr %1402, align 8, !tbaa !41
   %1404 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1405 = load i64, ptr %1404, align 8, !tbaa !32
-  %1406 = getelementptr inbounds i64, ptr %1403, i64 %1405
+  %1406 = getelementptr inbounds [8 x i8], ptr %1403, i64 %1405
   br label %.lr.ph.i49.i511
 
 .lr.ph.i49.i511:                                  ; preds = %.lr.ph.i49.i511, %.lr.ph.preheader.i48.i508
@@ -3078,12 +3078,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i502 = load ptr, ptr %1416, align 8, !tbaa !41
   %1417 = getelementptr i8, ptr %3, i64 24
   %.val27.i503 = load i64, ptr %1417, align 8, !tbaa !32
-  %1418 = getelementptr inbounds i64, ptr %.val28.i502, i64 %.val27.i503
+  %1418 = getelementptr inbounds [8 x i8], ptr %.val28.i502, i64 %.val27.i503
   %1419 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1420 = load ptr, ptr %1419, align 8, !tbaa !41
   %1421 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1422 = load i64, ptr %1421, align 8, !tbaa !32
-  %1423 = getelementptr inbounds i64, ptr %1420, i64 %1422
+  %1423 = getelementptr inbounds [8 x i8], ptr %1420, i64 %1422
   br label %.lr.ph.i55.i504
 
 .lr.ph.i55.i504:                                  ; preds = %.lr.ph.i55.i504, %.lr.ph.preheader.i54.i501
@@ -3115,7 +3115,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1438 = load ptr, ptr %1437, align 8, !tbaa !41
   %1439 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1440 = load i64, ptr %1439, align 8, !tbaa !32
-  %1441 = getelementptr inbounds i64, ptr %1438, i64 %1440
+  %1441 = getelementptr inbounds [8 x i8], ptr %1438, i64 %1440
   br label %.lr.ph.i60.i497
 
 .lr.ph.i60.i497:                                  ; preds = %.lr.ph.i60.i497, %.lr.ph.preheader.i59.i494
@@ -3143,12 +3143,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i487 = load ptr, ptr %1453, align 8, !tbaa !41
   %1454 = getelementptr i8, ptr %3, i64 24
   %.val31.i488 = load i64, ptr %1454, align 8, !tbaa !32
-  %1455 = getelementptr inbounds i16, ptr %.val32.i487, i64 %.val31.i488
+  %1455 = getelementptr inbounds [2 x i8], ptr %.val32.i487, i64 %.val31.i488
   %1456 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1457 = load ptr, ptr %1456, align 8, !tbaa !41
   %1458 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1459 = load i64, ptr %1458, align 8, !tbaa !32
-  %1460 = getelementptr inbounds i64, ptr %1457, i64 %1459
+  %1460 = getelementptr inbounds [8 x i8], ptr %1457, i64 %1459
   br label %.lr.ph.i65.i489
 
 .lr.ph.i65.i489:                                  ; preds = %.lr.ph.i65.i489, %.lr.ph.preheader.i64.i486
@@ -3175,12 +3175,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i480 = load ptr, ptr %1470, align 8, !tbaa !41
   %1471 = getelementptr i8, ptr %3, i64 24
   %.val33.i481 = load i64, ptr %1471, align 8, !tbaa !32
-  %1472 = getelementptr inbounds i32, ptr %.val34.i480, i64 %.val33.i481
+  %1472 = getelementptr inbounds [4 x i8], ptr %.val34.i480, i64 %.val33.i481
   %1473 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1474 = load ptr, ptr %1473, align 8, !tbaa !41
   %1475 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1476 = load i64, ptr %1475, align 8, !tbaa !32
-  %1477 = getelementptr inbounds i64, ptr %1474, i64 %1476
+  %1477 = getelementptr inbounds [8 x i8], ptr %1474, i64 %1476
   br label %.lr.ph.i71.i482
 
 .lr.ph.i71.i482:                                  ; preds = %.lr.ph.i71.i482, %.lr.ph.preheader.i70.i479
@@ -3201,12 +3201,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val35.i477 = load i64, ptr %1484, align 8, !tbaa !32
   %1485 = getelementptr i8, ptr %3, i64 56
   %.val36.i478 = load ptr, ptr %1485, align 8, !tbaa !41
-  %1486 = getelementptr inbounds i64, ptr %.val36.i478, i64 %.val35.i477
+  %1486 = getelementptr inbounds [8 x i8], ptr %.val36.i478, i64 %.val35.i477
   %1487 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1488 = load i64, ptr %1487, align 8, !tbaa !32
   %1489 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1490 = load ptr, ptr %1489, align 8, !tbaa !41
-  %1491 = getelementptr inbounds i64, ptr %1490, i64 %1488
+  %1491 = getelementptr inbounds [8 x i8], ptr %1490, i64 %1488
   %1492 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1493 = load i64, ptr %1492, align 8, !tbaa !45
   %1494 = shl i64 %1493, 3
@@ -3224,12 +3224,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i470 = load ptr, ptr %1499, align 8, !tbaa !41
   %1500 = getelementptr i8, ptr %3, i64 24
   %.val37.i471 = load i64, ptr %1500, align 8, !tbaa !32
-  %1501 = getelementptr inbounds float, ptr %.val38.i470, i64 %.val37.i471
+  %1501 = getelementptr inbounds [4 x i8], ptr %.val38.i470, i64 %.val37.i471
   %1502 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1503 = load ptr, ptr %1502, align 8, !tbaa !41
   %1504 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1505 = load i64, ptr %1504, align 8, !tbaa !32
-  %1506 = getelementptr inbounds i64, ptr %1503, i64 %1505
+  %1506 = getelementptr inbounds [8 x i8], ptr %1503, i64 %1505
   br label %.lr.ph.i77.i472
 
 .lr.ph.i77.i472:                                  ; preds = %.lr.ph.i77.i472, %.lr.ph.preheader.i76.i469
@@ -3256,12 +3256,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i462 = load ptr, ptr %1516, align 8, !tbaa !41
   %1517 = getelementptr i8, ptr %3, i64 24
   %.val39.i463 = load i64, ptr %1517, align 8, !tbaa !32
-  %1518 = getelementptr inbounds double, ptr %.val40.i462, i64 %.val39.i463
+  %1518 = getelementptr inbounds [8 x i8], ptr %.val40.i462, i64 %.val39.i463
   %1519 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1520 = load ptr, ptr %1519, align 8, !tbaa !41
   %1521 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1522 = load i64, ptr %1521, align 8, !tbaa !32
-  %1523 = getelementptr inbounds i64, ptr %1520, i64 %1522
+  %1523 = getelementptr inbounds [8 x i8], ptr %1520, i64 %1522
   br label %.lr.ph.i83.i464
 
 .lr.ph.i83.i464:                                  ; preds = %.lr.ph.i83.i464, %.lr.ph.preheader.i82.i461
@@ -3288,12 +3288,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i455 = load ptr, ptr %1533, align 8, !tbaa !41
   %1534 = getelementptr i8, ptr %3, i64 24
   %.val41.i456 = load i64, ptr %1534, align 8, !tbaa !32
-  %1535 = getelementptr inbounds i16, ptr %.val42.i455, i64 %.val41.i456
+  %1535 = getelementptr inbounds [2 x i8], ptr %.val42.i455, i64 %.val41.i456
   %1536 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1537 = load ptr, ptr %1536, align 8, !tbaa !41
   %1538 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1539 = load i64, ptr %1538, align 8, !tbaa !32
-  %1540 = getelementptr inbounds i64, ptr %1537, i64 %1539
+  %1540 = getelementptr inbounds [8 x i8], ptr %1537, i64 %1539
   br label %.lr.ph.i89.i457
 
 .lr.ph.i89.i457:                                  ; preds = %.lr.ph.i89.i457, %.lr.ph.preheader.i88.i454
@@ -3342,7 +3342,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1558 = load ptr, ptr %1557, align 8, !tbaa !41
   %1559 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1560 = load i64, ptr %1559, align 8, !tbaa !32
-  %1561 = getelementptr inbounds float, ptr %1558, i64 %1560
+  %1561 = getelementptr inbounds [4 x i8], ptr %1558, i64 %1560
   br label %.lr.ph.i.i602
 
 .lr.ph.i.i602:                                    ; preds = %.lr.ph.i.i602, %.lr.ph.preheader.i.i599
@@ -3370,12 +3370,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i592 = load ptr, ptr %1573, align 8, !tbaa !41
   %1574 = getelementptr i8, ptr %3, i64 24
   %.val23.i593 = load i64, ptr %1574, align 8, !tbaa !32
-  %1575 = getelementptr inbounds i16, ptr %.val24.i592, i64 %.val23.i593
+  %1575 = getelementptr inbounds [2 x i8], ptr %.val24.i592, i64 %.val23.i593
   %1576 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1577 = load ptr, ptr %1576, align 8, !tbaa !41
   %1578 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1579 = load i64, ptr %1578, align 8, !tbaa !32
-  %1580 = getelementptr inbounds float, ptr %1577, i64 %1579
+  %1580 = getelementptr inbounds [4 x i8], ptr %1577, i64 %1579
   br label %.lr.ph.i44.i594
 
 .lr.ph.i44.i594:                                  ; preds = %.lr.ph.i44.i594, %.lr.ph.preheader.i43.i591
@@ -3402,12 +3402,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i584 = load ptr, ptr %1590, align 8, !tbaa !41
   %1591 = getelementptr i8, ptr %3, i64 24
   %.val25.i585 = load i64, ptr %1591, align 8, !tbaa !32
-  %1592 = getelementptr inbounds i32, ptr %.val26.i584, i64 %.val25.i585
+  %1592 = getelementptr inbounds [4 x i8], ptr %.val26.i584, i64 %.val25.i585
   %1593 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1594 = load ptr, ptr %1593, align 8, !tbaa !41
   %1595 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1596 = load i64, ptr %1595, align 8, !tbaa !32
-  %1597 = getelementptr inbounds float, ptr %1594, i64 %1596
+  %1597 = getelementptr inbounds [4 x i8], ptr %1594, i64 %1596
   br label %.lr.ph.i49.i586
 
 .lr.ph.i49.i586:                                  ; preds = %.lr.ph.i49.i586, %.lr.ph.preheader.i48.i583
@@ -3434,12 +3434,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i577 = load ptr, ptr %1607, align 8, !tbaa !41
   %1608 = getelementptr i8, ptr %3, i64 24
   %.val27.i578 = load i64, ptr %1608, align 8, !tbaa !32
-  %1609 = getelementptr inbounds i64, ptr %.val28.i577, i64 %.val27.i578
+  %1609 = getelementptr inbounds [8 x i8], ptr %.val28.i577, i64 %.val27.i578
   %1610 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1611 = load ptr, ptr %1610, align 8, !tbaa !41
   %1612 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1613 = load i64, ptr %1612, align 8, !tbaa !32
-  %1614 = getelementptr inbounds float, ptr %1611, i64 %1613
+  %1614 = getelementptr inbounds [4 x i8], ptr %1611, i64 %1613
   br label %.lr.ph.i55.i579
 
 .lr.ph.i55.i579:                                  ; preds = %.lr.ph.i55.i579, %.lr.ph.preheader.i54.i576
@@ -3472,7 +3472,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1630 = load ptr, ptr %1629, align 8, !tbaa !41
   %1631 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1632 = load i64, ptr %1631, align 8, !tbaa !32
-  %1633 = getelementptr inbounds float, ptr %1630, i64 %1632
+  %1633 = getelementptr inbounds [4 x i8], ptr %1630, i64 %1632
   br label %.lr.ph.i60.i572
 
 .lr.ph.i60.i572:                                  ; preds = %.lr.ph.i60.i572, %.lr.ph.preheader.i59.i569
@@ -3500,12 +3500,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i562 = load ptr, ptr %1645, align 8, !tbaa !41
   %1646 = getelementptr i8, ptr %3, i64 24
   %.val31.i563 = load i64, ptr %1646, align 8, !tbaa !32
-  %1647 = getelementptr inbounds i16, ptr %.val32.i562, i64 %.val31.i563
+  %1647 = getelementptr inbounds [2 x i8], ptr %.val32.i562, i64 %.val31.i563
   %1648 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1649 = load ptr, ptr %1648, align 8, !tbaa !41
   %1650 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1651 = load i64, ptr %1650, align 8, !tbaa !32
-  %1652 = getelementptr inbounds float, ptr %1649, i64 %1651
+  %1652 = getelementptr inbounds [4 x i8], ptr %1649, i64 %1651
   br label %.lr.ph.i65.i564
 
 .lr.ph.i65.i564:                                  ; preds = %.lr.ph.i65.i564, %.lr.ph.preheader.i64.i561
@@ -3532,12 +3532,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i554 = load ptr, ptr %1662, align 8, !tbaa !41
   %1663 = getelementptr i8, ptr %3, i64 24
   %.val33.i555 = load i64, ptr %1663, align 8, !tbaa !32
-  %1664 = getelementptr inbounds i32, ptr %.val34.i554, i64 %.val33.i555
+  %1664 = getelementptr inbounds [4 x i8], ptr %.val34.i554, i64 %.val33.i555
   %1665 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1666 = load ptr, ptr %1665, align 8, !tbaa !41
   %1667 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1668 = load i64, ptr %1667, align 8, !tbaa !32
-  %1669 = getelementptr inbounds float, ptr %1666, i64 %1668
+  %1669 = getelementptr inbounds [4 x i8], ptr %1666, i64 %1668
   br label %.lr.ph.i71.i556
 
 .lr.ph.i71.i556:                                  ; preds = %.lr.ph.i71.i556, %.lr.ph.preheader.i70.i553
@@ -3564,12 +3564,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i547 = load ptr, ptr %1679, align 8, !tbaa !41
   %1680 = getelementptr i8, ptr %3, i64 24
   %.val35.i548 = load i64, ptr %1680, align 8, !tbaa !32
-  %1681 = getelementptr inbounds i64, ptr %.val36.i547, i64 %.val35.i548
+  %1681 = getelementptr inbounds [8 x i8], ptr %.val36.i547, i64 %.val35.i548
   %1682 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1683 = load ptr, ptr %1682, align 8, !tbaa !41
   %1684 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1685 = load i64, ptr %1684, align 8, !tbaa !32
-  %1686 = getelementptr inbounds float, ptr %1683, i64 %1685
+  %1686 = getelementptr inbounds [4 x i8], ptr %1683, i64 %1685
   br label %.lr.ph.i77.i549
 
 .lr.ph.i77.i549:                                  ; preds = %.lr.ph.i77.i549, %.lr.ph.preheader.i76.i546
@@ -3591,12 +3591,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val37.i544 = load i64, ptr %1695, align 8, !tbaa !32
   %1696 = getelementptr i8, ptr %3, i64 56
   %.val38.i545 = load ptr, ptr %1696, align 8, !tbaa !41
-  %1697 = getelementptr inbounds float, ptr %.val38.i545, i64 %.val37.i544
+  %1697 = getelementptr inbounds [4 x i8], ptr %.val38.i545, i64 %.val37.i544
   %1698 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1699 = load i64, ptr %1698, align 8, !tbaa !32
   %1700 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1701 = load ptr, ptr %1700, align 8, !tbaa !41
-  %1702 = getelementptr inbounds float, ptr %1701, i64 %1699
+  %1702 = getelementptr inbounds [4 x i8], ptr %1701, i64 %1699
   %1703 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1704 = load i64, ptr %1703, align 8, !tbaa !45
   %1705 = shl i64 %1704, 2
@@ -3614,12 +3614,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i537 = load ptr, ptr %1710, align 8, !tbaa !41
   %1711 = getelementptr i8, ptr %3, i64 24
   %.val39.i538 = load i64, ptr %1711, align 8, !tbaa !32
-  %1712 = getelementptr inbounds double, ptr %.val40.i537, i64 %.val39.i538
+  %1712 = getelementptr inbounds [8 x i8], ptr %.val40.i537, i64 %.val39.i538
   %1713 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1714 = load ptr, ptr %1713, align 8, !tbaa !41
   %1715 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1716 = load i64, ptr %1715, align 8, !tbaa !32
-  %1717 = getelementptr inbounds float, ptr %1714, i64 %1716
+  %1717 = getelementptr inbounds [4 x i8], ptr %1714, i64 %1716
   br label %.lr.ph.i82.i539
 
 .lr.ph.i82.i539:                                  ; preds = %.lr.ph.i82.i539, %.lr.ph.preheader.i81.i536
@@ -3646,12 +3646,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i532 = load ptr, ptr %1727, align 8, !tbaa !41
   %1728 = getelementptr i8, ptr %3, i64 24
   %.val41.i533 = load i64, ptr %1728, align 8, !tbaa !32
-  %1729 = getelementptr inbounds i16, ptr %.val42.i532, i64 %.val41.i533
+  %1729 = getelementptr inbounds [2 x i8], ptr %.val42.i532, i64 %.val41.i533
   %1730 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1731 = load ptr, ptr %1730, align 8, !tbaa !41
   %1732 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1733 = load i64, ptr %1732, align 8, !tbaa !32
-  %1734 = getelementptr inbounds float, ptr %1731, i64 %1733
+  %1734 = getelementptr inbounds [4 x i8], ptr %1731, i64 %1733
   br label %.lr.ph.i88.i534
 
 .lr.ph.i88.i534:                                  ; preds = %.lr.ph.i88.i534, %.lr.ph.preheader.i87.i531
@@ -3699,7 +3699,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1751 = load ptr, ptr %1750, align 8, !tbaa !41
   %1752 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1753 = load i64, ptr %1752, align 8, !tbaa !32
-  %1754 = getelementptr inbounds double, ptr %1751, i64 %1753
+  %1754 = getelementptr inbounds [8 x i8], ptr %1751, i64 %1753
   br label %.lr.ph.i.i679
 
 .lr.ph.i.i679:                                    ; preds = %.lr.ph.i.i679, %.lr.ph.preheader.i.i676
@@ -3727,12 +3727,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i669 = load ptr, ptr %1766, align 8, !tbaa !41
   %1767 = getelementptr i8, ptr %3, i64 24
   %.val23.i670 = load i64, ptr %1767, align 8, !tbaa !32
-  %1768 = getelementptr inbounds i16, ptr %.val24.i669, i64 %.val23.i670
+  %1768 = getelementptr inbounds [2 x i8], ptr %.val24.i669, i64 %.val23.i670
   %1769 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1770 = load ptr, ptr %1769, align 8, !tbaa !41
   %1771 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1772 = load i64, ptr %1771, align 8, !tbaa !32
-  %1773 = getelementptr inbounds double, ptr %1770, i64 %1772
+  %1773 = getelementptr inbounds [8 x i8], ptr %1770, i64 %1772
   br label %.lr.ph.i44.i671
 
 .lr.ph.i44.i671:                                  ; preds = %.lr.ph.i44.i671, %.lr.ph.preheader.i43.i668
@@ -3759,12 +3759,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i661 = load ptr, ptr %1783, align 8, !tbaa !41
   %1784 = getelementptr i8, ptr %3, i64 24
   %.val25.i662 = load i64, ptr %1784, align 8, !tbaa !32
-  %1785 = getelementptr inbounds i32, ptr %.val26.i661, i64 %.val25.i662
+  %1785 = getelementptr inbounds [4 x i8], ptr %.val26.i661, i64 %.val25.i662
   %1786 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1787 = load ptr, ptr %1786, align 8, !tbaa !41
   %1788 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1789 = load i64, ptr %1788, align 8, !tbaa !32
-  %1790 = getelementptr inbounds double, ptr %1787, i64 %1789
+  %1790 = getelementptr inbounds [8 x i8], ptr %1787, i64 %1789
   br label %.lr.ph.i49.i663
 
 .lr.ph.i49.i663:                                  ; preds = %.lr.ph.i49.i663, %.lr.ph.preheader.i48.i660
@@ -3791,12 +3791,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i654 = load ptr, ptr %1800, align 8, !tbaa !41
   %1801 = getelementptr i8, ptr %3, i64 24
   %.val27.i655 = load i64, ptr %1801, align 8, !tbaa !32
-  %1802 = getelementptr inbounds i64, ptr %.val28.i654, i64 %.val27.i655
+  %1802 = getelementptr inbounds [8 x i8], ptr %.val28.i654, i64 %.val27.i655
   %1803 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1804 = load ptr, ptr %1803, align 8, !tbaa !41
   %1805 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1806 = load i64, ptr %1805, align 8, !tbaa !32
-  %1807 = getelementptr inbounds double, ptr %1804, i64 %1806
+  %1807 = getelementptr inbounds [8 x i8], ptr %1804, i64 %1806
   br label %.lr.ph.i55.i656
 
 .lr.ph.i55.i656:                                  ; preds = %.lr.ph.i55.i656, %.lr.ph.preheader.i54.i653
@@ -3829,7 +3829,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1823 = load ptr, ptr %1822, align 8, !tbaa !41
   %1824 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1825 = load i64, ptr %1824, align 8, !tbaa !32
-  %1826 = getelementptr inbounds double, ptr %1823, i64 %1825
+  %1826 = getelementptr inbounds [8 x i8], ptr %1823, i64 %1825
   br label %.lr.ph.i60.i649
 
 .lr.ph.i60.i649:                                  ; preds = %.lr.ph.i60.i649, %.lr.ph.preheader.i59.i646
@@ -3857,12 +3857,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i639 = load ptr, ptr %1838, align 8, !tbaa !41
   %1839 = getelementptr i8, ptr %3, i64 24
   %.val31.i640 = load i64, ptr %1839, align 8, !tbaa !32
-  %1840 = getelementptr inbounds i16, ptr %.val32.i639, i64 %.val31.i640
+  %1840 = getelementptr inbounds [2 x i8], ptr %.val32.i639, i64 %.val31.i640
   %1841 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1842 = load ptr, ptr %1841, align 8, !tbaa !41
   %1843 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1844 = load i64, ptr %1843, align 8, !tbaa !32
-  %1845 = getelementptr inbounds double, ptr %1842, i64 %1844
+  %1845 = getelementptr inbounds [8 x i8], ptr %1842, i64 %1844
   br label %.lr.ph.i65.i641
 
 .lr.ph.i65.i641:                                  ; preds = %.lr.ph.i65.i641, %.lr.ph.preheader.i64.i638
@@ -3889,12 +3889,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i631 = load ptr, ptr %1855, align 8, !tbaa !41
   %1856 = getelementptr i8, ptr %3, i64 24
   %.val33.i632 = load i64, ptr %1856, align 8, !tbaa !32
-  %1857 = getelementptr inbounds i32, ptr %.val34.i631, i64 %.val33.i632
+  %1857 = getelementptr inbounds [4 x i8], ptr %.val34.i631, i64 %.val33.i632
   %1858 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1859 = load ptr, ptr %1858, align 8, !tbaa !41
   %1860 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1861 = load i64, ptr %1860, align 8, !tbaa !32
-  %1862 = getelementptr inbounds double, ptr %1859, i64 %1861
+  %1862 = getelementptr inbounds [8 x i8], ptr %1859, i64 %1861
   br label %.lr.ph.i71.i633
 
 .lr.ph.i71.i633:                                  ; preds = %.lr.ph.i71.i633, %.lr.ph.preheader.i70.i630
@@ -3921,12 +3921,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i624 = load ptr, ptr %1872, align 8, !tbaa !41
   %1873 = getelementptr i8, ptr %3, i64 24
   %.val35.i625 = load i64, ptr %1873, align 8, !tbaa !32
-  %1874 = getelementptr inbounds i64, ptr %.val36.i624, i64 %.val35.i625
+  %1874 = getelementptr inbounds [8 x i8], ptr %.val36.i624, i64 %.val35.i625
   %1875 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1876 = load ptr, ptr %1875, align 8, !tbaa !41
   %1877 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1878 = load i64, ptr %1877, align 8, !tbaa !32
-  %1879 = getelementptr inbounds double, ptr %1876, i64 %1878
+  %1879 = getelementptr inbounds [8 x i8], ptr %1876, i64 %1878
   br label %.lr.ph.i77.i626
 
 .lr.ph.i77.i626:                                  ; preds = %.lr.ph.i77.i626, %.lr.ph.preheader.i76.i623
@@ -3954,12 +3954,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i616 = load ptr, ptr %1891, align 8, !tbaa !41
   %1892 = getelementptr i8, ptr %3, i64 24
   %.val37.i617 = load i64, ptr %1892, align 8, !tbaa !32
-  %1893 = getelementptr inbounds float, ptr %.val38.i616, i64 %.val37.i617
+  %1893 = getelementptr inbounds [4 x i8], ptr %.val38.i616, i64 %.val37.i617
   %1894 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1895 = load ptr, ptr %1894, align 8, !tbaa !41
   %1896 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1897 = load i64, ptr %1896, align 8, !tbaa !32
-  %1898 = getelementptr inbounds double, ptr %1895, i64 %1897
+  %1898 = getelementptr inbounds [8 x i8], ptr %1895, i64 %1897
   br label %.lr.ph.i82.i618
 
 .lr.ph.i82.i618:                                  ; preds = %.lr.ph.i82.i618, %.lr.ph.preheader.i81.i615
@@ -3980,12 +3980,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val39.i613 = load i64, ptr %1905, align 8, !tbaa !32
   %1906 = getelementptr i8, ptr %3, i64 56
   %.val40.i614 = load ptr, ptr %1906, align 8, !tbaa !41
-  %1907 = getelementptr inbounds double, ptr %.val40.i614, i64 %.val39.i613
+  %1907 = getelementptr inbounds [8 x i8], ptr %.val40.i614, i64 %.val39.i613
   %1908 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1909 = load i64, ptr %1908, align 8, !tbaa !32
   %1910 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1911 = load ptr, ptr %1910, align 8, !tbaa !41
-  %1912 = getelementptr inbounds double, ptr %1911, i64 %1909
+  %1912 = getelementptr inbounds [8 x i8], ptr %1911, i64 %1909
   %1913 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1914 = load i64, ptr %1913, align 8, !tbaa !45
   %1915 = shl i64 %1914, 3
@@ -4003,12 +4003,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val42.i607 = load ptr, ptr %1920, align 8, !tbaa !41
   %1921 = getelementptr i8, ptr %3, i64 24
   %.val41.i608 = load i64, ptr %1921, align 8, !tbaa !32
-  %1922 = getelementptr inbounds i16, ptr %.val42.i607, i64 %.val41.i608
+  %1922 = getelementptr inbounds [2 x i8], ptr %.val42.i607, i64 %.val41.i608
   %1923 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1924 = load ptr, ptr %1923, align 8, !tbaa !41
   %1925 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1926 = load i64, ptr %1925, align 8, !tbaa !32
-  %1927 = getelementptr inbounds double, ptr %1924, i64 %1926
+  %1927 = getelementptr inbounds [8 x i8], ptr %1924, i64 %1926
   br label %.lr.ph.i88.i609
 
 .lr.ph.i88.i609:                                  ; preds = %.lr.ph.i88.i609, %.lr.ph.preheader.i87.i606
@@ -4056,7 +4056,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %1944 = load ptr, ptr %1943, align 8, !tbaa !41
   %1945 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1946 = load i64, ptr %1945, align 8, !tbaa !32
-  %1947 = getelementptr inbounds i16, ptr %1944, i64 %1946
+  %1947 = getelementptr inbounds [2 x i8], ptr %1944, i64 %1946
   br label %.lr.ph.i.i726
 
 .lr.ph.i.i726:                                    ; preds = %.lr.ph.i.i726, %.lr.ph.preheader.i.i723
@@ -4088,12 +4088,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val24.i717 = load ptr, ptr %1960, align 8, !tbaa !41
   %1961 = getelementptr i8, ptr %3, i64 24
   %.val23.i718 = load i64, ptr %1961, align 8, !tbaa !32
-  %1962 = getelementptr inbounds i16, ptr %.val24.i717, i64 %.val23.i718
+  %1962 = getelementptr inbounds [2 x i8], ptr %.val24.i717, i64 %.val23.i718
   %1963 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1964 = load ptr, ptr %1963, align 8, !tbaa !41
   %1965 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1966 = load i64, ptr %1965, align 8, !tbaa !32
-  %1967 = getelementptr inbounds i16, ptr %1964, i64 %1966
+  %1967 = getelementptr inbounds [2 x i8], ptr %1964, i64 %1966
   br label %.lr.ph.i44.i719
 
 .lr.ph.i44.i719:                                  ; preds = %.lr.ph.i44.i719, %.lr.ph.preheader.i43.i716
@@ -4125,12 +4125,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val26.i710 = load ptr, ptr %1980, align 8, !tbaa !41
   %1981 = getelementptr i8, ptr %3, i64 24
   %.val25.i711 = load i64, ptr %1981, align 8, !tbaa !32
-  %1982 = getelementptr inbounds i32, ptr %.val26.i710, i64 %.val25.i711
+  %1982 = getelementptr inbounds [4 x i8], ptr %.val26.i710, i64 %.val25.i711
   %1983 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %1984 = load ptr, ptr %1983, align 8, !tbaa !41
   %1985 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1986 = load i64, ptr %1985, align 8, !tbaa !32
-  %1987 = getelementptr inbounds i16, ptr %1984, i64 %1986
+  %1987 = getelementptr inbounds [2 x i8], ptr %1984, i64 %1986
   br label %.lr.ph.i49.i712
 
 .lr.ph.i49.i712:                                  ; preds = %.lr.ph.i49.i712, %.lr.ph.preheader.i48.i709
@@ -4162,12 +4162,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val28.i703 = load ptr, ptr %2000, align 8, !tbaa !41
   %2001 = getelementptr i8, ptr %3, i64 24
   %.val27.i704 = load i64, ptr %2001, align 8, !tbaa !32
-  %2002 = getelementptr inbounds i64, ptr %.val28.i703, i64 %.val27.i704
+  %2002 = getelementptr inbounds [8 x i8], ptr %.val28.i703, i64 %.val27.i704
   %2003 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2004 = load ptr, ptr %2003, align 8, !tbaa !41
   %2005 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2006 = load i64, ptr %2005, align 8, !tbaa !32
-  %2007 = getelementptr inbounds i16, ptr %2004, i64 %2006
+  %2007 = getelementptr inbounds [2 x i8], ptr %2004, i64 %2006
   br label %.lr.ph.i54.i705
 
 .lr.ph.i54.i705:                                  ; preds = %.lr.ph.i54.i705, %.lr.ph.preheader.i53.i702
@@ -4204,7 +4204,7 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %2024 = load ptr, ptr %2023, align 8, !tbaa !41
   %2025 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2026 = load i64, ptr %2025, align 8, !tbaa !32
-  %2027 = getelementptr inbounds i16, ptr %2024, i64 %2026
+  %2027 = getelementptr inbounds [2 x i8], ptr %2024, i64 %2026
   br label %.lr.ph.i59.i698
 
 .lr.ph.i59.i698:                                  ; preds = %.lr.ph.i59.i698, %.lr.ph.preheader.i58.i695
@@ -4236,12 +4236,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val32.i693 = load ptr, ptr %2040, align 8, !tbaa !41
   %2041 = getelementptr i8, ptr %3, i64 24
   %.val31.i694 = load i64, ptr %2041, align 8, !tbaa !32
-  %2042 = getelementptr inbounds i16, ptr %.val32.i693, i64 %.val31.i694
+  %2042 = getelementptr inbounds [2 x i8], ptr %.val32.i693, i64 %.val31.i694
   %2043 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2044 = load ptr, ptr %2043, align 8, !tbaa !41
   %2045 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2046 = load i64, ptr %2045, align 8, !tbaa !32
-  %2047 = getelementptr inbounds i16, ptr %2044, i64 %2046
+  %2047 = getelementptr inbounds [2 x i8], ptr %2044, i64 %2046
   br label %.lr.ph.i64.i
 
 .lr.ph.i64.i:                                     ; preds = %.lr.ph.i64.i, %.lr.ph.preheader.i63.i
@@ -4273,12 +4273,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val34.i691 = load ptr, ptr %2060, align 8, !tbaa !41
   %2061 = getelementptr i8, ptr %3, i64 24
   %.val33.i692 = load i64, ptr %2061, align 8, !tbaa !32
-  %2062 = getelementptr inbounds i32, ptr %.val34.i691, i64 %.val33.i692
+  %2062 = getelementptr inbounds [4 x i8], ptr %.val34.i691, i64 %.val33.i692
   %2063 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2064 = load ptr, ptr %2063, align 8, !tbaa !41
   %2065 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2066 = load i64, ptr %2065, align 8, !tbaa !32
-  %2067 = getelementptr inbounds i16, ptr %2064, i64 %2066
+  %2067 = getelementptr inbounds [2 x i8], ptr %2064, i64 %2066
   br label %.lr.ph.i69.i
 
 .lr.ph.i69.i:                                     ; preds = %.lr.ph.i69.i, %.lr.ph.preheader.i68.i
@@ -4310,12 +4310,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val36.i689 = load ptr, ptr %2080, align 8, !tbaa !41
   %2081 = getelementptr i8, ptr %3, i64 24
   %.val35.i690 = load i64, ptr %2081, align 8, !tbaa !32
-  %2082 = getelementptr inbounds i64, ptr %.val36.i689, i64 %.val35.i690
+  %2082 = getelementptr inbounds [8 x i8], ptr %.val36.i689, i64 %.val35.i690
   %2083 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2084 = load ptr, ptr %2083, align 8, !tbaa !41
   %2085 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2086 = load i64, ptr %2085, align 8, !tbaa !32
-  %2087 = getelementptr inbounds i16, ptr %2084, i64 %2086
+  %2087 = getelementptr inbounds [2 x i8], ptr %2084, i64 %2086
   br label %.lr.ph.i74.i
 
 .lr.ph.i74.i:                                     ; preds = %.lr.ph.i74.i, %.lr.ph.preheader.i73.i
@@ -4347,12 +4347,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val38.i687 = load ptr, ptr %2100, align 8, !tbaa !41
   %2101 = getelementptr i8, ptr %3, i64 24
   %.val37.i688 = load i64, ptr %2101, align 8, !tbaa !32
-  %2102 = getelementptr inbounds float, ptr %.val38.i687, i64 %.val37.i688
+  %2102 = getelementptr inbounds [4 x i8], ptr %.val38.i687, i64 %.val37.i688
   %2103 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2104 = load ptr, ptr %2103, align 8, !tbaa !41
   %2105 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2106 = load i64, ptr %2105, align 8, !tbaa !32
-  %2107 = getelementptr inbounds i16, ptr %2104, i64 %2106
+  %2107 = getelementptr inbounds [2 x i8], ptr %2104, i64 %2106
   br label %.lr.ph.i79.i
 
 .lr.ph.i79.i:                                     ; preds = %.lr.ph.i79.i, %.lr.ph.preheader.i78.i
@@ -4383,12 +4383,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val40.i685 = load ptr, ptr %2119, align 8, !tbaa !41
   %2120 = getelementptr i8, ptr %3, i64 24
   %.val39.i686 = load i64, ptr %2120, align 8, !tbaa !32
-  %2121 = getelementptr inbounds double, ptr %.val40.i685, i64 %.val39.i686
+  %2121 = getelementptr inbounds [8 x i8], ptr %.val40.i685, i64 %.val39.i686
   %2122 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2123 = load ptr, ptr %2122, align 8, !tbaa !41
   %2124 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2125 = load i64, ptr %2124, align 8, !tbaa !32
-  %2126 = getelementptr inbounds i16, ptr %2123, i64 %2125
+  %2126 = getelementptr inbounds [2 x i8], ptr %2123, i64 %2125
   br label %.lr.ph.i84.i
 
 .lr.ph.i84.i:                                     ; preds = %.lr.ph.i84.i, %.lr.ph.preheader.i83.i
@@ -4413,12 +4413,12 @@ define void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeE
   %.val41.i683 = load i64, ptr %2135, align 8, !tbaa !32
   %2136 = getelementptr i8, ptr %3, i64 56
   %.val42.i684 = load ptr, ptr %2136, align 8, !tbaa !41
-  %2137 = getelementptr inbounds i16, ptr %.val42.i684, i64 %.val41.i683
+  %2137 = getelementptr inbounds [2 x i8], ptr %.val42.i684, i64 %.val41.i683
   %2138 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %2139 = load i64, ptr %2138, align 8, !tbaa !32
   %2140 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2141 = load ptr, ptr %2140, align 8, !tbaa !41
-  %2142 = getelementptr inbounds i16, ptr %2141, i64 %2139
+  %2142 = getelementptr inbounds [2 x i8], ptr %2141, i64 %2139
   %2143 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2144 = load i64, ptr %2143, align 8, !tbaa !45
   %2145 = shl i64 %2144, 1

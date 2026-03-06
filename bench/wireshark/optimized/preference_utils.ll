@@ -309,7 +309,7 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_strings(ptr nounde
 
 .lr.ph:                                           ; preds = %1, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %1 ]
-  %4 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %6
@@ -449,7 +449,7 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_details(ptr nounde
 
 .lr.ph:                                           ; preds = %1, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
-  %4 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6

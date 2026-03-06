@@ -70,14 +70,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree<boost::shared_ptr<QuantLib::Observable>, boost::shared_ptr<QuantLib::Observable>, std::_Identity<boost::shared_ptr<QuantLib::Observable>>, std::less<boost::shared_ptr<QuantLib::Observable>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"class.boost::shared_ptr.96" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.97" = type { ptr, %"class.boost::detail::shared_count" }
-%"struct.std::pair" = type { %"class.QuantLib::Option::arguments", %"class.QuantLib::OneAssetOption::results" }
-%"class.QuantLib::Option::arguments" = type { %"class.QuantLib::PricingEngine::arguments", %"class.boost::shared_ptr.18", %"class.boost::shared_ptr.19" }
-%"class.QuantLib::PricingEngine::arguments" = type { ptr }
-%"class.QuantLib::OneAssetOption::results" = type { %"class.QuantLib::Instrument::results", %"class.QuantLib::Greeks", %"class.QuantLib::MoreGreeks" }
-%"class.QuantLib::Instrument::results" = type { %"class.QuantLib::PricingEngine::results", double, double, %"class.QuantLib::Date", %"class.std::map" }
-%"class.QuantLib::PricingEngine::results" = type { ptr }
-%"class.QuantLib::Greeks" = type { %"class.QuantLib::PricingEngine::results", double, double, double, double, double, double }
-%"class.QuantLib::MoreGreeks" = type { %"class.QuantLib::PricingEngine::results", double, double, double, double, double }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, boost::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, boost::any>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"class.boost::shared_ptr.41" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.29" = type { ptr, %"class.boost::detail::shared_count" }
@@ -4676,7 +4668,7 @@ if.else.i:                                        ; preds = %invoke.cont499
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEESaIS6_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %379, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds nuw [224 x i8], ptr %379, i64 %sub.ptr.div.i
   %tobool.not.i.i = icmp eq ptr %378, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEESaIS6_EE6resizeEm.exit, label %if.then.i.i759
 
@@ -4853,7 +4845,7 @@ lpad475:                                          ; preds = %if.then.i, %cond.fa
 for.body512:                                      ; preds = %for.body512.lr.ph, %invoke.cont578
   %i.01346 = phi i64 [ 0, %for.body512.lr.ph ], [ %inc, %invoke.cont578 ]
   %402 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %add.ptr.i768 = getelementptr inbounds nuw %"struct.std::pair", ptr %402, i64 %i.01346
+  %add.ptr.i768 = getelementptr inbounds nuw [224 x i8], ptr %402, i64 %i.01346
   %exercise518 = getelementptr inbounds nuw i8, ptr %add.ptr.i768, i64 24
   %403 = load ptr, ptr %exercise104, align 8, !tbaa !42
   %404 = load ptr, ptr %pn3.i.i769, align 8, !tbaa !41
@@ -4927,13 +4919,13 @@ invoke.cont523:                                   ; preds = %.noexc788, %_ZN5boo
   %415 = load i32, ptr %type_.i790, align 8, !tbaa !136
   store i32 %415, ptr %ref.tmp521, align 4, !tbaa !226
   %416 = load ptr, ptr %strikes_, align 8, !tbaa !223
-  %add.ptr.i791 = getelementptr inbounds nuw double, ptr %416, i64 %i.01346
+  %add.ptr.i791 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %i.01346
   invoke void @_ZN5boost11make_sharedIN8QuantLib18PlainVanillaPayoffEJNS1_6Option4TypeERKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.47") align 8 %ref.tmp520, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp521, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i791)
           to label %invoke.cont529 unwind label %lpad522
 
 invoke.cont529:                                   ; preds = %invoke.cont523
   %417 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %add.ptr.i792 = getelementptr inbounds nuw %"struct.std::pair", ptr %417, i64 %i.01346
+  %add.ptr.i792 = getelementptr inbounds nuw [224 x i8], ptr %417, i64 %i.01346
   %payoff533 = getelementptr inbounds nuw i8, ptr %add.ptr.i792, i64 8
   %418 = load ptr, ptr %ref.tmp520, align 8, !tbaa !126
   %419 = load ptr, ptr %pn3.i.i793, align 8, !tbaa !41
@@ -5036,11 +5028,11 @@ invoke.cont538:                                   ; preds = %.noexc828, %_ZN5boo
   %strike_.i830 = getelementptr inbounds nuw i8, ptr %435, i64 16
   %436 = load double, ptr %strike_.i830, align 8, !tbaa !131
   %437 = load ptr, ptr %strikes_, align 8, !tbaa !223
-  %add.ptr.i831 = getelementptr inbounds nuw double, ptr %437, i64 %i.01346
+  %add.ptr.i831 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %i.01346
   %438 = load double, ptr %add.ptr.i831, align 8, !tbaa !96
   %div544 = fdiv double %436, %438
   %439 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %add.ptr.i832 = getelementptr inbounds nuw %"struct.std::pair", ptr %439, i64 %i.01346
+  %add.ptr.i832 = getelementptr inbounds nuw [224 x i8], ptr %439, i64 %i.01346
   %440 = load ptr, ptr %solver, align 8, !tbaa !203
   %cmp.not.i833 = icmp eq ptr %440, null
   br i1 %cmp.not.i833, label %cond.false.i834, label %invoke.cont549, !prof !110
@@ -5730,7 +5722,7 @@ invoke.cont684:                                   ; preds = %invoke.cont675, %.n
   %539 = phi ptr [ %537, %invoke.cont675 ], [ %.pre.i992, %.noexc993 ]
   %type_.i995 = getelementptr inbounds nuw i8, ptr %539, i64 8
   %540 = load i32, ptr %type_.i995, align 8, !tbaa !136
-  %add.ptr.i996 = getelementptr inbounds nuw double, ptr %538, i64 %i666.01352
+  %add.ptr.i996 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 %i666.01352
   %541 = load double, ptr %add.ptr.i996, align 8, !tbaa !96
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %call676, i64 8
   store i32 %540, ptr %type_.i.i.i, align 8, !tbaa !136
@@ -5897,7 +5889,7 @@ _ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev.exit1047: ; preds = %invok
 invoke.cont701:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib13PricingEngineEED2Ev.exit1047
   %sub703 = fsub double %call694, %call702
   %566 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !225
-  %add.ptr.i1048 = getelementptr inbounds nuw %"struct.std::pair", ptr %566, i64 %i666.01352
+  %add.ptr.i1048 = getelementptr inbounds nuw [224 x i8], ptr %566, i64 %i666.01352
   %value707 = getelementptr inbounds nuw i8, ptr %add.ptr.i1048, i64 48
   %567 = load double, ptr %value707, align 8, !tbaa !218
   %add708 = fadd double %sub703, %567
@@ -15644,9 +15636,9 @@ if.then.i25:                                      ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEESaIS6_EE13_M_deallocateEPS6_m.exit27: ; preds = %_ZNSt6vectorISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %if.then.i25
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !225
-  %add.ptr37 = getelementptr inbounds nuw %"struct.std::pair", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [224 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !224
-  %add.ptr40 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [224 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !261
   br label %if.end44
 

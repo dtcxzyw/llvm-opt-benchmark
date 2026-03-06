@@ -583,7 +583,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   %.sroa.4121.0.copyload = load ptr, ptr %.sroa.4121.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %.sroa.5122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.5122.0.copyload = load i64, ptr %.sroa.5122.0..sroa_idx, align 8
-  %52 = getelementptr inbounds { ptr, i8 }, ptr %.sroa.4121.0.copyload, i64 %.sroa.5122.0.copyload
+  %52 = getelementptr inbounds [16 x i8], ptr %.sroa.4121.0.copyload, i64 %.sroa.5122.0.copyload
   store ptr %.sroa.4121.0.copyload, ptr %22, align 8
   %.sroa.4117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %.sroa.0120.0.copyload, ptr %.sroa.4117.0..sroa_idx, align 8
@@ -736,7 +736,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(pt
   %.sroa.4138.0.copyload = load ptr, ptr %.sroa.4138.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %.sroa.5139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.sroa.5139.0.copyload = load i64, ptr %.sroa.5139.0..sroa_idx, align 8
-  %91 = getelementptr inbounds { ptr, i8 }, ptr %.sroa.4138.0.copyload, i64 %.sroa.5139.0.copyload
+  %91 = getelementptr inbounds [16 x i8], ptr %.sroa.4138.0.copyload, i64 %.sroa.5139.0.copyload
   %.sroa.08.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.08.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)

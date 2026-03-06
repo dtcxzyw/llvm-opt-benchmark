@@ -223,7 +223,7 @@ define internal void @_ZNK4ncnn12Bias_x86_avx15forward_inplaceERNS_3MatERKNS_6Op
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = load ptr, ptr %4, align 8, !tbaa !23
-  %31 = getelementptr inbounds float, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !32
   %33 = insertelement <8 x float> poison, float %32, i64 0
   %34 = shufflevector <8 x float> %33, <8 x float> poison, <8 x i32> zeroinitializer

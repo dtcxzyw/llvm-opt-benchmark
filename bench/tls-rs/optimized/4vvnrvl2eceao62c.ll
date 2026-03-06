@@ -2699,10 +2699,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !72, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !174, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE.26", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE.26", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4821,7 +4821,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$web
 
 8:                                                ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i", %5
   %.07.i.i.i = phi i64 [ 0, %5 ], [ %10, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i" ]
-  %9 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %0, i64 %.07.i.i.i
+  %9 = getelementptr inbounds nuw [248 x i8], ptr %0, i64 %.07.i.i.i
   %10 = add nuw nsw i64 %.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %11 = load i64, ptr %9, align 8, !range !8, !alias.scope !517, !noundef !7
@@ -4864,7 +4864,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$web
   br label %19
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %0, i64 %.1.i.i.i
+  %24 = getelementptr inbounds nuw [248 x i8], ptr %0, i64 %.1.i.i.i
   %25 = add nuw nsw i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(248) %24) #30
           to label %19 unwind label %27
@@ -6609,7 +6609,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
   %9 = load ptr, ptr %8, align 8, !alias.scope !749, !nonnull !7, !align !81, !noundef !7
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !749, !noundef !7
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %9, i64 %11
   br label %13
 
 13:                                               ; preds = %16, %.lr.ph
@@ -8215,7 +8215,7 @@ define hidden void @_ZN6rustls4msgs9handshake18ClientHelloPayload14set_psk_binde
   %.not = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !nonnull !7
-  %10 = getelementptr { i64, [6 x i64] }, ptr %9, i64 %7
+  %10 = getelementptr [56 x i8], ptr %9, i64 %7
   %11 = getelementptr i8, ptr %10, i64 -56
   %.not817 = icmp eq ptr %11, null
   %.not8 = select i1 %.not, i1 true, i1 %.not817
@@ -8345,7 +8345,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake19HasServerExtensions
   %3 = load ptr, ptr %2, align 8, !alias.scope !1021, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1021, !noundef !7
-  %6 = getelementptr inbounds { i16, [19 x i16] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [40 x i8], ptr %3, i64 %5
   %7 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h2b683641701eb3beE.llvm.6030771845222660662(ptr noundef nonnull %3, ptr noundef nonnull %6)
   ret i1 %7
 }
@@ -10097,7 +10097,7 @@ define void @_ZN6rustls5tls1216Tls12CipherSuite19resolve_sig_schemes17hc81fd392b
   %7 = load ptr, ptr %6, align 8, !nonnull !7, !align !95, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !7
-  %10 = getelementptr inbounds { i16, i16 }, ptr %7, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %7, i64 %9
   store ptr %7, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11877,7 +11877,7 @@ define hidden void @"_ZN6rustls7builder55ConfigBuilder$LT$S$C$rustls..builder..W
   br i1 %19, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   br label %22
 
 .thread163:                                       ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit, %.critedge, %62, %186, %60
@@ -12471,7 +12471,7 @@ define hidden void @"_ZN6rustls7builder55ConfigBuilder$LT$S$C$rustls..builder..W
   br i1 %19, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   br label %22
 
 .thread163:                                       ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit, %.critedge, %62, %186, %60
@@ -13620,7 +13620,7 @@ define void @_ZN6rustls6webpki6verify25WebPkiSupportedAlgorithms17supported_sche
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !align !81, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !7
-  %7 = getelementptr inbounds { { i16, i16 }, [2 x i16], { ptr, i64 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %4, i64 %6
   tail call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf9494bb0dfbdf927E.llvm.9964311202002838858"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %4, ptr noundef nonnull %7)
   ret void
 }
@@ -13630,7 +13630,7 @@ define noundef zeroext i1 @_ZN6rustls6webpki6verify25WebPkiSupportedAlgorithms4f
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !81, !noundef !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !7
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %4
+  %5 = getelementptr inbounds [16 x i8], ptr %2, i64 %4
   br label %6
 
 6:                                                ; preds = %9, %1
@@ -13671,7 +13671,7 @@ define noundef zeroext i1 @_ZN6rustls6webpki6verify25WebPkiSupportedAlgorithms4f
   %28 = load ptr, ptr %27, align 8, !alias.scope !1912, !noalias !1915, !nonnull !7, !align !81, !noundef !7
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %30 = load i64, ptr %29, align 8, !alias.scope !1912, !noalias !1915, !noundef !7
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %28, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %35, %.lr.ph.i
@@ -13711,7 +13711,7 @@ define hidden noundef zeroext i1 @"_ZN6rustls6webpki6verify25WebPkiSupportedAlgo
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !align !81, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !7
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   br label %8
 
 8:                                                ; preds = %11, %2
@@ -13945,7 +13945,7 @@ define void @_ZN6rustls6webpki6verify22verify_tls12_signature17h9b7a3f44d6b8e035
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.419.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.713, i64 32, i1 false)
   store i64 %40, ptr %12, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %37, i64 %39
+  %44 = getelementptr inbounds [16 x i8], ptr %37, i64 %39
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = load ptr, ptr %45, align 8, !nonnull !7
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -14346,7 +14346,7 @@ define hidden void @_ZN6rustls6webpki6verify46verify_server_cert_signed_by_trust
 
 29:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i.i", %26
   %.07.i.i.i.i = phi i64 [ 0, %26 ], [ %31, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i.i" ]
-  %30 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %13, i64 %.07.i.i.i.i
+  %30 = getelementptr inbounds nuw [248 x i8], ptr %13, i64 %.07.i.i.i.i
   %31 = add nuw nsw i64 %.07.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2079)
   %32 = load i64, ptr %30, align 8, !range !8, !alias.scope !2082, !noundef !7
@@ -14389,7 +14389,7 @@ define hidden void @_ZN6rustls6webpki6verify46verify_server_cert_signed_by_trust
   br label %40
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %13, i64 %.1.i.i.i.i
+  %45 = getelementptr inbounds nuw [248 x i8], ptr %13, i64 %.1.i.i.i.i
   %46 = add nuw nsw i64 %.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(248) %45) #30
           to label %40 unwind label %47

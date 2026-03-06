@@ -8,7 +8,7 @@ define void @ff_acelp_update_past_gain(ptr noundef captures(none) %0, i32 nounde
   %notmask = shl nsw i32 -1, %2
   %5 = xor i32 %notmask, -1
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !4
   %9 = sext i16 %8 to i32
   %.not22 = icmp eq i32 %2, 0
@@ -17,7 +17,7 @@ define void @ff_acelp_update_past_gain(ptr noundef captures(none) %0, i32 nounde
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %6, %4 ]
   %.021 = phi i32 [ %14, %.lr.ph ], [ %9, %4 ]
-  %10 = getelementptr i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr [2 x i8], ptr %0, i64 %indvars.iv
   %11 = getelementptr i8, ptr %10, i64 -2
   %12 = load i16, ptr %11, align 2, !tbaa !4
   %13 = sext i16 %12 to i32
@@ -68,10 +68,10 @@ define signext i16 @ff_acelp_decode_gain_code(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01516 = phi i32 [ %9, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !4
   %13 = sext i16 %12 to i32
-  %14 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !4
   %16 = sext i16 %15 to i32
   %17 = mul nsw i32 %16, %13

@@ -3,8 +3,6 @@ source_filename = "bench/git/original/tr2_sysenv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.tr2_sysenv_entry = type { ptr, ptr, ptr, i8 }
-
 @.str = private unnamed_addr constant [20 x i8] c"trace2/tr2_sysenv.c\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"tr2_sysenv_get invalid var '%d'\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"trace2.\00", align 1
@@ -53,7 +51,7 @@ define internal range(i32 -1, 1) i32 @tr2_sysenv_cb(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %4, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @tr2_sysenv_settings, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #8
@@ -92,7 +90,7 @@ define dso_local ptr @tr2_sysenv_get(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %5
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @tr2_sysenv_settings, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
@@ -153,7 +151,7 @@ define dso_local ptr @tr2_sysenv_display_name(i32 noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %5
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @tr2_sysenv_settings, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !14
   ret ptr %7
 }
@@ -164,7 +162,7 @@ define dso_local void @tr2_sysenv_release() local_unnamed_addr #5 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw %struct.tr2_sysenv_entry, ptr @tr2_sysenv_settings, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [32 x i8], ptr @tr2_sysenv_settings, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 16, !tbaa !13
   tail call void @free(ptr noundef %4) #7

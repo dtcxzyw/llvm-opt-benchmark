@@ -57,7 +57,6 @@ module asm ".previous"
 %"union.QColor::CT" = type { %struct.anon.104 }
 %struct.anon.104 = type { i16, i16, i16, i16, i16 }
 %"struct.std::_Rb_tree<QString, std::pair<const QString, UniformVariable>, std::_Select1st<std::pair<const QString, UniformVariable>>, std::less<QString>>::_Auto_node" = type { ptr, ptr }
-%struct.TextureInfo = type { %class.QString, i32, i16, i16, i16, i16, i16, i16 }
 %class.QImage = type { %class.QPaintDevice, ptr }
 %class.QPaintDevice = type { ptr, i16, ptr }
 %class.QPoint = type { i32, i32 }
@@ -813,7 +812,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %144, %_ZN9QtPrivate
 
 switch.lookup:                                    ; preds = %150
   %154 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12ShaderDialogC2EP10ShaderInfoP9QGLWidgetP7QWidget, i64 %154
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12ShaderDialogC2EP10ShaderInfoP9QGLWidgetP7QWidget, i64 %154
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15UniformVariable13getVarsNumberEi.exit
 
@@ -1007,7 +1006,7 @@ _ZN7QStringD2Ev.exit213:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZN12ShaderDialog2trEPKcS1_i.exit214 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN12ShaderDialog2trEPKcS1_i.exit214:             ; preds = %194
-  %195 = getelementptr inbounds nuw i32, ptr %161, i64 %indvars.iv1081
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %indvars.iv1081
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %197, i32 noundef 0, i32 noundef 10, i16 32)
@@ -1109,7 +1108,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
           to label %_ZN12ShaderDialog2trEPKcS1_i.exit228 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN12ShaderDialog2trEPKcS1_i.exit228:             ; preds = %221
-  %222 = getelementptr inbounds nuw float, ptr %161, i64 %indvars.iv1081
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %indvars.iv1081
   %223 = load float, ptr %222, align 4
   %224 = fpext float %223 to double
   invoke void @_ZNK7QString3argEdici5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %24, double noundef %224, i32 noundef 0, i8 noundef signext 103, i32 noundef -1, i16 32)
@@ -1706,7 +1705,7 @@ _ZN7QStringD2Ev.exit309:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %368 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 368:                                              ; preds = %363
-  %369 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv
   %370 = load i32, ptr %369, align 4
   br label %.invoke
 
@@ -1759,7 +1758,7 @@ _ZN7QStringD2Ev.exit309:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %391 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 391:                                              ; preds = %384
-  %392 = getelementptr inbounds nuw float, ptr %160, i64 %indvars.iv
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv
   %393 = load float, ptr %392, align 4
   %394 = fmul float %393, 1.000000e+05
   %395 = fptosi float %394 to i32
@@ -2404,7 +2403,7 @@ _ZNSt6vectorIP9QLineEditSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds
 _ZNSt6vectorIP9QLineEditSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %575, %_ZNSt6vectorIP9QLineEditSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %570, ptr %98, align 8
   store ptr %574, ptr %511, align 8
-  %576 = getelementptr inbounds nuw ptr, ptr %570, i64 %568
+  %576 = getelementptr inbounds nuw [8 x i8], ptr %570, i64 %568
   store ptr %576, ptr %512, align 8
   br label %_ZNSt6vectorIP9QLineEditSaIS1_EE9push_backERKS1_.exit
 
@@ -7692,7 +7691,7 @@ define void @_ZN12ShaderDialog13valuesChangedERK7QString(ptr noundef nonnull ali
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
   %28 = sext i32 %24 to i64
-  %29 = getelementptr i16, ptr %27, i64 %28
+  %29 = getelementptr [2 x i8], ptr %27, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -2
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
@@ -7907,7 +7906,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i58, i64 60
   %105 = sext i32 %33 to i64
-  %106 = getelementptr inbounds i32, ptr %104, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %104, i64 %105
   store i32 %89, ptr %106, align 4
   %107 = load ptr, ptr %20, align 8
   %108 = load atomic i32, ptr %107 monotonic, align 4
@@ -7988,7 +7987,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i73, i64 60
   %131 = sext i32 %33 to i64
-  %132 = getelementptr inbounds float, ptr %130, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %130, i64 %131
   store float %115, ptr %132, align 4
   %133 = load ptr, ptr %21, align 8
   %134 = load atomic i32, ptr %133 monotonic, align 4
@@ -8111,7 +8110,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i107, i64 60
   %172 = sext i32 %33 to i64
-  %173 = getelementptr inbounds i32, ptr %171, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %171, i64 %172
   store i32 %156, ptr %173, align 4
   br label %_ZN7QStringD2Ev.exit
 
@@ -8165,7 +8164,7 @@ _ZNSt3mapI7QString15UniformVariableSt4lessIS0_ESaISt4pairIKS0_S1_EEE11lower_boun
   %191 = fdiv float %190, 1.000000e+05
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i122, i64 60
   %193 = sext i32 %33 to i64
-  %194 = getelementptr inbounds float, ptr %192, i64 %193
+  %194 = getelementptr inbounds [4 x i8], ptr %192, i64 %193
   store float %191, ptr %194, align 4
   br label %_ZN7QStringD2Ev.exit
 
@@ -8421,14 +8420,14 @@ define void @_ZN12ShaderDialog17changeTexturePathEi(ptr noundef nonnull readonly
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.TextureInfo, ptr %12, i64 %5
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %5
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %3, align 8
   store ptr %15, ptr %13, align 8
@@ -8471,13 +8470,13 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct.TextureInfo, ptr %13, i64 %12
+  %14 = getelementptr inbounds [24 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   tail call void @glDeleteTextures(i32 noundef 1, ptr noundef nonnull %15)
   %16 = load ptr, ptr %9, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.TextureInfo, ptr %18, i64 %12
+  %19 = getelementptr inbounds [24 x i8], ptr %18, i64 %12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i16, ptr %20, align 8
   %22 = sext i16 %21 to i32
@@ -8488,7 +8487,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %23 = load ptr, ptr %9, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct.TextureInfo, ptr %25, i64 %12
+  %26 = getelementptr inbounds [24 x i8], ptr %25, i64 %12
   %27 = invoke noundef zeroext i1 @_ZN6QImage4loadERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef null)
           to label %28 unwind label %142
 
@@ -8543,7 +8542,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %54 = load ptr, ptr %9, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.TextureInfo, ptr %56, i64 %12
+  %57 = getelementptr inbounds [24 x i8], ptr %56, i64 %12
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   invoke void @glGenTextures(i32 noundef 1, ptr noundef nonnull %58)
           to label %59 unwind label %142
@@ -8552,7 +8551,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %60 = load ptr, ptr %9, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 112
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds %struct.TextureInfo, ptr %62, i64 %12
+  %63 = getelementptr inbounds [24 x i8], ptr %62, i64 %12
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i16, ptr %64, align 8
   %66 = sext i16 %65 to i32
@@ -8565,7 +8564,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %70 = load ptr, ptr %9, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 112
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.TextureInfo, ptr %72, i64 %12
+  %73 = getelementptr inbounds [24 x i8], ptr %72, i64 %12
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i16, ptr %74, align 8
   %76 = sext i16 %75 to i32
@@ -8588,7 +8587,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %84 = load ptr, ptr %9, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 112
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds %struct.TextureInfo, ptr %86, i64 %12
+  %87 = getelementptr inbounds [24 x i8], ptr %86, i64 %12
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i16, ptr %88, align 8
   %90 = sext i16 %89 to i32
@@ -8602,7 +8601,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %95 = load ptr, ptr %9, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 112
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.TextureInfo, ptr %97, i64 %12
+  %98 = getelementptr inbounds [24 x i8], ptr %97, i64 %12
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i16, ptr %99, align 8
   %101 = sext i16 %100 to i32
@@ -8616,7 +8615,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %106 = load ptr, ptr %9, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 112
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.TextureInfo, ptr %108, i64 %12
+  %109 = getelementptr inbounds [24 x i8], ptr %108, i64 %12
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i16, ptr %110, align 8
   %112 = sext i16 %111 to i32
@@ -8630,7 +8629,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %117 = load ptr, ptr %9, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 112
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds %struct.TextureInfo, ptr %119, i64 %12
+  %120 = getelementptr inbounds [24 x i8], ptr %119, i64 %12
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i16, ptr %121, align 8
   %123 = sext i16 %122 to i32
@@ -8644,7 +8643,7 @@ define void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull readonly ali
   %128 = load ptr, ptr %9, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 112
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %struct.TextureInfo, ptr %130, i64 %12
+  %131 = getelementptr inbounds [24 x i8], ptr %130, i64 %12
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i16, ptr %132, align 8
   %134 = sext i16 %133 to i32
@@ -8900,14 +8899,14 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i.i.i:        ; preds = %55
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i, %55
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QListData11shared_nullE, i64 8), align 8
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QListData11shared_nullE, i64 16), i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9QListData11shared_nullE, i64 16), i64 %60
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QListData11shared_nullE, i64 12), align 4
   %.not4.i.i.i.i.i = icmp eq i32 %59, %62
   br i1 %.not4.i.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QListData11shared_nullE, i64 16), i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9QListData11shared_nullE, i64 16), i64 %63
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
@@ -8972,7 +8971,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36: ; preds = %_ZN9QtPrivate8RefC
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %77, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %77, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %83 = load i32, ptr %82, align 4
   %.not4.i.i.i.i = icmp eq i32 %79, %83
@@ -8980,7 +8979,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36: ; preds = %_ZN9QtPrivate8RefC
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i36
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %77, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %77, i64 %84
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -9026,26 +9025,26 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QSt
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %96 = sext i32 %1 to i64
   %97 = load ptr, ptr %95, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %96
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %96
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %12, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %101, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %101, i64 %104
   invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(48) %99, ptr noundef nonnull align 8 dereferenceable(8) %105)
           to label %106 unwind label %126
 
 106:                                              ; preds = %94
   %107 = load i32, ptr %102, align 8
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %101, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %101, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 112
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct.TextureInfo, ptr %113, i64 %96
+  %114 = getelementptr inbounds [24 x i8], ptr %113, i64 %96
   %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull align 8 dereferenceable(8) %109) #24
   invoke void @_ZN12ShaderDialog13reloadTextureEi(ptr noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1)
           to label %128 unwind label %126
@@ -9109,7 +9108,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i42: ; preds = %_ZN9QtPrivate8RefC
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load i32, ptr %134, align 8
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr %133, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %133, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %139 = load i32, ptr %138, align 4
   %.not4.i.i.i.i43 = icmp eq i32 %135, %139
@@ -9117,7 +9116,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i42: ; preds = %_ZN9QtPrivate8RefC
 
 .lr.ph.i.preheader.i.i.i44:                       ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i42
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %133, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %133, i64 %140
   br label %.lr.ph.i.i.i.i45
 
 .lr.ph.i.i.i.i45:                                 ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i47, %.lr.ph.i.preheader.i.i.i44
@@ -9215,7 +9214,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %.not4.i.i.i = icmp eq i32 %8, %12
@@ -9223,7 +9222,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i

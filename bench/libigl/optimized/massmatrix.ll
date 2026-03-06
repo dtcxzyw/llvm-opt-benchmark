@@ -247,7 +247,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %62, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %65 = getelementptr inbounds double, ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !20
   %67 = call noundef double @llvm.fabs.f64(double %66)
   store double %67, ptr %65, align 8, !tbaa !20
@@ -257,7 +257,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %57, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %72, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %57 ]
-  %69 = getelementptr inbounds nuw double, ptr %58, i64 %.011.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.011.i.i.i.i.i.i.i.i
   %70 = load <2 x double>, ptr %69, align 16, !tbaa !24
   %71 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
   store <2 x double> %71, ptr %69, align 16, !tbaa !24
@@ -346,11 +346,11 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %99 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !58
   %100 = load i64, ptr %52, align 8, !tbaa !15, !noalias !58
-  %101 = getelementptr inbounds i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %99, i64 %100
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %102 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !61
-  %103 = getelementptr inbounds i32, ptr %102, i64 %83
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %83
   %104 = load i64, ptr %85, align 8, !tbaa !35, !noalias !61
   store ptr %103, ptr %44, align 8, !tbaa !36, !alias.scope !61
   %105 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -400,7 +400,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %121 = sext i32 %120 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %122 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !67
-  %123 = getelementptr inbounds i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds [4 x i8], ptr %122, i64 %121
   %124 = load i64, ptr %85, align 8, !tbaa !35, !noalias !67
   store ptr %123, ptr %45, align 8, !tbaa !36, !alias.scope !67
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -450,7 +450,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %140 = ashr exact i64 %sext146, 32
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %141 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !73
-  %142 = getelementptr inbounds i32, ptr %141, i64 %140
+  %142 = getelementptr inbounds [4 x i8], ptr %141, i64 %140
   %143 = load i64, ptr %85, align 8, !tbaa !35, !noalias !73
   store ptr %142, ptr %46, align 8, !tbaa !36, !alias.scope !73
   %144 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -520,8 +520,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i.i167:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i166, %.lr.ph.i.i.i.i.i.i.i.i.i167
   %.05.i.i.i.i.i.i.i.i.i168 = phi i64 [ %170, %.lr.ph.i.i.i.i.i.i.i.i.i167 ], [ %164, %._crit_edge.i.i.i.i.i.i.i.i166 ]
-  %167 = getelementptr inbounds i32, ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
-  %168 = getelementptr inbounds i32, ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %167 = getelementptr inbounds [4 x i8], ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %168 = getelementptr inbounds [4 x i8], ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
   %169 = load i32, ptr %168, align 4, !tbaa !76
   store i32 %169, ptr %167, align 4, !tbaa !76
   %170 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i168, 1
@@ -530,8 +530,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i170:                        ; preds = %160, %.lr.ph.i.i.i.i.i.i.i.i170
   %.011.i.i.i.i.i.i.i.i171 = phi i64 [ %174, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ 0, %160 ]
-  %171 = getelementptr inbounds nuw i32, ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
-  %172 = getelementptr inbounds nuw i32, ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
   %173 = load <2 x i64>, ptr %172, align 16, !tbaa !24
   store <2 x i64> %173, ptr %171, align 16, !tbaa !24
   %174 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i171, 4
@@ -557,7 +557,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i.i.i.i.i ], [ %181, %._crit_edge.i.i.i.i.i.i ]
-  %184 = getelementptr inbounds double, ptr %178, i64 %.05.i.i.i.i.i.i.i
+  %184 = getelementptr inbounds [8 x i8], ptr %178, i64 %.05.i.i.i.i.i.i.i
   %185 = load double, ptr %184, align 8, !tbaa !20
   %186 = fmul double %185, 2.500000e-01
   store double %186, ptr %184, align 8, !tbaa !20
@@ -567,7 +567,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %176, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %191, %.lr.ph.i.i.i.i.i.i ], [ 0, %176 ]
-  %188 = getelementptr inbounds nuw double, ptr %178, i64 %.011.i.i.i.i.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.011.i.i.i.i.i.i
   %189 = load <2 x double>, ptr %188, align 16, !tbaa !24
   %190 = fmul <2 x double> %189, splat (double 2.500000e-01)
   store <2 x double> %190, ptr %188, align 16, !tbaa !24
@@ -645,7 +645,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.us.i.i.i.i.i.i.i.i = phi i64 [ %226, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.us.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %223 = trunc i64 %.05.us.i.i.i.i.i.i.i.i to i32
   %224 = sdiv i32 %223, %215
-  %225 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
   store i32 %224, ptr %225, align 4, !tbaa !76
   %226 = add nuw nsw i64 %.05.us.i.i.i.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i.i.i.i = icmp eq i64 %226, %.pr.i.i.i.i.i.i.i175
@@ -655,7 +655,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %230, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %227 = trunc i64 %.05.i.i.i.i.i.i.i.i to i32
   %228 = mul nsw i32 %219, %227
-  %229 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
   store i32 %228, ptr %229, align 4, !tbaa !76
   %230 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %230, %.pr.i.i.i.i.i.i.i175
@@ -691,8 +691,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i.i182:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i181, %.lr.ph.i.i.i.i.i.i.i.i.i182
   %.05.i.i.i.i.i.i.i.i.i183 = phi i64 [ %245, %.lr.ph.i.i.i.i.i.i.i.i.i182 ], [ %239, %._crit_edge.i.i.i.i.i.i.i.i181 ]
-  %242 = getelementptr inbounds i32, ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
-  %243 = getelementptr inbounds i32, ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %242 = getelementptr inbounds [4 x i8], ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %243 = getelementptr inbounds [4 x i8], ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
   %244 = load i32, ptr %243, align 4, !tbaa !76
   store i32 %244, ptr %242, align 4, !tbaa !76
   %245 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i183, 1
@@ -701,8 +701,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i185:                        ; preds = %235, %.lr.ph.i.i.i.i.i.i.i.i185
   %.011.i.i.i.i.i.i.i.i186 = phi i64 [ %249, %.lr.ph.i.i.i.i.i.i.i.i185 ], [ 0, %235 ]
-  %246 = getelementptr inbounds nuw i32, ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
-  %247 = getelementptr inbounds nuw i32, ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
   %248 = load <2 x i64>, ptr %247, align 16, !tbaa !24
   store <2 x i64> %248, ptr %246, align 16, !tbaa !24
   %249 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i186, 4
@@ -735,7 +735,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
 258:                                              ; preds = %257
   %259 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !83
   %260 = load i64, ptr %52, align 8, !tbaa !15, !noalias !83
-  %261 = getelementptr inbounds i32, ptr %259, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %259, i64 %260
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !86
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %262 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !92
@@ -783,7 +783,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
   %.idx = shl nsw i64 %277, 3
   %278 = getelementptr inbounds i8, ptr %276, i64 %.idx
   %279 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !96
-  %280 = getelementptr inbounds i32, ptr %279, i64 %260
+  %280 = getelementptr inbounds [4 x i8], ptr %279, i64 %260
   %281 = ptrtoint ptr %280 to i64
   %282 = and i64 %281, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %282, 0
@@ -807,8 +807,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %296, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
-  %294 = getelementptr inbounds nuw i32, ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
   %295 = load i32, ptr %294, align 4, !tbaa !76
   store i32 %295, ptr %293, align 4, !tbaa !76
   %296 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -825,8 +825,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %302, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i ], [ %291, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ]
-  %299 = getelementptr inbounds i32, ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
-  %300 = getelementptr inbounds i32, ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %299 = getelementptr inbounds [4 x i8], ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %300 = getelementptr inbounds [4 x i8], ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
   %301 = load i32, ptr %300, align 4, !tbaa !76
   store i32 %301, ptr %299, align 4, !tbaa !76
   %302 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -835,8 +835,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %306, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %303 = getelementptr inbounds i32, ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
-  %304 = getelementptr inbounds i32, ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %303 = getelementptr inbounds [4 x i8], ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %304 = getelementptr inbounds [4 x i8], ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
   %305 = load <2 x i64>, ptr %304, align 1, !tbaa !24
   store <2 x i64> %305, ptr %303, align 16, !tbaa !24
   %306 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i, 4
@@ -850,7 +850,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %310 = getelementptr inbounds i8, ptr %308, i64 %.idx1210
   %311 = add nsw i64 %277, %260
   %312 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !104
-  %313 = getelementptr inbounds i32, ptr %312, i64 %311
+  %313 = getelementptr inbounds [4 x i8], ptr %312, i64 %311
   %314 = ptrtoint ptr %313 to i64
   %315 = and i64 %314, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i195 = icmp eq i64 %315, 0
@@ -874,8 +874,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205
   %.05.i.i.i.i.i.i.i.i.i.i.i.i206 = phi i64 [ %329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196 ]
-  %326 = getelementptr inbounds nuw i32, ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
-  %327 = getelementptr inbounds nuw i32, ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
   %328 = load i32, ptr %327, align 4, !tbaa !76
   store i32 %328, ptr %326, align 4, !tbaa !76
   %329 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206, 1
@@ -892,8 +892,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i201 = phi i64 [ %335, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200 ], [ %324, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199 ]
-  %332 = getelementptr inbounds i32, ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
-  %333 = getelementptr inbounds i32, ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %332 = getelementptr inbounds [4 x i8], ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %333 = getelementptr inbounds [4 x i8], ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
   %334 = load i32, ptr %333, align 4, !tbaa !76
   store i32 %334, ptr %332, align 4, !tbaa !76
   %335 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201, 1
@@ -902,8 +902,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i203:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203
   %.021.i.i.i.i.i.i.i.i.i.i.i204 = phi i64 [ %339, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i197, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198 ]
-  %336 = getelementptr inbounds i32, ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
-  %337 = getelementptr inbounds i32, ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %336 = getelementptr inbounds [4 x i8], ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %337 = getelementptr inbounds [4 x i8], ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
   %338 = load <2 x i64>, ptr %337, align 1, !tbaa !24
   store <2 x i64> %338, ptr %336, align 16, !tbaa !24
   %339 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i204, 4
@@ -917,7 +917,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %343 = getelementptr inbounds i8, ptr %341, i64 %.idx1211
   %344 = add nsw i64 %309, %311
   %345 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !110
-  %346 = getelementptr inbounds i32, ptr %345, i64 %344
+  %346 = getelementptr inbounds [4 x i8], ptr %345, i64 %344
   %347 = ptrtoint ptr %346 to i64
   %348 = and i64 %347, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i214 = icmp eq i64 %348, 0
@@ -941,8 +941,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224
   %.05.i.i.i.i.i.i.i.i.i.i.i.i225 = phi i64 [ %362, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215 ]
-  %359 = getelementptr inbounds nuw i32, ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
-  %360 = getelementptr inbounds nuw i32, ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
   %361 = load i32, ptr %360, align 4, !tbaa !76
   store i32 %361, ptr %359, align 4, !tbaa !76
   %362 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225, 1
@@ -959,8 +959,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i220 = phi i64 [ %368, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219 ], [ %357, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218 ]
-  %365 = getelementptr inbounds i32, ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
-  %366 = getelementptr inbounds i32, ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %365 = getelementptr inbounds [4 x i8], ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %366 = getelementptr inbounds [4 x i8], ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
   %367 = load i32, ptr %366, align 4, !tbaa !76
   store i32 %367, ptr %365, align 4, !tbaa !76
   %368 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220, 1
@@ -969,8 +969,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i222:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222
   %.021.i.i.i.i.i.i.i.i.i.i.i223 = phi i64 [ %372, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i216, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217 ]
-  %369 = getelementptr inbounds i32, ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
-  %370 = getelementptr inbounds i32, ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %369 = getelementptr inbounds [4 x i8], ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %370 = getelementptr inbounds [4 x i8], ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
   %371 = load <2 x i64>, ptr %370, align 1, !tbaa !24
   store <2 x i64> %371, ptr %369, align 16, !tbaa !24
   %372 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i223, 4
@@ -984,7 +984,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %376 = getelementptr inbounds i8, ptr %374, i64 %.idx1212
   %377 = add nsw i64 %342, %344
   %378 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !116
-  %379 = getelementptr inbounds i32, ptr %378, i64 %377
+  %379 = getelementptr inbounds [4 x i8], ptr %378, i64 %377
   %380 = ptrtoint ptr %379 to i64
   %381 = and i64 %380, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i233 = icmp eq i64 %381, 0
@@ -1008,8 +1008,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243
   %.05.i.i.i.i.i.i.i.i.i.i.i.i244 = phi i64 [ %395, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234 ]
-  %392 = getelementptr inbounds nuw i32, ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
-  %393 = getelementptr inbounds nuw i32, ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
   %394 = load i32, ptr %393, align 4, !tbaa !76
   store i32 %394, ptr %392, align 4, !tbaa !76
   %395 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244, 1
@@ -1026,8 +1026,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i239 = phi i64 [ %401, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238 ], [ %390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237 ]
-  %398 = getelementptr inbounds i32, ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
-  %399 = getelementptr inbounds i32, ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %398 = getelementptr inbounds [4 x i8], ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %399 = getelementptr inbounds [4 x i8], ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
   %400 = load i32, ptr %399, align 4, !tbaa !76
   store i32 %400, ptr %398, align 4, !tbaa !76
   %401 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239, 1
@@ -1036,8 +1036,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i241:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241
   %.021.i.i.i.i.i.i.i.i.i.i.i242 = phi i64 [ %405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i235, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236 ]
-  %402 = getelementptr inbounds i32, ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
-  %403 = getelementptr inbounds i32, ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %402 = getelementptr inbounds [4 x i8], ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %403 = getelementptr inbounds [4 x i8], ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
   %404 = load <2 x i64>, ptr %403, align 1, !tbaa !24
   store <2 x i64> %404, ptr %402, align 16, !tbaa !24
   %405 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i242, 4
@@ -1049,7 +1049,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %408 = load i64, ptr %52, align 8, !tbaa !15, !noalias !119
   %409 = add nsw i64 %375, %377
   %410 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !122
-  %411 = getelementptr inbounds i32, ptr %410, i64 %409
+  %411 = getelementptr inbounds [4 x i8], ptr %410, i64 %409
   %412 = ptrtoint ptr %411 to i64
   %413 = and i64 %412, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i252 = icmp eq i64 %413, 0
@@ -1073,8 +1073,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262
   %.05.i.i.i.i.i.i.i.i.i.i.i.i263 = phi i64 [ %427, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253 ]
-  %424 = getelementptr inbounds nuw i32, ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
-  %425 = getelementptr inbounds nuw i32, ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
   %426 = load i32, ptr %425, align 4, !tbaa !76
   store i32 %426, ptr %424, align 4, !tbaa !76
   %427 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263, 1
@@ -1091,8 +1091,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i258 = phi i64 [ %433, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257 ], [ %422, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256 ]
-  %430 = getelementptr inbounds i32, ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
-  %431 = getelementptr inbounds i32, ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %430 = getelementptr inbounds [4 x i8], ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %431 = getelementptr inbounds [4 x i8], ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
   %432 = load i32, ptr %431, align 4, !tbaa !76
   store i32 %432, ptr %430, align 4, !tbaa !76
   %433 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258, 1
@@ -1101,8 +1101,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i260:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260
   %.021.i.i.i.i.i.i.i.i.i.i.i261 = phi i64 [ %437, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i254, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255 ]
-  %434 = getelementptr inbounds i32, ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
-  %435 = getelementptr inbounds i32, ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %434 = getelementptr inbounds [4 x i8], ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %435 = getelementptr inbounds [4 x i8], ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
   %436 = load <2 x i64>, ptr %435, align 1, !tbaa !24
   store <2 x i64> %436, ptr %434, align 16, !tbaa !24
   %437 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i261, 4
@@ -1116,7 +1116,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %441 = getelementptr inbounds i8, ptr %439, i64 %.idx1213
   %442 = add nsw i64 %408, %409
   %443 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !128
-  %444 = getelementptr inbounds i32, ptr %443, i64 %442
+  %444 = getelementptr inbounds [4 x i8], ptr %443, i64 %442
   %445 = ptrtoint ptr %444 to i64
   %446 = and i64 %445, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i271 = icmp eq i64 %446, 0
@@ -1140,8 +1140,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281
   %.05.i.i.i.i.i.i.i.i.i.i.i.i282 = phi i64 [ %460, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272 ]
-  %457 = getelementptr inbounds nuw i32, ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
-  %458 = getelementptr inbounds nuw i32, ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %457 = getelementptr inbounds nuw [4 x i8], ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
   %459 = load i32, ptr %458, align 4, !tbaa !76
   store i32 %459, ptr %457, align 4, !tbaa !76
   %460 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282, 1
@@ -1158,8 +1158,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i277 = phi i64 [ %466, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276 ], [ %455, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275 ]
-  %463 = getelementptr inbounds i32, ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
-  %464 = getelementptr inbounds i32, ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %463 = getelementptr inbounds [4 x i8], ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %464 = getelementptr inbounds [4 x i8], ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
   %465 = load i32, ptr %464, align 4, !tbaa !76
   store i32 %465, ptr %463, align 4, !tbaa !76
   %466 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277, 1
@@ -1168,8 +1168,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i279:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279
   %.021.i.i.i.i.i.i.i.i.i.i.i280 = phi i64 [ %470, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i273, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274 ]
-  %467 = getelementptr inbounds i32, ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
-  %468 = getelementptr inbounds i32, ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %467 = getelementptr inbounds [4 x i8], ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %468 = getelementptr inbounds [4 x i8], ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
   %469 = load <2 x i64>, ptr %468, align 1, !tbaa !24
   store <2 x i64> %469, ptr %467, align 16, !tbaa !24
   %470 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i280, 4
@@ -1181,7 +1181,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %473 = load i64, ptr %52, align 8, !tbaa !15, !noalias !131
   %474 = add nsw i64 %440, %442
   %475 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !134
-  %476 = getelementptr inbounds i32, ptr %475, i64 %474
+  %476 = getelementptr inbounds [4 x i8], ptr %475, i64 %474
   %477 = ptrtoint ptr %476 to i64
   %478 = and i64 %477, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i290 = icmp eq i64 %478, 0
@@ -1205,8 +1205,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300
   %.05.i.i.i.i.i.i.i.i.i.i.i.i301 = phi i64 [ %492, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291 ]
-  %489 = getelementptr inbounds nuw i32, ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
-  %490 = getelementptr inbounds nuw i32, ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
   %491 = load i32, ptr %490, align 4, !tbaa !76
   store i32 %491, ptr %489, align 4, !tbaa !76
   %492 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301, 1
@@ -1223,8 +1223,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i296 = phi i64 [ %498, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295 ], [ %487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294 ]
-  %495 = getelementptr inbounds i32, ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
-  %496 = getelementptr inbounds i32, ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %495 = getelementptr inbounds [4 x i8], ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %496 = getelementptr inbounds [4 x i8], ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
   %497 = load i32, ptr %496, align 4, !tbaa !76
   store i32 %497, ptr %495, align 4, !tbaa !76
   %498 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296, 1
@@ -1233,8 +1233,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i298:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298
   %.021.i.i.i.i.i.i.i.i.i.i.i299 = phi i64 [ %502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i292, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293 ]
-  %499 = getelementptr inbounds i32, ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
-  %500 = getelementptr inbounds i32, ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %499 = getelementptr inbounds [4 x i8], ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %500 = getelementptr inbounds [4 x i8], ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
   %501 = load <2 x i64>, ptr %500, align 1, !tbaa !24
   store <2 x i64> %501, ptr %499, align 16, !tbaa !24
   %502 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i299, 4
@@ -1244,10 +1244,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1251:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294
   %504 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !137
   %505 = load i64, ptr %52, align 8, !tbaa !15, !noalias !137
-  %506 = getelementptr inbounds i32, ptr %504, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %504, i64 %505
   %507 = add nsw i64 %473, %474
   %508 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !140
-  %509 = getelementptr inbounds i32, ptr %508, i64 %507
+  %509 = getelementptr inbounds [4 x i8], ptr %508, i64 %507
   %510 = ptrtoint ptr %509 to i64
   %511 = and i64 %510, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i309 = icmp eq i64 %511, 0
@@ -1271,8 +1271,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319
   %.05.i.i.i.i.i.i.i.i.i.i.i.i320 = phi i64 [ %525, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310 ]
-  %522 = getelementptr inbounds nuw i32, ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
-  %523 = getelementptr inbounds nuw i32, ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
   %524 = load i32, ptr %523, align 4, !tbaa !76
   store i32 %524, ptr %522, align 4, !tbaa !76
   %525 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320, 1
@@ -1289,8 +1289,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i315 = phi i64 [ %531, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314 ], [ %520, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313 ]
-  %528 = getelementptr inbounds i32, ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
-  %529 = getelementptr inbounds i32, ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %528 = getelementptr inbounds [4 x i8], ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %529 = getelementptr inbounds [4 x i8], ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
   %530 = load i32, ptr %529, align 4, !tbaa !76
   store i32 %530, ptr %528, align 4, !tbaa !76
   %531 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315, 1
@@ -1299,8 +1299,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i317:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317
   %.021.i.i.i.i.i.i.i.i.i.i.i318 = phi i64 [ %535, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i311, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312 ]
-  %532 = getelementptr inbounds i32, ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
-  %533 = getelementptr inbounds i32, ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %532 = getelementptr inbounds [4 x i8], ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %533 = getelementptr inbounds [4 x i8], ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
   %534 = load <2 x i64>, ptr %533, align 1, !tbaa !24
   store <2 x i64> %534, ptr %532, align 16, !tbaa !24
   %535 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i318, 4
@@ -1312,7 +1312,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %538 = load i64, ptr %52, align 8, !tbaa !15, !noalias !143
   %539 = add nsw i64 %505, %507
   %540 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !146
-  %541 = getelementptr inbounds i32, ptr %540, i64 %539
+  %541 = getelementptr inbounds [4 x i8], ptr %540, i64 %539
   %542 = ptrtoint ptr %541 to i64
   %543 = and i64 %542, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i328 = icmp eq i64 %543, 0
@@ -1336,8 +1336,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338
   %.05.i.i.i.i.i.i.i.i.i.i.i.i339 = phi i64 [ %557, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329 ]
-  %554 = getelementptr inbounds nuw i32, ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
-  %555 = getelementptr inbounds nuw i32, ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
   %556 = load i32, ptr %555, align 4, !tbaa !76
   store i32 %556, ptr %554, align 4, !tbaa !76
   %557 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339, 1
@@ -1354,8 +1354,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i334 = phi i64 [ %563, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333 ], [ %552, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332 ]
-  %560 = getelementptr inbounds i32, ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
-  %561 = getelementptr inbounds i32, ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %560 = getelementptr inbounds [4 x i8], ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %561 = getelementptr inbounds [4 x i8], ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
   %562 = load i32, ptr %561, align 4, !tbaa !76
   store i32 %562, ptr %560, align 4, !tbaa !76
   %563 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334, 1
@@ -1364,8 +1364,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i336:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336
   %.021.i.i.i.i.i.i.i.i.i.i.i337 = phi i64 [ %567, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i330, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331 ]
-  %564 = getelementptr inbounds i32, ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
-  %565 = getelementptr inbounds i32, ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %564 = getelementptr inbounds [4 x i8], ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %565 = getelementptr inbounds [4 x i8], ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
   %566 = load <2 x i64>, ptr %565, align 1, !tbaa !24
   store <2 x i64> %566, ptr %564, align 16, !tbaa !24
   %567 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i337, 4
@@ -1375,10 +1375,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1249:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332
   %569 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !149
   %570 = load i64, ptr %52, align 8, !tbaa !15, !noalias !149
-  %571 = getelementptr inbounds i32, ptr %569, i64 %570
+  %571 = getelementptr inbounds [4 x i8], ptr %569, i64 %570
   %572 = add nsw i64 %538, %539
   %573 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !152
-  %574 = getelementptr inbounds i32, ptr %573, i64 %572
+  %574 = getelementptr inbounds [4 x i8], ptr %573, i64 %572
   %575 = ptrtoint ptr %574 to i64
   %576 = and i64 %575, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i347 = icmp eq i64 %576, 0
@@ -1402,8 +1402,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357
   %.05.i.i.i.i.i.i.i.i.i.i.i.i358 = phi i64 [ %590, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348 ]
-  %587 = getelementptr inbounds nuw i32, ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
-  %588 = getelementptr inbounds nuw i32, ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
   %589 = load i32, ptr %588, align 4, !tbaa !76
   store i32 %589, ptr %587, align 4, !tbaa !76
   %590 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358, 1
@@ -1420,8 +1420,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i353 = phi i64 [ %596, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352 ], [ %585, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351 ]
-  %593 = getelementptr inbounds i32, ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
-  %594 = getelementptr inbounds i32, ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %593 = getelementptr inbounds [4 x i8], ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %594 = getelementptr inbounds [4 x i8], ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
   %595 = load i32, ptr %594, align 4, !tbaa !76
   store i32 %595, ptr %593, align 4, !tbaa !76
   %596 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353, 1
@@ -1430,8 +1430,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i355:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355
   %.021.i.i.i.i.i.i.i.i.i.i.i356 = phi i64 [ %600, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i349, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350 ]
-  %597 = getelementptr inbounds i32, ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
-  %598 = getelementptr inbounds i32, ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %597 = getelementptr inbounds [4 x i8], ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %598 = getelementptr inbounds [4 x i8], ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
   %599 = load <2 x i64>, ptr %598, align 1, !tbaa !24
   store <2 x i64> %599, ptr %597, align 16, !tbaa !24
   %600 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i356, 4
@@ -1445,7 +1445,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %604 = getelementptr inbounds i8, ptr %602, i64 %.idx1214
   %605 = add nsw i64 %570, %572
   %606 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !158
-  %607 = getelementptr inbounds i32, ptr %606, i64 %605
+  %607 = getelementptr inbounds [4 x i8], ptr %606, i64 %605
   %608 = ptrtoint ptr %607 to i64
   %609 = and i64 %608, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i366 = icmp eq i64 %609, 0
@@ -1469,8 +1469,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376
   %.05.i.i.i.i.i.i.i.i.i.i.i.i377 = phi i64 [ %623, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367 ]
-  %620 = getelementptr inbounds nuw i32, ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
-  %621 = getelementptr inbounds nuw i32, ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %621 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
   %622 = load i32, ptr %621, align 4, !tbaa !76
   store i32 %622, ptr %620, align 4, !tbaa !76
   %623 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377, 1
@@ -1487,8 +1487,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i372 = phi i64 [ %629, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371 ], [ %618, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370 ]
-  %626 = getelementptr inbounds i32, ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
-  %627 = getelementptr inbounds i32, ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %626 = getelementptr inbounds [4 x i8], ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %627 = getelementptr inbounds [4 x i8], ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
   %628 = load i32, ptr %627, align 4, !tbaa !76
   store i32 %628, ptr %626, align 4, !tbaa !76
   %629 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372, 1
@@ -1497,8 +1497,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i374:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374
   %.021.i.i.i.i.i.i.i.i.i.i.i375 = phi i64 [ %633, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i368, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369 ]
-  %630 = getelementptr inbounds i32, ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
-  %631 = getelementptr inbounds i32, ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %630 = getelementptr inbounds [4 x i8], ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %631 = getelementptr inbounds [4 x i8], ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
   %632 = load <2 x i64>, ptr %631, align 1, !tbaa !24
   store <2 x i64> %632, ptr %630, align 16, !tbaa !24
   %633 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i375, 4
@@ -1510,7 +1510,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %636 = load i64, ptr %52, align 8, !tbaa !15, !noalias !161
   %637 = add nsw i64 %603, %605
   %638 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !164
-  %639 = getelementptr inbounds i32, ptr %638, i64 %637
+  %639 = getelementptr inbounds [4 x i8], ptr %638, i64 %637
   %640 = ptrtoint ptr %639 to i64
   %641 = and i64 %640, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i385 = icmp eq i64 %641, 0
@@ -1534,8 +1534,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395
   %.05.i.i.i.i.i.i.i.i.i.i.i.i396 = phi i64 [ %655, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386 ]
-  %652 = getelementptr inbounds nuw i32, ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
-  %653 = getelementptr inbounds nuw i32, ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %652 = getelementptr inbounds nuw [4 x i8], ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
   %654 = load i32, ptr %653, align 4, !tbaa !76
   store i32 %654, ptr %652, align 4, !tbaa !76
   %655 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396, 1
@@ -1552,8 +1552,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i391 = phi i64 [ %661, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390 ], [ %650, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389 ]
-  %658 = getelementptr inbounds i32, ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
-  %659 = getelementptr inbounds i32, ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %658 = getelementptr inbounds [4 x i8], ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %659 = getelementptr inbounds [4 x i8], ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
   %660 = load i32, ptr %659, align 4, !tbaa !76
   store i32 %660, ptr %658, align 4, !tbaa !76
   %661 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391, 1
@@ -1562,8 +1562,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i393:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393
   %.021.i.i.i.i.i.i.i.i.i.i.i394 = phi i64 [ %665, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i387, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388 ]
-  %662 = getelementptr inbounds i32, ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
-  %663 = getelementptr inbounds i32, ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %662 = getelementptr inbounds [4 x i8], ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %663 = getelementptr inbounds [4 x i8], ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
   %664 = load <2 x i64>, ptr %663, align 1, !tbaa !24
   store <2 x i64> %664, ptr %662, align 16, !tbaa !24
   %665 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i394, 4
@@ -1573,10 +1573,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1246:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389
   %667 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !167
   %668 = load i64, ptr %52, align 8, !tbaa !15, !noalias !167
-  %669 = getelementptr inbounds i32, ptr %667, i64 %668
+  %669 = getelementptr inbounds [4 x i8], ptr %667, i64 %668
   %670 = add nsw i64 %636, %637
   %671 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !170
-  %672 = getelementptr inbounds i32, ptr %671, i64 %670
+  %672 = getelementptr inbounds [4 x i8], ptr %671, i64 %670
   %673 = ptrtoint ptr %672 to i64
   %674 = and i64 %673, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i404 = icmp eq i64 %674, 0
@@ -1600,8 +1600,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414
   %.05.i.i.i.i.i.i.i.i.i.i.i.i415 = phi i64 [ %688, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405 ]
-  %685 = getelementptr inbounds nuw i32, ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
-  %686 = getelementptr inbounds nuw i32, ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %685 = getelementptr inbounds nuw [4 x i8], ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
   %687 = load i32, ptr %686, align 4, !tbaa !76
   store i32 %687, ptr %685, align 4, !tbaa !76
   %688 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415, 1
@@ -1618,8 +1618,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i410 = phi i64 [ %694, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409 ], [ %683, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408 ]
-  %691 = getelementptr inbounds i32, ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
-  %692 = getelementptr inbounds i32, ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %691 = getelementptr inbounds [4 x i8], ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %692 = getelementptr inbounds [4 x i8], ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
   %693 = load i32, ptr %692, align 4, !tbaa !76
   store i32 %693, ptr %691, align 4, !tbaa !76
   %694 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410, 1
@@ -1628,8 +1628,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i412:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412
   %.021.i.i.i.i.i.i.i.i.i.i.i413 = phi i64 [ %698, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i406, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407 ]
-  %695 = getelementptr inbounds i32, ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
-  %696 = getelementptr inbounds i32, ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %695 = getelementptr inbounds [4 x i8], ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %696 = getelementptr inbounds [4 x i8], ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
   %697 = load <2 x i64>, ptr %696, align 1, !tbaa !24
   store <2 x i64> %697, ptr %695, align 16, !tbaa !24
   %698 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i413, 4
@@ -1643,7 +1643,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %702 = getelementptr inbounds i8, ptr %700, i64 %.idx1215
   %703 = add nsw i64 %668, %670
   %704 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !176
-  %705 = getelementptr inbounds i32, ptr %704, i64 %703
+  %705 = getelementptr inbounds [4 x i8], ptr %704, i64 %703
   %706 = ptrtoint ptr %705 to i64
   %707 = and i64 %706, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i423 = icmp eq i64 %707, 0
@@ -1667,8 +1667,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433
   %.05.i.i.i.i.i.i.i.i.i.i.i.i434 = phi i64 [ %721, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424 ]
-  %718 = getelementptr inbounds nuw i32, ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
-  %719 = getelementptr inbounds nuw i32, ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %718 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
   %720 = load i32, ptr %719, align 4, !tbaa !76
   store i32 %720, ptr %718, align 4, !tbaa !76
   %721 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434, 1
@@ -1685,8 +1685,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i429 = phi i64 [ %727, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428 ], [ %716, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427 ]
-  %724 = getelementptr inbounds i32, ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
-  %725 = getelementptr inbounds i32, ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %724 = getelementptr inbounds [4 x i8], ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %725 = getelementptr inbounds [4 x i8], ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
   %726 = load i32, ptr %725, align 4, !tbaa !76
   store i32 %726, ptr %724, align 4, !tbaa !76
   %727 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429, 1
@@ -1695,8 +1695,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i431:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431
   %.021.i.i.i.i.i.i.i.i.i.i.i432 = phi i64 [ %731, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i425, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426 ]
-  %728 = getelementptr inbounds i32, ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
-  %729 = getelementptr inbounds i32, ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %728 = getelementptr inbounds [4 x i8], ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %729 = getelementptr inbounds [4 x i8], ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
   %730 = load <2 x i64>, ptr %729, align 1, !tbaa !24
   store <2 x i64> %730, ptr %728, align 16, !tbaa !24
   %731 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i432, 4
@@ -1709,8 +1709,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1216 = mul nsw i64 %734, 12
   %735 = getelementptr inbounds i8, ptr %733, i64 %.idx1216
   %736 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !182
-  %737 = getelementptr i32, ptr %736, i64 %703
-  %738 = getelementptr i32, ptr %737, i64 %701
+  %737 = getelementptr [4 x i8], ptr %736, i64 %703
+  %738 = getelementptr [4 x i8], ptr %737, i64 %701
   %739 = ptrtoint ptr %738 to i64
   %740 = and i64 %739, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i442 = icmp eq i64 %740, 0
@@ -1734,8 +1734,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452
   %.05.i.i.i.i.i.i.i.i.i.i.i.i453 = phi i64 [ %754, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443 ]
-  %751 = getelementptr inbounds nuw i32, ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
-  %752 = getelementptr inbounds nuw i32, ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %752 = getelementptr inbounds nuw [4 x i8], ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
   %753 = load i32, ptr %752, align 4, !tbaa !76
   store i32 %753, ptr %751, align 4, !tbaa !76
   %754 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453, 1
@@ -1752,8 +1752,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i448 = phi i64 [ %760, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447 ], [ %749, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446 ]
-  %757 = getelementptr inbounds i32, ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
-  %758 = getelementptr inbounds i32, ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %757 = getelementptr inbounds [4 x i8], ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %758 = getelementptr inbounds [4 x i8], ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
   %759 = load i32, ptr %758, align 4, !tbaa !76
   store i32 %759, ptr %757, align 4, !tbaa !76
   %760 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448, 1
@@ -1762,8 +1762,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i450:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450
   %.021.i.i.i.i.i.i.i.i.i.i.i451 = phi i64 [ %764, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i444, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445 ]
-  %761 = getelementptr inbounds i32, ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
-  %762 = getelementptr inbounds i32, ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %761 = getelementptr inbounds [4 x i8], ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %762 = getelementptr inbounds [4 x i8], ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
   %763 = load <2 x i64>, ptr %762, align 1, !tbaa !24
   store <2 x i64> %763, ptr %761, align 16, !tbaa !24
   %764 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i451, 4
@@ -1818,7 +1818,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %782 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !195
   %783 = load i64, ptr %52, align 8, !tbaa !15, !noalias !195
   %784 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !198
-  %785 = getelementptr inbounds i32, ptr %784, i64 %767
+  %785 = getelementptr inbounds [4 x i8], ptr %784, i64 %767
   %786 = ptrtoint ptr %785 to i64
   %787 = and i64 %786, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i463 = icmp eq i64 %787, 0
@@ -1842,8 +1842,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473
   %.05.i.i.i.i.i.i.i.i.i.i.i.i474 = phi i64 [ %801, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464 ]
-  %798 = getelementptr inbounds nuw i32, ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
-  %799 = getelementptr inbounds nuw i32, ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %798 = getelementptr inbounds nuw [4 x i8], ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %799 = getelementptr inbounds nuw [4 x i8], ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
   %800 = load i32, ptr %799, align 4, !tbaa !76
   store i32 %800, ptr %798, align 4, !tbaa !76
   %801 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474, 1
@@ -1860,8 +1860,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i469 = phi i64 [ %807, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468 ], [ %796, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467 ]
-  %804 = getelementptr inbounds i32, ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
-  %805 = getelementptr inbounds i32, ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %804 = getelementptr inbounds [4 x i8], ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %805 = getelementptr inbounds [4 x i8], ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
   %806 = load i32, ptr %805, align 4, !tbaa !76
   store i32 %806, ptr %804, align 4, !tbaa !76
   %807 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469, 1
@@ -1870,8 +1870,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i471:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471
   %.021.i.i.i.i.i.i.i.i.i.i.i472 = phi i64 [ %811, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i465, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466 ]
-  %808 = getelementptr inbounds i32, ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
-  %809 = getelementptr inbounds i32, ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %808 = getelementptr inbounds [4 x i8], ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %809 = getelementptr inbounds [4 x i8], ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
   %810 = load <2 x i64>, ptr %809, align 1, !tbaa !24
   store <2 x i64> %810, ptr %808, align 16, !tbaa !24
   %811 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i472, 4
@@ -1883,7 +1883,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %814 = load i64, ptr %52, align 8, !tbaa !15, !noalias !201
   %815 = add nsw i64 %783, %767
   %816 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !204
-  %817 = getelementptr inbounds i32, ptr %816, i64 %815
+  %817 = getelementptr inbounds [4 x i8], ptr %816, i64 %815
   %818 = ptrtoint ptr %817 to i64
   %819 = and i64 %818, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i482 = icmp eq i64 %819, 0
@@ -1907,8 +1907,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492
   %.05.i.i.i.i.i.i.i.i.i.i.i.i493 = phi i64 [ %833, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483 ]
-  %830 = getelementptr inbounds nuw i32, ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
-  %831 = getelementptr inbounds nuw i32, ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %830 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %831 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
   %832 = load i32, ptr %831, align 4, !tbaa !76
   store i32 %832, ptr %830, align 4, !tbaa !76
   %833 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493, 1
@@ -1925,8 +1925,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i488 = phi i64 [ %839, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487 ], [ %828, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486 ]
-  %836 = getelementptr inbounds i32, ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
-  %837 = getelementptr inbounds i32, ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %836 = getelementptr inbounds [4 x i8], ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %837 = getelementptr inbounds [4 x i8], ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
   %838 = load i32, ptr %837, align 4, !tbaa !76
   store i32 %838, ptr %836, align 4, !tbaa !76
   %839 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488, 1
@@ -1935,8 +1935,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i490:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490
   %.021.i.i.i.i.i.i.i.i.i.i.i491 = phi i64 [ %843, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i484, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485 ]
-  %840 = getelementptr inbounds i32, ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
-  %841 = getelementptr inbounds i32, ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %840 = getelementptr inbounds [4 x i8], ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %841 = getelementptr inbounds [4 x i8], ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
   %842 = load <2 x i64>, ptr %841, align 1, !tbaa !24
   store <2 x i64> %842, ptr %840, align 16, !tbaa !24
   %843 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i491, 4
@@ -1946,10 +1946,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1241:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486
   %845 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !207
   %846 = load i64, ptr %52, align 8, !tbaa !15, !noalias !207
-  %847 = getelementptr inbounds i32, ptr %845, i64 %846
+  %847 = getelementptr inbounds [4 x i8], ptr %845, i64 %846
   %848 = add nsw i64 %814, %815
   %849 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !210
-  %850 = getelementptr inbounds i32, ptr %849, i64 %848
+  %850 = getelementptr inbounds [4 x i8], ptr %849, i64 %848
   %851 = ptrtoint ptr %850 to i64
   %852 = and i64 %851, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i501 = icmp eq i64 %852, 0
@@ -1973,8 +1973,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511
   %.05.i.i.i.i.i.i.i.i.i.i.i.i512 = phi i64 [ %866, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502 ]
-  %863 = getelementptr inbounds nuw i32, ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
-  %864 = getelementptr inbounds nuw i32, ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %863 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
   %865 = load i32, ptr %864, align 4, !tbaa !76
   store i32 %865, ptr %863, align 4, !tbaa !76
   %866 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512, 1
@@ -1991,8 +1991,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i507 = phi i64 [ %872, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506 ], [ %861, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505 ]
-  %869 = getelementptr inbounds i32, ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
-  %870 = getelementptr inbounds i32, ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %869 = getelementptr inbounds [4 x i8], ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %870 = getelementptr inbounds [4 x i8], ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
   %871 = load i32, ptr %870, align 4, !tbaa !76
   store i32 %871, ptr %869, align 4, !tbaa !76
   %872 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507, 1
@@ -2001,8 +2001,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i509:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509
   %.021.i.i.i.i.i.i.i.i.i.i.i510 = phi i64 [ %876, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i503, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504 ]
-  %873 = getelementptr inbounds i32, ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
-  %874 = getelementptr inbounds i32, ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %873 = getelementptr inbounds [4 x i8], ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %874 = getelementptr inbounds [4 x i8], ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
   %875 = load <2 x i64>, ptr %874, align 1, !tbaa !24
   store <2 x i64> %875, ptr %873, align 16, !tbaa !24
   %876 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i510, 4
@@ -2012,10 +2012,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1240:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505
   %878 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !213
   %879 = load i64, ptr %52, align 8, !tbaa !15, !noalias !213
-  %880 = getelementptr inbounds i32, ptr %878, i64 %879
+  %880 = getelementptr inbounds [4 x i8], ptr %878, i64 %879
   %881 = add nsw i64 %846, %848
   %882 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !216
-  %883 = getelementptr inbounds i32, ptr %882, i64 %881
+  %883 = getelementptr inbounds [4 x i8], ptr %882, i64 %881
   %884 = ptrtoint ptr %883 to i64
   %885 = and i64 %884, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i520 = icmp eq i64 %885, 0
@@ -2039,8 +2039,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530
   %.05.i.i.i.i.i.i.i.i.i.i.i.i531 = phi i64 [ %899, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521 ]
-  %896 = getelementptr inbounds nuw i32, ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
-  %897 = getelementptr inbounds nuw i32, ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %896 = getelementptr inbounds nuw [4 x i8], ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %897 = getelementptr inbounds nuw [4 x i8], ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
   %898 = load i32, ptr %897, align 4, !tbaa !76
   store i32 %898, ptr %896, align 4, !tbaa !76
   %899 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531, 1
@@ -2057,8 +2057,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i526 = phi i64 [ %905, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525 ], [ %894, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524 ]
-  %902 = getelementptr inbounds i32, ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
-  %903 = getelementptr inbounds i32, ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %902 = getelementptr inbounds [4 x i8], ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %903 = getelementptr inbounds [4 x i8], ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
   %904 = load i32, ptr %903, align 4, !tbaa !76
   store i32 %904, ptr %902, align 4, !tbaa !76
   %905 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526, 1
@@ -2067,8 +2067,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i528:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528
   %.021.i.i.i.i.i.i.i.i.i.i.i529 = phi i64 [ %909, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i522, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523 ]
-  %906 = getelementptr inbounds i32, ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
-  %907 = getelementptr inbounds i32, ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %906 = getelementptr inbounds [4 x i8], ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %907 = getelementptr inbounds [4 x i8], ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
   %908 = load <2 x i64>, ptr %907, align 1, !tbaa !24
   store <2 x i64> %908, ptr %906, align 16, !tbaa !24
   %909 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i529, 4
@@ -2078,10 +2078,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1239:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524
   %911 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !219
   %912 = load i64, ptr %52, align 8, !tbaa !15, !noalias !219
-  %913 = getelementptr inbounds i32, ptr %911, i64 %912
+  %913 = getelementptr inbounds [4 x i8], ptr %911, i64 %912
   %914 = add nsw i64 %879, %881
   %915 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !222
-  %916 = getelementptr inbounds i32, ptr %915, i64 %914
+  %916 = getelementptr inbounds [4 x i8], ptr %915, i64 %914
   %917 = ptrtoint ptr %916 to i64
   %918 = and i64 %917, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i539 = icmp eq i64 %918, 0
@@ -2105,8 +2105,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549
   %.05.i.i.i.i.i.i.i.i.i.i.i.i550 = phi i64 [ %932, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540 ]
-  %929 = getelementptr inbounds nuw i32, ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
-  %930 = getelementptr inbounds nuw i32, ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %929 = getelementptr inbounds nuw [4 x i8], ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
   %931 = load i32, ptr %930, align 4, !tbaa !76
   store i32 %931, ptr %929, align 4, !tbaa !76
   %932 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550, 1
@@ -2123,8 +2123,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i545 = phi i64 [ %938, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544 ], [ %927, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543 ]
-  %935 = getelementptr inbounds i32, ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
-  %936 = getelementptr inbounds i32, ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %935 = getelementptr inbounds [4 x i8], ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %936 = getelementptr inbounds [4 x i8], ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
   %937 = load i32, ptr %936, align 4, !tbaa !76
   store i32 %937, ptr %935, align 4, !tbaa !76
   %938 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545, 1
@@ -2133,8 +2133,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i547:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547
   %.021.i.i.i.i.i.i.i.i.i.i.i548 = phi i64 [ %942, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i541, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542 ]
-  %939 = getelementptr inbounds i32, ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
-  %940 = getelementptr inbounds i32, ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %939 = getelementptr inbounds [4 x i8], ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %940 = getelementptr inbounds [4 x i8], ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
   %941 = load <2 x i64>, ptr %940, align 1, !tbaa !24
   store <2 x i64> %941, ptr %939, align 16, !tbaa !24
   %942 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i548, 4
@@ -2148,7 +2148,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %946 = getelementptr inbounds i8, ptr %944, i64 %.idx1217
   %947 = add nsw i64 %912, %914
   %948 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !228
-  %949 = getelementptr inbounds i32, ptr %948, i64 %947
+  %949 = getelementptr inbounds [4 x i8], ptr %948, i64 %947
   %950 = ptrtoint ptr %949 to i64
   %951 = and i64 %950, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i558 = icmp eq i64 %951, 0
@@ -2172,8 +2172,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568
   %.05.i.i.i.i.i.i.i.i.i.i.i.i569 = phi i64 [ %965, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559 ]
-  %962 = getelementptr inbounds nuw i32, ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
-  %963 = getelementptr inbounds nuw i32, ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %963 = getelementptr inbounds nuw [4 x i8], ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
   %964 = load i32, ptr %963, align 4, !tbaa !76
   store i32 %964, ptr %962, align 4, !tbaa !76
   %965 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569, 1
@@ -2190,8 +2190,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i564 = phi i64 [ %971, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563 ], [ %960, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562 ]
-  %968 = getelementptr inbounds i32, ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
-  %969 = getelementptr inbounds i32, ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %968 = getelementptr inbounds [4 x i8], ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %969 = getelementptr inbounds [4 x i8], ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
   %970 = load i32, ptr %969, align 4, !tbaa !76
   store i32 %970, ptr %968, align 4, !tbaa !76
   %971 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564, 1
@@ -2200,8 +2200,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i566:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566
   %.021.i.i.i.i.i.i.i.i.i.i.i567 = phi i64 [ %975, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i560, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561 ]
-  %972 = getelementptr inbounds i32, ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
-  %973 = getelementptr inbounds i32, ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %972 = getelementptr inbounds [4 x i8], ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %973 = getelementptr inbounds [4 x i8], ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
   %974 = load <2 x i64>, ptr %973, align 1, !tbaa !24
   store <2 x i64> %974, ptr %972, align 16, !tbaa !24
   %975 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i567, 4
@@ -2215,7 +2215,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %979 = getelementptr inbounds i8, ptr %977, i64 %.idx1218
   %980 = add nsw i64 %945, %947
   %981 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !234
-  %982 = getelementptr inbounds i32, ptr %981, i64 %980
+  %982 = getelementptr inbounds [4 x i8], ptr %981, i64 %980
   %983 = ptrtoint ptr %982 to i64
   %984 = and i64 %983, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i577 = icmp eq i64 %984, 0
@@ -2239,8 +2239,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587
   %.05.i.i.i.i.i.i.i.i.i.i.i.i588 = phi i64 [ %998, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578 ]
-  %995 = getelementptr inbounds nuw i32, ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
-  %996 = getelementptr inbounds nuw i32, ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %995 = getelementptr inbounds nuw [4 x i8], ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %996 = getelementptr inbounds nuw [4 x i8], ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
   %997 = load i32, ptr %996, align 4, !tbaa !76
   store i32 %997, ptr %995, align 4, !tbaa !76
   %998 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588, 1
@@ -2257,8 +2257,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i583 = phi i64 [ %1004, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582 ], [ %993, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581 ]
-  %1001 = getelementptr inbounds i32, ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
-  %1002 = getelementptr inbounds i32, ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1001 = getelementptr inbounds [4 x i8], ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1002 = getelementptr inbounds [4 x i8], ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
   %1003 = load i32, ptr %1002, align 4, !tbaa !76
   store i32 %1003, ptr %1001, align 4, !tbaa !76
   %1004 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583, 1
@@ -2267,8 +2267,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i585:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585
   %.021.i.i.i.i.i.i.i.i.i.i.i586 = phi i64 [ %1008, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i579, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580 ]
-  %1005 = getelementptr inbounds i32, ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
-  %1006 = getelementptr inbounds i32, ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1005 = getelementptr inbounds [4 x i8], ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1006 = getelementptr inbounds [4 x i8], ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
   %1007 = load <2 x i64>, ptr %1006, align 1, !tbaa !24
   store <2 x i64> %1007, ptr %1005, align 16, !tbaa !24
   %1008 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i586, 4
@@ -2282,7 +2282,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1012 = getelementptr inbounds i8, ptr %1010, i64 %.idx1219
   %1013 = add nsw i64 %978, %980
   %1014 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !240
-  %1015 = getelementptr inbounds i32, ptr %1014, i64 %1013
+  %1015 = getelementptr inbounds [4 x i8], ptr %1014, i64 %1013
   %1016 = ptrtoint ptr %1015 to i64
   %1017 = and i64 %1016, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i596 = icmp eq i64 %1017, 0
@@ -2306,8 +2306,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606
   %.05.i.i.i.i.i.i.i.i.i.i.i.i607 = phi i64 [ %1031, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597 ]
-  %1028 = getelementptr inbounds nuw i32, ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
-  %1029 = getelementptr inbounds nuw i32, ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1029 = getelementptr inbounds nuw [4 x i8], ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
   %1030 = load i32, ptr %1029, align 4, !tbaa !76
   store i32 %1030, ptr %1028, align 4, !tbaa !76
   %1031 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607, 1
@@ -2324,8 +2324,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i602 = phi i64 [ %1037, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601 ], [ %1026, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600 ]
-  %1034 = getelementptr inbounds i32, ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
-  %1035 = getelementptr inbounds i32, ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1034 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1035 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
   %1036 = load i32, ptr %1035, align 4, !tbaa !76
   store i32 %1036, ptr %1034, align 4, !tbaa !76
   %1037 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602, 1
@@ -2334,8 +2334,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i604:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604
   %.021.i.i.i.i.i.i.i.i.i.i.i605 = phi i64 [ %1041, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i598, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599 ]
-  %1038 = getelementptr inbounds i32, ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
-  %1039 = getelementptr inbounds i32, ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1038 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1039 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
   %1040 = load <2 x i64>, ptr %1039, align 1, !tbaa !24
   store <2 x i64> %1040, ptr %1038, align 16, !tbaa !24
   %1041 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i605, 4
@@ -2349,7 +2349,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1045 = getelementptr inbounds i8, ptr %1043, i64 %.idx1220
   %1046 = add nsw i64 %1011, %1013
   %1047 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !246
-  %1048 = getelementptr inbounds i32, ptr %1047, i64 %1046
+  %1048 = getelementptr inbounds [4 x i8], ptr %1047, i64 %1046
   %1049 = ptrtoint ptr %1048 to i64
   %1050 = and i64 %1049, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i615 = icmp eq i64 %1050, 0
@@ -2373,8 +2373,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625
   %.05.i.i.i.i.i.i.i.i.i.i.i.i626 = phi i64 [ %1064, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616 ]
-  %1061 = getelementptr inbounds nuw i32, ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
-  %1062 = getelementptr inbounds nuw i32, ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1061 = getelementptr inbounds nuw [4 x i8], ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
   %1063 = load i32, ptr %1062, align 4, !tbaa !76
   store i32 %1063, ptr %1061, align 4, !tbaa !76
   %1064 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626, 1
@@ -2391,8 +2391,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i621 = phi i64 [ %1070, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620 ], [ %1059, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619 ]
-  %1067 = getelementptr inbounds i32, ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
-  %1068 = getelementptr inbounds i32, ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1067 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1068 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
   %1069 = load i32, ptr %1068, align 4, !tbaa !76
   store i32 %1069, ptr %1067, align 4, !tbaa !76
   %1070 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621, 1
@@ -2401,8 +2401,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i623:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623
   %.021.i.i.i.i.i.i.i.i.i.i.i624 = phi i64 [ %1074, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i617, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618 ]
-  %1071 = getelementptr inbounds i32, ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
-  %1072 = getelementptr inbounds i32, ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1071 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1072 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
   %1073 = load <2 x i64>, ptr %1072, align 1, !tbaa !24
   store <2 x i64> %1073, ptr %1071, align 16, !tbaa !24
   %1074 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i624, 4
@@ -2416,7 +2416,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1078 = getelementptr inbounds i8, ptr %1076, i64 %.idx1221
   %1079 = add nsw i64 %1044, %1046
   %1080 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !252
-  %1081 = getelementptr inbounds i32, ptr %1080, i64 %1079
+  %1081 = getelementptr inbounds [4 x i8], ptr %1080, i64 %1079
   %1082 = ptrtoint ptr %1081 to i64
   %1083 = and i64 %1082, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i634 = icmp eq i64 %1083, 0
@@ -2440,8 +2440,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644
   %.05.i.i.i.i.i.i.i.i.i.i.i.i645 = phi i64 [ %1097, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635 ]
-  %1094 = getelementptr inbounds nuw i32, ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
-  %1095 = getelementptr inbounds nuw i32, ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1094 = getelementptr inbounds nuw [4 x i8], ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1095 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
   %1096 = load i32, ptr %1095, align 4, !tbaa !76
   store i32 %1096, ptr %1094, align 4, !tbaa !76
   %1097 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645, 1
@@ -2458,8 +2458,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i640 = phi i64 [ %1103, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639 ], [ %1092, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638 ]
-  %1100 = getelementptr inbounds i32, ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
-  %1101 = getelementptr inbounds i32, ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1100 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1101 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
   %1102 = load i32, ptr %1101, align 4, !tbaa !76
   store i32 %1102, ptr %1100, align 4, !tbaa !76
   %1103 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640, 1
@@ -2468,8 +2468,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i642:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642
   %.021.i.i.i.i.i.i.i.i.i.i.i643 = phi i64 [ %1107, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i636, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637 ]
-  %1104 = getelementptr inbounds i32, ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
-  %1105 = getelementptr inbounds i32, ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1104 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1105 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
   %1106 = load <2 x i64>, ptr %1105, align 1, !tbaa !24
   store <2 x i64> %1106, ptr %1104, align 16, !tbaa !24
   %1107 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i643, 4
@@ -2483,7 +2483,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1111 = getelementptr inbounds i8, ptr %1109, i64 %.idx1222
   %1112 = add nsw i64 %1077, %1079
   %1113 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !258
-  %1114 = getelementptr inbounds i32, ptr %1113, i64 %1112
+  %1114 = getelementptr inbounds [4 x i8], ptr %1113, i64 %1112
   %1115 = ptrtoint ptr %1114 to i64
   %1116 = and i64 %1115, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i653 = icmp eq i64 %1116, 0
@@ -2507,8 +2507,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663
   %.05.i.i.i.i.i.i.i.i.i.i.i.i664 = phi i64 [ %1130, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654 ]
-  %1127 = getelementptr inbounds nuw i32, ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
-  %1128 = getelementptr inbounds nuw i32, ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1127 = getelementptr inbounds nuw [4 x i8], ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1128 = getelementptr inbounds nuw [4 x i8], ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
   %1129 = load i32, ptr %1128, align 4, !tbaa !76
   store i32 %1129, ptr %1127, align 4, !tbaa !76
   %1130 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664, 1
@@ -2525,8 +2525,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i659 = phi i64 [ %1136, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658 ], [ %1125, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657 ]
-  %1133 = getelementptr inbounds i32, ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
-  %1134 = getelementptr inbounds i32, ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1133 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1134 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
   %1135 = load i32, ptr %1134, align 4, !tbaa !76
   store i32 %1135, ptr %1133, align 4, !tbaa !76
   %1136 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659, 1
@@ -2535,8 +2535,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i661:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661
   %.021.i.i.i.i.i.i.i.i.i.i.i662 = phi i64 [ %1140, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i655, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656 ]
-  %1137 = getelementptr inbounds i32, ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
-  %1138 = getelementptr inbounds i32, ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1137 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1138 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
   %1139 = load <2 x i64>, ptr %1138, align 1, !tbaa !24
   store <2 x i64> %1139, ptr %1137, align 16, !tbaa !24
   %1140 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i662, 4
@@ -2548,7 +2548,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1143 = load i64, ptr %52, align 8, !tbaa !15, !noalias !261
   %1144 = add nsw i64 %1110, %1112
   %1145 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !264
-  %1146 = getelementptr inbounds i32, ptr %1145, i64 %1144
+  %1146 = getelementptr inbounds [4 x i8], ptr %1145, i64 %1144
   %1147 = ptrtoint ptr %1146 to i64
   %1148 = and i64 %1147, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i672 = icmp eq i64 %1148, 0
@@ -2572,8 +2572,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682
   %.05.i.i.i.i.i.i.i.i.i.i.i.i683 = phi i64 [ %1162, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673 ]
-  %1159 = getelementptr inbounds nuw i32, ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
-  %1160 = getelementptr inbounds nuw i32, ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1159 = getelementptr inbounds nuw [4 x i8], ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1160 = getelementptr inbounds nuw [4 x i8], ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
   %1161 = load i32, ptr %1160, align 4, !tbaa !76
   store i32 %1161, ptr %1159, align 4, !tbaa !76
   %1162 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683, 1
@@ -2590,8 +2590,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i678 = phi i64 [ %1168, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677 ], [ %1157, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676 ]
-  %1165 = getelementptr inbounds i32, ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
-  %1166 = getelementptr inbounds i32, ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1165 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1166 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
   %1167 = load i32, ptr %1166, align 4, !tbaa !76
   store i32 %1167, ptr %1165, align 4, !tbaa !76
   %1168 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678, 1
@@ -2600,8 +2600,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i680:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680
   %.021.i.i.i.i.i.i.i.i.i.i.i681 = phi i64 [ %1172, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i674, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675 ]
-  %1169 = getelementptr inbounds i32, ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
-  %1170 = getelementptr inbounds i32, ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1169 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1170 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
   %1171 = load <2 x i64>, ptr %1170, align 1, !tbaa !24
   store <2 x i64> %1171, ptr %1169, align 16, !tbaa !24
   %1172 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i681, 4
@@ -2611,10 +2611,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1231:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676
   %1174 = load ptr, ptr %1, align 8, !tbaa !26, !noalias !267
   %1175 = load i64, ptr %52, align 8, !tbaa !15, !noalias !267
-  %1176 = getelementptr inbounds i32, ptr %1174, i64 %1175
+  %1176 = getelementptr inbounds [4 x i8], ptr %1174, i64 %1175
   %1177 = add nsw i64 %1143, %1144
   %1178 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !270
-  %1179 = getelementptr inbounds i32, ptr %1178, i64 %1177
+  %1179 = getelementptr inbounds [4 x i8], ptr %1178, i64 %1177
   %1180 = ptrtoint ptr %1179 to i64
   %1181 = and i64 %1180, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i691 = icmp eq i64 %1181, 0
@@ -2638,8 +2638,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701
   %.05.i.i.i.i.i.i.i.i.i.i.i.i702 = phi i64 [ %1195, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692 ]
-  %1192 = getelementptr inbounds nuw i32, ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
-  %1193 = getelementptr inbounds nuw i32, ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1193 = getelementptr inbounds nuw [4 x i8], ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
   %1194 = load i32, ptr %1193, align 4, !tbaa !76
   store i32 %1194, ptr %1192, align 4, !tbaa !76
   %1195 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702, 1
@@ -2656,8 +2656,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i697 = phi i64 [ %1201, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696 ], [ %1190, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695 ]
-  %1198 = getelementptr inbounds i32, ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
-  %1199 = getelementptr inbounds i32, ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1198 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1199 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
   %1200 = load i32, ptr %1199, align 4, !tbaa !76
   store i32 %1200, ptr %1198, align 4, !tbaa !76
   %1201 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697, 1
@@ -2666,8 +2666,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i699:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699
   %.021.i.i.i.i.i.i.i.i.i.i.i700 = phi i64 [ %1205, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i693, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694 ]
-  %1202 = getelementptr inbounds i32, ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
-  %1203 = getelementptr inbounds i32, ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1202 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1203 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
   %1204 = load <2 x i64>, ptr %1203, align 1, !tbaa !24
   store <2 x i64> %1204, ptr %1202, align 16, !tbaa !24
   %1205 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i700, 4
@@ -2681,7 +2681,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1209 = getelementptr inbounds i8, ptr %1207, i64 %.idx1223
   %1210 = add nsw i64 %1175, %1177
   %1211 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !276
-  %1212 = getelementptr inbounds i32, ptr %1211, i64 %1210
+  %1212 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1210
   %1213 = ptrtoint ptr %1212 to i64
   %1214 = and i64 %1213, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i710 = icmp eq i64 %1214, 0
@@ -2705,8 +2705,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720
   %.05.i.i.i.i.i.i.i.i.i.i.i.i721 = phi i64 [ %1228, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711 ]
-  %1225 = getelementptr inbounds nuw i32, ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
-  %1226 = getelementptr inbounds nuw i32, ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1225 = getelementptr inbounds nuw [4 x i8], ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
   %1227 = load i32, ptr %1226, align 4, !tbaa !76
   store i32 %1227, ptr %1225, align 4, !tbaa !76
   %1228 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721, 1
@@ -2723,8 +2723,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i716 = phi i64 [ %1234, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715 ], [ %1223, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714 ]
-  %1231 = getelementptr inbounds i32, ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
-  %1232 = getelementptr inbounds i32, ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1231 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1232 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
   %1233 = load i32, ptr %1232, align 4, !tbaa !76
   store i32 %1233, ptr %1231, align 4, !tbaa !76
   %1234 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716, 1
@@ -2733,8 +2733,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i718:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718
   %.021.i.i.i.i.i.i.i.i.i.i.i719 = phi i64 [ %1238, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i712, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713 ]
-  %1235 = getelementptr inbounds i32, ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
-  %1236 = getelementptr inbounds i32, ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1235 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1236 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
   %1237 = load <2 x i64>, ptr %1236, align 1, !tbaa !24
   store <2 x i64> %1237, ptr %1235, align 16, !tbaa !24
   %1238 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i719, 4
@@ -2747,8 +2747,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1224 = mul nsw i64 %1241, 12
   %1242 = getelementptr inbounds i8, ptr %1240, i64 %.idx1224
   %1243 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !282
-  %1244 = getelementptr i32, ptr %1243, i64 %1210
-  %1245 = getelementptr i32, ptr %1244, i64 %1208
+  %1244 = getelementptr [4 x i8], ptr %1243, i64 %1210
+  %1245 = getelementptr [4 x i8], ptr %1244, i64 %1208
   %1246 = ptrtoint ptr %1245 to i64
   %1247 = and i64 %1246, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i729 = icmp eq i64 %1247, 0
@@ -2772,8 +2772,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739
   %.05.i.i.i.i.i.i.i.i.i.i.i.i740 = phi i64 [ %1261, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730 ]
-  %1258 = getelementptr inbounds nuw i32, ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
-  %1259 = getelementptr inbounds nuw i32, ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1258 = getelementptr inbounds nuw [4 x i8], ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1259 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
   %1260 = load i32, ptr %1259, align 4, !tbaa !76
   store i32 %1260, ptr %1258, align 4, !tbaa !76
   %1261 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740, 1
@@ -2790,8 +2790,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i735 = phi i64 [ %1267, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734 ], [ %1256, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733 ]
-  %1264 = getelementptr inbounds i32, ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
-  %1265 = getelementptr inbounds i32, ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1264 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1265 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
   %1266 = load i32, ptr %1265, align 4, !tbaa !76
   store i32 %1266, ptr %1264, align 4, !tbaa !76
   %1267 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735, 1
@@ -2800,8 +2800,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i737:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737
   %.021.i.i.i.i.i.i.i.i.i.i.i738 = phi i64 [ %1271, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i731, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELi4ELi0ELin1ELi4EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732 ]
-  %1268 = getelementptr inbounds i32, ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
-  %1269 = getelementptr inbounds i32, ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1268 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1269 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
   %1270 = load <2 x i64>, ptr %1269, align 1, !tbaa !24
   store <2 x i64> %1270, ptr %1268, align 16, !tbaa !24
   %1271 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i738, 4
@@ -2860,7 +2860,7 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEcmINS_5BlockIKN
   call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %1289 = sext i32 %1288 to i64
   %1290 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !307
-  %1291 = getelementptr inbounds double, ptr %1290, i64 %1274
+  %1291 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1274
   %1292 = load i64, ptr %1276, align 8, !tbaa !19, !noalias !307
   store ptr %1291, ptr %48, align 8, !tbaa !288, !alias.scope !307
   %1293 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -3141,7 +3141,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %62, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %65 = getelementptr inbounds double, ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !20
   %67 = call noundef double @llvm.fabs.f64(double %66)
   store double %67, ptr %65, align 8, !tbaa !20
@@ -3151,7 +3151,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %57, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %72, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %57 ]
-  %69 = getelementptr inbounds nuw double, ptr %58, i64 %.011.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.011.i.i.i.i.i.i.i.i
   %70 = load <2 x double>, ptr %69, align 16, !tbaa !24
   %71 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
   store <2 x double> %71, ptr %69, align 16, !tbaa !24
@@ -3240,11 +3240,11 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %99 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !322
   %100 = load i64, ptr %52, align 8, !tbaa !310, !noalias !322
-  %101 = getelementptr inbounds i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %99, i64 %100
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
   %102 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !325
-  %103 = getelementptr inbounds i32, ptr %102, i64 %83
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %83
   %104 = load i64, ptr %85, align 8, !tbaa !35, !noalias !325
   store ptr %103, ptr %44, align 8, !tbaa !36, !alias.scope !325
   %105 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -3294,7 +3294,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %121 = sext i32 %120 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
   %122 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !331
-  %123 = getelementptr inbounds i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds [4 x i8], ptr %122, i64 %121
   %124 = load i64, ptr %85, align 8, !tbaa !35, !noalias !331
   store ptr %123, ptr %45, align 8, !tbaa !36, !alias.scope !331
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -3344,7 +3344,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %140 = ashr exact i64 %sext146, 32
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %141 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !337
-  %142 = getelementptr inbounds i32, ptr %141, i64 %140
+  %142 = getelementptr inbounds [4 x i8], ptr %141, i64 %140
   %143 = load i64, ptr %85, align 8, !tbaa !35, !noalias !337
   store ptr %142, ptr %46, align 8, !tbaa !36, !alias.scope !337
   %144 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -3414,8 +3414,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i.i167:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i166, %.lr.ph.i.i.i.i.i.i.i.i.i167
   %.05.i.i.i.i.i.i.i.i.i168 = phi i64 [ %170, %.lr.ph.i.i.i.i.i.i.i.i.i167 ], [ %164, %._crit_edge.i.i.i.i.i.i.i.i166 ]
-  %167 = getelementptr inbounds i32, ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
-  %168 = getelementptr inbounds i32, ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %167 = getelementptr inbounds [4 x i8], ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %168 = getelementptr inbounds [4 x i8], ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
   %169 = load i32, ptr %168, align 4, !tbaa !76
   store i32 %169, ptr %167, align 4, !tbaa !76
   %170 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i168, 1
@@ -3424,8 +3424,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i170:                        ; preds = %160, %.lr.ph.i.i.i.i.i.i.i.i170
   %.011.i.i.i.i.i.i.i.i171 = phi i64 [ %174, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ 0, %160 ]
-  %171 = getelementptr inbounds nuw i32, ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
-  %172 = getelementptr inbounds nuw i32, ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
   %173 = load <2 x i64>, ptr %172, align 16, !tbaa !24
   store <2 x i64> %173, ptr %171, align 16, !tbaa !24
   %174 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i171, 4
@@ -3451,7 +3451,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i.i.i.i.i ], [ %181, %._crit_edge.i.i.i.i.i.i ]
-  %184 = getelementptr inbounds double, ptr %178, i64 %.05.i.i.i.i.i.i.i
+  %184 = getelementptr inbounds [8 x i8], ptr %178, i64 %.05.i.i.i.i.i.i.i
   %185 = load double, ptr %184, align 8, !tbaa !20
   %186 = fmul double %185, 2.500000e-01
   store double %186, ptr %184, align 8, !tbaa !20
@@ -3461,7 +3461,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %176, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %191, %.lr.ph.i.i.i.i.i.i ], [ 0, %176 ]
-  %188 = getelementptr inbounds nuw double, ptr %178, i64 %.011.i.i.i.i.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.011.i.i.i.i.i.i
   %189 = load <2 x double>, ptr %188, align 16, !tbaa !24
   %190 = fmul <2 x double> %189, splat (double 2.500000e-01)
   store <2 x double> %190, ptr %188, align 16, !tbaa !24
@@ -3539,7 +3539,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.us.i.i.i.i.i.i.i.i = phi i64 [ %226, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.us.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %223 = trunc i64 %.05.us.i.i.i.i.i.i.i.i to i32
   %224 = sdiv i32 %223, %215
-  %225 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
   store i32 %224, ptr %225, align 4, !tbaa !76
   %226 = add nuw nsw i64 %.05.us.i.i.i.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i.i.i.i = icmp eq i64 %226, %.pr.i.i.i.i.i.i.i175
@@ -3549,7 +3549,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %230, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %227 = trunc i64 %.05.i.i.i.i.i.i.i.i to i32
   %228 = mul nsw i32 %219, %227
-  %229 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
   store i32 %228, ptr %229, align 4, !tbaa !76
   %230 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %230, %.pr.i.i.i.i.i.i.i175
@@ -3585,8 +3585,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i.i182:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i181, %.lr.ph.i.i.i.i.i.i.i.i.i182
   %.05.i.i.i.i.i.i.i.i.i183 = phi i64 [ %245, %.lr.ph.i.i.i.i.i.i.i.i.i182 ], [ %239, %._crit_edge.i.i.i.i.i.i.i.i181 ]
-  %242 = getelementptr inbounds i32, ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
-  %243 = getelementptr inbounds i32, ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %242 = getelementptr inbounds [4 x i8], ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %243 = getelementptr inbounds [4 x i8], ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
   %244 = load i32, ptr %243, align 4, !tbaa !76
   store i32 %244, ptr %242, align 4, !tbaa !76
   %245 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i183, 1
@@ -3595,8 +3595,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i185:                        ; preds = %235, %.lr.ph.i.i.i.i.i.i.i.i185
   %.011.i.i.i.i.i.i.i.i186 = phi i64 [ %249, %.lr.ph.i.i.i.i.i.i.i.i185 ], [ 0, %235 ]
-  %246 = getelementptr inbounds nuw i32, ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
-  %247 = getelementptr inbounds nuw i32, ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
   %248 = load <2 x i64>, ptr %247, align 16, !tbaa !24
   store <2 x i64> %248, ptr %246, align 16, !tbaa !24
   %249 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i186, 4
@@ -3629,7 +3629,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
 258:                                              ; preds = %257
   %259 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !340
   %260 = load i64, ptr %52, align 8, !tbaa !310, !noalias !340
-  %261 = getelementptr inbounds i32, ptr %259, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %259, i64 %260
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !343
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %262 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !349
@@ -3677,7 +3677,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
   %.idx = shl nsw i64 %277, 3
   %278 = getelementptr inbounds i8, ptr %276, i64 %.idx
   %279 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !353
-  %280 = getelementptr inbounds i32, ptr %279, i64 %260
+  %280 = getelementptr inbounds [4 x i8], ptr %279, i64 %260
   %281 = ptrtoint ptr %280 to i64
   %282 = and i64 %281, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %282, 0
@@ -3701,8 +3701,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %296, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
-  %294 = getelementptr inbounds nuw i32, ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
   %295 = load i32, ptr %294, align 4, !tbaa !76
   store i32 %295, ptr %293, align 4, !tbaa !76
   %296 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -3719,8 +3719,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %302, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i ], [ %291, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ]
-  %299 = getelementptr inbounds i32, ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
-  %300 = getelementptr inbounds i32, ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %299 = getelementptr inbounds [4 x i8], ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %300 = getelementptr inbounds [4 x i8], ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
   %301 = load i32, ptr %300, align 4, !tbaa !76
   store i32 %301, ptr %299, align 4, !tbaa !76
   %302 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -3729,8 +3729,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %306, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %303 = getelementptr inbounds i32, ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
-  %304 = getelementptr inbounds i32, ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %303 = getelementptr inbounds [4 x i8], ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %304 = getelementptr inbounds [4 x i8], ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
   %305 = load <2 x i64>, ptr %304, align 1, !tbaa !24
   store <2 x i64> %305, ptr %303, align 16, !tbaa !24
   %306 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i, 4
@@ -3744,7 +3744,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %310 = getelementptr inbounds i8, ptr %308, i64 %.idx1210
   %311 = add nsw i64 %277, %260
   %312 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !361
-  %313 = getelementptr inbounds i32, ptr %312, i64 %311
+  %313 = getelementptr inbounds [4 x i8], ptr %312, i64 %311
   %314 = ptrtoint ptr %313 to i64
   %315 = and i64 %314, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i195 = icmp eq i64 %315, 0
@@ -3768,8 +3768,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205
   %.05.i.i.i.i.i.i.i.i.i.i.i.i206 = phi i64 [ %329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196 ]
-  %326 = getelementptr inbounds nuw i32, ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
-  %327 = getelementptr inbounds nuw i32, ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
   %328 = load i32, ptr %327, align 4, !tbaa !76
   store i32 %328, ptr %326, align 4, !tbaa !76
   %329 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206, 1
@@ -3786,8 +3786,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i201 = phi i64 [ %335, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200 ], [ %324, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199 ]
-  %332 = getelementptr inbounds i32, ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
-  %333 = getelementptr inbounds i32, ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %332 = getelementptr inbounds [4 x i8], ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %333 = getelementptr inbounds [4 x i8], ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
   %334 = load i32, ptr %333, align 4, !tbaa !76
   store i32 %334, ptr %332, align 4, !tbaa !76
   %335 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201, 1
@@ -3796,8 +3796,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i203:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203
   %.021.i.i.i.i.i.i.i.i.i.i.i204 = phi i64 [ %339, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i197, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198 ]
-  %336 = getelementptr inbounds i32, ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
-  %337 = getelementptr inbounds i32, ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %336 = getelementptr inbounds [4 x i8], ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %337 = getelementptr inbounds [4 x i8], ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
   %338 = load <2 x i64>, ptr %337, align 1, !tbaa !24
   store <2 x i64> %338, ptr %336, align 16, !tbaa !24
   %339 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i204, 4
@@ -3811,7 +3811,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %343 = getelementptr inbounds i8, ptr %341, i64 %.idx1211
   %344 = add nsw i64 %309, %311
   %345 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !367
-  %346 = getelementptr inbounds i32, ptr %345, i64 %344
+  %346 = getelementptr inbounds [4 x i8], ptr %345, i64 %344
   %347 = ptrtoint ptr %346 to i64
   %348 = and i64 %347, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i214 = icmp eq i64 %348, 0
@@ -3835,8 +3835,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224
   %.05.i.i.i.i.i.i.i.i.i.i.i.i225 = phi i64 [ %362, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215 ]
-  %359 = getelementptr inbounds nuw i32, ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
-  %360 = getelementptr inbounds nuw i32, ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
   %361 = load i32, ptr %360, align 4, !tbaa !76
   store i32 %361, ptr %359, align 4, !tbaa !76
   %362 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225, 1
@@ -3853,8 +3853,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i220 = phi i64 [ %368, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219 ], [ %357, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218 ]
-  %365 = getelementptr inbounds i32, ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
-  %366 = getelementptr inbounds i32, ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %365 = getelementptr inbounds [4 x i8], ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %366 = getelementptr inbounds [4 x i8], ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
   %367 = load i32, ptr %366, align 4, !tbaa !76
   store i32 %367, ptr %365, align 4, !tbaa !76
   %368 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220, 1
@@ -3863,8 +3863,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i222:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222
   %.021.i.i.i.i.i.i.i.i.i.i.i223 = phi i64 [ %372, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i216, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217 ]
-  %369 = getelementptr inbounds i32, ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
-  %370 = getelementptr inbounds i32, ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %369 = getelementptr inbounds [4 x i8], ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %370 = getelementptr inbounds [4 x i8], ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
   %371 = load <2 x i64>, ptr %370, align 1, !tbaa !24
   store <2 x i64> %371, ptr %369, align 16, !tbaa !24
   %372 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i223, 4
@@ -3878,7 +3878,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %376 = getelementptr inbounds i8, ptr %374, i64 %.idx1212
   %377 = add nsw i64 %342, %344
   %378 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !373
-  %379 = getelementptr inbounds i32, ptr %378, i64 %377
+  %379 = getelementptr inbounds [4 x i8], ptr %378, i64 %377
   %380 = ptrtoint ptr %379 to i64
   %381 = and i64 %380, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i233 = icmp eq i64 %381, 0
@@ -3902,8 +3902,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243
   %.05.i.i.i.i.i.i.i.i.i.i.i.i244 = phi i64 [ %395, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234 ]
-  %392 = getelementptr inbounds nuw i32, ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
-  %393 = getelementptr inbounds nuw i32, ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
   %394 = load i32, ptr %393, align 4, !tbaa !76
   store i32 %394, ptr %392, align 4, !tbaa !76
   %395 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244, 1
@@ -3920,8 +3920,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i239 = phi i64 [ %401, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238 ], [ %390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237 ]
-  %398 = getelementptr inbounds i32, ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
-  %399 = getelementptr inbounds i32, ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %398 = getelementptr inbounds [4 x i8], ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %399 = getelementptr inbounds [4 x i8], ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
   %400 = load i32, ptr %399, align 4, !tbaa !76
   store i32 %400, ptr %398, align 4, !tbaa !76
   %401 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239, 1
@@ -3930,8 +3930,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i241:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241
   %.021.i.i.i.i.i.i.i.i.i.i.i242 = phi i64 [ %405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i235, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236 ]
-  %402 = getelementptr inbounds i32, ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
-  %403 = getelementptr inbounds i32, ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %402 = getelementptr inbounds [4 x i8], ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %403 = getelementptr inbounds [4 x i8], ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
   %404 = load <2 x i64>, ptr %403, align 1, !tbaa !24
   store <2 x i64> %404, ptr %402, align 16, !tbaa !24
   %405 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i242, 4
@@ -3943,7 +3943,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %408 = load i64, ptr %52, align 8, !tbaa !310, !noalias !376
   %409 = add nsw i64 %375, %377
   %410 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !379
-  %411 = getelementptr inbounds i32, ptr %410, i64 %409
+  %411 = getelementptr inbounds [4 x i8], ptr %410, i64 %409
   %412 = ptrtoint ptr %411 to i64
   %413 = and i64 %412, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i252 = icmp eq i64 %413, 0
@@ -3967,8 +3967,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262
   %.05.i.i.i.i.i.i.i.i.i.i.i.i263 = phi i64 [ %427, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253 ]
-  %424 = getelementptr inbounds nuw i32, ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
-  %425 = getelementptr inbounds nuw i32, ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
   %426 = load i32, ptr %425, align 4, !tbaa !76
   store i32 %426, ptr %424, align 4, !tbaa !76
   %427 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263, 1
@@ -3985,8 +3985,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i258 = phi i64 [ %433, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257 ], [ %422, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256 ]
-  %430 = getelementptr inbounds i32, ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
-  %431 = getelementptr inbounds i32, ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %430 = getelementptr inbounds [4 x i8], ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %431 = getelementptr inbounds [4 x i8], ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
   %432 = load i32, ptr %431, align 4, !tbaa !76
   store i32 %432, ptr %430, align 4, !tbaa !76
   %433 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258, 1
@@ -3995,8 +3995,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i260:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260
   %.021.i.i.i.i.i.i.i.i.i.i.i261 = phi i64 [ %437, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i254, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255 ]
-  %434 = getelementptr inbounds i32, ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
-  %435 = getelementptr inbounds i32, ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %434 = getelementptr inbounds [4 x i8], ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %435 = getelementptr inbounds [4 x i8], ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
   %436 = load <2 x i64>, ptr %435, align 1, !tbaa !24
   store <2 x i64> %436, ptr %434, align 16, !tbaa !24
   %437 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i261, 4
@@ -4010,7 +4010,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %441 = getelementptr inbounds i8, ptr %439, i64 %.idx1213
   %442 = add nsw i64 %408, %409
   %443 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !385
-  %444 = getelementptr inbounds i32, ptr %443, i64 %442
+  %444 = getelementptr inbounds [4 x i8], ptr %443, i64 %442
   %445 = ptrtoint ptr %444 to i64
   %446 = and i64 %445, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i271 = icmp eq i64 %446, 0
@@ -4034,8 +4034,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281
   %.05.i.i.i.i.i.i.i.i.i.i.i.i282 = phi i64 [ %460, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272 ]
-  %457 = getelementptr inbounds nuw i32, ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
-  %458 = getelementptr inbounds nuw i32, ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %457 = getelementptr inbounds nuw [4 x i8], ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
   %459 = load i32, ptr %458, align 4, !tbaa !76
   store i32 %459, ptr %457, align 4, !tbaa !76
   %460 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282, 1
@@ -4052,8 +4052,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i277 = phi i64 [ %466, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276 ], [ %455, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275 ]
-  %463 = getelementptr inbounds i32, ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
-  %464 = getelementptr inbounds i32, ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %463 = getelementptr inbounds [4 x i8], ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %464 = getelementptr inbounds [4 x i8], ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
   %465 = load i32, ptr %464, align 4, !tbaa !76
   store i32 %465, ptr %463, align 4, !tbaa !76
   %466 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277, 1
@@ -4062,8 +4062,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i279:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279
   %.021.i.i.i.i.i.i.i.i.i.i.i280 = phi i64 [ %470, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i273, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274 ]
-  %467 = getelementptr inbounds i32, ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
-  %468 = getelementptr inbounds i32, ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %467 = getelementptr inbounds [4 x i8], ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %468 = getelementptr inbounds [4 x i8], ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
   %469 = load <2 x i64>, ptr %468, align 1, !tbaa !24
   store <2 x i64> %469, ptr %467, align 16, !tbaa !24
   %470 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i280, 4
@@ -4075,7 +4075,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %473 = load i64, ptr %52, align 8, !tbaa !310, !noalias !388
   %474 = add nsw i64 %440, %442
   %475 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !391
-  %476 = getelementptr inbounds i32, ptr %475, i64 %474
+  %476 = getelementptr inbounds [4 x i8], ptr %475, i64 %474
   %477 = ptrtoint ptr %476 to i64
   %478 = and i64 %477, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i290 = icmp eq i64 %478, 0
@@ -4099,8 +4099,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300
   %.05.i.i.i.i.i.i.i.i.i.i.i.i301 = phi i64 [ %492, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291 ]
-  %489 = getelementptr inbounds nuw i32, ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
-  %490 = getelementptr inbounds nuw i32, ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
   %491 = load i32, ptr %490, align 4, !tbaa !76
   store i32 %491, ptr %489, align 4, !tbaa !76
   %492 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301, 1
@@ -4117,8 +4117,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i296 = phi i64 [ %498, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295 ], [ %487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294 ]
-  %495 = getelementptr inbounds i32, ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
-  %496 = getelementptr inbounds i32, ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %495 = getelementptr inbounds [4 x i8], ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %496 = getelementptr inbounds [4 x i8], ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
   %497 = load i32, ptr %496, align 4, !tbaa !76
   store i32 %497, ptr %495, align 4, !tbaa !76
   %498 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296, 1
@@ -4127,8 +4127,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i298:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298
   %.021.i.i.i.i.i.i.i.i.i.i.i299 = phi i64 [ %502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i292, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293 ]
-  %499 = getelementptr inbounds i32, ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
-  %500 = getelementptr inbounds i32, ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %499 = getelementptr inbounds [4 x i8], ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %500 = getelementptr inbounds [4 x i8], ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
   %501 = load <2 x i64>, ptr %500, align 1, !tbaa !24
   store <2 x i64> %501, ptr %499, align 16, !tbaa !24
   %502 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i299, 4
@@ -4138,10 +4138,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1251:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294
   %504 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !394
   %505 = load i64, ptr %52, align 8, !tbaa !310, !noalias !394
-  %506 = getelementptr inbounds i32, ptr %504, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %504, i64 %505
   %507 = add nsw i64 %473, %474
   %508 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !397
-  %509 = getelementptr inbounds i32, ptr %508, i64 %507
+  %509 = getelementptr inbounds [4 x i8], ptr %508, i64 %507
   %510 = ptrtoint ptr %509 to i64
   %511 = and i64 %510, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i309 = icmp eq i64 %511, 0
@@ -4165,8 +4165,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319
   %.05.i.i.i.i.i.i.i.i.i.i.i.i320 = phi i64 [ %525, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310 ]
-  %522 = getelementptr inbounds nuw i32, ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
-  %523 = getelementptr inbounds nuw i32, ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
   %524 = load i32, ptr %523, align 4, !tbaa !76
   store i32 %524, ptr %522, align 4, !tbaa !76
   %525 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320, 1
@@ -4183,8 +4183,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i315 = phi i64 [ %531, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314 ], [ %520, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313 ]
-  %528 = getelementptr inbounds i32, ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
-  %529 = getelementptr inbounds i32, ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %528 = getelementptr inbounds [4 x i8], ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %529 = getelementptr inbounds [4 x i8], ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
   %530 = load i32, ptr %529, align 4, !tbaa !76
   store i32 %530, ptr %528, align 4, !tbaa !76
   %531 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315, 1
@@ -4193,8 +4193,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i317:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317
   %.021.i.i.i.i.i.i.i.i.i.i.i318 = phi i64 [ %535, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i311, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312 ]
-  %532 = getelementptr inbounds i32, ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
-  %533 = getelementptr inbounds i32, ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %532 = getelementptr inbounds [4 x i8], ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %533 = getelementptr inbounds [4 x i8], ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
   %534 = load <2 x i64>, ptr %533, align 1, !tbaa !24
   store <2 x i64> %534, ptr %532, align 16, !tbaa !24
   %535 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i318, 4
@@ -4206,7 +4206,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %538 = load i64, ptr %52, align 8, !tbaa !310, !noalias !400
   %539 = add nsw i64 %505, %507
   %540 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !403
-  %541 = getelementptr inbounds i32, ptr %540, i64 %539
+  %541 = getelementptr inbounds [4 x i8], ptr %540, i64 %539
   %542 = ptrtoint ptr %541 to i64
   %543 = and i64 %542, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i328 = icmp eq i64 %543, 0
@@ -4230,8 +4230,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338
   %.05.i.i.i.i.i.i.i.i.i.i.i.i339 = phi i64 [ %557, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329 ]
-  %554 = getelementptr inbounds nuw i32, ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
-  %555 = getelementptr inbounds nuw i32, ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
   %556 = load i32, ptr %555, align 4, !tbaa !76
   store i32 %556, ptr %554, align 4, !tbaa !76
   %557 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339, 1
@@ -4248,8 +4248,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i334 = phi i64 [ %563, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333 ], [ %552, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332 ]
-  %560 = getelementptr inbounds i32, ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
-  %561 = getelementptr inbounds i32, ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %560 = getelementptr inbounds [4 x i8], ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %561 = getelementptr inbounds [4 x i8], ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
   %562 = load i32, ptr %561, align 4, !tbaa !76
   store i32 %562, ptr %560, align 4, !tbaa !76
   %563 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334, 1
@@ -4258,8 +4258,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i336:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336
   %.021.i.i.i.i.i.i.i.i.i.i.i337 = phi i64 [ %567, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i330, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331 ]
-  %564 = getelementptr inbounds i32, ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
-  %565 = getelementptr inbounds i32, ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %564 = getelementptr inbounds [4 x i8], ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %565 = getelementptr inbounds [4 x i8], ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
   %566 = load <2 x i64>, ptr %565, align 1, !tbaa !24
   store <2 x i64> %566, ptr %564, align 16, !tbaa !24
   %567 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i337, 4
@@ -4269,10 +4269,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1249:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332
   %569 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !406
   %570 = load i64, ptr %52, align 8, !tbaa !310, !noalias !406
-  %571 = getelementptr inbounds i32, ptr %569, i64 %570
+  %571 = getelementptr inbounds [4 x i8], ptr %569, i64 %570
   %572 = add nsw i64 %538, %539
   %573 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !409
-  %574 = getelementptr inbounds i32, ptr %573, i64 %572
+  %574 = getelementptr inbounds [4 x i8], ptr %573, i64 %572
   %575 = ptrtoint ptr %574 to i64
   %576 = and i64 %575, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i347 = icmp eq i64 %576, 0
@@ -4296,8 +4296,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357
   %.05.i.i.i.i.i.i.i.i.i.i.i.i358 = phi i64 [ %590, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348 ]
-  %587 = getelementptr inbounds nuw i32, ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
-  %588 = getelementptr inbounds nuw i32, ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
   %589 = load i32, ptr %588, align 4, !tbaa !76
   store i32 %589, ptr %587, align 4, !tbaa !76
   %590 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358, 1
@@ -4314,8 +4314,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i353 = phi i64 [ %596, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352 ], [ %585, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351 ]
-  %593 = getelementptr inbounds i32, ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
-  %594 = getelementptr inbounds i32, ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %593 = getelementptr inbounds [4 x i8], ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %594 = getelementptr inbounds [4 x i8], ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
   %595 = load i32, ptr %594, align 4, !tbaa !76
   store i32 %595, ptr %593, align 4, !tbaa !76
   %596 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353, 1
@@ -4324,8 +4324,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i355:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355
   %.021.i.i.i.i.i.i.i.i.i.i.i356 = phi i64 [ %600, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i349, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350 ]
-  %597 = getelementptr inbounds i32, ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
-  %598 = getelementptr inbounds i32, ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %597 = getelementptr inbounds [4 x i8], ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %598 = getelementptr inbounds [4 x i8], ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
   %599 = load <2 x i64>, ptr %598, align 1, !tbaa !24
   store <2 x i64> %599, ptr %597, align 16, !tbaa !24
   %600 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i356, 4
@@ -4339,7 +4339,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %604 = getelementptr inbounds i8, ptr %602, i64 %.idx1214
   %605 = add nsw i64 %570, %572
   %606 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !415
-  %607 = getelementptr inbounds i32, ptr %606, i64 %605
+  %607 = getelementptr inbounds [4 x i8], ptr %606, i64 %605
   %608 = ptrtoint ptr %607 to i64
   %609 = and i64 %608, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i366 = icmp eq i64 %609, 0
@@ -4363,8 +4363,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376
   %.05.i.i.i.i.i.i.i.i.i.i.i.i377 = phi i64 [ %623, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367 ]
-  %620 = getelementptr inbounds nuw i32, ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
-  %621 = getelementptr inbounds nuw i32, ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %621 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
   %622 = load i32, ptr %621, align 4, !tbaa !76
   store i32 %622, ptr %620, align 4, !tbaa !76
   %623 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377, 1
@@ -4381,8 +4381,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i372 = phi i64 [ %629, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371 ], [ %618, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370 ]
-  %626 = getelementptr inbounds i32, ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
-  %627 = getelementptr inbounds i32, ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %626 = getelementptr inbounds [4 x i8], ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %627 = getelementptr inbounds [4 x i8], ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
   %628 = load i32, ptr %627, align 4, !tbaa !76
   store i32 %628, ptr %626, align 4, !tbaa !76
   %629 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372, 1
@@ -4391,8 +4391,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i374:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374
   %.021.i.i.i.i.i.i.i.i.i.i.i375 = phi i64 [ %633, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i368, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369 ]
-  %630 = getelementptr inbounds i32, ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
-  %631 = getelementptr inbounds i32, ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %630 = getelementptr inbounds [4 x i8], ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %631 = getelementptr inbounds [4 x i8], ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
   %632 = load <2 x i64>, ptr %631, align 1, !tbaa !24
   store <2 x i64> %632, ptr %630, align 16, !tbaa !24
   %633 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i375, 4
@@ -4404,7 +4404,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %636 = load i64, ptr %52, align 8, !tbaa !310, !noalias !418
   %637 = add nsw i64 %603, %605
   %638 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !421
-  %639 = getelementptr inbounds i32, ptr %638, i64 %637
+  %639 = getelementptr inbounds [4 x i8], ptr %638, i64 %637
   %640 = ptrtoint ptr %639 to i64
   %641 = and i64 %640, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i385 = icmp eq i64 %641, 0
@@ -4428,8 +4428,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395
   %.05.i.i.i.i.i.i.i.i.i.i.i.i396 = phi i64 [ %655, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386 ]
-  %652 = getelementptr inbounds nuw i32, ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
-  %653 = getelementptr inbounds nuw i32, ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %652 = getelementptr inbounds nuw [4 x i8], ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
   %654 = load i32, ptr %653, align 4, !tbaa !76
   store i32 %654, ptr %652, align 4, !tbaa !76
   %655 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396, 1
@@ -4446,8 +4446,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i391 = phi i64 [ %661, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390 ], [ %650, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389 ]
-  %658 = getelementptr inbounds i32, ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
-  %659 = getelementptr inbounds i32, ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %658 = getelementptr inbounds [4 x i8], ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %659 = getelementptr inbounds [4 x i8], ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
   %660 = load i32, ptr %659, align 4, !tbaa !76
   store i32 %660, ptr %658, align 4, !tbaa !76
   %661 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391, 1
@@ -4456,8 +4456,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i393:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393
   %.021.i.i.i.i.i.i.i.i.i.i.i394 = phi i64 [ %665, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i387, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388 ]
-  %662 = getelementptr inbounds i32, ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
-  %663 = getelementptr inbounds i32, ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %662 = getelementptr inbounds [4 x i8], ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %663 = getelementptr inbounds [4 x i8], ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
   %664 = load <2 x i64>, ptr %663, align 1, !tbaa !24
   store <2 x i64> %664, ptr %662, align 16, !tbaa !24
   %665 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i394, 4
@@ -4467,10 +4467,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1246:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389
   %667 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !424
   %668 = load i64, ptr %52, align 8, !tbaa !310, !noalias !424
-  %669 = getelementptr inbounds i32, ptr %667, i64 %668
+  %669 = getelementptr inbounds [4 x i8], ptr %667, i64 %668
   %670 = add nsw i64 %636, %637
   %671 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !427
-  %672 = getelementptr inbounds i32, ptr %671, i64 %670
+  %672 = getelementptr inbounds [4 x i8], ptr %671, i64 %670
   %673 = ptrtoint ptr %672 to i64
   %674 = and i64 %673, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i404 = icmp eq i64 %674, 0
@@ -4494,8 +4494,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414
   %.05.i.i.i.i.i.i.i.i.i.i.i.i415 = phi i64 [ %688, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405 ]
-  %685 = getelementptr inbounds nuw i32, ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
-  %686 = getelementptr inbounds nuw i32, ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %685 = getelementptr inbounds nuw [4 x i8], ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
   %687 = load i32, ptr %686, align 4, !tbaa !76
   store i32 %687, ptr %685, align 4, !tbaa !76
   %688 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415, 1
@@ -4512,8 +4512,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i410 = phi i64 [ %694, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409 ], [ %683, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408 ]
-  %691 = getelementptr inbounds i32, ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
-  %692 = getelementptr inbounds i32, ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %691 = getelementptr inbounds [4 x i8], ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %692 = getelementptr inbounds [4 x i8], ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
   %693 = load i32, ptr %692, align 4, !tbaa !76
   store i32 %693, ptr %691, align 4, !tbaa !76
   %694 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410, 1
@@ -4522,8 +4522,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i412:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412
   %.021.i.i.i.i.i.i.i.i.i.i.i413 = phi i64 [ %698, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i406, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407 ]
-  %695 = getelementptr inbounds i32, ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
-  %696 = getelementptr inbounds i32, ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %695 = getelementptr inbounds [4 x i8], ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %696 = getelementptr inbounds [4 x i8], ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
   %697 = load <2 x i64>, ptr %696, align 1, !tbaa !24
   store <2 x i64> %697, ptr %695, align 16, !tbaa !24
   %698 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i413, 4
@@ -4537,7 +4537,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %702 = getelementptr inbounds i8, ptr %700, i64 %.idx1215
   %703 = add nsw i64 %668, %670
   %704 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !433
-  %705 = getelementptr inbounds i32, ptr %704, i64 %703
+  %705 = getelementptr inbounds [4 x i8], ptr %704, i64 %703
   %706 = ptrtoint ptr %705 to i64
   %707 = and i64 %706, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i423 = icmp eq i64 %707, 0
@@ -4561,8 +4561,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433
   %.05.i.i.i.i.i.i.i.i.i.i.i.i434 = phi i64 [ %721, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424 ]
-  %718 = getelementptr inbounds nuw i32, ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
-  %719 = getelementptr inbounds nuw i32, ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %718 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
   %720 = load i32, ptr %719, align 4, !tbaa !76
   store i32 %720, ptr %718, align 4, !tbaa !76
   %721 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434, 1
@@ -4579,8 +4579,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i429 = phi i64 [ %727, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428 ], [ %716, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427 ]
-  %724 = getelementptr inbounds i32, ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
-  %725 = getelementptr inbounds i32, ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %724 = getelementptr inbounds [4 x i8], ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %725 = getelementptr inbounds [4 x i8], ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
   %726 = load i32, ptr %725, align 4, !tbaa !76
   store i32 %726, ptr %724, align 4, !tbaa !76
   %727 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429, 1
@@ -4589,8 +4589,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i431:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431
   %.021.i.i.i.i.i.i.i.i.i.i.i432 = phi i64 [ %731, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i425, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426 ]
-  %728 = getelementptr inbounds i32, ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
-  %729 = getelementptr inbounds i32, ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %728 = getelementptr inbounds [4 x i8], ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %729 = getelementptr inbounds [4 x i8], ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
   %730 = load <2 x i64>, ptr %729, align 1, !tbaa !24
   store <2 x i64> %730, ptr %728, align 16, !tbaa !24
   %731 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i432, 4
@@ -4603,8 +4603,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1216 = mul nsw i64 %734, 12
   %735 = getelementptr inbounds i8, ptr %733, i64 %.idx1216
   %736 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !439
-  %737 = getelementptr i32, ptr %736, i64 %703
-  %738 = getelementptr i32, ptr %737, i64 %701
+  %737 = getelementptr [4 x i8], ptr %736, i64 %703
+  %738 = getelementptr [4 x i8], ptr %737, i64 %701
   %739 = ptrtoint ptr %738 to i64
   %740 = and i64 %739, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i442 = icmp eq i64 %740, 0
@@ -4628,8 +4628,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452
   %.05.i.i.i.i.i.i.i.i.i.i.i.i453 = phi i64 [ %754, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443 ]
-  %751 = getelementptr inbounds nuw i32, ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
-  %752 = getelementptr inbounds nuw i32, ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %752 = getelementptr inbounds nuw [4 x i8], ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
   %753 = load i32, ptr %752, align 4, !tbaa !76
   store i32 %753, ptr %751, align 4, !tbaa !76
   %754 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453, 1
@@ -4646,8 +4646,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i448 = phi i64 [ %760, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447 ], [ %749, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446 ]
-  %757 = getelementptr inbounds i32, ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
-  %758 = getelementptr inbounds i32, ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %757 = getelementptr inbounds [4 x i8], ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %758 = getelementptr inbounds [4 x i8], ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
   %759 = load i32, ptr %758, align 4, !tbaa !76
   store i32 %759, ptr %757, align 4, !tbaa !76
   %760 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448, 1
@@ -4656,8 +4656,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i450:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450
   %.021.i.i.i.i.i.i.i.i.i.i.i451 = phi i64 [ %764, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i444, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445 ]
-  %761 = getelementptr inbounds i32, ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
-  %762 = getelementptr inbounds i32, ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %761 = getelementptr inbounds [4 x i8], ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %762 = getelementptr inbounds [4 x i8], ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
   %763 = load <2 x i64>, ptr %762, align 1, !tbaa !24
   store <2 x i64> %763, ptr %761, align 16, !tbaa !24
   %764 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i451, 4
@@ -4712,7 +4712,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %782 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !452
   %783 = load i64, ptr %52, align 8, !tbaa !310, !noalias !452
   %784 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !455
-  %785 = getelementptr inbounds i32, ptr %784, i64 %767
+  %785 = getelementptr inbounds [4 x i8], ptr %784, i64 %767
   %786 = ptrtoint ptr %785 to i64
   %787 = and i64 %786, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i463 = icmp eq i64 %787, 0
@@ -4736,8 +4736,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473
   %.05.i.i.i.i.i.i.i.i.i.i.i.i474 = phi i64 [ %801, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464 ]
-  %798 = getelementptr inbounds nuw i32, ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
-  %799 = getelementptr inbounds nuw i32, ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %798 = getelementptr inbounds nuw [4 x i8], ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %799 = getelementptr inbounds nuw [4 x i8], ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
   %800 = load i32, ptr %799, align 4, !tbaa !76
   store i32 %800, ptr %798, align 4, !tbaa !76
   %801 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474, 1
@@ -4754,8 +4754,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i469 = phi i64 [ %807, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468 ], [ %796, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467 ]
-  %804 = getelementptr inbounds i32, ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
-  %805 = getelementptr inbounds i32, ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %804 = getelementptr inbounds [4 x i8], ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %805 = getelementptr inbounds [4 x i8], ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
   %806 = load i32, ptr %805, align 4, !tbaa !76
   store i32 %806, ptr %804, align 4, !tbaa !76
   %807 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469, 1
@@ -4764,8 +4764,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i471:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471
   %.021.i.i.i.i.i.i.i.i.i.i.i472 = phi i64 [ %811, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i465, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466 ]
-  %808 = getelementptr inbounds i32, ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
-  %809 = getelementptr inbounds i32, ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %808 = getelementptr inbounds [4 x i8], ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %809 = getelementptr inbounds [4 x i8], ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
   %810 = load <2 x i64>, ptr %809, align 1, !tbaa !24
   store <2 x i64> %810, ptr %808, align 16, !tbaa !24
   %811 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i472, 4
@@ -4777,7 +4777,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %814 = load i64, ptr %52, align 8, !tbaa !310, !noalias !458
   %815 = add nsw i64 %783, %767
   %816 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !461
-  %817 = getelementptr inbounds i32, ptr %816, i64 %815
+  %817 = getelementptr inbounds [4 x i8], ptr %816, i64 %815
   %818 = ptrtoint ptr %817 to i64
   %819 = and i64 %818, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i482 = icmp eq i64 %819, 0
@@ -4801,8 +4801,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492
   %.05.i.i.i.i.i.i.i.i.i.i.i.i493 = phi i64 [ %833, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483 ]
-  %830 = getelementptr inbounds nuw i32, ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
-  %831 = getelementptr inbounds nuw i32, ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %830 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %831 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
   %832 = load i32, ptr %831, align 4, !tbaa !76
   store i32 %832, ptr %830, align 4, !tbaa !76
   %833 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493, 1
@@ -4819,8 +4819,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i488 = phi i64 [ %839, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487 ], [ %828, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486 ]
-  %836 = getelementptr inbounds i32, ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
-  %837 = getelementptr inbounds i32, ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %836 = getelementptr inbounds [4 x i8], ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %837 = getelementptr inbounds [4 x i8], ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
   %838 = load i32, ptr %837, align 4, !tbaa !76
   store i32 %838, ptr %836, align 4, !tbaa !76
   %839 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488, 1
@@ -4829,8 +4829,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i490:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490
   %.021.i.i.i.i.i.i.i.i.i.i.i491 = phi i64 [ %843, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i484, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485 ]
-  %840 = getelementptr inbounds i32, ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
-  %841 = getelementptr inbounds i32, ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %840 = getelementptr inbounds [4 x i8], ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %841 = getelementptr inbounds [4 x i8], ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
   %842 = load <2 x i64>, ptr %841, align 1, !tbaa !24
   store <2 x i64> %842, ptr %840, align 16, !tbaa !24
   %843 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i491, 4
@@ -4840,10 +4840,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1241:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486
   %845 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !464
   %846 = load i64, ptr %52, align 8, !tbaa !310, !noalias !464
-  %847 = getelementptr inbounds i32, ptr %845, i64 %846
+  %847 = getelementptr inbounds [4 x i8], ptr %845, i64 %846
   %848 = add nsw i64 %814, %815
   %849 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !467
-  %850 = getelementptr inbounds i32, ptr %849, i64 %848
+  %850 = getelementptr inbounds [4 x i8], ptr %849, i64 %848
   %851 = ptrtoint ptr %850 to i64
   %852 = and i64 %851, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i501 = icmp eq i64 %852, 0
@@ -4867,8 +4867,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511
   %.05.i.i.i.i.i.i.i.i.i.i.i.i512 = phi i64 [ %866, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502 ]
-  %863 = getelementptr inbounds nuw i32, ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
-  %864 = getelementptr inbounds nuw i32, ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %863 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
   %865 = load i32, ptr %864, align 4, !tbaa !76
   store i32 %865, ptr %863, align 4, !tbaa !76
   %866 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512, 1
@@ -4885,8 +4885,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i507 = phi i64 [ %872, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506 ], [ %861, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505 ]
-  %869 = getelementptr inbounds i32, ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
-  %870 = getelementptr inbounds i32, ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %869 = getelementptr inbounds [4 x i8], ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %870 = getelementptr inbounds [4 x i8], ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
   %871 = load i32, ptr %870, align 4, !tbaa !76
   store i32 %871, ptr %869, align 4, !tbaa !76
   %872 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507, 1
@@ -4895,8 +4895,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i509:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509
   %.021.i.i.i.i.i.i.i.i.i.i.i510 = phi i64 [ %876, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i503, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504 ]
-  %873 = getelementptr inbounds i32, ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
-  %874 = getelementptr inbounds i32, ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %873 = getelementptr inbounds [4 x i8], ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %874 = getelementptr inbounds [4 x i8], ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
   %875 = load <2 x i64>, ptr %874, align 1, !tbaa !24
   store <2 x i64> %875, ptr %873, align 16, !tbaa !24
   %876 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i510, 4
@@ -4906,10 +4906,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1240:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505
   %878 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !470
   %879 = load i64, ptr %52, align 8, !tbaa !310, !noalias !470
-  %880 = getelementptr inbounds i32, ptr %878, i64 %879
+  %880 = getelementptr inbounds [4 x i8], ptr %878, i64 %879
   %881 = add nsw i64 %846, %848
   %882 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !473
-  %883 = getelementptr inbounds i32, ptr %882, i64 %881
+  %883 = getelementptr inbounds [4 x i8], ptr %882, i64 %881
   %884 = ptrtoint ptr %883 to i64
   %885 = and i64 %884, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i520 = icmp eq i64 %885, 0
@@ -4933,8 +4933,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530
   %.05.i.i.i.i.i.i.i.i.i.i.i.i531 = phi i64 [ %899, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521 ]
-  %896 = getelementptr inbounds nuw i32, ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
-  %897 = getelementptr inbounds nuw i32, ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %896 = getelementptr inbounds nuw [4 x i8], ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %897 = getelementptr inbounds nuw [4 x i8], ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
   %898 = load i32, ptr %897, align 4, !tbaa !76
   store i32 %898, ptr %896, align 4, !tbaa !76
   %899 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531, 1
@@ -4951,8 +4951,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i526 = phi i64 [ %905, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525 ], [ %894, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524 ]
-  %902 = getelementptr inbounds i32, ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
-  %903 = getelementptr inbounds i32, ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %902 = getelementptr inbounds [4 x i8], ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %903 = getelementptr inbounds [4 x i8], ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
   %904 = load i32, ptr %903, align 4, !tbaa !76
   store i32 %904, ptr %902, align 4, !tbaa !76
   %905 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526, 1
@@ -4961,8 +4961,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i528:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528
   %.021.i.i.i.i.i.i.i.i.i.i.i529 = phi i64 [ %909, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i522, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523 ]
-  %906 = getelementptr inbounds i32, ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
-  %907 = getelementptr inbounds i32, ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %906 = getelementptr inbounds [4 x i8], ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %907 = getelementptr inbounds [4 x i8], ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
   %908 = load <2 x i64>, ptr %907, align 1, !tbaa !24
   store <2 x i64> %908, ptr %906, align 16, !tbaa !24
   %909 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i529, 4
@@ -4972,10 +4972,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1239:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524
   %911 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !476
   %912 = load i64, ptr %52, align 8, !tbaa !310, !noalias !476
-  %913 = getelementptr inbounds i32, ptr %911, i64 %912
+  %913 = getelementptr inbounds [4 x i8], ptr %911, i64 %912
   %914 = add nsw i64 %879, %881
   %915 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !479
-  %916 = getelementptr inbounds i32, ptr %915, i64 %914
+  %916 = getelementptr inbounds [4 x i8], ptr %915, i64 %914
   %917 = ptrtoint ptr %916 to i64
   %918 = and i64 %917, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i539 = icmp eq i64 %918, 0
@@ -4999,8 +4999,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549
   %.05.i.i.i.i.i.i.i.i.i.i.i.i550 = phi i64 [ %932, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540 ]
-  %929 = getelementptr inbounds nuw i32, ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
-  %930 = getelementptr inbounds nuw i32, ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %929 = getelementptr inbounds nuw [4 x i8], ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
   %931 = load i32, ptr %930, align 4, !tbaa !76
   store i32 %931, ptr %929, align 4, !tbaa !76
   %932 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550, 1
@@ -5017,8 +5017,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i545 = phi i64 [ %938, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544 ], [ %927, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543 ]
-  %935 = getelementptr inbounds i32, ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
-  %936 = getelementptr inbounds i32, ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %935 = getelementptr inbounds [4 x i8], ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %936 = getelementptr inbounds [4 x i8], ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
   %937 = load i32, ptr %936, align 4, !tbaa !76
   store i32 %937, ptr %935, align 4, !tbaa !76
   %938 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545, 1
@@ -5027,8 +5027,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i547:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547
   %.021.i.i.i.i.i.i.i.i.i.i.i548 = phi i64 [ %942, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i541, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542 ]
-  %939 = getelementptr inbounds i32, ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
-  %940 = getelementptr inbounds i32, ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %939 = getelementptr inbounds [4 x i8], ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %940 = getelementptr inbounds [4 x i8], ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
   %941 = load <2 x i64>, ptr %940, align 1, !tbaa !24
   store <2 x i64> %941, ptr %939, align 16, !tbaa !24
   %942 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i548, 4
@@ -5042,7 +5042,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %946 = getelementptr inbounds i8, ptr %944, i64 %.idx1217
   %947 = add nsw i64 %912, %914
   %948 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !485
-  %949 = getelementptr inbounds i32, ptr %948, i64 %947
+  %949 = getelementptr inbounds [4 x i8], ptr %948, i64 %947
   %950 = ptrtoint ptr %949 to i64
   %951 = and i64 %950, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i558 = icmp eq i64 %951, 0
@@ -5066,8 +5066,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568
   %.05.i.i.i.i.i.i.i.i.i.i.i.i569 = phi i64 [ %965, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559 ]
-  %962 = getelementptr inbounds nuw i32, ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
-  %963 = getelementptr inbounds nuw i32, ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %963 = getelementptr inbounds nuw [4 x i8], ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
   %964 = load i32, ptr %963, align 4, !tbaa !76
   store i32 %964, ptr %962, align 4, !tbaa !76
   %965 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569, 1
@@ -5084,8 +5084,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i564 = phi i64 [ %971, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563 ], [ %960, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562 ]
-  %968 = getelementptr inbounds i32, ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
-  %969 = getelementptr inbounds i32, ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %968 = getelementptr inbounds [4 x i8], ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %969 = getelementptr inbounds [4 x i8], ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
   %970 = load i32, ptr %969, align 4, !tbaa !76
   store i32 %970, ptr %968, align 4, !tbaa !76
   %971 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564, 1
@@ -5094,8 +5094,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i566:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566
   %.021.i.i.i.i.i.i.i.i.i.i.i567 = phi i64 [ %975, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i560, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561 ]
-  %972 = getelementptr inbounds i32, ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
-  %973 = getelementptr inbounds i32, ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %972 = getelementptr inbounds [4 x i8], ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %973 = getelementptr inbounds [4 x i8], ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
   %974 = load <2 x i64>, ptr %973, align 1, !tbaa !24
   store <2 x i64> %974, ptr %972, align 16, !tbaa !24
   %975 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i567, 4
@@ -5109,7 +5109,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %979 = getelementptr inbounds i8, ptr %977, i64 %.idx1218
   %980 = add nsw i64 %945, %947
   %981 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !491
-  %982 = getelementptr inbounds i32, ptr %981, i64 %980
+  %982 = getelementptr inbounds [4 x i8], ptr %981, i64 %980
   %983 = ptrtoint ptr %982 to i64
   %984 = and i64 %983, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i577 = icmp eq i64 %984, 0
@@ -5133,8 +5133,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587
   %.05.i.i.i.i.i.i.i.i.i.i.i.i588 = phi i64 [ %998, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578 ]
-  %995 = getelementptr inbounds nuw i32, ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
-  %996 = getelementptr inbounds nuw i32, ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %995 = getelementptr inbounds nuw [4 x i8], ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %996 = getelementptr inbounds nuw [4 x i8], ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
   %997 = load i32, ptr %996, align 4, !tbaa !76
   store i32 %997, ptr %995, align 4, !tbaa !76
   %998 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588, 1
@@ -5151,8 +5151,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i583 = phi i64 [ %1004, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582 ], [ %993, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581 ]
-  %1001 = getelementptr inbounds i32, ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
-  %1002 = getelementptr inbounds i32, ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1001 = getelementptr inbounds [4 x i8], ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1002 = getelementptr inbounds [4 x i8], ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
   %1003 = load i32, ptr %1002, align 4, !tbaa !76
   store i32 %1003, ptr %1001, align 4, !tbaa !76
   %1004 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583, 1
@@ -5161,8 +5161,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i585:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585
   %.021.i.i.i.i.i.i.i.i.i.i.i586 = phi i64 [ %1008, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i579, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580 ]
-  %1005 = getelementptr inbounds i32, ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
-  %1006 = getelementptr inbounds i32, ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1005 = getelementptr inbounds [4 x i8], ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1006 = getelementptr inbounds [4 x i8], ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
   %1007 = load <2 x i64>, ptr %1006, align 1, !tbaa !24
   store <2 x i64> %1007, ptr %1005, align 16, !tbaa !24
   %1008 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i586, 4
@@ -5176,7 +5176,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1012 = getelementptr inbounds i8, ptr %1010, i64 %.idx1219
   %1013 = add nsw i64 %978, %980
   %1014 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !497
-  %1015 = getelementptr inbounds i32, ptr %1014, i64 %1013
+  %1015 = getelementptr inbounds [4 x i8], ptr %1014, i64 %1013
   %1016 = ptrtoint ptr %1015 to i64
   %1017 = and i64 %1016, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i596 = icmp eq i64 %1017, 0
@@ -5200,8 +5200,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606
   %.05.i.i.i.i.i.i.i.i.i.i.i.i607 = phi i64 [ %1031, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597 ]
-  %1028 = getelementptr inbounds nuw i32, ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
-  %1029 = getelementptr inbounds nuw i32, ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1029 = getelementptr inbounds nuw [4 x i8], ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
   %1030 = load i32, ptr %1029, align 4, !tbaa !76
   store i32 %1030, ptr %1028, align 4, !tbaa !76
   %1031 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607, 1
@@ -5218,8 +5218,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i602 = phi i64 [ %1037, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601 ], [ %1026, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600 ]
-  %1034 = getelementptr inbounds i32, ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
-  %1035 = getelementptr inbounds i32, ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1034 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1035 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
   %1036 = load i32, ptr %1035, align 4, !tbaa !76
   store i32 %1036, ptr %1034, align 4, !tbaa !76
   %1037 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602, 1
@@ -5228,8 +5228,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i604:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604
   %.021.i.i.i.i.i.i.i.i.i.i.i605 = phi i64 [ %1041, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i598, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599 ]
-  %1038 = getelementptr inbounds i32, ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
-  %1039 = getelementptr inbounds i32, ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1038 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1039 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
   %1040 = load <2 x i64>, ptr %1039, align 1, !tbaa !24
   store <2 x i64> %1040, ptr %1038, align 16, !tbaa !24
   %1041 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i605, 4
@@ -5243,7 +5243,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1045 = getelementptr inbounds i8, ptr %1043, i64 %.idx1220
   %1046 = add nsw i64 %1011, %1013
   %1047 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !503
-  %1048 = getelementptr inbounds i32, ptr %1047, i64 %1046
+  %1048 = getelementptr inbounds [4 x i8], ptr %1047, i64 %1046
   %1049 = ptrtoint ptr %1048 to i64
   %1050 = and i64 %1049, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i615 = icmp eq i64 %1050, 0
@@ -5267,8 +5267,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625
   %.05.i.i.i.i.i.i.i.i.i.i.i.i626 = phi i64 [ %1064, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616 ]
-  %1061 = getelementptr inbounds nuw i32, ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
-  %1062 = getelementptr inbounds nuw i32, ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1061 = getelementptr inbounds nuw [4 x i8], ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
   %1063 = load i32, ptr %1062, align 4, !tbaa !76
   store i32 %1063, ptr %1061, align 4, !tbaa !76
   %1064 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626, 1
@@ -5285,8 +5285,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i621 = phi i64 [ %1070, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620 ], [ %1059, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619 ]
-  %1067 = getelementptr inbounds i32, ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
-  %1068 = getelementptr inbounds i32, ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1067 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1068 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
   %1069 = load i32, ptr %1068, align 4, !tbaa !76
   store i32 %1069, ptr %1067, align 4, !tbaa !76
   %1070 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621, 1
@@ -5295,8 +5295,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i623:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623
   %.021.i.i.i.i.i.i.i.i.i.i.i624 = phi i64 [ %1074, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i617, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618 ]
-  %1071 = getelementptr inbounds i32, ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
-  %1072 = getelementptr inbounds i32, ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1071 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1072 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
   %1073 = load <2 x i64>, ptr %1072, align 1, !tbaa !24
   store <2 x i64> %1073, ptr %1071, align 16, !tbaa !24
   %1074 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i624, 4
@@ -5310,7 +5310,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1078 = getelementptr inbounds i8, ptr %1076, i64 %.idx1221
   %1079 = add nsw i64 %1044, %1046
   %1080 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !509
-  %1081 = getelementptr inbounds i32, ptr %1080, i64 %1079
+  %1081 = getelementptr inbounds [4 x i8], ptr %1080, i64 %1079
   %1082 = ptrtoint ptr %1081 to i64
   %1083 = and i64 %1082, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i634 = icmp eq i64 %1083, 0
@@ -5334,8 +5334,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644
   %.05.i.i.i.i.i.i.i.i.i.i.i.i645 = phi i64 [ %1097, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635 ]
-  %1094 = getelementptr inbounds nuw i32, ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
-  %1095 = getelementptr inbounds nuw i32, ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1094 = getelementptr inbounds nuw [4 x i8], ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1095 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
   %1096 = load i32, ptr %1095, align 4, !tbaa !76
   store i32 %1096, ptr %1094, align 4, !tbaa !76
   %1097 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645, 1
@@ -5352,8 +5352,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i640 = phi i64 [ %1103, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639 ], [ %1092, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638 ]
-  %1100 = getelementptr inbounds i32, ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
-  %1101 = getelementptr inbounds i32, ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1100 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1101 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
   %1102 = load i32, ptr %1101, align 4, !tbaa !76
   store i32 %1102, ptr %1100, align 4, !tbaa !76
   %1103 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640, 1
@@ -5362,8 +5362,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i642:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642
   %.021.i.i.i.i.i.i.i.i.i.i.i643 = phi i64 [ %1107, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i636, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637 ]
-  %1104 = getelementptr inbounds i32, ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
-  %1105 = getelementptr inbounds i32, ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1104 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1105 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
   %1106 = load <2 x i64>, ptr %1105, align 1, !tbaa !24
   store <2 x i64> %1106, ptr %1104, align 16, !tbaa !24
   %1107 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i643, 4
@@ -5377,7 +5377,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1111 = getelementptr inbounds i8, ptr %1109, i64 %.idx1222
   %1112 = add nsw i64 %1077, %1079
   %1113 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !515
-  %1114 = getelementptr inbounds i32, ptr %1113, i64 %1112
+  %1114 = getelementptr inbounds [4 x i8], ptr %1113, i64 %1112
   %1115 = ptrtoint ptr %1114 to i64
   %1116 = and i64 %1115, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i653 = icmp eq i64 %1116, 0
@@ -5401,8 +5401,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663
   %.05.i.i.i.i.i.i.i.i.i.i.i.i664 = phi i64 [ %1130, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654 ]
-  %1127 = getelementptr inbounds nuw i32, ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
-  %1128 = getelementptr inbounds nuw i32, ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1127 = getelementptr inbounds nuw [4 x i8], ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1128 = getelementptr inbounds nuw [4 x i8], ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
   %1129 = load i32, ptr %1128, align 4, !tbaa !76
   store i32 %1129, ptr %1127, align 4, !tbaa !76
   %1130 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664, 1
@@ -5419,8 +5419,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i659 = phi i64 [ %1136, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658 ], [ %1125, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657 ]
-  %1133 = getelementptr inbounds i32, ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
-  %1134 = getelementptr inbounds i32, ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1133 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1134 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
   %1135 = load i32, ptr %1134, align 4, !tbaa !76
   store i32 %1135, ptr %1133, align 4, !tbaa !76
   %1136 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659, 1
@@ -5429,8 +5429,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i661:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661
   %.021.i.i.i.i.i.i.i.i.i.i.i662 = phi i64 [ %1140, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i655, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656 ]
-  %1137 = getelementptr inbounds i32, ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
-  %1138 = getelementptr inbounds i32, ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1137 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1138 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
   %1139 = load <2 x i64>, ptr %1138, align 1, !tbaa !24
   store <2 x i64> %1139, ptr %1137, align 16, !tbaa !24
   %1140 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i662, 4
@@ -5442,7 +5442,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1143 = load i64, ptr %52, align 8, !tbaa !310, !noalias !518
   %1144 = add nsw i64 %1110, %1112
   %1145 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !521
-  %1146 = getelementptr inbounds i32, ptr %1145, i64 %1144
+  %1146 = getelementptr inbounds [4 x i8], ptr %1145, i64 %1144
   %1147 = ptrtoint ptr %1146 to i64
   %1148 = and i64 %1147, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i672 = icmp eq i64 %1148, 0
@@ -5466,8 +5466,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682
   %.05.i.i.i.i.i.i.i.i.i.i.i.i683 = phi i64 [ %1162, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673 ]
-  %1159 = getelementptr inbounds nuw i32, ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
-  %1160 = getelementptr inbounds nuw i32, ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1159 = getelementptr inbounds nuw [4 x i8], ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1160 = getelementptr inbounds nuw [4 x i8], ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
   %1161 = load i32, ptr %1160, align 4, !tbaa !76
   store i32 %1161, ptr %1159, align 4, !tbaa !76
   %1162 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683, 1
@@ -5484,8 +5484,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i678 = phi i64 [ %1168, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677 ], [ %1157, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676 ]
-  %1165 = getelementptr inbounds i32, ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
-  %1166 = getelementptr inbounds i32, ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1165 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1166 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
   %1167 = load i32, ptr %1166, align 4, !tbaa !76
   store i32 %1167, ptr %1165, align 4, !tbaa !76
   %1168 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678, 1
@@ -5494,8 +5494,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i680:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680
   %.021.i.i.i.i.i.i.i.i.i.i.i681 = phi i64 [ %1172, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i674, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675 ]
-  %1169 = getelementptr inbounds i32, ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
-  %1170 = getelementptr inbounds i32, ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1169 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1170 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
   %1171 = load <2 x i64>, ptr %1170, align 1, !tbaa !24
   store <2 x i64> %1171, ptr %1169, align 16, !tbaa !24
   %1172 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i681, 4
@@ -5505,10 +5505,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1231:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676
   %1174 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !524
   %1175 = load i64, ptr %52, align 8, !tbaa !310, !noalias !524
-  %1176 = getelementptr inbounds i32, ptr %1174, i64 %1175
+  %1176 = getelementptr inbounds [4 x i8], ptr %1174, i64 %1175
   %1177 = add nsw i64 %1143, %1144
   %1178 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !527
-  %1179 = getelementptr inbounds i32, ptr %1178, i64 %1177
+  %1179 = getelementptr inbounds [4 x i8], ptr %1178, i64 %1177
   %1180 = ptrtoint ptr %1179 to i64
   %1181 = and i64 %1180, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i691 = icmp eq i64 %1181, 0
@@ -5532,8 +5532,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701
   %.05.i.i.i.i.i.i.i.i.i.i.i.i702 = phi i64 [ %1195, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692 ]
-  %1192 = getelementptr inbounds nuw i32, ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
-  %1193 = getelementptr inbounds nuw i32, ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1193 = getelementptr inbounds nuw [4 x i8], ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
   %1194 = load i32, ptr %1193, align 4, !tbaa !76
   store i32 %1194, ptr %1192, align 4, !tbaa !76
   %1195 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702, 1
@@ -5550,8 +5550,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i697 = phi i64 [ %1201, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696 ], [ %1190, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695 ]
-  %1198 = getelementptr inbounds i32, ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
-  %1199 = getelementptr inbounds i32, ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1198 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1199 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
   %1200 = load i32, ptr %1199, align 4, !tbaa !76
   store i32 %1200, ptr %1198, align 4, !tbaa !76
   %1201 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697, 1
@@ -5560,8 +5560,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i699:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699
   %.021.i.i.i.i.i.i.i.i.i.i.i700 = phi i64 [ %1205, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i693, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694 ]
-  %1202 = getelementptr inbounds i32, ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
-  %1203 = getelementptr inbounds i32, ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1202 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1203 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
   %1204 = load <2 x i64>, ptr %1203, align 1, !tbaa !24
   store <2 x i64> %1204, ptr %1202, align 16, !tbaa !24
   %1205 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i700, 4
@@ -5575,7 +5575,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1209 = getelementptr inbounds i8, ptr %1207, i64 %.idx1223
   %1210 = add nsw i64 %1175, %1177
   %1211 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !533
-  %1212 = getelementptr inbounds i32, ptr %1211, i64 %1210
+  %1212 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1210
   %1213 = ptrtoint ptr %1212 to i64
   %1214 = and i64 %1213, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i710 = icmp eq i64 %1214, 0
@@ -5599,8 +5599,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720
   %.05.i.i.i.i.i.i.i.i.i.i.i.i721 = phi i64 [ %1228, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711 ]
-  %1225 = getelementptr inbounds nuw i32, ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
-  %1226 = getelementptr inbounds nuw i32, ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1225 = getelementptr inbounds nuw [4 x i8], ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
   %1227 = load i32, ptr %1226, align 4, !tbaa !76
   store i32 %1227, ptr %1225, align 4, !tbaa !76
   %1228 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721, 1
@@ -5617,8 +5617,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i716 = phi i64 [ %1234, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715 ], [ %1223, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714 ]
-  %1231 = getelementptr inbounds i32, ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
-  %1232 = getelementptr inbounds i32, ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1231 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1232 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
   %1233 = load i32, ptr %1232, align 4, !tbaa !76
   store i32 %1233, ptr %1231, align 4, !tbaa !76
   %1234 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716, 1
@@ -5627,8 +5627,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i718:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718
   %.021.i.i.i.i.i.i.i.i.i.i.i719 = phi i64 [ %1238, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i712, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713 ]
-  %1235 = getelementptr inbounds i32, ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
-  %1236 = getelementptr inbounds i32, ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1235 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1236 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
   %1237 = load <2 x i64>, ptr %1236, align 1, !tbaa !24
   store <2 x i64> %1237, ptr %1235, align 16, !tbaa !24
   %1238 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i719, 4
@@ -5641,8 +5641,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1224 = mul nsw i64 %1241, 12
   %1242 = getelementptr inbounds i8, ptr %1240, i64 %.idx1224
   %1243 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !539
-  %1244 = getelementptr i32, ptr %1243, i64 %1210
-  %1245 = getelementptr i32, ptr %1244, i64 %1208
+  %1244 = getelementptr [4 x i8], ptr %1243, i64 %1210
+  %1245 = getelementptr [4 x i8], ptr %1244, i64 %1208
   %1246 = ptrtoint ptr %1245 to i64
   %1247 = and i64 %1246, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i729 = icmp eq i64 %1247, 0
@@ -5666,8 +5666,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739
   %.05.i.i.i.i.i.i.i.i.i.i.i.i740 = phi i64 [ %1261, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730 ]
-  %1258 = getelementptr inbounds nuw i32, ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
-  %1259 = getelementptr inbounds nuw i32, ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1258 = getelementptr inbounds nuw [4 x i8], ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1259 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
   %1260 = load i32, ptr %1259, align 4, !tbaa !76
   store i32 %1260, ptr %1258, align 4, !tbaa !76
   %1261 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740, 1
@@ -5684,8 +5684,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i735 = phi i64 [ %1267, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734 ], [ %1256, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733 ]
-  %1264 = getelementptr inbounds i32, ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
-  %1265 = getelementptr inbounds i32, ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1264 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1265 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
   %1266 = load i32, ptr %1265, align 4, !tbaa !76
   store i32 %1266, ptr %1264, align 4, !tbaa !76
   %1267 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735, 1
@@ -5694,8 +5694,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i737:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737
   %.021.i.i.i.i.i.i.i.i.i.i.i738 = phi i64 [ %1271, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i731, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732 ]
-  %1268 = getelementptr inbounds i32, ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
-  %1269 = getelementptr inbounds i32, ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1268 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1269 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
   %1270 = load <2 x i64>, ptr %1269, align 1, !tbaa !24
   store <2 x i64> %1270, ptr %1268, align 16, !tbaa !24
   %1271 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i738, 4
@@ -5754,7 +5754,7 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEcmINS_5BlockIKN
   call void @llvm.experimental.noalias.scope.decl(metadata !545)
   %1289 = sext i32 %1288 to i64
   %1290 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !545
-  %1291 = getelementptr inbounds double, ptr %1290, i64 %1274
+  %1291 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1274
   %1292 = load i64, ptr %1276, align 8, !tbaa !19, !noalias !545
   store ptr %1291, ptr %48, align 8, !tbaa !288, !alias.scope !545
   %1293 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -6053,15 +6053,15 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %.0810.us.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i ], [ %32, %._crit_edge.us.i ]
   %23 = mul nsw i64 %.0810.us.i, %20
-  %24 = getelementptr i32, ptr %19, i64 %23
+  %24 = getelementptr [4 x i8], ptr %19, i64 %23
   %25 = mul nsw i64 %.0810.us.i, %22
-  %26 = getelementptr i32, ptr %21, i64 %25
+  %26 = getelementptr [4 x i8], ptr %21, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.i
   %.09.us.i = phi i64 [ 0, %.preheader.us.i ], [ %31, %27 ]
-  %28 = getelementptr i32, ptr %24, i64 %.09.us.i
-  %29 = getelementptr i32, ptr %26, i64 %.09.us.i
+  %28 = getelementptr [4 x i8], ptr %24, i64 %.09.us.i
+  %29 = getelementptr [4 x i8], ptr %26, i64 %.09.us.i
   %30 = load i32, ptr %29, align 4, !tbaa !76
   store i32 %30, ptr %28, align 4, !tbaa !76
   %31 = add nuw nsw i64 %.09.us.i, 1
@@ -6110,13 +6110,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !39
   %58 = mul nsw i64 %57, %.03451
-  %59 = getelementptr i32, ptr %55, i64 %58
+  %59 = getelementptr [4 x i8], ptr %55, i64 %58
   %60 = load ptr, ptr %48, align 8, !tbaa !556
   %61 = load ptr, ptr %60, align 8, !tbaa !318
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !39
   %64 = mul nsw i64 %63, %.03451
-  %65 = getelementptr i32, ptr %61, i64 %64
+  %65 = getelementptr [4 x i8], ptr %61, i64 %64
   br label %67
 
 .preheader43:                                     ; preds = %67, %49
@@ -6125,8 +6125,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 67:                                               ; preds = %.lr.ph, %67
   %.03345 = phi i64 [ 0, %.lr.ph ], [ %71, %67 ]
-  %68 = getelementptr i32, ptr %59, i64 %.03345
-  %69 = getelementptr i32, ptr %65, i64 %.03345
+  %68 = getelementptr [4 x i8], ptr %59, i64 %.03345
+  %69 = getelementptr [4 x i8], ptr %65, i64 %.03345
   %70 = load i32, ptr %69, align 4, !tbaa !76
   store i32 %70, ptr %68, align 4, !tbaa !76
   %71 = add nuw nsw i64 %.03345, 1
@@ -6143,13 +6143,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !39
   %77 = mul nsw i64 %76, %.03451
-  %78 = getelementptr i32, ptr %74, i64 %77
+  %78 = getelementptr [4 x i8], ptr %74, i64 %77
   %79 = load ptr, ptr %48, align 8, !tbaa !556
   %80 = load ptr, ptr %79, align 8, !tbaa !318
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !39
   %83 = mul nsw i64 %82, %.03451
-  %84 = getelementptr i32, ptr %80, i64 %83
+  %84 = getelementptr [4 x i8], ptr %80, i64 %83
   br label %105
 
 .lr.ph47:                                         ; preds = %.preheader43, %.lr.ph47
@@ -6159,15 +6159,15 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !39
   %89 = mul nsw i64 %88, %.03451
-  %90 = getelementptr i32, ptr %86, i64 %89
-  %91 = getelementptr i32, ptr %90, i64 %.03246
+  %90 = getelementptr [4 x i8], ptr %86, i64 %89
+  %91 = getelementptr [4 x i8], ptr %90, i64 %.03246
   %92 = load ptr, ptr %48, align 8, !tbaa !556
   %93 = load ptr, ptr %92, align 8, !tbaa !318
-  %94 = getelementptr inbounds i32, ptr %93, i64 %.03246
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %.03246
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !39
   %97 = mul nsw i64 %96, %.03451
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %94, i64 %97
   %99 = load <2 x i64>, ptr %98, align 1, !tbaa !24
   store <2 x i64> %99, ptr %91, align 16, !tbaa !24
   %100 = add nsw i64 %.03246, 4
@@ -6184,8 +6184,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 105:                                              ; preds = %.lr.ph49, %105
   %.048 = phi i64 [ %52, %.lr.ph49 ], [ %109, %105 ]
-  %106 = getelementptr i32, ptr %78, i64 %.048
-  %107 = getelementptr i32, ptr %84, i64 %.048
+  %106 = getelementptr [4 x i8], ptr %78, i64 %.048
+  %107 = getelementptr [4 x i8], ptr %84, i64 %.048
   %108 = load i32, ptr %107, align 4, !tbaa !76
   store i32 %108, ptr %106, align 4, !tbaa !76
   %109 = add nsw i64 %.048, 1
@@ -6233,12 +6233,12 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %.0810.us.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i ], [ %28, %._crit_edge.us.i ]
   %20 = mul nsw i64 %.0810.us.i, %19
-  %21 = getelementptr double, ptr %18, i64 %20
+  %21 = getelementptr [8 x i8], ptr %18, i64 %20
   br label %22
 
 22:                                               ; preds = %22, %.preheader.us.i
   %.09.us.i = phi i64 [ 0, %.preheader.us.i ], [ %27, %22 ]
-  %23 = getelementptr double, ptr %21, i64 %.09.us.i
+  %23 = getelementptr [8 x i8], ptr %21, i64 %.09.us.i
   %24 = load double, ptr %15, align 8, !tbaa !295
   %25 = load double, ptr %23, align 8, !tbaa !20
   %26 = fdiv double %25, %24
@@ -6287,7 +6287,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load i64, ptr %50, align 8, !tbaa !39
   %52 = mul nsw i64 %51, %.03451
-  %53 = getelementptr double, ptr %49, i64 %52
+  %53 = getelementptr [8 x i8], ptr %49, i64 %52
   %54 = load ptr, ptr %42, align 8, !tbaa !567
   %55 = load double, ptr %54, align 8, !tbaa !295
   %56 = load double, ptr %53, align 8, !tbaa !20
@@ -6309,7 +6309,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !39
   %64 = mul nsw i64 %63, %.03451
-  %65 = getelementptr double, ptr %61, i64 %64
+  %65 = getelementptr [8 x i8], ptr %61, i64 %64
   %66 = load ptr, ptr %42, align 8, !tbaa !567
   br label %85
 
@@ -6320,8 +6320,8 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !39
   %71 = mul nsw i64 %70, %.03451
-  %72 = getelementptr double, ptr %68, i64 %71
-  %73 = getelementptr double, ptr %72, i64 %.03246
+  %72 = getelementptr [8 x i8], ptr %68, i64 %71
+  %73 = getelementptr [8 x i8], ptr %72, i64 %.03246
   %74 = load ptr, ptr %42, align 8, !tbaa !567
   %75 = load double, ptr %74, align 8, !tbaa !20
   %76 = insertelement <2 x double> poison, double %75, i64 0
@@ -6343,7 +6343,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
 
 85:                                               ; preds = %.lr.ph49, %85
   %.048 = phi i64 [ %46, %.lr.ph49 ], [ %90, %85 ]
-  %86 = getelementptr double, ptr %65, i64 %.048
+  %86 = getelementptr [8 x i8], ptr %65, i64 %.048
   %87 = load double, ptr %66, align 8, !tbaa !295
   %88 = load double, ptr %86, align 8, !tbaa !20
   %89 = fdiv double %88, %87
@@ -6430,7 +6430,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %62, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %65 = getelementptr inbounds double, ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !20
   %67 = call noundef double @llvm.fabs.f64(double %66)
   store double %67, ptr %65, align 8, !tbaa !20
@@ -6440,7 +6440,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %57, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %72, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %57 ]
-  %69 = getelementptr inbounds nuw double, ptr %58, i64 %.011.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.011.i.i.i.i.i.i.i.i
   %70 = load <2 x double>, ptr %69, align 16, !tbaa !24
   %71 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
   store <2 x double> %71, ptr %69, align 16, !tbaa !24
@@ -6529,11 +6529,11 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %99 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !579
   %100 = load i64, ptr %52, align 8, !tbaa !310, !noalias !579
-  %101 = getelementptr inbounds i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %99, i64 %100
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !582)
   %102 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !582
-  %103 = getelementptr inbounds i32, ptr %102, i64 %83
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %83
   %104 = load i64, ptr %85, align 8, !tbaa !35, !noalias !582
   store ptr %103, ptr %44, align 8, !tbaa !36, !alias.scope !582
   %105 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -6583,7 +6583,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %121 = sext i32 %120 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !588)
   %122 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !588
-  %123 = getelementptr inbounds i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds [4 x i8], ptr %122, i64 %121
   %124 = load i64, ptr %85, align 8, !tbaa !35, !noalias !588
   store ptr %123, ptr %45, align 8, !tbaa !36, !alias.scope !588
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -6633,7 +6633,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %140 = ashr exact i64 %sext146, 32
   call void @llvm.experimental.noalias.scope.decl(metadata !594)
   %141 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !594
-  %142 = getelementptr inbounds i32, ptr %141, i64 %140
+  %142 = getelementptr inbounds [4 x i8], ptr %141, i64 %140
   %143 = load i64, ptr %85, align 8, !tbaa !35, !noalias !594
   store ptr %142, ptr %46, align 8, !tbaa !36, !alias.scope !594
   %144 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -6703,8 +6703,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i.i167:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i166, %.lr.ph.i.i.i.i.i.i.i.i.i167
   %.05.i.i.i.i.i.i.i.i.i168 = phi i64 [ %170, %.lr.ph.i.i.i.i.i.i.i.i.i167 ], [ %164, %._crit_edge.i.i.i.i.i.i.i.i166 ]
-  %167 = getelementptr inbounds i32, ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
-  %168 = getelementptr inbounds i32, ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %167 = getelementptr inbounds [4 x i8], ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %168 = getelementptr inbounds [4 x i8], ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
   %169 = load i32, ptr %168, align 4, !tbaa !76
   store i32 %169, ptr %167, align 4, !tbaa !76
   %170 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i168, 1
@@ -6713,8 +6713,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i170:                        ; preds = %160, %.lr.ph.i.i.i.i.i.i.i.i170
   %.011.i.i.i.i.i.i.i.i171 = phi i64 [ %174, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ 0, %160 ]
-  %171 = getelementptr inbounds nuw i32, ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
-  %172 = getelementptr inbounds nuw i32, ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
   %173 = load <2 x i64>, ptr %172, align 16, !tbaa !24
   store <2 x i64> %173, ptr %171, align 16, !tbaa !24
   %174 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i171, 4
@@ -6740,7 +6740,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i.i.i.i.i ], [ %181, %._crit_edge.i.i.i.i.i.i ]
-  %184 = getelementptr inbounds double, ptr %178, i64 %.05.i.i.i.i.i.i.i
+  %184 = getelementptr inbounds [8 x i8], ptr %178, i64 %.05.i.i.i.i.i.i.i
   %185 = load double, ptr %184, align 8, !tbaa !20
   %186 = fmul double %185, 2.500000e-01
   store double %186, ptr %184, align 8, !tbaa !20
@@ -6750,7 +6750,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %176, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %191, %.lr.ph.i.i.i.i.i.i ], [ 0, %176 ]
-  %188 = getelementptr inbounds nuw double, ptr %178, i64 %.011.i.i.i.i.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.011.i.i.i.i.i.i
   %189 = load <2 x double>, ptr %188, align 16, !tbaa !24
   %190 = fmul <2 x double> %189, splat (double 2.500000e-01)
   store <2 x double> %190, ptr %188, align 16, !tbaa !24
@@ -6828,7 +6828,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.us.i.i.i.i.i.i.i.i = phi i64 [ %226, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.us.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %223 = trunc i64 %.05.us.i.i.i.i.i.i.i.i to i32
   %224 = sdiv i32 %223, %215
-  %225 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
   store i32 %224, ptr %225, align 4, !tbaa !76
   %226 = add nuw nsw i64 %.05.us.i.i.i.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i.i.i.i = icmp eq i64 %226, %.pr.i.i.i.i.i.i.i175
@@ -6838,7 +6838,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %230, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %227 = trunc i64 %.05.i.i.i.i.i.i.i.i to i32
   %228 = mul nsw i32 %219, %227
-  %229 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
   store i32 %228, ptr %229, align 4, !tbaa !76
   %230 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %230, %.pr.i.i.i.i.i.i.i175
@@ -6874,8 +6874,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i.i182:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i181, %.lr.ph.i.i.i.i.i.i.i.i.i182
   %.05.i.i.i.i.i.i.i.i.i183 = phi i64 [ %245, %.lr.ph.i.i.i.i.i.i.i.i.i182 ], [ %239, %._crit_edge.i.i.i.i.i.i.i.i181 ]
-  %242 = getelementptr inbounds i32, ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
-  %243 = getelementptr inbounds i32, ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %242 = getelementptr inbounds [4 x i8], ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %243 = getelementptr inbounds [4 x i8], ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
   %244 = load i32, ptr %243, align 4, !tbaa !76
   store i32 %244, ptr %242, align 4, !tbaa !76
   %245 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i183, 1
@@ -6884,8 +6884,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i185:                        ; preds = %235, %.lr.ph.i.i.i.i.i.i.i.i185
   %.011.i.i.i.i.i.i.i.i186 = phi i64 [ %249, %.lr.ph.i.i.i.i.i.i.i.i185 ], [ 0, %235 ]
-  %246 = getelementptr inbounds nuw i32, ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
-  %247 = getelementptr inbounds nuw i32, ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
   %248 = load <2 x i64>, ptr %247, align 16, !tbaa !24
   store <2 x i64> %248, ptr %246, align 16, !tbaa !24
   %249 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i186, 4
@@ -6918,7 +6918,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
 258:                                              ; preds = %257
   %259 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !597
   %260 = load i64, ptr %52, align 8, !tbaa !310, !noalias !597
-  %261 = getelementptr inbounds i32, ptr %259, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %259, i64 %260
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !600
   call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %262 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !606
@@ -6966,7 +6966,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
   %.idx = shl nsw i64 %277, 3
   %278 = getelementptr inbounds i8, ptr %276, i64 %.idx
   %279 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !610
-  %280 = getelementptr inbounds i32, ptr %279, i64 %260
+  %280 = getelementptr inbounds [4 x i8], ptr %279, i64 %260
   %281 = ptrtoint ptr %280 to i64
   %282 = and i64 %281, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %282, 0
@@ -6990,8 +6990,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %296, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
-  %294 = getelementptr inbounds nuw i32, ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
   %295 = load i32, ptr %294, align 4, !tbaa !76
   store i32 %295, ptr %293, align 4, !tbaa !76
   %296 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -7008,8 +7008,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %302, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i ], [ %291, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ]
-  %299 = getelementptr inbounds i32, ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
-  %300 = getelementptr inbounds i32, ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %299 = getelementptr inbounds [4 x i8], ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %300 = getelementptr inbounds [4 x i8], ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
   %301 = load i32, ptr %300, align 4, !tbaa !76
   store i32 %301, ptr %299, align 4, !tbaa !76
   %302 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -7018,8 +7018,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %306, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %303 = getelementptr inbounds i32, ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
-  %304 = getelementptr inbounds i32, ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %303 = getelementptr inbounds [4 x i8], ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %304 = getelementptr inbounds [4 x i8], ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
   %305 = load <2 x i64>, ptr %304, align 1, !tbaa !24
   store <2 x i64> %305, ptr %303, align 16, !tbaa !24
   %306 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i, 4
@@ -7033,7 +7033,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %310 = getelementptr inbounds i8, ptr %308, i64 %.idx1210
   %311 = add nsw i64 %277, %260
   %312 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !616
-  %313 = getelementptr inbounds i32, ptr %312, i64 %311
+  %313 = getelementptr inbounds [4 x i8], ptr %312, i64 %311
   %314 = ptrtoint ptr %313 to i64
   %315 = and i64 %314, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i195 = icmp eq i64 %315, 0
@@ -7057,8 +7057,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205
   %.05.i.i.i.i.i.i.i.i.i.i.i.i206 = phi i64 [ %329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196 ]
-  %326 = getelementptr inbounds nuw i32, ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
-  %327 = getelementptr inbounds nuw i32, ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
   %328 = load i32, ptr %327, align 4, !tbaa !76
   store i32 %328, ptr %326, align 4, !tbaa !76
   %329 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206, 1
@@ -7075,8 +7075,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i201 = phi i64 [ %335, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200 ], [ %324, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199 ]
-  %332 = getelementptr inbounds i32, ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
-  %333 = getelementptr inbounds i32, ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %332 = getelementptr inbounds [4 x i8], ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %333 = getelementptr inbounds [4 x i8], ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
   %334 = load i32, ptr %333, align 4, !tbaa !76
   store i32 %334, ptr %332, align 4, !tbaa !76
   %335 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201, 1
@@ -7085,8 +7085,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i203:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203
   %.021.i.i.i.i.i.i.i.i.i.i.i204 = phi i64 [ %339, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i197, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198 ]
-  %336 = getelementptr inbounds i32, ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
-  %337 = getelementptr inbounds i32, ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %336 = getelementptr inbounds [4 x i8], ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %337 = getelementptr inbounds [4 x i8], ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
   %338 = load <2 x i64>, ptr %337, align 1, !tbaa !24
   store <2 x i64> %338, ptr %336, align 16, !tbaa !24
   %339 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i204, 4
@@ -7100,7 +7100,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %343 = getelementptr inbounds i8, ptr %341, i64 %.idx1211
   %344 = add nsw i64 %309, %311
   %345 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !622
-  %346 = getelementptr inbounds i32, ptr %345, i64 %344
+  %346 = getelementptr inbounds [4 x i8], ptr %345, i64 %344
   %347 = ptrtoint ptr %346 to i64
   %348 = and i64 %347, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i214 = icmp eq i64 %348, 0
@@ -7124,8 +7124,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224
   %.05.i.i.i.i.i.i.i.i.i.i.i.i225 = phi i64 [ %362, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215 ]
-  %359 = getelementptr inbounds nuw i32, ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
-  %360 = getelementptr inbounds nuw i32, ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
   %361 = load i32, ptr %360, align 4, !tbaa !76
   store i32 %361, ptr %359, align 4, !tbaa !76
   %362 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225, 1
@@ -7142,8 +7142,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i220 = phi i64 [ %368, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219 ], [ %357, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218 ]
-  %365 = getelementptr inbounds i32, ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
-  %366 = getelementptr inbounds i32, ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %365 = getelementptr inbounds [4 x i8], ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %366 = getelementptr inbounds [4 x i8], ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
   %367 = load i32, ptr %366, align 4, !tbaa !76
   store i32 %367, ptr %365, align 4, !tbaa !76
   %368 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220, 1
@@ -7152,8 +7152,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i222:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222
   %.021.i.i.i.i.i.i.i.i.i.i.i223 = phi i64 [ %372, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i216, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217 ]
-  %369 = getelementptr inbounds i32, ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
-  %370 = getelementptr inbounds i32, ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %369 = getelementptr inbounds [4 x i8], ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %370 = getelementptr inbounds [4 x i8], ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
   %371 = load <2 x i64>, ptr %370, align 1, !tbaa !24
   store <2 x i64> %371, ptr %369, align 16, !tbaa !24
   %372 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i223, 4
@@ -7167,7 +7167,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %376 = getelementptr inbounds i8, ptr %374, i64 %.idx1212
   %377 = add nsw i64 %342, %344
   %378 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !628
-  %379 = getelementptr inbounds i32, ptr %378, i64 %377
+  %379 = getelementptr inbounds [4 x i8], ptr %378, i64 %377
   %380 = ptrtoint ptr %379 to i64
   %381 = and i64 %380, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i233 = icmp eq i64 %381, 0
@@ -7191,8 +7191,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243
   %.05.i.i.i.i.i.i.i.i.i.i.i.i244 = phi i64 [ %395, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234 ]
-  %392 = getelementptr inbounds nuw i32, ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
-  %393 = getelementptr inbounds nuw i32, ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
   %394 = load i32, ptr %393, align 4, !tbaa !76
   store i32 %394, ptr %392, align 4, !tbaa !76
   %395 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244, 1
@@ -7209,8 +7209,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i239 = phi i64 [ %401, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238 ], [ %390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237 ]
-  %398 = getelementptr inbounds i32, ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
-  %399 = getelementptr inbounds i32, ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %398 = getelementptr inbounds [4 x i8], ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %399 = getelementptr inbounds [4 x i8], ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
   %400 = load i32, ptr %399, align 4, !tbaa !76
   store i32 %400, ptr %398, align 4, !tbaa !76
   %401 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239, 1
@@ -7219,8 +7219,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i241:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241
   %.021.i.i.i.i.i.i.i.i.i.i.i242 = phi i64 [ %405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i235, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236 ]
-  %402 = getelementptr inbounds i32, ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
-  %403 = getelementptr inbounds i32, ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %402 = getelementptr inbounds [4 x i8], ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %403 = getelementptr inbounds [4 x i8], ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
   %404 = load <2 x i64>, ptr %403, align 1, !tbaa !24
   store <2 x i64> %404, ptr %402, align 16, !tbaa !24
   %405 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i242, 4
@@ -7232,7 +7232,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %408 = load i64, ptr %52, align 8, !tbaa !310, !noalias !631
   %409 = add nsw i64 %375, %377
   %410 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !634
-  %411 = getelementptr inbounds i32, ptr %410, i64 %409
+  %411 = getelementptr inbounds [4 x i8], ptr %410, i64 %409
   %412 = ptrtoint ptr %411 to i64
   %413 = and i64 %412, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i252 = icmp eq i64 %413, 0
@@ -7256,8 +7256,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262
   %.05.i.i.i.i.i.i.i.i.i.i.i.i263 = phi i64 [ %427, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253 ]
-  %424 = getelementptr inbounds nuw i32, ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
-  %425 = getelementptr inbounds nuw i32, ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
   %426 = load i32, ptr %425, align 4, !tbaa !76
   store i32 %426, ptr %424, align 4, !tbaa !76
   %427 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263, 1
@@ -7274,8 +7274,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i258 = phi i64 [ %433, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257 ], [ %422, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256 ]
-  %430 = getelementptr inbounds i32, ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
-  %431 = getelementptr inbounds i32, ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %430 = getelementptr inbounds [4 x i8], ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %431 = getelementptr inbounds [4 x i8], ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
   %432 = load i32, ptr %431, align 4, !tbaa !76
   store i32 %432, ptr %430, align 4, !tbaa !76
   %433 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258, 1
@@ -7284,8 +7284,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i260:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260
   %.021.i.i.i.i.i.i.i.i.i.i.i261 = phi i64 [ %437, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i254, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255 ]
-  %434 = getelementptr inbounds i32, ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
-  %435 = getelementptr inbounds i32, ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %434 = getelementptr inbounds [4 x i8], ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %435 = getelementptr inbounds [4 x i8], ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
   %436 = load <2 x i64>, ptr %435, align 1, !tbaa !24
   store <2 x i64> %436, ptr %434, align 16, !tbaa !24
   %437 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i261, 4
@@ -7299,7 +7299,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %441 = getelementptr inbounds i8, ptr %439, i64 %.idx1213
   %442 = add nsw i64 %408, %409
   %443 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !640
-  %444 = getelementptr inbounds i32, ptr %443, i64 %442
+  %444 = getelementptr inbounds [4 x i8], ptr %443, i64 %442
   %445 = ptrtoint ptr %444 to i64
   %446 = and i64 %445, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i271 = icmp eq i64 %446, 0
@@ -7323,8 +7323,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281
   %.05.i.i.i.i.i.i.i.i.i.i.i.i282 = phi i64 [ %460, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272 ]
-  %457 = getelementptr inbounds nuw i32, ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
-  %458 = getelementptr inbounds nuw i32, ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %457 = getelementptr inbounds nuw [4 x i8], ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
   %459 = load i32, ptr %458, align 4, !tbaa !76
   store i32 %459, ptr %457, align 4, !tbaa !76
   %460 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282, 1
@@ -7341,8 +7341,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i277 = phi i64 [ %466, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276 ], [ %455, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275 ]
-  %463 = getelementptr inbounds i32, ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
-  %464 = getelementptr inbounds i32, ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %463 = getelementptr inbounds [4 x i8], ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %464 = getelementptr inbounds [4 x i8], ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
   %465 = load i32, ptr %464, align 4, !tbaa !76
   store i32 %465, ptr %463, align 4, !tbaa !76
   %466 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277, 1
@@ -7351,8 +7351,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i279:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279
   %.021.i.i.i.i.i.i.i.i.i.i.i280 = phi i64 [ %470, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i273, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274 ]
-  %467 = getelementptr inbounds i32, ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
-  %468 = getelementptr inbounds i32, ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %467 = getelementptr inbounds [4 x i8], ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %468 = getelementptr inbounds [4 x i8], ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
   %469 = load <2 x i64>, ptr %468, align 1, !tbaa !24
   store <2 x i64> %469, ptr %467, align 16, !tbaa !24
   %470 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i280, 4
@@ -7364,7 +7364,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %473 = load i64, ptr %52, align 8, !tbaa !310, !noalias !643
   %474 = add nsw i64 %440, %442
   %475 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !646
-  %476 = getelementptr inbounds i32, ptr %475, i64 %474
+  %476 = getelementptr inbounds [4 x i8], ptr %475, i64 %474
   %477 = ptrtoint ptr %476 to i64
   %478 = and i64 %477, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i290 = icmp eq i64 %478, 0
@@ -7388,8 +7388,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300
   %.05.i.i.i.i.i.i.i.i.i.i.i.i301 = phi i64 [ %492, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291 ]
-  %489 = getelementptr inbounds nuw i32, ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
-  %490 = getelementptr inbounds nuw i32, ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
   %491 = load i32, ptr %490, align 4, !tbaa !76
   store i32 %491, ptr %489, align 4, !tbaa !76
   %492 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301, 1
@@ -7406,8 +7406,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i296 = phi i64 [ %498, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295 ], [ %487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294 ]
-  %495 = getelementptr inbounds i32, ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
-  %496 = getelementptr inbounds i32, ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %495 = getelementptr inbounds [4 x i8], ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %496 = getelementptr inbounds [4 x i8], ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
   %497 = load i32, ptr %496, align 4, !tbaa !76
   store i32 %497, ptr %495, align 4, !tbaa !76
   %498 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296, 1
@@ -7416,8 +7416,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i298:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298
   %.021.i.i.i.i.i.i.i.i.i.i.i299 = phi i64 [ %502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i292, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293 ]
-  %499 = getelementptr inbounds i32, ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
-  %500 = getelementptr inbounds i32, ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %499 = getelementptr inbounds [4 x i8], ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %500 = getelementptr inbounds [4 x i8], ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
   %501 = load <2 x i64>, ptr %500, align 1, !tbaa !24
   store <2 x i64> %501, ptr %499, align 16, !tbaa !24
   %502 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i299, 4
@@ -7427,10 +7427,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1251:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294
   %504 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !649
   %505 = load i64, ptr %52, align 8, !tbaa !310, !noalias !649
-  %506 = getelementptr inbounds i32, ptr %504, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %504, i64 %505
   %507 = add nsw i64 %473, %474
   %508 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !652
-  %509 = getelementptr inbounds i32, ptr %508, i64 %507
+  %509 = getelementptr inbounds [4 x i8], ptr %508, i64 %507
   %510 = ptrtoint ptr %509 to i64
   %511 = and i64 %510, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i309 = icmp eq i64 %511, 0
@@ -7454,8 +7454,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319
   %.05.i.i.i.i.i.i.i.i.i.i.i.i320 = phi i64 [ %525, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310 ]
-  %522 = getelementptr inbounds nuw i32, ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
-  %523 = getelementptr inbounds nuw i32, ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
   %524 = load i32, ptr %523, align 4, !tbaa !76
   store i32 %524, ptr %522, align 4, !tbaa !76
   %525 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320, 1
@@ -7472,8 +7472,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i315 = phi i64 [ %531, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314 ], [ %520, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313 ]
-  %528 = getelementptr inbounds i32, ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
-  %529 = getelementptr inbounds i32, ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %528 = getelementptr inbounds [4 x i8], ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %529 = getelementptr inbounds [4 x i8], ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
   %530 = load i32, ptr %529, align 4, !tbaa !76
   store i32 %530, ptr %528, align 4, !tbaa !76
   %531 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315, 1
@@ -7482,8 +7482,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i317:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317
   %.021.i.i.i.i.i.i.i.i.i.i.i318 = phi i64 [ %535, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i311, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312 ]
-  %532 = getelementptr inbounds i32, ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
-  %533 = getelementptr inbounds i32, ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %532 = getelementptr inbounds [4 x i8], ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %533 = getelementptr inbounds [4 x i8], ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
   %534 = load <2 x i64>, ptr %533, align 1, !tbaa !24
   store <2 x i64> %534, ptr %532, align 16, !tbaa !24
   %535 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i318, 4
@@ -7495,7 +7495,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %538 = load i64, ptr %52, align 8, !tbaa !310, !noalias !655
   %539 = add nsw i64 %505, %507
   %540 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !658
-  %541 = getelementptr inbounds i32, ptr %540, i64 %539
+  %541 = getelementptr inbounds [4 x i8], ptr %540, i64 %539
   %542 = ptrtoint ptr %541 to i64
   %543 = and i64 %542, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i328 = icmp eq i64 %543, 0
@@ -7519,8 +7519,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338
   %.05.i.i.i.i.i.i.i.i.i.i.i.i339 = phi i64 [ %557, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329 ]
-  %554 = getelementptr inbounds nuw i32, ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
-  %555 = getelementptr inbounds nuw i32, ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
   %556 = load i32, ptr %555, align 4, !tbaa !76
   store i32 %556, ptr %554, align 4, !tbaa !76
   %557 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339, 1
@@ -7537,8 +7537,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i334 = phi i64 [ %563, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333 ], [ %552, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332 ]
-  %560 = getelementptr inbounds i32, ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
-  %561 = getelementptr inbounds i32, ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %560 = getelementptr inbounds [4 x i8], ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %561 = getelementptr inbounds [4 x i8], ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
   %562 = load i32, ptr %561, align 4, !tbaa !76
   store i32 %562, ptr %560, align 4, !tbaa !76
   %563 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334, 1
@@ -7547,8 +7547,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i336:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336
   %.021.i.i.i.i.i.i.i.i.i.i.i337 = phi i64 [ %567, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i330, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331 ]
-  %564 = getelementptr inbounds i32, ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
-  %565 = getelementptr inbounds i32, ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %564 = getelementptr inbounds [4 x i8], ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %565 = getelementptr inbounds [4 x i8], ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
   %566 = load <2 x i64>, ptr %565, align 1, !tbaa !24
   store <2 x i64> %566, ptr %564, align 16, !tbaa !24
   %567 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i337, 4
@@ -7558,10 +7558,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1249:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332
   %569 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !661
   %570 = load i64, ptr %52, align 8, !tbaa !310, !noalias !661
-  %571 = getelementptr inbounds i32, ptr %569, i64 %570
+  %571 = getelementptr inbounds [4 x i8], ptr %569, i64 %570
   %572 = add nsw i64 %538, %539
   %573 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !664
-  %574 = getelementptr inbounds i32, ptr %573, i64 %572
+  %574 = getelementptr inbounds [4 x i8], ptr %573, i64 %572
   %575 = ptrtoint ptr %574 to i64
   %576 = and i64 %575, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i347 = icmp eq i64 %576, 0
@@ -7585,8 +7585,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357
   %.05.i.i.i.i.i.i.i.i.i.i.i.i358 = phi i64 [ %590, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348 ]
-  %587 = getelementptr inbounds nuw i32, ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
-  %588 = getelementptr inbounds nuw i32, ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
   %589 = load i32, ptr %588, align 4, !tbaa !76
   store i32 %589, ptr %587, align 4, !tbaa !76
   %590 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358, 1
@@ -7603,8 +7603,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i353 = phi i64 [ %596, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352 ], [ %585, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351 ]
-  %593 = getelementptr inbounds i32, ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
-  %594 = getelementptr inbounds i32, ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %593 = getelementptr inbounds [4 x i8], ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %594 = getelementptr inbounds [4 x i8], ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
   %595 = load i32, ptr %594, align 4, !tbaa !76
   store i32 %595, ptr %593, align 4, !tbaa !76
   %596 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353, 1
@@ -7613,8 +7613,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i355:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355
   %.021.i.i.i.i.i.i.i.i.i.i.i356 = phi i64 [ %600, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i349, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350 ]
-  %597 = getelementptr inbounds i32, ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
-  %598 = getelementptr inbounds i32, ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %597 = getelementptr inbounds [4 x i8], ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %598 = getelementptr inbounds [4 x i8], ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
   %599 = load <2 x i64>, ptr %598, align 1, !tbaa !24
   store <2 x i64> %599, ptr %597, align 16, !tbaa !24
   %600 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i356, 4
@@ -7628,7 +7628,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %604 = getelementptr inbounds i8, ptr %602, i64 %.idx1214
   %605 = add nsw i64 %570, %572
   %606 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !670
-  %607 = getelementptr inbounds i32, ptr %606, i64 %605
+  %607 = getelementptr inbounds [4 x i8], ptr %606, i64 %605
   %608 = ptrtoint ptr %607 to i64
   %609 = and i64 %608, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i366 = icmp eq i64 %609, 0
@@ -7652,8 +7652,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376
   %.05.i.i.i.i.i.i.i.i.i.i.i.i377 = phi i64 [ %623, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367 ]
-  %620 = getelementptr inbounds nuw i32, ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
-  %621 = getelementptr inbounds nuw i32, ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %621 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
   %622 = load i32, ptr %621, align 4, !tbaa !76
   store i32 %622, ptr %620, align 4, !tbaa !76
   %623 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377, 1
@@ -7670,8 +7670,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i372 = phi i64 [ %629, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371 ], [ %618, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370 ]
-  %626 = getelementptr inbounds i32, ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
-  %627 = getelementptr inbounds i32, ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %626 = getelementptr inbounds [4 x i8], ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %627 = getelementptr inbounds [4 x i8], ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
   %628 = load i32, ptr %627, align 4, !tbaa !76
   store i32 %628, ptr %626, align 4, !tbaa !76
   %629 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372, 1
@@ -7680,8 +7680,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i374:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374
   %.021.i.i.i.i.i.i.i.i.i.i.i375 = phi i64 [ %633, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i368, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369 ]
-  %630 = getelementptr inbounds i32, ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
-  %631 = getelementptr inbounds i32, ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %630 = getelementptr inbounds [4 x i8], ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %631 = getelementptr inbounds [4 x i8], ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
   %632 = load <2 x i64>, ptr %631, align 1, !tbaa !24
   store <2 x i64> %632, ptr %630, align 16, !tbaa !24
   %633 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i375, 4
@@ -7693,7 +7693,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %636 = load i64, ptr %52, align 8, !tbaa !310, !noalias !673
   %637 = add nsw i64 %603, %605
   %638 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !676
-  %639 = getelementptr inbounds i32, ptr %638, i64 %637
+  %639 = getelementptr inbounds [4 x i8], ptr %638, i64 %637
   %640 = ptrtoint ptr %639 to i64
   %641 = and i64 %640, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i385 = icmp eq i64 %641, 0
@@ -7717,8 +7717,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395
   %.05.i.i.i.i.i.i.i.i.i.i.i.i396 = phi i64 [ %655, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386 ]
-  %652 = getelementptr inbounds nuw i32, ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
-  %653 = getelementptr inbounds nuw i32, ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %652 = getelementptr inbounds nuw [4 x i8], ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
   %654 = load i32, ptr %653, align 4, !tbaa !76
   store i32 %654, ptr %652, align 4, !tbaa !76
   %655 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396, 1
@@ -7735,8 +7735,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i391 = phi i64 [ %661, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390 ], [ %650, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389 ]
-  %658 = getelementptr inbounds i32, ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
-  %659 = getelementptr inbounds i32, ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %658 = getelementptr inbounds [4 x i8], ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %659 = getelementptr inbounds [4 x i8], ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
   %660 = load i32, ptr %659, align 4, !tbaa !76
   store i32 %660, ptr %658, align 4, !tbaa !76
   %661 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391, 1
@@ -7745,8 +7745,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i393:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393
   %.021.i.i.i.i.i.i.i.i.i.i.i394 = phi i64 [ %665, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i387, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388 ]
-  %662 = getelementptr inbounds i32, ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
-  %663 = getelementptr inbounds i32, ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %662 = getelementptr inbounds [4 x i8], ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %663 = getelementptr inbounds [4 x i8], ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
   %664 = load <2 x i64>, ptr %663, align 1, !tbaa !24
   store <2 x i64> %664, ptr %662, align 16, !tbaa !24
   %665 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i394, 4
@@ -7756,10 +7756,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1246:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389
   %667 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !679
   %668 = load i64, ptr %52, align 8, !tbaa !310, !noalias !679
-  %669 = getelementptr inbounds i32, ptr %667, i64 %668
+  %669 = getelementptr inbounds [4 x i8], ptr %667, i64 %668
   %670 = add nsw i64 %636, %637
   %671 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !682
-  %672 = getelementptr inbounds i32, ptr %671, i64 %670
+  %672 = getelementptr inbounds [4 x i8], ptr %671, i64 %670
   %673 = ptrtoint ptr %672 to i64
   %674 = and i64 %673, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i404 = icmp eq i64 %674, 0
@@ -7783,8 +7783,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414
   %.05.i.i.i.i.i.i.i.i.i.i.i.i415 = phi i64 [ %688, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405 ]
-  %685 = getelementptr inbounds nuw i32, ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
-  %686 = getelementptr inbounds nuw i32, ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %685 = getelementptr inbounds nuw [4 x i8], ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
   %687 = load i32, ptr %686, align 4, !tbaa !76
   store i32 %687, ptr %685, align 4, !tbaa !76
   %688 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415, 1
@@ -7801,8 +7801,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i410 = phi i64 [ %694, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409 ], [ %683, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408 ]
-  %691 = getelementptr inbounds i32, ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
-  %692 = getelementptr inbounds i32, ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %691 = getelementptr inbounds [4 x i8], ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %692 = getelementptr inbounds [4 x i8], ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
   %693 = load i32, ptr %692, align 4, !tbaa !76
   store i32 %693, ptr %691, align 4, !tbaa !76
   %694 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410, 1
@@ -7811,8 +7811,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i412:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412
   %.021.i.i.i.i.i.i.i.i.i.i.i413 = phi i64 [ %698, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i406, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407 ]
-  %695 = getelementptr inbounds i32, ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
-  %696 = getelementptr inbounds i32, ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %695 = getelementptr inbounds [4 x i8], ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %696 = getelementptr inbounds [4 x i8], ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
   %697 = load <2 x i64>, ptr %696, align 1, !tbaa !24
   store <2 x i64> %697, ptr %695, align 16, !tbaa !24
   %698 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i413, 4
@@ -7826,7 +7826,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %702 = getelementptr inbounds i8, ptr %700, i64 %.idx1215
   %703 = add nsw i64 %668, %670
   %704 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !688
-  %705 = getelementptr inbounds i32, ptr %704, i64 %703
+  %705 = getelementptr inbounds [4 x i8], ptr %704, i64 %703
   %706 = ptrtoint ptr %705 to i64
   %707 = and i64 %706, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i423 = icmp eq i64 %707, 0
@@ -7850,8 +7850,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433
   %.05.i.i.i.i.i.i.i.i.i.i.i.i434 = phi i64 [ %721, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424 ]
-  %718 = getelementptr inbounds nuw i32, ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
-  %719 = getelementptr inbounds nuw i32, ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %718 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
   %720 = load i32, ptr %719, align 4, !tbaa !76
   store i32 %720, ptr %718, align 4, !tbaa !76
   %721 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434, 1
@@ -7868,8 +7868,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i429 = phi i64 [ %727, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428 ], [ %716, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427 ]
-  %724 = getelementptr inbounds i32, ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
-  %725 = getelementptr inbounds i32, ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %724 = getelementptr inbounds [4 x i8], ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %725 = getelementptr inbounds [4 x i8], ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
   %726 = load i32, ptr %725, align 4, !tbaa !76
   store i32 %726, ptr %724, align 4, !tbaa !76
   %727 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429, 1
@@ -7878,8 +7878,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i431:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431
   %.021.i.i.i.i.i.i.i.i.i.i.i432 = phi i64 [ %731, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i425, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426 ]
-  %728 = getelementptr inbounds i32, ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
-  %729 = getelementptr inbounds i32, ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %728 = getelementptr inbounds [4 x i8], ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %729 = getelementptr inbounds [4 x i8], ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
   %730 = load <2 x i64>, ptr %729, align 1, !tbaa !24
   store <2 x i64> %730, ptr %728, align 16, !tbaa !24
   %731 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i432, 4
@@ -7892,8 +7892,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1216 = mul nsw i64 %734, 12
   %735 = getelementptr inbounds i8, ptr %733, i64 %.idx1216
   %736 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !694
-  %737 = getelementptr i32, ptr %736, i64 %703
-  %738 = getelementptr i32, ptr %737, i64 %701
+  %737 = getelementptr [4 x i8], ptr %736, i64 %703
+  %738 = getelementptr [4 x i8], ptr %737, i64 %701
   %739 = ptrtoint ptr %738 to i64
   %740 = and i64 %739, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i442 = icmp eq i64 %740, 0
@@ -7917,8 +7917,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452
   %.05.i.i.i.i.i.i.i.i.i.i.i.i453 = phi i64 [ %754, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443 ]
-  %751 = getelementptr inbounds nuw i32, ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
-  %752 = getelementptr inbounds nuw i32, ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %752 = getelementptr inbounds nuw [4 x i8], ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
   %753 = load i32, ptr %752, align 4, !tbaa !76
   store i32 %753, ptr %751, align 4, !tbaa !76
   %754 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453, 1
@@ -7935,8 +7935,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i448 = phi i64 [ %760, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447 ], [ %749, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446 ]
-  %757 = getelementptr inbounds i32, ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
-  %758 = getelementptr inbounds i32, ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %757 = getelementptr inbounds [4 x i8], ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %758 = getelementptr inbounds [4 x i8], ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
   %759 = load i32, ptr %758, align 4, !tbaa !76
   store i32 %759, ptr %757, align 4, !tbaa !76
   %760 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448, 1
@@ -7945,8 +7945,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i450:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450
   %.021.i.i.i.i.i.i.i.i.i.i.i451 = phi i64 [ %764, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i444, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445 ]
-  %761 = getelementptr inbounds i32, ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
-  %762 = getelementptr inbounds i32, ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %761 = getelementptr inbounds [4 x i8], ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %762 = getelementptr inbounds [4 x i8], ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
   %763 = load <2 x i64>, ptr %762, align 1, !tbaa !24
   store <2 x i64> %763, ptr %761, align 16, !tbaa !24
   %764 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i451, 4
@@ -8001,7 +8001,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %782 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !707
   %783 = load i64, ptr %52, align 8, !tbaa !310, !noalias !707
   %784 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !710
-  %785 = getelementptr inbounds i32, ptr %784, i64 %767
+  %785 = getelementptr inbounds [4 x i8], ptr %784, i64 %767
   %786 = ptrtoint ptr %785 to i64
   %787 = and i64 %786, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i463 = icmp eq i64 %787, 0
@@ -8025,8 +8025,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473
   %.05.i.i.i.i.i.i.i.i.i.i.i.i474 = phi i64 [ %801, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464 ]
-  %798 = getelementptr inbounds nuw i32, ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
-  %799 = getelementptr inbounds nuw i32, ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %798 = getelementptr inbounds nuw [4 x i8], ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %799 = getelementptr inbounds nuw [4 x i8], ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
   %800 = load i32, ptr %799, align 4, !tbaa !76
   store i32 %800, ptr %798, align 4, !tbaa !76
   %801 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474, 1
@@ -8043,8 +8043,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i469 = phi i64 [ %807, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468 ], [ %796, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467 ]
-  %804 = getelementptr inbounds i32, ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
-  %805 = getelementptr inbounds i32, ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %804 = getelementptr inbounds [4 x i8], ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %805 = getelementptr inbounds [4 x i8], ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
   %806 = load i32, ptr %805, align 4, !tbaa !76
   store i32 %806, ptr %804, align 4, !tbaa !76
   %807 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469, 1
@@ -8053,8 +8053,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i471:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471
   %.021.i.i.i.i.i.i.i.i.i.i.i472 = phi i64 [ %811, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i465, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466 ]
-  %808 = getelementptr inbounds i32, ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
-  %809 = getelementptr inbounds i32, ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %808 = getelementptr inbounds [4 x i8], ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %809 = getelementptr inbounds [4 x i8], ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
   %810 = load <2 x i64>, ptr %809, align 1, !tbaa !24
   store <2 x i64> %810, ptr %808, align 16, !tbaa !24
   %811 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i472, 4
@@ -8066,7 +8066,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %814 = load i64, ptr %52, align 8, !tbaa !310, !noalias !713
   %815 = add nsw i64 %783, %767
   %816 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !716
-  %817 = getelementptr inbounds i32, ptr %816, i64 %815
+  %817 = getelementptr inbounds [4 x i8], ptr %816, i64 %815
   %818 = ptrtoint ptr %817 to i64
   %819 = and i64 %818, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i482 = icmp eq i64 %819, 0
@@ -8090,8 +8090,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492
   %.05.i.i.i.i.i.i.i.i.i.i.i.i493 = phi i64 [ %833, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483 ]
-  %830 = getelementptr inbounds nuw i32, ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
-  %831 = getelementptr inbounds nuw i32, ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %830 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %831 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
   %832 = load i32, ptr %831, align 4, !tbaa !76
   store i32 %832, ptr %830, align 4, !tbaa !76
   %833 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493, 1
@@ -8108,8 +8108,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i488 = phi i64 [ %839, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487 ], [ %828, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486 ]
-  %836 = getelementptr inbounds i32, ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
-  %837 = getelementptr inbounds i32, ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %836 = getelementptr inbounds [4 x i8], ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %837 = getelementptr inbounds [4 x i8], ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
   %838 = load i32, ptr %837, align 4, !tbaa !76
   store i32 %838, ptr %836, align 4, !tbaa !76
   %839 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488, 1
@@ -8118,8 +8118,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i490:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490
   %.021.i.i.i.i.i.i.i.i.i.i.i491 = phi i64 [ %843, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i484, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485 ]
-  %840 = getelementptr inbounds i32, ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
-  %841 = getelementptr inbounds i32, ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %840 = getelementptr inbounds [4 x i8], ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %841 = getelementptr inbounds [4 x i8], ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
   %842 = load <2 x i64>, ptr %841, align 1, !tbaa !24
   store <2 x i64> %842, ptr %840, align 16, !tbaa !24
   %843 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i491, 4
@@ -8129,10 +8129,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1241:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486
   %845 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !719
   %846 = load i64, ptr %52, align 8, !tbaa !310, !noalias !719
-  %847 = getelementptr inbounds i32, ptr %845, i64 %846
+  %847 = getelementptr inbounds [4 x i8], ptr %845, i64 %846
   %848 = add nsw i64 %814, %815
   %849 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !722
-  %850 = getelementptr inbounds i32, ptr %849, i64 %848
+  %850 = getelementptr inbounds [4 x i8], ptr %849, i64 %848
   %851 = ptrtoint ptr %850 to i64
   %852 = and i64 %851, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i501 = icmp eq i64 %852, 0
@@ -8156,8 +8156,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511
   %.05.i.i.i.i.i.i.i.i.i.i.i.i512 = phi i64 [ %866, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502 ]
-  %863 = getelementptr inbounds nuw i32, ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
-  %864 = getelementptr inbounds nuw i32, ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %863 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
   %865 = load i32, ptr %864, align 4, !tbaa !76
   store i32 %865, ptr %863, align 4, !tbaa !76
   %866 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512, 1
@@ -8174,8 +8174,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i507 = phi i64 [ %872, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506 ], [ %861, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505 ]
-  %869 = getelementptr inbounds i32, ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
-  %870 = getelementptr inbounds i32, ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %869 = getelementptr inbounds [4 x i8], ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %870 = getelementptr inbounds [4 x i8], ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
   %871 = load i32, ptr %870, align 4, !tbaa !76
   store i32 %871, ptr %869, align 4, !tbaa !76
   %872 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507, 1
@@ -8184,8 +8184,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i509:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509
   %.021.i.i.i.i.i.i.i.i.i.i.i510 = phi i64 [ %876, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i503, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504 ]
-  %873 = getelementptr inbounds i32, ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
-  %874 = getelementptr inbounds i32, ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %873 = getelementptr inbounds [4 x i8], ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %874 = getelementptr inbounds [4 x i8], ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
   %875 = load <2 x i64>, ptr %874, align 1, !tbaa !24
   store <2 x i64> %875, ptr %873, align 16, !tbaa !24
   %876 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i510, 4
@@ -8195,10 +8195,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1240:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505
   %878 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !725
   %879 = load i64, ptr %52, align 8, !tbaa !310, !noalias !725
-  %880 = getelementptr inbounds i32, ptr %878, i64 %879
+  %880 = getelementptr inbounds [4 x i8], ptr %878, i64 %879
   %881 = add nsw i64 %846, %848
   %882 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !728
-  %883 = getelementptr inbounds i32, ptr %882, i64 %881
+  %883 = getelementptr inbounds [4 x i8], ptr %882, i64 %881
   %884 = ptrtoint ptr %883 to i64
   %885 = and i64 %884, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i520 = icmp eq i64 %885, 0
@@ -8222,8 +8222,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530
   %.05.i.i.i.i.i.i.i.i.i.i.i.i531 = phi i64 [ %899, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521 ]
-  %896 = getelementptr inbounds nuw i32, ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
-  %897 = getelementptr inbounds nuw i32, ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %896 = getelementptr inbounds nuw [4 x i8], ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %897 = getelementptr inbounds nuw [4 x i8], ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
   %898 = load i32, ptr %897, align 4, !tbaa !76
   store i32 %898, ptr %896, align 4, !tbaa !76
   %899 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531, 1
@@ -8240,8 +8240,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i526 = phi i64 [ %905, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525 ], [ %894, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524 ]
-  %902 = getelementptr inbounds i32, ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
-  %903 = getelementptr inbounds i32, ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %902 = getelementptr inbounds [4 x i8], ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %903 = getelementptr inbounds [4 x i8], ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
   %904 = load i32, ptr %903, align 4, !tbaa !76
   store i32 %904, ptr %902, align 4, !tbaa !76
   %905 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526, 1
@@ -8250,8 +8250,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i528:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528
   %.021.i.i.i.i.i.i.i.i.i.i.i529 = phi i64 [ %909, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i522, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523 ]
-  %906 = getelementptr inbounds i32, ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
-  %907 = getelementptr inbounds i32, ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %906 = getelementptr inbounds [4 x i8], ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %907 = getelementptr inbounds [4 x i8], ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
   %908 = load <2 x i64>, ptr %907, align 1, !tbaa !24
   store <2 x i64> %908, ptr %906, align 16, !tbaa !24
   %909 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i529, 4
@@ -8261,10 +8261,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1239:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524
   %911 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !731
   %912 = load i64, ptr %52, align 8, !tbaa !310, !noalias !731
-  %913 = getelementptr inbounds i32, ptr %911, i64 %912
+  %913 = getelementptr inbounds [4 x i8], ptr %911, i64 %912
   %914 = add nsw i64 %879, %881
   %915 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !734
-  %916 = getelementptr inbounds i32, ptr %915, i64 %914
+  %916 = getelementptr inbounds [4 x i8], ptr %915, i64 %914
   %917 = ptrtoint ptr %916 to i64
   %918 = and i64 %917, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i539 = icmp eq i64 %918, 0
@@ -8288,8 +8288,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549
   %.05.i.i.i.i.i.i.i.i.i.i.i.i550 = phi i64 [ %932, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540 ]
-  %929 = getelementptr inbounds nuw i32, ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
-  %930 = getelementptr inbounds nuw i32, ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %929 = getelementptr inbounds nuw [4 x i8], ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
   %931 = load i32, ptr %930, align 4, !tbaa !76
   store i32 %931, ptr %929, align 4, !tbaa !76
   %932 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550, 1
@@ -8306,8 +8306,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i545 = phi i64 [ %938, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544 ], [ %927, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543 ]
-  %935 = getelementptr inbounds i32, ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
-  %936 = getelementptr inbounds i32, ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %935 = getelementptr inbounds [4 x i8], ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %936 = getelementptr inbounds [4 x i8], ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
   %937 = load i32, ptr %936, align 4, !tbaa !76
   store i32 %937, ptr %935, align 4, !tbaa !76
   %938 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545, 1
@@ -8316,8 +8316,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i547:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547
   %.021.i.i.i.i.i.i.i.i.i.i.i548 = phi i64 [ %942, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i541, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542 ]
-  %939 = getelementptr inbounds i32, ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
-  %940 = getelementptr inbounds i32, ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %939 = getelementptr inbounds [4 x i8], ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %940 = getelementptr inbounds [4 x i8], ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
   %941 = load <2 x i64>, ptr %940, align 1, !tbaa !24
   store <2 x i64> %941, ptr %939, align 16, !tbaa !24
   %942 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i548, 4
@@ -8331,7 +8331,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %946 = getelementptr inbounds i8, ptr %944, i64 %.idx1217
   %947 = add nsw i64 %912, %914
   %948 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !740
-  %949 = getelementptr inbounds i32, ptr %948, i64 %947
+  %949 = getelementptr inbounds [4 x i8], ptr %948, i64 %947
   %950 = ptrtoint ptr %949 to i64
   %951 = and i64 %950, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i558 = icmp eq i64 %951, 0
@@ -8355,8 +8355,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568
   %.05.i.i.i.i.i.i.i.i.i.i.i.i569 = phi i64 [ %965, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559 ]
-  %962 = getelementptr inbounds nuw i32, ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
-  %963 = getelementptr inbounds nuw i32, ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %963 = getelementptr inbounds nuw [4 x i8], ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
   %964 = load i32, ptr %963, align 4, !tbaa !76
   store i32 %964, ptr %962, align 4, !tbaa !76
   %965 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569, 1
@@ -8373,8 +8373,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i564 = phi i64 [ %971, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563 ], [ %960, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562 ]
-  %968 = getelementptr inbounds i32, ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
-  %969 = getelementptr inbounds i32, ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %968 = getelementptr inbounds [4 x i8], ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %969 = getelementptr inbounds [4 x i8], ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
   %970 = load i32, ptr %969, align 4, !tbaa !76
   store i32 %970, ptr %968, align 4, !tbaa !76
   %971 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564, 1
@@ -8383,8 +8383,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i566:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566
   %.021.i.i.i.i.i.i.i.i.i.i.i567 = phi i64 [ %975, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i560, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561 ]
-  %972 = getelementptr inbounds i32, ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
-  %973 = getelementptr inbounds i32, ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %972 = getelementptr inbounds [4 x i8], ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %973 = getelementptr inbounds [4 x i8], ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
   %974 = load <2 x i64>, ptr %973, align 1, !tbaa !24
   store <2 x i64> %974, ptr %972, align 16, !tbaa !24
   %975 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i567, 4
@@ -8398,7 +8398,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %979 = getelementptr inbounds i8, ptr %977, i64 %.idx1218
   %980 = add nsw i64 %945, %947
   %981 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !746
-  %982 = getelementptr inbounds i32, ptr %981, i64 %980
+  %982 = getelementptr inbounds [4 x i8], ptr %981, i64 %980
   %983 = ptrtoint ptr %982 to i64
   %984 = and i64 %983, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i577 = icmp eq i64 %984, 0
@@ -8422,8 +8422,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587
   %.05.i.i.i.i.i.i.i.i.i.i.i.i588 = phi i64 [ %998, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578 ]
-  %995 = getelementptr inbounds nuw i32, ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
-  %996 = getelementptr inbounds nuw i32, ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %995 = getelementptr inbounds nuw [4 x i8], ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %996 = getelementptr inbounds nuw [4 x i8], ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
   %997 = load i32, ptr %996, align 4, !tbaa !76
   store i32 %997, ptr %995, align 4, !tbaa !76
   %998 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588, 1
@@ -8440,8 +8440,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i583 = phi i64 [ %1004, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582 ], [ %993, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581 ]
-  %1001 = getelementptr inbounds i32, ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
-  %1002 = getelementptr inbounds i32, ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1001 = getelementptr inbounds [4 x i8], ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1002 = getelementptr inbounds [4 x i8], ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
   %1003 = load i32, ptr %1002, align 4, !tbaa !76
   store i32 %1003, ptr %1001, align 4, !tbaa !76
   %1004 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583, 1
@@ -8450,8 +8450,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i585:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585
   %.021.i.i.i.i.i.i.i.i.i.i.i586 = phi i64 [ %1008, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i579, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580 ]
-  %1005 = getelementptr inbounds i32, ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
-  %1006 = getelementptr inbounds i32, ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1005 = getelementptr inbounds [4 x i8], ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1006 = getelementptr inbounds [4 x i8], ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
   %1007 = load <2 x i64>, ptr %1006, align 1, !tbaa !24
   store <2 x i64> %1007, ptr %1005, align 16, !tbaa !24
   %1008 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i586, 4
@@ -8465,7 +8465,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1012 = getelementptr inbounds i8, ptr %1010, i64 %.idx1219
   %1013 = add nsw i64 %978, %980
   %1014 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !752
-  %1015 = getelementptr inbounds i32, ptr %1014, i64 %1013
+  %1015 = getelementptr inbounds [4 x i8], ptr %1014, i64 %1013
   %1016 = ptrtoint ptr %1015 to i64
   %1017 = and i64 %1016, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i596 = icmp eq i64 %1017, 0
@@ -8489,8 +8489,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606
   %.05.i.i.i.i.i.i.i.i.i.i.i.i607 = phi i64 [ %1031, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597 ]
-  %1028 = getelementptr inbounds nuw i32, ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
-  %1029 = getelementptr inbounds nuw i32, ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1029 = getelementptr inbounds nuw [4 x i8], ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
   %1030 = load i32, ptr %1029, align 4, !tbaa !76
   store i32 %1030, ptr %1028, align 4, !tbaa !76
   %1031 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607, 1
@@ -8507,8 +8507,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i602 = phi i64 [ %1037, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601 ], [ %1026, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600 ]
-  %1034 = getelementptr inbounds i32, ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
-  %1035 = getelementptr inbounds i32, ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1034 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1035 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
   %1036 = load i32, ptr %1035, align 4, !tbaa !76
   store i32 %1036, ptr %1034, align 4, !tbaa !76
   %1037 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602, 1
@@ -8517,8 +8517,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i604:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604
   %.021.i.i.i.i.i.i.i.i.i.i.i605 = phi i64 [ %1041, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i598, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599 ]
-  %1038 = getelementptr inbounds i32, ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
-  %1039 = getelementptr inbounds i32, ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1038 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1039 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
   %1040 = load <2 x i64>, ptr %1039, align 1, !tbaa !24
   store <2 x i64> %1040, ptr %1038, align 16, !tbaa !24
   %1041 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i605, 4
@@ -8532,7 +8532,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1045 = getelementptr inbounds i8, ptr %1043, i64 %.idx1220
   %1046 = add nsw i64 %1011, %1013
   %1047 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !758
-  %1048 = getelementptr inbounds i32, ptr %1047, i64 %1046
+  %1048 = getelementptr inbounds [4 x i8], ptr %1047, i64 %1046
   %1049 = ptrtoint ptr %1048 to i64
   %1050 = and i64 %1049, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i615 = icmp eq i64 %1050, 0
@@ -8556,8 +8556,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625
   %.05.i.i.i.i.i.i.i.i.i.i.i.i626 = phi i64 [ %1064, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616 ]
-  %1061 = getelementptr inbounds nuw i32, ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
-  %1062 = getelementptr inbounds nuw i32, ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1061 = getelementptr inbounds nuw [4 x i8], ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
   %1063 = load i32, ptr %1062, align 4, !tbaa !76
   store i32 %1063, ptr %1061, align 4, !tbaa !76
   %1064 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626, 1
@@ -8574,8 +8574,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i621 = phi i64 [ %1070, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620 ], [ %1059, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619 ]
-  %1067 = getelementptr inbounds i32, ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
-  %1068 = getelementptr inbounds i32, ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1067 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1068 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
   %1069 = load i32, ptr %1068, align 4, !tbaa !76
   store i32 %1069, ptr %1067, align 4, !tbaa !76
   %1070 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621, 1
@@ -8584,8 +8584,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i623:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623
   %.021.i.i.i.i.i.i.i.i.i.i.i624 = phi i64 [ %1074, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i617, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618 ]
-  %1071 = getelementptr inbounds i32, ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
-  %1072 = getelementptr inbounds i32, ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1071 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1072 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
   %1073 = load <2 x i64>, ptr %1072, align 1, !tbaa !24
   store <2 x i64> %1073, ptr %1071, align 16, !tbaa !24
   %1074 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i624, 4
@@ -8599,7 +8599,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1078 = getelementptr inbounds i8, ptr %1076, i64 %.idx1221
   %1079 = add nsw i64 %1044, %1046
   %1080 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !764
-  %1081 = getelementptr inbounds i32, ptr %1080, i64 %1079
+  %1081 = getelementptr inbounds [4 x i8], ptr %1080, i64 %1079
   %1082 = ptrtoint ptr %1081 to i64
   %1083 = and i64 %1082, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i634 = icmp eq i64 %1083, 0
@@ -8623,8 +8623,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644
   %.05.i.i.i.i.i.i.i.i.i.i.i.i645 = phi i64 [ %1097, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635 ]
-  %1094 = getelementptr inbounds nuw i32, ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
-  %1095 = getelementptr inbounds nuw i32, ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1094 = getelementptr inbounds nuw [4 x i8], ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1095 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
   %1096 = load i32, ptr %1095, align 4, !tbaa !76
   store i32 %1096, ptr %1094, align 4, !tbaa !76
   %1097 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645, 1
@@ -8641,8 +8641,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i640 = phi i64 [ %1103, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639 ], [ %1092, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638 ]
-  %1100 = getelementptr inbounds i32, ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
-  %1101 = getelementptr inbounds i32, ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1100 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1101 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
   %1102 = load i32, ptr %1101, align 4, !tbaa !76
   store i32 %1102, ptr %1100, align 4, !tbaa !76
   %1103 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640, 1
@@ -8651,8 +8651,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i642:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642
   %.021.i.i.i.i.i.i.i.i.i.i.i643 = phi i64 [ %1107, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i636, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637 ]
-  %1104 = getelementptr inbounds i32, ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
-  %1105 = getelementptr inbounds i32, ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1104 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1105 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
   %1106 = load <2 x i64>, ptr %1105, align 1, !tbaa !24
   store <2 x i64> %1106, ptr %1104, align 16, !tbaa !24
   %1107 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i643, 4
@@ -8666,7 +8666,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1111 = getelementptr inbounds i8, ptr %1109, i64 %.idx1222
   %1112 = add nsw i64 %1077, %1079
   %1113 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !770
-  %1114 = getelementptr inbounds i32, ptr %1113, i64 %1112
+  %1114 = getelementptr inbounds [4 x i8], ptr %1113, i64 %1112
   %1115 = ptrtoint ptr %1114 to i64
   %1116 = and i64 %1115, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i653 = icmp eq i64 %1116, 0
@@ -8690,8 +8690,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663
   %.05.i.i.i.i.i.i.i.i.i.i.i.i664 = phi i64 [ %1130, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654 ]
-  %1127 = getelementptr inbounds nuw i32, ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
-  %1128 = getelementptr inbounds nuw i32, ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1127 = getelementptr inbounds nuw [4 x i8], ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1128 = getelementptr inbounds nuw [4 x i8], ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
   %1129 = load i32, ptr %1128, align 4, !tbaa !76
   store i32 %1129, ptr %1127, align 4, !tbaa !76
   %1130 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664, 1
@@ -8708,8 +8708,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i659 = phi i64 [ %1136, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658 ], [ %1125, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657 ]
-  %1133 = getelementptr inbounds i32, ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
-  %1134 = getelementptr inbounds i32, ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1133 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1134 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
   %1135 = load i32, ptr %1134, align 4, !tbaa !76
   store i32 %1135, ptr %1133, align 4, !tbaa !76
   %1136 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659, 1
@@ -8718,8 +8718,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i661:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661
   %.021.i.i.i.i.i.i.i.i.i.i.i662 = phi i64 [ %1140, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i655, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656 ]
-  %1137 = getelementptr inbounds i32, ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
-  %1138 = getelementptr inbounds i32, ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1137 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1138 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
   %1139 = load <2 x i64>, ptr %1138, align 1, !tbaa !24
   store <2 x i64> %1139, ptr %1137, align 16, !tbaa !24
   %1140 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i662, 4
@@ -8731,7 +8731,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1143 = load i64, ptr %52, align 8, !tbaa !310, !noalias !773
   %1144 = add nsw i64 %1110, %1112
   %1145 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !776
-  %1146 = getelementptr inbounds i32, ptr %1145, i64 %1144
+  %1146 = getelementptr inbounds [4 x i8], ptr %1145, i64 %1144
   %1147 = ptrtoint ptr %1146 to i64
   %1148 = and i64 %1147, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i672 = icmp eq i64 %1148, 0
@@ -8755,8 +8755,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682
   %.05.i.i.i.i.i.i.i.i.i.i.i.i683 = phi i64 [ %1162, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673 ]
-  %1159 = getelementptr inbounds nuw i32, ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
-  %1160 = getelementptr inbounds nuw i32, ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1159 = getelementptr inbounds nuw [4 x i8], ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1160 = getelementptr inbounds nuw [4 x i8], ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
   %1161 = load i32, ptr %1160, align 4, !tbaa !76
   store i32 %1161, ptr %1159, align 4, !tbaa !76
   %1162 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683, 1
@@ -8773,8 +8773,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i678 = phi i64 [ %1168, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677 ], [ %1157, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676 ]
-  %1165 = getelementptr inbounds i32, ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
-  %1166 = getelementptr inbounds i32, ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1165 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1166 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
   %1167 = load i32, ptr %1166, align 4, !tbaa !76
   store i32 %1167, ptr %1165, align 4, !tbaa !76
   %1168 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678, 1
@@ -8783,8 +8783,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i680:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680
   %.021.i.i.i.i.i.i.i.i.i.i.i681 = phi i64 [ %1172, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i674, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675 ]
-  %1169 = getelementptr inbounds i32, ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
-  %1170 = getelementptr inbounds i32, ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1169 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1170 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
   %1171 = load <2 x i64>, ptr %1170, align 1, !tbaa !24
   store <2 x i64> %1171, ptr %1169, align 16, !tbaa !24
   %1172 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i681, 4
@@ -8794,10 +8794,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1231:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676
   %1174 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !779
   %1175 = load i64, ptr %52, align 8, !tbaa !310, !noalias !779
-  %1176 = getelementptr inbounds i32, ptr %1174, i64 %1175
+  %1176 = getelementptr inbounds [4 x i8], ptr %1174, i64 %1175
   %1177 = add nsw i64 %1143, %1144
   %1178 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !782
-  %1179 = getelementptr inbounds i32, ptr %1178, i64 %1177
+  %1179 = getelementptr inbounds [4 x i8], ptr %1178, i64 %1177
   %1180 = ptrtoint ptr %1179 to i64
   %1181 = and i64 %1180, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i691 = icmp eq i64 %1181, 0
@@ -8821,8 +8821,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701
   %.05.i.i.i.i.i.i.i.i.i.i.i.i702 = phi i64 [ %1195, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692 ]
-  %1192 = getelementptr inbounds nuw i32, ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
-  %1193 = getelementptr inbounds nuw i32, ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1193 = getelementptr inbounds nuw [4 x i8], ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
   %1194 = load i32, ptr %1193, align 4, !tbaa !76
   store i32 %1194, ptr %1192, align 4, !tbaa !76
   %1195 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702, 1
@@ -8839,8 +8839,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i697 = phi i64 [ %1201, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696 ], [ %1190, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695 ]
-  %1198 = getelementptr inbounds i32, ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
-  %1199 = getelementptr inbounds i32, ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1198 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1199 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
   %1200 = load i32, ptr %1199, align 4, !tbaa !76
   store i32 %1200, ptr %1198, align 4, !tbaa !76
   %1201 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697, 1
@@ -8849,8 +8849,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i699:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699
   %.021.i.i.i.i.i.i.i.i.i.i.i700 = phi i64 [ %1205, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i693, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694 ]
-  %1202 = getelementptr inbounds i32, ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
-  %1203 = getelementptr inbounds i32, ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1202 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1203 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
   %1204 = load <2 x i64>, ptr %1203, align 1, !tbaa !24
   store <2 x i64> %1204, ptr %1202, align 16, !tbaa !24
   %1205 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i700, 4
@@ -8864,7 +8864,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1209 = getelementptr inbounds i8, ptr %1207, i64 %.idx1223
   %1210 = add nsw i64 %1175, %1177
   %1211 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !788
-  %1212 = getelementptr inbounds i32, ptr %1211, i64 %1210
+  %1212 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1210
   %1213 = ptrtoint ptr %1212 to i64
   %1214 = and i64 %1213, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i710 = icmp eq i64 %1214, 0
@@ -8888,8 +8888,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720
   %.05.i.i.i.i.i.i.i.i.i.i.i.i721 = phi i64 [ %1228, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711 ]
-  %1225 = getelementptr inbounds nuw i32, ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
-  %1226 = getelementptr inbounds nuw i32, ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1225 = getelementptr inbounds nuw [4 x i8], ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
   %1227 = load i32, ptr %1226, align 4, !tbaa !76
   store i32 %1227, ptr %1225, align 4, !tbaa !76
   %1228 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721, 1
@@ -8906,8 +8906,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i716 = phi i64 [ %1234, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715 ], [ %1223, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714 ]
-  %1231 = getelementptr inbounds i32, ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
-  %1232 = getelementptr inbounds i32, ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1231 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1232 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
   %1233 = load i32, ptr %1232, align 4, !tbaa !76
   store i32 %1233, ptr %1231, align 4, !tbaa !76
   %1234 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716, 1
@@ -8916,8 +8916,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i718:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718
   %.021.i.i.i.i.i.i.i.i.i.i.i719 = phi i64 [ %1238, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i712, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713 ]
-  %1235 = getelementptr inbounds i32, ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
-  %1236 = getelementptr inbounds i32, ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1235 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1236 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
   %1237 = load <2 x i64>, ptr %1236, align 1, !tbaa !24
   store <2 x i64> %1237, ptr %1235, align 16, !tbaa !24
   %1238 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i719, 4
@@ -8930,8 +8930,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1224 = mul nsw i64 %1241, 12
   %1242 = getelementptr inbounds i8, ptr %1240, i64 %.idx1224
   %1243 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !794
-  %1244 = getelementptr i32, ptr %1243, i64 %1210
-  %1245 = getelementptr i32, ptr %1244, i64 %1208
+  %1244 = getelementptr [4 x i8], ptr %1243, i64 %1210
+  %1245 = getelementptr [4 x i8], ptr %1244, i64 %1208
   %1246 = ptrtoint ptr %1245 to i64
   %1247 = and i64 %1246, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i729 = icmp eq i64 %1247, 0
@@ -8955,8 +8955,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739
   %.05.i.i.i.i.i.i.i.i.i.i.i.i740 = phi i64 [ %1261, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730 ]
-  %1258 = getelementptr inbounds nuw i32, ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
-  %1259 = getelementptr inbounds nuw i32, ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1258 = getelementptr inbounds nuw [4 x i8], ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1259 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
   %1260 = load i32, ptr %1259, align 4, !tbaa !76
   store i32 %1260, ptr %1258, align 4, !tbaa !76
   %1261 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740, 1
@@ -8973,8 +8973,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i735 = phi i64 [ %1267, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734 ], [ %1256, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733 ]
-  %1264 = getelementptr inbounds i32, ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
-  %1265 = getelementptr inbounds i32, ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1264 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1265 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
   %1266 = load i32, ptr %1265, align 4, !tbaa !76
   store i32 %1266, ptr %1264, align 4, !tbaa !76
   %1267 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735, 1
@@ -8983,8 +8983,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i737:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737
   %.021.i.i.i.i.i.i.i.i.i.i.i738 = phi i64 [ %1271, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i731, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732 ]
-  %1268 = getelementptr inbounds i32, ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
-  %1269 = getelementptr inbounds i32, ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1268 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1269 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
   %1270 = load <2 x i64>, ptr %1269, align 1, !tbaa !24
   store <2 x i64> %1270, ptr %1268, align 16, !tbaa !24
   %1271 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i738, 4
@@ -9043,7 +9043,7 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEcmINS_5BlockIKN
   call void @llvm.experimental.noalias.scope.decl(metadata !800)
   %1289 = sext i32 %1288 to i64
   %1290 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !800
-  %1291 = getelementptr inbounds double, ptr %1290, i64 %1274
+  %1291 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1274
   %1292 = load i64, ptr %1276, align 8, !tbaa !19, !noalias !800
   store ptr %1291, ptr %48, align 8, !tbaa !288, !alias.scope !800
   %1293 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -9195,15 +9195,15 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %.0810.us.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i ], [ %32, %._crit_edge.us.i ]
   %23 = mul nsw i64 %.0810.us.i, %20
-  %24 = getelementptr i32, ptr %19, i64 %23
+  %24 = getelementptr [4 x i8], ptr %19, i64 %23
   %25 = mul nsw i64 %.0810.us.i, %22
-  %26 = getelementptr i32, ptr %21, i64 %25
+  %26 = getelementptr [4 x i8], ptr %21, i64 %25
   br label %27
 
 27:                                               ; preds = %27, %.preheader.us.i
   %.09.us.i = phi i64 [ 0, %.preheader.us.i ], [ %31, %27 ]
-  %28 = getelementptr i32, ptr %24, i64 %.09.us.i
-  %29 = getelementptr i32, ptr %26, i64 %.09.us.i
+  %28 = getelementptr [4 x i8], ptr %24, i64 %.09.us.i
+  %29 = getelementptr [4 x i8], ptr %26, i64 %.09.us.i
   %30 = load i32, ptr %29, align 4, !tbaa !76
   store i32 %30, ptr %28, align 4, !tbaa !76
   %31 = add nuw nsw i64 %.09.us.i, 1
@@ -9252,13 +9252,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !39
   %58 = mul nsw i64 %57, %.03451
-  %59 = getelementptr i32, ptr %55, i64 %58
+  %59 = getelementptr [4 x i8], ptr %55, i64 %58
   %60 = load ptr, ptr %48, align 8, !tbaa !808
   %61 = load ptr, ptr %60, align 8, !tbaa !45
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !39
   %64 = mul nsw i64 %63, %.03451
-  %65 = getelementptr i32, ptr %61, i64 %64
+  %65 = getelementptr [4 x i8], ptr %61, i64 %64
   br label %67
 
 .preheader43:                                     ; preds = %67, %49
@@ -9267,8 +9267,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 67:                                               ; preds = %.lr.ph, %67
   %.03345 = phi i64 [ 0, %.lr.ph ], [ %71, %67 ]
-  %68 = getelementptr i32, ptr %59, i64 %.03345
-  %69 = getelementptr i32, ptr %65, i64 %.03345
+  %68 = getelementptr [4 x i8], ptr %59, i64 %.03345
+  %69 = getelementptr [4 x i8], ptr %65, i64 %.03345
   %70 = load i32, ptr %69, align 4, !tbaa !76
   store i32 %70, ptr %68, align 4, !tbaa !76
   %71 = add nuw nsw i64 %.03345, 1
@@ -9285,13 +9285,13 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i64, ptr %75, align 8, !tbaa !39
   %77 = mul nsw i64 %76, %.03451
-  %78 = getelementptr i32, ptr %74, i64 %77
+  %78 = getelementptr [4 x i8], ptr %74, i64 %77
   %79 = load ptr, ptr %48, align 8, !tbaa !808
   %80 = load ptr, ptr %79, align 8, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !39
   %83 = mul nsw i64 %82, %.03451
-  %84 = getelementptr i32, ptr %80, i64 %83
+  %84 = getelementptr [4 x i8], ptr %80, i64 %83
   br label %105
 
 .lr.ph47:                                         ; preds = %.preheader43, %.lr.ph47
@@ -9301,15 +9301,15 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !39
   %89 = mul nsw i64 %88, %.03451
-  %90 = getelementptr i32, ptr %86, i64 %89
-  %91 = getelementptr i32, ptr %90, i64 %.03246
+  %90 = getelementptr [4 x i8], ptr %86, i64 %89
+  %91 = getelementptr [4 x i8], ptr %90, i64 %.03246
   %92 = load ptr, ptr %48, align 8, !tbaa !808
   %93 = load ptr, ptr %92, align 8, !tbaa !45
-  %94 = getelementptr inbounds i32, ptr %93, i64 %.03246
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %.03246
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !39
   %97 = mul nsw i64 %96, %.03451
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %94, i64 %97
   %99 = load <2 x i64>, ptr %98, align 1, !tbaa !24
   store <2 x i64> %99, ptr %91, align 16, !tbaa !24
   %100 = add nsw i64 %.03246, 4
@@ -9326,8 +9326,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit: ; preds = %1
 
 105:                                              ; preds = %.lr.ph49, %105
   %.048 = phi i64 [ %52, %.lr.ph49 ], [ %109, %105 ]
-  %106 = getelementptr i32, ptr %78, i64 %.048
-  %107 = getelementptr i32, ptr %84, i64 %.048
+  %106 = getelementptr [4 x i8], ptr %78, i64 %.048
+  %107 = getelementptr [4 x i8], ptr %84, i64 %.048
   %108 = load i32, ptr %107, align 4, !tbaa !76
   store i32 %108, ptr %106, align 4, !tbaa !76
   %109 = add nsw i64 %.048, 1
@@ -9420,7 +9420,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %62, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %65 = getelementptr inbounds double, ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds [8 x i8], ptr %58, i64 %.05.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !20
   %67 = call noundef double @llvm.fabs.f64(double %66)
   store double %67, ptr %65, align 8, !tbaa !20
@@ -9430,7 +9430,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %57, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %72, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %57 ]
-  %69 = getelementptr inbounds nuw double, ptr %58, i64 %.011.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.011.i.i.i.i.i.i.i.i
   %70 = load <2 x double>, ptr %69, align 16, !tbaa !24
   %71 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %70)
   store <2 x double> %71, ptr %69, align 16, !tbaa !24
@@ -9519,11 +9519,11 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %99 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !821
   %100 = load i64, ptr %52, align 8, !tbaa !310, !noalias !821
-  %101 = getelementptr inbounds i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %99, i64 %100
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !824)
   %102 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !824
-  %103 = getelementptr inbounds i32, ptr %102, i64 %83
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %83
   %104 = load i64, ptr %85, align 8, !tbaa !35, !noalias !824
   store ptr %103, ptr %44, align 8, !tbaa !36, !alias.scope !824
   %105 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -9573,7 +9573,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %121 = sext i32 %120 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !830)
   %122 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !830
-  %123 = getelementptr inbounds i32, ptr %122, i64 %121
+  %123 = getelementptr inbounds [4 x i8], ptr %122, i64 %121
   %124 = load i64, ptr %85, align 8, !tbaa !35, !noalias !830
   store ptr %123, ptr %45, align 8, !tbaa !36, !alias.scope !830
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -9623,7 +9623,7 @@ define linkonce_odr dso_local void @_ZN3igl16MassMatrixHelperIN5Eigen6MatrixIdLi
   %140 = ashr exact i64 %sext146, 32
   call void @llvm.experimental.noalias.scope.decl(metadata !836)
   %141 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !836
-  %142 = getelementptr inbounds i32, ptr %141, i64 %140
+  %142 = getelementptr inbounds [4 x i8], ptr %141, i64 %140
   %143 = load i64, ptr %85, align 8, !tbaa !35, !noalias !836
   store ptr %142, ptr %46, align 8, !tbaa !36, !alias.scope !836
   %144 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -9693,8 +9693,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i.i167:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i166, %.lr.ph.i.i.i.i.i.i.i.i.i167
   %.05.i.i.i.i.i.i.i.i.i168 = phi i64 [ %170, %.lr.ph.i.i.i.i.i.i.i.i.i167 ], [ %164, %._crit_edge.i.i.i.i.i.i.i.i166 ]
-  %167 = getelementptr inbounds i32, ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
-  %168 = getelementptr inbounds i32, ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %167 = getelementptr inbounds [4 x i8], ptr %162, i64 %.05.i.i.i.i.i.i.i.i.i168
+  %168 = getelementptr inbounds [4 x i8], ptr %156, i64 %.05.i.i.i.i.i.i.i.i.i168
   %169 = load i32, ptr %168, align 4, !tbaa !76
   store i32 %169, ptr %167, align 4, !tbaa !76
   %170 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i168, 1
@@ -9703,8 +9703,8 @@ thread-pre-split.i.i.i.i.i.i.i164:                ; preds = %155
 
 .lr.ph.i.i.i.i.i.i.i.i170:                        ; preds = %160, %.lr.ph.i.i.i.i.i.i.i.i170
   %.011.i.i.i.i.i.i.i.i171 = phi i64 [ %174, %.lr.ph.i.i.i.i.i.i.i.i170 ], [ 0, %160 ]
-  %171 = getelementptr inbounds nuw i32, ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
-  %172 = getelementptr inbounds nuw i32, ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %.011.i.i.i.i.i.i.i.i171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.011.i.i.i.i.i.i.i.i171
   %173 = load <2 x i64>, ptr %172, align 16, !tbaa !24
   store <2 x i64> %173, ptr %171, align 16, !tbaa !24
   %174 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i171, 4
@@ -9730,7 +9730,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i.i.i.i.i ], [ %181, %._crit_edge.i.i.i.i.i.i ]
-  %184 = getelementptr inbounds double, ptr %178, i64 %.05.i.i.i.i.i.i.i
+  %184 = getelementptr inbounds [8 x i8], ptr %178, i64 %.05.i.i.i.i.i.i.i
   %185 = load double, ptr %184, align 8, !tbaa !20
   %186 = fmul double %185, 2.500000e-01
   store double %186, ptr %184, align 8, !tbaa !20
@@ -9740,7 +9740,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %176, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %191, %.lr.ph.i.i.i.i.i.i ], [ 0, %176 ]
-  %188 = getelementptr inbounds nuw double, ptr %178, i64 %.011.i.i.i.i.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.011.i.i.i.i.i.i
   %189 = load <2 x double>, ptr %188, align 16, !tbaa !24
   %190 = fmul <2 x double> %189, splat (double 2.500000e-01)
   store <2 x double> %190, ptr %188, align 16, !tbaa !24
@@ -9818,7 +9818,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.us.i.i.i.i.i.i.i.i = phi i64 [ %226, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.us.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %223 = trunc i64 %.05.us.i.i.i.i.i.i.i.i to i32
   %224 = sdiv i32 %223, %215
-  %225 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.us.i.i.i.i.i.i.i.i
   store i32 %224, ptr %225, align 4, !tbaa !76
   %226 = add nuw nsw i64 %.05.us.i.i.i.i.i.i.i.i, 1
   %exitcond7.not.i.i.i.i.i.i.i.i = icmp eq i64 %226, %.pr.i.i.i.i.i.i.i175
@@ -9828,7 +9828,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiL
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %230, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEENS2_INS_14CwiseNullaryOpINS0_12linspaced_opIiEES4_EEEENS0_9assign_opIiiEELi0EE11assignCoeffEl.exit.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i176 ]
   %227 = trunc i64 %.05.i.i.i.i.i.i.i.i to i32
   %228 = mul nsw i32 %219, %227
-  %229 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.05.i.i.i.i.i.i.i.i
   store i32 %228, ptr %229, align 4, !tbaa !76
   %230 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %230, %.pr.i.i.i.i.i.i.i175
@@ -9864,8 +9864,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i.i182:                      ; preds = %._crit_edge.i.i.i.i.i.i.i.i181, %.lr.ph.i.i.i.i.i.i.i.i.i182
   %.05.i.i.i.i.i.i.i.i.i183 = phi i64 [ %245, %.lr.ph.i.i.i.i.i.i.i.i.i182 ], [ %239, %._crit_edge.i.i.i.i.i.i.i.i181 ]
-  %242 = getelementptr inbounds i32, ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
-  %243 = getelementptr inbounds i32, ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %242 = getelementptr inbounds [4 x i8], ptr %237, i64 %.05.i.i.i.i.i.i.i.i.i183
+  %243 = getelementptr inbounds [4 x i8], ptr %232, i64 %.05.i.i.i.i.i.i.i.i.i183
   %244 = load i32, ptr %243, align 4, !tbaa !76
   store i32 %244, ptr %242, align 4, !tbaa !76
   %245 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i183, 1
@@ -9874,8 +9874,8 @@ thread-pre-split.i.i.i.i.i.i.i179:                ; preds = %_ZN5Eigen6MatrixIiL
 
 .lr.ph.i.i.i.i.i.i.i.i185:                        ; preds = %235, %.lr.ph.i.i.i.i.i.i.i.i185
   %.011.i.i.i.i.i.i.i.i186 = phi i64 [ %249, %.lr.ph.i.i.i.i.i.i.i.i185 ], [ 0, %235 ]
-  %246 = getelementptr inbounds nuw i32, ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
-  %247 = getelementptr inbounds nuw i32, ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %.011.i.i.i.i.i.i.i.i186
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %.011.i.i.i.i.i.i.i.i186
   %248 = load <2 x i64>, ptr %247, align 16, !tbaa !24
   store <2 x i64> %248, ptr %246, align 16, !tbaa !24
   %249 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i186, 4
@@ -9908,7 +9908,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
 258:                                              ; preds = %257
   %259 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !839
   %260 = load i64, ptr %52, align 8, !tbaa !310, !noalias !839
-  %261 = getelementptr inbounds i32, ptr %259, i64 %260
+  %261 = getelementptr inbounds [4 x i8], ptr %259, i64 %260
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !842
   call void @llvm.experimental.noalias.scope.decl(metadata !845)
   %262 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !848
@@ -9956,7 +9956,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit188: ; preds = %.lr.ph.i.i
   %.idx = shl nsw i64 %277, 3
   %278 = getelementptr inbounds i8, ptr %276, i64 %.idx
   %279 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !852
-  %280 = getelementptr inbounds i32, ptr %279, i64 %260
+  %280 = getelementptr inbounds [4 x i8], ptr %279, i64 %260
   %281 = ptrtoint ptr %280 to i64
   %282 = and i64 %281, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %282, 0
@@ -9980,8 +9980,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %296, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
-  %294 = getelementptr inbounds nuw i32, ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i
   %295 = load i32, ptr %294, align 4, !tbaa !76
   store i32 %295, ptr %293, align 4, !tbaa !76
   %296 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -9998,8 +9998,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %302, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i ], [ %291, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i ]
-  %299 = getelementptr inbounds i32, ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
-  %300 = getelementptr inbounds i32, ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %299 = getelementptr inbounds [4 x i8], ptr %280, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
+  %300 = getelementptr inbounds [4 x i8], ptr %278, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i
   %301 = load i32, ptr %300, align 4, !tbaa !76
   store i32 %301, ptr %299, align 4, !tbaa !76
   %302 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -10008,8 +10008,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %.021.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %306, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %303 = getelementptr inbounds i32, ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
-  %304 = getelementptr inbounds i32, ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %303 = getelementptr inbounds [4 x i8], ptr %280, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %304 = getelementptr inbounds [4 x i8], ptr %278, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
   %305 = load <2 x i64>, ptr %304, align 1, !tbaa !24
   store <2 x i64> %305, ptr %303, align 16, !tbaa !24
   %306 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i, 4
@@ -10023,7 +10023,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %310 = getelementptr inbounds i8, ptr %308, i64 %.idx1210
   %311 = add nsw i64 %277, %260
   %312 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !858
-  %313 = getelementptr inbounds i32, ptr %312, i64 %311
+  %313 = getelementptr inbounds [4 x i8], ptr %312, i64 %311
   %314 = ptrtoint ptr %313 to i64
   %315 = and i64 %314, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i195 = icmp eq i64 %315, 0
@@ -10047,8 +10047,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205
   %.05.i.i.i.i.i.i.i.i.i.i.i.i206 = phi i64 [ %329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i205 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i196 ]
-  %326 = getelementptr inbounds nuw i32, ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
-  %327 = getelementptr inbounds nuw i32, ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206
   %328 = load i32, ptr %327, align 4, !tbaa !76
   store i32 %328, ptr %326, align 4, !tbaa !76
   %329 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i206, 1
@@ -10065,8 +10065,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i201 = phi i64 [ %335, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i200 ], [ %324, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i199 ]
-  %332 = getelementptr inbounds i32, ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
-  %333 = getelementptr inbounds i32, ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %332 = getelementptr inbounds [4 x i8], ptr %313, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
+  %333 = getelementptr inbounds [4 x i8], ptr %310, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201
   %334 = load i32, ptr %333, align 4, !tbaa !76
   store i32 %334, ptr %332, align 4, !tbaa !76
   %335 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i201, 1
@@ -10075,8 +10075,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i203:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203
   %.021.i.i.i.i.i.i.i.i.i.i.i204 = phi i64 [ %339, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i203 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i197, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i198 ]
-  %336 = getelementptr inbounds i32, ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
-  %337 = getelementptr inbounds i32, ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %336 = getelementptr inbounds [4 x i8], ptr %313, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
+  %337 = getelementptr inbounds [4 x i8], ptr %310, i64 %.021.i.i.i.i.i.i.i.i.i.i.i204
   %338 = load <2 x i64>, ptr %337, align 1, !tbaa !24
   store <2 x i64> %338, ptr %336, align 16, !tbaa !24
   %339 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i204, 4
@@ -10090,7 +10090,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %343 = getelementptr inbounds i8, ptr %341, i64 %.idx1211
   %344 = add nsw i64 %309, %311
   %345 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !864
-  %346 = getelementptr inbounds i32, ptr %345, i64 %344
+  %346 = getelementptr inbounds [4 x i8], ptr %345, i64 %344
   %347 = ptrtoint ptr %346 to i64
   %348 = and i64 %347, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i214 = icmp eq i64 %348, 0
@@ -10114,8 +10114,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224
   %.05.i.i.i.i.i.i.i.i.i.i.i.i225 = phi i64 [ %362, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i224 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i215 ]
-  %359 = getelementptr inbounds nuw i32, ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
-  %360 = getelementptr inbounds nuw i32, ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225
   %361 = load i32, ptr %360, align 4, !tbaa !76
   store i32 %361, ptr %359, align 4, !tbaa !76
   %362 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i225, 1
@@ -10132,8 +10132,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i220 = phi i64 [ %368, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i219 ], [ %357, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i218 ]
-  %365 = getelementptr inbounds i32, ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
-  %366 = getelementptr inbounds i32, ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %365 = getelementptr inbounds [4 x i8], ptr %346, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
+  %366 = getelementptr inbounds [4 x i8], ptr %343, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220
   %367 = load i32, ptr %366, align 4, !tbaa !76
   store i32 %367, ptr %365, align 4, !tbaa !76
   %368 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i220, 1
@@ -10142,8 +10142,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i222:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222
   %.021.i.i.i.i.i.i.i.i.i.i.i223 = phi i64 [ %372, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i222 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i216, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i217 ]
-  %369 = getelementptr inbounds i32, ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
-  %370 = getelementptr inbounds i32, ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %369 = getelementptr inbounds [4 x i8], ptr %346, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
+  %370 = getelementptr inbounds [4 x i8], ptr %343, i64 %.021.i.i.i.i.i.i.i.i.i.i.i223
   %371 = load <2 x i64>, ptr %370, align 1, !tbaa !24
   store <2 x i64> %371, ptr %369, align 16, !tbaa !24
   %372 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i223, 4
@@ -10157,7 +10157,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %376 = getelementptr inbounds i8, ptr %374, i64 %.idx1212
   %377 = add nsw i64 %342, %344
   %378 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !870
-  %379 = getelementptr inbounds i32, ptr %378, i64 %377
+  %379 = getelementptr inbounds [4 x i8], ptr %378, i64 %377
   %380 = ptrtoint ptr %379 to i64
   %381 = and i64 %380, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i233 = icmp eq i64 %381, 0
@@ -10181,8 +10181,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243
   %.05.i.i.i.i.i.i.i.i.i.i.i.i244 = phi i64 [ %395, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i243 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i234 ]
-  %392 = getelementptr inbounds nuw i32, ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
-  %393 = getelementptr inbounds nuw i32, ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244
   %394 = load i32, ptr %393, align 4, !tbaa !76
   store i32 %394, ptr %392, align 4, !tbaa !76
   %395 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i244, 1
@@ -10199,8 +10199,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i239 = phi i64 [ %401, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i238 ], [ %390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i237 ]
-  %398 = getelementptr inbounds i32, ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
-  %399 = getelementptr inbounds i32, ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %398 = getelementptr inbounds [4 x i8], ptr %379, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
+  %399 = getelementptr inbounds [4 x i8], ptr %376, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239
   %400 = load i32, ptr %399, align 4, !tbaa !76
   store i32 %400, ptr %398, align 4, !tbaa !76
   %401 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i239, 1
@@ -10209,8 +10209,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i241:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241
   %.021.i.i.i.i.i.i.i.i.i.i.i242 = phi i64 [ %405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i241 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i235, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i236 ]
-  %402 = getelementptr inbounds i32, ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
-  %403 = getelementptr inbounds i32, ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %402 = getelementptr inbounds [4 x i8], ptr %379, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
+  %403 = getelementptr inbounds [4 x i8], ptr %376, i64 %.021.i.i.i.i.i.i.i.i.i.i.i242
   %404 = load <2 x i64>, ptr %403, align 1, !tbaa !24
   store <2 x i64> %404, ptr %402, align 16, !tbaa !24
   %405 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i242, 4
@@ -10222,7 +10222,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %408 = load i64, ptr %52, align 8, !tbaa !310, !noalias !873
   %409 = add nsw i64 %375, %377
   %410 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !876
-  %411 = getelementptr inbounds i32, ptr %410, i64 %409
+  %411 = getelementptr inbounds [4 x i8], ptr %410, i64 %409
   %412 = ptrtoint ptr %411 to i64
   %413 = and i64 %412, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i252 = icmp eq i64 %413, 0
@@ -10246,8 +10246,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262
   %.05.i.i.i.i.i.i.i.i.i.i.i.i263 = phi i64 [ %427, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i262 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i253 ]
-  %424 = getelementptr inbounds nuw i32, ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
-  %425 = getelementptr inbounds nuw i32, ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %411, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %407, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263
   %426 = load i32, ptr %425, align 4, !tbaa !76
   store i32 %426, ptr %424, align 4, !tbaa !76
   %427 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i263, 1
@@ -10264,8 +10264,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i258 = phi i64 [ %433, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i257 ], [ %422, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i256 ]
-  %430 = getelementptr inbounds i32, ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
-  %431 = getelementptr inbounds i32, ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %430 = getelementptr inbounds [4 x i8], ptr %411, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
+  %431 = getelementptr inbounds [4 x i8], ptr %407, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258
   %432 = load i32, ptr %431, align 4, !tbaa !76
   store i32 %432, ptr %430, align 4, !tbaa !76
   %433 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i258, 1
@@ -10274,8 +10274,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i260:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260
   %.021.i.i.i.i.i.i.i.i.i.i.i261 = phi i64 [ %437, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i260 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i254, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i255 ]
-  %434 = getelementptr inbounds i32, ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
-  %435 = getelementptr inbounds i32, ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %434 = getelementptr inbounds [4 x i8], ptr %411, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
+  %435 = getelementptr inbounds [4 x i8], ptr %407, i64 %.021.i.i.i.i.i.i.i.i.i.i.i261
   %436 = load <2 x i64>, ptr %435, align 1, !tbaa !24
   store <2 x i64> %436, ptr %434, align 16, !tbaa !24
   %437 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i261, 4
@@ -10289,7 +10289,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %441 = getelementptr inbounds i8, ptr %439, i64 %.idx1213
   %442 = add nsw i64 %408, %409
   %443 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !882
-  %444 = getelementptr inbounds i32, ptr %443, i64 %442
+  %444 = getelementptr inbounds [4 x i8], ptr %443, i64 %442
   %445 = ptrtoint ptr %444 to i64
   %446 = and i64 %445, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i271 = icmp eq i64 %446, 0
@@ -10313,8 +10313,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281
   %.05.i.i.i.i.i.i.i.i.i.i.i.i282 = phi i64 [ %460, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i281 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i272 ]
-  %457 = getelementptr inbounds nuw i32, ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
-  %458 = getelementptr inbounds nuw i32, ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %457 = getelementptr inbounds nuw [4 x i8], ptr %444, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282
   %459 = load i32, ptr %458, align 4, !tbaa !76
   store i32 %459, ptr %457, align 4, !tbaa !76
   %460 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i282, 1
@@ -10331,8 +10331,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i277 = phi i64 [ %466, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i276 ], [ %455, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i275 ]
-  %463 = getelementptr inbounds i32, ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
-  %464 = getelementptr inbounds i32, ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %463 = getelementptr inbounds [4 x i8], ptr %444, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
+  %464 = getelementptr inbounds [4 x i8], ptr %441, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277
   %465 = load i32, ptr %464, align 4, !tbaa !76
   store i32 %465, ptr %463, align 4, !tbaa !76
   %466 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i277, 1
@@ -10341,8 +10341,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i279:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279
   %.021.i.i.i.i.i.i.i.i.i.i.i280 = phi i64 [ %470, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i279 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i273, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i274 ]
-  %467 = getelementptr inbounds i32, ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
-  %468 = getelementptr inbounds i32, ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %467 = getelementptr inbounds [4 x i8], ptr %444, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
+  %468 = getelementptr inbounds [4 x i8], ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i.i280
   %469 = load <2 x i64>, ptr %468, align 1, !tbaa !24
   store <2 x i64> %469, ptr %467, align 16, !tbaa !24
   %470 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i280, 4
@@ -10354,7 +10354,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %473 = load i64, ptr %52, align 8, !tbaa !310, !noalias !885
   %474 = add nsw i64 %440, %442
   %475 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !888
-  %476 = getelementptr inbounds i32, ptr %475, i64 %474
+  %476 = getelementptr inbounds [4 x i8], ptr %475, i64 %474
   %477 = ptrtoint ptr %476 to i64
   %478 = and i64 %477, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i290 = icmp eq i64 %478, 0
@@ -10378,8 +10378,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300
   %.05.i.i.i.i.i.i.i.i.i.i.i.i301 = phi i64 [ %492, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i300 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i291 ]
-  %489 = getelementptr inbounds nuw i32, ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
-  %490 = getelementptr inbounds nuw i32, ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %476, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %472, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301
   %491 = load i32, ptr %490, align 4, !tbaa !76
   store i32 %491, ptr %489, align 4, !tbaa !76
   %492 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i301, 1
@@ -10396,8 +10396,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i296 = phi i64 [ %498, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295 ], [ %487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294 ]
-  %495 = getelementptr inbounds i32, ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
-  %496 = getelementptr inbounds i32, ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %495 = getelementptr inbounds [4 x i8], ptr %476, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
+  %496 = getelementptr inbounds [4 x i8], ptr %472, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296
   %497 = load i32, ptr %496, align 4, !tbaa !76
   store i32 %497, ptr %495, align 4, !tbaa !76
   %498 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i296, 1
@@ -10406,8 +10406,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i298:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298
   %.021.i.i.i.i.i.i.i.i.i.i.i299 = phi i64 [ %502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i298 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i292, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i293 ]
-  %499 = getelementptr inbounds i32, ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
-  %500 = getelementptr inbounds i32, ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %499 = getelementptr inbounds [4 x i8], ptr %476, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
+  %500 = getelementptr inbounds [4 x i8], ptr %472, i64 %.021.i.i.i.i.i.i.i.i.i.i.i299
   %501 = load <2 x i64>, ptr %500, align 1, !tbaa !24
   store <2 x i64> %501, ptr %499, align 16, !tbaa !24
   %502 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i299, 4
@@ -10417,10 +10417,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1251:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i295, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i294
   %504 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !891
   %505 = load i64, ptr %52, align 8, !tbaa !310, !noalias !891
-  %506 = getelementptr inbounds i32, ptr %504, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %504, i64 %505
   %507 = add nsw i64 %473, %474
   %508 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !894
-  %509 = getelementptr inbounds i32, ptr %508, i64 %507
+  %509 = getelementptr inbounds [4 x i8], ptr %508, i64 %507
   %510 = ptrtoint ptr %509 to i64
   %511 = and i64 %510, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i309 = icmp eq i64 %511, 0
@@ -10444,8 +10444,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319
   %.05.i.i.i.i.i.i.i.i.i.i.i.i320 = phi i64 [ %525, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i319 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i310 ]
-  %522 = getelementptr inbounds nuw i32, ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
-  %523 = getelementptr inbounds nuw i32, ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320
   %524 = load i32, ptr %523, align 4, !tbaa !76
   store i32 %524, ptr %522, align 4, !tbaa !76
   %525 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i320, 1
@@ -10462,8 +10462,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i315 = phi i64 [ %531, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i314 ], [ %520, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i313 ]
-  %528 = getelementptr inbounds i32, ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
-  %529 = getelementptr inbounds i32, ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %528 = getelementptr inbounds [4 x i8], ptr %509, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
+  %529 = getelementptr inbounds [4 x i8], ptr %506, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315
   %530 = load i32, ptr %529, align 4, !tbaa !76
   store i32 %530, ptr %528, align 4, !tbaa !76
   %531 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i315, 1
@@ -10472,8 +10472,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i317:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317
   %.021.i.i.i.i.i.i.i.i.i.i.i318 = phi i64 [ %535, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i317 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i311, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i312 ]
-  %532 = getelementptr inbounds i32, ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
-  %533 = getelementptr inbounds i32, ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %532 = getelementptr inbounds [4 x i8], ptr %509, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
+  %533 = getelementptr inbounds [4 x i8], ptr %506, i64 %.021.i.i.i.i.i.i.i.i.i.i.i318
   %534 = load <2 x i64>, ptr %533, align 1, !tbaa !24
   store <2 x i64> %534, ptr %532, align 16, !tbaa !24
   %535 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i318, 4
@@ -10485,7 +10485,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %538 = load i64, ptr %52, align 8, !tbaa !310, !noalias !897
   %539 = add nsw i64 %505, %507
   %540 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !900
-  %541 = getelementptr inbounds i32, ptr %540, i64 %539
+  %541 = getelementptr inbounds [4 x i8], ptr %540, i64 %539
   %542 = ptrtoint ptr %541 to i64
   %543 = and i64 %542, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i328 = icmp eq i64 %543, 0
@@ -10509,8 +10509,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338
   %.05.i.i.i.i.i.i.i.i.i.i.i.i339 = phi i64 [ %557, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i338 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i329 ]
-  %554 = getelementptr inbounds nuw i32, ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
-  %555 = getelementptr inbounds nuw i32, ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %537, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339
   %556 = load i32, ptr %555, align 4, !tbaa !76
   store i32 %556, ptr %554, align 4, !tbaa !76
   %557 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i339, 1
@@ -10527,8 +10527,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i334 = phi i64 [ %563, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333 ], [ %552, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332 ]
-  %560 = getelementptr inbounds i32, ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
-  %561 = getelementptr inbounds i32, ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %560 = getelementptr inbounds [4 x i8], ptr %541, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
+  %561 = getelementptr inbounds [4 x i8], ptr %537, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334
   %562 = load i32, ptr %561, align 4, !tbaa !76
   store i32 %562, ptr %560, align 4, !tbaa !76
   %563 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i334, 1
@@ -10537,8 +10537,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i336:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336
   %.021.i.i.i.i.i.i.i.i.i.i.i337 = phi i64 [ %567, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i336 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i330, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i331 ]
-  %564 = getelementptr inbounds i32, ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
-  %565 = getelementptr inbounds i32, ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %564 = getelementptr inbounds [4 x i8], ptr %541, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
+  %565 = getelementptr inbounds [4 x i8], ptr %537, i64 %.021.i.i.i.i.i.i.i.i.i.i.i337
   %566 = load <2 x i64>, ptr %565, align 1, !tbaa !24
   store <2 x i64> %566, ptr %564, align 16, !tbaa !24
   %567 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i337, 4
@@ -10548,10 +10548,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1249:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i333, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i332
   %569 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !903
   %570 = load i64, ptr %52, align 8, !tbaa !310, !noalias !903
-  %571 = getelementptr inbounds i32, ptr %569, i64 %570
+  %571 = getelementptr inbounds [4 x i8], ptr %569, i64 %570
   %572 = add nsw i64 %538, %539
   %573 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !906
-  %574 = getelementptr inbounds i32, ptr %573, i64 %572
+  %574 = getelementptr inbounds [4 x i8], ptr %573, i64 %572
   %575 = ptrtoint ptr %574 to i64
   %576 = and i64 %575, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i347 = icmp eq i64 %576, 0
@@ -10575,8 +10575,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357
   %.05.i.i.i.i.i.i.i.i.i.i.i.i358 = phi i64 [ %590, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i357 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i348 ]
-  %587 = getelementptr inbounds nuw i32, ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
-  %588 = getelementptr inbounds nuw i32, ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %574, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %571, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358
   %589 = load i32, ptr %588, align 4, !tbaa !76
   store i32 %589, ptr %587, align 4, !tbaa !76
   %590 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i358, 1
@@ -10593,8 +10593,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i353 = phi i64 [ %596, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i352 ], [ %585, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i351 ]
-  %593 = getelementptr inbounds i32, ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
-  %594 = getelementptr inbounds i32, ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %593 = getelementptr inbounds [4 x i8], ptr %574, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
+  %594 = getelementptr inbounds [4 x i8], ptr %571, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353
   %595 = load i32, ptr %594, align 4, !tbaa !76
   store i32 %595, ptr %593, align 4, !tbaa !76
   %596 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i353, 1
@@ -10603,8 +10603,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i355:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355
   %.021.i.i.i.i.i.i.i.i.i.i.i356 = phi i64 [ %600, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i355 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i349, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i350 ]
-  %597 = getelementptr inbounds i32, ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
-  %598 = getelementptr inbounds i32, ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %597 = getelementptr inbounds [4 x i8], ptr %574, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
+  %598 = getelementptr inbounds [4 x i8], ptr %571, i64 %.021.i.i.i.i.i.i.i.i.i.i.i356
   %599 = load <2 x i64>, ptr %598, align 1, !tbaa !24
   store <2 x i64> %599, ptr %597, align 16, !tbaa !24
   %600 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i356, 4
@@ -10618,7 +10618,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %604 = getelementptr inbounds i8, ptr %602, i64 %.idx1214
   %605 = add nsw i64 %570, %572
   %606 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !912
-  %607 = getelementptr inbounds i32, ptr %606, i64 %605
+  %607 = getelementptr inbounds [4 x i8], ptr %606, i64 %605
   %608 = ptrtoint ptr %607 to i64
   %609 = and i64 %608, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i366 = icmp eq i64 %609, 0
@@ -10642,8 +10642,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376
   %.05.i.i.i.i.i.i.i.i.i.i.i.i377 = phi i64 [ %623, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i376 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i367 ]
-  %620 = getelementptr inbounds nuw i32, ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
-  %621 = getelementptr inbounds nuw i32, ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %620 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
+  %621 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377
   %622 = load i32, ptr %621, align 4, !tbaa !76
   store i32 %622, ptr %620, align 4, !tbaa !76
   %623 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i377, 1
@@ -10660,8 +10660,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i372 = phi i64 [ %629, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i371 ], [ %618, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i370 ]
-  %626 = getelementptr inbounds i32, ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
-  %627 = getelementptr inbounds i32, ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %626 = getelementptr inbounds [4 x i8], ptr %607, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
+  %627 = getelementptr inbounds [4 x i8], ptr %604, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372
   %628 = load i32, ptr %627, align 4, !tbaa !76
   store i32 %628, ptr %626, align 4, !tbaa !76
   %629 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i372, 1
@@ -10670,8 +10670,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i374:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374
   %.021.i.i.i.i.i.i.i.i.i.i.i375 = phi i64 [ %633, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i374 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i368, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i369 ]
-  %630 = getelementptr inbounds i32, ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
-  %631 = getelementptr inbounds i32, ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %630 = getelementptr inbounds [4 x i8], ptr %607, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
+  %631 = getelementptr inbounds [4 x i8], ptr %604, i64 %.021.i.i.i.i.i.i.i.i.i.i.i375
   %632 = load <2 x i64>, ptr %631, align 1, !tbaa !24
   store <2 x i64> %632, ptr %630, align 16, !tbaa !24
   %633 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i375, 4
@@ -10683,7 +10683,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %636 = load i64, ptr %52, align 8, !tbaa !310, !noalias !915
   %637 = add nsw i64 %603, %605
   %638 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !918
-  %639 = getelementptr inbounds i32, ptr %638, i64 %637
+  %639 = getelementptr inbounds [4 x i8], ptr %638, i64 %637
   %640 = ptrtoint ptr %639 to i64
   %641 = and i64 %640, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i385 = icmp eq i64 %641, 0
@@ -10707,8 +10707,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395
   %.05.i.i.i.i.i.i.i.i.i.i.i.i396 = phi i64 [ %655, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i395 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i386 ]
-  %652 = getelementptr inbounds nuw i32, ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
-  %653 = getelementptr inbounds nuw i32, ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %652 = getelementptr inbounds nuw [4 x i8], ptr %639, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396
   %654 = load i32, ptr %653, align 4, !tbaa !76
   store i32 %654, ptr %652, align 4, !tbaa !76
   %655 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i396, 1
@@ -10725,8 +10725,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i391 = phi i64 [ %661, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390 ], [ %650, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389 ]
-  %658 = getelementptr inbounds i32, ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
-  %659 = getelementptr inbounds i32, ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %658 = getelementptr inbounds [4 x i8], ptr %639, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
+  %659 = getelementptr inbounds [4 x i8], ptr %635, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391
   %660 = load i32, ptr %659, align 4, !tbaa !76
   store i32 %660, ptr %658, align 4, !tbaa !76
   %661 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i391, 1
@@ -10735,8 +10735,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i393:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393
   %.021.i.i.i.i.i.i.i.i.i.i.i394 = phi i64 [ %665, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i393 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i387, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i388 ]
-  %662 = getelementptr inbounds i32, ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
-  %663 = getelementptr inbounds i32, ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %662 = getelementptr inbounds [4 x i8], ptr %639, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
+  %663 = getelementptr inbounds [4 x i8], ptr %635, i64 %.021.i.i.i.i.i.i.i.i.i.i.i394
   %664 = load <2 x i64>, ptr %663, align 1, !tbaa !24
   store <2 x i64> %664, ptr %662, align 16, !tbaa !24
   %665 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i394, 4
@@ -10746,10 +10746,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1246:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i390, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i389
   %667 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !921
   %668 = load i64, ptr %52, align 8, !tbaa !310, !noalias !921
-  %669 = getelementptr inbounds i32, ptr %667, i64 %668
+  %669 = getelementptr inbounds [4 x i8], ptr %667, i64 %668
   %670 = add nsw i64 %636, %637
   %671 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !924
-  %672 = getelementptr inbounds i32, ptr %671, i64 %670
+  %672 = getelementptr inbounds [4 x i8], ptr %671, i64 %670
   %673 = ptrtoint ptr %672 to i64
   %674 = and i64 %673, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i404 = icmp eq i64 %674, 0
@@ -10773,8 +10773,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414
   %.05.i.i.i.i.i.i.i.i.i.i.i.i415 = phi i64 [ %688, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i414 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i405 ]
-  %685 = getelementptr inbounds nuw i32, ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
-  %686 = getelementptr inbounds nuw i32, ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %685 = getelementptr inbounds nuw [4 x i8], ptr %672, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %669, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415
   %687 = load i32, ptr %686, align 4, !tbaa !76
   store i32 %687, ptr %685, align 4, !tbaa !76
   %688 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i415, 1
@@ -10791,8 +10791,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i410 = phi i64 [ %694, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i409 ], [ %683, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i408 ]
-  %691 = getelementptr inbounds i32, ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
-  %692 = getelementptr inbounds i32, ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %691 = getelementptr inbounds [4 x i8], ptr %672, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
+  %692 = getelementptr inbounds [4 x i8], ptr %669, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410
   %693 = load i32, ptr %692, align 4, !tbaa !76
   store i32 %693, ptr %691, align 4, !tbaa !76
   %694 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i410, 1
@@ -10801,8 +10801,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i412:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412
   %.021.i.i.i.i.i.i.i.i.i.i.i413 = phi i64 [ %698, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i412 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i406, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i407 ]
-  %695 = getelementptr inbounds i32, ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
-  %696 = getelementptr inbounds i32, ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %695 = getelementptr inbounds [4 x i8], ptr %672, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
+  %696 = getelementptr inbounds [4 x i8], ptr %669, i64 %.021.i.i.i.i.i.i.i.i.i.i.i413
   %697 = load <2 x i64>, ptr %696, align 1, !tbaa !24
   store <2 x i64> %697, ptr %695, align 16, !tbaa !24
   %698 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i413, 4
@@ -10816,7 +10816,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %702 = getelementptr inbounds i8, ptr %700, i64 %.idx1215
   %703 = add nsw i64 %668, %670
   %704 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !930
-  %705 = getelementptr inbounds i32, ptr %704, i64 %703
+  %705 = getelementptr inbounds [4 x i8], ptr %704, i64 %703
   %706 = ptrtoint ptr %705 to i64
   %707 = and i64 %706, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i423 = icmp eq i64 %707, 0
@@ -10840,8 +10840,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433
   %.05.i.i.i.i.i.i.i.i.i.i.i.i434 = phi i64 [ %721, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i433 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i424 ]
-  %718 = getelementptr inbounds nuw i32, ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
-  %719 = getelementptr inbounds nuw i32, ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %718 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434
   %720 = load i32, ptr %719, align 4, !tbaa !76
   store i32 %720, ptr %718, align 4, !tbaa !76
   %721 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i434, 1
@@ -10858,8 +10858,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i429 = phi i64 [ %727, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i428 ], [ %716, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i427 ]
-  %724 = getelementptr inbounds i32, ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
-  %725 = getelementptr inbounds i32, ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %724 = getelementptr inbounds [4 x i8], ptr %705, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
+  %725 = getelementptr inbounds [4 x i8], ptr %702, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429
   %726 = load i32, ptr %725, align 4, !tbaa !76
   store i32 %726, ptr %724, align 4, !tbaa !76
   %727 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i429, 1
@@ -10868,8 +10868,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i431:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431
   %.021.i.i.i.i.i.i.i.i.i.i.i432 = phi i64 [ %731, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i431 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i425, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i426 ]
-  %728 = getelementptr inbounds i32, ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
-  %729 = getelementptr inbounds i32, ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %728 = getelementptr inbounds [4 x i8], ptr %705, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
+  %729 = getelementptr inbounds [4 x i8], ptr %702, i64 %.021.i.i.i.i.i.i.i.i.i.i.i432
   %730 = load <2 x i64>, ptr %729, align 1, !tbaa !24
   store <2 x i64> %730, ptr %728, align 16, !tbaa !24
   %731 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i432, 4
@@ -10882,8 +10882,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1216 = mul nsw i64 %734, 12
   %735 = getelementptr inbounds i8, ptr %733, i64 %.idx1216
   %736 = load ptr, ptr %40, align 8, !tbaa !33, !noalias !936
-  %737 = getelementptr i32, ptr %736, i64 %703
-  %738 = getelementptr i32, ptr %737, i64 %701
+  %737 = getelementptr [4 x i8], ptr %736, i64 %703
+  %738 = getelementptr [4 x i8], ptr %737, i64 %701
   %739 = ptrtoint ptr %738 to i64
   %740 = and i64 %739, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i442 = icmp eq i64 %740, 0
@@ -10907,8 +10907,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452
   %.05.i.i.i.i.i.i.i.i.i.i.i.i453 = phi i64 [ %754, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i452 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i443 ]
-  %751 = getelementptr inbounds nuw i32, ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
-  %752 = getelementptr inbounds nuw i32, ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %738, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
+  %752 = getelementptr inbounds nuw [4 x i8], ptr %735, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453
   %753 = load i32, ptr %752, align 4, !tbaa !76
   store i32 %753, ptr %751, align 4, !tbaa !76
   %754 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i453, 1
@@ -10925,8 +10925,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i448 = phi i64 [ %760, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i447 ], [ %749, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i446 ]
-  %757 = getelementptr inbounds i32, ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
-  %758 = getelementptr inbounds i32, ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %757 = getelementptr inbounds [4 x i8], ptr %738, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
+  %758 = getelementptr inbounds [4 x i8], ptr %735, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448
   %759 = load i32, ptr %758, align 4, !tbaa !76
   store i32 %759, ptr %757, align 4, !tbaa !76
   %760 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i448, 1
@@ -10935,8 +10935,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i450:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450
   %.021.i.i.i.i.i.i.i.i.i.i.i451 = phi i64 [ %764, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i450 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i444, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i445 ]
-  %761 = getelementptr inbounds i32, ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
-  %762 = getelementptr inbounds i32, ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %761 = getelementptr inbounds [4 x i8], ptr %738, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
+  %762 = getelementptr inbounds [4 x i8], ptr %735, i64 %.021.i.i.i.i.i.i.i.i.i.i.i451
   %763 = load <2 x i64>, ptr %762, align 1, !tbaa !24
   store <2 x i64> %763, ptr %761, align 16, !tbaa !24
   %764 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i451, 4
@@ -10991,7 +10991,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %782 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !949
   %783 = load i64, ptr %52, align 8, !tbaa !310, !noalias !949
   %784 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !952
-  %785 = getelementptr inbounds i32, ptr %784, i64 %767
+  %785 = getelementptr inbounds [4 x i8], ptr %784, i64 %767
   %786 = ptrtoint ptr %785 to i64
   %787 = and i64 %786, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i463 = icmp eq i64 %787, 0
@@ -11015,8 +11015,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473
   %.05.i.i.i.i.i.i.i.i.i.i.i.i474 = phi i64 [ %801, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i473 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i464 ]
-  %798 = getelementptr inbounds nuw i32, ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
-  %799 = getelementptr inbounds nuw i32, ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %798 = getelementptr inbounds nuw [4 x i8], ptr %785, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
+  %799 = getelementptr inbounds nuw [4 x i8], ptr %782, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474
   %800 = load i32, ptr %799, align 4, !tbaa !76
   store i32 %800, ptr %798, align 4, !tbaa !76
   %801 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i474, 1
@@ -11033,8 +11033,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i469 = phi i64 [ %807, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i468 ], [ %796, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i467 ]
-  %804 = getelementptr inbounds i32, ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
-  %805 = getelementptr inbounds i32, ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %804 = getelementptr inbounds [4 x i8], ptr %785, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
+  %805 = getelementptr inbounds [4 x i8], ptr %782, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469
   %806 = load i32, ptr %805, align 4, !tbaa !76
   store i32 %806, ptr %804, align 4, !tbaa !76
   %807 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i469, 1
@@ -11043,8 +11043,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i471:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471
   %.021.i.i.i.i.i.i.i.i.i.i.i472 = phi i64 [ %811, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i471 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i465, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i466 ]
-  %808 = getelementptr inbounds i32, ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
-  %809 = getelementptr inbounds i32, ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %808 = getelementptr inbounds [4 x i8], ptr %785, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
+  %809 = getelementptr inbounds [4 x i8], ptr %782, i64 %.021.i.i.i.i.i.i.i.i.i.i.i472
   %810 = load <2 x i64>, ptr %809, align 1, !tbaa !24
   store <2 x i64> %810, ptr %808, align 16, !tbaa !24
   %811 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i472, 4
@@ -11056,7 +11056,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %814 = load i64, ptr %52, align 8, !tbaa !310, !noalias !955
   %815 = add nsw i64 %783, %767
   %816 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !958
-  %817 = getelementptr inbounds i32, ptr %816, i64 %815
+  %817 = getelementptr inbounds [4 x i8], ptr %816, i64 %815
   %818 = ptrtoint ptr %817 to i64
   %819 = and i64 %818, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i482 = icmp eq i64 %819, 0
@@ -11080,8 +11080,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492
   %.05.i.i.i.i.i.i.i.i.i.i.i.i493 = phi i64 [ %833, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i492 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i483 ]
-  %830 = getelementptr inbounds nuw i32, ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
-  %831 = getelementptr inbounds nuw i32, ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %830 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
+  %831 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493
   %832 = load i32, ptr %831, align 4, !tbaa !76
   store i32 %832, ptr %830, align 4, !tbaa !76
   %833 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i493, 1
@@ -11098,8 +11098,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i488 = phi i64 [ %839, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487 ], [ %828, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486 ]
-  %836 = getelementptr inbounds i32, ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
-  %837 = getelementptr inbounds i32, ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %836 = getelementptr inbounds [4 x i8], ptr %817, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
+  %837 = getelementptr inbounds [4 x i8], ptr %813, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488
   %838 = load i32, ptr %837, align 4, !tbaa !76
   store i32 %838, ptr %836, align 4, !tbaa !76
   %839 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i488, 1
@@ -11108,8 +11108,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i490:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490
   %.021.i.i.i.i.i.i.i.i.i.i.i491 = phi i64 [ %843, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i490 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i484, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i485 ]
-  %840 = getelementptr inbounds i32, ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
-  %841 = getelementptr inbounds i32, ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %840 = getelementptr inbounds [4 x i8], ptr %817, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
+  %841 = getelementptr inbounds [4 x i8], ptr %813, i64 %.021.i.i.i.i.i.i.i.i.i.i.i491
   %842 = load <2 x i64>, ptr %841, align 1, !tbaa !24
   store <2 x i64> %842, ptr %840, align 16, !tbaa !24
   %843 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i491, 4
@@ -11119,10 +11119,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1241:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i487, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i486
   %845 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !961
   %846 = load i64, ptr %52, align 8, !tbaa !310, !noalias !961
-  %847 = getelementptr inbounds i32, ptr %845, i64 %846
+  %847 = getelementptr inbounds [4 x i8], ptr %845, i64 %846
   %848 = add nsw i64 %814, %815
   %849 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !964
-  %850 = getelementptr inbounds i32, ptr %849, i64 %848
+  %850 = getelementptr inbounds [4 x i8], ptr %849, i64 %848
   %851 = ptrtoint ptr %850 to i64
   %852 = and i64 %851, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i501 = icmp eq i64 %852, 0
@@ -11146,8 +11146,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511
   %.05.i.i.i.i.i.i.i.i.i.i.i.i512 = phi i64 [ %866, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i511 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i502 ]
-  %863 = getelementptr inbounds nuw i32, ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
-  %864 = getelementptr inbounds nuw i32, ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %863 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512
   %865 = load i32, ptr %864, align 4, !tbaa !76
   store i32 %865, ptr %863, align 4, !tbaa !76
   %866 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i512, 1
@@ -11164,8 +11164,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i507 = phi i64 [ %872, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506 ], [ %861, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505 ]
-  %869 = getelementptr inbounds i32, ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
-  %870 = getelementptr inbounds i32, ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %869 = getelementptr inbounds [4 x i8], ptr %850, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
+  %870 = getelementptr inbounds [4 x i8], ptr %847, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507
   %871 = load i32, ptr %870, align 4, !tbaa !76
   store i32 %871, ptr %869, align 4, !tbaa !76
   %872 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i507, 1
@@ -11174,8 +11174,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i509:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509
   %.021.i.i.i.i.i.i.i.i.i.i.i510 = phi i64 [ %876, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i509 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i503, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i504 ]
-  %873 = getelementptr inbounds i32, ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
-  %874 = getelementptr inbounds i32, ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %873 = getelementptr inbounds [4 x i8], ptr %850, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
+  %874 = getelementptr inbounds [4 x i8], ptr %847, i64 %.021.i.i.i.i.i.i.i.i.i.i.i510
   %875 = load <2 x i64>, ptr %874, align 1, !tbaa !24
   store <2 x i64> %875, ptr %873, align 16, !tbaa !24
   %876 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i510, 4
@@ -11185,10 +11185,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1240:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i506, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i505
   %878 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !967
   %879 = load i64, ptr %52, align 8, !tbaa !310, !noalias !967
-  %880 = getelementptr inbounds i32, ptr %878, i64 %879
+  %880 = getelementptr inbounds [4 x i8], ptr %878, i64 %879
   %881 = add nsw i64 %846, %848
   %882 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !970
-  %883 = getelementptr inbounds i32, ptr %882, i64 %881
+  %883 = getelementptr inbounds [4 x i8], ptr %882, i64 %881
   %884 = ptrtoint ptr %883 to i64
   %885 = and i64 %884, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i520 = icmp eq i64 %885, 0
@@ -11212,8 +11212,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530
   %.05.i.i.i.i.i.i.i.i.i.i.i.i531 = phi i64 [ %899, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i530 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i521 ]
-  %896 = getelementptr inbounds nuw i32, ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
-  %897 = getelementptr inbounds nuw i32, ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %896 = getelementptr inbounds nuw [4 x i8], ptr %883, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
+  %897 = getelementptr inbounds nuw [4 x i8], ptr %880, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531
   %898 = load i32, ptr %897, align 4, !tbaa !76
   store i32 %898, ptr %896, align 4, !tbaa !76
   %899 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i531, 1
@@ -11230,8 +11230,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i526 = phi i64 [ %905, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525 ], [ %894, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524 ]
-  %902 = getelementptr inbounds i32, ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
-  %903 = getelementptr inbounds i32, ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %902 = getelementptr inbounds [4 x i8], ptr %883, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
+  %903 = getelementptr inbounds [4 x i8], ptr %880, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526
   %904 = load i32, ptr %903, align 4, !tbaa !76
   store i32 %904, ptr %902, align 4, !tbaa !76
   %905 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i526, 1
@@ -11240,8 +11240,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i528:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528
   %.021.i.i.i.i.i.i.i.i.i.i.i529 = phi i64 [ %909, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i528 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i522, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i523 ]
-  %906 = getelementptr inbounds i32, ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
-  %907 = getelementptr inbounds i32, ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %906 = getelementptr inbounds [4 x i8], ptr %883, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
+  %907 = getelementptr inbounds [4 x i8], ptr %880, i64 %.021.i.i.i.i.i.i.i.i.i.i.i529
   %908 = load <2 x i64>, ptr %907, align 1, !tbaa !24
   store <2 x i64> %908, ptr %906, align 16, !tbaa !24
   %909 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i529, 4
@@ -11251,10 +11251,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1239:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i525, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i524
   %911 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !973
   %912 = load i64, ptr %52, align 8, !tbaa !310, !noalias !973
-  %913 = getelementptr inbounds i32, ptr %911, i64 %912
+  %913 = getelementptr inbounds [4 x i8], ptr %911, i64 %912
   %914 = add nsw i64 %879, %881
   %915 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !976
-  %916 = getelementptr inbounds i32, ptr %915, i64 %914
+  %916 = getelementptr inbounds [4 x i8], ptr %915, i64 %914
   %917 = ptrtoint ptr %916 to i64
   %918 = and i64 %917, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i539 = icmp eq i64 %918, 0
@@ -11278,8 +11278,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549
   %.05.i.i.i.i.i.i.i.i.i.i.i.i550 = phi i64 [ %932, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i549 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i540 ]
-  %929 = getelementptr inbounds nuw i32, ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
-  %930 = getelementptr inbounds nuw i32, ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %929 = getelementptr inbounds nuw [4 x i8], ptr %916, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550
   %931 = load i32, ptr %930, align 4, !tbaa !76
   store i32 %931, ptr %929, align 4, !tbaa !76
   %932 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i550, 1
@@ -11296,8 +11296,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i545 = phi i64 [ %938, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i544 ], [ %927, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i543 ]
-  %935 = getelementptr inbounds i32, ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
-  %936 = getelementptr inbounds i32, ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %935 = getelementptr inbounds [4 x i8], ptr %916, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
+  %936 = getelementptr inbounds [4 x i8], ptr %913, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545
   %937 = load i32, ptr %936, align 4, !tbaa !76
   store i32 %937, ptr %935, align 4, !tbaa !76
   %938 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i545, 1
@@ -11306,8 +11306,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i547:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547
   %.021.i.i.i.i.i.i.i.i.i.i.i548 = phi i64 [ %942, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i547 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i541, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i542 ]
-  %939 = getelementptr inbounds i32, ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
-  %940 = getelementptr inbounds i32, ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %939 = getelementptr inbounds [4 x i8], ptr %916, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
+  %940 = getelementptr inbounds [4 x i8], ptr %913, i64 %.021.i.i.i.i.i.i.i.i.i.i.i548
   %941 = load <2 x i64>, ptr %940, align 1, !tbaa !24
   store <2 x i64> %941, ptr %939, align 16, !tbaa !24
   %942 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i548, 4
@@ -11321,7 +11321,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %946 = getelementptr inbounds i8, ptr %944, i64 %.idx1217
   %947 = add nsw i64 %912, %914
   %948 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !982
-  %949 = getelementptr inbounds i32, ptr %948, i64 %947
+  %949 = getelementptr inbounds [4 x i8], ptr %948, i64 %947
   %950 = ptrtoint ptr %949 to i64
   %951 = and i64 %950, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i558 = icmp eq i64 %951, 0
@@ -11345,8 +11345,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568
   %.05.i.i.i.i.i.i.i.i.i.i.i.i569 = phi i64 [ %965, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i568 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i559 ]
-  %962 = getelementptr inbounds nuw i32, ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
-  %963 = getelementptr inbounds nuw i32, ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %962 = getelementptr inbounds nuw [4 x i8], ptr %949, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
+  %963 = getelementptr inbounds nuw [4 x i8], ptr %946, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569
   %964 = load i32, ptr %963, align 4, !tbaa !76
   store i32 %964, ptr %962, align 4, !tbaa !76
   %965 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i569, 1
@@ -11363,8 +11363,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i564 = phi i64 [ %971, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i563 ], [ %960, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i562 ]
-  %968 = getelementptr inbounds i32, ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
-  %969 = getelementptr inbounds i32, ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %968 = getelementptr inbounds [4 x i8], ptr %949, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
+  %969 = getelementptr inbounds [4 x i8], ptr %946, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564
   %970 = load i32, ptr %969, align 4, !tbaa !76
   store i32 %970, ptr %968, align 4, !tbaa !76
   %971 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i564, 1
@@ -11373,8 +11373,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i566:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566
   %.021.i.i.i.i.i.i.i.i.i.i.i567 = phi i64 [ %975, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i566 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i560, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i561 ]
-  %972 = getelementptr inbounds i32, ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
-  %973 = getelementptr inbounds i32, ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %972 = getelementptr inbounds [4 x i8], ptr %949, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
+  %973 = getelementptr inbounds [4 x i8], ptr %946, i64 %.021.i.i.i.i.i.i.i.i.i.i.i567
   %974 = load <2 x i64>, ptr %973, align 1, !tbaa !24
   store <2 x i64> %974, ptr %972, align 16, !tbaa !24
   %975 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i567, 4
@@ -11388,7 +11388,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %979 = getelementptr inbounds i8, ptr %977, i64 %.idx1218
   %980 = add nsw i64 %945, %947
   %981 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !988
-  %982 = getelementptr inbounds i32, ptr %981, i64 %980
+  %982 = getelementptr inbounds [4 x i8], ptr %981, i64 %980
   %983 = ptrtoint ptr %982 to i64
   %984 = and i64 %983, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i577 = icmp eq i64 %984, 0
@@ -11412,8 +11412,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587
   %.05.i.i.i.i.i.i.i.i.i.i.i.i588 = phi i64 [ %998, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i587 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i578 ]
-  %995 = getelementptr inbounds nuw i32, ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
-  %996 = getelementptr inbounds nuw i32, ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %995 = getelementptr inbounds nuw [4 x i8], ptr %982, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
+  %996 = getelementptr inbounds nuw [4 x i8], ptr %979, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588
   %997 = load i32, ptr %996, align 4, !tbaa !76
   store i32 %997, ptr %995, align 4, !tbaa !76
   %998 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i588, 1
@@ -11430,8 +11430,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i583 = phi i64 [ %1004, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i582 ], [ %993, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i581 ]
-  %1001 = getelementptr inbounds i32, ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
-  %1002 = getelementptr inbounds i32, ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1001 = getelementptr inbounds [4 x i8], ptr %982, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
+  %1002 = getelementptr inbounds [4 x i8], ptr %979, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583
   %1003 = load i32, ptr %1002, align 4, !tbaa !76
   store i32 %1003, ptr %1001, align 4, !tbaa !76
   %1004 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i583, 1
@@ -11440,8 +11440,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i585:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585
   %.021.i.i.i.i.i.i.i.i.i.i.i586 = phi i64 [ %1008, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i585 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i579, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i580 ]
-  %1005 = getelementptr inbounds i32, ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
-  %1006 = getelementptr inbounds i32, ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1005 = getelementptr inbounds [4 x i8], ptr %982, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
+  %1006 = getelementptr inbounds [4 x i8], ptr %979, i64 %.021.i.i.i.i.i.i.i.i.i.i.i586
   %1007 = load <2 x i64>, ptr %1006, align 1, !tbaa !24
   store <2 x i64> %1007, ptr %1005, align 16, !tbaa !24
   %1008 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i586, 4
@@ -11455,7 +11455,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1012 = getelementptr inbounds i8, ptr %1010, i64 %.idx1219
   %1013 = add nsw i64 %978, %980
   %1014 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !994
-  %1015 = getelementptr inbounds i32, ptr %1014, i64 %1013
+  %1015 = getelementptr inbounds [4 x i8], ptr %1014, i64 %1013
   %1016 = ptrtoint ptr %1015 to i64
   %1017 = and i64 %1016, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i596 = icmp eq i64 %1017, 0
@@ -11479,8 +11479,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606
   %.05.i.i.i.i.i.i.i.i.i.i.i.i607 = phi i64 [ %1031, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i606 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i597 ]
-  %1028 = getelementptr inbounds nuw i32, ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
-  %1029 = getelementptr inbounds nuw i32, ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %1015, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
+  %1029 = getelementptr inbounds nuw [4 x i8], ptr %1012, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607
   %1030 = load i32, ptr %1029, align 4, !tbaa !76
   store i32 %1030, ptr %1028, align 4, !tbaa !76
   %1031 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i607, 1
@@ -11497,8 +11497,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i602 = phi i64 [ %1037, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i601 ], [ %1026, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i600 ]
-  %1034 = getelementptr inbounds i32, ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
-  %1035 = getelementptr inbounds i32, ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1034 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
+  %1035 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602
   %1036 = load i32, ptr %1035, align 4, !tbaa !76
   store i32 %1036, ptr %1034, align 4, !tbaa !76
   %1037 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i602, 1
@@ -11507,8 +11507,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i604:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604
   %.021.i.i.i.i.i.i.i.i.i.i.i605 = phi i64 [ %1041, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i604 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i598, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i599 ]
-  %1038 = getelementptr inbounds i32, ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
-  %1039 = getelementptr inbounds i32, ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1038 = getelementptr inbounds [4 x i8], ptr %1015, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
+  %1039 = getelementptr inbounds [4 x i8], ptr %1012, i64 %.021.i.i.i.i.i.i.i.i.i.i.i605
   %1040 = load <2 x i64>, ptr %1039, align 1, !tbaa !24
   store <2 x i64> %1040, ptr %1038, align 16, !tbaa !24
   %1041 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i605, 4
@@ -11522,7 +11522,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1045 = getelementptr inbounds i8, ptr %1043, i64 %.idx1220
   %1046 = add nsw i64 %1011, %1013
   %1047 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1000
-  %1048 = getelementptr inbounds i32, ptr %1047, i64 %1046
+  %1048 = getelementptr inbounds [4 x i8], ptr %1047, i64 %1046
   %1049 = ptrtoint ptr %1048 to i64
   %1050 = and i64 %1049, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i615 = icmp eq i64 %1050, 0
@@ -11546,8 +11546,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625
   %.05.i.i.i.i.i.i.i.i.i.i.i.i626 = phi i64 [ %1064, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i625 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i616 ]
-  %1061 = getelementptr inbounds nuw i32, ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
-  %1062 = getelementptr inbounds nuw i32, ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1061 = getelementptr inbounds nuw [4 x i8], ptr %1048, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
+  %1062 = getelementptr inbounds nuw [4 x i8], ptr %1045, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626
   %1063 = load i32, ptr %1062, align 4, !tbaa !76
   store i32 %1063, ptr %1061, align 4, !tbaa !76
   %1064 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i626, 1
@@ -11564,8 +11564,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i621 = phi i64 [ %1070, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i620 ], [ %1059, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i619 ]
-  %1067 = getelementptr inbounds i32, ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
-  %1068 = getelementptr inbounds i32, ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1067 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
+  %1068 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621
   %1069 = load i32, ptr %1068, align 4, !tbaa !76
   store i32 %1069, ptr %1067, align 4, !tbaa !76
   %1070 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i621, 1
@@ -11574,8 +11574,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i623:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623
   %.021.i.i.i.i.i.i.i.i.i.i.i624 = phi i64 [ %1074, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i623 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i617, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i618 ]
-  %1071 = getelementptr inbounds i32, ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
-  %1072 = getelementptr inbounds i32, ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1071 = getelementptr inbounds [4 x i8], ptr %1048, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
+  %1072 = getelementptr inbounds [4 x i8], ptr %1045, i64 %.021.i.i.i.i.i.i.i.i.i.i.i624
   %1073 = load <2 x i64>, ptr %1072, align 1, !tbaa !24
   store <2 x i64> %1073, ptr %1071, align 16, !tbaa !24
   %1074 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i624, 4
@@ -11589,7 +11589,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1078 = getelementptr inbounds i8, ptr %1076, i64 %.idx1221
   %1079 = add nsw i64 %1044, %1046
   %1080 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1006
-  %1081 = getelementptr inbounds i32, ptr %1080, i64 %1079
+  %1081 = getelementptr inbounds [4 x i8], ptr %1080, i64 %1079
   %1082 = ptrtoint ptr %1081 to i64
   %1083 = and i64 %1082, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i634 = icmp eq i64 %1083, 0
@@ -11613,8 +11613,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644
   %.05.i.i.i.i.i.i.i.i.i.i.i.i645 = phi i64 [ %1097, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i644 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i635 ]
-  %1094 = getelementptr inbounds nuw i32, ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
-  %1095 = getelementptr inbounds nuw i32, ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1094 = getelementptr inbounds nuw [4 x i8], ptr %1081, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
+  %1095 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645
   %1096 = load i32, ptr %1095, align 4, !tbaa !76
   store i32 %1096, ptr %1094, align 4, !tbaa !76
   %1097 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i645, 1
@@ -11631,8 +11631,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i640 = phi i64 [ %1103, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i639 ], [ %1092, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i638 ]
-  %1100 = getelementptr inbounds i32, ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
-  %1101 = getelementptr inbounds i32, ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1100 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
+  %1101 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640
   %1102 = load i32, ptr %1101, align 4, !tbaa !76
   store i32 %1102, ptr %1100, align 4, !tbaa !76
   %1103 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i640, 1
@@ -11641,8 +11641,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i642:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642
   %.021.i.i.i.i.i.i.i.i.i.i.i643 = phi i64 [ %1107, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i642 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i636, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i637 ]
-  %1104 = getelementptr inbounds i32, ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
-  %1105 = getelementptr inbounds i32, ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1104 = getelementptr inbounds [4 x i8], ptr %1081, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
+  %1105 = getelementptr inbounds [4 x i8], ptr %1078, i64 %.021.i.i.i.i.i.i.i.i.i.i.i643
   %1106 = load <2 x i64>, ptr %1105, align 1, !tbaa !24
   store <2 x i64> %1106, ptr %1104, align 16, !tbaa !24
   %1107 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i643, 4
@@ -11656,7 +11656,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1111 = getelementptr inbounds i8, ptr %1109, i64 %.idx1222
   %1112 = add nsw i64 %1077, %1079
   %1113 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1012
-  %1114 = getelementptr inbounds i32, ptr %1113, i64 %1112
+  %1114 = getelementptr inbounds [4 x i8], ptr %1113, i64 %1112
   %1115 = ptrtoint ptr %1114 to i64
   %1116 = and i64 %1115, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i653 = icmp eq i64 %1116, 0
@@ -11680,8 +11680,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663
   %.05.i.i.i.i.i.i.i.i.i.i.i.i664 = phi i64 [ %1130, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i663 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i654 ]
-  %1127 = getelementptr inbounds nuw i32, ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
-  %1128 = getelementptr inbounds nuw i32, ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1127 = getelementptr inbounds nuw [4 x i8], ptr %1114, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
+  %1128 = getelementptr inbounds nuw [4 x i8], ptr %1111, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664
   %1129 = load i32, ptr %1128, align 4, !tbaa !76
   store i32 %1129, ptr %1127, align 4, !tbaa !76
   %1130 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i664, 1
@@ -11698,8 +11698,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i659 = phi i64 [ %1136, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i658 ], [ %1125, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i657 ]
-  %1133 = getelementptr inbounds i32, ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
-  %1134 = getelementptr inbounds i32, ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1133 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
+  %1134 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659
   %1135 = load i32, ptr %1134, align 4, !tbaa !76
   store i32 %1135, ptr %1133, align 4, !tbaa !76
   %1136 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i659, 1
@@ -11708,8 +11708,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i661:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661
   %.021.i.i.i.i.i.i.i.i.i.i.i662 = phi i64 [ %1140, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i661 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i655, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i656 ]
-  %1137 = getelementptr inbounds i32, ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
-  %1138 = getelementptr inbounds i32, ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1137 = getelementptr inbounds [4 x i8], ptr %1114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
+  %1138 = getelementptr inbounds [4 x i8], ptr %1111, i64 %.021.i.i.i.i.i.i.i.i.i.i.i662
   %1139 = load <2 x i64>, ptr %1138, align 1, !tbaa !24
   store <2 x i64> %1139, ptr %1137, align 16, !tbaa !24
   %1140 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i662, 4
@@ -11721,7 +11721,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1143 = load i64, ptr %52, align 8, !tbaa !310, !noalias !1015
   %1144 = add nsw i64 %1110, %1112
   %1145 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1018
-  %1146 = getelementptr inbounds i32, ptr %1145, i64 %1144
+  %1146 = getelementptr inbounds [4 x i8], ptr %1145, i64 %1144
   %1147 = ptrtoint ptr %1146 to i64
   %1148 = and i64 %1147, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i672 = icmp eq i64 %1148, 0
@@ -11745,8 +11745,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682
   %.05.i.i.i.i.i.i.i.i.i.i.i.i683 = phi i64 [ %1162, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i682 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i673 ]
-  %1159 = getelementptr inbounds nuw i32, ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
-  %1160 = getelementptr inbounds nuw i32, ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1159 = getelementptr inbounds nuw [4 x i8], ptr %1146, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
+  %1160 = getelementptr inbounds nuw [4 x i8], ptr %1142, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683
   %1161 = load i32, ptr %1160, align 4, !tbaa !76
   store i32 %1161, ptr %1159, align 4, !tbaa !76
   %1162 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i683, 1
@@ -11763,8 +11763,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i678 = phi i64 [ %1168, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677 ], [ %1157, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676 ]
-  %1165 = getelementptr inbounds i32, ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
-  %1166 = getelementptr inbounds i32, ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1165 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
+  %1166 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678
   %1167 = load i32, ptr %1166, align 4, !tbaa !76
   store i32 %1167, ptr %1165, align 4, !tbaa !76
   %1168 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i678, 1
@@ -11773,8 +11773,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i680:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680
   %.021.i.i.i.i.i.i.i.i.i.i.i681 = phi i64 [ %1172, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i680 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i674, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i675 ]
-  %1169 = getelementptr inbounds i32, ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
-  %1170 = getelementptr inbounds i32, ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1169 = getelementptr inbounds [4 x i8], ptr %1146, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
+  %1170 = getelementptr inbounds [4 x i8], ptr %1142, i64 %.021.i.i.i.i.i.i.i.i.i.i.i681
   %1171 = load <2 x i64>, ptr %1170, align 1, !tbaa !24
   store <2 x i64> %1171, ptr %1169, align 16, !tbaa !24
   %1172 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i681, 4
@@ -11784,10 +11784,10 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit1231:                                    ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i677, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i676
   %1174 = load ptr, ptr %1, align 8, !tbaa !311, !noalias !1021
   %1175 = load i64, ptr %52, align 8, !tbaa !310, !noalias !1021
-  %1176 = getelementptr inbounds i32, ptr %1174, i64 %1175
+  %1176 = getelementptr inbounds [4 x i8], ptr %1174, i64 %1175
   %1177 = add nsw i64 %1143, %1144
   %1178 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1024
-  %1179 = getelementptr inbounds i32, ptr %1178, i64 %1177
+  %1179 = getelementptr inbounds [4 x i8], ptr %1178, i64 %1177
   %1180 = ptrtoint ptr %1179 to i64
   %1181 = and i64 %1180, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i691 = icmp eq i64 %1181, 0
@@ -11811,8 +11811,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701
   %.05.i.i.i.i.i.i.i.i.i.i.i.i702 = phi i64 [ %1195, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i701 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i692 ]
-  %1192 = getelementptr inbounds nuw i32, ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
-  %1193 = getelementptr inbounds nuw i32, ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1192 = getelementptr inbounds nuw [4 x i8], ptr %1179, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
+  %1193 = getelementptr inbounds nuw [4 x i8], ptr %1176, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702
   %1194 = load i32, ptr %1193, align 4, !tbaa !76
   store i32 %1194, ptr %1192, align 4, !tbaa !76
   %1195 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i702, 1
@@ -11829,8 +11829,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i697 = phi i64 [ %1201, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i696 ], [ %1190, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i695 ]
-  %1198 = getelementptr inbounds i32, ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
-  %1199 = getelementptr inbounds i32, ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1198 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
+  %1199 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697
   %1200 = load i32, ptr %1199, align 4, !tbaa !76
   store i32 %1200, ptr %1198, align 4, !tbaa !76
   %1201 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i697, 1
@@ -11839,8 +11839,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i699:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699
   %.021.i.i.i.i.i.i.i.i.i.i.i700 = phi i64 [ %1205, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i699 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i693, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i694 ]
-  %1202 = getelementptr inbounds i32, ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
-  %1203 = getelementptr inbounds i32, ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1202 = getelementptr inbounds [4 x i8], ptr %1179, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
+  %1203 = getelementptr inbounds [4 x i8], ptr %1176, i64 %.021.i.i.i.i.i.i.i.i.i.i.i700
   %1204 = load <2 x i64>, ptr %1203, align 1, !tbaa !24
   store <2 x i64> %1204, ptr %1202, align 16, !tbaa !24
   %1205 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i700, 4
@@ -11854,7 +11854,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %1209 = getelementptr inbounds i8, ptr %1207, i64 %.idx1223
   %1210 = add nsw i64 %1175, %1177
   %1211 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1030
-  %1212 = getelementptr inbounds i32, ptr %1211, i64 %1210
+  %1212 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1210
   %1213 = ptrtoint ptr %1212 to i64
   %1214 = and i64 %1213, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i710 = icmp eq i64 %1214, 0
@@ -11878,8 +11878,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720
   %.05.i.i.i.i.i.i.i.i.i.i.i.i721 = phi i64 [ %1228, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i720 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i711 ]
-  %1225 = getelementptr inbounds nuw i32, ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
-  %1226 = getelementptr inbounds nuw i32, ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1225 = getelementptr inbounds nuw [4 x i8], ptr %1212, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %1209, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721
   %1227 = load i32, ptr %1226, align 4, !tbaa !76
   store i32 %1227, ptr %1225, align 4, !tbaa !76
   %1228 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i721, 1
@@ -11896,8 +11896,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i716 = phi i64 [ %1234, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i715 ], [ %1223, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i714 ]
-  %1231 = getelementptr inbounds i32, ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
-  %1232 = getelementptr inbounds i32, ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1231 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
+  %1232 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716
   %1233 = load i32, ptr %1232, align 4, !tbaa !76
   store i32 %1233, ptr %1231, align 4, !tbaa !76
   %1234 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i716, 1
@@ -11906,8 +11906,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i718:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718
   %.021.i.i.i.i.i.i.i.i.i.i.i719 = phi i64 [ %1238, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i718 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i712, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i713 ]
-  %1235 = getelementptr inbounds i32, ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
-  %1236 = getelementptr inbounds i32, ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1235 = getelementptr inbounds [4 x i8], ptr %1212, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
+  %1236 = getelementptr inbounds [4 x i8], ptr %1209, i64 %.021.i.i.i.i.i.i.i.i.i.i.i719
   %1237 = load <2 x i64>, ptr %1236, align 1, !tbaa !24
   store <2 x i64> %1237, ptr %1235, align 16, !tbaa !24
   %1238 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i719, 4
@@ -11920,8 +11920,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.idx1224 = mul nsw i64 %1241, 12
   %1242 = getelementptr inbounds i8, ptr %1240, i64 %.idx1224
   %1243 = load ptr, ptr %41, align 8, !tbaa !33, !noalias !1036
-  %1244 = getelementptr i32, ptr %1243, i64 %1210
-  %1245 = getelementptr i32, ptr %1244, i64 %1208
+  %1244 = getelementptr [4 x i8], ptr %1243, i64 %1210
+  %1245 = getelementptr [4 x i8], ptr %1244, i64 %1208
   %1246 = ptrtoint ptr %1245 to i64
   %1247 = and i64 %1246, 3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i729 = icmp eq i64 %1247, 0
@@ -11945,8 +11945,8 @@ _ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739:                ; preds = %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739
   %.05.i.i.i.i.i.i.i.i.i.i.i.i740 = phi i64 [ %1261, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i739 ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EilEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i.i730 ]
-  %1258 = getelementptr inbounds nuw i32, ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
-  %1259 = getelementptr inbounds nuw i32, ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1258 = getelementptr inbounds nuw [4 x i8], ptr %1245, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
+  %1259 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740
   %1260 = load i32, ptr %1259, align 4, !tbaa !76
   store i32 %1260, ptr %1258, align 4, !tbaa !76
   %1261 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i.i.i740, 1
@@ -11963,8 +11963,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734:              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734
   %.05.i18.i.i.i.i.i.i.i.i.i.i.i735 = phi i64 [ %1267, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i.i734 ], [ %1256, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i733 ]
-  %1264 = getelementptr inbounds i32, ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
-  %1265 = getelementptr inbounds i32, ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1264 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
+  %1265 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735
   %1266 = load i32, ptr %1265, align 4, !tbaa !76
   store i32 %1266, ptr %1264, align 4, !tbaa !76
   %1267 = add nsw i64 %.05.i18.i.i.i.i.i.i.i.i.i.i.i735, 1
@@ -11973,8 +11973,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i737:                  ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737
   %.021.i.i.i.i.i.i.i.i.i.i.i738 = phi i64 [ %1271, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i737 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i731, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEEEENS5_INS6_IKNS7_IiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i732 ]
-  %1268 = getelementptr inbounds i32, ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
-  %1269 = getelementptr inbounds i32, ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1268 = getelementptr inbounds [4 x i8], ptr %1245, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
+  %1269 = getelementptr inbounds [4 x i8], ptr %1242, i64 %.021.i.i.i.i.i.i.i.i.i.i.i738
   %1270 = load <2 x i64>, ptr %1269, align 1, !tbaa !24
   store <2 x i64> %1270, ptr %1268, align 16, !tbaa !24
   %1271 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i738, 4
@@ -12033,7 +12033,7 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEEcmINS_5BlockIKN
   call void @llvm.experimental.noalias.scope.decl(metadata !1042)
   %1289 = sext i32 %1288 to i64
   %1290 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !1042
-  %1291 = getelementptr inbounds double, ptr %1290, i64 %1274
+  %1291 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1274
   %1292 = load i64, ptr %1276, align 8, !tbaa !19, !noalias !1042
   store ptr %1291, ptr %48, align 8, !tbaa !288, !alias.scope !1042
   %1293 = getelementptr inbounds nuw i8, ptr %48, i64 8

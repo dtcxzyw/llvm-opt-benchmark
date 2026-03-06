@@ -4075,7 +4075,7 @@ define internal fastcc noundef i32 @dissect_spc_inq_bqueflags(ptr noundef %0, i3
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_inq_bqueflags, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_spc_inq_bqueflags, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -4097,7 +4097,7 @@ define internal fastcc noundef i32 @dissect_spc_inq_reladrflags(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_inq_reladrflags, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_spc_inq_reladrflags, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -5050,13 +5050,13 @@ define internal fastcc range(i32 2, 65538) i32 @dissect_scsi_modepage(ptr nounde
 
 switch.lookup:                                    ; preds = %17
   %22 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_scsi_modepage, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_scsi_modepage, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = zext nneg i32 %4 to i64
-  %switch.gep64 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_modesense10, i64 %23
+  %switch.gep64 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_spc_modesense10, i64 %23
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   %24 = zext nneg i32 %4 to i64
-  %switch.gep66 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_scsi_modepage.5, i64 %24
+  %switch.gep66 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_scsi_modepage.5, i64 %24
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   br label %25
 
@@ -5275,7 +5275,7 @@ define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %25
   %31 = zext nneg i8 %29 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_modesense10, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_spc_modesense10, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %32
 
@@ -5417,7 +5417,7 @@ define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %26
   %32 = zext nneg i8 %30 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_modesense10, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_spc_modesense10, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %33
 
@@ -7635,7 +7635,7 @@ proto_item_set_generated.exit106:                 ; preds = %103, %100, %97, %pr
 115:                                              ; preds = %112, %107
   %116 = load ptr, ptr %32, align 8
   %117 = zext i8 %12 to i64
-  %118 = getelementptr %struct._scsi_cdb_table_t, ptr %116, i64 %117
+  %118 = getelementptr [8 x i8], ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
   %.not98 = icmp eq ptr %119, null
   br i1 %.not98, label %121, label %120
@@ -7645,7 +7645,7 @@ proto_item_set_generated.exit106:                 ; preds = %103, %100, %97, %pr
   br label %127
 
 121:                                              ; preds = %115
-  %122 = getelementptr %struct._scsi_cdb_table_t, ptr @spc, i64 %117
+  %122 = getelementptr [8 x i8], ptr @spc, i64 %117
   %123 = load ptr, ptr %122, align 8
   %.not99 = icmp eq ptr %123, null
   br i1 %.not99, label %125, label %124
@@ -8000,7 +8000,7 @@ proto_item_set_generated.exit187:                 ; preds = %113, %110, %107, %p
   br i1 %.not170, label %._crit_edge, label %167
 
 167:                                              ; preds = %165
-  %168 = getelementptr %struct._scsi_cdb_table_t, ptr %166, i64 %.pre188
+  %168 = getelementptr [8 x i8], ptr %166, i64 %.pre188
   %169 = load ptr, ptr %168, align 8
   %.not172 = icmp eq ptr %169, null
   br i1 %.not172, label %._crit_edge, label %170
@@ -8010,7 +8010,7 @@ proto_item_set_generated.exit187:                 ; preds = %113, %110, %107, %p
   br label %176
 
 ._crit_edge:                                      ; preds = %165, %167
-  %171 = getelementptr %struct._scsi_cdb_table_t, ptr @spc, i64 %.pre188
+  %171 = getelementptr [8 x i8], ptr @spc, i64 %.pre188
   %172 = load ptr, ptr %171, align 8
   %.not174 = icmp eq ptr %172, null
   br i1 %.not174, label %174, label %173

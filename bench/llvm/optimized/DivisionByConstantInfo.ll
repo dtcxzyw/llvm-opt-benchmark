@@ -68,7 +68,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i:          ; preds = %_ZN4llvm5APIntC2Ejm
   %34 = load ptr, ptr %4, align 8, !tbaa !8, !alias.scope !9
   %35 = lshr i32 %25, 6
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !12
   %39 = or i64 %38, %28
   store i64 %39, ptr %37, align 8, !tbaa !12
@@ -441,7 +441,7 @@ _ZN4llvm5APIntaSEOS0_.exit:                       ; preds = %.critedge2, %190, %
   %203 = load ptr, ptr %1, align 8
   %204 = lshr i32 %198, 6
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw i64, ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %205
   %.in.i.i.i = select i1 %202, ptr %1, ptr %206
   %207 = load i64, ptr %.in.i.i.i, align 8, !tbaa !8
   %208 = and i64 %201, %207
@@ -631,7 +631,7 @@ define linkonce_odr hidden void @_ZNK4llvm5APInt3absEv(ptr dead_on_unwind noalia
   %11 = load ptr, ptr %1, align 8
   %12 = lshr i32 %6, 6
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %.in.i.i.i = select i1 %10, ptr %1, ptr %14
   %15 = load i64, ptr %.in.i.i.i, align 8, !tbaa !8
   %16 = and i64 %9, %15
@@ -828,7 +828,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i:          ; preds = %_ZN4llvm5APIntC2Ejm
   %69 = load ptr, ptr %7, align 8, !tbaa !8, !alias.scope !40
   %70 = lshr i32 %60, 6
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i64, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !12
   %74 = or i64 %73, %63
   store i64 %74, ptr %72, align 8, !tbaa !12
@@ -882,7 +882,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10get
   %99 = load ptr, ptr %8, align 8, !tbaa !8, !alias.scope !48
   %100 = lshr i32 %89, 6
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw i64, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !12
   %104 = and i64 %103, %93
   store i64 %104, ptr %102, align 8, !tbaa !12

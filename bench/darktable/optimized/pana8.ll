@@ -110,7 +110,7 @@ define void @_ZN13pana8_bufio_t6refillEj(ptr noundef nonnull align 8 captures(no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   %54 = load i8, ptr %53, align 1, !tbaa !27
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %55
@@ -209,7 +209,7 @@ define void @_Z10invertBitsPvm(ptr noundef captures(none) %0, i64 noundef %1) lo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !27
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr @_ZL12_bitRevTable, i64 %7
@@ -320,18 +320,18 @@ define void @_ZN6LibRaw20panasonicC8_load_rawEv(ptr noundef nonnull align 8 dere
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.127 = phi i32 [ %spec.select, %.lr.ph ], [ %.3, %40 ]
   %.01826 = phi i32 [ 0, %.lr.ph ], [ %44, %40 ]
-  %24 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !94
   %.not22 = icmp ne i16 %25, %16
   %26 = zext i1 %.not22 to i32
   %spec.select24 = add nsw i32 %.127, %26
-  %27 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !95
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !96
   %33 = add i32 %32, 7
   %34 = lshr i32 %33, 3
@@ -346,7 +346,7 @@ define void @_ZN6LibRaw20panasonicC8_load_rawEv(ptr noundef nonnull align 8 dere
 
 40:                                               ; preds = %38, %30
   %.3 = phi i32 [ %39, %38 ], [ %spec.select24, %30 ]
-  %41 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2, !tbaa !94
   %43 = zext i16 %42 to i32
   %44 = add i32 %.01826, %43
@@ -497,14 +497,14 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw18pana8_decode_stripEPvi(ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 381948
   %14 = zext nneg i32 %2 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !96
   %17 = add i32 %16, 7
   %18 = lshr i32 %17, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = load ptr, ptr %12, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 381896
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %14
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %14
   %22 = load i64, ptr %21, align 8, !tbaa !95
   %23 = tail call noalias noundef nonnull dereferenceable(819200) ptr @_Znwm(i64 noundef 819200) #17
   store ptr %23, ptr %4, align 8, !tbaa !24
@@ -523,15 +523,15 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw18pana8_decode_stripEPvi(ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store i32 %18, ptr %30, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 381968
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %14
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %14
   %33 = load i16, ptr %32, align 2, !tbaa !94
   %34 = zext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 381978
-  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %14
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %14
   %37 = load i16, ptr %36, align 2, !tbaa !94
   %38 = zext i16 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 381936
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %14
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %14
   %41 = load i16, ptr %40, align 2, !tbaa !94
   %42 = invoke noundef zeroext i1 @_ZN13pana8_param_t8DecodeC8ER13pana8_bufio_tjjP6LibRawt(ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef nonnull align 8 dereferenceable(60) %4, i32 noundef %34, i32 noundef %38, ptr noundef nonnull %0, i16 noundef zeroext %41)
           to label %43 unwind label %52
@@ -637,10 +637,10 @@ define noundef zeroext i1 @_ZN13pana8_param_t8DecodeC8ER13pana8_bufio_tjjP6LibRa
 
 48:                                               ; preds = %18, %48
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !96
   %51 = and i32 %50, 65535
-  %52 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -761,7 +761,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc272, %_ZNSt6v
   %.sink.i = phi i64 [ %86, %83 ], [ %92, %.noexc273 ]
   %96 = sub nsw i64 %85, %.sink.i
   %97 = load ptr, ptr %1, align 8, !tbaa !24
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %96
   %99 = load i64, ptr %98, align 8, !tbaa !28
   br label %_ZN13pana8_bufio_t8getQWordEj.exit
 
@@ -796,7 +796,7 @@ _ZN13pana8_bufio_t8getQWordEj.exit:               ; preds = %.sink.split.i, %.no
   %.sink.i281 = phi i64 [ %101, %_ZN13pana8_bufio_t8getQWordEj.exit ], [ %107, %.noexc282 ]
   %110 = sub nsw i64 %102, %.sink.i281
   %111 = load ptr, ptr %1, align 8, !tbaa !24
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %110
   %113 = load i64, ptr %112, align 8, !tbaa !28
   br label %.thread
 
@@ -857,7 +857,7 @@ _ZN13pana8_bufio_t8getQWordEj.exit:               ; preds = %.sink.split.i, %.no
   %.sink.i291 = phi i64 [ %129, %127 ], [ %135, %.noexc292 ]
   %138 = sub nsw i64 %128, %.sink.i291
   %139 = load ptr, ptr %1, align 8, !tbaa !24
-  %140 = getelementptr inbounds nuw i64, ptr %139, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %138
   %141 = load i64, ptr %140, align 8, !tbaa !28
   br label %_ZN13pana8_bufio_t8getQWordEj.exit293
 
@@ -892,10 +892,10 @@ _ZN13pana8_bufio_t8getQWordEj.exit293:            ; preds = %.sink.split.i290, %
 
 .preheader443:                                    ; preds = %150, %162
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %162 ], [ 0, %150 ]
-  %156 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8, !tbaa !28
   %158 = and i64 %157, %.5237
-  %159 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i
   %160 = load i64, ptr %159, align 8, !tbaa !28
   %161 = icmp eq i64 %158, %160
   br i1 %161, label %.loopexit.loopexit.i, label %162
@@ -927,7 +927,7 @@ _ZN13pana8_param_t7GetDBitEm.exit:                ; preds = %163, %.loopexit.loo
   %.0238 = phi i32 [ %155, %151 ], [ %.1.i, %_ZN13pana8_param_t7GetDBitEm.exit ]
   %.4203 = phi i32 [ %.1200420, %151 ], [ %171, %_ZN13pana8_param_t7GetDBitEm.exit ]
   %173 = sext i32 %.0238 to i64
-  %174 = getelementptr inbounds i32, ptr %72, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %72, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !96
   %176 = lshr i32 %175, 24
   %177 = and i32 %176, 31
@@ -1086,13 +1086,13 @@ default.unreachable:                              ; preds = %205
   %258 = zext i16 %257 to i32
   %259 = mul nsw i32 %255, %258
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds i16, ptr %256, i64 %260
-  %262 = getelementptr inbounds nuw i16, ptr %261, i64 %78
+  %261 = getelementptr inbounds [2 x i8], ptr %256, i64 %260
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %261, i64 %78
   %263 = or disjoint i32 %255, 1
   %264 = mul nsw i32 %263, %258
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds i16, ptr %256, i64 %265
-  %267 = getelementptr inbounds nuw i16, ptr %266, i64 %78
+  %266 = getelementptr inbounds [2 x i8], ptr %256, i64 %265
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %78
   br i1 %.not265, label %.preheader, label %.preheader354
 
 .preheader354:                                    ; preds = %._crit_edge
@@ -1105,36 +1105,36 @@ default.unreachable:                              ; preds = %205
   %.0198428 = phi i32 [ %297, %.lr.ph429 ], [ 0, %.preheader354 ]
   %268 = shl i32 %.0198428, 2
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds i16, ptr %.sroa.0298.0, i64 %269
+  %270 = getelementptr inbounds [2 x i8], ptr %.sroa.0298.0, i64 %269
   %271 = load i16, ptr %270, align 2, !tbaa !94
   %272 = zext i16 %271 to i64
-  %273 = getelementptr inbounds nuw i16, ptr %36, i64 %272
+  %273 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %272
   %274 = load i16, ptr %273, align 2, !tbaa !94
   %275 = zext i32 %.0198428 to i64
-  %276 = getelementptr inbounds nuw i16, ptr %262, i64 %275
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %275
   store i16 %274, ptr %276, align 2, !tbaa !94
   %277 = getelementptr i8, ptr %270, i64 4
   %278 = load i16, ptr %277, align 2, !tbaa !94
   %279 = zext i16 %278 to i64
-  %280 = getelementptr inbounds nuw i16, ptr %36, i64 %279
+  %280 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %279
   %281 = load i16, ptr %280, align 2, !tbaa !94
   %282 = or disjoint i32 %.0198428, 1
   %283 = zext i32 %282 to i64
-  %284 = getelementptr inbounds nuw i16, ptr %262, i64 %283
+  %284 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %283
   store i16 %281, ptr %284, align 2, !tbaa !94
   %285 = getelementptr i8, ptr %270, i64 8
   %286 = load i16, ptr %285, align 2, !tbaa !94
   %287 = zext i16 %286 to i64
-  %288 = getelementptr inbounds nuw i16, ptr %36, i64 %287
+  %288 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %287
   %289 = load i16, ptr %288, align 2, !tbaa !94
-  %290 = getelementptr inbounds nuw i16, ptr %267, i64 %275
+  %290 = getelementptr inbounds nuw [2 x i8], ptr %267, i64 %275
   store i16 %289, ptr %290, align 2, !tbaa !94
   %291 = getelementptr i8, ptr %270, i64 12
   %292 = load i16, ptr %291, align 2, !tbaa !94
   %293 = zext i16 %292 to i64
-  %294 = getelementptr inbounds nuw i16, ptr %36, i64 %293
+  %294 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %293
   %295 = load i16, ptr %294, align 2, !tbaa !94
-  %296 = getelementptr inbounds nuw i16, ptr %267, i64 %283
+  %296 = getelementptr inbounds nuw [2 x i8], ptr %267, i64 %283
   store i16 %295, ptr %296, align 2, !tbaa !94
   %297 = add nuw i32 %.0198428, 2
   %298 = icmp ult i32 %297, %79
@@ -1144,24 +1144,24 @@ default.unreachable:                              ; preds = %205
   %.0192430 = phi i32 [ %316, %.lr.ph431 ], [ 0, %.preheader ]
   %299 = shl i32 %.0192430, 2
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds i16, ptr %.sroa.0298.0, i64 %300
+  %301 = getelementptr inbounds [2 x i8], ptr %.sroa.0298.0, i64 %300
   %302 = load i16, ptr %301, align 2, !tbaa !94
   %303 = zext i32 %.0192430 to i64
-  %304 = getelementptr inbounds nuw i16, ptr %262, i64 %303
+  %304 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %303
   store i16 %302, ptr %304, align 2, !tbaa !94
   %305 = getelementptr i8, ptr %301, i64 4
   %306 = load i16, ptr %305, align 2, !tbaa !94
   %307 = or disjoint i32 %.0192430, 1
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw i16, ptr %262, i64 %308
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %308
   store i16 %306, ptr %309, align 2, !tbaa !94
   %310 = getelementptr i8, ptr %301, i64 8
   %311 = load i16, ptr %310, align 2, !tbaa !94
-  %312 = getelementptr inbounds nuw i16, ptr %267, i64 %303
+  %312 = getelementptr inbounds nuw [2 x i8], ptr %267, i64 %303
   store i16 %311, ptr %312, align 2, !tbaa !94
   %313 = getelementptr i8, ptr %301, i64 12
   %314 = load i16, ptr %313, align 2, !tbaa !94
-  %315 = getelementptr inbounds nuw i16, ptr %267, i64 %308
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %267, i64 %308
   store i16 %314, ptr %315, align 2, !tbaa !94
   %316 = add nuw i32 %.0192430, 2
   %317 = icmp ult i32 %316, %79
@@ -1223,10 +1223,10 @@ define noundef range(i32 0, 18) i32 @_ZN13pana8_param_t7GetDBitEm(ptr noundef no
 
 5:                                                ; preds = %2, %12
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %12 ]
-  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !28
   %8 = and i64 %7, %1
-  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %.loopexit.loopexit, label %12
@@ -1291,14 +1291,14 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 21:                                               ; preds = %2, %21
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !94
   %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !96
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !96
-  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !96
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1312,10 +1312,10 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 32:                                               ; preds = %15, %32
   %indvars.iv110 = phi i64 [ 0, %15 ], [ %indvars.iv.next111, %32 ]
-  %33 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv110
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv110
   %34 = load i16, ptr %33, align 2, !tbaa !94
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv110
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv110
   store i32 %35, ptr %36, align 4, !tbaa !96
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, 4
@@ -1328,20 +1328,20 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 39:                                               ; preds = %.preheader94, %39
   %indvars.iv114 = phi i64 [ 0, %.preheader94 ], [ %indvars.iv.next115, %39 ]
-  %40 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv114
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv114
   %41 = load i16, ptr %40, align 2, !tbaa !94
   %42 = zext i16 %41 to i32
   %43 = shl i32 %42, 24
-  %44 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv114
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv114
   %45 = load i16, ptr %44, align 2, !tbaa !94
   %46 = zext i16 %45 to i32
   %47 = shl nuw i32 %46, 16
   %48 = or i32 %47, %43
-  %49 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv114
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv114
   %50 = load i16, ptr %49, align 2, !tbaa !94
   %51 = zext i16 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %53 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv114
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv114
   store i32 %52, ptr %53, align 4, !tbaa !96
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 17
@@ -1375,7 +1375,7 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
   %63 = trunc nuw nsw i64 %indvars.iv118 to i32
   %64 = tail call noundef i32 @_ZN13pana8_param_t10gammaCurveEj(ptr noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %63)
   %65 = trunc i32 %64 to i16
-  %66 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv118
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv118
   store i16 %65, ptr %66, align 2, !tbaa !94
   %67 = zext i32 %64 to i64
   %.not87 = icmp eq i64 %indvars.iv118, %67
@@ -1406,7 +1406,7 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 76:                                               ; preds = %.preheader138, %101
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %101 ], [ 0, %.preheader138 ]
   %.075103 = phi i32 [ %spec.select, %101 ], [ 0, %.preheader138 ]
-  %77 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv122
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv122
   %78 = load i32, ptr %77, align 4, !tbaa !96
   %79 = lshr i32 %78, 16
   %80 = and i32 %79, 31
@@ -1465,10 +1465,10 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
   %102 = sub nuw nsw i32 64, %80
   %103 = zext nneg i32 %102 to i64
   %104 = shl i64 65535, %103
-  %105 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv122
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv122
   store i64 %104, ptr %105, align 8, !tbaa !28
   %106 = shl i64 %.067, %103
-  %107 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv122
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv122
   store i64 %106, ptr %107, align 8, !tbaa !28
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 17
@@ -1505,10 +1505,10 @@ define void @_ZN13pana8_param_tC2ERK12pana8_tags_t(ptr noundef nonnull align 8 d
 
 122:                                              ; preds = %.preheader, %129
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %129 ], [ 0, %.preheader ]
-  %123 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %124 = load i64, ptr %123, align 8, !tbaa !28
   %125 = and i64 %124, %.063105
-  %126 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %127 = load i64, ptr %126, align 8, !tbaa !28
   %128 = icmp eq i64 %125, %127
   br i1 %128, label %.loopexit.loopexit.i, label %129
@@ -1664,10 +1664,10 @@ define noundef i32 @_ZN13pana8_param_t10gammaCurveEj(ptr noundef nonnull readonl
 37:                                               ; preds = %15, %23, %27, %19, %2
   %.040 = phi i32 [ %36, %27 ], [ 3, %23 ], [ 2, %19 ], [ 1, %15 ], [ 0, %2 ]
   %38 = zext nneg i32 %.040 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %11, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !96
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %38
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %38
   %43 = load i32, ptr %42, align 4, !tbaa !96
   %44 = and i32 %40, 65535
   %45 = sub nsw i32 %10, %44

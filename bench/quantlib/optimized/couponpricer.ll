@@ -56,7 +56,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.QuantLib::Visitor.81" = type { ptr }
 %"class.QuantLib::Visitor.82" = type { ptr }
 %"class.boost::shared_ptr.56" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::shared_ptr.88" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
 %"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::FloatingRateCouponPricer>, std::allocator<boost::shared_ptr<QuantLib::FloatingRateCouponPricer>>>::_Vector_impl" }
 %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::FloatingRateCouponPricer>, std::allocator<boost::shared_ptr<QuantLib::FloatingRateCouponPricer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::FloatingRateCouponPricer>, std::allocator<boost::shared_ptr<QuantLib::FloatingRateCouponPricer>>>::_Vector_impl_data" }
@@ -5803,7 +5802,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %setter)
   %cmp76 = icmp ult i64 %i.0132, %sub.ptr.div.i45
   %53 = load ptr, ptr %pricers, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.56", ptr %53, i64 %i.0132
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %i.0132
   %54 = getelementptr i8, ptr %53, i64 %sub.ptr.sub.i44
   %add.ptr.i79 = getelementptr i8, ptr %54, i64 -16
   %cond = select i1 %cmp76, ptr %add.ptr.i, ptr %add.ptr.i79
@@ -5838,7 +5837,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds =
   store ptr %55, ptr %pricer_.i, align 8, !tbaa !153
   store ptr %56, ptr %pn.i.i, align 8, !tbaa !37
   %58 = load ptr, ptr %leg, align 8, !tbaa !158
-  %add.ptr.i86 = getelementptr inbounds nuw %"class.boost::shared_ptr.88", ptr %58, i64 %i.0132
+  %add.ptr.i86 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %i.0132
   %59 = load ptr, ptr %add.ptr.i86, align 8, !tbaa !154
   %cmp.not.i = icmp eq ptr %59, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont84, !prof !69
@@ -6097,7 +6096,7 @@ _ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocate
 _ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_M_allocateEm.exit.i
   %3 = getelementptr inbounds nuw i8, ptr %setter, i64 8
   store ptr %call5.i.i.i.i13, ptr %3, align 8, !tbaa !165
-  %add.ptr21.i = getelementptr inbounds nuw %"class.QuantLib::(anonymous namespace)::PricerSetter", ptr %call5.i.i.i.i13, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw [144 x i8], ptr %call5.i.i.i.i13, i64 %sub.ptr.div.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE13_M_deallocateEPS2_m.exit.i, %if.end.i
@@ -6334,7 +6333,7 @@ if.then.i35.i.i:                                  ; preds = %_ZNSt6vectorIN8Quan
   br label %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i35.i.i, %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34.i.i
-  %add.ptr26.i.i = getelementptr inbounds nuw %"class.QuantLib::(anonymous namespace)::PricerSetter", ptr %cond.i20.i.i, i64 %cond.i.i.i
+  %add.ptr26.i.i = getelementptr inbounds nuw [144 x i8], ptr %cond.i20.i.i, i64 %cond.i.i.i
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EE17_M_realloc_insertIJRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %_ZNSt16allocator_traitsISaIN8QuantLib12_GLOBAL__N_112PricerSetterEEE9constructIS2_JRKN5boost10shared_ptrINS0_24FloatingRateCouponPricerEEEEEEvRS3_PT_DpOT0_.exit.i
@@ -6416,7 +6415,7 @@ cond.false.i:                                     ; preds = %do.body
 
 invoke.cont24:                                    ; preds = %.noexc39, %do.body
   %66 = phi ptr [ %65, %do.body ], [ %.pre.i38, %.noexc39 ]
-  %add.ptr.i40 = getelementptr inbounds nuw %"class.QuantLib::(anonymous namespace)::PricerSetter", ptr %setter.val, i64 %j.0
+  %add.ptr.i40 = getelementptr inbounds nuw [144 x i8], ptr %setter.val, i64 %j.0
   %vtable = load ptr, ptr %66, align 8, !tbaa !35
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %67 = load ptr, ptr %vfn, align 8
@@ -15331,7 +15330,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !161
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !159
-  %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.56", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !163
   ret void
 }

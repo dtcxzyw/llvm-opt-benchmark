@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.evthread_condition_callbacks = type { i32, ptr, ptr, ptr, ptr }
 %struct.eventop = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.evcallback_list = type { ptr, ptr }
-%struct.evwatch_list = type { ptr, ptr }
 %struct.evwatch_prepare_cb_info = type { ptr }
 %struct.evwatch_check_cb_info = type { ptr }
 
@@ -132,7 +130,7 @@ define hidden range(i32 -1, 1) i32 @event_debug_map_HT_GROW(ptr noundef captures
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %10, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds i32, ptr @event_debug_map_PRIMES, i64 %indvars.iv.next
+  %11 = getelementptr inbounds [4 x i8], ptr @event_debug_map_PRIMES, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4
   %13 = uitofp i32 %12 to double
   %14 = fmul nnan double %13, 5.000000e-01
@@ -174,7 +172,7 @@ event_mm_malloc_.exit:                            ; preds = %24, %26
   %31 = phi i32 [ %44, %._crit_edge ], [ %30, %28 ]
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %._crit_edge ], [ 0, %28 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv115
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv115
   %34 = load ptr, ptr %33, align 8
   %.not8694 = icmp eq ptr %34, null
   br i1 %.not8694, label %._crit_edge, label %.lr.ph
@@ -189,7 +187,7 @@ event_mm_malloc_.exit:                            ; preds = %24, %26
   %39 = lshr i32 %38, 6
   %40 = urem i32 %39, %12
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %41
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %.07495, align 8
   store ptr %.07495, ptr %42, align 8
@@ -248,7 +246,7 @@ event_mm_realloc_.exit:                           ; preds = %54, %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %.0.i89, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0.i89, i64 %61
   %63 = sub i32 %12, %60
   %64 = zext i32 %63 to i64
   %65 = shl nuw nsw i64 %64, 3
@@ -260,7 +258,7 @@ event_mm_realloc_.exit:                           ; preds = %54, %56
 .lr.ph109:                                        ; preds = %58, %._crit_edge106
   %67 = phi i32 [ %81, %._crit_edge106 ], [ %66, %58 ]
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %._crit_edge106 ], [ 0, %58 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %.0.i89, i64 %indvars.iv118
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.0.i89, i64 %indvars.iv118
   %.069100 = load ptr, ptr %68, align 8
   %.not84101 = icmp eq ptr %.069100, null
   br i1 %.not84101, label %._crit_edge106, label %.lr.ph105
@@ -281,7 +279,7 @@ event_mm_realloc_.exit:                           ; preds = %54, %56
 76:                                               ; preds = %.lr.ph105
   %77 = load ptr, ptr %.069103, align 8
   store ptr %77, ptr %.0102, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %.0.i89, i64 %74
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.0.i89, i64 %74
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %.069103, align 8
   store ptr %.069103, ptr %78, align 8
@@ -463,7 +461,7 @@ define hidden range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nou
 
 29:                                               ; preds = %25
   %30 = zext nneg i32 %20 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @event_debug_map_PRIMES, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @event_debug_map_PRIMES, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not42 = icmp eq i32 %3, %32
   br i1 %.not42, label %33, label %50
@@ -482,7 +480,7 @@ define hidden range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nou
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.03257 = phi i32 [ 0, %.preheader.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %.053 = load ptr, ptr %37, align 8
   %.not4554 = icmp eq ptr %.053, null
   br i1 %.not4554, label %._crit_edge, label %.lr.ph
@@ -932,7 +930,7 @@ event_config_is_avoided_method.exit.us.us:        ; preds = %.split.us.split.us
   %97 = call ptr %96(ptr noundef nonnull %.0.i118) #26
   store ptr %97, ptr %69, align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %98 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next148
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @eventops, i64 %indvars.iv.next148
   %99 = load ptr, ptr %98, align 8
   %.not92.us.us = icmp eq i64 %indvars.iv.next148, 3
   br i1 %.not92.us.us, label %.critedge, label %.split.us.split.us, !llvm.loop !11
@@ -980,7 +978,7 @@ event_is_method_disabled.exit.us:                 ; preds = %.lr.ph.i110.us, %10
 
 event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_method_disabled.exit.us
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %116 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next145
+  %116 = getelementptr inbounds nuw [8 x i8], ptr @eventops, i64 %indvars.iv.next145
   %117 = load ptr, ptr %116, align 8
   %.not92.us = icmp eq i64 %indvars.iv.next145, 3
   br i1 %.not92.us, label %.critedgethread-pre-split, label %.split.us.split, !llvm.loop !11
@@ -1039,7 +1037,7 @@ event_config_is_avoided_method.exit.us:           ; preds = %112, %event_is_meth
 event_config_is_avoided_method.exit.us128:        ; preds = %126, %134, %.loopexit124.us
   %138 = phi ptr [ null, %.loopexit124.us ], [ %137, %134 ], [ null, %126 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %139 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next142
+  %139 = getelementptr inbounds nuw [8 x i8], ptr @eventops, i64 %indvars.iv.next142
   %140 = load ptr, ptr %139, align 8
   %.not92.us129 = icmp eq i64 %indvars.iv.next142, 3
   br i1 %.not92.us129, label %.critedgethread-pre-split, label %.split.split.us, !llvm.loop !11
@@ -1117,7 +1115,7 @@ event_is_method_disabled.exit:                    ; preds = %.lr.ph.i110, %155
 
 event_config_is_avoided_method.exit:              ; preds = %147, %event_is_method_disabled.exit, %.loopexit124, %164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %168 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv.next
+  %168 = getelementptr inbounds nuw [8 x i8], ptr @eventops, i64 %indvars.iv.next
   %169 = load ptr, ptr %168, align 8
   %.not92 = icmp eq i64 %indvars.iv.next, 3
   br i1 %.not92, label %.critedgethread-pre-split, label %.split.split, !llvm.loop !11
@@ -1551,13 +1549,13 @@ define hidden void @event_disable_debug_mode() local_unnamed_addr #0 {
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %8, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %9
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %event_mm_free_.exit
@@ -1592,13 +1590,13 @@ define hidden void @event_disable_debug_mode() local_unnamed_addr #0 {
   br i1 %28, label %29, label %event_debug_map_HT_NEXT_RMV.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i10
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i10
   %31 = load ptr, ptr %30, align 8
   %.not16.i = icmp eq ptr %31, null
   br i1 %.not16.i, label %27, label %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, !llvm.loop !16
 
 event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit: ; preds = %29
-  %32 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i10
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i10
   br label %event_debug_map_HT_NEXT_RMV.exit
 
 event_debug_map_HT_NEXT_RMV.exit:                 ; preds = %27, %event_debug_map_HT_NEXT_RMV.exit.loopexit.split.loop.exit, %.lr.ph
@@ -1814,10 +1812,10 @@ event_mm_calloc_.exit:                            ; preds = %25
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw %struct.evcallback_list, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds nuw %struct.evcallback_list, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %42, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2012,7 +2010,7 @@ event_del.exit121:                                ; preds = %51, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next, %event_mm_free_.exit ]
   %.188172 = phi i64 [ %.087.lcssa, %.lr.ph174 ], [ %.289.lcssa, %event_mm_free_.exit ]
   %60 = load ptr, ptr %42, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 96
@@ -2247,7 +2245,7 @@ event_mm_free_.exit130:                           ; preds = %110, %109, %._crit_
   %166 = getelementptr inbounds nuw i8, ptr %122, i64 18
   %167 = load i8, ptr %166, align 2
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw %struct.evcallback_list, ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %168
   br label %event_queue_remove_active.exit.i154
 
 event_queue_remove_active.exit.i154:              ; preds = %164, %152
@@ -2315,7 +2313,7 @@ event_del_.exit.i23.us.i:                         ; preds = %event_del_.exit.sin
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %118 ]
   %.045.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %118 ]
   %194 = load ptr, ptr %112, align 8
-  %195 = getelementptr inbounds nuw %struct.evcallback_list, ptr %194, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %194, i64 %indvars.iv.i
   %196 = load ptr, ptr %195, align 8
   %.not2039.i = icmp eq ptr %196, null
   br i1 %.not2039.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2413,7 +2411,7 @@ event_del_.exit.i23.us.i:                         ; preds = %event_del_.exit.sin
   %241 = getelementptr inbounds nuw i8, ptr %.01840.i, i64 18
   %242 = load i8, ptr %241, align 2
   %243 = zext i8 %242 to i64
-  %244 = getelementptr inbounds nuw %struct.evcallback_list, ptr %240, i64 %243
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %243
   br label %event_queue_remove_active.exit.i.i
 
 event_queue_remove_active.exit.i.i:               ; preds = %239, %227
@@ -2628,7 +2626,7 @@ event_base_cancel_single_callback_.exit.i:        ; preds = %283, %282, %281, %2
   %336 = getelementptr inbounds nuw i8, ptr %292, i64 18
   %337 = load i8, ptr %336, align 2
   %338 = zext i8 %337 to i64
-  %339 = getelementptr inbounds nuw %struct.evcallback_list, ptr %335, i64 %338
+  %339 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %338
   br label %event_queue_remove_active.exit.i
 
 event_queue_remove_active.exit.i:                 ; preds = %334, %322
@@ -2890,7 +2888,7 @@ event_mm_free_.exit138:                           ; preds = %416, %417
 .preheader:                                       ; preds = %432, %._crit_edge183
   %434 = phi i1 [ true, %432 ], [ false, %._crit_edge183 ]
   %indvars.iv190 = phi i64 [ 0, %432 ], [ 1, %._crit_edge183 ]
-  %435 = getelementptr inbounds nuw %struct.evwatch_list, ptr %433, i64 %indvars.iv190
+  %435 = getelementptr inbounds nuw [16 x i8], ptr %433, i64 %indvars.iv190
   %436 = load ptr, ptr %435, align 8
   %.not114181 = icmp eq ptr %436, null
   br i1 %.not114181, label %._crit_edge183, label %.lr.ph182
@@ -3255,7 +3253,7 @@ min_heap_top_.exit:                               ; preds = %33, %36
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %63 = load i8, ptr %62, align 2
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw %struct.evcallback_list, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %64
   br label %event_queue_remove_active.exit
 
 event_queue_remove_active.exit:                   ; preds = %45, %59
@@ -3430,7 +3428,7 @@ evthread_notify_base.exit:                        ; preds = %134, %131, %128, %1
   %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %149 = urem i32 %147, %148
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %143, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %150
   br label %152
 
 152:                                              ; preds = %154, %144
@@ -3550,7 +3548,7 @@ define void @event_debug_unassign(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -3621,7 +3619,7 @@ event_debug_assert_not_added_.exit:               ; preds = %event_debug_map_HT_
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %50 = urem i32 %48, %49
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %44, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %51
   br label %53
 
 53:                                               ; preds = %55, %45
@@ -3716,7 +3714,7 @@ define hidden range(i32 2, 1) i32 @event_add_nolock_(ptr noundef %0, ptr noundef
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %23 = urem i32 %21, %22
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %17, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %24
   br label %26
 
 26:                                               ; preds = %28, %18
@@ -4032,7 +4030,7 @@ min_heap_reserve_.exit.thread:                    ; preds = %64, %.thread.i, %61
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %184 = load i8, ptr %183, align 2
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds nuw %struct.evcallback_list, ptr %182, i64 %185
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %185
   br label %event_queue_remove_active.exit
 
 event_queue_remove_active.exit:                   ; preds = %165, %180
@@ -4233,7 +4231,7 @@ is_common_timeout.exit.i:                         ; preds = %268
   %.val20.i = load ptr, ptr %288, align 8
   %289 = lshr i64 %.val.i, 20
   %290 = and i64 %289, 255
-  %291 = getelementptr inbounds nuw ptr, ptr %.val20.i, i64 %290
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %.val20.i, i64 %290
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %.pn37.i.i = load ptr, ptr %293, align 8
@@ -4373,7 +4371,7 @@ event_mm_realloc_.exit.i.i.i:                     ; preds = %334, %332
   %.028.in.i.i.i = add i64 %.02127.i.i.i, -1
   %.028.i.i.i = lshr i64 %.028.in.i.i.i, 1
   %338 = load ptr, ptr %320, align 8
-  %339 = getelementptr inbounds nuw ptr, ptr %338, i64 %.028.i.i.i
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %.028.i.i.i
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 104
   %342 = load i64, ptr %341, align 8
@@ -4393,7 +4391,7 @@ event_mm_realloc_.exit.i.i.i:                     ; preds = %334, %332
   br i1 %351, label %352, label %min_heap_shift_up_.exit.i.i
 
 352:                                              ; preds = %350, %345
-  %353 = getelementptr inbounds nuw ptr, ptr %338, i64 %.02127.i.i.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %.02127.i.i.i
   store ptr %340, ptr %353, align 8
   %354 = getelementptr inbounds nuw i8, ptr %340, i64 40
   store i64 %.02127.i.i.i, ptr %354, align 8
@@ -4403,7 +4401,7 @@ event_mm_realloc_.exit.i.i.i:                     ; preds = %334, %332
 min_heap_shift_up_.exit.i.i:                      ; preds = %352, %350, %345, %336
   %.021.lcssa.i.i.i = phi i64 [ 0, %336 ], [ %.02127.i.i.i, %350 ], [ 0, %352 ], [ %.02127.i.i.i, %345 ]
   %355 = load ptr, ptr %320, align 8
-  %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %.021.lcssa.i.i.i
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %.021.lcssa.i.i.i
   store ptr %0, ptr %356, align 8
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.021.lcssa.i.i.i, ptr %357, align 8
@@ -4418,7 +4416,7 @@ event_queue_insert_timeout.exit:                  ; preds = %insert_common_timeo
   %.val152 = load i64, ptr %280, align 8
   %360 = lshr i64 %.val152, 20
   %361 = and i64 %360, 255
-  %362 = getelementptr inbounds nuw ptr, ptr %.val151, i64 %361
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %.val151, i64 %361
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %363, align 8
   %365 = icmp eq ptr %0, %364
@@ -4548,7 +4546,7 @@ evthread_notify_base.exit:                        ; preds = %124, %411, %408, %4
   %425 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %426 = urem i32 %424, %425
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw ptr, ptr %420, i64 %427
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %427
   br label %429
 
 429:                                              ; preds = %431, %421
@@ -4661,7 +4659,7 @@ define internal fastcc range(i32 2, 1) i32 @evthread_make_base_notifiable_nolock
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %33 = urem i32 %31, %32
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %27, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %34
   br label %36
 
 36:                                               ; preds = %38, %28
@@ -4793,11 +4791,11 @@ event_mm_calloc_.exit:                            ; preds = %0
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %7 = getelementptr inbounds nuw ptr, ptr @eventops, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @eventops, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %.0.i36, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.0.i36, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %.not19 = icmp eq i64 %indvars.iv.next, 3
   br i1 %.not19, label %11, label %.preheader, !llvm.loop !31
@@ -5290,7 +5288,7 @@ is_common_timeout.exit.thread:                    ; preds = %is_common_timeout.e
 
 30:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
@@ -5433,7 +5431,7 @@ event_mm_calloc_.exit:                            ; preds = %60
   %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %96 = urem i32 %94, %95
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %90, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %97
   br label %99
 
 99:                                               ; preds = %101, %91
@@ -5497,7 +5495,7 @@ event_priority_set.exit:                          ; preds = %event_debug_assert_
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %24, align 8
   %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds ptr, ptr %125, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %125, i64 %128
   store ptr %.0.i86101, ptr %129, align 8
   br label %.loopexit
 
@@ -5575,7 +5573,7 @@ event_debug_assert_socket_nonblocking_.exit:      ; preds = %event_debug_assert_
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %29 = urem i32 %27, %28
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %23, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %30
   br label %32
 
 32:                                               ; preds = %34, %24
@@ -5711,7 +5709,7 @@ event_debug_assert_not_added_.exit:               ; preds = %event_debug_assert_
   %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %93 = urem i32 %91, %92
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %87, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %94
   br label %96
 
 96:                                               ; preds = %98, %88
@@ -5789,7 +5787,7 @@ event_debug_map_HT_INSERT.exit.i:                 ; preds = %116, %109
   %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %126 = urem i32 %124, %125
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %119, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %127
   %129 = load ptr, ptr %128, align 8
   store ptr %129, ptr %.0.i.i, align 8
   store ptr %.0.i.i, ptr %128, align 8
@@ -5991,7 +5989,7 @@ define range(i32 -1, 1) i32 @event_priority_set(ptr noundef %0, i32 noundef %1) 
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %16 = urem i32 %14, %15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %17
   br label %19
 
 19:                                               ; preds = %21, %11
@@ -6398,19 +6396,19 @@ event_haveevents.exit.thread:                     ; preds = %145, %150, %event_h
   %169 = getelementptr inbounds nuw i8, ptr %155, i64 18
   %170 = load i8, ptr %169, align 2
   %171 = zext i8 %170 to i64
-  %172 = getelementptr inbounds nuw %struct.evcallback_list, ptr %168, i64 %171
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %168, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
   store ptr %174, ptr %157, align 8
   %175 = load ptr, ptr %64, align 8
-  %176 = getelementptr inbounds nuw %struct.evcallback_list, ptr %175, i64 %171
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %171
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   store ptr %155, ptr %178, align 8
   %179 = load ptr, ptr %64, align 8
   %180 = load i8, ptr %169, align 2
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw %struct.evcallback_list, ptr %179, i64 %181
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %179, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr %155, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %155, i64 19
@@ -6805,7 +6803,7 @@ gettime.exit.i122:                                ; preds = %343, %329, %update_
   %359 = phi i32 [ %355, %.lr.ph.i118 ], [ %372, %371 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i118 ], [ %indvars.iv.next.i, %371 ]
   %360 = load ptr, ptr %64, align 8
-  %361 = getelementptr inbounds nuw %struct.evcallback_list, ptr %360, i64 %indvars.iv.i
+  %361 = getelementptr inbounds nuw [16 x i8], ptr %360, i64 %indvars.iv.i
   %362 = load ptr, ptr %361, align 8
   %.not.i119 = icmp eq ptr %362, null
   br i1 %.not.i119, label %371, label %363
@@ -7608,7 +7606,7 @@ define range(i32 -1, 1) i32 @event_base_set(ptr noundef %0, ptr noundef %1) loca
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %19 = urem i32 %17, %18
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %20
   br label %22
 
 22:                                               ; preds = %24, %14
@@ -7815,7 +7813,7 @@ event_del.exit:                                   ; preds = %9, %12
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %28 = urem i32 %26, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   br label %31
 
 31:                                               ; preds = %33, %23
@@ -8074,7 +8072,7 @@ define hidden range(i32 2, 1) i32 @event_callback_cancel_nolock_(ptr noundef cap
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %35 = load i8, ptr %34, align 2
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.evcallback_list, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %36
   br label %event_queue_remove_active.exit
 
 event_queue_remove_active.exit:                   ; preds = %17, %31
@@ -8222,20 +8220,20 @@ event_queue_remove_active_later.exit:             ; preds = %23, %25
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.evcallback_list, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %54, ptr %55, align 8
   %56 = load ptr, ptr %47, align 8
-  %57 = getelementptr inbounds nuw %struct.evcallback_list, ptr %56, i64 %51
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %51
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   store ptr %1, ptr %59, align 8
   %60 = load ptr, ptr %47, align 8
   %61 = load i8, ptr %49, align 2
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.evcallback_list, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %1, ptr %64, align 8
   br label %event_queue_insert_active.exit
@@ -8365,7 +8363,7 @@ define hidden noundef i32 @event_callback_finalize_many_(ptr noundef %0, i32 nou
 18:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.02333 = phi i32 [ 0, %.lr.ph ], [ %.1, %39 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %17, align 8
   %22 = icmp eq ptr %20, %21
@@ -8494,7 +8492,7 @@ define range(i32 0, 144) i32 @event_pending(ptr noundef %0, i16 noundef signext 
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %25 = urem i32 %23, %24
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %19, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %26
   br label %28
 
 28:                                               ; preds = %30, %20
@@ -8657,7 +8655,7 @@ define void @event_get_assignment(ptr noundef %0, ptr noundef writeonly captures
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %20 = urem i32 %18, %19
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %21
   br label %23
 
 23:                                               ; preds = %25, %15
@@ -8781,7 +8779,7 @@ define i32 @event_get_fd(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -8852,7 +8850,7 @@ define ptr @event_get_base(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -8923,7 +8921,7 @@ define signext i16 @event_get_events(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -8994,7 +8992,7 @@ define ptr @event_get_callback(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -9065,7 +9063,7 @@ define ptr @event_get_callback_arg(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -9136,7 +9134,7 @@ define range(i32 0, 256) i32 @event_get_priority(ptr noundef %0) local_unnamed_a
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %15 = urem i32 %13, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
   br label %18
 
 18:                                               ; preds = %20, %10
@@ -9241,7 +9239,7 @@ define hidden noundef i32 @event_remove_timer_nolock_(ptr noundef %0) local_unna
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %17 = urem i32 %15, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   br label %20
 
 20:                                               ; preds = %22, %12
@@ -9352,7 +9350,7 @@ is_common_timeout.exit:                           ; preds = %2
   %.val19 = load ptr, ptr %27, align 8
   %28 = lshr i64 %.val, 20
   %29 = and i64 %28, 255
-  %30 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val19, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load ptr, ptr %32, align 8
@@ -9379,7 +9377,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, -1
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %39, align 8
   %.not23.i = icmp eq i64 %48, 0
@@ -9388,7 +9386,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
 49:                                               ; preds = %41
   %50 = add i64 %48, -1
   %51 = lshr i64 %50, 1
-  %52 = getelementptr inbounds nuw ptr, ptr %42, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %55 = load i64, ptr %54, align 8
@@ -9410,7 +9408,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   br i1 %66, label %67, label %91
 
 67:                                               ; preds = %65, %59
-  %68 = getelementptr inbounds nuw ptr, ptr %42, i64 %48
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %48
   store ptr %53, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store i64 %48, ptr %69, align 8
@@ -9426,7 +9424,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   %.in.i.i = add nsw i64 %.025.i.i, -1
   %72 = lshr i64 %.in.i.i, 1
   %73 = load ptr, ptr %38, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 104
   %77 = load i64, ptr %76, align 8
@@ -9446,7 +9444,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
   br i1 %86, label %.backedge.i.i, label %min_heap_shift_up_unconditional_.exit.i
 
 .backedge.i.i:                                    ; preds = %85, %80
-  %87 = getelementptr inbounds nuw ptr, ptr %73, i64 %.025.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.025.i.i
   store ptr %75, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 40
   store i64 %.025.i.i, ptr %88, align 8
@@ -9456,7 +9454,7 @@ is_common_timeout.exit.thread:                    ; preds = %2, %is_common_timeo
 min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85, %80, %67
   %.0.lcssa.i.i = phi i64 [ 0, %67 ], [ %.025.i.i, %80 ], [ 0, %.backedge.i.i ], [ %.025.i.i, %85 ]
   %89 = load ptr, ptr %38, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0.lcssa.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0.lcssa.i.i
   store ptr %47, ptr %90, align 8
   br label %137
 
@@ -9480,7 +9478,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   br i1 %96, label %116, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.048.i.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.048.i.i
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
   %101 = load i64, ptr %100, align 8
@@ -9512,7 +9510,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   %.neg43.i.i = phi i64 [ -1, %94 ], [ %.neg.i.i, %115 ]
   %117 = add i64 %.neg43.i.i, %.048.i.i
   %118 = load i64, ptr %93, align 8
-  %119 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %117
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %117
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 104
   %122 = load i64, ptr %121, align 8
@@ -9531,7 +9529,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   br i1 %130, label %131, label %min_heap_shift_down_.exit.i
 
 131:                                              ; preds = %129, %124
-  %132 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.03747.i.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.03747.i.i
   store ptr %120, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %120, i64 40
   store i64 %.03747.i.i, ptr %133, align 8
@@ -9548,7 +9546,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
 min_heap_shift_down_.exit.i:                      ; preds = %129, %124, %.min_heap_shift_down_.exit.loopexit_crit_edge.i, %91
   %135 = phi ptr [ %42, %91 ], [ %.pre.pre.i, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.pre.i.i, %124 ], [ %.pre.i.i, %129 ]
   %.037.lcssa.i.i = phi i64 [ %48, %91 ], [ %117, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.03747.i.i, %124 ], [ %.03747.i.i, %129 ]
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.037.lcssa.i.i
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %.037.lcssa.i.i
   store ptr %47, ptr %136, align 8
   br label %137
 
@@ -9701,7 +9699,7 @@ define void @event_active(ptr noundef %0, i32 noundef %1, i16 noundef signext %2
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %25 = urem i32 %23, %24
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %19, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %26
   br label %28
 
 28:                                               ; preds = %30, %20
@@ -10344,7 +10342,7 @@ define hidden i32 @event_base_foreach_event_nolock_(ptr noundef %0, ptr noundef 
   %13 = phi i64 [ %6, %.lr.ph ], [ %23, %22 ]
   %.05077 = phi i64 [ 0, %.lr.ph ], [ %24, %22 ]
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.05077
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.05077
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i16, ptr %17, align 8
@@ -10381,7 +10379,7 @@ define hidden i32 @event_base_foreach_event_nolock_(ptr noundef %0, ptr noundef 
   %31 = phi i32 [ %9, %.lr.ph83 ], [ %42, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %._crit_edge ]
   %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %.04978 = load ptr, ptr %34, align 8
   %.not6079 = icmp eq ptr %.04978, null
@@ -10421,7 +10419,7 @@ define hidden i32 @event_base_foreach_event_nolock_(ptr noundef %0, ptr noundef 
   %46 = phi i32 [ %27, %.lr.ph91 ], [ %55, %._crit_edge89 ]
   %indvars.iv99 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next100, %._crit_edge89 ]
   %47 = load ptr, ptr %29, align 8
-  %48 = getelementptr inbounds nuw %struct.evcallback_list, ptr %47, i64 %indvars.iv99
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv99
   %.084 = load ptr, ptr %48, align 8
   %.not5785 = icmp eq ptr %.084, null
   br i1 %.not5785, label %._crit_edge89, label %.lr.ph88
@@ -10695,7 +10693,7 @@ define void @event_base_active_by_fd(ptr noundef %0, i32 noundef %1, i16 noundef
   %21 = phi i64 [ %12, %.lr.ph ], [ %30, %29 ]
   %.02736 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
   %22 = load ptr, ptr %13, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.02736
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.02736
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load i32, ptr %25, align 8
@@ -10717,7 +10715,7 @@ define void @event_base_active_by_fd(ptr noundef %0, i32 noundef %1, i16 noundef
   %34 = phi i32 [ %17, %.lr.ph43 ], [ %181, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %._crit_edge ]
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %.02637 = load ptr, ptr %37, align 8
   %.not3238 = icmp eq ptr %.02637, null
@@ -10934,20 +10932,20 @@ event_queue_remove_active_later.exit.i:           ; preds = %125, %123
   %148 = load ptr, ptr %147, align 8
   %149 = load i8, ptr %67, align 2
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw %struct.evcallback_list, ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %.02639, i64 8
   store ptr %153, ptr %154, align 8
   %155 = load ptr, ptr %147, align 8
-  %156 = getelementptr inbounds nuw %struct.evcallback_list, ptr %155, i64 %150
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %150
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
   store ptr %.02639, ptr %158, align 8
   %159 = load ptr, ptr %147, align 8
   %160 = load i8, ptr %67, align 2
   %161 = zext i8 %160 to i64
-  %162 = getelementptr inbounds nuw %struct.evcallback_list, ptr %159, i64 %161
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %.02639, ptr %163, align 8
   br label %event_queue_insert_active.exit.i
@@ -11350,7 +11348,7 @@ define internal fastcc i32 @event_process_active_single_queue(ptr noundef %0, pt
   %62 = getelementptr inbounds nuw i8, ptr %.088, i64 18
   %63 = load i8, ptr %62, align 2
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw %struct.evcallback_list, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %64
   br label %event_queue_remove_active.exit
 
 event_queue_remove_active.exit:                   ; preds = %48, %60
@@ -11412,7 +11410,7 @@ event_queue_remove_active.exit:                   ; preds = %48, %60
   %97 = getelementptr inbounds nuw i8, ptr %.088, i64 18
   %98 = load i8, ptr %97, align 2
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.evcallback_list, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %99
   br label %event_queue_remove_active.exit127
 
 event_queue_remove_active.exit127:                ; preds = %83, %95
@@ -11826,7 +11824,7 @@ event_persist_closure.exit:                       ; preds = %235, %245
   %292 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_debug_map, i64 8), align 8
   %293 = urem i32 %291, %292
   %294 = zext nneg i32 %293 to i64
-  %295 = getelementptr inbounds nuw ptr, ptr %287, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %294
   br label %296
 
 296:                                              ; preds = %298, %288

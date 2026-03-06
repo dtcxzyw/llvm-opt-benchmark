@@ -8443,7 +8443,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h0003ad9517ea714dE.exit.i: ; preds = %2
-  %15 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i64 %12
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %12
   call void @_ZN4core3ptr4swap17hf160f5ffacb5ed11E.llvm.16185551851059302720(ptr noundef nonnull %10, ptr noundef nonnull %15), !noalias !2292
   br label %.outer.i
 
@@ -8529,7 +8529,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17hf48d202bceb1ae11E.exit.i: ; preds = %2
-  %15 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i64 %12
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %12
   call void @_ZN4core3ptr4swap17h194e70a08434866dE.llvm.16185551851059302720(ptr noundef nonnull %10, ptr noundef nonnull %15), !noalias !2311
   br label %.outer.i
 
@@ -8617,7 +8617,7 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h23a0a2d6648c6b37E.exit.i: ; preds = %3
-  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i64 %14
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %14
   call void @_ZN4core3ptr4swap17h629108f468416f05E.llvm.16185551851059302720(ptr noundef nonnull %12, ptr noundef nonnull %17), !noalias !2331
   br label %.outer.i
 
@@ -8820,7 +8820,7 @@ define hidden { i64, ptr } @"_ZN3lsp14LanguageServer8shutdown28_$u7b$$u7b$closur
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17hf48d202bceb1ae11E.exit: ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %11
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %11
   call void @_ZN4core3ptr4swap17h194e70a08434866dE.llvm.16185551851059302720(ptr noundef nonnull %9, ptr noundef nonnull %14), !noalias !2353
   br label %.outer
 
@@ -8986,7 +8986,7 @@ define hidden void @"_ZN3lsp14LanguageServer16request_internal28_$u7b$$u7b$closu
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h23a0a2d6648c6b37E.exit: ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %13
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %13
   call void @_ZN4core3ptr4swap17h629108f468416f05E.llvm.16185551851059302720(ptr noundef nonnull %11, ptr noundef nonnull %16), !noalias !2377
   br label %.outer
 
@@ -9076,7 +9076,7 @@ define hidden { i64, ptr } @"_ZN3lsp14LanguageServer16request_internal28_$u7b$$u
   unreachable
 
 _ZN12futures_util11async_await6random7shuffle17h0003ad9517ea714dE.exit: ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i64 %11
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %11
   call void @_ZN4core3ptr4swap17hf160f5ffacb5ed11E.llvm.16185551851059302720(ptr noundef nonnull %9, ptr noundef nonnull %14), !noalias !2389
   br label %.outer
 

@@ -241,7 +241,7 @@ _ZNK14LogDecorations25print_hostname_decorationEP12outputStream.exit: ; preds = 
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8LogLevel5_nameE, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %54, i64 noundef %55) #7
@@ -378,7 +378,7 @@ define hidden void @_ZNK14LogDecorations22print_level_decorationEP12outputStream
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZN8LogLevel5_nameE, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8LogLevel5_nameE, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %7, i64 noundef %8) #7

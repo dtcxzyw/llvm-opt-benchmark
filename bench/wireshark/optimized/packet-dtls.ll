@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._StringInfo = type { ptr, i32 }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._ssldecrypt_assoc_t = type { ptr, ptr, ptr, ptr, ptr }
 
 @hf_dtls_hs_ext_use_srtp_protection_profiles_length = internal global i32 0, align 4
 @ei_dtls_use_srtp_profiles_length = internal global %struct.expert_field zeroinitializer, align 4
@@ -1280,13 +1279,13 @@ define hidden i32 @dtls_dissect_hnd_hello_ext_use_srtp(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %47
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep86 = getelementptr inbounds nuw i32, ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.2, i64 %55
+  %switch.gep86 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.2, i64 %55
   %switch.load87 = load i32, ptr %switch.gep86, align 4
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep88 = getelementptr inbounds nuw i32, ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.3, i64 %56
+  %switch.gep88 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.3, i64 %56
   %switch.load89 = load i32, ptr %switch.gep88, align 4
   br label %57
 
@@ -1607,7 +1606,7 @@ define hidden void @proto_reg_handoff_dtls() #0 {
   call void @g_strfreev(ptr noundef %12)
   %38 = add i32 %.030.i, 1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr ptr, ptr %9, i64 %39
+  %40 = getelementptr [8 x i8], ptr %9, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not24.i = icmp eq ptr %41, null
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
@@ -2012,7 +2011,7 @@ define internal void @dtls_parse_uat() #0 {
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph16.preheader ]
   %28 = load ptr, ptr @dtlskeylist_uats, align 8
-  %29 = getelementptr %struct._ssldecrypt_assoc_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [40 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr @dtls_key_hash, align 8
   %31 = load ptr, ptr @dtls_handle, align 8
   call void @ssl_parse_key_list(ptr noundef %29, ptr noundef %30, ptr noundef nonnull @.str.854, ptr noundef %31, i1 noundef zeroext false)
@@ -2172,7 +2171,7 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not183.i.i = icmp eq i32 %38, 0
   %62 = getelementptr inbounds nuw i8, ptr %spec.select, i64 864
   %63 = zext i1 %51 to i64
-  %64 = getelementptr i64, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %spec.select, i64 896
   %66 = getelementptr inbounds nuw i8, ptr %spec.select, i64 560
   %67 = getelementptr inbounds nuw i8, ptr %spec.select, i64 648
@@ -2550,7 +2549,7 @@ dtls13_setup_keys.exit.i.i:                       ; preds = %197, %195
 
 234:                                              ; preds = %244, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %244 ]
-  %235 = getelementptr i16, ptr @dtls13_decrypt_early_data.tls13_ciphers, i64 %indvars.iv.i.i.i
+  %235 = getelementptr [2 x i8], ptr @dtls13_decrypt_early_data.tls13_ciphers, i64 %indvars.iv.i.i.i
   %236 = load i16, ptr %235, align 2
   %237 = zext i16 %236 to i32
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.951, i32 noundef %237)
@@ -3743,7 +3742,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   %.0.in.i = getelementptr inbounds nuw i8, ptr %8, i64 %.0.in.v.i
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 864
   %23 = zext i1 %21 to i64
-  %24 = getelementptr i64, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 180
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 456
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 448
@@ -4584,7 +4583,7 @@ define internal fastcc noundef zeroext i1 @dtls13_decrypt_unified_record(ptr nou
 dtls13_get_record_number_xor_mask.exit:           ; preds = %39, %33, %28
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 880
   %46 = zext i1 %5 to i64
-  %47 = getelementptr i64, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i8 %10, 1
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 1

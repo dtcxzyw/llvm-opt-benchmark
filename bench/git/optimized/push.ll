@@ -843,7 +843,7 @@ set_push_cert_flags.exit:                         ; preds = %4, %.sink.split.i
   %.038.i = phi i32 [ 0, %.lr.ph.i ], [ %409, %408 ]
   %.02337.i = phi ptr [ null, %.lr.ph.i ], [ %.124.i, %408 ]
   %339 = sext i32 %.038.i to i64
-  %340 = getelementptr inbounds ptr, ptr %332, i64 %339
+  %340 = getelementptr inbounds [8 x i8], ptr %332, i64 %339
   %341 = load ptr, ptr %340, align 8, !tbaa !8
   %342 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.87, ptr noundef nonnull dereferenceable(1) %341) #16
   %.not.i = icmp eq i32 %342, 0
@@ -861,7 +861,7 @@ set_push_cert_flags.exit:                         ; preds = %4, %.sink.split.i
 
 347:                                              ; preds = %343
   %348 = sext i32 %344 to i64
-  %349 = getelementptr inbounds ptr, ptr %332, i64 %348
+  %349 = getelementptr inbounds [8 x i8], ptr %332, i64 %348
   %350 = load ptr, ptr %349, align 8, !tbaa !8
   %351 = load i32, ptr @deleterefs, align 4, !tbaa !4
   %.not28.i = icmp eq i32 %351, 0
@@ -1257,7 +1257,7 @@ setup_default_push_refspecs.exit.i:               ; preds = %500, %458, %454, %4
   %.049.i = phi i32 [ 0, %.lr.ph.i43 ], [ %618, %617 ]
   %.01748.i = phi i64 [ 0, %.lr.ph.i43 ], [ %619, %617 ]
   %509 = load ptr, ptr %502, align 8, !tbaa !58
-  %510 = getelementptr inbounds nuw ptr, ptr %509, i64 %.01748.i
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %509, i64 %.01748.i
   %511 = load ptr, ptr %510, align 8, !tbaa !8
   %512 = call ptr @transport_get(ptr noundef nonnull %411, ptr noundef %511) #14
   br i1 %.not23.i, label %515, label %513

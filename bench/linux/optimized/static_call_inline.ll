@@ -25,10 +25,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.2 = type { %struct.anon.3, [16 x i8] }
 %struct.anon.3 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.static_call_tramp_key = type { i32, i32 }
-%struct.module_memory = type { ptr, i32, %struct.mod_tree_node }
-%struct.mod_tree_node = type { ptr, %struct.latch_tree_node }
-%struct.latch_tree_node = type { [2 x %struct.rb_node] }
-%struct.rb_node = type { i64, ptr, ptr }
 
 @static_call_initialized = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [28 x i8] c"kernel/static_call_inline.c\00", align 1
@@ -137,7 +133,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 1092
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.static_call_site, ptr %31, i64 %34
+  %35 = getelementptr [8 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %21, align 64
   %37 = icmp eq i32 %36, 1
   br label %38
@@ -396,7 +392,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 1092
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr %struct.static_call_site, ptr %60, i64 %63
+  %64 = getelementptr [8 x i8], ptr %60, i64 %63
   %65 = icmp ult ptr %60, %64
   br i1 %65, label %.preheader, label %.loopexit
 
@@ -538,7 +534,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %.preheader
-  %29 = getelementptr %struct.module_memory, ptr %13, i64 %22
+  %29 = getelementptr [72 x i8], ptr %13, i64 %22
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -775,7 +771,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr r
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.static_call_site, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %.loopexit22, label %.preheader20
 
@@ -874,7 +870,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr r
   %69 = load ptr, ptr %5, align 8
   %70 = load i32, ptr %7, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr %struct.static_call_site, ptr %69, i64 %71
+  %72 = getelementptr [8 x i8], ptr %69, i64 %71
   %73 = icmp ult ptr %69, %72
   br i1 %73, label %.preheader, label %.loopexit18
 
@@ -925,7 +921,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr r
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr %struct.static_call_site, ptr %101, i64 %104
+  %105 = getelementptr [8 x i8], ptr %101, i64 %104
   %106 = icmp ult ptr %101, %105
   br i1 %106, label %.preheader24, label %.loopexit18
 

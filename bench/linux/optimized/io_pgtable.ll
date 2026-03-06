@@ -7,13 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.iommu_flush_ops = type { ptr, ptr, ptr }
 %struct.nodemask_t = type { [1 x i64] }
 %struct.list_head = type { ptr, ptr }
-%struct.page = type { i64, %union.anon.13, %union.anon.21, %struct.atomic_t, [8 x i8] }
-%union.anon.13 = type { %struct.anon.14 }
-%struct.anon.14 = type { %union.anon.15, ptr, %union.anon.17, i64 }
-%union.anon.15 = type { %struct.list_head }
-%union.anon.17 = type { i64 }
-%union.anon.21 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @io_pgtable_amd_iommu_v1_init_fns = dso_local local_unnamed_addr global %struct.io_pgtable_init_fns { ptr @v1_alloc_pgtable, ptr @v1_free_pgtable, i32 0 }, align 8
 @v1_flush_ops = internal constant %struct.iommu_flush_ops { ptr @v1_tlb_flush_all, ptr @v1_tlb_flush_walk, ptr @v1_tlb_add_page }, align 8
@@ -103,7 +96,7 @@ define internal void @v1_free_pgtable(ptr noundef %0) #1 align 16 {
   %24 = select i1 %20, i64 %21, i64 %23
   %25 = add i64 %19, %24
   %26 = lshr i64 %25, 12
-  %.split = getelementptr %struct.page, ptr %17, i64 %26
+  %.split = getelementptr [64 x i8], ptr %17, i64 %26
   %27 = getelementptr i8, ptr %.split, i64 8
   store ptr %27, ptr %3, align 8
   store ptr %2, ptr %27, align 8
@@ -319,7 +312,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %135 = zext nneg i32 %134 to i64
   %136 = lshr i64 %46, %135
   %137 = and i64 %136, 511
-  %138 = getelementptr i64, ptr %132, i64 %137
+  %138 = getelementptr [8 x i8], ptr %132, i64 %137
   %139 = and i64 %46, %39
   %140 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3) #12, !srcloc !14
   %141 = add i64 %140, -12
@@ -363,7 +356,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %170 = zext nneg i32 %169 to i64
   %171 = lshr i64 %139, %170
   %172 = and i64 %171, 511
-  %173 = getelementptr i64, ptr %166, i64 %172
+  %173 = getelementptr [8 x i8], ptr %166, i64 %172
   br label %.loopexit29.us
 
 174:                                              ; preds = %155
@@ -454,7 +447,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
 
 231:                                              ; preds = %231, %218
   %232 = phi i64 [ 0, %218 ], [ %235, %231 ]
-  %233 = getelementptr i64, ptr %230, i64 %232
+  %233 = getelementptr [8 x i8], ptr %230, i64 %232
   %234 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %233, i64 0, i64 %148, ptr elementtype(i64) %233) #11, !srcloc !23
   %235 = add i64 %232, 1
   %236 = lshr i64 %235, %226
@@ -476,7 +469,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
 
 .preheader30.us:                                  ; preds = %.loopexit32.us, %281
   %242 = phi i64 [ %282, %281 ], [ 0, %.loopexit32.us ]
-  %243 = getelementptr i64, ptr %240, i64 %242
+  %243 = getelementptr [8 x i8], ptr %240, i64 %242
   %244 = load i64, ptr %243, align 8
   %245 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %243, i64 0, ptr elementtype(i64) %243, i64 %244) #11, !srcloc !25
   %246 = extractvalue { i8, i64 } %245, 0
@@ -535,7 +528,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %275 = select i1 %272, i64 %273, i64 %274
   %276 = add i64 %271, %275
   %277 = lshr i64 %276, 12
-  %.split.us = getelementptr %struct.page, ptr %270, i64 %277
+  %.split.us = getelementptr [64 x i8], ptr %270, i64 %277
   %278 = getelementptr i8, ptr %.split.us, i64 8
   %279 = load ptr, ptr %13, align 8
   store ptr %278, ptr %13, align 8
@@ -563,7 +556,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
 
 292:                                              ; preds = %292, %284
   %293 = phi i64 [ 0, %284 ], [ %295, %292 ]
-  %294 = getelementptr i64, ptr %240, i64 %293
+  %294 = getelementptr [8 x i8], ptr %240, i64 %293
   store i64 %291, ptr %294, align 8
   %295 = add nuw nsw i64 %293, 1
   %296 = icmp eq i64 %295, %53
@@ -657,7 +650,7 @@ define internal i64 @iommu_v1_unmap_pages(ptr noundef readonly captures(none) %0
   %31 = zext i32 %30 to i64
   %32 = lshr i64 %17, %31
   %33 = and i64 %32, 511
-  %34 = getelementptr i64, ptr %28, i64 %33
+  %34 = getelementptr [8 x i8], ptr %28, i64 %33
   %35 = shl nuw i64 1, %31
   %36 = icmp sgt i32 %27, 0
   br i1 %36, label %.preheader.i.preheader, label %.loopexit2.i
@@ -697,7 +690,7 @@ define internal i64 @iommu_v1_unmap_pages(ptr noundef readonly captures(none) %0
   %56 = zext i32 %55 to i64
   %57 = lshr i64 %17, %56
   %58 = and i64 %57, 511
-  %59 = getelementptr i64, ptr %53, i64 %58
+  %59 = getelementptr [8 x i8], ptr %53, i64 %58
   %60 = shl nuw i64 1, %56
   %61 = icmp sgt i32 %39, 1
   br i1 %61, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
@@ -771,7 +764,7 @@ define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(pt
   %18 = zext i32 %17 to i64
   %19 = lshr i64 %1, %18
   %20 = and i64 %19, 511
-  %21 = getelementptr i64, ptr %15, i64 %20
+  %21 = getelementptr [8 x i8], ptr %15, i64 %20
   %22 = shl nuw i64 1, %18
   %23 = icmp sgt i32 %13, 0
   br i1 %23, label %.preheader.i.preheader, label %.loopexit2.i
@@ -811,7 +804,7 @@ define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(pt
   %43 = zext i32 %42 to i64
   %44 = lshr i64 %1, %43
   %45 = and i64 %44, 511
-  %46 = getelementptr i64, ptr %40, i64 %45
+  %46 = getelementptr [8 x i8], ptr %40, i64 %45
   %47 = shl nuw i64 1, %43
   %48 = icmp sgt i32 %26, 1
   br i1 %48, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
@@ -895,7 +888,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly 
   %27 = zext i32 %26 to i64
   %28 = lshr i64 %13, %27
   %29 = and i64 %28, 511
-  %30 = getelementptr i64, ptr %24, i64 %29
+  %30 = getelementptr [8 x i8], ptr %24, i64 %29
   %31 = shl nuw i64 1, %27
   %32 = icmp sgt i32 %23, 0
   br i1 %32, label %.preheader.i.preheader, label %.loopexit2.i
@@ -934,7 +927,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly 
   %49 = add nuw nsw i64 %48, 12
   %50 = lshr i64 %13, %49
   %51 = and i64 %50, 511
-  %52 = getelementptr i64, ptr %47, i64 %51
+  %52 = getelementptr [8 x i8], ptr %47, i64 %51
   %53 = shl nuw nsw i64 4096, %48
   %54 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %54, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
@@ -983,7 +976,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
 
 .preheader14:                                     ; preds = %78, %88
   %83 = phi i64 [ %89, %88 ], [ 0, %78 ]
-  %84 = getelementptr i64, ptr %72, i64 %83
+  %84 = getelementptr [8 x i8], ptr %72, i64 %83
   %85 = load volatile i64, ptr %84, align 8
   %86 = and i64 %85, 64
   %87 = icmp eq i64 %86, 0
@@ -997,7 +990,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
 .preheader:                                       ; preds = %78, %.preheader
   %90 = phi i64 [ %97, %.preheader ], [ 0, %78 ]
   %91 = phi i8 [ %96, %.preheader ], [ 0, %78 ]
-  %92 = getelementptr i64, ptr %72, i64 %90
+  %92 = getelementptr [8 x i8], ptr %72, i64 %90
   %93 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %92, i64 6, ptr elementtype(i64) %92) #11, !srcloc !40
   %94 = icmp ult i8 %93, 2
   tail call void @llvm.assume(i1 %94)
@@ -1105,7 +1098,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
 
 .split2.us:                                       ; preds = %3, %20
   %7 = phi i64 [ %21, %20 ], [ 0, %3 ]
-  %8 = getelementptr i64, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %11 = icmp eq i64 %10, 0
@@ -1133,7 +1126,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
 
 .split2:                                          ; preds = %3, %47
   %23 = phi i64 [ %48, %47 ], [ 0, %3 ]
-  %24 = getelementptr i64, ptr %0, i64 %23
+  %24 = getelementptr [8 x i8], ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, 1
   %27 = icmp eq i64 %26, 0
@@ -1159,7 +1152,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %41 = select i1 %38, i64 %39, i64 %40
   %42 = add i64 %37, %41
   %43 = lshr i64 %42, 12
-  %.split = getelementptr %struct.page, ptr %36, i64 %43
+  %.split = getelementptr [64 x i8], ptr %36, i64 %43
   %44 = getelementptr i8, ptr %.split, i64 8
   %45 = load ptr, ptr %5, align 8
   store ptr %44, ptr %5, align 8
@@ -1186,7 +1179,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %58 = select i1 %54, i64 %55, i64 %57
   %59 = add i64 %53, %58
   %60 = lshr i64 %59, 12
-  %.split1 = getelementptr %struct.page, ptr %51, i64 %60
+  %.split1 = getelementptr [64 x i8], ptr %51, i64 %60
   %61 = getelementptr i8, ptr %.split1, i64 8
   %62 = load ptr, ptr %5, align 8
   store ptr %61, ptr %5, align 8

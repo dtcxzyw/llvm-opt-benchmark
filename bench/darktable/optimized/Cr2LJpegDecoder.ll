@@ -36,8 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::iPoint2D" = type { i32, i32 }
 %"class.rawspeed::Cr2SliceWidths" = type { i32, i32, i32 }
 %"class.rawspeed::Array1DRef.73" = type <{ ptr, i32, [4 x i8] }>
-%"struct.rawspeed::JpegComponentInfo" = type { i32, i32, i32, i32 }
-%"struct.rawspeed::Cr2Decompressor<rawspeed::PrefixCodeLUTDecoder<rawspeed::BaselineCodeTag, rawspeed::PrefixCodeLookupDecoder<rawspeed::BaselineCodeTag>>>::PerComponentRecipe" = type <{ ptr, i16, [6 x i8] }>
 
 $_ZN8rawspeed8RawImageD2Ev = comdat any
 
@@ -459,7 +457,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %.0124, label %51, label %43
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !124
   %.not59 = icmp eq i32 %46, 1
@@ -535,7 +533,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %.040128, label %81, label %90
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %42, i64 %indvars.iv136
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv136
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !124
   %85 = icmp eq i32 %84, 1
@@ -616,7 +614,7 @@ _ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_1
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %115, ptr %3, align 8, !tbaa !135
   store ptr %115, ptr %116, align 8, !tbaa !138
-  %117 = getelementptr inbounds nuw %"struct.rawspeed::Cr2Decompressor<rawspeed::PrefixCodeLUTDecoder<rawspeed::BaselineCodeTag, rawspeed::PrefixCodeLookupDecoder<rawspeed::BaselineCodeTag>>>::PerComponentRecipe", ptr %115, i64 %112
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %112
   store ptr %117, ptr %113, align 8, !tbaa !139
   store ptr %3, ptr %4, align 8, !tbaa !140
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -627,7 +625,7 @@ _ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_1
 
 .lr.ph.i:                                         ; preds = %.noexc60
   store ptr %120, ptr %118, align 8, !tbaa !145, !alias.scope !142
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %112
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %112
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %121, ptr %122, align 8, !tbaa !148, !alias.scope !142
   store ptr null, ptr %120, align 8, !tbaa !149, !noalias !142
@@ -642,7 +640,7 @@ _ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_1
 
 127:                                              ; preds = %134, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %134 ]
-  %128 = getelementptr inbounds nuw %"struct.rawspeed::JpegComponentInfo", ptr %0, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 148
   %130 = load i32, ptr %129, align 4, !tbaa !152, !noalias !142
   %.not.i = icmp ult i32 %130, 4
@@ -658,9 +656,9 @@ _ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_1
 
 134:                                              ; preds = %127
   %135 = zext nneg i32 %130 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %126, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !149, !noalias !142
-  %138 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv.i
   store ptr %137, ptr %138, align 8, !tbaa !149, !noalias !142
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %112
@@ -696,10 +694,10 @@ _ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi.exit: ; preds = %13
   %sext.i.i = shl i64 %150, 28
   %151 = ashr i64 %sext.i.i, 32
   %152 = load ptr, ptr %118, align 8, !tbaa !145
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %151
   %154 = load ptr, ptr %153, align 8, !tbaa !149
   %155 = load ptr, ptr %140, align 8, !tbaa !164
-  %156 = getelementptr inbounds nuw i16, ptr %155, i64 %151
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %155, i64 %151
   %157 = load i16, ptr %156, align 2, !tbaa !165
   %.not.i.i.i.i = icmp eq ptr %143, %142
   br i1 %.not.i.i.i.i, label %160, label %158
@@ -764,7 +762,7 @@ _ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15Baseli
 _ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i: ; preds = %178, %_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i
   store ptr %173, ptr %3, align 8, !tbaa !135
   store ptr %177, ptr %116, align 8, !tbaa !138
-  %179 = getelementptr inbounds nuw %"struct.rawspeed::Cr2Decompressor<rawspeed::PrefixCodeLUTDecoder<rawspeed::BaselineCodeTag, rawspeed::PrefixCodeLookupDecoder<rawspeed::BaselineCodeTag>>>::PerComponentRecipe", ptr %173, i64 %171
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %171
   store ptr %179, ptr %113, align 8, !tbaa !139
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed15Cr2DecompressorINS1_20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS4_EEEEE18PerComponentRecipeESaIS9_EEEaSEOS9_.exit.i
 
@@ -1189,7 +1187,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %6 = shl nuw nsw i64 %4, 1
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #24
   store ptr %7, ptr %0, align 8, !tbaa !164
-  %8 = getelementptr inbounds nuw i16, ptr %7, i64 %4
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !167
   store i16 0, ptr %7, align 2, !tbaa !165

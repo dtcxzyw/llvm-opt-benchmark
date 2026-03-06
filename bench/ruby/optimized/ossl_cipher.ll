@@ -465,7 +465,7 @@ define internal noundef i64 @ossl_cipher_pkcs5_keyivgen(i32 noundef %0, ptr noun
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %29 ]
   %.185.i24 = phi i32 [ 1, %.preheader ], [ %.286.i, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = icmp slt i32 %.185.i24, %0
   %.not108.i = icmp eq ptr %18, null
@@ -476,7 +476,7 @@ define internal noundef i64 @ossl_cipher_pkcs5_keyivgen(i32 noundef %0, ptr noun
 
 21:                                               ; preds = %20
   %22 = sext i32 %.185.i24 to i64
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %18, align 8, !tbaa !6
   br label %25
@@ -1660,7 +1660,7 @@ define internal fastcc noundef i64 @ossl_cipher_init(i32 noundef %0, ptr noundef
 
 11:                                               ; preds = %.preheader
   %12 = sext i32 %.185.i35 to i64
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !6
   store i64 %14, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %15 = add nsw i32 %.185.i35, 1

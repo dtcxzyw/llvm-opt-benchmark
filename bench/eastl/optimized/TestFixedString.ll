@@ -2865,7 +2865,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -2873,7 +2873,7 @@ entry:
   %cond.i.i = select i1 %tobool.i.i.i, i64 %3, i64 %sub.i.i.i
   %sub.i = sub i64 %cond.i.i, %position
   %cond.i10.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
-  %add.ptr9.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %cond.i10.i
+  %add.ptr9.i = getelementptr inbounds [2 x i8], ptr %add.ptr.i, i64 %cond.i10.i
   %call10.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %add.ptr.i, ptr noundef %add.ptr9.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2924,7 +2924,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i16 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %p, i64 %n
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %p, i64 %n
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %p, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3004,10 +3004,10 @@ if.then.i.i:                                      ; preds = %entry
   %.pre23.i = load i64, ptr %mnSize.i, align 8
   %tobool.i.i13.i = icmp slt i8 %.pre.i.fr, 0
   %3 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %.pre23.i
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %.pre23.i
   %conv.i.i.i15.i = zext nneg i8 %.pre.i.fr to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16.i
   %spec.select = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %add.ptr.idx.i.i = shl nsw i64 %n, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select, i64 %add.ptr.idx.i.i
@@ -3066,10 +3066,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i3 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -3103,10 +3103,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i3 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -3140,10 +3140,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -3221,10 +3221,10 @@ if.then5:                                         ; preds = %if.then
   %4 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i19, ptr %4, ptr %this
   %5 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %4, i64 %5
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %conv.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i23 = select i1 %tobool.i.i19, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %spec.select.i to i64
@@ -3260,8 +3260,8 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
 
 if.else:                                          ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i16, ptr %9, i64 %1
-  %add.ptr.i1.i36 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i33 = getelementptr inbounds [2 x i8], ptr %9, i64 %1
+  %add.ptr.i1.i36 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i37 = select i1 %tobool.i.i, ptr %add.ptr.i.i33, ptr %add.ptr.i1.i36
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i37, ptr align 2 %pBegin, i64 %sub.ptr.sub, i1 false)
   %add.ptr.i41 = getelementptr inbounds i8, ptr %cond.i37, i64 %sub.ptr.sub
@@ -3330,9 +3330,9 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i, ptr %2, ptr %this
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i, i64 %n
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %2, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i, i64 %n
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i11 = select i1 %tobool.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %cmp.not.i = icmp eq ptr %add.ptr, %cond.i11
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
@@ -3391,10 +3391,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i16, ptr %12, i64 %10
+  %add.ptr.i.i.i22 = getelementptr inbounds [2 x i8], ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i23 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
   %add.ptr.idx.i.i = shl nsw i64 %sub, 1
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
@@ -3490,7 +3490,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i16 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call9 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3523,10 +3523,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -3560,10 +3560,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -3610,10 +3610,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -3654,10 +3654,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -3764,10 +3764,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %_ZN5e
   %8 = phi i8 [ %.pre.i, %if.then.i.i ], [ %6, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE5clearEv.exit ]
   %tobool.i.i13.i = icmp slt i8 %8, 0
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %9, i64 %7
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %9, i64 %7
   %conv.i.i.i15.i = zext nneg i8 %8 to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   store i16 %c, ptr %cond.i17.i, align 2
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 2
@@ -3811,7 +3811,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %1 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %1, ptr %this
   store i16 0, ptr %spec.select.i.i, align 2
-  %add.ptr.i = getelementptr inbounds i16, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call3 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -3844,10 +3844,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i3, ptr noundef %cond.i.i)
   ret ptr %this
@@ -3906,7 +3906,7 @@ cond.end:                                         ; preds = %if.then11, %cond.fa
   %cond = phi ptr [ %call.i.i.i, %cond.false ], [ %4, %if.then11 ]
   %cmp15 = icmp ult i64 %spec.select, %cond.i
   %cond23.v = select i1 %cmp15, i64 %spec.select, i64 %5
-  %cond23 = getelementptr inbounds i16, ptr %6, i64 %cond23.v
+  %cond23 = getelementptr inbounds [2 x i8], ptr %6, i64 %cond23.v
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond23 to i64
   %cond23.idx = shl nsw i64 %cond23.v, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond, ptr align 2 %6, i64 %cond23.idx, i1 false)
@@ -3993,7 +3993,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDsLi1ELb1ENS_9allocatorEE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.1") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(42) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -4004,7 +4004,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i16, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [2 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDsLi1ELb1ENS_9allocatorEEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(42) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -4025,7 +4025,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDsLi1ELb1ENS_9allocatorEEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(42) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -4053,9 +4053,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDsLi1ELb1ENS_9allocatorEEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(42) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -4134,7 +4134,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -4142,7 +4142,7 @@ entry:
   %cond.i.i = select i1 %tobool.i.i.i, i64 %3, i64 %sub.i.i.i
   %sub.i = sub i64 %cond.i.i, %position
   %cond.i10.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
-  %add.ptr9.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %cond.i10.i
+  %add.ptr9.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %cond.i10.i
   %call10.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %add.ptr.i, ptr noundef %add.ptr9.i)
           to label %invoke.cont unwind label %lpad
 
@@ -4193,7 +4193,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i32 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %p, i64 %n
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %p, i64 %n
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %p, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -4262,10 +4262,10 @@ if.then.i.i:                                      ; preds = %entry
   %.pre23.i = load i64, ptr %mnSize.i, align 8
   %tobool.i.i13.i = icmp slt i8 %.pre.i.fr, 0
   %3 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %.pre23.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %.pre23.i
   %conv.i.i.i15.i = zext nneg i8 %.pre.i.fr to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %spec.select = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %add.ptr.idx.i.i = shl nsw i64 %n, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select, i64 %add.ptr.idx.i.i
@@ -4324,10 +4324,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i3 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -4361,10 +4361,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i3 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -4398,10 +4398,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -4479,10 +4479,10 @@ if.then5:                                         ; preds = %if.then
   %4 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i19, ptr %4, ptr %this
   %5 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %4, i64 %5
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %conv.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i23 = select i1 %tobool.i.i19, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %spec.select.i to i64
@@ -4518,8 +4518,8 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
 
 if.else:                                          ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i32, ptr %9, i64 %1
-  %add.ptr.i1.i36 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i33 = getelementptr inbounds [4 x i8], ptr %9, i64 %1
+  %add.ptr.i1.i36 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i37 = select i1 %tobool.i.i, ptr %add.ptr.i.i33, ptr %add.ptr.i1.i36
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i37, ptr align 4 %pBegin, i64 %sub.ptr.sub, i1 false)
   %add.ptr.i41 = getelementptr inbounds i8, ptr %cond.i37, i64 %sub.ptr.sub
@@ -4588,9 +4588,9 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i, ptr %2, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %n
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %n
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i11 = select i1 %tobool.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %cmp.not.i = icmp eq ptr %add.ptr, %cond.i11
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
@@ -4649,10 +4649,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i32, ptr %12, i64 %10
+  %add.ptr.i.i.i22 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i23 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
   %add.ptr.idx.i.i = shl nsw i64 %sub, 2
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
@@ -4748,7 +4748,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i32 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call9 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -4781,10 +4781,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -4818,10 +4818,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -4868,10 +4868,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -4912,10 +4912,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -5011,10 +5011,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %_ZN5e
   %8 = phi i8 [ %.pre.i, %if.then.i.i ], [ %6, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE5clearEv.exit ]
   %tobool.i.i13.i = icmp slt i8 %8, 0
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %9, i64 %7
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   %conv.i.i.i15.i = zext nneg i8 %8 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   store i32 %c, ptr %cond.i17.i, align 4
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 4
@@ -5058,7 +5058,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %1 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %1, ptr %this
   store i32 0, ptr %spec.select.i.i, align 4
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call3 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -5091,10 +5091,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %spec.select.i.i3, ptr noundef %cond.i.i)
   ret ptr %this
@@ -5153,7 +5153,7 @@ cond.end:                                         ; preds = %if.then11, %cond.fa
   %cond = phi ptr [ %call.i.i.i, %cond.false ], [ %4, %if.then11 ]
   %cmp15 = icmp ult i64 %spec.select, %cond.i
   %cond23.v = select i1 %cmp15, i64 %spec.select, i64 %5
-  %cond23 = getelementptr inbounds i32, ptr %6, i64 %cond23.v
+  %cond23 = getelementptr inbounds [4 x i8], ptr %6, i64 %cond23.v
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond23 to i64
   %cond23.idx = shl nsw i64 %cond23.v, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond, ptr align 4 %6, i64 %cond23.idx, i1 false)
@@ -5240,7 +5240,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDiLi1ELb1ENS_9allocatorEE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(44) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -5251,7 +5251,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i32, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [4 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDiLi1ELb1ENS_9allocatorEEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(44) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -5272,7 +5272,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDiLi1ELb1ENS_9allocatorEEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(44) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -5300,9 +5300,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDiLi1ELb1ENS_9allocatorEEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(44) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -6875,7 +6875,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -7092,7 +7092,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 11, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
-  %add.ptr.i41.i.i = getelementptr inbounds nuw i16, ptr %this, i64 %spec.select.i
+  %add.ptr.i41.i.i = getelementptr inbounds nuw [2 x i8], ptr %this, i64 %spec.select.i
   store i16 0, ptr %add.ptr.i41.i.i, align 2
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
@@ -7103,8 +7103,8 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %cond.i47.i.i = select i1 %tobool.i.i29.i.i, i64 %sub.i.i, i64 %1
   %7 = load ptr, ptr %this, align 8
   %spec.select.i50.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %7
-  %add.ptr.i.i54.i.i = getelementptr inbounds i16, ptr %7, i64 %1
-  %add.ptr.i1.i57.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i54.i.i = getelementptr inbounds [2 x i8], ptr %7, i64 %1
+  %add.ptr.i1.i57.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i58.i.i = select i1 %tobool.i.i29.i.i, ptr %add.ptr.i1.i57.i.i, ptr %add.ptr.i.i54.i.i
   %sub.ptr.lhs.cast.i59.i.i = ptrtoint ptr %cond.i58.i.i to i64
   %sub.ptr.rhs.cast.i60.i.i = ptrtoint ptr %spec.select.i50.i.i to i64
@@ -7117,7 +7117,7 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %or.i.i.i = or i64 %spec.select.i, -9223372036854775808
   store i64 %or.i.i.i, ptr %mnCapacity.i.i, align 8
   store i64 %cond.i47.i.i, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i25 = getelementptr inbounds i16, ptr null, i64 %cond.i47.i.i
+  %add.ptr.i.i25 = getelementptr inbounds [2 x i8], ptr null, i64 %cond.i47.i.i
   br label %12
 
 if.end.thread31:                                  ; preds = %if.then17.i.i
@@ -7131,10 +7131,10 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %11, i64 %9
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %11, i64 %9
   %conv.i.i.i15 = zext nneg i8 %.fr to i64
   %sub.i.i.i16 = sub nsw i64 11, %conv.i.i.i15
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %12
 
@@ -7190,10 +7190,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -7250,10 +7250,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -7310,10 +7310,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -7413,7 +7413,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %n, ptr %mnSize.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %0, i64 %n
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %n
   store i16 0, ptr %add.ptr.i, align 2
   br label %if.end
 
@@ -7521,10 +7521,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -7581,10 +7581,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -7655,10 +7655,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -7689,8 +7689,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -7709,8 +7709,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -7765,10 +7765,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -7799,8 +7799,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -7819,8 +7819,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -7907,8 +7907,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %6 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %6, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %6, i64 %4
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %6, i64 %4
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -7927,8 +7927,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %8, i64 %4
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %4
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %p, i64 %sub.ptr.sub.i5.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i5.i
@@ -8023,8 +8023,8 @@ if.then5.i:                                       ; preds = %if.then.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %5 = load ptr, ptr %this, align 8
   %spec.select.i.i6 = select i1 %tobool.i.i.i2, ptr %5, ptr %this
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %5, i64 %3
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %3
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i22.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %cond.i22.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i.i6 to i64
@@ -8043,8 +8043,8 @@ if.then5.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i = getelementptr inbounds i16, ptr %7, i64 %3
-  %add.ptr.i1.i33.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i30.i = getelementptr inbounds [2 x i8], ptr %7, i64 %3
+  %add.ptr.i1.i33.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i34.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i30.i, ptr %add.ptr.i1.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i, ptr align 2 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %cond.i34.i, i64 %add.ptr.i.idx
@@ -8095,10 +8095,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i3, %cond.i.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6appendERKS4_.exit, label %if.then.i.i
@@ -8129,8 +8129,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -8149,8 +8149,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %spec.select.i.i3, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -8205,9 +8205,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i, ptr %3, ptr %this
-  %add.ptr.i19 = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %spec.select
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %1
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i19 = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %spec.select
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %1
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i11.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %add.ptr.i19, %cond.i11.i
   br i1 %cmp.not.i.i, label %if.end48, label %if.then.i.i
@@ -8293,7 +8293,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDsLi128ELb0ENS_9allocatorEE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.29") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -8304,7 +8304,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i16, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [2 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb0ENS_9allocatorEEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(280) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -8325,7 +8325,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb0ENS_9allocatorEEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(280) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -8353,9 +8353,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb0ENS_9allocatorEEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(280) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -8427,7 +8427,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -8633,7 +8633,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 5, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
-  %add.ptr.i41.i.i = getelementptr inbounds nuw i32, ptr %this, i64 %spec.select.i
+  %add.ptr.i41.i.i = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %spec.select.i
   store i32 0, ptr %add.ptr.i41.i.i, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
@@ -8644,8 +8644,8 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %cond.i47.i.i = select i1 %tobool.i.i29.i.i, i64 %sub.i.i, i64 %1
   %7 = load ptr, ptr %this, align 8
   %spec.select.i50.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %7
-  %add.ptr.i.i54.i.i = getelementptr inbounds i32, ptr %7, i64 %1
-  %add.ptr.i1.i57.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i54.i.i = getelementptr inbounds [4 x i8], ptr %7, i64 %1
+  %add.ptr.i1.i57.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i58.i.i = select i1 %tobool.i.i29.i.i, ptr %add.ptr.i1.i57.i.i, ptr %add.ptr.i.i54.i.i
   %sub.ptr.lhs.cast.i59.i.i = ptrtoint ptr %cond.i58.i.i to i64
   %sub.ptr.rhs.cast.i60.i.i = ptrtoint ptr %spec.select.i50.i.i to i64
@@ -8658,7 +8658,7 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %or.i.i.i = or i64 %spec.select.i, -9223372036854775808
   store i64 %or.i.i.i, ptr %mnCapacity.i.i, align 8
   store i64 %cond.i47.i.i, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i25 = getelementptr inbounds i32, ptr null, i64 %cond.i47.i.i
+  %add.ptr.i.i25 = getelementptr inbounds [4 x i8], ptr null, i64 %cond.i47.i.i
   br label %12
 
 if.end.thread31:                                  ; preds = %if.then17.i.i
@@ -8672,10 +8672,10 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %11, i64 %9
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   %conv.i.i.i15 = zext nneg i8 %.fr to i64
   %sub.i.i.i16 = sub nsw i64 5, %conv.i.i.i15
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %12
 
@@ -8731,10 +8731,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -8791,10 +8791,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -8851,10 +8851,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -8954,7 +8954,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %n, ptr %mnSize.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %n
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %n
   store i32 0, ptr %add.ptr.i, align 4
   br label %if.end
 
@@ -9062,10 +9062,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -9122,10 +9122,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -9196,10 +9196,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -9230,8 +9230,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -9250,8 +9250,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -9306,10 +9306,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -9340,8 +9340,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -9360,8 +9360,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -9437,8 +9437,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %6 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %6, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %6, i64 %4
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %6, i64 %4
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -9457,8 +9457,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %8, i64 %4
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %4
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %p, i64 %2, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %2
@@ -9553,8 +9553,8 @@ if.then5.i:                                       ; preds = %if.then.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %5 = load ptr, ptr %this, align 8
   %spec.select.i.i6 = select i1 %tobool.i.i.i2, ptr %5, ptr %this
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %5, i64 %3
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %3
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i22.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %cond.i22.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i.i6 to i64
@@ -9573,8 +9573,8 @@ if.then5.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i = getelementptr inbounds i32, ptr %7, i64 %3
-  %add.ptr.i1.i33.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i30.i = getelementptr inbounds [4 x i8], ptr %7, i64 %3
+  %add.ptr.i1.i33.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i34.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i30.i, ptr %add.ptr.i1.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %cond.i34.i, i64 %add.ptr.i.idx
@@ -9625,10 +9625,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i3, %cond.i.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6appendERKS4_.exit, label %if.then.i.i
@@ -9659,8 +9659,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -9679,8 +9679,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %spec.select.i.i3, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -9735,9 +9735,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i, ptr %3, ptr %this
-  %add.ptr.i19 = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %spec.select
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %1
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i19 = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %spec.select
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %1
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i11.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %add.ptr.i19, %cond.i11.i
   br i1 %cmp.not.i.i, label %if.end48, label %if.then.i.i
@@ -9823,7 +9823,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDiLi128ELb0ENS_9allocatorEE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.38") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(536) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -9834,7 +9834,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i32, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [4 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb0ENS_9allocatorEEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(536) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -9855,7 +9855,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb0ENS_9allocatorEEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(536) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -9883,9 +9883,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb0ENS_9allocatorEEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(536) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -11332,7 +11332,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -11340,7 +11340,7 @@ entry:
   %cond.i.i = select i1 %tobool.i.i.i, i64 %3, i64 %sub.i.i.i
   %sub.i = sub i64 %cond.i.i, %position
   %cond.i10.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
-  %add.ptr9.i = getelementptr inbounds i16, ptr %add.ptr.i, i64 %cond.i10.i
+  %add.ptr9.i = getelementptr inbounds [2 x i8], ptr %add.ptr.i, i64 %cond.i10.i
   %call10.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %add.ptr.i, ptr noundef %add.ptr9.i)
           to label %invoke.cont unwind label %lpad
 
@@ -11405,7 +11405,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i16 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %p, i64 %n
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %p, i64 %n
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %p, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -11499,10 +11499,10 @@ if.end.i.thread:                                  ; preds = %if.then.i.i
   %.pre23.i = load i64, ptr %mnSize.i, align 8
   %tobool.i.i13.i = icmp slt i8 %.pre.i.fr, 0
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %.pre23.i
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %.pre23.i
   %conv.i.i.i15.i = zext nneg i8 %.pre.i.fr to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16.i
   %spec.select = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %add.ptr.idx.i.i = shl nsw i64 %n, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select, i64 %add.ptr.idx.i.i
@@ -11583,10 +11583,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %6 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %conv.i.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i3 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -11643,10 +11643,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %8, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %9 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %8, i64 %9
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i7 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -11682,10 +11682,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -11766,10 +11766,10 @@ if.then5:                                         ; preds = %if.then
   %4 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i19, ptr %4, ptr %this
   %5 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %4, i64 %5
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %conv.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i23 = select i1 %tobool.i.i19, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %spec.select.i to i64
@@ -11808,8 +11808,8 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
 
 if.else:                                          ; preds = %if.then
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i34 = getelementptr inbounds i16, ptr %10, i64 %1
-  %add.ptr.i1.i37 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i34 = getelementptr inbounds [2 x i8], ptr %10, i64 %1
+  %add.ptr.i1.i37 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i38 = select i1 %tobool.i.i, ptr %add.ptr.i.i34, ptr %add.ptr.i1.i37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i38, ptr align 2 %pBegin, i64 %sub.ptr.sub, i1 false)
   %add.ptr.i42 = getelementptr inbounds i8, ptr %cond.i38, i64 %sub.ptr.sub
@@ -11849,7 +11849,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %n, ptr %mnSize.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %0, i64 %n
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %n
   store i16 0, ptr %add.ptr.i, align 2
   br label %if.end
 
@@ -11886,9 +11886,9 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i, ptr %2, ptr %this
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i, i64 %n
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %2, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i, i64 %n
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i11 = select i1 %tobool.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %cmp.not.i = icmp eq ptr %add.ptr, %cond.i11
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
@@ -11947,10 +11947,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i16, ptr %12, i64 %10
+  %add.ptr.i.i.i22 = getelementptr inbounds [2 x i8], ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i23 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
   %add.ptr.idx.i.i = shl nsw i64 %sub, 1
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
@@ -12059,7 +12059,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i16 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call9 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -12094,10 +12094,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -12142,10 +12142,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %6 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %conv.i.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -12192,10 +12192,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -12236,10 +12236,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -12346,10 +12346,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %_ZN5e
   %8 = phi i8 [ %.pre.i, %if.then.i.i ], [ %6, %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE5clearEv.exit ]
   %tobool.i.i13.i = icmp slt i8 %8, 0
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %9, i64 %7
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %9, i64 %7
   %conv.i.i.i15.i = zext nneg i8 %8 to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   store i16 %c, ptr %cond.i17.i, align 2
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 2
@@ -12393,7 +12393,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %1 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %1, ptr %this
   store i16 0, ptr %spec.select.i.i, align 2
-  %add.ptr.i = getelementptr inbounds i16, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call3 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -12426,10 +12426,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i3, ptr noundef %cond.i.i)
   ret ptr %this
@@ -12489,7 +12489,7 @@ cond.end:                                         ; preds = %if.then11, %cond.fa
   %cond = phi ptr [ %call.i.i, %cond.false ], [ %4, %if.then11 ]
   %cmp15 = icmp ult i64 %spec.select, %cond.i
   %cond23.v = select i1 %cmp15, i64 %spec.select, i64 %5
-  %cond23 = getelementptr inbounds i16, ptr %6, i64 %cond23.v
+  %cond23 = getelementptr inbounds [2 x i8], ptr %6, i64 %cond23.v
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond23 to i64
   %cond23.idx = shl nsw i64 %cond23.v, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond, ptr align 2 %6, i64 %cond23.idx, i1 false)
@@ -12588,7 +12588,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDsLi128ELb1E15MallocAllocatorE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.54") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -12599,7 +12599,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i16, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [2 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb1E15MallocAllocatorEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(304) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -12620,7 +12620,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb1E15MallocAllocatorEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(304) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -12648,9 +12648,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb1E15MallocAllocatorEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(304) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -12755,7 +12755,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -12763,7 +12763,7 @@ entry:
   %cond.i.i = select i1 %tobool.i.i.i, i64 %3, i64 %sub.i.i.i
   %sub.i = sub i64 %cond.i.i, %position
   %cond.i10.i = tail call noundef i64 @llvm.umin.i64(i64 %sub.i, i64 %n)
-  %add.ptr9.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %cond.i10.i
+  %add.ptr9.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %cond.i10.i
   %call10.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %add.ptr.i, ptr noundef %add.ptr9.i)
           to label %invoke.cont unwind label %lpad
 
@@ -12828,7 +12828,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i32 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %p, i64 %n
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %p, i64 %n
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %p, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -12911,10 +12911,10 @@ if.end.i.thread:                                  ; preds = %if.then.i.i
   %.pre23.i = load i64, ptr %mnSize.i, align 8
   %tobool.i.i13.i = icmp slt i8 %.pre.i.fr, 0
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %.pre23.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %.pre23.i
   %conv.i.i.i15.i = zext nneg i8 %.pre.i.fr to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %spec.select = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %add.ptr.idx.i.i = shl nsw i64 %n, 2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select, i64 %add.ptr.idx.i.i
@@ -12995,10 +12995,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %6 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i3 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -13055,10 +13055,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %8, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %9 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %8, i64 %9
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %conv.i.i.i.i = zext nneg i8 %7 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i7 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont9 unwind label %lpad
@@ -13094,10 +13094,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -13178,10 +13178,10 @@ if.then5:                                         ; preds = %if.then
   %4 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i19, ptr %4, ptr %this
   %5 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %4, i64 %5
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %conv.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i23 = select i1 %tobool.i.i19, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %spec.select.i to i64
@@ -13220,8 +13220,8 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
 
 if.else:                                          ; preds = %if.then
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i34 = getelementptr inbounds i32, ptr %10, i64 %1
-  %add.ptr.i1.i37 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i34 = getelementptr inbounds [4 x i8], ptr %10, i64 %1
+  %add.ptr.i1.i37 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i38 = select i1 %tobool.i.i, ptr %add.ptr.i.i34, ptr %add.ptr.i1.i37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i38, ptr align 4 %pBegin, i64 %sub.ptr.sub, i1 false)
   %add.ptr.i42 = getelementptr inbounds i8, ptr %cond.i38, i64 %sub.ptr.sub
@@ -13261,7 +13261,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %n, ptr %mnSize.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %n
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %n
   store i32 0, ptr %add.ptr.i, align 4
   br label %if.end
 
@@ -13298,9 +13298,9 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i, ptr %2, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %n
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %n
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i11 = select i1 %tobool.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %cmp.not.i = icmp eq ptr %add.ptr, %cond.i11
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
@@ -13359,10 +13359,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i32, ptr %12, i64 %10
+  %add.ptr.i.i.i22 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i23 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
   %add.ptr.idx.i.i = shl nsw i64 %sub, 2
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
@@ -13471,7 +13471,7 @@ entry:
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %mnSize.i, align 8
   store i32 0, ptr %0, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call9 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
@@ -13506,10 +13506,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -13554,10 +13554,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %6 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i1 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i, ptr noundef %cond.i.i)
           to label %invoke.cont unwind label %lpad
@@ -13604,10 +13604,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -13648,10 +13648,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i4, ptr noundef %cond.i.i)
   br label %if.end
@@ -13747,10 +13747,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %_ZN5e
   %8 = phi i8 [ %.pre.i, %if.then.i.i ], [ %6, %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE5clearEv.exit ]
   %tobool.i.i13.i = icmp slt i8 %8, 0
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %9, i64 %7
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   %conv.i.i.i15.i = zext nneg i8 %8 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   store i32 %c, ptr %cond.i17.i, align 4
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i17.i, i64 4
@@ -13794,7 +13794,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %1 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %1, ptr %this
   store i32 0, ptr %spec.select.i.i, align 4
-  %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %ilist.coerce0, i64 %ilist.coerce1
   %call3 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %ilist.coerce0, ptr noundef %add.ptr.i)
   ret ptr %this
 }
@@ -13827,10 +13827,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %call5.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %spec.select.i.i3, ptr noundef %cond.i.i)
   ret ptr %this
@@ -13890,7 +13890,7 @@ cond.end:                                         ; preds = %if.then11, %cond.fa
   %cond = phi ptr [ %call.i.i, %cond.false ], [ %4, %if.then11 ]
   %cmp15 = icmp ult i64 %spec.select, %cond.i
   %cond23.v = select i1 %cmp15, i64 %spec.select, i64 %5
-  %cond23 = getelementptr inbounds i32, ptr %6, i64 %cond23.v
+  %cond23 = getelementptr inbounds [4 x i8], ptr %6, i64 %cond23.v
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond23 to i64
   %cond23.idx = shl nsw i64 %cond23.v, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond, ptr align 4 %6, i64 %cond23.idx, i1 false)
@@ -13989,7 +13989,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDiLi128ELb1E15MallocAllocatorE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.61") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(560) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -14000,7 +14000,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i32, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [4 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb1E15MallocAllocatorEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(560) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -14021,7 +14021,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb1E15MallocAllocatorEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(560) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -14049,9 +14049,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb1E15MallocAllocatorEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(560) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -15635,7 +15635,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -15852,7 +15852,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 11, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
-  %add.ptr.i41.i.i = getelementptr inbounds nuw i16, ptr %this, i64 %spec.select.i
+  %add.ptr.i41.i.i = getelementptr inbounds nuw [2 x i8], ptr %this, i64 %spec.select.i
   store i16 0, ptr %add.ptr.i41.i.i, align 2
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
@@ -15863,8 +15863,8 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %cond.i47.i.i = select i1 %tobool.i.i29.i.i, i64 %sub.i.i, i64 %1
   %7 = load ptr, ptr %this, align 8
   %spec.select.i50.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %7
-  %add.ptr.i.i54.i.i = getelementptr inbounds i16, ptr %7, i64 %1
-  %add.ptr.i1.i57.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i54.i.i = getelementptr inbounds [2 x i8], ptr %7, i64 %1
+  %add.ptr.i1.i57.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i58.i.i = select i1 %tobool.i.i29.i.i, ptr %add.ptr.i1.i57.i.i, ptr %add.ptr.i.i54.i.i
   %sub.ptr.lhs.cast.i59.i.i = ptrtoint ptr %cond.i58.i.i to i64
   %sub.ptr.rhs.cast.i60.i.i = ptrtoint ptr %spec.select.i50.i.i to i64
@@ -15877,7 +15877,7 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %or.i.i.i = or i64 %spec.select.i, -9223372036854775808
   store i64 %or.i.i.i, ptr %mnCapacity.i.i, align 8
   store i64 %cond.i47.i.i, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i25 = getelementptr inbounds i16, ptr null, i64 %cond.i47.i.i
+  %add.ptr.i.i25 = getelementptr inbounds [2 x i8], ptr null, i64 %cond.i47.i.i
   br label %12
 
 if.end.thread31:                                  ; preds = %if.then17.i.i
@@ -15891,10 +15891,10 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %11, i64 %9
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %11, i64 %9
   %conv.i.i.i15 = zext nneg i8 %.fr to i64
   %sub.i.i.i16 = sub nsw i64 11, %conv.i.i.i15
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %12
 
@@ -15950,10 +15950,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -16010,10 +16010,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -16070,10 +16070,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -16173,7 +16173,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %n, ptr %mnSize.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i16, ptr %0, i64 %n
+  %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %n
   store i16 0, ptr %add.ptr.i, align 2
   br label %if.end
 
@@ -16281,10 +16281,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -16341,10 +16341,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -16415,10 +16415,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -16449,8 +16449,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -16469,8 +16469,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -16525,10 +16525,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -16559,8 +16559,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -16579,8 +16579,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -16667,8 +16667,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %6 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %6, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %6, i64 %4
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %6, i64 %4
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -16687,8 +16687,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %8, i64 %4
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %4
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %p, i64 %sub.ptr.sub.i5.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i5.i
@@ -16783,8 +16783,8 @@ if.then5.i:                                       ; preds = %if.then.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %5 = load ptr, ptr %this, align 8
   %spec.select.i.i6 = select i1 %tobool.i.i.i2, ptr %5, ptr %this
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %5, i64 %3
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %3
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i22.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %cond.i22.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i.i6 to i64
@@ -16803,8 +16803,8 @@ if.then5.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i = getelementptr inbounds i16, ptr %7, i64 %3
-  %add.ptr.i1.i33.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i30.i = getelementptr inbounds [2 x i8], ptr %7, i64 %3
+  %add.ptr.i1.i33.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i34.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i30.i, ptr %add.ptr.i1.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i, ptr align 2 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %cond.i34.i, i64 %add.ptr.i.idx
@@ -16855,10 +16855,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i3, %cond.i.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6appendERKS4_.exit, label %if.then.i.i
@@ -16889,8 +16889,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -16909,8 +16909,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i, ptr align 2 %spec.select.i.i3, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -16965,9 +16965,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i, ptr %3, ptr %this
-  %add.ptr.i19 = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %spec.select
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %3, i64 %1
-  %add.ptr.i1.i.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i19 = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %spec.select
+  %add.ptr.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %1
+  %add.ptr.i1.i.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i11.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %add.ptr.i19, %cond.i11.i
   br i1 %cmp.not.i.i, label %if.end48, label %if.then.i.i
@@ -17053,7 +17053,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDsLi128ELb0E15MallocAllocatorE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.76") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -17064,7 +17064,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i16, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [2 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb0E15MallocAllocatorEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(280) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -17085,7 +17085,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb0E15MallocAllocatorEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(280) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -17113,9 +17113,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i16, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDsLi128ELb0E15MallocAllocatorEC1EPKDsS4_(ptr noundef nonnull align 8 dereferenceable(280) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -17187,7 +17187,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %1, 0
   %2 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
-  %add.ptr.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %position
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
   %conv.i.i.i = zext nneg i8 %1 to i64
@@ -17393,7 +17393,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 5, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
-  %add.ptr.i41.i.i = getelementptr inbounds nuw i32, ptr %this, i64 %spec.select.i
+  %add.ptr.i41.i.i = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %spec.select.i
   store i32 0, ptr %add.ptr.i41.i.i, align 4
   %.pre = load i8, ptr %mnRemainingSize.i.i, align 1
   %.pre23 = load i64, ptr %mnSize.i.i, align 8
@@ -17404,8 +17404,8 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %cond.i47.i.i = select i1 %tobool.i.i29.i.i, i64 %sub.i.i, i64 %1
   %7 = load ptr, ptr %this, align 8
   %spec.select.i50.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %7
-  %add.ptr.i.i54.i.i = getelementptr inbounds i32, ptr %7, i64 %1
-  %add.ptr.i1.i57.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i54.i.i = getelementptr inbounds [4 x i8], ptr %7, i64 %1
+  %add.ptr.i1.i57.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i58.i.i = select i1 %tobool.i.i29.i.i, ptr %add.ptr.i1.i57.i.i, ptr %add.ptr.i.i54.i.i
   %sub.ptr.lhs.cast.i59.i.i = ptrtoint ptr %cond.i58.i.i to i64
   %sub.ptr.rhs.cast.i60.i.i = ptrtoint ptr %spec.select.i50.i.i to i64
@@ -17418,7 +17418,7 @@ if.end.thread:                                    ; preds = %if.then19.i.i
   %or.i.i.i = or i64 %spec.select.i, -9223372036854775808
   store i64 %or.i.i.i, ptr %mnCapacity.i.i, align 8
   store i64 %cond.i47.i.i, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i25 = getelementptr inbounds i32, ptr null, i64 %cond.i47.i.i
+  %add.ptr.i.i25 = getelementptr inbounds [4 x i8], ptr null, i64 %cond.i47.i.i
   br label %12
 
 if.end.thread31:                                  ; preds = %if.then17.i.i
@@ -17432,10 +17432,10 @@ if.end:                                           ; preds = %if.then21.i.i, %lor
   %.fr = freeze i8 %10
   %tobool.i.i13 = icmp slt i8 %.fr, 0
   %11 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %11, i64 %9
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   %conv.i.i.i15 = zext nneg i8 %.fr to i64
   %sub.i.i.i16 = sub nsw i64 5, %conv.i.i.i15
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16
   %spec.select = select i1 %tobool.i.i13, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %12
 
@@ -17491,10 +17491,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -17551,10 +17551,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont9, label %if.then.i.i
@@ -17611,10 +17611,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -17714,7 +17714,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %n, ptr %mnSize.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %n
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %n
   store i32 0, ptr %add.ptr.i, align 4
   br label %if.end
 
@@ -17822,10 +17822,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -17882,10 +17882,10 @@ entry:
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %2, ptr %x
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load i64, ptr %mnSize.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %3
   %conv.i.i.i.i = zext nneg i8 %1 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -17956,10 +17956,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -17990,8 +17990,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -18010,8 +18010,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -18066,10 +18066,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %spec.select.i.i4 = select i1 %tobool.i.i.i3, ptr %3, ptr %x
   %mnSize.i.i.i5 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i5, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i3, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i4, %cond.i.i
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i
@@ -18100,8 +18100,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -18120,8 +18120,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %spec.select.i.i4, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -18197,8 +18197,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %6 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %6, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %6, i64 %4
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %6, i64 %4
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -18217,8 +18217,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %8, i64 %4
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %4
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %p, i64 %2, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %2
@@ -18313,8 +18313,8 @@ if.then5.i:                                       ; preds = %if.then.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %5 = load ptr, ptr %this, align 8
   %spec.select.i.i6 = select i1 %tobool.i.i.i2, ptr %5, ptr %this
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %5, i64 %3
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %3
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i22.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %cond.i22.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i.i6 to i64
@@ -18333,8 +18333,8 @@ if.then5.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i = getelementptr inbounds i32, ptr %7, i64 %3
-  %add.ptr.i1.i33.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i.i30.i = getelementptr inbounds [4 x i8], ptr %7, i64 %3
+  %add.ptr.i1.i33.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i34.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i30.i, ptr %add.ptr.i1.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i, ptr align 4 %ilist.coerce0, i64 %add.ptr.i.idx, i1 false)
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %cond.i34.i, i64 %add.ptr.i.idx
@@ -18385,10 +18385,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %spec.select.i.i3 = select i1 %tobool.i.i.i2, ptr %3, ptr %x
   %mnSize.i.i.i4 = getelementptr inbounds nuw i8, ptr %x, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %x, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %x, i64 %sub.i.i.i.i
   %cond.i.i = select i1 %tobool.i.i.i2, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %spec.select.i.i3, %cond.i.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6appendERKS4_.exit, label %if.then.i.i
@@ -18419,8 +18419,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %8, ptr %this
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i22.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %cond.i22.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %spec.select.i.i.i to i64
@@ -18439,8 +18439,8 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i30.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i5.i
+  %add.ptr.i.i30.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i5.i
   %cond.i34.i.i = select i1 %tobool.i.i.i.i, ptr %add.ptr.i.i30.i.i, ptr %add.ptr.i1.i33.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i, ptr align 4 %spec.select.i.i3, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i38.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i, i64 %sub.ptr.sub.i.i
@@ -18495,9 +18495,9 @@ entry:
 if.then.i:                                        ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i, ptr %3, ptr %this
-  %add.ptr.i19 = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %spec.select
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %1
-  %add.ptr.i1.i.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i19 = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %spec.select
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %1
+  %add.ptr.i1.i.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i11.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
   %cmp.not.i.i = icmp eq ptr %add.ptr.i19, %cond.i11.i
   br i1 %cmp.not.i.i, label %if.end48, label %if.then.i.i
@@ -18583,7 +18583,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl12fixed_stringIDiLi128ELb0E15MallocAllocatorE6substrEmm(ptr noalias sret(%"class.eastl::fixed_string.84") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(536) %this, i64 noundef %position, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %position
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %0, i64 %position
   %mnRemainingSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %1 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i = icmp slt i8 %1, 0
@@ -18594,7 +18594,7 @@ entry:
   %cond.i = select i1 %tobool.i.i, i64 %2, i64 %sub.i.i
   %sub = sub i64 %cond.i, %position
   %cond.i3 = tail call noundef i64 @llvm.umin.i64(i64 %sub, i64 %n)
-  %add.ptr9 = getelementptr inbounds i32, ptr %add.ptr, i64 %cond.i3
+  %add.ptr9 = getelementptr inbounds [4 x i8], ptr %add.ptr, i64 %cond.i3
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb0E15MallocAllocatorEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(536) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr9)
   ret void
 }
@@ -18615,7 +18615,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb0E15MallocAllocatorEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(536) %agg.result, ptr noundef %2, ptr noundef %add.ptr)
   br label %return
 
@@ -18643,9 +18643,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %2, i64 %1
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
   %idx.neg = sub i64 0, %n
-  %add.ptr = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.neg
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %add.ptr.i, i64 %idx.neg
   tail call void @_ZN5eastl12fixed_stringIDiLi128ELb0E15MallocAllocatorEC1EPKDiS4_(ptr noundef nonnull align 8 dereferenceable(536) %agg.result, ptr noundef %add.ptr, ptr noundef %add.ptr.i)
   br label %return
 
@@ -19072,7 +19072,7 @@ entry:
   %tobool.i.i.i.i = icmp slt i8 %0, 0
   %1 = load ptr, ptr %x, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i.i.i, ptr %1, ptr %x
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i.i, i64 %position
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i.i, i64 %position
   store ptr %add.ptr.i, ptr %this, align 8
   %mnSize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %n, ptr %mnSize.i.i.i, align 8
@@ -19090,7 +19090,7 @@ entry:
   %tobool.i.i.i = icmp slt i8 %0, 0
   %1 = load ptr, ptr %x, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %1, ptr %x
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %position
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %position
   store ptr %add.ptr, ptr %this, align 8
   %mnSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %n, ptr %mnSize.i.i, align 8
@@ -19957,7 +19957,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i321: ; preds = %_ZN5eastl8destruct
 
 _ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i321, %_ZN5eastl8destructIPNS_15fixed_substringIcEEEEvT_S4_.exit.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 24
-  %add.ptr.i.i322 = getelementptr inbounds %"class.eastl::fixed_substring", ptr %retval.0.i.i.i, i64 %cond.i.i.i319
+  %add.ptr.i.i322 = getelementptr inbounds [24 x i8], ptr %retval.0.i.i.i, i64 %cond.i.i.i319
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl6vectorINS_15fixed_substringIcEENS_9allocatorEE16DoInsertValueEndIJRKS2_EEEvDpOT_.exit.i, %if.then.i
@@ -27057,7 +27057,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i82 = getelementptr inbounds i16, ptr %2, i64 %n
+  %add.ptr.i.i82 = getelementptr inbounds [2 x i8], ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -27068,8 +27068,8 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %.pre77 = sub nsw i64 11, %.pre76
   %4 = icmp slt i8 %conv.i.i22, 0
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %.pre77
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %.pre77
   %spec.select = select i1 %4, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %6
 
@@ -27112,7 +27112,7 @@ if.then21:                                        ; preds = %if.then19
   %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 11, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
-  %add.ptr.i41 = getelementptr inbounds nuw i16, ptr %this, i64 %n.addr.0
+  %add.ptr.i41 = getelementptr inbounds nuw [2 x i8], ptr %this, i64 %n.addr.0
   store i16 0, ptr %add.ptr.i41, align 2
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -27138,8 +27138,8 @@ if.end32:                                         ; preds = %if.then19
   %cond.i47 = select i1 %tobool.i.i43, i64 %14, i64 %sub.i.i46
   %15 = load ptr, ptr %this, align 8
   %spec.select.i50 = select i1 %tobool.i.i43, ptr %15, ptr %this
-  %add.ptr.i.i54 = getelementptr inbounds i16, ptr %15, i64 %14
-  %add.ptr.i1.i57 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i46
+  %add.ptr.i.i54 = getelementptr inbounds [2 x i8], ptr %15, i64 %14
+  %add.ptr.i1.i57 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i46
   %cond.i58 = select i1 %tobool.i.i43, ptr %add.ptr.i.i54, ptr %add.ptr.i1.i57
   %sub.ptr.lhs.cast.i59 = ptrtoint ptr %cond.i58 to i64
   %sub.ptr.rhs.cast.i60 = ptrtoint ptr %spec.select.i50 to i64
@@ -27209,11 +27209,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 22
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i16, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -27224,10 +27224,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -27245,7 +27245,7 @@ if.then:                                          ; preds = %entry
   %tobool.i.i37 = icmp slt i8 %7, 0
   %8 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i37, ptr %8, ptr %this
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i38 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -27274,7 +27274,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tobool.i.i41 = icmp slt i8 %9, 0
   %10 = load ptr, ptr %this, align 8
   %spec.select.i42 = select i1 %tobool.i.i41, ptr %10, ptr %this
-  %add.ptr25 = getelementptr inbounds i16, ptr %spec.select.i42, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [2 x i8], ptr %spec.select.i42, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i43 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -27288,7 +27288,7 @@ if.then30:                                        ; preds = %for.body
   %tobool.i.i45 = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
   %spec.select.i46 = select i1 %tobool.i.i45, ptr %12, ptr %this
-  %add.ptr33 = getelementptr inbounds i16, ptr %spec.select.i46, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [2 x i8], ptr %spec.select.i46, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -27362,10 +27362,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %call5.i.i3 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(42) %a, ptr noundef %spec.select.i.i3.i, ptr noundef %cond.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -27394,10 +27394,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9al
   %spec.select.i.i3.i11 = select i1 %tobool.i.i.i2.i10, ptr %8, ptr %temp
   %mnSize.i.i.i4.i12 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %9 = load i64, ptr %mnSize.i.i.i4.i12, align 8
-  %add.ptr.i.i.i.i13 = getelementptr inbounds i16, ptr %8, i64 %9
+  %add.ptr.i.i.i.i13 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %conv.i.i.i.i.i14 = zext nneg i8 %7 to i64
   %sub.i.i.i.i.i15 = sub nsw i64 11, %conv.i.i.i.i.i14
-  %add.ptr.i1.i.i.i16 = getelementptr inbounds i16, ptr %temp, i64 %sub.i.i.i.i.i15
+  %add.ptr.i1.i.i.i16 = getelementptr inbounds [2 x i8], ptr %temp, i64 %sub.i.i.i.i.i15
   %cond.i.i.i17 = select i1 %tobool.i.i.i2.i10, ptr %add.ptr.i.i.i.i13, ptr %add.ptr.i1.i.i.i16
   %call5.i.i20 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm1ELm2ELm0ELb1ENS_9allocatorEEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(42) %b, ptr noundef %spec.select.i.i3.i11, ptr noundef %cond.i.i.i17)
           to label %invoke.cont4 unwind label %lpad
@@ -27472,7 +27472,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i82 = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr.i.i82 = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -27483,8 +27483,8 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %.pre77 = sub nsw i64 5, %.pre76
   %4 = icmp slt i8 %conv.i.i22, 0
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %.pre77
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %.pre77
   %spec.select = select i1 %4, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %6
 
@@ -27527,7 +27527,7 @@ if.then21:                                        ; preds = %if.then19
   %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 5, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
-  %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %this, i64 %n.addr.0
+  %add.ptr.i41 = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %n.addr.0
   store i32 0, ptr %add.ptr.i41, align 4
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -27553,8 +27553,8 @@ if.end32:                                         ; preds = %if.then19
   %cond.i47 = select i1 %tobool.i.i43, i64 %14, i64 %sub.i.i46
   %15 = load ptr, ptr %this, align 8
   %spec.select.i50 = select i1 %tobool.i.i43, ptr %15, ptr %this
-  %add.ptr.i.i54 = getelementptr inbounds i32, ptr %15, i64 %14
-  %add.ptr.i1.i57 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i46
+  %add.ptr.i.i54 = getelementptr inbounds [4 x i8], ptr %15, i64 %14
+  %add.ptr.i1.i57 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i46
   %cond.i58 = select i1 %tobool.i.i43, ptr %add.ptr.i.i54, ptr %add.ptr.i1.i57
   %sub.ptr.lhs.cast.i59 = ptrtoint ptr %cond.i58 to i64
   %sub.ptr.rhs.cast.i60 = ptrtoint ptr %spec.select.i50 to i64
@@ -27624,11 +27624,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -27639,10 +27639,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -27660,7 +27660,7 @@ if.then:                                          ; preds = %entry
   %tobool.i.i37 = icmp slt i8 %7, 0
   %8 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i37, ptr %8, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i38 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -27689,7 +27689,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tobool.i.i41 = icmp slt i8 %9, 0
   %10 = load ptr, ptr %this, align 8
   %spec.select.i42 = select i1 %tobool.i.i41, ptr %10, ptr %this
-  %add.ptr25 = getelementptr inbounds i32, ptr %spec.select.i42, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [4 x i8], ptr %spec.select.i42, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i43 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -27703,7 +27703,7 @@ if.then30:                                        ; preds = %for.body
   %tobool.i.i45 = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
   %spec.select.i46 = select i1 %tobool.i.i45, ptr %12, ptr %this
-  %add.ptr33 = getelementptr inbounds i32, ptr %spec.select.i46, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [4 x i8], ptr %spec.select.i46, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -27777,10 +27777,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %call5.i.i3 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(44) %a, ptr noundef %spec.select.i.i3.i, ptr noundef %cond.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -27809,10 +27809,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9al
   %spec.select.i.i3.i11 = select i1 %tobool.i.i.i2.i10, ptr %8, ptr %temp
   %mnSize.i.i.i4.i12 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %9 = load i64, ptr %mnSize.i.i.i4.i12, align 8
-  %add.ptr.i.i.i.i13 = getelementptr inbounds i32, ptr %8, i64 %9
+  %add.ptr.i.i.i.i13 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %conv.i.i.i.i.i14 = zext nneg i8 %7 to i64
   %sub.i.i.i.i.i15 = sub nsw i64 5, %conv.i.i.i.i.i14
-  %add.ptr.i1.i.i.i16 = getelementptr inbounds i32, ptr %temp, i64 %sub.i.i.i.i.i15
+  %add.ptr.i1.i.i.i16 = getelementptr inbounds [4 x i8], ptr %temp, i64 %sub.i.i.i.i.i15
   %cond.i.i.i17 = select i1 %tobool.i.i.i2.i10, ptr %add.ptr.i.i.i.i13, ptr %add.ptr.i1.i.i.i16
   %call5.i.i20 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb1ENS_9allocatorEEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(44) %b, ptr noundef %spec.select.i.i3.i11, ptr noundef %cond.i.i.i17)
           to label %invoke.cont4 unwind label %lpad
@@ -28379,11 +28379,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 22
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i16, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -28394,10 +28394,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -28422,9 +28422,9 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i37, ptr %9, ptr %this
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %add11
-  %add.ptr.i.i.i42 = getelementptr inbounds i16, ptr %9, i64 %8
-  %add.ptr.i1.i.i43 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i40
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %add11
+  %add.ptr.i.i.i42 = getelementptr inbounds [2 x i8], ptr %9, i64 %8
+  %add.ptr.i1.i.i43 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i40
   %cond.i11.i = select i1 %tobool.i.i.i37, ptr %add.ptr.i.i.i42, ptr %add.ptr.i1.i.i43
   %cmp.not.i.i = icmp eq ptr %add.ptr.i, %cond.i11.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit, label %if.then.i.i
@@ -28470,7 +28470,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %tobool.i.i46 = icmp slt i8 %14, 0
   %15 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i46, ptr %15, ptr %this
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -28505,9 +28505,9 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then.i61:                                      ; preds = %for.body
   %18 = load ptr, ptr %this, align 8
   %spec.select.i.i62 = select i1 %tobool.i.i.i50, ptr %18, ptr %this
-  %add.ptr.i63 = getelementptr inbounds nuw i16, ptr %spec.select.i.i62, i64 %n.0131
-  %add.ptr.i.i.i64 = getelementptr inbounds i16, ptr %18, i64 %17
-  %add.ptr.i1.i.i65 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i53
+  %add.ptr.i63 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.i.i62, i64 %n.0131
+  %add.ptr.i.i.i64 = getelementptr inbounds [2 x i8], ptr %18, i64 %17
+  %add.ptr.i1.i.i65 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i53
   %cond.i11.i66 = select i1 %tobool.i.i.i50, ptr %add.ptr.i.i.i64, ptr %add.ptr.i1.i.i65
   %cmp.not.i.i67 = icmp eq ptr %add.ptr.i63, %cond.i11.i66
   br i1 %cmp.not.i.i67, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81, label %if.then.i.i68
@@ -28554,7 +28554,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %tobool.i.i83 = icmp slt i8 %23, 0
   %24 = load ptr, ptr %this, align 8
   %spec.select.i84 = select i1 %tobool.i.i83, ptr %24, ptr %this
-  %add.ptr25 = getelementptr inbounds i16, ptr %spec.select.i84, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [2 x i8], ptr %spec.select.i84, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i85 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -28575,9 +28575,9 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
 if.then.i98:                                      ; preds = %if.then30
   %27 = load ptr, ptr %this, align 8
   %spec.select.i.i99 = select i1 %tobool.i.i.i87, ptr %27, ptr %this
-  %add.ptr.i100 = getelementptr inbounds nuw i16, ptr %spec.select.i.i99, i64 %inc
-  %add.ptr.i.i.i101 = getelementptr inbounds i16, ptr %27, i64 %26
-  %add.ptr.i1.i.i102 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i90
+  %add.ptr.i100 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.i.i99, i64 %inc
+  %add.ptr.i.i.i101 = getelementptr inbounds [2 x i8], ptr %27, i64 %26
+  %add.ptr.i1.i.i102 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i90
   %cond.i11.i103 = select i1 %tobool.i.i.i87, ptr %add.ptr.i.i.i101, ptr %add.ptr.i1.i.i102
   %cmp.not.i.i104 = icmp eq ptr %add.ptr.i100, %cond.i11.i103
   br i1 %cmp.not.i.i104, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118, label %if.then.i.i105
@@ -28623,7 +28623,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %tobool.i.i120 = icmp slt i8 %32, 0
   %33 = load ptr, ptr %this, align 8
   %spec.select.i121 = select i1 %tobool.i.i120, ptr %33, ptr %this
-  %add.ptr33 = getelementptr inbounds i16, ptr %spec.select.i121, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [2 x i8], ptr %spec.select.i121, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i122 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -28695,10 +28695,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %spec.select.i.i3.i, %cond.i.i.i
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
@@ -28729,8 +28729,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %a, align 8
   %spec.select.i.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %8, ptr %a
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i.i = getelementptr inbounds i16, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds [2 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i22.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cond.i22.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
@@ -28749,8 +28749,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %10 = load ptr, ptr %a, align 8
-  %add.ptr.i.i30.i.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i.i = getelementptr inbounds i16, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i30.i.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i.i = getelementptr inbounds [2 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i34.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i30.i.i.i, ptr %add.ptr.i1.i33.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i.i, ptr align 2 %spec.select.i.i3.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %add.ptr.i38.i.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i.i, i64 %sub.ptr.sub.i.i.i
@@ -28793,10 +28793,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0ENS_9
   %spec.select.i.i3.i10 = select i1 %tobool.i.i.i2.i9, ptr %16, ptr %temp
   %mnSize.i.i.i4.i11 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %17 = load i64, ptr %mnSize.i.i.i4.i11, align 8
-  %add.ptr.i.i.i.i12 = getelementptr inbounds i16, ptr %16, i64 %17
+  %add.ptr.i.i.i.i12 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %conv.i.i.i.i.i13 = zext nneg i8 %15 to i64
   %sub.i.i.i.i.i14 = sub nsw i64 11, %conv.i.i.i.i.i13
-  %add.ptr.i1.i.i.i15 = getelementptr inbounds i16, ptr %temp, i64 %sub.i.i.i.i.i14
+  %add.ptr.i1.i.i.i15 = getelementptr inbounds [2 x i8], ptr %temp, i64 %sub.i.i.i.i.i14
   %cond.i.i.i16 = select i1 %tobool.i.i.i2.i9, ptr %add.ptr.i.i.i.i12, ptr %add.ptr.i1.i.i.i15
   %cmp.not.i.i.i17 = icmp eq ptr %spec.select.i.i3.i10, %cond.i.i.i16
   br i1 %cmp.not.i.i.i17, label %invoke.cont4, label %if.then.i.i.i18
@@ -28826,8 +28826,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
   store volatile i32 -559038242, ptr null, align 4294967296
   %21 = load ptr, ptr %b, align 8
   %spec.select.i.i.i.i45 = select i1 %tobool.i.i.i.i.i19, ptr %21, ptr %b
-  %add.ptr.i.i.i.i.i46 = getelementptr inbounds i16, ptr %21, i64 %19
-  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i.i.i.i46 = getelementptr inbounds [2 x i8], ptr %21, i64 %19
+  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i22.i.i.i48 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i.i.i.i46, ptr %add.ptr.i1.i.i.i.i47
   %sub.ptr.lhs.cast.i.i.i.i49 = ptrtoint ptr %cond.i22.i.i.i48 to i64
   %sub.ptr.rhs.cast.i.i.i.i50 = ptrtoint ptr %spec.select.i.i.i.i45 to i64
@@ -28846,8 +28846,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
 
 if.else.i.i.i33:                                  ; preds = %if.then.i.i.i18
   %23 = load ptr, ptr %b, align 8
-  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds i16, ptr %23, i64 %19
-  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds [2 x i8], ptr %23, i64 %19
+  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i34.i.i.i36 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i30.i.i.i34, ptr %add.ptr.i1.i33.i.i.i35
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i.i36, ptr align 2 %spec.select.i.i3.i10, i64 %sub.ptr.sub.i.i.i26, i1 false)
   %add.ptr.i38.i.i.i37 = getelementptr inbounds i8, ptr %cond.i34.i.i.i36, i64 %sub.ptr.sub.i.i.i26
@@ -28886,11 +28886,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -28901,10 +28901,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -28929,9 +28929,9 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i37, ptr %9, ptr %this
-  %add.ptr.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %add11
-  %add.ptr.i.i.i42 = getelementptr inbounds i32, ptr %9, i64 %8
-  %add.ptr.i1.i.i43 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i40
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %add11
+  %add.ptr.i.i.i42 = getelementptr inbounds [4 x i8], ptr %9, i64 %8
+  %add.ptr.i1.i.i43 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i40
   %cond.i11.i = select i1 %tobool.i.i.i37, ptr %add.ptr.i.i.i42, ptr %add.ptr.i1.i.i43
   %cmp.not.i.i = icmp eq ptr %add.ptr.i, %cond.i11.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit, label %if.then.i.i
@@ -28977,7 +28977,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %tobool.i.i46 = icmp slt i8 %14, 0
   %15 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i46, ptr %15, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -29012,9 +29012,9 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then.i61:                                      ; preds = %for.body
   %18 = load ptr, ptr %this, align 8
   %spec.select.i.i62 = select i1 %tobool.i.i.i50, ptr %18, ptr %this
-  %add.ptr.i63 = getelementptr inbounds nuw i32, ptr %spec.select.i.i62, i64 %n.0131
-  %add.ptr.i.i.i64 = getelementptr inbounds i32, ptr %18, i64 %17
-  %add.ptr.i1.i.i65 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i53
+  %add.ptr.i63 = getelementptr inbounds nuw [4 x i8], ptr %spec.select.i.i62, i64 %n.0131
+  %add.ptr.i.i.i64 = getelementptr inbounds [4 x i8], ptr %18, i64 %17
+  %add.ptr.i1.i.i65 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i53
   %cond.i11.i66 = select i1 %tobool.i.i.i50, ptr %add.ptr.i.i.i64, ptr %add.ptr.i1.i.i65
   %cmp.not.i.i67 = icmp eq ptr %add.ptr.i63, %cond.i11.i66
   br i1 %cmp.not.i.i67, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit81, label %if.then.i.i68
@@ -29061,7 +29061,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %tobool.i.i83 = icmp slt i8 %23, 0
   %24 = load ptr, ptr %this, align 8
   %spec.select.i84 = select i1 %tobool.i.i83, ptr %24, ptr %this
-  %add.ptr25 = getelementptr inbounds i32, ptr %spec.select.i84, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [4 x i8], ptr %spec.select.i84, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i85 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -29082,9 +29082,9 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
 if.then.i98:                                      ; preds = %if.then30
   %27 = load ptr, ptr %this, align 8
   %spec.select.i.i99 = select i1 %tobool.i.i.i87, ptr %27, ptr %this
-  %add.ptr.i100 = getelementptr inbounds nuw i32, ptr %spec.select.i.i99, i64 %inc
-  %add.ptr.i.i.i101 = getelementptr inbounds i32, ptr %27, i64 %26
-  %add.ptr.i1.i.i102 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i90
+  %add.ptr.i100 = getelementptr inbounds nuw [4 x i8], ptr %spec.select.i.i99, i64 %inc
+  %add.ptr.i.i.i101 = getelementptr inbounds [4 x i8], ptr %27, i64 %26
+  %add.ptr.i1.i.i102 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i90
   %cond.i11.i103 = select i1 %tobool.i.i.i87, ptr %add.ptr.i.i.i101, ptr %add.ptr.i1.i.i102
   %cmp.not.i.i104 = icmp eq ptr %add.ptr.i100, %cond.i11.i103
   br i1 %cmp.not.i.i104, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit118, label %if.then.i.i105
@@ -29130,7 +29130,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %tobool.i.i120 = icmp slt i8 %32, 0
   %33 = load ptr, ptr %this, align 8
   %spec.select.i121 = select i1 %tobool.i.i120, ptr %33, ptr %this
-  %add.ptr33 = getelementptr inbounds i32, ptr %spec.select.i121, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [4 x i8], ptr %spec.select.i121, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i122 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -29202,10 +29202,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %spec.select.i.i3.i, %cond.i.i.i
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
@@ -29236,8 +29236,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %a, align 8
   %spec.select.i.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %8, ptr %a
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i.i = getelementptr inbounds i32, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds [4 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i22.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cond.i22.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
@@ -29256,8 +29256,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %10 = load ptr, ptr %a, align 8
-  %add.ptr.i.i30.i.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i.i = getelementptr inbounds i32, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i30.i.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i.i = getelementptr inbounds [4 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i34.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i30.i.i.i, ptr %add.ptr.i1.i33.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i.i, ptr align 4 %spec.select.i.i3.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %add.ptr.i38.i.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i.i, i64 %sub.ptr.sub.i.i.i
@@ -29300,10 +29300,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0ENS_9
   %spec.select.i.i3.i10 = select i1 %tobool.i.i.i2.i9, ptr %16, ptr %temp
   %mnSize.i.i.i4.i11 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %17 = load i64, ptr %mnSize.i.i.i4.i11, align 8
-  %add.ptr.i.i.i.i12 = getelementptr inbounds i32, ptr %16, i64 %17
+  %add.ptr.i.i.i.i12 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %conv.i.i.i.i.i13 = zext nneg i8 %15 to i64
   %sub.i.i.i.i.i14 = sub nsw i64 5, %conv.i.i.i.i.i13
-  %add.ptr.i1.i.i.i15 = getelementptr inbounds i32, ptr %temp, i64 %sub.i.i.i.i.i14
+  %add.ptr.i1.i.i.i15 = getelementptr inbounds [4 x i8], ptr %temp, i64 %sub.i.i.i.i.i14
   %cond.i.i.i16 = select i1 %tobool.i.i.i2.i9, ptr %add.ptr.i.i.i.i12, ptr %add.ptr.i1.i.i.i15
   %cmp.not.i.i.i17 = icmp eq ptr %spec.select.i.i3.i10, %cond.i.i.i16
   br i1 %cmp.not.i.i.i17, label %invoke.cont4, label %if.then.i.i.i18
@@ -29333,8 +29333,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
   store volatile i32 -559038242, ptr null, align 4294967296
   %21 = load ptr, ptr %b, align 8
   %spec.select.i.i.i.i45 = select i1 %tobool.i.i.i.i.i19, ptr %21, ptr %b
-  %add.ptr.i.i.i.i.i46 = getelementptr inbounds i32, ptr %21, i64 %19
-  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i.i.i.i46 = getelementptr inbounds [4 x i8], ptr %21, i64 %19
+  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i22.i.i.i48 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i.i.i.i46, ptr %add.ptr.i1.i.i.i.i47
   %sub.ptr.lhs.cast.i.i.i.i49 = ptrtoint ptr %cond.i22.i.i.i48 to i64
   %sub.ptr.rhs.cast.i.i.i.i50 = ptrtoint ptr %spec.select.i.i.i.i45 to i64
@@ -29353,8 +29353,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
 
 if.else.i.i.i33:                                  ; preds = %if.then.i.i.i18
   %23 = load ptr, ptr %b, align 8
-  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds i32, ptr %23, i64 %19
-  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds [4 x i8], ptr %23, i64 %19
+  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i34.i.i.i36 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i30.i.i.i34, ptr %add.ptr.i1.i33.i.i.i35
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i.i36, ptr align 4 %spec.select.i.i3.i10, i64 %sub.ptr.sub.i.i.i26, i1 false)
   %add.ptr.i38.i.i.i37 = getelementptr inbounds i8, ptr %cond.i34.i.i.i36, i64 %sub.ptr.sub.i.i.i26
@@ -29849,7 +29849,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i89 = getelementptr inbounds i16, ptr %2, i64 %n
+  %add.ptr.i.i89 = getelementptr inbounds [2 x i8], ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -29860,8 +29860,8 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %.pre84 = sub nsw i64 11, %.pre83
   %4 = icmp slt i8 %conv.i.i22, 0
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %.pre84
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %.pre84
   %spec.select = select i1 %4, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %6
 
@@ -29904,7 +29904,7 @@ if.then21:                                        ; preds = %if.then19
   %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 11, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
-  %add.ptr.i41 = getelementptr inbounds nuw i16, ptr %this, i64 %n.addr.0
+  %add.ptr.i41 = getelementptr inbounds nuw [2 x i8], ptr %this, i64 %n.addr.0
   store i16 0, ptr %add.ptr.i41, align 2
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -29934,8 +29934,8 @@ if.end32:                                         ; preds = %if.then19
   %cond.i49 = select i1 %tobool.i.i45, i64 %14, i64 %sub.i.i48
   %15 = load ptr, ptr %this, align 8
   %spec.select.i52 = select i1 %tobool.i.i45, ptr %15, ptr %this
-  %add.ptr.i.i56 = getelementptr inbounds i16, ptr %15, i64 %14
-  %add.ptr.i1.i59 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i48
+  %add.ptr.i.i56 = getelementptr inbounds [2 x i8], ptr %15, i64 %14
+  %add.ptr.i1.i59 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i48
   %cond.i60 = select i1 %tobool.i.i45, ptr %add.ptr.i.i56, ptr %add.ptr.i1.i59
   %sub.ptr.lhs.cast.i61 = ptrtoint ptr %cond.i60 to i64
   %sub.ptr.rhs.cast.i62 = ptrtoint ptr %spec.select.i52 to i64
@@ -30011,11 +30011,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 22
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i16, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -30026,10 +30026,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -30047,7 +30047,7 @@ if.then:                                          ; preds = %entry
   %tobool.i.i37 = icmp slt i8 %7, 0
   %8 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i37, ptr %8, ptr %this
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i38 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -30076,7 +30076,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tobool.i.i41 = icmp slt i8 %9, 0
   %10 = load ptr, ptr %this, align 8
   %spec.select.i42 = select i1 %tobool.i.i41, ptr %10, ptr %this
-  %add.ptr25 = getelementptr inbounds i16, ptr %spec.select.i42, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [2 x i8], ptr %spec.select.i42, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i43 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -30090,7 +30090,7 @@ if.then30:                                        ; preds = %for.body
   %tobool.i.i45 = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
   %spec.select.i46 = select i1 %tobool.i.i45, ptr %12, ptr %this
-  %add.ptr33 = getelementptr inbounds i16, ptr %spec.select.i46, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [2 x i8], ptr %spec.select.i46, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -30162,10 +30162,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %call5.i.i3 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(304) %a, ptr noundef %spec.select.i.i3.i, ptr noundef %cond.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -30194,10 +30194,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15Ma
   %spec.select.i.i3.i11 = select i1 %tobool.i.i.i2.i10, ptr %8, ptr %temp
   %mnSize.i.i.i4.i12 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %9 = load i64, ptr %mnSize.i.i.i4.i12, align 8
-  %add.ptr.i.i.i.i13 = getelementptr inbounds i16, ptr %8, i64 %9
+  %add.ptr.i.i.i.i13 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %conv.i.i.i.i.i14 = zext nneg i8 %7 to i64
   %sub.i.i.i.i.i15 = sub nsw i64 11, %conv.i.i.i.i.i14
-  %add.ptr.i1.i.i.i16 = getelementptr inbounds i16, ptr %temp, i64 %sub.i.i.i.i.i15
+  %add.ptr.i1.i.i.i16 = getelementptr inbounds [2 x i8], ptr %temp, i64 %sub.i.i.i.i.i15
   %cond.i.i.i17 = select i1 %tobool.i.i.i2.i10, ptr %add.ptr.i.i.i.i13, ptr %add.ptr.i1.i.i.i16
   %call5.i.i20 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb1E15MallocAllocatorEEE6appendEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(304) %b, ptr noundef %spec.select.i.i3.i11, ptr noundef %cond.i.i.i17)
           to label %invoke.cont4 unwind label %lpad
@@ -30303,7 +30303,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i89 = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr.i.i89 = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -30314,8 +30314,8 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %.pre84 = sub nsw i64 5, %.pre83
   %4 = icmp slt i8 %conv.i.i22, 0
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %.pre84
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %.pre84
   %spec.select = select i1 %4, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %6
 
@@ -30358,7 +30358,7 @@ if.then21:                                        ; preds = %if.then19
   %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 5, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
-  %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %this, i64 %n.addr.0
+  %add.ptr.i41 = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %n.addr.0
   store i32 0, ptr %add.ptr.i41, align 4
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -30388,8 +30388,8 @@ if.end32:                                         ; preds = %if.then19
   %cond.i49 = select i1 %tobool.i.i45, i64 %14, i64 %sub.i.i48
   %15 = load ptr, ptr %this, align 8
   %spec.select.i52 = select i1 %tobool.i.i45, ptr %15, ptr %this
-  %add.ptr.i.i56 = getelementptr inbounds i32, ptr %15, i64 %14
-  %add.ptr.i1.i59 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i48
+  %add.ptr.i.i56 = getelementptr inbounds [4 x i8], ptr %15, i64 %14
+  %add.ptr.i1.i59 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i48
   %cond.i60 = select i1 %tobool.i.i45, ptr %add.ptr.i.i56, ptr %add.ptr.i1.i59
   %sub.ptr.lhs.cast.i61 = ptrtoint ptr %cond.i60 to i64
   %sub.ptr.rhs.cast.i62 = ptrtoint ptr %spec.select.i52 to i64
@@ -30465,11 +30465,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -30480,10 +30480,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -30501,7 +30501,7 @@ if.then:                                          ; preds = %entry
   %tobool.i.i37 = icmp slt i8 %7, 0
   %8 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i37, ptr %8, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i38 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -30530,7 +30530,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tobool.i.i41 = icmp slt i8 %9, 0
   %10 = load ptr, ptr %this, align 8
   %spec.select.i42 = select i1 %tobool.i.i41, ptr %10, ptr %this
-  %add.ptr25 = getelementptr inbounds i32, ptr %spec.select.i42, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [4 x i8], ptr %spec.select.i42, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i43 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -30544,7 +30544,7 @@ if.then30:                                        ; preds = %for.body
   %tobool.i.i45 = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
   %spec.select.i46 = select i1 %tobool.i.i45, ptr %12, ptr %this
-  %add.ptr33 = getelementptr inbounds i32, ptr %spec.select.i46, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [4 x i8], ptr %spec.select.i46, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -30616,10 +30616,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %call5.i.i3 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(560) %a, ptr noundef %spec.select.i.i3.i, ptr noundef %cond.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -30648,10 +30648,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15Ma
   %spec.select.i.i3.i11 = select i1 %tobool.i.i.i2.i10, ptr %8, ptr %temp
   %mnSize.i.i.i4.i12 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %9 = load i64, ptr %mnSize.i.i.i4.i12, align 8
-  %add.ptr.i.i.i.i13 = getelementptr inbounds i32, ptr %8, i64 %9
+  %add.ptr.i.i.i.i13 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %conv.i.i.i.i.i14 = zext nneg i8 %7 to i64
   %sub.i.i.i.i.i15 = sub nsw i64 5, %conv.i.i.i.i.i14
-  %add.ptr.i1.i.i.i16 = getelementptr inbounds i32, ptr %temp, i64 %sub.i.i.i.i.i15
+  %add.ptr.i1.i.i.i16 = getelementptr inbounds [4 x i8], ptr %temp, i64 %sub.i.i.i.i.i15
   %cond.i.i.i17 = select i1 %tobool.i.i.i2.i10, ptr %add.ptr.i.i.i.i13, ptr %add.ptr.i1.i.i.i16
   %call5.i.i20 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb1E15MallocAllocatorEEE6appendEPKDiS6_(ptr noundef nonnull align 8 dereferenceable(560) %b, ptr noundef %spec.select.i.i3.i11, ptr noundef %cond.i.i.i17)
           to label %invoke.cont4 unwind label %lpad
@@ -31249,11 +31249,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 22
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i16, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [2 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -31264,10 +31264,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [2 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 11, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -31292,9 +31292,9 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i37, ptr %9, ptr %this
-  %add.ptr.i = getelementptr inbounds i16, ptr %spec.select.i.i, i64 %add11
-  %add.ptr.i.i.i42 = getelementptr inbounds i16, ptr %9, i64 %8
-  %add.ptr.i1.i.i43 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i40
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %spec.select.i.i, i64 %add11
+  %add.ptr.i.i.i42 = getelementptr inbounds [2 x i8], ptr %9, i64 %8
+  %add.ptr.i1.i.i43 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i40
   %cond.i11.i = select i1 %tobool.i.i.i37, ptr %add.ptr.i.i.i42, ptr %add.ptr.i1.i.i43
   %cmp.not.i.i = icmp eq ptr %add.ptr.i, %cond.i11.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit, label %if.then.i.i
@@ -31340,7 +31340,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %tobool.i.i46 = icmp slt i8 %14, 0
   %15 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i46, ptr %15, ptr %this
-  %add.ptr = getelementptr inbounds i16, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -31375,9 +31375,9 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then.i61:                                      ; preds = %for.body
   %18 = load ptr, ptr %this, align 8
   %spec.select.i.i62 = select i1 %tobool.i.i.i50, ptr %18, ptr %this
-  %add.ptr.i63 = getelementptr inbounds nuw i16, ptr %spec.select.i.i62, i64 %n.0131
-  %add.ptr.i.i.i64 = getelementptr inbounds i16, ptr %18, i64 %17
-  %add.ptr.i1.i.i65 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i53
+  %add.ptr.i63 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.i.i62, i64 %n.0131
+  %add.ptr.i.i.i64 = getelementptr inbounds [2 x i8], ptr %18, i64 %17
+  %add.ptr.i1.i.i65 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i53
   %cond.i11.i66 = select i1 %tobool.i.i.i50, ptr %add.ptr.i.i.i64, ptr %add.ptr.i1.i.i65
   %cmp.not.i.i67 = icmp eq ptr %add.ptr.i63, %cond.i11.i66
   br i1 %cmp.not.i.i67, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81, label %if.then.i.i68
@@ -31424,7 +31424,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %tobool.i.i83 = icmp slt i8 %23, 0
   %24 = load ptr, ptr %this, align 8
   %spec.select.i84 = select i1 %tobool.i.i83, ptr %24, ptr %this
-  %add.ptr25 = getelementptr inbounds i16, ptr %spec.select.i84, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [2 x i8], ptr %spec.select.i84, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i85 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -31445,9 +31445,9 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
 if.then.i98:                                      ; preds = %if.then30
   %27 = load ptr, ptr %this, align 8
   %spec.select.i.i99 = select i1 %tobool.i.i.i87, ptr %27, ptr %this
-  %add.ptr.i100 = getelementptr inbounds nuw i16, ptr %spec.select.i.i99, i64 %inc
-  %add.ptr.i.i.i101 = getelementptr inbounds i16, ptr %27, i64 %26
-  %add.ptr.i1.i.i102 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i90
+  %add.ptr.i100 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.i.i99, i64 %inc
+  %add.ptr.i.i.i101 = getelementptr inbounds [2 x i8], ptr %27, i64 %26
+  %add.ptr.i1.i.i102 = getelementptr inbounds [2 x i8], ptr %this, i64 %sub.i.i.i90
   %cond.i11.i103 = select i1 %tobool.i.i.i87, ptr %add.ptr.i.i.i101, ptr %add.ptr.i1.i.i102
   %cmp.not.i.i104 = icmp eq ptr %add.ptr.i100, %cond.i11.i103
   br i1 %cmp.not.i.i104, label %_ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118, label %if.then.i.i105
@@ -31493,7 +31493,7 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %tobool.i.i120 = icmp slt i8 %32, 0
   %33 = load ptr, ptr %this, align 8
   %spec.select.i121 = select i1 %tobool.i.i120, ptr %33, ptr %this
-  %add.ptr33 = getelementptr inbounds i16, ptr %spec.select.i121, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [2 x i8], ptr %spec.select.i121, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i122 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -31565,10 +31565,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 11, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %spec.select.i.i3.i, %cond.i.i.i
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
@@ -31599,8 +31599,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %a, align 8
   %spec.select.i.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %8, ptr %a
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i.i = getelementptr inbounds i16, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds [2 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i22.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cond.i22.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
@@ -31619,8 +31619,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %10 = load ptr, ptr %a, align 8
-  %add.ptr.i.i30.i.i.i = getelementptr inbounds i16, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i.i = getelementptr inbounds i16, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i30.i.i.i = getelementptr inbounds [2 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i.i = getelementptr inbounds [2 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i34.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i30.i.i.i, ptr %add.ptr.i1.i33.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i.i, ptr align 2 %spec.select.i.i3.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %add.ptr.i38.i.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i.i, i64 %sub.ptr.sub.i.i.i
@@ -31663,10 +31663,10 @@ _ZN5eastl12basic_stringIDsNS_22fixed_vector_allocatorILm2ELm128ELm2ELm0ELb0E15Ma
   %spec.select.i.i3.i10 = select i1 %tobool.i.i.i2.i9, ptr %16, ptr %temp
   %mnSize.i.i.i4.i11 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %17 = load i64, ptr %mnSize.i.i.i4.i11, align 8
-  %add.ptr.i.i.i.i12 = getelementptr inbounds i16, ptr %16, i64 %17
+  %add.ptr.i.i.i.i12 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %conv.i.i.i.i.i13 = zext nneg i8 %15 to i64
   %sub.i.i.i.i.i14 = sub nsw i64 11, %conv.i.i.i.i.i13
-  %add.ptr.i1.i.i.i15 = getelementptr inbounds i16, ptr %temp, i64 %sub.i.i.i.i.i14
+  %add.ptr.i1.i.i.i15 = getelementptr inbounds [2 x i8], ptr %temp, i64 %sub.i.i.i.i.i14
   %cond.i.i.i16 = select i1 %tobool.i.i.i2.i9, ptr %add.ptr.i.i.i.i12, ptr %add.ptr.i1.i.i.i15
   %cmp.not.i.i.i17 = icmp eq ptr %spec.select.i.i3.i10, %cond.i.i.i16
   br i1 %cmp.not.i.i.i17, label %invoke.cont4, label %if.then.i.i.i18
@@ -31696,8 +31696,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
   store volatile i32 -559038242, ptr null, align 4294967296
   %21 = load ptr, ptr %b, align 8
   %spec.select.i.i.i.i45 = select i1 %tobool.i.i.i.i.i19, ptr %21, ptr %b
-  %add.ptr.i.i.i.i.i46 = getelementptr inbounds i16, ptr %21, i64 %19
-  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i.i.i.i46 = getelementptr inbounds [2 x i8], ptr %21, i64 %19
+  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i22.i.i.i48 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i.i.i.i46, ptr %add.ptr.i1.i.i.i.i47
   %sub.ptr.lhs.cast.i.i.i.i49 = ptrtoint ptr %cond.i22.i.i.i48 to i64
   %sub.ptr.rhs.cast.i.i.i.i50 = ptrtoint ptr %spec.select.i.i.i.i45 to i64
@@ -31716,8 +31716,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
 
 if.else.i.i.i33:                                  ; preds = %if.then.i.i.i18
   %23 = load ptr, ptr %b, align 8
-  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds i16, ptr %23, i64 %19
-  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds i16, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds [2 x i8], ptr %23, i64 %19
+  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds [2 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i34.i.i.i36 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i30.i.i.i34, ptr %add.ptr.i1.i33.i.i.i35
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %cond.i34.i.i.i36, ptr align 2 %spec.select.i.i3.i10, i64 %sub.ptr.sub.i.i.i26, i1 false)
   %add.ptr.i38.i.i.i37 = getelementptr inbounds i8, ptr %cond.i34.i.i.i36, i64 %sub.ptr.sub.i.i.i26
@@ -31756,11 +31756,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -31771,10 +31771,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -31799,9 +31799,9 @@ if.then:                                          ; preds = %entry
 if.then.i:                                        ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
   %spec.select.i.i = select i1 %tobool.i.i.i37, ptr %9, ptr %this
-  %add.ptr.i = getelementptr inbounds i32, ptr %spec.select.i.i, i64 %add11
-  %add.ptr.i.i.i42 = getelementptr inbounds i32, ptr %9, i64 %8
-  %add.ptr.i1.i.i43 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i40
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %spec.select.i.i, i64 %add11
+  %add.ptr.i.i.i42 = getelementptr inbounds [4 x i8], ptr %9, i64 %8
+  %add.ptr.i1.i.i43 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i40
   %cond.i11.i = select i1 %tobool.i.i.i37, ptr %add.ptr.i.i.i42, ptr %add.ptr.i1.i.i43
   %cmp.not.i.i = icmp eq ptr %add.ptr.i, %cond.i11.i
   br i1 %cmp.not.i.i, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit, label %if.then.i.i
@@ -31847,7 +31847,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %tobool.i.i46 = icmp slt i8 %14, 0
   %15 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i46, ptr %15, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -31882,9 +31882,9 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then.i61:                                      ; preds = %for.body
   %18 = load ptr, ptr %this, align 8
   %spec.select.i.i62 = select i1 %tobool.i.i.i50, ptr %18, ptr %this
-  %add.ptr.i63 = getelementptr inbounds nuw i32, ptr %spec.select.i.i62, i64 %n.0131
-  %add.ptr.i.i.i64 = getelementptr inbounds i32, ptr %18, i64 %17
-  %add.ptr.i1.i.i65 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i53
+  %add.ptr.i63 = getelementptr inbounds nuw [4 x i8], ptr %spec.select.i.i62, i64 %n.0131
+  %add.ptr.i.i.i64 = getelementptr inbounds [4 x i8], ptr %18, i64 %17
+  %add.ptr.i1.i.i65 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i53
   %cond.i11.i66 = select i1 %tobool.i.i.i50, ptr %add.ptr.i.i.i64, ptr %add.ptr.i1.i.i65
   %cmp.not.i.i67 = icmp eq ptr %add.ptr.i63, %cond.i11.i66
   br i1 %cmp.not.i.i67, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit81, label %if.then.i.i68
@@ -31931,7 +31931,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %tobool.i.i83 = icmp slt i8 %23, 0
   %24 = load ptr, ptr %this, align 8
   %spec.select.i84 = select i1 %tobool.i.i83, ptr %24, ptr %this
-  %add.ptr25 = getelementptr inbounds i32, ptr %spec.select.i84, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [4 x i8], ptr %spec.select.i84, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i85 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -31952,9 +31952,9 @@ if.then30:                                        ; preds = %_ZN5eastl12basic_st
 if.then.i98:                                      ; preds = %if.then30
   %27 = load ptr, ptr %this, align 8
   %spec.select.i.i99 = select i1 %tobool.i.i.i87, ptr %27, ptr %this
-  %add.ptr.i100 = getelementptr inbounds nuw i32, ptr %spec.select.i.i99, i64 %inc
-  %add.ptr.i.i.i101 = getelementptr inbounds i32, ptr %27, i64 %26
-  %add.ptr.i1.i.i102 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i90
+  %add.ptr.i100 = getelementptr inbounds nuw [4 x i8], ptr %spec.select.i.i99, i64 %inc
+  %add.ptr.i.i.i101 = getelementptr inbounds [4 x i8], ptr %27, i64 %26
+  %add.ptr.i1.i.i102 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i90
   %cond.i11.i103 = select i1 %tobool.i.i.i87, ptr %add.ptr.i.i.i101, ptr %add.ptr.i1.i.i102
   %cmp.not.i.i104 = icmp eq ptr %add.ptr.i100, %cond.i11.i103
   br i1 %cmp.not.i.i104, label %_ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit118, label %if.then.i.i105
@@ -32000,7 +32000,7 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %tobool.i.i120 = icmp slt i8 %32, 0
   %33 = load ptr, ptr %this, align 8
   %spec.select.i121 = select i1 %tobool.i.i120, ptr %33, ptr %this
-  %add.ptr33 = getelementptr inbounds i32, ptr %spec.select.i121, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [4 x i8], ptr %spec.select.i121, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i122 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -32072,10 +32072,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %spec.select.i.i3.i = select i1 %tobool.i.i.i2.i, ptr %3, ptr %b
   %mnSize.i.i.i4.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load i64, ptr %mnSize.i.i.i4.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %4
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %conv.i.i.i.i.i = zext nneg i8 %2 to i64
   %sub.i.i.i.i.i = sub nsw i64 5, %conv.i.i.i.i.i
-  %add.ptr.i1.i.i.i = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i2.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i = icmp eq ptr %spec.select.i.i3.i, %cond.i.i.i
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
@@ -32106,8 +32106,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   store volatile i32 -559038242, ptr null, align 4294967296
   %8 = load ptr, ptr %a, align 8
   %spec.select.i.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %8, ptr %a
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %8, i64 %6
-  %add.ptr.i1.i.i.i.i = getelementptr inbounds i32, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %8, i64 %6
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds [4 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i22.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %cond.i22.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %spec.select.i.i.i.i to i64
@@ -32126,8 +32126,8 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %10 = load ptr, ptr %a, align 8
-  %add.ptr.i.i30.i.i.i = getelementptr inbounds i32, ptr %10, i64 %6
-  %add.ptr.i1.i33.i.i.i = getelementptr inbounds i32, ptr %a, i64 %sub.i.i.i5.i.i
+  %add.ptr.i.i30.i.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %6
+  %add.ptr.i1.i33.i.i.i = getelementptr inbounds [4 x i8], ptr %a, i64 %sub.i.i.i5.i.i
   %cond.i34.i.i.i = select i1 %tobool.i.i.i.i.i, ptr %add.ptr.i.i30.i.i.i, ptr %add.ptr.i1.i33.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i.i, ptr align 4 %spec.select.i.i3.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %add.ptr.i38.i.i.i = getelementptr inbounds i8, ptr %cond.i34.i.i.i, i64 %sub.ptr.sub.i.i.i
@@ -32170,10 +32170,10 @@ _ZN5eastl12basic_stringIDiNS_22fixed_vector_allocatorILm4ELm128ELm4ELm0ELb0E15Ma
   %spec.select.i.i3.i10 = select i1 %tobool.i.i.i2.i9, ptr %16, ptr %temp
   %mnSize.i.i.i4.i11 = getelementptr inbounds nuw i8, ptr %temp, i64 8
   %17 = load i64, ptr %mnSize.i.i.i4.i11, align 8
-  %add.ptr.i.i.i.i12 = getelementptr inbounds i32, ptr %16, i64 %17
+  %add.ptr.i.i.i.i12 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %conv.i.i.i.i.i13 = zext nneg i8 %15 to i64
   %sub.i.i.i.i.i14 = sub nsw i64 5, %conv.i.i.i.i.i13
-  %add.ptr.i1.i.i.i15 = getelementptr inbounds i32, ptr %temp, i64 %sub.i.i.i.i.i14
+  %add.ptr.i1.i.i.i15 = getelementptr inbounds [4 x i8], ptr %temp, i64 %sub.i.i.i.i.i14
   %cond.i.i.i16 = select i1 %tobool.i.i.i2.i9, ptr %add.ptr.i.i.i.i12, ptr %add.ptr.i1.i.i.i15
   %cmp.not.i.i.i17 = icmp eq ptr %spec.select.i.i3.i10, %cond.i.i.i16
   br i1 %cmp.not.i.i.i17, label %invoke.cont4, label %if.then.i.i.i18
@@ -32203,8 +32203,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
   store volatile i32 -559038242, ptr null, align 4294967296
   %21 = load ptr, ptr %b, align 8
   %spec.select.i.i.i.i45 = select i1 %tobool.i.i.i.i.i19, ptr %21, ptr %b
-  %add.ptr.i.i.i.i.i46 = getelementptr inbounds i32, ptr %21, i64 %19
-  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i.i.i.i46 = getelementptr inbounds [4 x i8], ptr %21, i64 %19
+  %add.ptr.i1.i.i.i.i47 = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i22.i.i.i48 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i.i.i.i46, ptr %add.ptr.i1.i.i.i.i47
   %sub.ptr.lhs.cast.i.i.i.i49 = ptrtoint ptr %cond.i22.i.i.i48 to i64
   %sub.ptr.rhs.cast.i.i.i.i50 = ptrtoint ptr %spec.select.i.i.i.i45 to i64
@@ -32223,8 +32223,8 @@ if.then5.i.i.i42:                                 ; preds = %if.then.i.i.i18
 
 if.else.i.i.i33:                                  ; preds = %if.then.i.i.i18
   %23 = load ptr, ptr %b, align 8
-  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds i32, ptr %23, i64 %19
-  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds i32, ptr %b, i64 %sub.i.i.i5.i.i22
+  %add.ptr.i.i30.i.i.i34 = getelementptr inbounds [4 x i8], ptr %23, i64 %19
+  %add.ptr.i1.i33.i.i.i35 = getelementptr inbounds [4 x i8], ptr %b, i64 %sub.i.i.i5.i.i22
   %cond.i34.i.i.i36 = select i1 %tobool.i.i.i.i.i19, ptr %add.ptr.i.i30.i.i.i34, ptr %add.ptr.i1.i33.i.i.i35
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i34.i.i.i36, ptr align 4 %spec.select.i.i3.i10, i64 %sub.ptr.sub.i.i.i26, i1 false)
   %add.ptr.i38.i.i.i37 = getelementptr inbounds i8, ptr %cond.i34.i.i.i36, i64 %sub.ptr.sub.i.i.i26
@@ -33233,11 +33233,11 @@ entry:
   %mnCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %mnCapacity.i.i.i.i, align 8
   %and.i.i.i.i = and i64 %3, 9223372036854775807
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %2, i64 %and.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %and.i.i.i.i
   %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %cond.i.i = select i1 %tobool.i.i, ptr %add.ptr.i.i.i, ptr %add.ptr.i1.i.i
-  %add.ptr.i.i3.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i4.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i3.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i4.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i5.i = select i1 %tobool.i.i, ptr %add.ptr.i.i3.i, ptr %add.ptr.i1.i4.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i5.i to i64
@@ -33248,10 +33248,10 @@ entry:
   %tobool.i.i33 = icmp slt i8 %4, 0
   %5 = load ptr, ptr %this, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %6
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %conv.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i35 = select i1 %tobool.i.i33, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %add = add nsw i64 %sub.ptr.div.i, 1
   %call.i = call noundef i32 @_ZN2EA4StdC9VsnprintfEPwmPKwP13__va_list_tag(ptr noundef %cond.i35, i64 noundef %add, ptr noundef %pFormat, ptr noundef %arguments)
@@ -33269,7 +33269,7 @@ if.then:                                          ; preds = %entry
   %tobool.i.i37 = icmp slt i8 %7, 0
   %8 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i37, ptr %8, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %cond.i
   %add14 = add nsw i32 %call.i, 1
   %conv15 = sext i32 %add14 to i64
   %call.i38 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPwmPKwP13__va_list_tag(ptr noundef %add.ptr, i64 noundef %conv15, ptr noundef %pFormat, ptr noundef %arguments)
@@ -33298,7 +33298,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %tobool.i.i41 = icmp slt i8 %9, 0
   %10 = load ptr, ptr %this, align 8
   %spec.select.i42 = select i1 %tobool.i.i41, ptr %10, ptr %this
-  %add.ptr25 = getelementptr inbounds i32, ptr %spec.select.i42, i64 %cond.i
+  %add.ptr25 = getelementptr inbounds [4 x i8], ptr %spec.select.i42, i64 %cond.i
   %add26 = add i64 %sub, 1
   %call.i43 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPwmPKwP13__va_list_tag(ptr noundef %add.ptr25, i64 noundef %add26, ptr noundef %pFormat, ptr noundef %arguments)
   %conv28 = trunc i64 %sub to i32
@@ -33312,7 +33312,7 @@ if.then30:                                        ; preds = %for.body
   %tobool.i.i45 = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
   %spec.select.i46 = select i1 %tobool.i.i45, ptr %12, ptr %this
-  %add.ptr33 = getelementptr inbounds i32, ptr %spec.select.i46, i64 %cond.i
+  %add.ptr33 = getelementptr inbounds [4 x i8], ptr %spec.select.i46, i64 %cond.i
   %add34 = add i64 %sub, 2
   %call.i47 = call noundef i32 @_ZN2EA4StdC9VsnprintfEPwmPKwP13__va_list_tag(ptr noundef %add.ptr33, i64 noundef %add34, ptr noundef %pFormat, ptr noundef %arguments)
   br label %for.inc
@@ -33371,9 +33371,9 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i, ptr %2, ptr %this
-  %add.ptr = getelementptr inbounds i32, ptr %spec.select.i, i64 %n
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %spec.select.i, i64 %n
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i11 = select i1 %tobool.i.i, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %cmp.not.i = icmp eq ptr %add.ptr, %cond.i11
   br i1 %cmp.not.i, label %if.end11, label %if.then.i
@@ -33432,10 +33432,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i32, ptr %12, i64 %10
+  %add.ptr.i.i.i22 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %add.ptr.i1.i.i23 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i16.i
   %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
   %add.ptr.idx.i.i = shl nsw i64 %sub, 2
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
@@ -33503,7 +33503,7 @@ if.then6:                                         ; preds = %if.else
 _ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit.thread: ; preds = %if.then6
   store i64 %n, ptr %mnSize.i.i, align 8
   %2 = load ptr, ptr %this, align 8
-  %add.ptr.i.i82 = getelementptr inbounds i32, ptr %2, i64 %n
+  %add.ptr.i.i82 = getelementptr inbounds [4 x i8], ptr %2, i64 %n
   br label %6
 
 _ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9allocatorEEEE6Layout7SetSizeEm.exit: ; preds = %if.then6
@@ -33514,8 +33514,8 @@ _ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9al
   %.pre77 = sub nsw i64 5, %.pre76
   %4 = icmp slt i8 %conv.i.i22, 0
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %5, i64 %1
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %.pre77
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %5, i64 %1
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %.pre77
   %spec.select = select i1 %4, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   br label %6
 
@@ -33558,7 +33558,7 @@ if.then21:                                        ; preds = %if.then19
   %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 5, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
-  %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %this, i64 %n.addr.0
+  %add.ptr.i41 = getelementptr inbounds nuw [4 x i8], ptr %this, i64 %n.addr.0
   store i32 0, ptr %add.ptr.i41, align 4
   %tobool.not.i = icmp eq ptr %spec.select.i, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -33584,8 +33584,8 @@ if.end32:                                         ; preds = %if.then19
   %cond.i47 = select i1 %tobool.i.i43, i64 %14, i64 %sub.i.i46
   %15 = load ptr, ptr %this, align 8
   %spec.select.i50 = select i1 %tobool.i.i43, ptr %15, ptr %this
-  %add.ptr.i.i54 = getelementptr inbounds i32, ptr %15, i64 %14
-  %add.ptr.i1.i57 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i46
+  %add.ptr.i.i54 = getelementptr inbounds [4 x i8], ptr %15, i64 %14
+  %add.ptr.i1.i57 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i46
   %cond.i58 = select i1 %tobool.i.i43, ptr %add.ptr.i.i54, ptr %add.ptr.i1.i57
   %sub.ptr.lhs.cast.i59 = ptrtoint ptr %cond.i58 to i64
   %sub.ptr.rhs.cast.i60 = ptrtoint ptr %spec.select.i50 to i64
@@ -33776,10 +33776,10 @@ if.then5:                                         ; preds = %if.then
   %4 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i19, ptr %4, ptr %this
   %5 = load i64, ptr %mnSize.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %4, i64 %5
+  %add.ptr.i.i = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %conv.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i = sub nsw i64 5, %conv.i.i.i
-  %add.ptr.i1.i = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i
+  %add.ptr.i1.i = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i.i
   %cond.i23 = select i1 %tobool.i.i19, ptr %add.ptr.i.i, ptr %add.ptr.i1.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i23 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %spec.select.i to i64
@@ -33815,8 +33815,8 @@ _ZN5eastl12basic_stringIwNS_22fixed_vector_allocatorILm4ELm64ELm4ELm0ELb1ENS_9al
 
 if.else:                                          ; preds = %if.then
   %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i32, ptr %9, i64 %1
-  %add.ptr.i1.i36 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i
+  %add.ptr.i.i33 = getelementptr inbounds [4 x i8], ptr %9, i64 %1
+  %add.ptr.i1.i36 = getelementptr inbounds [4 x i8], ptr %this, i64 %sub.i.i
   %cond.i37 = select i1 %tobool.i.i, ptr %add.ptr.i.i33, ptr %add.ptr.i1.i36
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %cond.i37, ptr align 4 %pBegin, i64 %sub.ptr.sub, i1 false)
   %add.ptr.i41 = getelementptr inbounds i8, ptr %cond.i37, i64 %sub.ptr.sub

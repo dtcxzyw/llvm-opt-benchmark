@@ -2641,14 +2641,14 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
   %671 = phi ptr [ %764, %763 ], [ %624, %.preheader ]
   %672 = phi ptr [ %765, %763 ], [ %623, %.preheader ]
   %.0269 = phi i64 [ %766, %763 ], [ 0, %.preheader ]
-  %673 = getelementptr inbounds nuw i32, ptr %671, i64 %.0269
+  %673 = getelementptr inbounds nuw [4 x i8], ptr %671, i64 %.0269
   %674 = load i32, ptr %673, align 4, !tbaa !32
   %.not = icmp eq i32 %674, -1
   br i1 %.not, label %763, label %675
 
 675:                                              ; preds = %.lr.ph
   %676 = load ptr, ptr %32, align 8, !tbaa !164
-  %677 = getelementptr inbounds nuw i32, ptr %676, i64 %.0269
+  %677 = getelementptr inbounds nuw [4 x i8], ptr %676, i64 %.0269
   %678 = load i32, ptr %677, align 4, !tbaa !32
   %.not75 = icmp eq i32 %678, -1
   br i1 %.not75, label %763, label %679
@@ -2684,9 +2684,9 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %691 = phi ptr [ %671, %679 ], [ %671, %685 ], [ %.pre, %688 ]
   store ptr %680, ptr %33, align 8, !tbaa !146, !alias.scope !166
   store ptr %681, ptr %458, align 8, !tbaa !60, !alias.scope !166
-  %692 = getelementptr inbounds nuw i32, ptr %691, i64 %.0269
+  %692 = getelementptr inbounds nuw [4 x i8], ptr %691, i64 %.0269
   %693 = load i32, ptr %692, align 4, !tbaa !32
-  %694 = getelementptr inbounds nuw i32, ptr %690, i64 %.0269
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %690, i64 %.0269
   %695 = load i32, ptr %694, align 4, !tbaa !32
   %696 = invoke noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR11swapFeatureEii(ptr noundef nonnull align 8 dereferenceable(72) %680, i32 noundef %693, i32 noundef %695)
           to label %697 unwind label %759
@@ -2767,7 +2767,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   store ptr %719, ptr %34, align 8, !tbaa !146, !alias.scope !172
   store ptr %720, ptr %459, align 8, !tbaa !60, !alias.scope !172
   %729 = load ptr, ptr %32, align 8, !tbaa !164
-  %730 = getelementptr inbounds nuw i32, ptr %729, i64 %.0269
+  %730 = getelementptr inbounds nuw [4 x i8], ptr %729, i64 %.0269
   %731 = load i32, ptr %730, align 4, !tbaa !32
   %732 = load ptr, ptr %28, align 8, !tbaa !146
   %733 = trunc i64 %.0269 to i32
@@ -5957,14 +5957,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit291:       ; preds = %_ZSt8_DestroyIPN2cv
   %1019 = phi ptr [ %946, %.lr.ph ], [ %1132, %1131 ]
   %1020 = phi ptr [ %945, %.lr.ph ], [ %1133, %1131 ]
   %.0402 = phi i64 [ 0, %.lr.ph ], [ %1134, %1131 ]
-  %1021 = getelementptr inbounds nuw i32, ptr %1019, i64 %.0402
+  %1021 = getelementptr inbounds nuw [4 x i8], ptr %1019, i64 %.0402
   %1022 = load i32, ptr %1021, align 4, !tbaa !32
   %.not = icmp eq i32 %1022, -1
   br i1 %.not, label %1131, label %1023
 
 1023:                                             ; preds = %1018
   %1024 = load ptr, ptr %45, align 8, !tbaa !164
-  %1025 = getelementptr inbounds nuw i32, ptr %1024, i64 %.0402
+  %1025 = getelementptr inbounds nuw [4 x i8], ptr %1024, i64 %.0402
   %1026 = load i32, ptr %1025, align 4, !tbaa !32
   %.not99 = icmp eq i32 %1026, -1
   br i1 %.not99, label %1131, label %1027
@@ -6018,10 +6018,10 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   store ptr %1036, ptr %48, align 8, !tbaa !146, !alias.scope !278
   store ptr %1038, ptr %947, align 8, !tbaa !60, !alias.scope !278
   %1047 = load ptr, ptr %42, align 8, !tbaa !164
-  %1048 = getelementptr inbounds nuw i32, ptr %1047, i64 %.0402
+  %1048 = getelementptr inbounds nuw [4 x i8], ptr %1047, i64 %.0402
   %1049 = load i32, ptr %1048, align 4, !tbaa !32
   %1050 = load ptr, ptr %45, align 8, !tbaa !164
-  %1051 = getelementptr inbounds nuw i32, ptr %1050, i64 %.0402
+  %1051 = getelementptr inbounds nuw [4 x i8], ptr %1050, i64 %.0402
   %1052 = load i32, ptr %1051, align 4, !tbaa !32
   %1053 = invoke noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR11swapFeatureEii(ptr noundef nonnull align 8 dereferenceable(72) %1036, i32 noundef %1049, i32 noundef %1052)
           to label %1054 unwind label %1125
@@ -6123,7 +6123,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   store ptr %1084, ptr %49, align 8, !tbaa !146, !alias.scope !284
   store ptr %1086, ptr %948, align 8, !tbaa !60, !alias.scope !284
   %1095 = load ptr, ptr %45, align 8, !tbaa !164
-  %1096 = getelementptr inbounds nuw i32, ptr %1095, i64 %.0402
+  %1096 = getelementptr inbounds nuw [4 x i8], ptr %1095, i64 %.0402
   %1097 = load i32, ptr %1096, align 4, !tbaa !32
   %1098 = load ptr, ptr %39, align 8, !tbaa !146
   %1099 = trunc i64 %.0402 to i32
@@ -7534,7 +7534,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !143
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !179
   ret void
 

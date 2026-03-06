@@ -190,7 +190,7 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   %45 = call i32 @dissect_dcom_append_UUID(ptr noundef %0, i32 noundef %.04750, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %43, i32 noundef %44, ptr noundef nonnull %11)
   %46 = load ptr, ptr %37, align 8
   %47 = zext i32 %.04651 to i64
-  %48 = getelementptr %struct._e_guid_t, ptr %46, i64 %47
+  %48 = getelementptr [16 x i8], ptr %46, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false)
   %49 = load i32, ptr %10, align 4
   %50 = add i32 %49, -1
@@ -264,7 +264,7 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %36 = load ptr, ptr %23, align 8
   %37 = add i32 %.06571, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr %struct._e_guid_t, ptr %36, i64 %38
+  %39 = getelementptr [16 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef align 4 dereferenceable(16) %39, i64 16, i1 false)
   br label %41
 

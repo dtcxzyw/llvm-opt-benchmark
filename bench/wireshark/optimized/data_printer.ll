@@ -2290,7 +2290,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit.us:           ; preds = %36, %_ZN17QArrayDat
   %39 = getelementptr i8, ptr %38, i64 %24
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr i16, ptr %23, i64 %41
+  %42 = getelementptr [2 x i8], ptr %23, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 64
   %.not.us = icmp eq i16 %44, 0
@@ -2979,7 +2979,7 @@ define noundef range(i32 49, 73) i32 @_ZN11DataPrinter8hexCharsEv() local_unname
 
 switch.lookup:                                    ; preds = %0
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11DataPrinter8hexCharsEv, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

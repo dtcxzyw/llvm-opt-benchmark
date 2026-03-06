@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.kvs_get_msg = type { i32, i32, i16, ptr }
-%struct.kvs_hosts = type { i32, i16, ptr }
 
 @pmi_fd = dso_local local_unnamed_addr global i32 -1, align 4
 @pmi_time = dso_local local_unnamed_addr global i32 0, align 4
@@ -690,7 +689,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.01920 = phi i32 [ 0, %.lr.ph ], [ %.1, %35 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = icmp eq i16 %12, 0
@@ -702,7 +701,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noun
   store i16 7204, ptr %6, align 4
   store ptr %0, ptr %7, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -718,7 +717,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noun
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef %27) #10
@@ -729,7 +728,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noun
   %30 = phi i32 [ %.pre, %._crit_edge23 ], [ 1, %23 ]
   %31 = call i32 @llvm.smax.i32(i32 %.01920, i32 %30)
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @slurm_xfree(ptr noundef nonnull %34) #10
   br label %35

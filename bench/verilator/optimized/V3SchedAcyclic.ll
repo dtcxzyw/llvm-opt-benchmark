@@ -120,11 +120,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.std::allocator.2" = type { i8 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"class.std::function" }
-%"struct.std::pair.152" = type <{ ptr, i32, [4 x i8] }>
 %class.V3Statistic = type <{ ptr, %"class.std::__cxx11::basic_string", double, i32, [4 x i8], %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8] }>
+%"struct.std::pair.152" = type <{ ptr, i32, [4 x i8] }>
 %"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { %"class.std::function" }
 %"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { %"class.std::function" }
-%"struct.std::pair" = type { ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -1077,7 +1076,7 @@ _ZN12VNUser3InUseC2Ev.exit.i:                     ; preds = %_ZN12VNUser2InUseC2
 
 74:                                               ; preds = %74, %.noexc.i
   %indvars.iv.i.i.i = phi i64 [ -2, %.noexc.i ], [ %indvars.iv.next.i.i.i, %74 ]
-  %75 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds [8 x i8], ptr %70, i64 %indvars.iv.i.i.i
   store ptr %.073.i, ptr %75, align 8, !tbaa !43
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %76 = icmp eq i64 %indvars.iv.next.i.i.i, 0
@@ -1189,8 +1188,8 @@ _ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i: 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i: ; preds = %119, %_ZSt27__uninitialized_default_n_aIPP7AstNodemS1_ET_S3_T0_RSaIT1_E.exit33.i.i.i
   %120 = sub i64 %96, %89
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i, i64 noundef %120) #31
-  %121 = getelementptr inbounds nuw ptr, ptr %114, i64 %95
-  %122 = getelementptr inbounds nuw ptr, ptr %113, i64 %111
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %95
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %111
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicByScopeEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
 
 123:                                              ; preds = %87
@@ -1198,7 +1197,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i: ; preds
   br i1 %124, label %125, label %"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicByScopeEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1.i.i, i64 %92
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1.i.i, i64 %92
   %.not.i.i.i24.i.i.i = icmp eq ptr %.sroa.13.0.i.i, %126
   %spec.select.i.i = select i1 %.not.i.i.i24.i.i.i, ptr %.sroa.13.0.i.i, ptr %126
   br label %"_ZZN7AstNode11foreachImplI9AstVarRefZN7V3Sched12_GLOBAL__N_110buildGraphERKNS2_12LogicByScopeEE3$_0EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlmE_clEm.exit30.i.i.i"
@@ -1213,7 +1212,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36.i.i.i: ; preds
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i.i, i64 16
   %131 = getelementptr inbounds i8, ptr %130, i64 %129
   store ptr %131, ptr %23, align 8, !tbaa !60, !noalias !4
-  %132 = getelementptr inbounds nuw ptr, ptr %130, i64 %92
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %92
   %133 = getelementptr inbounds i8, ptr %132, i64 -40
   br label %134
 
@@ -1480,7 +1479,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   br label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %210, %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
-  %211 = getelementptr inbounds nuw ptr, ptr %205, i64 %203
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %203
   br label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i
 
 .loopexit141.i:                                   ; preds = %_ZNKSt6vectorIP13V3GraphVertexSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -1608,7 +1607,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i68
   br label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i70.i
 
 _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i70.i: ; preds = %249, %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i68.i
-  %250 = getelementptr inbounds nuw ptr, ptr %244, i64 %242
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %242
   br label %"_ZZN7V3Sched12_GLOBAL__N_115removeNonCyclicEPNS0_5GraphEENK3$_0clEP13V3GraphVertex.exit73.i"
 
 "_ZZN7V3Sched12_GLOBAL__N_115removeNonCyclicEPNS0_5GraphEENK3$_0clEP13V3GraphVertex.exit73.i": ; preds = %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i70.i, %230, %.lr.ph195.i
@@ -1714,7 +1713,7 @@ _ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i84
   br label %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i86.i
 
 _ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i86.i: ; preds = %281, %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i84.i
-  %282 = getelementptr inbounds nuw ptr, ptr %276, i64 %274
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %274
   br label %"_ZZN7V3Sched12_GLOBAL__N_115removeNonCyclicEPNS0_5GraphEENK3$_0clEP13V3GraphVertex.exit89.i"
 
 "_ZZN7V3Sched12_GLOBAL__N_115removeNonCyclicEPNS0_5GraphEENK3$_0clEP13V3GraphVertex.exit89.i": ; preds = %_ZNSt6vectorIP13V3GraphVertexSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i86.i, %262, %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6iLinksEvEES0_E15UnlinkableProxy23UnlinkableItertatorImplIS0_EppEv.exit.i
@@ -2030,7 +2029,7 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_reloca
   br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %388, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
-  %389 = getelementptr inbounds nuw ptr, ptr %383, i64 %381
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %381
   br label %_ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i39
 
 .loopexit37.i:                                    ; preds = %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i36
@@ -2969,7 +2968,7 @@ _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relo
   br label %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %694, %_ZNSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i.i.i
-  %695 = getelementptr inbounds nuw ptr, ptr %689, i64 %687
+  %695 = getelementptr inbounds nuw [8 x i8], ptr %689, i64 %687
   br label %_ZN7AstNode12user1SetOnceEv.exit.i
 
 .loopexit.i87:                                    ; preds = %_ZN7AstNode12user1SetOnceEv.exit.i, %_ZNKSt6vectorIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -3056,7 +3055,7 @@ _ZNSt6vectorIP11AstVarScopeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i: 
 _ZNSt6vectorIP11AstVarScopeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %722, %_ZNSt6vectorIP11AstVarScopeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i
   store ptr %717, ptr %696, align 8, !tbaa !185
   store ptr %721, ptr %698, align 8, !tbaa !180
-  %723 = getelementptr inbounds nuw ptr, ptr %717, i64 %715
+  %723 = getelementptr inbounds nuw [8 x i8], ptr %717, i64 %715
   store ptr %723, ptr %700, align 8, !tbaa !183
   br label %_ZN6V3ListI11V3GraphEdgeXadL_ZNS0_6oLinksEvEES0_E19SimpleItertatorImplIS0_Lb0EEppEv.exit.i
 
@@ -3813,7 +3812,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8, !tbaa !44
   %21 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !229
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #33
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %23, i64 noundef %24)
@@ -4127,7 +4126,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !44
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !229
   ret ptr %5
 }
@@ -4165,7 +4164,7 @@ define linkonce_odr dso_local i16 @_ZNK7AstNode4typeEv(ptr noundef nonnull align
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !233
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !229
   ret ptr %5
 }
@@ -6688,7 +6687,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %9, ptr %0, align 8, !tbaa !320
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -6782,7 +6781,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %50, ptr %51, align 8, !tbaa !315
   store ptr %41, ptr %39, align 8, !tbaa !328
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !329
   ret void
 
@@ -6811,7 +6810,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !298
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -6905,7 +6904,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_create_nodesEPPS0_S4_.exit: ; preds 
   store ptr %48, ptr %49, align 8, !tbaa !333
   store ptr %39, ptr %37, align 8, !tbaa !334
   %50 = and i64 %1, 511
-  %51 = getelementptr inbounds nuw %class.V3LangCode, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !335
   ret void
 
@@ -7893,7 +7892,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %154, %156
   br i1 %177, label %272, label %178
 
 178:                                              ; preds = %172
-  %179 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %.val21, i64 %.01611
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %.val21, i64 %.01611
   %180 = load ptr, ptr %179, align 8, !tbaa !356
   %181 = getelementptr i8, ptr %180, i64 80
   %.val = load ptr, ptr %181, align 8, !tbaa !85
@@ -8278,7 +8277,7 @@ _ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE1
 _ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE17_M_realloc_insertIJRKS4_RKjEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39.i, %28
   store ptr %22, ptr %0, align 8, !tbaa !359
   store ptr %27, ptr %2, align 8, !tbaa !361
-  %29 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %22, i64 %20
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %20
   store ptr %29, ptr %4, align 8, !tbaa !367
   br label %30
 
@@ -8748,7 +8747,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 46:                                               ; preds = %3
   %47 = lshr i64 %11, 1
-  %48 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8997,7 +8996,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_
   %14 = ashr exact i64 %13, 4
   %15 = add nsw i64 %14, 1
   %16 = sdiv i64 %15, 2
-  %17 = getelementptr inbounds %"struct.std::pair.152", ptr %0, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %0, i64 %16
   %18 = icmp sgt i64 %16, %3
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %18, label %20, label %83
@@ -9705,7 +9704,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit: ; preds = %32
   %35 = sdiv i64 %3, 2
-  %36 = getelementptr inbounds %"struct.std::pair.152", ptr %0, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -9794,7 +9793,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121S
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
-  %67 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %.sroa.011.013.i, i64 %64
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.013.i, i64 %64
   %68 = load ptr, ptr %56, align 8, !tbaa !142
   %69 = invoke noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %36)
           to label %.noexc60 unwind label %.loopexit
@@ -9896,7 +9895,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit69: ; preds = %32
   %102 = sdiv i64 %4, 2
-  %103 = getelementptr inbounds %"struct.std::pair.152", ptr %1, i64 %102
+  %103 = getelementptr inbounds [16 x i8], ptr %1, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
@@ -9981,7 +9980,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121S
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i79
-  %134 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %.sroa.011.013.i81, i64 %131
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.013.i81, i64 %131
   %135 = load ptr, ptr %123, align 8, !tbaa !142
   %136 = invoke noundef zeroext i1 %135(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(12) %103, ptr noundef nonnull align 8 dereferenceable(12) %134)
           to label %.noexc88 unwind label %.loopexit122
@@ -10141,7 +10140,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   br i1 %198, label %.lr.ph68.preheader.i.i, label %._crit_edge69.i.i
 
 .lr.ph68.preheader.i.i:                           ; preds = %197
-  %199 = getelementptr inbounds %"struct.std::pair.152", ptr %.sroa.038.0.i.i, i64 %.0.i.i
+  %199 = getelementptr inbounds [16 x i8], ptr %.sroa.038.0.i.i, i64 %.0.i.i
   br label %.lr.ph68.i.i
 
 ._crit_edge69.i.i:                                ; preds = %.lr.ph68.i.i, %197
@@ -10175,9 +10174,9 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
   br label %.backedge
 
 212:                                              ; preds = %194
-  %213 = getelementptr inbounds %"struct.std::pair.152", ptr %.sroa.038.0.i.i, i64 %.058.i.i
+  %213 = getelementptr inbounds [16 x i8], ptr %.sroa.038.0.i.i, i64 %.058.i.i
   %214 = sub i64 0, %195
-  %215 = getelementptr inbounds %"struct.std::pair.152", ptr %213, i64 %214
+  %215 = getelementptr inbounds [16 x i8], ptr %213, i64 %214
   %216 = icmp sgt i64 %.0.i.i, 0
   br i1 %216, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -12018,7 +12017,7 @@ _ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit: ; preds = %168
   %170 = sdiv i64 %3, 2
-  %171 = getelementptr inbounds %"struct.std::pair.152", ptr %0, i64 %170
+  %171 = getelementptr inbounds [16 x i8], ptr %0, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
@@ -12103,7 +12102,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121S
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i
-  %202 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %.sroa.011.013.i, i64 %199
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.013.i, i64 %199
   %203 = load ptr, ptr %191, align 8, !tbaa !142
   %204 = invoke noundef zeroext i1 %203(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(12) %202, ptr noundef nonnull align 8 dereferenceable(12) %171)
           to label %.noexc122 unwind label %.loopexit
@@ -12205,7 +12204,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL_
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit133: ; preds = %168
   %237 = sdiv i64 %4, 2
-  %238 = getelementptr inbounds %"struct.std::pair.152", ptr %1, i64 %237
+  %238 = getelementptr inbounds [16 x i8], ptr %1, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %240 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
@@ -12290,7 +12289,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121S
   unreachable
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterISt8functionIFbRKSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESA_EEEclIS9_NS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEEEbRT_T0_.exit.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i144
-  %269 = getelementptr inbounds nuw %"struct.std::pair.152", ptr %.sroa.011.013.i146, i64 %266
+  %269 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.013.i146, i64 %266
   %270 = load ptr, ptr %258, align 8, !tbaa !142
   %271 = invoke noundef zeroext i1 %270(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(12) %238, ptr noundef nonnull align 8 dereferenceable(12) %269)
           to label %.noexc153 unwind label %.loopexit199
@@ -12633,7 +12632,7 @@ _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN
   br i1 %409, label %.lr.ph68.preheader.i.i.i, label %._crit_edge69.i.i.i
 
 .lr.ph68.preheader.i.i.i:                         ; preds = %408
-  %410 = getelementptr inbounds %"struct.std::pair.152", ptr %.sroa.038.0.i.i.i, i64 %.0.i.i.i
+  %410 = getelementptr inbounds [16 x i8], ptr %.sroa.038.0.i.i.i, i64 %.0.i.i.i
   br label %.lr.ph68.i.i.i
 
 ._crit_edge69.i.i.i:                              ; preds = %.lr.ph68.i.i.i, %408
@@ -12667,9 +12666,9 @@ _ZSt13move_backwardIPSt4pairIPN7V3Sched12_GLOBAL__N_121SchedAcyclicVarVertexEjEN
   br label %.backedge
 
 423:                                              ; preds = %405
-  %424 = getelementptr inbounds %"struct.std::pair.152", ptr %.sroa.038.0.i.i.i, i64 %.058.i.i.i
+  %424 = getelementptr inbounds [16 x i8], ptr %.sroa.038.0.i.i.i, i64 %.058.i.i.i
   %425 = sub i64 0, %406
-  %426 = getelementptr inbounds %"struct.std::pair.152", ptr %424, i64 %425
+  %426 = getelementptr inbounds [16 x i8], ptr %424, i64 %425
   %427 = icmp sgt i64 %.0.i.i.i, 0
   br i1 %427, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -13117,7 +13116,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt13u
   %.val21.i = load i64, ptr %3, align 8, !tbaa !177
   %4 = urem i64 %2, %.val21.i
   %.val22.i = load ptr, ptr %0, align 8, !tbaa !170
-  %5 = getelementptr inbounds nuw ptr, ptr %.val22.i, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %.val22.i, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !443
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %7
@@ -13231,7 +13230,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
   %.val.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !55
   %42 = ptrtoint ptr %.val.i.i.i.i to i64
   %43 = urem i64 %42, %30
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !443
   %.not27.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not27.i.i.i.i, label %46, label %51
@@ -13246,7 +13245,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
   br i1 %.not28.i.i.i.i, label %54, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
   store ptr %.032.i.i.i.i, ptr %50, align 8, !tbaa !443
   br label %54
 
@@ -13308,7 +13307,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
 72:                                               ; preds = %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i, %._crit_edge.i.i
   %73 = phi ptr [ %.0.i.i.i.i.i, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
   %.0.i29.i = phi i64 [ %71, %_ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_St6vectorIP11AstVarScopeSaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %4, %._crit_edge.i.i ]
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.0.i29.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0.i29.i
   %75 = load ptr, ptr %74, align 8, !tbaa !443
   %.not.i.i30.i = icmp eq ptr %75, null
   br i1 %.not.i.i30.i, label %79, label %76
@@ -13334,7 +13333,7 @@ _ZNSt10_HashtableIPN7V3Sched12_GLOBAL__N_123SchedAcyclicLogicVertexESt4pairIKS3_
   %.val13.i.i.i = load ptr, ptr %83, align 8, !tbaa !55
   %84 = ptrtoint ptr %.val13.i.i.i to i64
   %85 = urem i64 %84, %.val12.i.i.i
-  %86 = getelementptr inbounds nuw ptr, ptr %73, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %85
   store ptr %18, ptr %86, align 8, !tbaa !443
   br label %87
 
@@ -13461,7 +13460,7 @@ _ZNSt13unordered_setI5VNRefI10AstSenTreeESt4hashIS2_ESt8equal_toIS2_ESaIS2_EE7em
 .noexc11:                                         ; preds = %.noexc10
   %.sroa.0.0.copyload.i.i5.i = load i16, ptr %31, align 8, !tbaa !44
   %35 = zext i16 %.sroa.0.0.copyload.i.i5.i to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !229
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %37)
           to label %.noexc12 unwind label %.loopexit.split-lp
@@ -13602,7 +13601,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.
 _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i
   store ptr %50, ptr %0, align 8, !tbaa !223
   store ptr %55, ptr %14, align 8, !tbaa !467
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %57, ptr %32, align 8, !tbaa !225
   br label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit
 
@@ -13689,7 +13688,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13SenTreeFinder10getSenTreeEP10Ast
   %16 = urem i64 %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !196
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %20 = load ptr, ptr %19, align 8, !tbaa !443
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS2_.exit.thread, label %21
@@ -13902,7 +13901,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI10AstSenTreePS_
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.474)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !44
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !229
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.457)
@@ -14011,7 +14010,7 @@ _ZNKSt8__detail15_Hashtable_baseI5VNRefI10AstSenTreeES3_NS_9_IdentityESt8equal_t
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !196
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %19
   %25 = load ptr, ptr %24, align 8, !tbaa !443
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %.critedge27, label %26
@@ -14152,7 +14151,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_
   store i64 %2, ptr %32, align 8, !tbaa !475
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !196
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !443
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -14178,7 +14177,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !475
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !443
   br label %50
 
@@ -14244,7 +14243,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !475
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !443
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -14259,7 +14258,7 @@ _ZNSt10_HashtableI5VNRefI10AstSenTreeES2_SaIS2_ENSt8__detail9_IdentityESt8equal_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !443
   br label %28
 

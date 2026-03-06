@@ -21686,7 +21686,7 @@ define internal fastcc void @"_ZN170_$LT$zbus..message..header.._..$LT$impl$u20$
   %161 = select i1 %.not7.i.i.i, i64 0, i64 %120
   %.sroa.03.0.i.i.i = sub nuw i64 %160, %161
   %162 = load ptr, ptr %77, align 8, !alias.scope !5847, !noalias !5848, !nonnull !5, !noundef !5
-  %163 = getelementptr inbounds i64, ptr %162, i64 %.sroa.03.0.i.i.i
+  %163 = getelementptr inbounds [8 x i8], ptr %162, i64 %.sroa.03.0.i.i.i
   br label %165
 
 164:                                              ; preds = %.noexc
@@ -28676,7 +28676,7 @@ define internal fastcc void @"_ZN177_$LT$zbus..message..header.._..$LT$impl$u20$
   %260 = select i1 %.not7.i.i.i, i64 0, i64 %219
   %.sroa.03.0.i.i.i = sub nuw i64 %259, %260
   %261 = load ptr, ptr %144, align 8, !alias.scope !7860, !noalias !7861, !nonnull !5, !noundef !5
-  %262 = getelementptr inbounds i64, ptr %261, i64 %.sroa.03.0.i.i.i
+  %262 = getelementptr inbounds [8 x i8], ptr %261, i64 %.sroa.03.0.i.i.i
   br label %264
 
 263:                                              ; preds = %.noexc
@@ -45843,7 +45843,7 @@ define internal fastcc void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$a
   %84 = select i1 %.not7.i.i.i.i, i64 0, i64 %44
   %.sroa.03.0.i.i.i.i = sub nuw i64 %83, %84
   %85 = load ptr, ptr %32, align 8, !alias.scope !13355, !noalias !13356, !nonnull !5, !noundef !5
-  %86 = getelementptr inbounds i64, ptr %85, i64 %.sroa.03.0.i.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %.sroa.03.0.i.i.i.i
   br label %88
 
 87:                                               ; preds = %.noexc
@@ -49601,7 +49601,7 @@ define hidden void @"_ZN91_$LT$zvariant..gvariant..de..ArrayDeserializer$LT$F$GT
   %.sroa.03.0.i = sub nuw i64 %69, %70
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8, !alias.scope !14398, !noalias !14403, !nonnull !5, !noundef !5
-  %73 = getelementptr inbounds i64, ptr %72, i64 %.sroa.03.0.i
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %.sroa.03.0.i
   br label %75
 
 74:                                               ; preds = %._crit_edge
@@ -50184,7 +50184,7 @@ define hidden void @"_ZN91_$LT$zvariant..gvariant..de..ArrayDeserializer$LT$F$GT
   %.sroa.03.0.i = sub nuw i64 %70, %71
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load ptr, ptr %72, align 8, !alias.scope !14538, !noalias !14543, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds i64, ptr %73, i64 %.sroa.03.0.i
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %.sroa.03.0.i
   br label %77
 
 75:                                               ; preds = %47

@@ -22,12 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.QuantLib::Path" = type { %"class.QuantLib::TimeGrid", %"class.QuantLib::Array" }
-%"class.QuantLib::TimeGrid" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -416,13 +410,13 @@ cond.false.i:                                     ; preds = %for.cond.cleanup
 
 invoke.cont35:                                    ; preds = %invoke.cont35.lr.ph, %invoke.cont35
   %j.063 = phi i64 [ 0, %invoke.cont35.lr.ph ], [ %inc, %invoke.cont35 ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.063
+  %add.ptr.i.i = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %j.063
   %values_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 72
   %25 = load ptr, ptr %values_.i, align 8, !tbaa !32
   %26 = getelementptr i8, ptr %25, i64 %sub.ptr.sub.i.i.i.i34
   %arrayidx.i.i = getelementptr i8, ptr %26, i64 -8
   %27 = load double, ptr %arrayidx.i.i, align 8, !tbaa !42
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %j.063
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %j.063
   store double %27, ptr %arrayidx.i, align 8, !tbaa !42
   %inc = add nuw i64 %j.063, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i

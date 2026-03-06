@@ -158,7 +158,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb21GetCacheEntryRoleNameB5cxx11ENS_14CacheEntryRoleE(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 %2
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 %2
   ret ptr %3
 }
 
@@ -345,7 +345,7 @@ define void @_ZN7rocksdb27BlockCacheEntryStatsMapKeys10EntryCountB5cxx11ENS_14Ca
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_129GetPrefixedCacheEntryRoleNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14CacheEntryRoleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 %4
+  %5 = getelementptr inbounds nuw [32 x i8], ptr @_ZN7rocksdb29kCacheEntryRoleToHyphenStringB5cxx11E, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8

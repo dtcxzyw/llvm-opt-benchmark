@@ -62,7 +62,7 @@ define ptr @av_bsf_iterate(ptr noundef captures(none) %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @bitstream_filters, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @bitstream_filters, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = add i64 %4, 1
   %8 = inttoptr i64 %7 to ptr
@@ -86,7 +86,7 @@ define noundef ptr @av_bsf_get_by_name(ptr noundef readonly captures(address_is_
 
 av_bsf_iterate.exit:                              ; preds = %.preheader
   %2 = ptrtoint ptr %.08 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @bitstream_filters, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @bitstream_filters, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = add i64 %2, 1
   %6 = inttoptr i64 %5 to ptr
@@ -115,7 +115,7 @@ define ptr @ff_bsf_child_class_iterate(ptr noundef captures(none) %0) local_unna
 
 av_bsf_iterate.exit:                              ; preds = %2
   %4 = ptrtoint ptr %3 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @bitstream_filters, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @bitstream_filters, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = add i64 %4, 1
   %8 = inttoptr i64 %7 to ptr

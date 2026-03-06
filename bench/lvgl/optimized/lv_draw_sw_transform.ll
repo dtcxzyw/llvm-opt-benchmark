@@ -3,9 +3,6 @@ source_filename = "bench/lvgl/original/lv_draw_sw_transform.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lv_color32_t = type { i8, i8, i8, i8 }
-%struct.lv_color16a_t = type { i8, i8 }
-
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_transform(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readnone captures(none) %6, i32 noundef %7, ptr noundef captures(address) %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 68
@@ -600,7 +597,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br i1 %or.cond170.i, label %392, label %390
 
 390:                                              ; preds = %386, %.lr.ph.i206
-  %391 = getelementptr inbounds nuw i32, ptr %.0443, i64 %indvars.iv.i208
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %.0443, i64 %indvars.iv.i208
   store i32 0, ptr %391, align 4, !tbaa !30
   br label %492
 
@@ -623,7 +620,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   %404 = shl nuw nsw i32 %383, 2
   %405 = zext nneg i32 %404 to i64
   %406 = getelementptr inbounds nuw i8, ptr %403, i64 %405
-  %407 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %.0443, i64 %indvars.iv.i208
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %.0443, i64 %indvars.iv.i208
   %408 = load i32, ptr %406, align 1
   store i32 %408, ptr %407, align 1
   %409 = lshr i32 %408, 24
@@ -645,7 +642,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
 
 416:                                              ; preds = %413
   %417 = sext i32 %.0149.i to i64
-  %418 = getelementptr inbounds %struct.lv_color32_t, ptr %406, i64 %417
+  %418 = getelementptr inbounds [4 x i8], ptr %406, i64 %417
   %.sroa.023.sroa.0.0.copyload.i = load i24, ptr %418, align 1
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %418, i64 3
   %.sroa.528.0.copyload.i = load i8, ptr %.sroa.528.0..sroa_idx.i, align 1, !tbaa !27
@@ -824,7 +821,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   br i1 %or.cond129.i, label %513, label %510
 
 510:                                              ; preds = %506, %.lr.ph.i219
-  %511 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.0443, i64 %indvars.iv.i221
+  %511 = getelementptr inbounds nuw [2 x i8], ptr %.0443, i64 %indvars.iv.i221
   store i8 0, ptr %511, align 1, !tbaa !34
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 1
   store i8 0, ptr %512, align 1, !tbaa !36
@@ -850,7 +847,7 @@ transform_point_upscaled.exit205:                 ; preds = %.thread413, %218, %
   %526 = sext i32 %525 to i64
   %527 = getelementptr inbounds i8, ptr %1, i64 %526
   %528 = load i8, ptr %527, align 1, !tbaa !27
-  %529 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %.0443, i64 %indvars.iv.i221
+  %529 = getelementptr inbounds nuw [2 x i8], ptr %.0443, i64 %indvars.iv.i221
   store i8 %528, ptr %529, align 1, !tbaa !34
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 1
   store i8 -1, ptr %530, align 1, !tbaa !36
@@ -1017,7 +1014,7 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   br i1 %or.cond170, label %35, label %32
 
 32:                                               ; preds = %28, %16
-  %33 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 0, ptr %34, align 1, !tbaa !31
   br label %107
@@ -1042,7 +1039,7 @@ define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %50 = load i8, ptr %49, align 1, !tbaa !27
-  %51 = getelementptr inbounds nuw %struct.lv_color32_t, ptr %9, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store i8 %50, ptr %52, align 1, !tbaa !39
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 1
@@ -1239,7 +1236,7 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !43
-  %57 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   store i16 %56, ptr %57, align 2, !tbaa !43
   br i1 %12, label %58, label %121
 
@@ -1259,7 +1256,7 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
 
 64:                                               ; preds = %61
   %65 = sext i32 %.0157 to i64
-  %66 = getelementptr inbounds i16, ptr %55, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %55, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !43
   %68 = mul nsw i32 %.0158, %3
   %69 = sext i32 %68 to i64

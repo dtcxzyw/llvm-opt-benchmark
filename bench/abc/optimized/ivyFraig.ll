@@ -200,7 +200,7 @@ Abc_Clock.exit:                                   ; preds = %56, %59
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
   %.035.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %103 ]
   %.01934.i = phi i32 [ 0, %.lr.ph.i ], [ %.120.i, %103 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.val30.i, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.val30.i, i64 %indvars.iv.i
   %82 = load ptr, ptr %81, align 8, !tbaa !51
   %83 = getelementptr i8, ptr %82, i64 16
   %.val31.i = load ptr, ptr %83, align 8, !tbaa !52
@@ -351,7 +351,7 @@ Abc_Clock.exit128:                                ; preds = %131, %134
   %indvars.iv.i136 = phi i64 [ 0, %.lr.ph.i133 ], [ %indvars.iv.next.i143, %178 ]
   %.035.i137 = phi i32 [ 0, %.lr.ph.i133 ], [ %.1.i142, %178 ]
   %.01934.i138 = phi i32 [ 0, %.lr.ph.i133 ], [ %.120.i141, %178 ]
-  %156 = getelementptr inbounds nuw ptr, ptr %.val30.i134, i64 %indvars.iv.i136
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %.val30.i134, i64 %indvars.iv.i136
   %157 = load ptr, ptr %156, align 8, !tbaa !51
   %158 = getelementptr i8, ptr %157, i64 16
   %.val31.i139 = load ptr, ptr %158, align 8, !tbaa !52
@@ -531,7 +531,7 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
   %indvars.iv.i161 = phi i64 [ 0, %.lr.ph.i158 ], [ %indvars.iv.next.i168, %280 ]
   %.035.i162 = phi i32 [ 0, %.lr.ph.i158 ], [ %.1.i167, %280 ]
   %.01934.i163 = phi i32 [ 0, %.lr.ph.i158 ], [ %.120.i166, %280 ]
-  %258 = getelementptr inbounds nuw ptr, ptr %.val30.i159, i64 %indvars.iv.i161
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %.val30.i159, i64 %indvars.iv.i161
   %259 = load ptr, ptr %258, align 8, !tbaa !51
   %260 = getelementptr i8, ptr %259, i64 16
   %.val31.i164 = load ptr, ptr %260, align 8, !tbaa !52
@@ -735,7 +735,7 @@ Ivy_FraigPerform_int.exit:                        ; preds = %315, %.thread.i
   %indvars.iv.i186 = phi i64 [ 0, %.lr.ph.i183 ], [ %indvars.iv.next.i193, %381 ]
   %.035.i187 = phi i32 [ 0, %.lr.ph.i183 ], [ %.1.i192, %381 ]
   %.01934.i188 = phi i32 [ 0, %.lr.ph.i183 ], [ %.120.i191, %381 ]
-  %359 = getelementptr inbounds nuw ptr, ptr %.val30.i184, i64 %indvars.iv.i186
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %.val30.i184, i64 %indvars.iv.i186
   %360 = load ptr, ptr %359, align 8, !tbaa !51
   %361 = getelementptr i8, ptr %360, i64 16
   %.val31.i189 = load ptr, ptr %361, align 8, !tbaa !52
@@ -939,7 +939,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %Abc_Clock.exit ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val47 = load ptr, ptr %24, align 8, !tbaa !49
-  %25 = getelementptr inbounds nuw ptr, ptr %.val47, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val47, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = icmp eq ptr %26, null
   br i1 %27, label %59, label %28
@@ -1030,7 +1030,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %73 = phi ptr [ %90, %Ivy_ObjChild0Equiv.exit58 ], [ %66, %.critedge ]
   %74 = getelementptr i8, ptr %73, i64 8
   %.val48 = load ptr, ptr %74, align 8, !tbaa !49
-  %75 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv73
   %76 = load ptr, ptr %75, align 8, !tbaa !51
   %77 = getelementptr i8, ptr %76, i64 16
   %.val52 = load ptr, ptr %77, align 8, !tbaa !52
@@ -1066,7 +1066,7 @@ Ivy_ObjChild0Equiv.exit58:                        ; preds = %.lr.ph68, %80
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %95 = getelementptr i8, ptr %94, i64 8
   %.val49 = load ptr, ptr %95, align 8, !tbaa !49
-  %96 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv76
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv76
   %97 = load ptr, ptr %96, align 8, !tbaa !51
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.critedge2, label %99
@@ -1259,7 +1259,7 @@ define internal fastcc noalias noundef ptr @Ivy_FraigStart(ptr noundef %0, ptr n
   %24 = phi ptr [ null, %.lr.ph ], [ %97, %96 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %.081 = phi i32 [ 0, %.lr.ph ], [ %.1, %96 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.val66, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val66, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = icmp eq ptr %26, null
   br i1 %27, label %96, label %28
@@ -1446,7 +1446,7 @@ define internal fastcc void @Ivy_FraigSimulate(ptr noundef captures(none) %0) un
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.i
   %13 = getelementptr i8, ptr %10, i64 8
   %.val6.i = load ptr, ptr %13, align 8, !tbaa !49
-  %14 = getelementptr inbounds nuw ptr, ptr %.val6.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = getelementptr i8, ptr %15, i64 32
   %.val.i.i = load ptr, ptr %16, align 8, !tbaa !103
@@ -1462,7 +1462,7 @@ define internal fastcc void @Ivy_FraigSimulate(ptr noundef captures(none) %0) un
   %23 = xor i32 %22, %20
   %24 = tail call i32 @rand() #28
   %25 = xor i32 %23, %24
-  %26 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i.i
   store i32 %25, ptr %26, align 4, !tbaa !38
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %27 = load i32, ptr %7, align 8, !tbaa !96
@@ -1525,12 +1525,12 @@ Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRando
   %52 = trunc nuw nsw i64 %indvars.iv.i27 to i32
   %53 = lshr i64 %indvars.iv.i27, 5
   %54 = and i64 %53, 134217727
-  %55 = getelementptr inbounds nuw i32, ptr %41, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !38
   %57 = and i32 %52, 31
   %58 = lshr i32 %56, %57
   %.val19.i = load ptr, ptr %47, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i27
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i, i64 %indvars.iv.i27
   %60 = load ptr, ptr %59, align 8, !tbaa !51
   %61 = getelementptr i8, ptr %60, i64 32
   %.val.i.i31 = load ptr, ptr %61, align 8, !tbaa !103
@@ -1541,7 +1541,7 @@ Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRando
 
 65:                                               ; preds = %65, %.lr.ph.i.i30
   %indvars.iv.i.i32 = phi i64 [ 0, %.lr.ph.i.i30 ], [ %indvars.iv.next.i.i33, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i.i32
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i.i32
   store i32 %63, ptr %66, align 4, !tbaa !38
   %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i32, 1
   %67 = load i32, ptr %46, align 8, !tbaa !96
@@ -1579,7 +1579,7 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
 
 79:                                               ; preds = %79, %.lr.ph30.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next34.i, %79 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %.val23.val.i, i64 %indvars.iv33.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.val23.val.i, i64 %indvars.iv33.i
   %81 = load ptr, ptr %80, align 8, !tbaa !51
   %82 = getelementptr i8, ptr %81, i64 32
   %.val22.i = load ptr, ptr %82, align 8, !tbaa !103
@@ -1590,7 +1590,7 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
   %86 = shl nuw i32 1, %85
   %87 = lshr i64 %indvars.iv.next34.i, 5
   %88 = and i64 %87, 134217727
-  %89 = getelementptr inbounds nuw i32, ptr %83, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !38
   %91 = xor i32 %86, %90
   store i32 %91, ptr %89, align 4, !tbaa !38
@@ -1642,12 +1642,12 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %79, %.critedge.i
   %112 = trunc nuw nsw i64 %indvars.iv.i50 to i32
   %113 = lshr i64 %indvars.iv.i50, 5
   %114 = and i64 %113, 134217727
-  %115 = getelementptr inbounds nuw i32, ptr %102, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !38
   %117 = and i32 %112, 31
   %118 = lshr i32 %116, %117
   %.val19.i55 = load ptr, ptr %107, align 8, !tbaa !49
-  %119 = getelementptr inbounds nuw ptr, ptr %.val19.i55, i64 %indvars.iv.i50
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i55, i64 %indvars.iv.i50
   %120 = load ptr, ptr %119, align 8, !tbaa !51
   %121 = getelementptr i8, ptr %120, i64 32
   %.val.i.i56 = load ptr, ptr %121, align 8, !tbaa !103
@@ -1658,7 +1658,7 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %79, %.critedge.i
 
 125:                                              ; preds = %125, %.lr.ph.i.i54
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.i.i54 ], [ %indvars.iv.next.i.i58, %125 ]
-  %126 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i.i57
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i.i57
   store i32 %123, ptr %126, align 4, !tbaa !38
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %127 = load i32, ptr %46, align 8, !tbaa !96
@@ -1696,7 +1696,7 @@ Ivy_NodeAssignConst.exit.i51:                     ; preds = %Ivy_NodeAssignConst
 
 139:                                              ; preds = %139, %.lr.ph30.i40
   %indvars.iv33.i43 = phi i64 [ 0, %.lr.ph30.i40 ], [ %indvars.iv.next34.i45, %139 ]
-  %140 = getelementptr inbounds nuw ptr, ptr %.val23.val.i41, i64 %indvars.iv33.i43
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.val23.val.i41, i64 %indvars.iv33.i43
   %141 = load ptr, ptr %140, align 8, !tbaa !51
   %142 = getelementptr i8, ptr %141, i64 32
   %.val22.i44 = load ptr, ptr %142, align 8, !tbaa !103
@@ -1707,7 +1707,7 @@ Ivy_NodeAssignConst.exit.i51:                     ; preds = %Ivy_NodeAssignConst
   %146 = shl nuw i32 1, %145
   %147 = lshr i64 %indvars.iv.next34.i45, 5
   %148 = and i64 %147, 134217727
-  %149 = getelementptr inbounds nuw i32, ptr %143, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !38
   %151 = xor i32 %146, %150
   store i32 %151, ptr %149, align 4, !tbaa !38
@@ -1750,7 +1750,7 @@ Ivy_FraigAssignDist1.exit61:                      ; preds = %139, %.critedge.i37
 .lr.ph.i.i70:                                     ; preds = %.lr.ph.split.i65
   %167 = getelementptr i8, ptr %164, i64 8
   %.val6.i71 = load ptr, ptr %167, align 8, !tbaa !49
-  %168 = getelementptr inbounds nuw ptr, ptr %.val6.i71, i64 %indvars.iv.i66
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %.val6.i71, i64 %indvars.iv.i66
   %169 = load ptr, ptr %168, align 8, !tbaa !51
   %170 = getelementptr i8, ptr %169, i64 32
   %.val.i.i72 = load ptr, ptr %170, align 8, !tbaa !103
@@ -1766,7 +1766,7 @@ Ivy_FraigAssignDist1.exit61:                      ; preds = %139, %.critedge.i37
   %177 = xor i32 %176, %174
   %178 = tail call i32 @rand() #28
   %179 = xor i32 %177, %178
-  %180 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.i.i73
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv.i.i73
   store i32 %179, ptr %180, align 4, !tbaa !38
   %indvars.iv.next.i.i74 = add nuw nsw i64 %indvars.iv.i.i73, 1
   %181 = load i32, ptr %46, align 8, !tbaa !96
@@ -1910,7 +1910,7 @@ Ivy_FraigCountClassNodes.exit:                    ; preds = %.lr.ph.i, %1, %15
   %.0116 = phi i32 [ 0, %.lr.ph ], [ %.1, %448 ]
   %67 = getelementptr i8, ptr %66, i64 8
   %.val88 = load ptr, ptr %67, align 8, !tbaa !49
-  %68 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val88, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !51
   %70 = icmp eq ptr %69, null
   br i1 %70, label %448, label %71
@@ -2266,7 +2266,7 @@ Abc_Clock.exit91.i.i:                             ; preds = %252, %249
 273:                                              ; preds = %292, %.lr.ph.i.i.i
   %.val15.i.i.i = phi i32 [ %.val12.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %292 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %292 ]
-  %274 = getelementptr inbounds nuw ptr, ptr %.val10.i.i.i, i64 %indvars.iv.i.i.i
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %.val10.i.i.i, i64 %indvars.iv.i.i.i
   %275 = load ptr, ptr %274, align 8, !tbaa !51
   %276 = getelementptr i8, ptr %275, i64 40
   %.val11.i.i.i = load ptr, ptr %276, align 8, !tbaa !126
@@ -2285,7 +2285,7 @@ Abc_Clock.exit91.i.i:                             ; preds = %252, %249
   %286 = shl nuw i32 1, %285
   %287 = lshr i64 %indvars.iv.i.i.i, 5
   %288 = and i64 %287, 134217727
-  %289 = getelementptr inbounds nuw i32, ptr %283, i64 %288
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %288
   %290 = load i32, ptr %289, align 4, !tbaa !38
   %291 = or i32 %290, %286
   store i32 %291, ptr %289, align 4, !tbaa !38
@@ -2467,7 +2467,7 @@ Abc_Clock.exit101.i.i:                            ; preds = %367, %364
 388:                                              ; preds = %407, %.lr.ph.i103.i.i
   %.val15.i105.i.i = phi i32 [ %.val12.i102.i.i, %.lr.ph.i103.i.i ], [ %.val.i109.i.i, %407 ]
   %indvars.iv.i106.i.i = phi i64 [ 0, %.lr.ph.i103.i.i ], [ %indvars.iv.next.i110.i.i, %407 ]
-  %389 = getelementptr inbounds nuw ptr, ptr %.val10.i104.i.i, i64 %indvars.iv.i106.i.i
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %.val10.i104.i.i, i64 %indvars.iv.i106.i.i
   %390 = load ptr, ptr %389, align 8, !tbaa !51
   %391 = getelementptr i8, ptr %390, i64 40
   %.val11.i107.i.i = load ptr, ptr %391, align 8, !tbaa !126
@@ -2486,7 +2486,7 @@ Abc_Clock.exit101.i.i:                            ; preds = %367, %364
   %401 = shl nuw i32 1, %400
   %402 = lshr i64 %indvars.iv.i106.i.i, 5
   %403 = and i64 %402, 134217727
-  %404 = getelementptr inbounds nuw i32, ptr %398, i64 %403
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %398, i64 %403
   %405 = load i32, ptr %404, align 4, !tbaa !38
   %406 = or i32 %405, %401
   store i32 %406, ptr %404, align 4, !tbaa !38
@@ -2660,7 +2660,7 @@ Ivy_FraigNodesAreEquiv.exit.i:                    ; preds = %Ivy_FraigNodesAreEq
   %483 = phi ptr [ %503, %Ivy_ObjChild0Equiv.exit108 ], [ %475, %472 ]
   %484 = getelementptr i8, ptr %483, i64 8
   %.val89 = load ptr, ptr %484, align 8, !tbaa !49
-  %485 = getelementptr inbounds nuw ptr, ptr %.val89, i64 %indvars.iv135
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %.val89, i64 %indvars.iv135
   %486 = load ptr, ptr %485, align 8, !tbaa !51
   %487 = load ptr, ptr %458, align 8, !tbaa !69
   %488 = getelementptr i8, ptr %486, i64 16
@@ -2704,7 +2704,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph119, %491
 
 512:                                              ; preds = %.lr.ph121, %.critedge2
   %indvars.iv138 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next139, %.critedge2 ]
-  %513 = getelementptr inbounds nuw ptr, ptr %.val90, i64 %indvars.iv138
+  %513 = getelementptr inbounds nuw [8 x i8], ptr %.val90, i64 %indvars.iv138
   %514 = load ptr, ptr %513, align 8, !tbaa !51
   %515 = icmp eq ptr %514, null
   br i1 %515, label %.critedge2, label %516
@@ -2726,7 +2726,7 @@ Ivy_ObjChild0Equiv.exit108:                       ; preds = %.lr.ph119, %491
   %519 = phi ptr [ %535, %.critedge4 ], [ %509, %.critedge4.preheader ]
   %520 = getelementptr i8, ptr %519, i64 8
   %.val91 = load ptr, ptr %520, align 8, !tbaa !49
-  %521 = getelementptr inbounds nuw ptr, ptr %.val91, i64 %indvars.iv141
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %.val91, i64 %indvars.iv141
   %522 = load ptr, ptr %521, align 8, !tbaa !51
   %523 = icmp eq ptr %522, null
   br i1 %523, label %.critedge4, label %524
@@ -3042,7 +3042,7 @@ Abc_Clock.exit:
   %33 = phi ptr [ %12, %.lr.ph ], [ %243, %240 ]
   %34 = getelementptr i8, ptr %33, i64 8
   %.val57 = load ptr, ptr %34, align 8, !tbaa !49
-  %35 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val57, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !51
   %37 = getelementptr i8, ptr %36, i64 16
   %.val60 = load ptr, ptr %37, align 8, !tbaa !52
@@ -3244,7 +3244,7 @@ Abc_Clock.exit41.i..loopexit_crit_edge:           ; preds = %Abc_Clock.exit41.i
 152:                                              ; preds = %171, %.lr.ph.i.i
   %.val15.i.i = phi i32 [ %.val12.i.i, %.lr.ph.i.i ], [ %.val.i.i, %171 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %171 ]
-  %153 = getelementptr inbounds nuw ptr, ptr %.val10.i.i, i64 %indvars.iv.i.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.val10.i.i, i64 %indvars.iv.i.i
   %154 = load ptr, ptr %153, align 8, !tbaa !51
   %155 = getelementptr i8, ptr %154, i64 40
   %.val11.i.i = load ptr, ptr %155, align 8, !tbaa !126
@@ -3263,7 +3263,7 @@ Abc_Clock.exit41.i..loopexit_crit_edge:           ; preds = %Abc_Clock.exit41.i
   %165 = shl nuw i32 1, %164
   %166 = lshr i64 %indvars.iv.i.i, 5
   %167 = and i64 %166, 134217727
-  %168 = getelementptr inbounds nuw i32, ptr %162, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !38
   %170 = or i32 %169, %165
   store i32 %170, ptr %168, align 4, !tbaa !38
@@ -3371,7 +3371,7 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %174, %177
 
 229:                                              ; preds = %229, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %229 ]
-  %230 = getelementptr inbounds nuw ptr, ptr %.val10.i, i64 %indvars.iv.i
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %.val10.i, i64 %indvars.iv.i
   %231 = load ptr, ptr %230, align 8, !tbaa !51
   %232 = getelementptr i8, ptr %231, i64 40
   %.val12.i = load ptr, ptr %232, align 8, !tbaa !126
@@ -3382,7 +3382,7 @@ Ivy_FraigNodeIsConst.exit:                        ; preds = %174, %177
   %236 = load i32, ptr %235, align 4, !tbaa !38
   %237 = icmp eq i32 %236, 1
   %238 = zext i1 %237 to i32
-  %239 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv.i
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv.i
   store i32 %238, ptr %239, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3444,7 +3444,7 @@ define void @Ivy_NodeAssignRandom(ptr noundef readonly captures(none) %0, ptr no
   %13 = xor i32 %12, %10
   %14 = tail call i32 @rand() #28
   %15 = xor i32 %13, %14
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %3, align 8, !tbaa !96
@@ -3473,7 +3473,7 @@ define void @Ivy_NodeAssignConst(ptr noundef readonly captures(none) %0, ptr nou
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %8, ptr %11, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 8, !tbaa !96
@@ -3511,7 +3511,7 @@ define void @Ivy_FraigAssignRandom(ptr noundef readonly captures(none) %0) local
 .lr.ph.i:                                         ; preds = %.lr.ph.split
   %13 = getelementptr i8, ptr %10, i64 8
   %.val6 = load ptr, ptr %13, align 8, !tbaa !49
-  %14 = getelementptr inbounds nuw ptr, ptr %.val6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val6, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = getelementptr i8, ptr %15, i64 32
   %.val.i = load ptr, ptr %16, align 8, !tbaa !103
@@ -3527,7 +3527,7 @@ define void @Ivy_FraigAssignRandom(ptr noundef readonly captures(none) %0) local
   %23 = xor i32 %22, %20
   %24 = tail call i32 @rand() #28
   %25 = xor i32 %23, %24
-  %26 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i
   store i32 %25, ptr %26, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %7, align 8, !tbaa !96
@@ -3586,12 +3586,12 @@ define void @Ivy_FraigAssignDist1(ptr noundef readonly captures(none) %0, ptr no
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = lshr i64 %indvars.iv, 5
   %16 = and i64 %15, 134217727
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !38
   %19 = and i32 %14, 31
   %20 = lshr i32 %18, %19
   %.val19 = load ptr, ptr %9, align 8, !tbaa !49
-  %21 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val19, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !51
   %23 = getelementptr i8, ptr %22, i64 32
   %.val.i = load ptr, ptr %23, align 8, !tbaa !103
@@ -3602,7 +3602,7 @@ define void @Ivy_FraigAssignDist1(ptr noundef readonly captures(none) %0, ptr no
 
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   store i32 %25, ptr %28, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr %8, align 8, !tbaa !96
@@ -3640,7 +3640,7 @@ Ivy_NodeAssignConst.exit:                         ; preds = %Ivy_NodeAssignConst
 
 41:                                               ; preds = %.lr.ph30, %41
   %indvars.iv33 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next34, %41 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %.val23.val, i64 %indvars.iv33
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val23.val, i64 %indvars.iv33
   %43 = load ptr, ptr %42, align 8, !tbaa !51
   %44 = getelementptr i8, ptr %43, i64 32
   %.val22 = load ptr, ptr %44, align 8, !tbaa !103
@@ -3651,7 +3651,7 @@ Ivy_NodeAssignConst.exit:                         ; preds = %Ivy_NodeAssignConst
   %48 = shl nuw i32 1, %47
   %49 = lshr i64 %indvars.iv.next34, 5
   %50 = and i64 %49, 134217727
-  %51 = getelementptr inbounds nuw i32, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !38
   %53 = xor i32 %52, %48
   store i32 %53, ptr %51, align 4, !tbaa !38
@@ -3683,7 +3683,7 @@ define range(i32 0, 2) i32 @Ivy_NodeHasZeroSim(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %8, label %._crit_edge
@@ -3708,7 +3708,7 @@ define void @Ivy_NodeComplementSim(ptr noundef readonly captures(none) %0, ptr n
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %11 = xor i32 %10, -1
   store i32 %11, ptr %9, align 4, !tbaa !38
@@ -3746,9 +3746,9 @@ define range(i32 0, 2) i32 @Ivy_NodeCompareSims(ptr noundef readonly captures(no
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !38
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !38
   %.not = icmp eq i32 %14, %16
   br i1 %.not, label %11, label %._crit_edge
@@ -3829,12 +3829,12 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph103 ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv130
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv130
   %36 = load i32, ptr %35, align 4, !tbaa !38
-  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv130
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv130
   %38 = load i32, ptr %37, align 4, !tbaa !38
   %39 = and i32 %38, %36
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv130
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv130
   store i32 %39, ptr %40, align 4, !tbaa !38
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %41 = load i32, ptr %32, align 8, !tbaa !96
@@ -3844,13 +3844,13 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph101:                                        ; preds = %.preheader75, %.lr.ph101
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph101 ], [ 0, %.preheader75 ]
-  %44 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv127
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv127
   %45 = load i32, ptr %44, align 4, !tbaa !38
-  %46 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv127
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv127
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = and i32 %47, %45
   %49 = xor i32 %48, -1
-  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv127
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv127
   store i32 %49, ptr %50, align 4, !tbaa !38
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %51 = load i32, ptr %29, align 8, !tbaa !96
@@ -3860,13 +3860,13 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph99:                                         ; preds = %.preheader77, %.lr.ph99
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.lr.ph99 ], [ 0, %.preheader77 ]
-  %54 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv124
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv124
   %55 = load i32, ptr %54, align 4, !tbaa !38
-  %56 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv124
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv124
   %57 = load i32, ptr %56, align 4, !tbaa !38
   %58 = xor i32 %57, -1
   %59 = and i32 %55, %58
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv124
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv124
   store i32 %59, ptr %60, align 4, !tbaa !38
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %61 = load i32, ptr %26, align 8, !tbaa !96
@@ -3876,13 +3876,13 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph97:                                         ; preds = %.preheader79, %.lr.ph97
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph97 ], [ 0, %.preheader79 ]
-  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv121
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv121
   %65 = load i32, ptr %64, align 4, !tbaa !38
   %66 = xor i32 %65, -1
-  %67 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv121
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv121
   %68 = load i32, ptr %67, align 4, !tbaa !38
   %69 = or i32 %68, %66
-  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv121
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv121
   store i32 %69, ptr %70, align 4, !tbaa !38
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %71 = load i32, ptr %23, align 8, !tbaa !96
@@ -3892,13 +3892,13 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph95:                                         ; preds = %.preheader81, %.lr.ph95
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph95 ], [ 0, %.preheader81 ]
-  %74 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv118
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv118
   %75 = load i32, ptr %74, align 4, !tbaa !38
   %76 = xor i32 %75, -1
-  %77 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv118
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv118
   %78 = load i32, ptr %77, align 4, !tbaa !38
   %79 = and i32 %78, %76
-  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv118
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv118
   store i32 %79, ptr %80, align 4, !tbaa !38
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %81 = load i32, ptr %20, align 8, !tbaa !96
@@ -3908,13 +3908,13 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph93:                                         ; preds = %.preheader83, %.lr.ph93
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph93 ], [ 0, %.preheader83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv115
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv115
   %85 = load i32, ptr %84, align 4, !tbaa !38
-  %86 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv115
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv115
   %87 = load i32, ptr %86, align 4, !tbaa !38
   %88 = xor i32 %87, -1
   %89 = or i32 %85, %88
-  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv115
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv115
   store i32 %89, ptr %90, align 4, !tbaa !38
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %91 = load i32, ptr %17, align 8, !tbaa !96
@@ -3924,13 +3924,13 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph91:                                         ; preds = %.preheader85, %.lr.ph91
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph91 ], [ 0, %.preheader85 ]
-  %94 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv112
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv112
   %95 = load i32, ptr %94, align 4, !tbaa !38
-  %96 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv112
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv112
   %97 = load i32, ptr %96, align 4, !tbaa !38
   %98 = or i32 %97, %95
   %99 = xor i32 %98, -1
-  %100 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv112
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv112
   store i32 %99, ptr %100, align 4, !tbaa !38
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %101 = load i32, ptr %14, align 8, !tbaa !96
@@ -3940,12 +3940,12 @@ define void @Ivy_NodeSimulateSim(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader87, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader87 ]
-  %104 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !38
-  %106 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4, !tbaa !38
   %108 = or i32 %107, %105
-  %109 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %108, ptr %109, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %11, align 8, !tbaa !96
@@ -4053,12 +4053,12 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 54:                                               ; preds = %.lr.ph130, %54
   %indvars.iv156 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next157, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv156
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv156
   %56 = load i32, ptr %55, align 4, !tbaa !38
-  %57 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv156
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv156
   %58 = load i32, ptr %57, align 4, !tbaa !38
   %59 = or i32 %58, %56
-  %60 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv156
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv156
   store i32 %59, ptr %60, align 4, !tbaa !38
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %61 = load i32, ptr %45, align 8, !tbaa !96
@@ -4068,13 +4068,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 64:                                               ; preds = %.lr.ph132, %64
   %indvars.iv159 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next160, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv159
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv159
   %66 = load i32, ptr %65, align 4, !tbaa !38
-  %67 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv159
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv159
   %68 = load i32, ptr %67, align 4, !tbaa !38
   %69 = or i32 %68, %66
   %70 = xor i32 %69, -1
-  %71 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv159
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv159
   store i32 %70, ptr %71, align 4, !tbaa !38
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %72 = load i32, ptr %45, align 8, !tbaa !96
@@ -4114,13 +4114,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 87:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !38
-  %90 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4, !tbaa !38
   %92 = xor i32 %91, -1
   %93 = or i32 %89, %92
-  %94 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv
   store i32 %93, ptr %94, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %78, align 8, !tbaa !96
@@ -4130,13 +4130,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 98:                                               ; preds = %.lr.ph120, %98
   %indvars.iv141 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next142, %98 ]
-  %99 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv141
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv141
   %100 = load i32, ptr %99, align 4, !tbaa !38
   %101 = xor i32 %100, -1
-  %102 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv141
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv141
   %103 = load i32, ptr %102, align 4, !tbaa !38
   %104 = and i32 %103, %101
-  %105 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv141
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv141
   store i32 %104, ptr %105, align 4, !tbaa !38
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %106 = load i32, ptr %78, align 8, !tbaa !96
@@ -4175,13 +4175,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 120:                                              ; preds = %.lr.ph126, %120
   %indvars.iv150 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next151, %120 ]
-  %121 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv150
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv150
   %122 = load i32, ptr %121, align 4, !tbaa !38
   %123 = xor i32 %122, -1
-  %124 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv150
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv150
   %125 = load i32, ptr %124, align 4, !tbaa !38
   %126 = or i32 %125, %123
-  %127 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv150
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv150
   store i32 %126, ptr %127, align 4, !tbaa !38
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %128 = load i32, ptr %110, align 8, !tbaa !96
@@ -4191,13 +4191,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 131:                                              ; preds = %.lr.ph128, %131
   %indvars.iv153 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next154, %131 ]
-  %132 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv153
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv153
   %133 = load i32, ptr %132, align 4, !tbaa !38
-  %134 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv153
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv153
   %135 = load i32, ptr %134, align 4, !tbaa !38
   %136 = xor i32 %135, -1
   %137 = and i32 %133, %136
-  %138 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv153
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv153
   store i32 %137, ptr %138, align 4, !tbaa !38
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %139 = load i32, ptr %110, align 8, !tbaa !96
@@ -4228,13 +4228,13 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 149:                                              ; preds = %.lr.ph122, %149
   %indvars.iv144 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next145, %149 ]
-  %150 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv144
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %indvars.iv144
   %151 = load i32, ptr %150, align 4, !tbaa !38
-  %152 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv144
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv144
   %153 = load i32, ptr %152, align 4, !tbaa !38
   %154 = and i32 %153, %151
   %155 = xor i32 %154, -1
-  %156 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv144
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv144
   store i32 %155, ptr %156, align 4, !tbaa !38
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %157 = load i32, ptr %110, align 8, !tbaa !96
@@ -4244,12 +4244,12 @@ Ivy_ObjFaninPhase.exit103:                        ; preds = %31, %36
 
 160:                                              ; preds = %.lr.ph124, %160
   %indvars.iv147 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next148, %160 ]
-  %161 = getelementptr inbounds nuw i32, ptr %146, i64 %indvars.iv147
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv147
   %162 = load i32, ptr %161, align 4, !tbaa !38
-  %163 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv147
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv147
   %164 = load i32, ptr %163, align 4, !tbaa !38
   %165 = and i32 %164, %162
-  %166 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv147
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv147
   store i32 %165, ptr %166, align 4, !tbaa !38
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %167 = load i32, ptr %110, align 8, !tbaa !96
@@ -4278,9 +4278,9 @@ define i32 @Ivy_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef rea
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.089 = phi i32 [ 0, %.lr.ph ], [ %14, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !38
-  %11 = getelementptr inbounds nuw i32, ptr @Ivy_NodeHash.s_FPrimes, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @Ivy_NodeHash.s_FPrimes, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !38
   %13 = mul i32 %12, %10
   %14 = xor i32 %13, %.089
@@ -4329,7 +4329,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %17 = phi ptr [ %30, %27 ], [ %13, %Abc_Clock.exit ]
   %18 = getelementptr i8, ptr %17, i64 8
   %.val12 = load ptr, ptr %18, align 8, !tbaa !49
-  %19 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val12, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !51
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
@@ -4654,7 +4654,7 @@ define void @Ivy_FraigCreateClasses(ptr noundef captures(none) %0) local_unnamed
 
 24:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val73, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !51
   %27 = icmp eq ptr %26, null
   br i1 %27, label %77, label %28
@@ -4684,9 +4684,9 @@ define void @Ivy_FraigCreateClasses(ptr noundef captures(none) %0) local_unnamed
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %42, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 4, !tbaa !38
-  %39 = getelementptr inbounds nuw i32, ptr @Ivy_NodeHash.s_FPrimes, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @Ivy_NodeHash.s_FPrimes, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4, !tbaa !38
   %41 = mul i32 %40, %38
   %42 = xor i32 %41, %.089.i
@@ -4705,7 +4705,7 @@ Ivy_NodeHash.exit:                                ; preds = %36
 
 .lr.ph.i87:                                       ; preds = %Ivy_NodeHash.exit, %44
   %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i89, %44 ], [ 0, %Ivy_NodeHash.exit ]
-  %45 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i88
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i88
   %46 = load i32, ptr %45, align 4, !tbaa !38
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %44, label %Ivy_NodeHasZeroSim.exit
@@ -4736,7 +4736,7 @@ Ivy_NodeAddToClass.exit:                          ; preds = %48, %49
 Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_NodeHash.exit
   %53 = urem i32 %42, %9
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !145
   %.not67123 = icmp eq ptr %56, null
   br i1 %.not67123, label %.critedge70, label %.lr.ph.i93
@@ -4755,9 +4755,9 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
 
 60:                                               ; preds = %59, %.lr.ph.i93
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i98, %59 ]
-  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i96
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i96
   %62 = load i32, ptr %61, align 4, !tbaa !38
-  %63 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i96
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i96
   %64 = load i32, ptr %63, align 4, !tbaa !38
   %.not.i97 = icmp eq i32 %62, %64
   br i1 %.not.i97, label %59, label %Ivy_NodeCompareSims.exit
@@ -4807,7 +4807,7 @@ Ivy_NodeCompareSims.exit:                         ; preds = %60
 
 78:                                               ; preds = %.lr.ph128, %.critedge
   %indvars.iv132 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next133, %.critedge ]
-  %79 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv132
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.val72, i64 %indvars.iv132
   %80 = load ptr, ptr %79, align 8, !tbaa !51
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.critedge, label %82
@@ -4927,9 +4927,9 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigRefineClass_rec(ptr nou
 
 16:                                               ; preds = %21, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %21 ]
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.us
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.us
   %18 = load i32, ptr %17, align 4, !tbaa !38
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.us
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.us
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %.not.i.us = icmp eq i32 %18, %20
   br i1 %.not.i.us, label %21, label %Ivy_NodeCompareSims.exit.split.us
@@ -4955,9 +4955,9 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %16
 .lr.ph.i58:                                       ; preds = %Ivy_NodeCompareSims.exit.split.us, %.loopexit.i
   %26 = phi i32 [ %46, %.loopexit.i ], [ %11, %Ivy_NodeCompareSims.exit.split.us ]
   %indvars.iv6.i = phi i64 [ %indvars.iv.next7.i, %.loopexit.i ], [ 0, %Ivy_NodeCompareSims.exit.split.us ]
-  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv6.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv6.i
   %28 = load i32, ptr %27, align 4, !tbaa !38
-  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv6.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv6.i
   %30 = load i32, ptr %29, align 4, !tbaa !38
   %31 = xor i32 %30, %28
   %32 = icmp eq i32 %28, %30
@@ -4978,8 +4978,8 @@ Ivy_NodeCompareSims.exit.split.us:                ; preds = %16
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %5, align 8, !tbaa !110
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i59
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %34
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i59
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %34
   %43 = load i32, ptr %42, align 4, !tbaa !38
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 4, !tbaa !38
@@ -5026,9 +5026,9 @@ Ivy_FraigAddToPatScores.exit.thread:              ; preds = %.loopexit.i, %Ivy_N
 
 55:                                               ; preds = %62, %.lr.ph.i65.us
   %indvars.iv.i68.us = phi i64 [ 0, %.lr.ph.i65.us ], [ %indvars.iv.next.i70.us, %62 ]
-  %56 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i68.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i68.us
   %57 = load i32, ptr %56, align 4, !tbaa !38
-  %58 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i68.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i68.us
   %59 = load i32, ptr %58, align 4, !tbaa !38
   %.not.i69.us = icmp eq i32 %57, %59
   br i1 %.not.i69.us, label %62, label %Ivy_NodeCompareSims.exit72.us
@@ -5233,7 +5233,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !38
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %._crit_edge.loopexit.split.loop.exit
@@ -5250,7 +5250,7 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(n
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %11, %._crit_edge.loopexit.split.loop.exit ], [ %6, %10 ]
   %12 = zext nneg i32 %.0.lcssa to i64
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !38
   br label %15
 
@@ -5296,16 +5296,16 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr noundef readonly captures(n
 
 39:                                               ; preds = %.lr.ph37, %39
   %indvars.iv40 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next41, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv40
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %indvars.iv40
   %41 = load ptr, ptr %40, align 8, !tbaa !51
   %42 = getelementptr i8, ptr %41, i64 32
   %.val28 = load ptr, ptr %42, align 8, !tbaa !103
   %43 = getelementptr inbounds nuw i8, ptr %.val28, i64 32
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %36
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %36
   %45 = load i32, ptr %44, align 4, !tbaa !38
   %46 = lshr i32 %45, %37
   %47 = and i32 %46, 1
-  %48 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv40
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv40
   store i32 %47, ptr %48, align 4, !tbaa !38
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %49 = icmp samesign ult i64 %indvars.iv.next41, %38
@@ -5343,7 +5343,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.preheader.i.us.preheader, %.loopexit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next, %.loopexit.us ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   %14 = getelementptr i8, ptr %13, i64 16
   %.val12.us = load ptr, ptr %14, align 8, !tbaa !52
@@ -5357,7 +5357,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 
 .lr.ph.i.us:                                      ; preds = %22, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %22 ]
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i.us
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us
   %21 = load i32, ptr %20, align 4, !tbaa !38
   %.not.i.us = icmp eq i32 %21, 0
   br i1 %.not.i.us, label %22, label %.lr.ph.i15
@@ -5374,7 +5374,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i.us, %25
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i18, %25 ], [ 0, %.lr.ph.i.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i16
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i16
   %24 = load i32, ptr %23, align 4, !tbaa !38
   %.not.i17 = icmp eq i32 %24, 0
   br i1 %.not.i17, label %25, label %._crit_edge.loopexit.split.loop.exit.i
@@ -5392,7 +5392,7 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 ._crit_edge.i:                                    ; preds = %25, %._crit_edge.loopexit.split.loop.exit.i
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit.split.loop.exit.i ], [ %wide.trip.count.i, %25 ]
   %.0.lcssa.i = phi i32 [ %26, %._crit_edge.loopexit.split.loop.exit.i ], [ %10, %25 ]
-  %27 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.pre-phi
   %28 = load i32, ptr %27, align 4, !tbaa !38
   br label %29
 
@@ -5436,16 +5436,16 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr noundef readonly captur
 
 51:                                               ; preds = %51, %.lr.ph37.i
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next41.i, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %.val26.i, i64 %indvars.iv40.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val26.i, i64 %indvars.iv40.i
   %53 = load ptr, ptr %52, align 8, !tbaa !51
   %54 = getelementptr i8, ptr %53, i64 32
   %.val28.i = load ptr, ptr %54, align 8, !tbaa !103
   %55 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 32
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %48
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %48
   %57 = load i32, ptr %56, align 4, !tbaa !38
   %58 = lshr i32 %57, %49
   %59 = and i32 %58, 1
-  %60 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv40.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv40.i
   store i32 %59, ptr %60, align 4, !tbaa !38
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next41.i, %50
@@ -5689,7 +5689,7 @@ define void @Ivy_FraigSavePattern(ptr noundef readonly captures(none) %0) local_
 18:                                               ; preds = %.lr.ph, %37
   %.val15 = phi i32 [ %.val12, %.lr.ph ], [ %.val, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !51
   %21 = getelementptr i8, ptr %20, i64 40
   %.val11 = load ptr, ptr %21, align 8, !tbaa !126
@@ -5708,7 +5708,7 @@ define void @Ivy_FraigSavePattern(ptr noundef readonly captures(none) %0) local_
   %31 = shl nuw i32 1, %30
   %32 = lshr i64 %indvars.iv, 5
   %33 = and i64 %32, 134217727
-  %34 = getelementptr inbounds nuw i32, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !38
   %36 = or i32 %35, %31
   store i32 %36, ptr %34, align 4, !tbaa !38
@@ -5754,7 +5754,7 @@ define void @Ivy_FraigSavePattern2(ptr noundef readonly captures(none) %0) local
 17:                                               ; preds = %.lr.ph, %37
   %.val15 = phi i32 [ %.val12, %.lr.ph ], [ %.val, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !51
   %20 = getelementptr i8, ptr %19, i64 40
   %.val11 = load ptr, ptr %20, align 8, !tbaa !126
@@ -5774,7 +5774,7 @@ define void @Ivy_FraigSavePattern2(ptr noundef readonly captures(none) %0) local
   %31 = shl nuw i32 1, %30
   %32 = ashr i32 %29, 5
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %27, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %27, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !38
   %36 = or i32 %31, %35
   store i32 %36, ptr %34, align 4, !tbaa !38
@@ -5832,7 +5832,7 @@ define void @Ivy_FraigSavePattern3(ptr noundef readonly captures(none) %0) local
   %22 = tail call i32 @rand() #28
   %23 = xor i32 %21, %22
   %24 = load ptr, ptr %5, align 8, !tbaa !109
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %23, ptr %25, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %2, align 8, !tbaa !108
@@ -5843,13 +5843,13 @@ define void @Ivy_FraigSavePattern3(ptr noundef readonly captures(none) %0) local
 29:                                               ; preds = %.lr.ph21, %50
   %.val26 = phi i32 [ %.val19, %.lr.ph21 ], [ %.val, %50 ]
   %indvars.iv23 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next24, %50 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %.val15, i64 %indvars.iv23
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val15, i64 %indvars.iv23
   %31 = load ptr, ptr %30, align 8, !tbaa !51
   %32 = load i32, ptr %31, align 8, !tbaa !121
   %33 = add nsw i32 %32, -1
   %34 = ashr i32 %33, 5
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %12, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %12, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !38
   %38 = and i32 %33, 31
   %39 = lshr i32 %37, %38
@@ -5923,7 +5923,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.035 = phi i32 [ -1, %.lr.ph ], [ %spec.select30, %8 ]
   %.02434 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %11 = icmp slt i32 %.02434, %10
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02434, i32 %10)
@@ -5965,12 +5965,12 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
 31:                                               ; preds = %.lr.ph40, %49
   %.val45 = phi i32 [ %.val37, %.lr.ph40 ], [ %.val, %49 ]
   %indvars.iv42 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next43, %49 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val31, i64 %indvars.iv42
   %33 = load ptr, ptr %32, align 8, !tbaa !51
   %34 = getelementptr i8, ptr %33, i64 32
   %.val32 = load ptr, ptr %34, align 8, !tbaa !103
   %35 = getelementptr inbounds nuw i8, ptr %.val32, i64 32
-  %36 = getelementptr inbounds i32, ptr %35, i64 %28
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %28
   %37 = load i32, ptr %36, align 4, !tbaa !38
   %38 = and i32 %37, %30
   %.not = icmp eq i32 %38, 0
@@ -5983,7 +5983,7 @@ define range(i32 0, -2147483648) i32 @Ivy_FraigSelectBestPat(ptr noundef readonl
   %43 = shl nuw i32 1, %42
   %44 = lshr i64 %indvars.iv42, 5
   %45 = and i64 %44, 134217727
-  %46 = getelementptr inbounds nuw i32, ptr %40, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = or i32 %47, %43
   store i32 %48, ptr %46, align 4, !tbaa !38
@@ -6036,12 +6036,12 @@ define void @Ivy_FraigResimulate(ptr noundef captures(none) %0) local_unnamed_ad
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   %16 = lshr i64 %indvars.iv.i, 5
   %17 = and i64 %16, 134217727
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !38
   %20 = and i32 %15, 31
   %21 = lshr i32 %19, %20
   %.val19.i = load ptr, ptr %10, align 8, !tbaa !49
-  %22 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   %24 = getelementptr i8, ptr %23, i64 32
   %.val.i.i = load ptr, ptr %24, align 8, !tbaa !103
@@ -6052,7 +6052,7 @@ define void @Ivy_FraigResimulate(ptr noundef captures(none) %0) local_unnamed_ad
 
 28:                                               ; preds = %28, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i.i
   store i32 %26, ptr %29, align 4, !tbaa !38
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %30 = load i32, ptr %9, align 8, !tbaa !96
@@ -6090,7 +6090,7 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
 
 42:                                               ; preds = %42, %.lr.ph30.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next34.i, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %.val23.val.i, i64 %indvars.iv33.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val23.val.i, i64 %indvars.iv33.i
   %44 = load ptr, ptr %43, align 8, !tbaa !51
   %45 = getelementptr i8, ptr %44, i64 32
   %.val22.i = load ptr, ptr %45, align 8, !tbaa !103
@@ -6101,7 +6101,7 @@ Ivy_NodeAssignConst.exit.i:                       ; preds = %Ivy_NodeAssignConst
   %49 = shl nuw i32 1, %48
   %50 = lshr i64 %indvars.iv.next34.i, 5
   %51 = and i64 %50, 134217727
-  %52 = getelementptr inbounds nuw i32, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !38
   %54 = xor i32 %49, %53
   store i32 %54, ptr %52, align 4, !tbaa !38
@@ -6176,7 +6176,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   %indvars.iv.i25 = phi i64 [ 1, %.lr.ph.i22 ], [ %indvars.iv.next.i27, %85 ]
   %.035.i = phi i32 [ -1, %.lr.ph.i22 ], [ %spec.select30.i, %85 ]
   %.02434.i = phi i32 [ 0, %.lr.ph.i22 ], [ %spec.select.i26, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i25
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i25
   %87 = load i32, ptr %86, align 4, !tbaa !38
   %88 = icmp slt i32 %.02434.i, %87
   %spec.select.i26 = tail call i32 @llvm.smax.i32(i32 %.02434.i, i32 %87)
@@ -6215,12 +6215,12 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
 105:                                              ; preds = %123, %.lr.ph40.i
   %.val45.i = phi i32 [ %.val37.i, %.lr.ph40.i ], [ %.val.i30, %123 ]
   %indvars.iv42.i = phi i64 [ 0, %.lr.ph40.i ], [ %indvars.iv.next43.i, %123 ]
-  %106 = getelementptr inbounds nuw ptr, ptr %.val31.i, i64 %indvars.iv42.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %.val31.i, i64 %indvars.iv42.i
   %107 = load ptr, ptr %106, align 8, !tbaa !51
   %108 = getelementptr i8, ptr %107, i64 32
   %.val32.i = load ptr, ptr %108, align 8, !tbaa !103
   %109 = getelementptr inbounds nuw i8, ptr %.val32.i, i64 32
-  %110 = getelementptr inbounds i32, ptr %109, i64 %102
+  %110 = getelementptr inbounds [4 x i8], ptr %109, i64 %102
   %111 = load i32, ptr %110, align 4, !tbaa !38
   %112 = and i32 %111, %104
   %.not.i = icmp eq i32 %112, 0
@@ -6233,7 +6233,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   %117 = shl nuw i32 1, %116
   %118 = lshr i64 %indvars.iv42.i, 5
   %119 = and i64 %118, 134217727
-  %120 = getelementptr inbounds nuw i32, ptr %114, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !38
   %122 = or i32 %121, %117
   store i32 %122, ptr %120, align 4, !tbaa !38
@@ -6285,12 +6285,12 @@ Ivy_FraigSelectBestPat.exit:                      ; preds = %123, %80, %._crit_e
   %141 = trunc nuw nsw i64 %indvars.iv.i48 to i32
   %142 = lshr i64 %indvars.iv.i48, 5
   %143 = and i64 %142, 134217727
-  %144 = getelementptr inbounds nuw i32, ptr %131, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !38
   %146 = and i32 %141, 31
   %147 = lshr i32 %145, %146
   %.val19.i53 = load ptr, ptr %136, align 8, !tbaa !49
-  %148 = getelementptr inbounds nuw ptr, ptr %.val19.i53, i64 %indvars.iv.i48
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i53, i64 %indvars.iv.i48
   %149 = load ptr, ptr %148, align 8, !tbaa !51
   %150 = getelementptr i8, ptr %149, i64 32
   %.val.i.i54 = load ptr, ptr %150, align 8, !tbaa !103
@@ -6301,7 +6301,7 @@ Ivy_FraigSelectBestPat.exit:                      ; preds = %123, %80, %._crit_e
 
 154:                                              ; preds = %154, %.lr.ph.i.i52
   %indvars.iv.i.i55 = phi i64 [ 0, %.lr.ph.i.i52 ], [ %indvars.iv.next.i.i56, %154 ]
-  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv.i.i55
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %indvars.iv.i.i55
   store i32 %152, ptr %155, align 4, !tbaa !38
   %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i55, 1
   %156 = load i32, ptr %9, align 8, !tbaa !96
@@ -6339,7 +6339,7 @@ Ivy_NodeAssignConst.exit.i49:                     ; preds = %Ivy_NodeAssignConst
 
 168:                                              ; preds = %168, %.lr.ph30.i38
   %indvars.iv33.i41 = phi i64 [ 0, %.lr.ph30.i38 ], [ %indvars.iv.next34.i43, %168 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %.val23.val.i39, i64 %indvars.iv33.i41
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.val23.val.i39, i64 %indvars.iv33.i41
   %170 = load ptr, ptr %169, align 8, !tbaa !51
   %171 = getelementptr i8, ptr %170, i64 32
   %.val22.i42 = load ptr, ptr %171, align 8, !tbaa !103
@@ -6350,7 +6350,7 @@ Ivy_NodeAssignConst.exit.i49:                     ; preds = %Ivy_NodeAssignConst
   %175 = shl nuw i32 1, %174
   %176 = lshr i64 %indvars.iv.next34.i43, 5
   %177 = and i64 %176, 134217727
-  %178 = getelementptr inbounds nuw i32, ptr %172, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !38
   %180 = xor i32 %175, %179
   store i32 %180, ptr %178, align 4, !tbaa !38
@@ -6402,7 +6402,7 @@ define void @Ivy_FraigPrintActivity(ptr noundef readonly captures(none) %0) loca
   %7 = load ptr, ptr %5, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !206
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !207
   %12 = trunc i64 %11 to i32
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -6548,7 +6548,7 @@ define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, pt
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.val39 = load ptr, ptr %10, align 8, !tbaa !49
-  %18 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val39, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !51
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
@@ -6578,7 +6578,7 @@ define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, pt
 
 .critedge:                                        ; preds = %.lr.ph47, %.critedge
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next51, %.critedge ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv50
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val38, i64 %indvars.iv50
   %39 = load ptr, ptr %38, align 8, !tbaa !51
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
@@ -6592,7 +6592,7 @@ define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, pt
   %48 = shl nsw i32 %45, 1
   %49 = or disjoint i32 %48, %47
   %50 = xor i32 %49, 1
-  %51 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv50
   store i32 %50, ptr %51, align 4, !tbaa !38
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
@@ -6605,11 +6605,11 @@ define void @Ivy_FraigAddClausesSuper(ptr noundef readonly captures(none) %0, pt
   %54 = trunc i64 %53 to i32
   %55 = shl nsw i32 %54, 1
   %56 = sext i32 %.val37 to i64
-  %57 = getelementptr inbounds i32, ptr %8, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %8, i64 %56
   store i32 %55, ptr %57, align 4, !tbaa !38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %59 = load ptr, ptr %58, align 8, !tbaa !71
-  %60 = getelementptr inbounds i32, ptr %8, i64 %6
+  %60 = getelementptr inbounds [4 x i8], ptr %8, i64 %6
   %61 = tail call i32 @sat_solver_addclause(ptr noundef %59, ptr noundef %8, ptr noundef %60) #28
   tail call void @free(ptr noundef %8) #28
   ret void
@@ -6714,7 +6714,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %1
 
 36:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !51
   %39 = icmp eq ptr %38, %.tr.lcssa
   br i1 %39, label %Vec_PtrPushUnique.exit, label %35
@@ -6782,7 +6782,7 @@ Vec_PtrPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %30, align 4, !tbaa !47
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %64, i64 %67
   store ptr %.tr.lcssa, ptr %68, align 8, !tbaa !51
   br label %Vec_PtrPushUnique.exit
 
@@ -6899,7 +6899,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %18, align 4, !tbaa !47
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %47
   store ptr %1, ptr %48, align 8, !tbaa !51
   br label %49
 
@@ -7008,7 +7008,7 @@ veci_push.exit:                                   ; preds = %14, %64
   %68 = add nsw i32 %65, 1
   store i32 %68, ptr %34, align 4, !tbaa !216
   %69 = sext i32 %65 to i64
-  %70 = getelementptr inbounds i32, ptr %67, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %67, i64 %69
   store i32 %30, ptr %70, align 4, !tbaa !38
   %71 = getelementptr i8, ptr %1, i64 48
   %.val34 = load ptr, ptr %71, align 8, !tbaa !94
@@ -7025,7 +7025,7 @@ veci_push.exit:                                   ; preds = %14, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %.044 = phi i32 [ 0, %.lr.ph ], [ %82, %75 ]
   %.val33 = load ptr, ptr %74, align 8, !tbaa !49
-  %76 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.val33, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !51
   %78 = ptrtoint ptr %77 to i64
   %79 = and i64 %78, -2
@@ -7072,7 +7072,7 @@ define noundef ptr @Ivy_FraigNodesAreEquivBdd_int(ptr noundef %0, ptr noundef %1
   %.val106 = phi i32 [ 0, %.lr.ph ], [ %.val107161, %123 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
   %.val111 = load ptr, ptr %11, align 8, !tbaa !49
-  %16 = getelementptr inbounds nuw ptr, ptr %.val111, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val111, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
@@ -7213,7 +7213,7 @@ Vec_PtrPush.exit124:                              ; preds = %.Vec_PtrGrow.exit11
   %81 = add nsw i32 %.val106, 1
   store i32 %81, ptr %6, align 4, !tbaa !47
   %82 = sext i32 %.val106 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %82
   store ptr %49, ptr %83, align 8, !tbaa !51
   br label %84
 
@@ -7300,7 +7300,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   %120 = add nsw i32 %.val105.sink185, 1
   store i32 %120, ptr %6, align 4, !tbaa !47
   %121 = sext i32 %.val105.sink185 to i64
-  %122 = getelementptr inbounds ptr, ptr %.sink182, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %.sink182, i64 %121
   store ptr %.sink180, ptr %122, align 8, !tbaa !51
   br label %123
 
@@ -7348,7 +7348,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
 139:                                              ; preds = %.lr.ph136, %175
   %indvars.iv147 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next148, %175 ]
   %.val110 = load ptr, ptr %135, align 8, !tbaa !49
-  %140 = getelementptr inbounds nuw ptr, ptr %.val110, i64 %indvars.iv147
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.val110, i64 %indvars.iv147
   %141 = load ptr, ptr %140, align 8, !tbaa !51
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 8
@@ -7396,7 +7396,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
 
 175:                                              ; preds = %149, %145
   %.sink = phi ptr [ %174, %149 ], [ %148, %145 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv147
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv147
   store ptr %.sink, ptr %176, align 8, !tbaa !232
   tail call void @Cudd_Ref(ptr noundef %.sink) #28
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -7409,7 +7409,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
   %indvars.iv150 = phi i64 [ %138, %.critedge2.preheader144 ], [ %indvars.iv.next151, %.critedge2 ]
   %179 = trunc nsw i64 %indvars.iv150 to i32
   %180 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %179) #28
-  %181 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv150
+  %181 = getelementptr inbounds [8 x i8], ptr %133, i64 %indvars.iv150
   store ptr %180, ptr %181, align 8, !tbaa !232
   tail call void @Cudd_Ref(ptr noundef %180) #28
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
@@ -7436,7 +7436,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
 
 189:                                              ; preds = %.lr.ph140, %189
   %indvars.iv153 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next154, %189 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %.val109, i64 %indvars.iv153
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %.val109, i64 %indvars.iv153
   %191 = load ptr, ptr %190, align 8, !tbaa !51
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load i32, ptr %192, align 8
@@ -7450,7 +7450,7 @@ Vec_PtrGrow.exit.i130:                            ; preds = %106, %104
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.critedge4 ], [ 0, %.critedge4.preheader ]
-  %196 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv156
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv156
   %197 = load ptr, ptr %196, align 8, !tbaa !232
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %197) #28
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
@@ -7665,7 +7665,7 @@ Vec_IntPush.exit24:                               ; preds = %.Vec_IntGrow.exit10
   %.sink32 = phi ptr [ %78, %Vec_IntPush.exit24 ], [ %39, %Vec_IntPush.exit ]
   %.sink = phi i32 [ %51, %Vec_IntPush.exit24 ], [ %12, %Vec_IntPush.exit ]
   %81 = sext i32 %.sink34 to i64
-  %82 = getelementptr inbounds i32, ptr %.sink32, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %.sink32, i64 %81
   store i32 %.sink, ptr %82, align 4, !tbaa !38
   br label %83
 
@@ -7714,13 +7714,13 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, 
 23:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.val55 = load ptr, ptr %19, align 8, !tbaa !241
-  %24 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val55, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !38
   %.val57 = load ptr, ptr %22, align 8, !tbaa !89
   %26 = getelementptr i8, ptr %.val57, i64 8
   %.val57.val = load ptr, ptr %26, align 8, !tbaa !49
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds ptr, ptr %.val57.val, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.val57.val, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !51
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.critedge, label %30
@@ -7751,13 +7751,13 @@ define ptr @Ivy_FraigExtractCone(ptr noundef %0, ptr noundef captures(none) %1, 
 40:                                               ; preds = %.lr.ph66, %Ivy_ObjChild1Equiv.exit
   %indvars.iv69 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next70, %Ivy_ObjChild1Equiv.exit ]
   %.val56 = load ptr, ptr %8, align 8, !tbaa !241
-  %41 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv69
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.val56, i64 %indvars.iv69
   %42 = load i32, ptr %41, align 4, !tbaa !38
   %.val58 = load ptr, ptr %39, align 8, !tbaa !89
   %43 = getelementptr i8, ptr %.val58, i64 8
   %.val58.val = load ptr, ptr %43, align 8, !tbaa !49
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val58.val, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val58.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !51
   %.not47 = icmp eq ptr %46, null
   br i1 %.not47, label %.critedge2, label %47
@@ -7996,7 +7996,7 @@ define internal fastcc void @Ivy_FraigNodeAddToSolver(ptr noundef captures(none)
   %indvars.iv166 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next167, %182 ]
   %21 = phi i32 [ %.promoted, %.lr.ph158 ], [ %183, %182 ]
   %.val72 = load ptr, ptr %13, align 8, !tbaa !49
-  %22 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv166
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val72, i64 %indvars.iv166
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   %24 = tail call i32 @Ivy_ObjIsMuxType(ptr noundef %23) #28
   %.not67 = icmp eq i32 %24, 0
@@ -8062,7 +8062,7 @@ Vec_PtrPush.exit.i87:                             ; preds = %27
 
 58:                                               ; preds = %57, %.lr.ph.i107
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i110, %57 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i109
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i109
   %60 = load ptr, ptr %59, align 8, !tbaa !51
   %61 = icmp eq ptr %60, %56
   br i1 %61, label %.lr.ph.i122, label %57
@@ -8071,7 +8071,7 @@ Vec_PtrPush.exit.i102:                            ; preds = %57
   %62 = add nuw nsw i32 %49, 1
   store i32 %62, ptr %26, align 4, !tbaa !47
   %63 = zext nneg i32 %49 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %28, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %63
   store ptr %56, ptr %64, align 8, !tbaa !51
   br label %.lr.ph.i122
 
@@ -8096,7 +8096,7 @@ Vec_PtrPush.exit.i102:                            ; preds = %57
 
 74:                                               ; preds = %73, %.lr.ph.i122
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.i122 ], [ %indvars.iv.next.i125, %73 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i124
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i124
   %76 = load ptr, ptr %75, align 8, !tbaa !51
   %77 = icmp eq ptr %76, %72
   br i1 %77, label %.lr.ph.preheader, label %73
@@ -8105,7 +8105,7 @@ Vec_PtrPush.exit.i117:                            ; preds = %73
   %78 = add nuw nsw i32 %65, 1
   store i32 %78, ptr %26, align 4, !tbaa !47
   %79 = zext nneg i32 %65 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %28, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %79
   store ptr %72, ptr %80, align 8, !tbaa !51
   br label %.lr.ph.preheader
 
@@ -8118,7 +8118,7 @@ Vec_PtrPush.exit.i117:                            ; preds = %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %Ivy_FraigObjAddToFrontier.exit ], [ 0, %.lr.ph.preheader ]
   %81 = phi i32 [ %126, %Ivy_FraigObjAddToFrontier.exit ], [ %21, %.lr.ph.preheader ]
   %.val71 = load ptr, ptr %29, align 8, !tbaa !49
-  %82 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.val71, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !51
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, -2
@@ -8207,7 +8207,7 @@ Vec_PtrPush.exit.i131:                            ; preds = %120, %Vec_PtrGrow.e
   %122 = phi ptr [ %.pre.i.i130, %.Vec_PtrGrow.exit11_crit_edge.i.i128 ], [ %121, %120 ], [ %110, %Vec_PtrGrow.exit.i.i134 ]
   %123 = add nuw nsw i32 %81, 1
   %124 = zext nneg i32 %81 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %124
   store ptr %86, ptr %125, align 8, !tbaa !51
   %.val68.pre = load i32, ptr %26, align 4, !tbaa !47
   br label %Ivy_FraigObjAddToFrontier.exit
@@ -8240,7 +8240,7 @@ Ivy_FraigObjAddToFrontier.exit:                   ; preds = %.lr.ph, %90, %91, %
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %Ivy_FraigObjAddToFrontier.exit148 ], [ 0, %129 ]
   %133 = phi i32 [ %178, %Ivy_FraigObjAddToFrontier.exit148 ], [ %21, %129 ]
   %.val70 = load ptr, ptr %131, align 8, !tbaa !49
-  %134 = getelementptr inbounds nuw ptr, ptr %.val70, i64 %indvars.iv163
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.val70, i64 %indvars.iv163
   %135 = load ptr, ptr %134, align 8, !tbaa !51
   %136 = ptrtoint ptr %135 to i64
   %137 = and i64 %136, -2
@@ -8329,7 +8329,7 @@ Vec_PtrPush.exit.i144:                            ; preds = %172, %Vec_PtrGrow.e
   %174 = phi ptr [ %.pre.i.i143, %.Vec_PtrGrow.exit11_crit_edge.i.i141 ], [ %173, %172 ], [ %162, %Vec_PtrGrow.exit.i.i147 ]
   %175 = add nuw nsw i32 %133, 1
   %176 = zext nneg i32 %133 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr %174, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %176
   store ptr %138, ptr %177, align 8, !tbaa !51
   %.val.pre = load i32, ptr %26, align 4, !tbaa !47
   br label %Ivy_FraigObjAddToFrontier.exit148

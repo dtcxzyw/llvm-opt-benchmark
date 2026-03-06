@@ -89,24 +89,24 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.03243.us = phi ptr [ %40, %._crit_edge.us ], [ %30, %.preheader.us.preheader ]
   %.03542.us = phi ptr [ %41, %._crit_edge.us ], [ %11, %.preheader.us.preheader ]
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds double, ptr %.pre49, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.pre49, i64 %32
   br label %34
 
 34:                                               ; preds = %.preheader.us, %34
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw double, ptr %.03542.us, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.03542.us, i64 %indvars.iv
   %36 = load double, ptr %35, align 8, !tbaa !46
   %37 = load double, ptr %33, align 8, !tbaa !46
   %38 = fmul nsz double %36, %37
-  %39 = getelementptr inbounds nuw double, ptr %.03243.us, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.03243.us, i64 %indvars.iv
   store double %38, ptr %39, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge.us, label %34, !llvm.loop !47
 
 ._crit_edge.us:                                   ; preds = %34
-  %40 = getelementptr inbounds nuw double, ptr %.03243.us, i64 %27
-  %41 = getelementptr inbounds nuw double, ptr %.03542.us, i64 %27
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.03243.us, i64 %27
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.03542.us, i64 %27
   %42 = add nsw i32 %31, 1
   %43 = load i32, ptr %28, align 8, !tbaa !49
   %.not40.us = icmp slt i32 %42, %43
@@ -206,7 +206,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %37 = fmul nsz double %36, 0x401921FB54442D18
   %38 = tail call nsz double @llvm.sin.f64(double %37)
   %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double %28, double %9)
-  %40 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store double %39, ptr %40, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

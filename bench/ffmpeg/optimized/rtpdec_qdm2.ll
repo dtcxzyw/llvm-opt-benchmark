@@ -264,7 +264,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   %156 = sub i64 %153, %155
   %157 = add i64 %156, %154
   %158 = zext nneg i8 %130 to i64
-  %159 = getelementptr inbounds nuw i16, ptr %125, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !32
   %161 = zext i16 %160 to i64
   %162 = sub nsw i64 2048, %161
@@ -314,7 +314,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
 191:                                              ; preds = %188, %197
   %192 = phi i32 [ 0, %188 ], [ %198, %197 ]
   %indvars.iv = phi i64 [ 0, %188 ], [ %indvars.iv.next, %197 ]
-  %193 = getelementptr inbounds nuw i16, ptr %190, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %190, i64 %indvars.iv
   %194 = load i16, ptr %193, align 2, !tbaa !32
   %.not61 = icmp eq i16 %194, 0
   br i1 %.not61, label %197, label %195
@@ -348,7 +348,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
 
 203:                                              ; preds = %202, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %202 ]
-  %204 = getelementptr inbounds nuw i16, ptr %201, i64 %indvars.iv.i
+  %204 = getelementptr inbounds nuw [2 x i8], ptr %201, i64 %indvars.iv.i
   %205 = load i16, ptr %204, align 2, !tbaa !32
   %.not68.i = icmp eq i16 %205, 0
   br i1 %.not68.i, label %202, label %206
@@ -359,7 +359,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   unreachable
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds nuw i16, ptr %201, i64 %indvars.iv.i
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %201, i64 %indvars.iv.i
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %209 = load i32, ptr %208, align 4, !tbaa !28
   %210 = tail call i32 @av_new_packet(ptr noundef %3, i32 noundef %209) #6

@@ -3,7 +3,6 @@ source_filename = "bench/sdl/original/SDL_x11events.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.SDL_Point = type { i32, i32 }
 %union._XEvent = type { [24 x i64] }
 %struct.KeyRepeatCheckData = type { ptr, i8 }
@@ -95,7 +94,7 @@ define hidden void @X11_ReconcileKeyboardState(ptr noundef readonly captures(non
 
 13:                                               ; preds = %1, %33
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %33 ]
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = lshr i64 %indvars.iv, 3
@@ -155,7 +154,7 @@ define hidden void @X11_ReconcileKeyboardState(ptr noundef readonly captures(non
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 224
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.Screen, ptr %38, i64 %41
+  %42 = getelementptr inbounds [128 x i8], ptr %38, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 1712
@@ -234,7 +233,7 @@ define internal fastcc void @X11_HandleModifierKeys(ptr noundef %0, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.Screen, ptr %24, i64 %27
+  %28 = getelementptr inbounds [128 x i8], ptr %24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = call i32 %21(ptr noundef %22, i64 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %19) #12
@@ -524,7 +523,7 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.Screen, ptr %50, i64 %53
+  %54 = getelementptr inbounds [128 x i8], ptr %50, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = call i32 %48(ptr noundef %21, i64 noundef %56, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
@@ -546,7 +545,7 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
 
 63:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10
   %64 = zext nneg i32 %14 to i64
-  %65 = getelementptr i32, ptr @X11_TriggerHitTestAction.directions, i64 %64
+  %65 = getelementptr [4 x i8], ptr @X11_TriggerHitTestAction.directions, i64 %64
   %66 = getelementptr i8, ptr %65, i64 -8
   %67 = load i32, ptr %66, align 4
   %68 = getelementptr i8, ptr %0, i64 1656
@@ -599,7 +598,7 @@ define hidden noundef zeroext i1 @X11_TriggerHitTestAction(ptr noundef readonly 
   %101 = getelementptr inbounds nuw i8, ptr %69, i64 224
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.Screen, ptr %100, i64 %103
+  %104 = getelementptr inbounds [128 x i8], ptr %100, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load i64, ptr %105, align 8
   %107 = call i32 %98(ptr noundef %69, i64 noundef %106, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %5) #12
@@ -666,7 +665,7 @@ define internal fastcc void @DispatchWindowMove(ptr readonly captures(none) %.16
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.Screen, ptr %37, i64 %40
+  %41 = getelementptr inbounds [128 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = call i32 %35(ptr noundef %5, i64 noundef %43, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %3) #12
@@ -701,7 +700,7 @@ define hidden ptr @X11_FindWindow(ptr noundef readonly captures(none) %0, i64 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %17, label %13
@@ -753,7 +752,7 @@ define hidden void @X11_HandleKeyEvent(ptr noundef readonly captures(none) %0, p
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 616
   %.mask = and i32 %15, 255
   %19 = zext nneg i32 %.mask to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = tail call i64 @SDL_GetTicksNS_REAL() #12
@@ -990,10 +989,10 @@ X11_ProcessHitTest.exit:                          ; preds = %24, %39
 
 switch.lookup:                                    ; preds = %40
   %42 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.X11_HandleButtonPress, i64 %42
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.X11_HandleButtonPress, i64 %42
   %switch.load = load float, ptr %switch.gep, align 4
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep59 = getelementptr inbounds nuw float, ptr @switch.table.X11_HandleButtonPress.7, i64 %43
+  %switch.gep59 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.X11_HandleButtonPress.7, i64 %43
   %switch.load60 = load float, ptr %switch.gep59, align 4
   call void @SDL_SendMouseWheel(i64 noundef %11, ptr noundef %10, i32 noundef %2, float noundef %switch.load, float noundef %switch.load60, i32 noundef 0) #12
   br label %61
@@ -1621,11 +1620,11 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %indvars.iv174.i = phi i64 [ 0, %.lr.ph156.i ], [ %indvars.iv.next175.i, %128 ]
   %129 = load ptr, ptr @X11_XInternAtom, align 8
   %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv174.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv174.i
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i64 %129(ptr noundef %100, ptr noundef %132, i32 noundef 0) #12
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
-  %134 = getelementptr inbounds nuw i64, ptr %125, i64 %indvars.iv176.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv176.i
   store i64 %133, ptr %134, align 8
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %135 = load i64, ptr %121, align 8
@@ -1673,7 +1672,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 152:                                              ; preds = %149, %.lr.ph152.i
   %indvars.iv171.i = phi i64 [ 0, %.lr.ph152.i ], [ %indvars.iv.next172.i, %149 ]
   %153 = load ptr, ptr %148, align 8
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv171.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv171.i
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr @X11_XInternAtom, align 8
   %157 = tail call i64 %156(ptr noundef %100, ptr noundef %155, i32 noundef 0) #12
@@ -1789,7 +1788,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 
 .lr.ph148.preheader.i:                            ; preds = %215
   %217 = load ptr, ptr %6, align 8
-  %218 = getelementptr inbounds nuw ptr, ptr %214, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %216
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   br label %.lr.ph148.i
 
@@ -1800,7 +1799,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %220 = load ptr, ptr @X11_XGetAtomName, align 8
   %221 = load i64, ptr %.1114145.i, align 8
   %222 = call ptr %220(ptr noundef %100, i64 noundef %221) #12
-  %223 = getelementptr inbounds nuw ptr, ptr %214, i64 %indvars.iv168.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv168.i
   store ptr %.0111146.i, ptr %223, align 8
   %224 = call ptr @stpcpy(ptr noundef nonnull %.0111146.i, ptr noundef %222) #12
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 1
@@ -1814,7 +1813,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 
 ._crit_edge149.i:                                 ; preds = %.lr.ph148.i, %215
   %.lcssa140.i = phi i64 [ 0, %215 ], [ %229, %.lr.ph148.i ]
-  %231 = getelementptr inbounds nuw ptr, ptr %214, i64 %.lcssa140.i
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %.lcssa140.i
   store ptr null, ptr %231, align 8
   %232 = load i64, ptr %8, align 8
   call void @SDL_SendClipboardUpdate(i1 noundef zeroext false, ptr noundef nonnull %214, i64 noundef %232) #12
@@ -1951,7 +1950,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 
 .lr.ph.i540:                                      ; preds = %296, %.lr.ph.preheader.i539
   %indvars.iv.i541 = phi i64 [ 0, %.lr.ph.preheader.i539 ], [ %indvars.iv.next.i542, %296 ]
-  %290 = getelementptr inbounds nuw ptr, ptr %286, i64 %indvars.iv.i541
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %indvars.iv.i541
   %291 = load ptr, ptr %290, align 8
   %.not17.i = icmp eq ptr %291, null
   br i1 %.not17.i, label %296, label %292
@@ -2060,7 +2059,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 338:                                              ; preds = %.lr.ph563, %365
   %indvars.iv = phi i64 [ 0, %.lr.ph563 ], [ %indvars.iv.next, %365 ]
   %339 = load ptr, ptr %323, align 8
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv
   %341 = load ptr, ptr %340, align 8
   %.not475 = icmp eq ptr %341, null
   br i1 %.not475, label %365, label %342
@@ -2423,7 +2422,7 @@ X11_FindWindow.exit:                              ; preds = %292
   %528 = getelementptr inbounds nuw i8, ptr %524, i64 224
   %529 = load i32, ptr %528, align 8
   %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds %struct.Screen, ptr %527, i64 %530
+  %531 = getelementptr inbounds [128 x i8], ptr %527, i64 %530
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 16
   %533 = load i64, ptr %532, align 8
   %534 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2561,7 +2560,7 @@ X11_FindWindow.exit:                              ; preds = %292
   %614 = getelementptr inbounds nuw i8, ptr %27, i64 224
   %615 = load i32, ptr %614, align 8
   %616 = sext i32 %615 to i64
-  %617 = getelementptr inbounds %struct.Screen, ptr %613, i64 %616
+  %617 = getelementptr inbounds [128 x i8], ptr %613, i64 %616
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 16
   %619 = load i64, ptr %618, align 8
   %620 = call i32 %611(ptr noundef %27, i64 noundef %619, i64 noundef %.pre, i32 noundef %608, i32 noundef %610, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #12
@@ -2693,7 +2692,7 @@ X11_FindWindow.exit:                              ; preds = %292
   %705 = getelementptr inbounds nuw i8, ptr %27, i64 224
   %706 = load i32, ptr %705, align 8
   %707 = sext i32 %706 to i64
-  %708 = getelementptr inbounds %struct.Screen, ptr %704, i64 %707
+  %708 = getelementptr inbounds [128 x i8], ptr %704, i64 %707
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 16
   %710 = load i64, ptr %709, align 8
   store i64 %710, ptr %282, align 8
@@ -3381,7 +3380,7 @@ define hidden void @X11_PumpEvents(ptr noundef %0) local_unnamed_addr #1 {
 9:                                                ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
@@ -3403,7 +3402,7 @@ define hidden void @X11_PumpEvents(ptr noundef %0) local_unnamed_addr #1 {
 21:                                               ; preds = %17
   %22 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
@@ -3416,11 +3415,11 @@ define hidden void @X11_PumpEvents(ptr noundef %0) local_unnamed_addr #1 {
   %31 = load i32, ptr %25, align 8
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 5, ptr noundef nonnull @.str.1, i32 noundef %31) #12
   %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef %34, ptr noundef null) #12
   %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %40 = load ptr, ptr %39, align 8
@@ -3512,7 +3511,7 @@ define hidden void @X11_PumpEvents(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph.i:                                         ; preds = %.preheader.i, %116
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %116 ], [ 0, %.preheader.i ]
   %79 = load ptr, ptr %74, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i
   %81 = load ptr, ptr %80, align 8
   %.not20.i = icmp eq ptr %81, null
   br i1 %.not20.i, label %116, label %82
@@ -3604,7 +3603,7 @@ X11_HandleFocusChanges.exit:                      ; preds = %116, %._crit_edge61
 124:                                              ; preds = %.lr.ph63, %141
   %indvars.iv66 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next67, %141 ]
   %125 = load ptr, ptr %123, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv66
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv66
   %127 = load ptr, ptr %126, align 8
   %.not50 = icmp eq ptr %127, null
   br i1 %.not50, label %141, label %128
@@ -3618,7 +3617,7 @@ X11_HandleFocusChanges.exit:                      ; preds = %116, %._crit_edge61
 131:                                              ; preds = %128
   %132 = call i64 @SDL_GetTicks_REAL() #12
   %133 = load ptr, ptr %123, align 8
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv66
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv66
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 376
   %137 = load i64, ptr %136, align 8
@@ -4064,7 +4063,7 @@ define internal fastcc i64 @X11_PickTarget(ptr noundef %0, ptr noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %6 = load ptr, ptr @X11_XGetAtomName, align 8
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr %6(ptr noundef %0, i64 noundef %8) #12
   %10 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.12, ptr noundef %9) #12
@@ -4142,7 +4141,7 @@ define internal fastcc i64 @X11_PickTargetFromAtoms(ptr noundef %0, i64 noundef 
 8:                                                ; preds = %7
   %9 = add nuw nsw i32 %.0, 1
   %10 = zext nneg i32 %.0 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   store i64 %2, ptr %11, align 8
   br label %12
 
@@ -4154,7 +4153,7 @@ define internal fastcc i64 @X11_PickTargetFromAtoms(ptr noundef %0, i64 noundef 
 13:                                               ; preds = %12
   %14 = add nuw nsw i32 %.1, 1
   %15 = zext nneg i32 %.1 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   store i64 %3, ptr %16, align 8
   br label %17
 

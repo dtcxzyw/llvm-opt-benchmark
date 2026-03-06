@@ -3260,7 +3260,7 @@ if.then.i22.i:                                    ; preds = %_ZNSt6vectorIN5boos
 .noexc68:                                         ; preds = %if.then.i22.i, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8DividendEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i
   store ptr %call5.i.i.i.i645, ptr %dividendSchedule, align 8, !tbaa !92
   store ptr %incdec.ptr.i641, ptr %_M_finish.i.i, align 8, !tbaa !93
-  %add.ptr19.i = getelementptr inbounds nuw %"class.boost::shared_ptr.54", ptr %call5.i.i.i.i645, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i645, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !95
   br label %_ZN5boost10shared_ptrIN8QuantLib8DividendEED2Ev.exit
 

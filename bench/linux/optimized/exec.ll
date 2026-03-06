@@ -1478,7 +1478,7 @@ acct_arg_size.exit:                               ; preds = %223, %231
   %271 = load ptr, ptr %259, align 16
   %272 = ptrtoint ptr %271 to i64
   %273 = and i64 %267, 63
-  %274 = getelementptr i64, ptr @__per_cpu_offset, i64 %273
+  %274 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %273
   %275 = load i64, ptr %274, align 8
   %276 = add i64 %275, %272
   %277 = inttoptr i64 %276 to ptr
@@ -2196,7 +2196,7 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
 .critedge:                                        ; preds = %33, %37
   %41 = tail call i32 @__SCT__cond_resched() #15
   %42 = add nuw nsw i64 %31, 1
-  %43 = getelementptr ptr, ptr %1, i64 %42
+  %43 = getelementptr [8 x i8], ptr %1, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %30, !llvm.loop !65
@@ -2247,7 +2247,7 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
 .critedge20:                                      ; preds = %59, %63
   %67 = tail call i32 @__SCT__cond_resched() #15
   %68 = add nuw nsw i64 %57, 1
-  %69 = getelementptr ptr, ptr %2, i64 %68
+  %69 = getelementptr [8 x i8], ptr %2, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %.preheader, !llvm.loop !65
@@ -3870,7 +3870,7 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
 31:                                               ; preds = %26, %20
   %32 = tail call i32 @__SCT__cond_resched() #15
   %33 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %34 = getelementptr ptr, ptr %1, i64 %indvars.iv.next28
+  %34 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv.next28
   %35 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %34, i64 8, i64 %33) #15, !srcloc !88
   %36 = extractvalue { ptr, i64, i64 } %35, 0
   %37 = extractvalue { ptr, i64, i64 } %35, 2
@@ -3920,7 +3920,7 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
 63:                                               ; preds = %58, %52
   %64 = tail call i32 @__SCT__cond_resched() #15
   %65 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %66 = getelementptr i32, ptr %1, i64 %indvars.iv.next
+  %66 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv.next
   %67 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %66, i64 4, i64 %65) #15, !srcloc !89
   %68 = extractvalue { ptr, i32, i64 } %67, 0
   %69 = extractvalue { ptr, i32, i64 } %67, 2
@@ -3971,7 +3971,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   br i1 %5, label %28, label %18, !prof !6
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr i32, ptr %2, i64 %17
+  %19 = getelementptr [4 x i8], ptr %2, i64 %17
   %20 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %19, i64 4, i64 %15) #15, !srcloc !89
   %21 = extractvalue { ptr, i32, i64 } %20, 0
   %22 = extractvalue { ptr, i32, i64 } %20, 2
@@ -3987,7 +3987,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   br label %38
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr ptr, ptr %2, i64 %17
+  %29 = getelementptr [8 x i8], ptr %2, i64 %17
   %30 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %29, i64 8, i64 %15) #15, !srcloc !88
   %31 = extractvalue { ptr, i64, i64 } %30, 0
   %32 = extractvalue { ptr, i64, i64 } %30, 2

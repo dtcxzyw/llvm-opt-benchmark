@@ -1511,7 +1511,7 @@ declare ptr @lean_st_ref_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -4250,7 +4250,7 @@ lean_dec.exit524:                                 ; preds = %679, %678, %676, %l
 
 lean_dec.exit.i:                                  ; preds = %700, %699, %697, %691
   %701 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %702 = getelementptr inbounds nuw ptr, ptr %701, i64 %688
+  %702 = getelementptr inbounds nuw [8 x i8], ptr %701, i64 %688
   %703 = load ptr, ptr %702, align 8, !tbaa !4
   %704 = ptrtoint ptr %703 to i64
   %705 = trunc i64 %704 to i1
@@ -6525,7 +6525,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit264
 
 lean_dec.exit263:                                 ; preds = %104, %103, %101, %95
   %105 = lshr i64 %32, 1
-  %106 = getelementptr inbounds nuw ptr, ptr %17, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !4
   %108 = ptrtoint ptr %107 to i64
   %109 = trunc i64 %108 to i1
@@ -11997,7 +11997,7 @@ define ptr @l_Lean_PrettyPrinter_Delaborator_fieldNotationCandidate_x3f___lambda
 
 lean_dec.exit.i:                                  ; preds = %27, %26, %24, %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %15
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %15
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = ptrtoint ptr %30 to i64
   %32 = trunc i64 %31 to i1

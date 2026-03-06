@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -486,10 +485,10 @@ define noundef i32 @_ZNK9grpc_core17EndpointAddresses3CmpERKS0_(ptr noundef nonn
   br i1 %14, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %5, i64 %.02328
+  %16 = getelementptr inbounds nuw [132 x i8], ptr %5, i64 %.02328
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load i32, ptr %17, align 4, !tbaa !19
-  %19 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %.pre30, i64 %.02328
+  %19 = getelementptr inbounds nuw [132 x i8], ptr %.pre30, i64 %.02328
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = icmp ugt i32 %18, %21
@@ -1604,7 +1603,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %3, align 8, !tbaa !57
   store ptr %17, ptr %18, align 8, !tbaa !39
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %11
   store ptr %19, ptr %15, align 8, !tbaa !42
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
@@ -2353,7 +2352,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !57
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !39
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !42
   ret void
 }

@@ -1044,7 +1044,7 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 
 .preheader:                                       ; preds = %.preheader.preheader, %47
   %52 = phi i64 [ %48, %47 ], [ 0, %.preheader.preheader ]
-  %53 = getelementptr i32, ptr %46, i64 %52
+  %53 = getelementptr [4 x i8], ptr %46, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = call fastcc i32 @select_bus_fmt_recursive(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %54)
   %56 = icmp eq i32 %55, -524
@@ -1439,7 +1439,7 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
 
 .preheader:                                       ; preds = %42, %52
   %48 = phi i64 [ %53, %52 ], [ 0, %42 ]
-  %49 = getelementptr i32, ptr %37, i64 %48
+  %49 = getelementptr [4 x i8], ptr %37, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = call fastcc i32 @select_bus_fmt_recursive(ptr noundef %0, ptr noundef %14, ptr noundef %2, ptr noundef %3, i32 noundef %50)
   switch i32 %51, label %.thread [
@@ -1455,7 +1455,7 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
   br i1 %56, label %.preheader, label %.thread, !llvm.loop !56
 
 57:                                               ; preds = %.preheader
-  %58 = getelementptr i32, ptr %37, i64 %48
+  %58 = getelementptr [4 x i8], ptr %37, i64 %48
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %59, ptr %60, align 8

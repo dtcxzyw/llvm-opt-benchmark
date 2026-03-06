@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.3 = type { i64 }
-%struct.StackItem = type { [4 x i32], [4 x i32], [4 x i32], [4 x i32] }
-%struct.FFFrameSyncIn = type { i32, i32, %struct.AVRational, ptr, ptr, i64, i64, i8, i8, i32, i32 }
-%struct.AVRational = type { i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"hstack\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"Stack video inputs horizontally.\00", align 1
@@ -313,10 +310,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.0322526 = phi i32 [ %17, %.lr.ph ], [ %.1323.ph, %78 ]
   %32 = load ptr, ptr %9, align 8, !tbaa !55
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !56
   %35 = load ptr, ptr %30, align 8, !tbaa !43
-  %36 = getelementptr inbounds nuw %struct.StackItem, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %38 = load i32, ptr %37, align 8, !tbaa !59
   %.not421 = icmp eq i32 %38, %19
@@ -372,7 +369,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   store i32 %.0322526, ptr %71, align 4, !tbaa !64
   store i32 %.0322526, ptr %68, align 4, !tbaa !64
   %72 = load ptr, ptr %9, align 8, !tbaa !55
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !56
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 44
   %76 = load i32, ptr %75, align 4, !tbaa !58
@@ -407,10 +404,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %indvars.iv617 = phi i64 [ 0, %.lr.ph529 ], [ %indvars.iv.next618, %132 ]
   %.1332528 = phi i32 [ %19, %.lr.ph529 ], [ %.2333, %132 ]
   %90 = load ptr, ptr %9, align 8, !tbaa !55
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv617
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv617
   %92 = load ptr, ptr %91, align 8, !tbaa !56
   %93 = load ptr, ptr %88, align 8, !tbaa !43
-  %94 = getelementptr inbounds nuw %struct.StackItem, ptr %93, i64 %indvars.iv617
+  %94 = getelementptr inbounds nuw [64 x i8], ptr %93, i64 %indvars.iv617
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 44
   %96 = load i32, ptr %95, align 4, !tbaa !58
   %.not416 = icmp eq i32 %96, %17
@@ -460,7 +457,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %9, align 8, !tbaa !55
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv617
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv617
   %128 = load ptr, ptr %127, align 8, !tbaa !56
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %130 = load i32, ptr %129, align 8, !tbaa !59
@@ -506,7 +503,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %.0372539 = phi i32 [ 0, %.lr.ph544 ], [ %.1373.lcssa, %212 ]
   %146 = mul nsw i32 %144, %.2343541
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %145, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %145, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !56
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 44
   %151 = load i32, ptr %150, align 4, !tbaa !58
@@ -523,10 +520,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %indvars.iv620 = phi i64 [ %153, %.lr.ph535 ], [ %indvars.iv.next621, %189 ]
   %.0368534 = phi i32 [ 0, %.lr.ph535 ], [ %205, %189 ]
   %.0374532 = phi i32 [ 0, %.lr.ph535 ], [ %206, %189 ]
-  %156 = getelementptr inbounds ptr, ptr %155, i64 %indvars.iv620
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %indvars.iv620
   %157 = load ptr, ptr %156, align 8, !tbaa !56
   %158 = load ptr, ptr %142, align 8, !tbaa !43
-  %159 = getelementptr inbounds %struct.StackItem, ptr %158, i64 %indvars.iv620
+  %159 = getelementptr inbounds [64 x i8], ptr %158, i64 %indvars.iv620
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 44
   %161 = load i32, ptr %160, align 4, !tbaa !58
   %.not411 = icmp eq i32 %161, %151
@@ -586,7 +583,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   store i32 %.0371540, ptr %199, align 4, !tbaa !64
   store i32 %.0371540, ptr %196, align 4, !tbaa !64
   %200 = load ptr, ptr %9, align 8, !tbaa !55
-  %201 = getelementptr inbounds ptr, ptr %200, i64 %indvars.iv620
+  %201 = getelementptr inbounds [8 x i8], ptr %200, i64 %indvars.iv620
   %202 = load ptr, ptr %201, align 8, !tbaa !56
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %204 = load i32, ptr %203, align 8, !tbaa !59
@@ -679,10 +676,10 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
   %.8339560 = phi i32 [ %19, %.lr.ph563 ], [ %.8339., %332 ]
   %.0366558 = phi ptr [ %219, %.lr.ph563 ], [ null, %332 ]
   %243 = load ptr, ptr %9, align 8, !tbaa !55
-  %244 = getelementptr inbounds nuw ptr, ptr %243, i64 %indvars.iv623
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %indvars.iv623
   %245 = load ptr, ptr %244, align 8, !tbaa !56
   %246 = load ptr, ptr %241, align 8, !tbaa !43
-  %247 = getelementptr inbounds nuw %struct.StackItem, ptr %246, i64 %indvars.iv623
+  %247 = getelementptr inbounds nuw [64 x i8], ptr %246, i64 %indvars.iv623
   %248 = call ptr @av_strtok(ptr noundef %.0366558, ptr noundef nonnull @.str.12, ptr noundef nonnull %2) #11
   %.not403 = icmp eq ptr %248, null
   br i1 %.not403, label %.thread466, label %249
@@ -756,7 +753,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
 
 286:                                              ; preds = %284
   %287 = load ptr, ptr %9, align 8, !tbaa !55
-  %288 = getelementptr inbounds nuw ptr, ptr %287, i64 %281
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %281
   %289 = load ptr, ptr %288, align 8, !tbaa !56
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 40
   %291 = load i32, ptr %290, align 8, !tbaa !59
@@ -790,7 +787,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
 
 306:                                              ; preds = %304
   %307 = load ptr, ptr %9, align 8, !tbaa !55
-  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %301
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %301
   %309 = load ptr, ptr %308, align 8, !tbaa !56
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 44
   %311 = load i32, ptr %310, align 4, !tbaa !58
@@ -923,7 +920,7 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
 
 367:                                              ; preds = %.lr.ph568, %366
   %indvars.iv626 = phi i64 [ 1, %.lr.ph568 ], [ %indvars.iv.next627, %366 ]
-  %368 = getelementptr inbounds nuw ptr, ptr %365, i64 %indvars.iv626
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv626
   %369 = load ptr, ptr %368, align 8, !tbaa !56
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 264
   %371 = load i32, ptr %370, align 8, !tbaa !77
@@ -967,9 +964,9 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #1 {
 388:                                              ; preds = %.lr.ph571, %388
   %indvars.iv629 = phi i64 [ 0, %.lr.ph571 ], [ %indvars.iv.next630, %388 ]
   %389 = load ptr, ptr %9, align 8, !tbaa !55
-  %390 = getelementptr inbounds nuw ptr, ptr %389, i64 %indvars.iv629
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %indvars.iv629
   %391 = load ptr, ptr %390, align 8, !tbaa !56
-  %392 = getelementptr inbounds nuw %struct.FFFrameSyncIn, ptr %382, i64 %indvars.iv629
+  %392 = getelementptr inbounds nuw [64 x i8], ptr %382, i64 %indvars.iv629
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 8
   %394 = getelementptr inbounds nuw i8, ptr %391, i64 96
   %395 = load i64, ptr %394, align 8
@@ -1049,7 +1046,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
 
 19:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call i32 @ff_framesync_get_frame(ptr noundef nonnull %14, i32 noundef %21, ptr noundef %20, i32 noundef 0) #11
   %23 = icmp slt i32 %22, 0
@@ -1153,13 +1150,13 @@ define internal noundef i32 @process_slice(ptr noundef readonly captures(none) %
   %23 = phi i32 [ %20, %.lr.ph41.split.preheader ], [ %31, %._crit_edge ]
   %indvars.iv45 = phi i64 [ %22, %.lr.ph41.split.preheader ], [ %indvars.iv.next46, %._crit_edge ]
   %24 = load ptr, ptr %17, align 8, !tbaa !43
-  %25 = getelementptr inbounds %struct.StackItem, ptr %24, i64 %indvars.iv45
+  %25 = getelementptr inbounds [64 x i8], ptr %24, i64 %indvars.iv45
   %26 = icmp sgt i32 %23, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph41.split
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv45
+  %28 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv45
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %32
@@ -1173,28 +1170,28 @@ define internal noundef i32 @process_slice(ptr noundef readonly captures(none) %
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !69
-  %35 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !64
-  %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !64
   %39 = mul nsw i32 %38, %36
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %34, i64 %40
-  %42 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !64
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = load ptr, ptr %28, align 8, !tbaa !102
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !69
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !64
-  %52 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !64
-  %54 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !64
   tail call void @av_image_copy_plane(ptr noundef %45, i32 noundef %36, ptr noundef %48, i32 noundef %51, i32 noundef %53, i32 noundef %55) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

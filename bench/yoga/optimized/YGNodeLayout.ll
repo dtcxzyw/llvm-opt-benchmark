@@ -109,7 +109,7 @@ define float @YGNodeLayoutGetMargin(ptr noundef %0, i32 noundef %1) local_unname
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %.mask = and i32 %1, 255
   %25 = zext nneg i32 %.mask to i64
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6marginENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit: ; preds = %10, %12, %19, %21, %23
@@ -162,7 +162,7 @@ define float @YGNodeLayoutGetBorder(ptr noundef %0, i32 noundef %1) local_unname
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %.mask = and i32 %1, 255
   %25 = zext nneg i32 %.mask to i64
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults6borderENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit: ; preds = %10, %12, %19, %21, %23
@@ -215,7 +215,7 @@ define float @YGNodeLayoutGetPadding(ptr noundef %0, i32 noundef %1) local_unnam
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %.mask = and i32 %1, 255
   %25 = zext nneg i32 %.mask to i64
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   br label %_ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit
 
 _ZN12_GLOBAL__N_125getResolvedLayoutPropertyITnDaXadL_ZNK8facebook4yoga13LayoutResults7paddingENS2_12PhysicalEdgeEEEEEfPK6YGNodeNS2_4EdgeE.exit: ; preds = %10, %12, %19, %21, %23

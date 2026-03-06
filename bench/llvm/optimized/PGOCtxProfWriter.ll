@@ -89,27 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<llvm::BitstreamWriter::BlockInfo, std::allocator<llvm::BitstreamWriter::BlockInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::BitstreamWriter::BlockInfo, std::allocator<llvm::BitstreamWriter::BlockInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::BitstreamWriter::BlockInfo, std::allocator<llvm::BitstreamWriter::BlockInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::BitstreamWriter::BlockInfo, std::allocator<llvm::BitstreamWriter::BlockInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.102" = type { %"struct.std::__uniq_ptr_data.103" }
-%"struct.std::__uniq_ptr_data.103" = type { %"class.std::__uniq_ptr_impl.104" }
-%"class.std::__uniq_ptr_impl.104" = type { %"class.std::tuple.105" }
-%"class.std::tuple.105" = type { %"struct.std::_Tuple_impl.106" }
-%"struct.std::_Tuple_impl.106" = type { %"struct.std::_Head_base.109" }
-%"struct.std::_Head_base.109" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.llvm::BitCodeAbbrevOp" = type <{ i64, i8, [7 x i8] }>
-%"struct.llvm::BitstreamWriter::Block" = type { i32, i64, %"class.std::vector" }
 %"struct.llvm::yaml::EmptyContext" = type { i8 }
-%"struct.(anonymous namespace)::SerializableCtxRepresentation" = type { i64, %"class.std::vector.71", %"class.std::vector.76" }
-%"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
-%"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.76" = type { %"struct.std::_Vector_base.77" }
-%"struct.std::_Vector_base.77" = type { %"struct.std::_Vector_base<std::vector<(anonymous namespace)::SerializableCtxRepresentation>, std::allocator<std::vector<(anonymous namespace)::SerializableCtxRepresentation>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<(anonymous namespace)::SerializableCtxRepresentation>, std::allocator<std::vector<(anonymous namespace)::SerializableCtxRepresentation>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<(anonymous namespace)::SerializableCtxRepresentation>, std::allocator<std::vector<(anonymous namespace)::SerializableCtxRepresentation>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<(anonymous namespace)::SerializableCtxRepresentation>, std::allocator<std::vector<(anonymous namespace)::SerializableCtxRepresentation>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.128" }
 %"class.llvm::SmallVector.128" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.129" }
 %"struct.llvm::SmallVectorStorage.129" = type { [128 x i8] }
@@ -291,14 +271,14 @@ _ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit: ; preds = %3, %13
 "_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit": ; preds = %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_0clEjNS_9StringRefE.exit", %37
   %39 = phi i64 [ 0, %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_0clEjNS_9StringRefE.exit" ], [ %38, %37 ]
   %40 = load ptr, ptr %8, align 8, !tbaa !49
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   store i64 1, ptr %41, align 1
   %42 = load i32, ptr %27, align 8, !tbaa !51
   %43 = add i32 %42, 1
   store i32 %43, ptr %27, align 8, !tbaa !51
   %44 = load ptr, ptr %8, align 8, !tbaa !49
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %46, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 7))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj16EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -340,14 +320,14 @@ _ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit: ; preds = %3, %13
 "_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit15": ; preds = %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_0clEjNS_9StringRefE.exit12", %56
   %58 = phi i64 [ 0, %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_0clEjNS_9StringRefE.exit12" ], [ %57, %56 ]
   %59 = load ptr, ptr %8, align 8, !tbaa !49
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   store i64 2, ptr %60, align 1
   %61 = load i32, ptr %27, align 8, !tbaa !51
   %62 = add i32 %61, 1
   store i32 %62, ptr %27, align 8, !tbaa !51
   %63 = load ptr, ptr %8, align 8, !tbaa !49
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   %66 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %65, ptr noundef nonnull @.str.3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 4))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj16EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 0)
   store i32 0, ptr %27, align 8, !tbaa !51
@@ -364,14 +344,14 @@ _ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit: ; preds = %3, %13
 "_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit18": ; preds = %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit15", %68
   %70 = phi i64 [ 0, %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit15" ], [ %69, %68 ]
   %71 = load ptr, ptr %8, align 8, !tbaa !49
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   store i64 3, ptr %72, align 1
   %73 = load i32, ptr %27, align 8, !tbaa !51
   %74 = add i32 %73, 1
   store i32 %74, ptr %27, align 8, !tbaa !51
   %75 = load ptr, ptr %8, align 8, !tbaa !49
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   %78 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %77, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 11))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj16EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 0)
   store i32 0, ptr %27, align 8, !tbaa !51
@@ -388,14 +368,14 @@ _ZN4llvm15BitstreamWriterC2ERNS_11raw_ostreamEj.exit: ; preds = %3, %13
 "_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit21": ; preds = %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit18", %80
   %82 = phi i64 [ 0, %"_ZZN4llvm19PGOCtxProfileWriterC1ERNS_11raw_ostreamESt8optionalIjEENK3$_1clEjNS_9StringRefE.exit18" ], [ %81, %80 ]
   %83 = load ptr, ptr %8, align 8, !tbaa !49
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   store i64 4, ptr %84, align 1
   %85 = load i32, ptr %27, align 8, !tbaa !51
   %86 = add i32 %85, 1
   store i32 %86, ptr %27, align 8, !tbaa !51
   %87 = load ptr, ptr %8, align 8, !tbaa !49
   %88 = zext i32 %86 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %89, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 8))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_11SmallVectorImLj16EEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(144) %8, i32 noundef 0)
   %91 = load ptr, ptr %8, align 8, !tbaa !49
@@ -1050,7 +1030,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %38 = load ptr, ptr %2, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !77
   %41 = zext i32 %40 to i64
   tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %41, i32 noundef 6)
@@ -1186,7 +1166,7 @@ _ZN4llvm15BitstreamWriter7EmitVBREjj.exit:        ; preds = %_ZN4llvm15Bitstream
 
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8, !tbaa !83
   tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %61, i32 noundef 6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1534,8 +1514,8 @@ _ZN4llvm11SmallVectorImLj1EED2Ev.exit11:          ; preds = %14, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next, %._crit_edge ]
   %29 = load i32, ptr %26, align 8, !tbaa !90
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %30
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %.020 = load ptr, ptr %32, align 8, !tbaa !98
   %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -1635,7 +1615,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %38 = load ptr, ptr %2, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !83
   tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %40, i32 noundef 6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1936,7 +1916,7 @@ _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4
 _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %49
   store ptr %42, ptr %0, align 8, !tbaa !121
   store ptr %48, ptr %22, align 8, !tbaa !124
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.102", ptr %42, i64 %40
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %50, ptr %24, align 8, !tbaa !127
   %.pre = load ptr, ptr %.0.lcssa.i.i.i.i, align 8, !tbaa !125
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
@@ -2002,8 +1982,8 @@ _ZN12_GLOBAL__N_110createNodeERSt6vectorISt10unique_ptrIA_cSt14default_deleteIS2
   %73 = phi i32 [ %69, %.lr.ph51 ], [ %.pre53, %_ZN12_GLOBAL__N_110createNodeERSt6vectorISt10unique_ptrIA_cSt14default_deleteIS2_EESaIS5_EERKS0_INS_29SerializableCtxRepresentationESaIS9_EE.exit.loopexit ]
   %.0.i.lcssa = phi ptr [ null, %.lr.ph51 ], [ %71, %_ZN12_GLOBAL__N_110createNodeERSt6vectorISt10unique_ptrIA_cSt14default_deleteIS2_EESaIS5_EERKS0_INS_29SerializableCtxRepresentationESaIS9_EE.exit.loopexit ]
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i64, ptr %68, i64 %74
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.sroa.7.050
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.sroa.7.050
   store ptr %.0.i.lcssa, ptr %76, align 8, !tbaa !98
   %77 = add i64 %.sroa.7.050, 1
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.037.049, i64 24
@@ -2345,7 +2325,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !68
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !170
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !46
@@ -2432,7 +2412,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   %.04672 = phi i32 [ 0, %.lr.ph75 ], [ %.147, %.loopexit ]
   %57 = zext i32 %.14473 to i64
   %58 = load ptr, ptr %14, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -2453,7 +2433,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 68:                                               ; preds = %65
   %69 = add i32 %.14473, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %.not51 = icmp eq ptr %.074, null
   br i1 %.not51, label %75, label %72
 
@@ -3121,7 +3101,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %38 = load ptr, ptr %2, align 8, !tbaa !49
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !83
   tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %40, i32 noundef 6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3153,7 +3133,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcv
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !51
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %11
   %13 = icmp eq ptr %1, %12
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %2 to i64
@@ -3184,7 +3164,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i:    ; preds = %23, %22
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i, label %_ZN4llvm15SmallVectorImplImE6appendIPKcvEEvT_S5_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i:               ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i
-  %27 = getelementptr inbounds nuw i64, ptr %.pre60, i64 %.pre-phi.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre60, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i
@@ -3254,7 +3234,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i45:  ; preds = %51, %45
 53:                                               ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i45
   %54 = load ptr, ptr %0, align 8, !tbaa !49
   %55 = zext i32 %.pre9.i to i64
-  %56 = getelementptr inbounds nuw i64, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %46, i64 %.idx48.neg, i1 false)
   %.pre.i46 = load i32, ptr %9, align 8, !tbaa !51
   br label %_ZN4llvm15SmallVectorImplImE6appendISt13move_iteratorIPmEvEEvT_S6_.exit
@@ -3273,7 +3253,7 @@ _ZN4llvm15SmallVectorImplImE6appendISt13move_iteratorIPmEvEEvT_S6_.exit: ; preds
   %gepdiff51 = add i64 %62, %.idx
   %63 = ashr exact i64 %gepdiff51, 3
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds i64, ptr %43, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %43, i64 %64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr align 8 %42, i64 %gepdiff51, i1 false)
   br label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit
 
@@ -3303,9 +3283,9 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
 
 .lr.ph.preheader:                                 ; preds = %73
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %41, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %76
   %78 = sub nsw i64 0, %44
-  %79 = getelementptr inbounds i64, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
@@ -3362,7 +3342,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !68
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !170
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !46
@@ -3449,7 +3429,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   %.04672 = phi i32 [ 0, %.lr.ph75 ], [ %.147, %.loopexit ]
   %57 = zext i32 %.14473 to i64
   %58 = load ptr, ptr %14, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -3470,7 +3450,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 68:                                               ; preds = %65
   %69 = add i32 %.14473, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %.not51 = icmp eq ptr %.074, null
   br i1 %.not51, label %75, label %72
 
@@ -3496,7 +3476,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 .lr.ph70:                                         ; preds = %75, %.lr.ph70
   %.369 = phi i32 [ %80, %.lr.ph70 ], [ %.04672, %75 ]
   %77 = zext i32 %.369 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %2, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !83
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldImEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %71, i64 noundef %79)
   %80 = add i32 %.369, 1
@@ -3514,13 +3494,13 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 83:                                               ; preds = %81
   %84 = zext i32 %.04672 to i64
   %85 = sub i64 %3, %84
-  %86 = getelementptr inbounds nuw i64, ptr %2, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %84
   tail call void @_ZN4llvm15BitstreamWriter8emitBlobImEEvNS_8ArrayRefIT_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %86, i64 %85, i1 noundef zeroext true)
   br label %.loopexit
 
 87:                                               ; preds = %65
   %88 = zext i32 %.04672 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %2, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !83
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldImEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %59, i64 noundef %90)
   %91 = add i32 %.04672, 1
@@ -4719,7 +4699,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN4llvm15BitstreamWriter5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, %51
   store ptr %21, ptr %0, align 8, !tbaa !196
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8, !tbaa !67
-  %55 = getelementptr inbounds nuw %"struct.llvm::BitstreamWriter::Block", ptr %21, i64 %17
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %55, ptr %50, align 8, !tbaa !84
   ret void
 }
@@ -4999,7 +4979,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4ll
 
 .lr.ph.i.i.i.i.i49.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4llvm13BitCodeAbbrevEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
   %122 = sub nuw nsw i64 %9, %20
-  %123 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %122
   br label %.lr.ph.i.i.i.i.i49
 
 .lr.ph.i.i.i.i.i49:                               ; preds = %.lr.ph.i.i.i.i.i49.preheader, %.lr.ph.i.i.i.i.i49
@@ -5302,7 +5282,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit: ; 
 _ZNSt12_Vector_baseISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit, %239
   store ptr %188, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i.i.i93, ptr %12, align 8, !tbaa !69
-  %243 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %188, i64 %184
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %184
   store ptr %243, ptr %10, align 8, !tbaa !80
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4llvm13BitCodeAbbrevEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
@@ -5727,7 +5707,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !68
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !170
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !46
@@ -5814,7 +5794,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   %.04672 = phi i32 [ 0, %.lr.ph75 ], [ %.147, %.loopexit ]
   %57 = zext i32 %.14473 to i64
   %58 = load ptr, ptr %14, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -5835,7 +5815,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 68:                                               ; preds = %65
   %69 = add i32 %.14473, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %.not51 = icmp eq ptr %.074, null
   br i1 %.not51, label %75, label %72
 
@@ -5861,7 +5841,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 .lr.ph70:                                         ; preds = %75, %.lr.ph70
   %.369 = phi i32 [ %80, %.lr.ph70 ], [ %.04672, %75 ]
   %77 = zext i32 %.369 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %2, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !77
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldIjEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %71, i32 noundef %79)
   %80 = add i32 %.369, 1
@@ -5879,13 +5859,13 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 83:                                               ; preds = %81
   %84 = zext i32 %.04672 to i64
   %85 = sub i64 %3, %84
-  %86 = getelementptr inbounds nuw i32, ptr %2, i64 %84
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %84
   tail call void @_ZN4llvm15BitstreamWriter8emitBlobIjEEvNS_8ArrayRefIT_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %86, i64 %85, i1 noundef zeroext true)
   br label %.loopexit
 
 87:                                               ; preds = %65
   %88 = zext i32 %.04672 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %2, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !77
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldIjEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %59, i32 noundef %90)
   %91 = add i32 %.04672, 1
@@ -6231,15 +6211,15 @@ _ZNSt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EE11_S_relocat
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i: ; preds = %82, %_ZNSt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
   store ptr %58, ptr %1, align 8, !tbaa !155
-  %86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SerializableCtxRepresentation", ptr %59, i64 %48
+  %86 = getelementptr inbounds nuw [56 x i8], ptr %59, i64 %48
   store ptr %86, ptr %30, align 8, !tbaa !157
-  %87 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SerializableCtxRepresentation", ptr %58, i64 %56
+  %87 = getelementptr inbounds nuw [56 x i8], ptr %58, i64 %56
   store ptr %87, ptr %31, align 8, !tbaa !162
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit: ; preds = %41, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_129SerializableCtxRepresentationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i
   %.val6.i = phi ptr [ %58, %_ZNSt12_Vector_baseIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i ], [ %.val6.pre.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_129SerializableCtxRepresentationEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i ], [ %.val.i, %41 ]
-  %88 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SerializableCtxRepresentation", ptr %.val6.i, i64 %indvars.iv10
+  %88 = getelementptr inbounds nuw [56 x i8], ptr %.val6.i, i64 %indvars.iv10
   %89 = load ptr, ptr %0, align 8, !tbaa !60
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 104
   %91 = load ptr, ptr %90, align 8
@@ -6432,15 +6412,15 @@ _ZNSt6vectorIS_IN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EESaIS3_EE1
 
 _ZNSt12_Vector_baseISt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit.i.i.i: ; preds = %177, %_ZNSt6vectorIS_IN12_GLOBAL__N_129SerializableCtxRepresentationESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i.i.i
   store ptr %165, ptr %111, align 8, !tbaa !132
-  %181 = getelementptr inbounds nuw %"class.std::vector.61", ptr %166, i64 %155
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %166, i64 %155
   store ptr %181, ptr %140, align 8, !tbaa !135
-  %182 = getelementptr inbounds nuw %"class.std::vector.61", ptr %165, i64 %163
+  %182 = getelementptr inbounds nuw [24 x i8], ptr %165, i64 %163
   store ptr %182, ptr %141, align 8, !tbaa !159
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIS2_IN12_GLOBAL__N_129SerializableCtxRepresentationESaIS4_EESaIS6_EELb1EE7elementERNS0_2IOERS8_m.exit
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIS2_IN12_GLOBAL__N_129SerializableCtxRepresentationESaIS4_EESaIS6_EELb1EE7elementERNS0_2IOERS8_m.exit: ; preds = %148, %_ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS2_EEmS4_ET_S6_T0_RSaIT1_E.exit.i.i.i, %_ZNSt12_Vector_baseISt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit.i.i.i
   %.val6.i23 = phi ptr [ %165, %_ZNSt12_Vector_baseISt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit.i.i.i ], [ %.val6.pre.i22, %_ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS2_EEmS4_ET_S6_T0_RSaIT1_E.exit.i.i.i ], [ %.val.i17, %148 ]
-  %183 = getelementptr inbounds nuw %"class.std::vector.61", ptr %.val6.i23, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %.val6.i23, i64 %indvars.iv
   call fastcc void @_ZN4llvm4yaml7yamlizeISt6vectorIN12_GLOBAL__N_129SerializableCtxRepresentationESaIS4_EENS0_12EmptyContextEEENSt9enable_ifIXsr18has_SequenceTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %183)
   %184 = load ptr, ptr %9, align 8, !tbaa !227
   %185 = load ptr, ptr %0, align 8, !tbaa !60
@@ -6669,7 +6649,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt6vectorImSaImEENS0_12EmptyCont
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorImSaImEELb1EE7elementERNS0_2IOERS4_m.exit: ; preds = %32, %39
   %42 = phi ptr [ %34, %32 ], [ %.pre.i, %39 ]
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   call void @_ZN4llvm4yaml7yamlizeImEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS3_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %43, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %44 = load ptr, ptr %5, align 8, !tbaa !227
   %45 = load ptr, ptr %0, align 8, !tbaa !60
@@ -6774,9 +6754,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !131
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !128
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !160
   br label %41
 

@@ -5,6 +5,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.pbrt::SquareMatrix" = type { [3 x [3 x float]] }
 %"class.pbrt::StatRegisterer" = type { i8 }
+%"struct.pbrt::ImageChannelValues" = type { %"class.pbrt::InlinedVector.41" }
+%"class.pbrt::InlinedVector.41" = type { %"class.pstd::pmr::polymorphic_allocator.11", ptr, %union.anon.42, i64, i64 }
+%"class.pstd::pmr::polymorphic_allocator.11" = type { ptr }
+%union.anon.42 = type { [4 x float] }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.pstd::vector" = type { %"class.pstd::pmr::polymorphic_allocator", ptr, i64, i64 }
+%"class.pstd::pmr::polymorphic_allocator" = type { ptr }
 %"class.pbrt::Image" = type { i32, %"class.pbrt::Point2.1", %"class.pstd::vector.4", %"class.pbrt::ColorEncoding", %"class.pstd::vector.6", %"class.pstd::vector.8", %"class.pstd::vector.10" }
 %"class.pbrt::Point2.1" = type { %"class.pbrt::Tuple2.2" }
 %"class.pbrt::Tuple2.2" = type { i32, i32 }
@@ -17,16 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pstd::vector.8" = type { %"class.pstd::pmr::polymorphic_allocator.9", ptr, i64, i64 }
 %"class.pstd::pmr::polymorphic_allocator.9" = type { ptr }
 %"class.pstd::vector.10" = type { %"class.pstd::pmr::polymorphic_allocator.11", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.11" = type { ptr }
-%"struct.pbrt::ImageChannelValues" = type { %"class.pbrt::InlinedVector.41" }
-%"class.pbrt::InlinedVector.41" = type { %"class.pstd::pmr::polymorphic_allocator.11", ptr, %union.anon.42, i64, i64 }
-%union.anon.42 = type { [4 x float] }
-%"class.pbrt::Half" = type { i16 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.pstd::vector" = type { %"class.pstd::pmr::polymorphic_allocator", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator" = type { ptr }
 %"class.pstd::pmr::polymorphic_allocator.3" = type { ptr }
 %"struct.pbrt::ImageAndMetadata" = type { %"class.pbrt::Image", %"struct.pbrt::ImageMetadata" }
 %"struct.pbrt::ImageMetadata" = type { %"class.pstd::optional.22", %"class.pstd::optional.24", %"class.pstd::optional.24", %"class.pstd::optional.15", %"class.pstd::optional.17", %"class.pstd::optional", %"class.pstd::optional.22", %"class.pstd::optional.27", %"class.std::map", %"class.std::map.33" }
@@ -297,7 +296,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %32 = sext i32 %24 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !25
-  %35 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [152 x i8], ptr %34, i64 %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8, !tbaa !26
   %.sroa.2.0.insert.ext.i = zext i32 %37 to i64
@@ -327,7 +326,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
 _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !25
-  %48 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %47, i64 %43
+  %48 = getelementptr inbounds nuw [152 x i8], ptr %47, i64 %43
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %49, align 4
   %.sroa.061.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -468,7 +467,7 @@ define dso_local noundef float @_ZNK4pbrt6MIPMap5TexelIfEET_iNS_6Point2IiEE(ptr 
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
-  %7 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %6, i64 %4
+  %7 = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8, !tbaa !26
   %.sroa.2.0.insert.ext = zext i32 %9 to i64
@@ -502,7 +501,7 @@ define dso_local noundef float @_ZNK4pbrt6MIPMap6BilerpIfEET_iNS_6Point2IfEE(ptr
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %15, i64 %8
+  %16 = getelementptr inbounds nuw [152 x i8], ptr %15, i64 %8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i64, ptr %17, align 8, !tbaa !28
   %19 = trunc i64 %18 to i32
@@ -593,7 +592,7 @@ define dso_local noundef float @_ZNK4pbrt6MIPMap6BilerpIfEET_iNS_6Point2IfEE(ptr
 67:                                               ; preds = %67, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %67 ]
   %.057.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %70, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i
   %69 = load float, ptr %68, align 4, !tbaa !19
   %70 = fadd float %.057.i, %69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -715,7 +714,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt6MIPMap3EWAIfEET_iNS_6Poin
   %12 = ashr exact i64 %sext, 32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [152 x i8], ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8, !tbaa !26
   %.sroa.2.0.insert.ext.i = zext i32 %17 to i64
@@ -740,7 +739,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt6MIPMap3EWAIfEET_iNS_6Poin
 _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw [152 x i8], ptr %26, i64 %22
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %28, align 4
   %.sroa.075.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -860,10 +859,10 @@ _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %21
   %103 = fptosi float %102 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %103, i32 127)
   %104 = sext i32 %.sroa.speculated to i64
-  %105 = getelementptr inbounds float, ptr @_ZN4pbrtL12MIPFilterLUTE, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrtL12MIPFilterLUTE, i64 %104
   %106 = load float, ptr %105, align 4, !tbaa !19
   %107 = load ptr, ptr %25, align 8, !tbaa !25
-  %108 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %107, i64 %22
+  %108 = getelementptr inbounds nuw [152 x i8], ptr %107, i64 %22
   %109 = load i32, ptr %83, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %.sroa.04.0.copyload.i = load i64, ptr %110, align 4
@@ -1045,7 +1044,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %17
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds nuw i8, ptr %108, i64 96
   %184 = load ptr, ptr %183, align 8, !tbaa !64
-  %185 = getelementptr %"class.pbrt::Half", ptr %184, i64 %182
+  %185 = getelementptr [2 x i8], ptr %184, i64 %182
   %186 = load i16, ptr %185, align 2, !tbaa !65
   %187 = zext i16 %186 to i32
   %188 = shl nuw nsw i32 %187, 13
@@ -1088,7 +1087,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %197, %193, %191
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds nuw i8, ptr %108, i64 128
   %214 = load ptr, ptr %213, align 8, !tbaa !68
-  %215 = getelementptr float, ptr %214, i64 %212
+  %215 = getelementptr [4 x i8], ptr %214, i64 %212
   %216 = load float, ptr %215, align 4, !tbaa !19
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
@@ -1197,7 +1196,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
 _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !25
-  %42 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [152 x i8], ptr %41, i64 %37
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %43, align 4
   %.sroa.0133.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -1371,7 +1370,7 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !25
-  %9 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [152 x i8], ptr %8, i64 %6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !28
   %12 = trunc i64 %11 to i32
@@ -1387,14 +1386,14 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.228.0.insert.shift, %.sroa.228.0.insert.ext
   %17 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %9, i64 %2, i32 noundef 0, i64 %.sroa.027.0.insert.insert)
   %18 = load ptr, ptr %7, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %18, i64 %6
+  %19 = getelementptr inbounds nuw [152 x i8], ptr %18, i64 %6
   %20 = load i32, ptr %15, align 8, !tbaa !26
   %.sroa.226.0.insert.ext = zext i32 %20 to i64
   %.sroa.226.0.insert.shift = shl nuw i64 %.sroa.226.0.insert.ext, 32
   %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.226.0.insert.shift, %.sroa.226.0.insert.ext
   %21 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %19, i64 %2, i32 noundef 1, i64 %.sroa.025.0.insert.insert)
   %22 = load ptr, ptr %7, align 8, !tbaa !25
-  %23 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %22, i64 %6
+  %23 = getelementptr inbounds nuw [152 x i8], ptr %22, i64 %6
   %24 = load i32, ptr %15, align 8, !tbaa !26
   %.sroa.224.0.insert.ext = zext i32 %24 to i64
   %.sroa.224.0.insert.shift = shl nuw i64 %.sroa.224.0.insert.ext, 32
@@ -1442,7 +1441,7 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
-  %7 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %6, i64 %4
+  %7 = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = trunc i64 %9 to i32
@@ -1506,7 +1505,7 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS
 
 51:                                               ; preds = %3
   %52 = load ptr, ptr %5, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %52, i64 %4
+  %53 = getelementptr inbounds nuw [152 x i8], ptr %52, i64 %4
   %54 = load i32, ptr %12, align 8, !tbaa !26
   %.sroa.261.0.insert.ext = zext i32 %54 to i64
   %.sroa.261.0.insert.shift = shl nuw i64 %.sroa.261.0.insert.ext, 32
@@ -1559,7 +1558,7 @@ define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS
   %90 = fmul float %74, %89
   %91 = fadd float %90, %88
   %92 = load ptr, ptr %5, align 8, !tbaa !25
-  %93 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %92, i64 %4
+  %93 = getelementptr inbounds nuw [152 x i8], ptr %92, i64 %4
   %94 = load i32, ptr %12, align 8, !tbaa !26
   %.sroa.259.0.insert.ext = zext i32 %94 to i64
   %.sroa.259.0.insert.shift = shl nuw i64 %.sroa.259.0.insert.ext, 32
@@ -1671,7 +1670,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap3EWAINS_3R
 _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !25
-  %26 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [152 x i8], ptr %25, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %27, align 4
   %.sroa.0226.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -1802,10 +1801,10 @@ _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %20
   %104 = fptosi float %103 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %104, i32 127)
   %105 = sext i32 %.sroa.speculated to i64
-  %106 = getelementptr inbounds float, ptr @_ZN4pbrtL12MIPFilterLUTE, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrtL12MIPFilterLUTE, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !19
   %108 = load ptr, ptr %24, align 8, !tbaa !25
-  %109 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %108, i64 %21
+  %109 = getelementptr inbounds nuw [152 x i8], ptr %108, i64 %21
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load i64, ptr %110, align 8, !tbaa !28
   %112 = trunc i64 %111 to i32
@@ -1982,7 +1981,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i148: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %24, align 8, !tbaa !25
   %.pre514 = load i32, ptr %82, align 8, !tbaa !26
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.pbrt::Image", ptr %.pre, i64 %21
+  %.phi.trans.insert = getelementptr inbounds nuw [152 x i8], ptr %.pre, i64 %21
   %.phi.trans.insert515 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.sroa.04.0.copyload.i111.pre = load i64, ptr %.phi.trans.insert515, align 4
   %178 = trunc i64 %.sroa.04.0.copyload.i111.pre to i32
@@ -1997,7 +1996,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i148: ; preds = 
   %183 = sext i32 %182 to i64
   %184 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %185 = load ptr, ptr %184, align 8, !tbaa !64
-  %186 = getelementptr %"class.pbrt::Half", ptr %185, i64 %183
+  %186 = getelementptr [2 x i8], ptr %185, i64 %183
   %187 = load i16, ptr %186, align 2, !tbaa !65
   %188 = zext i16 %187 to i32
   %189 = shl nuw nsw i32 %188, 13
@@ -2037,7 +2036,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i141:                    ; preds = %198, %194, %192
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds nuw i8, ptr %109, i64 128
   %212 = load ptr, ptr %211, align 8, !tbaa !68
-  %213 = getelementptr float, ptr %212, i64 %210
+  %213 = getelementptr [4 x i8], ptr %212, i64 %210
   %214 = load float, ptr %213, align 4, !tbaa !19
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit150
 
@@ -2052,7 +2051,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit150: ; preds = %
   %216 = phi i32 [ %115, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit214 ], [ %.pre514, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i148 ], [ %115, %_ZNK4pbrt4HalfcvfEv.exit.i141 ], [ %115, %206 ]
   %217 = phi ptr [ %108, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit214 ], [ %.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i148 ], [ %108, %_ZNK4pbrt4HalfcvfEv.exit.i141 ], [ %108, %206 ]
   %.0.i132 = phi float [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit214 ], [ %177, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i148 ], [ %205, %_ZNK4pbrt4HalfcvfEv.exit.i141 ], [ %214, %206 ]
-  %218 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %217, i64 %21
+  %218 = getelementptr inbounds nuw [152 x i8], ptr %217, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0391)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4392)
   store i32 %216, ptr %.sroa.0391, align 4
@@ -2219,7 +2218,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i128: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre517 = load ptr, ptr %24, align 8, !tbaa !25
   %.pre518 = load i32, ptr %82, align 8, !tbaa !26
-  %.phi.trans.insert519 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %.pre517, i64 %21
+  %.phi.trans.insert519 = getelementptr inbounds nuw [152 x i8], ptr %.pre517, i64 %21
   %.phi.trans.insert520 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert519, i64 4
   %.sroa.04.0.copyload.i91.pre = load i64, ptr %.phi.trans.insert520, align 4
   %.pre524 = trunc i64 %.sroa.04.0.copyload.i91.pre to i32
@@ -2237,7 +2236,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i128: ; preds = 
   %291 = sext i32 %290 to i64
   %292 = getelementptr inbounds nuw i8, ptr %218, i64 96
   %293 = load ptr, ptr %292, align 8, !tbaa !64
-  %294 = getelementptr %"class.pbrt::Half", ptr %293, i64 %291
+  %294 = getelementptr [2 x i8], ptr %293, i64 %291
   %295 = getelementptr i8, ptr %294, i64 2
   %296 = load i16, ptr %295, align 2, !tbaa !65
   %297 = zext i16 %296 to i32
@@ -2281,7 +2280,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i121:                    ; preds = %307, %303, %301
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds nuw i8, ptr %218, i64 128
   %324 = load ptr, ptr %323, align 8, !tbaa !68
-  %325 = getelementptr float, ptr %324, i64 %322
+  %325 = getelementptr [4 x i8], ptr %324, i64 %322
   %326 = getelementptr i8, ptr %325, i64 4
   %327 = load float, ptr %326, align 4, !tbaa !19
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit130
@@ -2297,7 +2296,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit130: ; preds = %
   %329 = phi i32 [ %216, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit193 ], [ %.pre518, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i128 ], [ %216, %_ZNK4pbrt4HalfcvfEv.exit.i121 ], [ %216, %315 ]
   %330 = phi ptr [ %217, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit193 ], [ %.pre517, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i128 ], [ %217, %_ZNK4pbrt4HalfcvfEv.exit.i121 ], [ %217, %315 ]
   %.0.i112 = phi float [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit193 ], [ %283, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i128 ], [ %314, %_ZNK4pbrt4HalfcvfEv.exit.i121 ], [ %327, %315 ]
-  %331 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %330, i64 %21
+  %331 = getelementptr inbounds nuw [152 x i8], ptr %330, i64 %21
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0388)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4389)
@@ -2477,7 +2476,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i108: ; preds = 
   %407 = sext i32 %406 to i64
   %408 = getelementptr inbounds nuw i8, ptr %331, i64 96
   %409 = load ptr, ptr %408, align 8, !tbaa !64
-  %410 = getelementptr %"class.pbrt::Half", ptr %409, i64 %407
+  %410 = getelementptr [2 x i8], ptr %409, i64 %407
   %411 = getelementptr i8, ptr %410, i64 4
   %412 = load i16, ptr %411, align 2, !tbaa !65
   %413 = zext i16 %412 to i32
@@ -2522,7 +2521,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i101:                    ; preds = %423, %419, %417
   %439 = sext i32 %438 to i64
   %440 = getelementptr inbounds nuw i8, ptr %331, i64 128
   %441 = load ptr, ptr %440, align 8, !tbaa !68
-  %442 = getelementptr float, ptr %441, i64 %439
+  %442 = getelementptr [4 x i8], ptr %441, i64 %439
   %443 = getelementptr i8, ptr %442, i64 8
   %444 = load float, ptr %443, align 4, !tbaa !19
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit110
@@ -2725,7 +2724,7 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i: ; preds = %51
   %515 = sext i32 %514 to i64
   %516 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %517 = load ptr, ptr %516, align 8, !tbaa !64
-  %518 = getelementptr %"class.pbrt::Half", ptr %517, i64 %515
+  %518 = getelementptr [2 x i8], ptr %517, i64 %515
   %519 = load i16, ptr %518, align 2, !tbaa !65
   %520 = zext i16 %519 to i32
   %521 = shl nuw nsw i32 %520, 13
@@ -2764,7 +2763,7 @@ _ZNK4pbrt4HalfcvfEv.exit.i:                       ; preds = %530, %526, %524
   %541 = sext i32 %540 to i64
   %542 = getelementptr inbounds nuw i8, ptr %109, i64 128
   %543 = load ptr, ptr %542, align 8, !tbaa !68
-  %544 = getelementptr float, ptr %543, i64 %541
+  %544 = getelementptr [4 x i8], ptr %543, i64 %541
   %545 = load float, ptr %544, align 4, !tbaa !19
   br label %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit
 
@@ -3023,7 +3022,7 @@ define dso_local void @_ZN4pbrt6MIPMapC2ENS_5ImageEPKNS_13RGBColorSpaceENS_8Wrap
 79:                                               ; preds = %79, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %79 ]
   %80 = load ptr, ptr %78, align 8, !tbaa !25
-  %81 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %80, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [152 x i8], ptr %80, i64 %indvars.iv.i.i
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %81) #24
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %82 = load i64, ptr %76, align 8, !tbaa !22
@@ -3069,7 +3068,7 @@ _ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; p
   %102 = load ptr, ptr %12, align 8, !tbaa !25
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load i64, ptr %103, align 8, !tbaa !22
-  %105 = getelementptr %"class.pbrt::Image", ptr %102, i64 %104
+  %105 = getelementptr [152 x i8], ptr %102, i64 %104
   %106 = getelementptr i8, ptr %105, i64 -152
   invoke void @_ZN4pbrt5ImageC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 8 dereferenceable(152) %106)
           to label %107 unwind label %129
@@ -3082,7 +3081,7 @@ _ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; p
 .lr.ph.i:                                         ; preds = %107, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %107 ]
   %109 = load ptr, ptr %12, align 8, !tbaa !25
-  %110 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %109, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [152 x i8], ptr %109, i64 %indvars.iv.i
   call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %110) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %111 = load i64, ptr %103, align 8, !tbaa !22
@@ -3107,7 +3106,7 @@ _ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit:
 117:                                              ; preds = %.noexc, %_ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit
   %118 = phi i64 [ %.pre.i, %.noexc ], [ 0, %_ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit ]
   %119 = load ptr, ptr %12, align 8, !tbaa !25
-  %120 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [152 x i8], ptr %119, i64 %118
   invoke void @_ZN4pbrt5ImageC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(152) %120, ptr noundef nonnull align 8 dereferenceable(152) %9)
           to label %121 unwind label %131
 
@@ -3299,7 +3298,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 25:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [152 x i8], ptr %26, i64 %indvars.iv.i
   tail call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %27) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i64, ptr %22, align 8, !tbaa !22
@@ -3328,9 +3327,9 @@ _ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit:
 35:                                               ; preds = %.lr.ph, %35
   %.017 = phi i64 [ 0, %.lr.ph ], [ %91, %35 ]
   %36 = load ptr, ptr %33, align 8, !tbaa !25
-  %37 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %36, i64 %.017
+  %37 = getelementptr inbounds nuw [152 x i8], ptr %36, i64 %.017
   %38 = load ptr, ptr %34, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %38, i64 %.017
+  %39 = getelementptr inbounds nuw [152 x i8], ptr %38, i64 %.017
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %37, ptr noundef nonnull align 8 dereferenceable(152) %39, i64 12, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -3432,7 +3431,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorIN4pbrt5ImageENS_3pmr21polymo
 5:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !25
-  %7 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %indvars.iv.i
   tail call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %7) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i64, ptr %2, align 8, !tbaa !22
@@ -3564,7 +3563,7 @@ _ZN4pstd6vectorIhNS_3pmr21polymorphic_allocatorIhEEED2Ev.exit: ; preds = %_ZN4ps
   %51 = phi i64 [ %48, %.lr.ph.i.i ], [ %59, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i.i ]
   %52 = load ptr, ptr %49, align 8, !tbaa !83
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %indvars.iv.i.i
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %indvars.iv.i.i
   %54 = load ptr, ptr %53, align 8, !tbaa !79
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = icmp eq ptr %54, %55
@@ -3636,9 +3635,9 @@ define linkonce_odr dso_local void @_ZN4pbrt5ImageC2ERKS0_(ptr noundef nonnull a
 12:                                               ; preds = %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i, %.lr.ph.i
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS7_JRKS7_EEEvPT_DpOT0_.exit.i ]
   %13 = load ptr, ptr %7, align 8, !tbaa !83
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %.09.i
   %15 = load ptr, ptr %11, align 8, !tbaa !83
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %.09.i
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.09.i
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %17, ptr %14, align 8, !tbaa !72
   %18 = load ptr, ptr %16, align 8, !tbaa !79
@@ -3824,8 +3823,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt4HalfEE15allocate_objectIS3_EEPT_m.exi
 
 .lr.ph.i.i19:                                     ; preds = %.noexc27, %.lr.ph.i.i19
   %indvars.iv.i.i20 = phi i64 [ %indvars.iv.next.i.i21, %.lr.ph.i.i19 ], [ 0, %.noexc27 ]
-  %97 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %90, i64 %indvars.iv.i.i20
-  %98 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %.pre.i.pre.i, i64 %indvars.iv.i.i20
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %indvars.iv.i.i20
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i.pre.i, i64 %indvars.iv.i.i20
   %99 = load i16, ptr %98, align 2, !tbaa !115
   store i16 %99, ptr %97, align 2, !tbaa !115
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
@@ -3848,8 +3847,8 @@ _ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit
 
 102:                                              ; preds = %102, %.lr.ph.i23
   %.09.i24 = phi i64 [ 0, %.lr.ph.i23 ], [ %106, %102 ]
-  %103 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %.0.i.i.i.i21.i55, i64 %.09.i24
-  %104 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %101, i64 %.09.i24
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i.i.i21.i55, i64 %.09.i24
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %.09.i24
   %105 = load i16, ptr %104, align 2, !tbaa !115
   store i16 %105, ptr %103, align 2, !tbaa !115
   %106 = add nuw i64 %.09.i24, 1
@@ -3911,8 +3910,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i: ; pred
 
 .lr.ph.i.i33:                                     ; preds = %.noexc46, %.lr.ph.i.i33
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i35, %.lr.ph.i.i33 ], [ 0, %.noexc46 ]
-  %129 = getelementptr inbounds nuw float, ptr %122, i64 %indvars.iv.i.i34
-  %130 = getelementptr inbounds nuw float, ptr %.pre.i.pre.i31, i64 %indvars.iv.i.i34
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i.i34
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.pre.i31, i64 %indvars.iv.i.i34
   %131 = load float, ptr %130, align 4, !tbaa !19
   store float %131, ptr %129, align 4, !tbaa !19
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i34, 1
@@ -3935,8 +3934,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds =
 
 134:                                              ; preds = %134, %.lr.ph.i41
   %.09.i42 = phi i64 [ 0, %.lr.ph.i41 ], [ %138, %134 ]
-  %135 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i21.i3860, i64 %.09.i42
-  %136 = getelementptr inbounds nuw float, ptr %133, i64 %.09.i42
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i21.i3860, i64 %.09.i42
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %.09.i42
   %137 = load float, ptr %136, align 4, !tbaa !19
   store float %137, ptr %135, align 4, !tbaa !19
   %138 = add nuw i64 %.09.i42, 1
@@ -4059,8 +4058,8 @@ _ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit: ; preds = %.lr.
   %46 = sext i32 %2 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %48 = load ptr, ptr %47, align 8, !tbaa !64
-  %49 = getelementptr %"class.pbrt::Half", ptr %48, i64 %45
-  %50 = getelementptr %"class.pbrt::Half", ptr %49, i64 %46
+  %49 = getelementptr [2 x i8], ptr %48, i64 %45
+  %50 = getelementptr [2 x i8], ptr %49, i64 %46
   %51 = load i16, ptr %50, align 2, !tbaa !65
   %52 = zext i16 %51 to i32
   %53 = shl nuw nsw i32 %52, 13
@@ -4109,8 +4108,8 @@ _ZNK4pbrt4HalfcvfEv.exit:                         ; preds = %56, %58, %62
   %79 = sext i32 %2 to i64
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %81 = load ptr, ptr %80, align 8, !tbaa !68
-  %82 = getelementptr float, ptr %81, i64 %78
-  %83 = getelementptr float, ptr %82, i64 %79
+  %82 = getelementptr [4 x i8], ptr %81, i64 %78
+  %83 = getelementptr [4 x i8], ptr %82, i64 %79
   %84 = load float, ptr %83, align 4, !tbaa !19
   br label %86
 
@@ -5431,7 +5430,7 @@ define linkonce_odr dso_local void @_ZN4pstd6vectorINSt7__cxx1112basic_stringIcS
   %6 = phi i64 [ %3, %.lr.ph.i ], [ %14, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i ]
   %7 = load ptr, ptr %4, align 8, !tbaa !83
-  %8 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !79
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = icmp eq ptr %9, %10
@@ -5548,9 +5547,9 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 26:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit ]
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.i.i.i, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i, i64 %indvars.iv
   %28 = load ptr, ptr %16, align 8, !tbaa !83
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %30, ptr %27, align 8, !tbaa !72
   %31 = load ptr, ptr %29, align 8, !tbaa !79
@@ -5582,7 +5581,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 0, ptr %40, align 8, !tbaa !74
   store i8 0, ptr %32, align 8, !tbaa !63
   %43 = load ptr, ptr %16, align 8, !tbaa !83
-  %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !79
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = icmp eq ptr %45, %46
@@ -6321,7 +6320,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
   %26 = phi i64 [ %23, %.lr.ph.i ], [ %34, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i ]
   %27 = load ptr, ptr %24, align 8, !tbaa !83
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !79
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = icmp eq ptr %29, %30
@@ -6362,9 +6361,9 @@ _ZN4pstd6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21pol
 41:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS7_JS7_EEEvPT_DpOT0_.exit
   %.017 = phi i64 [ 0, %.lr.ph ], [ %59, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS7_JS7_EEEvPT_DpOT0_.exit ]
   %42 = load ptr, ptr %39, align 8, !tbaa !83
-  %43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %42, i64 %.017
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %.017
   %44 = load ptr, ptr %40, align 8, !tbaa !83
-  %45 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %44, i64 %.017
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %.017
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %46, ptr %43, align 8, !tbaa !72
   %47 = load ptr, ptr %45, align 8, !tbaa !79
@@ -6617,8 +6616,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt4HalfEE17deallocate_objectIS3_EEvPT_m.
 
 .lr.ph.i:                                         ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt4HalfEE15allocate_objectIS3_EEPT_m.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt4HalfEE15allocate_objectIS3_EEPT_m.exit.i ]
-  %40 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %33, i64 %indvars.iv.i
-  %41 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %.pre.i, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %42 = load i16, ptr %41, align 2, !tbaa !115
   store i16 %42, ptr %40, align 2, !tbaa !115
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6643,8 +6642,8 @@ _ZN4pstd6vectorIN4pbrt4HalfENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit
 
 48:                                               ; preds = %.lr.ph, %48
   %.017 = phi i64 [ 0, %.lr.ph ], [ %52, %48 ]
-  %49 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %45, i64 %.017
-  %50 = getelementptr inbounds nuw %"class.pbrt::Half", ptr %47, i64 %.017
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %.017
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %.017
   %51 = load i16, ptr %50, align 2, !tbaa !115
   store i16 %51, ptr %49, align 2, !tbaa !115
   %52 = add nuw i64 %.017, 1
@@ -6748,8 +6747,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i: ; pre
 
 .lr.ph.i:                                         ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i ]
-  %40 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i
-  %41 = getelementptr inbounds nuw float, ptr %.pre.i, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %42 = load float, ptr %41, align 4, !tbaa !19
   store float %42, ptr %40, align 4, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6774,8 +6773,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit: ; preds = %
 
 48:                                               ; preds = %.lr.ph, %48
   %.017 = phi i64 [ 0, %.lr.ph ], [ %52, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %45, i64 %.017
-  %50 = getelementptr inbounds nuw float, ptr %47, i64 %.017
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.017
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.017
   %51 = load float, ptr %50, align 4, !tbaa !19
   store float %51, ptr %49, align 4, !tbaa !19
   %52 = add nuw i64 %.017, 1
@@ -8770,9 +8769,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ImageEE17deallocate_objectIS3_EEvPT_m
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %.0.i.i.i, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [152 x i8], ptr %.0.i.i.i, i64 %indvars.iv
   %28 = load ptr, ptr %16, align 8, !tbaa !25
-  %29 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [152 x i8], ptr %28, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull align 8 dereferenceable(152) %29, i64 12, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -8852,7 +8851,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt5ImageEE17deallocate_objectIS3_EEvPT_m
   store ptr %80, ptr %72, align 8, !tbaa !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   %81 = load ptr, ptr %16, align 8, !tbaa !25
-  %82 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [152 x i8], ptr %81, i64 %indvars.iv
   tail call void @_ZN4pbrt5ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %82) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load i64, ptr %14, align 8, !tbaa !22
@@ -13842,7 +13841,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 12:                                               ; preds = %.lr.ph, %32
   %.011 = phi i64 [ 0, %.lr.ph ], [ %34, %32 ]
-  %13 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %6, i64 %.011
+  %13 = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %.011
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4pbrt5Image8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %13)
   %14 = load ptr, ptr %3, align 8, !tbaa !79

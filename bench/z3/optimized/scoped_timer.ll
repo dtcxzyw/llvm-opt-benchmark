@@ -545,7 +545,7 @@ _ZNSt6vectorIP18scoped_timer_stateSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.
 _ZNSt6vectorIP18scoped_timer_stateSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %35, ptr @_ZL17available_workers, align 8, !tbaa !3
   store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @_ZL17available_workers, i64 8), align 8, !tbaa !55
-  %42 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZL17available_workers, i64 16), align 8, !tbaa !10
   br label %_ZNSt6vectorIP18scoped_timer_stateSaIS1_EE9push_backERKS1_.exit
 

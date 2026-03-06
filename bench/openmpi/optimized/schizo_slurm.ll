@@ -152,7 +152,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %35, ptr noundef nonnull @.str.8) #8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %36 = load ptr, ptr %32, align 8, !tbaa !20
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.next52
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.next52
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %.loopexit, label %.lr.ph44, !llvm.loop !21
@@ -175,7 +175,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %45, ptr noundef nonnull @.str.10) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load ptr, ptr %42, align 8, !tbaa !20
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %.not35 = icmp eq ptr %48, null
   br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !22
@@ -204,7 +204,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !29
   %8 = icmp sgt i32 %7, 1

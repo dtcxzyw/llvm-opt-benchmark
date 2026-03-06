@@ -3,14 +3,8 @@ source_filename = "bench/postgres/original/spgscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.spgInnerConsistentOut = type { i32, ptr, ptr, ptr, ptr, ptr }
 %struct.spgInnerConsistentIn = type { ptr, ptr, i32, i32, i64, ptr, ptr, i32, i8, i8, i8, i64, i32, ptr }
-%struct.ItemIdData = type { i32 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
-%struct.IndexOrderByDistance = type { double, i8 }
 %struct.spgLeafConsistentIn = type { ptr, ptr, i32, i32, i64, ptr, i32, i8, i64 }
 %struct.spgLeafConsistentOut = type { i64, i8, i8, ptr }
 
@@ -106,10 +100,10 @@ define dso_local ptr @spgbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   store double 0.000000e+00, ptr %51, align 8
   %52 = load ptr, ptr %47, align 8
-  %53 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   store double 0x7FF0000000000000, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %25, align 4
@@ -219,12 +213,12 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %29 = load ptr, ptr %21, align 8
-  %30 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = tail call i32 @get_func_rettype(i32 noundef %32) #9
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i32 %33, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %.phi.trans.insert, align 4
@@ -269,7 +263,7 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %67 ]
   %.05887.i = phi i32 [ 0, %.lr.ph.i ], [ %.159.i, %67 ]
   %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %56, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 1
   %.not.i = icmp eq i32 %59, 0
@@ -282,7 +276,7 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
 
 62:                                               ; preds = %60
   %63 = sext i32 %.05887.i to i64
-  %64 = getelementptr inbounds %struct.ScanKeyData, ptr %56, i64 %63
+  %64 = getelementptr inbounds [72 x i8], ptr %56, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr noundef nonnull align 8 dereferenceable(72) %57, i64 72, i1 false)
   br label %65
 
@@ -294,7 +288,7 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   %.05887.sink.i = phi i32 [ %.05887.i, %65 ], [ -1, %55 ]
   %.159.i = phi i32 [ %66, %65 ], [ %.05887.i, %55 ]
   %68 = load ptr, ptr %54, align 8
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i
   store i32 %.05887.sink.i, ptr %69, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %70 = load i32, ptr %46, align 4
@@ -324,7 +318,7 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   %.06289.i = phi i32 [ 0, %.lr.ph92.i ], [ %.365.ph.i, %95 ]
   %.06688.i = phi i8 [ 0, %.lr.ph92.i ], [ %.369.ph.i, %95 ]
   %82 = load ptr, ptr %78, align 8
-  %83 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %82, i64 %indvars.iv104.i
+  %83 = getelementptr inbounds nuw [72 x i8], ptr %82, i64 %indvars.iv104.i
   %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, 64
   %.not71.i = icmp eq i32 %85, 0
@@ -344,7 +338,7 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   %91 = load ptr, ptr %79, align 8
   %92 = add i32 %.06289.i, 1
   %93 = sext i32 %.06289.i to i64
-  %94 = getelementptr inbounds %struct.ScanKeyData, ptr %91, i64 %93
+  %94 = getelementptr inbounds [72 x i8], ptr %91, i64 %93
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(72) %83, i64 72, i1 false)
   %.pre.i = load i32, ptr %75, align 8
   br label %95
@@ -481,7 +475,7 @@ spgAddStartItem.exit.i:                           ; preds = %139, %127
 158:                                              ; preds = %163, %.lr.ph.i30
   %159 = phi i32 [ %155, %.lr.ph.i30 ], [ %164, %163 ]
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i34, %163 ]
-  %160 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv.i31
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv.i31
   %161 = load ptr, ptr %160, align 8
   %.not.i32 = icmp eq ptr %161, null
   br i1 %.not.i32, label %163, label %162
@@ -516,7 +510,7 @@ spgAddStartItem.exit.i:                           ; preds = %139, %127
 
 174:                                              ; preds = %174, %.lr.ph31.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next34.i, %174 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv33.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv33.i
   %176 = load ptr, ptr %175, align 8
   tail call void @pfree(ptr noundef %176) #9
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
@@ -803,7 +797,7 @@ spgGetNextQueueItem.exit:                         ; preds = %42
   %85 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %86 = xor i32 %.5, -1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   %89 = load ptr, ptr %88, align 8
   br label %BufferGetPage.exit
 
@@ -865,7 +859,7 @@ BufferGetPage.exit:                               ; preds = %84, %90
 117:                                              ; preds = %BufferGetPage.exit
   %118 = zext i16 %.val91 to i64
   %119 = getelementptr i8, ptr %.0.i.i, i64 20
-  %120 = getelementptr %struct.ItemIdData, ptr %119, i64 %118
+  %120 = getelementptr [4 x i8], ptr %119, i64 %118
   %.val93 = load i32, ptr %120, align 4
   %121 = and i32 %.val93, 32767
   %122 = zext nneg i32 %121 to i64
@@ -978,7 +972,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %172 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv.i
   %173 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %173, ptr %172, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1024,7 +1018,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
 .lr.ph63.i:                                       ; preds = %.lr.ph63.i, %.lr.ph63.preheader.i
   %indvars.iv70.i = phi i64 [ 0, %.lr.ph63.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph63.i ]
   %.04761.i = phi ptr [ %192, %.lr.ph63.preheader.i ], [ %197, %.lr.ph63.i ]
-  %193 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv70.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv70.i
   store ptr %.04761.i, ptr %193, align 8
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %194 = getelementptr i8, ptr %.04761.i, i64 6
@@ -1056,10 +1050,10 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
   %209 = phi i32 [ %204, %.lr.ph66.i ], [ %270, %ItemPointerIsValid.exit.thread.i ]
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph66.i ], [ %indvars.iv.next74.i, %ItemPointerIsValid.exit.thread.i ]
   %210 = load ptr, ptr %33, align 8
-  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv73.i
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv73.i
   %212 = load i32, ptr %211, align 4
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds ptr, ptr %186, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %186, i64 %213
   %215 = load ptr, ptr %214, align 8
   %.not.i53.i = icmp eq ptr %215, null
   br i1 %.not.i53.i, label %ItemPointerIsValid.exit.thread.i, label %ItemPointerIsValid.exit.i
@@ -1073,7 +1067,7 @@ ItemPointerIsValid.exit.i:                        ; preds = %208
 218:                                              ; preds = %ItemPointerIsValid.exit.i
   %219 = load ptr, ptr %34, align 8
   %.not51.i = icmp eq ptr %219, null
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv73.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv73.i
   %.in.i = select i1 %.not51.i, ptr %35, ptr %220
   %221 = load ptr, ptr %.in.i, align 8
   br i1 %102, label %.thread.i.i.i, label %224
@@ -1113,7 +1107,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %233, %224, %.thread
   br i1 %.not.i54.i, label %245, label %241
 
 241:                                              ; preds = %spgAllocSearchItem.exit.i.i
-  %242 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv73.i
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv73.i
   %243 = load i32, ptr %242, align 4
   %244 = add i32 %243, %240
   br label %245
@@ -1127,7 +1121,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %233, %224, %.thread
   br i1 %.not27.i.i, label %257, label %249
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds nuw i64, ptr %248, i64 %indvars.iv73.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %indvars.iv73.i
   %251 = load i64, ptr %250, align 8
   %252 = load i8, ptr %38, align 2, !range !9, !noundef !10
   %253 = trunc nuw i8 %252 to i1
@@ -1147,7 +1141,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %233, %224, %.thread
   br i1 %.not28.i.i, label %spgMakeInnerItem.exit.i, label %262
 
 262:                                              ; preds = %257
-  %263 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv73.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv73.i
   %264 = load ptr, ptr %263, align 8
   br label %spgMakeInnerItem.exit.i
 
@@ -1303,7 +1297,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds %struct.ItemPointerData, ptr %24, i64 %25
+  %26 = getelementptr inbounds [6 x i8], ptr %24, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %23, ptr noundef nonnull align 2 dereferenceable(6) %26, i64 6, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 2776
   %28 = load i32, ptr %12, align 4
@@ -1314,7 +1308,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   store i8 %31, ptr %32, align 8
   %33 = load i32, ptr %12, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %16, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %16, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %36, ptr %37, align 8
@@ -1327,7 +1321,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %12, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %15, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %15, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 3184
   %48 = getelementptr inbounds i8, ptr %47, i64 %44
@@ -1352,7 +1346,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
 .lr.ph:                                           ; preds = %54, %62
   %58 = phi i32 [ %63, %62 ], [ %19, %54 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %54 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %.not46 = icmp eq ptr %60, null
   br i1 %.not46, label %62, label %61
@@ -1379,7 +1373,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
 
 .lr.ph57:                                         ; preds = %.loopexit48, %.lr.ph57
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph57 ], [ 0, %.loopexit48 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv62
   %71 = load ptr, ptr %70, align 8
   tail call void @pfree(ptr noundef %71) #9
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -1421,7 +1415,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.ItemPointerData, ptr %14, i64 %17
+  %18 = getelementptr inbounds [6 x i8], ptr %14, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %18, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %20 = load i32, ptr %15, align 8
@@ -1462,21 +1456,21 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
 42:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %42
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw double, ptr %7, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %48
   %50 = load double, ptr %49, align 8
   br label %51
 
 51:                                               ; preds = %42, %47
   %.sink51 = phi double [ %50, %47 ], [ 0.000000e+00, %42 ]
   %.sink = phi i8 [ 0, %47 ], [ 1, %42 ]
-  %52 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %38, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   store double %.sink51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i8 %.sink, ptr %53, align 8
@@ -1491,7 +1485,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   %58 = load i32, ptr %15, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %57, i64 %59
   store ptr %.sink53, ptr %60, align 8
   br label %61
 
@@ -1523,7 +1517,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 3592
   %76 = load i32, ptr %15, align 8
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %75, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %75, i64 %77
   store ptr %74, ptr %78, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1589,10 +1583,10 @@ define internal range(i32 -1, 2) i32 @pairingheap_SpGistSearchItem_cmp(ptr nound
 
 17:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %18 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %19 = load double, ptr %18, align 8
   %20 = fcmp uno double %19, 0.000000e+00
-  %21 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %22 = load double, ptr %21, align 8
   %23 = fcmp uno double %22, 0.000000e+00
   br i1 %20, label %24, label %25
@@ -1658,7 +1652,7 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   %10 = alloca %struct.spgLeafConsistentOut, align 8
   %11 = zext i16 %3 to i64
   %12 = getelementptr i8, ptr %2, i64 20
-  %13 = getelementptr %struct.ItemIdData, ptr %12, i64 %11
+  %13 = getelementptr [4 x i8], ptr %12, i64 %11
   %.val = load i32, ptr %13, align 4
   %14 = and i32 %.val, 32767
   %15 = zext nneg i32 %14 to i64

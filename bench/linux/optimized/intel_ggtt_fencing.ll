@@ -6,29 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.static_call_key = type { ptr, %union.anon.91 }
 %union.anon.91 = type { i64 }
-%struct.i915_fence_reg = type { %struct.list_head, ptr, ptr, %struct.atomic_t, %struct.i915_active, i32, i8, i32, i32, i32, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.atomic_t = type { i32 }
-%struct.i915_active = type { %struct.atomic_t, %struct.mutex, %struct.spinlock, ptr, %struct.rb_root, %struct.i915_active_fence, i64, ptr, ptr, %struct.work_struct, %struct.llist_head }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon }
-%union.anon = type { %struct.atomic_t }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.rb_root = type { ptr }
-%struct.i915_active_fence = type { ptr, %struct.dma_fence_cb }
-%struct.dma_fence_cb = type { %struct.list_head, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.llist_head = type { ptr }
-%struct.page = type { i64, %union.anon.41, %union.anon.49, %struct.atomic_t, [8 x i8] }
-%union.anon.41 = type { %struct.anon.42 }
-%struct.anon.42 = type { %union.anon.43, ptr, %union.anon.45, i64 }
-%union.anon.43 = type { %struct.list_head }
-%union.anon.45 = type { i64 }
-%union.anon.49 = type { %struct.atomic_t }
 
 @vmemmap_base = external dso_local local_unnamed_addr global i64, align 8
 @.str = private unnamed_addr constant [59 x i8] c"[drm] *ERROR* Failed to allocate memory for bit 17 record\0A\00", align 1
@@ -902,7 +879,7 @@ define dso_local void @intel_ggtt_restore_fences(ptr noundef readonly captures(n
   %8 = phi i32 [ 0, %5 ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8
   %10 = sext i32 %8 to i64
-  %11 = getelementptr %struct.i915_fence_reg, ptr %9, i64 %10
+  %11 = getelementptr [224 x i8], ptr %9, i64 %10
   tail call fastcc void @fence_write(ptr noundef %11)
   %12 = add nuw i32 %8, 1
   %13 = load i32, ptr %2, align 4
@@ -938,7 +915,7 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly ca
   %18 = lshr i32 %12, 12
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %15
-  %21 = getelementptr %struct.page, ptr %20, i64 %19
+  %21 = getelementptr [64 x i8], ptr %20, i64 %19
   %22 = icmp eq ptr %21, null
   %23 = select i1 %16, i1 true, i1 %22
   br i1 %23, label %.loopexit, label %.preheader.preheader
@@ -1050,8 +1027,8 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly ca
   %97 = inttoptr i64 %96 to ptr
   %98 = lshr i32 %92, 12
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr %struct.page, ptr %97, i64 %91
-  %101 = getelementptr %struct.page, ptr %100, i64 %99
+  %100 = getelementptr [64 x i8], ptr %97, i64 %91
+  %101 = getelementptr [64 x i8], ptr %100, i64 %99
   %102 = icmp eq ptr %101, null
   %103 = select i1 %95, i1 true, i1 %102
   br i1 %103, label %.loopexit, label %.preheader, !llvm.loop !44
@@ -1116,7 +1093,7 @@ define dso_local void @i915_gem_object_save_bit_17_swizzle(ptr noundef captures(
   %33 = lshr i32 %27, 12
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr i8, ptr %32, i64 %30
-  %36 = getelementptr %struct.page, ptr %35, i64 %34
+  %36 = getelementptr [64 x i8], ptr %35, i64 %34
   %37 = icmp eq ptr %36, null
   %38 = select i1 %31, i1 true, i1 %37
   br i1 %38, label %.loopexit, label %.preheader.preheader
@@ -1204,8 +1181,8 @@ define dso_local void @i915_gem_object_save_bit_17_swizzle(ptr noundef captures(
   %94 = inttoptr i64 %93 to ptr
   %95 = lshr i32 %90, 12
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr %struct.page, ptr %94, i64 %89
-  %98 = getelementptr %struct.page, ptr %97, i64 %96
+  %97 = getelementptr [64 x i8], ptr %94, i64 %89
+  %98 = getelementptr [64 x i8], ptr %97, i64 %96
   %99 = icmp eq ptr %98, null
   %100 = select i1 %92, i1 true, i1 %99
   br i1 %100, label %.loopexit, label %.preheader, !llvm.loop !53
@@ -1478,7 +1455,7 @@ default.unreachable14:                            ; preds = %58
 161:                                              ; preds = %161, %159
   %162 = phi i64 [ 0, %159 ], [ %171, %161 ]
   %163 = load ptr, ptr %155, align 8
-  %164 = getelementptr %struct.i915_fence_reg, ptr %163, i64 %162
+  %164 = getelementptr [224 x i8], ptr %163, i64 %162
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 40
   tail call void @__i915_active_init(ptr noundef nonnull %165, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef nonnull @intel_ggtt_init_fences.__mkey, ptr noundef nonnull @intel_ggtt_init_fences.__wkey) #9
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 16
@@ -1507,7 +1484,7 @@ default.unreachable14:                            ; preds = %58
   %176 = phi i32 [ %180, %.preheader ], [ 0, %.loopexit8 ]
   %177 = load ptr, ptr %155, align 8
   %178 = sext i32 %176 to i64
-  %179 = getelementptr %struct.i915_fence_reg, ptr %177, i64 %178
+  %179 = getelementptr [224 x i8], ptr %177, i64 %178
   tail call fastcc void @fence_write(ptr noundef %179)
   %180 = add nuw i32 %176, 1
   %181 = load i32, ptr %174, align 4
@@ -1539,7 +1516,7 @@ define dso_local void @intel_ggtt_fini_fences(ptr noundef readonly captures(none
   %8 = phi i32 [ 0, %5 ], [ %12, %7 ]
   %9 = load ptr, ptr %6, align 8
   %10 = sext i32 %8 to i64
-  %.split = getelementptr %struct.i915_fence_reg, ptr %9, i64 %10
+  %.split = getelementptr [224 x i8], ptr %9, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 40
   tail call void @i915_active_fini(ptr noundef %11) #9
   %12 = add nuw i32 %8, 1

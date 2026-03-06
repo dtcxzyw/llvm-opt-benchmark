@@ -282,7 +282,7 @@ define hidden noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev9CDLOpData12GetStyleN
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData10getCacheIDB5cxx11Ev, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData10getCacheIDB5cxx11Ev, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -572,7 +572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %34
 
 switch.lookup:                                    ; preds = %1
   %44 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev9CDLOpData12ConvertStyleENS0_5StyleE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev9CDLOpData12ConvertStyleENS0_5StyleE, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -626,7 +626,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev9CDLOpDataC2ERKNS0_5StyleERKNS0_13Ch
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i: ; preds = %.noexc, %6
   %indvars.iv.i.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i.i, %.noexc ]
-  %13 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i.i
   %14 = load double, ptr %13, align 8, !tbaa !34
   invoke void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %14, double noundef 0.000000e+00)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
@@ -638,7 +638,7 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i.i: ; preds = %.n
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.i: ; preds = %.noexc, %.noexc7
   %indvars.iv.i4.i.i = phi i64 [ %indvars.iv.next.i5.i.i, %.noexc7 ], [ 0, %.noexc ]
-  %15 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i4.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i4.i.i
   %16 = load double, ptr %15, align 8, !tbaa !34
   invoke void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %16, double noundef 0.000000e+00)
           to label %.noexc7 unwind label %.loopexit
@@ -901,7 +901,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev9CDLOpData12setDirectionENS_18Transf
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %3, align 8, !tbaa !14
   br label %_ZN19OpenColorIO_v2_5dev9CDLOpData6invertEv.exit
@@ -919,7 +919,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev9CDLOpData6invertEv(ptr noundef nonn
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 8, !tbaa !14
   br label %6
@@ -1176,7 +1176,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14validateParamsERKNS_9CDLOpData13Ch
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i ]
-  %4 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %5 = load double, ptr %4, align 8, !tbaa !34
   tail call void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %5, double noundef 0.000000e+00)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1185,7 +1185,7 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i: ; preds = %_ZNK19
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3 ], [ 0, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i ]
-  %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i4
   %7 = load double, ptr %6, align 8, !tbaa !34
   tail call void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %7, double noundef 0.000000e+00)
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
@@ -2500,7 +2500,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev9CDLOpData8validateEv(ptr noundef n
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i, %1
   %indvars.iv.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i.i ]
-  %5 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i
   %6 = load double, ptr %5, align 8, !tbaa !34
   tail call void @_ZN19OpenColorIO_v2_5dev20validateGreaterEqualEPKcdd(ptr noundef nonnull @.str.10, double noundef %6, double noundef 0.000000e+00)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2513,7 +2513,7 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader: ; pr
 
 _ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i: ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i
   %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i ], [ 0, %_ZNK19OpenColorIO_v2_5dev9CDLOpData13ChannelParamsixEj.exit.i3.i.preheader ]
-  %8 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i4.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i4.i
   %9 = load double, ptr %8, align 8, !tbaa !34
   tail call void @_ZN19OpenColorIO_v2_5dev19validateGreaterThanEPKcdd(ptr noundef nonnull @.str.11, double noundef %9, double noundef 0.000000e+00)
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
@@ -2827,7 +2827,7 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData5cloneEv.exit.i: ; preds = %2
 
 switch.lookup:                                    ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData5cloneEv.exit.i
   %15 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %11, align 8, !tbaa !14, !noalias !119
   br label %_ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv.exit
@@ -2937,7 +2937,7 @@ _ZNK19OpenColorIO_v2_5dev9CDLOpData5cloneEv.exit: ; preds = %2
 
 switch.lookup:                                    ; preds = %_ZNK19OpenColorIO_v2_5dev9CDLOpData5cloneEv.exit
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData7inverseEv, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %9, align 8, !tbaa !14
   br label %_ZN19OpenColorIO_v2_5dev9CDLOpData6invertEv.exit
@@ -3089,7 +3089,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZStlsI
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %42 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData10getCacheIDB5cxx11Ev, i64 %42
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev9CDLOpData10getCacheIDB5cxx11Ev, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #23
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %43)
@@ -3799,7 +3799,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEESaIS3_EE11_S_relocate
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev6OpDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !145
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !72
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.9", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !75
   ret void
 }

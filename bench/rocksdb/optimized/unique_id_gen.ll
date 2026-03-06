@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array.1" = type { [64 x i8] }
 %"struct.rocksdb::(anonymous namespace)::EntropyTrackPortUuid" = type { %"struct.std::array.2" }
 %"struct.std::array.2" = type { [36 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -304,7 +302,7 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen5ResetEv(ptr noundef nonnull w
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7rocksdb19GenerateRawUniqueIdEPmS0_b(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false)
   %7 = load i64, ptr %2, align 8, !tbaa !36
-  %8 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.04
   store atomic i64 %7, ptr %8 seq_cst, align 16
   %9 = load i64, ptr %3, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -331,7 +329,7 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen12GenerateNextEPmS1_(ptr nound
 9:                                                ; preds = %9, %3
   %10 = phi i1 [ true, %3 ], [ false, %9 ]
   %.010.i = phi i64 [ 0, %3 ], [ 2, %9 ]
-  %11 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %.010.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.010.i
   %12 = load atomic i64, ptr %11 monotonic, align 16
   %13 = load i64, ptr %4, align 8, !tbaa !36
   %14 = xor i64 %13, %12
@@ -350,7 +348,7 @@ _ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1_m.exit: ; pr
   %20 = load i64, ptr %5, align 8, !tbaa !36
   store i64 %20, ptr %1, align 8, !tbaa !36
   %21 = and i64 %8, 3
-  %22 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %21
   %23 = atomicrmw add ptr %22, i64 %19 monotonic, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -379,7 +377,7 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1
   %11 = load i64, ptr %6, align 8, !tbaa !36
   store i64 %11, ptr %1, align 8, !tbaa !36
   %12 = and i64 %8, 3
-  %13 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %14 = atomicrmw add ptr %13, i64 %10 monotonic, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -388,7 +386,7 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1
 15:                                               ; preds = %4, %15
   %16 = phi i1 [ true, %4 ], [ false, %15 ]
   %.010 = phi i64 [ 0, %4 ], [ 2, %15 ]
-  %17 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %.010
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.010
   %18 = load atomic i64, ptr %17 monotonic, align 16
   %19 = load i64, ptr %5, align 8, !tbaa !36
   %20 = xor i64 %19, %18

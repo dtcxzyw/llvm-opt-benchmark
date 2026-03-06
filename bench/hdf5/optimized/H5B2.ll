@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5B2_class_t = type { i32, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5B2_node_ptr_t = type { i64, i16, i64 }
-%struct.H5B2_node_info_t = type { i32, i32, i32, i64, i8, ptr, ptr }
 
 @H5B2_init_g = local_unnamed_addr global i8 0, align 1
 @H5B2_TEST = external constant [1 x %struct.H5B2_class_t], align 16
@@ -900,7 +899,7 @@ thread-pre-split:                                 ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %97, i64 264
   %137 = load ptr, ptr %136, align 8, !tbaa !55
   %138 = zext i32 %135 to i64
-  %139 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %137, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %139, i64 24, i1 false), !tbaa.struct !41
   %.not182 = icmp eq i32 %.0155233, 3
   br i1 %.not182, label %149, label %140
@@ -953,7 +952,7 @@ thread-pre-split:                                 ; preds = %133
   %165 = load ptr, ptr %95, align 8, !tbaa !52
   %166 = load i32, ptr %8, align 4, !tbaa !36
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw i64, ptr %165, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %167
   %169 = load i64, ptr %168, align 8, !tbaa !11
   %170 = getelementptr inbounds nuw i8, ptr %164, i64 %169
   %171 = call i32 %3(ptr noundef %170, ptr noundef %4) #7
@@ -1095,7 +1094,7 @@ thread-pre-split:                                 ; preds = %133
   %247 = load ptr, ptr %219, align 8, !tbaa !52
   %248 = load i32, ptr %8, align 4, !tbaa !36
   %249 = zext i32 %248 to i64
-  %250 = getelementptr inbounds nuw i64, ptr %247, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !11
   %252 = getelementptr inbounds nuw i8, ptr %246, i64 %251
   %253 = call i32 %3(ptr noundef %252, ptr noundef %4) #7
@@ -1197,7 +1196,7 @@ thread-pre-split:                                 ; preds = %133
   %308 = load ptr, ptr %221, align 8, !tbaa !58
   %309 = load ptr, ptr %219, align 8, !tbaa !52
   %310 = zext i32 %290 to i64
-  %311 = getelementptr inbounds nuw i64, ptr %309, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %310
   %312 = load i64, ptr %311, align 8, !tbaa !11
   %313 = getelementptr inbounds nuw i8, ptr %308, i64 %312
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %307, ptr align 1 %313, i64 %299, i1 false)
@@ -1377,7 +1376,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
 64:                                               ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
   %.3169 = phi i64 [ %.199175, %.lr.ph ], [ %116, %115 ]
-  %65 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !60
   %68 = icmp ugt i64 %67, %.3169
@@ -1419,7 +1418,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   %90 = load ptr, ptr %89, align 8, !tbaa !53
   %91 = getelementptr inbounds nuw i8, ptr %19, i64 360
   %92 = load ptr, ptr %91, align 8, !tbaa !52
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !11
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 %94
   %96 = call i32 %3(ptr noundef %95, ptr noundef %4) #7
@@ -1474,7 +1473,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   %117 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %118 = load ptr, ptr %117, align 8, !tbaa !55
   %119 = and i64 %.097146218, 4294967295
-  %120 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i64, ptr %121, align 8, !tbaa !60
   %123 = icmp ugt i64 %122, %.3149216
@@ -1553,7 +1552,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   %157 = load ptr, ptr %156, align 8, !tbaa !58
   %158 = getelementptr inbounds nuw i8, ptr %19, i64 360
   %159 = load ptr, ptr %158, align 8, !tbaa !52
-  %160 = getelementptr inbounds nuw i64, ptr %159, i64 %.199.lcssa
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %.199.lcssa
   %161 = load i64, ptr %160, align 8, !tbaa !11
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 %161
   %163 = call i32 %3(ptr noundef %162, ptr noundef %4) #7
@@ -1678,7 +1677,7 @@ define range(i32 -1, 1) i32 @H5B2_remove(ptr noundef readonly captures(none) %0,
   %42 = load ptr, ptr %41, align 8, !tbaa !64
   %43 = load i16, ptr %28, align 4, !tbaa !38
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !65
   %.not42 = icmp eq ptr %47, null
@@ -1705,7 +1704,7 @@ define range(i32 -1, 1) i32 @H5B2_remove(ptr noundef readonly captures(none) %0,
   %.pre-phi = phi i64 [ %.pre51, %._crit_edge ], [ %44, %40 ]
   %56 = phi i16 [ %.pre48, %._crit_edge ], [ %43, %40 ]
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %42, %40 ]
-  %58 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %57, i64 %.pre-phi
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %.pre-phi
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8, !tbaa !68
   %.not43 = icmp eq ptr %60, null
@@ -1858,7 +1857,7 @@ define range(i32 -1, 1) i32 @H5B2_remove_by_idx(ptr noundef readonly captures(no
   %50 = load ptr, ptr %49, align 8, !tbaa !64
   %51 = load i16, ptr %36, align 4, !tbaa !38
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !65
   %.not52 = icmp eq ptr %55, null
@@ -1885,7 +1884,7 @@ define range(i32 -1, 1) i32 @H5B2_remove_by_idx(ptr noundef readonly captures(no
   %.pre-phi = phi i64 [ %.pre61, %._crit_edge ], [ %52, %48 ]
   %64 = phi i16 [ %.pre58, %._crit_edge ], [ %51, %48 ]
   %65 = phi ptr [ %.pre, %._crit_edge ], [ %50, %48 ]
-  %66 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %65, i64 %.pre-phi
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %65, i64 %.pre-phi
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %68 = load ptr, ptr %67, align 8, !tbaa !68
   %.not53 = icmp eq ptr %68, null
@@ -2192,7 +2191,7 @@ thread-pre-split:                                 ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %43, i64 264
   %83 = load ptr, ptr %82, align 8, !tbaa !55
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false), !tbaa.struct !41
   %.not153 = icmp eq i32 %.0139201, 3
   br i1 %.not153, label %95, label %86
@@ -2242,7 +2241,7 @@ thread-pre-split:                                 ; preds = %79
   %110 = load ptr, ptr %41, align 8, !tbaa !52
   %111 = load i32, ptr %8, align 4, !tbaa !36
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i64, ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !11
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 %114
   %116 = call i32 %3(ptr noundef %115, ptr noundef %4, ptr noundef nonnull %10) #7
@@ -2391,7 +2390,7 @@ thread-pre-split:                                 ; preds = %79
   %198 = load ptr, ptr %167, align 8, !tbaa !52
   %199 = load i32, ptr %8, align 4, !tbaa !36
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds nuw i64, ptr %198, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !11
   %203 = getelementptr inbounds nuw i8, ptr %197, i64 %202
   %204 = call i32 %3(ptr noundef %203, ptr noundef %4, ptr noundef nonnull %11) #7
@@ -2495,7 +2494,7 @@ thread-pre-split:                                 ; preds = %79
   %261 = load ptr, ptr %169, align 8, !tbaa !58
   %262 = load ptr, ptr %167, align 8, !tbaa !52
   %263 = zext i32 %242 to i64
-  %264 = getelementptr inbounds nuw i64, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %263
   %265 = load i64, ptr %264, align 8, !tbaa !11
   %266 = getelementptr inbounds nuw i8, ptr %261, i64 %265
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %260, ptr align 1 %266, i64 %252, i1 false)

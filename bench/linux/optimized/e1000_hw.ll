@@ -3035,7 +3035,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_eeprom(ptr noundef rea
 
 85:                                               ; preds = %55
   %86 = tail call i16 @llvm.bswap.i16(i16 %74)
-  %87 = getelementptr i16, ptr %3, i64 %50
+  %87 = getelementptr [2 x i8], ptr %3, i64 %50
   store i16 %86, ptr %87, align 2
   %88 = add nuw nsw i64 %50, 1
   %89 = icmp eq i64 %88, %48
@@ -3092,7 +3092,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_eeprom(ptr noundef rea
   br i1 %129, label %130, label %100, !llvm.loop !23
 
 130:                                              ; preds = %100
-  %131 = getelementptr i16, ptr %3, i64 %91
+  %131 = getelementptr [2 x i8], ptr %3, i64 %91
   store i16 %119, ptr %131, align 2
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
   %132 = tail call i32 @__SCT__cond_resched() #7
@@ -4158,7 +4158,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
 
 .preheader:                                       ; preds = %27, %30
   %33 = phi i64 [ %31, %30 ], [ 0, %27 ]
-  %34 = getelementptr i16, ptr @dsp_reg_array, i64 %33
+  %34 = getelementptr [2 x i8], ptr @dsp_reg_array, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   %37 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %36, ptr noundef nonnull %5)
@@ -4293,7 +4293,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
 
 .preheader39:                                     ; preds = %.preheader39.preheader, %96
   %99 = phi i64 [ %97, %96 ], [ 0, %.preheader39.preheader ]
-  %100 = getelementptr i16, ptr @dsp_reg_array, i64 %99
+  %100 = getelementptr [2 x i8], ptr @dsp_reg_array, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = zext i16 %101 to i32
   %103 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %102, ptr noundef nonnull %6)
@@ -5735,7 +5735,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
   %41 = add i16 %1, %40
   %42 = load i16, ptr %33, align 4
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %41, i16 noundef zeroext %42)
-  %43 = getelementptr i16, ptr %3, i64 %38
+  %43 = getelementptr [2 x i8], ptr %3, i64 %38
   %44 = load i16, ptr %43, align 2
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %44, i16 noundef zeroext 16)
   tail call fastcc void @e1000_standby_eeprom(ptr noundef %0)
@@ -5810,7 +5810,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_write_eeprom(ptr noundef re
   br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr i16, ptr %3, i64 %84
+  %87 = getelementptr [2 x i8], ptr %3, i64 %84
   %88 = load i16, ptr %87, align 2
   %89 = tail call i16 @llvm.bswap.i16(i16 %88)
   tail call fastcc void @e1000_shift_out_ee_bits(ptr noundef %0, i16 noundef zeroext %89, i16 noundef zeroext 16)
@@ -6713,7 +6713,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
   br label %60
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr i16, ptr @e1000_get_cable_length.agc_reg_array, i64 %41
+  %25 = getelementptr [2 x i8], ptr @e1000_get_cable_length.agc_reg_array, i64 %41
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = call i32 @e1000_read_phy_reg(ptr noundef %0, i32 noundef %27, ptr noundef nonnull %4)
@@ -6754,7 +6754,7 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_get_cable_length(ptr noundef 
 50:                                               ; preds = %48, %45
   %51 = phi i16 [ %47, %45 ], [ %49, %48 ]
   %52 = zext nneg i16 %51 to i64
-  %53 = getelementptr i16, ptr @e1000_igp_cable_length_table, i64 %52
+  %53 = getelementptr [2 x i8], ptr @e1000_igp_cable_length_table, i64 %52
   %54 = add nsw i16 %51, -24
   %55 = icmp ult i16 %54, 104
   %.pre = load i16, ptr %53, align 2

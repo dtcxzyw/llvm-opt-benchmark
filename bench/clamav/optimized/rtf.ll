@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rtf_state = type { ptr, ptr, ptr, ptr, i64, i64, i64, i32, i32, i32, [33 x i8] }
 %struct.stack = type { ptr, i64, i64, i64, i32 }
-%struct.rtf_action_mapping = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"in cli_scanrtf()\0A\00", align 1
 @.str.1 = private unnamed_addr constant [53 x i8] c"ScanRTF: Unable to allocate memory for stack states\0A\00", align 1
@@ -100,7 +99,7 @@ define i32 @cli_scanrtf(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %23, %21
   %25 = phi i1 [ true, %21 ], [ false, %23 ]
   %.06.i = phi i64 [ 0, %21 ], [ 1, %23 ]
-  %26 = getelementptr inbounds nuw %struct.rtf_action_mapping, ptr @rtf_action_mapping, i64 %.06.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @rtf_action_mapping, i64 %.06.i
   %27 = load ptr, ptr %26, align 16, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !33
@@ -242,7 +241,7 @@ compare_state.exit.thread.i:                      ; preds = %68
   %91 = phi ptr [ %88, %89 ], [ %.pre.i, %compare_state.exit.thread.i ]
   %92 = add i64 %83, 1
   store i64 %92, ptr %8, align 8, !tbaa !6
-  %93 = getelementptr inbounds nuw %struct.rtf_state, ptr %91, i64 %83
+  %93 = getelementptr inbounds nuw [104 x i8], ptr %91, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %93, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false), !tbaa.struct !54
   %94 = load i32, ptr %49, align 8, !tbaa !65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) @base_state, i64 104, i1 false), !tbaa.struct !54
@@ -377,7 +376,7 @@ push_state.exit:                                  ; preds = %85
   %151 = load ptr, ptr %3, align 8, !tbaa !15
   %152 = add i64 %145, -1
   store i64 %152, ptr %8, align 8, !tbaa !6
-  %153 = getelementptr inbounds nuw %struct.rtf_state, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [104 x i8], ptr %151, i64 %152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %153, i64 104, i1 false), !tbaa.struct !54
   br label %pop_state.exit
 
@@ -460,7 +459,7 @@ pop_state.exit.thread.i:                          ; preds = %.lr.ph.i
 
 pop_state.exit.i:                                 ; preds = %.lr.ph.i
   %185 = add i64 %.pr250, -1
-  %186 = getelementptr inbounds nuw %struct.rtf_state, ptr %180, i64 %185
+  %186 = getelementptr inbounds nuw [104 x i8], ptr %180, i64 %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %186, i64 104, i1 false), !tbaa.struct !54
   %.pre.i195 = load ptr, ptr %47, align 8, !tbaa !67
   %187 = icmp eq ptr %.pre.i195, null
@@ -551,7 +550,7 @@ pop_state.exit.thread.i201:                       ; preds = %.lr.ph.i199
 
 pop_state.exit.i203:                              ; preds = %.lr.ph.i199
   %218 = add i64 %.pr216256, -1
-  %219 = getelementptr inbounds nuw %struct.rtf_state, ptr %213, i64 %218
+  %219 = getelementptr inbounds nuw [104 x i8], ptr %213, i64 %218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %219, i64 104, i1 false), !tbaa.struct !54
   %.pre.i204 = load ptr, ptr %47, align 8, !tbaa !67
   %220 = icmp eq ptr %.pre.i204, null
@@ -601,7 +600,7 @@ cleanup_stack.exit206:                            ; preds = %thread-pre-split215
   %238 = load ptr, ptr %237, align 8, !tbaa !71
   %239 = load i8, ptr %.0127242, align 1, !tbaa !3
   %240 = zext i8 %239 to i64
-  %241 = getelementptr inbounds nuw i16, ptr %238, i64 %240
+  %241 = getelementptr inbounds nuw [2 x i8], ptr %238, i64 %240
   %242 = load i16, ptr %241, align 2, !tbaa !73
   %243 = and i16 %242, 1024
   %.not177 = icmp eq i16 %243, 0
@@ -636,7 +635,7 @@ cleanup_stack.exit206:                            ; preds = %thread-pre-split215
   %254 = load ptr, ptr %253, align 8, !tbaa !71
   %255 = load i8, ptr %.0127242, align 1, !tbaa !3
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %254, i64 %256
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %256
   %258 = load i16, ptr %257, align 2, !tbaa !73
   %259 = zext i16 %258 to i32
   %260 = and i32 %259, 1024
@@ -696,7 +695,7 @@ cleanup_stack.exit206:                            ; preds = %thread-pre-split215
   %281 = load ptr, ptr %280, align 8, !tbaa !71
   %282 = load i8, ptr %.0127242, align 1, !tbaa !3
   %283 = zext i8 %282 to i64
-  %284 = getelementptr inbounds nuw i16, ptr %281, i64 %283
+  %284 = getelementptr inbounds nuw [2 x i8], ptr %281, i64 %283
   %285 = load i16, ptr %284, align 2, !tbaa !73
   %286 = zext i16 %285 to i32
   %287 = and i32 %286, 2048
@@ -922,7 +921,7 @@ pop_state.exit:                                   ; preds = %12
   %19 = load ptr, ptr %0, align 8, !tbaa !15
   %20 = add i64 %13, -1
   store i64 %20, ptr %5, align 8, !tbaa !6
-  %21 = getelementptr inbounds nuw %struct.rtf_state, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [104 x i8], ptr %19, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %21, i64 104, i1 false), !tbaa.struct !54
   %.pre = load ptr, ptr %10, align 8, !tbaa !67
   %22 = icmp eq ptr %.pre, null
@@ -1026,7 +1025,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.0215287
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %14, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !73
   %21 = and i16 %20, 4096
   %.not242 = icmp eq i16 %21, 0
@@ -1041,7 +1040,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !80
   %26 = add nuw i64 %.0215287, 1
-  %27 = getelementptr inbounds nuw i16, ptr @hextable, i64 %18
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %18
   %28 = load i16, ptr %27, align 2, !tbaa !73
   %29 = zext i16 %28 to i32
   %30 = or i32 %25, %29
@@ -1067,14 +1066,14 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.2217288
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !73
   %42 = and i16 %41, 4096
   %.not243 = icmp eq i16 %42, 0
   br i1 %.not243, label %71, label %43
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw i16, ptr @hextable, i64 %39
+  %44 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %39
   %45 = load i16, ptr %44, align 2, !tbaa !73
   %46 = trunc i16 %45 to i8
   %47 = shl i8 %46, 4
@@ -1093,7 +1092,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %.3218
   %53 = load i8, ptr %52, align 1, !tbaa !3
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %36, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !73
   %57 = and i16 %56, 4096
   %.not244 = icmp eq i16 %57, 0
@@ -1108,7 +1107,7 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.3218.lcssa
   %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr @hextable, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr @hextable, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !73
   %64 = trunc i16 %63 to i8
   %65 = or i8 %47, %64

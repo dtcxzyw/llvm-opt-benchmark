@@ -114,9 +114,9 @@ define range(i32 4176, 15) i32 @utrie_swap_77(ptr noundef %0, ptr noundef %1, i3
   %68 = tail call noundef i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %65, i32 noundef %53, ptr noundef nonnull %67, ptr noundef nonnull %4)
   %69 = load ptr, ptr %60, align 8, !tbaa !16
   %70 = zext nneg i32 %31 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %65, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %70
   %72 = shl nsw i32 %34, 2
-  %73 = getelementptr inbounds nuw i16, ptr %67, i64 %70
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %70
   %74 = tail call noundef i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef %72, ptr noundef nonnull %73, ptr noundef nonnull %4)
   br label %.thread
 
@@ -239,8 +239,8 @@ define range(i32 0, 1179647) i32 @utrie2_swap_77(ptr noundef %0, ptr noundef %1,
   %64 = tail call noundef i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %57, i32 noundef %44, ptr noundef nonnull %63, ptr noundef nonnull %4)
   %65 = load ptr, ptr %49, align 8, !tbaa !16
   %66 = zext i16 %30 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %57, i64 %66
-  %68 = getelementptr inbounds nuw i16, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %66
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %66
   %69 = tail call noundef i32 %65(ptr noundef nonnull %0, ptr noundef nonnull %67, i32 noundef %46, ptr noundef nonnull %68, ptr noundef nonnull %4)
   br label %.thread
 
@@ -376,8 +376,8 @@ default.unreachable112:                           ; preds = %64, %56
   %74 = load ptr, ptr %68, align 8, !tbaa !17
   %75 = tail call noundef i32 %74(ptr noundef nonnull %0, ptr noundef nonnull %72, i32 noundef %57, ptr noundef nonnull %73, ptr noundef nonnull %4)
   %76 = zext i16 %30 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %72, i64 %76
-  %78 = getelementptr inbounds nuw i16, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %76
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %76
   switch i32 %38, label %default.unreachable112 [
     i32 0, label %79
     i32 1, label %83

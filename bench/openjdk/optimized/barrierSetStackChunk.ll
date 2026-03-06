@@ -80,7 +80,7 @@ define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDe
   %15 = add nsw i64 %14, %8
   %16 = inttoptr i64 %15 to ptr
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load i32, ptr @LogBitsPerHeapOop, align 4, !noalias !6
   %20 = sub nsw i32 6, %19
   %21 = zext nneg i32 %20 to i64
@@ -269,7 +269,7 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEPP7oopDesc(p
   %29 = shl nuw i64 1, %28
   %30 = load ptr, ptr %27, align 8
   %31 = lshr i64 %26, 6
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = or i64 %29, %33
   store i64 %34, ptr %32, align 8
@@ -292,7 +292,7 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEP9narrowOop(
   %14 = shl nuw i64 1, %13
   %15 = load ptr, ptr %12, align 8
   %16 = lshr i64 %11, 6
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = or i64 %14, %18
   store i64 %19, ptr %17, align 8

@@ -546,7 +546,7 @@ define internal fastcc ptr @PLATFORM_create_device_info_for_device(ptr noundef n
 
 53:                                               ; preds = %49
   %54 = call i64 @mbstowcs(ptr noundef nonnull %51, ptr noundef nonnull %43, i64 noundef %50) #23
-  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %45
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %45
   store i32 0, ptr %55, align 4
   br label %utf8_to_wchar_t.exit
 
@@ -609,7 +609,7 @@ utf8_to_wchar_t.exit:                             ; preds = %37, %47, %49, %53
 
 85:                                               ; preds = %81
   %86 = call i64 @mbstowcs(ptr noundef nonnull %83, ptr noundef nonnull %75, i64 noundef %82) #23
-  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %77
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %77
   store i32 0, ptr %87, align 4
   br label %copy_udev_string.exit
 
@@ -641,7 +641,7 @@ copy_udev_string.exit:                            ; preds = %71, %79, %81, %85
 
 102:                                              ; preds = %98
   %103 = call i64 @mbstowcs(ptr noundef nonnull %100, ptr noundef nonnull %92, i64 noundef %99) #23
-  %104 = getelementptr inbounds nuw i32, ptr %100, i64 %94
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %94
   store i32 0, ptr %104, align 4
   br label %copy_udev_string.exit129
 
@@ -716,7 +716,7 @@ copy_udev_string.exit129:                         ; preds = %copy_udev_string.ex
 
 143:                                              ; preds = %139
   %144 = call i64 @mbstowcs(ptr noundef nonnull %141, ptr noundef nonnull %133, i64 noundef %140) #23
-  %145 = getelementptr inbounds nuw i32, ptr %141, i64 %135
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %135
   store i32 0, ptr %145, align 4
   br label %utf8_to_wchar_t.exit132
 
@@ -753,7 +753,7 @@ utf8_to_wchar_t.exit132:                          ; preds = %130, %137, %139, %1
 
 161:                                              ; preds = %157
   %162 = call i64 @mbstowcs(ptr noundef nonnull %159, ptr noundef nonnull %151, i64 noundef %158) #23
-  %163 = getelementptr inbounds nuw i32, ptr %159, i64 %153
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %153
   store i32 0, ptr %163, align 4
   br label %utf8_to_wchar_t.exit135
 
@@ -790,7 +790,7 @@ utf8_to_wchar_t.exit135:                          ; preds = %148, %155, %157, %1
 
 179:                                              ; preds = %175
   %180 = call i64 @mbstowcs(ptr noundef nonnull %177, ptr noundef nonnull %169, i64 noundef %176) #23
-  %181 = getelementptr inbounds nuw i32, ptr %177, i64 %171
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %171
   store i32 0, ptr %181, align 4
   br label %utf8_to_wchar_t.exit138
 
@@ -1773,7 +1773,7 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_manufacturer_string(ptr nou
 
 14:                                               ; preds = %11
   %15 = tail call ptr @wcsncpy(ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef %2) #23
-  %16 = getelementptr i32, ptr %1, i64 %2
+  %16 = getelementptr [4 x i8], ptr %1, i64 %2
   %17 = getelementptr i8, ptr %16, i64 -4
   store i32 0, ptr %17, align 4
   br label %19
@@ -1900,7 +1900,7 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_product_string(ptr noundef 
 
 14:                                               ; preds = %11
   %15 = tail call ptr @wcsncpy(ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef %2) #23
-  %16 = getelementptr i32, ptr %1, i64 %2
+  %16 = getelementptr [4 x i8], ptr %1, i64 %2
   %17 = getelementptr i8, ptr %16, i64 -4
   store i32 0, ptr %17, align 4
   br label %19
@@ -1941,7 +1941,7 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_serial_number_string(ptr no
 
 14:                                               ; preds = %11
   %15 = tail call ptr @wcsncpy(ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef %2) #23
-  %16 = getelementptr i32, ptr %1, i64 %2
+  %16 = getelementptr [4 x i8], ptr %1, i64 %2
   %17 = getelementptr i8, ptr %16, i64 -4
   store i32 0, ptr %17, align 4
   br label %19
@@ -3381,7 +3381,7 @@ define internal fastcc ptr @utf8_to_wchar_t(ptr noundef %0) unnamed_addr #1 {
 
 11:                                               ; preds = %7
   %12 = tail call i64 @mbstowcs(ptr noundef nonnull %9, ptr noundef nonnull %0, i64 noundef %8) #23
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %3
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %3
   store i32 0, ptr %13, align 4
   br label %.thread
 

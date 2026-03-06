@@ -157,7 +157,7 @@ define i32 @BN_num_bits(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %16 = and i32 %.demorgan.i, 64
   %17 = xor i32 %16, 64
   %18 = add i32 %17, %.01820.i
-  %19 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = icmp ne i64 %20, 0
   %22 = lshr i64 %20, 32
@@ -209,7 +209,7 @@ bn_num_bits_consttime.exit:                       ; preds = %14, %8
   %50 = shl nsw i32 %4, 6
   %51 = load ptr, ptr %0, align 8, !tbaa !13
   %52 = sext i32 %4 to i64
-  %53 = getelementptr inbounds i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !14
   %55 = icmp ne i64 %54, 0
   %56 = lshr i64 %54, 32
@@ -1000,7 +1000,7 @@ bn_wexpand.exit.thread:                           ; preds = %.thread, %bn_wexpan
   %.267.lcssa = phi i32 [ %.166111, %.preheader ], [ %87, %.lr.ph105 ]
   %.061.lcssa = phi i64 [ 0, %.preheader ], [ %89, %.lr.ph105 ]
   %.2.lcssa = phi ptr [ %.1113, %.preheader ], [ %91, %.lr.ph105 ]
-  %95 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv119
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv119
   store i64 %.061.lcssa, ptr %95, align 8, !tbaa !14
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %96 = add nsw i32 %77, -1
@@ -1009,7 +1009,7 @@ bn_wexpand.exit.thread:                           ; preds = %.thread, %bn_wexpan
 
 97:                                               ; preds = %._crit_edge
   %98 = zext nneg i32 %51 to i64
-  %99 = getelementptr inbounds nuw i64, ptr %76, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %98
   br label %100
 
 100:                                              ; preds = %103, %97
@@ -1107,7 +1107,7 @@ define internal fastcc i32 @bn2binpad(ptr noundef readonly captures(none) %0, pt
 28:                                               ; preds = %24
   %29 = load ptr, ptr %6, align 8, !tbaa !13
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   br label %32
 
 32:                                               ; preds = %35, %28
@@ -1189,7 +1189,7 @@ bn_correct_top.exit:                              ; preds = %39, %42
   %.16471 = phi i32 [ %.063, %.lr.ph ], [ %82, %65 ]
   %66 = load ptr, ptr %0, align 8, !tbaa !13
   %67 = lshr i64 %.06172, 3
-  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !14
   %70 = sub i64 %.06073, %60
   %71 = shl i64 %.06172, 3
@@ -1278,7 +1278,7 @@ define range(i32 -268435455, 268435456) i32 @BN_bn2bin(ptr noundef readonly capt
   %.15674.i = getelementptr i8, ptr %.pn, i64 -1
   %22 = load ptr, ptr %0, align 8, !tbaa !13
   %23 = lshr i64 %.06172.i, 3
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = sub i64 %.06073.i, %17
   %27 = shl i64 %.06172.i, 3
@@ -1414,9 +1414,9 @@ define i32 @BN_ucmp(ptr noundef readonly captures(none) %0, ptr noundef readonly
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.046 = phi i32 [ 0, %.lr.ph.preheader ], [ %35, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %14 = xor i64 %13, %11
   %15 = sub i64 %11, %13
@@ -1463,9 +1463,9 @@ define i32 @BN_ucmp(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 40:                                               ; preds = %.preheader
   %41 = add nsw i64 %indvars.iv51, -1
-  %42 = getelementptr inbounds nuw i64, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %41
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %.not40 = icmp eq i64 %43, %45
   br i1 %.not40, label %.preheader, label %46, !llvm.loop !29
@@ -1529,10 +1529,10 @@ define range(i32 -1, 2) i32 @BN_cmp(ptr noundef readonly captures(address_is_nul
 
 24:                                               ; preds = %.preheader
   %25 = load ptr, ptr %0, align 8, !tbaa !13
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %21
   %27 = load i64, ptr %26, align 8, !tbaa !14
   %28 = load ptr, ptr %1, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %21
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = icmp ugt i64 %27, %30
   br i1 %31, label %.loopexit, label %32
@@ -1601,7 +1601,7 @@ bn_wexpand.exit.thread:                           ; preds = %bn_wexpand.exit.bn_
   %25 = shl nuw i64 1, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !13
   %27 = zext nneg i32 %5 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !14
   %30 = or i64 %29, %25
   store i64 %30, ptr %28, align 8, !tbaa !14
@@ -1631,12 +1631,12 @@ define range(i32 0, 2) i32 @BN_clear_bit(ptr noundef captures(none) %0, i32 noun
   %12 = xor i64 %11, -1
   %13 = load ptr, ptr %0, align 8, !tbaa !13
   %14 = zext nneg i32 %5 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !14
   %17 = and i64 %16, %12
   store i64 %17, ptr %15, align 8, !tbaa !14
   %18 = zext nneg i32 %7 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %18
   br label %20
 
 20:                                               ; preds = %23, %8
@@ -1677,7 +1677,7 @@ define void @bn_correct_top(ptr noundef captures(none) %0) local_unnamed_addr #1
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !13
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   br label %9
 
 9:                                                ; preds = %5, %12
@@ -1728,7 +1728,7 @@ define range(i32 0, 2) i32 @BN_is_bit_set(ptr noundef readonly captures(none) %0
   %9 = and i32 %1, 63
   %10 = load ptr, ptr %0, align 8, !tbaa !13
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %14 = zext nneg i32 %9 to i64
   %15 = lshr i64 %13, %14
@@ -1770,7 +1770,7 @@ define range(i32 0, 2) i32 @ossl_bn_mask_bits_fixed_top(ptr noundef captures(non
   %16 = xor i64 %15, -1
   %17 = load ptr, ptr %0, align 8, !tbaa !13
   %18 = zext nneg i32 %5 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = and i64 %20, %16
   store i64 %21, ptr %19, align 8, !tbaa !14
@@ -1805,7 +1805,7 @@ ossl_bn_mask_bits_fixed_top.exit.thread:          ; preds = %9
   %14 = xor i64 %13, -1
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = zext nneg i32 %5 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = and i64 %18, %14
   store i64 %19, ptr %17, align 8, !tbaa !14
@@ -1820,7 +1820,7 @@ ossl_bn_mask_bits_fixed_top.exit:                 ; preds = %9
   %.sink11 = phi i32 [ %11, %ossl_bn_mask_bits_fixed_top.exit.thread ], [ %5, %ossl_bn_mask_bits_fixed_top.exit ]
   %21 = load ptr, ptr %0, align 8, !tbaa !13
   %22 = zext nneg i32 %.sink11 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   br label %24
 
 24:                                               ; preds = %27, %20
@@ -1883,9 +1883,9 @@ define range(i32 -1, 2) i32 @bn_cmp_words(ptr noundef readonly captures(none) %0
 5:                                                ; preds = %3
   %6 = add nsw i32 %2, -1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !14
-  %10 = getelementptr inbounds i64, ptr %1, i64 %7
+  %10 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %11 = load i64, ptr %10, align 8, !tbaa !14
   %.not = icmp eq i64 %9, %11
   br i1 %.not, label %15, label %12
@@ -1911,9 +1911,9 @@ define range(i32 -1, 2) i32 @bn_cmp_words(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %.028 = phi i32 [ %19, %18 ], [ %17, %.lr.ph.preheader ]
   %21 = zext nneg i32 %.028 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %21
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %21
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %.not26 = icmp eq i64 %23, %25
   br i1 %.not26, label %18, label %26
@@ -1947,7 +1947,7 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
 .preheader23:                                     ; preds = %.preheader23.preheader, %9
   %indvars.iv = phi i64 [ %7, %.preheader23.preheader ], [ %indvars.iv.next, %9 ]
   %10 = sub nsw i64 %8, %indvars.iv
-  %11 = getelementptr inbounds i64, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !14
   %.not21 = icmp eq i64 %12, 0
   br i1 %.not21, label %9, label %bn_cmp_words.exit
@@ -1959,7 +1959,7 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
 .preheader.preheader:                             ; preds = %.loopexit24
   %14 = zext nneg i32 %3 to i64
   %15 = sext i32 %5 to i64
-  %invariant.gep = getelementptr i64, ptr %0, i64 %15
+  %invariant.gep = getelementptr [8 x i8], ptr %0, i64 %15
   br label %.preheader
 
 16:                                               ; preds = %.preheader
@@ -1969,7 +1969,7 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
 
 .preheader:                                       ; preds = %.preheader.preheader, %16
   %indvars.iv37 = phi i64 [ %14, %.preheader.preheader ], [ %indvars.iv.next38, %16 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv37
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv37
   %18 = load i64, ptr %gep, align 8, !tbaa !14
   %.not = icmp eq i64 %18, 0
   br i1 %.not, label %16, label %bn_cmp_words.exit
@@ -1980,9 +1980,9 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
 
 20:                                               ; preds = %.loopexit
   %21 = sext i32 %5 to i64
-  %22 = getelementptr inbounds i64, ptr %0, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !14
-  %24 = getelementptr inbounds i64, ptr %1, i64 %21
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %.not.i = icmp eq i64 %23, %25
   br i1 %.not.i, label %29, label %26
@@ -2008,9 +2008,9 @@ define range(i32 -1, 2) i32 @bn_cmp_part_words(ptr noundef readonly captures(non
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %.028.i = phi i32 [ %33, %32 ], [ %31, %.lr.ph.preheader.i ]
   %35 = zext nneg i32 %.028.i to i64
-  %36 = getelementptr inbounds nuw i64, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i64, ptr %1, i64 %35
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %35
   %39 = load i64, ptr %38, align 8, !tbaa !14
   %.not26.i = icmp eq i64 %37, %39
   br i1 %.not26.i, label %32, label %40
@@ -2076,9 +2076,9 @@ define void @BN_consttime_swap(i64 noundef %0, ptr noundef captures(none) %1, pt
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8, !tbaa !14
   store i64 %39, ptr %36, align 8, !tbaa !14
   store i64 %37, ptr %38, align 8, !tbaa !14
@@ -2258,7 +2258,7 @@ define range(i32 0, 2) i32 @ossl_bn_is_word_fixed_top(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01314 = phi i32 [ %15, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = icmp eq i64 %20, 0
   %22 = sext i1 %21 to i32
@@ -2416,7 +2416,7 @@ define void @bn_correct_top_consttime(ptr noundef captures(none) %0) local_unnam
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.02223 = phi i32 [ 0, %.lr.ph ], [ %20, %9 ]
-  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !14
   %.not = icmp ne i64 %11, 0
   %12 = icmp slt i64 %indvars.iv, %8

@@ -5,12 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.std::unique_ptr.438" = type { %"struct.std::__uniq_ptr_data.439" }
-%"struct.std::__uniq_ptr_data.439" = type { %"class.std::__uniq_ptr_impl.440" }
-%"class.std::__uniq_ptr_impl.440" = type { %"class.std::tuple.441" }
-%"class.std::tuple.441" = type { %"struct.std::_Tuple_impl.442" }
-%"struct.std::_Tuple_impl.442" = type { %"struct.std::_Head_base.445" }
-%"struct.std::_Head_base.445" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -163,7 +157,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers15SynthConjecture
 .noexc:                                           ; preds = %42, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers15SynthConjectureESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i
   store ptr %35, ptr %7, align 8, !tbaa !14
   store ptr %41, ptr %15, align 8, !tbaa !6
-  %43 = getelementptr inbounds nuw %"class.std::unique_ptr.438", ptr %35, i64 %33
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %43, ptr %17, align 8, !tbaa !11
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15SynthConjectureESt14default_deleteIS4_EED2Ev.exit
 
@@ -407,7 +401,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthEngine8presolveE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = load ptr, ptr %2, align 8, !tbaa !14
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.438", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void @_ZN4cvc58internal6theory11quantifiers15SynthConjecture8presolveEv(ptr noundef nonnull align 8 dereferenceable(929) %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -481,7 +475,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthEngine5checkENS1
   %.sroa.17.0370 = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.17.1, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit ]
   %.sroa.28.0369 = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.28.1, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit ]
   %24 = load ptr, ptr %11, align 8, !tbaa !14
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.438", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -632,7 +626,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE11_S_
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %88, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
-  %89 = getelementptr inbounds nuw ptr, ptr %83, i64 %81
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %81
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit
 
 .loopexit322:                                     ; preds = %65, %_ZNKSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE12_M_check_lenEmPKc.exit.i.i
@@ -780,7 +774,7 @@ _ZSt4copyIPPN4cvc58internal6theory11quantifiers15SynthConjectureES6_ET0_T_S8_S7_
   %.sroa.0242.2377 = phi ptr [ %.sroa.11.0, %.lr.ph379.preheader ], [ %.sroa.0242.4, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit149 ]
   %.sroa.11.1376 = phi ptr [ %.sroa.11.0, %.lr.ph379.preheader ], [ %.sroa.11.2, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit149 ]
   %.sroa.18.2375 = phi ptr [ %.sroa.18.1, %.lr.ph379.preheader ], [ %.sroa.18.4, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit149 ]
-  %119 = getelementptr inbounds nuw ptr, ptr %.sroa.0277.4, i64 %indvars.iv415
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0277.4, i64 %indvars.iv415
   %120 = load ptr, ptr %119, align 8, !tbaa !12
   %121 = load ptr, ptr %23, align 8, !tbaa !61
   %122 = invoke noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr noundef nonnull align 8 dereferenceable(337) %121)
@@ -856,7 +850,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE11_S_
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i146
 
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i146: ; preds = %148, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i144
-  %149 = getelementptr inbounds nuw ptr, ptr %143, i64 %141
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %141
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE9push_backERKS5_.exit149
 
 .loopexit:                                        ; preds = %.lr.ph379, %.noexc137, %.noexc138, %_ZNKSt6vectorIPN4cvc58internal6theory11quantifiers15SynthConjectureESaIS5_EE12_M_check_lenEmPKc.exit.i.i141
@@ -1167,7 +1161,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers15SynthConjecture
 .noexc:                                           ; preds = %62, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers15SynthConjectureESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i
   store ptr %55, ptr %4, align 8, !tbaa !14
   store ptr %61, ptr %5, align 8, !tbaa !6
-  %63 = getelementptr inbounds nuw %"class.std::unique_ptr.438", ptr %55, i64 %53
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %63, ptr %37, align 8, !tbaa !11
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers15SynthConjectureESt14default_deleteIS4_EED2Ev.exit
 
@@ -1829,7 +1823,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers11SynthEn
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !14
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr.438", ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 864
   %17 = load ptr, ptr %16, align 8, !tbaa !52
@@ -1867,7 +1861,7 @@ _ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit: ; pre
 
 29:                                               ; preds = %_ZN4cvc58internal6theory11quantifiers15SynthConjecture10isAssignedEv.exit
   %30 = load ptr, ptr %3, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.438", ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SynthConjecture17getSynthSolutionsERSt3mapINS0_12NodeTemplateILb1EEES4_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES8_SaIS9_ISA_SD_EEE(ptr noundef nonnull align 8 dereferenceable(929) %32, ptr noundef nonnull align 8 dereferenceable(48) %1)
   br i1 %33, label %34, label %._crit_edge

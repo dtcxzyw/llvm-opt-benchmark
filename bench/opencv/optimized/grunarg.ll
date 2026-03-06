@@ -30,15 +30,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.29" }
 %"struct.std::_Head_base.29" = type { ptr }
 %"struct.std::__detail::_ReuseOrAllocNode" = type { ptr, ptr }
-%"struct.cv::GRunArg" = type { %"class.cv::util::variant", %"class.std::unordered_map" }
-%"class.cv::util::variant" = type { i64, [1 x %"union.std::aligned_storage<96, 8>::type"] }
-%"union.std::aligned_storage<96, 8>::type" = type { [96 x i8] }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.cv::util::variant.45" = type { i64, [1 x %"union.std::aligned_storage<24, 8>::type"] }
-%"union.std::aligned_storage<24, 8>::type" = type { [24 x i8] }
 
 $_ZN2cv6detail9VectorRefD2Ev = comdat any
 
@@ -239,7 +234,7 @@ define void @_ZN2cv7GRunArgC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = load i64, ptr %1, align 8, !tbaa !3
   store i64 %4, ptr %0, align 8, !tbaa !3
-  %5 = getelementptr inbounds nuw ptr, ptr @constinit.1, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @constinit.1, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -275,7 +270,7 @@ define void @_ZN2cv7GRunArgC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load i64, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   invoke void %26(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEED2Ev.exit unwind label %27
@@ -297,7 +292,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN2cv7GRunArgC2EOS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8, !tbaa !3
   store i64 %3, ptr %0, align 8, !tbaa !3
-  %4 = getelementptr inbounds nuw ptr, ptr @constinit.1, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @constinit.1, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -343,7 +338,7 @@ define void @_ZN2cv7GRunArgC2EOS0_(ptr noundef nonnull align 8 dereferenceable(1
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %32 = load i64, ptr %31, align 8, !tbaa !29
   %33 = urem i64 %32, %13
-  %34 = getelementptr inbounds nuw ptr, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %33
   store ptr %14, ptr %34, align 8, !tbaa !31
   br label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEC2EOSH_.exit
 
@@ -366,11 +361,11 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN2cv7GRunArgaSERKS0_(
   br i1 %.not.i, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %3
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   tail call void %8(ptr noundef nonnull %5)
   %9 = load i64, ptr %1, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.1, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.1, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %11(ptr noundef nonnull %5, ptr noundef nonnull %12)
@@ -379,7 +374,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN2cv7GRunArgaSERKS0_(
   br label %_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEEaSERKSG_.exit
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw ptr, ptr @constinit.2, i64 %3
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @constinit.2, i64 %3
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %16(ptr noundef nonnull %5, ptr noundef nonnull %17)
@@ -408,11 +403,11 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN2cv7GRunArgaSEOS0_(p
   br i1 %.not.i, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %3
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   tail call void %8(ptr noundef nonnull %5)
   %9 = load i64, ptr %1, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.1, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.1, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %11(ptr noundef nonnull %5, ptr noundef nonnull %12)
@@ -421,7 +416,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN2cv7GRunArgaSEOS0_(p
   br label %_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourceEENS_3MatENS_7Scalar_IdEENS_6detail9VectorRefENSC_9OpaqueRefENS_10MediaFrameEEEaSERKSG_.exit
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw ptr, ptr @constinit.2, i64 %3
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @constinit.2, i64 %3
   %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void %16(ptr noundef nonnull %5, ptr noundef nonnull %17)
@@ -1250,7 +1245,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !17
   %32 = urem i64 %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %28, ptr %33, align 8, !tbaa !31
   %.02834 = load ptr, ptr %19, align 8, !tbaa !20
   %.not3035 = icmp eq ptr %.02834, null
@@ -1273,7 +1268,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %40 = load i64, ptr %30, align 8, !tbaa !17
   %41 = urem i64 %39, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !31
   %.not32 = icmp eq ptr %44, null
   br i1 %.not32, label %45, label %50
@@ -1786,7 +1781,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !17
   %31 = urem i64 %26, %30
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !31
   %.02833 = load ptr, ptr %19, align 8, !tbaa !20
   %.not3034 = icmp eq ptr %.02833, null
@@ -1808,7 +1803,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %39 = load i64, ptr %29, align 8, !tbaa !17
   %40 = urem i64 %38, %39
   %41 = load ptr, ptr %0, align 8, !tbaa !8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !31
   %.not32 = icmp eq ptr %43, null
   br i1 %.not32, label %44, label %49
@@ -2154,7 +2149,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %40 = load i64, ptr %39, align 8, !tbaa !29
   %41 = urem i64 %40, %31
-  %42 = getelementptr inbounds nuw ptr, ptr %29, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %41
   store ptr %5, ptr %42, align 8, !tbaa !31
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 
@@ -2586,9 +2581,9 @@ define linkonce_odr hidden void @_ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shar
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %3 ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %5 = load double, ptr %4, align 8, !tbaa !112
-  %6 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i.i
   store double %5, ptr %6, align 8, !tbaa !112
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -3343,7 +3338,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !40
-  %55 = getelementptr inbounds nuw %"struct.cv::GRunArg", ptr %22, i64 %16
+  %55 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %16
   store ptr %55, ptr %54, align 8, !tbaa !43
   ret void
 
@@ -3440,7 +3435,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv7GRunArgEE9construct
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load i64, ptr %1, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   invoke void %26(ptr noundef nonnull %12)
           to label %.body unwind label %27
@@ -3642,7 +3637,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i.i: ; preds = %23, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i.i
   %24 = load i64, ptr %.05, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %.05, i64 8
   invoke void %26(ptr noundef nonnull %27)
@@ -3722,7 +3717,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv4util3anyESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %23, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N2cv4util3anyEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %24 = load i64, ptr %1, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %26(ptr noundef nonnull %27)
@@ -3810,7 +3805,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %24 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !125, !noalias !122
   store i64 %24, ptr %.014.i.i.i.i, align 8, !tbaa !53, !alias.scope !122, !noalias !125
-  %25 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19, !noalias !127
   %27 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -3826,7 +3821,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %32 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !125, !noalias !122
-  %33 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !19, !noalias !127
   invoke void %34(ptr noundef nonnull %28)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %35
@@ -3857,7 +3852,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %41 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !132, !noalias !129
   store i64 %41, ptr %.014.i.i.i.i28, align 8, !tbaa !53, !alias.scope !129, !noalias !132
-  %42 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !19, !noalias !134
   %44 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -3873,7 +3868,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %49 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !132, !noalias !129
-  %50 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !19, !noalias !134
   invoke void %51(ptr noundef nonnull %45)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %52
@@ -3904,7 +3899,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Sca
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw %"class.cv::util::variant.45", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %59, ptr %58, align 8, !tbaa !52
   ret void
 }
@@ -4267,7 +4262,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !40
-  %55 = getelementptr inbounds nuw %"struct.cv::GRunArg", ptr %22, i64 %16
+  %55 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %16
   store ptr %55, ptr %54, align 8, !tbaa !43
   ret void
 
@@ -4373,7 +4368,7 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN2cv7GRunArgEE9construct
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = load i64, ptr %1, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !19
   invoke void %32(ptr noundef nonnull %12)
           to label %.body unwind label %33
@@ -4490,7 +4485,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %24 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !144, !noalias !141
   store i64 %24, ptr %.014.i.i.i.i, align 8, !tbaa !53, !alias.scope !141, !noalias !144
-  %25 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19, !noalias !146
   %27 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -4506,7 +4501,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %32 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !144, !noalias !141
-  %33 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !19, !noalias !146
   invoke void %34(ptr noundef nonnull %28)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %35
@@ -4537,7 +4532,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
   %41 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !150, !noalias !147
   store i64 %41, ptr %.014.i.i.i.i28, align 8, !tbaa !53, !alias.scope !147, !noalias !150
-  %42 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !19, !noalias !152
   %44 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -4553,7 +4548,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %49 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !150, !noalias !147
-  %50 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !19, !noalias !152
   invoke void %51(ptr noundef nonnull %45)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %52
@@ -4584,7 +4579,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Sca
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw %"class.cv::util::variant.45", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %59, ptr %58, align 8, !tbaa !52
   ret void
 }
@@ -4744,7 +4739,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !40
-  %55 = getelementptr inbounds nuw %"struct.cv::GRunArg", ptr %22, i64 %16
+  %55 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %16
   store ptr %55, ptr %54, align 8, !tbaa !43
   ret void
 
@@ -4872,7 +4867,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = load i64, ptr %1, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   invoke void %40(ptr noundef nonnull %12)
           to label %.body unwind label %41
@@ -5017,7 +5012,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %39 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !156, !noalias !153
   store i64 %39, ptr %.014.i.i.i.i, align 8, !tbaa !53, !alias.scope !153, !noalias !156
-  %40 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !19, !noalias !158
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -5033,7 +5028,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %47 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !156, !noalias !153
-  %48 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !19, !noalias !158
   invoke void %49(ptr noundef nonnull %43)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %50
@@ -5064,7 +5059,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %56 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !162, !noalias !159
   store i64 %56, ptr %.014.i.i.i.i28, align 8, !tbaa !53, !alias.scope !159, !noalias !162
-  %57 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !19, !noalias !164
   %59 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -5080,7 +5075,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %64 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !162, !noalias !159
-  %65 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !19, !noalias !164
   invoke void %66(ptr noundef nonnull %60)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %67
@@ -5111,7 +5106,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Sca
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !49
-  %74 = getelementptr inbounds nuw %"class.cv::util::variant.45", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !52
   ret void
 }
@@ -5268,7 +5263,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !40
-  %55 = getelementptr inbounds nuw %"struct.cv::GRunArg", ptr %22, i64 %16
+  %55 = getelementptr inbounds nuw [160 x i8], ptr %22, i64 %16
   store ptr %55, ptr %54, align 8, !tbaa !43
   ret void
 
@@ -5396,7 +5391,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = load i64, ptr %1, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   invoke void %40(ptr noundef nonnull %12)
           to label %.body unwind label %41
@@ -5541,7 +5536,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %39 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !168, !noalias !165
   store i64 %39, ptr %.014.i.i.i.i, align 8, !tbaa !53, !alias.scope !165, !noalias !168
-  %40 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !19, !noalias !170
   %42 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -5557,7 +5552,7 @@ _ZNKSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_Id
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %47 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !53, !alias.scope !168, !noalias !165
-  %48 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !19, !noalias !170
   invoke void %49(ptr noundef nonnull %43)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %50
@@ -5588,7 +5583,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %56 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !174, !noalias !171
   store i64 %56, ptr %.014.i.i.i.i28, align 8, !tbaa !53, !alias.scope !171, !noalias !174
-  %57 = getelementptr inbounds nuw ptr, ptr @constinit.7, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @constinit.7, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !19, !noalias !176
   %59 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -5604,7 +5599,7 @@ _ZNSt6vectorIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdE
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEEEE9constructISH_JSH_EEEvRSI_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %64 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !53, !alias.scope !174, !noalias !171
-  %65 = getelementptr inbounds nuw ptr, ptr @constinit.8, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @constinit.8, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !19, !noalias !176
   invoke void %66(ptr noundef nonnull %60)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESH_SaISH_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %67
@@ -5635,7 +5630,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Sca
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !121
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !49
-  %74 = getelementptr inbounds nuw %"class.cv::util::variant.45", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !52
   ret void
 }

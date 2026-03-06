@@ -194,7 +194,7 @@ define internal i32 @apple_probe(ptr noundef %0, ptr noundef readonly captures(n
 40:                                               ; preds = %37, %35
   %41 = phi i32 [ 0, %35 ], [ %38, %37 ]
   %42 = sext i32 %41 to i64
-  %43 = getelementptr ptr, ptr %36, i64 %42
+  %43 = getelementptr [8 x i8], ptr %36, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -1107,7 +1107,7 @@ define internal noundef i32 @apple_input_configured(ptr noundef %0, ptr readnone
   br i1 %23, label %.thread, label %24, !llvm.loop !15
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr %struct.apple_non_apple_keyboard, ptr @non_apple_keyboards, i64 %22
+  %25 = getelementptr [8 x i8], ptr @non_apple_keyboards, i64 %22
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef %26) #10
   %28 = tail call i32 @strncmp(ptr noundef nonnull %18, ptr noundef %26, i64 noundef %27) #10

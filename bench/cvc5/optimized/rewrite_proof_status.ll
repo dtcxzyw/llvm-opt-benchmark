@@ -62,7 +62,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8rewriter8toStringENS1_18Rew
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal8rewriter8toStringENS1_18RewriteProofStatusE, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal8rewriter8toStringENS1_18RewriteProofStatusE, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

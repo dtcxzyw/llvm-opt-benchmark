@@ -506,7 +506,7 @@ define internal noundef i32 @do_hsvkey16_slice(ptr noundef readonly captures(non
 do_hsvkey_pixel.exit.us:                          ; preds = %112, %132
   %.0.i.us = phi i32 [ %.mux, %112 ], [ %139, %132 ]
   %140 = trunc i32 %.0.i.us to i16
-  %141 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %indvars.iv
   store i16 %140, ptr %141, align 2, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -899,11 +899,11 @@ do_hsvkey_pixel.exit.us:                          ; preds = %130, %129
   %142 = tail call nsz float @llvm.fmuladd.f32(float %141, float %23, float 1.000000e+00)
   %143 = tail call nsz float @llvm.fmuladd.f32(float %94, float %142, float %25)
   %144 = fptoui float %143 to i16
-  %145 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv
   store i16 %144, ptr %145, align 2, !tbaa !71
   %146 = tail call nsz float @llvm.fmuladd.f32(float %96, float %142, float %25)
   %147 = fptoui float %146 to i16
-  %148 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %indvars.iv
   store i16 %147, ptr %148, align 2, !tbaa !71
   br label %do_hsvkey_pixel.exit.thread.us
 

@@ -3,8 +3,6 @@ source_filename = "bench/boost/original/attribute_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket" = type { ptr, ptr }
-
 $_ZN5boost3log11v2_mt_posix13attribute_set14implementation6insertENS1_14attribute_nameERKNS1_9attributeE = comdat any
 
 $_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEED2Ev = comdat any
@@ -92,7 +90,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_setC2ERKS2_(ptr noundef nonnu
 12:                                               ; preds = %.lr.ph.i
   %13 = add i64 %11, -1
   store i64 %13, ptr %7, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   br label %_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEmPKv.exit.i
 
@@ -134,7 +132,7 @@ _ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEm
   store i64 %33, ptr %3, align 8, !tbaa !24
   %34 = and i32 %28, 15
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket", ptr %scevgep.i, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %scevgep.i, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -209,7 +207,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i: ; preds = %19, %1
   br i1 %24, label %25, label %28, !prof !34
 
 25:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
-  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %23
   store ptr %.sroa.04.09.i.i, ptr %26, align 8, !tbaa !17
   %27 = add nuw nsw i64 %23, 1
   store i64 %27, ptr %9, align 8, !tbaa !13
@@ -234,7 +232,7 @@ _ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix
 
 .lr.ph.i2.i:                                      ; preds = %_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17clear_and_disposeINS7_8disposerEEEvT_.exit.i, %.lr.ph.i2.i
   %.03.i.i = phi i64 [ %33, %.lr.ph.i2.i ], [ 0, %_ZN5boost9intrusive9list_implINS0_23derivation_value_traitsINS_3log11v2_mt_posix13attribute_set4nodeENS5_14implementation11node_traitsELNS0_14link_mode_typeE0EEEmLb1EvE17clear_and_disposeINS7_8disposerEEEvT_.exit.i ]
-  %31 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef %32, i64 noundef 32) #16
   %33 = add nuw i64 %.03.i.i, 1
@@ -299,7 +297,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN5boost3log11v2_mt_posix13attribute_se
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %20, label %9
@@ -341,7 +339,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = add i64 %22, -1
   store i64 %25, ptr %21, align 8, !tbaa !13
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   br label %_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEmPKv.exit
 
@@ -430,7 +428,7 @@ define noundef range(i64 0, 2) i64 @_ZN5boost3log11v2_mt_posix13attribute_set5er
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN5boost3log11v2_mt_posix13attribute_set14implementation5eraseENS2_4iterILb0EEE.exit, label %9
@@ -526,7 +524,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %47, 
   br i1 %53, label %54, label %57, !prof !34
 
 54:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
-  %55 = getelementptr inbounds nuw ptr, ptr %34, i64 %52
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %52
   store ptr %.0.lcssa.i.i, ptr %55, align 8, !tbaa !17, !noalias !46
   %56 = add nuw nsw i64 %52, 1
   store i64 %56, ptr %51, align 8, !tbaa !13, !noalias !46
@@ -549,7 +547,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEE(pt
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %7 = and i32 %5, 15
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = icmp eq ptr %1, %10
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -614,7 +612,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %37, 
   br i1 %43, label %44, label %47, !prof !34
 
 44:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
-  %45 = getelementptr inbounds nuw ptr, ptr %24, i64 %42
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %42
   store ptr %1, ptr %45, align 8, !tbaa !17, !noalias !51
   %46 = add nuw nsw i64 %42, 1
   store i64 %46, ptr %41, align 8, !tbaa !13, !noalias !51
@@ -643,7 +641,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEES4_
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %10 = and i32 %8, 15
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket", ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = icmp eq ptr %.sroa.01.03, %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -707,7 +705,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i: ; preds = %39, 
   br i1 %45, label %46, label %49, !prof !34
 
 46:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
-  %47 = getelementptr inbounds nuw ptr, ptr %27, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %44
   store ptr %.sroa.01.03, ptr %47, align 8, !tbaa !17, !noalias !56
   %48 = add nuw nsw i64 %44, 1
   store i64 %48, ptr %43, align 8, !tbaa !13, !noalias !56
@@ -767,7 +765,7 @@ _ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i: ; preds = %17, %1
   br i1 %22, label %23, label %26, !prof !34
 
 23:                                               ; preds = %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
-  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %21
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %21
   store ptr %.sroa.04.09.i.i, ptr %24, align 8, !tbaa !17
   %25 = add nuw nsw i64 %21, 1
   store i64 %25, ptr %7, align 8, !tbaa !13
@@ -796,7 +794,7 @@ define ptr @_ZN5boost3log11v2_mt_posix13attribute_set4findENS1_14attribute_nameE
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = and i32 %1, 15
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::attribute_set::implementation::bucket", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %20, label %9
@@ -848,7 +846,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.03 = phi i64 [ %6, %.lr.ph ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   tail call void @_ZdlPvm(ptr noundef %5, i64 noundef 32) #16
   %6 = add nuw i64 %.03, 1

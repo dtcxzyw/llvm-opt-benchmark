@@ -329,7 +329,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.preheader, %_
           to label %62 unwind label %.loopexit
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %46
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %46
   store i64 0, ptr %61, align 8, !tbaa !16
   %64 = getelementptr i8, ptr %61, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %64, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !16
@@ -337,7 +337,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.preheader, %_
           to label %.noexc68 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit71.thread
 
 .noexc68:                                         ; preds = %62
-  %66 = getelementptr inbounds nuw float, ptr %65, i64 %46
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %46
   store float 0.000000e+00, ptr %65, align 4, !tbaa !18
   %67 = getelementptr i8, ptr %65, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %67, i8 0, i64 %.idx.i.i.i.i.i.i.i65, i1 false), !tbaa !18
@@ -352,7 +352,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit69:             ; preds = %.noexc68, %_ZNSt6ve
   %69 = srem i32 %.0134, %51
   %narrow = mul nuw nsw i32 %69, 500
   %70 = zext nneg i32 %narrow to i64
-  %71 = getelementptr inbounds nuw float, ptr %16, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %70
   invoke void @_ZNK5faiss8IndexIVF6searchElPKflPfPlPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(265) %3, i64 noundef %50, ptr noundef nonnull %71, i64 noundef 10, ptr noundef %.sroa.088.0, ptr noundef %.sroa.093.0120, ptr noundef null)
           to label %72 unwind label %94
 

@@ -55,7 +55,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %17 = phi ptr [ %4, %15 ], [ %.pre, %16 ]
   %.pre-phi.i.i = phi i64 [ 0, %15 ], [ %.pre.i.i, %16 ]
   %18 = phi i32 [ 0, %15 ], [ %.pre.i.i.i, %16 ]
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %.pre-phi.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %13, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !23
   %20 = add i32 %18, %12
@@ -75,7 +75,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %_ZN4llvm23SmallVect
   %27 = zext nneg i32 %25 to i64
   %28 = shl nsw i64 -1, %27
   %29 = xor i64 %28, -1
-  %30 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !23
   %33 = and i64 %32, %29
@@ -103,7 +103,7 @@ _ZNK5clang4Decl19specific_attr_beginINS_11NonNullAttrEEENS_22specific_attr_itera
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !9
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl14specific_attrsINS_11NonNullAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit
 
 _ZNK5clang4Decl14specific_attrsINS_11NonNullAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit: ; preds = %_ZN4llvm9BitVector6resizeEjb.exit, %_ZNK5clang4Decl19specific_attr_beginINS_11NonNullAttrEEENS_22specific_attr_iteratorIT_N4llvm11SmallVectorIPNS_4AttrELj4EEEEEv.exit.i, %40
@@ -198,7 +198,7 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preh
   %85 = zext nneg i32 %83 to i64
   %86 = shl nsw i64 -1, %85
   %87 = xor i64 %86, -1
-  %88 = getelementptr inbounds nuw i64, ptr %79, i64 %81
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %81
   %89 = getelementptr inbounds i8, ptr %88, i64 -8
   %90 = load i64, ptr %89, align 8, !tbaa !23
   %91 = and i64 %90, %87
@@ -230,7 +230,7 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preh
 106:                                              ; preds = %97
   %107 = lshr i32 %103, 6
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i64, ptr %96, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %108
   %110 = and i32 %103, 63
   %111 = zext nneg i32 %110 to i64
   %112 = shl nuw i64 1, %111

@@ -792,7 +792,7 @@ define void @_ZN6uu_pwd6uu_app17hd0e89d7d9e5729fdE(ptr noalias noundef writeonly
   %93 = phi i64 [ %.pre.i.i, %.noexc.i26 ], [ %84, %80 ]
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %95 = load ptr, ptr %94, align 8, !alias.scope !249, !noalias !253, !nonnull !5, !noundef !5
-  %96 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %95, i64 %93
+  %96 = getelementptr inbounds [16 x i8], ptr %95, i64 %93
   store ptr @anon.8193b3a1c1e29bd1080c20fb878f7e0e.15, ptr %96, align 8, !noalias !253
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 7, ptr %97, align 8, !noalias !246

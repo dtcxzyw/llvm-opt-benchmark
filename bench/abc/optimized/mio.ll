@@ -146,7 +146,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
 
 10:                                               ; preds = %8
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !7
   %14 = tail call double @strtod(ptr noundef nonnull captures(none) %13, ptr noundef null) #10
   %15 = fptrunc double %14 to float
@@ -163,7 +163,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
 
 21:                                               ; preds = %19
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds ptr, ptr %2, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %2, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !7
   %25 = add nsw i32 %20, 1
   store i32 %25, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -176,7 +176,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
 
 28:                                               ; preds = %26
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds ptr, ptr %2, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %2, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !7
   %32 = tail call i64 @strtol(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #10
   %33 = trunc i64 %32 to i32
@@ -200,7 +200,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadGenlib(ptr noundef %0, i32 n
 
 42:                                               ; preds = %39
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %2, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %2, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !7
   %46 = tail call ptr @Io_FileOpen(ptr noundef %45, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 0) #10
   %47 = icmp eq ptr %46, null
@@ -359,7 +359,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandWriteGenlib(ptr noundef %0, i32 
 
 22:                                               ; preds = %18
   %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds ptr, ptr %2, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %2, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !7
   %26 = tail call noalias ptr @fopen(ptr noundef %25, ptr noundef nonnull @.str.44)
   %27 = icmp eq ptr %26, null
@@ -510,7 +510,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandReadProfile(ptr noundef %0, i32 
 15:                                               ; preds = %10
   %16 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !7
   %20 = tail call ptr @Io_FileOpen(ptr noundef %19, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 0) #10
   %21 = icmp eq ptr %20, null
@@ -577,7 +577,7 @@ define internal range(i32 0, 2) i32 @Mio_CommandWriteProfile(ptr noundef %0, i32
 
 15:                                               ; preds = %11
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !7
   %19 = tail call noalias ptr @fopen(ptr noundef %18, ptr noundef nonnull @.str.44)
   %20 = icmp eq ptr %19, null

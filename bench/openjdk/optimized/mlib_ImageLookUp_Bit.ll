@@ -51,7 +51,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
 
 37:                                               ; preds = %18, %47
   %indvars.iv172 = phi i64 [ 0, %18 ], [ %indvars.iv.next173, %47 ]
-  %38 = getelementptr inbounds nuw i32, ptr @mlib_bit_mask, i64 %indvars.iv172
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @mlib_bit_mask, i64 %indvars.iv172
   %39 = load i32, ptr %38, align 4
   %40 = xor i32 %39, -1
   %41 = and i32 %30, %40
@@ -171,7 +171,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %76 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %77 = load i8, ptr %.3, align 1
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw double, ptr %10, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
   store double %80, ptr %.0113, align 8
@@ -193,13 +193,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %85 = zext i16 %84 to i32
   %86 = and i32 %85, 255
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw double, ptr %10, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %87
   %89 = load double, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %.1105151, i64 8
   store double %89, ptr %.1105151, align 8
   %91 = lshr i32 %85, 8
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw double, ptr %10, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %92
   %94 = load double, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.1105151, i64 16
   store double %94, ptr %90, align 8
@@ -220,7 +220,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %100 = getelementptr inbounds nuw i8, ptr %.1108.lcssa, i64 1
   %101 = load i8, ptr %.1108.lcssa, align 1
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds nuw double, ptr %10, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %102
   %104 = load double, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.1105.lcssa, i64 8
   store double %104, ptr %.1105.lcssa, align 8
@@ -242,7 +242,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %113 = lshr i64 -1, %112
   %114 = load i8, ptr %.2109, align 1
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %10, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %117, %113
   %119 = load i64, ptr %.2106, align 8
@@ -359,7 +359,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %56 = zext i8 %55 to i32
   %57 = lshr i32 %56, 4
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %10, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %58
   %60 = load i64, ptr %59, align 8
   br i1 %50, label %61, label %66
 
@@ -369,7 +369,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %spec.select.us.us.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.us.us.sroa.sel.v.sroa.sel.v, i64 8
   %62 = and i32 %56, 15
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %10, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %63
   %65 = load i64, ptr %64, align 8
   br label %66
 
@@ -470,13 +470,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %99 = zext i8 %98 to i32
   %100 = lshr i32 %99, 4
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw i64, ptr %10, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %.0111.us, i64 8
   store i64 %103, ptr %.0111.us, align 8
   %105 = and i32 %99, 15
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i64, ptr %10, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.0111.us, i64 16
   store i64 %108, ptr %104, align 8
@@ -489,7 +489,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %113 = zext i8 %112 to i32
   %114 = lshr i32 %113, 4
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %10, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = icmp slt i32 %110, %46
   br i1 %118, label %119, label %126
@@ -500,7 +500,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %121 = or disjoint i32 %110, 8
   %122 = and i32 %113, 15
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i64, ptr %10, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %123
   %125 = load i64, ptr %124, align 8
   br label %126
 
@@ -542,7 +542,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
 
 143:                                              ; preds = %20, %152
   %indvars.iv148 = phi i64 [ 0, %20 ], [ %indvars.iv.next149, %152 ]
-  %144 = getelementptr inbounds nuw i32, ptr @mlib_bit_mask_2, i64 %indvars.iv148
+  %144 = getelementptr inbounds nuw [4 x i8], ptr @mlib_bit_mask_2, i64 %indvars.iv148
   %145 = load i32, ptr %144, align 4
   %146 = xor i32 %145, -1
   %147 = and i32 %39, %146
@@ -592,13 +592,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %158 = zext i8 %157 to i32
   %159 = lshr i32 %158, 4
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw i64, ptr %10, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %160
   %162 = load i64, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %.0111, i64 8
   store i64 %162, ptr %.0111, align 8
   %164 = and i32 %158, 15
   %165 = zext nneg i32 %164 to i64
-  %166 = getelementptr inbounds nuw i64, ptr %10, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = getelementptr inbounds nuw i8, ptr %.0111, i64 16
   store i64 %167, ptr %163, align 8
@@ -615,7 +615,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %173 = zext i8 %172 to i32
   %174 = lshr i32 %173, 4
   %175 = zext nneg i32 %174 to i64
-  %176 = getelementptr inbounds nuw i64, ptr %10, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %175
   %177 = load i64, ptr %176, align 8
   %178 = icmp slt i32 %169, %46
   br i1 %178, label %179, label %186
@@ -626,7 +626,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %181 = or disjoint i32 %169, 8
   %182 = and i32 %173, 15
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw i64, ptr %10, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %183
   %185 = load i64, ptr %184, align 8
   br label %186
 
@@ -757,15 +757,15 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %67 ]
   %68 = lshr i64 %indvars.iv, 2
   %69 = and i64 %68, 1073741823
-  %70 = getelementptr inbounds nuw i32, ptr @mlib_bit_mask_3, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @mlib_bit_mask_3, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = lshr i64 %indvars.iv, 1
   %73 = and i64 %72, 2147483643
-  %74 = getelementptr inbounds nuw i32, ptr @mlib_bit_mask_3, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @mlib_bit_mask_3, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = and i64 %indvars.iv, 3
-  %78 = getelementptr inbounds nuw i32, ptr @mlib_bit_mask_3, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @mlib_bit_mask_3, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load i32, ptr %79, align 4
   %81 = xor i32 %71, -1
@@ -781,14 +781,14 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %91 = and i32 %80, %59
   %92 = or i32 %90, %91
   %93 = shl nuw nsw i64 %indvars.iv, 1
-  %94 = getelementptr inbounds nuw i32, ptr %10, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %93
   store i32 %84, ptr %94, align 8
   %95 = or disjoint i64 %93, 1
-  %96 = getelementptr inbounds nuw i32, ptr %10, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %95
   store i32 %88, ptr %96, align 4
-  %97 = getelementptr inbounds nuw i32, ptr %11, i64 %93
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %93
   store i32 %88, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i32, ptr %11, i64 %95
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %95
   store i32 %92, ptr %98, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -821,22 +821,22 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %106 = zext i8 %105 to i32
   %107 = lshr i32 %106, 4
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw double, ptr %10, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %108
   %110 = load double, ptr %109, align 8
   store double %110, ptr %.0163, align 8
-  %111 = getelementptr inbounds nuw double, ptr %11, i64 %108
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %108
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load float, ptr %112, align 4
   store float %113, ptr %.sroa.0, align 8
   %114 = and i32 %106, 15
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw double, ptr %10, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %115
   %117 = load float, ptr %116, align 8
   store float %117, ptr %.sroa.0.4..sroa_idx, align 4
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.0163, i64 8
   store double %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %118, align 8
-  %119 = getelementptr inbounds nuw double, ptr %11, i64 %115
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %115
   %120 = load double, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %.0163, i64 16
   store double %120, ptr %121, align 8
@@ -857,7 +857,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %127 = zext i8 %126 to i32
   %128 = lshr i32 %127, 4
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw double, ptr %10, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %129
   %131 = load i32, ptr %130, align 8
   %132 = icmp slt i32 %.1139.lcssa, %64
   br i1 %132, label %133, label %138
@@ -866,7 +866,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %134 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   store i32 %131, ptr %.0.lcssa, align 4
   %135 = or disjoint i32 %.1139.lcssa, 4
-  %136 = getelementptr inbounds nuw double, ptr %11, i64 %129
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %129
   %137 = load i32, ptr %136, align 8
   br label %138
 
@@ -881,7 +881,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %141 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i32 %.0145, ptr %.1, align 4
   %142 = add nsw i32 %.2140, 4
-  %143 = getelementptr inbounds nuw double, ptr %11, i64 %129
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %129
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %145 = load i32, ptr %144, align 4
   br label %146
@@ -899,7 +899,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %150 = add nsw i32 %.3141, 4
   %151 = and i32 %127, 15
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw double, ptr %10, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %152
   %154 = load i32, ptr %153, align 8
   br label %155
 
@@ -916,7 +916,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %159 = add nsw i32 %.4142, 4
   %160 = and i32 %127, 15
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw double, ptr %11, i64 %161
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %161
   %163 = load i32, ptr %162, align 8
   br label %164
 
@@ -933,7 +933,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_3(ptr noundef %0, i32
   %168 = add nsw i32 %.5143, 4
   %169 = and i32 %127, 15
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds nuw double, ptr %11, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %173 = load i32, ptr %172, align 4
   br label %174
@@ -1149,21 +1149,21 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   %103 = zext i8 %102 to i32
   %104 = lshr i32 %103, 4
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i64, ptr %10, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %105
   %107 = load i64, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %.0390, i64 8
   store i64 %107, ptr %.0390, align 8
-  %109 = getelementptr inbounds nuw i64, ptr %11, i64 %105
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %105
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %.0390, i64 16
   store i64 %110, ptr %108, align 8
   %112 = and i32 %103, 15
   %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i64, ptr %10, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %113
   %115 = load i64, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %.0390, i64 24
   store i64 %115, ptr %111, align 8
-  %117 = getelementptr inbounds nuw i64, ptr %11, i64 %113
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %113
   %118 = load i64, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %.0390, i64 32
   store i64 %118, ptr %116, align 8
@@ -1183,7 +1183,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   %124 = zext i8 %123 to i32
   %125 = lshr i32 %124, 4
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i64, ptr %10, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %126
   %128 = load i64, ptr %127, align 8
   %.not383 = icmp sgt i32 %.0371.lcssa, %93
   br i1 %.not383, label %134, label %129
@@ -1192,7 +1192,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   %130 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   store i64 %128, ptr %.0.lcssa, align 8
   %131 = or disjoint i32 %.0371.lcssa, 8
-  %132 = getelementptr inbounds nuw i64, ptr %11, i64 %126
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %126
   %133 = load i64, ptr %132, align 8
   br label %134
 
@@ -1209,7 +1209,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   %137 = add nsw i32 %.1372, 8
   %138 = and i32 %124, 15
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i64, ptr %10, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %139
   %141 = load i64, ptr %140, align 8
   br label %142
 
@@ -1226,7 +1226,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   %145 = add nsw i32 %.2373, 8
   %146 = and i32 %124, 15
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds nuw i64, ptr %11, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %147
   %149 = load i64, ptr %148, align 8
   br label %150
 

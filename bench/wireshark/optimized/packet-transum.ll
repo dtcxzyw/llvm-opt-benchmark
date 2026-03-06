@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._TSUM_PREFERENCES = type { i32, i8, ptr, ptr, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.nstime_t = type { i64, i32 }
-%struct._PKT_INFO = type { i32, %struct.nstime_t, i8, i8, i8, i8, i8, i32, i32, i16, i16, i16, i8, i8, i16, i16, i64, i64, i16, i8, i8, i32, i16, i16, i8, %struct._RRPD }
-%struct._RRPD = type { i8, i8, i32, i64, i64, i8, i8, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, i32, i32 }
-%struct._HF_OF_INTEREST_INFO = type { i32, ptr }
-%struct.range_admin_tag = type { i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"ip.proto\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"ipv6.nxt\00", align 1
@@ -940,7 +936,7 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %345 ]
   %338 = load i8, ptr %203, align 8, !range !6, !noundef !7
   %339 = trunc nuw i8 %338 to i1
-  %340 = getelementptr %struct._PKT_INFO, ptr %196, i64 %indvars.iv.i
+  %340 = getelementptr [224 x i8], ptr %196, i64 %indvars.iv.i
   br i1 %339, label %341, label %343
 
 341:                                              ; preds = %.lr.ph.i
@@ -985,7 +981,7 @@ set_proto_values.exit:                            ; preds = %345, %204, %334, %.
 
 .preheader:                                       ; preds = %set_proto_values.exit, %update_rrpd_rte_data.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %update_rrpd_rte_data.exit ], [ 0, %set_proto_values.exit ]
-  %355 = getelementptr %struct._PKT_INFO, ptr %196, i64 %indvars.iv
+  %355 = getelementptr [224 x i8], ptr %196, i64 %indvars.iv
   %356 = load i32, ptr %355, align 8
   %.not22 = icmp eq i32 %356, 0
   br i1 %.not22, label %.loopexit, label %357
@@ -1291,7 +1287,7 @@ define internal void @init_globals() #0 {
 
 22:                                               ; preds = %4, %30
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %30 ]
-  %23 = getelementptr %struct._HF_OF_INTEREST_INFO, ptr @hf_of_interest, i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr @hf_of_interest, i64 %indvars.iv
   %24 = load i32, ptr %23, align 16
   %.not25 = icmp eq i32 %24, -1
   br i1 %.not25, label %27, label %25
@@ -1322,9 +1318,9 @@ define internal void @init_globals() #0 {
   %34 = phi ptr [ %42, %._crit_edge ], [ %20, %14 ]
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %._crit_edge ], [ 0, %14 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = getelementptr %struct.range_admin_tag, ptr %35, i64 %indvars.iv43
+  %36 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv43
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr %struct.range_admin_tag, ptr %34, i64 %indvars.iv43
+  %38 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv43
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 4
   %.not2427 = icmp ugt i32 %37, %40
@@ -1350,7 +1346,7 @@ define internal void @init_globals() #0 {
   %48 = tail call ptr @wmem_map_insert(ptr noundef %45, ptr noundef %47, ptr noundef nonnull inttoptr (i64 2 to ptr))
   %49 = add i32 %.02128, 1
   %50 = load ptr, ptr @tcp_svc_port_range_values, align 8
-  %51 = getelementptr %struct.range_admin_tag, ptr %50, i64 %indvars.iv43
+  %51 = getelementptr [8 x i8], ptr %50, i64 %indvars.iv43
   %52 = getelementptr i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 4
   %.not24 = icmp ugt i32 %49, %53
@@ -1391,9 +1387,9 @@ define internal void @init_globals() #0 {
   %79 = phi ptr [ %87, %._crit_edge36 ], [ %31, %.preheader ]
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge36 ], [ 0, %.preheader ]
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %81 = getelementptr %struct.range_admin_tag, ptr %80, i64 %indvars.iv46
+  %81 = getelementptr [8 x i8], ptr %80, i64 %indvars.iv46
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr %struct.range_admin_tag, ptr %79, i64 %indvars.iv46
+  %83 = getelementptr [8 x i8], ptr %79, i64 %indvars.iv46
   %84 = getelementptr i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 4
   %.not32 = icmp ugt i32 %82, %85
@@ -1419,7 +1415,7 @@ define internal void @init_globals() #0 {
   %93 = tail call ptr @wmem_map_insert(ptr noundef %90, ptr noundef %92, ptr noundef nonnull inttoptr (i64 3 to ptr))
   %94 = add i32 %.033, 1
   %95 = load ptr, ptr @udp_svc_port_range_values, align 8
-  %96 = getelementptr %struct.range_admin_tag, ptr %95, i64 %indvars.iv46
+  %96 = getelementptr [8 x i8], ptr %95, i64 %indvars.iv46
   %97 = getelementptr i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 4
   %.not = icmp ugt i32 %94, %98
@@ -1463,7 +1459,7 @@ define hidden void @proto_reg_handoff_transum() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr %struct._HF_OF_INTEREST_INFO, ptr @hf_of_interest, i64 %indvars.iv
+  %3 = getelementptr [16 x i8], ptr @hf_of_interest, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @proto_registrar_get_id_byname(ptr noundef %5)

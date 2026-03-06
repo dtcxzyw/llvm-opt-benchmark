@@ -3,9 +3,6 @@ source_filename = "bench/libzmq/original/mailbox_safe.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.zmq::command_t" = type { ptr, i32, %"union.zmq::command_t::args_t", [24 x i8] }
-%"union.zmq::command_t::args_t" = type { %struct.anon.21 }
-%struct.anon.21 = type { i64, ptr, ptr }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration.29" }
 %"class.std::chrono::duration.29" = type { i64 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -168,7 +165,7 @@ define void @_ZN3zmq14mailbox_safe_tC2EPNS_7mutex_tE(ptr noundef nonnull align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !48
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"struct.zmq::command_t", ptr %17, i64 %20
+  %21 = getelementptr inbounds [64 x i8], ptr %17, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !49
   %.not.i = icmp eq ptr %21, %23
@@ -188,7 +185,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %8
   %30 = load ptr, ptr %16, align 8, !tbaa !47
   %31 = load i32, ptr %18, align 8, !tbaa !48
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %"struct.zmq::command_t", ptr %30, i64 %32
+  %33 = getelementptr inbounds [64 x i8], ptr %30, i64 %32
   %34 = icmp ne ptr %33, %.0.i.i
   %.not5.i = icmp ne ptr %.0.i.i, null
   %or.cond6.not.i = and i1 %.not5.i, %34
@@ -289,7 +286,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE10ch
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !48
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %"struct.zmq::command_t", ptr %3, i64 %6
+  %7 = getelementptr inbounds [64 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !49
   %.not = icmp eq ptr %7, %9
@@ -309,7 +306,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE10ch
   %17 = load ptr, ptr %2, align 8, !tbaa !47
   %18 = load i32, ptr %4, align 8, !tbaa !48
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.zmq::command_t", ptr %17, i64 %19
+  %20 = getelementptr inbounds [64 x i8], ptr %17, i64 %19
   %21 = icmp ne ptr %20, %.0.i
   %.not5 = icmp ne ptr %.0.i, null
   %or.cond6.not = and i1 %.not5, %21
@@ -626,7 +623,7 @@ _ZNSt6vectorIPN3zmq10signaler_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i:
 _ZNSt6vectorIPN3zmq10signaler_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPN3zmq10signaler_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !54
   store ptr %27, ptr %4, align 8, !tbaa !69
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !70
   br label %_ZNSt6vectorIPN3zmq10signaler_tESaIS2_EE9push_backERKS2_.exit
 
@@ -901,7 +898,7 @@ define linkonce_odr void @_ZN3zmq7ypipe_tINS_9command_tELi16EE5writeERKS1_b(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !57
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"struct.zmq::command_t", ptr %6, i64 %9
+  %10 = getelementptr inbounds [64 x i8], ptr %6, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %10, ptr noundef nonnull align 64 dereferenceable(64) %1, i64 64, i1 false), !tbaa.struct !77
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !58
@@ -967,7 +964,7 @@ _ZN3zmq8yqueue_tINS_9command_tELi16ELm64EE4pushEv.exit: ; preds = %3, %33
   %36 = load ptr, ptr %5, align 8, !tbaa !56
   %37 = load i32, ptr %7, align 8, !tbaa !57
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %"struct.zmq::command_t", ptr %36, i64 %38
+  %39 = getelementptr inbounds [64 x i8], ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %39, ptr %40, align 8, !tbaa !60
   br label %41
@@ -1023,7 +1020,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14mailbox_safe_t4recvEPNS_9command_t
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !48
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"struct.zmq::command_t", ptr %6, i64 %9
+  %10 = getelementptr inbounds [64 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !49
   %.not.i.i = icmp eq ptr %10, %12
@@ -1043,7 +1040,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i: ; preds = %3
   %19 = load ptr, ptr %5, align 8, !tbaa !47
   %20 = load i32, ptr %7, align 8, !tbaa !48
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %"struct.zmq::command_t", ptr %19, i64 %21
+  %22 = getelementptr inbounds [64 x i8], ptr %19, i64 %21
   %23 = icmp ne ptr %22, %.0.i.i.i
   %.not5.i.i = icmp ne ptr %.0.i.i.i, null
   %or.cond6.not.i.i = and i1 %.not5.i.i, %23
@@ -1052,7 +1049,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i: ; preds = %3
 _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i: ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i, %3
   %.pre-phi.i = phi i64 [ %9, %3 ], [ %21, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
   %24 = phi ptr [ %6, %3 ], [ %19, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i ]
-  %25 = getelementptr inbounds %"struct.zmq::command_t", ptr %24, i64 %.pre-phi.i
+  %25 = getelementptr inbounds [64 x i8], ptr %24, i64 %.pre-phi.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %25, i64 64, i1 false), !tbaa.struct !77
   %26 = load i32, ptr %7, align 8, !tbaa !48
   %27 = add nsw i32 %26, 1
@@ -1142,7 +1139,7 @@ _ZN3zmq7mutex_t4lockEv.exit:                      ; preds = %62, %61, %50, %_ZN3
   %71 = load ptr, ptr %5, align 8, !tbaa !47
   %72 = load i32, ptr %7, align 8, !tbaa !48
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %"struct.zmq::command_t", ptr %71, i64 %73
+  %74 = getelementptr inbounds [64 x i8], ptr %71, i64 %73
   %75 = load ptr, ptr %11, align 8, !tbaa !49
   %.not.i.i14 = icmp eq ptr %74, %75
   %.not4.i.i15 = icmp eq ptr %75, null
@@ -1160,7 +1157,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i21: ; preds = %_ZN3zmq7
   %81 = load ptr, ptr %5, align 8, !tbaa !47
   %82 = load i32, ptr %7, align 8, !tbaa !48
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %"struct.zmq::command_t", ptr %81, i64 %83
+  %84 = getelementptr inbounds [64 x i8], ptr %81, i64 %83
   %85 = icmp ne ptr %84, %.0.i.i.i22
   %.not5.i.i23 = icmp ne ptr %.0.i.i.i22, null
   %or.cond6.not.i.i24 = and i1 %.not5.i.i23, %85
@@ -1169,7 +1166,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i21: ; preds = %_ZN3zmq7
 _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread.i17: ; preds = %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i21, %_ZN3zmq7mutex_t4lockEv.exit
   %.pre-phi.i18 = phi i64 [ %73, %_ZN3zmq7mutex_t4lockEv.exit ], [ %83, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i21 ]
   %86 = phi ptr [ %71, %_ZN3zmq7mutex_t4lockEv.exit ], [ %81, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.i21 ]
-  %87 = getelementptr inbounds %"struct.zmq::command_t", ptr %86, i64 %.pre-phi.i18
+  %87 = getelementptr inbounds [64 x i8], ptr %86, i64 %.pre-phi.i18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %87, i64 64, i1 false), !tbaa.struct !77
   %88 = load i32, ptr %7, align 8, !tbaa !48
   %89 = add nsw i32 %88, 1
@@ -1209,7 +1206,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE4rea
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !48
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %"struct.zmq::command_t", ptr %4, i64 %7
+  %8 = getelementptr inbounds [64 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !49
   %.not.i = icmp eq ptr %8, %10
@@ -1229,7 +1226,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %2
   %17 = load ptr, ptr %3, align 8, !tbaa !47
   %18 = load i32, ptr %5, align 8, !tbaa !48
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.zmq::command_t", ptr %17, i64 %19
+  %20 = getelementptr inbounds [64 x i8], ptr %17, i64 %19
   %21 = icmp ne ptr %20, %.0.i.i
   %.not5.i = icmp ne ptr %.0.i.i, null
   %or.cond6.not.i = and i1 %.not5.i, %21
@@ -1238,7 +1235,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %2
 _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread: ; preds = %2, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit
   %.pre-phi = phi i64 [ %7, %2 ], [ %19, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit ]
   %22 = phi ptr [ %4, %2 ], [ %17, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit ]
-  %23 = getelementptr inbounds %"struct.zmq::command_t", ptr %22, i64 %.pre-phi
+  %23 = getelementptr inbounds [64 x i8], ptr %22, i64 %.pre-phi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %23, i64 64, i1 false), !tbaa.struct !77
   %24 = load i32, ptr %5, align 8, !tbaa !48
   %25 = add nsw i32 %24, 1
@@ -1965,7 +1962,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE7unw
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !57
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %"struct.zmq::command_t", ptr %6, i64 %9
+  %10 = getelementptr inbounds [64 x i8], ptr %6, i64 %9
   %11 = icmp ne ptr %4, %10
   br i1 %11, label %12, label %37
 
@@ -2018,7 +2015,7 @@ _ZN3zmq8yqueue_tINS_9command_tELi16ELm64EE6unpushEv.exit: ; preds = %22, %24
   %33 = phi i32 [ %.sink.i, %22 ], [ %.pre3, %24 ]
   %34 = phi ptr [ %19, %22 ], [ %.pre, %24 ]
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds %"struct.zmq::command_t", ptr %34, i64 %35
+  %36 = getelementptr inbounds [64 x i8], ptr %34, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %1, ptr noundef nonnull align 64 dereferenceable(64) %36, i64 64, i1 false), !tbaa.struct !77
   br label %37
 
@@ -2033,7 +2030,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3zmq7ypipe_tINS_9command_tELi16EE5pro
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !48
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %"struct.zmq::command_t", ptr %4, i64 %7
+  %8 = getelementptr inbounds [64 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !49
   %.not.i = icmp eq ptr %8, %10
@@ -2053,7 +2050,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %2
   %17 = load ptr, ptr %3, align 8, !tbaa !47
   %18 = load i32, ptr %5, align 8, !tbaa !48
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.zmq::command_t", ptr %17, i64 %19
+  %20 = getelementptr inbounds [64 x i8], ptr %17, i64 %19
   %21 = icmp ne ptr %20, %.0.i.i
   %.not5.i = icmp ne ptr %.0.i.i, null
   %or.cond6.not.i = and i1 %.not5.i, %21
@@ -2073,7 +2070,7 @@ _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit: ; preds = %2
 _ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit.thread: ; preds = %2, %22, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit
   %.pre-phi = phi i64 [ %7, %2 ], [ %.pre4, %22 ], [ %19, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit ]
   %27 = phi ptr [ %4, %2 ], [ %.pre, %22 ], [ %17, %_ZN3zmq7ypipe_tINS_9command_tELi16EE10check_readEv.exit ]
-  %28 = getelementptr inbounds %"struct.zmq::command_t", ptr %27, i64 %.pre-phi
+  %28 = getelementptr inbounds [64 x i8], ptr %27, i64 %.pre-phi
   %29 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 64 dereferenceable(64) %28)
   ret i1 %29
 }

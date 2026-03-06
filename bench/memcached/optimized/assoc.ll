@@ -104,7 +104,7 @@ define dso_local ptr @assoc_find(ptr noundef readonly captures(none) %0, i64 nou
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @old_hashtable, align 8, !tbaa !8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   br label %19
 
 ._crit_edge23:                                    ; preds = %3, %5
@@ -113,7 +113,7 @@ define dso_local ptr @assoc_find(ptr noundef readonly captures(none) %0, i64 nou
   %notmask15 = shl nsw i64 -1, %15
   %16 = xor i64 %notmask15, -1
   %17 = and i64 %4, %16
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %19
 
 19:                                               ; preds = %._crit_edge23, %11
@@ -209,7 +209,7 @@ define dso_local noundef i32 @assoc_insert(ptr noundef initializes((16, 24)) %0,
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @old_hashtable, align 8, !tbaa !8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !20
@@ -222,7 +222,7 @@ define dso_local noundef i32 @assoc_insert(ptr noundef initializes((16, 24)) %0,
   %notmask8 = shl nsw i64 -1, %16
   %17 = xor i64 %notmask8, -1
   %18 = and i64 %3, %17
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !20
@@ -252,7 +252,7 @@ define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @old_hashtable, align 8, !tbaa !8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   br label %19
 
 ._crit_edge.i:                                    ; preds = %5, %3
@@ -261,7 +261,7 @@ define dso_local void @assoc_delete(ptr noundef readonly captures(none) %0, i64 
   %notmask16.i = shl nsw i64 -1, %15
   %16 = xor i64 %notmask16.i, -1
   %17 = and i64 %16, %4
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %19
 
 19:                                               ; preds = %._crit_edge.i, %11
@@ -373,7 +373,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
 10:                                               ; preds = %.lr.ph23
   %11 = load ptr, ptr @old_hashtable, align 8, !tbaa !8
   %12 = load i64, ptr @expand_bucket, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %.not1719 = icmp eq ptr %14, null
   br i1 %.not1719, label %.._crit_edge_crit_edge, label %.lr.ph
@@ -405,7 +405,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %32 = xor i64 %notmask, -1
   %33 = and i64 %32, %29
   %34 = load ptr, ptr @primary_hashtable, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   store ptr %36, ptr %15, align 8, !tbaa !20
   store ptr %.01320, ptr %35, align 8, !tbaa !20
@@ -421,7 +421,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %37 = phi i32 [ %30, %._crit_edge.loopexit ], [ %.pre29, %.._crit_edge_crit_edge ]
   %38 = phi i64 [ %.pre28, %._crit_edge.loopexit ], [ %12, %.._crit_edge_crit_edge ]
   %39 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %11, %.._crit_edge_crit_edge ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   store ptr null, ptr %40, align 8, !tbaa !20
   %41 = add i64 %38, 1
   store i64 %41, ptr @expand_bucket, align 8, !tbaa !19
@@ -627,7 +627,7 @@ define dso_local noundef zeroext i1 @assoc_iterate(ptr noundef captures(none) %0
   store i8 1, ptr %3, align 8, !tbaa !38
   %26 = load ptr, ptr @primary_hashtable, align 8, !tbaa !8
   %27 = load i64, ptr %0, align 8, !tbaa !44
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !43

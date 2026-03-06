@@ -169,7 +169,7 @@ define dso_local void @re_mbcinit(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.re_mbcinit, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.re_mbcinit, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %2, align 8, !tbaa !18
   %5 = call i32 @onig_initialize(ptr noundef nonnull %2, i32 noundef 1) #4

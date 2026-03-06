@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -538,7 +537,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %15, align 4, !tbaa !58
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds i32, ptr %41, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %41, i64 %49
   store i32 %46, ptr %50, align 4, !tbaa !59
   %.val11 = load ptr, ptr %14, align 8, !tbaa !62
   %51 = ptrtoint ptr %.val11 to i64
@@ -820,7 +819,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %35, align 4, !tbaa !58
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds i32, ptr %61, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %61, i64 %64
   store i32 %34, ptr %65, align 4, !tbaa !59
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %67 = load ptr, ptr %66, align 8, !tbaa !66
@@ -831,7 +830,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %69 = load i64, ptr %3, align 4
   %70 = and i64 %69, 536870911
   %71 = sub nsw i64 0, %70
-  %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %3, i64 %71
+  %72 = getelementptr inbounds [12 x i8], ptr %3, i64 %71
   tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #19
   br label %73
 
@@ -938,13 +937,13 @@ define dso_local void @_ZN28GiaTest_CanAddAnAndGate_Test8TestBodyEv(ptr nonnull 
 80:                                               ; preds = %77
   %81 = and i64 %storemerge.i, 536870911
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %20, i64 %82
+  %83 = getelementptr inbounds [12 x i8], ptr %20, i64 %82
   tail call void @Gia_ObjAddFanout(ptr noundef nonnull %17, ptr noundef nonnull %83, ptr noundef nonnull %20) #19
   %84 = load i64, ptr %20, align 4
   %85 = lshr i64 %84, 32
   %86 = and i64 %85, 536870911
   %87 = sub nsw i64 0, %86
-  %88 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %20, i64 %87
+  %88 = getelementptr inbounds [12 x i8], ptr %20, i64 %87
   tail call void @Gia_ObjAddFanout(ptr noundef nonnull %17, ptr noundef nonnull %88, ptr noundef nonnull %20) #19
   br label %89
 
@@ -958,11 +957,11 @@ define dso_local void @_ZN28GiaTest_CanAddAnAndGate_Test8TestBodyEv(ptr nonnull 
   %93 = load i64, ptr %20, align 4
   %94 = and i64 %93, 536870911
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %20, i64 %95
+  %96 = getelementptr inbounds [12 x i8], ptr %20, i64 %95
   %97 = lshr i64 %93, 32
   %98 = and i64 %97, 536870911
   %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %20, i64 %99
+  %100 = getelementptr inbounds [12 x i8], ptr %20, i64 %99
   %101 = load i64, ptr %96, align 4
   %102 = and i64 %101, 1073741824
   %.not66.i = icmp eq i64 %102, 0
@@ -1001,11 +1000,11 @@ define dso_local void @_ZN28GiaTest_CanAddAnAndGate_Test8TestBodyEv(ptr nonnull 
   %120 = load i64, ptr %20, align 4
   %121 = and i64 %120, 536870911
   %122 = sub nsw i64 0, %121
-  %123 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %20, i64 %122
+  %123 = getelementptr inbounds [12 x i8], ptr %20, i64 %122
   %124 = lshr i64 %120, 32
   %125 = and i64 %124, 536870911
   %126 = sub nsw i64 0, %125
-  %127 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %20, i64 %126
+  %127 = getelementptr inbounds [12 x i8], ptr %20, i64 %126
   %.val79.i = load i64, ptr %123, align 4
   %128 = lshr i64 %.val79.i, 63
   %129 = lshr i64 %120, 29
@@ -1477,7 +1476,7 @@ define internal fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr nound
   store ptr %27, ptr %18, align 8, !tbaa !62
   %28 = load i32, ptr %4, align 4, !tbaa !77
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %27, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %27, i64 %29
   %31 = sub nsw i32 %9, %28
   %32 = sext i32 %31 to i64
   %33 = mul nsw i64 %32, 12
@@ -1494,7 +1493,7 @@ define internal fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr nound
   store ptr %39, ptr %34, align 8, !tbaa !79
   %40 = load i32, ptr %4, align 4, !tbaa !77
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %39, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %39, i64 %41
   %43 = sub nsw i32 %9, %40
   %44 = sext i32 %43 to i64
   %45 = shl nsw i64 %44, 2
@@ -1577,7 +1576,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %51, align 4, !tbaa !58
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds i32, ptr %77, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %77, i64 %80
   store i32 0, ptr %81, align 4, !tbaa !59
   br label %82
 
@@ -1588,7 +1587,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %85 = getelementptr i8, ptr %0, i64 32
   %.val36 = load ptr, ptr %85, align 8, !tbaa !62
   %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val36, i64 %86
+  %87 = getelementptr inbounds [12 x i8], ptr %.val36, i64 %86
   ret ptr %87
 }
 

@@ -549,7 +549,7 @@ define hidden void @"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8, !noalias !62, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !62
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %109 = getelementptr inbounds { [3 x i64] }, ptr %108, i64 %.sroa.43.0.copyload.i
+  %109 = getelementptr inbounds [24 x i8], ptr %108, i64 %.sroa.43.0.copyload.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !70
@@ -1356,7 +1356,7 @@ define hidden void @"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sroa.0.0.copyload.i = load ptr, ptr %60, align 8, !noalias !208, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !208
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 96
-  %173 = getelementptr inbounds { [3 x i64] }, ptr %172, i64 %.sroa.43.0.copyload.i
+  %173 = getelementptr inbounds [24 x i8], ptr %172, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %173, i64 24, i1 false), !noalias !216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %173, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !noalias !215
   %.pr = load i64, ptr %34, align 8, !alias.scope !217
@@ -1948,7 +1948,7 @@ define hidden void @"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sroa.0.0.copyload.i = load ptr, ptr %37, align 8, !noalias !294, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !294
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %112 = getelementptr inbounds { [3 x i64] }, ptr %111, i64 %.sroa.43.0.copyload.i
+  %112 = getelementptr inbounds [24 x i8], ptr %111, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false), !noalias !303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !302
   %.pr = load i64, ptr %24, align 8, !alias.scope !304
@@ -2100,10 +2100,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !328, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !329, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05bf5b203b51921eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05bf5b203b51921eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05bf5b203b51921eE.7", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h05bf5b203b51921eE.7", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

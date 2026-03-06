@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.7 = type { i64 }
 %union.anon.11 = type { %struct.anon.12 }
 %struct.anon.12 = type { i8, i8, i16, i32, i64 }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 %struct.list_head = type { ptr, ptr }
 
 @pci_probe = dso_local local_unnamed_addr global i32 15, align 4
@@ -295,7 +294,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 
 26:                                               ; preds = %37, %.preheader.us
   %27 = phi i64 [ %38, %37 ], [ 0, %.preheader.us ]
-  %28 = getelementptr %struct.resource, ptr %25, i64 %27
+  %28 = getelementptr [64 x i8], ptr %25, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %37
@@ -329,7 +328,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 
 44:                                               ; preds = %.preheader, %55
   %45 = phi i64 [ %56, %55 ], [ 0, %.preheader ]
-  %46 = getelementptr %struct.resource, ptr %43, i64 %45
+  %46 = getelementptr [64 x i8], ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %55

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_.5" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -239,7 +238,7 @@ define hidden noundef float @_ZN2cv3mcc9perimeterERKSt6vectorINS_6Point_IfEESaIS
   %.01820 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
   %11 = add nuw i64 %.01820, 1
   %12 = urem i64 %11, %9
-  %13 = getelementptr inbounds nuw %"class.cv::Point_.5", ptr %4, i64 %.01820
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01820
   %14 = load float, ptr %13, align 4, !tbaa !23
   %sext19 = shl i64 %12, 32
   %15 = ashr exact i64 %sext19, 29
@@ -293,7 +292,7 @@ define hidden <2 x float> @_ZN2cv3mcc11mace_centerERKSt6vectorINS_6Point_IfEESaI
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.sroa.011.031 = phi <2 x float> [ zeroinitializer, %.lr.ph.preheader ], [ %.sroa.011.4.vec.insert28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %"class.cv::Point_.5", ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %.val = load float, ptr %14, align 4, !tbaa !23
   %15 = getelementptr i8, ptr %14, i64 4
   %.val7 = load float, ptr %15, align 4, !tbaa !26

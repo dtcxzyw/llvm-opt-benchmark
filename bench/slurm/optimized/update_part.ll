@@ -155,7 +155,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
 
 41:                                               ; preds = %.lr.ph, %.critedge512
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge512 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 61) #8
   %.not458 = icmp eq ptr %44, null
@@ -190,7 +190,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %61, label %66, label %67
 
 62:                                               ; preds = %41
-  %63 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %64) #7
@@ -217,7 +217,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge512
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %76 = load ptr, ptr %75, align 8
   %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef %76) #7
@@ -236,7 +236,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %.not509, label %.critedge512, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef %87) #7
@@ -259,7 +259,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge512
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef %98) #7
@@ -384,7 +384,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %156, label %162, label %157
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %159 = load ptr, ptr %158, align 8
   %160 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %159) #7
@@ -418,7 +418,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %176, label %182, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %179 = load ptr, ptr %178, align 8
   %180 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %179) #7
@@ -450,7 +450,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %194, label %200, label %195
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %197 = load ptr, ptr %196, align 8
   %198 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %197) #7
@@ -482,7 +482,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %212, label %218, label %213
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %215 = load ptr, ptr %214, align 8
   %216 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %215) #7
@@ -514,7 +514,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %231, label %237, label %232
 
 232:                                              ; preds = %229
-  %233 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %234 = load ptr, ptr %233, align 8
   %235 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %234) #7
@@ -546,7 +546,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %250, label %256, label %251
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %253 = load ptr, ptr %252, align 8
   %254 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %253) #7
@@ -580,7 +580,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %271, label %277, label %272
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %274 = load ptr, ptr %273, align 8
   %275 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %274) #7
@@ -612,7 +612,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %290, label %296, label %291
 
 291:                                              ; preds = %288
-  %292 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %293 = load ptr, ptr %292, align 8
   %294 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %293) #7
@@ -692,7 +692,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge
 
 335:                                              ; preds = %326
-  %336 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %337 = load ptr, ptr %336, align 8
   %338 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %337) #7
@@ -750,7 +750,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %.not471, label %367, label %362
 
 362:                                              ; preds = %360
-  %363 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %364 = load ptr, ptr %363, align 8
   %365 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %364) #7
@@ -787,7 +787,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge512
 
 379:                                              ; preds = %373
-  %380 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %381 = load ptr, ptr %380, align 8
   %382 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %381) #7
   br label %.critedge511
@@ -867,7 +867,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %.not482, label %420, label %415
 
 415:                                              ; preds = %413
-  %416 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %417 = load ptr, ptr %416, align 8
   %418 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %417) #7
@@ -1074,7 +1074,7 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %.critedge512
 
 497:                                              ; preds = %494
-  %498 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %499 = load ptr, ptr %498, align 8
   %500 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.79, ptr noundef %499) #7

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.absl::debian2::AlphaNum" = type { %"class.absl::debian2::string_view", [32 x i8] }
-%"struct.open_spiel::chess_common::Offset" = type { i8, i8 }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -483,7 +482,7 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 
 39:                                               ; preds = %33
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw %"struct.open_spiel::chess_common::Offset", ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %40
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1
@@ -647,7 +646,7 @@ define i16 @_ZN10open_spiel12chess_common24DestinationIndexToOffsetEiRKSt5arrayI
 
 39:                                               ; preds = %33
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw %"struct.open_spiel::chess_common::Offset", ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %40
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1

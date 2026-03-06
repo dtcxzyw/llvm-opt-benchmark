@@ -4,9 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XLogRecData = type { ptr, ptr, i32 }
-%struct.registered_buffer = type { i8, i8, %struct.RelFileLocator, i32, i32, ptr, i32, ptr, ptr, [2 x %struct.XLogRecData], [8196 x i8] }
-%struct.RelFileLocator = type { i32, i32, i32 }
 %union.PGAlignedBlock = type { double, [8184 x i8] }
+%struct.RelFileLocator = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [44 x i8] c"cannot make new WAL entries during recovery\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"xloginsert.c\00", align 1
@@ -123,7 +122,7 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   store ptr %14, ptr @registered_buffers, align 8
   %16 = load i32, ptr @max_registered_buffers, align 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.registered_buffer, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8304 x i8], ptr %14, i64 %17
   %19 = sub nsw i32 %8, %16
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 8304
@@ -202,7 +201,7 @@ define dso_local void @XLogResetInsertion() local_unnamed_addr #4 {
 
 4:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.registered_buffer, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8304 x i8], ptr %3, i64 %indvars.iv
   store i8 0, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -244,7 +243,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
 13:                                               ; preds = %11, %3
   %14 = load ptr, ptr @registered_buffers, align 8
   %15 = zext i8 %0 to i64
-  %16 = getelementptr inbounds nuw %struct.registered_buffer, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8304 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -256,7 +255,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
   %22 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %23 = xor i32 %1, -1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %BufferGetPage.exit
 
@@ -311,7 +310,7 @@ define dso_local void @XLogRegisterBlock(i8 noundef zeroext %0, ptr noundef read
 16:                                               ; preds = %11
   %17 = load ptr, ptr @registered_buffers, align 8
   %18 = zext i8 %0 to i64
-  %19 = getelementptr inbounds nuw %struct.registered_buffer, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8304 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -355,7 +354,7 @@ define dso_local void @XLogRegisterData(ptr noundef %0, i32 noundef %1) local_un
   %13 = add nsw i32 %3, 1
   store i32 %13, ptr @num_rdatas, align 4
   %14 = sext i32 %3 to i64
-  %15 = getelementptr inbounds %struct.XLogRecData, ptr %12, i64 %14
+  %15 = getelementptr inbounds [24 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -376,7 +375,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @registered_buffers, align 8
   %5 = zext i8 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.registered_buffer, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8304 x i8], ptr %4, i64 %5
   %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %13, label %9
@@ -425,7 +424,7 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   %35 = add nsw i32 %14, 1
   store i32 %35, ptr @num_rdatas, align 4
   %36 = sext i32 %14 to i64
-  %37 = getelementptr inbounds %struct.XLogRecData, ptr %34, i64 %36
+  %37 = getelementptr inbounds [24 x i8], ptr %34, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %1, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -498,7 +497,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 
 25:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw %struct.registered_buffer, ptr %24, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8304 x i8], ptr %24, i64 %indvars.iv.i
   store i8 0, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -543,7 +542,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   %.sroa.6.0218.i = phi i16 [ undef, %.lr.ph.i12 ], [ %.sroa.6.1.i, %202 ]
   %.sroa.13.0217.i = phi i8 [ undef, %.lr.ph.i12 ], [ %.sroa.13.1.i, %202 ]
   %.0169216.i = phi ptr [ %32, %.lr.ph.i12 ], [ %.1170.i, %202 ]
-  %44 = getelementptr inbounds nuw %struct.registered_buffer, ptr %43, i64 %indvars.iv.i13
+  %44 = getelementptr inbounds nuw [8304 x i8], ptr %43, i64 %indvars.iv.i13
   %45 = load i8, ptr %44, align 8, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %202
@@ -1067,7 +1066,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
 
 286:                                              ; preds = %286, %.lr.ph.i16
   %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i19, %286 ]
-  %287 = getelementptr inbounds nuw %struct.registered_buffer, ptr %285, i64 %indvars.iv.i18
+  %287 = getelementptr inbounds nuw [8304 x i8], ptr %285, i64 %indvars.iv.i18
   store i8 0, ptr %287, align 8
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, %wide.trip.count.i17
@@ -1102,7 +1101,7 @@ define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) 
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %0, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -1157,7 +1156,7 @@ BufferGetBlock.exit:                              ; preds = %9
   %11 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %12 = xor i32 %0, -1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1328,7 +1327,7 @@ define dso_local void @log_newpages(ptr noundef readonly captures(none) %0, i32 
   store ptr %10, ptr @registered_buffers, align 8
   %12 = load i32, ptr @max_registered_buffers, align 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.registered_buffer, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8304 x i8], ptr %10, i64 %13
   %15 = sub nsw i32 32, %12
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 8304
@@ -1408,9 +1407,9 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   %indvars.iv38 = phi i64 [ %46, %.lr.ph36 ], [ %indvars.iv.next39, %XLogRegisterBlock.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %XLogRegisterBlock.exit ]
   %49 = phi i32 [ %max_registered_block_id.promoted, %.lr.ph36 ], [ %59, %XLogRegisterBlock.exit ]
-  %50 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv38
+  %50 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv38
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv38
+  %52 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv38
   %53 = load ptr, ptr %52, align 8
   %54 = sext i32 %49 to i64
   %.not.i30 = icmp slt i64 %indvars.iv, %54
@@ -1434,7 +1433,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   unreachable
 
 XLogRegisterBlock.exit:                           ; preds = %58
-  %63 = getelementptr inbounds nuw %struct.registered_buffer, ptr %45, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8304 x i8], ptr %45, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -1475,7 +1474,7 @@ XLogRegisterBlock.exit:                           ; preds = %58
 
 83:                                               ; preds = %.lr.ph, %90
   %indvars.iv43 = phi i64 [ %46, %.lr.ph ], [ %indvars.iv.next44, %90 ]
-  %84 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv43
+  %84 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv43
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 14
   %.val = load i16, ptr %86, align 2
@@ -1509,7 +1508,7 @@ define dso_local range(i64 1, 0) i64 @log_newpage_buffer(i32 noundef %0, i1 noun
   %8 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %9 = xor i32 %0, -1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %BufferGetPage.exit
 
@@ -1551,7 +1550,7 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
   store ptr %10, ptr @registered_buffers, align 8
   %12 = load i32, ptr @max_registered_buffers, align 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.registered_buffer, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8304 x i8], ptr %10, i64 %13
   %15 = sub nsw i32 32, %12
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 8304
@@ -1635,7 +1634,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   %49 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %50 = xor i32 %46, -1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %BufferGetPage.exit
 
@@ -1657,7 +1656,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
 62:                                               ; preds = %BufferGetPage.exit
   %63 = add nsw i32 %.03343, 1
   %64 = sext i32 %.03343 to i64
-  %65 = getelementptr inbounds i32, ptr %6, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %6, i64 %64
   store i32 %46, ptr %65, align 4
   br label %67
 
@@ -1699,7 +1698,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %XLogRegisterBuffer.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
-  %78 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   tail call void @MarkBufferDirty(i32 noundef %79) #9
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1727,7 +1726,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
 90:                                               ; preds = %88, %.lr.ph47
   %91 = load ptr, ptr @registered_buffers, align 8
   %92 = and i64 %indvars.iv, 255
-  %93 = getelementptr inbounds nuw %struct.registered_buffer, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [8304 x i8], ptr %91, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 20
@@ -1739,7 +1738,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %99 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %100 = xor i32 %79, -1
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   br label %XLogRegisterBuffer.exit
 
@@ -1777,7 +1776,7 @@ XLogRegisterBuffer.exit:                          ; preds = %98, %104
 
 119:                                              ; preds = %._crit_edge48, %BufferGetPage.exit40
   %indvars.iv56 = phi i64 [ 0, %._crit_edge48 ], [ %indvars.iv.next57, %BufferGetPage.exit40 ]
-  %120 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv56
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv56
   %121 = load i32, ptr %120, align 4
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %129
@@ -1786,7 +1785,7 @@ XLogRegisterBuffer.exit:                          ; preds = %98, %104
   %124 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %125 = xor i32 %121, -1
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8
   br label %BufferGetPage.exit40
 

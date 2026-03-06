@@ -95,7 +95,7 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %10 = tail call ptr @__ctype_b_loc() #16
   %11 = load ptr, ptr %10, align 8
   %12 = zext i8 %7 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not77.i.us86 = icmp eq i16 %15, 0
@@ -103,7 +103,7 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
 
 16:                                               ; preds = %.cont55.us
   %17 = zext i8 %22 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8192
   %.not77.i.us = icmp eq i16 %20, 0
@@ -124,7 +124,7 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %storemerge92.i = phi ptr [ %29, %.else57 ], [ %0, %.lr.ph.i.split.preheader ]
   %24 = load ptr, ptr %9, align 8
   %25 = zext i8 %23 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 8192
   %.not77.i = icmp eq i16 %28, 0
@@ -181,7 +181,7 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %45 = phi i8 [ %40, %.lr.ph111.i.thread ], [ %52, %.cont.us ]
   %46 = phi ptr [ %38, %.lr.ph111.i.thread ], [ %51, %.cont.us ]
   %47 = zext i8 %45 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %42, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 8192
   %.not85.i.us = icmp eq i16 %50, 0
@@ -198,7 +198,7 @@ define ptr @PGTYPESnumeric_from_asc(ptr noundef %0, ptr noundef captures(address
   %54 = phi ptr [ %60, %.else ], [ %.promoted108.i.else.val, %.lr.ph111.i ]
   %55 = load ptr, ptr %43, align 8
   %56 = zext i8 %53 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 8192
   %.not85.i = icmp eq i16 %59, 0
@@ -309,7 +309,7 @@ thread-pre-split126.i.cont:                       ; preds = %thread-pre-split126
   %94 = tail call ptr @__ctype_b_loc() #16
   %95 = load ptr, ptr %94, align 8
   %96 = zext i8 %92 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = and i16 %98, 2048
   %.not78.i = icmp eq i16 %99, 0
@@ -331,7 +331,7 @@ thread-pre-split126.i.cont:                       ; preds = %thread-pre-split126
   %.16996.i = phi i8 [ %.2.i67, %.cont38 ], [ %.068.i, %.preheader.i ]
   %103 = load ptr, ptr %94, align 8
   %104 = zext i8 %101 to i64
-  %105 = getelementptr inbounds nuw i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = and i16 %106, 2048
   %.not80.i = icmp eq i16 %107, 0
@@ -493,7 +493,7 @@ thread-pre-split126.i.cont:                       ; preds = %thread-pre-split126
   %154 = phi i8 [ %161, %.cont23.us ], [ %151, %.lr.ph105.i.preheader.split.us ]
   %155 = phi ptr [ %160, %.cont23.us ], [ %152, %.lr.ph105.i.preheader.split.us ]
   %156 = zext i8 %154 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %156
   %158 = load i16, ptr %157, align 2
   %159 = and i16 %158, 8192
   %.not83.i.us = icmp eq i16 %159, 0
@@ -510,7 +510,7 @@ thread-pre-split126.i.cont:                       ; preds = %thread-pre-split126
   %163 = phi ptr [ %169, %.else25 ], [ %152, %.lr.ph105.i.preheader ]
   %164 = load ptr, ptr %94, align 8
   %165 = zext i8 %162 to i64
-  %166 = getelementptr inbounds nuw i16, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %165
   %167 = load i16, ptr %166, align 2
   %168 = and i16 %167, 8192
   %.not83.i = icmp eq i16 %168, 0
@@ -2193,7 +2193,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
 
 .lr.ph194:                                        ; preds = %124, %158
   %.0149193 = phi i64 [ %159, %158 ], [ %spec.store.select1, %124 ]
-  %129 = getelementptr inbounds nuw %struct.numeric, ptr %5, i64 %.0149193
+  %129 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %.0149193
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
@@ -2282,7 +2282,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
   br i1 %175, label %191, label %176
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds %struct.numeric, ptr %5, i64 %.0149.lcssa255
+  %177 = getelementptr inbounds [40 x i8], ptr %5, i64 %.0149.lcssa255
   %178 = call fastcc i32 @sub_abs(ptr noundef nonnull %4, ptr noundef nonnull %177, ptr noundef nonnull %4)
   %.not167 = icmp eq i32 %178, 0
   br i1 %.not167, label %179, label %.loopexit179
@@ -2432,7 +2432,7 @@ select_div_scale.exit:                            ; preds = %30, %.loopexit52.i,
 
 243:                                              ; preds = %.preheader, %248
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %248 ], [ 1, %.preheader ]
-  %244 = getelementptr inbounds nuw %struct.numeric, ptr %5, i64 %indvars.iv235
+  %244 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv235
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 24
   %246 = load ptr, ptr %245, align 8
   %.not169 = icmp eq ptr %246, null

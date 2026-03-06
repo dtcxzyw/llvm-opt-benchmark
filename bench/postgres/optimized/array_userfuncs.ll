@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pg_prng_state = type { i64, i64 }
-%struct.NullableDatum = type { i64, i8 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [21 x i8] c"integer out of range\00", align 1
@@ -149,7 +148,7 @@ define internal fastcc ptr @fetch_array_arg_replace_nulls(ptr noundef %0, i32 no
 18:                                               ; preds = %16, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.NullableDatum, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -566,17 +565,17 @@ define dso_local i64 @array_cat(ptr noundef captures(none) %0) local_unnamed_add
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %136
   %indvars.iv248 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next249, %136 ]
-  %122 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv248
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv248
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv248
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv248
   %125 = load i32, ptr %124, align 4
   %.not232 = icmp eq i32 %123, %125
   br i1 %.not232, label %126, label %131
 
 126:                                              ; preds = %.lr.ph
-  %127 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv248
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv248
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv248
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv248
   %130 = load i32, ptr %129, align 4
   %.not233 = icmp eq i32 %128, %130
   br i1 %.not233, label %136, label %131
@@ -590,10 +589,10 @@ define dso_local i64 @array_cat(ptr noundef captures(none) %0) local_unnamed_add
   unreachable
 
 136:                                              ; preds = %126
-  %137 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv248
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv248
   store i32 %123, ptr %137, align 4
   %138 = load i32, ptr %127, align 4
-  %139 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv248
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv248
   store i32 %138, ptr %139, align 4
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
@@ -620,18 +619,18 @@ define dso_local i64 @array_cat(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %exitcond247.not, label %.loopexit, label %147
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv242
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv242
   %149 = load i32, ptr %148, align 4
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
-  %150 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv.next243
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %indvars.iv.next243
   %151 = load i32, ptr %150, align 4
   %.not224 = icmp eq i32 %149, %151
   br i1 %.not224, label %152, label %157
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv242
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv242
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv.next243
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %indvars.iv.next243
   %156 = load i32, ptr %155, align 4
   %.not225 = icmp eq i32 %154, %156
   br i1 %.not225, label %146, label %157, !llvm.loop !8
@@ -662,18 +661,18 @@ define dso_local i64 @array_cat(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %exitcond.not, label %.loopexit, label %168
 
 168:                                              ; preds = %167
-  %169 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %170 = load i32, ptr %169, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %171 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv.next
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv.next
   %172 = load i32, ptr %171, align 4
   %.not222 = icmp eq i32 %170, %172
   br i1 %.not222, label %173, label %178
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv.next
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv.next
   %177 = load i32, ptr %176, align 4
   %.not223 = icmp eq i32 %175, %177
   br i1 %.not223, label %167, label %178, !llvm.loop !9
@@ -1015,7 +1014,7 @@ define dso_local i64 @array_agg_combine(ptr noundef %0) local_unnamed_addr #0 {
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %45, align 8
-  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv87
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv87
   %64 = load i64, ptr %63, align 8
   %65 = load i8, ptr %46, align 2, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
@@ -1027,7 +1026,7 @@ define dso_local i64 @array_agg_combine(ptr noundef %0) local_unnamed_addr #0 {
 70:                                               ; preds = %56, %61
   %.sink = phi i64 [ %69, %61 ], [ 0, %56 ]
   %71 = load ptr, ptr %48, align 8
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv87
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv87
   store i64 %.sink, ptr %72, align 8
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %73 = load i32, ptr %41, align 4
@@ -1113,7 +1112,7 @@ define dso_local i64 @array_agg_combine(ptr noundef %0) local_unnamed_addr #0 {
 
 123:                                              ; preds = %118
   %124 = load ptr, ptr %107, align 8
-  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv
   %126 = load i64, ptr %125, align 8
   %127 = load i8, ptr %108, align 2, !range !4, !noundef !5
   %128 = trunc nuw i8 %127 to i1
@@ -1129,7 +1128,7 @@ define dso_local i64 @array_agg_combine(ptr noundef %0) local_unnamed_addr #0 {
   %135 = trunc nuw nsw i64 %indvars.iv to i32
   %136 = add i32 %134, %135
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i64, ptr %133, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %133, i64 %137
   store i64 %.sink103, ptr %138, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %139 = load i32, ptr %77, align 4
@@ -1287,7 +1286,7 @@ define dso_local i64 @array_agg_serialize(ptr noundef readonly captures(none) %0
 
 84:                                               ; preds = %78
   %85 = load ptr, ptr %77, align 8
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv
   %87 = load i64, ptr %86, align 8
   %88 = call ptr @SendFunctionCall(ptr noundef %.0, i64 noundef %87) #11
   %89 = load i32, ptr %88, align 4
@@ -1523,7 +1522,7 @@ define dso_local i64 @array_agg_deserialize(ptr noundef %0) local_unnamed_addr #
 115:                                              ; preds = %90, %108
   %.sink = phi i64 [ %114, %108 ], [ 0, %90 ]
   %116 = load ptr, ptr %89, align 8
-  %117 = getelementptr inbounds i64, ptr %116, i64 %91
+  %117 = getelementptr inbounds [8 x i8], ptr %116, i64 %91
   store i64 %.sink, ptr %117, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %118 = add i32 %.060, 1
@@ -1833,17 +1832,17 @@ define dso_local i64 @array_agg_array_combine(ptr noundef %0) local_unnamed_addr
 
 107:                                              ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %108 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %.not110 = icmp eq i32 %109, %111
   br i1 %.not110, label %112, label %117
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4
   %.not111 = icmp eq i32 %114, %116
   br i1 %.not111, label %106, label %117
@@ -2842,7 +2841,7 @@ define internal fastcc ptr @array_shuffle_n(ptr noundef %0, i32 noundef %1, i1 n
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %45, i64 %48
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds i64, ptr %50, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %48
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %41
@@ -3054,7 +3053,7 @@ define dso_local i64 @array_reverse(ptr noundef readonly captures(none) %0) loca
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %49, i64 %53
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i64, ptr %55, i64 %53
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %53
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph59.split.i

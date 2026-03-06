@@ -677,7 +677,7 @@ _.exit:                                           ; preds = %261, %263
   %266 = call fastcc ptr @_(ptr noundef nonnull @.str.39)
   %267 = load i32, ptr %12, align 4, !tbaa !4
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds ptr, ptr @reset_type_names, i64 %268
+  %269 = getelementptr inbounds [8 x i8], ptr @reset_type_names, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !8
   %271 = call fastcc ptr @_(ptr noundef %270)
   call void (ptr, ...) @die(ptr noundef %266, ptr noundef %271) #14
@@ -704,7 +704,7 @@ _.exit:                                           ; preds = %261, %263
 
 278:                                              ; preds = %274
   %279 = sext i32 %275 to i64
-  %280 = getelementptr inbounds ptr, ptr @reset_type_names, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr @reset_type_names, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !8
   call void @trace2_cmd_mode_fl(ptr noundef nonnull @.str.36, i32 noundef 448, ptr noundef %281) #13
   br label %282
@@ -745,7 +745,7 @@ _.exit:                                           ; preds = %261, %263
   %294 = call fastcc ptr @_(ptr noundef nonnull @.str.41)
   %295 = load i32, ptr %12, align 4, !tbaa !4
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr @reset_type_names, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr @reset_type_names, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !8
   %299 = call fastcc ptr @_(ptr noundef %298)
   call void (ptr, ...) @die(ptr noundef %294, ptr noundef %299) #14
@@ -803,7 +803,7 @@ _.exit:                                           ; preds = %261, %263
 324:                                              ; preds = %319, %315
   %325 = call fastcc ptr @_(ptr noundef nonnull @.str.58)
   %326 = zext nneg i32 %314 to i64
-  %327 = getelementptr inbounds nuw ptr, ptr @reset_type_names, i64 %326
+  %327 = getelementptr inbounds nuw [8 x i8], ptr @reset_type_names, i64 %326
   %328 = load ptr, ptr %327, align 8, !tbaa !8
   %329 = call fastcc ptr @_(ptr noundef %328)
   call void (ptr, ...) @die(ptr noundef %325, ptr noundef %329) #14
@@ -1397,7 +1397,7 @@ define internal fastcc range(i32 -1, 1) i32 @reset_index(ptr noundef %0, ptr nou
   %.027 = phi i32 [ 1, %42 ], [ 0, %26 ], [ 0, %.thread ]
   %45 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %46 = zext nneg i32 %.027 to i64
-  %47 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %46
+  %47 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %46
   %48 = call ptr @fill_tree_descriptor(ptr noundef %45, ptr noundef nonnull %47, ptr noundef nonnull %1) #13
   %.not33 = icmp eq ptr %48, null
   br i1 %.not33, label %49, label %53
@@ -1463,7 +1463,7 @@ _.exit44:                                         ; preds = %60, %62
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %73 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !100
   call void @free(ptr noundef %75) #13
@@ -1539,7 +1539,7 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
 9:                                                ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !108
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !109
   %13 = load ptr, ptr %12, align 8, !tbaa !111
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
@@ -1587,7 +1587,7 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
   %42 = load ptr, ptr %41, align 8, !tbaa !51
   %43 = load ptr, ptr %42, align 8, !tbaa !119
   %44 = zext nneg i32 %37 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %48 = load i32, ptr %47, align 8, !tbaa !4

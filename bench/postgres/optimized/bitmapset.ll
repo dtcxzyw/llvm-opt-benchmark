@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/bitmapset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [38 x i8] c"negative bitmapset member not allowed\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"bitmapset.c\00", align 1
 @__func__.bms_make_singleton = private unnamed_addr constant [19 x i8] c"bms_make_singleton\00", align 1
@@ -68,9 +66,9 @@ define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly captures(add
 
 12:                                               ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %.not15 = icmp eq i64 %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -119,9 +117,9 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly captures
 21:                                               ; preds = %27, %17
   %.018 = phi i32 [ %18, %17 ], [ %28, %27 ]
   %22 = sext i32 %.018 to i64
-  %23 = getelementptr inbounds i64, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i64, ptr %20, i64 %22
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %22
   %26 = load i64, ptr %25, align 8
   %.not28 = icmp eq i64 %24, %26
   br i1 %.not28, label %27, label %.loopexit.split.loop.exit
@@ -167,7 +165,7 @@ define dso_local noundef ptr @bms_make_singleton(i32 noundef %0) local_unnamed_a
   %15 = shl nuw i64 1, %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %7 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   store i64 %15, ptr %18, align 8
   ret ptr %12
 }
@@ -237,9 +235,9 @@ define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %
 
 23:                                               ; preds = %23, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %12 ]
-  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %27, %25
   store i64 %28, ptr %26, align 8
@@ -294,9 +292,9 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
 18:                                               ; preds = %18, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %5 ]
   %.025 = phi i32 [ %spec.select, %18 ], [ -1, %5 ]
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %20
   store i64 %23, ptr %21, align 8
@@ -359,9 +357,9 @@ bms_copy.exit:                                    ; preds = %4
 
 18:                                               ; preds = %25, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %22 = load i64, ptr %21, align 8
   %23 = xor i64 %22, -1
   %24 = and i64 %20, %23
@@ -393,10 +391,10 @@ bms_copy.exit33:                                  ; preds = %18, %12
 
 .preheader:                                       ; preds = %bms_copy.exit33, %.preheader
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.preheader ], [ 0, %bms_copy.exit33 ]
-  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv39
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv39
   %38 = load i64, ptr %37, align 8
   %39 = xor i64 %38, -1
-  %40 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %39
   store i64 %42, ptr %40, align 8
@@ -409,10 +407,10 @@ bms_copy.exit33:                                  ; preds = %18, %12
 46:                                               ; preds = %.preheader35, %46
   %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %46 ]
   %.0 = phi i32 [ -1, %.preheader35 ], [ %spec.select, %46 ]
-  %47 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8
   %49 = xor i64 %48, -1
-  %50 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, %49
   store i64 %52, ptr %50, align 8
@@ -459,9 +457,9 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
 
 14:                                               ; preds = %14, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = xor i64 %18, -1
   %20 = and i64 %16, %19
@@ -502,9 +500,9 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly captures
 
 14:                                               ; preds = %14, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = xor i64 %18, -1
   %20 = and i64 %16, %19
@@ -549,9 +547,9 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly ca
 16:                                               ; preds = %.thread, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %8 ]
   %.027 = phi i32 [ %.22946, %.thread ], [ 0, %8 ]
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = xor i64 %20, -1
   %22 = and i64 %18, %21
@@ -632,7 +630,7 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
   %14 = and i32 %0, 63
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = zext nneg i32 %14 to i64
   %20 = shl nuw i64 1, %19
@@ -671,7 +669,7 @@ bms_is_member.exit:                               ; preds = %9
   %13 = and i32 %1, 63
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = zext nneg i32 %13 to i64
   %19 = shl nuw i64 1, %18
@@ -686,7 +684,7 @@ bms_is_member.exit:                               ; preds = %9
 .lr.ph:                                           ; preds = %21, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %21 ]
   %.01923 = phi i32 [ %.1, %28 ], [ 0, %21 ]
-  %22 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %28, label %24
@@ -744,9 +742,9 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly captures(a
 
 12:                                               ; preds = %12, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %5 ]
-  %13 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %14
   %.not.not = icmp ne i64 %17, 0
@@ -783,7 +781,7 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
 
 11:                                               ; preds = %.lr.ph, %.critedge29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge29 ]
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %18
@@ -803,7 +801,7 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
 22:                                               ; preds = %18
   %23 = and i32 %13, 63
   %24 = zext nneg i32 %19 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = zext nneg i32 %23 to i64
   %28 = shl nuw i64 1, %27
@@ -843,7 +841,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
 10:                                               ; preds = %25, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %6 ]
   %.0 = phi i32 [ %.1, %25 ], [ -1, %6 ]
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %25, label %13
@@ -895,7 +893,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 8:                                                ; preds = %20, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %4 ]
   %.019 = phi i32 [ %.221, %20 ], [ -1, %4 ]
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %20, label %11
@@ -946,7 +944,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly captures(address_is_n
 7:                                                ; preds = %14, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
   %.011 = phi i32 [ %.1, %14 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %14, label %10
@@ -984,7 +982,7 @@ define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly captur
 7:                                                ; preds = %.thread, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %3 ]
   %.015 = phi i32 [ %.21726, %.thread ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %.thread, label %10
@@ -1037,7 +1035,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %17 = shl nuw i64 1, %16
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = zext nneg i32 %9 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   store i64 %17, ptr %20, align 8
   br label %44
 
@@ -1061,7 +1059,7 @@ bms_make_singleton.exit:                          ; preds = %7
 
 32:                                               ; preds = %32, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ %31, %24 ]
-  %33 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv
   store i64 0, ptr %33, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %29, align 4
@@ -1075,7 +1073,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %38 = shl nuw i64 1, %37
   %39 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %40 = zext nneg i32 %9 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %38
   store i64 %43, ptr %41, align 8
@@ -1117,7 +1115,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %17 = xor i64 %16, -1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = zext nneg i32 %10 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %17
   store i64 %22, ptr %20, align 8
@@ -1139,7 +1137,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
 
 29:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %30 = getelementptr i64, ptr %0, i64 %indvars.iv
+  %30 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %.not30 = icmp eq i64 %31, 0
   br i1 %.not30, label %.preheader, label %32, !llvm.loop !23
@@ -1209,9 +1207,9 @@ bms_copy.exit27:                                  ; preds = %14
 
 28:                                               ; preds = %28, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %24 ]
-  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = or i64 %32, %30
   store i64 %33, ptr %31, align 8
@@ -1281,9 +1279,9 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
 
 29:                                               ; preds = %29, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %26 ]
-  %30 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %18, align 4
@@ -1353,7 +1351,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 33:                                               ; preds = %33, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ %32, %24 ]
-  %34 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %indvars.iv
   store i64 0, ptr %34, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %30, align 4
@@ -1377,7 +1375,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %46 = and i64 %45, %notmask51
   %47 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %48 = zext nneg i32 %11 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, %46
   store i64 %51, ptr %49, align 8
@@ -1386,7 +1384,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
 52:                                               ; preds = %.loopexit
   %53 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %54 = zext nneg i32 %38 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load i64, ptr %55, align 8
   %57 = or i64 %56, %notmask51
   store i64 %57, ptr %55, align 8
@@ -1412,7 +1410,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %68 = zext nneg i32 %40 to i64
   %69 = lshr i64 -1, %68
   %70 = sext i32 %11 to i64
-  %71 = getelementptr inbounds i64, ptr %53, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %53, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %69
   store i64 %73, ptr %71, align 8
@@ -1451,9 +1449,9 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
 14:                                               ; preds = %14, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %7 ]
   %.022 = phi i32 [ %spec.select, %14 ], [ -1, %7 ]
-  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %16
   store i64 %19, ptr %17, align 8
@@ -1508,10 +1506,10 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
 
 .preheader:                                       ; preds = %6, %.preheader
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %6 ]
-  %14 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv37
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv37
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, -1
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv37
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv37
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %16
   store i64 %19, ptr %17, align 8
@@ -1524,10 +1522,10 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
 23:                                               ; preds = %.preheader35, %23
   %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %23 ]
   %.0 = phi i32 [ -1, %.preheader35 ], [ %spec.select, %23 ]
-  %24 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, -1
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %26
   store i64 %29, ptr %27, align 8
@@ -1583,9 +1581,9 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 16:                                               ; preds = %16, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %6 ]
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = or i64 %20, %18
   store i64 %21, ptr %19, align 8
@@ -1630,7 +1628,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly captures(address_is_n
   %.01930 = phi i64 [ %12, %.lr.ph ], [ -1, %24 ]
   %.02129 = phi i32 [ %8, %.lr.ph ], [ %25, %24 ]
   %15 = sext i32 %.02129 to i64
-  %16 = getelementptr inbounds i64, ptr %13, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, %.01930
   %.not = icmp eq i64 %18, 0
@@ -1689,7 +1687,7 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   %.02235 = phi i64 [ %17, %.lr.ph ], [ -1, %30 ]
   %.02534 = phi i32 [ %13, %.lr.ph ], [ %31, %30 ]
   %20 = zext nneg i32 %.02534 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %.02235
   %.not = icmp eq i64 %23, 0
@@ -1777,9 +1775,9 @@ define dso_local range(i32 0, 2) i32 @bitmap_match(ptr noundef readonly captures
 
 15:                                               ; preds = %15, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %.not15.i = icmp eq i64 %17, %19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

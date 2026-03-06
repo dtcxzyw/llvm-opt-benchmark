@@ -53,7 +53,7 @@ define void @Dch_ManCollectTfoCands_rec(ptr noundef readonly captures(none) %0, 
   %.val33.sink.in = getelementptr i8, ptr %13, i64 176
   %.val33.sink = load ptr, ptr %.val33.sink.in, align 8, !tbaa !28
   %23 = sext i32 %.sink55 to i64
-  %24 = getelementptr inbounds i32, ptr %.val33.sink, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %.val33.sink, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !29
   %26 = getelementptr i8, ptr %13, i64 32
   %.val34 = load ptr, ptr %26, align 8, !tbaa !30
@@ -65,7 +65,7 @@ define void @Dch_ManCollectTfoCands_rec(ptr noundef readonly captures(none) %0, 
   %29 = getelementptr i8, ptr %.val34, i64 8
   %.val.i = load ptr, ptr %29, align 8, !tbaa !31
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %.val.i, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   br label %Aig_ManObj.exit
 
@@ -94,7 +94,7 @@ Aig_ObjRepr.exit:                                 ; preds = %._crit_edge
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !27
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %.val35, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %.val35, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !37
   %46 = icmp eq ptr %45, null
   br i1 %46, label %Aig_ObjRepr.exit.thread, label %47
@@ -255,7 +255,7 @@ Aig_ObjRepr.exit.thread.sink.split:               ; preds = %Vec_PtrPush.exit, %
   %.sink57 = phi ptr [ %116, %Vec_PtrPush.exit44 ], [ %79, %Vec_PtrPush.exit ]
   %.sink = phi ptr [ %45, %Vec_PtrPush.exit44 ], [ %1, %Vec_PtrPush.exit ]
   %119 = sext i32 %.sink59 to i64
-  %120 = getelementptr inbounds ptr, ptr %.sink57, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %.sink57, i64 %119
   store ptr %.sink, ptr %120, align 8, !tbaa !33
   br label %Aig_ObjRepr.exit.thread
 
@@ -326,7 +326,7 @@ Vec_PtrSort.exit19:                               ; preds = %Vec_PtrSort.exit, %
   %34 = phi ptr [ %41, %.lr.ph ], [ %32, %Vec_PtrSort.exit19 ]
   %35 = getelementptr i8, ptr %34, i64 8
   %.val16 = load ptr, ptr %35, align 8, !tbaa !31
-  %36 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val16, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i64, ptr %38, align 8
@@ -375,7 +375,7 @@ define void @Dch_ManResimulateSolved_rec(ptr noundef %0, ptr noundef captures(no
   %13 = getelementptr i8, ptr %.val28, i64 36
   %.val31 = load i32, ptr %13, align 4, !tbaa !27
   %14 = sext i32 %.val31 to i64
-  %15 = getelementptr inbounds i32, ptr %.val30, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %.val30, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !29
   %.not24 = icmp eq i32 %16, 0
   br i1 %.not24, label %26, label %17
@@ -386,7 +386,7 @@ define void @Dch_ManResimulateSolved_rec(ptr noundef %0, ptr noundef captures(no
   %20 = getelementptr i8, ptr %19, i64 328
   %.val34 = load ptr, ptr %20, align 8, !tbaa !47
   %21 = sext i32 %16 to i64
-  %22 = getelementptr inbounds i32, ptr %.val34, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %.val34, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !29
   %24 = icmp eq i32 %23, 1
   %25 = select i1 %24, i64 32, i64 0
@@ -450,7 +450,7 @@ define void @Dch_ManResimulateSolved_rec(ptr noundef %0, ptr noundef captures(no
   %69 = getelementptr i8, ptr %67, i64 36
   %.val33 = load i32, ptr %69, align 4, !tbaa !27
   %70 = sext i32 %.val33 to i64
-  %71 = getelementptr inbounds i32, ptr %.val32, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %.val32, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !29
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %74, label %78
@@ -599,7 +599,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %28 = phi ptr [ %32, %.lr.ph ], [ %25, %Abc_Clock.exit ]
   %29 = getelementptr i8, ptr %28, i64 8
   %.val45 = load ptr, ptr %29, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val45, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   call void @Dch_ManResimulateOther_rec(ptr noundef nonnull %0, ptr noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -627,7 +627,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %43 = phi ptr [ %58, %._crit_edge ], [ %40, %.critedge ]
   %44 = getelementptr i8, ptr %43, i64 8
   %.val44 = load ptr, ptr %44, align 8, !tbaa !31
-  %45 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv66
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val44, i64 %indvars.iv66
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = load ptr, ptr %36, align 8, !tbaa !67
   %48 = call ptr @Dch_ClassesReadClass(ptr noundef %47, ptr noundef %46, ptr noundef nonnull %6) #12
@@ -637,7 +637,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 
 .lr.ph57:                                         ; preds = %.lr.ph60, %.lr.ph57
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.lr.ph57 ], [ 0, %.lr.ph60 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv63
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv63
   %52 = load ptr, ptr %51, align 8, !tbaa !37
   call void @Dch_ManResimulateOther_rec(ptr noundef %0, ptr noundef %52)
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
@@ -722,7 +722,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %.val.i, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   br label %Dch_ObjIsConst1Cand.exit
 
@@ -776,7 +776,7 @@ Dch_ObjIsConst1Cand.exit:                         ; preds = %Abc_Clock.exit, %15
   %44 = phi ptr [ %48, %.lr.ph ], [ %41, %29 ]
   %45 = getelementptr i8, ptr %44, i64 8
   %.val34 = load ptr, ptr %45, align 8, !tbaa !31
-  %46 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !33
   call void @Dch_ManResimulateOther_rec(ptr noundef nonnull %0, ptr noundef %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -799,7 +799,7 @@ Dch_ObjIsConst1Cand.exit:                         ; preds = %Abc_Clock.exit, %15
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %56 = load i32, ptr %55, align 4, !tbaa !27
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.val.i37, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.val.i37, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !37
   br label %Dch_ObjIsConst1Cand.exit40
 

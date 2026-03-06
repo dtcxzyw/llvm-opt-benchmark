@@ -381,7 +381,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 89:                                               ; preds = %82
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.048.ptr79, i64 32
   %91 = load ptr, ptr %90, align 8, !nonnull !5, !noundef !5
-  %92 = getelementptr inbounds { ptr, i64 }, ptr %91, i64 %84
+  %92 = getelementptr inbounds [16 x i8], ptr %91, i64 %84
   br label %93
 
 93:                                               ; preds = %_RNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB4_7vendors6Vendor11infer_inner0B4_.exit.i, %89

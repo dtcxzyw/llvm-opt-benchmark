@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ZSTD_entropyCTablesMetadata_t = type { %struct.ZSTD_hufCTablesMetadata_t, %struct.ZSTD_fseCTablesMetadata_t }
 %struct.ZSTD_hufCTablesMetadata_t = type { i32, [128 x i8], i64 }
 %struct.ZSTD_fseCTablesMetadata_t = type { i32, i32, i32, [133 x i8], i64, i64 }
-%struct.seqDef_s = type { i32, i16, i16 }
 
 @OF_defaultNorm = internal constant [29 x i16] [i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 2, i16 2, i16 2, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1], align 16
 @LL_bits = internal unnamed_addr constant [36 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\01\01\01\02\02\03\03\04\06\07\08\09\0A\0B\0C\0D\0E\0F\10", align 16
@@ -120,7 +119,7 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   br i1 %49, label %.thread.i, label %83
 
 83:                                               ; preds = %82
-  %84 = getelementptr inbounds nuw %struct.seqDef_s, ptr %.0134.ph.i, i64 %.0183.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.0134.ph.i, i64 %.0183.i
   %85 = icmp eq ptr %84, %51
   %cond.fr.i = freeze i1 %85
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -394,7 +393,7 @@ ZSTD_estimateSubBlockSize.exit.i:                 ; preds = %ZSTD_estimateSubBlo
   br i1 %or.cond.i, label %ZSTD_seqDecompressedSize.exit.i, label %.thread255.i
 
 .lr.ph.i.i:                                       ; preds = %ZSTD_estimateSubBlockSize_symbolType.exit51.i.i.i
-  %188 = getelementptr inbounds nuw %struct.seqDef_s, ptr %.0134.ph.i, i64 %.1184345.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %.0134.ph.i, i64 %.1184345.i
   %189 = ptrtoint ptr %188 to i64
   %190 = load i32, ptr %52, align 4, !tbaa !56
   %191 = load ptr, ptr %13, align 8, !tbaa !44
@@ -861,7 +860,7 @@ ZSTD_getSequenceLength.exit228.i:                 ; preds = %418, %407
 
 432:                                              ; preds = %425
   %433 = zext i32 %429 to i64
-  %434 = getelementptr inbounds nuw i32, ptr %11, i64 %433
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %433
   %435 = load i32, ptr %434, align 4, !tbaa !58
   br label %436
 

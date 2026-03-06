@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/cuddSubsetHB.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.NodeData = type { ptr, ptr, ptr }
-
 @memOut = internal unnamed_addr global i1 false, align 4
 @.str = private unnamed_addr constant [27 x i8] c"Cannot subset, nil object\0A\00", align 1
 @one = internal unnamed_addr global ptr null, align 8
@@ -188,7 +186,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 57:                                               ; preds = %61, %.lr.ph89.i
   %indvars.iv102.i = phi i64 [ 0, %.lr.ph89.i ], [ %indvars.iv.next103.i, %61 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %.pre115.i, i64 %indvars.iv102.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.pre115.i, i64 %indvars.iv102.i
   %59 = load ptr, ptr %58, align 8, !tbaa !34
   %.not75.i = icmp eq ptr %59, null
   br i1 %.not75.i, label %61, label %60
@@ -225,7 +223,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 65:                                               ; preds = %69, %.lr.ph94.i
   %indvars.iv107.i = phi i64 [ 0, %.lr.ph94.i ], [ %indvars.iv.next108.i, %69 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %.pre116.i, i64 %indvars.iv107.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.pre116.i, i64 %indvars.iv107.i
   %67 = load ptr, ptr %66, align 8, !tbaa !38
   %.not74.i = icmp eq ptr %67, null
   br i1 %.not74.i, label %69, label %68
@@ -277,7 +275,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 79:                                               ; preds = %83, %.lr.ph85.i
   %indvars.iv97.i = phi i64 [ 0, %.lr.ph85.i ], [ %indvars.iv.next98.i, %83 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %.pre114.i, i64 %indvars.iv97.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.pre114.i, i64 %indvars.iv97.i
   %81 = load ptr, ptr %80, align 8, !tbaa !38
   %.not67.i = icmp eq ptr %81, null
   br i1 %.not67.i, label %83, label %82
@@ -328,7 +326,7 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 93:                                               ; preds = %97, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %97 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %95 = load ptr, ptr %94, align 8, !tbaa !38
   %.not59.i = icmp eq ptr %95, null
   br i1 %.not59.i, label %97, label %96
@@ -506,7 +504,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 158:                                              ; preds = %.lr.ph125, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next, %162 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8, !tbaa !34
   %.not107 = icmp eq ptr %160, null
   br i1 %.not107, label %162, label %161
@@ -540,7 +538,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 164:                                              ; preds = %.lr.ph130, %168
   %indvars.iv143 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next144, %168 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %.pre158, i64 %indvars.iv143
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %.pre158, i64 %indvars.iv143
   %166 = load ptr, ptr %165, align 8, !tbaa !45
   %.not106 = icmp eq ptr %166, null
   br i1 %.not106, label %168, label %167
@@ -575,7 +573,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 170:                                              ; preds = %.lr.ph135, %174
   %indvars.iv148 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next149, %174 ]
-  %171 = getelementptr inbounds nuw ptr, ptr %.pre159, i64 %indvars.iv148
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.pre159, i64 %indvars.iv148
   %172 = load ptr, ptr %171, align 8, !tbaa !45
   %.not105 = icmp eq ptr %172, null
   br i1 %.not105, label %174, label %173
@@ -614,7 +612,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 178:                                              ; preds = %.lr.ph140, %182
   %indvars.iv153 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next154, %182 ]
-  %179 = getelementptr inbounds nuw ptr, ptr %.pre160, i64 %indvars.iv153
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %.pre160, i64 %indvars.iv153
   %180 = load ptr, ptr %179, align 8, !tbaa !38
   %.not104 = icmp eq ptr %180, null
   br i1 %.not104, label %182, label %181
@@ -1103,7 +1101,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 52:                                               ; preds = %56, %.lr.ph39.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph39.i ], [ %indvars.iv.next48.i, %56 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pre54.i, i64 %indvars.iv47.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre54.i, i64 %indvars.iv47.i
   %54 = load ptr, ptr %53, align 8, !tbaa !34
   %.not27.i = icmp eq ptr %54, null
   br i1 %.not27.i, label %56, label %55
@@ -1124,9 +1122,9 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 57:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %.pre54.i, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.pre54.i, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8, !tbaa !34
-  %60 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   store ptr %59, ptr %60, align 8, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1153,7 +1151,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
   %64 = phi ptr [ %.pre53.i, %._crit_edge52.i ], [ %49, %62 ]
   %65 = call noalias dereferenceable_or_null(16384) ptr @malloc(i64 noundef 16384) #9
   %66 = sext i32 %42 to i64
-  %67 = getelementptr inbounds ptr, ptr %64, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %64, i64 %66
   store ptr %65, ptr %67, align 8, !tbaa !34
   store ptr %65, ptr @currentMintermPage, align 8, !tbaa !34
   %68 = icmp eq ptr %65, null
@@ -1169,7 +1167,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 .lr.ph35.i:                                       ; preds = %72, %.lr.ph35.preheader.i
   %indvars.iv42.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next43.i, %72 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv42.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv42.i
   %70 = load ptr, ptr %69, align 8, !tbaa !34
   %.not25.i = icmp eq ptr %70, null
   br i1 %.not25.i, label %72, label %71
@@ -1204,7 +1202,7 @@ define internal fastcc double @SubsetCountMintermAux(ptr noundef %0, double noun
 
 75:                                               ; preds = %.lr.ph91, %79
   %indvars.iv104 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next105, %79 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.pre112, i64 %indvars.iv104
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.pre112, i64 %indvars.iv104
   %77 = load ptr, ptr %76, align 8, !tbaa !38
   %.not76 = icmp eq ptr %77, null
   br i1 %.not76, label %79, label %78
@@ -1236,7 +1234,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   %81 = phi i32 [ %38, %35 ], [ 0, %63 ]
   %82 = load ptr, ptr @currentMintermPage, align 8, !tbaa !34
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds double, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   %85 = add nsw i32 %81, 1
   store i32 %85, ptr @pageIndex, align 4, !tbaa !31
   store double %37, ptr %84, align 8, !tbaa !30
@@ -1262,7 +1260,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
 
 91:                                               ; preds = %.lr.ph87, %95
   %indvars.iv99 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next100, %95 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %.pre111, i64 %indvars.iv99
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.pre111, i64 %indvars.iv99
   %93 = load ptr, ptr %92, align 8, !tbaa !34
   %.not73 = icmp eq ptr %93, null
   br i1 %.not73, label %95, label %94
@@ -1294,7 +1292,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
   %97 = load ptr, ptr @currentNodeDataPage, align 8, !tbaa !38
   %98 = load i32, ptr @nodeDataPageIndex, align 4, !tbaa !31
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.NodeData, ptr %97, i64 %99
+  %100 = getelementptr inbounds [24 x i8], ptr %97, i64 %99
   %101 = add nsw i32 %98, 1
   store i32 %101, ptr @nodeDataPageIndex, align 4, !tbaa !31
   store ptr %84, ptr %100, align 8, !tbaa !59
@@ -1318,7 +1316,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
 
 108:                                              ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !34
   %.not70 = icmp eq ptr %110, null
   br i1 %.not70, label %112, label %111
@@ -1355,7 +1353,7 @@ ResizeCountMintermPages.exitthread-pre-split:     ; preds = %63, %35
 
 116:                                              ; preds = %.lr.ph83, %120
   %indvars.iv94 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next95, %120 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %.pre110, i64 %indvars.iv94
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.pre110, i64 %indvars.iv94
   %118 = load ptr, ptr %117, align 8, !tbaa !38
   %.not69 = icmp eq ptr %118, null
   br i1 %.not69, label %120, label %119
@@ -1429,7 +1427,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #4 {
 
 12:                                               ; preds = %.lr.ph39, %16
   %indvars.iv47 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next48, %16 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.pre54, i64 %indvars.iv47
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre54, i64 %indvars.iv47
   %14 = load ptr, ptr %13, align 8, !tbaa !38
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %16, label %15
@@ -1459,9 +1457,9 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #4 {
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %.pre54, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre54, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1488,7 +1486,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #4 {
   %25 = phi ptr [ %.pre53, %._crit_edge52 ], [ %9, %23 ]
   %26 = tail call noalias dereferenceable_or_null(24576) ptr @malloc(i64 noundef 24576) #9
   %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   store ptr %26, ptr %28, align 8, !tbaa !38
   store ptr %26, ptr @currentNodeDataPage, align 8, !tbaa !38
   %29 = icmp eq ptr %26, null
@@ -1504,7 +1502,7 @@ define internal fastcc void @ResizeNodeDataPages() unnamed_addr #4 {
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %33
   %indvars.iv42 = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next43, %33 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv42
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv42
   %31 = load ptr, ptr %30, align 8, !tbaa !38
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %33, label %32
@@ -1668,7 +1666,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 75:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.pre219, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.pre219, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !34
   %.not145 = icmp eq ptr %77, null
   br i1 %.not145, label %79, label %78
@@ -1705,7 +1703,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 83:                                               ; preds = %.lr.ph158, %87
   %indvars.iv184 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next185, %87 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %.pre220, i64 %indvars.iv184
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.pre220, i64 %indvars.iv184
   %85 = load ptr, ptr %84, align 8, !tbaa !38
   %.not144 = icmp eq ptr %85, null
   br i1 %.not144, label %87, label %86
@@ -1770,7 +1768,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 99:                                               ; preds = %.lr.ph176, %103
   %indvars.iv209 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next210, %103 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %.pre227, i64 %indvars.iv209
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.pre227, i64 %indvars.iv209
   %101 = load ptr, ptr %100, align 8, !tbaa !34
   %.not131 = icmp eq ptr %101, null
   br i1 %.not131, label %103, label %102
@@ -1807,7 +1805,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 107:                                              ; preds = %.lr.ph181, %111
   %indvars.iv214 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next215, %111 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %.pre228, i64 %indvars.iv214
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.pre228, i64 %indvars.iv214
   %109 = load ptr, ptr %108, align 8, !tbaa !38
   %.not130 = icmp eq ptr %109, null
   br i1 %.not130, label %111, label %110
@@ -1842,13 +1840,13 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   %.099 = phi i32 [ %66, %69 ], [ %66, %..thread_crit_edge ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
   %113 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !45
   %114 = sext i32 %.sink to i64
-  %115 = getelementptr inbounds i32, ptr %113, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %113, i64 %114
   store i32 %.sink260, ptr %115, align 4, !tbaa !31
   %116 = load ptr, ptr %4, align 8, !tbaa !38
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %115, ptr %117, align 8, !tbaa !61
   %118 = load ptr, ptr @currentNodePage, align 8, !tbaa !45
-  %119 = getelementptr inbounds i32, ptr %118, i64 %114
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %114
   %120 = add i32 %.0101, 1
   %121 = add i32 %120, %.099
   store i32 %121, ptr %119, align 4, !tbaa !31
@@ -1887,7 +1885,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 135:                                              ; preds = %.lr.ph168, %139
   %indvars.iv199 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next200, %139 ]
-  %136 = getelementptr inbounds nuw ptr, ptr %.pre225, i64 %indvars.iv199
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.pre225, i64 %indvars.iv199
   %137 = load ptr, ptr %136, align 8, !tbaa !34
   %.not139 = icmp eq ptr %137, null
   br i1 %.not139, label %139, label %138
@@ -1923,7 +1921,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 143:                                              ; preds = %.lr.ph172, %147
   %indvars.iv204 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next205, %147 ]
-  %144 = getelementptr inbounds nuw ptr, ptr %.pre226, i64 %indvars.iv204
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.pre226, i64 %indvars.iv204
   %145 = load ptr, ptr %144, align 8, !tbaa !38
   %.not138 = icmp eq ptr %145, null
   br i1 %.not138, label %147, label %146
@@ -1955,7 +1953,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   %150 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !45
   %151 = load i32, ptr @pageIndex, align 4, !tbaa !31
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %150, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %150, i64 %152
   store i32 0, ptr %153, align 4, !tbaa !31
   %154 = load ptr, ptr %7, align 8, !tbaa !38
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
@@ -1980,7 +1978,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 160:                                              ; preds = %.lr.ph161, %164
   %indvars.iv189 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next190, %164 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %.pre223, i64 %indvars.iv189
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %.pre223, i64 %indvars.iv189
   %162 = load ptr, ptr %161, align 8, !tbaa !34
   %.not135 = icmp eq ptr %162, null
   br i1 %.not135, label %164, label %163
@@ -2016,7 +2014,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 168:                                              ; preds = %.lr.ph165, %172
   %indvars.iv194 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next195, %172 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %.pre224, i64 %indvars.iv194
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.pre224, i64 %indvars.iv194
   %170 = load ptr, ptr %169, align 8, !tbaa !38
   %.not134 = icmp eq ptr %170, null
   br i1 %.not134, label %172, label %171
@@ -2048,7 +2046,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   %174 = load ptr, ptr @currentNodePage, align 8, !tbaa !45
   %175 = load i32, ptr @pageIndex, align 4, !tbaa !31
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i32, ptr %174, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %174, i64 %176
   store i32 0, ptr %177, align 4, !tbaa !31
   %178 = load ptr, ptr %7, align 8, !tbaa !38
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
@@ -2110,7 +2108,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 12:                                               ; preds = %.lr.ph137, %16
   %indvars.iv180 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next181, %16 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %.pre195, i64 %indvars.iv180
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre195, i64 %indvars.iv180
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   %.not91 = icmp eq ptr %14, null
   br i1 %.not91, label %16, label %15
@@ -2143,7 +2141,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 17:                                               ; preds = %.lr.ph142, %21
   %indvars.iv185 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next186, %21 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %.pre196, i64 %indvars.iv185
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre196, i64 %indvars.iv185
   %19 = load ptr, ptr %18, align 8, !tbaa !45
   %.not90 = icmp eq ptr %19, null
   br i1 %.not90, label %21, label %20
@@ -2175,9 +2173,9 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %.pre195, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.pre195, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !45
-  %26 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %25, ptr %26, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2222,7 +2220,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 .lr.ph128:                                        ; preds = %.lr.ph128.preheader, %33
   %indvars.iv170 = phi i64 [ 0, %.lr.ph128.preheader ], [ %indvars.iv.next171, %33 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv170
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv170
   %31 = load ptr, ptr %30, align 8, !tbaa !45
   %.not87 = icmp eq ptr %31, null
   br i1 %.not87, label %33, label %32
@@ -2246,7 +2244,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 34:                                               ; preds = %._crit_edge129, %38
   %indvars.iv175 = phi i64 [ 0, %._crit_edge129 ], [ %indvars.iv.next176, %38 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.pre194, i64 %indvars.iv175
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre194, i64 %indvars.iv175
   %36 = load ptr, ptr %35, align 8, !tbaa !45
   %.not86 = icmp eq ptr %36, null
   br i1 %.not86, label %38, label %37
@@ -2273,9 +2271,9 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 40:                                               ; preds = %.lr.ph106, %40
   %indvars.iv145 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next146, %40 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %.pre190, i64 %indvars.iv145
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.pre190, i64 %indvars.iv145
   %42 = load ptr, ptr %41, align 8, !tbaa !45
-  %43 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv145
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv145
   store ptr %42, ptr %43, align 8, !tbaa !45
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
@@ -2298,7 +2296,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
   %46 = phi ptr [ %.pre192, %._crit_edge191 ], [ %9, %44 ]
   %47 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #9
   %48 = sext i32 %2 to i64
-  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %46, i64 %48
   store ptr %47, ptr %49, align 8, !tbaa !45
   store ptr %47, ptr @currentNodePage, align 8, !tbaa !45
   %50 = icmp eq ptr %47, null
@@ -2321,7 +2319,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %54
   %indvars.iv160 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next161, %54 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv160
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv160
   %52 = load ptr, ptr %51, align 8, !tbaa !45
   %.not83 = icmp eq ptr %52, null
   br i1 %.not83, label %54, label %53
@@ -2345,7 +2343,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 55:                                               ; preds = %._crit_edge120, %59
   %indvars.iv165 = phi i64 [ 0, %._crit_edge120 ], [ %indvars.iv.next166, %59 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %.pre193, i64 %indvars.iv165
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.pre193, i64 %indvars.iv165
   %57 = load ptr, ptr %56, align 8, !tbaa !45
   %.not82 = icmp eq ptr %57, null
   br i1 %.not82, label %59, label %58
@@ -2373,7 +2371,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 61:                                               ; preds = %45
   %62 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #9
   %63 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %48
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %48
   store ptr %62, ptr %64, align 8, !tbaa !45
   store ptr %62, ptr @currentLightNodePage, align 8, !tbaa !45
   %65 = icmp eq ptr %62, null
@@ -2395,7 +2393,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %70
   %indvars.iv150 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next151, %70 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv150
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv150
   %68 = load ptr, ptr %67, align 8, !tbaa !45
   %.not79 = icmp eq ptr %68, null
   br i1 %.not79, label %70, label %69
@@ -2422,7 +2420,7 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #4 {
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %74
   %indvars.iv155 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next156, %74 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv155
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv155
   %72 = load ptr, ptr %71, align 8, !tbaa !45
   %.not78 = icmp eq ptr %72, null
   br i1 %.not78, label %74, label %73

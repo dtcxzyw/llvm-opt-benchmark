@@ -47,21 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.mitsuba::Point" = type { %"struct.drjit::StaticArrayImpl.29" }
 %"struct.drjit::StaticArrayImpl.29" = type { %"struct.drjit::StaticArrayImpl.30" }
 %"struct.drjit::StaticArrayImpl.30" = type { <4 x float> }
-%"struct.blender::MLoopTri" = type { [3 x i32], i32 }
-%"struct.blender::MPoly" = type { i32, i32, i16, i8, i8 }
-%"struct.std::__1::array.146" = type { [3 x float] }
-%"struct.mitsuba::Vector.142" = type { %"struct.drjit::StaticArrayImpl.143" }
-%"struct.drjit::StaticArrayImpl.143" = type { [2 x float] }
-%struct.VertexBinding = type <{ %struct.Key, i32, [4 x i8], ptr, i8, [15 x i8] }>
-%struct.Key = type <{ %"struct.mitsuba::Normal", i8, [7 x i8], i64, %"struct.mitsuba::Vector.142", [8 x i8] }>
-%"struct.mitsuba::Normal" = type { %"struct.drjit::StaticArrayImpl.131" }
-%"struct.drjit::StaticArrayImpl.131" = type { %"struct.drjit::StaticArrayImpl.132" }
-%"struct.drjit::StaticArrayImpl.132" = type { <4 x float> }
-%"struct.blender::MLoop" = type { i32, i32 }
-%"struct.blender::MVertBlender2" = type { [3 x float], [3 x i16], i8, i8 }
-%"struct.blender::MVertBlender3" = type { [3 x float], i8, i8, [2 x i8] }
-%"struct.blender::MLoopUV" = type { [2 x float], i32 }
-%"struct.blender::MLoopCol" = type { i8, i8, i8, i8 }
 %"class.std::__1::function" = type { %"class.std::__1::__function::__value_func" }
 %"class.std::__1::__function::__value_func" = type { %"struct.std::__1::aligned_storage<24>::type", ptr, [8 x i8] }
 %"struct.std::__1::aligned_storage<24>::type" = type { [32 x i8] }
@@ -1013,7 +998,7 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader: ; preds = %267, %.thread116
 
 .lr.ph1511:                                       ; preds = %.preheader1423, %271
   %.06941510 = phi i64 [ %272, %271 ], [ 0, %.preheader1423 ]
-  %273 = getelementptr inbounds i32, ptr %132, i64 %.06941510
+  %273 = getelementptr inbounds [4 x i8], ptr %132, i64 %.06941510
   %274 = load i32, ptr %273, align 4
   %275 = sext i32 %274 to i64
   %276 = getelementptr inbounds i8, ptr %138, i64 %275
@@ -1028,11 +1013,11 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit790:        ; preds = %.lr.ph1513
 
 .lr.ph1513:                                       ; preds = %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790
   %.06951512 = phi i64 [ %279, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790 ], [ 0, %_ZNK7mitsuba4util7VersiongeERKS1_.exit790.preheader ]
-  %280 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06951512
+  %280 = getelementptr inbounds [16 x i8], ptr %129, i64 %.06951512
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 12
   %282 = load i32, ptr %281, align 4
   %283 = zext i32 %282 to i64
-  %284 = getelementptr inbounds nuw %"struct.blender::MPoly", ptr %132, i64 %283
+  %284 = getelementptr inbounds nuw [12 x i8], ptr %132, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 10
   %286 = load i8, ptr %285, align 2
   %287 = and i8 %286, 1
@@ -1074,7 +1059,7 @@ _ZNSt3__114__split_bufferINS_5arrayIfLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000
 
 _ZNSt3__16vectorINS_5arrayIfLm3EEENS_9allocatorIS2_EEE7reserveEm.exit: ; preds = %_ZNSt3__114__split_bufferINS_5arrayIfLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.i
   %296 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %297 = getelementptr inbounds nuw %"struct.std::__1::array.146", ptr %295, i64 %120
+  %297 = getelementptr inbounds nuw [12 x i8], ptr %295, i64 %120
   store ptr %295, ptr %38, align 8
   store ptr %295, ptr %296, align 8
   store ptr %297, ptr %290, align 8
@@ -1088,7 +1073,7 @@ _ZNSt3__114__split_bufferINS_5arrayIfLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000
 .noexc799:                                        ; preds = %_ZNSt3__114__split_bufferINS_5arrayIfLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.i795
   %300 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %301 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %302 = getelementptr inbounds nuw %"struct.std::__1::array.146", ptr %299, i64 %120
+  %302 = getelementptr inbounds nuw [12 x i8], ptr %299, i64 %120
   store ptr %299, ptr %39, align 8
   store ptr %299, ptr %301, align 8
   store ptr %302, ptr %300, align 8
@@ -1127,7 +1112,7 @@ _ZNSt3__114__split_bufferINS_5arrayIjLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000
 
 .noexc805:                                        ; preds = %_ZNSt3__114__split_bufferINS_5arrayIjLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.i
   %309 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %310 = getelementptr inbounds nuw %"struct.std::__1::array", ptr %308, i64 %123
+  %310 = getelementptr inbounds nuw [12 x i8], ptr %308, i64 %123
   store ptr %308, ptr %42, align 8
   store ptr %308, ptr %309, align 8
   store ptr %310, ptr %303, align 8
@@ -1148,7 +1133,7 @@ _ZNSt3__114__split_bufferIN7mitsuba6VectorIfLm2EEERNS_9allocatorIS3_EEE5clearB8n
 
 .noexc808:                                        ; preds = %_ZNSt3__114__split_bufferIN7mitsuba6VectorIfLm2EEERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i.i
   %315 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %316 = getelementptr inbounds nuw %"struct.mitsuba::Vector.142", ptr %314, i64 %120
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %120
   store ptr %314, ptr %40, align 8
   store ptr %314, ptr %315, align 8
   store ptr %316, ptr %312, align 8
@@ -1223,7 +1208,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE7reserveEm.exit: ; 
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %.thread1723, %345, %346
   %347 = load ptr, ptr %41, align 8
-  %348 = getelementptr inbounds %"class.std::__1::vector.113", ptr %347, i64 %.06991514
+  %348 = getelementptr inbounds [24 x i8], ptr %347, i64 %.06991514
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load ptr, ptr %349, align 8
   %351 = load ptr, ptr %348, align 8
@@ -1245,9 +1230,9 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; pre
   %361 = sub i64 %360, %353
   %362 = ashr exact i64 %361, 2
   %363 = getelementptr inbounds i8, ptr %359, i64 %361
-  %364 = getelementptr inbounds nuw float, ptr %359, i64 %331
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %331
   %365 = sub nsw i64 0, %362
-  %366 = getelementptr inbounds float, ptr %363, i64 %365
+  %366 = getelementptr inbounds [4 x i8], ptr %363, i64 %365
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %366, ptr align 4 %351, i64 %361, i1 false)
   store ptr %366, ptr %348, align 8
   store ptr %363, ptr %357, align 8
@@ -1306,7 +1291,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba11BlenderMeshIf
 
 _ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE18__construct_at_endEm.exit.i: ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i.i
   store ptr %386, ptr %44, align 8
-  %387 = getelementptr inbounds nuw %struct.VertexBinding, ptr %386, i64 %120
+  %387 = getelementptr inbounds nuw [80 x i8], ptr %386, i64 %120
   store ptr %387, ptr %381, align 8
   %388 = add nsw i64 %385, -80
   %389 = urem i64 %388, 80
@@ -1371,8 +1356,8 @@ _ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm
   %420 = load i32, ptr %262, align 4
   %421 = icmp ult i32 %420, 6
   %or.cond1395 = select i1 %.not1378, i1 %421, i1 false
-  %422 = getelementptr inbounds i32, ptr %132, i64 %.07081531
-  %423 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081531
+  %422 = getelementptr inbounds [4 x i8], ptr %132, i64 %.07081531
+  %423 = getelementptr inbounds [16 x i8], ptr %129, i64 %.07081531
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 12
   %.07091166.in = select i1 %or.cond1395, ptr %424, ptr %422
   %.07091166 = load i32, ptr %.07091166.in, align 4
@@ -1413,14 +1398,14 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit822:        ; preds = %419
 
 427:                                              ; preds = %425
   %428 = sext i32 %.07091166 to i64
-  %429 = getelementptr inbounds i32, ptr %135, i64 %428
+  %429 = getelementptr inbounds [4 x i8], ptr %135, i64 %428
   %430 = load i32, ptr %429, align 4
   %.not743 = icmp eq i32 %430, %396
   br i1 %.not743, label %.thread1187, label %1048
 
 .thread1727:                                      ; preds = %_ZNK7mitsuba4util7VersiongeERKS1_.exit822
   %431 = sext i32 %.07091166 to i64
-  %432 = getelementptr inbounds i32, ptr %135, i64 %431
+  %432 = getelementptr inbounds [4 x i8], ptr %135, i64 %431
   %433 = load i32, ptr %432, align 4
   %.not7431728 = icmp eq i32 %433, %396
   br i1 %.not7431728, label %.thread1201, label %1048
@@ -1430,11 +1415,11 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit822:        ; preds = %419
   br i1 %434, label %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191, label %.thread1187
 
 _ZNK7mitsuba4util7VersionltERKS1_.exit:           ; preds = %416
-  %435 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081531
+  %435 = getelementptr inbounds [16 x i8], ptr %129, i64 %.07081531
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 12
   %.07091173 = load i32, ptr %436, align 4
   %437 = sext i32 %.07091173 to i64
-  %438 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %437
+  %438 = getelementptr inbounds [12 x i8], ptr %132, i64 %437
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = load i16, ptr %439, align 4
   %441 = sext i16 %440 to i32
@@ -1443,7 +1428,7 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit:           ; preds = %416
 
 _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191: ; preds = %.critedge
   %442 = sext i32 %.07091166 to i64
-  %443 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %442
+  %443 = getelementptr inbounds [12 x i8], ptr %132, i64 %442
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 8
   %445 = load i16, ptr %444, align 4
   %446 = sext i16 %445 to i32
@@ -1456,19 +1441,19 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191: ; preds = %.critedge
 .thread1187.thread:                               ; preds = %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191, %.thread1187, %_ZNK7mitsuba4util7VersionltERKS1_.exit
   %.070911671177118011861190 = phi i32 [ %.07091166, %.thread1187 ], [ %.07091173, %_ZNK7mitsuba4util7VersionltERKS1_.exit ], [ %.07091166, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191 ]
   %447 = phi ptr [ %423, %.thread1187 ], [ %435, %_ZNK7mitsuba4util7VersionltERKS1_.exit ], [ %423, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191 ]
-  %448 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081531
-  %449 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081531
+  %448 = getelementptr inbounds [16 x i8], ptr %129, i64 %.07081531
+  %449 = getelementptr inbounds [16 x i8], ptr %129, i64 %.07081531
   %450 = load i32, ptr %447, align 4
   %451 = zext i32 %450 to i64
-  %452 = getelementptr inbounds nuw %"struct.blender::MLoop", ptr %126, i64 %451
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %451
   %453 = getelementptr inbounds nuw i8, ptr %449, i64 4
   %454 = load i32, ptr %453, align 4
   %455 = zext i32 %454 to i64
-  %456 = getelementptr inbounds nuw %"struct.blender::MLoop", ptr %126, i64 %455
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %455
   %457 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %458 = load i32, ptr %457, align 4
   %459 = zext i32 %458 to i64
-  %460 = getelementptr inbounds nuw %"struct.blender::MLoop", ptr %126, i64 %459
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %459
   %.0710 = load i32, ptr %460, align 4
   %.0711 = load i32, ptr %456, align 4
   %.0712 = load i32, ptr %452, align 4
@@ -1479,18 +1464,18 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1191: ; preds = %.critedge
   br label %.thread1217
 
 .thread1201:                                      ; preds = %.thread1727, %_ZNK7mitsuba4util7VersiongeERKS1_.exit822, %.thread1187
-  %461 = getelementptr inbounds [3 x i32], ptr %129, i64 %.07081531
+  %461 = getelementptr inbounds [12 x i8], ptr %129, i64 %.07081531
   %462 = load i32, ptr %461, align 4
   %463 = zext i32 %462 to i64
-  %464 = getelementptr inbounds nuw i32, ptr %126, i64 %463
+  %464 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %463
   %465 = getelementptr inbounds nuw i8, ptr %461, i64 4
   %466 = load i32, ptr %465, align 4
   %467 = zext i32 %466 to i64
-  %468 = getelementptr inbounds nuw i32, ptr %126, i64 %467
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %467
   %469 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %470 = load i32, ptr %469, align 4
   %471 = zext i32 %470 to i64
-  %472 = getelementptr inbounds nuw i32, ptr %126, i64 %471
+  %472 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %471
   %.07101206 = load i32, ptr %472, align 4
   %.07111207 = load i32, ptr %468, align 4
   %.07121208 = load i32, ptr %464, align 4
@@ -1518,11 +1503,11 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit.thread1237: ; preds = %.thread1187.thread
   %.071112141244 = phi i32 [ %.071112131223, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0711, %.thread1187.thread ]
   %.071212161243 = phi i32 [ %.071212151222, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0712, %.thread1187.thread ]
   %478 = sext i32 %.071212161243 to i64
-  %479 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %478
+  %479 = getelementptr inbounds [20 x i8], ptr %141, i64 %478
   %480 = sext i32 %.071112141244 to i64
-  %481 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %480
+  %481 = getelementptr inbounds [20 x i8], ptr %141, i64 %480
   %482 = sext i32 %.071012121245 to i64
-  %483 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %482
+  %483 = getelementptr inbounds [20 x i8], ptr %141, i64 %482
   br label %503
 
 .thread1268:                                      ; preds = %.thread1217
@@ -1538,11 +1523,11 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit.thread1237: ; preds = %.thread1187.thread
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit829.thread1318: ; preds = %485
   %489 = sext i32 %.071212151222 to i64
-  %490 = getelementptr inbounds %"struct.blender::MVertBlender3", ptr %141, i64 %489
+  %490 = getelementptr inbounds [16 x i8], ptr %141, i64 %489
   %491 = sext i32 %.071112131223 to i64
-  %492 = getelementptr inbounds %"struct.blender::MVertBlender3", ptr %141, i64 %491
+  %492 = getelementptr inbounds [16 x i8], ptr %141, i64 %491
   %493 = sext i32 %.071012111224 to i64
-  %494 = getelementptr inbounds %"struct.blender::MVertBlender3", ptr %141, i64 %493
+  %494 = getelementptr inbounds [16 x i8], ptr %141, i64 %493
   br label %503
 
 .critedge3:                                       ; preds = %_ZNK7mitsuba4util7VersionleERKS1_.exit, %485, %.thread1201, %.thread1268
@@ -1553,11 +1538,11 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit829.thread1318: ; preds = %485
   %.07121216123212591283 = phi i32 [ %.071212151222, %485 ], [ %.071212151222, %.thread1268 ], [ %.07121208, %.thread1201 ], [ %.071212151222, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
   %496 = phi i1 [ true, %485 ], [ true, %.thread1268 ], [ false, %.thread1201 ], [ true, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
   %497 = sext i32 %.07121216123212591283 to i64
-  %498 = getelementptr inbounds [3 x float], ptr %141, i64 %497
+  %498 = getelementptr inbounds [12 x i8], ptr %141, i64 %497
   %499 = sext i32 %.07111214123312571285 to i64
-  %500 = getelementptr inbounds [3 x float], ptr %141, i64 %499
+  %500 = getelementptr inbounds [12 x i8], ptr %141, i64 %499
   %501 = sext i32 %.07101212123412551287 to i64
-  %502 = getelementptr inbounds [3 x float], ptr %141, i64 %501
+  %502 = getelementptr inbounds [12 x i8], ptr %141, i64 %501
   br label %503
 
 503:                                              ; preds = %_ZNK7mitsuba4util7VersionleERKS1_.exit829.thread1318, %.critedge3, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1237
@@ -1614,7 +1599,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit829.thread1318: ; preds = %485
 
 _ZNK7mitsuba4util7VersiongeERKS1_.exit831:        ; preds = %529, %503
   %538 = sext i32 %.070911671177118011861190119912101235 to i64
-  %539 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %538
+  %539 = getelementptr inbounds [12 x i8], ptr %132, i64 %538
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 10
   %541 = load i8, ptr %540, align 2
   br label %542
@@ -1670,7 +1655,7 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit831:        ; preds = %529, %503
 .thread1333:                                      ; preds = %532, %569, %542
   %577 = phi i1 [ %543, %542 ], [ false, %569 ], [ true, %532 ]
   %.sroa.01055.0 = phi <4 x float> [ zeroinitializer, %542 ], [ %576, %569 ], [ zeroinitializer, %532 ]
-  %578 = getelementptr inbounds [3 x i32], ptr %129, i64 %.07081531
+  %578 = getelementptr inbounds [12 x i8], ptr %129, i64 %.07081531
   %579 = sext i32 %.070911671177118011861190119912101235 to i64
   br label %580
 
@@ -1690,19 +1675,19 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit831:        ; preds = %529, %503
   br i1 %or.cond1402, label %_ZNK7mitsuba4util7VersiongeERKS1_.exit833, label %586
 
 586:                                              ; preds = %583
-  %587 = getelementptr inbounds nuw i32, ptr %578, i64 %indvars.iv
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %578, i64 %indvars.iv
   %588 = load i32, ptr %587, align 4
   %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds i32, ptr %126, i64 %589
+  %590 = getelementptr inbounds [4 x i8], ptr %126, i64 %589
   %591 = load i32, ptr %590, align 4
   %592 = sext i32 %591 to i64
   br label %599
 
 _ZNK7mitsuba4util7VersiongeERKS1_.exit833:        ; preds = %583, %580
-  %593 = getelementptr inbounds nuw i32, ptr %504, i64 %indvars.iv
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %indvars.iv
   %594 = load i32, ptr %593, align 4
   %595 = zext i32 %594 to i64
-  %596 = getelementptr inbounds nuw %"struct.blender::MLoop", ptr %126, i64 %595
+  %596 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %595
   %597 = load i32, ptr %596, align 4
   %598 = zext i32 %597 to i64
   br label %599
@@ -1796,7 +1781,7 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit833:        ; preds = %583, %580
   br i1 %or.cond1356, label %_ZNK7mitsuba4util7VersionleERKS1_.exit838.thread1342, label %_ZNK7mitsuba4util7VersionleERKS1_.exit838.thread
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit838.thread1342: ; preds = %628, %627
-  %633 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %.0696
+  %633 = getelementptr inbounds [20 x i8], ptr %141, i64 %.0696
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 12
   %635 = load i16, ptr %634, align 2
   %636 = sitofp i16 %635 to float
@@ -1821,7 +1806,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit838.thread1342: ; preds = %628, %627
   br label %.loopexit1409
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit838.thread: ; preds = %628, %625
-  %654 = getelementptr inbounds [3 x float], ptr %144, i64 %.0696
+  %654 = getelementptr inbounds [12 x i8], ptr %144, i64 %.0696
   %655 = load float, ptr %654, align 4
   %656 = getelementptr inbounds nuw i8, ptr %654, i64 4
   %657 = load float, ptr %656, align 4
@@ -1949,11 +1934,11 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit838.thread: ; preds = %628, %625
   br i1 %or.cond1358, label %_ZNK7mitsuba4util7VersionleERKS1_.exit845.thread, label %_ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread: ; preds = %714, %710
-  %718 = getelementptr inbounds %"struct.blender::MLoopUV", ptr %.0693, i64 %.0697
+  %718 = getelementptr inbounds [12 x i8], ptr %.0693, i64 %.0697
   br label %.sink.split1780
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
-  %719 = getelementptr inbounds [2 x float], ptr %.0693, i64 %.0697
+  %719 = getelementptr inbounds [8 x i8], ptr %.0693, i64 %.0697
   br label %.sink.split1780
 
 .sink.split1780:                                  ; preds = %_ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346, %_ZNK7mitsuba4util7VersionleERKS1_.exit845.thread
@@ -1968,7 +1953,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
   %.sroa.6.0 = phi float [ %.sink17821846, %.sink.split1780 ], [ 0.000000e+00, %706 ]
   %.sroa.11.0 = phi float [ %.sink1781, %.sink.split1780 ], [ 0.000000e+00, %706 ]
   %721 = load ptr, ptr %44, align 8
-  %722 = getelementptr inbounds %struct.VertexBinding, ptr %721, i64 %.0696
+  %722 = getelementptr inbounds [80 x i8], ptr %721, i64 %.0696
   br label %723
 
 723:                                              ; preds = %.thread1349, %720
@@ -2046,7 +2031,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
 765:                                              ; preds = %.critedge1807
   %766 = getelementptr inbounds nuw i8, ptr %.0679, i64 48
   %767 = load i32, ptr %766, align 16
-  %768 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %768 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store i32 %767, ptr %768, align 4
   %769 = load i64, ptr %45, align 8
   %770 = add i64 %769, 1
@@ -2078,7 +2063,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit845.thread1346: ; preds = %714, %708, %711
   store i32 %.27021527, ptr %775, align 16
   %776 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   store i8 1, ptr %776, align 16
-  %777 = getelementptr inbounds nuw %"struct.mitsuba::Point", ptr %47, i64 %indvars.iv
+  %777 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv
   %.sroa.01104.0.copyload = load <4 x float>, ptr %401, align 16
   %778 = load float, ptr %777, align 16
   %779 = insertelement <4 x float> poison, float %778, i64 0
@@ -2146,7 +2131,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIfLm3EEEEEEENS_1
 
 .noexc854:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIfLm3EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i.i.i
   %817 = getelementptr inbounds i8, ptr %816, i64 %805
-  %818 = getelementptr inbounds nuw %"struct.std::__1::array.146", ptr %816, i64 %.0.i.i.i850
+  %818 = getelementptr inbounds nuw [12 x i8], ptr %816, i64 %.0.i.i.i850
   store float %.sroa.0727.0.vec.extract, ptr %817, align 4
   %.sroa.31027.0..sroa_idx = getelementptr inbounds nuw i8, ptr %817, i64 4
   store float %.sroa.0727.4.vec.extract, ptr %.sroa.31027.0..sroa_idx, align 4
@@ -2154,7 +2139,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIfLm3EEEEEEENS_1
   store float %.sroa.0727.8.vec.extract, ptr %.sroa.41030.0..sroa_idx, align 4
   %819 = getelementptr inbounds nuw i8, ptr %817, i64 12
   %.neg.i.i.i = sdiv exact i64 %805, -12
-  %820 = getelementptr inbounds %"struct.std::__1::array.146", ptr %817, i64 %.neg.i.i.i
+  %820 = getelementptr inbounds [12 x i8], ptr %817, i64 %.neg.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %820, ptr align 4 %.promoted.fr.i.i.i.i.i.i, i64 %805, i1 false)
   store ptr %820, ptr %38, align 8
   store ptr %819, ptr %402, align 8
@@ -2230,7 +2215,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIfLm3EEEEEEENS_1
 
 .noexc866:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIfLm3EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS7_m.exit.i.i.i860
   %848 = getelementptr inbounds i8, ptr %847, i64 %835
-  %849 = getelementptr inbounds nuw %"struct.std::__1::array.146", ptr %847, i64 %.0.i.i.i859
+  %849 = getelementptr inbounds nuw [12 x i8], ptr %847, i64 %.0.i.i.i859
   store float %.sroa.01055.0.vec.extract, ptr %848, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %848, i64 4
   store float %.sroa.01055.4.vec.extract, ptr %.sroa.3.0..sroa_idx, align 4
@@ -2238,7 +2223,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIfLm3EEEEEEENS_1
   store float %.sroa.01055.8.vec.extract, ptr %.sroa.4.0..sroa_idx, align 4
   %850 = getelementptr inbounds nuw i8, ptr %848, i64 12
   %.neg.i.i.i861 = sdiv exact i64 %835, -12
-  %851 = getelementptr inbounds %"struct.std::__1::array.146", ptr %848, i64 %.neg.i.i.i861
+  %851 = getelementptr inbounds [12 x i8], ptr %848, i64 %.neg.i.i.i861
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %851, ptr align 4 %.promoted.fr.i.i.i.i.i.i855, i64 %835, i1 false)
   store ptr %851, ptr %39, align 8
   store ptr %850, ptr %403, align 8
@@ -2307,13 +2292,13 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
 
 .noexc875:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS8_m.exit.i.i.i
   %876 = getelementptr inbounds i8, ptr %875, i64 %864
-  %877 = getelementptr inbounds nuw %"struct.mitsuba::Vector.142", ptr %875, i64 %.0.i.i.i870
+  %877 = getelementptr inbounds nuw [8 x i8], ptr %875, i64 %.0.i.i.i870
   store float %.sroa.6.0, ptr %876, align 4
   %.sroa_idx1839 = getelementptr inbounds nuw i8, ptr %876, i64 4
   store float %.sroa.11.0, ptr %.sroa_idx1839, align 4
   %878 = getelementptr inbounds nuw i8, ptr %876, i64 8
   %879 = sub nsw i64 0, %865
-  %880 = getelementptr inbounds %"struct.mitsuba::Vector.142", ptr %876, i64 %879
+  %880 = getelementptr inbounds [8 x i8], ptr %876, i64 %879
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %880, ptr align 4 %861, i64 %864, i1 false)
   store ptr %880, ptr %40, align 8
   store ptr %878, ptr %405, align 8
@@ -2342,12 +2327,12 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne19000
 .lr.ph1525:                                       ; preds = %.preheader1404, %1036
   %885 = phi ptr [ %1039, %1036 ], [ %884, %.preheader1404 ]
   %.06771524 = phi i64 [ %1037, %1036 ], [ 0, %.preheader1404 ]
-  %886 = getelementptr inbounds %"struct.std::__1::pair", ptr %885, i64 %.06771524
+  %886 = getelementptr inbounds [32 x i8], ptr %885, i64 %.06771524
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 24
   %888 = load ptr, ptr %887, align 8
-  %889 = getelementptr inbounds %"struct.blender::MLoopCol", ptr %888, i64 %.0697
+  %889 = getelementptr inbounds [4 x i8], ptr %888, i64 %.0697
   %890 = load ptr, ptr %41, align 8
-  %891 = getelementptr inbounds %"class.std::__1::vector.113", ptr %890, i64 %.06771524
+  %891 = getelementptr inbounds [24 x i8], ptr %890, i64 %.06771524
   %892 = load i8, ptr %889, align 1
   %893 = uitofp i8 %892 to float
   %894 = fmul nnan contract float %893, 0x3F70101020000000
@@ -2412,11 +2397,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .noexc884:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i
   %931 = getelementptr inbounds i8, ptr %930, i64 %920
-  %932 = getelementptr inbounds nuw float, ptr %930, i64 %.0.i.i.i879
+  %932 = getelementptr inbounds nuw [4 x i8], ptr %930, i64 %.0.i.i.i879
   store float %908, ptr %931, align 4
   %933 = getelementptr inbounds nuw i8, ptr %931, i64 4
   %934 = sub nsw i64 0, %921
-  %935 = getelementptr inbounds float, ptr %931, i64 %934
+  %935 = getelementptr inbounds [4 x i8], ptr %931, i64 %934
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %935, ptr align 4 %917, i64 %920, i1 false)
   store ptr %935, ptr %891, align 8
   store ptr %933, ptr %909, align 8
@@ -2432,7 +2417,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %.0.i881 = phi ptr [ %915, %914 ], [ %933, %.noexc884 ], [ %933, %936 ]
   store ptr %.0.i881, ptr %909, align 8
   %938 = load ptr, ptr %41, align 8
-  %939 = getelementptr inbounds %"class.std::__1::vector.113", ptr %938, i64 %.06771524
+  %939 = getelementptr inbounds [24 x i8], ptr %938, i64 %.06771524
   %940 = getelementptr inbounds nuw i8, ptr %889, i64 1
   %941 = load i8, ptr %940, align 1
   %942 = uitofp i8 %941 to float
@@ -2498,11 +2483,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .noexc897:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i892
   %980 = getelementptr inbounds i8, ptr %979, i64 %969
-  %981 = getelementptr inbounds nuw float, ptr %979, i64 %.0.i.i.i891
+  %981 = getelementptr inbounds nuw [4 x i8], ptr %979, i64 %.0.i.i.i891
   store float %957, ptr %980, align 4
   %982 = getelementptr inbounds nuw i8, ptr %980, i64 4
   %983 = sub nsw i64 0, %970
-  %984 = getelementptr inbounds float, ptr %980, i64 %983
+  %984 = getelementptr inbounds [4 x i8], ptr %980, i64 %983
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %984, ptr align 4 %966, i64 %969, i1 false)
   store ptr %984, ptr %939, align 8
   store ptr %982, ptr %958, align 8
@@ -2518,7 +2503,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %.0.i894 = phi ptr [ %964, %963 ], [ %982, %.noexc897 ], [ %982, %985 ]
   store ptr %.0.i894, ptr %958, align 8
   %987 = load ptr, ptr %41, align 8
-  %988 = getelementptr inbounds %"class.std::__1::vector.113", ptr %987, i64 %.06771524
+  %988 = getelementptr inbounds [24 x i8], ptr %987, i64 %.06771524
   %989 = getelementptr inbounds nuw i8, ptr %889, i64 2
   %990 = load i8, ptr %989, align 1
   %991 = uitofp i8 %990 to float
@@ -2599,11 +2584,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
 
 .noexc911:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i906
   %1030 = getelementptr inbounds i8, ptr %1029, i64 %1018
-  %1031 = getelementptr inbounds nuw float, ptr %1029, i64 %.0.i.i.i905
+  %1031 = getelementptr inbounds nuw [4 x i8], ptr %1029, i64 %.0.i.i.i905
   store float %1006, ptr %1030, align 4
   %1032 = getelementptr inbounds nuw i8, ptr %1030, i64 4
   %1033 = sub nsw i64 0, %1019
-  %1034 = getelementptr inbounds float, ptr %1030, i64 %1033
+  %1034 = getelementptr inbounds [4 x i8], ptr %1030, i64 %1033
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1034, ptr align 4 %1015, i64 %1018, i1 false)
   store ptr %1034, ptr %988, align 8
   store ptr %1032, ptr %1007, align 8
@@ -2629,7 +2614,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   br i1 %1044, label %.lr.ph1525, label %.loopexit1405, !llvm.loop !23
 
 .loopexit1405:                                    ; preds = %1036, %.preheader1404, %882
-  %1045 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %1045 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store i32 %.27021527, ptr %1045, align 4
   br label %1046
 
@@ -2851,9 +2836,9 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit927:           ; preds = %1140, %1132, %_ZN5d
 .lr.ph1542:                                       ; preds = %.preheader, %1148
   %1144 = phi ptr [ %1151, %1148 ], [ %1143, %.preheader ]
   %.01541 = phi i64 [ %1149, %1148 ], [ 0, %.preheader ]
-  %1145 = getelementptr inbounds %"struct.std::__1::pair", ptr %1144, i64 %.01541
+  %1145 = getelementptr inbounds [32 x i8], ptr %1144, i64 %.01541
   %1146 = load ptr, ptr %41, align 8
-  %1147 = getelementptr inbounds %"class.std::__1::vector.113", ptr %1146, i64 %.01541
+  %1147 = getelementptr inbounds [24 x i8], ptr %1146, i64 %.01541
   invoke void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13add_attributeERKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEEmRKNS7_6vectorIfNSB_IfEEEE(ptr noundef nonnull align 16 dereferenceable(832) %0, ptr noundef nonnull align 8 dereferenceable(24) %1145, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %1147)
           to label %1148 unwind label %.loopexit1403
 
@@ -3451,9 +3436,9 @@ _ZNSt3__114__split_bufferINS_6vectorIfNS_9allocatorIfEEEERNS2_IS4_EEEC2EmmS6_.ex
   %18 = mul nuw i64 %1, 24
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #21
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
-  %21 = getelementptr inbounds nuw %"class.std::__1::vector.113", ptr %19, i64 %1
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %1
   %.neg.i = sdiv exact i64 %17, -24
-  %22 = getelementptr inbounds %"class.std::__1::vector.113", ptr %20, i64 %.neg.i
+  %22 = getelementptr inbounds [24 x i8], ptr %20, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %5, %15
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6vectorIfNS_9allocatorIfEEEERNS2_IS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -3575,11 +3560,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIjLm3EEEEEEENS_1
   %26 = mul nuw i64 %.0.i.i, 12
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #21
   %28 = getelementptr inbounds i8, ptr %27, i64 %14
-  %29 = getelementptr inbounds nuw %"struct.std::__1::array", ptr %27, i64 %.0.i.i
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %.0.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %.neg.i.i = sdiv exact i64 %14, -12
-  %31 = getelementptr inbounds %"struct.std::__1::array", ptr %28, i64 %.neg.i.i
+  %31 = getelementptr inbounds [12 x i8], ptr %28, i64 %.neg.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %.promoted.fr.i.i.i.i.i, i64 %14, i1 false)
   store ptr %31, ptr %0, align 8
   store ptr %30, ptr %3, align 8
@@ -4151,7 +4136,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -4709,7 +4694,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -4802,7 +4787,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -6105,7 +6090,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %21 = shl nuw i64 %.0.i, 5
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #21
   %23 = getelementptr inbounds i8, ptr %22, i64 %9
-  %24 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %22, i64 %.0.i
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -6120,7 +6105,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 5
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"struct.std::__1::pair", ptr %23, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %23, i64 %35
   %.not29.i.i = icmp eq ptr %30, %29
   br i1 %.not29.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7blender8MLoopColEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -6241,7 +6226,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_6vectorIfNS1_IfEEEEEEE
   %22 = mul nuw i64 %.0.i, 24
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #21
   %24 = getelementptr inbounds i8, ptr %23, i64 %9
-  %25 = getelementptr inbounds nuw %"class.std::__1::vector.113", ptr %23, i64 %.0.i
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.0.i
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %1, align 8
@@ -6260,7 +6245,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_6vectorIfNS1_IfEEEEEEE
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %.neg.i = sdiv exact i64 %38, -24
-  %39 = getelementptr inbounds %"class.std::__1::vector.113", ptr %24, i64 %.neg.i
+  %39 = getelementptr inbounds [24 x i8], ptr %24, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %35, %34
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6vectorIfNS_9allocatorIfEEEERNS2_IS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 

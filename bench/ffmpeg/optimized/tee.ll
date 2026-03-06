@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
 %union.anon = type { i64 }
-%struct.TeeSlave = type { ptr, ptr, i32, i32, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"tee\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"Multiple muxer tee\00", align 1
@@ -164,7 +163,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_header(ptr noundef %0) 
   %indvars.iv = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next, %log_slave.exit ]
   %57 = load i32, ptr %43, align 8, !tbaa !35
   %58 = load ptr, ptr %38, align 8, !tbaa !30
-  %59 = getelementptr inbounds nuw %struct.TeeSlave, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i32 %57, ptr %60, align 4, !tbaa !36
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -175,10 +174,10 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_header(ptr noundef %0) 
 
 65:                                               ; preds = %56
   %66 = load ptr, ptr %16, align 8, !tbaa !27
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !26
   %69 = load ptr, ptr %38, align 8, !tbaa !30
-  %70 = getelementptr inbounds nuw %struct.TeeSlave, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [48 x i8], ptr %69, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -464,10 +463,10 @@ open_slave.exit.thread:                           ; preds = %65
   %indvars.iv412.i = phi i64 [ %indvars.iv.next413.i, %200 ], [ 0, %.lr.ph357.i ]
   %indvars416.i = trunc nuw i64 %indvars.iv412.i to i32
   %193 = load ptr, ptr %53, align 8, !tbaa !61
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv412.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv412.i
   %195 = load ptr, ptr %194, align 8, !tbaa !62
   %196 = load ptr, ptr %191, align 8, !tbaa !60
-  %197 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv412.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv412.i
   store i32 %indvars416.i, ptr %197, align 4, !tbaa !24
   %198 = load ptr, ptr %5, align 8, !tbaa !43
   %199 = call ptr @ff_stream_clone(ptr noundef %198, ptr noundef %195) #6
@@ -485,7 +484,7 @@ open_slave.exit.thread:                           ; preds = %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %228 ], [ 0, %.lr.ph357.i ]
   %.0181355.i = phi i32 [ %.1182.i, %228 ], [ 0, %.lr.ph357.i ]
   %204 = load ptr, ptr %53, align 8, !tbaa !61
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 8, !tbaa !62
   %207 = call noalias ptr @av_strdup(ptr noundef nonnull %.0180.i) #6
   store ptr %207, ptr %7, align 8, !tbaa !26
@@ -504,7 +503,7 @@ open_slave.exit.thread:                           ; preds = %65
 
 211:                                              ; preds = %209
   %212 = load ptr, ptr %53, align 8, !tbaa !61
-  %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv.i
   %214 = load ptr, ptr %213, align 8, !tbaa !62
   %215 = call i32 @avformat_match_stream_specifier(ptr noundef nonnull %0, ptr noundef %214, ptr noundef nonnull %210) #6
   %216 = icmp slt i32 %215, 0
@@ -522,7 +521,7 @@ open_slave.exit.thread:                           ; preds = %65
   call void @av_freep(ptr noundef nonnull %7) #6
   %220 = add nsw i32 %.0181355.i, 1
   %221 = load ptr, ptr %191, align 8, !tbaa !60
-  %222 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv.i
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv.i
   store i32 %.0181355.i, ptr %222, align 4, !tbaa !24
   %223 = load ptr, ptr %5, align 8, !tbaa !43
   %224 = call ptr @ff_stream_clone(ptr noundef %223, ptr noundef %206) #6
@@ -532,7 +531,7 @@ open_slave.exit.thread:                           ; preds = %65
 225:                                              ; preds = %209
   call void @av_freep(ptr noundef nonnull %7) #6
   %226 = load ptr, ptr %191, align 8, !tbaa !60
-  %227 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv.i
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %indvars.iv.i
   store i32 -1, ptr %227, align 4, !tbaa !24
   br label %228
 
@@ -633,7 +632,7 @@ open_slave.exit.thread:                           ; preds = %65
   %270 = phi ptr [ %265, %.lr.ph362.i ], [ %298, %297 ]
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 48
   %272 = load ptr, ptr %271, align 8, !tbaa !61
-  %273 = getelementptr inbounds nuw ptr, ptr %272, i64 %indvars.iv417.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv417.i
   %274 = load ptr, ptr %273, align 8, !tbaa !62
   %275 = call i32 @avformat_match_stream_specifier(ptr noundef nonnull %270, ptr noundef %274, ptr noundef nonnull %.0171.i) #6
   %276 = icmp slt i32 %275, 0
@@ -655,7 +654,7 @@ open_slave.exit.thread:                           ; preds = %65
   %284 = trunc nuw i64 %indvars.iv417.i to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.27, ptr noundef nonnull %.0171.i, ptr noundef %282, i32 noundef %284, ptr noundef %283) #6
   %285 = load ptr, ptr %251, align 8, !tbaa !67
-  %286 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv417.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv417.i
   %287 = load ptr, ptr %286, align 8, !tbaa !68
   %.not257.i = icmp eq ptr %287, null
   br i1 %.not257.i, label %290, label %288
@@ -705,7 +704,7 @@ open_slave.exit.thread:                           ; preds = %65
   %indvars.iv420.i = phi i64 [ %indvars.iv.next421.i, %349 ], [ 0, %.preheader316.i ]
   %.19368.i = phi i32 [ %.21.i, %349 ], [ %.14.lcssa.i, %.preheader316.i ]
   %307 = load ptr, ptr %191, align 8, !tbaa !60
-  %308 = getelementptr inbounds nuw i32, ptr %307, i64 %indvars.iv420.i
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %indvars.iv420.i
   %309 = load i32, ptr %308, align 4, !tbaa !24
   %310 = icmp slt i32 %309, 0
   br i1 %310, label %349, label %311
@@ -713,7 +712,7 @@ open_slave.exit.thread:                           ; preds = %65
 311:                                              ; preds = %.lr.ph370.i
   %312 = load ptr, ptr %251, align 8, !tbaa !67
   %313 = zext nneg i32 %309 to i64
-  %314 = getelementptr inbounds nuw ptr, ptr %312, i64 %313
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %313
   %315 = load ptr, ptr %314, align 8, !tbaa !68
   %.not251.i = icmp eq ptr %315, null
   br i1 %.not251.i, label %316, label %321
@@ -725,7 +724,7 @@ open_slave.exit.thread:                           ; preds = %65
 
 ._crit_edge424.i:                                 ; preds = %316
   %.pre425.i = load ptr, ptr %251, align 8, !tbaa !67
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre425.i, i64 %313
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre425.i, i64 %313
   %.pre426.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !68
   br label %321
 
@@ -739,18 +738,18 @@ open_slave.exit.thread:                           ; preds = %65
   %322 = phi ptr [ %.pre426.i, %._crit_edge424.i ], [ %315, %311 ]
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 40
   %324 = load ptr, ptr %53, align 8, !tbaa !61
-  %325 = getelementptr inbounds nuw ptr, ptr %324, i64 %indvars.iv420.i
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %324, i64 %indvars.iv420.i
   %326 = load ptr, ptr %325, align 8, !tbaa !62
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 32
   %328 = load i64, ptr %327, align 8
   store i64 %328, ptr %323, align 8
   %329 = load ptr, ptr %251, align 8, !tbaa !67
-  %330 = getelementptr inbounds nuw ptr, ptr %329, i64 %313
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %313
   %331 = load ptr, ptr %330, align 8, !tbaa !68
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %333 = load ptr, ptr %332, align 8, !tbaa !71
   %334 = load ptr, ptr %53, align 8, !tbaa !61
-  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %indvars.iv420.i
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %indvars.iv420.i
   %336 = load ptr, ptr %335, align 8, !tbaa !62
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load ptr, ptr %337, align 8, !tbaa !76
@@ -760,7 +759,7 @@ open_slave.exit.thread:                           ; preds = %65
 
 341:                                              ; preds = %321
   %342 = load ptr, ptr %251, align 8, !tbaa !67
-  %343 = getelementptr inbounds nuw ptr, ptr %342, i64 %313
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %342, i64 %313
   %344 = load ptr, ptr %343, align 8, !tbaa !68
   %345 = call i32 @av_bsf_init(ptr noundef %344) #6
   %346 = icmp slt i32 %345, 0
@@ -836,7 +835,7 @@ open_slave.exit:                                  ; preds = %.lr.ph357.split.i, 
 
 365:                                              ; preds = %open_slave.exit
   %366 = load ptr, ptr %38, align 8, !tbaa !30
-  %367 = getelementptr inbounds nuw %struct.TeeSlave, ptr %366, i64 %indvars.iv
+  %367 = getelementptr inbounds nuw [48 x i8], ptr %366, i64 %indvars.iv
   %368 = load ptr, ptr %367, align 8, !tbaa !51
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 88
   %370 = load ptr, ptr %369, align 8, !tbaa !25
@@ -859,10 +858,10 @@ open_slave.exit:                                  ; preds = %.lr.ph357.split.i, 
   %379 = phi ptr [ %374, %.lr.ph.i76 ], [ %408, %406 ]
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 48
   %381 = load ptr, ptr %380, align 8, !tbaa !61
-  %382 = getelementptr inbounds nuw ptr, ptr %381, i64 %indvars.iv.i77
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %indvars.iv.i77
   %383 = load ptr, ptr %382, align 8, !tbaa !62
   %384 = load ptr, ptr %377, align 8, !tbaa !67
-  %385 = getelementptr inbounds nuw ptr, ptr %384, i64 %indvars.iv.i77
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %indvars.iv.i77
   %386 = load ptr, ptr %385, align 8, !tbaa !68
   %387 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %388 = load ptr, ptr %387, align 8, !tbaa !76
@@ -904,7 +903,7 @@ open_slave.exit:                                  ; preds = %.lr.ph357.split.i, 
 
 log_slave.exit:                                   ; preds = %406, %365, %361
   %413 = load ptr, ptr %16, align 8, !tbaa !27
-  %414 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %indvars.iv
   call void @av_freep(ptr noundef %414) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %415 = load i32, ptr %14, align 4, !tbaa !24
@@ -931,7 +930,7 @@ log_slave.exit:                                   ; preds = %406, %365, %361
 422:                                              ; preds = %.lr.ph137, %433
   %indvars.iv187 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next188, %433 ]
   %.053135 = phi i32 [ 0, %.lr.ph137 ], [ %.1, %433 ]
-  %423 = getelementptr inbounds nuw %struct.TeeSlave, ptr %420, i64 %indvars.iv187
+  %423 = getelementptr inbounds nuw [48 x i8], ptr %420, i64 %indvars.iv187
   %424 = load ptr, ptr %423, align 8, !tbaa !51
   %.not71 = icmp eq ptr %424, null
   br i1 %.not71, label %433, label %425
@@ -939,7 +938,7 @@ log_slave.exit:                                   ; preds = %406, %365, %361
 425:                                              ; preds = %422
   %426 = getelementptr inbounds nuw i8, ptr %423, i64 32
   %427 = load ptr, ptr %426, align 8, !tbaa !60
-  %428 = getelementptr inbounds nuw i32, ptr %427, i64 %indvars.iv190
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %427, i64 %indvars.iv190
   %429 = load i32, ptr %428, align 4, !tbaa !24
   %430 = icmp sgt i32 %429, -1
   %431 = zext i1 %430 to i32
@@ -985,7 +984,7 @@ log_slave.exit:                                   ; preds = %406, %365, %361
 443:                                              ; preds = %443, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i82 ], [ %indvars.iv.next.i84, %443 ]
   %444 = load ptr, ptr %442, align 8, !tbaa !30
-  %445 = getelementptr inbounds nuw %struct.TeeSlave, ptr %444, i64 %indvars.iv.i83
+  %445 = getelementptr inbounds nuw [48 x i8], ptr %444, i64 %indvars.iv.i83
   %446 = call fastcc i32 @close_slave(ptr noundef %445)
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %447 = load i32, ptr %440, align 8, !tbaa !33
@@ -1001,7 +1000,7 @@ close_slaves.exit:                                ; preds = %443, %._crit_edge14
 .lr.ph142:                                        ; preds = %.thread, %.lr.ph142
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.lr.ph142 ], [ 0, %.thread ]
   %451 = load ptr, ptr %16, align 8, !tbaa !27
-  %452 = getelementptr inbounds nuw ptr, ptr %451, i64 %indvars.iv193
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %451, i64 %indvars.iv193
   call void @av_freep(ptr noundef %452) #6
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %453 = load i32, ptr %14, align 4, !tbaa !24
@@ -1042,7 +1041,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %24 ], [ 0, %.lr.ph ]
   %.087.us = phi i32 [ %.1.us, %24 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8, !tbaa !30
-  %14 = getelementptr inbounds nuw %struct.TeeSlave, ptr %13, i64 %indvars.iv91
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %indvars.iv91
   %15 = load ptr, ptr %14, align 8, !tbaa !51
   %.not.us = icmp eq ptr %15, null
   br i1 %.not.us, label %24, label %16
@@ -1077,7 +1076,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.lr.ph ]
   %.087 = phi i32 [ %.1, %.loopexit ], [ 0, %.lr.ph ]
   %28 = load ptr, ptr %10, align 8, !tbaa !30
-  %29 = getelementptr inbounds nuw %struct.TeeSlave, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !51
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.loopexit, label %31
@@ -1087,7 +1086,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !60
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !24
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %.loopexit, label %39
@@ -1104,11 +1103,11 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %10, align 8, !tbaa !30
-  %45 = getelementptr inbounds nuw %struct.TeeSlave, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !67
   %48 = zext nneg i32 %37 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !68
   store i32 %37, ptr %12, align 4, !tbaa !110
   %51 = call i32 @av_bsf_send_packet(ptr noundef %50, ptr noundef %7) #6
@@ -1145,7 +1144,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, 
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %61, align 8, !tbaa !61
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %48
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %48
   %70 = load ptr, ptr %69, align 8, !tbaa !62
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i64, ptr %60, align 8
@@ -1197,7 +1196,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_write_trailer(ptr noundef %0)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %.01417 = phi i32 [ 0, %.lr.ph ], [ %.1, %18 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !30
-  %10 = getelementptr inbounds nuw %struct.TeeSlave, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %indvars.iv
   %11 = tail call fastcc i32 @close_slave(ptr noundef %10)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %18
@@ -1243,7 +1242,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @tee_process_slave_failure(
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !30
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.TeeSlave, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = add i32 %12, -1
@@ -1367,7 +1366,7 @@ define internal fastcc i32 @close_slave(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %14 = load ptr, ptr %10, align 8, !tbaa !67
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   tail call void @av_bsf_free(ptr noundef %15) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %12, align 4, !tbaa !34

@@ -416,7 +416,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %17
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i: ; preds = %32, %.noexc9.i
   tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %20) #18, !noalias !20
-  %33 = getelementptr inbounds nuw i16, ptr %29, i64 %27
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %27
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit.i
 
 _ZNSt6vectorItSaItEE9push_backEOt.exit.i:         ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i, %16
@@ -1210,7 +1210,7 @@ define internal void @_ZN4absl12_GLOBAL__N_125EndianessTest_Uint32_Test8TestBody
 11:                                               ; preds = %11, %1
   %store_forwarded = phi i64 [ 12345, %1 ], [ %16, %11 ]
   %.011.i.i.i = phi i64 [ 1, %1 ], [ %17, %11 ]
-  %12 = getelementptr i64, ptr %9, i64 %.011.i.i.i
+  %12 = getelementptr [8 x i8], ptr %9, i64 %.011.i.i.i
   %13 = lshr i64 %store_forwarded, 62
   %14 = xor i64 %13, %store_forwarded
   %15 = mul i64 %14, 6364136223846793005
@@ -1284,7 +1284,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %28
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i: ; preds = %43, %.noexc12.i
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %31) #18, !noalias !66
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %38
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i:         ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i, %27
@@ -1609,10 +1609,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !69
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -1636,10 +1636,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm64E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !69
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -1677,7 +1677,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !71
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !69
   %55 = lshr i64 %54, 29
   %56 = and i64 %55, 22906492245
@@ -1744,7 +1744,7 @@ define internal void @_ZN4absl12_GLOBAL__N_125EndianessTest_Uint64_Test8TestBody
 11:                                               ; preds = %11, %1
   %store_forwarded = phi i64 [ 12345, %1 ], [ %16, %11 ]
   %.011.i.i.i = phi i64 [ 1, %1 ], [ %17, %11 ]
-  %12 = getelementptr i64, ptr %9, i64 %.011.i.i.i
+  %12 = getelementptr [8 x i8], ptr %9, i64 %.011.i.i.i
   %13 = lshr i64 %store_forwarded, 62
   %14 = xor i64 %13, %store_forwarded
   %15 = mul i64 %14, 6364136223846793005
@@ -1817,7 +1817,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %27
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %42, %.noexc12.i
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %30) #18, !noalias !77
-  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %37
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit.i
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit.i:         ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i, %26

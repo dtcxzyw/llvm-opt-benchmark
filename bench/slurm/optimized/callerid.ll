@@ -209,11 +209,11 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %24, %27
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = call noundef i32 @llvm.bswap.i32(i32 %29)
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = call noundef i32 @llvm.bswap.i32(i32 %32)
   store i32 %33, ptr %31, align 4
@@ -399,7 +399,7 @@ define dso_local range(i32 -1, 1) i32 @find_pid_by_inode(ptr noundef writeonly c
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 19
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %15, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %15, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2048
   %.not16 = icmp eq i16 %21, 0

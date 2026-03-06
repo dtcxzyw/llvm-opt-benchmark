@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.OnigPairCaseFoldCodes = type { i32, i32 }
-%struct.OnigCaseFoldCodeItem = type { i32, i32, [3 x i32] }
 
 @.str = private unnamed_addr constant [11 x i8] c"ISO-8859-1\00", align 1
 @OnigEncodingISO_8859_1 = dso_local local_unnamed_addr global { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8] } { ptr @onigenc_single_byte_mbc_enc_len, ptr @.str, i32 1, i32 1, ptr @onigenc_is_mbc_newline_0x0a, ptr @onigenc_single_byte_mbc_to_code, ptr @onigenc_single_byte_code_to_mbclen, ptr @onigenc_single_byte_code_to_mbc, ptr @mbc_case_fold, ptr @apply_all_case_fold, ptr @get_case_fold_codes_by_str, ptr @onigenc_minimum_property_name_to_ctype, ptr @is_code_ctype, ptr @onigenc_not_support_get_ctype_code_range, ptr @onigenc_single_byte_left_adjust_char_head, ptr @onigenc_always_true_is_allowed_reverse_match, ptr null, ptr null, ptr @onigenc_always_true_is_valid_mbc_string, i32 5, i32 0, i32 0, [4 x i8] zeroinitializer }, align 8
@@ -135,7 +134,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, 
 
 ._crit_edge:                                      ; preds = %25, %31
   %34 = sext i32 %.1112 to i64
-  %35 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %3, i64 %34
+  %35 = getelementptr inbounds [20 x i8], ptr %3, i64 %34
   store i32 2, ptr %35, align 4, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 2, ptr %36, align 4, !tbaa !13
@@ -317,7 +316,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw i16, ptr @EncISO_8859_1_CtypeTable, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @EncISO_8859_1_CtypeTable, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !18
   %8 = zext i16 %7 to i32
   %9 = lshr i32 %8, %1

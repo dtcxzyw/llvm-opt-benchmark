@@ -21,7 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.MapNode = type { i16, i8, i8 }
 %"class.std::allocator.5" = type { i8 }
 %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Alloc_node" = type { ptr }
 %class.MMVManip = type { %class.VoxelManipulator, i8, ptr, %"class.std::map" }
@@ -39,6 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Rb_tree.111" = type { %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<irr::core::vector3d<short>, std::pair<const irr::core::vector3d<short>, MapBlock *>, std::_Select1st<std::pair<const irr::core::vector3d<short>, MapBlock *>>, std::less<irr::core::vector3d<short>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 %struct.MapEditEvent = type <{ i32, %"class.irr::core::vector3d", [2 x i8], %struct.MapNode, %"class.std::vector.115", i8, [7 x i8] }>
+%struct.MapNode = type { i16, i8, i8 }
 %"class.std::vector.115" = type { %"struct.std::_Vector_base.116" }
 %"struct.std::_Vector_base.116" = type { %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl" }
 %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl_data" }
@@ -828,7 +828,7 @@ if.then48:                                        ; preds = %land.lhs.true22.i
   %add21.i.i = add nsw i32 %sub20.i.i, %add.i.i529
   %48 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom = zext i32 %add21.i.i to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %48, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %idxprom
   store i32 %treenode.sroa.0.0.insert.ext, ptr %arrayidx, align 4, !tbaa.struct !62
   %.pre = load i16, ptr %m_area, align 8, !tbaa !53
   %.pre40 = load i16, ptr %MaxEdge.i523, align 2
@@ -886,7 +886,7 @@ if.then48.1:                                      ; preds = %land.lhs.true22.i.1
   %add21.i.i.1 = add nsw i32 %sub20.i.i.1, %add.i.i529.1
   %55 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom.1 = zext i32 %add21.i.i.1 to i64
-  %arrayidx.1 = getelementptr inbounds nuw %struct.MapNode, ptr %55, i64 %idxprom.1
+  %arrayidx.1 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %idxprom.1
   store i32 %treenode.sroa.0.0.insert.ext, ptr %arrayidx.1, align 4, !tbaa.struct !62
   %.pre41 = load i16, ptr %m_area, align 8, !tbaa !53
   %.pre42 = load i16, ptr %MaxEdge.i523, align 2
@@ -944,7 +944,7 @@ if.then48.2:                                      ; preds = %land.lhs.true22.i.2
   %add21.i.i.2 = add nsw i32 %sub20.i.i.2, %add.i.i529.2
   %62 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom.2 = zext i32 %add21.i.i.2 to i64
-  %arrayidx.2 = getelementptr inbounds nuw %struct.MapNode, ptr %62, i64 %idxprom.2
+  %arrayidx.2 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %idxprom.2
   store i32 %treenode.sroa.0.0.insert.ext, ptr %arrayidx.2, align 4, !tbaa.struct !62
   %.pre43 = load i16, ptr %m_area, align 8, !tbaa !53
   %.pre44 = load i16, ptr %MaxEdge.i523, align 2
@@ -1002,7 +1002,7 @@ if.then48.3:                                      ; preds = %land.lhs.true22.i.3
   %add21.i.i.3 = add nsw i32 %sub20.i.i.3, %add.i.i529.3
   %69 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom.3 = zext i32 %add21.i.i.3 to i64
-  %arrayidx.3 = getelementptr inbounds nuw %struct.MapNode, ptr %69, i64 %idxprom.3
+  %arrayidx.3 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %idxprom.3
   store i32 %treenode.sroa.0.0.insert.ext, ptr %arrayidx.3, align 4, !tbaa.struct !62
   br label %if.end52.3
 
@@ -1062,7 +1062,7 @@ if.then48.4:                                      ; preds = %land.lhs.true22.i.4
   %add21.i.i.4 = add nsw i32 %sub20.i.i.4, %add.i.i529.4
   %78 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom.4 = zext i32 %add21.i.i.4 to i64
-  %arrayidx.4 = getelementptr inbounds nuw %struct.MapNode, ptr %78, i64 %idxprom.4
+  %arrayidx.4 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %idxprom.4
   store i32 %treenode.sroa.0.0.insert.ext, ptr %arrayidx.4, align 4, !tbaa.struct !62
   br label %_ZN6BufferIhEC2Ej.exit
 
@@ -1224,7 +1224,7 @@ land.lhs.true22.i693:                             ; preds = %land.lhs.true9.i684
 land.lhs.true:                                    ; preds = %land.lhs.true22.i693
   %101 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266 = zext i32 %add21.i.i658 to i64
-  %arrayidx267 = getelementptr inbounds nuw %struct.MapNode, ptr %101, i64 %idxprom266
+  %arrayidx267 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %idxprom266
   %102 = load i16, ptr %arrayidx267, align 4, !tbaa !68
   %103 = and i16 %102, -2
   %switch = icmp eq i16 %103, 126
@@ -1289,7 +1289,7 @@ land.lhs.true22.i693.1:                           ; preds = %land.lhs.true9.i684
 land.lhs.true.1:                                  ; preds = %land.lhs.true22.i693.1
   %110 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.1 = zext i32 %inc301 to i64
-  %arrayidx267.1 = getelementptr inbounds nuw %struct.MapNode, ptr %110, i64 %idxprom266.1
+  %arrayidx267.1 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %idxprom266.1
   %111 = load i16, ptr %arrayidx267.1, align 4, !tbaa !68
   %112 = and i16 %111, -2
   %switch.1 = icmp eq i16 %112, 126
@@ -1354,7 +1354,7 @@ land.lhs.true22.i693.2:                           ; preds = %land.lhs.true9.i684
 land.lhs.true.2:                                  ; preds = %land.lhs.true22.i693.2
   %119 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.2 = zext i32 %inc301.1 to i64
-  %arrayidx267.2 = getelementptr inbounds nuw %struct.MapNode, ptr %119, i64 %idxprom266.2
+  %arrayidx267.2 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %idxprom266.2
   %120 = load i16, ptr %arrayidx267.2, align 4, !tbaa !68
   %121 = and i16 %120, -2
   %switch.2 = icmp eq i16 %121, 126
@@ -1419,7 +1419,7 @@ land.lhs.true22.i693.3:                           ; preds = %land.lhs.true9.i684
 land.lhs.true.3:                                  ; preds = %land.lhs.true22.i693.3
   %128 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.3 = zext i32 %inc301.2 to i64
-  %arrayidx267.3 = getelementptr inbounds nuw %struct.MapNode, ptr %128, i64 %idxprom266.3
+  %arrayidx267.3 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %idxprom266.3
   %129 = load i16, ptr %arrayidx267.3, align 4, !tbaa !68
   %130 = and i16 %129, -2
   %switch.3 = icmp eq i16 %130, 126
@@ -1484,7 +1484,7 @@ land.lhs.true22.i693.4:                           ; preds = %land.lhs.true9.i684
 land.lhs.true.4:                                  ; preds = %land.lhs.true22.i693.4
   %137 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom266.4 = zext i32 %inc301.3 to i64
-  %arrayidx267.4 = getelementptr inbounds nuw %struct.MapNode, ptr %137, i64 %idxprom266.4
+  %arrayidx267.4 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %idxprom266.4
   %138 = load i16, ptr %arrayidx267.4, align 4, !tbaa !68
   %139 = and i16 %138, -2
   %switch.4 = icmp eq i16 %139, 126
@@ -2898,7 +2898,7 @@ if.end9.i:                                        ; preds = %land.lhs.true22.i.i
   %add21.i.i.i = add nsw i32 %add.i.i86.i, %sub20.i.i.i
   %269 = load ptr, ptr %m_data.i1582, align 8, !tbaa !60
   %idxprom.i = zext i32 %add21.i.i.i to i64
-  %arrayidx.i1100 = getelementptr inbounds nuw %struct.MapNode, ptr %269, i64 %idxprom.i
+  %arrayidx.i1100 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %idxprom.i
   %270 = load i16, ptr %arrayidx.i1100, align 4, !tbaa !68
   %271 = and i16 %270, -2
   %switch.i = icmp eq i16 %271, 126
@@ -2921,7 +2921,7 @@ if.then25.i:                                      ; preds = %if.end23.i
   %sub28.i = sub nsw i32 100, %272
   %cmp29.i = icmp slt i32 %sub28.i, %add28.i94.i
   %idxprom35.i = sext i32 %add21.i.i.i to i64
-  %arrayidx36.i = getelementptr inbounds %struct.MapNode, ptr %269, i64 %idxprom35.i
+  %arrayidx36.i = getelementptr inbounds [4 x i8], ptr %269, i64 %idxprom35.i
   br i1 %cmp29.i, label %if.then30.i, label %if.else.i
 
 if.then30.i:                                      ; preds = %if.then25.i
@@ -2939,7 +2939,7 @@ if.else44.i:                                      ; preds = %if.end23.i
 
 if.then47.i:                                      ; preds = %if.else44.i
   %idxprom52.i = sext i32 %add21.i.i.i to i64
-  %arrayidx53.i = getelementptr inbounds %struct.MapNode, ptr %269, i64 %idxprom52.i
+  %arrayidx53.i = getelementptr inbounds [4 x i8], ptr %269, i64 %idxprom52.i
   store i32 %leavesnode.sroa.0.0.i, ptr %arrayidx53.i, align 4, !tbaa.struct !62
   br label %invoke.cont474
 
@@ -3032,7 +3032,7 @@ if.end9.i1161:                                    ; preds = %land.lhs.true22.i.i
   %add21.i.i.i1172 = add nsw i32 %add.i.i86.i1170, %sub20.i.i.i1171
   %293 = load ptr, ptr %m_data.i1582, align 8, !tbaa !60
   %idxprom.i1174 = zext i32 %add21.i.i.i1172 to i64
-  %arrayidx.i1175 = getelementptr inbounds nuw %struct.MapNode, ptr %293, i64 %idxprom.i1174
+  %arrayidx.i1175 = getelementptr inbounds nuw [4 x i8], ptr %293, i64 %idxprom.i1174
   %294 = load i16, ptr %arrayidx.i1175, align 4, !tbaa !68
   %295 = and i16 %294, -2
   %switch.i1176 = icmp eq i16 %295, 126
@@ -3055,7 +3055,7 @@ if.then25.i1190:                                  ; preds = %if.end23.i1177
   %sub28.i1193 = sub nsw i32 100, %296
   %cmp29.i1194 = icmp slt i32 %sub28.i1193, %add28.i94.i1192
   %idxprom35.i1200 = sext i32 %add21.i.i.i1172 to i64
-  %arrayidx36.i1201 = getelementptr inbounds %struct.MapNode, ptr %293, i64 %idxprom35.i1200
+  %arrayidx36.i1201 = getelementptr inbounds [4 x i8], ptr %293, i64 %idxprom35.i1200
   br i1 %cmp29.i1194, label %if.then30.i1198, label %if.else.i1195
 
 if.then30.i1198:                                  ; preds = %if.then25.i1190
@@ -3073,7 +3073,7 @@ if.else44.i1185:                                  ; preds = %if.end23.i1177
 
 if.then47.i1187:                                  ; preds = %if.else44.i1185
   %idxprom52.i1188 = sext i32 %add21.i.i.i1172 to i64
-  %arrayidx53.i1189 = getelementptr inbounds %struct.MapNode, ptr %293, i64 %idxprom52.i1188
+  %arrayidx53.i1189 = getelementptr inbounds [4 x i8], ptr %293, i64 %idxprom52.i1188
   store i32 %leavesnode.sroa.0.0.i1119, ptr %arrayidx53.i1189, align 4, !tbaa.struct !62
   br label %invoke.cont495
 
@@ -3166,7 +3166,7 @@ if.end9.i1263:                                    ; preds = %land.lhs.true22.i.i
   %add21.i.i.i1274 = add nsw i32 %add.i.i86.i1272, %sub20.i.i.i1273
   %317 = load ptr, ptr %m_data.i1582, align 8, !tbaa !60
   %idxprom.i1276 = zext i32 %add21.i.i.i1274 to i64
-  %arrayidx.i1277 = getelementptr inbounds nuw %struct.MapNode, ptr %317, i64 %idxprom.i1276
+  %arrayidx.i1277 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %idxprom.i1276
   %318 = load i16, ptr %arrayidx.i1277, align 4, !tbaa !68
   %319 = and i16 %318, -2
   %switch.i1278 = icmp eq i16 %319, 126
@@ -3189,7 +3189,7 @@ if.then25.i1292:                                  ; preds = %if.end23.i1279
   %sub28.i1295 = sub nsw i32 100, %320
   %cmp29.i1296 = icmp slt i32 %sub28.i1295, %add28.i94.i1294
   %idxprom35.i1302 = sext i32 %add21.i.i.i1274 to i64
-  %arrayidx36.i1303 = getelementptr inbounds %struct.MapNode, ptr %317, i64 %idxprom35.i1302
+  %arrayidx36.i1303 = getelementptr inbounds [4 x i8], ptr %317, i64 %idxprom35.i1302
   br i1 %cmp29.i1296, label %if.then30.i1300, label %if.else.i1297
 
 if.then30.i1300:                                  ; preds = %if.then25.i1292
@@ -3207,7 +3207,7 @@ if.else44.i1287:                                  ; preds = %if.end23.i1279
 
 if.then47.i1289:                                  ; preds = %if.else44.i1287
   %idxprom52.i1290 = sext i32 %add21.i.i.i1274 to i64
-  %arrayidx53.i1291 = getelementptr inbounds %struct.MapNode, ptr %317, i64 %idxprom52.i1290
+  %arrayidx53.i1291 = getelementptr inbounds [4 x i8], ptr %317, i64 %idxprom52.i1290
   store i32 %leavesnode.sroa.0.0.i1221, ptr %arrayidx53.i1291, align 4, !tbaa.struct !62
   br label %invoke.cont516
 
@@ -3300,7 +3300,7 @@ if.end9.i1365:                                    ; preds = %land.lhs.true22.i.i
   %add21.i.i.i1376 = add nsw i32 %add.i.i86.i1374, %sub20.i.i.i1375
   %341 = load ptr, ptr %m_data.i1582, align 8, !tbaa !60
   %idxprom.i1378 = zext i32 %add21.i.i.i1376 to i64
-  %arrayidx.i1379 = getelementptr inbounds nuw %struct.MapNode, ptr %341, i64 %idxprom.i1378
+  %arrayidx.i1379 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %idxprom.i1378
   %342 = load i16, ptr %arrayidx.i1379, align 4, !tbaa !68
   %343 = and i16 %342, -2
   %switch.i1380 = icmp eq i16 %343, 126
@@ -3323,7 +3323,7 @@ if.then25.i1394:                                  ; preds = %if.end23.i1381
   %sub28.i1397 = sub nsw i32 100, %344
   %cmp29.i1398 = icmp slt i32 %sub28.i1397, %add28.i94.i1396
   %idxprom35.i1404 = sext i32 %add21.i.i.i1376 to i64
-  %arrayidx36.i1405 = getelementptr inbounds %struct.MapNode, ptr %341, i64 %idxprom35.i1404
+  %arrayidx36.i1405 = getelementptr inbounds [4 x i8], ptr %341, i64 %idxprom35.i1404
   br i1 %cmp29.i1398, label %if.then30.i1402, label %if.else.i1399
 
 if.then30.i1402:                                  ; preds = %if.then25.i1394
@@ -3341,7 +3341,7 @@ if.else44.i1389:                                  ; preds = %if.end23.i1381
 
 if.then47.i1391:                                  ; preds = %if.else44.i1389
   %idxprom52.i1392 = sext i32 %add21.i.i.i1376 to i64
-  %arrayidx53.i1393 = getelementptr inbounds %struct.MapNode, ptr %341, i64 %idxprom52.i1392
+  %arrayidx53.i1393 = getelementptr inbounds [4 x i8], ptr %341, i64 %idxprom52.i1392
   store i32 %leavesnode.sroa.0.0.i1323, ptr %arrayidx53.i1393, align 4, !tbaa.struct !62
   br label %for.inc520
 
@@ -3471,7 +3471,7 @@ if.end9.i1490:                                    ; preds = %land.lhs.true22.i.i
   %add21.i.i.i1499 = add nsw i32 %add.i.i53.i, %sub20.i.i.i1498
   %383 = load ptr, ptr %m_data.i1582, align 8, !tbaa !60
   %idxprom.i1501 = zext i32 %add21.i.i.i1499 to i64
-  %arrayidx.i1502 = getelementptr inbounds nuw %struct.MapNode, ptr %383, i64 %idxprom.i1501
+  %arrayidx.i1502 = getelementptr inbounds nuw [4 x i8], ptr %383, i64 %idxprom.i1501
   %384 = load i16, ptr %arrayidx.i1502, align 4, !tbaa !68
   %385 = and i16 %384, -2
   %switch.i1503 = icmp eq i16 %385, 126
@@ -3479,7 +3479,7 @@ if.end9.i1490:                                    ; preds = %land.lhs.true22.i.i
 
 if.end23.i1504:                                   ; preds = %if.end9.i1490
   %idxprom28.i = sext i32 %add21.i.i.i1499 to i64
-  %arrayidx29.i = getelementptr inbounds %struct.MapNode, ptr %383, i64 %idxprom28.i
+  %arrayidx29.i = getelementptr inbounds [4 x i8], ptr %383, i64 %idxprom28.i
   store i32 %leavesnode.sroa.0.0.i1457, ptr %arrayidx29.i, align 4, !tbaa.struct !62
   %386 = load <2 x float>, ptr %position, align 8, !tbaa !103
   %.pre3173 = load float, ptr %Z.i857, align 8, !tbaa !108
@@ -3577,7 +3577,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
   %add21.i.i.i1581 = add nsw i32 %add.i.i.i1579, %sub20.i.i.i1580
   %418 = load ptr, ptr %m_data.i1582, align 8, !tbaa !60
   %idxprom.i1583 = zext i32 %add21.i.i.i1581 to i64
-  %arrayidx.i1584 = getelementptr inbounds nuw %struct.MapNode, ptr %418, i64 %idxprom.i1583
+  %arrayidx.i1584 = getelementptr inbounds nuw [4 x i8], ptr %418, i64 %idxprom.i1583
   %419 = load i16, ptr %arrayidx.i1584, align 4, !tbaa !68
   %420 = and i16 %419, -2
   %switch.i1585 = icmp eq i16 %420, 126
@@ -3585,7 +3585,7 @@ if.end.i:                                         ; preds = %land.lhs.true22.i.i
 
 if.end18.i:                                       ; preds = %if.end.i
   %idxprom23.i = sext i32 %add21.i.i.i1581 to i64
-  %arrayidx24.i = getelementptr inbounds %struct.MapNode, ptr %418, i64 %idxprom23.i
+  %arrayidx24.i = getelementptr inbounds [4 x i8], ptr %418, i64 %idxprom23.i
   store i32 %tree_definition.val, ptr %arrayidx24.i, align 4, !tbaa.struct !62
   %421 = load <2 x float>, ptr %position, align 8, !tbaa !103
   %.pre3170 = load float, ptr %Z.i857, align 8, !tbaa !108
@@ -4114,7 +4114,7 @@ _ZNSt12_Vector_baseIN3irr4core8vector3dIsEESaIS3_EE13_M_deallocateEPS3_m.exit.i:
   store ptr %call5.i.i.i.i, ptr %modified_blocks, align 8, !tbaa !95
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i32.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8, !tbaa !148
-  %add.ptr21.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i, i64 %0
+  %add.ptr21.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !147
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE7reserveEm.exit
 
@@ -4198,7 +4198,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
   store ptr %call5.i.i.i.i.i, ptr %modified_blocks, align 8, !tbaa !95
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !148
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !147
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE9push_backERKS3_.exit
 
@@ -4327,7 +4327,7 @@ if.end:                                           ; preds = %land.lhs.true22.i
   %m_data = getelementptr inbounds nuw i8, ptr %vmanip, i64 32
   %10 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom = zext i32 %add21.i.i to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %10, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %idxprom
   %11 = load i16, ptr %arrayidx, align 4, !tbaa !68
   %12 = and i16 %11, -2
   %or.cond = icmp eq i16 %12, 126
@@ -4776,7 +4776,7 @@ for.cond.cleanup:                                 ; preds = %for.inc.2
   %sub20.i.i = sub nsw i32 %conv16.i.i, %conv19.i.i
   %add21.i.i = add nsw i32 %sub20.i.i, %add.i.i
   %idxprom109 = sext i32 %add21.i.i to i64
-  %arrayidx110 = getelementptr inbounds %struct.MapNode, ptr %41, i64 %idxprom109
+  %arrayidx110 = getelementptr inbounds [4 x i8], ptr %41, i64 %idxprom109
   store i32 %treenode.sroa.0.0.insert.ext1050, ptr %arrayidx110, align 4, !tbaa.struct !62
   %mul.i.i588 = mul i32 %add.i.i591.2, 1103515245
   %add.i.i589 = add i32 %mul.i.i588, 12345
@@ -4834,7 +4834,7 @@ land.lhs.true9.i:                                 ; preds = %if.end65
 land.lhs.true:                                    ; preds = %land.lhs.true9.i
   %59 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom = zext i32 %add21.i.i659 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %59, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %idxprom
   %60 = load i16, ptr %arrayidx, align 4, !tbaa !68
   %cmp81 = icmp eq i16 %60, 126
   br i1 %cmp81, label %for.inc.sink.split, label %if.else
@@ -4861,7 +4861,7 @@ land.lhs.true9.i673:                              ; preds = %if.else
 land.lhs.true89:                                  ; preds = %land.lhs.true9.i673
   %63 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom91 = zext i32 %add21.i.i636 to i64
-  %arrayidx92 = getelementptr inbounds nuw %struct.MapNode, ptr %63, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %idxprom91
   %64 = load i16, ptr %arrayidx92, align 4, !tbaa !68
   %cmp95 = icmp eq i16 %64, 126
   br i1 %cmp95, label %for.inc.sink.split, label %for.inc
@@ -4927,7 +4927,7 @@ land.lhs.true9.i.1:                               ; preds = %if.end65.1
 land.lhs.true.1:                                  ; preds = %land.lhs.true9.i.1
   %74 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom.1 = zext i32 %add21.i.i659.1 to i64
-  %arrayidx.1 = getelementptr inbounds nuw %struct.MapNode, ptr %74, i64 %idxprom.1
+  %arrayidx.1 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %idxprom.1
   %75 = load i16, ptr %arrayidx.1, align 4, !tbaa !68
   %cmp81.1 = icmp eq i16 %75, 126
   br i1 %cmp81.1, label %for.inc.1.sink.split, label %if.else.1
@@ -4954,7 +4954,7 @@ land.lhs.true9.i673.1:                            ; preds = %if.else.1
 land.lhs.true89.1:                                ; preds = %land.lhs.true9.i673.1
   %78 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom91.1 = zext i32 %add21.i.i636.1 to i64
-  %arrayidx92.1 = getelementptr inbounds nuw %struct.MapNode, ptr %78, i64 %idxprom91.1
+  %arrayidx92.1 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %idxprom91.1
   %79 = load i16, ptr %arrayidx92.1, align 4, !tbaa !68
   %cmp95.1 = icmp eq i16 %79, 126
   br i1 %cmp95.1, label %for.inc.1.sink.split, label %for.inc.1
@@ -5020,7 +5020,7 @@ land.lhs.true9.i.2:                               ; preds = %if.end65.2
 land.lhs.true.2:                                  ; preds = %land.lhs.true9.i.2
   %89 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom.2 = zext i32 %add21.i.i659.2 to i64
-  %arrayidx.2 = getelementptr inbounds nuw %struct.MapNode, ptr %89, i64 %idxprom.2
+  %arrayidx.2 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %idxprom.2
   %90 = load i16, ptr %arrayidx.2, align 4, !tbaa !68
   %cmp81.2 = icmp eq i16 %90, 126
   br i1 %cmp81.2, label %for.inc.2.sink.split, label %if.else.2
@@ -5047,7 +5047,7 @@ land.lhs.true9.i673.2:                            ; preds = %if.else.2
 land.lhs.true89.2:                                ; preds = %land.lhs.true9.i673.2
   %93 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom91.2 = zext i32 %add21.i.i636.2 to i64
-  %arrayidx92.2 = getelementptr inbounds nuw %struct.MapNode, ptr %93, i64 %idxprom91.2
+  %arrayidx92.2 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %idxprom91.2
   %94 = load i16, ptr %arrayidx92.2, align 4, !tbaa !68
   %cmp95.2 = icmp eq i16 %94, 126
   br i1 %cmp95.2, label %for.inc.2.sink.split, label %for.inc.2
@@ -5138,7 +5138,7 @@ if.then123:                                       ; preds = %land.lhs.true22.i72
   %add21.i.i760 = add nsw i32 %sub20.i.i759, %add.i.i755
   %103 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom128 = zext i32 %add21.i.i760 to i64
-  %arrayidx129 = getelementptr inbounds nuw %struct.MapNode, ptr %103, i64 %idxprom128
+  %arrayidx129 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %idxprom128
   store i32 %treenode.sroa.0.0.insert.ext1050, ptr %arrayidx129, align 4, !tbaa.struct !62
   br label %if.end130
 
@@ -5305,7 +5305,7 @@ land.lhs.true22.i935:                             ; preds = %land.lhs.true9.i926
 land.lhs.true348:                                 ; preds = %land.lhs.true22.i935
   %126 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350 = zext i32 %add21.i.i900 to i64
-  %arrayidx351 = getelementptr inbounds nuw %struct.MapNode, ptr %126, i64 %idxprom350
+  %arrayidx351 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %idxprom350
   %127 = load i16, ptr %arrayidx351, align 4, !tbaa !68
   %128 = and i16 %127, -2
   %switch = icmp eq i16 %128, 126
@@ -5360,7 +5360,7 @@ land.lhs.true22.i935.1:                           ; preds = %land.lhs.true9.i926
 land.lhs.true348.1:                               ; preds = %land.lhs.true22.i935.1
   %134 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350.1 = zext i32 %inc372 to i64
-  %arrayidx351.1 = getelementptr inbounds nuw %struct.MapNode, ptr %134, i64 %idxprom350.1
+  %arrayidx351.1 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %idxprom350.1
   %135 = load i16, ptr %arrayidx351.1, align 4, !tbaa !68
   %136 = and i16 %135, -2
   %switch.1 = icmp eq i16 %136, 126
@@ -5415,7 +5415,7 @@ land.lhs.true22.i935.2:                           ; preds = %land.lhs.true9.i926
 land.lhs.true348.2:                               ; preds = %land.lhs.true22.i935.2
   %142 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350.2 = zext i32 %inc372.1 to i64
-  %arrayidx351.2 = getelementptr inbounds nuw %struct.MapNode, ptr %142, i64 %idxprom350.2
+  %arrayidx351.2 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %idxprom350.2
   %143 = load i16, ptr %arrayidx351.2, align 4, !tbaa !68
   %144 = and i16 %143, -2
   %switch.2 = icmp eq i16 %144, 126
@@ -5470,7 +5470,7 @@ land.lhs.true22.i935.3:                           ; preds = %land.lhs.true9.i926
 land.lhs.true348.3:                               ; preds = %land.lhs.true22.i935.3
   %150 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350.3 = zext i32 %inc372.2 to i64
-  %arrayidx351.3 = getelementptr inbounds nuw %struct.MapNode, ptr %150, i64 %idxprom350.3
+  %arrayidx351.3 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %idxprom350.3
   %151 = load i16, ptr %arrayidx351.3, align 4, !tbaa !68
   %152 = and i16 %151, -2
   %switch.3 = icmp eq i16 %152, 126
@@ -5525,7 +5525,7 @@ land.lhs.true22.i935.4:                           ; preds = %land.lhs.true9.i926
 land.lhs.true348.4:                               ; preds = %land.lhs.true22.i935.4
   %158 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350.4 = zext i32 %inc372.3 to i64
-  %arrayidx351.4 = getelementptr inbounds nuw %struct.MapNode, ptr %158, i64 %idxprom350.4
+  %arrayidx351.4 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %idxprom350.4
   %159 = load i16, ptr %arrayidx351.4, align 4, !tbaa !68
   %160 = and i16 %159, -2
   %switch.4 = icmp eq i16 %160, 126
@@ -5580,7 +5580,7 @@ land.lhs.true22.i935.5:                           ; preds = %land.lhs.true9.i926
 land.lhs.true348.5:                               ; preds = %land.lhs.true22.i935.5
   %166 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350.5 = zext i32 %inc372.4 to i64
-  %arrayidx351.5 = getelementptr inbounds nuw %struct.MapNode, ptr %166, i64 %idxprom350.5
+  %arrayidx351.5 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %idxprom350.5
   %167 = load i16, ptr %arrayidx351.5, align 4, !tbaa !68
   %168 = and i16 %167, -2
   %switch.5 = icmp eq i16 %168, 126
@@ -5635,7 +5635,7 @@ land.lhs.true22.i935.6:                           ; preds = %land.lhs.true9.i926
 land.lhs.true348.6:                               ; preds = %land.lhs.true22.i935.6
   %174 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom350.6 = zext i32 %inc372.5 to i64
-  %arrayidx351.6 = getelementptr inbounds nuw %struct.MapNode, ptr %174, i64 %idxprom350.6
+  %arrayidx351.6 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %idxprom350.6
   %175 = load i16, ptr %arrayidx351.6, align 4, !tbaa !68
   %176 = and i16 %175, -2
   %switch.6 = icmp eq i16 %176, 126
@@ -6124,7 +6124,7 @@ if.then76:                                        ; preds = %land.lhs.true22.i
   %add21.i.i = add nsw i32 %sub20.i.i, %add.i.i732
   %55 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom = zext i32 %add21.i.i to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %55, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %idxprom
   store i32 %treenode.sroa.0.0.insert.ext, ptr %arrayidx, align 4, !tbaa.struct !62
   br label %if.end80
 
@@ -6826,7 +6826,7 @@ land.lhs.true22.i1104:                            ; preds = %land.lhs.true9.i109
 land.lhs.true:                                    ; preds = %land.lhs.true22.i1104
   %102 = load ptr, ptr %m_data, align 8, !tbaa !60
   %idxprom408 = zext i32 %vi379.01331 to i64
-  %arrayidx409 = getelementptr inbounds nuw %struct.MapNode, ptr %102, i64 %idxprom408
+  %arrayidx409 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %idxprom408
   %103 = load i16, ptr %arrayidx409, align 4, !tbaa !68
   %104 = and i16 %103, -2
   %switch = icmp eq i16 %104, 126
@@ -7487,8 +7487,8 @@ _ZNSt11_Deque_baseIN3irr4core8CMatrix4IfEESaIS3_EE15_M_allocate_mapEm.exit: ; pr
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !144
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %_ZNSt11_Deque_baseIN3irr4core8CMatrix4IfEESaIS3_EE15_M_allocate_mapEm.exit
@@ -7578,7 +7578,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !131
   store ptr %12, ptr %_M_start, align 8, !tbaa !184
   %rem = and i64 %__num_elements, 7
-  %add.ptr36 = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !116
   ret void
 
@@ -7608,8 +7608,8 @@ entry:
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !141
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %entry
@@ -7698,7 +7698,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   %_M_last.i54 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !139
   store ptr %12, ptr %_M_start, align 8, !tbaa !187
-  %add.ptr36 = getelementptr inbounds nuw %"class.irr::core::vector3d.52", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !120
   ret void
 
@@ -7818,9 +7818,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !144
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -7843,8 +7843,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -7872,9 +7872,9 @@ _ZNSt11_Deque_baseIN3irr4core8CMatrix4IfEESaIS3_EE15_M_allocate_mapEm.exit: ; pr
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #29
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPN3irr4core8CMatrix4IfEES5_ET0_T_S7_S6_.exit101, label %if.then.i.i.i.i.i99
@@ -7901,7 +7901,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN3irr4c
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !131
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !126
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !90
@@ -8014,9 +8014,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !141
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -8039,8 +8039,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -8068,9 +8068,9 @@ _ZNSt11_Deque_baseIN3irr4core8vector3dIfEESaIS3_EE15_M_allocate_mapEm.exit: ; pr
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #29
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPN3irr4core8vector3dIfEES5_ET0_T_S7_S6_.exit101, label %if.then.i.i.i.i.i99
@@ -8097,7 +8097,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN3irr4c
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 504
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !139
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !134
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !90

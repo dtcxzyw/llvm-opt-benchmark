@@ -3,10 +3,6 @@ source_filename = "bench/boost/original/pool_resource.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.boost::container::pmr::pool_data_t" = type { %"class.boost::container::pmr::block_slist_base", %"struct.boost::container::pmr::slist_node", i64 }
-%"class.boost::container::pmr::block_slist_base" = type { %"struct.boost::container::pmr::slist_node" }
-%"struct.boost::container::pmr::slist_node" = type { ptr }
-
 $__clang_call_terminate = comdat any
 
 $_ZN5boost9container15throw_bad_allocEv = comdat any
@@ -134,7 +130,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.012 = phi i64 [ %18, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %12, i64 %.012
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.012
   store ptr null, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 1, ptr %16, align 8, !tbaa !20
@@ -376,7 +372,7 @@ _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE7releaseERNS1_
 20:                                               ; preds = %_ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit.i, %.lr.ph.i
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %_ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit.i ]
   %21 = load ptr, ptr %19, align 8, !tbaa !16
-  %22 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %21, i64 %.05.i
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.05.i
   %23 = load ptr, ptr %3, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %24, align 8, !tbaa !18
@@ -493,7 +489,7 @@ _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE7releaseERNS1_
 20:                                               ; preds = %.lr.ph, %_ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit
   %.05 = phi i64 [ 0, %.lr.ph ], [ %37, %_ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit ]
   %21 = load ptr, ptr %19, align 8, !tbaa !16
-  %22 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %21, i64 %.05
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.05
   %23 = load ptr, ptr %3, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %24, align 8, !tbaa !18
@@ -574,7 +570,7 @@ define hidden noundef ptr @_ZN5boost9container3pmr13pool_resource11do_allocateEm
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %6
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %6 ]
-  %19 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %18, i64 %.012.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.012.i
   store ptr null, ptr %19, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 1, ptr %20, align 8, !tbaa !20
@@ -630,7 +626,7 @@ _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE8allocateEmRNS
   %46 = add i64 %.sroa.speculated.i, -1
   %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %46, i1 false)
   %48 = sub nuw nsw i64 60, %47
-  %49 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %25, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !18
   %.not.i.i = icmp eq ptr %51, null
@@ -757,7 +753,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(p
   %27 = sub nuw nsw i64 60, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %30 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %29, i64 %27
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store i64 0, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !18
@@ -844,7 +840,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_bl
   br i1 %8, label %9, label %13, !prof !37
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %4, i64 %1
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !20
   br label %13
@@ -872,7 +868,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_
   br i1 %8, label %9, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, !prof !37
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %4, i64 %1
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %12
 

@@ -516,7 +516,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZStl
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62: ; preds = %74, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %78 = load ptr, ptr %8, align 8, !tbaa !27
-  %79 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.13", ptr %78, i64 %.03894
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.03894
   %80 = load ptr, ptr %79, align 8, !tbaa !19
   store ptr %80, ptr %10, align 8, !tbaa !19
   %81 = load i64, ptr %80, align 8
@@ -1433,7 +1433,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit59: ; preds = %123, %1
   %137 = icmp eq i32 %136, 2
   %spec.select.i.i = select i1 %137, i64 2, i64 1
   %138 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %spec.select.i.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %spec.select.i.i
   %140 = load ptr, ptr %139, align 8, !tbaa !57, !noalias !54
   store ptr %140, ptr %13, align 8, !tbaa !19
   %141 = load i64, ptr %140, align 8
@@ -1626,7 +1626,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit65: ; preds = %206, %210, %216
   %237 = load i64, ptr %236, align 8
   %238 = lshr i64 %237, 32
   %239 = and i64 %238, 67108863
-  %240 = getelementptr inbounds nuw ptr, ptr %235, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %239
   %.not7981 = icmp eq ptr %spec.select.i.i66, %240
   br i1 %.not7981, label %.loopexit, label %.lr.ph
 
@@ -4768,7 +4768,7 @@ define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTempl
 _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm.exit: ; preds = %2, %.loopexit.sink.split.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !23
-  %11 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.13", ptr %10, i64 %4
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = ptrtoint ptr %10 to i64

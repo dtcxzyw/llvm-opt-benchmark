@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.pbrt::Point2.14" = type { %"class.pbrt::Tuple2.15" }
-%"class.pbrt::Tuple2.15" = type { float, float }
-%"struct.pbrt::MLTSampler::PrimarySample" = type { float, i64, float, i64 }
 %"class.pbrt::DebugMLTSampler" = type { %"class.pbrt::MLTSampler", %"class.std::vector.20" }
 %"class.pbrt::MLTSampler" = type { i32, %"class.pbrt::RNG", float, float, i32, %"class.pstd::vector.18", i64, i8, i64, i32, i32 }
 %"class.pbrt::RNG" = type { i64, i64 }
@@ -2065,9 +2062,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt6Point2IfEEE15allocate_objectIS4_EEPT_
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt6Point2IfEEE15allocate_objectIS4_EEPT_m.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt6Point2IfEEE15allocate_objectIS4_EEPT_m.exit.i.i.i.i.i ]
-  %88 = getelementptr inbounds nuw %"class.pbrt::Point2.14", ptr %80, i64 %indvars.iv.i.i.i.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i.i.i.i.i
   %89 = load ptr, ptr %73, align 8, !tbaa !190
-  %90 = getelementptr inbounds nuw %"class.pbrt::Point2.14", ptr %89, i64 %indvars.iv.i.i.i.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i.i.i.i.i
   %91 = load i64, ptr %90, align 4
   store i64 %91, ptr %88, align 4
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -2083,7 +2080,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt6Point2IfEEE15allocate_objectIS4_EEPT_
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.012.i.i.i.i = phi i64 [ %96, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %94 = load ptr, ptr %73, align 8, !tbaa !190
-  %95 = getelementptr inbounds nuw %"class.pbrt::Point2.14", ptr %94, i64 %.012.i.i.i.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.012.i.i.i.i
   store i64 0, ptr %95, align 4
   %96 = add nuw i64 %.012.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %96, %71
@@ -2103,7 +2100,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectINS_6vectorIN4pbrt6Point
   %101 = shl nuw nsw i64 %100, 2
   %102 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %101) #31
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %102, i8 0, i64 %101, i1 false), !tbaa !28
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %100
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %100
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 %101
   %105 = ptrtoint ptr %103 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
@@ -2127,7 +2124,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
 
 110:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit, %163
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ %indvars.iv.next, %163 ]
-  %111 = getelementptr inbounds nuw [2 x i32], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 %indvars.iv
   %112 = load i32, ptr %111, align 8, !tbaa !28
   %113 = uitofp i32 %112 to double
   %114 = fmul nnan double %113, 0x3DF0000000000000
@@ -2146,7 +2143,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
   %127 = mul nsw i32 %121, %126
   %128 = add nsw i32 %127, %125
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %.sroa.084.0, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.084.0, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !28
   %132 = icmp eq i32 %131, %1
   br i1 %132, label %133, label %138
@@ -2173,7 +2170,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
   %142 = sext i32 %140 to i64
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !190
-  %145 = getelementptr inbounds nuw %"class.pbrt::Point2.14", ptr %144, i64 %142
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   %146 = load float, ptr %145, align 4, !tbaa !196
   %147 = fcmp oeq float %146, 0.000000e+00
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 4
@@ -2214,7 +2211,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %171
   %indvars.iv107 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next108, %171 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %164 = getelementptr inbounds nuw i32, ptr %.sroa.084.0, i64 %indvars.iv107
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.084.0, i64 %indvars.iv107
   %165 = load i32, ptr %164, align 4, !tbaa !28
   store i32 %165, ptr %7, align 4, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3592,7 +3589,7 @@ define dso_local noundef float @_ZN4pbrt10MLTSampler5Get1DEv(ptr noundef nonnull
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !250
-  %14 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %11
   %15 = load float, ptr %14, align 8, !tbaa !251
   ret float %15
 }
@@ -3615,7 +3612,7 @@ define dso_local void @_ZN4pbrt10MLTSampler11EnsureReadyEi(ptr noundef nonnull a
 10:                                               ; preds = %6, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !250
-  %13 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %12, i64 %3
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !254
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3793,7 +3790,7 @@ define dso_local <2 x float> @_ZN4pbrt10MLTSampler5Get2DEv(ptr noundef nonnull a
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !250
-  %14 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %11
   %15 = load float, ptr %14, align 8, !tbaa !251
   %16 = load i32, ptr %2, align 8, !tbaa !243
   %17 = load i32, ptr %4, align 8, !tbaa !248
@@ -3805,7 +3802,7 @@ define dso_local <2 x float> @_ZN4pbrt10MLTSampler5Get2DEv(ptr noundef nonnull a
   tail call void @_ZN4pbrt10MLTSampler11EnsureReadyEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %21)
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %12, align 8, !tbaa !250
-  %24 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %22
   %25 = load float, ptr %24, align 8, !tbaa !251
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %15, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %25, i64 1
@@ -3828,7 +3825,7 @@ define dso_local <2 x float> @_ZN4pbrt10MLTSampler10GetPixel2DEv(ptr noundef non
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !250
-  %14 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %11
   %15 = load float, ptr %14, align 8, !tbaa !251
   %16 = load i32, ptr %2, align 8, !tbaa !243
   %17 = load i32, ptr %4, align 8, !tbaa !248
@@ -3840,7 +3837,7 @@ define dso_local <2 x float> @_ZN4pbrt10MLTSampler10GetPixel2DEv(ptr noundef non
   tail call void @_ZN4pbrt10MLTSampler11EnsureReadyEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %21)
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %12, align 8, !tbaa !250
-  %24 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %22
   %25 = load float, ptr %24, align 8, !tbaa !251
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %15, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %25, i64 1
@@ -3999,9 +3996,9 @@ _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt10MLTSampler13PrimarySampleEE17dealloc
 
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %44 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %.0.i.i.i.i, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i
   %45 = load ptr, ptr %33, align 8, !tbaa !250
-  %46 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !tbaa.struct !264
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = load i64, ptr %3, align 8, !tbaa !253
@@ -4020,7 +4017,7 @@ _ZN4pstd6vectorIN4pbrt10MLTSampler13PrimarySampleENS_3pmr21polymorphic_allocator
 52:                                               ; preds = %.lr.ph, %52
   %.015 = phi i64 [ %49, %.lr.ph ], [ %55, %52 ]
   %53 = load ptr, ptr %51, align 8, !tbaa !250
-  %54 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %53, i64 %.015
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.015
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
   %55 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %55, %1
@@ -4302,12 +4299,12 @@ define dso_local void @_ZN4pbrt15DebugMLTSampler6CreateEN4pstd4spanIKNSt7__cxx11
 
 .lr.ph:                                           ; preds = %41, %42
   %.0814 = phi i64 [ %43, %42 ], [ 0, %41 ]
-  %46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %.0814
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.0814
   %47 = load ptr, ptr %46, align 8, !tbaa !79
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !64
   %50 = load ptr, ptr %40, align 8, !tbaa !273
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %.0814
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0814
   %52 = invoke noundef zeroext i1 @_ZN4pbrt4AtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %49, ptr %47, ptr noundef nonnull %51)
           to label %53 unwind label %.loopexit
 
@@ -7767,7 +7764,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 12:                                               ; preds = %.lr.ph, %41
   %.014 = phi i64 [ 0, %.lr.ph ], [ %43, %41 ]
-  %13 = getelementptr inbounds nuw %"struct.pbrt::MLTSampler::PrimarySample", ptr %6, i64 %.014
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.014
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -12374,7 +12371,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail21stringPrintfRecursiveIRKSt6
 
 .lr.ph.i:                                         ; preds = %.noexc, %40
   %.011.i = phi i64 [ %41, %40 ], [ 0, %.noexc ]
-  %26 = getelementptr inbounds nuw float, ptr %22, i64 %.011.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.011.i
   %27 = load float, ptr %26, align 4, !tbaa !265
   %28 = fpext float %27 to double
   %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %20, double noundef %28)
@@ -43231,9 +43228,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !273
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !529
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !279
   br label %41
 

@@ -640,7 +640,7 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.noexc
           to label %59 unwind label %62
 
 59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr34, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %.ptr34, i64 %indvars.iv
   %61 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(64) %7) #13
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -992,7 +992,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl23CombinedCurrencyMatcher13m
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %84 ]
   %.159.in73 = phi i1 [ %41, %.preheader ], [ %98, %84 ]
   %.06171 = phi i32 [ 0, %.preheader ], [ %.162, %84 ]
-  %85 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %58, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [64 x i8], ptr %58, i64 %indvars.iv
   %86 = tail call noundef i32 @_ZN6icu_7713StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %85)
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load i16, ptr %87, align 8, !tbaa !25

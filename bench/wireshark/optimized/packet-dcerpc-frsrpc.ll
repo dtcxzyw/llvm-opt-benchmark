@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.true_false_string = type { ptr, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._value_string = type { i32, ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"FRSRPC_CO_STATUS_CO_ENTERED_LOG\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"FRSRPC_CO_STATUS_ALLOC_STAGING_LOCAL_CO\00", align 1
@@ -870,7 +869,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 60:                                               ; preds = %60, %56
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i.i.i.i, %60 ]
   %.025.i.i.i.i.i = phi ptr [ null, %56 ], [ %spec.select.i.i.i.i.i, %60 ]
-  %61 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv.i.i.i.i.i
+  %61 = getelementptr [16 x i8], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %61, align 16
@@ -1260,7 +1259,7 @@ frsrpc_dissect_element_CommPktChunk_data.exit:    ; preds = %25, %frsrpc_dissect
 299:                                              ; preds = %frsrpc_dissect_element_CommPktChunk_data.exit, %299
   %indvars.iv = phi i64 [ 0, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %indvars.iv.next, %299 ]
   %.03950 = phi ptr [ null, %frsrpc_dissect_element_CommPktChunk_data.exit ], [ %spec.select, %299 ]
-  %300 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 %indvars.iv
+  %300 = getelementptr [16 x i8], ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 %indvars.iv
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
   %303 = load i32, ptr %300, align 16
@@ -1340,7 +1339,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
 15:                                               ; preds = %12, %15
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %15 ]
   %.025 = phi ptr [ null, %12 ], [ %spec.select, %15 ]
-  %16 = getelementptr %struct._value_string, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv
+  %16 = getelementptr [16 x i8], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %16, align 16

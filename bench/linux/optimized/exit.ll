@@ -102,7 +102,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_abort: ; .as
 %struct.xstate_header = type { i64, i64, [6 x i64] }
 %struct.static_key_false = type { %struct.static_key }
 %struct.core_thread = type { ptr, ptr }
-%struct.hlist_head = type { ptr }
 %struct.wait_opts = type { i32, i32, ptr, ptr, i32, ptr, %struct.wait_queue_entry, i32 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.rusage = type { %struct.__kernel_old_timeval, %struct.__kernel_old_timeval, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
@@ -2418,7 +2417,7 @@ define dso_local noundef zeroext i1 @pid_child_should_wake(ptr noundef readonly 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = zext i32 %3 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -2482,7 +2481,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_wait(ptr noundef c
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr %struct.hlist_head, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.thread, label %16
@@ -3712,7 +3711,7 @@ define internal fastcc i32 @wait_consider_task(ptr noundef captures(none) %0, i3
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 360
   %18 = zext i32 %11 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   br label %20
 
 20:                                               ; preds = %12, %14
@@ -4524,7 +4523,7 @@ define internal i32 @child_wait_callback(ptr noundef %0, i32 noundef %1, i32 nou
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 360
   %13 = zext i32 %6 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   br label %15
 
 15:                                               ; preds = %9, %7

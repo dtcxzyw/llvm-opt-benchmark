@@ -105,7 +105,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %36 = load i32, ptr %35, align 8, !tbaa !41
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %34, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !40
@@ -286,7 +286,7 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %58 = sdiv i32 %57, 2
   %59 = mul nsw i32 %32, %58
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i16, ptr %55, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %55, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !39
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -294,14 +294,14 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %66 = sdiv i32 %65, 2
   %67 = mul nsw i32 %32, %66
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %63, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %63, i64 %68
   %70 = load ptr, ptr %1, align 8, !tbaa !39
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %72 = load i32, ptr %71, align 8, !tbaa !40
   %73 = sdiv i32 %72, 2
   %74 = mul nsw i32 %32, %73
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i16, ptr %70, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %70, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !39
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -309,7 +309,7 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %81 = sdiv i32 %80, 2
   %82 = mul nsw i32 %32, %81
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %78, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %78, i64 %83
   %85 = icmp sgt i32 %30, 0
   %86 = sext i32 %81 to i64
   %87 = sext i32 %73 to i64
@@ -355,15 +355,15 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   br label %115
 
 ._crit_edge:                                      ; preds = %115
-  %109 = getelementptr inbounds i16, ptr %.0146171, i64 %86
-  %110 = getelementptr inbounds i16, ptr %.0145172, i64 %87
-  %111 = getelementptr inbounds i16, ptr %.0144173, i64 %88
+  %109 = getelementptr inbounds [2 x i8], ptr %.0146171, i64 %86
+  %110 = getelementptr inbounds [2 x i8], ptr %.0145172, i64 %87
+  %111 = getelementptr inbounds [2 x i8], ptr %.0144173, i64 %88
   br i1 %91, label %166, label %.lr.ph169
 
 ._crit_edge.thread:                               ; preds = %93
-  %112 = getelementptr inbounds i16, ptr %.0146171, i64 %86
-  %113 = getelementptr inbounds i16, ptr %.0145172, i64 %87
-  %114 = getelementptr inbounds i16, ptr %.0144173, i64 %88
+  %112 = getelementptr inbounds [2 x i8], ptr %.0146171, i64 %86
+  %113 = getelementptr inbounds [2 x i8], ptr %.0145172, i64 %87
+  %114 = getelementptr inbounds [2 x i8], ptr %.0144173, i64 %88
   br i1 %91, label %166, label %._crit_edge170
 
 115:                                              ; preds = %.lr.ph, %115
@@ -386,23 +386,23 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %spec.select165 = add i32 %118, %106
   %131 = add i32 %spec.select165, %126
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i16, ptr %37, i64 %132
+  %133 = getelementptr inbounds [2 x i8], ptr %37, i64 %132
   %134 = load i16, ptr %133, align 2, !tbaa !64
-  %135 = getelementptr inbounds nuw i16, ptr %.0146171, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.0146171, i64 %indvars.iv
   store i16 %134, ptr %135, align 2, !tbaa !64
   %.0136 = add i32 %121, %107
   %136 = add i32 %.0136, %128
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i16, ptr %38, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %38, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !64
-  %140 = getelementptr inbounds nuw i16, ptr %.0145172, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %.0145172, i64 %indvars.iv
   store i16 %139, ptr %140, align 2, !tbaa !64
   %.0135 = add i32 %124, %108
   %141 = add i32 %.0135, %130
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i16, ptr %40, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %40, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !64
-  %145 = getelementptr inbounds nuw i16, ptr %.0144173, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %.0144173, i64 %indvars.iv
   store i16 %144, ptr %145, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -412,7 +412,7 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %146 = phi ptr [ %112, %._crit_edge.thread ], [ %109, %.lr.ph169 ]
   %147 = phi ptr [ %113, %._crit_edge.thread ], [ %110, %.lr.ph169 ]
   %148 = phi ptr [ %114, %._crit_edge.thread ], [ %111, %.lr.ph169 ]
-  %149 = getelementptr inbounds i16, ptr %.0143174, i64 %92
+  %149 = getelementptr inbounds [2 x i8], ptr %.0143174, i64 %92
   br label %166
 
 .lr.ph169:                                        ; preds = %._crit_edge, %.lr.ph169
@@ -432,9 +432,9 @@ define internal noundef i32 @rgbawrap_slice16(ptr noundef readonly captures(none
   %160 = mul nsw i32 %.0, %20
   %161 = add nsw i32 %spec.select166, %160
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i16, ptr %42, i64 %162
+  %163 = getelementptr inbounds [2 x i8], ptr %42, i64 %162
   %164 = load i16, ptr %163, align 2, !tbaa !64
-  %165 = getelementptr inbounds nuw i16, ptr %.0143174, i64 %indvars.iv180
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %.0143174, i64 %indvars.iv180
   store i16 %164, ptr %165, align 2, !tbaa !64
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
@@ -730,7 +730,7 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %58 = sdiv i32 %57, 2
   %59 = mul nsw i32 %32, %58
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i16, ptr %55, i64 %60
+  %61 = getelementptr inbounds [2 x i8], ptr %55, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !39
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -738,14 +738,14 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %66 = sdiv i32 %65, 2
   %67 = mul nsw i32 %32, %66
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %63, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %63, i64 %68
   %70 = load ptr, ptr %1, align 8, !tbaa !39
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %72 = load i32, ptr %71, align 8, !tbaa !40
   %73 = sdiv i32 %72, 2
   %74 = mul nsw i32 %32, %73
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i16, ptr %70, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %70, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !39
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -753,7 +753,7 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %81 = sdiv i32 %80, 2
   %82 = mul nsw i32 %32, %81
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %78, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %78, i64 %83
   %85 = add nsw i32 %30, -1
   %86 = icmp sgt i32 %45, 0
   %87 = add nsw i32 %45, -1
@@ -799,15 +799,15 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   br i1 %86, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %109 = getelementptr inbounds i16, ptr %.0106136, i64 %88
-  %110 = getelementptr inbounds i16, ptr %.0107135, i64 %89
-  %111 = getelementptr inbounds i16, ptr %.0108134, i64 %90
+  %109 = getelementptr inbounds [2 x i8], ptr %.0106136, i64 %88
+  %110 = getelementptr inbounds [2 x i8], ptr %.0107135, i64 %89
+  %111 = getelementptr inbounds [2 x i8], ptr %.0108134, i64 %90
   br i1 %93, label %155, label %139
 
 ._crit_edge.thread:                               ; preds = %99
-  %112 = getelementptr inbounds i16, ptr %.0106136, i64 %88
-  %113 = getelementptr inbounds i16, ptr %.0107135, i64 %89
-  %114 = getelementptr inbounds i16, ptr %.0108134, i64 %90
+  %112 = getelementptr inbounds [2 x i8], ptr %.0106136, i64 %88
+  %113 = getelementptr inbounds [2 x i8], ptr %.0107135, i64 %89
+  %114 = getelementptr inbounds [2 x i8], ptr %.0108134, i64 %90
   br i1 %93, label %155, label %._crit_edge131
 
 .lr.ph:                                           ; preds = %99, %.lr.ph
@@ -819,9 +819,9 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %.0.i118 = select i1 %116, i32 0, i32 %..i117
   %118 = add nsw i32 %.0.i118, %102
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i16, ptr %37, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %37, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !64
-  %122 = getelementptr inbounds nuw i16, ptr %.0106136, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %.0106136, i64 %indvars.iv
   store i16 %121, ptr %122, align 2, !tbaa !64
   %123 = sub nsw i64 %indvars.iv, %96
   %124 = icmp slt i64 %123, 0
@@ -830,9 +830,9 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %.0.i120 = select i1 %124, i32 0, i32 %..i119
   %126 = add nsw i32 %.0.i120, %105
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i16, ptr %38, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %38, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !64
-  %130 = getelementptr inbounds nuw i16, ptr %.0107135, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %.0107135, i64 %indvars.iv
   store i16 %129, ptr %130, align 2, !tbaa !64
   %131 = sub nsw i64 %indvars.iv, %97
   %132 = icmp slt i64 %131, 0
@@ -841,9 +841,9 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %.0.i122 = select i1 %132, i32 0, i32 %..i121
   %134 = add nsw i32 %.0.i122, %108
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %40, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %40, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !64
-  %138 = getelementptr inbounds nuw i16, ptr %.0108134, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.0108134, i64 %indvars.iv
   store i16 %137, ptr %138, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -861,7 +861,7 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %143 = phi ptr [ %112, %._crit_edge.thread ], [ %109, %.lr.ph130 ]
   %144 = phi ptr [ %113, %._crit_edge.thread ], [ %110, %.lr.ph130 ]
   %145 = phi ptr [ %114, %._crit_edge.thread ], [ %111, %.lr.ph130 ]
-  %146 = getelementptr inbounds i16, ptr %.0109133, i64 %94
+  %146 = getelementptr inbounds [2 x i8], ptr %.0109133, i64 %94
   br label %155
 
 .lr.ph130:                                        ; preds = %139, %.lr.ph130
@@ -873,9 +873,9 @@ define internal noundef i32 @rgbasmear_slice16(ptr noundef readonly captures(non
   %.0.i126 = select i1 %148, i32 0, i32 %..i125
   %150 = add nsw i32 %.0.i126, %142
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i16, ptr %42, i64 %151
+  %152 = getelementptr inbounds [2 x i8], ptr %42, i64 %151
   %153 = load i16, ptr %152, align 2, !tbaa !64
-  %154 = getelementptr inbounds nuw i16, ptr %.0109133, i64 %indvars.iv141
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %.0109133, i64 %indvars.iv141
   store i16 %153, ptr %154, align 2, !tbaa !64
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
@@ -1146,12 +1146,12 @@ define internal noundef i32 @wrap_slice16(ptr noundef readonly captures(none) %0
   %47 = load ptr, ptr %46, align 8, !tbaa !39
   %48 = mul nsw i32 %28, %42
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i16, ptr %47, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !39
   %53 = mul nsw i32 %28, %39
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %52, i64 %54
   %wide.trip.count = zext nneg i32 %26 to i64
   br label %.lr.ph.us
 
@@ -1188,24 +1188,24 @@ define internal noundef i32 @wrap_slice16(ptr noundef readonly captures(none) %0
   %spec.select88.us = add i32 %69, %64
   %77 = add i32 %spec.select88.us, %74
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i16, ptr %33, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %33, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !64
-  %81 = getelementptr inbounds nuw i16, ptr %.07990.us, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.07990.us, i64 %indvars.iv
   store i16 %80, ptr %81, align 2, !tbaa !64
   %.0.us = add i32 %72, %65
   %82 = add i32 %.0.us, %76
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %35, i64 %83
+  %84 = getelementptr inbounds [2 x i8], ptr %35, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !64
-  %86 = getelementptr inbounds nuw i16, ptr %.07891.us, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.07891.us, i64 %indvars.iv
   store i16 %85, ptr %86, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !84
 
 ._crit_edge.us:                                   ; preds = %66
-  %87 = getelementptr inbounds i16, ptr %.07990.us, i64 %44
-  %88 = getelementptr inbounds i16, ptr %.07891.us, i64 %45
+  %87 = getelementptr inbounds [2 x i8], ptr %.07990.us, i64 %44
+  %88 = getelementptr inbounds [2 x i8], ptr %.07891.us, i64 %45
   %89 = add nsw i32 %.07792.us, 1
   %exitcond98.not = icmp eq i32 %89, %31
   br i1 %exitcond98.not, label %._crit_edge95, label %.lr.ph.us, !llvm.loop !85
@@ -1386,12 +1386,12 @@ define internal noundef i32 @smear_slice16(ptr noundef readonly captures(none) %
   %49 = load ptr, ptr %48, align 8, !tbaa !39
   %50 = mul nsw i32 %28, %42
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %49, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !39
   %55 = mul nsw i32 %28, %39
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %54, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %54, i64 %56
   %58 = sext i32 %16 to i64
   %59 = sext i32 %20 to i64
   %wide.trip.count = zext nneg i32 %26 to i64
@@ -1422,9 +1422,9 @@ define internal noundef i32 @smear_slice16(ptr noundef readonly captures(none) %
   %.0.i66.us = select i1 %68, i32 0, i32 %..i65.us
   %70 = add nsw i32 %.0.i66.us, %62
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i16, ptr %33, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %33, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !64
-  %74 = getelementptr inbounds nuw i16, ptr %.05972.us, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %.05972.us, i64 %indvars.iv
   store i16 %73, ptr %74, align 2, !tbaa !64
   %75 = sub nsw i64 %indvars.iv, %59
   %76 = icmp slt i64 %75, 0
@@ -1433,17 +1433,17 @@ define internal noundef i32 @smear_slice16(ptr noundef readonly captures(none) %
   %.0.i68.us = select i1 %76, i32 0, i32 %..i67.us
   %78 = add nsw i32 %.0.i68.us, %65
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i16, ptr %35, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %35, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !64
-  %82 = getelementptr inbounds nuw i16, ptr %.06071.us, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %.06071.us, i64 %indvars.iv
   store i16 %81, ptr %82, align 2, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %66, !llvm.loop !88
 
 ._crit_edge.us:                                   ; preds = %66
-  %83 = getelementptr inbounds i16, ptr %.05972.us, i64 %46
-  %84 = getelementptr inbounds i16, ptr %.06071.us, i64 %47
+  %83 = getelementptr inbounds [2 x i8], ptr %.05972.us, i64 %46
+  %84 = getelementptr inbounds [2 x i8], ptr %.06071.us, i64 %47
   %85 = add nsw i32 %.06170.us, 1
   %exitcond78.not = icmp eq i32 %85, %31
   br i1 %exitcond78.not, label %._crit_edge75, label %.lr.ph.us, !llvm.loop !89

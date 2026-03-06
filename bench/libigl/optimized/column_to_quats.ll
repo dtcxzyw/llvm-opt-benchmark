@@ -3,12 +3,6 @@ source_filename = "bench/libigl/original/column_to_quats.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.Eigen::Quaternion" = type { %"class.Eigen::Matrix.3" }
-%"class.Eigen::Matrix.3" = type { %"class.Eigen::PlainObjectBase.4" }
-%"class.Eigen::PlainObjectBase.4" = type { %"class.Eigen::DenseStorage.11" }
-%"class.Eigen::DenseStorage.11" = type { %"struct.Eigen::internal::plain_array" }
-%"struct.Eigen::internal::plain_array" = type { [4 x double] }
-
 $_ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE17_M_default_appendEm = comdat any
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
@@ -49,7 +43,7 @@ define dso_local noundef zeroext i1 @_ZN3igl15column_to_quatsERKN5Eigen6MatrixId
   br i1 %21, label %22, label %_ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE6resizeEm.exit, label %24
 
@@ -78,7 +72,7 @@ _ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE6resizeEm.
   %33 = load double, ptr %30, align 8, !tbaa !16
   %34 = load double, ptr %28, align 8, !tbaa !16
   %35 = load ptr, ptr %1, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %indvars.iv
   store double %31, ptr %36, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store double %32, ptr %.sroa.4.0..sroa_idx, align 8
@@ -175,9 +169,9 @@ _ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE11_S_reloc
 
 _ZNSt12_Vector_baseIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32: ; preds = %_ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE11_S_relocateEPS2_S6_S6_RS4_.exit, %35
   store ptr %27, ptr %0, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %32, i64 %1
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %1
   store ptr %36, ptr %4, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %27, i64 %25
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %37, ptr %11, align 8, !tbaa !21
   br label %38
 

@@ -14,12 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.41" }
-%"struct.std::_Head_base.41" = type { ptr }
 %"struct.YAML::Token" = type <{ i32, i32, %"struct.YAML::Mark", [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::vector.29", i32, [4 x i8] }>
 %"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
 %"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
@@ -36,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.YAML::Scanner::SimpleKey" = type { %"struct.YAML::Mark", i64, ptr, ptr, ptr }
 
 $_ZN4YAML10ptr_vectorINS_7Scanner12IndentMarkerEED2Ev = comdat any
 
@@ -1452,7 +1445,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_E
 _ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %38, %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
   store ptr %31, ptr %10, align 8, !tbaa !3
   store ptr %37, ptr %11, align 8, !tbaa !9
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %39, ptr %13, align 8, !tbaa !122
   br label %_ZN4YAML10ptr_vectorINS_7Scanner12IndentMarkerEE9push_backEOSt10unique_ptrIS2_St14default_deleteIS2_EE.exit
 
@@ -3973,7 +3966,7 @@ _ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_E
 _ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %85, %_ZNSt6vectorISt10unique_ptrIN4YAML7Scanner12IndentMarkerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
   store ptr %78, ptr %57, align 8, !tbaa !3
   store ptr %84, ptr %58, align 8, !tbaa !9
-  %86 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %78, i64 %76
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %86, ptr %60, align 8, !tbaa !122
   br label %89
 
@@ -5466,7 +5459,7 @@ _ZNK4YAML5RegEx13IsValidSourceINS_16StreamCharSourceEEEbRKT_.exit.thread: ; pred
 
 58:                                               ; preds = %56, %54
   %59 = phi i64 [ %55, %54 ], [ %57, %56 ]
-  %60 = getelementptr inbounds ptr, ptr %44, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %44, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !239, !noalias !236
   %62 = shl nsw i64 %59, 9
   %63 = sub nsw i64 %48, %62
@@ -5514,7 +5507,7 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %52,
 
 90:                                               ; preds = %88, %86
   %91 = phi i64 [ %87, %86 ], [ %89, %88 ]
-  %92 = getelementptr inbounds ptr, ptr %76, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %76, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !239, !noalias !240
   %94 = shl nsw i64 %91, 9
   %95 = sub nsw i64 %80, %94
@@ -5554,7 +5547,7 @@ _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %84,
 
 _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %116
   %118 = lshr i64 %114, 9
-  %119 = getelementptr inbounds nuw ptr, ptr %110, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !239, !noalias !244
   %121 = and i64 %114, 511
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 %121
@@ -5564,7 +5557,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %116
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %100
   %125 = ashr i64 %114, 9
-  %126 = getelementptr inbounds ptr, ptr %110, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %110, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !239, !noalias !244
   %128 = and i64 %114, 511
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 %128
@@ -5673,7 +5666,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamChar
 
 32:                                               ; preds = %30, %28
   %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
-  %34 = getelementptr inbounds ptr, ptr %18, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %18, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !239, !noalias !248
   %36 = shl nsw i64 %33, 9
   %37 = sub nsw i64 %22, %36
@@ -5722,7 +5715,7 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %26,
 
 65:                                               ; preds = %63, %61
   %66 = phi i64 [ %62, %61 ], [ %64, %63 ]
-  %67 = getelementptr inbounds ptr, ptr %51, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %51, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !239, !noalias !251
   %69 = shl nsw i64 %66, 9
   %70 = sub nsw i64 %55, %69
@@ -5763,7 +5756,7 @@ _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %59,
 
 _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %92
   %94 = lshr i64 %90, 9
-  %95 = getelementptr inbounds nuw ptr, ptr %86, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !239, !noalias !254
   %97 = and i64 %90, 511
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
@@ -5773,7 +5766,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %92
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %75
   %101 = ashr i64 %90, 9
-  %102 = getelementptr inbounds ptr, ptr %86, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %86, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !239, !noalias !254
   %104 = and i64 %90, 511
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
@@ -5827,7 +5820,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %129 = phi ptr [ %136, %132 ], [ %8, %.preheader ]
   %.014.i41 = phi i64 [ %134, %132 ], [ 0, %.preheader ]
   %.015.i40 = phi i32 [ %spec.select.i12, %132 ], [ -1, %.preheader ]
-  %130 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %129, i64 %.014.i41
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %.014.i41
   %131 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not.i11 = icmp eq i32 %131, -1
   br i1 %.not.i11, label %common.ret85, label %132
@@ -5942,7 +5935,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx10MatchOpAndINS_16StreamCharSour
   %7 = phi ptr [ %14, %10 ], [ %6, %2 ]
   %.01424 = phi i64 [ %12, %10 ], [ 0, %2 ]
   %.01523 = phi i32 [ %spec.select, %10 ], [ -1, %2 ]
-  %8 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %7, i64 %.01424
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.01424
   %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %._crit_edge, label %10
@@ -6063,7 +6056,7 @@ _ZNSt11_Deque_baseIN4YAML5TokenESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %2
   store ptr %12, ptr %0, align 8, !tbaa !196
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.idx = shl nuw nsw i64 %10, 3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
@@ -6154,7 +6147,7 @@ _ZNSt11_Deque_baseIN4YAML5TokenESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !192
   store ptr %42, ptr %40, align 8, !tbaa !260
-  %53 = getelementptr inbounds nuw %"struct.YAML::Token", ptr %49, i64 %4
+  %53 = getelementptr inbounds nuw [88 x i8], ptr %49, i64 %4
   store ptr %53, ptr %46, align 8, !tbaa !160
   ret void
 
@@ -6191,7 +6184,7 @@ _ZNSt11_Deque_baseIN4YAML7Scanner9SimpleKeyESaIS2_EE15_M_allocate_mapEm.exit: ; 
   store ptr %10, ptr %0, align 8, !tbaa !26
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %.idx = shl nuw nsw i64 %8, 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
@@ -6282,7 +6275,7 @@ _ZNSt11_Deque_baseIN4YAML7Scanner9SimpleKeyESaIS2_EE15_M_create_nodesEPPS2_S6_.e
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %49, ptr %50, align 8, !tbaa !265
   store ptr %40, ptr %38, align 8, !tbaa !266
-  %51 = getelementptr inbounds nuw %"struct.YAML::Scanner::SimpleKey", ptr %47, i64 %4
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %4
   store ptr %51, ptr %44, align 8, !tbaa !267
   ret void
 
@@ -6311,7 +6304,7 @@ _ZNSt11_Deque_baseIPN4YAML7Scanner12IndentMarkerESaIS3_EE15_M_allocate_mapEm.exi
   store ptr %7, ptr %0, align 8, !tbaa !14
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -6403,7 +6396,7 @@ _ZNSt11_Deque_baseIPN4YAML7Scanner12IndentMarkerESaIS3_EE15_M_create_nodesEPPS3_
   store ptr %46, ptr %47, align 8, !tbaa !184
   store ptr %37, ptr %35, align 8, !tbaa !270
   %48 = and i64 %1, 63
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !129
   ret void
 
@@ -6432,7 +6425,7 @@ _ZNSt11_Deque_baseIN4YAML7Scanner11FLOW_MARKERESaIS2_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !35
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -6524,7 +6517,7 @@ _ZNSt11_Deque_baseIN4YAML7Scanner11FLOW_MARKERESaIS2_EE15_M_create_nodesEPPS2_S6
   store ptr %46, ptr %47, align 8, !tbaa !275
   store ptr %37, ptr %35, align 8, !tbaa !276
   %48 = and i64 %1, 127
-  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !277
   ret void
 
@@ -6762,9 +6755,9 @@ define linkonce_odr void @_ZNSt5dequeIPN4YAML7Scanner12IndentMarkerESaIS3_EE17_M
   %19 = load ptr, ptr %0, align 8, !tbaa !14
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -6783,12 +6776,12 @@ define linkonce_odr void @_ZNSt5dequeIPN4YAML7Scanner12IndentMarkerESaIS3_EE17_M
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN4YAML7Scanner12IndentMarkerES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN4YAML7Scanner12IndentMarkerES5_ET0_T_S7_S6_.exit
 
@@ -6816,9 +6809,9 @@ _ZNSt11_Deque_baseIPN4YAML7Scanner12IndentMarkerESaIS3_EE15_M_allocate_mapEm.exi
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN4YAML7Scanner12IndentMarkerES5_ET0_T_S7_S6_.exit26, label %53
@@ -6845,7 +6838,7 @@ _ZSt4copyIPPPN4YAML7Scanner12IndentMarkerES5_ET0_T_S7_S6_.exit: ; preds = %32, %
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !184
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !105
   %63 = load ptr, ptr %62, align 8, !tbaa !24
@@ -7005,9 +6998,9 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML5TokenESaIS1_EE17_M_reallocate_mapEm
   %19 = load ptr, ptr %0, align 8, !tbaa !196
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -7026,12 +7019,12 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML5TokenESaIS1_EE17_M_reallocate_mapEm
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4YAML5TokenES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4YAML5TokenES3_ET0_T_S5_S4_.exit
 
@@ -7059,9 +7052,9 @@ _ZNSt11_Deque_baseIN4YAML5TokenESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #26
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4YAML5TokenES3_ET0_T_S5_S4_.exit26, label %53
@@ -7088,7 +7081,7 @@ _ZSt4copyIPPN4YAML5TokenES3_ET0_T_S5_S4_.exit:    ; preds = %32, %31, %28, %27, 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 440
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !192
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !171
   %63 = load ptr, ptr %62, align 8, !tbaa !172

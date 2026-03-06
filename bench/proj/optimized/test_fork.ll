@@ -52,7 +52,7 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 16:                                               ; preds = %14, %15
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %15 ]
   %17 = call i32 @fork() #6
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !4
   %19 = icmp slt i32 %17, 0
   br i1 %19, label %.thread60, label %22
@@ -94,7 +94,7 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %42 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !4
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv74
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv74
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = call i32 @waitpid(i32 noundef %36, ptr noundef nonnull %2, i32 noundef 0) #6
   %38 = load i32, ptr %2, align 4, !tbaa !4

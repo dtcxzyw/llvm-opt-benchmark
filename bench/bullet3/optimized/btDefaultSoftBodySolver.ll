@@ -3,12 +3,6 @@ source_filename = "bench/bullet3/original/btDefaultSoftBodySolver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.btSoftBody::Node" = type <{ %"struct.btSoftBody::Feature", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, ptr, i32, i8, [3 x i8], i32, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, [4 x i8] }>
-%"struct.btSoftBody::Feature" = type { %"struct.btSoftBody::Element", ptr }
-%"struct.btSoftBody::Element" = type { ptr }
-%class.btVector3 = type { [4 x float] }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-
 $_ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_ = comdat any
 
 $_ZNK23btDefaultSoftBodySolver13getSolverTypeEv = comdat any
@@ -189,8 +183,8 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi.exit.i.i: ; preds = %13, %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   store ptr %24, ptr %22, align 8, !tbaa !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -247,8 +241,8 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_.exit: ; preds = %._ZN20bt
 
 39:                                               ; preds = %39, %.lr.ph.i4
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i7, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i6
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i6
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i6
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i6
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   store ptr %42, ptr %40, align 8, !tbaa !26
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
@@ -277,7 +271,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr noun
   %7 = phi i32 [ %3, %.lr.ph ], [ %14, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %8 = load ptr, ptr %5, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 240
   %12 = load i32, ptr %11, align 8, !tbaa !31
@@ -325,7 +319,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr noun
   %8 = phi i32 [ %4, %.lr.ph ], [ %15, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %9 = load ptr, ptr %6, align 8, !tbaa !20
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %13 = load i32, ptr %12, align 8, !tbaa !31
@@ -386,7 +380,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
 
 .lr.ph:                                           ; preds = %20
   %30 = sext i32 %24 to i64
-  %31 = getelementptr inbounds float, ptr %15, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %15, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = sext i32 %28 to i64
@@ -396,7 +390,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.03543 = phi ptr [ %31, %.lr.ph ], [ %40, %35 ]
-  %36 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [256 x i8], ptr %33, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.sroa.037.0.copyload = load float, ptr %37, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 20
@@ -408,7 +402,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
   store float %.sroa.438.0.copyload, ptr %38, align 4, !tbaa !48
   %39 = getelementptr inbounds nuw i8, ptr %.03543, i64 8
   store float %.sroa.539.0.copyload, ptr %39, align 4, !tbaa !48
-  %40 = getelementptr inbounds float, ptr %.03543, i64 %34
+  %40 = getelementptr inbounds [4 x i8], ptr %.03543, i64 %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit41, label %35, !llvm.loop !49
@@ -434,7 +428,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
 
 .lr.ph46:                                         ; preds = %45
   %55 = sext i32 %49 to i64
-  %56 = getelementptr inbounds float, ptr %15, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %15, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %58 = load ptr, ptr %57, align 8, !tbaa !47
   %59 = sext i32 %53 to i64
@@ -444,7 +438,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
 60:                                               ; preds = %.lr.ph46, %60
   %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %60 ]
   %.03444 = phi ptr [ %56, %.lr.ph46 ], [ %65, %60 ]
-  %61 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %58, i64 %indvars.iv48
+  %61 = getelementptr inbounds nuw [256 x i8], ptr %58, i64 %indvars.iv48
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
   %.sroa.0.0.copyload = load float, ptr %62, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 100
@@ -456,7 +450,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
   store float %.sroa.4.0.copyload, ptr %63, align 4, !tbaa !48
   %64 = getelementptr inbounds nuw i8, ptr %.03444, i64 8
   store float %.sroa.5.0.copyload, ptr %64, align 4, !tbaa !48
-  %65 = getelementptr inbounds float, ptr %.03444, i64 %59
+  %65 = getelementptr inbounds [4 x i8], ptr %.03444, i64 %59
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
   br i1 %exitcond52.not, label %.loopexit, label %60, !llvm.loop !50
@@ -499,7 +493,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr noundef
   %8 = phi i32 [ %4, %.lr.ph ], [ %15, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %9 = load ptr, ptr %6, align 8, !tbaa !20
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %13 = load i32, ptr %12, align 8, !tbaa !31

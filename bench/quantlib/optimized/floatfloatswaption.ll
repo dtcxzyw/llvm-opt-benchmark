@@ -5550,7 +5550,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %idx.neg.i.i = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %4, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %idx.neg.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i) #28
   store ptr null, ptr %leg2IsRedemptionFlow, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 624
@@ -5576,7 +5576,7 @@ if.then.i.i2:                                     ; preds = %_ZNSt13_Bvector_bas
   %sub.ptr.sub.i.i6 = sub i64 %sub.ptr.lhs.cast.i.i4, %sub.ptr.rhs.cast.i.i5
   %sub.ptr.div.i.i7 = ashr exact i64 %sub.ptr.sub.i.i6, 3
   %idx.neg.i.i8 = sub nsw i64 0, %sub.ptr.div.i.i7
-  %add.ptr.i.i9 = getelementptr inbounds i64, ptr %6, i64 %idx.neg.i.i8
+  %add.ptr.i.i9 = getelementptr inbounds [8 x i8], ptr %6, i64 %idx.neg.i.i8
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i9, i64 noundef %sub.ptr.sub.i.i6) #28
   store ptr null, ptr %leg1IsRedemptionFlow, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 584

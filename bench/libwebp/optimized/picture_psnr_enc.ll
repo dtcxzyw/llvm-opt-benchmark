@@ -541,7 +541,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %46, align 8, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
-  %60 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %61 = call i32 @WebPPlaneDistortion(ptr noundef %57, i64 noundef %52, ptr noundef %59, i64 noundef %55, i32 noundef %27, i32 noundef %28, i64 noundef 4, i32 noundef %2, ptr noundef nonnull %7, ptr noundef %60)
   %.not57 = icmp eq i32 %61, 0
   br i1 %.not57, label %62, label %63

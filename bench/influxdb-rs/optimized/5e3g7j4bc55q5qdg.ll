@@ -1540,8 +1540,8 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { [3 x i64] }, ptr %3, i64 %5
-  %7 = getelementptr inbounds { [4 x i64] }, ptr %2, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %3, i64 %5
+  %7 = getelementptr inbounds [32 x i8], ptr %2, i64 %5
   %8 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9
@@ -1799,7 +1799,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %5, i64 640
-  %12 = getelementptr ptr, ptr %11, i64 %.sink.i
+  %12 = getelementptr [8 x i8], ptr %11, i64 %.sink.i
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = add i64 %4, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
@@ -1950,7 +1950,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 14:                                               ; preds = %._crit_edge
   %15 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 32
-  %16 = getelementptr ptr, ptr %15, i64 %.sroa.6.0.lcssa
+  %16 = getelementptr [8 x i8], ptr %15, i64 %.sroa.6.0.lcssa
   %17 = load ptr, ptr %16, align 8, !noalias !204, !nonnull !4, !noundef !4
   %18 = add i64 %.sroa.5.0.lcssa, -1
   %.not10.i.i = icmp eq i64 %18, 0
@@ -2041,7 +2041,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 14:                                               ; preds = %._crit_edge
   %15 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 640
-  %16 = getelementptr ptr, ptr %15, i64 %.sroa.6.0.lcssa
+  %16 = getelementptr [8 x i8], ptr %15, i64 %.sroa.6.0.lcssa
   %17 = load ptr, ptr %16, align 8, !noalias !217, !nonnull !4, !noundef !4
   %18 = add i64 %.sroa.5.0.lcssa, -1
   %.not10.i.i = icmp eq i64 %18, 0
@@ -2133,7 +2133,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 14:                                               ; preds = %._crit_edge
   %15 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 376
-  %16 = getelementptr ptr, ptr %15, i64 %.sroa.6.0.lcssa
+  %16 = getelementptr [8 x i8], ptr %15, i64 %.sroa.6.0.lcssa
   %17 = load ptr, ptr %16, align 8, !noalias !230, !nonnull !4, !noundef !4
   %18 = add i64 %.sroa.5.0.lcssa, -1
   %.not10.i.i = icmp eq i64 %18, 0

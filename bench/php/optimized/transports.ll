@@ -157,7 +157,7 @@ define dso_local ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i
   %.079 = phi i64 [ 0, %29 ], [ %38, %.critedge ]
   %33 = load i8, ptr %.082, align 1, !tbaa !8
   %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %31, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !29
   %.fr166 = freeze i16 %36
   %37 = and i16 %.fr166, 8

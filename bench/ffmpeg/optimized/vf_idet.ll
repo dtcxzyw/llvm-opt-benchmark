@@ -512,7 +512,7 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 108
   %32 = load i32, ptr %31, align 4, !tbaa !60
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv228
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv228
   %35 = load i32, ptr %34, align 4, !tbaa !72
   %36 = trunc nuw nsw i64 %indvars.iv228 to i32
   %37 = add nsw i32 %36, -1
@@ -551,16 +551,16 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.1168213 = phi i64 [ %.0167215, %.lr.ph ], [ %90, %56 ]
   %57 = load ptr, ptr %23, align 8, !tbaa !66
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv228
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv228
   %59 = load ptr, ptr %58, align 8, !tbaa !75
   %60 = mul nsw i64 %indvars.iv, %54
   %61 = getelementptr inbounds i8, ptr %59, i64 %60
   %62 = load ptr, ptr %17, align 8, !tbaa !65
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv228
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv228
   %64 = load ptr, ptr %63, align 8, !tbaa !75
   %65 = getelementptr inbounds i8, ptr %64, i64 %60
   %66 = load ptr, ptr %24, align 8, !tbaa !52
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv228
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv228
   %68 = load ptr, ptr %67, align 8, !tbaa !75
   %69 = getelementptr inbounds i8, ptr %68, i64 %60
   %70 = load ptr, ptr %25, align 8, !tbaa !35
@@ -570,7 +570,7 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   %74 = sext i32 %73 to i64
   %75 = and i64 %indvars.iv, 1
   %76 = and i64 %indvars.iv, 1
-  %77 = getelementptr inbounds nuw i64, ptr %13, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !36
   %79 = add nsw i64 %78, %74
   store i64 %79, ptr %77, align 8, !tbaa !36
@@ -578,7 +578,7 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   %81 = tail call i32 %80(ptr noundef %71, ptr noundef %69, ptr noundef %72, i32 noundef %.0171) #12
   %82 = sext i32 %81 to i64
   %83 = xor i64 %75, 1
-  %84 = getelementptr inbounds nuw i64, ptr %13, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %83
   %85 = load i64, ptr %84, align 8, !tbaa !36
   %86 = add nsw i64 %85, %82
   store i64 %86, ptr %84, align 8, !tbaa !36
@@ -589,7 +589,7 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
   %91 = load ptr, ptr %25, align 8, !tbaa !35
   %92 = tail call i32 %91(ptr noundef %65, ptr noundef %61, ptr noundef %65, i32 noundef %.0171) #12
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds nuw i64, ptr %14, i64 %83
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %83
   %95 = load i64, ptr %94, align 8, !tbaa !36
   %96 = add nsw i64 %95, %93
   store i64 %96, ptr %94, align 8, !tbaa !36
@@ -765,7 +765,7 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
 
 179:                                              ; preds = %.thread210, %179
   %indvars.iv235 = phi i64 [ 0, %.thread210 ], [ %indvars.iv.next236, %179 ]
-  %180 = getelementptr inbounds nuw i64, ptr %175, i64 %indvars.iv235
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv235
   %181 = load i64, ptr %180, align 8, !tbaa !36
   %182 = tail call i64 @av_rescale(i64 noundef %181, i64 noundef %.pre245, i64 noundef 1048576) #13
   store i64 %182, ptr %180, align 8, !tbaa !36
@@ -775,11 +775,11 @@ define internal fastcc void @filter(ptr noundef %0) unnamed_addr #3 {
 
 183:                                              ; preds = %.preheader, %183
   %indvars.iv239 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next240, %183 ]
-  %184 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv239
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv239
   %185 = load i64, ptr %184, align 8, !tbaa !36
   %186 = tail call i64 @av_rescale(i64 noundef %185, i64 noundef %.pre245, i64 noundef 1048576) #13
   store i64 %186, ptr %184, align 8, !tbaa !36
-  %187 = getelementptr inbounds nuw i64, ptr %178, i64 %indvars.iv239
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %indvars.iv239
   %188 = load i64, ptr %187, align 8, !tbaa !36
   %189 = tail call i64 @av_rescale(i64 noundef %188, i64 noundef %.pre245, i64 noundef 1048576) #13
   store i64 %189, ptr %187, align 8, !tbaa !36
@@ -791,46 +791,46 @@ switch.lookup:                                    ; preds = %183
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 312
   %191 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %192 = zext nneg i32 %.0179 to i64
-  %193 = getelementptr inbounds nuw i64, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %192
   %194 = load i64, ptr %193, align 8, !tbaa !36
   %195 = add i64 %194, 1
   store i64 %195, ptr %193, align 8, !tbaa !36
-  %196 = getelementptr inbounds nuw i64, ptr %175, i64 %192
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %192
   %197 = load i64, ptr %196, align 8, !tbaa !36
   %198 = add i64 %197, 1048576
   store i64 %198, ptr %196, align 8, !tbaa !36
   %199 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %200 = zext nneg i32 %.0169 to i64
-  %201 = getelementptr inbounds nuw i64, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !36
   %203 = add i64 %202, 1
   store i64 %203, ptr %201, align 8, !tbaa !36
-  %204 = getelementptr inbounds nuw i64, ptr %177, i64 %200
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %200
   %205 = load i64, ptr %204, align 8, !tbaa !36
   %206 = add i64 %205, 1048576
   store i64 %206, ptr %204, align 8, !tbaa !36
   %207 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %208 = zext i32 %174 to i64
-  %209 = getelementptr inbounds nuw i64, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %208
   %210 = load i64, ptr %209, align 8, !tbaa !36
   %211 = add i64 %210, 1
   store i64 %211, ptr %209, align 8, !tbaa !36
-  %212 = getelementptr inbounds nuw i64, ptr %178, i64 %208
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %208
   %213 = load i64, ptr %212, align 8, !tbaa !36
   %214 = add i64 %213, 1048576
   store i64 %214, ptr %212, align 8, !tbaa !36
   %215 = zext nneg i32 %.0179 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.filter.2, i64 %215
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter.2, i64 %215
   %switch.load = load ptr, ptr %switch.gep, align 8
   %216 = zext nneg i32 %.0169 to i64
-  %switch.gep260 = getelementptr inbounds nuw ptr, ptr @switch.table.filter.5, i64 %216
+  %switch.gep260 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter.5, i64 %216
   %switch.load261 = load ptr, ptr %switch.gep260, align 8
   %217 = icmp ult i32 %174, 4
   br i1 %217, label %switch.lookup250, label %type2str.exit189
 
 switch.lookup250:                                 ; preds = %switch.lookup
   %218 = zext nneg i32 %174 to i64
-  %switch.gep251 = getelementptr inbounds nuw ptr, ptr @switch.table.filter.5, i64 %218
+  %switch.gep251 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter.5, i64 %218
   %switch.load252 = load ptr, ptr %switch.gep251, align 8
   br label %type2str.exit189
 
@@ -838,7 +838,7 @@ type2str.exit189:                                 ; preds = %switch.lookup, %swi
   %.0.i188 = phi ptr [ %switch.load252, %switch.lookup250 ], [ null, %switch.lookup ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.4, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load261, ptr noundef %.0.i188) #12
   %219 = zext nneg i32 %.0179 to i64
-  %switch.gep254 = getelementptr inbounds nuw ptr, ptr @switch.table.filter.2, i64 %219
+  %switch.gep254 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter.2, i64 %219
   %switch.load255 = load ptr, ptr %switch.gep254, align 8
   %220 = tail call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.5, ptr noundef nonnull %switch.load255, i32 noundef 0) #12
   %221 = load i64, ptr %175, align 8, !tbaa !36
@@ -868,7 +868,7 @@ type2str.exit189:                                 ; preds = %switch.lookup, %swi
   %240 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %241 = zext nneg i32 %.0169 to i64
-  %switch.gep263 = getelementptr inbounds nuw ptr, ptr @switch.table.filter.5, i64 %241
+  %switch.gep263 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter.5, i64 %241
   %switch.load264 = load ptr, ptr %switch.gep263, align 8
   %242 = call i32 @av_dict_set(ptr noundef nonnull %190, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load264, i32 noundef 0) #12
   %243 = load i64, ptr %177, align 8, !tbaa !36
@@ -912,7 +912,7 @@ type2str.exit189:                                 ; preds = %switch.lookup, %swi
 
 switch.lookup256:                                 ; preds = %type2str.exit189
   %272 = zext nneg i32 %270 to i64
-  %switch.gep257 = getelementptr inbounds nuw ptr, ptr @switch.table.filter.5, i64 %272
+  %switch.gep257 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.filter.5, i64 %272
   %switch.load258 = load ptr, ptr %switch.gep257, align 8
   br label %type2str.exit196
 

@@ -1016,7 +1016,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 52:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.1172219 = phi i64 [ %.0171, %.lr.ph ], [ %.2173, %69 ]
-  %53 = getelementptr inbounds nuw [2 x i32], ptr %22, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = add nsw i32 %54, %1
   %.not208 = icmp slt i32 %55, %.
@@ -1066,7 +1066,7 @@ define i64 @ff_me_search_epzs(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 75:                                               ; preds = %.lr.ph223, %92
   %indvars.iv228 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next229, %92 ]
   %.3221 = phi i64 [ %.1172.lcssa, %.lr.ph223 ], [ %.4, %92 ]
-  %76 = getelementptr inbounds nuw [2 x i32], ptr %49, i64 %indvars.iv228
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv228
   %77 = load i32, ptr %76, align 4, !tbaa !26
   %78 = add nsw i32 %77, %1
   %.not204 = icmp slt i32 %78, %.
@@ -1238,7 +1238,7 @@ define i64 @ff_me_search_umh(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 46:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.1361483 = phi i64 [ %.0360, %.lr.ph ], [ %.2362, %63 ]
-  %47 = getelementptr inbounds nuw [2 x i32], ptr %22, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %49 = add nsw i32 %48, %1
   %.not452 = icmp slt i32 %49, %.

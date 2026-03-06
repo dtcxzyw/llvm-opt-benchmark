@@ -384,7 +384,7 @@ define internal void @ff_h264_add_pixels4_16_c(ptr noundef captures(none) %0, pt
   %25 = trunc i32 %22 to i16
   %26 = add i16 %24, %25
   store i16 %26, ptr %23, align 2, !tbaa !37
-  %27 = getelementptr inbounds i16, ptr %.01619.lver.orig, i64 %4
+  %27 = getelementptr inbounds [2 x i8], ptr %.01619.lver.orig, i64 %4
   %28 = getelementptr inbounds nuw i8, ptr %.020.lver.orig, i64 16
   %29 = add nuw nsw i32 %.01718.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %29, 4
@@ -425,7 +425,7 @@ define internal void @ff_h264_add_pixels4_16_c(ptr noundef captures(none) %0, pt
   %50 = trunc i32 %47 to i16
   %51 = add i16 %49, %50
   store i16 %51, ptr %48, align 2, !tbaa !37
-  %52 = getelementptr inbounds nuw i16, ptr %.01619, i64 %4
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.01619, i64 %4
   %53 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %54 = add nuw nsw i32 %.01718, 1
   %exitcond.not = icmp eq i32 %54, 4
@@ -502,7 +502,7 @@ define internal void @ff_h264_add_pixels8_16_c(ptr noundef captures(none) %0, pt
   %49 = trunc i32 %46 to i16
   %50 = add i16 %48, %49
   store i16 %50, ptr %47, align 2, !tbaa !37
-  %51 = getelementptr inbounds i16, ptr %.02427.lver.orig, i64 %4
+  %51 = getelementptr inbounds [2 x i8], ptr %.02427.lver.orig, i64 %4
   %52 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 32
   %53 = add nuw nsw i32 %.02526.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %53, 8
@@ -571,7 +571,7 @@ define internal void @ff_h264_add_pixels8_16_c(ptr noundef captures(none) %0, pt
   %98 = trunc i32 %95 to i16
   %99 = add i16 %97, %98
   store i16 %99, ptr %96, align 2, !tbaa !37
-  %100 = getelementptr inbounds nuw i16, ptr %.02427, i64 %4
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.02427, i64 %4
   %101 = getelementptr inbounds nuw i8, ptr %.028, i64 32
   %102 = add nuw nsw i32 %.02526, 1
   %exitcond.not = icmp eq i32 %102, 8
@@ -1016,7 +1016,7 @@ define internal void @weight_h264_pixels16_9_c(ptr noundef captures(none) %0, i6
   %156 = trunc nuw nsw i32 %155 to i16
   store i16 %156, ptr %148, align 2, !tbaa !37
   %157 = add nuw nsw i32 %.091139, 1
-  %158 = getelementptr inbounds i16, ptr %.0140, i64 %7
+  %158 = getelementptr inbounds [2 x i8], ptr %.0140, i64 %7
   %exitcond.not = icmp eq i32 %157, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
@@ -1120,7 +1120,7 @@ define internal void @weight_h264_pixels8_9_c(ptr noundef captures(none) %0, i64
   %84 = trunc nuw nsw i32 %83 to i16
   store i16 %84, ptr %76, align 2, !tbaa !37
   %85 = add nuw nsw i32 %.05175, 1
-  %86 = getelementptr inbounds i16, ptr %.076, i64 %7
+  %86 = getelementptr inbounds [2 x i8], ptr %.076, i64 %7
   %exitcond.not = icmp eq i32 %85, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
@@ -1184,7 +1184,7 @@ define internal void @weight_h264_pixels4_9_c(ptr noundef captures(none) %0, i64
   %48 = trunc nuw nsw i32 %47 to i16
   store i16 %48, ptr %40, align 2, !tbaa !37
   %49 = add nuw nsw i32 %.03143, 1
-  %50 = getelementptr inbounds i16, ptr %.044, i64 %7
+  %50 = getelementptr inbounds [2 x i8], ptr %.044, i64 %7
   %exitcond.not = icmp eq i32 %49, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
@@ -1228,7 +1228,7 @@ define internal void @weight_h264_pixels2_9_c(ptr noundef captures(none) %0, i64
   %30 = trunc nuw nsw i32 %29 to i16
   store i16 %30, ptr %22, align 2, !tbaa !37
   %31 = add nuw nsw i32 %.02127, 1
-  %32 = getelementptr inbounds i16, ptr %.028, i64 %7
+  %32 = getelementptr inbounds [2 x i8], ptr %.028, i64 %7
   %exitcond.not = icmp eq i32 %31, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
@@ -1492,8 +1492,8 @@ define internal void @biweight_h264_pixels16_9_c(ptr noundef captures(none) %0, 
   %237 = trunc nuw nsw i32 %236 to i16
   store i16 %237, ptr %228, align 2, !tbaa !37
   %238 = add nuw nsw i32 %.0125171, 1
-  %239 = getelementptr inbounds i16, ptr %.0124172, i64 %9
-  %240 = getelementptr inbounds i16, ptr %.0173, i64 %9
+  %239 = getelementptr inbounds [2 x i8], ptr %.0124172, i64 %9
+  %240 = getelementptr inbounds [2 x i8], ptr %.0173, i64 %9
   %exitcond.not = icmp eq i32 %238, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !49
 
@@ -1637,8 +1637,8 @@ define internal void @biweight_h264_pixels8_9_c(ptr noundef captures(none) %0, p
   %125 = trunc nuw nsw i32 %124 to i16
   store i16 %125, ptr %116, align 2, !tbaa !37
   %126 = add nuw nsw i32 %.06991, 1
-  %127 = getelementptr inbounds i16, ptr %.06892, i64 %9
-  %128 = getelementptr inbounds i16, ptr %.093, i64 %9
+  %127 = getelementptr inbounds [2 x i8], ptr %.06892, i64 %9
+  %128 = getelementptr inbounds [2 x i8], ptr %.093, i64 %9
   %exitcond.not = icmp eq i32 %126, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !50
 
@@ -1722,8 +1722,8 @@ define internal void @biweight_h264_pixels4_9_c(ptr noundef captures(none) %0, p
   %69 = trunc nuw nsw i32 %68 to i16
   store i16 %69, ptr %60, align 2, !tbaa !37
   %70 = add nuw nsw i32 %.04151, 1
-  %71 = getelementptr inbounds i16, ptr %.04052, i64 %9
-  %72 = getelementptr inbounds i16, ptr %.053, i64 %9
+  %71 = getelementptr inbounds [2 x i8], ptr %.04052, i64 %9
+  %72 = getelementptr inbounds [2 x i8], ptr %.053, i64 %9
   %exitcond.not = icmp eq i32 %70, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !51
 
@@ -1777,8 +1777,8 @@ define internal void @biweight_h264_pixels2_9_c(ptr noundef captures(none) %0, p
   %41 = trunc nuw nsw i32 %40 to i16
   store i16 %41, ptr %32, align 2, !tbaa !37
   %42 = add nuw nsw i32 %.02731, 1
-  %43 = getelementptr inbounds i16, ptr %.02632, i64 %9
-  %44 = getelementptr inbounds i16, ptr %.033, i64 %9
+  %43 = getelementptr inbounds [2 x i8], ptr %.02632, i64 %9
+  %44 = getelementptr inbounds [2 x i8], ptr %.033, i64 %9
   %exitcond.not = icmp eq i32 %42, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !52
 
@@ -1820,7 +1820,7 @@ define internal void @h264_v_loop_filter_luma_9_c(ptr noundef captures(none) %0,
 21:                                               ; preds = %.preheader, %98
   %.2.i10 = phi ptr [ %.099.i12, %.preheader ], [ %99, %98 ]
   %.0102.i9 = phi i32 [ 0, %.preheader ], [ %100, %98 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i10, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i10, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i10, i64 %.idx.i
@@ -1831,10 +1831,10 @@ define internal void @h264_v_loop_filter_luma_9_c(ptr noundef captures(none) %0,
   %30 = zext i16 %29 to i32
   %31 = load i16, ptr %.2.i10, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i16, ptr %.2.i10, i64 %6
+  %33 = getelementptr inbounds [2 x i8], ptr %.2.i10, i64 %6
   %34 = load i16, ptr %33, align 2, !tbaa !37
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i16, ptr %.2.i10, i64 %10
+  %36 = getelementptr inbounds [2 x i8], ptr %.2.i10, i64 %10
   %37 = load i16, ptr %36, align 2, !tbaa !37
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 %24, %32
@@ -2088,7 +2088,7 @@ define internal void @h264_h_loop_filter_luma_9_c(ptr noundef captures(none) %0,
   br label %96
 
 96:                                               ; preds = %79, %44, %40, %19
-  %97 = getelementptr inbounds i16, ptr %.2.i10, i64 %6
+  %97 = getelementptr inbounds [2 x i8], ptr %.2.i10, i64 %6
   %98 = add nuw nsw i32 %.0102.i9, 1
   %exitcond.not = icmp eq i32 %98, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !53
@@ -2128,7 +2128,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_9_c(ptr noundef captures(non
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.099.i12, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.099.i12, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %98
@@ -2245,7 +2245,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_9_c(ptr noundef captures(non
   br label %98
 
 98:                                               ; preds = %81, %46, %42, %20
-  %99 = getelementptr inbounds i16, ptr %.2.i10, i64 %6
+  %99 = getelementptr inbounds [2 x i8], ptr %.2.i10, i64 %6
   br i1 %21, label %20, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %98, %18
@@ -2282,15 +2282,15 @@ define internal void @h264_v_loop_filter_luma_intra_9_c(ptr noundef captures(non
   %16 = getelementptr inbounds i8, ptr %.0.i4, i64 %.idx139.i
   %17 = load i16, ptr %16, align 2, !tbaa !37
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i16, ptr %.0.i4, i64 %8
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %8
   %20 = load i16, ptr %19, align 2, !tbaa !37
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %.0.i4, align 2, !tbaa !37
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %24 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %25 = load i16, ptr %24, align 2, !tbaa !37
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i16, ptr %.0.i4, i64 %9
+  %27 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %9
   %28 = load i16, ptr %27, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %21, %23
@@ -2592,7 +2592,7 @@ define internal void @h264_h_loop_filter_luma_intra_9_c(ptr noundef captures(non
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 16
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_9_c.exit, label %10, !llvm.loop !55
@@ -2760,7 +2760,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_intra_9_c(ptr noundef captur
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 8
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_9_c.exit, label %10, !llvm.loop !55
@@ -2800,7 +2800,7 @@ define internal void @h264_v_loop_filter_chroma_9_c(ptr noundef captures(none) %
 20:                                               ; preds = %.preheader, %60
   %.2.i5 = phi ptr [ %.0.i7, %.preheader ], [ %61, %60 ]
   %21 = phi i1 [ true, %.preheader ], [ false, %60 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -2808,7 +2808,7 @@ define internal void @h264_v_loop_filter_chroma_9_c(ptr noundef captures(none) %
   %27 = zext i16 %26 to i32
   %28 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %30 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %31 = load i16, ptr %30, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %24, %29
@@ -2888,7 +2888,7 @@ define internal void @h264_h_loop_filter_chroma_9_c(ptr noundef captures(none) %
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -2945,7 +2945,7 @@ define internal void @h264_h_loop_filter_chroma_9_c(ptr noundef captures(none) %
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %60, %18
@@ -3039,7 +3039,7 @@ define internal void @h264_h_loop_filter_chroma422_9_c(ptr noundef captures(none
   br label %58
 
 58:                                               ; preds = %42, %38, %34, %19
-  %59 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %59 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %60 = add nuw nsw i32 %.059.i4, 1
   %exitcond.not = icmp eq i32 %60, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !56
@@ -3125,7 +3125,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_9_c(ptr noundef captures(n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31, %35, %39, %9
-  %.1.i = getelementptr inbounds i16, ptr %.0.i6, i64 %8
+  %.1.i = getelementptr inbounds [2 x i8], ptr %.0.i6, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_9_c.exit, label %9, !llvm.loop !57
@@ -3158,7 +3158,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_9_c(ptr noundef capture
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -3215,7 +3215,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_9_c(ptr noundef capture
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %60, %18
@@ -3240,7 +3240,7 @@ define internal void @h264_v_loop_filter_chroma_intra_9_c(ptr noundef captures(n
 9:                                                ; preds = %4, %45
   %.0.i4 = phi i32 [ 0, %4 ], [ %47, %45 ]
   %.046.i3 = phi ptr [ %0, %4 ], [ %46, %45 ]
-  %10 = getelementptr inbounds i16, ptr %.046.i3, i64 %8
+  %10 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %8
   %11 = load i16, ptr %10, align 2, !tbaa !37
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.046.i3, i64 %.idx.i
@@ -3248,7 +3248,7 @@ define internal void @h264_v_loop_filter_chroma_intra_9_c(ptr noundef captures(n
   %15 = zext i16 %14 to i32
   %16 = load i16, ptr %.046.i3, align 2, !tbaa !37
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %18 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %19 = load i16, ptr %18, align 2, !tbaa !37
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %12, %17
@@ -3351,7 +3351,7 @@ define internal void @h264_h_loop_filter_chroma_intra_9_c(ptr noundef captures(n
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_9_c.exit, label %8, !llvm.loop !58
@@ -3416,7 +3416,7 @@ define internal void @h264_h_loop_filter_chroma422_intra_9_c(ptr noundef capture
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 16
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_9_c.exit, label %8, !llvm.loop !58
@@ -3481,7 +3481,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_intra_9_c(ptr noundef capt
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_9_c.exit, label %8, !llvm.loop !58
@@ -3546,7 +3546,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_intra_9_c(ptr noundef c
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_9_c.exit, label %8, !llvm.loop !58
@@ -3755,7 +3755,7 @@ define internal void @weight_h264_pixels16_10_c(ptr noundef captures(none) %0, i
   %156 = trunc nuw nsw i32 %155 to i16
   store i16 %156, ptr %148, align 2, !tbaa !37
   %157 = add nuw nsw i32 %.091139, 1
-  %158 = getelementptr inbounds i16, ptr %.0140, i64 %7
+  %158 = getelementptr inbounds [2 x i8], ptr %.0140, i64 %7
   %exitcond.not = icmp eq i32 %157, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
@@ -3859,7 +3859,7 @@ define internal void @weight_h264_pixels8_10_c(ptr noundef captures(none) %0, i6
   %84 = trunc nuw nsw i32 %83 to i16
   store i16 %84, ptr %76, align 2, !tbaa !37
   %85 = add nuw nsw i32 %.05175, 1
-  %86 = getelementptr inbounds i16, ptr %.076, i64 %7
+  %86 = getelementptr inbounds [2 x i8], ptr %.076, i64 %7
   %exitcond.not = icmp eq i32 %85, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
@@ -3923,7 +3923,7 @@ define internal void @weight_h264_pixels4_10_c(ptr noundef captures(none) %0, i6
   %48 = trunc nuw nsw i32 %47 to i16
   store i16 %48, ptr %40, align 2, !tbaa !37
   %49 = add nuw nsw i32 %.03143, 1
-  %50 = getelementptr inbounds i16, ptr %.044, i64 %7
+  %50 = getelementptr inbounds [2 x i8], ptr %.044, i64 %7
   %exitcond.not = icmp eq i32 %49, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
@@ -3967,7 +3967,7 @@ define internal void @weight_h264_pixels2_10_c(ptr noundef captures(none) %0, i6
   %30 = trunc nuw nsw i32 %29 to i16
   store i16 %30, ptr %22, align 2, !tbaa !37
   %31 = add nuw nsw i32 %.02127, 1
-  %32 = getelementptr inbounds i16, ptr %.028, i64 %7
+  %32 = getelementptr inbounds [2 x i8], ptr %.028, i64 %7
   %exitcond.not = icmp eq i32 %31, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
@@ -4231,8 +4231,8 @@ define internal void @biweight_h264_pixels16_10_c(ptr noundef captures(none) %0,
   %237 = trunc nuw nsw i32 %236 to i16
   store i16 %237, ptr %228, align 2, !tbaa !37
   %238 = add nuw nsw i32 %.0125171, 1
-  %239 = getelementptr inbounds i16, ptr %.0124172, i64 %9
-  %240 = getelementptr inbounds i16, ptr %.0173, i64 %9
+  %239 = getelementptr inbounds [2 x i8], ptr %.0124172, i64 %9
+  %240 = getelementptr inbounds [2 x i8], ptr %.0173, i64 %9
   %exitcond.not = icmp eq i32 %238, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !63
 
@@ -4376,8 +4376,8 @@ define internal void @biweight_h264_pixels8_10_c(ptr noundef captures(none) %0, 
   %125 = trunc nuw nsw i32 %124 to i16
   store i16 %125, ptr %116, align 2, !tbaa !37
   %126 = add nuw nsw i32 %.06991, 1
-  %127 = getelementptr inbounds i16, ptr %.06892, i64 %9
-  %128 = getelementptr inbounds i16, ptr %.093, i64 %9
+  %127 = getelementptr inbounds [2 x i8], ptr %.06892, i64 %9
+  %128 = getelementptr inbounds [2 x i8], ptr %.093, i64 %9
   %exitcond.not = icmp eq i32 %126, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !64
 
@@ -4461,8 +4461,8 @@ define internal void @biweight_h264_pixels4_10_c(ptr noundef captures(none) %0, 
   %69 = trunc nuw nsw i32 %68 to i16
   store i16 %69, ptr %60, align 2, !tbaa !37
   %70 = add nuw nsw i32 %.04151, 1
-  %71 = getelementptr inbounds i16, ptr %.04052, i64 %9
-  %72 = getelementptr inbounds i16, ptr %.053, i64 %9
+  %71 = getelementptr inbounds [2 x i8], ptr %.04052, i64 %9
+  %72 = getelementptr inbounds [2 x i8], ptr %.053, i64 %9
   %exitcond.not = icmp eq i32 %70, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !65
 
@@ -4516,8 +4516,8 @@ define internal void @biweight_h264_pixels2_10_c(ptr noundef captures(none) %0, 
   %41 = trunc nuw nsw i32 %40 to i16
   store i16 %41, ptr %32, align 2, !tbaa !37
   %42 = add nuw nsw i32 %.02731, 1
-  %43 = getelementptr inbounds i16, ptr %.02632, i64 %9
-  %44 = getelementptr inbounds i16, ptr %.033, i64 %9
+  %43 = getelementptr inbounds [2 x i8], ptr %.02632, i64 %9
+  %44 = getelementptr inbounds [2 x i8], ptr %.033, i64 %9
   %exitcond.not = icmp eq i32 %42, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !66
 
@@ -4559,7 +4559,7 @@ define internal void @h264_v_loop_filter_luma_10_c(ptr noundef captures(none) %0
 21:                                               ; preds = %.preheader, %98
   %.2.i5 = phi ptr [ %.099.i7, %.preheader ], [ %99, %98 ]
   %.0102.i4 = phi i32 [ 0, %.preheader ], [ %100, %98 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -4570,10 +4570,10 @@ define internal void @h264_v_loop_filter_luma_10_c(ptr noundef captures(none) %0
   %30 = zext i16 %29 to i32
   %31 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %33 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   %34 = load i16, ptr %33, align 2, !tbaa !37
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i16, ptr %.2.i5, i64 %10
+  %36 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %10
   %37 = load i16, ptr %36, align 2, !tbaa !37
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 %24, %32
@@ -4827,7 +4827,7 @@ define internal void @h264_h_loop_filter_luma_10_c(ptr noundef captures(none) %0
   br label %96
 
 96:                                               ; preds = %79, %44, %40, %19
-  %97 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %97 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   %98 = add nuw nsw i32 %.0102.i4, 1
   %exitcond.not = icmp eq i32 %98, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !67
@@ -4867,7 +4867,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_10_c(ptr noundef captures(no
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.099.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.099.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %98
@@ -4984,7 +4984,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_10_c(ptr noundef captures(no
   br label %98
 
 98:                                               ; preds = %81, %46, %42, %20
-  %99 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %99 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   br i1 %21, label %20, label %.loopexit, !llvm.loop !67
 
 .loopexit:                                        ; preds = %98, %18
@@ -5021,15 +5021,15 @@ define internal void @h264_v_loop_filter_luma_intra_10_c(ptr noundef captures(no
   %16 = getelementptr inbounds i8, ptr %.0.i4, i64 %.idx139.i
   %17 = load i16, ptr %16, align 2, !tbaa !37
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i16, ptr %.0.i4, i64 %8
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %8
   %20 = load i16, ptr %19, align 2, !tbaa !37
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %.0.i4, align 2, !tbaa !37
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %24 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %25 = load i16, ptr %24, align 2, !tbaa !37
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i16, ptr %.0.i4, i64 %9
+  %27 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %9
   %28 = load i16, ptr %27, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %21, %23
@@ -5331,7 +5331,7 @@ define internal void @h264_h_loop_filter_luma_intra_10_c(ptr noundef captures(no
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 16
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_10_c.exit, label %10, !llvm.loop !69
@@ -5499,7 +5499,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_intra_10_c(ptr noundef captu
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 8
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_10_c.exit, label %10, !llvm.loop !69
@@ -5539,7 +5539,7 @@ define internal void @h264_v_loop_filter_chroma_10_c(ptr noundef captures(none) 
 20:                                               ; preds = %.preheader, %60
   %.2.i5 = phi ptr [ %.0.i7, %.preheader ], [ %61, %60 ]
   %21 = phi i1 [ true, %.preheader ], [ false, %60 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -5547,7 +5547,7 @@ define internal void @h264_v_loop_filter_chroma_10_c(ptr noundef captures(none) 
   %27 = zext i16 %26 to i32
   %28 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %30 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %31 = load i16, ptr %30, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %24, %29
@@ -5627,7 +5627,7 @@ define internal void @h264_h_loop_filter_chroma_10_c(ptr noundef captures(none) 
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -5684,7 +5684,7 @@ define internal void @h264_h_loop_filter_chroma_10_c(ptr noundef captures(none) 
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %60, %18
@@ -5778,7 +5778,7 @@ define internal void @h264_h_loop_filter_chroma422_10_c(ptr noundef captures(non
   br label %58
 
 58:                                               ; preds = %42, %38, %34, %19
-  %59 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %59 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %60 = add nuw nsw i32 %.059.i4, 1
   %exitcond.not = icmp eq i32 %60, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !70
@@ -5864,7 +5864,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_10_c(ptr noundef captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31, %35, %39, %9
-  %.1.i = getelementptr inbounds i16, ptr %.0.i6, i64 %8
+  %.1.i = getelementptr inbounds [2 x i8], ptr %.0.i6, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_10_c.exit, label %9, !llvm.loop !71
@@ -5897,7 +5897,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_10_c(ptr noundef captur
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -5954,7 +5954,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_10_c(ptr noundef captur
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %60, %18
@@ -5979,7 +5979,7 @@ define internal void @h264_v_loop_filter_chroma_intra_10_c(ptr noundef captures(
 9:                                                ; preds = %4, %45
   %.0.i4 = phi i32 [ 0, %4 ], [ %47, %45 ]
   %.046.i3 = phi ptr [ %0, %4 ], [ %46, %45 ]
-  %10 = getelementptr inbounds i16, ptr %.046.i3, i64 %8
+  %10 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %8
   %11 = load i16, ptr %10, align 2, !tbaa !37
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.046.i3, i64 %.idx.i
@@ -5987,7 +5987,7 @@ define internal void @h264_v_loop_filter_chroma_intra_10_c(ptr noundef captures(
   %15 = zext i16 %14 to i32
   %16 = load i16, ptr %.046.i3, align 2, !tbaa !37
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %18 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %19 = load i16, ptr %18, align 2, !tbaa !37
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %12, %17
@@ -6090,7 +6090,7 @@ define internal void @h264_h_loop_filter_chroma_intra_10_c(ptr noundef captures(
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_10_c.exit, label %8, !llvm.loop !72
@@ -6155,7 +6155,7 @@ define internal void @h264_h_loop_filter_chroma422_intra_10_c(ptr noundef captur
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 16
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_10_c.exit, label %8, !llvm.loop !72
@@ -6220,7 +6220,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_intra_10_c(ptr noundef cap
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_10_c.exit, label %8, !llvm.loop !72
@@ -6285,7 +6285,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_intra_10_c(ptr noundef 
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_10_c.exit, label %8, !llvm.loop !72
@@ -6494,7 +6494,7 @@ define internal void @weight_h264_pixels16_12_c(ptr noundef captures(none) %0, i
   %156 = trunc nuw nsw i32 %155 to i16
   store i16 %156, ptr %148, align 2, !tbaa !37
   %157 = add nuw nsw i32 %.091139, 1
-  %158 = getelementptr inbounds i16, ptr %.0140, i64 %7
+  %158 = getelementptr inbounds [2 x i8], ptr %.0140, i64 %7
   %exitcond.not = icmp eq i32 %157, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
@@ -6598,7 +6598,7 @@ define internal void @weight_h264_pixels8_12_c(ptr noundef captures(none) %0, i6
   %84 = trunc nuw nsw i32 %83 to i16
   store i16 %84, ptr %76, align 2, !tbaa !37
   %85 = add nuw nsw i32 %.05175, 1
-  %86 = getelementptr inbounds i16, ptr %.076, i64 %7
+  %86 = getelementptr inbounds [2 x i8], ptr %.076, i64 %7
   %exitcond.not = icmp eq i32 %85, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
@@ -6662,7 +6662,7 @@ define internal void @weight_h264_pixels4_12_c(ptr noundef captures(none) %0, i6
   %48 = trunc nuw nsw i32 %47 to i16
   store i16 %48, ptr %40, align 2, !tbaa !37
   %49 = add nuw nsw i32 %.03143, 1
-  %50 = getelementptr inbounds i16, ptr %.044, i64 %7
+  %50 = getelementptr inbounds [2 x i8], ptr %.044, i64 %7
   %exitcond.not = icmp eq i32 %49, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
@@ -6706,7 +6706,7 @@ define internal void @weight_h264_pixels2_12_c(ptr noundef captures(none) %0, i6
   %30 = trunc nuw nsw i32 %29 to i16
   store i16 %30, ptr %22, align 2, !tbaa !37
   %31 = add nuw nsw i32 %.02127, 1
-  %32 = getelementptr inbounds i16, ptr %.028, i64 %7
+  %32 = getelementptr inbounds [2 x i8], ptr %.028, i64 %7
   %exitcond.not = icmp eq i32 %31, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 
@@ -6970,8 +6970,8 @@ define internal void @biweight_h264_pixels16_12_c(ptr noundef captures(none) %0,
   %237 = trunc nuw nsw i32 %236 to i16
   store i16 %237, ptr %228, align 2, !tbaa !37
   %238 = add nuw nsw i32 %.0125171, 1
-  %239 = getelementptr inbounds i16, ptr %.0124172, i64 %9
-  %240 = getelementptr inbounds i16, ptr %.0173, i64 %9
+  %239 = getelementptr inbounds [2 x i8], ptr %.0124172, i64 %9
+  %240 = getelementptr inbounds [2 x i8], ptr %.0173, i64 %9
   %exitcond.not = icmp eq i32 %238, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !77
 
@@ -7115,8 +7115,8 @@ define internal void @biweight_h264_pixels8_12_c(ptr noundef captures(none) %0, 
   %125 = trunc nuw nsw i32 %124 to i16
   store i16 %125, ptr %116, align 2, !tbaa !37
   %126 = add nuw nsw i32 %.06991, 1
-  %127 = getelementptr inbounds i16, ptr %.06892, i64 %9
-  %128 = getelementptr inbounds i16, ptr %.093, i64 %9
+  %127 = getelementptr inbounds [2 x i8], ptr %.06892, i64 %9
+  %128 = getelementptr inbounds [2 x i8], ptr %.093, i64 %9
   %exitcond.not = icmp eq i32 %126, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !78
 
@@ -7200,8 +7200,8 @@ define internal void @biweight_h264_pixels4_12_c(ptr noundef captures(none) %0, 
   %69 = trunc nuw nsw i32 %68 to i16
   store i16 %69, ptr %60, align 2, !tbaa !37
   %70 = add nuw nsw i32 %.04151, 1
-  %71 = getelementptr inbounds i16, ptr %.04052, i64 %9
-  %72 = getelementptr inbounds i16, ptr %.053, i64 %9
+  %71 = getelementptr inbounds [2 x i8], ptr %.04052, i64 %9
+  %72 = getelementptr inbounds [2 x i8], ptr %.053, i64 %9
   %exitcond.not = icmp eq i32 %70, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !79
 
@@ -7255,8 +7255,8 @@ define internal void @biweight_h264_pixels2_12_c(ptr noundef captures(none) %0, 
   %41 = trunc nuw nsw i32 %40 to i16
   store i16 %41, ptr %32, align 2, !tbaa !37
   %42 = add nuw nsw i32 %.02731, 1
-  %43 = getelementptr inbounds i16, ptr %.02632, i64 %9
-  %44 = getelementptr inbounds i16, ptr %.033, i64 %9
+  %43 = getelementptr inbounds [2 x i8], ptr %.02632, i64 %9
+  %44 = getelementptr inbounds [2 x i8], ptr %.033, i64 %9
   %exitcond.not = icmp eq i32 %42, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !80
 
@@ -7298,7 +7298,7 @@ define internal void @h264_v_loop_filter_luma_12_c(ptr noundef captures(none) %0
 21:                                               ; preds = %.preheader, %98
   %.2.i5 = phi ptr [ %.099.i7, %.preheader ], [ %99, %98 ]
   %.0102.i4 = phi i32 [ 0, %.preheader ], [ %100, %98 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -7309,10 +7309,10 @@ define internal void @h264_v_loop_filter_luma_12_c(ptr noundef captures(none) %0
   %30 = zext i16 %29 to i32
   %31 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %33 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   %34 = load i16, ptr %33, align 2, !tbaa !37
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i16, ptr %.2.i5, i64 %10
+  %36 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %10
   %37 = load i16, ptr %36, align 2, !tbaa !37
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 %24, %32
@@ -7566,7 +7566,7 @@ define internal void @h264_h_loop_filter_luma_12_c(ptr noundef captures(none) %0
   br label %96
 
 96:                                               ; preds = %79, %44, %40, %19
-  %97 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %97 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   %98 = add nuw nsw i32 %.0102.i4, 1
   %exitcond.not = icmp eq i32 %98, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !81
@@ -7606,7 +7606,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_12_c(ptr noundef captures(no
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.099.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.099.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %98
@@ -7723,7 +7723,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_12_c(ptr noundef captures(no
   br label %98
 
 98:                                               ; preds = %81, %46, %42, %20
-  %99 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %99 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   br i1 %21, label %20, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %98, %18
@@ -7760,15 +7760,15 @@ define internal void @h264_v_loop_filter_luma_intra_12_c(ptr noundef captures(no
   %16 = getelementptr inbounds i8, ptr %.0.i4, i64 %.idx139.i
   %17 = load i16, ptr %16, align 2, !tbaa !37
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i16, ptr %.0.i4, i64 %8
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %8
   %20 = load i16, ptr %19, align 2, !tbaa !37
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %.0.i4, align 2, !tbaa !37
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %24 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %25 = load i16, ptr %24, align 2, !tbaa !37
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i16, ptr %.0.i4, i64 %9
+  %27 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %9
   %28 = load i16, ptr %27, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %21, %23
@@ -8070,7 +8070,7 @@ define internal void @h264_h_loop_filter_luma_intra_12_c(ptr noundef captures(no
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 16
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_12_c.exit, label %10, !llvm.loop !83
@@ -8238,7 +8238,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_intra_12_c(ptr noundef captu
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 8
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_12_c.exit, label %10, !llvm.loop !83
@@ -8278,7 +8278,7 @@ define internal void @h264_v_loop_filter_chroma_12_c(ptr noundef captures(none) 
 20:                                               ; preds = %.preheader, %60
   %.2.i5 = phi ptr [ %.0.i7, %.preheader ], [ %61, %60 ]
   %21 = phi i1 [ true, %.preheader ], [ false, %60 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -8286,7 +8286,7 @@ define internal void @h264_v_loop_filter_chroma_12_c(ptr noundef captures(none) 
   %27 = zext i16 %26 to i32
   %28 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %30 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %31 = load i16, ptr %30, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %24, %29
@@ -8366,7 +8366,7 @@ define internal void @h264_h_loop_filter_chroma_12_c(ptr noundef captures(none) 
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -8423,7 +8423,7 @@ define internal void @h264_h_loop_filter_chroma_12_c(ptr noundef captures(none) 
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %60, %18
@@ -8517,7 +8517,7 @@ define internal void @h264_h_loop_filter_chroma422_12_c(ptr noundef captures(non
   br label %58
 
 58:                                               ; preds = %42, %38, %34, %19
-  %59 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %59 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %60 = add nuw nsw i32 %.059.i4, 1
   %exitcond.not = icmp eq i32 %60, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !84
@@ -8603,7 +8603,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_12_c(ptr noundef captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31, %35, %39, %9
-  %.1.i = getelementptr inbounds i16, ptr %.0.i6, i64 %8
+  %.1.i = getelementptr inbounds [2 x i8], ptr %.0.i6, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_12_c.exit, label %9, !llvm.loop !85
@@ -8636,7 +8636,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_12_c(ptr noundef captur
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -8693,7 +8693,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_12_c(ptr noundef captur
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %60, %18
@@ -8718,7 +8718,7 @@ define internal void @h264_v_loop_filter_chroma_intra_12_c(ptr noundef captures(
 9:                                                ; preds = %4, %45
   %.0.i4 = phi i32 [ 0, %4 ], [ %47, %45 ]
   %.046.i3 = phi ptr [ %0, %4 ], [ %46, %45 ]
-  %10 = getelementptr inbounds i16, ptr %.046.i3, i64 %8
+  %10 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %8
   %11 = load i16, ptr %10, align 2, !tbaa !37
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.046.i3, i64 %.idx.i
@@ -8726,7 +8726,7 @@ define internal void @h264_v_loop_filter_chroma_intra_12_c(ptr noundef captures(
   %15 = zext i16 %14 to i32
   %16 = load i16, ptr %.046.i3, align 2, !tbaa !37
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %18 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %19 = load i16, ptr %18, align 2, !tbaa !37
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %12, %17
@@ -8829,7 +8829,7 @@ define internal void @h264_h_loop_filter_chroma_intra_12_c(ptr noundef captures(
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_12_c.exit, label %8, !llvm.loop !86
@@ -8894,7 +8894,7 @@ define internal void @h264_h_loop_filter_chroma422_intra_12_c(ptr noundef captur
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 16
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_12_c.exit, label %8, !llvm.loop !86
@@ -8959,7 +8959,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_intra_12_c(ptr noundef cap
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_12_c.exit, label %8, !llvm.loop !86
@@ -9024,7 +9024,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_intra_12_c(ptr noundef 
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_12_c.exit, label %8, !llvm.loop !86
@@ -9233,7 +9233,7 @@ define internal void @weight_h264_pixels16_14_c(ptr noundef captures(none) %0, i
   %156 = trunc nuw nsw i32 %155 to i16
   store i16 %156, ptr %148, align 2, !tbaa !37
   %157 = add nuw nsw i32 %.091139, 1
-  %158 = getelementptr inbounds i16, ptr %.0140, i64 %7
+  %158 = getelementptr inbounds [2 x i8], ptr %.0140, i64 %7
   %exitcond.not = icmp eq i32 %157, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
@@ -9337,7 +9337,7 @@ define internal void @weight_h264_pixels8_14_c(ptr noundef captures(none) %0, i6
   %84 = trunc nuw nsw i32 %83 to i16
   store i16 %84, ptr %76, align 2, !tbaa !37
   %85 = add nuw nsw i32 %.05175, 1
-  %86 = getelementptr inbounds i16, ptr %.076, i64 %7
+  %86 = getelementptr inbounds [2 x i8], ptr %.076, i64 %7
   %exitcond.not = icmp eq i32 %85, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
@@ -9401,7 +9401,7 @@ define internal void @weight_h264_pixels4_14_c(ptr noundef captures(none) %0, i6
   %48 = trunc nuw nsw i32 %47 to i16
   store i16 %48, ptr %40, align 2, !tbaa !37
   %49 = add nuw nsw i32 %.03143, 1
-  %50 = getelementptr inbounds i16, ptr %.044, i64 %7
+  %50 = getelementptr inbounds [2 x i8], ptr %.044, i64 %7
   %exitcond.not = icmp eq i32 %49, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
@@ -9445,7 +9445,7 @@ define internal void @weight_h264_pixels2_14_c(ptr noundef captures(none) %0, i6
   %30 = trunc nuw nsw i32 %29 to i16
   store i16 %30, ptr %22, align 2, !tbaa !37
   %31 = add nuw nsw i32 %.02127, 1
-  %32 = getelementptr inbounds i16, ptr %.028, i64 %7
+  %32 = getelementptr inbounds [2 x i8], ptr %.028, i64 %7
   %exitcond.not = icmp eq i32 %31, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
@@ -9709,8 +9709,8 @@ define internal void @biweight_h264_pixels16_14_c(ptr noundef captures(none) %0,
   %237 = trunc nuw nsw i32 %236 to i16
   store i16 %237, ptr %228, align 2, !tbaa !37
   %238 = add nuw nsw i32 %.0125171, 1
-  %239 = getelementptr inbounds i16, ptr %.0124172, i64 %9
-  %240 = getelementptr inbounds i16, ptr %.0173, i64 %9
+  %239 = getelementptr inbounds [2 x i8], ptr %.0124172, i64 %9
+  %240 = getelementptr inbounds [2 x i8], ptr %.0173, i64 %9
   %exitcond.not = icmp eq i32 %238, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !91
 
@@ -9854,8 +9854,8 @@ define internal void @biweight_h264_pixels8_14_c(ptr noundef captures(none) %0, 
   %125 = trunc nuw nsw i32 %124 to i16
   store i16 %125, ptr %116, align 2, !tbaa !37
   %126 = add nuw nsw i32 %.06991, 1
-  %127 = getelementptr inbounds i16, ptr %.06892, i64 %9
-  %128 = getelementptr inbounds i16, ptr %.093, i64 %9
+  %127 = getelementptr inbounds [2 x i8], ptr %.06892, i64 %9
+  %128 = getelementptr inbounds [2 x i8], ptr %.093, i64 %9
   %exitcond.not = icmp eq i32 %126, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !92
 
@@ -9939,8 +9939,8 @@ define internal void @biweight_h264_pixels4_14_c(ptr noundef captures(none) %0, 
   %69 = trunc nuw nsw i32 %68 to i16
   store i16 %69, ptr %60, align 2, !tbaa !37
   %70 = add nuw nsw i32 %.04151, 1
-  %71 = getelementptr inbounds i16, ptr %.04052, i64 %9
-  %72 = getelementptr inbounds i16, ptr %.053, i64 %9
+  %71 = getelementptr inbounds [2 x i8], ptr %.04052, i64 %9
+  %72 = getelementptr inbounds [2 x i8], ptr %.053, i64 %9
   %exitcond.not = icmp eq i32 %70, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !93
 
@@ -9994,8 +9994,8 @@ define internal void @biweight_h264_pixels2_14_c(ptr noundef captures(none) %0, 
   %41 = trunc nuw nsw i32 %40 to i16
   store i16 %41, ptr %32, align 2, !tbaa !37
   %42 = add nuw nsw i32 %.02731, 1
-  %43 = getelementptr inbounds i16, ptr %.02632, i64 %9
-  %44 = getelementptr inbounds i16, ptr %.033, i64 %9
+  %43 = getelementptr inbounds [2 x i8], ptr %.02632, i64 %9
+  %44 = getelementptr inbounds [2 x i8], ptr %.033, i64 %9
   %exitcond.not = icmp eq i32 %42, %3
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !94
 
@@ -10037,7 +10037,7 @@ define internal void @h264_v_loop_filter_luma_14_c(ptr noundef captures(none) %0
 21:                                               ; preds = %.preheader, %98
   %.2.i5 = phi ptr [ %.099.i7, %.preheader ], [ %99, %98 ]
   %.0102.i4 = phi i32 [ 0, %.preheader ], [ %100, %98 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -10048,10 +10048,10 @@ define internal void @h264_v_loop_filter_luma_14_c(ptr noundef captures(none) %0
   %30 = zext i16 %29 to i32
   %31 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
-  %33 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %33 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   %34 = load i16, ptr %33, align 2, !tbaa !37
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i16, ptr %.2.i5, i64 %10
+  %36 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %10
   %37 = load i16, ptr %36, align 2, !tbaa !37
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 %24, %32
@@ -10305,7 +10305,7 @@ define internal void @h264_h_loop_filter_luma_14_c(ptr noundef captures(none) %0
   br label %96
 
 96:                                               ; preds = %79, %44, %40, %19
-  %97 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %97 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   %98 = add nuw nsw i32 %.0102.i4, 1
   %exitcond.not = icmp eq i32 %98, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !95
@@ -10345,7 +10345,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_14_c(ptr noundef captures(no
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.099.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.099.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %98
@@ -10462,7 +10462,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_14_c(ptr noundef captures(no
   br label %98
 
 98:                                               ; preds = %81, %46, %42, %20
-  %99 = getelementptr inbounds i16, ptr %.2.i5, i64 %6
+  %99 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %6
   br i1 %21, label %20, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %98, %18
@@ -10499,15 +10499,15 @@ define internal void @h264_v_loop_filter_luma_intra_14_c(ptr noundef captures(no
   %16 = getelementptr inbounds i8, ptr %.0.i4, i64 %.idx139.i
   %17 = load i16, ptr %16, align 2, !tbaa !37
   %18 = zext i16 %17 to i32
-  %19 = getelementptr inbounds i16, ptr %.0.i4, i64 %8
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %8
   %20 = load i16, ptr %19, align 2, !tbaa !37
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %.0.i4, align 2, !tbaa !37
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %24 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %25 = load i16, ptr %24, align 2, !tbaa !37
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i16, ptr %.0.i4, i64 %9
+  %27 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %9
   %28 = load i16, ptr %27, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %21, %23
@@ -10809,7 +10809,7 @@ define internal void @h264_h_loop_filter_luma_intra_14_c(ptr noundef captures(no
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 16
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_14_c.exit, label %10, !llvm.loop !97
@@ -10977,7 +10977,7 @@ define internal void @h264_h_loop_filter_luma_mbaff_intra_14_c(ptr noundef captu
   br label %124
 
 124:                                              ; preds = %111, %104, %80, %35, %31, %10
-  %125 = getelementptr inbounds i16, ptr %.0.i4, i64 %5
+  %125 = getelementptr inbounds [2 x i8], ptr %.0.i4, i64 %5
   %126 = add nuw nsw i32 %.0127.i3, 1
   %exitcond.not = icmp eq i32 %126, 8
   br i1 %exitcond.not, label %h264_loop_filter_luma_intra_14_c.exit, label %10, !llvm.loop !97
@@ -11017,7 +11017,7 @@ define internal void @h264_v_loop_filter_chroma_14_c(ptr noundef captures(none) 
 20:                                               ; preds = %.preheader, %60
   %.2.i5 = phi ptr [ %.0.i7, %.preheader ], [ %61, %60 ]
   %21 = phi i1 [ true, %.preheader ], [ false, %60 ]
-  %22 = getelementptr inbounds i16, ptr %.2.i5, i64 %9
+  %22 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %9
   %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = getelementptr inbounds i8, ptr %.2.i5, i64 %.idx.i
@@ -11025,7 +11025,7 @@ define internal void @h264_v_loop_filter_chroma_14_c(ptr noundef captures(none) 
   %27 = zext i16 %26 to i32
   %28 = load i16, ptr %.2.i5, align 2, !tbaa !37
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %30 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %31 = load i16, ptr %30, align 2, !tbaa !37
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %24, %29
@@ -11105,7 +11105,7 @@ define internal void @h264_h_loop_filter_chroma_14_c(ptr noundef captures(none) 
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -11162,7 +11162,7 @@ define internal void @h264_h_loop_filter_chroma_14_c(ptr noundef captures(none) 
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !98
 
 .loopexit:                                        ; preds = %60, %18
@@ -11256,7 +11256,7 @@ define internal void @h264_h_loop_filter_chroma422_14_c(ptr noundef captures(non
   br label %58
 
 58:                                               ; preds = %42, %38, %34, %19
-  %59 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %59 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   %60 = add nuw nsw i32 %.059.i4, 1
   %exitcond.not = icmp eq i32 %60, 4
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !98
@@ -11342,7 +11342,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_14_c(ptr noundef captures(
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %31, %35, %39, %9
-  %.1.i = getelementptr inbounds i16, ptr %.0.i6, i64 %8
+  %.1.i = getelementptr inbounds [2 x i8], ptr %.0.i6, i64 %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_14_c.exit, label %9, !llvm.loop !99
@@ -11375,7 +11375,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_14_c(ptr noundef captur
   br label %20
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i16, ptr %.0.i7, i64 %9
+  %19 = getelementptr inbounds [2 x i8], ptr %.0.i7, i64 %9
   br label %.loopexit
 
 20:                                               ; preds = %.preheader, %60
@@ -11432,7 +11432,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_14_c(ptr noundef captur
   br label %60
 
 60:                                               ; preds = %44, %40, %36, %20
-  %61 = getelementptr inbounds i16, ptr %.2.i5, i64 %8
+  %61 = getelementptr inbounds [2 x i8], ptr %.2.i5, i64 %8
   br i1 %21, label %20, label %.loopexit, !llvm.loop !98
 
 .loopexit:                                        ; preds = %60, %18
@@ -11457,7 +11457,7 @@ define internal void @h264_v_loop_filter_chroma_intra_14_c(ptr noundef captures(
 9:                                                ; preds = %4, %45
   %.0.i4 = phi i32 [ 0, %4 ], [ %47, %45 ]
   %.046.i3 = phi ptr [ %0, %4 ], [ %46, %45 ]
-  %10 = getelementptr inbounds i16, ptr %.046.i3, i64 %8
+  %10 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %8
   %11 = load i16, ptr %10, align 2, !tbaa !37
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds i8, ptr %.046.i3, i64 %.idx.i
@@ -11465,7 +11465,7 @@ define internal void @h264_v_loop_filter_chroma_intra_14_c(ptr noundef captures(
   %15 = zext i16 %14 to i32
   %16 = load i16, ptr %.046.i3, align 2, !tbaa !37
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %18 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %19 = load i16, ptr %18, align 2, !tbaa !37
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %12, %17
@@ -11568,7 +11568,7 @@ define internal void @h264_h_loop_filter_chroma_intra_14_c(ptr noundef captures(
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_14_c.exit, label %8, !llvm.loop !100
@@ -11633,7 +11633,7 @@ define internal void @h264_h_loop_filter_chroma422_intra_14_c(ptr noundef captur
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 16
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_14_c.exit, label %8, !llvm.loop !100
@@ -11698,7 +11698,7 @@ define internal void @h264_h_loop_filter_chroma_mbaff_intra_14_c(ptr noundef cap
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 4
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_14_c.exit, label %8, !llvm.loop !100
@@ -11763,7 +11763,7 @@ define internal void @h264_h_loop_filter_chroma422_mbaff_intra_14_c(ptr noundef 
   br label %44
 
 44:                                               ; preds = %31, %27, %23, %8
-  %45 = getelementptr inbounds i16, ptr %.046.i3, i64 %5
+  %45 = getelementptr inbounds [2 x i8], ptr %.046.i3, i64 %5
   %46 = add nuw nsw i32 %.0.i4, 1
   %exitcond.not = icmp eq i32 %46, 8
   br i1 %exitcond.not, label %h264_loop_filter_chroma_intra_14_c.exit, label %8, !llvm.loop !100

@@ -17,13 +17,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.lock_class_key = type {}
 %struct.static_call_key = type { ptr, %union.anon.28 }
 %union.anon.28 = type { i64 }
-%struct.page = type { i64, %union.anon.9, %union.anon.17, %struct.atomic_t, [8 x i8] }
-%union.anon.9 = type { %struct.anon.10 }
-%struct.anon.10 = type { %union.anon.11, ptr, %union.anon.13, i64 }
-%union.anon.11 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.13 = type { i64 }
-%union.anon.17 = type { %struct.atomic_t }
 
 @bucket_order = internal unnamed_addr global i32 0, section ".data..read_mostly", align 4
 @shadow_nodes = dso_local global %struct.list_lru zeroinitializer, align 8
@@ -55,7 +48,7 @@ define dso_local void @workingset_age_nonresident(ptr noundef %0, i64 noundef %1
 define dso_local nonnull ptr @workingset_eviction(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i64, ptr %0, align 16
   %4 = lshr i64 %3, 58
-  %5 = getelementptr ptr, ptr @node_data, i64 %4
+  %5 = getelementptr [8 x i8], ptr @node_data, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 13544
   %8 = load volatile i64, ptr %7, align 8
@@ -110,7 +103,7 @@ define dso_local zeroext i1 @workingset_test_recent(ptr noundef %0, i1 noundef z
   %7 = and i8 %6, 1
   %8 = lshr i64 %4, 2
   %9 = and i64 %8, 63
-  %10 = getelementptr ptr, ptr @node_data, i64 %9
+  %10 = getelementptr [8 x i8], ptr @node_data, i64 %9
   %11 = load ptr, ptr %10, align 8
   store i8 %7, ptr %2, align 1
   %12 = load i32, ptr @bucket_order, align 4
@@ -174,7 +167,7 @@ define dso_local void @workingset_refault(ptr noundef %0, ptr noundef %1) local_
 15:                                               ; preds = %11, %2
   %16 = phi i64 [ %14, %11 ], [ 1, %2 ]
   %17 = lshr i64 %8, 58
-  %18 = getelementptr ptr, ptr @node_data, i64 %17
+  %18 = getelementptr [8 x i8], ptr @node_data, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = or disjoint i32 %7, 10
   %21 = shl nuw i64 %16, 32
@@ -214,7 +207,7 @@ define dso_local void @workingset_activation(ptr noundef %0) local_unnamed_addr 
   tail call void @__rcu_read_lock() #6
   %2 = load i64, ptr %0, align 16
   %3 = lshr i64 %2, 58
-  %4 = getelementptr ptr, ptr @node_data, i64 %3
+  %4 = getelementptr [8 x i8], ptr @node_data, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile i64, ptr %0, align 16
   %7 = and i64 %6, 64
@@ -267,7 +260,7 @@ define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
   %23 = select i1 %19, i64 %20, i64 %22
   %24 = add i64 %18, %23
   %25 = lshr i64 %24, 12
-  %26 = getelementptr %struct.page, ptr %16, i64 %25
+  %26 = getelementptr [64 x i8], ptr %16, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load volatile i64, ptr %27, align 8
   %29 = and i64 %28, 1
@@ -326,7 +319,7 @@ define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
   %65 = select i1 %61, i64 %62, i64 %64
   %66 = add i64 %60, %65
   %67 = lshr i64 %66, 12
-  %68 = getelementptr %struct.page, ptr %58, i64 %67
+  %68 = getelementptr [64 x i8], ptr %58, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load volatile i64, ptr %69, align 8
   %71 = and i64 %70, 1
@@ -371,7 +364,7 @@ define dso_local void @workingset_update_node(ptr noundef %0) #0 align 16 {
   %95 = phi i64 [ 1, %31 ], [ 1, %43 ], [ 1, %50 ], [ 1, %34 ], [ -1, %73 ], [ -1, %85 ], [ -1, %92 ], [ -1, %76 ]
   %96 = load i64, ptr %94, align 16
   %97 = lshr i64 %96, 58
-  %98 = getelementptr ptr, ptr @node_data, i64 %97
+  %98 = getelementptr [8 x i8], ptr @node_data, i64 %97
   %99 = load ptr, ptr %98, align 8
   tail call void @__mod_node_page_state(ptr noundef %99, i32 noundef 9, i64 noundef %95) #6
   br label %100
@@ -471,7 +464,7 @@ define internal i64 @count_shadow_nodes(ptr readnone captures(none) %0, ptr noun
 9:                                                ; preds = %2
   %10 = load i32, ptr %3, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr @node_data, i64 %11
+  %12 = getelementptr [8 x i8], ptr @node_data, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 13104
   %15 = load i64, ptr %14, align 16
@@ -547,7 +540,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %29 = select i1 %25, i64 %26, i64 %28
   %30 = add i64 %29, %24
   %31 = lshr i64 %30, 12
-  %32 = getelementptr %struct.page, ptr %22, i64 %31
+  %32 = getelementptr [64 x i8], ptr %22, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load volatile i64, ptr %33, align 8
   %35 = and i64 %34, 1
@@ -591,7 +584,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %58 = phi ptr [ %39, %37 ], [ %55, %49 ], [ %32, %56 ], [ %32, %40 ]
   %59 = load i64, ptr %58, align 16
   %60 = lshr i64 %59, 58
-  %61 = getelementptr ptr, ptr @node_data, i64 %60
+  %61 = getelementptr [8 x i8], ptr @node_data, i64 %60
   %62 = load ptr, ptr %61, align 8
   tail call void @__mod_node_page_state(ptr noundef %62, i32 noundef 9, i64 noundef -1) #6
   tail call void @_raw_spin_unlock(ptr noundef %2) #6
@@ -628,7 +621,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %78 = select i1 %25, i64 %75, i64 %77
   %79 = add i64 %78, %24
   %80 = lshr i64 %79, 12
-  %81 = getelementptr %struct.page, ptr %74, i64 %80
+  %81 = getelementptr [64 x i8], ptr %74, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load volatile i64, ptr %82, align 8
   %84 = and i64 %83, 1
@@ -672,7 +665,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %107 = phi ptr [ %88, %86 ], [ %104, %98 ], [ %81, %105 ], [ %81, %89 ]
   %108 = load i64, ptr %107, align 16
   %109 = lshr i64 %108, 58
-  %110 = getelementptr ptr, ptr @node_data, i64 %109
+  %110 = getelementptr [8 x i8], ptr @node_data, i64 %109
   %111 = load ptr, ptr %110, align 8
   tail call void @__mod_node_page_state(ptr noundef %111, i32 noundef 16, i64 noundef 1) #6
   br label %112

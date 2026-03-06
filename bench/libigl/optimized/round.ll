@@ -76,7 +76,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE10resizeLikeIS2_
 
 15:                                               ; preds = %.preheader, %_ZN3igl5roundIdEET_S1_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3igl5roundIdEET_S1_.exit ]
-  %16 = getelementptr double, ptr %12, i64 %indvars.iv
+  %16 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !16
   %18 = fcmp ogt double %17, 0.000000e+00
   br i1 %18, label %19, label %22
@@ -93,7 +93,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE10resizeLikeIS2_
 
 _ZN3igl5roundIdEET_S1_.exit:                      ; preds = %19, %22
   %25 = phi double [ %21, %19 ], [ %24, %22 ]
-  %26 = getelementptr double, ptr %13, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   store double %25, ptr %26, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -128,8 +128,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %16
   %indvars.iv19 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next20, %16 ]
-  %14 = getelementptr float, ptr %10, i64 %indvars.iv19
-  %15 = getelementptr float, ptr %11, i64 %indvars.iv19
+  %14 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv19
+  %15 = getelementptr [4 x i8], ptr %11, i64 %indvars.iv19
   br label %17
 
 ._crit_edge:                                      ; preds = %16, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_EEvRKNS_9EigenBaseIT_EE.exit
@@ -143,7 +143,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_
 17:                                               ; preds = %.preheader, %_ZN3igl5roundIfEET_S1_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3igl5roundIfEET_S1_.exit ]
   %18 = mul nuw nsw i64 %indvars.iv, %8
-  %19 = getelementptr float, ptr %14, i64 %18
+  %19 = getelementptr [4 x i8], ptr %14, i64 %18
   %20 = load float, ptr %19, align 4, !tbaa !24
   %21 = fpext float %20 to double
   %22 = fcmp ogt float %20, 0.000000e+00
@@ -163,7 +163,7 @@ _ZN3igl5roundIfEET_S1_.exit:                      ; preds = %23, %26
   %29 = phi double [ %25, %23 ], [ %28, %26 ]
   %30 = fptrunc double %29 to float
   %31 = mul nsw i64 %13, %indvars.iv
-  %32 = getelementptr float, ptr %15, i64 %31
+  %32 = getelementptr [4 x i8], ptr %15, i64 %31
   store float %30, ptr %32, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -211,7 +211,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEEE10resizeLikeIS2_
 
 15:                                               ; preds = %.preheader, %_ZN3igl5roundIfEET_S1_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3igl5roundIfEET_S1_.exit ]
-  %16 = getelementptr float, ptr %12, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !24
   %18 = fpext float %17 to double
   %19 = fcmp ogt float %17, 0.000000e+00
@@ -230,7 +230,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi1ELin1ELi3EEEE10resizeLikeIS2_
 _ZN3igl5roundIfEET_S1_.exit:                      ; preds = %20, %23
   %26 = phi double [ %22, %20 ], [ %25, %23 ]
   %27 = fptrunc double %26 to float
-  %28 = getelementptr float, ptr %13, i64 %indvars.iv
+  %28 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv
   store float %27, ptr %28, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -281,14 +281,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE10resizeLikeIS
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %23 = mul nuw nsw i64 %17, %indvars.iv22
-  %24 = getelementptr double, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = mul nsw i64 %21, %indvars.iv22
-  %26 = getelementptr double, ptr %19, i64 %25
+  %26 = getelementptr [8 x i8], ptr %19, i64 %25
   br label %27
 
 27:                                               ; preds = %.preheader.us, %_ZN3igl5roundIdEET_S1_.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZN3igl5roundIdEET_S1_.exit.us ]
-  %28 = getelementptr double, ptr %24, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !16
   %30 = fcmp ogt double %29, 0.000000e+00
   br i1 %30, label %34, label %31
@@ -305,7 +305,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE10resizeLikeIS
 
 _ZN3igl5roundIdEET_S1_.exit.us:                   ; preds = %34, %31
   %37 = phi double [ %36, %34 ], [ %33, %31 ]
-  %38 = getelementptr double, ptr %26, i64 %indvars.iv
+  %38 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv
   store double %37, ptr %38, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
@@ -363,14 +363,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %23 = getelementptr double, ptr %22, i64 %indvars.iv22
-  %24 = getelementptr double, ptr %19, i64 %indvars.iv22
+  %23 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv22
+  %24 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv22
   br label %25
 
 25:                                               ; preds = %.preheader.us, %_ZN3igl5roundIdEET_S1_.exit.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %_ZN3igl5roundIdEET_S1_.exit.us ]
   %26 = mul nuw nsw i64 %indvars.iv, %15
-  %27 = getelementptr double, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !16
   %29 = fcmp ogt double %28, 0.000000e+00
   br i1 %29, label %33, label %30
@@ -388,7 +388,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 _ZN3igl5roundIdEET_S1_.exit.us:                   ; preds = %33, %30
   %36 = phi double [ %35, %33 ], [ %32, %30 ]
   %37 = mul nsw i64 %21, %indvars.iv
-  %38 = getelementptr double, ptr %24, i64 %37
+  %38 = getelementptr [8 x i8], ptr %24, i64 %37
   store double %36, ptr %38, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
@@ -431,8 +431,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEEE10resizeLikeIS2_
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %16
   %indvars.iv19 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next20, %16 ]
-  %14 = getelementptr double, ptr %10, i64 %indvars.iv19
-  %15 = getelementptr double, ptr %11, i64 %indvars.iv19
+  %14 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv19
+  %15 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv19
   br label %17
 
 ._crit_edge:                                      ; preds = %16, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEEE10resizeLikeIS2_EEvRKNS_9EigenBaseIT_EE.exit
@@ -447,7 +447,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEEE10resizeLikeIS2_
   %18 = phi i1 [ true, %.preheader ], [ false, %_ZN3igl5roundIdEET_S1_.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %_ZN3igl5roundIdEET_S1_.exit ]
   %19 = mul nuw nsw i64 %indvars.iv, %8
-  %20 = getelementptr double, ptr %14, i64 %19
+  %20 = getelementptr [8 x i8], ptr %14, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !16
   %22 = fcmp ogt double %21, 0.000000e+00
   br i1 %22, label %23, label %26
@@ -465,7 +465,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEEE10resizeLikeIS2_
 _ZN3igl5roundIdEET_S1_.exit:                      ; preds = %23, %26
   %29 = phi double [ %25, %23 ], [ %28, %26 ]
   %30 = mul nuw nsw i64 %13, %indvars.iv
-  %31 = getelementptr double, ptr %15, i64 %30
+  %31 = getelementptr [8 x i8], ptr %15, i64 %30
   store double %29, ptr %31, align 8, !tbaa !16
   br i1 %18, label %17, label %16, !llvm.loop !48
 }
@@ -498,8 +498,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %16
   %indvars.iv19 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next20, %16 ]
-  %14 = getelementptr double, ptr %10, i64 %indvars.iv19
-  %15 = getelementptr double, ptr %11, i64 %indvars.iv19
+  %14 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv19
+  %15 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv19
   br label %17
 
 ._crit_edge:                                      ; preds = %16, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_EEvRKNS_9EigenBaseIT_EE.exit
@@ -513,7 +513,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_
 17:                                               ; preds = %.preheader, %_ZN3igl5roundIdEET_S1_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3igl5roundIdEET_S1_.exit ]
   %18 = mul nuw nsw i64 %indvars.iv, %8
-  %19 = getelementptr double, ptr %14, i64 %18
+  %19 = getelementptr [8 x i8], ptr %14, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !16
   %21 = fcmp ogt double %20, 0.000000e+00
   br i1 %21, label %22, label %25
@@ -531,7 +531,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE10resizeLikeIS2_
 _ZN3igl5roundIdEET_S1_.exit:                      ; preds = %22, %25
   %28 = phi double [ %24, %22 ], [ %27, %25 ]
   %29 = mul nsw i64 %13, %indvars.iv
-  %30 = getelementptr double, ptr %15, i64 %29
+  %30 = getelementptr [8 x i8], ptr %15, i64 %29
   store double %28, ptr %30, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

@@ -16,9 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_iop_crop_aspect_t = type { ptr, i32, i32 }
 %struct._PangoRectangle = type { i32, i32, i32, i32 }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"crop\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"reframe|distortion\00", align 1
@@ -196,7 +193,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.019 = phi i64 [ %29, %.lr.ph ], [ 0, %21 ]
-  %23 = getelementptr inbounds nuw float, ptr %2, i64 %.019
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.019
   %24 = load float, ptr %23, align 8, !tbaa !31
   %25 = fsub reassoc nsz arcp contract afn float %24, %18
   store float %25, ptr %23, align 8, !tbaa !31
@@ -244,7 +241,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.019 = phi i64 [ %29, %.lr.ph ], [ 0, %21 ]
-  %23 = getelementptr inbounds nuw float, ptr %2, i64 %.019
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.019
   %24 = load float, ptr %23, align 8, !tbaa !31
   %25 = fadd reassoc nsz arcp contract afn float %24, %18
   store float %25, ptr %23, align 8, !tbaa !31
@@ -2471,7 +2468,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %4
 108:                                              ; preds = %_iop_gui_alloc.exit, %_aspect_format.exit
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %_aspect_format.exit ]
   %109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
-  %110 = getelementptr inbounds nuw %struct.dt_iop_crop_aspect_t, ptr %2, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 16, !tbaa !180
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 12
@@ -4695,7 +4692,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

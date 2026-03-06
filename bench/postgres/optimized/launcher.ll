@@ -3,9 +3,7 @@ source_filename = "bench/postgres/original/launcher.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.LogicalRepWorker = type { i32, i64, i8, i16, ptr, i32, i32, i32, i32, i8, i64, i8, ptr, i32, i8, i64, i64, i64, i64, i64 }
 %struct.BackgroundWorker = type { [96 x i8], [96 x i8], i32, i32, i32, [1024 x i8], [96 x i8], i64, [128 x i8], i32 }
-%union.ListCell = type { ptr }
 
 @max_logical_replication_workers = dso_local local_unnamed_addr global i32 4, align 4
 @max_sync_workers_per_subscription = dso_local local_unnamed_addr global i32 2, align 4
@@ -80,7 +78,7 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %26
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %26 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %7, i64 %indvars.iv29
+  %8 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
@@ -116,7 +114,7 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %7, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i8, ptr %28, align 8, !range !4, !noundef !5
   %30 = trunc nuw i8 %29 to i1
@@ -174,7 +172,7 @@ define dso_local ptr @logicalrep_workers_find(i32 noundef %0, i1 noundef zeroext
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %27 ], [ 0, %.lr.ph ]
   %.01213.us = phi ptr [ %.1.us, %27 ], [ null, %.lr.ph ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %13, i64 %indvars.iv17
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %indvars.iv17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
@@ -213,7 +211,7 @@ define dso_local ptr @logicalrep_workers_find(i32 noundef %0, i1 noundef zeroext
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %.01213 = phi ptr [ %.1, %45 ], [ null, %.lr.ph ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i8, ptr %36, align 8, !range !4, !noundef !5
   %38 = trunc nuw i8 %37 to i1
@@ -312,7 +310,7 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
 
 33:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %34 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %32, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i8, ptr %35, align 8, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
@@ -338,7 +336,7 @@ define dso_local zeroext i1 @logicalrep_worker_launch(i32 noundef %0, i32 nounde
 42:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
-  %43 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %41, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [128 x i8], ptr %41, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
   %46 = trunc nuw i8 %45 to i1
@@ -382,7 +380,7 @@ logicalrep_sync_worker_count.exit:                ; preds = %55, %28
   %.067105 = phi i1 [ %.1, %84 ], [ false, %logicalrep_sync_worker_count.exit ]
   %61 = load ptr, ptr @LogicalRepCtx, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %62, i64 %indvars.iv115
+  %63 = getelementptr inbounds nuw [128 x i8], ptr %62, i64 %indvars.iv115
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 8, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
@@ -463,7 +461,7 @@ logicalrep_sync_worker_count.exit:                ; preds = %55, %28
 97:                                               ; preds = %110, %.lr.ph.i87
   %indvars.iv.i89 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i92, %110 ]
   %.089.i90 = phi i32 [ 0, %.lr.ph.i87 ], [ %.1.i91, %110 ]
-  %98 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %96, i64 %indvars.iv.i89
+  %98 = getelementptr inbounds nuw [128 x i8], ptr %96, i64 %indvars.iv.i89
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i8, ptr %99, align 8, !range !4, !noundef !5
   %101 = trunc nuw i8 %100 to i1
@@ -771,7 +769,7 @@ define dso_local i32 @logicalrep_sync_worker_count(i32 noundef %0) local_unnamed
 6:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.089 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
-  %7 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 8, !range !4, !noundef !5
   %10 = trunc nuw i8 %9 to i1
@@ -831,7 +829,7 @@ define dso_local void @logicalrep_worker_stop(i32 noundef %0, i32 noundef %1) lo
 
 .lr.ph.split.i:                                   ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -1013,7 +1011,7 @@ define dso_local void @logicalrep_pa_worker_stop(ptr noundef captures(none) %0) 
   %22 = load ptr, ptr @LogicalRepCtx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = sext i32 %13 to i64
-  %25 = getelementptr inbounds %struct.LogicalRepWorker, ptr %23, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 18
   %27 = load i16, ptr %26, align 2
   %28 = icmp eq i16 %27, %11
@@ -1057,7 +1055,7 @@ define dso_local void @logicalrep_worker_wakeup(i32 noundef %0, i32 noundef %1) 
 
 .lr.ph.split.us.i:                                ; preds = %28, %.lr.ph.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %28 ], [ 0, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %9, i64 %indvars.iv29.i
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv29.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -1122,7 +1120,7 @@ define dso_local void @logicalrep_worker_attach(i32 noundef %0) local_unnamed_ad
   %5 = load ptr, ptr @LogicalRepCtx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.LogicalRepWorker, ptr %6, i64 %7
+  %8 = getelementptr inbounds [128 x i8], ptr %6, i64 %7
   store ptr %8, ptr @MyLogicalRepWorker, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
@@ -1208,7 +1206,7 @@ define internal void @logicalrep_worker_onexit(i32 %0, i64 %1) #1 {
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %37 ], [ 0, %.lr.ph.i.i ]
   %.01213.us.i.i = phi ptr [ %.1.us.i.i, %37 ], [ null, %.lr.ph.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %23, i64 %indvars.iv17.i.i
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %indvars.iv17.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i8, ptr %25, align 8, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -1256,7 +1254,7 @@ logicalrep_workers_find.exit.i:                   ; preds = %37
   %46 = phi i32 [ %60, %59 ], [ %44, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %59 ], [ 0, %.lr.ph.i ]
   %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i8, ptr %50, align 8, !range !4, !noundef !5
@@ -1422,7 +1420,7 @@ define dso_local void @ApplyLauncherShmemInit() local_unnamed_addr #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %19 = load ptr, ptr @LogicalRepCtx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, i8 0, i64 128, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -1666,7 +1664,7 @@ get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
   %.0274454 = phi i64 [ %.1, %123 ], [ 180000, %.lr.ph ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next, %123 ], [ 0, %.lr.ph ]
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 29
   %57 = load i8, ptr %56, align 1, !range !4, !noundef !5
@@ -1700,7 +1698,7 @@ get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
 
 .lr.ph.split.i:                                   ; preds = %86, %.lr.ph.i39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %86 ], [ 0, %.lr.ph.i39 ]
-  %71 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %70, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [128 x i8], ptr %70, i64 %indvars.iv.i
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i8, ptr %72, align 8, !range !4, !noundef !5
   %74 = trunc nuw i8 %73 to i1
@@ -1889,7 +1887,7 @@ define dso_local i32 @GetLeaderApplyWorkerPid(i32 noundef %0) local_unnamed_addr
 
 9:                                                ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %10 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -1987,7 +1985,7 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %3, i8 0, i64 10, i1 false)
   %39 = load ptr, ptr @LogicalRepCtx, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [128 x i8], ptr %40, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %41, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
   %.sroa.68.0.copyload = load i8, ptr %.sroa.68.0..sroa_idx, align 8

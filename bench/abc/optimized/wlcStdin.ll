@@ -114,7 +114,7 @@ Vec_StrStart.exit51.Vec_StrFree.exit_crit_edge:   ; preds = %Vec_StrStart.exit51
   %25 = add nsw i32 %.074, %1
   %26 = ashr i32 %25, 5
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %0, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = and i32 %25, 31
   %31 = lshr i32 %29, %30
@@ -350,7 +350,7 @@ define void @Wlc_NtkReport(ptr noundef readonly captures(none) %0, ptr noundef r
 
 14:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %15 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.val33, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !14
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %.critedge.sink.split, label %18
@@ -367,11 +367,11 @@ define void @Wlc_NtkReport(ptr noundef readonly captures(none) %0, ptr noundef r
   %22 = add nuw nsw i64 %indvars.iv, 2
   %23 = trunc nuw i64 %indvars.iv.lcssa66.sink71 to i32
   %24 = and i64 %indvars.iv, 4294967295
-  %25 = getelementptr inbounds nuw i32, ptr %.val33, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.val33, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !14
   %28 = and i64 %22, 4294967295
-  %29 = getelementptr inbounds nuw i32, ptr %.val33, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.val33, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !14
   br label %.critedge
 

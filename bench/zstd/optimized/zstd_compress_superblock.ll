@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ZSTD_entropyCTablesMetadata_t = type { %struct.ZSTD_hufCTablesMetadata_t, %struct.ZSTD_fseCTablesMetadata_t }
 %struct.ZSTD_hufCTablesMetadata_t = type { i32, [128 x i8], i64 }
 %struct.ZSTD_fseCTablesMetadata_t = type { i32, i32, i32, [133 x i8], i64, i64 }
-%struct.SeqDef_s = type { i32, i16, i16 }
 
 @OF_defaultNorm = internal constant [29 x i16] [i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 2, i16 2, i16 2, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1], align 16
 @LL_bits = internal unnamed_addr constant [36 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\01\01\01\02\02\03\03\04\06\07\08\09\0A\0B\0C\0D\0E\0F\10", align 16
@@ -382,7 +381,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit57.i.i.i: ; preds = %._crit_edge.i50.i.
   %.03241.i.i = phi i64 [ %203, %202 ], [ 1, %.lr.ph.preheader.i.i ]
   %.03340.i.i = phi i64 [ %198, %202 ], [ %185, %.lr.ph.preheader.i.i ]
   %.03439.i.i = phi i64 [ %192, %202 ], [ %178, %.lr.ph.preheader.i.i ]
-  %186 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %.1201433.i, i64 %.03241.i.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %.1201433.i, i64 %.03241.i.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i16, ptr %187, align 4, !tbaa !61
   %189 = zext i16 %188 to i64
@@ -408,7 +407,7 @@ ZSTD_estimateSubBlockSize_symbolType.exit57.i.i.i: ; preds = %._crit_edge.i50.i.
 
 sizeBlockSequences.exit.i:                        ; preds = %202, %.lr.ph.i.i, %167
   %.0.i.i = phi i64 [ 1, %167 ], [ %170, %202 ], [ %.03241.i.i, %.lr.ph.i.i ]
-  %204 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %.1201433.i, i64 %.0.i.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %.1201433.i, i64 %.0.i.i
   %205 = icmp eq ptr %204, %38
   br i1 %205, label %.thread382.loopexit.i, label %.lr.ph.i320.i
 
@@ -424,7 +423,7 @@ sizeBlockSequences.exit.i:                        ; preds = %202, %.lr.ph.i.i, %
 209:                                              ; preds = %ZSTD_getSequenceLength.exit.i.i, %.lr.ph.i320.i
   %.09.i.i = phi i64 [ 0, %.lr.ph.i320.i ], [ %224, %ZSTD_getSequenceLength.exit.i.i ]
   %.078.i.i = phi i64 [ 0, %.lr.ph.i320.i ], [ %223, %ZSTD_getSequenceLength.exit.i.i ]
-  %210 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %.1201433.i, i64 %.09.i.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %.1201433.i, i64 %.09.i.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
   %212 = load i16, ptr %211, align 4, !tbaa !61
   %213 = zext i16 %212 to i32
@@ -453,7 +452,7 @@ ZSTD_getSequenceLength.exit.i.i:                  ; preds = %219, %209
 .lr.ph.i323.i:                                    ; preds = %ZSTD_getSequenceLength.exit.i.i, %ZSTD_getSequenceLength.exit.i324.i
   %.012.i.i = phi i64 [ %239, %ZSTD_getSequenceLength.exit.i324.i ], [ 0, %ZSTD_getSequenceLength.exit.i.i ]
   %.01011.i.i = phi i64 [ %240, %ZSTD_getSequenceLength.exit.i324.i ], [ 0, %ZSTD_getSequenceLength.exit.i.i ]
-  %225 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %.1201433.i, i64 %.01011.i.i
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %.1201433.i, i64 %.01011.i.i
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 6
   %227 = load i16, ptr %226, align 2, !tbaa !64
   %228 = zext i16 %227 to i32
@@ -582,7 +581,7 @@ ZSTD_seqDecompressedSize.exit.i:                  ; preds = %ZSTD_getSequenceLen
 265:                                              ; preds = %ZSTD_getSequenceLength.exit.i330.i, %.lr.ph.i327.i
   %.012.i328.i = phi i64 [ 0, %.lr.ph.i327.i ], [ %280, %ZSTD_getSequenceLength.exit.i330.i ]
   %.01011.i329.i = phi i64 [ 0, %.lr.ph.i327.i ], [ %281, %ZSTD_getSequenceLength.exit.i330.i ]
-  %266 = getelementptr inbounds nuw %struct.SeqDef_s, ptr %.6206.i, i64 %.01011.i329.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %.6206.i, i64 %.01011.i329.i
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 6
   %268 = load i16, ptr %267, align 2, !tbaa !64
   %269 = zext i16 %268 to i32
@@ -788,7 +787,7 @@ ZSTD_getSequenceLength.exit.i:                    ; preds = %349, %338
 
 363:                                              ; preds = %356
   %364 = zext i32 %360 to i64
-  %365 = getelementptr inbounds nuw i32, ptr %15, i64 %364
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %364
   %366 = load i32, ptr %365, align 4, !tbaa !53
   br label %367
 

@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/ape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.APEFrame = type { i64, i64, i32, i32, i64 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [4 x i8] c"ape\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Monkey's Audio\00", align 1
 @.str.2 = private unnamed_addr constant [12 x i8] c"ape,apl,mac\00", align 1
@@ -396,7 +393,7 @@ thread-pre-split:                                 ; preds = %159, %176
   %203 = add i32 %202, %201
   %204 = zext i32 %203 to i64
   %205 = load ptr, ptr %158, align 8, !tbaa !51
-  %206 = getelementptr inbounds nuw %struct.APEFrame, ptr %205, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %205, i64 %indvars.iv
   store i64 %204, ptr %206, align 8, !tbaa !55
   %207 = load i32, ptr %191, align 4, !tbaa !43
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 16
@@ -432,7 +429,7 @@ thread-pre-split:                                 ; preds = %159, %176
   %227 = load i32, ptr %139, align 4, !tbaa !45
   %228 = add i32 %227, -1
   %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw %struct.APEFrame, ptr %226, i64 %229
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %226, i64 %229
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store i32 %225, ptr %231, align 8, !tbaa !57
   %232 = tail call i64 @avio_size(ptr noundef nonnull %3) #3
@@ -444,7 +441,7 @@ thread-pre-split:                                 ; preds = %159, %176
   br i1 %233, label %236, label %.thread
 
 236:                                              ; preds = %._crit_edge
-  %237 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre351.pre, i64 %235
+  %237 = getelementptr inbounds nuw [32 x i8], ptr %.pre351.pre, i64 %235
   %238 = load i64, ptr %237, align 8, !tbaa !55
   %239 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %240 = load i32, ptr %239, align 4, !tbaa !40
@@ -463,7 +460,7 @@ thread-pre-split:                                 ; preds = %159, %176
 
 249:                                              ; preds = %236, %.thread
   %.1274 = phi i64 [ %244, %236 ], [ %248, %.thread ]
-  %250 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre351.pre, i64 %235
+  %250 = getelementptr inbounds nuw [32 x i8], ptr %.pre351.pre, i64 %235
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i64 %.1274, ptr %251, align 8, !tbaa !61
   %.not334 = icmp eq i32 %.pre352.pre, 0
@@ -475,7 +472,7 @@ thread-pre-split:                                 ; preds = %159, %176
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %265
   %indvars.iv339 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next340, %265 ]
-  %252 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre351.pre, i64 %indvars.iv339
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %.pre351.pre, i64 %indvars.iv339
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 20
   %254 = load i32, ptr %253, align 4, !tbaa !58
   %.not301 = icmp eq i32 %254, 0
@@ -533,7 +530,7 @@ thread-pre-split:                                 ; preds = %159, %176
   br i1 %or.cond4, label %278, label %.critedge305
 
 278:                                              ; preds = %.lr.ph328
-  %279 = getelementptr %struct.APEFrame, ptr %.pre355, i64 %indvars.iv342
+  %279 = getelementptr [32 x i8], ptr %.pre355, i64 %indvars.iv342
   %280 = getelementptr i8, ptr %279, i64 -24
   %281 = load i64, ptr %280, align 8, !tbaa !61
   %282 = add nsw i64 %281, 4
@@ -541,7 +538,7 @@ thread-pre-split:                                 ; preds = %159, %176
   br label %.critedge305
 
 .critedge305:                                     ; preds = %278, %.lr.ph328
-  %283 = getelementptr inbounds nuw %struct.APEFrame, ptr %.pre355, i64 %indvars.iv342
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %.pre355, i64 %indvars.iv342
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 20
   %285 = load i32, ptr %284, align 4, !tbaa !58
   %286 = shl i32 %285, 3
@@ -653,7 +650,7 @@ thread-pre-split:                                 ; preds = %159, %176
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %.lr.ph332 ], [ 0, %335 ]
   %.0275329 = phi i64 [ %359, %.lr.ph332 ], [ 0, %335 ]
   %352 = load ptr, ptr %158, align 8, !tbaa !51
-  %353 = getelementptr inbounds nuw %struct.APEFrame, ptr %352, i64 %indvars.iv345
+  %353 = getelementptr inbounds nuw [32 x i8], ptr %352, i64 %indvars.iv345
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 24
   store i64 %.0275329, ptr %354, align 8, !tbaa !83
   %355 = load i64, ptr %353, align 8, !tbaa !55
@@ -707,7 +704,7 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds %struct.APEFrame, ptr %16, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !55
   %20 = tail call i64 @avio_seek(ptr noundef %14, i64 noundef %19, i32 noundef 0) #3
   %21 = icmp slt i64 %20, 0
@@ -727,7 +724,7 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %.050 = load i32, ptr %.050.in, align 4, !tbaa !86
   %29 = load ptr, ptr %15, align 8, !tbaa !51
   %30 = sext i32 %25 to i64
-  %31 = getelementptr inbounds %struct.APEFrame, ptr %29, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !61
   %34 = add i64 %33, -2147483640
@@ -755,7 +752,7 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %46 = load ptr, ptr %15, align 8, !tbaa !51
   %47 = load i32, ptr %9, align 4, !tbaa !53
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.APEFrame, ptr %46, i64 %48
+  %49 = getelementptr inbounds [32 x i8], ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i32, ptr %50, align 4, !tbaa !58
   %52 = load ptr, ptr %44, align 8, !tbaa !87
@@ -767,7 +764,7 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %57 = load ptr, ptr %15, align 8, !tbaa !51
   %58 = load i32, ptr %9, align 4, !tbaa !53
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.APEFrame, ptr %57, i64 %59
+  %60 = getelementptr inbounds [32 x i8], ptr %57, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !61
   %63 = trunc i64 %62 to i32
@@ -779,7 +776,7 @@ define internal i32 @ape_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %67 = load ptr, ptr %15, align 8, !tbaa !51
   %68 = load i32, ptr %9, align 4, !tbaa !53
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.APEFrame, ptr %67, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %67, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load i64, ptr %71, align 8, !tbaa !83
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -815,7 +812,7 @@ define internal i32 @ape_read_seek(ptr noundef readonly captures(none) %0, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !92
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !93
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !27
@@ -829,7 +826,7 @@ define internal i32 @ape_read_seek(ptr noundef readonly captures(none) %0, i32 n
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 320
   %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = zext nneg i32 %12 to i64
-  %20 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !107
   %22 = tail call i64 @avio_seek(ptr noundef %16, i64 noundef %21, i32 noundef 0) #3
   %23 = icmp slt i64 %22, 0

@@ -25,58 +25,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<Assimp::ASE::Material, std::allocator<Assimp::ASE::Material>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ASE::Material, std::allocator<Assimp::ASE::Material>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Assimp::ASE::Material, std::allocator<Assimp::ASE::Material>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair" = type { i32, float }
-%"struct.Assimp::ASE::BoneVertex" = type { %"class.std::vector.59" }
-%"class.std::vector.59" = type { %"struct.std::_Vector_base.60" }
-%"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<std::pair<int, float>, std::allocator<std::pair<int, float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<int, float>, std::allocator<std::pair<int, float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<int, float>, std::allocator<std::pair<int, float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<int, float>, std::allocator<std::pair<int, float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::ASE::Bone" = type { %"class.std::__cxx11::basic_string" }
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
 %class.aiVector3t = type { float, float, float }
 %"struct.Assimp::ASE::Face" = type { %struct.FaceWithSmoothingGroup, [8 x [3 x i32]], [3 x i32], i32, i32 }
 %struct.FaceWithSmoothingGroup = type { [3 x i32], i32 }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.aiColor4t = type { float, float, float, float }
-%"struct.Assimp::ASE::Mesh" = type <{ %struct.MeshWithSmoothingGroups, %"struct.Assimp::ASE::BaseNode.base", [7 x i8], [8 x %"class.std::vector.20"], %"class.std::vector.44", %"class.std::vector.49", %"class.std::vector.54", i32, [8 x i32], i8, [3 x i8] }>
-%struct.MeshWithSmoothingGroups = type { %"class.std::vector.20", %"class.std::vector.25", %"class.std::vector.20" }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<Assimp::ASE::Face, std::allocator<Assimp::ASE::Face>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::ASE::Face, std::allocator<Assimp::ASE::Face>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ASE::Face, std::allocator<Assimp::ASE::Face>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::ASE::Face, std::allocator<Assimp::ASE::Face>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::ASE::BaseNode.base" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %class.aiMatrix4x4t, %class.aiVector3t, %"struct.Assimp::ASE::InheritanceInfo", [3 x i8], %"struct.Assimp::ASE::Animation", %"struct.Assimp::ASE::Animation", i8 }>
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%"struct.Assimp::ASE::InheritanceInfo" = type { [3 x i8], [3 x i8], [3 x i8] }
-%"struct.Assimp::ASE::Animation" = type { i32, i32, i32, %"class.std::vector.34", %"class.std::vector.39", %"class.std::vector.39" }
-%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
-%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<aiQuatKey, std::allocator<aiQuatKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<aiQuatKey, std::allocator<aiQuatKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiQuatKey, std::allocator<aiQuatKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<aiQuatKey, std::allocator<aiQuatKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<aiVectorKey, std::allocator<aiVectorKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.44" = type { %"struct.std::_Vector_base.45" }
-%"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
-%"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<Assimp::ASE::BoneVertex, std::allocator<Assimp::ASE::BoneVertex>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::ASE::BoneVertex, std::allocator<Assimp::ASE::BoneVertex>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ASE::BoneVertex, std::allocator<Assimp::ASE::BoneVertex>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::ASE::BoneVertex, std::allocator<Assimp::ASE::BoneVertex>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.54" = type { %"struct.std::_Vector_base.55" }
-%"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<Assimp::ASE::Bone, std::allocator<Assimp::ASE::Bone>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::ASE::Bone, std::allocator<Assimp::ASE::Bone>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ASE::Bone, std::allocator<Assimp::ASE::Bone>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::ASE::Bone, std::allocator<Assimp::ASE::Bone>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::ASE::Dummy" = type { %"struct.Assimp::ASE::BaseNode.base", [7 x i8] }
-%"struct.Assimp::ASE::Light" = type { %"struct.Assimp::ASE::BaseNode.base", i32, %struct.aiColor3D, float, float, float }
-%"struct.Assimp::ASE::Camera" = type { %"struct.Assimp::ASE::BaseNode.base", float, float, float, i32, [4 x i8] }
+%"struct.Assimp::ASE::Bone" = type { %"class.std::__cxx11::basic_string" }
 %"struct.std::vector<Assimp::ASE::Material>::_Temporary_value" = type { ptr, %"union.std::vector<Assimp::ASE::Material>::_Temporary_value::_Storage" }
 %"union.std::vector<Assimp::ASE::Material>::_Temporary_value::_Storage" = type { %"struct.Assimp::ASE::Material" }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
-%class.aiQuaterniont = type { float, float, float, float }
 %"struct.std::vector<Assimp::ASE::Bone>::_Temporary_value" = type { ptr, %"union.std::vector<Assimp::ASE::Bone>::_Temporary_value::_Storage" }
 %"union.std::vector<Assimp::ASE::Bone>::_Temporary_value::_Storage" = type { %"struct.Assimp::ASE::Bone" }
 
@@ -2184,7 +2139,7 @@ define hidden void @_ZN6Assimp3ASE6Parser25ParseLV1MaterialListBlockEv(ptr nound
   br i1 %71, label %72, label %_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE6resizeEmRKS2_.exit
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %62, i64 %59
+  %73 = getelementptr inbounds nuw [736 x i8], ptr %62, i64 %59
   %.not.i.i = icmp eq ptr %61, %73
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE6resizeEmRKS2_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2347,7 +2302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %96,
   br i1 %123, label %124, label %_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE6resizeEmRKS2_.exit52
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %114, i64 %29
+  %125 = getelementptr inbounds nuw [736 x i8], ptr %114, i64 %29
   %.not.i.i46 = icmp eq ptr %113, %125
   br i1 %.not.i.i46, label %_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE6resizeEmRKS2_.exit52, label %.lr.ph.i.i.i.i.i47
 
@@ -2466,7 +2421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %148
   %163 = add i32 %162, %20
   %164 = zext i32 %163 to i64
   %165 = load ptr, ptr %12, align 8
-  %166 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %165, i64 %164
+  %166 = getelementptr inbounds nuw [736 x i8], ptr %165, i64 %164
   call void @_ZN6Assimp3ASE6Parser21ParseLV2MaterialBlockERNS0_8MaterialE(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(729) %166)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge.backedge
@@ -3878,7 +3833,7 @@ _ZNSt12_Vector_baseIN6Assimp3ASE10BoneVertexESaIS2_EE13_M_deallocateEPS2_m.exit.
   store ptr %129, ptr %113, align 8
   %145 = getelementptr inbounds nuw i8, ptr %129, i64 %127
   store ptr %145, ptr %124, align 8
-  %146 = getelementptr inbounds nuw %"struct.Assimp::ASE::BoneVertex", ptr %129, i64 %115
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %129, i64 %115
   store ptr %146, ptr %116, align 8
   br label %_ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE7reserveEm.exit
 
@@ -4072,7 +4027,7 @@ _ZNSt12_Vector_baseISt4pairIifESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
   store ptr %207, ptr %192, align 8
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 %205
   store ptr %212, ptr %202, align 8
-  %213 = getelementptr inbounds nuw %"struct.std::pair", ptr %207, i64 %193
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %193
   store ptr %213, ptr %194, align 8
   br label %_ZNSt6vectorISt4pairIifESaIS1_EE7reserveEm.exit
 
@@ -4166,7 +4121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %._c
 241:                                              ; preds = %.lr.ph178, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit82.thread125
   %242 = phi i64 [ 0, %.lr.ph178 ], [ %251, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit82.thread125 ]
   %.0176 = phi i32 [ 0, %.lr.ph178 ], [ %250, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit82.thread125 ]
-  %243 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %230, i64 %242
+  %243 = getelementptr inbounds nuw [32 x i8], ptr %230, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i64, ptr %244, align 8
   %246 = icmp eq i64 %245, %235
@@ -4390,7 +4345,7 @@ _ZNSt6vectorISt4pairIifESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds
 _ZNSt6vectorISt4pairIifESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %319, %_ZNSt6vectorISt4pairIifESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %312, ptr %192, align 8
   store ptr %318, ptr %214, align 8
-  %320 = getelementptr inbounds nuw %"struct.std::pair", ptr %312, i64 %310
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %310
   store ptr %320, ptr %194, align 8
   br label %_ZNSt6vectorISt4pairIifESaIS1_EE9push_backERKS1_.exit
 
@@ -4576,7 +4531,7 @@ define hidden void @_ZN6Assimp3ASE6Parser23ParseLV4MeshFloatTripleEPf(ptr nounde
 
 7:                                                ; preds = %2, %_ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit ]
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %10 to i64
@@ -4658,7 +4613,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE6res
   br i1 %15, label %16, label %_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %6, i64 %1
+  %17 = getelementptr inbounds nuw [736 x i8], ptr %6, i64 %1
   %.not.i = icmp eq ptr %5, %17
   br i1 %.not.i, label %_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE15_M_erase_at_endEPS2_.exit, label %.lr.ph.i.i.i.i
 
@@ -5537,7 +5492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %25
   br i1 %276, label %277, label %279
 
 277:                                              ; preds = %267
-  %278 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %271, i64 %269
+  %278 = getelementptr inbounds nuw [736 x i8], ptr %271, i64 %269
   call void @_ZN6Assimp3ASE6Parser21ParseLV2MaterialBlockERNS0_8MaterialE(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(729) %278)
   br label %279
 
@@ -7110,7 +7065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %114
 
 159:                                              ; preds = %159, %157
   %indvars.iv.i = phi i64 [ 0, %157 ], [ %indvars.iv.next.i, %159 ]
-  %160 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   call void @_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 4 dereferenceable(4) %160)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -7122,7 +7077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %114
 
 _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit: ; preds = %159, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit ], [ 0, %159 ]
-  %162 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %163 = load i32, ptr %162, align 4
   %164 = icmp ne i32 %163, 0
   %165 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
@@ -7159,7 +7114,7 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit: ; preds = %159, %_ZN6Assi
 
 174:                                              ; preds = %174, %172
   %indvars.iv.i97 = phi i64 [ 0, %172 ], [ %indvars.iv.next.i98, %174 ]
-  %175 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i97
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i97
   call void @_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 4 dereferenceable(4) %175)
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, 3
@@ -7171,7 +7126,7 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit: ; preds = %159, %_ZN6Assi
 
 _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100: ; preds = %174, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100 ], [ 0, %174 ]
-  %177 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv148
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv148
   %178 = load i32, ptr %177, align 4
   %179 = icmp ne i32 %178, 0
   %180 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv148
@@ -7208,7 +7163,7 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100: ; preds = %174, %_ZN6A
 
 189:                                              ; preds = %189, %187
   %indvars.iv.i106 = phi i64 [ 0, %187 ], [ %indvars.iv.next.i107, %189 ]
-  %190 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i106
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i106
   call void @_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 4 dereferenceable(4) %190)
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
   %exitcond.not.i108 = icmp eq i64 %indvars.iv.next.i107, 3
@@ -7220,7 +7175,7 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit100: ; preds = %174, %_ZN6A
 
 _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit109: ; preds = %189, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit109
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj.exit109 ], [ 0, %189 ]
-  %192 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv152
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv152
   %193 = load i32, ptr %192, align 4
   %194 = icmp ne i32 %193, 0
   %195 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv152
@@ -9278,7 +9233,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.i: ; pre
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.i
   store ptr %56, ptr %5, align 8
   store ptr %61, ptr %6, align 8
-  %63 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %56, i64 %54
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %54
   store ptr %63, ptr %7, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
 
@@ -9572,7 +9527,7 @@ _ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.i: ; pre
 _ZNSt6vectorI11aiVectorKeySaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorI11aiVectorKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.i
   store ptr %56, ptr %5, align 8
   store ptr %61, ptr %6, align 8
-  %63 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %56, i64 %54
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %54
   store ptr %63, ptr %7, align 8
   br label %_ZNSt6vectorI11aiVectorKeySaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
 
@@ -10165,7 +10120,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV4MeshRealTripleEPf(ptr noundef
 
 7:                                                ; preds = %2, %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN6Assimp3ASE6Parser16ParseLV4MeshRealERf.exit ]
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %10 to i64
@@ -10234,7 +10189,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPj(ptr noundef
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   tail call void @_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -10267,7 +10222,7 @@ define hidden void @_ZN6Assimp3ASE6Parser27ParseLV3MeshVertexListBlockEjRNS0_4Me
   br i1 %19, label %20, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %class.aiVector3t, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit, label %22
 
@@ -10338,7 +10293,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %16, %18, %20, %22
 43:                                               ; preds = %36
   %44 = zext i32 %38 to i64
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds nuw %class.aiVector3t, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   br label %47
 
@@ -10480,7 +10435,7 @@ define hidden void @_ZN6Assimp3ASE6Parser25ParseLV3MeshFaceListBlockEjRNS0_4Mesh
   br i1 %19, label %20, label %_ZNSt6vectorIN6Assimp3ASE4FaceESaIS2_EE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [132 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp3ASE4FaceESaIS2_EE6resizeEm.exit, label %22
 
@@ -10549,7 +10504,7 @@ _ZNSt6vectorIN6Assimp3ASE4FaceESaIS2_EE6resizeEm.exit: ; preds = %16, %18, %20, 
 43:                                               ; preds = %36
   %44 = zext i32 %38 to i64
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [132 x i8], ptr %45, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %46, ptr noundef nonnull align 4 dereferenceable(132) %5, i64 132, i1 false)
   br label %47
 
@@ -10671,7 +10626,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV3MeshTListBlockEjRNS0_4MeshEj(
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds nuw %"class.std::vector.20", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   %11 = zext i32 %1 to i64
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -10693,7 +10648,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV3MeshTListBlockEjRNS0_4MeshEj(
   br i1 %23, label %24, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %class.aiVector3t, ptr %14, i64 %11
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %11
   %.not.i.i = icmp eq ptr %13, %25
   br i1 %.not.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit, label %26
 
@@ -10706,7 +10661,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %20, %22, %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 684
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %9
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %9
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %.pre = load ptr, ptr %0, align 8
   br label %.outer
@@ -10766,7 +10721,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit: ; preds = %20, %22, %24, %26
 49:                                               ; preds = %42
   %50 = zext i32 %44 to i64
   %51 = load ptr, ptr %10, align 8
-  %52 = getelementptr inbounds nuw %class.aiVector3t, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %52, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   br label %53
 
@@ -10948,7 +10903,7 @@ define hidden void @_ZN6Assimp3ASE6Parser26ParseLV3MeshTFaceListBlockEjRNS0_4Mes
 
 28:                                               ; preds = %_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj.exit, %26
   %indvars.iv.i.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i.i, %_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj.exit ]
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i
   %30 = load ptr, ptr %9, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = ptrtoint ptr %31 to i64
@@ -11055,20 +11010,20 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPjRj.exit: ; preds = %_ZN6Assimp3A
 
 68:                                               ; preds = %56
   %69 = load i32, ptr %7, align 4
-  %70 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %59, i64 %57
+  %70 = getelementptr inbounds nuw [132 x i8], ptr %59, i64 %57
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = getelementptr inbounds nuw [3 x i32], ptr %71, i64 %13
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %71, i64 %13
   store i32 %69, ptr %72, align 4
   %73 = load i32, ptr %14, align 4
   %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %74, i64 %57
-  %76 = getelementptr inbounds nuw [3 x i32], ptr %75, i64 %13
+  %75 = getelementptr inbounds nuw [132 x i8], ptr %74, i64 %57
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %75, i64 %13
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
   store i32 %73, ptr %77, align 4
   %78 = load i32, ptr %15, align 4
   %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %79, i64 %57
-  %81 = getelementptr inbounds nuw [3 x i32], ptr %80, i64 %13
+  %80 = getelementptr inbounds nuw [132 x i8], ptr %79, i64 %57
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %13
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store i32 %78, ptr %82, align 4
   br label %83
@@ -11211,7 +11166,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV3MeshCListBlockEjRNS0_4MeshE(p
   br i1 %20, label %21, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %class.aiColor4t, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEm.exit, label %23
 
@@ -11280,7 +11235,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEm.exit: ; preds = %17, %19, %21, %23
 43:                                               ; preds = %36
   %44 = zext i32 %38 to i64
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds nuw %class.aiColor4t, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   br label %47
 
@@ -11452,7 +11407,7 @@ define hidden void @_ZN6Assimp3ASE6Parser26ParseLV3MeshCFaceListBlockEjRNS0_4Mes
 
 26:                                               ; preds = %_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj.exit, %24
   %indvars.iv.i.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i.i, %_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj.exit ]
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   %28 = load ptr, ptr %8, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = ptrtoint ptr %29 to i64
@@ -11559,17 +11514,17 @@ _ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPjRj.exit: ; preds = %_ZN6Assimp3A
 
 66:                                               ; preds = %54
   %67 = load i32, ptr %6, align 4
-  %68 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %57, i64 %55
+  %68 = getelementptr inbounds nuw [132 x i8], ptr %57, i64 %55
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 112
   store i32 %67, ptr %69, align 4
   %70 = load i32, ptr %12, align 4
   %71 = load ptr, ptr %10, align 8
-  %72 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %71, i64 %55
+  %72 = getelementptr inbounds nuw [132 x i8], ptr %71, i64 %55
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 116
   store i32 %70, ptr %73, align 4
   %74 = load i32, ptr %13, align 4
   %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %75, i64 %55
+  %76 = getelementptr inbounds nuw [132 x i8], ptr %75, i64 %55
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 120
   store i32 %74, ptr %77, align 4
   br label %78
@@ -11727,7 +11682,7 @@ define hidden void @_ZN6Assimp3ASE6Parser27ParseLV3MeshNormalListBlockERNS0_4Mes
   br i1 %30, label %31, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw %class.aiVector3t, ptr %21, i64 %16
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %16
   %.not.i.i = icmp eq ptr %20, %32
   br i1 %.not.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit, label %33
 
@@ -11804,7 +11759,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %27, %29, %31
   br i1 %.not18, label %61, label %93, !llvm.loop !102
 
 61:                                               ; preds = %52
-  %62 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [132 x i8], ptr %56, i64 %54
   %63 = load i32, ptr %4, align 4
   %64 = load i32, ptr %62, align 4
   %65 = icmp eq i32 %63, %64
@@ -11834,7 +11789,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEmRKS1_.exit: ; preds = %27, %29, %31
   %78 = add i32 %.sink, %77
   %79 = zext i32 %78 to i64
   %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds nuw %class.aiVector3t, ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %80, i64 %79
   %82 = load float, ptr %6, align 4
   %83 = load float, ptr %81, align 4
   %84 = fadd float %82, %83
@@ -11910,7 +11865,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread: ; preds = %49, %47, %.lr.ph
   %115 = mul i32 %104, 3
   %116 = zext i32 %115 to i64
   %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds nuw %class.aiVector3t, ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [12 x i8], ptr %117, i64 %116
   %119 = load float, ptr %7, align 4
   %120 = load float, ptr %118, align 4
   %121 = fadd float %119, %120
@@ -11928,7 +11883,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread: ; preds = %49, %47, %.lr.ph
   %130 = add i32 %115, 1
   %131 = zext i32 %130 to i64
   %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds nuw %class.aiVector3t, ptr %132, i64 %131
+  %133 = getelementptr inbounds nuw [12 x i8], ptr %132, i64 %131
   %134 = load float, ptr %7, align 4
   %135 = load float, ptr %133, align 4
   %136 = fadd float %134, %135
@@ -11946,7 +11901,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit.thread: ; preds = %49, %47, %.lr.ph
   %145 = add i32 %115, 2
   %146 = zext i32 %145 to i64
   %147 = load ptr, ptr %8, align 8
-  %148 = getelementptr inbounds nuw %class.aiVector3t, ptr %147, i64 %146
+  %148 = getelementptr inbounds nuw [12 x i8], ptr %147, i64 %146
   %149 = load float, ptr %7, align 4
   %150 = load float, ptr %148, align 4
   %151 = fadd float %149, %150
@@ -12592,7 +12547,7 @@ define hidden void @_ZN6Assimp3ASE6Parser17ParseLV4MeshBonesEjRNS0_4MeshE(ptr no
   br i1 %26, label %27, label %_ZNSt6vectorIN6Assimp3ASE4BoneESaIS2_EE6resizeEmRKS2_.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %17, i64 %8
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %8
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp3ASE4BoneESaIS2_EE6resizeEmRKS2_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -12783,7 +12738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 90:                                               ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit
   %91 = zext i32 %.0.lcssa.i to i64
   %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %91
   %94 = call noundef zeroext i1 @_ZN6Assimp3ASE6Parser11ParseStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull @.str.167)
   %.pre60 = load ptr, ptr %0, align 8
   br i1 %94, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit, label %95, !llvm.loop !106
@@ -12972,7 +12927,7 @@ define hidden void @_ZN6Assimp3ASE6Parser25ParseLV4MeshBonesVerticesEjRNS0_4Mesh
   br i1 %20, label %21, label %_ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %"struct.Assimp::ASE::BoneVertex", ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -13198,7 +13153,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit24:              ; preds = %.lr.ph.i16, %80
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds nuw %"struct.Assimp::ASE::BoneVertex", ptr %101, i64 %.pre-phi
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %.pre-phi
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -13268,7 +13223,7 @@ _ZNSt6vectorISt4pairIifESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds
 _ZNSt6vectorISt4pairIifESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %131, %_ZNSt6vectorISt4pairIifESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %124, ptr %102, align 8
   store ptr %130, ptr %103, align 8
-  %132 = getelementptr inbounds nuw %"struct.std::pair", ptr %124, i64 %122
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %132, ptr %105, align 8
   br label %_ZNSt6vectorISt4pairIifESaIS1_EE9push_backERKS1_.exit.backedge
 
@@ -13560,7 +13515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45
   %68 = uitofp i64 %67 to double
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6AssimpL15fast_atof_tableE, i64 %70
   %72 = load double, ptr %71, align 8
   %73 = fmul double %72, %68
   %74 = fptrunc double %73 to float
@@ -14179,7 +14134,7 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit100:             ; preds = %.lr.ph.i93, %186
   %.08.lcssa.i98 = phi ptr [ %.0.lcssa.i.i81, %186 ], [ %192, %.lr.ph.i93 ]
   %.0.lcssa.i99 = phi i32 [ 0, %186 ], [ %191, %.lr.ph.i93 ]
   store ptr %.08.lcssa.i98, ptr %0, align 8
-  %195 = getelementptr inbounds nuw i32, ptr %1, i64 %.019
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.019
   store i32 %.0.lcssa.i99, ptr %195, align 4
   %196 = add nuw nsw i32 %.018265, 1
   %exitcond.not = icmp eq i32 %196, 3
@@ -14946,7 +14901,7 @@ define hidden void @_ZN6Assimp3ASE6Parser22ParseLV4MeshLongTripleEPjRj(ptr nound
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   tail call void @_ZN6Assimp3ASE6Parser16ParseLV4MeshLongERj(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -16279,7 +16234,7 @@ _ZNSt6vectorIN6Assimp3ASE4MeshESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; pr
 _ZNSt12_Vector_baseIN6Assimp3ASE4MeshESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3ASE4MeshESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %30
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %"struct.Assimp::ASE::Mesh", ptr %22, i64 %16
+  %34 = getelementptr inbounds nuw [720 x i8], ptr %22, i64 %16
   store ptr %34, ptr %29, align 8
   ret void
 
@@ -16513,7 +16468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i, %46
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   store i32 2, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -16581,8 +16536,8 @@ define linkonce_odr hidden void @_ZNSt15__new_allocatorIN6Assimp3ASE4MeshEE9cons
 
 33:                                               ; preds = %33, %3
   %34 = phi i64 [ 0, %3 ], [ %44, %33 ]
-  %35 = getelementptr inbounds nuw %"class.std::vector.20", ptr %31, i64 %34
-  %36 = getelementptr inbounds nuw %"class.std::vector.20", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %34
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %34
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -16927,7 +16882,7 @@ _ZNSt6vectorIN6Assimp3ASE5DummyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21: ; p
 _ZNSt12_Vector_baseIN6Assimp3ASE5DummyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3ASE5DummyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %50
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %54 = getelementptr inbounds nuw %"struct.Assimp::ASE::Dummy", ptr %19, i64 %15
+  %54 = getelementptr inbounds nuw [344 x i8], ptr %19, i64 %15
   store ptr %54, ptr %49, align 8
   ret void
 }
@@ -17019,7 +16974,7 @@ _ZSt8_DestroyIPN6Assimp3ASE5LightES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.i.i
 _ZNSt12_Vector_baseIN6Assimp3ASE5LightESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp3ASE5LightES2_EvT_S4_RSaIT0_E.exit, %35
   store ptr %22, ptr %0, align 8
   store ptr %29, ptr %4, align 8
-  %39 = getelementptr inbounds nuw %"struct.Assimp::ASE::Light", ptr %22, i64 %16
+  %39 = getelementptr inbounds nuw [368 x i8], ptr %22, i64 %16
   store ptr %39, ptr %34, align 8
   ret void
 
@@ -17781,7 +17736,7 @@ _ZNSt6vectorIN6Assimp3ASE6CameraESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; 
 _ZNSt12_Vector_baseIN6Assimp3ASE6CameraESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3ASE6CameraESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %34
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"struct.Assimp::ASE::Camera", ptr %22, i64 %16
+  %38 = getelementptr inbounds nuw [360 x i8], ptr %22, i64 %16
   store ptr %38, ptr %33, align 8
   ret void
 
@@ -18093,7 +18048,7 @@ _ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt12_Vector_baseIN6Assimp3ASE10BoneVertexESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %41
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %45 = getelementptr inbounds nuw %"struct.Assimp::ASE::BoneVertex", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8
   ret void
 }
@@ -18287,7 +18242,7 @@ _ZNSt6vectorIN6Assimp3ASE4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36: ; pr
 _ZNSt12_Vector_baseIN6Assimp3ASE4BoneESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3ASE4BoneESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %73
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8
-  %77 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8
   ret void
 
@@ -18407,7 +18362,7 @@ _ZSt22__uninitialized_move_aIPN6Assimp3ASE8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.e
 
 _ZSt22__uninitialized_move_aIPN6Assimp3ASE8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp3ASE8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit, %23
   %45 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN6Assimp3ASE8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit ], [ %17, %23 ]
-  %46 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %45, i64 %2
+  %46 = getelementptr inbounds nuw [736 x i8], ptr %45, i64 %2
   store ptr %46, ptr %9, align 8
   %47 = ptrtoint ptr %24 to i64
   %48 = sub i64 %47, %19
@@ -18812,7 +18767,7 @@ _ZSt10_ConstructIN6Assimp3ASE8MaterialEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i103: ; pre
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3ASE8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN6Assimp3ASE8MaterialEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i103, %_ZSt24__uninitialized_fill_n_aIPN6Assimp3ASE8MaterialEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit98
   %.0.lcssa.i.i.i.i.i105 = phi ptr [ %171, %_ZSt24__uninitialized_fill_n_aIPN6Assimp3ASE8MaterialEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit98 ], [ %207, %_ZSt10_ConstructIN6Assimp3ASE8MaterialEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i103 ]
-  %208 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %.0.lcssa.i.i.i.i.i105, i64 %2
+  %208 = getelementptr inbounds nuw [736 x i8], ptr %.0.lcssa.i.i.i.i.i105, i64 %2
   %.not12.i.i.i.i.i106 = icmp eq ptr %1, %10
   br i1 %.not12.i.i.i.i.i106, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3ASE8MaterialES3_SaIS2_EET0_T_S6_S5_RT1_.exit113, label %.lr.ph.i.i.i.i.i107
 
@@ -18886,7 +18841,7 @@ _ZSt8_DestroyIPN6Assimp3ASE8MaterialES2_EvT_S4_RSaIT0_E.exit: ; preds = %.lr.ph.
 _ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp3ASE8MaterialES2_EvT_S4_RSaIT0_E.exit, %232
   store ptr %171, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i112, ptr %9, align 8
-  %236 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %171, i64 %165
+  %236 = getelementptr inbounds nuw [736 x i8], ptr %171, i64 %165
   store ptr %236, ptr %7, align 8
   br label %248
 
@@ -20342,7 +20297,7 @@ _ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21: ; preds = %.
 _ZNSt12_Vector_baseI9aiQuatKeySaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI9aiQuatKeySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, %32
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %36 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %19, i64 %15
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %36, ptr %31, align 8
   ret void
 }
@@ -20478,7 +20433,7 @@ _ZSt22__uninitialized_move_aIPN6Assimp3ASE4BoneES3_SaIS2_EET0_T_S6_S5_RT1_.exit.
 
 _ZSt22__uninitialized_move_aIPN6Assimp3ASE4BoneES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN6Assimp3ASE4BoneES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit, %39
   %56 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN6Assimp3ASE4BoneES3_SaIS2_EET0_T_S6_S5_RT1_.exit.loopexit ], [ %33, %39 ]
-  %57 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %56, i64 %2
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %2
   store ptr %57, ptr %10, align 8
   %58 = ptrtoint ptr %40 to i64
   %59 = sub i64 %58, %35
@@ -20788,7 +20743,7 @@ _ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i95: ; preds = 
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3ASE4BoneES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %_ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i95, %_ZSt24__uninitialized_fill_n_aIPN6Assimp3ASE4BoneEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit89
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %146, %_ZSt24__uninitialized_fill_n_aIPN6Assimp3ASE4BoneEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit89 ], [ %163, %_ZSt10_ConstructIN6Assimp3ASE4BoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i95 ]
-  %164 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %11
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN6Assimp3ASE4BoneES3_SaIS2_EET0_T_S6_S5_RT1_.exit106, label %.lr.ph.i.i.i.i.i99
 
@@ -20867,7 +20822,7 @@ _ZSt8_DestroyIPN6Assimp3ASE4BoneES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_Destr
 _ZNSt12_Vector_baseIN6Assimp3ASE4BoneESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN6Assimp3ASE4BoneES2_EvT_S4_RSaIT0_E.exit, %186
   store ptr %146, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i105, ptr %10, align 8
-  %190 = getelementptr inbounds nuw %"struct.Assimp::ASE::Bone", ptr %146, i64 %140
+  %190 = getelementptr inbounds nuw [32 x i8], ptr %146, i64 %140
   store ptr %190, ptr %8, align 8
   br label %206
 
@@ -21119,9 +21074,9 @@ _ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit:
 
 _ZNSt12_Vector_baseIN6Assimp3ASE10BoneVertexESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN6Assimp3ASE10BoneVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %38
   store ptr %26, ptr %0, align 8
-  %42 = getelementptr inbounds nuw %"struct.Assimp::ASE::BoneVertex", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds nuw %"struct.Assimp::ASE::BoneVertex", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -22162,9 +22117,9 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds =
 
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %class.aiVector3t, ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %class.aiVector3t, ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -22269,9 +22224,9 @@ _ZNSt6vectorIN6Assimp3ASE4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pred
 
 _ZNSt12_Vector_baseIN6Assimp3ASE4FaceESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN6Assimp3ASE4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %37
   store ptr %29, ptr %0, align 8
-  %39 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %30, i64 %1
+  %39 = getelementptr inbounds nuw [132 x i8], ptr %30, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw %"struct.Assimp::ASE::Face", ptr %29, i64 %27
+  %40 = getelementptr inbounds nuw [132 x i8], ptr %29, i64 %27
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -22352,9 +22307,9 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %
 
 _ZNSt12_Vector_baseI9aiColor4tIfESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %class.aiColor4t, ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %class.aiColor4t, ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -22412,7 +22367,7 @@ _ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loo
 
 _ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %19
   %23 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %9, %19 ]
-  %24 = getelementptr inbounds nuw %class.aiVector3t, ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %2
   store ptr %24, ptr %8, align 8
   %.not.i.i.i.i.i68 = icmp eq ptr %20, %1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIP10aiVector3tIfES2_ET0_T_S4_S3_.exit, label %25
@@ -22421,7 +22376,7 @@ _ZSt22__uninitialized_move_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; 
   %26 = ptrtoint ptr %20 to i64
   %27 = sub i64 %26, %15
   %.neg.i.i.i.i.i = sdiv exact i64 %27, -12
-  %28 = getelementptr inbounds %class.aiVector3t, ptr %9, i64 %.neg.i.i.i.i.i
+  %28 = getelementptr inbounds [12 x i8], ptr %9, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIP10aiVector3tIfES2_ET0_T_S4_S3_.exit
 
@@ -22552,7 +22507,7 @@ _ZSt24__uninitialized_fill_n_aIP10aiVector3tIfEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exi
 
 _ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i89, %_ZSt24__uninitialized_fill_n_aIP10aiVector3tIfEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87
   %.0.lcssa.i.i.i.i.i93 = phi ptr [ %59, %_ZSt24__uninitialized_fill_n_aIP10aiVector3tIfEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit87 ], [ %64, %.lr.ph.i.i.i.i.i89 ]
-  %65 = getelementptr inbounds nuw %class.aiVector3t, ptr %.0.lcssa.i.i.i.i.i93, i64 %2
+  %65 = getelementptr inbounds nuw [12 x i8], ptr %.0.lcssa.i.i.i.i.i93, i64 %2
   %.not11.i.i.i.i.i94 = icmp eq ptr %1, %9
   br i1 %.not11.i.i.i.i.i94, label %_ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit100, label %.lr.ph.i.i.i.i.i95
 
@@ -22580,7 +22535,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_R
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP10aiVector3tIfES2_SaIS1_EET0_T_S5_S4_RT1_.exit100, %68
   store ptr %59, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %8, align 8
-  %72 = getelementptr inbounds nuw %class.aiVector3t, ptr %59, i64 %53
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %53
   store ptr %72, ptr %6, align 8
   br label %73
 

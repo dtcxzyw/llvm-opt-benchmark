@@ -280,7 +280,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %31 = load ptr, ptr %30, align 8, !noalias !27, !nonnull !9, !align !31, !noundef !9
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %21
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %21
   %33 = load i32, ptr %32, align 4, !noalias !27, !noundef !9
   br label %"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h8a2a64c0c2b0f2a5E.exit"
 
@@ -333,7 +333,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
 54:                                               ; preds = %44
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %56 = load ptr, ptr %55, align 8, !noalias !35, !nonnull !9, !align !31, !noundef !9
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %46
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %46
   %58 = load i32, ptr %57, align 4, !noalias !35, !noundef !9
   br label %"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17h7fd38847e947a07dE.exit"
 
@@ -384,7 +384,7 @@ define hidden void @"_ZN69_$LT$markup5ever..interface..QualName$u20$as$u20$core.
 79:                                               ; preds = %69
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %81 = load ptr, ptr %80, align 8, !noalias !42, !nonnull !9, !align !31, !noundef !9
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %71
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %71
   %83 = load i32, ptr %82, align 4, !noalias !42, !noundef !9
   br label %"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash17hc165d92be6a13123E.exit"
 

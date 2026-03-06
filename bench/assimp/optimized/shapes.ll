@@ -1117,7 +1117,7 @@ define noundef zeroext i1 @_ZN3p2t10IsDelaunayERKSt6vectorIPNS_8TriangleESaIS2_E
 
 26:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = load double, ptr %28, align 8
   %30 = fsub double %14, %29

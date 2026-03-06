@@ -198,8 +198,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 7:                                                ; preds = %.lr.ph, %.backedge
   %8 = phi i64 [ %.promoted, %.lr.ph ], [ %9, %.backedge ]
   %9 = add i64 %8, 1
-  %10 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %.val4.i.i, i64 %8
-  %11 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %.val.i.i, i64 %8
+  %10 = getelementptr inbounds [16 x i8], ptr %.val4.i.i, i64 %8
+  %11 = getelementptr inbounds [16 x i8], ptr %.val.i.i, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
@@ -661,8 +661,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph.i:                                         ; preds = %5, %.backedge.i
   %6 = phi i64 [ %7, %.backedge.i ], [ 0, %5 ]
   %7 = add nuw i64 %6, 1
-  %8 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %0, i64 %6
-  %9 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %2, i64 %6
+  %8 = getelementptr inbounds [16 x i8], ptr %0, i64 %6
+  %9 = getelementptr inbounds [16 x i8], ptr %2, i64 %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)

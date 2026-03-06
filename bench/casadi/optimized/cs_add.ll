@@ -42,13 +42,13 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   %27 = sext i32 %21 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !15
-  %34 = getelementptr inbounds i32, ptr %31, i64 %27
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %27
   %35 = load i32, ptr %34, align 4, !tbaa !14
   %36 = tail call ptr @cs_calloc(i32 noundef %16, i64 noundef 4) #2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -92,7 +92,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 .lr.ph101.split.us:                               ; preds = %.lr.ph101, %.loopexit.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.loopexit.us ], [ 0, %.lr.ph101 ]
   %.08399.us = phi i32 [ %63, %.loopexit.us ], [ 0, %.lr.ph101 ]
-  %60 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv111
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv111
   store i32 %.08399.us, ptr %60, align 4, !tbaa !14
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %indvars113 = trunc i64 %indvars.iv.next112 to i32
@@ -110,12 +110,12 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv105 = phi i64 [ %66, %.lr.ph.us.preheader ], [ %indvars.iv.next106, %.lr.ph.us ]
-  %67 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv105
+  %67 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv105
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %46, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %46, i64 %69
   %71 = load double, ptr %70, align 8, !tbaa !17
-  %72 = getelementptr inbounds double, ptr %58, i64 %indvars.iv105
+  %72 = getelementptr inbounds [8 x i8], ptr %58, i64 %indvars.iv105
   store double %71, ptr %72, align 8, !tbaa !17
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
@@ -128,7 +128,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %.lr.ph101.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
   %.08399 = phi i32 [ %76, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
-  %73 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store i32 %.08399, ptr %73, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -140,7 +140,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 
 ._crit_edge:                                      ; preds = %.lr.ph101.split, %.loopexit.us, %52
   %.083.lcssa = phi i32 [ 0, %52 ], [ %63, %.loopexit.us ], [ %76, %.lr.ph101.split ]
-  %77 = getelementptr inbounds i32, ptr %54, i64 %27
+  %77 = getelementptr inbounds [4 x i8], ptr %54, i64 %27
   store i32 %.083.lcssa, ptr %77, align 4, !tbaa !14
   %78 = tail call i32 @cs_sprealloc(ptr noundef nonnull %48, i32 noundef 0) #2
   br label %.sink.split

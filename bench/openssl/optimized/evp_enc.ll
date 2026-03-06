@@ -2128,7 +2128,7 @@ define i32 @EVP_CipherPipelineUpdate(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.023 = phi i64 [ %28, %.lr.ph ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %.023
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.023
   store i64 0, ptr %27, align 8, !tbaa !39
   %28 = add nuw i64 %.023, 1
   %29 = load i64, ptr %24, align 8, !tbaa !60
@@ -2651,7 +2651,7 @@ define i32 @EVP_CipherPipelineFinal(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.019 = phi i64 [ %24, %.lr.ph ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %.019
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.019
   store i64 0, ptr %23, align 8, !tbaa !39
   %24 = add nuw i64 %.019, 1
   %25 = load i64, ptr %20, align 8, !tbaa !60

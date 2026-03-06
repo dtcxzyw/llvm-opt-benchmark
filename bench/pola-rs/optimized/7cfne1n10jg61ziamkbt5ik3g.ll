@@ -711,7 +711,7 @@ define hidden void @"_ZN97_$LT$rayon..slice..chunks..ChunksProducer$LT$T$GT$$u20
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !3
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %6)
-  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %7, i64 %.sroa.0.0.sroa.speculated.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.sroa.0.0.sroa.speculated.i
   %11 = sub nuw i64 %9, %.sroa.0.0.sroa.speculated.i
   store ptr %7, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -812,7 +812,7 @@ define void @_ZN12polars_utils5index12check_bounds17h85be25e2b78bba81E(ptr dead_
 17:                                               ; preds = %17, %14
   %.sroa.07.0.i.i = phi ptr [ %1, %14 ], [ %.sroa.0.0.i.i.i.i, %17 ]
   %.sroa.09.0.i.i = phi i64 [ 0, %14 ], [ %21, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %12, i64 %.sroa.09.0.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.sroa.09.0.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !71
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !71
   store ptr %.sroa.07.0.i.i, ptr %7, align 8, !noalias !78

@@ -27,7 +27,7 @@ define hidden i32 @SDL_GetPowerInfo_REAL(ptr noundef %0, ptr noundef %1) local_u
 
 7:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw ptr, ptr @implementations, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @implementations, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = call zeroext i1 %9(ptr noundef nonnull %3, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1) #3
   br i1 %10, label %11, label %6

@@ -216,7 +216,7 @@ define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_
 .preheader:                                       ; preds = %67, %.preheader
   %.0139159 = phi ptr [ %96, %.preheader ], [ %0, %67 ]
   %.1141158 = phi i64 [ %97, %.preheader ], [ 0, %67 ]
-  %72 = getelementptr inbounds nuw i64, ptr %1, i64 %.1141158
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1141158
   %73 = load i64, ptr %72, align 8, !tbaa !3
   %74 = lshr i64 %73, 56
   %75 = trunc nuw i64 %74 to i8
@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_
 .preheader147:                                    ; preds = %67, %.preheader147
   %.1157 = phi ptr [ %136, %.preheader147 ], [ %0, %67 ]
   %.2142156 = phi i64 [ %137, %.preheader147 ], [ 0, %67 ]
-  %112 = getelementptr inbounds nuw i64, ptr %1, i64 %.2142156
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.2142156
   %113 = load i64, ptr %112, align 8, !tbaa !3
   %114 = lshr i64 %113, 56
   %115 = trunc nuw i64 %114 to i8
@@ -316,7 +316,7 @@ define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_
 .preheader148:                                    ; preds = %67, %.preheader148
   %.2155 = phi ptr [ %162, %.preheader148 ], [ %0, %67 ]
   %.3143154 = phi i64 [ %163, %.preheader148 ], [ 0, %67 ]
-  %138 = getelementptr inbounds nuw i64, ptr %1, i64 %.3143154
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.3143154
   %139 = load i64, ptr %138, align 8, !tbaa !3
   %140 = lshr i64 %139, 56
   %141 = trunc nuw i64 %140 to i8
@@ -356,7 +356,7 @@ define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_
 .preheader150:                                    ; preds = %67, %.preheader150
   %.3153 = phi ptr [ %188, %.preheader150 ], [ %0, %67 ]
   %.4152 = phi i64 [ %189, %.preheader150 ], [ 0, %67 ]
-  %164 = getelementptr inbounds nuw i64, ptr %1, i64 %.4152
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.4152
   %165 = load i64, ptr %164, align 8, !tbaa !3
   %166 = lshr i64 %165, 56
   %167 = trunc nuw i64 %166 to i8

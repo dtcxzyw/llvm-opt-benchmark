@@ -117,7 +117,7 @@ define void @lv_demo_render(i32 noundef %0, i8 noundef zeroext %1) local_unnamed
 
 8:                                                ; preds = %2
   %9 = zext i32 %0 to i64
-  %10 = getelementptr inbounds nuw %struct.scene_dsc_t, ptr @scenes, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @scenes, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   tail call void %12(ptr noundef %6) #6
@@ -161,7 +161,7 @@ define ptr @lv_demo_render_get_scene_name(i32 noundef %0) local_unnamed_addr #3 
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.scene_dsc_t, ptr @scenes, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @scenes, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !10
   br label %7
 
@@ -268,7 +268,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %3, i32 noundef 1, i32 noundef range(i32 0, 8) %6, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 0, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %3, i32 noundef 0, i32 noundef 0) #6
-  %7 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %3, i32 noundef %8, i32 noundef 0) #6
   %9 = tail call i24 @lv_color_hex3(i32 noundef 3840) #6
@@ -290,7 +290,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %13 = trunc nuw nsw i64 %indvars.iv95 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %10, i32 noundef 1, i32 noundef range(i32 0, 8) %13, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 1, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %10, i32 noundef 0, i32 noundef 0) #6
-  %14 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv95
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv95
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %10, i32 noundef %16, i32 noundef 0) #6
@@ -313,7 +313,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %21 = trunc nuw nsw i64 %indvars.iv99 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %18, i32 noundef 1, i32 noundef range(i32 0, 8) %21, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 2, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %18, i32 noundef 10, i32 noundef 0) #6
-  %22 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv99
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv99
   %23 = load i32, ptr %22, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %18, i32 noundef %23, i32 noundef 0) #6
   %24 = tail call i24 @lv_color_hex3(i32 noundef 240) #6
@@ -335,7 +335,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %28 = trunc nuw nsw i64 %indvars.iv103 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %25, i32 noundef 1, i32 noundef range(i32 0, 8) %28, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 3, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %25, i32 noundef 10, i32 noundef 0) #6
-  %29 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv103
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv103
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %25, i32 noundef %31, i32 noundef 0) #6
@@ -358,7 +358,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %36 = trunc nuw nsw i64 %indvars.iv107 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %33, i32 noundef 1, i32 noundef range(i32 0, 8) %36, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 4, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %33, i32 noundef 100, i32 noundef 0) #6
-  %37 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv107
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv107
   %38 = load i32, ptr %37, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %33, i32 noundef %38, i32 noundef 0) #6
   %39 = tail call i24 @lv_color_hex3(i32 noundef 15) #6
@@ -380,7 +380,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %43 = trunc nuw nsw i64 %indvars.iv111 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %40, i32 noundef 1, i32 noundef range(i32 0, 8) %43, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 5, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %40, i32 noundef 100, i32 noundef 0) #6
-  %44 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv111
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv111
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %40, i32 noundef %46, i32 noundef 0) #6
@@ -403,7 +403,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %51 = trunc nuw nsw i64 %indvars.iv115 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %48, i32 noundef 1, i32 noundef range(i32 0, 8) %51, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 6, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %48, i32 noundef 100, i32 noundef 0) #6
-  %52 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv115
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv115
   %53 = load i32, ptr %52, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %48, i32 noundef %53, i32 noundef 0) #6
   %54 = tail call i24 @lv_color_hex3(i32 noundef 2184) #6
@@ -426,7 +426,7 @@ define internal void @border_cb(ptr noundef %0) #0 {
   %58 = trunc nuw nsw i64 %indvars.iv119 to i32
   tail call void @lv_obj_set_grid_cell(ptr noundef %55, i32 noundef 1, i32 noundef range(i32 0, 8) %58, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) 7, i32 noundef 1) #6
   tail call void @lv_obj_set_style_radius(ptr noundef %55, i32 noundef 100, i32 noundef 0) #6
-  %59 = getelementptr inbounds nuw i32, ptr @__const.border_cb.sides, i64 %indvars.iv119
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @__const.border_cb.sides, i64 %indvars.iv119
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i32, ptr %60, align 4, !tbaa !19
   tail call void @lv_obj_set_style_border_side(ptr noundef %55, i32 noundef %61, i32 noundef 0) #6
@@ -452,7 +452,7 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   %4 = tail call fastcc ptr @box_shadow_obj_create(ptr noundef %0, i32 noundef %3, i32 noundef 0)
   tail call void @lv_obj_set_style_radius(ptr noundef %4, i32 noundef 0, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %4, i32 noundef 10, i32 noundef 0) #6
-  %5 = getelementptr inbounds nuw %struct.lv_point_t, ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8, !tbaa !29
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %4, i32 noundef %6, i32 noundef 0) #6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -468,7 +468,7 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   %10 = tail call fastcc ptr @box_shadow_obj_create(ptr noundef %0, i32 noundef %9, i32 noundef 1)
   tail call void @lv_obj_set_style_radius(ptr noundef %10, i32 noundef 5, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %10, i32 noundef 10, i32 noundef 0) #6
-  %11 = getelementptr inbounds nuw %struct.lv_point_t, ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv48
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv48
   %12 = load i32, ptr %11, align 8, !tbaa !29
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %10, i32 noundef %12, i32 noundef 0) #6
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -484,7 +484,7 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   %16 = tail call fastcc ptr @box_shadow_obj_create(ptr noundef %0, i32 noundef %15, i32 noundef 2)
   tail call void @lv_obj_set_style_radius(ptr noundef %16, i32 noundef 100, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %16, i32 noundef 10, i32 noundef 0) #6
-  %17 = getelementptr inbounds nuw %struct.lv_point_t, ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv52
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv52
   %18 = load i32, ptr %17, align 8, !tbaa !29
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %16, i32 noundef %18, i32 noundef 0) #6
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -501,7 +501,7 @@ define internal void @box_shadow_cb(ptr noundef %0) #0 {
   tail call void @lv_obj_set_style_radius(ptr noundef %22, i32 noundef 5, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_width(ptr noundef %22, i32 noundef 10, i32 noundef 0) #6
   tail call void @lv_obj_set_style_shadow_spread(ptr noundef %22, i32 noundef 3, i32 noundef 0) #6
-  %23 = getelementptr inbounds nuw %struct.lv_point_t, ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv56
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @__const.box_shadow_cb.ofs, i64 %indvars.iv56
   %24 = load i32, ptr %23, align 8, !tbaa !29
   tail call void @lv_obj_set_style_shadow_offset_x(ptr noundef %22, i32 noundef %24, i32 noundef 0) #6
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -602,13 +602,13 @@ define internal void @line_cb(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %.preheader16, %14
   %indvars.iv21 = phi i64 [ 0, %.preheader16 ], [ %indvars.iv.next22, %14 ]
   %4 = add nuw nsw i64 %indvars.iv21, %indvars.iv25
-  %5 = getelementptr inbounds nuw i32, ptr @__const.line_cb.widths, i64 %indvars.iv21
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @__const.line_cb.widths, i64 %indvars.iv21
   %6 = trunc nuw nsw i64 %4 to i32
   br label %7
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [2 x %struct.lv_point_precise_t], ptr @line_cb.points, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @line_cb.points, i64 %indvars.iv
   %9 = tail call ptr @lv_line_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %9) #6
   tail call void @lv_line_set_points(ptr noundef %9, ptr noundef nonnull %8, i32 noundef 2) #6
@@ -659,7 +659,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = and i32 %3, 7
   %5 = lshr i32 %3, 3
-  %6 = getelementptr inbounds nuw [3 x %struct.lv_point_t], ptr @triangle_cb.points, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr @triangle_cb.points, i64 %indvars.iv
   %7 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %7) #6
   tail call void @lv_obj_set_size(ptr noundef %7, i32 noundef 55, i32 noundef 30) #6
@@ -679,7 +679,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   %12 = and i32 %11, 7
   %13 = lshr i32 %11, 3
   %14 = or disjoint i32 %13, 2
-  %15 = getelementptr inbounds nuw [3 x %struct.lv_point_t], ptr @triangle_cb.points, i64 %indvars.iv55
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @triangle_cb.points, i64 %indvars.iv55
   %16 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %16) #6
   tail call void @lv_obj_set_size(ptr noundef %16, i32 noundef 55, i32 noundef 30) #6
@@ -702,7 +702,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
   %22 = and i32 %21, 7
   %23 = lshr i32 %21, 3
   %24 = or disjoint i32 %23, 4
-  %25 = getelementptr inbounds nuw [3 x %struct.lv_point_t], ptr @triangle_cb.points, i64 %indvars.iv59
+  %25 = getelementptr inbounds nuw [24 x i8], ptr @triangle_cb.points, i64 %indvars.iv59
   %26 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %26) #6
   tail call void @lv_obj_set_size(ptr noundef %26, i32 noundef 55, i32 noundef 30) #6
@@ -721,7 +721,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
 
 .preheader46:                                     ; preds = %.preheader47, %.preheader46
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader46 ], [ 0, %.preheader47 ]
-  %31 = getelementptr inbounds nuw [3 x %struct.lv_point_t], ptr @triangle_cb.points, i64 %indvars.iv63
+  %31 = getelementptr inbounds nuw [24 x i8], ptr @triangle_cb.points, i64 %indvars.iv63
   %32 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %32) #6
   tail call void @lv_obj_set_size(ptr noundef %32, i32 noundef 55, i32 noundef 30) #6
@@ -742,7 +742,7 @@ define internal void @triangle_cb(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %.preheader46, %.preheader
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader ], [ 0, %.preheader46 ]
-  %38 = getelementptr inbounds nuw [3 x %struct.lv_point_t], ptr @triangle_cb.points, i64 %indvars.iv67
+  %38 = getelementptr inbounds nuw [24 x i8], ptr @triangle_cb.points, i64 %indvars.iv67
   %39 = tail call ptr @lv_arc_create(ptr noundef %0) #6
   tail call void @lv_obj_remove_style_all(ptr noundef %39) #6
   tail call void @lv_obj_set_size(ptr noundef %39, i32 noundef 55, i32 noundef 30) #6
@@ -841,7 +841,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
 11:                                               ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
   %12 = tail call ptr @lv_label_create(ptr noundef %0) #6
-  %13 = getelementptr inbounds nuw ptr, ptr @__const.blend_mode_cb.mode_txt, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @__const.blend_mode_cb.mode_txt, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   tail call void @lv_label_set_text(ptr noundef %12, ptr noundef %14) #6
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
@@ -855,14 +855,14 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
 17:                                               ; preds = %.preheader, %56
   %indvars.iv67 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next68, %56 ]
   %18 = call ptr @lv_label_create(ptr noundef %0) #6
-  %19 = getelementptr inbounds nuw ptr, ptr @__const.blend_mode_cb.cf_txt, i64 %indvars.iv67
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @__const.blend_mode_cb.cf_txt, i64 %indvars.iv67
   %20 = load ptr, ptr %19, align 8, !tbaa !45
   call void @lv_label_set_text(ptr noundef %18, ptr noundef %20) #6
   %21 = shl nuw nsw i64 %indvars.iv67, 1
   %22 = trunc i64 %21 to i32
   %23 = or disjoint i32 %22, 1
   call void @lv_obj_set_grid_cell(ptr noundef %18, i32 noundef 1, i32 noundef %23, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 1) #6
-  %24 = getelementptr inbounds nuw ptr, ptr @__const.blend_mode_cb.cf_bufs, i64 %indvars.iv67
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @__const.blend_mode_cb.cf_bufs, i64 %indvars.iv67
   %25 = load ptr, ptr %24, align 8, !tbaa !47
   call void @lv_canvas_set_draw_buf(ptr noundef %7, ptr noundef %25) #6
   %26 = call i24 @lv_color_hex3(i32 noundef 2116) #6
@@ -903,7 +903,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %32 = call ptr @lv_canvas_get_draw_buf(ptr noundef %7) #6
-  %33 = getelementptr inbounds nuw %struct._lv_draw_buf_t, ptr @blend_mode_cb.image_dscs, i64 %indvars.iv67
+  %33 = getelementptr inbounds nuw [40 x i8], ptr @blend_mode_cb.image_dscs, i64 %indvars.iv67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !tbaa.struct !61
   %34 = trunc i64 %21 to i32
   %35 = add i32 %34, 2
@@ -912,7 +912,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
 36:                                               ; preds = %17, %36
   %indvars.iv63 = phi i64 [ 0, %17 ], [ %indvars.iv.next64, %36 ]
   %37 = shl nuw nsw i64 %indvars.iv63, 1
-  %38 = getelementptr inbounds nuw i32, ptr @__const.blend_mode_cb.mode_values, i64 %indvars.iv63
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @__const.blend_mode_cb.mode_values, i64 %indvars.iv63
   %39 = load i32, ptr %38, align 4, !tbaa !19
   %40 = call ptr @lv_image_create(ptr noundef %0) #6
   call void @lv_image_set_src(ptr noundef %40, ptr noundef nonnull %33) #6
@@ -1008,7 +1008,7 @@ define internal fastcc noundef ptr @fill_obj_create(ptr noundef %0, i32 noundef 
   tail call void @lv_obj_set_style_opa(ptr noundef %20, i8 noundef zeroext %21, i32 noundef 0) #6
   tail call void @lv_obj_set_style_bg_opa(ptr noundef %20, i8 noundef zeroext -1, i32 noundef 0) #6
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw %struct.lv_color_t, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 %22
   %.0.copyload = load i24, ptr %23, align 1
   tail call void @lv_obj_set_style_bg_color(ptr noundef %20, i24 %.0.copyload, i32 noundef 0) #6
   tail call void @lv_obj_set_size(ptr noundef %20, i32 noundef 55, i32 noundef 30) #6
@@ -1086,7 +1086,7 @@ define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = tail call ptr @lv_label_create(ptr noundef %0) #6
-  %9 = getelementptr inbounds nuw ptr, ptr @__const.image_core_cb.names, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @__const.image_core_cb.names, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !62
   tail call void @lv_label_set_text(ptr noundef %8, ptr noundef %10) #6
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1094,7 +1094,7 @@ define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1
   %12 = shl nsw i32 %.tr, 1
   tail call void @lv_obj_set_grid_cell(ptr noundef %8, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) %12, i32 noundef 1) #6
   %13 = tail call fastcc ptr @image_obj_create(ptr noundef %0, i32 noundef 1, i32 noundef %12, i1 noundef zeroext %1)
-  %14 = getelementptr inbounds nuw ptr, ptr @__const.image_core_cb.srcs, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @__const.image_core_cb.srcs, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !62
   tail call void @lv_image_set_src(ptr noundef %13, ptr noundef %15) #6
   %16 = tail call fastcc ptr @image_obj_create(ptr noundef %0, i32 noundef 2, i32 noundef %12, i1 noundef zeroext %1)
@@ -1191,14 +1191,14 @@ define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed
 .preheader:                                       ; preds = %.preheader18, %19
   %indvars.iv23 = phi i64 [ 0, %.preheader18 ], [ %indvars.iv.next24, %19 ]
   %5 = add nuw nsw i64 %indvars.iv23, %indvars.iv27
-  %6 = getelementptr inbounds nuw i32, ptr @__const.arc_core_cb.widths, i64 %indvars.iv23
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @__const.arc_core_cb.widths, i64 %indvars.iv23
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = trunc nuw nsw i64 %5 to i32
   br label %9
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [2 x float], ptr @arc_core_cb.angles, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @arc_core_cb.angles, i64 %indvars.iv
   %11 = load float, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4, !tbaa !68

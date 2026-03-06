@@ -65,23 +65,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
+%class.anon = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%class.anon = type { i8 }
-%"struct.llvm::AMDGPU::HSAMD::Kernel::Metadata" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.21", %"struct.llvm::AMDGPU::HSAMD::Kernel::Attrs::Metadata", %"class.std::vector.48", %"struct.llvm::AMDGPU::HSAMD::Kernel::CodeProps::Metadata", %"struct.llvm::AMDGPU::HSAMD::Kernel::DebugProps::Metadata" }
 %"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
 %"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::AMDGPU::HSAMD::Kernel::Attrs::Metadata" = type { %"class.std::vector.21", %"class.std::vector.21", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::vector.48" = type { %"struct.std::_Vector_base.49" }
-%"struct.std::_Vector_base.49" = type { %"struct.std::_Vector_base<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata, std::allocator<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata, std::allocator<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata, std::allocator<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata, std::allocator<llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::AMDGPU::HSAMD::Kernel::CodeProps::Metadata" = type <{ i64, i32, i32, i32, i32, i16, i16, i32, i8, i8, i16, i16, [2 x i8] }>
-%"struct.llvm::AMDGPU::HSAMD::Kernel::DebugProps::Metadata" = type { %"class.std::vector.21", i16, i16, i16, i16 }
-%"struct.llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }>
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base" }
@@ -568,7 +559,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt6vectorIjSaIjEENS0_12EmptyCont
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIjSaIjEELb1EE7elementERNS0_2IOERS4_m.exit: ; preds = %32, %39
   %42 = phi ptr [ %34, %32 ], [ %.pre.i, %39 ]
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   call void @_ZN4llvm4yaml7yamlizeIjEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS3_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %43, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %44 = load ptr, ptr %5, align 8, !tbaa !18
   %45 = load ptr, ptr %0, align 8, !tbaa !3
@@ -789,9 +780,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !35
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !32
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !52
   br label %41
 
@@ -971,7 +962,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt6vectorINSt7__cxx1112basic_str
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EELb1EE7elementERNS0_2IOERSA_m.exit: ; preds = %32, %39
   %42 = phi ptr [ %34, %32 ], [ %.pre, %39 ]
-  %43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %indvars.iv
   call void @_ZN4llvm4yaml7yamlizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr16has_ScalarTraitsIT_EE5valueEvE4typeERNS0_2IOERS9_bRNS0_12EmptyContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %43, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %44 = load ptr, ptr %5, align 8, !tbaa !18
   %45 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1863,9 +1854,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !21
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !29
   br label %56
 
@@ -2032,7 +2023,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt6vectorINS_6AMDGPU5HSAMD6Kerne
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorINS_6AMDGPU5HSAMD6Kernel8MetadataESaIS6_EELb1EE7elementERNS0_2IOERS8_m.exit: ; preds = %35, %42
   %45 = phi ptr [ %37, %35 ], [ %.pre, %42 ]
-  %46 = getelementptr inbounds nuw %"struct.llvm::AMDGPU::HSAMD::Kernel::Metadata", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [328 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %0, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
@@ -2771,7 +2762,7 @@ define linkonce_odr void @_ZN4llvm4yaml7yamlizeISt6vectorINS_6AMDGPU5HSAMD6Kerne
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorINS_6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS7_EELb1EE7elementERNS0_2IOERS9_m.exit: ; preds = %35, %42
   %45 = phi ptr [ %37, %35 ], [ %.pre, %42 ]
-  %46 = getelementptr inbounds nuw %"struct.llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %0, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
@@ -4429,9 +4420,9 @@ _ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS5_EE11_S_relocateEPS5_S
 
 _ZNSt12_Vector_baseIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel3Arg8MetadataESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %79
   store ptr %35, ptr %0, align 8, !tbaa !88
-  %83 = getelementptr inbounds nuw %"struct.llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata", ptr %36, i64 %1
+  %83 = getelementptr inbounds nuw [96 x i8], ptr %36, i64 %1
   store ptr %83, ptr %4, align 8, !tbaa !86
-  %84 = getelementptr inbounds nuw %"struct.llvm::AMDGPU::HSAMD::Kernel::Arg::Metadata", ptr %35, i64 %33
+  %84 = getelementptr inbounds nuw [96 x i8], ptr %35, i64 %33
   store ptr %84, ptr %11, align 8, !tbaa !105
   br label %85
 
@@ -5422,9 +5413,9 @@ _ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel8MetadataESaIS4_EE11_S_relocateEPS4_S7_S7
 
 _ZNSt12_Vector_baseIN4llvm6AMDGPU5HSAMD6Kernel8MetadataESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN4llvm6AMDGPU5HSAMD6Kernel8MetadataESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %63
   store ptr %42, ptr %0, align 8, !tbaa !81
-  %67 = getelementptr inbounds nuw %"struct.llvm::AMDGPU::HSAMD::Kernel::Metadata", ptr %43, i64 %1
+  %67 = getelementptr inbounds nuw [328 x i8], ptr %43, i64 %1
   store ptr %67, ptr %4, align 8, !tbaa !79
-  %68 = getelementptr inbounds nuw %"struct.llvm::AMDGPU::HSAMD::Kernel::Metadata", ptr %42, i64 %40
+  %68 = getelementptr inbounds nuw [328 x i8], ptr %42, i64 %40
   store ptr %68, ptr %11, align 8, !tbaa !121
   br label %69
 

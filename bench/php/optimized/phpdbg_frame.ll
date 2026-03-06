@@ -37,8 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct._zend_output_globals = type { %struct._zend_stack, ptr, ptr, ptr, i32, i32 }
 %struct.smart_str = type { ptr, i64 }
-%struct._zend_arg_info = type { ptr, %struct.zend_type, ptr }
-%struct.zend_type = type { ptr, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 
 @.str.2 = private unnamed_addr constant [21 x i8] c" [internal function]\00", align 1
@@ -210,7 +208,7 @@ smart_str_appendc_ex.exit66:                      ; preds = %51, %64
   %78 = load i32, ptr %77, align 8, !tbaa !51
   %79 = add i32 %78, %76
   %80 = sext i32 %79 to i64
-  %81 = getelementptr %struct._zval_struct, ptr %0, i64 %80
+  %81 = getelementptr [16 x i8], ptr %0, i64 %80
   %82 = getelementptr i8, ptr %81, i64 80
   br label %83
 
@@ -464,7 +462,7 @@ smart_str_alloc.exit31:                           ; preds = %9, %15
   %28 = load i8, ptr %2, align 8, !tbaa !27
   %29 = icmp eq i8 %28, 1
   %30 = zext i32 %1 to i64
-  %31 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %6, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !57
   %spec.select.idx = select i1 %29, i64 0, i64 24
   %spec.select = getelementptr inbounds nuw i8, ptr %32, i64 %spec.select.idx
@@ -1294,7 +1292,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
   %126 = load i8, ptr %.05586, align 8, !tbaa !27
   %127 = icmp eq i8 %126, 1
   %128 = sext i32 %.05993 to i64
-  %129 = getelementptr inbounds %struct._zend_arg_info, ptr %.05785, i64 %128
+  %129 = getelementptr inbounds [32 x i8], ptr %.05785, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !57
   %.053.idx = select i1 %127, i64 0, i64 24
   %.053 = getelementptr inbounds nuw i8, ptr %130, i64 %.053.idx
@@ -1303,7 +1301,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
 
 132:                                              ; preds = %125
   %133 = sext i32 %.05993 to i64
-  %134 = getelementptr inbounds %struct._zend_arg_info, ptr %.05785, i64 %133
+  %134 = getelementptr inbounds [32 x i8], ptr %.05785, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !124
   %137 = lshr i32 %136, 27

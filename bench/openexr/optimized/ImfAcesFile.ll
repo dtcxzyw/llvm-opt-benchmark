@@ -13,9 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
-%union.imath_half_uif = type { i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -1911,7 +1908,7 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
   %17 = load i32, ptr %16, align 8, !tbaa !39
   %18 = sext i32 %17 to i64
   %19 = mul i64 %15, %18
-  %20 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %13, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !52
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -1964,7 +1961,7 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
 .lr.ph:                                           ; preds = %.split, %._crit_edge
   %indvars.iv = phi i64 [ %smin, %.split ], [ %indvars.iv.next, %._crit_edge ]
   %62 = mul i64 %22, %indvars.iv
-  %63 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %20, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %62
   br label %64
 
 ._crit_edge:                                      ; preds = %_ZN9Imath_3_24halfaSEf.exit25
@@ -1978,17 +1975,17 @@ define void @_ZN7Imf_3_413AcesInputFile10readPixelsEii(ptr noundef nonnull reado
   %.01441 = phi ptr [ %63, %.lr.ph ], [ %254, %_ZN9Imath_3_24halfaSEf.exit25 ]
   %65 = load i16, ptr %.01441, align 2, !tbaa !60
   %66 = zext i16 %65 to i64
-  %67 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !63
   %69 = getelementptr inbounds nuw i8, ptr %.01441, i64 2
   %70 = load i16, ptr %69, align 2, !tbaa !60
   %71 = zext i16 %70 to i64
-  %72 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !63
   %74 = getelementptr inbounds nuw i8, ptr %.01441, i64 4
   %75 = load i16, ptr %74, align 2, !tbaa !60
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw %union.imath_half_uif, ptr %25, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !63
   %79 = fmul float %73, %43
   %80 = tail call float @llvm.fmuladd.f32(float %68, float %42, float %79)
@@ -2246,7 +2243,7 @@ _ZN9Imath_3_24halfaSEf.exit21:                    ; preds = %159, %162, %172, %1
 _ZN9Imath_3_24halfaSEf.exit25:                    ; preds = %211, %214, %224, %226, %235, %249, %252
   %.0.i.i.i24 = phi i16 [ %207, %235 ], [ %221, %214 ], [ %225, %224 ], [ %234, %226 ], [ %212, %211 ], [ %253, %252 ], [ %247, %249 ]
   store i16 %.0.i.i.i24, ptr %74, align 2, !tbaa !65
-  %254 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %.01441, i64 %15
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %.01441, i64 %15
   %255 = add i32 %.042, 1
   %exitcond.not = icmp eq i32 %.042, %24
   br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !66

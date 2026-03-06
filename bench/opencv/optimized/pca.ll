@@ -667,7 +667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %20
   %.01522.i = phi i32 [ 0, %.lr.ph.i ], [ %232, %234 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !61
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !61
-  %229 = getelementptr inbounds nuw %"class.cv::Mat", ptr %227, i64 %228
+  %229 = getelementptr inbounds nuw [96 x i8], ptr %227, i64 %228
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %229)
           to label %230 unwind label %243
 
@@ -1936,7 +1936,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !53
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !48
   ret void
 }

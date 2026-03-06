@@ -685,7 +685,7 @@ define internal fastcc void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$l
           to label %191 unwind label %187, !noalias !6
 
 191:                                              ; preds = %190
-  %192 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %.sroa.013.0.i, i64 %.sroa.314.0.i
+  %192 = getelementptr inbounds [24 x i8], ptr %.sroa.013.0.i, i64 %.sroa.314.0.i
   store ptr %.sroa.013.0.i, ptr %19, align 8, !noalias !6
   %193 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %192, ptr %193, align 8, !noalias !6
@@ -5058,7 +5058,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator4goto17
 232:                                              ; preds = %225
   %233 = extractvalue { ptr, i64 } %226, 0
   %234 = extractvalue { ptr, i64 } %226, 1
-  %235 = getelementptr inbounds { i8, i8 }, ptr %233, i64 %234
+  %235 = getelementptr inbounds [2 x i8], ptr %233, i64 %234
   invoke void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %12)
           to label %236 unwind label %215
 
@@ -6474,7 +6474,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator13gener
   %83 = load ptr, ptr %77, align 8
   %84 = load i8, ptr %83, align 1
   store i8 %84, ptr %44, align 1
-  %85 = getelementptr { i8, i8 }, ptr %83, i64 %79
+  %85 = getelementptr [2 x i8], ptr %83, i64 %79
   %86 = getelementptr i8, ptr %85, i64 -1
   %87 = load i8, ptr %86, align 1
   store i8 %87, ptr %43, align 1
@@ -6501,7 +6501,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator13gener
 96:                                               ; preds = %93
   %97 = load ptr, ptr %77, align 8
   %98 = load i64, ptr %78, align 8
-  %99 = getelementptr inbounds { i8, i8 }, ptr %97, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %97, i64 %98
   store ptr %97, ptr %18, align 8
   %.sroa.297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %99, ptr %.sroa.297.0..sroa_idx, align 8
@@ -7017,7 +7017,7 @@ define hidden nonnull align 8 ptr @_ZN13logos_codegen9generator9Generator13gener
 237:                                              ; preds = %236
   %238 = load ptr, ptr %77, align 8
   %239 = load i64, ptr %78, align 8
-  %240 = getelementptr inbounds { i8, i8 }, ptr %238, i64 %239
+  %240 = getelementptr inbounds [2 x i8], ptr %238, i64 %239
   store ptr %238, ptr %38, align 8
   %241 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %240, ptr %241, align 8

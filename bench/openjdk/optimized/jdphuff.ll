@@ -138,13 +138,13 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   %49 = phi i32 [ %78, %._crit_edge.us ], [ %41, %.lr.ph115.split.us ]
   %50 = phi i32 [ %79, %._crit_edge.us ], [ %47, %.lr.ph115.split.us ]
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %._crit_edge.us ], [ 0, %.lr.ph115.split.us ]
-  %51 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv131
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv131
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = load ptr, ptr %44, align 8
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds [64 x i32], ptr %55, i64 %56
+  %57 = getelementptr inbounds [256 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %4, align 4
   %.not104111.us = icmp sgt i32 %58, %50
   br i1 %.not104111.us, label %._crit_edge.us, label %.lr.ph.us.preheader
@@ -155,7 +155,7 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %74
   %indvars.iv128 = phi i64 [ %59, %.lr.ph.us.preheader ], [ %indvars.iv.next129, %74 ]
-  %60 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv128
+  %60 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv128
   %61 = load i32, ptr %60, align 4
   %spec.select108.us = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %62 = load i32, ptr %15, align 4
@@ -202,13 +202,13 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
 
 .lr.ph115.split:                                  ; preds = %.lr.ph115, %._crit_edge
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %._crit_edge ], [ 0, %.lr.ph115 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv125
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv125
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = load ptr, ptr %44, align 8
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds [64 x i32], ptr %86, i64 %87
+  %88 = getelementptr inbounds [256 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %101
@@ -241,7 +241,7 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %119
   %indvars.iv = phi i64 [ %104, %.lr.ph.preheader ], [ %indvars.iv.next, %119 ]
-  %105 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv
+  %105 = getelementptr inbounds [4 x i8], ptr %88, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4
   %spec.select108 = tail call i32 @llvm.smax.i32(i32 %106, i32 0)
   %107 = load i32, ptr %15, align 4
@@ -323,17 +323,17 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
   br i1 %140, label %141, label %148
 
 141:                                              ; preds = %.lr.ph119.split.us
-  %142 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv137
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv137
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 20
   %145 = load i32, ptr %144, align 4
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr %136, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %136, i64 %146
   tail call void @jMkDDerived(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %145, ptr noundef nonnull %147) #5
   br label %148
 
 148:                                              ; preds = %141, %.lr.ph119.split.us
-  %149 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv137
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv137
   store i32 0, ptr %149, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %150 = load i32, ptr %40, align 8
@@ -343,16 +343,16 @@ define internal void @start_pass_phuff_decoder(ptr noundef %0) #0 {
 
 .lr.ph119.split:                                  ; preds = %.lr.ph119, %.lr.ph119.split
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph119.split ], [ 0, %.lr.ph119 ]
-  %153 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv134
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv134
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load i32, ptr %155, align 8
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds ptr, ptr %136, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %136, i64 %157
   tail call void @jMkDDerived(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %156, ptr noundef nonnull %158) #5
   %159 = load ptr, ptr %158, align 8
   store ptr %159, ptr %137, align 8
-  %160 = getelementptr inbounds nuw i32, ptr %138, i64 %indvars.iv134
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv134
   store i32 0, ptr %160, align 4
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %161 = load i32, ptr %40, align 8
@@ -425,7 +425,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_DC_first(ptr noundef %0, ptr nou
 
 32:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %33, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %28, align 8
@@ -489,17 +489,17 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %.07297 = phi i32 [ %57, %.lr.ph ], [ %.4, %129 ]
   %.07496 = phi i32 [ %55, %.lr.ph ], [ %.478, %129 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %63, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %63, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %64, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %64, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = icmp slt i32 %.07297, 8
   br i1 %81, label %82, label %88
@@ -523,7 +523,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %91 = and i32 %90, 255
   %92 = getelementptr inbounds nuw i8, ptr %80, i64 152
   %93 = zext nneg i32 %91 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4
   %.not89 = icmp eq i32 %95, 0
   br i1 %.not89, label %102, label %96
@@ -579,13 +579,13 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %119 = xor i32 %notmask, -1
   %120 = and i32 %118, %119
   %121 = zext nneg i32 %.070 to i64
-  %122 = getelementptr inbounds nuw i32, ptr @extend_test, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr @extend_test, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = icmp slt i32 %120, %123
   br i1 %124, label %125, label %129
 
 125:                                              ; preds = %116
-  %126 = getelementptr inbounds nuw i32, ptr @extend_offset, i64 %121
+  %126 = getelementptr inbounds nuw [4 x i8], ptr @extend_offset, i64 %121
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %127, %120
   br label %129
@@ -594,7 +594,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %.478 = phi i32 [ %.377, %108 ], [ %.579, %116 ], [ %.579, %125 ]
   %.4 = phi i32 [ %.3, %108 ], [ %117, %116 ], [ %117, %125 ]
   %.1 = phi i32 [ 0, %108 ], [ %120, %116 ], [ %128, %125 ]
-  %130 = getelementptr inbounds i32, ptr %67, i64 %73
+  %130 = getelementptr inbounds [4 x i8], ptr %67, i64 %73
   %131 = load i32, ptr %130, align 4
   %132 = add nsw i32 %131, %.1
   store i32 %132, ptr %130, align 4
@@ -689,7 +689,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_AC_first(ptr noundef %0, ptr nou
 
 33:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   store i32 0, ptr %34, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %29, align 8
@@ -783,7 +783,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
   %83 = ashr i32 %.290, %82
   %84 = and i32 %83, 255
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %71, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %85
   %87 = load i32, ptr %86, align 4
   %.not117 = icmp eq i32 %87, 0
   br i1 %.not117, label %93, label %88
@@ -841,13 +841,13 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
   %113 = xor i32 %notmask, -1
   %114 = and i32 %112, %113
   %115 = zext nneg i32 %101 to i64
-  %116 = getelementptr inbounds nuw i32, ptr @extend_test, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr @extend_test, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = icmp slt i32 %114, %117
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %110
-  %120 = getelementptr inbounds nuw i32, ptr @extend_offset, i64 %115
+  %120 = getelementptr inbounds nuw [4 x i8], ptr @extend_offset, i64 %115
   %121 = load i32, ptr %120, align 4
   %122 = add nsw i32 %121, %114
   br label %123
@@ -857,10 +857,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
   %125 = shl i32 %124, %9
   %126 = trunc i32 %125 to i16
   %127 = sext i32 %103 to i64
-  %128 = getelementptr inbounds i32, ptr @jZAGTable, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr @jZAGTable, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i16, ptr %64, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %64, i64 %130
   store i16 %126, ptr %131, align 2
   br label %148
 
@@ -988,7 +988,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_DC_refine(ptr noundef %0, ptr no
 
 32:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %33, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %28, align 8
@@ -1041,7 +1041,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %42,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %.042 = phi i32 [ %54, %.lr.ph ], [ %71, %77 ]
   %.02941 = phi i32 [ %52, %.lr.ph ], [ %.130, %77 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = icmp slt i32 %.042, 1
   br i1 %64, label %65, label %70
@@ -1159,7 +1159,7 @@ define internal range(i32 0, 2) i32 @decode_mcu_AC_refine(ptr noundef %0, ptr no
 
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i
   store i32 0, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %38 = load i32, ptr %32, align 8
@@ -1249,7 +1249,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %85 = ashr i32 %.2139, %84
   %86 = and i32 %85, 255
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %72, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %87
   %89 = load i32, ptr %88, align 4
   %.not177 = icmp eq i32 %89, 0
   br i1 %.not177, label %95, label %90
@@ -1366,10 +1366,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %.0153 = phi i32 [ %.1154, %167 ], [ %102, %137 ]
   %.8145 = phi i32 [ %.10147, %167 ], [ %.6143, %137 ]
   %.8 = phi i32 [ %.10, %167 ], [ %.6, %137 ]
-  %141 = getelementptr inbounds i32, ptr @jZAGTable, i64 %indvars.iv
+  %141 = getelementptr inbounds [4 x i8], ptr @jZAGTable, i64 %indvars.iv
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i16, ptr %64, i64 %143
+  %144 = getelementptr inbounds [2 x i8], ptr %64, i64 %143
   %145 = load i16, ptr %144, align 2
   %.not190 = icmp eq i16 %145, 0
   br i1 %.not190, label %164, label %146
@@ -1438,15 +1438,15 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
 
 169:                                              ; preds = %.split.loop.exit302
   %170 = sext i32 %.3130 to i64
-  %171 = getelementptr inbounds i32, ptr @jZAGTable, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr @jZAGTable, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = trunc i32 %.1 to i16
   %174 = sext i32 %172 to i64
-  %175 = getelementptr inbounds i16, ptr %64, i64 %174
+  %175 = getelementptr inbounds [2 x i8], ptr %64, i64 %174
   store i16 %173, ptr %175, align 2
   %176 = add nsw i32 %.1126222, 1
   %177 = sext i32 %.1126222 to i64
-  %178 = getelementptr inbounds i32, ptr %4, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %4, i64 %177
   store i32 %172, ptr %178, align 4
   br label %179
 
@@ -1480,10 +1480,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %indvars.iv252 = phi i64 [ %183, %.lr.ph230 ], [ %indvars.iv.next253, %209 ]
   %.13228 = phi i32 [ %.0132278, %.lr.ph230 ], [ %.15, %209 ]
   %.13150227 = phi i32 [ %.0137277, %.lr.ph230 ], [ %.15152, %209 ]
-  %186 = getelementptr inbounds i32, ptr @jZAGTable, i64 %indvars.iv252
+  %186 = getelementptr inbounds [4 x i8], ptr @jZAGTable, i64 %indvars.iv252
   %187 = load i32, ptr %186, align 4
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i16, ptr %64, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %64, i64 %188
   %190 = load i16, ptr %189, align 2
   %.not184 = icmp eq i16 %190, 0
   br i1 %.not184, label %209, label %191
@@ -1575,10 +1575,10 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
 .lr.ph235:                                        ; preds = %.lr.ph235.preheader, %.lr.ph235
   %indvars.iv255 = phi i64 [ %221, %.lr.ph235.preheader ], [ %indvars.iv.next256, %.lr.ph235 ]
   %indvars.iv.next256 = add nsw i64 %indvars.iv255, -1
-  %222 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next256
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next256
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i16, ptr %64, i64 %224
+  %225 = getelementptr inbounds [2 x i8], ptr %64, i64 %224
   store i16 0, ptr %225, align 2
   %226 = icmp samesign ugt i64 %indvars.iv255, 1
   br i1 %226, label %.lr.ph235, label %process_restart.exit, !llvm.loop !20

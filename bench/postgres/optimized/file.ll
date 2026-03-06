@@ -47,14 +47,14 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 
 .preheader28.i:                                   ; preds = %16, %2
   %indvars.iv36.i = phi i64 [ 0, %2 ], [ %indvars.iv.next37.i, %16 ]
-  %6 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv36.i
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv36.i
   br label %7
 
 7:                                                ; preds = %7, %.preheader28.i
   %indvars.iv.i = phi i64 [ 0, %.preheader28.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, %9
   %13 = mul i32 %12, 16777619
@@ -76,7 +76,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 
 18:                                               ; preds = %18, %.preheader26.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader26.i ], [ %indvars.iv.next41.i, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv40.i
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %20, 16777619
   %22 = lshr i32 %20, 17
@@ -92,7 +92,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 .preheader.i:                                     ; preds = %24, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %24 ]
   %.034.i = phi i32 [ %27, %.preheader.i ], [ 0, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv44.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv44.i
   %26 = load i32, ptr %25, align 4
   %27 = xor i32 %26, %.034.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
@@ -433,14 +433,14 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 
 .preheader28.i.i:                                 ; preds = %67, %56
   %indvars.iv36.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next37.i.i, %67 ]
-  %57 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 %indvars.iv36.i.i
+  %57 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv36.i.i
   br label %58
 
 58:                                               ; preds = %58, %.preheader28.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader28.i.i ], [ %indvars.iv.next.i.i, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i.i
   %62 = load i32, ptr %61, align 4
   %63 = xor i32 %62, %60
   %64 = mul i32 %63, 16777619
@@ -462,7 +462,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 
 69:                                               ; preds = %69, %.preheader26.i.i
   %indvars.iv40.i.i = phi i64 [ 0, %.preheader26.i.i ], [ %indvars.iv.next41.i.i, %69 ]
-  %70 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv40.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv40.i.i
   %71 = load i32, ptr %70, align 4
   %72 = mul i32 %71, 16777619
   %73 = lshr i32 %71, 17
@@ -478,7 +478,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 .preheader.i.i:                                   ; preds = %75, %.preheader.i.i
   %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.preheader.i.i ], [ 0, %75 ]
   %.034.i.i = phi i32 [ %78, %.preheader.i.i ], [ 0, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv44.i.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv44.i.i
   %77 = load i32, ptr %76, align 4
   %78 = xor i32 %77, %.034.i.i
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1

@@ -61,7 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
 %"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
 %"struct.std::_Head_base.148" = type { ptr }
-%"struct.(anonymous namespace)::ProfileAnnotator::EdgeInfo" = type { ptr, ptr, %"class.std::optional.149" }
 
 $_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt7greaterImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E = comdat any
 
@@ -411,7 +410,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE13_M_deal
   store ptr %155, ptr %54, align 8, !tbaa !157
   %159 = getelementptr inbounds nuw i8, ptr %155, i64 %153
   store ptr %159, ptr %76, align 8, !tbaa !161
-  %160 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ProfileAnnotator::EdgeInfo", ptr %155, i64 %315
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %155, i64 %315
   store ptr %160, ptr %75, align 8, !tbaa !160
   br label %_ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE7reserveEm.exit.i
 
@@ -440,7 +439,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE7reserveEm.exit.
   %.0.in.i.i43.i = select i1 %169, ptr %166, ptr %170
   %.0.i.i44.i = load i64, ptr %.0.in.i.i43.i, align 8, !tbaa !169
   %171 = load ptr, ptr %141, align 8, !tbaa !170
-  %172 = getelementptr inbounds nuw i64, ptr %171, i64 %.0.i.i44.i
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %.0.i.i44.i
   %173 = load i64, ptr %172, align 8, !tbaa !144
   br label %_ZNSt8optionalImEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarImES4_ImNSt5decayIS7_E4typeEEEEESt16is_constructibleImJS7_EESt13is_assignableIRmS7_EEERS0_E4typeEOS7_.exit.i
 
@@ -584,7 +583,7 @@ _ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEE7reserveE
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoEE7reserveEm.exit.i.i.i.i
   %.val11.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !170
-  %228 = getelementptr ptr, ptr %.val11.i.i.i.i, i64 %.pre-phi.i.i.i.i
+  %228 = getelementptr [8 x i8], ptr %.val11.i.i.i.i, i64 %.pre-phi.i.i.i.i
   %229 = sub nsw i64 %215, %.pre-phi.i.i.i.i
   %230 = shl nsw i64 %229, 3
   call void @llvm.memset.p0.i64(ptr align 8 %228, i8 0, i64 %230, i1 false), !tbaa !187
@@ -1129,7 +1128,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE17_M_realloc_ins
   %.val.i.i.i91.pre.i = phi ptr [ %.val.i.i.i91.pre.pre.i, %382 ], [ %.val.i.i.i58.i, %_ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27.i.i.i ]
   store ptr %375, ptr %54, align 8, !tbaa !157
   store ptr %381, ptr %76, align 8, !tbaa !161
-  %383 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ProfileAnnotator::EdgeInfo", ptr %375, i64 %373
+  %383 = getelementptr inbounds nuw [32 x i8], ptr %375, i64 %373
   store ptr %383, ptr %75, align 8, !tbaa !160
   br label %_ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE12emplace_backIJRNS1_6BBInfoES7_EEERS2_DpOT_.exit.i
 
@@ -1137,7 +1136,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE12emplace_backIJ
   %.val.i.i.i91.i = phi ptr [ %.val.i.i.i91.pre.i, %_ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE17_M_realloc_insertIJRNS1_6BBInfoES7_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.val.i.i.i58.i, %358 ]
   %384 = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN12_GLOBAL__N_116ProfileAnnotator8EdgeInfoESaIS2_EE17_M_realloc_insertIJRNS1_6BBInfoES7_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %356, %358 ]
   %.val.i90.i = load ptr, ptr %330, align 8, !tbaa !170
-  %385 = getelementptr inbounds nuw ptr, ptr %.val.i90.i, i64 %indvars.iv.i
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %.val.i90.i, i64 %indvars.iv.i
   store ptr %384, ptr %385, align 8, !tbaa !187
   %386 = load i64, ptr %331, align 8, !tbaa !217
   %387 = add i64 %386, 1
@@ -1192,7 +1191,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo9addInEdgeERNS0_8EdgeInfoE.exit.i: ; p
   %.val2.i.i.i = phi i32 [ %397, %_ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit104.i ], [ %.val2.pre.i.i.i, %400 ]
   %.val.i.i105.i = load ptr, ptr %395, align 8, !tbaa !170
   %404 = zext i32 %.val2.i.i.i to i64
-  %405 = getelementptr inbounds nuw ptr, ptr %.val.i.i105.i, i64 %404
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i105.i, i64 %404
   %406 = ptrtoint ptr %384 to i64
   store i64 %406, ptr %405, align 1
   %407 = load i32, ptr %396, align 8, !tbaa !185
@@ -1433,7 +1432,7 @@ _ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPN
 
 _ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.i.i.i.i: ; preds = %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.loopexit.i.i.i.i, %470
   %.sroa.4.0.lcssa.i.i.i41.i.i = phi i64 [ %.val.i36.i.i, %470 ], [ %487, %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.loopexit.i.i.i.i ]
-  %488 = getelementptr inbounds nuw ptr, ptr %.val2.i37.i.i, i64 %473
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %.val2.i37.i.i, i64 %473
   br label %489
 
 489:                                              ; preds = %495, %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.i.i.i.i
@@ -1527,7 +1526,7 @@ _ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPN
 
 _ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.i.i59.i.i: ; preds = %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.loopexit.i.i58.i.i, %512
   %.sroa.4.0.lcssa.i.i.i60.i.i = phi i64 [ %.val.i42.i.i, %512 ], [ %529, %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.loopexit.i.i58.i.i ]
-  %530 = getelementptr inbounds nuw ptr, ptr %.val2.i43.i.i, i64 %515
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %.val2.i43.i.i, i64 %515
   br label %531
 
 531:                                              ; preds = %537, %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo10getEdgeSumERKN4llvm11SmallVectorIPNS0_8EdgeInfoELj6EEEb.exit.i.i59.i.i
@@ -1667,7 +1666,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit.i43: ; 
   %.val22.i.i = load i64, ptr %573, align 8, !tbaa !144
   %589 = load ptr, ptr %48, align 8, !tbaa !233
   %590 = load ptr, ptr %589, align 8, !tbaa !170
-  %591 = getelementptr inbounds nuw i64, ptr %590, i64 %.0.i.i.i.i
+  %591 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %.0.i.i.i.i
   %592 = load i64, ptr %591, align 8, !tbaa !144
   %593 = call i64 @llvm.usub.sat.i64(i64 %.val22.i.i, i64 %592)
   %594 = load ptr, ptr %11, align 8, !tbaa !221
@@ -1756,7 +1755,7 @@ _ZN4llvm11SmallVectorImLj2EEC2EmRKm.exit.i:       ; preds = %_ZN4llvm11SmallVect
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i52, %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo12getEdgeCountEm.exit.i ]
   %.02447.i = phi i64 [ 0, %.lr.ph.i48 ], [ %spec.select.i51, %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo12getEdgeCountEm.exit.i ]
   %.val27.i = load ptr, ptr %616, align 8, !tbaa !170
-  %618 = getelementptr inbounds nuw ptr, ptr %.val27.i, i64 %indvars.iv.i49
+  %618 = getelementptr inbounds nuw [8 x i8], ptr %.val27.i, i64 %indvars.iv.i49
   %619 = load ptr, ptr %618, align 8, !tbaa !187
   %.not.not.i.i = icmp eq ptr %619, null
   br i1 %.not.not.i.i, label %_ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo12getEdgeCountEm.exit.i, label %620
@@ -1770,7 +1769,7 @@ _ZNK12_GLOBAL__N_116ProfileAnnotator6BBInfo12getEdgeCountEm.exit.i: ; preds = %6
   %spec.select.i.i50 = phi i64 [ %622, %620 ], [ 0, %617 ]
   %spec.select.i51 = call i64 @llvm.umax.i64(i64 %spec.select.i.i50, i64 %.02447.i)
   %623 = load ptr, ptr %6, align 8, !tbaa !170
-  %624 = getelementptr inbounds nuw i64, ptr %623, i64 %indvars.iv.i49
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %623, i64 %indvars.iv.i49
   store i64 %spec.select.i.i50, ptr %624, align 8, !tbaa !144
   %625 = load ptr, ptr %55, align 8, !tbaa !234
   call void @_ZN4llvm23InstrProfSummaryBuilder16addInternalCountEm(ptr noundef nonnull align 8 dereferenceable(136) %625, i64 noundef %spec.select.i.i50) #13

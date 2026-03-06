@@ -850,7 +850,7 @@ define hidden void @_ZN4LIEF11swap_endianINS_5MachO7details20arm_thread_state64_
 
 8:                                                ; preds = %1, %8
   %.08 = phi i64 [ 0, %1 ], [ %10, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.08
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.08
   tail call void @_ZN4LIEF11swap_endianImEEvPT_(ptr noundef %9) #2
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, 29
@@ -880,7 +880,7 @@ define hidden void @_ZN4LIEF11swap_endianINS_5MachO7details20ppc_thread_state64_
 
 10:                                               ; preds = %1, %10
   %.010 = phi i64 [ 0, %1 ], [ %12, %10 ]
-  %11 = getelementptr inbounds nuw i64, ptr %3, i64 %.010
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010
   tail call void @_ZN4LIEF11swap_endianImEEvPT_(ptr noundef nonnull %11) #2
   %12 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %12, 32
@@ -912,7 +912,7 @@ define hidden void @_ZN4LIEF11swap_endianINS_5MachO7details18ppc_thread_state_tE
 
 11:                                               ; preds = %1, %11
   %.011 = phi i64 [ 0, %1 ], [ %13, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %.011
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.011
   tail call void @_ZN4LIEF11swap_endianIjEEvPT_(ptr noundef nonnull %12) #2
   %13 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %13, 32

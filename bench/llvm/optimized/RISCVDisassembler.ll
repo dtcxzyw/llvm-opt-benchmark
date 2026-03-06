@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.136" = type { [96 x i8] }
 %"class.llvm::MCOperand" = type { i8, %union.anon.137 }
 %union.anon.137 = type { i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
-%"class.llvm::MCOperandInfo" = type { i16, i8, i8, i16 }
 
 $_ZN4llvm14MCDisassembler13setABIVersionEj = comdat any
 
@@ -209,7 +207,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %28 = load i32, ptr %1, align 8, !tbaa !38
   %29 = zext i32 %28 to i64
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.val.val.i, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %.val.val.i, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %33 = load i16, ptr %32, align 2, !tbaa !47
   %.not.i.i = icmp eq i16 %33, 0
@@ -226,19 +224,19 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructi
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %53 ]
   %39 = load i16, ptr %31, align 8, !tbaa !50
   %40 = zext i16 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load i16, ptr %34, align 4, !tbaa !51
   %44 = zext i16 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %42, i64 %44
-  %46 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %45, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [6 x i8], ptr %42, i64 %44
+  %46 = getelementptr inbounds nuw [6 x i8], ptr %45, i64 %indvars.iv.i.i
   %47 = load i16, ptr %46, align 2, !tbaa !52
   %48 = icmp eq i16 %47, 28
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %37
   %50 = load ptr, ptr %35, align 8, !tbaa !54
-  %51 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %50, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8
   store i64 45, ptr %36, align 8
@@ -1783,7 +1781,7 @@ _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i.i: ; preds = %687, 
   %.idx36.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i, 4
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 %.idx36.i.i.i.i.i
   %695 = load ptr, ptr %400, align 8, !tbaa !54
-  %696 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %695, i64 %.022.i.i.i.i.i
+  %696 = getelementptr inbounds nuw [16 x i8], ptr %695, i64 %.022.i.i.i.i.i
   %697 = sub nsw i64 %691, %.022.i.i.i.i.i
   %gepdiff.i.i.i.i.i = shl nsw i64 %697, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %696, ptr align 8 %694, i64 %gepdiff.i.i.i.i.i, i1 false)
@@ -2562,7 +2560,7 @@ _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i: ; preds = %308, %307
   %.idx36.i.i.i = shl nuw nsw i64 %.022.i.i.i, 4
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx36.i.i.i
   %316 = load ptr, ptr %18, align 8, !tbaa !54
-  %317 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %316, i64 %.022.i.i.i
+  %317 = getelementptr inbounds nuw [16 x i8], ptr %316, i64 %.022.i.i.i
   %318 = sub nsw i64 %312, %.022.i.i.i
   %gepdiff.i.i.i = shl nsw i64 %318, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 8 %315, i64 %gepdiff.i.i.i, i1 false)
@@ -2693,7 +2691,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_117RISCVDisassembler13addSPOperand
   %3 = load i32, ptr %0, align 8, !tbaa !38
   %4 = zext i32 %3 to i64
   %5 = sub nsw i64 0, %4
-  %6 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.40.val.0.val, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %.40.val.0.val, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !47
   %.not = icmp eq i16 %8, 0
@@ -2713,19 +2711,19 @@ define internal fastcc void @_ZNK12_GLOBAL__N_117RISCVDisassembler13addSPOperand
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %14 = load i16, ptr %6, align 8, !tbaa !50
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i16, ptr %9, align 4, !tbaa !51
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %17, i64 %19
-  %21 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %20, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [6 x i8], ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw [6 x i8], ptr %20, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !52
   %23 = icmp eq i16 %22, 28
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %12
   %25 = load ptr, ptr %10, align 8, !tbaa !54
-  %26 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 8
   store i64 45, ptr %11, align 8
@@ -11792,7 +11790,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -11833,7 +11831,7 @@ _ZL17decodeUImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEj
   %15 = zext i32 %1 to i64
   %16 = load ptr, ptr %5, align 8, !tbaa !54
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %15, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -11888,7 +11886,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i.i: ; preds = %20, %13
   %24 = phi i32 [ %17, %13 ], [ %.pre.i.i.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !54
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   store i8 1, ptr %27, align 1
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 1
@@ -11923,7 +11921,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL26DecodeGPRNoX0R
   %40 = phi ptr [ %31, %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit ], [ %.pre, %36 ]
   %41 = phi i32 [ %33, %_ZL26DecodeGPRNoX0RegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit ], [ %.pre.i.i, %36 ]
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %42
   store i8 %.sroa.01.0.copyload, ptr %43, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.23.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -11946,7 +11944,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit12: ; preds = %_ZN4llvm6MCInst10a
   %51 = phi i32 [ %45, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ %.pre.i.i10, %47 ]
   %52 = load ptr, ptr %30, align 8, !tbaa !54
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %53
   store i8 2, ptr %54, align 1
   %.sroa.22.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 0, ptr %.sroa.22.0..sroa_idx.i.i11, align 1
@@ -11985,7 +11983,7 @@ _ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   %17 = ashr exact i64 %16, 58
   %18 = load ptr, ptr %5, align 8, !tbaa !54
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %19
   store i8 2, ptr %20, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %17, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12040,7 +12038,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %19, %12
   %23 = phi i32 [ %16, %12 ], [ %.pre.i.i.i, %19 ]
   %24 = load ptr, ptr %14, align 8, !tbaa !54
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   store i8 1, ptr %26, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12087,7 +12085,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %7, %14
   %18 = phi i32 [ %11, %7 ], [ %.pre.i.i, %14 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !54
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   store i8 1, ptr %21, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12123,7 +12121,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %12 = phi i32 [ %5, %2 ], [ %.pre.i.i, %8 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !54
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   store i8 1, ptr %15, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 43, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12151,7 +12149,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit13: ; preds = %_ZN4llvm6MCInst10a
   %24 = phi ptr [ %18, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ %.pre, %20 ]
   %25 = phi i32 [ %17, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ %.pre.i.i11, %20 ]
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %26
   store i8 %.sroa.0.0.copyload, ptr %27, align 1
   %.sroa.22.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.21.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i12, align 1
@@ -12180,7 +12178,7 @@ _ZL17decodeUImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   %41 = zext nneg i32 %40 to i64
   %42 = load ptr, ptr %3, align 8, !tbaa !54
   %43 = zext i32 %35 to i64
-  %44 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   store i8 2, ptr %44, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %41, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12228,7 +12226,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %18, %11
   %22 = phi i32 [ %15, %11 ], [ %.pre.i.i.i, %18 ]
   %23 = load ptr, ptr %13, align 8, !tbaa !54
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %24
   store i8 2, ptr %25, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %12, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12270,7 +12268,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12307,7 +12305,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12342,7 +12340,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %15 = ashr exact i64 %14, 58
   %16 = load ptr, ptr %3, align 8, !tbaa !54
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %15, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12380,7 +12378,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12417,7 +12415,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12450,7 +12448,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12482,7 +12480,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %12 = phi i32 [ %5, %2 ], [ %.pre.i.i, %8 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !54
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   store i8 1, ptr %15, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 43, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12513,7 +12511,7 @@ _ZL17decodeSImmOperandILj6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   %31 = ashr exact i64 %30, 58
   %32 = load ptr, ptr %3, align 8, !tbaa !54
   %33 = zext i32 %23 to i64
-  %34 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   store i8 2, ptr %34, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %31, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12552,7 +12550,7 @@ _ZL17decodeSImmOperandILj10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEj
   %17 = ashr exact i64 %16, 54
   %18 = load ptr, ptr %5, align 8, !tbaa !54
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %19
   store i8 2, ptr %20, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %17, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12612,7 +12610,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i.i: ; preds = %22, %15
   %26 = phi i32 [ %19, %15 ], [ %.pre.i.i.i.i, %22 ]
   %27 = load ptr, ptr %17, align 8, !tbaa !54
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %28
   store i8 1, ptr %29, align 1
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 1
@@ -12656,7 +12654,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %19 = zext nneg i32 %.0 to i64
   %20 = load ptr, ptr %3, align 8, !tbaa !54
   %21 = zext i32 %12 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   store i8 2, ptr %22, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %19, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12689,7 +12687,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12738,7 +12736,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %20, %13
   %24 = phi i32 [ %17, %13 ], [ %.pre.i.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !54
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   store i8 1, ptr %27, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12781,7 +12779,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i15: ; preds = %39, %32
   %43 = phi i32 [ %36, %32 ], [ %.pre.i.i.i14, %39 ]
   %44 = load ptr, ptr %34, align 8, !tbaa !54
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   store i8 1, ptr %46, align 1
   %.sroa.22.0..sroa_idx.i.i.i16 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i12, ptr %.sroa.22.0..sroa_idx.i.i.i16, align 1
@@ -12838,7 +12836,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %20, %13
   %24 = phi i32 [ %17, %13 ], [ %.pre.i.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !54
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   store i8 1, ptr %27, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -12873,7 +12871,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL22DecodeGPRRegis
   %40 = phi ptr [ %32, %_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit ], [ %.pre23, %36 ]
   %41 = phi i32 [ %30, %_ZL22DecodeGPRRegisterClassRN4llvm6MCInstEjmPKNS_14MCDisassemblerE.exit ], [ %.pre.i.i, %36 ]
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %42
   store i8 %.sroa.0.0.copyload, ptr %43, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %.sroa.21.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12908,7 +12906,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i18: ; preds = %53, %50
   %57 = phi i32 [ %45, %50 ], [ %.pre.i.i.i17, %53 ]
   %58 = load ptr, ptr %31, align 8, !tbaa !54
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %59
   store i8 1, ptr %60, align 1
   %.sroa.22.0..sroa_idx.i.i.i19 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i15, ptr %.sroa.22.0..sroa_idx.i.i.i19, align 1
@@ -12947,7 +12945,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %16 = ashr exact i64 %15, 52
   %17 = load ptr, ptr %3, align 8, !tbaa !54
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store i8 2, ptr %19, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %16, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -12983,7 +12981,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %16 = ashr exact i64 %15, 55
   %17 = load ptr, ptr %3, align 8, !tbaa !54
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store i8 2, ptr %19, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %16, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13018,7 +13016,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %15 = ashr exact i64 %14, 52
   %16 = load ptr, ptr %3, align 8, !tbaa !54
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %15, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13056,7 +13054,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13098,7 +13096,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13146,7 +13144,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %17
   %21 = phi i32 [ %14, %5 ], [ %.pre.i.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !54
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store i8 1, ptr %24, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13194,7 +13192,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %17
   %21 = phi i32 [ %14, %5 ], [ %.pre.i.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !54
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store i8 1, ptr %24, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13242,7 +13240,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %17
   %21 = phi i32 [ %14, %5 ], [ %.pre.i.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !54
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store i8 1, ptr %24, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13284,7 +13282,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13326,7 +13324,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13363,7 +13361,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13403,7 +13401,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %6, %13
   %17 = phi i32 [ %10, %6 ], [ %.pre.i.i, %13 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !54
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %19
   store i8 2, ptr %20, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %7, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13440,7 +13438,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13473,7 +13471,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13517,7 +13515,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %17
   %21 = phi i32 [ %14, %5 ], [ %.pre.i.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !54
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store i8 1, ptr %24, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13564,7 +13562,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
   %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %5, align 8, !tbaa !54
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i8 2, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %4, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13604,7 +13602,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %9
   %13 = phi i32 [ %6, %3 ], [ %.pre.i.i, %9 ]
   %14 = load ptr, ptr %4, align 8, !tbaa !54
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 1, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13640,7 +13638,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; pred
   %13 = phi i32 [ %6, %3 ], [ %.pre.i, %9 ]
   %14 = load ptr, ptr %4, align 8, !tbaa !54
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 %1, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %2, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -13676,7 +13674,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %9
   %13 = phi i32 [ %6, %3 ], [ %.pre.i.i, %9 ]
   %14 = load ptr, ptr %4, align 8, !tbaa !54
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 1, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 11, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13715,7 +13713,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %15 = ashr exact i64 %14, 59
   %16 = load ptr, ptr %3, align 8, !tbaa !54
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %15, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13748,7 +13746,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13781,7 +13779,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13814,7 +13812,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13850,7 +13848,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %16 = ashr exact i64 %15, 51
   %17 = load ptr, ptr %3, align 8, !tbaa !54
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store i8 2, ptr %19, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %16, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13886,7 +13884,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %16 = ashr exact i64 %15, 43
   %17 = load ptr, ptr %3, align 8, !tbaa !54
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store i8 2, ptr %19, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %16, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13919,7 +13917,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -13959,7 +13957,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %10
   %14 = phi i32 [ %7, %4 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %5, align 8, !tbaa !54
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i8 1, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14001,7 +13999,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 1, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14048,7 +14046,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %7, %14
   %18 = phi i32 [ %11, %7 ], [ %.pre.i.i, %14 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !54
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   store i8 1, ptr %21, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14095,7 +14093,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %7, %14
   %18 = phi i32 [ %11, %7 ], [ %.pre.i.i, %14 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !54
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   store i8 1, ptr %21, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14139,7 +14137,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %12
   %16 = phi i32 [ %9, %4 ], [ %.pre.i.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !54
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store i8 1, ptr %19, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.3.8.insert.ext.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14180,7 +14178,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
   %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %6, align 8, !tbaa !54
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %5, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14217,7 +14215,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14265,7 +14263,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %19, %12
   %23 = phi i32 [ %16, %12 ], [ %.pre.i.i.i, %19 ]
   %24 = load ptr, ptr %14, align 8, !tbaa !54
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   store i8 1, ptr %26, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -14308,7 +14306,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i14: ; preds = %38, %31
   %42 = phi i32 [ %35, %31 ], [ %.pre.i.i.i13, %38 ]
   %43 = load ptr, ptr %33, align 8, !tbaa !54
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   store i8 1, ptr %45, align 1
   %.sroa.22.0..sroa_idx.i.i.i15 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i11, ptr %.sroa.22.0..sroa_idx.i.i.i15, align 1
@@ -14344,7 +14342,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14377,7 +14375,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %13 = zext i32 %1 to i64
   %14 = load ptr, ptr %3, align 8, !tbaa !54
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   store i8 2, ptr %16, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %13, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14430,7 +14428,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %24, %17
   %28 = phi i32 [ %21, %17 ], [ %.pre.i.i.i, %24 ]
   %29 = load ptr, ptr %19, align 8, !tbaa !54
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   store i8 1, ptr %31, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -14473,7 +14471,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i36: ; preds = %43, %36
   %47 = phi i32 [ %40, %36 ], [ %.pre.i.i.i35, %43 ]
   %48 = load ptr, ptr %38, align 8, !tbaa !54
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   store i8 1, ptr %50, align 1
   %.sroa.22.0..sroa_idx.i.i.i37 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i33, ptr %.sroa.22.0..sroa_idx.i.i.i37, align 1
@@ -14521,7 +14519,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i45: ; preds = %62, %55
   %66 = phi i32 [ %59, %55 ], [ %.pre.i.i.i44, %62 ]
   %67 = load ptr, ptr %57, align 8, !tbaa !54
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   store i8 1, ptr %69, align 1
   %.sroa.22.0..sroa_idx.i.i.i46 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i42, ptr %.sroa.22.0..sroa_idx.i.i.i46, align 1
@@ -14552,7 +14550,7 @@ _ZL17decodeUImmOperandILj2EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   %82 = zext nneg i32 %11 to i64
   %83 = load ptr, ptr %73, align 8, !tbaa !54
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %84
   store i8 2, ptr %85, align 1
   %.sroa.22.0..sroa_idx.i.i.i52 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %82, ptr %.sroa.22.0..sroa_idx.i.i.i52, align 1
@@ -14588,7 +14586,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZN4llvm6MCInst10ad
   %.sink = phi i64 [ 3, %switch.edge ], [ 4, %.critedge ], [ %.sink.ph, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
   %93 = load ptr, ptr %73, align 8, !tbaa !54
   %94 = zext i32 %.sink82 to i64
-  %95 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %94
   store i8 2, ptr %95, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %.sink, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14623,7 +14621,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %2, %8
   %15 = ashr exact i64 %14, 38
   %16 = load ptr, ptr %3, align 8, !tbaa !54
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %15, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -14660,7 +14658,7 @@ _ZL17decodeUImmOperandILj5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEjl
   %15 = zext i32 %1 to i64
   %16 = load ptr, ptr %5, align 8, !tbaa !54
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   store i8 2, ptr %18, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %15, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -14706,7 +14704,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %12, %6
   %16 = phi i32 [ %9, %6 ], [ %.pre.i.i.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !54
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store i8 1, ptr %19, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
@@ -14735,7 +14733,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !66
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !67
@@ -14760,7 +14758,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_9MCOperandE
 _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; preds = %12, %13
   %.pre-phi = phi i64 [ %7, %12 ], [ %.pre15, %13 ]
   %16 = phi ptr [ %4, %12 ], [ %.pre14, %13 ]
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %.pre-phi
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.pre-phi
   store i8 %.sroa.0.0.copyload, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.21.0.copyload, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -14769,7 +14767,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; pred
   store i32 %19, ptr %5, align 8, !tbaa !66
   %20 = load ptr, ptr %0, align 8, !tbaa !54
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   br label %49
 
@@ -14792,13 +14790,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE28reserveForParamAndGetAddr
   %.pre-phi17 = phi i64 [ %7, %24 ], [ %.pre16, %28 ]
   %31 = phi ptr [ %4, %24 ], [ %.pre, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %27
-  %33 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %31, i64 %.pre-phi17
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.pre-phi17
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !228
   %35 = load ptr, ptr %0, align 8, !tbaa !54
   %36 = load i32, ptr %5, align 8, !tbaa !66
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -16
   %.not.i.i.i.i.i = icmp eq ptr %39, %32
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit, label %40
@@ -14809,7 +14807,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE28reserveForParamAndGetAddr
   %43 = sub i64 %41, %42
   %44 = ashr exact i64 %43, 4
   %45 = sub nsw i64 0, %44
-  %46 = getelementptr inbounds %"class.llvm::MCOperand", ptr %38, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %38, i64 %45
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %46, ptr nonnull align 8 %32, i64 %43, i1 false)
   %.pre13 = load i32, ptr %5, align 8, !tbaa !66
   br label %_ZSt13move_backwardIPN4llvm9MCOperandES2_ET0_T_S4_S3_.exit

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.blf_fileheader = type { [4 x i8], i32, i32, i8, i8, i8, i8, i64, i64, i32, i32, %struct.blf_date, %struct.blf_date, i32 }
 %struct.blf_date = type { i16, i16, i16, i16, i16, i16, i16, i16 }
 %struct.blf_params = type { ptr, ptr, ptr, i8, i8, ptr }
-%struct.blf_log_container = type { i64, i64, i64, i64, i64, i16, ptr }
 %struct.blf_apptext = type { i32, i32, i32, i32 }
 %struct.blf_blockheader = type { [4 x i8], i16, i16, i32, i32 }
 %struct.blf_logobjectheader = type { i32, i16, i16, i64 }
@@ -46,6 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.blf_ethernet_status = type { i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i32 }
 %struct.blf_ethernet_phystate = type { i16, i16, i8, i8, i8, i8 }
 %struct.blf_logcontainerheader = type { i16, i16, i32, i32, i32 }
+%struct.blf_log_container = type { i64, i64, i64, i64, i64, i16, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.nstime_t = type { i64, i32 }
 
@@ -388,7 +388,7 @@ define hidden noundef zeroext i1 @blf_parse_xml_port(ptr noundef %0, ptr noundef
 50:                                               ; preds = %30, %27, %40, %49, %46, %43, %36, %39
   %51 = add i32 %.057, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr ptr, ptr %20, i64 %52
+  %53 = getelementptr [8 x i8], ptr %20, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not48 = icmp eq ptr %54, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -772,7 +772,7 @@ define internal void @blf_close(ptr noundef readonly captures(none) %0) #1 {
   %10 = phi ptr [ %17, %16 ], [ %6, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %.preheader.i ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr %struct.blf_log_container, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr [56 x i8], ptr %11, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not23.i = icmp eq ptr %14, null
@@ -1429,7 +1429,7 @@ blf_read_bytes.exit87.i:                          ; preds = %312
 
 switch.lookup:                                    ; preds = %337
   %346 = zext nneg i32 %344 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_block, i64 %346
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_block, i64 %346
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %347
 
@@ -1696,7 +1696,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %8, align 4
   %27 = zext i32 %26 to i64
-  %28 = getelementptr %struct.blf_log_container, ptr %25, i64 %27
+  %28 = getelementptr [56 x i8], ptr %25, i64 %27
   %.pre105 = load i64, ptr %7, align 8
   br label %48
 
@@ -1728,7 +1728,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
   %39 = phi i32 [ %40, %38 ], [ %36, %35 ]
   %40 = add i32 %39, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr %struct.blf_log_container, ptr %.pre104, i64 %41
+  %42 = getelementptr [56 x i8], ptr %.pre104, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %1, %44
@@ -1798,7 +1798,7 @@ define internal fastcc noundef zeroext i1 @blf_read_bytes_or_eof(ptr noundef rea
 74:                                               ; preds = %67
   %75 = load ptr, ptr %71, align 8
   %76 = zext i32 %68 to i64
-  %77 = getelementptr %struct.blf_log_container, ptr %75, i64 %76
+  %77 = getelementptr [56 x i8], ptr %75, i64 %76
   %78 = load i64, ptr %7, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %80 = load i64, ptr %79, align 8
@@ -2052,7 +2052,7 @@ blf_read_bytes.exit32:                            ; preds = %83
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit32
   %121 = zext nneg i16 %119 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %121
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %121
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2186,7 +2186,7 @@ blf_read_bytes.exit36:                            ; preds = %31
 
 switch.lookup:                                    ; preds = %70
   %74 = zext nneg i16 %72 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %74
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2310,7 +2310,7 @@ blf_read_bytes.exit32:                            ; preds = %28
 
 switch.lookup:                                    ; preds = %63
   %67 = zext nneg i16 %65 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %67
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %67
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2415,7 +2415,7 @@ blf_read_bytes.exit28:                            ; preds = %28
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit28
   %55 = zext nneg i8 %53 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %55
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -2918,7 +2918,7 @@ blf_read_bytes.exit:                              ; preds = %15
 
 switch.lookup:                                    ; preds = %53
   %57 = zext nneg i8 %55 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %57
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %57
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3201,7 +3201,7 @@ blf_read_bytes.exit44:                            ; preds = %64, %blf_read_bytes
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit44
   %83 = zext nneg i8 %81 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %83
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %83
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3369,7 +3369,7 @@ blf_read_bytes.exit48:                            ; preds = %79, %50
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit48
   %98 = zext nneg i8 %96 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %98
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %98
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3559,7 +3559,7 @@ blf_read_bytes.exit53:                            ; preds = %98, %67
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit53
   %117 = zext nneg i16 %115 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %117
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %117
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3660,7 +3660,7 @@ blf_read_bytes.exit:                              ; preds = %18
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit
   %54 = zext nneg i8 %52 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -3989,7 +3989,7 @@ blf_read_bytes.exit:                              ; preds = %16
 
 switch.lookup:                                    ; preds = %39
   %59 = zext nneg i8 %57 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %59
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -4109,7 +4109,7 @@ blf_read_bytes.exit:                              ; preds = %16
 
 switch.lookup:                                    ; preds = %39
   %59 = zext nneg i8 %57 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %59
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.blf_read_lincrcerror2, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
@@ -4888,7 +4888,7 @@ define internal fastcc zeroext i1 @blf_pull_next_logcontainer(ptr noundef readon
   %15 = load ptr, ptr %10, align 8
   %16 = add i32 %12, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.blf_log_container, ptr %15, i64 %17
+  %18 = getelementptr [56 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -5146,7 +5146,7 @@ blf_find_next_logcontainer.exit.thread:           ; preds = %26, %113, %55, %60,
   %155 = load ptr, ptr %150, align 8
   %156 = add i32 %152, -1
   %157 = zext i32 %156 to i64
-  %158 = getelementptr %struct.blf_log_container, ptr %155, i64 %157
+  %158 = getelementptr [56 x i8], ptr %155, i64 %157
   %159 = call fastcc zeroext i1 @blf_pull_logcontainer_into_memory(ptr noundef %0, ptr noundef %158, ptr noundef %1, ptr noundef %2)
   br i1 %159, label %181, label %160
 

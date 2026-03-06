@@ -396,7 +396,6 @@ module asm ".popsection\09\09\09\09\09"
 %struct.hlist_node = type { ptr, ptr }
 %union.anon.3 = type { ptr }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.g4x_pipe_wm = type { [8 x i16], i16 }
 
 @__tpstrtab_intel_pipe_enable = internal constant [18 x i8] c"intel_pipe_enable\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_intel_pipe_enable = dso_local global %struct.static_call_key { ptr @__traceiter_intel_pipe_enable, %union.anon.0 { i64 1 } }, align 8
@@ -1383,12 +1382,12 @@ define internal void @trace_event_raw_event_intel_pipe_enable(ptr noundef %0, pt
   %55 = getelementptr i8, ptr %52, i64 1632
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr i32, ptr %49, i64 %57
+  %58 = getelementptr [4 x i8], ptr %49, i64 %57
   store i32 %54, ptr %58, align 4
   %59 = call i32 @intel_get_crtc_scanline(ptr noundef %53) #9
   %60 = load i32, ptr %55, align 8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr i32, ptr %50, i64 %61
+  %62 = getelementptr [4 x i8], ptr %50, i64 %61
   store i32 %59, ptr %62, align 4
   %63 = load ptr, ptr %52, align 8
   %64 = icmp eq ptr %63, %45
@@ -1508,12 +1507,12 @@ define internal void @perf_trace_intel_pipe_enable(ptr noundef %0, ptr noundef r
   %66 = getelementptr i8, ptr %63, i64 1632
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
-  %69 = getelementptr i32, ptr %60, i64 %68
+  %69 = getelementptr [4 x i8], ptr %60, i64 %68
   store i32 %65, ptr %69, align 4
   %70 = call i32 @intel_get_crtc_scanline(ptr noundef %64) #9
   %71 = load i32, ptr %66, align 8
   %72 = sext i32 %71 to i64
-  %73 = getelementptr i32, ptr %61, i64 %72
+  %73 = getelementptr [4 x i8], ptr %61, i64 %72
   store i32 %70, ptr %73, align 4
   %74 = load ptr, ptr %63, align 8
   %75 = icmp eq ptr %74, %56
@@ -1627,12 +1626,12 @@ define internal void @trace_event_raw_event_intel_pipe_disable(ptr noundef %0, p
   %55 = getelementptr i8, ptr %52, i64 1632
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr i32, ptr %49, i64 %57
+  %58 = getelementptr [4 x i8], ptr %49, i64 %57
   store i32 %54, ptr %58, align 4
   %59 = call i32 @intel_get_crtc_scanline(ptr noundef %53) #9
   %60 = load i32, ptr %55, align 8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr i32, ptr %50, i64 %61
+  %62 = getelementptr [4 x i8], ptr %50, i64 %61
   store i32 %59, ptr %62, align 4
   %63 = load ptr, ptr %52, align 8
   %64 = icmp eq ptr %63, %45
@@ -1752,12 +1751,12 @@ define internal void @perf_trace_intel_pipe_disable(ptr noundef %0, ptr noundef 
   %66 = getelementptr i8, ptr %63, i64 1632
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
-  %69 = getelementptr i32, ptr %60, i64 %68
+  %69 = getelementptr [4 x i8], ptr %60, i64 %68
   store i32 %65, ptr %69, align 4
   %70 = call i32 @intel_get_crtc_scanline(ptr noundef %64) #9
   %71 = load i32, ptr %66, align 8
   %72 = sext i32 %71 to i64
-  %73 = getelementptr i32, ptr %61, i64 %72
+  %73 = getelementptr [4 x i8], ptr %61, i64 %72
   store i32 %70, ptr %73, align 4
   %74 = load ptr, ptr %63, align 8
   %75 = icmp eq ptr %74, %56
@@ -2443,12 +2442,12 @@ define internal void @trace_event_raw_event_intel_memory_cxsr(ptr noundef %0, pt
   %56 = getelementptr i8, ptr %53, i64 1632
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr i32, ptr %50, i64 %58
+  %59 = getelementptr [4 x i8], ptr %50, i64 %58
   store i32 %55, ptr %59, align 4
   %60 = call i32 @intel_get_crtc_scanline(ptr noundef %54) #9
   %61 = load i32, ptr %56, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr i32, ptr %51, i64 %62
+  %63 = getelementptr [4 x i8], ptr %51, i64 %62
   store i32 %60, ptr %63, align 4
   %64 = load ptr, ptr %53, align 8
   %65 = icmp eq ptr %64, %46
@@ -2567,12 +2566,12 @@ define internal void @perf_trace_intel_memory_cxsr(ptr noundef %0, ptr noundef r
   %67 = getelementptr i8, ptr %64, i64 1632
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
-  %70 = getelementptr i32, ptr %61, i64 %69
+  %70 = getelementptr [4 x i8], ptr %61, i64 %69
   store i32 %66, ptr %70, align 4
   %71 = call i32 @intel_get_crtc_scanline(ptr noundef %65) #9
   %72 = load i32, ptr %67, align 8
   %73 = sext i32 %72 to i64
-  %74 = getelementptr i32, ptr %62, i64 %73
+  %74 = getelementptr [4 x i8], ptr %62, i64 %73
   store i32 %71, ptr %74, align 4
   %75 = load ptr, ptr %64, align 8
   %76 = icmp eq ptr %75, %57
@@ -2675,20 +2674,20 @@ define internal void @trace_event_raw_event_g4x_wm(ptr noundef %0, ptr noundef %
   store i32 %51, ptr %52, align 4
   %53 = load i32, ptr %46, align 8
   %54 = sext i32 %53 to i64
-  %55 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %54
+  %55 = getelementptr [18 x i8], ptr %2, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i16 %56, ptr %57, align 4
   %58 = load i32, ptr %46, align 8
   %59 = sext i32 %58 to i64
-  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %59
+  %.split = getelementptr [18 x i8], ptr %2, i64 %59
   %60 = getelementptr i8, ptr %.split, i64 2
   %61 = load i16, ptr %60, align 2
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 26
   store i16 %61, ptr %62, align 2
   %63 = load i32, ptr %46, align 8
   %64 = sext i32 %63 to i64
-  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %64
+  %.split1 = getelementptr [18 x i8], ptr %2, i64 %64
   %65 = getelementptr i8, ptr %.split1, i64 14
   %66 = load i16, ptr %65, align 2
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 28
@@ -2833,20 +2832,20 @@ define internal void @perf_trace_g4x_wm(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %62, ptr %63, align 4
   %64 = load i32, ptr %57, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %65
+  %66 = getelementptr [18 x i8], ptr %2, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i16 %67, ptr %68, align 4
   %69 = load i32, ptr %57, align 8
   %70 = sext i32 %69 to i64
-  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %70
+  %.split = getelementptr [18 x i8], ptr %2, i64 %70
   %71 = getelementptr i8, ptr %.split, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = getelementptr inbounds nuw i8, ptr %33, i64 26
   store i16 %72, ptr %73, align 2
   %74 = load i32, ptr %57, align 8
   %75 = sext i32 %74 to i64
-  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %75
+  %.split1 = getelementptr [18 x i8], ptr %2, i64 %75
   %76 = getelementptr i8, ptr %.split1, i64 14
   %77 = load i16, ptr %76, align 2
   %78 = getelementptr inbounds nuw i8, ptr %33, i64 28
@@ -2989,14 +2988,14 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   store i32 %59, ptr %60, align 4
   %61 = load i32, ptr %46, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %62
+  %63 = getelementptr [18 x i8], ptr %2, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = zext i16 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr %46, align 8
   %68 = sext i32 %67 to i64
-  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %68
+  %.split = getelementptr [18 x i8], ptr %2, i64 %68
   %69 = getelementptr i8, ptr %.split, i64 2
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
@@ -3004,7 +3003,7 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   store i32 %71, ptr %72, align 4
   %73 = load i32, ptr %46, align 8
   %74 = sext i32 %73 to i64
-  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %74
+  %.split1 = getelementptr [18 x i8], ptr %2, i64 %74
   %75 = getelementptr i8, ptr %.split1, i64 4
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
@@ -3012,7 +3011,7 @@ define internal void @trace_event_raw_event_vlv_wm(ptr noundef %0, ptr noundef %
   store i32 %77, ptr %78, align 4
   %79 = load i32, ptr %46, align 8
   %80 = sext i32 %79 to i64
-  %.split2 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %80
+  %.split2 = getelementptr [18 x i8], ptr %2, i64 %80
   %81 = getelementptr i8, ptr %.split2, i64 14
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
@@ -3142,14 +3141,14 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %70, ptr %71, align 4
   %72 = load i32, ptr %57, align 8
   %73 = sext i32 %72 to i64
-  %74 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %73
+  %74 = getelementptr [18 x i8], ptr %2, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
   %77 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i32 %76, ptr %77, align 4
   %78 = load i32, ptr %57, align 8
   %79 = sext i32 %78 to i64
-  %.split = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %79
+  %.split = getelementptr [18 x i8], ptr %2, i64 %79
   %80 = getelementptr i8, ptr %.split, i64 2
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
@@ -3157,7 +3156,7 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %82, ptr %83, align 4
   %84 = load i32, ptr %57, align 8
   %85 = sext i32 %84 to i64
-  %.split1 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %85
+  %.split1 = getelementptr [18 x i8], ptr %2, i64 %85
   %86 = getelementptr i8, ptr %.split1, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
@@ -3165,7 +3164,7 @@ define internal void @perf_trace_vlv_wm(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %88, ptr %89, align 4
   %90 = load i32, ptr %57, align 8
   %91 = sext i32 %90 to i64
-  %.split2 = getelementptr %struct.g4x_pipe_wm, ptr %2, i64 %91
+  %.split2 = getelementptr [18 x i8], ptr %2, i64 %91
   %92 = getelementptr i8, ptr %.split2, i64 14
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32

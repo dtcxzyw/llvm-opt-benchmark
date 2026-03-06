@@ -3655,11 +3655,11 @@ define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
 7:                                                ; preds = %2, %7
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %7 ]
   %8 = shl nuw nsw i64 %indvars.iv, 2
-  %9 = getelementptr inbounds nuw i16, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !126
   %11 = sext i16 %10 to i32
   %12 = or disjoint i64 %8, 2
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !126
   %15 = sext i16 %14 to i32
   %16 = add nsw i32 %15, %11
@@ -3667,12 +3667,12 @@ define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
   %18 = sub nsw i32 %11, %15
   %19 = mul nsw i32 %18, 23170
   %20 = or disjoint i64 %8, 1
-  %21 = getelementptr inbounds nuw i16, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !126
   %23 = sext i16 %22 to i32
   %24 = mul nsw i32 %23, 12540
   %25 = or disjoint i64 %8, 3
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !126
   %28 = sext i16 %27 to i32
   %.neg57 = mul nsw i32 %28, -30274
@@ -3683,22 +3683,22 @@ define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
   %33 = add i32 %32, %17
   %34 = lshr i32 %33, 14
   %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %3, i64 %8
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %8
   store i16 %35, ptr %36, align 8, !tbaa !126
   %37 = sub i32 %17, %32
   %38 = lshr i32 %37, 14
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw i16, ptr %3, i64 %25
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %25
   store i16 %39, ptr %40, align 2, !tbaa !126
   %41 = add i32 %29, %19
   %42 = lshr i32 %41, 14
   %43 = trunc i32 %42 to i16
-  %44 = getelementptr inbounds nuw i16, ptr %3, i64 %20
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %20
   store i16 %43, ptr %44, align 2, !tbaa !126
   %45 = sub i32 %19, %29
   %46 = lshr i32 %45, 14
   %47 = trunc i32 %46 to i16
-  %48 = getelementptr inbounds nuw i16, ptr %3, i64 %12
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %12
   store i16 %47, ptr %48, align 4, !tbaa !126
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3706,7 +3706,7 @@ define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
 
 49:                                               ; preds = %.preheader, %49
   %indvars.iv63 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next64, %49 ]
-  %50 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv63
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv63
   %51 = load i16, ptr %50, align 2, !tbaa !126
   %52 = sext i16 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -3735,23 +3735,23 @@ define internal void @vp7_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
   %73 = add i32 %72, %70
   %74 = ashr i32 %73, 18
   %75 = trunc nsw i32 %74 to i16
-  %76 = getelementptr inbounds nuw [16 x i16], ptr %0, i64 %indvars.iv63
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv63
   store i16 %75, ptr %76, align 2, !tbaa !126
   %77 = sub i32 %72, %70
   %78 = ashr i32 %77, 18
   %79 = trunc nsw i32 %78 to i16
-  %80 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 %indvars.iv63
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv63
   store i16 %79, ptr %80, align 2, !tbaa !126
   %81 = add nsw i32 %59, 131072
   %82 = add i32 %81, %67
   %83 = ashr i32 %82, 18
   %84 = trunc nsw i32 %83 to i16
-  %85 = getelementptr inbounds nuw [16 x i16], ptr %5, i64 %indvars.iv63
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv63
   store i16 %84, ptr %85, align 2, !tbaa !126
   %86 = sub i32 %81, %67
   %87 = ashr i32 %86, 18
   %88 = trunc nsw i32 %87 to i16
-  %89 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 %indvars.iv63
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv63
   store i16 %88, ptr %89, align 2, !tbaa !126
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
@@ -3777,7 +3777,7 @@ define internal void @vp7_luma_dc_wht_dc_c(ptr noundef writeonly captures(none) 
 
 11:                                               ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw [4 x [16 x i16]], ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv
   store i16 %10, ptr %12, align 2, !tbaa !126
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i16 %10, ptr %13, align 2, !tbaa !126
@@ -3810,11 +3810,11 @@ define internal void @vp7_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
 10:                                               ; preds = %3, %10
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %10 ]
   %11 = shl nuw nsw i64 %indvars.iv, 2
-  %12 = getelementptr inbounds nuw i16, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !126
   %14 = sext i16 %13 to i32
   %15 = or disjoint i64 %11, 2
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !126
   %18 = sext i16 %17 to i32
   %19 = add nsw i32 %18, %14
@@ -3822,12 +3822,12 @@ define internal void @vp7_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
   %21 = sub nsw i32 %14, %18
   %22 = mul nsw i32 %21, 23170
   %23 = or disjoint i64 %11, 1
-  %24 = getelementptr inbounds nuw i16, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !126
   %26 = sext i16 %25 to i32
   %27 = mul nsw i32 %26, 12540
   %28 = or disjoint i64 %11, 3
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !126
   %31 = sext i16 %30 to i32
   %.neg73 = mul nsw i32 %31, -30274
@@ -3839,22 +3839,22 @@ define internal void @vp7_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
   %36 = add i32 %35, %20
   %37 = lshr i32 %36, 14
   %38 = trunc i32 %37 to i16
-  %39 = getelementptr inbounds nuw i16, ptr %4, i64 %11
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %11
   store i16 %38, ptr %39, align 8, !tbaa !126
   %40 = sub i32 %20, %35
   %41 = lshr i32 %40, 14
   %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds nuw i16, ptr %4, i64 %28
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %28
   store i16 %42, ptr %43, align 2, !tbaa !126
   %44 = add i32 %32, %22
   %45 = lshr i32 %44, 14
   %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds nuw i16, ptr %4, i64 %23
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %23
   store i16 %46, ptr %47, align 2, !tbaa !126
   %48 = sub i32 %22, %32
   %49 = lshr i32 %48, 14
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %4, i64 %15
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %15
   store i16 %50, ptr %51, align 4, !tbaa !126
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -3862,7 +3862,7 @@ define internal void @vp7_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
 
 52:                                               ; preds = %.preheader, %52
   %indvars.iv85 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next86, %52 ]
-  %53 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv85
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv85
   %54 = load i16, ptr %53, align 2, !tbaa !126
   %55 = sext i16 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -7158,7 +7158,7 @@ define internal void @vp8_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !126
   %6 = zext i16 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7215,7 +7215,7 @@ define internal void @vp8_luma_dc_wht_c(ptr noundef writeonly captures(none) %0,
   %46 = add nsw i32 %42, %35
   %47 = lshr i32 %46, 3
   %48 = trunc i32 %47 to i16
-  %49 = getelementptr inbounds nuw [4 x [16 x i16]], ptr %0, i64 %indvars.iv72
+  %49 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv72
   store i16 %48, ptr %49, align 2, !tbaa !126
   %50 = add nsw i32 %43, %45
   %51 = lshr i32 %50, 3
@@ -7252,7 +7252,7 @@ define internal void @vp8_luma_dc_wht_dc_c(ptr noundef writeonly captures(none) 
 
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw [4 x [16 x i16]], ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv
   store i16 %7, ptr %9, align 2, !tbaa !126
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 %7, ptr %10, align 2, !tbaa !126
@@ -7276,7 +7276,7 @@ define internal void @vp8_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
 
 5:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !126
   %8 = zext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7334,7 +7334,7 @@ define internal void @vp8_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
 .preheader.lver.orig:                             ; preds = %.preheader.lver.check, %.preheader.lver.orig
   %indvars.iv89.lver.orig = phi i64 [ %indvars.iv.next90.lver.orig, %.preheader.lver.orig ], [ 0, %.preheader.lver.check ]
   %.07186.lver.orig = phi ptr [ %107, %.preheader.lver.orig ], [ %0, %.preheader.lver.check ]
-  %44 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv89.lver.orig
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv89.lver.orig
   %45 = load i16, ptr %44, align 2, !tbaa !126
   %46 = sext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -7423,7 +7423,7 @@ define internal void @vp8_idct_add_c(ptr noundef captures(none) %0, ptr noundef 
   %store_forwarded = phi i8 [ %load_initial, %.preheader.ph ], [ %.0.i77, %.preheader ]
   %indvars.iv89 = phi i64 [ 0, %.preheader.ph ], [ %indvars.iv.next90, %.preheader ]
   %.07186 = phi ptr [ %0, %.preheader.ph ], [ %170, %.preheader ]
-  %108 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv89
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv89
   %109 = load i16, ptr %108, align 2, !tbaa !126
   %110 = sext i16 %109 to i32
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 16

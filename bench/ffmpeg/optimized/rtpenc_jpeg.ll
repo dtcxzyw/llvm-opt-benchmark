@@ -107,14 +107,14 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 5
   %51 = zext nneg i32 %.0195327 to i64
   %wide.trip.count = zext nneg i16 %41 to i64
-  %invariant.gep = getelementptr inbounds nuw ptr, ptr %4, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph325, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph325 ], [ %indvars.iv.next, %52 ]
   %53 = mul nuw nsw i64 %indvars.iv, 65
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store ptr %54, ptr %gep, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -441,7 +441,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 .lr.ph343:                                        ; preds = %183, %.lr.ph343
   %indvars.iv390 = phi i64 [ %indvars.iv.next391, %.lr.ph343 ], [ 0, %183 ]
   %.1248340 = phi ptr [ %189, %.lr.ph343 ], [ %186, %183 ]
-  %187 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv390
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv390
   %188 = load ptr, ptr %187, align 8, !tbaa !45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.1248340, ptr noundef nonnull align 1 dereferenceable(64) %188, i64 64, i1 false)
   %189 = getelementptr inbounds nuw i8, ptr %.1248340, i64 64

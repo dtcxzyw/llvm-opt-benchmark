@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
-%struct.uat_key_record_t = type { ptr, i8, ptr, [16 x i8] }
 %struct.key_record_t = type { i32, ptr, [16 x i8] }
 %struct.zbee_nwk_green_power_packet = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i64 }
 
@@ -549,7 +548,7 @@ define internal void @gp_uat_key_records_byte_order_set_cb(ptr noundef writeonly
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -591,7 +590,7 @@ define internal void @gp_uat_key_records_byte_order_tostr_cb(ptr noundef readonl
   %.01520 = phi i32 [ %13, %18 ], [ 0, %.lr.ph ]
   %13 = add i32 %.01520, 1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct._value_string, ptr %3, i64 %14
+  %15 = getelementptr [16 x i8], ptr %3, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -750,7 +749,7 @@ define internal void @uat_key_record_post_update_cb() #2 {
   %2 = phi i32 [ %1, %.lr.ph.preheader ], [ %14, %13 ]
   %3 = phi ptr [ %.pre8, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %4 = getelementptr %struct.uat_key_record_t, ptr %3, i64 %indvars.iv
+  %4 = getelementptr [40 x i8], ptr %3, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %5, ptr noundef nonnull dereferenceable(16) @empty_key, i64 16)
   %6 = icmp eq i32 %bcmp, 0
@@ -804,13 +803,13 @@ define internal void @gp_init_zbee_security() #1 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = phi ptr [ %2, %.lr.ph ], [ %21, %9 ]
   store i32 0, ptr %1, align 8
-  %11 = getelementptr %struct.uat_key_record_t, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [40 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call noalias ptr @g_strdup(ptr noundef %13)
   store ptr %14, ptr %7, align 8
   %15 = load ptr, ptr @gp_uat_key_records, align 8
-  %16 = getelementptr %struct.uat_key_record_t, ptr %15, i64 %indvars.iv
+  %16 = getelementptr [40 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %17, i64 noundef 16, i1 noundef false) #12
   %18 = load ptr, ptr @zbee_gp_keyring, align 8
@@ -2270,7 +2269,7 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   %.14147.us = phi ptr [ %12, %.split.us.preheader ], [ %22, %20 ]
   %.13748.us = load i8, ptr %.13748.us.in, align 1
   %16 = zext i8 %.13748.us to i64
-  %17 = getelementptr i16, ptr %13, i64 %16
+  %17 = getelementptr [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 64
   %.not46.us.not.not = icmp ne i16 %19, 0
@@ -2305,7 +2304,7 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   %.343 = phi ptr [ %25, %24 ], [ %.14147, %.split ]
   %.3 = phi i8 [ %26, %24 ], [ %.13748, %.split ]
   %28 = zext i8 %.3 to i64
-  %29 = getelementptr i16, ptr %9, i64 %28
+  %29 = getelementptr [2 x i8], ptr %9, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 1024
   %.not = icmp eq i16 %31, 0
@@ -2319,7 +2318,7 @@ define internal fastcc noundef zeroext i1 @zbee_gp_security_parse_key(ptr nounde
   store i8 %34, ptr %35, align 1
   %36 = load i8, ptr %.343, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr i16, ptr %9, i64 %37
+  %38 = getelementptr [2 x i8], ptr %9, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 1024
   %.not45 = icmp eq i16 %40, 0

@@ -34,7 +34,7 @@ define hidden noundef double @_Z11proj_strtodPKcPPc(ptr noundef %0, ptr noundef 
   %.0165 = phi ptr [ %15, %9 ], [ %0, %.preheader250 ]
   %10 = load i8, ptr %.0165, align 1, !tbaa !13
   %11 = sext i8 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %5, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %5, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !14
   %14 = and i16 %13, 8192
   %.not = icmp eq i16 %14, 0
@@ -156,7 +156,7 @@ switch.early.test:                                ; preds = %33
 52:                                               ; preds = %49
   %53 = load ptr, ptr %4, align 8, !tbaa !4
   %54 = sext i8 %47 to i64
-  %55 = getelementptr inbounds i16, ptr %53, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %53, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !14
   %57 = and i16 %56, 8192
   %.not208 = icmp eq i16 %57, 0

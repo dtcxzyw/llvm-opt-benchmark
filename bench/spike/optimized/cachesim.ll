@@ -1101,12 +1101,12 @@ define noundef ptr @_ZN11cache_sim_t9check_tagEm(ptr noundef nonnull readonly al
   %13 = and i64 %12, %5
   %14 = load ptr, ptr %9, align 8, !tbaa !31
   %15 = mul i64 %8, %13
-  %16 = getelementptr i64, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   br label %17
 
 17:                                               ; preds = %.lr.ph, %22
   %.01117 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
-  %18 = getelementptr i64, ptr %16, i64 %.01117
+  %18 = getelementptr [8 x i8], ptr %16, i64 %.01117
   %19 = load i64, ptr %18, align 8, !tbaa !65
   %20 = and i64 %19, -4611686018427387905
   %21 = icmp eq i64 %6, %20
@@ -1118,7 +1118,7 @@ define noundef ptr @_ZN11cache_sim_t9check_tagEm(ptr noundef nonnull readonly al
   br i1 %exitcond.not, label %.split.loop.exit14, label %17, !llvm.loop !66
 
 .split.loop.exit14.loopexit.split.loop.exit:      ; preds = %17
-  %24 = getelementptr i64, ptr %16, i64 %.01117
+  %24 = getelementptr [8 x i8], ptr %16, i64 %.01117
   br label %.split.loop.exit14
 
 .split.loop.exit14:                               ; preds = %22, %.split.loop.exit14.loopexit.split.loop.exit, %2
@@ -1150,8 +1150,8 @@ define noundef i64 @_ZN11cache_sim_t9victimizeEm(ptr noundef nonnull align 8 cap
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = mul i64 %19, %9
-  %24 = getelementptr i64, ptr %22, i64 %23
-  %25 = getelementptr i64, ptr %24, i64 %20
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
+  %25 = getelementptr [8 x i8], ptr %24, i64 %20
   %26 = load i64, ptr %25, align 8, !tbaa !65
   %27 = or i64 %5, -9223372036854775808
   store i64 %27, ptr %25, align 8, !tbaa !65

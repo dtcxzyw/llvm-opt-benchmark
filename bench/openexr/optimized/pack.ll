@@ -3,9 +3,6 @@ source_filename = "bench/openexr/original/pack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @internal_exr_match_encode(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
@@ -53,7 +50,7 @@ define internal range(i32 0, 4) i32 @default_pack(ptr noundef captures(none) %0)
   %.1137248 = phi ptr [ %.3139, %275 ], [ %.0136255, %9 ]
   %.2154247 = phi i64 [ %.4156, %275 ], [ %.0152254, %9 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !17
-  %19 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !18
   %22 = icmp eq i32 %21, 0

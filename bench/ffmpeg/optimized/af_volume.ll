@@ -121,7 +121,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [7 x i32], ptr @query_formats.sample_fmts, i64 %8
+  %9 = getelementptr inbounds [28 x i8], ptr @query_formats.sample_fmts, i64 %8
   %10 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9) #8
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   ret i32 %.
@@ -466,10 +466,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv140 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next141, %162 ]
   %163 = load ptr, ptr %159, align 8, !tbaa !70
   %164 = load ptr, ptr %160, align 8, !tbaa !71
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv140
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %indvars.iv140
   %166 = load ptr, ptr %165, align 8, !tbaa !72
   %167 = load ptr, ptr %161, align 8, !tbaa !71
-  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv140
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv140
   %169 = load ptr, ptr %168, align 8, !tbaa !72
   %170 = load i32, ptr %109, align 8, !tbaa !61
   tail call void %163(ptr noundef %166, ptr noundef %169, i32 noundef %153, i32 noundef %170) #8
@@ -513,10 +513,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %191 = load ptr, ptr %190, align 8, !tbaa !76
   %192 = load ptr, ptr %186, align 8, !tbaa !71
-  %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv137
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv137
   %194 = load ptr, ptr %193, align 8, !tbaa !72
   %195 = load ptr, ptr %187, align 8, !tbaa !71
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv137
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv137
   %197 = load ptr, ptr %196, align 8, !tbaa !72
   %198 = load double, ptr %105, align 8, !tbaa !59
   %199 = fptrunc nsz double %198 to float
@@ -533,10 +533,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %206 = load ptr, ptr %205, align 8, !tbaa !79
   %207 = load ptr, ptr %183, align 8, !tbaa !71
-  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   %209 = load ptr, ptr %208, align 8, !tbaa !72
   %210 = load ptr, ptr %184, align 8, !tbaa !71
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv
   %212 = load ptr, ptr %211, align 8, !tbaa !72
   %213 = load double, ptr %105, align 8, !tbaa !59
   tail call void %206(ptr noundef %209, ptr noundef %212, double noundef %213, i32 noundef %153) #8
@@ -683,7 +683,7 @@ define internal fastcc range(i32 -22, 1) i32 @set_volume(ptr noundef %0) unnamed
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !28
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr @precision_str, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr @precision_str, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !72
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.7, double noundef %19, double noundef %21, double noundef %23, ptr noundef %28) #8
   %29 = load i32, ptr %24, align 8, !tbaa !28
@@ -813,7 +813,7 @@ define internal void @scale_samples_s16_small(ptr noundef writeonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !84
   %8 = sext i16 %7 to i32
   %9 = mul nsw i32 %3, %8
@@ -822,7 +822,7 @@ define internal void @scale_samples_s16_small(ptr noundef writeonly captures(non
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -32768)
   %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 32767)
   %.0.i = trunc nsw i32 %13 to i16
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %.0.i, ptr %14, align 2, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -844,7 +844,7 @@ define internal void @scale_samples_s16(ptr noundef writeonly captures(none) %0,
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !84
   %10 = sext i16 %9 to i64
   %11 = mul nsw i64 %10, %6
@@ -857,7 +857,7 @@ define internal void @scale_samples_s16(ptr noundef writeonly captures(none) %0,
   %17 = select i1 %16, i16 32767, i16 -32768
   %18 = trunc i64 %13 to i16
   %.0.i = select i1 %.not.i, i16 %18, i16 %17
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %.0.i, ptr %19, align 2, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -879,7 +879,7 @@ define internal void @scale_samples_s32(ptr noundef writeonly captures(none) %0,
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !88
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %10, %6
@@ -888,7 +888,7 @@ define internal void @scale_samples_s32(ptr noundef writeonly captures(none) %0,
   %14 = tail call i64 @llvm.smax.i64(i64 %13, i64 -2147483648)
   %15 = tail call i64 @llvm.smin.i64(i64 %14, i64 2147483647)
   %.0.i = trunc nsw i64 %15 to i32
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %.0.i, ptr %16, align 4, !tbaa !88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

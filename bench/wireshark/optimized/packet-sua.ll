@@ -2789,7 +2789,7 @@ define internal fastcc void @dissect_sccp_cause_parameter(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %3
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_sccp_cause_parameter, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_sccp_cause_parameter, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext i8 %11 to i32
   %15 = tail call ptr @val_to_str_const(i32 noundef %14, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.448)

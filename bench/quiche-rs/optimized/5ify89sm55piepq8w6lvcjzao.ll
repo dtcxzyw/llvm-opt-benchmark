@@ -4753,8 +4753,8 @@ _ZN6quiche2h35qpack7huffman7Decoder7decode417h73ce43f0f55f6f8aE.exit.thread: ; p
 38:                                               ; preds = %35
   %39 = lshr i8 %32, 4
   %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr inbounds nuw [16 x { i64, i8, i8, [6 x i8] }], ptr @_ZN6quiche2h35qpack7huffman5table12DECODE_TABLE17hd07417620dbc8839E, i64 %.sroa.0.0
-  %42 = getelementptr inbounds nuw { i64, i8, i8, [6 x i8] }, ptr %41, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12DECODE_TABLE17hd07417620dbc8839E, i64 %.sroa.0.0
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %40
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 9
   %44 = load i8, ptr %43, align 1, !noalias !315, !noundef !3
   %45 = and i8 %44, 4
@@ -4794,8 +4794,8 @@ _ZN6quiche2h35qpack7huffman7Decoder7decode417h73ce43f0f55f6f8aE.exit: ; preds = 
 60:                                               ; preds = %58
   %61 = and i8 %32, 15
   %62 = zext nneg i8 %61 to i64
-  %63 = getelementptr inbounds nuw [16 x { i64, i8, i8, [6 x i8] }], ptr @_ZN6quiche2h35qpack7huffman5table12DECODE_TABLE17hd07417620dbc8839E, i64 %48
-  %64 = getelementptr inbounds nuw { i64, i8, i8, [6 x i8] }, ptr %63, i64 %62
+  %63 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12DECODE_TABLE17hd07417620dbc8839E, i64 %48
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %62
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 9
   %66 = load i8, ptr %65, align 1, !noalias !323, !noundef !3
   %67 = and i8 %66, 4
@@ -4850,7 +4850,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17h82
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.039.047, i64 1
   %7 = load i8, ptr %.sroa.039.047, align 1, !noundef !3
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %8
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !3
@@ -4960,7 +4960,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17hf3
   %10 = select i1 %9, i8 32, i8 0
   %.sroa.039.0 = or i8 %10, %7
   %11 = zext i8 %.sroa.039.0 to i64
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
@@ -5075,7 +5075,7 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17h87aea196
   %11 = load i8, ptr %.sroa.08.010, align 1, !noundef !3
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.010, i64 1
-  %14 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %12
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = add i64 %15, %.sroa.02.09
   %17 = icmp eq ptr %13, %4
@@ -5113,7 +5113,7 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17hfe6ece31
   %10 = select i1 %9, i8 32, i8 0
   %.sroa.08.0 = or i8 %10, %7
   %11 = zext i8 %.sroa.08.0 to i64
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = add i64 %13, %.sroa.02.010
   %15 = icmp eq ptr %6, %4
@@ -5873,7 +5873,7 @@ define hidden { i64, i64 } @_ZN6quiche3tls7Context8set_alpn17h2e8b4b74051a6f13E(
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   br label %8
 
 8:                                                ; preds = %21, %3
@@ -6643,7 +6643,7 @@ switch.lookup:                                    ; preds = %46, %24
   %switch.downshift = lshr i32 33620480, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %31 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6quiche3tls15set_read_secret17h8eabfadde7930bdcE, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6quiche3tls15set_read_secret17h8eabfadde7930bdcE, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = invoke noundef align 8 dereferenceable(4080) ptr @"_ZN6quiche6packet97_$LT$impl$u20$core..ops..index..IndexMut$LT$quiche..packet..Epoch$GT$$u20$for$u20$$u5b$T$u5d$$GT$9index_mut17hcd32383ca3dbaee3E"(ptr noalias noundef nonnull align 8 %30, i64 noundef 3, i8 noundef %switch.masked, ptr noalias noundef readonly align 8 dereferenceable(24) %switch.load)
           to label %47 unwind label %19
@@ -6841,7 +6841,7 @@ switch.lookup:                                    ; preds = %44, %22
   %switch.downshift = lshr i32 33620480, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
   %29 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6quiche3tls16set_write_secret17h45da2c1582d50562E, i64 %29
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6quiche3tls16set_write_secret17h45da2c1582d50562E, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
   %30 = invoke noundef align 8 dereferenceable(4080) ptr @"_ZN6quiche6packet97_$LT$impl$u20$core..ops..index..IndexMut$LT$quiche..packet..Epoch$GT$$u20$for$u20$$u5b$T$u5d$$GT$9index_mut17hcd32383ca3dbaee3E"(ptr noalias noundef nonnull align 8 %28, i64 noundef 3, i8 noundef %switch.masked, ptr noalias noundef readonly align 8 dereferenceable(24) %switch.load)
           to label %45 unwind label %17
@@ -8185,7 +8185,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i: ; preds = %3
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h974b18182c4433adE.exit": ; preds = %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb61ddfebd23cff18E.exit.i"
   %.pre.i22 = phi ptr [ %50, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb61ddfebd23cff18E.exit.i" ], [ %.pre.i2327, %30 ]
   %51 = phi i64 [ %35, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hb61ddfebd23cff18E.exit.i" ], [ %22, %30 ]
-  %52 = getelementptr inbounds nuw { ptr, i64 }, ptr %.pre.i22, i64 %21
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i22, i64 %21
   store ptr %31, ptr %52, align 8, !noalias !534
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %27, ptr %53, align 8, !noalias !535
@@ -8257,10 +8257,10 @@ define internal noundef zeroext i1 @"_ZN58_$LT$quiche..crypto..Level$u20$as$u20$
 switch.lookup:
   %2 = load i32, ptr %0, align 4, !range !449, !noundef !3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE.55", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN58_$LT$quiche..crypto..Level$u20$as$u20$core..fmt..Debug$GT$3fmt17hf85ea0d31ff5580cE.55", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

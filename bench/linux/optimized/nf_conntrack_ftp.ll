@@ -100,9 +100,9 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_ftp_init() #0 sectio
   %5 = phi i32 [ %16, %4 ], [ 0, %.preheader ]
   %6 = shl i32 %5, 1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.nf_conntrack_helper, ptr @ftp, i64 %7
+  %8 = getelementptr [160 x i8], ptr @ftp, i64 %7
   %9 = sext i32 %5 to i64
-  %10 = getelementptr i16, ptr @ports, i64 %9
+  %10 = getelementptr [2 x i8], ptr @ports, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   tail call void @nf_ct_helper_init(ptr noundef %8, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str, i16 noundef zeroext 21, i16 noundef zeroext %11, i32 noundef %12, ptr noundef nonnull @ftp_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef nonnull @nf_ct_ftp_from_nlattr, ptr noundef null) #11
@@ -253,14 +253,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %73 = add i32 %72, %60
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %75 = zext i1 %8 to i64
-  %76 = getelementptr i16, ptr %74, i64 %75
+  %76 = getelementptr [2 x i8], ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %77, 0
   br i1 %78, label %.loopexit48, label %79
 
 79:                                               ; preds = %59
   %80 = zext i16 %77 to i64
-  %.split = getelementptr [2 x i32], ptr %26, i64 %75
+  %.split = getelementptr [8 x i8], ptr %26, i64 %75
   br label %84
 
 81:                                               ; preds = %84
@@ -270,14 +270,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 84:                                               ; preds = %81, %79
   %85 = phi i64 [ 0, %79 ], [ %82, %81 ]
-  %86 = getelementptr i32, ptr %.split, i64 %85
+  %86 = getelementptr [4 x i8], ptr %.split, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, %72
   br i1 %88, label %.loopexit47, label %81
 
 .loopexit48:                                      ; preds = %81, %59
   %89 = getelementptr inbounds nuw i8, ptr %25, i64 44
-  %90 = getelementptr i16, ptr %89, i64 %75
+  %90 = getelementptr [2 x i8], ptr %89, i64 %75
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1
   %93 = icmp eq i16 %92, 0
@@ -299,14 +299,14 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %100, i64 16, i1 false)
   %101 = zext i32 %60 to i64
   %102 = add nsw i64 %101, -1
-  %.split20 = getelementptr [2 x %struct.ftp_search], ptr @search, i64 %75
+  %.split20 = getelementptr [64 x i8], ptr @search, i64 %75
   %103 = icmp ugt i32 %60, 4
   br i1 %103, label %.split70.us, label %.split70
 
 .split70.us:                                      ; preds = %.loopexit47, %.thread33.us
   %104 = phi i1 [ false, %.thread33.us ], [ true, %.loopexit47 ]
   %105 = phi i64 [ 1, %.thread33.us ], [ 0, %.loopexit47 ]
-  %106 = getelementptr %struct.ftp_search, ptr %.split20, i64 %105
+  %106 = getelementptr [32 x i8], ptr %.split20, i64 %105
   %107 = load ptr, ptr %106, align 16
   %108 = call i32 @strncasecmp(ptr noundef %64, ptr noundef %107, i64 noundef 4)
   %109 = icmp eq i32 %108, 0
@@ -321,7 +321,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 .split70:                                         ; preds = %.loopexit47, %.thread33
   %110 = phi i1 [ false, %.thread33 ], [ true, %.loopexit47 ]
   %111 = phi i64 [ 1, %.thread33 ], [ 0, %.loopexit47 ]
-  %112 = getelementptr %struct.ftp_search, ptr %.split20, i64 %111
+  %112 = getelementptr [32 x i8], ptr %.split20, i64 %111
   %113 = load ptr, ptr %112, align 16
   %114 = call i32 @strncasecmp(ptr noundef %64, ptr noundef %113, i64 noundef %101)
   %.not42 = icmp eq i32 %114, 0
@@ -450,7 +450,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 183:                                              ; preds = %180
   %184 = zext i16 %181 to i64
-  %.split26 = getelementptr [2 x i32], ptr %26, i64 %75
+  %.split26 = getelementptr [8 x i8], ptr %26, i64 %75
   br label %188
 
 185:                                              ; preds = %188
@@ -460,7 +460,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 188:                                              ; preds = %185, %183
   %189 = phi i64 [ 0, %183 ], [ %186, %185 ]
-  %190 = getelementptr i32, ptr %.split26, i64 %189
+  %190 = getelementptr [4 x i8], ptr %.split26, i64 %189
   %191 = load i32, ptr %190, align 4
   %192 = icmp eq i32 %191, %73
   br i1 %192, label %.loopexit, label %185
@@ -473,8 +473,8 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %.pre-phi = phi i64 [ 1, %193 ], [ 0, %180 ]
   %195 = add nuw nsw i16 %181, 1
   store i16 %195, ptr %76, align 2
-  %.split28 = getelementptr [2 x i32], ptr %26, i64 %75
-  %196 = getelementptr i32, ptr %.split28, i64 %.pre-phi
+  %.split28 = getelementptr [8 x i8], ptr %26, i64 %75
+  %196 = getelementptr [4 x i8], ptr %.split28, i64 %.pre-phi
   store i32 %73, ptr %196, align 4
   br label %.loopexit
 
@@ -485,7 +485,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %201 = sub i32 %198, %200
   %202 = icmp sgt i32 %201, -1
   %203 = zext i1 %202 to i64
-  %204 = getelementptr i32, ptr %.split26, i64 %203
+  %204 = getelementptr [4 x i8], ptr %.split26, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = sub i32 %205, %73
   %207 = icmp slt i32 %206, 0
@@ -610,7 +610,7 @@ define internal i32 @try_rfc959(ptr noundef readonly captures(none) %0, i64 noun
 14:                                               ; preds = %.preheader
   %15 = zext nneg i8 %11 to i32
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr i32, ptr %6, i64 %16
+  %17 = getelementptr [4 x i8], ptr %6, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = mul i32 %18, 10
   %20 = add nsw i32 %15, -48
@@ -753,7 +753,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
 43:                                               ; preds = %36
   %44 = zext nneg i8 %40 to i32
   %45 = zext nneg i32 %39 to i64
-  %46 = getelementptr i32, ptr %7, i64 %45
+  %46 = getelementptr [4 x i8], ptr %7, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = mul i32 %47, 10
   %49 = add nsw i32 %44, -48
@@ -929,7 +929,7 @@ define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 nou
 33:                                               ; preds = %26
   %34 = zext nneg i8 %30 to i32
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr i32, ptr %6, i64 %35
+  %36 = getelementptr [4 x i8], ptr %6, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = mul i32 %37, 10
   %39 = add nsw i32 %34, -48

@@ -924,7 +924,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr i32, ptr @ppr_to_ps, i64 %13
+  %14 = getelementptr [4 x i8], ptr @ppr_to_ps, i64 %13
   %15 = load i32, ptr %14, align 4
   switch i32 %8, label %27 [
     i32 7, label %16
@@ -1157,7 +1157,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr noundef readonly captu
 
 15:                                               ; preds = %5
   %16 = zext nneg i8 %13 to i64
-  %17 = getelementptr ptr, ptr @extended_msgs, i64 %16
+  %17 = getelementptr [8 x i8], ptr @extended_msgs, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %18) #19
   br label %23
@@ -1305,7 +1305,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr noundef readonly captu
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %119
-  %125 = getelementptr ptr, ptr @one_byte_msgs, i64 %120
+  %125 = getelementptr [8 x i8], ptr @one_byte_msgs, i64 %120
   %126 = load ptr, ptr %125, align 8
   %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %126) #19
   br label %.loopexit
@@ -1333,7 +1333,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr noundef readonly captu
 
 139:                                              ; preds = %136
   %140 = zext nneg i32 %137 to i64
-  %141 = getelementptr ptr, ptr @two_byte_msgs, i64 %140
+  %141 = getelementptr [8 x i8], ptr @two_byte_msgs, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr i8, ptr %0, i64 1
   %144 = load i8, ptr %143, align 1
@@ -1377,7 +1377,7 @@ define internal fastcc void @print_nego(ptr noundef readonly captures(none) %0, 
 
 10:                                               ; preds = %3
   %11 = zext nneg i8 %6 to i64
-  %12 = getelementptr i32, ptr @ppr_to_ps, i64 %11
+  %12 = getelementptr [4 x i8], ptr @ppr_to_ps, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp samesign ult i8 %6, 7
   br i1 %14, label %15, label %16
@@ -1644,14 +1644,14 @@ define internal i32 @spi_transport_init() #7 section ".init.text" align 16 {
 .preheader:                                       ; preds = %0, %.preheader
   %3 = phi i64 [ %11, %.preheader ], [ 0, %0 ]
   %4 = phi ptr [ %13, %.preheader ], [ @.str.124, %0 ]
-  %5 = getelementptr %struct.anon.8, ptr @spi_static_device_list, i64 %3
+  %5 = getelementptr [24 x i8], ptr @spi_static_device_list, i64 %3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %4, ptr noundef %7, ptr noundef null, i64 noundef %9, i32 noundef 1) #17
   %11 = add nuw nsw i64 %3, 1
-  %12 = getelementptr %struct.anon.8, ptr @spi_static_device_list, i64 %11
+  %12 = getelementptr [24 x i8], ptr @spi_static_device_list, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq i64 %11, 2
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !18
@@ -2783,7 +2783,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr i32, ptr @ppr_to_ps, i64 %35
+  %36 = getelementptr [4 x i8], ptr @ppr_to_ps, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp samesign ult i32 %29, 7
   br i1 %38, label %.thread, label %39
@@ -2913,7 +2913,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
 
 50:                                               ; preds = %55, %.loopexit
   %51 = phi i64 [ 0, %.loopexit ], [ %56, %55 ]
-  %52 = getelementptr i32, ptr @ppr_to_ps, i64 %51
+  %52 = getelementptr [4 x i8], ptr @ppr_to_ps, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = icmp slt i32 %53, %49
   br i1 %54, label %55, label %59
@@ -3008,7 +3008,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
 
 33:                                               ; preds = %30
   %34 = zext nneg i32 %28 to i64
-  %35 = getelementptr i32, ptr @ppr_to_ps, i64 %34
+  %35 = getelementptr [4 x i8], ptr @ppr_to_ps, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = icmp samesign ult i32 %28, 7
   br i1 %37, label %.thread, label %38
@@ -3109,7 +3109,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr noundef readonly
 
 28:                                               ; preds = %33, %.loopexit
   %29 = phi i64 [ 0, %.loopexit ], [ %34, %33 ]
-  %30 = getelementptr i32, ptr @ppr_to_ps, i64 %29
+  %30 = getelementptr [4 x i8], ptr @ppr_to_ps, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, %27
   br i1 %32, label %33, label %37
@@ -4442,7 +4442,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
 
 32:                                               ; preds = %29, %25
   %33 = phi i64 [ 0, %25 ], [ %30, %29 ]
-  %34 = getelementptr %struct.anon.7, ptr @signal_types, i64 %33
+  %34 = getelementptr [16 x i8], ptr @signal_types, i64 %33
   %35 = load i32, ptr %34, align 16
   %36 = icmp eq i32 %35, %28
   br i1 %36, label %37, label %29
@@ -4489,7 +4489,7 @@ define internal noundef i64 @store_spi_host_signalling(ptr noundef readonly capt
 
 20:                                               ; preds = %33, %.loopexit
   %21 = phi i64 [ 0, %.loopexit ], [ %34, %33 ]
-  %22 = getelementptr %struct.anon.7, ptr @signal_types, i64 %21
+  %22 = getelementptr [16 x i8], ptr @signal_types, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strlen(ptr noundef %24) #17

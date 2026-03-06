@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.SuperBlock = type { [32 x i32] }
-%struct.CodeBook = type { i32, i32, ptr }
-%union.MacroBlock = type { [2 x i32] }
 
 @.str = private unnamed_addr constant [10 x i8] c"escape124\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Escape 124\00", align 1
@@ -191,7 +189,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   br label %.thread
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw %struct.CodeBook, ptr %43, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   tail call void @av_freep(ptr noundef nonnull %96) #7
   %97 = icmp ugt i32 %.0136, 63161282
@@ -250,7 +248,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %131 = lshr i32 %129, %130
   %132 = and i32 %131, 32767
   store i32 %132, ptr %44, align 4, !tbaa !39
-  %133 = getelementptr inbounds nuw %union.MacroBlock, ptr %105, i64 %indvars.iv24.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv24.i
   br label %134
 
 134:                                              ; preds = %134, %106
@@ -259,10 +257,10 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %136 = lshr i32 %114, %135
   %137 = and i32 %136, 1
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !39
   %141 = trunc i32 %140 to i16
-  %142 = getelementptr inbounds nuw i16, ptr %133, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %133, i64 %indvars.iv.i
   store i16 %141, ptr %142, align 2, !tbaa !37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -412,9 +410,9 @@ decode_skip_count.exit.thread:                    ; preds = %174, %196, %207, %1
 .preheader14.i:                                   ; preds = %decode_skip_count.exit.thread, %.preheader14.i
   %indvars.iv.i175 = phi i64 [ %indvars.iv.next.i176, %.preheader14.i ], [ 0, %decode_skip_count.exit.thread ]
   %218 = mul nsw i64 %indvars.iv.i175, %158
-  %219 = getelementptr inbounds i16, ptr %.0134379, i64 %218
+  %219 = getelementptr inbounds [2 x i8], ptr %.0134379, i64 %218
   %220 = mul nsw i64 %indvars.iv.i175, %163
-  %221 = getelementptr inbounds i16, ptr %.0130380, i64 %220
+  %221 = getelementptr inbounds [2 x i8], ptr %.0130380, i64 %220
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %219, ptr noundef nonnull readonly align 2 dereferenceable(16) %221, i64 16, i1 false)
   %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i175, 1
   %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, 8
@@ -423,7 +421,7 @@ decode_skip_count.exit.thread:                    ; preds = %174, %196, %207, %1
 .preheader.i178:                                  ; preds = %decode_skip_count.exit.thread, %.preheader.i178
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %.preheader.i178 ], [ 0, %decode_skip_count.exit.thread ]
   %222 = mul nsw i64 %indvars.iv20.i, %158
-  %223 = getelementptr inbounds i16, ptr %.0134379, i64 %222
+  %223 = getelementptr inbounds [2 x i8], ptr %.0134379, i64 %222
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %223, i8 0, i64 16, i1 false)
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 8
@@ -443,7 +441,7 @@ decode_skip_count.exit.thread327:                 ; preds = %174, %176
   %.idx = shl nsw i64 %indvars.iv.i181, 4
   %224 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   %225 = mul nsw i64 %indvars.iv.i181, %163
-  %226 = getelementptr inbounds i16, ptr %.0130380, i64 %225
+  %226 = getelementptr inbounds [2 x i8], ptr %.0130380, i64 %225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %224, ptr noundef nonnull readonly align 2 dereferenceable(16) %226, i64 16, i1 false)
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i181, 1
   %exitcond.not.i183 = icmp eq i64 %indvars.iv.next.i182, 8
@@ -515,7 +513,7 @@ copy_superblock.exit188:                          ; preds = %.preheader14.i180, 
   %.sroa.20.18 = phi i32 [ %spec.select.i26.i, %251 ], [ %spec.select.i.i190, %240 ]
   %.7 = phi i32 [ %267, %251 ], [ %.2309355, %240 ]
   %268 = sext i32 %.7 to i64
-  %269 = getelementptr inbounds %struct.CodeBook, ptr %43, i64 %268
+  %269 = getelementptr inbounds [16 x i8], ptr %43, i64 %268
   %270 = load i32, ptr %269, align 8, !tbaa !49
   %.not.i.i = icmp eq i32 %270, 0
   br i1 %.not.i.i, label %get_bitsz.exit.i, label %271
@@ -561,7 +559,7 @@ get_bitsz.exit.i:                                 ; preds = %271, %._crit_edge.i
 
 295:                                              ; preds = %292
   %296 = zext i32 %.0.i192 to i64
-  %297 = getelementptr inbounds nuw %union.MacroBlock, ptr %294, i64 %296
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %296
   %298 = load i64, ptr %297, align 4, !tbaa !37
   br label %decode_macroblock.exit
 
@@ -580,7 +578,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
 
 305:                                              ; preds = %decode_macroblock.exit, %315
   %indvars.iv401 = phi i64 [ 0, %decode_macroblock.exit ], [ %indvars.iv.next402, %315 ]
-  %306 = getelementptr inbounds nuw i16, ptr @mask_matrix, i64 %indvars.iv401
+  %306 = getelementptr inbounds nuw [2 x i8], ptr @mask_matrix, i64 %indvars.iv401
   %307 = load i16, ptr %306, align 2, !tbaa !53
   %308 = zext i16 %307 to i32
   %309 = and i32 %304, %308
@@ -588,9 +586,9 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   br i1 %.not155, label %315, label %310
 
 310:                                              ; preds = %305
-  %311 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv401
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv401
   %312 = and i64 %indvars.iv401, 12
-  %313 = getelementptr inbounds nuw i32, ptr %311, i64 %312
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %312
   store i32 %.sroa.0.0.extract.trunc.i, ptr %313, align 4, !tbaa !39
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
   store i32 %.sroa.2.0.extract.trunc.i, ptr %314, align 4, !tbaa !39
@@ -665,7 +663,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %419 ], [ 0, %348 ]
   %.3310375 = phi i32 [ %.4, %419 ], [ %.2309.lcssa, %348 ]
   %.sroa.20.11374 = phi i32 [ %.sroa.20.12, %419 ], [ %.sroa.20.10, %348 ]
-  %352 = getelementptr inbounds nuw i16, ptr @mask_matrix, i64 %indvars.iv406
+  %352 = getelementptr inbounds nuw [2 x i8], ptr @mask_matrix, i64 %indvars.iv406
   %353 = load i16, ptr %352, align 2, !tbaa !53
   %354 = zext i16 %353 to i32
   %355 = and i32 %.2129, %354
@@ -711,7 +709,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %.sroa.20.20 = phi i32 [ %spec.select.i26.i198, %367 ], [ %spec.select.i.i196, %356 ]
   %.8 = phi i32 [ %383, %367 ], [ %.3310375, %356 ]
   %384 = sext i32 %.8 to i64
-  %385 = getelementptr inbounds %struct.CodeBook, ptr %43, i64 %384
+  %385 = getelementptr inbounds [16 x i8], ptr %43, i64 %384
   %386 = load i32, ptr %385, align 8, !tbaa !49
   %.not.i.i199 = icmp eq i32 %386, 0
   br i1 %.not.i.i199, label %get_bitsz.exit.i201, label %387
@@ -757,7 +755,7 @@ get_bitsz.exit.i201:                              ; preds = %387, %._crit_edge.i
 
 411:                                              ; preds = %408
   %412 = zext i32 %.0.i202 to i64
-  %413 = getelementptr inbounds nuw %union.MacroBlock, ptr %410, i64 %412
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %412
   %414 = load i64, ptr %413, align 4, !tbaa !37
   br label %decode_macroblock.exit208
 
@@ -766,9 +764,9 @@ decode_macroblock.exit208:                        ; preds = %405, %408, %411
   %.sroa.0.0.extract.trunc.i209 = trunc i64 %.sroa.0.0.insert.insert.i204 to i32
   %.sroa.2.0.extract.shift.i210 = lshr i64 %.sroa.0.0.insert.insert.i204, 32
   %.sroa.2.0.extract.trunc.i211 = trunc nuw i64 %.sroa.2.0.extract.shift.i210 to i32
-  %415 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv406
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv406
   %416 = and i64 %indvars.iv406, 12
-  %417 = getelementptr inbounds nuw i32, ptr %415, i64 %416
+  %417 = getelementptr inbounds nuw [4 x i8], ptr %415, i64 %416
   store i32 %.sroa.0.0.extract.trunc.i209, ptr %417, align 4, !tbaa !39
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 16
   store i32 %.sroa.2.0.extract.trunc.i211, ptr %418, align 4, !tbaa !39
@@ -840,7 +838,7 @@ decode_macroblock.exit208:                        ; preds = %405, %408, %411
   %.sroa.20.22 = phi i32 [ %spec.select.i26.i215, %441 ], [ %spec.select.i.i213, %430 ]
   %.9 = phi i32 [ %457, %441 ], [ %.6364, %430 ]
   %458 = sext i32 %.9 to i64
-  %459 = getelementptr inbounds %struct.CodeBook, ptr %43, i64 %458
+  %459 = getelementptr inbounds [16 x i8], ptr %43, i64 %458
   %460 = load i32, ptr %459, align 8, !tbaa !49
   %.not.i.i216 = icmp eq i32 %460, 0
   br i1 %.not.i.i216, label %get_bitsz.exit.i218, label %461
@@ -886,7 +884,7 @@ get_bitsz.exit.i218:                              ; preds = %461, %._crit_edge.i
 
 485:                                              ; preds = %482
   %486 = zext i32 %.0.i219 to i64
-  %487 = getelementptr inbounds nuw %union.MacroBlock, ptr %484, i64 %486
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %484, i64 %486
   %488 = load i64, ptr %487, align 4, !tbaa !37
   br label %decode_macroblock.exit225
 
@@ -905,10 +903,10 @@ decode_macroblock.exit225:                        ; preds = %479, %482, %485
   %.sroa.2.0.extract.shift.i227 = lshr i64 %.sroa.0.0.insert.insert.i221, 32
   %.sroa.2.0.extract.trunc.i228 = trunc nuw i64 %.sroa.2.0.extract.shift.i227 to i32
   %498 = zext nneg i32 %495 to i64
-  %499 = getelementptr inbounds nuw i32, ptr %6, i64 %498
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %498
   %500 = and i32 %494, 12
   %501 = zext nneg i32 %500 to i64
-  %502 = getelementptr inbounds nuw i32, ptr %499, i64 %501
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %499, i64 %501
   store i32 %.sroa.0.0.extract.trunc.i226, ptr %502, align 4, !tbaa !39
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 16
   store i32 %.sroa.2.0.extract.trunc.i228, ptr %503, align 4, !tbaa !39
@@ -923,7 +921,7 @@ decode_macroblock.exit225:                        ; preds = %479, %482, %485
 .preheader14.i230:                                ; preds = %.critedge2, %.preheader14.i230
   %indvars.iv.i231 = phi i64 [ %indvars.iv.next.i232, %.preheader14.i230 ], [ 0, %.critedge2 ]
   %505 = mul nsw i64 %indvars.iv.i231, %158
-  %506 = getelementptr inbounds i16, ptr %.0134379, i64 %505
+  %506 = getelementptr inbounds [2 x i8], ptr %.0134379, i64 %505
   %.idx335 = shl nsw i64 %indvars.iv.i231, 4
   %507 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx335
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %506, ptr noundef nonnull readonly align 4 dereferenceable(16) %507, i64 16, i1 false)
@@ -941,10 +939,10 @@ copy_superblock.exit:                             ; preds = %.preheader14.i230, 
   %510 = getelementptr inbounds nuw i8, ptr %.0130380, i64 16
   %spec.select = select i1 %.not156, ptr null, ptr %510
   %511 = icmp eq i32 %508, %13
-  %512 = getelementptr inbounds i16, ptr %spec.select, i64 %173
+  %512 = getelementptr inbounds [2 x i8], ptr %spec.select, i64 %173
   %.3133 = select i1 %.not156, ptr null, ptr %512
   %.1135.idx = select i1 %511, i64 %171, i64 0
-  %.1135 = getelementptr inbounds i16, ptr %509, i64 %.1135.idx
+  %.1135 = getelementptr inbounds [2 x i8], ptr %509, i64 %.1135.idx
   %.2132 = select i1 %511, ptr %.3133, ptr %spec.select
   %.1124 = select i1 %511, i32 0, i32 %508
   %513 = add i32 %.1126325, -1
@@ -980,7 +978,7 @@ define internal noundef i32 @escape124_decode_close(ptr noundef readonly capture
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.CodeBook, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @av_freep(ptr noundef nonnull %6) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

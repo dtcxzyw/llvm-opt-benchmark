@@ -94,7 +94,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr noundef readnone ca
 
 .lr.ph342:                                        ; preds = %.lr.ph342.preheader, %38
   %indvars.iv392 = phi i64 [ 0, %.lr.ph342.preheader ], [ %indvars.iv.next393, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv392
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv392
   %40 = load ptr, ptr %39, align 8, !tbaa !28
   %41 = icmp eq ptr %40, %.ptr295
   br i1 %41, label %in_hitlist.exit.thread, label %38
@@ -102,7 +102,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr noundef readnone ca
 in_hitlist.exit:                                  ; preds = %38, %33
   %42 = add nsw i32 %.0256, 1
   %43 = sext i32 %.0256 to i64
-  %44 = getelementptr inbounds ptr, ptr %14, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %14, i64 %43
   store ptr %.ptr295, ptr %44, align 8, !tbaa !28
   br label %46
 
@@ -165,7 +165,7 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
   %66 = load ptr, ptr %21, align 8, !tbaa !36
   %67 = load i32, ptr %27, align 8, !tbaa !27
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct._zval_struct, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !27
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !27
@@ -249,7 +249,7 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
 
 .lr.ph340:                                        ; preds = %.lr.ph340.preheader, %108
   %indvars.iv387 = phi i64 [ 0, %.lr.ph340.preheader ], [ %indvars.iv.next388, %108 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv387
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv387
   %110 = load ptr, ptr %109, align 8, !tbaa !28
   %111 = icmp eq ptr %110, %106
   br i1 %111, label %in_hitlist.exit300.thread, label %108
@@ -257,7 +257,7 @@ in_hitlist.exit.thread:                           ; preds = %30, %.lr.ph342
 in_hitlist.exit300:                               ; preds = %108, %102
   %112 = add nsw i32 %.2258, 1
   %113 = sext i32 %.2258 to i64
-  %114 = getelementptr inbounds ptr, ptr %14, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %14, i64 %113
   store ptr %106, ptr %114, align 8, !tbaa !28
   br label %117
 
@@ -313,7 +313,7 @@ in_hitlist.exit300:                               ; preds = %108, %102
 
 .lr.ph338:                                        ; preds = %.lr.ph338.preheader, %138
   %indvars.iv382 = phi i64 [ 0, %.lr.ph338.preheader ], [ %indvars.iv.next383, %138 ]
-  %139 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv382
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv382
   %140 = load ptr, ptr %139, align 8, !tbaa !28
   %141 = icmp eq ptr %140, %.ptr290
   br i1 %141, label %in_hitlist.exit302.thread, label %138
@@ -321,7 +321,7 @@ in_hitlist.exit300:                               ; preds = %108, %102
 in_hitlist.exit302:                               ; preds = %138, %133
   %142 = add nsw i32 %.4260, 1
   %143 = sext i32 %.4260 to i64
-  %144 = getelementptr inbounds ptr, ptr %14, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %14, i64 %143
   store ptr %.ptr290, ptr %144, align 8, !tbaa !28
   br label %186
 
@@ -363,7 +363,7 @@ in_hitlist.exit302:                               ; preds = %138, %133
 
 .lr.ph336:                                        ; preds = %.lr.ph336.preheader, %162
   %indvars.iv377 = phi i64 [ 0, %.lr.ph336.preheader ], [ %indvars.iv.next378, %162 ]
-  %163 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv377
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv377
   %164 = load ptr, ptr %163, align 8, !tbaa !28
   %165 = icmp eq ptr %164, %.ptr289
   br i1 %165, label %in_hitlist.exit302.thread, label %162
@@ -371,7 +371,7 @@ in_hitlist.exit302:                               ; preds = %138, %133
 in_hitlist.exit304:                               ; preds = %162, %157
   %166 = add nsw i32 %.4260, 1
   %167 = sext i32 %.4260 to i64
-  %168 = getelementptr inbounds ptr, ptr %14, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %14, i64 %167
   store ptr %.ptr289, ptr %168, align 8, !tbaa !28
   br label %186
 
@@ -466,7 +466,7 @@ in_hitlist.exit302.thread:                        ; preds = %183, %.lr.ph336, %.
 
 .lr.ph334:                                        ; preds = %.lr.ph334.preheader, %212
   %indvars.iv372 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next373, %212 ]
-  %213 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv372
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv372
   %214 = load ptr, ptr %213, align 8, !tbaa !28
   %215 = icmp eq ptr %214, %.ptr281
   br i1 %215, label %in_hitlist.exit306.thread, label %212
@@ -474,7 +474,7 @@ in_hitlist.exit302.thread:                        ; preds = %183, %.lr.ph336, %.
 in_hitlist.exit306:                               ; preds = %212, %207
   %216 = add nsw i32 %.6262, 1
   %217 = sext i32 %.6262 to i64
-  %218 = getelementptr inbounds ptr, ptr %14, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr %14, i64 %217
   store ptr %.ptr281, ptr %218, align 8, !tbaa !28
   br label %365
 
@@ -529,7 +529,7 @@ in_hitlist.exit306:                               ; preds = %212, %207
 
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %245
   %indvars.iv367 = phi i64 [ 0, %.lr.ph332.preheader ], [ %indvars.iv.next368, %245 ]
-  %246 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv367
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv367
   %247 = load ptr, ptr %246, align 8, !tbaa !28
   %248 = icmp eq ptr %247, %.ptr280
   br i1 %248, label %in_hitlist.exit306.thread, label %245
@@ -537,7 +537,7 @@ in_hitlist.exit306:                               ; preds = %212, %207
 in_hitlist.exit308:                               ; preds = %245, %240
   %249 = add nsw i32 %.6262, 1
   %250 = sext i32 %.6262 to i64
-  %251 = getelementptr inbounds ptr, ptr %14, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %14, i64 %250
   store ptr %.ptr280, ptr %251, align 8, !tbaa !28
   br label %365
 
@@ -597,7 +597,7 @@ in_hitlist.exit308:                               ; preds = %245, %240
 
 .lr.ph330:                                        ; preds = %.lr.ph330.preheader, %281
   %indvars.iv362 = phi i64 [ 0, %.lr.ph330.preheader ], [ %indvars.iv.next363, %281 ]
-  %282 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv362
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv362
   %283 = load ptr, ptr %282, align 8, !tbaa !28
   %284 = icmp eq ptr %283, %.ptr279
   br i1 %284, label %in_hitlist.exit306.thread, label %281
@@ -605,7 +605,7 @@ in_hitlist.exit308:                               ; preds = %245, %240
 in_hitlist.exit310:                               ; preds = %281, %276
   %285 = add nsw i32 %.6262, 1
   %286 = sext i32 %.6262 to i64
-  %287 = getelementptr inbounds ptr, ptr %14, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %14, i64 %286
   store ptr %.ptr279, ptr %287, align 8, !tbaa !28
   br label %365
 
@@ -735,7 +735,7 @@ in_hitlist.exit310:                               ; preds = %281, %276
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %357
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %357 ]
-  %358 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %359 = load ptr, ptr %358, align 8, !tbaa !28
   %360 = icmp eq ptr %359, %.ptr
   br i1 %360, label %in_hitlist.exit306.thread, label %357
@@ -743,7 +743,7 @@ in_hitlist.exit310:                               ; preds = %281, %276
 in_hitlist.exit312:                               ; preds = %357, %353
   %361 = add nsw i32 %.6262, 1
   %362 = sext i32 %.6262 to i64
-  %363 = getelementptr inbounds ptr, ptr %14, i64 %362
+  %363 = getelementptr inbounds [8 x i8], ptr %14, i64 %362
   store ptr %.ptr, ptr %363, align 8, !tbaa !28
   br label %365
 

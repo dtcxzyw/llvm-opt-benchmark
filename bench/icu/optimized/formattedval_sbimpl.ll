@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UObject" = type { ptr }
 %"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.4, [32 x i8] }
 %struct.anon.4 = type { i16, i32, i32, ptr }
-%"struct.icu_77::SpanInfo" = type { i32, i32, i32, i32 }
 %"class.icu_77::ConstrainedFieldPosition" = type <{ i64, i32, i32, i32, i32, i8, [7 x i8] }>
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
@@ -619,7 +618,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   br i1 %11, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %13, i64 %9
+  %15 = getelementptr inbounds [16 x i8], ptr %13, i64 %9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !32
   %18 = icmp sgt i64 %9, 0
@@ -629,7 +628,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %.1144230 = phi i32 [ %17, %14 ], [ -1, %8 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !35
-  %21 = getelementptr %"struct.icu_77::SpanInfo", ptr %13, i64 %9
+  %21 = getelementptr [16 x i8], ptr %13, i64 %9
   %22 = getelementptr i8, ptr %21, i64 -16
   %23 = load i32, ptr %22, align 4, !tbaa !36
   %24 = icmp eq i32 %20, %23
@@ -713,7 +712,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %71 = load ptr, ptr %58, align 8
   %72 = select i1 %70, ptr %71, ptr %58
   %73 = sext i32 %.0156362 to i64
-  %74 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %72, i64 %73
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
   %75 = select i1 %68, ptr %74, ptr @_ZN6icu_77L9kEndFieldE
   %76 = load i8, ptr %75, align 1, !tbaa !17
   %.not302 = icmp eq i8 %.sroa.0215.0361, 0
@@ -739,7 +738,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %88 = select i1 %86, ptr %87, ptr %59
   %89 = load i32, ptr %46, align 8, !tbaa !41
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i16, ptr %88, i64 %90
+  %91 = getelementptr inbounds [2 x i8], ptr %88, i64 %90
   %92 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanBackEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %84, ptr noundef %91, i32 noundef %79, i32 noundef 1)
   %.not189 = icmp sgt i32 %92, %.0128367
   br i1 %.not189, label %95, label %93
@@ -760,9 +759,9 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %100 = select i1 %98, ptr %99, ptr %59
   %101 = load i32, ptr %46, align 8, !tbaa !41
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i16, ptr %100, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %100, i64 %102
   %104 = sext i32 %.0128367 to i64
-  %105 = getelementptr inbounds i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %49, align 4, !tbaa !40
   %107 = sub nsw i32 %106, %.0128367
   %108 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %96, ptr noundef %105, i32 noundef %107, i32 noundef 1)
@@ -789,12 +788,12 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %118 = load i64, ptr %1, align 8, !tbaa !29
   %119 = add nsw i64 %118, -1
   %120 = load ptr, ptr %60, align 8, !tbaa !18
-  %121 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %120, i64 %119
+  %121 = getelementptr inbounds [16 x i8], ptr %120, i64 %119
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 12
   %123 = load i32, ptr %122, align 4, !tbaa !45
   %124 = sub nsw i32 %.0156362, %123
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %72, i64 %125
+  %126 = getelementptr inbounds i8, ptr %72, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !17
   %128 = icmp eq i8 %127, 49
   br i1 %128, label %129, label %.thread238
@@ -807,7 +806,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 131:                                              ; preds = %129
   %132 = load i32, ptr %46, align 8, !tbaa !41
   %133 = load ptr, ptr %60, align 8, !tbaa !18
-  %134 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %133, i64 %119
+  %134 = getelementptr inbounds [16 x i8], ptr %133, i64 %119
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 12
   %136 = load i32, ptr %135, align 4, !tbaa !45
   %137 = add i32 %132, %136
@@ -839,7 +838,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %148 = load ptr, ptr %58, align 8
   %149 = select i1 %147, ptr %148, ptr %58
   %150 = sext i32 %.3159 to i64
-  %151 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %149, i64 %150
+  %151 = getelementptr i8, ptr %149, i64 %150
   %152 = getelementptr i8, ptr %151, i64 -1
   %.sroa.041.0.copyload = load i8, ptr %152, align 1, !tbaa !17
   switch i8 %.sroa.041.0.copyload, label %162 [
@@ -862,7 +861,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 .lr.ph370:                                        ; preds = %.lr.ph370.preheader, %158
   %indvars.iv.in = phi i64 [ %154, %.lr.ph370.preheader ], [ %indvars.iv, %158 ]
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
-  %157 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %149, i64 %indvars.iv
+  %157 = getelementptr inbounds i8, ptr %149, i64 %indvars.iv
   %.sroa.0.0.copyload = load i8, ptr %157, align 1, !tbaa !17
   switch i8 %.sroa.0.0.copyload, label %.critedge.split.loop.exit498 [
     i8 38, label %158
@@ -906,7 +905,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %172 = load ptr, ptr %58, align 8
   %173 = select i1 %171, ptr %172, ptr %58
   %174 = sext i32 %.3159 to i64
-  %175 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %173, i64 %174
+  %175 = getelementptr i8, ptr %173, i64 %174
   %176 = getelementptr i8, ptr %175, i64 -1
   %177 = load i8, ptr %176, align 1, !tbaa !48
   %.mask.i193 = and i8 %177, -16
@@ -931,7 +930,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 .lr.ph375:                                        ; preds = %.lr.ph375.preheader, %190
   %indvars.iv430.in = phi i64 [ %183, %.lr.ph375.preheader ], [ %indvars.iv430, %190 ]
   %indvars.iv430 = add nsw i64 %indvars.iv430.in, -1
-  %186 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %173, i64 %indvars.iv430
+  %186 = getelementptr inbounds i8, ptr %173, i64 %indvars.iv430
   %187 = load i8, ptr %186, align 1, !tbaa !48
   %.mask.i197 = and i8 %187, -16
   %188 = icmp eq i8 %.mask.i197, 32
@@ -982,7 +981,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 
 205:                                              ; preds = %.critedge15
   %206 = load ptr, ptr %60, align 8, !tbaa !18
-  %207 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %206, i64 %202
+  %207 = getelementptr inbounds [16 x i8], ptr %206, i64 %202
   %208 = load i32, ptr %207, align 4, !tbaa !36
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %210 = load i32, ptr %209, align 4, !tbaa !38
@@ -997,7 +996,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 
 217:                                              ; preds = %205
   %218 = load ptr, ptr %60, align 8, !tbaa !18
-  %219 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %218, i64 %213
+  %219 = getelementptr inbounds [16 x i8], ptr %218, i64 %213
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load i32, ptr %220, align 4, !tbaa !32
   br label %222
@@ -1184,7 +1183,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuild
 46:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %.02937 = phi i1 [ false, %.lr.ph ], [ %.130, %.critedge ]
-  %47 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %42, i64 %indvars.iv
+  %47 = getelementptr inbounds i8, ptr %42, i64 %indvars.iv
   %.sroa.0.0.copyload = load i8, ptr %47, align 1, !tbaa !17
   switch i8 %.sroa.0.0.copyload, label %48 [
     i8 38, label %.critedge
@@ -1317,7 +1316,7 @@ define noundef i32 @_ZNK6icu_7731FormattedValueStringBuilderImpl8trimBackEi(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8, !tbaa !41
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %9, i64 %12
   %14 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet8spanBackEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef %13, i32 noundef %1, i32 noundef 1)
   ret i32 %14
 }
@@ -1334,9 +1333,9 @@ define noundef i32 @_ZNK6icu_7731FormattedValueStringBuilderImpl9trimFrontEi(ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8, !tbaa !41
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %9, i64 %12
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %17 = load i32, ptr %16, align 4, !tbaa !40
   %18 = sub nsw i32 %17, %1
@@ -1412,7 +1411,7 @@ _ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit: ; preds = %23, %3
   %33 = phi ptr [ %22, %_ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit ], [ %.pre9, %._crit_edge ]
   %34 = phi i32 [ %.pre, %_ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit ], [ %14, %._crit_edge ]
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %33, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %33, i64 %35
   store i32 %1, ptr %36, align 4, !tbaa !59
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !12
@@ -1511,8 +1510,8 @@ _ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit: ; preds = %23, %3
   %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %39 = load ptr, ptr %10, align 8, !tbaa !18
-  %40 = getelementptr inbounds nuw %"struct.icu_77::SpanInfo", ptr %39, i64 %indvars.iv.next
-  %41 = getelementptr inbounds nuw %"struct.icu_77::SpanInfo", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !60
   %42 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !61

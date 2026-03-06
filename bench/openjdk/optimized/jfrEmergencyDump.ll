@@ -489,7 +489,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   store ptr %27, ptr %47, align 8
   br label %48
 
@@ -580,7 +580,7 @@ define hidden void @_ZN18RepositoryIteratorD2Ev(ptr noundef nonnull readonly ali
   %5 = phi ptr [ %10, %.lr.ph ], [ %2, %.preheader ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %9) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -665,7 +665,7 @@ define hidden noundef ptr @_ZNK18RepositoryIterator4nextEv(ptr noundef nonnull a
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
@@ -738,7 +738,7 @@ _ZNK18RepositoryIterator4nextEv.exit.i.i:         ; preds = %_ZNK18RepositoryIte
   %indvars.iv = phi i64 [ %24, %_ZNK18RepositoryIterator4nextEv.exit.i.i.lr.ph ], [ %indvars.iv.next, %_ZNK18RepositoryIterator8has_nextEv.exit.i.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %22, i64 noundef %23, ptr noundef nonnull @.str, ptr noundef %27) #18
   %.not.i.i.i.i = icmp eq i32 %28, -1
@@ -825,7 +825,7 @@ _ZL25close_emergency_dump_filev.exit:             ; preds = %_ZL25write_emergenc
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv.i
   %61 = load ptr, ptr %60, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %61) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3286,9 +3286,9 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3305,7 +3305,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -285,7 +285,7 @@ define dso_local void @_ZN4i18n12phonenumbers29UnicodeTextTest_Iterator_Test8Tes
 22:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
   %.01578 = phi i64 [ 0, %1 ], [ %138, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds nuw %struct.value, ptr %3, i64 %.01578
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.01578
   %24 = load ptr, ptr %23, align 16, !tbaa !20
   store ptr %15, ptr %4, align 8, !tbaa !23
   %25 = icmp eq ptr %24, null

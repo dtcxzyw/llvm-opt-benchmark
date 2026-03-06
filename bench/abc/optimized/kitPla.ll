@@ -341,7 +341,7 @@ Kit_PlaStart.exit:                                ; preds = %16, %6
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv38 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next39, %._crit_edge.us ]
   %.val31.us = load ptr, ptr %21, align 8, !tbaa !17
-  %24 = getelementptr inbounds nuw i32, ptr %.val31.us, i64 %indvars.iv38
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val31.us, i64 %indvars.iv38
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = mul nuw nsw i64 %indvars.iv38, %23
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 %26
@@ -498,7 +498,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %12, align 4, !tbaa !12
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds i32, ptr %41, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %41, i64 %44
   store i32 %.1.us, ptr %45, align 4, !tbaa !18
   %46 = getelementptr i8, ptr %.01927.us, i64 %17
   %47 = getelementptr i8, ptr %46, i64 3
@@ -605,7 +605,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr %19, align 4, !tbaa !12
   %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds i32, ptr %88, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %88, i64 %91
   store i32 0, ptr %92, align 4, !tbaa !18
   %93 = getelementptr i8, ptr %.01927, i64 %18
   %94 = getelementptr i8, ptr %93, i64 3
@@ -650,7 +650,7 @@ select.unfold.i:                                  ; preds = %11, %4
 
 11:                                               ; preds = %select.unfold.i
   %12 = add nsw i64 %indvars.iv.i, -1
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !18
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i19, !llvm.loop !24
@@ -663,7 +663,7 @@ select.unfold.i19:                                ; preds = %11, %17
 
 17:                                               ; preds = %select.unfold.i19
   %18 = add nsw i64 %indvars.iv.i20, -1
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !18
   %.not.i22 = icmp eq i32 %20, -1
   br i1 %.not.i22, label %select.unfold.i19, label %21, !llvm.loop !25
@@ -725,7 +725,7 @@ Kit_PlaStart.exit.i:                              ; preds = %35, %25
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next39.i, %._crit_edge.us.i ]
   %.val31.us.i = load ptr, ptr %40, align 8, !tbaa !17
-  %43 = getelementptr inbounds nuw i32, ptr %.val31.us.i, i64 %indvars.iv38.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.val31.us.i, i64 %indvars.iv38.i
   %44 = load i32, ptr %43, align 4, !tbaa !18
   %45 = mul nuw nsw i64 %indvars.iv38.i, %42
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 %45
@@ -839,7 +839,7 @@ define ptr @Kit_PlaFromIsop(ptr noundef captures(none) %0, i32 noundef %1, ptr n
 11:                                               ; preds = %.lr.ph75, %Vec_StrPush.exit63
   %indvars.iv = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next, %Vec_StrPush.exit63 ]
   %.val27 = load ptr, ptr %9, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw i32, ptr %.val27, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val27, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !18
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -1537,14 +1537,14 @@ define i64 @Kit_PlaToTruth6(ptr noundef readonly captures(none) %0, i32 noundef 
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv43
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv43
   %10 = load i64, ptr %9, align 8, !tbaa !34
   %11 = xor i64 %10, -1
   %12 = and i64 %.02636.us, %11
   br label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i64, ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv43
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @Kit_PlaToTruth6.Truth, i64 %indvars.iv43
   %15 = load i64, ptr %14, align 8, !tbaa !34
   %16 = and i64 %15, %.02636.us
   br label %17
@@ -1660,9 +1660,9 @@ select.unfold.preheader.i47.us:                   ; preds = %select.unfold.prehe
 select.unfold.i57.us:                             ; preds = %Kit_TruthAnd.exit.us74, %select.unfold.i57.us
   %indvars.iv.i58.us = phi i64 [ %indvars.iv.next.i59.us, %select.unfold.i57.us ], [ %23, %Kit_TruthAnd.exit.us74 ]
   %indvars.iv.next.i59.us = add nsw i64 %indvars.iv.i58.us, -1
-  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i59.us
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i59.us
   %31 = load i32, ptr %30, align 4, !tbaa !18
-  %32 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i59.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i59.us
   %33 = load i32, ptr %32, align 4, !tbaa !18
   %34 = or i32 %33, %31
   store i32 %34, ptr %30, align 4, !tbaa !18
@@ -1680,16 +1680,16 @@ select.unfold.i57.us:                             ; preds = %Kit_TruthAnd.exit.u
 
 select.unfold.preheader.i51.us:                   ; preds = %36
   %.val45.us = load ptr, ptr %26, align 8, !tbaa !39
-  %39 = getelementptr inbounds nuw ptr, ptr %.val45.us, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val45.us, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   br label %select.unfold.i52.us
 
 select.unfold.i52.us:                             ; preds = %select.unfold.i52.us, %select.unfold.preheader.i51.us
   %indvars.iv.i53.us = phi i64 [ %23, %select.unfold.preheader.i51.us ], [ %indvars.iv.next.i54.us, %select.unfold.i52.us ]
   %indvars.iv.next.i54.us = add nsw i64 %indvars.iv.i53.us, -1
-  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i54.us
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i54.us
   %42 = load i32, ptr %41, align 4, !tbaa !18
-  %43 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.next.i54.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.next.i54.us
   %44 = load i32, ptr %43, align 4, !tbaa !18
   %45 = xor i32 %44, -1
   %46 = and i32 %42, %45
@@ -1699,16 +1699,16 @@ select.unfold.i52.us:                             ; preds = %select.unfold.i52.u
 
 select.unfold.preheader.i49.us:                   ; preds = %36
   %.val.us = load ptr, ptr %26, align 8, !tbaa !39
-  %48 = getelementptr inbounds nuw ptr, ptr %.val.us, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.val.us, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !41
   br label %select.unfold.i.us
 
 select.unfold.i.us:                               ; preds = %select.unfold.i.us, %select.unfold.preheader.i49.us
   %indvars.iv.i.us = phi i64 [ %23, %select.unfold.preheader.i49.us ], [ %indvars.iv.next.i.us, %select.unfold.i.us ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
-  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i.us
   %51 = load i32, ptr %50, align 4, !tbaa !18
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.next.i.us
   %53 = load i32, ptr %52, align 4, !tbaa !18
   %54 = and i32 %53, %51
   store i32 %54, ptr %50, align 4, !tbaa !18
@@ -1741,9 +1741,9 @@ select.unfold.preheader.i47:                      ; preds = %.lr.ph71.split, %Ki
 select.unfold.i57:                                ; preds = %select.unfold.i57, %select.unfold.preheader.i47
   %indvars.iv.i58 = phi i64 [ %23, %select.unfold.preheader.i47 ], [ %indvars.iv.next.i59, %select.unfold.i57 ]
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i58, -1
-  %62 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i59
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i59
   %63 = load i32, ptr %62, align 4, !tbaa !18
-  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i59
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i59
   %65 = load i32, ptr %64, align 4, !tbaa !18
   %66 = or i32 %65, %63
   store i32 %66, ptr %62, align 4, !tbaa !18
@@ -1769,7 +1769,7 @@ select.unfold.preheader.i61:                      ; preds = %.loopexit
 select.unfold.i62:                                ; preds = %select.unfold.i62, %select.unfold.preheader.i61
   %indvars.iv.i63 = phi i64 [ %73, %select.unfold.preheader.i61 ], [ %indvars.iv.next.i64, %select.unfold.i62 ]
   %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i63, -1
-  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i64
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i64
   %75 = load i32, ptr %74, align 4, !tbaa !18
   %76 = xor i32 %75, -1
   store i32 %76, ptr %74, align 4, !tbaa !18

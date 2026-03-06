@@ -841,7 +841,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 28:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
   %.14469 = phi i32 [ 0, %.preheader ], [ %32, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 4, !tbaa !71
   %32 = add i32 %31, %.14469
@@ -858,7 +858,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 
 37:                                               ; preds = %33, %95
   %indvars.iv79 = phi i64 [ 0, %33 ], [ %indvars.iv.next80, %95 ]
-  %38 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN6LibRaw11adobe_coeffEjPKciE5table, i64 %indvars.iv79
+  %38 = getelementptr inbounds nuw [72 x i8], ptr @_ZZN6LibRaw11adobe_coeffEjPKciE5table, i64 %indvars.iv79
   %39 = load i32, ptr %38, align 8, !tbaa !75
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %41, label %95
@@ -927,20 +927,20 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 
 .split.us:                                        ; preds = %67, %.split.us
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.split.us ], [ 0, %67 ]
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv87
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv87
   %72 = load i32, ptr %71, align 4, !tbaa !71
   %73 = sitofp i32 %72 to float
   %74 = fmul reassoc nnan nsz arcp contract afn float %73, 0x3F1A36E2E0000000
   %.lhs.trunc.us = trunc i64 %indvars.iv87 to i8
   %75 = udiv i8 %.lhs.trunc.us, 3
   %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds nuw [3 x float], ptr %70, i64 %76
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %76
   %78 = urem i8 %.lhs.trunc.us, 3
   %79 = zext nneg i8 %78 to i64
-  %80 = getelementptr inbounds nuw float, ptr %77, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %79
   store float %74, ptr %80, align 4, !tbaa !83
   %81 = fpext reassoc nsz arcp contract afn float %74 to double
-  %82 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv87
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv87
   store double %81, ptr %82, align 8, !tbaa !84
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 12
@@ -948,17 +948,17 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 
 .split:                                           ; preds = %67, %.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.split ], [ 0, %67 ]
-  %83 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv83
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv83
   %84 = load i32, ptr %83, align 4, !tbaa !71
   %85 = sitofp i32 %84 to float
   %86 = fmul reassoc nnan nsz arcp contract afn float %85, 0x3F1A36E2E0000000
   %.lhs.trunc64 = trunc i64 %indvars.iv83 to i8
   %87 = udiv i8 %.lhs.trunc64, 3
   %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds nuw [3 x float], ptr %70, i64 %88
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %88
   %90 = urem i8 %.lhs.trunc64, 3
   %91 = zext nneg i8 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr %89, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %91
   store float %86, ptr %92, align 4, !tbaa !83
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 12

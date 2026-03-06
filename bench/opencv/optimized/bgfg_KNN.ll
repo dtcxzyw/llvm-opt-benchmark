@@ -1014,7 +1014,7 @@ _ZN2cv3VecIhLi3EEC2EPKh.exit:                     ; preds = %63
   %69 = load i64, ptr %68, align 8, !tbaa !101
   %70 = mul i64 %69, %indvars.iv59
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
-  %72 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %71, i64 %indvars.iv56
+  %72 = getelementptr inbounds nuw [3 x i8], ptr %71, i64 %indvars.iv56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %72, ptr noundef nonnull align 1 dereferenceable(3) %6, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i32, ptr %26, align 4, !tbaa !93

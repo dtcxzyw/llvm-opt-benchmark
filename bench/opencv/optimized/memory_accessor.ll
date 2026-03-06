@@ -337,7 +337,7 @@ _ZNSt6vectorIPN3ade21IMemoryAccessListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN3ade21IMemoryAccessListenerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIPN3ade21IMemoryAccessListenerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %31, ptr %0, align 8, !tbaa !25
   store ptr %35, ptr %12, align 8, !tbaa !31
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN3ade21IMemoryAccessListenerESaIS2_EE9push_backERKS2_.exit
 
@@ -1371,7 +1371,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIvN3ade21IMemoryAccessListener19AccessHandleDe
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !56
-  %41 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8, !tbaa !58
   ret void
 }

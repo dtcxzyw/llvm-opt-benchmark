@@ -967,7 +967,7 @@ _ZNK9metaspace16VirtualSpaceList18base_of_first_nodeEv.exit: ; preds = %3, %7
 
 _ZNK9metaspace16VirtualSpaceList23word_size_of_first_nodeEv.exit: ; preds = %_ZNK9metaspace16VirtualSpaceList18base_of_first_nodeEv.exit, %15
   %19 = phi i64 [ %18, %15 ], [ 0, %_ZNK9metaspace16VirtualSpaceList18base_of_first_nodeEv.exit ]
-  %20 = getelementptr inbounds ptr, ptr %11, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %11, i64 %19
   %21 = ptrtoint ptr %11 to i64
   %22 = ptrtoint ptr %20 to i64
   %.idx = shl nsw i64 %19, 3
@@ -1339,7 +1339,7 @@ _ZNK9metaspace16VirtualSpaceList18base_of_first_nodeEv.exit.i: ; preds = %77, %7
 
 _ZNK9metaspace16VirtualSpaceList23word_size_of_first_nodeEv.exit.i: ; preds = %85, %_ZNK9metaspace16VirtualSpaceList18base_of_first_nodeEv.exit.i
   %89 = phi i64 [ %88, %85 ], [ 0, %_ZNK9metaspace16VirtualSpaceList18base_of_first_nodeEv.exit.i ]
-  %90 = getelementptr inbounds ptr, ptr %81, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %81, i64 %89
   %91 = ptrtoint ptr %81 to i64
   %92 = ptrtoint ptr %90 to i64
   %.idx.i = shl nsw i64 %89, 3

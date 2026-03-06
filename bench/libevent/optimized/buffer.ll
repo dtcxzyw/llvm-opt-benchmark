@@ -5,9 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
 %struct.evbuffer_cb_info = type { i64, i64, i64 }
-%struct.iovec = type { ptr, i64 }
 %struct.evbuffer_ptr = type { i64, %struct.anon.0 }
 %struct.anon.0 = type { ptr, i64 }
+%struct.iovec = type { ptr, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @evthread_lock_fns_ = external local_unnamed_addr global %struct.evthread_lock_callbacks, align 8
@@ -980,7 +980,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.031 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %.031
@@ -1000,7 +1000,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %24
   %indvars.iv39 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next40, %24 ]
   %.02333 = phi i64 [ 0, %.lr.ph34.preheader ], [ %26, %24 ]
-  %18 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv39
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv39
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8
@@ -1873,7 +1873,7 @@ define i32 @evbuffer_reserve_space(ptr noundef %0, i64 noundef %1, ptr noundef w
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 %79
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %78
-  %85 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %indvars.iv59.i
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv59.i
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %80, ptr %86, align 8
@@ -2233,7 +2233,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %42
-  %49 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %indvars.iv59
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv59
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %44, ptr %50, align 8
@@ -2283,7 +2283,7 @@ define hidden i32 @evbuffer_read_setup_vecs_(ptr noundef readonly captures(none)
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 %69
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %68
-  %77 = getelementptr inbounds nuw %struct.iovec, ptr %2, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 %72, ptr %78, align 8
@@ -2443,7 +2443,7 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
   br i1 %.not84, label %.loopexit95, label %66
 
 66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %.07198, i64 40
   %70 = load ptr, ptr %69, align 8
@@ -2481,7 +2481,7 @@ define range(i32 -1, 1) i32 @evbuffer_commit_space(ptr noundef %0, ptr noundef r
   %indvars.iv104 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next105, %101 ]
   %.167100 = phi i64 [ 0, %.lr.ph102.preheader ], [ %99, %101 ]
   %.06999 = phi ptr [ %.070, %.lr.ph102.preheader ], [ %102, %101 ]
-  %91 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv104
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv104
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = load ptr, ptr %.06999, align 8
@@ -5415,7 +5415,7 @@ define noundef i32 @evbuffer_read(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %58
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %57
-  %66 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %65, ptr %66, align 16
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %61, ptr %67, align 8
@@ -5638,7 +5638,7 @@ evbuffer_write_sendfile.exit:                     ; preds = %34, %34, %37
   %46 = getelementptr inbounds nuw i8, ptr %.03143.i, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
-  %49 = getelementptr inbounds nuw %struct.iovec, ptr %4, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   store ptr %48, ptr %49, align 16
   %50 = getelementptr inbounds nuw i8, ptr %.03143.i, i64 24
   %51 = load i64, ptr %50, align 8
@@ -6180,7 +6180,7 @@ define i32 @evbuffer_peek(ptr noundef readonly captures(none) %0, i64 noundef %1
   %52 = getelementptr inbounds nuw i8, ptr %.14885.us.us, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 %53
-  %55 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %indvars.iv124
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv124
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.14885.us.us, i64 24
   %57 = load i64, ptr %56, align 8
@@ -6217,7 +6217,7 @@ define i32 @evbuffer_peek(ptr noundef readonly captures(none) %0, i64 noundef %1
   %66 = getelementptr inbounds nuw i8, ptr %.14885, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %65, i64 %67
-  %69 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.14885, i64 24
   %71 = load i64, ptr %70, align 8

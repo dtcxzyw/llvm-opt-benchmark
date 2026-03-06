@@ -67,12 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.103" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.181 }
-%union.anon.181 = type { %"class.clang::SrcMgr::FileInfo" }
-%"class.clang::SrcMgr::FileInfo" = type { %"class.clang::SourceLocation", i32, %"class.llvm::PointerIntPair.182" }
-%"class.llvm::PointerIntPair.182" = type { %"struct.llvm::detail::PunnedPointer.183" }
-%"struct.llvm::detail::PunnedPointer.183" = type { [8 x i8] }
-%"struct.std::pair.184" = type { ptr, i64 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"class.clang::format::WhitespaceManager::Change::IsBeforeInFile" }
 %"class.clang::format::WhitespaceManager::Change::IsBeforeInFile" = type { ptr }
 %"class.llvm::SmallVector.203" = type { %"class.llvm::SmallVectorImpl.151", %"struct.llvm::SmallVectorStorage.204" }
@@ -396,7 +390,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6forma
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager6ChangeELb0EE28reserveForParamAndGetAddressERS4_m.exit, label %9, !prof !46
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -421,7 +415,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager6ChangeELb0EE
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !42
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(136) %.016.i.i, i64 28, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 32
@@ -784,7 +778,7 @@ _ZN4llvm4sortIRNS_11SmallVectorIN5clang6format17WhitespaceManager6ChangeELj16EEE
   %.01721.i = phi i32 [ %58, %.loopexit.i ], [ 1, %.lr.ph.preheader.i ]
   %40 = zext i32 %.01721.i to i64
   %41 = load ptr, ptr %0, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [136 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 226
   %45 = load i8, ptr %44, align 2, !tbaa !191, !range !40, !noundef !41
@@ -802,7 +796,7 @@ _ZN4llvm4sortIRNS_11SmallVectorIN5clang6format17WhitespaceManager6ChangeELj16EEE
   br i1 %49, label %50, label %.loopexit.i
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %41, i64 %indvars.iv.next.i
+  %51 = getelementptr inbounds nuw [136 x i8], ptr %41, i64 %indvars.iv.next.i
   %52 = load ptr, ptr %51, align 8, !tbaa !11
   %53 = load ptr, ptr %47, align 8, !tbaa !192
   %54 = icmp eq ptr %52, %53
@@ -876,8 +870,8 @@ define dso_local void @_ZN5clang6format17WhitespaceManager29calculateLineBreakIn
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %101 ]
   %.087128 = phi ptr [ %3, %.lr.ph ], [ %.1, %101 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !45
-  %22 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %21, i64 %indvars.iv
-  %23 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [136 x i8], ptr %21, i64 %indvars.iv
+  %23 = getelementptr [136 x i8], ptr %21, i64 %indvars.iv
   %24 = getelementptr i8, ptr %23, i64 -136
   %25 = getelementptr i8, ptr %23, i64 -28
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -1136,7 +1130,7 @@ _ZN4llvm11SmallVectorIbLj16EED2Ev.exit:           ; preds = %._crit_edge134.thre
   %154 = add i32 %141, %153
   %155 = zext i32 %154 to i64
   %156 = load ptr, ptr %151, align 8, !tbaa !45
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %155
   %158 = load i32, ptr %157, align 4, !tbaa !208
   %159 = icmp eq i32 %158, 3
   br i1 %159, label %160, label %.thread120
@@ -1270,7 +1264,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignConsecutiveMacr
   %.02841.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %52 ]
   %.02940.i = phi i1 [ false, %.lr.ph.i ], [ %.231.i, %52 ]
   %20 = zext i32 %.042.i to i64
-  %21 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !24
   %.not35.i = icmp eq i32 %23, 0
@@ -1294,7 +1288,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i: ; 
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i
-  %31 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre46.i, i64 %20
+  %31 = getelementptr inbounds nuw [136 x i8], ptr %.pre46.i, i64 %20
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %33 = load i32, ptr %32, align 4, !tbaa !23
   %34 = sub i32 %.056.lcssa, %33
@@ -1308,7 +1302,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i: ; 
   %39 = phi ptr [ %19, %18 ], [ %.pre46.i, %30 ], [ %.pre46.i, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i ]
   %.231.i = phi i1 [ true, %18 ], [ true, %30 ], [ false, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i ]
   %.2.i = phi i32 [ %spec.select38.i, %18 ], [ %34, %30 ], [ %spec.select38.i, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i ]
-  %40 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %39, i64 %20
+  %40 = getelementptr inbounds nuw [136 x i8], ptr %39, i64 %20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %42 = load i32, ptr %41, align 4, !tbaa !23
   %43 = add i32 %42, %.2.i
@@ -1320,7 +1314,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i: ; 
 
 46:                                               ; preds = %38
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %39, i64 %47
+  %48 = getelementptr inbounds nuw [136 x i8], ptr %39, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 112
   %50 = load i32, ptr %49, align 8, !tbaa !195
   %51 = add i32 %50, %.2.i
@@ -1348,7 +1342,7 @@ _ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17Whit
   %.05675 = phi i32 [ 0, %.lr.ph ], [ %.258, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %.05974 = phi i32 [ 0, %.lr.ph ], [ %.261, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveMacrosEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %56 = load ptr, ptr %0, align 8, !tbaa !45
-  %57 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [136 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8, !tbaa !24
   switch i32 %59, label %60 [
@@ -1400,7 +1394,7 @@ _ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17Whit
   %.02841.i27 = phi i32 [ %.2.i35, %._crit_edge81 ], [ 0, %.thread ]
   %.02940.i28 = phi i1 [ %.231.i34, %._crit_edge81 ], [ false, %.thread ]
   %80 = zext i32 %.042.i26 to i64
-  %81 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [136 x i8], ptr %79, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 8, !tbaa !24
   %.not35.i29 = icmp eq i32 %83, 0
@@ -1424,7 +1418,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32: 
   br i1 %89, label %90, label %98
 
 90:                                               ; preds = %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32
-  %91 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre46.i33, i64 %80
+  %91 = getelementptr inbounds nuw [136 x i8], ptr %.pre46.i33, i64 %80
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %93 = load i32, ptr %92, align 4, !tbaa !23
   %94 = sub i32 %.05675, %93
@@ -1438,7 +1432,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32: 
   %99 = phi ptr [ %79, %.lr.ph.i24 ], [ %.pre46.i33, %90 ], [ %.pre46.i33, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32 ]
   %.231.i34 = phi i1 [ true, %.lr.ph.i24 ], [ true, %90 ], [ false, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32 ]
   %.2.i35 = phi i32 [ %spec.select38.i30, %.lr.ph.i24 ], [ %94, %90 ], [ %spec.select38.i30, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32 ]
-  %100 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %99, i64 %80
+  %100 = getelementptr inbounds nuw [136 x i8], ptr %99, i64 %80
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %102 = load i32, ptr %101, align 4, !tbaa !23
   %103 = add i32 %102, %.2.i35
@@ -1450,7 +1444,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i32: 
   br i1 %.not36.i36, label %._crit_edge81, label %106
 
 106:                                              ; preds = %98
-  %107 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %99, i64 %.pre82
+  %107 = getelementptr inbounds nuw [136 x i8], ptr %99, i64 %.pre82
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 112
   %109 = load i32, ptr %108, align 8, !tbaa !195
   %110 = add i32 %109, %.2.i35
@@ -1478,7 +1472,7 @@ _ZNSt14_Function_baseD2Ev.exit40:                 ; preds = %55, %_ZN5clang6form
   %.157 = phi i32 [ %.05675, %55 ], [ %.05675, %75 ], [ 0, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit38 ], [ 0, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit38.thread ]
   %.117 = phi i1 [ %.01677, %55 ], [ true, %75 ], [ true, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit38 ], [ true, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit38.thread ]
   %.1 = phi i1 [ %.078, %55 ], [ false, %75 ], [ false, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit38 ], [ false, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit38.thread ]
-  %114 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [136 x i8], ptr %113, i64 %indvars.iv
   %115 = load ptr, ptr %114, align 8, !tbaa !11
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i16, ptr %116, align 8, !tbaa !197
@@ -1575,7 +1569,7 @@ _ZNK5clang6format11FormatToken5isNotINS_3tok13PPKeywordKindEEEbT_.exit.i: ; pred
   %151 = trunc nuw i64 %indvars.iv to i32
   %spec.select67 = select i1 %150, i32 %151, i32 %.160
   %152 = load ptr, ptr %0, align 8, !tbaa !45
-  %153 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [136 x i8], ptr %152, i64 %indvars.iv
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 20
   %155 = load i32, ptr %154, align 4, !tbaa !23
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %.157, i32 %155)
@@ -1661,7 +1655,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager35alignConsecutiveShor
   %.02841.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %58 ]
   %.02940.i = phi i1 [ false, %.lr.ph.i ], [ %.231.i, %58 ]
   %26 = zext i32 %.042.i to i64
-  %27 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [136 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !24
   %.not35.i = icmp eq i32 %29, 0
@@ -1685,7 +1679,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i: ; 
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i
-  %37 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre46.i, i64 %26
+  %37 = getelementptr inbounds nuw [136 x i8], ptr %.pre46.i, i64 %26
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !23
   %40 = sub i32 %.0103.lcssa, %39
@@ -1699,7 +1693,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i: ; 
   %45 = phi ptr [ %25, %24 ], [ %.pre46.i, %36 ], [ %.pre46.i, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i ]
   %.231.i = phi i1 [ true, %24 ], [ true, %36 ], [ false, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i ]
   %.2.i = phi i32 [ %spec.select38.i, %24 ], [ %40, %36 ], [ %spec.select38.i, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i ]
-  %46 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %45, i64 %26
+  %46 = getelementptr inbounds nuw [136 x i8], ptr %45, i64 %26
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %48 = load i32, ptr %47, align 4, !tbaa !23
   %49 = add i32 %48, %.2.i
@@ -1711,7 +1705,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i: ; 
 
 52:                                               ; preds = %44
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %45, i64 %53
+  %54 = getelementptr inbounds nuw [136 x i8], ptr %45, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
   %56 = load i32, ptr %55, align 8, !tbaa !195
   %57 = add i32 %56, %.2.i
@@ -1747,7 +1741,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN5clang6formatL26
   %.0106132 = phi i32 [ 0, %.lr.ph ], [ %.2108, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %.0109131 = phi i32 [ 0, %.lr.ph ], [ %.2111, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %.0112130 = phi i32 [ 0, %.lr.ph ], [ %.2114, %"_ZZN5clang6format17WhitespaceManager35alignConsecutiveShortCaseStatementsEbENK3$_0clERKNS1_6ChangeE.exit.thread" ]
-  %63 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [136 x i8], ptr %62, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8, !tbaa !24
   switch i32 %65, label %66 [
@@ -1804,7 +1798,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN5clang6formatL26
   %.02841.i50 = phi i32 [ %.2.i58, %122 ], [ 0, %85 ]
   %.02940.i51 = phi i1 [ %.231.i57, %122 ], [ false, %85 ]
   %89 = zext i32 %.042.i49 to i64
-  %90 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [136 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i32, ptr %91, align 8, !tbaa !24
   %.not35.i52 = icmp eq i32 %92, 0
@@ -1828,7 +1822,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55: 
   br i1 %98, label %99, label %107
 
 99:                                               ; preds = %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55
-  %100 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre46.i56, i64 %89
+  %100 = getelementptr inbounds nuw [136 x i8], ptr %.pre46.i56, i64 %89
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %102 = load i32, ptr %101, align 4, !tbaa !23
   %103 = sub i32 %.0103133, %102
@@ -1843,7 +1837,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55: 
   %109 = phi ptr [ %88, %.lr.ph.i47 ], [ %.pre46.i56, %99 ], [ %.pre46.i56, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55 ]
   %.231.i57 = phi i1 [ true, %.lr.ph.i47 ], [ true, %99 ], [ false, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55 ]
   %.2.i58 = phi i32 [ %spec.select38.i53, %.lr.ph.i47 ], [ %103, %99 ], [ %spec.select38.i53, %_ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55 ]
-  %110 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %109, i64 %89
+  %110 = getelementptr inbounds nuw [136 x i8], ptr %109, i64 %89
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %112 = load i32, ptr %111, align 4, !tbaa !23
   %113 = add i32 %112, %.2.i58
@@ -1855,7 +1849,7 @@ _ZNKSt8functionIFbRKN5clang6format17WhitespaceManager6ChangeEEEclES5_.exit.i55: 
 
 116:                                              ; preds = %107
   %117 = zext i32 %114 to i64
-  %118 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %109, i64 %117
+  %118 = getelementptr inbounds nuw [136 x i8], ptr %109, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 112
   %120 = load i32, ptr %119, align 8, !tbaa !195
   %121 = add i32 %120, %.2.i58
@@ -1886,7 +1880,7 @@ _ZNSt14_Function_baseD2Ev.exit63:                 ; preds = %61, %_ZN5clang6form
   %.134 = phi i8 [ %.033135, %61 ], [ 0, %83 ], [ 0, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit61 ], [ 0, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit61.thread ]
   %.131 = phi i1 [ %.030136, %61 ], [ true, %83 ], [ true, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit61 ], [ true, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit61.thread ]
   %.1 = phi i1 [ %.0137, %61 ], [ false, %83 ], [ false, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit61 ], [ false, %_ZN5clang6formatL26AlignMatchingTokenSequenceERjS1_S1_St8functionIFbRKNS0_17WhitespaceManager6ChangeEEERN4llvm11SmallVectorIS4_Lj16EEE.exit61.thread ]
-  %126 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [136 x i8], ptr %125, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !11
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i16, ptr %128, align 8, !tbaa !197
@@ -2046,7 +2040,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager28alignConsecutiveDecl
   %.0238323.i = phi i32 [ 0, %.lr.ph333.i ], [ %.1239.ph.i, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread.i" ]
   %23 = zext i32 %.085327.i to i64
   %24 = load ptr, ptr %0, align 8, !tbaa !45
-  %25 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [136 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !11, !noalias !244
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 124
@@ -2124,7 +2118,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread245.i: ; preds = 
   %60 = add i32 %.085327.i, -1
   %61 = zext i32 %60 to i64
   %62 = load ptr, ptr %0, align 8, !tbaa !45
-  %63 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [136 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i16, ptr %65, align 8, !tbaa !197
@@ -2338,7 +2332,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %.080319.i = phi i32 [ %.080316.i, %.lr.ph.i ], [ %.080.i, %160 ]
   %.1183318.i = phi i32 [ %138, %.lr.ph.i ], [ %.2184.i, %160 ]
   %141 = zext i32 %.080319.i to i64
-  %142 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [136 x i8], ptr %139, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = load i32, ptr %143, align 8, !tbaa !24
   %145 = icmp eq i32 %144, 0
@@ -2475,7 +2469,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager27alignConsecutiveAssi
   %.0236316.i = phi i32 [ 0, %.lr.ph326.i ], [ %.1237.ph.i, %"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE.exit.thread.i" ]
   %24 = zext i32 %.085321.i to i64
   %25 = load ptr, ptr %0, align 8, !tbaa !45
-  %26 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [136 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !11, !noalias !271
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 124
@@ -2556,7 +2550,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread243.i: ; preds = 
   %62 = add i32 %.085321.i, -1
   %63 = zext i32 %62 to i64
   %64 = load ptr, ptr %0, align 8, !tbaa !45
-  %65 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [136 x i8], ptr %64, i64 %63
   %66 = load ptr, ptr %65, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i16, ptr %67, align 8, !tbaa !197
@@ -2623,7 +2617,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread260.i: ; preds = 
   %94 = load ptr, ptr %0, align 8, !tbaa !45
   %95 = load i32, ptr %9, align 8, !tbaa !42
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [136 x i8], ptr %94, i64 %96
   %98 = getelementptr inbounds i8, ptr %97, i64 -136
   %.not14.i.i = icmp eq ptr %26, %98
   br i1 %.not14.i.i, label %.preheader, label %99
@@ -2750,7 +2744,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i.i: ; preds = %113, %110
   %.080312.i = phi i32 [ %.080309.i, %.lr.ph.i ], [ %.080.i, %161 ]
   %.1181311.i = phi i32 [ 0, %.lr.ph.i ], [ %.2182.i, %161 ]
   %144 = zext i32 %.080312.i to i64
-  %145 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [136 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load i32, ptr %146, align 8, !tbaa !24
   %148 = icmp eq i32 %147, 0
@@ -2910,7 +2904,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager24alignChainedConditio
   %.0234317.i = phi i32 [ 0, %.lr.ph326.i ], [ %.1235.ph.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread.i" ]
   %23 = zext i32 %.085321.i to i64
   %24 = load ptr, ptr %0, align 8, !tbaa !45
-  %25 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [136 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !11, !noalias !294
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 124
@@ -2981,7 +2975,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread241.i: ; preds = 
   %54 = add i32 %.085321.i, -1
   %55 = zext i32 %54 to i64
   %56 = load ptr, ptr %0, align 8, !tbaa !45
-  %57 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [136 x i8], ptr %56, i64 %55
   %58 = load ptr, ptr %57, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i16, ptr %59, align 8, !tbaa !197
@@ -3068,7 +3062,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread258.i: ; preds = 
   %98 = zext i32 %96 to i64
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 152
   %100 = load ptr, ptr %99, align 8, !tbaa !45
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %98
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %98
   %102 = getelementptr inbounds i8, ptr %101, i64 -4
   %103 = load i32, ptr %102, align 4, !tbaa !208
   %.not306.i = icmp eq i32 %103, 3
@@ -3116,7 +3110,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread258.i: ; preds = 
   %.080313.i = phi i32 [ %.080310.i, %.lr.ph.i ], [ %.080.i, %134 ]
   %.1179312.i = phi i32 [ %112, %.lr.ph.i ], [ %.2180.i, %134 ]
   %115 = zext i32 %.080313.i to i64
-  %116 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [136 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load i32, ptr %117, align 8, !tbaa !24
   %119 = icmp eq i32 %118, 0
@@ -3229,7 +3223,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread258.i: ; preds = 
   %.0236333.i = phi i32 [ 0, %._crit_edge ], [ %.1237.ph.i, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE.exit.thread.i" ]
   %155 = zext i32 %.085337.i to i64
   %156 = load ptr, ptr %0, align 8, !tbaa !45
-  %157 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [136 x i8], ptr %156, i64 %155
   %158 = load ptr, ptr %157, align 8, !tbaa !11, !noalias !315
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 128
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 124
@@ -3300,7 +3294,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread243.i: ; preds = 
   %186 = add i32 %.085337.i, -1
   %187 = zext i32 %186 to i64
   %188 = load ptr, ptr %0, align 8, !tbaa !45
-  %189 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %188, i64 %187
+  %189 = getelementptr inbounds nuw [136 x i8], ptr %188, i64 %187
   %190 = load ptr, ptr %189, align 8, !tbaa !11
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load i16, ptr %191, align 8, !tbaa !197
@@ -3365,7 +3359,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread260.i: ; preds = 
   %220 = load ptr, ptr %0, align 8, !tbaa !45
   %221 = load i32, ptr %10, align 8, !tbaa !42
   %222 = zext i32 %221 to i64
-  %223 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %220, i64 %222
+  %223 = getelementptr inbounds nuw [136 x i8], ptr %220, i64 %222
   %224 = getelementptr inbounds i8, ptr %223, i64 -136
   %.not.i99.i = icmp eq ptr %157, %224
   br i1 %.not.i99.i, label %.thread267.i, label %225
@@ -3422,7 +3416,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i.i: ; preds = %2
   %247 = zext i32 %245 to i64
   %248 = getelementptr inbounds nuw i8, ptr %194, i64 152
   %249 = load ptr, ptr %248, align 8, !tbaa !45
-  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %247
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %247
   %251 = getelementptr inbounds i8, ptr %250, i64 -4
   %252 = load i32, ptr %251, align 4, !tbaa !208
   %.not321.i = icmp eq i32 %252, 3
@@ -3471,7 +3465,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i.i: ; preds = %2
   %.080329.i = phi i32 [ %.080326.i, %.lr.ph.i28 ], [ %.080.i32, %283 ]
   %.1181328.i = phi i32 [ %261, %.lr.ph.i28 ], [ %.2182.i, %283 ]
   %264 = zext i32 %.080329.i to i64
-  %265 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %262, i64 %264
+  %265 = getelementptr inbounds nuw [136 x i8], ptr %262, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %267 = load i32, ptr %266, align 8, !tbaa !24
   %268 = icmp eq i32 %267, 0
@@ -3599,7 +3593,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i: ; preds = %292
   %305 = zext i32 %303 to i64
   %306 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %307 = load ptr, ptr %306, align 8, !tbaa !45
-  %308 = getelementptr inbounds nuw i32, ptr %307, i64 %305
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %305
   %309 = getelementptr inbounds i8, ptr %308, i64 -4
   %310 = load i32, ptr %309, align 4, !tbaa !208
   %.not40 = icmp eq i32 %310, 3
@@ -3663,7 +3657,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   %.0156197 = phi i32 [ 0, %.lr.ph204 ], [ %.2158.ph, %262 ]
   %.0162196 = phi i32 [ 2147483647, %.lr.ph204 ], [ %.1163.ph, %262 ]
   %20 = load ptr, ptr %0, align 8, !tbaa !45
-  %21 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %indvars.iv221
+  %21 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %indvars.iv221
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8, !tbaa !203
   %.not89 = icmp eq ptr %23, null
@@ -3752,7 +3746,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %75
+  %79 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %75
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 97
   %81 = load i8, ptr %80, align 1, !tbaa !34, !range !40, !noundef !41
   %82 = trunc nuw i8 %81 to i1
@@ -3785,7 +3779,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 92:                                               ; preds = %.lr.ph, %91
   %indvars.iv218 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next219, %91 ]
-  %93 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %90, i64 %indvars.iv218
+  %93 = getelementptr inbounds nuw [136 x i8], ptr %90, i64 %indvars.iv218
   %94 = load ptr, ptr %93, align 8, !tbaa !11
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load i16, ptr %95, align 8, !tbaa !197
@@ -3820,7 +3814,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 113:                                              ; preds = %110
   %114 = load ptr, ptr %0, align 8, !tbaa !45
-  %115 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %114, i64 %indvars.iv221
+  %115 = getelementptr [136 x i8], ptr %114, i64 %indvars.iv221
   %116 = getelementptr i8, ptr %115, i64 -136
   %117 = load ptr, ptr %116, align 8, !tbaa !11
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -3922,7 +3916,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
 152:                                              ; preds = %191, %.lr.ph.i
   %.01924.i = phi i32 [ %.0203, %.lr.ph.i ], [ %.pre-phi.i, %191 ]
   %153 = zext i32 %.01924.i to i64
-  %154 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %114, i64 %153
+  %154 = getelementptr inbounds nuw [136 x i8], ptr %114, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 105
   %156 = load i8, ptr %155, align 1, !tbaa !37, !range !40, !noundef !41
   %157 = trunc nuw i8 %156 to i1
@@ -3972,7 +3966,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
 
 181:                                              ; preds = %176
   %182 = zext i32 %180 to i64
-  %183 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %114, i64 %182
+  %183 = getelementptr inbounds nuw [136 x i8], ptr %114, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 112
   %185 = load i32, ptr %184, align 8, !tbaa !195
   %186 = add i32 %185, %.1.i
@@ -4009,7 +4003,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
 
 199:                                              ; preds = %196
   %200 = load ptr, ptr %0, align 8, !tbaa !45
-  %201 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %200, i64 %indvars.iv221
+  %201 = getelementptr [136 x i8], ptr %200, i64 %indvars.iv221
   %202 = getelementptr i8, ptr %201, i64 -31
   %203 = load i8, ptr %202, align 1, !tbaa !37, !range !40, !noundef !41
   %204 = trunc nuw i8 %203 to i1
@@ -4034,7 +4028,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
 211:                                              ; preds = %250, %.lr.ph.i102
   %.01924.i103 = phi i32 [ %.0203, %.lr.ph.i102 ], [ %.pre-phi.i108, %250 ]
   %212 = zext i32 %.01924.i103 to i64
-  %213 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %209, i64 %212
+  %213 = getelementptr inbounds nuw [136 x i8], ptr %209, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 105
   %215 = load i8, ptr %214, align 1, !tbaa !37, !range !40, !noundef !41
   %216 = trunc nuw i8 %215 to i1
@@ -4084,7 +4078,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit39.thread.i: ; preds
 
 240:                                              ; preds = %235
   %241 = zext i32 %239 to i64
-  %242 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %209, i64 %241
+  %242 = getelementptr inbounds nuw [136 x i8], ptr %209, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 112
   %244 = load i32, ptr %243, align 8, !tbaa !195
   %245 = add i32 %244, %.1.i106
@@ -4154,7 +4148,7 @@ _ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit: ; preds = %
 266:                                              ; preds = %305, %.lr.ph.i115
   %.01924.i116 = phi i32 [ %.0.lcssa, %.lr.ph.i115 ], [ %.pre-phi.i121, %305 ]
   %267 = zext i32 %.01924.i116 to i64
-  %268 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %264, i64 %267
+  %268 = getelementptr inbounds nuw [136 x i8], ptr %264, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 105
   %270 = load i8, ptr %269, align 1, !tbaa !37, !range !40, !noundef !41
   %271 = trunc nuw i8 %270 to i1
@@ -4204,7 +4198,7 @@ _ZN5clang6format17WhitespaceManager21alignTrailingCommentsEjjj.exit: ; preds = %
 
 295:                                              ; preds = %290
   %296 = zext i32 %294 to i64
-  %297 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %264, i64 %296
+  %297 = getelementptr inbounds nuw [136 x i8], ptr %264, i64 %296
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 112
   %299 = load i32, ptr %298, align 8, !tbaa !195
   %300 = add i32 %299, %.1.i119
@@ -4262,7 +4256,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager20alignEscapedNewlines
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ 1, %.lr.ph.split.us ]
   %.059.us.us = phi i32 [ %.1.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ 0, %.lr.ph.split.us ]
   %.04456.us.us = phi i32 [ %.145.us.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us ], [ %11, %.lr.ph.split.us ]
-  %18 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv75
+  %18 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv75
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !24
   %21 = icmp eq i32 %20, 0
@@ -4304,7 +4298,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager20alignEscapedNewlines
 
 .lr.ph.i30.us.us:                                 ; preds = %.thread47.us.us, %52
   %indvars.iv.i32.us.us = phi i64 [ %indvars.iv.next.i36.us.us, %52 ], [ %41, %.thread47.us.us ]
-  %44 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv.i32.us.us
+  %44 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv.i32.us.us
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !24
   %.not.i33.us.us = icmp eq i32 %46, 0
@@ -4341,7 +4335,7 @@ _ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us: ; pr
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ 1, %.lr.ph.split.us ]
   %.059.us = phi i32 [ %.1.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ 0, %.lr.ph.split.us ]
   %.04456.us = phi i32 [ %.145.us, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us ], [ %11, %.lr.ph.split.us ]
-  %53 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv70
+  %53 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv70
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !24
   %56 = icmp eq i32 %55, 0
@@ -4385,7 +4379,7 @@ _ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us.us: ; pr
 
 .lr.ph.i30.us:                                    ; preds = %.thread47.us, %87
   %indvars.iv.i32.us = phi i64 [ %indvars.iv.next.i36.us, %87 ], [ %76, %.thread47.us ]
-  %79 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv.i32.us
+  %79 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv.i32.us
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load i32, ptr %80, align 8, !tbaa !24
   %.not.i33.us = icmp eq i32 %81, 0
@@ -4432,7 +4426,7 @@ _ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us: ; preds
 
 92:                                               ; preds = %101, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %91, %.lr.ph.i ], [ %indvars.iv.next.i, %101 ]
-  %93 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %90, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [136 x i8], ptr %90, i64 %indvars.iv.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load i32, ptr %94, align 8, !tbaa !24
   %.not.i = icmp eq i32 %95, 0
@@ -4457,7 +4451,7 @@ _ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us: ; preds
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ], [ 1, %.lr.ph ]
   %.059 = phi i32 [ %.1, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ], [ 0, %.lr.ph ]
   %.04456 = phi i32 [ %.145, %_ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38 ], [ %11, %.lr.ph ]
-  %102 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i32, ptr %103, align 8, !tbaa !24
   %105 = icmp eq i32 %104, 0
@@ -4485,7 +4479,7 @@ _ZN5clang6format17WhitespaceManager20alignEscapedNewlinesEjjj.exit38.us: ; preds
 
 .lr.ph.i30:                                       ; preds = %.thread48, %125
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i36, %125 ], [ %111, %.thread48 ]
-  %117 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %17, i64 %indvars.iv.i32
+  %117 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv.i32
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load i32, ptr %118, align 8, !tbaa !24
   %.not.i33 = icmp eq i32 %119, 0
@@ -4540,7 +4534,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignArrayInitialize
   %.01721 = phi i32 [ %30, %.loopexit ], [ 1, %.lr.ph.preheader ]
   %12 = zext i32 %.01721 to i64
   %13 = load ptr, ptr %0, align 8, !tbaa !45
-  %14 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 226
   %17 = load i8, ptr %16, align 2, !tbaa !191, !range !40, !noundef !41
@@ -4558,7 +4552,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignArrayInitialize
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %13, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv.next
   %24 = load ptr, ptr %23, align 8, !tbaa !11
   %25 = load ptr, ptr %19, align 8, !tbaa !192
   %26 = icmp eq ptr %24, %25
@@ -4602,12 +4596,12 @@ define dso_local void @_ZN5clang6format17WhitespaceManager15generateChangesEv(pt
 10:                                               ; preds = %.lr.ph, %.critedge2
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge2 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !45
-  %12 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [136 x i8], ptr %11, i64 %indvars.iv
   %.not26 = icmp eq i64 %indvars.iv, 0
   br i1 %.not26, label %.critedge28, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %11, i64 %indvars.iv
+  %14 = getelementptr [136 x i8], ptr %11, i64 %indvars.iv
   %15 = getelementptr i8, ptr %14, i64 -124
   %16 = load i64, ptr %15, align 4
   %.sroa.052.0.extract.trunc = trunc i64 %16 to i32
@@ -4831,7 +4825,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager22alignConsecutiveColo
   %.0237318.i = phi i32 [ 0, %.lr.ph327.i ], [ %.1238.ph.i, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread.i" ]
   %26 = zext i32 %.085322.i to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !45
-  %28 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [136 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !11, !noalias !354
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 124
@@ -4909,7 +4903,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread244.i: ; preds = 
   %63 = add i32 %.085322.i, -1
   %64 = zext i32 %63 to i64
   %65 = load ptr, ptr %0, align 8, !tbaa !45
-  %66 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [136 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !11
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i16, ptr %68, align 8, !tbaa !197
@@ -4975,7 +4969,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread261.i: ; preds = 
   %95 = load ptr, ptr %0, align 8, !tbaa !45
   %96 = load i32, ptr %12, align 8, !tbaa !42
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [136 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -136
   %.not7.i.i = icmp eq ptr %28, %99
   br i1 %.not7.i.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.i", label %100
@@ -5035,7 +5029,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread261.i: ; preds = 
   %.080314.i = phi i32 [ %.080311.i, %.lr.ph.i ], [ %.080.i, %138 ]
   %.1182313.i = phi i32 [ %116, %.lr.ph.i ], [ %.2183.i, %138 ]
   %119 = zext i32 %.080314.i to i64
-  %120 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [136 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !24
   %123 = icmp eq i32 %122, 0
@@ -5136,7 +5130,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 8:                                                ; preds = %.lr.ph, %47
   %.01924 = phi i32 [ %1, %.lr.ph ], [ %.pre-phi, %47 ]
   %9 = zext i32 %.01924 to i64
-  %10 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 105
   %12 = load i8, ptr %11, align 1, !tbaa !37, !range !40, !noundef !41
   %13 = trunc nuw i8 %12 to i1
@@ -5186,7 +5180,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager21alignTrailingComment
 
 37:                                               ; preds = %32
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %5, i64 %38
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %5, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %41 = load i32, ptr %40, align 8, !tbaa !195
   %42 = add i32 %41, %.1
@@ -5222,7 +5216,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager20alignEscapedNewlines
 
 8:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %9 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !24
   %.not = icmp eq i32 %11, 0
@@ -5403,7 +5397,7 @@ _ZNK5clang6format17WhitespaceManager16CellDescriptions13isRectangularEv.exit: ; 
   %.01013.i = phi i32 [ %56, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i ], [ %36, %.loopexit171 ]
   %37 = load i32, ptr %.014.i, align 8, !tbaa !386
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i.pre209, i64 %38
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i.pre209, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !24
   %.not11.i = icmp eq i32 %41, 0
@@ -5419,7 +5413,7 @@ _ZNK5clang6format17WhitespaceManager16CellDescriptions13isRectangularEv.exit: ; 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i ], [ %38, %.lr.ph.i.i ]
   %.01112.us.i.i = phi i32 [ %53, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %45 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i.pre209, i64 %indvars.iv17.i.i
+  %45 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i.pre209, i64 %indvars.iv17.i.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !24
   %.not.us.i.i = icmp eq i32 %47, 0
@@ -5464,7 +5458,7 @@ _ZN5clang6format17WhitespaceManager11isSplitCellERKNS1_15CellDescriptionE.exit: 
 .lr.ph.split.us.i.i91:                            ; preds = %.lr.ph.split.us.i.i91, %.lr.ph.i.i89
   %indvars.iv17.i.i92 = phi i64 [ %indvars.iv.next18.i.i96, %.lr.ph.split.us.i.i91 ], [ %62, %.lr.ph.i.i89 ]
   %.01112.us.i.i93 = phi i32 [ %71, %.lr.ph.split.us.i.i91 ], [ 0, %.lr.ph.i.i89 ]
-  %63 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv17.i.i92
+  %63 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv17.i.i92
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i32, ptr %64, align 8, !tbaa !24
   %.not.us.i.i94 = icmp eq i32 %65, 0
@@ -5481,7 +5475,7 @@ _ZN5clang6format17WhitespaceManager11isSplitCellERKNS1_15CellDescriptionE.exit: 
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i84: ; preds = %.lr.ph.split.us.i.i91, %_ZN5clang6format17WhitespaceManager11isSplitCellERKNS1_15CellDescriptionE.exit
   %.011.lcssa.i.i85 = phi i32 [ 0, %_ZN5clang6format17WhitespaceManager11isSplitCellERKNS1_15CellDescriptionE.exit ], [ %71, %.lr.ph.split.us.i.i91 ]
-  %72 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %62
+  %72 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %62
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load i32, ptr %73, align 8, !tbaa !24
   %75 = icmp eq i32 %74, 0
@@ -5509,7 +5503,7 @@ _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i84: ; preds =
 .lr.ph.split.us.i14.i:                            ; preds = %.lr.ph.split.us.i14.i, %.lr.ph.i12.i
   %indvars.iv17.i15.i = phi i64 [ %indvars.iv.next18.i19.i, %.lr.ph.split.us.i14.i ], [ %81, %.lr.ph.i12.i ]
   %.01112.us.i16.i = phi i32 [ %90, %.lr.ph.split.us.i14.i ], [ 0, %.lr.ph.i12.i ]
-  %82 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv17.i15.i
+  %82 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv17.i15.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i32, ptr %83, align 8, !tbaa !24
   %.not.us.i17.i = icmp eq i32 %84, 0
@@ -5526,7 +5520,7 @@ _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i84: ; preds =
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit21.i: ; preds = %.lr.ph.split.us.i14.i, %.lr.ph.i86
   %.011.lcssa.i11.i = phi i32 [ 0, %.lr.ph.i86 ], [ %90, %.lr.ph.split.us.i14.i ]
-  %91 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %81
+  %91 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %81
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i32, ptr %92, align 8, !tbaa !24
   %94 = icmp eq i32 %93, 0
@@ -5550,7 +5544,7 @@ _ZNK5clang6format17WhitespaceManager19getMaximumCellWidthIPNS1_15CellDescription
   %.068 = phi ptr [ %114, %112 ], [ %storemerge193, %_ZNK5clang6format17WhitespaceManager19getMaximumCellWidthIPNS1_15CellDescriptionEEEjT_j.exit ]
   %100 = load i32, ptr %.068, align 8, !tbaa !386
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %101
+  %102 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 208
   %105 = load ptr, ptr %104, align 8, !tbaa !209
@@ -5589,7 +5583,7 @@ _ZNK5clang6format17WhitespaceManager19getMaximumCellWidthIPNS1_15CellDescription
   %.01013.i101 = phi i32 [ %116, %.lr.ph.i99 ], [ %137, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i103 ]
   %118 = load i32, ptr %.014.i100, align 8, !tbaa !386
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %119
+  %120 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !24
   %.not11.i102 = icmp eq i32 %122, 0
@@ -5605,7 +5599,7 @@ _ZNK5clang6format17WhitespaceManager19getMaximumCellWidthIPNS1_15CellDescription
 .lr.ph.split.us.i.i109:                           ; preds = %.lr.ph.split.us.i.i109, %.lr.ph.i.i107
   %indvars.iv17.i.i110 = phi i64 [ %indvars.iv.next18.i.i114, %.lr.ph.split.us.i.i109 ], [ %119, %.lr.ph.i.i107 ]
   %.01112.us.i.i111 = phi i32 [ %134, %.lr.ph.split.us.i.i109 ], [ 0, %.lr.ph.i.i107 ]
-  %126 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv17.i.i110
+  %126 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv17.i.i110
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load i32, ptr %127, align 8, !tbaa !24
   %.not.us.i.i112 = icmp eq i32 %128, 0
@@ -5644,7 +5638,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %144 = load i32, ptr %.pre, align 8, !tbaa !386
   %145 = zext i32 %144 to i64
   %146 = load ptr, ptr %0, align 8, !tbaa !45
-  %147 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %146, i64 %145
+  %147 = getelementptr inbounds nuw [136 x i8], ptr %146, i64 %145
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 100
   store i32 %143, ptr %148, align 4, !tbaa !35
   br label %149
@@ -5676,7 +5670,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %159 = load i32, ptr %.pre212, align 4, !tbaa !9
   %160 = mul i32 %159, %.066190
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %150, i64 %161
+  %162 = getelementptr inbounds nuw [24 x i8], ptr %150, i64 %161
   %163 = getelementptr inbounds i8, ptr %162, i64 %153
   br i1 %.not12.i117, label %_ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT_S7_j.exit135, label %.lr.ph.i118
 
@@ -5685,7 +5679,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %.01013.i120 = phi i32 [ %183, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i122 ], [ %155, %157 ]
   %164 = load i32, ptr %.014.i119, align 8, !tbaa !386
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %165
+  %166 = getelementptr inbounds nuw [136 x i8], ptr %156, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %168 = load i32, ptr %167, align 8, !tbaa !24
   %.not11.i121 = icmp eq i32 %168, 0
@@ -5701,7 +5695,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
 .lr.ph.split.us.i.i128:                           ; preds = %.lr.ph.split.us.i.i128, %.lr.ph.i.i126
   %indvars.iv17.i.i129 = phi i64 [ %indvars.iv.next18.i.i133, %.lr.ph.split.us.i.i128 ], [ %165, %.lr.ph.i.i126 ]
   %.01112.us.i.i130 = phi i32 [ %180, %.lr.ph.split.us.i.i128 ], [ 0, %.lr.ph.i.i126 ]
-  %172 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %indvars.iv17.i.i129
+  %172 = getelementptr inbounds nuw [136 x i8], ptr %156, i64 %indvars.iv17.i.i129
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load i32, ptr %173, align 8, !tbaa !24
   %.not.us.i.i131 = icmp eq i32 %174, 0
@@ -5734,7 +5728,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %187 = sub nuw i32 %140, %.010.lcssa.i125
   %188 = load i32, ptr %.064191, align 8, !tbaa !386
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %156, i64 %189
+  %190 = getelementptr inbounds nuw [136 x i8], ptr %156, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 100
   store i32 %187, ptr %191, align 4, !tbaa !35
   %.pre211 = load i32, ptr %5, align 8
@@ -5760,7 +5754,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i136
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.us.i ], [ %62, %.lr.ph.i136 ]
   %.01112.us.i = phi i32 [ %204, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i136 ]
-  %196 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv17.i
+  %196 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv17.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load i32, ptr %197, align 8, !tbaa !24
   %.not.us.i = icmp eq i32 %198, 0
@@ -5807,7 +5801,7 @@ _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit: ; preds = %.l
 
 216:                                              ; preds = %223, %.lr.ph.i138
   %indvars.iv.i = phi i64 [ %215, %.lr.ph.i138 ], [ %indvars.iv.next.i, %223 ]
-  %217 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv.i
+  %217 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %219 = load i32, ptr %218, align 8, !tbaa !24
   %.not.i139 = icmp eq i32 %219, 0
@@ -5850,7 +5844,7 @@ _ZN5clang6format17WhitespaceManager18alignToStartOfCellEjj.exit: ; preds = %223,
 .lr.ph.split.us.i143:                             ; preds = %.lr.ph.split.us.i143, %.lr.ph.i141
   %indvars.iv17.i144 = phi i64 [ %indvars.iv.next18.i148, %.lr.ph.split.us.i143 ], [ %231, %.lr.ph.i141 ]
   %.01112.us.i145 = phi i32 [ %240, %.lr.ph.split.us.i143 ], [ 0, %.lr.ph.i141 ]
-  %232 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv17.i144
+  %232 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv17.i144
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %234 = load i32, ptr %233, align 8, !tbaa !24
   %.not.us.i146 = icmp eq i32 %234, 0
@@ -5867,7 +5861,7 @@ _ZN5clang6format17WhitespaceManager18alignToStartOfCellEjj.exit: ; preds = %223,
 
 _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit150: ; preds = %.lr.ph.split.us.i143, %226
   %.011.lcssa.i140 = phi i32 [ 0, %226 ], [ %240, %.lr.ph.split.us.i143 ]
-  %241 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %231
+  %241 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %231
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %243 = load i32, ptr %242, align 8, !tbaa !24
   %244 = icmp eq i32 %243, 0
@@ -5897,7 +5891,7 @@ _ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit150: ; preds = 
 
 255:                                              ; preds = %262, %.lr.ph.i153
   %indvars.iv.i154 = phi i64 [ %254, %.lr.ph.i153 ], [ %indvars.iv.next.i156, %262 ]
-  %256 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre.i, i64 %indvars.iv.i154
+  %256 = getelementptr inbounds nuw [136 x i8], ptr %.pre.i, i64 %indvars.iv.i154
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
   %258 = load i32, ptr %257, align 8, !tbaa !24
   %.not.i155 = icmp eq i32 %258, 0
@@ -6296,7 +6290,7 @@ select.unfold:                                    ; preds = %select.unfold.lr.ph
   %.0132227 = phi i32 [ 0, %select.unfold.lr.ph ], [ %.3135, %367 ]
   %122 = zext i32 %.0124230 to i64
   %123 = load ptr, ptr %1, align 8, !tbaa !45
-  %124 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [136 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8, !tbaa !11
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load i16, ptr %126, align 8, !tbaa !197
@@ -6328,7 +6322,7 @@ select.unfold:                                    ; preds = %select.unfold.lr.ph
   %141 = add i32 %140, %138
   %.0120207 = add i32 %.0124230, -1
   %142 = zext i32 %.0120207 to i64
-  %143 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %123, i64 %142
+  %143 = getelementptr inbounds nuw [136 x i8], ptr %123, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = load i32, ptr %144, align 8, !tbaa !24
   %146 = icmp eq i32 %145, 0
@@ -6349,7 +6343,7 @@ select.unfold:                                    ; preds = %select.unfold.lr.ph
   %155 = add i32 %154, %153
   %156 = add i32 %153, %.1133208
   %157 = add nsw i64 %indvars.iv246, -1
-  %158 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %123, i64 %157
+  %158 = getelementptr inbounds nuw [136 x i8], ptr %123, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load i32, ptr %159, align 8, !tbaa !24
   %161 = icmp eq i32 %160, 0
@@ -6388,7 +6382,7 @@ select.unfold:                                    ; preds = %select.unfold.lr.ph
 178:                                              ; preds = %176
   %179 = load ptr, ptr %6, align 8, !tbaa !45
   %180 = zext i32 %177 to i64
-  %181 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %180
   %182 = getelementptr inbounds i8, ptr %181, i64 -16
   store i32 %.0124230, ptr %182, align 8, !tbaa !387
   br label %.preheader351
@@ -6427,7 +6421,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit: ; preds = %184
 
 193:                                              ; preds = %191
   %194 = zext i32 %192 to i64
-  %195 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %.pre3.i.pre, i64 %194
+  %195 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i.pre, i64 %194
   %196 = getelementptr inbounds i8, ptr %195, i64 -16
   store i32 %.0124230, ptr %196, align 8, !tbaa !387
   br label %._crit_edge262
@@ -6448,7 +6442,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit: ; preds = %184
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescriptionELb1EE9push_backERKS4_.exit, label %201, !prof !46
 
 201:                                              ; preds = %._crit_edge262
-  %202 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %.pre3.i.pre, i64 %.pre-phi264
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i.pre, i64 %.pre-phi264
   %203 = icmp uge ptr %7, %.pre3.i.pre
   %204 = icmp ult ptr %7, %202
   %spec.select.i.i.i.i.i = and i1 %203, %204
@@ -6472,7 +6466,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescrip
   %.016.i.i.i = phi ptr [ %7, %._crit_edge262 ], [ %209, %205 ], [ %7, %.critedge.i.i.i ]
   %211 = load i32, ptr %14, align 8, !tbaa !42
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %210, i64 %212
+  %213 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %214 = load i32, ptr %14, align 8, !tbaa !42
   %215 = add i32 %214, 1
@@ -6502,7 +6496,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZN4llvm23
   %228 = phi i32 [ %223, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescriptionELb1EE9push_backERKS4_.exit ], [ %.pre.i159, %225 ]
   %229 = load ptr, ptr %5, align 8, !tbaa !45
   %230 = zext i32 %228 to i64
-  %231 = getelementptr inbounds nuw i32, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %230
   store i32 %222, ptr %231, align 1
   %232 = load i32, ptr %11, align 8, !tbaa !42
   %233 = add i32 %232, 1
@@ -6567,7 +6561,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 
 253:                                              ; preds = %.lr.ph206, %252
   %indvars.iv = phi i64 [ %122, %.lr.ph206 ], [ %indvars.iv.next, %252 ]
-  %254 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %251, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [136 x i8], ptr %251, i64 %indvars.iv
   %255 = load ptr, ptr %254, align 8, !tbaa !11
   %.not141 = icmp eq ptr %255, %.0117.lcssa
   br i1 %.not141, label %.critedge2, label %252
@@ -6604,7 +6598,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 271:                                              ; preds = %267
   %272 = add i32 %.0124230, -1
   %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %123, i64 %273
+  %274 = getelementptr inbounds nuw [136 x i8], ptr %123, i64 %273
   %275 = load ptr, ptr %274, align 8, !tbaa !11
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %277 = load i16, ptr %276, align 8, !tbaa !197
@@ -6625,7 +6619,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 
 282:                                              ; preds = %.preheader195
   %283 = zext i32 %.0115 to i64
-  %284 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %123, i64 %283
+  %284 = getelementptr inbounds nuw [136 x i8], ptr %123, i64 %283
   %285 = load ptr, ptr %284, align 8, !tbaa !11
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 225
   %287 = load i8, ptr %286, align 1, !tbaa !406, !range !40, !noundef !41
@@ -6638,7 +6632,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 
 .critedge4:                                       ; preds = %.preheader195, %.critedge4split
   %.0115.lcssa = phi i64 [ %289, %.critedge4split ], [ 0, %.preheader195 ]
-  %290 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %123, i64 %.0115.lcssa
+  %290 = getelementptr inbounds nuw [136 x i8], ptr %123, i64 %.0115.lcssa
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 100
   %292 = load i32, ptr %291, align 4, !tbaa !35
   br label %.critedge148
@@ -6667,7 +6661,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 
 301:                                              ; preds = %.critedge148
   %302 = load ptr, ptr %1, align 8, !tbaa !45
-  %303 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %122
+  %303 = getelementptr inbounds nuw [136 x i8], ptr %302, i64 %122
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 24
   %305 = load i32, ptr %304, align 8, !tbaa !24
   %.not143 = icmp eq i32 %305, 0
@@ -6681,7 +6675,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 309:                                              ; preds = %306
   %310 = add i32 %.0124230, -1
   %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %311
+  %312 = getelementptr inbounds nuw [136 x i8], ptr %302, i64 %311
   %313 = load ptr, ptr %312, align 8, !tbaa !11
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %315 = load i16, ptr %314, align 8, !tbaa !197
@@ -6690,7 +6684,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 
 317:                                              ; preds = %309
   %318 = zext i32 %307 to i64
-  %319 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %318
+  %319 = getelementptr inbounds nuw [136 x i8], ptr %302, i64 %318
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %321 = load i32, ptr %320, align 8, !tbaa !24
   %.not144 = icmp eq i32 %321, 0
@@ -6727,12 +6721,12 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
 .lr.ph:                                           ; preds = %.lr.ph219.preheader, %.lr.ph219
   %.2126216342 = phi i32 [ %341, %.lr.ph219 ], [ %.0124230, %.lr.ph219.preheader ]
   %338 = phi i64 [ %342, %.lr.ph219 ], [ %122, %.lr.ph219.preheader ]
-  %339 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %338
+  %339 = getelementptr inbounds nuw [136 x i8], ptr %302, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 100
   store i32 %.3, ptr %340, align 4, !tbaa !35
   %341 = add i32 %.2126216342, 1
   %342 = zext i32 %341 to i64
-  %343 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %302, i64 %342
+  %343 = getelementptr inbounds nuw [136 x i8], ptr %302, i64 %342
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 24
   %345 = load i32, ptr %344, align 8, !tbaa !24
   %.not145 = icmp eq i32 %345, 0
@@ -6764,7 +6758,7 @@ _ZNK5clang6format11FormatToken17getNextNonCommentEv.exit169: ; preds = %243
   br i1 %.not.i.i.not.i170, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescriptionELb1EE9push_backERKS4_.exit176, label %352, !prof !46
 
 352:                                              ; preds = %.critedge6
-  %353 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %.pre3.i171, i64 %349
+  %353 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i171, i64 %349
   %354 = icmp uge ptr %8, %.pre3.i171
   %355 = icmp ult ptr %8, %353
   %spec.select.i.i.i.i.i172 = and i1 %354, %355
@@ -6788,7 +6782,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17WhitespaceManager15CellDescrip
   %.016.i.i.i175 = phi ptr [ %8, %.critedge6 ], [ %360, %356 ], [ %8, %.critedge.i.i.i173 ]
   %362 = load i32, ptr %14, align 8, !tbaa !42
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %361, i64 %363
+  %364 = getelementptr inbounds nuw [24 x i8], ptr %361, i64 %363
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %364, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i175, i64 24, i1 false)
   %365 = load i32, ptr %14, align 8, !tbaa !42
   %366 = add i32 %365, 1
@@ -6869,7 +6863,7 @@ _ZNK5clang6format17WhitespaceManager16CellDescriptions13isRectangularEv.exit: ; 
   %.077 = phi ptr [ %22, %.lr.ph ], [ %39, %28 ]
   %29 = load i32, ptr %.077, align 8, !tbaa !386
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %23, i64 %30
+  %31 = getelementptr inbounds nuw [136 x i8], ptr %23, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !24
   %34 = icmp eq i32 %33, 0
@@ -6908,7 +6902,7 @@ _ZNK5clang6format17WhitespaceManager16CellDescriptions13isRectangularEv.exit: ; 
   %.01013.i = phi i32 [ %68, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i ], [ %47, %40 ]
   %49 = load i32, ptr %.014.i, align 8, !tbaa !386
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre95, i64 %50
+  %51 = getelementptr inbounds nuw [136 x i8], ptr %.pre95, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !24
   %.not11.i = icmp eq i32 %53, 0
@@ -6924,7 +6918,7 @@ _ZNK5clang6format17WhitespaceManager16CellDescriptions13isRectangularEv.exit: ; 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i ], [ %50, %.lr.ph.i.i ]
   %.01112.us.i.i = phi i32 [ %65, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %57 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre95, i64 %indvars.iv17.i.i
+  %57 = getelementptr inbounds nuw [136 x i8], ptr %.pre95, i64 %indvars.iv17.i.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8, !tbaa !24
   %.not.us.i.i = icmp eq i32 %59, 0
@@ -6952,7 +6946,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %.010.lcssa.i = phi i32 [ %47, %40 ], [ %68, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i ]
   %70 = load i32, ptr %48, align 8, !tbaa !386
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre95, i64 %71
+  %72 = getelementptr inbounds nuw [136 x i8], ptr %.pre95, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load i32, ptr %73, align 8, !tbaa !24
   %75 = icmp eq i32 %74, 0
@@ -6990,7 +6984,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %90 = load i32, ptr %.pre97, align 4, !tbaa !9
   %91 = mul i32 %90, %.04183
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %46, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %92
   %94 = getelementptr inbounds i8, ptr %93, i64 %87
   br i1 %.not12.i, label %_ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT_S7_j.exit65, label %.lr.ph.i48
 
@@ -6999,7 +6993,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %.01013.i50 = phi i32 [ %114, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i52 ], [ %47, %.lr.ph85 ]
   %95 = load i32, ptr %.014.i49, align 8, !tbaa !386
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre95, i64 %96
+  %97 = getelementptr inbounds nuw [136 x i8], ptr %.pre95, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load i32, ptr %98, align 8, !tbaa !24
   %.not11.i51 = icmp eq i32 %99, 0
@@ -7015,7 +7009,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
 .lr.ph.split.us.i.i58:                            ; preds = %.lr.ph.split.us.i.i58, %.lr.ph.i.i56
   %indvars.iv17.i.i59 = phi i64 [ %indvars.iv.next18.i.i63, %.lr.ph.split.us.i.i58 ], [ %96, %.lr.ph.i.i56 ]
   %.01112.us.i.i60 = phi i32 [ %111, %.lr.ph.split.us.i.i58 ], [ 0, %.lr.ph.i.i56 ]
-  %103 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre95, i64 %indvars.iv17.i.i59
+  %103 = getelementptr inbounds nuw [136 x i8], ptr %.pre95, i64 %indvars.iv17.i.i59
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load i32, ptr %104, align 8, !tbaa !24
   %.not.us.i.i61 = icmp eq i32 %105, 0
@@ -7043,7 +7037,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %.010.lcssa.i55 = phi i32 [ %47, %.lr.ph85 ], [ %114, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i52 ]
   %116 = load i32, ptr %.03984, align 8, !tbaa !386
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %.pre95, i64 %117
+  %118 = getelementptr inbounds nuw [136 x i8], ptr %.pre95, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load i32, ptr %119, align 8, !tbaa !24
   %121 = icmp eq i32 %120, 0
@@ -7126,7 +7120,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang6format17WhitespaceManager18ge
   %.01013.i = phi i32 [ %3, %.lr.ph.i ], [ %30, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i ]
   %11 = load i32, ptr %.014.i, align 8, !tbaa !386
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !24
   %.not11.i = icmp eq i32 %15, 0
@@ -7142,7 +7136,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang6format17WhitespaceManager18ge
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.split.us.i.i, %.lr.ph.i.i
   %indvars.iv17.i.i = phi i64 [ %indvars.iv.next18.i.i, %.lr.ph.split.us.i.i ], [ %12, %.lr.ph.i.i ]
   %.01112.us.i.i = phi i32 [ %27, %.lr.ph.split.us.i.i ], [ 0, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %9, i64 %indvars.iv17.i.i
+  %19 = getelementptr inbounds nuw [136 x i8], ptr %9, i64 %indvars.iv17.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !24
   %.not.us.i.i = icmp eq i32 %21, 0
@@ -7189,7 +7183,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = mul i32 %4, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %7, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 %34
   br label %42
 
@@ -7198,7 +7192,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
   %.01013.i21 = phi i32 [ %3, %.lr.ph.i19 ], [ %62, %_ZNK5clang6format17WhitespaceManager18calculateCellWidthEjjb.exit.i23 ]
   %43 = load i32, ptr %.014.i20, align 8, !tbaa !386
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %35, i64 %44
+  %45 = getelementptr inbounds nuw [136 x i8], ptr %35, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !24
   %.not11.i22 = icmp eq i32 %47, 0
@@ -7214,7 +7208,7 @@ _ZNK5clang6format17WhitespaceManager11getNetWidthIPNS1_15CellDescriptionEEEDaRKT
 .lr.ph.split.us.i.i29:                            ; preds = %.lr.ph.split.us.i.i29, %.lr.ph.i.i27
   %indvars.iv17.i.i30 = phi i64 [ %indvars.iv.next18.i.i34, %.lr.ph.split.us.i.i29 ], [ %44, %.lr.ph.i.i27 ]
   %.01112.us.i.i31 = phi i32 [ %59, %.lr.ph.split.us.i.i29 ], [ 0, %.lr.ph.i.i27 ]
-  %51 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %35, i64 %indvars.iv17.i.i30
+  %51 = getelementptr inbounds nuw [136 x i8], ptr %35, i64 %indvars.iv17.i.i30
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !24
   %.not.us.i.i32 = icmp eq i32 %53, 0
@@ -7267,7 +7261,7 @@ define dso_local noundef i32 @_ZNK5clang6format17WhitespaceManager18calculateCel
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph.split.us ], [ %7, %.lr.ph ]
   %.01112.us = phi i32 [ %16, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %6, i64 %indvars.iv17
+  %8 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %indvars.iv17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !24
   %.not.us = icmp eq i32 %10, 0
@@ -7289,7 +7283,7 @@ define dso_local noundef i32 @_ZNK5clang6format17WhitespaceManager18calculateCel
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %7, %.lr.ph ]
   %.01112 = phi i32 [ %22, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !24
   %.not = icmp eq i32 %19, 0
@@ -7316,14 +7310,14 @@ define dso_local void @_ZN5clang6format17WhitespaceManager18alignToStartOfCellEj
 .lr.ph:                                           ; preds = %.preheader
   %7 = load ptr, ptr %0, align 8, !tbaa !45
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %11 = zext i32 %.09 to i64
   br label %12
 
 12:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %13 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8, !tbaa !24
   %.not = icmp eq i32 %15, 0
@@ -8521,7 +8515,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %16 = lshr i32 %14, 6
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %15, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = and i32 %14, 63
   %21 = load i64, ptr %19, align 8, !tbaa !29
   %22 = zext nneg i32 %20 to i64
@@ -8535,7 +8529,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %7, %8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %28 = lshr i64 %26, 5
   %29 = load ptr, ptr %27, align 8, !tbaa !45
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !440
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i, label %32, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, !prof !47
@@ -8567,7 +8561,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i, %25
   %40 = phi ptr [ %.pre.i.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i.i ], [ %31, %25 ]
   %41 = and i64 %26, 31
-  %42 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 43:                                               ; preds = %13
@@ -8584,7 +8578,7 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = zext nneg i32 %.sroa.02.0.i.i to i64
   %49 = load ptr, ptr %47, align 8, !tbaa !45
-  %50 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   br label %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
@@ -8637,7 +8631,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %13 = lshr i32 %11, 6
   %14 = zext nneg i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !45
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = and i32 %11, 63
   %18 = load i64, ptr %16, align 8, !tbaa !29
   %19 = zext nneg i32 %17 to i64
@@ -8651,7 +8645,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = lshr i64 %23, 5
   %26 = load ptr, ptr %24, align 8, !tbaa !45
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !440
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %29, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !47
@@ -8683,7 +8677,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %22
   %37 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %28, %22 ]
   %38 = and i64 %23, 31
-  %39 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
@@ -8694,7 +8688,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = zext nneg i32 %1 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !45
-  %46 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %44
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40, %42
@@ -8731,7 +8725,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %66 = lshr i32 %64, 6
   %67 = zext nneg i32 %66 to i64
   %68 = load ptr, ptr %65, align 8, !tbaa !45
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = and i32 %64, 63
   %71 = load i64, ptr %69, align 8, !tbaa !29
   %72 = zext nneg i32 %70 to i64
@@ -8745,7 +8739,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = lshr i64 %76, 5
   %79 = load ptr, ptr %77, align 8, !tbaa !45
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !440
   %.not.i.i.i.i.i13 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i13, label %82, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, !prof !47
@@ -8777,7 +8771,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i, %75
   %90 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i ], [ %81, %75 ]
   %91 = and i64 %76, 31
-  %92 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %91
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
@@ -8787,7 +8781,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
 95:                                               ; preds = %61
   %96 = zext nneg i32 %4 to i64
   %97 = load ptr, ptr %53, align 8, !tbaa !45
-  %98 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %96
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, %93, %95
@@ -8872,7 +8866,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !45
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.184", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -8913,7 +8907,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !45
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !42
@@ -9047,7 +9041,7 @@ _ZSt4moveIPN5clang6format17WhitespaceManager15CellDescriptionES4_ET0_T_S6_S5_.ex
   %.idx40 = mul nuw nsw i64 %.026, 24
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !45
-  %45 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::CellDescription", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.026
   %.idx3941 = sub nsw i64 %40, %.026
   %gepdiff = mul nsw i64 %.idx3941, 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -9165,7 +9159,7 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit35:               ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 2
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !45
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %43, i64 %gepdiff, i1 false)
@@ -9449,7 +9443,7 @@ _ZSt14__partial_sortIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops
 20:                                               ; preds = %12
   %21 = add nsw i64 %.01518, -1
   %22 = udiv i64 %13, 272
-  %23 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %.019, i64 -136
   tail call void @_ZSt22__move_median_to_firstIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEEvT_SA_SA_SA_T0_(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %23, ptr noundef nonnull %24, ptr %3)
   %25 = tail call noundef ptr @_ZSt21__unguarded_partitionIPN5clang6format17WhitespaceManager6ChangeEN9__gnu_cxx5__ops15_Iter_comp_iterINS3_14IsBeforeInFileEEEET_SA_SA_SA_T0_(ptr noundef nonnull %11, ptr noundef %.019, ptr noundef %0, ptr %3)
@@ -9496,7 +9490,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang6format17WhitespaceManager6C
 28:                                               ; preds = %_ZN5clang6format17WhitespaceManager6ChangeD2Ev.exit24, %11
   %.013 = phi i64 [ %13, %11 ], [ %75, %_ZN5clang6format17WhitespaceManager6ChangeD2Ev.exit24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.013
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %0, i64 %.013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %29, i64 28, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !30
@@ -9869,8 +9863,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang6format17WhitespaceManager
   %.032 = phi i64 [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
   %10 = shl i64 %.032, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %11
-  %13 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %10
+  %12 = getelementptr inbounds [136 x i8], ptr %0, i64 %11
+  %13 = getelementptr [136 x i8], ptr %0, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %14, align 4, !tbaa !9
   %15 = getelementptr i8, ptr %13, i64 148
@@ -9900,8 +9894,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit, %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread
   %24 = phi i64 [ %11, %18 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit ], [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread ]
-  %25 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %24
-  %26 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.032
+  %25 = getelementptr inbounds [136 x i8], ptr %0, i64 %24
+  %26 = getelementptr inbounds [136 x i8], ptr %0, i64 %.032
   %27 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %26, ptr noundef nonnull align 8 dereferenceable(136) %25) #21
   %28 = icmp slt i64 %24, %8
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !546
@@ -9921,8 +9915,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14I
 35:                                               ; preds = %31
   %36 = shl nsw i64 %.0.lcssa, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.0.lcssa
+  %38 = getelementptr inbounds [136 x i8], ptr %0, i64 %37
+  %39 = getelementptr inbounds [136 x i8], ptr %0, i64 %.0.lcssa
   %40 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %39, ptr noundef nonnull align 8 dereferenceable(136) %38) #21
   br label %41
 
@@ -10012,7 +10006,7 @@ _ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %63, %_ZNKSt7_
   %.01317.i = phi i64 [ %.127, %.lr.ph.i ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %78 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.018.i
+  %78 = getelementptr inbounds [136 x i8], ptr %0, i64 %.018.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %79, align 4, !tbaa !9
   %.sroa.0.0.copyload.i10.i.i.i = load i32, ptr %75, align 4, !tbaa !9
@@ -10033,14 +10027,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14Is
   br i1 %84, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, %77
-  %85 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.01317.i
+  %85 = getelementptr inbounds [136 x i8], ptr %0, i64 %.01317.i
   %86 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %85, ptr noundef nonnull align 8 dereferenceable(136) %78) #21
   %87 = icmp sgt i64 %.018.i, %1
   br i1 %87, label %77, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit, !llvm.loop !547
 
 _ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit: ; preds = %81, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit
   %.013.lcssa.i = phi i64 [ %.127, %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i ], [ %.01317.i, %81 ]
-  %88 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.013.lcssa.i
+  %88 = getelementptr inbounds [136 x i8], ptr %0, i64 %.013.lcssa.i
   %89 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %88, ptr noundef nonnull align 8 dereferenceable(136) %6) #21
   %90 = load ptr, ptr %57, align 8, !tbaa !30
   %91 = icmp eq ptr %90, %59
@@ -11143,7 +11137,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
 10:                                               ; preds = %6
   %11 = zext i32 %3 to i64
   %12 = load ptr, ptr %2, align 8, !tbaa !45
-  %13 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !11, !noalias !554
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 124
@@ -11180,7 +11174,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
   %.0235315 = phi i32 [ 0, %.lr.ph325 ], [ %.1236.ph, %"_ZZN5clang6format17WhitespaceManager27alignConsecutiveAssignmentsEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %27 = zext i32 %.085320 to i64
   %28 = load ptr, ptr %2, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !11, !noalias !560
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 124
@@ -11261,7 +11255,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread242: ; preds = %3
   %65 = add i32 %.085320, -1
   %66 = zext i32 %65 to i64
   %67 = load ptr, ptr %2, align 8, !tbaa !45
-  %68 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [136 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i16, ptr %70, align 8, !tbaa !197
@@ -11330,7 +11324,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread259: ; preds = %8
   %98 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %99 = load i32, ptr %98, align 8, !tbaa !42
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %97, i64 %100
+  %101 = getelementptr inbounds nuw [136 x i8], ptr %97, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -136
   %.not14.i = icmp eq ptr %29, %102
   br i1 %.not14.i, label %.preheader, label %103
@@ -11472,7 +11466,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %118, %115
   %.080311 = phi i32 [ %.080308, %.lr.ph ], [ %.080, %171 ]
   %.1180310 = phi i32 [ %.0179, %.lr.ph ], [ %.2181, %171 ]
   %154 = zext i32 %.080311 to i64
-  %155 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [136 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load i32, ptr %156, align 8, !tbaa !24
   %158 = icmp eq i32 %157, 0
@@ -11599,7 +11593,7 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %.093156 = phi i32 [ %1, %.lr.ph159 ], [ %.pre-phi, %.critedge9 ]
   %19 = zext i32 %.093156 to i64
   %20 = load ptr, ptr %6, align 8, !tbaa !45
-  %21 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %10, align 8, !tbaa !42
   %.not97 = icmp eq i32 %22, 0
   br i1 %.not97, label %.critedge, label %23
@@ -11614,11 +11608,11 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %30 = load i32, ptr %27, align 4, !tbaa !9, !noalias !576
   %31 = load i32, ptr %26, align 4, !tbaa !9, !noalias !576
   %32 = load ptr, ptr %8, align 8, !tbaa !45
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %24
   %34 = getelementptr inbounds i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %36
+  %37 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !11, !noalias !579
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 124
@@ -11657,7 +11651,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %50, 
 .lr.ph:                                           ; preds = %.critedge, %63
   %.094149 = phi i32 [ %64, %63 ], [ %55, %.critedge ]
   %57 = zext i32 %.094149 to i64
-  %58 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %57
+  %58 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !11
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i16, ptr %60, align 8, !tbaa !197
@@ -11683,7 +11677,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %50, 
   %72 = load i32, ptr %69, align 4, !tbaa !9, !noalias !589
   %73 = load i32, ptr %68, align 4, !tbaa !9, !noalias !589
   %74 = zext i32 %.094.lcssa to i64
-  %75 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %74
+  %75 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !11, !noalias !592
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 124
@@ -11724,7 +11718,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %95 = phi i32 [ %54, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.pre.i, %92 ]
   %96 = load ptr, ptr %8, align 8, !tbaa !45
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   store i32 %.093156, ptr %98, align 1
   %99 = load i32, ptr %10, align 8, !tbaa !42
   %100 = add i32 %99, 1
@@ -11747,7 +11741,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 109:                                              ; preds = %104
   %110 = zext i32 %55 to i64
   %111 = load ptr, ptr %6, align 8, !tbaa !45
-  %112 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [136 x i8], ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8, !tbaa !11
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i16, ptr %114, align 8, !tbaa !197
@@ -11775,7 +11769,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %126 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %127 = load i32, ptr %126, align 8, !tbaa !42
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %125, i64 %128
+  %129 = getelementptr inbounds nuw [136 x i8], ptr %125, i64 %128
   %130 = getelementptr inbounds i8, ptr %129, i64 -136
   %.not14.i = icmp eq ptr %21, %130
   br i1 %.not14.i, label %134, label %131
@@ -11911,13 +11905,13 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
   %191 = load ptr, ptr %8, align 8, !tbaa !45
   %192 = load i32, ptr %10, align 8, !tbaa !42
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %191, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %193
   %195 = getelementptr inbounds i8, ptr %194, i64 -4
   %196 = load i32, ptr %195, align 4, !tbaa !9
   %197 = add i32 %196, -1
   %198 = zext i32 %197 to i64
   %199 = load ptr, ptr %6, align 8, !tbaa !45
-  %200 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %199, i64 %198
+  %200 = getelementptr inbounds nuw [136 x i8], ptr %199, i64 %198
   %201 = load ptr, ptr %200, align 8, !tbaa !11
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 67
   %203 = load i8, ptr %202, align 1, !tbaa !205
@@ -11933,7 +11927,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 206:                                              ; preds = %204
   %207 = add i32 %196, -2
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %199, i64 %208
+  %209 = getelementptr inbounds nuw [136 x i8], ptr %199, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !11
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 67
   %212 = load i8, ptr %211, align 1, !tbaa !205
@@ -11956,7 +11950,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 
 224:                                              ; preds = %220
   %225 = zext i32 %196 to i64
-  %226 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %199, i64 %225
+  %226 = getelementptr inbounds nuw [136 x i8], ptr %199, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !11
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 67
   %229 = load i8, ptr %228, align 1, !tbaa !205
@@ -12030,7 +12024,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 265:                                              ; preds = %264
   %266 = add i32 %196, -2
   %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %199, i64 %267
+  %268 = getelementptr inbounds nuw [136 x i8], ptr %199, i64 %267
   %269 = load ptr, ptr %268, align 8, !tbaa !11
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %271 = load i16, ptr %270, align 8, !tbaa !197
@@ -12086,7 +12080,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 296:                                              ; preds = %.lr.ph.i
   %297 = add i32 %294, -1
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %199, i64 %298
+  %299 = getelementptr inbounds nuw [136 x i8], ptr %199, i64 %298
   %300 = load ptr, ptr %299, align 8, !tbaa !11
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 67
   %302 = load i8, ptr %301, align 1, !tbaa !205
@@ -12103,7 +12097,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 
 "_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager27alignConsecutiveAssignmentsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %.critedge.i, %291
   %304 = zext i32 %196 to i64
-  %305 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %199, i64 %304
+  %305 = getelementptr inbounds nuw [136 x i8], ptr %199, i64 %304
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %307 = load i32, ptr %306, align 8, !tbaa !24
   %.not16.i = icmp eq i32 %307, 0
@@ -12139,7 +12133,7 @@ _ZNK5clang6format11FormatToken13getPrecedenceEv.exit.i: ; preds = %148, %145
 321:                                              ; preds = %315
   %322 = zext i32 %319 to i64
   %323 = load ptr, ptr %6, align 8, !tbaa !45
-  %324 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %323, i64 %322
+  %324 = getelementptr inbounds nuw [136 x i8], ptr %323, i64 %322
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 112
   %326 = load i32, ptr %325, align 8, !tbaa !195
   %327 = add i32 %326, %.292
@@ -12188,7 +12182,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
 350:                                              ; preds = %.lr.ph153, %372
   %.0152 = phi i32 [ %55, %.lr.ph153 ], [ %373, %372 ]
   %351 = zext nneg i32 %.0152 to i64
-  %352 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %349, i64 %351
+  %352 = getelementptr inbounds nuw [136 x i8], ptr %349, i64 %351
   %353 = load ptr, ptr %352, align 8, !tbaa !11
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 67
   %355 = load i8, ptr %354, align 1, !tbaa !205
@@ -12245,7 +12239,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
 10:                                               ; preds = %6
   %11 = zext i32 %3 to i64
   %12 = load ptr, ptr %2, align 8, !tbaa !45
-  %13 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !11, !noalias !602
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 124
@@ -12283,7 +12277,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
   %.0236314 = phi i32 [ 0, %.lr.ph324 ], [ %.1237.ph, %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %28 = zext i32 %.085319 to i64
   %29 = load ptr, ptr %2, align 8, !tbaa !45
-  %30 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [136 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !11, !noalias !608
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 124
@@ -12364,7 +12358,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread243: ; preds = %3
   %66 = add i32 %.085319, -1
   %67 = zext i32 %66 to i64
   %68 = load ptr, ptr %2, align 8, !tbaa !45
-  %69 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [136 x i8], ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i16, ptr %71, align 8, !tbaa !197
@@ -12434,7 +12428,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread260: ; preds = %8
   %99 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %100 = load i32, ptr %99, align 8, !tbaa !42
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %98, i64 %101
+  %102 = getelementptr inbounds nuw [136 x i8], ptr %98, i64 %101
   %103 = getelementptr inbounds i8, ptr %102, i64 -136
   %.not7.i = icmp eq ptr %30, %103
   br i1 %.not7.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit", label %104
@@ -12515,7 +12509,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread260: ; preds = %8
   %.080310 = phi i32 [ %.080307, %.lr.ph ], [ %.080, %149 ]
   %.1181309 = phi i32 [ %.0180, %.lr.ph ], [ %.2182, %149 ]
   %132 = zext i32 %.080310 to i64
-  %133 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %130, i64 %132
+  %133 = getelementptr inbounds nuw [136 x i8], ptr %130, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load i32, ptr %134, align 8, !tbaa !24
   %136 = icmp eq i32 %135, 0
@@ -12644,7 +12638,7 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %.093156 = phi i32 [ %1, %.lr.ph160 ], [ %.pre-phi, %.critedge9 ]
   %20 = zext i32 %.093156 to i64
   %21 = load ptr, ptr %6, align 8, !tbaa !45
-  %22 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [136 x i8], ptr %21, i64 %20
   %.not97 = icmp eq i32 %.pr161, 0
   br i1 %.not97, label %.critedge, label %23
 
@@ -12658,11 +12652,11 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %30 = load i32, ptr %27, align 4, !tbaa !9, !noalias !624
   %31 = load i32, ptr %26, align 4, !tbaa !9, !noalias !624
   %32 = load ptr, ptr %8, align 8, !tbaa !45
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %24
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %24
   %34 = getelementptr inbounds i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %21, i64 %36
+  %37 = getelementptr inbounds nuw [136 x i8], ptr %21, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !11, !noalias !627
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 124
@@ -12701,7 +12695,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %50, 
 .lr.ph:                                           ; preds = %.critedge, %62
   %.094149 = phi i32 [ %63, %62 ], [ %54, %.critedge ]
   %56 = zext i32 %.094149 to i64
-  %57 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %21, i64 %56
+  %57 = getelementptr inbounds nuw [136 x i8], ptr %21, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !11
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i16, ptr %59, align 8, !tbaa !197
@@ -12727,7 +12721,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %50, 
   %71 = load i32, ptr %68, align 4, !tbaa !9, !noalias !637
   %72 = load i32, ptr %67, align 4, !tbaa !9, !noalias !637
   %73 = zext i32 %.094.lcssa to i64
-  %74 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %21, i64 %73
+  %74 = getelementptr inbounds nuw [136 x i8], ptr %21, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !11, !noalias !640
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 128
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 124
@@ -12768,7 +12762,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %94 = phi i32 [ %.pr, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.pre.i, %91 ]
   %95 = load ptr, ptr %8, align 8, !tbaa !45
   %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %96
   store i32 %.093156, ptr %97, align 1
   %98 = load i32, ptr %10, align 8, !tbaa !42
   %99 = add i32 %98, 1
@@ -12792,7 +12786,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 108:                                              ; preds = %103
   %109 = zext i32 %54 to i64
   %110 = load ptr, ptr %6, align 8, !tbaa !45
-  %111 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %110, i64 %109
+  %111 = getelementptr inbounds nuw [136 x i8], ptr %110, i64 %109
   %112 = load ptr, ptr %111, align 8, !tbaa !11
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i16, ptr %113, align 8, !tbaa !197
@@ -12821,7 +12815,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %125 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %126 = load i32, ptr %125, align 8, !tbaa !42
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %124, i64 %127
+  %128 = getelementptr inbounds nuw [136 x i8], ptr %124, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 -136
   %.not7.i = icmp eq ptr %22, %129
   br i1 %.not7.i, label %"_ZZN5clang6format17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEENK3$_0clERKNS1_6ChangeE.exit", label %130
@@ -12880,13 +12874,13 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 155:                                              ; preds = %154
   %156 = load ptr, ptr %8, align 8, !tbaa !45
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %100
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %100
   %158 = getelementptr inbounds i8, ptr %157, i64 -4
   %159 = load i32, ptr %158, align 4, !tbaa !9
   %160 = add i32 %159, -1
   %161 = zext i32 %160 to i64
   %162 = load ptr, ptr %6, align 8, !tbaa !45
-  %163 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [136 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !11
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 67
   %166 = load i8, ptr %165, align 1, !tbaa !205
@@ -12902,7 +12896,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 169:                                              ; preds = %167
   %170 = add i32 %159, -2
   %171 = zext i32 %170 to i64
-  %172 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %162, i64 %171
+  %172 = getelementptr inbounds nuw [136 x i8], ptr %162, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !11
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 67
   %175 = load i8, ptr %174, align 1, !tbaa !205
@@ -12925,7 +12919,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 187:                                              ; preds = %183
   %188 = zext i32 %159 to i64
-  %189 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %162, i64 %188
+  %189 = getelementptr inbounds nuw [136 x i8], ptr %162, i64 %188
   %190 = load ptr, ptr %189, align 8, !tbaa !11
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 67
   %192 = load i8, ptr %191, align 1, !tbaa !205
@@ -12999,7 +12993,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 228:                                              ; preds = %227
   %229 = add i32 %159, -2
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %162, i64 %230
+  %231 = getelementptr inbounds nuw [136 x i8], ptr %162, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !11
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %234 = load i16, ptr %233, align 8, !tbaa !197
@@ -13051,7 +13045,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 258:                                              ; preds = %.lr.ph.i
   %259 = add i32 %256, -1
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %162, i64 %260
+  %261 = getelementptr inbounds nuw [136 x i8], ptr %162, i64 %260
   %262 = load ptr, ptr %261, align 8, !tbaa !11
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 67
   %264 = load i8, ptr %263, align 1, !tbaa !205
@@ -13068,7 +13062,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 "_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager22alignConsecutiveColonsERKNS0_11FormatStyle21AlignConsecutiveStyleENS0_9TokenTypeEE3$_0EEvRKS3_jjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %.critedge.i
   %266 = zext i32 %159 to i64
-  %267 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %162, i64 %266
+  %267 = getelementptr inbounds nuw [136 x i8], ptr %162, i64 %266
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = load i32, ptr %268, align 8, !tbaa !24
   %.not16.i = icmp eq i32 %269, 0
@@ -13104,7 +13098,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 283:                                              ; preds = %277
   %284 = zext i32 %281 to i64
   %285 = load ptr, ptr %6, align 8, !tbaa !45
-  %286 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %285, i64 %284
+  %286 = getelementptr inbounds nuw [136 x i8], ptr %285, i64 %284
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 112
   %288 = load i32, ptr %287, align 8, !tbaa !195
   %289 = add i32 %288, %.292
@@ -13153,7 +13147,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
 312:                                              ; preds = %.lr.ph153, %334
   %.0152 = phi i32 [ %54, %.lr.ph153 ], [ %335, %334 ]
   %313 = zext nneg i32 %.0152 to i64
-  %314 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %311, i64 %313
+  %314 = getelementptr inbounds nuw [136 x i8], ptr %311, i64 %313
   %315 = load ptr, ptr %314, align 8, !tbaa !11
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 67
   %317 = load i8, ptr %316, align 1, !tbaa !205
@@ -13267,7 +13261,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
 10:                                               ; preds = %6
   %11 = zext i32 %3 to i64
   %12 = load ptr, ptr %2, align 8, !tbaa !45
-  %13 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !11, !noalias !653
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 124
@@ -13304,7 +13298,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
   %.0237319 = phi i32 [ 0, %.lr.ph330 ], [ %.1238.ph, %"_ZZN5clang6format17WhitespaceManager28alignConsecutiveDeclarationsEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %27 = zext i32 %.085324 to i64
   %28 = load ptr, ptr %2, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !11, !noalias !659
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 124
@@ -13385,7 +13379,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread244: ; preds = %3
   %65 = add i32 %.085324, -1
   %66 = zext i32 %65 to i64
   %67 = load ptr, ptr %2, align 8, !tbaa !45
-  %68 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [136 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i16, ptr %70, align 8, !tbaa !197
@@ -13623,7 +13617,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
   %.080315 = phi i32 [ %.080312, %.lr.ph ], [ %.080, %173 ]
   %.1182314 = phi i32 [ %.0181, %.lr.ph ], [ %.2183, %173 ]
   %156 = zext i32 %.080315 to i64
-  %157 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %154, i64 %156
+  %157 = getelementptr inbounds nuw [136 x i8], ptr %154, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = load i32, ptr %158, align 8, !tbaa !24
   %160 = icmp eq i32 %159, 0
@@ -13751,7 +13745,7 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %.093163 = phi i32 [ %1, %.lr.ph167 ], [ %.pre-phi, %.critedge9 ]
   %19 = zext i32 %.093163 to i64
   %20 = load ptr, ptr %6, align 8, !tbaa !45
-  %21 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %19
   %.not97 = icmp eq i32 %.pr169, 0
   br i1 %.not97, label %.critedge, label %22
 
@@ -13765,11 +13759,11 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %29 = load i32, ptr %26, align 4, !tbaa !9, !noalias !675
   %30 = load i32, ptr %25, align 4, !tbaa !9, !noalias !675
   %31 = load ptr, ptr %8, align 8, !tbaa !45
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %23
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %23
   %33 = getelementptr inbounds i8, ptr %32, i64 -4
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %35
+  %36 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !11, !noalias !678
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 124
@@ -13808,7 +13802,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %49, 
 .lr.ph:                                           ; preds = %.critedge, %61
   %.094156 = phi i32 [ %62, %61 ], [ %53, %.critedge ]
   %55 = zext i32 %.094156 to i64
-  %56 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %55
+  %56 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i16, ptr %58, align 8, !tbaa !197
@@ -13834,7 +13828,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %49, 
   %70 = load i32, ptr %67, align 4, !tbaa !9, !noalias !688
   %71 = load i32, ptr %66, align 4, !tbaa !9, !noalias !688
   %72 = zext i32 %.094.lcssa to i64
-  %73 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %72
+  %73 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11, !noalias !691
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 124
@@ -13875,7 +13869,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %93 = phi i32 [ %.pr, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.pre.i, %90 ]
   %94 = load ptr, ptr %8, align 8, !tbaa !45
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   store i32 %.093163, ptr %96, align 1
   %97 = load i32, ptr %10, align 8, !tbaa !42
   %98 = add i32 %97, 1
@@ -13899,7 +13893,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 107:                                              ; preds = %102
   %108 = zext i32 %53 to i64
   %109 = load ptr, ptr %6, align 8, !tbaa !45
-  %110 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw [136 x i8], ptr %109, i64 %108
   %111 = load ptr, ptr %110, align 8, !tbaa !11
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load i16, ptr %112, align 8, !tbaa !197
@@ -14080,13 +14074,13 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr %8, align 8, !tbaa !45
-  %182 = getelementptr inbounds nuw i32, ptr %181, i64 %99
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %99
   %183 = getelementptr inbounds i8, ptr %182, i64 -4
   %184 = load i32, ptr %183, align 4, !tbaa !9
   %185 = add i32 %184, -1
   %186 = zext i32 %185 to i64
   %187 = load ptr, ptr %6, align 8, !tbaa !45
-  %188 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %187, i64 %186
+  %188 = getelementptr inbounds nuw [136 x i8], ptr %187, i64 %186
   %189 = load ptr, ptr %188, align 8, !tbaa !11
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 67
   %191 = load i8, ptr %190, align 1, !tbaa !205
@@ -14102,7 +14096,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 194:                                              ; preds = %192
   %195 = add i32 %184, -2
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %187, i64 %196
+  %197 = getelementptr inbounds nuw [136 x i8], ptr %187, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !11
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 67
   %200 = load i8, ptr %199, align 1, !tbaa !205
@@ -14125,7 +14119,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 
 212:                                              ; preds = %208
   %213 = zext i32 %184 to i64
-  %214 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %187, i64 %213
+  %214 = getelementptr inbounds nuw [136 x i8], ptr %187, i64 %213
   %215 = load ptr, ptr %214, align 8, !tbaa !11
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 67
   %217 = load i8, ptr %216, align 1, !tbaa !205
@@ -14199,7 +14193,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 253:                                              ; preds = %252
   %254 = add i32 %184, -2
   %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %187, i64 %255
+  %256 = getelementptr inbounds nuw [136 x i8], ptr %187, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !11
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load i16, ptr %258, align 8, !tbaa !197
@@ -14251,7 +14245,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 283:                                              ; preds = %.lr.ph.i113
   %284 = add i32 %281, -1
   %285 = zext i32 %284 to i64
-  %286 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %187, i64 %285
+  %286 = getelementptr inbounds nuw [136 x i8], ptr %187, i64 %285
   %287 = load ptr, ptr %286, align 8, !tbaa !11
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 67
   %289 = load i8, ptr %288, align 1, !tbaa !205
@@ -14268,7 +14262,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 
 "_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager28alignConsecutiveDeclarationsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %.critedge.i
   %291 = zext i32 %184 to i64
-  %292 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %187, i64 %291
+  %292 = getelementptr inbounds nuw [136 x i8], ptr %187, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 24
   %294 = load i32, ptr %293, align 8, !tbaa !24
   %.not16.i = icmp eq i32 %294, 0
@@ -14304,7 +14298,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS0_9TokenTypeES3_JNS_3tok9TokenKindEEEEb
 308:                                              ; preds = %302
   %309 = zext i32 %306 to i64
   %310 = load ptr, ptr %6, align 8, !tbaa !45
-  %311 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %310, i64 %309
+  %311 = getelementptr inbounds nuw [136 x i8], ptr %310, i64 %309
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 112
   %313 = load i32, ptr %312, align 8, !tbaa !195
   %314 = add i32 %313, %.292
@@ -14353,7 +14347,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
 337:                                              ; preds = %.lr.ph160, %359
   %.0159 = phi i32 [ %53, %.lr.ph160 ], [ %360, %359 ]
   %338 = zext nneg i32 %.0159 to i64
-  %339 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %336, i64 %338
+  %339 = getelementptr inbounds nuw [136 x i8], ptr %336, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !11
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 67
   %342 = load i8, ptr %341, align 1, !tbaa !205
@@ -14408,7 +14402,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
 9:                                                ; preds = %5
   %10 = zext i32 %2 to i64
   %11 = load ptr, ptr %1, align 8, !tbaa !45
-  %12 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [136 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !11, !noalias !699
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 124
@@ -14445,7 +14439,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
   %.0233313 = phi i32 [ 0, %.lr.ph323 ], [ %.1234.ph, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_0clERKNS1_6ChangeE.exit.thread" ]
   %26 = zext i32 %.085318 to i64
   %27 = load ptr, ptr %1, align 8, !tbaa !45
-  %28 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [136 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !11, !noalias !705
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 124
@@ -14526,7 +14520,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread240: ; preds = %3
   %64 = add i32 %.085318, -1
   %65 = zext i32 %64 to i64
   %66 = load ptr, ptr %1, align 8, !tbaa !45
-  %67 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [136 x i8], ptr %66, i64 %65
   %68 = load ptr, ptr %67, align 8, !tbaa !11
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i16, ptr %69, align 8, !tbaa !197
@@ -14617,7 +14611,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread257: ; preds = %8
   %108 = zext i32 %106 to i64
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 152
   %110 = load ptr, ptr %109, align 8, !tbaa !45
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %108
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %108
   %112 = getelementptr inbounds i8, ptr %111, i64 -4
   %113 = load i32, ptr %112, align 4, !tbaa !208
   %.not305 = icmp eq i32 %113, 3
@@ -14686,7 +14680,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread257: ; preds = %8
   %.080309 = phi i32 [ %.080306, %.lr.ph ], [ %.080, %151 ]
   %.1178308 = phi i32 [ %.0177, %.lr.ph ], [ %.2179, %151 ]
   %134 = zext i32 %.080309 to i64
-  %135 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %132, i64 %134
+  %135 = getelementptr inbounds nuw [136 x i8], ptr %132, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = load i32, ptr %136, align 8, !tbaa !24
   %138 = icmp eq i32 %137, 0
@@ -14814,7 +14808,7 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %6, %._crit_edge, %1
   %.09347 = phi i32 [ %1, %.lr.ph51 ], [ %.pre-phi, %.critedge9 ]
   %18 = zext i32 %.09347 to i64
   %19 = load ptr, ptr %5, align 8, !tbaa !45
-  %20 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %18
   %.not97 = icmp eq i32 %.pr52, 0
   br i1 %.not97, label %.critedge, label %21
 
@@ -14828,11 +14822,11 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %6, %._crit_edge, %1
   %28 = load i32, ptr %25, align 4, !tbaa !9, !noalias !721
   %29 = load i32, ptr %24, align 4, !tbaa !9, !noalias !721
   %30 = load ptr, ptr %7, align 8, !tbaa !45
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %22
   %32 = getelementptr inbounds i8, ptr %31, i64 -4
   %33 = load i32, ptr %32, align 4, !tbaa !9
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %19, i64 %34
+  %35 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !11, !noalias !724
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 124
@@ -14871,7 +14865,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, 
 .lr.ph:                                           ; preds = %.critedge, %60
   %.09440 = phi i32 [ %61, %60 ], [ %52, %.critedge ]
   %54 = zext i32 %.09440 to i64
-  %55 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %19, i64 %54
+  %55 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i16, ptr %57, align 8, !tbaa !197
@@ -14897,7 +14891,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %48, 
   %69 = load i32, ptr %66, align 4, !tbaa !9, !noalias !734
   %70 = load i32, ptr %65, align 4, !tbaa !9, !noalias !734
   %71 = zext i32 %.094.lcssa to i64
-  %72 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %19, i64 %71
+  %72 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !11, !noalias !737
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 124
@@ -14938,7 +14932,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %92 = phi i32 [ %.pr, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.pre.i, %89 ]
   %93 = load ptr, ptr %7, align 8, !tbaa !45
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %94
   store i32 %.09347, ptr %95, align 1
   %96 = load i32, ptr %9, align 8, !tbaa !42
   %97 = add i32 %96, 1
@@ -14962,7 +14956,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 106:                                              ; preds = %101
   %107 = zext i32 %52 to i64
   %108 = load ptr, ptr %5, align 8, !tbaa !45
-  %109 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [136 x i8], ptr %108, i64 %107
   %110 = load ptr, ptr %109, align 8, !tbaa !11
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i16, ptr %111, align 8, !tbaa !197
@@ -15015,7 +15009,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %137 = zext i32 %135 to i64
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 152
   %139 = load ptr, ptr %138, align 8, !tbaa !45
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %137
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %137
   %141 = getelementptr inbounds i8, ptr %140, i64 -4
   %142 = load i32, ptr %141, align 4, !tbaa !208
   %.not36 = icmp eq i32 %142, 3
@@ -15065,13 +15059,13 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 160:                                              ; preds = %159
   %161 = load ptr, ptr %7, align 8, !tbaa !45
-  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %98
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %98
   %163 = getelementptr inbounds i8, ptr %162, i64 -4
   %164 = load i32, ptr %163, align 4, !tbaa !9
   %165 = add i32 %164, -1
   %166 = zext i32 %165 to i64
   %167 = load ptr, ptr %5, align 8, !tbaa !45
-  %168 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %166
+  %168 = getelementptr inbounds nuw [136 x i8], ptr %167, i64 %166
   %169 = load ptr, ptr %168, align 8, !tbaa !11
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 67
   %171 = load i8, ptr %170, align 1, !tbaa !205
@@ -15087,7 +15081,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 174:                                              ; preds = %172
   %175 = add i32 %164, -2
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %176
+  %177 = getelementptr inbounds nuw [136 x i8], ptr %167, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !11
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 67
   %180 = load i8, ptr %179, align 1, !tbaa !205
@@ -15110,7 +15104,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 192:                                              ; preds = %188
   %193 = zext i32 %164 to i64
-  %194 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %193
+  %194 = getelementptr inbounds nuw [136 x i8], ptr %167, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !11
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 67
   %197 = load i8, ptr %196, align 1, !tbaa !205
@@ -15184,7 +15178,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 233:                                              ; preds = %232
   %234 = add i32 %164, -2
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %235
+  %236 = getelementptr inbounds nuw [136 x i8], ptr %167, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !11
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load i16, ptr %238, align 8, !tbaa !197
@@ -15236,7 +15230,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 263:                                              ; preds = %.lr.ph.i
   %264 = add i32 %261, -1
   %265 = zext i32 %264 to i64
-  %266 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %265
+  %266 = getelementptr inbounds nuw [136 x i8], ptr %167, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !11
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 67
   %269 = load i8, ptr %268, align 1, !tbaa !205
@@ -15253,7 +15247,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 
 "_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_0EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %.critedge.i
   %271 = zext i32 %164 to i64
-  %272 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %167, i64 %271
+  %272 = getelementptr inbounds nuw [136 x i8], ptr %167, i64 %271
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 24
   %274 = load i32, ptr %273, align 8, !tbaa !24
   %.not16.i = icmp eq i32 %274, 0
@@ -15289,7 +15283,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 288:                                              ; preds = %282
   %289 = zext i32 %286 to i64
   %290 = load ptr, ptr %5, align 8, !tbaa !45
-  %291 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %290, i64 %289
+  %291 = getelementptr inbounds nuw [136 x i8], ptr %290, i64 %289
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 112
   %293 = load i32, ptr %292, align 8, !tbaa !195
   %294 = add i32 %293, %.292
@@ -15338,7 +15332,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
 317:                                              ; preds = %.lr.ph44, %339
   %.043 = phi i32 [ %52, %.lr.ph44 ], [ %340, %339 ]
   %318 = zext nneg i32 %.043 to i64
-  %319 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %316, i64 %318
+  %319 = getelementptr inbounds nuw [136 x i8], ptr %316, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !11
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 67
   %322 = load i8, ptr %321, align 1, !tbaa !205
@@ -15393,7 +15387,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
 10:                                               ; preds = %6
   %11 = zext i32 %3 to i64
   %12 = load ptr, ptr %2, align 8, !tbaa !45
-  %13 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !11, !noalias !745
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 124
@@ -15430,7 +15424,7 @@ define internal fastcc noundef i32 @"_ZN5clang6formatL11AlignTokensIRZNS0_17Whit
   %.0235329 = phi i32 [ 0, %.lr.ph339 ], [ %.1236.ph, %"_ZZN5clang6format17WhitespaceManager24alignChainedConditionalsEvENK3$_2clERKNS1_6ChangeE.exit.thread" ]
   %27 = zext i32 %.085334 to i64
   %28 = load ptr, ptr %2, align 8, !tbaa !45
-  %29 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !11, !noalias !751
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 124
@@ -15511,7 +15505,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread242: ; preds = %3
   %65 = add i32 %.085334, -1
   %66 = zext i32 %65 to i64
   %67 = load ptr, ptr %2, align 8, !tbaa !45
-  %68 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [136 x i8], ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i16, ptr %70, align 8, !tbaa !197
@@ -15582,7 +15576,7 @@ _ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread259: ; preds = %8
   %100 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %101 = load i32, ptr %100, align 8, !tbaa !42
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %99, i64 %102
+  %103 = getelementptr inbounds nuw [136 x i8], ptr %99, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 -136
   %.not.i98 = icmp eq ptr %29, %104
   br i1 %.not.i98, label %.thread266, label %105
@@ -15639,7 +15633,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %114
   %127 = zext i32 %125 to i64
   %128 = getelementptr inbounds nuw i8, ptr %73, i64 152
   %129 = load ptr, ptr %128, align 8, !tbaa !45
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %127
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %127
   %131 = getelementptr inbounds i8, ptr %130, i64 -4
   %132 = load i32, ptr %131, align 4, !tbaa !208
   %.not320 = icmp eq i32 %132, 3
@@ -15709,7 +15703,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %114
   %.080325 = phi i32 [ %.080322, %.lr.ph ], [ %.080, %170 ]
   %.1180324 = phi i32 [ %.0179, %.lr.ph ], [ %.2181, %170 ]
   %153 = zext i32 %.080325 to i64
-  %154 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [136 x i8], ptr %151, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load i32, ptr %155, align 8, !tbaa !24
   %157 = icmp eq i32 %156, 0
@@ -15837,7 +15831,7 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %.093157 = phi i32 [ %1, %.lr.ph161 ], [ %.pre-phi, %.critedge9 ]
   %19 = zext i32 %.093157 to i64
   %20 = load ptr, ptr %6, align 8, !tbaa !45
-  %21 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %19
   %.not97 = icmp eq i32 %.pr163, 0
   br i1 %.not97, label %.critedge, label %22
 
@@ -15851,11 +15845,11 @@ _ZN4llvm11SmallVectorIjLj16EED2Ev.exit:           ; preds = %7, %._crit_edge, %1
   %29 = load i32, ptr %26, align 4, !tbaa !9, !noalias !767
   %30 = load i32, ptr %25, align 4, !tbaa !9, !noalias !767
   %31 = load ptr, ptr %8, align 8, !tbaa !45
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %23
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %23
   %33 = getelementptr inbounds i8, ptr %32, i64 -4
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %35
+  %36 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !11, !noalias !770
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 124
@@ -15894,7 +15888,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %49, 
 .lr.ph:                                           ; preds = %.critedge, %61
   %.094150 = phi i32 [ %62, %61 ], [ %53, %.critedge ]
   %55 = zext i32 %.094150 to i64
-  %56 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %55
+  %56 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i16, ptr %58, align 8, !tbaa !197
@@ -15920,7 +15914,7 @@ _ZStltIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread: ; preds = %49, 
   %70 = load i32, ptr %67, align 4, !tbaa !9, !noalias !780
   %71 = load i32, ptr %66, align 4, !tbaa !9, !noalias !780
   %72 = zext i32 %.094.lcssa to i64
-  %73 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %20, i64 %72
+  %73 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11, !noalias !783
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 124
@@ -15961,7 +15955,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %93 = phi i32 [ %.pr, %_ZStgtIJjjjEJjjjEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit.thread ], [ %.pre.i, %90 ]
   %94 = load ptr, ptr %8, align 8, !tbaa !45
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   store i32 %.093157, ptr %96, align 1
   %97 = load i32, ptr %10, align 8, !tbaa !42
   %98 = add i32 %97, 1
@@ -15985,7 +15979,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
 107:                                              ; preds = %102
   %108 = zext i32 %53 to i64
   %109 = load ptr, ptr %6, align 8, !tbaa !45
-  %110 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw [136 x i8], ptr %109, i64 %108
   %111 = load ptr, ptr %110, align 8, !tbaa !11
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load i16, ptr %112, align 8, !tbaa !197
@@ -16023,7 +16017,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZStgtIJjj
   %132 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %133 = load i32, ptr %132, align 8, !tbaa !42
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [136 x i8], ptr %131, i64 %134
   %136 = getelementptr inbounds i8, ptr %135, i64 -136
   %.not.i = icmp eq ptr %21, %136
   br i1 %.not.i, label %.preheader, label %137
@@ -16077,7 +16071,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
   %159 = zext i32 %157 to i64
   %160 = getelementptr inbounds nuw i8, ptr %122, i64 152
   %161 = load ptr, ptr %160, align 8, !tbaa !45
-  %162 = getelementptr inbounds nuw i32, ptr %161, i64 %159
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %159
   %163 = getelementptr inbounds i8, ptr %162, i64 -4
   %164 = load i32, ptr %163, align 4, !tbaa !208
   %.not145 = icmp eq i32 %164, 3
@@ -16127,13 +16121,13 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 
 182:                                              ; preds = %181
   %183 = load ptr, ptr %8, align 8, !tbaa !45
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %99
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %99
   %185 = getelementptr inbounds i8, ptr %184, i64 -4
   %186 = load i32, ptr %185, align 4, !tbaa !9
   %187 = add i32 %186, -1
   %188 = zext i32 %187 to i64
   %189 = load ptr, ptr %6, align 8, !tbaa !45
-  %190 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %188
+  %190 = getelementptr inbounds nuw [136 x i8], ptr %189, i64 %188
   %191 = load ptr, ptr %190, align 8, !tbaa !11
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 67
   %193 = load i8, ptr %192, align 1, !tbaa !205
@@ -16149,7 +16143,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 196:                                              ; preds = %194
   %197 = add i32 %186, -2
   %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %198
+  %199 = getelementptr inbounds nuw [136 x i8], ptr %189, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !11
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 67
   %202 = load i8, ptr %201, align 1, !tbaa !205
@@ -16172,7 +16166,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 
 214:                                              ; preds = %210
   %215 = zext i32 %186 to i64
-  %216 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %215
+  %216 = getelementptr inbounds nuw [136 x i8], ptr %189, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !11
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 67
   %219 = load i8, ptr %218, align 1, !tbaa !205
@@ -16246,7 +16240,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 255:                                              ; preds = %254
   %256 = add i32 %186, -2
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %257
+  %258 = getelementptr inbounds nuw [136 x i8], ptr %189, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !11
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load i16, ptr %260, align 8, !tbaa !197
@@ -16298,7 +16292,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 285:                                              ; preds = %.lr.ph.i
   %286 = add i32 %283, -1
   %287 = zext i32 %286 to i64
-  %288 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %287
+  %288 = getelementptr inbounds nuw [136 x i8], ptr %189, i64 %287
   %289 = load ptr, ptr %288, align 8, !tbaa !11
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 67
   %291 = load i8, ptr %290, align 1, !tbaa !205
@@ -16315,7 +16309,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 
 "_ZZN5clang6formatL18AlignTokenSequenceIRZNS0_17WhitespaceManager24alignChainedConditionalsEvE3$_2EEvRKNS0_11FormatStyleEjjjbOT_RN4llvm11SmallVectorINS2_6ChangeELj16EEEENKUlvE_clEv.exit": ; preds = %.critedge.i
   %293 = zext i32 %186 to i64
-  %294 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %189, i64 %293
+  %294 = getelementptr inbounds nuw [136 x i8], ptr %189, i64 %293
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %296 = load i32, ptr %295, align 8, !tbaa !24
   %.not16.i = icmp eq i32 %296, 0
@@ -16351,7 +16345,7 @@ _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.i.i: ; preds = %146
 310:                                              ; preds = %304
   %311 = zext i32 %308 to i64
   %312 = load ptr, ptr %6, align 8, !tbaa !45
-  %313 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %312, i64 %311
+  %313 = getelementptr inbounds nuw [136 x i8], ptr %312, i64 %311
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 112
   %315 = load i32, ptr %314, align 8, !tbaa !195
   %316 = add i32 %315, %.292
@@ -16400,7 +16394,7 @@ _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeEEEEb
 339:                                              ; preds = %.lr.ph154, %361
   %.0153 = phi i32 [ %53, %.lr.ph154 ], [ %362, %361 ]
   %340 = zext nneg i32 %.0153 to i64
-  %341 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %338, i64 %340
+  %341 = getelementptr inbounds nuw [136 x i8], ptr %338, i64 %340
   %342 = load ptr, ptr %341, align 8, !tbaa !11
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 67
   %344 = load i8, ptr %343, align 1, !tbaa !205

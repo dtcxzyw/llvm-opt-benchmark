@@ -101,7 +101,7 @@ define internal i32 @pcm_dvd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %55 = lshr i8 %54, 4
   %56 = and i8 %55, 3
   %57 = zext nneg i8 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr @pcm_dvd_parse_header.frequencies, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @pcm_dvd_parse_header.frequencies, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 %59, ptr %60, align 8, !tbaa !39

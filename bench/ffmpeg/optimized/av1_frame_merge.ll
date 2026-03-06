@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
-%struct.CodedBitstreamFragment = type { ptr, i64, i64, ptr, i32, i32, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"av1_frame_merge\00", align 1
 @av1_frame_merge_codec_ids = internal constant [2 x i32] [i32 225, i32 0], align 4
@@ -55,10 +53,10 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %7 = load i32, ptr %6, align 8, !tbaa !19
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.CodedBitstreamFragment, ptr %5, i64 %8
+  %9 = getelementptr inbounds [48 x i8], ptr %5, i64 %8
   %.not = icmp eq i32 %7, 0
   %10 = zext i1 %.not to i64
-  %11 = getelementptr inbounds nuw %struct.CodedBitstreamFragment, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -131,7 +129,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 48:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %46, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %46, i64 %indvars.iv
   %50 = load i32, ptr %49, align 8, !tbaa !28
   %51 = icmp eq i32 %50, 2
   br i1 %51, label %52, label %47
@@ -188,7 +186,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
 75:                                               ; preds = %.lr.ph81, %71
   %indvars.iv84 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next85, %71 ]
   %76 = load ptr, ptr %70, align 8, !tbaa !27
-  %77 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %76, i64 %indvars.iv84
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %76, i64 %indvars.iv84
   %78 = load i32, ptr %77, align 8, !tbaa !28
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %80 = load ptr, ptr %79, align 8, !tbaa !34
@@ -229,7 +227,7 @@ define internal i32 @av1_frame_merge_filter(ptr noundef %0, ptr noundef %1) #0 {
 96:                                               ; preds = %95, %94
   %97 = load i32, ptr %6, align 8, !tbaa !19
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.CodedBitstreamFragment, ptr %5, i64 %98
+  %99 = getelementptr inbounds [48 x i8], ptr %5, i64 %98
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %99) #2
   br label %.loopexit77
 

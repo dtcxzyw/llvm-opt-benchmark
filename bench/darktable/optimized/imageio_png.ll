@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_imageio_png_t = type { i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.png_unknown_chunk_t = type { [5 x i8], ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"1.6.37\00", align 1
@@ -291,7 +290,7 @@ define range(i32 0, 2) i32 @dt_imageio_png_read_image(ptr noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %36 = mul i64 %27, %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %36
-  %38 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store ptr %37, ptr %38, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -562,7 +561,7 @@ define i32 @dt_imageio_png_read_profile(ptr noundef %0, ptr noundef writeonly ca
 
 25:                                               ; preds = %.lr.ph, %23
   %.035 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %22, i64 %.035
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.035
   %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(5) @.str.2) #14
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %28, label %23

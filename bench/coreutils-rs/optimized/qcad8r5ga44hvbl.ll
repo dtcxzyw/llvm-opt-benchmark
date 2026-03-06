@@ -4594,7 +4594,7 @@ common.resume:                                    ; preds = %307, %.body, %148, 
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit55.i: ; preds = %152
-  %161 = getelementptr inbounds { i64, [2 x i64] }, ptr %154, i64 %156
+  %161 = getelementptr inbounds [24 x i8], ptr %154, i64 %156
   store ptr %154, ptr %158, align 8, !noalias !1280
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store ptr %161, ptr %162, align 8, !noalias !1280

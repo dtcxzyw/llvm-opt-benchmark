@@ -181,7 +181,7 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
 .lr.ph.i:                                         ; preds = %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
   %.067.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
-  %47 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.08.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !20
   %50 = add i64 %49, %.067.i
@@ -419,7 +419,7 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
 .lr.ph.i:                                         ; preds = %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
   %.067.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %_ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit ]
-  %48 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.08.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !20
   %51 = add i64 %50, %.067.i
@@ -642,7 +642,7 @@ define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26a
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %.08.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %27 ]
   %.067.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.08.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.08.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !20
   %31 = add i64 %30, %.067.i
@@ -789,7 +789,7 @@ define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP2
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %.08.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %27 ]
   %.067.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %27 ]
-  %28 = getelementptr inbounds nuw %struct.iovec, ptr %3, i64 %.08.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.08.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !20
   %31 = add i64 %30, %.067.i

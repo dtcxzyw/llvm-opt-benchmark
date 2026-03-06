@@ -156,14 +156,14 @@ define dso_local void @_ZN11btConeShape14setConeUpIndexEi(ptr noundef nonnull al
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %14 = load float, ptr %13, align 4, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = getelementptr inbounds float, ptr %15, i64 %12
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %12
   store float %14, ptr %16, align 4, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load float, ptr %17, align 8, !tbaa !17
-  %19 = getelementptr inbounds float, ptr %15, i64 %11
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %11
   store float %18, ptr %19, align 4, !tbaa !20
   %20 = load float, ptr %13, align 4, !tbaa !7
-  %21 = getelementptr inbounds float, ptr %15, i64 %10
+  %21 = getelementptr inbounds [4 x i8], ptr %15, i64 %10
   store float %20, ptr %21, align 4, !tbaa !20
   ret void
 }
@@ -245,7 +245,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape16coneLocalSuppo
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds float, ptr %1, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %1, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !20
   %13 = load float, ptr %1, align 4, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -265,9 +265,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape16coneLocalSuppo
   br i1 %24, label %27, label %33
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds float, ptr %3, i64 %26
+  %28 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float 0.000000e+00, ptr %28, align 4, !tbaa !20
-  %29 = getelementptr inbounds float, ptr %3, i64 %10
+  %29 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %6, ptr %29, align 4, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %31 = load i32, ptr %30, align 4, !tbaa !19
@@ -275,12 +275,12 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape16coneLocalSuppo
   br label %57
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds float, ptr %1, i64 %26
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %26
   %35 = load float, ptr %34, align 4, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %37 = load i32, ptr %36, align 4, !tbaa !19
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %1, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %1, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !20
   %41 = fmul float %40, %40
   %42 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %41)
@@ -293,26 +293,26 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape16coneLocalSuppo
   %46 = load float, ptr %45, align 4, !tbaa !7
   %47 = fdiv float %46, %sqrt
   %48 = fmul float %47, %35
-  %49 = getelementptr inbounds float, ptr %3, i64 %26
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float %48, ptr %49, align 4, !tbaa !20
   %50 = fneg float %6
-  %51 = getelementptr inbounds float, ptr %3, i64 %10
+  %51 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %50, ptr %51, align 4, !tbaa !20
   %52 = fmul float %47, %40
   br label %57
 
 53:                                               ; preds = %33
-  %54 = getelementptr inbounds float, ptr %3, i64 %26
+  %54 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float 0.000000e+00, ptr %54, align 4, !tbaa !20
   %55 = fneg float %6
-  %56 = getelementptr inbounds float, ptr %3, i64 %10
+  %56 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %55, ptr %56, align 4, !tbaa !20
   br label %57
 
 57:                                               ; preds = %44, %53, %27
   %.sink17 = phi i64 [ %38, %44 ], [ %38, %53 ], [ %32, %27 ]
   %.sink = phi float [ %52, %44 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %27 ]
-  %58 = getelementptr inbounds float, ptr %3, i64 %.sink17
+  %58 = getelementptr inbounds [4 x i8], ptr %3, i64 %.sink17
   store float %.sink, ptr %58, align 4, !tbaa !20
   %.fca.0.load = load <2 x float>, ptr %3, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
@@ -333,7 +333,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape37localGetSuppor
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds float, ptr %1, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %1, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !20
   %13 = load float, ptr %1, align 4, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -353,9 +353,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape37localGetSuppor
   br i1 %24, label %27, label %33
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds float, ptr %3, i64 %26
+  %28 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float 0.000000e+00, ptr %28, align 4, !tbaa !20
-  %29 = getelementptr inbounds float, ptr %3, i64 %10
+  %29 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %6, ptr %29, align 4, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %31 = load i32, ptr %30, align 4, !tbaa !19
@@ -363,12 +363,12 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape37localGetSuppor
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds float, ptr %1, i64 %26
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %26
   %35 = load float, ptr %34, align 4, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %37 = load i32, ptr %36, align 4, !tbaa !19
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %1, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %1, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !20
   %41 = fmul float %40, %40
   %42 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %41)
@@ -381,26 +381,26 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape37localGetSuppor
   %46 = load float, ptr %45, align 4, !tbaa !7
   %47 = fdiv float %46, %sqrt.i
   %48 = fmul float %35, %47
-  %49 = getelementptr inbounds float, ptr %3, i64 %26
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float %48, ptr %49, align 4, !tbaa !20
   %50 = fneg float %6
-  %51 = getelementptr inbounds float, ptr %3, i64 %10
+  %51 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %50, ptr %51, align 4, !tbaa !20
   %52 = fmul float %40, %47
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 53:                                               ; preds = %33
-  %54 = getelementptr inbounds float, ptr %3, i64 %26
+  %54 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float 0.000000e+00, ptr %54, align 4, !tbaa !20
   %55 = fneg float %6
-  %56 = getelementptr inbounds float, ptr %3, i64 %10
+  %56 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %55, ptr %56, align 4, !tbaa !20
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 _ZNK11btConeShape16coneLocalSupportERK9btVector3.exit: ; preds = %27, %44, %53
   %.sink17.i = phi i64 [ %38, %44 ], [ %38, %53 ], [ %32, %27 ]
   %.sink.i = phi float [ %52, %44 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %27 ]
-  %57 = getelementptr inbounds float, ptr %3, i64 %.sink17.i
+  %57 = getelementptr inbounds [4 x i8], ptr %3, i64 %.sink17.i
   store float %.sink.i, ptr %57, align 4, !tbaa !20
   %.fca.0.load.i = load <2 x float>, ptr %3, align 8
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i, 0
@@ -433,13 +433,13 @@ define dso_local void @_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWi
 
 13:                                               ; preds = %.lr.ph, %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit ]
-  %14 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load float, ptr %7, align 8, !tbaa !17
   %16 = fmul float %15, 5.000000e-01
   %17 = load i32, ptr %9, align 8, !tbaa !19
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds float, ptr %14, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %14, i64 %18
   %20 = load float, ptr %19, align 4, !tbaa !20
   %21 = load float, ptr %14, align 4, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -458,20 +458,20 @@ define dso_local void @_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWi
   br i1 %31, label %34, label %39
 
 34:                                               ; preds = %13
-  %35 = getelementptr inbounds float, ptr %5, i64 %33
+  %35 = getelementptr inbounds [4 x i8], ptr %5, i64 %33
   store float 0.000000e+00, ptr %35, align 4, !tbaa !20
-  %36 = getelementptr inbounds float, ptr %5, i64 %18
+  %36 = getelementptr inbounds [4 x i8], ptr %5, i64 %18
   store float %16, ptr %36, align 4, !tbaa !20
   %37 = load i32, ptr %11, align 4, !tbaa !19
   %38 = sext i32 %37 to i64
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 39:                                               ; preds = %13
-  %40 = getelementptr inbounds float, ptr %14, i64 %33
+  %40 = getelementptr inbounds [4 x i8], ptr %14, i64 %33
   %41 = load float, ptr %40, align 4, !tbaa !20
   %42 = load i32, ptr %11, align 4, !tbaa !19
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds float, ptr %14, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %14, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !20
   %46 = fmul float %45, %45
   %47 = tail call float @llvm.fmuladd.f32(float %41, float %41, float %46)
@@ -483,31 +483,31 @@ define dso_local void @_ZNK11btConeShape49batchedUnitVectorGetSupportingVertexWi
   %50 = load float, ptr %12, align 4, !tbaa !7
   %51 = fdiv float %50, %sqrt.i
   %52 = fmul float %41, %51
-  %53 = getelementptr inbounds float, ptr %5, i64 %33
+  %53 = getelementptr inbounds [4 x i8], ptr %5, i64 %33
   store float %52, ptr %53, align 4, !tbaa !20
   %54 = fneg float %16
-  %55 = getelementptr inbounds float, ptr %5, i64 %18
+  %55 = getelementptr inbounds [4 x i8], ptr %5, i64 %18
   store float %54, ptr %55, align 4, !tbaa !20
   %56 = fmul float %45, %51
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 57:                                               ; preds = %39
-  %58 = getelementptr inbounds float, ptr %5, i64 %33
+  %58 = getelementptr inbounds [4 x i8], ptr %5, i64 %33
   store float 0.000000e+00, ptr %58, align 4, !tbaa !20
   %59 = fneg float %16
-  %60 = getelementptr inbounds float, ptr %5, i64 %18
+  %60 = getelementptr inbounds [4 x i8], ptr %5, i64 %18
   store float %59, ptr %60, align 4, !tbaa !20
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 _ZNK11btConeShape16coneLocalSupportERK9btVector3.exit: ; preds = %34, %49, %57
   %.sink17.i = phi i64 [ %43, %49 ], [ %43, %57 ], [ %38, %34 ]
   %.sink.i = phi float [ %56, %49 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %34 ]
-  %61 = getelementptr inbounds float, ptr %5, i64 %.sink17.i
+  %61 = getelementptr inbounds [4 x i8], ptr %5, i64 %.sink17.i
   store float %.sink.i, ptr %61, align 4, !tbaa !20
   %.fca.0.load.i = load <2 x float>, ptr %5, align 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %62 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store <2 x float> %.fca.0.load.i, ptr %62, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store <2 x float> %.fca.1.load.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !22
@@ -527,7 +527,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape24localGetSuppor
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8, !tbaa !19
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds float, ptr %1, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %1, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !20
   %13 = load float, ptr %1, align 4, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -547,9 +547,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape24localGetSuppor
   br i1 %24, label %27, label %33
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds float, ptr %3, i64 %26
+  %28 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float 0.000000e+00, ptr %28, align 4, !tbaa !20
-  %29 = getelementptr inbounds float, ptr %3, i64 %10
+  %29 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %6, ptr %29, align 4, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %31 = load i32, ptr %30, align 4, !tbaa !19
@@ -557,12 +557,12 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape24localGetSuppor
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds float, ptr %1, i64 %26
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %26
   %35 = load float, ptr %34, align 4, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %37 = load i32, ptr %36, align 4, !tbaa !19
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %1, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %1, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !20
   %41 = fmul float %40, %40
   %42 = tail call float @llvm.fmuladd.f32(float %35, float %35, float %41)
@@ -575,26 +575,26 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btConeShape24localGetSuppor
   %46 = load float, ptr %45, align 4, !tbaa !7
   %47 = fdiv float %46, %sqrt.i
   %48 = fmul float %35, %47
-  %49 = getelementptr inbounds float, ptr %3, i64 %26
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float %48, ptr %49, align 4, !tbaa !20
   %50 = fneg float %6
-  %51 = getelementptr inbounds float, ptr %3, i64 %10
+  %51 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %50, ptr %51, align 4, !tbaa !20
   %52 = fmul float %40, %47
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 53:                                               ; preds = %33
-  %54 = getelementptr inbounds float, ptr %3, i64 %26
+  %54 = getelementptr inbounds [4 x i8], ptr %3, i64 %26
   store float 0.000000e+00, ptr %54, align 4, !tbaa !20
   %55 = fneg float %6
-  %56 = getelementptr inbounds float, ptr %3, i64 %10
+  %56 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %55, ptr %56, align 4, !tbaa !20
   br label %_ZNK11btConeShape16coneLocalSupportERK9btVector3.exit
 
 _ZNK11btConeShape16coneLocalSupportERK9btVector3.exit: ; preds = %27, %44, %53
   %.sink17.i = phi i64 [ %38, %44 ], [ %38, %53 ], [ %32, %27 ]
   %.sink.i = phi float [ %52, %44 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %27 ]
-  %57 = getelementptr inbounds float, ptr %3, i64 %.sink17.i
+  %57 = getelementptr inbounds [4 x i8], ptr %3, i64 %.sink17.i
   store float %.sink.i, ptr %57, align 4, !tbaa !20
   %.fca.0.load.i = load <2 x float>, ptr %3, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -661,10 +661,10 @@ define dso_local void @_ZN11btConeShape15setLocalScalingERK9btVector3(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %8 = load i32, ptr %7, align 4, !tbaa !19
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds float, ptr %12, i64 %9
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %9
   %14 = load float, ptr %13, align 4, !tbaa !20
   %15 = fdiv float %11, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -672,15 +672,15 @@ define dso_local void @_ZN11btConeShape15setLocalScalingERK9btVector3(ptr nounde
   %18 = fmul float %17, %15
   store float %18, ptr %16, align 8, !tbaa !17
   %19 = sext i32 %6 to i64
-  %20 = getelementptr inbounds float, ptr %1, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %1, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !20
-  %22 = getelementptr inbounds float, ptr %12, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %12, i64 %19
   %23 = load float, ptr %22, align 4, !tbaa !20
   %24 = fdiv float %21, %23
   %25 = sext i32 %8 to i64
-  %26 = getelementptr inbounds float, ptr %1, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %1, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !20
-  %28 = getelementptr inbounds float, ptr %12, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %12, i64 %25
   %29 = load float, ptr %28, align 4, !tbaa !20
   %30 = fdiv float %27, %29
   %31 = fadd float %24, %30
@@ -848,9 +848,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK11btConeShape9serializeEPvP12btSe
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %9 = load float, ptr %8, align 4, !tbaa !20
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   store float %9, ptr %10, align 4, !tbaa !20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -863,9 +863,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i ], [ %indvars.iv.next.i9.i, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8.i
   %15 = load float, ptr %14, align 4, !tbaa !20
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8.i
   store float %15, ptr %16, align 4, !tbaa !20
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4

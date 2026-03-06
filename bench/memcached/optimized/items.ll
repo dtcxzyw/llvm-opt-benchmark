@@ -11,10 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stats_state = type { i64, i64, i64, i64, float, i32, i32, i32, i32, i8, i8, i8, i8 }
 %struct.stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.timeval, i64, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.item_stats_automove = type { i64, i64, i32 }
 %struct.thread_stats = type { %union.pthread_mutex_t, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x %struct.slab_stats], [256 x i64], i64, i64, i64 }
 %struct.slab_stats = type { i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.crawlerstats_t = type { [61 x i64], i64, i64, i64, i64, i32, i32, i8 }
 
 @lru_locks = external global [256 x %union.pthread_mutex_t], align 16
 @itemstats = internal unnamed_addr global [256 x %struct.itemstats_t] zeroinitializer, align 16
@@ -106,9 +104,9 @@ define dso_local void @item_stats_reset() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %indvars.iv
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #19
-  %4 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [168 x i8], ptr @itemstats, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, i8 0, i64 168, i1 false)
   %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -131,7 +129,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @do_item_stats_add_crawl(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.itemstats_t, ptr @itemstats, i64 %5
+  %6 = getelementptr inbounds [168 x i8], ptr @itemstats, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = add i64 %8, %1
@@ -189,7 +187,7 @@ define dso_local range(i32 0, 2) i32 @item_is_flushed(ptr noundef readonly captu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i32 @do_get_lru_size(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @sizes, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !22
   ret i32 %4
 }
@@ -240,10 +238,10 @@ define dso_local ptr @do_item_alloc_pull(i64 %0, i32 noundef %1) local_unnamed_a
   %.020 = phi i32 [ %.021, %21 ], [ 10, %19 ]
   %.117 = phi ptr [ %9, %21 ], [ null, %19 ]
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %22
   %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #19
   %25 = zext nneg i32 %.020 to i64
-  %26 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %22
+  %26 = getelementptr inbounds nuw [168 x i8], ptr @itemstats, i64 %22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load i64, ptr %27, align 8, !tbaa !27
   %29 = add i64 %28, %25
@@ -264,15 +262,15 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
 8:                                                ; preds = %6
   %9 = or i32 %1, %0
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %union.pthread_mutex_t, ptr @lru_locks, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr @lru_locks, i64 %10
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #19
-  %13 = getelementptr inbounds ptr, ptr @tails, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr @tails, i64 %10
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %.not289 = icmp eq ptr %14, null
   br i1 %.not289, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %15 = getelementptr inbounds %struct.itemstats_t, ptr @itemstats, i64 %10
+  %15 = getelementptr inbounds [168 x i8], ptr @itemstats, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -477,8 +475,8 @@ do_item_remove.exit:                              ; preds = %94, %99
   %127 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %128 = load i8, ptr %127, align 8, !tbaa !30
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr @heads, i64 %129
-  %131 = getelementptr inbounds nuw ptr, ptr @tails, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %129
+  %131 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %129
   %132 = load ptr, ptr %130, align 8, !tbaa !28
   %133 = icmp eq ptr %132, %.0127287
   br i1 %133, label %134, label %136
@@ -520,7 +518,7 @@ do_item_remove.exit:                              ; preds = %94, %99
 146:                                              ; preds = %144, %._crit_edge.i
   %147 = load i8, ptr %127, align 8, !tbaa !30
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw i32, ptr @sizes, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !22
   %151 = add i32 %150, -1
   store i32 %151, ptr %149, align 4, !tbaa !22
@@ -536,7 +534,7 @@ do_item_remove.exit:                              ; preds = %94, %99
   %158 = and i32 %157, 4
   %159 = shl nuw nsw i32 %152, 2
   %160 = and i32 %159, 8
-  %161 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %148
+  %161 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %148
   %162 = load i64, ptr %161, align 8, !tbaa !14
   %163 = or disjoint i32 %158, %160
   %164 = zext nneg i32 %163 to i64
@@ -553,7 +551,7 @@ do_item_remove.exit:                              ; preds = %94, %99
   %171 = and i32 %170, 4
   %172 = shl nuw nsw i32 %152, 2
   %173 = and i32 %172, 8
-  %174 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %148
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %148
   %175 = load i64, ptr %174, align 8, !tbaa !14
   %176 = or disjoint i32 %171, %173
   %177 = zext nneg i32 %176 to i64
@@ -567,8 +565,8 @@ do_item_remove.exit:                              ; preds = %94, %99
 do_item_unlink_q.exit:                            ; preds = %156, %167
   %181 = load i8, ptr %127, align 8, !tbaa !30
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr @heads, i64 %182
-  %184 = getelementptr inbounds nuw ptr, ptr @tails, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %182
+  %184 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %182
   store ptr null, ptr %25, align 8, !tbaa !28
   %185 = load ptr, ptr %183, align 8, !tbaa !28
   store ptr %185, ptr %.0127287, align 8, !tbaa !28
@@ -593,7 +591,7 @@ do_item_unlink_q.exit:                            ; preds = %156, %167
 192:                                              ; preds = %191, %188
   %193 = load i8, ptr %127, align 8, !tbaa !30
   %194 = zext i8 %193 to i64
-  %195 = getelementptr inbounds nuw i32, ptr @sizes, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !22
   %197 = add i32 %196, 1
   store i32 %197, ptr %195, align 4, !tbaa !22
@@ -606,7 +604,7 @@ do_item_unlink_q.exit:                            ; preds = %156, %167
   %202 = and i32 %201, 4
   %203 = shl nuw nsw i32 %152, 2
   %204 = and i32 %203, 8
-  %205 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %194
+  %205 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %194
   %206 = load i64, ptr %205, align 8, !tbaa !14
   %narrow.i = add nuw nsw i32 %202, 61
   %narrow31.i = add nuw nsw i32 %narrow.i, %204
@@ -623,7 +621,7 @@ do_item_unlink_q.exit:                            ; preds = %156, %167
   %214 = and i32 %213, 4
   %215 = shl nuw nsw i32 %152, 2
   %216 = and i32 %215, 8
-  %217 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %194
+  %217 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %194
   %218 = load i64, ptr %217, align 8, !tbaa !14
   %219 = or disjoint i32 %216, %214
   %220 = or disjoint i32 %219, 49
@@ -658,8 +656,8 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %234 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %235 = load i8, ptr %234, align 8, !tbaa !30
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr @heads, i64 %236
-  %238 = getelementptr inbounds nuw ptr, ptr @tails, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %236
+  %238 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %236
   %239 = load ptr, ptr %237, align 8, !tbaa !28
   %240 = icmp eq ptr %239, %.0127287
   br i1 %240, label %241, label %243
@@ -701,7 +699,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
 253:                                              ; preds = %251, %._crit_edge.i159
   %254 = load i8, ptr %234, align 8, !tbaa !30
   %255 = zext i8 %254 to i64
-  %256 = getelementptr inbounds nuw i32, ptr @sizes, i64 %255
+  %256 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %255
   %257 = load i32, ptr %256, align 4, !tbaa !22
   %258 = add i32 %257, -1
   store i32 %258, ptr %256, align 4, !tbaa !22
@@ -717,7 +715,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %265 = and i32 %264, 4
   %266 = shl nuw nsw i32 %259, 2
   %267 = and i32 %266, 8
-  %268 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %255
+  %268 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %255
   %269 = load i64, ptr %268, align 8, !tbaa !14
   %270 = or disjoint i32 %265, %267
   %271 = zext nneg i32 %270 to i64
@@ -734,7 +732,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %278 = and i32 %277, 4
   %279 = shl nuw nsw i32 %259, 2
   %280 = and i32 %279, 8
-  %281 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %255
+  %281 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %255
   %282 = load i64, ptr %281, align 8, !tbaa !14
   %283 = or disjoint i32 %278, %280
   %284 = zext nneg i32 %283 to i64
@@ -746,7 +744,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   br label %479
 
 288:                                              ; preds = %118
-  %289 = getelementptr inbounds i64, ptr @sizes_bytes, i64 %10
+  %289 = getelementptr inbounds [8 x i8], ptr @sizes_bytes, i64 %10
   %290 = load i64, ptr %289, align 8, !tbaa !14
   %291 = icmp ugt i64 %290, %.5
   br i1 %291, label %296, label %292
@@ -765,8 +763,8 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %300 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %301 = load i8, ptr %300, align 8, !tbaa !30
   %302 = zext i8 %301 to i64
-  %303 = getelementptr inbounds nuw ptr, ptr @heads, i64 %302
-  %304 = getelementptr inbounds nuw ptr, ptr @tails, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %302
+  %304 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %302
   %305 = load ptr, ptr %303, align 8, !tbaa !28
   %306 = icmp eq ptr %305, %.0127287
   br i1 %306, label %307, label %309
@@ -808,7 +806,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
 319:                                              ; preds = %317, %._crit_edge.i168
   %320 = load i8, ptr %300, align 8, !tbaa !30
   %321 = zext i8 %320 to i64
-  %322 = getelementptr inbounds nuw i32, ptr @sizes, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %321
   %323 = load i32, ptr %322, align 4, !tbaa !22
   %324 = add i32 %323, -1
   store i32 %324, ptr %322, align 4, !tbaa !22
@@ -824,7 +822,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %331 = and i32 %330, 4
   %332 = shl nuw nsw i32 %325, 2
   %333 = and i32 %332, 8
-  %334 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %321
+  %334 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %321
   %335 = load i64, ptr %334, align 8, !tbaa !14
   %336 = or disjoint i32 %331, %333
   %337 = zext nneg i32 %336 to i64
@@ -841,7 +839,7 @@ do_item_remove.exit155:                           ; preds = %do_item_link_q.exit
   %344 = and i32 %343, 4
   %345 = shl nuw nsw i32 %325, 2
   %346 = and i32 %345, 8
-  %347 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %321
+  %347 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %321
   %348 = load i64, ptr %347, align 8, !tbaa !14
   %349 = or disjoint i32 %344, %346
   %350 = zext nneg i32 %349 to i64
@@ -969,8 +967,8 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   %418 = getelementptr inbounds nuw i8, ptr %.0127287, i64 40
   %419 = load i8, ptr %418, align 8, !tbaa !30
   %420 = zext i8 %419 to i64
-  %421 = getelementptr inbounds nuw ptr, ptr @heads, i64 %420
-  %422 = getelementptr inbounds nuw ptr, ptr @tails, i64 %420
+  %421 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %420
+  %422 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %420
   %423 = load ptr, ptr %421, align 8, !tbaa !28
   %424 = icmp eq ptr %423, %.0127287
   br i1 %424, label %425, label %427
@@ -1012,7 +1010,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
 437:                                              ; preds = %435, %._crit_edge.i177
   %438 = load i8, ptr %418, align 8, !tbaa !30
   %439 = zext i8 %438 to i64
-  %440 = getelementptr inbounds nuw i32, ptr @sizes, i64 %439
+  %440 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %439
   %441 = load i32, ptr %440, align 4, !tbaa !22
   %442 = add i32 %441, -1
   store i32 %442, ptr %440, align 4, !tbaa !22
@@ -1028,7 +1026,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   %449 = and i32 %448, 4
   %450 = shl nuw nsw i32 %443, 2
   %451 = and i32 %450, 8
-  %452 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %439
+  %452 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %439
   %453 = load i64, ptr %452, align 8, !tbaa !14
   %454 = or disjoint i32 %449, %451
   %455 = zext nneg i32 %454 to i64
@@ -1045,7 +1043,7 @@ do_item_unlink_q.exit173:                         ; preds = %329, %340
   %462 = and i32 %461, 4
   %463 = shl nuw nsw i32 %443, 2
   %464 = and i32 %463, 8
-  %465 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %439
+  %465 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %439
   %466 = load i64, ptr %465, align 8, !tbaa !14
   %467 = or disjoint i32 %462, %464
   %468 = zext nneg i32 %467 to i64
@@ -1251,9 +1249,9 @@ define dso_local ptr @do_item_alloc(ptr noundef readonly captures(none) %0, i64 
 
 42:                                               ; preds = %40
   %43 = zext i32 %19 to i64
-  %44 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %43
   %45 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %44) #19
-  %46 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %43
+  %46 = getelementptr inbounds nuw [168 x i8], ptr @itemstats, i64 %43
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i64, ptr %47, align 8, !tbaa !63
   %49 = add i64 %48, 1
@@ -1424,8 +1422,8 @@ define dso_local void @do_item_link_fixup(ptr noundef %0) local_unnamed_addr #0 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i8, ptr %18, align 8, !tbaa !30
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr @heads, i64 %20
-  %22 = getelementptr inbounds nuw ptr, ptr @tails, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !28
   %25 = icmp eq ptr %24, null
@@ -1462,12 +1460,12 @@ define dso_local void @do_item_link_fixup(ptr noundef %0) local_unnamed_addr #0 
   %42 = add i32 %41, %6
   %43 = add i32 %42, %39
   %44 = add i32 %43, %11
-  %45 = getelementptr inbounds nuw i32, ptr @sizes, i64 %20
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %20
   %46 = load i32, ptr %45, align 4, !tbaa !22
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !22
   %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %20
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %20
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = add i64 %50, %48
   store i64 %51, ptr %49, align 8, !tbaa !14
@@ -1511,7 +1509,7 @@ define dso_local void @do_item_link_fixup(ptr noundef %0) local_unnamed_addr #0 
 
 79:                                               ; preds = %60
   %80 = sext i32 %spec.select.i to i64
-  %81 = getelementptr inbounds i32, ptr %58, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %58, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !22
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4, !tbaa !22
@@ -1561,7 +1559,7 @@ define dso_local void @item_stats_sizes_add(ptr noundef readonly captures(none) 
 
 26:                                               ; preds = %4
   %27 = sext i32 %spec.select to i64
-  %28 = getelementptr inbounds i32, ptr %2, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %2, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !22
@@ -1655,7 +1653,7 @@ define dso_local noundef i32 @do_item_link(ptr noundef initializes((24, 28)) %0,
 
 63:                                               ; preds = %44
   %64 = sext i32 %spec.select.i to i64
-  %65 = getelementptr inbounds i32, ptr %42, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %42, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !22
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4, !tbaa !22
@@ -1670,12 +1668,12 @@ define internal fastcc void @item_link_q(ptr noundef initializes((0, 16)) %0) un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %4
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %4
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #19
   %7 = load i8, ptr %2, align 8, !tbaa !30
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @heads, i64 %8
-  %10 = getelementptr inbounds nuw ptr, ptr @tails, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %11, align 8, !tbaa !28
   %12 = load ptr, ptr %9, align 8, !tbaa !28
@@ -1701,7 +1699,7 @@ define internal fastcc void @item_link_q(ptr noundef initializes((0, 16)) %0) un
 19:                                               ; preds = %18, %15
   %20 = load i8, ptr %2, align 8, !tbaa !30
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @sizes, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !22
@@ -1720,7 +1718,7 @@ define internal fastcc void @item_link_q(ptr noundef initializes((0, 16)) %0) un
   %34 = and i32 %33, 4
   %35 = shl nuw nsw i32 %27, 2
   %36 = and i32 %35, 8
-  %37 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %21
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %21
   %38 = load i64, ptr %37, align 8, !tbaa !14
   %narrow.i = add nuw nsw i32 %34, 61
   %narrow31.i = add nuw nsw i32 %narrow.i, %36
@@ -1738,7 +1736,7 @@ define internal fastcc void @item_link_q(ptr noundef initializes((0, 16)) %0) un
   %47 = and i32 %46, 4
   %48 = shl nuw nsw i32 %27, 2
   %49 = and i32 %48, 8
-  %50 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %21
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %21
   %51 = load i64, ptr %50, align 8, !tbaa !14
   %52 = or disjoint i32 %49, %47
   %53 = or disjoint i32 %52, 49
@@ -1750,7 +1748,7 @@ define internal fastcc void @item_link_q(ptr noundef initializes((0, 16)) %0) un
   br label %do_item_link_q.exit
 
 do_item_link_q.exit:                              ; preds = %32, %42
-  %58 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %21
+  %58 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %21
   %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %58) #19
   ret void
 }
@@ -1821,7 +1819,7 @@ define dso_local void @do_item_unlink(ptr noundef %0, i32 noundef %1) local_unna
 
 49:                                               ; preds = %32
   %50 = sext i32 %spec.select.i to i64
-  %51 = getelementptr inbounds i32, ptr %30, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %30, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !22
   %53 = add i32 %52, -1
   store i32 %53, ptr %51, align 4, !tbaa !22
@@ -1891,7 +1889,7 @@ define dso_local void @item_stats_sizes_remove(ptr noundef readonly captures(non
 
 26:                                               ; preds = %4
   %27 = sext i32 %spec.select to i64
-  %28 = getelementptr inbounds i32, ptr %2, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %2, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = add i32 %29, -1
   store i32 %30, ptr %28, align 4, !tbaa !22
@@ -1908,12 +1906,12 @@ define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %4
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %4
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #19
   %7 = load i8, ptr %2, align 8, !tbaa !30
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @heads, i64 %8
-  %10 = getelementptr inbounds nuw ptr, ptr @tails, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %8
   %11 = load ptr, ptr %9, align 8, !tbaa !28
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %13, label %15
@@ -1956,7 +1954,7 @@ define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address
 26:                                               ; preds = %24, %._crit_edge.i
   %27 = load i8, ptr %2, align 8, !tbaa !30
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @sizes, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !22
   %31 = add i32 %30, -1
   store i32 %31, ptr %29, align 4, !tbaa !22
@@ -1975,7 +1973,7 @@ define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address
   %41 = and i32 %40, 4
   %42 = shl nuw nsw i32 %34, 2
   %43 = and i32 %42, 8
-  %44 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %28
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %28
   %45 = load i64, ptr %44, align 8, !tbaa !14
   %46 = or disjoint i32 %41, %43
   %47 = zext nneg i32 %46 to i64
@@ -1993,7 +1991,7 @@ define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address
   %55 = and i32 %54, 4
   %56 = shl nuw nsw i32 %34, 2
   %57 = and i32 %56, 8
-  %58 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %28
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %28
   %59 = load i64, ptr %58, align 8, !tbaa !14
   %60 = or disjoint i32 %55, %57
   %61 = zext nneg i32 %60 to i64
@@ -2005,7 +2003,7 @@ define internal fastcc void @item_unlink_q(ptr noundef readonly captures(address
   br label %do_item_unlink_q.exit
 
 do_item_unlink_q.exit:                            ; preds = %39, %50
-  %65 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %28
+  %65 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %28
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %65) #19
   ret void
 }
@@ -2097,7 +2095,7 @@ define dso_local void @do_item_unlink_nolock(ptr noundef %0, i32 noundef %1) loc
 
 49:                                               ; preds = %32
   %50 = sext i32 %spec.select.i to i64
-  %51 = getelementptr inbounds i32, ptr %30, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %30, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !22
   %53 = add i32 %52, -1
   store i32 %53, ptr %51, align 4, !tbaa !22
@@ -2116,8 +2114,8 @@ item_stats_sizes_remove.exit:                     ; preds = %6, %32, %49
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load i8, ptr %61, align 8, !tbaa !30
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr @heads, i64 %63
-  %65 = getelementptr inbounds nuw ptr, ptr @tails, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %63
   %66 = load ptr, ptr %64, align 8, !tbaa !28
   %67 = icmp eq ptr %66, %0
   br i1 %67, label %68, label %70
@@ -2160,7 +2158,7 @@ item_stats_sizes_remove.exit:                     ; preds = %6, %32, %49
 81:                                               ; preds = %79, %._crit_edge.i
   %82 = load i8, ptr %61, align 8, !tbaa !30
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr @sizes, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !22
   %86 = add i32 %85, -1
   store i32 %86, ptr %84, align 4, !tbaa !22
@@ -2177,7 +2175,7 @@ item_stats_sizes_remove.exit:                     ; preds = %6, %32, %49
   %94 = and i32 %93, 4
   %95 = shl nuw nsw i32 %88, 2
   %96 = and i32 %95, 8
-  %97 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %83
+  %97 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %83
   %98 = load i64, ptr %97, align 8, !tbaa !14
   %99 = or disjoint i32 %94, %96
   %100 = zext nneg i32 %99 to i64
@@ -2194,7 +2192,7 @@ item_stats_sizes_remove.exit:                     ; preds = %6, %32, %49
   %107 = and i32 %106, 4
   %108 = shl nuw nsw i32 %88, 2
   %109 = and i32 %108, 8
-  %110 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %83
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %83
   %111 = load i64, ptr %110, align 8, !tbaa !14
   %112 = or disjoint i32 %107, %109
   %113 = zext nneg i32 %112 to i64
@@ -2259,12 +2257,12 @@ define dso_local void @do_item_update(ptr noundef %0) local_unnamed_addr #0 {
   %21 = and i16 %20, -17
   store i16 %21, ptr %5, align 2, !tbaa !31
   %22 = zext nneg i8 %19 to i64
-  %23 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %22
   %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #19
   %25 = load i8, ptr %10, align 8, !tbaa !30
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @heads, i64 %26
-  %28 = getelementptr inbounds nuw ptr, ptr @tails, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %29, align 8, !tbaa !28
   %30 = load ptr, ptr %27, align 8, !tbaa !28
@@ -2290,7 +2288,7 @@ define dso_local void @do_item_update(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %36, %33
   %38 = load i8, ptr %10, align 8, !tbaa !30
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @sizes, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !22
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !22
@@ -2308,7 +2306,7 @@ define dso_local void @do_item_update(ptr noundef %0) local_unnamed_addr #0 {
   %51 = and i32 %50, 4
   %52 = shl nuw nsw i32 %44, 2
   %53 = and i32 %52, 8
-  %54 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %39
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %39
   %55 = load i64, ptr %54, align 8, !tbaa !14
   %narrow.i.i = add nuw nsw i32 %51, 61
   %narrow31.i.i = add nuw nsw i32 %narrow.i.i, %53
@@ -2326,7 +2324,7 @@ define dso_local void @do_item_update(ptr noundef %0) local_unnamed_addr #0 {
   %64 = and i32 %63, 4
   %65 = shl nuw nsw i32 %44, 2
   %66 = and i32 %65, 8
-  %67 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %39
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %39
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = or disjoint i32 %64, %66
   %70 = or disjoint i32 %69, 49
@@ -2338,12 +2336,12 @@ define dso_local void @do_item_update(ptr noundef %0) local_unnamed_addr #0 {
   br label %item_link_q_warm.exit
 
 item_link_q_warm.exit:                            ; preds = %49, %59
-  %75 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %39
+  %75 = getelementptr inbounds nuw [168 x i8], ptr @itemstats, i64 %39
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %77 = load i64, ptr %76, align 8, !tbaa !41
   %78 = add i64 %77, 1
   store i64 %78, ptr %76, align 8, !tbaa !41
-  %79 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %39
+  %79 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %39
   %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %79) #19
   br label %93
 
@@ -2388,9 +2386,9 @@ define dso_local void @item_flush_expired() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %indvars.iv
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #19
-  %5 = getelementptr inbounds nuw ptr, ptr @heads, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %.not32 = icmp eq ptr %6, null
   br i1 %.not32, label %.loopexit, label %.lr.ph
@@ -2493,14 +2491,14 @@ define dso_local noalias noundef ptr @item_cachedump(i32 noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = or i32 %0, 128
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %7
+  %8 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %7
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
   %10 = tail call noalias dereferenceable_or_null(2097152) ptr @malloc(i64 noundef 2097152) #20
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %12 = getelementptr inbounds nuw ptr, ptr @heads, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %7
   %13 = add i32 %1, -1
   %.0405264 = load ptr, ptr %12, align 8, !tbaa !28
   %.not5365 = icmp eq ptr %.0405264, null
@@ -2615,22 +2613,22 @@ define dso_local void @fill_item_stats_automove(ptr noundef writeonly captures(n
 
 2:                                                ; preds = %1, %37
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %37 ]
-  %3 = getelementptr inbounds nuw %struct.item_stats_automove, ptr %0, i64 %indvars.iv
-  %4 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %indvars.iv
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #19
-  %6 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [168 x i8], ptr @itemstats, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %8, ptr %9, align 8, !tbaa !78
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #19
   %11 = or disjoint i64 %indvars.iv, 128
-  %12 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %11
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #19
-  %14 = getelementptr inbounds nuw %struct.itemstats_t, ptr @itemstats, i64 %11
+  %14 = getelementptr inbounds nuw [168 x i8], ptr @itemstats, i64 %11
   %15 = load i64, ptr %14, align 8, !tbaa !44
   store i64 %15, ptr %3, align 8, !tbaa !80
-  %16 = getelementptr inbounds nuw ptr, ptr @tails, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %11
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %37, label %18
@@ -2714,13 +2712,13 @@ define dso_local void @item_stats_totals(ptr noundef %0, ptr noundef %1) local_u
   %.sroa.12.174 = phi i64 [ %.sroa.12.087, %.preheader ], [ %21, %3 ]
   %.sroa.923.173 = phi i64 [ %.sroa.923.086, %.preheader ], [ %18, %3 ]
   %.sroa.621.172 = phi i64 [ %.sroa.621.085, %.preheader ], [ %15, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr @lru_type_map, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @lru_type_map, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = or i32 %5, %.07196
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %union.pthread_mutex_t, ptr @lru_locks, i64 %7
+  %8 = getelementptr inbounds [40 x i8], ptr @lru_locks, i64 %7
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #19
-  %10 = getelementptr inbounds %struct.itemstats_t, ptr @itemstats, i64 %7
+  %10 = getelementptr inbounds [168 x i8], ptr @itemstats, i64 %7
   %11 = load i64, ptr %10, align 8, !tbaa !44
   %12 = add i64 %11, %.sroa.0.184
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -2871,13 +2869,13 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %.sroa.18.0281 = phi i64 [ 0, %11 ], [ %36, %111 ]
   %.sroa.15.0280 = phi i64 [ 0, %11 ], [ %33, %111 ]
   %.sroa.12.0279 = phi i64 [ 0, %11 ], [ %30, %111 ]
-  %13 = getelementptr inbounds nuw i32, ptr @lru_type_map, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @lru_type_map, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !22
   %15 = or i32 %14, %.0262305
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %union.pthread_mutex_t, ptr @lru_locks, i64 %16
+  %17 = getelementptr inbounds [40 x i8], ptr @lru_locks, i64 %16
   %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #19
-  %19 = getelementptr inbounds %struct.itemstats_t, ptr @itemstats, i64 %16
+  %19 = getelementptr inbounds [168 x i8], ptr @itemstats, i64 %16
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = add i64 %20, %.sroa.0.0304
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -2922,13 +2920,13 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %62 = load i64, ptr %61, align 8, !tbaa !27
   %63 = add i64 %62, %.sroa.45.0290
-  %64 = getelementptr inbounds i64, ptr @sizes_bytes, i64 %16
+  %64 = getelementptr inbounds [8 x i8], ptr @sizes_bytes, i64 %16
   %65 = load i64, ptr %64, align 8, !tbaa !14
   %66 = add i64 %65, %.sroa.56.0295
-  %67 = getelementptr inbounds i32, ptr @sizes, i64 %16
+  %67 = getelementptr inbounds [4 x i8], ptr @sizes, i64 %16
   %68 = load i32, ptr %67, align 4, !tbaa !22
   %69 = add i32 %68, %.0260300
-  %70 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %68, ptr %70, align 4, !tbaa !22
   %71 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %71, label %.thread [
@@ -2938,7 +2936,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   ]
 
 72:                                               ; preds = %12
-  %73 = getelementptr inbounds ptr, ptr @tails, i64 %16
+  %73 = getelementptr inbounds [8 x i8], ptr @tails, i64 %16
   %74 = load ptr, ptr %73, align 8, !tbaa !28
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.thread272, label %75
@@ -2951,7 +2949,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread272
 
 80:                                               ; preds = %12
-  %81 = getelementptr inbounds ptr, ptr @tails, i64 %16
+  %81 = getelementptr inbounds [8 x i8], ptr @tails, i64 %16
   %82 = load ptr, ptr %81, align 8, !tbaa !28
   %.not263 = icmp eq ptr %82, null
   br i1 %.not263, label %.thread, label %83
@@ -2964,7 +2962,7 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   br label %.thread
 
 88:                                               ; preds = %12
-  %89 = getelementptr inbounds ptr, ptr @tails, i64 %16
+  %89 = getelementptr inbounds [8 x i8], ptr @tails, i64 %16
   %90 = load ptr, ptr %89, align 8, !tbaa !28
   %.not264 = icmp eq ptr %90, null
   br i1 %.not264, label %.thread, label %91
@@ -2996,22 +2994,22 @@ define dso_local void @item_stats(ptr noundef readonly captures(none) %0, ptr no
   ]
 
 99:                                               ; preds = %.thread
-  %100 = getelementptr inbounds i64, ptr %7, i64 %16
+  %100 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   %101 = load i64, ptr %100, align 8, !tbaa !14
   br label %111
 
 102:                                              ; preds = %.thread
-  %103 = getelementptr inbounds i64, ptr %7, i64 %16
+  %103 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   %104 = load i64, ptr %103, align 8, !tbaa !14
   br label %111
 
 105:                                              ; preds = %.thread
-  %106 = getelementptr inbounds i64, ptr %7, i64 %16
+  %106 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   %107 = load i64, ptr %106, align 8, !tbaa !14
   br label %111
 
 108:                                              ; preds = %.thread
-  %109 = getelementptr inbounds i64, ptr %7, i64 %16
+  %109 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   %110 = load i64, ptr %109, align 8, !tbaa !14
   br label %111
 
@@ -3243,7 +3241,7 @@ define dso_local void @item_stats_sizes(ptr noundef %0, ptr noundef %1) local_un
   %7 = phi i32 [ %18, %17 ], [ %5, %.preheader ]
   %8 = phi ptr [ %19, %17 ], [ %4, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !22
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %17, label %11
@@ -3254,7 +3252,7 @@ define dso_local void @item_stats_sizes(ptr noundef %0, ptr noundef %1) local_un
   %12 = shl i32 %indvars.iv.tr, 5
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 12, ptr noundef nonnull @.str.36, i32 noundef %12) #19
   %14 = load ptr, ptr @stats_sizes_hist, align 8, !tbaa !73
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !22
   call void (ptr, ptr, ptr, ptr, ...) @append_stat(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %16) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3799,7 +3797,7 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 40:                                               ; preds = %35, %121
   %indvars.iv = phi i64 [ 1, %35 ], [ %indvars.iv.next, %121 ]
   %.179 = phi i32 [ 999999, %35 ], [ %spec.select57, %121 ]
-  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !22
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %42, i32 %37)
   store i32 %spec.select, ptr %41, align 4, !tbaa !22
@@ -3834,9 +3832,9 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 
 54:                                               ; preds = %.loopexit.i
   %55 = or disjoint i64 %indvars.iv, 128
-  %56 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %55
+  %56 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %55
   %57 = call i32 @pthread_mutex_lock(ptr noundef nonnull %56) #19
-  %58 = getelementptr inbounds nuw ptr, ptr @tails, i64 %55
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %55
   %59 = load ptr, ptr %58, align 8, !tbaa !28
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %66, label %60
@@ -3851,7 +3849,7 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
 
 66:                                               ; preds = %60, %54
   %.040.i = phi double [ %65, %60 ], [ 0.000000e+00, %54 ]
-  %67 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %55
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %55
   %68 = load i64, ptr %67, align 8, !tbaa !14
   %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %56) #19
   %70 = load double, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 216), align 8, !tbaa !129
@@ -3860,16 +3858,16 @@ define internal noalias noundef ptr @lru_maintainer_thread(ptr readnone captures
   %73 = load double, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 224), align 8, !tbaa !130
   %74 = fmul double %.040.i, %73
   %75 = fptoui double %74 to i32
-  %76 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %indvars.iv
   %77 = call i32 @pthread_mutex_lock(ptr noundef nonnull %76) #19
-  %78 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %indvars.iv
   %79 = load i64, ptr %78, align 8, !tbaa !14
   %80 = add i64 %79, %68
   %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #19
   %82 = or disjoint i64 %indvars.iv, 64
-  %83 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %82
   %84 = call i32 @pthread_mutex_lock(ptr noundef nonnull %83) #19
-  %85 = getelementptr inbounds nuw i64, ptr @sizes_bytes, i64 %82
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @sizes_bytes, i64 %82
   %86 = load i64, ptr %85, align 8, !tbaa !14
   %87 = add i64 %80, %86
   %88 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %83) #19
@@ -3927,7 +3925,7 @@ lru_maintainer_juggle.exit:                       ; preds = %102
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %lru_maintainer_juggle.exit
-  %108 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4, !tbaa !22
   %.not56 = icmp eq i32 %109, 0
   %110 = lshr i32 %109, 3
@@ -3938,7 +3936,7 @@ lru_maintainer_juggle.exit:                       ; preds = %102
   br label %119
 
 113:                                              ; preds = %lru_maintainer_juggle.exit.thread, %lru_maintainer_juggle.exit
-  %114 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %115 = load i32, ptr %114, align 4, !tbaa !22
   %.not55 = icmp eq i32 %115, 0
   br i1 %.not55, label %119, label %116
@@ -4074,7 +4072,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 
 168:                                              ; preds = %241, %.outer.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %241 ], [ %indvars.iv87.ph.i, %.outer.i ]
-  %169 = getelementptr inbounds nuw %struct.crawlerstats_t, ptr %29, i64 %indvars.iv87.i
+  %169 = getelementptr inbounds nuw [536 x i8], ptr %29, i64 %indvars.iv87.i
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 528
   %171 = load i8, ptr %170, align 8, !tbaa !136, !range !24, !noundef !25
   %172 = trunc nuw i8 %171 to i1
@@ -4098,7 +4096,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 186:                                              ; preds = %203, %173
   %indvars.iv.i = phi i64 [ 0, %173 ], [ %indvars.iv.next.i, %203 ]
   %.05879.i = phi i64 [ 0, %173 ], [ %189, %203 ]
-  %187 = getelementptr inbounds nuw i64, ptr %169, i64 %indvars.iv.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i
   %188 = load i64, ptr %187, align 8, !tbaa !14
   %189 = add i64 %188, %.05879.i
   %190 = icmp ugt i64 %189, %181
@@ -4106,7 +4104,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 
 191:                                              ; preds = %186
   %192 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %193 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 %indvars.iv87.i
+  %193 = getelementptr inbounds nuw [4 x i8], ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 %indvars.iv87.i
   %194 = load i32, ptr %193, align 4, !tbaa !22
   %195 = mul nuw nsw i32 %192, 60
   %196 = icmp ult i32 %194, %195
@@ -4133,7 +4131,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 
 204:                                              ; preds = %203
   %205 = icmp eq i64 %189, 0
-  %206 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 %indvars.iv87.i
+  %206 = getelementptr inbounds nuw [4 x i8], ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 %indvars.iv87.i
   %207 = load i32, ptr %206, align 4, !tbaa !22
   br i1 %205, label %208, label %.thread.i
 
@@ -4148,7 +4146,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   br i1 %211, label %212, label %.thread.thread.i
 
 212:                                              ; preds = %.thread.i
-  %213 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 %indvars.iv87.i
+  %213 = getelementptr inbounds nuw [4 x i8], ptr @lru_maintainer_crawler_check.next_crawl_wait, i64 %indvars.iv87.i
   store i32 3600, ptr %213, align 4, !tbaa !22
   br label %.thread.thread.i
 
@@ -4157,7 +4155,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   %215 = load volatile i32, ptr @current_time, align 4, !tbaa !22
   %216 = add nuw nsw i32 %214, 5
   %217 = add i32 %216, %215
-  %218 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
   store i32 %217, ptr %218, align 4, !tbaa !22
   %219 = load i16, ptr %30, align 4, !tbaa !49
   %220 = and i16 %219, 2
@@ -4167,7 +4165,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 221:                                              ; preds = %.thread.thread.i
   %222 = lshr i64 %indvars.iv87.i, 6
   %223 = and i64 %222, 67108863
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lru_maintainer_thread, i64 %223
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lru_maintainer_thread, i64 %223
   %switch.load = load ptr, ptr %switch.gep, align 8
   %224 = trunc nuw nsw i64 %indvars.iv87.i to i32
   %225 = and i32 %224, 63
@@ -4188,7 +4186,7 @@ lru_maintainer_bumps.exit:                        ; preds = %158
 
 236:                                              ; preds = %234, %168
   %237 = load volatile i32, ptr @current_time, align 4, !tbaa !22
-  %238 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
   %239 = load i32, ptr %238, align 4, !tbaa !22
   %240 = icmp ugt i32 %237, %239
   br i1 %240, label %.thread96.i, label %241
@@ -4199,10 +4197,10 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   br i1 %exitcond89.not.i, label %251, label %168, !llvm.loop !144
 
 .thread96.i:                                      ; preds = %236
-  %242 = getelementptr inbounds nuw i32, ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
-  %243 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @lru_locks, i64 %indvars.iv87.i
+  %242 = getelementptr inbounds nuw [4 x i8], ptr @lru_maintainer_crawler_check.next_crawls, i64 %indvars.iv87.i
+  %243 = getelementptr inbounds nuw [40 x i8], ptr @lru_locks, i64 %indvars.iv87.i
   %244 = call i32 @pthread_mutex_lock(ptr noundef nonnull %243) #19
-  %245 = getelementptr inbounds nuw i32, ptr @sizes, i64 %indvars.iv87.i
+  %245 = getelementptr inbounds nuw [4 x i8], ptr @sizes, i64 %indvars.iv87.i
   %246 = load i32, ptr %245, align 4, !tbaa !22
   %spec.select.i = call i32 @llvm.umax.i32(i32 %246, i32 %.06080.ph.i)
   %247 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %243) #19
@@ -4275,8 +4273,8 @@ define dso_local void @do_item_linktail_q(ptr noundef initializes((0, 16)) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @heads, i64 %4
-  %6 = getelementptr inbounds nuw ptr, ptr @tails, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !28
@@ -4307,8 +4305,8 @@ define dso_local void @do_item_unlinktail_q(ptr noundef readonly captures(addres
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @heads, i64 %4
-  %6 = getelementptr inbounds nuw ptr, ptr @tails, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %4
   %7 = load ptr, ptr %5, align 8, !tbaa !28
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %9, label %11
@@ -4359,8 +4357,8 @@ define dso_local ptr @do_item_crawl_q(ptr noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !30
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @heads, i64 %4
-  %6 = getelementptr inbounds nuw ptr, ptr @tails, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @heads, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @tails, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = icmp eq ptr %8, null

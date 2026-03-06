@@ -175,7 +175,7 @@ sincf.exit:                                       ; preds = %37, %44
 sincf.exit51:                                     ; preds = %sincf.exit, %60
   %.0.i50 = phi nsz float [ %67, %60 ], [ 1.000000e+00, %sincf.exit ]
   %68 = fdiv nsz float %56, %.0.i50
-  %69 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store float %68, ptr %69, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -194,7 +194,7 @@ sincf.exit51:                                     ; preds = %sincf.exit, %60
 75:                                               ; preds = %.lr.ph54, %75
   %indvars.iv56 = phi i64 [ 1, %.lr.ph54 ], [ %indvars.iv.next57, %75 ]
   %76 = load ptr, ptr %24, align 8, !tbaa !35
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv56
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv56
   %78 = load ptr, ptr %77, align 8, !tbaa !42
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr nonnull align 4 %26, i64 %36, i1 false)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1

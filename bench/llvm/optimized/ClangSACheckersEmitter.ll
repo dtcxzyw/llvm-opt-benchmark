@@ -206,7 +206,7 @@ _ZN4llvm9StringMapIPKNS_6RecordENS_15MallocAllocatorEE5beginEv.exit: ; preds = %
   %69 = phi ptr [ %.pre463, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.pre463, %_ZN4llvm9StringMapIPKNS_6RecordENS_15MallocAllocatorEE5beginEv.exit.loopexit ]
   %70 = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %67, %_ZN4llvm9StringMapIPKNS_6RecordENS_15MallocAllocatorEE5beginEv.exit.loopexit ]
   %.sroa.0.1.i = phi ptr [ %.pre463, %._crit_edge ], [ null, %._crit_edge.thread ], [ %.sroa.0.0.i, %_ZN4llvm9StringMapIPKNS_6RecordENS_15MallocAllocatorEE5beginEv.exit.loopexit ]
-  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %70
   %.not407416 = icmp eq ptr %.sroa.0.1.i, %71
   br i1 %.not407416, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPKNS_6RecordEEENS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, label %.lr.ph418
 
@@ -267,7 +267,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIPKNS_6RecordEEENS_14StringMap
 .lr.ph.i:                                         ; preds = %99, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %99 ]
   %93 = load ptr, ptr %15, align 8, !tbaa !17
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i
   %95 = load ptr, ptr %94, align 8, !tbaa !19
   %magicptr.i = ptrtoint ptr %95 to i64
   switch i64 %magicptr.i, label %96 [
@@ -977,7 +977,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38.i:             ; preds = %407, %405
 424:                                              ; preds = %430, %.lr.ph.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %430 ], [ 0, %.lr.ph.i.i.i ]
   %.019.i.i.i = phi i64 [ %435, %430 ], [ 0, %.lr.ph.i.i.i ]
-  %425 = getelementptr inbounds nuw ptr, ptr %422, i64 %indvars.iv.i.i
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %422, i64 %indvars.iv.i.i
   %426 = load ptr, ptr %425, align 8, !tbaa !105, !noalias !93
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %428 = load i8, ptr %427, align 8, !tbaa !35, !noalias !93
@@ -2370,7 +2370,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %24
 33:                                               ; preds = %39, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %.lr.ph.i.i ]
   %.019.i.i = phi i64 [ %44, %39 ], [ 0, %.lr.ph.i.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !105
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i8, ptr %36, align 8, !tbaa !35
@@ -2432,9 +2432,9 @@ _ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE.exit.i: ; preds = %39
   unreachable
 
 switch.lookup:                                    ; preds = %_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE.exit.i
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep135 = getelementptr inbounds nuw i64, ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE.1, i64 %44
+  %switch.gep135 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE.1, i64 %44
   %switch.load136 = load i64, ptr %switch.gep135, align 8
   br label %_ZL20getCheckerOptionTypeRKN4llvm6RecordE.exit
 
@@ -2714,7 +2714,7 @@ _ZN4llvm11raw_ostreamlsEc.exit78:                 ; preds = %182, %184
 192:                                              ; preds = %198, %.lr.ph.i.i81
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i86, %198 ], [ 0, %.lr.ph.i.i81 ]
   %.019.i.i83 = phi i64 [ %203, %198 ], [ 0, %.lr.ph.i.i81 ]
-  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv.i82
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv.i82
   %194 = load ptr, ptr %193, align 8, !tbaa !105
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load i8, ptr %195, align 8, !tbaa !35
@@ -3070,7 +3070,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPKNS_6RecordENS_15Mal
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #12
   %6 = load ptr, ptr %0, align 8, !tbaa !17
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -3124,7 +3124,7 @@ _ZN4llvm14StringMapEntryIPKNS_6RecordEE6createINS_15MallocAllocatorEJEEEPS4_NS_9
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #12
   %27 = load ptr, ptr %0, align 8, !tbaa !17
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIPKNS_6RecordEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit

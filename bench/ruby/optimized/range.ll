@@ -789,7 +789,7 @@ define internal noundef i64 @range_initialize(i32 noundef %0, ptr noundef readon
   %exitcond.not = phi i1 [ true, %.preheader4 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader4 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader4 ], [ 0, %3 ]
-  %7 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !7
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !7
   br i1 %exitcond.not, label %.preheader, label %.preheader4, !llvm.loop !22

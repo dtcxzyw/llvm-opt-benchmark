@@ -818,7 +818,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %300
 
 284:                                              ; preds = %277, %277
-  %285 = getelementptr i32, ptr %8, i64 %278
+  %285 = getelementptr [4 x i8], ptr %8, i64 %278
   %286 = load i32, ptr %285, align 4
   %287 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %.5588)
   %288 = sext i8 %287 to i32
@@ -832,7 +832,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %300
 
 294:                                              ; preds = %277
-  %295 = getelementptr i32, ptr %8, i64 %278
+  %295 = getelementptr [4 x i8], ptr %8, i64 %278
   %296 = load i32, ptr %295, align 4
   %297 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %.5588)
   %298 = sext i8 %297 to i32
@@ -898,7 +898,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %339
 
 323:                                              ; preds = %316, %316
-  %324 = getelementptr i32, ptr %9, i64 %317
+  %324 = getelementptr [4 x i8], ptr %9, i64 %317
   %325 = load i32, ptr %324, align 4
   %326 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %.7593)
   %327 = sext i8 %326 to i32
@@ -912,7 +912,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %339
 
 333:                                              ; preds = %316
-  %334 = getelementptr i32, ptr %9, i64 %317
+  %334 = getelementptr [4 x i8], ptr %9, i64 %317
   %335 = load i32, ptr %334, align 4
   %336 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %.7593)
   %337 = sext i8 %336 to i32
@@ -965,7 +965,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %373
 
 357:                                              ; preds = %350, %350
-  %358 = getelementptr i32, ptr %10, i64 %351
+  %358 = getelementptr [4 x i8], ptr %10, i64 %351
   %359 = load i32, ptr %358, align 4
   %360 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %.9598)
   %361 = sext i8 %360 to i32
@@ -979,7 +979,7 @@ define internal i32 @dissect_ubt(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %373
 
 367:                                              ; preds = %350
-  %368 = getelementptr i32, ptr %10, i64 %351
+  %368 = getelementptr [4 x i8], ptr %10, i64 %351
   %369 = load i32, ptr %368, align 4
   %370 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %.9598)
   %371 = sext i8 %370 to i32

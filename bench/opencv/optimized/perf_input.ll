@@ -950,7 +950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %99
 194:                                              ; preds = %.lr.ph, %682
   %195 = phi ptr [ %82, %.lr.ph ], [ %685, %682 ]
   %.0104783 = phi i64 [ 0, %.lr.ph ], [ %683, %682 ]
-  %196 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %195, i64 %.0104783
+  %196 = getelementptr inbounds nuw [32 x i8], ptr %195, i64 %.0104783
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %197 = trunc i64 %.0104783 to i32
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.27, i32 noundef %197)
@@ -2807,7 +2807,7 @@ _ZN7testing15AssertionResultD2Ev.exit340:         ; preds = %.noexc.i.i336, %798
   %810 = load i32, ptr %.sroa.0458.0785, align 4, !tbaa !92
   %811 = sext i32 %810 to i64
   %812 = load ptr, ptr %13, align 8, !tbaa !127
-  %813 = getelementptr inbounds nuw %"class.cv::VideoCapture", ptr %812, i64 %811
+  %813 = getelementptr inbounds nuw [48 x i8], ptr %812, i64 %811
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #31
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -4627,7 +4627,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !200
   store ptr %102, ptr %9, align 8, !tbaa !197
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !199
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -5977,7 +5977,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !239
   store ptr %35, ptr %4, align 8, !tbaa !231
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.45", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !234
   ret void
 
@@ -7783,7 +7783,7 @@ _ZNSt12_Vector_baseIN2cv12VideoCaptureESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !127
   store ptr %.0.lcssa.i.i.i.i27, ptr %4, align 8, !tbaa !105
-  %126 = getelementptr inbounds nuw %"class.cv::VideoCapture", ptr %20, i64 %16
+  %126 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %16
   store ptr %126, ptr %125, align 8, !tbaa !108
   ret void
 }
@@ -10401,7 +10401,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !276
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !206
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::VideoCapture_Reading_ReadFile>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !209
   ret void
 }

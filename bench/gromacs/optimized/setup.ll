@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ThreeFry2x64" = type { %"class.gmx::ThreeFry2x64General.base", [4 x i8] }
 %"class.gmx::ThreeFry2x64General.base" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", i32 }>
 %"struct.std::array" = type { [2 x i64] }
-%"class.gmx::BasicVector" = type { [3 x float] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -223,7 +222,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   br i1 %.not.i.i.i.i.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %107 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr null, i64 %105
+  %107 = getelementptr inbounds nuw [12 x i8], ptr null, i64 %105
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %107, ptr %108, align 8, !tbaa !23, !alias.scope !16
   br label %.loopexit.i
@@ -233,7 +232,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %110 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %109) #26, !noalias !16
   store ptr %110, ptr %0, align 8, !tbaa !26, !alias.scope !16
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %112 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %110, i64 %105
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %110, i64 %105
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %112, ptr %113, align 8, !tbaa !23, !alias.scope !16
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %110, i64 %109
@@ -259,7 +258,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %.05083.i = phi i64 [ 0, %.lr.ph.i ], [ %320, %319 ]
   %.sroa.10.082.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.10.1.i, %319 ]
   %.sroa.7.081.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.7.1.i, %319 ]
-  %124 = getelementptr inbounds nuw float, ptr %101, i64 %.05083.i
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %.05083.i
   %125 = load float, ptr %124, align 4, !tbaa !28, !noalias !16
   %126 = fcmp ogt float %125, 0.000000e+00
   br i1 %126, label %127, label %319
@@ -342,7 +341,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   store i32 0, ptr %98, align 8, !tbaa !12, !noalias !16
   %198 = fdiv float %114, %125
   %199 = call noundef float @sqrtf(float noundef %198) #27, !tbaa !30, !noalias !16
-  %200 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %110, i64 %.05083.i
+  %200 = getelementptr inbounds nuw [12 x i8], ptr %110, i64 %.05083.i
   %201 = fpext nnan float %125 to double
   %202 = fmul nnan double %201, 5.000000e-01
   br label %205
@@ -371,7 +370,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
 
 ._crit_edge.i.i.i.i:                              ; preds = %210
   %.phi.trans.insert1.i.i.i.i = zext nneg i32 %207 to i64
-  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw i64, ptr %97, i64 %.phi.trans.insert1.i.i.i.i
+  %.phi.trans.insert2.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.phi.trans.insert1.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i.i, align 8, !tbaa !10, !noalias !16
   %212 = add nuw nsw i32 %207, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i
@@ -535,12 +534,12 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i: ; preds = %.noexc59.i, 
   %305 = phi i32 [ %209, %._crit_edge.i.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i ]
   %306 = phi i64 [ %.sroa.7.277.i, %._crit_edge.i.i.i ], [ %300, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i ]
   %307 = and i64 %306, 16383
-  %308 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %307
   %309 = load float, ptr %308, align 4, !tbaa !28, !noalias !16
   %310 = lshr i64 %306, 14
   %311 = fadd float %309, 0.000000e+00
   %312 = fmul float %199, %311
-  %313 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv.i
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv.i
   store float %312, ptr %313, align 4, !tbaa !28, !noalias !16
   %314 = fpext float %312 to double
   %315 = fmul double %202, %314
@@ -576,7 +575,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i: ; preds = %.noexc59.i, 
 
 326:                                              ; preds = %326, %.preheader.i
   %indvars.iv94.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next95.i, %326 ]
-  %327 = getelementptr inbounds nuw float, ptr %.sroa.061.089.i, i64 %indvars.iv94.i
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.061.089.i, i64 %indvars.iv94.i
   %328 = load float, ptr %327, align 4, !tbaa !28, !noalias !16
   %329 = fmul float %323, %328
   store float %329, ptr %327, align 4, !tbaa !28, !noalias !16
@@ -1106,7 +1105,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 10:                                               ; preds = %10, %.preheader57.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %10 ], [ 0, %.preheader57.i.i.i.i ]
-  %11 = getelementptr inbounds nuw float, ptr %.sroa.050.065.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.050.065.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %12 = load float, ptr %11, align 4, !tbaa !28
   %13 = tail call float @llvm.fabs.f32(float %12)
   %14 = fcmp one float %13, 0x7FF0000000000000
@@ -1124,7 +1123,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 17:                                               ; preds = %17, %15
   %indvars.iv.i.i18.i.i.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i19.i.i.i.i, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i.i18.i.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i.i18.i.i.i.i
   %19 = load float, ptr %18, align 4, !tbaa !28
   %20 = tail call float @llvm.fabs.f32(float %19)
   %21 = fcmp one float %20, 0x7FF0000000000000
@@ -1142,7 +1141,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 24:                                               ; preds = %24, %22
   %indvars.iv.i.i23.i.i.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i24.i.i.i.i, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i23.i.i.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i23.i.i.i.i
   %26 = load float, ptr %25, align 4, !tbaa !28
   %27 = tail call float @llvm.fabs.f32(float %26)
   %28 = fcmp one float %27, 0x7FF0000000000000
@@ -1160,7 +1159,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 31:                                               ; preds = %31, %29
   %indvars.iv.i.i28.i.i.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i29.i.i.i.i, %31 ]
-  %32 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i.i28.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i.i28.i.i.i.i
   %33 = load float, ptr %32, align 4, !tbaa !28
   %34 = tail call float @llvm.fabs.f32(float %33)
   %35 = fcmp one float %34, 0x7FF0000000000000
@@ -1195,7 +1194,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 .preheader.i.i.i.i:                               ; preds = %._crit_edge.i.i.i.i, %.preheader.i.i.i.i
   %indvars.iv.i.i33.i.i.i.i = phi i64 [ %indvars.iv.next.i.i34.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %._crit_edge.i.i.i.i ]
-  %41 = getelementptr inbounds nuw float, ptr %.sroa.050.0.lcssa.i.i.i.i, i64 %indvars.iv.i.i33.i.i.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.050.0.lcssa.i.i.i.i, i64 %indvars.iv.i.i33.i.i.i.i
   %42 = load float, ptr %41, align 4, !tbaa !28
   %43 = tail call float @llvm.fabs.f32(float %42)
   %44 = fcmp one float %43, 0x7FF0000000000000
@@ -1217,7 +1216,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 48:                                               ; preds = %48, %47
   %indvars.iv.i.i38.i.i.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i39.i.i.i.i, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %.sroa.050.1.i.i.i.i, i64 %indvars.iv.i.i38.i.i.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.050.1.i.i.i.i, i64 %indvars.iv.i.i38.i.i.i.i
   %50 = load float, ptr %49, align 4, !tbaa !28
   %51 = tail call float @llvm.fabs.f32(float %50)
   %52 = fcmp one float %51, 0x7FF0000000000000
@@ -1239,7 +1238,7 @@ define noundef zeroext i1 @_ZN5nblib12isRealValuedEN3gmx8ArrayRefIKNS0_11BasicVe
 
 56:                                               ; preds = %56, %55
   %indvars.iv.i.i43.i.i.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i44.i.i.i.i, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %.sroa.050.2.i.i.i.i, i64 %indvars.iv.i.i43.i.i.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.050.2.i.i.i.i, i64 %indvars.iv.i.i43.i.i.i.i
   %58 = load float, ptr %57, align 4, !tbaa !28
   %59 = tail call float @llvm.fabs.f32(float %58)
   %60 = fcmp one float %59, 0x7FF0000000000000

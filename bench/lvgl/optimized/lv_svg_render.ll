@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_svg_drawing_builder_state = type { ptr, ptr, i32, i8, i8, ptr, ptr, ptr }
 %struct.lv_area_t = type { i32, i32, i32, i32 }
 %struct._lv_matrix_t = type { [3 x [3 x float]] }
-%struct.lv_svg_point_t = type { float, float }
 %struct.lv_font_glyph_dsc_t = type { ptr, i16, i16, i16, i16, i16, i32, i8, %union.anon, ptr }
 %union.anon = type { ptr }
 %struct._lv_svg_draw_dsc = type { ptr, %struct._lv_vector_draw_dsc_t, ptr, ptr }
@@ -1022,7 +1021,7 @@ define internal void @_lv_svg_doc_walk_after_cb(ptr noundef %0, ptr noundef capt
 84:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %85 = load ptr, ptr %78, align 8, !tbaa !164
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8, !tbaa !165
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
   %89 = load ptr, ptr %88, align 8, !tbaa !152
@@ -2776,7 +2775,7 @@ define internal void @_set_polyline_attr(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %78 ]
-  %48 = getelementptr inbounds nuw %struct.lv_svg_point_t, ptr %13, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %49 = load float, ptr %48, align 4, !tbaa !209
   store float %49, ptr %4, align 4, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -3770,7 +3769,7 @@ define internal void @_render_text(ptr noundef %0, ptr noundef %1, ptr noundef %
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %63 = load ptr, ptr %61, align 8, !tbaa !233
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !170
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = load ptr, ptr %8, align 8, !tbaa !226
@@ -4179,7 +4178,7 @@ define internal void @_render_span(ptr noundef %0, ptr noundef %1, ptr noundef %
 101:                                              ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
   %102 = load ptr, ptr %95, align 8, !tbaa !233
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv
   %104 = load i32, ptr %103, align 4, !tbaa !170
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %105 = load ptr, ptr %7, align 8, !tbaa !243
@@ -4380,7 +4379,7 @@ define internal void @_init_tspan(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %39 = call i32 %37(ptr noundef %27, ptr noundef nonnull %3) #10
   %40 = load ptr, ptr %34, align 8, !tbaa !233
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   store i32 %39, ptr %41, align 4, !tbaa !170
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = load i32, ptr %30, align 8, !tbaa !232
@@ -4778,7 +4777,7 @@ define internal void @_init_content(ptr noundef %0, ptr noundef readonly capture
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = call i32 %16(ptr noundef %6, ptr noundef nonnull %3) #10
   %19 = load ptr, ptr %13, align 8, !tbaa !233
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %18, ptr %20, align 4, !tbaa !170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %9, align 8, !tbaa !232
@@ -5635,7 +5634,7 @@ define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %.thread ]
   %.063 = phi i32 [ 0, %.lr.ph65 ], [ %.253, %.thread ]
   %18 = load ptr, ptr %16, align 8, !tbaa !164
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !165
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = tail call i32 @lv_array_size(ptr noundef nonnull %21) #10
@@ -5691,7 +5690,7 @@ define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captur
 
 42:                                               ; preds = %._crit_edge
   %43 = zext nneg i32 %.063 to i64
-  %44 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %15, i64 %43
+  %44 = getelementptr inbounds nuw [5 x i8], ptr %15, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store i8 %.147, ptr %45, align 1, !tbaa !275
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -6380,7 +6379,7 @@ define internal void @_set_attr(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 224:                                              ; preds = %223, %224
   %indvars.iv = phi i64 [ 0, %223 ], [ %indvars.iv.next, %224 ]
-  %225 = getelementptr inbounds nuw float, ptr %213, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %indvars.iv
   %226 = tail call i32 @lv_array_push_back(ptr noundef nonnull %209, ptr noundef nonnull %225) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

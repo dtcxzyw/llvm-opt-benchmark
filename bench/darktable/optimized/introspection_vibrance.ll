@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [99 x i8] c"this module is deprecated. please use the vibrance slider in the color balance rgb module instead.\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"vibrance\00", align 1
@@ -121,7 +118,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 30:                                               ; preds = %.lr.ph, %43
   %indvars.iv42 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next43, %43 ]
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv42
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv42
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !31
   %34 = fmul reassoc nsz arcp contract afn float %33, %33
@@ -150,12 +147,12 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 45:                                               ; preds = %30, %45
   %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %45 ]
   %46 = or disjoint i64 %indvars.iv, %indvars.iv42
-  %47 = getelementptr inbounds nuw float, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !31
-  %49 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %50 = load float, ptr %49, align 4, !tbaa !31
   %51 = fmul reassoc nsz arcp contract afn float %50, %48
-  %52 = getelementptr inbounds nuw float, ptr %3, i64 %46
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %46
   store float %51, ptr %52, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -289,7 +286,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

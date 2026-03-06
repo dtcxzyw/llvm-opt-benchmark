@@ -122,7 +122,7 @@ define void @JIMAGE_ResourceIterator(ptr noundef %0, ptr noundef readonly captur
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %22, align 8
   %30 = zext i32 %.025 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %28, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8

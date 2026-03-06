@@ -132,7 +132,7 @@ define noundef zeroext i1 @_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportS
 
 7:                                                ; preds = %7, %.lr.ph
   %.010 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %.010
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.010
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = icmp eq i32 %9, 1246057043
   %11 = add nuw i64 %.010, 1
@@ -740,7 +740,7 @@ define void @_ZN3net22QuicCryptoServerStream32FinishProcessingHandshakeMessageER
 
 22:                                               ; preds = %20, %.lr.ph.i
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %20 ]
-  %23 = getelementptr inbounds nuw i32, ptr %19, i64 %.010.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.010.i
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = icmp eq i32 %24, 1246057043
   br i1 %25, label %_ZN3net26QuicCryptoServerStreamBase31DoesPeerSupportStatelessRejectsERKNS_22CryptoHandshakeMessageE.exit, label %20

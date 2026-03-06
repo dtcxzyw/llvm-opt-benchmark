@@ -148,7 +148,7 @@ define hidden void @_ZN28ShenandoahHeapRegionCountersC2Ev(ptr noundef nonnull al
   %63 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %62, ptr noundef %61) #8
   %64 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %61, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %9) #8
   %65 = load ptr, ptr %57, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %58
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %58
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %34, align 8
   %.not36 = icmp eq ptr %67, null
@@ -302,7 +302,7 @@ _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %16, %40
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %43, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %46
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %46
   %52 = load ptr, ptr %51, align 8
   br label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
@@ -356,11 +356,11 @@ switch.lookup:                                    ; preds = %_ZNK14ShenandoahHea
   %91 = and i64 %90, 34091302912
   %92 = or disjoint i64 %87, %91
   %93 = zext nneg i32 %63 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN28ShenandoahHeapRegionCounters6updateEv, i64 %93
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN28ShenandoahHeapRegionCounters6updateEv, i64 %93
   %switch.load = load i64, ptr %switch.gep, align 8
   %94 = or disjoint i64 %92, %switch.load
   %95 = load ptr, ptr %44, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %46
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %46
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %99 = load ptr, ptr %98, align 8

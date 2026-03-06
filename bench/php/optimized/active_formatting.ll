@@ -33,7 +33,7 @@ define hidden void @lxb_html_tree_active_formatting_up_to_last_marker(ptr nounde
 8:                                                ; preds = %6
   %9 = add i64 %7, -1
   store i64 %9, ptr %5, align 8, !tbaa !19
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = icmp eq ptr %11, @lxb_html_tree_active_formatting_marker_static
   br i1 %12, label %13, label %6
@@ -58,13 +58,13 @@ define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef r
 
 9:                                                ; preds = %8
   %10 = add i64 %.0, -1
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %8
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %10
   %16 = sub i64 %7, %.0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = shl i64 %16, 3
@@ -95,7 +95,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(p
 
 .lr.ph:                                           ; preds = %3, %13
   %.01323 = phi i64 [ %14, %13 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01323
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01323
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %12, label %13
@@ -140,7 +140,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
 
 10:                                               ; preds = %9
   %11 = add i64 %.0, -1
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %15, label %9
@@ -176,7 +176,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
 8:                                                ; preds = %1
   %9 = load ptr, ptr %4, align 8, !tbaa !17
   %10 = add i64 %6, -1
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = icmp eq ptr %12, @lxb_html_tree_active_formatting_marker_static
   br i1 %13, label %39, label %14
@@ -192,7 +192,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
 
 16:                                               ; preds = %.preheader
   %17 = add i64 %.029, -1
-  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = icmp eq ptr %19, @lxb_html_tree_active_formatting_marker_static
   br i1 %20, label %23, label %21
@@ -215,7 +215,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
 
 28:                                               ; preds = %.lr.ph, %35
   %.23136 = phi i64 [ %.029, %.lr.ph ], [ %36, %35 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %.23136
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.23136
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !22
@@ -260,7 +260,7 @@ define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nound
 .lr.ph:                                           ; preds = %3, %23
   %.022 = phi i64 [ %9, %23 ], [ %8, %3 ]
   %9 = add i64 %.022, -1
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = icmp eq ptr %11, @lxb_html_tree_active_formatting_marker_static
   br i1 %12, label %.loopexit, label %13
@@ -315,7 +315,7 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr nou
   %.02331 = phi i64 [ %8, %.lr.ph ], [ %.124, %29 ]
   %.02530 = phi i64 [ %7, %.lr.ph ], [ %12, %29 ]
   %12 = add i64 %.02530, -1
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = icmp eq ptr %14, @lxb_html_tree_active_formatting_marker_static
   br i1 %15, label %._crit_edge, label %16

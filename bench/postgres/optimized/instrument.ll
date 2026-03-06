@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BufferUsage = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
 %struct.instr_time = type { i64 }
 %struct.WalUsage = type { i64, i64, i64, i64 }
-%struct.Instrumentation = type { i8, i8, i8, i8, i8, %struct.instr_time, %struct.instr_time, double, double, %struct.BufferUsage, %struct.WalUsage, double, double, double, double, double, double, double, %struct.BufferUsage, %struct.WalUsage }
 %struct.timespec = type { i64, i64 }
 
 @.str = private unnamed_addr constant [37 x i8] c"InstrStartNode called twice in a row\00", align 1
@@ -47,7 +46,7 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %struct.Instrumentation, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [416 x i8], ptr %7, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %12, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 2

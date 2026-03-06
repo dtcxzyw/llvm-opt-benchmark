@@ -75,9 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.(anonymous namespace)::ReEscapeStrings" = type { %"class.jsonnet::internal::CompilerPass" }
 %"class.jsonnet::internal::CompilerPass" = type { ptr, ptr }
-%"struct.jsonnet::internal::TraceFrame" = type { %"struct.jsonnet::internal::LocationRange", %"class.std::__cxx11::basic_string" }
-%"struct.jsonnet::internal::LocationRange" = type { %"class.std::__cxx11::basic_string", %"struct.jsonnet::internal::Location", %"struct.jsonnet::internal::Location" }
-%"struct.jsonnet::internal::Location" = type { i64, i64 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::UnaryOp>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::UnaryOp>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::BinaryOp>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::BinaryOp>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string.115" = type { %"struct.std::__cxx11::basic_string<char32_t>::_Alloc_hider", i64, %union.anon.119 }
@@ -6573,7 +6570,7 @@ _ZNSolsEPFRSoS_E.exit192:                         ; preds = %_ZStlsIcSt11char_tr
 266:                                              ; preds = %.lr.ph262, %_ZNSolsEPFRSoS_E.exit196
   %.0121261 = phi i64 [ 0, %.lr.ph262 ], [ %289, %_ZNSolsEPFRSoS_E.exit196 ]
   %267 = load ptr, ptr %238, align 8, !tbaa !193
-  %268 = getelementptr inbounds nuw %"struct.jsonnet::internal::TraceFrame", ptr %267, i64 %.0121261
+  %268 = getelementptr inbounds nuw [96 x i8], ptr %267, i64 %.0121261
   %269 = load i32, ptr %248, align 8, !tbaa !75
   %.not = icmp ne i32 %269, 0
   %.not155 = icmp samesign uge i64 %.0121261, %251
@@ -9806,7 +9803,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !108
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !98
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !99
   ret void
 }
@@ -10558,7 +10555,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit.i
   %30 = phi ptr [ %.pre29.i, %28 ], [ %15, %26 ], [ %15, %25 ]
   %31 = phi i64 [ %.pre.i, %28 ], [ 1, %26 ], [ %23, %25 ]
   store i64 %31, ptr %9, align 8, !tbaa !274
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !275
   br label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEaSEOS4_.exit
 
@@ -11317,7 +11314,7 @@ _ZNSt6vectorISt10unique_ptrI16JsonnetJsonValueSt14default_deleteIS1_EESaIS4_EE11
 _ZNSt12_Vector_baseISt10unique_ptrI16JsonnetJsonValueSt14default_deleteIS1_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI16JsonnetJsonValueSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !42
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !43
   ret void
 }
@@ -13361,7 +13358,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !108
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !98
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !99
   ret void
 

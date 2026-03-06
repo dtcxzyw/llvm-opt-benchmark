@@ -59,9 +59,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GLFWlibraryGLX = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._GLFWlibraryLinux = type { i32, i32, %struct.re_pattern_buffer, i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
+%struct.anon.39 = type { ptr, ptr }
 %struct._GLFWmapping = type { [128 x i8], [33 x i8], [15 x %struct._GLFWmapelement], [6 x %struct._GLFWmapelement] }
 %struct._GLFWmapelement = type { i8, i8, i8, i8 }
-%struct.anon.39 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [282 x i8] c"03000000c82d00000090000011010000,8BitDo FC30 Pro,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,leftshoulder:b6,leftstick:b13,lefttrigger:a4,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:a5,rightx:a2,righty:a3,start:b11,x:b4,y:b3,platform:Linux,\00", align 1
 @.str.1 = private unnamed_addr constant [282 x i8] c"05000000c82d00001038000000010000,8Bitdo FC30 Pro,a:b1,b:b0,back:b10,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,dpup:h0.1,leftshoulder:b6,leftstick:b13,lefttrigger:b8,leftx:a0,lefty:a1,rightshoulder:b7,rightstick:b14,righttrigger:b9,rightx:a2,righty:a3,start:b11,x:b4,y:b3,platform:Linux,\00", align 1
@@ -766,7 +766,7 @@ define hidden void @_glfwInputJoystickAxis(ptr noundef readonly captures(none) %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !144
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds float, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   store float %2, ptr %7, align 4, !tbaa !145
   ret void
 }
@@ -830,8 +830,8 @@ define hidden void @_glfwInitGamepadMappings() local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133392), align 8, !tbaa !149
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133400), align 8, !tbaa !150
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct._GLFWmapping, ptr %3, i64 %5
-  %7 = getelementptr inbounds nuw ptr, ptr @_glfwDefaultMappings, i64 %.03
+  %6 = getelementptr inbounds [245 x i8], ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_glfwDefaultMappings, i64 %.03
   %8 = load ptr, ptr %7, align 8, !tbaa !151
   %9 = tail call fastcc i32 @parseMapping(ptr noundef %6, ptr noundef %8)
   %.not = icmp eq i32 %9, 0
@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 0, 2) i32 @parseMapping(ptr noundef %0, ptr nou
 
 .preheader94:                                     ; preds = %85, %140
   %.07398 = phi i64 [ %141, %140 ], [ 0, %85 ]
-  %87 = getelementptr inbounds nuw %struct.anon.39, ptr %4, i64 %.07398
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.07398
   %88 = load ptr, ptr %87, align 16, !tbaa !152
   %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #13
   %90 = tail call i32 @strncmp(ptr noundef nonnull %storemerge, ptr noundef nonnull %88, i64 noundef %89) #13
@@ -1179,7 +1179,7 @@ define hidden noundef ptr @_glfwAllocJoystick(ptr noundef readonly captures(none
 
 6:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !163
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -1191,7 +1191,7 @@ define hidden noundef ptr @_glfwAllocJoystick(ptr noundef readonly captures(none
 
 10:                                               ; preds = %6
   %11 = and i64 %indvars.iv, 4294967295
-  %12 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %11
+  %12 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %11
   store i32 1, ptr %12, align 8, !tbaa !163
   %13 = sext i32 %2 to i64
   %14 = tail call ptr @_glfw_calloc(i64 noundef %13, i64 noundef 4) #12
@@ -1249,7 +1249,7 @@ define internal fastcc ptr @findValidMapping(ptr noundef readonly captures(none)
 
 7:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct._GLFWmapping, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [245 x i8], ptr %5, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %2) #13
   %11 = icmp eq i32 %10, 0
@@ -1268,7 +1268,7 @@ findMapping.exit.preheader:                       ; preds = %7
 
 17:                                               ; preds = %findMapping.exit.preheader, %isValidElementForJoystick.exit
   %indvars.iv = phi i64 [ 0, %findMapping.exit.preheader ], [ %indvars.iv.next, %isValidElementForJoystick.exit ]
-  %18 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %12, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !156
   switch i8 %19, label %isValidElementForJoystick.exit [
     i8 3, label %20
@@ -1308,7 +1308,7 @@ isValidElementForJoystick.exit:                   ; preds = %31, %26, %20, %17
 
 36:                                               ; preds = %.preheader, %isValidElementForJoystick.exit25
   %indvars.iv41 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next42, %isValidElementForJoystick.exit25 ]
-  %37 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %16, i64 %indvars.iv41
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv41
   %38 = load i8, ptr %37, align 1, !tbaa !156
   switch i8 %38, label %isValidElementForJoystick.exit25 [
     i8 3, label %39
@@ -2375,7 +2375,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 12:                                               ; preds = %8, %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
+  %14 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !63
   %.not9 = icmp eq i32 %16, 0
@@ -2429,7 +2429,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 13:                                               ; preds = %9, %7
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
+  %15 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !63
   %.not13 = icmp eq i32 %17, 0
@@ -2492,7 +2492,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 13:                                               ; preds = %9, %7
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
+  %15 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !63
   %.not16 = icmp eq i32 %17, 0
@@ -2568,7 +2568,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 13:                                               ; preds = %9, %7
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
+  %15 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !63
   %.not13 = icmp eq i32 %17, 0
@@ -2630,7 +2630,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 12:                                               ; preds = %8, %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
+  %14 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !63
   %.not10 = icmp eq i32 %16, 0
@@ -2686,7 +2686,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 12:                                               ; preds = %8, %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
+  %14 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !63
   %.not10 = icmp eq i32 %16, 0
@@ -2717,7 +2717,7 @@ define void @glfwSetJoystickUserPointer(i32 noundef %0, ptr noundef %1) local_un
 
 5:                                                ; preds = %2
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %6
+  %7 = getelementptr inbounds [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !163
   %.not3 = icmp eq i32 %8, 0
   br i1 %.not3, label %11, label %9
@@ -2743,7 +2743,7 @@ define ptr @glfwGetJoystickUserPointer(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %5
+  %6 = getelementptr inbounds [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !163
   %.not3 = icmp eq i32 %7, 0
   br i1 %.not3, label %11, label %8
@@ -2873,7 +2873,7 @@ switch.early.test:                                ; preds = %8
 
 21:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %22 = getelementptr inbounds nuw %struct._GLFWmapping, ptr %.pre, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [245 x i8], ptr %.pre, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %6) #13
   %25 = icmp eq i32 %24, 0
@@ -2888,7 +2888,7 @@ switch.early.test:                                ; preds = %8
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133392), align 8, !tbaa !149
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133400), align 8, !tbaa !150
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct._GLFWmapping, ptr %29, i64 %31
+  %32 = getelementptr [245 x i8], ptr %29, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -245
   br label %.sink.split
 
@@ -2924,7 +2924,7 @@ switch.early.test:                                ; preds = %8
 
 .preheader:                                       ; preds = %.preheader.preheader, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.preheader.preheader ]
-  %44 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !63
   %.not36 = icmp eq i32 %46, 0
@@ -2994,7 +2994,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 12:                                               ; preds = %8, %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
+  %14 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !63
   %.not10 = icmp eq i32 %16, 0
@@ -3055,7 +3055,7 @@ initJoysticks.exit.thread:                        ; preds = %8
 12:                                               ; preds = %8, %6
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
+  %14 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !63
   %.not12 = icmp eq i32 %16, 0
@@ -3115,7 +3115,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 13:                                               ; preds = %9, %7
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !197
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw %struct._GLFWjoystick, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
+  %15 = getelementptr inbounds nuw [8216 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1936), i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !63
   %.not73 = icmp eq i32 %17, 0
@@ -3149,7 +3149,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %indvars.iv = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next, %78 ]
   %31 = load ptr, ptr %22, align 8, !tbaa !166
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 161
-  %33 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1, !tbaa !156
   switch i8 %34, label %78 [
     i8 1, label %35
@@ -3162,7 +3162,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %38 = load i8, ptr %37, align 1, !tbaa !158
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw float, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !145
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !159
@@ -3226,7 +3226,7 @@ initJoysticks.exit.thread:                        ; preds = %9
 
 79:                                               ; preds = %.preheader, %126
   %indvars.iv85 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next86, %126 ]
-  %80 = getelementptr inbounds nuw %struct._GLFWmapelement, ptr %28, i64 %indvars.iv85
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv85
   %81 = load i8, ptr %80, align 1, !tbaa !156
   switch i8 %81, label %126 [
     i8 1, label %82
@@ -3239,7 +3239,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !158
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw float, ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !145
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %90 = load i8, ptr %89, align 1, !tbaa !159
@@ -3251,7 +3251,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %96 = fadd float %92, %95
   %97 = tail call float @llvm.maxnum.f32(float %96, float -1.000000e+00)
   %98 = tail call float @llvm.minnum.f32(float %97, float 1.000000e+00)
-  %99 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv85
   store float %98, ptr %99, align 4, !tbaa !145
   br label %126
 
@@ -3268,7 +3268,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %110 = zext i8 %109 to i32
   %111 = and i32 %105, %110
   %.not76 = icmp eq i32 %111, 0
-  %112 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv85
   br i1 %.not76, label %114, label %113
 
 113:                                              ; preds = %100
@@ -3289,7 +3289,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %122 = uitofp i8 %121 to float
   %123 = fmul nnan float %122, 2.000000e+00
   %124 = fadd float %123, -1.000000e+00
-  %125 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv85
   store float %124, ptr %125, align 4, !tbaa !145
   br label %126
 

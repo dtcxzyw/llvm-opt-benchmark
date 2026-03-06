@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.cimd_parameter_t = type { ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_cimd.hf = internal global [50 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_cimd_opcode_indicator, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_packet_number_indicator, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_pcode_indicator, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_checksum_indicator, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_coding_group_indicatorC0, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr @cimd_dcs_coding_groups, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_coding_group_indicatorF0, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr @cimd_dcs_coding_groups, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_compressed_indicator, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr @cimd_dcs_compressed, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_message_class_meaning_indicator, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr @cimd_dcs_message_class_meaning, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_message_class_indicator, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr @cimd_dcs_message_class, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_character_set_indicator0C, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr @cimd_dcs_character_set, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_character_set_indicator04, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr @cimd_dcs_character_set, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_indication_sense, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr @cimd_dcs_indication_sense, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cimd_dcs_indication_type, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr @cimd_dcs_indication_type, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_index, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 4), %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 8), %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 12), %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 16), %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 20), %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 24), %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 28), %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 32), %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 36), %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 40), %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 44), %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 48), %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 52), %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 56), %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 60), %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 64), %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 68), %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 72), %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 76), %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 80), %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 84), %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 88), %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 92), %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 96), %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 4, i32 1, ptr @cimd_status_code_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 100), %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 5, i32 513, ptr @cimd_status_error_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 104), %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 108), %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 112), %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 116), %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 120), %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 124), %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 128), %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 132), %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 136), %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 140), %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 5, i32 513, ptr @cimd_error_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_index, i64 144), %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_cimd_opcode_indicator = internal global i32 0, align 4
@@ -350,17 +349,17 @@ define hidden void @proto_register_cimd() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr i32, ptr @ett_index, i64 %indvars.iv
+  %3 = getelementptr [4 x i8], ptr @ett_index, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv.next
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv.next
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %indvars.iv
+  %5 = getelementptr [24 x i8], ptr @vals_hdr_PC, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr i32, ptr @hf_index, i64 %indvars.iv
+  %7 = getelementptr [4 x i8], ptr @hf_index, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr ptr, ptr @cimd_pc_handles, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr @cimd_pc_handles, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %5, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 37
@@ -547,7 +546,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(
 
 92:                                               ; preds = %85
   %93 = sext i32 %91 to i64
-  %94 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %93
+  %94 = getelementptr [24 x i8], ptr @vals_hdr_PC, i64 %93
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef %0, ptr noundef %59, i32 noundef %91, i32 noundef %.035.i, i32 noundef %83)
   br label %96
@@ -644,11 +643,11 @@ define internal void @dissect_cimd_parameter(ptr noundef %0, ptr noundef %1, i32
   %6 = add i32 %3, 1
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %8
+  %9 = getelementptr [24 x i8], ptr @vals_hdr_PC, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8
+  %13 = getelementptr [16 x i8], ptr @cimd_vals_PC, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %15)
@@ -668,11 +667,11 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %6 = add i32 %3, 1
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %8
+  %9 = getelementptr [24 x i8], ptr @vals_hdr_PC, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8
+  %13 = getelementptr [16 x i8], ptr @cimd_vals_PC, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %15)
@@ -742,11 +741,11 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   %7 = add i32 %3, 1
   %8 = sub i32 %4, %7
   %9 = sext i32 %2 to i64
-  %10 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %9
+  %10 = getelementptr [24 x i8], ptr @vals_hdr_PC, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %9
+  %14 = getelementptr [16 x i8], ptr @cimd_vals_PC, i64 %9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %13, ptr noundef null, ptr noundef %16)
@@ -830,11 +829,11 @@ define internal void @dissect_cimd_error_code(ptr noundef %0, ptr noundef %1, i3
   %6 = add i32 %3, 1
   %7 = sub i32 %4, %6
   %8 = sext i32 %2 to i64
-  %9 = getelementptr %struct.cimd_parameter_t, ptr @vals_hdr_PC, i64 %8
+  %9 = getelementptr [24 x i8], ptr @vals_hdr_PC, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr %struct._value_string, ptr @cimd_vals_PC, i64 %8
+  %13 = getelementptr [16 x i8], ptr @cimd_vals_PC, i64 %8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef %12, ptr noundef null, ptr noundef %15)

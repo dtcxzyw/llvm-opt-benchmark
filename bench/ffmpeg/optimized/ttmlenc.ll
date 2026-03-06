@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %struct.ASSCodesCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ASSStyle = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, float, float, i32, i32, i32, i32, i32, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @.str = private unnamed_addr constant [5 x i8] c"ttml\00", align 1
@@ -100,7 +99,7 @@ ttml_write_header_content.exit.thread:            ; preds = %8
 22:                                               ; preds = %61, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
   %23 = load ptr, ptr %19, align 8, !tbaa !38
-  %24 = getelementptr inbounds nuw %struct.ASSStyle, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [104 x i8], ptr %23, i64 %indvars.iv.i
   %.sroa.048.0.copyload.i = load ptr, ptr %24, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -179,7 +178,7 @@ ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_al
 
 40:                                               ; preds = %ttml_get_display_alignment.exit.i.i
   %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ttml_encode_init, i64 %41
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ttml_encode_init, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   %42 = zext nneg i32 %.sroa.7.0.copyload.i to i64
   %43 = tail call i64 @av_rescale(i64 noundef %42, i64 noundef 100, i64 noundef %20) #8
@@ -292,7 +291,7 @@ define internal i32 @ttml_encode_frame(ptr noundef %0, ptr noundef %1, i32 nound
 15:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %16 = load ptr, ptr %12, align 8, !tbaa !50
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !51
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 76
   %20 = load i32, ptr %19, align 4, !tbaa !53

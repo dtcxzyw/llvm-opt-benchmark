@@ -357,7 +357,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %32, align 4, !tbaa !24
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i32, ptr %.pre.i29, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.pre.i29, i64 %62
   store i32 %42, ptr %63, align 4, !tbaa !15
   %.val21 = load i32, ptr %32, align 4, !tbaa !24
   %64 = add nsw i32 %.val21, -1
@@ -730,10 +730,10 @@ define void @Bbl_ManSortCubes(ptr noundef captures(none) %0, i32 noundef %1, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv30 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next31, %.lr.ph ]
   %.025 = phi i32 [ %7, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv30
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv30
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = sext i32 %.025 to i64
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %12, i64 noundef %6) #28
   %14 = icmp slt i32 %13, 0
@@ -744,10 +744,10 @@ define void @Bbl_ManSortCubes(ptr noundef captures(none) %0, i32 noundef %1, i32
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv33
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv33
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = sext i32 %spec.select to i64
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   store ptr %20, ptr %16, align 8, !tbaa !14
   store ptr %17, ptr %19, align 8, !tbaa !14
@@ -790,7 +790,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %17 ]
   %18 = mul nsw i64 %indvars.iv, %16
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %19, ptr %20, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
@@ -815,10 +815,10 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next31.i, %.lr.ph.i ]
   %.025.i = phi i32 [ %25, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv30.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv30.i
   %27 = load ptr, ptr %26, align 8, !tbaa !14
   %28 = sext i32 %.025.i to i64
-  %29 = getelementptr inbounds ptr, ptr %15, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %15, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %31 = tail call i32 @memcmp(ptr noundef %27, ptr noundef %30, i64 noundef %24) #28
   %32 = icmp slt i32 %31, 0
@@ -830,10 +830,10 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv33.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv33.i
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %36 = sext i32 %spec.select.i to i64
-  %37 = getelementptr inbounds ptr, ptr %15, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %15, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   store ptr %38, ptr %34, align 8, !tbaa !14
   store ptr %35, ptr %37, align 8, !tbaa !14
@@ -853,7 +853,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   %indvars.iv45 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next46, %42 ]
   %43 = mul nsw i64 %indvars.iv45, %16
   %44 = getelementptr inbounds i8, ptr %41, i64 %43
-  %45 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv45
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv45
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %46, i64 %16, i1 false)
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
@@ -957,9 +957,9 @@ define i32 @Bbl_ManSopCheckUnique(ptr noundef captures(none) %0, ptr noundef rea
   %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %3, i32 16)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = sext i32 %spec.store.select to i64
-  %16 = getelementptr inbounds [17 x i32], ptr %14, i64 %15
+  %16 = getelementptr inbounds [68 x i8], ptr %14, i64 %15
   %17 = sext i32 %spec.store.select1 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %.03034 = load i32, ptr %18, align 4, !tbaa !15
   %.not35 = icmp eq i32 %.03034, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1143,7 +1143,7 @@ define i32 @Bbl_ManSaveSop(ptr noundef captures(none) %0, ptr noundef %1, i32 no
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = sext i32 %22 to i64
-  %51 = getelementptr i32, ptr %49, i64 %50
+  %51 = getelementptr [4 x i8], ptr %49, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -4
   store i32 0, ptr %52, align 4, !tbaa !15
   store i32 %22, ptr %48, align 4, !tbaa !34
@@ -1339,7 +1339,7 @@ Vec_IntSetEntry.exit:                             ; preds = %Vec_StrFetch.exit, 
   %94 = getelementptr i8, ptr %47, i64 8
   %.val.i = load ptr, ptr %94, align 8, !tbaa !28
   %95 = sext i32 %2 to i64
-  %96 = getelementptr inbounds i32, ptr %.val.i, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %95
   store i32 %54, ptr %96, align 4, !tbaa !15
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %98 = load ptr, ptr %97, align 8, !tbaa !38
@@ -1434,7 +1434,7 @@ Vec_IntGrow.exit.i.i40:                           ; preds = %Vec_IntGrow.exit.si
 Vec_IntSetEntry.exit47:                           ; preds = %Vec_IntSetEntry.exit, %._crit_edge.i.i44
   %137 = getelementptr i8, ptr %98, i64 8
   %.val.i45 = load ptr, ptr %137, align 8, !tbaa !28
-  %138 = getelementptr inbounds i32, ptr %.val.i45, i64 %95
+  %138 = getelementptr inbounds [4 x i8], ptr %.val.i45, i64 %95
   store i32 0, ptr %138, align 4, !tbaa !15
   %139 = zext i1 %6 to i32
   %140 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1479,7 +1479,7 @@ define void @Bbl_ManAddFanin(ptr noundef readonly captures(none) %0, i32 noundef
   %7 = getelementptr i8, ptr %.val24, i64 8
   %.val24.val = load ptr, ptr %7, align 8, !tbaa !28
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %.val24.val, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %.val24.val, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %.val23.val, i64 %11
@@ -1495,7 +1495,7 @@ define void @Bbl_ManAddFanin(ptr noundef readonly captures(none) %0, i32 noundef
 
 17:                                               ; preds = %3
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds i32, ptr %.val24.val, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %.val24.val, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !15
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %.val23.val, i64 %21
@@ -1514,7 +1514,7 @@ define void @Bbl_ManAddFanin(ptr noundef readonly captures(none) %0, i32 noundef
   %29 = load ptr, ptr %28, align 8, !tbaa !38
   %30 = getelementptr i8, ptr %29, i64 8
   %.val29 = load ptr, ptr %30, align 8, !tbaa !28
-  %31 = getelementptr inbounds i32, ptr %.val29, i64 %8
+  %31 = getelementptr inbounds [4 x i8], ptr %.val29, i64 %8
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = lshr i32 %.val27, 4
   %.not22 = icmp slt i32 %32, %33
@@ -1530,7 +1530,7 @@ define void @Bbl_ManAddFanin(ptr noundef readonly captures(none) %0, i32 noundef
   %gepdiff = sub i32 %10, %20
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %38, i64 %39
   store i32 %gepdiff, ptr %40, align 4, !tbaa !15
   br label %41
 
@@ -1627,7 +1627,7 @@ define range(i32 0, 2) i32 @Bbl_ManCheck(ptr noundef readonly captures(none) %0)
   %43 = getelementptr i8, ptr %41, i64 8
   %.val35 = load ptr, ptr %43, align 8, !tbaa !28
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds i32, ptr %.val35, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %.val35, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !15
   %47 = lshr i32 %40, 4
   %.not29 = icmp eq i32 %46, %47
@@ -1700,7 +1700,7 @@ define i32 @Bbl_ObjIdOriginal(ptr noundef readonly captures(none) %0, ptr nounde
   %6 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !28
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds i32, ptr %.val, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %.val, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !15
   ret i32 %9
 }
@@ -1835,7 +1835,7 @@ define ptr @Bbl_ObjFaninNext(ptr noundef readonly captures(address, ret: address
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %13 ]
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !15
   %9 = sext i32 %8 to i64
   %10 = sub nsw i64 0, %9
@@ -1860,7 +1860,7 @@ define ptr @Bbl_ObjFaninNext(ptr noundef readonly captures(address, ret: address
 
 17:                                               ; preds = %.critedge
   %18 = zext nneg i32 %.0.lcssa to i64
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 4, !tbaa !15
   %22 = sext i32 %21 to i64
@@ -1945,7 +1945,7 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
 
 .lr.ph.split.i:                                   ; preds = %36, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %36 ]
-  %33 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = icmp eq i32 %.pn115.in, %34
   br i1 %35, label %.critedge.loopexit.i, label %36
@@ -1967,7 +1967,7 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
 
 Bbl_ObjFaninNext.exit:                            ; preds = %.critedge.i
   %40 = zext nneg i32 %.0.lcssa.i to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.04483, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.04483, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %28, !llvm.loop !52
 
@@ -2045,7 +2045,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 
 .lr.ph.split.i67:                                 ; preds = %78, %.lr.ph.split.preheader.i65
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.split.preheader.i65 ], [ %indvars.iv.next.i69, %78 ]
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i68
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i68
   %76 = load i32, ptr %75, align 4, !tbaa !15
   %77 = icmp eq i32 %.pn117.in, %76
   br i1 %77, label %.critedge.loopexit.i71, label %78
@@ -2067,7 +2067,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
 
 Bbl_ObjFaninNext.exit74:                          ; preds = %.critedge.i72
   %82 = zext nneg i32 %.0.lcssa.i73 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %.14591, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.14591, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   br label %70, !llvm.loop !53
 
@@ -2120,7 +2120,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr noundef readonly captures(none
   %.04349 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %4 = lshr i32 %.04150, 5
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %.04150, 31
   %9 = lshr i32 %7, %8
@@ -2178,7 +2178,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr noundef readonly captures(none
   %.14656.us = phi ptr [ %.2.us, %45 ], [ %30, %.lr.ph60 ]
   %32 = lshr i32 %.14257.us, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !15
   %36 = and i32 %.14257.us, 31
   %37 = shl nuw i32 1, %36
@@ -2219,7 +2219,7 @@ define noalias noundef ptr @Bbl_ManTruthToSop(ptr noundef readonly captures(none
   %.14656 = phi ptr [ %.2, %61 ], [ %30, %.lr.ph60 ]
   %50 = lshr i32 %.14257, 5
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = and i32 %.14257, 31
   %55 = shl nuw i32 1, %54
@@ -2298,8 +2298,8 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr ptr, ptr %3, i64 %indvars.iv
-  %27 = getelementptr inbounds i32, ptr %store_forwarded, i64 %16
+  %26 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds [4 x i8], ptr %store_forwarded, i64 %16
   store ptr %27, ptr %26, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2311,10 +2311,10 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit
   %.070.lcssa = phi i64 [ %28, %._crit_edge.loopexit ], [ 1, %15 ]
-  %29 = getelementptr ptr, ptr %3, i64 %.070.lcssa
+  %29 = getelementptr [8 x i8], ptr %3, i64 %.070.lcssa
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !57
-  %32 = getelementptr inbounds i32, ptr %31, i64 %16
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %16
   %33 = icmp sgt i32 %1, 0
   %34 = icmp sgt i32 %7, 0
   %or.cond.i = and i1 %33, %34
@@ -2335,7 +2335,7 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
   %37 = trunc nuw nsw i64 %indvars.iv62.i to i32
   %38 = and i32 %48, %37
   %.not.us.us.i = icmp ne i32 %38, 0
-  %39 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv62.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv62.i
   %..i = sext i1 %.not.us.us.i to i32
   store i32 %..i, ptr %39, align 4, !tbaa !15
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
@@ -2349,16 +2349,16 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
 
 40:                                               ; preds = %.preheader.us.us.i, %40
   %indvars.iv67.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next68.i, %40 ]
-  %41 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv67.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv67.i
   store i32 %43, ptr %41, align 4, !tbaa !15
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count65.i
   br i1 %exitcond71.not.i, label %..loopexit25_crit_edge.us.us.i, label %40, !llvm.loop !61
 
 .preheader.us.us.i:                               ; preds = %.lr.ph31.split.us.split.us.i
-  %42 = getelementptr inbounds nuw i32, ptr @__const.Bbl_ManSopToTruthElem.Masks, i64 %indvars.iv72.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @__const.Bbl_ManSopToTruthElem.Masks, i64 %indvars.iv72.i
   %43 = load i32, ptr %42, align 4, !tbaa !15
-  %44 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv72.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv72.i
   %45 = load ptr, ptr %44, align 8, !tbaa !57
   br label %40
 
@@ -2366,7 +2366,7 @@ define noalias noundef ptr @Bbl_ManSopToTruth(ptr noundef readonly captures(addr
   %46 = trunc i64 %indvars.iv72.i to i32
   %47 = add i32 %46, -5
   %48 = shl nuw i32 1, %47
-  %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv72.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv72.i
   %50 = load ptr, ptr %49, align 8, !tbaa !57
   br label %36
 
@@ -2405,9 +2405,9 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 .lr.ph101.us:                                     ; preds = %.loopexit80.us.us, %.lr.ph101.us
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph101.us ], [ 0, %.loopexit80.us.us ]
-  %61 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv156
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv156
   %62 = load i32, ptr %61, align 4, !tbaa !15
-  %63 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv156
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv156
   %64 = load i32, ptr %63, align 4, !tbaa !15
   %65 = or i32 %64, %62
   store i32 %65, ptr %63, align 4, !tbaa !15
@@ -2426,10 +2426,10 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 68:                                               ; preds = %.preheader81.us.us, %68
   %indvars.iv141 = phi i64 [ 0, %.preheader81.us.us ], [ %indvars.iv.next142, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv141
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv141
   %70 = load i32, ptr %69, align 4, !tbaa !15
   %71 = xor i32 %70, -1
-  %72 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv141
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv141
   %73 = load i32, ptr %72, align 4, !tbaa !15
   %74 = and i32 %73, %71
   store i32 %74, ptr %72, align 4, !tbaa !15
@@ -2439,9 +2439,9 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 75:                                               ; preds = %.lr.ph89.us.us, %75
   %indvars.iv146 = phi i64 [ 0, %.lr.ph89.us.us ], [ %indvars.iv.next147, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv146
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv146
   %77 = load i32, ptr %76, align 4, !tbaa !15
-  %78 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv146
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv146
   %79 = load i32, ptr %78, align 4, !tbaa !15
   %80 = and i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !15
@@ -2455,12 +2455,12 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   br i1 %exitcond155.not, label %.lr.ph101.us, label %.lr.ph92.split.us.us, !llvm.loop !66
 
 .preheader81.us.us:                               ; preds = %.lr.ph92.split.us.us
-  %81 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv151
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv151
   %82 = load ptr, ptr %81, align 8, !tbaa !57
   br label %68
 
 .lr.ph89.us.us:                                   ; preds = %.lr.ph92.split.us.us
-  %83 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv151
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv151
   %84 = load ptr, ptr %83, align 8, !tbaa !57
   br label %75
 
@@ -2481,9 +2481,9 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 87:                                               ; preds = %.preheader83.us117, %87
   %indvars.iv136 = phi i64 [ 0, %.preheader83.us117 ], [ %indvars.iv.next137, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv136
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv136
   %89 = load i32, ptr %88, align 4, !tbaa !15
-  %90 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv136
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv136
   %91 = load i32, ptr %90, align 4, !tbaa !15
   %92 = or i32 %91, %89
   store i32 %92, ptr %90, align 4, !tbaa !15
@@ -2532,7 +2532,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv161 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next162, %.lr.ph126 ]
-  %106 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv161
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv161
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = xor i32 %107, -1
   store i32 %108, ptr %106, align 4, !tbaa !15
@@ -2639,7 +2639,7 @@ define void @Bbl_ManSimpleDemo() local_unnamed_addr #6 {
   %gepdiff.i = sub i32 %7, %16
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %35 = sext i32 %28 to i64
-  %36 = getelementptr inbounds i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %34, i64 %35
   store i32 %gepdiff.i, ptr %36, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit
 
@@ -2696,7 +2696,7 @@ Bbl_ManAddFanin.exit:                             ; preds = %12, %21, %30, %32
   %gepdiff.i29 = sub i32 %38, %47
   %65 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %66 = sext i32 %59 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %66
   store i32 %gepdiff.i29, ptr %67, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit30
 
@@ -2753,7 +2753,7 @@ Bbl_ManAddFanin.exit30:                           ; preds = %43, %52, %61, %63
   %gepdiff.i41 = sub i32 %69, %78
   %96 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %97 = sext i32 %90 to i64
-  %98 = getelementptr inbounds i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %96, i64 %97
   store i32 %gepdiff.i41, ptr %98, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit42
 
@@ -2810,7 +2810,7 @@ Bbl_ManAddFanin.exit42:                           ; preds = %74, %83, %92, %94
   %gepdiff.i53 = sub i32 %100, %109
   %127 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %128 = sext i32 %121 to i64
-  %129 = getelementptr inbounds i32, ptr %127, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %127, i64 %128
   store i32 %gepdiff.i53, ptr %129, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit54
 
@@ -2867,7 +2867,7 @@ Bbl_ManAddFanin.exit54:                           ; preds = %105, %114, %123, %1
   %gepdiff.i65 = sub i32 %131, %140
   %158 = getelementptr inbounds nuw i8, ptr %133, i64 12
   %159 = sext i32 %152 to i64
-  %160 = getelementptr inbounds i32, ptr %158, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %158, i64 %159
   store i32 %gepdiff.i65, ptr %160, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit66
 
@@ -2924,7 +2924,7 @@ Bbl_ManAddFanin.exit66:                           ; preds = %136, %145, %154, %1
   %gepdiff.i77 = sub i32 %162, %171
   %189 = getelementptr inbounds nuw i8, ptr %164, i64 12
   %190 = sext i32 %183 to i64
-  %191 = getelementptr inbounds i32, ptr %189, i64 %190
+  %191 = getelementptr inbounds [4 x i8], ptr %189, i64 %190
   store i32 %gepdiff.i77, ptr %191, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit78
 
@@ -2981,7 +2981,7 @@ Bbl_ManAddFanin.exit78:                           ; preds = %167, %176, %185, %1
   %gepdiff.i89 = sub i32 %193, %202
   %220 = getelementptr inbounds nuw i8, ptr %195, i64 12
   %221 = sext i32 %214 to i64
-  %222 = getelementptr inbounds i32, ptr %220, i64 %221
+  %222 = getelementptr inbounds [4 x i8], ptr %220, i64 %221
   store i32 %gepdiff.i89, ptr %222, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit90
 
@@ -3038,7 +3038,7 @@ Bbl_ManAddFanin.exit90:                           ; preds = %198, %207, %216, %2
   %gepdiff.i101 = sub i32 %224, %233
   %251 = getelementptr inbounds nuw i8, ptr %226, i64 12
   %252 = sext i32 %245 to i64
-  %253 = getelementptr inbounds i32, ptr %251, i64 %252
+  %253 = getelementptr inbounds [4 x i8], ptr %251, i64 %252
   store i32 %gepdiff.i101, ptr %253, align 4, !tbaa !15
   br label %Bbl_ManAddFanin.exit102
 

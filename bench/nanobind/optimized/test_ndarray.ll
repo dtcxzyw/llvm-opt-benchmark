@@ -189,7 +189,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.nanobind::detail::tuple.599" = type { %"struct.nanobind::detail::type_caster.600" }
 %"struct.nanobind::detail::type_caster.600" = type { %"class.nanobind::ndarray.601" }
 %"class.nanobind::ndarray.601" = type { ptr, %"struct.nanobind::dlpack::dltensor" }
-%"class.std::complex" = type { { float, float } }
 %"struct.nanobind::detail::tuple.622" = type { %"struct.nanobind::detail::tuple.623", %"struct.nanobind::detail::type_caster.625" }
 %"struct.nanobind::detail::tuple.623" = type { %"struct.nanobind::detail::type_caster.624" }
 %"struct.nanobind::detail::type_caster.624" = type { i32 }
@@ -3436,7 +3435,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !108
   %18 = load ptr, ptr %16, align 8, !tbaa !112, !noalias !108
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %.01.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01.i
   %20 = load i64, ptr %19, align 8, !tbaa !67
   store i64 %20, ptr %6, align 8, !tbaa !67, !noalias !108
   invoke void @_ZN8nanobind4list6appendImEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %6) #21
@@ -3592,7 +3591,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
 19:                                               ; preds = %19, %.lr.ph.i.i
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %23, %19 ]
   %.056.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ %22, %19 ]
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %.07.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.07.i.i
   %21 = load i64, ptr %20, align 8, !tbaa !67
   %22 = mul i64 %21, %.056.i.i
   %23 = add nuw i64 %.07.i.i, 1
@@ -3739,7 +3738,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
 20:                                               ; preds = %20, %.lr.ph.i.i
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %24, %20 ]
   %.056.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %.07.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.07.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !67
   %23 = mul i64 %22, %.056.i.i
   %24 = add nuw i64 %.07.i.i, 1
@@ -3795,7 +3794,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nano
   %18 = load i64, ptr %6, align 8, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.val = load ptr, ptr %19, align 8, !tbaa !120
-  %20 = getelementptr inbounds nuw i64, ptr %.val, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !67
   %22 = invoke ptr @PyLong_FromLong(i64 noundef %21) #21
           to label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL30nanobind_init_test_ndarray_extRNS_7module_EE3$_5lJRKNS_7ndarrayIJEEEmEJLm0ELm1EEJNS_5scopeENS_4nameENS_3argESB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSD_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESR_SS_ST_SU_SW_.exit" unwind label %23
@@ -3876,9 +3875,9 @@ _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.ex
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.0143.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw i64, ptr %.pre7.i, i64 %.0143.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre7.i, i64 %.0143.i
   %27 = load i64, ptr %26, align 8, !tbaa !67
-  %28 = getelementptr inbounds nuw i64, ptr %22, i64 %.0143.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0143.i
   %29 = load i64, ptr %28, align 8, !tbaa !67
   %.not.i = icmp eq i64 %27, %29
   br i1 %.not.i, label %23, label %.thread.sink.split
@@ -3944,7 +3943,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIlSaIlE
 6:                                                ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit
   %7 = tail call noundef ptr @_ZNSt15__new_allocatorIlE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef null) #21
   store ptr %7, ptr %0, align 8, !tbaa !121
-  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !124
   store i64 0, ptr %7, align 8, !tbaa !67
@@ -4062,9 +4061,9 @@ _ZSt4copyIPKlN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEET0_T_SA_S9_.ex
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.0143.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw i64, ptr %.pre7.i, i64 %.0143.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pre7.i, i64 %.0143.i
   %27 = load i64, ptr %26, align 8, !tbaa !67
-  %28 = getelementptr inbounds nuw i64, ptr %22, i64 %.0143.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0143.i
   %29 = load i64, ptr %28, align 8, !tbaa !67
   %.not.i = icmp eq i64 %27, %29
   br i1 %.not.i, label %23, label %.thread.sink.split
@@ -4875,7 +4874,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %13 = load i64, ptr %.sroa.75.8.copyload, align 8, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.5.8.copyload, i64 %.sroa.8.8.copyload
-  %15 = getelementptr inbounds double, ptr %14, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %13
   store double 0x3FF6A09EDBF8B9BB, ptr %15, align 8, !tbaa !142
   %.idx.i.i = mul nsw i64 %13, 24
   %16 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i
@@ -4957,7 +4956,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %13 = load i64, ptr %.sroa.75.8.copyload, align 8, !tbaa !67
   %14 = getelementptr i8, ptr %.sroa.5.8.copyload, i64 %.sroa.8.8.copyload
-  %15 = getelementptr inbounds double, ptr %14, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %13
   store double 0x3FF6A09EDBF8B9BB, ptr %15, align 8, !tbaa !142
   %16 = shl i64 %13, 4
   %17 = getelementptr i8, ptr %14, i64 %16
@@ -5171,7 +5170,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %16 = load ptr, ptr %15, align 8, !tbaa !120, !noalias !149
   %17 = load i64, ptr %16, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   store double 0x3FF6A09EDBF8B9BB, ptr %19, align 8, !tbaa !142
   %.idx.i.i = mul nsw i64 %17, 24
   %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
@@ -5249,7 +5248,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %13 = load i64, ptr %.sroa.75.8.copyload, align 8, !tbaa !67
   %14 = getelementptr i8, ptr %.sroa.5.8.copyload, i64 %.sroa.8.8.copyload
-  %15 = getelementptr inbounds double, ptr %14, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %13
   store double 0x3FF6A09EDBF8B9BB, ptr %15, align 8, !tbaa !142
   %16 = shl i64 %13, 4
   %17 = getelementptr i8, ptr %14, i64 %16
@@ -5332,7 +5331,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %16 = load ptr, ptr %15, align 8, !tbaa !120, !noalias !165
   %17 = load i64, ptr %16, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %14
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   store double 0x3FF6A09EDBF8B9BB, ptr %19, align 8, !tbaa !142
   %.idx.i.i = mul nsw i64 %17, 24
   %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i.i
@@ -5408,7 +5407,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %16 = load ptr, ptr %15, align 8, !tbaa !176, !noalias !172
   %17 = load i64, ptr %16, align 8, !tbaa !67
   %18 = getelementptr i8, ptr %12, i64 %14
-  %19 = getelementptr inbounds double, ptr %18, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %17
   store double 0x3FF6A09EDBF8B9BB, ptr %19, align 8, !tbaa !142
   %20 = shl i64 %17, 4
   %21 = getelementptr i8, ptr %18, i64 %20
@@ -6400,11 +6399,11 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit19.i:      ; preds = %._crit_edge.i
 48:                                               ; preds = %48, %.lr.ph.i
   %.030.i = phi i64 [ 0, %.lr.ph.i ], [ %57, %48 ]
   %49 = load ptr, ptr %22, align 8, !tbaa !118
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.030.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.030.i
   %51 = load i64, ptr %50, align 8, !tbaa !67
   %52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.93, i64 noundef %.030.i, i64 noundef %51) #21
   %53 = load ptr, ptr %23, align 8, !tbaa !120
-  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %.030.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.030.i
   %55 = load i64, ptr %54, align 8, !tbaa !67
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.94, i64 noundef %.030.i, i64 noundef %55) #21
   %57 = add nuw i64 %.030.i, 1
@@ -8204,14 +8203,14 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i6.i.sroa.phi.sroa.speculated = phi i64 [ %.068.i, %.lr.ph.i ], [ %.07.i, %25 ]
   %.0.i6.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %25 ]
   %.08.i5.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %25 ]
-  %27 = getelementptr inbounds nuw i64, ptr %scevgep13.i.i, i64 %.0.i6.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %scevgep13.i.i, i64 %.0.i6.i
   %28 = load i64, ptr %27, align 8, !tbaa !67
   %29 = mul nsw i64 %28, %.0.i6.i.sroa.phi.sroa.speculated
   %30 = add nsw i64 %29, %.08.i5.i
   br i1 %26, label %25, label %_ZNK8nanobind12ndarray_viewIfLm2ELc0EEclIJmmEEERfDpT_.exit.i, !llvm.loop !283
 
 _ZNK8nanobind12ndarray_viewIfLm2ELc0EEclIJmmEEERfDpT_.exit.i: ; preds = %25
-  %31 = getelementptr inbounds float, ptr %16, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %16, i64 %30
   %32 = load float, ptr %31, align 4, !tbaa !192
   %33 = fmul float %32, 2.000000e+00
   store float %33, ptr %31, align 4, !tbaa !192
@@ -8297,7 +8296,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %24 ], [ %.03.i, %25 ]
   %.0.i2.i = phi i64 [ 0, %24 ], [ 1, %25 ]
   %.08.i1.i = phi i64 [ 0, %24 ], [ %30, %25 ]
-  %27 = getelementptr inbounds nuw i64, ptr %scevgep13.i.i, i64 %.0.i2.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %scevgep13.i.i, i64 %.0.i2.i
   %28 = load i64, ptr %27, align 8, !tbaa !67
   %29 = mul nsw i64 %28, %.0.i2.i.sroa.phi.sroa.speculated
   %30 = add nsw i64 %29, %.08.i1.i
@@ -8306,7 +8305,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNK8nanobind12ndarray_viewIfLm2ELc0EEclIJmmEEERfDpT_.exit.i: ; preds = %25
   %31 = add i64 %.03.i, %22
   %32 = uitofp i64 %31 to float
-  %33 = getelementptr inbounds float, ptr %14, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %14, i64 %30
   store float %32, ptr %33, align 4, !tbaa !192
   %34 = add nuw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %34, %17
@@ -8437,7 +8436,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
   %.0.i2.i = phi i64 [ 0, %19 ], [ 1, %20 ]
   %.08.i1.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw i64, ptr %scevgep15.i.i, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %scevgep15.i.i, i64 %.0.i2.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
@@ -8446,7 +8445,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNK8nanobind12ndarray_viewIfLm2ELc67EEclIJmmEEERfDpT_.exit.i: ; preds = %20
   %26 = add nuw nsw i64 %.03.i, %16
   %27 = uitofp nneg i64 %26 to float
-  %28 = getelementptr inbounds float, ptr %14, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   store float %27, ptr %28, align 4, !tbaa !192
   %29 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %29, 4
@@ -8579,7 +8578,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.084.i, %19 ], [ %.03.i, %20 ]
   %.0.i2.i = phi i64 [ 0, %19 ], [ 1, %20 ]
   %.08.i1.i = phi i64 [ 0, %19 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw i64, ptr %scevgep15.i.i, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %scevgep15.i.i, i64 %.0.i2.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = mul nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
@@ -8588,7 +8587,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNK8nanobind12ndarray_viewIfLm2ELc70EEclIJmmEEERfDpT_.exit.i: ; preds = %20
   %26 = add nuw nsw i64 %.03.i, %16
   %27 = uitofp nneg i64 %26 to float
-  %28 = getelementptr inbounds float, ptr %14, i64 %25
+  %28 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   store float %27, ptr %28, align 4, !tbaa !192
   %29 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %29, 4
@@ -8720,14 +8719,14 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.0.i2.i.sroa.phi.sroa.speculated = phi i64 [ %.064.i, %18 ], [ %.03.i, %20 ]
   %.0.i2.i = phi i64 [ 0, %18 ], [ 1, %20 ]
   %.08.i1.i = phi i64 [ 0, %18 ], [ %25, %20 ]
-  %22 = getelementptr inbounds nuw i64, ptr %scevgep15.i.i, i64 %.0.i2.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %scevgep15.i.i, i64 %.0.i2.i
   %23 = load i64, ptr %22, align 8, !tbaa !67
   %24 = mul nuw nsw i64 %23, %.0.i2.i.sroa.phi.sroa.speculated
   %25 = add nsw i64 %24, %.08.i1.i
   br i1 %21, label %20, label %_ZNK8nanobind12ndarray_viewISt7complexIfELm2ELc67EEclIJmmEEERS2_DpT_.exit.i, !llvm.loop !302
 
 _ZNK8nanobind12ndarray_viewISt7complexIfELm2ELc67EEclIJmmEEERS2_DpT_.exit.i: ; preds = %20
-  %26 = getelementptr inbounds %"class.std::complex", ptr %14, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %14, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load float, ptr %28, align 4
@@ -8862,7 +8861,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 
 .preheader.i:                                     ; preds = %.preheader.i, %10
   %.05.i = phi i64 [ 0, %10 ], [ %20, %.preheader.i ]
-  %14 = getelementptr inbounds nuw %"class.std::complex", ptr %13, i64 %.05.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.05.i
   %15 = load float, ptr %14, align 4, !tbaa !192
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load float, ptr %16, align 4, !tbaa !192

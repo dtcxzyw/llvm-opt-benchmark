@@ -9,14 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.anon.1 }
 %struct.anon.1 = type { i32, [2 x i64] }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.APVRawTile = type { %struct.APVRawTileHeader, [4 x ptr], ptr, i32 }
-%struct.APVRawTileHeader = type { i16, i16, [4 x i32], [4 x i8], i8 }
-%struct.APVRawFrameInfo = type { i8, i8, i8, i8, i32, i32, i8, i8, i8, i8 }
-%struct.APVRawMetadataPayload = type { i32, i32, %union.anon.3 }
-%union.anon.3 = type { %struct.APVRawMetadataUserDefined }
-%struct.APVRawMetadataUserDefined = type { [16 x i8], ptr, ptr, i64 }
 %struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_cbs_type_apv = local_unnamed_addr constant { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 273, [4 x i8] zeroinitializer, ptr null, i64 96, ptr @cbs_apv_unit_types, ptr @cbs_apv_split_fragment, ptr @cbs_apv_read_unit, ptr @cbs_apv_write_unit, ptr null, ptr @cbs_apv_assemble_fragment, ptr null, ptr null }, align 8
 @cbs_apv_unit_types = internal constant <{ { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { %struct.anon.2, [8 x i8] } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } }> <{ { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 -1, { %struct.anon, [4 x i8] } { %struct.anon { i32 1, i32 27 }, [4 x i8] zeroinitializer }, i32 0, [4 x i8] zeroinitializer, i64 35520, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 35504, i64 0] } } }, { i32, %union.anon, i32, [4 x i8], i64, { %struct.anon.2, [8 x i8] } } { i32 1, %union.anon { [3 x i32] [i32 66, i32 0, i32 0] }, i32 1, [4 x i8] zeroinitializer, i64 408, { %struct.anon.2, [8 x i8] } { %struct.anon.2 { ptr @cbs_apv_free_metadata, ptr null }, [8 x i8] zeroinitializer } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 65, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 168, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 67, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 8, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } zeroinitializer }>, align 16
@@ -548,7 +541,7 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
 
 switch.lookup:                                    ; preds = %165
   %173 = zext nneg i8 %.val.i.i to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cbs_apv_write_unit, i64 %173
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cbs_apv_write_unit, i64 %173
   %switch.load = load i32, ptr %switch.gep, align 4
   %174 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 %switch.load, ptr %174, align 4, !tbaa !55
@@ -592,7 +585,7 @@ switch.lookup:                                    ; preds = %165
 
 .preheader42.i.i.i:                               ; preds = %.thread39.i.i.i, %.preheader42.lr.ph.i.i.i
   %indvars.iv53.i.i.i = phi i64 [ 0, %.preheader42.lr.ph.i.i.i ], [ %indvars.iv.next54.i.i.i, %.thread39.i.i.i ]
-  %192 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %185, i64 %indvars.iv53.i.i.i
+  %192 = getelementptr inbounds nuw [64 x i8], ptr %185, i64 %indvars.iv53.i.i.i
   %193 = trunc nuw nsw i64 %indvars.iv53.i.i.i to i32
   br label %.preheader.i.i.i
 
@@ -760,7 +753,7 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
 
 258:                                              ; preds = %254
   %259 = load i32, ptr %54, align 4, !tbaa !27
-  %260 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv.i122.i.i
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %indvars.iv.i122.i.i
   store i32 %259, ptr %260, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %indvars.iv.next.i123.i.i = add nuw nsw i64 %indvars.iv.i122.i.i, 1
@@ -844,10 +837,10 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
 
 286:                                              ; preds = %282
   %287 = load i32, ptr %69, align 4, !tbaa !27
-  %288 = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv.i
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %indvars.iv.i
   store i32 %287, ptr %288, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  %289 = getelementptr inbounds nuw %struct.APVRawTile, ptr %276, i64 %indvars.iv.i
+  %289 = getelementptr inbounds nuw [80 x i8], ptr %276, i64 %indvars.iv.i
   %290 = load ptr, ptr %94, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
@@ -909,7 +902,7 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
 
 317:                                              ; preds = %313
   %318 = load i32, ptr %45, align 4, !tbaa !27
-  %319 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv.i.i51.i
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %312, i64 %indvars.iv.i.i51.i
   store i32 %318, ptr %319, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %320 = sub i32 %.07191.i.i.i, %318
@@ -1004,13 +997,13 @@ cbs_apv_read_tile_header.exit.i.i:                ; preds = %._crit_edge97.i.i.i
   unreachable
 
 align_get_bits.exit.i.i:                          ; preds = %349
-  %354 = getelementptr inbounds nuw i32, ptr %346, i64 %indvars.iv.i.i
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %346, i64 %indvars.iv.i.i
   %355 = load i32, ptr %354, align 4, !tbaa !27
   %356 = load ptr, ptr %71, align 8, !tbaa !21
   %357 = ashr exact i32 %350, 3
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds i8, ptr %356, i64 %358
-  %360 = getelementptr inbounds nuw ptr, ptr %347, i64 %indvars.iv.i.i
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %indvars.iv.i.i
   store ptr %359, ptr %360, align 8, !tbaa !77
   %361 = shl i32 %355, 3
   %362 = sub nsw i32 0, %350
@@ -1193,7 +1186,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   %435 = getelementptr inbounds nuw i8, ptr %408, i64 %indvars.iv.i39
   store i8 %434, ptr %435, align 1, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %436 = getelementptr inbounds nuw %struct.APVRawFrameInfo, ptr %409, i64 %indvars.iv.i39
+  %436 = getelementptr inbounds nuw [16 x i8], ptr %409, i64 %indvars.iv.i39
   %437 = call fastcc i32 @cbs_apv_read_frame_info(ptr noundef %0, ptr noundef nonnull %71, ptr noundef nonnull %436)
   %438 = icmp slt i32 %437, 0
   br i1 %438, label %cbs_apv_read_au_info.exit.thread, label %410
@@ -1304,7 +1297,7 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 478:                                              ; preds = %.loopexit.i, %467
   %indvars.iv.i44 = phi i64 [ 0, %467 ], [ %indvars.iv.next.i46, %.loopexit.i ]
   %.095209.i = phi i32 [ %468, %467 ], [ %699, %.loopexit.i ]
-  %479 = getelementptr inbounds nuw %struct.APVRawMetadataPayload, ptr %470, i64 %indvars.iv.i44
+  %479 = getelementptr inbounds nuw [48 x i8], ptr %470, i64 %indvars.iv.i44
   store i32 0, ptr %479, align 8, !tbaa !92
   %.val198.i = load ptr, ptr %71, align 8, !tbaa !21
   %.val114199.i = load i32, ptr %85, align 8, !tbaa !26
@@ -1551,7 +1544,7 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
 590:                                              ; preds = %585
   %591 = load i32, ptr %14, align 4, !tbaa !27
   %592 = trunc i32 %591 to i16
-  %593 = getelementptr inbounds nuw i16, ptr %583, i64 %indvars.iv.i.i.i55
+  %593 = getelementptr inbounds nuw [2 x i8], ptr %583, i64 %indvars.iv.i.i.i55
   store i16 %592, ptr %593, align 2, !tbaa !108
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1568,7 +1561,7 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
 597:                                              ; preds = %590
   %598 = load i32, ptr %16, align 4, !tbaa !27
   %599 = trunc i32 %598 to i16
-  %600 = getelementptr inbounds nuw i16, ptr %584, i64 %indvars.iv.i.i.i55
+  %600 = getelementptr inbounds nuw [2 x i8], ptr %584, i64 %indvars.iv.i.i.i55
   store i16 %599, ptr %600, align 2, !tbaa !108
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next.i.i.i56 = add nuw nsw i64 %indvars.iv.i.i.i55, 1
@@ -2117,7 +2110,7 @@ cbs_apv_write_pbu_header.exit.i:                  ; preds = %27
 
 switch.lookup:                                    ; preds = %103
   %111 = zext nneg i8 %.val.i.i to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cbs_apv_write_unit, i64 %111
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cbs_apv_write_unit, i64 %111
   %switch.load = load i32, ptr %switch.gep, align 4
   %112 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %switch.load, ptr %112, align 4, !tbaa !55
@@ -2151,7 +2144,7 @@ switch.lookup:                                    ; preds = %103
 
 .preheader164.i.i:                                ; preds = %.thread159.i.i, %.preheader164.lr.ph.i.i
   %indvars.iv176.i.i = phi i64 [ 0, %.preheader164.lr.ph.i.i ], [ %indvars.iv.next177.i.i, %.thread159.i.i ]
-  %126 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %121, i64 %indvars.iv176.i.i
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %121, i64 %indvars.iv176.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %132, %.preheader164.i.i
@@ -2225,7 +2218,7 @@ cbs_apv_write_frame_header.exit.i:                ; preds = %139
 
 157:                                              ; preds = %cbs_apv_write_tile.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %cbs_apv_write_tile.exit.i ]
-  %158 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv.i
   %159 = load i32, ptr %158, align 4, !tbaa !27
   store i32 1, ptr %16, align 4, !tbaa !27
   %160 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -2235,7 +2228,7 @@ cbs_apv_write_frame_header.exit.i:                ; preds = %139
   br i1 %162, label %163, label %cbs_apv_write_frame.exit.thread
 
 163:                                              ; preds = %157
-  %164 = getelementptr inbounds nuw %struct.APVRawTile, ptr %151, i64 %indvars.iv.i
+  %164 = getelementptr inbounds nuw [80 x i8], ptr %151, i64 %indvars.iv.i
   %165 = load i32, ptr %158, align 4, !tbaa !27
   %166 = load ptr, ptr %21, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2274,7 +2267,7 @@ cbs_apv_write_frame_header.exit.i:                ; preds = %139
 188:                                              ; preds = %194, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %194 ]
   %.06788.i.i.i = phi i32 [ %186, %.lr.ph.i.i.i ], [ %196, %194 ]
-  %189 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv.i.i.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv.i.i.i
   %190 = load i32, ptr %189, align 4, !tbaa !27
   store i32 1, ptr %14, align 4, !tbaa !27
   %191 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -2351,7 +2344,7 @@ cbs_apv_write_tile_header.exit.i.i:               ; preds = %205, %._crit_edge.i
 
 223:                                              ; preds = %237, %.lr.ph.i.i
   %indvars.iv.i50.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i52.i, %237 ]
-  %224 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.i50.i
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv.i50.i
   %225 = load i32, ptr %224, align 4, !tbaa !27
   %226 = load ptr, ptr %154, align 8, !tbaa !136
   %227 = load ptr, ptr %155, align 8, !tbaa !138
@@ -2368,7 +2361,7 @@ cbs_apv_write_tile_header.exit.i.i:               ; preds = %205, %._crit_edge.i
   br i1 %.not.i51.i, label %cbs_apv_write_frame.exit.thread, label %237
 
 237:                                              ; preds = %223
-  %238 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv.i50.i
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv.i50.i
   %239 = load ptr, ptr %238, align 8, !tbaa !77
   %240 = shl i32 %225, 3
   call void @ff_copy_bits(ptr noundef nonnull %2, ptr noundef %239, i32 noundef %240) #7
@@ -2481,7 +2474,7 @@ cbs_apv_write_frame.exit:                         ; preds = %247, %.thread60.i
   br i1 %289, label %290, label %cbs_apv_write_au_info.exit.thread
 
 290:                                              ; preds = %284
-  %291 = getelementptr inbounds nuw %struct.APVRawFrameInfo, ptr %267, i64 %indvars.iv.i29
+  %291 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %indvars.iv.i29
   %292 = call fastcc i32 @cbs_apv_write_frame_info(ptr noundef %0, ptr noundef %2, ptr noundef nonnull readonly %291)
   %293 = icmp slt i32 %292, 0
   br i1 %293, label %cbs_apv_write_au_info.exit.thread, label %268
@@ -2575,7 +2568,7 @@ cbs_apv_write_pbu_header.exit.i33:                ; preds = %306
 
 .lr.ph218.i:                                      ; preds = %.preheader.i34, %521
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i37, %521 ], [ 0, %.preheader.i34 ]
-  %343 = getelementptr inbounds nuw %struct.APVRawMetadataPayload, ptr %330, i64 %indvars.iv.i35
+  %343 = getelementptr inbounds nuw [48 x i8], ptr %330, i64 %indvars.iv.i35
   %344 = load i32, ptr %343, align 8, !tbaa !92
   %345 = icmp ugt i32 %344, 254
   br i1 %345, label %.lr.ph.i48, label %._crit_edge.i36
@@ -2728,7 +2721,7 @@ cbs_apv_write_metadata_itu_t_t35.exit.i.i:        ; preds = %397, %.preheader.i.
 
 411:                                              ; preds = %410, %407
   %indvars.iv.i.i.i43 = phi i64 [ 0, %407 ], [ %indvars.iv.next.i.i.i44, %410 ]
-  %412 = getelementptr inbounds nuw i16, ptr %408, i64 %indvars.iv.i.i.i43
+  %412 = getelementptr inbounds nuw [2 x i8], ptr %408, i64 %indvars.iv.i.i.i43
   %413 = load i16, ptr %412, align 2, !tbaa !108
   %414 = zext i16 %413 to i32
   store i32 1, ptr %7, align 4, !tbaa !27
@@ -2739,7 +2732,7 @@ cbs_apv_write_metadata_itu_t_t35.exit.i.i:        ; preds = %397, %.preheader.i.
   br i1 %417, label %418, label %cbs_apv_write_metadata_mdcv.exit.thread.i.i
 
 418:                                              ; preds = %411
-  %419 = getelementptr inbounds nuw i16, ptr %409, i64 %indvars.iv.i.i.i43
+  %419 = getelementptr inbounds nuw [2 x i8], ptr %409, i64 %indvars.iv.i.i.i43
   %420 = load i16, ptr %419, align 2, !tbaa !108
   %421 = zext i16 %420 to i32
   store i32 1, ptr %8, align 4, !tbaa !27
@@ -3079,7 +3072,7 @@ define internal range(i32 -12, 1) i32 @cbs_apv_assemble_fragment(ptr readnone ca
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.03740 = phi i64 [ 4, %.lr.ph ], [ %16, %11 ]
-  %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !31
   %15 = add i64 %.03740, 4
@@ -3114,7 +3107,7 @@ define internal range(i32 -12, 1) i32 @cbs_apv_assemble_fragment(ptr readnone ca
   %27 = phi ptr [ %.pre, %.lr.ph45 ], [ %44, %26 ]
   %indvars.iv50 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next51, %26 ]
   %.03642 = phi i64 [ 4, %.lr.ph45 ], [ %48, %26 ]
-  %28 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %27, i64 %indvars.iv50
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %indvars.iv50
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !31
   %31 = trunc i64 %30 to i32
@@ -3126,14 +3119,14 @@ define internal range(i32 -12, 1) i32 @cbs_apv_assemble_fragment(ptr readnone ca
   %36 = load ptr, ptr %1, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %35
   %38 = load ptr, ptr %24, align 8, !tbaa !157
-  %39 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %38, i64 %indvars.iv50
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %indvars.iv50
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %41, i64 %43, i1 false)
   %44 = load ptr, ptr %24, align 8, !tbaa !157
-  %45 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %44, i64 %indvars.iv50
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %44, i64 %indvars.iv50
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !31
   %48 = add i64 %47, %35
@@ -3184,7 +3177,7 @@ define internal void @cbs_apv_free_metadata(ptr readnone captures(none) %0, ptr 
 
 9:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw %struct.APVRawMetadataPayload, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8, !tbaa !92
   switch i32 %11, label %13 [
     i32 5, label %15
@@ -3430,7 +3423,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   %.03338 = phi i32 [ 0, %.lr.ph ], [ %17, %14 ]
   %.033.tr = trunc i32 %.03338 to i16
   %15 = shl i16 %.033.tr, 4
-  %16 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   store i16 %15, ptr %16, align 2, !tbaa !108
   %17 = add i32 %13, %.03338
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3453,7 +3446,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   %23 = and i16 %22, -16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = zext nneg i32 %.0.lcssa55 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   store i16 %23, ptr %26, align 2, !tbaa !108
   %27 = trunc nuw nsw i32 %.0.lcssa55 to i8
   store i8 %27, ptr %0, align 2, !tbaa !174
@@ -3480,7 +3473,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
 33:                                               ; preds = %31
   %.134.tr = trunc i32 %.13440 to i16
   %34 = shl i16 %.134.tr, 4
-  %35 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv49
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv49
   store i16 %34, ptr %35, align 2, !tbaa !108
   %36 = add i32 %30, %.13440
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
@@ -3497,7 +3490,7 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   %40 = and i16 %39, -16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %42 = zext nneg i32 %.1.lcssa to i64
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   store i16 %40, ptr %43, align 2, !tbaa !108
   %44 = trunc nuw nsw i32 %.1.lcssa to i8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -3624,7 +3617,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_write_quantization
 
 .preheader40:                                     ; preds = %.preheader40.lr.ph, %.thread37
   %indvars.iv53 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next54, %.thread37 ]
-  %12 = getelementptr inbounds nuw [8 x [8 x i8]], ptr %2, i64 %indvars.iv53
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv53
   %13 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.preheader
 
@@ -3750,7 +3743,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_write_tile_info(pt
 
 52:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %53 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !27
   store i32 1, ptr %5, align 4, !tbaa !27
   %55 = trunc nuw nsw i64 %indvars.iv to i32

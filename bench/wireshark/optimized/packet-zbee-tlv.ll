@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.ieee802154_packet = type { i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i64, i16, i64, i32, i32, i8, i32, i8, i64, %union.anon, i8, i8, ptr }
 %union.anon = type { i64 }
-%struct._value_string = type { i32, ptr }
 
 @proto_zbee_tlv = internal unnamed_addr global i32 0, align 4
 @ei_zbee_tlv_max_recursion_depth_reached = internal global %struct.expert_field zeroinitializer, align 4
@@ -1281,7 +1280,7 @@ dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.
   %or.cond.i.i.i = icmp eq i32 %520, 2
   %521 = load ptr, ptr %22, align 8
   %522 = zext nneg i32 %519 to i64
-  %523 = getelementptr %struct._value_string, ptr @zbee_tlv_local_types_joined_status_str, i64 %522
+  %523 = getelementptr [16 x i8], ptr @zbee_tlv_local_types_joined_status_str, i64 %522
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   %525 = load ptr, ptr %524, align 8
   br i1 %or.cond.i.i.i, label %526, label %531

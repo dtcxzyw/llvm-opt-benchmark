@@ -367,7 +367,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %47 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 95)
   %48 = icmp eq <16 x i8> %.val.i.i.i, splat (i8 84)
   %narrow.i.i.i = select <16 x i1> %47, <16 x i1> %48, <16 x i1> zeroinitializer
-  %49 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.023.044.i.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.023.044.i.i
   store <16 x i1> %narrow.i.i.i, ptr %49, align 2, !noalias !42
   %exitcond.not.i.i = icmp eq i64 %43, 4
   br i1 %exitcond.not.i.i, label %.preheader42.i.i, label %42
@@ -385,7 +385,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %55 = phi i64 [ %60, %59 ], [ 1, %42 ]
   %.sroa.028.046.i.i = phi i64 [ %55, %59 ], [ 0, %42 ]
   %.sroa.014.245.i.i = phi i8 [ %.sroa.014.3.i.i, %59 ], [ 0, %42 ]
-  %56 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.046.i.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.046.i.i
   %57 = load i16, ptr %56, align 2, !noalias !42, !noundef !3
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %61
@@ -528,7 +528,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %124 = icmp eq <16 x i8> %.val3.i.i.i10, splat (i8 95)
   %125 = icmp eq <16 x i8> %.val.i.i.i11, splat (i8 84)
   %narrow.i.i.i12 = select <16 x i1> %124, <16 x i1> %125, <16 x i1> zeroinitializer
-  %126 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.023.044.i.i9
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.023.044.i.i9
   store <16 x i1> %narrow.i.i.i12, ptr %126, align 2, !noalias !62
   %exitcond.not.i.i13 = icmp eq i64 %120, 4
   br i1 %exitcond.not.i.i13, label %.preheader42.i.i14, label %119
@@ -546,7 +546,7 @@ define noundef zeroext i1 @_ZN12polars_error7signals21is_keyboard_interrupt17had
   %132 = phi i64 [ %137, %136 ], [ 1, %119 ]
   %.sroa.028.046.i.i15 = phi i64 [ %132, %136 ], [ 0, %119 ]
   %.sroa.014.245.i.i16 = phi i8 [ %.sroa.014.3.i.i17, %136 ], [ 0, %119 ]
-  %133 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.028.046.i.i15
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.028.046.i.i15
   %134 = load i16, ptr %133, align 2, !noalias !62, !noundef !3
   %135 = icmp eq i16 %134, 0
   br i1 %135, label %136, label %138

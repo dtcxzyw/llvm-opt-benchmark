@@ -2669,7 +2669,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   %197 = icmp sgt i64 %196, -1
   %198 = icmp samesign ult i64 %196, %193
   %199 = mul nuw nsw i64 %196, %194
-  %200 = getelementptr inbounds nuw i16, ptr %146, i64 %199
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %146, i64 %199
   br label %201
 
 201:                                              ; preds = %212, %.preheader.us.us
@@ -2698,7 +2698,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   call void @llvm.assume(i1 %216)
   call void @llvm.assume(i1 %197)
   call void @llvm.assume(i1 %198)
-  %217 = getelementptr inbounds nuw i16, ptr %200, i64 %213
+  %217 = getelementptr inbounds nuw [2 x i8], ptr %200, i64 %213
   %218 = load i16, ptr %217, align 2, !tbaa !177
   %219 = icmp samesign ult i32 %207, %166
   call void @llvm.assume(i1 %219)
@@ -2708,9 +2708,9 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   call void @llvm.assume(i1 %221)
   %222 = mul nuw nsw i32 %204, %171
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw i16, ptr %161, i64 %223
+  %224 = getelementptr inbounds nuw [2 x i8], ptr %161, i64 %223
   %225 = zext nneg i32 %207 to i64
-  %226 = getelementptr inbounds nuw i16, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %224, i64 %225
   store i16 %218, ptr %226, align 2, !tbaa !177
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
   br i1 %exitcond214.not, label %._crit_edge.split.us.us.us, label %201, !llvm.loop !179
@@ -2732,7 +2732,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   %233 = icmp sgt i64 %232, -1
   %234 = icmp samesign ult i64 %232, %188
   %235 = mul nuw nsw i64 %232, %189
-  %236 = getelementptr inbounds nuw i16, ptr %146, i64 %235
+  %236 = getelementptr inbounds nuw [2 x i8], ptr %146, i64 %235
   %237 = and i64 %231, 2147483647
   %238 = icmp slt i32 %229, %182
   br label %239
@@ -2760,7 +2760,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   call void @llvm.assume(i1 %252)
   call void @llvm.assume(i1 %233)
   call void @llvm.assume(i1 %234)
-  %253 = getelementptr inbounds nuw i16, ptr %236, i64 %249
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %236, i64 %249
   %254 = load i16, ptr %253, align 2, !tbaa !177
   %255 = icmp samesign ult i64 %243, %184
   call void @llvm.assume(i1 %255)
@@ -2770,8 +2770,8 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   call void @llvm.assume(i1 %257)
   %258 = mul nuw nsw i32 %242, %171
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw i16, ptr %161, i64 %259
-  %261 = getelementptr inbounds nuw i16, ptr %260, i64 %243
+  %260 = getelementptr inbounds nuw [2 x i8], ptr %161, i64 %259
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %260, i64 %243
   store i16 %254, ptr %261, align 2, !tbaa !177
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3179,7 +3179,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
 66:                                               ; preds = %63
   %67 = icmp samesign ult i64 %indvars.iv, 4
   call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 %65, ptr %68, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next, 4
@@ -3238,7 +3238,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %91 = and i32 %.080192, 1
   %92 = or disjoint i32 %91, %84
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %.ptr224, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.ptr224, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !66
   %96 = add i32 %95, %89
   store i32 %96, ptr %94, align 4, !tbaa !66

@@ -56,7 +56,7 @@ define ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %1, i64 %2, i64 nound
 15:                                               ; preds = %13
   %16 = add i32 %11, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !46
   %20 = load i64, ptr %19, align 8, !tbaa !48
   %.not48 = icmp slt i64 %20, %1
@@ -73,7 +73,7 @@ define ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %1, i64 %2, i64 nound
 22:                                               ; preds = %._crit_edge, %22
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %22 ]
   %.154 = phi ptr [ null, %._crit_edge ], [ %spec.select, %22 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = load i64, ptr %24, align 8, !tbaa !48
   %26 = icmp eq i64 %25, %1
@@ -148,7 +148,7 @@ define range(i32 -2147483648, 1) i32 @avformat_queue_attached_pictures(ptr nound
 6:                                                ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !55
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !58
@@ -474,7 +474,7 @@ define i32 @ff_find_stream_index(ptr noundef readonly captures(none) %0, i32 nou
 
 7:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !88

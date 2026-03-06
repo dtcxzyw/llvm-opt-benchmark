@@ -471,7 +471,7 @@ declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 define internal noundef ptr @lxb_html_tokenizer_state_script_data_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !42
   %.not = icmp eq i64 %7, 255
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -942,7 +942,7 @@ lxb_html_tokenizer_temp_append_data.exit168:      ; preds = %120
 
 211:                                              ; preds = %.lr.ph
   %212 = zext i8 %8 to i64
-  %213 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %212
   %214 = load i64, ptr %213, align 8, !tbaa !42
   %215 = icmp eq i64 %214, 255
   br i1 %215, label %.loopexit, label %216
@@ -1303,7 +1303,7 @@ define internal ptr @lxb_html_tokenizer_state_script_data_escaped_less_than_sign
 
 8:                                                ; preds = %3
   %9 = zext i8 %4 to i64
-  %10 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !42
   %.not = icmp eq i64 %11, 255
   br i1 %.not, label %21, label %12
@@ -1767,7 +1767,7 @@ lxb_html_tokenizer_temp_append_data.exit110:      ; preds = %221
 define internal noundef ptr @lxb_html_tokenizer_state_script_data_escaped_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !42
   %.not = icmp eq i64 %7, 255
   br i1 %.not, label %._crit_edge, label %8
@@ -1937,7 +1937,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %18
 
 50:                                               ; preds = %.lr.ph
   %51 = zext i8 %8 to i64
-  %52 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !42
   %54 = icmp eq i64 %53, 255
   br i1 %54, label %55, label %83
@@ -2398,7 +2398,7 @@ lxb_html_tokenizer_temp_append_data.exit172:      ; preds = %120
 
 211:                                              ; preds = %.lr.ph
   %212 = zext i8 %8 to i64
-  %213 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %212
   %214 = load i64, ptr %213, align 8, !tbaa !42
   %215 = icmp eq i64 %214, 255
   br i1 %215, label %216, label %243
@@ -3502,7 +3502,7 @@ lxb_html_tokenizer_temp_append.exit61:            ; preds = %127
 define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escaped_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !42
   %.not = icmp eq i64 %7, 255
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -3664,7 +3664,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %18
 
 50:                                               ; preds = %.lr.ph
   %51 = zext i8 %8 to i64
-  %52 = getelementptr inbounds nuw i64, ptr @lexbor_str_res_alpha_character, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @lexbor_str_res_alpha_character, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !42
   %54 = icmp eq i64 %53, 255
   br i1 %54, label %55, label %83

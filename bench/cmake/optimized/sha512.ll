@@ -1237,7 +1237,7 @@ define dso_local void @rhash_sha512_final(ptr noundef %0, ptr noundef %1) local_
   %8 = and i64 %7, 56
   %9 = shl nsw i64 -1, %8
   %10 = xor i64 %9, -1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = and i64 %12, %10
   %14 = shl nuw i64 128, %8

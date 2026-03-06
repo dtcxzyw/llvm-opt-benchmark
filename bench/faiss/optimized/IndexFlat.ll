@@ -893,7 +893,7 @@ define void @_ZN5faiss11IndexFlat1D3addElPKf(ptr noundef nonnull align 8 derefer
   br i1 %22, label %23, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i64, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %10
   %.not.i.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit.i, label %25
 
@@ -1480,9 +1480,9 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_19FlatL2Dis13symmetric_disE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !53
   %8 = mul i64 %7, %2
-  %9 = getelementptr inbounds nuw float, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = mul i64 %7, %1
-  %11 = getelementptr inbounds nuw float, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %10
   %12 = tail call noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef %9, ptr noundef %11, i64 noundef %7)
   ret float %12
 }
@@ -1575,9 +1575,9 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_19FlatIPDis13symmetric_disE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !59
   %8 = mul i64 %7, %2
-  %9 = getelementptr inbounds nuw float, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = mul i64 %7, %1
-  %11 = getelementptr inbounds nuw float, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %10
   %12 = tail call noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef %9, ptr noundef %11, i64 noundef %7)
   ret float %12
 }
@@ -1633,7 +1633,7 @@ define void @_ZN5faiss11IndexFlatL212sync_l2normsEv(ptr noundef nonnull align 8 
   br i1 %16, label %17, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw float, ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %19
 
@@ -1744,9 +1744,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !65
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !97
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !67
   br label %41
 
@@ -1883,7 +1883,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDisclEl(p
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !75
-  %11 = getelementptr inbounds float, ptr %10, i64 %1
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %1
   tail call void @llvm.prefetch.p0(ptr %11, i32 0, i32 2, i32 1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !72
@@ -1893,7 +1893,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDisclEl(p
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load float, ptr %17, align 8, !tbaa !76
   %19 = load ptr, ptr %9, align 8, !tbaa !75
-  %20 = getelementptr inbounds float, ptr %19, i64 %1
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %1
   %21 = load float, ptr %20, align 4, !tbaa !96
   %22 = fadd float %18, %21
   %23 = tail call float @llvm.fmuladd.f32(float %16, float -2.000000e+00, float %22)
@@ -1924,13 +1924,13 @@ define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis17distances_bat
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !75
-  %31 = getelementptr inbounds float, ptr %30, i64 %1
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %1
   tail call void @llvm.prefetch.p0(ptr %31, i32 0, i32 2, i32 1)
-  %32 = getelementptr inbounds float, ptr %30, i64 %2
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %2
   tail call void @llvm.prefetch.p0(ptr %32, i32 0, i32 2, i32 1)
-  %33 = getelementptr inbounds float, ptr %30, i64 %3
+  %33 = getelementptr inbounds [4 x i8], ptr %30, i64 %3
   tail call void @llvm.prefetch.p0(ptr %33, i32 0, i32 2, i32 1)
-  %34 = getelementptr inbounds float, ptr %30, i64 %4
+  %34 = getelementptr inbounds [4 x i8], ptr %30, i64 %4
   tail call void @llvm.prefetch.p0(ptr %34, i32 0, i32 2, i32 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !96
@@ -1948,28 +1948,28 @@ define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis17distances_bat
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = load float, ptr %39, align 8, !tbaa !76
   %41 = load ptr, ptr %29, align 8, !tbaa !75
-  %42 = getelementptr inbounds float, ptr %41, i64 %1
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %1
   %43 = load float, ptr %42, align 4, !tbaa !96
   %44 = fadd float %40, %43
   %45 = load float, ptr %10, align 4, !tbaa !96
   %46 = call float @llvm.fmuladd.f32(float %45, float -2.000000e+00, float %44)
   store float %46, ptr %5, align 4, !tbaa !96
   %47 = load float, ptr %39, align 8, !tbaa !76
-  %48 = getelementptr inbounds float, ptr %41, i64 %2
+  %48 = getelementptr inbounds [4 x i8], ptr %41, i64 %2
   %49 = load float, ptr %48, align 4, !tbaa !96
   %50 = fadd float %47, %49
   %51 = load float, ptr %11, align 4, !tbaa !96
   %52 = call float @llvm.fmuladd.f32(float %51, float -2.000000e+00, float %50)
   store float %52, ptr %6, align 4, !tbaa !96
   %53 = load float, ptr %39, align 8, !tbaa !76
-  %54 = getelementptr inbounds float, ptr %41, i64 %3
+  %54 = getelementptr inbounds [4 x i8], ptr %41, i64 %3
   %55 = load float, ptr %54, align 4, !tbaa !96
   %56 = fadd float %53, %55
   %57 = load float, ptr %12, align 4, !tbaa !96
   %58 = call float @llvm.fmuladd.f32(float %57, float -2.000000e+00, float %56)
   store float %58, ptr %7, align 4, !tbaa !96
   %59 = load float, ptr %39, align 8, !tbaa !76
-  %60 = getelementptr inbounds float, ptr %41, i64 %4
+  %60 = getelementptr inbounds [4 x i8], ptr %41, i64 %4
   %61 = load float, ptr %60, align 4, !tbaa !96
   %62 = fadd float %59, %61
   %63 = load float, ptr %13, align 4, !tbaa !96
@@ -1994,17 +1994,17 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis13symm
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !75
-  %14 = getelementptr inbounds float, ptr %13, i64 %1
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %1
   tail call void @llvm.prefetch.p0(ptr %14, i32 0, i32 2, i32 1)
-  %15 = getelementptr inbounds float, ptr %13, i64 %2
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %2
   tail call void @llvm.prefetch.p0(ptr %15, i32 0, i32 2, i32 1)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !69
   %18 = tail call noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef %9, ptr noundef %11, i64 noundef %17)
   %19 = load ptr, ptr %12, align 8, !tbaa !75
-  %20 = getelementptr inbounds float, ptr %19, i64 %1
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %1
   %21 = load float, ptr %20, align 4, !tbaa !96
-  %22 = getelementptr inbounds float, ptr %19, i64 %2
+  %22 = getelementptr inbounds [4 x i8], ptr %19, i64 %2
   %23 = load float, ptr %22, align 4, !tbaa !96
   %24 = fadd float %21, %23
   %25 = tail call float @llvm.fmuladd.f32(float %18, float -2.000000e+00, float %24)
@@ -2084,7 +2084,7 @@ define void @_ZN5faiss11IndexFlat1D18update_permutationEv(ptr noundef nonnull al
   br i1 %16, label %17, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i64, ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %19
 
@@ -2205,9 +2205,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !77
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !92
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !79
   br label %41
 
@@ -2260,11 +2260,11 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %31 = phi i64 [ %.pre, %.lr.ph159 ], [ %131, %.loopexit ]
   %32 = phi i64 [ %.pre, %.lr.ph159 ], [ %132, %.loopexit ]
   %.096158 = phi i64 [ %21, %.lr.ph159 ], [ %133, %.loopexit ]
-  %33 = getelementptr inbounds float, ptr %22, i64 %.096158
+  %33 = getelementptr inbounds [4 x i8], ptr %22, i64 %.096158
   %34 = load float, ptr %33, align 4, !tbaa !96
   %35 = mul nsw i64 %32, %.096158
-  %36 = getelementptr inbounds float, ptr %23, i64 %35
-  %37 = getelementptr inbounds i64, ptr %24, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %23, i64 %35
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %35
   %38 = load i64, ptr %25, align 8, !tbaa !37
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %.preheader, label %46
@@ -2275,9 +2275,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
 
 .lr.ph156:                                        ; preds = %.preheader, %.lr.ph156
   %.0106155 = phi i64 [ %43, %.lr.ph156 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw i64, ptr %37, i64 %.0106155
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0106155
   store i64 -1, ptr %41, align 8, !tbaa !93
-  %42 = getelementptr inbounds nuw float, ptr %36, i64 %.0106155
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.0106155
   store float 0x7FF0000000000000, ptr %42, align 4, !tbaa !96
   %43 = add nuw nsw i64 %.0106155, 1
   %44 = load i64, ptr %5, align 8, !tbaa !93
@@ -2287,16 +2287,16 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
 46:                                               ; preds = %28
   %47 = load ptr, ptr %27, align 8, !tbaa !77
   %48 = load i64, ptr %47, align 8, !tbaa !93
-  %49 = getelementptr inbounds float, ptr %26, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %26, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !96
   %51 = fcmp ogt float %50, %34
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %46
   %53 = add nsw i64 %38, -1
-  %54 = getelementptr inbounds nuw i64, ptr %47, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !93
-  %56 = getelementptr inbounds float, ptr %26, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %26, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !96
   %58 = fcmp ugt float %57, %34
   br i1 %58, label %.preheader136, label %.thread127
@@ -2316,9 +2316,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.199142 = phi i64 [ %..199, %.lr.ph ], [ %38, %.preheader136 ]
   %61 = add nuw nsw i64 %.1143, %.199142
   %62 = lshr i64 %61, 1
-  %63 = getelementptr inbounds nuw i64, ptr %47, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !93
-  %65 = getelementptr inbounds float, ptr %26, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %26, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !96
   %67 = fcmp ugt float %66, %34
   %..199 = select i1 %67, i64 %62, i64 %.199142
@@ -2331,19 +2331,19 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.3147 = phi i64 [ %.5, %90 ], [ %.1.lcssa, %.preheader134 ]
   %.3101146 = phi i64 [ %.5103, %90 ], [ %.199.lcssa, %.preheader134 ]
   %.2109145 = phi i64 [ %83, %90 ], [ 0, %.preheader134 ]
-  %70 = getelementptr inbounds nuw i64, ptr %47, i64 %.3147
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.3147
   %71 = load i64, ptr %70, align 8, !tbaa !93
-  %72 = getelementptr inbounds float, ptr %26, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %26, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !96
-  %74 = getelementptr inbounds nuw i64, ptr %47, i64 %.3101146
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.3101146
   %75 = load i64, ptr %74, align 8, !tbaa !93
-  %76 = getelementptr inbounds float, ptr %26, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %26, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !96
   %78 = fsub float %34, %73
   %79 = fsub float %77, %34
   %80 = fcmp olt float %78, %79
-  %81 = getelementptr inbounds nuw float, ptr %36, i64 %.2109145
-  %82 = getelementptr inbounds nuw i64, ptr %37, i64 %.2109145
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.2109145
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.2109145
   %83 = add nuw nsw i64 %.2109145, 1
   br i1 %80, label %84, label %87
 
@@ -2389,9 +2389,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   br i1 %97, label %98, label %105
 
 98:                                               ; preds = %.lr.ph154
-  %99 = getelementptr inbounds nuw i64, ptr %47, i64 %.6104153
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.6104153
   %100 = load i64, ptr %99, align 8, !tbaa !93
-  %101 = getelementptr inbounds float, ptr %26, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %26, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !96
   %103 = fsub float %102, %34
   %104 = add nsw i64 %.6104153, 1
@@ -2401,9 +2401,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.sink168 = phi float [ %103, %98 ], [ 0x7FF0000000000000, %.lr.ph154 ]
   %.sink = phi i64 [ %100, %98 ], [ -1, %.lr.ph154 ]
   %.7105 = phi i64 [ %104, %98 ], [ %.6104153, %.lr.ph154 ]
-  %106 = getelementptr inbounds float, ptr %36, i64 %.5112152
+  %106 = getelementptr inbounds [4 x i8], ptr %36, i64 %.5112152
   store float %.sink168, ptr %106, align 4, !tbaa !96
-  %107 = getelementptr inbounds i64, ptr %37, i64 %.5112152
+  %107 = getelementptr inbounds [8 x i8], ptr %37, i64 %.5112152
   store i64 %.sink, ptr %107, align 8, !tbaa !93
   %108 = add nuw nsw i64 %.5112152, 1
   %109 = load i64, ptr %5, align 8, !tbaa !93
@@ -2430,9 +2430,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   br i1 %115, label %116, label %123
 
 116:                                              ; preds = %.lr.ph151
-  %117 = getelementptr inbounds nuw i64, ptr %47, i64 %.6150
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.6150
   %118 = load i64, ptr %117, align 8, !tbaa !93
-  %119 = getelementptr inbounds float, ptr %26, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %26, i64 %118
   %120 = load float, ptr %119, align 4, !tbaa !96
   %121 = fsub float %34, %120
   %122 = add nsw i64 %.6150, -1
@@ -2442,9 +2442,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %.sink170 = phi float [ %121, %116 ], [ 0x7FF0000000000000, %.lr.ph151 ]
   %.sink169 = phi i64 [ %118, %116 ], [ -1, %.lr.ph151 ]
   %.7 = phi i64 [ %122, %116 ], [ %.6150, %.lr.ph151 ]
-  %124 = getelementptr inbounds float, ptr %36, i64 %.6113149
+  %124 = getelementptr inbounds [4 x i8], ptr %36, i64 %.6113149
   store float %.sink170, ptr %124, align 4, !tbaa !96
-  %125 = getelementptr inbounds i64, ptr %37, i64 %.6113149
+  %125 = getelementptr inbounds [8 x i8], ptr %37, i64 %.6113149
   store i64 %.sink169, ptr %125, align 8, !tbaa !93
   %126 = add nuw nsw i64 %.6113149, 1
   %127 = load i64, ptr %5, align 8, !tbaa !93

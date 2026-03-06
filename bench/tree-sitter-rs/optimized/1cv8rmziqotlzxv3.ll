@@ -42,7 +42,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.ll
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %9
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   store i32 %1, ptr %12, align 4
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -129,7 +129,7 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
   %18 = call { ptr, i64 } @_ZN11tree_sitter5Query13capture_names17hec32939f859f506cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %17)
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %19, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %19, i64 %20
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store ptr %19, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -552,7 +552,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d11a94699d374a1E.exit": ; preds = %91, %.noexc54
   %96 = phi i64 [ %.pre.i, %.noexc54 ], [ %92, %91 ]
   %97 = load ptr, ptr %15, align 8, !alias.scope !54, !noalias !57, !nonnull !4, !noundef !4
-  %98 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %97, i64 %96
+  %98 = getelementptr inbounds [48 x i8], ptr %97, i64 %96
   store i64 %.sroa.089.2, ptr %98, align 8
   %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %.sroa.590.2, ptr %.sroa.590.0..sroa_idx, align 8
@@ -598,7 +598,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 116:                                              ; preds = %.noexc56, %101
   %117 = phi i64 [ %.pre.i55, %.noexc56 ], [ %106, %101 ]
   %118 = load ptr, ptr %15, align 8, !alias.scope !59, !noalias !62, !nonnull !4, !noundef !4
-  %119 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [48 x i8], ptr %118, i64 %117
   store i64 %.sroa.089.2, ptr %119, align 8
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %.sroa.590.2, ptr %.sroa.484.0..sroa_idx, align 8
@@ -684,21 +684,21 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %.not = icmp eq i64 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %22 = load ptr, ptr %21, align 8, !nonnull !4
-  %23 = getelementptr i64, ptr %22, i64 %20
+  %23 = getelementptr [8 x i8], ptr %22, i64 %20
   %24 = getelementptr i8, ptr %23, i64 -8
   %.not32.not59 = icmp eq ptr %24, null
   %.not32.not = select i1 %.not, i1 true, i1 %.not32.not59
   br i1 %.not32.not, label %.thread37, label %36
 
 .thread41:                                        ; preds = %12
-  %25 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %11, i64 %14
+  %25 = getelementptr inbounds [40 x i8], ptr %11, i64 %14
   %26 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %28 = load i64, ptr %27, align 8, !noundef !4
   %.not43 = icmp eq i64 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %30 = load ptr, ptr %29, align 8, !nonnull !4
-  %31 = getelementptr i64, ptr %30, i64 %28
+  %31 = getelementptr [8 x i8], ptr %30, i64 %28
   %32 = getelementptr i8, ptr %31, i64 -8
   %.not3245.not60 = icmp eq ptr %32, null
   %.not3245.not = select i1 %.not43, i1 true, i1 %.not3245.not60
@@ -815,7 +815,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer3new17h8e082e91e73d5bbaE(pt
 21:                                               ; preds = %.noexc, %12
   %22 = phi ptr [ %.pre, %.noexc ], [ %14, %12 ]
   %23 = phi i64 [ %.pre.i, %.noexc ], [ 0, %12 ]
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 4
   %25 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !71, !noundef !4
   %26 = add i64 %25, 1
@@ -930,7 +930,7 @@ _ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit: ; preds =
   %30 = phi i64 [ %.pre.i, %29 ], [ 0, %_ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8, !alias.scope !86, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds i32, ptr %32, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %30
   store i32 0, ptr %33, align 4
   %34 = load i64, ptr %16, align 8, !alias.scope !86, !noundef !4
   %35 = add i64 %34, 1
@@ -944,7 +944,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer5lines17h6d4f3d3333986b11E(
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8

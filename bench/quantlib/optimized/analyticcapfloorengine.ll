@@ -1875,7 +1875,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %value.0268 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %value.1, %if.end307 ]
   %i.0267 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end307 ]
   %113 = load ptr, ptr %fixingDates, align 8, !tbaa !100
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %113, i64 %i.0267
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %i.0267
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp115)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115)
           to label %invoke.cont117 unwind label %lpad116
@@ -1893,7 +1893,7 @@ invoke.cont121:                                   ; preds = %invoke.cont120
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp118)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp115)
   %114 = load ptr, ptr %endDates, align 8, !tbaa !100
-  %add.ptr.i198 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %114, i64 %i.0267
+  %add.ptr.i198 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %i.0267
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp128)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp128)
           to label %invoke.cont130 unwind label %lpad129
@@ -1917,10 +1917,10 @@ invoke.cont134:                                   ; preds = %invoke.cont133
 
 if.then143:                                       ; preds = %invoke.cont134
   %115 = load ptr, ptr %accrualTimes, align 8, !tbaa !104
-  %add.ptr.i199 = getelementptr inbounds nuw double, ptr %115, i64 %i.0267
+  %add.ptr.i199 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %i.0267
   %116 = load double, ptr %add.ptr.i199, align 8, !tbaa !105
   %117 = load ptr, ptr %forwards, align 8, !tbaa !104
-  %add.ptr.i200 = getelementptr inbounds nuw double, ptr %117, i64 %i.0267
+  %add.ptr.i200 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %i.0267
   %118 = load double, ptr %add.ptr.i200, align 8, !tbaa !105
   %cmp148 = fcmp ugt double %call122, 0.000000e+00
   br i1 %cmp148, label %if.else225, label %if.then149
@@ -1954,15 +1954,15 @@ invoke.cont157:                                   ; preds = %.noexc204, %invoke.
 
 invoke.cont161:                                   ; preds = %invoke.cont157
   %122 = load ptr, ptr %capRates, align 8, !tbaa !104
-  %add.ptr.i205 = getelementptr inbounds nuw double, ptr %122, i64 %i.0267
+  %add.ptr.i205 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %i.0267
   %123 = load double, ptr %add.ptr.i205, align 8, !tbaa !105
   %124 = load ptr, ptr %nominals, align 8, !tbaa !104
-  %add.ptr.i206 = getelementptr inbounds nuw double, ptr %124, i64 %i.0267
+  %add.ptr.i206 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %i.0267
   %125 = load double, ptr %add.ptr.i206, align 8, !tbaa !105
   %mul = fmul double %call162, %125
   %mul167 = fmul double %116, %mul
   %126 = load ptr, ptr %gearings, align 8, !tbaa !104
-  %add.ptr.i207 = getelementptr inbounds nuw double, ptr %126, i64 %i.0267
+  %add.ptr.i207 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %i.0267
   %127 = load double, ptr %add.ptr.i207, align 8, !tbaa !105
   %mul170 = fmul double %mul167, %127
   %sub = fsub double %118, %123
@@ -2038,17 +2038,17 @@ invoke.cont191:                                   ; preds = %.noexc212, %invoke.
 
 invoke.cont195:                                   ; preds = %invoke.cont191
   %137 = load ptr, ptr %floorRates, align 8, !tbaa !104
-  %add.ptr.i214 = getelementptr inbounds nuw double, ptr %137, i64 %i.0267
+  %add.ptr.i214 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %i.0267
   %138 = load double, ptr %add.ptr.i214, align 8, !tbaa !105
   %139 = load ptr, ptr %nominals, align 8, !tbaa !104
-  %add.ptr.i215 = getelementptr inbounds nuw double, ptr %139, i64 %i.0267
+  %add.ptr.i215 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %i.0267
   %140 = load double, ptr %add.ptr.i215, align 8, !tbaa !105
   %mul205 = fmul double %call196, %140
   %mul206 = fmul double %116, %mul205
   %141 = fneg double %mul206
   %mul207 = select i1 %cmp182, double %mul206, double %141
   %142 = load ptr, ptr %gearings, align 8, !tbaa !104
-  %add.ptr.i216 = getelementptr inbounds nuw double, ptr %142, i64 %i.0267
+  %add.ptr.i216 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %i.0267
   %143 = load double, ptr %add.ptr.i216, align 8, !tbaa !105
   %mul211 = fmul double %143, %mul207
   %sub214 = fsub double %138, %118
@@ -2064,7 +2064,7 @@ lpad188:                                          ; preds = %cond.false.i210, %i
 
 if.else225:                                       ; preds = %if.then143
   %146 = load ptr, ptr %startDates, align 8, !tbaa !100
-  %add.ptr.i219 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %146, i64 %i.0267
+  %add.ptr.i219 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %i.0267
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp228)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp228)
           to label %invoke.cont230 unwind label %lpad229
@@ -2085,14 +2085,14 @@ invoke.cont234:                                   ; preds = %invoke.cont233
 
 if.then241:                                       ; preds = %invoke.cont234
   %147 = load ptr, ptr %capRates, align 8, !tbaa !104
-  %add.ptr.i220 = getelementptr inbounds nuw double, ptr %147, i64 %i.0267
+  %add.ptr.i220 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %i.0267
   %148 = load double, ptr %add.ptr.i220, align 8, !tbaa !105
   %149 = call double @llvm.fmuladd.f64(double %148, double %116, double 1.000000e+00)
   %150 = load ptr, ptr %nominals, align 8, !tbaa !104
-  %add.ptr.i221 = getelementptr inbounds nuw double, ptr %150, i64 %i.0267
+  %add.ptr.i221 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %i.0267
   %151 = load double, ptr %add.ptr.i221, align 8, !tbaa !105
   %152 = load ptr, ptr %gearings, align 8, !tbaa !104
-  %add.ptr.i222 = getelementptr inbounds nuw double, ptr %152, i64 %i.0267
+  %add.ptr.i222 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %i.0267
   %153 = load double, ptr %add.ptr.i222, align 8, !tbaa !105
   %mul252 = fmul double %151, %153
   %mul253 = fmul double %149, %mul252
@@ -2152,14 +2152,14 @@ if.end266:                                        ; preds = %invoke.cont234, %in
 
 if.then270:                                       ; preds = %if.end266
   %161 = load ptr, ptr %floorRates, align 8, !tbaa !104
-  %add.ptr.i228 = getelementptr inbounds nuw double, ptr %161, i64 %i.0267
+  %add.ptr.i228 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %i.0267
   %162 = load double, ptr %add.ptr.i228, align 8, !tbaa !105
   %163 = call double @llvm.fmuladd.f64(double %162, double %116, double 1.000000e+00)
   %164 = load ptr, ptr %nominals, align 8, !tbaa !104
-  %add.ptr.i229 = getelementptr inbounds nuw double, ptr %164, i64 %i.0267
+  %add.ptr.i229 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %i.0267
   %165 = load double, ptr %add.ptr.i229, align 8, !tbaa !105
   %166 = load ptr, ptr %gearings, align 8, !tbaa !104
-  %add.ptr.i230 = getelementptr inbounds nuw double, ptr %166, i64 %i.0267
+  %add.ptr.i230 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %i.0267
   %167 = load double, ptr %add.ptr.i230, align 8, !tbaa !105
   %mul285 = fmul double %165, %167
   %mul286 = fmul double %163, %mul285

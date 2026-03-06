@@ -280,7 +280,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..in_place_drop..
   br i1 %10, label %"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc07c2e5cbc2f60faE.llvm.4252288418090814410.exit", label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw { { i64, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %2, i64 %.0.i.i
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.0.i.i
   %13 = add nuw nsw i64 %.0.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
           to label %9 unwind label %16, !noalias !72
@@ -296,7 +296,7 @@ define hidden void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..in_place_drop..
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds { { i64, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %2, i64 %.1.i.i
+  %19 = getelementptr inbounds [64 x i8], ptr %2, i64 %.1.i.i
   %20 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %19) #12
           to label %14 unwind label %22, !noalias !72
@@ -370,7 +370,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$iox_query_influxql_rewr
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { { i64, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %0, i64 %.0
+  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0
   %7 = add i64 %.0, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
           to label %3 unwind label %11
@@ -389,7 +389,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$$u5b$iox_query_influxql_rewr
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds { { i64, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %0, i64 %.1
+  %14 = getelementptr inbounds [64 x i8], ptr %0, i64 %.1
   %15 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %14) #12
           to label %9 unwind label %17
@@ -411,7 +411,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$$u5b$influxdb_influxql_parse
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$17h231d14781983bb83E.llvm.4252288418090814410.exit"
   %.09 = phi i64 [ %5, %"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$17h231d14781983bb83E.llvm.4252288418090814410.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { i64, [9 x i64] }, ptr %0, i64 %.09
+  %4 = getelementptr inbounds [80 x i8], ptr %0, i64 %.09
   %5 = add nuw i64 %.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %6 = load i64, ptr %4, align 8, !range !84, !alias.scope !88, !noundef !15
@@ -462,7 +462,7 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$$u5b$influxdb_influxql_parse
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds { i64, [9 x i64] }, ptr %0, i64 %.1
+  %19 = getelementptr inbounds [80 x i8], ptr %0, i64 %.1
   %20 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..select..MeasurementSelection$GT$17h231d14781983bb83E.llvm.4252288418090814410"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19) #12
           to label %14 unwind label %22
@@ -1517,7 +1517,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
   br i1 %10, label %"_ZN4core3ptr77drop_in_place$LT$$u5b$iox_query_influxql_rewrite..RewrittenStatement$u5d$$GT$17h492cbdc719c58a2eE.llvm.4252288418090814410.exit", label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw { { i64, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %2, i64 %.0.i
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.0.i
   %13 = add nuw nsw i64 %.0.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
           to label %9 unwind label %16
@@ -1533,7 +1533,7 @@ define hidden void @"_ZN89_$LT$alloc..vec..in_place_drop..InPlaceDrop$LT$T$GT$$u
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds { { i64, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %2, i64 %.1.i
+  %19 = getelementptr inbounds [64 x i8], ptr %2, i64 %.1.i
   %20 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$iox_query_influxql_rewrite..RewrittenStatement$GT$17h5b51a0b22afd04f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %19) #12
           to label %14 unwind label %22

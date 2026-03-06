@@ -5,14 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.parallel_checkout = type { i32, ptr, i64, i64, ptr, ptr }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.parallel_checkout_item = type { ptr, %struct.conv_attrs, i64, ptr, i32, %struct.stat }
-%struct.conv_attrs = type { ptr, i32, i32, i32, ptr }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%struct.pc_worker = type { %struct.child_process, i64, i64 }
-%struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.strvec = type { ptr, i64, i64 }
-%struct.pollfd = type { i32, i16, i16 }
 
 @parallel_checkout = internal unnamed_addr global %struct.parallel_checkout zeroinitializer, align 8
 @.str = private unnamed_addr constant [26 x i8] c"GIT_TEST_CHECKOUT_WORKERS\00", align 1
@@ -269,7 +261,7 @@ st_mult.exit:                                     ; preds = %30
   %.pre-phi = phi i64 [ %27, %is_eligible_for_parallel_checkout.exit._crit_edge ], [ %.pre17, %st_mult.exit ]
   %39 = phi i64 [ %26, %is_eligible_for_parallel_checkout.exit._crit_edge ], [ %.pre16, %st_mult.exit ]
   %40 = phi ptr [ %.pre, %is_eligible_for_parallel_checkout.exit._crit_edge ], [ %37, %st_mult.exit ]
-  %41 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [208 x i8], ptr %40, i64 %39
   store ptr %0, ptr %41, align 8, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -570,7 +562,7 @@ define dso_local i32 @run_parallel_checkout(ptr noundef %0, i32 noundef %1, i32 
 .lr.ph.i:                                         ; preds = %14, %advance_progress_meter.exit.i
   %.05.i = phi i64 [ %26, %advance_progress_meter.exit.i ], [ 0, %14 ]
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %15, i64 %.05.i
+  %16 = getelementptr inbounds nuw [208 x i8], ptr %15, i64 %.05.i
   tail call void @write_pc_item(ptr noundef %16, ptr noundef %0)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load i32, ptr %17, align 8, !tbaa !31
@@ -612,7 +604,7 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
 
 36:                                               ; preds = %35, %29
   %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %35 ]
-  %37 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv.i
   tail call void @child_process_init(ptr noundef %37) #17
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load i16, ptr %38, align 8
@@ -650,7 +642,7 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
 55:                                               ; preds = %send_batch.exit.i, %51
   %indvars.iv45.i = phi i64 [ 0, %51 ], [ %indvars.iv.next46.i, %send_batch.exit.i ]
   %.03742.i = phi i64 [ 0, %51 ], [ %106, %send_batch.exit.i ]
-  %56 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv45.i
+  %56 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv45.i
   %57 = icmp samesign ult i64 %indvars.iv45.i, %54
   %58 = zext i1 %57 to i64
   %spec.select.i = add nuw i64 %53, %58
@@ -663,8 +655,8 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %55, %send_one_item.exit.i.i
   %.07.i.i = phi i64 [ %102, %send_one_item.exit.i.i ], [ 0, %55 ]
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8, !tbaa !25
-  %63 = getelementptr %struct.parallel_checkout_item, ptr %62, i64 %.03742.i
-  %64 = getelementptr %struct.parallel_checkout_item, ptr %63, i64 %.07.i.i
+  %63 = getelementptr [208 x i8], ptr %62, i64 %.03742.i
+  %64 = getelementptr [208 x i8], ptr %63, i64 %.07.i.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !56
   %67 = load ptr, ptr %64, align 8, !tbaa !26
@@ -748,10 +740,10 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
 
 108:                                              ; preds = %108, %setup_workers.exit
   %indvars.iv.i16 = phi i64 [ 0, %setup_workers.exit ], [ %indvars.iv.next.i17, %108 ]
-  %109 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv.i16
+  %109 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv.i16
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 84
   %111 = load i32, ptr %110, align 4, !tbaa !71
-  %112 = getelementptr inbounds nuw %struct.pollfd, ptr %107, i64 %indvars.iv.i16
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.i16
   store i32 %111, ptr %112, align 4, !tbaa !72
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   store i16 1, ptr %113, align 4, !tbaa !75
@@ -783,8 +775,8 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
   %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %177 ], [ 0, %.preheader.i ]
   %.267.i = phi i32 [ %.3.i, %177 ], [ %.03769.i, %.preheader.i ]
   %.03966.i = phi i32 [ %.140.i, %177 ], [ %114, %.preheader.i ]
-  %121 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv79.i
-  %122 = getelementptr inbounds nuw %struct.pollfd, ptr %107, i64 %indvars.iv79.i
+  %121 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv79.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv79.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 6
   %124 = load i16, ptr %123, align 2, !tbaa !78
   %.not45.i = icmp eq i16 %124, 0
@@ -871,7 +863,7 @@ assert_pc_item_result_size.exit.i.i:              ; preds = %142, %140
   %154 = add i64 %145, -1
   store i64 %154, ptr %144, align 8, !tbaa !69
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8, !tbaa !25
-  %156 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %155, i64 %148
+  %156 = getelementptr inbounds nuw [208 x i8], ptr %155, i64 %148
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 56
   store i32 %139, ptr %157, align 8, !tbaa !31
   br i1 %.not24.i.i, label %158, label %160
@@ -945,7 +937,7 @@ gather_results_from_workers.exit:                 ; preds = %.loopexit.i
 
 181:                                              ; preds = %194, %gather_results_from_workers.exit
   %indvars.iv.i23 = phi i64 [ 0, %gather_results_from_workers.exit ], [ %indvars.iv.next.i24, %194 ]
-  %182 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv.i23
+  %182 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv.i23
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 80
   %184 = load i32, ptr %183, align 8, !tbaa !49
   %185 = icmp sgt i32 %184, -1
@@ -972,7 +964,7 @@ gather_results_from_workers.exit:                 ; preds = %.loopexit.i
 
 .preheader.i26:                                   ; preds = %194, %202
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %202 ], [ 0, %194 ]
-  %195 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv24.i
+  %195 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv24.i
   %196 = tail call i32 @finish_command(ptr noundef %195) #17
   %197 = icmp sgt i32 %196, 128
   br i1 %197, label %198, label %202
@@ -1017,7 +1009,7 @@ write_items_sequentially.exit:                    ; preds = %advance_progress_me
   %207 = phi i64 [ %217, %216 ], [ %203, %.lr.ph.preheader.i ]
   %208 = phi ptr [ %218, %216 ], [ %.pre35.i, %.lr.ph.preheader.i ]
   %.01927.i = phi i64 [ %219, %216 ], [ 0, %.lr.ph.preheader.i ]
-  %209 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %208, i64 %.01927.i
+  %209 = getelementptr inbounds nuw [208 x i8], ptr %208, i64 %.01927.i
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
   %211 = load i32, ptr %210, align 8, !tbaa !31
   %212 = icmp eq i32 %211, 1
@@ -1043,7 +1035,7 @@ write_items_sequentially.exit:                    ; preds = %advance_progress_me
   %.030.i = phi i32 [ %.1.i, %advance_progress_meter.exit.i29 ], [ %.030.ph.i, %.lr.ph31.outer.i ]
   %.12029.i = phi i64 [ %246, %advance_progress_meter.exit.i29 ], [ %.12029.ph.i, %.lr.ph31.outer.i ]
   %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8, !tbaa !25
-  %223 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %222, i64 %.12029.i
+  %223 = getelementptr inbounds nuw [208 x i8], ptr %222, i64 %.12029.i
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 56
   %225 = load i32, ptr %224, align 8, !tbaa !31
   switch i32 %225, label %245 [

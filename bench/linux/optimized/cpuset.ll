@@ -44,7 +44,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpuset_mem_s
 %struct.static_call_key = type { ptr, %union.anon.16 }
 %union.anon.16 = type { i64 }
 %struct.css_task_iter = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.list_head }
-%struct.sched_domain_attr = type { i32 }
 %struct.tmpmasks = type { [1 x %struct.cpumask], [1 x %struct.cpumask], [1 x %struct.cpumask] }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 
@@ -395,7 +394,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 131:                                              ; preds = %127
   %132 = add i32 %82, 1
   %133 = sext i32 %82 to i64
-  %134 = getelementptr ptr, ptr %74, i64 %133
+  %134 = getelementptr [8 x i8], ptr %74, i64 %133
   store ptr %83, ptr %134, align 8
   br label %135
 
@@ -429,7 +428,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 
 150:                                              ; preds = %150, %148
   %151 = phi i64 [ 0, %148 ], [ %156, %150 ]
-  %152 = getelementptr ptr, ptr %74, i64 %151
+  %152 = getelementptr [8 x i8], ptr %74, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 292
   %155 = trunc i64 %151 to i32
@@ -449,7 +448,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 
 .preheader38:                                     ; preds = %.preheader38.outer, %158
   %161 = phi i64 [ %159, %158 ], [ 0, %.preheader38.outer ]
-  %162 = getelementptr ptr, ptr %74, i64 %161
+  %162 = getelementptr [8 x i8], ptr %74, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 292
   %165 = load i32, ptr %164, align 4
@@ -463,7 +462,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 
 170:                                              ; preds = %167, %.preheader38
   %171 = phi i64 [ 0, %.preheader38 ], [ %168, %167 ]
-  %172 = getelementptr ptr, ptr %74, i64 %171
+  %172 = getelementptr [8 x i8], ptr %74, i64 %171
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 292
   %175 = load i32, ptr %174, align 4
@@ -480,7 +479,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 
 .preheader37:                                     ; preds = %177, %190
   %183 = phi i64 [ %191, %190 ], [ 0, %177 ]
-  %184 = getelementptr ptr, ptr %74, i64 %183
+  %184 = getelementptr [8 x i8], ptr %74, i64 %183
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 292
   %187 = load i32, ptr %186, align 4
@@ -528,7 +527,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 209:                                              ; preds = %269, %206
   %210 = phi i64 [ 0, %206 ], [ %271, %269 ]
   %211 = phi i32 [ 0, %206 ], [ %270, %269 ]
-  %212 = getelementptr ptr, ptr %74, i64 %210
+  %212 = getelementptr [8 x i8], ptr %74, i64 %210
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 292
   %215 = load i32, ptr %214, align 4
@@ -537,7 +536,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 
 217:                                              ; preds = %209
   %218 = sext i32 %211 to i64
-  %219 = getelementptr [1 x %struct.cpumask], ptr %196, i64 %218
+  %219 = getelementptr [8 x i8], ptr %196, i64 %218
   %220 = icmp eq i32 %211, %195
   br i1 %220, label %221, label %229
 
@@ -559,13 +558,13 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
   br i1 %207, label %.split.us.critedge, label %230
 
 230:                                              ; preds = %229
-  %231 = getelementptr %struct.sched_domain_attr, ptr %205, i64 %218
+  %231 = getelementptr [4 x i8], ptr %205, i64 %218
   store i32 -1, ptr %231, align 4
   br label %.split
 
 .split.us.critedge:                               ; preds = %229, %247
   %232 = phi i64 [ %248, %247 ], [ %210, %229 ]
-  %233 = getelementptr ptr, ptr %74, i64 %232
+  %233 = getelementptr [8 x i8], ptr %74, i64 %232
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 292
   %236 = load i32, ptr %235, align 4
@@ -593,7 +592,7 @@ define internal fastcc void @rebuild_sched_domains_locked() unnamed_addr #1 alig
 
 .split:                                           ; preds = %230, %265
   %250 = phi i64 [ %266, %265 ], [ %210, %230 ]
-  %251 = getelementptr ptr, ptr %74, i64 %250
+  %251 = getelementptr [8 x i8], ptr %74, i64 %250
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 292
   %254 = load i32, ptr %253, align 4
@@ -6583,7 +6582,7 @@ define internal i64 @cpuset_write_resmask(ptr noundef %0, ptr noundef %1, i64 no
   %484 = trunc i64 %483 to i32
   %485 = tail call i32 @llvm.umin.i32(i32 %484, i32 64)
   %486 = zext nneg i32 %485 to i64
-  %487 = getelementptr ptr, ptr @node_data, i64 %486
+  %487 = getelementptr [8 x i8], ptr @node_data, i64 %486
   %488 = load ptr, ptr %487, align 8
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4864
   %490 = tail call ptr @__next_zones_zonelist(ptr noundef nonnull %489, i32 noundef 2, ptr noundef nonnull %459) #19
@@ -6908,7 +6907,7 @@ define internal noundef i32 @sched_partition_show(ptr noundef %0, ptr readnone c
 
 17:                                               ; preds = %12
   %18 = zext i32 %15 to i64
-  %19 = getelementptr ptr, ptr @perr_strings, i64 %18
+  %19 = getelementptr [8 x i8], ptr @perr_strings, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %13, ptr noundef %20) #19
   br label %22
@@ -8265,7 +8264,7 @@ partition_is_populated.exit:                      ; preds = %.thread.i, %167
   %252 = trunc i64 %251 to i32
   %253 = call i32 @llvm.umin.i32(i32 %252, i32 64)
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr ptr, ptr @node_data, i64 %254
+  %255 = getelementptr [8 x i8], ptr @node_data, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4864
   %258 = call ptr @__next_zones_zonelist(ptr noundef nonnull %257, i32 noundef 2, ptr noundef nonnull @cpuset_hotplug_update_tasks.new_mems) #19

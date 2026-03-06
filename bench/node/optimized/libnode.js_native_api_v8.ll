@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl" }
 %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl" = type { %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.napi_property_descriptor = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr }
 %"class.v8::PropertyDescriptor" = type { ptr }
 %struct.napi_type_tag = type { i64, i64 }
 %"class.v8impl::(anonymous namespace)::FunctionCallbackWrapper" = type { %"class.v8impl::(anonymous namespace)::CallbackWrapperBase" }
@@ -1525,7 +1524,7 @@ do.body11:                                        ; preds = %do.end5
 
 do.end14:                                         ; preds = %do.end5
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZL14error_messages, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZL14error_messages, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   store ptr %1, ptr %last_error, align 8
   %cmp20 = icmp eq i32 %0, 0
@@ -1947,7 +1946,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end64
 for.body:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %for.inc
   %static_property_count.0100 = phi i64 [ %static_property_count.1, %for.inc ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
   %i.099 = phi i64 [ %inc231, %for.inc ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
-  %add.ptr = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099
+  %add.ptr = getelementptr inbounds [64 x i8], ptr %properties, i64 %i.099
   %attributes = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   %10 = load i32, ptr %attributes, align 8
   %and = and i32 %10, 1024
@@ -2078,7 +2077,7 @@ if.then269:                                       ; preds = %_ZN2v810MaybeLocalI
 
 for.body273:                                      ; preds = %if.then269, %for.inc281
   %i270.0102 = phi i64 [ %inc282, %for.inc281 ], [ 0, %if.then269 ]
-  %add.ptr275 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i270.0102
+  %add.ptr275 = getelementptr inbounds [64 x i8], ptr %properties, i64 %i270.0102
   %attributes276 = getelementptr inbounds nuw i8, ptr %add.ptr275, i64 48
   %19 = load i32, ptr %attributes276, align 8
   %and277 = and i32 %19, 1024
@@ -2374,7 +2373,7 @@ _ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE13_M_deallocateEPS0_m.exit
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8
-  %add.ptr21 = getelementptr inbounds nuw %struct.napi_property_descriptor, ptr %call5.i.i.i, i64 %__n
+  %add.ptr21 = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8
   br label %if.end24
 
@@ -2443,7 +2442,7 @@ if.then.i18.i:                                    ; preds = %_ZNSt6vectorI24napi
 _ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i, %if.then.i18.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr19.i = getelementptr inbounds nuw %struct.napi_property_descriptor, ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage, align 8
   br label %if.end
 
@@ -2567,7 +2566,7 @@ if.then51:                                        ; preds = %do.end35
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.0107 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0107
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %properties, i64 %i.0107
   %6 = load ptr, ptr %arrayidx, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end6.i
@@ -6130,7 +6129,7 @@ do.end25.i.i:                                     ; preds = %do.body18.i
 
 while.cond.i.i.i.i.i:                             ; preds = %do.end25.i.i, %while.cond.i.i.i.i.i
   %__i.0.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %while.cond.i.i.i.i.i ], [ 0, %do.end25.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %str, i64 %__i.0.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %str, i64 %__i.0.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i.i = icmp eq i16 %4, 0
   %inc.i.i.i.i.i = add i64 %__i.0.i.i.i.i.i, 1
@@ -9944,7 +9943,7 @@ if.then32:                                        ; preds = %if.else
   %conv39 = add i32 %8, -1
   %call40 = tail call noundef i32 @_ZNK2v86String5WriteEPNS_7IsolateEPtiii(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %7, ptr noundef nonnull %buf, i32 noundef 0, i32 noundef %conv39, i32 noundef 2) #24
   %idxprom = sext i32 %call40 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %buf, i64 %idxprom
+  %arrayidx = getelementptr inbounds [2 x i8], ptr %buf, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   %cmp41.not = icmp eq ptr %result, null
   br i1 %cmp41.not, label %if.end50, label %if.end50.sink.split
@@ -15658,12 +15657,12 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %values_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = and i64 %i.020, 2147483647
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idx.ext.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
   %retval.i32.sroa.0.0 = phi ptr [ %6, %if.then.i ], [ %add.ptr.i, %if.end.i ]
-  %arrayidx = getelementptr inbounds ptr, ptr %buffer, i64 %i.020
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %buffer, i64 %i.020
   store ptr %retval.i32.sroa.0.0, ptr %arrayidx, align 8
   %add = add nuw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %add, %.sroa.speculated
@@ -15686,7 +15685,7 @@ if.then:                                          ; preds = %for.end
 
 for.body27:                                       ; preds = %if.then, %for.body27
   %i.122 = phi i64 [ %.sroa.speculated, %if.then ], [ %add30, %for.body27 ]
-  %arrayidx28 = getelementptr inbounds ptr, ptr %buffer, i64 %i.122
+  %arrayidx28 = getelementptr inbounds [8 x i8], ptr %buffer, i64 %i.122
   store ptr %12, ptr %arrayidx28, align 8
   %add30 = add nuw i64 %i.122, 1
   %exitcond23.not = icmp eq i64 %add30, %buffer_length

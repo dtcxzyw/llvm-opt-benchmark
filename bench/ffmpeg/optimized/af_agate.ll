@@ -126,7 +126,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %16, align 8, !tbaa !30
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   tail call void @ff_inlink_set_status(ptr noundef %20, i32 noundef %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -211,7 +211,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %indvars.iv92.sroa.phi = phi ptr [ %indvars.iv92.sroa.gep, %75 ], [ %3, %65 ]
   %indvars.iv92 = phi i64 [ 1, %75 ], [ 0, %65 ]
   %70 = load ptr, ptr %24, align 8, !tbaa !30
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv92
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv92
   %72 = load ptr, ptr %71, align 8, !tbaa !27
   %73 = call ptr @ff_get_audio_buffer(ptr noundef %72, i32 noundef %64) #10
   store ptr %73, ptr %indvars.iv92.sroa.phi, align 8, !tbaa !24
@@ -225,7 +225,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br label %.loopexit
 
 75:                                               ; preds = %.preheader
-  %76 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv92
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv92
   %77 = load ptr, ptr %76, align 8, !tbaa !20
   %78 = call i32 @av_audio_fifo_read(ptr noundef %77, ptr noundef nonnull %73, i32 noundef %64) #10
   br i1 %69, label %.preheader, label %79, !llvm.loop !43
@@ -539,7 +539,7 @@ define internal fastcc void @gate(ptr noundef captures(none) %0, ptr noundef rea
 .lr.ph95:                                         ; preds = %.preheader, %.lr.ph95
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph95 ], [ 1, %.preheader ]
   %.07594 = phi double [ %..075, %.lr.ph95 ], [ %50, %.preheader ]
-  %51 = getelementptr inbounds nuw double, ptr %.081102, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.081102, i64 %indvars.iv111
   %52 = load double, ptr %51, align 8, !tbaa !77
   %53 = fmul nsz double %6, %52
   %54 = tail call nsz double @llvm.fabs.f64(double %53)
@@ -552,7 +552,7 @@ define internal fastcc void @gate(ptr noundef captures(none) %0, ptr noundef rea
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader88 ]
   %.291 = phi double [ %60, %.lr.ph ], [ %50, %.preheader88 ]
-  %56 = getelementptr inbounds nuw double, ptr %.081102, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.081102, i64 %indvars.iv
   %57 = load double, ptr %56, align 8, !tbaa !77
   %58 = fmul nsz double %6, %57
   %59 = tail call nsz double @llvm.fabs.f64(double %58)
@@ -682,10 +682,10 @@ output_gain.exit:                                 ; preds = %90, %92, %112, %114
 
 .lr.ph99:                                         ; preds = %138, %.lr.ph99
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph99 ], [ 0, %138 ]
-  %141 = getelementptr inbounds nuw double, ptr %.073106, i64 %indvars.iv116
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.073106, i64 %indvars.iv116
   %142 = load double, ptr %141, align 8, !tbaa !77
   %143 = fmul nsz double %140, %142
-  %144 = getelementptr inbounds nuw double, ptr %.080104, i64 %indvars.iv116
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.080104, i64 %indvars.iv116
   store double %143, ptr %144, align 8, !tbaa !77
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
@@ -693,9 +693,9 @@ output_gain.exit:                                 ; preds = %90, %92, %112, %114
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %138
   %145 = add nuw nsw i32 %.079105, 1
-  %146 = getelementptr inbounds double, ptr %.073106, i64 %41
-  %147 = getelementptr inbounds double, ptr %.080104, i64 %41
-  %148 = getelementptr inbounds double, ptr %.081102, i64 %43
+  %146 = getelementptr inbounds [8 x i8], ptr %.073106, i64 %41
+  %147 = getelementptr inbounds [8 x i8], ptr %.080104, i64 %41
+  %148 = getelementptr inbounds [8 x i8], ptr %.081102, i64 %43
   %exitcond121.not = icmp eq i32 %145, %4
   br i1 %exitcond121.not, label %._crit_edge109, label %47, !llvm.loop !84
 

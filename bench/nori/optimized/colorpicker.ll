@@ -326,9 +326,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
 97:                                               ; preds = %97, %90
   %.011.i.i = phi i64 [ 1, %90 ], [ %103, %97 ]
   %.0910.i.i = phi float [ %96, %90 ], [ %102, %97 ]
-  %98 = getelementptr inbounds nuw float, ptr %2, i64 %.011.i.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.011.i.i
   %99 = load float, ptr %98, align 4
-  %100 = getelementptr inbounds nuw float, ptr %14, i64 %.011.i.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.011.i.i
   %101 = load float, ptr %100, align 4
   %102 = call float @llvm.fmuladd.f32(float %99, float %101, float %.0910.i.i)
   %103 = add nuw nsw i64 %.011.i.i, 1
@@ -343,7 +343,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
 
 106:                                              ; preds = %106, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i
   %.04.i.i.i = phi i64 [ 0, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i ], [ %108, %106 ]
-  %107 = getelementptr inbounds nuw float, ptr %13, i64 %.04.i.i.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.04.i.i.i
   store float %105, ptr %107, align 4
   %108 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %108, 3
@@ -437,9 +437,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; 
 136:                                              ; preds = %136, %129
   %.011.i.i46 = phi i64 [ 1, %129 ], [ %142, %136 ]
   %.0910.i.i47 = phi float [ %135, %129 ], [ %141, %136 ]
-  %137 = getelementptr inbounds nuw float, ptr %2, i64 %.011.i.i46
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.011.i.i46
   %138 = load float, ptr %137, align 4
-  %139 = getelementptr inbounds nuw float, ptr %12, i64 %.011.i.i46
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.011.i.i46
   %140 = load float, ptr %139, align 4
   %141 = call float @llvm.fmuladd.f32(float %138, float %140, float %.0910.i.i47)
   %142 = add nuw nsw i64 %.011.i.i46, 1
@@ -454,7 +454,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i49: ; preds = %136
 
 145:                                              ; preds = %145, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i49
   %.04.i.i.i50 = phi i64 [ 0, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i49 ], [ %147, %145 ]
-  %146 = getelementptr inbounds nuw float, ptr %11, i64 %.04.i.i.i50
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.04.i.i.i50
   store float %144, ptr %146, align 4
   %147 = add nuw nsw i64 %.04.i.i.i50, 1
   %exitcond.not.i.i.i51 = icmp eq i64 %147, 3
@@ -849,9 +849,9 @@ define hidden void @_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE(ptr noundef 
 11:                                               ; preds = %11, %8
   %.011.i.i = phi i64 [ 1, %8 ], [ %17, %11 ]
   %.0910.i.i = phi float [ %10, %8 ], [ %16, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %1, i64 %.011.i.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.011.i.i
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds nuw float, ptr %4, i64 %.011.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.011.i.i
   %15 = load float, ptr %14, align 4
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %15, float %.0910.i.i)
   %17 = add nuw nsw i64 %.011.i.i, 1
@@ -866,7 +866,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %11
 
 20:                                               ; preds = %20, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i
   %.04.i.i.i = phi i64 [ 0, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i ], [ %22, %20 ]
-  %21 = getelementptr inbounds nuw float, ptr %3, i64 %.04.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.04.i.i.i
   store float %19, ptr %21, align 4
   %22 = add nuw nsw i64 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %22, 3
@@ -1188,9 +1188,9 @@ define internal void @"_ZNSt17_Function_handlerIFvbEZN7nanogui11ColorPickerC1EPN
 18:                                               ; preds = %18, %15
   %.011.i.i.i.i.i.i = phi i64 [ 1, %15 ], [ %24, %18 ]
   %.0910.i.i.i.i.i.i = phi float [ %17, %15 ], [ %23, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %11, i64 %.011.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.011.i.i.i.i.i.i
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds nuw float, ptr %4, i64 %.011.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.011.i.i.i.i.i.i
   %22 = load float, ptr %21, align 4
   %23 = tail call float @llvm.fmuladd.f32(float %20, float %22, float %.0910.i.i.i.i.i.i)
   %24 = add nuw nsw i64 %.011.i.i.i.i.i.i, 1
@@ -1205,7 +1205,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i: ; preds = %18
 
 27:                                               ; preds = %27, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i
   %.04.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i ], [ %29, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %3, i64 %.04.i.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.04.i.i.i.i.i.i.i
   store float %26, ptr %28, align 4
   %29 = add nuw nsw i64 %.04.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %29, 3
@@ -1321,9 +1321,9 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11Colo
 11:                                               ; preds = %11, %2
   %.011.i.i.i.i.i = phi i64 [ 1, %2 ], [ %17, %11 ]
   %.0910.i.i.i.i.i = phi float [ %10, %2 ], [ %16, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %1, i64 %.011.i.i.i.i.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.011.i.i.i.i.i
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds nuw float, ptr %4, i64 %.011.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %15 = load float, ptr %14, align 4
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %15, float %.0910.i.i.i.i.i)
   %17 = add nuw nsw i64 %.011.i.i.i.i.i, 1
@@ -1338,7 +1338,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i: ; preds = %11
 
 20:                                               ; preds = %20, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i
   %.04.i.i.i.i.i.i = phi i64 [ 0, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i ], [ %22, %20 ]
-  %21 = getelementptr inbounds nuw float, ptr %3, i64 %.04.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.04.i.i.i.i.i.i
   store float %19, ptr %21, align 4
   %22 = add nuw nsw i64 %.04.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %22, 3
@@ -1437,9 +1437,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPN
 17:                                               ; preds = %17, %8
   %.011.i.i.i.i.i.i = phi i64 [ 1, %8 ], [ %23, %17 ]
   %.0910.i.i.i.i.i.i = phi float [ %16, %8 ], [ %22, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %4, i64 %.011.i.i.i.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.011.i.i.i.i.i.i
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds nuw float, ptr %3, i64 %.011.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.011.i.i.i.i.i.i
   %21 = load float, ptr %20, align 4
   %22 = tail call float @llvm.fmuladd.f32(float %19, float %21, float %.0910.i.i.i.i.i.i)
   %23 = add nuw nsw i64 %.011.i.i.i.i.i.i, 1
@@ -1454,7 +1454,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i: ; preds = %17
 
 26:                                               ; preds = %26, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i
   %.04.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i ], [ %28, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %.04.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.04.i.i.i.i.i.i.i
   store float %25, ptr %27, align 4
   %28 = add nuw nsw i64 %.04.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %28, 3

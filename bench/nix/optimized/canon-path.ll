@@ -6893,7 +6893,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %48, ptr %3, align 8
   store ptr %52, ptr %27, align 8
-  %54 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %46
   store ptr %54, ptr %28, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit
 
@@ -7266,7 +7266,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i85: ; preds = %170, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i82
   store ptr %165, ptr %9, align 8
   store ptr %169, ptr %144, align 8
-  %171 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %165, i64 %163
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %163
   store ptr %171, ptr %145, align 8
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit88
 

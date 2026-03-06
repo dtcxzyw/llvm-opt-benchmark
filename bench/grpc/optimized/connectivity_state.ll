@@ -25,12 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
 %"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
 %"struct.std::_Head_base.17" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
-%"struct.std::_Head_base.7" = type { ptr }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -175,7 +169,7 @@ define noundef nonnull ptr @_ZN9grpc_core21ConnectivityStateNameE23grpc_connecti
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core21ConnectivityStateNameE23grpc_connectivity_state, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core21ConnectivityStateNameE23grpc_connectivity_state, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -411,7 +405,7 @@ define void @_ZN9grpc_core24ConnectivityStateTrackerD2Ev(ptr noundef nonnull ali
   %31 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %30, i1 true)
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 %32
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %24, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %35 = load i8, ptr %33, align 1, !tbaa !42
   %36 = icmp slt i8 %35, -1
   br i1 %36, label %.lr.ph.i.i, label %.lr.ph.preheader, !llvm.loop !44
@@ -548,7 +542,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %60, %63
   %79 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %78, i1 true)
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 %80
-  %82 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %72, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %80
   %83 = load i8, ptr %81, align 1, !tbaa !42
   %84 = icmp slt i8 %83, -1
   br i1 %84, label %.lr.ph.i.i14, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !44
@@ -1115,13 +1109,13 @@ define linkonce_odr noundef i64 @_ZN4absl12lts_2024072218container_internal12raw
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.sroa.6.0.i.i, %46
   %48 = and i64 %47, %3
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !48
   %51 = icmp eq ptr %50, %17
   br i1 %51, label %.thread29.i.i, label %54, !prof !55
 
 .thread29.i.i:                                    ; preds = %.lr.ph.i.i
-  %52 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 %48
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE12find_non_sooISB_EENSG_8iteratorERKT_m.exit.i
@@ -1414,7 +1408,7 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit:       ; preds = %.critedge62, %_ZN4a
   %83 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %82, i1 true)
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 %84
-  %86 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %76, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %84
   %87 = load i8, ptr %85, align 1, !tbaa !42
   %88 = icmp slt i8 %87, -1
   br i1 %88, label %.lr.ph.i.i, label %.lr.ph.preheader, !llvm.loop !44
@@ -1593,7 +1587,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi5EEERS2_RAT__Kc.exit81: ; p
   %145 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %144, i1 true)
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr %139, i64 %146
-  %148 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %138, i64 %146
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %146
   %149 = load i8, ptr %147, align 1, !tbaa !42
   %150 = icmp slt i8 %149, -1
   br i1 %150, label %.lr.ph.i.i82, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !44
@@ -1731,7 +1725,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.010.030.i = phi i64 [ %39, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit.i ], [ %27, %.lr.ph32.preheader.i ]
   %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.010.030.i, i1 true)
   %29 = lshr i64 %28, 3
-  %30 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !48
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit.i, label %32
@@ -1785,7 +1779,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.04.021.i = phi i16 [ %61, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit3.i ], [ %46, %.lr.ph28.i ]
   %49 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.021.i, i1 true)
   %50 = zext nneg i16 %49 to i64
-  %51 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.0.i26.i, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.0.i26.i, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !48
   %.not.i.i.i.i.i.i2.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit3.i, label %53
@@ -2374,7 +2368,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.010.030.i = phi i64 [ %38, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit.i ], [ %26, %.lr.ph32.preheader.i ]
   %27 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.010.030.i, i1 true)
   %28 = lshr i64 %27, 3
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !48
   %.not.i.i.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit.i, label %31
@@ -2428,7 +2422,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.04.021.i = phi i16 [ %60, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit3.i ], [ %45, %.lr.ph28.i ]
   %48 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.021.i, i1 true)
   %49 = zext nneg i16 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.0.i26.i, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.0.i26.i, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !48
   %.not.i.i.i.i.i.i2.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE7destroyEPS8_.exit3.i, label %52
@@ -2582,7 +2576,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !34, !noalias !92
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt10unique_ptrIN9grpc_core33ConnectivityStateWatcherInterfaceENS5_16OrphanableDeleteEEEENS1_6HashEqIPS6_vE4HashENSC_2EqESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSG_8iteratorEbERKT_.exit.i.i
 
@@ -2669,7 +2663,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %36 = zext nneg i16 %35 to i64
   %37 = add i64 %.sroa.7.0, %36
   %38 = and i64 %37, %20
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !48
   %41 = icmp eq ptr %40, %6
   br i1 %41, label %.critedge21, label %.critedge, !prof !55
@@ -2697,7 +2691,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %52 = load ptr, ptr %4, align 8, !tbaa !34
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %29, align 8, !tbaa !34
-  %54 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
   br label %60
 
 55:                                               ; preds = %.critedge19
@@ -2706,7 +2700,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %30
 
 .critedge21:                                      ; preds = %.lr.ph
-  %58 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i, i64 %38
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %38
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 %38
   br label %60
 
@@ -2832,8 +2826,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 58:                                               ; preds = %.lr.ph.i
   %59 = xor i64 %.015.i, %53
-  %60 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i, i64 %59
-  %61 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
   %62 = load i64, ptr %61, align 8, !tbaa !48
   store i64 %62, ptr %60, align 8, !tbaa !48
   store ptr null, ptr %61, align 8, !tbaa !48
@@ -2916,7 +2910,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %112 = getelementptr i8, ptr %82, i64 %110
   %113 = getelementptr i8, ptr %112, i64 %111
   store i8 %107, ptr %113, align 1, !tbaa !42
-  %114 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   store i64 %68, ptr %114, align 8, !tbaa !48
   br label %186
 
@@ -2942,7 +2936,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %125, label %126, label %173
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i, i64 %.074
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.074
   %128 = load ptr, ptr %127, align 8
   %129 = ptrtoint ptr %128 to i64
   %130 = add i64 %129, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -3008,7 +3002,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %170 = getelementptr i8, ptr %142, i64 %169
   %171 = getelementptr i8, ptr %170, i64 %120
   store i8 %166, ptr %171, align 1, !tbaa !42
-  %172 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i44
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i44
   store i64 %129, ptr %172, align 8, !tbaa !48
   store ptr null, ptr %127, align 8, !tbaa !48
   br label %173

@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.repcodes_s = type { [3 x i32] }
 %struct.ZSTD_optLdm_t = type { %struct.RawSeqStore_t, i32, i32, i32 }
 %struct.RawSeqStore_t = type { ptr, i64, i64, i64, i64 }
-%struct.ZSTD_match_t = type { i32, i32 }
-%struct.ZSTD_optimal_t = type { i32, i32, i32, i32, [3 x i32] }
-%struct.rawSeq = type { i32, i32, i32 }
-%struct.FSE_symbolCompressionTransform = type { i32, i32 }
 
 @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns = private unnamed_addr constant [3 x [4 x ptr]] [[4 x ptr] [ptr @ZSTD_btGetAllMatches_noDict_3, ptr @ZSTD_btGetAllMatches_noDict_4, ptr @ZSTD_btGetAllMatches_noDict_5, ptr @ZSTD_btGetAllMatches_noDict_6], [4 x ptr] [ptr @ZSTD_btGetAllMatches_extDict_3, ptr @ZSTD_btGetAllMatches_extDict_4, ptr @ZSTD_btGetAllMatches_extDict_5, ptr @ZSTD_btGetAllMatches_extDict_6], [4 x ptr] [ptr @ZSTD_btGetAllMatches_dictMatchState_3, ptr @ZSTD_btGetAllMatches_dictMatchState_4, ptr @ZSTD_btGetAllMatches_dictMatchState_5, ptr @ZSTD_btGetAllMatches_dictMatchState_6]], align 16
 @__const.ZSTD_rescaleFreqs.baseLLfreqs = private unnamed_addr constant [36 x i32] [i32 4, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 16
@@ -82,8 +78,8 @@ define internal fastcc i64 @ZSTD_compressBlock_opt0(ptr noundef initializes((224
   %26 = zext nneg i32 %25 to i64
   %27 = select i1 %brmerge.i, i64 %.mux.i, i64 %26
   %28 = zext nneg i32 %5 to i64
-  %29 = getelementptr inbounds nuw [4 x ptr], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 %28
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %33 = load i32, ptr %32, align 4, !tbaa !22
@@ -245,7 +241,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %119, %116
   %128 = zext i8 %127 to i32
   %129 = load i32, ptr %61, align 4, !tbaa !38
   %130 = load ptr, ptr %62, align 8, !tbaa !39
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %125
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %125
   %132 = load i32, ptr %131, align 4, !tbaa !23
   %133 = add i32 %132, 1
   %134 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %133, i1 true)
@@ -261,7 +257,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %98, %105, %ZSTD_LLc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %63, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %137 = add i32 %93, -1
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %41, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !42
   %.not492.i = icmp ugt i32 %141, %spec.select.i
@@ -274,7 +270,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %98, %105, %ZSTD_LLc
 
 .preheader189:                                    ; preds = %ZSTD_litLengthPrice.exit, %.preheader189
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader189 ], [ 1, %ZSTD_litLengthPrice.exit ]
-  %143 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %indvars.iv
   store i32 1073741824, ptr %143, align 4, !tbaa !41
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 0, ptr %144, align 4, !tbaa !34
@@ -293,7 +289,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %98, %105, %ZSTD_LLc
 .preheader188:                                    ; preds = %.preheader188.preheader, %._crit_edge
   %indvars.iv259 = phi i64 [ 0, %.preheader188.preheader ], [ %indvars.iv.next260, %._crit_edge ]
   %.1468.i198 = phi i32 [ %35, %.preheader188.preheader ], [ %.2469.i.lcssa, %._crit_edge ]
-  %148 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %41, i64 %indvars.iv259
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv259
   %149 = load i32, ptr %148, align 4, !tbaa !44
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %151 = load i32, ptr %150, align 4, !tbaa !42
@@ -319,7 +315,7 @@ ZSTD_litLengthPrice.exit17.us:                    ; preds = %.lr.ph, %ZSTD_litLe
   %163 = load i32, ptr %39, align 4, !tbaa !41
   %164 = add nsw i32 %162, %163
   %165 = zext i32 %.2469.i196.us to i64
-  %166 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %165
+  %166 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i32 %.2469.i196.us, ptr %167, align 4, !tbaa !34
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 4
@@ -339,7 +335,7 @@ ZSTD_litLengthPrice.exit17.us:                    ; preds = %.lr.ph, %ZSTD_litLe
   %175 = zext nneg i32 %153 to i64
   %176 = load i32, ptr %64, align 4, !tbaa !48
   %177 = load ptr, ptr %65, align 8, !tbaa !49
-  %178 = getelementptr inbounds nuw i32, ptr %177, i64 %175
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %175
   %179 = load i32, ptr %66, align 8, !tbaa !50
   %180 = load ptr, ptr %67, align 8, !tbaa !51
   %181 = add i32 %174, %176
@@ -377,7 +373,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %190, %193
   %200 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !40
   %202 = zext i8 %201 to i32
-  %203 = getelementptr inbounds nuw i32, ptr %180, i64 %199
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %199
   %204 = load i32, ptr %203, align 4, !tbaa !23
   %205 = add i32 %204, 1
   %206 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %205, i1 true)
@@ -391,7 +387,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %190, %193
   %212 = add i32 %211, %208
   %213 = add i32 %212, %.neg244
   %214 = zext i32 %.2469.i196 to i64
-  %215 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %214
+  %215 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i32 %.2469.i196, ptr %216, align 4, !tbaa !34
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 4
@@ -417,7 +413,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %190, %193
 
 .lr.ph224.preheader:                              ; preds = %._crit_edge
   %226 = zext i32 %.2469.i.lcssa to i64
-  %227 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %226
+  %227 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %226
   store i32 1073741824, ptr %227, align 4, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %228 = add i32 %.2469.i.lcssa, -1
@@ -430,7 +426,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %190, %193
   %230 = getelementptr inbounds nuw i8, ptr %.0.i239, i64 %229
   %231 = add i32 %.5.i222, -1
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %232
+  %233 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 12
   %235 = load i32, ptr %234, align 4, !tbaa !36
   %236 = add i32 %235, 1
@@ -455,7 +451,7 @@ ZSTD_rawLiteralsCost.exit.thread339:              ; preds = %239
   %244 = load ptr, ptr %13, align 8, !tbaa !55
   %245 = load i8, ptr %238, align 1, !tbaa !40
   %246 = zext i8 %245 to i64
-  %247 = getelementptr inbounds nuw i32, ptr %244, i64 %246
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %246
   %248 = load i32, ptr %247, align 4, !tbaa !23
   %249 = add i32 %248, 1
   %250 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %249, i1 true)
@@ -525,7 +521,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %.lr.ph224
   %293 = zext i8 %292 to i32
   %294 = load i32, ptr %61, align 4, !tbaa !38
   %295 = load ptr, ptr %62, align 8, !tbaa !39
-  %296 = getelementptr inbounds nuw i32, ptr %295, i64 %290
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %295, i64 %290
   %297 = load i32, ptr %296, align 4, !tbaa !23
   %298 = add i32 %297, 1
   %299 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %298, i1 true)
@@ -574,7 +570,7 @@ ZSTD_LLcode.exit.i24:                             ; preds = %316, %312
   %324 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %323
   %325 = load i8, ptr %324, align 1, !tbaa !40
   %326 = zext i8 %325 to i32
-  %327 = getelementptr inbounds nuw i32, ptr %321, i64 %323
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %323
   %328 = load i32, ptr %327, align 4, !tbaa !23
   %329 = add i32 %328, 1
   %330 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %329, i1 true)
@@ -589,7 +585,7 @@ ZSTD_litLengthPrice.exit28:                       ; preds = %279, %303, %ZSTD_LL
   %.0.i26 = phi i32 [ %331, %ZSTD_LLcode.exit.i24 ], [ %309, %303 ], [ %287, %279 ]
   %333 = sub nsw i32 %.0.i2185, %.0.i26
   %334 = add nsw i32 %332, %333
-  %335 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %229
+  %335 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %229
   %336 = load i32, ptr %335, align 4, !tbaa !41
   %.not494.i = icmp sgt i32 %334, %336
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %335, i64 12
@@ -616,7 +612,7 @@ ZSTD_litLengthPrice.exit28._crit_edge:            ; preds = %ZSTD_litLengthPrice
   %344 = load i32, ptr %343, align 4, !tbaa !34
   %345 = sub i32 %.5.i222, %344
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %346
+  %347 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
   %349 = getelementptr inbounds nuw i8, ptr %335, i64 4
   %350 = load i32, ptr %349, align 4, !tbaa !46
@@ -655,7 +651,7 @@ ZSTD_litLengthPrice.exit28._crit_edge:            ; preds = %ZSTD_litLengthPrice
 
 366:                                              ; preds = %358
   %367 = zext i32 %362 to i64
-  %368 = getelementptr inbounds nuw i32, ptr %8, i64 %367
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !23
   %.pre.i.i = load i32, ptr %8, align 8, !tbaa !23
   br label %370
@@ -701,7 +697,7 @@ ZSTD_newRep.exit:                                 ; preds = %.ZSTD_updateRep.exi
 379:                                              ; preds = %377
   %380 = add i32 %.5.i222, 1
   %381 = zext i32 %380 to i64
-  %382 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %381
+  %382 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %381
   %383 = load i32, ptr %382, align 4, !tbaa !41
   %384 = add nsw i32 %339, 128
   %.not495.i = icmp sgt i32 %383, %384
@@ -748,7 +744,7 @@ ZSTD_litLengthPrice.exit33:                       ; preds = %.split473.i, %387
 405:                                              ; preds = %ZSTD_litLengthPrice.exit33
   %406 = add i32 %404, -1
   %407 = zext i32 %406 to i64
-  %408 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %41, i64 %407
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %407
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 4
   %410 = load i32, ptr %409, align 4, !tbaa !42
   %411 = icmp ule i32 %410, %spec.select.i
@@ -769,7 +765,7 @@ ZSTD_litLengthPrice.exit33:                       ; preds = %.split473.i, %387
 416:                                              ; preds = %.preheader, %._crit_edge209
   %indvars.iv271 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next272, %._crit_edge209 ]
   %.12.i219 = phi i32 [ %.3456.i221, %.preheader ], [ %.13.i.lcssa, %._crit_edge209 ]
-  %417 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %41, i64 %indvars.iv271
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv271
   %418 = load i32, ptr %417, align 4, !tbaa !44
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 4
   %420 = load i32, ptr %419, align 4, !tbaa !42
@@ -777,7 +773,7 @@ ZSTD_litLengthPrice.exit33:                       ; preds = %.split473.i, %387
   br i1 %.not498.i, label %426, label %421
 
 421:                                              ; preds = %416
-  %422 = getelementptr %struct.ZSTD_match_t, ptr %41, i64 %indvars.iv271
+  %422 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv271
   %423 = getelementptr i8, ptr %422, i64 -4
   %424 = load i32, ptr %423, align 4, !tbaa !42
   %425 = add i32 %424, 1
@@ -814,7 +810,7 @@ ZSTD_getMatchPrice.exit8.us:                      ; preds = %._crit_edge202.us, 
 
 439:                                              ; preds = %ZSTD_getMatchPrice.exit8.us
   %440 = zext i32 %433 to i64
-  %441 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %440
+  %441 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %440
   %442 = load i32, ptr %441, align 4, !tbaa !41
   %443 = icmp slt i32 %.reass, %442
   br i1 %443, label %.._crit_edge202.us_crit_edge, label %._crit_edge209
@@ -835,7 +831,7 @@ ZSTD_getMatchPrice.exit8.us:                      ; preds = %._crit_edge202.us, 
 ._crit_edge202.us:                                ; preds = %.._crit_edge202.us_crit_edge, %._crit_edge202.us.loopexit
   %.pre-phi292 = phi i64 [ %.pre291, %.._crit_edge202.us_crit_edge ], [ %445, %._crit_edge202.us.loopexit ]
   %.15.i.lcssa.us = phi i32 [ %.13.i206.us, %.._crit_edge202.us_crit_edge ], [ %446, %._crit_edge202.us.loopexit ]
-  %447 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %.pre-phi292
+  %447 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %.pre-phi292
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store i32 %.0472.i205.us, ptr %448, align 4, !tbaa !34
   %449 = getelementptr inbounds nuw i8, ptr %447, i64 4
@@ -850,7 +846,7 @@ ZSTD_getMatchPrice.exit8.us:                      ; preds = %._crit_edge202.us, 
 .lr.ph201.us:                                     ; preds = %.lr.ph201.us.preheader, %.lr.ph201.us
   %indvars.iv268 = phi i64 [ %444, %.lr.ph201.us.preheader ], [ %indvars.iv.next269, %.lr.ph201.us ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %452 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %indvars.iv.next269
+  %452 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %indvars.iv.next269
   store i32 1073741824, ptr %452, align 4, !tbaa !41
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 12
   store i32 1, ptr %453, align 4, !tbaa !36
@@ -865,7 +861,7 @@ ZSTD_getMatchPrice.exit8.us:                      ; preds = %._crit_edge202.us, 
   %459 = zext nneg i32 %429 to i64
   %460 = load i32, ptr %64, align 4, !tbaa !48
   %461 = load ptr, ptr %65, align 8, !tbaa !49
-  %462 = getelementptr inbounds nuw i32, ptr %461, i64 %459
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %461, i64 %459
   %463 = load i32, ptr %66, align 8, !tbaa !50
   %464 = load ptr, ptr %67, align 8, !tbaa !51
   %465 = add i32 %458, %460
@@ -902,7 +898,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %483 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %482
   %484 = load i8, ptr %483, align 1, !tbaa !40
   %485 = zext i8 %484 to i32
-  %486 = getelementptr inbounds nuw i32, ptr %464, i64 %482
+  %486 = getelementptr inbounds nuw [4 x i8], ptr %464, i64 %482
   %487 = load i32, ptr %486, align 4, !tbaa !23
   %488 = add i32 %487, 1
   %489 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %488, i1 true)
@@ -919,7 +915,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
 
 497:                                              ; preds = %ZSTD_MLcode.exit34
   %498 = zext i32 %467 to i64
-  %499 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %498
+  %499 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %498
   %500 = load i32, ptr %499, align 4, !tbaa !41
   %501 = icmp slt i32 %495, %500
   br i1 %501, label %.._crit_edge202_crit_edge, label %._crit_edge209
@@ -936,7 +932,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv265 = phi i64 [ %502, %.lr.ph201.preheader ], [ %indvars.iv.next266, %.lr.ph201 ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
-  %504 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %indvars.iv.next266
+  %504 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %indvars.iv.next266
   store i32 1073741824, ptr %504, align 4, !tbaa !41
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 12
   store i32 1, ptr %505, align 4, !tbaa !36
@@ -950,7 +946,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
 ._crit_edge202:                                   ; preds = %.._crit_edge202_crit_edge, %._crit_edge202.loopexit
   %.pre-phi294 = phi i64 [ %.pre293, %.._crit_edge202_crit_edge ], [ %503, %._crit_edge202.loopexit ]
   %.15.i.lcssa = phi i32 [ %.13.i206, %.._crit_edge202_crit_edge ], [ %507, %._crit_edge202.loopexit ]
-  %508 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %.pre-phi294
+  %508 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %.pre-phi294
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store i32 %.0472.i205, ptr %509, align 4, !tbaa !34
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 4
@@ -972,7 +968,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %514 = add i32 %.13.i.lcssa, 1
   %515 = zext i32 %514 to i64
-  %516 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %515
+  %516 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %515
   store i32 1073741824, ptr %516, align 4, !tbaa !41
   br label %.thread113
 
@@ -985,7 +981,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
 517:                                              ; preds = %377, %.thread113
   %.3456.i.lcssa.ph = phi i32 [ %.9.i119, %.thread113 ], [ %.5.i222, %377 ]
   %518 = zext i32 %.3456.i.lcssa.ph to i64
-  %519 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %518
+  %519 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %518
   %.sroa.0214.0.copyload.i = load i32, ptr %519, align 4, !tbaa !23
   %.sroa.6217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %519, i64 4
   %.sroa.6217.0.copyload.i = load i32, ptr %.sroa.6217.0..sroa_idx.i, align 4, !tbaa !23
@@ -1022,7 +1018,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %.sroa.6217.4.i353363 = phi i32 [ %.sroa.6217.0.copyload.i, %527 ], [ %522, %.thread342 ]
   %.sroa.0214.2.i355362 = phi i32 [ %.sroa.0214.0.copyload.i, %527 ], [ %.sroa.0214.0.i237, %.thread342 ]
   %.phi.trans.insert278 = zext i32 %.4452.i350365 to i64
-  %.phi.trans.insert279 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %.phi.trans.insert278
+  %.phi.trans.insert279 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %.phi.trans.insert278
   %.phi.trans.insert280 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert279, i64 12
   %.pre281 = load i32, ptr %.phi.trans.insert280, align 4, !tbaa !36
   br label %529
@@ -1034,7 +1030,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %.sroa.6217.4.i145156 = phi i32 [ %142, %.thread147 ], [ %.sroa.6217.4.i353363, %._crit_edge277 ]
   %.sroa.0214.2.i146154 = phi i32 [ %.sroa.0214.0.i237, %.thread147 ], [ %.sroa.0214.2.i355362, %._crit_edge277 ]
   %531 = zext i32 %.4452.i142161 to i64
-  %532 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %531
+  %532 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %531
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %533, i64 12, i1 false)
@@ -1069,7 +1065,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
 
 547:                                              ; preds = %539
   %548 = zext i32 %543 to i64
-  %549 = getelementptr inbounds nuw i32, ptr %7, i64 %548
+  %549 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %548
   %550 = load i32, ptr %549, align 4, !tbaa !23
   %.pre.i.i48 = load i32, ptr %7, align 8, !tbaa !23
   br label %551
@@ -1105,14 +1101,14 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %557 = sub i32 %520, %.sroa.13.0.copyload.i
   %558 = add i32 %557, 2
   %559 = zext i32 %558 to i64
-  %560 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %559
+  %560 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %559
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 12
   store i32 %.sroa.13.0.copyload.i, ptr %561, align 4, !tbaa !36
   %562 = getelementptr inbounds nuw i8, ptr %560, i64 8
   store i32 0, ptr %562, align 4, !tbaa !34
   %563 = add i32 %557, 1
   %564 = zext i32 %563 to i64
-  %565 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %564
+  %565 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %564
   store i32 %.sroa.0214.0.copyload.i, ptr %565, align 4, !tbaa !23
   %.sroa.6217.0..sroa_idx218.i = getelementptr inbounds nuw i8, ptr %565, i64 4
   store i32 %.sroa.6217.0.copyload.i, ptr %.sroa.6217.0..sroa_idx218.i, align 4, !tbaa !23
@@ -1132,7 +1128,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %.sroa.6217.4.i145155170 = phi i32 [ %.sroa.6217.4.i145156, %.thread162 ], [ %.sroa.6217.0.copyload.i, %556 ]
   %.sroa.9.4.i144157169 = phi i32 [ %.sroa.9.4.i144158, %.thread162 ], [ %.sroa.9.0.copyload.i, %556 ]
   %.sroa.13.4.i143159168 = phi i32 [ 0, %.thread162 ], [ %.sroa.13.0.copyload.i, %556 ]
-  %568 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %.pre-phi286
+  %568 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %.pre-phi286
   store i32 %.sroa.0214.2.i146153171, ptr %568, align 4, !tbaa !23
   %.sroa.6217.0..sroa_idx220.i = getelementptr inbounds nuw i8, ptr %568, i64 4
   store i32 %.sroa.6217.4.i145155170, ptr %.sroa.6217.0..sroa_idx220.i, align 4, !tbaa !23
@@ -1143,14 +1139,14 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %.sroa.19.0..sroa_idx235.i = getelementptr inbounds nuw i8, ptr %568, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.0..sroa_idx235.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.i, i64 12, i1 false), !tbaa.struct !62
   %569 = zext i32 %.6.i172 to i64
-  %570 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %569
+  %570 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %569
   %571 = load i64, ptr %570, align 4
   %.sroa.4.0..sroa_idx.i390 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %.sroa.4.0.copyload.i391 = load i32, ptr %.sroa.4.0..sroa_idx.i390, align 4, !tbaa !23
   %.sroa.6.0..sroa_idx.i392 = getelementptr inbounds nuw i8, ptr %570, i64 12
   %.sroa.6.0.copyload.i393 = load i32, ptr %.sroa.6.0..sroa_idx.i392, align 4, !tbaa !23
   %572 = zext i32 %567 to i64
-  %573 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %572
+  %573 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %572
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 12
   store i32 %.sroa.6.0.copyload.i393, ptr %574, align 4, !tbaa !36
   %.not394 = icmp eq i32 %.sroa.4.0.copyload.i391, 0
@@ -1163,11 +1159,11 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %576 = phi i64 [ %583, %.lr.ph400 ], [ %569, %566 ]
   %.0444.i396 = phi i32 [ %582, %.lr.ph400 ], [ %.6.i172, %566 ]
   %.0446.i395 = phi i32 [ %578, %.lr.ph400 ], [ %567, %566 ]
-  %577 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %576
+  %577 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %576
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %577, i64 16
   %578 = add i32 %.0446.i395, -1
   %579 = zext i32 %578 to i64
-  %580 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %579
+  %580 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %579
   store i64 %575, ptr %580, align 4
   %.sroa.4.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %580, i64 8
   store i32 %.sroa.4.0.copyload.i397, ptr %.sroa.4.0..sroa_idx20.i, align 4, !tbaa !23
@@ -1178,14 +1174,14 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %581 = add i32 %.sroa.4.0.copyload.i397, %.sroa.6.0.copyload.i398
   %582 = sub i32 %.0444.i396, %581
   %583 = zext i32 %582 to i64
-  %584 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %583
+  %584 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %583
   %585 = load i64, ptr %584, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %584, i64 8
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !23
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %584, i64 12
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !23
   %586 = zext i32 %578 to i64
-  %587 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %586
+  %587 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %586
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 12
   store i32 %.sroa.6.0.copyload.i, ptr %588, align 4, !tbaa !36
   %.not = icmp eq i32 %.sroa.4.0.copyload.i, 0
@@ -1200,7 +1196,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %.2441.i230 = phi ptr [ %.3442.i, %725 ], [ %.0439.i238, %.preheader187 ]
   %.0443.i229 = phi i32 [ %726, %725 ], [ %.0446.i.lcssa, %.preheader187 ]
   %589 = zext i32 %.0443.i229 to i64
-  %590 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %589
+  %590 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %589
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 12
   %592 = load i32, ptr %591, align 4, !tbaa !36
   %593 = getelementptr inbounds nuw i8, ptr %590, i64 8
@@ -1235,7 +1231,7 @@ ZSTD_MLcode.exit34:                               ; preds = %473, %476
   %605 = getelementptr inbounds nuw i8, ptr %.2441.i230, i64 %indvars.iv.i
   %606 = load i8, ptr %605, align 1, !tbaa !40
   %607 = zext i8 %606 to i64
-  %608 = getelementptr inbounds nuw i32, ptr %603, i64 %607
+  %608 = getelementptr inbounds nuw [4 x i8], ptr %603, i64 %607
   %609 = load i32, ptr %608, align 4, !tbaa !23
   %610 = add i32 %609, 2
   store i32 %610, ptr %608, align 4, !tbaa !23
@@ -1270,7 +1266,7 @@ ZSTD_LLcode.exit.i52:                             ; preds = %619, %616
   %624 = phi i32 [ %618, %616 ], [ %623, %619 ]
   %625 = load ptr, ptr %62, align 8, !tbaa !39
   %626 = zext nneg i32 %624 to i64
-  %627 = getelementptr inbounds nuw i32, ptr %625, i64 %626
+  %627 = getelementptr inbounds nuw [4 x i8], ptr %625, i64 %626
   %628 = load i32, ptr %627, align 4, !tbaa !23
   %629 = add i32 %628, 1
   store i32 %629, ptr %627, align 4, !tbaa !23
@@ -1281,7 +1277,7 @@ ZSTD_LLcode.exit.i52:                             ; preds = %619, %616
   %633 = xor i32 %632, 31
   %634 = load ptr, ptr %65, align 8, !tbaa !49
   %635 = zext nneg i32 %633 to i64
-  %636 = getelementptr inbounds nuw i32, ptr %634, i64 %635
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %634, i64 %635
   %637 = load i32, ptr %636, align 4, !tbaa !23
   %638 = add i32 %637, 1
   store i32 %638, ptr %636, align 4, !tbaa !23
@@ -1308,7 +1304,7 @@ ZSTD_updateStats.exit:                            ; preds = %643, %646
   %651 = phi i32 [ %645, %643 ], [ %650, %646 ]
   %652 = load ptr, ptr %67, align 8, !tbaa !51
   %653 = zext nneg i32 %651 to i64
-  %654 = getelementptr inbounds nuw i32, ptr %652, i64 %653
+  %654 = getelementptr inbounds nuw [4 x i8], ptr %652, i64 %653
   %655 = load i32, ptr %654, align 4, !tbaa !23
   %656 = add i32 %655, 1
   store i32 %656, ptr %654, align 4, !tbaa !23
@@ -1559,8 +1555,8 @@ define internal fastcc i64 @ZSTD_compressBlock_opt2(ptr noundef initializes((224
   %27 = zext nneg i32 %26 to i64
   %28 = select i1 %brmerge.i, i64 %.mux.i, i64 %27
   %29 = zext nneg i32 %5 to i64
-  %30 = getelementptr inbounds nuw [4 x ptr], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 %29
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %30 = getelementptr inbounds nuw [32 x i8], ptr @__const.ZSTD_selectBtGetAllMatches.getAllMatchesFns, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %34 = load i32, ptr %33, align 4, !tbaa !22
@@ -1731,7 +1727,7 @@ ZSTD_LLcode.exit.i:                               ; preds = %128, %125
   %137 = zext i8 %136 to i32
   %138 = load i32, ptr %62, align 4, !tbaa !38
   %139 = load ptr, ptr %63, align 8, !tbaa !39
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %134
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %134
   %141 = load i32, ptr %140, align 4, !tbaa !23
   %142 = add i32 %141, 1
   %143 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %142, i1 true)
@@ -1750,7 +1746,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %100, %110, %ZSTD_LL
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %149 = add i32 %95, -1
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %42, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !42
   %.not492.i = icmp ugt i32 %153, %spec.select.i
@@ -1763,7 +1759,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %100, %110, %ZSTD_LL
 
 .preheader307:                                    ; preds = %ZSTD_litLengthPrice.exit, %.preheader307
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader307 ], [ 1, %ZSTD_litLengthPrice.exit ]
-  %155 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %indvars.iv
   store i32 1073741824, ptr %155, align 4, !tbaa !41
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i32 0, ptr %156, align 4, !tbaa !34
@@ -1782,7 +1778,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %100, %110, %ZSTD_LL
 .preheader306:                                    ; preds = %.preheader306.preheader, %._crit_edge
   %indvars.iv373 = phi i64 [ 0, %.preheader306.preheader ], [ %indvars.iv.next374, %._crit_edge ]
   %.1468.i315 = phi i32 [ %36, %.preheader306.preheader ], [ %.2469.i.lcssa, %._crit_edge ]
-  %160 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %42, i64 %indvars.iv373
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv373
   %161 = load i32, ptr %160, align 4, !tbaa !44
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !42
@@ -1810,7 +1806,7 @@ ZSTD_litLengthPrice.exit17.us:                    ; preds = %.lr.ph, %ZSTD_litLe
   %175 = add i32 %174, %reass.mul302.us
   %176 = add i32 %175, %173
   %177 = zext i32 %.2469.i313.us to i64
-  %178 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %177
+  %178 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 %.2469.i313.us, ptr %179, align 4, !tbaa !34
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 4
@@ -1827,7 +1823,7 @@ ZSTD_litLengthPrice.exit17.us:                    ; preds = %.lr.ph, %ZSTD_litLe
   %184 = zext nneg i32 %165 to i64
   %185 = load i32, ptr %65, align 4, !tbaa !48
   %186 = load ptr, ptr %66, align 8, !tbaa !49
-  %187 = getelementptr inbounds nuw i32, ptr %186, i64 %184
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %184
   %188 = load i32, ptr %67, align 8, !tbaa !50
   %189 = load ptr, ptr %68, align 8, !tbaa !51
   %.neg289 = add i32 %185, 51
@@ -1866,7 +1862,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %201, %204
   %211 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !40
   %213 = zext i8 %212 to i32
-  %214 = getelementptr inbounds nuw i32, ptr %189, i64 %210
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %210
   %215 = load i32, ptr %214, align 4, !tbaa !23
   %216 = add i32 %215, 1
   %217 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %216, i1 true)
@@ -1883,7 +1879,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %201, %204
   %226 = sub i32 %224, %225
   %227 = add i32 %226, %reass.mul300
   %228 = zext i32 %.2469.i313 to i64
-  %229 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %228
+  %229 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 %.2469.i313, ptr %230, align 4, !tbaa !34
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 4
@@ -1913,7 +1909,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %201, %204
 
 .lr.ph337.preheader:                              ; preds = %._crit_edge
   %244 = zext i32 %.2469.i.lcssa to i64
-  %245 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %244
+  %245 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %244
   store i32 1073741824, ptr %245, align 4, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %246 = add i32 %.2469.i.lcssa, -1
@@ -1926,7 +1922,7 @@ ZSTD_litLengthPrice.exit17:                       ; preds = %201, %204
   %248 = getelementptr inbounds nuw i8, ptr %.0.i352, i64 %247
   %249 = add i32 %.5.i335, -1
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %250
+  %251 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 12
   %253 = load i32, ptr %252, align 4, !tbaa !36
   %254 = add i32 %253, 1
@@ -1951,7 +1947,7 @@ ZSTD_rawLiteralsCost.exit.thread457:              ; preds = %257
   %262 = load ptr, ptr %14, align 8, !tbaa !55
   %263 = load i8, ptr %256, align 1, !tbaa !40
   %264 = zext i8 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr %262, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !23
   %267 = add i32 %266, 1
   %268 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %267, i1 true)
@@ -2035,7 +2031,7 @@ ZSTD_rawLiteralsCost.exit:                        ; preds = %.lr.ph337
   %326 = load i32, ptr %62, align 4, !tbaa !38
   %327 = add i32 %325, %326
   %328 = load ptr, ptr %63, align 8, !tbaa !39
-  %329 = getelementptr inbounds nuw i32, ptr %328, i64 %321
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %328, i64 %321
   %330 = load i32, ptr %329, align 4, !tbaa !23
   %331 = add i32 %330, 1
   %332 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %331, i1 true)
@@ -2090,7 +2086,7 @@ ZSTD_LLcode.exit.i25:                             ; preds = %356, %351
   %365 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %364
   %366 = load i8, ptr %365, align 1, !tbaa !40
   %367 = zext i8 %366 to i32
-  %368 = getelementptr inbounds nuw i32, ptr %361, i64 %364
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %361, i64 %364
   %369 = load i32, ptr %368, align 4, !tbaa !23
   %370 = add i32 %369, 1
   %371 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %370, i1 true)
@@ -2109,7 +2105,7 @@ ZSTD_litLengthPrice.exit31:                       ; preds = %304, %338, %ZSTD_LL
   %.0.i28 = phi i32 [ %376, %ZSTD_LLcode.exit.i25 ], [ %348, %338 ], [ %318, %304 ]
   %378 = sub nsw i32 %.0.i21148, %.0.i28
   %379 = add nsw i32 %377, %378
-  %380 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %247
+  %380 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %247
   %381 = load i32, ptr %380, align 4, !tbaa !41
   %.not494.i = icmp sgt i32 %379, %381
   br i1 %.not494.i, label %ZSTD_litLengthPrice.exit31._crit_edge, label %382
@@ -2184,7 +2180,7 @@ ZSTD_litLengthPrice.exit56.thread:                ; preds = %410
   %417 = load ptr, ptr %14, align 8, !tbaa !55
   %418 = load i8, ptr %248, align 1, !tbaa !40
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw i32, ptr %417, i64 %419
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %417, i64 %419
   %421 = load i32, ptr %420, align 4, !tbaa !23
   %422 = add i32 %421, 1
   %423 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %422, i1 true)
@@ -2207,7 +2203,7 @@ ZSTD_litLengthPrice.exit56.thread:                ; preds = %410
   %436 = load ptr, ptr %14, align 8, !tbaa !55
   %437 = load i8, ptr %248, align 1, !tbaa !40
   %438 = zext i8 %437 to i64
-  %439 = getelementptr inbounds nuw i32, ptr %436, i64 %438
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %436, i64 %438
   %440 = load i32, ptr %439, align 4, !tbaa !23
   %441 = add i32 %440, 1
   %442 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %441, i1 true)
@@ -2266,7 +2262,7 @@ ZSTD_litLengthPrice.exit68:                       ; preds = %466, %469
   %478 = zext i8 %477 to i32
   %479 = shl nuw nsw i32 %478, 8
   %480 = add i32 %479, %387
-  %481 = getelementptr inbounds nuw i32, ptr %388, i64 %475
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %475
   %482 = load i32, ptr %481, align 4, !tbaa !23
   %483 = add i32 %482, 1
   %484 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %483, i1 true)
@@ -2317,7 +2313,7 @@ ZSTD_LLcode.exit.i69:                             ; preds = %505, %502
   %512 = getelementptr inbounds nuw i8, ptr @LL_bits, i64 %511
   %513 = load i8, ptr %512, align 1, !tbaa !40
   %514 = zext i8 %513 to i32
-  %515 = getelementptr inbounds nuw i32, ptr %388, i64 %511
+  %515 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %511
   %516 = load i32, ptr %515, align 4, !tbaa !23
   %517 = add i32 %516, 1
   %518 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %517, i1 true)
@@ -2342,7 +2338,7 @@ ZSTD_litLengthPrice.exit75:                       ; preds = %490, %ZSTD_LLcode.e
 526:                                              ; preds = %ZSTD_litLengthPrice.exit75
   %527 = add i32 %.5.i335, 1
   %528 = zext i32 %527 to i64
-  %529 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %528
+  %529 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %528
   %530 = load i32, ptr %529, align 4, !tbaa !41
   %531 = icmp slt i32 %451, %530
   br i1 %531, label %532, label %ZSTD_litLengthPrice.exit41.thread
@@ -2350,7 +2346,7 @@ ZSTD_litLengthPrice.exit75:                       ; preds = %490, %ZSTD_LLcode.e
 532:                                              ; preds = %526
   %533 = sub i32 %.5.i335, %.sroa.6100.0.copyload.i
   %534 = zext i32 %533 to i64
-  %535 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %534
+  %535 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %534
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 16
   %537 = getelementptr inbounds nuw i8, ptr %535, i64 12
   %538 = load i32, ptr %537, align 4, !tbaa !36
@@ -2387,7 +2383,7 @@ ZSTD_litLengthPrice.exit75:                       ; preds = %490, %ZSTD_LLcode.e
 
 552:                                              ; preds = %544
   %553 = zext i32 %548 to i64
-  %554 = getelementptr inbounds nuw i32, ptr %9, i64 %553
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %553
   %555 = load i32, ptr %554, align 4, !tbaa !23
   %.pre.i.i = load i32, ptr %9, align 8, !tbaa !23
   br label %556
@@ -2438,7 +2434,7 @@ ZSTD_litLengthPrice.exit41.thread:                ; preds = %382, %ZSTD_litLengt
   %565 = load i32, ptr %564, align 4, !tbaa !34
   %566 = sub i32 %.5.i335, %565
   %567 = zext i32 %566 to i64
-  %568 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %567
+  %568 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %567
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 16
   %570 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %571 = load i32, ptr %570, align 4, !tbaa !46
@@ -2477,7 +2473,7 @@ ZSTD_litLengthPrice.exit41.thread:                ; preds = %382, %ZSTD_litLengt
 
 587:                                              ; preds = %579
   %588 = zext i32 %583 to i64
-  %589 = getelementptr inbounds nuw i32, ptr %8, i64 %588
+  %589 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %588
   %590 = load i32, ptr %589, align 4, !tbaa !23
   %.pre.i.i90 = load i32, ptr %8, align 8, !tbaa !23
   br label %591
@@ -2560,7 +2556,7 @@ ZSTD_litLengthPrice.exit96:                       ; preds = %600, %603
 625:                                              ; preds = %ZSTD_litLengthPrice.exit96
   %626 = add i32 %624, -1
   %627 = zext i32 %626 to i64
-  %628 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %42, i64 %627
+  %628 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %627
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 4
   %630 = load i32, ptr %629, align 4, !tbaa !42
   %631 = icmp ule i32 %630, %spec.select.i
@@ -2580,7 +2576,7 @@ ZSTD_litLengthPrice.exit96:                       ; preds = %600, %603
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge326
   %indvars.iv385 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next386, %._crit_edge326 ]
   %.12.i332 = phi i32 [ %.8.i, %.preheader.preheader ], [ %.13.i.lcssa, %._crit_edge326 ]
-  %636 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %42, i64 %indvars.iv385
+  %636 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv385
   %637 = load i32, ptr %636, align 4, !tbaa !44
   %638 = getelementptr inbounds nuw i8, ptr %636, i64 4
   %639 = load i32, ptr %638, align 4, !tbaa !42
@@ -2588,7 +2584,7 @@ ZSTD_litLengthPrice.exit96:                       ; preds = %600, %603
   br i1 %.not498.i, label %645, label %640
 
 640:                                              ; preds = %.preheader
-  %641 = getelementptr %struct.ZSTD_match_t, ptr %42, i64 %indvars.iv385
+  %641 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv385
   %642 = getelementptr i8, ptr %641, i64 -4
   %643 = load i32, ptr %642, align 4, !tbaa !42
   %644 = add i32 %643, 1
@@ -2625,7 +2621,7 @@ ZSTD_getMatchPrice.exit7.us:                      ; preds = %.lr.ph325, %673
 
 661:                                              ; preds = %ZSTD_getMatchPrice.exit7.us
   %662 = zext i32 %651 to i64
-  %663 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %662
+  %663 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %662
   %664 = load i32, ptr %663, align 4, !tbaa !41
   %665 = icmp slt i32 %659, %664
   br i1 %665, label %.._crit_edge319.us_crit_edge, label %673
@@ -2646,7 +2642,7 @@ ZSTD_getMatchPrice.exit7.us:                      ; preds = %.lr.ph325, %673
 ._crit_edge319.us:                                ; preds = %.._crit_edge319.us_crit_edge, %._crit_edge319.us.loopexit
   %.pre-phi402 = phi i64 [ %.pre401, %.._crit_edge319.us_crit_edge ], [ %667, %._crit_edge319.us.loopexit ]
   %.15.i.lcssa.us = phi i32 [ %.13.i323.us, %.._crit_edge319.us_crit_edge ], [ %668, %._crit_edge319.us.loopexit ]
-  %669 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %.pre-phi402
+  %669 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %.pre-phi402
   %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
   store i32 %.0472.i322.us, ptr %670, align 4, !tbaa !34
   %671 = getelementptr inbounds nuw i8, ptr %669, i64 4
@@ -2665,7 +2661,7 @@ ZSTD_getMatchPrice.exit7.us:                      ; preds = %.lr.ph325, %673
 .lr.ph318.us:                                     ; preds = %.lr.ph318.us.preheader, %.lr.ph318.us
   %indvars.iv382 = phi i64 [ %666, %.lr.ph318.us.preheader ], [ %indvars.iv.next383, %.lr.ph318.us ]
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
-  %675 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %indvars.iv.next383
+  %675 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %indvars.iv.next383
   store i32 1073741824, ptr %675, align 4, !tbaa !41
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 12
   store i32 1, ptr %676, align 4, !tbaa !36
@@ -2676,7 +2672,7 @@ ZSTD_getMatchPrice.exit7.us:                      ; preds = %.lr.ph325, %673
   %678 = zext nneg i32 %648 to i64
   %679 = load i32, ptr %65, align 4, !tbaa !48
   %680 = load ptr, ptr %66, align 8, !tbaa !49
-  %681 = getelementptr inbounds nuw i32, ptr %680, i64 %678
+  %681 = getelementptr inbounds nuw [4 x i8], ptr %680, i64 %678
   %682 = load i32, ptr %67, align 8, !tbaa !50
   %683 = load ptr, ptr %68, align 8, !tbaa !51
   %.neg274 = add i32 %679, 51
@@ -2715,7 +2711,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %704 = getelementptr inbounds nuw i8, ptr @ML_bits, i64 %703
   %705 = load i8, ptr %704, align 1, !tbaa !40
   %706 = zext i8 %705 to i32
-  %707 = getelementptr inbounds nuw i32, ptr %683, i64 %703
+  %707 = getelementptr inbounds nuw [4 x i8], ptr %683, i64 %703
   %708 = load i32, ptr %707, align 4, !tbaa !23
   %709 = add i32 %708, 1
   %710 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %709, i1 true)
@@ -2735,7 +2731,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
 
 721:                                              ; preds = %ZSTD_MLcode.exit97
   %722 = zext i32 %685 to i64
-  %723 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %722
+  %723 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %722
   %724 = load i32, ptr %723, align 4, !tbaa !41
   %725 = icmp slt i32 %719, %724
   br i1 %725, label %.._crit_edge319_crit_edge, label %736
@@ -2752,7 +2748,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
 .lr.ph318:                                        ; preds = %.lr.ph318.preheader, %.lr.ph318
   %indvars.iv379 = phi i64 [ %726, %.lr.ph318.preheader ], [ %indvars.iv.next380, %.lr.ph318 ]
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
-  %728 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %indvars.iv.next380
+  %728 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %indvars.iv.next380
   store i32 1073741824, ptr %728, align 4, !tbaa !41
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 12
   store i32 1, ptr %729, align 4, !tbaa !36
@@ -2766,7 +2762,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
 ._crit_edge319:                                   ; preds = %.._crit_edge319_crit_edge, %._crit_edge319.loopexit
   %.pre-phi404 = phi i64 [ %.pre403, %.._crit_edge319_crit_edge ], [ %727, %._crit_edge319.loopexit ]
   %.15.i.lcssa = phi i32 [ %.13.i323, %.._crit_edge319_crit_edge ], [ %731, %._crit_edge319.loopexit ]
-  %732 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %.pre-phi404
+  %732 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %.pre-phi404
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
   store i32 %.0472.i322, ptr %733, align 4, !tbaa !34
   %734 = getelementptr inbounds nuw i8, ptr %732, i64 4
@@ -2792,7 +2788,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %739 = add i32 %.13.i.lcssa, 1
   %740 = zext i32 %739 to i64
-  %741 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %740
+  %741 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %740
   store i32 1073741824, ptr %741, align 4, !tbaa !41
   br label %.thread185
 
@@ -2805,7 +2801,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
 743:                                              ; preds = %598, %.thread185
   %.4457.i.ph = phi i32 [ %.9.i191, %.thread185 ], [ %.5.i335, %598 ]
   %744 = zext i32 %.4457.i.ph to i64
-  %745 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %744
+  %745 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %744
   %.sroa.0214.0.copyload.i = load i32, ptr %745, align 4, !tbaa !23
   %.sroa.6217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %745, i64 4
   %.sroa.6217.0.copyload.i = load i32, ptr %.sroa.6217.0..sroa_idx.i, align 4, !tbaa !23
@@ -2842,7 +2838,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %.sroa.6217.4.i475485 = phi i32 [ %.sroa.6217.0.copyload.i, %753 ], [ %748, %.thread464 ]
   %.sroa.0214.2.i477484 = phi i32 [ %.sroa.0214.0.copyload.i, %753 ], [ %.sroa.0214.0.i350, %.thread464 ]
   %.phi.trans.insert392 = zext i32 %.4452.i472487 to i64
-  %.phi.trans.insert393 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %.phi.trans.insert392
+  %.phi.trans.insert393 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %.phi.trans.insert392
   %.phi.trans.insert394 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert393, i64 12
   %.pre395 = load i32, ptr %.phi.trans.insert394, align 4, !tbaa !36
   br label %755
@@ -2854,7 +2850,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %.sroa.6217.4.i217228 = phi i32 [ %154, %.thread219 ], [ %.sroa.6217.4.i475485, %._crit_edge391 ]
   %.sroa.0214.2.i218226 = phi i32 [ %.sroa.0214.0.i350, %.thread219 ], [ %.sroa.0214.2.i477484, %._crit_edge391 ]
   %757 = zext i32 %.4452.i214233 to i64
-  %758 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %757
+  %758 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %757
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %759, i64 12, i1 false)
@@ -2889,7 +2885,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
 
 773:                                              ; preds = %765
   %774 = zext i32 %769 to i64
-  %775 = getelementptr inbounds nuw i32, ptr %7, i64 %774
+  %775 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %774
   %776 = load i32, ptr %775, align 4, !tbaa !23
   %.pre.i.i111 = load i32, ptr %7, align 8, !tbaa !23
   br label %777
@@ -2925,14 +2921,14 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %783 = sub i32 %746, %.sroa.13.0.copyload.i
   %784 = add i32 %783, 2
   %785 = zext i32 %784 to i64
-  %786 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %785
+  %786 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %785
   %787 = getelementptr inbounds nuw i8, ptr %786, i64 12
   store i32 %.sroa.13.0.copyload.i, ptr %787, align 4, !tbaa !36
   %788 = getelementptr inbounds nuw i8, ptr %786, i64 8
   store i32 0, ptr %788, align 4, !tbaa !34
   %789 = add i32 %783, 1
   %790 = zext i32 %789 to i64
-  %791 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %790
+  %791 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %790
   store i32 %.sroa.0214.0.copyload.i, ptr %791, align 4, !tbaa !23
   %.sroa.6217.0..sroa_idx218.i = getelementptr inbounds nuw i8, ptr %791, i64 4
   store i32 %.sroa.6217.0.copyload.i, ptr %.sroa.6217.0..sroa_idx218.i, align 4, !tbaa !23
@@ -2952,7 +2948,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %.sroa.6217.4.i217227242 = phi i32 [ %.sroa.6217.4.i217228, %.thread234 ], [ %.sroa.6217.0.copyload.i, %782 ]
   %.sroa.9.4.i216229241 = phi i32 [ %.sroa.9.4.i216230, %.thread234 ], [ %.sroa.9.0.copyload.i, %782 ]
   %.sroa.13.4.i215231240 = phi i32 [ 0, %.thread234 ], [ %.sroa.13.0.copyload.i, %782 ]
-  %794 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %.pre-phi400
+  %794 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %.pre-phi400
   store i32 %.sroa.0214.2.i218225243, ptr %794, align 4, !tbaa !23
   %.sroa.6217.0..sroa_idx220.i = getelementptr inbounds nuw i8, ptr %794, i64 4
   store i32 %.sroa.6217.4.i217227242, ptr %.sroa.6217.0..sroa_idx220.i, align 4, !tbaa !23
@@ -2963,14 +2959,14 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %.sroa.19.0..sroa_idx235.i = getelementptr inbounds nuw i8, ptr %794, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.0..sroa_idx235.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.19.i, i64 12, i1 false), !tbaa.struct !62
   %795 = zext i32 %.6.i244 to i64
-  %796 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %795
+  %796 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %795
   %797 = load i64, ptr %796, align 4
   %.sroa.4.0..sroa_idx.i511 = getelementptr inbounds nuw i8, ptr %796, i64 8
   %.sroa.4.0.copyload.i512 = load i32, ptr %.sroa.4.0..sroa_idx.i511, align 4, !tbaa !23
   %.sroa.6.0..sroa_idx.i513 = getelementptr inbounds nuw i8, ptr %796, i64 12
   %.sroa.6.0.copyload.i514 = load i32, ptr %.sroa.6.0..sroa_idx.i513, align 4, !tbaa !23
   %798 = zext i32 %793 to i64
-  %799 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %798
+  %799 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %798
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 12
   store i32 %.sroa.6.0.copyload.i514, ptr %800, align 4, !tbaa !36
   %.not515 = icmp eq i32 %.sroa.4.0.copyload.i512, 0
@@ -2983,11 +2979,11 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %802 = phi i64 [ %809, %.lr.ph521 ], [ %795, %792 ]
   %.0444.i517 = phi i32 [ %808, %.lr.ph521 ], [ %.6.i244, %792 ]
   %.0446.i516 = phi i32 [ %804, %.lr.ph521 ], [ %793, %792 ]
-  %803 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %802
+  %803 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %802
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %803, i64 16
   %804 = add i32 %.0446.i516, -1
   %805 = zext i32 %804 to i64
-  %806 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %805
+  %806 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %805
   store i64 %801, ptr %806, align 4
   %.sroa.4.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %806, i64 8
   store i32 %.sroa.4.0.copyload.i518, ptr %.sroa.4.0..sroa_idx20.i, align 4, !tbaa !23
@@ -2998,14 +2994,14 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %807 = add i32 %.sroa.4.0.copyload.i518, %.sroa.6.0.copyload.i519
   %808 = sub i32 %.0444.i517, %807
   %809 = zext i32 %808 to i64
-  %810 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %809
+  %810 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %809
   %811 = load i64, ptr %810, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %810, i64 8
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !23
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %810, i64 12
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !23
   %812 = zext i32 %804 to i64
-  %813 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %812
+  %813 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %812
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 12
   store i32 %.sroa.6.0.copyload.i, ptr %814, align 4, !tbaa !36
   %.not = icmp eq i32 %.sroa.4.0.copyload.i, 0
@@ -3020,7 +3016,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %.2441.i343 = phi ptr [ %.3442.i, %951 ], [ %.0439.i351, %.preheader305 ]
   %.0443.i342 = phi i32 [ %952, %951 ], [ %.0446.i.lcssa, %.preheader305 ]
   %815 = zext i32 %.0443.i342 to i64
-  %816 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %40, i64 %815
+  %816 = getelementptr inbounds nuw [28 x i8], ptr %40, i64 %815
   %817 = getelementptr inbounds nuw i8, ptr %816, i64 12
   %818 = load i32, ptr %817, align 4, !tbaa !36
   %819 = getelementptr inbounds nuw i8, ptr %816, i64 8
@@ -3055,7 +3051,7 @@ ZSTD_MLcode.exit97:                               ; preds = %694, %697
   %831 = getelementptr inbounds nuw i8, ptr %.2441.i343, i64 %indvars.iv.i
   %832 = load i8, ptr %831, align 1, !tbaa !40
   %833 = zext i8 %832 to i64
-  %834 = getelementptr inbounds nuw i32, ptr %829, i64 %833
+  %834 = getelementptr inbounds nuw [4 x i8], ptr %829, i64 %833
   %835 = load i32, ptr %834, align 4, !tbaa !23
   %836 = add i32 %835, 2
   store i32 %836, ptr %834, align 4, !tbaa !23
@@ -3090,7 +3086,7 @@ ZSTD_LLcode.exit.i115:                            ; preds = %845, %842
   %850 = phi i32 [ %844, %842 ], [ %849, %845 ]
   %851 = load ptr, ptr %63, align 8, !tbaa !39
   %852 = zext nneg i32 %850 to i64
-  %853 = getelementptr inbounds nuw i32, ptr %851, i64 %852
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %851, i64 %852
   %854 = load i32, ptr %853, align 4, !tbaa !23
   %855 = add i32 %854, 1
   store i32 %855, ptr %853, align 4, !tbaa !23
@@ -3101,7 +3097,7 @@ ZSTD_LLcode.exit.i115:                            ; preds = %845, %842
   %859 = xor i32 %858, 31
   %860 = load ptr, ptr %66, align 8, !tbaa !49
   %861 = zext nneg i32 %859 to i64
-  %862 = getelementptr inbounds nuw i32, ptr %860, i64 %861
+  %862 = getelementptr inbounds nuw [4 x i8], ptr %860, i64 %861
   %863 = load i32, ptr %862, align 4, !tbaa !23
   %864 = add i32 %863, 1
   store i32 %864, ptr %862, align 4, !tbaa !23
@@ -3128,7 +3124,7 @@ ZSTD_updateStats.exit:                            ; preds = %869, %872
   %877 = phi i32 [ %871, %869 ], [ %876, %872 ]
   %878 = load ptr, ptr %68, align 8, !tbaa !51
   %879 = zext nneg i32 %877 to i64
-  %880 = getelementptr inbounds nuw i32, ptr %878, i64 %879
+  %880 = getelementptr inbounds nuw [4 x i8], ptr %878, i64 %879
   %881 = load i32, ptr %880, align 4, !tbaa !23
   %882 = add i32 %881, 1
   store i32 %882, ptr %880, align 4, !tbaa !23
@@ -3503,7 +3499,7 @@ ZSTD_hashPtr.exit:                                ; preds = %13, %18, %23, %28, 
   %42 = add i32 %41, -1
   %notmask = shl nsw i32 -1, %42
   %43 = xor i32 %notmask, -1
-  %44 = getelementptr inbounds nuw i32, ptr %10, i64 %.0.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.0.i
   %45 = load i32, ptr %44, align 4, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !16
@@ -3522,7 +3518,7 @@ ZSTD_hashPtr.exit:                                ; preds = %13, %18, %23, %28, 
   %60 = and i32 %58, %43
   %61 = shl nuw i32 %60, 1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %39, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = load i32, ptr %8, align 8, !tbaa !94
@@ -3564,7 +3560,7 @@ ZSTD_hashPtr.exit:                                ; preds = %13, %18, %23, %28, 
   %82 = and i32 %.0116168, %43
   %83 = shl nuw i32 %82, 1
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %39, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %84
   %86 = tail call i64 @llvm.umin.i64(i64 %.0124164, i64 %.0134161)
   %.pre = zext i32 %.0116168 to i64
   %87 = add i64 %86, %.pre
@@ -4017,7 +4013,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef 
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8, !tbaa !101
-  %15 = getelementptr inbounds nuw %struct.rawSeq, ptr %14, i64 %9
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %9
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !23
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4052,7 +4048,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef 
   br i1 %31, label %32, label %.loopexit.i
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds nuw %struct.rawSeq, ptr %14, i64 %30
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %30
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !23
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -4107,7 +4103,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef 
   br i1 %50, label %51, label %.loopexit.i48
 
 51:                                               ; preds = %.lr.ph.i45
-  %52 = getelementptr inbounds nuw %struct.rawSeq, ptr %14, i64 %49
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %49
   %.sroa.3.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %.sroa.3.0.copyload.i51 = load i32, ptr %.sroa.3.0..sroa_idx.i50, align 4, !tbaa !23
   %.sroa.5.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4149,7 +4145,7 @@ define internal fastcc void @ZSTD_opt_getNextMatchAndUpdateSeqStore(ptr noundef 
   br i1 %63, label %64, label %.loopexit.i62
 
 64:                                               ; preds = %.lr.ph.i59
-  %65 = getelementptr inbounds nuw %struct.rawSeq, ptr %14, i64 %62
+  %65 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %62
   %.sroa.3.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %.sroa.3.0.copyload.i65 = load i32, ptr %.sroa.3.0..sroa_idx.i64, align 4, !tbaa !23
   %.sroa.5.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -4230,7 +4226,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %28 = shl nuw i32 1, %27
   %29 = select i1 %.not90, i32 1, i32 %28
   %30 = load ptr, ptr %0, align 8, !tbaa !55
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv170
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv170
   store i32 %29, ptr %31, align 4, !tbaa !23
   %32 = load i32, ptr %22, align 8, !tbaa !65
   %33 = add i32 %32, %29
@@ -4253,7 +4249,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %38 = shl nuw i32 1, %37
   %39 = sext i32 %38 to i64
   %40 = select i1 %.not.i, i64 1, i64 %39
-  %41 = getelementptr i32, ptr %34, i64 %40
+  %41 = getelementptr [4 x i8], ptr %34, i64 %40
   store i32 0, ptr %8, align 4, !tbaa !66
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !39
@@ -4261,7 +4257,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
 
 44:                                               ; preds = %.loopexit143, %44
   %indvars.iv174 = phi i64 [ 0, %.loopexit143 ], [ %indvars.iv.next175, %44 ]
-  %45 = getelementptr %struct.FSE_symbolCompressionTransform, ptr %41, i64 %indvars.iv174
+  %45 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv174
   %46 = getelementptr i8, ptr %45, i64 4296
   %47 = load i32, ptr %46, align 4, !tbaa !42
   %48 = add i32 %47, 65535
@@ -4270,7 +4266,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %50 = sub nsw i32 10, %49
   %51 = shl nuw nsw i32 1, %50
   %52 = select i1 %.not89, i32 1, i32 %51
-  %53 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv174
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv174
   store i32 %52, ptr %53, align 4, !tbaa !23
   %54 = load i32, ptr %8, align 4, !tbaa !66
   %55 = add i32 %52, %54
@@ -4288,7 +4284,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %60 = shl nuw i32 1, %59
   %61 = sext i32 %60 to i64
   %62 = select i1 %.not.i92, i64 1, i64 %61
-  %63 = getelementptr i32, ptr %34, i64 %62
+  %63 = getelementptr [4 x i8], ptr %34, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %64, align 8, !tbaa !68
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4297,7 +4293,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
 
 67:                                               ; preds = %56, %67
   %indvars.iv178 = phi i64 [ 0, %56 ], [ %indvars.iv.next179, %67 ]
-  %68 = getelementptr %struct.FSE_symbolCompressionTransform, ptr %63, i64 %indvars.iv178
+  %68 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv178
   %69 = getelementptr i8, ptr %68, i64 2844
   %70 = load i32, ptr %69, align 4, !tbaa !42
   %71 = add i32 %70, 65535
@@ -4306,7 +4302,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %73 = sub nsw i32 10, %72
   %74 = shl nuw nsw i32 1, %73
   %75 = select i1 %.not88, i32 1, i32 %74
-  %76 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv178
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv178
   store i32 %75, ptr %76, align 4, !tbaa !23
   %77 = load i32, ptr %64, align 8, !tbaa !68
   %78 = add i32 %75, %77
@@ -4324,7 +4320,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %83 = shl nuw i32 1, %82
   %84 = sext i32 %83 to i64
   %85 = select i1 %.not.i94, i64 1, i64 %84
-  %86 = getelementptr i32, ptr %34, i64 %85
+  %86 = getelementptr [4 x i8], ptr %34, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %87, align 4, !tbaa !67
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4333,7 +4329,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
 
 90:                                               ; preds = %79, %90
   %indvars.iv182 = phi i64 [ 0, %79 ], [ %indvars.iv.next183, %90 ]
-  %91 = getelementptr %struct.FSE_symbolCompressionTransform, ptr %86, i64 %indvars.iv182
+  %91 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv182
   %92 = getelementptr i8, ptr %91, i64 2072
   %93 = load i32, ptr %92, align 4, !tbaa !42
   %94 = add i32 %93, 65535
@@ -4342,7 +4338,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
   %96 = sub nsw i32 10, %95
   %97 = shl nuw nsw i32 1, %96
   %98 = select i1 %.not87, i32 1, i32 %97
-  %99 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv182
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv182
   store i32 %98, ptr %99, align 4, !tbaa !23
   %100 = load i32, ptr %87, align 4, !tbaa !67
   %101 = add i32 %98, %100
@@ -4365,7 +4361,7 @@ define internal fastcc void @ZSTD_rescaleFreqs(ptr noundef captures(none) initia
 .split.us.i:                                      ; preds = %.split.us.i, %103
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.split.us.i ], [ 0, %103 ]
   %.01517.us.i = phi i32 [ %113, %.split.us.i ], [ 0, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv24.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv24.i
   %108 = load i32, ptr %107, align 4, !tbaa !23
   %109 = icmp ne i32 %108, 0
   %110 = zext i1 %109 to i32
@@ -4394,7 +4390,7 @@ sum_u32.exit:                                     ; preds = %ZSTD_downscaleStats
 
 119:                                              ; preds = %sum_u32.exit, %119
   %indvars.iv = phi i64 [ 0, %sum_u32.exit ], [ %indvars.iv.next, %119 ]
-  %120 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv
   store i32 1, ptr %120, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 53
@@ -4418,7 +4414,7 @@ sum_u32.exit98:                                   ; preds = %119
 127:                                              ; preds = %127, %125
   %.08.i.i = phi i32 [ 0, %125 ], [ %130, %127 ]
   %.067.i.i = phi i64 [ 0, %125 ], [ %131, %127 ]
-  %128 = getelementptr inbounds nuw i32, ptr %126, i64 %.067.i.i
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %.067.i.i
   %129 = load i32, ptr %128, align 4, !tbaa !23
   %130 = add i32 %129, %.08.i.i
   %131 = add nuw nsw i64 %.067.i.i, 1
@@ -4438,7 +4434,7 @@ sum_u32.exit.i:                                   ; preds = %127
 .split.i.i:                                       ; preds = %.split.i.i, %133
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.split.i.i ], [ 0, %133 ]
   %.01517.i.i = phi i32 [ %141, %.split.i.i ], [ 0, %133 ]
-  %137 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv.i.i
   %138 = load i32, ptr %137, align 4, !tbaa !23
   %139 = lshr i32 %138, %136
   %140 = add nuw i32 %139, 1
@@ -4462,7 +4458,7 @@ ZSTD_scaleStats.exit:                             ; preds = %.split.i.i, %sum_u3
 146:                                              ; preds = %146, %143
   %.08.i.i99 = phi i32 [ 0, %143 ], [ %149, %146 ]
   %.067.i.i100 = phi i64 [ 0, %143 ], [ %150, %146 ]
-  %147 = getelementptr inbounds nuw i32, ptr %145, i64 %.067.i.i100
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %.067.i.i100
   %148 = load i32, ptr %147, align 4, !tbaa !23
   %149 = add i32 %148, %.08.i.i99
   %150 = add nuw nsw i64 %.067.i.i100, 1
@@ -4482,7 +4478,7 @@ sum_u32.exit.i102:                                ; preds = %146
 .split.i.i103:                                    ; preds = %.split.i.i103, %152
   %indvars.iv.i.i104 = phi i64 [ %indvars.iv.next.i.i106, %.split.i.i103 ], [ 0, %152 ]
   %.01517.i.i105 = phi i32 [ %160, %.split.i.i103 ], [ 0, %152 ]
-  %156 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i104
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv.i.i104
   %157 = load i32, ptr %156, align 4, !tbaa !23
   %158 = lshr i32 %157, %155
   %159 = add nuw i32 %158, 1
@@ -4502,7 +4498,7 @@ ZSTD_scaleStats.exit109:                          ; preds = %.split.i.i103, %sum
 163:                                              ; preds = %163, %ZSTD_scaleStats.exit109
   %.08.i.i110 = phi i32 [ 0, %ZSTD_scaleStats.exit109 ], [ %166, %163 ]
   %.067.i.i111 = phi i64 [ 0, %ZSTD_scaleStats.exit109 ], [ %167, %163 ]
-  %164 = getelementptr inbounds nuw i32, ptr %162, i64 %.067.i.i111
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %.067.i.i111
   %165 = load i32, ptr %164, align 4, !tbaa !23
   %166 = add i32 %165, %.08.i.i110
   %167 = add nuw nsw i64 %.067.i.i111, 1
@@ -4522,7 +4518,7 @@ sum_u32.exit.i113:                                ; preds = %163
 .split.i.i114:                                    ; preds = %.split.i.i114, %169
   %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i117, %.split.i.i114 ], [ 0, %169 ]
   %.01517.i.i116 = phi i32 [ %177, %.split.i.i114 ], [ 0, %169 ]
-  %173 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i.i115
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %indvars.iv.i.i115
   %174 = load i32, ptr %173, align 4, !tbaa !23
   %175 = lshr i32 %174, %172
   %176 = add nuw i32 %175, 1
@@ -4543,7 +4539,7 @@ ZSTD_scaleStats.exit120:                          ; preds = %.split.i.i114, %sum
 181:                                              ; preds = %181, %ZSTD_scaleStats.exit120
   %.08.i.i121 = phi i32 [ 0, %ZSTD_scaleStats.exit120 ], [ %184, %181 ]
   %.067.i.i122 = phi i64 [ 0, %ZSTD_scaleStats.exit120 ], [ %185, %181 ]
-  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %.067.i.i122
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %.067.i.i122
   %183 = load i32, ptr %182, align 4, !tbaa !23
   %184 = add i32 %183, %.08.i.i121
   %185 = add nuw nsw i64 %.067.i.i122, 1
@@ -4563,7 +4559,7 @@ sum_u32.exit.i124:                                ; preds = %181
 .split.i.i125:                                    ; preds = %.split.i.i125, %187
   %indvars.iv.i.i126 = phi i64 [ %indvars.iv.next.i.i128, %.split.i.i125 ], [ 0, %187 ]
   %.01517.i.i127 = phi i32 [ %195, %.split.i.i125 ], [ 0, %187 ]
-  %191 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i.i126
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %indvars.iv.i.i126
   %192 = load i32, ptr %191, align 4, !tbaa !23
   %193 = lshr i32 %192, %190
   %194 = add nuw i32 %193, 1
@@ -4711,7 +4707,7 @@ define internal fastcc void @ZSTD_optLdm_processMatchCandidate(ptr noundef nonnu
 
 26:                                               ; preds = %.lr.ph.i
   %27 = load ptr, ptr %0, align 8, !tbaa !117
-  %28 = getelementptr inbounds nuw %struct.rawSeq, ptr %27, i64 %24
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %24
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !23
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4765,7 +4761,7 @@ ZSTD_optLdm_skipRawSeqStoreBytes.exit:            ; preds = %.critedge.i, %.loop
 46:                                               ; preds = %43
   %47 = add i32 %44, -1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !42
   %52 = icmp ugt i32 %39, %51
@@ -4778,12 +4774,12 @@ ZSTD_optLdm_skipRawSeqStoreBytes.exit:            ; preds = %.critedge.i, %.loop
   %56 = load i32, ptr %55, align 8, !tbaa !29
   %57 = add i32 %56, 3
   %58 = zext nneg i32 %44 to i64
-  %59 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %1, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %39, ptr %60, align 4, !tbaa !42
   %61 = load i32, ptr %2, align 4, !tbaa !23
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %1, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %62
   store i32 %57, ptr %63, align 4, !tbaa !44
   %64 = load i32, ptr %2, align 4, !tbaa !23
   %65 = add i32 %64, 1
@@ -4848,7 +4844,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 32, %33
   %38 = lshr i32 %36, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -4876,7 +4872,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %61 = and i32 %.pre-phi166, %47
   %62 = shl nuw i32 %61, 1
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi166, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4914,7 +4910,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %89
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !23
   br label %89
 
@@ -5045,7 +5041,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
 
 143:                                              ; preds = %140
   %144 = zext i32 %.0413.i120 to i64
-  %145 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %144
   %146 = trunc i64 %indvars.iv to i32
   %147 = sub i32 %146, %6
   %148 = add i32 %147, 1
@@ -5095,7 +5091,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   %166 = mul i32 %.val20.i, 900185344
   %167 = lshr i32 %166, %161
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %157, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %168
   %170 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %170, ptr %169, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5107,7 +5103,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %155
   %172 = lshr i32 %171, %161
   %173 = zext i32 %172 to i64
   store i32 %.pre-phi166, ptr %2, align 4, !tbaa !23
-  %174 = getelementptr inbounds nuw i32, ptr %157, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !23
   %176 = icmp uge i32 %175, %60
   %177 = sub i32 %.pre-phi166, %175
@@ -5262,7 +5258,7 @@ ZSTD_count.exit47:                                ; preds = %186, %.thread63.i46
   %239 = and i32 %.0371.i132, %47
   %240 = shl nuw i32 %239, 1
   %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds nuw i32, ptr %43, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %241
   %243 = tail call i64 @llvm.umin.i64(i64 %.0377.i131, i64 %.0385.i130)
   %244 = zext i32 %.0371.i132 to i64
   %245 = getelementptr inbounds nuw i8, ptr %28, i64 %244
@@ -5377,7 +5373,7 @@ ZSTD_count.exit75:                                ; preds = %250, %.thread63.i74
   %.3403.i = select i1 %291, i32 %293, i32 %.0400.i127
   %294 = sub i32 %237, %.0371.i132
   %295 = zext i32 %.9422.i126 to i64
-  %296 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %295
   store i32 %294, ptr %296, align 4, !tbaa !44
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
   store i32 %292, ptr %297, align 4, !tbaa !42
@@ -5504,7 +5500,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 32, %33
   %38 = lshr i32 %36, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -5532,7 +5528,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %61 = and i32 %.pre-phi124, %47
   %62 = shl nuw i32 %61, 1
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi124, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5570,7 +5566,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %89
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !23
   br label %89
 
@@ -5699,7 +5695,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
 
 143:                                              ; preds = %140
   %144 = zext i32 %.0413.i81 to i64
-  %145 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %144
   %146 = trunc i64 %indvars.iv to i32
   %147 = sub i32 %146, %6
   %148 = add i32 %147, 1
@@ -5747,7 +5743,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   %159 = and i32 %.0371.i93, %47
   %160 = shl nuw i32 %159, 1
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %43, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %161
   %163 = tail call i64 @llvm.umin.i64(i64 %.0377.i92, i64 %.0385.i91)
   %164 = zext i32 %.0371.i93 to i64
   %165 = getelementptr inbounds nuw i8, ptr %28, i64 %164
@@ -5862,7 +5858,7 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
   %.3403.i = select i1 %211, i32 %213, i32 %.0400.i88
   %214 = sub i32 %157, %.0371.i93
   %215 = zext i32 %.9422.i87 to i64
-  %216 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %215
   store i32 %214, ptr %216, align 4, !tbaa !44
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 %212, ptr %217, align 4, !tbaa !42
@@ -5984,7 +5980,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 64, %33
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -6012,7 +6008,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %61 = and i32 %.pre-phi124, %47
   %62 = shl nuw i32 %61, 1
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi124, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6050,7 +6046,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %89
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !23
   br label %89
 
@@ -6179,7 +6175,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
 
 143:                                              ; preds = %140
   %144 = zext i32 %.0413.i81 to i64
-  %145 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %144
   %146 = trunc i64 %indvars.iv to i32
   %147 = sub i32 %146, %6
   %148 = add i32 %147, 1
@@ -6227,7 +6223,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   %159 = and i32 %.0371.i93, %47
   %160 = shl nuw i32 %159, 1
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %43, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %161
   %163 = tail call i64 @llvm.umin.i64(i64 %.0377.i92, i64 %.0385.i91)
   %164 = zext i32 %.0371.i93 to i64
   %165 = getelementptr inbounds nuw i8, ptr %28, i64 %164
@@ -6342,7 +6338,7 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
   %.3403.i = select i1 %211, i32 %213, i32 %.0400.i88
   %214 = sub i32 %157, %.0371.i93
   %215 = zext i32 %.9422.i87 to i64
-  %216 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %215
   store i32 %214, ptr %216, align 4, !tbaa !44
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 %212, ptr %217, align 4, !tbaa !42
@@ -6464,7 +6460,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 64, %33
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -6492,7 +6488,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %61 = and i32 %.pre-phi124, %47
   %62 = shl nuw i32 %61, 1
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = add i32 %.pre-phi124, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6530,7 +6526,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %89
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !23
   br label %89
 
@@ -6659,7 +6655,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
 
 143:                                              ; preds = %140
   %144 = zext i32 %.0413.i81 to i64
-  %145 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %144
   %146 = trunc i64 %indvars.iv to i32
   %147 = sub i32 %146, %6
   %148 = add i32 %147, 1
@@ -6707,7 +6703,7 @@ ZSTD_count.exit:                                  ; preds = %104, %.thread63.i, 
   %159 = and i32 %.0371.i93, %47
   %160 = shl nuw i32 %159, 1
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %43, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %161
   %163 = tail call i64 @llvm.umin.i64(i64 %.0377.i92, i64 %.0385.i91)
   %164 = zext i32 %.0371.i93 to i64
   %165 = getelementptr inbounds nuw i8, ptr %28, i64 %164
@@ -6822,7 +6818,7 @@ ZSTD_count.exit45:                                ; preds = %170, %.thread63.i44
   %.3403.i = select i1 %211, i32 %213, i32 %.0400.i88
   %214 = sub i32 %157, %.0371.i93
   %215 = zext i32 %.9422.i87 to i64
-  %216 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %215
   store i32 %214, ptr %216, align 4, !tbaa !44
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   store i32 %212, ptr %217, align 4, !tbaa !42
@@ -6945,7 +6941,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 32, %33
   %38 = lshr i32 %36, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -6978,7 +6974,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = and i32 %.pre-phi173, %47
   %67 = shl nuw i32 %66, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi173, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7017,7 +7013,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %95
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !23
   br label %95
 
@@ -7172,7 +7168,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
 
 162:                                              ; preds = %159
   %163 = zext i32 %.0413.i127 to i64
-  %164 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %163
   %165 = trunc i64 %indvars.iv to i32
   %166 = sub i32 %165, %6
   %167 = add i32 %166, 1
@@ -7222,7 +7218,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   %185 = mul i32 %.val20.i, 900185344
   %186 = lshr i32 %185, %180
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw i32, ptr %176, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %187
   %189 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %189, ptr %188, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7234,7 +7230,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %174
   %191 = lshr i32 %190, %180
   %192 = zext i32 %191 to i64
   store i32 %.pre-phi173, ptr %2, align 4, !tbaa !23
-  %193 = getelementptr inbounds nuw i32, ptr %176, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !23
   %195 = icmp uge i32 %194, %65
   %196 = sub i32 %.pre-phi173, %194
@@ -7398,7 +7394,7 @@ ZSTD_count.exit52:                                ; preds = %239, %.thread63.i51
   %262 = and i32 %.0371.i139, %47
   %263 = shl nuw i32 %262, 1
   %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds nuw i32, ptr %43, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %264
   %266 = tail call i64 @llvm.umin.i64(i64 %.0377.i138, i64 %.0385.i137)
   %267 = zext i32 %.0371.i139 to i64
   %268 = add i64 %266, %267
@@ -7534,7 +7530,7 @@ ZSTD_count.exit80:                                ; preds = %275, %.thread63.i79
   %.3403.i = select i1 %324, i32 %326, i32 %.0400.i134
   %327 = sub i32 %260, %.0371.i139
   %328 = zext i32 %.9422.i133 to i64
-  %329 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %328
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %328
   store i32 %327, ptr %329, align 4, !tbaa !44
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 4
   store i32 %325, ptr %330, align 4, !tbaa !42
@@ -7661,7 +7657,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 32, %33
   %38 = lshr i32 %36, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -7694,7 +7690,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = and i32 %.pre-phi129, %47
   %67 = shl nuw i32 %66, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi129, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7733,7 +7729,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %95
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !23
   br label %95
 
@@ -7884,7 +7880,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
 
 162:                                              ; preds = %159
   %163 = zext i32 %.0413.i86 to i64
-  %164 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %163
   %165 = trunc i64 %indvars.iv to i32
   %166 = sub i32 %165, %6
   %167 = add i32 %166, 1
@@ -7932,7 +7928,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   %178 = and i32 %.0371.i98, %47
   %179 = shl nuw i32 %178, 1
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %43, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %180
   %182 = tail call i64 @llvm.umin.i64(i64 %.0377.i97, i64 %.0385.i96)
   %183 = zext i32 %.0371.i98 to i64
   %184 = add i64 %182, %183
@@ -8068,7 +8064,7 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
   %.3403.i = select i1 %240, i32 %242, i32 %.0400.i93
   %243 = sub i32 %176, %.0371.i98
   %244 = zext i32 %.9422.i92 to i64
-  %245 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %244
   store i32 %243, ptr %245, align 4, !tbaa !44
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
   store i32 %241, ptr %246, align 4, !tbaa !42
@@ -8190,7 +8186,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 64, %33
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -8223,7 +8219,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = and i32 %.pre-phi129, %47
   %67 = shl nuw i32 %66, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi129, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -8262,7 +8258,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %95
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !23
   br label %95
 
@@ -8413,7 +8409,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
 
 162:                                              ; preds = %159
   %163 = zext i32 %.0413.i86 to i64
-  %164 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %163
   %165 = trunc i64 %indvars.iv to i32
   %166 = sub i32 %165, %6
   %167 = add i32 %166, 1
@@ -8461,7 +8457,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   %178 = and i32 %.0371.i98, %47
   %179 = shl nuw i32 %178, 1
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %43, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %180
   %182 = tail call i64 @llvm.umin.i64(i64 %.0377.i97, i64 %.0385.i96)
   %183 = zext i32 %.0371.i98 to i64
   %184 = add i64 %182, %183
@@ -8597,7 +8593,7 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
   %.3403.i = select i1 %240, i32 %242, i32 %.0400.i93
   %243 = sub i32 %176, %.0371.i98
   %244 = zext i32 %.9422.i92 to i64
-  %245 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %244
   store i32 %243, ptr %245, align 4, !tbaa !44
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
   store i32 %241, ptr %246, align 4, !tbaa !42
@@ -8719,7 +8715,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 64, %33
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -8752,7 +8748,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %66 = and i32 %.pre-phi129, %47
   %67 = shl nuw i32 %66, 1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %43, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = add i32 %.pre-phi129, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -8791,7 +8787,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %95
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !23
   br label %95
 
@@ -8942,7 +8938,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
 
 162:                                              ; preds = %159
   %163 = zext i32 %.0413.i86 to i64
-  %164 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %163
   %165 = trunc i64 %indvars.iv to i32
   %166 = sub i32 %165, %6
   %167 = add i32 %166, 1
@@ -8990,7 +8986,7 @@ ZSTD_count.exit:                                  ; preds = %110, %.thread63.i, 
   %178 = and i32 %.0371.i98, %47
   %179 = shl nuw i32 %178, 1
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %43, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %180
   %182 = tail call i64 @llvm.umin.i64(i64 %.0377.i97, i64 %.0385.i96)
   %183 = zext i32 %.0371.i98 to i64
   %184 = add i64 %182, %183
@@ -9126,7 +9122,7 @@ ZSTD_count.exit50:                                ; preds = %191, %.thread63.i49
   %.3403.i = select i1 %240, i32 %242, i32 %.0400.i93
   %243 = sub i32 %176, %.0371.i98
   %244 = zext i32 %.9422.i92 to i64
-  %245 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %244
   store i32 %243, ptr %245, align 4, !tbaa !44
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 4
   store i32 %241, ptr %246, align 4, !tbaa !42
@@ -9249,7 +9245,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 32, %33
   %38 = lshr i32 %36, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -9279,7 +9275,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %63 = and i32 %.pre-phi219, %47
   %64 = shl nuw i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi219, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -9345,7 +9341,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %117
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4, !tbaa !23
   br label %117
 
@@ -9500,7 +9496,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
 
 183:                                              ; preds = %180
   %184 = zext i32 %.0413.i150 to i64
-  %185 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %184
   %186 = trunc i64 %indvars.iv to i32
   %187 = sub i32 %186, %6
   %188 = add i32 %187, 1
@@ -9550,7 +9546,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   %206 = mul i32 %.val20.i, 900185344
   %207 = lshr i32 %206, %201
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %197, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %208
   %210 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %210, ptr %209, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9562,7 +9558,7 @@ ZSTD_insertAndFindFirstIndexHash3.exit:           ; preds = %.lr.ph.i, %195
   %212 = lshr i32 %211, %201
   %213 = zext i32 %212 to i64
   store i32 %.pre-phi219, ptr %2, align 4, !tbaa !23
-  %214 = getelementptr inbounds nuw i32, ptr %197, i64 %213
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %213
   %215 = load i32, ptr %214, align 4, !tbaa !23
   %216 = icmp uge i32 %215, %62
   %217 = sub i32 %.pre-phi219, %215
@@ -9722,7 +9718,7 @@ ZSTD_count.exit52:                                ; preds = %226, %.thread63.i51
   %279 = and i32 %.0371.i162, %47
   %280 = shl nuw i32 %279, 1
   %281 = zext i32 %280 to i64
-  %282 = getelementptr inbounds nuw i32, ptr %43, i64 %281
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %281
   %283 = tail call i64 @llvm.umin.i64(i64 %.0377.i161, i64 %.0385.i160)
   %284 = zext i32 %.0371.i162 to i64
   %285 = getelementptr inbounds nuw i8, ptr %28, i64 %284
@@ -9837,7 +9833,7 @@ ZSTD_count.exit80:                                ; preds = %290, %.thread63.i79
   %.3403.i = select i1 %331, i32 %333, i32 %.0400.i157
   %334 = sub i32 %277, %.0371.i162
   %335 = zext i32 %.9422.i156 to i64
-  %336 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %335
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %335
   store i32 %334, ptr %336, align 4, !tbaa !44
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
   store i32 %332, ptr %337, align 4, !tbaa !42
@@ -9911,7 +9907,7 @@ ZSTD_count.exit80:                                ; preds = %290, %.thread63.i79
   %362 = zext i32 %361 to i64
   %363 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %364 = load ptr, ptr %363, align 8, !tbaa !89
-  %365 = getelementptr inbounds nuw i32, ptr %364, i64 %362
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %364, i64 %362
   %366 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %367 = load ptr, ptr %366, align 8, !tbaa !91
   %.0374.i184 = load i32, ptr %365, align 4, !tbaa !23
@@ -9936,7 +9932,7 @@ ZSTD_count.exit80:                                ; preds = %290, %.thread63.i79
   %373 = and i32 %.0374.i191, %89
   %374 = shl nuw i32 %373, 1
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw i32, ptr %367, i64 %375
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %367, i64 %375
   %377 = tail call i64 @llvm.umin.i64(i64 %.3380.i190, i64 %.3388.i189)
   %378 = zext i32 %.0374.i191 to i64
   %379 = getelementptr inbounds nuw i8, ptr %75, i64 %378
@@ -9961,7 +9957,7 @@ ZSTD_count.exit80:                                ; preds = %290, %.thread63.i79
   %.9.i = select i1 %390, i32 %392, i32 %.6406.i188
   %393 = sub i32 %371, %387
   %394 = zext i32 %.14.i187 to i64
-  %395 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %394
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %394
   store i32 %393, ptr %395, align 4, !tbaa !44
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 4
   store i32 %391, ptr %396, align 4, !tbaa !42
@@ -10071,7 +10067,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 32, %33
   %38 = lshr i32 %36, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -10101,7 +10097,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %63 = and i32 %.pre-phi175, %47
   %64 = shl nuw i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi175, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -10167,7 +10163,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %117
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4, !tbaa !23
   br label %117
 
@@ -10318,7 +10314,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
 
 183:                                              ; preds = %180
   %184 = zext i32 %.0413.i109 to i64
-  %185 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %184
   %186 = trunc i64 %indvars.iv to i32
   %187 = sub i32 %186, %6
   %188 = add i32 %187, 1
@@ -10371,7 +10367,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   %199 = and i32 %.0371.i121, %47
   %200 = shl nuw i32 %199, 1
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %43, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %201
   %203 = tail call i64 @llvm.umin.i64(i64 %.0377.i120, i64 %.0385.i119)
   %204 = zext i32 %.0371.i121 to i64
   %205 = getelementptr inbounds nuw i8, ptr %28, i64 %204
@@ -10486,7 +10482,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %.3403.i = select i1 %251, i32 %253, i32 %.0400.i116
   %254 = sub i32 %197, %.0371.i121
   %255 = zext i32 %.9422.i115 to i64
-  %256 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %255
   store i32 %254, ptr %256, align 4, !tbaa !44
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   store i32 %252, ptr %257, align 4, !tbaa !42
@@ -10560,7 +10556,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %282 = zext i32 %281 to i64
   %283 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %284 = load ptr, ptr %283, align 8, !tbaa !89
-  %285 = getelementptr inbounds nuw i32, ptr %284, i64 %282
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %284, i64 %282
   %286 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %287 = load ptr, ptr %286, align 8, !tbaa !91
   %.0374.i143 = load i32, ptr %285, align 4, !tbaa !23
@@ -10585,7 +10581,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %293 = and i32 %.0374.i150, %89
   %294 = shl nuw i32 %293, 1
   %295 = zext i32 %294 to i64
-  %296 = getelementptr inbounds nuw i32, ptr %287, i64 %295
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %295
   %297 = tail call i64 @llvm.umin.i64(i64 %.3380.i149, i64 %.3388.i148)
   %298 = zext i32 %.0374.i150 to i64
   %299 = getelementptr inbounds nuw i8, ptr %75, i64 %298
@@ -10610,7 +10606,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %.9.i = select i1 %310, i32 %312, i32 %.6406.i147
   %313 = sub i32 %291, %307
   %314 = zext i32 %.14.i146 to i64
-  %315 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %314
   store i32 %313, ptr %315, align 4, !tbaa !44
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 4
   store i32 %311, ptr %316, align 4, !tbaa !42
@@ -10715,7 +10711,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 64, %33
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -10745,7 +10741,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %63 = and i32 %.pre-phi175, %47
   %64 = shl nuw i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi175, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -10811,7 +10807,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %117
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4, !tbaa !23
   br label %117
 
@@ -10962,7 +10958,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
 
 183:                                              ; preds = %180
   %184 = zext i32 %.0413.i109 to i64
-  %185 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %184
   %186 = trunc i64 %indvars.iv to i32
   %187 = sub i32 %186, %6
   %188 = add i32 %187, 1
@@ -11015,7 +11011,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   %199 = and i32 %.0371.i121, %47
   %200 = shl nuw i32 %199, 1
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %43, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %201
   %203 = tail call i64 @llvm.umin.i64(i64 %.0377.i120, i64 %.0385.i119)
   %204 = zext i32 %.0371.i121 to i64
   %205 = getelementptr inbounds nuw i8, ptr %28, i64 %204
@@ -11130,7 +11126,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %.3403.i = select i1 %251, i32 %253, i32 %.0400.i116
   %254 = sub i32 %197, %.0371.i121
   %255 = zext i32 %.9422.i115 to i64
-  %256 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %255
   store i32 %254, ptr %256, align 4, !tbaa !44
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   store i32 %252, ptr %257, align 4, !tbaa !42
@@ -11202,7 +11198,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %281 = lshr i64 %36, %280
   %282 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %283 = load ptr, ptr %282, align 8, !tbaa !89
-  %284 = getelementptr inbounds nuw i32, ptr %283, i64 %281
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %281
   %285 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %286 = load ptr, ptr %285, align 8, !tbaa !91
   %.0374.i143 = load i32, ptr %284, align 4, !tbaa !23
@@ -11227,7 +11223,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %292 = and i32 %.0374.i150, %89
   %293 = shl nuw i32 %292, 1
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw i32, ptr %286, i64 %294
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %294
   %296 = tail call i64 @llvm.umin.i64(i64 %.3380.i149, i64 %.3388.i148)
   %297 = zext i32 %.0374.i150 to i64
   %298 = getelementptr inbounds nuw i8, ptr %75, i64 %297
@@ -11252,7 +11248,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %.9.i = select i1 %309, i32 %311, i32 %.6406.i147
   %312 = sub i32 %290, %306
   %313 = zext i32 %.14.i146 to i64
-  %314 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %313
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %313
   store i32 %312, ptr %314, align 4, !tbaa !44
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
   store i32 %310, ptr %315, align 4, !tbaa !42
@@ -11357,7 +11353,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %37 = sub i32 64, %33
   %38 = zext nneg i32 %37 to i64
   %39 = lshr i64 %36, %38
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !91
@@ -11387,7 +11383,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   %63 = and i32 %.pre-phi175, %47
   %64 = shl nuw i32 %63, 1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %43, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = add i32 %.pre-phi175, 9
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -11453,7 +11449,7 @@ ZSTD_updateTree_internal.exit.i:                  ; preds = %ZSTD_updateTree_int
   br label %117
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %116 = load i32, ptr %115, align 4, !tbaa !23
   br label %117
 
@@ -11604,7 +11600,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
 
 183:                                              ; preds = %180
   %184 = zext i32 %.0413.i109 to i64
-  %185 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %184
   %186 = trunc i64 %indvars.iv to i32
   %187 = sub i32 %186, %6
   %188 = add i32 %187, 1
@@ -11657,7 +11653,7 @@ ZSTD_count.exit:                                  ; preds = %132, %.thread63.i, 
   %199 = and i32 %.0371.i121, %47
   %200 = shl nuw i32 %199, 1
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %43, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %201
   %203 = tail call i64 @llvm.umin.i64(i64 %.0377.i120, i64 %.0385.i119)
   %204 = zext i32 %.0371.i121 to i64
   %205 = getelementptr inbounds nuw i8, ptr %28, i64 %204
@@ -11772,7 +11768,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %.3403.i = select i1 %251, i32 %253, i32 %.0400.i116
   %254 = sub i32 %197, %.0371.i121
   %255 = zext i32 %.9422.i115 to i64
-  %256 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %255
   store i32 %254, ptr %256, align 4, !tbaa !44
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   store i32 %252, ptr %257, align 4, !tbaa !42
@@ -11844,7 +11840,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %281 = lshr i64 %36, %280
   %282 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %283 = load ptr, ptr %282, align 8, !tbaa !89
-  %284 = getelementptr inbounds nuw i32, ptr %283, i64 %281
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %281
   %285 = getelementptr inbounds nuw i8, ptr %73, i64 128
   %286 = load ptr, ptr %285, align 8, !tbaa !91
   %.0374.i143 = load i32, ptr %284, align 4, !tbaa !23
@@ -11869,7 +11865,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %292 = and i32 %.0374.i150, %89
   %293 = shl nuw i32 %292, 1
   %294 = zext i32 %293 to i64
-  %295 = getelementptr inbounds nuw i32, ptr %286, i64 %294
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %294
   %296 = tail call i64 @llvm.umin.i64(i64 %.3380.i149, i64 %.3388.i148)
   %297 = zext i32 %.0374.i150 to i64
   %298 = getelementptr inbounds nuw i8, ptr %75, i64 %297
@@ -11894,7 +11890,7 @@ ZSTD_count.exit50:                                ; preds = %210, %.thread63.i49
   %.9.i = select i1 %309, i32 %311, i32 %.6406.i147
   %312 = sub i32 %290, %306
   %313 = zext i32 %.14.i146 to i64
-  %314 = getelementptr inbounds nuw %struct.ZSTD_match_t, ptr %0, i64 %313
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %313
   store i32 %312, ptr %314, align 4, !tbaa !44
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
   store i32 %310, ptr %315, align 4, !tbaa !42

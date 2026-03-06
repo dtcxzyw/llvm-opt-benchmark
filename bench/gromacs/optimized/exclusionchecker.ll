@@ -3,16 +3,6 @@ source_filename = "bench/gromacs/original/exclusionchecker.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ListOfLists" = type { %"class.std::vector", %"class.std::vector" }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 %"class.std::function.54" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -62,7 +52,7 @@ define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr noundef
   %.sroa.036.053.i = phi ptr [ %6, %.lr.ph56.i ], [ %33, %._crit_edge50.i ]
   %12 = load i32, ptr %.sroa.036.053.i, align 8, !tbaa !21
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [2408 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2360
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 2368
   %17 = load ptr, ptr %16, align 8, !tbaa !28
@@ -95,7 +85,7 @@ define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr noundef
 34:                                               ; preds = %._crit_edge.i, %.lr.ph49.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.02747.i = phi i32 [ 0, %.lr.ph49.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %35 = getelementptr inbounds nuw %struct.t_atom, ptr %25, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [36 x i8], ptr %25, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load float, ptr %36, align 4, !tbaa !42
   %38 = load float, ptr %35, align 4, !tbaa !47
@@ -121,18 +111,18 @@ define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr noundef
 
 _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %46, %40, %34
   %.fr.i = phi i1 [ true, %40 ], [ true, %34 ], [ %52, %46 ]
-  %53 = getelementptr i32, ptr %18, i64 %indvars.iv.i
+  %53 = getelementptr [4 x i8], ptr %18, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4, !tbaa !52
   %55 = getelementptr i8, ptr %53, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !52
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %27, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %27, i64 %57
   %.not4042.i = icmp eq i32 %54, %56
   br i1 %.not4042.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_Z9PERTURBEDRK6t_atom.exit.i
   %59 = sext i32 %54 to i64
-  %60 = getelementptr inbounds i32, ptr %27, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %27, i64 %59
   br i1 %.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
@@ -162,7 +152,7 @@ _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %46, %40, %34
   br i1 %.not.i, label %84, label %67
 
 67:                                               ; preds = %.lr.ph.split.i
-  %68 = getelementptr inbounds %struct.t_atom, ptr %25, i64 %66
+  %68 = getelementptr inbounds [36 x i8], ptr %25, i64 %66
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load float, ptr %69, align 4, !tbaa !42
   %71 = load float, ptr %68, align 4, !tbaa !47

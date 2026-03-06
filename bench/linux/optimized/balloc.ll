@@ -13,12 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.12 = type { %struct.anon.13, [16 x i8] }
 %struct.anon.13 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.cpumask = type { [1 x i64] }
-%struct.bgl_lock = type { %struct.spinlock, [60 x i8] }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon }
-%union.anon = type { %struct.atomic_t }
 %struct.ext4_allocation_request = type { ptr, i32, i32, i32, i32, i64, i64, i64, i32 }
 
 @__func__.ext4_get_group_desc = private unnamed_addr constant [20 x i8] c"ext4_get_group_desc\00", align 1
@@ -527,7 +521,7 @@ define dso_local ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %1, ptr no
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %21 = load volatile ptr, ptr %20, align 16
   %22 = zext i32 %14 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void @__rcu_read_unlock() #14
   %25 = icmp eq ptr %24, null
@@ -583,10 +577,10 @@ define dso_local ptr @ext4_get_group_info(ptr noundef readonly captures(none) %0
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 696
   %20 = load volatile ptr, ptr %19, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %12
+  %21 = getelementptr [8 x i8], ptr %20, i64 %12
   %22 = load ptr, ptr %21, align 8
   tail call void @__rcu_read_unlock() #14
-  %23 = getelementptr ptr, ptr %22, i64 %17
+  %23 = getelementptr [8 x i8], ptr %22, i64 %17
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -721,7 +715,7 @@ define dso_local ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef 
   %83 = load ptr, ptr %82, align 8
   %84 = and i32 %1, 127
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr %struct.bgl_lock, ptr %83, i64 %85
+  %86 = getelementptr [64 x i8], ptr %83, i64 %85
   %87 = tail call i32 @_raw_spin_trylock(ptr noundef %86) #14
   %88 = icmp eq i32 %87, 0
   %89 = load ptr, ptr %4, align 8
@@ -840,7 +834,7 @@ ext4_has_group_desc_csum.exit.thread6:            ; preds = %122, %ext4_lock_gro
   %143 = load ptr, ptr %4, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 424
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr %struct.bgl_lock, ptr %145, i64 %85
+  %146 = getelementptr [64 x i8], ptr %145, i64 %85
   tail call void @_raw_spin_unlock(ptr noundef %146) #14
   tail call void @unlock_buffer(ptr noundef nonnull %48) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_read_block_bitmap_nowait, i32 noundef 526, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %140) #14
@@ -872,7 +866,7 @@ ext4_has_group_desc_csum.exit.thread6:            ; preds = %122, %ext4_lock_gro
   %159 = load ptr, ptr %4, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 424
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr %struct.bgl_lock, ptr %161, i64 %85
+  %162 = getelementptr [64 x i8], ptr %161, i64 %85
   tail call void @_raw_spin_unlock(ptr noundef %162) #14
   tail call void @unlock_buffer(ptr noundef nonnull %48) #14
   br label %189
@@ -881,7 +875,7 @@ ext4_has_group_desc_csum.exit.thread:             ; preds = %119, %126, %ext4_ha
   %163 = phi ptr [ %112, %119 ], [ %.pre.i, %126 ], [ %129, %ext4_has_group_desc_csum.exit.thread6 ], [ %.pre.i, %ext4_has_group_desc_csum.exit ]
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 424
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr %struct.bgl_lock, ptr %165, i64 %85
+  %166 = getelementptr [64 x i8], ptr %165, i64 %85
   tail call void @_raw_spin_unlock(ptr noundef %166) #14
   %167 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %48, i32 1) #14, !srcloc !12
   %168 = icmp ult i8 %167, 2
@@ -1476,10 +1470,10 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 696
   %27 = load volatile ptr, ptr %26, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %19
+  %28 = getelementptr [8 x i8], ptr %27, i64 %19
   %29 = load ptr, ptr %28, align 8
   tail call void @__rcu_read_unlock() #14
-  %30 = getelementptr ptr, ptr %29, i64 %24
+  %30 = getelementptr [8 x i8], ptr %29, i64 %24
   %31 = load ptr, ptr %30, align 8
   %32 = load volatile i64, ptr %3, align 8
   %33 = and i64 %32, 16777216
@@ -1509,7 +1503,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @ext4_validate_block_bitma
   %47 = load ptr, ptr %46, align 8
   %48 = and i32 %2, 127
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr %struct.bgl_lock, ptr %47, i64 %49
+  %50 = getelementptr [64 x i8], ptr %47, i64 %49
   %51 = tail call i32 @_raw_spin_trylock(ptr noundef %50) #14
   %52 = icmp eq i32 %51, 0
   %53 = load ptr, ptr %5, align 8
@@ -1690,7 +1684,7 @@ ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %11
 167:                                              ; preds = %79
   %168 = getelementptr inbounds nuw i8, ptr %82, i64 424
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr %struct.bgl_lock, ptr %169, i64 %49
+  %170 = getelementptr [64 x i8], ptr %169, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %170) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 423, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.12, i32 noundef %2) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
@@ -1699,7 +1693,7 @@ ext4_valid_block_bitmap.exit:                     ; preds = %151, %93, %105, %11
 171:                                              ; preds = %ext4_valid_block_bitmap.exit
   %172 = getelementptr inbounds nuw i8, ptr %.pre16, i64 424
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr %struct.bgl_lock, ptr %173, i64 %49
+  %174 = getelementptr [64 x i8], ptr %173, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %174) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 432, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.13, i32 noundef %2, i64 noundef %165) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
@@ -1768,7 +1762,7 @@ ext4_valid_block_bitmap.exit.thread:              ; preds = %.ext4_valid_block_b
   %222 = load ptr, ptr %5, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 424
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr %struct.bgl_lock, ptr %224, i64 %49
+  %225 = getelementptr [64 x i8], ptr %224, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %225) #14
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_validate_block_bitmap, i32 noundef 441, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %2, i64 noundef %218) #14
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %2, i32 noundef 4) #14
@@ -1789,7 +1783,7 @@ ext4_valid_block_bitmap_padding.exit.thread:      ; preds = %201, %213
   %232 = load ptr, ptr %5, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 424
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr %struct.bgl_lock, ptr %234, i64 %49
+  %235 = getelementptr [64 x i8], ptr %234, i64 %49
   tail call void @_raw_spin_unlock(ptr noundef %235) #14
   br label %.thread8
 
@@ -2187,10 +2181,10 @@ define dso_local i64 @ext4_count_free_clusters(ptr noundef %0) local_unnamed_add
   %34 = load ptr, ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 696
   %36 = load volatile ptr, ptr %35, align 8
-  %37 = getelementptr ptr, ptr %36, i64 %29
+  %37 = getelementptr [8 x i8], ptr %36, i64 %29
   %38 = load ptr, ptr %37, align 8
   tail call void @__rcu_read_unlock() #14
-  %39 = getelementptr ptr, ptr %38, i64 %33
+  %39 = getelementptr [8 x i8], ptr %38, i64 %33
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread, label %42

@@ -178,7 +178,7 @@ define internal noundef i32 @pixelize_slice(ptr noundef readonly captures(none) 
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %24 = sext i32 %14 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %28
@@ -188,31 +188,31 @@ define internal noundef i32 @pixelize_slice(ptr noundef readonly captures(none) 
 
 28:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %29 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !34
-  %31 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !34
   %33 = add i32 %30, -1
   %34 = add i32 %33, %32
   %35 = sdiv i32 %34, %32
-  %36 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !34
-  %38 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !34
   %40 = add i32 %37, -1
   %41 = add i32 %40, %39
   %42 = sdiv i32 %41, %39
   %43 = mul nsw i32 %35, %19
   %44 = sdiv i32 %43, %3
-  %45 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !34
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !34
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !45
-  %53 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !45
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = shl nuw i32 1, %55
@@ -231,7 +231,7 @@ define internal noundef i32 @pixelize_slice(ptr noundef readonly captures(none) 
   %66 = getelementptr inbounds i8, ptr %54, i64 %65
   %67 = mul nsw i64 %64, %50
   %68 = getelementptr inbounds i8, ptr %52, i64 %67
-  %69 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !34
   %71 = sub nsw i32 %61, %63
   tail call void @av_image_copy_plane(ptr noundef %66, i32 noundef %46, ptr noundef %68, i32 noundef %49, i32 noundef %70, i32 noundef %71) #7
@@ -477,7 +477,7 @@ define internal noundef i32 @pixelize_avg16(ptr noundef readonly captures(none) 
 10:                                               ; preds = %.preheader33.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader33.us ], [ %indvars.iv.next, %10 ]
   %.134.us = phi i64 [ %.03036.us, %.preheader33.us ], [ %14, %10 ]
-  %11 = getelementptr inbounds nuw i16, ptr %.02937.us, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %.02937.us, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !66
   %13 = zext i16 %12 to i64
   %14 = add i64 %.134.us, %13
@@ -486,7 +486,7 @@ define internal noundef i32 @pixelize_avg16(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %10
-  %15 = getelementptr inbounds nuw i16, ptr %.02937.us, i64 %9
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %.02937.us, i64 %9
   %16 = add nuw nsw i32 %.02838.us, 1
   %exitcond49.not = icmp eq i32 %16, %5
   br i1 %exitcond49.not, label %._crit_edge39, label %.preheader33.us, !llvm.loop !69
@@ -507,14 +507,14 @@ define internal noundef i32 @pixelize_avg16(ptr noundef readonly captures(none) 
 
 22:                                               ; preds = %.preheader.us, %22
   %indvars.iv50 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next51, %22 ]
-  %23 = getelementptr inbounds nuw i16, ptr %.03142.us, i64 %indvars.iv50
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.03142.us, i64 %indvars.iv50
   store i16 %20, ptr %23, align 2, !tbaa !66
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
   br i1 %exitcond54.not, label %._crit_edge.us45, label %22, !llvm.loop !70
 
 ._crit_edge.us45:                                 ; preds = %22
-  %24 = getelementptr inbounds nuw i16, ptr %.03142.us, i64 %21
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.03142.us, i64 %21
   %25 = add nuw nsw i32 %.02643.us, 1
   %exitcond55.not = icmp eq i32 %25, %5
   br i1 %exitcond55.not, label %._crit_edge44, label %.preheader.us, !llvm.loop !71
@@ -601,7 +601,7 @@ define internal noundef i32 @pixelize_min16(ptr noundef readonly captures(none) 
 11:                                               ; preds = %.preheader37.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader37.us ], [ %indvars.iv.next, %11 ]
   %.138.us = phi i16 [ %.03041.us, %.preheader37.us ], [ %.1..us, %11 ]
-  %12 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !66
   %.1..us = tail call i16 @llvm.umin.i16(i16 %13, i16 %.138.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -609,7 +609,7 @@ define internal noundef i32 @pixelize_min16(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %11
-  %14 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %10
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us, i64 %10
   %15 = add nuw nsw i32 %.02942.us, 1
   %exitcond51.not = icmp eq i32 %15, %5
   br i1 %exitcond51.not, label %.preheader.lr.ph, label %.preheader37.us, !llvm.loop !76
@@ -626,14 +626,14 @@ define internal noundef i32 @pixelize_min16(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %.preheader.us, %17
   %indvars.iv52 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next53, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.03145.us, i64 %indvars.iv52
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.03145.us, i64 %indvars.iv52
   store i16 %.1..us, ptr %18, align 2, !tbaa !66
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
   br i1 %exitcond56.not, label %._crit_edge.us48, label %17, !llvm.loop !77
 
 ._crit_edge.us48:                                 ; preds = %17
-  %19 = getelementptr inbounds nuw i16, ptr %.03145.us, i64 %16
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.03145.us, i64 %16
   %20 = add nuw nsw i32 %.02746.us, 1
   %exitcond57.not = icmp eq i32 %20, %5
   br i1 %exitcond57.not, label %._crit_edge47, label %.preheader.us, !llvm.loop !78
@@ -720,7 +720,7 @@ define internal noundef i32 @pixelize_max16(ptr noundef readonly captures(none) 
 11:                                               ; preds = %.preheader37.us, %11
   %indvars.iv = phi i64 [ 0, %.preheader37.us ], [ %indvars.iv.next, %11 ]
   %.138.us = phi i16 [ %.03041.us, %.preheader37.us ], [ %..1.us, %11 ]
-  %12 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !66
   %..1.us = tail call i16 @llvm.umax.i16(i16 %13, i16 %.138.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -728,7 +728,7 @@ define internal noundef i32 @pixelize_max16(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %11
-  %14 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %10
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us, i64 %10
   %15 = add nuw nsw i32 %.02942.us, 1
   %exitcond51.not = icmp eq i32 %15, %5
   br i1 %exitcond51.not, label %.preheader.lr.ph, label %.preheader37.us, !llvm.loop !83
@@ -745,14 +745,14 @@ define internal noundef i32 @pixelize_max16(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %.preheader.us, %17
   %indvars.iv52 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next53, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %.03145.us, i64 %indvars.iv52
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.03145.us, i64 %indvars.iv52
   store i16 %..1.us, ptr %18, align 2, !tbaa !66
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
   br i1 %exitcond56.not, label %._crit_edge.us48, label %17, !llvm.loop !84
 
 ._crit_edge.us48:                                 ; preds = %17
-  %19 = getelementptr inbounds nuw i16, ptr %.03145.us, i64 %16
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.03145.us, i64 %16
   %20 = add nuw nsw i32 %.02746.us, 1
   %exitcond57.not = icmp eq i32 %20, %5
   br i1 %exitcond57.not, label %._crit_edge47, label %.preheader.us, !llvm.loop !85

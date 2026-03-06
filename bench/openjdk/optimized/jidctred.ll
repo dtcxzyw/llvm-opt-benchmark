@@ -165,7 +165,7 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
 122:                                              ; preds = %.preheader, %216
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %216 ]
   %.1124134 = phi ptr [ %6, %.preheader ], [ %.2, %216 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 %12
   %126 = getelementptr inbounds nuw i8, ptr %.1124134, i64 4
@@ -410,7 +410,7 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %83 = phi i1 [ true, %.preheader ], [ false, %136 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %136 ]
   %.18086 = phi ptr [ %6, %.preheader ], [ %.2, %136 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %12
   %87 = getelementptr inbounds nuw i8, ptr %.18086, i64 4

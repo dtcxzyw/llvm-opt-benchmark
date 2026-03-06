@@ -5022,7 +5022,7 @@ _ZNSt12__shared_ptrIN2cv3reg3MapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i122: ;
 
 1750:                                             ; preds = %1750, %_ZNSt12__shared_ptrIN2cv3reg3MapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i122
   %.04.i.i = phi i64 [ 0, %_ZNSt12__shared_ptrIN2cv3reg3MapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i122 ], [ %1754, %1750 ]
-  %1751 = getelementptr inbounds nuw double, ptr %1746, i64 %.04.i.i
+  %1751 = getelementptr inbounds nuw [8 x i8], ptr %1746, i64 %.04.i.i
   %1752 = load double, ptr %1751, align 8, !tbaa !51
   %1753 = fmul double %1749, %1752
   store double %1753, ptr %1751, align 8, !tbaa !51

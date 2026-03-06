@@ -8605,7 +8605,7 @@ define void @"_ZN5ockam6remote9lifecycle44_$LT$impl$u20$ockam..remote..RemoteRel
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h53bacb2df2d730eaE.exit": ; preds = %77
   %.pre = load ptr, ptr %15, align 8, !alias.scope !1174, !noalias !1171
   %.pre.i = load i64, ptr %56, align 8, !alias.scope !1174, !noalias !1171
-  %86 = getelementptr inbounds { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, ptr }, { ptr, ptr } }, ptr %.pre, i64 %.pre.i
+  %86 = getelementptr inbounds [64 x i8], ptr %.pre, i64 %.pre.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %86, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
   %87 = add i64 %.pre.i, 1
   store i64 %87, ptr %56, align 8, !alias.scope !1174, !noalias !1171

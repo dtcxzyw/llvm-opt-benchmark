@@ -3822,7 +3822,7 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
 
 86:                                               ; preds = %.lr.ph.us, %107
   %indvars.iv = phi i64 [ %69, %.lr.ph.us ], [ %indvars.iv.next, %107 ]
-  %87 = getelementptr inbounds float, ptr %77, i64 %indvars.iv
+  %87 = getelementptr inbounds [4 x i8], ptr %77, i64 %indvars.iv
   %88 = load float, ptr %87, align 4, !tbaa !156
   %89 = fptosi float %88 to i32
   %90 = ashr i32 %89, 4
@@ -3834,7 +3834,7 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
   br i1 %or.cond.us, label %93, label %107
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds float, ptr %81, i64 %92
+  %94 = getelementptr inbounds [4 x i8], ptr %81, i64 %92
   %95 = load float, ptr %94, align 4, !tbaa !156
   %96 = fadd float %88, %95
   %97 = tail call noundef float @llvm.fabs.f32(float %96)
@@ -3842,8 +3842,8 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
   br i1 %98, label %99, label %.sink.split
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds float, ptr %79, i64 %indvars.iv
-  %101 = getelementptr inbounds float, ptr %83, i64 %92
+  %100 = getelementptr inbounds [4 x i8], ptr %79, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %83, i64 %92
   %102 = load float, ptr %101, align 4, !tbaa !156
   %103 = load float, ptr %100, align 4, !tbaa !156
   %104 = fcmp olt float %102, %103
@@ -3852,7 +3852,7 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl36ComputeDiscontinui
 
 .sink.split:                                      ; preds = %93, %99
   %.sink = phi float [ %105, %99 ], [ 0.000000e+00, %93 ]
-  %106 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  %106 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv
   store float %.sink, ptr %106, align 4, !tbaa !156
   br label %107
 
@@ -3968,16 +3968,16 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl24ComputeDepthDisc_P
 
 55:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %57 = load float, ptr %56, align 4, !tbaa !156
-  %58 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   %59 = load float, ptr %58, align 4, !tbaa !156
   %60 = fneg float %59
   %61 = tail call float @llvm.fmuladd.f32(float %60, float %59, float %57)
   %62 = tail call float @llvm.fmuladd.f32(float %45, float %61, float 1.000000e+00)
   %63 = fcmp olt float %62, 0.000000e+00
   %.sroa.speculated.us = select i1 %63, float 0.000000e+00, float %62
-  %64 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   store float %.sroa.speculated.us, ptr %64, align 4, !tbaa !156
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4210,7 +4210,7 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl21ParallelMatOp_ParB
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %13 = load ptr, ptr %7, align 8, !tbaa !162
   %14 = load ptr, ptr %8, align 8, !tbaa !48
-  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv
   %.unpack = load i64, ptr %15, align 8, !tbaa !44
   %.elt7 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8, !tbaa !44
@@ -4233,10 +4233,10 @@ define hidden void @_ZNK2cv8ximgproc22DisparityWLSFilterImpl21ParallelMatOp_ParB
 25:                                               ; preds = %23, %18
   %26 = phi ptr [ %22, %18 ], [ %24, %23 ]
   %27 = load ptr, ptr %9, align 8, !tbaa !38
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = load ptr, ptr %10, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !36
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(196) %16, ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %32)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -5500,7 +5500,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit.us:                ; preds = %.preheader41.us, %_
   %37 = lshr i8 %.sroa.3.0.copyload, 2
   %38 = zext nneg i8 %37 to i16
   %39 = or disjoint i16 %36, %38
-  %40 = getelementptr inbounds nuw i16, ptr %32, i64 %indvar52
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvar52
   store i16 %39, ptr %40, align 2, !tbaa !209
   %indvar.next53 = add nuw nsw i64 %indvar52, 1
   %exitcond.not = icmp eq i64 %indvar.next53, %wide.trip.count
@@ -5575,7 +5575,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit.us:                ; preds = %.preheader41.us, %_
   %73 = zext i8 %71 to i16
   %74 = shl nuw nsw i16 %73, 4
   %.sink = select i1 %72, i16 16320, i16 %74
-  %75 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv
   store i16 %.sink, ptr %75, align 2, !tbaa !209
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59

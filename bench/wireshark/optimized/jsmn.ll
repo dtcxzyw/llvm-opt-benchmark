@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/jsmn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jsmntok_t = type { i32, i32, i32, i32 }
-
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define hidden i32 @jsmn_parse(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -67,7 +65,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
   %21 = zext i32 %20 to i64
   %22 = add nuw i32 %20, 1
   store i32 %22, ptr %6, align 4
-  %23 = getelementptr %struct.jsmntok_t, ptr %3, i64 %21
+  %23 = getelementptr [16 x i8], ptr %3, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 -1, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -84,7 +82,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
 
 30:                                               ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr %struct.jsmntok_t, ptr %3, i64 %31
+  %32 = getelementptr [16 x i8], ptr %3, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 1
@@ -119,7 +117,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
 
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %58
   %indvars.iv259 = phi i64 [ %48, %.lr.ph221.preheader ], [ %indvars.iv.next260, %58 ]
-  %49 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv259
+  %49 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv259
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %.not152 = icmp eq i32 %51, -1
@@ -159,7 +157,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
 
 .lr.ph224:                                        ; preds = %.lr.ph224.preheader, %74
   %indvars.iv262 = phi i64 [ %64, %.lr.ph224.preheader ], [ %indvars.iv.next263, %74 ]
-  %65 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv262
+  %65 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv262
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %.not154 = icmp eq i32 %67, -1
@@ -215,7 +213,7 @@ jsmn_alloc_token.exit.i:                          ; preds = %85
   %87 = zext i32 %86 to i64
   %88 = add nuw i32 %86, 1
   store i32 %88, ptr %6, align 4
-  %89 = getelementptr %struct.jsmntok_t, ptr %3, i64 %87
+  %89 = getelementptr [16 x i8], ptr %3, i64 %87
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 -1, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -320,7 +318,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 
 123:                                              ; preds = %jsmn_parse_string.exit
   %124 = sext i32 %122 to i64
-  %125 = getelementptr %struct.jsmntok_t, ptr %3, i64 %124
+  %125 = getelementptr [16 x i8], ptr %3, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
@@ -343,7 +341,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 
 135:                                              ; preds = %133
   %136 = sext i32 %134 to i64
-  %137 = getelementptr %struct.jsmntok_t, ptr %3, i64 %136
+  %137 = getelementptr [16 x i8], ptr %3, i64 %136
   %138 = load i32, ptr %137, align 4
   %.off = add i32 %138, -1
   %switch = icmp ult i32 %.off, 2
@@ -361,7 +359,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %154
   %indvars.iv = phi i64 [ %142, %.lr.ph.preheader ], [ %indvars.iv.next, %154 ]
-  %143 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv
+  %143 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv
   %144 = load i32, ptr %143, align 4
   %.off156 = add i32 %144, -1
   %switch157 = icmp ult i32 %.off156, 2
@@ -399,7 +397,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 
 159:                                              ; preds = %157
   %160 = sext i32 %158 to i64
-  %161 = getelementptr %struct.jsmntok_t, ptr %3, i64 %160
+  %161 = getelementptr [16 x i8], ptr %3, i64 %160
   %162 = load i32, ptr %161, align 4
   switch i32 %162, label %.lr.ph.i160.preheader [
     i32 1, label %jsmn_alloc_token.exit.thread
@@ -461,7 +459,7 @@ jsmn_alloc_token.exit.i162:                       ; preds = %179
   %181 = zext i32 %180 to i64
   %182 = add nuw i32 %180, 1
   store i32 %182, ptr %6, align 4
-  %183 = getelementptr %struct.jsmntok_t, ptr %3, i64 %181
+  %183 = getelementptr [16 x i8], ptr %3, i64 %181
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i32 -1, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 4
@@ -487,7 +485,7 @@ jsmn_alloc_token.exit.i162:                       ; preds = %179
 
 194:                                              ; preds = %188
   %195 = sext i32 %193 to i64
-  %196 = getelementptr %struct.jsmntok_t, ptr %3, i64 %195
+  %196 = getelementptr [16 x i8], ptr %3, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 12
   %198 = load i32, ptr %197, align 4
   %199 = add i32 %198, 1
@@ -520,7 +518,7 @@ jsmn_alloc_token.exit.i162:                       ; preds = %179
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %215
   %indvars.iv265 = phi i64 [ %207, %.lr.ph232.preheader ], [ %indvars.iv.next266, %215 ]
-  %208 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv265
+  %208 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv265
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %210 = load i32, ptr %209, align 4
   %.not144 = icmp eq i32 %210, -1

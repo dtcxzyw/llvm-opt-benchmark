@@ -6,12 +6,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
 %struct.ProcPeerCertArgs = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i8, i8 }
-%struct.WOLFSSL_BUFFER_INFO = type { ptr, i32 }
 %struct.DskeArgs = type { ptr, ptr, i32, i32, i16, i16, i32 }
 %struct.DckeArgs = type { ptr, i32, i32, i32, i32, i32 }
 %struct.DcvArgs = type { ptr, i32, i16, i32, i32, i32 }
 %struct.BuildMsgArgs = type { i32, i32, i32, i32, i32, i16, i32, i8, ptr, [8 x i8], [16 x i8] }
-%struct.CipherSuiteInfo = type { ptr, ptr, i8, i8, i8 }
 %struct.CipherSuite = type { i8, i8, i32, ptr, i32 }
 
 @AlertTypeToString.close_notify_str = internal constant [13 x i8] c"close_notify\00", align 1
@@ -6511,7 +6509,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   %.097192 = phi i8 [ 1, %.preheader ], [ %.198, %.loopexit ]
   %14 = load i8, ptr %.072196, align 1, !tbaa !45
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !49
   %sext = shl i32 %17, 24
   %.not228.not.not.not = icmp ne i32 %sext, 0
@@ -6543,7 +6541,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   %.380.in169.us = phi i32 [ %.380171.us, %31 ], [ %.077195, %.lr.ph.split.us.preheader ]
   %26 = load i8, ptr %.274170.us, align 1, !tbaa !45
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %11, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !49
   %30 = getelementptr inbounds nuw i8, ptr %.274170.us, i64 1
   %trunc.us = trunc i32 %29 to i8
@@ -6560,7 +6558,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
 .lr.ph.split:                                     ; preds = %.lr.ph
   %33 = load i8, ptr %19, align 1, !tbaa !45
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %11, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %.072196, i64 2
   %trunc = trunc i32 %36 to i8
@@ -6609,7 +6607,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
   %48 = getelementptr inbounds nuw i8, ptr %.386.us, i64 1
   %49 = load i8, ptr %.386.us, align 1, !tbaa !45
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %11, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !49
   %sext120.us.mask = and i32 %52, 255
   %53 = icmp eq i32 %sext120.us.mask, 46
@@ -6624,7 +6622,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
 54:                                               ; preds = %.split
   %55 = load i8, ptr %.386, align 1, !tbaa !45
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %11, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !49
   %59 = getelementptr inbounds nuw i8, ptr %.386, i64 1
   %60 = add i32 %.493, -1
@@ -6647,7 +6645,7 @@ define range(i32 0, 2) i32 @MatchDomainName(ptr noundef readonly captures(addres
 68:                                               ; preds = %18
   %69 = load i8, ptr %.083194, align 1, !tbaa !45
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %11, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !49
   %sext113 = shl i32 %72, 24
   %.not114 = icmp eq i32 %sext, %sext113
@@ -7413,7 +7411,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   br i1 %97, label %.thread386, label %98
 
 98:                                               ; preds = %79
-  %99 = getelementptr inbounds nuw %struct.WOLFSSL_BUFFER_INFO, ptr %43, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 %93, ptr %100, align 8, !tbaa !283
   %101 = zext i32 %94 to i64
@@ -7483,7 +7481,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
 
 138:                                              ; preds = %119
   %139 = zext nneg i32 %112 to i64
-  %140 = getelementptr inbounds nuw %struct.WOLFSSL_BUFFER_INFO, ptr %43, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i32 %133, ptr %141, align 8, !tbaa !283
   %142 = zext i32 %134 to i64
@@ -7523,7 +7521,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   br i1 %163, label %.thread386, label %164
 
 164:                                              ; preds = %151
-  %165 = getelementptr inbounds nuw %struct.WOLFSSL_BUFFER_INFO, ptr %.fr500, i64 %139
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %.fr500, i64 %139
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i32 %161, ptr %166, align 8, !tbaa !283
   %167 = zext i32 %159 to i64
@@ -7662,7 +7660,7 @@ define i32 @ProcessPeerCerts(ptr noundef initializes((1050, 1051)) %0, ptr nound
   %232 = zext i1 %.not273 to i32
   %233 = load ptr, ptr %5, align 16, !tbaa !267
   %234 = zext nneg i32 %226 to i64
-  %235 = getelementptr inbounds nuw %struct.WOLFSSL_BUFFER_INFO, ptr %233, i64 %234
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !284
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %238 = load i32, ptr %237, align 8, !tbaa !283
@@ -7794,7 +7792,7 @@ ProcessPeerCertParse.exit:                        ; preds = %229, %249
   %297 = load ptr, ptr %5, align 16, !tbaa !267
   %298 = load i32, ptr %202, align 8, !tbaa !260
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds %struct.WOLFSSL_BUFFER_INFO, ptr %297, i64 %299
+  %300 = getelementptr inbounds [16 x i8], ptr %297, i64 %299
   %.not277 = icmp eq i32 %.1396, 0
   br i1 %.not277, label %301, label %.thread403.thread
 
@@ -10643,7 +10641,7 @@ RetrySendAlert.exit.i184.i:                       ; preds = %65
 
 switch.lookup:                                    ; preds = %214
   %221 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.DoServerKeyExchange, i64 %221
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.DoServerKeyExchange, i64 %221
   %switch.load = load i32, ptr %switch.gep, align 4
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 %switch.load, ptr %222, align 16, !tbaa !125
@@ -11084,7 +11082,7 @@ IsAtLeastTLSv1_2.exit206:                         ; preds = %423
 
 switch.lookup330:                                 ; preds = %IsAtLeastTLSv1_2.exit206
   %433 = zext nneg i8 %switch.tableidx329 to i64
-  %switch.gep331 = getelementptr inbounds nuw i32, ptr @switch.table.SendServerKeyExchange.24, i64 %433
+  %switch.gep331 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendServerKeyExchange.24, i64 %433
   %switch.load332 = load i32, ptr %switch.gep331, align 4
   br label %TypeHash.exit
 
@@ -12755,10 +12753,10 @@ IsAtLeastTLSv1_2.exit133:                         ; preds = %85
 
 switch.lookup:                                    ; preds = %IsAtLeastTLSv1_2.exit133
   %90 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SendCertificateVerify.21, i64 %90
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SendCertificateVerify.21, i64 %90
   %switch.load = load i64, ptr %switch.gep, align 8
   %91 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep184 = getelementptr inbounds nuw i32, ptr @switch.table.SendCertificateVerify.22, i64 %91
+  %switch.gep184 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendCertificateVerify.22, i64 %91
   %switch.load185 = load i32, ptr %switch.gep184, align 4
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 %switch.load
   store ptr %92, ptr %83, align 16, !tbaa !202
@@ -12916,10 +12914,10 @@ IsAtLeastTLSv1_2.exit137:                         ; preds = %153
 
 switch.lookup189:                                 ; preds = %159
   %162 = zext nneg i8 %switch.tableidx187 to i64
-  %switch.gep192 = getelementptr inbounds nuw i64, ptr @switch.table.SendCertificateVerify.21, i64 %162
+  %switch.gep192 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SendCertificateVerify.21, i64 %162
   %switch.load193 = load i64, ptr %switch.gep192, align 8
   %163 = zext nneg i8 %switch.tableidx187 to i64
-  %switch.gep194 = getelementptr inbounds nuw i32, ptr @switch.table.SendCertificateVerify.22, i64 %163
+  %switch.gep194 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendCertificateVerify.22, i64 %163
   %switch.load195 = load i32, ptr %switch.gep194, align 4
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %165 = load i64, ptr %164, align 8
@@ -12969,10 +12967,10 @@ SetDigest.exit141:                                ; preds = %.SetDigest.exit141_
 
 switch.lookup199:                                 ; preds = %182
   %185 = zext nneg i8 %switch.tableidx197 to i64
-  %switch.gep202 = getelementptr inbounds nuw i64, ptr @switch.table.SendCertificateVerify.21, i64 %185
+  %switch.gep202 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SendCertificateVerify.21, i64 %185
   %switch.load203 = load i64, ptr %switch.gep202, align 8
   %186 = zext nneg i8 %switch.tableidx197 to i64
-  %switch.gep204 = getelementptr inbounds nuw i32, ptr @switch.table.SendCertificateVerify.22, i64 %186
+  %switch.gep204 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendCertificateVerify.22, i64 %186
   %switch.load205 = load i32, ptr %switch.gep204, align 4
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %188 = load i64, ptr %187, align 8
@@ -12996,7 +12994,7 @@ SetDigest.exit148:                                ; preds = %.SetDigest.exit148_
 
 switch.lookup208:                                 ; preds = %SetDigest.exit148
   %198 = zext nneg i8 %switch.tableidx207 to i64
-  %switch.gep209 = getelementptr inbounds nuw i32, ptr @switch.table.SendServerKeyExchange.24, i64 %198
+  %switch.gep209 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendServerKeyExchange.24, i64 %198
   %switch.load210 = load i32, ptr %switch.gep209, align 4
   br label %TypeHash.exit
 
@@ -20879,7 +20877,7 @@ define ptr @GetCipherNameInternal(i8 noundef zeroext %0, i8 noundef zeroext %1) 
 
 3:                                                ; preds = %2, %14
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
-  %4 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @cipher_names, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !410
   %7 = icmp eq i8 %6, %0
@@ -20911,7 +20909,7 @@ define ptr @GetCipherNameIana(i8 noundef zeroext %0, i8 noundef zeroext %1) loca
 
 3:                                                ; preds = %2, %15
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %15 ]
-  %4 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @cipher_names, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !410
   %7 = icmp eq i8 %6, %0
@@ -20952,7 +20950,7 @@ define ptr @wolfSSL_get_cipher_name_internal(ptr noundef readonly captures(addre
 
 8:                                                ; preds = %19, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %19 ]
-  %9 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr @cipher_names, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 8, !tbaa !410
   %12 = icmp eq i8 %11, %5
@@ -20992,7 +20990,7 @@ define ptr @wolfSSL_get_cipher_name_iana(ptr noundef readonly captures(address_i
 
 8:                                                ; preds = %20, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %20 ]
-  %9 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr @cipher_names, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 8, !tbaa !410
   %12 = icmp eq i8 %11, %5
@@ -21041,7 +21039,7 @@ define range(i32 -173, 1) i32 @GetCipherSuiteFromName(ptr noundef %0, ptr nounde
 
 14:                                               ; preds = %13, %39
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %39 ]
-  %15 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @cipher_names, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !413
   %17 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %16, i64 noundef %.031) #30
   %18 = icmp eq i32 %17, 0
@@ -21205,7 +21203,7 @@ define range(i32 0, 2) i32 @SetCipherList_ex(ptr noundef readonly captures(addre
 
 48:                                               ; preds = %93, %44
   %indvars.iv.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i, %93 ]
-  %49 = getelementptr inbounds nuw %struct.CipherSuiteInfo, ptr @cipher_names, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [24 x i8], ptr @cipher_names, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !413
   %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %50, i64 noundef 49) #30
   %52 = icmp eq i32 %51, 0
@@ -21570,7 +21568,7 @@ SupportedHashSigAlgo.exit:                        ; preds = %.lr.ph.i, %46
 switch.lookup:                                    ; preds = %66
   %68 = load i32, ptr %23, align 4, !tbaa !153
   %69 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SendCertificateVerify.22, i64 %69
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendCertificateVerify.22, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = and i32 %68, -4
   %.not53 = icmp eq i32 %switch.load, %70
@@ -23660,10 +23658,10 @@ IsAtLeastTLSv1_2.exit:                            ; preds = %64
 
 switch.lookup:                                    ; preds = %IsAtLeastTLSv1_2.exit
   %71 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SendCertificateVerify.21, i64 %71
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SendCertificateVerify.21, i64 %71
   %switch.load = load i64, ptr %switch.gep, align 8
   %72 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep284 = getelementptr inbounds nuw i32, ptr @switch.table.SendCertificateVerify.22, i64 %72
+  %switch.gep284 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendCertificateVerify.22, i64 %72
   %switch.load285 = load i32, ptr %switch.gep284, align 4
   br label %SetDigest.exit.sink.split
 
@@ -23775,10 +23773,10 @@ EncodeSigAlg.exit:                                ; preds = %IsAtLeastTLSv1_2.ex
 
 switch.lookup288:                                 ; preds = %EncodeSigAlg.exit
   %111 = zext nneg i8 %switch.tableidx286 to i64
-  %switch.gep291 = getelementptr inbounds nuw i64, ptr @switch.table.SendCertificateVerify.21, i64 %111
+  %switch.gep291 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SendCertificateVerify.21, i64 %111
   %switch.load292 = load i64, ptr %switch.gep291, align 8
   %112 = zext nneg i8 %switch.tableidx286 to i64
-  %switch.gep293 = getelementptr inbounds nuw i32, ptr @switch.table.SendCertificateVerify.22, i64 %112
+  %switch.gep293 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendCertificateVerify.22, i64 %112
   %switch.load294 = load i32, ptr %switch.gep293, align 4
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %114 = load i64, ptr %113, align 8
@@ -23834,7 +23832,7 @@ IsAtLeastTLSv1_2.exit212:                         ; preds = %129
 
 switch.lookup297:                                 ; preds = %IsAtLeastTLSv1_2.exit212
   %141 = zext nneg i8 %switch.tableidx296 to i64
-  %switch.gep298 = getelementptr inbounds nuw i32, ptr @switch.table.SendServerKeyExchange.24, i64 %141
+  %switch.gep298 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendServerKeyExchange.24, i64 %141
   %switch.load299 = load i32, ptr %switch.gep298, align 4
   br label %TypeHash.exit
 
@@ -25529,7 +25527,7 @@ IsAtLeastTLSv1_2.exit492:                         ; preds = %242
 
 switch.lookup:                                    ; preds = %247
   %255 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SendServerKeyExchange.24, i64 %255
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendServerKeyExchange.24, i64 %255
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %TypeHash.exit
 
@@ -25909,7 +25907,7 @@ IsAtLeastTLSv1_2.exit510:                         ; preds = %460
 
 switch.lookup660:                                 ; preds = %465
   %473 = zext nneg i8 %switch.tableidx659 to i64
-  %switch.gep661 = getelementptr inbounds nuw i32, ptr @switch.table.SendServerKeyExchange.24, i64 %473
+  %switch.gep661 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SendServerKeyExchange.24, i64 %473
   %switch.load662 = load i32, ptr %switch.gep661, align 4
   br label %TypeHash.exit512
 

@@ -377,10 +377,10 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %17
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   %24 = load ptr, ptr @_ZL10gMainTable, align 8, !tbaa !21
   %25 = zext nneg i32 %21 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !22
   %28 = zext i16 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %9, %6, %_ZL7isAliasPKcP10UErrorCode.exit, %15, %.thread, %_ZL7isAliasPKcP10UErrorCode.exit.thread
@@ -461,27 +461,27 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL13haveAliasDataP10U
   %38 = shl i32 %14, 1
   %39 = add i32 %38, 2
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %13, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %40
   store ptr %41, ptr @_ZL10gMainTable, align 8, !tbaa !21
   %42 = add i32 %19, %39
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %13, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %43
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 8), align 8, !tbaa !35
   %45 = add i32 %21, %42
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %13, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %46
   store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 16), align 8, !tbaa !36
   %48 = add i32 %23, %45
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %13, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %49
   store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 24), align 8, !tbaa !37
   %51 = add i32 %25, %48
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %13, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %52
   store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 32), align 8, !tbaa !38
   %54 = add i32 %27, %51
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %13, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %55
   store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %57 = add i32 %29, %54
   %.not48.i = icmp eq i32 %31, 0
@@ -489,7 +489,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL13haveAliasDataP10U
 
 58:                                               ; preds = %37
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %13, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !40
   %.fr.i = freeze i16 %61
   %62 = icmp ult i16 %.fr.i, 2
@@ -499,7 +499,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL13haveAliasDataP10U
   store ptr @_ZL19defaultTableOptions, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 48), align 8, !tbaa !42
   %63 = add i32 %31, %57
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i16, ptr %13, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %64
   store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   br label %74
 
@@ -507,12 +507,12 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL13haveAliasDataP10U
   store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 48), align 8, !tbaa !42
   %67 = add i32 %31, %57
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %13, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %68
   store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   %70 = add i32 %33, %67
   %71 = icmp eq i16 %.fr.i, 0
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %13, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %72
   %spec.select.i = select i1 %71, ptr %69, ptr %73
   br label %74
 
@@ -657,10 +657,10 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
   %.03049.us = phi i32 [ %.1.us, %54 ], [ %10, %.thread ]
   %.03148.us = phi i32 [ %.132.us, %54 ], [ 0, %.thread ]
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %8, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !22
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %9, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %49
   %51 = tail call i32 @ucnv_compareNames_77(ptr noundef %0, ptr noundef %50)
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %54, label %53
@@ -682,10 +682,10 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
   %.03049 = phi i32 [ %.1, %83 ], [ %41, %.split.preheader ]
   %.03148 = phi i32 [ %.132, %83 ], [ 0, %.split.preheader ]
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %44, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !22
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %43, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %62
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %63) #14
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %83, label %66
@@ -697,7 +697,7 @@ define internal fastcc noundef range(i32 -1, 4096) i32 @_ZL13findConverterPKcPaP
 .split51.us:                                      ; preds = %66, %53
   %.pre-phi = phi i64 [ %46, %53 ], [ %59, %66 ]
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 24), align 8, !tbaa !37
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %.pre-phi
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %.pre-phi
   %69 = load i16, ptr %68, align 2, !tbaa !22
   %.not35 = icmp sgt i16 %69, -1
   br i1 %.not35, label %71, label %70
@@ -818,10 +818,10 @@ define internal fastcc noundef range(i32 -1, 65536) i32 @_ZL26findTaggedAliasLis
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %3 ]
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 8), align 8, !tbaa !35
-  %10 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load i16, ptr %10, align 2, !tbaa !22
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %12
   %14 = tail call i32 @uprv_stricmp_77(ptr noundef %13, ptr noundef %1)
   %.not8.i = icmp eq i32 %14, 0
   br i1 %.not8.i, label %.thread.loopexit.split.loop.exit14.i, label %15
@@ -864,7 +864,7 @@ _ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.lo
   %32 = mul i32 %28, %.1.i
   %33 = add i32 %32, %20
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !22
   %.not34 = icmp eq i16 %36, 0
   br i1 %.not34, label %44, label %37
@@ -873,7 +873,7 @@ _ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.lo
   %38 = zext i16 %36 to i32
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %40 = zext i16 %36 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = load i16, ptr %42, align 2, !tbaa !22
   %.not35 = icmp eq i16 %43, 0
@@ -896,14 +896,14 @@ _ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.lo
 
 49:                                               ; preds = %.lr.ph, %_ZL13isAliasInListPKcj.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL13isAliasInListPKcj.exit.thread ]
-  %50 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !22
   %.not36 = icmp eq i16 %51, 0
   br i1 %.not36, label %_ZL13isAliasInListPKcj.exit.thread, label %52
 
 52:                                               ; preds = %49
   %53 = zext i16 %51 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %47, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !22
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %.not1617.not.i = icmp eq i16 %55, 0
@@ -915,14 +915,14 @@ _ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.lo
 
 57:                                               ; preds = %65, %.lr.ph.i40
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i43, %65 ]
-  %58 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv.i41
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv.i41
   %59 = load i16, ptr %58, align 2, !tbaa !22
   %.not.i42 = icmp eq i16 %59, 0
   br i1 %.not.i42, label %65, label %60
 
 60:                                               ; preds = %57
   %61 = zext i16 %59 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %48, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %61
   %63 = tail call i32 @ucnv_compareNames_77(ptr noundef readonly %0, ptr noundef nonnull %62)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %_ZL13isAliasInListPKcj.exit, label %65
@@ -937,14 +937,14 @@ _ZL13isAliasInListPKcj.exit:                      ; preds = %60
   %67 = urem i32 %66, %28
   %68 = add i32 %67, %32
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %31, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !22
   %.not38 = icmp eq i16 %71, 0
   br i1 %.not38, label %_ZL13isAliasInListPKcj.exit.thread, label %72
 
 72:                                               ; preds = %_ZL13isAliasInListPKcj.exit
   %73 = zext i16 %71 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %47, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %76 = load i16, ptr %75, align 2, !tbaa !22
   %.not39 = icmp eq i16 %76, 0
@@ -990,10 +990,10 @@ define ptr @ucnv_getStandard_77(i16 noundef zeroext %0, ptr noundef %1) local_un
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 8), align 8, !tbaa !35
   %12 = zext i16 %0 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !22
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %15
   br label %18
 
 17:                                               ; preds = %4
@@ -1035,13 +1035,13 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
 12:                                               ; preds = %8
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2, !tbaa !22
   %.not19 = icmp eq i16 %17, 0
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8
   %19 = zext i16 %17 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   br i1 %.not19, label %.thread, label %21
 
 .thread:                                          ; preds = %8, %12
@@ -1084,7 +1084,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %4
   %15 = mul i32 %14, %9
   %16 = add i32 %15, %8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !22
   %.not17.i = icmp eq i16 %19, 0
   br i1 %.not17.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %20
@@ -1092,7 +1092,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %4
 20:                                               ; preds = %11
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %22 = zext i16 %19 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !22
   br label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit
 
@@ -1133,7 +1133,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
   %16 = mul i32 %15, %10
   %17 = add i32 %16, %9
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !22
   %.not26.i = icmp eq i16 %20, 0
   br i1 %.not26.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %21
@@ -1141,7 +1141,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
 21:                                               ; preds = %12
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %23 = zext i16 %20 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !22
   %.not27.i = icmp ult i16 %1, %25
   br i1 %.not27.i, label %26, label %.thread35.i
@@ -1154,10 +1154,10 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   %29 = zext i16 %1 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !22
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %32
   br label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit
 
 _ZL16ucnv_io_getAliasPKctP10UErrorCode.exit:      ; preds = %3, %_ZL7isAliasPKcP10UErrorCode.exit.thread.i, %_ZL7isAliasPKcP10UErrorCode.exit.i, %8, %12, %.thread35.i, %26
@@ -1197,7 +1197,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
   %16 = mul i32 %15, %10
   %17 = add i32 %16, %9
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !22
   %.not21.i = icmp eq i16 %20, 0
   br i1 %.not21.i, label %_ZL18ucnv_io_getAliasesPKctPS0_P10UErrorCode.exit, label %21
@@ -1205,7 +1205,7 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
 21:                                               ; preds = %12
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %23 = zext i16 %20 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %.not26.i = icmp eq i16 %25, 0
@@ -1218,11 +1218,11 @@ _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
 
 28:                                               ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv.i
   %30 = load i16, ptr %29, align 2, !tbaa !22
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %27, i64 %31
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   store ptr %32, ptr %33, align 8, !tbaa !58
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1281,10 +1281,10 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %6
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %20 ], [ 0, %9 ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 56), align 8, !tbaa !20
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 8), align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv.i.i
   %16 = load i16, ptr %15, align 2, !tbaa !22
   %17 = zext i16 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %17
   %19 = tail call i32 @uprv_stricmp_77(ptr noundef %18, ptr noundef %1)
   %.not8.i.i = icmp eq i32 %19, 0
   br i1 %.not8.i.i, label %.thread.loopexit.split.loop.exit14.i.i, label %20
@@ -1327,7 +1327,7 @@ _ZL12getTagNumberPKc.exit.i:                      ; preds = %20, %.thread.loopex
   %37 = mul i32 %33, %.1.i.i
   %38 = add i32 %37, %25
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !22
   %.not32.i = icmp eq i16 %41, 0
   br i1 %.not32.i, label %_ZL13isAliasInListPKcj.exit.thread.i, label %42
@@ -1335,7 +1335,7 @@ _ZL12getTagNumberPKc.exit.i:                      ; preds = %20, %.thread.loopex
 42:                                               ; preds = %35
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %44 = zext i16 %41 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %.not1617.not.i.i = icmp eq i16 %46, 0
@@ -1348,14 +1348,14 @@ _ZL12getTagNumberPKc.exit.i:                      ; preds = %20, %.thread.loopex
 
 49:                                               ; preds = %57, %.lr.ph.i37.i
   %indvars.iv.i38.i = phi i64 [ 0, %.lr.ph.i37.i ], [ %indvars.iv.next.i40.i, %57 ]
-  %50 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv.i38.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv.i38.i
   %51 = load i16, ptr %50, align 2, !tbaa !22
   %.not.i39.i = icmp eq i16 %51, 0
   br i1 %.not.i39.i, label %57, label %52
 
 52:                                               ; preds = %49
   %53 = zext i16 %51 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %48, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %53
   %55 = tail call i32 @ucnv_compareNames_77(ptr noundef nonnull readonly %0, ptr noundef nonnull %54)
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit, label %57
@@ -1384,14 +1384,14 @@ _ZL13isAliasInListPKcj.exit.thread.i:             ; preds = %57, %42, %35
 
 65:                                               ; preds = %_ZL13isAliasInListPKcj.exit49.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %64, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZL13isAliasInListPKcj.exit49.thread.i ]
-  %66 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv.i
   %67 = load i16, ptr %66, align 2, !tbaa !22
   %.not34.i = icmp eq i16 %67, 0
   br i1 %.not34.i, label %_ZL13isAliasInListPKcj.exit49.thread.i, label %68
 
 68:                                               ; preds = %65
   %69 = zext i16 %67 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %62, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %.not1617.not.i41.i = icmp eq i16 %71, 0
@@ -1403,14 +1403,14 @@ _ZL13isAliasInListPKcj.exit.thread.i:             ; preds = %57, %42, %35
 
 73:                                               ; preds = %81, %.lr.ph.i42.i
   %indvars.iv.i44.i = phi i64 [ 0, %.lr.ph.i42.i ], [ %indvars.iv.next.i46.i, %81 ]
-  %74 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv.i44.i
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %indvars.iv.i44.i
   %75 = load i16, ptr %74, align 2, !tbaa !22
   %.not.i45.i = icmp eq i16 %75, 0
   br i1 %.not.i45.i, label %81, label %76
 
 76:                                               ; preds = %73
   %77 = zext i16 %75 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %63, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %77
   %79 = tail call i32 @ucnv_compareNames_77(ptr noundef nonnull readonly %0, ptr noundef nonnull %78)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %82, label %81
@@ -1444,10 +1444,10 @@ _ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit: ; preds = %52, %82
 87:                                               ; preds = %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit
   %88 = load ptr, ptr @_ZL10gMainTable, align 8, !tbaa !21
   %89 = zext i32 %.0.i12 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !22
   %92 = zext i16 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %85, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %92
   br label %.thread
 
 .thread:                                          ; preds = %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit.thread, %_ZL22findTaggedConverterNumPKcS0_P10UErrorCode.exit, %3, %_ZL7isAliasPKcP10UErrorCode.exit, %_ZL7isAliasPKcP10UErrorCode.exit.thread, %87
@@ -1608,10 +1608,10 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %63 = load ptr, ptr %56, align 8, !tbaa !62
-  %64 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !24
   %66 = tail call noundef i32 %63(i32 noundef %65)
-  %67 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1628,20 +1628,20 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %.lr.ph202
   %70 = phi i32 [ %68, %.lr.ph202.preheader ], [ %74, %.lr.ph202 ]
   %indvars.iv222 = phi i64 [ 2, %.lr.ph202.preheader ], [ %indvars.iv.next223, %.lr.ph202 ]
-  %71 = getelementptr i32, ptr %6, i64 %indvars.iv222
+  %71 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv222
   %72 = getelementptr i8, ptr %71, i64 -4
   %73 = load i32, ptr %72, align 4, !tbaa !24
   %74 = add i32 %73, %70
-  %75 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv222
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv222
   store i32 %74, ptr %75, align 4, !tbaa !24
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
   br i1 %exitcond226.not, label %._crit_edge203, label %.lr.ph202, !llvm.loop !65
 
 ._crit_edge203:                                   ; preds = %.lr.ph202
-  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv222
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv222
   %77 = load i32, ptr %76, align 4, !tbaa !24
-  %78 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv222
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv222
   %79 = load i32, ptr %78, align 4, !tbaa !24
   %80 = add i32 %79, %77
   br i1 %48, label %81, label %._crit_edge203._crit_edge
@@ -1672,14 +1672,14 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %95 = load i32, ptr %94, align 16, !tbaa !24
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %55, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %99 = load i32, ptr %98, align 16, !tbaa !24
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %101 = load i32, ptr %100, align 4, !tbaa !24
   %102 = add i32 %101, %99
   %103 = shl nsw i32 %102, 1
-  %104 = getelementptr inbounds nuw i16, ptr %87, i64 %96
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %96
   %105 = tail call noundef i32 %93(ptr noundef nonnull %0, ptr noundef nonnull %97, i32 noundef %103, ptr noundef %104, ptr noundef nonnull %4)
   %106 = load i32, ptr %4, align 4, !tbaa !13
   %107 = icmp slt i32 %106, 1
@@ -1702,10 +1702,10 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %117 = load ptr, ptr %116, align 8, !tbaa !70
   %118 = load i32, ptr %69, align 4, !tbaa !24
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw i16, ptr %55, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %119
   %121 = sub i32 %95, %118
   %122 = shl nsw i32 %121, 1
-  %123 = getelementptr inbounds nuw i16, ptr %87, i64 %119
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %119
   %124 = tail call noundef i32 %117(ptr noundef nonnull %0, ptr noundef nonnull %120, i32 noundef %122, ptr noundef %123, ptr noundef nonnull %4)
   br label %240
 
@@ -1741,7 +1741,7 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %.critedge
 
 142:                                              ; preds = %132
-  %143 = getelementptr inbounds nuw %struct.TempRow, ptr %138, i64 %133
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %133
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %143, ptr %144, align 8, !tbaa !75
   %.pre250 = load i8, ptr %112, align 1, !tbaa !69
@@ -1757,13 +1757,13 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %151 = load i32, ptr %150, align 4, !tbaa !24
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw i16, ptr %55, i64 %152
-  %154 = getelementptr inbounds nuw i16, ptr %87, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %152
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %152
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %156 = load i32, ptr %155, align 16, !tbaa !24
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw i16, ptr %55, i64 %157
-  %159 = getelementptr inbounds nuw i16, ptr %87, i64 %157
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %157
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %157
   %.not = icmp eq i32 %127, 0
   br i1 %.not, label %._crit_edge207, label %.lr.ph206
 
@@ -1775,10 +1775,10 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 161:                                              ; preds = %.lr.ph206, %161
   %indvars.iv227 = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next228, %161 ]
   %162 = load ptr, ptr %160, align 8, !tbaa !77
-  %163 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv227
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %indvars.iv227
   %164 = load i16, ptr %163, align 2, !tbaa !22
   %165 = call noundef zeroext i16 %162(i16 noundef zeroext %164)
-  %166 = getelementptr inbounds nuw %struct.TempRow, ptr %146, i64 %indvars.iv227
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv227
   store i16 %165, ptr %166, align 2, !tbaa !78
   %167 = trunc i64 %indvars.iv227 to i16
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 2
@@ -1809,17 +1809,17 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 174:                                              ; preds = %.lr.ph209, %174
   %indvars.iv232 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next233, %174 ]
   %175 = load ptr, ptr %169, align 8, !tbaa !74
-  %176 = getelementptr inbounds nuw %struct.TempRow, ptr %175, i64 %indvars.iv232
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv232
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 2
   %178 = load i16, ptr %177, align 2, !tbaa !80
   %179 = load ptr, ptr %173, align 8, !tbaa !70
   %180 = zext i16 %178 to i64
-  %181 = getelementptr inbounds nuw i16, ptr %153, i64 %180
-  %182 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv232
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %180
+  %182 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %indvars.iv232
   %183 = call noundef i32 %179(ptr noundef nonnull %0, ptr noundef nonnull %181, i32 noundef 2, ptr noundef %182, ptr noundef nonnull %4)
   %184 = load ptr, ptr %173, align 8, !tbaa !70
-  %185 = getelementptr inbounds nuw i16, ptr %158, i64 %180
-  %186 = getelementptr inbounds nuw i16, ptr %159, i64 %indvars.iv232
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %158, i64 %180
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %indvars.iv232
   %187 = call noundef i32 %184(ptr noundef nonnull %0, ptr noundef nonnull %185, i32 noundef 2, ptr noundef %186, ptr noundef nonnull %4)
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next233, %wide.trip.count235
@@ -1838,13 +1838,13 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 192:                                              ; preds = %.lr.ph212, %192
   %indvars.iv237 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next238, %192 ]
   %193 = load ptr, ptr %169, align 8, !tbaa !74
-  %194 = getelementptr inbounds nuw %struct.TempRow, ptr %193, i64 %indvars.iv237
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv237
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 2
   %196 = load i16, ptr %195, align 2, !tbaa !80
   %197 = load ptr, ptr %191, align 8, !tbaa !70
   %198 = zext i16 %196 to i64
-  %199 = getelementptr inbounds nuw i16, ptr %153, i64 %198
-  %200 = getelementptr inbounds nuw i16, ptr %190, i64 %indvars.iv237
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %198
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %190, i64 %indvars.iv237
   %201 = call noundef i32 %197(ptr noundef nonnull %0, ptr noundef nonnull %199, i32 noundef 2, ptr noundef %200, ptr noundef nonnull %4)
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond241.not = icmp eq i64 %indvars.iv.next238, %wide.trip.count240
@@ -1859,13 +1859,13 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 204:                                              ; preds = %.lr.ph216, %204
   %indvars.iv242 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next243, %204 ]
   %205 = load ptr, ptr %169, align 8, !tbaa !74
-  %206 = getelementptr inbounds nuw %struct.TempRow, ptr %205, i64 %indvars.iv242
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %indvars.iv242
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 2
   %208 = load i16, ptr %207, align 2, !tbaa !80
   %209 = load ptr, ptr %203, align 8, !tbaa !70
   %210 = zext i16 %208 to i64
-  %211 = getelementptr inbounds nuw i16, ptr %158, i64 %210
-  %212 = getelementptr inbounds nuw i16, ptr %190, i64 %indvars.iv242
+  %211 = getelementptr inbounds nuw [2 x i8], ptr %158, i64 %210
+  %212 = getelementptr inbounds nuw [2 x i8], ptr %190, i64 %indvars.iv242
   %213 = call noundef i32 %209(ptr noundef nonnull %0, ptr noundef nonnull %211, i32 noundef 2, ptr noundef %212, ptr noundef nonnull %4)
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count240
@@ -1899,19 +1899,19 @@ define i32 @ucnv_swapAliases_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %223 = load ptr, ptr %222, align 8, !tbaa !70
   %224 = load i32, ptr %69, align 4, !tbaa !24
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds nuw i16, ptr %55, i64 %225
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %225
   %227 = sub i32 %151, %224
   %228 = shl nsw i32 %227, 1
-  %229 = getelementptr inbounds nuw i16, ptr %87, i64 %225
+  %229 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %225
   %230 = call noundef i32 %223(ptr noundef nonnull %0, ptr noundef nonnull %226, i32 noundef %228, ptr noundef %229, ptr noundef nonnull %4)
   %231 = load ptr, ptr %222, align 8, !tbaa !70
   %232 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %233 = load i32, ptr %232, align 4, !tbaa !24
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw i16, ptr %55, i64 %234
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %234
   %236 = sub i32 %95, %233
   %237 = shl nsw i32 %236, 1
-  %238 = getelementptr inbounds nuw i16, ptr %87, i64 %234
+  %238 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %234
   %239 = call noundef i32 %231(ptr noundef nonnull %0, ptr noundef nonnull %235, i32 noundef %237, ptr noundef %238, ptr noundef nonnull %4)
   br label %240
 
@@ -2078,7 +2078,7 @@ define internal noundef range(i32 0, 65536) i32 @_ZL28ucnv_io_countStandardAlias
 6:                                                ; preds = %2
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !22
   %11 = zext i16 %10 to i32
   br label %12
@@ -2101,7 +2101,7 @@ define internal noundef ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP1
 7:                                                ; preds = %3
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL10gMainTable, i64 40), align 8, !tbaa !39
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !22
   %12 = zext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2115,10 +2115,10 @@ define internal noundef ptr @_ZL27ucnv_io_nextStandardAliasesP12UEnumerationPiP1
   %18 = add nuw nsw i32 %14, 1
   store i32 %18, ptr %13, align 4, !tbaa !52
   %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !22
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %22
   %.not21 = icmp eq ptr %1, null
   br i1 %.not21, label %.thread, label %24
 
@@ -2173,10 +2173,10 @@ define internal noundef ptr @_ZL25ucnv_io_nextAllConvertersP12UEnumerationPiP10U
   %13 = add i16 %6, 1
   store i16 %13, ptr %5, align 2, !tbaa !22
   %14 = zext i16 %6 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !22
   %17 = zext i16 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %17
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %23, label %19
 

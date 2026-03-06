@@ -619,7 +619,7 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit8:                 ; preds = %_ZNKSt6vectorIlSaIl
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
   %29 = sub i64 256, %27
-  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %.09
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.09
   %31 = load i64, ptr %30, align 8, !tbaa !12
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef nonnull @.str.5, i64 noundef %31) #21
   %33 = add nuw i64 %.09, 1
@@ -697,7 +697,7 @@ define void @_Z25llama_format_tensor_shapeB5cxx11PK11ggml_tensor(ptr dead_on_unw
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   %21 = sub i64 256, %19
-  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !12
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %20, i64 noundef %21, ptr noundef nonnull @.str.5, i64 noundef %23) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1527,7 +1527,7 @@ _ZNSt7__cxx119to_stringEi.exit38:                 ; preds = %73, %81
 
 87:                                               ; preds = %4
   %88 = sext i32 %3 to i64
-  %89 = getelementptr inbounds i16, ptr %2, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %2, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !64
   %91 = zext i16 %90 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
@@ -1621,7 +1621,7 @@ _ZNSt7__cxx119to_stringEi.exit52:                 ; preds = %120, %128
 
 134:                                              ; preds = %4
   %135 = sext i32 %3 to i64
-  %136 = getelementptr inbounds i16, ptr %2, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %2, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !64
   %138 = sext i16 %137 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -1720,7 +1720,7 @@ _ZNSt7__cxx119to_stringEi.exit66:                 ; preds = %171, %179
 
 185:                                              ; preds = %4
   %186 = sext i32 %3 to i64
-  %187 = getelementptr inbounds i32, ptr %2, i64 %186
+  %187 = getelementptr inbounds [4 x i8], ptr %2, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !73
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %189 = icmp ult i32 %188, 10
@@ -1835,7 +1835,7 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %230, %238
 
 244:                                              ; preds = %4
   %245 = sext i32 %3 to i64
-  %246 = getelementptr inbounds i32, ptr %2, i64 %245
+  %246 = getelementptr inbounds [4 x i8], ptr %2, i64 %245
   %247 = load i32, ptr %246, align 4, !tbaa !73
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %248 = tail call i32 @llvm.abs.i32(i32 %247, i1 false)
@@ -1952,7 +1952,7 @@ _ZNSt7__cxx119to_stringEi.exit91:                 ; preds = %290, %298
 
 304:                                              ; preds = %4
   %305 = sext i32 %3 to i64
-  %306 = getelementptr inbounds i64, ptr %2, i64 %305
+  %306 = getelementptr inbounds [8 x i8], ptr %2, i64 %305
   %307 = load i64, ptr %306, align 8, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %308 = icmp ult i64 %307, 10
@@ -2055,7 +2055,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %347, %354
 
 357:                                              ; preds = %4
   %358 = sext i32 %3 to i64
-  %359 = getelementptr inbounds i64, ptr %2, i64 %358
+  %359 = getelementptr inbounds [8 x i8], ptr %2, i64 %358
   %360 = load i64, ptr %359, align 8, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %361 = tail call i64 @llvm.abs.i64(i64 %360, i1 false)
@@ -2160,7 +2160,7 @@ _ZNSt7__cxx119to_stringEl.exit:                   ; preds = %401, %408
 
 411:                                              ; preds = %4
   %412 = sext i32 %3 to i64
-  %413 = getelementptr inbounds float, ptr %2, i64 %412
+  %413 = getelementptr inbounds [4 x i8], ptr %2, i64 %412
   %414 = load float, ptr %413, align 4, !tbaa !89
   %415 = fpext float %414 to double
   tail call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.17, double noundef %415)
@@ -2168,7 +2168,7 @@ _ZNSt7__cxx119to_stringEl.exit:                   ; preds = %401, %408
 
 416:                                              ; preds = %4
   %417 = sext i32 %3 to i64
-  %418 = getelementptr inbounds double, ptr %2, i64 %417
+  %418 = getelementptr inbounds [8 x i8], ptr %2, i64 %417
   %419 = load double, ptr %418, align 8, !tbaa !91
   tail call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.17, double noundef %419)
   br label %430

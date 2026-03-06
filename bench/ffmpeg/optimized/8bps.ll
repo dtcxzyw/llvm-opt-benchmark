@@ -139,8 +139,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 %42
   %44 = zext i8 %39 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %1, i64 %44
-  %46 = getelementptr inbounds nuw i32, ptr %33, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %44
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %44
   %gepdiff.us = sub nsw i64 %30, %42
   br label %47
 

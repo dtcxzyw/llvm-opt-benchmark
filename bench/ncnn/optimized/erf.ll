@@ -134,7 +134,7 @@ define internal void @_ZNK4ncnn3Erf15forward_inplaceERNS_3MatERKNS_6OptionE.omp_
 
 28:                                               ; preds = %.noexc.us, %28
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !42
   %31 = call fast nofpclass(nan inf) float @erff(float noundef nofpclass(nan inf) %30) #12
   store float %31, ptr %29, align 4, !tbaa !42

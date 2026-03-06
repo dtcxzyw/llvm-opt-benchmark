@@ -130,7 +130,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.us.i ], [ 0, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %1, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv17.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv17.i
   %25 = load ptr, ptr %24, align 8, !tbaa !22
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
   %27 = trunc i64 %26 to i32
@@ -140,7 +140,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %30 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %3, i32 noundef 4, ptr noundef %10, i32 noundef 0, ptr noundef %29)
   %31 = load i32, ptr %3, align 4, !tbaa !17
   %32 = load ptr, ptr %1, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv17.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv17.i
   %34 = load ptr, ptr %33, align 8, !tbaa !22
   %35 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !15
   %36 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef %34, i32 noundef %31, ptr noundef %10, i32 noundef 0, ptr noundef %35)
@@ -157,14 +157,14 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %40 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !15
   %41 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %3, i32 noundef 4, ptr noundef %10, i32 noundef 0, ptr noundef %40)
   %42 = load ptr, ptr %1, align 8, !tbaa !19
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %3, align 4, !tbaa !17
   %45 = sext i32 %44 to i64
   %46 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 127, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef 1)
   store ptr %46, ptr %43, align 8, !tbaa !22
   %47 = load i32, ptr %3, align 4, !tbaa !17
   %48 = load ptr, ptr %1, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !22
   %51 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !15
   %52 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef %50, i32 noundef %47, ptr noundef %10, i32 noundef 0, ptr noundef %51)

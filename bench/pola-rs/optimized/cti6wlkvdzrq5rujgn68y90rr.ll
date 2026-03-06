@@ -560,7 +560,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h1ed583c35318bca
 
 141:                                              ; preds = %140, %134
   %142 = load ptr, ptr %122, align 8, !alias.scope !131, !nonnull !20, !noundef !20
-  %143 = getelementptr inbounds nuw i64, ptr %142, i64 %137
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %137
   store i64 %136, ptr %143, align 8
   %144 = add i64 %137, 1
   store i64 %144, ptr %123, align 8, !alias.scope !131
@@ -871,7 +871,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h241516d29a6d416
 
 125:                                              ; preds = %124, %118
   %126 = load ptr, ptr %106, align 8, !alias.scope !195, !nonnull !20, !noundef !20
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %121
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %121
   store i64 %120, ptr %127, align 8
   %128 = add i64 %121, 1
   store i64 %128, ptr %107, align 8, !alias.scope !195
@@ -1186,7 +1186,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h30399892404243b
 
 126:                                              ; preds = %125, %119
   %127 = load ptr, ptr %107, align 8, !alias.scope !259, !nonnull !20, !noundef !20
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %122
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %122
   store i64 %121, ptr %128, align 8
   %129 = add i64 %122, 1
   store i64 %129, ptr %108, align 8, !alias.scope !259
@@ -1304,14 +1304,14 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h35fb91e4e0b6b54
   %31 = add nuw i64 %.sroa.0.011.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %32 = add i64 %.sroa.0.011.i, %.val.i
-  %33 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %.val.i.i, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %.val.i.i, i64 %32
   %.val.i.i.i.i.i = load i32, ptr %33, align 4, !noalias !288, !noundef !20
   %34 = zext i32 %.val.i.i.i.i.i to i64
   %35 = add nuw nsw i64 %34, 31
   %36 = lshr i64 %35, 5
   %37 = mul nuw nsw i64 %36, 33
   %38 = add nuw nsw i64 %37, 1
-  %39 = getelementptr inbounds nuw i64, ptr %.val1.i.i, i64 %32
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val1.i.i, i64 %32
   %40 = add i64 %38, %30
   %41 = load i64, ptr %39, align 8, !alias.scope !289, !noalias !294, !noundef !20
   %42 = add i64 %38, %41
@@ -1435,7 +1435,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h35fb91e4e0b6b54
 
 99:                                               ; preds = %98, %92
   %100 = load ptr, ptr %80, align 8, !alias.scope !305, !nonnull !20, !noundef !20
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %95
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %95
   store i64 %94, ptr %101, align 8
   %102 = add i64 %95, 1
   store i64 %102, ptr %81, align 8, !alias.scope !305
@@ -1555,12 +1555,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h529d21fa23e2bd8
   %32 = add nuw i64 %.sroa.0.011.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   %33 = add i64 %.sroa.0.011.i, %.val.i
-  %34 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %.val1.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.val1.i.i, i64 %33
   %.val.i.i.i.i.i = load i32, ptr %34, align 4, !noalias !334, !noundef !20
   %35 = zext i32 %.val.i.i.i.i.i to i64
   %36 = load i8, ptr %.val2.i.i, align 1, !noalias !334, !noundef !20
   %37 = tail call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef 1, i64 %35, i8 noundef %36), !noalias !334
-  %38 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %33
   %39 = add i64 %37, %31
   %40 = load i64, ptr %38, align 8, !alias.scope !335, !noalias !340, !noundef !20
   %41 = add i64 %40, %37
@@ -1684,7 +1684,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h529d21fa23e2bd8
 
 97:                                               ; preds = %96, %90
   %98 = load ptr, ptr %78, align 8, !alias.scope !351, !nonnull !20, !noundef !20
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %93
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %93
   store i64 %92, ptr %99, align 8
   %100 = add i64 %93, 1
   store i64 %100, ptr %79, align 8, !alias.scope !351
@@ -1823,7 +1823,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h578614c1cdf6988
   %48 = mul i64 %47, 33
   %49 = add i64 %48, 1
   %.val.i.i = load ptr, ptr %28, align 8, !alias.scope !376, !noalias !374, !nonnull !20, !noundef !20
-  %50 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %32
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %32
   %51 = add i64 %49, %30
   %52 = load i64, ptr %50, align 8, !alias.scope !383, !noalias !374, !noundef !20
   %53 = add i64 %49, %52
@@ -1964,7 +1964,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h578614c1cdf6988
 
 121:                                              ; preds = %120, %114
   %122 = load ptr, ptr %102, align 8, !alias.scope !402, !nonnull !20, !noundef !20
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %117
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %117
   store i64 %116, ptr %123, align 8
   %124 = add i64 %117, 1
   store i64 %124, ptr %103, align 8, !alias.scope !402
@@ -2293,7 +2293,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h585875728f85943
 
 133:                                              ; preds = %132, %126
   %134 = load ptr, ptr %114, align 8, !alias.scope !465, !nonnull !20, !noundef !20
-  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %129
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %129
   store i64 %128, ptr %135, align 8
   %136 = add i64 %129, 1
   store i64 %136, ptr %115, align 8, !alias.scope !465
@@ -2636,7 +2636,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h5fed8d3905fc38f
 
 139:                                              ; preds = %138, %132
   %140 = load ptr, ptr %120, align 8, !alias.scope !537, !nonnull !20, !noundef !20
-  %141 = getelementptr inbounds nuw i64, ptr %140, i64 %135
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %135
   store i64 %134, ptr %141, align 8
   %142 = add i64 %135, 1
   store i64 %142, ptr %121, align 8, !alias.scope !537
@@ -2772,7 +2772,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h632df17c0de6ccb
   %44 = load i8, ptr %.val.i.i.i, align 1, !noalias !560, !noundef !20
   %45 = call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef 1, i64 %43, i8 noundef %44), !noalias !560
   %.val.i.i = load ptr, ptr %29, align 8, !alias.scope !562, !noalias !560, !nonnull !20, !noundef !20
-  %46 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %33
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %33
   %47 = add i64 %45, %31
   %48 = load i64, ptr %46, align 8, !alias.scope !572, !noalias !560, !noundef !20
   %49 = add i64 %48, %45
@@ -2910,7 +2910,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h632df17c0de6ccb
 
 113:                                              ; preds = %112, %106
   %114 = load ptr, ptr %94, align 8, !alias.scope !591, !nonnull !20, !noundef !20
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %109
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %109
   store i64 %108, ptr %115, align 8
   %116 = add i64 %109, 1
   store i64 %116, ptr %95, align 8, !alias.scope !591
@@ -3047,7 +3047,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h6d967d5628d09a7
   %45 = load i8, ptr %.val.i.i.i, align 1, !noalias !614, !noundef !20
   %46 = call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef 1, i64 %44, i8 noundef %45), !noalias !614
   %.val.i.i = load ptr, ptr %29, align 8, !alias.scope !616, !noalias !614, !nonnull !20, !noundef !20
-  %47 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %33
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %33
   %48 = add i64 %46, %31
   %49 = load i64, ptr %47, align 8, !alias.scope !626, !noalias !614, !noundef !20
   %50 = add i64 %49, %46
@@ -3186,7 +3186,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h6d967d5628d09a7
 
 115:                                              ; preds = %114, %108
   %116 = load ptr, ptr %96, align 8, !alias.scope !645, !nonnull !20, !noundef !20
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %111
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %111
   store i64 %110, ptr %117, align 8
   %118 = add i64 %111, 1
   store i64 %118, ptr %97, align 8, !alias.scope !645
@@ -3306,12 +3306,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h71f1f5d8f408efe
   %32 = add nuw i64 %.sroa.0.011.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !673)
   %33 = add i64 %.sroa.0.011.i, %.val.i
-  %34 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %.val1.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.val1.i.i, i64 %33
   %.val.i.i.i.i.i = load i32, ptr %34, align 4, !noalias !674, !noundef !20
   %35 = zext i32 %.val.i.i.i.i.i to i64
   %36 = load i8, ptr %.val2.i.i, align 1, !noalias !674, !noundef !20
   %37 = tail call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef 1, i64 %35, i8 noundef %36), !noalias !674
-  %38 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %33
   %39 = add i64 %37, %31
   %40 = load i64, ptr %38, align 8, !alias.scope !675, !noalias !680, !noundef !20
   %41 = add i64 %40, %37
@@ -3435,7 +3435,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h71f1f5d8f408efe
 
 97:                                               ; preds = %96, %90
   %98 = load ptr, ptr %78, align 8, !alias.scope !691, !nonnull !20, !noundef !20
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %93
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %93
   store i64 %92, ptr %99, align 8
   %100 = add i64 %93, 1
   store i64 %100, ptr %79, align 8, !alias.scope !691
@@ -3837,7 +3837,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h801db48987db936
 
 135:                                              ; preds = %134, %128
   %136 = load ptr, ptr %115, align 8, !alias.scope !764, !nonnull !20, !noundef !20
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %131
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %131
   store i64 %130, ptr %137, align 8
   %138 = add i64 %131, 1
   store i64 %138, ptr %116, align 8, !alias.scope !764
@@ -3955,11 +3955,11 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h8445901420689f0
   %31 = add nuw i64 %.sroa.0.011.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !792)
   %32 = add i64 %.sroa.0.011.i, %.val.i
-  %33 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %.val1.i.i, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %.val1.i.i, i64 %32
   %.val.i.i.i.i.i = load i32, ptr %33, align 4, !noalias !793, !noundef !20
   %34 = zext i32 %.val.i.i.i.i.i to i64
   %35 = add nuw nsw i64 %34, 1
-  %36 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %32
   %37 = add i64 %35, %30
   %38 = load i64, ptr %36, align 8, !alias.scope !794, !noalias !799, !noundef !20
   %39 = add i64 %35, %38
@@ -4080,7 +4080,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h8445901420689f0
 
 93:                                               ; preds = %92, %86
   %94 = load ptr, ptr %74, align 8, !alias.scope !810, !nonnull !20, !noundef !20
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %89
   store i64 %88, ptr %95, align 8
   %96 = add i64 %89, 1
   store i64 %96, ptr %75, align 8, !alias.scope !810
@@ -4213,7 +4213,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h8a11545aa81cd4f
   %42 = add i64 %40, 1
   %43 = sub i64 %42, %41
   %.val.i.i = load ptr, ptr %28, align 8, !alias.scope !835, !noalias !833, !nonnull !20, !noundef !20
-  %44 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %32
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %32
   %45 = add i64 %43, %30
   %46 = load i64, ptr %44, align 8, !alias.scope !842, !noalias !833, !noundef !20
   %47 = add i64 %46, %43
@@ -4348,7 +4348,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h8a11545aa81cd4f
 
 109:                                              ; preds = %108, %102
   %110 = load ptr, ptr %90, align 8, !alias.scope !861, !nonnull !20, !noundef !20
-  %111 = getelementptr inbounds nuw i64, ptr %110, i64 %105
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %105
   store i64 %104, ptr %111, align 8
   %112 = add i64 %105, 1
   store i64 %112, ptr %91, align 8, !alias.scope !861
@@ -4713,7 +4713,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
 
 154:                                              ; preds = %153, %147
   %155 = load ptr, ptr %135, align 8, !alias.scope !932, !nonnull !20, !noundef !20
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %150
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %150
   store i64 %149, ptr %156, align 8
   %157 = add i64 %150, 1
   store i64 %157, ptr %136, align 8, !alias.scope !932
@@ -5111,7 +5111,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17ha5333c248501ac4
 
 131:                                              ; preds = %130, %124
   %132 = load ptr, ptr %111, align 8, !alias.scope !1005, !nonnull !20, !noundef !20
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %127
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %127
   store i64 %126, ptr %133, align 8
   %134 = add i64 %127, 1
   store i64 %134, ptr %112, align 8, !alias.scope !1005
@@ -5426,7 +5426,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb00de005b062ed4
 
 126:                                              ; preds = %125, %119
   %127 = load ptr, ptr %107, align 8, !alias.scope !1069, !nonnull !20, !noundef !20
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %122
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %122
   store i64 %121, ptr %128, align 8
   %129 = add i64 %122, 1
   store i64 %129, ptr %108, align 8, !alias.scope !1069
@@ -5767,7 +5767,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
 
 140:                                              ; preds = %139, %133
   %141 = load ptr, ptr %121, align 8, !alias.scope !1140, !nonnull !20, !noundef !20
-  %142 = getelementptr inbounds nuw i64, ptr %141, i64 %136
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %136
   store i64 %135, ptr %142, align 8
   %143 = add i64 %136, 1
   store i64 %143, ptr %122, align 8, !alias.scope !1140
@@ -5907,7 +5907,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hbbfd896bf803c60
   %49 = mul i64 %48, 33
   %50 = add i64 %49, 1
   %.val.i.i = load ptr, ptr %28, align 8, !alias.scope !1165, !noalias !1163, !nonnull !20, !noundef !20
-  %51 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %32
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %32
   %52 = add i64 %50, %30
   %53 = load i64, ptr %51, align 8, !alias.scope !1172, !noalias !1163, !noundef !20
   %54 = add i64 %50, %53
@@ -6049,7 +6049,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hbbfd896bf803c60
 
 123:                                              ; preds = %122, %116
   %124 = load ptr, ptr %104, align 8, !alias.scope !1191, !nonnull !20, !noundef !20
-  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %119
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %119
   store i64 %118, ptr %125, align 8
   %126 = add i64 %119, 1
   store i64 %126, ptr %105, align 8, !alias.scope !1191
@@ -6203,7 +6203,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hd7d874765d12d74
   %46 = add i64 %reass.sub, 1
   %47 = add i64 %46, %.sroa.01.0.lcssa.i.i.i.i
   %.val.i.i = load ptr, ptr %29, align 8, !alias.scope !1216, !noalias !1214, !nonnull !20, !noundef !20
-  %48 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %34
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %34
   %49 = add i64 %47, %31
   %50 = load i64, ptr %48, align 8, !alias.scope !1226, !noalias !1214, !noundef !20
   %51 = add i64 %50, %47
@@ -6359,7 +6359,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hd7d874765d12d74
 
 117:                                              ; preds = %116, %110
   %118 = load ptr, ptr %98, align 8, !alias.scope !1247, !nonnull !20, !noundef !20
-  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %113
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %113
   store i64 %112, ptr %119, align 8
   %120 = add i64 %113, 1
   store i64 %120, ptr %99, align 8, !alias.scope !1247
@@ -6515,7 +6515,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hdb83b53983213e4
   %48 = add nsw i64 %reass.sub, 1
   %49 = add i64 %48, %.sroa.01.0.lcssa.i.i.i.i
   %.val.i.i = load ptr, ptr %29, align 8, !alias.scope !1272, !noalias !1270, !nonnull !20, !noundef !20
-  %50 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %34
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %34
   %51 = add i64 %49, %31
   %52 = load i64, ptr %50, align 8, !alias.scope !1282, !noalias !1270, !noundef !20
   %53 = add i64 %52, %49
@@ -6673,7 +6673,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hdb83b53983213e4
 
 121:                                              ; preds = %120, %114
   %122 = load ptr, ptr %102, align 8, !alias.scope !1303, !nonnull !20, !noundef !20
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %117
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %117
   store i64 %116, ptr %123, align 8
   %124 = add i64 %117, 1
   store i64 %124, ptr %103, align 8, !alias.scope !1303
@@ -7016,7 +7016,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hddd3dea0510ac3f
 
 139:                                              ; preds = %138, %132
   %140 = load ptr, ptr %120, align 8, !alias.scope !1375, !nonnull !20, !noundef !20
-  %141 = getelementptr inbounds nuw i64, ptr %140, i64 %135
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %135
   store i64 %134, ptr %141, align 8
   %142 = add i64 %135, 1
   store i64 %142, ptr %121, align 8, !alias.scope !1375
@@ -7153,7 +7153,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hdec5c2ce46d6532
   %45 = load i8, ptr %.val.i.i.i, align 1, !noalias !1398, !noundef !20
   %46 = call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef 1, i64 %44, i8 noundef %45), !noalias !1398
   %.val.i.i = load ptr, ptr %29, align 8, !alias.scope !1400, !noalias !1398, !nonnull !20, !noundef !20
-  %47 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %33
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %33
   %48 = add i64 %46, %31
   %49 = load i64, ptr %47, align 8, !alias.scope !1410, !noalias !1398, !noundef !20
   %50 = add i64 %49, %46
@@ -7292,7 +7292,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hdec5c2ce46d6532
 
 115:                                              ; preds = %114, %108
   %116 = load ptr, ptr %96, align 8, !alias.scope !1429, !nonnull !20, !noundef !20
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %111
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %111
   store i64 %110, ptr %117, align 8
   %118 = add i64 %111, 1
   store i64 %118, ptr %97, align 8, !alias.scope !1429
@@ -7655,7 +7655,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
 
 152:                                              ; preds = %151, %145
   %153 = load ptr, ptr %133, align 8, !alias.scope !1500, !nonnull !20, !noundef !20
-  %154 = getelementptr inbounds nuw i64, ptr %153, i64 %148
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %148
   store i64 %147, ptr %154, align 8
   %155 = add i64 %148, 1
   store i64 %155, ptr %134, align 8, !alias.scope !1500
@@ -8000,7 +8000,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he79b8a6fd7bb185
 
 141:                                              ; preds = %140, %134
   %142 = load ptr, ptr %122, align 8, !alias.scope !1572, !nonnull !20, !noundef !20
-  %143 = getelementptr inbounds nuw i64, ptr %142, i64 %137
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %137
   store i64 %136, ptr %143, align 8
   %144 = add i64 %137, 1
   store i64 %144, ptr %123, align 8, !alias.scope !1572
@@ -8136,7 +8136,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he9cb1a0a3f2949a
   %44 = load i8, ptr %.val.i.i.i, align 1, !noalias !1595, !noundef !20
   %45 = call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef 1, i64 %43, i8 noundef %44), !noalias !1595
   %.val.i.i = load ptr, ptr %29, align 8, !alias.scope !1597, !noalias !1595, !nonnull !20, !noundef !20
-  %46 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %33
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %33
   %47 = add i64 %45, %31
   %48 = load i64, ptr %46, align 8, !alias.scope !1607, !noalias !1595, !noundef !20
   %49 = add i64 %48, %45
@@ -8274,7 +8274,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he9cb1a0a3f2949a
 
 113:                                              ; preds = %112, %106
   %114 = load ptr, ptr %94, align 8, !alias.scope !1626, !nonnull !20, !noundef !20
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %109
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %109
   store i64 %108, ptr %115, align 8
   %116 = add i64 %109, 1
   store i64 %116, ptr %95, align 8, !alias.scope !1626
@@ -8408,7 +8408,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hee807b23c46b12a
   %43 = sext i32 %42 to i64
   %44 = add nsw i64 %43, 1
   %.val.i.i = load ptr, ptr %28, align 8, !alias.scope !1651, !noalias !1649, !nonnull !20, !noundef !20
-  %45 = getelementptr inbounds nuw i64, ptr %.val.i.i, i64 %32
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %32
   %46 = add i64 %44, %30
   %47 = load i64, ptr %45, align 8, !alias.scope !1658, !noalias !1649, !noundef !20
   %48 = add i64 %44, %47
@@ -8544,7 +8544,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hee807b23c46b12a
 
 111:                                              ; preds = %110, %104
   %112 = load ptr, ptr %92, align 8, !alias.scope !1677, !nonnull !20, !noundef !20
-  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %107
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %107
   store i64 %106, ptr %113, align 8
   %114 = add i64 %107, 1
   store i64 %114, ptr %93, align 8, !alias.scope !1677
@@ -8883,7 +8883,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
 
 138:                                              ; preds = %137, %131
   %139 = load ptr, ptr %119, align 8, !alias.scope !1748, !nonnull !20, !noundef !20
-  %140 = getelementptr inbounds nuw i64, ptr %139, i64 %134
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %134
   store i64 %133, ptr %140, align 8
   %141 = add i64 %134, 1
   store i64 %141, ptr %120, align 8, !alias.scope !1748

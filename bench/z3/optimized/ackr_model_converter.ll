@@ -12,14 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.params_ref = type { ptr }
 %class.array_util = type { %class.array_recognizers, ptr }
 %class.array_recognizers = type { i32 }
-%"class.obj_map<func_decl, app *>::obj_map_entry" = type { %"struct.obj_map<func_decl, app *>::key_data" }
-%"struct.obj_map<func_decl, app *>::key_data" = type { ptr, ptr }
-%"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry" = type { %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" }
-%"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" = type { ptr, %"struct.std::pair" }
-%"struct.std::pair" = type { i32, ptr }
-%"class.obj_map<func_decl, func_interp *>::obj_map_entry" = type { %"struct.obj_map<func_decl, func_interp *>::key_data" }
-%"struct.obj_map<func_decl, func_interp *>::key_data" = type { ptr, ptr }
-%"class.obj_map<app, expr *>::obj_map_entry" = type { %"struct.obj_map<app, expr *>::key_data" }
 %"struct.obj_map<app, expr *>::key_data" = type { ptr, ptr }
 %class.parameter = type { %"class.std::variant" }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
@@ -38,6 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ptr_vector.72 = type { %class.vector.73 }
 %class.vector.73 = type { ptr }
 %class.obj_ref = type { ptr, ptr }
+%"struct.obj_map<func_decl, func_interp *>::key_data" = type { ptr, ptr }
 %class.ref = type { ptr }
 %class.ref.14 = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -251,7 +244,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   br label %198
 
 49:                                               ; preds = %_ZNK10model_core17get_num_constantsEv.exit
-  %50 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !45
   %52 = load ptr, ptr %25, align 8, !tbaa !46
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
@@ -266,7 +259,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %_ZNK10model_core17g
   %.idx.i.i.i.i = shl nuw nsw i64 %61, 4
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i
   %63 = zext i32 %57 to i64
-  %64 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %60, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %63
   %.not34.i.i.i.i = icmp eq i32 %59, %57
   br i1 %.not34.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i60
 
@@ -343,7 +336,7 @@ _ZNK9ackr_info9find_termEP9func_decl.exit:        ; preds = %72, %86, %83, %_ZNK
   %.idx.i.i.i.i62 = mul nuw nsw i64 %93, 24
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx.i.i.i.i62
   %95 = zext i32 %89 to i64
-  %96 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %92, i64 %95
   %.not34.i.i.i.i63 = icmp eq i32 %91, %89
   br i1 %.not34.i.i.i.i63, label %.preheader.i.i.i.i68, label %.lr.ph.i.i.i.i64
 
@@ -465,7 +458,7 @@ _ZNK17array_recognizers9is_selectEP4expr.exit.thread: ; preds = %131, %125, %_ZN
 
 .loopexit107:                                     ; preds = %.lr.ph.i.i.i.i, %39, %.critedge
   %.sroa.0.1.i.i = phi ptr [ %33, %.critedge ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %36, %39 ]
-  %146 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %33, i64 %35
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %35
   %.not105119 = icmp eq ptr %.sroa.0.1.i.i, %146
   br i1 %.not105119, label %._crit_edge, label %.lr.ph
 
@@ -536,7 +529,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hash
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i85, %153, %._crit_edge
   %.sroa.0.1.i.i87 = phi ptr [ %147, %._crit_edge ], [ %.sroa.0.0.i.i86, %.lr.ph.i.i.i.i85 ], [ %150, %153 ]
-  %172 = getelementptr inbounds nuw %"class.obj_map<app, expr *>::obj_map_entry", ptr %147, i64 %149
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %149
   %.not106121 = icmp eq ptr %.sroa.0.1.i.i87, %172
   br i1 %.not106121, label %._crit_edge125, label %.lr.ph124
 
@@ -685,7 +678,7 @@ define hidden void @_ZN20ackr_model_converter9add_entryER15model_evaluatorP3appP
   %.idx.i.i.i = shl nuw nsw i64 %25, 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i.i.i
   %27 = zext i32 %21 to i64
-  %28 = getelementptr inbounds nuw %"class.obj_map<app, expr *>::obj_map_entry", ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %27
   %.not34.i.i.i = icmp eq i32 %23, %21
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -853,7 +846,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !37
   %96 = zext i32 %.pre2.i.i to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %96
   store ptr %60, ptr %97, align 8, !tbaa !99
   %98 = add i32 %.pre2.i.i, 1
   store i32 %98, ptr %.phi.trans.insert.i.i, align 4, !tbaa !37
@@ -907,7 +900,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 
 117:                                              ; preds = %.lr.ph58, %_ZN7obj_refI4expr11ast_managerED2Ev.exit40
   %indvars.iv = phi i64 [ 1, %.lr.ph58 ], [ %indvars.iv.next, %_ZN7obj_refI4expr11ast_managerED2Ev.exit40 ]
-  %118 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %119 = load ptr, ptr %118, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -961,7 +954,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %132, %.noexc38
   %140 = phi ptr [ %.pre.i.i35, %.noexc38 ], [ %130, %132 ]
   %141 = getelementptr inbounds i8, ptr %140, i64 -4
   %142 = zext i32 %139 to i64
-  %143 = getelementptr inbounds nuw ptr, ptr %140, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %142
   store ptr %129, ptr %143, align 8, !tbaa !99
   %144 = add i32 %139, 1
   store i32 %144, ptr %141, align 4, !tbaa !37
@@ -1020,7 +1013,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %161 = phi ptr [ %.pre.i.i30, %.noexc33 ], [ %106, %108 ]
   %162 = getelementptr inbounds i8, ptr %161, i64 -4
   %163 = zext i32 %160 to i64
-  %164 = getelementptr inbounds nuw ptr, ptr %161, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %163
   store ptr %3, ptr %164, align 8, !tbaa !99
   %165 = add i32 %160, 1
   store i32 %165, ptr %162, align 4, !tbaa !37
@@ -1142,7 +1135,7 @@ define hidden void @_ZN20ackr_model_converter9add_entryER15model_evaluatorP3appP
   %.idx.i.i.i = shl nuw nsw i64 %21, 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i
   %23 = zext i32 %17 to i64
-  %24 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %23
   %.not34.i.i.i = icmp eq i32 %19, %17
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1309,7 +1302,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %81, %.noexc
   %89 = phi ptr [ %.pre.i.i, %.noexc ], [ %79, %81 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 -4
   %91 = zext i32 %88 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %91
   store ptr %78, ptr %92, align 8, !tbaa !99
   %93 = add i32 %88, 1
   store i32 %93, ptr %90, align 4, !tbaa !37
@@ -2590,7 +2583,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3appP4exprE13obj_
   %.idx = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<app, expr *>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -2724,7 +2717,7 @@ _ZN14core_hashtableIN7obj_mapI3appP4exprE13obj_map_entryE8obj_hashINS4_8key_data
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %"class.obj_map<app, expr *>::obj_map_entry", ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI3appP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit, label %.lr.ph41.i
 
@@ -2840,7 +2833,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP11func
   %.idx = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -2974,7 +2967,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hash
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP11func_interpE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit, label %.lr.ph41.i
 

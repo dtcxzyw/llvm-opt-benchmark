@@ -2410,7 +2410,7 @@ define dso_local void @zend_activate() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 504), align 8, !tbaa !119
   %4 = load i64, ptr @zend_map_ptr_static_size, align 8, !tbaa !120
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = shl i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %6, i1 false)
   br label %7
@@ -2639,7 +2639,7 @@ zend_string_copy.exit128:                         ; preds = %zend_string_copy.ex
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1796), align 4, !tbaa !156
   %40 = add i32 %39, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   store ptr %17, ptr %42, align 8, !tbaa !158
   br label %43
 
@@ -3607,7 +3607,7 @@ define dso_local void @zend_emit_recorded_errors() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1800), align 8, !tbaa !157
-  %3 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !158
   %5 = load i32, ptr %4, align 8, !tbaa !151
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3640,7 +3640,7 @@ define dso_local void @zend_free_recorded_errors() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %zend_string_release.exit7
   %indvars.iv = phi i64 [ %indvars.iv.next, %zend_string_release.exit7 ], [ 0, %0 ]
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1800), align 8, !tbaa !157
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !158
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !154
@@ -4278,8 +4278,8 @@ define dso_local ptr @zend_map_ptr_new() local_unnamed_addr #0 {
   %16 = phi i64 [ %.pre3, %3 ], [ %1, %0 ]
   %17 = phi i64 [ %10, %3 ], [ %.pre2, %0 ]
   %18 = phi ptr [ %8, %3 ], [ %.pre, %0 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   store ptr null, ptr %20, align 8, !tbaa !4
   %21 = add i64 %16, 1
   store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !126
@@ -4343,7 +4343,7 @@ define dso_local ptr @zend_map_ptr_new_static() local_unnamed_addr #0 {
   %25 = phi i64 [ %1, %._crit_edge ], [ %.pre7, %17 ]
   %26 = phi ptr [ %.pre, %._crit_edge ], [ %8, %17 ]
   %27 = and i64 %25, 4095
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   store ptr null, ptr %28, align 8, !tbaa !4
   %29 = add i64 %25, 1
   store i64 %29, ptr @zend_map_ptr_static_last, align 8, !tbaa !120
@@ -4393,8 +4393,8 @@ define dso_local void @zend_map_ptr_extend(i64 noundef %0) local_unnamed_addr #0
   %19 = phi i64 [ %.pre6, %6 ], [ %2, %4 ]
   %20 = phi i64 [ %13, %6 ], [ %.pre5, %4 ]
   %21 = phi ptr [ %11, %6 ], [ %.pre, %4 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %19
   %24 = sub i64 %0, %19
   %25 = shl i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %25, i1 false)
@@ -4498,8 +4498,8 @@ zend_map_ptr_new.exit:                            ; preds = %34, %37
   %49 = phi i64 [ %.pre23, %37 ], [ %35, %34 ]
   %50 = phi i64 [ %.pre3.i, %37 ], [ %36, %34 ]
   %51 = phi ptr [ %42, %37 ], [ %.pre.i, %34 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.pre2.i25
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.pre2.i25
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr null, ptr %53, align 8, !tbaa !4
   %54 = add i64 %50, 1
   store i64 %54, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 528), align 8, !tbaa !126

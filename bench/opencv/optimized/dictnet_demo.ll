@@ -203,7 +203,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit27: ; preds = %_ZStl
 60:                                               ; preds = %.noexc29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc29 ]
   %61 = load ptr, ptr %53, align 8, !tbaa !29
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4, !tbaa !32
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef %63)
           to label %.noexc28 unwind label %.loopexit

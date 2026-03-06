@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.btVector3 = type { [4 x float] }
-%class.btJacobianEntry = type { %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float }
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
-%struct.btVector3FloatData = type { [4 x float] }
 
 $_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif = comdat any
 
@@ -1059,7 +1057,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %126, %137
 
 161:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit, %161
   %indvars.iv = phi i64 [ 0, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ], [ %indvars.iv.next, %161 ]
-  %162 = getelementptr inbounds nuw %class.btJacobianEntry, ptr %151, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [84 x i8], ptr %151, i64 %indvars.iv
   %163 = load float, ptr %15, align 4, !tbaa !33, !noalias !42
   %164 = load float, ptr %17, align 4, !tbaa !33, !noalias !42
   %165 = load float, ptr %18, align 4, !tbaa !33, !noalias !42
@@ -1090,7 +1088,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %126, %137
   %190 = fsub float %99, %189
   %191 = load float, ptr %75, align 4, !tbaa !33
   %192 = fsub float %100, %191
-  %193 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %194 = load float, ptr %153, align 4, !tbaa !48
   %195 = load float, ptr %155, align 4, !tbaa !48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %162, ptr noundef nonnull align 16 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !31
@@ -2705,10 +2703,10 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 
 275:                                              ; preds = %.preheader670, %275
   %indvars.iv = phi i64 [ 0, %.preheader670 ], [ %indvars.iv.next, %275 ]
-  %276 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %277 = load float, ptr %276, align 4, !tbaa !33
   %278 = fneg float %277
-  %279 = getelementptr inbounds nuw float, ptr %274, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %274, i64 %indvars.iv
   store float %278, ptr %279, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2770,15 +2768,15 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.16.0.scevgep.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep, i64 8
   %.sroa.16.0.vec.extract736 = extractelement <2 x float> %.sroa.16.0, i64 0
   store float %.sroa.16.0.vec.extract736, ptr %.sroa.16.0.scevgep.sroa_idx, align 4, !tbaa !33
-  %invariant.gep = getelementptr float, ptr %274, i64 %306
+  %invariant.gep = getelementptr [4 x i8], ptr %274, i64 %306
   br label %308
 
 308:                                              ; preds = %.preheader669, %308
   %indvars.iv688 = phi i64 [ 0, %.preheader669 ], [ %indvars.iv.next689, %308 ]
-  %309 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv688
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv688
   %310 = load float, ptr %309, align 4, !tbaa !33
   %311 = fneg float %310
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv688
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv688
   store float %311, ptr %gep, align 4, !tbaa !33
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %exitcond691.not = icmp eq i64 %indvars.iv.next689, 3
@@ -2836,15 +2834,15 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %.sroa.16.0.scevgep692.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep692, i64 8
   %.sroa.16.0.vec.extract738 = extractelement <2 x float> %.sroa.16.1, i64 0
   store float %.sroa.16.0.vec.extract738, ptr %.sroa.16.0.scevgep692.sroa_idx, align 4, !tbaa !33
-  %invariant.gep763 = getelementptr float, ptr %274, i64 %336
+  %invariant.gep763 = getelementptr [4 x i8], ptr %274, i64 %336
   br label %338
 
 338:                                              ; preds = %.preheader668, %338
   %indvars.iv696 = phi i64 [ 0, %.preheader668 ], [ %indvars.iv.next697, %338 ]
-  %339 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv696
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv696
   %340 = load float, ptr %339, align 4, !tbaa !33
   %341 = fneg float %340
-  %gep764 = getelementptr float, ptr %invariant.gep763, i64 %indvars.iv696
+  %gep764 = getelementptr [4 x i8], ptr %invariant.gep763, i64 %indvars.iv696
   store float %341, ptr %gep764, align 4, !tbaa !33
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 1
   %exitcond699.not = icmp eq i64 %indvars.iv.next697, 3
@@ -2884,30 +2882,30 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   br label %358
 
 .preheader663:                                    ; preds = %358
-  %invariant.gep765 = getelementptr float, ptr %357, i64 %306
+  %invariant.gep765 = getelementptr [4 x i8], ptr %357, i64 %306
   br label %363
 
 358:                                              ; preds = %.preheader667, %358
   %indvars.iv711 = phi i64 [ 0, %.preheader667 ], [ %indvars.iv.next712, %358 ]
-  %359 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv711
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv711
   %360 = load float, ptr %359, align 4, !tbaa !33
   %361 = fneg float %360
-  %362 = getelementptr inbounds nuw float, ptr %357, i64 %indvars.iv711
+  %362 = getelementptr inbounds nuw [4 x i8], ptr %357, i64 %indvars.iv711
   store float %361, ptr %362, align 4, !tbaa !33
   %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
   %exitcond714.not = icmp eq i64 %indvars.iv.next712, 3
   br i1 %exitcond714.not, label %.preheader663, label %358, !llvm.loop !113
 
 .preheader:                                       ; preds = %363
-  %invariant.gep767 = getelementptr float, ptr %357, i64 %336
+  %invariant.gep767 = getelementptr [4 x i8], ptr %357, i64 %336
   br label %367
 
 363:                                              ; preds = %.preheader663, %363
   %indvars.iv715 = phi i64 [ 0, %.preheader663 ], [ %indvars.iv.next716, %363 ]
-  %364 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv715
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv715
   %365 = load float, ptr %364, align 4, !tbaa !33
   %366 = fneg float %365
-  %gep766 = getelementptr float, ptr %invariant.gep765, i64 %indvars.iv715
+  %gep766 = getelementptr [4 x i8], ptr %invariant.gep765, i64 %indvars.iv715
   store float %366, ptr %gep766, align 4, !tbaa !33
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
   %exitcond718.not = icmp eq i64 %indvars.iv.next716, 3
@@ -2915,10 +2913,10 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 
 367:                                              ; preds = %.preheader, %367
   %indvars.iv719 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next720, %367 ]
-  %368 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv719
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv719
   %369 = load float, ptr %368, align 4, !tbaa !33
   %370 = fneg float %369
-  %gep768 = getelementptr float, ptr %invariant.gep767, i64 %indvars.iv719
+  %gep768 = getelementptr [4 x i8], ptr %invariant.gep767, i64 %indvars.iv719
   store float %370, ptr %gep768, align 4, !tbaa !33
   %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
   %exitcond722.not = icmp eq i64 %indvars.iv.next720, 3
@@ -2936,13 +2934,13 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %379 = tail call float @llvm.fmuladd.f32(float %252, float %140, float %378)
   %380 = tail call noundef float @llvm.fmuladd.f32(float %258, float %142, float %379)
   %381 = fmul float %380, %350
-  %382 = getelementptr inbounds float, ptr %377, i64 %306
+  %382 = getelementptr inbounds [4 x i8], ptr %377, i64 %306
   store float %381, ptr %382, align 4, !tbaa !33
   %383 = fmul float %141, %185
   %384 = tail call float @llvm.fmuladd.f32(float %184, float %140, float %383)
   %385 = tail call noundef float @llvm.fmuladd.f32(float %186, float %142, float %384)
   %386 = fmul float %385, %350
-  %387 = getelementptr inbounds float, ptr %377, i64 %336
+  %387 = getelementptr inbounds [4 x i8], ptr %377, i64 %336
   store float %386, ptr %387, align 4, !tbaa !33
   br label %388
 
@@ -2951,38 +2949,38 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %390 = mul nsw i32 %12, 3
   %391 = shl nsw i32 %12, 2
   %392 = sext i32 %390 to i64
-  %393 = getelementptr inbounds float, ptr %272, i64 %392
+  %393 = getelementptr inbounds [4 x i8], ptr %272, i64 %392
   store float %247, ptr %393, align 4, !tbaa !33
   %394 = add nsw i32 %390, 1
   %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds float, ptr %272, i64 %395
+  %396 = getelementptr inbounds [4 x i8], ptr %272, i64 %395
   store float %248, ptr %396, align 4, !tbaa !33
   %397 = add nsw i32 %390, 2
   %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds float, ptr %272, i64 %398
+  %399 = getelementptr inbounds [4 x i8], ptr %272, i64 %398
   store float %249, ptr %399, align 4, !tbaa !33
   %400 = sext i32 %391 to i64
-  %401 = getelementptr inbounds float, ptr %272, i64 %400
+  %401 = getelementptr inbounds [4 x i8], ptr %272, i64 %400
   store float %252, ptr %401, align 4, !tbaa !33
   %402 = or disjoint i32 %391, 1
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds float, ptr %272, i64 %403
+  %404 = getelementptr inbounds [4 x i8], ptr %272, i64 %403
   store float %255, ptr %404, align 4, !tbaa !33
   %405 = or disjoint i32 %391, 2
   %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds float, ptr %272, i64 %406
+  %407 = getelementptr inbounds [4 x i8], ptr %272, i64 %406
   store float %258, ptr %407, align 4, !tbaa !33
-  %408 = getelementptr inbounds float, ptr %274, i64 %392
+  %408 = getelementptr inbounds [4 x i8], ptr %274, i64 %392
   store float %256, ptr %408, align 4, !tbaa !33
-  %409 = getelementptr inbounds float, ptr %274, i64 %395
+  %409 = getelementptr inbounds [4 x i8], ptr %274, i64 %395
   store float %250, ptr %409, align 4, !tbaa !33
-  %410 = getelementptr inbounds float, ptr %274, i64 %398
+  %410 = getelementptr inbounds [4 x i8], ptr %274, i64 %398
   store float %253, ptr %410, align 4, !tbaa !33
-  %411 = getelementptr inbounds float, ptr %274, i64 %400
+  %411 = getelementptr inbounds [4 x i8], ptr %274, i64 %400
   store float %287, ptr %411, align 4, !tbaa !33
-  %412 = getelementptr inbounds float, ptr %274, i64 %403
+  %412 = getelementptr inbounds [4 x i8], ptr %274, i64 %403
   store float %281, ptr %412, align 4, !tbaa !33
-  %413 = getelementptr inbounds float, ptr %274, i64 %406
+  %413 = getelementptr inbounds [4 x i8], ptr %274, i64 %406
   store float %284, ptr %413, align 4, !tbaa !33
   %414 = load float, ptr %1, align 8, !tbaa !109
   %415 = fmul float %348, %414
@@ -3000,13 +2998,13 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %427 = tail call noundef float @llvm.fmuladd.f32(float %424, float %249, float %426)
   %428 = fmul float %427, %415
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %430 = getelementptr inbounds float, ptr %389, i64 %392
+  %430 = getelementptr inbounds [4 x i8], ptr %389, i64 %392
   store float %428, ptr %430, align 4, !tbaa !33
   %431 = fmul float %421, %255
   %432 = tail call float @llvm.fmuladd.f32(float %418, float %252, float %431)
   %433 = tail call noundef float @llvm.fmuladd.f32(float %424, float %258, float %432)
   %434 = fmul float %433, %415
-  %435 = getelementptr inbounds float, ptr %389, i64 %400
+  %435 = getelementptr inbounds [4 x i8], ptr %389, i64 %400
   store float %434, ptr %435, align 4, !tbaa !33
   br i1 %.not, label %445, label %.thread
 
@@ -3035,21 +3033,21 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %451 = load i32, ptr %11, align 8, !tbaa !88
   %452 = mul nsw i32 %451, 5
   %453 = sext i32 %452 to i64
-  %454 = getelementptr inbounds float, ptr %272, i64 %453
+  %454 = getelementptr inbounds [4 x i8], ptr %272, i64 %453
   store float %184, ptr %454, align 4, !tbaa !33
   %455 = add nsw i32 %452, 1
   %456 = sext i32 %455 to i64
-  %457 = getelementptr inbounds float, ptr %272, i64 %456
+  %457 = getelementptr inbounds [4 x i8], ptr %272, i64 %456
   store float %185, ptr %457, align 4, !tbaa !33
   %458 = add nsw i32 %452, 2
   %459 = sext i32 %458 to i64
-  %460 = getelementptr inbounds float, ptr %272, i64 %459
+  %460 = getelementptr inbounds [4 x i8], ptr %272, i64 %459
   store float %186, ptr %460, align 4, !tbaa !33
-  %461 = getelementptr inbounds float, ptr %274, i64 %453
+  %461 = getelementptr inbounds [4 x i8], ptr %274, i64 %453
   store float %319, ptr %461, align 4, !tbaa !33
-  %462 = getelementptr inbounds float, ptr %274, i64 %456
+  %462 = getelementptr inbounds [4 x i8], ptr %274, i64 %456
   store float %313, ptr %462, align 4, !tbaa !33
-  %463 = getelementptr inbounds float, ptr %274, i64 %459
+  %463 = getelementptr inbounds [4 x i8], ptr %274, i64 %459
   store float %316, ptr %463, align 4, !tbaa !33
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %465 = tail call noundef float @_ZNK14btAngularLimit6getLowEv(ptr noundef nonnull align 4 dereferenceable(29) %464)
@@ -3058,7 +3056,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %or.cond268.not = or i1 %.not, %467
   %spec.select = select i1 %or.cond268.not, i1 %450, i1 false
   %468 = load ptr, ptr %429, align 8, !tbaa !110
-  %469 = getelementptr inbounds float, ptr %468, i64 %453
+  %469 = getelementptr inbounds [4 x i8], ptr %468, i64 %453
   store float 0.000000e+00, ptr %469, align 4, !tbaa !33
   %470 = load i32, ptr %343, align 4, !tbaa !108
   %471 = and i32 %470, 2
@@ -3078,7 +3076,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %479 = load float, ptr %478, align 8, !tbaa !117
   %480 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %481 = load ptr, ptr %480, align 8, !tbaa !118
-  %482 = getelementptr inbounds float, ptr %481, i64 %453
+  %482 = getelementptr inbounds [4 x i8], ptr %481, i64 %453
   store float %479, ptr %482, align 4, !tbaa !33
   br label %483
 
@@ -3095,7 +3093,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %494 = load float, ptr %493, align 4, !tbaa !35
   %495 = load ptr, ptr %429, align 8, !tbaa !110
-  %496 = getelementptr inbounds float, ptr %495, i64 %453
+  %496 = getelementptr inbounds [4 x i8], ptr %495, i64 %453
   %497 = load float, ptr %496, align 4, !tbaa !33
   %498 = tail call float @llvm.fmuladd.f32(float %492, float %494, float %497)
   store float %498, ptr %496, align 4, !tbaa !33
@@ -3104,12 +3102,12 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %501 = fneg float %500
   %502 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %503 = load ptr, ptr %502, align 8, !tbaa !121
-  %504 = getelementptr inbounds float, ptr %503, i64 %453
+  %504 = getelementptr inbounds [4 x i8], ptr %503, i64 %453
   store float %501, ptr %504, align 4, !tbaa !33
   %505 = load float, ptr %499, align 4, !tbaa !120
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %507 = load ptr, ptr %506, align 8, !tbaa !122
-  %508 = getelementptr inbounds float, ptr %507, i64 %453
+  %508 = getelementptr inbounds [4 x i8], ptr %507, i64 %453
   store float %505, ptr %508, align 4, !tbaa !33
   br label %509
 
@@ -3120,7 +3118,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 511:                                              ; preds = %509
   %512 = load float, ptr %1, align 8, !tbaa !109
   %513 = fmul float %474, %512
-  %514 = getelementptr inbounds float, ptr %510, i64 %453
+  %514 = getelementptr inbounds [4 x i8], ptr %510, i64 %453
   %515 = load float, ptr %514, align 4, !tbaa !33
   %516 = tail call float @llvm.fmuladd.f32(float %513, float %.0253654, float %515)
   store float %516, ptr %514, align 4, !tbaa !33
@@ -3134,14 +3132,14 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   %521 = load float, ptr %520, align 8, !tbaa !123
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %523 = load ptr, ptr %522, align 8, !tbaa !118
-  %524 = getelementptr inbounds float, ptr %523, i64 %453
+  %524 = getelementptr inbounds [4 x i8], ptr %523, i64 %453
   store float %521, ptr %524, align 4, !tbaa !33
   br label %525
 
 525:                                              ; preds = %519, %511
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %527 = load ptr, ptr %526, align 8, !tbaa !121
-  %528 = getelementptr inbounds float, ptr %527, i64 %453
+  %528 = getelementptr inbounds [4 x i8], ptr %527, i64 %453
   br i1 %467, label %529, label %530
 
 529:                                              ; preds = %525
@@ -3155,7 +3153,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
   store float %.sink771, ptr %528, align 4, !tbaa !33
   %.sink770.in = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sink770 = load ptr, ptr %.sink770.in, align 8, !tbaa !122
-  %531 = getelementptr inbounds float, ptr %.sink770, i64 %453
+  %531 = getelementptr inbounds [4 x i8], ptr %.sink770, i64 %453
   store float %.sink, ptr %531, align 4, !tbaa !33
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %533 = load float, ptr %532, align 8, !tbaa !15
@@ -3408,19 +3406,19 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   store float 1.000000e+00, ptr %158, align 4, !tbaa !33
   %159 = add nsw i32 %10, 1
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds float, ptr %158, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %158, i64 %160
   store float 1.000000e+00, ptr %161, align 4, !tbaa !33
   %162 = shl nsw i32 %10, 1
   %163 = add nsw i32 %162, 2
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds float, ptr %158, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %158, i64 %164
   store float 1.000000e+00, ptr %165, align 4, !tbaa !33
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %167 = load ptr, ptr %166, align 8, !tbaa !112
   store float -1.000000e+00, ptr %167, align 4, !tbaa !33
-  %168 = getelementptr inbounds float, ptr %167, i64 %160
+  %168 = getelementptr inbounds [4 x i8], ptr %167, i64 %160
   store float -1.000000e+00, ptr %168, align 4, !tbaa !33
-  %169 = getelementptr inbounds float, ptr %167, i64 %164
+  %169 = getelementptr inbounds [4 x i8], ptr %167, i64 %164
   store float -1.000000e+00, ptr %169, align 4, !tbaa !33
   %.pre = load float, ptr %88, align 4, !tbaa !33
   %.pre319 = load float, ptr %91, align 4, !tbaa !33
@@ -3438,9 +3436,9 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %178 = load ptr, ptr %177, align 8, !tbaa !103
   %179 = sext i32 %10 to i64
-  %180 = getelementptr inbounds float, ptr %178, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %178, i64 %179
   %181 = sext i32 %.pre-phi to i64
-  %182 = getelementptr inbounds float, ptr %178, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %178, i64 %181
   %183 = fneg float %174
   %184 = fneg float %175
   %185 = fneg float %176
@@ -3473,8 +3471,8 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %200 = fsub float %152, %199
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %202 = load ptr, ptr %201, align 8, !tbaa !104
-  %203 = getelementptr inbounds float, ptr %202, i64 %179
-  %204 = getelementptr inbounds float, ptr %202, i64 %181
+  %203 = getelementptr inbounds [4 x i8], ptr %202, i64 %179
+  %204 = getelementptr inbounds [4 x i8], ptr %202, i64 %181
   %205 = fneg float %200
   store float 0.000000e+00, ptr %202, align 4, !tbaa !33
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 4
@@ -3515,14 +3513,14 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 
 .preheader:                                       ; preds = %170, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %170 ]
-  %225 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %226 = load float, ptr %225, align 4, !tbaa !33
-  %227 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %228 = load float, ptr %227, align 4, !tbaa !33
   %229 = fsub float %226, %228
   %230 = fmul float %224, %229
   %231 = mul nsw i64 %indvars.iv, %179
-  %232 = getelementptr inbounds float, ptr %.pre321, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %.pre321, i64 %231
   store float %230, ptr %232, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -3532,44 +3530,44 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %233 = mul nsw i32 %10, 3
   %234 = shl nsw i32 %10, 2
   %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds float, ptr %178, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %178, i64 %235
   store float %24, ptr %236, align 4, !tbaa !33
   %237 = add nsw i32 %233, 1
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds float, ptr %178, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %178, i64 %238
   store float %51, ptr %239, align 4, !tbaa !33
   %240 = add nsw i32 %233, 2
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds float, ptr %178, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %178, i64 %241
   store float %66, ptr %242, align 4, !tbaa !33
   %243 = sext i32 %234 to i64
-  %244 = getelementptr inbounds float, ptr %178, i64 %243
+  %244 = getelementptr inbounds [4 x i8], ptr %178, i64 %243
   store float %33, ptr %244, align 4, !tbaa !33
   %245 = or disjoint i32 %234, 1
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds float, ptr %178, i64 %246
+  %247 = getelementptr inbounds [4 x i8], ptr %178, i64 %246
   store float %54, ptr %247, align 4, !tbaa !33
   %248 = or disjoint i32 %234, 2
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds float, ptr %178, i64 %249
+  %250 = getelementptr inbounds [4 x i8], ptr %178, i64 %249
   store float %69, ptr %250, align 4, !tbaa !33
   %251 = fneg float %24
-  %252 = getelementptr inbounds float, ptr %202, i64 %235
+  %252 = getelementptr inbounds [4 x i8], ptr %202, i64 %235
   store float %251, ptr %252, align 4, !tbaa !33
   %253 = fneg float %51
-  %254 = getelementptr inbounds float, ptr %202, i64 %238
+  %254 = getelementptr inbounds [4 x i8], ptr %202, i64 %238
   store float %253, ptr %254, align 4, !tbaa !33
   %255 = fneg float %66
-  %256 = getelementptr inbounds float, ptr %202, i64 %241
+  %256 = getelementptr inbounds [4 x i8], ptr %202, i64 %241
   store float %255, ptr %256, align 4, !tbaa !33
   %257 = fneg float %33
-  %258 = getelementptr inbounds float, ptr %202, i64 %243
+  %258 = getelementptr inbounds [4 x i8], ptr %202, i64 %243
   store float %257, ptr %258, align 4, !tbaa !33
   %259 = fneg float %54
-  %260 = getelementptr inbounds float, ptr %202, i64 %246
+  %260 = getelementptr inbounds [4 x i8], ptr %202, i64 %246
   store float %259, ptr %260, align 4, !tbaa !33
   %261 = fneg float %69
-  %262 = getelementptr inbounds float, ptr %202, i64 %249
+  %262 = getelementptr inbounds [4 x i8], ptr %202, i64 %249
   store float %261, ptr %262, align 4, !tbaa !33
   %263 = fneg float %119
   %264 = fmul float %72, %263
@@ -3585,13 +3583,13 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %274 = tail call noundef float @llvm.fmuladd.f32(float %271, float %66, float %273)
   %275 = fmul float %274, %224
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %277 = getelementptr inbounds float, ptr %.pre321, i64 %235
+  %277 = getelementptr inbounds [4 x i8], ptr %.pre321, i64 %235
   store float %275, ptr %277, align 4, !tbaa !33
   %278 = fmul float %54, %268
   %279 = tail call float @llvm.fmuladd.f32(float %265, float %33, float %278)
   %280 = tail call noundef float @llvm.fmuladd.f32(float %271, float %69, float %279)
   %281 = fmul float %280, %224
-  %282 = getelementptr inbounds float, ptr %.pre321, i64 %243
+  %282 = getelementptr inbounds [4 x i8], ptr %.pre321, i64 %243
   store float %281, ptr %282, align 4, !tbaa !33
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 740
   %284 = load i8, ptr %283, align 4, !tbaa !87, !range !37, !noundef !38
@@ -3622,24 +3620,24 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %.0163314 = phi i1 [ %290, %.thread ], [ false, %294 ]
   %300 = mul nsw i32 %10, 5
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds float, ptr %178, i64 %301
+  %302 = getelementptr inbounds [4 x i8], ptr %178, i64 %301
   store float %42, ptr %302, align 4, !tbaa !33
   %303 = add nsw i32 %300, 1
   %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds float, ptr %178, i64 %304
+  %305 = getelementptr inbounds [4 x i8], ptr %178, i64 %304
   store float %57, ptr %305, align 4, !tbaa !33
   %306 = add nsw i32 %300, 2
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds float, ptr %178, i64 %307
+  %308 = getelementptr inbounds [4 x i8], ptr %178, i64 %307
   store float %72, ptr %308, align 4, !tbaa !33
   %309 = fneg float %42
-  %310 = getelementptr inbounds float, ptr %202, i64 %301
+  %310 = getelementptr inbounds [4 x i8], ptr %202, i64 %301
   store float %309, ptr %310, align 4, !tbaa !33
   %311 = fneg float %57
-  %312 = getelementptr inbounds float, ptr %202, i64 %304
+  %312 = getelementptr inbounds [4 x i8], ptr %202, i64 %304
   store float %311, ptr %312, align 4, !tbaa !33
   %313 = fneg float %72
-  %314 = getelementptr inbounds float, ptr %202, i64 %307
+  %314 = getelementptr inbounds [4 x i8], ptr %202, i64 %307
   store float %313, ptr %314, align 4, !tbaa !33
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %316 = tail call noundef float @_ZNK14btAngularLimit6getLowEv(ptr noundef nonnull align 4 dereferenceable(29) %315)
@@ -3648,7 +3646,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %or.cond173.not = or i1 %.not169, %318
   %spec.select = select i1 %or.cond173.not, i1 %299, i1 false
   %319 = load ptr, ptr %276, align 8, !tbaa !110
-  %320 = getelementptr inbounds float, ptr %319, i64 %301
+  %320 = getelementptr inbounds [4 x i8], ptr %319, i64 %301
   store float 0.000000e+00, ptr %320, align 4, !tbaa !33
   %321 = load i32, ptr %217, align 4, !tbaa !108
   %322 = and i32 %321, 2
@@ -3668,7 +3666,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %330 = load float, ptr %329, align 8, !tbaa !117
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %332 = load ptr, ptr %331, align 8, !tbaa !118
-  %333 = getelementptr inbounds float, ptr %332, i64 %301
+  %333 = getelementptr inbounds [4 x i8], ptr %332, i64 %301
   store float %330, ptr %333, align 4, !tbaa !33
   br label %334
 
@@ -3685,7 +3683,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %345 = load float, ptr %344, align 4, !tbaa !35
   %346 = load ptr, ptr %276, align 8, !tbaa !110
-  %347 = getelementptr inbounds float, ptr %346, i64 %301
+  %347 = getelementptr inbounds [4 x i8], ptr %346, i64 %301
   %348 = load float, ptr %347, align 4, !tbaa !33
   %349 = tail call float @llvm.fmuladd.f32(float %343, float %345, float %348)
   store float %349, ptr %347, align 4, !tbaa !33
@@ -3694,12 +3692,12 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %352 = fneg float %351
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %354 = load ptr, ptr %353, align 8, !tbaa !121
-  %355 = getelementptr inbounds float, ptr %354, i64 %301
+  %355 = getelementptr inbounds [4 x i8], ptr %354, i64 %301
   store float %352, ptr %355, align 4, !tbaa !33
   %356 = load float, ptr %350, align 4, !tbaa !120
   %357 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %358 = load ptr, ptr %357, align 8, !tbaa !122
-  %359 = getelementptr inbounds float, ptr %358, i64 %301
+  %359 = getelementptr inbounds [4 x i8], ptr %358, i64 %301
   store float %356, ptr %359, align 4, !tbaa !33
   br label %360
 
@@ -3710,7 +3708,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 362:                                              ; preds = %360
   %363 = load float, ptr %1, align 8, !tbaa !109
   %364 = fmul float %325, %363
-  %365 = getelementptr inbounds float, ptr %361, i64 %301
+  %365 = getelementptr inbounds [4 x i8], ptr %361, i64 %301
   %366 = load float, ptr %365, align 4, !tbaa !33
   %367 = tail call float @llvm.fmuladd.f32(float %364, float %.0162315, float %366)
   store float %367, ptr %365, align 4, !tbaa !33
@@ -3724,14 +3722,14 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   %372 = load float, ptr %371, align 8, !tbaa !123
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %374 = load ptr, ptr %373, align 8, !tbaa !118
-  %375 = getelementptr inbounds float, ptr %374, i64 %301
+  %375 = getelementptr inbounds [4 x i8], ptr %374, i64 %301
   store float %372, ptr %375, align 4, !tbaa !33
   br label %376
 
 376:                                              ; preds = %370, %362
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %378 = load ptr, ptr %377, align 8, !tbaa !121
-  %379 = getelementptr inbounds float, ptr %378, i64 %301
+  %379 = getelementptr inbounds [4 x i8], ptr %378, i64 %301
   br i1 %318, label %380, label %381
 
 380:                                              ; preds = %376
@@ -3745,7 +3743,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
   store float %.sink334, ptr %379, align 4, !tbaa !33
   %.sink333.in = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sink333 = load ptr, ptr %.sink333.in, align 8, !tbaa !122
-  %382 = getelementptr inbounds float, ptr %.sink333, i64 %301
+  %382 = getelementptr inbounds [4 x i8], ptr %.sink333, i64 %301
   store float %.sink, ptr %382, align 4, !tbaa !33
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %384 = load float, ptr %383, align 8, !tbaa !15
@@ -4611,15 +4609,15 @@ define linkonce_odr dso_local noundef ptr @_ZNK17btHingeConstraint9serializeEPvP
 
 7:                                                ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i ]
-  %8 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv.i.i
-  %9 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %6, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i.i
   br label %10
 
 10:                                               ; preds = %10, %7
   %indvars.iv.i.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i.i, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i.i
   %12 = load float, ptr %11, align 4, !tbaa !33
-  %13 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i.i
   store float %12, ptr %13, align 4, !tbaa !33
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -4637,9 +4635,9 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVe
 
 16:                                               ; preds = %16, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i
   %indvars.iv.i3.i = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i ], [ %indvars.iv.next.i4.i, %16 ]
-  %17 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i3.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i3.i
   %18 = load float, ptr %17, align 4, !tbaa !33
-  %19 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i3.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i3.i
   store float %18, ptr %19, align 4, !tbaa !33
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -4652,15 +4650,15 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %16
 
 22:                                               ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i20, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
   %indvars.iv.i.i16 = phi i64 [ 0, %_ZNK11btTransform9serializeER20btTransformFloatData.exit ], [ %indvars.iv.next.i.i21, %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i20 ]
-  %23 = getelementptr inbounds nuw %class.btVector3, ptr %20, i64 %indvars.iv.i.i16
-  %24 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %21, i64 %indvars.iv.i.i16
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv.i.i16
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i.i16
   br label %25
 
 25:                                               ; preds = %25, %22
   %indvars.iv.i.i.i17 = phi i64 [ 0, %22 ], [ %indvars.iv.next.i.i.i18, %25 ]
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i.i.i17
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i.i.i17
   %27 = load float, ptr %26, align 4, !tbaa !33
-  %28 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.i.i17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.i.i.i17
   store float %27, ptr %28, align 4, !tbaa !33
   %indvars.iv.next.i.i.i18 = add nuw nsw i64 %indvars.iv.i.i.i17, 1
   %exitcond.not.i.i.i19 = icmp eq i64 %indvars.iv.next.i.i.i18, 4
@@ -4678,9 +4676,9 @@ _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i23: ; preds = %_ZNK9bt
 
 31:                                               ; preds = %31, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i23
   %indvars.iv.i3.i24 = phi i64 [ 0, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i23 ], [ %indvars.iv.next.i4.i25, %31 ]
-  %32 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i3.i24
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i3.i24
   %33 = load float, ptr %32, align 4, !tbaa !33
-  %34 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv.i3.i24
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i3.i24
   store float %33, ptr %34, align 4, !tbaa !33
   %indvars.iv.next.i4.i25 = add nuw nsw i64 %indvars.iv.i3.i24, 1
   %exitcond.not.i5.i26 = icmp eq i64 %indvars.iv.next.i4.i25, 4
@@ -4826,48 +4824,48 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %45 = add nuw nsw i32 %.fr, 2
   %46 = urem i32 %45, 3
   %47 = zext nneg i32 %.fr to i64
-  %48 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !33
   %51 = sext i32 %44 to i64
-  %52 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %51
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %51
   %54 = load float, ptr %53, align 4, !tbaa !33
   %55 = fsub float %50, %54
   %56 = zext nneg i32 %46 to i64
-  %57 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %56
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %56
   %59 = load float, ptr %58, align 4, !tbaa !33
   %60 = fsub float %55, %59
   %61 = fadd float %60, 1.000000e+00
   %62 = tail call noundef float @sqrtf(float noundef %61) #22, !tbaa !34
   %63 = fmul float %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw float, ptr %3, i64 %47
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   store float %63, ptr %64, align 4, !tbaa !33
   %65 = fdiv float 5.000000e-01, %62
-  %66 = getelementptr inbounds nuw float, ptr %57, i64 %51
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %51
   %67 = load float, ptr %66, align 4, !tbaa !33
-  %68 = getelementptr inbounds nuw float, ptr %52, i64 %56
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %56
   %69 = load float, ptr %68, align 4, !tbaa !33
   %70 = fsub float %67, %69
   %71 = fmul float %65, %70
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %71, ptr %72, align 4, !tbaa !33
-  %73 = getelementptr inbounds nuw float, ptr %52, i64 %47
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %47
   %74 = load float, ptr %73, align 4, !tbaa !33
-  %75 = getelementptr inbounds nuw float, ptr %48, i64 %51
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   %76 = load float, ptr %75, align 4, !tbaa !33
   %77 = fadd float %74, %76
   %78 = fmul float %65, %77
-  %79 = getelementptr inbounds nuw float, ptr %3, i64 %51
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %51
   store float %78, ptr %79, align 4, !tbaa !33
-  %80 = getelementptr inbounds nuw float, ptr %57, i64 %47
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %47
   %81 = load float, ptr %80, align 4, !tbaa !33
-  %82 = getelementptr inbounds nuw float, ptr %48, i64 %56
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %56
   %83 = load float, ptr %82, align 4, !tbaa !33
   %84 = fadd float %81, %83
   %85 = fmul float %65, %84
-  %86 = getelementptr inbounds nuw float, ptr %3, i64 %56
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %56
   store float %85, ptr %86, align 4, !tbaa !33
   %.pre = load float, ptr %3, align 16, !tbaa !33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4

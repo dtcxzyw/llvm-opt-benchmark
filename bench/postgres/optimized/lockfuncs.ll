@@ -3,18 +3,7 @@ source_filename = "bench/postgres/original/lockfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.LockInstanceData = type { %struct.LOCKTAG, i32, i32, %struct.VirtualTransactionId, i64, i32, i32, i8 }
 %struct.LOCKTAG = type { i32, i32, i32, i16, i8, i8 }
-%struct.VirtualTransactionId = type { i32, i32 }
-%struct.PREDICATELOCKTARGETTAG = type { i32, i32, i32, i32 }
-%struct.SERIALIZABLEXACT = type { %struct.VirtualTransactionId, i64, i64, %union.anon, %struct.dlist_head, %struct.dlist_head, %struct.dlist_head, %struct.dlist_node, %struct.dlist_node, %struct.LWLock, %struct.dlist_head, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { i64 }
-%struct.dlist_node = type { ptr, ptr }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.BlockedProcData = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"relation\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"extend\00", align 1
@@ -129,7 +118,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %40 = load ptr, ptr %38, align 8
   %41 = load i32, ptr %34, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.LockInstanceData, ptr %40, i64 %42
+  %43 = getelementptr inbounds [56 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %.not144 = icmp eq i32 %45, 0
@@ -172,7 +161,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
 
 60:                                               ; preds = %.loopexit221
   %61 = zext nneg i8 %58 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr @LockTagTypeNames, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @LockTagTypeNames, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %67
 
@@ -461,10 +450,10 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %229 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = sext i32 %225 to i64
-  %232 = getelementptr inbounds %struct.PREDICATELOCKTARGETTAG, ptr %230, i64 %231
+  %232 = getelementptr inbounds [16 x i8], ptr %230, i64 %231
   %233 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %234, i64 %231
+  %235 = getelementptr inbounds [168 x i8], ptr %234, i64 %231
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %236 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %236, i8 0, i64 112, i1 false)
@@ -487,7 +476,7 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
 244:                                              ; preds = %228, %240
   %245 = phi i32 [ %243, %240 ], [ 2, %228 ]
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw ptr, ptr @PredicateLockTagTypeNames, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr @PredicateLockTagTypeNames, i64 %246
   %248 = load ptr, ptr %247, align 8
   %249 = tail call ptr @cstring_to_text(ptr noundef %248) #4
   %250 = ptrtoint ptr %249 to i64
@@ -657,17 +646,17 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %indvars.iv86 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next87, %._crit_edge69 ]
   %.05172 = phi i32 [ 0, %.lr.ph74 ], [ %.1.lcssa, %._crit_edge69 ]
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds nuw %struct.BlockedProcData, ptr %17, i64 %indvars.iv86
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %17, i64 %indvars.iv86
   %19 = load ptr, ptr %14, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.LockInstanceData, ptr %19, i64 %22
+  %23 = getelementptr inbounds [56 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %15, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 0
@@ -681,7 +670,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %.05561 = phi ptr [ null, %.lr.ph ], [ %spec.select, %33 ]
-  %34 = getelementptr inbounds nuw %struct.LockInstanceData, ptr %23, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %32
@@ -698,7 +687,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %41 = getelementptr inbounds nuw i8, ptr %.055.lcssa, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %40, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %29, align 4
   %47 = icmp sgt i32 %46, 0
@@ -713,7 +702,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %51 = phi i32 [ %46, %.lr.ph68 ], [ %82, %.critedge ]
   %indvars.iv83 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next84, %.critedge ]
   %.166 = phi i32 [ %.05172, %.lr.ph68 ], [ %.2, %.critedge ]
-  %52 = getelementptr inbounds nuw %struct.LockInstanceData, ptr %23, i64 %indvars.iv83
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv83
   %53 = icmp eq ptr %52, %.055.lcssa
   br i1 %53, label %.critedge, label %54
 
@@ -761,7 +750,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
 
 74:                                               ; preds = %.lr.ph64, %73
   %indvars.iv78 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next79, %73 ]
-  %75 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv78
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv78
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, %72
   br i1 %77, label %.loopexit, label %73
@@ -770,7 +759,7 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   %78 = sext i32 %56 to i64
   %79 = add i32 %.166, 1
   %80 = sext i32 %.166 to i64
-  %81 = getelementptr inbounds i64, ptr %10, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %10, i64 %80
   store i64 %78, ptr %81, align 8
   %.pre = load i32, ptr %29, align 4
   br label %.critedge
@@ -826,10 +815,10 @@ define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr noundef readonly captur
 
 16:                                               ; preds = %12, %16
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store i64 %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13

@@ -179,7 +179,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %5
 .preheader.split.us:                              ; preds = %.preheader, %._crit_edge.split.us.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.split.us.us ], [ 0, %.preheader ]
   %.01722.us = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.us ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv27
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv27
   %10 = load ptr, ptr %9, align 8
   %.not19.us = icmp eq ptr %10, null
   br i1 %.not19.us, label %._crit_edge.split.us.us, label %.lr.ph.us
@@ -214,7 +214,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %5
 .preheader.split:                                 ; preds = %.preheader, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.preheader ]
   %.01722 = phi i32 [ %.1.lcssa, %._crit_edge.split ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %._crit_edge.split, label %.lr.ph
@@ -299,7 +299,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 
 .preheader:                                       ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not17 = icmp eq ptr %8, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -462,7 +462,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = urem i64 %6, 2053
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   br label %9
 
 9:                                                ; preds = %10, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
@@ -593,7 +593,7 @@ declare void @_ZN13JfrStackTraceC1EmRKS_PS0_(ptr noundef nonnull align 8 derefer
 define hidden noundef ptr @_ZN23JfrStackTraceRepository24lookup_for_leak_profilerEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = urem i64 %0, 2053
   %4 = load ptr, ptr @_ZL23_leak_profiler_instance, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   br label %6
 
 6:                                                ; preds = %7, %2
@@ -631,7 +631,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %3, %0
 
 .preheader.i:                                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %.not17.i = icmp eq ptr %8, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
@@ -683,7 +683,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %3, %0
 
 .preheader.i.i:                                   ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i
   %8 = load ptr, ptr %7, align 8
   %.not17.i.i = icmp eq ptr %8, null
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -730,7 +730,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %15, %_ZN2
 
 .preheader.i:                                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, %._crit_edge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %.not17.i = icmp eq ptr %20, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i

@@ -741,10 +741,10 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i16 %23(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %20, i32 noundef %3)
-  %25 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %24, ptr %25, align 2, !tbaa !31
   %26 = tail call noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.06279, i32 noundef %20, i32 noundef %3, i32 noundef %16)
-  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = sub nsw i32 %.06678, %16
@@ -775,7 +775,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %57 ], [ 1, %._crit_edge ]
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %57 ], [ 0, %._crit_edge ]
   %.163 = phi i32 [ %47, %57 ], [ %.062.lcssa, %._crit_edge ]
-  %38 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv97
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv97
   store i32 %.163, ptr %38, align 4, !tbaa !33
   %39 = add nsw i32 %.163, 1
   %40 = load ptr, ptr %0, align 8, !tbaa !3
@@ -809,7 +809,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   br i1 %exitcond.not, label %60, label %37, !llvm.loop !35
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i32, ptr %8, i64 %wide.trip.count
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %wide.trip.count
   store i32 %47, ptr %61, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %62
@@ -823,12 +823,12 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   br i1 %.not, label %65, label %72
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next103
+  %66 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv.next103
   %67 = load i32, ptr %66, align 4, !tbaa !33
-  %68 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv102
+  %68 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv102
   %69 = load i32, ptr %68, align 4, !tbaa !33
   %70 = tail call noundef i32 @_ZN6icu_7717StringTrieBuilder9writeNodeEiii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %67, i32 noundef %69, i32 noundef %35)
-  %71 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next103
+  %71 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv.next103
   store i32 %70, ptr %71, align 4, !tbaa !33
   br label %72
 
@@ -867,7 +867,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %103
   %indvars.iv105 = phi i64 [ %87, %.lr.ph84.preheader ], [ %indvars.iv.next106, %103 ]
   %.06182 = phi i32 [ %84, %.lr.ph84.preheader ], [ %116, %103 ]
-  %90 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv105
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv105
   %91 = load i32, ptr %90, align 4, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv105
   %93 = load i8, ptr %92, align 1, !tbaa !19
@@ -882,7 +882,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   br label %103
 
 99:                                               ; preds = %.lr.ph84
-  %100 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv105
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv105
   %101 = load i32, ptr %100, align 4, !tbaa !33
   %102 = sub nsw i32 %.06182, %101
   br label %103
@@ -909,13 +909,13 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv108 = phi i64 [ %89, %.lr.ph87.preheader ], [ %indvars.iv.next109, %.lr.ph87 ]
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
-  %118 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next109
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next109
   %119 = load i32, ptr %118, align 4, !tbaa !33
   %120 = load ptr, ptr %0, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 152
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %119)
-  %124 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.next109
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.next109
   %125 = load i16, ptr %124, align 2, !tbaa !31
   %126 = zext i16 %125 to i32
   %127 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1116,10 +1116,10 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i16 %24(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %21, i32 noundef %3)
-  %26 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   store i16 %25, ptr %26, align 2, !tbaa !31
   %27 = tail call noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.07596, i32 noundef %21, i32 noundef %3, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %27, ptr %28, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sub nsw i32 %.07795, %17
@@ -1199,11 +1199,11 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.176)
   %75 = load i32, ptr %44, align 8, !tbaa !43
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i16, ptr %46, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %46, i64 %76
   store i16 %56, ptr %77, align 2, !tbaa !31
-  %78 = getelementptr inbounds ptr, ptr %47, i64 %76
+  %78 = getelementptr inbounds [8 x i8], ptr %47, i64 %76
   store ptr null, ptr %78, align 8, !tbaa !41
-  %79 = getelementptr inbounds i32, ptr %48, i64 %76
+  %79 = getelementptr inbounds [4 x i8], ptr %48, i64 %76
   store i32 %74, ptr %79, align 4, !tbaa !33
   %80 = load i32, ptr %44, align 8, !tbaa !43
   %81 = add nsw i32 %80, 1
@@ -1220,11 +1220,11 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   %89 = tail call noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.176, i32 noundef %60, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %90 = load i32, ptr %44, align 8, !tbaa !43
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i16, ptr %46, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %46, i64 %91
   store i16 %56, ptr %92, align 2, !tbaa !31
-  %93 = getelementptr inbounds ptr, ptr %47, i64 %91
+  %93 = getelementptr inbounds [8 x i8], ptr %47, i64 %91
   store ptr %89, ptr %93, align 8, !tbaa !41
-  %94 = getelementptr inbounds i32, ptr %48, i64 %91
+  %94 = getelementptr inbounds [4 x i8], ptr %48, i64 %91
   store i32 0, ptr %94, align 4, !tbaa !33
   %95 = load i32, ptr %44, align 8, !tbaa !43
   %96 = add nsw i32 %95, 1
@@ -1278,11 +1278,11 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %
   %127 = tail call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %60)
   %128 = load i32, ptr %44, align 8, !tbaa !43
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i16, ptr %46, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %46, i64 %129
   store i16 %113, ptr %130, align 2, !tbaa !31
-  %131 = getelementptr inbounds ptr, ptr %47, i64 %129
+  %131 = getelementptr inbounds [8 x i8], ptr %47, i64 %129
   store ptr null, ptr %131, align 8, !tbaa !41
-  %132 = getelementptr inbounds i32, ptr %48, i64 %129
+  %132 = getelementptr inbounds [4 x i8], ptr %48, i64 %129
   store i32 %127, ptr %132, align 4, !tbaa !33
   %133 = load i32, ptr %44, align 8, !tbaa !43
   %134 = add nsw i32 %133, 1
@@ -1299,11 +1299,11 @@ _ZN6icu_7717StringTrieBuilder14ListBranchNode3addEiPNS0_4NodeE.exit: ; preds = %
   %142 = tail call noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %60, i32 noundef %2, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %143 = load i32, ptr %44, align 8, !tbaa !43
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i16, ptr %46, i64 %144
+  %145 = getelementptr inbounds [2 x i8], ptr %46, i64 %144
   store i16 %113, ptr %145, align 2, !tbaa !31
-  %146 = getelementptr inbounds ptr, ptr %47, i64 %144
+  %146 = getelementptr inbounds [8 x i8], ptr %47, i64 %144
   store ptr %142, ptr %146, align 8, !tbaa !41
-  %147 = getelementptr inbounds i32, ptr %48, i64 %144
+  %147 = getelementptr inbounds [4 x i8], ptr %48, i64 %144
   store i32 0, ptr %147, align 4, !tbaa !33
   %148 = load i32, ptr %44, align 8, !tbaa !43
   %149 = add nsw i32 %148, 1
@@ -1388,9 +1388,9 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit: ; pre
   br i1 %191, label %206, label %192
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.next108
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.next108
   %194 = load i16, ptr %193, align 2, !tbaa !31
-  %195 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next108
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next108
   %196 = load ptr, ptr %195, align 8, !tbaa !41
   %197 = icmp eq ptr %196, null
   br i1 %197, label %_ZN6icu_7717StringTrieBuilder4Node8hashCodeEPKS1_.exit.i, label %198
@@ -1998,25 +1998,25 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit: ; preds = %4, %_ZNKSt9type_inf
 
 37:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %38 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !31
-  %40 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2, !tbaa !31
   %.not = icmp eq i16 %39, %41
   br i1 %.not, label %42, label %.critedge
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !33
-  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !33
   %.not20 = icmp eq i32 %44, %46
   br i1 %.not20, label %47, label %.critedge
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !41
-  %50 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !41
   %.not21 = icmp eq ptr %49, %51
   br i1 %.not21, label %36, label %.critedge
@@ -2047,7 +2047,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder14ListBranchNode19markRightEdge
   %.010 = phi i32 [ 1, %21 ], [ 0, %6 ]
   %.1 = phi i32 [ %.2, %21 ], [ %1, %6 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %21, label %15
@@ -2080,7 +2080,7 @@ define void @_ZN6icu_7717StringTrieBuilder14ListBranchNode5writeERS0_(ptr nounde
   %4 = load i32, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = sext i32 %4 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = icmp eq ptr %9, null
@@ -2095,7 +2095,7 @@ define void @_ZN6icu_7717StringTrieBuilder14ListBranchNode5writeERS0_(ptr nounde
 16:                                               ; preds = %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit ], [ %15, %2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %17 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
+  %17 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit, label %19
@@ -2132,7 +2132,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !33
   %40 = load ptr, ptr %1, align 8, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
@@ -2151,7 +2151,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
 48:                                               ; preds = %44, %35
   %.pre-phi = phi i64 [ %.pre, %44 ], [ %37, %35 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %50 = getelementptr inbounds i16, ptr %49, i64 %.pre-phi
+  %50 = getelementptr inbounds [2 x i8], ptr %49, i64 %.pre-phi
   %51 = load i16, ptr %50, align 2, !tbaa !31
   %52 = zext i16 %51 to i32
   %53 = load ptr, ptr %1, align 8, !tbaa !3
@@ -2172,13 +2172,13 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
 62:                                               ; preds = %.lr.ph, %73
   %indvars.iv35 = phi i64 [ %61, %.lr.ph ], [ %indvars.iv.next36, %73 ]
   %storemerge33 = phi i32 [ %56, %.lr.ph ], [ %84, %73 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv35
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv35
   %64 = load ptr, ptr %63, align 8, !tbaa !41
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv35
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv35
   %68 = load i32, ptr %67, align 4, !tbaa !33
   br label %73
 
@@ -2195,7 +2195,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 136
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.025, i8 noundef signext %.0)
-  %78 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv35
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %indvars.iv35
   %79 = load i16, ptr %78, align 2, !tbaa !31
   %80 = zext i16 %79 to i32
   %81 = load ptr, ptr %1, align 8, !tbaa !3

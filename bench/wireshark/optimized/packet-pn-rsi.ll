@@ -491,7 +491,7 @@ dissect_FREQ_RTA_block.exit:                      ; preds = %97, %99, %102, %104
 
 switch.lookup:                                    ; preds = %121
   %138 = zext nneg i32 %135 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_PNIO_RSI, i64 %138
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_PNIO_RSI, i64 %138
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %139
 

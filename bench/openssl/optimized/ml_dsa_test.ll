@@ -251,7 +251,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_test(i32 noundef %0) #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds %struct.ml_dsa_keygen_test_data_st, ptr @ml_dsa_keygen_testdata, i64 %8
+  %9 = getelementptr inbounds [56 x i8], ptr @ml_dsa_keygen_testdata, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -338,7 +338,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   %11 = alloca %struct.ossl_param_st, align 8
   %12 = alloca %struct.ossl_param_st, align 8
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds %struct.ml_dsa_sig_gen_test_data_st, ptr @ml_dsa_siggen_testdata, i64 %13
+  %14 = getelementptr inbounds [72 x i8], ptr @ml_dsa_siggen_testdata, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1360,7 +1360,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   %5 = alloca %struct.ossl_param_st, align 8
   %6 = alloca %struct.ossl_param_st, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.sig_params_st, ptr @sig_params, i64 %7
+  %8 = getelementptr inbounds [40 x i8], ptr @sig_params, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

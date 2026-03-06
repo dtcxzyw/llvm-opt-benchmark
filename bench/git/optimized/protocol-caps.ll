@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.packet_writer = type { i32, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"size\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"object-info: unexpected line: '%s'\00", align 1
@@ -164,7 +163,7 @@ strbuf_setlen.exit.us.i:                          ; preds = %52, %51, %47
   %53 = getelementptr inbounds nuw i8, ptr %.02.us6.i, i64 16
   %54 = load ptr, ptr %7, align 8, !tbaa !22
   %55 = load i64, ptr %34, align 8, !tbaa !19
-  %56 = getelementptr inbounds nuw %struct.string_list_item, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %55
   %57 = icmp ult ptr %53, %56
   br i1 %57, label %.lr.ph7.i, label %.critedge.i
 
@@ -224,7 +223,7 @@ strbuf_setlen.exit.i:                             ; preds = %77, %74, %66
   %78 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   %79 = load ptr, ptr %7, align 8, !tbaa !22
   %80 = load i64, ptr %34, align 8, !tbaa !19
-  %81 = getelementptr inbounds nuw %struct.string_list_item, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %80
   %82 = icmp ult ptr %78, %81
   br i1 %82, label %.lr.ph5.i, label %.critedge.i
 

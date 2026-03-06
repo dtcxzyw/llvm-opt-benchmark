@@ -3555,10 +3555,10 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %483
   %487 = zext nneg i8 %466 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.decode_ip_device_routing, i64 %487
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.decode_ip_device_routing, i64 %487
   %switch.load = load ptr, ptr %switch.gep, align 8
   %488 = zext nneg i8 %466 to i64
-  %switch.gep15 = getelementptr inbounds nuw i32, ptr @switch.table.decode_ip_device_routing.24, i64 %488
+  %switch.gep15 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decode_ip_device_routing.24, i64 %488
   %switch.load16 = load i32, ptr %switch.gep15, align 4
   br label %489
 
@@ -4377,7 +4377,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
   br i1 %.not144, label %77, label %74
 
 74:                                               ; preds = %.preheader145
-  %75 = getelementptr ptr, ptr @decode_audio_config.str_device_values, i64 %indvars.iv
+  %75 = getelementptr [8 x i8], ptr @decode_audio_config.str_device_values, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   tail call void @wmem_strbuf_append(ptr noundef %68, ptr noundef %76)
   br label %77

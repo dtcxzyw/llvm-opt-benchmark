@@ -1059,7 +1059,7 @@ define noundef zeroext i1 @_ZN2cv4gapi3wip3gst15GStreamerSource4Priv4pullERNS1_4
   br i1 %.not.i47, label %27, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !85
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %20(ptr noundef nonnull %21)
@@ -1213,7 +1213,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %79, %77
   br i1 %.not.i.i.i18, label %93, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %87
   %90 = load ptr, ptr %89, align 8, !tbaa !85
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void %90(ptr noundef nonnull %91)
@@ -3882,7 +3882,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %12 = load i64, ptr %11, align 8, !tbaa !154
   %13 = urem i64 %7, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !161
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !162
   %.not.i.i = icmp eq ptr %16, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !72
@@ -4067,7 +4067,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !164
   %33 = load ptr, ptr %0, align 8, !tbaa !161
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !162
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4093,7 +4093,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !164
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !162
   br label %49
 
@@ -4204,7 +4204,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !164
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !162
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4219,7 +4219,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !162
   br label %28
 

@@ -7,8 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.static_call_key = type { ptr, %union.anon.70 }
 %union.anon.70 = type { i64 }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
 
@@ -175,7 +173,7 @@ define dso_local void @intel_pmdemand_update_port_clock(ptr noundef readonly cap
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = sext i32 %2 to i64
-  %11 = getelementptr i32, ptr %9, i64 %10
+  %11 = getelementptr [4 x i8], ptr %9, i64 %10
   store i32 %3, ptr %11, align 4
   br label %12
 
@@ -273,7 +271,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
 
 66:                                               ; preds = %81, %62
   %67 = phi i64 [ 0, %62 ], [ %82, %81 ]
-  %68 = getelementptr %struct.__drm_crtcs_state, ptr %64, i64 %67
+  %68 = getelementptr [56 x i8], ptr %64, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %81, label %71
@@ -308,7 +306,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
 89:                                               ; preds = %121, %87
   %90 = phi i64 [ 0, %87 ], [ %122, %121 ]
   %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr %struct.__drm_connnectors_state, ptr %91, i64 %90
+  %92 = getelementptr [40 x i8], ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %121, label %95
@@ -451,7 +449,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
   %190 = phi ptr [ %181, %185 ], [ %209, %208 ]
   %191 = phi i64 [ 0, %185 ], [ %210, %208 ]
   %192 = load ptr, ptr %186, align 8
-  %193 = getelementptr %struct.__drm_crtcs_state, ptr %192, i64 %191
+  %193 = getelementptr [56 x i8], ptr %192, i64 %191
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %194, null
   br i1 %195, label %208, label %196
@@ -469,7 +467,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
   %204 = getelementptr inbounds nuw i8, ptr %194, i64 1648
   %205 = load i32, ptr %204, align 8
   %206 = sext i32 %205 to i64
-  %207 = getelementptr i32, ptr %187, i64 %206
+  %207 = getelementptr [4 x i8], ptr %187, i64 %206
   store i32 %203, ptr %207, align 4
   %.pre.i = load ptr, ptr %2, align 8
   br label %208
@@ -486,7 +484,7 @@ define dso_local i32 @intel_pmdemand_atomic_check(ptr noundef %0) local_unnamed_
 215:                                              ; preds = %215, %.loopexit.i
   %216 = phi i64 [ 0, %.loopexit.i ], [ %221, %215 ]
   %217 = phi i32 [ 0, %.loopexit.i ], [ %220, %215 ]
-  %218 = getelementptr i32, ptr %188, i64 %216
+  %218 = getelementptr [4 x i8], ptr %188, i64 %216
   %219 = load i32, ptr %218, align 4
   %220 = tail call i32 @llvm.smax.i32(i32 %219, i32 %217)
   %221 = add nuw nsw i64 %216, 1
@@ -513,7 +511,7 @@ intel_pmdemand_update_max_ddiclk.exit:            ; preds = %215
 234:                                              ; preds = %311, %230
   %235 = phi i64 [ 0, %230 ], [ %312, %311 ]
   %236 = load ptr, ptr %231, align 8
-  %237 = getelementptr %struct.__drm_connnectors_state, ptr %236, i64 %235
+  %237 = getelementptr [40 x i8], ptr %236, i64 %235
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, null
   br i1 %239, label %311, label %240
@@ -539,7 +537,7 @@ intel_pmdemand_update_max_ddiclk.exit:            ; preds = %215
   %254 = getelementptr inbounds nuw i8, ptr %250, i64 144
   %255 = load i32, ptr %254, align 8
   %256 = zext i32 %255 to i64
-  %.split.i = getelementptr %struct.__drm_crtcs_state, ptr %253, i64 %256
+  %.split.i = getelementptr [56 x i8], ptr %253, i64 %256
   %257 = getelementptr i8, ptr %.split.i, i64 16
   %258 = load ptr, ptr %257, align 8
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 336
@@ -584,7 +582,7 @@ intel_pmdemand_update_max_ddiclk.exit:            ; preds = %215
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 144
   %288 = load i32, ptr %287, align 8
   %289 = zext i32 %288 to i64
-  %.split6.i = getelementptr %struct.__drm_crtcs_state, ptr %286, i64 %289
+  %.split6.i = getelementptr [56 x i8], ptr %286, i64 %289
   %290 = getelementptr i8, ptr %.split6.i, i64 24
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 336

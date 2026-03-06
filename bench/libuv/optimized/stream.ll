@@ -527,7 +527,7 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %177, %242
   %225 = add i32 %222, 1
   store i32 %225, ptr %224, align 4
   %226 = zext i32 %222 to i64
-  %227 = getelementptr inbounds nuw i32, ptr %223, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %226
   store i32 %.0.copyload.i.i, ptr %227, align 4
   br label %uv__stream_queue_fd.exit.i.i
 
@@ -898,7 +898,7 @@ uv__queue_move.exit:                              ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = sub i32 %33, %29
@@ -1508,7 +1508,7 @@ define internal fastcc void @uv__write(ptr noundef %0) unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sub i32 %15, %11
@@ -1527,7 +1527,7 @@ define internal fastcc void @uv__write(ptr noundef %0) unnamed_addr #0 {
   %25 = load ptr, ptr %8, align 8
   %26 = load i32, ptr %10, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %27
   br label %29
 
 29:                                               ; preds = %35, %21
@@ -1550,7 +1550,7 @@ define internal fastcc void @uv__write(ptr noundef %0) unnamed_addr #0 {
   store i64 %36, ptr %30, align 8
   %37 = icmp ule i64 %31, %.0.i
   %38 = zext i1 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %.022.i, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %.022.i, i64 %38
   %40 = sub i64 %.0.i, %.0..i
   %.not25.i = icmp eq i64 %40, 0
   br i1 %.not25.i, label %uv__write_req_update.exit, label %29
@@ -2122,7 +2122,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @uv__close(i32 noundef %58) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

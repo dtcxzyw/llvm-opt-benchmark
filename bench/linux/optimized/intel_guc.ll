@@ -400,7 +400,7 @@ define dso_local void @intel_guc_write_params(ptr noundef readonly captures(none
 7:                                                ; preds = %7, %1
   %8 = phi i64 [ 0, %1 ], [ %9, %7 ]
   %9 = add nuw nsw i64 %8, 1
-  %10 = getelementptr i32, ptr %6, i64 %8
+  %10 = getelementptr [4 x i8], ptr %6, i64 %8
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr %4, align 8
   %13 = trunc i64 %9 to i32
@@ -766,7 +766,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
 212:                                              ; preds = %209, %205
   %213 = phi ptr [ %211, %209 ], [ null, %205 ]
   %214 = load i32, ptr %204, align 8
-  %215 = getelementptr i32, ptr %42, i64 %206
+  %215 = getelementptr [4 x i8], ptr %42, i64 %206
   %216 = load i32, ptr %215, align 4
   %217 = trunc i64 %206 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %213, i32 noundef 1, ptr noundef nonnull @.str.33, i32 noundef %214, i32 noundef %217, i32 noundef %216) #7
@@ -971,7 +971,7 @@ define dso_local i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef readonly c
   %24 = shl i32 %22, 2
   %25 = add i32 %23, %24
   %26 = sext i32 %22 to i64
-  %27 = getelementptr i32, ptr %1, i64 %26
+  %27 = getelementptr [4 x i8], ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr %15, align 8
   call void %29(ptr noundef %9, i32 %25, i32 noundef %28, i1 noundef zeroext true) #7
@@ -1152,7 +1152,7 @@ define dso_local i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef readonly c
   %139 = add i32 %138, %136
   %140 = load ptr, ptr %16, align 8
   %141 = call i32 %140(ptr noundef %9, i32 %139, i1 noundef zeroext true) #7
-  %142 = getelementptr i32, ptr %3, i64 %135
+  %142 = getelementptr [4 x i8], ptr %3, i64 %135
   store i32 %141, ptr %142, align 4
   %143 = add nuw nsw i64 %135, 1
   %144 = icmp eq i64 %143, %133

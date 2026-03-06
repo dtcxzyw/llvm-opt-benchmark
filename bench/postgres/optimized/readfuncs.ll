@@ -24188,7 +24188,7 @@ define dso_local ptr @readAttrNumberCols(i32 noundef %0) local_unnamed_addr #0 {
 33:                                               ; preds = %27
   %34 = call i64 @strtol(ptr noundef nonnull captures(none) %25, ptr noundef null, i32 noundef 10) #9
   %35 = trunc i64 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv
   store i16 %35, ptr %36, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -24283,7 +24283,7 @@ define dso_local ptr @readOidCols(i32 noundef %0) local_unnamed_addr #0 {
 33:                                               ; preds = %27
   %34 = call i64 @strtoul(ptr noundef nonnull captures(none) %25, ptr noundef null, i32 noundef 10) #9
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -24378,7 +24378,7 @@ define dso_local ptr @readIntCols(i32 noundef %0) local_unnamed_addr #0 {
 33:                                               ; preds = %27
   %34 = call i64 @strtol(ptr noundef nonnull captures(none) %25, ptr noundef null, i32 noundef 10) #9
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

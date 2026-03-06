@@ -338,7 +338,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   %112 = add nsw i32 %111, 1
   store volatile i32 %112, ptr @nThreadsRunning, align 4, !tbaa !8
   %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #16
-  %114 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv157
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv157
   %115 = call i32 @pthread_create(ptr noundef %114, ptr noundef null, ptr noundef nonnull @Abc_RunThread, ptr noundef nonnull %.0) #16
   br label %116
 

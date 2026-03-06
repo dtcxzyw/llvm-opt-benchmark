@@ -127,7 +127,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC225g1_can_remove_pre_barrie
 
 14:                                               ; preds = %6
   %15 = zext i8 %4 to i64
-  %16 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = call noundef ptr @_ZN8GraphKit6memoryEj(ptr noundef nonnull align 8 dereferenceable(84) %1, i32 noundef %5) #6
@@ -482,7 +482,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit60:            ; preds = %_ZN4NodenwEm.exit.i
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %158
+  %159 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = load i8, ptr %160, align 4
   %162 = load ptr, ptr %148, align 8
@@ -821,7 +821,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %92
+  %93 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i8, ptr %94, align 4
   %96 = tail call noundef ptr @_ZN8IdealKit5storeEP4NodeS1_S1_9BasicTypeiN7MemNode6MemOrdEbb(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %88, ptr noundef %7, ptr noundef %54, i8 noundef zeroext %95, i32 noundef 3, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #6
@@ -1148,7 +1148,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit74:            ; preds = %_ZN4NodenwEm.exit.i
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %180 = load i32, ptr %179, align 8
   %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %181
+  %182 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i8, ptr %183, align 4
   %185 = call noundef ptr @_ZN8IdealKit4loadEP4NodeS1_PK4Type9BasicTypeibN7MemNode6MemOrdEN8LoadNode17ControlDependencyE(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef %177, ptr noundef %172, ptr noundef nonnull %178, i8 noundef zeroext %184, i32 noundef 3, i1 noundef zeroext false, i32 noundef 0, i32 noundef 2) #6
@@ -2033,7 +2033,7 @@ define hidden void @_ZNK14G1BarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpa
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %57
+  %58 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i8, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2110,7 +2110,7 @@ _ZN14G1BarrierSetC218is_g1_pre_val_loadEP4Node.exit: ; preds = %._crit_edge.i, %
   br i1 %108, label %109, label %212
 
 109:                                              ; preds = %.split49
-  %110 = getelementptr inbounds nuw ptr, ptr %97, i64 %.0
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.0
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
@@ -2123,7 +2123,7 @@ _ZN14G1BarrierSetC218is_g1_pre_val_loadEP4Node.exit: ; preds = %._crit_edge.i, %
 
 119:                                              ; preds = %109
   %120 = load ptr, ptr %96, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %.0
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.0
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
@@ -2294,7 +2294,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   %.162 = phi ptr [ %.4, %.loopexit ], [ %1, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.162, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv66
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv66
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.loopexit, label %18
@@ -2322,7 +2322,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %.258 = phi ptr [ %.162, %.lr.ph ], [ %.3, %75 ]
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %.not49 = icmp eq ptr %33, null
   br i1 %.not49, label %75, label %34
@@ -2350,7 +2350,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -2363,7 +2363,7 @@ define hidden noundef ptr @_ZNK14G1BarrierSetC220step_over_gc_barrierEP4Node(ptr
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %.258, i64 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %29
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %29
   %62 = load ptr, ptr %61, align 8
   %.not51 = icmp eq ptr %62, null
   br i1 %.not51, label %75, label %63
@@ -2427,7 +2427,7 @@ define hidden noundef zeroext i1 @_ZNK14G1BarrierSetC223escape_add_to_con_graphE
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %16 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8

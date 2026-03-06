@@ -283,7 +283,7 @@ define dso_local i32 @topology_g_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.030 = phi i32 [ %31, %.lr.ph ], [ 0, %.preheader ]
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @hostlist_count(ptr noundef %29) #9
   %31 = add nsw i32 %30, %.030

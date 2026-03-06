@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.radiotap_align_size = type { i8, [3 x i8] }
-%struct.radiotap_override = type { i8, i8, [2 x i8] }
-%struct.ieee80211_radiotap_namespace = type { ptr, i32, i32, i8 }
 
 @rtap_namespace_sizes = internal constant [29 x %struct.radiotap_align_size] [%struct.radiotap_align_size { i8 -120, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 66, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 34, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 34, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 34, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 34, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 34, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 34, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size zeroinitializer, %struct.radiotap_align_size { i8 49, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 -124, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 -62, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 -56, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 -62, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 -62, [3 x i8] zeroinitializer }, %struct.radiotap_align_size zeroinitializer, %struct.radiotap_align_size { i8 17, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 66, [3 x i8] zeroinitializer }, %struct.radiotap_align_size { i8 -92, [3 x i8] zeroinitializer }], align 16
 @radiotap_ns = internal constant { ptr, i32, i32, i8, [7 x i8] } { ptr @rtap_namespace_sizes, i32 29, i32 0, i8 0, [7 x i8] zeroinitializer }, align 8
@@ -241,14 +239,14 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nounde
 
 75:                                               ; preds = %74, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %74 ]
-  %76 = getelementptr %struct.radiotap_override, ptr %71, i64 %indvars.iv.i
+  %76 = getelementptr [4 x i8], ptr %71, i64 %indvars.iv.i
   %77 = load i8, ptr %76, align 4
   %78 = zext i8 %77 to i32
   %79 = icmp eq i32 %62, %78
   br i1 %79, label %find_override.exit, label %74
 
 find_override.exit:                               ; preds = %75
-  %80 = getelementptr %struct.radiotap_override, ptr %71, i64 %indvars.iv.i
+  %80 = getelementptr [4 x i8], ptr %71, i64 %indvars.iv.i
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = and i8 %82, 15
@@ -277,7 +275,7 @@ find_override.exit.thread:                        ; preds = %74, %.preheader.i, 
 90:                                               ; preds = %85
   %91 = load ptr, ptr %84, align 8
   %92 = sext i32 %62 to i64
-  %93 = getelementptr %struct.radiotap_align_size, ptr %91, i64 %92
+  %93 = getelementptr [4 x i8], ptr %91, i64 %92
   %94 = load i8, ptr %93, align 4
   %95 = and i8 %94, 15
   %.4163.in = lshr i8 %94, 4
@@ -394,7 +392,7 @@ switch.lookup:                                    ; preds = %.thread
 
 149:                                              ; preds = %156, %.lr.ph.i148
   %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.i148 ], [ %indvars.iv.next.i151, %156 ]
-  %150 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %148, i64 %indvars.iv.i150
+  %150 = getelementptr [24 x i8], ptr %148, i64 %indvars.iv.i150
   %.fr312 = freeze ptr %150
   %151 = getelementptr inbounds nuw i8, ptr %.fr312, i64 12
   %152 = load i32, ptr %151, align 4

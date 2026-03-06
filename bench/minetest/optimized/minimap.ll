@@ -25,39 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QueuedMinimapUpdate = type { %"class.irr::core::vector3d", ptr }
 %"class.irr::core::vector3d" = type { i16, i16, i16 }
 %"struct.std::pair.8" = type { %"class.irr::core::vector3d", ptr }
-%struct.MinimapPixel = type { %struct.MapNode, i16, i16 }
-%struct.MapNode = type { i16, i8, i8 }
 %struct.MinimapModeDef = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", i16, i16, [4 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8] }>
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.282", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.94", %"class.std::vector.217", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.282" = type { %"class.std::_Hashtable.283" }
-%"class.std::_Hashtable.283" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.296 }
-%union.anon.296 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.217" = type { %"struct.std::_Vector_base.218" }
-%"struct.std::_Vector_base.218" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.NodeBox = type { i8, %"class.std::vector.298", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.std::shared_ptr" }
-%"class.std::vector.298" = type { %"struct.std::_Vector_base.299" }
-%"struct.std::_Vector_base.299" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d.223", %"class.irr::core::vector3d.223" }
-%"class.irr::core::vector3d.223" = type { float, float, float }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
 %"class.irr::core::vector2d" = type { i32, i32 }
 %"class.irr::core::dimension2d" = type { i32, i32 }
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
@@ -70,8 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %class.VoxelArea = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
-%"struct.irr::video::S3DVertex" = type { %"class.irr::core::vector3d.223", %"class.irr::core::vector3d.223", %"class.irr::video::SColor", %"class.irr::core::vector2d.303" }
-%"class.irr::core::vector2d.303" = type { float, float }
 
 $_ZN19MinimapUpdateThreadC2Ev = comdat any
 
@@ -1147,8 +1113,8 @@ for.body40.us.us:                                 ; preds = %for.body40.us.us, %
   %indvars.iv.us = phi i64 [ %indvars.iv.next.1.us, %for.body40.us.us ], [ 0, %for.cond36.preheader.us.us8 ]
   %23 = load ptr, ptr %data, align 8, !tbaa !58
   %minimap_scan.us.us = getelementptr inbounds nuw i8, ptr %23, i64 100
-  %24 = getelementptr inbounds nuw %struct.MinimapPixel, ptr %minimap_scan.us.us, i64 %indvars.iv.us
-  %arrayidx.us.us = getelementptr inbounds nuw %struct.MinimapPixel, ptr %24, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %minimap_scan.us.us, i64 %indvars.iv.us
+  %arrayidx.us.us = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   %air_count.us.us = getelementptr inbounds nuw i8, ptr %arrayidx.us.us, i64 6
   store i16 0, ptr %air_count.us.us, align 2, !tbaa !86
   %height43.us.us = getelementptr inbounds nuw i8, ptr %arrayidx.us.us, i64 4
@@ -1156,8 +1122,8 @@ for.body40.us.us:                                 ; preds = %for.body40.us.us, %
   store i32 126, ptr %arrayidx.us.us, align 4, !tbaa.struct !90
   %25 = load ptr, ptr %data, align 8, !tbaa !58
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 108
-  %27 = getelementptr inbounds nuw %struct.MinimapPixel, ptr %26, i64 %indvars.iv.us
-  %arrayidx.us.1.us = getelementptr inbounds nuw %struct.MinimapPixel, ptr %27, i64 %22
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.us
+  %arrayidx.us.1.us = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %22
   %air_count.us.1.us = getelementptr inbounds nuw i8, ptr %arrayidx.us.1.us, i64 6
   store i16 0, ptr %air_count.us.1.us, align 2, !tbaa !86
   %height43.us.1.us = getelementptr inbounds nuw i8, ptr %arrayidx.us.1.us, i64 4
@@ -1183,8 +1149,8 @@ for.body40.us:                                    ; preds = %for.cond36.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next.1, %for.body40.us ], [ 0, %for.cond36.preheader.us ]
   %31 = load ptr, ptr %data, align 8, !tbaa !58
   %minimap_scan.us = getelementptr inbounds nuw i8, ptr %31, i64 100
-  %32 = getelementptr inbounds nuw %struct.MinimapPixel, ptr %minimap_scan.us, i64 %indvars.iv
-  %arrayidx.us = getelementptr inbounds nuw %struct.MinimapPixel, ptr %32, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %minimap_scan.us, i64 %indvars.iv
+  %arrayidx.us = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   %air_count.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 6
   store i16 0, ptr %air_count.us, align 2, !tbaa !86
   %height43.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 4
@@ -1192,8 +1158,8 @@ for.body40.us:                                    ; preds = %for.cond36.preheade
   store i32 126, ptr %arrayidx.us, align 4, !tbaa.struct !90
   %33 = load ptr, ptr %data, align 8, !tbaa !58
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 108
-  %35 = getelementptr inbounds nuw %struct.MinimapPixel, ptr %34, i64 %indvars.iv
-  %arrayidx.us.1 = getelementptr inbounds nuw %struct.MinimapPixel, ptr %35, i64 %30
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
+  %arrayidx.us.1 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %30
   %air_count.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.1, i64 6
   store i16 0, ptr %air_count.us.1, align 2, !tbaa !86
   %height43.us.1 = getelementptr inbounds nuw i8, ptr %arrayidx.us.1, i64 4
@@ -1206,8 +1172,8 @@ for.body40.us:                                    ; preds = %for.cond36.preheade
 for.cond36.for.cond.cleanup39_crit_edge.us.unr-lcssa.loopexit: ; preds = %for.body40.us
   %36 = load ptr, ptr %data, align 8, !tbaa !58
   %minimap_scan.us.epil = getelementptr inbounds nuw i8, ptr %36, i64 100
-  %37 = getelementptr %struct.MinimapPixel, ptr %minimap_scan.us.epil, i64 %unroll_iter
-  %arrayidx.us.epil = getelementptr %struct.MinimapPixel, ptr %37, i64 %30
+  %37 = getelementptr [8 x i8], ptr %minimap_scan.us.epil, i64 %unroll_iter
+  %arrayidx.us.epil = getelementptr [8 x i8], ptr %37, i64 %30
   %air_count.us.epil = getelementptr inbounds nuw i8, ptr %arrayidx.us.epil, i64 6
   store i16 0, ptr %air_count.us.epil, align 2, !tbaa !86
   %height43.us.epil = getelementptr inbounds nuw i8, ptr %arrayidx.us.epil, i64 4
@@ -1369,14 +1335,14 @@ for.body114:                                      ; preds = %if.end158, %for.con
   %conv122 = sext i16 %sub.i296 to i32
   %add123 = add nsw i32 %57, %conv122
   %idxprom124 = sext i32 %add123 to i64
-  %arrayidx125 = getelementptr inbounds %struct.MinimapPixel, ptr %56, i64 %idxprom124
+  %arrayidx125 = getelementptr inbounds [8 x i8], ptr %56, i64 %idxprom124
   %sub.i307 = sub i16 %storemerge208354, %conv3
   %58 = load ptr, ptr %data128, align 8, !tbaa !58
   %minimap_scan129 = getelementptr inbounds nuw i8, ptr %58, i64 100
   %conv131 = sext i16 %sub.i307 to i32
   %add136 = add nsw i32 %mul135, %conv131
   %idxprom137 = sext i32 %add136 to i64
-  %arrayidx138 = getelementptr inbounds %struct.MinimapPixel, ptr %minimap_scan129, i64 %idxprom137
+  %arrayidx138 = getelementptr inbounds [8 x i8], ptr %minimap_scan129, i64 %idxprom137
   %air_count139 = getelementptr inbounds nuw i8, ptr %arrayidx125, i64 6
   %59 = load i16, ptr %air_count139, align 2, !tbaa !86
   %air_count141 = getelementptr inbounds nuw i8, ptr %arrayidx138, i64 6
@@ -2356,7 +2322,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %add.ptr.i = getelementptr inbounds %struct.MinimapModeDef, ptr %1, i64 %index
+  %add.ptr.i = getelementptr inbounds [88 x i8], ptr %1, i64 %index
   %data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %data, align 8, !tbaa !139
   %3 = load i32, ptr %add.ptr.i, align 8, !tbaa !144
@@ -4044,7 +4010,7 @@ for.body11:                                       ; preds = %if.end, %for.body11
   %mul = mul nsw i32 %conv499, %conv8100
   %add = add nsw i32 %mul, %conv105
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds %struct.MinimapPixel, ptr %minimap_scan, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %minimap_scan, i64 %idxprom
   %5 = load ptr, ptr %m_ndef, align 8, !tbaa !131
   %6 = load i16, ptr %arrayidx, align 4, !tbaa !210
   %conv.i.i = zext i16 %6 to i64
@@ -4059,7 +4025,7 @@ for.body11:                                       ; preds = %if.end, %for.body11
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body11
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %8, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %8, i64 %conv.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %9 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !135
   %cmp.i.i.i = icmp eq i64 %9, 0
@@ -6035,7 +6001,7 @@ entry:
 for.cond2.preheader:                              ; preds = %for.cond.cleanup5, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond.cleanup5 ]
   %indvars19 = trunc i64 %indvars.iv to i16
-  %invariant.gep = getelementptr inbounds nuw %struct.MinimapPixel, ptr %this, i64 %indvars.iv
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %indvars.iv
   br label %for.body6
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup5
@@ -6117,7 +6083,7 @@ for.body13:                                       ; preds = %for.body13.outer, %
 
 if.end.i:                                         ; preds = %for.body13
   %13 = load ptr, ptr %m_data.i, align 8, !tbaa !380
-  %arrayidx6.i = getelementptr inbounds %struct.MapNode, ptr %13, i64 %idxprom.i
+  %arrayidx6.i = getelementptr inbounds [4 x i8], ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx6.i, align 4, !tbaa.struct !90
   br label %_ZN16VoxelManipulator11getNodeNoExERKN3irr4core8vector3dIsEE.exit
 
@@ -6540,8 +6506,8 @@ entry:
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !32
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %entry
@@ -6631,7 +6597,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !26
   store ptr %12, ptr %_M_start, align 8, !tbaa !51
   %rem = and i64 %__num_elements, 31
-  %add.ptr36 = getelementptr inbounds nuw %struct.QueuedMinimapUpdate, ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !50
   ret void
 
@@ -6847,9 +6813,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !32
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -6872,8 +6838,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -6901,9 +6867,9 @@ _ZNSt11_Deque_baseI19QueuedMinimapUpdateSaIS0_EE15_M_allocate_mapEm.exit: ; pred
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #37
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPP19QueuedMinimapUpdateS2_ET0_T_S4_S3_.exit101, label %if.then.i.i.i.i.i99
@@ -6930,7 +6896,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPP19Queue
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !26
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !25
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !36
@@ -7768,7 +7734,7 @@ _ZNSt12_Vector_baseI14MinimapModeDefSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !149
   store ptr %__cur.0.lcssa.i.i.i77, ptr %_M_finish.i.i, align 8, !tbaa !148
-  %add.ptr26 = getelementptr inbounds nuw %struct.MinimapModeDef, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [88 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !206
   ret void
 
@@ -8017,7 +7983,7 @@ for.body:                                         ; preds = %_ZN3irr4core8aabbox
   %6 = phi float [ %Y.i.i.promoted, %for.body.lr.ph ], [ %13, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit ]
   %7 = phi float [ %MaxEdge.i.promoted, %for.body.lr.ph ], [ %12, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit ]
   %8 = phi float [ %BoundingBox.promoted, %for.body.lr.ph ], [ %15, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %indvars.iv
   %9 = load float, ptr %add.ptr.i.i, align 4, !tbaa !425
   %Y.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   %10 = load float, ptr %Y.i, align 4, !tbaa !426
@@ -8098,7 +8064,7 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !196
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %conv.i
   ret ptr %add.ptr.i.i
 }
 
@@ -8108,7 +8074,7 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !196
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %conv.i
   ret ptr %add.ptr.i.i
 }
 
@@ -8118,7 +8084,7 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !196
-  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal.split = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %conv.i
   %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
@@ -8129,7 +8095,7 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !196
-  %Normal.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %Normal.split = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %conv.i
   %Normal = getelementptr inbounds nuw i8, ptr %Normal.split, i64 12
   ret ptr %Normal
 }
@@ -8140,7 +8106,7 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !196
-  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords.split = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %conv.i
   %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
@@ -8151,7 +8117,7 @@ entry:
   %Vertices = getelementptr inbounds nuw i8, ptr %this, i64 216
   %conv.i = zext i32 %i to i64
   %0 = load ptr, ptr %Vertices, align 8, !tbaa !196
-  %TCoords.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %0, i64 %conv.i
+  %TCoords.split = getelementptr inbounds nuw [36 x i8], ptr %0, i64 %conv.i
   %TCoords = getelementptr inbounds nuw i8, ptr %TCoords.split, i64 28
   ret ptr %TCoords
 }
@@ -8203,7 +8169,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %3, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %conv.i
   %tobool.not.i.i.i = icmp eq ptr %4, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit, label %invoke.cont.i.i.i
 
@@ -8246,7 +8212,7 @@ _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %Vertices, align 8, !tbaa !196
   %add.ptr.i16.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i32.i.i
   store ptr %add.ptr.i16.i, ptr %_M_finish.i.i14.i, align 8, !tbaa !416
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call5.i.i.i.i.i, i64 %conv.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !429
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE10reallocateEjb.exit
 
@@ -8270,7 +8236,7 @@ for.body.lr.ph:                                   ; preds = %_ZN3irr4core5arrayI
 for.body:                                         ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit, %for.body.lr.ph
   %6 = phi ptr [ %.pre, %for.body.lr.ph ], [ %11, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit ]
-  %arrayidx = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %vertices, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [36 x i8], ptr %vertices, i64 %indvars.iv
   %7 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !429
   %cmp.not.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i, label %if.else.i.i37, label %if.then.i.i36
@@ -8332,7 +8298,7 @@ if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %Vertices, align 8, !tbaa !196
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !416
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !429
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE9push_backERKS3_.exit
 
@@ -8439,7 +8405,7 @@ if.else.i.i64:                                    ; preds = %if.then.i58
   br i1 %cmp4.i.i65, label %if.then5.i.i66, label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
 if.then5.i.i66:                                   ; preds = %if.else.i.i64
-  %add.ptr.i.i67 = getelementptr inbounds nuw i16, ptr %23, i64 %conv.i45
+  %add.ptr.i.i67 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %conv.i45
   %tobool.not.i.i.i68 = icmp eq ptr %24, %add.ptr.i.i67
   br i1 %tobool.not.i.i.i68, label %_ZN3irr4core5arrayItE10reallocateEjb.exit, label %invoke.cont.i.i.i69
 
@@ -8477,7 +8443,7 @@ _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i: ; preds = %if.then.i.i.
   store ptr %call5.i.i.i.i.i53, ptr %Indices, align 8, !tbaa !195
   %add.ptr.i16.i56 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i53, i64 %sub.ptr.sub.i32.i.i51
   store ptr %add.ptr.i16.i56, ptr %_M_finish.i.i14.i49, align 8, !tbaa !194
-  %add.ptr21.i.i57 = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i53, i64 %conv.i45
+  %add.ptr21.i.i57 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i53, i64 %conv.i45
   store ptr %add.ptr21.i.i57, ptr %_M_end_of_storage.i.i40, align 8, !tbaa !441
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
@@ -8498,7 +8464,7 @@ for.body15:                                       ; preds = %_ZN3irr4core5arrayI
   %27 = phi ptr [ %.pre89, %for.body15.lr.ph ], [ %32, %_ZN3irr4core5arrayItE9push_backEOt.exit ]
   %28 = phi ptr [ %.pre88, %for.body15.lr.ph ], [ %33, %_ZN3irr4core5arrayItE9push_backEOt.exit ]
   %indvars.iv83 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next84, %_ZN3irr4core5arrayItE9push_backEOt.exit ]
-  %arrayidx18 = getelementptr inbounds nuw i16, ptr %indices, i64 %indvars.iv83
+  %arrayidx18 = getelementptr inbounds nuw [2 x i8], ptr %indices, i64 %indvars.iv83
   %29 = load i16, ptr %arrayidx18, align 2, !tbaa !47
   %conv20 = add i16 %29, %26
   %cmp.not.i.i.i = icmp eq ptr %28, %27
@@ -8554,7 +8520,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorItSaItE
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %Indices, align 8, !tbaa !195
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i72, align 8, !tbaa !194
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i40, align 8, !tbaa !441
   br label %_ZN3irr4core5arrayItE9push_backEOt.exit
 
@@ -9152,9 +9118,9 @@ if.then.i83:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit84: ; preds = %if.then.i83, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !196
-  %add.ptr37 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [36 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !416
-  %add.ptr40 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call5.i.i.i, i64 %5
+  %add.ptr40 = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !429
   br label %if.end44
 
@@ -9199,7 +9165,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 1
   %4 = add nsw i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !47
-  %add.ptr.i.i.i.i.i = getelementptr i16, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [2 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -9251,9 +9217,9 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorItSaItE
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit79: ; preds = %if.then.i78, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !195
-  %add.ptr37 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [2 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !194
-  %add.ptr40 = getelementptr inbounds nuw i16, ptr %call5.i.i.i, i64 %5
+  %add.ptr40 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !441
   br label %if.end44
 

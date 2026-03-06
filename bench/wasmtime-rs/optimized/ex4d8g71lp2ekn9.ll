@@ -2275,7 +2275,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %221 = load ptr, ptr %220, align 8, !nonnull !3, !noundef !3
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %223 = load i64, ptr %222, align 8, !noundef !3
-  %224 = getelementptr inbounds { { i64, [1 x i64] }, { { { { i64, ptr, {} }, i64 } } }, { { { i64, ptr, {} }, i64 } } }, ptr %221, i64 %223
+  %224 = getelementptr inbounds [64 x i8], ptr %221, i64 %223
   store ptr %221, ptr %168, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %168, i64 8
   store ptr %224, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2383,7 +2383,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 265:                                              ; preds = %204
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %267 = load ptr, ptr %266, align 8, !nonnull !3, !align !8, !noundef !3
-  %268 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %267, i64 %206
+  %268 = getelementptr inbounds [32 x i8], ptr %267, i64 %206
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %191)
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %268, ptr nonnull align 8 %191)
           to label %272 unwind label %270
@@ -3430,7 +3430,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 586:                                              ; preds = %583
   %587 = load ptr, ptr %226, align 8, !nonnull !3, !noundef !3
-  %588 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %587, i64 %350
+  %588 = getelementptr inbounds [32 x i8], ptr %587, i64 %350
   %589 = load ptr, ptr %227, align 8, !nonnull !3, !align !8, !noundef !3
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %165)
           to label %593 unwind label %.loopexit254
@@ -5135,7 +5135,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %1081 = load ptr, ptr %1080, align 8, !nonnull !3, !noundef !3
   %1082 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %1083 = load i64, ptr %1082, align 8, !noundef !3
-  %1084 = getelementptr inbounds { { i64, [3 x i64] }, {} }, ptr %1081, i64 %1083
+  %1084 = getelementptr inbounds [32 x i8], ptr %1081, i64 %1083
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h6b84ac854b9b93afE"(ptr align 8 %3, ptr nonnull %1081, ptr nonnull %1084)
           to label %1085 unwind label %1055
 

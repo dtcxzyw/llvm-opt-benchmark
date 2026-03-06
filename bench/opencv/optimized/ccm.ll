@@ -6772,7 +6772,7 @@ define linkonce_odr hidden noundef double @_ZNK2cv3ccm20ColorCorrectionModel4Imp
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %22 = load double, ptr %21, align 8, !tbaa !102
   %23 = mul i64 %18, %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 %23

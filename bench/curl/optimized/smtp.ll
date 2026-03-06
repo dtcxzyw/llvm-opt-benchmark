@@ -669,7 +669,7 @@ cr_eob_add.exit.i.i.i:                            ; preds = %212
 
 244:                                              ; preds = %243, %237
   %245 = zext i32 %230 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %247, ptr noundef nonnull @.str.44) #9
   br label %smtp_perform_mail.exit.thread.i.i
@@ -927,7 +927,7 @@ define internal i32 @smtp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroex
 
 42:                                               ; preds = %41, %35
   %43 = zext i32 %30 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !81
   tail call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %45, ptr noundef nonnull @.str.46) #9
   br label %smtp_state.exit
@@ -1122,7 +1122,7 @@ smtp_parse_url_path.exit:                         ; preds = %.loopexit, %33
 
 55:                                               ; preds = %54, %48
   %56 = zext i32 %40 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %58, ptr noundef nonnull @.str.38) #9
   %.pre = load ptr, ptr %5, align 8, !tbaa !90
@@ -1377,7 +1377,7 @@ define internal noundef i32 @smtp_disconnect(ptr noundef %0, ptr noundef %1, i1 
 
 32:                                               ; preds = %31, %25
   %33 = zext i32 %15 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !81
   tail call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %35, ptr noundef nonnull @.str.47) #9
   br label %36
@@ -1594,7 +1594,7 @@ define internal i32 @smtp_statemachine(ptr noundef %0, ptr noundef %1) #0 {
 
 70:                                               ; preds = %69, %63
   %71 = zext i32 %57 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %73, ptr noundef nonnull @.str.39) #9
   br label %smtp_state.exit.i.i
@@ -1661,7 +1661,7 @@ smtp_state.exit.i.i:                              ; preds = %70, %69, %63, %58, 
 
 103:                                              ; preds = %102, %96
   %104 = zext i32 %90 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %106, ptr noundef nonnull @.str.40) #9
   br label %smtp_state.exit.i.i63
@@ -1900,7 +1900,7 @@ smtp_state.exit.i.i63:                            ; preds = %103, %102, %96, %91
 
 183:                                              ; preds = %182, %176
   %184 = zext i32 %169 to i64
-  %185 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %186, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit.i
@@ -1996,7 +1996,7 @@ smtp_state_starttls_resp.exit:                    ; preds = %195, %197
 
 224:                                              ; preds = %223, %217
   %225 = zext i32 %211 to i64
-  %226 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %227, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit.i76
@@ -2111,7 +2111,7 @@ switch.early.test.i:                              ; preds = %229
 
 272:                                              ; preds = %271, %265
   %273 = zext i32 %259 to i64
-  %274 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %273
   %275 = load ptr, ptr %274, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %275, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit.i86
@@ -2154,7 +2154,7 @@ smtp_state.exit.i86:                              ; preds = %272, %271, %265, %2
 
 292:                                              ; preds = %291, %285
   %293 = zext i32 %279 to i64
-  %294 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %293
+  %294 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %293
   %295 = load ptr, ptr %294, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %295, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit42.i
@@ -2266,7 +2266,7 @@ smtp_state.exit42.i:                              ; preds = %292, %291, %285, %2
 
 343:                                              ; preds = %342, %336
   %344 = zext i32 %330 to i64
-  %345 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %344
+  %345 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %346, ptr noundef nonnull @.str.29) #9
   br label %smtp_state.exit.i99
@@ -2321,7 +2321,7 @@ smtp_state.exit.i99:                              ; preds = %343, %342, %336, %3
 
 367:                                              ; preds = %366, %360
   %368 = zext i32 %353 to i64
-  %369 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %368
+  %369 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %370, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit.i105
@@ -2365,7 +2365,7 @@ smtp_state.exit.i105:                             ; preds = %367, %366, %360, %3
 
 388:                                              ; preds = %387, %381
   %389 = zext i32 %374 to i64
-  %390 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %389
   %391 = load ptr, ptr %390, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %391, ptr noundef nonnull @.str.37) #9
   br label %smtp_state_postdata_resp.exit
@@ -2410,7 +2410,7 @@ smtp_state_postdata_resp.exit:                    ; preds = %371, %376, %381, %3
 
 409:                                              ; preds = %408, %402
   %410 = zext i32 %395 to i64
-  %411 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %410
   %412 = load ptr, ptr %411, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %412, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit
@@ -2587,7 +2587,7 @@ define internal fastcc i32 @smtp_perform_upgrade_tls(ptr noundef %0) unnamed_add
 
 36:                                               ; preds = %35, %29
   %37 = zext i32 %21 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %39, ptr noundef nonnull @.str.41) #9
   br label %smtp_state.exit
@@ -2662,7 +2662,7 @@ smtp_state.exit:                                  ; preds = %18, %22, %29, %35, 
 
 76:                                               ; preds = %75, %69
   %77 = zext i32 %61 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %79, ptr noundef nonnull @.str.39) #9
   br label %smtp_state.exit.i
@@ -2739,7 +2739,7 @@ define internal fastcc i32 @smtp_perform_starttls(ptr noundef %0, ptr noundef %1
 
 26:                                               ; preds = %25, %19
   %27 = zext i32 %9 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !81
   tail call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %29, ptr noundef nonnull @.str.5) #9
   br label %smtp_state.exit
@@ -2809,7 +2809,7 @@ define internal fastcc i32 @smtp_perform_authentication(ptr noundef %0) unnamed_
 
 29:                                               ; preds = %28, %22
   %30 = zext i32 %14 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !81
   tail call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %32, ptr noundef nonnull @.str.37) #9
   br label %smtp_state.exit
@@ -2864,7 +2864,7 @@ smtp_state.exit:                                  ; preds = %11, %15, %22, %28, 
 
 56:                                               ; preds = %55, %49
   %57 = zext i32 %41 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %59, ptr noundef nonnull @.str.42) #9
   br label %smtp_state.exit31
@@ -3098,7 +3098,7 @@ define internal fastcc i32 @smtp_perform_command(ptr noundef %0) unnamed_addr #0
 
 94:                                               ; preds = %93, %87
   %95 = zext i32 %79 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %97, ptr noundef nonnull @.str.43) #9
   br label %smtp_state.exit
@@ -3234,7 +3234,7 @@ define internal fastcc i32 @smtp_perform_rcpt_to(ptr noundef %0) unnamed_addr #0
 
 53:                                               ; preds = %52, %46
   %54 = zext i32 %38 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @smtp_state.names, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !81
   call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %56, ptr noundef nonnull @.str.45) #9
   br label %smtp_state.exit

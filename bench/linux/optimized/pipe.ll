@@ -30,7 +30,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ctl_table = type { ptr, ptr, i32, i16, i32, ptr, ptr, ptr, ptr }
 %struct.super_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.dentry_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [24 x i8] }
-%struct.pipe_buffer = type { ptr, i32, i32, ptr, i32, i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
 
@@ -602,7 +601,7 @@ define dso_local void @free_pipe_info(ptr noundef %0) local_unnamed_addr #0 alig
   %17 = phi i32 [ %12, %14 ], [ %28, %27 ]
   %18 = phi i64 [ 0, %14 ], [ %29, %27 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr %struct.pipe_buffer, ptr %19, i64 %18
+  %20 = getelementptr [40 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -1164,7 +1163,7 @@ define internal i64 @pipe_read(ptr noundef readonly captures(none) %0, ptr nound
   %36 = load ptr, ptr %20, align 8
   %37 = and i32 %35, %31
   %38 = zext i32 %37 to i64
-  %39 = getelementptr %struct.pipe_buffer, ptr %36, i64 %38
+  %39 = getelementptr [40 x i8], ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
@@ -1435,7 +1434,7 @@ define internal i64 @pipe_write(ptr noundef readonly captures(none) %0, ptr noun
   %34 = add i32 %20, -1
   %35 = and i32 %31, %34
   %36 = zext i32 %35 to i64
-  %37 = getelementptr %struct.pipe_buffer, ptr %33, i64 %36
+  %37 = getelementptr [40 x i8], ptr %33, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load i32, ptr %39, align 8
@@ -1553,7 +1552,7 @@ define internal i64 @pipe_write(ptr noundef readonly captures(none) %0, ptr noun
   %112 = load ptr, ptr %74, align 8
   %113 = and i32 %99, %93
   %114 = zext i32 %113 to i64
-  %115 = getelementptr %struct.pipe_buffer, ptr %112, i64 %114
+  %115 = getelementptr [40 x i8], ptr %112, i64 %114
   store ptr %110, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr @anon_pipe_buf_ops, ptr %116, align 8
@@ -1980,7 +1979,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pipe_ioctl(ptr noundef r
   %21 = phi i32 [ %11, %16 ], [ %27, %19 ]
   %22 = and i32 %21, %14
   %23 = zext i32 %22 to i64
-  %.split = getelementptr %struct.pipe_buffer, ptr %18, i64 %23
+  %.split = getelementptr [40 x i8], ptr %18, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, %20
@@ -2453,7 +2452,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pipe_resize_ring(ptr noundef %0,
 
 28:                                               ; preds = %25
   %29 = zext i32 %26 to i64
-  %30 = getelementptr %struct.pipe_buffer, ptr %5, i64 %29
+  %30 = getelementptr [40 x i8], ptr %5, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %22 to i64
@@ -2466,7 +2465,7 @@ define dso_local noundef range(i32 -16, 1) i32 @pipe_resize_ring(ptr noundef %0,
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %23 to i64
-  %40 = getelementptr %struct.pipe_buffer, ptr %38, i64 %39
+  %40 = getelementptr [40 x i8], ptr %38, i64 %39
   %41 = zext i32 %36 to i64
   %42 = mul nuw nsw i64 %41, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %40, i64 %42, i1 false)

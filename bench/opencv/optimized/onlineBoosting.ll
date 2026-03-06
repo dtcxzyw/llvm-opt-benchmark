@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"struct.cv::MatSize" = type { ptr }
-%"struct.cv::MatStep" = type { ptr, [2 x i64] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -148,7 +145,7 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %7
 39:                                               ; preds = %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
   %40 = sdiv i32 %27, 64
   %.sext = sext i32 %40 to i64
-  %41 = getelementptr inbounds i64, ptr %31, i64 %.sext
+  %41 = getelementptr inbounds [8 x i8], ptr %31, i64 %.sext
   %42 = and i64 %28, -9223372036854775745
   %43 = icmp ugt i64 %42, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %43, i64 -8, i64 0
@@ -195,7 +192,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %._ZNSt6vectorIbSaIb
   br i1 %58, label %59, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw float, ptr %49, i64 %.pre-phi
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.pre-phi
   %.not.i.i = icmp eq ptr %48, %60
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %61
 
@@ -225,7 +222,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %73, label %74, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit15
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw float, ptr %64, i64 %.pre-phi23
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.pre-phi23
   %.not.i.i13 = icmp eq ptr %63, %75
   br i1 %.not.i.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit15, label %76
 
@@ -344,7 +341,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPv(ptr noundef %11) #26
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -408,7 +405,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting31StrongClassifierDir
 
 28:                                               ; preds = %.lr.ph
   %29 = load ptr, ptr %9, align 8, !tbaa !64
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store ptr %22, ptr %30, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %2, align 8, !tbaa !13
@@ -453,7 +450,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting31StrongClassifierDir
   %10 = phi i32 [ %3, %.lr.ph ], [ %20, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %11 = load ptr, ptr %5, align 8, !tbaa !64
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -536,7 +533,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit7:                   ; preds = %_ZNSt6vectorIfSaIfE
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 3
   %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds i64, ptr %48, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %48, i64 %53
   tail call void @_ZdlPv(ptr noundef %54) #26
   store ptr null, ptr %44, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -661,7 +658,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting8Detector14classifySm
   br i1 %33, label %34, label %_ZN2cv6detail8tracking15online_boosting8Detector24prepareConfidencesMemoryEi.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw float, ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   %.not.i.i.i = icmp eq ptr %23, %35
   br i1 %.not.i.i.i, label %_ZN2cv6detail8tracking15online_boosting8Detector24prepareConfidencesMemoryEi.exit, label %36
 
@@ -778,7 +775,7 @@ _ZN2cv6detail8tracking15online_boosting8Detector24prepareConfidencesMemoryEi.exi
 .lr.ph.i.us.us:                                   ; preds = %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit.us.us, %.preheader95.us106
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit.us.us ], [ %90, %.preheader95.us106 ]
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit.us.us ], [ 0, %.preheader95.us106 ]
-  %91 = getelementptr inbounds nuw %"class.cv::Mat", ptr %87, i64 %indvars.iv154
+  %91 = getelementptr inbounds nuw [96 x i8], ptr %87, i64 %indvars.iv154
   %92 = load i32, ptr %91, align 8, !tbaa !41
   %93 = and i32 %92, 16384
   %.not.i.i.i73.us.us = icmp eq i32 %93, 0
@@ -796,16 +793,16 @@ _ZN2cv6detail8tracking15online_boosting8Detector24prepareConfidencesMemoryEi.exi
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.us.us: ; preds = %.lr.ph.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.us.us
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.us.us ], [ 0, %.lr.ph.i.us.us ]
   %.078.i.us.us = phi float [ %127, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.us.us ], [ 0.000000e+00, %.lr.ph.i.us.us ]
-  %103 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i.us.us
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i.us.us
   %104 = load ptr, ptr %103, align 8, !tbaa !65
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !67
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %108 = load i32, ptr %107, align 8, !tbaa !80
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %106, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !81
-  %112 = getelementptr inbounds float, ptr %100, i64 %109
+  %112 = getelementptr inbounds [4 x i8], ptr %100, i64 %109
   %113 = load float, ptr %112, align 4, !tbaa !34
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !83
@@ -818,7 +815,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.u
   %122 = fmul float %121, %118
   %123 = fcmp ogt float %122, 0.000000e+00
   %124 = select i1 %123, float 1.000000e+00, float -1.000000e+00
-  %125 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i.us.us
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i.us.us
   %126 = load float, ptr %125, align 4, !tbaa !34
   %127 = tail call float @llvm.fmuladd.f32(float %124, float %126, float %.078.i.us.us)
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
@@ -839,14 +836,14 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.u
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.i.us.us: ; preds = %.lr.ph.split.us.split.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.i.us.us
   %indvars.iv24.i.us.us = phi i64 [ %indvars.iv.next25.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.i.us.us ], [ 0, %.lr.ph.split.us.split.i.us.us ]
   %.078.us.i.us.us = phi float [ %163, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.i.us.us ], [ 0.000000e+00, %.lr.ph.split.us.split.i.us.us ]
-  %133 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv24.i.us.us
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv24.i.us.us
   %134 = load ptr, ptr %133, align 8, !tbaa !65
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !67
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %138 = load i32, ptr %137, align 8, !tbaa !80
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr %136, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %136, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !81
   %142 = sdiv i32 %138, %98
   %143 = mul nsw i32 %142, %98
@@ -855,7 +852,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
   %145 = mul i64 %132, %144
   %146 = getelementptr inbounds nuw i8, ptr %100, i64 %145
   %147 = sext i32 %.recomposed to i64
-  %148 = getelementptr inbounds float, ptr %146, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %146, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !34
   %150 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !83
@@ -868,7 +865,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
   %158 = fmul float %157, %154
   %159 = fcmp ogt float %158, 0.000000e+00
   %160 = select i1 %159, float 1.000000e+00, float -1.000000e+00
-  %161 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv24.i.us.us
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv24.i.us.us
   %162 = load float, ptr %161, align 4, !tbaa !34
   %163 = tail call float @llvm.fmuladd.f32(float %160, float %162, float %.078.us.i.us.us)
   %indvars.iv.next25.i.us.us = add nuw nsw i64 %indvars.iv24.i.us.us, 1
@@ -878,14 +875,14 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13.i.us.us: ; preds = %.lr.ph.split.us.split.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13.i.us.us
   %indvars.iv29.i.us.us = phi i64 [ %indvars.iv.next30.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13.i.us.us ], [ 0, %.lr.ph.split.us.split.i.us.us ]
   %.078.us.us12.i.us.us = phi float [ %189, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13.i.us.us ], [ 0.000000e+00, %.lr.ph.split.us.split.i.us.us ]
-  %164 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv29.i.us.us
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv29.i.us.us
   %165 = load ptr, ptr %164, align 8, !tbaa !65
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !67
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %169 = load i32, ptr %168, align 8, !tbaa !80
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds ptr, ptr %167, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %167, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !81
   %173 = mul i64 %132, %170
   %174 = getelementptr inbounds nuw i8, ptr %100, i64 %173
@@ -901,7 +898,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
   %184 = fmul float %183, %180
   %185 = fcmp ogt float %184, 0.000000e+00
   %186 = select i1 %185, float 1.000000e+00, float -1.000000e+00
-  %187 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv29.i.us.us
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv29.i.us.us
   %188 = load float, ptr %187, align 4, !tbaa !34
   %189 = tail call float @llvm.fmuladd.f32(float %186, float %188, float %.078.us.us12.i.us.us)
   %indvars.iv.next30.i.us.us = add nuw nsw i64 %indvars.iv29.i.us.us, 1
@@ -911,16 +908,16 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.i.us.us: ; preds = %.lr.ph.split.us.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.i.us.us
   %indvars.iv34.i.us.us = phi i64 [ %indvars.iv.next35.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.i.us.us ], [ 0, %.lr.ph.split.us.i.us.us ]
   %.078.us.us.i.us.us = phi float [ %214, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.i.us.us ], [ 0.000000e+00, %.lr.ph.split.us.i.us.us ]
-  %190 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv34.i.us.us
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv34.i.us.us
   %191 = load ptr, ptr %190, align 8, !tbaa !65
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !67
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %195 = load i32, ptr %194, align 8, !tbaa !80
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds ptr, ptr %193, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %193, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !81
-  %199 = getelementptr inbounds float, ptr %100, i64 %196
+  %199 = getelementptr inbounds [4 x i8], ptr %100, i64 %196
   %200 = load float, ptr %199, align 4, !tbaa !34
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %202 = load ptr, ptr %201, align 8, !tbaa !83
@@ -933,7 +930,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
   %209 = fmul float %208, %205
   %210 = fcmp ogt float %209, 0.000000e+00
   %211 = select i1 %210, float 1.000000e+00, float -1.000000e+00
-  %212 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv34.i.us.us
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv34.i.us.us
   %213 = load float, ptr %212, align 4, !tbaa !34
   %214 = tail call float @llvm.fmuladd.f32(float %211, float %213, float %.078.us.us.i.us.us)
   %indvars.iv.next35.i.us.us = add nuw nsw i64 %indvars.iv34.i.us.us, 1
@@ -942,9 +939,9 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
 
 _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit.us.us: ; preds = %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13.i.us.us, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.i.us.us
   %.07.lcssa.i.us.us = phi float [ %214, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.i.us.us ], [ %163, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.i.us.us ], [ %189, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13.i.us.us ], [ %127, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.i.us.us ]
-  %215 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv154
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv154
   store float %.07.lcssa.i.us.us, ptr %215, align 4, !tbaa !34
-  %216 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv152
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv152
   store float %.07.lcssa.i.us.us, ptr %216, align 4, !tbaa !34
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
@@ -973,9 +970,9 @@ _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERK
 _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit: ; preds = %.preheader95, %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit
   %indvars.iv142 = phi i64 [ %219, %.preheader95 ], [ %indvars.iv.next143, %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next, %_ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERKNS_3MatE.exit ]
-  %220 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv142
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv142
   store float 0.000000e+00, ptr %220, align 4, !tbaa !34
-  %221 = getelementptr inbounds nuw float, ptr %218, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv
   store float 0.000000e+00, ptr %221, align 4, !tbaa !34
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1141,7 +1138,7 @@ _ZN2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection4evalERK
   br i1 %299, label %300, label %_ZN2cv6detail8tracking15online_boosting8Detector23prepareDetectionsMemoryEi.exit
 
 300:                                              ; preds = %298
-  %301 = getelementptr inbounds nuw i32, ptr %290, i64 %287
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %287
   %.not.i.i.i75 = icmp eq ptr %289, %301
   br i1 %.not.i.i.i75, label %_ZN2cv6detail8tracking15online_boosting8Detector23prepareDetectionsMemoryEi.exit, label %302
 
@@ -1170,9 +1167,9 @@ _ZN2cv6detail8tracking15online_boosting8Detector23prepareDetectionsMemoryEi.exit
   %indvars.iv171 = phi i64 [ %281, %.preheader ], [ %indvars.iv.next172, %322 ]
   %indvars.iv169 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next170, %322 ]
   %309 = phi i32 [ %.promoted, %.preheader ], [ %323, %322 ]
-  %310 = getelementptr inbounds nuw float, ptr %280, i64 %indvars.iv169
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %280, i64 %indvars.iv169
   %311 = load float, ptr %310, align 4, !tbaa !34
-  %312 = getelementptr inbounds nuw float, ptr %243, i64 %indvars.iv171
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %indvars.iv171
   store float %311, ptr %312, align 4, !tbaa !34
   %313 = load float, ptr %39, align 8, !tbaa !59
   %314 = fcmp ogt float %311, %313
@@ -1210,7 +1207,7 @@ _ZN2cv6detail8tracking15online_boosting8Detector23prepareDetectionsMemoryEi.exit
 324:                                              ; preds = %.lr.ph128, %333
   %indvars.iv183 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next184, %333 ]
   %.053126 = phi i32 [ -1, %.lr.ph128 ], [ %.1, %333 ]
-  %325 = getelementptr inbounds nuw float, ptr %305, i64 %indvars.iv183
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %305, i64 %indvars.iv183
   %326 = load float, ptr %325, align 4, !tbaa !34
   %327 = fcmp ogt float %326, %2
   br i1 %327, label %328, label %333
@@ -1218,7 +1215,7 @@ _ZN2cv6detail8tracking15online_boosting8Detector23prepareDetectionsMemoryEi.exit
 328:                                              ; preds = %324
   %329 = add nsw i32 %.053126, 1
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds nuw i32, ptr %307, i64 %330
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %330
   %332 = trunc nuw nsw i64 %indvars.iv183 to i32
   store i32 %332, ptr %331, align 4, !tbaa !40
   br label %333
@@ -1322,7 +1319,7 @@ _ZNSt6vectorIbSaIbEE19_M_initialize_valueEb.exit.i.i: ; preds = %24, %23
 32:                                               ; preds = %4
   %33 = sdiv i32 %9, 64
   %.sext32 = sext i32 %33 to i64
-  %34 = getelementptr inbounds i64, ptr %15, i64 %.sext32
+  %34 = getelementptr inbounds [8 x i8], ptr %15, i64 %.sext32
   %35 = and i64 %10, -9223372036854775745
   %36 = icmp ugt i64 %35, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %36, i64 -8, i64 0
@@ -1383,7 +1380,7 @@ _ZNSt6vectorIbSaIbEE6assignEmRKb.exit:            ; preds = %_ZNSt6vectorIbSaIbE
 64:                                               ; preds = %.lr.ph36, %._crit_edge
   %indvars.iv39 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next40, %._crit_edge ]
   %.02735 = phi float [ %3, %.lr.ph36 ], [ %.1, %._crit_edge ]
-  %65 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv39
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv39
   %66 = load ptr, ptr %65, align 8, !tbaa !65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !80
@@ -1411,26 +1408,26 @@ _ZNSt6vectorIbSaIbEE6assignEmRKb.exit:            ; preds = %_ZNSt6vectorIbSaIbE
   %81 = trunc nuw nsw i64 %indvars.iv.i to i32
   %82 = lshr i64 %indvars.iv.i, 6
   %.zext.i = and i64 %82, 67108863
-  %83 = getelementptr inbounds nuw i64, ptr %56, i64 %.zext.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.zext.i
   %84 = and i64 %indvars.iv.i, 63
   %85 = shl nuw i64 1, %84
   %86 = load i64, ptr %83, align 8, !tbaa !78
   %87 = and i64 %86, %85
   %.not.i = icmp eq i64 %87, 0
   %..i = select i1 %.not.i, ptr %78, ptr %76
-  %88 = getelementptr inbounds nuw float, ptr %..i, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %..i, i64 %indvars.iv.i
   %89 = load float, ptr %88, align 4, !tbaa !34
   %90 = fadd float %.02735, %89
   store float %90, ptr %88, align 4, !tbaa !34
-  %91 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
   %92 = load float, ptr %91, align 4, !tbaa !34
   %93 = fcmp oeq float %92, 0x47EFFFFFE0000000
   br i1 %93, label %104, label %94
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i
   %96 = load float, ptr %95, align 4, !tbaa !34
-  %97 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv.i
   %98 = load float, ptr %97, align 4, !tbaa !34
   %99 = fadd float %96, %98
   %100 = fdiv float %96, %99
@@ -1454,7 +1451,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERS
   %.023.lcssa.i = phi i32 [ %68, %64 ], [ %.1.i, %104 ]
   store i32 %.023.lcssa.i, ptr %67, align 8, !tbaa !80
   %105 = sext i32 %.023.lcssa.i to i64
-  %106 = getelementptr inbounds nuw float, ptr %57, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !34
   %108 = fcmp ult float %107, 5.000000e-01
   br i1 %108, label %109, label %113
@@ -1467,11 +1464,11 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERS
 
 113:                                              ; preds = %_ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERSt6vectorIbSaIbEEfRS4_IfSaIfEE.exit, %109
   %.sink = phi float [ %112, %109 ], [ 0.000000e+00, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERSt6vectorIbSaIbEEfRS4_IfSaIfEE.exit ]
-  %114 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv39
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv39
   store float %.sink, ptr %114, align 4, !tbaa !34
   %115 = sdiv i32 %.023.lcssa.i, 64
   %.sext = sext i32 %115 to i64
-  %116 = getelementptr inbounds i64, ptr %56, i64 %.sext
+  %116 = getelementptr inbounds [8 x i8], ptr %56, i64 %.sext
   %117 = and i64 %105, -9223372036854775745
   %118 = icmp ugt i64 %117, -9223372036854775808
   %storemerge.idx.i.i.i.i.i29 = select i1 %118, i64 -8, i64 0
@@ -1498,7 +1495,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERS
   br label %135
 
 ._crit_edge:                                      ; preds = %145, %113
-  %131 = getelementptr inbounds nuw float, ptr %60, i64 %105
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %105
   store float -1.000000e+00, ptr %131, align 4, !tbaa !34
   store float 0x47EFFFFFE0000000, ptr %106, align 4, !tbaa !34
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -1509,13 +1506,13 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier20selectBestClassifierERS
 
 135:                                              ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
-  %136 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %137 = load float, ptr %136, align 4, !tbaa !34
   %138 = fcmp une float %137, 0x47EFFFFFE0000000
   br i1 %138, label %139, label %145
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv
   %141 = load float, ptr %140, align 4, !tbaa !34
   %142 = fcmp ult float %141, 0.000000e+00
   br i1 %142, label %145, label %143
@@ -1616,7 +1613,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
 
 43:                                               ; preds = %.lr.ph, %_ZNSt14_Bit_referenceaSEb.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt14_Bit_referenceaSEb.exit ]
-  %44 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !81
   %46 = load i32, ptr %1, align 8, !tbaa !41
   %47 = and i32 %46, 16384
@@ -1629,7 +1626,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48, %43
-  %52 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit
 
 53:                                               ; preds = %48
@@ -1654,7 +1651,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
   %67 = mul i64 %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 %67
   %69 = sext i32 %.recomposed to i64
-  %70 = getelementptr inbounds float, ptr %68, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %68, i64 %69
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit
 
 _ZNK2cv3Mat2atIfEERKT_i.exit:                     ; preds = %51, %56, %60
@@ -1781,7 +1778,7 @@ _ZN2cv6detail8tracking15online_boosting19ClassifierThreshold6updateEfi.exit: ; p
   %.not24 = icmp eq i32 %156, %2
   %157 = lshr i64 %indvars.iv, 6
   %.zext = and i64 %157, 67108863
-  %158 = getelementptr inbounds nuw i64, ptr %31, i64 %.zext
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.zext
   %159 = and i64 %indvars.iv, 63
   %160 = shl nuw i64 1, %159
   br i1 %.not24, label %164, label %161
@@ -1844,26 +1841,26 @@ define hidden noundef i32 @_ZN2cv6detail8tracking15online_boosting14BaseClassifi
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = lshr i64 %indvars.iv, 6
   %.zext = and i64 %22, 67108863
-  %23 = getelementptr inbounds nuw i64, ptr %13, i64 %.zext
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.zext
   %24 = and i64 %indvars.iv, 63
   %25 = shl nuw i64 1, %24
   %26 = load i64, ptr %23, align 8, !tbaa !78
   %27 = and i64 %26, %25
   %.not = icmp eq i64 %27, 0
   %. = select i1 %.not, ptr %17, ptr %15
-  %28 = getelementptr inbounds nuw float, ptr %., i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %., i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !34
   %30 = fadd float %2, %29
   store float %30, ptr %28, align 4, !tbaa !34
-  %31 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !34
   %33 = fcmp oeq float %32, 0x47EFFFFFE0000000
   br i1 %33, label %44, label %34
 
 34:                                               ; preds = %20
-  %35 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !34
-  %37 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !34
   %39 = fadd float %36, %38
   %40 = fdiv float %36, %39
@@ -1912,7 +1909,7 @@ define hidden noundef range(i32 -1, 2147483647) i32 @_ZN2cv6detail8tracking15onl
   %.02033 = phi i32 [ -1, %.lr.ph ], [ %.121, %13 ]
   %.02232 = phi float [ 0.000000e+00, %.lr.ph ], [ %.123, %13 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %14 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next
   %15 = load float, ptr %14, align 4, !tbaa !34
   %16 = fcmp ogt float %15, %.02232
   %.123 = select i1 %16, float %15, float %.02232
@@ -2011,7 +2008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %36,
   store i32 %spec.store.select, ptr %42, align 4
   %49 = sext i32 %spec.store.select to i64
   %50 = load ptr, ptr %1, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %49
   %52 = load float, ptr %51, align 4, !tbaa !34
   %53 = fcmp ogt float %.123, %52
   %.024 = select i1 %53, i32 %.121, i32 -1
@@ -2044,7 +2041,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting31StrongClassifierDir
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %7 ]
   %14 = load ptr, ptr %8, align 8, !tbaa !64
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !65
   %17 = load ptr, ptr %14, align 8, !tbaa !65
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 28
@@ -2065,7 +2062,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier21rep
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !81
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
@@ -2083,22 +2080,22 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier21rep
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4, !tbaa !121
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !81
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %5
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %5
   store ptr %19, ptr %20, align 8, !tbaa !81
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !38
-  %23 = getelementptr inbounds nuw float, ptr %22, i64 %17
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %17
   %24 = load float, ptr %23, align 4, !tbaa !34
-  %25 = getelementptr inbounds nuw float, ptr %22, i64 %5
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %5
   store float %24, ptr %25, align 4, !tbaa !34
   store float 1.000000e+00, ptr %23, align 4, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !38
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   %29 = load float, ptr %28, align 4, !tbaa !34
-  %30 = getelementptr inbounds nuw float, ptr %27, i64 %5
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %5
   store float %29, ptr %30, align 4, !tbaa !34
   store float 1.000000e+00, ptr %28, align 4, !tbaa !34
   %31 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
@@ -2305,17 +2302,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %43,
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = sext i32 %1 to i64
   %51 = load ptr, ptr %49, align 8, !tbaa !38
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %50
   %53 = load float, ptr %52, align 4, !tbaa !34
   %54 = zext nneg i32 %2 to i64
-  %55 = getelementptr inbounds nuw float, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %54
   store float %53, ptr %55, align 4, !tbaa !34
   store float 1.000000e+00, ptr %52, align 4, !tbaa !34
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !38
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %50
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %50
   %59 = load float, ptr %58, align 4, !tbaa !34
-  %60 = getelementptr inbounds nuw float, ptr %57, i64 %54
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %54
   store float %59, ptr %60, align 4, !tbaa !34
   store float 1.000000e+00, ptr %58, align 4, !tbaa !34
   ret void
@@ -2345,7 +2342,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting31StrongClassifierDir
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %12 = phi ptr [ null, %.lr.ph ], [ %41, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %13 = load ptr, ptr %6, align 8, !tbaa !64
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !80
@@ -2407,7 +2404,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %.no
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %36, ptr %7, align 8, !tbaa !107
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %8, align 8, !tbaa !140
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2499,16 +2496,16 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us: ; preds = %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.preheader, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us
   %indvars.iv34 = phi i64 [ 0, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.preheader ], [ %indvars.iv.next35, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us ]
   %.078.us.us = phi float [ 0.000000e+00, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us.preheader ], [ %47, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us ]
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv34
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv34
   %24 = load ptr, ptr %23, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !67
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !80
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !81
-  %32 = getelementptr inbounds float, ptr %16, i64 %29
+  %32 = getelementptr inbounds [4 x i8], ptr %16, i64 %29
   %33 = load float, ptr %32, align 4, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !83
@@ -2521,7 +2518,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
   %42 = fmul float %41, %38
   %43 = fcmp ogt float %42, 0.000000e+00
   %44 = select i1 %43, float 1.000000e+00, float -1.000000e+00
-  %45 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv34
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv34
   %46 = load float, ptr %45, align 4, !tbaa !34
   %47 = tail call float @llvm.fmuladd.f32(float %44, float %46, float %.078.us.us)
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
@@ -2538,14 +2535,14 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13: ; preds = %.lr.ph.split.us.split, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13 ], [ 0, %.lr.ph.split.us.split ]
   %.078.us.us12 = phi float [ %76, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.us13 ], [ 0.000000e+00, %.lr.ph.split.us.split ]
-  %51 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv29
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv29
   %52 = load ptr, ptr %51, align 8, !tbaa !65
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !67
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !80
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !81
   %60 = mul i64 %50, %57
   %61 = getelementptr inbounds nuw i8, ptr %16, i64 %60
@@ -2561,7 +2558,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
   %71 = fmul float %70, %67
   %72 = fcmp ogt float %71, 0.000000e+00
   %73 = select i1 %72, float 1.000000e+00, float -1.000000e+00
-  %74 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv29
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv29
   %75 = load float, ptr %74, align 4, !tbaa !34
   %76 = tail call float @llvm.fmuladd.f32(float %73, float %75, float %.078.us.us12)
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -2571,14 +2568,14 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us.
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us: ; preds = %.lr.ph.split.us.split, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us ], [ 0, %.lr.ph.split.us.split ]
   %.078.us = phi float [ %107, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us ], [ 0.000000e+00, %.lr.ph.split.us.split ]
-  %77 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv24
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv24
   %78 = load ptr, ptr %77, align 8, !tbaa !65
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !67
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !80
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %80, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %80, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !81
   %86 = sdiv i32 %82, %14
   %87 = mul nsw i32 %86, %14
@@ -2587,7 +2584,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us:
   %89 = mul i64 %50, %88
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 %89
   %91 = sext i32 %.recomposed to i64
-  %92 = getelementptr inbounds float, ptr %90, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %90, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !34
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !83
@@ -2600,7 +2597,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us:
   %102 = fmul float %101, %98
   %103 = fcmp ogt float %102, 0.000000e+00
   %104 = select i1 %103, float 1.000000e+00, float -1.000000e+00
-  %105 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv24
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv24
   %106 = load float, ptr %105, align 4, !tbaa !34
   %107 = tail call float @llvm.fmuladd.f32(float %104, float %106, float %.078.us)
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -2610,16 +2607,16 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.us:
 _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit: ; preds = %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.preheader, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit
   %indvars.iv = phi i64 [ 0, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.preheader ], [ %indvars.iv.next, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit ]
   %.078 = phi float [ 0.000000e+00, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit.preheader ], [ %132, %_ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit ]
-  %108 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !65
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !67
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %113 = load i32, ptr %112, align 8, !tbaa !80
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr %111, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %111, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !81
-  %117 = getelementptr inbounds float, ptr %16, i64 %114
+  %117 = getelementptr inbounds [4 x i8], ptr %16, i64 %114
   %118 = load float, ptr %117, align 4, !tbaa !34
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !83
@@ -2632,7 +2629,7 @@ _ZN2cv6detail8tracking15online_boosting14BaseClassifier4evalERKNS_3MatE.exit: ; 
   %127 = fmul float %126, %123
   %128 = fcmp ogt float %127, 0.000000e+00
   %129 = select i1 %128, float 1.000000e+00, float -1.000000e+00
-  %130 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %131 = load float, ptr %130, align 4, !tbaa !34
   %132 = tail call float @llvm.fmuladd.f32(float %129, float %131, float %.078)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2651,7 +2648,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN2cv6detail8tracking15online_boost
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !80
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !81
   %10 = load i32, ptr %1, align 8, !tbaa !41
   %11 = and i32 %10, 16384
@@ -2668,7 +2665,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN2cv6detail8tracking15online_boost
 17:                                               ; preds = %12, %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !99
-  %20 = getelementptr inbounds float, ptr %19, i64 %7
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %7
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit
 
 21:                                               ; preds = %12
@@ -2702,7 +2699,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN2cv6detail8tracking15online_boost
   %44 = mul i64 %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
   %46 = sext i32 %.recomposed to i64
-  %47 = getelementptr inbounds float, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit
 
 _ZNK2cv3Mat2atIfEERKT_i.exit:                     ; preds = %17, %25, %33
@@ -2810,9 +2807,9 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit20:          ; preds = %_ZNSt6vectorIfSaIfE
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   store float 1.000000e+00, ptr %32, align 4, !tbaa !34
-  %33 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store float 1.000000e+00, ptr %33, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2921,7 +2918,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier24gen
   store float 1.000000e+00, ptr %23, align 4, !tbaa !130
   store float 0.000000e+00, ptr %15, align 8, !tbaa !127
   store float 1.000000e+00, ptr %16, align 4, !tbaa !130
-  %35 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %11, ptr %35, align 8, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2996,9 +2993,9 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit19:          ; preds = %_ZNSt6vectorIfSaIfE
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store float 1.000000e+00, ptr %25, align 4, !tbaa !34
-  %26 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store float 1.000000e+00, ptr %26, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3059,7 +3056,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifierD2Ev(
   %17 = phi i32 [ %7, %.lr.ph ], [ %28, %26 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %18 = load ptr, ptr %11, align 8, !tbaa !67
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !81
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
@@ -3186,11 +3183,11 @@ define hidden noundef float @_ZN2cv6detail8tracking15online_boosting14BaseClassi
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = sext i32 %.0 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw float, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %7
   %10 = load float, ptr %9, align 4, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !38
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %7
   %14 = load float, ptr %13, align 4, !tbaa !34
   %15 = fadd float %10, %14
   %16 = fdiv float %10, %15
@@ -3222,15 +3219,15 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier9getE
 
 15:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %16 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !34
   %18 = fcmp oeq float %17, 0x47EFFFFFE0000000
   br i1 %18, label %34, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !34
-  %22 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !34
   %24 = fadd float %21, %23
   %25 = fdiv float %21, %24
@@ -3791,7 +3788,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting8Detector24prepareCon
   br i1 %19, label %20, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw float, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %22
 
@@ -3834,7 +3831,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting8Detector23prepareDet
   br i1 %19, label %20, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %22
 
@@ -3857,7 +3854,7 @@ define hidden noundef float @_ZN2cv6detail8tracking15online_boosting8Detector13g
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !38
-  %6 = getelementptr inbounds nuw float, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %4
   %7 = load float, ptr %6, align 4, !tbaa !34
   ret float %7
 }
@@ -3868,11 +3865,11 @@ define hidden noundef float @_ZN2cv6detail8tracking15online_boosting8Detector24g
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !108
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %3, align 8, !tbaa !38
-  %11 = getelementptr inbounds nuw float, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load float, ptr %11, align 4, !tbaa !34
   ret float %12
 }
@@ -3882,7 +3879,7 @@ define hidden noundef i32 @_ZN2cv6detail8tracking15online_boosting8Detector22get
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !108
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4, !tbaa !40
   ret i32 %7
 }
@@ -4007,7 +4004,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !151
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw float, ptr %16, i64 %1
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !38
   store ptr %17, ptr %21, align 8, !tbaa !37
@@ -4137,7 +4134,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -4292,7 +4289,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !6
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -4553,13 +4550,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPv(ptr noundef %234) #26
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !63
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4670,9 +4667,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !38
-  %38 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !150
   br label %40
 
@@ -4771,9 +4768,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !108
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !107
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !140
   br label %40
 

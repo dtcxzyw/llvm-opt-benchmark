@@ -5,12 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ScratchBuf = type { [65536 x i8], i32 }
 %struct.Vmem = type { ptr, i64, i64 }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.62 }
-%union.SourceSpan = type { i64 }
-%union.anon.62 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.65 }
-%union.anon.65 = type { %struct.anon.66 }
-%struct.anon.66 = type { ptr, %union.SourceSpan, i8 }
 
 @.str = private unnamed_addr constant [118 x i8] c"'module' should be followed by a plain identifier, not a string. Did you accidentally put the module name between \22\22?\00", align 1
 @.str.1 = private unnamed_addr constant [69 x i8] c"The module name cannot contain a reserved keyword, try another name.\00", align 1
@@ -404,7 +398,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %65 = load ptr, ptr %33, align 8
   %66 = zext i32 %62 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %66
   store ptr %65, ptr %67, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
@@ -439,7 +433,7 @@ parse_optional_module_params.exit.thread:         ; preds = %parse_optional_modu
 74:                                               ; preds = %73
   %75 = load ptr, ptr @ast_arena, align 8
   %76 = zext i32 %1 to i64
-  %77 = getelementptr inbounds nuw %struct.Ast_, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [48 x i8], ptr %75, i64 %76
   %78 = load i64, ptr %77, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %78, ptr noundef nonnull @.str.5) #8
   br label %254
@@ -469,7 +463,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
 89:                                               ; preds = %89, %87
   %.pn.in = phi i32 [ %86, %87 ], [ %91, %89 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0123 = getelementptr inbounds nuw %struct.Ast_, ptr %88, i64 %.pn
+  %.0123 = getelementptr inbounds nuw [48 x i8], ptr %88, i64 %.pn
   %90 = getelementptr inbounds nuw i8, ptr %.0123, i64 8
   %91 = load i32, ptr %90, align 8
   %.not140 = icmp eq i32 %91, 0
@@ -495,7 +489,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
 
 98:                                               ; preds = %97
   %99 = zext i32 %.0126 to i64
-  %100 = getelementptr inbounds nuw %struct.Ast_, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %96, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -533,7 +527,7 @@ parse_optional_module_params.exit.thread160:      ; preds = %29, %parse_optional
 
 115:                                              ; preds = %.lr.ph, %243
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %243 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load i16, ptr %118, align 8
@@ -646,7 +640,7 @@ expand_.exit:                                     ; preds = %143, %147
 
 174:                                              ; preds = %expand_.exit, %169
   %.0119 = phi i64 [ %173, %169 ], [ 4294967295, %expand_.exit ]
-  %175 = getelementptr inbounds nuw ptr, ptr %168, i64 %.0119
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %.0119
   store ptr %117, ptr %175, align 8
   br label %243
 
@@ -1034,7 +1028,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
@@ -1097,7 +1091,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
   %82 = load i32, ptr %.1.i, align 4
   %83 = add i32 %82, -1
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %80, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %84
   store ptr %81, ptr %85, align 8
   br label %.backedge
 
@@ -1741,7 +1735,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   store i32 %215, ptr %.1.i.i, align 4
   %216 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %217 = zext i32 %214 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %217
   store ptr %182, ptr %218, align 8
   %219 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %219, label %181, label %220, !llvm.loop !14
@@ -2666,7 +2660,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   store i32 %42, ptr %.1.i, align 4
   %43 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   store ptr %.0.i, ptr %45, align 8
   %46 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
   br i1 %46, label %.preheader, label %47, !llvm.loop !16
@@ -3517,7 +3511,7 @@ extend_span_with_token.exit132:                   ; preds = %100, %101
   store i32 %142, ptr %.1.i, align 4
   %143 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %144 = zext i32 %141 to i64
-  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %144
   store ptr %.0103, ptr %145, align 8
   %146 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #8
   br i1 %146, label %.loopexit135, label %147
@@ -3677,7 +3671,7 @@ expand_.exit:                                     ; preds = %expand_.exit.sink.s
   store i32 %58, ptr %.1.i208.sink, align 4
   %phi.call = getelementptr inbounds nuw i8, ptr %.1.i208.sink, i64 8
   %59 = zext i32 %.sink337 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %phi.call, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %phi.call, i64 %59
   store ptr null, ptr %60, align 8
   %61 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %61, label %.backedge.backedge, label %245
@@ -4170,7 +4164,7 @@ extend_span_with_token.exit230:                   ; preds = %142, %143
   store i32 %240, ptr %.1.i235, align 4
   %241 = getelementptr inbounds nuw i8, ptr %.1.i235, i64 8
   %242 = zext i32 %239 to i64
-  %243 = getelementptr inbounds nuw ptr, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %242
   store ptr %186, ptr %243, align 8
   %244 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %244, label %.backedge.backedge, label %245
@@ -4391,7 +4385,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %100 = load i32, ptr %.1.i, align 4
   %101 = add i32 %100, -1
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %102
   store ptr %26, ptr %103, align 8
   %104 = add nsw i32 %.0129, 1
   %105 = icmp sgt i32 %.0129, 536870911
@@ -4540,7 +4534,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   %172 = load i32, ptr %.1.i161, align 4
   %173 = add i32 %172, -1
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw ptr, ptr %171, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %174
   store ptr %143, ptr %175, align 8
   %176 = add i32 %.1, 1
   %exitcond = icmp eq i32 %.1, %smax
@@ -4764,7 +4758,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   %73 = load i32, ptr %.1.i.sink185, align 4
   %74 = add i32 %73, -1
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %75
   store ptr %21, ptr %76, align 8
   %77 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
   br i1 %77, label %._crit_edge.loopexit, label %14, !llvm.loop !19
@@ -5375,7 +5369,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   %198 = phi i32 [ %186, %185 ], [ %167, %166 ], [ %163, %162 ], [ %159, %158 ], [ %152, %151 ], [ %148, %147 ], [ %144, %143 ], [ %140, %139 ], [ %136, %135 ], [ %132, %131 ], [ %128, %127 ], [ %118, %117 ], [ %105, %104 ], [ %92, %91 ], [ %79, %78 ], [ %68, %67 ], [ %29, %28 ], [ %25, %24 ]
   %199 = load ptr, ptr @ast_arena, align 8
   %200 = zext i32 %198 to i64
-  %201 = getelementptr inbounds nuw %struct.Ast_, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [48 x i8], ptr %199, i64 %200
   %202 = load i64, ptr %201, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %202, ptr noundef nonnull @.str.65) #8
   %203 = load ptr, ptr @poisoned_decl, align 8
@@ -5714,7 +5708,7 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
   store i32 %166, ptr %.1.i.i, align 4
   %167 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   store ptr %110, ptr %169, align 8
   %170 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %170, label %108, label %171
@@ -6215,7 +6209,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   store i32 %61, ptr %.1.i, align 4
   %62 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   store ptr %33, ptr %64, align 8
   %65 = load ptr, ptr %12, align 8
   %66 = load i64, ptr %13, align 8
@@ -6265,7 +6259,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   store i32 %93, ptr %.1.i125, align 4
   %94 = getelementptr inbounds nuw i8, ptr %.1.i125, i64 8
   %95 = zext i32 %92 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   store ptr %33, ptr %96, align 8
   br label %97
 
@@ -6371,7 +6365,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next, %147 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %.1, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.1, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, %33
   br i1 %143, label %147, label %144
@@ -7126,7 +7120,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   store i32 %354, ptr %.1.i.i.i, align 4
   %355 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   %356 = zext i32 %353 to i64
-  %357 = getelementptr inbounds nuw ptr, ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %356
   store ptr %323, ptr %357, align 8
   %358 = load i32, ptr %231, align 8
   %.not24.i.i = icmp eq i32 %358, 55
@@ -7494,7 +7488,7 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   %59 = load i32, ptr %.1.i, align 4
   %60 = add i32 %59, -1
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %61
   store ptr %23, ptr %62, align 8
   %63 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %63, label %22, label %._crit_edge, !llvm.loop !22
@@ -7770,7 +7764,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   store i32 %58, ptr %.1.i, align 4
   %59 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %60
   store ptr %.0.i78, ptr %61, align 8
   %62 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !23
@@ -7868,7 +7862,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   store i32 %105, ptr %.1.i85, align 4
   %106 = getelementptr inbounds nuw i8, ptr %.1.i85, i64 8
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   store ptr %75, ptr %108, align 8
   %109 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #8
   br i1 %109, label %.critedge77, label %.lr.ph, !llvm.loop !24
@@ -8574,7 +8568,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   %101 = load i32, ptr %.1.i.i.i, align 4
   %102 = add i32 %101, -1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %103
   store ptr %50, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %106 = load i64, ptr %105, align 8
@@ -8620,7 +8614,7 @@ parse_enum_param_decl.exit.i:                     ; preds = %67
   tail call void @llvm.assume(i1 %.not33.i)
   %123 = add i32 %122, -1
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %120, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 96
   store i32 %123, ptr %127, align 8
@@ -8754,7 +8748,7 @@ consume_const_name.exit:                          ; preds = %174
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %185
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %185 ]
-  %186 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, %172
@@ -8867,7 +8861,7 @@ consume_const_name.exit:                          ; preds = %174
   %245 = load i32, ptr %.1.i, align 4
   %246 = add i32 %245, -1
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %244, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %247
   store ptr %167, ptr %248, align 8
   %249 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %249, label %.critedge119, label %250
@@ -9045,7 +9039,7 @@ consume_const_name.exit:                          ; preds = %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %60
@@ -9110,7 +9104,7 @@ consume_const_name.exit:                          ; preds = %53
   %110 = load i32, ptr %.1.i, align 4
   %111 = add i32 %110, -1
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %112
   store ptr %51, ptr %113, align 8
   %114 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %114, label %.critedge85, label %115

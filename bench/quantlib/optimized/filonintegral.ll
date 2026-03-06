@@ -754,10 +754,10 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %c_2n_1.0.lcssa = phi double [ 0.000000e+00, %invoke.cont107 ], [ %73, %for.cond.cleanup.loopexit ]
   %c_2n.0.lcssa = phi double [ %53, %invoke.cont107 ], [ %72, %for.cond.cleanup.loopexit ]
   %.lcssa = phi i64 [ 0, %invoke.cont107 ], [ %55, %for.cond.cleanup.loopexit ]
-  %arrayidx.i140 = getelementptr inbounds nuw double, ptr %call.i4042, i64 %.lcssa
+  %arrayidx.i140 = getelementptr inbounds nuw [8 x i8], ptr %call.i4042, i64 %.lcssa
   %56 = load double, ptr %arrayidx.i140, align 8, !tbaa !26
   %57 = load double, ptr %t_, align 8, !tbaa !13
-  %arrayidx.i141 = getelementptr inbounds nuw double, ptr %call.i, i64 %.lcssa
+  %arrayidx.i141 = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %.lcssa
   %58 = load double, ptr %arrayidx.i141, align 8, !tbaa !26
   %mul147 = fmul double %57, %58
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i142)
@@ -783,10 +783,10 @@ for.body:                                         ; preds = %invoke.cont107, %in
   %c_2n.0270 = phi double [ %72, %invoke.cont134 ], [ %53, %invoke.cont107 ]
   %c_2n_1.0269 = phi double [ %73, %invoke.cont134 ], [ 0.000000e+00, %invoke.cont107 ]
   %mul112 = shl i64 %i.0271, 1
-  %arrayidx.i151 = getelementptr inbounds nuw double, ptr %call.i4042, i64 %mul112
+  %arrayidx.i151 = getelementptr inbounds nuw [8 x i8], ptr %call.i4042, i64 %mul112
   %62 = load double, ptr %arrayidx.i151, align 8, !tbaa !26
   %63 = load double, ptr %t_, align 8, !tbaa !13
-  %arrayidx.i152 = getelementptr inbounds nuw double, ptr %call.i, i64 %mul112
+  %arrayidx.i152 = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %mul112
   %64 = load double, ptr %arrayidx.i152, align 8, !tbaa !26
   %mul120 = fmul double %63, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i153)
@@ -810,10 +810,10 @@ if.end.i156:                                      ; preds = %for.body
 invoke.cont121:                                   ; preds = %if.end.i156
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i153)
   %sub125 = add i64 %mul112, -1
-  %arrayidx.i162 = getelementptr inbounds nuw double, ptr %call.i4042, i64 %sub125
+  %arrayidx.i162 = getelementptr inbounds nuw [8 x i8], ptr %call.i4042, i64 %sub125
   %67 = load double, ptr %arrayidx.i162, align 8, !tbaa !26
   %68 = load double, ptr %t_, align 8, !tbaa !13
-  %arrayidx.i163 = getelementptr inbounds nuw double, ptr %call.i, i64 %sub125
+  %arrayidx.i163 = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %sub125
   %69 = load double, ptr %arrayidx.i163, align 8, !tbaa !26
   %mul133 = fmul double %68, %69
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i164)

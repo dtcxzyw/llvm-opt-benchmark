@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/hashsearch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.HashScanPosItem = type { %struct.ItemPointerData, i16 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
-%struct.ItemIdData = type { i32 }
-
 @.str = private unnamed_addr constant [46 x i8] c"hash indexes do not support whole-index scans\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"hashsearch.c\00", align 1
 @__func__._hash_first = private unnamed_addr constant [12 x i8] c"_hash_first\00", align 1
@@ -123,7 +118,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.HashScanPosItem, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %63, ptr noundef nonnull align 2 dereferenceable(6) %62, i64 6, i1 false)
   br label %64
@@ -158,7 +153,7 @@ define internal fastcc noundef zeroext i1 @_hash_readpage(ptr noundef %0, i32 %.
   %12 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %13 = xor i32 %.0.val, -1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %BufferGetPage.exit
 
@@ -347,7 +342,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %109 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %110 = xor i32 %106, -1
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %109, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %111
   %113 = load ptr, ptr %112, align 8
   br label %BufferGetPage.exit.i
 
@@ -404,7 +399,7 @@ BufferGetPage.exit.i:                             ; preds = %114, %108
   %143 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %144 = xor i32 %140, -1
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %143, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %145
   %147 = load ptr, ptr %146, align 8
   br label %BufferGetPage.exit46.i
 
@@ -635,7 +630,7 @@ define dso_local noundef zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1)
   %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %57 = xor i32 %50, -1
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8
   br label %BufferGetPage.exit
 
@@ -679,7 +674,7 @@ BufferGetPage.exit:                               ; preds = %55, %61
   %82 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %83 = xor i32 %50, -1
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %84
   %86 = load ptr, ptr %85, align 8
   br label %BufferGetPage.exit54
 
@@ -764,7 +759,7 @@ BufferGetPage.exit54:                             ; preds = %81, %87
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %struct.HashScanPosItem, ptr %123, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %123, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %128, ptr noundef nonnull align 2 dereferenceable(6) %127, i64 6, i1 false)
   br label %129
@@ -885,7 +880,7 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
   %46 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %47 = xor i32 %43, -1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8
   br label %BufferGetPage.exit
 
@@ -977,14 +972,14 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 
 .lr.ph102.split.us.split.us.split.us:             ; preds = %.lr.ph102.split.us.split.us
   %30 = zext i16 %.049.ph126 to i64
-  %31 = getelementptr %struct.ItemIdData, ptr %19, i64 %30
+  %31 = getelementptr [4 x i8], ptr %19, i64 %30
   %.val56.us.us.us = load i32, ptr %31, align 4
   br label %.split106.us.split.us
 
 .lr.ph102.split.us.split.us.split:                ; preds = %.lr.ph102.split.us.split.us, %36
   %.049101.us.us = phi i16 [ %37, %36 ], [ %.049.ph126, %.lr.ph102.split.us.split.us ]
   %32 = zext i16 %.049101.us.us to i64
-  %33 = getelementptr %struct.ItemIdData, ptr %19, i64 %32
+  %33 = getelementptr [4 x i8], ptr %19, i64 %32
   %.val56.us.us = load i32, ptr %33, align 4
   %34 = and i32 %.val56.us.us, 98304
   %35 = icmp eq i32 %34, 98304
@@ -1006,7 +1001,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .lr.ph102.split.us.split:                         ; preds = %.lr.ph102.split.us, %54
   %.049101.us = phi i16 [ %55, %54 ], [ %.049.ph126, %.lr.ph102.split.us ]
   %41 = zext i16 %.049101.us to i64
-  %42 = getelementptr %struct.ItemIdData, ptr %19, i64 %41
+  %42 = getelementptr [4 x i8], ptr %19, i64 %41
   %.val56.us = load i32, ptr %42, align 4
   %43 = and i32 %.val56.us, 32767
   %44 = zext nneg i32 %43 to i64
@@ -1037,14 +1032,14 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 
 .lr.ph102.split.split.us:                         ; preds = %.lr.ph102.split
   %58 = zext i16 %.049.ph126 to i64
-  %59 = getelementptr %struct.ItemIdData, ptr %19, i64 %58
+  %59 = getelementptr [4 x i8], ptr %19, i64 %58
   %.val56.us112 = load i32, ptr %59, align 4
   br label %.split106
 
 .lr.ph102.split.split:                            ; preds = %.lr.ph102.split, %64
   %.049101 = phi i16 [ %65, %64 ], [ %.049.ph126, %.lr.ph102.split ]
   %60 = zext i16 %.049101 to i64
-  %61 = getelementptr %struct.ItemIdData, ptr %19, i64 %60
+  %61 = getelementptr [4 x i8], ptr %19, i64 %60
   %.val56 = load i32, ptr %61, align 4
   %62 = and i32 %.val56, 98304
   %63 = icmp eq i32 %62, 98304
@@ -1077,7 +1072,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 
 .outer:                                           ; preds = %72
   %74 = sext i32 %.048.ph127 to i64
-  %75 = getelementptr inbounds %struct.HashScanPosItem, ptr %23, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %23, i64 %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %75, ptr noundef nonnull readonly align 2 dereferenceable(6) %.us-phi107, i64 6, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %.us-phi108, ptr %76, align 2
@@ -1089,7 +1084,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
   %.15074 = phi i16 [ %84, %83 ], [ %.150.ph95, %.lr.ph.split ]
   %79 = zext i16 %.15074 to i64
-  %80 = getelementptr %struct.ItemIdData, ptr %14, i64 %79
+  %80 = getelementptr [4 x i8], ptr %14, i64 %79
   %.val57 = load i32, ptr %80, align 4
   %81 = and i32 %.val57, 98304
   %82 = icmp eq i32 %81, 98304
@@ -1123,7 +1118,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .outer64:                                         ; preds = %91
   %93 = add i32 %.1.ph96, -1
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.HashScanPosItem, ptr %18, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %18, i64 %94
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %95, ptr noundef nonnull readonly align 2 dereferenceable(6) %.us-phi, i64 6, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 6
   store i16 %.us-phi76, ptr %96, align 2
@@ -1150,14 +1145,14 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us
   %104 = zext i16 %.150.ph95 to i64
-  %105 = getelementptr %struct.ItemIdData, ptr %14, i64 %104
+  %105 = getelementptr [4 x i8], ptr %14, i64 %104
   %.val57.us.us.us = load i32, ptr %105, align 4
   br label %.split.us.split.us
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %110
   %.15074.us.us = phi i16 [ %111, %110 ], [ %.150.ph95, %.lr.ph.split.us.split.us ]
   %106 = zext i16 %.15074.us.us to i64
-  %107 = getelementptr %struct.ItemIdData, ptr %14, i64 %106
+  %107 = getelementptr [4 x i8], ptr %14, i64 %106
   %.val57.us.us = load i32, ptr %107, align 4
   %108 = and i32 %.val57.us.us, 98304
   %109 = icmp eq i32 %108, 98304
@@ -1179,7 +1174,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %128
   %.15074.us = phi i16 [ %129, %128 ], [ %.150.ph95, %.lr.ph.split.us ]
   %115 = zext i16 %.15074.us to i64
-  %116 = getelementptr %struct.ItemIdData, ptr %14, i64 %115
+  %116 = getelementptr [4 x i8], ptr %14, i64 %115
   %.val57.us = load i32, ptr %116, align 4
   %117 = and i32 %.val57.us, 32767
   %118 = zext nneg i32 %117 to i64
@@ -1210,7 +1205,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %132 = zext i16 %.150.ph95 to i64
-  %133 = getelementptr %struct.ItemIdData, ptr %14, i64 %132
+  %133 = getelementptr [4 x i8], ptr %14, i64 %132
   %.val57.us81 = load i32, ptr %133, align 4
   br label %.split
 

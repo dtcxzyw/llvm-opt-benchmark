@@ -598,7 +598,7 @@ asn1_str2type.exit:                               ; preds = %67, %.thread.i, %15
 
 .lr.ph95.preheader:                               ; preds = %184
   %188 = zext nneg i32 %186 to i64
-  %189 = getelementptr inbounds nuw %struct.tag_exp_type, ptr %185, i64 %188
+  %189 = getelementptr inbounds nuw [24 x i8], ptr %185, i64 %188
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
@@ -893,7 +893,7 @@ append_exp.exit.thread:                           ; preds = %63
   %71 = add nsw i32 %66, 1
   store i32 %71, ptr %65, align 8, !tbaa !18
   %72 = sext i32 %66 to i64
-  %73 = getelementptr inbounds %struct.tag_exp_type, ptr %70, i64 %72
+  %73 = getelementptr inbounds [24 x i8], ptr %70, i64 %72
   br i1 %69, label %append_exp.exit, label %74
 
 74:                                               ; preds = %68
@@ -926,7 +926,7 @@ append_exp.exit74.thread:                         ; preds = %77
   %85 = add nsw i32 %80, 1
   store i32 %85, ptr %79, align 8, !tbaa !18
   %86 = sext i32 %80 to i64
-  %87 = getelementptr inbounds %struct.tag_exp_type, ptr %84, i64 %86
+  %87 = getelementptr inbounds [24 x i8], ptr %84, i64 %86
   br i1 %83, label %append_exp.exit74, label %88
 
 88:                                               ; preds = %82
@@ -959,7 +959,7 @@ append_exp.exit78.thread:                         ; preds = %91
   %99 = add nsw i32 %94, 1
   store i32 %99, ptr %93, align 8, !tbaa !18
   %100 = sext i32 %94 to i64
-  %101 = getelementptr inbounds %struct.tag_exp_type, ptr %98, i64 %100
+  %101 = getelementptr inbounds [24 x i8], ptr %98, i64 %100
   br i1 %97, label %append_exp.exit78, label %102
 
 102:                                              ; preds = %96
@@ -992,7 +992,7 @@ append_exp.exit82.thread:                         ; preds = %105
   %113 = add nsw i32 %108, 1
   store i32 %113, ptr %107, align 8, !tbaa !18
   %114 = sext i32 %108 to i64
-  %115 = getelementptr inbounds %struct.tag_exp_type, ptr %112, i64 %114
+  %115 = getelementptr inbounds [24 x i8], ptr %112, i64 %114
   br i1 %111, label %append_exp.exit82, label %116
 
 116:                                              ; preds = %110
@@ -1219,7 +1219,7 @@ define internal fastcc range(i32 0, 2) i32 @append_exp(ptr noundef captures(none
   %18 = add nsw i32 %13, 1
   store i32 %18, ptr %12, align 8, !tbaa !18
   %19 = sext i32 %13 to i64
-  %20 = getelementptr inbounds %struct.tag_exp_type, ptr %17, i64 %19
+  %20 = getelementptr inbounds [24 x i8], ptr %17, i64 %19
   br i1 %8, label %24, label %21
 
 21:                                               ; preds = %16

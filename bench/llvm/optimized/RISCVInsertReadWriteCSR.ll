@@ -142,7 +142,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -519,7 +519,7 @@ _ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i: ; preds = %70
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.042.049.i, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !336
   %84 = zext nneg i32 %79 to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i64, ptr %86, align 8, !tbaa !337
   %88 = and i64 %87, 4294967295
@@ -895,7 +895,7 @@ _ZN4llvm7RISCVIIL11getFRMOpNumERKNS_11MCInstrDescE.exit.i42: ; preds = %204
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.089.0114.i, i64 32
   %217 = load ptr, ptr %216, align 8, !tbaa !336
   %218 = zext nneg i32 %213 to i64
-  %219 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %217, i64 %218
+  %219 = getelementptr inbounds nuw [32 x i8], ptr %217, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %221 = load i64, ptr %220, align 8, !tbaa !337
   %222 = trunc i64 %221 to i32

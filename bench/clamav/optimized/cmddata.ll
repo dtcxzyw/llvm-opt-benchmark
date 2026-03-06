@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FindData = type <{ [2048 x i32], i64, i32, i8, i8, [2 x i8], %class.RarTime, %class.RarTime, %class.RarTime, i32, i8, [3 x i8] }>
 %class.RarTime = type { i64 }
 %class.uiMsgStore = type <{ [8 x ptr], [8 x i32], i32, i32, i32, [4 x i8] }>
-%struct.FilterMode = type { i32, i32, i32 }
 %class.StringList = type { %class.Array, i64, i64, [16 x i64], i64 }
 %class.Array = type { ptr, i64, i64, i64 }
 %class.ScanTree = type { [1024 x ptr], i32, i32, ptr, i32, i8, i32, i32, i8, [2048 x i32], [2048 x i32], %class.StringList, %class.StringList, ptr, ptr, i8, i8, i64, [2048 x i32], ptr }
@@ -1216,7 +1215,7 @@ define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %24 ], [ 1, %.lr.ph ]
   %.sroa.0.029.us = phi ptr [ %.sroa.0.3.us, %24 ], [ null, %.lr.ph ]
   %.sroa.14.028.us = phi i64 [ %.sroa.14.1.us, %24 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv35
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv35
   %9 = load ptr, ptr %8, align 8, !tbaa !86
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = add i64 %10, 1
@@ -1267,7 +1266,7 @@ _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.sp
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 1, %.lr.ph ]
   %.sroa.0.029 = phi ptr [ %.sroa.0.3, %43 ], [ null, %.lr.ph ]
   %.sroa.14.028 = phi i64 [ %.sroa.14.1, %43 ], [ 0, %.lr.ph ]
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !86
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #16
   %29 = add i64 %28, 1
@@ -1565,7 +1564,7 @@ define void @_ZN11CommandData8ParseArgEPw(ptr noundef nonnull align 8 dereferenc
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr i32, ptr %1, i64 %40
+  %43 = getelementptr [4 x i8], ptr %1, i64 %40
   %44 = getelementptr i8, ptr %43, i64 -4
   %45 = load i32, ptr %44, align 4, !tbaa !11
   br label %46
@@ -2101,7 +2100,7 @@ define void @_ZN11CommandData13ProcessSwitchEPKw(ptr noundef nonnull align 8 der
 
 149:                                              ; preds = %149, %148
   %indvars.iv.i.i = phi i64 [ 0, %148 ], [ %indvars.iv.next.i.i, %149 ]
-  %150 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   store ptr @.str.26, ptr %150, align 8, !tbaa !108
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -2279,7 +2278,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 228:                                              ; preds = %219, %222, %223, %224, %225, %226, %227
   %229 = add i32 %.0171229, 1
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds nuw i32, ptr %1, i64 %230
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !11
   %.not201 = icmp eq i32 %232, 0
   br i1 %.not201, label %.loopexit, label %219, !llvm.loop !122
@@ -2379,7 +2378,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 
 269:                                              ; preds = %.preheader215, %269
   %indvars.iv = phi i64 [ 0, %.preheader215 ], [ %indvars.iv.next, %269 ]
-  %270 = getelementptr inbounds nuw %struct.FilterMode, ptr %268, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [12 x i8], ptr %268, i64 %indvars.iv
   store i32 3, ptr %270, align 4, !tbaa !127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -2478,7 +2477,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   %.pr = phi i32 [ %.pr.pre, %303 ], [ %302, %301 ]
   %.0181 = phi i32 [ %306, %303 ], [ 1, %301 ]
   %.5 = phi ptr [ %304, %303 ], [ %292, %301 ]
-  %308 = getelementptr inbounds nuw %struct.FilterMode, ptr %267, i64 %.0180
+  %308 = getelementptr inbounds nuw [12 x i8], ptr %267, i64 %.0180
   store i32 %.0181, ptr %308, align 4, !tbaa !127
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 4
   store i32 %.0183, ptr %309, align 4, !tbaa !133
@@ -2695,7 +2694,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 
 407:                                              ; preds = %407, %406
   %indvars.iv.i.i206 = phi i64 [ 0, %406 ], [ %indvars.iv.next.i.i207, %407 ]
-  %408 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i206
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i206
   store ptr @.str.26, ptr %408, align 8, !tbaa !108
   %indvars.iv.next.i.i207 = add nuw nsw i64 %indvars.iv.i.i206, 1
   %exitcond.not.i.i208 = icmp eq i64 %indvars.iv.next.i.i207, 8
@@ -3005,7 +3004,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit209:      ; preds = %407
 539:                                              ; preds = %536, %537, %538
   %540 = add i32 %.0223, 1
   %541 = zext i32 %540 to i64
-  %542 = getelementptr inbounds nuw i32, ptr %1, i64 %541
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !11
   %544 = icmp eq i32 %543, 0
   br i1 %544, label %.loopexit222, label %533, !llvm.loop !151
@@ -3434,7 +3433,7 @@ define void @_ZN11CommandData10ReadConfigEv(ptr noundef nonnull align 8 derefere
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i32, ptr %.032, i64 %49
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.032, i64 %49
   invoke void @_ZN11CommandData21ProcessSwitchesStringEPKw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %54)
           to label %57 unwind label %55
 
@@ -3862,7 +3861,7 @@ define void @_ZN11CommandData19ReportWrongSwitchesE9RARFORMAT(ptr noundef nonnul
 
 11:                                               ; preds = %11, %10
   %indvars.iv.i.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.26, ptr %12, align 8, !tbaa !108
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -3895,7 +3894,7 @@ _Z5uiMsgIJRA4_KwiEEv14UIMESSAGE_CODEDpOT_.exit:   ; preds = %11
 
 22:                                               ; preds = %22, %21
   %indvars.iv.i.i3 = phi i64 [ 0, %21 ], [ %indvars.iv.next.i.i4, %22 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i3
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i3
   store ptr @.str.26, ptr %23, align 8, !tbaa !108
   %indvars.iv.next.i.i4 = add nuw nsw i64 %indvars.iv.i.i3, 1
   %exitcond.not.i.i5 = icmp eq i64 %indvars.iv.next.i.i4, 8
@@ -3928,7 +3927,7 @@ _Z5uiMsgIJRA4_KwiEEv14UIMESSAGE_CODEDpOT_.exit6:  ; preds = %22
 
 32:                                               ; preds = %32, %31
   %indvars.iv.i.i7 = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.i8, %32 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i7
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i7
   store ptr @.str.26, ptr %33, align 8, !tbaa !108
   %indvars.iv.next.i.i8 = add nuw nsw i64 %indvars.iv.i.i7, 1
   %exitcond.not.i.i9 = icmp eq i64 %indvars.iv.next.i.i8, 8

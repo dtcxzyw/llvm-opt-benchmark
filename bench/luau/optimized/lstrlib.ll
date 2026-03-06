@@ -784,7 +784,7 @@ define internal noundef i32 @_ZL8str_gsubP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 58:                                               ; preds = %.lr.ph.i.i
-  %59 = getelementptr inbounds nuw %struct.anon, ptr %31, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !36
   %62 = load ptr, ptr %24, align 8, !tbaa !28
@@ -1092,7 +1092,7 @@ tolower.exit:                                     ; preds = %tolower.exit.lr.ph,
   %10 = load i8, ptr %9, align 1, !tbaa !8
   %11 = load ptr, ptr %8, align 8, !tbaa !41
   %12 = zext i8 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !43
   %15 = trunc i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %.068, i64 1
@@ -1289,7 +1289,7 @@ toupper.exit:                                     ; preds = %toupper.exit.lr.ph,
   %10 = load i8, ptr %9, align 1, !tbaa !8
   %11 = load ptr, ptr %8, align 8, !tbaa !41
   %12 = zext i8 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !43
   %15 = trunc i32 %14 to i8
   %16 = getelementptr inbounds nuw i8, ptr %.068, i64 1
@@ -2851,7 +2851,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %.084, i64 2
   %44 = sext i32 %37 to i64
-  %45 = getelementptr inbounds %struct.anon, ptr %26, i64 %44
+  %45 = getelementptr inbounds [16 x i8], ptr %26, i64 %44
   store ptr %.0.ph.ph, ptr %45, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 -2, ptr %46, align 8, !tbaa !36
@@ -2877,7 +2877,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 
 56:                                               ; preds = %53
   %57 = sext i32 %37 to i64
-  %58 = getelementptr inbounds %struct.anon, ptr %26, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %26, i64 %57
   store ptr %.0.ph.ph, ptr %58, align 8, !tbaa !38
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 -1, ptr %59, align 8, !tbaa !36
@@ -2906,7 +2906,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 
 72:                                               ; preds = %69
   %73 = add nsw i64 %indvars.iv.i, -1
-  %74 = getelementptr inbounds nuw %struct.anon, ptr %0, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = load i64, ptr %75, align 8, !tbaa !36
   %77 = icmp eq i64 %76, -1
@@ -2919,7 +2919,7 @@ define internal fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef non
 
 _ZL16capture_to_closeP10MatchState.exit:          ; preds = %72
   %80 = and i64 %73, 4294967295
-  %81 = getelementptr inbounds nuw %struct.anon, ptr %26, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !38
   %83 = ptrtoint ptr %.0.ph.ph to i64
   %84 = ptrtoint ptr %82 to i64
@@ -3199,7 +3199,7 @@ _ZL17matchbracketclassiPKcS0_.exit130:            ; preds = %189, %198, %200, %2
 
 211:                                              ; preds = %209
   %212 = zext nneg i32 %207 to i64
-  %213 = getelementptr inbounds nuw %struct.anon, ptr %0, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 56
   %215 = load i64, ptr %214, align 8, !tbaa !36
   %216 = icmp eq i64 %215, -1
@@ -3220,7 +3220,7 @@ _ZL13check_captureP10MatchStatei.exit.i:          ; preds = %211
   br i1 %.not.i131, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %224
 
 224:                                              ; preds = %_ZL13check_captureP10MatchStatei.exit.i
-  %225 = getelementptr inbounds nuw %struct.anon, ptr %26, i64 %212
+  %225 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %212
   %226 = load ptr, ptr %225, align 8, !tbaa !38
   %bcmp.i = tail call i32 @bcmp(ptr %226, ptr %.0.ph.ph, i64 %215)
   %227 = icmp ne i32 %bcmp.i, 0
@@ -3677,7 +3677,7 @@ tolower.exit:
   %2 = tail call ptr @__ctype_tolower_loc() #17
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !43
   switch i32 %6, label %84 [
     i32 97, label %7
@@ -3697,7 +3697,7 @@ tolower.exit:
   %8 = tail call ptr @__ctype_b_loc() #17
   %9 = load ptr, ptr %8, align 8, !tbaa !97
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !99
   %13 = and i16 %12, 1024
   %14 = zext nneg i16 %13 to i32
@@ -3707,7 +3707,7 @@ tolower.exit:
   %16 = tail call ptr @__ctype_b_loc() #17
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !99
   %21 = and i16 %20, 2
   %22 = zext nneg i16 %21 to i32
@@ -3723,7 +3723,7 @@ tolower.exit:
   %26 = tail call ptr @__ctype_b_loc() #17
   %27 = load ptr, ptr %26, align 8, !tbaa !97
   %28 = zext nneg i32 %0 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !99
   %31 = and i16 %30, -32768
   %32 = zext i16 %31 to i32
@@ -3733,7 +3733,7 @@ tolower.exit:
   %34 = tail call ptr @__ctype_b_loc() #17
   %35 = load ptr, ptr %34, align 8, !tbaa !97
   %36 = zext nneg i32 %0 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !99
   %39 = and i16 %38, 512
   %40 = zext nneg i16 %39 to i32
@@ -3743,7 +3743,7 @@ tolower.exit:
   %42 = tail call ptr @__ctype_b_loc() #17
   %43 = load ptr, ptr %42, align 8, !tbaa !97
   %44 = zext nneg i32 %0 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !99
   %47 = and i16 %46, 4
   %48 = zext nneg i16 %47 to i32
@@ -3753,7 +3753,7 @@ tolower.exit:
   %50 = tail call ptr @__ctype_b_loc() #17
   %51 = load ptr, ptr %50, align 8, !tbaa !97
   %52 = zext nneg i32 %0 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !99
   %55 = and i16 %54, 8192
   %56 = zext nneg i16 %55 to i32
@@ -3763,7 +3763,7 @@ tolower.exit:
   %58 = tail call ptr @__ctype_b_loc() #17
   %59 = load ptr, ptr %58, align 8, !tbaa !97
   %60 = zext nneg i32 %0 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !99
   %63 = and i16 %62, 256
   %64 = zext nneg i16 %63 to i32
@@ -3773,7 +3773,7 @@ tolower.exit:
   %66 = tail call ptr @__ctype_b_loc() #17
   %67 = load ptr, ptr %66, align 8, !tbaa !97
   %68 = zext nneg i32 %0 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !99
   %71 = and i16 %70, 8
   %72 = zext nneg i16 %71 to i32
@@ -3783,7 +3783,7 @@ tolower.exit:
   %74 = tail call ptr @__ctype_b_loc() #17
   %75 = load ptr, ptr %74, align 8, !tbaa !97
   %76 = zext nneg i32 %0 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !99
   %79 = and i16 %78, 4096
   %80 = zext nneg i16 %79 to i32
@@ -3803,7 +3803,7 @@ tolower.exit:
   %.0 = phi i32 [ %14, %7 ], [ %22, %15 ], [ %24, %23 ], [ %32, %25 ], [ %40, %33 ], [ %48, %41 ], [ %56, %49 ], [ %64, %57 ], [ %72, %65 ], [ %80, %73 ], [ %83, %81 ]
   %88 = tail call ptr @__ctype_b_loc() #17
   %89 = load ptr, ptr %88, align 8, !tbaa !97
-  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %4
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %4
   %91 = load i16, ptr %90, align 2, !tbaa !99
   %92 = and i16 %91, 512
   %.not = icmp eq i16 %92, 0
@@ -3850,7 +3850,7 @@ define internal fastcc void @_ZL15push_onecaptureP10MatchStateiPKcS2_(ptr nounde
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %struct.anon, ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4000,7 +4000,7 @@ define internal noundef i32 @_ZL10gmatch_auxP9lua_State(ptr noundef %0) #0 {
   unreachable
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds nuw %struct.anon, ptr %35, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !36
   %48 = load ptr, ptr %9, align 8, !tbaa !28

@@ -17,13 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.407 = type { ptr, i64 }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
-%"struct.clang::CodeGen::ConstantInitBuilderBase::SelfReference" = type { ptr, %"class.llvm::SmallVector.414" }
-%"class.llvm::SmallVector.414" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.415" }
-%"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
-%"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
-%"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.415" = type { [32 x i8] }
 
 $_ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIS4_EENS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_ = comdat any
 
@@ -267,7 +260,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   %12 = phi i32 [ %5, %2 ], [ %.pre.i, %8 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !3
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = ptrtoint ptr %1 to i64
   store i64 %16, ptr %15, align 1
   %17 = load i32, ptr %4, align 8, !tbaa !16
@@ -434,7 +427,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit: ; pr
   %16 = phi i32 [ %9, %2 ], [ %.pre.i.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !3
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = ptrtoint ptr %5 to i64
   store i64 %20, ptr %19, align 1
   %21 = load i32, ptr %8, align 8, !tbaa !16
@@ -616,7 +609,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   %23 = phi i32 [ %16, %9 ], [ %.pre.i, %19 ]
   %24 = load ptr, ptr %1, align 8, !tbaa !3
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = ptrtoint ptr %14 to i64
   store i64 %27, ptr %26, align 1
   %28 = load i32, ptr %15, align 8, !tbaa !16
@@ -652,7 +645,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit6: ; pre
   %47 = phi i32 [ %40, %30 ], [ %.pre.i5, %43 ]
   %48 = load ptr, ptr %1, align 8, !tbaa !3
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %38 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %39, align 8, !tbaa !16
@@ -750,7 +743,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addPlaceholderEv.exit: ; preds 
   %19 = phi i32 [ %12, %2 ], [ %.pre.i.i, %15 ]
   %20 = load ptr, ptr %10, align 8, !tbaa !3
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   store i64 0, ptr %22, align 1
   %23 = load i32, ptr %11, align 8, !tbaa !16
   %24 = add i32 %23, 1
@@ -862,7 +855,7 @@ define dso_local i64 @_ZNK5clang7CodeGen28ConstantAggregateBuilderBase21getOffse
   %30 = load ptr, ptr %0, align 8, !tbaa !387
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.2
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.2
   %34 = load ptr, ptr %33, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !11
@@ -940,7 +933,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit: ; preds = 
   %15 = load i32, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !392
-  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit
 
@@ -997,7 +990,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase12markFinishedEv.exit: ; preds = 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !392
   %19 = sub i64 %16, %18
-  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %18
   %21 = icmp eq ptr %1, null
   br i1 %21, label %22, label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE5eraseEPKS2_S5_.exit
 
@@ -1071,7 +1064,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit: ; pr
   %24 = phi i32 [ %17, %13 ], [ %.pre.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !3
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = ptrtoint ptr %1 to i64
   store i64 %28, ptr %27, align 1
   %29 = load i32, ptr %16, align 8, !tbaa !16
@@ -1117,7 +1110,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase3addEPN4llvm8ConstantE.exit16: ; 
   %52 = phi i32 [ %45, %38 ], [ %.pre.i.i15, %48 ]
   %53 = load ptr, ptr %43, align 8, !tbaa !3
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = ptrtoint ptr %41 to i64
   store i64 %56, ptr %55, align 1
   %57 = load i32, ptr %44, align 8, !tbaa !16
@@ -1563,7 +1556,7 @@ _ZSt8_DestroyIPN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceES3_EvT_S5
 _ZNSt12_Vector_baseIN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN5clang7CodeGen23ConstantInitBuilderBase13SelfReferenceES3_EvT_S5_RSaIT0_E.exit, %71
   store ptr %20, ptr %0, align 8, !tbaa !19
   store ptr %.0.lcssa.i.i.i.i.i29, ptr %4, align 8, !tbaa !21
-  %75 = getelementptr inbounds nuw %"struct.clang::CodeGen::ConstantInitBuilderBase::SelfReference", ptr %20, i64 %16
+  %75 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %75, ptr %70, align 8, !tbaa !394
   ret void
 }

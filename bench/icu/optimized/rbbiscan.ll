@@ -459,7 +459,7 @@ define linkonce_odr void @_ZN6icu_7713UnicodeStringC2IA40_DsvEERKT_(ptr noundef 
 
 4:                                                ; preds = %4, %2
   %.0.i.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i.i
   %6 = load i16, ptr %5, align 2, !tbaa !50
   %7 = icmp eq i16 %6, 0
   %8 = add i64 %.0.i.i.i, 1
@@ -566,7 +566,7 @@ define void @_ZN6icu_7715RBBIRuleScannerD2Ev(ptr noundef nonnull align 8 derefer
 19:                                               ; preds = %.lr.ph, %26
   %20 = phi i32 [ %16, %.lr.ph ], [ %28, %26 ]
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -744,7 +744,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7715RBBIRuleScanner14doParseAc
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %56 = load i32, ptr %32, align 8, !tbaa !56
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %55, i64 %57
   store ptr %48, ptr %58, align 8, !tbaa !31
   br label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit
 
@@ -752,7 +752,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7715RBBIRuleScanner14doParseAc
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %61 = load i32, ptr %32, align 8, !tbaa !56
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %60, i64 %62
   store ptr null, ptr %63, align 8, !tbaa !31
   %64 = load ptr, ptr %25, align 8, !tbaa !12
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -787,7 +787,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit: ; preds = 
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %.promoted.i = load i32, ptr %76, align 8, !tbaa !56
   %77 = sext i32 %.promoted.i to i64
-  %78 = getelementptr ptr, ptr %75, i64 %77
+  %78 = getelementptr [8 x i8], ptr %75, i64 %77
   %79 = getelementptr i8, ptr %78, i64 -8
   %80 = load ptr, ptr %79, align 8, !tbaa !31
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
@@ -849,7 +849,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit: ; preds = 
   store ptr %103, ptr %106, align 8, !tbaa !69
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i373, -1
   %107 = trunc nsw i64 %indvars.iv.next.i to i32
-  %108 = getelementptr ptr, ptr %75, i64 %indvars.iv.next.i
+  %108 = getelementptr [8 x i8], ptr %75, i64 %indvars.iv.next.i
   %109 = getelementptr i8, ptr %108, i64 -8
   %110 = load ptr, ptr %109, align 8, !tbaa !31
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
@@ -861,7 +861,7 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread:
   %114 = add nsw i32 %84, -1
   store i32 %114, ptr %76, align 8, !tbaa !56
   %115 = sext i32 %84 to i64
-  %116 = getelementptr inbounds ptr, ptr %75, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %75, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !31
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180
@@ -881,7 +881,7 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit: ; pred
   %120 = add nsw i32 %.lcssa, -1
   store i32 %120, ptr %76, align 8, !tbaa !56
   %121 = sext i32 %.lcssa to i64
-  %122 = getelementptr inbounds ptr, ptr %75, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %75, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !31
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %119, label %125, label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180
@@ -927,14 +927,14 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit: ; pred
 145:                                              ; preds = %141
   %146 = load i32, ptr %76, align 8, !tbaa !56
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %75, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %75, i64 %147
   store ptr %139, ptr %148, align 8, !tbaa !31
   br label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180
 
 149:                                              ; preds = %138
   %150 = load i32, ptr %76, align 8, !tbaa !56
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %75, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %75, i64 %151
   store ptr null, ptr %152, align 8, !tbaa !31
   %153 = load ptr, ptr %124, align 8, !tbaa !12
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
@@ -971,7 +971,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180: ; preds
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %.promoted.i181 = load i32, ptr %170, align 8, !tbaa !56
   %171 = sext i32 %.promoted.i181 to i64
-  %172 = getelementptr ptr, ptr %169, i64 %171
+  %172 = getelementptr [8 x i8], ptr %169, i64 %171
   %173 = getelementptr i8, ptr %172, i64 -8
   %174 = load ptr, ptr %173, align 8, !tbaa !31
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 40
@@ -1033,7 +1033,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180: ; preds
   store ptr %197, ptr %200, align 8, !tbaa !69
   %indvars.iv.next.i185 = add nsw i64 %indvars.iv.i183371, -1
   %201 = trunc nsw i64 %indvars.iv.next.i185 to i32
-  %202 = getelementptr ptr, ptr %169, i64 %indvars.iv.next.i185
+  %202 = getelementptr [8 x i8], ptr %169, i64 %indvars.iv.next.i185
   %203 = getelementptr i8, ptr %202, i64 -8
   %204 = load ptr, ptr %203, align 8, !tbaa !31
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 40
@@ -1045,7 +1045,7 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188.thre
   %208 = add nsw i32 %178, -1
   store i32 %208, ptr %170, align 8, !tbaa !56
   %209 = sext i32 %178 to i64
-  %210 = getelementptr inbounds ptr, ptr %169, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %169, i64 %209
   %211 = load ptr, ptr %210, align 8, !tbaa !31
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191
@@ -1065,7 +1065,7 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188: ; p
   %214 = add nsw i32 %.lcssa367, -1
   store i32 %214, ptr %170, align 8, !tbaa !56
   %215 = sext i32 %.lcssa367 to i64
-  %216 = getelementptr inbounds ptr, ptr %169, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %169, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !31
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %213, label %219, label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191
@@ -1111,14 +1111,14 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit188: ; p
 239:                                              ; preds = %235
   %240 = load i32, ptr %170, align 8, !tbaa !56
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds ptr, ptr %169, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %169, i64 %241
   store ptr %233, ptr %242, align 8, !tbaa !31
   br label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191
 
 243:                                              ; preds = %232
   %244 = load i32, ptr %170, align 8, !tbaa !56
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds ptr, ptr %169, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %169, i64 %245
   store ptr null, ptr %246, align 8, !tbaa !31
   %247 = load ptr, ptr %218, align 8, !tbaa !12
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
@@ -1204,7 +1204,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %294 = load i32, ptr %270, align 8, !tbaa !56
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds ptr, ptr %293, i64 %295
+  %296 = getelementptr inbounds [8 x i8], ptr %293, i64 %295
   store ptr %286, ptr %296, align 8, !tbaa !31
   br label %.critedge176
 
@@ -1212,7 +1212,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %299 = load i32, ptr %270, align 8, !tbaa !56
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds ptr, ptr %298, i64 %300
+  %301 = getelementptr inbounds [8 x i8], ptr %298, i64 %300
   store ptr null, ptr %301, align 8, !tbaa !31
   %302 = load ptr, ptr %263, align 8, !tbaa !12
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
@@ -1234,7 +1234,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %310 = load i32, ptr %309, align 8, !tbaa !56
   %311 = sext i32 %310 to i64
-  %312 = getelementptr ptr, ptr %0, i64 %311
+  %312 = getelementptr [8 x i8], ptr %0, i64 %311
   %313 = getelementptr i8, ptr %312, i64 320
   %314 = load ptr, ptr %313, align 8, !tbaa !31
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1292,7 +1292,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %347 = load i32, ptr %309, align 8, !tbaa !56
   %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds ptr, ptr %346, i64 %348
+  %349 = getelementptr inbounds [8 x i8], ptr %346, i64 %348
   store ptr %339, ptr %349, align 8, !tbaa !31
   br label %.critedge176
 
@@ -1300,7 +1300,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %352 = load i32, ptr %309, align 8, !tbaa !56
   %353 = sext i32 %352 to i64
-  %354 = getelementptr inbounds ptr, ptr %351, i64 %353
+  %354 = getelementptr inbounds [8 x i8], ptr %351, i64 %353
   store ptr null, ptr %354, align 8, !tbaa !31
   %355 = load ptr, ptr %318, align 8, !tbaa !12
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 16
@@ -1329,7 +1329,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %370 = load i32, ptr %369, align 8, !tbaa !56
   %371 = sext i32 %370 to i64
-  %372 = getelementptr ptr, ptr %368, i64 %371
+  %372 = getelementptr [8 x i8], ptr %368, i64 %371
   %373 = getelementptr i8, ptr %372, i64 -16
   %374 = load ptr, ptr %373, align 8, !tbaa !31
   %375 = getelementptr i8, ptr %372, i64 -8
@@ -1421,7 +1421,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %431 = load i32, ptr %430, align 8, !tbaa !56
   %432 = sext i32 %431 to i64
-  %433 = getelementptr inbounds ptr, ptr %429, i64 %432
+  %433 = getelementptr inbounds [8 x i8], ptr %429, i64 %432
   %434 = load ptr, ptr %433, align 8, !tbaa !31
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 1133
   %436 = load i8, ptr %435, align 1, !tbaa !75
@@ -1447,7 +1447,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %449 = getelementptr inbounds nuw i8, ptr %439, i64 24
   store ptr %438, ptr %449, align 8, !tbaa !68
   %450 = sext i32 %447 to i64
-  %451 = getelementptr inbounds ptr, ptr %429, i64 %450
+  %451 = getelementptr inbounds [8 x i8], ptr %429, i64 %450
   store ptr %439, ptr %451, align 8, !tbaa !31
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 3152
   %453 = load i32, ptr %452, align 8, !tbaa !33
@@ -1590,7 +1590,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
   %530 = add nsw i32 %529, -1
   store i32 %530, ptr %528, align 8, !tbaa !56
   %531 = sext i32 %529 to i64
-  %532 = getelementptr inbounds ptr, ptr %527, i64 %531
+  %532 = getelementptr inbounds [8 x i8], ptr %527, i64 %531
   %533 = load ptr, ptr %532, align 8, !tbaa !31
   %534 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %535 = load ptr, ptr %534, align 8, !tbaa !12
@@ -1641,7 +1641,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
 560:                                              ; preds = %553
   %561 = load i32, ptr %528, align 8, !tbaa !56
   %562 = sext i32 %561 to i64
-  %563 = getelementptr inbounds ptr, ptr %527, i64 %562
+  %563 = getelementptr inbounds [8 x i8], ptr %527, i64 %562
   store ptr null, ptr %563, align 8, !tbaa !31
   %564 = load ptr, ptr %534, align 8, !tbaa !12
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 16
@@ -1658,7 +1658,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit191: ; preds
 _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit204: ; preds = %556
   %569 = load i32, ptr %528, align 8, !tbaa !56
   %570 = sext i32 %569 to i64
-  %571 = getelementptr inbounds ptr, ptr %527, i64 %570
+  %571 = getelementptr inbounds [8 x i8], ptr %527, i64 %570
   store ptr %554, ptr %571, align 8, !tbaa !31
   %.pre269 = load ptr, ptr %534, align 8, !tbaa !12
   %.phi.trans.insert270 = getelementptr inbounds nuw i8, ptr %.pre269, i64 16
@@ -1681,7 +1681,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit204: ; preds
   %580 = add nsw i32 %579, -1
   store i32 %580, ptr %578, align 8, !tbaa !56
   %581 = sext i32 %579 to i64
-  %582 = getelementptr inbounds ptr, ptr %577, i64 %581
+  %582 = getelementptr inbounds [8 x i8], ptr %577, i64 %581
   %583 = load ptr, ptr %582, align 8, !tbaa !31
   %584 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %585 = load ptr, ptr %584, align 8, !tbaa !12
@@ -1732,7 +1732,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit204: ; preds
 610:                                              ; preds = %603
   %611 = load i32, ptr %578, align 8, !tbaa !56
   %612 = sext i32 %611 to i64
-  %613 = getelementptr inbounds ptr, ptr %577, i64 %612
+  %613 = getelementptr inbounds [8 x i8], ptr %577, i64 %612
   store ptr null, ptr %613, align 8, !tbaa !31
   %614 = load ptr, ptr %584, align 8, !tbaa !12
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 16
@@ -1749,7 +1749,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit204: ; preds
 _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit207: ; preds = %606
   %619 = load i32, ptr %578, align 8, !tbaa !56
   %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds ptr, ptr %577, i64 %620
+  %621 = getelementptr inbounds [8 x i8], ptr %577, i64 %620
   store ptr %604, ptr %621, align 8, !tbaa !31
   %.pre265 = load ptr, ptr %584, align 8, !tbaa !12
   %.phi.trans.insert266 = getelementptr inbounds nuw i8, ptr %.pre265, i64 16
@@ -1772,7 +1772,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit207: ; preds
   %630 = add nsw i32 %629, -1
   store i32 %630, ptr %628, align 8, !tbaa !56
   %631 = sext i32 %629 to i64
-  %632 = getelementptr inbounds ptr, ptr %627, i64 %631
+  %632 = getelementptr inbounds [8 x i8], ptr %627, i64 %631
   %633 = load ptr, ptr %632, align 8, !tbaa !31
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %635 = load ptr, ptr %634, align 8, !tbaa !12
@@ -1823,7 +1823,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit207: ; preds
 660:                                              ; preds = %653
   %661 = load i32, ptr %628, align 8, !tbaa !56
   %662 = sext i32 %661 to i64
-  %663 = getelementptr inbounds ptr, ptr %627, i64 %662
+  %663 = getelementptr inbounds [8 x i8], ptr %627, i64 %662
   store ptr null, ptr %663, align 8, !tbaa !31
   %664 = load ptr, ptr %634, align 8, !tbaa !12
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 16
@@ -1840,7 +1840,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit207: ; preds
 _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit210: ; preds = %656
   %669 = load i32, ptr %628, align 8, !tbaa !56
   %670 = sext i32 %669 to i64
-  %671 = getelementptr inbounds ptr, ptr %627, i64 %670
+  %671 = getelementptr inbounds [8 x i8], ptr %627, i64 %670
   store ptr %654, ptr %671, align 8, !tbaa !31
   %.pre261 = load ptr, ptr %634, align 8, !tbaa !12
   %.phi.trans.insert262 = getelementptr inbounds nuw i8, ptr %.pre261, i64 16
@@ -1910,7 +1910,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit210: ; preds
   %707 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %708 = load i32, ptr %684, align 8, !tbaa !56
   %709 = sext i32 %708 to i64
-  %710 = getelementptr inbounds ptr, ptr %707, i64 %709
+  %710 = getelementptr inbounds [8 x i8], ptr %707, i64 %709
   store ptr null, ptr %710, align 8, !tbaa !31
   %711 = load ptr, ptr %677, align 8, !tbaa !12
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 16
@@ -1928,7 +1928,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit213: ; preds
   %716 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %717 = load i32, ptr %684, align 8, !tbaa !56
   %718 = sext i32 %717 to i64
-  %719 = getelementptr inbounds ptr, ptr %716, i64 %718
+  %719 = getelementptr inbounds [8 x i8], ptr %716, i64 %718
   store ptr %700, ptr %719, align 8, !tbaa !31
   %.pre257 = load ptr, ptr %677, align 8, !tbaa !12
   %.phi.trans.insert258 = getelementptr inbounds nuw i8, ptr %.pre257, i64 16
@@ -2027,7 +2027,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit213: ; preds
   %771 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %772 = load i32, ptr %748, align 8, !tbaa !56
   %773 = sext i32 %772 to i64
-  %774 = getelementptr inbounds ptr, ptr %771, i64 %773
+  %774 = getelementptr inbounds [8 x i8], ptr %771, i64 %773
   store ptr null, ptr %774, align 8, !tbaa !31
   %775 = load ptr, ptr %741, align 8, !tbaa !12
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 16
@@ -2045,7 +2045,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit216: ; preds
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %781 = load i32, ptr %748, align 8, !tbaa !56
   %782 = sext i32 %781 to i64
-  %783 = getelementptr inbounds ptr, ptr %780, i64 %782
+  %783 = getelementptr inbounds [8 x i8], ptr %780, i64 %782
   store ptr %764, ptr %783, align 8, !tbaa !31
   %.pre253 = load ptr, ptr %741, align 8, !tbaa !12
   %.phi.trans.insert254 = getelementptr inbounds nuw i8, ptr %.pre253, i64 16
@@ -2159,7 +2159,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit216: ; preds
   %839 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %840 = load i32, ptr %816, align 8, !tbaa !56
   %841 = sext i32 %840 to i64
-  %842 = getelementptr inbounds ptr, ptr %839, i64 %841
+  %842 = getelementptr inbounds [8 x i8], ptr %839, i64 %841
   store ptr null, ptr %842, align 8, !tbaa !31
   %843 = load ptr, ptr %809, align 8, !tbaa !12
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 16
@@ -2177,7 +2177,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit219: ; preds
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %849 = load i32, ptr %816, align 8, !tbaa !56
   %850 = sext i32 %849 to i64
-  %851 = getelementptr inbounds ptr, ptr %848, i64 %850
+  %851 = getelementptr inbounds [8 x i8], ptr %848, i64 %850
   store ptr %832, ptr %851, align 8, !tbaa !31
   %.pre249 = load ptr, ptr %809, align 8, !tbaa !12
   %.phi.trans.insert250 = getelementptr inbounds nuw i8, ptr %.pre249, i64 16
@@ -2264,7 +2264,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit219: ; preds
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %902 = load i32, ptr %878, align 8, !tbaa !56
   %903 = sext i32 %902 to i64
-  %904 = getelementptr inbounds ptr, ptr %901, i64 %903
+  %904 = getelementptr inbounds [8 x i8], ptr %901, i64 %903
   store ptr null, ptr %904, align 8, !tbaa !31
   %905 = load ptr, ptr %871, align 8, !tbaa !12
   %906 = getelementptr inbounds nuw i8, ptr %905, i64 16
@@ -2282,7 +2282,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit222: ; preds
   %910 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %911 = load i32, ptr %878, align 8, !tbaa !56
   %912 = sext i32 %911 to i64
-  %913 = getelementptr inbounds ptr, ptr %910, i64 %912
+  %913 = getelementptr inbounds [8 x i8], ptr %910, i64 %912
   store ptr %894, ptr %913, align 8, !tbaa !31
   %.pre245 = load ptr, ptr %871, align 8, !tbaa !12
   %.phi.trans.insert246 = getelementptr inbounds nuw i8, ptr %.pre245, i64 16
@@ -2309,7 +2309,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit222: ; preds
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %926 = load i32, ptr %925, align 8, !tbaa !56
   %927 = sext i32 %926 to i64
-  %928 = getelementptr inbounds ptr, ptr %924, i64 %927
+  %928 = getelementptr inbounds [8 x i8], ptr %924, i64 %927
   %929 = load ptr, ptr %928, align 8, !tbaa !31
   %930 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %931 = load i32, ptr %930, align 8, !tbaa !83
@@ -2363,7 +2363,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit222: ; preds
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %963 = load i32, ptr %962, align 8, !tbaa !56
   %964 = sext i32 %963 to i64
-  %965 = getelementptr inbounds ptr, ptr %961, i64 %964
+  %965 = getelementptr inbounds [8 x i8], ptr %961, i64 %964
   %966 = load ptr, ptr %965, align 8, !tbaa !31
   %967 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %968 = load i32, ptr %967, align 4, !tbaa !71
@@ -2945,7 +2945,7 @@ _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit230: ; preds = %1179, %1176, 
   %1221 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %1222 = load i32, ptr %1198, align 8, !tbaa !56
   %1223 = sext i32 %1222 to i64
-  %1224 = getelementptr inbounds ptr, ptr %1221, i64 %1223
+  %1224 = getelementptr inbounds [8 x i8], ptr %1221, i64 %1223
   store ptr null, ptr %1224, align 8, !tbaa !31
   %1225 = load ptr, ptr %1191, align 8, !tbaa !12
   %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 16
@@ -2963,7 +2963,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233: ; preds
   %1230 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %1231 = load i32, ptr %1198, align 8, !tbaa !56
   %1232 = sext i32 %1231 to i64
-  %1233 = getelementptr inbounds ptr, ptr %1230, i64 %1232
+  %1233 = getelementptr inbounds [8 x i8], ptr %1230, i64 %1232
   store ptr %1214, ptr %1233, align 8, !tbaa !31
   %.pre = load ptr, ptr %1191, align 8, !tbaa !12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -2984,7 +2984,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233: ; preds
   %1241 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %1242 = load i32, ptr %1241, align 8, !tbaa !56
   %1243 = sext i32 %1242 to i64
-  %1244 = getelementptr inbounds ptr, ptr %1240, i64 %1243
+  %1244 = getelementptr inbounds [8 x i8], ptr %1240, i64 %1243
   %1245 = load ptr, ptr %1244, align 8, !tbaa !31
   %1246 = icmp eq ptr %1245, null
   br i1 %1246, label %1249, label %1247
@@ -3056,7 +3056,7 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit233: ; preds
   %1291 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %1292 = load i32, ptr %1291, align 8, !tbaa !56
   %1293 = sext i32 %1292 to i64
-  %1294 = getelementptr inbounds ptr, ptr %1290, i64 %1293
+  %1294 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1293
   %1295 = load ptr, ptr %1294, align 8, !tbaa !31
   %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 16
   %1297 = load ptr, ptr %1296, align 8, !tbaa !70
@@ -3227,7 +3227,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTy
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %34 = load i32, ptr %10, align 8, !tbaa !56
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %33, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %33, i64 %35
   store ptr %26, ptr %36, align 8, !tbaa !31
   br label %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit
 
@@ -3235,7 +3235,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTy
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %39 = load i32, ptr %10, align 8, !tbaa !56
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   store ptr null, ptr %41, align 8, !tbaa !31
   %42 = load ptr, ptr %3, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
@@ -3261,7 +3261,7 @@ define void @_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE
   %invariant.smax = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %.promoted = load i32, ptr %4, align 8, !tbaa !56
   %5 = sext i32 %.promoted to i64
-  %6 = getelementptr ptr, ptr %3, i64 %5
+  %6 = getelementptr [8 x i8], ptr %3, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -3316,7 +3316,7 @@ define void @_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %36 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %36, ptr %4, align 8, !tbaa !56
-  %37 = getelementptr ptr, ptr %3, i64 %indvars.iv.next
+  %37 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv.next
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load ptr, ptr %38, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -4475,7 +4475,7 @@ define void @_ZN6icu_7715RBBIRuleScanner5parseEv(ptr noundef nonnull align 8 der
 21:                                               ; preds = %.lr.ph76, %118
   %.02074 = phi i16 [ 1, %.lr.ph76 ], [ %.1, %118 ]
   %22 = zext i16 %.02074 to i64
-  %23 = getelementptr inbounds nuw %"struct.icu_77::RBBIRuleTableEl", ptr @_ZN6icu_77L20gRuleParseStateTableE, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L20gRuleParseStateTableE, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i8, ptr %24, align 4, !tbaa !102
   %26 = zext i8 %25 to i32
@@ -4529,7 +4529,7 @@ define void @_ZN6icu_7715RBBIRuleScanner5parseEv(ptr noundef nonnull align 8 der
 44:                                               ; preds = %43
   %45 = and i8 %35, 127
   %46 = zext nneg i8 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %15, i64 %46
+  %47 = getelementptr inbounds nuw [200 x i8], ptr %15, i64 %46
   %48 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %47, i32 noundef %32)
   %.not29 = icmp eq i8 %48, 0
   br i1 %.not29, label %..thread54_crit_edge, label %._crit_edge
@@ -4615,7 +4615,7 @@ _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %68, %74, %77
   %84 = phi i32 [ %65, %_ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit ], [ %66, %64 ]
   %85 = zext i8 %63 to i16
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds i16, ptr %20, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %20, i64 %86
   store i16 %85, ptr %87, align 2, !tbaa !28
   br label %88
 
@@ -4643,7 +4643,7 @@ _ZN6icu_7715RBBIRuleScanner5errorE10UErrorCode.exit: ; preds = %68, %74, %77
 97:                                               ; preds = %92
   %98 = load i32, ptr %17, align 8, !tbaa !30
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i16, ptr %20, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %20, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !28
   %102 = add nsw i32 %98, -1
   store i32 %102, ptr %17, align 8, !tbaa !30

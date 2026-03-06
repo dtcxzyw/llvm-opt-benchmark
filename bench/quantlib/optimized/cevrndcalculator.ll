@@ -4560,7 +4560,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %conv.i = fptosi x86_fp80 %retval.0.i.i.i to i32
   %4 = zext i32 %conv.i to i64
   %conv.i15 = select i1 %or.cond.not.i, i64 %4, i64 0
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !36
   %div8 = fdiv x86_fp80 %mul5, %5
   store x86_fp80 %div8, ptr %pderivative, align 16, !tbaa !36
@@ -7570,7 +7570,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %14 = add nsw i32 %conv.i, -1
   %15 = zext i32 %14 to i64
   %conv.i24 = select i1 %or.cond.not.i, i64 %15, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
   %16 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !36
   %mul43 = fmul x86_fp80 %result.0, %16
   br label %cleanup110
@@ -10947,7 +10947,7 @@ _ZN5boost4math6itruncIdNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %14 = add nsw i32 %conv.i, -1
   %15 = zext i32 %14 to i64
   %conv.i23 = select i1 %or.cond.not.i, i64 %15, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr @_ZN5boost4math24unchecked_factorial_dataIdLb1EE10factorialsE, i64 %conv.i23
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIdLb1EE10factorialsE, i64 %conv.i23
   %16 = load double, ptr %arrayidx.i.i.i, align 8, !tbaa !31
   %mul39 = fmul double %result.0, %16
   br label %cleanup105
@@ -12822,7 +12822,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   %indvars.iv.i.i.i = phi i64 [ 19, %if.then6 ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %sum.09.i.i.i = phi x86_fp80 [ 0xK402F81D536454C0175AE, %if.then6 ], [ %add.i.i.i, %for.body.i.i.i ]
   %mul.i.i.i = fmul x86_fp80 %div8, %sum.09.i.i.i
-  %arrayidx5.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZZN5boost4math6detail13bessel_i1_impIeEET_RKS3_RKSt17integral_constantIiLi64EEE1P_0, i64 %indvars.iv.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZZN5boost4math6detail13bessel_i1_impIeEET_RKS3_RKSt17integral_constantIiLi64EEE1P_0, i64 %indvars.iv.i.i.i
   %6 = load x86_fp80, ptr %arrayidx5.i.i.i, align 16, !tbaa !36
   %add.i.i.i = fadd x86_fp80 %mul.i.i.i, %6
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1

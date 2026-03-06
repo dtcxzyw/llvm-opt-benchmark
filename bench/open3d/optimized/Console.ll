@@ -30,7 +30,7 @@ define void @_ZN6open3d7utility24GetProgramOptionAsStringEiPPcRKNSt7__cxx1112bas
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = tail call noundef ptr @_ZSt9__find_ifIPPcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_T0_St26random_access_iterator_tag(ptr noundef %2, ptr noundef %9, ptr nonnull align 8 dereferenceable(32) %3)
   %.not = icmp eq ptr %10, %9
   br i1 %.not, label %31, label %11
@@ -839,7 +839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
   %.01580 = phi i64 [ 0, %.lr.ph ], [ %116, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %89, align 4, !tbaa !19
-  %104 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %103, i64 %.01580
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %.01580
   %105 = load ptr, ptr %104, align 8, !tbaa !13
   %106 = call double @strtod(ptr noundef %105, ptr noundef nonnull %11) #18
   %107 = load i32, ptr %89, align 4, !tbaa !19
@@ -867,7 +867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
           to label %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2ERKS1_.exit62 unwind label %110
 
 .critedge:                                        ; preds = %112
-  %115 = getelementptr inbounds double, ptr %.sroa.0.1, i64 %.01580
+  %115 = getelementptr inbounds [8 x i8], ptr %.sroa.0.1, i64 %.01580
   store double %106, ptr %115, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %116 = add nuw i64 %.01580, 1
@@ -1098,7 +1098,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: mustprogress ssp uwtable
 define noundef zeroext i1 @_ZN6open3d7utility19ProgramOptionExistsEiPPcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds ptr, ptr %1, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %1, i64 %4
   %6 = tail call noundef ptr @_ZSt9__find_ifIPPcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_T0_St26random_access_iterator_tag(ptr noundef %1, ptr noundef %5, ptr nonnull align 8 dereferenceable(32) %2)
   %7 = icmp ne ptr %6, %5
   ret i1 %7
@@ -1110,7 +1110,7 @@ define noundef zeroext i1 @_ZN6open3d7utility22ProgramOptionExistsAnyEiPPcRKSt6v
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %.not15.not = icmp eq ptr %4, %6
   br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 

@@ -7757,7 +7757,7 @@ cvStartReadSeq.exit._crit_edge:                   ; preds = %cvStartReadSeq.exit
 143:                                              ; preds = %126, %.loopexit1111
   %.01302 = phi i32 [ 0, %126 ], [ %.1, %.loopexit1111 ]
   %144 = zext nneg i32 %.01302 to i64
-  %145 = getelementptr inbounds nuw %struct.anon, ptr %26, i64 %144
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %144
   %146 = load ptr, ptr %145, align 16, !tbaa !99
   store ptr %146, ptr %68, align 8, !tbaa !59
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -10443,7 +10443,7 @@ cvGetSeqReaderPos.exit818:                        ; preds = %1311, %1317
   %1401 = icmp samesign ugt i32 %1153, %1328
   %1402 = add nsw i32 %.1, 1
   %1403 = sext i32 %1402 to i64
-  %1404 = getelementptr inbounds %struct.anon, ptr %26, i64 %1403
+  %1404 = getelementptr inbounds [64 x i8], ptr %26, i64 %1403
   br i1 %1401, label %1405, label %1423
 
 1405:                                             ; preds = %1400
@@ -12987,7 +12987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %51,
 56:                                               ; preds = %.lr.ph, %42
   %57 = icmp eq ptr %39, %.077
   %58 = getelementptr inbounds nuw i8, ptr %.069123, i64 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %41
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %41
   %60 = load ptr, ptr %59, align 8, !tbaa !172
   br i1 %57, label %62, label %61
 
@@ -13001,7 +13001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %51,
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %.067122, i64 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.071121
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.071121
   store ptr %60, ptr %65, align 8, !tbaa !172
   br label %67
 
@@ -13068,7 +13068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %80
 85:                                               ; preds = %.lr.ph129
   %86 = icmp eq ptr %.pre, %.0
   %87 = getelementptr inbounds nuw i8, ptr %.170128, i64 8
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %73
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %73
   %89 = load ptr, ptr %88, align 8, !tbaa !172
   br i1 %86, label %100, label %90
 
@@ -13118,7 +13118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %95
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %.168127, i64 8
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %.172126
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.172126
   store ptr %89, ptr %103, align 8, !tbaa !172
   br label %105
 
@@ -13493,7 +13493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %46,
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %55 = zext i1 %36 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %.0 = load ptr, ptr %56, align 8, !tbaa !172
   %.not39 = icmp eq ptr %.0, null
   br i1 %.not39, label %.loopexit, label %.lr.ph, !llvm.loop !175
@@ -14384,7 +14384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9, %_
   %19 = load ptr, ptr %18, align 8, !tbaa !169
   %20 = icmp eq ptr %19, %1
   %21 = zext i1 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   %.013 = load ptr, ptr %22, align 8, !tbaa !172
   %.not = icmp eq ptr %.013, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
@@ -14564,7 +14564,7 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %47
   %69 = load ptr, ptr %68, align 8, !tbaa !169
   %70 = icmp eq ptr %69, %52
   %71 = zext i1 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %67, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %71
   %.016 = load ptr, ptr %72, align 8, !tbaa !172
   %.not24 = icmp eq ptr %.016, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !181
@@ -15032,7 +15032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
   %51 = load ptr, ptr %50, align 8, !tbaa !169
   %52 = icmp eq ptr %.296, %51
   %53 = zext i1 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !169
   %56 = load i32, ptr %.3148, align 8, !tbaa !176
   %57 = and i32 %56, 1073741824
@@ -15117,7 +15117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
   %94 = load ptr, ptr %93, align 8, !tbaa !169
   %95 = icmp eq ptr %94, %.296
   %96 = zext i1 %95 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %92, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !172
   %.not109 = icmp eq ptr %98, null
   br i1 %.not109, label %._crit_edge, label %.lr.ph, !llvm.loop !198
@@ -15153,7 +15153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %16, %
   %115 = load ptr, ptr %114, align 8, !tbaa !169
   %116 = icmp eq ptr %107, %115
   %117 = zext i1 %116 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr %114, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !169
   store ptr %119, ptr %22, align 8, !tbaa !193
   br label %189
@@ -15523,11 +15523,11 @@ cvStartReadSeq.exit:                              ; preds = %.thread, %64
   %80 = load ptr, ptr %9, align 8, !tbaa !169
   store i32 %79, ptr %80, align 8, !tbaa !168
   %81 = sext i32 %.066144 to i64
-  %82 = getelementptr inbounds i32, ptr %48, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %48, i64 %81
   store i32 %79, ptr %82, align 4, !tbaa !96
   store i32 %.066144, ptr %.sroa.27.0141, align 8, !tbaa !168
   %83 = add nsw i32 %.066144, 1
-  %84 = getelementptr inbounds ptr, ptr %52, i64 %81
+  %84 = getelementptr inbounds [8 x i8], ptr %52, i64 %81
   store ptr %80, ptr %84, align 8, !tbaa !169
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %85
@@ -15643,13 +15643,13 @@ cvStartReadSeq.exit97:                            ; preds = %106, %109
   %126 = load ptr, ptr %125, align 8, !tbaa !169
   %127 = load i32, ptr %126, align 8, !tbaa !168
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %52, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %52, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !169
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.27.2146, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !169
   %133 = load i32, ptr %132, align 8, !tbaa !168
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds ptr, ptr %52, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %52, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !169
   %137 = call i32 @cvGraphAddEdgeByPtr(ptr noundef %56, ptr noundef %130, ptr noundef %136, ptr noundef nonnull %.sroa.27.2146, ptr noundef nonnull %10)
   %138 = load i32, ptr %.sroa.27.2146, align 8, !tbaa !176
@@ -15727,7 +15727,7 @@ cvStartReadSeq.exit116:                           ; preds = %._crit_edge151, %15
 169:                                              ; preds = %166
   %170 = add nsw i32 %.268155, 1
   %171 = sext i32 %.268155 to i64
-  %172 = getelementptr inbounds i32, ptr %48, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %48, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !96
   store i32 %173, ptr %.sroa.27.4152, align 8, !tbaa !168
   br label %174

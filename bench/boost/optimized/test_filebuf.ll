@@ -13107,7 +13107,7 @@ _ZNSt6vectorISt4fposI11__mbstate_tESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; 
           to label %.lr.ph unwind label %68
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i
-  %37 = getelementptr inbounds nuw %"class.std::fpos", ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %32
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %35, i1 false)
   %38 = ptrtoint ptr %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -13194,7 +13194,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %78, %81
 _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit41: ; preds = %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
   %91 = extractvalue { i64, i64 } %90, 0
   %92 = extractvalue { i64, i64 } %90, 1
-  %93 = getelementptr inbounds nuw %"class.std::fpos", ptr %36, i64 %71
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %71
   store i64 %91, ptr %93, align 8, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %92, ptr %.sroa.5.0..sroa_idx, align 8
@@ -13465,7 +13465,7 @@ _ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Io
   store i64 %189, ptr %11, align 8
   %190 = extractvalue { i64, i64 } %188, 1
   store i64 %190, ptr %67, align 8
-  %191 = getelementptr inbounds nuw %"class.std::fpos", ptr %.sroa.060.091, i64 %107
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.060.091, i64 %107
   invoke void @_ZN5boost6nowide4test15test_equal_implISt4fposI11__mbstate_tES5_EEvRKT_RKT0_PKciSD_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull @.str.4, i32 noundef 494, ptr noundef nonnull @__FUNCTION__._Z30subtest_singlechar_positioningRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS6_)
           to label %_ZNSt15basic_streambufIcSt11char_traitsIcEE10pubseekoffElSt12_Ios_SeekdirSt13_Ios_Openmode.exit unwind label %196
 

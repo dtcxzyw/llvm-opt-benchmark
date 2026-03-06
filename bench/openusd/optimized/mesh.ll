@@ -1253,8 +1253,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim16_ReprDe
 
 _ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescaSERKS0_.exit.us.i: ; preds = %15, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescaSERKS0_.exit.us.i
   %.05.us.i = phi i64 [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescaSERKS0_.exit.us.i ], [ 0, %15 ]
-  %17 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %16, i64 %.05.us.i
-  %18 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %2, i64 %.05.us.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.05.us.i
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.05.us.i
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1267,8 +1267,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescaSERKS0_.exit.us.i: ; preds
 .split.i:                                         ; preds = %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i
   %.not.i = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i ], [ false, %15 ]
   %.05.i = phi i64 [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i.i ], [ 0, %15 ]
-  %23 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %16, i64 %.05.i
-  %24 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %2, i64 %.05.i
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.05.i
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.05.i
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %23, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1347,8 +1347,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i: ; preds = %60, %
 63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i
   %64 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit.i.i.i ]
   %65 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit.i.i.i ]
-  %66 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %62, i64 %65
-  %67 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %2, i64 %65
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %65
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %65
   %68 = load i64, ptr %67, align 8, !noalias !11
   store i64 %68, ptr %66, align 8, !alias.scope !11
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -1391,8 +1391,8 @@ _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERSt5arrayINS0_14HdM
 
 86:                                               ; preds = %86, %84
   %87 = phi i64 [ 0, %84 ], [ %96, %86 ]
-  %88 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %85, i64 %87
-  %89 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %62, i64 %87
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %85, i64 %87
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %87
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %88, align 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -1532,8 +1532,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfToken
 13:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_14HdMeshReprDescELm2EEESaIS7_EELb0EEptEv.exit7
   %14 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_14HdMeshReprDescELm2EEESaIS7_EELb0EEptEv.exit7 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit.i ]
   %15 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorISt4pairINS_7TfTokenESt5arrayINS_14HdMeshReprDescELm2EEESaIS7_EELb0EEptEv.exit7 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit.i ]
-  %16 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %0, i64 %15
-  %17 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %15
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1667,8 +1667,8 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_1
 
 25:                                               ; preds = %25, %_ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_14HdMeshReprDescELm2EEESaIS6_EE12_M_check_lenEmPKc.exit
   %26 = phi i64 [ 0, %_ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_14HdMeshReprDescELm2EEESaIS6_EE12_M_check_lenEmPKc.exit ], [ %35, %25 ]
-  %27 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %23, i64 %26
-  %28 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %26
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %26
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %27, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1701,8 +1701,8 @@ _ZNSt16allocator_traitsISaISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES
 
 40:                                               ; preds = %40, %.lr.ph.i.i.i
   %41 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %50, %40 ]
-  %42 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %38, i64 %41
-  %43 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %41
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %41
   %44 = load i64, ptr %43, align 8, !alias.scope !19, !noalias !16
   store i64 %44, ptr %42, align 8, !alias.scope !16, !noalias !19
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1777,8 +1777,8 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_14
 
 74:                                               ; preds = %74, %.lr.ph.i.i.i17
   %75 = phi i64 [ 0, %.lr.ph.i.i.i17 ], [ %84, %74 ]
-  %76 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %72, i64 %75
-  %77 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdMeshReprDesc", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %75
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %75
   %78 = load i64, ptr %77, align 8, !alias.scope !26, !noalias !23
   store i64 %78, ptr %76, align 8, !alias.scope !23, !noalias !26
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -1849,7 +1849,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_14
 _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_14HdMeshReprDescELm2EEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt5arrayINS1_14HdMeshReprDescELm2EEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit31, %105
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i30, ptr %4, align 8
-  %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %16
+  %109 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %109, ptr %104, align 8
   ret void
 }

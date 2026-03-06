@@ -24,7 +24,7 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.086.us.us = phi i64 [ %40, %.loopexit104.us.us ], [ %6, %.preheader105.split.us ]
   %.182.us.us = phi ptr [ %39, %.loopexit104.us.us ], [ %2, %.preheader105.split.us ]
   %.1.us.us = phi ptr [ %36, %.loopexit104.us.us ], [ %4, %.preheader105.split.us ]
-  %11 = getelementptr inbounds double, ptr %.182.us.us, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %.182.us.us, i64 %3
   br label %12
 
 12:                                               ; preds = %12, %.preheader103.us.us
@@ -78,7 +78,7 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.086.us = phi i64 [ %79, %.loopexit102.us ], [ %6, %.preheader105.split.us ]
   %.182.us = phi ptr [ %78, %.loopexit102.us ], [ %2, %.preheader105.split.us ]
   %.1.us = phi ptr [ %75, %.loopexit102.us ], [ %4, %.preheader105.split.us ]
-  %42 = getelementptr inbounds double, ptr %.182.us, i64 %3
+  %42 = getelementptr inbounds [8 x i8], ptr %.182.us, i64 %3
   br label %43
 
 43:                                               ; preds = %.preheader103.us, %43
@@ -158,7 +158,7 @@ define noundef i32 @dgemm_oncopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.086 = phi i64 [ %94, %.loopexit102 ], [ %6, %.preheader105.split ]
   %.182 = phi ptr [ %93, %.loopexit102 ], [ %2, %.preheader105.split ]
   %.1 = phi ptr [ %90, %.loopexit102 ], [ %4, %.preheader105.split ]
-  %83 = getelementptr inbounds double, ptr %.182, i64 %3
+  %83 = getelementptr inbounds [8 x i8], ptr %.182, i64 %3
   br label %84
 
 84:                                               ; preds = %.preheader101, %84

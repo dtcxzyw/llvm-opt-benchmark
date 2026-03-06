@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.13" = type { i8 }
-%"class.cv::GArg" = type { i32, i32, %"class.cv::util::any" }
 
 $_ZN2cv4GMatD2Ev = comdat any
 
@@ -198,7 +197,7 @@ _ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERKSt6vec
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %0, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw %"class.cv::GArg", ptr %46, i64 %.sroa.10.083
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %.sroa.10.083
   %48 = load i64, ptr %.sroa.0.08284, align 8
   store i64 %48, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -332,7 +331,7 @@ _ZN2cv6detail9WrapValueINS_4GMatEvE4wrapERKS2_.exit.i: ; preds = %83, %80, %74
   store ptr %91, ptr %90, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %92 = load ptr, ptr %0, align 8, !tbaa !9
-  %93 = getelementptr inbounds nuw %"class.cv::GArg", ptr %92, i64 %.sroa.10.083
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %.sroa.10.083
   store i64 60129542146, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !28
@@ -463,7 +462,7 @@ _ZN2cv6detail9WrapValueINS_7GScalarEvE4wrapERKS2_.exit.i: ; preds = %134, %131, 
   store ptr %142, ptr %141, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %143 = load ptr, ptr %0, align 8, !tbaa !9
-  %144 = getelementptr inbounds nuw %"class.cv::GArg", ptr %143, i64 %.sroa.10.083
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %.sroa.10.083
   store i64 5, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !28
@@ -999,9 +998,9 @@ _ZNSt6vectorIN2cv4GArgESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseIN2cv4GArgESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIN2cv4GArgESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !9
-  %36 = getelementptr inbounds nuw %"class.cv::GArg", ptr %27, i64 %1
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %36, ptr %4, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw %"class.cv::GArg", ptr %26, i64 %24
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %37, ptr %11, align 8, !tbaa !65
   br label %38
 

@@ -85,7 +85,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilderD2Ev(ptr noundef nonnull
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -240,7 +240,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newLabelNodeEPP
 36:                                               ; preds = %28
   %37 = zext i32 %31 to i64
   %38 = load ptr, ptr %32, align 8, !tbaa !10
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
   store ptr %21, ptr %39, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i32 %31, ptr %40, align 8, !tbaa !49
@@ -284,7 +284,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder17registerLabelNo
 19:                                               ; preds = %10
   %20 = zext i32 %13 to i64
   %21 = load ptr, ptr %14, align 8, !tbaa !10
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   store ptr %1, ptr %22, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %13, ptr %23, align 8, !tbaa !49
@@ -543,7 +543,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newConstPoolNod
 41:                                               ; preds = %33
   %42 = zext i32 %36 to i64
   %43 = load ptr, ptr %37, align 8, !tbaa !10
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   store ptr %26, ptr %44, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i32 %36, ptr %45, align 8, !tbaa !49
@@ -971,7 +971,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder13sectionNodeOfEP
 35:                                               ; preds = %32
   %36 = zext i32 %2 to i64
   %37 = load ptr, ptr %15, align 8, !tbaa !10
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %36
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %67
@@ -1019,7 +1019,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder13sectionNodeOfEP
 63:                                               ; preds = %60, %57
   %64 = zext i32 %2 to i64
   %65 = load ptr, ptr %15, align 8, !tbaa !10
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   store ptr %43, ptr %66, align 8, !tbaa !14
   br label %67
 
@@ -1241,7 +1241,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPN
 22:                                               ; preds = %17, %12
   %23 = zext i32 %2 to i64
   %24 = load ptr, ptr %13, align 8, !tbaa !10
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %46
@@ -1276,7 +1276,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPN
 
 43:                                               ; preds = %40, %32
   %44 = load ptr, ptr %13, align 8, !tbaa !10
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %23
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %23
   store ptr %30, ptr %45, align 8, !tbaa !14
   br label %46
 
@@ -1389,7 +1389,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_10L28BaseBuilder_newLabelI
   %34 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase7_resizeEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %8, i32 noundef 8, i32 noundef %33) #25
   %35 = zext i32 %1 to i64
   %36 = load ptr, ptr %4, align 8, !tbaa !10
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
   store ptr %19, ptr %37, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i32 %1, ptr %38, align 8, !tbaa !49
@@ -1477,7 +1477,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder4bindERKNS0_5Labe
 23:                                               ; preds = %18, %13
   %24 = zext i32 %5 to i64
   %25 = load ptr, ptr %14, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !14
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj.exit
@@ -1512,7 +1512,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder4bindERKNS0_5Labe
 
 44:                                               ; preds = %41, %33
   %45 = load ptr, ptr %14, align 8, !tbaa !10
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %24
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %24
   store ptr %31, ptr %46, align 8, !tbaa !14
   br label %_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj.exit
 
@@ -1586,7 +1586,7 @@ define dso_local noundef ptr @_ZNK6asmjit9_abi_1_1011BaseBuilder10passByNameEPKc
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %6 = load i32, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %.loopexit, label %.preheader
 
@@ -1657,7 +1657,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder7addPassEPNS0_4Pa
   %29 = phi i32 [ %27, %26 ], [ %18, %15 ]
   %30 = load ptr, ptr %16, align 8, !tbaa !10
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = ptrtoint ptr %1 to i64
   store i64 %33, ptr %32, align 8
   %34 = load i32, ptr %17, align 8, !tbaa !13
@@ -1706,7 +1706,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1011BaseBuilder1
 
 22:                                               ; preds = %27, %20
   %23 = phi i64 [ 0, %20 ], [ %28, %27 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %16, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = icmp eq ptr %25, %1
   br i1 %26, label %30, label %27
@@ -1751,7 +1751,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIPNS0_4PassEE8r
 
 9:                                                ; preds = %2
   %10 = sub i64 %7, %1
-  %11 = getelementptr inbounds ptr, ptr %3, i64 %1
+  %11 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = shl i64 %10, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %11, ptr nonnull align 8 %12, i64 %13, i1 false)
@@ -1795,7 +1795,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder9runPassesEv(ptr 
   %18 = load ptr, ptr %11, align 8, !tbaa !10
   %19 = load i32, ptr %7, align 8, !tbaa !13
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = icmp eq i32 %19, 0
   br i1 %22, label %.loopexit, label %23
 
@@ -2969,8 +2969,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 .preheader:                                       ; preds = %.loopexit3, %.preheader
   %61 = phi i64 [ %65, %.preheader ], [ %59, %.loopexit3 ]
   %62 = phi i64 [ %66, %.preheader ], [ 0, %.loopexit3 ]
-  %63 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %61
-  %64 = getelementptr inbounds %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %61
+  %63 = getelementptr inbounds [16 x i8], ptr %3, i64 %61
+  %64 = getelementptr inbounds [16 x i8], ptr %44, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, ptr noundef nonnull align 4 dereferenceable(16) %64, i64 16, i1 false)
   %65 = add nuw nsw i64 %61, 1
   %66 = add nuw nsw i64 %62, 1
@@ -2994,20 +2994,20 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
 75:                                               ; preds = %75, %56
   %76 = phi i64 [ 4, %56 ], [ %89, %75 ]
   %77 = phi i64 [ 0, %56 ], [ %90, %75 ]
-  %78 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %76
-  %79 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %76
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %76
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %79, i64 16, i1 false)
   %80 = or disjoint i64 %76, 1
-  %81 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %80
-  %82 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %80
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %81, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false)
   %83 = or disjoint i64 %76, 2
-  %84 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %83
-  %85 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %83
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %84, ptr noundef nonnull align 4 dereferenceable(16) %85, i64 16, i1 false)
   %86 = or disjoint i64 %76, 3
-  %87 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %3, i64 %86
-  %88 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %44, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %86
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false)
   %89 = add nuw nsw i64 %76, 4
   %90 = add nuw i64 %77, 4
@@ -3165,7 +3165,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 208
   %179 = zext i32 %177 to i64
   %180 = load ptr, ptr %178, align 8, !tbaa !10
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %179
   %182 = load ptr, ptr %181, align 8, !tbaa !14
   %183 = load ptr, ptr %1, align 8, !tbaa !3
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
@@ -3288,7 +3288,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder8onDetachEPNS0_10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %6 = load i32, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %.loopexit, label %.preheader
 

@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   br i1 %19, label %.preheader.lr.ph, label %.critedge
 
 .preheader.lr.ph:                                 ; preds = %.preheader75
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv111
+  %20 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv111
   %21 = getelementptr inbounds nuw i8, ptr %.06689, i64 8
   %22 = sext i32 %.06193 to i64
   br label %.preheader
@@ -86,7 +86,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 .preheader74.lr.ph:                               ; preds = %23
   %24 = shl nuw nsw i32 1, %18
   %25 = getelementptr inbounds nuw i8, ptr %.06689, i64 8
-  %26 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv111
+  %26 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv111
   %27 = sext i32 %.06193 to i64
   br label %.preheader74
 
@@ -102,22 +102,22 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   br label %.lr.ph
 
 .preheader72:                                     ; preds = %.lr.ph, %.preheader74
-  %30 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv100
+  %30 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv100
   br label %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %3, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !12
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = lshr i32 %.06084, %36
   %38 = and i32 %37, 1
   %39 = shl nsw i32 %35, 1
   %40 = or disjoint i32 %39, %38
-  %41 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   %47 = or disjoint i32 %46, %.05681
   %48 = load i32, ptr %17, align 4, !tbaa !9
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %6, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %6, i64 %49
   store i32 %47, ptr %50, align 4, !tbaa !12
   %51 = load i32, ptr %26, align 4, !tbaa !12
   %52 = shl nsw i32 %51, 1
@@ -156,8 +156,8 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 .preheader:                                       ; preds = %.preheader.lr.ph, %79
   %indvars.iv106 = phi i64 [ %22, %.preheader.lr.ph ], [ %indvars.iv.next107, %79 ]
   %indvars.iv104 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next105, %79 ]
-  %60 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
-  %61 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv104
+  %60 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv106
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv104
   br label %63
 
 62:                                               ; preds = %63
@@ -176,7 +176,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   store i32 %70, ptr %11, align 4, !tbaa !12
   %71 = load i32, ptr %61, align 4, !tbaa !12
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %3, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %3, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !12
   %75 = shl nsw i32 %74, 1
   %76 = or disjoint i32 %75, %.15785
@@ -249,15 +249,15 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 .lr.ph.preheader:                                 ; preds = %.preheader
   %18 = sext i32 %.03551 to i64
   %wide.trip.count = zext nneg i32 %16 to i64
-  %invariant.gep = getelementptr i32, ptr %3, i64 %18
+  %invariant.gep = getelementptr [4 x i8], ptr %3, i64 %18
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %19 = load i32, ptr %gep, align 4, !tbaa !12
   %20 = shl nsw i32 %19, 1
-  %21 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -265,7 +265,7 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds i32, ptr %6, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %6, i64 %22
   %24 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %23) #14
   %25 = load i32, ptr %15, align 4, !tbaa !9
   %26 = icmp sgt i32 %25, 0
@@ -273,8 +273,8 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 
 .lr.ph47.preheader:                               ; preds = %._crit_edge
   %27 = sext i32 %.03551 to i64
-  %invariant.gep76 = getelementptr i32, ptr %3, i64 %27
-  %invariant.gep74 = getelementptr i32, ptr %3, i64 %27
+  %invariant.gep76 = getelementptr [4 x i8], ptr %3, i64 %27
+  %invariant.gep74 = getelementptr [4 x i8], ptr %3, i64 %27
   br label %.lr.ph47
 
 .loopexit:                                        ; preds = %32
@@ -292,7 +292,7 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %31, label %.lr.ph44, label %._crit_edge48
 
 .lr.ph44:                                         ; preds = %.lr.ph47
-  %gep77 = getelementptr i32, ptr %invariant.gep76, i64 %indvars.iv63
+  %gep77 = getelementptr [4 x i8], ptr %invariant.gep76, i64 %indvars.iv63
   br label %32
 
 32:                                               ; preds = %.lr.ph44, %32
@@ -301,7 +301,7 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
   %34 = shl nsw i32 %33, 1
   %35 = or disjoint i32 %34, 1
   store i32 %35, ptr %6, align 16, !tbaa !12
-  %gep75 = getelementptr i32, ptr %invariant.gep74, i64 %indvars.iv60
+  %gep75 = getelementptr [4 x i8], ptr %invariant.gep74, i64 %indvars.iv60
   %36 = load i32, ptr %gep75, align 4, !tbaa !12
   %37 = shl nsw i32 %36, 1
   %38 = or disjoint i32 %37, 1
@@ -376,7 +376,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02227 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.val = load ptr, ptr %8, align 8, !tbaa !23
-  %23 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv
+  %23 = getelementptr inbounds [4 x i8], ptr %.val, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = and i32 %24, 1
   %26 = xor i32 %25, 1
@@ -404,7 +404,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nounde
 
 35:                                               ; preds = %.lr.ph31, %35
   %indvars.iv39 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next40, %35 ]
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv39
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv39
   %37 = load i32, ptr %36, align 4, !tbaa !12
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %37)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -473,7 +473,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef captures(add
 19:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.03036 = phi i32 [ 0, %.lr.ph ], [ %33, %32 ]
-  %20 = getelementptr inbounds i32, ptr %.val35, i64 %indvars.iv
+  %20 = getelementptr inbounds [4 x i8], ptr %.val35, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !12
   %22 = and i32 %21, 1
   %.not34 = icmp eq i32 %22, 0
@@ -485,7 +485,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef captures(add
   %26 = shl nuw i64 1, %25
   %27 = lshr i32 %.03036, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i64, ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !31
   %31 = or i64 %30, %26
   store i64 %31, ptr %29, align 8, !tbaa !31
@@ -535,14 +535,14 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef captures(add
 55:                                               ; preds = %.lr.ph41, %63
   %indvars.iv53 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next54, %63 ]
   %indvars.iv51 = phi i64 [ %15, %.lr.ph41 ], [ %indvars.iv.next52, %63 ]
-  %56 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv51
+  %56 = getelementptr inbounds [4 x i8], ptr %.val, i64 %indvars.iv51
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = and i32 %57, 1
   %.not33 = icmp eq i32 %58, 0
   br i1 %.not33, label %59, label %63
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv53
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv53
   %61 = load i32, ptr %60, align 4, !tbaa !12
   %62 = sext i32 %61 to i64
   store i64 %62, ptr %9, align 8, !tbaa !30
@@ -640,7 +640,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
 .critedge.preheader209:                           ; preds = %.critedge.preheader
   %43 = sext i32 %.val146 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
-  %invariant.gep = getelementptr i32, ptr %11, i64 %43
+  %invariant.gep = getelementptr [4 x i8], ptr %11, i64 %43
   br label %.critedge
 
 .preheader173:                                    ; preds = %.critedge, %.critedge.preheader
@@ -651,12 +651,12 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
 .lr.ph179:                                        ; preds = %.preheader173
   %46 = sext i32 %45 to i64
   %wide.trip.count222 = zext nneg i32 %.0.lcssa.i to i64
-  %invariant.gep263 = getelementptr i32, ptr %11, i64 %46
+  %invariant.gep263 = getelementptr [4 x i8], ptr %11, i64 %46
   br label %52
 
 .critedge:                                        ; preds = %.critedge.preheader209, %.critedge
   %indvars.iv = phi i64 [ 0, %.critedge.preheader209 ], [ %indvars.iv.next, %.critedge ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %47 = trunc i64 %indvars.iv to i32
   %48 = add i32 %37, %47
   store i32 %48, ptr %gep, align 4, !tbaa !12
@@ -676,7 +676,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
 
 52:                                               ; preds = %.lr.ph179, %52
   %indvars.iv219 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next220, %52 ]
-  %gep264 = getelementptr i32, ptr %invariant.gep263, i64 %indvars.iv219
+  %gep264 = getelementptr [4 x i8], ptr %invariant.gep263, i64 %indvars.iv219
   %53 = trunc i64 %indvars.iv219 to i32
   %54 = add i32 %38, %53
   store i32 %54, ptr %gep264, align 4, !tbaa !12
@@ -690,12 +690,12 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
 .lr.ph183.preheader:                              ; preds = %.preheader171
   %55 = sext i32 %45 to i64
   %wide.trip.count230 = zext nneg i32 %.0.lcssa.i to i64
-  %invariant.gep265 = getelementptr i32, ptr %12, i64 %55
+  %invariant.gep265 = getelementptr [4 x i8], ptr %12, i64 %55
   br label %.lr.ph183
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
   %indvars.iv227 = phi i64 [ 0, %.lr.ph183.preheader ], [ %indvars.iv.next228, %.lr.ph183 ]
-  %gep266 = getelementptr i32, ptr %invariant.gep265, i64 %indvars.iv227
+  %gep266 = getelementptr [4 x i8], ptr %invariant.gep265, i64 %indvars.iv227
   %56 = trunc nuw nsw i64 %indvars.iv227 to i32
   store i32 %56, ptr %gep266, align 4, !tbaa !12
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
@@ -727,7 +727,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %61 = getelementptr i8, ptr %19, i64 328
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %63 = sext i32 %.val146 to i64
-  %64 = getelementptr inbounds i32, ptr %12, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %12, i64 %63
   %65 = sext i32 %37 to i64
   %66 = getelementptr i8, ptr %20, i64 328
   %wide.trip.count236 = zext nneg i32 %45 to i64
@@ -792,7 +792,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %89 = add nsw i32 %67, 1
   store i32 %89, ptr %16, align 4, !tbaa !35
   %90 = sext i32 %67 to i64
-  %91 = getelementptr inbounds i32, ptr %.pre.i247, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %.pre.i247, i64 %90
   store i32 %71, ptr %91, align 4, !tbaa !12
   %92 = add nuw nsw i32 %.5184, 1
   %exitcond232.not = icmp eq i32 %92, %.0.lcssa.i
@@ -804,7 +804,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.0137198 = phi i32 [ %.0.lcssa.i, %.lr.ph200 ], [ %.2139.lcssa, %._crit_edge197 ]
   %.val154 = load i32, ptr %16, align 4, !tbaa !35
   %94 = sext i32 %.val154 to i64
-  %95 = getelementptr inbounds i32, ptr %.pre.i161202, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %.pre.i161202, i64 %94
   %96 = call i32 @sat_solver_solve(ptr noundef %19, ptr noundef %.pre.i161202, ptr noundef %95, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   %97 = icmp eq i32 %96, -1
   br i1 %97, label %.thread.loopexit, label %98
@@ -823,7 +823,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %.lr.ph190 ], [ 0, %98 ]
   %.2139187 = phi i32 [ %100, %.lr.ph190 ], [ %.0137198, %98 ]
   %100 = add nsw i32 %.2139187, 1
-  %101 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv233
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv233
   store i32 %.2139187, ptr %101, align 4, !tbaa !12
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
@@ -832,13 +832,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 .lr.ph194:                                        ; preds = %.preheader169, %.lr.ph194
   %indvars.iv238 = phi i64 [ %indvars.iv.next239, %.lr.ph194 ], [ 0, %.preheader169 ]
   %.val = load ptr, ptr %60, align 8, !tbaa !23
-  %102 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv238
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv238
   %103 = load i32, ptr %102, align 4, !tbaa !12
-  %104 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv238
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv238
   %105 = load i32, ptr %104, align 4, !tbaa !12
   %.val156 = load ptr, ptr %61, align 8, !tbaa !42
   %106 = sext i32 %103 to i64
-  %107 = getelementptr inbounds i32, ptr %.val156, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.val156, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !12
   %109 = icmp ne i32 %108, 1
   %110 = zext i1 %109 to i32
@@ -855,7 +855,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 .critedge2:                                       ; preds = %.lr.ph194, %.preheader169
   %116 = load i32, ptr %64, align 4, !tbaa !12
   %.val157 = load ptr, ptr %61, align 8, !tbaa !42
-  %117 = getelementptr inbounds i32, ptr %.val157, i64 %65
+  %117 = getelementptr inbounds [4 x i8], ptr %.val157, i64 %65
   %118 = load i32, ptr %117, align 4, !tbaa !12
   %119 = icmp eq i32 %118, 1
   %120 = zext i1 %119 to i32
@@ -879,7 +879,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %indvars.iv241 = phi i64 [ %indvars.iv.next242, %Vec_IntPush.exit165 ], [ 0, %.preheader ]
   %.pre.i161204 = phi ptr [ %.pre.i161205, %Vec_IntPush.exit165 ], [ %.pre.i161202, %.preheader ]
   %.val158 = load ptr, ptr %66, align 8, !tbaa !42
-  %128 = getelementptr inbounds nuw i32, ptr %.val158, i64 %indvars.iv241
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.val158, i64 %indvars.iv241
   %129 = load i32, ptr %128, align 4, !tbaa !12
   %130 = icmp ne i32 %129, 1
   %131 = zext i1 %130 to i32
@@ -934,7 +934,7 @@ Vec_IntPush.exit165:                              ; preds = %Vec_IntPush.exit165
   %153 = add nsw i32 %135, 1
   store i32 %153, ptr %16, align 4, !tbaa !35
   %154 = sext i32 %135 to i64
-  %155 = getelementptr inbounds i32, ptr %.pre.i161205, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %.pre.i161205, i64 %154
   store i32 %134, ptr %155, align 4, !tbaa !12
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244

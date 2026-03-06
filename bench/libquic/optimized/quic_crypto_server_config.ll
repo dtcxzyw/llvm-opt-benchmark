@@ -3447,7 +3447,7 @@ _ZNSt6vectorIPN3net24QuicServerConfigProtobuf10PrivateKeyESaIS3_EE11_S_relocateE
 _ZNSt6vectorIPN3net24QuicServerConfigProtobuf10PrivateKeyESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIPN3net24QuicServerConfigProtobuf10PrivateKeyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %25, ptr %0, align 8, !tbaa !181
   store ptr %29, ptr %6, align 8, !tbaa !175
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !178
   br label %_ZNSt6vectorIPN3net24QuicServerConfigProtobuf10PrivateKeyESaIS3_EE9push_backEOS3_.exit
 
@@ -5140,7 +5140,7 @@ _ZNSolsEm.exit374:                                ; preds = %_ZStlsISt11char_tra
 
 414:                                              ; preds = %.lr.ph, %410
   %.0151563 = phi i64 [ 0, %.lr.ph ], [ %411, %410 ]
-  %415 = getelementptr inbounds nuw i32, ptr %409, i64 %.0151563
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %409, i64 %.0151563
   %416 = load i32, ptr %415, align 4, !tbaa !172
   %417 = icmp eq i32 %416, 1145653315
   br i1 %417, label %418, label %410
@@ -5169,7 +5169,7 @@ _ZNSolsEm.exit374:                                ; preds = %_ZStlsISt11char_tra
   %.0150569 = phi i64 [ 0, %.lr.ph571 ], [ %571, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit414 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %429 = load ptr, ptr %18, align 8, !tbaa !37
-  %430 = getelementptr inbounds nuw i32, ptr %429, i64 %.0150569
+  %430 = getelementptr inbounds nuw [4 x i8], ptr %429, i64 %.0150569
   %431 = load i32, ptr %430, align 4, !tbaa !172
   store i32 %431, ptr %31, align 4, !tbaa !172
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -5186,7 +5186,7 @@ _ZNSolsEm.exit374:                                ; preds = %_ZStlsISt11char_tra
   br i1 %.not573, label %.loopexit526, label %.critedge273.lr.ph
 
 .critedge273.lr.ph:                               ; preds = %.preheader
-  %434 = getelementptr inbounds nuw ptr, ptr %433, i64 %.0150569
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %433, i64 %.0150569
   %435 = load ptr, ptr %434, align 8, !tbaa !179
   %436 = load i32, ptr %435, align 8, !tbaa !170
   %437 = load i32, ptr %31, align 4, !tbaa !172
@@ -6054,7 +6054,7 @@ _ZNSt12_Vector_baseI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %3, align 8, !tbaa !233
   store ptr %13, ptr %14, align 8, !tbaa !236
-  %15 = getelementptr inbounds nuw %class.scoped_refptr, ptr %13, i64 %7
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %7
   store ptr %15, ptr %11, align 8, !tbaa !237
   br label %_ZNSt6vectorI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_EE7reserveEm.exit
 
@@ -6244,7 +6244,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP13scoped_refptrIN3net22QuicCryptoServe
   %88 = phi ptr [ %73, %.lr.ph143 ], [ %82, %79 ]
   %.038142 = phi i64 [ 0, %.lr.ph143 ], [ %80, %79 ]
   %.039141 = phi ptr [ %74, %.lr.ph143 ], [ %.342, %79 ]
-  %89 = getelementptr inbounds nuw %class.scoped_refptr, ptr %88, i64 %.038142
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.038142
   %90 = load ptr, ptr %89, align 8, !tbaa !158
   %.not.i79 = icmp eq ptr %90, null
   br i1 %.not.i79, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEC2ERKS3_.exit, label %91
@@ -9026,7 +9026,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %149, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %151, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %146, ptr %125, align 8, !tbaa !34
   store ptr %150, ptr %126, align 8, !tbaa !33
-  %152 = getelementptr inbounds nuw i32, ptr %146, i64 %144
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %144
   store ptr %152, ptr %128, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -9099,7 +9099,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i119: ; preds = %176, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i121: ; preds = %178, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i119
   store ptr %173, ptr %125, align 8, !tbaa !34
   store ptr %177, ptr %126, align 8, !tbaa !33
-  %179 = getelementptr inbounds nuw i32, ptr %173, i64 %171
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %171
   store ptr %179, ptr %128, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -9226,7 +9226,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i135: ; preds = %222, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i137: ; preds = %224, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i135
   store ptr %219, ptr %199, align 8, !tbaa !34
   store ptr %223, ptr %200, align 8, !tbaa !33
-  %225 = getelementptr inbounds nuw i32, ptr %219, i64 %217
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %217
   store ptr %225, ptr %202, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit140
 
@@ -9343,7 +9343,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i151: ; preds = %264, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i153: ; preds = %266, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i151
   store ptr %261, ptr %241, align 8, !tbaa !34
   store ptr %265, ptr %242, align 8, !tbaa !33
-  %267 = getelementptr inbounds nuw i32, ptr %261, i64 %259
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %259
   store ptr %267, ptr %244, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit156
 
@@ -10332,7 +10332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
 
 124:                                              ; preds = %122, %.lr.ph.i
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %123, %122 ]
-  %125 = getelementptr inbounds nuw i32, ptr %121, i64 %.010.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %.010.i
   %126 = load i32, ptr %125, align 4, !tbaa !172
   %cond1.i = icmp eq i32 %126, 959460696
   br i1 %cond1.i, label %130, label %122
@@ -10679,7 +10679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit317: ; preds = %17
   %266 = getelementptr inbounds nuw i8, ptr %.sroa.0443.0, i64 168
   %267 = load i64, ptr %35, align 8, !tbaa !3
   %268 = load ptr, ptr %266, align 8, !tbaa !341
-  %269 = getelementptr inbounds nuw ptr, ptr %268, i64 %267
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %267
   %270 = load ptr, ptr %269, align 8, !tbaa !227
   %.sroa.035.0.copyload = load ptr, ptr %38, align 8, !tbaa !145
   %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -11493,7 +11493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348: ; preds = %56
   %605 = phi ptr [ %613, %610 ], [ %604, %601 ]
   %.0178479 = phi i64 [ %611, %610 ], [ 0, %601 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %606 = getelementptr inbounds nuw i32, ptr %605, i64 %.0178479
+  %606 = getelementptr inbounds nuw [4 x i8], ptr %605, i64 %.0178479
   %607 = load i32, ptr %606, align 4, !tbaa !352
   %608 = invoke noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %607)
           to label %609 unwind label %619
@@ -12016,7 +12016,7 @@ define noundef zeroext i1 @_ZNK3net22QuicCryptoServerConfig22ClientDemandsX509Pr
 
 8:                                                ; preds = %8, %.lr.ph
   %.010 = phi i64 [ 0, %.lr.ph ], [ %11, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %.010
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.010
   %10 = load i32, ptr %9, align 4, !tbaa !172
   %cond1 = icmp eq i32 %10, 959460696
   %11 = add nuw i64 %.010, 1
@@ -12225,7 +12225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %90,
 
 102:                                              ; preds = %100, %.lr.ph.i
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %101, %100 ]
-  %103 = getelementptr inbounds nuw i32, ptr %99, i64 %.010.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %.010.i
   %104 = load i32, ptr %103, align 4, !tbaa !172
   %cond1.i = icmp eq i32 %104, 959460696
   br i1 %cond1.i, label %111, label %100
@@ -12839,7 +12839,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %27, %_ZNKS
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !34
   store ptr %28, ptr %3, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJjEEEvDpOT_.exit
 
@@ -12883,7 +12883,7 @@ define void @_ZNK3net22QuicCryptoServerConfig21NewSourceAddressTokenB5cxx11ERKNS
   %25 = add nsw i32 %20, 1
   store i32 %25, ptr %19, align 8, !tbaa !273
   %26 = sext i32 %20 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -12921,7 +12921,7 @@ define void @_ZNK3net22QuicCryptoServerConfig21NewSourceAddressTokenB5cxx11ERKNS
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 8, !tbaa !273
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %42, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %42, i64 %46
   store ptr %40, ptr %47, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -13180,7 +13180,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %150 = add nsw i32 %145, 1
   store i32 %150, ptr %100, align 8, !tbaa !273
   %151 = sext i32 %145 to i64
-  %152 = getelementptr inbounds ptr, ptr %149, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %149, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit61
 
@@ -13216,7 +13216,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %168 = add nsw i32 %167, 1
   store i32 %168, ptr %100, align 8, !tbaa !273
   %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds ptr, ptr %166, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %166, i64 %169
   store ptr %164, ptr %170, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit61
 
@@ -13580,7 +13580,7 @@ define noundef range(i32 0, 17) i32 @_ZNK3net22QuicCryptoServerConfig23ParseSour
   %46 = add nsw i32 %41, 1
   store i32 %46, ptr %40, align 8, !tbaa !273
   %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -13618,7 +13618,7 @@ define noundef range(i32 0, 17) i32 @_ZNK3net22QuicCryptoServerConfig23ParseSour
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 8, !tbaa !273
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds ptr, ptr %63, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %63, i64 %67
   store ptr %61, ptr %68, align 8, !tbaa !274
   br label %_ZN3net19SourceAddressTokens10add_tokensEv.exit
 
@@ -13845,7 +13845,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %.no
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %28, align 8, !tbaa !34
   store ptr %52, ptr %29, align 8, !tbaa !33
-  %54 = getelementptr inbounds nuw i32, ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %46
   store ptr %54, ptr %31, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -13969,7 +13969,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i82: ; preds = %99, %.
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i84: ; preds = %101, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i82
   store ptr %96, ptr %76, align 8, !tbaa !34
   store ptr %100, ptr %77, align 8, !tbaa !33
-  %102 = getelementptr inbounds nuw i32, ptr %96, i64 %94
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %94
   store ptr %102, ptr %79, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit87
 
@@ -14056,7 +14056,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i92: ; preds = %134, %
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i94: ; preds = %136, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i92
   store ptr %131, ptr %111, align 8, !tbaa !34
   store ptr %135, ptr %112, align 8, !tbaa !33
-  %137 = getelementptr inbounds nuw i32, ptr %131, i64 %129
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %129
   store ptr %137, ptr %114, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit97
 
@@ -14238,7 +14238,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i107: ; preds = %202, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i109: ; preds = %204, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i107
   store ptr %199, ptr %179, align 8, !tbaa !34
   store ptr %203, ptr %180, align 8, !tbaa !33
-  %205 = getelementptr inbounds nuw i32, ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %197
   store ptr %205, ptr %182, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit112
 
@@ -14394,7 +14394,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i127: ; preds = %263, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i129: ; preds = %265, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i127
   store ptr %260, ptr %240, align 8, !tbaa !34
   store ptr %264, ptr %241, align 8, !tbaa !33
-  %266 = getelementptr inbounds nuw i32, ptr %260, i64 %258
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %258
   store ptr %266, ptr %243, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit132
 
@@ -14511,7 +14511,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i143: ; preds = %309, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i145: ; preds = %311, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i143
   store ptr %306, ptr %286, align 8, !tbaa !34
   store ptr %310, ptr %287, align 8, !tbaa !33
-  %312 = getelementptr inbounds nuw i32, ptr %306, i64 %304
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %304
   store ptr %312, ptr %289, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit148
 
@@ -15071,7 +15071,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %81
 
 switch.lookup:                                    ; preds = %_ZN4base8AutoLockD2Ev.exit
   %92 = zext nneg i32 %67 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3net22QuicCryptoServerConfig19ValidateServerNonceEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeE, i64 %92
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3net22QuicCryptoServerConfig19ValidateServerNonceEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_12QuicWallTimeE, i64 %92
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge38
 
@@ -16663,7 +16663,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i: ; preds = %_ZNKSt6vecto
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !34
   store ptr %28, ptr %3, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !36
   br label %31
 
@@ -16732,7 +16732,7 @@ _ZNSt6vectorIPN3net11KeyExchangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 _ZNSt6vectorIPN3net11KeyExchangeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIPN3net11KeyExchangeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !341
   store ptr %28, ptr %3, align 8, !tbaa !385
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !386
   br label %_ZNSt6vectorIPN3net11KeyExchangeESaIS2_EE12emplace_backIJS2_EEEvDpOT_.exit
 
@@ -18080,7 +18080,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %42, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %44, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %39, ptr %19, align 8, !tbaa !34
   store ptr %43, ptr %20, align 8, !tbaa !33
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !36
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -19449,7 +19449,7 @@ _ZNSt12_Vector_baseI13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESaIS4_
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !233
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !236
-  %55 = getelementptr inbounds nuw %class.scoped_refptr, ptr %20, i64 %16
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %55, ptr %54, align 8, !tbaa !237
   ret void
 }
@@ -20004,7 +20004,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !150
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !152
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !151
   ret void
 
@@ -20075,7 +20075,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 19:                                               ; preds = %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit15.i.i, %16
   %.010.i.i = phi i64 [ %18, %16 ], [ %33, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit15.i.i ]
-  %20 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %.010.i.i
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !158
   store ptr null, ptr %20, align 8, !tbaa !158
   store ptr %21, ptr %5, align 8, !tbaa !158
@@ -20140,7 +20140,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIP13scoped_refptrIN3net22QuicC
 
 45:                                               ; preds = %13
   %46 = lshr i64 %14, 1
-  %47 = getelementptr inbounds nuw %class.scoped_refptr, ptr %0, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %46
   %48 = getelementptr inbounds i8, ptr %storemerge18, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_SJ_T0_(ptr %0, ptr nonnull %12, ptr %47, ptr nonnull %48, ptr %3)
   br label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIP13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEESt6vectorIS6_SaIS6_EEEESB_EvT_T0_.exit.i.i
@@ -20530,13 +20530,13 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIP13
   %.042 = phi i64 [ %spec.select, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit ], [ %1, %5 ]
   %10 = shl i64 %.042, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %.042
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.042
   %18 = load ptr, ptr %16, align 8, !tbaa !158
   store ptr null, ptr %16, align 8, !tbaa !158
   %19 = load ptr, ptr %17, align 8, !tbaa !429
@@ -20578,8 +20578,8 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit: ; preds =
 36:                                               ; preds = %32
   %37 = shl nsw i64 %.0.lcssa, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %38
-  %40 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
+  %40 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %41 = load ptr, ptr %39, align 8, !tbaa !158
   store ptr null, ptr %39, align 8, !tbaa !158
   %42 = load ptr, ptr %40, align 8, !tbaa !429
@@ -20614,7 +20614,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit26: ; preds
   %.020.i = phi i64 [ %.0921.i, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit.i ], [ %.1, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit26 ]
   %.0921.in.i = add nsw i64 %.020.i, -1
   %.0921.i = sdiv i64 %.0921.in.i, 2
-  %54 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %.0921.i
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0921.i
   %55 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc unwind label %90
 
@@ -20622,7 +20622,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit26: ; preds
   br i1 %55, label %56, label %.critedge.i.loopexit
 
 56:                                               ; preds = %.noexc
-  %57 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %.020.i
+  %57 = getelementptr inbounds [8 x i8], ptr %0, i64 %.020.i
   %58 = load ptr, ptr %54, align 8, !tbaa !158
   store ptr null, ptr %54, align 8, !tbaa !158
   %59 = load ptr, ptr %57, align 8, !tbaa !429
@@ -20657,7 +20657,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit.i: ; preds
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit26
   %70 = phi ptr [ %52, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit26 ], [ %.pre, %.critedge.i.loopexit ]
   %.0.lcssa.i = phi i64 [ %.1, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEEaSEOS3_.exit26 ], [ %.0.lcssa.i.ph, %.critedge.i.loopexit ]
-  %71 = getelementptr inbounds %class.scoped_refptr, ptr %0, i64 %.0.lcssa.i
+  %71 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr null, ptr %6, align 8, !tbaa !158
   %72 = load ptr, ptr %71, align 8, !tbaa !429
   store ptr %70, ptr %71, align 8, !tbaa !429

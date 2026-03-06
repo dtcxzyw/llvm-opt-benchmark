@@ -419,7 +419,7 @@ define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) 
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %147 ]
   %.0112159 = phi i32 [ %8, %.lr.ph ], [ %.1, %147 ]
   %.0114158 = phi i32 [ 0, %.lr.ph ], [ %.2, %147 ]
-  %33 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @parse_option_end(ptr noundef %34) #9
   %.not127 = icmp eq i32 %35, 0
@@ -2699,7 +2699,7 @@ define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) 
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %127 ]
   %.0151 = phi i32 [ %8, %.lr.ph ], [ %.1, %127 ]
   %.0103150 = phi i32 [ 0, %.lr.ph ], [ %.1104, %127 ]
-  %31 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %31 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @parse_option_end(ptr noundef %32) #9
   %.not116 = icmp eq i32 %33, 0
@@ -2992,7 +2992,7 @@ define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef re
 32:                                               ; preds = %89, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %89 ]
   %.073110.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %.1.i.i, %89 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @parse_option_end(ptr noundef %34) #9
   %.not88.i.i = icmp eq i32 %35, 0

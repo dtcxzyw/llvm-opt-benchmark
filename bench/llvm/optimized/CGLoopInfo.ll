@@ -14,12 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::CodeGen::LoopAttributes" = type <{ i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, [3 x i8], i32, i32, i8, [3 x i8] }>
 %"class.llvm::SmallVector.11" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.12" }
 %"struct.llvm::SmallVectorStorage.12" = type { [8 x i8] }
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
 %"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
 %"class.llvm::APInt.base" = type <{ %union.anon, i32 }>
 %union.anon = type { i64 }
@@ -93,7 +87,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %_ZN4llvm2
 13:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i16 = phi i64 [ %12, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 1, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %.pre915 = phi ptr [ %.pre9.pre, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ %7, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.pre915, i64 %.pre8.i16
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.pre915, i64 %.pre8.i16
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 8 %1, i64 %.idx, i1 false)
   %.pre.i5 = load i32, ptr %8, align 8, !tbaa !29
   %.pre = load ptr, ptr %3, align 8, !tbaa !26
@@ -194,7 +188,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %27
 33:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i79 = phi i64 [ %32, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %34 = load ptr, ptr %6, align 8, !tbaa !26
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.pre8.i79
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.pre8.i79
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 8 %2, i64 %.idx68, i1 false)
   %.pre.i = load i32, ptr %29, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
@@ -229,7 +223,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %50 = phi i32 [ %45, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %.pre.i20, %47 ]
   %51 = load ptr, ptr %6, align 8, !tbaa !26
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = ptrtoint ptr %44 to i64
   store i64 %54, ptr %53, align 1
   %55 = load i32, ptr %29, align 8, !tbaa !29
@@ -270,7 +264,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i24: ; preds = %_ZN4llv
 66:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i24.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i24
   %.pre8.i2582 = phi i64 [ %65, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i24.thread ], [ 1, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i24 ]
   %67 = load ptr, ptr %8, align 8, !tbaa !26
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.pre8.i2582
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.pre8.i2582
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i27 = load i32, ptr %23, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit29
@@ -312,7 +306,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit32: ; pr
   %87 = phi i32 [ %82, %73 ], [ %.pre.i31, %84 ]
   %88 = load ptr, ptr %8, align 8, !tbaa !26
   %89 = zext i32 %87 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %89
   %91 = ptrtoint ptr %81 to i64
   store i64 %91, ptr %90, align 1
   %92 = load i32, ptr %23, align 8, !tbaa !29
@@ -409,7 +403,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %21
 28:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i95 = phi i64 [ %27, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %29 = load ptr, ptr %6, align 8, !tbaa !26
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.pre8.i95
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.pre8.i95
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i = load i32, ptr %23, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
@@ -440,7 +434,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit35: ; pr
   %41 = phi i32 [ %36, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %.pre.i32, %38 ]
   %42 = load ptr, ptr %6, align 8, !tbaa !26
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = ptrtoint ptr %35 to i64
   store i64 %45, ptr %44, align 1
   %46 = load i32, ptr %23, align 8, !tbaa !29
@@ -476,7 +470,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i36: ; preds = %56, %_Z
 57:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i36
   %58 = load ptr, ptr %9, align 8, !tbaa !26
   %59 = zext i32 %.pre8.i37 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i39 = load i32, ptr %52, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit41
@@ -518,7 +512,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit44: ; pr
   %79 = phi i32 [ %74, %65 ], [ %.pre.i43, %76 ]
   %80 = load ptr, ptr %9, align 8, !tbaa !26
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   %83 = ptrtoint ptr %73 to i64
   store i64 %83, ptr %82, align 1
   %84 = load i32, ptr %52, align 8, !tbaa !29
@@ -554,7 +548,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47: ; pr
   %98 = phi i32 [ %93, %90 ], [ %.pre.i46, %95 ]
   %99 = load ptr, ptr %9, align 8, !tbaa !26
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %100
   %102 = ptrtoint ptr %92 to i64
   store i64 %102, ptr %101, align 1
   %103 = load i32, ptr %52, align 8, !tbaa !29
@@ -592,7 +586,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit50: ; pr
   %118 = phi i32 [ %113, %109 ], [ %.pre.i49, %115 ]
   %119 = load ptr, ptr %9, align 8, !tbaa !26
   %120 = zext i32 %118 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %120
   %122 = ptrtoint ptr %112 to i64
   store i64 %122, ptr %121, align 1
   %123 = load i32, ptr %52, align 8, !tbaa !29
@@ -711,7 +705,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %32
 38:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i138 = phi i64 [ %37, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %39 = load ptr, ptr %6, align 8, !tbaa !26
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.pre8.i138
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.pre8.i138
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i = load i32, ptr %34, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
@@ -741,7 +735,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %51 = phi i32 [ %46, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %.pre.i37, %48 ]
   %52 = load ptr, ptr %6, align 8, !tbaa !26
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = ptrtoint ptr %45 to i64
   store i64 %55, ptr %54, align 1
   %56 = load i32, ptr %34, align 8, !tbaa !29
@@ -782,7 +776,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i38: ; preds = %27
 67:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i38.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i38
   %.pre8.i39141 = phi i64 [ %66, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i38.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i38 ]
   %68 = load ptr, ptr %8, align 8, !tbaa !26
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.pre8.i39141
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.pre8.i39141
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 8 %2, i64 %.idx117, i1 false)
   %.pre.i41 = load i32, ptr %29, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit43
@@ -813,7 +807,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49: ; pr
   %80 = phi i32 [ %75, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit43 ], [ %.pre.i45, %77 ]
   %81 = load ptr, ptr %8, align 8, !tbaa !26
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = ptrtoint ptr %74 to i64
   store i64 %84, ptr %83, align 1
   %85 = load i32, ptr %29, align 8, !tbaa !29
@@ -849,7 +843,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i50: ; preds = %95, %_Z
 96:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i50
   %97 = load ptr, ptr %11, align 8, !tbaa !26
   %98 = zext i32 %.pre8.i51 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 8 %2, i64 %.idx117, i1 false)
   %.pre.i53 = load i32, ptr %91, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit55
@@ -891,7 +885,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit58: ; pr
   %118 = phi i32 [ %113, %104 ], [ %.pre.i57, %115 ]
   %119 = load ptr, ptr %11, align 8, !tbaa !26
   %120 = zext i32 %118 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %120
   %122 = ptrtoint ptr %112 to i64
   store i64 %122, ptr %121, align 1
   %123 = load i32, ptr %91, align 8, !tbaa !29
@@ -927,7 +921,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61: ; pr
   %137 = phi i32 [ %132, %129 ], [ %.pre.i60, %134 ]
   %138 = load ptr, ptr %11, align 8, !tbaa !26
   %139 = zext i32 %137 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %139
   %141 = ptrtoint ptr %131 to i64
   store i64 %141, ptr %140, align 1
   %142 = load i32, ptr %91, align 8, !tbaa !29
@@ -965,7 +959,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit64: ; pr
   %157 = phi i32 [ %152, %148 ], [ %.pre.i63, %154 ]
   %158 = load ptr, ptr %11, align 8, !tbaa !26
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = ptrtoint ptr %151 to i64
   store i64 %161, ptr %160, align 1
   %162 = load i32, ptr %91, align 8, !tbaa !29
@@ -1005,7 +999,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67: ; pr
   %178 = phi i32 [ %173, %168 ], [ %.pre.i66, %175 ]
   %179 = load ptr, ptr %11, align 8, !tbaa !26
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw ptr, ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %180
   %182 = ptrtoint ptr %172 to i64
   store i64 %182, ptr %181, align 1
   %183 = load i32, ptr %91, align 8, !tbaa !29
@@ -1138,7 +1132,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %40
 46:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i205 = phi i64 [ %45, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %47 = load ptr, ptr %6, align 8, !tbaa !26
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.pre8.i205
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.pre8.i205
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i = load i32, ptr %42, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
@@ -1173,7 +1167,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %63 = phi i32 [ %58, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %.pre.i86, %60 ]
   %64 = load ptr, ptr %6, align 8, !tbaa !26
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = ptrtoint ptr %57 to i64
   store i64 %67, ptr %66, align 1
   %68 = load i32, ptr %42, align 8, !tbaa !29
@@ -1214,7 +1208,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i87: ; preds = %35
 79:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i87.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i87
   %.pre8.i88208 = phi i64 [ %78, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i87.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i87 ]
   %80 = load ptr, ptr %8, align 8, !tbaa !26
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.pre8.i88208
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.pre8.i88208
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 8 %2, i64 %.idx177, i1 false)
   %.pre.i90 = load i32, ptr %37, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit92
@@ -1245,7 +1239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit98: ; pr
   %92 = phi i32 [ %87, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit92 ], [ %.pre.i94, %89 ]
   %93 = load ptr, ptr %8, align 8, !tbaa !26
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = ptrtoint ptr %86 to i64
   store i64 %96, ptr %95, align 1
   %97 = load i32, ptr %37, align 8, !tbaa !29
@@ -1281,7 +1275,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i99: ; preds = %107, %_
 108:                                              ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i99
   %109 = load ptr, ptr %11, align 8, !tbaa !26
   %110 = zext i32 %.pre8.i100 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %111, ptr align 8 %2, i64 %.idx177, i1 false)
   %.pre.i102 = load i32, ptr %103, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit104
@@ -1323,7 +1317,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit107: ; p
   %130 = phi i32 [ %125, %116 ], [ %.pre.i106, %127 ]
   %131 = load ptr, ptr %11, align 8, !tbaa !26
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %134 = ptrtoint ptr %124 to i64
   store i64 %134, ptr %133, align 1
   %135 = load i32, ptr %103, align 8, !tbaa !29
@@ -1368,7 +1362,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit110: ; p
   %155 = phi i32 [ %150, %141 ], [ %.pre.i109, %152 ]
   %156 = load ptr, ptr %11, align 8, !tbaa !26
   %157 = zext i32 %155 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %157
   %159 = ptrtoint ptr %149 to i64
   store i64 %159, ptr %158, align 1
   %160 = load i32, ptr %103, align 8, !tbaa !29
@@ -1412,7 +1406,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit113: ; p
   %180 = phi i32 [ %175, %166 ], [ %.pre.i112, %177 ]
   %181 = load ptr, ptr %11, align 8, !tbaa !26
   %182 = zext i32 %180 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr %181, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %182
   %184 = ptrtoint ptr %174 to i64
   store i64 %184, ptr %183, align 1
   %185 = load i32, ptr %103, align 8, !tbaa !29
@@ -1456,7 +1450,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit116: ; p
   %205 = phi i32 [ %200, %191 ], [ %.pre.i115, %202 ]
   %206 = load ptr, ptr %11, align 8, !tbaa !26
   %207 = zext i32 %205 to i64
-  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %207
   %209 = ptrtoint ptr %199 to i64
   store i64 %209, ptr %208, align 1
   %210 = load i32, ptr %103, align 8, !tbaa !29
@@ -1517,7 +1511,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit119: ; p
   %235 = phi i32 [ %230, %221 ], [ %.pre.i118, %232 ]
   %236 = load ptr, ptr %11, align 8, !tbaa !26
   %237 = zext i32 %235 to i64
-  %238 = getelementptr inbounds nuw ptr, ptr %236, i64 %237
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %237
   %239 = ptrtoint ptr %229 to i64
   store i64 %239, ptr %238, align 1
   %240 = load i32, ptr %103, align 8, !tbaa !29
@@ -1555,7 +1549,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit122: ; p
   %255 = phi i32 [ %250, %246 ], [ %.pre.i121, %252 ]
   %256 = load ptr, ptr %11, align 8, !tbaa !26
   %257 = zext i32 %255 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr %256, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %257
   %259 = ptrtoint ptr %249 to i64
   store i64 %259, ptr %258, align 1
   %260 = load i32, ptr %103, align 8, !tbaa !29
@@ -1669,7 +1663,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %26
 32:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i96 = phi i64 [ %31, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %33 = load ptr, ptr %6, align 8, !tbaa !26
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.pre8.i96
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.pre8.i96
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 8 %2, i64 %.idx83, i1 false)
   %.pre.i = load i32, ptr %28, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
@@ -1704,7 +1698,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %49 = phi i32 [ %44, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %.pre.i28, %46 ]
   %50 = load ptr, ptr %6, align 8, !tbaa !26
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = ptrtoint ptr %43 to i64
   store i64 %53, ptr %52, align 1
   %54 = load i32, ptr %28, align 8, !tbaa !29
@@ -1745,7 +1739,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i32: ; preds = %_ZN4llv
 65:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i32.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i32
   %.pre8.i3399 = phi i64 [ %64, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i32.thread ], [ 1, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i32 ]
   %66 = load ptr, ptr %9, align 8, !tbaa !26
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %.pre8.i3399
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.pre8.i3399
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i35 = load i32, ptr %22, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit37
@@ -1783,7 +1777,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit40: ; pr
   %85 = phi i32 [ %80, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit37 ], [ %.pre.i39, %82 ]
   %86 = load ptr, ptr %9, align 8, !tbaa !26
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = ptrtoint ptr %79 to i64
   store i64 %89, ptr %88, align 1
   %90 = load i32, ptr %22, align 8, !tbaa !29
@@ -1816,7 +1810,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit43: ; pr
   %103 = phi i32 [ %98, %94 ], [ %.pre.i42, %100 ]
   %104 = load ptr, ptr %9, align 8, !tbaa !26
   %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %105
   %107 = ptrtoint ptr %97 to i64
   store i64 %107, ptr %106, align 1
   %108 = load i32, ptr %22, align 8, !tbaa !29
@@ -1916,7 +1910,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %23
 29:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %.pre8.i75 = phi i64 [ %28, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i ]
   %30 = load ptr, ptr %6, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.pre8.i75
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.pre8.i75
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 8 %2, i64 %.idx64, i1 false)
   %.pre.i = load i32, ptr %25, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit
@@ -1946,7 +1940,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %42 = phi i32 [ %37, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit ], [ %.pre.i16, %39 ]
   %43 = load ptr, ptr %6, align 8, !tbaa !26
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = ptrtoint ptr %36 to i64
   store i64 %46, ptr %45, align 1
   %47 = load i32, ptr %25, align 8, !tbaa !29
@@ -1987,7 +1981,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i20: ; preds = %_ZN4llv
 58:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i20.thread, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i20
   %.pre8.i2178 = phi i64 [ %57, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i20.thread ], [ 1, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i20 ]
   %59 = load ptr, ptr %8, align 8, !tbaa !26
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.pre8.i2178
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.pre8.i2178
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 8 %2, i64 %.idx, i1 false)
   %.pre.i23 = load i32, ptr %19, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit25
@@ -2017,7 +2011,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28: ; pr
   %71 = phi i32 [ %66, %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendIPKS2_vEEvT_S7_.exit25 ], [ %.pre.i27, %68 ]
   %72 = load ptr, ptr %8, align 8, !tbaa !26
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = ptrtoint ptr %65 to i64
   store i64 %75, ptr %74, align 1
   %76 = load i32, ptr %19, align 8, !tbaa !29
@@ -2110,7 +2104,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit19: ; pr
   %35 = phi i32 [ %30, %27 ], [ %.pre.i18, %32 ]
   %36 = load ptr, ptr %6, align 8, !tbaa !26
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = ptrtoint ptr %29 to i64
   store i64 %39, ptr %38, align 1
   %40 = load i32, ptr %11, align 8, !tbaa !29
@@ -2149,7 +2143,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit22: ; pr
   %56 = phi i32 [ %51, %45 ], [ %.pre.i21, %53 ]
   %57 = load ptr, ptr %6, align 8, !tbaa !26
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = ptrtoint ptr %50 to i64
   store i64 %60, ptr %59, align 1
   %61 = load i32, ptr %11, align 8, !tbaa !29
@@ -2196,7 +2190,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25: ; pr
   %80 = phi i32 [ %75, %66 ], [ %.pre.i24, %77 ]
   %81 = load ptr, ptr %6, align 8, !tbaa !26
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = ptrtoint ptr %74 to i64
   store i64 %84, ptr %83, align 1
   %85 = load i32, ptr %11, align 8, !tbaa !29
@@ -2209,8 +2203,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25: ; pr
   %88 = phi i32 [ %.pre, %._crit_edge ], [ %86, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25 ]
   %89 = load ptr, ptr %6, align 8, !tbaa !26
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %90
-  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %3
   %93 = call noundef ptr @_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6insertIPKS2_vEEPS2_S7_T_S8_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %91, ptr noundef %2, ptr noundef %92)
   %94 = load ptr, ptr %6, align 8, !tbaa !26
   %95 = load i32, ptr %11, align 8, !tbaa !29
@@ -2238,7 +2232,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIPNS_8MetadataE
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !29
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %11
   %13 = icmp eq ptr %1, %12
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %2 to i64
@@ -2269,7 +2263,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i: ; preds = %24, %17
 
 26:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i
   %27 = zext i32 %.pre8.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.pre61, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.pre61, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 8 %2, i64 %16, i1 false)
   %.pre.i = load i32, ptr %9, align 8, !tbaa !29
   %.pre60 = load ptr, ptr %0, align 8, !tbaa !26
@@ -2336,7 +2330,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i45: ; preds = %54, %48
 56:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE7reserveEm.exit.i45
   %57 = load ptr, ptr %0, align 8, !tbaa !26
   %58 = zext i32 %.pre9.i to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %59, ptr nonnull align 8 %49, i64 %16, i1 false)
   %.pre.i46 = load i32, ptr %9, align 8, !tbaa !29
   br label %_ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendISt13move_iteratorIPS2_EvEEvT_S8_.exit
@@ -2355,7 +2349,7 @@ _ZN4llvm15SmallVectorImplIPNS_8MetadataEE6appendISt13move_iteratorIPS2_EvEEvT_S8
   %gepdiff53 = sub i64 %.idx, %65
   %66 = ashr exact i64 %gepdiff53, 3
   %67 = sub nsw i64 0, %66
-  %68 = getelementptr inbounds ptr, ptr %46, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %46, i64 %67
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %68, ptr align 8 %45, i64 %gepdiff53, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit
 
@@ -2375,9 +2369,9 @@ _ZSt13move_backwardIPPN4llvm8MetadataES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm1
 
 .lr.ph.preheader:                                 ; preds = %70
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %44, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %73
   %75 = sub nsw i64 0, %47
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %76, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
@@ -2727,7 +2721,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %85 = phi i32 [ %80, %77 ], [ %.pre.i, %82 ]
   %86 = load ptr, ptr %5, align 8, !tbaa !26
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = ptrtoint ptr %79 to i64
   store i64 %89, ptr %88, align 1
   %90 = load i32, ptr %70, align 8, !tbaa !29
@@ -2813,7 +2807,7 @@ define dso_local void @_ZN5clang7CodeGen13LoopInfoStack4pushEPN4llvm10BasicBlock
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 8, !tbaa !26
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !79
   br label %16
@@ -2835,7 +2829,7 @@ define dso_local void @_ZN5clang7CodeGen13LoopInfoStack4pushEPN4llvm10BasicBlock
 23:                                               ; preds = %16
   %24 = zext i32 %18 to i64
   %25 = load ptr, ptr %6, align 8, !tbaa !26
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   store ptr %7, ptr %26, align 8, !tbaa !79
   %27 = add nuw i32 %18, 1
   store i32 %27, ptr %8, align 8, !tbaa !29
@@ -3225,7 +3219,7 @@ _ZN5clang15getSpecificAttrINS_13CodeAlignAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEPDa
 162:                                              ; preds = %157
   %163 = load ptr, ptr %158, align 8, !tbaa !26
   %164 = zext i32 %161 to i64
-  %165 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %164
   %166 = getelementptr inbounds i8, ptr %165, i64 -8
   %167 = load ptr, ptr %166, align 8, !tbaa !79
   br label %168
@@ -3247,7 +3241,7 @@ _ZN5clang15getSpecificAttrINS_13CodeAlignAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEPDa
 175:                                              ; preds = %168
   %176 = zext i32 %170 to i64
   %177 = load ptr, ptr %158, align 8, !tbaa !26
-  %178 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %176
   store ptr %159, ptr %178, align 8, !tbaa !79
   %179 = add nuw i32 %170, 1
   store i32 %179, ptr %160, align 8, !tbaa !29
@@ -3276,7 +3270,7 @@ define dso_local void @_ZN5clang7CodeGen13LoopInfoStack3popEv(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !29
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !79
   tail call void @_ZN5clang7CodeGen8LoopInfo6finishEv(ptr noundef nonnull align 8 dereferenceable(120) %9)
@@ -3285,7 +3279,7 @@ define dso_local void @_ZN5clang7CodeGen13LoopInfoStack3popEv(ptr noundef nonnul
   store i32 %11, ptr %4, align 8, !tbaa !29
   %12 = load ptr, ptr %2, align 8, !tbaa !26
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !79
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14default_deleteIS4_EELb0EE8pop_backEv.exit, label %16
@@ -3387,7 +3381,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; pred
   %24 = phi i32 [ %15, %19 ], [ %.pre.i, %21 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !26
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = ptrtoint ptr %18 to i64
   store i64 %28, ptr %27, align 1
   %29 = load i32, ptr %7, align 8, !tbaa !29
@@ -3439,7 +3433,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %._crit_edge.threa
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load ptr, ptr %50, align 8, !tbaa !26
   %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8, !tbaa !79
   %56 = load ptr, ptr %55, align 8, !tbaa !65
@@ -3528,7 +3522,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !29
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %1, align 8, !tbaa !79
   store ptr %10, ptr %9, align 8, !tbaa !79
   %11 = load ptr, ptr %0, align 8, !tbaa !26
@@ -3616,7 +3610,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang7CodeGen8LoopInfoESt14de
   %34 = add i32 %33, 1
   store i32 %34, ptr %6, align 8, !tbaa !29
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.std::unique_ptr.18", ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %37

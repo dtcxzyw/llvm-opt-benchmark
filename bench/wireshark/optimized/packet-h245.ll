@@ -5842,7 +5842,7 @@ define hidden i32 @dissect_h245_OpenLogicalChannel(ptr noundef %0, i32 noundef %
 34:                                               ; preds = %24
   %35 = load i16, ptr @h223_fw_lc_num, align 2
   %36 = zext nneg i32 %32 to i64
-  %37 = getelementptr ptr, ptr @h223_pending_olc_reqs, i64 %36
+  %37 = getelementptr [8 x i8], ptr @h223_pending_olc_reqs, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = zext i16 %35 to i64
   %40 = inttoptr i64 %39 to ptr
@@ -11221,7 +11221,7 @@ define internal i32 @dissect_h245_OpenLogicalChannelAck(ptr noundef %0, i32 noun
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 348
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr ptr, ptr @h223_pending_olc_reqs, i64 %29
+  %30 = getelementptr [8 x i8], ptr @h223_pending_olc_reqs, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = zext i16 %21 to i64
   %33 = inttoptr i64 %32 to ptr

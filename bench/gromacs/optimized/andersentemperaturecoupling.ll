@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ThreeFry2x64General.base" = type <{ %"struct.std::array", %"struct.std::array", %"struct.std::array", i32 }>
 %"struct.std::array" = type { [2 x i64] }
 %"class.gmx::ArrayRefWithPadding" = type { ptr, ptr, ptr }
-%"class.gmx::BasicVector.85" = type { [3 x float] }
 %"class.std::unique_ptr.175" = type { %"struct.std::__uniq_ptr_data.176" }
 %"struct.std::__uniq_ptr_data.176" = type { %"class.std::__uniq_ptr_impl.177" }
 %"class.std::__uniq_ptr_impl.177" = type { %"class.std::tuple.178" }
@@ -54,13 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.299" = type { %"struct.std::_Tuple_impl.300" }
 %"struct.std::_Tuple_impl.300" = type { %"struct.std::_Head_base.303" }
 %"struct.std::_Head_base.303" = type { ptr }
-%"class.gmx::compat::not_null" = type { ptr }
-%"class.std::unique_ptr.277" = type { %"struct.std::__uniq_ptr_data.278" }
-%"struct.std::__uniq_ptr_data.278" = type { %"class.std::__uniq_ptr_impl.279" }
-%"class.std::__uniq_ptr_impl.279" = type { %"class.std::tuple.280" }
-%"class.std::tuple.280" = type { %"struct.std::_Tuple_impl.281" }
-%"struct.std::_Tuple_impl.281" = type { %"struct.std::_Head_base.284" }
-%"struct.std::_Head_base.284" = type { ptr }
 %"class.gmx::ElementNotFoundError" = type { %"class.gmx::ModularSimulatorError" }
 %"class.gmx::ModularSimulatorError" = type { %"class.gmx::GromacsException" }
 
@@ -500,7 +492,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull re
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %99
-  %107 = getelementptr inbounds nuw i16, ptr %102, i64 %indvars.iv46
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %102, i64 %indvars.iv46
   %108 = load i16, ptr %107, align 2, !tbaa !110
   %109 = zext i16 %108 to i64
   br label %110
@@ -509,7 +501,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull re
   %111 = phi i64 [ %109, %106 ], [ 0, %99 ]
   %112 = load i64, ptr %95, align 8
   %113 = inttoptr i64 %112 to ptr
-  %114 = getelementptr inbounds nuw float, ptr %113, i64 %111
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %111
   %115 = load float, ptr %114, align 4, !tbaa !32
   %116 = fcmp ugt float %115, 0.000000e+00
   br i1 %116, label %117, label %.loopexit
@@ -517,7 +509,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull re
 117:                                              ; preds = %110
   %118 = load i64, ptr %96, align 8
   %119 = inttoptr i64 %118 to ptr
-  %120 = getelementptr inbounds nuw float, ptr %119, i64 %111
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %111
   %121 = load float, ptr %120, align 4, !tbaa !32
   %122 = fcmp ugt float %121, 0.000000e+00
   br i1 %122, label %123, label %.loopexit
@@ -532,7 +524,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull re
   %128 = load ptr, ptr %127, align 8, !tbaa !51
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 880
   %130 = load ptr, ptr %129, align 8, !tbaa !112
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv46
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv46
   %132 = load i32, ptr %131, align 4, !tbaa !114
   br label %133
 
@@ -646,13 +638,13 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
   %228 = fmul double %227, 0x3F81072C483AF26D
   %229 = getelementptr inbounds nuw i8, ptr %100, i64 120
   %230 = load ptr, ptr %229, align 8, !tbaa !117
-  %231 = getelementptr inbounds nuw float, ptr %230, i64 %indvars.iv46
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %indvars.iv46
   %232 = load float, ptr %231, align 4, !tbaa !32
   %233 = fpext float %232 to double
   %234 = fmul double %228, %233
   %235 = call double @sqrt(double noundef %234) #29, !tbaa !114
   %236 = fptrunc double %235 to float
-  %237 = getelementptr inbounds nuw %"class.gmx::BasicVector.85", ptr %89, i64 %indvars.iv46
+  %237 = getelementptr inbounds nuw [12 x i8], ptr %89, i64 %indvars.iv46
   br label %238
 
 238:                                              ; preds = %224, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
@@ -673,7 +665,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
 
 ._crit_edge.i.i.i:                                ; preds = %242
   %.phi.trans.insert1.i.i.i = zext nneg i32 %239 to i64
-  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw i64, ptr %82, i64 %.phi.trans.insert1.i.i.i
+  %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.phi.trans.insert1.i.i.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i, align 8, !tbaa !22
   %244 = add nuw nsw i32 %239, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
@@ -778,12 +770,12 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   %330 = phi i32 [ %241, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %331 = phi i64 [ %.sroa.6.240, %._crit_edge.i.i ], [ %327, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
   %332 = and i64 %331, 16383
-  %333 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %332
+  %333 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %332
   %334 = load float, ptr %333, align 4, !tbaa !32
   %335 = lshr i64 %331, 14
   %336 = fadd float %334, 0.000000e+00
   %337 = fmul float %336, %236
-  %338 = getelementptr inbounds nuw float, ptr %237, i64 %indvars.iv
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %indvars.iv
   store float %337, ptr %338, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1247,13 +1239,13 @@ define noundef ptr @_ZN3gmx27AndersenTemperatureCoupling21getElementPointerImplE
   %27 = load i32, ptr %24, align 8, !tbaa !276
   %28 = sext i32 %27 to i64
   %.not.i = icmp eq ptr %26, null
-  %29 = getelementptr inbounds nuw float, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %28
   %spec.select.i = select i1 %.not.i, ptr null, ptr %29
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 816
   %31 = load ptr, ptr %30, align 8, !tbaa !277
   %.not.i37 = icmp eq ptr %31, null
-  %32 = getelementptr inbounds nuw float, ptr %31, i64 %28
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %28
   %spec.select.i38 = select i1 %.not.i37, ptr null, ptr %32
   store ptr %31, ptr %8, align 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1459,7 +1451,7 @@ _ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE11_S_reloc
 _ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE17_M_realloc_insertIJNS2_IPNS0_18ConstraintsElementILNS0_18ConstraintVariableE1EEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %114, %_ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32.i.i
   store ptr %108, ptr %11, align 8, !tbaa !286
   store ptr %113, ptr %61, align 8, !tbaa !292
-  %115 = getelementptr inbounds nuw %"class.gmx::compat::not_null", ptr %108, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %115, ptr %60, align 8, !tbaa !289
   br label %_ZNSt6vectorIN3gmx6compat8not_nullIPNS0_17ISimulatorElementEEESaIS5_EE12emplace_backIJNS2_IPNS0_18ConstraintsElementILNS0_18ConstraintVariableE1EEEEEEEERS5_DpOT_.exit
 
@@ -1535,7 +1527,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc50:                                         ; preds = %139, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i86
   store ptr %133, ptr %12, align 8, !tbaa !295
   store ptr %138, ptr %62, align 8, !tbaa !298
-  %140 = getelementptr inbounds nuw %"class.std::unique_ptr.277", ptr %133, i64 %131
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %131
   store ptr %140, ptr %63, align 8, !tbaa !299
   br label %_ZNSt10unique_ptrIN3gmx18ConstraintsElementILNS0_18ConstraintVariableE1EEESt14default_deleteIS3_EED2Ev.exit
 
@@ -1856,7 +1848,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !295
   store ptr %32, ptr %6, align 8, !tbaa !298
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.277", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !299
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_25CompositeSimulatorElementES3_IS9_EEEEERS5_DpOT_.exit.i
 
@@ -2272,7 +2264,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_25CompositeSimulatorElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !338
   store ptr %43, ptr %20, align 8, !tbaa !334
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !337
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_25CompositeSimulatorElementEEEERS2_DpOT_.exit
 

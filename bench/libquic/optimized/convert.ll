@@ -76,7 +76,7 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
 34:                                               ; preds = %25
   %35 = load ptr, ptr %.02837, align 8, !tbaa !15
   %36 = add i64 %.02640, -1
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store i64 %31, ptr %37, align 8, !tbaa !16
   br label %38
 
@@ -117,7 +117,7 @@ define hidden range(i64 0, 4294967296) i64 @BN_bn2bin(ptr noundef %0, ptr nounde
   %5 = add nsw i64 %.079, -1
   %6 = load ptr, ptr %0, align 8, !tbaa !15
   %7 = lshr i64 %5, 3
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = shl i64 %5, 3
   %11 = and i64 %10, 56
@@ -168,7 +168,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   %22 = sext i32 %21 to i64
   %isneg.not.i = icmp slt i64 %16, %20
   %23 = select i1 %isneg.not.i, i64 %16, i64 %22
-  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !16
   %26 = icmp samesign ult i64 %16, %9
   %27 = select i1 %26, i64 %25, i64 0
@@ -197,7 +197,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captur
   %39 = sext i32 %38 to i64
   %isneg.not.i23 = icmp slt i64 %34, %37
   %40 = select i1 %isneg.not.i23, i64 %34, i64 %39
-  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !16
   %43 = load i32, ptr %7, align 8, !tbaa !6
   %44 = sext i32 %43 to i64
@@ -264,7 +264,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   %26 = sext i32 %25 to i64
   %isneg.not.i.i = icmp slt i64 %20, %24
   %27 = select i1 %isneg.not.i.i, i64 %20, i64 %26
-  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !16
   %30 = icmp samesign ult i64 %20, %13
   %31 = select i1 %30, i64 %29, i64 0
@@ -293,7 +293,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
   %43 = sext i32 %42 to i64
   %isneg.not.i23.i = icmp slt i64 %38, %41
   %44 = select i1 %isneg.not.i23.i, i64 %38, i64 %43
-  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !16
   %47 = load i32, ptr %11, align 8, !tbaa !6
   %48 = sext i32 %47 to i64
@@ -379,7 +379,7 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
   %.334 = phi ptr [ %.237, %.preheader ], [ %.4, %43 ]
   %.12633 = phi i32 [ %.02536, %.preheader ], [ %.227, %43 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !15
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.next41
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.next41
   %27 = load i64, ptr %26, align 8, !tbaa !16
   %28 = lshr i64 %27, %indvars.iv
   %29 = trunc i64 %28 to i32
@@ -552,7 +552,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
 
 60:                                               ; preds = %56
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %61 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv53.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv53.i
   store i64 %58, ptr %61, align 8, !tbaa !16
   %62 = tail call i32 @llvm.usub.sat.i32(i32 %.04450.i, i32 16)
   %63 = icmp sgt i32 %62, 0
@@ -946,7 +946,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
   %indvars.iv = phi i64 [ 60, %.preheader ], [ %indvars.iv.next, %28 ]
   %.128 = phi i32 [ %.01730, %.preheader ], [ %.2, %28 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv.next35
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next35
   %20 = load i64, ptr %19, align 8, !tbaa !16
   %21 = lshr i64 %20, %indvars.iv
   %22 = icmp ne i32 %.128, 0
@@ -1076,7 +1076,7 @@ define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef
   %29 = add nsw i64 %.079.i, -1
   %30 = load ptr, ptr %0, align 8, !tbaa !15
   %31 = lshr i64 %29, 3
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !16
   %34 = shl i64 %29, 3
   %35 = and i64 %34, 56
@@ -1201,7 +1201,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
 56:                                               ; preds = %47
   %57 = load ptr, ptr %.02227, align 8, !tbaa !15
   %58 = add i64 %.02640.i, -1
-  %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   store i64 %53, ptr %59, align 8, !tbaa !16
   br label %60
 

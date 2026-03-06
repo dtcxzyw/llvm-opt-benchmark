@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %"struct.GlobalCounter::PaddedCounter" = type { [128 x i8], i64, [120 x i8] }
 %"struct.FreeListAllocator::NodeList" = type { ptr, ptr, i64 }
-%"class.FreeListAllocator::PendingList" = type { ptr, ptr, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN7LogImplILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz = comdat any
@@ -167,7 +166,7 @@ define hidden void @_ZN17FreeListAllocatorD2Ev(ptr noundef nonnull align 8 deref
   %3 = load volatile i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw %"class.FreeListAllocator::PendingList", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile ptr, ptr %7, align 8, !noalias !10
@@ -219,7 +218,7 @@ define hidden void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 d
   %3 = load volatile i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw %"class.FreeListAllocator::PendingList", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load volatile ptr, ptr %7, align 8, !noalias !13
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -246,7 +245,7 @@ define hidden noundef i64 @_ZNK17FreeListAllocator13pending_countEv(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load volatile i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw %"class.FreeListAllocator::PendingList", ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 536
   %7 = load volatile i64, ptr %6, align 8
   ret i64 %7
@@ -348,7 +347,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %2, %9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !19
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.FreeListAllocator::PendingList", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, ptr nonnull %18) #11, !srcloc !6
   %.not.i = icmp eq ptr %19, null
@@ -393,7 +392,7 @@ _ZN17FreeListAllocator11PendingList3addEPNS_8FreeNodeE.exit: ; preds = %20, %21
   store volatile i32 %38, ptr %13, align 8
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #11
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds nuw %"class.FreeListAllocator::PendingList", ptr %15, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load volatile ptr, ptr %41, align 8, !noalias !21
   %43 = load ptr, ptr %40, align 8, !noalias !21
@@ -460,7 +459,7 @@ define hidden noundef zeroext i1 @_ZN17FreeListAllocator20try_transfer_pendingEv
   tail call void @_ZN13GlobalCounter17write_synchronizeEv() #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw %"class.FreeListAllocator::PendingList", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load volatile ptr, ptr %16, align 8, !noalias !25
   %18 = load ptr, ptr %15, align 8, !noalias !25

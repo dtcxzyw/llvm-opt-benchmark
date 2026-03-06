@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.194" = type { %"class.llvm::MCValue" }
 %"class.llvm::MCDummyFragment" = type { %"class.llvm::MCFragment.base", [2 x i8] }
 %"class.llvm::MCFragment.base" = type <{ ptr, ptr, i64, i32, i8, i8 }>
-%"struct.std::pair.195" = type { i32, %"struct.llvm::MCSection::FragList" }
-%"struct.llvm::MCSection::FragList" = type { ptr, ptr }
 %"class.llvm::MCInst" = type { i32, i32, %"class.llvm::SMLoc", %"class.llvm::SmallVector.173" }
 %"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::SmallVector.173" = type { %"class.llvm::SmallVectorImpl.174", %"struct.llvm::SmallVectorStorage.177" }
@@ -32,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.176" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.177" = type { [96 x i8] }
-%"class.llvm::MCOperand" = type { i8, %union.anon.235 }
-%union.anon.235 = type { i64 }
 %"class.llvm::raw_svector_ostream" = type { %"class.llvm::raw_pwrite_stream", ptr }
 %"class.llvm::raw_pwrite_stream" = type { %"class.llvm::raw_ostream" }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
@@ -264,7 +260,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_9MCSectionELb1EE9push_backES2_.exit: ; pre
   %16 = phi i32 [ %9, %6 ], [ %.pre.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !50
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = ptrtoint ptr %1 to i64
   store i64 %20, ptr %19, align 1
   %21 = load i32, ptr %8, align 8, !tbaa !51
@@ -415,7 +411,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE6inse
   store i32 %19, ptr %9, align 4, !tbaa !58
   store ptr %2, ptr %12, align 8, !tbaa !69
   %20 = load ptr, ptr %1, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %11
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %11
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
@@ -447,7 +443,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   %32 = phi ptr [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %33 = phi i32 [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ]
   %.v.i5.i = zext i32 %33 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract14, %34
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MCSymbolEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
@@ -2177,7 +2173,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8MCSymbolELb1EE9push_backES3_.exit: ; pre
   %17 = phi i32 [ %10, %6 ], [ %.pre.i, %13 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !50
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = ptrtoint ptr %1 to i64
   store i64 %21, ptr %20, align 1
   %22 = load i32, ptr %9, align 8, !tbaa !51
@@ -3701,7 +3697,7 @@ define dso_local void @_ZN4llvm11MCAssembler6layoutEv(ptr noundef nonnull align 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_backERKS4_.exit: ; preds = %._crit_edge, %.critedge.i.i.i
   %34 = phi i64 [ 0, %._crit_edge ], [ %33, %.critedge.i.i.i ]
   %35 = phi ptr [ %25, %._crit_edge ], [ %.pre.i, %.critedge.i.i.i ]
-  %36 = getelementptr inbounds nuw %"struct.std::pair.195", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %34
   store i32 0, ptr %36, align 1
   %.sroa.4188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %29, ptr %.sroa.4188.0..sroa_idx, align 1
@@ -4293,7 +4289,7 @@ _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31.i.i.i.i: ; preds = %45, %44
   %.idx36.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i, 4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx36.i.i.i.i
   %53 = load ptr, ptr %8, align 8, !tbaa !50
-  %54 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %53, i64 %.022.i.i.i.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %.022.i.i.i.i
   %55 = sub nsw i64 %49, %.022.i.i.i.i
   %gepdiff.i.i.i.i = shl nsw i64 %55, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 8 %52, i64 %gepdiff.i.i.i.i, i1 false)

@@ -56,8 +56,8 @@ define hidden void @_ZN5nlsat6clauseC2EjjPKN3sat7literalEbPv(ptr noundef nonnull
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %21 = load i32, ptr %19, align 4, !tbaa !12
   store i32 %21, ptr %20, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -79,7 +79,7 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEN3sat7literalE(ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = icmp eq i32 %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -106,7 +106,7 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEj(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %"class.sat::literal", ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = lshr i32 %7, 1
   %9 = icmp eq i32 %8, %1

@@ -563,7 +563,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h00127fde4
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !103
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !111
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !110
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -641,7 +641,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h00127fde4
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !119
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !129
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !131, !noalias !97
@@ -2155,7 +2155,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h19906bbe8
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !520
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !528
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !527
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -2233,7 +2233,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h19906bbe8
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !536
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !546
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !545
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !547, !noalias !514
@@ -2867,7 +2867,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h20c1ece85
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !660
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !668
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !667
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -2945,7 +2945,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h20c1ece85
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !676
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !686
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !685
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !687, !noalias !654
@@ -3743,7 +3743,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h31439daab
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !850
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !858
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !857
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -3821,7 +3821,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h31439daab
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !866
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !876
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !875
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !877, !noalias !844
@@ -4535,7 +4535,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h3616eb529
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1015
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1023
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1022
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -4613,7 +4613,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h3616eb529
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1031
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1041
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1040
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1042, !noalias !1009
@@ -5331,7 +5331,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h42e23dd72
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1180
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1188
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1187
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -5409,7 +5409,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h42e23dd72
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1196
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1205
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1207, !noalias !1174
@@ -6138,7 +6138,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h434371640
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1361
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1369
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1368
   %.sroa.687.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -6216,7 +6216,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h434371640
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1377
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1387
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1386
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1388, !noalias !1355
@@ -6850,7 +6850,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h473fb39d5
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1501
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1509
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1508
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -6928,7 +6928,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h473fb39d5
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1517
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1527
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1526
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1528, !noalias !1495
@@ -7722,7 +7722,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h58cb34571
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1691
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1699
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1698
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -7800,7 +7800,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h58cb34571
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1707
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1717
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1716
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1718, !noalias !1685
@@ -8434,7 +8434,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5e701b563
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1831
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1839
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1838
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -8512,7 +8512,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h5e701b563
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1847
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1857
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1856
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1858, !noalias !1825
@@ -9146,7 +9146,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h627cbb9d0
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1971
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !1979
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !1978
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -9224,7 +9224,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h627cbb9d0
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !1987
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !1997
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !1996
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !1998, !noalias !1965
@@ -10422,7 +10422,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7d4246c77
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2286
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !2294
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !2293
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -10500,7 +10500,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h7d4246c77
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !2302
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !2312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !2311
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !2313, !noalias !2280
@@ -11214,7 +11214,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h87099f985
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2451
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !2459
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !2458
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -11292,7 +11292,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h87099f985
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !2467
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !2477
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !2476
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !2478, !noalias !2445
@@ -12166,7 +12166,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h9766f6127
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2666
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !2674
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !2673
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -12244,7 +12244,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h9766f6127
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !2682
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !2692
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !2691
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !2693, !noalias !2660
@@ -12958,7 +12958,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h9aa4ae8f0
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2831
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !2839
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !2838
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -13036,7 +13036,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h9aa4ae8f0
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !2847
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !2857
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !2856
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !2858, !noalias !2825
@@ -13750,7 +13750,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h9bcae0953
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !2996
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3004
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3003
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -13828,7 +13828,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17h9bcae0953
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3012
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3021
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3023, !noalias !2990
@@ -14622,7 +14622,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha4282902a
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3186
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3194
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3193
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -14700,7 +14700,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha4282902a
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3202
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3211
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3213, !noalias !3180
@@ -15414,7 +15414,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha69e3b61c
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3351
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3359
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3358
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -15492,7 +15492,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha69e3b61c
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3367
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3377
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3376
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3378, !noalias !3345
@@ -16126,7 +16126,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha905b8b02
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3491
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3499
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3498
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -16204,7 +16204,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha905b8b02
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3507
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3516
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3518, !noalias !3485
@@ -16838,7 +16838,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha9bfcd1f9
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3631
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3639
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3638
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -16916,7 +16916,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17ha9bfcd1f9
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3647
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3657
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3656
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3658, !noalias !3625
@@ -17630,7 +17630,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17had6e41487
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3796
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3804
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3803
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -17708,7 +17708,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17had6e41487
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3812
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3822
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3821
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3823, !noalias !3790
@@ -18422,7 +18422,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb6523d9ea
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !3961
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !3969
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !3968
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -18500,7 +18500,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb6523d9ea
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !3977
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !3987
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !3986
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !3988, !noalias !3955
@@ -19214,7 +19214,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb8576c512
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !4126
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !4134
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !4133
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -19292,7 +19292,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb8576c512
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !4142
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !4152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !4151
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !4153, !noalias !4120
@@ -19935,7 +19935,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb944b2e5b
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !4275
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %169 = getelementptr inbounds { [25 x i64] }, ptr %168, i64 %.sroa.43.0.copyload.i.i
+  %169 = getelementptr inbounds [200 x i8], ptr %168, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %169, i64 200, i1 false), !noalias !4283
   store i64 -9223372036854775807, ptr %169, align 8, !noalias !4282
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %169, i64 8
@@ -20013,7 +20013,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hb944b2e5b
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !4291
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %186 = getelementptr inbounds { [25 x i64] }, ptr %185, i64 %.sroa.43.0.copyload.i8.i
+  %186 = getelementptr inbounds [200 x i8], ptr %185, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %186, i64 200, i1 false), !noalias !4301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %186, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !4300
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !4302, !noalias !4269
@@ -20807,7 +20807,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc49ea1afa
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !4465
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !4473
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !4472
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -20885,7 +20885,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hc49ea1afa
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !4481
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !4491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !4490
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !4492, !noalias !4459
@@ -22083,7 +22083,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd832a4ecd
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !4780
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !4788
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !4787
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -22161,7 +22161,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hd832a4ecd
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !4796
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !4806
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !4805
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !4807, !noalias !4774
@@ -22955,7 +22955,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hde98f4b67
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !4970
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !4978
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !4977
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -23033,7 +23033,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hde98f4b67
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !4986
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !4996
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !4995
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !4997, !noalias !4964
@@ -23831,7 +23831,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hf3646bb13
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !5160
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !5168
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !5167
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -23909,7 +23909,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hf3646bb13
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !5176
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !5186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !5185
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !5187, !noalias !5154
@@ -24623,7 +24623,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hfac709da9
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !5325
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !5333
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !5332
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -24701,7 +24701,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hfac709da9
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !5341
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !5351
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !5350
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !5352, !noalias !5319
@@ -25335,7 +25335,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hfe4679ddd
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !5465
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 272
-  %170 = getelementptr inbounds { [25 x i64] }, ptr %169, i64 %.sroa.43.0.copyload.i.i
+  %170 = getelementptr inbounds [200 x i8], ptr %169, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef nonnull align 8 dereferenceable(200) %170, i64 200, i1 false), !noalias !5473
   store i64 -9223372036854775807, ptr %170, align 8, !noalias !5472
   %.sroa.685.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -25413,7 +25413,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator13subschema_for17hfe4679ddd
   %.sroa.43.0..sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i8.i = load i64, ptr %.sroa.43.0..sroa_idx.i7.i, align 8, !noalias !5481
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6.i, i64 272
-  %187 = getelementptr inbounds { [25 x i64] }, ptr %186, i64 %.sroa.43.0.copyload.i8.i
+  %187 = getelementptr inbounds [200 x i8], ptr %186, i64 %.sroa.43.0.copyload.i8.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %14, ptr noundef nonnull align 8 dereferenceable(200) %187, i64 200, i1 false), !noalias !5491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %187, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false), !noalias !5490
   %.pr32.i = load i64, ptr %14, align 8, !alias.scope !5492, !noalias !5459
@@ -27893,7 +27893,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9has
   %50 = add i64 %.sroa.01.0.i.i, %49
   %51 = and i64 %50, %41
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %42, i64 %52
+  %53 = getelementptr inbounds [48 x i8], ptr %42, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -32
   %.val4.i.i = load i64, ptr %54, align 8, !alias.scope !6111, !noalias !6116, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.16.val, %.val4.i.i
@@ -28038,7 +28038,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %50 = add i64 %.sroa.01.0.i.i, %49
   %51 = and i64 %50, %41
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, {} }, ptr %42, i64 %52
+  %53 = getelementptr inbounds [24 x i8], ptr %42, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %.val4.i.i = load i64, ptr %54, align 8, !alias.scope !6187, !noalias !6194, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.16.val, %.val4.i.i
@@ -28183,7 +28183,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   %50 = add i64 %.sroa.01.0.i.i, %49
   %51 = and i64 %50, %41
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %42, i64 %52
+  %53 = getelementptr inbounds [24 x i8], ptr %42, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %.val4.i.i = load i64, ptr %54, align 8, !alias.scope !6266, !noalias !6271, !noundef !4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.16.val, %.val4.i.i

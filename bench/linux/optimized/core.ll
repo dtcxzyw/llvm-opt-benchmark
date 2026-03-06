@@ -80,10 +80,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.13 = type { %struct.atomic_t }
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
-%struct.er_account = type { %struct.raw_spinlock, i64, i64, %struct.atomic_t }
-%struct.x86_hybrid_pmu = type { %struct.pmu, ptr, i32, %struct.cpumask, %union.perf_capabilities, i64, i32, i32, i32, %struct.event_constraint, [7 x [3 x [2 x i64]]], [7 x [3 x [2 x i64]]], ptr, ptr, ptr, i8, [16 x i64] }
-%struct.pmu = type { %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, %struct.atomic_t, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.intel_excl_states = type { [64 x i32], i8 }
 %struct.perf_sample_data = type { i64, i64, i64, i64, %struct.anon.33, i64, i64, %struct.anon.34, i64, ptr, ptr, ptr, ptr, %union.perf_sample_weight, %union.perf_mem_data_src, i64, %struct.perf_regs, %struct.perf_regs, i64, i64, i64, i64, i64, i64, i64, i64, [32 x i8] }
 %struct.anon.33 = type { i32, i32 }
 %struct.anon.34 = type { i32, i32 }
@@ -744,7 +740,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_cpuc_prepare(ptr noundef c
 
 .thread:                                          ; preds = %2, %5
   %11 = sext i32 %1 to i64
-  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
+  %12 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, ptrtoint (ptr @numa_node to i64)
   %15 = inttoptr i64 %14 to ptr
@@ -756,7 +752,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_cpuc_prepare(ptr noundef c
 
 .preheader:                                       ; preds = %.thread, %.preheader
   %20 = phi i64 [ %22, %.preheader ], [ 0, %.thread ]
-  %21 = getelementptr %struct.er_account, ptr %18, i64 %20
+  %21 = getelementptr [32 x i8], ptr %18, i64 %20
   store i32 0, ptr %21, align 8
   %22 = add nuw nsw i64 %20, 1
   %23 = icmp eq i64 %22, 7
@@ -777,7 +773,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_cpuc_prepare(ptr noundef c
 
 31:                                               ; preds = %27
   %32 = sext i32 %1 to i64
-  %33 = getelementptr i64, ptr @__per_cpu_offset, i64 %32
+  %33 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, ptrtoint (ptr @numa_node to i64)
   %36 = inttoptr i64 %35 to ptr
@@ -801,7 +797,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_cpuc_prepare(ptr noundef c
 
 46:                                               ; preds = %42
   %47 = sext i32 %1 to i64
-  %48 = getelementptr i64, ptr @__per_cpu_offset, i64 %47
+  %48 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %47
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, ptrtoint (ptr @numa_node to i64)
   %51 = inttoptr i64 %50 to ptr
@@ -1693,8 +1689,8 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %273 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
   %274 = add i32 %265, 1
   %275 = sext i32 %265 to i64
-  %276 = getelementptr %struct.x86_hybrid_pmu, ptr %273, i64 %275
-  %277 = getelementptr %struct.anon.39, ptr @intel_hybrid_pmu_type_map, i64 %270
+  %276 = getelementptr [1232 x i8], ptr %273, i64 %275
+  %277 = getelementptr [16 x i8], ptr @intel_hybrid_pmu_type_map, i64 %270
   %278 = load i32, ptr %277, align 16
   %279 = getelementptr inbounds nuw i8, ptr %276, i64 312
   store i32 %278, ptr %279, align 8
@@ -2018,8 +2014,8 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 624), align 8
   %431 = add i32 %422, 1
   %432 = sext i32 %422 to i64
-  %433 = getelementptr %struct.x86_hybrid_pmu, ptr %430, i64 %432
-  %434 = getelementptr %struct.anon.39, ptr @intel_hybrid_pmu_type_map, i64 %427
+  %433 = getelementptr [1232 x i8], ptr %430, i64 %432
+  %434 = getelementptr [16 x i8], ptr @intel_hybrid_pmu_type_map, i64 %427
   %435 = load i32, ptr %434, align 16
   %436 = getelementptr inbounds nuw i8, ptr %433, i64 312
   store i32 %435, ptr %436, align 8
@@ -2289,7 +2285,7 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
 548:                                              ; preds = %547, %544
   %549 = phi i32 [ 16, %547 ], [ %545, %544 ]
   %550 = sext i32 %549 to i64
-  %.split = getelementptr %struct.event_constraint, ptr @intel_v5_gen_event_constraints, i64 %550
+  %.split = getelementptr [40 x i8], ptr @intel_v5_gen_event_constraints, i64 %550
   %551 = getelementptr i8, ptr %.split, i64 24
   store i32 -1, ptr %551, align 8
   store ptr @intel_v5_gen_event_constraints, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 240), align 8
@@ -2642,10 +2638,10 @@ define internal void @intel_arch_events_quirk() #2 section ".init.text" align 16
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %8
-  %14 = getelementptr %struct.anon.38, ptr @intel_arch_events_map, i64 %11
+  %14 = getelementptr [16 x i8], ptr @intel_arch_events_map, i64 %11
   %15 = load i32, ptr %14, align 16
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i64, ptr @intel_perfmon_event_map, i64 %16
+  %17 = getelementptr [8 x i8], ptr @intel_perfmon_event_map, i64 %16
   store i64 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -2690,7 +2686,7 @@ define internal void @intel_pmu_nhm_enable_all(i32 noundef %0) #1 align 16 {
 
 6:                                                ; preds = %13, %3
   %7 = phi i64 [ 0, %3 ], [ %14, %13 ]
-  %8 = getelementptr ptr, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
@@ -2706,7 +2702,7 @@ define internal void @intel_pmu_nhm_enable_all(i32 noundef %0) #1 align 16 {
 
 .preheader:                                       ; preds = %13, %28
   %16 = phi i64 [ %29, %28 ], [ 0, %13 ]
-  %17 = getelementptr i64, ptr @intel_pmu_nhm_workaround.nhm_magic, i64 %16
+  %17 = getelementptr [8 x i8], ptr @intel_pmu_nhm_workaround.nhm_magic, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
   %20 = lshr i64 %18, 32
@@ -2759,7 +2755,7 @@ define internal void @intel_pmu_nhm_enable_all(i32 noundef %0) #1 align 16 {
 
 35:                                               ; preds = %.preheader9, %47
   %36 = phi i64 [ %48, %47 ], [ 0, %.preheader9 ]
-  %37 = getelementptr ptr, ptr %5, i64 %36
+  %37 = getelementptr [8 x i8], ptr %5, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %43, label %40
@@ -3231,7 +3227,7 @@ define internal ptr @tfa_get_event_constraints(ptr noundef captures(none) %0, i3
 32:                                               ; preds = %27
   %33 = load ptr, ptr %23, align 8
   %34 = sext i32 %1 to i64
-  %35 = getelementptr %struct.event_constraint, ptr %33, i64 %34
+  %35 = getelementptr [40 x i8], ptr %33, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %35, ptr noundef align 8 dereferenceable(40) %15, i64 40, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8
@@ -4542,7 +4538,7 @@ define internal noundef i32 @fixup_ht_bug() #2 section ".init.text" align 16 {
 
 20:                                               ; preds = %16
   %21 = and i64 %17, 63
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr @cpu_hw_events to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -4625,7 +4621,7 @@ define internal void @core_pmu_enable_all(i32 %0) #1 align 16 {
 
 8:                                                ; preds = %23, %6
   %9 = phi i64 [ 0, %6 ], [ %24, %23 ]
-  %10 = getelementptr ptr, ptr %3, i64 %9
+  %10 = getelementptr [8 x i8], ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 360
   %13 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %9) #23, !srcloc !43
@@ -4790,7 +4786,7 @@ declare dso_local i32 @x86_schedule_events(ptr noundef, i32 noundef, ptr noundef
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define internal i64 @intel_pmu_event_map(i32 noundef %0) #14 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @intel_perfmon_event_map, i64 %2
+  %3 = getelementptr [8 x i8], ptr @intel_perfmon_event_map, i64 %2
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -4799,7 +4795,7 @@ define internal i64 @intel_pmu_event_map(i32 noundef %0) #14 align 16 {
 define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %5 = sext i32 %1 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %9 = load i64, ptr %8, align 8
@@ -4882,7 +4878,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %39, align 8
   %67 = sext i32 %66 to i64
-  %.split = getelementptr %struct.er_account, ptr %65, i64 %67
+  %.split = getelementptr [32 x i8], ptr %65, i64 %67
   %68 = getelementptr i8, ptr %.split, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %68, ptr elementtype(i32) %68) #23, !srcloc !77
   store i32 0, ptr %56, align 4
@@ -5036,7 +5032,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
 
 157:                                              ; preds = %152
   %158 = load ptr, ptr %148, align 8
-  %159 = getelementptr %struct.event_constraint, ptr %158, i64 %5
+  %159 = getelementptr [40 x i8], ptr %158, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %159, ptr noundef align 8 dereferenceable(40) %133, i64 40, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load i32, ptr %160, align 8
@@ -5050,7 +5046,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
   %166 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %167 = xor i32 %139, 1
   %168 = sext i32 %167 to i64
-  %169 = getelementptr %struct.intel_excl_states, ptr %166, i64 %168
+  %169 = getelementptr [260 x i8], ptr %166, i64 %168
   %170 = and i32 %164, 32
   %.not = icmp eq i32 %170, 0
   br i1 %.not, label %.split17.us.preheader, label %171
@@ -5075,7 +5071,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
 182:                                              ; preds = %176
   %183 = getelementptr inbounds nuw i8, ptr %135, i64 524
   %184 = sext i32 %139 to i64
-  %185 = getelementptr i16, ptr %183, i64 %184
+  %185 = getelementptr [2 x i8], ptr %183, i64 %184
   store volatile i16 1, ptr %185, align 2
   br label %.split17.preheader
 
@@ -5107,7 +5103,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
 200:                                              ; preds = %196
   %201 = shl i64 %197, 32
   %202 = ashr exact i64 %201, 32
-  %203 = getelementptr i32, ptr %169, i64 %202
+  %203 = getelementptr [4 x i8], ptr %169, i64 %202
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %204, 2
   br i1 %205, label %206, label %208
@@ -5142,7 +5138,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
 223:                                              ; preds = %219
   %224 = shl i64 %220, 32
   %225 = ashr exact i64 %224, 32
-  %226 = getelementptr i32, ptr %169, i64 %225
+  %226 = getelementptr [4 x i8], ptr %169, i64 %225
   %227 = load i32, ptr %226, align 4
   switch i32 %227, label %232 [
     i32 2, label %228
@@ -5200,7 +5196,7 @@ define internal ptr @intel_get_event_constraints(ptr noundef captures(none) %0, 
 
 254:                                              ; preds = %249
   %255 = load ptr, ptr %245, align 8
-  %256 = getelementptr %struct.event_constraint, ptr %255, i64 %5
+  %256 = getelementptr [40 x i8], ptr %255, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %256, ptr noundef align 8 dereferenceable(40) %133, i64 40, i1 false)
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 32
   %258 = load i32, ptr %257, align 8
@@ -5256,7 +5252,7 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %4 to i64
-  %.split = getelementptr %struct.er_account, ptr %16, i64 %17
+  %.split = getelementptr [32 x i8], ptr %16, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #23, !srcloc !77
   store i32 0, ptr %7, align 4
@@ -5284,7 +5280,7 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %21 to i64
-  %.split3 = getelementptr %struct.er_account, ptr %33, i64 %34
+  %.split3 = getelementptr [32 x i8], ptr %33, i64 %34
   %35 = getelementptr i8, ptr %.split3, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %35, ptr elementtype(i32) %35) #23, !srcloc !77
   store i32 0, ptr %24, align 4
@@ -5324,7 +5320,7 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 524
   %59 = sext i32 %42 to i64
-  %60 = getelementptr i16, ptr %58, i64 %59
+  %60 = getelementptr [2 x i8], ptr %58, i64 %59
   store volatile i16 0, ptr %60, align 2
   br label %61
 
@@ -5337,7 +5333,7 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %67 = sext i32 %42 to i64
-  %68 = getelementptr %struct.intel_excl_states, ptr %66, i64 %67
+  %68 = getelementptr [260 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 256
   %70 = load i8, ptr %69, align 4, !range !31, !noundef !32
   %71 = icmp eq i8 %70, 0
@@ -5351,7 +5347,7 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
 73:                                               ; preds = %72, %65
   %74 = phi i32 [ %.pre, %72 ], [ %63, %65 ]
   %75 = sext i32 %74 to i64
-  %76 = getelementptr i32, ptr %68, i64 %75
+  %76 = getelementptr [4 x i8], ptr %68, i64 %75
   store i32 0, ptr %76, align 4
   %77 = load i8, ptr %69, align 4, !range !31, !noundef !32
   %78 = icmp eq i8 %77, 0
@@ -5368,7 +5364,7 @@ define internal void @intel_put_event_constraints(ptr noundef captures(none) %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @intel_pmu_cpu_prepare(i32 noundef %0) #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hw_events to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -5379,7 +5375,7 @@ define internal noundef range(i32 -12, 1) i32 @intel_pmu_cpu_prepare(i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @intel_pmu_cpu_starting(i32 noundef %0) #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hw_events to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -5428,7 +5424,7 @@ define internal void @intel_pmu_cpu_starting(i32 noundef %0) #1 align 16 {
 
 35:                                               ; preds = %32, %27
   %36 = phi i64 [ %33, %32 ], [ 0, %27 ]
-  %37 = getelementptr %struct.x86_hybrid_pmu, ptr %28, i64 %36
+  %37 = getelementptr [1232 x i8], ptr %28, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 312
   %39 = load i32, ptr %38, align 8
   %40 = icmp ne i32 %39, 2
@@ -5824,7 +5820,7 @@ define internal void @intel_pmu_cpu_starting(i32 noundef %0) #1 align 16 {
 
 274:                                              ; preds = %270
   %275 = and i64 %271, 63
-  %276 = getelementptr i64, ptr @__per_cpu_offset, i64 %275
+  %276 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %275
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %277, ptrtoint (ptr @cpu_hw_events to i64)
   %279 = inttoptr i64 %278 to ptr
@@ -5901,7 +5897,7 @@ define internal void @intel_pmu_cpu_starting(i32 noundef %0) #1 align 16 {
 
 322:                                              ; preds = %318
   %323 = and i64 %319, 63
-  %324 = getelementptr i64, ptr @__per_cpu_offset, i64 %323
+  %324 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %323
   %325 = load i64, ptr %324, align 8
   %326 = add i64 %325, ptrtoint (ptr @cpu_hw_events to i64)
   %327 = inttoptr i64 %326 to ptr
@@ -5968,7 +5964,7 @@ define internal void @intel_pmu_cpu_dying(i32 noundef %0) #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @intel_pmu_cpu_dead(i32 noundef %0) #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hw_events to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -6078,7 +6074,7 @@ define internal nonnull ptr @core_guest_get_msrs(ptr noundef writeonly captures(
 
 10:                                               ; preds = %43, %8
   %11 = phi i64 [ 0, %8 ], [ %44, %43 ]
-  %12 = getelementptr ptr, ptr %4, i64 %11
+  %12 = getelementptr [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 120), align 8
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 128), align 8
@@ -6093,7 +6089,7 @@ define internal nonnull ptr @core_guest_get_msrs(ptr noundef writeonly captures(
 20:                                               ; preds = %18, %10
   %21 = phi i32 [ %19, %18 ], [ %17, %10 ]
   %22 = add i32 %21, %14
-  %23 = getelementptr %struct.perf_guest_switch_msr, ptr %5, i64 %11
+  %23 = getelementptr [24 x i8], ptr %5, i64 %11
   store i32 %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -6281,7 +6277,7 @@ define internal fastcc noundef ptr @__intel_shared_reg_get_constraints(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %5 to i64
-  %17 = getelementptr %struct.er_account, ptr %15, i64 %16
+  %17 = getelementptr [32 x i8], ptr %15, i64 %16
   %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %17) #23
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load volatile i32, ptr %19, align 4
@@ -6405,7 +6401,7 @@ define internal fastcc noundef ptr @__intel_shared_reg_get_constraints(ptr nound
   %89 = icmp eq i32 %27, 1
   %90 = select i1 %89, i32 0, i32 %88
   %91 = sext i32 %90 to i64
-  %.split = getelementptr %struct.extra_reg, ptr %87, i64 %91
+  %.split = getelementptr [32 x i8], ptr %87, i64 %91
   %92 = getelementptr i8, ptr %.split, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = xor i64 %93, -1
@@ -6424,7 +6420,7 @@ define internal fastcc noundef ptr @__intel_shared_reg_get_constraints(ptr nound
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %26, i64 noundef %25) #23
   %103 = load ptr, ptr %14, align 8
   %104 = sext i32 %99 to i64
-  %105 = getelementptr %struct.er_account, ptr %103, i64 %104
+  %105 = getelementptr [32 x i8], ptr %103, i64 %104
   %106 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %105) #23
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %108 = load volatile i32, ptr %107, align 4
@@ -6989,7 +6985,7 @@ define internal i32 @intel_pmu_handle_irq(ptr noundef %0) #1 align 16 {
 263:                                              ; preds = %259
   %264 = shl i64 %260, 32
   %265 = ashr exact i64 %264, 32
-  %266 = getelementptr ptr, ptr %194, i64 %265
+  %266 = getelementptr [8 x i8], ptr %194, i64 %265
   %267 = load ptr, ptr %266, align 8
   %268 = add i32 %254, 1
   %269 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %251, i64 %265) #23, !srcloc !43
@@ -8284,7 +8280,7 @@ define internal nonnull ptr @intel_guest_get_msrs(ptr noundef captures(none) ini
   %37 = add i32 %36, 1
   store i32 %37, ptr %0, align 4
   %38 = sext i32 %36 to i64
-  %39 = getelementptr %struct.perf_guest_switch_msr, ptr %5, i64 %38
+  %39 = getelementptr [24 x i8], ptr %5, i64 %38
   %40 = load i64, ptr %14, align 8
   store i32 1009, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -8305,7 +8301,7 @@ define internal nonnull ptr @intel_guest_get_msrs(ptr noundef captures(none) ini
   %50 = add i32 %49, 1
   store i32 %50, ptr %0, align 4
   %51 = sext i32 %49 to i64
-  %52 = getelementptr %struct.perf_guest_switch_msr, ptr %5, i64 %51
+  %52 = getelementptr [24 x i8], ptr %5, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 2360
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
@@ -8326,7 +8322,7 @@ define internal nonnull ptr @intel_guest_get_msrs(ptr noundef captures(none) ini
   %65 = add i32 %64, 1
   store i32 %65, ptr %0, align 4
   %66 = sext i32 %64 to i64
-  %67 = getelementptr %struct.perf_guest_switch_msr, ptr %5, i64 %66
+  %67 = getelementptr [24 x i8], ptr %5, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 2416
   %69 = load i64, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 760
@@ -8343,7 +8339,7 @@ define internal nonnull ptr @intel_guest_get_msrs(ptr noundef captures(none) ini
   %76 = add i32 %75, 1
   store i32 %76, ptr %0, align 4
   %77 = sext i32 %75 to i64
-  %78 = getelementptr %struct.perf_guest_switch_msr, ptr %5, i64 %77
+  %78 = getelementptr [24 x i8], ptr %5, i64 %77
   %79 = load i64, ptr %14, align 8
   %80 = load i64, ptr %18, align 8
   %81 = xor i64 %80, -1
@@ -8824,7 +8820,7 @@ define internal void @intel_commit_scheduling(ptr noundef readonly captures(none
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %7 = sext i32 %1 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %11 = load i32, ptr %10, align 8
@@ -8859,11 +8855,11 @@ define internal void @intel_commit_scheduling(ptr noundef readonly captures(none
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = sext i32 %11 to i64
-  %30 = getelementptr %struct.intel_excl_states, ptr %28, i64 %29
+  %30 = getelementptr [260 x i8], ptr %28, i64 %29
   %31 = and i32 %24, 32
   %32 = icmp eq i32 %31, 0
   %33 = sext i32 %2 to i64
-  %34 = getelementptr i32, ptr %30, i64 %33
+  %34 = getelementptr [4 x i8], ptr %30, i64 %33
   br i1 %32, label %36, label %35
 
 35:                                               ; preds = %27
@@ -9311,7 +9307,7 @@ define internal zeroext i16 @hybrid_tsx_is_visible(ptr noundef readonly captures
 
 26:                                               ; preds = %18
   %27 = zext nneg i32 %16 to i64
-  %28 = getelementptr i64, ptr @__per_cpu_offset, i64 %27
+  %28 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, ptrtoint (ptr @cpu_info to i64)
   %31 = inttoptr i64 %30 to ptr

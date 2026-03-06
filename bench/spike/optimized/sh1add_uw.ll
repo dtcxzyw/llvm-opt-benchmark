@@ -124,16 +124,16 @@ define noundef i64 @_Z20fast_rv64i_sh1add_uwP11processor_t6insn_tm(ptr noundef c
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %17 = lshr i64 %1, 15
   %18 = and i64 %17, 31
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = shl i64 %20, 1
   %22 = and i64 %21, 8589934590
   %23 = lshr i64 %1, 20
   %24 = and i64 %23, 31
-  %25 = getelementptr inbounds nuw i64, ptr %16, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = add i64 %22, %26
-  %28 = getelementptr inbounds nuw i64, ptr %16, i64 %14
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %14
   store i64 %27, ptr %28, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -184,13 +184,13 @@ define noundef i64 @_Z22logged_rv64i_sh1add_uwP11processor_t6insn_tm(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %15 = lshr i64 %1, 15
   %16 = and i64 %15, 31
-  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = shl i64 %18, 1
   %20 = and i64 %19, 8589934590
   %21 = lshr i64 %1, 20
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw i64, ptr %14, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !14
   %25 = add i64 %20, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -208,7 +208,7 @@ define noundef i64 @_Z22logged_rv64i_sh1add_uwP11processor_t6insn_tm(ptr noundef
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %31
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds nuw i64, ptr %14, i64 %28
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %28
   store i64 %25, ptr %32, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -397,14 +397,14 @@ define noundef i64 @_Z20fast_rv64e_sh1add_uwP11processor_t6insn_tm(ptr noundef c
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i64, ptr %31, i64 %23
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %23
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = shl i64 %43, 1
   %45 = and i64 %44, 8589934590
-  %46 = getelementptr inbounds nuw i64, ptr %31, i64 %33
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   %47 = load i64, ptr %46, align 8, !tbaa !14
   %48 = add i64 %45, %47
-  %49 = getelementptr inbounds nuw i64, ptr %31, i64 %14
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %14
   store i64 %48, ptr %49, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -504,11 +504,11 @@ define noundef i64 @_Z22logged_rv64e_sh1add_uwP11processor_t6insn_tm(ptr noundef
   unreachable
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds nuw i64, ptr %32, i64 %24
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %24
   %43 = load i64, ptr %42, align 8, !tbaa !14
   %44 = shl i64 %43, 1
   %45 = and i64 %44, 8589934590
-  %46 = getelementptr inbounds nuw i64, ptr %32, i64 %34
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   %47 = load i64, ptr %46, align 8, !tbaa !14
   %48 = add i64 %45, %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -524,7 +524,7 @@ define noundef i64 @_Z22logged_rv64e_sh1add_uwP11processor_t6insn_tm(ptr noundef
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %52
 
 52:                                               ; preds = %41
-  %53 = getelementptr inbounds nuw i64, ptr %32, i64 %15
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %15
   store i64 %48, ptr %53, align 8, !tbaa !14
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 

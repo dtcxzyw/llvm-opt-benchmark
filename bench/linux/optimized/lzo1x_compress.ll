@@ -86,7 +86,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %44 = mul i32 %41, 405029533
   %45 = lshr i32 %44, 19
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr i16, ptr %4, i64 %46
+  %47 = getelementptr [2 x i8], ptr %4, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i64
   %50 = getelementptr i8, ptr %17, i64 %49
@@ -103,7 +103,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %58 = mul i32 %57, 405029533
   %59 = lshr i32 %58, 19
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr i16, ptr %4, i64 %60
+  %61 = getelementptr [2 x i8], ptr %4, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i64
   %64 = getelementptr i8, ptr %17, i64 %63
@@ -229,7 +229,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %135 = mul i32 %133, 405029533
   %136 = lshr i32 %135, 19
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr i16, ptr %4, i64 %137
+  %138 = getelementptr [2 x i8], ptr %4, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i64
   %141 = getelementptr i8, ptr %17, i64 %140

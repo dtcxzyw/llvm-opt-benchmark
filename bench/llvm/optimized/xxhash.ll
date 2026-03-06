@@ -535,14 +535,14 @@ define internal fastcc noundef i64 @_ZL17XXH3_hashLong_64bPKhmS0_m(ptr noundef r
   %.0.copyload.i.i.i.i.i.i36 = load i64, ptr %17, align 8
   %18 = xor i64 %.0.copyload.i.i.i.i.i.i36, %.0.copyload.i.i.i.i.i.i
   %19 = xor i64 %.0.i315, 1
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !13
   %22 = add i64 %21, %.0.copyload.i.i.i.i.i.i
   store i64 %22, ptr %20, align 8, !tbaa !13
   %23 = and i64 %18, 4294967295
   %24 = lshr i64 %18, 32
   %25 = mul nuw i64 %23, %24
-  %26 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i315
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i315
   %27 = load i64, ptr %26, align 8, !tbaa !13
   %28 = add i64 %27, %25
   store i64 %28, ptr %26, align 8, !tbaa !13
@@ -569,14 +569,14 @@ _ZL15XXH3_accumulatePmPKhS1_m.exit29:             ; preds = %_ZL26XXH3_accumulat
   %.0.copyload.i.i.i.i.i.i38 = load i64, ptr %36, align 1
   %37 = xor i64 %.0.copyload.i.i.i.i.i.i38, %.0.copyload.i.i.i.i.i.i37
   %38 = xor i64 %.0.i349, 1
-  %39 = getelementptr inbounds nuw i64, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !13
   %41 = add i64 %40, %.0.copyload.i.i.i.i.i.i37
   store i64 %41, ptr %39, align 8, !tbaa !13
   %42 = and i64 %37, 4294967295
   %43 = lshr i64 %37, 32
   %44 = mul nuw i64 %42, %43
-  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i349
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i349
   %46 = load i64, ptr %45, align 8, !tbaa !13
   %47 = add i64 %46, %44
   store i64 %47, ptr %45, align 8, !tbaa !13
@@ -645,14 +645,14 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %50
   %.0.copyload.i.i.i.i.i.i40 = load i64, ptr %80, align 8
   %81 = xor i64 %.0.copyload.i.i.i.i.i.i40, %.0.copyload.i.i.i.i.i.i39
   %82 = xor i64 %.0.i321, 1
-  %83 = getelementptr inbounds nuw i64, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !13
   %85 = add i64 %84, %.0.copyload.i.i.i.i.i.i39
   store i64 %85, ptr %83, align 8, !tbaa !13
   %86 = and i64 %81, 4294967295
   %87 = lshr i64 %81, 32
   %88 = mul nuw i64 %86, %87
-  %89 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i321
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i321
   %90 = load i64, ptr %89, align 8, !tbaa !13
   %91 = add i64 %90, %88
   store i64 %91, ptr %89, align 8, !tbaa !13
@@ -667,7 +667,7 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33:   ; preds = %77
 
 _ZL15XXH3_accumulatePmPKhS1_m.exit:               ; preds = %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33, %_ZL15XXH3_accumulatePmPKhS1_m.exit
   %.0.i303 = phi i64 [ %102, %_ZL15XXH3_accumulatePmPKhS1_m.exit ], [ 0, %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit33 ]
-  %94 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i303
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i303
   %95 = load i64, ptr %94, align 8, !tbaa !13
   %96 = lshr i64 %95, 47
   %97 = shl nuw nsw i64 %.0.i303, 3
@@ -1039,14 +1039,14 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit:         ; preds = %115, %177
   %.0.copyload.i.i.i.i.i.i92 = load i64, ptr %265, align 8
   %266 = xor i64 %.0.copyload.i.i.i.i.i.i92, %.0.copyload.i.i.i.i.i.i91
   %267 = xor i64 %.0.i18108, 1
-  %268 = getelementptr inbounds nuw i64, ptr %3, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %267
   %269 = load i64, ptr %268, align 8, !tbaa !13
   %270 = add i64 %269, %.0.copyload.i.i.i.i.i.i91
   store i64 %270, ptr %268, align 8, !tbaa !13
   %271 = and i64 %266, 4294967295
   %272 = lshr i64 %266, 32
   %273 = mul nuw i64 %271, %272
-  %274 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i18108
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i18108
   %275 = load i64, ptr %274, align 8, !tbaa !13
   %276 = add i64 %275, %273
   store i64 %276, ptr %274, align 8, !tbaa !13
@@ -1061,7 +1061,7 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19:   ; preds = %262
 
 _ZL15XXH3_accumulatePmPKhS1_m.exit:               ; preds = %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19, %_ZL15XXH3_accumulatePmPKhS1_m.exit
   %.0.i16110 = phi i64 [ %287, %_ZL15XXH3_accumulatePmPKhS1_m.exit ], [ 0, %_ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit19 ]
-  %279 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i16110
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i16110
   %280 = load i64, ptr %279, align 8, !tbaa !13
   %281 = lshr i64 %280, 47
   %282 = shl nuw nsw i64 %.0.i16110, 3
@@ -1105,14 +1105,14 @@ _Z18XXH3_hashLong_128bPKhmS0_m.exit:              ; preds = %_ZL23XXH3_scrambleA
   %.0.copyload.i.i.i.i.i.i95 = load i64, ptr %300, align 8
   %301 = xor i64 %.0.copyload.i.i.i.i.i.i95, %.0.copyload.i.i.i.i.i.i94
   %302 = xor i64 %.0.i17112, 1
-  %303 = getelementptr inbounds nuw i64, ptr %3, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %302
   %304 = load i64, ptr %303, align 8, !tbaa !13
   %305 = add i64 %304, %.0.copyload.i.i.i.i.i.i94
   store i64 %305, ptr %303, align 8, !tbaa !13
   %306 = and i64 %301, 4294967295
   %307 = lshr i64 %301, 32
   %308 = mul nuw i64 %306, %307
-  %309 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i17112
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i17112
   %310 = load i64, ptr %309, align 8, !tbaa !13
   %311 = add i64 %310, %308
   store i64 %311, ptr %309, align 8, !tbaa !13
@@ -1139,14 +1139,14 @@ _ZL15XXH3_accumulatePmPKhS1_m.exit15:             ; preds = %_ZL26XXH3_accumulat
   %.0.copyload.i.i.i.i.i.i97 = load i64, ptr %319, align 1
   %320 = xor i64 %.0.copyload.i.i.i.i.i.i97, %.0.copyload.i.i.i.i.i.i96
   %321 = xor i64 %.0.i20115, 1
-  %322 = getelementptr inbounds nuw i64, ptr %3, i64 %321
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %321
   %323 = load i64, ptr %322, align 8, !tbaa !13
   %324 = add i64 %323, %.0.copyload.i.i.i.i.i.i96
   store i64 %324, ptr %322, align 8, !tbaa !13
   %325 = and i64 %320, 4294967295
   %326 = lshr i64 %320, 32
   %327 = mul nuw i64 %325, %326
-  %328 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i20115
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i20115
   %329 = load i64, ptr %328, align 8, !tbaa !13
   %330 = add i64 %329, %327
   store i64 %330, ptr %328, align 8, !tbaa !13

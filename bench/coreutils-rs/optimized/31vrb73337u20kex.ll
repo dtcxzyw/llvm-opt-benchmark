@@ -679,7 +679,7 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 no
 
 10:                                               ; preds = %.lr.ph
   %11 = sub nsw i64 0, %.0141
-  %12 = getelementptr inbounds i32, ptr %.099140, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %.099140, i64 %11
   %13 = load i32, ptr %12, align 4, !noundef !4
   br label %.outer
 
@@ -704,21 +704,21 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 no
 17:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.088)
   %18 = sub nsw i64 0, %.0141
-  %19 = getelementptr inbounds i32, ptr %.099140, i64 %18
-  %20 = getelementptr inbounds i32, ptr %19, i64 %.0102139
+  %19 = getelementptr inbounds [4 x i8], ptr %.099140, i64 %18
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %.0102139
   %.not117 = icmp ugt i64 %.0141, %.0102139
   br i1 %.not117, label %44, label %47
 
 21:                                               ; preds = %.preheader, %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit
   %.1103 = phi i64 [ %30, %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit ], [ %.0102139, %.preheader ]
   %.1100 = phi ptr [ %29, %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit ], [ %.099140, %.preheader ]
-  %22 = getelementptr inbounds i32, ptr %.1100, i64 %16
+  %22 = getelementptr inbounds [4 x i8], ptr %.1100, i64 %16
   br label %23
 
 23:                                               ; preds = %23, %21
   %.0910.i = phi i64 [ 0, %21 ], [ %28, %23 ]
-  %24 = getelementptr inbounds i32, ptr %22, i64 %.0910.i
-  %25 = getelementptr inbounds i32, ptr %.1100, i64 %.0910.i
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %.0910.i
+  %25 = getelementptr inbounds [4 x i8], ptr %.1100, i64 %.0910.i
   %26 = load i32, ptr %24, align 4
   %27 = load i32, ptr %25, align 4
   store i32 %27, ptr %24, align 4
@@ -728,7 +728,7 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 no
   br i1 %exitcond.not.i, label %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit, label %23
 
 _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit: ; preds = %23
-  %29 = getelementptr inbounds i32, ptr %.1100, i64 %.0141
+  %29 = getelementptr inbounds [4 x i8], ptr %.1100, i64 %.0141
   %30 = sub i64 %.1103, %.0141
   %31 = icmp ult i64 %30, %.0141
   br i1 %31, label %.loopexit, label %21
@@ -745,13 +745,13 @@ _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit: ; preds = %23
 34:                                               ; preds = %.preheader124, %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit122
   %.2101 = phi ptr [ %35, %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit122 ], [ %.099140, %.preheader124 ]
   %.1 = phi i64 [ %42, %_ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit122 ], [ %.0141, %.preheader124 ]
-  %35 = getelementptr inbounds i32, ptr %.2101, i64 %15
+  %35 = getelementptr inbounds [4 x i8], ptr %.2101, i64 %15
   br label %36
 
 36:                                               ; preds = %36, %34
   %.0910.i120 = phi i64 [ 0, %34 ], [ %41, %36 ]
-  %37 = getelementptr inbounds i32, ptr %35, i64 %.0910.i120
-  %38 = getelementptr inbounds i32, ptr %.2101, i64 %.0910.i120
+  %37 = getelementptr inbounds [4 x i8], ptr %35, i64 %.0910.i120
+  %38 = getelementptr inbounds [4 x i8], ptr %.2101, i64 %.0910.i120
   %39 = load i32, ptr %37, align 4
   %40 = load i32, ptr %38, align 4
   store i32 %40, ptr %37, align 4
@@ -788,7 +788,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit122: ; preds = %36
 51:                                               ; preds = %.outer, %54
   %.0107 = phi i64 [ %55, %54 ], [ %.0107.ph, %.outer ]
   %.0105 = phi i32 [ %53, %54 ], [ %.0105.ph, %.outer ]
-  %52 = getelementptr inbounds i32, ptr %12, i64 %.0107
+  %52 = getelementptr inbounds [4 x i8], ptr %12, i64 %.0107
   %53 = load i32, ptr %52, align 4, !noundef !4
   store i32 %.0105, ptr %52, align 4
   %.not118 = icmp ult i64 %.0107, %.0141
@@ -814,7 +814,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit122: ; preds = %36
 
 .lr.ph143:                                        ; preds = %59, %73
   %.sroa.084.0142 = phi i64 [ %74, %73 ], [ 1, %59 ]
-  %62 = getelementptr inbounds i32, ptr %12, i64 %.sroa.084.0142
+  %62 = getelementptr inbounds [4 x i8], ptr %12, i64 %.sroa.084.0142
   %63 = load i32, ptr %62, align 4, !noundef !4
   %64 = add i64 %.sroa.084.0142, %.0102139
   br label %65
@@ -822,7 +822,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6f7604ab24ca3aa7E.exit122: ; preds = %36
 65:                                               ; preds = %.backedge, %.lr.ph143
   %.2109 = phi i64 [ %64, %.lr.ph143 ], [ %.2109.be, %.backedge ]
   %.1106 = phi i32 [ %63, %.lr.ph143 ], [ %67, %.backedge ]
-  %66 = getelementptr inbounds i32, ptr %12, i64 %.2109
+  %66 = getelementptr inbounds [4 x i8], ptr %12, i64 %.2109
   %67 = load i32, ptr %66, align 4, !noundef !4
   store i32 %.1106, ptr %66, align 4
   %.not119 = icmp ult i64 %.2109, %.0141
@@ -941,7 +941,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %46 = icmp eq <16 x i8> %.0.copyload.i.i, %30
   %47 = icmp eq <16 x i8> %.0.copyload2.i.i, %31
   %48 = and <16 x i1> %46, %47
-  %49 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0132.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0132.i
   store <16 x i1> %48, ptr %49, align 2, !noalias !98
   %exitcond.not.i = icmp eq i64 %42, 4
   br i1 %exitcond.not.i, label %.preheader128.i, label %41
@@ -959,7 +959,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.0134.i = phi i64 [ %55, %59 ], [ 0, %41 ]
   %.2133.i = phi i8 [ %.3.i, %59 ], [ 0, %41 ]
   %55 = add nuw nsw i64 %.sroa.028.0134.i, 1
-  %56 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0134.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0134.i
   %57 = load i16, ptr %56, align 2, !noalias !98, !noundef !4
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %60

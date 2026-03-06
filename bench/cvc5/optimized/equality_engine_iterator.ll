@@ -76,7 +76,7 @@ define hidden void @_ZNK4cvc58internal6theory2eq17EqClassesIteratordeEv(ptr dead
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = load ptr, ptr %4, align 8, !tbaa !19
-  %8 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   store ptr %9, ptr %0, align 8, !tbaa !22
   %10 = load i64, ptr %9, align 8
@@ -156,7 +156,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1088
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = lshr i64 %storemerge6, 6
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = and i64 %storemerge6, 63
   %14 = shl nuw i64 1, %13
   %15 = load i64, ptr %12, align 8, !tbaa !16
@@ -212,7 +212,7 @@ define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq17EqClassesIteratorppEi(p
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1088
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   %10 = lshr i64 %storemerge6.i, 6
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = and i64 %storemerge6.i, 63
   %13 = shl nuw i64 1, %12
   %14 = load i64, ptr %11, align 8, !tbaa !16
@@ -299,7 +299,7 @@ define hidden void @_ZNK4cvc58internal6theory2eq15EqClassIteratordeEv(ptr dead_o
   %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %4, align 8, !tbaa !19
-  %9 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   store ptr %10, ptr %0, align 8, !tbaa !22
   %11 = load i64, ptr %10, align 8
@@ -379,7 +379,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = lshr i32 %8, 6
   %.zext = zext nneg i32 %12 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %.zext
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.zext
   %14 = and i32 %8, 63
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw i64 1, %15
@@ -424,7 +424,7 @@ define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq15EqClassIteratorppEi(ptr
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = lshr i32 %11, 6
   %.zext.i = zext nneg i32 %15 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %.zext.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.zext.i
   %17 = and i32 %11, 63
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw i64 1, %18

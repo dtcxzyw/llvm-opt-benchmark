@@ -124,7 +124,7 @@ _ZN13logos_codegen6parser11type_params17replace_lifetimes17hd91e707e1264fe88E.ex
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds { { { [16 x i8], i8, [7 x i8] }, { {} } }, { i64, [27 x i64] } }, ptr %30, i64 %32
+  %33 = getelementptr inbounds [248 x i8], ptr %30, i64 %32
   store ptr %30, ptr %14, align 8
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %33, ptr %34, align 8
@@ -383,7 +383,7 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams8generics1
   %29 = phi i64 [ %.pre, %._crit_edge ], [ %21, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds { { { [16 x i8], i8, [7 x i8] }, { {} } }, { i64, [27 x i64] } }, ptr %31, i64 %29
+  %32 = getelementptr inbounds [248 x i8], ptr %31, i64 %29
   store ptr %31, ptr %12, align 8
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %32, ptr %33, align 8
@@ -494,7 +494,7 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams8generics1
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = load i64, ptr %49, align 8
-  %65 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %63, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %63, i64 %64
   store ptr %63, ptr %4, align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %65, ptr %66, align 8

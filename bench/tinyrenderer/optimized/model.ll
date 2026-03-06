@@ -428,7 +428,7 @@ _ZNSt6vectorI3vecILi3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds 
 _ZNSt6vectorI3vecILi3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %168, %_ZNSt6vectorI3vecILi3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %163, ptr %0, align 8, !tbaa !51
   store ptr %167, ptr %69, align 8, !tbaa !44
-  %169 = getelementptr inbounds nuw %struct.vec, ptr %163, i64 %161
+  %169 = getelementptr inbounds nuw [24 x i8], ptr %163, i64 %161
   store ptr %169, ptr %70, align 8, !tbaa !47
   br label %_ZNSt6vectorI3vecILi3EESaIS1_EE9push_backERKS1_.exit
 
@@ -679,7 +679,7 @@ _ZNSt6vectorI3vecILi3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pred
 _ZNSt6vectorI3vecILi3EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %236, %_ZNSt6vectorI3vecILi3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %231, ptr %21, align 8, !tbaa !51
   store ptr %235, ptr %75, align 8, !tbaa !44
-  %237 = getelementptr inbounds nuw %struct.vec, ptr %231, i64 %229
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %231, i64 %229
   store ptr %237, ptr %76, align 8, !tbaa !47
   br label %_ZNSt6vectorI3vecILi3EESaIS1_EE9push_backEOS1_.exit
 
@@ -806,7 +806,7 @@ _ZNSt6vectorI3vecILi2EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pred
 _ZNSt6vectorI3vecILi2EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %271, %_ZNSt6vectorI3vecILi2EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %266, ptr %22, align 8, !tbaa !77
   store ptr %270, ptr %85, align 8, !tbaa !73
-  %272 = getelementptr inbounds nuw %struct.vec.19, ptr %266, i64 %264
+  %272 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %264
   store ptr %272, ptr %86, align 8, !tbaa !76
   br label %_ZNSt6vectorI3vecILi2EESaIS1_EE9push_backEOS1_.exit
 
@@ -953,7 +953,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %320, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %322, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %317, ptr %23, align 8, !tbaa !87
   store ptr %321, ptr %77, align 8, !tbaa !84
-  %323 = getelementptr inbounds nuw i32, ptr %317, i64 %315
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %315
   store ptr %323, ptr %78, align 8, !tbaa !86
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1015,7 +1015,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i167: ; preds = %345, %.
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i169: ; preds = %347, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i167
   store ptr %342, ptr %25, align 8, !tbaa !87
   store ptr %346, ptr %79, align 8, !tbaa !84
-  %348 = getelementptr inbounds nuw i32, ptr %342, i64 %340
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %340
   store ptr %348, ptr %80, align 8, !tbaa !86
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit172
 
@@ -1084,7 +1084,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i177: ; preds = %370, %.
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i179: ; preds = %372, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i177
   store ptr %367, ptr %24, align 8, !tbaa !87
   store ptr %371, ptr %81, align 8, !tbaa !84
-  %373 = getelementptr inbounds nuw i32, ptr %367, i64 %365
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %367, i64 %365
   store ptr %373, ptr %82, align 8, !tbaa !86
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit182
 
@@ -2282,7 +2282,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5Model8spe
 define dso_local void @_ZNK5Model4vertEi(ptr dead_on_unwind noalias writable writeonly sret(%struct.vec) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
   %4 = sext i32 %2 to i64
   %5 = load ptr, ptr %1, align 8, !tbaa !51
-  %6 = getelementptr inbounds nuw %struct.vec, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !48
   ret void
 }
@@ -2294,11 +2294,11 @@ define dso_local void @_ZNK5Model4vertEii(ptr dead_on_unwind noalias writable wr
   %7 = add nsw i32 %6, %3
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !87
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %11 = load i32, ptr %10, align 4, !tbaa !43
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %1, align 8, !tbaa !51
-  %14 = getelementptr inbounds nuw %struct.vec, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !48
   ret void
 }
@@ -2395,11 +2395,11 @@ define dso_local { double, double } @_ZNK5Model2uvEii(ptr noundef nonnull readon
   %7 = add nsw i32 %6, %2
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !87
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %11 = load i32, ptr %10, align 4, !tbaa !43
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %4, align 8, !tbaa !77
-  %14 = getelementptr inbounds nuw %struct.vec.19, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %.sroa.0.0.copyload = load double, ptr %14, align 8, !tbaa !49
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !49
@@ -2416,11 +2416,11 @@ define dso_local void @_ZNK5Model6normalEii(ptr dead_on_unwind noalias writable 
   %8 = add nsw i32 %7, %3
   %9 = sext i32 %8 to i64
   %10 = load ptr, ptr %6, align 8, !tbaa !87
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !43
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %5, align 8, !tbaa !51
-  %15 = getelementptr inbounds nuw %struct.vec, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !48
   ret void
 }

@@ -70,10 +70,10 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %19 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %30, %.lr.ph.i.i.i.i ], [ %22, %19 ]
   %27 = phi <4 x i32> [ %34, %.lr.ph.i.i.i.i ], [ %21, %19 ]
-  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %.05775.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.05775.i.i.i.i
   %29 = load <4 x i32>, ptr %28, align 16, !tbaa !13
   %30 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i, <4 x i32> %29)
-  %31 = getelementptr inbounds nuw i32, ptr %6, i64 %.057.in74.i.i.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.057.in74.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load <4 x i32>, ptr %32, align 16, !tbaa !13
   %34 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %27, <4 x i32> %33)
@@ -82,7 +82,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !14
 
 36:                                               ; preds = %._crit_edge.i.i.i.i
-  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %13
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %13
   %38 = load <4 x i32>, ptr %37, align 16, !tbaa !13
   %39 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %24, <4 x i32> %38)
   %40 = bitcast <4 x i32> %39 to <2 x i64>
@@ -104,8 +104,8 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
 
 43:                                               ; preds = %43, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.011.i.i.i.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.01012.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.011.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.01012.i.i.i.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !17
   %47 = load i32, ptr %45, align 4, !tbaa !17
   %48 = call noundef i32 @llvm.smax.i32(i32 %46, i32 %47)
@@ -123,7 +123,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
 .lr.ph80.i.i.i.i:                                 ; preds = %50, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %56, %.lr.ph80.i.i.i.i ], [ %15, %50 ]
   %.177.i.i.i.i = phi i32 [ %55, %.lr.ph80.i.i.i.i ], [ %51, %50 ]
-  %53 = getelementptr inbounds i32, ptr %6, i64 %.05578.i.i.i.i
+  %53 = getelementptr inbounds [4 x i8], ptr %6, i64 %.05578.i.i.i.i
   %54 = load i32, ptr %53, align 4, !tbaa !17
   %55 = call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %54)
   %56 = add nsw i64 %.05578.i.i.i.i, 1
@@ -138,7 +138,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
 .lr.ph85.i.i.i.i:                                 ; preds = %57, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %63, %.lr.ph85.i.i.i.i ], [ 1, %57 ]
   %.382.i.i.i.i = phi i32 [ %62, %.lr.ph85.i.i.i.i ], [ %58, %57 ]
-  %60 = getelementptr inbounds nuw i32, ptr %6, i64 %.083.i.i.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.083.i.i.i.i
   %61 = load i32, ptr %60, align 4, !tbaa !17
   %62 = call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %61)
   %63 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -170,13 +170,13 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
 
 75:                                               ; preds = %70
   %76 = lshr i64 %71, 6
-  %77 = getelementptr inbounds nuw i64, ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %76
   store ptr %77, ptr %69, align 8, !tbaa !26
   store ptr %74, ptr %0, align 8
   store i32 0, ptr %66, align 8
   %78 = sdiv i32 %64, 64
   %.sext52 = sext i32 %78 to i64
-  %79 = getelementptr inbounds i64, ptr %74, i64 %.sext52
+  %79 = getelementptr inbounds [8 x i8], ptr %74, i64 %.sext52
   %80 = and i64 %65, -9223372036854775745
   %81 = icmp ugt i64 %80, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %81, i64 -8, i64 0
@@ -229,7 +229,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
   %.02359 = phi i32 [ %107, %.lr.ph ], [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ]
   %100 = lshr i32 %.02359, 6
   %.zext = zext nneg i32 %100 to i64
-  %101 = getelementptr inbounds nuw i64, ptr %87, i64 %.zext
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.zext
   %102 = and i64 %99, 63
   %103 = shl nuw i64 1, %102
   %104 = xor i64 %103, -1
@@ -244,8 +244,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
 .lr.ph61:                                         ; preds = %._crit_edge, %.preheader.preheader
   %110 = phi i64 [ %114, %._crit_edge ], [ 0, %.preheader.preheader ]
   %.02262 = phi i32 [ %113, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %111 = getelementptr i32, ptr %.pre69, i64 %110
-  %112 = getelementptr i32, ptr %6, i64 %110
+  %111 = getelementptr [4 x i8], ptr %.pre69, i64 %110
+  %112 = getelementptr [4 x i8], ptr %6, i64 %110
   br label %116
 
 ._crit_edge:                                      ; preds = %150
@@ -258,7 +258,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
   %117 = phi i64 [ 0, %.lr.ph61 ], [ %.pre-phi73, %150 ]
   %.060 = phi i32 [ 0, %.lr.ph61 ], [ %.pre-phi, %150 ]
   %118 = mul nsw i64 %.pre, %117
-  %119 = getelementptr i32, ptr %111, i64 %118
+  %119 = getelementptr [4 x i8], ptr %111, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !17
   %121 = icmp eq i32 %120, -1
   br i1 %121, label %122, label %._crit_edge70
@@ -270,12 +270,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
 
 122:                                              ; preds = %116
   %123 = mul nsw i64 %8, %117
-  %124 = getelementptr i32, ptr %112, i64 %123
+  %124 = getelementptr [4 x i8], ptr %112, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !17
   %126 = sext i32 %125 to i64
   %127 = sdiv i32 %125, 64
   %.sext = sext i32 %127 to i64
-  %128 = getelementptr inbounds i64, ptr %87, i64 %.sext
+  %128 = getelementptr inbounds [8 x i8], ptr %87, i64 %.sext
   %129 = and i64 %126, -9223372036854775745
   %130 = icmp ugt i64 %129, -9223372036854775808
   %storemerge.idx.i.i.i.i.i35 = select i1 %130, i64 -8, i64 0
@@ -289,12 +289,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %75, %_ZNK5Eigen9Den
   %136 = zext i32 %135 to i64
   %137 = urem i64 %136, %10
   %138 = mul nuw nsw i64 %8, %137
-  %139 = getelementptr i32, ptr %112, i64 %138
+  %139 = getelementptr [4 x i8], ptr %112, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !17
   %141 = sext i32 %140 to i64
   %142 = sdiv i32 %140, 64
   %.sext50 = sext i32 %142 to i64
-  %143 = getelementptr inbounds i64, ptr %87, i64 %.sext50
+  %143 = getelementptr inbounds [8 x i8], ptr %87, i64 %.sext50
   %144 = and i64 %141, -9223372036854775745
   %145 = icmp ugt i64 %144, -9223372036854775808
   %storemerge.idx.i.i.i.i.i39 = select i1 %145, i64 -8, i64 0
@@ -343,7 +343,7 @@ define linkonce_odr dso_local void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef 
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #11
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -406,10 +406,10 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %17 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %28, %.lr.ph.i.i.i.i ], [ %20, %17 ]
   %25 = phi <4 x i32> [ %32, %.lr.ph.i.i.i.i ], [ %19, %17 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %.05775.i.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.05775.i.i.i.i
   %27 = load <4 x i32>, ptr %26, align 16, !tbaa !13
   %28 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i, <4 x i32> %27)
-  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %.057.in74.i.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.057.in74.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load <4 x i32>, ptr %30, align 16, !tbaa !13
   %32 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %25, <4 x i32> %31)
@@ -418,7 +418,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
   br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !37
 
 34:                                               ; preds = %._crit_edge.i.i.i.i
-  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %11
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %11
   %36 = load <4 x i32>, ptr %35, align 16, !tbaa !13
   %37 = call <4 x i32> @llvm.smax.v4i32(<4 x i32> %22, <4 x i32> %36)
   %38 = bitcast <4 x i32> %37 to <2 x i64>
@@ -440,8 +440,8 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
 
 41:                                               ; preds = %41, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %47, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %.011.i.i.i.i.i.i.i
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.01012.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.011.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.01012.i.i.i.i.i.i.i
   %44 = load i32, ptr %42, align 4, !tbaa !17
   %45 = load i32, ptr %43, align 4, !tbaa !17
   %46 = call noundef i32 @llvm.smax.i32(i32 %44, i32 %45)
@@ -459,7 +459,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
 .lr.ph80.i.i.i.i:                                 ; preds = %48, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %54, %.lr.ph80.i.i.i.i ], [ %13, %48 ]
   %.177.i.i.i.i = phi i32 [ %53, %.lr.ph80.i.i.i.i ], [ %49, %48 ]
-  %51 = getelementptr inbounds i32, ptr %6, i64 %.05578.i.i.i.i
+  %51 = getelementptr inbounds [4 x i8], ptr %6, i64 %.05578.i.i.i.i
   %52 = load i32, ptr %51, align 4, !tbaa !17
   %53 = call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %52)
   %54 = add nsw i64 %.05578.i.i.i.i, 1
@@ -474,7 +474,7 @@ define weak_odr dso_local void @_ZN3igl16is_border_vertexIN5Eigen6MatrixIiLin1EL
 .lr.ph85.i.i.i.i:                                 ; preds = %55, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %61, %.lr.ph85.i.i.i.i ], [ 1, %55 ]
   %.382.i.i.i.i = phi i32 [ %60, %.lr.ph85.i.i.i.i ], [ %56, %55 ]
-  %58 = getelementptr inbounds nuw i32, ptr %6, i64 %.083.i.i.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.083.i.i.i.i
   %59 = load i32, ptr %58, align 4, !tbaa !17
   %60 = call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %59)
   %61 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -506,13 +506,13 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE8maxCoeffEv.exit: ; pr
 
 73:                                               ; preds = %68
   %74 = lshr i64 %69, 6
-  %75 = getelementptr inbounds nuw i64, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %74
   store ptr %75, ptr %67, align 8, !tbaa !26
   store ptr %72, ptr %0, align 8
   store i32 0, ptr %64, align 8
   %76 = sdiv i32 %62, 64
   %.sext54 = sext i32 %76 to i64
-  %77 = getelementptr inbounds i64, ptr %72, i64 %.sext54
+  %77 = getelementptr inbounds [8 x i8], ptr %72, i64 %.sext54
   %78 = and i64 %63, -9223372036854775745
   %79 = icmp ugt i64 %78, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %79, i64 -8, i64 0
@@ -563,7 +563,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
   %.02361 = phi i32 [ %104, %.lr.ph ], [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit ]
   %97 = lshr i32 %.02361, 6
   %.zext = zext nneg i32 %97 to i64
-  %98 = getelementptr inbounds nuw i64, ptr %85, i64 %.zext
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.zext
   %99 = and i64 %96, 63
   %100 = shl nuw i64 1, %99
   %101 = xor i64 %100, -1
@@ -578,8 +578,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
 .preheader:                                       ; preds = %.preheader.lr.ph, %110
   %107 = phi i64 [ 0, %.preheader.lr.ph ], [ %112, %110 ]
   %.02263 = phi i32 [ 0, %.preheader.lr.ph ], [ %111, %110 ]
-  %108 = getelementptr i32, ptr %.pre69, i64 %107
-  %109 = getelementptr i32, ptr %6, i64 %107
+  %108 = getelementptr [4 x i8], ptr %.pre69, i64 %107
+  %109 = getelementptr [4 x i8], ptr %6, i64 %107
   br label %114
 
 110:                                              ; preds = %147
@@ -591,7 +591,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
 114:                                              ; preds = %.preheader, %147
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.pre-phi, %147 ]
   %115 = mul nsw i64 %.pre.pre, %indvars.iv
-  %116 = getelementptr i32, ptr %108, i64 %115
+  %116 = getelementptr [4 x i8], ptr %108, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !17
   %118 = icmp eq i32 %117, -1
   br i1 %118, label %119, label %._crit_edge70
@@ -602,12 +602,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
 
 119:                                              ; preds = %114
   %120 = mul nsw i64 %8, %indvars.iv
-  %121 = getelementptr i32, ptr %109, i64 %120
+  %121 = getelementptr [4 x i8], ptr %109, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !17
   %123 = sext i32 %122 to i64
   %124 = sdiv i32 %122, 64
   %.sext = sext i32 %124 to i64
-  %125 = getelementptr inbounds i64, ptr %85, i64 %.sext
+  %125 = getelementptr inbounds [8 x i8], ptr %85, i64 %.sext
   %126 = and i64 %123, -9223372036854775745
   %127 = icmp ugt i64 %126, -9223372036854775808
   %storemerge.idx.i.i.i.i.i35 = select i1 %127, i64 -8, i64 0
@@ -622,12 +622,12 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %73, %_ZNK5Eigen9Den
   %134 = and i64 %132, 4294967295
   %.zext50 = select i1 %133, i64 0, i64 %134
   %135 = mul nuw nsw i64 %8, %.zext50
-  %136 = getelementptr i32, ptr %109, i64 %135
+  %136 = getelementptr [4 x i8], ptr %109, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !17
   %138 = sext i32 %137 to i64
   %139 = sdiv i32 %137, 64
   %.sext52 = sext i32 %139 to i64
-  %140 = getelementptr inbounds i64, ptr %85, i64 %.sext52
+  %140 = getelementptr inbounds [8 x i8], ptr %85, i64 %.sext52
   %141 = and i64 %138, -9223372036854775745
   %142 = icmp ugt i64 %141, -9223372036854775808
   %storemerge.idx.i.i.i.i.i39 = select i1 %142, i64 -8, i64 0

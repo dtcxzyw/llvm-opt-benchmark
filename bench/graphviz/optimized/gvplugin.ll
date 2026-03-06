@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
 %struct.Agdesc_s = type { i8, [3 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.gvplugin_installed_t = type { i32, ptr, i32, ptr, ptr }
 
 @api_names = internal unnamed_addr constant [5 x ptr] [ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73], align 16
 @.str = private unnamed_addr constant [13 x i8] c"_LTX_library\00", align 1
@@ -96,7 +95,7 @@ define range(i32 -1, 5) i32 @gvplugin_api(ptr noundef readonly captures(none) %0
 
 2:                                                ; preds = %1, %7
   %.0611 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %.0611
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %.0611
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #24
   %6 = icmp eq i32 %5, 0
@@ -126,7 +125,7 @@ define ptr @gvplugin_api_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   br label %7
 
@@ -160,7 +159,7 @@ strview.exit:                                     ; preds = %11, %15
   %.sroa.3.0.i = phi i64 [ %14, %11 ], [ %16, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %.not61 = icmp eq ptr %20, null
   br i1 %.not61, label %.thread.preheader, label %.lr.ph
@@ -761,7 +760,7 @@ strview.exit125:                                  ; preds = %strview.exit120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %32 = zext i32 %1 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %.092146 = load ptr, ptr %33, align 8, !tbaa !10
   %.not147 = icmp eq ptr %.092146, null
   br i1 %.not147, label %.critedge114.thread, label %.lr.ph
@@ -911,7 +910,7 @@ strview.exit135:                                  ; preds = %strview.exit130
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !47
   %104 = zext i32 %99 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %31, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %104
   %.015.i = load ptr, ptr %105, align 8, !tbaa !10
   %.not16.i = icmp eq ptr %.015.i, null
   br i1 %.not16.i, label %._crit_edge, label %.lr.ph.i.preheader
@@ -919,7 +918,7 @@ strview.exit135:                                  ; preds = %strview.exit130
 .lr.ph.i.preheader:                               ; preds = %.lr.ph151, %gvplugin_activate.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %gvplugin_activate.exit ], [ 0, %.lr.ph151 ]
   %106 = phi ptr [ %130, %gvplugin_activate.exit ], [ %98, %.lr.ph151 ]
-  %107 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %96, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %indvars.iv
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %127
@@ -962,7 +961,7 @@ strview.exit135:                                  ; preds = %strview.exit130
 
 gvplugin_activate.exit:                           ; preds = %127, %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %128 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %96, i64 %indvars.iv.next
+  %128 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %indvars.iv.next
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !52
   %.not111 = icmp eq ptr %130, null
@@ -1008,7 +1007,7 @@ gvplugin_activate.exit:                           ; preds = %127, %125
 
 148:                                              ; preds = %.critedge114
   %149 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %150 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %32
+  %150 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %32
   %151 = load ptr, ptr %150, align 8, !tbaa !3
   %152 = load ptr, ptr %81, align 8, !tbaa !12
   %153 = getelementptr inbounds nuw i8, ptr %.092148, i64 24
@@ -1104,7 +1103,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 agxbfree.exit:                                    ; preds = %.critedge114.thread._crit_edge, %182
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %32
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %32
   store ptr %.093142, ptr %184, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.093142
@@ -1141,7 +1140,7 @@ strview.exit:                                     ; preds = %6, %10
   %.sroa.3.0.i.fr = freeze i64 %.sroa.3.0.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.3.0.i.fr
   %17 = load i8, ptr %16, align 1, !tbaa !42
@@ -1446,7 +1445,7 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
 
 .preheader:                                       ; preds = %3, %7
   %.01947 = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %.01947
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %.01947
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef %5) #24
   %.not22 = icmp eq i32 %6, 0
@@ -1463,7 +1462,7 @@ define noalias ptr @gvPluginList(ptr noundef readonly captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01947
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01947
   %.02048 = load ptr, ptr %11, align 8, !tbaa !10
   %.not2349 = icmp eq ptr %.02048, null
   br i1 %.not2349, label %._crit_edge.thread, label %.lr.ph
@@ -1538,7 +1537,7 @@ strview_str.exit:                                 ; preds = %strview_case_eq.exi
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.16.053
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.16.053
   %39 = sub i64 %spec.select.i.i, %.sroa.16.053
   %40 = shl i64 %39, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %38, i8 0, i64 %40, i1 false)
@@ -1549,8 +1548,8 @@ strview_str.exit:                                 ; preds = %strview_case_eq.exi
 43:                                               ; preds = %37
   %44 = sub i64 %.sroa.16.053, %.sroa.8.051
   %45 = sub i64 %spec.select.i.i, %44
-  %46 = getelementptr inbounds nuw ptr, ptr %35, i64 %45
-  %47 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.8.051
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.8.051
   %48 = shl i64 %44, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %47, i64 %48, i1 false)
   br label %strs_append.exit
@@ -1569,7 +1568,7 @@ strs_append.exit:                                 ; preds = %37, %43, %strview_s
   %.sroa.16.2 = phi i64 [ %.sroa.16.053, %strview_str.exit ], [ %spec.select.i.i, %43 ], [ %spec.select.i.i, %37 ]
   %53 = add i64 %.sroa.8.3, %.sroa.12.052
   %54 = urem i64 %53, %.sroa.16.2
-  %55 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.2, i64 %54
   store ptr %23, ptr %55, align 8, !tbaa !3
   %56 = add i64 %.sroa.12.052, 1
   br label %57
@@ -1605,7 +1604,7 @@ strs_append.exit:                                 ; preds = %37, %43, %strview_s
   %.015.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %64, %62 ]
   %.011.in14.i.i = phi i64 [ %.sroa.16.1, %.lr.ph.i.i ], [ %.011.i.i, %62 ]
   %.011.i.i = add i64 %.011.in14.i.i, -1
-  %63 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1, i64 %.011.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1, i64 %.011.i.i
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   store ptr %.015.i.i, ptr %63, align 8, !tbaa !3
   %.not12.i.i = icmp eq i64 %.011.i.i, 0
@@ -1655,7 +1654,7 @@ define void @gvplugin_write_status(ptr noundef readonly captures(none) %0) local
   %22 = load i32, ptr %20, align 8, !tbaa !43
   %23 = icmp sgt i32 %22, 1
   %24 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %25 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %.str.25..str.26 = select i1 %23, ptr @.str.25, ptr @.str.26
@@ -1795,7 +1794,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %.03301143 = phi ptr [ null, %agxbuse.exit ], [ %.5335, %.thread823 ]
   %.03361142 = phi ptr [ null, %agxbuse.exit ], [ %.4340830, %.thread823 ]
   %54 = load ptr, ptr %26, align 8, !tbaa !44
-  %55 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %.03051148
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %.03051148
   %56 = load ptr, ptr %55, align 8, !tbaa !3
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %2, ptr noundef nonnull @.str.40, ptr noundef %54, ptr noundef %56)
   %.val.i381 = load i8, ptr %21, align 1, !tbaa !42
@@ -1919,7 +1918,7 @@ agxbuse.exit395:                                  ; preds = %agxbclear.exit.thre
   %96 = call ptr @agsubg(ptr noundef %48, ptr noundef %95, i32 noundef 1) #25
   %97 = call ptr @agattr(ptr noundef %96, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef null) #25
   %98 = call i32 @agxset(ptr noundef %96, ptr noundef %97, ptr noundef nonnull @.str.41) #25
-  %99 = getelementptr inbounds nuw ptr, ptr %24, i64 %.03051148
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.03051148
   %.03181130 = load ptr, ptr %99, align 8, !tbaa !10
   %.not3711131 = icmp eq ptr %.03181130, null
   br i1 %.not3711131, label %._crit_edge, label %.lr.ph
@@ -3215,13 +3214,13 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
 
 558:                                              ; preds = %.preheader, %._crit_edge1161
   %.03041162 = phi i64 [ 0, %.preheader ], [ %883, %._crit_edge1161 ]
-  %559 = getelementptr inbounds nuw ptr, ptr %553, i64 %.03041162
+  %559 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %.03041162
   %.13191156 = load ptr, ptr %559, align 8, !tbaa !10
   %.not3511157 = icmp eq ptr %.13191156, null
   br i1 %.not3511157, label %._crit_edge1161, label %.lr.ph1160
 
 .lr.ph1160:                                       ; preds = %558
-  %560 = getelementptr inbounds nuw ptr, ptr @api_names, i64 %.03041162
+  %560 = getelementptr inbounds nuw [8 x i8], ptr @api_names, i64 %.03041162
   br label %561
 
 561:                                              ; preds = %.lr.ph1160, %882

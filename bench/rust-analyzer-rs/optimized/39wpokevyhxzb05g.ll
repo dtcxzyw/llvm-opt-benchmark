@@ -338,7 +338,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   %98 = add i64 %.sroa.530.2.lcssa, %95
   %99 = add i64 %.sroa.932.0101, -1
   %100 = sub nsw i64 0, %98
-  %101 = getelementptr inbounds i64, ptr %82, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %82, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
   %.val5.i = load i64, ptr %102, align 8, !noalias !41, !noundef !7
   %103 = icmp ult i64 %.val5.i, %3
@@ -352,8 +352,8 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
 
 105:                                              ; preds = %105, %.thread66
   %.05.i = phi i64 [ 0, %.thread66 ], [ %110, %105 ]
-  %106 = getelementptr inbounds nuw i64, ptr %0, i64 %.05.i
-  %107 = getelementptr inbounds nuw i64, ptr %.sroa.6.0..sroa_idx.i.i, i64 %.05.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.6.0..sroa_idx.i.i, i64 %.05.i
   %108 = load i64, ptr %106, align 8
   %109 = load i64, ptr %107, align 8
   store i64 %109, ptr %106, align 8
@@ -394,7 +394,7 @@ _ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit: ; preds = %105
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17had4a0c3516d80a87E.exit
 
 121:                                              ; preds = %._crit_edge94
-  %122 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %2, i64 %.val5.i
+  %122 = getelementptr inbounds [40 x i8], ptr %2, i64 %.val5.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %124 = load i64, ptr %123, align 8, !noalias !41, !noundef !7
   %.sroa.0.05.i.i = and i64 %77, %124
@@ -538,7 +538,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
   %186 = sub nuw nsw i64 -8, %185
   %187 = getelementptr inbounds i8, ptr %181, i64 %186
   %188 = sub nsw i64 0, %.sroa.02.0.i.i89
-  %189 = getelementptr inbounds i64, ptr %181, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %181, i64 %188
   %190 = getelementptr inbounds i8, ptr %189, i64 -8
   %.val5.i1585 = load i64, ptr %190, align 8, !noalias !70, !noundef !7
   %191 = icmp ult i64 %.val5.i1585, %3
@@ -547,7 +547,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
 _ZN4core3ptr19swap_nonoverlapping17hd42ded918d65f45aE.exit.loopexit: ; preds = %.preheader74
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %.val.i13 = load ptr, ptr %0, align 8, !alias.scope !75, !noalias !77, !nonnull !7, !noundef !7
-  %192 = getelementptr inbounds i64, ptr %.val.i13, i64 %188
+  %192 = getelementptr inbounds [8 x i8], ptr %.val.i13, i64 %188
   %193 = getelementptr inbounds i8, ptr %192, i64 -8
   %.val5.i15 = load i64, ptr %193, align 8, !noalias !78, !noundef !7
   %194 = icmp ult i64 %.val5.i15, %3
@@ -564,7 +564,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd42ded918d65f45aE.exit.loopexit: ; preds = %
 .lr.ph:                                           ; preds = %184, %_ZN4core3ptr19swap_nonoverlapping17hd42ded918d65f45aE.exit.loopexit
   %.val5.i1587 = phi i64 [ %.val5.i15, %_ZN4core3ptr19swap_nonoverlapping17hd42ded918d65f45aE.exit.loopexit ], [ %.val5.i1585, %184 ]
   %.val.i1386 = phi ptr [ %.val.i13, %_ZN4core3ptr19swap_nonoverlapping17hd42ded918d65f45aE.exit.loopexit ], [ %181, %184 ]
-  %195 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %2, i64 %.val5.i1587
+  %195 = getelementptr inbounds [40 x i8], ptr %2, i64 %.val5.i1587
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %197 = load i64, ptr %196, align 8, !noalias !80, !noundef !7
   %.val3 = load i64, ptr %19, align 8, !noundef !7

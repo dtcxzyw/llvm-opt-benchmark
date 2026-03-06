@@ -271,7 +271,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 55:                                               ; preds = %51
   %56 = sext i32 %52 to i64
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = add nsw i32 %52, 1
   store i32 %59, ptr @optind, align 4
@@ -285,7 +285,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 63:                                               ; preds = %60
   %64 = sext i32 %61 to i64
-  %65 = getelementptr inbounds ptr, ptr %1, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %1, i64 %64
   %66 = load ptr, ptr %65, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %66) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.22, ptr noundef %11) #11
@@ -679,7 +679,7 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   %48 = icmp eq i32 %.097, 1
   %or.cond = and i1 %11, %48
   %49 = zext nneg i32 %.097 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.reindex_one_database, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.reindex_one_database, i64 %49
   br label %50
 
 50:                                               ; preds = %96, %44

@@ -229,7 +229,7 @@ define noundef zeroext i1 @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row8i
   %3 = load ptr, ptr %2, align 8, !alias.scope !32, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !32, !noundef !7
-  %6 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [36 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -262,7 +262,7 @@ define hidden { ptr, ptr } @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [36 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -274,7 +274,7 @@ define { ptr, ptr } @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row9cells_m
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [36 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -288,7 +288,7 @@ define noundef align 4 dereferenceable_or_null(36) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %6 = icmp ugt i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7
-  %9 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [36 x i8], ptr %8, i64 %5
   %.sroa.0.0 = select i1 %6, ptr %9, ptr null
   ret ptr %.sroa.0.0
 }
@@ -301,7 +301,7 @@ define noundef align 4 dereferenceable_or_null(36) ptr @_RNvMNtCs8mTrBI1stz4_15t
   %6 = icmp ugt i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7
-  %9 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [36 x i8], ptr %8, i64 %5
   %.sroa.0.0 = select i1 %6, ptr %9, ptr null
   ret ptr %.sroa.0.0
 }
@@ -331,7 +331,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6insert(ptr noal
 13:                                               ; preds = %12, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !46, !noalias !49, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %15, i64 %4
+  %16 = getelementptr inbounds nuw [36 x i8], ptr %15, i64 %4
   %17 = icmp ugt i64 %6, %4
   br i1 %17, label %18, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE6insertBI_.exit
 
@@ -363,7 +363,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6remove(ptr noal
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !52, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %9, i64 %3
+  %10 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 34
   %12 = load i8, ptr %11, align 2, !alias.scope !55, !noalias !52, !noundef !7
   %13 = icmp slt i8 %12, 0
@@ -395,7 +395,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row6remove(ptr noal
 
 25:                                               ; preds = %20, %16
   %.pn.i = phi i64 [ %22, %20 ], [ %18, %16 ]
-  %.sroa.0.0.i = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %9, i64 %.pn.i
+  %.sroa.0.0.i = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %.pn.i
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 34
   store i8 0, ptr %26, align 2, !alias.scope !58, !noalias !61
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
@@ -432,7 +432,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noali
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !7, !noundef !7
-  %12 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %11, i64 %5
+  %12 = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 34
   %14 = load i8, ptr %13, align 2, !alias.scope !70, !noundef !7
   %15 = icmp slt i8 %14, 0
@@ -460,7 +460,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noali
 
 26:                                               ; preds = %21, %17
   %.pn.i = phi i64 [ %23, %21 ], [ %19, %17 ]
-  %.sroa.0.0.i = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %11, i64 %.pn.i
+  %.sroa.0.0.i = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %.pn.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 34
   store i8 0, ptr %27, align 2, !alias.scope !76, !noalias !79
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
@@ -528,7 +528,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004c
 12:                                               ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellE8truncateBI_.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
-  %15 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [36 x i8], ptr %14, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 34
   %17 = load i8, ptr %16, align 2, !alias.scope !93, !noundef !7
   %18 = icmp slt i8 %17, 0
@@ -603,7 +603,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row10clear_wide(ptr
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !7, !noundef !7
-  %10 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %9, i64 %3
+  %10 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 34
   %12 = load i8, ptr %11, align 2, !alias.scope !111, !noundef !7
   %13 = icmp slt i8 %12, 0
@@ -638,7 +638,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row10clear_wide(ptr
 
 26:                                               ; preds = %16, %20
   %.pn = phi i64 [ %22, %20 ], [ %18, %16 ]
-  %.sroa.0.0 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %9, i64 %.pn
+  %.sroa.0.0 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %.pn
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 34
   store i8 0, ptr %27, align 2, !alias.scope !114, !noalias !117
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
@@ -658,7 +658,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row14write_contents
   %9 = load ptr, ptr %8, align 8, !alias.scope !119, !nonnull !7, !noundef !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !119, !noundef !7
-  %12 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [36 x i8], ptr %9, i64 %11
   %13 = zext i16 %2 to i64
   %14 = zext i16 %3 to i64
   %15 = ptrtoint ptr %12 to i64
@@ -714,7 +714,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   %28 = sub nuw i64 %15, %27
   %29 = udiv exact i64 %28, 36
   %.not.i.not.i.not = icmp samesign ult i64 %.sroa.15.0, %29
-  %30 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %.sroa.0.0, i64 %.sroa.15.0
+  %30 = getelementptr inbounds nuw [36 x i8], ptr %.sroa.0.0, i64 %.sroa.15.0
   %31 = add i64 %.sroa.10.0, %.sroa.15.0
   br i1 %.not.i.not.i.not, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtBa_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEENtNtNtB8_6traits8iterator8Iterator4nextB1B_.exit.thread48, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtBa_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEENtNtNtB8_6traits8iterator8Iterator4nextB1B_.exit.thread
 
@@ -946,7 +946,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.408305762663316268
 ._crit_edge:                                      ; preds = %44, %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit, %69
   %.sroa.020.1 = phi i16 [ %5, %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit ], [ %.sroa.020.0, %69 ], [ %.sroa.020.0, %44 ]
   %.sroa.15.1 = phi i16 [ 0, %_RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9BackspaceNtB5_8BufWrite9write_buf.exit ], [ %.sroa.15.0, %69 ], [ %.sroa.15.0, %44 ]
-  %48 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %46, i64 %42
+  %48 = getelementptr inbounds [36 x i8], ptr %46, i64 %42
   %49 = zext i16 %4 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = icmp ugt i64 %42, 65535
@@ -970,7 +970,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.408305762663316268
   br label %.outer
 
 69:                                               ; preds = %44
-  %70 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %46, i64 %40
+  %70 = getelementptr inbounds nuw [36 x i8], ptr %46, i64 %40
   %71 = call noundef zeroext i1 @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1004cellNtB2_4CellNtNtCs1LoaDTb72WA_4core3cmp9PartialEq2eq(ptr noalias noundef nonnull readonly align 4 dereferenceable(36) %70, ptr noalias noundef nonnull readonly align 4 dereferenceable(36) %23)
   br i1 %71, label %72, label %._crit_edge
 
@@ -1157,7 +1157,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   %160 = sub nuw i64 %50, %159
   %161 = udiv exact i64 %160, 36
   %.not.i.not.i = icmp samesign ult i64 %.sroa.15.0178, %161
-  %162 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %.sroa.0.0, i64 %.sroa.15.0178
+  %162 = getelementptr inbounds nuw [36 x i8], ptr %.sroa.0.0, i64 %.sroa.15.0178
   %163 = add i64 %.sroa.10.0, %.sroa.15.0178
   br i1 %.not.i.not.i, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtBa_5slice4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEENtNtNtB8_6traits8iterator8Iterator4nextB1B_.exit, label %.thread
 
@@ -2198,7 +2198,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row19write_contents
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %12
-  %38 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %33, i64 %31
+  %38 = getelementptr inbounds nuw [36 x i8], ptr %33, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = load i64, ptr %39, align 8, !noundef !7
   %41 = icmp ugt i64 %40, %31
@@ -2211,7 +2211,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row19write_contents
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !7, !noundef !7
-  %46 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %45, i64 %31
+  %46 = getelementptr inbounds nuw [36 x i8], ptr %45, i64 %31
   %.not = xor i1 %7, true
   %brmerge = or i1 %8, %.not
   br i1 %brmerge, label %48, label %69
@@ -2619,8 +2619,8 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 
 215:                                              ; preds = %213
   %216 = add nuw i64 %.sroa.10.0588, 1
-  %217 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %33, i64 %.sroa.10.0588
-  %218 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %45, i64 %.sroa.10.0588
+  %217 = getelementptr inbounds [36 x i8], ptr %33, i64 %.sroa.10.0588
+  %218 = getelementptr inbounds [36 x i8], ptr %45, i64 %.sroa.10.0588
   %219 = add i64 %.sroa.21.0589, 1
   %220 = ptrtoint ptr %218 to i64
   store i64 %220, ptr %.sroa.13, align 8, !alias.scope !335, !noalias !338
@@ -2660,8 +2660,8 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtB6_
   br i1 %230, label %231, label %226
 
 231:                                              ; preds = %.lr.ph.i.i.i.i
-  %232 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %33, i64 %228
-  %233 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %45, i64 %228
+  %232 = getelementptr inbounds [36 x i8], ptr %33, i64 %228
+  %233 = getelementptr inbounds [36 x i8], ptr %45, i64 %228
   %234 = add i64 %.sroa.26.0590, %.sroa.21.0589
   %235 = add i64 %234, 1
   %236 = ptrtoint ptr %232 to i64
@@ -3010,7 +3010,7 @@ _RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB4_15ClearRowForwardNtB4_8BufWrit
 _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.4083057626633162689.exit142: ; preds = %374
   %375 = add i16 %50, -1
   %376 = zext i16 %375 to i64
-  %377 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %33, i64 %376
+  %377 = getelementptr inbounds nuw [36 x i8], ptr %33, i64 %376
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 34
   %379 = load i8, ptr %378, align 2, !alias.scope !392, !noundef !7
   %380 = and i8 %379, 64
@@ -3101,7 +3101,7 @@ _RNvXsi_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_10MoveFromToNtB5_8BufWrite9wr
   br i1 %409, label %410, label %414
 
 410:                                              ; preds = %408
-  %411 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %33, i64 %.sroa.4.0.insert.ext.i147
+  %411 = getelementptr inbounds nuw [36 x i8], ptr %33, i64 %.sroa.4.0.insert.ext.i147
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 34
   %413 = load i8, ptr %412, align 2, !alias.scope !406, !noundef !7
   %.not331 = icmp eq i8 %413, 0

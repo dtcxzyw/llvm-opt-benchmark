@@ -192,7 +192,7 @@ is_gunzip.exit:                                   ; preds = %2, %14
   store i32 %25, ptr %22, align 8
   %65 = load i32, ptr @toptind, align 4, !tbaa !15
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %1, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %1, i64 %66
   %68 = sub nsw i32 %0, %65
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.loopexit, label %.preheader81
@@ -207,7 +207,7 @@ is_gunzip.exit:                                   ; preds = %2, %14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %80 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !5
   %73 = load i8, ptr %72, align 1, !tbaa !14
   %74 = icmp eq i8 %73, 45
@@ -258,7 +258,7 @@ is_gunzip.exit:                                   ; preds = %2, %14
 93:                                               ; preds = %.lr.ph170, %decompress_file.exit
   %indvars.iv266 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next267, %decompress_file.exit ]
   %.143169 = phi i32 [ 0, %.lr.ph170 ], [ %188, %decompress_file.exit ]
-  %94 = getelementptr inbounds nuw ptr, ptr %.048, i64 %indvars.iv266
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.048, i64 %indvars.iv266
   %95 = load ptr, ptr %94, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -518,7 +518,7 @@ decompress_file.exit:                             ; preds = %110, %120, %121, %1
 200:                                              ; preds = %.lr.ph167, %compress_file.exit
   %indvars.iv261 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next262, %compress_file.exit ]
   %.4166 = phi i32 [ 0, %.lr.ph167 ], [ %280, %compress_file.exit ]
-  %201 = getelementptr inbounds nuw ptr, ptr %.048, i64 %indvars.iv261
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %.048, i64 %indvars.iv261
   %202 = load ptr, ptr %201, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

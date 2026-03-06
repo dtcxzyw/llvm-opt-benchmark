@@ -67,7 +67,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %34 = shl nuw nsw i32 %30, %33
   %35 = lshr i64 %indvars.iv.i, 1
   %36 = and i64 %35, 2147483647
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !7
   %39 = or i32 %34, %38
   store i32 %39, ptr %37, align 4, !tbaa !7
@@ -81,7 +81,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   %.sroa.10.0113.i = phi i32 [ %.sroa.10.1.i, %51 ], [ 0, %27 ]
   %.sroa.038.0112.i = phi i32 [ %.sroa.038.2.i, %51 ], [ -1, %27 ]
   %.sroa.16.0111.i = phi i32 [ %.sroa.16.2.i, %51 ], [ 0, %27 ]
-  %40 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv147.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv147.i
   %41 = load i32, ptr %40, align 4, !tbaa !7
   %42 = icmp eq i32 %41, 0
   %43 = icmp eq i32 %.sroa.0.0114.i, -1
@@ -161,7 +161,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 
 .thread.us.i.us:                                  ; preds = %67, %.split.us.i.us
   %.397.us.i.us = phi ptr [ %68, %67 ], [ %.074116.us.i.us, %.split.us.i.us ]
-  %69 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv151.i.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv151.i.us
   %70 = load i32, ptr %69, align 4, !tbaa !7
   %71 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.397.us.i.us, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %70) #9
   %72 = sext i32 %71 to i64
@@ -189,7 +189,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 
 .thread.us.i:                                     ; preds = %76, %75
   %.397.us.i = phi ptr [ %77, %76 ], [ %.074116.us.i, %75 ]
-  %78 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv151.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv151.i
   %79 = load i32, ptr %78, align 4, !tbaa !7
   %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.397.us.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %79) #9
   %81 = sext i32 %80 to i64
@@ -236,7 +236,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
   br i1 %94, label %.split128.us.i, label %.thread.us124.i
 
 .thread.us124.i:                                  ; preds = %92
-  %95 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv163.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv163.i
   %96 = load i32, ptr %95, align 4, !tbaa !7
   %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %96) #9
   %98 = sext i32 %97 to i64
@@ -333,7 +333,7 @@ inet_ntop4.exit:                                  ; preds = %9, %24
 
 .thread.i:                                        ; preds = %117, %111, %110
   %.397.i = phi ptr [ %112, %111 ], [ %112, %117 ], [ %.074116.i, %110 ]
-  %142 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv155.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv155.i
   %143 = load i32, ptr %142, align 4, !tbaa !7
   %144 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.397.i, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %143) #9
   %145 = sext i32 %144 to i64

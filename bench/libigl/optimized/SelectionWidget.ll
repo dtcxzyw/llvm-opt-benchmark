@@ -236,7 +236,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %._ZN8ImVectorI6ImVe
   %72 = phi i32 [ %47, %._ZN8ImVectorI6ImVec2E7reserveEi.exit_crit_edge.i.i ], [ %.pre3.i.i, %71 ]
   %73 = phi ptr [ %.pre.i.i, %._ZN8ImVectorI6ImVec2E7reserveEi.exit_crit_edge.i.i ], [ %64, %71 ]
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds %struct.ImVec2, ptr %73, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %73, i64 %74
   store float %49, ptr %75, align 4
   %.sroa_idx18 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store float %52, ptr %.sroa_idx18, align 4
@@ -425,7 +425,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJNS0_5BlockINS1_IfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i, %65
   store ptr %58, ptr %36, align 16, !tbaa !102
   store ptr %64, ptr %37, align 8, !tbaa !103
-  %66 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %58, i64 %56
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %66, ptr %39, align 16, !tbaa !108
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12emplace_backIJNS0_5BlockINS1_IfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEEEEERS2_DpOT_.exit
 
@@ -601,7 +601,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJ
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #22
   store ptr %40, ptr %16, align 16, !tbaa !102
   store ptr %46, ptr %17, align 8, !tbaa !103
-  %47 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %47, ptr %26, align 16, !tbaa !108
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -784,7 +784,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %146, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %140, ptr %108, align 16, !tbaa !102
   store ptr %145, ptr %120, align 8, !tbaa !103
-  %147 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %140, i64 %138
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %138
   store ptr %147, ptr %122, align 16, !tbaa !108
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -990,7 +990,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJddEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i, %79
   store ptr %70, ptr %1, align 8, !tbaa !102
   store ptr %78, ptr %4, align 8, !tbaa !103
-  %80 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %70, i64 %68
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   store ptr %80, ptr %7, align 8, !tbaa !108
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12emplace_backIJddEEERS2_DpOT_.exit
 
@@ -1197,9 +1197,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %34, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !102
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !103
-  %37 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %13, align 8, !tbaa !108
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -1208,7 +1208,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocat
   br i1 %39, label %40, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEES2_EvT_S4_RSaIT0_E.exit.i
 

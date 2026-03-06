@@ -331,7 +331,7 @@ check_retval.exit109.thread:                      ; preds = %116
 
 check_retval.exit109:                             ; preds = %116, %check_retval.exit109
   %indvars.iv = phi i64 [ %indvars.iv.next, %check_retval.exit109 ], [ 0, %116 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !24
   call void @N_VConst(double noundef 0.000000e+00, ptr noundef %127) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -593,10 +593,10 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
 10:                                               ; preds = %3, %19
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %19 ]
   %11 = add nsw i64 %indvars.iv, -1
-  %12 = getelementptr inbounds nuw double, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !11
   %14 = tail call double @llvm.fabs.f64(double %13)
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %11
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   %16 = load double, ptr %15, align 8, !tbaa !11
   %17 = tail call double @llvm.fmuladd.f64(double %14, double 1.000000e-04, double %16)
   %18 = fcmp ugt double %17, 0.000000e+00
@@ -607,7 +607,7 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
   %21 = load ptr, ptr %1, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %11
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %11
   store double %20, ptr %24, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

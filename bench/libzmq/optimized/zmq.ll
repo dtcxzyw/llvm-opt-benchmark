@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
 %struct.zmq_msg_t = type { [64 x i8] }
-%struct.iovec = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -17,8 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.zmq::clock_t" = type { i64, i64 }
 %"class.zmq::fast_vector_t" = type { [16 x %struct.pollfd], ptr }
 %struct.pollfd = type { i32, i16, i16 }
-%struct.zmq_pollitem_t = type { ptr, i32, i16, i16 }
-%struct.zmq_poller_event_t = type { ptr, i32, ptr, i16 }
 %struct.zmq_poll_select_fds_t_ = type <{ %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", i32, [4 x i8] }>
 %"class.zmq::optimized_fd_set_t" = type { %struct.fd_set }
 %struct.fd_set = type { [16 x i64] }
@@ -988,7 +985,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
 15:                                               ; preds = %13, %41
   %.02539 = phi i32 [ %3, %13 ], [ %spec.select, %41 ]
   %.02638 = phi i64 [ 0, %13 ], [ %42, %41 ]
-  %16 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.02638
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.02638
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef %18)
@@ -1288,7 +1285,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
 _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit: ; preds = %24
   %27 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %28 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  %29 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.05079
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.05079
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8, !tbaa !14
   %31 = call noalias ptr @malloc(i64 noundef %28) #24
@@ -1618,7 +1615,7 @@ define i32 @zmq_poll(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %144 ]
-  %11 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %.not144 = icmp eq ptr %12, null
   br i1 %.not144, label %144, label %13
@@ -1672,7 +1669,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %13
   %indvars.iv280.i = phi i64 [ %indvars.iv.next281.i, %31 ], [ 0, %30 ]
   %.098221.i = phi i32 [ %.2.i, %31 ], [ undef, %30 ]
   %.0115218.i = phi i8 [ %.4.i, %31 ], [ 0, %30 ]
-  %32 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv280.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv280.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 14
   store i16 0, ptr %33, align 2, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 12
@@ -1704,7 +1701,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %13
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ %indvars.iv.i.ph, %.lr.ph.i.outer ]
-  %38 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = icmp eq ptr %39, %36
   br i1 %40, label %.thread, label %41
@@ -1810,7 +1807,7 @@ zmq_poller_modify.exit.i:                         ; preds = %zmq_poller_modify.e
 
 58:                                               ; preds = %.outer, %66
   %indvars.iv276.i = phi i64 [ %indvars.iv.next277.i, %66 ], [ %indvars.iv276.i.ph, %.outer ]
-  %59 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv276.i
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv276.i
   %60 = load ptr, ptr %59, align 8, !tbaa !27
   %.not133.i = icmp eq ptr %60, null
   br i1 %.not133.i, label %61, label %66
@@ -1958,7 +1955,7 @@ zmq_poller_wait_all.exit.i:                       ; preds = %89
   br i1 %exitcond301.not.i, label %._crit_edge242.i, label %.preheader.us.i, !llvm.loop !36
 
 .lr.ph226.us.i:                                   ; preds = %.preheader.us.i
-  %95 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv297.i
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv297.i
   %96 = load ptr, ptr %95, align 8, !tbaa !27
   %.not137.us.i = icmp eq ptr %96, null
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -1980,7 +1977,7 @@ zmq_poller_wait_all.exit.i:                       ; preds = %89
 
 .lr.ph226.split.split.us.us.i:                    ; preds = %.lr.ph226.us.i, %109
   %indvars.iv288.i = phi i64 [ %indvars.iv.next289.i, %109 ], [ 0, %.lr.ph226.us.i ]
-  %106 = getelementptr inbounds nuw %struct.zmq_poller_event_t, ptr %21, i64 %indvars.iv288.i
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv288.i
   %107 = load ptr, ptr %106, align 8, !tbaa !39
   %108 = icmp eq ptr %96, %107
   br i1 %108, label %.split.us247.i, label %109
@@ -1992,7 +1989,7 @@ zmq_poller_wait_all.exit.i:                       ; preds = %89
 
 .lr.ph226.split.us.us.i:                          ; preds = %.lr.ph226.us.i, %117
   %indvars.iv293.i = phi i64 [ %indvars.iv.next294.i, %117 ], [ 0, %.lr.ph226.us.i ]
-  %110 = getelementptr inbounds nuw %struct.zmq_poller_event_t, ptr %21, i64 %indvars.iv293.i
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv293.i
   %111 = load ptr, ptr %110, align 8, !tbaa !39
   %.not139.us.us.us.i = icmp eq ptr %111, null
   br i1 %.not139.us.us.us.i, label %112, label %117
@@ -2036,12 +2033,12 @@ zmq_poller_wait_all.exit.i:                       ; preds = %89
   br i1 %124, label %.lr.ph226.i, label %.loopexit.i
 
 .lr.ph226.i:                                      ; preds = %.preheader.i
-  %125 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv284.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv284.i
   %126 = load ptr, ptr %125, align 8, !tbaa !27
   %.not137.i = icmp eq ptr %126, null
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = sext i32 %.099236.i to i64
-  %129 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %21, i64 %128
+  %129 = getelementptr inbounds [32 x i8], ptr %21, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !39
   br i1 %.not137.i, label %.lr.ph226.split.us.i, label %.lr.ph226.split.i
 
@@ -2161,7 +2158,7 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit:    ; preds = %156, %161, %166
 
 171:                                              ; preds = %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit, %204
   %indvars.iv309 = phi i64 [ 0, %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit ], [ %indvars.iv.next310, %204 ]
-  %172 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv309
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv309
   %173 = load ptr, ptr %172, align 8, !tbaa !27
   %.not148 = icmp eq ptr %173, null
   br i1 %.not148, label %189, label %174
@@ -2170,7 +2167,7 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit:    ; preds = %156, %161, %166
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 4, ptr %7, align 8, !tbaa !7
   %175 = load ptr, ptr %168, align 8, !tbaa !44
-  %176 = getelementptr inbounds nuw %struct.pollfd, ptr %175, i64 %indvars.iv309
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv309
   %177 = invoke noundef zeroext i1 @_ZNK3zmq13socket_base_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(1825) %173)
           to label %.noexc unwind label %180
 
@@ -2206,7 +2203,7 @@ zmq_getsockopt.exit:                              ; preds = %_ZL16as_socket_base
   %.not152 = icmp ne i16 %184, 0
   %185 = zext i1 %.not152 to i16
   %186 = load ptr, ptr %168, align 8, !tbaa !44
-  %187 = getelementptr inbounds nuw %struct.pollfd, ptr %186, i64 %indvars.iv309
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv309
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
   store i16 %185, ptr %188, align 4, !tbaa !47
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2216,7 +2213,7 @@ zmq_getsockopt.exit:                              ; preds = %_ZL16as_socket_base
   %190 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %191 = load i32, ptr %190, align 8, !tbaa !34
   %192 = load ptr, ptr %168, align 8, !tbaa !44
-  %193 = getelementptr inbounds nuw %struct.pollfd, ptr %192, i64 %indvars.iv309
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv309
   store i32 %191, ptr %193, align 4, !tbaa !49
   %194 = getelementptr inbounds nuw i8, ptr %172, i64 12
   %195 = load i16, ptr %194, align 4, !tbaa !32
@@ -2306,7 +2303,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 227:                                              ; preds = %.preheader389, %267
   %indvars.iv312 = phi i64 [ %indvars.iv.next313, %267 ], [ 0, %.preheader389 ]
   %.2120286 = phi i32 [ %spec.select, %267 ], [ 0, %.preheader389 ]
-  %228 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv312
+  %228 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv312
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 14
   store i16 0, ptr %229, align 2, !tbaa !31
   %230 = load ptr, ptr %228, align 8, !tbaa !27
@@ -2391,7 +2388,7 @@ zmq_getsockopt.exit179:                           ; preds = %_ZL16as_socket_base
 
 condstore.split:                                  ; preds = %227
   %254 = load ptr, ptr %168, align 8, !tbaa !44
-  %255 = getelementptr inbounds nuw %struct.pollfd, ptr %254, i64 %indvars.iv312
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %indvars.iv312
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 6
   %257 = load i16, ptr %256, align 2, !tbaa !52
   %258 = and i16 %257, 1
@@ -2588,7 +2585,7 @@ define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr dead_on_unwi
 19:                                               ; preds = %.lr.ph, %80
   %20 = phi i32 [ 0, %.lr.ph ], [ %81, %80 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %21 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %.not39 = icmp eq ptr %22, null
   br i1 %.not39, label %41, label %23
@@ -2623,7 +2620,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %34 = shl nuw i64 1, %33
   %35 = sdiv i32 %31, 64
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i64, ptr %0, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %0, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !7
   %39 = or i64 %34, %38
   store i64 %39, ptr %37, align 8, !tbaa !7
@@ -2652,7 +2649,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %50 = shl nuw i64 1, %49
   %51 = sdiv i32 %47, 64
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i64, ptr %0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !7
   %55 = or i64 %50, %54
   store i64 %55, ptr %53, align 8, !tbaa !7
@@ -2671,7 +2668,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %63 = shl nuw i64 1, %62
   %64 = sdiv i32 %60, 64
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i64, ptr %16, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %16, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !7
   %68 = or i64 %63, %67
   store i64 %68, ptr %66, align 8, !tbaa !7
@@ -2690,7 +2687,7 @@ zmq_getsockopt.exit:                              ; preds = %23
   %74 = shl nuw i64 1, %73
   %75 = sdiv i32 %.pre, 64
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i64, ptr %17, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %17, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !7
   %79 = or i64 %74, %78
   store i64 %79, ptr %77, align 8, !tbaa !7
@@ -2791,7 +2788,7 @@ define noundef range(i32 -1, 1) i32 @_Z29zmq_poll_select_check_events_P14zmq_pol
 
 11:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %12 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 14
   store i16 0, ptr %13, align 2, !tbaa !31
   %14 = load ptr, ptr %12, align 8, !tbaa !27
@@ -2866,7 +2863,7 @@ zmq_getsockopt.exit:                              ; preds = %15
   %39 = load i32, ptr %38, align 8, !tbaa !34
   %40 = sdiv i32 %39, 64
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i64, ptr %7, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %7, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !7
   %44 = srem i32 %39, 64
   %45 = zext nneg i32 %44 to i64
@@ -2881,7 +2878,7 @@ zmq_getsockopt.exit:                              ; preds = %15
 
 49:                                               ; preds = %48, %37
   %50 = phi i16 [ 1, %48 ], [ 0, %37 ]
-  %51 = getelementptr inbounds i64, ptr %8, i64 %41
+  %51 = getelementptr inbounds [8 x i8], ptr %8, i64 %41
   %52 = load i64, ptr %51, align 8, !tbaa !7
   %53 = and i64 %52, %46
   %.not48 = icmp eq i64 %53, 0
@@ -2894,7 +2891,7 @@ zmq_getsockopt.exit:                              ; preds = %15
 
 56:                                               ; preds = %54, %49
   %57 = phi i16 [ %55, %54 ], [ %50, %49 ]
-  %58 = getelementptr inbounds i64, ptr %9, i64 %41
+  %58 = getelementptr inbounds [8 x i8], ptr %9, i64 %41
   %59 = load i64, ptr %58, align 8, !tbaa !7
   %60 = and i64 %59, %46
   %.not49 = icmp eq i64 %60, 0

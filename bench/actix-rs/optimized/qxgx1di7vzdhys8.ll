@@ -155,7 +155,7 @@ common.resume:                                    ; preds = %42, %26, %79, %70
 
 48:                                               ; preds = %36
   %49 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
-  %50 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %49, i64 %33
+  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 %33
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h5d5b5651998557a0E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr nonnull align 8 %50)
   %51 = load i64, ptr %9, align 8, !range !6, !noundef !3
   %52 = icmp eq i64 %51, 0
@@ -306,7 +306,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %29, i64 %16
+  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 %16
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h5d5b5651998557a0E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %30)
           to label %32 unwind label %.loopexit
 

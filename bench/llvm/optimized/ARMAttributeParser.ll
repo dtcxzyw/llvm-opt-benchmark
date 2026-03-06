@@ -467,7 +467,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser16ABI_align_neededENS_13ARMBu
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm18ARMAttributeParser16ABI_align_neededENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm18ARMAttributeParser16ABI_align_neededENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !37
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #16
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %19, i64 noundef %20) #16
@@ -780,7 +780,7 @@ define dso_local void @_ZN4llvm18ARMAttributeParser19ABI_align_preservedENS_13AR
 
 23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZZN4llvm18ARMAttributeParser19ABI_align_preservedENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 %19
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvm18ARMAttributeParser19ABI_align_preservedENS_13ARMBuildAttrs8AttrTypeEE7strings, i64 %19
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %26, ptr %10, align 8, !tbaa !32
@@ -2043,7 +2043,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %136, %138
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %154, %152
   %.0.i.i97 = phi ptr [ %153, %152 ], [ %10, %154 ]
-  %157 = getelementptr inbounds nuw ptr, ptr @_ZL16CPU_arch_strings, i64 %143
+  %157 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16CPU_arch_strings, i64 %143
   %158 = load ptr, ptr %157, align 8, !tbaa !37
   %159 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #16
   %160 = getelementptr inbounds nuw i8, ptr %.0.i.i97, i64 24
@@ -2495,7 +2495,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
   %12 = load i64, ptr %11, align 8, !tbaa !129
   %13 = urem i64 %10, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !130
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !131
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %.critedge18, label %28
@@ -2572,7 +2572,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
 53:                                               ; preds = %49, %.critedge18
   %.0.i19 = phi i64 [ %52, %49 ], [ %41, %.critedge18 ]
   %54 = load ptr, ptr %0, align 8, !tbaa !130
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.0.i19
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0.i19
   %56 = load ptr, ptr %55, align 8, !tbaa !131
   %.not.i.i20 = icmp eq ptr %56, null
   br i1 %.not.i.i20, label %60, label %57
@@ -2598,7 +2598,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
   %66 = load i32, ptr %64, align 4, !tbaa !117
   %67 = zext i32 %66 to i64
   %68 = urem i64 %67, %65
-  %69 = getelementptr inbounds nuw ptr, ptr %54, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %68
   store ptr %4, ptr %69, align 8, !tbaa !131
   br label %70
 
@@ -2684,7 +2684,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stES
   %18 = load i32, ptr %17, align 8, !tbaa !117
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
-  %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !131
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %23, label %28
@@ -2699,7 +2699,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stES
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8, !tbaa !131
   br label %31
 

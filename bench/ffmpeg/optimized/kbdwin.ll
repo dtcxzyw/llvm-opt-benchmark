@@ -53,7 +53,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %21 = fmul nsz double %11, %20
   %22 = tail call nsz double @llvm.sqrt.f64(double %21)
   %23 = tail call nsz double @av_bessel_i0(double noundef %22) #6
-  %24 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store double %23, ptr %24, align 8, !tbaa !4
   %.not59 = icmp eq i64 %indvars.iv, 0
   %25 = icmp sge i64 %indvars.iv, %14
@@ -89,7 +89,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
 36:                                               ; preds = %.lr.ph69, %50
   %indvars.iv79 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next80, %50 ]
   %.04966 = phi double [ 0.000000e+00, %.lr.ph69 ], [ %39, %50 ]
-  %37 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv79
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv79
   %38 = load double, ptr %37, align 8, !tbaa !4
   %39 = fadd nsz double %.04966, %38
   %40 = fmul nsz double %30, %39
@@ -98,7 +98,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
 
 42:                                               ; preds = %36
   %43 = fptrunc nsz double %41 to float
-  %44 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv79
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv79
   store float %43, ptr %44, align 4, !tbaa !10
   br label %50
 
@@ -106,7 +106,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %46 = fmul nsz double %41, 0x41DFFFFFFFC00000
   %47 = tail call i64 @llvm.lrint.i64.f64(double %46)
   %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv79
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv79
   store i32 %48, ptr %49, align 4, !tbaa !12
   br label %50
 
@@ -119,7 +119,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %indvars.iv84 = phi i64 [ %34, %.lr.ph74 ], [ %indvars.iv.next85, %66 ]
   %.15072 = phi double [ %.049.lcssa, %.lr.ph74 ], [ %55, %66 ]
   %52 = sub nsw i64 %35, %indvars.iv84
-  %53 = getelementptr inbounds nuw double, ptr %5, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = fadd nsz double %.15072, %54
   %56 = fmul nsz double %32, %55
@@ -128,7 +128,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
 
 58:                                               ; preds = %51
   %59 = fptrunc nsz double %57 to float
-  %60 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv84
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv84
   store float %59, ptr %60, align 4, !tbaa !10
   br label %66
 
@@ -136,7 +136,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %62 = fmul nsz double %57, 0x41DFFFFFFFC00000
   %63 = tail call i64 @llvm.lrint.i64.f64(double %62)
   %64 = trunc i64 %63 to i32
-  %65 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv84
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv84
   store i32 %64, ptr %65, align 4, !tbaa !12
   br label %66
 

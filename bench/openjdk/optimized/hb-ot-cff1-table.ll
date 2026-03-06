@@ -19,29 +19,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.CFF::cff_stack_t.14" = type { i8, i32, [10 x %"struct.CFF::call_context_t"] }
 %"struct.CFF::biased_subrs_t" = type { i32, ptr }
 %struct.cff1_extents_param_t = type { i8, %struct.bounds_t, ptr }
-%"struct.OT::IntType" = type { %struct.BEInt }
-%struct.BEInt = type { i8 }
-%"struct.CFF::FDSelect3_4_Range" = type { %"struct.OT::IntType.8", %"struct.OT::IntType" }
-%"struct.OT::IntType.8" = type { %struct.BEInt.9 }
-%struct.BEInt.9 = type { [2 x i8] }
-%"struct.CFF::cff1_private_dict_values_base_t" = type { %"struct.CFF::dict_values_t.19", i32, ptr }
-%"struct.CFF::dict_values_t.19" = type { %"struct.CFF::parsed_values_t.20" }
-%"struct.CFF::parsed_values_t.20" = type { i32, %struct.hb_vector_t.21 }
-%struct.hb_vector_t.21 = type { i32, i32, ptr }
 %struct.cff1_path_param_t = type { ptr, ptr, ptr, ptr }
 %"struct.CFF::cs_interpreter_t" = type { %"struct.CFF::interpreter_t" }
 %"struct.CFF::interpreter_t" = type { ptr }
 %struct.get_seac_param_t = type { ptr, i32, i32 }
-%"struct.CFF::cff1_private_dict_values_base_t.37" = type { %"struct.CFF::dict_values_t.38", i32, ptr }
-%"struct.CFF::dict_values_t.38" = type { %"struct.CFF::parsed_values_t.39" }
-%"struct.CFF::parsed_values_t.39" = type { i32, %struct.hb_vector_t.40 }
-%struct.hb_vector_t.40 = type { i32, i32, ptr }
-%"struct.OT::IntType.35" = type { %struct.BEInt.36 }
-%struct.BEInt.36 = type { [3 x i8] }
-%"struct.OT::IntType.27" = type { %struct.BEInt.28 }
-%struct.BEInt.28 = type { [4 x i8] }
-%"struct.CFF::Charset_Range" = type { %"struct.OT::IntType.8", %"struct.OT::IntType" }
-%"struct.CFF::Charset_Range.26" = type { %"struct.OT::IntType.8", %"struct.OT::IntType.8" }
 
 $_ZN9hb_font_t19scale_glyph_extentsEP18hb_glyph_extents_t = comdat any
 
@@ -178,7 +159,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN2OT4cff129lookup_expert_charse
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i16, ptr @_ZL21expert_charset_to_sid, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @_ZL21expert_charset_to_sid, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   br label %8
@@ -195,7 +176,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN2OT4cff136lookup_expert_subset
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i16, ptr @_ZL28expert_subset_charset_to_sid, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @_ZL28expert_subset_charset_to_sid, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   br label %8
@@ -242,7 +223,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff131lookup_expert_charset_
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !6
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw %struct.sid_to_gid_t, ptr @_ZL25expert_charset_sid_to_gid, i64 %5
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZL25expert_charset_sid_to_gid, i64 %5
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i32
@@ -290,7 +271,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZN2OT4cff138lookup_expert_subset_c
   br i1 %.not.not.i.i.i.i, label %_ZN17hb_sorted_array_tIK12sid_to_gid_tE7bsearchIjEEPS1_RKT_S4_.exit.thread, label %2, !llvm.loop !6
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw %struct.sid_to_gid_t, ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %5
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZL32expert_subset_charset_sid_to_gid, i64 %5
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i32
@@ -422,7 +403,7 @@ define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelera
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   %25 = load i8, ptr %24, align 1
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
 
@@ -503,7 +484,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
 62:                                               ; preds = %.loopexit.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %63 = zext i16 %rev.i.i to i64
-  %64 = getelementptr %"struct.CFF::FDSelect3_4_Range", ptr %17, i64 %63
+  %64 = getelementptr [3 x i8], ptr %17, i64 %63
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %62, %.loopexit.i.i
@@ -528,7 +509,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %15, %19, %21, %_ZNK
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %77 = load ptr, ptr %76, align 8
   %78 = zext i8 %.0.shrunk.i to i64
-  %79 = getelementptr inbounds nuw %"struct.CFF::cff1_private_dict_values_base_t", ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %78
   %.0.i.i = select i1 %.not.i.i, ptr %79, ptr @_hb_NullPool
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %81 = load ptr, ptr %80, align 8
@@ -965,7 +946,7 @@ define internal fastcc noundef zeroext i1 @_ZL9_get_pathPKN2OT4cff113accelerator
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
 
@@ -1046,7 +1027,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
 61:                                               ; preds = %.loopexit.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %62 = zext i16 %rev.i.i to i64
-  %63 = getelementptr %"struct.CFF::FDSelect3_4_Range", ptr %16, i64 %62
+  %63 = getelementptr [3 x i8], ptr %16, i64 %62
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %61, %.loopexit.i.i
@@ -1071,7 +1052,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %14, %18, %20, %_ZNK
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %76 = load ptr, ptr %75, align 8
   %77 = zext i8 %.0.shrunk.i to i64
-  %78 = getelementptr inbounds nuw %"struct.CFF::cff1_private_dict_values_base_t", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %77
   %.0.i.i = select i1 %.not.i.i, ptr %78, ptr @_hb_NullPool
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %80 = load ptr, ptr %79, align 8
@@ -1405,7 +1386,7 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t19get_seac_c
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %21 = zext i32 %1 to i64
-  %22 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = load i8, ptr %22, align 1
   br label %_ZNK3CFF8FDSelect6get_fdEj.exit
 
@@ -1486,7 +1467,7 @@ _ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.t
 60:                                               ; preds = %.loopexit.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %61 = zext i16 %rev.i.i to i64
-  %62 = getelementptr %"struct.CFF::FDSelect3_4_Range", ptr %15, i64 %61
+  %62 = getelementptr [3 x i8], ptr %15, i64 %61
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i
 
 _ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE6get_fdEj.exit.i: ; preds = %_ZN3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE10_cmp_rangeEPKvS7_.exit.i.i.i.i, %60, %.loopexit.i.i
@@ -1511,7 +1492,7 @@ _ZNK3CFF8FDSelect6get_fdEj.exit:                  ; preds = %13, %17, %19, %_ZNK
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %75 = load ptr, ptr %74, align 8
   %76 = zext i8 %.0.shrunk.i to i64
-  %77 = getelementptr inbounds nuw %"struct.CFF::cff1_private_dict_values_base_t.37", ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %76
   %.0.i.i = select i1 %.not.i.i, ptr %77, ptr @_hb_NullPool
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %79 = load ptr, ptr %78, align 8
@@ -1673,11 +1654,11 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread: ; preds = %10
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
@@ -1685,7 +1666,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread: ; preds = %10
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread18: ; preds = %10
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw %"struct.OT::IntType.8", ptr %13, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
@@ -1694,7 +1675,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread18: ; preds = %10
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds nuw %"struct.OT::IntType.8", ptr %13, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
@@ -1707,7 +1688,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread18: ; preds = %10
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread21: ; preds = %10
   %42 = zext nneg i32 %1 to i64
-  %43 = getelementptr inbounds nuw %"struct.OT::IntType.35", ptr %13, i64 %42
+  %43 = getelementptr inbounds nuw [3 x i8], ptr %13, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 16
@@ -1721,7 +1702,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread21: ; preds = %10
   %54 = zext i8 %53 to i32
   %55 = or disjoint i32 %51, %54
   %56 = zext nneg i32 %1 to i64
-  %57 = getelementptr inbounds nuw %"struct.OT::IntType.35", ptr %13, i64 %56
+  %57 = getelementptr inbounds nuw [3 x i8], ptr %13, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
@@ -1739,7 +1720,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread21: ; preds = %10
 
 _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread24: ; preds = %10
   %71 = zext nneg i32 %1 to i64
-  %72 = getelementptr inbounds nuw %"struct.OT::IntType.27", ptr %13, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = shl nuw i32 %74, 24
@@ -1758,7 +1739,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.thread24: ; preds = %10
   %88 = zext i8 %87 to i32
   %89 = or disjoint i32 %85, %88
   %90 = zext nneg i32 %1 to i64
-  %91 = getelementptr inbounds nuw %"struct.OT::IntType.27", ptr %13, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
@@ -1803,14 +1784,14 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread: ; preds = %10
 
 117:                                              ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread
   %118 = zext nneg i32 %116 to i64
-  %119 = getelementptr inbounds nuw %"struct.OT::IntType", ptr %13, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %13, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
   br label %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit14
 
 122:                                              ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread
   %123 = zext nneg i32 %116 to i64
-  %124 = getelementptr inbounds nuw %"struct.OT::IntType.8", ptr %13, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %123
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 %126, 8
@@ -1822,7 +1803,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread: ; preds = %10
 
 132:                                              ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread
   %133 = zext nneg i32 %116 to i64
-  %134 = getelementptr inbounds nuw %"struct.OT::IntType.35", ptr %13, i64 %133
+  %134 = getelementptr inbounds nuw [3 x i8], ptr %13, i64 %133
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i32
   %137 = shl nuw nsw i32 %136, 16
@@ -1839,7 +1820,7 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread: ; preds = %10
 
 147:                                              ; preds = %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit12.thread
   %148 = zext nneg i32 %116 to i64
-  %149 = getelementptr inbounds nuw %"struct.OT::IntType.27", ptr %13, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = shl nuw i32 %151, 24
@@ -2070,7 +2051,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.thread: ; preds = %2
   %8 = add i32 %7, -4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %.pre = load double, ptr %11, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26.thread
 
@@ -2087,7 +2068,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26.thread: ; preds = %_ZN3CFF1
   %15 = add i32 %7, -3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %.pre45 = load double, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
@@ -2116,7 +2097,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit26: ; preds = %_ZN3CFF11cff_st
   %33 = add i32 %7, -2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %.pre46 = load double, ptr %36, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit29
 
@@ -2174,7 +2155,7 @@ _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_pr
 65:                                               ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = zext i32 %61 to i64
-  %68 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %.pre48 = load double, ptr %68, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit34
 
@@ -2445,7 +2426,7 @@ define linkonce_odr hidden void @_ZN3CFF10cs_opset_tINS_8number_tE23cff1_cs_opse
   %17 = add i32 %14, -1
   store i32 %17, ptr %13, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %18
   br label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_from_subrEv.exit
 
 20:                                               ; preds = %12
@@ -2550,7 +2531,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %48, %46
   %75 = add nuw nsw i32 %71, 1
   store i32 %75, ptr %70, align 4
   %76 = zext nneg i32 %71 to i64
-  %77 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %76
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i
 
 78:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit.i
@@ -2580,7 +2561,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i: ; preds = %78, %73
   %89 = add i32 %86, -1
   store i32 %89, ptr %85, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %90
   %.pre.i.i.i = load double, ptr %91, align 8
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i
 
@@ -2638,7 +2619,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %120 = add nuw nsw i32 %112, 1
   store i32 %120, ptr %111, align 4
   %121 = zext nneg i32 %112 to i64
-  %122 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %121
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   %123 = load ptr, ptr %102, align 8
   %.not.i3.i = icmp eq ptr %123, null
@@ -2687,7 +2668,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   %145 = add i32 %142, -1
   store i32 %145, ptr %141, align 4
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   %.pre.i.i.i132 = load double, ptr %147, align 8
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i133
 
@@ -2745,7 +2726,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i139: ; preds = 
   %176 = add nuw nsw i32 %168, 1
   store i32 %176, ptr %167, align 4
   %177 = zext nneg i32 %168 to i64
-  %178 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %175, i64 %177
+  %178 = getelementptr inbounds nuw [24 x i8], ptr %175, i64 %177
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull align 8 dereferenceable(24) %174, i64 24, i1 false)
   %179 = load ptr, ptr %158, align 8
   %.not.i3.i140 = icmp eq ptr %179, null
@@ -3027,7 +3008,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_
   %305 = add i32 %.pre195, -1
   store i32 %305, ptr %303, align 4
   %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %304, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %306
   %.not.i.i7.i = icmp eq i32 %305, 0
   br i1 %.not.i.i7.i, label %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i, label %308
 
@@ -3035,7 +3016,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_
   %309 = add i32 %.pre195, -2
   store i32 %309, ptr %303, align 4
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %304, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %310
   %.pre.i166 = load double, ptr %311, align 8
   br label %_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7rmovetoERS2_RS3_.exit
 
@@ -3136,7 +3117,7 @@ _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_p
   %354 = add i32 %.pre193, -1
   store i32 %354, ptr %351, align 4
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %353, i64 %355
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %355
   %.pre.i177 = load double, ptr %356, align 8
   br label %_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7hmovetoERS2_RS3_.exit
 
@@ -3233,7 +3214,7 @@ _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_p
   %398 = add i32 %.pre, -1
   store i32 %398, ptr %395, align 4
   %399 = zext i32 %398 to i64
-  %400 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %397, i64 %399
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %399
   %.pre.i188 = load double, ptr %400, align 8
   br label %_ZN3CFF12path_procs_tI25cff1_path_procs_extents_tNS_20cff1_cs_interp_env_tE20cff1_extents_param_tE7vmovetoERS2_RS3_.exit
 
@@ -3431,7 +3412,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %9 = getelementptr %"struct.OT::IntType.8", ptr %6, i64 %indvars.iv.i
+  %9 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv.i
   %10 = getelementptr i8, ptr %9, i64 -2
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
@@ -3463,7 +3444,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
   %.023.i = phi i32 [ %39, %.lr.ph._crit_edge.i ], [ 0, %21 ]
   %.01522.i = phi i32 [ %38, %.lr.ph._crit_edge.i ], [ 1, %21 ]
   %24 = zext i32 %.023.i to i64
-  %25 = getelementptr inbounds nuw %"struct.CFF::Charset_Range", ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [3 x i8], ptr %22, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 8
@@ -3503,7 +3484,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nounde
   %.023.i13 = phi i32 [ %66, %63 ], [ 0, %40 ]
   %.01522.i14 = phi i32 [ %65, %63 ], [ 1, %40 ]
   %43 = zext i32 %.023.i13 to i64
-  %44 = getelementptr inbounds nuw %"struct.CFF::Charset_Range.26", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
@@ -3590,7 +3571,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents
 
 18:                                               ; preds = %14
   %19 = zext i32 %.017 to i64
-  %20 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %19
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %17, %18
@@ -3606,7 +3587,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %17, %18
 
 23:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %8, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %24
   %.pre = load double, ptr %25, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit12
 
@@ -3752,7 +3733,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents
 
 19:                                               ; preds = %15
   %20 = zext i32 %.052 to i64
-  %21 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %8, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %20
   %.pre = load double, ptr %21, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
@@ -3862,7 +3843,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 
 67:                                               ; preds = %_ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tE.exit
   %68 = zext i32 %64 to i64
-  %69 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %8, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %68
   %.pre57 = load double, ptr %69, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -3979,7 +3960,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %._crit_edge
   %.pre58 = load i8, ptr %1, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %118 = zext i32 %.0.lcssa to i64
-  %119 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = load double, ptr %119, align 8
   %121 = fadd double %.sroa.0.0.copyload38, %120
   %122 = trunc i8 %.pre58 to i1
@@ -4120,7 +4101,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents
 
 19:                                               ; preds = %15
   %20 = zext i32 %.052 to i64
-  %21 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %8, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %20
   %.pre = load double, ptr %21, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
@@ -4230,7 +4211,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 
 67:                                               ; preds = %_ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents_param_tRKNS0_7point_tE.exit
   %68 = zext i32 %64 to i64
-  %69 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %8, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %68
   %.pre57 = load double, ptr %69, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -4347,7 +4328,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30: ; preds = %._crit_edge
   %.pre58 = load i8, ptr %1, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %118 = zext i32 %.0.lcssa to i64
-  %119 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = load double, ptr %119, align 8
   %121 = fadd double %.sroa.8.0.copyload42, %120
   %122 = trunc i8 %.pre58 to i1
@@ -4489,7 +4470,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents
 
 22:                                               ; preds = %18
   %23 = zext i32 %.034 to i64
-  %24 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %23
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %21, %22
@@ -4505,7 +4486,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %21, %22
 
 27:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %28
   %.pre = load double, ptr %29, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20
 
@@ -4530,7 +4511,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20: ; preds = %26, %27
 
 38:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %39
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23: ; preds = %37, %38
@@ -4546,7 +4527,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23: ; preds = %37, %38
 
 43:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %44
   %.pre35 = load double, ptr %45, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26
 
@@ -4571,7 +4552,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %42, %43
 
 54:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %55
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %53, %54
@@ -4587,7 +4568,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %53, %54
 
 59:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %60
   %.pre36 = load double, ptr %61, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32
 
@@ -4649,7 +4630,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents
 
 24:                                               ; preds = %20
   %25 = zext i32 %.054 to i64
-  %26 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %25
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %23, %24
@@ -4665,7 +4646,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %23, %24
 
 29:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %30
   %.pre = load double, ptr %31, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
 
@@ -4690,7 +4671,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %28, %29
 
 40:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %41
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %39, %40
@@ -4706,7 +4687,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %39, %40
 
 45:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %46
   %.pre55 = load double, ptr %47, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
 
@@ -4731,7 +4712,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %44, %45
 
 56:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
   %57 = zext i32 %54 to i64
-  %58 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %57
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %55, %56
@@ -4747,7 +4728,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %55, %56
 
 61:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
   %62 = zext i32 %59 to i64
-  %63 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %62
   %.pre56 = load double, ptr %63, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
 
@@ -4783,7 +4764,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %60, %61
 74:                                               ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = zext i32 %21 to i64
-  %77 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %72, %74
@@ -4802,7 +4783,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %72, %74
 82:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = zext i32 %78 to i64
-  %85 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %84
   %.pre58 = load double, ptr %85, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
 
@@ -4953,7 +4934,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI25cff1_path_procs_extents
 
 23:                                               ; preds = %19
   %24 = zext i32 %.054 to i64
-  %25 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %24
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %22, %23
@@ -4969,7 +4950,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %22, %23
 
 28:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %13, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %29
   %.pre = load double, ptr %30, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
 
@@ -5089,7 +5070,7 @@ _ZN25cff1_path_procs_extents_t4lineERN3CFF20cff1_cs_interp_env_tER20cff1_extents
 79:                                               ; preds = %._crit_edge
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = zext i32 %20 to i64
-  %82 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %77, %79
@@ -5108,7 +5089,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %77, %79
 87:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = zext i32 %83 to i64
-  %90 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %89
   %.pre59 = load double, ptr %90, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
 
@@ -5135,7 +5116,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %84, %87
 100:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = zext i32 %75 to i64
-  %103 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %102
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %98, %100
@@ -5154,7 +5135,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %98, %100
 108:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = zext i32 %104 to i64
-  %111 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   %.pre60 = load double, ptr %111, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
 
@@ -5182,7 +5163,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %105, %108
 122:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %124 = zext i32 %119 to i64
-  %125 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %124
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %120, %122
@@ -5201,7 +5182,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %120, %122
 130:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = zext i32 %126 to i64
-  %133 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %132
   %.pre61 = load double, ptr %133, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
 
@@ -5275,7 +5256,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %2
 
 28:                                               ; preds = %24
   %29 = zext i32 %.132 to i64
-  %30 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %.pre33 = load double, ptr %30, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -5296,7 +5277,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %27, %28
 
 36:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %37
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %35, %36
@@ -5312,7 +5293,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %35, %36
 
 41:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %42
   %.pre34 = load double, ptr %43, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
 
@@ -5337,7 +5318,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %40, %41
 
 52:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %53
   %.pre35 = load double, ptr %54, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30
 
@@ -5409,7 +5390,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %2
 
 27:                                               ; preds = %23
   %28 = zext i32 %.132 to i64
-  %29 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %28
   %.pre33 = load double, ptr %29, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -5430,7 +5411,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %26, %27
 
 35:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %36
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %34, %35
@@ -5446,7 +5427,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %34, %35
 
 40:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %41
   %.pre34 = load double, ptr %42, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
 
@@ -5471,7 +5452,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %39, %40
 
 51:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %52
   %.pre35 = load double, ptr %53, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30
 
@@ -5585,7 +5566,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
 
 55:                                               ; preds = %51
   %56 = zext i32 %.0138 to i64
-  %57 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %56
   %.pre147 = load double, ptr %57, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
 
@@ -5606,7 +5587,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85: ; preds = %54, %55
 
 63:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %64
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
@@ -5622,7 +5603,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
 
 68:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %69
   %.pre148 = load double, ptr %70, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
 
@@ -5647,7 +5628,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91: ; preds = %67, %68
 
 79:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %80
   %.pre149 = load double, ptr %81, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
 
@@ -5670,7 +5651,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94: ; preds = %78, %79
 
 88:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %89
   %.pre150 = load double, ptr %90, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
 
@@ -5691,7 +5672,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97: ; preds = %87, %88
 
 96:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %97
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
@@ -5707,7 +5688,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
 
 101:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %102
   %.pre151 = load double, ptr %103, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
 
@@ -5732,7 +5713,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103: ; preds = %100, %101
 
 112:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %113
   %.pre152 = load double, ptr %114, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106
 
@@ -5754,7 +5735,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111, %112
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = zext i32 %.0.lcssa to i64
-  %123 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %125 = load double, ptr %124, align 8
   %126 = load double, ptr %123, align 8
@@ -5781,7 +5762,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 
 133:                                              ; preds = %129
   %134 = zext i32 %.1141 to i64
-  %135 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %134
   %.pre153 = load double, ptr %135, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
 
@@ -5802,7 +5783,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112: ; preds = %132, %133
 
 141:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
   %142 = zext i32 %139 to i64
-  %143 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %142
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %140, %141
@@ -5818,7 +5799,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %140, %141
 
 146:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
   %147 = zext i32 %144 to i64
-  %148 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %147
   %.pre154 = load double, ptr %148, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
 
@@ -5843,7 +5824,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118: ; preds = %145, %146
 
 157:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
   %158 = zext i32 %155 to i64
-  %159 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %158
   %.pre155 = load double, ptr %159, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
 
@@ -5866,7 +5847,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121: ; preds = %156, %157
 
 166:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
   %167 = zext i32 %163 to i64
-  %168 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %167
   %.pre156 = load double, ptr %168, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
 
@@ -5887,7 +5868,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124: ; preds = %165, %166
 
 174:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
   %175 = zext i32 %172 to i64
-  %176 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %175
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %173, %174
@@ -5903,7 +5884,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %173, %174
 
 179:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
   %180 = zext i32 %177 to i64
-  %181 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %180
   %.pre157 = load double, ptr %181, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
 
@@ -5928,7 +5909,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130: ; preds = %178, %179
 
 190:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
   %191 = zext i32 %188 to i64
-  %192 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %191
   %.pre158 = load double, ptr %192, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133
 
@@ -5955,7 +5936,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133: ; preds = %189, %190
 
 201:                                              ; preds = %199
   %202 = zext i32 %131 to i64
-  %203 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %202
   %.pre159 = load double, ptr %203, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136
 
@@ -6071,7 +6052,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
 
 55:                                               ; preds = %51
   %56 = zext i32 %.0138 to i64
-  %57 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %56
   %.pre147 = load double, ptr %57, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
 
@@ -6092,7 +6073,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85: ; preds = %54, %55
 
 63:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %64
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
@@ -6108,7 +6089,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
 
 68:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %69
   %.pre148 = load double, ptr %70, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
 
@@ -6133,7 +6114,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91: ; preds = %67, %68
 
 79:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %80
   %.pre149 = load double, ptr %81, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
 
@@ -6156,7 +6137,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94: ; preds = %78, %79
 
 88:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %89
   %.pre150 = load double, ptr %90, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
 
@@ -6177,7 +6158,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97: ; preds = %87, %88
 
 96:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %97
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
@@ -6193,7 +6174,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
 
 101:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %102
   %.pre151 = load double, ptr %103, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
 
@@ -6218,7 +6199,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103: ; preds = %100, %101
 
 112:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %113
   %.pre152 = load double, ptr %114, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106
 
@@ -6240,7 +6221,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111, %112
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = zext i32 %.0.lcssa to i64
-  %123 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = load double, ptr %8, align 8
   %125 = load double, ptr %123, align 8
   %126 = fadd double %124, %125
@@ -6266,7 +6247,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 
 132:                                              ; preds = %128
   %133 = zext i32 %.1141 to i64
-  %134 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %133
   %.pre153 = load double, ptr %134, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
 
@@ -6287,7 +6268,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112: ; preds = %131, %132
 
 140:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
   %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %141
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %139, %140
@@ -6303,7 +6284,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %139, %140
 
 145:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %146
   %.pre154 = load double, ptr %147, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
 
@@ -6328,7 +6309,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118: ; preds = %144, %145
 
 156:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
   %157 = zext i32 %154 to i64
-  %158 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %157
   %.pre155 = load double, ptr %158, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
 
@@ -6351,7 +6332,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121: ; preds = %155, %156
 
 165:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
   %166 = zext i32 %162 to i64
-  %167 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %166
   %.pre156 = load double, ptr %167, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
 
@@ -6372,7 +6353,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124: ; preds = %164, %165
 
 173:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
   %174 = zext i32 %171 to i64
-  %175 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %174
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %172, %173
@@ -6388,7 +6369,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %172, %173
 
 178:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %179
   %.pre157 = load double, ptr %180, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
 
@@ -6413,7 +6394,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130: ; preds = %177, %178
 
 189:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
   %190 = zext i32 %187 to i64
-  %191 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %190
   %.pre158 = load double, ptr %191, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133
 
@@ -6440,7 +6421,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133: ; preds = %188, %189
 
 200:                                              ; preds = %198
   %201 = zext i32 %130 to i64
-  %202 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %201
   %.pre159 = load double, ptr %202, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136
 
@@ -6752,8 +6733,8 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.preheader, %_Z
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit ]
   %.sroa.4.066 = phi double [ 0.000000e+00, %.preheader ], [ %18, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit ]
   %.sroa.0.065 = phi double [ 0.000000e+00, %.preheader ], [ %17, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit ]
-  %13 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %12, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre = load double, ptr %15, align 8
   %16 = load double, ptr %13, align 8
@@ -6941,7 +6922,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit22:               ; preds = %20, %22
   %35 = add nuw nsw i32 %31, 1
   store i32 %35, ptr %30, align 4
   %36 = zext nneg i32 %31 to i64
-  %37 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit
 
 38:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit22
@@ -6997,7 +6978,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit25:               ; preds = %49, %51
   %66 = add nuw nsw i32 %62, 1
   store i32 %66, ptr %61, align 4
   %67 = zext nneg i32 %62 to i64
-  %68 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit27
 
 69:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit25
@@ -7054,7 +7035,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit30:               ; preds = %81, %83
   %97 = add nuw nsw i32 %93, 1
   store i32 %97, ptr %92, align 4
   %98 = zext nneg i32 %93 to i64
-  %99 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %96, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %98
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32
 
 100:                                              ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit30
@@ -7088,7 +7069,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit32: ; preds = %95, %100
   %113 = add nuw nsw i32 %109, 1
   store i32 %113, ptr %108, align 4
   %114 = zext nneg i32 %109 to i64
-  %115 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %114
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit34
 
 116:                                              ; preds = %106
@@ -7406,7 +7387,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.thread: ; preds = %_ZN17cff1_
   %42 = add i32 %41, -4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %.pre = load i64, ptr %45, align 8
   store i64 %.pre, ptr %3, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30.thread
@@ -7423,7 +7404,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30.thread: ; preds = %_ZN3CFF1
   %47 = add i32 %41, -3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %.pre49 = load i64, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.pre49, ptr %51, align 8
@@ -7453,7 +7434,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit30: ; preds = %_ZN3CFF11cff_st
   %64 = add i32 %41, -2
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   %.pre50 = load double, ptr %67, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit33
 
@@ -7509,7 +7490,7 @@ _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_pr
 94:                                               ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE17std_code_to_glyphEj.exit
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = zext i32 %90 to i64
-  %97 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %.pre52 = load double, ptr %97, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit38
 
@@ -7643,7 +7624,7 @@ define linkonce_odr hidden void @_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opse
   %21 = add i32 %18, -1
   store i32 %21, ptr %17, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %22
   br label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_from_subrEv.exit
 
 24:                                               ; preds = %16
@@ -7748,7 +7729,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %52, %50
   %79 = add nuw nsw i32 %75, 1
   store i32 %79, ptr %74, align 4
   %80 = zext nneg i32 %75 to i64
-  %81 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %80
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i
 
 82:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit.i
@@ -7778,7 +7759,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i: ; preds = %82, %77
   %93 = add i32 %90, -1
   store i32 %93, ptr %89, align 4
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %94
   %.pre.i.i.i = load double, ptr %95, align 8
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i
 
@@ -7836,7 +7817,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %124 = add nuw nsw i32 %116, 1
   store i32 %124, ptr %115, align 4
   %125 = zext nneg i32 %116 to i64
-  %126 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %125
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 24, i1 false)
   %127 = load ptr, ptr %106, align 8
   %.not.i3.i = icmp eq ptr %127, null
@@ -7885,7 +7866,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   %149 = add i32 %146, -1
   store i32 %149, ptr %145, align 4
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %150
   %.pre.i.i.i132 = load double, ptr %151, align 8
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i133
 
@@ -7943,7 +7924,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i139: ; preds = 
   %180 = add nuw nsw i32 %172, 1
   store i32 %180, ptr %171, align 4
   %181 = zext nneg i32 %172 to i64
-  %182 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %179, i64 %181
+  %182 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %181
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %182, ptr noundef nonnull align 8 dereferenceable(24) %178, i64 24, i1 false)
   %183 = load ptr, ptr %162, align 8
   %.not.i3.i140 = icmp eq ptr %183, null
@@ -8224,7 +8205,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_
   %309 = add i32 %.pre195, -1
   store i32 %309, ptr %307, align 4
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %308, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %310
   %.not.i.i7.i = icmp eq i32 %309, 0
   br i1 %.not.i.i7.i, label %_ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i, label %312
 
@@ -8232,7 +8213,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %_ZN3CFF15cff1_
   %313 = add i32 %.pre195, -2
   store i32 %313, ptr %307, align 4
   %314 = zext i32 %313 to i64
-  %315 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %308, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %314
   %.pre.i166 = load double, ptr %315, align 8
   br label %_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7rmovetoERS2_RS3_.exit
 
@@ -8337,7 +8318,7 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_pr
   %361 = add i32 %.pre193, -1
   store i32 %361, ptr %358, align 4
   %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %360, i64 %362
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %362
   %.pre.i174 = load double, ptr %363, align 8
   br label %_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7hmovetoERS2_RS3_.exit
 
@@ -8435,7 +8416,7 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_pr
   %406 = add i32 %.pre, -1
   store i32 %406, ptr %403, align 4
   %407 = zext i32 %406 to i64
-  %408 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %405, i64 %407
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 %407
   %.pre.i184 = load double, ptr %408, align 8
   br label %_ZN3CFF12path_procs_tI22cff1_path_procs_path_tNS_20cff1_cs_interp_env_tE17cff1_path_param_tE7vmovetoERS2_RS3_.exit
 
@@ -8525,7 +8506,7 @@ _ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opset_path_tNS_20cff1_cs_interp_env_t
 
 450:                                              ; preds = %446
   %451 = zext i32 %.014.i to i64
-  %452 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %443, i64 %451
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %451
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit.i
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit.i: ; preds = %450, %449
@@ -8541,7 +8522,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit.i: ; preds = %450, %449
 
 455:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit.i
   %456 = zext i32 %453 to i64
-  %457 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %443, i64 %456
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %456
   %.pre.i191 = load double, ptr %457, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit12.i
 
@@ -8713,7 +8694,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
 
 17:                                               ; preds = %13
   %18 = zext i32 %.027 to i64
-  %19 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %18
   %.pre = load double, ptr %19, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
@@ -8736,7 +8717,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %16, %17
 
 26:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %9, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %27
   %.pre32 = load double, ptr %28, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -8763,7 +8744,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = zext i32 %.0.lcssa to i64
-  %39 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load double, ptr %3, align 8
   %41 = load double, ptr %39, align 8
   %42 = fadd double %40, %41
@@ -8809,7 +8790,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
 
 17:                                               ; preds = %13
   %18 = zext i32 %.027 to i64
-  %19 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %18
   %.pre = load double, ptr %19, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
@@ -8832,7 +8813,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %16, %17
 
 26:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %9, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %27
   %.pre32 = load double, ptr %28, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -8859,7 +8840,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = zext i32 %.0.lcssa to i64
-  %39 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load double, ptr %40, align 8
   %42 = load double, ptr %39, align 8
@@ -8911,7 +8892,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
 
 22:                                               ; preds = %18
   %23 = zext i32 %.034 to i64
-  %24 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %23
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %21, %22
@@ -8927,7 +8908,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %21, %22
 
 27:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %28
   %.pre = load double, ptr %29, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20
 
@@ -8952,7 +8933,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20: ; preds = %26, %27
 
 38:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit20
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %39
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23: ; preds = %37, %38
@@ -8968,7 +8949,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23: ; preds = %37, %38
 
 43:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit23
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %44
   %.pre35 = load double, ptr %45, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26
 
@@ -8993,7 +8974,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26: ; preds = %42, %43
 
 54:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit26
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %55
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %53, %54
@@ -9009,7 +8990,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29: ; preds = %53, %54
 
 59:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit29
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %11, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %60
   %.pre36 = load double, ptr %61, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit32
 
@@ -9073,7 +9054,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
 
 25:                                               ; preds = %21
   %26 = zext i32 %.051 to i64
-  %27 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %26
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %24, %25
@@ -9089,7 +9070,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %24, %25
 
 30:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %31
   %.pre = load double, ptr %32, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
 
@@ -9114,7 +9095,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %29, %30
 
 41:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %42
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %40, %41
@@ -9130,7 +9111,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %40, %41
 
 46:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %47
   %.pre52 = load double, ptr %48, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
 
@@ -9155,7 +9136,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %45, %46
 
 57:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %58
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %56, %57
@@ -9171,7 +9152,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %56, %57
 
 62:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %63
   %.pre53 = load double, ptr %64, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
 
@@ -9206,7 +9187,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %61, %62
 75:                                               ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = zext i32 %22 to i64
-  %78 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %73, %75
@@ -9225,7 +9206,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %73, %75
 83:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = zext i32 %79 to i64
-  %86 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   %.pre55 = load double, ptr %86, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
 
@@ -9283,7 +9264,7 @@ define linkonce_odr hidden void @_ZN3CFF12path_procs_tI22cff1_path_procs_path_tN
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %indvars.iv55
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv55
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %20, %21
@@ -9298,7 +9279,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %20, %21
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
 
 25:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit
-  %26 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %14, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %23
   %.pre = load double, ptr %26, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31
 
@@ -9338,7 +9319,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit31: ; preds = %24, %25
 39:                                               ; preds = %._crit_edge
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = and i64 %indvars.iv, 4294967294
-  %42 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %37, %39
@@ -9357,7 +9338,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34: ; preds = %37, %39
 47:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit34
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %.pre61 = load double, ptr %50, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
 
@@ -9384,7 +9365,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37: ; preds = %44, %47
 60:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit37
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = zext i32 %34 to i64
-  %63 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %58, %60
@@ -9403,7 +9384,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40: ; preds = %58, %60
 68:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit40
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = zext i32 %64 to i64
-  %71 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %70
   %.pre62 = load double, ptr %71, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
 
@@ -9431,7 +9412,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43: ; preds = %65, %68
 82:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit43
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = zext i32 %79 to i64
-  %85 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %84
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %80, %82
@@ -9450,7 +9431,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46: ; preds = %80, %82
 90:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit46
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = zext i32 %86 to i64
-  %93 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %92
   %.pre63 = load double, ptr %93, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit49
 
@@ -9525,7 +9506,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %2
 
 28:                                               ; preds = %24
   %29 = zext i32 %.132 to i64
-  %30 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %.pre33 = load double, ptr %30, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -9546,7 +9527,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %27, %28
 
 36:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %37
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %35, %36
@@ -9562,7 +9543,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %35, %36
 
 41:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %42
   %.pre34 = load double, ptr %43, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
 
@@ -9587,7 +9568,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %40, %41
 
 52:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %17, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %53
   %.pre35 = load double, ptr %54, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30
 
@@ -9660,7 +9641,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %2
 
 27:                                               ; preds = %23
   %28 = zext i32 %.132 to i64
-  %29 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %28
   %.pre33 = load double, ptr %29, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
 
@@ -9681,7 +9662,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21: ; preds = %26, %27
 
 35:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit21
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %36
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %34, %35
@@ -9697,7 +9678,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24: ; preds = %34, %35
 
 40:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit24
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %41
   %.pre34 = load double, ptr %42, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
 
@@ -9722,7 +9703,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27: ; preds = %39, %40
 
 51:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit27
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %18, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %52
   %.pre35 = load double, ptr %53, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit30
 
@@ -9838,7 +9819,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
 
 55:                                               ; preds = %51
   %56 = zext i32 %.0138 to i64
-  %57 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %56
   %.pre147 = load double, ptr %57, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
 
@@ -9859,7 +9840,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85: ; preds = %54, %55
 
 63:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %64
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
@@ -9875,7 +9856,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
 
 68:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %69
   %.pre148 = load double, ptr %70, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
 
@@ -9900,7 +9881,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91: ; preds = %67, %68
 
 79:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %80
   %.pre149 = load double, ptr %81, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
 
@@ -9924,7 +9905,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94: ; preds = %78, %79
 
 88:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %89
   %.pre150 = load double, ptr %90, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
 
@@ -9945,7 +9926,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97: ; preds = %87, %88
 
 96:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %97
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
@@ -9961,7 +9942,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
 
 101:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %102
   %.pre151 = load double, ptr %103, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
 
@@ -9986,7 +9967,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103: ; preds = %100, %101
 
 112:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %113
   %.pre152 = load double, ptr %114, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106
 
@@ -10008,7 +9989,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111, %112
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = zext i32 %.0.lcssa to i64
-  %123 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %125 = load double, ptr %124, align 8
   %126 = load double, ptr %123, align 8
@@ -10036,7 +10017,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 
 133:                                              ; preds = %129
   %134 = zext i32 %.1141 to i64
-  %135 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %134
   %.pre153 = load double, ptr %135, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
 
@@ -10057,7 +10038,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112: ; preds = %132, %133
 
 141:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
   %142 = zext i32 %139 to i64
-  %143 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %142
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %140, %141
@@ -10073,7 +10054,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %140, %141
 
 146:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
   %147 = zext i32 %144 to i64
-  %148 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %147
   %.pre154 = load double, ptr %148, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
 
@@ -10098,7 +10079,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118: ; preds = %145, %146
 
 157:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
   %158 = zext i32 %155 to i64
-  %159 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %158
   %.pre155 = load double, ptr %159, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
 
@@ -10122,7 +10103,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121: ; preds = %156, %157
 
 166:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
   %167 = zext i32 %163 to i64
-  %168 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %167
   %.pre156 = load double, ptr %168, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
 
@@ -10143,7 +10124,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124: ; preds = %165, %166
 
 174:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
   %175 = zext i32 %172 to i64
-  %176 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %175
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %173, %174
@@ -10159,7 +10140,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %173, %174
 
 179:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
   %180 = zext i32 %177 to i64
-  %181 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %180
   %.pre157 = load double, ptr %181, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
 
@@ -10184,7 +10165,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130: ; preds = %178, %179
 
 190:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
   %191 = zext i32 %188 to i64
-  %192 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %191
   %.pre158 = load double, ptr %192, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133
 
@@ -10211,7 +10192,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133: ; preds = %189, %190
 
 201:                                              ; preds = %199
   %202 = zext i32 %131 to i64
-  %203 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %202
   %.pre159 = load double, ptr %203, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136
 
@@ -10329,7 +10310,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit82: ; preds = %2
 
 55:                                               ; preds = %51
   %56 = zext i32 %.0138 to i64
-  %57 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %56
   %.pre147 = load double, ptr %57, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
 
@@ -10350,7 +10331,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85: ; preds = %54, %55
 
 63:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit85
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %64
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
@@ -10366,7 +10347,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88: ; preds = %62, %63
 
 68:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit88
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %69
   %.pre148 = load double, ptr %70, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
 
@@ -10391,7 +10372,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91: ; preds = %67, %68
 
 79:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit91
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %80
   %.pre149 = load double, ptr %81, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
 
@@ -10415,7 +10396,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94: ; preds = %78, %79
 
 88:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit94
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %89
   %.pre150 = load double, ptr %90, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
 
@@ -10436,7 +10417,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97: ; preds = %87, %88
 
 96:                                               ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit97
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %97
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
@@ -10452,7 +10433,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100: ; preds = %95, %96
 
 101:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit100
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %102
   %.pre151 = load double, ptr %103, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
 
@@ -10477,7 +10458,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103: ; preds = %100, %101
 
 112:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit103
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %43, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %113
   %.pre152 = load double, ptr %114, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106
 
@@ -10499,7 +10480,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit106: ; preds = %111, %112
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = zext i32 %.0.lcssa to i64
-  %123 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = load double, ptr %8, align 8
   %125 = load double, ptr %123, align 8
   %126 = fadd double %124, %125
@@ -10526,7 +10507,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit109: ; preds = %._crit_edge
 
 132:                                              ; preds = %128
   %133 = zext i32 %.1141 to i64
-  %134 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %133
   %.pre153 = load double, ptr %134, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
 
@@ -10547,7 +10528,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112: ; preds = %131, %132
 
 140:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit112
   %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %141
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %139, %140
@@ -10563,7 +10544,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115: ; preds = %139, %140
 
 145:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit115
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %146
   %.pre154 = load double, ptr %147, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
 
@@ -10588,7 +10569,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118: ; preds = %144, %145
 
 156:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit118
   %157 = zext i32 %154 to i64
-  %158 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %157
   %.pre155 = load double, ptr %158, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
 
@@ -10612,7 +10593,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121: ; preds = %155, %156
 
 165:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit121
   %166 = zext i32 %162 to i64
-  %167 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %166
   %.pre156 = load double, ptr %167, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
 
@@ -10633,7 +10614,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124: ; preds = %164, %165
 
 173:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit124
   %174 = zext i32 %171 to i64
-  %175 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %174
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
 
 _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %172, %173
@@ -10649,7 +10630,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127: ; preds = %172, %173
 
 178:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit127
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %179
   %.pre157 = load double, ptr %180, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
 
@@ -10674,7 +10655,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130: ; preds = %177, %178
 
 189:                                              ; preds = %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit130
   %190 = zext i32 %187 to i64
-  %191 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %190
   %.pre158 = load double, ptr %191, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133
 
@@ -10701,7 +10682,7 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit133: ; preds = %188, %189
 
 200:                                              ; preds = %198
   %201 = zext i32 %130 to i64
-  %202 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %15, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %201
   %.pre159 = load double, ptr %202, align 8
   br label %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit136
 
@@ -11020,8 +11001,8 @@ _ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit: ; preds = %.preheader, %_Z
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit ]
   %.sroa.4.066 = phi double [ 0.000000e+00, %.preheader ], [ %18, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit ]
   %.sroa.0.065 = phi double [ 0.000000e+00, %.preheader ], [ %17, %_ZN3CFF12interp_env_tINS_8number_tEE8eval_argEj.exit ]
-  %13 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %12, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre = load double, ptr %15, align 8
   %16 = load double, ptr %13, align 8
@@ -11660,7 +11641,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.thread: ; preds = %2
   %5 = add i32 %4, -2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %.pre = load double, ptr %8, align 8
   %9 = fptosi double %.pre to i32
   br label %17
@@ -11686,7 +11667,7 @@ _ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit: ; preds = %2
   %19 = add i32 %4, -1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %.pre21 = load double, ptr %22, align 8
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit12
 
@@ -11821,7 +11802,7 @@ define linkonce_odr hidden void @_ZN3CFF10cs_opset_tINS_8number_tE20cff1_cs_opse
   %17 = add i32 %14, -1
   store i32 %17, ptr %13, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %18
   br label %_ZN3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE16return_from_subrEv.exit
 
 20:                                               ; preds = %12
@@ -11926,7 +11907,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %48, %46
   %75 = add nuw nsw i32 %71, 1
   store i32 %75, ptr %70, align 4
   %76 = zext nneg i32 %71 to i64
-  %77 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %76
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i
 
 78:                                               ; preds = %_ZN3CFF14byte_str_ref_tixEi.exit.i
@@ -11956,7 +11937,7 @@ _ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i: ; preds = %78, %73
   %89 = add i32 %86, -1
   store i32 %89, ptr %85, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %90
   %.pre.i.i.i = load double, ptr %91, align 8
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i
 
@@ -12014,7 +11995,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i: ; preds = %_Z
   %120 = add nuw nsw i32 %112, 1
   store i32 %120, ptr %111, align 4
   %121 = zext nneg i32 %112 to i64
-  %122 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %119, i64 %121
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   %123 = load ptr, ptr %102, align 8
   %.not.i3.i = icmp eq ptr %123, null
@@ -12063,7 +12044,7 @@ _ZNK3CFF14biased_subrs_tINS_5SubrsIN2OT7IntTypeItLj2EEEEEEixEj.exit.i: ; preds =
   %145 = add i32 %142, -1
   store i32 %145, ptr %141, align 4
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %"struct.CFF::number_t", ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   %.pre.i.i.i132 = load double, ptr %147, align 8
   br label %_ZN3CFF11arg_stack_tINS_8number_tEE7pop_intEv.exit.i.i133
 
@@ -12121,7 +12102,7 @@ _ZN3CFF11cff_stack_tINS_14call_context_tELi10EE4pushERKS1_.exit.i139: ; preds = 
   %176 = add nuw nsw i32 %168, 1
   store i32 %176, ptr %167, align 4
   %177 = zext nneg i32 %168 to i64
-  %178 = getelementptr inbounds nuw %"struct.CFF::call_context_t", ptr %175, i64 %177
+  %178 = getelementptr inbounds nuw [24 x i8], ptr %175, i64 %177
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, ptr noundef nonnull align 8 dereferenceable(24) %174, i64 24, i1 false)
   %179 = load ptr, ptr %158, align 8
   %.not.i3.i140 = icmp eq ptr %179, null

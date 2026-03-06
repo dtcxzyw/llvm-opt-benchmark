@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::once_flag" = type { i32 }
-%"struct.llvm::DeadLaneDetector::VRegInfo" = type { %"struct.llvm::LaneBitmask", %"struct.llvm::LaneBitmask" }
-%"struct.llvm::LaneBitmask" = type { i64 }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.57, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.57 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.7" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.7" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.8" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.8" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %class.anon = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
 %"class.llvm::DeadLaneDetector" = type { ptr, ptr, %"class.std::unique_ptr", %"class.std::deque", %"class.llvm::BitVector", %"class.llvm::BitVector" }
@@ -160,7 +147,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:     ; preds = %3
   %41 = phi ptr [ %20, %39 ], [ %.pre, %40 ]
   %.pre-phi.i.i = phi i64 [ 0, %39 ], [ %.pre.i.i, %40 ]
   %42 = phi i32 [ 0, %39 ], [ %.pre.i.i.i, %40 ]
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %.pre-phi.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %37, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %43, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !49
   %44 = add i32 %42, %36
@@ -182,7 +169,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %53 = zext nneg i32 %51 to i64
   %54 = shl nsw i64 -1, %53
   %55 = xor i64 %54, -1
-  %56 = getelementptr inbounds nuw i64, ptr %48, i64 %49
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   %58 = load i64, ptr %57, align 8, !tbaa !49
   %59 = and i64 %58, %55
@@ -209,7 +196,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %68 = load ptr, ptr %24, align 8, !tbaa !43
   %69 = load i32, ptr %26, align 8, !tbaa !44
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i64, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = load i64, ptr %72, align 8, !tbaa !49
   %74 = and i64 %73, %67
@@ -245,7 +232,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i11 = phi i64 [ %.pre-phi.i8, %79 ], [ %.pre.i.i24, %82 ]
   %83 = phi i32 [ %75, %79 ], [ %.pre.i.i.i23, %82 ]
   %84 = load ptr, ptr %24, align 8, !tbaa !43
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %.pre-phi.i.i11
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.pre-phi.i.i11
   %.idx.i.i.i.i.i.i.i12 = shl nuw nsw i64 %80, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %85, i8 0, i64 %.idx.i.i.i.i.i.i.i12, i1 false), !tbaa !49
   %86 = trunc nuw nsw i64 %80 to i32
@@ -271,7 +258,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i21:  ; preds = %.sink.split.i.i18, 
   %94 = xor i64 %93, -1
   %95 = load ptr, ptr %24, align 8, !tbaa !43
   %96 = zext i32 %88 to i64
-  %97 = getelementptr inbounds nuw i64, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   %98 = getelementptr inbounds i8, ptr %97, i64 -8
   %99 = load i64, ptr %98, align 8, !tbaa !49
   %100 = and i64 %99, %94
@@ -326,7 +313,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = zext nneg i32 %24 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !47
-  %28 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !49
   %30 = xor i64 %29, -1
   %31 = and i64 %23, %30
@@ -343,7 +330,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %39 = lshr i32 %24, 6
   %40 = zext nneg i32 %39 to i64
   %41 = load ptr, ptr %35, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load i64, ptr %42, align 8, !tbaa !49
   %44 = and i64 %43, %38
   %.not29 = icmp eq i64 %44, 0
@@ -354,7 +341,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   store i32 %24, ptr %4, align 4, !tbaa !53
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %47 = load ptr, ptr %46, align 8, !tbaa !43
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %40
   %49 = load i64, ptr %48, align 8, !tbaa !49
   %50 = and i64 %49, %38
   %.not.i16 = icmp eq i64 %50, 0
@@ -403,7 +390,7 @@ define linkonce_odr hidden void @_ZN4llvm16DeadLaneDetector13PutInWorklistEj(ptr
   %8 = lshr i32 %1, 6
   %9 = zext nneg i32 %8 to i64
   %10 = load ptr, ptr %4, align 8, !tbaa !43
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8, !tbaa !49
   %13 = and i64 %12, %7
   %.not = icmp eq i64 %13, 0
@@ -441,12 +428,12 @@ define dso_local void @_ZN4llvm16DeadLaneDetector21transferUsedLanesStepERKNS_12
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #16
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %4, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i24, ptr %10, align 8
   %12 = zext i24 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %12
   %.not17 = icmp eq ptr %8, %13
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -495,7 +482,7 @@ define dso_local i64 @_ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12Mach
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !50
   %16 = trunc i64 %15 to i32
@@ -543,7 +530,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %44 = and i32 %41, 2147483647
   %45 = zext nneg i32 %44 to i64
   %46 = load ptr, ptr %43, align 8, !tbaa !43
-  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %45
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %47, align 8
   %48 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %49 = inttoptr i64 %48 to ptr
@@ -557,7 +544,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 256
   %56 = load ptr, ptr %55, align 8, !tbaa !84
   %57 = and i64 %28, 4294967295
-  %58 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %.sroa.0.0.copyload.i = load i64, ptr %58, align 8, !tbaa !49
   %59 = xor i64 %.sroa.0.0.copyload.i, -1
   %60 = and i64 %2, %59
@@ -640,7 +627,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %3
   %30 = lshr i32 %25, 6
   %31 = zext nneg i32 %30 to i64
   %32 = load ptr, ptr %26, align 8, !tbaa !43
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load i64, ptr %33, align 8, !tbaa !49
   %35 = and i64 %34, %29
   %.not31 = icmp eq i64 %35, 0
@@ -669,7 +656,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = zext nneg i32 %25 to i64
   %51 = load ptr, ptr %49, align 8, !tbaa !47
-  %52 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %50
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !49
   %55 = xor i64 %54, -1
@@ -706,7 +693,7 @@ define dso_local i64 @_ZNK4llvm16DeadLaneDetector20transferDefinedLanesERKNS_14M
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !55
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !50
   %17 = trunc i64 %16 to i32
@@ -728,7 +715,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 256
   %27 = load ptr, ptr %26, align 8, !tbaa !84
   %28 = and i64 %16, 4294967295
-  %29 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %.sroa.0.0.copyload.i = load i64, ptr %29, align 8, !tbaa !49
   %30 = and i64 %.sroa.0.0.copyload.i, %.sroa.03.0.i
   br label %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit
@@ -761,7 +748,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %48 = load ptr, ptr %47, align 8, !tbaa !84
   %49 = and i64 %35, 4294967295
-  %50 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %.sroa.0.0.copyload.i28 = load i64, ptr %50, align 8, !tbaa !49
   %51 = and i64 %.sroa.0.0.copyload.i28, %.sroa.03.0.i26
   br label %_ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exit
@@ -771,7 +758,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 256
   %55 = load ptr, ptr %54, align 8, !tbaa !84
   %56 = and i64 %35, 4294967295
-  %57 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %.sroa.0.0.copyload.i29 = load i64, ptr %57, align 8, !tbaa !49
   %58 = xor i64 %.sroa.0.0.copyload.i29, -1
   %59 = and i64 %3, %58
@@ -817,12 +804,12 @@ define dso_local i64 @_ZN4llvm16DeadLaneDetector28determineInitialDefinedLanesEj
   %7 = and i32 %1, 2147483647
   %8 = zext nneg i32 %7 to i64
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %13 = zext nneg i32 %1 to i64
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %.0.in.i.i.i.i = select i1 %5, ptr %11, ptr %15
   %.0.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i, align 8, !tbaa !110
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null
@@ -898,7 +885,7 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit: ; preds = %_ZNK4llv
   %43 = lshr i32 %7, 6
   %44 = zext nneg i32 %43 to i64
   %45 = load ptr, ptr %39, align 8, !tbaa !43
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load i64, ptr %46, align 8, !tbaa !49
   %48 = or i64 %47, %42
   store i64 %48, ptr %46, align 8, !tbaa !49
@@ -906,7 +893,7 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit: ; preds = %_ZNK4llv
   store i32 %7, ptr %3, align 4, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %50 = load ptr, ptr %49, align 8, !tbaa !43
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %44
   %52 = load i64, ptr %51, align 8, !tbaa !49
   %53 = and i64 %52, %42
   %.not.i = icmp eq i64 %53, 0
@@ -945,7 +932,7 @@ _ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit: ; preds = %38, %61, %63
   %69 = load ptr, ptr %0, align 8, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !43
-  %72 = getelementptr inbounds nuw %"struct.std::pair", ptr %71, i64 %8
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %8
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %72, align 8
   %73 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %74 = inttoptr i64 %73 to ptr
@@ -953,12 +940,12 @@ _ZN4llvm16DeadLaneDetector13PutInWorklistEj.exit: ; preds = %38, %61, %63
   %76 = load ptr, ptr %75, align 8, !tbaa !55
   %77 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %36) #16
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %78
   %80 = load ptr, ptr %75, align 8, !tbaa !55
   %81 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %82 = load i24, ptr %81, align 8
   %83 = zext i24 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %83
   %.not99 = icmp eq ptr %79, %84
   br i1 %.not99, label %_ZNK4llvm19MachineRegisterInfo9hasOneDefENS_8RegisterE.exit.thread, label %.lr.ph
 
@@ -1002,12 +989,12 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %86
   %102 = and i32 %91, 2147483647
   %103 = zext nneg i32 %102 to i64
   %104 = load ptr, ptr %101, align 8
-  %105 = getelementptr inbounds nuw %"struct.std::pair", ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %103
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 296
   %108 = zext nneg i32 %91 to i64
   %109 = load ptr, ptr %107, align 8
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %108
   %.0.in.i.i.i.i53 = select i1 %100, ptr %106, ptr %110
   %.0.i.i.i.i54 = load ptr, ptr %.0.in.i.i.i.i53, align 8, !tbaa !110
   %.not.i.i.i.i55 = icmp eq ptr %.0.i.i.i.i54, null
@@ -1119,7 +1106,7 @@ define internal fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegi
   %7 = load i32, ptr %6, align 4, !tbaa !50
   %8 = and i32 %7, 2147483647
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %.48.val, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.48.val, i64 %9
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %10, align 8
   %11 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %12 = inttoptr i64 %11 to ptr
@@ -1161,7 +1148,7 @@ define internal fastcc noundef zeroext i1 @_ZL11isCrossCopyRKN4llvm19MachineRegi
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !55
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   br label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit
 
@@ -1257,12 +1244,12 @@ define dso_local i64 @_ZN4llvm16DeadLaneDetector25determineInitialUsedLanesEj(pt
   %6 = and i32 %1, 2147483647
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %12 = zext nneg i32 %1 to i64
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.0.in.i.i.i = select i1 %4, ptr %10, ptr %14
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !110
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
@@ -1350,7 +1337,7 @@ _ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit38: ; preds = %40, %40, %40, %40,
   %43 = and i32 %38, 2147483647
   %44 = zext nneg i32 %43 to i64
   %45 = load ptr, ptr %42, align 8, !tbaa !43
-  %46 = getelementptr inbounds nuw %"struct.std::pair", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %44
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %46, align 8
   %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %48 = inttoptr i64 %47 to ptr
@@ -1367,7 +1354,7 @@ _ZL14lowersToCopiesRKN4llvm12MachineInstrE.exit:  ; preds = %33, %_ZL14lowersToC
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 256
   %54 = load ptr, ptr %53, align 8, !tbaa !84
   %55 = zext nneg i32 %32 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %.sroa.0.0.copyload.i39 = load i64, ptr %56, align 8, !tbaa !49
   %57 = or i64 %.sroa.0.0.copyload.i39, %.sroa.051.081
   br label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread53
@@ -1491,7 +1478,7 @@ define dso_local void @_ZN4llvm16DeadLaneDetector29computeSubRegisterLaneBitInfo
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = or i32 %23, -2147483648
   %25 = load ptr, ptr %7, align 8, !tbaa !47
-  %26 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %27 = tail call i64 @_ZN4llvm16DeadLaneDetector28determineInitialDefinedLanesEj(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef %24)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %27, ptr %28, align 8, !tbaa !49
@@ -1541,19 +1528,19 @@ _ZNSt5dequeIjSaIjEE9pop_frontEv.exit:             ; preds = %38, %40
   %50 = lshr i32 %35, 6
   %51 = zext nneg i32 %50 to i64
   %52 = load ptr, ptr %17, align 8, !tbaa !43
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !49
   %55 = and i64 %54, %49
   store i64 %55, ptr %53, align 8, !tbaa !49
   %56 = zext i32 %35 to i64
   %57 = load ptr, ptr %18, align 8, !tbaa !47
-  %58 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %0, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = and i32 %35, 2147483647
   %62 = zext nneg i32 %61 to i64
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw %"struct.std::pair", ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %62
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %.0.i.i = load ptr, ptr %65, align 8, !tbaa !110, !nonnull !83, !noundef !83
   %66 = load i32, ptr %.0.i.i, align 8
@@ -1575,12 +1562,12 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit: ; preds = %_ZNSt5de
   %74 = load ptr, ptr %73, align 8, !tbaa !55
   %75 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %72) #16
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %76
   %78 = load ptr, ptr %73, align 8, !tbaa !55
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %80 = load i24, ptr %79, align 8
   %81 = zext i24 %80 to i64
-  %82 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %81
   %.not17.i = icmp eq ptr %77, %82
   br i1 %.not17.i, label %_ZN4llvm16DeadLaneDetector21transferUsedLanesStepERKNS_12MachineInstrENS_11LaneBitmaskE.exit, label %.lr.ph.i.preheader
 
@@ -1616,7 +1603,7 @@ _ZNK4llvm19MachineRegisterInfo9def_beginENS_8RegisterE.exit: ; preds = %_ZNSt5de
   %95 = add i32 %92, 1
   %96 = load ptr, ptr %73, align 8, !tbaa !55
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load i64, ptr %99, align 8, !tbaa !50
   %101 = trunc i64 %100 to i32
@@ -1661,7 +1648,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %126 = and i32 %123, 2147483647
   %127 = zext nneg i32 %126 to i64
   %128 = load ptr, ptr %125, align 8, !tbaa !43
-  %129 = getelementptr inbounds nuw %"struct.std::pair", ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %127
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %129, align 8
   %130 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %131 = inttoptr i64 %130 to ptr
@@ -1675,7 +1662,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 256
   %138 = load ptr, ptr %137, align 8, !tbaa !84
   %139 = and i64 %111, 4294967295
-  %140 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %139
   %.sroa.0.0.copyload.i.i = load i64, ptr %140, align 8, !tbaa !49
   %141 = xor i64 %.sroa.0.0.copyload.i.i, -1
   %142 = and i64 %.sroa.04.0.copyload, %141
@@ -1742,7 +1729,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %175 = and i32 %161, 2147483647
   %176 = zext nneg i32 %175 to i64
   %177 = load ptr, ptr %18, align 8, !tbaa !47
-  %178 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %177, i64 %176
   %179 = load i64, ptr %178, align 8, !tbaa !49
   %180 = xor i64 %179, -1
   %181 = and i64 %174, %180
@@ -1758,7 +1745,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   %188 = lshr i32 %175, 6
   %189 = zext nneg i32 %188 to i64
   %190 = load ptr, ptr %20, align 8, !tbaa !43
-  %191 = getelementptr inbounds nuw i64, ptr %190, i64 %189
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %189
   %192 = load i64, ptr %191, align 8, !tbaa !49
   %193 = and i64 %192, %187
   %.not29.i = icmp eq i64 %193, 0
@@ -1768,7 +1755,7 @@ _ZNK4llvm18TargetRegisterInfo26composeSubRegIndexLaneMaskEjNS_11LaneBitmaskE.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %175, ptr %3, align 4, !tbaa !53
   %195 = load ptr, ptr %17, align 8, !tbaa !43
-  %196 = getelementptr inbounds nuw i64, ptr %195, i64 %189
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %189
   %197 = load i64, ptr %196, align 8, !tbaa !49
   %198 = and i64 %197, %187
   %.not.i16.i = icmp eq i64 %198, 0
@@ -1806,7 +1793,7 @@ _ZN4llvm16DeadLaneDetector21transferUsedLanesStepERKNS_12MachineInstrENS_11LaneB
   %208 = load ptr, ptr %0, align 8, !tbaa !3
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 48
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds nuw %"struct.std::pair", ptr %210, i64 %62
+  %211 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %62
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %.0.i.i.i = load ptr, ptr %212, align 8, !tbaa !110
   %.not.i.i.i25 = icmp eq ptr %.0.i.i.i, null
@@ -1883,7 +1870,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %_ZN4llvm19Machine
   %245 = lshr i32 %241, 6
   %246 = zext nneg i32 %245 to i64
   %247 = load ptr, ptr %20, align 8, !tbaa !43
-  %248 = getelementptr inbounds nuw i64, ptr %247, i64 %246
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %246
   %249 = load i64, ptr %248, align 8, !tbaa !49
   %250 = and i64 %249, %244
   %.not31.i = icmp eq i64 %250, 0
@@ -1910,7 +1897,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %262 = call i64 @_ZNK4llvm16DeadLaneDetector20transferDefinedLanesERKNS_14MachineOperandEjNS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(32) %235, i32 noundef %252, i64 %.sroa.03.0.i.i)
   %263 = zext nneg i32 %241 to i64
   %264 = load ptr, ptr %18, align 8, !tbaa !47
-  %265 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %264, i64 %263
+  %265 = getelementptr inbounds nuw [16 x i8], ptr %264, i64 %263
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load i64, ptr %266, align 8, !tbaa !49
   %268 = xor i64 %267, -1
@@ -1924,7 +1911,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %241, ptr %2, align 4, !tbaa !53
   %273 = load ptr, ptr %17, align 8, !tbaa !43
-  %274 = getelementptr inbounds nuw i64, ptr %273, i64 %246
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %246
   %275 = load i64, ptr %274, align 8, !tbaa !49
   %276 = and i64 %275, %244
   %.not.i39 = icmp eq i64 %276, 0
@@ -2087,9 +2074,9 @@ define linkonce_odr void @_ZNSt5dequeIjSaIjEE17_M_reallocate_mapEmb(ptr noundef 
   %19 = load ptr, ptr %0, align 8, !tbaa !36
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -2108,12 +2095,12 @@ define linkonce_odr void @_ZNSt5dequeIjSaIjEE17_M_reallocate_mapEmb(ptr noundef 
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit
 
@@ -2141,9 +2128,9 @@ _ZNSt11_Deque_baseIjSaIjEE15_M_allocate_mapEm.exit: ; preds = %39
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #15
   %49 = sub i64 %41, %13
   %50 = lshr i64 %49, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %52 = select i1 %2, i64 %1, i64 0
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %54, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPjS1_ET0_T_S3_S2_.exit26, label %55
@@ -2171,7 +2158,7 @@ _ZSt4copyIPPjS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, 
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 512
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %62, ptr %63, align 8, !tbaa !40
-  %64 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   store ptr %65, ptr %4, align 8, !tbaa !38
   %66 = load ptr, ptr %65, align 8, !tbaa !37
@@ -2413,7 +2400,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %55 = and i32 %52, 2147483647
   %56 = zext nneg i32 %55 to i64
   %57 = load ptr, ptr %24, align 8, !tbaa !47
-  %58 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %56
   %59 = and i32 %47, 16777216
   %60 = icmp eq i32 %59, 0
   %61 = and i32 %47, 83886080
@@ -2451,7 +2438,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %68
   %74 = lshr i32 %69, 8
   %75 = and i32 %74, 4095
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %.val.val.i, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.val.val.i, i64 %76
   %.sroa.0.0.copyload.i.i32.i = load i64, ptr %77, align 8, !tbaa !49
   %78 = and i64 %.val31.i, %.val30.i
   %79 = and i64 %78, %.sroa.0.0.copyload.i.i32.i
@@ -2497,7 +2484,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %68
   %100 = lshr i32 %96, 6
   %101 = zext nneg i32 %100 to i64
   %102 = load ptr, ptr %25, align 8, !tbaa !43
-  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %101
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %101
   %104 = load i64, ptr %103, align 8, !tbaa !49
   %105 = and i64 %104, %99
   %.not29.i.i = icmp eq i64 %105, 0
@@ -2506,7 +2493,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %68
 106:                                              ; preds = %95
   %107 = zext nneg i32 %96 to i64
   %108 = load ptr, ptr %24, align 8, !tbaa !47
-  %109 = getelementptr inbounds nuw %"struct.llvm::DeadLaneDetector::VRegInfo", ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %107
   %.sroa.01.0.copyload.i.i = load i64, ptr %109, align 8, !tbaa !49
   %110 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.02985.i) #16
   %111 = load i16, ptr %88, align 4, !tbaa !75
@@ -2522,7 +2509,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread.i: ; preds = %68
   %113 = add i32 %110, 1
   %114 = load ptr, ptr %90, align 8, !tbaa !55
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load i64, ptr %117, align 8, !tbaa !50
   %119 = trunc i64 %118 to i32
@@ -2567,7 +2554,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %144 = and i32 %141, 2147483647
   %145 = zext nneg i32 %144 to i64
   %146 = load ptr, ptr %143, align 8, !tbaa !43
-  %147 = getelementptr inbounds nuw %"struct.std::pair", ptr %146, i64 %145
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %145
   %.0.copyload.i.i.i.i.i.i.i.i.i39.i = load i64, ptr %147, align 8
   %148 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i39.i, -8
   %149 = inttoptr i64 %148 to ptr
@@ -2581,7 +2568,7 @@ _ZNK4llvm18TargetRegisterInfo33reverseComposeSubRegIndexLaneMaskEjNS_11LaneBitma
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 256
   %156 = load ptr, ptr %155, align 8, !tbaa !84
   %157 = and i64 %129, 4294967295
-  %158 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %157
   %.sroa.0.0.copyload.i.i40.i = load i64, ptr %158, align 8, !tbaa !49
   %159 = xor i64 %.sroa.0.0.copyload.i.i40.i, -1
   %160 = and i64 %.sroa.01.0.copyload.i.i, %159
@@ -2623,13 +2610,13 @@ _ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitm
   %179 = load ptr, ptr %8, align 8, !tbaa !249
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load ptr, ptr %180, align 8, !tbaa !43
-  %182 = getelementptr inbounds nuw %"struct.std::pair", ptr %181, i64 %107
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %107
   %.0.copyload.i.i.i.i.i.i.i.i.i34.i = load i64, ptr %182, align 8
   %183 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i34.i, -8
   %184 = inttoptr i64 %183 to ptr
   %185 = and i32 %176, 2147483647
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw %"struct.std::pair", ptr %181, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %186
   %.0.copyload.i.i.i.i.i.i.i.i.i35.i = load i64, ptr %187, align 8
   %188 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i35.i, -8
   %189 = inttoptr i64 %188 to ptr
@@ -2675,7 +2662,7 @@ _ZNK4llvm16DeadLaneDetector17transferUsedLanesERKNS_12MachineInstrENS_11LaneBitm
   %212 = add i32 %211, 1
   %213 = load ptr, ptr %90, align 8, !tbaa !55
   %214 = zext i32 %212 to i64
-  %215 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %213, i64 %214
+  %215 = getelementptr inbounds nuw [32 x i8], ptr %213, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   br label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit.i.i
 

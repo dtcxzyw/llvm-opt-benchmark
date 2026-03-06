@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
-%struct._value_string = type { i32, ptr }
 %struct.osmux_stream_key = type { %struct._address, %struct._address, i32, i32, i32, i32 }
 
 @osmux_handle = internal unnamed_addr global ptr null, align 8
@@ -662,7 +661,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr %struct._value_string, ptr @osmux_ft_vals, i64 %46
+  %47 = getelementptr [16 x i8], ptr @osmux_ft_vals, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %50

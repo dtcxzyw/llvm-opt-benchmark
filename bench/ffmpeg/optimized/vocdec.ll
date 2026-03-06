@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/vocdec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [4 x i8] c"voc\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Creative Voice\00", align 1
 @ff_voc_codec_tags_list = external constant [0 x ptr], align 8
@@ -115,7 +113,7 @@ define internal range(i32 -22, 1) i32 @voc_read_seek(ptr noundef %0, i32 noundef
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = tail call i32 @av_index_search_timestamp(ptr noundef %16, i64 noundef %2, i32 noundef %3) #4
   %18 = icmp sgt i32 %17, -1
@@ -130,7 +128,7 @@ define internal range(i32 -22, 1) i32 @voc_read_seek(ptr noundef %0, i32 noundef
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 320
   %25 = load ptr, ptr %24, align 8, !tbaa !57
   %26 = zext nneg i32 %17 to i64
-  %27 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = load i64, ptr %27, align 8, !tbaa !58
@@ -160,7 +158,7 @@ define internal range(i32 -22, 1) i32 @voc_read_seek(ptr noundef %0, i32 noundef
 
 44:                                               ; preds = %39
   %45 = sext i32 %20 to i64
-  %46 = getelementptr %struct.AVIndexEntry, ptr %41, i64 %45
+  %46 = getelementptr [24 x i8], ptr %41, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -16
   %48 = load i64, ptr %47, align 8, !tbaa !60
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8

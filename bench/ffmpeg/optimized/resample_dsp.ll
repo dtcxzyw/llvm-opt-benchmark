@@ -17,13 +17,13 @@ define void @swri_resample_dsp_init(ptr noundef captures(none) %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_resample_dsp_init, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.swri_resample_dsp_init, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw ptr, ptr @switch.table.swri_resample_dsp_init.1, i64 %6
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.swri_resample_dsp_init.1, i64 %6
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.swri_resample_dsp_init.2, i64 %7
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.swri_resample_dsp_init.2, i64 %7
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %switch.load, ptr %8, align 8, !tbaa !14
@@ -50,9 +50,9 @@ define internal void @resample_one_int16(ptr noundef writeonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
-  %8 = getelementptr inbounds i16, ptr %1, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %1, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !17
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %9, ptr %10, align 2, !tbaa !17
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -108,19 +108,19 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %.169103.us = phi i32 [ %.068.lcssa, %.lr.ph90.us.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ]
   %27 = mul nsw i32 %16, %.169103.us
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %14, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %14, i64 %28
   %30 = sext i32 %.165105.us to i64
-  %invariant.gep = getelementptr i16, ptr %2, i64 %30
+  %invariant.gep = getelementptr [2 x i8], ptr %2, i64 %30
   br label %61
 
 31:                                               ; preds = %._crit_edge.us
   %32 = add nsw i32 %.165105.us, %79
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %2, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %2, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !17
   %36 = sext i16 %35 to i32
   %37 = and i64 %indvars.iv.next158, 4294967294
-  %38 = getelementptr inbounds nuw i16, ptr %29, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !17
   %40 = sext i16 %39 to i32
   %41 = mul nsw i32 %40, %36
@@ -140,7 +140,7 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %52 = select i1 %51, i16 32767, i16 -32768
   %53 = trunc i64 %47 to i16
   %.0.i.us = select i1 %50, i16 %52, i16 %53
-  %54 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv160
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv160
   store i16 %.0.i.us, ptr %54, align 2, !tbaa !17
   %55 = add nsw i32 %21, %.066104.us
   %56 = add nsw i32 %23, %.169103.us
@@ -171,10 +171,10 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %indvars.iv157 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next158, %61 ]
   %.06188.us = phi i32 [ 0, %.lr.ph90.us ], [ %76, %61 ]
   %.06287.us = phi i32 [ 16384, %.lr.ph90.us ], [ %68, %61 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv157
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv157
   %62 = load i16, ptr %gep, align 2, !tbaa !17
   %63 = sext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv157
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv157
   %65 = load i16, ptr %64, align 2, !tbaa !17
   %66 = sext i16 %65 to i32
   %67 = mul nsw i32 %66, %63
@@ -213,9 +213,9 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %.169103.us117 = phi i32 [ %.3.lcssa.us127, %._crit_edge100.us130 ], [ %.068.lcssa, %.lr.ph107.split ]
   %83 = mul nsw i32 %16, %.169103.us117
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i16, ptr %14, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %14, i64 %84
   %86 = sext i32 %.165105.us115 to i64
-  %87 = getelementptr inbounds i16, ptr %2, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %2, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !17
   %89 = sext i16 %88 to i64
   %90 = load i16, ptr %85, align 2, !tbaa !17
@@ -232,7 +232,7 @@ define internal i32 @resample_common_int16(ptr noundef captures(none) %0, ptr no
   %100 = select i1 %99, i16 32767, i16 -32768
   %101 = trunc i64 %95 to i16
   %.0.i.us119 = select i1 %98, i16 %100, i16 %101
-  %102 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv152
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv152
   store i16 %.0.i.us119, ptr %102, align 2, !tbaa !17
   %103 = add nsw i32 %21, %.066104.us116
   %104 = add nsw i32 %23, %.169103.us117
@@ -366,10 +366,10 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %.16594.us = phi i32 [ %.064.lcssa, %.lr.ph83.us.preheader ], [ %.3.lcssa.us, %._crit_edge91.us ]
   %30 = mul nsw i32 %16, %.16594.us
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %14, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %14, i64 %31
   %33 = sext i32 %.196.us to i64
-  %invariant.gep = getelementptr i16, ptr %2, i64 %33
-  %invariant.gep139 = getelementptr i16, ptr %32, i64 %29
+  %invariant.gep = getelementptr [2 x i8], ptr %2, i64 %33
+  %invariant.gep139 = getelementptr [2 x i8], ptr %32, i64 %29
   br label %36
 
 .lr.ph90.us:                                      ; preds = %._crit_edge.us, %.lr.ph90.us
@@ -391,15 +391,15 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %indvars.iv114 = phi i64 [ 0, %.lr.ph83.us ], [ %indvars.iv.next115, %36 ]
   %.05881.us = phi i32 [ 16384, %.lr.ph83.us ], [ %47, %36 ]
   %.05980.us = phi i32 [ 16384, %.lr.ph83.us ], [ %43, %36 ]
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv114
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv114
   %37 = load i16, ptr %gep, align 2, !tbaa !17
   %38 = sext i16 %37 to i32
-  %39 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv114
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %indvars.iv114
   %40 = load i16, ptr %39, align 2, !tbaa !17
   %41 = sext i16 %40 to i32
   %42 = mul nsw i32 %41, %38
   %43 = add nsw i32 %42, %.05980.us
-  %gep140 = getelementptr i16, ptr %invariant.gep139, i64 %indvars.iv114
+  %gep140 = getelementptr [2 x i8], ptr %invariant.gep139, i64 %indvars.iv114
   %44 = load i16, ptr %gep140, align 2, !tbaa !17
   %45 = sext i16 %44 to i32
   %46 = mul nsw i32 %45, %38
@@ -420,7 +420,7 @@ define internal i32 @resample_linear_int16(ptr noundef captures(none) %0, ptr no
   %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 -32768)
   %57 = tail call i32 @llvm.smin.i32(i32 %56, i32 32767)
   %.0.i.us = trunc nsw i32 %57 to i16
-  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv119
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv119
   store i16 %.0.i.us, ptr %58, align 2, !tbaa !17
   %59 = add nsw i32 %24, %.06295.us
   %60 = add nsw i32 %26, %.16594.us
@@ -499,9 +499,9 @@ define internal void @resample_one_int32(ptr noundef writeonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
-  %8 = getelementptr inbounds i32, ptr %1, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %1, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !38
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4, !tbaa !38
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -556,7 +556,7 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %23 = load i32, ptr %15, align 4, !tbaa !25
   %24 = mul nsw i32 %23, %.169102
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   %27 = load i32, ptr %16, align 8, !tbaa !26
   %28 = icmp sgt i32 %27, 1
   br i1 %28, label %.lr.ph89.preheader, label %._crit_edge
@@ -564,17 +564,17 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
 .lr.ph89.preheader:                               ; preds = %22
   %29 = zext nneg i32 %27 to i64
   %30 = sext i32 %.165104 to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %30
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %30
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
   %.06187 = phi i64 [ 0, %.lr.ph89.preheader ], [ %45, %.lr.ph89 ]
   %.06286 = phi i64 [ 536870912, %.lr.ph89.preheader ], [ %37, %.lr.ph89 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %31 = load i32, ptr %gep, align 4, !tbaa !38
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, %32
@@ -606,11 +606,11 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
 50:                                               ; preds = %._crit_edge
   %51 = add nsw i32 %.0.lcssa, %.165104
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %2, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %2, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !38
   %55 = sext i32 %54 to i64
   %56 = zext nneg i32 %.0.lcssa to i64
-  %57 = getelementptr inbounds nuw i32, ptr %26, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !38
   %59 = sext i32 %58 to i64
   %60 = mul nsw i64 %59, %55
@@ -624,7 +624,7 @@ define internal i32 @resample_common_int32(ptr noundef captures(none) %0, ptr no
   %65 = tail call i64 @llvm.smax.i64(i64 %64, i64 -2147483648)
   %66 = tail call i64 @llvm.smin.i64(i64 %65, i64 2147483647)
   %.0.i = trunc nsw i64 %66 to i32
-  %67 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv118
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv118
   store i32 %.0.i, ptr %67, align 4, !tbaa !38
   %68 = load i32, ptr %17, align 4, !tbaa !27
   %69 = add nsw i32 %68, %.066103
@@ -715,7 +715,7 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %23 = load i32, ptr %15, align 4, !tbaa !25
   %24 = mul nsw i32 %23, %.16593
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   %27 = load i32, ptr %16, align 8, !tbaa !26
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph82.preheader, label %._crit_edge
@@ -724,23 +724,23 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %29 = sext i32 %.195 to i64
   %30 = sext i32 %23 to i64
   %wide.trip.count = zext nneg i32 %27 to i64
-  %invariant.gep = getelementptr i32, ptr %2, i64 %29
-  %invariant.gep124 = getelementptr i32, ptr %26, i64 %30
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %29
+  %invariant.gep124 = getelementptr [4 x i8], ptr %26, i64 %30
   br label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next, %.lr.ph82 ]
   %.05880 = phi i64 [ 536870912, %.lr.ph82.preheader ], [ %41, %.lr.ph82 ]
   %.05979 = phi i64 [ 536870912, %.lr.ph82.preheader ], [ %37, %.lr.ph82 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %31 = load i32, ptr %gep, align 4, !tbaa !38
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %35, %32
   %37 = add nsw i64 %36, %.05979
-  %gep125 = getelementptr i32, ptr %invariant.gep124, i64 %indvars.iv
+  %gep125 = getelementptr [4 x i8], ptr %invariant.gep124, i64 %indvars.iv
   %38 = load i32, ptr %gep125, align 4, !tbaa !38
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %39, %32
@@ -763,7 +763,7 @@ define internal i32 @resample_linear_int32(ptr noundef captures(none) %0, ptr no
   %50 = tail call i64 @llvm.smax.i64(i64 %49, i64 -2147483648)
   %51 = tail call i64 @llvm.smin.i64(i64 %50, i64 2147483647)
   %.0.i = trunc nsw i64 %51 to i32
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv108
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv108
   store i32 %.0.i, ptr %52, align 4, !tbaa !38
   %53 = load i32, ptr %18, align 4, !tbaa !27
   %54 = add nsw i32 %53, %.06294
@@ -823,9 +823,9 @@ define internal void @resample_one_float(ptr noundef writeonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
-  %8 = getelementptr inbounds float, ptr %1, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %1, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !48
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %9, ptr %10, align 4, !tbaa !48
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -881,18 +881,18 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %.169103.us = phi i32 [ %.068.lcssa, %.lr.ph90.us.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ]
   %27 = mul nsw i32 %16, %.169103.us
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %14, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %14, i64 %28
   %30 = sext i32 %.165105.us to i64
-  %invariant.gep = getelementptr float, ptr %2, i64 %30
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %30
   br label %49
 
 31:                                               ; preds = %._crit_edge.us
   %32 = add nsw i32 %.165105.us, %61
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %2, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !48
   %36 = and i64 %indvars.iv.next157, 4294967294
-  %37 = getelementptr inbounds nuw float, ptr %29, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !48
   %39 = tail call nsz float @llvm.fmuladd.f32(float %35, float %38, float %53)
   br label %40
@@ -900,7 +900,7 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
 40:                                               ; preds = %31, %._crit_edge.us
   %.1.us = phi nsz float [ %39, %31 ], [ %53, %._crit_edge.us ]
   %41 = fadd nsz float %58, %.1.us
-  %42 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv159
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv159
   store float %41, ptr %42, align 4, !tbaa !48
   %43 = add nsw i32 %21, %.066104.us
   %44 = add nsw i32 %23, %.169103.us
@@ -931,9 +931,9 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %indvars.iv156 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next157, %49 ]
   %.06188.us = phi float [ 0.000000e+00, %.lr.ph90.us ], [ %58, %49 ]
   %.06287.us = phi float [ 0.000000e+00, %.lr.ph90.us ], [ %53, %49 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv156
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv156
   %50 = load float, ptr %gep, align 4, !tbaa !48
-  %51 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv156
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv156
   %52 = load float, ptr %51, align 4, !tbaa !48
   %53 = tail call nsz float @llvm.fmuladd.f32(float %50, float %52, float %.06287.us)
   %54 = getelementptr i8, ptr %gep, i64 4
@@ -967,13 +967,13 @@ define internal i32 @resample_common_float(ptr noundef captures(none) %0, ptr no
   %.169103.us117 = phi i32 [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.068.lcssa, %.lr.ph107.split ]
   %65 = mul nsw i32 %16, %.169103.us117
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds float, ptr %14, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %14, i64 %66
   %68 = sext i32 %.165105.us115 to i64
-  %69 = getelementptr inbounds float, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !48
   %71 = load float, ptr %67, align 4, !tbaa !48
   %72 = fmul nsz float %70, %71
-  %73 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv151
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv151
   store float %72, ptr %73, align 4, !tbaa !48
   %74 = add nsw i32 %21, %.066104.us116
   %75 = add nsw i32 %23, %.169103.us117
@@ -1102,10 +1102,10 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %.06695.us = phi i32 [ %9, %.lr.ph84.us.preheader ], [ %.167.us, %._crit_edge92.us ]
   %29 = mul nsw i32 %20, %.197.us
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds float, ptr %18, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %18, i64 %30
   %32 = sext i32 %.16496.us to i64
-  %invariant.gep = getelementptr float, ptr %2, i64 %32
-  %invariant.gep141 = getelementptr float, ptr %31, i64 %28
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %32
+  %invariant.gep141 = getelementptr [4 x i8], ptr %31, i64 %28
   br label %35
 
 .lr.ph91.us:                                      ; preds = %._crit_edge.us, %.lr.ph91.us
@@ -1127,12 +1127,12 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %indvars.iv115 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next116, %35 ]
   %.05982.us = phi float [ 0.000000e+00, %.lr.ph84.us ], [ %41, %35 ]
   %.06081.us = phi float [ 0.000000e+00, %.lr.ph84.us ], [ %39, %35 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv115
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv115
   %36 = load float, ptr %gep, align 4, !tbaa !48
-  %37 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv115
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv115
   %38 = load float, ptr %37, align 4, !tbaa !48
   %39 = tail call nsz float @llvm.fmuladd.f32(float %36, float %38, float %.06081.us)
-  %gep142 = getelementptr float, ptr %invariant.gep141, i64 %indvars.iv115
+  %gep142 = getelementptr [4 x i8], ptr %invariant.gep141, i64 %indvars.iv115
   %40 = load float, ptr %gep142, align 4, !tbaa !48
   %41 = tail call nsz float @llvm.fmuladd.f32(float %36, float %40, float %.05982.us)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -1147,7 +1147,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %46 = fpext nsz float %39 to double
   %47 = tail call nsz double @llvm.fmuladd.f64(double %44, double %45, double %46)
   %48 = fptrunc nsz double %47 to float
-  %49 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv120
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv120
   store float %48, ptr %49, align 4, !tbaa !48
   %50 = add nsw i32 %25, %.06695.us
   %51 = add nsw i32 %27, %.197.us
@@ -1179,7 +1179,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %58 = sitofp i32 %.06695 to double
   %59 = fmul ninf nsz double %54, %58
   %60 = fptrunc nsz double %59 to float
-  %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %60, ptr %61, align 4, !tbaa !48
   %62 = add nsw i32 %25, %.06695
   %63 = add nsw i32 %27, %.197
@@ -1235,9 +1235,9 @@ define internal void @resample_one_double(ptr noundef writeonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i64 [ %3, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %7 = ashr i64 %.01011, 32
-  %8 = getelementptr inbounds double, ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !59
-  %10 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store double %9, ptr %10, align 8, !tbaa !59
   %11 = add nsw i64 %.01011, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1293,18 +1293,18 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %.169103.us = phi i32 [ %.068.lcssa, %.lr.ph90.us.preheader ], [ %.3.lcssa.us, %._crit_edge100.us ]
   %27 = mul nsw i32 %16, %.169103.us
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds double, ptr %14, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %14, i64 %28
   %30 = sext i32 %.165105.us to i64
-  %invariant.gep = getelementptr double, ptr %2, i64 %30
+  %invariant.gep = getelementptr [8 x i8], ptr %2, i64 %30
   br label %49
 
 31:                                               ; preds = %._crit_edge.us
   %32 = add nsw i32 %.165105.us, %61
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds double, ptr %2, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !59
   %36 = and i64 %indvars.iv.next157, 4294967294
-  %37 = getelementptr inbounds nuw double, ptr %29, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %36
   %38 = load double, ptr %37, align 8, !tbaa !59
   %39 = tail call nsz double @llvm.fmuladd.f64(double %35, double %38, double %53)
   br label %40
@@ -1312,7 +1312,7 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
 40:                                               ; preds = %31, %._crit_edge.us
   %.1.us = phi nsz double [ %39, %31 ], [ %53, %._crit_edge.us ]
   %41 = fadd nsz double %58, %.1.us
-  %42 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv159
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv159
   store double %41, ptr %42, align 8, !tbaa !59
   %43 = add nsw i32 %21, %.066104.us
   %44 = add nsw i32 %23, %.169103.us
@@ -1343,9 +1343,9 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %indvars.iv156 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next157, %49 ]
   %.06188.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %58, %49 ]
   %.06287.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %53, %49 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv156
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv156
   %50 = load double, ptr %gep, align 8, !tbaa !59
-  %51 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv156
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv156
   %52 = load double, ptr %51, align 8, !tbaa !59
   %53 = tail call nsz double @llvm.fmuladd.f64(double %50, double %52, double %.06287.us)
   %54 = getelementptr i8, ptr %gep, i64 8
@@ -1379,13 +1379,13 @@ define internal i32 @resample_common_double(ptr noundef captures(none) %0, ptr n
   %.169103.us117 = phi i32 [ %.3.lcssa.us126, %._crit_edge100.us129 ], [ %.068.lcssa, %.lr.ph107.split ]
   %65 = mul nsw i32 %16, %.169103.us117
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds double, ptr %14, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %14, i64 %66
   %68 = sext i32 %.165105.us115 to i64
-  %69 = getelementptr inbounds double, ptr %2, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %2, i64 %68
   %70 = load double, ptr %69, align 8, !tbaa !59
   %71 = load double, ptr %67, align 8, !tbaa !59
   %72 = fmul nsz double %70, %71
-  %73 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv151
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv151
   store double %72, ptr %73, align 8, !tbaa !59
   %74 = add nsw i32 %21, %.066104.us116
   %75 = add nsw i32 %23, %.169103.us117
@@ -1514,10 +1514,10 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %.06695.us = phi i32 [ %9, %.lr.ph84.us.preheader ], [ %.167.us, %._crit_edge92.us ]
   %29 = mul nsw i32 %20, %.197.us
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds double, ptr %18, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %18, i64 %30
   %32 = sext i32 %.16496.us to i64
-  %invariant.gep = getelementptr double, ptr %2, i64 %32
-  %invariant.gep141 = getelementptr double, ptr %31, i64 %28
+  %invariant.gep = getelementptr [8 x i8], ptr %2, i64 %32
+  %invariant.gep141 = getelementptr [8 x i8], ptr %31, i64 %28
   br label %35
 
 .lr.ph91.us:                                      ; preds = %._crit_edge.us, %.lr.ph91.us
@@ -1539,12 +1539,12 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %indvars.iv115 = phi i64 [ 0, %.lr.ph84.us ], [ %indvars.iv.next116, %35 ]
   %.05982.us = phi double [ 0.000000e+00, %.lr.ph84.us ], [ %41, %35 ]
   %.06081.us = phi double [ 0.000000e+00, %.lr.ph84.us ], [ %39, %35 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv115
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv115
   %36 = load double, ptr %gep, align 8, !tbaa !59
-  %37 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv115
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv115
   %38 = load double, ptr %37, align 8, !tbaa !59
   %39 = tail call nsz double @llvm.fmuladd.f64(double %36, double %38, double %.06081.us)
-  %gep142 = getelementptr double, ptr %invariant.gep141, i64 %indvars.iv115
+  %gep142 = getelementptr [8 x i8], ptr %invariant.gep141, i64 %indvars.iv115
   %40 = load double, ptr %gep142, align 8, !tbaa !59
   %41 = tail call nsz double @llvm.fmuladd.f64(double %36, double %40, double %.05982.us)
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -1556,7 +1556,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %43 = fmul nsz double %13, %42
   %44 = sitofp i32 %.06695.us to double
   %45 = tail call nsz double @llvm.fmuladd.f64(double %43, double %44, double %39)
-  %46 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv120
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv120
   store double %45, ptr %46, align 8, !tbaa !59
   %47 = add nsw i32 %25, %.06695.us
   %48 = add nsw i32 %27, %.197.us
@@ -1587,7 +1587,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %.06695 = phi i32 [ %9, %.lr.ph99.split ], [ %.167, %._crit_edge92 ]
   %55 = sitofp i32 %.06695 to double
   %56 = fmul ninf nsz double %51, %55
-  %57 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %56, ptr %57, align 8, !tbaa !59
   %58 = add nsw i32 %25, %.06695
   %59 = add nsw i32 %27, %.197

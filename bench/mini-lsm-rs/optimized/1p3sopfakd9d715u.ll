@@ -826,7 +826,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hb2999d9084253cd
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit.i.i"
   %309 = load ptr, ptr %133, align 8, !noalias !113, !nonnull !9, !align !45, !noundef !9
-  %310 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %309, i64 %.0.i.i.i.i
+  %310 = getelementptr inbounds [16 x i8], ptr %309, i64 %.0.i.i.i.i
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store ptr %310, ptr %70, align 8, !alias.scope !110, !noalias !106
   store ptr %139, ptr %182, align 8, !alias.scope !110, !noalias !106
@@ -919,7 +919,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_wo_or_invalid17hb2999d9084253cd
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i74.i.i": ; preds = %324
   %333 = load ptr, ptr %133, align 8, !noalias !126, !nonnull !9, !align !45, !noundef !9
-  %334 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %333, i64 %.0.i.i73.i.i
+  %334 = getelementptr inbounds [16 x i8], ptr %333, i64 %.0.i.i73.i.i
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   store ptr %334, ptr %68, align 8, !alias.scope !123, !noalias !120
   store ptr %139, ptr %184, align 8, !alias.scope !123, !noalias !120
@@ -1865,7 +1865,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 679:                                              ; preds = %._crit_edge.i.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i"
   %680 = phi i64 [ %.pre.i.i70, %._crit_edge.i.i ], [ %668, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i" ]
   %681 = load ptr, ptr %567, align 8, !alias.scope !321, !noalias !324, !nonnull !9, !noundef !9
-  %682 = getelementptr inbounds { ptr, i64, i64 }, ptr %681, i64 %680
+  %682 = getelementptr inbounds [24 x i8], ptr %681, i64 %680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %682, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
   %683 = load i64, ptr %568, align 8, !alias.scope !321, !noalias !324, !noundef !9
   %684 = add i64 %683, 1
@@ -2195,7 +2195,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit.i"
   %780 = load ptr, ptr %133, align 8, !noalias !395, !nonnull !9, !align !45, !noundef !9
-  %781 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %780, i64 %.0.i.i.i
+  %781 = getelementptr inbounds [16 x i8], ptr %780, i64 %.0.i.i.i
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 8
   store ptr %781, ptr %45, align 8, !alias.scope !392, !noalias !388
   store ptr %139, ptr %724, align 8, !alias.scope !392, !noalias !388
@@ -3255,7 +3255,7 @@ default.unreachable11.i216:                       ; preds = %.noexc221
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i.i155": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit.i.i153"
   %1149 = load ptr, ptr %133, align 8, !noalias !620, !nonnull !9, !align !45, !noundef !9
-  %1150 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1149, i64 %.0.i.i.i.i154
+  %1150 = getelementptr inbounds [16 x i8], ptr %1149, i64 %.0.i.i.i.i154
   %1151 = getelementptr inbounds nuw i8, ptr %1150, i64 8
   store ptr %1150, ptr %21, align 8, !alias.scope !617, !noalias !614
   store ptr %139, ptr %153, align 8, !alias.scope !617, !noalias !614
@@ -3589,7 +3589,7 @@ default.unreachable11.i216:                       ; preds = %.noexc221
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i.i.i.i": ; preds = %.lr.ph.i.i
   %1245 = load ptr, ptr %133, align 8, !noalias !709, !nonnull !9, !align !45, !noundef !9
-  %1246 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1245, i64 %.0.i.i.i.i.i
+  %1246 = getelementptr inbounds [16 x i8], ptr %1245, i64 %.0.i.i.i.i.i
   %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 8
   store ptr %1246, ptr %14, align 8, !alias.scope !706, !noalias !703
   store ptr %139, ptr %140, align 8, !alias.scope !706, !noalias !703
@@ -3807,7 +3807,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
   %1327 = phi i64 [ %.pre16.i.i.i.i, %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i ], [ %1273, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.i.i.i.i" ], [ %1270, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.thread.i.i.i.i" ]
   %.05.i.i.i.i = phi ptr [ %1325, %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i ], [ %1272, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.i.i.i.i" ], [ %142, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.thread.i.i.i.i" ]
   %.0.i.i123.i.i = phi ptr [ %143, %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i ], [ %143, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.i.i.i.i" ], [ %135, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h1bcb76244cf090c6E.llvm.885679253126787145.exit.thread.i.i.i.i" ]
-  %1328 = getelementptr inbounds ptr, ptr %.05.i.i.i.i, i64 %1327
+  %1328 = getelementptr inbounds [8 x i8], ptr %.05.i.i.i.i, i64 %1327
   store ptr %.01448.i394.i.i, ptr %1328, align 8, !noalias !669
   %1329 = load i64, ptr %.0.i.i123.i.i, align 8, !alias.scope !718, !noalias !653, !noundef !9
   %1330 = add i64 %1329, 1
@@ -4042,7 +4042,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
   %1395 = icmp ugt i64 %1392, 8
   %1396 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sink3.i.i.i = select i1 %1395, ptr %1396, ptr %.sroa.4.0..sroa_idx.i.i
-  %1397 = getelementptr inbounds ptr, ptr %.sink3.i.i.i, i64 %1393
+  %1397 = getelementptr inbounds [8 x i8], ptr %.sink3.i.i.i, i64 %1393
   %1398 = load ptr, ptr %1397, align 8, !nonnull !9, !noundef !9
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !563
   store ptr %1398, ptr %31, align 8, !noalias !563
@@ -4160,7 +4160,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i138.i.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit136.i.i"
   %1428 = load ptr, ptr %133, align 8, !noalias !809, !nonnull !9, !align !45, !noundef !9
-  %1429 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1428, i64 %.0.i.i137.i.i
+  %1429 = getelementptr inbounds [16 x i8], ptr %1428, i64 %.0.i.i137.i.i
   %1430 = getelementptr inbounds nuw i8, ptr %1429, i64 8
   store ptr %1429, ptr %8, align 8, !alias.scope !806, !noalias !803
   store ptr %139, ptr %149, align 8, !alias.scope !806, !noalias !803
@@ -4539,7 +4539,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i177.i.i": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit171.i.i"
   %1556 = load ptr, ptr %133, align 8, !noalias !883, !nonnull !9, !align !45, !noundef !9
-  %1557 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %1556, i64 %.0.i.i176.i.i
+  %1557 = getelementptr inbounds [16 x i8], ptr %1556, i64 %.0.i.i176.i.i
   %1558 = getelementptr inbounds nuw i8, ptr %1557, i64 8
   store ptr %1557, ptr %7, align 8, !alias.scope !880, !noalias !877
   store ptr %139, ptr %151, align 8, !alias.scope !880, !noalias !877
@@ -4637,7 +4637,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit.i.i.i.i: ; preds = %_ZN8smallv
   %1591 = icmp ugt i64 %1590, 4
   %1592 = load ptr, ptr %.sroa.0228.sroa.4.0..sroa_idx.i.i, align 8
   %.sink3.i188.i.i = select i1 %1591, ptr %1592, ptr %.sroa.0228.sroa.4.0..sroa_idx.i.i
-  %1593 = getelementptr inbounds ptr, ptr %.sink3.i188.i.i, i64 %1585
+  %1593 = getelementptr inbounds [8 x i8], ptr %.sink3.i188.i.i, i64 %1585
   %1594 = load ptr, ptr %1593, align 8, !nonnull !9, !noundef !9
   invoke void @"_ZN4moka6common5deque14Deque$LT$T$GT$12move_to_back17he775c6b4ad059e82E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull %1594)
           to label %1584 unwind label %1595
@@ -9178,7 +9178,7 @@ _ZN4moka9sync_base10base_cache30is_entry_expired_ao_or_invalid17hbca038b90f67c25
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h7d5a7871eabcf79aE.exit.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h80f6e9fe896951d3E.exit"
   %91 = load ptr, ptr %28, align 8, !noalias !2207, !nonnull !9, !align !45, !noundef !9
-  %92 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %91, i64 %.0.i.i
+  %92 = getelementptr inbounds [16 x i8], ptr %91, i64 %.0.i.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %92, ptr %9, align 8, !alias.scope !2204, !noalias !2200
   store ptr %29, ptr %30, align 8, !alias.scope !2204, !noalias !2200
@@ -9710,7 +9710,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4moka9sync_base10base_cache22Inne
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17h49ffd0ffd61be9f5E.exit": ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %23 = load ptr, ptr %22, align 8, !noalias !2411, !nonnull !9, !align !45, !noundef !9
-  %24 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %23, i64 %.0.i.i
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %.0.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %24, ptr %8, align 8, !alias.scope !2408, !noalias !2405
@@ -10350,7 +10350,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17hb916975f761f6f81E.exit": ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %27 = load ptr, ptr %26, align 8, !noalias !2566, !nonnull !9, !align !45, !noundef !9
-  %28 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %27, i64 %.0.i.i
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %.0.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 168
   store ptr %28, ptr %7, align 8, !alias.scope !2563, !noalias !2559
@@ -10473,7 +10473,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17h03987f129bd1b888E.exit": ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %25 = load ptr, ptr %24, align 8, !noalias !2584, !nonnull !9, !align !45, !noundef !9
-  %26 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %25, i64 %.0.i.i
+  %26 = getelementptr inbounds [16 x i8], ptr %25, i64 %.0.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %26, ptr %6, align 8, !alias.scope !2581, !noalias !2577
@@ -10633,7 +10633,7 @@ common.resume:                                    ; preds = %22
   %26 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %19, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7eda9844bac99617E.llvm.885679253126787145.exit" ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !2613, !noalias !2616, !nonnull !9, !noundef !9
-  %29 = getelementptr inbounds { ptr, ptr, i8, [7 x i8] }, ptr %28, i64 %26
+  %29 = getelementptr inbounds [24 x i8], ptr %28, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %30 = load i64, ptr %18, align 8, !alias.scope !2613, !noalias !2616, !noundef !9
   %31 = add i64 %30, 1
@@ -10860,7 +10860,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %3
 
 74:                                               ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb706b84270eb176dE.exit"
   %75 = load ptr, ptr %1, align 8, !noalias !2688, !nonnull !9, !align !45, !noundef !9
-  %76 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %75, i64 %.0.i.i
+  %76 = getelementptr inbounds [16 x i8], ptr %75, i64 %.0.i.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %76, ptr %4, align 8, !alias.scope !2688
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11984,7 +11984,7 @@ _ZN8smallvec10infallible17hd1f4a6937c697817E.exit: ; preds = %35, %_ZN8smallvec1
   %65 = phi i64 [ %.pre16, %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit ], [ %10, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit" ], [ %5, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit.thread" ]
   %.05 = phi ptr [ %62, %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit ], [ %8, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit" ], [ %7, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit.thread" ]
   %.0 = phi ptr [ %63, %_ZN8smallvec10infallible17hd1f4a6937c697817E.exit ], [ %9, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit" ], [ %4, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h573f12f4007e8a48E.llvm.885679253126787145.exit.thread" ]
-  %66 = getelementptr inbounds ptr, ptr %.05, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %.05, i64 %65
   store ptr %1, ptr %66, align 8
   %67 = load i64, ptr %.0, align 8, !noundef !9
   %68 = add i64 %67, 1

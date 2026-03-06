@@ -63,7 +63,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 13:                                               ; preds = %7
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = sext i32 %6 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %15
   store i32 %14, ptr %16, align 4, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !33
@@ -71,7 +71,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %20 = xor i64 %19, 1
   %21 = inttoptr i64 %20 to ptr
   %22 = sext i32 %14 to i64
-  %23 = getelementptr inbounds ptr, ptr %9, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %9, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %24) #6
   %.not = icmp eq ptr %25, null
@@ -102,7 +102,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   store i32 %43, ptr %41, align 4, !tbaa !35
   %44 = load i32, ptr %16, align 4, !tbaa !32
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %9, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %9, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !34
   %48 = tail call ptr @cuddCofactorRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %47) #6
   %.not127 = icmp eq ptr %48, null
@@ -122,7 +122,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   store i32 %56, ptr %54, align 4, !tbaa !35
   %57 = load i32, ptr %16, align 4, !tbaa !32
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %9, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %9, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !34
   %61 = ptrtoint ptr %60 to i64
   %62 = xor i64 %61, 1
@@ -146,7 +146,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   store i32 %72, ptr %70, align 4, !tbaa !35
   %73 = load i32, ptr %16, align 4, !tbaa !32
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %9, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %9, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !34
   %77 = xor i64 %51, 1
   %78 = inttoptr i64 %77 to ptr
@@ -210,12 +210,12 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %indvars.iv = phi i64 [ %98, %.lr.ph.preheader ], [ %indvars.iv.next, %108 ]
   %.0117134 = phi ptr [ %88, %.lr.ph.preheader ], [ %107, %108 ]
-  %100 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %100 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %101 = load ptr, ptr %100, align 8, !tbaa !34
-  %102 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %102 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !32
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %9, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %9, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !34
   %107 = tail call ptr @cuddBddComposeRecur(ptr noundef nonnull %0, ptr noundef nonnull %.0117134, ptr noundef %101, ptr noundef %106) #6
   %.not131 = icmp eq ptr %107, null
@@ -241,7 +241,7 @@ define ptr @cuddSolveEqnRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 ._crit_edge:                                      ; preds = %108, %90
   %.0117.lcssa = phi ptr [ %88, %90 ], [ %107, %108 ]
-  %117 = getelementptr inbounds ptr, ptr %3, i64 %15
+  %117 = getelementptr inbounds [8 x i8], ptr %3, i64 %15
   store ptr %.0117.lcssa, ptr %117, align 8, !tbaa !34
   tail call void @Cudd_Deref(ptr noundef nonnull %36) #6
   br label %118
@@ -273,9 +273,9 @@ define ptr @Cudd_VerifySol(ptr noundef initializes((448, 452)) %0, ptr noundef %
   %indvars.iv.i.us = phi i64 [ %12, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %20 ]
   %.01823.i.us = phi ptr [ %1, %.lr.ph.preheader.i.us ], [ %19, %20 ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.us
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i.us
   %16 = load ptr, ptr %15, align 8, !tbaa !34
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.us
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i.us
   %18 = load i32, ptr %17, align 4, !tbaa !32
   %19 = tail call ptr @Cudd_bddCompose(ptr noundef %0, ptr noundef %.01823.i.us, ptr noundef %16, i32 noundef %18) #6
   %.not.i.us = icmp eq ptr %19, null
@@ -342,9 +342,9 @@ define ptr @cuddVerifySol(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.01823 = phi ptr [ %1, %.lr.ph.preheader ], [ %18, %19 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4, !tbaa !32
   %18 = tail call ptr @Cudd_bddCompose(ptr noundef %0, ptr noundef %.01823, ptr noundef %15, i32 noundef %17) #6
   %.not = icmp eq ptr %18, null

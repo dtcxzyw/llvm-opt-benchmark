@@ -5,23 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ethtool_ops = type { i8, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.e1000_stats = type { [32 x i8], i32, i32, i32 }
-%struct.e1000_tx_ring = type { ptr, i64, i32, i32, i32, i32, ptr, i16, i16, i8 }
-%struct.e1000_rx_ring = type { ptr, i64, i32, i32, i32, i32, ptr, ptr, i32, i16, i16 }
-%struct.e1000_tx_desc = type { i64, %union.anon.28, %union.anon.30 }
-%union.anon.28 = type { i32 }
-%union.anon.30 = type { i32 }
-%struct.e1000_tx_buffer = type { ptr, i64, i64, i16, i16, i8, i16, i32 }
-%struct.page = type { i64, %union.anon.57, %union.anon.65, %struct.atomic_t, [8 x i8] }
-%union.anon.57 = type { %struct.anon.58 }
-%struct.anon.58 = type { %union.anon.59, ptr, %union.anon.61, i64 }
-%union.anon.59 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.61 = type { i64 }
-%union.anon.65 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.e1000_rx_desc = type { i64, i16, i16, i8, i8, i16 }
-%struct.e1000_rx_buffer = type { %union.anon.56, i64 }
-%union.anon.56 = type { ptr }
 
 @e1000_ethtool_ops = internal constant %struct.ethtool_ops { i8 0, i32 1, i32 0, ptr @e1000_get_drvinfo, ptr @e1000_get_regs_len, ptr @e1000_get_regs, ptr @e1000_get_wol, ptr @e1000_set_wol, ptr @e1000_get_msglevel, ptr @e1000_set_msglevel, ptr @e1000_nway_reset, ptr @e1000_get_link, ptr null, ptr null, ptr @e1000_get_eeprom_len, ptr @e1000_get_eeprom, ptr @e1000_set_eeprom, ptr @e1000_get_coalesce, ptr @e1000_set_coalesce, ptr @e1000_get_ringparam, ptr @e1000_set_ringparam, ptr null, ptr @e1000_get_pauseparam, ptr @e1000_set_pauseparam, ptr @e1000_diag_test, ptr @e1000_get_strings, ptr @e1000_set_phys_id, ptr @e1000_get_ethtool_stats, ptr null, ptr null, ptr null, ptr null, ptr @e1000_get_sset_count, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @ethtool_op_get_ts_info, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @e1000_get_link_ksettings, ptr @e1000_set_link_ksettings, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @e1000_driver_name = external dso_local global [0 x i8], align 1
@@ -746,7 +729,7 @@ define internal i32 @e1000_get_eeprom(ptr noundef %0, ptr noundef captures(none)
   %46 = phi i16 [ %43, %42 ], [ 0, %37 ]
   %47 = add i16 %46, %36
   %48 = zext i16 %46 to i64
-  %49 = getelementptr i16, ptr %30, i64 %48
+  %49 = getelementptr [2 x i8], ptr %30, i64 %48
   %50 = tail call i32 @e1000_read_eeprom(ptr noundef %4, i16 noundef zeroext %47, i16 noundef zeroext 1, ptr noundef %49) #18
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %42, label %.loopexit
@@ -837,7 +820,7 @@ define internal i32 @e1000_set_eeprom(ptr noundef %0, ptr noundef readonly captu
   %51 = trunc i32 %26 to i16
   %52 = sub nsw i32 %26, %23
   %53 = sext i32 %52 to i64
-  %54 = getelementptr i16, ptr %31, i64 %53
+  %54 = getelementptr [2 x i8], ptr %31, i64 %53
   %55 = tail call i32 @e1000_read_eeprom(ptr noundef %4, i16 noundef zeroext %51, i16 noundef zeroext 1, ptr noundef %54) #18
   %.pre2 = load i32, ptr %5, align 4
   br label %56
@@ -1111,7 +1094,7 @@ define internal i32 @e1000_set_ringparam(ptr noundef %0, ptr noundef readonly ca
 
 77:                                               ; preds = %.preheader6, %77
   %78 = phi i64 [ %80, %77 ], [ 0, %.preheader6 ]
-  %.split = getelementptr %struct.e1000_tx_ring, ptr %42, i64 %78
+  %.split = getelementptr [48 x i8], ptr %42, i64 %78
   %79 = getelementptr i8, ptr %.split, i64 20
   store i32 %70, ptr %79, align 4
   %80 = add nuw nsw i64 %78, 1
@@ -1120,7 +1103,7 @@ define internal i32 @e1000_set_ringparam(ptr noundef %0, ptr noundef readonly ca
 
 81:                                               ; preds = %.preheader, %81
   %82 = phi i64 [ %84, %81 ], [ 0, %.preheader ]
-  %.split4 = getelementptr %struct.e1000_rx_ring, ptr %52, i64 %82
+  %.split4 = getelementptr [56 x i8], ptr %52, i64 %82
   %83 = getelementptr i8, ptr %.split4, i64 20
   store i32 %63, ptr %83, align 4
   %84 = add nuw nsw i64 %82, 1
@@ -1474,7 +1457,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %98, label %.loopexit73, label %99, !llvm.loop !22
 
 99:                                               ; preds = %.preheader72
-  %100 = getelementptr i32, ptr @reg_pattern_test.test, i64 %97
+  %100 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %97
   %101 = load i32, ptr %100, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %101, ptr elementtype(i32) %93) #18, !srcloc !13
   %102 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93) #18, !srcloc !6
@@ -1519,7 +1502,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %123, label %.loopexit71, label %124, !llvm.loop !22
 
 124:                                              ; preds = %.preheader70
-  %125 = getelementptr i32, ptr @reg_pattern_test.test, i64 %122
+  %125 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %122
   %126 = load i32, ptr %125, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %126, ptr elementtype(i32) %118) #18, !srcloc !13
   %127 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %118) #18, !srcloc !6
@@ -1565,7 +1548,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %149, label %.loopexit69, label %150, !llvm.loop !22
 
 150:                                              ; preds = %.preheader68
-  %151 = getelementptr i32, ptr @reg_pattern_test.test, i64 %148
+  %151 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %148
   %152 = load i32, ptr %151, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %152, ptr elementtype(i32) %144) #18, !srcloc !13
   %153 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %144) #18, !srcloc !6
@@ -1611,7 +1594,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %175, label %.loopexit67, label %176, !llvm.loop !22
 
 176:                                              ; preds = %.preheader66
-  %177 = getelementptr i32, ptr @reg_pattern_test.test, i64 %174
+  %177 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %174
   %178 = load i32, ptr %177, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %178, ptr elementtype(i32) %170) #18, !srcloc !13
   %179 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %170) #18, !srcloc !6
@@ -1661,7 +1644,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %205, label %.loopexit65, label %206, !llvm.loop !22
 
 206:                                              ; preds = %.preheader64
-  %207 = getelementptr i32, ptr @reg_pattern_test.test, i64 %204
+  %207 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %204
   %208 = load i32, ptr %207, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %208, ptr elementtype(i32) %200) #18, !srcloc !13
   %209 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %200) #18, !srcloc !6
@@ -1711,7 +1694,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   br i1 %235, label %reg_pattern_test.exit.thread, label %236, !llvm.loop !22
 
 236:                                              ; preds = %.preheader.i
-  %237 = getelementptr i32, ptr @reg_pattern_test.test, i64 %234
+  %237 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %234
   %238 = load i32, ptr %237, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %238, ptr elementtype(i32) %230) #18, !srcloc !13
   %239 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %230) #18, !srcloc !6
@@ -2198,7 +2181,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %532 = phi i32 [ 0, %521 ], [ %528, %523 ]
   %533 = load ptr, ptr %457, align 8
   %534 = sext i32 %532 to i64
-  %535 = getelementptr %struct.e1000_tx_desc, ptr %533, i64 %534
+  %535 = getelementptr [16 x i8], ptr %533, i64 %534
   %536 = call ptr @__alloc_skb(i32 noundef 1024, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #18
   %537 = icmp eq ptr %536, null
   br i1 %537, label %.thread, label %538
@@ -2206,13 +2189,13 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 538:                                              ; preds = %531
   %539 = call ptr @skb_put(ptr noundef nonnull %536, i32 noundef 1024) #18
   %540 = load ptr, ptr %469, align 8
-  %541 = getelementptr %struct.e1000_tx_buffer, ptr %540, i64 %534
+  %541 = getelementptr [40 x i8], ptr %540, i64 %534
   store ptr %536, ptr %541, align 8
   %542 = getelementptr inbounds nuw i8, ptr %536, i64 112
   %543 = load i32, ptr %542, align 8
   %544 = trunc i32 %543 to i16
   %545 = load ptr, ptr %469, align 8
-  %.split = getelementptr %struct.e1000_tx_buffer, ptr %545, i64 %534
+  %.split = getelementptr [40 x i8], ptr %545, i64 %534
   %546 = getelementptr i8, ptr %.split, i64 24
   store i16 %544, ptr %546, align 8
   %547 = getelementptr inbounds nuw i8, ptr %536, i64 200
@@ -2261,7 +2244,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %573 = select i1 %569, i64 %570, i64 %572
   %574 = add i64 %568, %573
   %575 = lshr i64 %574, 12
-  %576 = getelementptr %struct.page, ptr %566, i64 %575
+  %576 = getelementptr [64 x i8], ptr %566, i64 %575
   %577 = and i64 %567, 4095
   %578 = call i64 @dma_map_page_attrs(ptr noundef nonnull %477, ptr noundef %576, i64 noundef %577, i64 noundef %550, i32 noundef 1, i64 noundef 0) #18
   br label %579
@@ -2269,11 +2252,11 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 579:                                              ; preds = %564, %563
   %580 = phi i64 [ %578, %564 ], [ -1, %563 ]
   %581 = load ptr, ptr %469, align 8
-  %.split38 = getelementptr %struct.e1000_tx_buffer, ptr %581, i64 %534
+  %.split38 = getelementptr [40 x i8], ptr %581, i64 %534
   %582 = getelementptr i8, ptr %.split38, i64 8
   store i64 %580, ptr %582, align 8
   %583 = load ptr, ptr %469, align 8
-  %.split39 = getelementptr %struct.e1000_tx_buffer, ptr %583, i64 %534
+  %.split39 = getelementptr [40 x i8], ptr %583, i64 %534
   %584 = getelementptr i8, ptr %.split39, i64 8
   %585 = load i64, ptr %584, align 8
   %586 = icmp eq i64 %585, -1
@@ -2385,7 +2368,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %661 = phi i32 [ 0, %654 ], [ %657, %656 ]
   %662 = load ptr, ptr %458, align 8
   %663 = sext i32 %661 to i64
-  %664 = getelementptr %struct.e1000_rx_desc, ptr %662, i64 %663
+  %664 = getelementptr [16 x i8], ptr %662, i64 %663
   %665 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %666 = call noalias noundef align 8 dereferenceable_or_null(2112) ptr @kmalloc_trace(ptr noundef %665, i32 noundef 3520, i64 noundef 2112) #21
   %667 = icmp eq ptr %666, null
@@ -2393,7 +2376,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 
 668:                                              ; preds = %660
   %669 = load ptr, ptr %596, align 8
-  %670 = getelementptr %struct.e1000_rx_buffer, ptr %669, i64 %663
+  %670 = getelementptr [16 x i8], ptr %669, i64 %663
   store ptr %666, ptr %670, align 8
   %671 = getelementptr i8, ptr %666, i64 64
   %672 = call zeroext i1 @is_vmalloc_addr(ptr noundef %671) #18
@@ -2438,7 +2421,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %694 = select i1 %690, i64 %691, i64 %693
   %695 = add i64 %689, %694
   %696 = lshr i64 %695, 12
-  %697 = getelementptr %struct.page, ptr %687, i64 %696
+  %697 = getelementptr [64 x i8], ptr %687, i64 %696
   %698 = and i64 %688, 4088
   %699 = call i64 @dma_map_page_attrs(ptr noundef nonnull %477, ptr noundef %697, i64 noundef %698, i64 noundef 2048, i32 noundef 2, i64 noundef 0) #18
   br label %700
@@ -2446,11 +2429,11 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 700:                                              ; preds = %685, %684
   %701 = phi i64 [ %699, %685 ], [ -1, %684 ]
   %702 = load ptr, ptr %596, align 8
-  %.split40 = getelementptr %struct.e1000_rx_buffer, ptr %702, i64 %663
+  %.split40 = getelementptr [16 x i8], ptr %702, i64 %663
   %703 = getelementptr i8, ptr %.split40, i64 8
   store i64 %701, ptr %703, align 8
   %704 = load ptr, ptr %596, align 8
-  %.split41 = getelementptr %struct.e1000_rx_buffer, ptr %704, i64 %663
+  %.split41 = getelementptr [16 x i8], ptr %704, i64 %663
   %705 = getelementptr i8, ptr %.split41, i64 8
   %706 = load i64, ptr %705, align 8
   %707 = icmp eq i64 %706, -1
@@ -2535,7 +2518,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %745 = phi i64 [ 0, %740 ], [ %772, %770 ]
   %746 = phi i32 [ %742, %740 ], [ %771, %770 ]
   %747 = load ptr, ptr %469, align 8
-  %748 = getelementptr %struct.e1000_tx_buffer, ptr %747, i64 %745
+  %748 = getelementptr [40 x i8], ptr %747, i64 %745
   %749 = load ptr, ptr %748, align 8
   %750 = getelementptr inbounds nuw i8, ptr %749, i64 200
   %751 = load ptr, ptr %750, align 8
@@ -2551,7 +2534,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   store i8 -81, ptr %757, align 1
   %758 = load ptr, ptr %469, align 8
   %759 = sext i32 %746 to i64
-  %760 = getelementptr %struct.e1000_tx_buffer, ptr %758, i64 %759
+  %760 = getelementptr [40 x i8], ptr %758, i64 %759
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 8
   %762 = load i64, ptr %761, align 8
   %763 = getelementptr inbounds nuw i8, ptr %760, i64 24
@@ -2592,12 +2575,12 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %786 = phi i32 [ %741, %774 ], [ %815, %817 ]
   %787 = phi i32 [ 0, %774 ], [ %809, %817 ]
   %788 = sext i32 %786 to i64
-  %.split42 = getelementptr %struct.e1000_rx_buffer, ptr %785, i64 %788
+  %.split42 = getelementptr [16 x i8], ptr %785, i64 %788
   %789 = getelementptr i8, ptr %.split42, i64 8
   %790 = load i64, ptr %789, align 8
   call void @dma_sync_single_for_cpu(ptr noundef nonnull %736, i64 noundef %790, i64 noundef 2048, i32 noundef 2) #18
   %791 = load ptr, ptr %596, align 8
-  %792 = getelementptr %struct.e1000_rx_buffer, ptr %791, i64 %788
+  %792 = getelementptr [16 x i8], ptr %791, i64 %788
   %793 = load ptr, ptr %792, align 8
   %794 = getelementptr i8, ptr %793, i64 67
   %795 = load i8, ptr %794, align 1
@@ -2812,7 +2795,7 @@ define internal void @e1000_get_strings(ptr readnone captures(none) %0, i32 noun
 .preheader:                                       ; preds = %3, %.preheader
   %5 = phi i64 [ %9, %.preheader ], [ 0, %3 ]
   %6 = phi ptr [ %8, %.preheader ], [ %2, %3 ]
-  %7 = getelementptr %struct.e1000_stats, ptr @e1000_gstrings_stats, i64 %5
+  %7 = getelementptr [44 x i8], ptr @e1000_gstrings_stats, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(32) %6, ptr noundef align 4 dereferenceable(32) %7, i64 32, i1 false)
   %8 = getelementptr i8, ptr %6, i64 32
   %9 = add nuw nsw i64 %5, 1
@@ -2915,14 +2898,14 @@ define internal void @e1000_get_ethtool_stats(ptr noundef %0, ptr readnone captu
 
 34:                                               ; preds = %25
   %35 = load i64, ptr %30, align 8
-  %36 = getelementptr i64, ptr %2, i64 %7
+  %36 = getelementptr [8 x i8], ptr %2, i64 %7
   store i64 %35, ptr %36, align 8
   br label %41
 
 37:                                               ; preds = %25
   %38 = load i32, ptr %30, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr i64, ptr %2, i64 %7
+  %40 = getelementptr [8 x i8], ptr %2, i64 %7
   store i64 %39, ptr %40, align 8
   br label %41
 
@@ -3329,7 +3312,7 @@ define internal fastcc zeroext i1 @reg_pattern_test(ptr noundef readonly capture
   br i1 %17, label %.loopexit, label %18, !llvm.loop !22
 
 18:                                               ; preds = %.preheader
-  %19 = getelementptr i32, ptr @reg_pattern_test.test, i64 %16
+  %19 = getelementptr [4 x i8], ptr @reg_pattern_test.test, i64 %16
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, %4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %21, ptr elementtype(i32) %9) #18, !srcloc !13
@@ -3450,7 +3433,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr noundef captures(none) %0
   %19 = phi i32 [ 0, %16 ], [ %34, %30 ]
   %20 = load ptr, ptr %9, align 8
   %21 = sext i32 %19 to i64
-  %22 = getelementptr %struct.e1000_tx_buffer, ptr %20, i64 %21
+  %22 = getelementptr [40 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
@@ -3466,7 +3449,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr noundef captures(none) %0
 
 30:                                               ; preds = %26, %18
   %31 = phi ptr [ %.pre, %26 ], [ %20, %18 ]
-  %32 = getelementptr %struct.e1000_tx_buffer, ptr %31, i64 %21
+  %32 = getelementptr [40 x i8], ptr %31, i64 %21
   %33 = load ptr, ptr %32, align 8
   tail call void @consume_skb(ptr noundef %33) #18
   %34 = add nuw i32 %19, 1
@@ -3499,7 +3482,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr noundef captures(none) %0
   %50 = phi i32 [ 0, %47 ], [ %61, %57 ]
   %51 = load ptr, ptr %40, align 8
   %52 = sext i32 %50 to i64
-  %.split = getelementptr %struct.e1000_rx_buffer, ptr %51, i64 %52
+  %.split = getelementptr [16 x i8], ptr %51, i64 %52
   %53 = getelementptr i8, ptr %.split, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
@@ -3512,7 +3495,7 @@ define internal fastcc void @e1000_free_desc_rings(ptr noundef captures(none) %0
 
 57:                                               ; preds = %56, %49
   %58 = phi ptr [ %.pre7, %56 ], [ %51, %49 ]
-  %59 = getelementptr %struct.e1000_rx_buffer, ptr %58, i64 %52
+  %59 = getelementptr [16 x i8], ptr %58, i64 %52
   %60 = load ptr, ptr %59, align 8
   tail call void @kfree(ptr noundef %60) #18
   %61 = add nuw i32 %50, 1

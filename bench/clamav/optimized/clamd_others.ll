@@ -7,12 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.fd_data = type { ptr, ptr, i64, ptr, i64 }
-%struct.fd_buf = type { ptr, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i64, ptr, i64, ptr }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %union.anon = type { %struct.cmsghdr, [8 x i8] }
 %struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
 %struct.iovec = type { ptr, i64 }
-%struct.pollfd = type { i32, i16, i16 }
 
 @.str = private unnamed_addr constant [11 x i8] c"VirusEvent\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"PATH\00", align 1
@@ -94,13 +92,13 @@ define dso_local void @virusaction(ptr noundef %0, ptr noundef %1, ptr noundef %
 25:                                               ; preds = %21
   %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #21
   %27 = add nuw nsw i64 %.069, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.069
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.069
   store ptr %24, ptr %28, align 8, !tbaa !14
   br label %29
 
 29:                                               ; preds = %25, %21
   %.170 = phi i64 [ %27, %25 ], [ %.069, %21 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %.170
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.170
   store ptr null, ptr %30, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !15
@@ -410,7 +408,7 @@ fds_lock.exit.i:                                  ; preds = %13, %.critedge
 .lr.ph.i:                                         ; preds = %fds_lock.exit.i, %21
   %17 = phi i64 [ %23, %21 ], [ 0, %fds_lock.exit.i ]
   %.022.i = phi i32 [ %22, %21 ], [ 0, %fds_lock.exit.i ]
-  %18 = getelementptr inbounds nuw %struct.fd_buf, ptr %.pre, i64 %17
+  %18 = getelementptr inbounds nuw [88 x i8], ptr %.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %.not19.i = icmp eq ptr %19, null
   br i1 %.not19.i, label %21, label %20
@@ -487,7 +485,7 @@ define dso_local range(i32 -1, 1) i32 @fds_add(ptr noundef captures(none) %0, i3
 .lr.ph:                                           ; preds = %.preheader, %43
   %10 = phi i64 [ %45, %43 ], [ 0, %.preheader ]
   %.045 = phi i32 [ %44, %43 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw %struct.fd_buf, ptr %.pre, i64 %10
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %.pre, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !29
   %14 = icmp eq i32 %13, %1
@@ -587,7 +585,7 @@ define dso_local range(i32 -1, 1) i32 @fds_add(ptr noundef captures(none) %0, i3
 54:                                               ; preds = %._crit_edge
   store ptr %51, ptr %49, align 8, !tbaa !24
   store i64 %.0.lcssa, ptr %6, align 8, !tbaa !23
-  %55 = getelementptr inbounds nuw %struct.fd_buf, ptr %51, i64 %.lcssa41
+  %55 = getelementptr inbounds nuw [88 x i8], ptr %51, i64 %.lcssa41
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 0, ptr %56, align 8, !tbaa !30
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -642,7 +640,7 @@ buf_init.exit37:                                  ; preds = %65
   %78 = phi ptr [ %.pre51, %71 ], [ %51, %69 ]
   %storemerge = phi i64 [ %75, %71 ], [ 0, %69 ]
   store i64 %storemerge, ptr %70, align 8, !tbaa !39
-  %79 = getelementptr inbounds nuw %struct.fd_buf, ptr %78, i64 %.lcssa41
+  %79 = getelementptr inbounds nuw [88 x i8], ptr %78, i64 %.lcssa41
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   store i32 %1, ptr %80, align 8, !tbaa !29
   br label %buf_init.exit.thread
@@ -674,7 +672,7 @@ define dso_local i32 @fds_poll_recv(ptr noundef captures(none) %0, i32 noundef %
 
 15:                                               ; preds = %.preheader141, %15
   %.098143 = phi i64 [ 0, %.preheader141 ], [ %18, %15 ]
-  %16 = getelementptr inbounds nuw %struct.fd_buf, ptr %14, i64 %.098143
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %.098143
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 0, ptr %17, align 8, !tbaa !31
   %18 = add nuw i64 %.098143, 1
@@ -699,7 +697,7 @@ define dso_local i32 @fds_poll_recv(ptr noundef captures(none) %0, i32 noundef %
 27:                                               ; preds = %.lr.ph, %37
   %.196145 = phi i64 [ %.095, %.lr.ph ], [ %.297, %37 ]
   %.199144 = phi i64 [ 0, %.lr.ph ], [ %38, %37 ]
-  %28 = getelementptr inbounds nuw %struct.fd_buf, ptr %26, i64 %.199144
+  %28 = getelementptr inbounds nuw [88 x i8], ptr %26, i64 %.199144
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load i64, ptr %29, align 8, !tbaa !39
   %.not119 = icmp eq i64 %30, 0
@@ -808,10 +806,10 @@ realloc_polldata.exit:                            ; preds = %54
 
 74:                                               ; preds = %.lr.ph148, %74
   %.2100146 = phi i64 [ 0, %.lr.ph148 ], [ %81, %74 ]
-  %75 = getelementptr inbounds nuw %struct.fd_buf, ptr %63, i64 %.2100146
+  %75 = getelementptr inbounds nuw [88 x i8], ptr %63, i64 %.2100146
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i32, ptr %76, align 8, !tbaa !29
-  %78 = getelementptr inbounds nuw %struct.pollfd, ptr %65, i64 %.2100146
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.2100146
   store i32 %77, ptr %78, align 4, !tbaa !41
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i16 1, ptr %79, align 4, !tbaa !44
@@ -864,7 +862,7 @@ fds_lock.exit:                                    ; preds = %fds_unlock.exit, %9
 .lr.ph151:                                        ; preds = %.preheader, %234
   %.3101149 = phi i64 [ %235, %234 ], [ 0, %.preheader ]
   %95 = load ptr, ptr %13, align 8, !tbaa !24
-  %96 = getelementptr inbounds nuw %struct.fd_buf, ptr %95, i64 %.3101149
+  %96 = getelementptr inbounds nuw [88 x i8], ptr %95, i64 %.3101149
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load i32, ptr %97, align 8, !tbaa !29
   %99 = icmp slt i32 %98, 0
@@ -872,7 +870,7 @@ fds_lock.exit:                                    ; preds = %fds_unlock.exit, %9
 
 100:                                              ; preds = %.lr.ph151
   %101 = load ptr, ptr %66, align 8, !tbaa !28
-  %102 = getelementptr inbounds nuw %struct.pollfd, ptr %101, i64 %.3101149
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.3101149
   %103 = load i32, ptr %102, align 4, !tbaa !41
   %.not111 = icmp eq i32 %98, %103
   br i1 %.not111, label %106, label %104
@@ -899,7 +897,7 @@ fds_lock.exit:                                    ; preds = %fds_unlock.exit, %9
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr %66, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw %struct.pollfd, ptr %115, i64 %.3101149
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.3101149
   %117 = load i32, ptr %116, align 4, !tbaa !41
   %118 = call i64 @send(i32 noundef %117, ptr noundef nonnull %9, i64 noundef 0, i32 noundef 0) #21
   %119 = trunc i64 %118 to i32
@@ -926,7 +924,7 @@ fds_lock.exit:                                    ; preds = %fds_unlock.exit, %9
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr %13, align 8, !tbaa !24
-  %130 = getelementptr inbounds nuw %struct.fd_buf, ptr %129, i64 %.3101149
+  %130 = getelementptr inbounds nuw [88 x i8], ptr %129, i64 %.3101149
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   store i32 1, ptr %131, align 8, !tbaa !31
   %132 = load ptr, ptr %130, align 8, !tbaa !25
@@ -1135,20 +1133,20 @@ read_fd_data.exit.thread131:                      ; preds = %128, %read_fd_data.
 
 .thread136:                                       ; preds = %read_fd_data.exit..thread136_crit_edge, %220
   %222 = phi ptr [ %.pre162, %read_fd_data.exit..thread136_crit_edge ], [ %.pre163, %220 ]
-  %223 = getelementptr inbounds nuw %struct.pollfd, ptr %222, i64 %.3101149
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %.3101149
   %224 = load i32, ptr %223, align 4, !tbaa !41
   %225 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %224) #21
   br label %230
 
 226:                                              ; preds = %220
-  %227 = getelementptr inbounds nuw %struct.pollfd, ptr %.pre163, i64 %.3101149
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %.pre163, i64 %.3101149
   %228 = load i32, ptr %227, align 4, !tbaa !41
   %229 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef %228) #21
   br label %230
 
 230:                                              ; preds = %226, %.thread136
   %231 = load ptr, ptr %13, align 8, !tbaa !24
-  %232 = getelementptr inbounds nuw %struct.fd_buf, ptr %231, i64 %.3101149
+  %232 = getelementptr inbounds nuw [88 x i8], ptr %231, i64 %.3101149
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   store i32 -1, ptr %233, align 8, !tbaa !31
   br label %234
@@ -1220,7 +1218,7 @@ fds_lock.exit:                                    ; preds = %1, %2
   %9 = phi i64 [ 0, %.lr.ph ], [ %17, %14 ]
   %.022 = phi i32 [ 0, %.lr.ph ], [ %16, %14 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw %struct.fd_buf, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %14, label %13
@@ -1287,7 +1285,7 @@ define dso_local void @fds_cleanup(ptr noundef captures(none) %0) local_unnamed_
   %.046 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
   %.03345 = phi i32 [ 0, %.lr.ph ], [ %22, %21 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !24
-  %8 = getelementptr inbounds nuw %struct.fd_buf, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !29
   %11 = icmp slt i32 %10, 0
@@ -1308,7 +1306,7 @@ define dso_local void @fds_cleanup(ptr noundef captures(none) %0) local_unnamed_
 
 16:                                               ; preds = %15
   %17 = zext i32 %.046 to i64
-  %18 = getelementptr inbounds nuw %struct.fd_buf, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 88, i1 false), !tbaa.struct !57
   br label %19
 
@@ -1343,7 +1341,7 @@ define dso_local void @fds_cleanup(ptr noundef captures(none) %0) local_unnamed_
 31:                                               ; preds = %.lr.ph49, %31
   %32 = phi i64 [ %26, %.lr.ph49 ], [ %36, %31 ]
   %.13448 = phi i32 [ %.0.lcssa, %.lr.ph49 ], [ %35, %31 ]
-  %33 = getelementptr inbounds nuw %struct.fd_buf, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [88 x i8], ptr %30, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i32 -1, ptr %34, align 8, !tbaa !29
   %35 = add i32 %.13448, 1
@@ -1412,7 +1410,7 @@ fds_lock.exit:                                    ; preds = %2, %3
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %.013 = phi i64 [ %10, %9 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw %struct.fd_buf, ptr %6, i64 %.013
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %6, i64 %.013
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !29
   %14 = icmp eq i32 %13, %1

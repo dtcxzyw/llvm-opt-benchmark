@@ -583,10 +583,10 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 
 .preheader40:                                     ; preds = %65, %69
   %72 = phi i64 [ %70, %69 ], [ 0, %65 ]
-  %73 = getelementptr i32, ptr %55, i64 %72
+  %73 = getelementptr [4 x i8], ptr %55, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = tail call ptr @drm_mode_object_find(ptr noundef %0, ptr noundef %2, i32 noundef %74, i32 noundef 0) #9
-  %76 = getelementptr ptr, ptr %67, i64 %72
+  %76 = getelementptr [8 x i8], ptr %67, i64 %72
   store ptr %75, ptr %76, align 8
   %77 = icmp eq ptr %75, null
   br i1 %77, label %.loopexit39, label %78
@@ -606,7 +606,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
   %84 = phi i32 [ %104, %.preheader ], [ -1, %69 ]
   %85 = phi i32 [ %99, %.preheader ], [ -1, %69 ]
   %86 = phi i32 [ %95, %.preheader ], [ -1, %69 ]
-  %87 = getelementptr ptr, ptr %67, i64 %83
+  %87 = getelementptr [8 x i8], ptr %67, i64 %83
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
@@ -657,7 +657,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 
 123:                                              ; preds = %173, %115
   %124 = phi i64 [ 0, %115 ], [ %174, %173 ]
-  %125 = getelementptr ptr, ptr %67, i64 %124
+  %125 = getelementptr [8 x i8], ptr %67, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = load i32, ptr %126, align 8
   br i1 %114, label %130, label %128
@@ -752,7 +752,7 @@ define dso_local i32 @drm_mode_create_lease_ioctl(ptr noundef %0, ptr noundef ca
 
 177:                                              ; preds = %183, %.loopexit39
   %178 = phi i64 [ 0, %.loopexit39 ], [ %184, %183 ]
-  %179 = getelementptr ptr, ptr %67, i64 %178
+  %179 = getelementptr [8 x i8], ptr %67, i64 %178
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
   br i1 %181, label %183, label %182
@@ -1186,7 +1186,7 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 7, ptr noundef nonnull @.str.13, i32 noundef %51) #9
   %52 = load i32, ptr %50, align 8
   %53 = sext i32 %39 to i64
-  %54 = getelementptr i32, ptr %7, i64 %53
+  %54 = getelementptr [4 x i8], ptr %7, i64 %53
   %55 = tail call i64 @llvm.read_register.i64(metadata !0)
   %56 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %54, i32 %52, i64 4, i64 %55) #9, !srcloc !29
   %57 = extractvalue { ptr, i64 } %56, 0
@@ -1232,7 +1232,7 @@ define dso_local i32 @drm_mode_list_lessees_ioctl(ptr noundef %0, ptr noundef ca
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %80, i32 noundef 7, ptr noundef nonnull @.str.13, i32 noundef %82) #9
   %83 = load i32, ptr %81, align 8
   %84 = sext i32 %69 to i64
-  %85 = getelementptr i32, ptr %7, i64 %84
+  %85 = getelementptr [4 x i8], ptr %7, i64 %84
   %86 = tail call i64 @llvm.read_register.i64(metadata !0)
   %87 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %85, i32 %83, i64 4, i64 %86) #9, !srcloc !29
   %88 = extractvalue { ptr, i64 } %87, 0
@@ -1371,7 +1371,7 @@ define dso_local i32 @drm_mode_get_lease_ioctl(ptr noundef %0, ptr noundef captu
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %52) #9
   %53 = load i32, ptr %5, align 4
   %54 = sext i32 %49 to i64
-  %55 = getelementptr i32, ptr %8, i64 %54
+  %55 = getelementptr [4 x i8], ptr %8, i64 %54
   %56 = call i64 @llvm.read_register.i64(metadata !0)
   %57 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %55, i32 %53, i64 4, i64 %56) #9, !srcloc !31
   %58 = extractvalue { ptr, i64 } %57, 0
@@ -1402,7 +1402,7 @@ define dso_local i32 @drm_mode_get_lease_ioctl(ptr noundef %0, ptr noundef captu
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %72, i32 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %73) #9
   %74 = load i32, ptr %5, align 4
   %75 = sext i32 %69 to i64
-  %76 = getelementptr i32, ptr %8, i64 %75
+  %76 = getelementptr [4 x i8], ptr %8, i64 %75
   %77 = call i64 @llvm.read_register.i64(metadata !0)
   %78 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %76, i32 %74, i64 4, i64 %77) #9, !srcloc !31
   %79 = extractvalue { ptr, i64 } %78, 0

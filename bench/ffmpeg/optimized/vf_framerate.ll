@@ -129,11 +129,11 @@ define internal void @blend_frames16_c(ptr noundef readonly captures(none) %0, i
 
 18:                                               ; preds = %.preheader.us, %18
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %.03139.us, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.03139.us, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2, !tbaa !21
   %21 = zext i16 %20 to i32
   %22 = mul nsw i32 %8, %21
-  %23 = getelementptr inbounds nuw i16, ptr %.040.us, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.040.us, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2, !tbaa !21
   %25 = zext i16 %24 to i32
   %26 = mul nsw i32 %9, %25
@@ -141,16 +141,16 @@ define internal void @blend_frames16_c(ptr noundef readonly captures(none) %0, i
   %28 = add i32 %27, %26
   %29 = lshr i32 %28, 15
   %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds nuw i16, ptr %.03238.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.03238.us, i64 %indvars.iv
   store i16 %30, ptr %31, align 2, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %18
-  %32 = getelementptr inbounds i16, ptr %.03139.us, i64 %13
-  %33 = getelementptr inbounds i16, ptr %.040.us, i64 %14
-  %34 = getelementptr inbounds i16, ptr %.03238.us, i64 %15
+  %32 = getelementptr inbounds [2 x i8], ptr %.03139.us, i64 %13
+  %33 = getelementptr inbounds [2 x i8], ptr %.040.us, i64 %14
+  %34 = getelementptr inbounds [2 x i8], ptr %.03238.us, i64 %15
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, %7
   br i1 %exitcond48.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !24
@@ -682,7 +682,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %19 = load i32, ptr %13, align 8, !tbaa !72
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 @av_image_get_linesize(i32 noundef %18, i32 noundef %19, i32 noundef %20) #11
-  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !63
   %23 = load i32, ptr %15, align 4, !tbaa !78
   %24 = trunc i64 %indvars.iv to i32
@@ -697,7 +697,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 28:                                               ; preds = %17, %26
   %29 = phi i32 [ %27, %26 ], [ 0, %17 ]
   %30 = ashr i32 %23, %29
-  %31 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %30, ptr %31, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -890,37 +890,37 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 
 26:                                               ; preds = %4, %32
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %32 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !62
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.critedge, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !62
   %.not54 = icmp eq ptr %31, null
   br i1 %.not54, label %.critedge, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !63
   %35 = mul nsw i32 %34, %2
   %36 = sdiv i32 %35, %3
   %37 = mul nsw i32 %34, %17
   %38 = sdiv i32 %37, %3
-  %39 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !63
   %41 = mul nsw i32 %40, %36
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %28, i64 %42
-  %44 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !63
   %46 = mul nsw i32 %45, %36
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %31, i64 %47
-  %49 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !62
-  %51 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !63
   %53 = mul nsw i32 %52, %36
   %54 = sext i32 %53 to i64
@@ -929,7 +929,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %57 = sext i32 %40 to i64
   %58 = sext i32 %45 to i64
   %59 = sext i32 %52 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !63
   %62 = sext i32 %61 to i64
   %63 = sub nsw i32 %38, %36

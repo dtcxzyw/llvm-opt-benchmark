@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::Vec.0" = type { %"class.cv::Matx.1" }
-%"class.cv::Matx.1" = type { [3 x i8] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -615,7 +613,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %211 = load i64, ptr %210, align 8, !tbaa !10
   %212 = mul i64 %211, %indvars.iv177
   %213 = getelementptr inbounds nuw i8, ptr %209, i64 %212
-  %214 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %213, i64 %indvars.iv174
+  %214 = getelementptr inbounds nuw [3 x i8], ptr %213, i64 %indvars.iv174
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv
   %216 = load i8, ptr %215, align 1, !tbaa !14
   %217 = uitofp i8 %216 to double
@@ -632,7 +630,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit105: ; preds = %_ZNS
   %228 = load i64, ptr %227, align 8, !tbaa !10
   %229 = mul i64 %228, %indvars.iv177
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 %229
-  %231 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %230, i64 %indvars.iv174
+  %231 = getelementptr inbounds nuw [3 x i8], ptr %230, i64 %indvars.iv174
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv
   store i8 %225, ptr %232, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

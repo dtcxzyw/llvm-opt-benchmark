@@ -13817,7 +13817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330: ; preds = %21
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv
   br label %_ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit
 
 232:                                              ; preds = %228
@@ -13830,11 +13830,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330: ; preds = %21
 
 236:                                              ; preds = %234, %232
   %237 = phi i64 [ %233, %232 ], [ %235, %234 ]
-  %238 = getelementptr inbounds ptr, ptr %221, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %221, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !222, !noalias !217
   %240 = shl nsw i64 %237, 6
   %241 = sub nsw i64 %226, %240
-  %242 = getelementptr inbounds ptr, ptr %239, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %239, i64 %241
   br label %_ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit
 
 _ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit:              ; preds = %230, %236
@@ -14348,11 +14348,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %39
 
 417:                                              ; preds = %415, %413
   %418 = phi i64 [ %414, %413 ], [ %416, %415 ]
-  %419 = getelementptr inbounds ptr, ptr %402, i64 %418
+  %419 = getelementptr inbounds [8 x i8], ptr %402, i64 %418
   %420 = load ptr, ptr %419, align 8, !tbaa !222, !noalias !237
   %421 = shl nsw i64 %418, 6
   %422 = sub nsw i64 %407, %421
-  %423 = getelementptr inbounds ptr, ptr %420, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %420, i64 %422
   br label %_ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit398
 
 _ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit398:           ; preds = %411, %417
@@ -17253,11 +17253,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread: ; preds = %229
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %232, %234
   %236 = phi i64 [ %233, %232 ], [ %235, %234 ]
-  %237 = getelementptr inbounds ptr, ptr %186, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %186, i64 %236
   %238 = load ptr, ptr %237, align 8, !tbaa !222, !noalias !299
   %239 = shl nsw i64 %236, 6
   %240 = sub nsw i64 %227, %239
-  %241 = getelementptr inbounds ptr, ptr %238, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %238, i64 %240
   %242 = icmp eq ptr %180, %241
   br i1 %242, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit158, label %243
 
@@ -17285,12 +17285,12 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %232, %234
 
 254:                                              ; preds = %252, %250
   %255 = phi i64 [ %251, %250 ], [ %253, %252 ]
-  %256 = getelementptr inbounds ptr, ptr %186, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %186, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !222, !noalias !302
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 512
   %259 = shl nsw i64 %255, 6
   %260 = sub nsw i64 %244, %259
-  %261 = getelementptr inbounds ptr, ptr %257, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %257, i64 %260
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i121
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i121: ; preds = %254, %248
@@ -17380,12 +17380,12 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit212: ; preds = %_ZNSt11char_traitsI
 
 305:                                              ; preds = %303, %301
   %306 = phi i64 [ %302, %301 ], [ %304, %303 ]
-  %307 = getelementptr inbounds ptr, ptr %.sroa.27.051.i128, i64 %306
+  %307 = getelementptr inbounds [8 x i8], ptr %.sroa.27.051.i128, i64 %306
   %308 = load ptr, ptr %307, align 8, !tbaa !222, !noalias !305
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 512
   %310 = shl nsw i64 %306, 6
   %311 = sub nsw i64 %295, %310
-  %312 = getelementptr inbounds ptr, ptr %308, i64 %311
+  %312 = getelementptr inbounds [8 x i8], ptr %308, i64 %311
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i153
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i153: ; preds = %305, %299
@@ -17552,12 +17552,12 @@ _ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_It
 
 365:                                              ; preds = %363, %361
   %366 = phi i64 [ %362, %361 ], [ %364, %363 ]
-  %367 = getelementptr inbounds ptr, ptr %186, i64 %366
+  %367 = getelementptr inbounds [8 x i8], ptr %186, i64 %366
   %368 = load ptr, ptr %367, align 8, !tbaa !222, !noalias !319
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 512
   %370 = shl nsw i64 %366, 6
   %371 = sub nsw i64 %227, %370
-  %372 = getelementptr inbounds ptr, ptr %368, i64 %371
+  %372 = getelementptr inbounds [8 x i8], ptr %368, i64 %371
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i: ; preds = %365, %359
@@ -17716,12 +17716,12 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i: ; preds = %418, %_ZSt25__un
 
 433:                                              ; preds = %431, %429
   %434 = phi i64 [ %430, %429 ], [ %432, %431 ]
-  %435 = getelementptr inbounds ptr, ptr %186, i64 %434
+  %435 = getelementptr inbounds [8 x i8], ptr %186, i64 %434
   %436 = load ptr, ptr %435, align 8, !tbaa !222, !noalias !323
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 512
   %438 = shl nsw i64 %434, 6
   %439 = sub nsw i64 %423, %438
-  %440 = getelementptr inbounds ptr, ptr %436, i64 %439
+  %440 = getelementptr inbounds [8 x i8], ptr %436, i64 %439
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i107
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i107: ; preds = %433, %427
@@ -17811,12 +17811,12 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit185: ; preds = %_ZNSt11char_traitsI
 
 484:                                              ; preds = %482, %480
   %485 = phi i64 [ %481, %480 ], [ %483, %482 ]
-  %486 = getelementptr inbounds ptr, ptr %.sroa.27.051.i, i64 %485
+  %486 = getelementptr inbounds [8 x i8], ptr %.sroa.27.051.i, i64 %485
   %487 = load ptr, ptr %486, align 8, !tbaa !222, !noalias !326
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 512
   %489 = shl nsw i64 %485, 6
   %490 = sub nsw i64 %474, %489
-  %491 = getelementptr inbounds ptr, ptr %487, i64 %490
+  %491 = getelementptr inbounds [8 x i8], ptr %487, i64 %490
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %484, %478
@@ -18461,11 +18461,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422: ; preds = %19
 
 219:                                              ; preds = %217, %215
   %220 = phi i64 [ %216, %215 ], [ %218, %217 ]
-  %221 = getelementptr inbounds ptr, ptr %204, i64 %220
+  %221 = getelementptr inbounds [8 x i8], ptr %204, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !222, !noalias !344
   %223 = shl nsw i64 %220, 6
   %224 = sub nsw i64 %209, %223
-  %225 = getelementptr inbounds ptr, ptr %222, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %222, i64 %224
   br label %_ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit
 
 _ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit:              ; preds = %213, %219
@@ -19801,11 +19801,11 @@ _ZN7testing7MessageD2Ev.exit592:                  ; preds = %_ZNKSt14default_del
 
 672:                                              ; preds = %670, %668
   %673 = phi i64 [ %669, %668 ], [ %671, %670 ]
-  %674 = getelementptr inbounds ptr, ptr %660, i64 %673
+  %674 = getelementptr inbounds [8 x i8], ptr %660, i64 %673
   %675 = load ptr, ptr %674, align 8, !tbaa !222, !noalias !377
   %676 = shl nsw i64 %673, 6
   %677 = sub nsw i64 %664, %676
-  %678 = getelementptr inbounds ptr, ptr %675, i64 %677
+  %678 = getelementptr inbounds [8 x i8], ptr %675, i64 %677
   br label %_ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit594
 
 _ZNSt5dequeIP4EdgeSaIS1_EEixEm.exit594:           ; preds = %666, %672
@@ -26503,7 +26503,7 @@ _ZN7testing7MessageD2Ev.exit341:                  ; preds = %_ZNKSt14default_del
 530:                                              ; preds = %485
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %531 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %531 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %532 = getelementptr inbounds nuw i8, ptr %484, i64 40
   %533 = load ptr, ptr %532, align 8, !tbaa !58
   %534 = load ptr, ptr %533, align 8, !tbaa !61
@@ -31001,7 +31001,7 @@ _ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %6
 _ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %689, %_ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %684, ptr %664, align 8, !tbaa !474
   store ptr %688, ptr %665, align 8, !tbaa !483
-  %690 = getelementptr inbounds nuw ptr, ptr %684, i64 %682
+  %690 = getelementptr inbounds nuw [8 x i8], ptr %684, i64 %682
   store ptr %690, ptr %667, align 8, !tbaa !475
   br label %_ZNSt6vectorIP4EdgeSaIS1_EE9push_backERKS1_.exit
 
@@ -31272,7 +31272,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEE
   %800 = sub i64 %799, %695
   %801 = ashr exact i64 %800, 3
   %802 = sub nsw i64 0, %801
-  %803 = getelementptr inbounds ptr, ptr %798, i64 %802
+  %803 = getelementptr inbounds [8 x i8], ptr %798, i64 %802
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %803, ptr noundef nonnull align 8 dereferenceable(1) %692, i64 %800, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbPKS2_SC_EEEEvT_T0_.exit.i23.i
 
@@ -208697,7 +208697,7 @@ _ZNSt11_Deque_baseIP4EdgeSaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !286
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -208791,7 +208791,7 @@ _ZNSt11_Deque_baseIP4EdgeSaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds = %_ZN
   store ptr %48, ptr %49, align 8, !tbaa !263
   store ptr %39, ptr %37, align 8, !tbaa !258
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !290
   ret void
 
@@ -208913,9 +208913,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4EdgeSaIS1_EE17_M_reallocate_ma
   %19 = load ptr, ptr %0, align 8, !tbaa !286
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -208934,12 +208934,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP4EdgeSaIS1_EE17_M_reallocate_ma
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPP4EdgeS3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPP4EdgeS3_ET0_T_S5_S4_.exit
 
@@ -208967,9 +208967,9 @@ _ZNSt11_Deque_baseIP4EdgeSaIS1_EE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #31
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPP4EdgeS3_ET0_T_S5_S4_.exit26, label %53
@@ -208997,7 +208997,7 @@ _ZSt4copyIPPP4EdgeS3_ET0_T_S5_S4_.exit:           ; preds = %32, %31, %28, %27, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !263
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !221
   %64 = load ptr, ptr %63, align 8, !tbaa !222
@@ -209336,7 +209336,7 @@ define linkonce_odr dso_local void @_ZSt27__unguarded_partition_pivotISt15_Deque
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds ptr, ptr %26, i64 %32
+  %43 = getelementptr inbounds [8 x i8], ptr %26, i64 %32
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
 
 44:                                               ; preds = %40
@@ -209349,11 +209349,11 @@ define linkonce_odr dso_local void @_ZSt27__unguarded_partition_pivotISt15_Deque
 
 48:                                               ; preds = %46, %44
   %49 = phi i64 [ %45, %44 ], [ %47, %46 ]
-  %50 = getelementptr inbounds ptr, ptr %8, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %8, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !222, !noalias !2343
   %52 = shl nsw i64 %49, 6
   %53 = sub nsw i64 %38, %52
-  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %53
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %42, %48
@@ -209380,11 +209380,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %42, %48
 
 65:                                               ; preds = %63, %61
   %66 = phi i64 [ %62, %61 ], [ %64, %63 ]
-  %67 = getelementptr inbounds ptr, ptr %8, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %8, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !222, !noalias !2346
   %69 = shl nsw i64 %66, 6
   %70 = sub nsw i64 %55, %69
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit4
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit4: ; preds = %59, %65
@@ -209411,11 +209411,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit4: ; preds = %59, %65
 
 82:                                               ; preds = %80, %78
   %83 = phi i64 [ %79, %78 ], [ %81, %80 ]
-  %84 = getelementptr inbounds ptr, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !222, !noalias !2349
   %86 = shl nsw i64 %83, 6
   %87 = sub nsw i64 %72, %86
-  %88 = getelementptr inbounds ptr, ptr %85, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %85, i64 %87
   br label %_ZStmiRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %76, %82
@@ -209519,12 +209519,12 @@ _ZSt22__move_median_to_firstISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__op
 
 141:                                              ; preds = %139, %137
   %142 = phi i64 [ %138, %137 ], [ %140, %139 ]
-  %143 = getelementptr inbounds ptr, ptr %126, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %126, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !222, !noalias !2352
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 512
   %146 = shl nsw i64 %142, 6
   %147 = sub nsw i64 %131, %146
-  %148 = getelementptr inbounds ptr, ptr %144, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %144, i64 %147
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6: ; preds = %135, %141
@@ -209727,7 +209727,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectISt15_Deque_iteratorIP4Ed
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds ptr, ptr %7, i64 %.08.i
+  %53 = getelementptr inbounds [8 x i8], ptr %7, i64 %.08.i
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
 
 54:                                               ; preds = %50
@@ -209740,11 +209740,11 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectISt15_Deque_iteratorIP4Ed
 
 58:                                               ; preds = %56, %54
   %59 = phi i64 [ %55, %54 ], [ %57, %56 ]
-  %60 = getelementptr inbounds ptr, ptr %13, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %13, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !222, !noalias !2361
   %62 = shl nsw i64 %59, 6
   %63 = sub nsw i64 %48, %62
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %58, %52
@@ -209894,7 +209894,7 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4Ed
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds ptr, ptr %14, i64 %16
+  %26 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
 
 27:                                               ; preds = %23
@@ -209907,11 +209907,11 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapISt15_Deque_iteratorIP4Ed
 
 31:                                               ; preds = %29, %27
   %32 = phi i64 [ %28, %27 ], [ %30, %29 ]
-  %33 = getelementptr inbounds ptr, ptr %12, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %12, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !222, !noalias !2366
   %35 = shl nsw i64 %32, 6
   %36 = sub nsw i64 %21, %35
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %34, i64 %36
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %25, %31
@@ -209926,7 +209926,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %25, %31
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds ptr, ptr %14, i64 %38
+  %44 = getelementptr inbounds [8 x i8], ptr %14, i64 %38
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23
 
 45:                                               ; preds = %41
@@ -209939,11 +209939,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %25, %31
 
 49:                                               ; preds = %47, %45
   %50 = phi i64 [ %46, %45 ], [ %48, %47 ]
-  %51 = getelementptr inbounds ptr, ptr %12, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %12, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !222, !noalias !2369
   %53 = shl nsw i64 %50, 6
   %54 = sub nsw i64 %39, %53
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23: ; preds = %43, %49
@@ -209968,7 +209968,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23: ; preds = %43, %49
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds ptr, ptr %59, i64 %spec.select
+  %71 = getelementptr inbounds [8 x i8], ptr %59, i64 %spec.select
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25
 
 72:                                               ; preds = %68
@@ -209981,11 +209981,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit23: ; preds = %43, %49
 
 76:                                               ; preds = %74, %72
   %77 = phi i64 [ %73, %72 ], [ %75, %74 ]
-  %78 = getelementptr inbounds ptr, ptr %61, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %61, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !222, !noalias !2372
   %80 = shl nsw i64 %77, 6
   %81 = sub nsw i64 %66, %80
-  %82 = getelementptr inbounds ptr, ptr %79, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %79, i64 %81
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25: ; preds = %70, %76
@@ -210000,7 +210000,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25: ; preds = %70, %76
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds ptr, ptr %59, i64 %.062
+  %89 = getelementptr inbounds [8 x i8], ptr %59, i64 %.062
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit27
 
 90:                                               ; preds = %86
@@ -210013,11 +210013,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit25: ; preds = %70, %76
 
 94:                                               ; preds = %92, %90
   %95 = phi i64 [ %91, %90 ], [ %93, %92 ]
-  %96 = getelementptr inbounds ptr, ptr %61, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %61, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !222, !noalias !2375
   %98 = shl nsw i64 %95, 6
   %99 = sub nsw i64 %84, %98
-  %100 = getelementptr inbounds ptr, ptr %97, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %97, i64 %99
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit27
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit27: ; preds = %88, %94
@@ -210059,7 +210059,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit27: ; preds = %88, %94
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds ptr, ptr %111, i64 %110
+  %125 = getelementptr inbounds [8 x i8], ptr %111, i64 %110
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29
 
 126:                                              ; preds = %122
@@ -210072,11 +210072,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit27: ; preds = %88, %94
 
 130:                                              ; preds = %128, %126
   %131 = phi i64 [ %127, %126 ], [ %129, %128 ]
-  %132 = getelementptr inbounds ptr, ptr %115, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %115, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !222, !noalias !2379
   %134 = shl nsw i64 %131, 6
   %135 = sub nsw i64 %120, %134
-  %136 = getelementptr inbounds ptr, ptr %133, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %133, i64 %135
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29: ; preds = %124, %130
@@ -210091,7 +210091,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29: ; preds = %124, %130
   br i1 %141, label %142, label %144
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds ptr, ptr %111, i64 %.0.lcssa
+  %143 = getelementptr inbounds [8 x i8], ptr %111, i64 %.0.lcssa
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit31
 
 144:                                              ; preds = %140
@@ -210104,11 +210104,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit29: ; preds = %124, %130
 
 148:                                              ; preds = %146, %144
   %149 = phi i64 [ %145, %144 ], [ %147, %146 ]
-  %150 = getelementptr inbounds ptr, ptr %115, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %115, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !222, !noalias !2382
   %152 = shl nsw i64 %149, 6
   %153 = sub nsw i64 %138, %152
-  %154 = getelementptr inbounds ptr, ptr %151, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %151, i64 %153
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit31
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit31: ; preds = %142, %148
@@ -210152,31 +210152,31 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit31: ; preds = %142, %148
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %170, %172
   %174 = phi i64 [ %171, %170 ], [ %173, %172 ]
-  %175 = getelementptr inbounds ptr, ptr %160, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %160, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !222, !noalias !2385
   %177 = shl nsw i64 %174, 6
   %178 = sub nsw i64 %166, %177
-  %179 = getelementptr inbounds ptr, ptr %176, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %176, i64 %178
   %180 = load ptr, ptr %179, align 8, !tbaa !126
   %181 = tail call noundef zeroext i1 %4(ptr noundef %180, ptr noundef %3)
   br i1 %181, label %185, label %.critedge.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread: ; preds = %168
-  %182 = getelementptr inbounds ptr, ptr %156, i64 %.031.i
+  %182 = getelementptr inbounds [8 x i8], ptr %156, i64 %.031.i
   %183 = load ptr, ptr %182, align 8, !tbaa !126
   %184 = tail call noundef zeroext i1 %4(ptr noundef %183, ptr noundef %3)
   br i1 %184, label %.thread61, label %.critedge.i
 
 185:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
   %186 = ashr i64 %166, 6
-  %187 = getelementptr inbounds ptr, ptr %160, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %160, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !222, !noalias !2388
   %189 = and i64 %166, 63
-  %190 = getelementptr inbounds nuw ptr, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %189
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i
 
 .thread61:                                        ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread
-  %191 = getelementptr inbounds ptr, ptr %156, i64 %.031.i
+  %191 = getelementptr inbounds [8 x i8], ptr %156, i64 %.031.i
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i: ; preds = %185, %.thread61
@@ -210191,7 +210191,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i: ; preds = %185, %.thread6
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %195
-  %198 = getelementptr inbounds ptr, ptr %156, i64 %.0930.i
+  %198 = getelementptr inbounds [8 x i8], ptr %156, i64 %.0930.i
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit13.i
 
 199:                                              ; preds = %195
@@ -210204,11 +210204,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit11.i: ; preds = %185, %.thread6
 
 203:                                              ; preds = %201, %199
   %204 = phi i64 [ %200, %199 ], [ %202, %201 ]
-  %205 = getelementptr inbounds ptr, ptr %160, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %160, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !222, !noalias !2391
   %207 = shl nsw i64 %204, 6
   %208 = sub nsw i64 %193, %207
-  %209 = getelementptr inbounds ptr, ptr %206, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %206, i64 %208
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit13.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit13.i: ; preds = %203, %197
@@ -210228,7 +210228,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit13.i: ; preds = %203, %197
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds ptr, ptr %156, i64 %.09.lcssa.i
+  %216 = getelementptr inbounds [8 x i8], ptr %156, i64 %.09.lcssa.i
   br label %_ZSt11__push_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops14_Iter_comp_valIPFbPKS1_SA_EEEEvT_T0_SF_T1_RT2_.exit
 
 217:                                              ; preds = %213
@@ -210241,11 +210241,11 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit13.i: ; preds = %203, %197
 
 221:                                              ; preds = %219, %217
   %222 = phi i64 [ %218, %217 ], [ %220, %219 ]
-  %223 = getelementptr inbounds ptr, ptr %160, i64 %222
+  %223 = getelementptr inbounds [8 x i8], ptr %160, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !222, !noalias !2395
   %225 = shl nsw i64 %222, 6
   %226 = sub nsw i64 %211, %225
-  %227 = getelementptr inbounds ptr, ptr %224, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %224, i64 %226
   br label %_ZSt11__push_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops14_Iter_comp_valIPFbPKS1_SA_EEEEvT_T0_SF_T1_RT2_.exit
 
 _ZSt11__push_heapISt15_Deque_iteratorIP4EdgeRS2_PS2_ElS2_N9__gnu_cxx5__ops14_Iter_comp_valIPFbPKS1_SA_EEEEvT_T0_SF_T1_RT2_.exit: ; preds = %215, %221
@@ -210323,7 +210323,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EP4EdgeRS1
   %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %.0938.i, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !2398
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
@@ -210334,7 +210334,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EP4EdgeRS1
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds ptr, ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -210347,12 +210347,12 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EP4EdgeRS1
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !222, !noalias !2398
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 6
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i: ; preds = %51, %45
@@ -210433,7 +210433,7 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
   %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 3
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %.0938.i15, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !2402
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
@@ -210444,7 +210444,7 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds ptr, ptr %.sroa.076.0, i64 %88
+  %98 = getelementptr inbounds [8 x i8], ptr %.sroa.076.0, i64 %88
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i24
 
 99:                                               ; preds = %95
@@ -210457,12 +210457,12 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !222, !noalias !2402
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 6
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %106, i64 %109
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i24: ; preds = %103, %97
@@ -210523,7 +210523,7 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i24: ; preds = %103, %97
   %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 3
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds ptr, ptr %.0938.i38, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !2405
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
@@ -210534,7 +210534,7 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i24: ; preds = %103, %97
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds ptr, ptr %.sroa.082.0, i64 %131
+  %141 = getelementptr inbounds [8 x i8], ptr %.sroa.082.0, i64 %131
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i47
 
 142:                                              ; preds = %138
@@ -210547,12 +210547,12 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i24: ; preds = %103, %97
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
-  %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !222, !noalias !2405
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 6
   %152 = sub nsw i64 %136, %151
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %149, i64 %152
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i47: ; preds = %146, %140
@@ -210630,7 +210630,7 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
   %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds ptr, ptr %.0938.i61, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !2409
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
@@ -210641,7 +210641,7 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -210654,12 +210654,12 @@ _ZSt23__copy_move_backward_a1ILb1EPP4EdgeS1_EN9__gnu_cxx11__enable_ifIXsr23__is_
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !222, !noalias !2409
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 6
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmIEl.exit.i70: ; preds = %198, %192
@@ -217313,7 +217313,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !461
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !463
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !491
   ret void
 }
@@ -217364,16 +217364,16 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %25 = shl i64 %.036.i.i.i.i, 1
   %26 = add i64 %25, 2
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = or disjoint i64 %25, 1
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %28
   %30 = load ptr, ptr %27, align 8, !tbaa !126
   %31 = load ptr, ptr %29, align 8, !tbaa !126
   %32 = call noundef zeroext i1 %3(ptr noundef %30, ptr noundef %31)
   %spec.select.i.i.i.i = select i1 %32, i64 %28, i64 %26
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !126
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %.036.i.i.i.i
+  %35 = getelementptr inbounds [8 x i8], ptr %0, i64 %.036.i.i.i.i
   store ptr %34, ptr %35, align 8, !tbaa !126
   %36 = icmp slt i64 %spec.select.i.i.i.i, %23
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2586
@@ -217393,9 +217393,9 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 .thread.i.i.i:                                    ; preds = %39
   %43 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !126
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %47 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %46, ptr %47, align 8, !tbaa !126
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -217411,21 +217411,21 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i78.i.i.i, %52 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i78.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i78.i.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i78.i.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !126
   %51 = call noundef zeroext i1 %3(ptr noundef %50, ptr noundef %17)
   br i1 %51, label %52, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i.i
 
 52:                                               ; preds = %.lr.ph.i.i.i.i.i
   %53 = load ptr, ptr %49, align 8, !tbaa !126
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i.i.i.i.i
   store ptr %53, ptr %54, align 8, !tbaa !126
   %.not9.i.i.i = icmp eq i64 %.0920.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !2587
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %52, %.lr.ph.i.i.i.i.i, %48
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %48 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %52 ]
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store ptr %17, ptr %55, align 8, !tbaa !126
   %56 = icmp sgt i64 %20, 8
   br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !2588
@@ -217433,7 +217433,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEENS
 57:                                               ; preds = %12
   %58 = add nsw i64 %.020, -1
   %59 = lshr i64 %13, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %59
   %61 = getelementptr inbounds i8, ptr %storemerge19, i64 -8
   %62 = load ptr, ptr %11, align 8, !tbaa !126
   %63 = load ptr, ptr %60, align 8, !tbaa !126
@@ -217572,13 +217572,13 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us
   %.09.us = phi i64 [ %44, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %.09.us
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.us
   %21 = load ptr, ptr %20, align 8, !tbaa !126
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8, !tbaa !2593
   %22 = icmp slt i64 %.09.us, %13
@@ -217588,16 +217588,16 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.036.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.09.us, %.split.us ]
   %23 = shl i64 %.036.i.us, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds ptr, ptr %0, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = load ptr, ptr %25, align 8, !tbaa !126
   %29 = load ptr, ptr %27, align 8, !tbaa !126
   %30 = tail call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef %28, ptr noundef %29)
   %spec.select.i.us = select i1 %30, i64 %26, i64 %24
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
+  %31 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.us
   %32 = load ptr, ptr %31, align 8, !tbaa !126
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %.036.i.us
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %.036.i.us
   store ptr %32, ptr %33, align 8, !tbaa !126
   %34 = icmp slt i64 %spec.select.i.us, %13
   br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !2586
@@ -217610,21 +217610,21 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i.us
   %37 = load ptr, ptr %36, align 8, !tbaa !126
   %38 = tail call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef %37, ptr noundef %21)
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
   %40 = load ptr, ptr %36, align 8, !tbaa !126
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i.us
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.019.i.i.us
   store ptr %40, ptr %41, align 8, !tbaa !126
   %42 = icmp sgt i64 %.0920.i.i.us, %.09.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us, !llvm.loop !2587
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %43, align 8, !tbaa !126
   %.not.us = icmp eq i64 %.09.us, 0
   %44 = add nsw i64 %.09.us, -1
@@ -217632,7 +217632,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEE
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit
   %.09 = phi i64 [ %73, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %.09
+  %45 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09
   %46 = load ptr, ptr %45, align 8, !tbaa !126
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !2593
   %47 = icmp slt i64 %.09, %13
@@ -217642,16 +217642,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEE
   %.036.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.09, %.split ]
   %48 = shl i64 %.036.i, 1
   %49 = add i64 %48, 2
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %0, i64 %49
   %51 = or disjoint i64 %48, 1
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %0, i64 %51
   %53 = load ptr, ptr %50, align 8, !tbaa !126
   %54 = load ptr, ptr %52, align 8, !tbaa !126
   %55 = tail call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef %53, ptr noundef %54)
   %spec.select.i = select i1 %55, i64 %51, i64 %49
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
+  %56 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i
   %57 = load ptr, ptr %56, align 8, !tbaa !126
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.036.i
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %.036.i
   store ptr %57, ptr %58, align 8, !tbaa !126
   %59 = icmp slt i64 %spec.select.i, %13
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !2586
@@ -217675,21 +217675,21 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEE
   %.019.i.i = phi i64 [ %.0920.i.i, %68 ], [ %.1.i, %63 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !126
   %67 = tail call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef %66, ptr noundef %46)
   br i1 %67, label %68, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit
 
 68:                                               ; preds = %.lr.ph.i.i
   %69 = load ptr, ptr %65, align 8, !tbaa !126
-  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.019.i.i
   store ptr %69, ptr %70, align 8, !tbaa !126
   %71 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit, !llvm.loop !2587
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %68, %63
   %.0.lcssa.i.i = phi i64 [ %.1.i, %63 ], [ %.0920.i.i, %68 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i
   store ptr %46, ptr %72, align 8, !tbaa !126
   %.not = icmp eq i64 %.09, 0
   %73 = add nsw i64 %.09, -1

@@ -27,22 +27,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.llvm::NfaStatePair" = type { i64, i64 }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
 %"class.llvm::MemoryLocation" = type { ptr, %"class.llvm::LocationSize", %"struct.llvm::AAMDNodes" }
 %"class.llvm::LocationSize" = type { i64 }
 %"struct.llvm::AAMDNodes" = type { ptr, ptr, ptr, ptr }
-%"class.std::unique_ptr.156" = type { %"struct.std::__uniq_ptr_data.157" }
-%"struct.std::__uniq_ptr_data.157" = type { %"class.std::__uniq_ptr_impl.158" }
-%"class.std::__uniq_ptr_impl.158" = type { %"class.std::tuple.159" }
-%"class.std::tuple.159" = type { %"struct.std::_Tuple_impl.160" }
-%"struct.std::_Tuple_impl.160" = type { %"struct.std::_Head_base.163" }
-%"struct.std::_Head_base.163" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.175 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.175 = type { i64, [8 x i8] }
-%"struct.std::pair.254" = type { ptr, i64 }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::SmallVector.4" = type { %"class.llvm::SmallVectorImpl.5", %"struct.llvm::SmallVectorStorage.8" }
 %"class.llvm::SmallVectorImpl.5" = type { %"class.llvm::SmallVectorTemplateBase.6" }
@@ -191,7 +183,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -290,7 +282,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13DFAPacketizer19canReserveResource
   %5 = load i16, ptr %4, align 2, !tbaa !56
   %6 = zext i16 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !58
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !49
   %10 = icmp eq i16 %5, 0
   %11 = icmp eq i32 %9, 0
@@ -373,7 +365,7 @@ define dso_local void @_ZN4llvm13DFAPacketizer16reserveResourcesEPKNS_11MCInstrD
   %5 = load i16, ptr %4, align 2, !tbaa !56
   %6 = zext i16 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !58
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !49
   %10 = icmp eq i16 %5, 0
   %11 = icmp eq i32 %9, 0
@@ -460,7 +452,7 @@ _ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i: ; pr
 50:                                               ; preds = %50, %46
   %.0.i.i = phi i32 [ %48, %46 ], [ %55, %50 ]
   %51 = zext i32 %.0.i.i to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !85
   %.not.i.i = icmp eq i64 %54, 0
@@ -469,7 +461,7 @@ _ZNSt3mapISt4pairImmES0_ImjESt4lessIS1_ESaIS0_IKS1_S2_EEE4findERS5_.exit.i: ; pr
 
 _ZN4llvm8internal14NfaTranscriber10transitionEj.exit.i: ; preds = %50
   %56 = zext i32 %48 to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %49, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %56
   %58 = sub i32 %.0.i.i, %48
   %59 = zext i32 %58 to i64
   tail call void @_ZN4llvm8internal14NfaTranscriber10transitionENS_8ArrayRefINS_12NfaStatePairEEE(ptr noundef nonnull align 8 dereferenceable(400) %41, ptr %57, i64 %59)
@@ -494,7 +486,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm13DFAPacketizer19canReserveResource
   %7 = load i16, ptr %6, align 2, !tbaa !56
   %8 = zext i16 %7 to i64
   %9 = load ptr, ptr %5, align 8, !tbaa !58
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %11 = load i32, ptr %10, align 4, !tbaa !49
   %12 = icmp eq i16 %7, 0
   %13 = icmp eq i32 %11, 0
@@ -595,11 +587,11 @@ define dso_local noundef i32 @_ZN4llvm13DFAPacketizer16getUsedResourcesEj(ptr no
 11:                                               ; preds = %2
   %12 = zext i32 %1 to i64
   %13 = load ptr, ptr %6, align 8, !tbaa !25
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8, !tbaa !53
   %16 = add i32 %1, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !53
   %20 = xor i64 %19, %15
   br label %21
@@ -1091,7 +1083,7 @@ _ZSt8distanceIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEENSt15
   %82 = load i16, ptr %81, align 2, !tbaa !56
   %83 = zext i16 %82 to i64
   %84 = load ptr, ptr %80, align 8, !tbaa !58
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %83
   %86 = load i32, ptr %85, align 4, !tbaa !49
   %87 = icmp eq i16 %82, 0
   %88 = icmp eq i32 %86, 0
@@ -1855,7 +1847,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EE
 _ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %32
   store ptr %26, ptr %13, align 8, !tbaa !400
   store ptr %31, ptr %6, align 8, !tbaa !398
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.156", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %8, align 8, !tbaa !399
   br label %_ZNSt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS1_EED2Ev.exit
 
@@ -2063,7 +2055,7 @@ _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i
 _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %23, ptr %3, align 8, !tbaa !359
   store ptr %27, ptr %4, align 8, !tbaa !361
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !360
   br label %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit
 
@@ -2459,9 +2451,9 @@ define linkonce_odr void @_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegm
   %19 = load ptr, ptr %0, align 8, !tbaa !440
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -2480,12 +2472,12 @@ define linkonce_odr void @_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegm
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit
 
@@ -2513,9 +2505,9 @@ _ZNSt11_Deque_baseIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_al
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #21
   %49 = sub i64 %41, %13
   %50 = lshr i64 %49, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %52 = select i1 %2, i64 %1, i64 0
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %54, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit26, label %55
@@ -2543,7 +2535,7 @@ _ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit: 
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 512
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %62, ptr %63, align 8, !tbaa !420
-  %64 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   store ptr %65, ptr %4, align 8, !tbaa !421
   %66 = load ptr, ptr %65, align 8, !tbaa !424
@@ -2592,7 +2584,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !25
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.254", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2633,7 +2625,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !25
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !26
@@ -3009,7 +3001,7 @@ define linkonce_odr hidden void @_ZN4llvm8internal14NfaTranscriber10transitionEN
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   br label %_ZSt4nextISt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS5_PS5_EET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit
 
 60:                                               ; preds = %56
@@ -3022,11 +3014,11 @@ define linkonce_odr hidden void @_ZN4llvm8internal14NfaTranscriber10transitionEN
 
 64:                                               ; preds = %62, %60
   %65 = phi i64 [ %61, %60 ], [ %63, %62 ]
-  %66 = getelementptr inbounds ptr, ptr %45, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %45, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !424, !noalias !466
   %68 = shl nsw i64 %65, 6
   %69 = sub nsw i64 %54, %68
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   br label %_ZSt4nextISt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS5_PS5_EET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit
 
 _ZSt4nextISt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS5_PS5_EET_S9_NSt15iterator_traitsIS9_E15difference_typeE.exit: ; preds = %58, %64
@@ -3080,7 +3072,7 @@ _ZSt4nextISt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS5_
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit
 
 97:                                               ; preds = %93
@@ -3093,11 +3085,11 @@ _ZSt4nextISt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS5_
 
 101:                                              ; preds = %99, %97
   %102 = phi i64 [ %98, %97 ], [ %100, %99 ]
-  %103 = getelementptr inbounds ptr, ptr %86, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %86, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !424, !noalias !480
   %105 = shl nsw i64 %102, 6
   %106 = sub nsw i64 %91, %105
-  %107 = getelementptr inbounds ptr, ptr %104, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %104, i64 %106
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit
 
 _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit: ; preds = %95, %101
@@ -3110,7 +3102,7 @@ _ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i: ; preds = %_ZNSt5deque
   %.022.i.i.i = phi ptr [ %118, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ], [ %1, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ]
   %.01121.i.i.i = phi i64 [ %117, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ], [ %2, %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EEixEm.exit ]
   %110 = lshr i64 %.01121.i.i.i, 1
-  %111 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %.022.i.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %.022.i.i.i, i64 %110
   %112 = load i64, ptr %111, align 8, !tbaa !53, !noalias !485
   %113 = icmp ult i64 %112, %109
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -3125,7 +3117,7 @@ _ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i18: ; preds = %_ZSt7adva
   %.021.i.i.i = phi ptr [ %133, %.thread.i.i.i23 ], [ %1, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ]
   %.01120.i.i.i = phi i64 [ %132, %.thread.i.i.i23 ], [ %2, %_ZSt7advanceIPKN4llvm12NfaStatePairElEvRT_T0_.exit.i.i.i ]
   %120 = lshr i64 %.01120.i.i.i, 1
-  %121 = getelementptr inbounds nuw %"struct.llvm::NfaStatePair", ptr %.021.i.i.i, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %.021.i.i.i, i64 %120
   %122 = load i64, ptr %121, align 8, !tbaa !53, !noalias !489
   %123 = icmp ult i64 %109, %122
   br i1 %123, label %.thread.i.i.i23, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm12NfaStatePairEPS5_EEbRT_T0_.exit.i.i.i
@@ -3259,7 +3251,7 @@ _ZN4llvm8internal14NfaTranscriber15makePathSegmentEmPNS1_11PathSegmentE.exit: ; 
 201:                                              ; preds = %196
   %202 = sub i64 %189, %198
   %203 = lshr i64 %202, 1
-  %204 = getelementptr inbounds nuw ptr, ptr %190, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %203
   %205 = icmp ult ptr %204, %165
   %206 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %.not.i.i.i.i.i.i25 = icmp eq ptr %206, %165
@@ -3278,12 +3270,12 @@ _ZN4llvm8internal14NfaTranscriber15makePathSegmentEmPNS1_11PathSegmentE.exit: ; 
   br i1 %.not.i.i.i.i.i.i25, label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit, label %212
 
 212:                                              ; preds = %211
-  %213 = getelementptr inbounds nuw ptr, ptr %204, i64 %197
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %197
   %214 = ptrtoint ptr %206 to i64
   %215 = sub i64 %214, %167
   %216 = ashr exact i64 %215, 3
   %217 = sub nsw i64 0, %216
-  %218 = getelementptr inbounds ptr, ptr %213, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr %213, i64 %217
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %218, ptr align 8 %165, i64 %215, i1 false)
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocate_mapEmb.exit
 
@@ -3311,7 +3303,7 @@ _ZNSt11_Deque_baseIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_al
   %228 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %227) #21
   %229 = sub nsw i64 %221, %198
   %230 = lshr i64 %229, 1
-  %231 = getelementptr inbounds nuw ptr, ptr %228, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %.not.i.i.i.i.i25.i = icmp eq ptr %232, %165
   br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPPN4llvm8internal14NfaTranscriber11PathSegmentES6_ET0_T_S8_S7_.exit26.i, label %233
@@ -3336,7 +3328,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_reallocat
   store ptr %237, ptr %38, align 8, !tbaa !419
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 512
   store ptr %238, ptr %29, align 8, !tbaa !420
-  %239 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %197
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %197
   %240 = getelementptr inbounds i8, ptr %239, i64 -8
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE16_M_push_back_auxIJS4_EEEvDpOT_.exit
 
@@ -3582,7 +3574,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE5clearEv.exit:
   br i1 %140, label %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread, label %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread127
 
 _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread: ; preds = %139
-  %141 = getelementptr inbounds ptr, ptr %132, i64 %75
+  %141 = getelementptr inbounds [8 x i8], ptr %132, i64 %75
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit
 
 _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread127: ; preds = %139
@@ -3592,7 +3584,7 @@ _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS
   %144 = load ptr, ptr %143, align 8, !tbaa !424, !noalias !523
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 512
   %146 = and i64 %137, 63
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   br label %.lr.ph.i.i
 
 _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit: ; preds = %129
@@ -3602,7 +3594,7 @@ _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS
   %150 = load ptr, ptr %149, align 8, !tbaa !424, !noalias !523
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 512
   %152 = and i64 %137, 63
-  %153 = getelementptr inbounds nuw ptr, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %152
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_beginESt15_Deque_iteratorIS4_RS4_PS4_E.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread127, %.lr.ph.i.i
@@ -3687,7 +3679,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE17_M_erase_at_
   br i1 %180, label %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread, label %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread: ; preds = %179
-  %181 = getelementptr inbounds ptr, ptr %175, i64 %76
+  %181 = getelementptr inbounds [8 x i8], ptr %175, i64 %76
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit
 
 _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread129: ; preds = %172
@@ -3697,7 +3689,7 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS
   %184 = load ptr, ptr %183, align 8, !tbaa !424, !noalias !541
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 512
   %186 = and i64 %177, 63
-  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %186
   br label %.lr.ph.i.i6
 
 _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit: ; preds = %179
@@ -3707,7 +3699,7 @@ _ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS
   %190 = load ptr, ptr %189, align 8, !tbaa !424, !noalias !541
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 512
   %192 = and i64 %177, 63
-  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %192
   br label %_ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_endESt15_Deque_iteratorIS4_RS4_PS4_E.exit
 
 .lr.ph.i.i6:                                      ; preds = %_ZStmiRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit.thread129, %.lr.ph.i.i6
@@ -3758,7 +3750,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %210
-  %213 = getelementptr inbounds ptr, ptr %200, i64 %95
+  %213 = getelementptr inbounds [8 x i8], ptr %200, i64 %95
   br label %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit9
 
 214:                                              ; preds = %210
@@ -3771,7 +3763,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_
 
 218:                                              ; preds = %216, %214
   %219 = phi i64 [ %215, %214 ], [ %217, %216 ]
-  %220 = getelementptr inbounds ptr, ptr %197, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %197, i64 %219
   store ptr %220, ptr %203, align 8, !tbaa !421, !alias.scope !547
   %221 = load ptr, ptr %220, align 8, !tbaa !424, !noalias !547
   store ptr %221, ptr %201, align 8, !tbaa !419, !alias.scope !547
@@ -3779,7 +3771,7 @@ _ZNSt5dequeIPN4llvm8internal14NfaTranscriber11PathSegmentESaIS4_EE15_M_erase_at_
   store ptr %222, ptr %202, align 8, !tbaa !420, !alias.scope !547
   %223 = shl nsw i64 %219, 6
   %224 = sub nsw i64 %208, %223
-  %225 = getelementptr inbounds ptr, ptr %221, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %221, i64 %224
   br label %_ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit9
 
 _ZStplRKSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_El.exit9: ; preds = %212, %218
@@ -3857,7 +3849,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm8internal14N
   %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %.0938.i, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !550
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
@@ -3868,7 +3860,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm8internal14N
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds ptr, ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -3881,12 +3873,12 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm8internal14N
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !424, !noalias !550
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 6
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i: ; preds = %51, %45
@@ -3967,7 +3959,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegment
   %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 3
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %.0938.i15, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !554
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
@@ -3978,7 +3970,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegment
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds ptr, ptr %.sroa.076.0, i64 %88
+  %98 = getelementptr inbounds [8 x i8], ptr %.sroa.076.0, i64 %88
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i24
 
 99:                                               ; preds = %95
@@ -3991,12 +3983,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegment
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !424, !noalias !554
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 6
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %106, i64 %109
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i24: ; preds = %103, %97
@@ -4057,7 +4049,7 @@ _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmI
   %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 3
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds ptr, ptr %.0938.i38, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !557
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
@@ -4068,7 +4060,7 @@ _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmI
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds ptr, ptr %.sroa.082.0, i64 %131
+  %141 = getelementptr inbounds [8 x i8], ptr %.sroa.082.0, i64 %131
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i47
 
 142:                                              ; preds = %138
@@ -4081,12 +4073,12 @@ _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmI
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
-  %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !424, !noalias !557
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 6
   %152 = sub nsw i64 %136, %151
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %149, i64 %152
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i47: ; preds = %146, %140
@@ -4164,7 +4156,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegment
   %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds ptr, ptr %.0938.i61, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !561
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
@@ -4175,7 +4167,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegment
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -4188,12 +4180,12 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegment
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !424, !noalias !561
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 6
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds ptr, ptr %201, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EmIEl.exit.i70: ; preds = %198, %192
@@ -4281,7 +4273,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds ptr, ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [8 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -4294,12 +4286,12 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !424, !noalias !564
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 6
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i: ; preds = %44, %38
@@ -4375,7 +4367,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds ptr, ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [8 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -4388,12 +4380,12 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !424, !noalias !568
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 6
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i19: ; preds = %89, %83
@@ -4448,7 +4440,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds ptr, ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [8 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -4461,12 +4453,12 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !424, !noalias !571
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 6
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds ptr, ptr %127, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i36: ; preds = %124, %118
@@ -4537,7 +4529,7 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -4550,12 +4542,12 @@ _ZSt14__copy_move_a1ILb1EPPN4llvm8internal14NfaTranscriber11PathSegmentES5_ET1_T
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !424, !noalias !575
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 6
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIPN4llvm8internal14NfaTranscriber11PathSegmentERS4_PS4_EpLEl.exit.i53: ; preds = %167, %161
@@ -4679,7 +4671,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %.lr.ph, %3
   %39 = phi i32 [ %33, %.lr.ph ], [ %.pre.i, %36 ]
   %40 = load ptr, ptr %2, align 8, !tbaa !25
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   store i64 %34, ptr %42, align 1
   %43 = load i32, ptr %23, align 8, !tbaa !26
   %44 = add i32 %43, 1
@@ -4724,7 +4716,7 @@ _ZSt7reverseIPmEvT_S1_.exit:                      ; preds = %.lr.ph.i.i7, %30, %
   br i1 %.not.i.i.not.i8, label %_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorImLj4EEELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, label %59, !prof !33
 
 59:                                               ; preds = %_ZSt7reverseIPmEvT_S1_.exit
-  %60 = getelementptr inbounds nuw %"class.llvm::SmallVector.4", ptr %.pre4.i, i64 %56
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %.pre4.i, i64 %56
   %61 = icmp uge ptr %2, %.pre4.i
   %62 = icmp ult ptr %2, %60
   %spec.select.i.i.i.i.i = and i1 %61, %62
@@ -4748,7 +4740,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorImLj4EEELb0EE28reserveForParam
   %.016.i.i.i = phi ptr [ %2, %_ZSt7reverseIPmEvT_S1_.exit ], [ %67, %63 ], [ %2, %.critedge.i.i.i ]
   %69 = load i32, ptr %5, align 8, !tbaa !26
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::SmallVector.4", ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %68, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %72, ptr %71, align 8, !tbaa !25
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -4985,7 +4977,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35:               ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

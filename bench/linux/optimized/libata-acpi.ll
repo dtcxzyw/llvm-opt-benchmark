@@ -478,7 +478,7 @@ define dso_local void @ata_acpi_dissociate(ptr noundef readonly captures(none) %
 20:                                               ; preds = %.critedge, %8
   %21 = phi i32 [ 0, %8 ], [ %59, %.critedge ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr ptr, ptr %9, i64 %22
+  %23 = getelementptr [8 x i8], ptr %9, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 32
@@ -658,7 +658,7 @@ define dso_local i32 @ata_acpi_gtm_xfermask(ptr noundef readonly captures(none) 
   %8 = icmp eq i32 %7, 0
   %9 = select i1 %8, i32 0, i32 %4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.ata_acpi_drive, ptr %1, i64 %10
+  %11 = getelementptr [8 x i8], ptr %1, i64 %10
   %12 = load i32, ptr %11, align 1
   %13 = tail call zeroext i8 @ata_timing_cycle2mode(i32 noundef 0, i32 noundef %12) #8
   %14 = tail call i32 @ata_xfer_mode2mask(i8 noundef zeroext %13) #8
@@ -705,7 +705,7 @@ define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0
   %15 = icmp eq i32 %14, 0
   %16 = select i1 %15, i32 0, i32 %12
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %struct.ata_acpi_drive, ptr %1, i64 %17
+  %18 = getelementptr [8 x i8], ptr %1, i64 %17
   %19 = load i32, ptr %18, align 1
   %20 = call zeroext i8 @ata_timing_cycle2mode(i32 noundef 0, i32 noundef %19) #8
   %21 = call i32 @ata_xfer_mode2mask(i8 noundef zeroext %20) #8

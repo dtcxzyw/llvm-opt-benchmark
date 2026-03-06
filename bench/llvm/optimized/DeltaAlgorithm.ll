@@ -1769,7 +1769,7 @@ _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28
 _ZNSt12_Vector_baseISt3setIjSt4lessIjESaIjEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit28, %82
   store ptr %23, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i27, ptr %5, align 8, !tbaa !26
-  %86 = getelementptr inbounds nuw %"class.std::set.0", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !29
   ret void
 }
@@ -2358,7 +2358,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt3setIjSt4lessIjE
 
 .lr.ph.i.i.i.i.i45.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt3setIjSt4lessIjESaIjEESt6vectorIS6_SaIS6_EEEEPS6_S6_ET0_T_SF_SE_RSaIT1_E.exit
   %99 = sub nuw nsw i64 %11, %22
-  %100 = getelementptr inbounds nuw %"class.std::set.0", ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %98, i64 %99
   br label %.lr.ph.i.i.i.i.i45
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %.lr.ph.i.i.i.i.i45.preheader, %_ZSt10_ConstructISt3setIjSt4lessIjESaIjEEJS4_EEvPT_DpOT0_.exit.i.i.i.i.i49
@@ -2651,7 +2651,7 @@ _ZSt8_DestroyIPSt3setIjSt4lessIjESaIjEES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.p
 _ZNSt12_Vector_baseISt3setIjSt4lessIjESaIjEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPSt3setIjSt4lessIjESaIjEES4_EvT_S6_RSaIT0_E.exit, %213
   store ptr %142, ptr %0, align 8, !tbaa !36
   store ptr %.0.lcssa.i.i.i.i.i86, ptr %14, align 8, !tbaa !26
-  %217 = getelementptr inbounds nuw %"class.std::set.0", ptr %142, i64 %138
+  %217 = getelementptr inbounds nuw [48 x i8], ptr %142, i64 %138
   store ptr %217, ptr %12, align 8, !tbaa !29
   br label %218
 

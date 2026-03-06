@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.bv::interval_tpl.base.66" = type <{ %class.rational, %class.rational, i32, i8 }>
 %"struct.bv::undo_bound" = type <{ ptr, %"struct.bv::interval", i8, [7 x i8] }>
 %"struct.obj_map<expr, bv::interval>::key_data" = type { ptr, %"struct.bv::interval" }
-%"class.obj_map<expr, bv::interval>::obj_map_entry" = type { %"struct.obj_map<expr, bv::interval>::key_data" }
 %"struct.bv::interval_tpl.65" = type <{ %class.rational, %class.rational, i32, i8, [3 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -3507,7 +3506,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7obj_mapI4exprN2bv8intervalEE9find_c
   %.idx.i = mul nuw nsw i64 %16, 112
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw %"class.obj_map<expr, bv::interval>::obj_map_entry", ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [112 x i8], ptr %15, i64 %18
   %.not34.i = icmp eq i32 %14, %12
   br i1 %.not34.i, label %.preheader.i, label %.lr.ph.i
 
@@ -3660,7 +3659,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6v
   %13 = phi i32 [ %.pre2, %11 ], [ %7, %5 ]
   %14 = phi ptr [ %.pre, %11 ], [ %3, %5 ]
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"struct.bv::undo_bound", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [120 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %1, align 8, !tbaa !141
   store ptr %17, ptr %16, align 8, !tbaa !141
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -8069,7 +8068,7 @@ _ZNK6vectorIN2bv10undo_boundELb1EjE4sizeEv.exit:  ; preds = %47, %52
   store i32 %.0.i, ptr %55, align 4, !tbaa !86
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %57 = zext i32 %.0.i to i64
-  %58 = getelementptr inbounds nuw %"struct.bv::undo_bound", ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [120 x i8], ptr %50, i64 %57
   %59 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN2bv10undo_boundEES3_ET0_T_S6_S5_(ptr %50, ptr %58, ptr noundef nonnull %56)
   %60 = load ptr, ptr %0, align 8, !tbaa !85
   %.not.i = icmp eq ptr %60, null
@@ -8487,7 +8486,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN2bv8interva
   %.idx = mul nuw nsw i64 %30, 112
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %32 = zext i32 %24 to i64
-  %33 = getelementptr inbounds nuw %"class.obj_map<expr, bv::interval>::obj_map_entry", ptr %23, i64 %32
+  %33 = getelementptr inbounds nuw [112 x i8], ptr %23, i64 %32
   %.not62 = icmp eq i32 %29, %24
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -8630,7 +8629,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN2bv8interva
   %.idx = mul nuw nsw i64 %6, 112
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"class.obj_map<expr, bv::interval>::obj_map_entry", ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [112 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -10328,7 +10327,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %_ZN6vectorIP4exprLb
   %.130 = phi i1 [ %.029119, %203 ], [ true, %178 ], [ %.029119, %61 ], [ %.029119, %212 ], [ %.130.ph, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.sink.split ]
   %218 = getelementptr inbounds i8, ptr %.sink146, i64 -4
   %219 = zext i32 %.sink145 to i64
-  %220 = getelementptr inbounds nuw ptr, ptr %.sink146, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %.sink146, i64 %219
   store ptr %.sink, ptr %220, align 8, !tbaa !134
   %221 = add i32 %.sink145, 1
   store i32 %221, ptr %218, align 4, !tbaa !86
@@ -11614,7 +11613,7 @@ _ZNK6vectorIN2bv10undo_boundELb1EjE4sizeEv.exit12: ; preds = %_ZNK6vectorIN2bv10
   %indvars.iv = phi i64 [ %44, %.lr.ph ], [ %47, %57 ]
   %47 = add nsw i64 %indvars.iv, -1
   %48 = load ptr, ptr %3, align 8, !tbaa !85
-  %49 = getelementptr inbounds nuw %"struct.bv::undo_bound", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [120 x i8], ptr %48, i64 %47
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = load i8, ptr %50, align 8, !tbaa !143, !range !136, !noundef !137
   %52 = trunc nuw i8 %51 to i1
@@ -11648,13 +11647,13 @@ _ZN6vectorIN2bv10undo_boundELb1EjE3endEv.exit:    ; preds = %2
   %4 = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %4, align 4, !tbaa !86
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.bv::undo_bound", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %6
   %.not78 = icmp eq i32 %1, %5
   br i1 %.not78, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN6vectorIN2bv10undo_boundELb1EjE3endEv.exit
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.bv::undo_bound", ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2bv10undo_boundD2Ev.exit
@@ -11791,7 +11790,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI4exprN2bv8interva
   %.idx = mul nuw nsw i64 %11, 112
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<expr, bv::interval>::obj_map_entry", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %10, i64 %13
   %.not43 = icmp eq i32 %9, %7
   br i1 %.not43, label %.preheader, label %.lr.ph
 

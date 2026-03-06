@@ -1157,7 +1157,7 @@ define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly captures(
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !63
   %13 = zext i16 %12 to i32
   store i32 %13, ptr %2, align 4, !tbaa !64

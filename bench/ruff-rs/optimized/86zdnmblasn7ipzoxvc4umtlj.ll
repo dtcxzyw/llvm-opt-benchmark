@@ -98,14 +98,14 @@ define internal noundef i64 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 5
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %1, i64 %8)
-  %9 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.0.sroa.speculated.i
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.0.sroa.speculated.i
   store ptr %9, ptr %3, align 8
   %10 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
   br i1 %10, label %"_ZN4core3ptr124drop_in_place$LT$$u5b$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$u5d$$GT$17hae5e8663cbf22ebaE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$GT$17h53ccb6507fbddc7eE.exit.i"
   %.sroa.0.08.i = phi i64 [ %12, %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$GT$17h53ccb6507fbddc7eE.exit.i" ], [ 0, %2 ]
-  %11 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.08.i
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.08.i
   %12 = add nuw nsw i64 %.sroa.0.08.i, 1
   %13 = load i64, ptr %11, align 8, !range !9, !alias.scope !10, !noundef !8
   %14 = icmp eq i64 %13, -9223372036854775808
@@ -135,7 +135,7 @@ define internal noundef i64 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$
   br label %19
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.1.i
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.sroa.0.1.i
   %25 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$GT$17h53ccb6507fbddc7eE"(ptr noalias noundef align 8 dereferenceable(32) %24) #26
           to label %19 unwind label %27
@@ -698,14 +698,14 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17hb1c6d2a000057
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %9)
-  %10 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val.i, i64 %.sroa.0.0.sroa.speculated.i.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %.sroa.0.0.sroa.speculated.i.i
   store ptr %10, ptr %4, align 8, !alias.scope !94
   %11 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 0
   br i1 %11, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h11f8ac35c6d5ff53E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$GT$17h53ccb6507fbddc7eE.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %13, %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$GT$17h53ccb6507fbddc7eE.exit.i.i" ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val.i, i64 %.sroa.0.08.i.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %.sroa.0.08.i.i
   %13 = add nuw nsw i64 %.sroa.0.08.i.i, 1
   %14 = load i64, ptr %12, align 8, !range !9, !alias.scope !102, !noalias !94, !noundef !8
   %15 = icmp eq i64 %14, -9223372036854775808
@@ -735,7 +735,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17hb1c6d2a000057
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val.i, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$ruff_db..system..path..SystemPathBuf$C$ruff_db..system..GlobError$GT$$GT$17h53ccb6507fbddc7eE"(ptr noalias noundef align 8 dereferenceable(32) %25) #26
           to label %20 unwind label %28, !noalias !94
@@ -2636,7 +2636,7 @@ define void @_ZN7ty_wasm9Workspace10check_file17h9ebe892832ca4e69E(ptr dead_on_u
   tail call void @llvm.assume(i1 %18)
   %19 = icmp ult i64 %.sroa.614.sroa.5.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %.sroa.614.sroa.5.0.copyload
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.614.sroa.5.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !158
   store ptr %17, ptr %4, align 8, !alias.scope !165, !noalias !169
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2684,7 +2684,7 @@ define void @_ZN7ty_wasm9Workspace5check17hbeba4ecab53f125fE(ptr dead_on_unwind 
   tail call void @llvm.assume(i1 %15)
   %16 = icmp ult i64 %.sroa.614.sroa.5.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.614.sroa.5.0.copyload
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.614.sroa.5.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !170
   store ptr %14, ptr %3, align 8, !alias.scope !177, !noalias !181
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3487,7 +3487,7 @@ define void @_ZN7ty_wasm9Workspace11inlay_hints17hd3a3453e7b802344E(ptr dead_on_
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !235, !noalias !238
   %53 = icmp ult i64 %.sroa.5.0.copyload.i, 288230376151711744
   call void @llvm.assume(i1 %53)
-  %54 = getelementptr inbounds nuw { { i64, [2 x i64] }, i32, [1 x i32] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %55 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !240

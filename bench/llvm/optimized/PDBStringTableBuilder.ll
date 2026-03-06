@@ -113,7 +113,7 @@ _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKSt4p
   %.017.i.i.i.i = phi ptr [ @_ZZL18computeBucketCountjE16StringsToBuckets, %1 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ 52, %1 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i ]
   %3 = lshr i64 %.01116.i.i.i.i, 1
-  %4 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %.017.i.i.i.i, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = icmp ult i32 %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -144,7 +144,7 @@ _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKSt
   %.017.i.i.i.i.i = phi ptr [ @_ZZL18computeBucketCountjE16StringsToBuckets, %1 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i ]
   %.01116.i.i.i.i.i = phi i64 [ 52, %1 ], [ %.112.i.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i ]
   %4 = lshr i64 %.01116.i.i.i.i.i, 1
-  %5 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %.017.i.i.i.i.i, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = icmp ult i32 %6, %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -240,10 +240,10 @@ _ZN4llvm8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairI
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !28
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %33, align 8, !tbaa !29
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %44
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %35, align 4, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -259,7 +259,7 @@ _ZN4llvm8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairI
   %55 = phi ptr [ %78, %77 ], [ %41, %38 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %38 ]
   %56 = load ptr, ptr %33, align 8, !tbaa !29
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8, !tbaa !31
   %magicptr.i = ptrtoint ptr %58 to i64
   switch i64 %magicptr.i, label %61 [
@@ -268,7 +268,7 @@ _ZN4llvm8DenseMapIjNS_9StringRefENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairI
   ]
 
 59:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %60 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   store ptr %58, ptr %60, align 8, !tbaa !31
   br label %77
 
@@ -294,11 +294,11 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJRjEEEPS1_NS_9StringRefE
   %71 = load i32, ptr %63, align 4, !tbaa !9
   store i32 %71, ptr %70, align 8, !tbaa !37
   %72 = load ptr, ptr %3, align 8, !tbaa !29
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i
   store ptr %65, ptr %73, align 8, !tbaa !31
-  %74 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %75 = load i32, ptr %74, align 4, !tbaa !9
-  %76 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   store i32 %75, ptr %76, align 4, !tbaa !9
   br label %77
 
@@ -350,7 +350,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEEC2ERKS2_.exit: ; preds = %_ZN4llvm9Str
 .lr.ph.i6:                                        ; preds = %101, %.lr.ph.preheader.i
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i9, %101 ]
   %95 = load ptr, ptr %3, align 8, !tbaa !29
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.i7
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv.i7
   %97 = load ptr, ptr %96, align 8, !tbaa !31
   %magicptr.i8 = ptrtoint ptr %97 to i64
   switch i64 %magicptr.i8, label %98 [
@@ -418,7 +418,7 @@ _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKSt4p
   %.017.i.i.i.i = phi ptr [ @_ZZL18computeBucketCountjE16StringsToBuckets, %3 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i ]
   %.01116.i.i.i.i = phi i64 [ 52, %3 ], [ %.112.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i ]
   %6 = lshr i64 %.01116.i.i.i.i, 1
-  %7 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %.017.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = icmp ult i32 %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -458,7 +458,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZL18computeBucketC
   %25 = zext i32 %.fr to i64
   %26 = shl nuw nsw i64 %25, 2
   %27 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #13
-  %28 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %25
   store i32 0, ptr %27, align 1
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = add nsw i64 %25, -1
@@ -505,7 +505,7 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
 _ZNK4llvm8codeview26DebugStringTableSubsection5beginEv.exit: ; preds = %.preheader.i.i.i.i, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit
   %.sroa.0.1.i.i = phi ptr [ %37, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EEC2EmRKS6_.exit ], [ %.sroa.0.0.i.i, %.preheader.i.i.i.i ]
   %43 = zext i32 %39 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %37, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %43
   %.not5055 = icmp eq ptr %.sroa.0.1.i.i, %44
   br i1 %.not5055, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.lr.ph
 
@@ -584,13 +584,13 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_7support6detail31packed_endian_speci
   %65 = add i32 %.02654, %62
   %66 = urem i32 %65, %.fr
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %.sroa.044.0, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.044.0, i64 %67
   %.0.copyload.i.i.i = load i32, ptr %68, align 1
   %.not29.not = icmp eq i32 %.0.copyload.i.i.i, 0
   br i1 %.not29.not, label %69, label %63
 
 69:                                               ; preds = %.critedge31
-  %70 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %.sroa.044.0, i64 %67
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.044.0, i64 %67
   store i32 %61, ptr %70, align 1
   br label %..loopexit_crit_edge.preheader
 
@@ -928,7 +928,7 @@ _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKSt
   %.017.i.i.i.i.i = phi ptr [ @_ZZL18computeBucketCountjE16StringsToBuckets, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.1.i.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i ]
   %.01116.i.i.i.i.i = phi i64 [ 52, %_ZN4llvm5ErrorD2Ev.exit39 ], [ %.112.i.i.i.i.i, %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i ]
   %125 = lshr i64 %.01116.i.i.i.i.i, 1
-  %126 = getelementptr inbounds nuw %"struct.std::pair.2", ptr %.017.i.i.i.i.i, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !9
   %128 = icmp ult i32 %127, %124
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8

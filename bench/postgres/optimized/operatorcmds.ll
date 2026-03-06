@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/operatorcmds.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"leftarg\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"SETOF type not allowed for operator argument\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"operatorcmds.c\00", align 1
@@ -84,7 +82,7 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   %.0157227 = phi i1 [ %.1, %102 ], [ false, %.lr.ph ]
   %indvars.iv226 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv226
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv226
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -675,7 +673,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr noundef readonly captures(none)
   %.0112178230 = phi ptr [ %.1, %89 ], [ null, %.lr.ph ]
   %indvars.iv229 = phi i64 [ %indvars.iv.next, %89 ], [ 0, %.lr.ph ]
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv229
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv229
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8

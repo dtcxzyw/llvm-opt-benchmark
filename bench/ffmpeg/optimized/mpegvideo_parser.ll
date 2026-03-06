@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %mpeg1_find_frame_en
   %179 = load i8, ptr %178, align 1, !tbaa !20
   %180 = and i8 %179, 15
   %181 = zext nneg i8 %180 to i64
-  %182 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_mpeg12_frame_rate_tab, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr @ff_mpeg12_frame_rate_tab, i64 %181
   %183 = load i64, ptr %182, align 4
   store i64 %183, ptr %110, align 4
   store i64 %183, ptr %109, align 8

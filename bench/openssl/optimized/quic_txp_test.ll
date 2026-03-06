@@ -225,7 +225,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_script(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @scripts, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @scripts, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = tail call fastcc i32 @run_script(i32 noundef %0, ptr noundef %4)
   ret i32 %5
@@ -413,7 +413,7 @@ define internal fastcc range(i32 0, 2) i32 @run_script(i32 noundef %0, ptr nound
 93:                                               ; preds = %91, %88
   %.089.i = phi i64 [ 0, %88 ], [ %92, %91 ]
   %94 = call ptr @ossl_quic_sstream_new(i64 noundef 4096) #8
-  %95 = getelementptr inbounds nuw ptr, ptr %90, i64 %.089.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %.089.i
   store ptr %94, ptr %95, align 8, !tbaa !61
   %96 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 197, ptr noundef nonnull @.str.64, ptr noundef %94) #8
   %.not83.i = icmp eq i32 %96, 0
@@ -1080,7 +1080,7 @@ skip_padding.exit148:                             ; preds = %420, %424
   store i64 0, ptr %7, align 8, !tbaa !102
   %465 = getelementptr inbounds nuw i8, ptr %.070, i64 8
   %466 = load i64, ptr %465, align 8, !tbaa !95
-  %467 = getelementptr inbounds nuw ptr, ptr %90, i64 %466
+  %467 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %466
   %468 = load ptr, ptr %467, align 8, !tbaa !61
   %469 = getelementptr inbounds nuw i8, ptr %.070, i64 24
   %470 = load ptr, ptr %469, align 8, !tbaa !99
@@ -1522,7 +1522,7 @@ define internal fastcc void @helper_cleanup(ptr noundef nonnull %0) unnamed_addr
 
 36:                                               ; preds = %34, %36
   %.02530 = phi i64 [ 0, %34 ], [ %39, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %.02530
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02530
   %38 = load ptr, ptr %37, align 8, !tbaa !61
   tail call void @ossl_quic_sstream_free(ptr noundef %38) #8
   %39 = add nuw nsw i64 %.02530, 1

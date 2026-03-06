@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
-%struct.Screen = type { [16 x [33 x i8]], [16 x [33 x i8]], [16 x [33 x i8]], [16 x [33 x i8]], [16 x [33 x i8]], i16 }
-%struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @.str = private unnamed_addr constant [7 x i8] c"cc_dec\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"Closed Captions (EIA-608 / CEA-708)\00", align 1
@@ -251,13 +249,13 @@ validate_cc_data_pair.exit:                       ; preds = %68, %73
   %101 = load i32, ptr %21, align 8, !tbaa !44
   %.not.i.i.i = icmp eq i32 %101, 0
   %102 = zext i1 %.not.i.i.i to i64
-  %103 = getelementptr inbounds nuw %struct.Screen, ptr %26, i64 %102
+  %103 = getelementptr inbounds nuw [2642 x i8], ptr %26, i64 %102
   br label %get_writing_screen.exit.i.i
 
 104:                                              ; preds = %93, %93, %93
   %105 = load i32, ptr %21, align 8, !tbaa !44
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %struct.Screen, ptr %26, i64 %106
+  %107 = getelementptr inbounds [2642 x i8], ptr %26, i64 %106
   br label %get_writing_screen.exit.i.i
 
 get_writing_screen.exit.i.i:                      ; preds = %104, %100, %93
@@ -372,13 +370,13 @@ write_char.exit.i.i:                              ; preds = %152, %132
   %166 = load i32, ptr %21, align 8, !tbaa !44
   %.not.i.i129.i = icmp eq i32 %166, 0
   %167 = zext i1 %.not.i.i129.i to i64
-  %168 = getelementptr inbounds nuw %struct.Screen, ptr %26, i64 %167
+  %168 = getelementptr inbounds nuw [2642 x i8], ptr %26, i64 %167
   br label %get_writing_screen.exit.i126.i
 
 169:                                              ; preds = %163, %163, %163
   %170 = load i32, ptr %21, align 8, !tbaa !44
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.Screen, ptr %26, i64 %171
+  %172 = getelementptr inbounds [2642 x i8], ptr %26, i64 %171
   br label %get_writing_screen.exit.i126.i
 
 get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
@@ -528,7 +526,7 @@ get_writing_screen.exit.i126.i:                   ; preds = %169, %165, %163
   %240 = load i32, ptr %21, align 8, !tbaa !44
   %.not124.i = icmp eq i32 %240, 0
   %241 = zext i1 %.not124.i to i64
-  %242 = getelementptr inbounds nuw %struct.Screen, ptr %7, i64 %241
+  %242 = getelementptr inbounds nuw [2642 x i8], ptr %7, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 2668
   store i16 0, ptr %243, align 2, !tbaa !51
   br label %process_cc608.exit.thread
@@ -606,7 +604,7 @@ process_cc608.exit.thread:                        ; preds = %.lr.ph.i, %write_ch
   store i64 %267, ptr %33, align 8, !tbaa !56
   store i64 %9, ptr %34, align 8, !tbaa !56
   %268 = sext i32 %.2100 to i64
-  %269 = getelementptr inbounds %struct.AVBPrint, ptr %35, i64 %268
+  %269 = getelementptr inbounds [1024 x i8], ptr %35, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !57
   %271 = load i8, ptr %270, align 1, !tbaa !42
   %.not119 = icmp eq i8 %271, 0
@@ -670,7 +668,7 @@ validate_cc_data_pair.exit.thread:                ; preds = %68, %48, %73, %56, 
   %.not109 = icmp eq i32 %293, 0
   %294 = zext i1 %.not109 to i32
   %295 = zext i1 %.not109 to i64
-  %296 = getelementptr inbounds nuw %struct.AVBPrint, ptr %292, i64 %295
+  %296 = getelementptr inbounds nuw [1024 x i8], ptr %292, i64 %295
   %297 = load ptr, ptr %296, align 8, !tbaa !57
   %298 = load i8, ptr %297, align 1, !tbaa !42
   %.not110 = icmp eq i8 %298, 0
@@ -740,7 +738,7 @@ validate_cc_data_pair.exit.thread:                ; preds = %68, %48, %73, %56, 
   store i32 0, ptr %336, align 4, !tbaa !55
   %337 = getelementptr inbounds nuw i8, ptr %7, i64 5328
   %338 = sext i32 %.3 to i64
-  %339 = getelementptr inbounds %struct.AVBPrint, ptr %337, i64 %338
+  %339 = getelementptr inbounds [1024 x i8], ptr %337, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !57
   %341 = getelementptr inbounds nuw i8, ptr %7, i64 7428
   %342 = load i32, ptr %341, align 4, !tbaa !60
@@ -855,12 +853,12 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5312
   %4 = load i32, ptr %3, align 8, !tbaa !44
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.Screen, ptr %2, i64 %5
+  %6 = getelementptr inbounds [2642 x i8], ptr %2, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 7376
   %8 = load i32, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5328
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds %struct.AVBPrint, ptr %9, i64 %10
+  %11 = getelementptr inbounds [1024 x i8], ptr %9, i64 %10
   tail call void @av_bprint_clear(ptr noundef nonnull %11) #9
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 2640
   %13 = load i16, ptr %12, align 2, !tbaa !51
@@ -1015,7 +1013,7 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
 
 switch.lookup:                                    ; preds = %77
   %79 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.capture_screen, i64 %79
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.capture_screen, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %80
 
@@ -1049,7 +1047,7 @@ switch.lookup:                                    ; preds = %77
 
 switch.lookup237:                                 ; preds = %84
   %89 = zext nneg i8 %86 to i64
-  %switch.gep238 = getelementptr inbounds nuw ptr, ptr @switch.table.capture_screen.2, i64 %89
+  %switch.gep238 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.capture_screen.2, i64 %89
   %switch.load239 = load ptr, ptr %switch.gep238, align 8
   br label %90
 
@@ -1065,7 +1063,7 @@ switch.lookup237:                                 ; preds = %84
 
 switch.lookup241:                                 ; preds = %90
   %95 = zext nneg i8 %92 to i64
-  %switch.gep242 = getelementptr inbounds nuw ptr, ptr @switch.table.capture_screen.3, i64 %95
+  %switch.gep242 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.capture_screen.3, i64 %95
   %switch.load243 = load ptr, ptr %switch.gep242, align 8
   br label %96
 
@@ -1074,7 +1072,7 @@ switch.lookup241:                                 ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv225
   %98 = load i8, ptr %97, align 1, !tbaa !42
   %99 = sext i8 %98 to i64
-  %100 = getelementptr inbounds [128 x [4 x i8]], ptr @charset_overrides, i64 %99
+  %100 = getelementptr inbounds [512 x i8], ptr @charset_overrides, i64 %99
   %101 = sext i8 %71 to i32
   %102 = sext i8 %71 to i64
   %103 = getelementptr inbounds [4 x i8], ptr %100, i64 %102
@@ -1179,7 +1177,7 @@ define internal fastcc void @handle_delete_end_of_row(ptr noundef captures(none)
   %7 = load i32, ptr %6, align 8, !tbaa !44
   %.not.i = icmp eq i32 %7, 0
   %8 = zext i1 %.not.i to i64
-  %9 = getelementptr inbounds nuw %struct.Screen, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [2642 x i8], ptr %5, i64 %8
   br label %get_writing_screen.exit
 
 10:                                               ; preds = %1, %1, %1
@@ -1187,7 +1185,7 @@ define internal fastcc void @handle_delete_end_of_row(ptr noundef captures(none)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5312
   %13 = load i32, ptr %12, align 8, !tbaa !44
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Screen, ptr %11, i64 %14
+  %15 = getelementptr inbounds [2642 x i8], ptr %11, i64 %14
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %1, %4, %10
@@ -1256,7 +1254,7 @@ define internal fastcc void @handle_edm(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5312
   %3 = load i32, ptr %2, align 8, !tbaa !44
   %4 = sext i32 %3 to i64
-  %5 = getelementptr %struct.Screen, ptr %0, i64 %4
+  %5 = getelementptr [2642 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !53
   %.not = icmp eq i32 %7, 0
@@ -1304,7 +1302,7 @@ define internal fastcc void @roll_up(ptr noundef captures(none) %0) unnamed_addr
   %7 = load i32, ptr %6, align 8, !tbaa !44
   %.not.i = icmp eq i32 %7, 0
   %8 = zext i1 %.not.i to i64
-  %9 = getelementptr inbounds nuw %struct.Screen, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [2642 x i8], ptr %5, i64 %8
   br label %get_writing_screen.exit
 
 10:                                               ; preds = %1, %1
@@ -1312,7 +1310,7 @@ define internal fastcc void @roll_up(ptr noundef captures(none) %0) unnamed_addr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 5312
   %13 = load i32, ptr %12, align 8, !tbaa !44
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Screen, ptr %11, i64 %14
+  %15 = getelementptr inbounds [2642 x i8], ptr %11, i64 %14
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %1, %4, %10
@@ -1455,7 +1453,7 @@ handle_edm.exit.thread:                           ; preds = %1
 
 8:                                                ; preds = %1
   %9 = zext i1 %.not to i64
-  %10 = getelementptr %struct.Screen, ptr %0, i64 %9
+  %10 = getelementptr [2642 x i8], ptr %0, i64 %9
   %11 = tail call fastcc i32 @capture_screen(ptr noundef nonnull %0)
   %.pr.i = load i32, ptr %5, align 8, !tbaa !53
   %12 = getelementptr i8, ptr %10, i64 2668
@@ -1504,7 +1502,7 @@ define internal fastcc void @handle_char(ptr noundef %0, i8 noundef signext rang
   %9 = load i32, ptr %8, align 8, !tbaa !44
   %.not.i = icmp eq i32 %9, 0
   %10 = zext i1 %.not.i to i64
-  %11 = getelementptr inbounds nuw %struct.Screen, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2642 x i8], ptr %7, i64 %10
   br label %get_writing_screen.exit
 
 12:                                               ; preds = %3, %3, %3
@@ -1512,7 +1510,7 @@ define internal fastcc void @handle_char(ptr noundef %0, i8 noundef signext rang
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 5312
   %15 = load i32, ptr %14, align 8, !tbaa !44
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.Screen, ptr %13, i64 %16
+  %17 = getelementptr inbounds [2642 x i8], ptr %13, i64 %16
   br label %get_writing_screen.exit
 
 get_writing_screen.exit:                          ; preds = %3, %6, %12

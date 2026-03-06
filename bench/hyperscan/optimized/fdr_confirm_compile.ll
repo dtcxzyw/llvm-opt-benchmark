@@ -36,15 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.36" = type { %"struct.std::_Tuple_impl.37" }
 %"struct.std::_Tuple_impl.37" = type { %"struct.std::_Head_base.40" }
 %"struct.std::_Head_base.40" = type { ptr }
-%"struct.ue2::hwlmLiteral" = type { %"class.std::__cxx11::basic_string", i32, i8, i8, i32, i8, i64, %"class.std::vector.26", %"class.std::vector.26" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
-%"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.LitInfo = type { i64, i64, i64, i32, i8, i8, i8 }
 
 $_ZN3ue212bytecode_ptrI10FDRConfirmED2Ev = comdat any
 
@@ -290,8 +281,8 @@ _ZNSt6vectorI7LitInfoSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = %._c
   %.0.i = phi i64 [ %157, %155 ], [ -1, %.lr.ph.i.i.preheader ]
   %79 = phi i64 [ %159, %155 ], [ 0, %.lr.ph.i.i.preheader ]
   %.075.i.i = phi i32 [ %158, %155 ], [ 0, %.lr.ph.i.i.preheader ]
-  %80 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %.pre184, i64 %79
-  %81 = getelementptr inbounds nuw %struct.LitInfo, ptr %72, i64 %79
+  %80 = getelementptr inbounds nuw [104 x i8], ptr %.pre184, i64 %79
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 32, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load i32, ptr %82, align 8
@@ -515,7 +506,7 @@ _ZL3lg2j.exit67.i:                                ; preds = %_ZN3ue2L11fillLitIn
   %182 = phi i64 [ 0, %.lr.ph.i ], [ %252, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ]
   %.054128.i = phi i64 [ 0, %.lr.ph.i ], [ %250, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ]
   %storemerge127.i = phi i32 [ 0, %.lr.ph.i ], [ %251, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ]
-  %183 = getelementptr inbounds nuw %struct.LitInfo, ptr %.sroa.0109.0174.i, i64 %182
+  %183 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0109.0174.i, i64 %182
   %184 = load i64, ptr %183, align 8
   %185 = and i64 %184, %.1.i
   %186 = mul i64 %185, 814605021516865831
@@ -684,7 +675,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %244, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %246, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %241, ptr %220, align 8
   store ptr %245, ptr %221, align 8
-  %247 = getelementptr inbounds nuw i32, ptr %241, i64 %239
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %239
   store ptr %247, ptr %223, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i
 
@@ -822,7 +813,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
   %302 = trunc nuw i64 %293 to i32
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.095.0138.i, i64 40
   %304 = zext i32 %301 to i64
-  %305 = getelementptr inbounds nuw i32, ptr %271, i64 %304
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %304
   store i32 %302, ptr %305, align 4
   %306 = load ptr, ptr %303, align 8
   %307 = getelementptr inbounds nuw i8, ptr %.sroa.095.0138.i, i64 48
@@ -833,7 +824,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
 .lr.ph134.i.preheader:                            ; preds = %299
   %309 = load i32, ptr %306, align 4
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw %struct.LitInfo, ptr %.sroa.0109.0174.i, i64 %310
+  %311 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0109.0174.i, i64 %310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.055139.i, ptr noundef nonnull align 8 dereferenceable(32) %311, i64 32, i1 false)
   %312 = getelementptr inbounds nuw i8, ptr %.055139.i, i64 32
   %313 = getelementptr inbounds nuw i8, ptr %306, i64 4
@@ -866,7 +857,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
   store i8 1, ptr %321, align 2
   %322 = load i32, ptr %319, align 4
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds nuw %struct.LitInfo, ptr %.sroa.0109.0174.i, i64 %323
+  %324 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0109.0174.i, i64 %323
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %320, ptr noundef nonnull align 8 dereferenceable(32) %324, i64 32, i1 false)
   %325 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %326 = getelementptr inbounds nuw i8, ptr %319, i64 4
@@ -928,7 +919,7 @@ _ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit.i: ; preds = 
   %338 = load i32, ptr %.sroa.085.0143, align 4
   %339 = zext i32 %338 to i64
   %340 = load ptr, ptr %1, align 8
-  %341 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %340, i64 %339
+  %341 = getelementptr inbounds nuw [104 x i8], ptr %340, i64 %339
   %342 = load ptr, ptr %26, align 8
   %343 = load ptr, ptr %27, align 8
   %.not.i60 = icmp eq ptr %342, %343
@@ -1167,7 +1158,7 @@ _ZNSt10unique_ptrIN3ue222TeddyEngineDescriptionESt14default_deleteIS1_EED2Ev.exi
   %414 = getelementptr inbounds nuw i8, ptr %.039158, i64 %413
   %415 = load i32, ptr %407, align 8
   %416 = zext i32 %415 to i64
-  %417 = getelementptr inbounds nuw i32, ptr %383, i64 %416
+  %417 = getelementptr inbounds nuw [4 x i8], ptr %383, i64 %416
   store i32 %408, ptr %417, align 4
   %418 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.081.0157) #24
   %.not = icmp eq ptr %418, %17
@@ -2028,7 +2019,7 @@ _ZNSt12_Vector_baseIN3ue211hwlmLiteralESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i35, ptr %4, align 8
-  %95 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %20, i64 %16
+  %95 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %95, ptr %94, align 8
   ret void
 

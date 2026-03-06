@@ -668,10 +668,10 @@ type_flatten.exit:                                ; preds = %13
 
 39:                                               ; preds = %35, %39
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @aarch64_classify_argument_type(ptr noundef %41)
-  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store ptr %42, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
@@ -702,10 +702,10 @@ type_flatten.exit:                                ; preds = %13
 
 55:                                               ; preds = %51, %55
   %indvars.iv58 = phi i64 [ 0, %51 ], [ %indvars.iv.next59, %55 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv58
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv58
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @aarch64_classify_argument_type(ptr noundef %57)
-  %59 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv58
   store ptr %58, ptr %59, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %52

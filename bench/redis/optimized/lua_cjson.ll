@@ -155,7 +155,7 @@ define internal noundef i32 @lua_cjson_new(ptr noundef %0) #0 {
 
 14:                                               ; preds = %14, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 12, ptr %15, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -205,7 +205,7 @@ define internal noundef i32 @lua_cjson_new(ptr noundef %0) #0 {
 
 36:                                               ; preds = %36, %16
   %indvars.iv59.i = phi i64 [ 0, %16 ], [ %indvars.iv.next60.i, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv59.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 192
   store i32 13, ptr %38, align 4, !tbaa !21
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
@@ -273,7 +273,7 @@ define dso_local noundef i32 @luaopen_cjson_safe(ptr noundef %0) local_unnamed_a
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @__const.lua_cjson_safe_new.func, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @__const.lua_cjson_safe_new.func, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   tail call void @lua_getfield(ptr noundef %0, i32 noundef -1, ptr noundef %5) #12
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
@@ -295,7 +295,7 @@ define internal noundef i32 @lua_cjson_safe_new(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @__const.lua_cjson_safe_new.func, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @__const.lua_cjson_safe_new.func, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   tail call void @lua_getfield(ptr noundef %0, i32 noundef -1, ptr noundef %5) #12
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @json_protect_conversion, i32 noundef 1) #12
@@ -437,7 +437,7 @@ json_fetch_config.exit:                           ; preds = %9, %11
   %32 = icmp eq i32 %30, 12
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %34 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr @json_token_type_name, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @json_token_type_name, i64 %34
   %.0.in.i = select i1 %32, ptr %33, ptr %35
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1257,7 +1257,7 @@ strbuf_ensure_empty_length.exit:                  ; preds = %9, %17
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %.016
   %25 = load i8, ptr %24, align 1, !tbaa !25
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @char2escape, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @char2escape, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !30
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %30, label %29
@@ -1470,7 +1470,7 @@ define internal fastcc void @json_next_token(ptr noundef nonnull captures(none) 
   %.promoted = load ptr, ptr %8, align 8, !tbaa !38
   %9 = load i8, ptr %.promoted, align 1, !tbaa !25
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !21
   store i32 %12, ptr %1, align 8, !tbaa !41
   %.not82 = icmp eq i32 %12, 11
@@ -1482,7 +1482,7 @@ define internal fastcc void @json_next_token(ptr noundef nonnull captures(none) 
   store ptr %14, ptr %8, align 8, !tbaa !38
   %15 = load i8, ptr %14, align 1, !tbaa !25
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !21
   store i32 %18, ptr %1, align 8, !tbaa !41
   %.not = icmp eq i32 %18, 11
@@ -1602,7 +1602,7 @@ decode_hex4.exit.thread.i.i:                      ; preds = %58
   %.sink11.i.i.i = phi i32 [ -48, %54 ], [ -87, %58 ]
   %62 = zext nneg i8 %.sink12.i.i.i to i32
   %63 = add nsw i32 %.sink11.i.i.i, %62
-  %64 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i.i
   store i32 %63, ptr %64, align 4, !tbaa !21
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -1673,7 +1673,7 @@ decode_hex4.exit39.thread.i.i:                    ; preds = %93
   %.sink11.i36.i.i = phi i32 [ -48, %89 ], [ -87, %93 ]
   %97 = zext nneg i8 %.sink12.i35.i.i to i32
   %98 = add nsw i32 %.sink11.i36.i.i, %97
-  %99 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i31.i.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i31.i.i
   store i32 %98, ptr %99, align 4, !tbaa !21
   %indvars.iv.next.i37.i.i = add nuw nsw i64 %indvars.iv.i31.i.i, 1
   %exitcond.not.i38.i.i = icmp eq i64 %indvars.iv.next.i37.i.i, 4
@@ -2102,7 +2102,7 @@ json_decode_descend.exit:                         ; preds = %26, %28
   tail call void @strbuf_free(ptr noundef %.val23.i) #12
   %48 = icmp eq i32 %46, 12
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @json_token_type_name, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @json_token_type_name, i64 %49
   %.0.in.i22 = select i1 %48, ptr %42, ptr %50
   %.0.i23 = load ptr, ptr %.0.in.i22, align 8, !tbaa !25
   %51 = load i64, ptr %43, align 8, !tbaa !43
@@ -2124,7 +2124,7 @@ json_decode_descend.exit:                         ; preds = %26, %28
   tail call void @strbuf_free(ptr noundef %.val22.i) #12
   %59 = icmp eq i32 %57, 12
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr @json_token_type_name, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @json_token_type_name, i64 %60
   %.0.in.i20 = select i1 %59, ptr %42, ptr %61
   %.0.i21 = load ptr, ptr %.0.in.i20, align 8, !tbaa !25
   %62 = load i64, ptr %43, align 8, !tbaa !43
@@ -2148,7 +2148,7 @@ json_decode_descend.exit:                         ; preds = %26, %28
   tail call void @strbuf_free(ptr noundef %.val.i) #12
   %68 = icmp eq i32 %66, 12
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr @json_token_type_name, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @json_token_type_name, i64 %69
   %.0.in.i18 = select i1 %68, ptr %42, ptr %70
   %.0.i19 = load ptr, ptr %.0.in.i18, align 8, !tbaa !25
   %71 = load i64, ptr %43, align 8, !tbaa !43
@@ -2229,7 +2229,7 @@ json_decode_descend.exit29:                       ; preds = %83, %85
   tail call void @strbuf_free(ptr noundef %.val.i16) #12
   %104 = icmp eq i32 %102, 12
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr @json_token_type_name, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @json_token_type_name, i64 %105
   %.0.in.i25 = select i1 %104, ptr %99, ptr %106
   %.0.i26 = load ptr, ptr %.0.in.i25, align 8, !tbaa !25
   %107 = load i64, ptr %100, align 8, !tbaa !43
@@ -2261,7 +2261,7 @@ json_parse_array_context.exit:                    ; preds = %101, %json_decode_d
   %116 = icmp eq i32 %115, 12
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr @json_token_type_name, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr @json_token_type_name, i64 %118
   %.0.in.i = select i1 %116, ptr %117, ptr %119
   %.0.i17 = load ptr, ptr %.0.in.i, align 8, !tbaa !25
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2447,7 +2447,7 @@ thread-pre-split:                                 ; preds = %3
 
 16:                                               ; preds = %13
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds ptr, ptr %spec.select, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %spec.select, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %19) #12
   br label %20

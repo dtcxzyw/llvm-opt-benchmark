@@ -2899,7 +2899,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
   br i1 %.not31, label %37, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.179, ptr noundef %33) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2914,7 +2914,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 
 37:                                               ; preds = %.lr.ph, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8, !tbaa !20
   %.not23 = icmp eq ptr %39, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -3052,7 +3052,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
 
 15:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %10, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %.not16 = icmp eq ptr %17, null
   br i1 %.not16, label %.preheader, label %.lr.ph, !llvm.loop !24
@@ -3076,7 +3076,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
 
 21:                                               ; preds = %.lr.ph25
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %22 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %10, i64 %indvars.iv.next31
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv.next31
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   %.not17 = icmp eq ptr %23, null
   br i1 %.not17, label %.loopexit, label %.lr.ph25, !llvm.loop !25

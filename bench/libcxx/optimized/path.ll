@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i64 }
 %"struct.std::__1::__fs::filesystem::parser::PathParser" = type <{ %"class.std::__1::basic_string_view", %"class.std::__1::basic_string_view", i8, [7 x i8] }>
 %"class.std::__1::basic_string_view" = type { ptr, i64 }
-%"struct.std::__1::pair.2" = type <{ %"class.std::__1::basic_string_view", i8, [7 x i8] }>
 %union.anon = type { %"struct.std::__1::_PairT" }
 %"struct.std::__1::_PairT" = type { i64, i64 }
 %"class.std::__1::__fs::filesystem::path::iterator" = type <{ %"class.std::__1::__fs::filesystem::path", ptr, %"class.std::__1::basic_string_view", i8, [7 x i8] }>
@@ -1056,7 +1055,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 
 .noexc44:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %45
-  %60 = getelementptr inbounds nuw %"struct.std::__1::pair.2", ptr %58, i64 %.0.i.i.i.i
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %.0.i.i.i.i
   store ptr %.sroa.0.0.i104.ph, ptr %59, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.6.0.i103.ph, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !19
@@ -1064,7 +1063,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   store i8 %.0.i.ph, ptr %61, align 8, !tbaa !58
   %62 = getelementptr i8, ptr %59, i64 24
   %.neg.i.i.i.i = sdiv i64 %45, -24
-  %63 = getelementptr %"struct.std::__1::pair.2", ptr %59, i64 %.neg.i.i.i.i
+  %63 = getelementptr [24 x i8], ptr %59, i64 %.neg.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr align 8 %.sroa.0.0, i64 %45, i1 false)
   %.not.i4.i.i.i = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i4.i.i.i, label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit", label %64
@@ -1159,7 +1158,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
 
 .noexc59:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_string_viewIcNS_11char_traitsIcEEEENS_4__fs10filesystem12PathPartKindEEEEEEEDaRT_m.exit.i.i.i.i51
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %81
-  %96 = getelementptr inbounds nuw %"struct.std::__1::pair.2", ptr %94, i64 %.0.i.i.i.i50
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %.0.i.i.i.i50
   store ptr @.str.1, ptr %95, align 8, !tbaa !13
   %.sroa.3.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 2, ptr %.sroa.3.0..sroa_idx.i52, align 8, !tbaa !19
@@ -1167,7 +1166,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   store i8 4, ptr %97, align 8, !tbaa !58
   %98 = getelementptr i8, ptr %95, i64 24
   %.neg.i.i.i.i53 = sdiv i64 %81, -24
-  %99 = getelementptr %"struct.std::__1::pair.2", ptr %95, i64 %.neg.i.i.i.i53
+  %99 = getelementptr [24 x i8], ptr %95, i64 %.neg.i.i.i.i53
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr align 8 %.sroa.0.0, i64 %81, i1 false)
   %.not.i4.i.i.i54 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i4.i.i.i54, label %"_ZZNKSt3__14__fs10filesystem4path16lexically_normalEvENK3$_0clENS1_12PathPartKindENS_17basic_string_viewIcNS_11char_traitsIcEEEE.exit", label %100

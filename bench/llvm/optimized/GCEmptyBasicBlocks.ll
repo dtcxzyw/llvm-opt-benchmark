@@ -191,7 +191,7 @@ _ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i: ; preds 
 56:                                               ; preds = %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i
   %.pre8.i.i76 = phi i64 [ %55, %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i ]
   %.pre6075 = phi ptr [ %.pre60.pre, %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i.thread ], [ %15, %_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE7reserveEm.exit.i.i ]
-  %57 = getelementptr inbounds nuw ptr, ptr %.pre6075, i64 %.pre8.i.i76
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.pre6075, i64 %.pre8.i.i76
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 8 %50, i64 %.idx, i1 false)
   %.pre.i.i = load i32, ptr %16, align 8, !tbaa !195
   %.pre = load ptr, ptr %3, align 8, !tbaa !194
@@ -237,7 +237,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj8EEC2IPS2_EERKNS_14iterator_rang
   %72 = phi i32 [ %69, %.lr.ph50 ], [ %78, %71 ]
   %73 = load ptr, ptr %70, align 8, !tbaa !194
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 -8
   %77 = call noundef ptr @_ZN4llvm17MachineBasicBlock15removeSuccessorEPPS0_b(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.025.053, ptr noundef nonnull %76, i1 noundef zeroext false) #13
   %78 = load i32, ptr %68, align 8, !tbaa !195

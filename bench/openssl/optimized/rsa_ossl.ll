@@ -1301,7 +1301,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
 170:                                              ; preds = %.lr.ph415, %169
   %indvars.iv = phi i64 [ 0, %.lr.ph415 ], [ %indvars.iv.next, %169 ]
   %171 = tail call ptr @BN_CTX_get(ptr noundef %3) #9
-  %172 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %171, ptr %172, align 8, !tbaa !51
   %173 = icmp eq ptr %171, null
   br i1 %173, label %174, label %175
@@ -1431,7 +1431,7 @@ define internal range(i32 0, 2) i32 @rsa_ossl_mod_exp(ptr noundef %0, ptr nounde
   %227 = load ptr, ptr %224, align 8, !tbaa !43
   %228 = trunc nuw nsw i64 %indvars.iv422 to i32
   %229 = tail call ptr @OPENSSL_sk_value(ptr noundef %227, i32 noundef %228) #9
-  %230 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv422
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv422
   %231 = load ptr, ptr %230, align 8, !tbaa !51
   %232 = tail call i32 @BN_sub(ptr noundef %6, ptr noundef %231, ptr noundef %0) #9
   %.not340 = icmp eq i32 %232, 0

@@ -72,13 +72,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.4.0.copyload, %5 ], [ %16, %10 ]
   %.0.i.i = phi i64 [ 0, %5 ], [ %17, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i.i
   %.val20.i.i = load i8, ptr %12, align 1, !noalias !5, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i.i = load i8, ptr %13, align 1, !noalias !5, !noundef !4
   %..i.i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %.val20.i.i, i8 %.val21.i.i)
   %.6.i.i.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %.val20.i.i, i8 %.val21.i.i)
-  %14 = getelementptr inbounds { i8, i8 }, ptr %.sroa.5.0.copyload, i64 %11
+  %14 = getelementptr inbounds [2 x i8], ptr %.sroa.5.0.copyload, i64 %11
   store i8 %..i.i.i.i.i.i.i, ptr %14, align 1, !noalias !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %.6.i.i.i.i.i.i.i, ptr %15, align 1, !noalias !10
@@ -119,7 +119,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %11, align 4, !range !29, !noalias !30, !noundef !4
-  %14 = getelementptr inbounds { i32, i32 }, ptr %.sroa.7.0.copyload, i64 %10
+  %14 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.copyload, i64 %10
   store i32 %13, ptr %14, align 4, !noalias !31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %13, ptr %15, align 4, !noalias !31
@@ -173,7 +173,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 9:                                                ; preds = %"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3fde89170ad407cE.llvm.14163345723071415371.exit.i"
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %7, i64 156
   %.sroa.7.0.copyload7.i = load i32, ptr %.sroa.7.0..sroa_idx6.i, align 4, !noalias !67
-  %10 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %.sroa.6.0.copyload, i64 %6
+  %10 = getelementptr inbounds [160 x i8], ptr %.sroa.6.0.copyload, i64 %6
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !noalias !68
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 152
   store i32 %.sroa.5.0.copyload5.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !69
@@ -215,7 +215,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.4.0.copyload, %5 ], [ %18, %10 ]
   %.0.i.i = phi i64 [ 0, %5 ], [ %19, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i.i
   %.val20.i.i = load i8, ptr %12, align 1, !noalias !88, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i.i = load i8, ptr %13, align 1, !noalias !88, !noundef !4
@@ -223,7 +223,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = zext i8 %.val21.i.i to i32
   %..i.i.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 256) %14, i32 range(i32 0, 256) %15)
   %.6.i.i.i.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 256) %14, i32 range(i32 0, 256) %15)
-  %16 = getelementptr inbounds { i32, i32 }, ptr %.sroa.5.0.copyload, i64 %11
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.5.0.copyload, i64 %11
   store i32 %..i.i.i.i.i.i.i.i, ptr %16, align 4, !noalias !93
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %.6.i.i.i.i.i.i.i.i, ptr %17, align 4, !noalias !93
@@ -260,13 +260,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.4.0.copyload, %5 ], [ %16, %10 ]
   %.0.i.i = phi i64 [ 0, %5 ], [ %17, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i.i
   %.val20.i.i = load i8, ptr %12, align 1, !noalias !104, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i.i = load i8, ptr %13, align 1, !noalias !104, !noundef !4
   %..i.i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %.val20.i.i, i8 %.val21.i.i)
   %.6.i.i.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %.val20.i.i, i8 %.val21.i.i)
-  %14 = getelementptr inbounds { i8, i8 }, ptr %.sroa.5.0.copyload, i64 %11
+  %14 = getelementptr inbounds [2 x i8], ptr %.sroa.5.0.copyload, i64 %11
   store i8 %..i.i.i.i.i.i.i, ptr %14, align 1, !noalias !109
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %.6.i.i.i.i.i.i.i, ptr %15, align 1, !noalias !109
@@ -303,7 +303,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.4.0.copyload, %5 ], [ %18, %10 ]
   %.0.i.i.i = phi i64 [ 0, %5 ], [ %19, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i.i.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i.i.i
   %.val20.i.i.i = load i8, ptr %12, align 1, !noalias !118, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i.i.i = load i8, ptr %13, align 1, !noalias !118, !noundef !4
@@ -311,7 +311,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = zext i8 %.val21.i.i.i to i32
   %..i.i.i.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 256) %14, i32 range(i32 0, 256) %15)
   %.6.i.i.i.i.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 256) %14, i32 range(i32 0, 256) %15)
-  %16 = getelementptr inbounds { i32, i32 }, ptr %.sroa.5.0.copyload, i64 %11
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.5.0.copyload, i64 %11
   store i32 %..i.i.i.i.i.i.i.i.i, ptr %16, align 4, !noalias !125
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %.6.i.i.i.i.i.i.i.i.i, ptr %17, align 4, !noalias !125
@@ -352,7 +352,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %10, align 1, !noalias !146, !noundef !4
-  %13 = getelementptr inbounds { i8, i8 }, ptr %.sroa.7.0.copyload, i64 %9
+  %13 = getelementptr inbounds [2 x i8], ptr %.sroa.7.0.copyload, i64 %9
   store i8 %12, ptr %13, align 1, !noalias !147
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store i8 %12, ptr %14, align 1, !noalias !147
@@ -397,13 +397,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.5.0.copyload, %5 ], [ %16, %10 ]
   %.0.i = phi i64 [ 0, %5 ], [ %17, %10 ]
-  %12 = getelementptr inbounds { i32, i32 }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.i
   %.val20.i = load i32, ptr %12, align 4, !range !29, !noalias !171, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 4
   %.val21.i = load i32, ptr %13, align 4, !range !29, !noalias !171, !noundef !4
   %..i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 %.val20.i, i32 %.val21.i)
   %.6.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %.val20.i, i32 %.val21.i)
-  %14 = getelementptr inbounds { i32, i32 }, ptr %.sroa.8.0.copyload, i64 %11
+  %14 = getelementptr inbounds [8 x i8], ptr %.sroa.8.0.copyload, i64 %11
   store i32 %..i.i.i.i.i, ptr %14, align 4, !noalias !174
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %.6.i.i.i.i.i, ptr %15, align 4, !noalias !174
@@ -440,13 +440,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.5.0.copyload, %5 ], [ %18, %10 ]
   %.0.i = phi i64 [ 0, %5 ], [ %19, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i
   %.val20.i = load i8, ptr %12, align 1, !noalias !181, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i = load i8, ptr %13, align 1, !noalias !181, !noundef !4
   %14 = zext i8 %.val20.i to i32
   %15 = zext i8 %.val21.i to i32
-  %16 = getelementptr inbounds { i32, i32 }, ptr %.sroa.8.0.copyload, i64 %11
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.8.0.copyload, i64 %11
   store i32 %14, ptr %16, align 4, !noalias !184
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %15, ptr %17, align 4, !noalias !184
@@ -484,7 +484,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 11:                                               ; preds = %17, %6
   %.val19.i = phi i64 [ %.sroa.6.0.copyload, %6 ], [ %22, %17 ]
   %.0.i = phi i64 [ 0, %6 ], [ %23, %17 ]
-  %12 = getelementptr inbounds { i32, i32 }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.i
   %.val20.i = load i32, ptr %12, align 4, !range !29, !noalias !191, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 4
   %.val21.i = load i32, ptr %13, align 4, !noalias !191
@@ -506,7 +506,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 17:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd7dfd31c62d702deE.exit.i.i.i"
   %18 = trunc nuw i32 %.val21.i to i8
   %19 = trunc nuw i32 %.val20.i to i8
-  %20 = getelementptr inbounds { i8, i8 }, ptr %.sroa.9.0.copyload, i64 %.val19.i
+  %20 = getelementptr inbounds [2 x i8], ptr %.sroa.9.0.copyload, i64 %.val19.i
   store i8 %19, ptr %20, align 1, !noalias !194
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 %18, ptr %21, align 1, !noalias !194
@@ -545,7 +545,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 10:                                               ; preds = %10, %5
   %.018.i = phi i64 [ %2, %5 ], [ %.0.sroa.speculated.i.i.i.i, %10 ]
   %.017.i = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.017.i
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %.017.i
   %12 = getelementptr i8, ptr %11, i64 16
   %.val.i = load i64, ptr %12, align 8, !noundef !4
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018.i, i64 %.val.i)
@@ -601,7 +601,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 define hidden noundef range(i32 0, 1114112) i32 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h3895030e7a8c071fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds i32, ptr %4, i64 %1
+  %5 = getelementptr inbounds [4 x i8], ptr %4, i64 %1
   %6 = load i32, ptr %5, align 4, !range !29, !noundef !4
   ret i32 %6
 }
@@ -804,7 +804,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.5.0.copyload, %5 ], [ %18, %10 ]
   %.0.i = phi i64 [ 0, %5 ], [ %19, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i
   %.val20.i = load i8, ptr %12, align 1, !noalias !216, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i = load i8, ptr %13, align 1, !noalias !216, !noundef !4
@@ -812,7 +812,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %15 = zext i8 %.val21.i to i32
   %..i.i.i.i.i.i.i = tail call i32 @llvm.umin.i32(i32 range(i32 0, 256) %14, i32 range(i32 0, 256) %15)
   %.6.i.i.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 256) %14, i32 range(i32 0, 256) %15)
-  %16 = getelementptr inbounds { i32, i32 }, ptr %.sroa.8.0.copyload, i64 %11
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.8.0.copyload, i64 %11
   store i32 %..i.i.i.i.i.i.i, ptr %16, align 4, !noalias !219
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %.6.i.i.i.i.i.i.i, ptr %17, align 4, !noalias !219
@@ -849,13 +849,13 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.5.0.copyload, %5 ], [ %16, %10 ]
   %.0.i = phi i64 [ 0, %5 ], [ %17, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i
   %.val20.i = load i8, ptr %12, align 1, !noalias !230, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i = load i8, ptr %13, align 1, !noalias !230, !noundef !4
   %..i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %.val20.i, i8 %.val21.i)
   %.6.i.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %.val20.i, i8 %.val21.i)
-  %14 = getelementptr inbounds { i8, i8 }, ptr %.sroa.8.0.copyload, i64 %11
+  %14 = getelementptr inbounds [2 x i8], ptr %.sroa.8.0.copyload, i64 %11
   store i8 %..i.i.i.i.i.i, ptr %14, align 1, !noalias !233
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %.6.i.i.i.i.i.i, ptr %15, align 1, !noalias !233
@@ -892,13 +892,13 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 10:                                               ; preds = %10, %5
   %11 = phi i64 [ %.sroa.5.0.copyload, %5 ], [ %16, %10 ]
   %.0.i = phi i64 [ 0, %5 ], [ %17, %10 ]
-  %12 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0.i
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0.i
   %.val20.i = load i8, ptr %12, align 1, !noalias !242, !noundef !4
   %13 = getelementptr i8, ptr %12, i64 1
   %.val21.i = load i8, ptr %13, align 1, !noalias !242, !noundef !4
   %..i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %.val20.i, i8 %.val21.i)
   %.6.i.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %.val20.i, i8 %.val21.i)
-  %14 = getelementptr inbounds { i8, i8 }, ptr %.sroa.8.0.copyload, i64 %11
+  %14 = getelementptr inbounds [2 x i8], ptr %.sroa.8.0.copyload, i64 %11
   store i8 %..i.i.i.i.i.i, ptr %14, align 1, !noalias !245
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %.6.i.i.i.i.i.i, ptr %15, align 1, !noalias !245
@@ -1508,7 +1508,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6b3f71812732de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
-  %12 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %5, i64 %8
+  %12 = getelementptr inbounds [160 x i8], ptr %5, i64 %8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, ptr noundef nonnull align 8 dereferenceable(152) %9, i64 152, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 152
   store i32 %.sroa.5.0.copyload5, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !noalias !494
@@ -1564,7 +1564,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17ha9f4a1776197f8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !539)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
-  %17 = getelementptr inbounds { i32, i32 }, ptr %10, i64 %13
+  %17 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   store i32 %16, ptr %17, align 4, !noalias !529
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %16, ptr %18, align 4, !noalias !529
@@ -1624,7 +1624,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17head5b129237098
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !575)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
-  %16 = getelementptr inbounds { i8, i8 }, ptr %9, i64 %12
+  %16 = getelementptr inbounds [2 x i8], ptr %9, i64 %12
   store i8 %15, ptr %16, align 1, !noalias !565
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 %15, ptr %17, align 1, !noalias !565
@@ -1659,7 +1659,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %5 = load ptr, ptr %4, align 8, !alias.scope !587, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !587, !noundef !4
-  %8 = getelementptr inbounds { i32, i32 }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4, !noalias !587
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %2, ptr %9, align 4, !noalias !587
@@ -1675,7 +1675,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !590, !noalias !593, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !590, !noalias !593, !noundef !4
-  %7 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false), !noalias !590
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !590, !noalias !593
@@ -1689,7 +1689,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %5 = load ptr, ptr %4, align 8, !alias.scope !595, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !595, !noundef !4
-  %8 = getelementptr inbounds { i8, i8 }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %5, i64 %7
   store i8 %1, ptr %8, align 1, !noalias !595
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %2, ptr %9, align 1, !noalias !595
@@ -1706,7 +1706,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %4 = load ptr, ptr %3, align 8, !alias.scope !604, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !604, !noundef !4
-  %7 = getelementptr inbounds { i32, i32 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   store i32 %1, ptr %7, align 4, !noalias !604
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %8, align 4, !noalias !604
@@ -1723,7 +1723,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %4 = load ptr, ptr %3, align 8, !alias.scope !611, !noalias !612, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !611, !noalias !612, !noundef !4
-  %7 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false), !noalias !611
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !611, !noalias !612
@@ -1738,7 +1738,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %4 = load ptr, ptr %3, align 8, !alias.scope !621, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !621, !noundef !4
-  %7 = getelementptr inbounds { i8, i8 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %4, i64 %6
   store i8 %1, ptr %7, align 1, !noalias !621
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %1, ptr %8, align 1, !noalias !621
@@ -2107,7 +2107,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %5 = load ptr, ptr %4, align 8, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { i32, i32 }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store i32 %1, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %2, ptr %9, align 4
@@ -2122,7 +2122,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %5 = load ptr, ptr %4, align 8, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !4
-  %8 = getelementptr inbounds { i8, i8 }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %5, i64 %7
   store i8 %1, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %2, ptr %9, align 1
@@ -2137,7 +2137,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %7, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -2483,7 +2483,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %5, %15
   %16 = phi i64 [ %.promoted, %5 ], [ %21, %15 ]
   %.0 = phi i64 [ 0, %5 ], [ %22, %15 ]
-  %17 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0
   %.val20 = load i8, ptr %17, align 1, !noundef !4
   %18 = getelementptr i8, ptr %17, i64 1
   %.val21 = load i8, ptr %18, align 1, !noundef !4
@@ -2493,7 +2493,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.6.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %.val20, i8 %.val21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !854)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !855)
-  %19 = getelementptr inbounds { i8, i8 }, ptr %11, i64 %16
+  %19 = getelementptr inbounds [2 x i8], ptr %11, i64 %16
   store i8 %..i.i.i.i.i, ptr %19, align 1, !noalias !833
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 %.6.i.i.i.i.i, ptr %20, align 1, !noalias !833
@@ -2539,7 +2539,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %5, %15
   %16 = phi i64 [ %.promoted, %5 ], [ %23, %15 ]
   %.0 = phi i64 [ 0, %5 ], [ %24, %15 ]
-  %17 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0
   %.val20 = load i8, ptr %17, align 1, !noundef !4
   %18 = getelementptr i8, ptr %17, i64 1
   %.val21 = load i8, ptr %18, align 1, !noundef !4
@@ -2548,7 +2548,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %20 = zext i8 %.val21 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !879)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !880)
-  %21 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %16
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %16
   store i32 %19, ptr %21, align 4, !noalias !861
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %20, ptr %22, align 4, !noalias !861
@@ -2594,7 +2594,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %5, %15
   %16 = phi i64 [ %.promoted, %5 ], [ %21, %15 ]
   %.0 = phi i64 [ 0, %5 ], [ %22, %15 ]
-  %17 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0
   %.val20 = load i8, ptr %17, align 1, !noundef !4
   %18 = getelementptr i8, ptr %17, i64 1
   %.val21 = load i8, ptr %18, align 1, !noundef !4
@@ -2604,7 +2604,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.6.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %.val20, i8 %.val21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !908)
-  %19 = getelementptr inbounds { i8, i8 }, ptr %11, i64 %16
+  %19 = getelementptr inbounds [2 x i8], ptr %11, i64 %16
   store i8 %..i.i.i.i.i, ptr %19, align 1, !noalias !886
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 %.6.i.i.i.i.i, ptr %20, align 1, !noalias !886
@@ -2650,7 +2650,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %5, %15
   %16 = phi i64 [ %.promoted, %5 ], [ %21, %15 ]
   %.0 = phi i64 [ 0, %5 ], [ %22, %15 ]
-  %17 = getelementptr inbounds { i32, i32 }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   %.val20 = load i32, ptr %17, align 4, !range !29, !noundef !4
   %18 = getelementptr i8, ptr %17, i64 4
   %.val21 = load i32, ptr %18, align 4, !range !29, !noundef !4
@@ -2659,7 +2659,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.6.i.i.i.i = tail call i32 @llvm.umax.i32(i32 %.val20, i32 %.val21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !933)
-  %19 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %16
+  %19 = getelementptr inbounds [8 x i8], ptr %11, i64 %16
   store i32 %..i.i.i.i, ptr %19, align 4, !noalias !914
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %.6.i.i.i.i, ptr %20, align 4, !noalias !914
@@ -2705,7 +2705,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %5, %15
   %16 = phi i64 [ %.promoted, %5 ], [ %23, %15 ]
   %.0 = phi i64 [ 0, %5 ], [ %24, %15 ]
-  %17 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [2 x i8], ptr %0, i64 %.0
   %.val20 = load i8, ptr %17, align 1, !noundef !4
   %18 = getelementptr i8, ptr %17, i64 1
   %.val21 = load i8, ptr %18, align 1, !noundef !4
@@ -2718,7 +2718,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %.6.i.i.i.i.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 0, 256) %19, i32 range(i32 0, 256) %20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !964)
-  %21 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %16
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %16
   store i32 %..i.i.i.i.i.i, ptr %21, align 4, !noalias !939
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.6.i.i.i.i.i.i, ptr %22, align 4, !noalias !939
@@ -2753,7 +2753,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.018 = phi i64 [ %2, %5 ], [ %.0.sroa.speculated.i.i.i, %10 ]
   %.017 = phi i64 [ 0, %5 ], [ %13, %10 ]
-  %11 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %0, i64 %.017
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %.017
   %12 = getelementptr i8, ptr %11, i64 16
   %.val = load i64, ptr %12, align 8, !noundef !4
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.018, i64 %.val)
@@ -2794,7 +2794,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 16:                                               ; preds = %22, %6
   %.val19 = phi i64 [ %.promoted, %6 ], [ %27, %22 ]
   %.0 = phi i64 [ 0, %6 ], [ %28, %22 ]
-  %17 = getelementptr inbounds { i32, i32 }, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   %.val20 = load i32, ptr %17, align 4, !range !29, !noundef !4
   %18 = getelementptr i8, ptr %17, i64 4
   %.val21 = load i32, ptr %18, align 4
@@ -2819,7 +2819,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %24 = trunc nuw i32 %.val20 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !983)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !986)
-  %25 = getelementptr inbounds { i8, i8 }, ptr %12, i64 %.val19
+  %25 = getelementptr inbounds [2 x i8], ptr %12, i64 %.val19
   store i8 %24, ptr %25, align 1, !noalias !989
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %23, ptr %26, align 1, !noalias !989
@@ -2993,7 +2993,7 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   store i64 %8, ptr %3, align 8
   %9 = icmp ult i64 %6, 5
   tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %1, i64 %6
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %6
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !4

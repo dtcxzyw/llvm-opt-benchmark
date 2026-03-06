@@ -31,10 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.QuantLib::DayCounter" = type { %"class.boost::shared_ptr.18" }
 %"class.boost::shared_ptr.18" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::Date" = type { i64 }
-%"class.std::vector.57" = type { %"struct.std::_Vector_base.58" }
-%"struct.std::_Vector_base.58" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::CashFlow>, std::allocator<boost::shared_ptr<QuantLib::CashFlow>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, boost::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, boost::any>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -4813,7 +4809,7 @@ do.end:                                           ; preds = %entry
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(104) %this)
   %legNPV_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %20 = load ptr, ptr %legNPV_, align 8, !tbaa !80
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %20, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %j
   %21 = load double, ptr %add.ptr.i, align 8, !tbaa !81
   %cmp34 = fcmp oeq double %21, 0x47EFFFFFE0000000
   br i1 %cmp34, label %if.then35, label %do.end72
@@ -5141,7 +5137,7 @@ ehcleanup28:                                      ; preds = %if.then.i.i20, %ehc
 do.end:                                           ; preds = %entry
   %payer_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %19 = load ptr, ptr %payer_, align 8, !tbaa !80
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %19, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %j
   %20 = load double, ptr %add.ptr.i, align 8, !tbaa !81
   %cmp31 = fcmp olt double %20, 0.000000e+00
   ret i1 %cmp31
@@ -5322,7 +5318,7 @@ do.end:                                           ; preds = %entry
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(104) %this)
   %endDiscounts_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %20 = load ptr, ptr %endDiscounts_, align 8, !tbaa !80
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %20, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %j
   %21 = load double, ptr %add.ptr.i, align 8, !tbaa !81
   %cmp34 = fcmp oeq double %21, 0x47EFFFFFE0000000
   br i1 %cmp34, label %if.then35, label %do.end72
@@ -5876,7 +5872,7 @@ ehcleanup28:                                      ; preds = %if.then.i.i20, %ehc
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 do.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.57", ptr %1, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %j
   ret ptr %add.ptr.i
 
 unreachable:                                      ; preds = %invoke.cont18
@@ -8436,7 +8432,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !123
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !69
-  %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.62", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !71
   ret void
 }

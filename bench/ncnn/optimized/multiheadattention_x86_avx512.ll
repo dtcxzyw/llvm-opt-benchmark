@@ -4117,7 +4117,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc247
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc247
   store ptr %219, ptr %13, align 8, !tbaa !74
-  %223 = getelementptr inbounds nuw i32, ptr %219, i64 %214
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %214
   store ptr %223, ptr %212, align 8, !tbaa !75
   store ptr %223, ptr %215, align 8, !tbaa !76
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -4148,7 +4148,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %210, %_ZNSt12_Vecto
 
 231:                                              ; preds = %.lr.ph, %228
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %228 ]
-  %232 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %indvars.iv
   %233 = load i32, ptr %232, align 4, !tbaa !21
   %.not90 = icmp eq i32 %233, 0
   br i1 %.not90, label %228, label %.thread267
@@ -4333,7 +4333,7 @@ _ZNK4ncnn3Mat5emptyEv.exit233:                    ; preds = %_ZN4ncnn3MatC2EiimP
 
 314:                                              ; preds = %.lr.ph282, %311
   %indvars.iv288 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next289, %311 ]
-  %315 = getelementptr inbounds nuw i32, ptr %310, i64 %indvars.iv288
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %indvars.iv288
   %316 = load i32, ptr %315, align 4, !tbaa !21
   %.not94 = icmp eq i32 %316, 0
   br i1 %.not94, label %311, label %.thread261
@@ -5148,7 +5148,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnu
   br i1 %14, label %15, label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit, label %17
 
@@ -5628,7 +5628,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %223
 
 253:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   %254 = load ptr, ptr %10, align 8, !tbaa !74
-  %255 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %indvars.iv
   store i32 %252, ptr %255, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %256 = load ptr, ptr %18, align 8, !tbaa !70
@@ -6095,7 +6095,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 152:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit
   %153 = load ptr, ptr %9, align 8, !tbaa !74
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %indvars.iv
   store i32 %151, ptr %154, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %155 = load ptr, ptr %16, align 8, !tbaa !70
@@ -6364,9 +6364,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !74
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !75
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !76
   br label %41
 
@@ -6661,7 +6661,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4nc
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit, %148
   store ptr %20, ptr %0, align 8, !tbaa !70
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !71
-  %152 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %20, i64 %16
+  %152 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %152, ptr %147, align 8, !tbaa !80
   ret void
 }

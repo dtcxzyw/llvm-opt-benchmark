@@ -1258,7 +1258,7 @@ define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i
   %28 = tail call ptr @__ctype_b_loc() #29
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = zext nneg i8 %24 to i64
-  %31 = getelementptr i16, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !44
   %33 = and i16 %32, 16384
   %.not = icmp eq i16 %33, 0
@@ -3720,7 +3720,7 @@ rb_array_len.exit.thread:                         ; preds = %13
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %28
   %.0.i.i = phi ptr [ %29, %28 ], [ %11, %rb_array_len.exit.thread ]
-  %30 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %30 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %31 = load i64, ptr %30, align 8, !tbaa !22
   %32 = tail call i64 @rb_sym2id(i64 noundef %31) #25
   %33 = load i64, ptr @RB_IO_BUFFER_DATA_TYPE_U8, align 8, !tbaa !22

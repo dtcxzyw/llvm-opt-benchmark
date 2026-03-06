@@ -48,7 +48,7 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %.07796.us.us = phi i32 [ %.3.us.us, %16 ], [ 0, %.lr.ph.split.us ]
   %.08094.us.us = phi i32 [ %.383.us.us, %16 ], [ %14, %.lr.ph.split.us ]
   %.08493.us.us = phi i64 [ %17, %16 ], [ 0, %.lr.ph.split.us ]
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %.08493.us.us
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08493.us.us
   br label %19
 
 16:                                               ; preds = %31
@@ -61,10 +61,10 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %.sroa.0.sroa.0.192.us.us = phi i32 [ %.sroa.0.sroa.0.2.us.us, %31 ], [ %.sroa.0.sroa.0.098.us.us, %.lr.ph.split.us.split.us ]
   %.290.us.us = phi i32 [ %.3.us.us, %31 ], [ %.07796.us.us, %.lr.ph.split.us.split.us ]
   %.28289.us.us = phi i32 [ %.383.us.us, %31 ], [ %.08094.us.us, %.lr.ph.split.us.split.us ]
-  %20 = getelementptr i32, ptr %15, i64 %indvars.iv115
+  %20 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv115
   %21 = load i32, ptr %20, align 4, !tbaa !10
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = sub i32 %.28289.us.us, %24
   %26 = icmp ugt i32 %25, %3
@@ -92,7 +92,7 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %.07895.us = phi i32 [ %41, %40 ], [ 0, %.lr.ph.split.us ]
   %.08094.us = phi i32 [ %.383.us, %40 ], [ %14, %.lr.ph.split.us ]
   %.08493.us = phi i64 [ %42, %40 ], [ 0, %.lr.ph.split.us ]
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %.08493.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08493.us
   %33 = icmp eq i32 %.07895.us, %5
   br i1 %33, label %34, label %39
 
@@ -121,10 +121,10 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %.sroa.0.sroa.0.192.us = phi i32 [ %.sroa.0.sroa.0.2.us, %56 ], [ %.sroa.0.sroa.0.098.us, %39 ]
   %.290.us = phi i32 [ %.3.us, %56 ], [ %.1.us, %39 ]
   %.28289.us = phi i32 [ %.383.us, %56 ], [ %.181.us, %39 ]
-  %45 = getelementptr i32, ptr %32, i64 %indvars.iv119
+  %45 = getelementptr [4 x i8], ptr %32, i64 %indvars.iv119
   %46 = load i32, ptr %45, align 4, !tbaa !10
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %12, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = sub i32 %.28289.us, %49
   %51 = icmp ugt i32 %50, %3
@@ -166,7 +166,7 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %.07895 = phi i32 [ %96, %95 ], [ 0, %.lr.ph ]
   %.08094 = phi i32 [ %.383, %95 ], [ %14, %.lr.ph ]
   %.08493 = phi i64 [ %97, %95 ], [ 0, %.lr.ph ]
-  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %.08493
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08493
   %60 = icmp eq i32 %.07895, %5
   %or.cond = select i1 %.not, i1 %60, i1 false
   br i1 %or.cond, label %89, label %61
@@ -175,20 +175,20 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %62 = getelementptr i8, ptr %59, i64 8
   %63 = load i32, ptr %62, align 4, !tbaa !10
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %12, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !10
   %67 = sub i32 %.08094, %66
   %68 = icmp ugt i32 %67, %3
   %69 = getelementptr i8, ptr %59, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %12, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !10
   %74 = sub i32 %.08094, %73
   %75 = icmp ugt i32 %74, %3
   %76 = load i32, ptr %59, align 4, !tbaa !10
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %12, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !10
   %80 = sub i32 %.08094, %79
   %81 = icmp ugt i32 %80, %3
@@ -226,10 +226,10 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %.sroa.0.sroa.0.192 = phi i32 [ %.sroa.0.sroa.0.098, %94 ], [ %.sroa.0.sroa.0.2, %111 ]
   %.290 = phi i32 [ %.1, %94 ], [ %.3, %111 ]
   %.28289 = phi i32 [ %.181, %94 ], [ %.383, %111 ]
-  %100 = getelementptr i32, ptr %59, i64 %indvars.iv
+  %100 = getelementptr [4 x i8], ptr %59, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4, !tbaa !10
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %12, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !10
   %105 = sub i32 %.28289, %104
   %106 = icmp ugt i32 %105, %3
@@ -257,7 +257,7 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
   %.0107 = phi i64 [ %117, %.lr.ph108 ], [ 0, %.preheader ]
   %.075106 = phi i64 [ %116, %.lr.ph108 ], [ 0, %.preheader ]
-  %112 = getelementptr inbounds nuw i32, ptr %12, i64 %.0107
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.0107
   %113 = load i32, ptr %112, align 4, !tbaa !10
   %114 = icmp ne i32 %113, 0
   %115 = zext i1 %114 to i64
@@ -326,7 +326,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)

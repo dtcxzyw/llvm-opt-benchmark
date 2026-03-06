@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct.winsize = type { i16, i16, i16, i16 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct._zend_try_catch_element = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 @.str.3 = private unnamed_addr constant [3 x i8] c"::\00", align 1
@@ -127,7 +126,7 @@ define dso_local range(i32 0, 2049) i32 @phpdbg_is_numeric(ptr noundef readonly 
   %9 = phi i8 [ %2, %.lr.ph ], [ %7, %5 ]
   %.012 = phi ptr [ %0, %.lr.ph ], [ %6, %5 ]
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %4, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %4, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !10
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 8192
@@ -173,7 +172,7 @@ define dso_local range(i32 0, 2) i32 @phpdbg_is_empty(ptr noundef readonly captu
   %9 = phi i8 [ %2, %.lr.ph ], [ %7, %5 ]
   %.010 = phi ptr [ %0, %.lr.ph ], [ %6, %5 ]
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %4, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %4, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !10
   %13 = and i16 %12, 8192
   %.not8 = icmp eq i16 %13, 0
@@ -502,7 +501,7 @@ define dso_local noalias ptr @phpdbg_trim(ptr noundef %0, i64 noundef %1, ptr no
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = load i8, ptr %0, align 1, !tbaa !4
   %7 = sext i8 %6 to i64
-  %8 = getelementptr inbounds i16, ptr %5, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %5, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !10
   %10 = and i16 %9, 8192
   %.not24 = icmp eq i16 %10, 0
@@ -522,7 +521,7 @@ define dso_local noalias ptr @phpdbg_trim(ptr noundef %0, i64 noundef %1, ptr no
   %12 = add i64 %.01825, -1
   %13 = load i8, ptr %11, align 1, !tbaa !4
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %5, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %5, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !10
   %17 = and i16 %16, 8192
   %.not = icmp eq i16 %17, 0
@@ -534,7 +533,7 @@ define dso_local noalias ptr @phpdbg_trim(ptr noundef %0, i64 noundef %1, ptr no
   %19 = getelementptr inbounds i8, ptr %18, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %5, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %5, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !10
   %24 = and i16 %23, 8192
   %.not21 = icmp eq i16 %24, 0
@@ -599,7 +598,7 @@ define dso_local noundef ptr @phpdbg_get_color(ptr noundef readonly captures(non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @phpdbg_set_color(i32 noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 %3
   store ptr %1, ptr %4, align 8, !tbaa !57
   ret void
 }
@@ -630,7 +629,7 @@ define dso_local void @phpdbg_set_color_ex(i32 noundef %0, ptr noundef readonly 
 phpdbg_get_color.exit:                            ; preds = %11, %9
   %colors.sink = phi ptr [ %.012.i, %9 ], [ @colors, %11 ]
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1584), i64 %14
   store ptr %colors.sink, ptr %15, align 8, !tbaa !57
   ret void
 }
@@ -1590,7 +1589,7 @@ define dso_local zeroext i1 @phpdbg_check_caught_ex(ptr noundef readonly capture
 
 24:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !116
   %.not57 = icmp ugt i32 %26, %18
   br i1 %.not57, label %.critedge, label %27
@@ -1611,7 +1610,7 @@ define dso_local zeroext i1 @phpdbg_check_caught_ex(ptr noundef readonly capture
 
 33:                                               ; preds = %32
   %34 = zext i32 %29 to i64
-  %35 = getelementptr inbounds nuw %struct._zend_op, ptr %13, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %38

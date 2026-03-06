@@ -77,13 +77,13 @@ define hidden range(i32 0, 2) i32 @asn1_generalizedtime_to_tm(ptr noundef %0, pt
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i32, ptr @asn1_generalizedtime_to_tm.min, i64 %indvars.iv192
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @asn1_generalizedtime_to_tm.min, i64 %indvars.iv192
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = icmp slt i32 %31, %35
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i32, ptr @asn1_generalizedtime_to_tm.max, i64 %indvars.iv192
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @asn1_generalizedtime_to_tm.max, i64 %indvars.iv192
   %39 = load i32, ptr %38, align 4, !tbaa !17
   %40 = icmp sgt i32 %31, %39
   br i1 %40, label %.thread, label %41
@@ -144,13 +144,13 @@ define hidden range(i32 0, 2) i32 @asn1_generalizedtime_to_tm(ptr noundef %0, pt
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds nuw i32, ptr @asn1_generalizedtime_to_tm.min, i64 %indvars.iv185
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @asn1_generalizedtime_to_tm.min, i64 %indvars.iv185
   %61 = load i32, ptr %60, align 4, !tbaa !17
   %62 = icmp slt i32 %57, %61
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i32, ptr @asn1_generalizedtime_to_tm.max, i64 %indvars.iv185
+  %64 = getelementptr inbounds nuw [4 x i8], ptr @asn1_generalizedtime_to_tm.max, i64 %indvars.iv185
   %65 = load i32, ptr %64, align 4, !tbaa !17
   %66 = icmp sgt i32 %57, %65
   br i1 %66, label %.thread, label %67
@@ -294,13 +294,13 @@ default.unreachable:                              ; preds = %67
   %119 = sext i8 %118 to i32
   %120 = add nsw i32 %119, -16
   %121 = add nsw i32 %120, %117
-  %122 = getelementptr inbounds nuw i32, ptr @asn1_generalizedtime_to_tm.min, i64 %indvars.iv203
+  %122 = getelementptr inbounds nuw [4 x i8], ptr @asn1_generalizedtime_to_tm.min, i64 %indvars.iv203
   %123 = load i32, ptr %122, align 4, !tbaa !17
   %124 = icmp slt i32 %121, %123
   br i1 %124, label %.thread, label %125
 
 125:                                              ; preds = %116
-  %126 = getelementptr inbounds nuw i32, ptr @asn1_generalizedtime_to_tm.max, i64 %indvars.iv203
+  %126 = getelementptr inbounds nuw [4 x i8], ptr @asn1_generalizedtime_to_tm.max, i64 %indvars.iv203
   %127 = load i32, ptr %126, align 4, !tbaa !17
   %128 = icmp sgt i32 %121, %127
   br i1 %128, label %.thread, label %129

@@ -47,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
-%struct.grpc_http_header = type { ptr, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -377,7 +376,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !18
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -828,7 +827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %.047129 = phi i64 [ %106, %105 ], [ 0, %.preheader125 ]
   %.149128 = phi i64 [ %.250, %105 ], [ 0, %.preheader125 ]
   %81 = load ptr, ptr %11, align 8, !tbaa !53
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %.047129
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.047129
   %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %83, i32 noundef 58) #34
   %85 = icmp eq ptr %84, null
@@ -845,7 +844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; preds = %87
   %88 = load ptr, ptr %11, align 8, !tbaa !53
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.047129
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.047129
   %90 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %89)
           to label %91 unwind label %94
 
@@ -873,9 +872,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
 97:                                               ; preds = %.lr.ph
   store i8 0, ptr %84, align 1, !tbaa !61
   %98 = load ptr, ptr %11, align 8, !tbaa !53
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %.047129
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.047129
   %100 = load ptr, ptr %99, align 8, !tbaa !56
-  %101 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %71, i64 %.149128
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %.149128
   store ptr %100, ptr %101, align 8, !tbaa !63
   %102 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -1201,7 +1200,7 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %183, %186, %189
 .lr.ph131:                                        ; preds = %.preheader, %217
   %.0130 = phi i64 [ %218, %217 ], [ 0, %.preheader ]
   %214 = load ptr, ptr %11, align 8, !tbaa !53
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %.0130
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %.0130
   %216 = load ptr, ptr %215, align 8, !tbaa !56
   invoke void @gpr_free(ptr noundef %216)
           to label %217 unwind label %221

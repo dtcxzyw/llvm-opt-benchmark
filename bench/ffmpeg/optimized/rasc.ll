@@ -2671,7 +2671,7 @@ clear_plane.exit.i:                               ; preds = %clear_plane.exit.lo
 bytestream2_get_le32.exit:                        ; preds = %159, %160
   %164 = phi ptr [ %152, %159 ], [ %161, %160 ]
   %.0.i53 = phi i32 [ -16777216, %159 ], [ %163, %160 ]
-  %165 = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %indvars.iv
   store i32 %.0.i53, ptr %165, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

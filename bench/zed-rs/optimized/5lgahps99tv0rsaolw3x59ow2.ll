@@ -168,8 +168,8 @@ define internal fastcc { i32, float } @"_ZN120_$LT$rodio..conversions..sample_ra
 
 34:                                               ; preds = %34, %28
   %.sroa.0.05.i.i.i = phi i64 [ 0, %28 ], [ %39, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %.sroa.0.05.i.i.i
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %.sroa.0.05.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.sroa.0.05.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.sroa.0.05.i.i.i
   %37 = load i64, ptr %35, align 8, !alias.scope !12
   %38 = load i64, ptr %36, align 8, !alias.scope !12
   store i64 %38, ptr %35, align 8, !alias.scope !12
@@ -211,7 +211,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i: ; preds = %34
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit.i": ; preds = %54, %49
   %55 = load ptr, ptr %43, align 8, !alias.scope !15, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds float, ptr %55, i64 %51
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %51
   store float %50, ptr %56, align 4
   %57 = add i64 %51, 1
   store i64 %57, ptr %40, align 8, !alias.scope !15
@@ -265,8 +265,8 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i: ; preds = %34
 
 79:                                               ; preds = %79, %76
   %.sroa.0.05.i.i.i10 = phi i64 [ 0, %76 ], [ %84, %79 ]
-  %80 = getelementptr inbounds nuw i64, ptr %70, i64 %.sroa.0.05.i.i.i10
-  %81 = getelementptr inbounds nuw i64, ptr %71, i64 %.sroa.0.05.i.i.i10
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.sroa.0.05.i.i.i10
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.sroa.0.05.i.i.i10
   %82 = load i64, ptr %80, align 8, !alias.scope !18
   %83 = load i64, ptr %81, align 8, !alias.scope !18
   store i64 %83, ptr %80, align 8, !alias.scope !18
@@ -302,7 +302,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i12: ; preds = %79
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit.i16": ; preds = %95, %90
   %96 = load ptr, ptr %74, align 8, !alias.scope !21, !nonnull !4, !noundef !4
-  %97 = getelementptr inbounds float, ptr %96, i64 %92
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %92
   store float %91, ptr %97, align 4
   %98 = add i64 %92, 1
   store i64 %98, ptr %72, align 8, !alias.scope !21
@@ -331,8 +331,8 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i12: ; preds = %79
 
 105:                                              ; preds = %105, %102
   %.sroa.0.05.i.i.i19 = phi i64 [ 0, %102 ], [ %110, %105 ]
-  %106 = getelementptr inbounds nuw i64, ptr %32, i64 %.sroa.0.05.i.i.i19
-  %107 = getelementptr inbounds nuw i64, ptr %33, i64 %.sroa.0.05.i.i.i19
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.sroa.0.05.i.i.i19
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.sroa.0.05.i.i.i19
   %108 = load i64, ptr %106, align 8, !alias.scope !24
   %109 = load i64, ptr %107, align 8, !alias.scope !24
   store i64 %109, ptr %106, align 8, !alias.scope !24
@@ -368,7 +368,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i21: ; preds = %105
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit.i25": ; preds = %121, %116
   %122 = load ptr, ptr %60, align 8, !alias.scope !27, !nonnull !4, !noundef !4
-  %123 = getelementptr inbounds float, ptr %122, i64 %118
+  %123 = getelementptr inbounds [4 x i8], ptr %122, i64 %118
   store float %117, ptr %123, align 4
   %124 = add i64 %118, 1
   store i64 %124, ptr %40, align 8, !alias.scope !27
@@ -428,8 +428,8 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i21: ; preds = %105
 145:                                              ; preds = %.outer, %180
   %.sroa.14.047 = phi i64 [ %146, %180 ], [ %.sroa.14.047.ph, %.outer ]
   %146 = add nuw i64 %.sroa.14.047, 1
-  %147 = getelementptr inbounds float, ptr %130, i64 %.sroa.14.047
-  %148 = getelementptr inbounds float, ptr %134, i64 %.sroa.14.047
+  %147 = getelementptr inbounds [4 x i8], ptr %130, i64 %.sroa.14.047
+  %148 = getelementptr inbounds [4 x i8], ptr %134, i64 %.sroa.14.047
   %149 = load float, ptr %147, align 4, !noundef !4
   %150 = load float, ptr %148, align 4, !noundef !4
   %151 = load i32, ptr %4, align 4, !noundef !4
@@ -460,8 +460,8 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i21: ; preds = %105
 
 166:                                              ; preds = %166, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit29"
   %.sroa.0.05.i.i = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit29" ], [ %171, %166 ]
-  %167 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.0.05.i.i
-  %168 = getelementptr inbounds nuw i64, ptr %128, i64 %.sroa.0.05.i.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.sroa.0.05.i.i
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %.sroa.0.05.i.i
   %169 = load i64, ptr %167, align 8
   %170 = load i64, ptr %168, align 8
   store i64 %170, ptr %167, align 8
@@ -493,7 +493,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %166
 
 180:                                              ; preds = %179, %175
   %181 = load ptr, ptr %142, align 8, !alias.scope !36, !nonnull !4, !noundef !4
-  %182 = getelementptr inbounds float, ptr %181, i64 %176
+  %182 = getelementptr inbounds [4 x i8], ptr %181, i64 %176
   store float %156, ptr %182, align 4
   %183 = add i64 %176, 1
   store i64 %183, ptr %9, align 8, !alias.scope !36
@@ -1021,7 +1021,7 @@ default.unreachable:                              ; preds = %26, %7
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %21 = load ptr, ptr %20, align 8, !noalias !70, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds float, ptr %21, i64 %14
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %14
   %23 = load float, ptr %22, align 4, !noalias !70, !noundef !4
   %24 = add nuw i64 %14, 1
   store i64 %24, ptr %8, align 8, !alias.scope !70
@@ -1061,7 +1061,7 @@ default.unreachable:                              ; preds = %26, %7
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %41 = load ptr, ptr %40, align 8, !noalias !74, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds float, ptr %41, i64 %34
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %34
   %43 = load float, ptr %42, align 4, !noalias !74, !noundef !4
   %44 = add nuw i64 %34, 1
   store i64 %44, ptr %28, align 8, !alias.scope !74

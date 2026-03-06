@@ -373,7 +373,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIiSaIiE
           to label %.noexc127 unwind label %204
 
 .noexc127:                                        ; preds = %167
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %166
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %166
   store i32 0, ptr %169, align 4, !tbaa !15
   %171 = add nsw i64 %166, -1
   %172 = icmp eq i64 %171, 0
@@ -403,7 +403,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 178:                                              ; preds = %.preheader.us, %178
   %indvars.iv = phi i64 [ %176, %.preheader.us ], [ %indvars.iv.next, %178 ]
   %.151131.us = phi i32 [ %.050135.us, %.preheader.us ], [ %180, %178 ]
-  %179 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv
+  %179 = getelementptr inbounds [4 x i8], ptr %169, i64 %indvars.iv
   store i32 %.151131.us, ptr %179, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %180 = add nsw i32 %.151131.us, 1
@@ -1265,7 +1265,7 @@ define internal void @_ZNK4ncnn14LRN_x86_avx51215forward_inplaceERNS_3MatERKNS_6
 
 51:                                               ; preds = %51, %.preheader.us.us94.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.preheader.us.us94.us ]
-  %52 = getelementptr inbounds nuw float, ptr %.04180.us.us95.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.04180.us.us95.us, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !43
   %54 = load float, ptr %41, align 8, !tbaa !76
   %55 = load float, ptr %42, align 4, !tbaa !77
@@ -1278,7 +1278,7 @@ define internal void @_ZNK4ncnn14LRN_x86_avx51215forward_inplaceERNS_3MatERKNS_6
   br i1 %exitcond.not, label %._crit_edge77.split.us83.us.us, label %51, !llvm.loop !95
 
 ._crit_edge77.split.us83.us.us:                   ; preds = %51
-  %59 = getelementptr inbounds nuw float, ptr %.04180.us.us95.us, i64 %43
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.04180.us.us95.us, i64 %43
   %60 = add nuw nsw i32 %.04379.us.us96.us, 1
   %exitcond103.not = icmp eq i32 %60, %37
   br i1 %exitcond103.not, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us, label %.preheader.us.us94.us, !llvm.loop !96
@@ -1299,16 +1299,16 @@ define internal void @_ZNK4ncnn14LRN_x86_avx51215forward_inplaceERNS_3MatERKNS_6
 
 .lr.ph.us.us.us.us.us:                            ; preds = %._crit_edge.us.us.us.us.us, %.preheader.us.us.us.us
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %._crit_edge.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us ]
-  %64 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv109
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv109
   br label %65
 
 65:                                               ; preds = %65, %.lr.ph.us.us.us.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %65 ], [ 0, %.lr.ph.us.us.us.us.us ]
   %.04073.us.us.us.us.us = phi float [ %71, %65 ], [ 0.000000e+00, %.lr.ph.us.us.us.us.us ]
-  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv104
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv104
   %67 = load i32, ptr %66, align 4, !tbaa !15
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds float, ptr %64, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %64, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !43
   %71 = fadd fast float %70, %.04073.us.us.us.us.us
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -1316,7 +1316,7 @@ define internal void @_ZNK4ncnn14LRN_x86_avx51215forward_inplaceERNS_3MatERKNS_6
   br i1 %exitcond108.not, label %._crit_edge.us.us.us.us.us, label %65, !llvm.loop !97
 
 ._crit_edge.us.us.us.us.us:                       ; preds = %65
-  %72 = getelementptr inbounds nuw float, ptr %.04180.us.us.us.us, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.04180.us.us.us.us, i64 %indvars.iv109
   %73 = load float, ptr %72, align 4, !tbaa !43
   %74 = load float, ptr %41, align 8, !tbaa !76
   %75 = load float, ptr %10, align 4, !tbaa !43
@@ -1332,7 +1332,7 @@ define internal void @_ZNK4ncnn14LRN_x86_avx51215forward_inplaceERNS_3MatERKNS_6
   br i1 %exitcond113.not, label %._crit_edge77.split.us.us.us.us.us, label %.lr.ph.us.us.us.us.us, !llvm.loop !95
 
 ._crit_edge77.split.us.us.us.us.us:               ; preds = %._crit_edge.us.us.us.us.us
-  %82 = getelementptr inbounds nuw float, ptr %.04180.us.us.us.us, i64 %43
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.04180.us.us.us.us, i64 %43
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us, label %.preheader.us.us.us.us, !llvm.loop !96

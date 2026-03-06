@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_psensor_base_t = type { %struct.pmix_list_t, ptr, i8 }
 %struct.pmix_psensor_file_component_t = type { %struct.pmix_mca_base_component_2_1_0_t, %struct.pmix_list_t }
 %struct.pmix_mca_base_component_2_1_0_t = type { i32, i32, i32, [16 x i8], i32, i32, i32, [32 x i8], i32, i32, i32, [64 x i8], i32, i32, i32, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -73,7 +72,7 @@ define internal range(i32 -1366, 1) i32 @start(ptr noundef %0, i32 %1, ptr nound
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = icmp sgt i32 %11, 0
@@ -174,7 +173,7 @@ pmix_obj_update.exit:                             ; preds = %pmix_obj_new_tma.ex
 
 60:                                               ; preds = %.lr.ph, %101
   %.05662 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
-  %61 = getelementptr inbounds nuw %struct.pmix_info, ptr %3, i64 %.05662
+  %61 = getelementptr inbounds nuw [552 x i8], ptr %3, i64 %.05662
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(19) @.str.5) #14
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %68
@@ -724,7 +723,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = icmp sgt i32 %11, 0
@@ -751,7 +750,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 24:                                               ; preds = %23
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %25
+  %26 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !18
   %29 = icmp sgt i32 %28, 0
@@ -774,7 +773,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 38:                                               ; preds = %37
   %39 = zext nneg i32 %22 to i64
-  %40 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %39
+  %40 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = icmp sgt i32 %42, 0
@@ -876,7 +875,7 @@ define internal void @file_sample(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %98 to i64
-  %101 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %100
+  %101 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !18
   %104 = icmp sgt i32 %103, 0

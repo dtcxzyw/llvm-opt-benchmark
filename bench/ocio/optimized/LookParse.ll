@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.OpenColorIO_v2_5dev::LookParseResult::Token" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -16,6 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl" }
 %"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<OpenColorIO_v2_5dev::LookParseResult::Token, std::allocator<OpenColorIO_v2_5dev::LookParseResult::Token>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.OpenColorIO_v2_5dev::LookParseResult::Token" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -754,7 +754,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15LookParseResult9serializeERSoRKSt6
 
 10:                                               ; preds = %8, %.lr.ph
   %11 = phi ptr [ %.pre, %8 ], [ %6, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !24
   switch i32 %14, label %_ZNK19OpenColorIO_v2_5dev15LookParseResult5Token9serializeERSo.exit [
@@ -1079,7 +1079,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %101, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %112 = phi ptr [ %102, %101 ], [ %.pre, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %113 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %112, i64 %105
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %105
   invoke void @_ZN19OpenColorIO_v2_5dev19SplitStringEnvStyleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.8") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %114 unwind label %148
 
@@ -1197,7 +1197,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 0, ptr %70, align 8, !tbaa !3
   store i8 0, ptr %69, align 8, !tbaa !12
   store i32 0, ptr %71, align 8, !tbaa !24
-  %152 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %151
   invoke void @_ZN19OpenColorIO_v2_5dev15LookParseResult5Token5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef nonnull align 8 dereferenceable(32) %152)
           to label %153 unwind label %187
 
@@ -2394,7 +2394,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15LookParseResult7reverseEv(ptr noun
   %10 = phi ptr [ %5, %.lr.ph18 ], [ %83, %._crit_edge ]
   %11 = phi i64 [ 0, %.lr.ph18 ], [ %85, %._crit_edge ]
   %.01216 = phi i32 [ 0, %.lr.ph18 ], [ %84, %._crit_edge ]
-  %12 = getelementptr inbounds nuw %"class.std::vector", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !80
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !80
@@ -2586,7 +2586,7 @@ _ZSt4swapIN19OpenColorIO_v2_5dev15LookParseResult5TokenEENSt9enable_ifIXsr6__and
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit.loopexit: ; preds = %_ZSt4swapIN19OpenColorIO_v2_5dev15LookParseResult5TokenEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit
   %.pre = load ptr, ptr %0, align 8, !tbaa !32
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.std::vector", ptr %.pre, i64 %11
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %11
   %.phi.trans.insert21 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre22 = load ptr, ptr %.phi.trans.insert21, align 8, !tbaa !27
   %.pre23 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
@@ -2615,14 +2615,14 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseRe
   %92 = phi ptr [ %100, %.lr.ph ], [ %81, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
   %93 = phi i64 [ %104, %.lr.ph ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
   %.015 = phi i32 [ %103, %.lr.ph ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_5dev15LookParseResult5TokenESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [40 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load i32, ptr %95, align 8, !tbaa !24
   %97 = call noundef i32 @_ZN19OpenColorIO_v2_5dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef %96)
   %98 = load ptr, ptr %0, align 8, !tbaa !32
-  %99 = getelementptr inbounds nuw %"class.std::vector", ptr %98, i64 %11
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %11
   %100 = load ptr, ptr %99, align 8, !tbaa !30
-  %101 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %100, i64 %93
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %93
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i32 %97, ptr %102, align 8, !tbaa !24
   %103 = add i32 %.015, 1
@@ -2985,7 +2985,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !42
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !39
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !44
   ret void
 }
@@ -3226,7 +3226,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS2_EE11_S_relocate
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %82
   store ptr %23, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !27
-  %86 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::LookParseResult::Token", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !37
   ret void
 
@@ -3410,7 +3410,7 @@ _ZNSt6vectorIS_IN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS2_EESaIS4_EE11
 _ZNSt12_Vector_baseISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIS_IN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33, %66
   store ptr %20, ptr %0, align 8, !tbaa !32
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !35
-  %70 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !79
   ret void
 

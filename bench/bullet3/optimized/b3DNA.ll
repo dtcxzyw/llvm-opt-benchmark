@@ -432,7 +432,7 @@ define linkonce_odr dso_local void @_ZN9b3HashMapI12b3HashStringiED2Ev(ptr nound
 6:                                                ; preds = %_ZN12b3HashStringD2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN12b3HashStringD2Ev.exit.i.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !55
-  %8 = getelementptr inbounds nuw %struct.b3HashString, ptr %7, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !63
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = icmp eq ptr %9, %10
@@ -575,7 +575,7 @@ define dso_local noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull read
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %4, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !71
   ret ptr %7
 }
@@ -585,7 +585,7 @@ define dso_local noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull read
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   ret ptr %7
 }
@@ -595,7 +595,7 @@ define dso_local noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull re
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !74
   ret ptr %7
 }
@@ -605,7 +605,7 @@ define dso_local noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr noundef no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !41
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !75
   ret i16 %7
 }
@@ -639,7 +639,7 @@ define dso_local noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonn
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = sext i32 %20 to i64
-  %27 = getelementptr inbounds i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   %.012.i.i = load i32, ptr %27, align 4, !tbaa !77
   %.not1113.i.i = icmp eq i32 %.012.i.i, -1
   br i1 %.not1113.i.i, label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.thread, label %.lr.ph.i.i
@@ -654,13 +654,13 @@ define dso_local noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonn
 32:                                               ; preds = %37, %.lr.ph.i.i
   %.014.i.i = phi i32 [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %37 ]
   %33 = sext i32 %.014.i.i to i64
-  %34 = getelementptr inbounds %class.b3HashInt, ptr %29, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %29, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !78
   %36 = icmp eq i32 %35, %3
   br i1 %36, label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i32, ptr %31, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %31, i64 %33
   %.0.i.i = load i32, ptr %38, align 4, !tbaa !77
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.thread, label %32, !llvm.loop !80
@@ -672,7 +672,7 @@ _ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit:       ; preds = %32
   br i1 %.not, label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.thread, label %41
 
 41:                                               ; preds = %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit
-  %42 = getelementptr inbounds i32, ptr %40, i64 %33
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %33
   %43 = load i32, ptr %42, align 4, !tbaa !77
   br label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.thread
 
@@ -777,7 +777,7 @@ _ZN12b3HashStringC2EPKc.exit._ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thre
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %40 = load ptr, ptr %39, align 8, !tbaa !13
   %41 = sext i32 %35 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   %.013.i.i = load i32, ptr %42, align 4, !tbaa !77
   %.not1114.i.i = icmp eq i32 %.013.i.i, -1
   %.pre24 = load ptr, ptr %4, align 8, !tbaa !63
@@ -794,14 +794,14 @@ _ZN12b3HashStringC2EPKc.exit._ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thre
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i
   %.015.us.i.i = phi i32 [ %.0.us.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
   %48 = sext i32 %.015.us.i.i to i64
-  %49 = getelementptr inbounds %struct.b3HashString, ptr %44, i64 %48
+  %49 = getelementptr inbounds [40 x i8], ptr %44, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !83
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit, label %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i
 
 _ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %.lr.ph.split.us.i.i
-  %53 = getelementptr inbounds i32, ptr %47, i64 %48
+  %53 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
   %.0.us.i.i = load i32, ptr %53, align 4, !tbaa !77
   %.not11.us.i.i = icmp eq i32 %.0.us.i.i, -1
   br i1 %.not11.us.i.i, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread, label %.lr.ph.split.us.i.i, !llvm.loop !87
@@ -809,7 +809,7 @@ _ZNK12b3HashString6equalsERKS_.exit.thread12.us.i.i: ; preds = %.lr.ph.split.us.
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i.i
   %.015.i.i = phi i32 [ %.0.i.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i.i ], [ %.013.i.i, %.lr.ph.i.i ]
   %54 = sext i32 %.015.i.i to i64
-  %55 = getelementptr inbounds %struct.b3HashString, ptr %44, i64 %54
+  %55 = getelementptr inbounds [40 x i8], ptr %44, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !83
   %58 = icmp eq i64 %.fr21.i.i, %57
@@ -822,7 +822,7 @@ _ZNK12b3HashString6equalsERKS_.exit.i.i:          ; preds = %.lr.ph.split.i.i
   br i1 %60, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit, label %_ZNK12b3HashString6equalsERKS_.exit.thread12.i.i
 
 _ZNK12b3HashString6equalsERKS_.exit.thread12.i.i: ; preds = %_ZNK12b3HashString6equalsERKS_.exit.i.i, %.lr.ph.split.i.i
-  %61 = getelementptr inbounds i32, ptr %47, i64 %54
+  %61 = getelementptr inbounds [4 x i8], ptr %47, i64 %54
   %.0.i.i = load i32, ptr %61, align 4, !tbaa !77
   %.not11.i.i = icmp eq i32 %.0.i.i, -1
   br i1 %.not11.i.i, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread, label %.lr.ph.split.i.i, !llvm.loop !87
@@ -835,7 +835,7 @@ _ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit:   ; preds = %_ZNK12b3HashString6
   br i1 %.not, label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread, label %64
 
 64:                                               ; preds = %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit
-  %65 = getelementptr inbounds i32, ptr %63, i64 %.pre-phi.i
+  %65 = getelementptr inbounds [4 x i8], ptr %63, i64 %.pre-phi.i
   %66 = load i32, ptr %65, align 4, !tbaa !77
   br label %_ZN9b3HashMapI12b3HashStringiE4findERKS0_.exit.thread
 
@@ -873,7 +873,7 @@ define dso_local noundef zeroext i1 @_ZN6bParse4bDNA12flagNotEqualEi(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !77
   %8 = icmp eq i32 %7, 1
   ret i1 %8
@@ -884,7 +884,7 @@ define dso_local noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !77
   %8 = icmp eq i32 %7, 2
   ret i1 %8
@@ -895,7 +895,7 @@ define dso_local noundef zeroext i1 @_ZN6bParse4bDNA8flagNoneEi(ptr noundef nonn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !77
   %8 = icmp eq i32 %7, 0
   ret i1 %8
@@ -913,7 +913,7 @@ define dso_local void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnul
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = load i16, ptr %7, align 2, !tbaa !75
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -938,14 +938,14 @@ define dso_local void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnul
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8, !tbaa !13
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !77
   %21 = icmp eq i32 %20, 2
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %3, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !74
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %27 = load i16, ptr %26, align 2, !tbaa !75
@@ -970,7 +970,7 @@ define dso_local void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnul
   %35 = load i16, ptr %34, align 2, !tbaa !75
   %36 = load ptr, ptr %13, align 8, !tbaa !20
   %37 = sext i16 %35 to i64
-  %38 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %36, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i8, ptr %39, align 8, !tbaa !88, !range !62, !noundef !89
   %41 = trunc nuw i8 %40 to i1
@@ -978,7 +978,7 @@ define dso_local void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnul
 
 42:                                               ; preds = %33
   %43 = load ptr, ptr %12, align 8, !tbaa !13
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store i32 1, ptr %44, align 4, !tbaa !77
   tail call void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnull align 8 dereferenceable(420) %0, i32 noundef %30)
   br label %45
@@ -1044,8 +1044,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !77
   store i32 %24, ptr %22, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1135,7 +1135,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %.lr.ph.i, %2
 
 63:                                               ; preds = %.lr.ph57, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next, %.loopexit ]
-  %64 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !74
   %66 = load i16, ptr %65, align 2, !tbaa !75
   %67 = sext i16 %66 to i32
@@ -1161,7 +1161,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %.lr.ph.i, %2
 
 85:                                               ; preds = %63
   %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds i32, ptr %43, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %43, i64 %86
   %.012.i.i.i = load i32, ptr %87, align 4, !tbaa !77
   %.not1113.i.i.i = icmp eq i32 %.012.i.i.i, -1
   br i1 %.not1113.i.i.i, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %.lr.ph.i.i.i45
@@ -1173,13 +1173,13 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %.lr.ph.i, %2
 89:                                               ; preds = %94, %.lr.ph.i.i.i45
   %.014.i.i.i = phi i32 [ %.012.i.i.i, %.lr.ph.i.i.i45 ], [ %.0.i.i.i, %94 ]
   %90 = sext i32 %.014.i.i.i to i64
-  %91 = getelementptr inbounds %class.b3HashInt, ptr %45, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %45, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !78
   %93 = icmp eq i32 %92, %67
   br i1 %93, label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i, label %94
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i32, ptr %88, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr %88, i64 %90
   %.0.i.i.i = load i32, ptr %95, align 4, !tbaa !77
   %.not11.i.i.i = icmp eq i32 %.0.i.i.i, -1
   br i1 %.not11.i.i.i, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %89, !llvm.loop !80
@@ -1188,13 +1188,13 @@ _ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i:     ; preds = %89
   br i1 %.not.i, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %_ZN6bParse4bDNA14getReverseTypeEs.exit
 
 _ZN6bParse4bDNA14getReverseTypeEs.exit:           ; preds = %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i
-  %96 = getelementptr inbounds i32, ptr %48, i64 %90
+  %96 = getelementptr inbounds [4 x i8], ptr %48, i64 %90
   %97 = load i32, ptr %96, align 4, !tbaa !77
   %98 = icmp eq i32 %97, -1
   br i1 %98, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %100
 
 _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %94, %85, %63, %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i, %_ZN6bParse4bDNA14getReverseTypeEs.exit
-  %99 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 0, ptr %99, align 4, !tbaa !77
   br label %.loopexit
 
@@ -1206,9 +1206,9 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %94, %85, %63, %_ZN9
 103:                                              ; preds = %100
   %104 = load ptr, ptr %50, align 8, !tbaa !34
   %105 = sext i32 %97 to i64
-  %106 = getelementptr inbounds ptr, ptr %104, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %104, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !74
-  %108 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   store i32 1, ptr %108, align 4, !tbaa !77
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %110 = load i16, ptr %109, align 2, !tbaa !75
@@ -1219,12 +1219,12 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %94, %85, %63, %_ZN9
 
 114:                                              ; preds = %103
   %115 = sext i16 %66 to i64
-  %116 = getelementptr inbounds i16, ptr %54, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr %54, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !75
   %118 = load i16, ptr %107, align 2, !tbaa !75
   %119 = load ptr, ptr %55, align 8, !tbaa !41
   %120 = sext i16 %118 to i64
-  %121 = getelementptr inbounds i16, ptr %119, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr %119, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !75
   %123 = icmp eq i16 %117, %122
   br i1 %123, label %124, label %.loopexit
@@ -1252,11 +1252,11 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %94, %85, %63, %_ZN9
   %.03855 = getelementptr inbounds nuw i8, ptr %.pn52, i64 4
   %131 = load i16, ptr %.03954, align 2, !tbaa !75
   %132 = sext i16 %131 to i64
-  %133 = getelementptr inbounds ptr, ptr %57, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %57, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !73
   %135 = load i16, ptr %.03855, align 2, !tbaa !75
   %136 = sext i16 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr %126, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %126, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !73
   %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef nonnull dereferenceable(1) %138) #28
   %.not = icmp eq i32 %139, 0
@@ -1266,13 +1266,13 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %94, %85, %63, %_ZN9
   %141 = getelementptr inbounds nuw i8, ptr %.pn4251, i64 6
   %142 = load i16, ptr %141, align 2, !tbaa !75
   %143 = sext i16 %142 to i64
-  %144 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %127, i64 %143
+  %144 = getelementptr inbounds [24 x i8], ptr %127, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !71
   %146 = getelementptr inbounds nuw i8, ptr %.pn52, i64 6
   %147 = load i16, ptr %146, align 2, !tbaa !75
   %148 = load ptr, ptr %60, align 8, !tbaa !20
   %149 = sext i16 %147 to i64
-  %150 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %148, i64 %149
+  %150 = getelementptr inbounds [24 x i8], ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !71
   %152 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull dereferenceable(1) %151) #28
   %.not41 = icmp eq i32 %152, 0
@@ -1293,7 +1293,7 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %94, %85, %63, %_ZN9
   %157 = phi i32 [ %153, %.lr.ph59 ], [ %165, %164 ]
   %indvars.iv62 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next63, %164 ]
   %158 = load ptr, ptr %62, align 8, !tbaa !13
-  %159 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv62
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %indvars.iv62
   %160 = load i32, ptr %159, align 4, !tbaa !77
   %161 = icmp eq i32 %160, 1
   br i1 %161, label %162, label %164
@@ -1537,8 +1537,8 @@ _ZN20b3AlignedObjectArrayIPcE8allocateEi.exit.i.i: ; preds = %93
 
 100:                                              ; preds = %100, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %100 ]
-  %101 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv.i.i.i
-  %102 = getelementptr inbounds nuw ptr, ptr %.pre146, i64 %indvars.iv.i.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv.i.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.pre146, i64 %indvars.iv.i.i.i
   %103 = load ptr, ptr %102, align 8, !tbaa !73
   store ptr %103, ptr %101, align 8, !tbaa !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1580,7 +1580,7 @@ _ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit: ; preds = %84, %89, %_ZN20b3
   %109 = phi i32 [ %.pre.i, %_ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit.i.i ], [ %86, %89 ], [ %87, %84 ]
   %110 = load ptr, ptr %82, align 8, !tbaa !27
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %110, i64 %111
   store ptr %.2114, ptr %112, align 8, !tbaa !73
   %113 = add nsw i32 %109, 1
   store i32 %113, ptr %80, align 4, !tbaa !28
@@ -1657,8 +1657,8 @@ _ZN20b3AlignedObjectArrayIsE8allocateEi.exit.i.i: ; preds = %141
 
 148:                                              ; preds = %148, %.lr.ph.i.i.i62
   %indvars.iv.i.i.i64 = phi i64 [ 0, %.lr.ph.i.i.i62 ], [ %indvars.iv.next.i.i.i65, %148 ]
-  %149 = getelementptr inbounds nuw i16, ptr %144, i64 %indvars.iv.i.i.i64
-  %150 = getelementptr inbounds nuw i16, ptr %.pre149, i64 %indvars.iv.i.i.i64
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %144, i64 %indvars.iv.i.i.i64
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %.pre149, i64 %indvars.iv.i.i.i64
   %151 = load i16, ptr %150, align 2, !tbaa !75
   store i16 %151, ptr %149, align 2, !tbaa !75
   %indvars.iv.next.i.i.i65 = add nuw nsw i64 %indvars.iv.i.i.i64, 1
@@ -1699,7 +1699,7 @@ _ZN20b3AlignedObjectArrayIsE9push_backERKs.exit:  ; preds = %133, %137, %_ZN20b3
   %156 = phi i32 [ %.pre.i60, %_ZN20b3AlignedObjectArrayIsE10deallocateEv.exit.i.i ], [ %134, %137 ], [ %134, %133 ]
   %157 = load ptr, ptr %126, align 8, !tbaa !41
   %158 = sext i32 %156 to i64
-  %159 = getelementptr inbounds i16, ptr %157, i64 %158
+  %159 = getelementptr inbounds [2 x i8], ptr %157, i64 %158
   %160 = load i16, ptr %.0105119, align 2, !tbaa !75
   store i16 %160, ptr %159, align 2, !tbaa !75
   %161 = add nsw i32 %156, 1
@@ -1795,8 +1795,8 @@ _ZN20b3AlignedObjectArrayIPsE8allocateEi.exit.i.i: ; preds = %199
 
 206:                                              ; preds = %206, %.lr.ph.i.i.i77
   %indvars.iv.i.i.i79 = phi i64 [ 0, %.lr.ph.i.i.i77 ], [ %indvars.iv.next.i.i.i80, %206 ]
-  %207 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv.i.i.i79
-  %208 = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %indvars.iv.i.i.i79
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv.i.i.i79
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %indvars.iv.i.i.i79
   %209 = load ptr, ptr %208, align 8, !tbaa !74
   store ptr %209, ptr %207, align 8, !tbaa !74
   %indvars.iv.next.i.i.i80 = add nuw nsw i64 %indvars.iv.i.i.i79, 1
@@ -1837,7 +1837,7 @@ _ZN20b3AlignedObjectArrayIPsE9push_backERKS0_.exit: ; preds = %190, %195, %_ZN20
   %214 = phi i32 [ %.pre.i75, %_ZN20b3AlignedObjectArrayIPsE10deallocateEv.exit.i.i ], [ %192, %195 ], [ %192, %190 ]
   %215 = load ptr, ptr %176, align 8, !tbaa !34
   %216 = sext i32 %214 to i64
-  %217 = getelementptr inbounds ptr, ptr %215, i64 %216
+  %217 = getelementptr inbounds [8 x i8], ptr %215, i64 %216
   store ptr %.2107131, ptr %217, align 8, !tbaa !74
   %218 = add nsw i32 %214, 1
   store i32 %218, ptr %174, align 4, !tbaa !35
@@ -1878,7 +1878,7 @@ _ZN20b3AlignedObjectArrayIPsE9push_backERKS0_.exit: ; preds = %190, %195, %_ZN20
   %236 = sext i16 %235 to i32
   %237 = shl nsw i32 %236, 1
   %238 = sext i32 %237 to i64
-  %239 = getelementptr i16, ptr %.2107131, i64 %238
+  %239 = getelementptr [2 x i8], ptr %.2107131, i64 %238
   %240 = getelementptr i8, ptr %239, i64 4
   br label %.loopexit
 
@@ -1892,7 +1892,7 @@ _ZN20b3AlignedObjectArrayIPsE9push_backERKS0_.exit: ; preds = %190, %195, %_ZN20
   %storemerge47134 = phi i32 [ 0, %.lr.ph135 ], [ %299, %_ZN12b3HashStringD2Ev.exit ]
   %244 = load ptr, ptr %181, align 8, !tbaa !34
   %245 = sext i32 %storemerge47134 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %244, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !74
   %248 = load i32, ptr %182, align 8, !tbaa !58
   %.not48 = icmp eq i32 %248, 0
@@ -1902,7 +1902,7 @@ _ZN20b3AlignedObjectArrayIPsE9push_backERKS0_.exit: ; preds = %190, %195, %_ZN20
 249:                                              ; preds = %243
   %250 = load ptr, ptr %183, align 8, !tbaa !27
   %251 = sext i16 %.pre153 to i64
-  %252 = getelementptr inbounds ptr, ptr %250, i64 %251
+  %252 = getelementptr inbounds [8 x i8], ptr %250, i64 %251
   %253 = load ptr, ptr %252, align 8, !tbaa !73
   %254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %253, ptr noundef nonnull dereferenceable(9) @.str.1) #28
   %255 = icmp eq i32 %254, 0
@@ -1910,7 +1910,7 @@ _ZN20b3AlignedObjectArrayIPsE9push_backERKS0_.exit: ; preds = %190, %195, %_ZN20
 
 256:                                              ; preds = %249
   %257 = load ptr, ptr %184, align 8, !tbaa !41
-  %258 = getelementptr inbounds i16, ptr %257, i64 %251
+  %258 = getelementptr inbounds [2 x i8], ptr %257, i64 %251
   %259 = load i16, ptr %258, align 2, !tbaa !75
   %260 = sdiv i16 %259, 2
   %261 = sext i16 %260 to i32
@@ -1927,7 +1927,7 @@ _ZN20b3AlignedObjectArrayIPsE9push_backERKS0_.exit: ; preds = %190, %195, %_ZN20
   %264 = load i16, ptr %247, align 2, !tbaa !75
   %265 = load ptr, ptr %183, align 8, !tbaa !27
   %266 = sext i16 %264 to i64
-  %267 = getelementptr inbounds ptr, ptr %265, i64 %266
+  %267 = getelementptr inbounds [8 x i8], ptr %265, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !73
   store ptr %187, ptr %9, align 8, !tbaa !81
   %269 = icmp eq ptr %268, null
@@ -2089,9 +2089,9 @@ _ZN20b3AlignedObjectArrayIN6bParse9bNameInfoEE8allocateEi.exit.i: ; preds = %12
 
 20:                                               ; preds = %20, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %"struct.bParse::bNameInfo", ptr %15, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !20
-  %23 = getelementptr inbounds nuw %"struct.bParse::bNameInfo", ptr %22, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false), !tbaa.struct !105
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2131,7 +2131,7 @@ _ZN20b3AlignedObjectArrayIN6bParse9bNameInfoEE7reserveEi.exit: ; preds = %_ZN20b
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !20
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %32, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !105
   %35 = load i32, ptr %3, align 4, !tbaa !21
   %36 = add nsw i32 %35, 1
@@ -2170,7 +2170,7 @@ define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashIntiE6insertERKS0_RKi(p
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   %27 = sext i32 %21 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   %.012.i = load i32, ptr %28, align 4, !tbaa !77
   %.not1113.i = icmp eq i32 %.012.i, -1
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -2185,13 +2185,13 @@ define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashIntiE6insertERKS0_RKi(p
 33:                                               ; preds = %38, %.lr.ph.i
   %.014.i = phi i32 [ %.012.i, %.lr.ph.i ], [ %.0.i, %38 ]
   %34 = sext i32 %.014.i to i64
-  %35 = getelementptr inbounds %class.b3HashInt, ptr %30, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %30, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !78
   %37 = icmp eq i32 %4, %36
   br i1 %37, label %_ZNK9b3HashMapI9b3HashIntiE9findIndexERKS0_.exit, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i32, ptr %32, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %32, i64 %34
   %.0.i = load i32, ptr %39, align 4, !tbaa !77
   %.not11.i = icmp eq i32 %.0.i, -1
   br i1 %.not11.i, label %.loopexit, label %33, !llvm.loop !80
@@ -2200,7 +2200,7 @@ _ZNK9b3HashMapI9b3HashIntiE9findIndexERKS0_.exit: ; preds = %33
   %40 = load i32, ptr %2, align 4, !tbaa !77
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !13
-  %43 = getelementptr inbounds i32, ptr %42, i64 %34
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %34
   store i32 %40, ptr %43, align 4, !tbaa !77
   br label %144
 
@@ -2241,8 +2241,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %51
 
 60:                                               ; preds = %60, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i.i.i
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i.i.i
   %63 = load i32, ptr %62, align 4, !tbaa !77
   store i32 %63, ptr %61, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2283,7 +2283,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %.loopexit, %47, %_Z
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load ptr, ptr %71, align 8, !tbaa !13
   %73 = sext i32 %70 to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %2, align 4, !tbaa !77
   store i32 %75, ptr %74, align 4, !tbaa !77
   %76 = load i32, ptr %44, align 4, !tbaa !14
@@ -2327,8 +2327,8 @@ _ZN20b3AlignedObjectArrayI9b3HashIntE8allocateEi.exit.i.i: ; preds = %87
 
 96:                                               ; preds = %96, %.lr.ph.i.i.i24
   %indvars.iv.i.i.i26 = phi i64 [ 0, %.lr.ph.i.i.i24 ], [ %indvars.iv.next.i.i.i27, %96 ]
-  %97 = getelementptr inbounds nuw %class.b3HashInt, ptr %90, i64 %indvars.iv.i.i.i26
-  %98 = getelementptr inbounds nuw %class.b3HashInt, ptr %95, i64 %indvars.iv.i.i.i26
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i.i.i26
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i.i.i26
   %99 = load i32, ptr %98, align 4, !tbaa !77
   store i32 %99, ptr %97, align 4, !tbaa !77
   %indvars.iv.next.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i.i26, 1
@@ -2369,7 +2369,7 @@ _ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit: ; preds = %_ZN20b3Al
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %108 = load ptr, ptr %107, align 8, !tbaa !48
   %109 = sext i32 %106 to i64
-  %110 = getelementptr inbounds %class.b3HashInt, ptr %108, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %108, i64 %109
   %111 = load i32, ptr %1, align 4, !tbaa !77
   store i32 %111, ptr %110, align 4, !tbaa !77
   %112 = load i32, ptr %78, align 4, !tbaa !49
@@ -2405,12 +2405,12 @@ _ZN20b3AlignedObjectArrayI9b3HashIntE9push_backERKS0_.exit: ; preds = %_ZN20b3Al
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !13
   %137 = sext i32 %.0 to i64
-  %138 = getelementptr inbounds i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %136, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !77
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %141 = load ptr, ptr %140, align 8, !tbaa !13
   %142 = sext i32 %45 to i64
-  %143 = getelementptr inbounds i32, ptr %141, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %141, i64 %142
   store i32 %139, ptr %143, align 4, !tbaa !77
   store i32 %45, ptr %138, align 4, !tbaa !77
   br label %144
@@ -2437,7 +2437,7 @@ define linkonce_odr dso_local void @_ZN9b3HashMapI12b3HashStringiE6insertERKS0_R
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = sext i32 %10 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %.013.i = load i32, ptr %17, align 4, !tbaa !77
   %.not1114.i = icmp eq i32 %.013.i, -1
   br i1 %.not1114.i, label %.loopexit, label %.lr.ph.i
@@ -2457,14 +2457,14 @@ define linkonce_odr dso_local void @_ZN9b3HashMapI12b3HashStringiE6insertERKS0_R
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i
   %.015.us.i = phi i32 [ %.0.us.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i ], [ %.013.i, %.lr.ph.i ]
   %26 = sext i32 %.015.us.i to i64
-  %27 = getelementptr inbounds %struct.b3HashString, ptr %19, i64 %26
+  %27 = getelementptr inbounds [40 x i8], ptr %19, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !83
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %_ZNK9b3HashMapI12b3HashStringiE9findIndexERKS0_.exit, label %_ZNK12b3HashString6equalsERKS_.exit.thread12.us.i
 
 _ZNK12b3HashString6equalsERKS_.exit.thread12.us.i: ; preds = %.lr.ph.split.us.i
-  %31 = getelementptr inbounds i32, ptr %25, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   %.0.us.i = load i32, ptr %31, align 4, !tbaa !77
   %.not11.us.i = icmp eq i32 %.0.us.i, -1
   br i1 %.not11.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !87
@@ -2472,7 +2472,7 @@ _ZNK12b3HashString6equalsERKS_.exit.thread12.us.i: ; preds = %.lr.ph.split.us.i
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i
   %.015.i = phi i32 [ %.0.i, %_ZNK12b3HashString6equalsERKS_.exit.thread12.i ], [ %.013.i, %.lr.ph.i ]
   %32 = sext i32 %.015.i to i64
-  %33 = getelementptr inbounds %struct.b3HashString, ptr %19, i64 %32
+  %33 = getelementptr inbounds [40 x i8], ptr %19, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !83
   %36 = icmp eq i64 %.fr21.i, %35
@@ -2485,7 +2485,7 @@ _ZNK12b3HashString6equalsERKS_.exit.i:            ; preds = %.lr.ph.split.i
   br i1 %38, label %_ZNK9b3HashMapI12b3HashStringiE9findIndexERKS0_.exit, label %_ZNK12b3HashString6equalsERKS_.exit.thread12.i
 
 _ZNK12b3HashString6equalsERKS_.exit.thread12.i:   ; preds = %_ZNK12b3HashString6equalsERKS_.exit.i, %.lr.ph.split.i
-  %39 = getelementptr inbounds i32, ptr %25, i64 %32
+  %39 = getelementptr inbounds [4 x i8], ptr %25, i64 %32
   %.0.i = load i32, ptr %39, align 4, !tbaa !77
   %.not11.i = icmp eq i32 %.0.i, -1
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !87
@@ -2495,7 +2495,7 @@ _ZNK9b3HashMapI12b3HashStringiE9findIndexERKS0_.exit: ; preds = %_ZNK12b3HashStr
   %40 = load i32, ptr %2, align 4, !tbaa !77
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8, !tbaa !13
-  %43 = getelementptr inbounds i32, ptr %42, i64 %.pre-phi
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %.pre-phi
   store i32 %40, ptr %43, align 4, !tbaa !77
   br label %129
 
@@ -2536,8 +2536,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %51
 
 60:                                               ; preds = %60, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i.i.i
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i.i.i
   %63 = load i32, ptr %62, align 4, !tbaa !77
   store i32 %63, ptr %61, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2578,7 +2578,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %.loopexit, %47, %_Z
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load ptr, ptr %71, align 8, !tbaa !13
   %73 = sext i32 %70 to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %2, align 4, !tbaa !77
   store i32 %75, ptr %74, align 4, !tbaa !77
   %76 = load i32, ptr %44, align 4, !tbaa !14
@@ -2605,7 +2605,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %.loopexit, %47, %_Z
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %90 = load ptr, ptr %89, align 8, !tbaa !55
   %91 = sext i32 %88 to i64
-  %92 = getelementptr inbounds %struct.b3HashString, ptr %90, i64 %91
+  %92 = getelementptr inbounds [40 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr %93, ptr %92, align 8, !tbaa !81
   %94 = load ptr, ptr %1, align 8, !tbaa !63
@@ -2670,12 +2670,12 @@ _ZN20b3AlignedObjectArrayI12b3HashStringE9push_backERKS0_.exit: ; preds = %._cri
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !13
   %122 = sext i32 %.0 to i64
-  %123 = getelementptr inbounds i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %121, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !77
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %126 = load ptr, ptr %125, align 8, !tbaa !13
   %127 = sext i32 %45 to i64
-  %128 = getelementptr inbounds i32, ptr %126, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %126, i64 %127
   store i32 %124, ptr %128, align 4, !tbaa !77
   store i32 %45, ptr %123, align 4, !tbaa !77
   br label %129
@@ -2760,7 +2760,7 @@ define dso_local void @_ZN6bParse4bDNA19dumpTypeDefinitionsEv(ptr noundef nonnul
 15:                                               ; preds = %.lr.ph48, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %114 ]
   %16 = load ptr, ptr %4, align 8, !tbaa !34
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !74
   %19 = load i16, ptr %18, align 2, !tbaa !75
   %20 = sext i16 %19 to i32
@@ -2787,7 +2787,7 @@ define dso_local void @_ZN6bParse4bDNA19dumpTypeDefinitionsEv(ptr noundef nonnul
 38:                                               ; preds = %15
   %39 = load ptr, ptr %7, align 8, !tbaa !13
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %39, i64 %40
   %.012.i.i.i = load i32, ptr %41, align 4, !tbaa !77
   %.not1113.i.i.i = icmp eq i32 %.012.i.i.i, -1
   br i1 %.not1113.i.i.i, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %.lr.ph.i.i.i
@@ -2800,13 +2800,13 @@ define dso_local void @_ZN6bParse4bDNA19dumpTypeDefinitionsEv(ptr noundef nonnul
 44:                                               ; preds = %49, %.lr.ph.i.i.i
   %.014.i.i.i = phi i32 [ %.012.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %49 ]
   %45 = sext i32 %.014.i.i.i to i64
-  %46 = getelementptr inbounds %class.b3HashInt, ptr %42, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %42, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !78
   %48 = icmp eq i32 %47, %20
   br i1 %48, label %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i32, ptr %43, i64 %45
+  %50 = getelementptr inbounds [4 x i8], ptr %43, i64 %45
   %.0.i.i.i = load i32, ptr %50, align 4, !tbaa !77
   %.not11.i.i.i = icmp eq i32 %.0.i.i.i, -1
   br i1 %.not11.i.i.i, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %44, !llvm.loop !80
@@ -2817,25 +2817,25 @@ _ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i:     ; preds = %44
   br i1 %.not.i, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %_ZN6bParse4bDNA14getReverseTypeEs.exit
 
 _ZN6bParse4bDNA14getReverseTypeEs.exit:           ; preds = %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i
-  %52 = getelementptr inbounds i32, ptr %51, i64 %45
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %45
   %53 = load i32, ptr %52, align 4, !tbaa !77
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %_ZN6bParse4bDNA14getReverseTypeEs.exit.thread, label %57
 
 _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %49, %38, %15, %_ZN9b3HashMapI9b3HashIntiE4findERKS0_.exit.i, %_ZN6bParse4bDNA14getReverseTypeEs.exit
   %55 = load ptr, ptr %14, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   store i32 0, ptr %56, align 4, !tbaa !77
   br label %114
 
 57:                                               ; preds = %_ZN6bParse4bDNA14getReverseTypeEs.exit
   %58 = sext i32 %53 to i64
-  %59 = getelementptr inbounds ptr, ptr %16, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %16, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !74
   %61 = load i16, ptr %60, align 2, !tbaa !75
   %62 = load ptr, ptr %11, align 8, !tbaa !27
   %63 = sext i16 %61 to i64
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !73
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %66, ptr noundef %65)
@@ -2860,18 +2860,18 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %49, %38, %15, %_ZN9
   %76 = load i16, ptr %75, align 2, !tbaa !75
   %77 = load ptr, ptr %12, align 8, !tbaa !20
   %78 = sext i16 %76 to i64
-  %79 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %77, i64 %78
+  %79 = getelementptr inbounds [24 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !71
   %81 = load i16, ptr %.03746, align 2, !tbaa !75
   %82 = load ptr, ptr %11, align 8, !tbaa !27
   %83 = sext i16 %81 to i64
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !73
   %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %85, ptr noundef %80)
   %87 = load i16, ptr %75, align 2, !tbaa !75
   %88 = load ptr, ptr %12, align 8, !tbaa !20
   %89 = sext i16 %87 to i64
-  %90 = getelementptr inbounds %"struct.bParse::bNameInfo", ptr %88, i64 %89
+  %90 = getelementptr inbounds [24 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %92 = load i32, ptr %91, align 4, !tbaa !110
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
@@ -2886,7 +2886,7 @@ _ZN6bParse4bDNA14getReverseTypeEs.exit.thread:    ; preds = %49, %38, %15, %_ZN9
   %100 = load i16, ptr %.03746, align 2, !tbaa !75
   %101 = load ptr, ptr %13, align 8, !tbaa !41
   %102 = sext i16 %100 to i64
-  %103 = getelementptr inbounds i16, ptr %101, i64 %102
+  %103 = getelementptr inbounds [2 x i8], ptr %101, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !75
   %105 = sext i16 %104 to i32
   br label %106
@@ -3001,8 +3001,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !77
   store i32 %24, ptr %22, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3086,8 +3086,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i27: ; preds = %44
 
 51:                                               ; preds = %51, %.lr.ph.i.i.i35
   %indvars.iv.i.i.i37 = phi i64 [ 0, %.lr.ph.i.i.i35 ], [ %indvars.iv.next.i.i.i38, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i.i.i37
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i.i37
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.i.i37
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.i.i37
   %54 = load i32, ptr %53, align 4, !tbaa !77
   store i32 %54, ptr %52, align 4, !tbaa !77
   %indvars.iv.next.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
@@ -3163,7 +3163,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit41:  ; preds = %.lr.ph.i20, %.lr.ph
 
 79:                                               ; preds = %.lr.ph48, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw %class.b3HashInt, ptr %75, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !78
   %82 = shl i32 %81, 15
   %83 = xor i32 %82, -1
@@ -3182,9 +3182,9 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit41:  ; preds = %.lr.ph.i20, %.lr.ph
   %96 = add nsw i32 %95, -1
   %97 = and i32 %94, %96
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %76, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %76, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !77
-  %101 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv
   store i32 %100, ptr %101, align 4, !tbaa !77
   %102 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %102, ptr %99, align 4, !tbaa !77
@@ -3240,8 +3240,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !77
   store i32 %24, ptr %22, align 4, !tbaa !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3325,8 +3325,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i27: ; preds = %44
 
 51:                                               ; preds = %51, %.lr.ph.i.i.i35
   %indvars.iv.i.i.i37 = phi i64 [ 0, %.lr.ph.i.i.i35 ], [ %indvars.iv.next.i.i.i38, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i.i.i37
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i.i37
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.i.i37
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.i.i37
   %54 = load i32, ptr %53, align 4, !tbaa !77
   store i32 %54, ptr %52, align 4, !tbaa !77
   %indvars.iv.next.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
@@ -3402,16 +3402,16 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit41:  ; preds = %.lr.ph.i20, %.lr.ph
 
 79:                                               ; preds = %.lr.ph48, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw %struct.b3HashString, ptr %75, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i32, ptr %81, align 8, !tbaa !85
   %83 = load i32, ptr %3, align 8, !tbaa !15
   %84 = add nsw i32 %83, -1
   %85 = and i32 %84, %82
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %76, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %76, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !77
-  %89 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv
   store i32 %88, ptr %89, align 4, !tbaa !77
   %90 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %90, ptr %87, align 4, !tbaa !77
@@ -3455,9 +3455,9 @@ _ZN20b3AlignedObjectArrayI12b3HashStringE8allocateEi.exit: ; preds = %7
 
 16:                                               ; preds = %_ZN12b3HashStringC2ERKS_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN12b3HashStringC2ERKS_.exit.i ]
-  %17 = getelementptr inbounds nuw %struct.b3HashString, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv.i
   %18 = load ptr, ptr %15, align 8, !tbaa !55
-  %19 = getelementptr inbounds nuw %struct.b3HashString, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %20, ptr %17, align 8, !tbaa !81
   %21 = load ptr, ptr %19, align 8, !tbaa !63
@@ -3527,7 +3527,7 @@ _ZNK20b3AlignedObjectArrayI12b3HashStringE4copyEiiPS0_.exit: ; preds = %_ZN12b3H
 42:                                               ; preds = %_ZN12b3HashStringD2Ev.exit.i, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i21, %_ZN12b3HashStringD2Ev.exit.i ]
   %43 = load ptr, ptr %41, align 8, !tbaa !55
-  %44 = getelementptr inbounds nuw %struct.b3HashString, ptr %43, i64 %indvars.iv.i20
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %indvars.iv.i20
   %45 = load ptr, ptr %44, align 8, !tbaa !63
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = icmp eq ptr %45, %46

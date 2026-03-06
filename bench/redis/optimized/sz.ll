@@ -3,8 +3,6 @@ source_filename = "bench/redis/original/sz.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.sc_s = type { i32, i32, i32, i32, i8, i8, i32, i32 }
-
 @je_sz_large_pad = hidden local_unnamed_addr global i64 0, align 8
 @je_sz_pind2sz_tab = hidden local_unnamed_addr global [200 x i64] zeroinitializer, align 64
 @je_sz_index2size_tab = hidden local_unnamed_addr global [235 x i64] zeroinitializer, align 64
@@ -39,7 +37,7 @@ sz_psz2ind.exit:                                  ; preds = %1
 sz_psz2ind.exit.thread:                           ; preds = %1, %sz_psz2ind.exit
   %.0.i8 = phi i32 [ %18, %sz_psz2ind.exit ], [ 199, %1 ]
   %20 = zext nneg i32 %.0.i8 to i64
-  %21 = getelementptr i64, ptr @je_sz_pind2sz_tab, i64 %20
+  %21 = getelementptr [8 x i8], ptr @je_sz_pind2sz_tab, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !4
   %24 = add i64 %23, %2
@@ -79,7 +77,7 @@ sz_psz2ind.exit.i:                                ; preds = %1
 je_sz_psz_quantize_floor.exit:                    ; preds = %1, %sz_psz2ind.exit.i
   %.0.i8.i = phi i32 [ %18, %sz_psz2ind.exit.i ], [ 199, %1 ]
   %20 = zext nneg i32 %.0.i8.i to i64
-  %21 = getelementptr i64, ptr @je_sz_pind2sz_tab, i64 %20
+  %21 = getelementptr [8 x i8], ptr @je_sz_pind2sz_tab, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !4
   %24 = add i64 %23, %2
@@ -111,7 +109,7 @@ je_sz_psz_quantize_floor.exit:                    ; preds = %1, %sz_psz2ind.exit
 
 sz_psz2ind.exit:                                  ; preds = %26, %29
   %.0.i = phi i64 [ %43, %29 ], [ 199, %26 ]
-  %44 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %.0.i
   %45 = load i64, ptr %44, align 8, !tbaa !4
   %46 = add i64 %45, %2
   br label %je_sz_psz_quantize_floor.exit.thread
@@ -135,13 +133,13 @@ define hidden void @je_sz_boot(ptr noundef readonly captures(none) %0, i1 nounde
 .lr.ph.i:                                         ; preds = %.preheader.i
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = sext i32 %.1.i to i64
-  %8 = getelementptr inbounds i64, ptr @je_sz_pind2sz_tab, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @je_sz_pind2sz_tab, i64 %7
   br label %31
 
 9:                                                ; preds = %30, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %30 ]
   %.01418.i = phi i32 [ 0, %2 ], [ %.1.i, %30 ]
-  %10 = getelementptr inbounds nuw %struct.sc_s, ptr %4, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [28 x i8], ptr %4, i64 %indvars.iv.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 4, !tbaa !9, !range !13, !noundef !14
   %13 = trunc nuw i8 %12 to i1
@@ -161,7 +159,7 @@ define hidden void @je_sz_boot(ptr noundef readonly captures(none) %0, i1 nounde
   %25 = shl i64 %21, %24
   %26 = add i64 %25, %18
   %27 = sext i32 %.01418.i to i64
-  %28 = getelementptr inbounds i64, ptr @je_sz_pind2sz_tab, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr @je_sz_pind2sz_tab, i64 %27
   store i64 %26, ptr %28, align 8, !tbaa !4
   %29 = add nsw i32 %.01418.i, 1
   br label %30
@@ -186,7 +184,7 @@ sz_boot_pind2sz_tab.exit.preheader:               ; preds = %31, %.preheader.i
 
 sz_boot_pind2sz_tab.exit:                         ; preds = %sz_boot_pind2sz_tab.exit.preheader, %sz_boot_pind2sz_tab.exit
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i4, %sz_boot_pind2sz_tab.exit ], [ 0, %sz_boot_pind2sz_tab.exit.preheader ]
-  %35 = getelementptr inbounds nuw %struct.sc_s, ptr %4, i64 %indvars.iv.i3
+  %35 = getelementptr inbounds nuw [28 x i8], ptr %4, i64 %indvars.iv.i3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !15
   %38 = zext nneg i32 %37 to i64
@@ -199,7 +197,7 @@ sz_boot_pind2sz_tab.exit:                         ; preds = %sz_boot_pind2sz_tab
   %45 = zext nneg i32 %44 to i64
   %46 = shl i64 %42, %45
   %47 = add i64 %46, %39
-  %48 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %indvars.iv.i3
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_index2size_tab, i64 %indvars.iv.i3
   store i64 %47, ptr %48, align 8, !tbaa !4
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond.not.i5 = icmp eq i64 %indvars.iv.next.i4, 235
@@ -208,7 +206,7 @@ sz_boot_pind2sz_tab.exit:                         ; preds = %sz_boot_pind2sz_tab
 sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab.exit, %._crit_edge.i
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i8, %._crit_edge.i ], [ 0, %sz_boot_pind2sz_tab.exit ]
   %.020.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %sz_boot_pind2sz_tab.exit ]
-  %49 = getelementptr inbounds nuw %struct.sc_s, ptr %4, i64 %indvars.iv.i6
+  %49 = getelementptr inbounds nuw [28 x i8], ptr %4, i64 %indvars.iv.i6
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !15
   %52 = zext nneg i32 %51 to i64

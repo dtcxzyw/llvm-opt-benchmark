@@ -178,7 +178,7 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
 134:                                              ; preds = %.preheader, %231
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %231 ]
   %.1124134 = phi ptr [ %6, %.preheader ], [ %.2, %231 ]
-  %135 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8, !tbaa !36
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 %12
   %138 = getelementptr inbounds nuw i8, ptr %.1124134, i64 4
@@ -436,7 +436,7 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %91 = phi i1 [ true, %.preheader ], [ false, %147 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %147 ]
   %.18086 = phi ptr [ %6, %.preheader ], [ %.2, %147 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8, !tbaa !36
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %12
   %95 = getelementptr inbounds nuw i8, ptr %.18086, i64 4

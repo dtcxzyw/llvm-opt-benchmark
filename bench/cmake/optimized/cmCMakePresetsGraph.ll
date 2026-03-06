@@ -6534,7 +6534,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %869 = load i64, ptr %868, align 8, !tbaa !259
   %870 = urem i64 %867, %869
   %871 = load ptr, ptr %866, align 8, !tbaa !260
-  %872 = getelementptr inbounds nuw ptr, ptr %871, i64 %870
+  %872 = getelementptr inbounds nuw [8 x i8], ptr %871, i64 %870
   %873 = load ptr, ptr %872, align 8, !tbaa !261
   %.not.i.i.i.i.i308 = icmp eq ptr %873, null
   br i1 %.not.i.i.i.i.i308, label %.loopexit887, label %874
@@ -7211,7 +7211,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %1105 = load i64, ptr %1104, align 8, !tbaa !259
   %1106 = urem i64 %1103, %1105
   %1107 = load ptr, ptr %1102, align 8, !tbaa !260
-  %1108 = getelementptr inbounds nuw ptr, ptr %1107, i64 %1106
+  %1108 = getelementptr inbounds nuw [8 x i8], ptr %1107, i64 %1106
   %1109 = load ptr, ptr %1108, align 8, !tbaa !261
   %.not.i.i.i.i.i379 = icmp eq ptr %1109, null
   br i1 %.not.i.i.i.i.i379, label %.loopexit871, label %1110
@@ -8165,7 +8165,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %1470 = load i64, ptr %1469, align 8, !tbaa !259
   %1471 = urem i64 %1468, %1470
   %1472 = load ptr, ptr %1467, align 8, !tbaa !260
-  %1473 = getelementptr inbounds nuw ptr, ptr %1472, i64 %1471
+  %1473 = getelementptr inbounds nuw [8 x i8], ptr %1472, i64 %1471
   %1474 = load ptr, ptr %1473, align 8, !tbaa !261
   %.not.i.i.i.i.i468 = icmp eq ptr %1474, null
   br i1 %.not.i.i.i.i.i468, label %.loopexit856, label %1475
@@ -8972,7 +8972,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresets
   %1756 = load i64, ptr %1755, align 8, !tbaa !259
   %1757 = urem i64 %1754, %1756
   %1758 = load ptr, ptr %1753, align 8, !tbaa !260
-  %1759 = getelementptr inbounds nuw ptr, ptr %1758, i64 %1757
+  %1759 = getelementptr inbounds nuw [8 x i8], ptr %1758, i64 %1757
   %1760 = load ptr, ptr %1759, align 8, !tbaa !261
   %.not.i.i.i.i.i11.i = icmp eq ptr %1760, null
   br i1 %.not.i.i.i.i.i11.i, label %.loopexit.i537.invoke, label %1761
@@ -9119,7 +9119,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresets
   %1816 = load i64, ptr %1815, align 8, !tbaa !259
   %1817 = urem i64 %1814, %1816
   %1818 = load ptr, ptr %1813, align 8, !tbaa !260
-  %1819 = getelementptr inbounds nuw ptr, ptr %1818, i64 %1817
+  %1819 = getelementptr inbounds nuw [8 x i8], ptr %1818, i64 %1817
   %1820 = load ptr, ptr %1819, align 8, !tbaa !261
   %.not.i.i.i.i.i13.i = icmp eq ptr %1820, null
   br i1 %.not.i.i.i.i.i13.i, label %.loopexit.i537.invoke, label %1821
@@ -9278,7 +9278,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresets
   %1883 = load i64, ptr %1882, align 8, !tbaa !259
   %1884 = urem i64 %1881, %1883
   %1885 = load ptr, ptr %1880, align 8, !tbaa !260
-  %1886 = getelementptr inbounds nuw ptr, ptr %1885, i64 %1884
+  %1886 = getelementptr inbounds nuw [8 x i8], ptr %1885, i64 %1884
   %1887 = load ptr, ptr %1886, align 8, !tbaa !261
   %.not.i.i.i.i.i13.i606 = icmp eq ptr %1887, null
   br i1 %.not.i.i.i.i.i13.i606, label %.loopexit.i537.invoke, label %1888
@@ -9437,7 +9437,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresets
   %1950 = load i64, ptr %1949, align 8, !tbaa !259
   %1951 = urem i64 %1948, %1950
   %1952 = load ptr, ptr %1947, align 8, !tbaa !260
-  %1953 = getelementptr inbounds nuw ptr, ptr %1952, i64 %1951
+  %1953 = getelementptr inbounds nuw [8 x i8], ptr %1952, i64 %1951
   %1954 = load ptr, ptr %1953, align 8, !tbaa !261
   %.not.i.i.i.i.i13.i654 = icmp eq ptr %1954, null
   br i1 %.not.i.i.i.i.i13.i654, label %.loopexit.i537.invoke, label %1955
@@ -10567,7 +10567,7 @@ _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %59, %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %52
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE9push_backEOS3_.exit
 
 .loopexit:                                        ; preds = %16, %36
@@ -10898,7 +10898,7 @@ _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %50, %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE9push_backEOS3_.exit
 
 52:                                               ; preds = %13
@@ -11224,7 +11224,7 @@ _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %50, %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE9push_backEOS3_.exit
 
 52:                                               ; preds = %13
@@ -11627,7 +11627,7 @@ _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %59, %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %52
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE9push_backEOS3_.exit
 
 .loopexit:                                        ; preds = %16, %36
@@ -11958,7 +11958,7 @@ _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %50, %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   br label %_ZNSt6vectorIPKN19cmCMakePresetsGraph6PresetESaIS3_EE9push_backEOS3_.exit
 
 52:                                               ; preds = %13
@@ -17216,7 +17216,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %96 = load i64, ptr %95, align 8, !tbaa !259
   %97 = urem i64 %94, %96
   %98 = load ptr, ptr %93, align 8, !tbaa !260
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8, !tbaa !261
   %.not.i.i.i.i.i102 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i102, label %.loopexit, label %101
@@ -18345,7 +18345,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %96 = load i64, ptr %95, align 8, !tbaa !259
   %97 = urem i64 %94, %96
   %98 = load ptr, ptr %93, align 8, !tbaa !260
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8, !tbaa !261
   %.not.i.i.i.i.i102 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i102, label %.loopexit, label %101
@@ -18831,7 +18831,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %96 = load i64, ptr %95, align 8, !tbaa !259
   %97 = urem i64 %94, %96
   %98 = load ptr, ptr %93, align 8, !tbaa !260
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8, !tbaa !261
   %.not.i.i.i.i.i102 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i102, label %.loopexit, label %101
@@ -19317,7 +19317,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %96 = load i64, ptr %95, align 8, !tbaa !259
   %97 = urem i64 %94, %96
   %98 = load ptr, ptr %93, align 8, !tbaa !260
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8, !tbaa !261
   %.not.i.i.i.i.i102 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i102, label %.loopexit, label %101
@@ -19803,7 +19803,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN19cmCMakePresetsG
   %96 = load i64, ptr %95, align 8, !tbaa !259
   %97 = urem i64 %94, %96
   %98 = load ptr, ptr %93, align 8, !tbaa !260
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %97
   %100 = load ptr, ptr %99, align 8, !tbaa !261
   %.not.i.i.i.i.i102 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i102, label %.loopexit, label %101

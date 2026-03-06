@@ -142,7 +142,7 @@ define dso_local noundef ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef %1,
   %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %.0) #9
   %17 = call i32 @FileSetOpen(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2) #9
   %18 = sext i32 %.0 to i64
-  %19 = getelementptr inbounds i32, ptr %.1, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %.1, i64 %18
   store i32 %17, ptr %19, align 4
   %20 = icmp slt i32 %17, 1
   br i1 %20, label %24, label %21
@@ -306,7 +306,7 @@ BufFileFlush.exit:                                ; preds = %1, %5
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   tail call void @FileClose(i32 noundef %12) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -398,7 +398,7 @@ BufFileFlush.exit:                                ; preds = %5, %12
   %37 = phi i32 [ %30, %31 ], [ %32, %35 ], [ %30, %25 ]
   %38 = load ptr, ptr %17, align 8
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %43 = trunc nuw i8 %42 to i1
@@ -690,7 +690,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   store ptr %50, ptr %15, align 8
   %51 = load i32, ptr %0, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %50, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %50, i64 %52
   store i32 %.0.i, ptr %53, align 4
   %54 = load i32, ptr %0, align 8
   %55 = add i32 %54, 1
@@ -721,7 +721,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   %spec.select42 = call i64 @llvm.smin.i64(i64 %63, i64 %64)
   %65 = load ptr, ptr %15, align 8
   %66 = sext i32 %59 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %70 = trunc nuw i8 %69 to i1
@@ -857,7 +857,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = tail call i64 @FileSize(i32 noundef %24) #9
   %26 = icmp slt i64 %25, 0
@@ -870,7 +870,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   %31 = load i32, ptr %0, align 8
   %32 = add i32 %31, -1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %30, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %30, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @FilePathName(i32 noundef %35) #9
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1040,7 +1040,7 @@ define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufF
   %4 = load i32, ptr %0, align 8
   %5 = add i32 %4, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr %3, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %3, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = tail call i64 @FileSize(i32 noundef %8) #9
   %10 = icmp slt i64 %9, 0
@@ -1053,7 +1053,7 @@ define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufF
   %15 = load i32, ptr %0, align 8
   %16 = add i32 %15, -1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = tail call ptr @FilePathName(i32 noundef %19) #9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1112,10 +1112,10 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
   %26 = trunc nsw i64 %indvars.iv to i32
   %27 = sub i32 %26, %25
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %24, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %24, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load ptr, ptr %14, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %indvars.iv
   store i32 %30, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
@@ -1161,7 +1161,7 @@ define dso_local void @BufFileTruncateFileSet(ptr noundef captures(none) %0, i32
   %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %16, i32 noundef %.083) #9
   %18 = load ptr, ptr %9, align 8
   %19 = sext i32 %.083 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   call void @FileClose(i32 noundef %21) #9
   %22 = load ptr, ptr %11, align 8
@@ -1185,7 +1185,7 @@ define dso_local void @BufFileTruncateFileSet(ptr noundef captures(none) %0, i32
 32:                                               ; preds = %12
   %33 = load ptr, ptr %9, align 8
   %34 = sext i32 %.083 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = call i32 @FileTruncate(i32 noundef %36, i64 noundef %2, i32 noundef 167772164) #9
   %38 = icmp slt i32 %37, 0
@@ -1195,7 +1195,7 @@ define dso_local void @BufFileTruncateFileSet(ptr noundef captures(none) %0, i32
   %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %41 = call i32 @errcode_for_file_access() #9
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %34
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %34
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @FilePathName(i32 noundef %44) #9
   %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %45) #9

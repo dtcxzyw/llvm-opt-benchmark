@@ -33,14 +33,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cfg80211_dis
 %struct.ieee80211_vht_mcs_info = type { i16, i16, i16, i16 }
 %struct.ieee80211_s1g_cap = type { [10 x i8], [5 x i8] }
 %struct.cfg80211_assoc_link = type { ptr, ptr, i64, i8, i32 }
-%struct.anon.9 = type { [6 x i8], %union.anon.10 }
-%union.anon.10 = type { %struct.anon.11 }
-%struct.anon.11 = type { i32, %struct.cfg80211_chan_def }
-%struct.cfg80211_chan_def = type { ptr, i32, i32, i32, %struct.ieee80211_edmg, i16 }
-%struct.ieee80211_edmg = type { i8, i32 }
-%struct.anon.77 = type { ptr, ptr, ptr, ptr }
-%struct.key_params = type { ptr, ptr, i32, i32, i16, i32, i32 }
-%struct.ieee80211_channel = type { i32, i32, i16, i16, i32, i32, i32, i32, i8, i32, i32, i32, i32, i64, i32, i8 }
 
 @cfg80211_disconnect_work = dso_local global %struct.work_struct { %struct.atomic64_t { i64 68719476704 }, %struct.list_head { ptr getelementptr (i8, ptr @cfg80211_disconnect_work, i64 8), ptr getelementptr (i8, ptr @cfg80211_disconnect_work, i64 8) }, ptr @disconnect_work }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"net/wireless/sme.c\00", align 1
@@ -469,7 +461,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr %struct.anon.14, ptr %19, i64 %22
+  %27 = getelementptr [32 x i8], ptr %19, i64 %22
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31, !prof !10
@@ -598,7 +590,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   br i1 %88, label %114, label %89
 
 89:                                               ; preds = %84, %81
-  %90 = getelementptr %struct.anon.14, ptr %77, i64 %indvars.iv56
+  %90 = getelementptr [32 x i8], ptr %77, i64 %indvars.iv56
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i16, ptr %91, align 8
   %93 = icmp eq i16 %92, 0
@@ -708,7 +700,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   br i1 %148, label %181, label %149
 
 149:                                              ; preds = %144, %141
-  %150 = getelementptr %struct.anon.14, ptr %140, i64 %indvars.iv58
+  %150 = getelementptr [32 x i8], ptr %140, i64 %indvars.iv58
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load i16, ptr %151, align 8
   %153 = icmp eq i16 %152, 0
@@ -839,8 +831,8 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
   br i1 %225, label %230, label %226
 
 226:                                              ; preds = %.preheader
-  %227 = getelementptr %struct.anon.9, ptr %137, i64 %indvars.iv62
-  %228 = getelementptr %struct.anon.14, ptr %140, i64 %indvars.iv62
+  %227 = getelementptr [48 x i8], ptr %137, i64 %indvars.iv62
+  %228 = getelementptr [32 x i8], ptr %140, i64 %indvars.iv62
   %229 = load ptr, ptr %228, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %227, ptr noundef align 1 dereferenceable(6) %229, i64 6, i1 false)
   %.pre72 = load i16, ptr %10, align 8
@@ -1771,7 +1763,7 @@ define dso_local void @cfg80211_connect_done(ptr noundef readonly captures(none)
   br i1 %25, label %64, label %26
 
 26:                                               ; preds = %21, %17
-  %27 = getelementptr %struct.anon.14, ptr %12, i64 %indvars.iv
+  %27 = getelementptr [32 x i8], ptr %12, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %5, align 8
   %30 = icmp eq ptr %29, null
@@ -2045,7 +2037,7 @@ define dso_local void @cfg80211_connect_done(ptr noundef readonly captures(none)
   br i1 %199, label %228, label %200
 
 200:                                              ; preds = %195, %191
-  %201 = getelementptr %struct.anon.14, ptr %12, i64 %indvars.iv22
+  %201 = getelementptr [32 x i8], ptr %12, i64 %indvars.iv22
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, null
@@ -2066,7 +2058,7 @@ define dso_local void @cfg80211_connect_done(ptr noundef readonly captures(none)
 
 212:                                              ; preds = %210, %205, %200
   %213 = load ptr, ptr %202, align 8
-  %214 = getelementptr %struct.anon.14, ptr %190, i64 %indvars.iv22
+  %214 = getelementptr [32 x i8], ptr %190, i64 %indvars.iv22
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   store ptr %213, ptr %215, align 8
   %216 = load ptr, ptr %201, align 8
@@ -2191,7 +2183,7 @@ define dso_local void @__cfg80211_roamed(ptr noundef captures(none) %0, ptr noun
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr %struct.anon.77, ptr %22, i64 %25
+  %30 = getelementptr [32 x i8], ptr %22, i64 %25
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34, !prof !10
@@ -2341,8 +2333,8 @@ define dso_local void @__cfg80211_roamed(ptr noundef captures(none) %0, ptr noun
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %.preheader
-  %107 = getelementptr %struct.anon.9, ptr %52, i64 %indvars.iv23
-  %108 = getelementptr %struct.anon.77, ptr %39, i64 %indvars.iv23
+  %107 = getelementptr [48 x i8], ptr %52, i64 %indvars.iv23
+  %108 = getelementptr [32 x i8], ptr %39, i64 %indvars.iv23
   %109 = load ptr, ptr %108, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %107, ptr noundef align 1 dereferenceable(6) %109, i64 6, i1 false)
   %.pre27 = load i16, ptr %13, align 8
@@ -2457,7 +2449,7 @@ define dso_local void @cfg80211_roamed(ptr noundef readonly captures(none) %0, p
   br i1 %25, label %49, label %26
 
 26:                                               ; preds = %21, %17
-  %27 = getelementptr %struct.anon.77, ptr %12, i64 %indvars.iv
+  %27 = getelementptr [32 x i8], ptr %12, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = select i1 %29, i64 0, i64 6
@@ -2668,10 +2660,10 @@ define dso_local void @cfg80211_roamed(ptr noundef readonly captures(none) %0, p
   br i1 %160, label %179, label %161
 
 161:                                              ; preds = %156, %152
-  %162 = getelementptr %struct.anon.77, ptr %12, i64 %indvars.iv16
+  %162 = getelementptr [32 x i8], ptr %12, i64 %indvars.iv16
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr %struct.anon.77, ptr %151, i64 %indvars.iv16
+  %165 = getelementptr [32 x i8], ptr %151, i64 %indvars.iv16
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store ptr %164, ptr %166, align 8
   %167 = load ptr, ptr %162, align 8
@@ -3390,7 +3382,7 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
 
 59:                                               ; preds = %55
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr %struct.key_params, ptr %3, i64 %60
+  %61 = getelementptr [40 x i8], ptr %3, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, -5
@@ -4211,7 +4203,7 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 312
   %41 = zext i32 %38 to i64
-  %42 = getelementptr ptr, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %45
@@ -4228,14 +4220,14 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
   %49 = shl nsw i32 -1, %48
   %50 = xor i32 %49, -1
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %52 = getelementptr i32, ptr %51, i64 %41
+  %52 = getelementptr [4 x i8], ptr %51, i64 %41
   store i32 %50, ptr %52, align 4
   br label %.loopexit11
 
 53:                                               ; preds = %88, %32
   %54 = phi i64 [ 0, %32 ], [ %90, %88 ]
   %55 = phi i32 [ 0, %32 ], [ %89, %88 ]
-  %56 = getelementptr ptr, ptr %34, i64 %54
+  %56 = getelementptr [8 x i8], ptr %34, i64 %54
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %88, label %59
@@ -4251,7 +4243,7 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
   %64 = phi i64 [ %79, %76 ], [ 0, %59 ]
   %65 = phi i32 [ %78, %76 ], [ %55, %59 ]
   %66 = load ptr, ptr %57, align 8
-  %67 = getelementptr %struct.ieee80211_channel, ptr %66, i64 %64
+  %67 = getelementptr [64 x i8], ptr %66, i64 %64
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 1
@@ -4261,7 +4253,7 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
 72:                                               ; preds = %.preheader
   %73 = add i32 %65, 1
   %74 = sext i32 %65 to i64
-  %75 = getelementptr ptr, ptr %35, i64 %74
+  %75 = getelementptr [8 x i8], ptr %35, i64 %74
   store ptr %67, ptr %75, align 8
   %.pre = load i32, ptr %60, align 4
   br label %76
@@ -4280,7 +4272,7 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
   %84 = load i32, ptr %83, align 8
   %85 = shl nsw i32 -1, %84
   %86 = xor i32 %85, -1
-  %87 = getelementptr i32, ptr %36, i64 %54
+  %87 = getelementptr [4 x i8], ptr %36, i64 %54
   store i32 %86, ptr %87, align 4
   br label %88
 
@@ -4300,7 +4292,7 @@ define internal fastcc i32 @cfg80211_conn_scan(ptr noundef %0) unnamed_addr #0 a
   %93 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 %92, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %26, i64 152
-  %95 = getelementptr ptr, ptr %94, i64 %.pre-phi
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.pre-phi
   store ptr %95, ptr %26, align 8
   %96 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 1, ptr %96, align 8

@@ -316,7 +316,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %22)
   %23 = mul nuw nsw i32 %15, %1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %24
   %26 = udiv i32 %10, 9
   %27 = shl nuw nsw i32 %26, 4
   %28 = mul nuw nsw i32 %27, %1
@@ -431,7 +431,7 @@ _ZN8rawspeed14BitStreamerLSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %67 = add nuw nsw i64 %indvars.iv, %40
   %68 = icmp samesign ule i64 %67, %36
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw i16, ptr %25, i64 %67
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %67
   store i16 %64, ptr %69, align 2, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9

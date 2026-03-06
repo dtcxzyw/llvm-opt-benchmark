@@ -146,7 +146,7 @@ define hidden zeroext i1 @SDL_SetLinuxThreadPriorityAndPolicy_REAL(i64 noundef %
 
 switch.lookup:                                    ; preds = %20
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_SetLinuxThreadPriorityAndPolicy_REAL, i64 %22
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_SetLinuxThreadPriorityAndPolicy_REAL, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %23
 

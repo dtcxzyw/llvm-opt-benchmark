@@ -67,7 +67,7 @@ define hidden ptr @_PyTokenizer_FromString(ptr noundef %0, i32 noundef %1, i32 n
 
 30:                                               ; preds = %28
   %31 = zext nneg i32 %.0.i to i64
-  %32 = getelementptr ptr, ptr %4, i64 %31
+  %32 = getelementptr [8 x i8], ptr %4, i64 %31
   store ptr %.044.i, ptr %32, align 8, !tbaa !16
   %.not60.i = icmp eq i32 %.0.i, 0
   br i1 %.not60.i, label %33, label %35

@@ -5,24 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__sigset_t = type { [16 x i64] }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%union.ListCell = type { ptr }
 %struct.xl_xact_parsed_commit = type { i64, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, [200 x i8], i32, ptr, i32, ptr, i64, i64 }
 %struct.xl_xact_parsed_abort = type { i64, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, [200 x i8], i64, i64 }
 %struct.RelFileLocator = type { i32, i32, i32 }
 %struct.WalSummaryIO = type { i32, i64 }
 %struct.XLogReaderRoutine = type { ptr, ptr, ptr }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 %struct.WALReadError = type { i32, i32, i32, i32, %struct.WALOpenSegment }
 %struct.WALOpenSegment = type { i32, i64, i32 }
 
@@ -356,7 +343,7 @@ HandleWalSummarizerInterrupts.exit34:             ; preds = %83, %85
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.035.us.i, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = sext i32 %.sroa.7.034.us.i to i64
-  %102 = getelementptr inbounds %union.ListCell, ptr %100, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
   %.not.i.us.i = icmp eq i32 %104, 0
@@ -429,7 +416,7 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %116, %114
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.035.i, i64 16
   %129 = load ptr, ptr %128, align 8
   %130 = sext i32 %.sroa.7.034.i to i64
-  %131 = getelementptr inbounds %union.ListCell, ptr %129, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
   %.not.i.i = icmp eq i32 %133, 0
@@ -838,7 +825,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
 63:                                               ; preds = %60
   %.val = load ptr, ptr %59, align 8
   %64 = and i64 %indvars.iv.next, 2147483647
-  %65 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %66, align 8
   %68 = call i64 @XLogGetOldestSegno(i32 noundef %67) #10
@@ -875,7 +862,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %indvars.iv81 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next82, %79 ]
   %.0426476 = phi i8 [ 0, %.lr.ph77 ], [ %.143, %79 ]
   %.36575 = phi i64 [ %.1, %.lr.ph77 ], [ %.4, %79 ]
-  %80 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv81
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv81
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8
@@ -1320,7 +1307,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 169:                                              ; preds = %169, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %168, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %indvars.iv.i
   %171 = load i32, ptr %170, align 4
   store i32 %171, ptr %10, align 4
   call void @BlockRefTableSetLimitBlock(ptr noundef %19, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #10
@@ -1415,7 +1402,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 211:                                              ; preds = %210
   %212 = load ptr, ptr %73, align 8
-  %213 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %212, i64 %indvars.iv9.i
+  %213 = getelementptr inbounds nuw [12 x i8], ptr %212, i64 %indvars.iv9.i
   call void @BlockRefTableSetLimitBlock(ptr noundef %19, ptr noundef %213, i32 noundef %.0344.i, i32 noundef 0) #10
   br label %214
 
@@ -1455,7 +1442,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 226:                                              ; preds = %225
   %227 = load ptr, ptr %71, align 8
-  %228 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %227, i64 %indvars.iv.i123
+  %228 = getelementptr inbounds nuw [12 x i8], ptr %227, i64 %indvars.iv.i123
   call void @BlockRefTableSetLimitBlock(ptr noundef %19, ptr noundef %228, i32 noundef %.02.i, i32 noundef 0) #10
   br label %229
 
@@ -1664,7 +1651,7 @@ define dso_local void @GetWalSummarizerState(ptr noundef writeonly captures(none
   %24 = load ptr, ptr @ProcGlobal, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %14 to i64
-  %27 = getelementptr inbounds %struct.PGPROC, ptr %25, i64 %26
+  %27 = getelementptr inbounds [832 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 60
   %29 = load i32, ptr %28, align 4
   %30 = icmp slt i32 %29, 1
@@ -1709,7 +1696,7 @@ define dso_local void @WakeupWalSummarizer() local_unnamed_addr #1 {
   %13 = load ptr, ptr @ProcGlobal, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds %struct.PGPROC, ptr %14, i64 %15
+  %16 = getelementptr inbounds [832 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36
   tail call void @SetLatch(ptr noundef nonnull %17) #10
   br label %18

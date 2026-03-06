@@ -134,24 +134,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !16, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !16, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !16, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !16, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !16, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !16, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !16, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !16, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -563,24 +563,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !45, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !45, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !45, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !45, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !45, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !45, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !45, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !45, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -1175,21 +1175,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !93, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !93, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !93, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !93, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !93, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !93, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !93, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !93, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -1410,21 +1410,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !108, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !108, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !108, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !108, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !108, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !108, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !108, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !108, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -1948,21 +1948,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !156, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !156, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !156, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !156, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !156, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !156, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !156, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !156, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -2183,24 +2183,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !171, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !171, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !171, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !171, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !171, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !171, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !171, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !171, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -2602,24 +2602,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !197, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !197, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !197, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !197, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !197, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !197, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !197, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !197, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -3034,24 +3034,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !234, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !234, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !234, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !234, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !234, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !234, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !234, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !234, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -3453,24 +3453,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !260, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !260, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !260, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !260, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !260, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !260, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !260, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !260, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -3885,24 +3885,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !297, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !297, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !297, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !297, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !297, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !297, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !297, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !297, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -4290,24 +4290,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !323, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !323, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !323, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !323, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !323, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !323, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !323, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !323, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -4707,24 +4707,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !346, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !346, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !346, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !346, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !346, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !346, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !346, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !346, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -4944,21 +4944,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !361, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !361, !noundef !13
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %14
   %.val29.i = load i64, ptr %56, align 8, !noalias !361, !noundef !13
   %57 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw i64, ptr %53, i64 %18
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %18
   %.val28.i = load i64, ptr %58, align 8, !noalias !361, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !361, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !361, !noundef !13
-  %63 = getelementptr inbounds nuw i64, ptr %60, i64 %14
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %14
   %.val27.i = load i64, ptr %63, align 8, !noalias !361, !noundef !13
   %64 = icmp ult i64 %18, %62
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i64, ptr %60, i64 %18
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %18
   %.val.i = load i64, ptr %65, align 8, !noalias !361, !noundef !13
   %66 = sub i64 %.val28.i, %.val29.i
   %67 = sub i64 %.val.i, %.val27.i
@@ -5306,21 +5306,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !387, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !387, !noundef !13
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %12
   %.val29.i = load i64, ptr %54, align 8, !noalias !387, !noundef !13
   %55 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i64, ptr %51, i64 %16
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %16
   %.val28.i = load i64, ptr %56, align 8, !noalias !387, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %58 = load ptr, ptr %57, align 8, !noalias !387, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %60 = load i64, ptr %59, align 8, !noalias !387, !noundef !13
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %12
   %.val27.i = load i64, ptr %61, align 8, !noalias !387, !noundef !13
   %62 = icmp ult i64 %16, %60
   tail call void @llvm.assume(i1 %62)
-  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %16
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %16
   %.val.i = load i64, ptr %63, align 8, !noalias !387, !noundef !13
   %64 = sub i64 %.val28.i, %.val29.i
   %65 = sub i64 %.val.i, %.val27.i
@@ -5686,21 +5686,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !413, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !413, !noundef !13
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %12
   %.val29.i = load i64, ptr %54, align 8, !noalias !413, !noundef !13
   %55 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i64, ptr %51, i64 %16
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %16
   %.val28.i = load i64, ptr %56, align 8, !noalias !413, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %58 = load ptr, ptr %57, align 8, !noalias !413, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %60 = load i64, ptr %59, align 8, !noalias !413, !noundef !13
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %12
   %.val27.i = load i64, ptr %61, align 8, !noalias !413, !noundef !13
   %62 = icmp ult i64 %16, %60
   tail call void @llvm.assume(i1 %62)
-  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %16
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %16
   %.val.i = load i64, ptr %63, align 8, !noalias !413, !noundef !13
   %64 = sub i64 %.val28.i, %.val29.i
   %65 = sub i64 %.val.i, %.val27.i
@@ -6249,21 +6249,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !455, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !455, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !455, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !455, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !455, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !455, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !455, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !455, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -6476,21 +6476,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !473, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !473, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !473, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !473, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !473, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !473, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !473, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !473, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -6904,24 +6904,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !510, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !510, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !510, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !510, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !510, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !510, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !510, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !510, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -7674,24 +7674,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !577, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !577, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !577, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !577, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !577, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !577, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !577, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !577, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -7913,21 +7913,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !592, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !592, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !592, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !592, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !592, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !592, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !592, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !592, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -8338,24 +8338,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !618, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !618, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !618, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !618, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !618, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !618, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !618, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !618, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -8755,21 +8755,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !641, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !641, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !641, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !641, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !641, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !641, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !641, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !641, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -8992,21 +8992,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !659, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !659, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !659, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !659, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !659, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !659, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !659, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !659, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -9393,21 +9393,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !685, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !685, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !685, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !685, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !685, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !685, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !685, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !685, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -9816,21 +9816,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !708, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !708, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !708, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !708, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !708, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !708, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !708, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !708, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -10241,24 +10241,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !734, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !734, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !734, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !734, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !734, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !734, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !734, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !734, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -10668,24 +10668,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !757, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !757, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !757, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !757, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !757, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !757, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !757, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !757, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -11257,21 +11257,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !802, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !802, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !802, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !802, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !802, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !802, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !802, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !802, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -11494,24 +11494,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !820, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !820, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !820, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !820, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !820, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !820, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !820, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !820, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -11921,24 +11921,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !843, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !843, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !843, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !843, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !843, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !843, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !843, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !843, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -12348,21 +12348,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !866, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !866, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !866, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !866, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !866, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !866, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !866, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !866, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -12763,24 +12763,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !892, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !892, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !892, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !892, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !892, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !892, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !892, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !892, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -13002,21 +13002,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !907, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !907, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !907, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !907, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !907, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !907, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !907, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !907, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -13415,24 +13415,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !930, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !930, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !930, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !930, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !930, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !930, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !930, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !930, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -13644,24 +13644,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !945, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !945, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !945, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !945, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !945, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !945, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !945, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !945, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -13875,24 +13875,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !963, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !963, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !963, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !963, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !963, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !963, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !963, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !963, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -14104,24 +14104,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !978, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !978, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !978, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !978, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !978, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !978, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !978, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !978, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -14345,24 +14345,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !996, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !996, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !996, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !996, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !996, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !996, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !996, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !996, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -14764,24 +14764,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1022, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1022, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1022, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1022, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1022, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1022, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1022, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1022, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -15003,24 +15003,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1037, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1037, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1037, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1037, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1037, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1037, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1037, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1037, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -15432,24 +15432,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1063, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1063, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1063, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1063, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1063, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1063, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1063, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1063, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -15849,21 +15849,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1086, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1086, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !1086, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !1086, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !1086, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !1086, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !1086, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !1086, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -16074,24 +16074,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1101, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1101, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1101, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1101, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1101, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1101, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1101, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1101, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -16494,21 +16494,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1135, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1135, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !1135, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !1135, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !1135, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !1135, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !1135, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !1135, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -16922,24 +16922,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1172, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1172, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1172, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1172, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1172, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1172, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1172, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1172, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -17349,24 +17349,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1195, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1195, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1195, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1195, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1195, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1195, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1195, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1195, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -17778,21 +17778,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1221, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1221, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !1221, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !1221, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !1221, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !1221, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !1221, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !1221, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -18386,24 +18386,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1269, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1269, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1269, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1269, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1269, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1269, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1269, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1269, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -18794,24 +18794,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1303, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1303, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1303, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1303, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1303, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1303, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1303, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1303, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -19023,21 +19023,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1318, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1318, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !1318, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !1318, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !1318, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !1318, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !1318, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !1318, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -19250,24 +19250,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1336, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1336, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1336, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1336, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1336, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1336, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1336, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1336, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -19489,24 +19489,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1351, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1351, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1351, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1351, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1351, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1351, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1351, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1351, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -20075,24 +20075,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1396, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1396, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1396, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1396, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1396, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1396, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1396, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1396, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -20316,24 +20316,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1414, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1414, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1414, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1414, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1414, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1414, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1414, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1414, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -20733,24 +20733,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1437, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1437, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1437, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1437, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1437, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1437, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1437, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1437, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -20964,21 +20964,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1455, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1455, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !1455, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !1455, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !1455, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !1455, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !1455, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !1455, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -21201,24 +21201,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1473, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1473, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1473, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1473, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1473, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1473, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1473, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1473, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -21796,24 +21796,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1518, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1518, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1518, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1518, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1518, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1518, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1518, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1518, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -22219,21 +22219,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !1544, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !1544, !noundef !13
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %12
   %.val29.i = load i64, ptr %54, align 8, !noalias !1544, !noundef !13
   %55 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i64, ptr %51, i64 %16
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %16
   %.val28.i = load i64, ptr %56, align 8, !noalias !1544, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %58 = load ptr, ptr %57, align 8, !noalias !1544, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %60 = load i64, ptr %59, align 8, !noalias !1544, !noundef !13
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %12
   %.val27.i = load i64, ptr %61, align 8, !noalias !1544, !noundef !13
   %62 = icmp ult i64 %16, %60
   tail call void @llvm.assume(i1 %62)
-  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %16
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %16
   %.val.i = load i64, ptr %63, align 8, !noalias !1544, !noundef !13
   %64 = sub i64 %.val28.i, %.val29.i
   %65 = sub i64 %.val.i, %.val27.i
@@ -22513,24 +22513,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !1570, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !1570, !noundef !13
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %14
   %.val29.i = load i32, ptr %56, align 4, !noalias !1570, !noundef !13
   %57 = sext i32 %.val29.i to i64
   %58 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %18
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %18
   %.val28.i = load i32, ptr %59, align 4, !noalias !1570, !noundef !13
   %60 = sext i32 %.val28.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !1570, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !1570, !noundef !13
-  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %14
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %14
   %.val27.i = load i32, ptr %65, align 4, !noalias !1570, !noundef !13
   %66 = sext i32 %.val27.i to i64
   %67 = icmp ult i64 %18, %64
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %18
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %18
   %.val.i = load i32, ptr %68, align 4, !noalias !1570, !noundef !13
   %69 = sext i32 %.val.i to i64
   %70 = sub nsw i64 %60, %57
@@ -23289,21 +23289,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1634, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1634, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !1634, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !1634, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !1634, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !1634, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !1634, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !1634, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -23712,24 +23712,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1657, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1657, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1657, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1657, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1657, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1657, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1657, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1657, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -24332,21 +24332,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1702, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1702, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !1702, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !1702, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !1702, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !1702, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !1702, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !1702, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -24745,24 +24745,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1725, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1725, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1725, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1725, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1725, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1725, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1725, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1725, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -24984,24 +24984,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1740, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1740, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1740, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1740, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1740, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1740, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1740, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1740, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -25413,24 +25413,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1766, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1766, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1766, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1766, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1766, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1766, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1766, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1766, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -26006,21 +26006,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1808, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1808, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !1808, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !1808, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !1808, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !1808, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !1808, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !1808, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -26421,21 +26421,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1834, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1834, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !1834, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !1834, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !1834, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !1834, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !1834, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !1834, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -26658,24 +26658,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1852, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1852, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1852, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1852, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1852, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1852, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1852, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1852, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -27077,24 +27077,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1878, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1878, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1878, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1878, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1878, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1878, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1878, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1878, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -27312,24 +27312,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !1896, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !1896, !noundef !13
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %12
   %.val29.i = load i32, ptr %54, align 4, !noalias !1896, !noundef !13
   %55 = sext i32 %.val29.i to i64
   %56 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %.val28.i = load i32, ptr %57, align 4, !noalias !1896, !noundef !13
   %58 = sext i32 %.val28.i to i64
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !1896, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !1896, !noundef !13
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %12
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %12
   %.val27.i = load i32, ptr %63, align 4, !noalias !1896, !noundef !13
   %64 = sext i32 %.val27.i to i64
   %65 = icmp ult i64 %16, %62
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw i32, ptr %60, i64 %16
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %16
   %.val.i = load i32, ptr %66, align 4, !noalias !1896, !noundef !13
   %67 = sext i32 %.val.i to i64
   %68 = sub nsw i64 %58, %55
@@ -27791,24 +27791,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1938, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1938, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !1938, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !1938, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !1938, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !1938, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !1938, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !1938, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -28020,21 +28020,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !1953, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !1953, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !1953, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !1953, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !1953, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !1953, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !1953, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !1953, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -28255,21 +28255,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1968, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1968, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !1968, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !1968, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !1968, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !1968, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !1968, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !1968, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -28680,24 +28680,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !1994, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !1994, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !1994, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !1994, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !1994, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !1994, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !1994, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !1994, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -29107,21 +29107,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !2020, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !2020, !noundef !13
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %14
   %.val29.i = load i64, ptr %56, align 8, !noalias !2020, !noundef !13
   %57 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw i64, ptr %53, i64 %18
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %18
   %.val28.i = load i64, ptr %58, align 8, !noalias !2020, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !2020, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !2020, !noundef !13
-  %63 = getelementptr inbounds nuw i64, ptr %60, i64 %14
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %14
   %.val27.i = load i64, ptr %63, align 8, !noalias !2020, !noundef !13
   %64 = icmp ult i64 %18, %62
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i64, ptr %60, i64 %18
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %18
   %.val.i = load i64, ptr %65, align 8, !noalias !2020, !noundef !13
   %66 = sub i64 %.val28.i, %.val29.i
   %67 = sub i64 %.val.i, %.val27.i
@@ -29497,21 +29497,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2046, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2046, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2046, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2046, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2046, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2046, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2046, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2046, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -29920,24 +29920,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2069, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2069, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !2069, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !2069, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !2069, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !2069, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !2069, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !2069, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -30341,21 +30341,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !2092, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !2092, !noundef !13
-  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %12
   %.val29.i = load i64, ptr %54, align 8, !noalias !2092, !noundef !13
   %55 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i64, ptr %51, i64 %16
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %16
   %.val28.i = load i64, ptr %56, align 8, !noalias !2092, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %58 = load ptr, ptr %57, align 8, !noalias !2092, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %60 = load i64, ptr %59, align 8, !noalias !2092, !noundef !13
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %12
   %.val27.i = load i64, ptr %61, align 8, !noalias !2092, !noundef !13
   %62 = icmp ult i64 %16, %60
   tail call void @llvm.assume(i1 %62)
-  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %16
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %16
   %.val.i = load i64, ptr %63, align 8, !noalias !2092, !noundef !13
   %64 = sub i64 %.val28.i, %.val29.i
   %65 = sub i64 %.val.i, %.val27.i
@@ -30826,24 +30826,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2134, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2134, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !2134, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !2134, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !2134, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !2134, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !2134, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !2134, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -31245,21 +31245,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2160, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2160, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2160, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2160, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2160, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2160, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2160, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2160, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -31478,24 +31478,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !2175, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !2175, !noundef !13
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %14
   %.val29.i = load i32, ptr %56, align 4, !noalias !2175, !noundef !13
   %57 = sext i32 %.val29.i to i64
   %58 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %18
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %18
   %.val28.i = load i32, ptr %59, align 4, !noalias !2175, !noundef !13
   %60 = sext i32 %.val28.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2175, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2175, !noundef !13
-  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %14
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %14
   %.val27.i = load i32, ptr %65, align 4, !noalias !2175, !noundef !13
   %66 = sext i32 %.val27.i to i64
   %67 = icmp ult i64 %18, %64
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %18
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %18
   %.val.i = load i32, ptr %68, align 4, !noalias !2175, !noundef !13
   %69 = sext i32 %.val.i to i64
   %70 = sub nsw i64 %60, %57
@@ -31838,24 +31838,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2201, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2201, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !2201, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !2201, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !2201, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !2201, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !2201, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !2201, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -32079,24 +32079,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2219, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2219, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !2219, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !2219, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !2219, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !2219, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !2219, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !2219, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -32656,21 +32656,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2264, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2264, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2264, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2264, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2264, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2264, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2264, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2264, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -32889,24 +32889,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !2282, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !2282, !noundef !13
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %12
   %.val29.i = load i32, ptr %54, align 4, !noalias !2282, !noundef !13
   %55 = sext i32 %.val29.i to i64
   %56 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %.val28.i = load i32, ptr %57, align 4, !noalias !2282, !noundef !13
   %58 = sext i32 %.val28.i to i64
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !2282, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !2282, !noundef !13
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %12
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %12
   %.val27.i = load i32, ptr %63, align 4, !noalias !2282, !noundef !13
   %64 = sext i32 %.val27.i to i64
   %65 = icmp ult i64 %16, %62
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw i32, ptr %60, i64 %16
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %16
   %.val.i = load i32, ptr %66, align 4, !noalias !2282, !noundef !13
   %67 = sext i32 %.val.i to i64
   %68 = sub nsw i64 %58, %55
@@ -33277,21 +33277,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2308, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2308, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2308, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2308, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2308, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2308, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2308, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2308, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -33700,24 +33700,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2331, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2331, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !2331, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !2331, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !2331, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !2331, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !2331, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !2331, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -34322,21 +34322,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2379, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2379, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2379, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2379, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2379, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2379, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2379, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2379, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -34737,21 +34737,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2405, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2405, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2405, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2405, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2405, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2405, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2405, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2405, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -34962,24 +34962,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2420, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2420, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !2420, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !2420, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !2420, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !2420, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !2420, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !2420, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -35193,21 +35193,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2438, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2438, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2438, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2438, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2438, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2438, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2438, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2438, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -35420,21 +35420,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2456, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2456, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2456, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2456, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2456, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2456, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2456, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2456, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -35645,21 +35645,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2471, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2471, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2471, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2471, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2471, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2471, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2471, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2471, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -35872,21 +35872,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2489, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2489, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2489, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2489, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2489, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2489, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2489, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2489, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -36097,21 +36097,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2504, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2504, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2504, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2504, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2504, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2504, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2504, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2504, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -36714,21 +36714,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2557, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2557, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2557, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2557, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2557, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2557, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2557, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2557, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -37137,21 +37137,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2580, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2580, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2580, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2580, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2580, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2580, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2580, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2580, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -37560,21 +37560,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2603, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2603, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2603, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2603, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2603, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2603, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2603, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2603, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -37949,21 +37949,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2626, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2626, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2626, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2626, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2626, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2626, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2626, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2626, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -38174,21 +38174,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2641, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2641, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2641, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2641, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2641, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2641, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2641, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2641, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -38773,21 +38773,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2700, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2700, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2700, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2700, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2700, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2700, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2700, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2700, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -39203,21 +39203,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2740, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2740, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2740, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2740, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2740, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2740, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2740, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2740, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -40000,24 +40000,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2804, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2804, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !2804, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !2804, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !2804, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !2804, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !2804, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !2804, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -40229,24 +40229,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2819, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2819, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !2819, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !2819, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !2819, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !2819, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !2819, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !2819, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -40468,21 +40468,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2834, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2834, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2834, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2834, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2834, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2834, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2834, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2834, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -40881,21 +40881,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2857, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2857, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2857, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2857, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2857, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2857, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2857, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2857, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -41118,21 +41118,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !2875, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !2875, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !2875, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !2875, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2875, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2875, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !2875, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !2875, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -41541,24 +41541,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !2901, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !2901, !noundef !13
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %14
   %.val29.i = load i32, ptr %56, align 4, !noalias !2901, !noundef !13
   %57 = sext i32 %.val29.i to i64
   %58 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %18
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %18
   %.val28.i = load i32, ptr %59, align 4, !noalias !2901, !noundef !13
   %60 = sext i32 %.val28.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2901, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2901, !noundef !13
-  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %14
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %14
   %.val27.i = load i32, ptr %65, align 4, !noalias !2901, !noundef !13
   %66 = sext i32 %.val27.i to i64
   %67 = icmp ult i64 %18, %64
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %18
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %18
   %.val.i = load i32, ptr %68, align 4, !noalias !2901, !noundef !13
   %69 = sext i32 %.val.i to i64
   %70 = sub nsw i64 %60, %57
@@ -41923,21 +41923,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2924, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2924, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2924, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2924, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2924, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2924, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2924, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2924, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -42148,24 +42148,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2939, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2939, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !2939, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !2939, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !2939, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !2939, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !2939, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !2939, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -42379,21 +42379,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !2957, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !2957, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !2957, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !2957, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !2957, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !2957, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !2957, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !2957, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -42614,24 +42614,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !2975, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !2975, !noundef !13
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %14
   %.val29.i = load i32, ptr %56, align 4, !noalias !2975, !noundef !13
   %57 = sext i32 %.val29.i to i64
   %58 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %18
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %18
   %.val28.i = load i32, ptr %59, align 4, !noalias !2975, !noundef !13
   %60 = sext i32 %.val28.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !2975, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !2975, !noundef !13
-  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %14
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %14
   %.val27.i = load i32, ptr %65, align 4, !noalias !2975, !noundef !13
   %66 = sext i32 %.val27.i to i64
   %67 = icmp ult i64 %18, %64
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw i32, ptr %62, i64 %18
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %18
   %.val.i = load i32, ptr %68, align 4, !noalias !2975, !noundef !13
   %69 = sext i32 %.val.i to i64
   %70 = sub nsw i64 %60, %57
@@ -42980,21 +42980,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !2998, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !2998, !noundef !13
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %14
   %.val29.i = load i64, ptr %56, align 8, !noalias !2998, !noundef !13
   %57 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw i64, ptr %53, i64 %18
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %18
   %.val28.i = load i64, ptr %58, align 8, !noalias !2998, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !2998, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !2998, !noundef !13
-  %63 = getelementptr inbounds nuw i64, ptr %60, i64 %14
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %14
   %.val27.i = load i64, ptr %63, align 8, !noalias !2998, !noundef !13
   %64 = icmp ult i64 %18, %62
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i64, ptr %60, i64 %18
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %18
   %.val.i = load i64, ptr %65, align 8, !noalias !2998, !noundef !13
   %66 = sub i64 %.val28.i, %.val29.i
   %67 = sub i64 %.val.i, %.val27.i
@@ -43358,24 +43358,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3021, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3021, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3021, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3021, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3021, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3021, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3021, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3021, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -43589,24 +43589,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3039, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3039, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3039, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3039, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3039, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3039, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3039, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3039, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -44216,21 +44216,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3101, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3101, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3101, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3101, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3101, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3101, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3101, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3101, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -44639,21 +44639,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3124, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3124, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3124, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3124, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3124, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3124, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3124, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3124, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -45253,21 +45253,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %53 = load ptr, ptr %52, align 8, !noalias !3169, !noundef !13
   %54 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %55 = load i64, ptr %54, align 8, !noalias !3169, !noundef !13
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %14
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %14
   %.val29.i = load i64, ptr %56, align 8, !noalias !3169, !noundef !13
   %57 = icmp ult i64 %18, %55
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw i64, ptr %53, i64 %18
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %18
   %.val28.i = load i64, ptr %58, align 8, !noalias !3169, !noundef !13
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !3169, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !3169, !noundef !13
-  %63 = getelementptr inbounds nuw i64, ptr %60, i64 %14
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %14
   %.val27.i = load i64, ptr %63, align 8, !noalias !3169, !noundef !13
   %64 = icmp ult i64 %18, %62
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i64, ptr %60, i64 %18
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %18
   %.val.i = load i64, ptr %65, align 8, !noalias !3169, !noundef !13
   %66 = sub i64 %.val28.i, %.val29.i
   %67 = sub i64 %.val.i, %.val27.i
@@ -45607,21 +45607,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3192, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3192, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3192, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3192, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3192, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3192, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3192, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3192, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -45842,24 +45842,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3207, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3207, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !3207, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !3207, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !3207, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !3207, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !3207, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !3207, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -46269,21 +46269,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3230, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3230, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3230, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3230, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3230, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3230, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3230, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3230, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -46684,24 +46684,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3256, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3256, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3256, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3256, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3256, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3256, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3256, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3256, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -46917,24 +46917,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !3271, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !3271, !noundef !13
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %12
   %.val29.i = load i32, ptr %54, align 4, !noalias !3271, !noundef !13
   %55 = sext i32 %.val29.i to i64
   %56 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %.val28.i = load i32, ptr %57, align 4, !noalias !3271, !noundef !13
   %58 = sext i32 %.val28.i to i64
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !3271, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !3271, !noundef !13
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %12
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %12
   %.val27.i = load i32, ptr %63, align 4, !noalias !3271, !noundef !13
   %64 = sext i32 %.val27.i to i64
   %65 = icmp ult i64 %16, %62
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw i32, ptr %60, i64 %16
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %16
   %.val.i = load i32, ptr %66, align 4, !noalias !3271, !noundef !13
   %67 = sext i32 %.val.i to i64
   %68 = sub nsw i64 %58, %55
@@ -47217,24 +47217,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3297, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3297, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !3297, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !3297, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !3297, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !3297, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !3297, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !3297, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -47644,21 +47644,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3320, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3320, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3320, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3320, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3320, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3320, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3320, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3320, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -48067,24 +48067,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3343, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3343, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !3343, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !3343, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !3343, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !3343, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !3343, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !3343, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -48687,21 +48687,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3388, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3388, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3388, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3388, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3388, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3388, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3388, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3388, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -49100,21 +49100,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3411, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3411, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3411, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3411, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3411, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3411, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3411, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3411, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -49325,21 +49325,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3426, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3426, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3426, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3426, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3426, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3426, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3426, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3426, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -49562,21 +49562,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3444, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3444, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3444, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3444, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3444, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3444, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3444, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3444, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -50529,24 +50529,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3527, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3527, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3527, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3527, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3527, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3527, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3527, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3527, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -50760,21 +50760,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3545, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3545, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3545, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3545, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3545, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3545, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3545, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3545, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -51118,21 +51118,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3582, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3582, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3582, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3582, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3582, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3582, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3582, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3582, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -51531,24 +51531,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3605, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3605, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3605, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3605, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3605, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3605, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3605, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3605, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -51762,21 +51762,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3623, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3623, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3623, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3623, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3623, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3623, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3623, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3623, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -52381,21 +52381,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3679, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3679, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3679, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3679, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3679, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3679, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3679, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3679, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -52999,21 +52999,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3727, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3727, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3727, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3727, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3727, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3727, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3727, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3727, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -53414,21 +53414,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3753, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3753, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3753, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3753, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3753, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3753, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3753, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3753, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -53649,24 +53649,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3768, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3768, !noundef !13
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %16
   %.val31.i = load i32, ptr %58, align 4, !noalias !3768, !noundef !13
   %59 = sext i32 %.val31.i to i64
   %60 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i32, ptr %55, i64 %20
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %20
   %.val30.i = load i32, ptr %61, align 4, !noalias !3768, !noundef !13
   %62 = sext i32 %.val30.i to i64
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !3768, !noundef !13
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %66 = load i64, ptr %65, align 8, !noalias !3768, !noundef !13
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %16
   %.val29.i = load i32, ptr %67, align 4, !noalias !3768, !noundef !13
   %68 = sext i32 %.val29.i to i64
   %69 = icmp ult i64 %20, %66
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %20
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %20
   %.val.i = load i32, ptr %70, align 4, !noalias !3768, !noundef !13
   %71 = sext i32 %.val.i to i64
   %72 = sub nsw i64 %62, %59
@@ -54078,21 +54078,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3794, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3794, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3794, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3794, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3794, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3794, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3794, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3794, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -54503,21 +54503,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3820, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3820, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3820, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3820, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3820, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3820, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3820, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3820, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -55119,21 +55119,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3865, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3865, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3865, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3865, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3865, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3865, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3865, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3865, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -55542,21 +55542,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %55 = load ptr, ptr %54, align 8, !noalias !3888, !noundef !13
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %57 = load i64, ptr %56, align 8, !noalias !3888, !noundef !13
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %16
   %.val31.i = load i64, ptr %58, align 8, !noalias !3888, !noundef !13
   %59 = icmp ult i64 %20, %57
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw i64, ptr %55, i64 %20
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %.val30.i = load i64, ptr %60, align 8, !noalias !3888, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8, !noalias !3888, !noundef !13
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %64 = load i64, ptr %63, align 8, !noalias !3888, !noundef !13
-  %65 = getelementptr inbounds nuw i64, ptr %62, i64 %16
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %16
   %.val29.i = load i64, ptr %65, align 8, !noalias !3888, !noundef !13
   %66 = icmp ult i64 %20, %64
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw i64, ptr %62, i64 %20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %20
   %.val.i = load i64, ptr %67, align 8, !noalias !3888, !noundef !13
   %68 = sub i64 %.val30.i, %.val31.i
   %69 = sub i64 %.val.i, %.val29.i
@@ -55957,24 +55957,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3914, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3914, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3914, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3914, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3914, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3914, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3914, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3914, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -56188,24 +56188,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3932, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3932, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3932, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3932, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3932, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3932, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3932, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3932, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -56419,21 +56419,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3950, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3950, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !3950, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !3950, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !3950, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !3950, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !3950, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !3950, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -56644,24 +56644,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3965, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3965, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3965, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3965, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3965, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3965, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3965, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3965, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -56875,24 +56875,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !3983, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !3983, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !3983, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !3983, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !3983, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !3983, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !3983, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !3983, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -57106,24 +57106,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !4001, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !4001, !noundef !13
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %8
   %.val29.i = load i32, ptr %50, align 4, !noalias !4001, !noundef !13
   %51 = sext i32 %.val29.i to i64
   %52 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %12
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %12
   %.val28.i = load i32, ptr %53, align 4, !noalias !4001, !noundef !13
   %54 = sext i32 %.val28.i to i64
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !4001, !noundef !13
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %58 = load i64, ptr %57, align 8, !noalias !4001, !noundef !13
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %8
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %8
   %.val27.i = load i32, ptr %59, align 4, !noalias !4001, !noundef !13
   %60 = sext i32 %.val27.i to i64
   %61 = icmp ult i64 %12, %58
   tail call void @llvm.assume(i1 %61)
-  %62 = getelementptr inbounds nuw i32, ptr %56, i64 %12
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %12
   %.val.i = load i32, ptr %62, align 4, !noalias !4001, !noundef !13
   %63 = sext i32 %.val.i to i64
   %64 = sub nsw i64 %54, %51
@@ -57343,24 +57343,24 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %51 = load ptr, ptr %50, align 8, !noalias !4019, !noundef !13
   %52 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %53 = load i64, ptr %52, align 8, !noalias !4019, !noundef !13
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %12
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %12
   %.val29.i = load i32, ptr %54, align 4, !noalias !4019, !noundef !13
   %55 = sext i32 %.val29.i to i64
   %56 = icmp ult i64 %16, %53
   tail call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %.val28.i = load i32, ptr %57, align 4, !noalias !4019, !noundef !13
   %58 = sext i32 %.val28.i to i64
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %60 = load ptr, ptr %59, align 8, !noalias !4019, !noundef !13
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %62 = load i64, ptr %61, align 8, !noalias !4019, !noundef !13
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %12
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %12
   %.val27.i = load i32, ptr %63, align 4, !noalias !4019, !noundef !13
   %64 = sext i32 %.val27.i to i64
   %65 = icmp ult i64 %16, %62
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw i32, ptr %60, i64 %16
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %16
   %.val.i = load i32, ptr %66, align 4, !noalias !4019, !noundef !13
   %67 = sext i32 %.val.i to i64
   %68 = sub nsw i64 %58, %55
@@ -57719,21 +57719,21 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !noalias !4042, !noundef !13
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %49 = load i64, ptr %48, align 8, !noalias !4042, !noundef !13
-  %50 = getelementptr inbounds nuw i64, ptr %47, i64 %8
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %8
   %.val29.i = load i64, ptr %50, align 8, !noalias !4042, !noundef !13
   %51 = icmp ult i64 %12, %49
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %12
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %12
   %.val28.i = load i64, ptr %52, align 8, !noalias !4042, !noundef !13
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %54 = load ptr, ptr %53, align 8, !noalias !4042, !noundef !13
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !4042, !noundef !13
-  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %8
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %8
   %.val27.i = load i64, ptr %57, align 8, !noalias !4042, !noundef !13
   %58 = icmp ult i64 %12, %56
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %12
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %12
   %.val.i = load i64, ptr %59, align 8, !noalias !4042, !noundef !13
   %60 = sub i64 %.val28.i, %.val29.i
   %61 = sub i64 %.val.i, %.val27.i
@@ -156750,7 +156750,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw { i16 }, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -156903,7 +156903,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw float, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -157056,7 +157056,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i128, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -157209,7 +157209,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i128, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -157515,7 +157515,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -157668,7 +157668,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -157821,7 +157821,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -157974,7 +157974,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -158127,7 +158127,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw { i32, i32 }, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -158280,7 +158280,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw double, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -158586,7 +158586,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -158739,7 +158739,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -158892,7 +158892,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw { i32, i32, i64 }, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -159045,7 +159045,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8

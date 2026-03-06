@@ -528,7 +528,7 @@ _ZNSt6vectorIPN3gmx8internal17OptionSectionImplESaIS3_EE11_S_relocateEPS3_S6_S6_
 _ZNSt6vectorIPN3gmx8internal17OptionSectionImplESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %81, %_ZNSt6vectorIPN3gmx8internal17OptionSectionImplESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %76, ptr %56, align 8, !tbaa !23
   store ptr %80, ptr %57, align 8, !tbaa !24
-  %82 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %82, ptr %59, align 8, !tbaa !25
   br label %_ZNSt6vectorIPN3gmx8internal17OptionSectionImplESaIS3_EE9push_backERKS3_.exit
 

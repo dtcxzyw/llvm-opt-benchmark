@@ -4847,7 +4847,7 @@ _ZNSt12_Vector_baseIN5zxing8ArrayRefIcEESaIS2_EE13_M_deallocateEPS2_m.exit: ; pr
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !90
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !38
-  %59 = getelementptr inbounds nuw %"class.zxing::ArrayRef", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %59, ptr %58, align 8, !tbaa !41
   ret void
 }

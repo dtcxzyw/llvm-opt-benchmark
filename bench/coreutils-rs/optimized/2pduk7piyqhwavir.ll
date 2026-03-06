@@ -471,7 +471,7 @@ _ZN5uu_od12parse_inputs24parse_inputs_traditional17hf9a58d7aeb7b7d78E.exit: ; pr
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %136, align 8, !nonnull !4, !noundef !4
-  %139 = getelementptr inbounds { ptr, i64 }, ptr %138, i64 %135
+  %139 = getelementptr inbounds [16 x i8], ptr %138, i64 %135
   %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !11, !noundef !4
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %142 = load i64, ptr %141, align 8, !noundef !4
@@ -602,7 +602,7 @@ thread-pre-split:                                 ; preds = %.thread, %133, %35
   %185 = phi i64 [ %.pre.i, %.noexc74 ], [ 0, %181 ]
   %186 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %187 = load ptr, ptr %186, align 8, !alias.scope !69, !nonnull !4, !noundef !4
-  %188 = getelementptr inbounds { ptr, i64 }, ptr %187, i64 %185
+  %188 = getelementptr inbounds [16 x i8], ptr %187, i64 %185
   store ptr @anon.13accb9a4f1adf839dc9dd6c82dc791e.26, ptr %188, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i64 1, ptr %189, align 8
@@ -617,7 +617,7 @@ thread-pre-split:                                 ; preds = %.thread, %133, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %194 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %195 = load ptr, ptr %194, align 8, !nonnull !4, !noundef !4
-  %196 = getelementptr inbounds { ptr, i64 }, ptr %195, i64 %193
+  %196 = getelementptr inbounds [16 x i8], ptr %195, i64 %193
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h18b21180bcdcdc55E.llvm.399940785433822248"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %24, ptr noundef nonnull %195, ptr noundef nonnull %196)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h737b52f6348ea942E.exit" unwind label %32
 

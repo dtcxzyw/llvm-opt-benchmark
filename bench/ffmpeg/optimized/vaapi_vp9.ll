@@ -7,11 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._VADecPictureParameterBufferVP9 = type { i16, i16, [8 x i32], %union.anon.4, i8, i8, i8, i8, i8, i16, [7 x i8], [3 x i8], i8, i8, [8 x i32] }
 %union.anon.4 = type { %struct.anon.5 }
 %struct.anon.5 = type { i32 }
-%struct.ProgressFrame = type { ptr, ptr }
 %struct._VASliceParameterBufferVP9 = type { i32, i32, i32, [8 x %struct._VASegmentParameterVP9], [4 x i32] }
 %struct._VASegmentParameterVP9 = type { %union.anon.6, [4 x [2 x i8]], i16, i16, i16, i16, [4 x i32] }
 %union.anon.6 = type { i16 }
-%struct.anon.2 = type { i8, i8, i8, i8, i8, i16, i8, [2 x [2 x i16]], [4 x [2 x i8]] }
 
 @.str = private unnamed_addr constant [10 x i8] c"vp9_vaapi\00", align 1
 @ff_vp9_vaapi_hwaccel = local_unnamed_addr constant { %struct.AVHWAccel, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr } { %struct.AVHWAccel { ptr @.str, i32 0, i32 167, i32 44, i32 0 }, ptr null, ptr @vaapi_vp9_start_frame, ptr null, ptr @vaapi_vp9_decode_slice, ptr @vaapi_vp9_end_frame, i32 40, i32 72, i32 1, [4 x i8] zeroinitializer, ptr @ff_vaapi_decode_init, ptr @ff_vaapi_decode_uninit, ptr @ff_vaapi_common_frame_params, ptr null, ptr null, ptr null }, align 8
@@ -267,7 +265,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 
 172:                                              ; preds = %.loopexit, %179
   %indvars.iv128 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next129, %179 ]
-  %173 = getelementptr inbounds nuw %struct.ProgressFrame, ptr %171, i64 %indvars.iv128
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %indvars.iv128
   %174 = load ptr, ptr %173, align 8, !tbaa !77
   %.not119 = icmp eq ptr %174, null
   br i1 %.not119, label %179, label %175
@@ -281,7 +279,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_vp9_start_frame(ptr noundef
 
 179:                                              ; preds = %172, %175
   %.sink = phi i32 [ %178, %175 ], [ -1, %172 ]
-  %180 = getelementptr inbounds nuw i32, ptr %.sroa.3.0..sroa_idx, i64 %indvars.iv128
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.3.0..sroa_idx, i64 %indvars.iv128
   store i32 %.sink, ptr %180, align 4, !tbaa !78
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 8
@@ -319,8 +317,8 @@ define internal i32 @vaapi_vp9_decode_slice(ptr noundef %0, ptr noundef %1, i32 
 
 11:                                               ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct._VASegmentParameterVP9, ptr %9, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %struct.anon.2, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [26 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i8, ptr %14, align 2, !tbaa !80
   %16 = and i8 %15, 1

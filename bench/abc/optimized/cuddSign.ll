@@ -45,7 +45,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = zext i32 %19 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !24
   %28 = icmp sgt i32 %10, 0
   br i1 %28, label %.lr.ph.split, label %.._crit_edge_crit_edge
@@ -60,7 +60,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %30 = add nsw i32 %10, -1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw double, ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !27
   %34 = load ptr, ptr %29, align 8, !tbaa !28
   %wide.trip.count68 = zext nneg i32 %10 to i64
@@ -68,10 +68,10 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
 
 .critedge.us:                                     ; preds = %.critedge.us, %.lr.ph.split.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.critedge.us ], [ 0, %.lr.ph.split.us ]
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv65
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv65
   %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds double, ptr %14, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %14, i64 %37
   store double %33, ptr %38, align 8, !tbaa !27
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -84,7 +84,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %42 = zext i32 %19 to i64
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %44 = load ptr, ptr %43, align 8, !tbaa !26
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %42
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %42
   %46 = load i32, ptr %45, align 4, !tbaa !24
   %47 = sext i32 %46 to i64
   %48 = sext i32 %27 to i64
@@ -97,12 +97,12 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %50 = icmp slt i64 %indvars.iv, %47
   %51 = sub nsw i64 %indvars.iv, %48
   %.pn = select i1 %50, i64 %41, i64 %51
-  %.sink.in = getelementptr inbounds double, ptr %8, i64 %.pn
+  %.sink.in = getelementptr inbounds [8 x i8], ptr %8, i64 %.pn
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !27
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !24
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds double, ptr %14, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %14, i64 %54
   store double %.sink, ptr %55, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -110,10 +110,10 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %.._crit_edge_crit_edge
   %.pre-phi77 = phi i64 [ %.pre76, %.._crit_edge_crit_edge ], [ %31, %.critedge.us ], [ %41, %.critedge ]
-  %56 = getelementptr inbounds double, ptr %8, i64 %.pre-phi77
+  %56 = getelementptr inbounds [8 x i8], ptr %8, i64 %.pre-phi77
   %57 = load double, ptr %56, align 8, !tbaa !27
   %58 = sext i32 %10 to i64
-  %59 = getelementptr inbounds double, ptr %14, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %14, i64 %58
   store double %57, ptr %59, align 8, !tbaa !27
   br label %62
 
@@ -188,7 +188,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !24
   %21 = add i32 %15, 1
   %22 = sub i32 %21, %20
@@ -268,7 +268,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %70 = load ptr, ptr %69, align 8, !tbaa !26
   %71 = zext i32 %65 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !24
   %74 = sub nsw i32 %68, %73
   %75 = sext i32 %74 to i64
@@ -287,7 +287,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %84 = load ptr, ptr %83, align 8, !tbaa !26
   %85 = zext i32 %79 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !24
   %88 = sub nsw i32 %82, %87
   %89 = sext i32 %88 to i64
@@ -295,7 +295,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 90:                                               ; preds = %76, %81
   %.0102 = phi i64 [ %89, %81 ], [ 0, %76 ]
-  %91 = getelementptr inbounds double, ptr %55, i64 %.0103
+  %91 = getelementptr inbounds [8 x i8], ptr %55, i64 %.0103
   %92 = load double, ptr %91, align 8, !tbaa !27
   %93 = load ptr, ptr %4, align 8, !tbaa !34
   store double %92, ptr %93, align 8, !tbaa !27
@@ -318,7 +318,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr %95, align 8, !tbaa !26
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %96
   %105 = load i32, ptr %104, align 4, !tbaa !24
   br label %106
 
@@ -328,7 +328,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 108:                                              ; preds = %106
   %109 = load ptr, ptr %95, align 8, !tbaa !26
-  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %99
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %99
   %111 = load i32, ptr %110, align 4, !tbaa !24
   br label %112
 
@@ -344,7 +344,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 117:                                              ; preds = %116
   %118 = load ptr, ptr %95, align 8, !tbaa !26
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %96
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %96
   %120 = load i32, ptr %119, align 4, !tbaa !24
   br label %121
 
@@ -356,7 +356,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %95, align 8, !tbaa !26
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %99
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %99
   %128 = load i32, ptr %127, align 4, !tbaa !24
   br label %129
 
@@ -364,7 +364,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   %130 = phi i32 [ %128, %125 ], [ 2147483647, %121 ]
   %131 = add nsw i32 %124, %130
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds double, ptr %55, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %55, i64 %132
   br label %134
 
 134:                                              ; preds = %112, %129
@@ -374,7 +374,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 135:                                              ; preds = %134
   %136 = load ptr, ptr %95, align 8, !tbaa !26
-  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %100
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %100
   %138 = load i32, ptr %137, align 4, !tbaa !24
   br label %139
 
@@ -384,7 +384,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 141:                                              ; preds = %139
   %142 = load ptr, ptr %95, align 8, !tbaa !26
-  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %99
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %99
   %144 = load i32, ptr %143, align 4, !tbaa !24
   br label %145
 
@@ -400,7 +400,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 150:                                              ; preds = %149
   %151 = load ptr, ptr %95, align 8, !tbaa !26
-  %152 = getelementptr inbounds nuw i32, ptr %151, i64 %100
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %100
   %153 = load i32, ptr %152, align 4, !tbaa !24
   br label %154
 
@@ -412,7 +412,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr %95, align 8, !tbaa !26
-  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %99
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %99
   %161 = load i32, ptr %160, align 4, !tbaa !24
   br label %162
 
@@ -424,11 +424,11 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 166:                                              ; preds = %145, %162
   %.pn = phi i64 [ %165, %162 ], [ %.0102, %145 ]
-  %.0.in = getelementptr inbounds double, ptr %60, i64 %.pn
+  %.0.in = getelementptr inbounds [8 x i8], ptr %60, i64 %.pn
   %.0 = load double, ptr %.0.in, align 8, !tbaa !27
   %167 = fadd double %.0101, %.0
   %168 = fmul double %167, 5.000000e-01
-  %169 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   store double %168, ptr %169, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

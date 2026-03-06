@@ -3,8 +3,6 @@ source_filename = "bench/hdf5/original/H5EAcache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5EA_sblk_info_t = type { i64, i64, i64, i64 }
-
 @.str = private unnamed_addr constant [24 x i8] c"Extensible Array Header\00", align 1
 @H5AC_EARRAY_HDR = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str, i32 6, i32 0, ptr @H5EA__cache_hdr_get_initial_load_size, ptr null, ptr @H5EA__cache_hdr_verify_chksum, ptr @H5EA__cache_hdr_deserialize, ptr @H5EA__cache_hdr_image_len, ptr null, ptr @H5EA__cache_hdr_serialize, ptr @H5EA__cache_hdr_notify, ptr @H5EA__cache_hdr_free_icr, ptr null }], align 16
 @.str.1 = private unnamed_addr constant [29 x i8] c"Extensible Array Index Block\00", align 1
@@ -263,7 +261,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 44:                                               ; preds = %36
   %45 = zext nneg i8 %38 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr @H5EA_client_class_g, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @H5EA_client_class_g, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !40
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 248
   store ptr %47, ptr %48, align 8, !tbaa !41
@@ -805,7 +803,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %361 = mul nuw nsw i64 %360, 125613361
   %362 = lshr i64 %361, 27
   %363 = and i64 %362, 31
-  %364 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %363
+  %364 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %363
   %365 = load i32, ptr %364, align 4, !tbaa !16
   %366 = shl i32 %365, 1
   %367 = zext i32 %366 to i64
@@ -1525,7 +1523,7 @@ define internal noundef i32 @H5EA__cache_iblock_get_initial_load_size(ptr nounde
   %13 = mul nuw nsw i64 %12, 125613361
   %14 = lshr i64 %13, 27
   %15 = and i64 %14, 31
-  %16 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = shl i32 %17, 1
   %19 = zext i32 %18 to i64
@@ -1738,7 +1736,7 @@ define internal ptr @H5EA__cache_iblock_deserialize(ptr noundef %0, i64 noundef 
   %.04661 = phi i64 [ 0, %.lr.ph ], [ %95, %91 ]
   %92 = load ptr, ptr %48, align 8, !tbaa !83
   %93 = load ptr, ptr %90, align 8, !tbaa !88
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %.04661
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %.04661
   call void @H5F_addr_decode(ptr noundef %92, ptr noundef nonnull %5, ptr noundef %94) #6
   %95 = add nuw i64 %.04661, 1
   %96 = load i64, ptr %88, align 8, !tbaa !87
@@ -1759,7 +1757,7 @@ define internal ptr @H5EA__cache_iblock_deserialize(ptr noundef %0, i64 noundef 
   %.14762 = phi i64 [ 0, %.lr.ph63 ], [ %105, %101 ]
   %102 = load ptr, ptr %48, align 8, !tbaa !83
   %103 = load ptr, ptr %100, align 8, !tbaa !91
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %.14762
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.14762
   call void @H5F_addr_decode(ptr noundef %102, ptr noundef nonnull %5, ptr noundef %104) #6
   %105 = add nuw i64 %.14762, 1
   %106 = load i64, ptr %98, align 8, !tbaa !90
@@ -1893,7 +1891,7 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_iblock_serialize(ptr noundef %
 60:                                               ; preds = %.lr.ph, %60
   %.03339 = phi i64 [ 0, %.lr.ph ], [ %64, %60 ]
   %61 = load ptr, ptr %59, align 8, !tbaa !88
-  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %.03339
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.03339
   %63 = load i64, ptr %62, align 8, !tbaa !15
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %63) #6
   %64 = add nuw i64 %.03339, 1
@@ -1914,7 +1912,7 @@ define internal range(i32 -1, 1) i32 @H5EA__cache_iblock_serialize(ptr noundef %
 70:                                               ; preds = %.lr.ph41, %70
   %.040 = phi i64 [ 0, %.lr.ph41 ], [ %74, %70 ]
   %71 = load ptr, ptr %69, align 8, !tbaa !91
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %.040
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.040
   %73 = load i64, ptr %72, align 8, !tbaa !15
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %73) #6
   %74 = add nuw i64 %.040, 1
@@ -2085,7 +2083,7 @@ define internal noundef i32 @H5EA__cache_sblock_get_initial_load_size(ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !103
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !104
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !106
@@ -2323,7 +2321,7 @@ define internal ptr @H5EA__cache_sblock_deserialize(ptr noundef %0, i64 noundef 
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 384
   %102 = load ptr, ptr %101, align 8, !tbaa !83
   %103 = load ptr, ptr %98, align 8, !tbaa !119
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %.04759
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.04759
   call void @H5F_addr_decode(ptr noundef %102, ptr noundef nonnull %5, ptr noundef %104) #6
   %105 = add nuw i64 %.04759, 1
   %106 = load i64, ptr %96, align 8, !tbaa !116
@@ -2473,7 +2471,7 @@ define internal noundef i32 @H5EA__cache_sblock_serialize(ptr noundef %0, ptr no
 59:                                               ; preds = %.lr.ph38, %59
   %.036 = phi i64 [ 0, %.lr.ph38 ], [ %63, %59 ]
   %60 = load ptr, ptr %58, align 8, !tbaa !119
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %.036
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.036
   %62 = load i64, ptr %61, align 8, !tbaa !15
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %62) #6
   %63 = add nuw i64 %.036, 1

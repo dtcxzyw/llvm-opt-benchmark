@@ -108,8 +108,8 @@ _ZN21CompressedWriteStream10write_byteEa.exit:    ; preds = %_ZL32compute_record
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %40 ]
   %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr inbounds nuw %class.PcDesc, ptr %47, i64 %indvars.iv.i
-  %49 = getelementptr inbounds nuw %class.PcDesc, ptr %44, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %48, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = load i32, ptr %15, align 4
@@ -129,7 +129,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %_ZN21Compres
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %15, align 4
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds %class.PcDesc, ptr %53, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %53, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -165,8 +165,8 @@ define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nound
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds nuw %class.PcDesc, ptr %18, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw %class.PcDesc, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %4, align 4
@@ -188,7 +188,7 @@ define hidden void @_ZN24DebugInformationRecorder17add_new_pc_offsetEi(ptr nound
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %4, align 4
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %class.PcDesc, ptr %27, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %27, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   ret void
 }
@@ -231,8 +231,8 @@ define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr n
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds nuw %class.PcDesc, ptr %21, i64 %indvars.iv.i
-  %23 = getelementptr inbounds nuw %class.PcDesc, ptr %16, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = load i32, ptr %7, align 4
@@ -254,7 +254,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %3, %._crit_e
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %7, align 4
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %class.PcDesc, ptr %29, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %29, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -287,8 +287,8 @@ define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr nound
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds nuw %class.PcDesc, ptr %18, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw %class.PcDesc, ptr %13, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = load i32, ptr %4, align 4
@@ -310,7 +310,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %2, %._crit_e
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %4, align 4
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %class.PcDesc, ptr %26, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %26, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -429,7 +429,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
   tail call void @_ZN12MonitorValue8write_onEP20DebugInfoWriteStream(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr noundef %53) #12
@@ -729,7 +729,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
   %54 = load ptr, ptr %52, align 8
@@ -860,7 +860,7 @@ define linkonce_odr hidden noundef ptr @_ZN26GrowableArrayWithAllocatorIP9DIR_Ch
   %13 = add i32 %.01627.i, %.01528.i
   %14 = lshr i32 %13, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
@@ -956,9 +956,9 @@ _ZN9DIR_Chunk7compareERKPS_S2_.exit.thread.i:     ; preds = %_ZN9DIR_Chunk7compa
   %indvars.iv.i = phi i64 [ %62, %.lr.ph.i4 ], [ %indvars.iv.next.i, %64 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.next.i
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %indvars.iv.next.i
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i
+  %68 = getelementptr inbounds [8 x i8], ptr %65, i64 %indvars.iv.i
   store ptr %67, ptr %68, align 8
   %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %63
   br i1 %.not.not.i, label %64, label %._crit_edge.loopexit.i, !llvm.loop !14
@@ -975,7 +975,7 @@ _ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeE
   %71 = load ptr, ptr %1, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.pre-phi.i
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %.pre-phi.i
   store ptr %71, ptr %74, align 8
   %.pre = load ptr, ptr %72, align 8
   br label %_ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7compareES8_S8_EEEEiS6_Rb.exit
@@ -984,7 +984,7 @@ _ZNK17GrowableArrayViewIP9DIR_ChunkE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZNS0_7c
   %75 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %44 ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP9DIR_Chunk13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %14, %44 ]
   %76 = sext i32 %.0.i8 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   ret ptr %78
 }
@@ -1007,7 +1007,7 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %17 to i64
-  %24 = getelementptr %class.PcDesc, ptr %22, i64 %23
+  %24 = getelementptr [16 x i8], ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -12
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1690,7 +1690,7 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store i8 0, ptr %21, align 8
@@ -1700,7 +1700,7 @@ define hidden void @_ZN24DebugInformationRecorder16dump_object_poolEP13GrowableA
 .split:                                           ; preds = %8, %.split9
   %phi.call = phi i32 [ %16, %.split9 ], [ 0, %8 ]
   %23 = zext nneg i32 %4 to i64
-  %24 = getelementptr %class.PcDesc, ptr %10, i64 %23
+  %24 = getelementptr [16 x i8], ptr %10, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   store i32 %phi.call, ptr %25, align 4
   ret void
@@ -1724,7 +1724,7 @@ _ZN24DebugInformationRecorder7prev_pcEv.exit:     ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %5 to i64
-  %13 = getelementptr %class.PcDesc, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
@@ -1818,7 +1818,7 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %4 to i64
-  %11 = getelementptr %class.PcDesc, ptr %9, i64 %10
+  %11 = getelementptr [16 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -16
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 2147483647
@@ -1843,8 +1843,8 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %1
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %18 ]
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds nuw %class.PcDesc, ptr %25, i64 %indvars.iv.i
-  %27 = getelementptr inbounds nuw %class.PcDesc, ptr %22, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i32, ptr %3, align 4
@@ -1864,7 +1864,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %14, %._crit_
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %3, align 4
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %class.PcDesc, ptr %31, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %31, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 4
@@ -1974,9 +1974,9 @@ _ZN13GrowableArrayIP9DIR_ChunkE8allocateEv.exit:  ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1993,7 +1993,7 @@ _ZN13GrowableArrayIP9DIR_ChunkE8allocateEv.exit:  ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

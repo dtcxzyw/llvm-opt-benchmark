@@ -216,7 +216,7 @@ define hidden ptr @dfilter_resolve_unparsed(ptr noundef %0, ptr noundef %1) loca
 .lr.ph.i:                                         ; preds = %7, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %7 ]
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef %16)
   %.not.i = icmp eq i32 %17, 0
@@ -255,7 +255,7 @@ define hidden void @add_deprecated_token(ptr noundef %0, ptr noundef %1) local_u
 .lr.ph:                                           ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef %11)
   %.not = icmp eq i32 %12, 0
@@ -368,7 +368,7 @@ define void @dfilter_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   tail call void @dfvm_insn_free(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -471,7 +471,7 @@ define hidden noundef nonnull ptr @tokenstr(i32 noundef %0) local_unnamed_addr #
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tokenstr, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tokenstr, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1114,7 +1114,7 @@ define internal fastcc void @dfwork_free(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %28 ]
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr ptr, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   tail call void @dfvm_insn_free(ptr noundef %33)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1212,7 +1212,7 @@ define hidden void @dfilter_prime_proto_tree(ptr noundef readonly captures(none)
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   tail call void @proto_tree_prime_with_hfid(ptr noundef %1, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1245,7 +1245,7 @@ define hidden void @dfilter_prime_proto_tree_print(ptr noundef readonly captures
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   tail call void @proto_tree_prime_with_hfid_print(ptr noundef %1, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1281,7 +1281,7 @@ define hidden noundef zeroext i1 @dfilter_interested_in_field(ptr noundef readon
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1308,7 +1308,7 @@ define hidden noundef zeroext i1 @dfilter_interested_in_proto(ptr noundef readon
 7:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call zeroext i1 @proto_registrar_is_protocol(i32 noundef %10)
   br i1 %11, label %12, label %14
@@ -1369,7 +1369,7 @@ define noundef zeroext i1 @dfilter_requires_columns(ptr noundef readonly capture
 14:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr i32, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4
   %18 = tail call zeroext i1 @proto_registrar_is_protocol(i32 noundef %17)
   br i1 %18, label %19, label %21
@@ -1578,7 +1578,7 @@ define internal fastcc void @load_references(ptr noundef %0, ptr noundef %1, i1 
 reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %reference_new.exit.us.us.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %reference_new.exit.us.us.us ], [ 0, %.preheader.us.us ]
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %indvars.iv26
+  %23 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv26
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %6, align 8
   %26 = call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #17
@@ -1634,7 +1634,7 @@ reference_new.exit.us.us.us:                      ; preds = %.preheader.us.us, %
 reference_new.exit:                               ; preds = %.preheader, %reference_new.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %reference_new.exit ], [ 0, %.preheader ]
   %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #17
@@ -1927,7 +1927,7 @@ define ptr @df_cell_iter_next(ptr noundef captures(none) %0) local_unnamed_addr 
   %10 = add nuw i32 %3, 1
   store i32 %10, ptr %2, align 8
   %11 = zext i32 %3 to i64
-  %12 = getelementptr ptr, ptr %9, i64 %11
+  %12 = getelementptr [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 

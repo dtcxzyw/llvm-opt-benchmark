@@ -478,7 +478,7 @@ bytestream2_get_byte.exit36.i:                    ; preds = %211, %bytestream2_g
   %219 = or disjoint i32 %.0.i35.i, -16777216
   %220 = select i1 %.0.i178, i32 %.02641.i, i32 %.0.i39.i
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %166, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %221
   store i32 %219, ptr %222, align 4, !tbaa !36
   br label %223
 
@@ -967,7 +967,7 @@ bytestream2_get_be16.exit52:                      ; preds = %36, %37
 45:                                               ; preds = %43
   %46 = add nsw i32 %.159, 1
   %47 = sext i32 %.159 to i64
-  %48 = getelementptr inbounds i16, ptr %.04065, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %.04065, i64 %47
   store i16 %.0.i51, ptr %48, align 2, !tbaa !41
   br label %49
 
@@ -1010,7 +1010,7 @@ bytestream2_get_be16.exit:                        ; preds = %59, %60
   %.0.i = phi i16 [ 0, %59 ], [ %63, %60 ]
   %65 = add nsw i32 %.461, 1
   %66 = sext i32 %.461 to i64
-  %67 = getelementptr inbounds i16, ptr %.04065, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %.04065, i64 %66
   store i16 %.0.i, ptr %67, align 2, !tbaa !41
   br label %70
 

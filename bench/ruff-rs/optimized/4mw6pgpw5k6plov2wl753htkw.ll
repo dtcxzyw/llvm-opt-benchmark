@@ -5423,7 +5423,7 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   %.sroa.585.0.copyload.i.i.i = load i64, ptr %.sroa.585.0..sroa_idx.i.i.i, align 8, !noalias !469
   %47 = icmp ult i64 %.sroa.585.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds nuw { ptr, i8, [7 x i8] }, ptr %.sroa.484.0.copyload.i.i.i, i64 %.sroa.585.0.copyload.i.i.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.484.0.copyload.i.i.i, i64 %.sroa.585.0.copyload.i.i.i
   %49 = icmp sgt i64 %.sroa.083.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !470
@@ -5584,7 +5584,7 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   %.sroa.599.0.copyload.i.i.i = load i64, ptr %.sroa.599.0..sroa_idx.i.i.i, align 8, !noalias !469
   %89 = icmp ult i64 %.sroa.599.0.copyload.i.i.i, 576460752303423488
   call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw { ptr, i8, [7 x i8] }, ptr %.sroa.498.0.copyload.i.i.i, i64 %.sroa.599.0.copyload.i.i.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.498.0.copyload.i.i.i, i64 %.sroa.599.0.copyload.i.i.i
   %91 = icmp sgt i64 %.sroa.097.0.copyload.i.i.i, -1
   call void @llvm.assume(i1 %91)
   %.sroa.04.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -6321,15 +6321,15 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
 6:                                                ; preds = %4
   %7 = lshr i64 %3, 3
   %8 = shl nuw nsw i64 %7, 2
-  %9 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %8
   %10 = mul nuw nsw i64 %7, 7
-  %11 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %10
   %12 = tail call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17haf5c6b3d40ceac20E(ptr noundef %0, ptr noundef %9, ptr noundef %11, i64 noundef %7)
-  %13 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %1, i64 %8
-  %14 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %1, i64 %10
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %8
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %10
   %15 = tail call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17haf5c6b3d40ceac20E(ptr noundef %1, ptr noundef %13, ptr noundef %14, i64 noundef %7)
-  %16 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %2, i64 %8
-  %17 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %2, i64 %10
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %8
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %10
   %18 = tail call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17haf5c6b3d40ceac20E(ptr noundef %2, ptr noundef %16, ptr noundef %17, i64 noundef %7)
   br label %_ZN4core5slice4sort6shared5pivot7median317hcaf759192c8179d6E.exit
 

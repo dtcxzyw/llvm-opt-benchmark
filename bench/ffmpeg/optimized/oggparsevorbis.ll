@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVMetadataConv = type { ptr, ptr }
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [36 x i8] c"%td bytes of comment header remain\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"truncated comment header, %i comments not found\0A\00", align 1
@@ -240,7 +239,7 @@ define i32 @ff_vorbis_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 116:                                              ; preds = %115, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %115 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.i.i
   %118 = load ptr, ptr %117, align 8, !tbaa !37
   %119 = load i64, ptr %118, align 8, !tbaa !39
   %120 = icmp eq i64 %119, %114
@@ -337,10 +336,10 @@ define internal range(i32 -2147483648, 2) i32 @vorbis_header(ptr noundef %0, i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !45
   %10 = load ptr, ptr %4, align 8, !tbaa !47
-  %11 = getelementptr inbounds %struct.ogg_stream, ptr %10, i64 %7
+  %11 = getelementptr inbounds [432 x i8], ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !54
@@ -390,7 +389,7 @@ define internal range(i32 -2147483648, 2) i32 @vorbis_header(ptr noundef %0, i32
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %39 = lshr i32 %18, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %.not115 = icmp eq ptr %42, null
   br i1 %.not115, label %43, label %.critedge
@@ -422,7 +421,7 @@ define internal range(i32 -2147483648, 2) i32 @vorbis_header(ptr noundef %0, i32
   br label %.critedge
 
 .thread:                                          ; preds = %43, %49, %47
-  %56 = getelementptr inbounds nuw i32, ptr %24, i64 %40
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %40
   store i32 %35, ptr %56, align 4, !tbaa !21
   %57 = load ptr, ptr %11, align 8, !tbaa !51
   %58 = load i32, ptr %13, align 8, !tbaa !54
@@ -611,7 +610,7 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = load ptr, ptr %5, align 8, !tbaa !47
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.ogg_stream, ptr %6, i64 %7
+  %8 = getelementptr inbounds [432 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 424
   %10 = load ptr, ptr %9, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -764,7 +763,7 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   %87 = phi i64 [ -9223372036854775808, %85 ], [ %81, %.loopexit ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %89 = load ptr, ptr %88, align 8, !tbaa !44
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %7
+  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 %7
   %91 = load ptr, ptr %90, align 8, !tbaa !45
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %93 = load i64, ptr %92, align 8, !tbaa !79
@@ -912,7 +911,7 @@ define internal void @vorbis_cleanup(ptr noundef readonly captures(none) %0, i32
   %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %9 = load ptr, ptr %8, align 8, !tbaa !55
   %.not = icmp eq ptr %9, null
@@ -926,7 +925,7 @@ define internal void @vorbis_cleanup(ptr noundef readonly captures(none) %0, i32
 
 13:                                               ; preds = %10, %13
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %14) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -975,7 +974,7 @@ define internal fastcc i32 @vorbis_update_metadata(ptr noundef %0, i32 noundef %
   %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !59
   %10 = icmp ult i32 %9, 9
@@ -984,7 +983,7 @@ define internal fastcc i32 @vorbis_update_metadata(ptr noundef %0, i32 noundef %
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !44
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %6
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %6
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   tail call void @av_dict_free(ptr noundef nonnull %16) #9
@@ -1081,9 +1080,9 @@ define internal fastcc i32 @fixup_vorbis_headers(ptr noundef %0, ptr noundef %1)
   %.0381 = phi i32 [ %26, %17 ], [ %37, %28 ]
   %29 = sext i32 %.0381 to i64
   %30 = getelementptr inbounds i8, ptr %16, i64 %29
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !21
   %35 = zext i32 %34 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %32, i64 %35, i1 false)

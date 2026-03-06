@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %class.anon = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
 %"class.llvm::Register" = type { i32 }
@@ -35,9 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.484" }
 %"class.llvm::ArrayRef.484" = type { ptr, i64 }
 %"class.llvm::MIMetadata" = type { %"class.llvm::DebugLoc", ptr, ptr }
-%"struct.llvm::MachineFrameInfo::StackObject" = type <{ i64, i64, %"struct.llvm::Align", i8, i8, i8, i8, [3 x i8], ptr, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.llvm::Align" = type { i8 }
-%"struct.llvm::GCPoint" = type { ptr, %"class.llvm::DebugLoc" }
 
 $_ZN4llvm4Pass14doFinalizationERNS_6ModuleE = comdat any
 
@@ -265,7 +261,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
   %42 = and i32 %41, 134217727
   %43 = zext nneg i32 %42 to i64
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %44
+  %45 = getelementptr inbounds [32 x i8], ptr %19, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !46
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %48 = load ptr, ptr %47, align 8, !tbaa !46
@@ -283,7 +279,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
   %56 = and i32 %55, 134217727
   %57 = zext nneg i32 %56 to i64
   %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %58
+  %59 = getelementptr inbounds [32 x i8], ptr %19, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -301,7 +297,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit: ; preds = %
   %66 = and i32 %65, 134217727
   %67 = zext nneg i32 %66 to i64
   %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds %"class.llvm::Use", ptr %19, i64 %68
+  %69 = getelementptr inbounds [32 x i8], ptr %19, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !46
   %71 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %70) #15
   %72 = load i32, ptr %6, align 8, !tbaa !34
@@ -320,7 +316,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10AllocaInstELb1EE9push_backES2_.exit: ; p
   %77 = phi i32 [ %72, %63 ], [ %.pre.i, %74 ]
   %78 = load ptr, ptr %3, align 8, !tbaa !32
   %79 = zext i32 %77 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %79
   %81 = ptrtoint ptr %71 to i64
   store i64 %81, ptr %80, align 1
   %82 = load i32, ptr %6, align 8, !tbaa !34
@@ -1021,7 +1017,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
 _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, %47
   %.pre-phi = phi i64 [ %7, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre17, %47 ]
   %50 = phi ptr [ %4, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %47 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = ptrtoint ptr %2 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %5, align 8, !tbaa !34
@@ -1570,7 +1566,7 @@ _ZN12_GLOBAL__N_121GCMachineCodeAnalysis14FindSafePointsERN4llvm15MachineFunctio
   %208 = add i32 %207, %204
   %209 = zext i32 %208 to i64
   %210 = load ptr, ptr %205, align 8, !tbaa !367
-  %211 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %210, i64 %209
+  %211 = getelementptr inbounds nuw [40 x i8], ptr %210, i64 %209
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load i64, ptr %212, align 8, !tbaa !368
   %214 = icmp eq i64 %213, -1
@@ -1818,7 +1814,7 @@ _ZSt8_DestroyIPN4llvm7GCPointES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI
 _ZNSt12_Vector_baseIN4llvm7GCPointESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm7GCPointES1_EvT_S3_RSaIT0_E.exit, %55
   store ptr %24, ptr %0, align 8, !tbaa !375
   store ptr %.0.lcssa.i.i.i.i.i26, ptr %6, align 8, !tbaa !358
-  %59 = getelementptr inbounds nuw %"struct.llvm::GCPoint", ptr %24, i64 %18
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %18
   store ptr %59, ptr %54, align 8, !tbaa !359
   ret void
 }
@@ -1867,7 +1863,7 @@ define linkonce_odr hidden void @_ZN4llvm17PreservedAnalyses8preserveEPNS_11Anal
   %18 = add i32 %10, -1
   store i32 %18, ptr %9, align 4, !tbaa !21
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   store ptr %21, ptr %.01217.i.i, align 8, !tbaa !25
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5eraseES2_.exit

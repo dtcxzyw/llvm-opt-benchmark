@@ -178,7 +178,7 @@ define internal range(i32 0, 2) i32 @test_fifd(i32 noundef %0) #0 {
 43:                                               ; preds = %.preheader, %41
   %.0921 = phi i64 [ 0, %.preheader ], [ %42, %41 ]
   %44 = call ptr @ossl_quic_sstream_new(i64 noundef 1024) #11
-  %45 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0921
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0921
   store ptr %44, ptr %45, align 8, !tbaa !26
   %46 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 346, ptr noundef nonnull @.str.9, ptr noundef %44) #11
   %.not19 = icmp eq i32 %46, 0
@@ -228,7 +228,7 @@ define internal range(i32 0, 2) i32 @test_fifd(i32 noundef %0) #0 {
 
 65:                                               ; preds = %63, %65
   %.122 = phi i64 [ 0, %63 ], [ %68, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %.122
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %.122
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   call void @ossl_quic_sstream_free(ptr noundef %67) #11
   %68 = add nuw nsw i64 %.122, 1
@@ -275,7 +275,7 @@ define internal ptr @get_sstream_by_id(i64 noundef %0, i32 %1, ptr readnone capt
 5:                                                ; preds = %3
   %6 = load ptr, ptr @cur_info, align 8, !tbaa !4
   %7 = getelementptr i8, ptr %6, i64 -160
-  %8 = getelementptr ptr, ptr %7, i64 %0
+  %8 = getelementptr [8 x i8], ptr %7, i64 %0
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   br label %sstream_expect.exit
 
@@ -291,9 +291,9 @@ sstream_expect.exit:                              ; preds = %5, %10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal void @regen_frame(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 {
   %5 = load i64, ptr @regen_count, align 8, !tbaa !30
-  %6 = getelementptr inbounds nuw i64, ptr @regen_frame_type, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @regen_frame_type, i64 %5
   store i64 %0, ptr %6, align 8, !tbaa !30
-  %7 = getelementptr inbounds nuw i64, ptr @regen_stream_id, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @regen_stream_id, i64 %5
   store i64 %1, ptr %7, align 8, !tbaa !30
   %8 = add i64 %5, 1
   store i64 %8, ptr @regen_count, align 8, !tbaa !30
@@ -361,7 +361,7 @@ define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef nonnull %0,
   %.not134 = phi i1 [ true, %.preheader129 ], [ false, %21 ]
   %.078131 = phi i64 [ 0, %.preheader129 ], [ 1, %21 ]
   store i64 2, ptr %6, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %.078131
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.078131
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = call i32 @ossl_quic_sstream_append(ptr noundef %24, ptr noundef nonnull @.str.14, i64 noundef 12, ptr noundef nonnull %3) #11
   %26 = icmp ne i32 %25, 0
@@ -554,7 +554,7 @@ define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef nonnull %0,
 .preheader:                                       ; preds = %127, %135
   %136 = phi i1 [ false, %135 ], [ true, %127 ]
   %.1133 = phi i64 [ 1, %135 ], [ 0, %127 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %16, i64 %.1133
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.1133
   %138 = load ptr, ptr %137, align 8, !tbaa !26
   %139 = call i64 @ossl_quic_sstream_get_buffer_used(ptr noundef %138) #11
   %140 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21, i64 noundef %139, i64 noundef 0) #11
@@ -637,7 +637,7 @@ define internal fastcc range(i32 0, 2) i32 @test_generic(ptr noundef nonnull %0,
   %181 = phi i1 [ false, %180 ], [ true, %172 ]
   %.2132 = phi i64 [ 1, %180 ], [ 0, %172 ]
   store i64 2, ptr %6, align 8, !tbaa !30
-  %182 = getelementptr inbounds nuw ptr, ptr %16, i64 %.2132
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.2132
   %183 = load ptr, ptr %182, align 8, !tbaa !26
   %184 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %183, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %185 = icmp ne i32 %184, 0

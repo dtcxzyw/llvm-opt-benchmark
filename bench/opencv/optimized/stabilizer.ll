@@ -1811,7 +1811,7 @@ define void @_ZN2cv9videostab14StabilizerBase19nextStabilizedFrameEv(ptr dead_on
   %45 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %21, i32 noundef %44, i32 noundef 3)
   %46 = sext i32 %45 to i64
   %47 = load ptr, ptr %36, align 8, !tbaa !112
-  %48 = getelementptr inbounds nuw %"class.cv::Mat", ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [96 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %1, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
@@ -1881,7 +1881,7 @@ define noundef zeroext i1 @_ZN2cv9videostab14StabilizerBase14doOneIterationEv(pt
 28:                                               ; preds = %17
   %29 = sext i32 %27 to i64
   %30 = load ptr, ptr %18, align 8, !tbaa !112
-  %31 = getelementptr inbounds nuw %"class.cv::Mat", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [96 x i8], ptr %30, i64 %29
   %32 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %31, ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %33 unwind label %55
 
@@ -1912,7 +1912,7 @@ define noundef zeroext i1 @_ZN2cv9videostab14StabilizerBase14doOneIterationEv(pt
 51:                                               ; preds = %39
   %52 = sext i32 %50 to i64
   %53 = load ptr, ptr %41, align 8, !tbaa !111
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %52
   store float %38, ptr %54, align 4, !tbaa !120
   br label %57
 
@@ -1947,7 +1947,7 @@ define noundef zeroext i1 @_ZN2cv9videostab14StabilizerBase14doOneIterationEv(pt
 74:                                               ; preds = %61
   %75 = sext i32 %73 to i64
   %76 = load ptr, ptr %64, align 8, !tbaa !112
-  %77 = getelementptr inbounds nuw %"class.cv::Mat", ptr %76, i64 %75
+  %77 = getelementptr inbounds nuw [96 x i8], ptr %76, i64 %75
   %78 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %77, ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %79 unwind label %88
 
@@ -2021,7 +2021,7 @@ define noundef zeroext i1 @_ZN2cv9videostab14StabilizerBase14doOneIterationEv(pt
 115:                                              ; preds = %103
   %116 = sext i32 %114 to i64
   %117 = load ptr, ptr %105, align 8, !tbaa !112
-  %118 = getelementptr inbounds nuw %"class.cv::Mat", ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [96 x i8], ptr %117, i64 %116
   %119 = load ptr, ptr %4, align 8, !tbaa !121
   %120 = load ptr, ptr %119, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
@@ -2181,7 +2181,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 63:                                               ; preds = %50
   %64 = sext i32 %62 to i64
   %65 = load ptr, ptr %53, align 8, !tbaa !112
-  %66 = getelementptr inbounds nuw %"class.cv::Mat", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [96 x i8], ptr %65, i64 %64
   %67 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %66, ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %68 unwind label %102
 
@@ -2208,7 +2208,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 84:                                               ; preds = %82
   %85 = sext i32 %83 to i64
   %86 = load ptr, ptr %73, align 8, !tbaa !112
-  %87 = getelementptr inbounds nuw %"class.cv::Mat", ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [96 x i8], ptr %86, i64 %85
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2264,7 +2264,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 110:                                              ; preds = %108
   %111 = sext i32 %109 to i64
   %112 = load ptr, ptr %73, align 8, !tbaa !112
-  %113 = getelementptr inbounds nuw %"class.cv::Mat", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %115 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %114, ptr noundef nonnull align 8 dereferenceable(96) %113)
           to label %116 unwind label %102
@@ -2309,7 +2309,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 140:                                              ; preds = %127
   %141 = sext i32 %139 to i64
   %142 = load ptr, ptr %125, align 8, !tbaa !112
-  %143 = getelementptr inbounds nuw %"class.cv::Mat", ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [96 x i8], ptr %142, i64 %141
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %145, align 8
@@ -2409,7 +2409,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 178:                                              ; preds = %165
   %179 = sext i32 %177 to i64
   %180 = load ptr, ptr %125, align 8, !tbaa !112
-  %181 = getelementptr inbounds nuw %"class.cv::Mat", ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw [96 x i8], ptr %180, i64 %179
   %182 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %183, align 8
@@ -2502,7 +2502,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 223:                                              ; preds = %210
   %224 = sext i32 %222 to i64
   %225 = load ptr, ptr %208, align 8, !tbaa !112
-  %226 = getelementptr inbounds nuw %"class.cv::Mat", ptr %225, i64 %224
+  %226 = getelementptr inbounds nuw [96 x i8], ptr %225, i64 %224
   %227 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %228 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %228, align 8
@@ -2600,7 +2600,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 259:                                              ; preds = %246
   %260 = sext i32 %258 to i64
   %261 = load ptr, ptr %208, align 8, !tbaa !112
-  %262 = getelementptr inbounds nuw %"class.cv::Mat", ptr %261, i64 %260
+  %262 = getelementptr inbounds nuw [96 x i8], ptr %261, i64 %260
   %263 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %264 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %264, align 8
@@ -2664,7 +2664,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 287:                                              ; preds = %275
   %288 = sext i32 %286 to i64
   %289 = load ptr, ptr %277, align 8, !tbaa !112
-  %290 = getelementptr inbounds nuw %"class.cv::Mat", ptr %289, i64 %288
+  %290 = getelementptr inbounds nuw [96 x i8], ptr %289, i64 %288
   %291 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %291, align 8, !tbaa !6
   %292 = getelementptr inbounds nuw i8, ptr %26, i64 20
@@ -2686,7 +2686,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 302:                                              ; preds = %287
   %303 = sext i32 %301 to i64
   %304 = load ptr, ptr %277, align 8, !tbaa !112
-  %305 = getelementptr inbounds nuw %"class.cv::Mat", ptr %304, i64 %303
+  %305 = getelementptr inbounds nuw [96 x i8], ptr %304, i64 %303
   %306 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %307 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %307, align 8
@@ -2734,7 +2734,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 324:                                              ; preds = %314
   %325 = sext i32 %323 to i64
   %326 = load ptr, ptr %277, align 8, !tbaa !112
-  %327 = getelementptr inbounds nuw %"class.cv::Mat", ptr %326, i64 %325
+  %327 = getelementptr inbounds nuw [96 x i8], ptr %326, i64 %325
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %329 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -2765,7 +2765,7 @@ define void @_ZN2cv9videostab14StabilizerBase14stabilizeFrameEv(ptr noundef nonn
 345:                                              ; preds = %331
   %346 = sext i32 %344 to i64
   %347 = load ptr, ptr %335, align 8, !tbaa !112
-  %348 = getelementptr inbounds nuw %"class.cv::Mat", ptr %347, i64 %346
+  %348 = getelementptr inbounds nuw [96 x i8], ptr %347, i64 %346
   %349 = load ptr, ptr %333, align 8, !tbaa !3
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 48
   %351 = load ptr, ptr %350, align 8
@@ -2935,7 +2935,7 @@ define void @_ZN2cv9videostab14StabilizerBase5setUpERKNS_3MatE(ptr noundef nonnu
   br i1 %70, label %71, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw float, ptr %61, i64 %58
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %58
   %.not.i.i = icmp eq ptr %60, %72
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %73
 
@@ -2986,7 +2986,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %67, %69, %71, %73
   %99 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.011, i32 noundef %98, i32 noundef 3)
   %100 = sext i32 %99 to i64
   %101 = load ptr, ptr %53, align 8, !tbaa !111
-  %102 = getelementptr inbounds nuw float, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %100
   store float %74, ptr %102, align 4, !tbaa !120
   %103 = add i32 %.011, 1
   %exitcond.not = icmp eq i32 %.011, 0
@@ -3363,7 +3363,7 @@ define void @_ZN2cv9videostab17OnePassStabilizer5setUpERKNS_3MatE(ptr noundef no
   br i1 %34, label %35, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw %"class.cv::Mat", ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [96 x i8], ptr %25, i64 %22
   %.not.i.i = icmp eq ptr %24, %36
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -3400,7 +3400,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %31, %33, %35, %_ZSt
   br i1 %50, label %51, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit24
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw %"class.cv::Mat", ptr %41, i64 %22
+  %52 = getelementptr inbounds nuw [96 x i8], ptr %41, i64 %22
   %.not.i.i19 = icmp eq ptr %40, %52
   br i1 %.not.i.i19, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit24, label %.lr.ph.i.i.i.i.i20
 
@@ -3437,7 +3437,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit24:   ; preds = %47, %49, %51, %_ZSt
   br i1 %66, label %67, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit30
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw %"class.cv::Mat", ptr %57, i64 %22
+  %68 = getelementptr inbounds nuw [96 x i8], ptr %57, i64 %22
   %.not.i.i25 = icmp eq ptr %56, %68
   br i1 %.not.i.i25, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit30, label %.lr.ph.i.i.i.i.i26
 
@@ -3474,7 +3474,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit30:   ; preds = %63, %65, %67, %_ZSt
   br i1 %82, label %83, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit36
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw %"class.cv::Mat", ptr %73, i64 %22
+  %84 = getelementptr inbounds nuw [96 x i8], ptr %73, i64 %22
   %.not.i.i31 = icmp eq ptr %72, %84
   br i1 %.not.i.i31, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit36, label %.lr.ph.i.i.i.i.i32
 
@@ -3511,7 +3511,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit36:   ; preds = %79, %81, %83, %_ZSt
   br i1 %98, label %99, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit42
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw %"class.cv::Mat", ptr %89, i64 %22
+  %100 = getelementptr inbounds nuw [96 x i8], ptr %89, i64 %22
   %.not.i.i37 = icmp eq ptr %88, %100
   br i1 %.not.i.i37, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit42, label %.lr.ph.i.i.i.i.i38
 
@@ -3549,7 +3549,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit42:   ; preds = %95, %97, %99, %_ZSt
   %115 = call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef 0, i32 noundef %114, i32 noundef 3)
   %116 = sext i32 %115 to i64
   %117 = load ptr, ptr %21, align 8, !tbaa !112
-  %118 = getelementptr inbounds nuw %"class.cv::Mat", ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [96 x i8], ptr %117, i64 %116
   %119 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %118, ptr noundef nonnull align 8 dereferenceable(96) %1)
   call void @_ZN2cv9videostab14StabilizerBase5setUpERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
   ret void
@@ -3571,7 +3571,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit42:   ; preds = %95, %97, %99, %_ZSt
 129:                                              ; preds = %120
   %130 = sext i32 %128 to i64
   %131 = load ptr, ptr %70, align 8, !tbaa !112
-  %132 = getelementptr inbounds nuw %"class.cv::Mat", ptr %131, i64 %130
+  %132 = getelementptr inbounds nuw [96 x i8], ptr %131, i64 %130
   %133 = load ptr, ptr %5, align 8, !tbaa !121
   %134 = load ptr, ptr %133, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
@@ -3594,7 +3594,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %129
   %144 = call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.043, i32 noundef %143, i32 noundef 3)
   %145 = sext i32 %144 to i64
   %146 = load ptr, ptr %21, align 8, !tbaa !112
-  %147 = getelementptr inbounds nuw %"class.cv::Mat", ptr %146, i64 %145
+  %147 = getelementptr inbounds nuw [96 x i8], ptr %146, i64 %145
   %148 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %147, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %149 = add nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %149, 0
@@ -3633,7 +3633,7 @@ define void @_ZN2cv9videostab17OnePassStabilizer14estimateMotionEv(ptr dead_on_u
   %17 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %7, i32 noundef %16, i32 noundef 3)
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %8, align 8, !tbaa !112
-  %20 = getelementptr inbounds nuw %"class.cv::Mat", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %18
   %21 = load i32, ptr %5, align 8, !tbaa !106
   %22 = load ptr, ptr %9, align 8, !tbaa !113
   %23 = ptrtoint ptr %22 to i64
@@ -3644,7 +3644,7 @@ define void @_ZN2cv9videostab17OnePassStabilizer14estimateMotionEv(ptr dead_on_u
   %28 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %21, i32 noundef %27, i32 noundef 3)
   %29 = sext i32 %28 to i64
   %30 = load ptr, ptr %8, align 8, !tbaa !112
-  %31 = getelementptr inbounds nuw %"class.cv::Mat", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [96 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %4, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
@@ -4743,7 +4743,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN2c
   br i1 %229, label %230, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds nuw %"class.cv::Mat", ptr %220, i64 %217
+  %231 = getelementptr inbounds nuw [96 x i8], ptr %220, i64 %217
   %.not.i.i53 = icmp eq ptr %219, %231
   br i1 %.not.i.i53, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4901,7 +4901,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   %indvars.iv = phi i64 [ %indvars.iv.next, %295 ], [ 0, %279 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %291 = load ptr, ptr %215, align 8, !tbaa !112
-  %292 = getelementptr inbounds nuw %"class.cv::Mat", ptr %291, i64 %indvars.iv
+  %292 = getelementptr inbounds nuw [96 x i8], ptr %291, i64 %indvars.iv
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %292)
           to label %293 unwind label %301
 
@@ -5011,7 +5011,7 @@ define void @_ZN2cv9videostab17TwoPassStabilizer5setUpERKNS_3MatE(ptr noundef no
   br i1 %20, label %21, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %"class.cv::Mat", ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -5048,7 +5048,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %17, %19, %21, %_ZSt
   br i1 %36, label %37, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit15
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %8
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %8
   %.not.i.i10 = icmp eq ptr %26, %38
   br i1 %.not.i.i10, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit15, label %.lr.ph.i.i.i.i.i11
 
@@ -5085,7 +5085,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit15:   ; preds = %33, %35, %37, %_ZSt
   br i1 %52, label %53, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit21
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %8
+  %54 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %8
   %.not.i.i16 = icmp eq ptr %42, %54
   br i1 %.not.i.i16, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit21, label %.lr.ph.i.i.i.i.i17
 
@@ -5127,7 +5127,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit21:   ; preds = %49, %51, %53, %_ZSt
   %69 = tail call noundef i32 @_ZN2cv17borderInterpolateEiii(i32 noundef %.022, i32 noundef %68, i32 noundef 3)
   %70 = sext i32 %69 to i64
   %71 = load ptr, ptr %7, align 8, !tbaa !112
-  %72 = getelementptr inbounds nuw %"class.cv::Mat", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [96 x i8], ptr %71, i64 %70
   %73 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %72, ptr noundef nonnull align 8 dereferenceable(96) %1)
   %74 = add i32 %.022, 1
   %exitcond.not = icmp eq i32 %.022, 0
@@ -5185,7 +5185,7 @@ define void @_ZN2cv9videostab17TwoPassStabilizer14estimateMotionEv(ptr dead_on_u
   %5 = load i32, ptr %4, align 8, !tbaa !106
   %6 = load ptr, ptr %3, align 8, !tbaa !112
   %7 = sext i32 %5 to i64
-  %8 = getelementptr %"class.cv::Mat", ptr %6, i64 %7
+  %8 = getelementptr [96 x i8], ptr %6, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -96
   tail call void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9)
   ret void
@@ -5200,7 +5200,7 @@ define void @_ZN2cv9videostab17TwoPassStabilizer27estimateStabilizationMotionEv(
   %5 = load i32, ptr %4, align 4, !tbaa !107
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !112
-  %8 = getelementptr inbounds nuw %"class.cv::Mat", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %6
   tail call void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %8)
   ret void
 }
@@ -7007,9 +7007,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !111
-  %38 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !116
-  %39 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !226
   br label %40
 
@@ -7171,9 +7171,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %33
   store ptr %27, ptr %0, align 8, !tbaa !112
-  %34 = getelementptr inbounds nuw %"class.cv::Mat", ptr %28, i64 %1
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !113
-  %35 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %25
   store ptr %35, ptr %11, align 8, !tbaa !188
   br label %36
 
@@ -7316,7 +7316,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !112
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !113
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !188
   ret void
 }
@@ -7396,7 +7396,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !112
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !113
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !188
   ret void
 

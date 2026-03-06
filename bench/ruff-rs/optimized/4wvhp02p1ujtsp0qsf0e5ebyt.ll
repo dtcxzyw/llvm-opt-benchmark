@@ -7458,7 +7458,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..array..ArrayDeserializer$u20$as$u2
 
 52:                                               ; preds = %47, %43
   %53 = load ptr, ptr %26, align 8, !alias.scope !584, !noalias !587, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds nuw { { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, ptr, { i32, [2 x i32] }, [1 x i32] } }, ptr %53, i64 %44
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !noalias !559
   %55 = add i64 %44, 1
   store i64 %55, ptr %27, align 8, !alias.scope !584, !noalias !587

@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.SampleICC::IccTagElement" = type { %struct.icTag, ptr }
-%struct.icTag = type { i32, i32, i32 }
 %class.anon = type { i16, ptr, %"class.std::__cxx11::basic_string" }
 %class.anon.18 = type { %"class.std::__cxx11::basic_string", i16, ptr }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -1679,7 +1677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit211: ; preds = %28
   br i1 %298, label %299, label %_ZNSt6vectorIN9SampleICC13IccTagElementESaIS1_EE6resizeEm.exit
 
 299:                                              ; preds = %297
-  %300 = getelementptr inbounds nuw %"struct.SampleICC::IccTagElement", ptr %275, i64 %272
+  %300 = getelementptr inbounds nuw [24 x i8], ptr %275, i64 %272
   %.not.i.i = icmp eq ptr %274, %300
   br i1 %.not.i.i, label %_ZNSt6vectorIN9SampleICC13IccTagElementESaIS1_EE6resizeEm.exit, label %301
 
@@ -1709,7 +1707,7 @@ _ZNSt6vectorIN9SampleICC13IccTagElementESaIS1_EE6resizeEm.exit: ; preds = %295, 
 
 _ZN9SampleICC5Read8ERSiPvi.exit.i212:             ; preds = %.lr.ph
   %310 = load ptr, ptr %270, align 8, !tbaa !76
-  %311 = getelementptr inbounds nuw %"struct.SampleICC::IccTagElement", ptr %310, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw [24 x i8], ptr %310, i64 %indvars.iv
   %312 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %311, i64 noundef 4)
   %313 = load ptr, ptr %1, align 8, !tbaa !10
   %314 = getelementptr i8, ptr %313, i64 -24
@@ -1741,7 +1739,7 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i212:             ; preds = %.lr.ph
 
 _ZN9SampleICC5Read8ERSiPvi.exit.i217:             ; preds = %.lr.ph.i.i213.preheader
   %332 = load ptr, ptr %270, align 8, !tbaa !76
-  %333 = getelementptr inbounds nuw %"struct.SampleICC::IccTagElement", ptr %332, i64 %indvars.iv
+  %333 = getelementptr inbounds nuw [24 x i8], ptr %332, i64 %indvars.iv
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 4
   %335 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %334, i64 noundef 4)
   %336 = load ptr, ptr %1, align 8, !tbaa !10
@@ -1774,7 +1772,7 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i217:             ; preds = %.lr.ph.i.i213.prehe
 
 _ZN9SampleICC5Read8ERSiPvi.exit.i222:             ; preds = %.lr.ph.i.i218.preheader
   %355 = load ptr, ptr %270, align 8, !tbaa !76
-  %356 = getelementptr inbounds nuw %"struct.SampleICC::IccTagElement", ptr %355, i64 %indvars.iv
+  %356 = getelementptr inbounds nuw [24 x i8], ptr %355, i64 %indvars.iv
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %358 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %357, i64 noundef 4)
   %359 = load ptr, ptr %1, align 8, !tbaa !10
@@ -4609,7 +4607,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %12, %11
   %16 = load ptr, ptr %7, align 8, !tbaa !128
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !74
   %19 = sitofp i32 %18 to double
   %20 = fmul nnan double %19, 0x3EF0000000000000
@@ -4770,7 +4768,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14._crit_edge: ; pre
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16: ; preds = %19, %18
   %23 = load ptr, ptr %14, align 8, !tbaa !131
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !74
   %26 = sitofp i32 %25 to double
   %27 = fmul nnan double %26, 0x3EF0000000000000
@@ -6037,16 +6035,16 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
 
 433:                                              ; preds = %.lr.ph, %433
   %.0281 = phi i64 [ 0, %.lr.ph ], [ %443, %433 ]
-  %434 = getelementptr inbounds nuw float, ptr %425, i64 %.0281
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %425, i64 %.0281
   %435 = load float, ptr %434, align 4, !tbaa !26
   %.idx = mul i64 %.0281, 12
   %436 = getelementptr i8, ptr %427, i64 %.idx
   store float %435, ptr %436, align 4, !tbaa !26
-  %437 = getelementptr inbounds nuw float, ptr %428, i64 %.0281
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %.0281
   %438 = load float, ptr %437, align 4, !tbaa !26
   %439 = getelementptr i8, ptr %436, i64 4
   store float %438, ptr %439, align 4, !tbaa !26
-  %440 = getelementptr inbounds nuw float, ptr %429, i64 %.0281
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %429, i64 %.0281
   %441 = load float, ptr %440, align 4, !tbaa !26
   %442 = getelementptr i8, ptr %436, i64 8
   store float %441, ptr %442, align 4, !tbaa !26
@@ -8234,7 +8232,7 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i31:              ; preds = %.lr.ph.i.i30.prehea
 
 _ZN9SampleICC5Read8ERSiPvi.exit.i36:              ; preds = %.lr.ph
   %84 = load ptr, ptr %76, align 8, !tbaa !34
-  %85 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv
   %86 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %85, i64 noundef 4)
   %87 = load ptr, ptr %1, align 8, !tbaa !10
   %88 = getelementptr i8, ptr %87, i64 -24
@@ -8413,7 +8411,7 @@ _ZN9SampleICC5Read8ERSiPvi.exit.i10:              ; preds = %_ZN9SampleICC5Read8
   br i1 %60, label %61, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw float, ptr %51, i64 %48
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %48
   %.not.i.i = icmp eq ptr %50, %62
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %63
 
@@ -8606,9 +8604,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !212
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !214
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !253
   br label %41
 
@@ -9201,7 +9199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit._crit_edge:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = %189, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
   %.035201 = phi i64 [ %200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit ], [ 0, %189 ]
-  %195 = getelementptr inbounds nuw i16, ptr %164, i64 %.035201
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %.035201
   %196 = load i16, ptr %195, align 2, !tbaa !24
   %197 = trunc i16 %196 to i8
   %198 = load ptr, ptr %15, align 8, !tbaa !49
@@ -9940,7 +9938,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !258
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !45
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !48
   ret void
 
@@ -10160,9 +10158,9 @@ _ZNSt6vectorIN9SampleICC13IccTagElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 
 _ZNSt12_Vector_baseIN9SampleICC13IccTagElementESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIN9SampleICC13IccTagElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !76
-  %33 = getelementptr inbounds nuw %"struct.SampleICC::IccTagElement", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !75
-  %34 = getelementptr inbounds nuw %"struct.SampleICC::IccTagElement", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !223
   br label %35
 

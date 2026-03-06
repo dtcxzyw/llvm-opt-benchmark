@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.topo_weight_info = type { ptr, i32, i64 }
-%struct.block_record_t = type { i32, ptr, ptr, ptr, i16 }
 
 @bblock_node_cnt = external local_unnamed_addr global i16, align 2
 @.str = private unnamed_addr constant [65 x i8] c"%s: %s: %pJ segment (%u) > bblock_node_cnt (%u) is not supported\00", align 1
@@ -432,7 +431,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %200 = load ptr, ptr %13, align 8
   %201 = load i32, ptr %10, align 4
   %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds i16, ptr %200, i64 %202
+  %203 = getelementptr inbounds [2 x i8], ptr %200, i64 %202
   store i16 %193, ptr %203, align 2
   %204 = add nsw i32 %.4518850, -1
   %205 = add nsw i32 %.3499851, -1
@@ -621,7 +620,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 293:                                              ; preds = %.lr.ph859
   %294 = load ptr, ptr %2, align 8
   %295 = sext i32 %292 to i64
-  %296 = getelementptr inbounds ptr, ptr %294, i64 %295
+  %296 = getelementptr inbounds [8 x i8], ptr %294, i64 %295
   %297 = load ptr, ptr %296, align 8
   %.not656 = icmp eq ptr %297, null
   %298 = getelementptr inbounds nuw i8, ptr %.0415857, i64 16
@@ -641,7 +640,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %304 = load ptr, ptr %8, align 8
   %305 = load i32, ptr %10, align 4
   %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds i32, ptr %304, i64 %306
+  %307 = getelementptr inbounds [4 x i8], ptr %304, i64 %306
   store i32 %292, ptr %307, align 4
   %.not657 = icmp eq ptr %290, null
   br i1 %.not657, label %319, label %308
@@ -654,7 +653,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %313 = load ptr, ptr %32, align 8
   %314 = call i32 @bit_overlap(ptr noundef %312, ptr noundef %313) #9
   %315 = sext i32 %310 to i64
-  %316 = getelementptr inbounds i32, ptr %263, i64 %315
+  %316 = getelementptr inbounds [4 x i8], ptr %263, i64 %315
   %317 = load i32, ptr %316, align 4
   %318 = add i32 %317, %314
   store i32 %318, ptr %316, align 4
@@ -677,13 +676,13 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %storemerge596871 = phi i32 [ 0, %.lr.ph875 ], [ %399, %397 ]
   %327 = load ptr, ptr %2, align 8
   %328 = sext i32 %storemerge596871 to i64
-  %329 = getelementptr inbounds ptr, ptr %327, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %327, i64 %328
   %330 = load ptr, ptr %329, align 8
   %331 = load ptr, ptr %32, align 8
   call void @bit_and(ptr noundef %330, ptr noundef %331) #9
   %332 = load i32, ptr %10, align 4
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds ptr, ptr %327, i64 %333
+  %334 = getelementptr inbounds [8 x i8], ptr %327, i64 %333
   %335 = load ptr, ptr %334, align 8
   %336 = call i32 @bit_set_count(ptr noundef %335) #9
   %337 = load ptr, ptr %14, align 8
@@ -697,7 +696,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %342 = sub nsw i32 %.2428, %341
   %343 = call i32 @llvm.smin.i32(i32 %339, i32 %342)
   %344 = sext i32 %341 to i64
-  %345 = getelementptr inbounds i32, ptr %337, i64 %344
+  %345 = getelementptr inbounds [4 x i8], ptr %337, i64 %344
   %346 = sext i32 %343 to i64
   call void @qsort(ptr noundef nonnull %345, i64 noundef %346, i64 noundef 4, ptr noundef nonnull @_cmp_bblock) #9
   %347 = call i32 @llvm.smin.i32(i32 %.2436, i32 %343)
@@ -707,13 +706,13 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 
 .lr.ph863:                                        ; preds = %338
   %wide.trip.count = zext nneg i32 %347 to i64
-  %invariant.gep = getelementptr i32, ptr %337, i64 %344
+  %invariant.gep = getelementptr [4 x i8], ptr %337, i64 %344
   br label %349
 
 349:                                              ; preds = %.lr.ph863, %349
   %indvars.iv = phi i64 [ 0, %.lr.ph863 ], [ %indvars.iv.next, %349 ]
   %.1405861 = phi i32 [ 0, %.lr.ph863 ], [ %351, %349 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %350 = load i32, ptr %gep, align 4
   %351 = add i32 %350, %.1405861
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -727,7 +726,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   store i32 0, ptr %11, align 4
   %353 = load i32, ptr %10, align 4
   %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds ptr, ptr %327, i64 %354
+  %355 = getelementptr inbounds [8 x i8], ptr %327, i64 %354
   %356 = load ptr, ptr %355, align 8
   %357 = call ptr @next_node_bitmap(ptr noundef %356, ptr noundef nonnull %11) #9
   %.not600865 = icmp eq ptr %357, null
@@ -737,7 +736,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %.0406866 = phi i32 [ %364, %.lr.ph868 ], [ 0, %.loopexit812 ]
   %358 = load i32, ptr %11, align 4
   %359 = sext i32 %358 to i64
-  %360 = getelementptr inbounds ptr, ptr %27, i64 %359
+  %360 = getelementptr inbounds [8 x i8], ptr %27, i64 %359
   %361 = load ptr, ptr %360, align 8
   %362 = load i16, ptr %361, align 8
   %363 = zext i16 %362 to i32
@@ -746,7 +745,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   store i32 %365, ptr %11, align 4
   %366 = load i32, ptr %10, align 4
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds ptr, ptr %327, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %327, i64 %367
   %369 = load ptr, ptr %368, align 8
   %370 = call ptr @next_node_bitmap(ptr noundef %369, ptr noundef nonnull %11) #9
   %.not600 = icmp eq ptr %370, null
@@ -759,7 +758,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 371:                                              ; preds = %._crit_edge869
   %372 = load i32, ptr %10, align 4
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds ptr, ptr %327, i64 %373
+  %374 = getelementptr inbounds [8 x i8], ptr %327, i64 %373
   %375 = load ptr, ptr %374, align 8
   %376 = call i32 @bit_overlap_any(ptr noundef nonnull %.1394741, ptr noundef %375) #9
   %377 = icmp ne i32 %376, 0
@@ -779,7 +778,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %383 = load ptr, ptr %2, align 8
   %384 = load i32, ptr %10, align 4
   %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds ptr, ptr %383, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %383, i64 %385
   %387 = load ptr, ptr %386, align 8
   %388 = call ptr @list_find_first(ptr noundef %179, ptr noundef nonnull @eval_nodes_topo_node_find, ptr noundef %387) #9
   %.not602 = icmp eq ptr %388, null
@@ -858,7 +857,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 412:                                              ; preds = %401
   %413 = load ptr, ptr %2, align 8
   %414 = sext i32 %.1460770 to i64
-  %415 = getelementptr inbounds ptr, ptr %413, i64 %414
+  %415 = getelementptr inbounds [8 x i8], ptr %413, i64 %414
   %416 = load ptr, ptr %415, align 8
   %417 = call i32 @bit_super_set(ptr noundef nonnull %.1394741, ptr noundef %416) #9
   %.not604 = icmp eq i32 %417, 0
@@ -890,14 +889,14 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %storemerge605880 = phi i32 [ %449, %447 ], [ 0, %422 ]
   %429 = load ptr, ptr %8, align 8
   %430 = sext i32 %storemerge605880 to i64
-  %431 = getelementptr inbounds i32, ptr %429, i64 %430
+  %431 = getelementptr inbounds [4 x i8], ptr %429, i64 %430
   %432 = load i32, ptr %431, align 4
   %.not652 = icmp eq i32 %.1460770, %432
   br i1 %.not652, label %433, label %447
 
 433:                                              ; preds = %.lr.ph884
   %434 = load ptr, ptr @block_record_table, align 8
-  %435 = getelementptr inbounds %struct.block_record_t, ptr %434, i64 %430
+  %435 = getelementptr inbounds [40 x i8], ptr %434, i64 %430
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 16
   %437 = load ptr, ptr %436, align 8
   %438 = call i32 @bit_overlap_any(ptr noundef nonnull %.1394741, ptr noundef %437) #9
@@ -1078,7 +1077,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 
 507:                                              ; preds = %503, %.lr.ph893
   %508 = load ptr, ptr %2, align 8
-  %509 = getelementptr inbounds ptr, ptr %508, i64 %485
+  %509 = getelementptr inbounds [8 x i8], ptr %508, i64 %485
   %510 = load ptr, ptr %509, align 8
   %511 = load i32, ptr %10, align 4
   %512 = sext i32 %511 to i64
@@ -1107,7 +1106,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %525 = load ptr, ptr %13, align 8
   %526 = load i32, ptr %10, align 4
   %527 = sext i32 %526 to i64
-  %528 = getelementptr inbounds i16, ptr %525, i64 %527
+  %528 = getelementptr inbounds [2 x i8], ptr %525, i64 %527
   store i16 %524, ptr %528, align 2
   %529 = zext i16 %524 to i32
   %530 = add nsw i32 %.1402892, %529
@@ -1120,7 +1119,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %535 = load ptr, ptr %40, align 8
   %536 = load i32, ptr %10, align 4
   %537 = sext i32 %536 to i64
-  %538 = getelementptr inbounds ptr, ptr %27, i64 %537
+  %538 = getelementptr inbounds [8 x i8], ptr %27, i64 %537
   %539 = load ptr, ptr %538, align 8
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 32
   %541 = load ptr, ptr %540, align 8
@@ -1292,7 +1291,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %604 = load ptr, ptr %13, align 8
   %605 = load i32, ptr %10, align 4
   %606 = sext i32 %605 to i64
-  %607 = getelementptr inbounds i16, ptr %604, i64 %606
+  %607 = getelementptr inbounds [2 x i8], ptr %604, i64 %606
   %608 = load i16, ptr %607, align 2
   store i16 %608, ptr %37, align 8
   %609 = call zeroext i1 @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %605, i64 noundef %.6472901, i32 noundef %.7503899, ptr noundef nonnull %15, i1 noundef zeroext true) #9
@@ -1386,7 +1385,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %.8442913 = phi i32 [ %.9443, %672 ], [ %.3437, %.lr.ph915.preheader ]
   %storemerge625912 = phi i32 [ %674, %672 ], [ 0, %.lr.ph915.preheader ]
   %649 = sext i32 %storemerge625912 to i64
-  %650 = getelementptr inbounds i32, ptr %.pre1002, i64 %649
+  %650 = getelementptr inbounds [4 x i8], ptr %.pre1002, i64 %649
   %651 = load i32, ptr %650, align 4
   %.not626 = icmp eq i32 %.146077010871092, %651
   br i1 %.not626, label %652, label %672
@@ -1405,7 +1404,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %658 = load ptr, ptr @block_record_table, align 8
   %659 = load i32, ptr %10, align 4
   %660 = sext i32 %659 to i64
-  %661 = getelementptr inbounds %struct.block_record_t, ptr %658, i64 %660
+  %661 = getelementptr inbounds [40 x i8], ptr %658, i64 %660
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 16
   %663 = load ptr, ptr %662, align 8
   %664 = call i32 @bit_overlap_any(ptr noundef nonnull %600, ptr noundef %663) #9
@@ -1486,7 +1485,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %692 = load ptr, ptr @block_record_table, align 8
   %693 = load i32, ptr %10, align 4
   %694 = sext i32 %693 to i64
-  %695 = getelementptr inbounds %struct.block_record_t, ptr %692, i64 %694
+  %695 = getelementptr inbounds [40 x i8], ptr %692, i64 %694
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 16
   %697 = load ptr, ptr %696, align 8
   br i1 %.not648, label %698, label %700
@@ -1503,7 +1502,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 701:                                              ; preds = %700, %698
   %702 = phi ptr [ %691, %700 ], [ %699, %698 ]
   %703 = load ptr, ptr %2, align 8
-  %704 = getelementptr inbounds ptr, ptr %703, i64 %485
+  %704 = getelementptr inbounds [8 x i8], ptr %703, i64 %485
   %705 = load ptr, ptr %704, align 8
   call void @bit_and(ptr noundef %702, ptr noundef %705) #9
   %706 = load ptr, ptr %6, align 8
@@ -1526,7 +1525,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %.13527918 = phi i32 [ %.14528, %737 ], [ %.11525929, %.lr.ph923.preheader ]
   %709 = load i32, ptr %11, align 4
   %710 = sext i32 %709 to i64
-  %711 = getelementptr inbounds i16, ptr %.pre1005, i64 %710
+  %711 = getelementptr inbounds [2 x i8], ptr %.pre1005, i64 %710
   %712 = load i16, ptr %711, align 2
   %.not651 = icmp eq i16 %712, 0
   br i1 %.not651, label %737, label %713
@@ -1649,7 +1648,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %770 = phi ptr [ %758, %.lr.ph940 ], [ %829, %824 ]
   %storemerge633938 = phi i32 [ 0, %.lr.ph940 ], [ %830, %824 ]
   %771 = sext i32 %storemerge633938 to i64
-  %772 = getelementptr inbounds i32, ptr %.pre1006, i64 %771
+  %772 = getelementptr inbounds [4 x i8], ptr %.pre1006, i64 %771
   %773 = load i32, ptr %772, align 4
   %.not643 = icmp eq i32 %.146077010871092, %773
   br i1 %.not643, label %774, label %824
@@ -1663,11 +1662,11 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 
 777:                                              ; preds = %774
   %778 = sext i32 %.pre1012 to i64
-  %779 = getelementptr inbounds ptr, ptr %770, i64 %778
+  %779 = getelementptr inbounds [8 x i8], ptr %770, i64 %778
   %780 = load ptr, ptr %779, align 8
   %.not645 = icmp eq ptr %780, null
   %781 = load ptr, ptr @block_record_table, align 8
-  %782 = getelementptr inbounds %struct.block_record_t, ptr %781, i64 %778
+  %782 = getelementptr inbounds [40 x i8], ptr %781, i64 %778
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 16
   %784 = load ptr, ptr %783, align 8
   br i1 %.not645, label %785, label %790
@@ -1676,7 +1675,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %786 = call ptr @bit_copy(ptr noundef %784) #9
   %787 = load i32, ptr %10, align 4
   %788 = sext i32 %787 to i64
-  %789 = getelementptr inbounds ptr, ptr %770, i64 %788
+  %789 = getelementptr inbounds [8 x i8], ptr %770, i64 %788
   store ptr %786, ptr %789, align 8
   %.pre1007 = load ptr, ptr %3, align 8
   %.pre1009 = load ptr, ptr %4, align 8
@@ -1693,26 +1692,26 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %792 = phi ptr [ %768, %790 ], [ %.pre1009, %785 ]
   %793 = phi ptr [ %769, %790 ], [ %.pre1007, %785 ]
   %794 = phi ptr [ %770, %790 ], [ %.pre1007, %785 ]
-  %795 = getelementptr inbounds ptr, ptr %794, i64 %.pre-phi
+  %795 = getelementptr inbounds [8 x i8], ptr %794, i64 %.pre-phi
   %796 = load ptr, ptr %795, align 8
   %797 = load ptr, ptr %2, align 8
-  %798 = getelementptr inbounds ptr, ptr %797, i64 %485
+  %798 = getelementptr inbounds [8 x i8], ptr %797, i64 %485
   %799 = load ptr, ptr %798, align 8
   call void @bit_and(ptr noundef %796, ptr noundef %799) #9
   %800 = load i32, ptr %10, align 4
   %801 = sext i32 %800 to i64
-  %802 = getelementptr inbounds ptr, ptr %794, i64 %801
+  %802 = getelementptr inbounds [8 x i8], ptr %794, i64 %801
   %803 = load ptr, ptr %802, align 8
   %804 = load ptr, ptr %6, align 8
   call void @bit_and(ptr noundef %803, ptr noundef %804) #9
   %805 = load i32, ptr %10, align 4
   %806 = sext i32 %805 to i64
-  %807 = getelementptr inbounds ptr, ptr %793, i64 %806
+  %807 = getelementptr inbounds [8 x i8], ptr %793, i64 %806
   %808 = load ptr, ptr %807, align 8
   %809 = call i32 @bit_set_count(ptr noundef %808) #9
   %810 = load i32, ptr %10, align 4
   %811 = sext i32 %810 to i64
-  %812 = getelementptr inbounds i32, ptr %792, i64 %811
+  %812 = getelementptr inbounds [4 x i8], ptr %792, i64 %811
   store i32 %809, ptr %812, align 4
   %813 = load ptr, ptr %14, align 8
   %.not646 = icmp eq ptr %813, null
@@ -1723,10 +1722,10 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %815 = sdiv i32 %.pre1011, %.1423735
   %816 = load ptr, ptr %4, align 8
   %817 = sext i32 %.pre1011 to i64
-  %818 = getelementptr inbounds i32, ptr %816, i64 %817
+  %818 = getelementptr inbounds [4 x i8], ptr %816, i64 %817
   %819 = load i32, ptr %818, align 4
   %820 = sext i32 %815 to i64
-  %821 = getelementptr inbounds i32, ptr %813, i64 %820
+  %821 = getelementptr inbounds [4 x i8], ptr %813, i64 %820
   %822 = load i32, ptr %821, align 4
   %823 = add i32 %822, %819
   store i32 %823, ptr %821, align 4
@@ -1775,7 +1774,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %.0700943 = phi i1 [ %.1701, %_choose_best_bblock.exit ], [ false, %.lr.ph950.preheader ]
   %.0703942 = phi i32 [ %.1704, %_choose_best_bblock.exit ], [ -1, %.lr.ph950.preheader ]
   %840 = sext i32 %storemerge634949 to i64
-  %841 = getelementptr inbounds i32, ptr %.pre1013, i64 %840
+  %841 = getelementptr inbounds [4 x i8], ptr %.pre1013, i64 %840
   %842 = load i32, ptr %841, align 4
   %.not641 = icmp eq i32 %.146077010871092, %842
   br i1 %.not641, label %843, label %_choose_best_bblock.exit
@@ -1790,7 +1789,7 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
   %847 = load ptr, ptr %4, align 8
   %848 = load i32, ptr %10, align 4
   %849 = sext i32 %848 to i64
-  %850 = getelementptr inbounds i32, ptr %847, i64 %849
+  %850 = getelementptr inbounds [4 x i8], ptr %847, i64 %849
   %851 = load i32, ptr %850, align 4
   %852 = icmp uge i32 %851, %.155291143
   br i1 %.not103.i, label %thread-pre-split.i, label %853
@@ -1855,10 +1854,10 @@ define dso_local range(i32 -1, 2179) i32 @eval_nodes_block(ptr noundef initializ
 877:                                              ; preds = %.critedge.i, %.critedge109.i
   %.1135138.i = phi i8 [ 1, %.critedge.i ], [ 0, %.critedge109.i ]
   %878 = sext i32 %854 to i64
-  %879 = getelementptr inbounds i32, ptr %834, i64 %878
+  %879 = getelementptr inbounds [4 x i8], ptr %834, i64 %878
   %880 = load i32, ptr %879, align 4
   %881 = sext i32 %855 to i64
-  %882 = getelementptr inbounds i32, ptr %834, i64 %881
+  %882 = getelementptr inbounds [4 x i8], ptr %834, i64 %881
   %883 = load i32, ptr %882, align 4
   %884 = icmp uge i32 %883, %.155291143
   %885 = icmp uge i32 %880, %.155291143
@@ -1906,7 +1905,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 898:                                              ; preds = %.critedge113.i
   %899 = load i32, ptr %850, align 4
   %900 = sext i32 %.0703942 to i64
-  %901 = getelementptr inbounds i32, ptr %847, i64 %900
+  %901 = getelementptr inbounds [4 x i8], ptr %847, i64 %900
   %902 = load i32, ptr %901, align 4
   %.not106.i = icmp ult i32 %899, %902
   br i1 %.not106.i, label %_choose_best_bblock.exit, label %907
@@ -1914,7 +1913,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 .critedge115.i:                                   ; preds = %897
   %903 = load i32, ptr %850, align 4
   %904 = sext i32 %.0703942 to i64
-  %905 = getelementptr inbounds i32, ptr %847, i64 %904
+  %905 = getelementptr inbounds [4 x i8], ptr %847, i64 %904
   %906 = load i32, ptr %905, align 4
   %.not107.i = icmp ugt i32 %903, %906
   br i1 %.not107.i, label %_choose_best_bblock.exit, label %907
@@ -1980,7 +1979,7 @@ _choose_best_bblock.exit:                         ; preds = %.critedge.i, %.crit
 
 930:                                              ; preds = %921
   %931 = sext i32 %.0703.lcssa to i64
-  %932 = getelementptr inbounds ptr, ptr %833, i64 %931
+  %932 = getelementptr inbounds [8 x i8], ptr %833, i64 %931
   %933 = load ptr, ptr %932, align 8
   %934 = load ptr, ptr %32, align 8
   call void @bit_and_not(ptr noundef %933, ptr noundef %934) #9
@@ -2004,7 +2003,7 @@ _choose_best_bblock.exit:                         ; preds = %.critedge.i, %.crit
   %939 = load ptr, ptr %13, align 8
   %940 = load i32, ptr %10, align 4
   %941 = sext i32 %940 to i64
-  %942 = getelementptr inbounds i16, ptr %939, i64 %941
+  %942 = getelementptr inbounds [2 x i8], ptr %939, i64 %941
   %943 = load i16, ptr %942, align 2
   %.not640 = icmp eq i16 %943, 0
   br i1 %.not640, label %968, label %944
@@ -2300,7 +2299,7 @@ _choose_best_bblock.exit:                         ; preds = %.critedge.i, %.crit
   %1051 = phi ptr [ %1058, %1056 ], [ %1049, %.preheader803 ]
   %storemerge669970 = phi i32 [ %1060, %1056 ], [ 0, %.preheader803 ]
   %1052 = sext i32 %storemerge669970 to i64
-  %1053 = getelementptr inbounds ptr, ptr %1051, i64 %1052
+  %1053 = getelementptr inbounds [8 x i8], ptr %1051, i64 %1052
   %1054 = load ptr, ptr %1053, align 8
   %.not674 = icmp eq ptr %1054, null
   br i1 %.not674, label %1056, label %1055
@@ -2316,7 +2315,7 @@ _choose_best_bblock.exit:                         ; preds = %.critedge.i, %.crit
   %.pre-phi1022 = phi i64 [ %.pre1021, %1055 ], [ %1052, %.lr.ph971 ]
   %1057 = phi i32 [ %.pre1015, %1055 ], [ %storemerge669970, %.lr.ph971 ]
   %1058 = phi ptr [ %.pre1014, %1055 ], [ %1051, %.lr.ph971 ]
-  %1059 = getelementptr inbounds ptr, ptr %1058, i64 %.pre-phi1022
+  %1059 = getelementptr inbounds [8 x i8], ptr %1058, i64 %.pre-phi1022
   store ptr null, ptr %1059, align 8
   %1060 = add nsw i32 %1057, 1
   store i32 %1060, ptr %10, align 4
@@ -2342,7 +2341,7 @@ _choose_best_bblock.exit:                         ; preds = %.critedge.i, %.crit
   %1066 = phi ptr [ %1073, %1071 ], [ %1063, %.preheader ]
   %storemerge671973 = phi i32 [ %1075, %1071 ], [ 0, %.preheader ]
   %1067 = sext i32 %storemerge671973 to i64
-  %1068 = getelementptr inbounds ptr, ptr %1066, i64 %1067
+  %1068 = getelementptr inbounds [8 x i8], ptr %1066, i64 %1067
   %1069 = load ptr, ptr %1068, align 8
   %.not673 = icmp eq ptr %1069, null
   br i1 %.not673, label %1071, label %1070
@@ -2358,7 +2357,7 @@ _choose_best_bblock.exit:                         ; preds = %.critedge.i, %.crit
   %.pre-phi1020 = phi i64 [ %.pre1019, %1070 ], [ %1067, %.lr.ph974 ]
   %1072 = phi i32 [ %.pre1017, %1070 ], [ %storemerge671973, %.lr.ph974 ]
   %1073 = phi ptr [ %.pre1016, %1070 ], [ %1066, %.lr.ph974 ]
-  %1074 = getelementptr inbounds ptr, ptr %1073, i64 %.pre-phi1020
+  %1074 = getelementptr inbounds [8 x i8], ptr %1073, i64 %.pre-phi1020
   store ptr null, ptr %1074, align 8
   %1075 = add nsw i32 %1072, 1
   store i32 %1075, ptr %10, align 4

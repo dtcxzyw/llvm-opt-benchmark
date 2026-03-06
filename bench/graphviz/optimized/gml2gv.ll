@@ -148,7 +148,7 @@ openFile.exit.i:                                  ; preds = %17
 
 49:                                               ; preds = %47
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds ptr, ptr %1, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %1, i64 %50
   store ptr %51, ptr @Files, align 8, !tbaa !15
   br label %52
 
@@ -196,7 +196,7 @@ initargs.exit:                                    ; preds = %52, %54
   %70 = phi ptr [ %.pre.i, %67 ], [ %59, %65 ]
   %71 = load i32, ptr @getFile.cnt, align 4, !tbaa !4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %70, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !8
   %.not57.i = icmp eq ptr %74, null
   br i1 %.not57.i, label %getFile.exit.thread, label %.lr.ph.i
@@ -219,14 +219,14 @@ getFile.exit.thread68:                            ; preds = %.lr.ph.i
   %81 = load ptr, ptr @Files, align 8, !tbaa !15
   %82 = load i32, ptr @getFile.cnt, align 4, !tbaa !4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr ptr, ptr %81, i64 %83
+  %84 = getelementptr [8 x i8], ptr %81, i64 %83
   %85 = getelementptr i8, ptr %84, i64 -8
   %86 = load ptr, ptr %85, align 8, !tbaa !8
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str.12, ptr noundef %86) #20
   %88 = load ptr, ptr @Files, align 8, !tbaa !15
   %89 = load i32, ptr @getFile.cnt, align 4, !tbaa !4
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds ptr, ptr %88, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !8
   %.not5.i = icmp eq ptr %92, null
   br i1 %.not5.i, label %getFile.exit.thread, label %.lr.ph.i, !llvm.loop !17

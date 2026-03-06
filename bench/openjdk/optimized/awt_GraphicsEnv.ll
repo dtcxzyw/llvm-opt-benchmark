@@ -4,15 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.X11GraphicsConfigIDs = type { ptr, ptr }
-%struct._AwtScreenData = type { i32, i64, i64, i64, ptr, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XVisualInfo = type { ptr, i64, i32, i32, i32, i64, i64, i64, i32, i32 }
 %struct.XShmSegmentInfo = type { i64, i32, ptr, i32 }
+%struct._AwtScreenData = type { i32, i64, i64, i64, ptr, ptr }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
-%struct.XineramaScreenInfo = type { i32, i16, i16, i16, i16 }
 %struct.XdbeSwapInfo = type { i64, i8 }
-%struct.XdbeVisualInfo = type { i64, i32, i32 }
-%struct.XRRScreenSize = type { i32, i32, i32, i32 }
 %union._XEvent = type { [24 x i64] }
 %struct.XColor = type { i64, i16, i16, i16, i8, i8 }
 
@@ -172,7 +168,7 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.preheader21, %resetNativeData.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %resetNativeData.exit ], [ 0, %.preheader21 ]
   %7 = load ptr, ptr @x11Screens, align 8
-  %8 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
@@ -181,7 +177,7 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
 11:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %10) #17
   %12 = load ptr, ptr @x11Screens, align 8
-  %13 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr null, ptr %14, align 8
   %.pre.i = load ptr, ptr @x11Screens, align 8
@@ -189,11 +185,11 @@ define void @Java_sun_awt_X11GraphicsEnvironment_initNativeData(ptr noundef %0, 
 
 resetNativeData.exit:                             ; preds = %.lr.ph, %11
   %15 = phi ptr [ %.pre.i, %11 ], [ %7, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr @x11Screens, align 8
-  %19 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %indvars.iv
   store i32 0, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr @awt_numScreens, align 4
@@ -289,17 +285,17 @@ resetNativeData.exit:                             ; preds = %.lr.ph, %11
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 232
   %59 = load ptr, ptr %58, align 8
   %.sink.idx = select i1 %.not19, i64 %indvars.iv27, i64 0
-  %.sink = getelementptr inbounds nuw %struct.Screen, ptr %59, i64 %.sink.idx
+  %.sink = getelementptr inbounds nuw [128 x i8], ptr %59, i64 %.sink.idx
   %60 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = load ptr, ptr @x11Screens, align 8
-  %63 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %62, i64 %indvars.iv27
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %indvars.iv27
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 %61, ptr %64, align 8
   %65 = trunc nuw nsw i64 %indvars.iv27 to i32
   %66 = call fastcc ptr @makeDefaultConfig(ptr noundef %0, i32 noundef %65)
   %67 = load ptr, ptr @x11Screens, align 8
-  %68 = getelementptr inbounds nuw %struct._AwtScreenData, ptr %67, i64 %indvars.iv27
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %67, i64 %indvars.iv27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store ptr %66, ptr %69, align 8
   %70 = load ptr, ptr %0, align 8
@@ -339,7 +335,7 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %6 to i64
-  %11 = getelementptr inbounds %struct.Screen, ptr %9, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @XVisualIDFromVisual(ptr noundef %13) #17
@@ -639,7 +635,7 @@ define i32 @Java_sun_awt_X11GraphicsEnvironment_getDefaultScreenNum(ptr noundef 
 define hidden ptr @getDefaultConfig(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @x11Screens, align 8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct._AwtScreenData, ptr %2, i64 %3
+  %4 = getelementptr inbounds [48 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %ensureConfigsInited.exit
@@ -648,14 +644,14 @@ define hidden ptr @getDefaultConfig(i32 noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr @jvm, align 8
   %9 = tail call ptr @JNU_GetEnv(ptr noundef %8, i32 noundef 65538) #17
   %.pre.i = load ptr, ptr @x11Screens, align 8
-  %10 = getelementptr inbounds %struct._AwtScreenData, ptr %.pre.i, i64 %3
+  %10 = getelementptr inbounds [48 x i8], ptr %.pre.i, i64 %3
   tail call fastcc void @getAllConfigs(ptr noundef %9, i32 noundef %0, ptr noundef %10)
   %.pre = load ptr, ptr @x11Screens, align 8
   br label %ensureConfigsInited.exit
 
 ensureConfigsInited.exit:                         ; preds = %1, %7
   %11 = phi ptr [ %2, %1 ], [ %.pre, %7 ]
-  %12 = getelementptr inbounds %struct._AwtScreenData, ptr %11, i64 %3
+  %12 = getelementptr inbounds [48 x i8], ptr %11, i64 %3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   ret ptr %14
@@ -1238,7 +1234,7 @@ define ptr @Java_sun_awt_X11GraphicsEnvironment_getDisplayString(ptr noundef %0,
 define i32 @Java_sun_awt_X11GraphicsDevice_getNumConfigs(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @x11Screens, align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds %struct._AwtScreenData, ptr %4, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %ensureConfigsInited.exit
@@ -1256,10 +1252,10 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getNumConfigs(ptr noundef %0, ptr nou
 14:                                               ; preds = %11, %9
   %15 = phi ptr [ %.pre.i, %11 ], [ %4, %9 ]
   %.0.i = phi ptr [ %13, %11 ], [ %0, %9 ]
-  %16 = getelementptr inbounds %struct._AwtScreenData, ptr %15, i64 %5
+  %16 = getelementptr inbounds [48 x i8], ptr %15, i64 %5
   tail call fastcc void @getAllConfigs(ptr noundef %.0.i, i32 noundef %2, ptr noundef %16)
   %.pre = load ptr, ptr @x11Screens, align 8
-  %.phi.trans.insert = getelementptr inbounds %struct._AwtScreenData, ptr %.pre, i64 %5
+  %.phi.trans.insert = getelementptr inbounds [48 x i8], ptr %.pre, i64 %5
   %.pre2 = load i32, ptr %.phi.trans.insert, align 8
   br label %ensureConfigsInited.exit
 
@@ -1272,7 +1268,7 @@ ensureConfigsInited.exit:                         ; preds = %3, %14
 define i32 @Java_sun_awt_X11GraphicsDevice_getConfigVisualId(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @x11Screens, align 8
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds %struct._AwtScreenData, ptr %5, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %ensureConfigsInited.exit
@@ -1290,14 +1286,14 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getConfigVisualId(ptr noundef %0, ptr
 15:                                               ; preds = %12, %10
   %16 = phi ptr [ %.pre.i, %12 ], [ %5, %10 ]
   %.0.i = phi ptr [ %14, %12 ], [ %0, %10 ]
-  %17 = getelementptr inbounds %struct._AwtScreenData, ptr %16, i64 %6
+  %17 = getelementptr inbounds [48 x i8], ptr %16, i64 %6
   tail call fastcc void @getAllConfigs(ptr noundef %.0.i, i32 noundef %3, ptr noundef %17)
   br label %ensureConfigsInited.exit
 
 ensureConfigsInited.exit:                         ; preds = %4, %15
   %18 = icmp eq i32 %2, 0
   %19 = load ptr, ptr @x11Screens, align 8
-  %20 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %6
   br i1 %18, label %21, label %23
 
 21:                                               ; preds = %ensureConfigsInited.exit
@@ -1308,7 +1304,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   br label %28
 
 28:                                               ; preds = %23, %21
@@ -1324,7 +1320,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 define i32 @Java_sun_awt_X11GraphicsDevice_getConfigDepth(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @x11Screens, align 8
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds %struct._AwtScreenData, ptr %5, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %ensureConfigsInited.exit
@@ -1342,14 +1338,14 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getConfigDepth(ptr noundef %0, ptr no
 15:                                               ; preds = %12, %10
   %16 = phi ptr [ %.pre.i, %12 ], [ %5, %10 ]
   %.0.i = phi ptr [ %14, %12 ], [ %0, %10 ]
-  %17 = getelementptr inbounds %struct._AwtScreenData, ptr %16, i64 %6
+  %17 = getelementptr inbounds [48 x i8], ptr %16, i64 %6
   tail call fastcc void @getAllConfigs(ptr noundef %.0.i, i32 noundef %3, ptr noundef %17)
   br label %ensureConfigsInited.exit
 
 ensureConfigsInited.exit:                         ; preds = %4, %15
   %18 = icmp eq i32 %2, 0
   %19 = load ptr, ptr @x11Screens, align 8
-  %20 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %6
   br i1 %18, label %21, label %23
 
 21:                                               ; preds = %ensureConfigsInited.exit
@@ -1360,7 +1356,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   br label %28
 
 28:                                               ; preds = %23, %21
@@ -1375,7 +1371,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
 define i32 @Java_sun_awt_X11GraphicsDevice_getConfigColormap(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @x11Screens, align 8
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds %struct._AwtScreenData, ptr %5, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %ensureConfigsInited.exit
@@ -1393,14 +1389,14 @@ define i32 @Java_sun_awt_X11GraphicsDevice_getConfigColormap(ptr noundef %0, ptr
 15:                                               ; preds = %12, %10
   %16 = phi ptr [ %.pre.i, %12 ], [ %5, %10 ]
   %.0.i = phi ptr [ %14, %12 ], [ %0, %10 ]
-  %17 = getelementptr inbounds %struct._AwtScreenData, ptr %16, i64 %6
+  %17 = getelementptr inbounds [48 x i8], ptr %16, i64 %6
   tail call fastcc void @getAllConfigs(ptr noundef %.0.i, i32 noundef %3, ptr noundef %17)
   br label %ensureConfigsInited.exit
 
 ensureConfigsInited.exit:                         ; preds = %4, %15
   %18 = icmp eq i32 %2, 0
   %19 = load ptr, ptr @x11Screens, align 8
-  %20 = getelementptr inbounds %struct._AwtScreenData, ptr %19, i64 %6
+  %20 = getelementptr inbounds [48 x i8], ptr %19, i64 %6
   br i1 %18, label %21, label %23
 
 21:                                               ; preds = %ensureConfigsInited.exit
@@ -1411,7 +1407,7 @@ ensureConfigsInited.exit:                         ; preds = %4, %15
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   br label %28
 
 28:                                               ; preds = %23, %21
@@ -1606,7 +1602,7 @@ define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr noundef readnon
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.Screen, ptr %6, i64 %7
+  %8 = getelementptr inbounds [128 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sitofp i32 %10 to double
@@ -1624,7 +1620,7 @@ define double @Java_sun_awt_X11GraphicsConfig_getYResolution(ptr noundef readnon
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %struct.Screen, ptr %6, i64 %7
+  %8 = getelementptr inbounds [128 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = sitofp i32 %10 to double
@@ -1654,7 +1650,7 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
   %5 = alloca %struct._AwtScreenData, align 8
   %6 = load ptr, ptr @x11Screens, align 8
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds %struct._AwtScreenData, ptr %6, i64 %7
+  %8 = getelementptr inbounds [48 x i8], ptr %6, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   %9 = load i32, ptr %5, align 8
   %10 = icmp eq i32 %9, 0
@@ -1683,7 +1679,7 @@ define void @Java_sun_awt_X11GraphicsConfig_init(ptr noundef %0, ptr noundef %1,
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i64, ptr %21, align 8
@@ -1858,7 +1854,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 70:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %.1191238 = phi i32 [ 1, %.lr.ph ], [ %.2192, %103 ]
-  %71 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %24, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = call i64 @XVisualIDFromVisual(ptr noundef %72) #17
   %74 = load ptr, ptr %69, align 8
@@ -1876,7 +1872,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %82 = add nsw i32 %.1191238, 1
   %83 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
   %84 = sext i32 %.1191238 to i64
-  %85 = getelementptr inbounds ptr, ptr %44, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %44, i64 %84
   store ptr %83, ptr %85, align 8
   %86 = icmp eq ptr %83, null
   br i1 %86, label %.sink.split, label %87
@@ -1952,7 +1948,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 116:                                              ; preds = %.lr.ph243, %133
   %indvars.iv271 = phi i64 [ 0, %.lr.ph243 ], [ %indvars.iv.next272, %133 ]
   %.3193240 = phi i32 [ %.1191.lcssa, %.lr.ph243 ], [ %.4194, %133 ]
-  %117 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %20, i64 %indvars.iv271
+  %117 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %indvars.iv271
   %118 = load ptr, ptr %117, align 8
   %119 = call i64 @XVisualIDFromVisual(ptr noundef %118) #17
   %120 = load ptr, ptr %112, align 8
@@ -1964,7 +1960,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %124 = add nsw i32 %.3193240, 1
   %125 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
   %126 = sext i32 %.3193240 to i64
-  %127 = getelementptr inbounds ptr, ptr %44, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %44, i64 %126
   store ptr %125, ptr %127, align 8
   %128 = icmp eq ptr %125, null
   br i1 %128, label %.sink.split, label %129
@@ -1998,7 +1994,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 140:                                              ; preds = %.lr.ph247, %157
   %indvars.iv274 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next275, %157 ]
   %.5195245 = phi i32 [ %.3193.lcssa, %.lr.ph247 ], [ %.6196, %157 ]
-  %141 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %22, i64 %indvars.iv274
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %indvars.iv274
   %142 = load ptr, ptr %141, align 8
   %143 = call i64 @XVisualIDFromVisual(ptr noundef %142) #17
   %144 = load ptr, ptr %115, align 8
@@ -2010,7 +2006,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %148 = add nsw i32 %.5195245, 1
   %149 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
   %150 = sext i32 %.5195245 to i64
-  %151 = getelementptr inbounds ptr, ptr %44, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %44, i64 %150
   store ptr %149, ptr %151, align 8
   %152 = icmp eq ptr %149, null
   br i1 %152, label %.sink.split, label %153
@@ -2044,7 +2040,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 164:                                              ; preds = %.lr.ph251, %181
   %indvars.iv277 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next278, %181 ]
   %.7197249 = phi i32 [ %.5195.lcssa, %.lr.ph251 ], [ %.8, %181 ]
-  %165 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %26, i64 %indvars.iv277
+  %165 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %indvars.iv277
   %166 = load ptr, ptr %165, align 8
   %167 = call i64 @XVisualIDFromVisual(ptr noundef %166) #17
   %168 = load ptr, ptr %139, align 8
@@ -2056,7 +2052,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %172 = add nsw i32 %.7197249, 1
   %173 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
   %174 = sext i32 %.7197249 to i64
-  %175 = getelementptr inbounds ptr, ptr %44, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %44, i64 %174
   store ptr %173, ptr %175, align 8
   %176 = icmp eq ptr %173, null
   br i1 %176, label %.sink.split, label %177
@@ -2090,7 +2086,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 188:                                              ; preds = %.lr.ph255, %205
   %indvars.iv280 = phi i64 [ 0, %.lr.ph255 ], [ %indvars.iv.next281, %205 ]
   %.9253 = phi i32 [ %.7197.lcssa, %.lr.ph255 ], [ %.10, %205 ]
-  %189 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %28, i64 %indvars.iv280
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %indvars.iv280
   %190 = load ptr, ptr %189, align 8
   %191 = call i64 @XVisualIDFromVisual(ptr noundef %190) #17
   %192 = load ptr, ptr %163, align 8
@@ -2102,7 +2098,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %196 = add nsw i32 %.9253, 1
   %197 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
   %198 = sext i32 %.9253 to i64
-  %199 = getelementptr inbounds ptr, ptr %44, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %44, i64 %198
   store ptr %197, ptr %199, align 8
   %200 = icmp eq ptr %197, null
   br i1 %200, label %.sink.split, label %201
@@ -2126,7 +2122,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 209:                                              ; preds = %.lr.ph259, %226
   %indvars.iv283 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next284, %226 ]
   %.11257 = phi i32 [ %.9.lcssa, %.lr.ph259 ], [ %.12, %226 ]
-  %210 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %30, i64 %indvars.iv283
+  %210 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %indvars.iv283
   %211 = load ptr, ptr %210, align 8
   %212 = call i64 @XVisualIDFromVisual(ptr noundef %211) #17
   %213 = load ptr, ptr %187, align 8
@@ -2138,7 +2134,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
   %217 = add nsw i32 %.11257, 1
   %218 = call noalias dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #18
   %219 = sext i32 %.11257 to i64
-  %220 = getelementptr inbounds ptr, ptr %44, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %44, i64 %219
   store ptr %218, ptr %220, align 8
   %221 = icmp eq ptr %218, null
   br i1 %221, label %.sink.split, label %222
@@ -2182,7 +2178,7 @@ define internal fastcc void @getAllConfigs(ptr noundef %0, i32 noundef %1, ptr n
 
 .lr.ph263:                                        ; preds = %.lr.ph263.preheader, %.lr.ph263
   %indvars.iv286 = phi i64 [ 0, %.lr.ph263.preheader ], [ %indvars.iv.next287, %.lr.ph263 ]
-  %233 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv286
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv286
   %234 = load ptr, ptr %233, align 8
   call void @free(ptr noundef %234) #17
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
@@ -2528,7 +2524,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 224
   %93 = load ptr, ptr %92, align 8
   %94 = zext nneg i32 %spec.store.select to i64
-  %95 = getelementptr inbounds nuw %struct.XineramaScreenInfo, ptr %48, i64 %94
+  %95 = getelementptr inbounds nuw [12 x i8], ptr %48, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i16, ptr %96, align 4
   %98 = sext i16 %97 to i32
@@ -2589,7 +2585,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_pGetBounds(ptr noundef %0, ptr nounde
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 232
   %135 = load ptr, ptr %134, align 8
   %136 = sext i32 %.088116 to i64
-  %137 = getelementptr inbounds %struct.Screen, ptr %135, i64 %136
+  %137 = getelementptr inbounds [128 x i8], ptr %135, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load i64, ptr %138, align 8
   %140 = call i32 @XGetWindowAttributes(ptr noundef %133, i64 noundef %139, ptr noundef nonnull %5) #17
@@ -3201,7 +3197,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %40 = load ptr, ptr @awt_display, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.Screen, ptr %42, i64 %.085
+  %43 = getelementptr inbounds [128 x i8], ptr %42, i64 %.085
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %4, align 8
@@ -3317,7 +3313,7 @@ define void @Java_sun_awt_X11GraphicsDevice_getDoubleBufferVisuals(ptr noundef %
   %111 = load ptr, ptr %0, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 488
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw %struct.XdbeVisualInfo, ptr %105, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %indvars.iv
   %115 = load i64, ptr %114, align 8
   call void (ptr, ptr, ptr, ...) %113(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %14, i64 noundef %115) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3817,7 +3813,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %2 to i64
-  %38 = getelementptr inbounds %struct.Screen, ptr %36, i64 %37
+  %38 = getelementptr inbounds [128 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = tail call ptr %34(ptr noundef nonnull %29, i64 noundef %40) #17
@@ -3842,7 +3838,7 @@ define ptr @Java_sun_awt_X11GraphicsDevice_getCurrentDisplayMode(ptr noundef %0,
 
 53:                                               ; preds = %49
   %54 = zext i16 %44 to i64
-  %55 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %46, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %54
   %.sroa.0.0.copyload = load i32, ptr %55, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -3979,7 +3975,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 232
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %2 to i64
-  %39 = getelementptr inbounds %struct.Screen, ptr %37, i64 %38
+  %39 = getelementptr inbounds [128 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = tail call ptr %34(ptr noundef %35, i64 noundef %41) #17
@@ -3997,7 +3993,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 .lr.ph55:                                         ; preds = %43, %._crit_edge
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge ], [ 0, %43 ]
-  %48 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %45, i64 %indvars.iv59
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv59
   %.sroa.0.0.copyload = load i32, ptr %48, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -4017,7 +4013,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enumDisplayModes(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph55, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph55 ]
-  %58 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv
   %59 = load i16, ptr %58, align 2
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
@@ -4192,7 +4188,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 232
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %2 to i64
-  %37 = getelementptr inbounds %struct.Screen, ptr %35, i64 %36
+  %37 = getelementptr inbounds [128 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = load ptr, ptr @awt_XRRGetScreenInfo, align 8
@@ -4219,7 +4215,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
-  %49 = getelementptr inbounds nuw %struct.XRRScreenSize, ptr %44, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %49, align 4
   %50 = icmp eq i32 %.sroa.0.0.copyload, %3
   br i1 %50, label %51, label %64
@@ -4249,7 +4245,7 @@ define void @Java_sun_awt_X11GraphicsDevice_configDisplayMode(ptr noundef %0, pt
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %59
   %indvars.iv81 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next82, %59 ]
-  %60 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv81
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv81
   %61 = load i16, ptr %60, align 2
   %62 = sext i16 %61 to i32
   %63 = icmp eq i32 %5, %62
@@ -4601,7 +4597,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Screen, ptr %10, i64 %13
+  %14 = getelementptr inbounds [128 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = call i64 @XVisualIDFromVisual(ptr noundef %16) #17
@@ -4625,7 +4621,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
 25:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03850 = phi i32 [ -1, %.lr.ph ], [ %.2, %37 ]
-  %26 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %6, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = load i32, ptr %27, align 4
@@ -4666,7 +4662,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %.146 = phi i32 [ %.2, %._crit_edge ], [ %41, %.thread.loopexit ]
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %43 = sext i32 %.146 to i64
-  %44 = getelementptr inbounds %struct.XVisualInfo, ptr %6, i64 %43
+  %44 = getelementptr inbounds [64 x i8], ptr %6, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, ptr noundef nonnull align 8 dereferenceable(64) %44, i64 64, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = load i32, ptr %45, align 4
@@ -4688,7 +4684,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct._AwtScreenData, ptr %56, i64 %59
+  %60 = getelementptr inbounds [48 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i64 %55, ptr %61, align 8
   store i8 7, ptr %47, align 2
@@ -4702,7 +4698,7 @@ define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64
   %66 = load ptr, ptr @x11Screens, align 8
   %67 = load i32, ptr %57, align 8
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct._AwtScreenData, ptr %66, i64 %68
+  %69 = getelementptr inbounds [48 x i8], ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %65, ptr %70, align 8
   %71 = call i32 @XFree(ptr noundef nonnull %6) #17

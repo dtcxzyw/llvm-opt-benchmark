@@ -124,7 +124,7 @@ define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr8BinarizeEN5zxing3RefINS2
   %10 = load i32, ptr %1, align 8, !tbaa !3
   %11 = sext i32 %10 to i64
   %12 = load ptr, ptr %9, align 8, !tbaa !16
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %11
   %14 = load i32, ptr %13, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !13
@@ -506,7 +506,7 @@ define hidden noundef i32 @_ZN2cv13wechat_qrcode12BinarizerMgr15GetCurBinarizerE
   %6 = load i32, ptr %0, align 8, !tbaa !3
   %7 = sext i32 %6 to i64
   %8 = load ptr, ptr %5, align 8, !tbaa !16
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %7
   %10 = load i32, ptr %9, align 4, !tbaa !14
   br label %11
 

@@ -695,10 +695,10 @@ switch.lookup:
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i8, ptr %0, align 1, !range !106, !noundef !16
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E.2", i64 %5
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E.2", i64 %5
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)

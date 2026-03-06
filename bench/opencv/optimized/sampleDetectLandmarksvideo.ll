@@ -47,12 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point_.25" = type { float, float }
 
 $_ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EED2Ev = comdat any
 
@@ -1087,7 +1081,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   store i64 0, ptr %297, align 8
   store i32 50397184, ptr %25, align 8, !tbaa !71
   store ptr %20, ptr %296, align 8, !tbaa !73
-  %381 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %380, i64 %.056348
+  %381 = getelementptr inbounds nuw [16 x i8], ptr %380, i64 %.056348
   %.sroa.07.0.copyload = load i64, ptr %381, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %381, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
@@ -1160,7 +1154,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   %402 = phi ptr [ %411, %._crit_edge351 ], [ %399, %.preheader.preheader ]
   %403 = phi ptr [ %412, %._crit_edge351 ], [ %.pre, %.preheader.preheader ]
   %.016352 = phi i64 [ %413, %._crit_edge351 ], [ 0, %.preheader.preheader ]
-  %404 = getelementptr inbounds nuw %"class.std::vector.20", ptr %403, i64 %.016352
+  %404 = getelementptr inbounds nuw [24 x i8], ptr %403, i64 %.016352
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = load ptr, ptr %405, align 8, !tbaa !77
   %407 = load ptr, ptr %404, align 8, !tbaa !63
@@ -1200,7 +1194,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   store i32 50397184, ptr %30, align 8, !tbaa !71
   store ptr %20, ptr %307, align 8, !tbaa !73
   %420 = load ptr, ptr %419, align 8, !tbaa !63
-  %421 = getelementptr inbounds nuw %"class.cv::Point_.25", ptr %420, i64 %.015349
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %.015349
   %422 = load float, ptr %421, align 4, !tbaa !79
   %423 = insertelement <4 x float> poison, float %422, i64 0
   %424 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %423)
@@ -1224,7 +1218,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %430 = add nuw i64 %.015349, 1
   %431 = load ptr, ptr %19, align 8, !tbaa !59
-  %432 = getelementptr inbounds nuw %"class.std::vector.20", ptr %431, i64 %.016352
+  %432 = getelementptr inbounds nuw [24 x i8], ptr %431, i64 %.016352
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %434 = load ptr, ptr %433, align 8, !tbaa !77
   %435 = load ptr, ptr %432, align 8, !tbaa !63

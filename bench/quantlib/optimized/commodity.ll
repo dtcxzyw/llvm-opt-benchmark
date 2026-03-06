@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.21" = type { i8 }
-%"struct.QuantLib::PricingError" = type { i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $__clang_call_terminate = comdat any
 
@@ -1252,7 +1251,7 @@ if.then.i66:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib12PricingErrorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib12PricingErrorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit65, %if.then.i66
   store ptr %cond.i17, ptr %this, align 8, !tbaa !59
   store ptr %__cur.0.lcssa.i.i.i52, ptr %_M_finish.i.i, align 8, !tbaa !23
-  %add.ptr30 = getelementptr inbounds nuw %"struct.QuantLib::PricingError", ptr %cond.i17, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw [104 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8, !tbaa !25
   ret void
 

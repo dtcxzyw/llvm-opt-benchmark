@@ -31,7 +31,7 @@ define dso_local i32 @MurmurHash3_x86_32(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03742 = phi i32 [ 0, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %10 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = mul i32 %11, -862048943
   %13 = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 15)

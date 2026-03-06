@@ -1918,7 +1918,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = 
   %mul.i.i.i.i.i = shl nuw nsw i64 %inc.i.i.i.i36, 3
   %call5.i.i.i.i1.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #29
   store ptr %call5.i.i.i.i1.i, ptr %agg.result, align 8, !tbaa !47
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i1.i, i64 %inc.i.i.i.i36
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1.i, i64 %inc.i.i.i.i36
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !49
   br label %for.body.i.i.i.i.i.i

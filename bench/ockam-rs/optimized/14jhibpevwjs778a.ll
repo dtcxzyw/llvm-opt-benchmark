@@ -797,7 +797,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %13, label %14, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17h24703b6cc9d41326E.llvm.17652871756462562911.exit"
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %8, i64 %7
+  %15 = getelementptr inbounds [96 x i8], ptr %8, i64 %7
   %16 = tail call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h83eafe6dba241458E"(ptr noundef nonnull align 8 %15, i64 noundef %2, i64 noundef %7, ptr noundef nonnull align 8 %3), !noalias !96
   br label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17h24703b6cc9d41326E.llvm.17652871756462562911.exit"
 
@@ -822,7 +822,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %13, label %14, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17h3206fa886bcaf54fE.llvm.17652871756462562911.exit"
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %8, i64 %7
+  %15 = getelementptr inbounds [96 x i8], ptr %8, i64 %7
   %16 = tail call noundef zeroext i1 @"_ZN12sharded_slab4page4slot17Slot$LT$T$C$C$GT$12release_with17h1bc5bb3fb61e9123E"(ptr noundef nonnull align 8 %15, i64 noundef %2, i64 noundef %7, ptr noundef nonnull align 8 %3), !noalias !104
   br label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5clear28_$u7b$$u7b$closure$u7d$$u7d$17h3206fa886bcaf54fE.llvm.17652871756462562911.exit"
 
@@ -848,7 +848,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %3, i64 %9
+  %12 = getelementptr inbounds [96 x i8], ptr %3, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !6, !align !53, !noundef !6
   %15 = load i64, ptr %14, align 8, !noundef !6
@@ -880,7 +880,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %3, i64 %9
+  %12 = getelementptr inbounds [96 x i8], ptr %3, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !6, !align !53, !noundef !6
   %15 = load i64, ptr %14, align 8, !noundef !6
@@ -902,7 +902,7 @@ define hidden noundef align 8 ptr @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5
   %5 = load i64, ptr %0, align 8, !noundef !6
   %6 = icmp ult i64 %5, %4
   %7 = load ptr, ptr %1, align 8, !nonnull !6, !align !53
-  %8 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %7, i64 %5
+  %8 = getelementptr inbounds [96 x i8], ptr %7, i64 %5
   %.0 = select i1 %6, ptr %8, ptr null
   ret ptr %.0
 }
@@ -914,7 +914,7 @@ define hidden noundef align 8 ptr @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5
   %5 = load i64, ptr %0, align 8, !noundef !6
   %6 = icmp ult i64 %5, %4
   %7 = load ptr, ptr %1, align 8, !nonnull !6, !align !53
-  %8 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %7, i64 %5
+  %8 = getelementptr inbounds [96 x i8], ptr %7, i64 %5
   %.0 = select i1 %6, ptr %8, ptr null
   ret ptr %.0
 }
@@ -987,7 +987,7 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
 .noexc:                                           ; preds = %._crit_edge.i, %13
   %24 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %16, %13 ]
   %25 = load ptr, ptr %4, align 8, !alias.scope !125, !noalias !128, !nonnull !6, !noundef !6
-  %26 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %25, i64 %24
+  %26 = getelementptr inbounds [96 x i8], ptr %25, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %26, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false)
   %27 = add i64 %24, 1
   store i64 %27, ptr %11, align 8, !alias.scope !125, !noalias !128
@@ -1010,7 +1010,7 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   br i1 %33, label %"_ZN4core3ptr152drop_in_place$LT$$u5b$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$u5d$$GT$17hedf0e9a5f9942ffaE.exit.i.i.i", label %34
 
 34:                                               ; preds = %"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE.exit.i.i.i.i"
-  %35 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %.val.i, i64 %.0.i.i.i.i
+  %35 = getelementptr inbounds [96 x i8], ptr %.val.i, i64 %.0.i.i.i.i
   %36 = add i64 %.0.i.i.i.i, 1
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
   invoke void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfe619e77ab9df1E.llvm.1799741712541865863"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
@@ -1027,7 +1027,7 @@ define internal fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8alloca
   br label %38
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %.val.i, i64 %.1.i.i.i.i
+  %43 = getelementptr inbounds [96 x i8], ptr %.val.i, i64 %.1.i.i.i.i
   %44 = add i64 %.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr142drop_in_place$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$17h4ed61c49dbfcf3acE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %43) #24
           to label %38 unwind label %45, !noalias !130
@@ -1120,7 +1120,7 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h54a
   br i1 %19, label %20, label %26, !prof !137
 
 20:                                               ; preds = %.thread
-  %21 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %15, i64 %.0.i34
+  %21 = getelementptr inbounds [96 x i8], ptr %15, i64 %.0.i34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h133eb4a7cc8ea4ceE.llvm.11052903800730486598(ptr noundef nonnull %22, i8 noundef 2), !noalias !138
   %24 = and i64 %23, 2251799813685244

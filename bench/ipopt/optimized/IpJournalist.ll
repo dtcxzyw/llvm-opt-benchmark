@@ -4,10 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.Ipopt::SmartPtr" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.Ipopt::SmartPtr" = type { ptr }
 
 $_ZN5Ipopt13StreamJournalD0Ev = comdat any
 
@@ -421,7 +421,7 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
 .lr.ph:                                           ; preds = %5, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %5 ]
   %17 = phi ptr [ %33, %31 ], [ %10, %5 ]
-  %18 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = load ptr, ptr %19, align 8, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -433,7 +433,7 @@ define void @_ZNK5Ipopt10Journalist7VPrintfENS_13EJournalLevelENS_16EJournalCate
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %4)
   %25 = load ptr, ptr %7, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
@@ -481,7 +481,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
 .lr.ph20.split.us:                                ; preds = %.lr.ph20, %26
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %26 ], [ 0, %.lr.ph20 ]
   %19 = phi ptr [ %28, %26 ], [ %11, %.lr.ph20 ]
-  %20 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %19, i64 %indvars.iv24
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv24
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
@@ -504,7 +504,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
 .preheader.us:                                    ; preds = %.lr.ph20.split.us, %.preheader.us
   %.017.us = phi i32 [ %40, %.preheader.us ], [ 0, %.lr.ph20.split.us ]
   %34 = load ptr, ptr %8, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %34, i64 %indvars.iv24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv24
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %37 = load ptr, ptr %36, align 8, !tbaa !8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -518,7 +518,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.va_copy.p0(ptr nonnull %7, ptr %5)
   %41 = load ptr, ptr %8, align 8, !tbaa !10
-  %42 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %41, i64 %indvars.iv24
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv24
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %44 = load ptr, ptr %43, align 8, !tbaa !8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
@@ -534,7 +534,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
 .lr.ph20.split:                                   ; preds = %.lr.ph20, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph20 ]
   %47 = phi ptr [ %62, %60 ], [ %11, %.lr.ph20 ]
-  %48 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !15
   %50 = load ptr, ptr %49, align 8, !tbaa !8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -546,7 +546,7 @@ define void @_ZNK5Ipopt10Journalist15VPrintfIndentedENS_13EJournalLevelENS_16EJo
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.va_copy.p0(ptr nonnull %7, ptr %5)
   %54 = load ptr, ptr %8, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !15
   %57 = load ptr, ptr %56, align 8, !tbaa !8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
@@ -598,7 +598,7 @@ define noundef zeroext i1 @_ZNK5Ipopt10Journalist13ProduceOutputENS_13EJournalLe
 .lr.ph:                                           ; preds = %3, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
   %22 = phi ptr [ %16, %14 ], [ %7, %3 ]
-  %23 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -910,7 +910,7 @@ define void @_ZNK5Ipopt10Journalist11FlushBufferEv(ptr noundef nonnull readonly 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %12 = phi ptr [ %19, %.lr.ph ], [ %5, %1 ]
-  %13 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = load ptr, ptr %14, align 8, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -953,7 +953,7 @@ define void @_ZN5Ipopt10Journalist10GetJournalERKNSt7__cxx1112basic_stringIcSt11
 18:                                               ; preds = %.lr.ph, %_ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit16 ]
   %19 = phi ptr [ %8, %.lr.ph ], [ %65, %_ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit16 ]
-  %20 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrINS_7JournalEEC2ERKS2_.exit, label %22
@@ -1137,7 +1137,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE6resizeEm.exit: ; preds = %
   %23 = phi ptr [ %36, %_ZN5Ipopt8SmartPtrINS_7JournalEEaSEPS1_.exit ], [ %5, %1 ]
   %24 = phi ptr [ %37, %_ZN5Ipopt8SmartPtrINS_7JournalEEaSEPS1_.exit ], [ %4, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5Ipopt8SmartPtrINS_7JournalEEaSEPS1_.exit ], [ 0, %1 ]
-  %25 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !15
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrINS_7JournalEEaSEPS1_.exit, label %27
@@ -1238,7 +1238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %26
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   store i32 %2, ptr %27, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1306,7 +1306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 define noundef zeroext i1 @_ZNK5Ipopt7Journal10IsAcceptedENS_16EJournalCategoryENS_13EJournalLevelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !38
   %.not = icmp sge i32 %7, %2
   ret i1 %.not
@@ -1316,7 +1316,7 @@ define noundef zeroext i1 @_ZNK5Ipopt7Journal10IsAcceptedENS_16EJournalCategoryE
 define void @_ZN5Ipopt7Journal13SetPrintLevelENS_16EJournalCategoryENS_13EJournalLevelE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   store i32 %2, ptr %6, align 4, !tbaa !38
   ret void
 }
@@ -1331,7 +1331,7 @@ define void @_ZN5Ipopt7Journal17SetAllPrintLevelsENS_13EJournalLevelE(ptr nounde
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %1, ptr %6, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
@@ -1400,7 +1400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 25:                                               ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   store i32 %2, ptr %26, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -1630,7 +1630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 25:                                               ; preds = %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   store i32 %2, ptr %26, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -1973,7 +1973,7 @@ _ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exit: ; preds 
 _ZNSt12_Vector_baseIN5Ipopt8SmartPtrINS0_7JournalEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN5Ipopt8SmartPtrINS0_7JournalEEES3_EvT_S5_RSaIT0_E.exit, %57
   store ptr %20, ptr %0, align 8, !tbaa !10
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !14
-  %61 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %20, i64 %16
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %61, ptr %56, align 8, !tbaa !20
   ret void
 }

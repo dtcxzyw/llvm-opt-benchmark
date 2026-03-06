@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/hashvalidate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [42 x i8] c"cache lookup failed for operator class %u\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"hashvalidate.c\00", align 1
 @__func__.hashvalidate = private unnamed_addr constant [13 x i8] c"hashvalidate\00", align 1
@@ -74,7 +72,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
   %.0126 = phi i1 [ true, %.lr.ph ], [ %.2, %92 ]
   %.092125 = phi ptr [ null, %.lr.ph ], [ %.193, %92 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 80
   %.val113 = load ptr, ptr %33, align 8
@@ -185,7 +183,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 96:                                               ; preds = %.lr.ph130, %158
   %indvars.iv156 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next157, %158 ]
   %.4129 = phi i1 [ %.0.lcssa, %.lr.ph130 ], [ %.8, %158 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv156
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv156
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr i8, ptr %98, i64 80
   %.val114 = load ptr, ptr %99, align 8
@@ -311,7 +309,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.090133150 = phi ptr [ %.191, %190 ], [ null, %.lr.ph136 ]
   %.9134149 = phi i1 [ %.10, %190 ], [ %.4.lcssa, %.lr.ph136 ]
   %167 = load ptr, ptr %164, align 8
-  %168 = getelementptr inbounds nuw %union.ListCell, ptr %167, i64 %indvars.iv158
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv158
   %169 = load ptr, ptr %168, align 8
   %170 = load i32, ptr %169, align 8
   %171 = icmp eq i32 %170, %16
@@ -480,7 +478,7 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   %.1354852 = phi i32 [ %.236, %43 ], [ %.034, %.lr.ph ]
   %.04951 = phi i32 [ %.1, %43 ], [ %1, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 4, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1

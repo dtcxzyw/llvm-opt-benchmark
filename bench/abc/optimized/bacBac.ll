@@ -3,10 +3,6 @@ source_filename = "bench/abc/original/bacBac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Bac_Ntk_t_ = type { ptr, i32, i32, i32, i32, i32, i32, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Str_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_, %struct.Vec_Int_t_ }
-%struct.Vec_Str_t_ = type { i32, i32, ptr }
-%struct.Vec_Int_t_ = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"Cannot open file \22%s\22 for reading.\0A\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"# Design \22%s\22 written by ABC on %s\0A\00", align 1
@@ -391,7 +387,7 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   %.sink49 = phi i32 [ %69, %Vec_IntPush.exit ], [ %96, %Vec_IntPush.exit38 ]
   %.sink = phi ptr [ %68, %Vec_IntPush.exit ], [ %95, %Vec_IntPush.exit38 ]
   %98 = sext i32 %.sink49 to i64
-  %99 = getelementptr inbounds i32, ptr %.sink, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %.sink, i64 %98
   %100 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %100, ptr %99, align 4, !tbaa !3
   br label %101
@@ -516,7 +512,7 @@ Bac_ManNtk.exit.preheader.i:                      ; preds = %25
 
 Bac_ManNtk.exit.i:                                ; preds = %Bac_ManNtk.exit.i, %Bac_ManNtk.exit.preheader.i
   %indvars.iv.i = phi i64 [ 1, %Bac_ManNtk.exit.preheader.i ], [ %indvars.iv.next.i, %Bac_ManNtk.exit.i ]
-  %44 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %42, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [208 x i8], ptr %42, i64 %indvars.iv.i
   store ptr %27, ptr %44, align 8, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -543,7 +539,7 @@ Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.
   %indvars.iv76 = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph ], [ %indvars.iv.next77, %Vec_IntFill.exit ]
   %.lcssa586064 = phi i32 [ %.lcssa535695, %Bac_ManNtk.exit.lr.ph ], [ %.lcssa5861, %Vec_IntFill.exit ]
   %49 = load ptr, ptr %43, align 8, !tbaa !37
-  %50 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %49, i64 %indvars.iv76
+  %50 = getelementptr inbounds nuw [208 x i8], ptr %49, i64 %indvars.iv76
   %51 = add i32 %.lcssa586064, 1
   %.val8.i30 = load ptr, ptr %47, align 8, !tbaa !7
   %52 = sext i32 %.lcssa586064 to i64
@@ -787,7 +783,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i3
 Bac_ManNtk.exit43:                                ; preds = %.critedge.preheader, %Bac_ManNtk.exit43
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %Bac_ManNtk.exit43 ], [ 1, %.critedge.preheader ]
   %159 = load ptr, ptr %43, align 8, !tbaa !37
-  %160 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %159, i64 %indvars.iv79
+  %160 = getelementptr inbounds nuw [208 x i8], ptr %159, i64 %indvars.iv79
   call void @Bac_ManReadBacNtk(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %160)
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %.val29 = load i32, ptr %39, align 4, !tbaa !36
@@ -828,7 +824,7 @@ Bac_ManNtk.exit.lr.ph:                            ; preds = %1
 Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.ph, %Bac_NtkFree.exit
   %indvars.iv = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph ], [ %indvars.iv.next, %Bac_NtkFree.exit ]
   %4 = load ptr, ptr %3, align 8, !tbaa !37
-  %5 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [208 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !19
@@ -1564,7 +1560,7 @@ Bac_ManNtk.exit63.lr.ph:                          ; preds = %.critedge.preheader
 Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.ph, %Vec_StrPrintStr.exit60
   %indvars.iv = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph ], [ %indvars.iv.next, %Vec_StrPrintStr.exit60 ]
   %80 = load ptr, ptr %76, align 8, !tbaa !37
-  %81 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [208 x i8], ptr %80, i64 %indvars.iv
   %.val31 = load ptr, ptr %81, align 8, !tbaa !38
   %82 = getelementptr i8, ptr %81, i64 8
   %.val32 = load i32, ptr %82, align 8, !tbaa !42
@@ -1669,7 +1665,7 @@ Vec_StrPrintStr.exit60:                           ; preds = %Vec_StrPush.exit.i5
 Bac_ManNtk.exit63:                                ; preds = %Bac_ManNtk.exit63.lr.ph, %Bac_ManNtk.exit63
   %indvars.iv71 = phi i64 [ 1, %Bac_ManNtk.exit63.lr.ph ], [ %indvars.iv.next72, %Bac_ManNtk.exit63 ]
   %125 = load ptr, ptr %79, align 8, !tbaa !37
-  %126 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %125, i64 %indvars.iv71
+  %126 = getelementptr inbounds nuw [208 x i8], ptr %125, i64 %indvars.iv71
   tail call void @Bac_ManWriteBacNtk(ptr noundef %0, ptr noundef nonnull %126)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %.val25 = load i32, ptr %40, align 4, !tbaa !36

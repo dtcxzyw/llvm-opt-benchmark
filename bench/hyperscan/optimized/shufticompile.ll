@@ -73,7 +73,7 @@ define hidden noundef range(i32 -1, 256) i32 @_ZN3ue216shuftiBuildMasksERKNS_9Ch
 
 16:                                               ; preds = %19, %3
   %.0712.i.i = phi i64 [ 0, %3 ], [ %20, %19 ]
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %18 = load i64, ptr %17, align 8
   %.not.i.i = icmp eq i64 %18, 0
   br i1 %.not.i.i, label %19, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -149,7 +149,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br label %52
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %43
   %47 = load i64, ptr %46, align 8
   %48 = shl nsw i64 -2, %44
   %49 = and i64 %47, %48
@@ -167,7 +167,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
 
 54:                                               ; preds = %52
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %55 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %56 = load i64, ptr %55, align 8
   %.not22.i.i = icmp eq i64 %56, 0
   br i1 %.not22.i.i, label %52, label %57, !llvm.loop !7
@@ -277,7 +277,7 @@ _ZNSt3mapIN3ue29CharReachES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_
   %86 = and i64 %85, 63
   %87 = shl nuw i64 1, %86
   %88 = lshr i64 %85, 6
-  %89 = getelementptr inbounds nuw i64, ptr %83, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = or i64 %87, %90
   store i64 %91, ptr %89, align 8
@@ -325,7 +325,7 @@ _ZNSt3mapIN3ue29CharReachES1_St4lessIS1_ESaISt4pairIKS1_S1_EEE11lower_boundERS5_
 
 102:                                              ; preds = %105, %.lr.ph116
   %.0712.i.i47 = phi i64 [ 0, %.lr.ph116 ], [ %106, %105 ]
-  %103 = getelementptr inbounds nuw i64, ptr %100, i64 %.0712.i.i47
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.0712.i.i47
   %104 = load i64, ptr %103, align 8
   %.not.i.i48 = icmp eq i64 %104, 0
   br i1 %.not.i.i48, label %105, label %_ZNK3ue29CharReach10find_firstEv.exit50
@@ -353,7 +353,7 @@ _ZNK3ue29CharReach10find_firstEv.exit50:          ; preds = %102
 
 .preheader:                                       ; preds = %.preheader.preheader, %115
   %.0712.i.i51 = phi i64 [ %116, %115 ], [ 0, %.preheader.preheader ]
-  %113 = getelementptr inbounds nuw i64, ptr %101, i64 %.0712.i.i51
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.0712.i.i51
   %114 = load i64, ptr %113, align 8
   %.not.i.i52 = icmp eq i64 %114, 0
   br i1 %.not.i.i52, label %115, label %_ZNK3ue29CharReach10find_firstEv.exit54
@@ -391,7 +391,7 @@ _ZNK3ue29CharReach10find_firstEv.exit54:          ; preds = %.preheader
   br label %136
 
 129:                                              ; preds = %123
-  %130 = getelementptr inbounds nuw i64, ptr %100, i64 %127
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %127
   %131 = load i64, ptr %130, align 8
   %132 = shl nsw i64 -2, %128
   %133 = and i64 %131, %132
@@ -409,7 +409,7 @@ _ZNK3ue29CharReach10find_firstEv.exit54:          ; preds = %.preheader
 
 138:                                              ; preds = %136
   %.0.i.i60 = add nuw nsw i64 %.0.in.i.i59, 1
-  %139 = getelementptr inbounds nuw i64, ptr %100, i64 %.0.i.i60
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.0.i.i60
   %140 = load i64, ptr %139, align 8
   %.not22.i.i61 = icmp eq i64 %140, 0
   br i1 %.not22.i.i61, label %136, label %141, !llvm.loop !7
@@ -446,7 +446,7 @@ _ZNK3ue29CharReach9find_nextEm.exit62:            ; preds = %134, %141
   br label %160
 
 153:                                              ; preds = %147
-  %154 = getelementptr inbounds nuw i64, ptr %101, i64 %151
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %151
   %155 = load i64, ptr %154, align 8
   %156 = shl nsw i64 -2, %152
   %157 = and i64 %155, %156
@@ -464,7 +464,7 @@ _ZNK3ue29CharReach9find_nextEm.exit62:            ; preds = %134, %141
 
 162:                                              ; preds = %160
   %.0.i.i68 = add nuw nsw i64 %.0.in.i.i67, 1
-  %163 = getelementptr inbounds nuw i64, ptr %101, i64 %.0.i.i68
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.0.i.i68
   %164 = load i64, ptr %163, align 8
   %.not22.i.i69 = icmp eq i64 %164, 0
   br i1 %.not22.i.i69, label %160, label %165, !llvm.loop !7
@@ -677,7 +677,7 @@ define hidden noundef zeroext i1 @_ZN3ue222shuftiBuildDoubleMasksERKNS_9CharReac
 
 17:                                               ; preds = %.preheader344, %20
   %.0712.i.i = phi i64 [ %21, %20 ], [ 0, %.preheader344 ]
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0712.i.i
   %19 = load i64, ptr %18, align 8
   %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %20, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -781,7 +781,7 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ;
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %56, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %57 = getelementptr inbounds nuw %"struct.std::array.23", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %37
@@ -887,7 +887,7 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i77:
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i79
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i79: ; preds = %90, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i77
-  %91 = getelementptr inbounds nuw %"struct.std::array.23", ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82: ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i79, %69
@@ -908,7 +908,7 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82: ; preds = %_ZNSt6vec
   br label %102
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i64, ptr %0, i64 %93
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %93
   %97 = load i64, ptr %96, align 8
   %98 = shl nsw i64 -2, %94
   %99 = and i64 %97, %98
@@ -926,7 +926,7 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backEOS1_.exit82: ; preds = %_ZNSt6vec
 
 104:                                              ; preds = %102
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %105 = getelementptr inbounds nuw i64, ptr %0, i64 %.0.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.i.i
   %106 = load i64, ptr %105, align 8
   %.not22.i.i = icmp eq i64 %106, 0
   br i1 %.not22.i.i, label %102, label %107, !llvm.loop !7
@@ -978,7 +978,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %100, %107
   br i1 %.not328410, label %._crit_edge, label %.lr.ph412
 
 .lr.ph412:                                        ; preds = %116
-  %117 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   br label %118
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE5clearEv.exit: ; preds = %266
@@ -1558,7 +1558,7 @@ _ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %292, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %293 = getelementptr inbounds nuw %"struct.std::array.23", ptr %287, i64 %285
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %285
   br label %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorISt5arrayItLm4EESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %273

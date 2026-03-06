@@ -69,7 +69,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly capture
   %30 = add i32 %29, %27
   %31 = lshr i32 %30, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr %struct.anon, ptr @oid_search_table, i64 %32
+  %33 = getelementptr [4 x i8], ptr @oid_search_table, i64 %32
   %34 = load i8, ptr %33, align 4
   %35 = zext i8 %34 to i32
   %36 = icmp samesign ult i32 %24, %35
@@ -97,7 +97,7 @@ define dso_local range(i32 0, 256) i32 @look_up_OID(ptr noundef readonly capture
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr i16, ptr @oid_index, i64 %49
+  %50 = getelementptr [2 x i8], ptr @oid_index, i64 %49
   %51 = getelementptr i8, ptr %50, i64 2
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i64
@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
   %43 = add i32 %42, %40
   %44 = lshr i32 %43, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr %struct.anon, ptr @oid_search_table, i64 %45
+  %46 = getelementptr [4 x i8], ptr @oid_search_table, i64 %45
   %47 = load i8, ptr %46, align 4
   %48 = zext i8 %47 to i32
   %49 = icmp samesign ult i32 %37, %48
@@ -231,7 +231,7 @@ define dso_local noundef range(i32 -74, 1) i32 @parse_OID(ptr noundef readonly c
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr i16, ptr @oid_index, i64 %62
+  %63 = getelementptr [2 x i8], ptr @oid_index, i64 %62
   %64 = getelementptr i8, ptr %63, i64 2
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
@@ -387,7 +387,7 @@ define dso_local range(i32 -73, -74) i32 @sprint_OID(i32 noundef %0, ptr noundef
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i16, ptr @oid_index, i64 %7
+  %8 = getelementptr [2 x i8], ptr @oid_index, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
   %11 = getelementptr i8, ptr @oid_data, i64 %10

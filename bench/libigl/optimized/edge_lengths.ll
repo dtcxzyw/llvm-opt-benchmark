@@ -164,8 +164,8 @@ define weak_odr dso_local void @_ZN3igl12edge_lengthsIN5Eigen6MatrixIdLin1ELi3EL
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %15 = load <2 x double>, ptr %14, align 16, !tbaa !15
   %16 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %15)
   store <2 x double> %16, ptr %13, align 16, !tbaa !15
@@ -231,8 +231,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE16_resize_to_mat
 
 .lr.ph.i.i.i.i.i.i.i.i8:                          ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i8
   %.011.i.i.i.i.i.i.i.i9 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ 0, %31 ]
-  %36 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
-  %37 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !15
   store <2 x double> %38, ptr %36, align 16, !tbaa !15
   %39 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i9, 2
@@ -291,8 +291,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -302,8 +302,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -378,8 +378,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -388,8 +388,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -446,8 +446,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -457,8 +457,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -525,8 +525,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -535,8 +535,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -593,8 +593,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -604,8 +604,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -680,8 +680,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -690,8 +690,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -748,8 +748,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -759,8 +759,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -835,8 +835,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -845,8 +845,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -903,8 +903,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -914,8 +914,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -990,8 +990,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -1000,8 +1000,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -1052,8 +1052,8 @@ define weak_odr dso_local void @_ZN3igl12edge_lengthsIN5Eigen6MatrixIdLin1ELin1E
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %15 = load <2 x double>, ptr %14, align 16, !tbaa !15
   %16 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %15)
   store <2 x double> %16, ptr %13, align 16, !tbaa !15
@@ -1119,8 +1119,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE16_resize_to_mat
 
 .lr.ph.i.i.i.i.i.i.i.i8:                          ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i8
   %.011.i.i.i.i.i.i.i.i9 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ 0, %31 ]
-  %36 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
-  %37 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !15
   store <2 x double> %38, ptr %36, align 16, !tbaa !15
   %39 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i9, 2
@@ -1177,8 +1177,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -1188,8 +1188,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -1256,8 +1256,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -1266,8 +1266,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -1324,8 +1324,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -1335,8 +1335,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -1411,8 +1411,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -1421,8 +1421,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -1479,8 +1479,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -1490,8 +1490,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -1566,8 +1566,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -1576,8 +1576,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -1634,8 +1634,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -1645,8 +1645,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -1713,8 +1713,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -1723,8 +1723,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -1775,8 +1775,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %13 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %14 = load <2 x double>, ptr %13, align 16, !tbaa !15
   %15 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %14)
   store <2 x double> %15, ptr %12, align 16, !tbaa !15
@@ -1838,8 +1838,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc11
 
 .lr.ph.i.i.i.i.i.i.i.i9:                          ; preds = %28, %.lr.ph.i.i.i.i.i.i.i.i9
   %.011.i.i.i.i.i.i.i.i10 = phi i64 [ %36, %.lr.ph.i.i.i.i.i.i.i.i9 ], [ 0, %28 ]
-  %33 = getelementptr inbounds nuw double, ptr %30, i64 %.011.i.i.i.i.i.i.i.i10
-  %34 = getelementptr inbounds nuw double, ptr %25, i64 %.011.i.i.i.i.i.i.i.i10
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.011.i.i.i.i.i.i.i.i10
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.011.i.i.i.i.i.i.i.i10
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !15
   store <2 x double> %35, ptr %33, align 16, !tbaa !15
   %36 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i10, 2
@@ -1890,8 +1890,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %13 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %14 = load <2 x double>, ptr %13, align 16, !tbaa !15
   %15 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %14)
   store <2 x double> %15, ptr %12, align 16, !tbaa !15
@@ -1953,8 +1953,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc11
 
 .lr.ph.i.i.i.i.i.i.i.i9:                          ; preds = %28, %.lr.ph.i.i.i.i.i.i.i.i9
   %.011.i.i.i.i.i.i.i.i10 = phi i64 [ %36, %.lr.ph.i.i.i.i.i.i.i.i9 ], [ 0, %28 ]
-  %33 = getelementptr inbounds nuw double, ptr %30, i64 %.011.i.i.i.i.i.i.i.i10
-  %34 = getelementptr inbounds nuw double, ptr %25, i64 %.011.i.i.i.i.i.i.i.i10
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.011.i.i.i.i.i.i.i.i10
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.011.i.i.i.i.i.i.i.i10
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !15
   store <2 x double> %35, ptr %33, align 16, !tbaa !15
   %36 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i10, 2
@@ -2005,8 +2005,8 @@ define weak_odr dso_local void @_ZN3igl12edge_lengthsIN5Eigen6MatrixIdLin1ELin1E
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %15 = load <2 x double>, ptr %14, align 16, !tbaa !15
   %16 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %15)
   store <2 x double> %16, ptr %13, align 16, !tbaa !15
@@ -2072,8 +2072,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE16_resize_to_mat
 
 .lr.ph.i.i.i.i.i.i.i.i8:                          ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i8
   %.011.i.i.i.i.i.i.i.i9 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ 0, %31 ]
-  %36 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
-  %37 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !15
   store <2 x double> %38, ptr %36, align 16, !tbaa !15
   %39 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i9, 2
@@ -2130,8 +2130,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -2141,8 +2141,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -2209,8 +2209,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -2219,8 +2219,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -2277,8 +2277,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -2288,8 +2288,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -2364,8 +2364,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -2374,8 +2374,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -2508,8 +2508,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %36, %._crit_edge.i.i.i.i.i.i.i ]
-  %39 = getelementptr inbounds double, ptr %33, i64 %.05.i.i.i.i.i.i.i.i
-  %40 = getelementptr inbounds double, ptr %15, i64 %.05.i.i.i.i.i.i.i.i
+  %39 = getelementptr inbounds [8 x i8], ptr %33, i64 %.05.i.i.i.i.i.i.i.i
+  %40 = getelementptr inbounds [8 x i8], ptr %15, i64 %.05.i.i.i.i.i.i.i.i
   %41 = load double, ptr %40, align 8, !tbaa !40
   store double %41, ptr %39, align 8, !tbaa !40
   %42 = add nsw i64 %.05.i.i.i.i.i.i.i.i, 1
@@ -2518,8 +2518,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %30, %.lr.ph.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %30 ]
-  %43 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i
-  %44 = getelementptr inbounds nuw double, ptr %15, i64 %.011.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.011.i.i.i.i.i.i.i
   %45 = load <2 x double>, ptr %44, align 16, !tbaa !15
   store <2 x double> %45, ptr %43, align 16, !tbaa !15
   %46 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
@@ -2557,8 +2557,8 @@ define weak_odr dso_local void @_ZN3igl12edge_lengthsIN5Eigen6MatrixIdLin1ELi3EL
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %15 = load <2 x double>, ptr %14, align 16, !tbaa !15
   %16 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %15)
   store <2 x double> %16, ptr %13, align 16, !tbaa !15
@@ -2624,8 +2624,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE16_resize_to_mat
 
 .lr.ph.i.i.i.i.i.i.i.i8:                          ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i8
   %.011.i.i.i.i.i.i.i.i9 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ 0, %31 ]
-  %36 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
-  %37 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !15
   store <2 x double> %38, ptr %36, align 16, !tbaa !15
   %39 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i9, 2
@@ -2714,8 +2714,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -2725,8 +2725,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -2793,8 +2793,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -2803,8 +2803,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -2861,8 +2861,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -2872,8 +2872,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -2940,8 +2940,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -2950,8 +2950,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -3008,8 +3008,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -3019,8 +3019,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -3087,8 +3087,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -3097,8 +3097,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -3155,8 +3155,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -3166,8 +3166,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -3242,8 +3242,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -3252,8 +3252,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -3304,8 +3304,8 @@ define weak_odr dso_local void @_ZN3igl12edge_lengthsIN5Eigen6MatrixIdLin1ELi3EL
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %15 = load <2 x double>, ptr %14, align 16, !tbaa !15
   %16 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %15)
   store <2 x double> %16, ptr %13, align 16, !tbaa !15
@@ -3371,8 +3371,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi6ELi0ELin1ELi6EEEE16_resize_to_mat
 
 .lr.ph.i.i.i.i.i.i.i.i8:                          ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i8
   %.011.i.i.i.i.i.i.i.i9 = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ 0, %31 ]
-  %36 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
-  %37 = getelementptr inbounds nuw double, ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i.i9
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.011.i.i.i.i.i.i.i.i9
   %38 = load <2 x double>, ptr %37, align 16, !tbaa !15
   store <2 x double> %38, ptr %36, align 16, !tbaa !15
   %39 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i9, 2
@@ -3429,8 +3429,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -3440,8 +3440,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -3508,8 +3508,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -3518,8 +3518,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -3576,8 +3576,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -3587,8 +3587,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -3655,8 +3655,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -3665,8 +3665,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -3723,8 +3723,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -3734,8 +3734,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -3810,8 +3810,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -3820,8 +3820,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -3878,8 +3878,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds float, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds float, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [4 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load float, ptr %16, align 4, !tbaa !28
   %18 = call noundef float @llvm.sqrt.f32(float %17)
   store float %18, ptr %15, align 4, !tbaa !28
@@ -3889,8 +3889,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %20 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %21 = getelementptr inbounds nuw float, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %22 = load <4 x float>, ptr %21, align 16, !tbaa !15
   %23 = fmul <4 x float> %22, splat (float 5.000000e-01)
   %24 = call <4 x i1> @llvm.is.fpclass.v4f32(<4 x float> %22, i32 799)
@@ -3965,8 +3965,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %55, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %49, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %52 = getelementptr inbounds float, ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %53 = getelementptr inbounds float, ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %52 = getelementptr inbounds [4 x i8], ptr %46, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %53 = getelementptr inbounds [4 x i8], ptr %41, i64 %.05.i.i.i.i.i.i.i.i.i11
   %54 = load float, ptr %53, align 4, !tbaa !28
   store float %54, ptr %52, align 4, !tbaa !28
   %55 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -3975,8 +3975,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %44, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %59, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %44 ]
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.011.i.i.i.i.i.i.i.i14
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.011.i.i.i.i.i.i.i.i14
   %58 = load <4 x float>, ptr %57, align 16, !tbaa !15
   store <4 x float> %58, ptr %56, align 16, !tbaa !15
   %59 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 4
@@ -4033,8 +4033,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -4044,8 +4044,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -4112,8 +4112,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -4122,8 +4122,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -4180,8 +4180,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %12, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %15 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %17 = load double, ptr %16, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %17)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %15, align 8, !tbaa !40
@@ -4191,8 +4191,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %19 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %21 = load <2 x double>, ptr %20, align 16, !tbaa !15
   %22 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %21)
   store <2 x double> %22, ptr %19, align 16, !tbaa !15
@@ -4259,8 +4259,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %43 = getelementptr inbounds double, ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %44 = getelementptr inbounds double, ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %43 = getelementptr inbounds [8 x i8], ptr %37, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.05.i.i.i.i.i.i.i.i.i11
   %45 = load double, ptr %44, align 8, !tbaa !40
   store double %45, ptr %43, align 8, !tbaa !40
   %46 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -4269,8 +4269,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc15
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %35, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %50, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw double, ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
-  %48 = getelementptr inbounds nuw double, ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.011.i.i.i.i.i.i.i.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.011.i.i.i.i.i.i.i.i14
   %49 = load <2 x double>, ptr %48, align 16, !tbaa !15
   store <2 x double> %49, ptr %47, align 16, !tbaa !15
   %50 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -4326,8 +4326,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %11, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %14 = getelementptr inbounds double, ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
-  %15 = getelementptr inbounds double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
+  %14 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %.05.i.i.i.i.i.i.i.i.i
+  %15 = getelementptr inbounds [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i
   %16 = load double, ptr %15, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %16)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i, ptr %14, align 8, !tbaa !40
@@ -4337,8 +4337,8 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %3
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %9 ]
-  %18 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
-  %19 = getelementptr inbounds nuw double, ptr %5, i64 %.011.i.i.i.i.i.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %.011.i.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.011.i.i.i.i.i.i.i.i
   %20 = load <2 x double>, ptr %19, align 16, !tbaa !15
   %21 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %20)
   store <2 x double> %21, ptr %18, align 16, !tbaa !15
@@ -4391,8 +4391,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc
 
 .lr.ph.i.i.i.i.i.i.i.i.i10:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i9, %.lr.ph.i.i.i.i.i.i.i.i.i10
   %.05.i.i.i.i.i.i.i.i.i11 = phi i64 [ %41, %.lr.ph.i.i.i.i.i.i.i.i.i10 ], [ %35, %._crit_edge.i.i.i.i.i.i.i.i9 ]
-  %38 = getelementptr inbounds double, ptr %33, i64 %.05.i.i.i.i.i.i.i.i.i11
-  %39 = getelementptr inbounds double, ptr %28, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %.05.i.i.i.i.i.i.i.i.i11
+  %39 = getelementptr inbounds [8 x i8], ptr %28, i64 %.05.i.i.i.i.i.i.i.i.i11
   %40 = load double, ptr %39, align 8, !tbaa !40
   store double %40, ptr %38, align 8, !tbaa !40
   %41 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i11, 1
@@ -4401,8 +4401,8 @@ thread-pre-split.i.i.i.i.i.i.i7:                  ; preds = %.noexc
 
 .lr.ph.i.i.i.i.i.i.i.i13:                         ; preds = %31, %.lr.ph.i.i.i.i.i.i.i.i13
   %.011.i.i.i.i.i.i.i.i14 = phi i64 [ %45, %.lr.ph.i.i.i.i.i.i.i.i13 ], [ 0, %31 ]
-  %42 = getelementptr inbounds nuw double, ptr %33, i64 %.011.i.i.i.i.i.i.i.i14
-  %43 = getelementptr inbounds nuw double, ptr %28, i64 %.011.i.i.i.i.i.i.i.i14
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.011.i.i.i.i.i.i.i.i14
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.011.i.i.i.i.i.i.i.i14
   %44 = load <2 x double>, ptr %43, align 16, !tbaa !15
   store <2 x double> %44, ptr %42, align 16, !tbaa !15
   %45 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i14, 2
@@ -5272,8 +5272,8 @@ _ZN5Eigen15PlainObjectBaseINS_5ArrayIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %._crit_edge.i.i.i.i.i.i ]
-  %23 = getelementptr inbounds double, ptr %.pre, i64 %.05.i.i.i.i.i.i.i
-  %24 = getelementptr inbounds double, ptr %4, i64 %.05.i.i.i.i.i.i.i
+  %23 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.05.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %4, i64 %.05.i.i.i.i.i.i.i
   %25 = load double, ptr %24, align 8, !tbaa !40
   %.scalar.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %25)
   store double %.scalar.i.i.i.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !40
@@ -5283,8 +5283,8 @@ _ZN5Eigen15PlainObjectBaseINS_5ArrayIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %17, %.lr.ph.i.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %31, %.lr.ph.i.i.i.i.i.i ], [ 0, %17 ]
-  %27 = getelementptr inbounds nuw double, ptr %.pre, i64 %.011.i.i.i.i.i.i
-  %28 = getelementptr inbounds nuw double, ptr %4, i64 %.011.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.011.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.011.i.i.i.i.i.i
   %29 = load <2 x double>, ptr %28, align 16, !tbaa !15
   %30 = tail call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %29)
   store <2 x double> %30, ptr %27, align 16, !tbaa !15

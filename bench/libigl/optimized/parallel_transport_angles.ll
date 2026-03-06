@@ -194,19 +194,19 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
 
 101:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %102 = getelementptr i32, ptr %23, i64 %indvars.iv
+  %102 = getelementptr [4 x i8], ptr %23, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !14
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %109, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr i32, ptr %102, i64 %24
+  %106 = getelementptr [4 x i8], ptr %102, i64 %24
   %107 = load i32, ptr %106, align 4, !tbaa !14
   %108 = icmp eq i32 %107, -1
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %101, %105
-  %110 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store i32 1, ptr %110, align 4, !tbaa !14
   br label %111
 
@@ -223,29 +223,29 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
 
 113:                                              ; preds = %.lr.ph604, %435
   %indvars.iv613 = phi i64 [ 0, %.lr.ph604 ], [ %indvars.iv.next614, %435 ]
-  %114 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv613
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv613
   %115 = load i32, ptr %114, align 4, !tbaa !14
   %.not = icmp eq i32 %115, 0
   br i1 %.not, label %116, label %435
 
 116:                                              ; preds = %113
-  %117 = getelementptr i32, ptr %93, i64 %indvars.iv613
+  %117 = getelementptr [4 x i8], ptr %93, i64 %indvars.iv613
   %118 = load i32, ptr %117, align 4, !tbaa !14
-  %119 = getelementptr i32, ptr %117, i64 %94
+  %119 = getelementptr [4 x i8], ptr %117, i64 %94
   %120 = load i32, ptr %119, align 4, !tbaa !14
   %121 = sext i32 %118 to i64
   %122 = load ptr, ptr %2, align 8, !tbaa !27, !noalias !29
-  %123 = getelementptr inbounds double, ptr %122, i64 %121
+  %123 = getelementptr inbounds [8 x i8], ptr %122, i64 %121
   %124 = load i64, ptr %38, align 8, !tbaa !32
   %125 = load double, ptr %123, align 8, !tbaa !23
-  %126 = getelementptr inbounds double, ptr %123, i64 %124
+  %126 = getelementptr inbounds [8 x i8], ptr %123, i64 %124
   %127 = load double, ptr %126, align 8, !tbaa !23
   %.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %124, 4
   %128 = getelementptr inbounds i8, ptr %123, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %129 = load double, ptr %128, align 8, !tbaa !23
-  %130 = getelementptr i32, ptr %95, i64 %121
+  %130 = getelementptr [4 x i8], ptr %95, i64 %121
   %131 = sext i32 %120 to i64
-  %132 = getelementptr i32, ptr %95, i64 %131
+  %132 = getelementptr [4 x i8], ptr %95, i64 %131
   br label %133
 
 133:                                              ; preds = %116, %133
@@ -253,13 +253,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %.0110601 = phi i32 [ -1, %116 ], [ %spec.select161, %133 ]
   %.0112600 = phi i32 [ -1, %116 ], [ %spec.select, %133 ]
   %134 = mul nsw i64 %96, %indvars.iv609
-  %135 = getelementptr i32, ptr %130, i64 %134
+  %135 = getelementptr [4 x i8], ptr %130, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !14
   %137 = zext i32 %136 to i64
   %138 = icmp eq i64 %indvars.iv613, %137
   %139 = trunc nuw nsw i64 %indvars.iv609 to i32
   %spec.select = select i1 %138, i32 %139, i32 %.0112600
-  %140 = getelementptr i32, ptr %132, i64 %134
+  %140 = getelementptr [4 x i8], ptr %132, i64 %134
   %141 = load i32, ptr %140, align 4, !tbaa !14
   %142 = zext i32 %141 to i64
   %143 = icmp eq i64 %indvars.iv613, %142
@@ -276,26 +276,26 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %148 = load ptr, ptr %1, align 8, !tbaa !16
   %149 = load i64, ptr %40, align 8, !tbaa !4
   %150 = mul nsw i64 %149, %147
-  %151 = getelementptr i32, ptr %148, i64 %121
-  %152 = getelementptr i32, ptr %151, i64 %150
+  %151 = getelementptr [4 x i8], ptr %148, i64 %121
+  %152 = getelementptr [4 x i8], ptr %151, i64 %150
   %153 = load i32, ptr %152, align 4, !tbaa !14
   %154 = sext i32 %153 to i64
   %155 = load ptr, ptr %0, align 8, !tbaa !27, !noalias !34
-  %156 = getelementptr inbounds double, ptr %155, i64 %154
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %154
   %157 = sext i32 %spec.select to i64
   %158 = mul nsw i64 %149, %157
-  %159 = getelementptr i32, ptr %151, i64 %158
+  %159 = getelementptr [4 x i8], ptr %151, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !14
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds double, ptr %155, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %155, i64 %161
   %163 = load i64, ptr %41, align 8, !tbaa !32
   %164 = load double, ptr %156, align 8, !tbaa !23
   %165 = load double, ptr %162, align 8, !tbaa !23
   %166 = fsub double %164, %165
   store double %166, ptr %11, align 16, !tbaa !23
-  %167 = getelementptr inbounds double, ptr %156, i64 %163
+  %167 = getelementptr inbounds [8 x i8], ptr %156, i64 %163
   %168 = load double, ptr %167, align 8, !tbaa !23
-  %169 = getelementptr inbounds double, ptr %162, i64 %163
+  %169 = getelementptr inbounds [8 x i8], ptr %162, i64 %163
   %170 = load double, ptr %169, align 8, !tbaa !23
   %171 = fsub double %168, %170
   store double %171, ptr %42, align 8, !tbaa !23
@@ -341,7 +341,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %198, %.preheader.us.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %192 ]
   %.idx.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %196 = getelementptr i8, ptr %12, i64 %.idx.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i
-  %197 = getelementptr double, ptr %11, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i
+  %197 = getelementptr [8 x i8], ptr %11, i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i
   %.pre.i.i.i.i.i.i.i.i.i.i.i.i = load double, ptr %197, align 8, !tbaa !23, !noalias !38
   store double %.pre.i.i.i.i.i.i.i.i.i.i.i.i, ptr %196, align 8, !tbaa !23, !noalias !38
   %198 = add nuw nsw i64 %.0810.us.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -373,11 +373,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %211 = load i32, ptr %151, align 4, !tbaa !14
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds double, ptr %155, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %155, i64 %212
   %214 = load double, ptr %213, align 8, !tbaa !23
   %215 = fsub double %214, %165
   store double %215, ptr %13, align 8, !tbaa !23
-  %216 = getelementptr inbounds double, ptr %213, i64 %163
+  %216 = getelementptr inbounds [8 x i8], ptr %213, i64 %163
   %217 = load double, ptr %216, align 8, !tbaa !23
   %218 = fsub double %217, %170
   store double %218, ptr %50, align 8, !tbaa !23
@@ -385,14 +385,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %220 = load double, ptr %219, align 8, !tbaa !23
   %221 = fsub double %220, %175
   store double %221, ptr %51, align 8, !tbaa !23
-  %222 = getelementptr i32, ptr %151, i64 %149
+  %222 = getelementptr [4 x i8], ptr %151, i64 %149
   %223 = load i32, ptr %222, align 4, !tbaa !14
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds double, ptr %155, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr %155, i64 %224
   %226 = load double, ptr %225, align 8, !tbaa !23
   %227 = fsub double %226, %165
   store double %227, ptr %52, align 8, !tbaa !23
-  %228 = getelementptr inbounds double, ptr %225, i64 %163
+  %228 = getelementptr inbounds [8 x i8], ptr %225, i64 %163
   %229 = load double, ptr %228, align 8, !tbaa !23
   %230 = fsub double %229, %170
   store double %230, ptr %53, align 8, !tbaa !23
@@ -401,14 +401,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %233 = fsub double %232, %175
   store double %233, ptr %54, align 8, !tbaa !23
   %234 = shl nsw i64 %149, 1
-  %235 = getelementptr i32, ptr %151, i64 %234
+  %235 = getelementptr [4 x i8], ptr %151, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !14
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds double, ptr %155, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %155, i64 %237
   %239 = load double, ptr %238, align 8, !tbaa !23
   %240 = fsub double %239, %165
   store double %240, ptr %55, align 8, !tbaa !23
-  %241 = getelementptr inbounds double, ptr %238, i64 %163
+  %241 = getelementptr inbounds [8 x i8], ptr %238, i64 %163
   %242 = load double, ptr %241, align 8, !tbaa !23
   %243 = fsub double %242, %170
   store double %243, ptr %56, align 8, !tbaa !23
@@ -427,7 +427,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %199 ], [ %275, %250 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 24
   %251 = getelementptr i8, ptr %58, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %252 = getelementptr double, ptr %13, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %252 = getelementptr [8 x i8], ptr %13, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %253 = load double, ptr %252, align 8, !tbaa !23
   %254 = insertelement <2 x double> poison, double %253, i64 0
   %255 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> zeroinitializer
@@ -477,14 +477,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   store double %285, ptr %57, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %286 = getelementptr i32, ptr %148, i64 %131
+  %286 = getelementptr [4 x i8], ptr %148, i64 %131
   %287 = load i32, ptr %286, align 4, !tbaa !14
   %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds double, ptr %155, i64 %288
+  %289 = getelementptr inbounds [8 x i8], ptr %155, i64 %288
   %290 = load double, ptr %289, align 8, !tbaa !23
   %291 = fsub double %290, %165
   store double %291, ptr %14, align 8, !tbaa !23
-  %292 = getelementptr inbounds double, ptr %289, i64 %163
+  %292 = getelementptr inbounds [8 x i8], ptr %289, i64 %163
   %293 = load double, ptr %292, align 8, !tbaa !23
   %294 = fsub double %293, %170
   store double %294, ptr %69, align 8, !tbaa !23
@@ -492,14 +492,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %296 = load double, ptr %295, align 8, !tbaa !23
   %297 = fsub double %296, %175
   store double %297, ptr %70, align 8, !tbaa !23
-  %298 = getelementptr i32, ptr %286, i64 %149
+  %298 = getelementptr [4 x i8], ptr %286, i64 %149
   %299 = load i32, ptr %298, align 4, !tbaa !14
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds double, ptr %155, i64 %300
+  %301 = getelementptr inbounds [8 x i8], ptr %155, i64 %300
   %302 = load double, ptr %301, align 8, !tbaa !23
   %303 = fsub double %302, %165
   store double %303, ptr %71, align 8, !tbaa !23
-  %304 = getelementptr inbounds double, ptr %301, i64 %163
+  %304 = getelementptr inbounds [8 x i8], ptr %301, i64 %163
   %305 = load double, ptr %304, align 8, !tbaa !23
   %306 = fsub double %305, %170
   store double %306, ptr %72, align 8, !tbaa !23
@@ -507,14 +507,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %308 = load double, ptr %307, align 8, !tbaa !23
   %309 = fsub double %308, %175
   store double %309, ptr %73, align 8, !tbaa !23
-  %310 = getelementptr i32, ptr %286, i64 %234
+  %310 = getelementptr [4 x i8], ptr %286, i64 %234
   %311 = load i32, ptr %310, align 4, !tbaa !14
   %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds double, ptr %155, i64 %312
+  %313 = getelementptr inbounds [8 x i8], ptr %155, i64 %312
   %314 = load double, ptr %313, align 8, !tbaa !23
   %315 = fsub double %314, %165
   store double %315, ptr %74, align 8, !tbaa !23
-  %316 = getelementptr inbounds double, ptr %313, i64 %163
+  %316 = getelementptr inbounds [8 x i8], ptr %313, i64 %163
   %317 = load double, ptr %316, align 8, !tbaa !23
   %318 = fsub double %317, %170
   store double %318, ptr %75, align 8, !tbaa !23
@@ -530,7 +530,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i186 = phi i64 [ 0, %276 ], [ %347, %322 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i187 = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i186, 24
   %323 = getelementptr i8, ptr %77, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i187
-  %324 = getelementptr double, ptr %14, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i186
+  %324 = getelementptr [8 x i8], ptr %14, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i186
   %325 = load double, ptr %324, align 8, !tbaa !23
   %326 = insertelement <2 x double> poison, double %325, i64 0
   %327 = shufflevector <2 x double> %326, <2 x double> poison, <2 x i32> zeroinitializer
@@ -582,7 +582,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %358 = add nsw i32 %spec.select161, 2
   %359 = srem i32 %358, 3
   %360 = sext i32 %359 to i64
-  %361 = getelementptr double, ptr %14, i64 %360
+  %361 = getelementptr [8 x i8], ptr %14, i64 %360
   %362 = getelementptr i8, ptr %361, i64 48
   %363 = load double, ptr %362, align 8, !tbaa !23
   %364 = getelementptr i8, ptr %361, i64 24
@@ -603,7 +603,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEl.exit:
   %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i235 = phi i64 [ 0, %348 ], [ %397, %372 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i236 = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i235, 24
   %373 = getelementptr i8, ptr %86, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i236
-  %374 = getelementptr double, ptr %14, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i235
+  %374 = getelementptr [8 x i8], ptr %14, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i235
   %375 = load double, ptr %374, align 8, !tbaa !23
   %376 = insertelement <2 x double> poison, double %375, i64 0
   %377 = shufflevector <2 x double> %376, <2 x double> poison, <2 x i32> zeroinitializer
@@ -693,7 +693,7 @@ cdce.call592:                                     ; preds = %_ZN5Eigen10MatrixBa
   br label %cdce.end593
 
 cdce.end593:                                      ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit240, %cdce.call592
-  %434 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv613
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv613
   store double %428, ptr %434, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

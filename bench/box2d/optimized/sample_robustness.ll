@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
 %struct.b2Hull = type { [8 x %struct.b2Vec2], i32 }
 %struct.b2Segment = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2BodyId = type { i32, i16, i16 }
 %struct.ImVec2 = type { float, float }
 
 $_ZN14HighMassRatio16CreateER8Settings = comdat any
@@ -1056,7 +1055,7 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %38 = load ptr, ptr %8, align 8, !tbaa !35
-  %39 = getelementptr inbounds nuw %struct.b2BodyId, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %.sroa.018.0.copyload = load i64, ptr %39, align 4
   tail call void @b2DestroyBody(i64 %.sroa.018.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1117,7 +1116,7 @@ define linkonce_odr dso_local void @_ZN15OverlapRecovery11CreateSceneEv(ptr noun
   %59 = call i64 @b2CreatePolygonShape(i64 %58, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %60 = load ptr, ptr %24, align 8, !tbaa !35
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
-  %61 = getelementptr inbounds %struct.b2BodyId, ptr %60, i64 %indvars.iv43
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %indvars.iv43
   store i64 %58, ptr %61, align 4
   %62 = load float, ptr %16, align 4, !tbaa !50
   %63 = fmul float %36, %62

@@ -19,11 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::(anonymous namespace)::TreeNode>, std::_Select1st<std::pair<const unsigned int, ue2::(anonymous namespace)::TreeNode>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%struct.mmbit_sparse_iter = type { i64, i32 }
-%struct.scatter_unit_u64a = type { i32, i64 }
-%struct.scatter_unit_u8 = type { i32, i8 }
-%struct.scatter_unit_u16 = type { i32, i16 }
-%struct.scatter_unit_u32 = type { i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -670,7 +665,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i.i: ; preds = %234, %
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i: ; preds = %236, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i.i
-  %237 = getelementptr inbounds nuw i32, ptr %231, i64 %229
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %229
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i
 
 .loopexit104.i:                                   ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -749,7 +744,7 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.
 _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %260, %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i
   store ptr %255, ptr %0, align 8
   store ptr %259, ptr %177, align 8
-  %261 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %255, i64 %253
+  %261 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %253
   store ptr %261, ptr %178, align 8
   br label %_ZNSt6vectorI17mmbit_sparse_iterSaIS0_EE9push_backEOS0_.exit.i
 
@@ -849,7 +844,7 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt
 310:                                              ; preds = %305
   %311 = sub i64 %275, %307
   %312 = lshr i64 %311, 1
-  %313 = getelementptr inbounds nuw ptr, ptr %276, i64 %312
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %312
   %314 = icmp ult ptr %313, %.ptr.i.i.i.i.i34
   %315 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i42, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %315, %.ptr.i.i.i.i.i34
@@ -868,12 +863,12 @@ _ZNSt6vectorI17mmbit_sparse_iterSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i.i.i.i, label %321
 
 321:                                              ; preds = %320
-  %322 = getelementptr inbounds nuw ptr, ptr %313, i64 %306
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %306
   %323 = ptrtoint ptr %315 to i64
   %324 = sub i64 %323, %283
   %325 = ashr exact i64 %324, 3
   %326 = sub nsw i64 0, %325
-  %327 = getelementptr inbounds ptr, ptr %322, i64 %326
+  %327 = getelementptr inbounds [8 x i8], ptr %322, i64 %326
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %327, ptr align 8 %.ptr.i.i.i.i.i34, i64 %324, i1 false)
   br label %_ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE17_M_reallocate_mapEmb.exit.i.i.i.i.i.i
 
@@ -912,7 +907,7 @@ _ZNSt11_Deque_baseIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE15_M_allocate_mapEm.ex
 .noexc80.i:                                       ; preds = %_ZNSt11_Deque_baseIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE15_M_allocate_mapEm.exit.i.i.i.i.i.i.i
   %336 = sub nsw i64 %329, %285
   %337 = lshr i64 %336, 1
-  %338 = getelementptr inbounds nuw ptr, ptr %335, i64 %337
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i42, i64 8
   %.not.i.i.i.i.i25.i.i.i.i.i.i.i = icmp eq ptr %339, %.ptr.i.i.i.i.i34
   br i1 %.not.i.i.i.i.i25.i.i.i.i.i.i.i, label %_ZSt4copyIPPPKN3ue212_GLOBAL__N_18TreeNodeES6_ET0_T_S8_S7_.exit26.i.i.i.i.i.i.i, label %340
@@ -936,7 +931,7 @@ _ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE17_M_reallocate_mapEmb.exit.i
   store ptr %345, ptr %169, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 512
   store ptr %346, ptr %171, align 8
-  %347 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i.i, i64 %306
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %306
   %348 = getelementptr inbounds i8, ptr %347, i64 -8
   store ptr %348, ptr %173, align 8
   %349 = load ptr, ptr %348, align 8
@@ -1012,7 +1007,7 @@ _ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_push_back_auxIJS4_EEEvDp
 .lr.ph161.i:                                      ; preds = %._crit_edge.i, %.lr.ph161.preheader.i
   %.045160.i = phi i64 [ %381, %._crit_edge.i ], [ 0, %.lr.ph161.preheader.i ]
   %.046159.i = phi i32 [ %378, %._crit_edge.i ], [ 0, %.lr.ph161.preheader.i ]
-  %377 = getelementptr inbounds nuw i32, ptr %.sroa.088.2.i, i64 %.045160.i
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.088.2.i, i64 %.045160.i
   %378 = load i32, ptr %377, align 4
   %379 = icmp ult i32 %.046159.i, %378
   br i1 %379, label %.lr.ph158.preheader.i, label %._crit_edge.i
@@ -1031,7 +1026,7 @@ _ZNSt5dequeIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_push_back_auxIJS4_EEEvDp
   %indvars.iv.i = phi i64 [ %380, %.lr.ph158.preheader.i ], [ %indvars.iv.next.i, %.lr.ph158.i ]
   %.043156.i = phi i32 [ 0, %.lr.ph158.preheader.i ], [ %388, %.lr.ph158.i ]
   %382 = add i32 %.043156.i, %378
-  %383 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %indvars.iv.i
+  %383 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv.i
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i32 %382, ptr %384, align 8
   %385 = load i64, ptr %383, align 8
@@ -1066,7 +1061,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %._crit_edge168.i, %
 .lr.ph167.i:                                      ; preds = %._crit_edge162.i, %.lr.ph167.i
   %.0165.i = phi i64 [ %401, %.lr.ph167.i ], [ %.046.lcssa.i, %._crit_edge162.i ]
   %.041164.i = phi i32 [ %400, %.lr.ph167.i ], [ 0, %._crit_edge162.i ]
-  %395 = getelementptr inbounds nuw %struct.mmbit_sparse_iter, ptr %.pre, i64 %.0165.i
+  %395 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %.0165.i
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i32 %.041164.i, ptr %396, align 8
   %397 = load i64, ptr %395, align 8
@@ -1244,7 +1239,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
   store ptr %44, ptr %3, align 8
   store ptr %48, ptr %8, align 8
-  %50 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %42
   store ptr %50, ptr %9, align 8
   br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit
 
@@ -1354,7 +1349,7 @@ _ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i:
 _ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %97, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
   store ptr %92, ptr %71, align 8
   store ptr %96, ptr %72, align 8
-  %98 = getelementptr inbounds nuw %struct.scatter_unit_u8, ptr %92, i64 %90
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %90
   store ptr %98, ptr %74, align 8
   br label %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit
 
@@ -1432,7 +1427,7 @@ _ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
 _ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %132, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
   store ptr %127, ptr %106, align 8
   store ptr %131, ptr %107, align 8
-  %133 = getelementptr inbounds nuw %struct.scatter_unit_u16, ptr %127, i64 %125
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   store ptr %133, ptr %109, align 8
   br label %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit
 
@@ -1510,7 +1505,7 @@ _ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
 _ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147: ; preds = %167, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i145
   store ptr %162, ptr %141, align 8
   store ptr %166, ptr %142, align 8
-  %168 = getelementptr inbounds nuw %struct.scatter_unit_u16, ptr %162, i64 %160
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %160
   store ptr %168, ptr %144, align 8
   br label %_ZN3ue2L11add_scatterI16scatter_unit_u16EEvPSt6vectorIT_SaIS3_EEjy.exit148
 
@@ -1583,7 +1578,7 @@ _ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i1
 _ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155: ; preds = %201, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i153
   store ptr %196, ptr %173, align 8
   store ptr %200, ptr %176, align 8
-  %202 = getelementptr inbounds nuw %struct.scatter_unit_u8, ptr %196, i64 %194
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %194
   store ptr %202, ptr %178, align 8
   br label %_ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit156
 
@@ -1727,7 +1722,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i163: ; preds = %272, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i161
   store ptr %267, ptr %3, align 8
   store ptr %271, ptr %247, align 8
-  %273 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %267, i64 %265
+  %273 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %265
   store ptr %273, ptr %249, align 8
   br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit164
 
@@ -1740,7 +1735,7 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit164: ; p
   %.0120 = phi i32 [ %422, %420 ], [ %243, %.preheader205 ]
   %.0118 = phi i32 [ %423, %420 ], [ 0, %.preheader205 ]
   %276 = zext i32 %.0118 to i64
-  %277 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %276
+  %277 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %276
   %278 = load i32, ptr %277, align 4
   %279 = shl i32 %278, 3
   %280 = lshr i32 %1, %.0120
@@ -1826,7 +1821,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171: ; preds = %322, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i169
   store ptr %317, ptr %3, align 8
   store ptr %321, ptr %244, align 8
-  %323 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %317, i64 %315
+  %323 = getelementptr inbounds nuw [16 x i8], ptr %317, i64 %315
   store ptr %323, ptr %245, align 8
   br label %.sink.split
 
@@ -1887,7 +1882,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i179: ; preds = %348, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i177
   store ptr %343, ptr %3, align 8
   store ptr %347, ptr %244, align 8
-  %349 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %343, i64 %341
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %343, i64 %341
   store ptr %349, ptr %245, align 8
   br label %.thread
 
@@ -1967,7 +1962,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i187: ; preds = %380, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i185
   store ptr %375, ptr %3, align 8
   store ptr %379, ptr %244, align 8
-  %381 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %375, i64 %373
+  %381 = getelementptr inbounds nuw [16 x i8], ptr %375, i64 %373
   store ptr %381, ptr %245, align 8
   br label %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit188
 
@@ -2050,7 +2045,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195: ; preds = %416, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i193
   store ptr %411, ptr %3, align 8
   store ptr %415, ptr %244, align 8
-  %417 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %411, i64 %409
+  %417 = getelementptr inbounds nuw [16 x i8], ptr %411, i64 %409
   store ptr %417, ptr %245, align 8
   br label %.sink.split
 
@@ -2135,7 +2130,7 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i:
 _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i
   store ptr %24, ptr %0, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw %struct.scatter_unit_u64a, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE12emplace_backIJEEEvDpOT_.exit
 
@@ -2209,7 +2204,7 @@ _ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i: ;
 _ZNSt6vectorI15scatter_unit_u8SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i
   store ptr %24, ptr %0, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw %struct.scatter_unit_u8, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorI15scatter_unit_u8SaIS0_EE12emplace_backIJEEEvDpOT_.exit
 
@@ -2284,7 +2279,7 @@ _ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i: 
 _ZNSt6vectorI16scatter_unit_u16SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i
   store ptr %24, ptr %0, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw %struct.scatter_unit_u16, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorI16scatter_unit_u16SaIS0_EE12emplace_backIJEEEvDpOT_.exit
 
@@ -2359,7 +2354,7 @@ _ZNSt6vectorI16scatter_unit_u32SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i: 
 _ZNSt6vectorI16scatter_unit_u32SaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorI16scatter_unit_u32SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i
   store ptr %24, ptr %0, align 8
   store ptr %28, ptr %4, align 8
-  %30 = getelementptr inbounds nuw %struct.scatter_unit_u32, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 8
   br label %_ZNSt6vectorI16scatter_unit_u32SaIS0_EE12emplace_backIJEEEvDpOT_.exit
 

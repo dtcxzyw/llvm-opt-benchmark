@@ -521,28 +521,28 @@ check_flag.exit40:                                ; preds = %9
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %32 = getelementptr inbounds double, ptr %5, i64 %30
+  %32 = getelementptr inbounds [8 x i8], ptr %5, i64 %30
   %33 = load double, ptr %32, align 8, !tbaa !23
   %34 = fneg double %33
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %33, double %23)
   %36 = fmul double %20, %35
-  %37 = getelementptr inbounds double, ptr %10, i64 %30
+  %37 = getelementptr inbounds [8 x i8], ptr %10, i64 %30
   store double %36, ptr %37, align 8, !tbaa !23
   br label %49
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.045 = phi i64 [ %38, %.lr.ph ], [ 1, %14 ]
   %38 = add nuw nsw i64 %.045, 1
-  %39 = getelementptr inbounds nuw double, ptr %5, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !23
-  %41 = getelementptr double, ptr %5, i64 %.045
+  %41 = getelementptr [8 x i8], ptr %5, i64 %.045
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load double, ptr %42, align 8, !tbaa !23
   %44 = fneg double %43
   %45 = fmul double %43, %44
   %46 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %45)
   %47 = fmul double %20, %46
-  %48 = getelementptr inbounds nuw double, ptr %10, i64 %.045
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.045
   store double %47, ptr %48, align 8, !tbaa !23
   %exitcond.not = icmp eq i64 %38, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -603,32 +603,32 @@ check_flag.exit37:                                ; preds = %9
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %32 = getelementptr double, ptr %5, i64 %29
+  %32 = getelementptr [8 x i8], ptr %5, i64 %29
   %33 = getelementptr i8, ptr %32, i64 -16
   %34 = load double, ptr %33, align 8, !tbaa !23
-  %35 = getelementptr inbounds double, ptr %5, i64 %30
+  %35 = getelementptr inbounds [8 x i8], ptr %5, i64 %30
   %36 = load double, ptr %35, align 8, !tbaa !23
   %37 = tail call double @llvm.fmuladd.f64(double %36, double -2.000000e+00, double %34)
   %38 = load double, ptr %21, align 8, !tbaa !14
   %39 = fadd double %37, %38
   %40 = fmul double %20, %39
-  %41 = getelementptr inbounds double, ptr %10, i64 %30
+  %41 = getelementptr inbounds [8 x i8], ptr %10, i64 %30
   store double %40, ptr %41, align 8, !tbaa !23
   br label %53
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.043 = phi i64 [ %42, %.lr.ph ], [ 1, %14 ]
   %42 = add nuw nsw i64 %.043, 1
-  %43 = getelementptr inbounds nuw double, ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !23
-  %45 = getelementptr inbounds nuw double, ptr %5, i64 %.043
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.043
   %46 = load double, ptr %45, align 8, !tbaa !23
   %47 = tail call double @llvm.fmuladd.f64(double %46, double -2.000000e+00, double %44)
   %48 = getelementptr i8, ptr %45, i64 -8
   %49 = load double, ptr %48, align 8, !tbaa !23
   %50 = fadd double %47, %49
   %51 = fmul double %20, %50
-  %52 = getelementptr inbounds nuw double, ptr %10, i64 %.043
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.043
   store double %51, ptr %52, align 8, !tbaa !23
   %exitcond.not = icmp eq i64 %42, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -663,7 +663,7 @@ define internal noundef i32 @jac_diffusion(double %0, ptr readnone captures(none
   %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !34
-  %22 = getelementptr inbounds double, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   store double %15, ptr %22, align 8, !tbaa !23
   %23 = load i64, ptr %4, align 8, !tbaa !4
   %24 = icmp sgt i64 %23, 1
@@ -674,15 +674,15 @@ define internal noundef i32 @jac_diffusion(double %0, ptr readnone captures(none
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %8 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !33
-  %27 = getelementptr double, ptr %26, i64 %21
+  %27 = getelementptr [8 x i8], ptr %26, i64 %21
   %28 = getelementptr i8, ptr %27, i64 -8
   store double %14, ptr %28, align 8, !tbaa !23
   store double %15, ptr %27, align 8, !tbaa !23
   %29 = getelementptr i8, ptr %25, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !33
-  %31 = getelementptr double, ptr %30, i64 %21
+  %31 = getelementptr [8 x i8], ptr %30, i64 %21
   %32 = getelementptr i8, ptr %31, i64 8
   store double %14, ptr %32, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -715,13 +715,13 @@ check_flag.exit20.preheader:                      ; preds = %7
 check_flag.exit20:                                ; preds = %.lr.ph, %check_flag.exit20
   %.025 = phi i64 [ 0, %.lr.ph ], [ %21, %check_flag.exit20 ]
   %13 = load double, ptr %12, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw double, ptr %5, i64 %.025
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.025
   %15 = load double, ptr %14, align 8, !tbaa !23
   %16 = fmul double %13, %15
   %17 = fneg double %15
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %15, double 1.000000e+00)
   %19 = fmul double %16, %18
-  %20 = getelementptr inbounds nuw double, ptr %8, i64 %.025
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.025
   store double %19, ptr %20, align 8, !tbaa !23
   %21 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %21, %10
